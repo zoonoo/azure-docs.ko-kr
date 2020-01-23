@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: zhanxia
 ms.date: 10/22/2019
-ms.openlocfilehash: 0e92201552b4d448a619a801d2ee64032c8bbefe
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 30d1ba89f6a18ed3400868e6d9a5d17ceef5de04
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314439"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546812"
 ---
 # <a name="convert-to-csv-module"></a>CSV 모듈로 변환
 
-이 문서에서는 Azure Machine Learning 디자이너의 모듈을 설명 합니다.
+이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
 
 이 모듈을 사용 하 여 R 또는 Python 스크립트 모듈에서 다운로드, 내보내기 또는 공유할 수 있는 CSV 형식으로 데이터 집합을 변환할 수 있습니다.
 

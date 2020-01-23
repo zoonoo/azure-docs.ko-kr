@@ -11,19 +11,19 @@ ms.date: 04/02/2019
 ms.author: jrasnick
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: fda29e432fbd952261893f3c32a4df7b9990ae66
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 706c68cb7a139a5c4f6def5aed7ad67e49090ede
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692923"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545146"
 ---
 # <a name="authenticate-to-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 대한 인증
 AAD(Azure Active Directory) 또는 SQL Server 인증을 사용하여 Azure SQL Data Warehouse에서 인증을 받는 방법을 알아봅니다.
 
 SQL Data Warehouse에 연결하려면 인증 목적으로 보안 자격 증명을 전달해야 합니다. 연결을 설정할 때 특정 연결 설정이 쿼리 세션을 설정하는 일부로 구성됩니다.  
 
-보안에 대한 자세한 내용과 데이터 웨어하우스에 대한 연결을 설정하는 방법은 [SQL Data Warehouse에서 데이터베이스 보호][Secure a database in SQL Data Warehouse]를 참조하세요.
+보안에 대한 자세한 내용과 데이터 웨어하우스에 대한 연결을 설정하는 방법은 [SQL Data Warehouse에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요.
 
 ## <a name="sql-authentication"></a>SQL 인증
 SQL Data Warehouse에 연결하려면 다음 정보를 제공해야 합니다.
@@ -40,12 +40,12 @@ SQL Data Warehouse에 연결하려면 다음 정보를 제공해야 합니다.
 * SSDT에서 세션을 만들기 전에 사용자 데이터베이스를 강조 표시합니다.
 
 > [!NOTE]
-> 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL Data Warehouse에 연결하는 지침은 [Visual Studio로 쿼리][Query with Visual Studio] 문서를 참조하세요.
+> 연결을 위한 데이터베이스 변경의 경우 Transact-SQL 문 **USE MyDatabase;** 는 지원되지 않습니다. SSDT를 사용하여 SQL Data Warehouse에 연결하는 지침은 [Visual Studio로 쿼리](sql-data-warehouse-query-visual-studio.md) 문서를 참조하세요.
 > 
 > 
 
 ## <a name="azure-active-directory-aad-authentication"></a>AAD(Azure Active Directory) 인증
-[Azure Active Directory][What is Azure Active Directory] 인증은 Azure Active Directory (Azure AD)에서 id를 사용 하 여 Microsoft Azure SQL Data Warehouse에 연결 하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL Data Warehouse 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
+[Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md) 인증은 Azure Active Directory (Azure AD)에서 id를 사용 하 여 Microsoft Azure SQL Data Warehouse에 연결 하는 메커니즘입니다. Azure Active Directory 인증을 사용하면 데이터베이스 사용자 및 다른 Microsoft 서비스의 ID를 하나의 중앙 위치에서 관리할 수 있습니다. 중앙 ID 관리는 SQL Data Warehouse 사용자 관리를 위한 단일 위치를 제공하며 권한 관리를 간소화합니다. 
 
 ### <a name="benefits"></a>혜택
 Azure Active Directory의 이점은 다음과 같습니다.
@@ -60,7 +60,7 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * [SQL Server Management Studio](../sql-database/sql-database-ssms-mfa-authentication.md) 및 [SQL Server Data Tools](https://docs.microsoft.com/sql/ssdt/azure-active-directory?toc=/azure/sql-data-warehouse/toc.json)를 비롯 한 다양 한 도구에 대 한 Active Directory 범용 인증을 통해 multi-factor authentication을 지원 합니다.
 
 > [!NOTE]
-> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항][Azure AD features and limitations], 특히 추가 고려 사항을 참조하세요.
+> Azure Active Directory는 비교적 새로운 기능으로, 몇 가지 제한 사항이 있습니다. Azure Active Directory가 작업 환경에 적합한지 확인하려면 [Azure AD 기능 및 제한 사항](../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations), 특히 추가 고려 사항을 참조하세요.
 > 
 > 
 
@@ -81,10 +81,4 @@ Azure Active Directory의 이점은 다음과 같습니다.
 * 사용자 지정 데이터베이스 역할을 만들고 역할에 사용자를 추가 합니다. 그런 다음 역할에 세부적인 권한을 부여합니다. 자세한 내용은 [데이터베이스 엔진 권한 시작](https://msdn.microsoft.com/library/mt667986.aspx)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
-Visual Studio 및 다른 애플리케이션으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리][Query with Visual Studio]를 참조하세요.
-
-<!-- Article references -->
-[Secure a database in SQL Data Warehouse]: ./sql-data-warehouse-overview-manage-security.md
-[Query with Visual Studio]: ./sql-data-warehouse-query-visual-studio.md
-[What is Azure Active Directory]:../active-directory/fundamentals/active-directory-whatis.md
-[Azure AD features and limitations]: ../sql-database/sql-database-aad-authentication.md#azure-ad-features-and-limitations
+Visual Studio 및 다른 애플리케이션으로 데이터 웨어하우스 쿼리를 시작하려면 [Visual Studio를 사용하여 쿼리](sql-data-warehouse-query-visual-studio.md)를 참조하세요.

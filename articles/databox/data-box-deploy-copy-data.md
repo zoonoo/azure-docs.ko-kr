@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d86da3013a3cb4573556bc14ea1e6a0fbab72623
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: c82a67bbbf8f1a4f77db6ca965031e85e69ee100
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240387"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514173"
 ---
 ::: zone target="docs"
 
@@ -32,15 +32,15 @@ ms.locfileid: "70240387"
 
 이 자습서에서는 로컬 웹 UI를 사용하여 호스트 컴퓨터에서 연결하고 데이터를 복사하는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * Data Box에 연결
 > * Data Box에 데이터 복사
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -130,7 +130,7 @@ SMB 공유에 연결한 후에는 데이터 복사를 시작합니다. Robocopy�
   
  다음 표에는 특성이 설명되어 있습니다.
     
-|특성  |설명  |
+|attribute  |Description  |
 |---------|---------|
 |/e     |빈 디렉터리를 포함하는 하위 디렉터리를 복사합니다.         |
 |/r:     |실패한 복사에 대한 재시도 횟수를 지정합니다.         |
@@ -283,7 +283,7 @@ SMB, NFS, REST, 데이터 복사 서비스 또는 관리 디스크를 통해 원
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * Data Box에 연결
 > * Data Box에 데이터 복사
 

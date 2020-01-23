@@ -7,12 +7,13 @@ ms.service: private-link
 ms.topic: overview
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 299cd81c05af385c435eaf3788e3d7e39c486623
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 6e2c1af03d5d6ccfbcb15a2dd33bc2e987be4d48
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867553"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543123"
 ---
 # <a name="what-is-azure-private-link-preview"></a>Azure Private Link란? (미리 보기)
 Azure Private Link를 사용하면 가상 네트워크의 [프라이빗 엔드포인트](private-endpoint-overview.md)를 통해 Azure PaaS Services(예: Azure Storage, Azure Cosmos DB 및 SQL Database)와 Azure 호스팅 고객/파트너 서비스에 액세스할 수 있습니다. 가상 네트워크와 서비스 간의 트래픽은 Microsoft 백본 네트워크를 통해 이동하여 공용 인터넷에서 노출을 제거합니다. VNet(가상 네트워크)에서 자체 [Private Link Service](private-link-service-overview.md)를 만들어 고객에게 개인적으로 제공할 수도 있습니다. Azure Private Link를 사용하는 설정 및 사용 환경은 Azure PaaS, 고객 소유/공유 파트너 서비스에서 일관적입니다.

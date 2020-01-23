@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 08/9/2019
+ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 9c72c8431907c52dab338114ce09be139608ab0a
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f9d00cff5d910d6bbbb4c436249283cca87b91e1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768591"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549107"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -36,14 +36,14 @@ Azure CLI 버전 2.0.76 이상이 설치 및 구성 되어 있어야 합니다. 
 * AKS 클러스터는 표준 SKU 부하 분산 장치를 사용 하 여 여러 노드 풀을 사용 해야 합니다 .이 기능은 기본 SKU 부하 분산 장치에서 지원 되지 않습니다.
 * AKS 클러스터는 노드에 대 한 가상 머신 확장 집합을 사용 해야 합니다.
 * 노드 풀의 이름에는 소문자 영숫자만 사용할 수 있으며 소문자 문자로 시작 해야 합니다. Linux 노드 풀의 경우 길이는 1 자에서 12 자 사이 여야 하 고 Windows 노드 풀의 길이는 1에서 6 자 사이 여야 합니다.
-* AKS 클러스터에는 최대 8 개의 노드 풀이 있을 수 있습니다.
-* AKS 클러스터는 해당 8 개 노드 풀에서 최대 800 노드를 가질 수 있습니다.
+* AKS 클러스터에는 최대 10 개의 노드 풀이 있을 수 있습니다.
+* AKS 클러스터는 해당 10 개 노드 풀에서 최대 1000 개의 노드를 포함할 수 있습니다.
 * 모든 노드 풀은 동일한 vnet 및 서브넷에 있어야 합니다.
 * 클러스터를 만들 때 여러 노드 풀을 만들 때 노드 풀에서 사용 하는 모든 Kubernetes 버전은 제어 평면에 대해 설정 된 버전과 일치 해야 합니다. 이는 클러스터를 프로 비전 한 후 노드당 풀 작업을 사용 하 여 업데이트할 수 있습니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
-시작 하려면 단일 노드 풀로 AKS 클러스터를 만듭니다. 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *에서는 eastus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. *1.13.10* 의 *kubernetes 버전* 은 다음 단계에서 노드 풀을 업데이트 하는 방법을 보여 주는 데 사용 됩니다. [지원 되는 Kubernetes 버전][supported-versions]을 지정할 수 있습니다.
+시작 하려면 단일 노드 풀로 AKS 클러스터를 만듭니다. 다음 예제에서는 [az group create][az-group-create] 명령을 사용 하 여 *에서는 eastus* 지역에 *myresourcegroup* 이라는 리소스 그룹을 만듭니다. 그런 다음 *myAKSCluster* 라는 AKS 클러스터가 [az AKS create][az-aks-create] 명령을 사용 하 여 만들어집니다. *1.15.7* 의 *kubernetes 버전* 은 다음 단계에서 노드 풀을 업데이트 하는 방법을 보여 주는 데 사용 됩니다. [지원 되는 Kubernetes 버전][supported-versions]을 지정할 수 있습니다.
 
 > [!NOTE]
 > 여러 노드 풀을 사용 하는 경우 *기본* 부하 분산 장치 SKU가 **지원 되지 않습니다** . 기본적으로 AKS 클러스터는 Azure CLI 및 Azure Portal에서 *표준* 부하 분산 장치 SKU를 사용 하 여 만들어집니다.
@@ -59,7 +59,7 @@ az aks create \
     --vm-set-type VirtualMachineScaleSets \
     --node-count 2 \
     --generate-ssh-keys \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --load-balancer-sku standard
 ```
 
@@ -84,7 +84,7 @@ az aks nodepool add \
     --cluster-name myAKSCluster \
     --name mynodepool \
     --node-count 3 \
-    --kubernetes-version 1.12.7
+    --kubernetes-version 1.15.5
 ```
 
 > [!NOTE]
@@ -107,7 +107,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.12.7",
+    "orchestratorVersion": "1.15.5",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -117,7 +117,7 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "vmSize": "Standard_DS2_v2",
     ...
@@ -126,32 +126,32 @@ $ az aks nodepool list --resource-group myResourceGroup --cluster-name myAKSClus
 ```
 
 > [!TIP]
-> 노드 풀을 추가할 때 *OrchestratorVersion* 또는 *vmsize* 가 지정 되지 않은 경우 노드는 AKS 클러스터의 기본값을 기반으로 만들어집니다. 이 예에서는 Kubernetes 버전 *1.13.10* 및 노드 크기를 *Standard_DS2_v2*했습니다.
+> 노드 풀을 추가할 때 *Vmsize* 가 지정 되지 않은 경우 기본 크기는 Windows 노드 풀의 경우 *Standard_DS2_v3* 이 고 Linux 노드 풀의 경우 *Standard_DS2_v2* 입니다. *OrchestratorVersion* 가 지정 되지 않은 경우 기본값은 컨트롤 평면과 동일한 버전입니다.
 
 ## <a name="upgrade-a-node-pool"></a>노드 풀 업그레이드
- 
+
 > [!NOTE]
 > 클러스터 또는 노드 풀에서 업그레이드 및 크기 조정 작업을 동시에 수행할 수 없습니다. 시도 하면 오류가 반환 됩니다. 대신, 동일한 리소스에 대 한 다음 요청 전에 대상 리소스에서 각 작업 유형이 완료 되어야 합니다. 이에 대 한 자세한 내용은 [문제 해결 가이드](https://aka.ms/aks-pending-upgrade)를 참조 하세요.
 
-첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.13.10* 의 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
+첫 번째 단계에서 AKS 클러스터를 처음 만들 때 *1.15.7* 의 `--kubernetes-version` 지정 되었습니다. 그러면 제어 평면과 기본 노드 풀 모두에 대해 Kubernetes 버전이 설정 됩니다. 이 섹션의 명령은 단일 특정 노드 풀을 업그레이드 하는 방법에 대해 설명 합니다.
 
 Kubernetes 버전의 제어 평면과 노드 풀을 업그레이드 하는 경우의 관계는 [아래 섹션](#upgrade-a-cluster-control-plane-with-multiple-node-pools)에 설명 되어 있습니다.
 
 > [!NOTE]
 > 노드 풀 OS 이미지 버전은 클러스터의 Kubernetes 버전에 연결 됩니다. 클러스터 업그레이드 후에는 OS 이미지 업그레이드만 가져옵니다.
 
-이 예제에서는 두 개의 노드 풀이 있으므로 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 를 사용 하 여 노드 풀을 업그레이드 해야 합니다. *Mynodepool* 을 Kubernetes *1.13.10*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
+이 예제에서는 두 개의 노드 풀이 있으므로 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 를 사용 하 여 노드 풀을 업그레이드 해야 합니다. *Mynodepool* 을 Kubernetes *1.15.7*로 업그레이드 하겠습니다. 다음 예제와 같이 [az aks nodepool upgrade][az-aks-nodepool-upgrade] 명령을 사용 하 여 노드 풀을 업그레이드 합니다.
 
 ```azurecli-interactive
 az aks nodepool upgrade \
     --resource-group myResourceGroup \
     --cluster-name myAKSCluster \
     --name mynodepool \
-    --kubernetes-version 1.13.10 \
+    --kubernetes-version 1.15.7 \
     --no-wait
 ```
 
-[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.13.10*에 대 한 *업그레이드* 상태임을 보여 줍니다.
+[Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 *1.15.7*에 대 한 *업그레이드* 상태임을 보여 줍니다.
 
 ```console
 $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
@@ -162,7 +162,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 3,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Upgrading",
     ...
@@ -174,7 +174,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -240,7 +240,7 @@ az aks nodepool scale \
 [Az aks node pool list][az-aks-nodepool-list] 명령을 사용 하 여 노드 풀의 상태를 다시 나열 합니다. 다음 예에서는 *mynodepool* 이 새 개수의 *5 개* 노드를 사용 하 여 *크기 조정* 상태에 있음을 보여 줍니다.
 
 ```console
-$ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 
 [
   {
@@ -248,7 +248,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Scaling",
     ...
@@ -260,7 +260,7 @@ $ az aks nodepool list -g myResourceGroupPools --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -298,7 +298,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 5,
     ...
     "name": "mynodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Deleting",
     ...
@@ -310,7 +310,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -351,7 +351,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 1,
     ...
     "name": "gpunodepool",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Creating",
     ...
@@ -363,7 +363,7 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
     "count": 2,
     ...
     "name": "nodepool1",
-    "orchestratorVersion": "1.13.10",
+    "orchestratorVersion": "1.15.7",
     ...
     "provisioningState": "Succeeded",
     ...
@@ -383,8 +383,8 @@ $ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
 $ kubectl get nodes
 
 NAME                                 STATUS   ROLES   AGE     VERSION
-aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.13.10
-aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.13.10
+aks-gpunodepool-28993262-vmss000000  Ready    agent   4m22s   v1.15.7
+aks-nodepool1-28993262-vmss000000    Ready    agent   115m    v1.15.7
 ```
 
 Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실행할 수 있는 워크로드를 제한할 수 있습니다.
@@ -461,7 +461,7 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
 `aks-agentpools.json`와 같은 템플릿을 만들고 다음 예제 매니페스트를 붙여 넣습니다. 이 예제 템플릿은 다음 설정을 구성 합니다.
 
 * 3 개의 노드를 실행 하도록 *myagentpool* 이라는 *Linux* 노드 풀을 업데이트 합니다.
-* Kubernetes version *1.13.10*를 실행 하도록 노드 풀의 노드를 설정 합니다.
+* Kubernetes version *1.15.7*를 실행 하도록 노드 풀의 노드를 설정 합니다.
 * 노드 크기를 *Standard_DS2_v2*으로 정의 합니다.
 
 필요에 따라 노드 풀을 업데이트, 추가 또는 삭제 해야 하는 경우 이러한 값을 편집 합니다.
@@ -500,7 +500,7 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
     },
     "variables": {
         "apiVersion": {
-            "aks": "2019-04-01"
+            "aks": "2020-01-01"
         },
         "agentPoolProfiles": {
             "maxPods": 30,
@@ -513,7 +513,7 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
     },
     "resources": [
         {
-            "apiVersion": "2019-04-01",
+            "apiVersion": "2020-01-01",
             "type": "Microsoft.ContainerService/managedClusters/agentPools",
             "name": "[concat(parameters('clusterName'),'/', parameters('agentPoolName'))]",
             "location": "[parameters('location')]",
@@ -526,7 +526,7 @@ Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리
                 "storageProfile": "ManagedDisks",
                 "type": "VirtualMachineScaleSets",
                 "vnetSubnetID": "[variables('agentPoolProfiles').vnetSubnetId]",
-                "orchestratorVersion": "1.13.10"
+                "orchestratorVersion": "1.15.7"
             }
         }
     ]
@@ -540,6 +540,25 @@ az group deployment create \
     --resource-group myResourceGroup \
     --template-file aks-agentpools.json
 ```
+
+> [!TIP]
+> 다음 예제와 같이 템플릿에 *태그* 속성을 추가 하 여 노드 풀에 태그를 추가할 수 있습니다.
+> 
+> ```json
+> ...
+> "resources": [
+> {
+>   ...
+>   "properties": {
+>     ...
+>     "tags": {
+>       "name1": "val1"
+>     },
+>     ...
+>   }
+> }
+> ...
+> ```
 
 리소스 관리자 템플릿에서 정의한 노드 풀 설정 및 작업에 따라 AKS 클러스터를 업데이트 하는 데 몇 분 정도 걸릴 수 있습니다.
 

@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: thfalgou
 ms.custom: fasttrack-edit
-ms.openlocfilehash: ff55257891ff379bea9ff44aa5136195ced44354
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 855d40f9c20f966f6fa2b89949e47c943704bf2b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613111"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549158"
 ---
 # <a name="best-practices-for-business-continuity-and-disaster-recovery-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 비즈니스 연속성 및 재해 복구 모범 사례
 
@@ -66,7 +66,7 @@ Traffic Manager는 DNS (계층 3)를 사용 하 여 트래픽을 셰이프 합�
 
 클러스터가 서로 통신 해야 하는 경우 가상 [네트워크 피어 링](https://docs.microsoft.com/azure/virtual-network/virtual-network-peering-overview)을 통해 두 가상 네트워크를 서로 연결할 수 있습니다. 이 기술은 서로 다른 지리적 지역에도 불구 하 고 Microsoft의 백본 네트워크에서 높은 대역폭을 제공 하 여 가상 네트워크를 서로 상호 연결할 수 있습니다.
 
-AKS 클러스터가 실행 되는 가상 네트워크를 피어 링 하는 필수 구성 요소는 AKS 클러스터의 표준 Load Balancer를 사용 하 여 가상 네트워크 피어 링을 통해 kubernetes 서비스에 연결할 수 있도록 하는 것입니다.
+AKS 클러스터가 실행 되는 가상 네트워크를 피어 링 하는 필수 구성 요소는 AKS 클러스터의 표준 Load Balancer를 사용 하 여 가상 네트워크 피어 링을 통해 Kubernetes 서비스에 연결할 수 있도록 하는 것입니다.
 
 ## <a name="enable-geo-replication-for-container-images"></a>컨테이너 이미지에 지역 복제 사용
 

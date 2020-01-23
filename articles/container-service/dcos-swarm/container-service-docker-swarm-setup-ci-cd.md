@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 12/08/2016
 ms.author: jucoriol
 ms.custom: mvc
-ms.openlocfilehash: 860c277e88918dc37eceb496d852691ced2af114
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 11a6debe735459b617f6f93c3f67a32350dd4623
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277901"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549056"
 ---
 # <a name="deprecated-full-cicd-pipeline-to-deploy-a-multi-container-application-on-azure-container-service-with-docker-swarm-using-azure-devops-services"></a>(사용되지 않음) Azure DevOps Services를 사용하여 Docker Swarm을 포함한 Azure Container Service에 있는 다중 컨테이너 애플리케이션을 배포하는 전체 CI/CD 파이프라인
 
@@ -50,7 +50,7 @@ Azure DevOps Services를 사용하여 Docker Swarm 클러스터에서 이 애플
 
 [!INCLUDE [container-service-swarm-mode-note](../../../includes/container-service-swarm-mode-note.md)]
 
-또한 Docker를 설치한 Ubuntu 14.04 또는 16.04 컴퓨터가 필요합니다. 이 컴퓨터는 Azure Pipelines 프로세스 도중에 Azure DevOps Services에서 사용합니다. 이 컴퓨터를 만드는 방법은 [Azure Marketplace](https://azure.microsoft.com/marketplace/partners/canonicalandmsopentech/dockeronubuntuserver1404lts/)에서 사용할 수 있는 이미지를 사용하는 것입니다. 
+또한 Docker를 설치한 Ubuntu 14.04 또는 16.04 컴퓨터가 필요합니다. 이 컴퓨터는 Azure Pipelines 프로세스 도중에 Azure DevOps Services에서 사용합니다. 이 컴퓨터를 만드는 한 가지 방법은 Azure Marketplace에서 사용할 수 있는 이미지를 사용 하는 것입니다. 
 
 ## <a name="step-1-configure-your-azure-devops-services-organization"></a>1단계: Azure DevOps Services 조직 구성 
 

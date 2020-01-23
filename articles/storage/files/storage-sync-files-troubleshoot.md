@@ -4,15 +4,15 @@ description: Azure 파일 동기화와 관련된 일반적인 문제를 해결�
 author: jeffpatt24
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/8/2019
+ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 9318944004ae98eeb2a3300cabca07dfbe4e4fc7
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514632"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545044"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -48,6 +48,19 @@ r: \ 에 액세스할 수 없습니다.
 매개 변수가 올바르지 않습니다.
 
 문제를 해결 하려면 Windows Server 2012 r 2에 대 한 최신 업데이트를 설치 하 고 서버를 다시 시작 합니다.
+
+<a id="server-registration-missing-subscriptions"></a>**서버 등록에 모든 Azure 구독이 나열 되지 않음**  
+ServerRegistration을 사용 하 여 서버를 등록 하는 경우 Azure 구독 드롭다운을 클릭 하면 구독이 누락 됩니다.
+
+이 문제는 현재 ServerRegistration에서 다중 테 넌 트 환경을 지원 하지 않기 때문에 발생 합니다. 이 문제는 향후 Azure File Sync 에이전트 업데이트에서 수정 될 예정입니다.
+
+이 문제를 해결 하려면 다음 PowerShell 명령을 사용 하 여 서버를 등록 합니다.
+
+```powershell
+Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.PowerShell.Cmdlets.dll"
+Login-AzureRmStorageSync -SubscriptionID "<guid>" -TenantID "<guid>"
+Register-AzureRmStorageSyncServer -SubscriptionId "<guid>" -ResourceGroupName "<string>" -StorageSyncServiceName "<string>"
+```
 
 <a id="server-registration-prerequisites"></a>**서버 등록에 "필수 구성 요소가 없습니다." 라는 메시지가 표시 됩니다.**  
 이 메시지는 Az 또는 AzureRM PowerShell 모듈이 PowerShell 5.1에 설치 되지 않은 경우 나타납니다. 
@@ -311,6 +324,7 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 | 0x8000ffff | -2147418113 | E_UNEXPECTED | 예기치 않은 오류로 인해 파일을 동기화 할 수 없습니다. | 오류가 며칠 동안 지속 되 면 지원 사례를 여세요. |
 | 0x80070020 | -2147024864 | ERROR_SHARING_VIOLATION | 파일이 사용 중이기 때문에 동기화 할 수 없습니다. 파일이 더 이상 사용되지 않을 때 동기화됩니다. | 아무 조치도 취할 필요가 없습니다. |
 | 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 동기화 하는 동안 파일이 변경 되었으므로 다시 동기화 해야 합니다. | 아무 조치도 취할 필요가 없습니다. |
+| 0x80070017 | -2147024873 | ERROR_CRC | CRC 오류로 인해 파일을 동기화 할 수 없습니다. 이 오류는 서버 끝점을 삭제 하기 전에 계층화 된 파일을 회수할 수 없거나 파일이 손상 된 경우에 발생할 수 있습니다. | 이 문제를 해결 하려면 [서버 끝점을 삭제 한 후 서버에서 계층화 된 파일에 액세스할 수 없어](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#tiered-files-are-not-accessible-on-the-server-after-deleting-a-server-endpoint) 분리 된 계층화 된 파일을 제거 하는 방법을 참조 하세요. 고아 계층화 된 파일을 제거한 후에도 오류가 계속 발생 하면 볼륨에서 [chkdsk](https://docs.microsoft.com/windows-server/administration/windows-commands/chkdsk) 를 실행 합니다. |
 | 0x80c80200 | -2134375936 | ECS_E_SYNC_CONFLICT_NAME_EXISTS | 충돌 파일의 최대 수에 도달 했으므로 파일을 동기화 할 수 없습니다. Azure File Sync는 파일당 100 충돌 파일을 지원 합니다. 파일 충돌에 대해 자세히 알아보려면 Azure File Sync [FAQ](https://docs.microsoft.com/azure/storage/files/storage-files-faq#afs-conflict-resolution)를 참조 하세요. | 이 문제를 해결 하려면 충돌 파일 수를 줄입니다. 충돌 파일 수가 100 미만이 면 파일이 동기화 됩니다. |
 
 #### <a name="handling-unsupported-characters"></a>지원되지 않는 처리 문자
@@ -442,6 +456,17 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 
 1. [스토리지 계정이 있는지 확인합니다.](#troubleshoot-storage-account)
 2. [스토리지 계정에 방화벽 및 가상 네트워크 설정이 제대로 구성되어 있는지 확인합니다(사용하도록 설정된 경우).](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)
+
+<a id="-2134364014"></a>**저장소 계정이 잠겨 있어 동기화 하지 못했습니다.**  
+
+| | |
+|-|-|
+| **HRESULT** | 0x80c83092 |
+| **HRESULT(10진)** | -2134364014 |
+| **오류 문자열** | ECS_E_STORAGE_ACCOUNT_LOCKED |
+| **재구성 필요** | 예 |
+
+저장소 계정에 읽기 전용 [리소스 잠금이](https://docs.microsoft.com/azure/azure-resource-manager/management/lock-resources)있으므로이 오류가 발생 합니다. 이 문제를 해결 하려면 저장소 계정에 대 한 읽기 전용 리소스 잠금을 제거 합니다. 
 
 <a id="-1906441138"></a>**동기화 데이터베이스에 문제가 있어 동기화에 실패했습니다.**  
 

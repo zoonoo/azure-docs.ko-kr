@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b9d724a44a94ed13786391a235bb9967036f29dc
-ms.sourcegitcommit: e1b6a40a9c9341b33df384aa607ae359e4ab0f53
+ms.openlocfilehash: e892a8bfa3b4b0bb53d7a943e475d4e2a8228add
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71338492"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514139"
 ---
 ::: zone target="docs"
 
@@ -32,13 +32,13 @@ ms.locfileid: "71338492"
 
 이 자습서에서는 Azure Data Box Disk에 케이블을 연결하고, 연결하고, 전원을 켜는 방법을 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box 케이블 연결
 > * Data Box에 연결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -55,7 +55,7 @@ ms.locfileid: "71338492"
 7. Data Box를 호스트 컴퓨터에 연결하기 위해 다음과 같은 케이블을 준비해 둔 상태여야 합니다.
     - 하나 이상의 10GbE SFP+ 2축 동 또는 SFP+ 광섬유 케이블(DATA 1, DATA 2 네트워크 인터페이스에 사용). Data Box에는 PCI Express 3.0 네트워크 인터페이스가 있는 Mellanox ConnectX®-3 Pro EN 이중 포트 10GBASE-T 어댑터가 있으므로 이 인터페이스와 호환되는 케이블이 작동합니다. 예를 들어, CISCO SFP-H10GB-CU3M 10GBASE-CU TWINAX SFP +3M 케이블을 내부 테스트에 사용했습니다. 자세한 내용은 [Mellanox의 지원되는 케이블 및 스위치 목록](https://www.mellanox.com/pdf/firmware/ConnectX3-FW-2_42_5000-release_notes.pdf)을 참조하세요.
     - RJ-45 CAT 6 네트워크 케이블 1개(MGMT 네트워크 인터페이스에 사용)
-    - RJ-45 CAT 6A 하나 또는 RJ-45 CAT 6 네트워크 케이블 하나(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
+    - RJ-45 CAT 6A 1개 또는 RJ-45 CAT 6 네트워크 케이블 1개(각각 10Gbps 또는 1Gbps로 구성된 DATA 3 네트워크 인터페이스에 사용)
 
 ## <a name="cable-your-device"></a>디바이스 케이블 연결
 

@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 07/29/2019
 ms.author: juliako
-ms.openlocfilehash: bb0af855a136c83eac7e28287b28046b50a7c124
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892739"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545894"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>응용 프로그램에 Video Indexer 위젯 포함
 
@@ -29,7 +29,7 @@ ms.locfileid: "74892739"
 
 인식 통찰력 위젯은 비디오 인덱싱 프로세스에서 추출 된 모든 시각적 정보를 포함 합니다. 인식 정보 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|name|정의|설명|
+|이름|정의|Description|
 |---|---|---|
 |`widgets`|쉼표로 구분된 문자열|렌더링 하려는 정보를 제어할 수 있습니다. <br/> 예: `https://www.videoindexer.ai/embed/insights/<accountId>/<videoId>/?widgets=people,search`는 사람 및 브랜드 UI 정보를 렌더링 합니다.<br/>사용 가능한 옵션: people, keywords, annotations, brands, sentiments, transcript, search<br/>`widgets` URL 매개 변수는 버전 2에서 지원 되지 않습니다.<br/>|
 |`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다. <br/> 예: `locale=de`.|
@@ -39,7 +39,7 @@ ms.locfileid: "74892739"
 
 플레이어 위젯을 사용 하 여 적응 비트 전송률을 사용 하 여 비디오를 스트리밍할 수 있습니다. 플레이어 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|name|정의|설명|
+|이름|정의|Description|
 |---|---|---|
 |`t`|시작부터 초|지정 된 시간 지점에서 플레이어의 재생을 시작 합니다.<br/> 예: `t=60`.|
 |`captions`|언어 코드|**캡션** 메뉴에서 위젯 로드를 사용할 수 있도록 지정 된 언어의 캡션을 페치합니다.<br/> 예: `captions=en-US`.|
@@ -52,9 +52,9 @@ ms.locfileid: "74892739"
 
 편집기 위젯을 사용 하 여 새 프로젝트를 만들고 비디오의 정보를 관리할 수 있습니다. 편집기 위젯은 다음과 같은 선택적 URL 매개 변수를 지원 합니다.
 
-|name|정의|설명|
+|이름|정의|Description|
 |---|---|---|
-|`accessToken`<sup>*</sup>|string|위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다.|
+|`accessToken`<sup>*</sup>|String|위젯을 포함 하는 데 사용 되는 계정에만 있는 비디오에 대 한 액세스를 제공 합니다.<br> 편집기 위젯에는 `accessToken` 매개 변수가 필요 합니다.|
 |`language`|언어 코드|플레이어 언어를 제어 합니다. 기본값은 `en-US`입니다.<br/>예: `language=de-DE`.|
 |`locale`|짧은 언어 코드|Insights 언어를 제어 합니다. 기본값은 `en`입니다.<br/>예: `language=de`.|
 
@@ -76,7 +76,7 @@ ms.locfileid: "74892739"
     ![위젯](./media/video-indexer-embed-widgets/video-indexer-widget02.png)
 
 > [!NOTE]
-> 비디오 Url을 공유 하는 데 문제가 있는 경우 링크에 `location` 매개 변수를 추가 합니다. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`.
+> 비디오 Url을 공유 하는 데 문제가 있는 경우 링크에 `location` 매개 변수를 추가 합니다. 매개 변수는 [Video Indexer 있는 Azure 지역](regions.md)으로 설정 해야 합니다. 예: `https://www.videoindexer.ai/accounts/00000000-0000-0000-0000-000000000000/videos/b2b2c74b8e/?location=trial`
 
 ## <a name="embedding-private-content"></a>프라이빗 콘텐츠 포함
 
@@ -159,7 +159,8 @@ ms.locfileid: "74892739"
             this.videobreakdown({
             videoId: "c4c1ad4c9a",
             syncTranscript: true,
-            syncLanguage: true
+            syncLanguage: true,
+            location: "trial" /* location option for paid accounts (default is trial) */
             });
 
             // Set the source dynamically.
@@ -186,7 +187,7 @@ Azure Media Player 이외의 비디오 플레이어를 사용 하는 경우 비�
         </video>    
 
 2. 인지 인사이트 위젯을 포함합니다.
-3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 다음은 그 예입니다.
+3. "메시지" 이벤트를 수신 대기하여 플레이어에 대한 통신을 구현합니다. 예:
 
         <script>
     
@@ -247,7 +248,7 @@ iframe 창의 제목도 iframe URL에 `&title=<YourTitle>`을 제공하여 사�
 
 Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하여 플레이어 크기를 선택할 수 있습니다.
 
-다음은 그 예입니다.
+예:
 
 `<iframe width="640" height="360" src="https://www.videoindexer.ai/embed/player/<accountId>/<videoId>/" frameborder="0" allowfullscreen />`
 

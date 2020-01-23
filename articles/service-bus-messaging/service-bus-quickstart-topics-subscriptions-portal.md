@@ -1,19 +1,19 @@
 ---
-title: '빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기'
+title: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기
 description: '빠른 시작: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 토픽 및 구독을 만드는 방법에 대해 알아봅니다.'
 services: service-bus-messaging
 author: spelluru
 manager: timlt
 ms.service: service-bus-messaging
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 6788bf43ef97daf5ef2f823a502c223d718abaac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a1e330a62a58daaa3fb2a2e8758d14791a3208c1
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718869"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260823"
 ---
 # <a name="quickstart-use-the-azure-portal-to-create-a-service-bus-topic-and-subscriptions-to-the-topic"></a>빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 하나 이상의 구독 만들기
 이 빠른 시작에서는 Azure Portal를 사용하여 Service Bus 토픽을 만든 다음, 해당 토픽에 대한 구독을 만듭니다. 

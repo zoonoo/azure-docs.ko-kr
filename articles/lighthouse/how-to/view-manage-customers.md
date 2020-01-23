@@ -1,14 +1,14 @@
 ---
 title: 고객과 위임된 리소스 보기 및 관리
 description: Azure 위임 리소스 관리를 사용하는 서비스 공급자는 Azure Portal의 내 고객으로 이동하여 위임된 모든 고객 리소스 및 구독을 볼 수 있습니다.
-ms.date: 12/18/2019
+ms.date: 01/22/2020
 ms.topic: conceptual
-ms.openlocfilehash: ac268d2899dcc3d940072bfbfd17770044dc3c66
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d4b3187066754e8a549f029623762df539b30b1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456826"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543429"
 ---
 # <a name="view-and-manage-customers-and-delegated-resources"></a>고객과 위임된 리소스 보기 및 관리
 
@@ -40,13 +40,20 @@ Azure Portal의 **내 고객** 페이지에 액세스하려면 **모든 서비�
 - 제품 및 해당 위임에 대한 자세한 내용을 보려면 제품 이름을 선택합니다.
 - 위임된 구독 또는 리소스 그룹의 역할 할당에 대한 자세한 내용을 보려면 **위임** 열의 항목을 선택합니다.
 
-## <a name="view-delegations"></a>위임 보기
+## <a name="view-and-manage-delegations"></a>위임 보기 및 관리
 
 위임에는 위임된 구독/리소스 그룹과 해당 액세스 권한이 있는 사용자 및 권한이 함께 표시됩니다. 이 정보를 보려면 **내 고객** 페이지의 왼쪽에서 **위임**을 선택합니다.
 
 페이지 맨 위에 있는 필터를 사용하여 액세스 할당 정보를 정렬 및 그룹화하거나 특정 고객, 제품 또는 키워드를 기준으로 필터링할 수 있습니다.
 
+### <a name="view-role-assignments"></a>역할 할당 보기
+
 각 위임에 연결된 사용자 및 사용 권한은 **역할 할당** 열에 표시됩니다. 각 항목을 선택하여 구독 또는 리소스 그룹에 대한 액세스 권한이 부여된 사용자, 그룹 및 서비스 주체의 전체 목록을 볼 수 있습니다. 여기서 특정 사용자, 그룹 또는 서비스 주체 이름을 선택하여 자세한 정보를 얻을 수 있습니다.
+
+### <a name="remove-delegations"></a>위임 제거
+
+Azure 위임 된 리소스 관리를 위해 고객을 온 보 딩 할 때 [관리 서비스 등록 할당 삭제 역할](../../role-based-access-control/built-in-roles.md#managed-services-registration-assignment-delete-role) 을 가진 사용자를 포함 한 경우 해당 사용자는 해당 위임에 대 한 행에 표시 되는 휴지통 아이콘을 선택 하 여 위임을 제거할 수 있습니다. 이렇게 하면 서비스 공급자의 테 넌 트에 있는 사용자가 이전에 위임 된 리소스에 액세스할 수 없게 됩니다.
+
 
 ## <a name="work-in-the-context-of-a-delegated-subscription"></a>위임된 구독의 컨텍스트에서 작업
 

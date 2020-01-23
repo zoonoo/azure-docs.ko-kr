@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 06/13/2019
 ms.author: juliako
-ms.openlocfilehash: 8377c4339b07e0b917e10ed413ffc79baef91fac
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 2dd3b3ffae39d43a3b865804af2e743bad87f8ea
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74888396"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543055"
 ---
 # <a name="live-event-types-comparison"></a>라이브 이벤트 유형 비교
 
@@ -28,19 +28,19 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 
 다음 표에서는 라이브 이벤트 유형의 기능을 비교 합니다. 형식은 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
 
-* **LiveEventEncodingType** -온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 
+* **LiveEventEncodingType** -온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 라이브 이벤트 라고도 합니다.
 * **LiveEventEncodingType** -온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상인 경우 **Default720p** 사전 설정은 6 개의 해상도/비트 전송률 쌍 집합을 인코딩합니다 (세부 정보는이 문서의 뒷부분 참조).
 * **LiveEventEncodingType Premium1080p** -온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. Default1080p 사전 설정은 해상도/비트 전송률 쌍의 출력 집합을 지정 합니다 (자세한 내용은이 문서의 뒷부분 참조). 
 
 | 기능 | 통과 라이브 이벤트 | Standard 또는 Premium1080p 라이브 이벤트 |
 | --- | --- | --- |
-| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아닙니다. |yes |
+| 단일 비트 전송률 입력은 클라우드에서 다중 비트 전송률로 인코딩됩니다. |아닙니다. |예 |
 | 기여 피드에 대한 최대 비디오 해상도 |4K(60프레임/초에서 4096x2160) |1080p(30프레임/초에서 1920x1088)|
 | 기여 피드에 권장되는 최대 계층|최대 12개|하나의 오디오|
 | 출력의 최대 계층| 입력과 같음|최대 6 (아래 시스템 사전 설정 참조)|
 | 기여 피드의 최대 집계 대역폭|60Mbps|N/A|
 | 기여에서 단일 계층의 최대 전송률 |20Mbps|20Mbps|
-| 여러 언어 오디오 트랙 지원|yes|아닙니다.|
+| 여러 언어 오디오 트랙 지원|예|아닙니다.|
 | 지원되는 입력 비디오 코덱 |H.264/AVC 및 H.265/HEVC|H.264/AVC|
 | 지원되는 출력 비디오 코덱|입력과 같음|H.264/AVC|
 | 지원되는 비디오 비트 수준, 입력 및 출력|HDR 10/HLG를 포함하여 최대 10비트|8비트|
@@ -51,13 +51,14 @@ Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest
 | 입력 프로토콜|RTMP, fragmented-MP4(부드러운 스트리밍)|RTMP, fragmented-MP4(부드러운 스트리밍)|
 | 가격|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|[가격 책정 페이지](https://azure.microsoft.com/pricing/details/media-services/) 를 참조하고 "라이브 비디오" 탭 클릭|
 | 최대 실행 시간| 연중무휴 라이브 선형 | 24 시간 x 365 일, 라이브 선형 (미리 보기)|
-| 포함된 CEA 608/708 캡션 데이터 전달 가능|yes|yes|
+| 포함된 CEA 608/708 캡션 데이터 전달 가능|예|예|
+| 실시간 기록을 켜는 기능|예|예|
 | 슬레이트 삽입 지원|아닙니다.|아닙니다.|
 | API를 통한 광고 신호 지원| 아닙니다.|아닙니다.|
-| SCTE-35 인밴드 메시지를 통한 광고 신호 지원|yes|yes|
-| 기여 피드의 일시 정지에서 복구하는 기능|yes|부분|
-| 균일하지 않은 입력 GOP에 대한 지원|yes|아니요 - 입력에 고정된 GOP 지속 기간이 있어야 함|
-| 변수 프레임 속도 입력에 대한 지원|yes|아니요 - 입력은 고정된 프레임 속도여야 함. 예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 그러나 기여 피드가 프레임 주기를 삭제할 수 없습니다 (예: 15 프레임/초).|
+| SCTE-35 인밴드 메시지를 통한 광고 신호 지원|예|예|
+| 기여 피드의 일시 정지에서 복구하는 기능|예|부분|
+| 균일하지 않은 입력 GOP에 대한 지원|예|아니요 - 입력에 고정된 GOP 지속 기간이 있어야 함|
+| 변수 프레임 속도 입력에 대한 지원|예|아니요 - 입력은 고정된 프레임 속도여야 함. 예를 들어 움직임이 많은 장면 중에는 사소한 차이가 허용됩니다. 그러나 기여 피드가 프레임 주기를 삭제할 수 없습니다 (예: 15 프레임/초).|
 | 입력 피드가 손실될 경우 라이브 이벤트 자동 차단|아닙니다.|12시간 동안 LiveOutput 실행이 없는 경우|
 
 ## <a name="system-presets"></a>시스템 사전 설정

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/08/2019
 ms.author: mlottner
-ms.openlocfilehash: e85738c344189486726b4e7b7f5a76ab03c0ffa9
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 7dff2a88da2e12388bfb3a97cfdad236045170cf
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991438"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543888"
 ---
 # <a name="deploy-a-security-module-on-your-iot-edge-device"></a>IoT Edge 장치에 보안 모듈 배포
 
@@ -48,7 +48,7 @@ ms.locfileid: "72991438"
     - 다음 명령을 실행 하 여 AuditD가 활성 상태 인지 확인 합니다. 
    
     `sudo systemctl status auditd`<br>
-    - 예상 응답은 `active (running)`입니다. 
+    - 예상 응답: `active (running)` 
         
 
 ### <a name="deployment-using-azure-portal"></a>Azure Portal를 사용 하 여 배포
@@ -66,15 +66,15 @@ ms.locfileid: "72991438"
     >[!Note] 
     >**대규모로 배포**를 선택한 경우 다음 지침의 **모듈 추가** 탭으로 계속 하기 전에 장치 이름 및 세부 정보를 추가 합니다.     
 
-IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지 단계가 있습니다. 다음 섹션에서는 각 단계로 안내합니다. 
+IoT에 대 한 Azure Security Center에 대 한 IoT Edge 배포를 완료 하려면 각 단계를 완료 합니다. 
 
-#### <a name="step-1-add-modules"></a>1 단계: 모듈 추가
+#### <a name="step-1-modules"></a>1 단계: 모듈
 
-1. **모듈 추가** 탭의 **배포 모듈** 영역에서 **AzureSecurityCenterforIoT**에 대 한 **구성** 옵션을 클릭 합니다. 
-   
-1. **이름을** **azureiotsecurity**로 변경 합니다.
-1. **이미지 URI** 를 **mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.0**로 변경 합니다.
-1. **컨테이너 만들기 옵션** 값이로 설정 되어 있는지 확인 합니다.      
+1. **AzureSecurityCenterforIoT** 모듈을 선택 합니다.
+1. **모듈 설정** 탭에서 **이름을** **azureiotsecurity**로 변경 합니다.
+1. **환경 변수** 탭에서 필요한 경우 변수를 추가 합니다 (예: 디버그 수준).
+1. **컨테이너 만들기 옵션** 탭에서 다음 구성을 추가 합니다.
+
     ``` json
     {
         "NetworkingConfig": {
@@ -92,24 +92,20 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
         }
     }    
     ```
-1. 모듈 쌍 **의 desired 속성 설정** 이 선택 되어 있는지 확인 하 고 구성 개체를로 변경 합니다.
+    
+1. 모듈 쌍 **설정** 탭에서 다음 구성을 추가 합니다.
       
     ``` json
-    { 
-       "properties.desired":{ 
-      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{ 
-
-          }
-       }
-    }
+      "ms_iotn:urn_azureiot_Security_SecurityAgentConfiguration":{}
     ```
 
-1. **Save**를 클릭합니다.
-1. 탭의 아래쪽으로 스크롤하고 **고급 Edge 런타임 설정 구성**을 선택 합니다. 
-   
-1. **Edge Hub** 아래의 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**로 변경 합니다.
+1. **업데이트**를 선택합니다.
 
-1. **만들기 옵션** 이 다음으로 설정 되어 있는지 확인 합니다. 
+#### <a name="step-2-runtime-settings"></a>2 단계: 런타임 설정
+
+1. **런타임 설정**을 선택 합니다.
+1. **Edge Hub**에서 **이미지** 를 **mcr.microsoft.com/azureiotedge-hub:1.0.8.3**로 변경 합니다.
+1. **만들기 옵션** 은 다음 구성으로 설정 되어 있는지 확인 합니다. 
          
     ``` json
     { 
@@ -134,25 +130,30 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
        }
     }
     ```
-1. **Save**를 클릭합니다.
+    
+1. **저장**을 선택합니다.
    
-1. **다음**을 누릅니다.
+1. **다음**을 선택합니다.
 
-#### <a name="step-2-specify-routes"></a>2 단계: 경로 지정 
+#### <a name="step-3-specify-routes"></a>3 단계: 경로 지정 
 
-1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 한 **후 다음을 클릭 합니다.** 
+1. **경로 지정** 탭에서 다음 예제에 따라 **azureiotsecurity** 모듈에서 **$upstream** 로 메시지를 전달 하는 경로 (명시적 또는 암시적)가 있는지 확인 합니다. 경로가 준비 된 경우에만 **다음**을 선택 합니다.
 
-~~~Default implicit route
-"route": "FROM /messages/* INTO $upstream" 
-~~~
+   경로 예:
 
-~~~Explicit route
-"ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
-~~~
+    ~~~Default implicit route
+    "route": "FROM /messages/* INTO $upstream" 
+    ~~~
 
-#### <a name="step-3-review-deployment"></a>3 단계: 배포 검토
+    ~~~Explicit route
+    "ASCForIoTRoute": "FROM /messages/modules/azureiotsecurity/* INTO $upstream"
+    ~~~
 
-- 배포 **검토** 탭에서 배포 정보를 검토 한 다음 **제출** 을 선택 하 여 배포를 완료 합니다.
+1. **다음**을 선택합니다.
+
+#### <a name="step-4-review-deployment"></a>4 단계: 배포 검토
+
+- 배포 **검토** 탭에서 배포 정보를 검토 한 다음 **만들기** 를 선택 하 여 배포를 완료 합니다.
 
 ## <a name="diagnostic-steps"></a>진단 단계
 
@@ -166,7 +167,7 @@ IoT 용 Azure Security Center에 대 한 IoT Edge 배포를 만드는 세 가지
    
 1. 다음 컨테이너가 실행 중인지 확인 합니다.
    
-   | Name | 이미지로 |
+   | 이름 | IMAGE |
    | --- | --- |
    | azureiotsecurity | mcr.microsoft.com/ascforiot/azureiotsecurity:1.0.1 |
    | edgeHub | mcr.microsoft.com/azureiotedge-hub:1.0.8.3 |

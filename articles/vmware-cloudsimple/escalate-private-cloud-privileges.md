@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3ee722f88f766178dd658600893b4497bf611be9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372774"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544449"
 ---
 # <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션
 
@@ -55,6 +55,9 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 > [!IMPORTANT]
 > 사용자 한 명에 게 에스컬레이션 된 권한이 있을 수 있습니다.  사용자의 권한을 에스컬레이션 해야 다른 사용자의 권한을 에스컬레이션 할 수 있습니다.
+
+> [!CAUTION]
+> 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
 
 ## <a name="extend-privilege-escalation"></a>권한 상승 확장
 

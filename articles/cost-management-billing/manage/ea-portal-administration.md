@@ -4,16 +4,16 @@ description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/02/2020
+ms.date: 01/22/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 469bd66a6074db34d1efb6f82fda229400239058
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: effc7dfb8ca540d044b5698b90b3195da0f29b19
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75992310"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547577"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -124,17 +124,12 @@ Azure EA Portal을 통해 사용자가 계정 소유자로 추가되면 PAYG 개
 - 요청에 지정된 계정만 양도됩니다. 모든 계정을 선택하면 모든 계정이 양도됩니다.
 - 원본 등록의 상태는 활성 또는 확장됨으로 유지됩니다. 등록이 만료될 때까지 계속 사용할 수 있습니다.
 
-### <a name="effective-transfer-date"></a>발효 양도 날짜
-
-대상 등록의 시작 날짜 또는 이후 시작 날짜를 포함 하는 계정 시작 날짜 만큼 다시 계정 전송을 다시 시작할 수 있습니다. 계정 양도 후에는 발효 양도 날짜 이전의 모든 계정 사용량 정보가 원본 등록에 유지됩니다. 전송 날짜 이후의 사용 정보는 대상 등록으로 이동 됩니다.
-
 ### <a name="prerequisites"></a>필수 조건
 
 계정 양도를 요청할 때 다음 정보를 입력하세요.
 
 - 전송할 계정의 대상 등록, 계정 이름 및 계정 소유자 전자 메일의 수
 - 원본 등록의 경우 양도할 등록 번호 및 계정
-- 계정 전송 개시 날짜의 경우 대상 등록의 시작 날짜 또는 계정 시작 날짜 중에서 이후 시작 날짜를 포함 하는 것과 같은 다시 시작 날짜를 지정할 수 있습니다.
 
 그 외에도 계정 양도 전에 다음과 같은 사항을 염두에 두어야 합니다.
 
@@ -162,15 +157,12 @@ Azure EA Portal을 통해 사용자가 계정 소유자로 추가되면 PAYG 개
 - 이후 조건을 포함하여 계약의 남은 현금 약정 잔액은 모두 소멸됩니다.
 -   양도하려는 등록에 RI 구매가 있는 경우 RI 구매 요금은 원본 등록에 그대로 유지되지만, 모든 RI 혜택은 새 등록에서 활용할 수 있도록 양도됩니다.
 -   이전 등록에서 이미 발생한 마켓플레이스 일회성 구매 요금 및 월간 고정 요금은 새 등록으로 양도되지 않습니다. 소비 기반 마켓플레이스 요금은 양도됩니다.
--   이전 등록이 양도되면 구매의 모든 일회성 요금은 원본 등록에서 그대로 유지됩니다.
 
 ### <a name="effective-transfer-date"></a>발효 양도 날짜
 
 유효 전송 일은 대상 등록의 시작 날짜 또는 이후 일 수 있습니다.
 
 원본 등록 사용량에 대한 요금은 현금 약정 금액 또는 초과분으로 청구됩니다. 발효 양도 날짜 이후에 발생하는 사용량은 새 등록으로 전송되고 그에 따라 요금이 청구됩니다.
-
-다시 시작 하는 전송은 대상 등록의 시작 날짜와 동일 하 게 지원 됩니다. 선택한 전송 날짜를 제공 하는 것은 이미 발급 된 초과분 청구서 사용에 영향을 주지 않습니다.
 
 ### <a name="prerequisites"></a>필수 조건
 

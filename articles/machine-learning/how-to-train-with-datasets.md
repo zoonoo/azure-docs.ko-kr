@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 24a19487567f2753457d5886cbb9fa4bf438bad4
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f87dbedb1428b5884e20a9f7daabea792387fe88
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311345"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543310"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,8 +105,11 @@ experiment_run.wait_for_completion(show_output=True)
 학습을 위해 계산 대상에서 데이터 파일을 사용할 수 있도록 하려면 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 을 사용 하 여 참조 되는 파일을 탑재 하거나 다운로드 합니다.
 
 ### <a name="mount-vs-download"></a>V.s. 탑재 다운로드
-데이터 집합을 탑재 하는 경우 데이터 집합에서 참조 하는 파일을 디렉터리 (탑재 지점)에 연결 하 여 계산 대상에서 사용할 수 있도록 합니다. 탑재는 Azure Machine Learning 계산, 가상 컴퓨터 및 HDInsight를 포함 하 여 Linux 기반 계산에 대해 지원 됩니다. 데이터 크기가 계산 디스크 크기를 초과 하거나 스크립트에서 데이터 집합의 일부를 로드 하는 경우에는 탑재를 권장 합니다. 디스크 크기 보다 큰 데이터 집합을 다운로드 하면 오류가 발생 하 고 탑재는 처리 시 스크립트에서 사용 하는 데이터의 일부만 로드 합니다. 데이터 집합을 다운로드 하면 데이터 집합에서 참조 하는 모든 파일이 계산 대상으로 다운로드 됩니다. 다운로드는 모든 계산 형식에 대해 지원 됩니다. 스크립트에서 데이터 집합에서 참조 하는 모든 파일을 처리 하 고 계산 디스크가 전체 데이터 집합에 적합 한 경우 storage 서비스에서 데이터를 스트리밍하는 오버 헤드를 방지 하기 위해를 다운로드 하는 것이 좋습니다.
+데이터 집합을 탑재 하는 경우 데이터 집합에서 참조 하는 파일을 디렉터리 (탑재 지점)에 연결 하 여 계산 대상에서 사용할 수 있도록 합니다. 탑재는 Azure Machine Learning 계산, 가상 컴퓨터 및 HDInsight를 포함 하 여 Linux 기반 계산에 대해 지원 됩니다. 데이터 크기가 계산 디스크 크기를 초과 하거나 스크립트에서 데이터 집합의 일부를 로드 하는 경우에는 탑재를 권장 합니다. 디스크 크기 보다 큰 데이터 집합을 다운로드 하면 오류가 발생 하 고 탑재는 처리 시 스크립트에서 사용 하는 데이터의 일부만 로드 합니다. 
 
+데이터 집합을 다운로드 하면 데이터 집합에서 참조 하는 모든 파일이 계산 대상으로 다운로드 됩니다. 다운로드는 모든 계산 형식에 대해 지원 됩니다. 스크립트에서 데이터 집합에서 참조 하는 모든 파일을 처리 하 고 계산 디스크가 전체 데이터 집합에 적합 한 경우 storage 서비스에서 데이터를 스트리밍하는 오버 헤드를 방지 하기 위해를 다운로드 하는 것이 좋습니다.
+
+모든 형식의 파일을 탑재 하거나 다운로드 하는 것은 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합에 대해 지원 됩니다. 
 
 ### <a name="create-a-filedataset"></a>FileDataset 만들기
 

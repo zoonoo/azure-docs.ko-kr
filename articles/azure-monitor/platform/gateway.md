@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: 8d48c889681eabc2519a0a60d0f9846b8f30bfd5
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830142"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547305"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -60,7 +60,7 @@ Log Analytics 게이트웨이를 실행 하는 컴퓨터에는 Log Analytics Win
 Log Analytics 게이트웨이를 실행 하도록 지정 된 컴퓨터에는 다음 구성이 있어야 합니다.
 
 * Windows 10, Windows 8.1 또는 Windows 7
-* Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 또는 Windows Server 2008
+* Windows Server 2019, Windows Server 2016, Windows Server 2012 R2, Windows Server 2012, Windows Server 2008 R2 또는 Windows Server 2008
 * Microsoft .NET Framework 4.5도 필요합니다
 * 최소 4 코어 프로세서 및 8gb의 메모리 
 * 게이트웨이를 통해 통신 하는 에이전트와 동일한 작업 영역에 보고 하도록 구성 된 [Windows 용 Log Analytics 에이전트](agent-windows.md)

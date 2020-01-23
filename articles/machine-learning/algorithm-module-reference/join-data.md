@@ -9,16 +9,16 @@ ms.topic: reference
 author: xiaoharper
 ms.author: peterlu
 ms.date: 11/19/2019
-ms.openlocfilehash: c984b38498085567441fb0c4f965602d437589e5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0d24a0d90671935cb7224f17ffad368d4305020c
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311498"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548512"
 ---
 # <a name="join-data"></a>데이터 조인
 
-이 문서에서는 Azure Machine Learning 디자이너의 **데이터 조인** 모듈을 사용 하 여 데이터베이스 스타일 조인 작업을 통해 두 데이터 집합을 병합 하는 방법을 설명 합니다.  
+이 문서에서는 데이터베이스 스타일 조인 작업을 사용 하 여 두 데이터 집합을 병합 하는 Azure Machine Learning 디자이너 (미리 보기)의 **데이터 조인** 모듈을 사용 하는 방법을 설명 합니다.  
 
 ## <a name="how-to-configure-join-data"></a>조인 데이터를 구성 하는 방법
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: genemi
 ms.date: 01/25/2019
-ms.openlocfilehash: 175ba6b4e65b4a6e276dbfb586e210027a6cd9b3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: cacc01151edaf31db938cf8abf3d46e75397758f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822412"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545027"
 ---
 # <a name="how-to-use-batching-to-improve-sql-database-application-performance"></a>SQL Database 애플리케이션 성능을 개선하기 위해 일괄 처리를 사용하는 방법
 
@@ -91,13 +91,13 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 }
 ```
 
-트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](https://msdn.microsoft.com/library/ms186259.aspx)에 대한 설명서에 따라, 로그 레코드는 트랜잭션이 커밋할 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 대한 쓰기에 일괄 처리를 사용하는 것입니다.
+트랜잭션이 양쪽 예제에 실제로 사용되고 있습니다. 첫 번째 예제에서 각각의 개별 호출은 암시적 트랜잭션입니다. 두 번째 예제에서 명시적 트랜잭션이 모든 호출을 래핑합니다. [미리 쓰기 트랜잭션 로그](https://docs.microsoft.com/sql/relational-databases/sql-server-transaction-log-architecture-and-management-guide?view=sql-server-ver15#WAL)에 대한 설명서에 따라, 로그 레코드는 트랜잭션이 커밋할 때 디스크에 플러시됩니다. 따라서 트랜잭션에 더 많은 호출을 포함시켜서, 트랜잭션 로그에 대한 쓰기를 트랜잭션이 커밋될 때까지 지연시킬 수 있습니다. 사실상, 서버의 트랜잭션 로그에 대한 쓰기에 일괄 처리를 사용하는 것입니다.
 
 다음 표에는 몇 가지 임시 테스트 결과가 나와 있습니다. 테스트는 동일한 순차적 삽입을 트랜잭션을 포함한 상태와 그렇지 않은 상태로 수행하였습니다. 보다 다양한 견해를 위해, 첫 번째 테스트는 랩톱에서 Microsoft Azure의 데이터베이스에 대해 원격으로 실행했습니다. 두 번째 테스트는 동일한 Microsoft Azure 데이터 센터(미국 서부) 내에 상주하는 클라우드 서비스 및 데이터베이스에서 실행했습니다. 다음 테이블은 트랜잭션 유 무 상태에서 순차적인 삽입의 소요 시간(밀리초)를 보여줍니다.
 
 **온-프레미스에서 Azure**:
 
-| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
+| 운영 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |130 |402 |
 | 10 |1208 |1226 |
@@ -106,7 +106,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 **Azure에서Azure(동일한 데이터 센터)** :
 
-| 작업 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
+| 운영 | 트랜잭션 없음(밀리초) | 트랜잭션(밀리초) |
 | --- | --- | --- |
 | 1 |21 |26 |
 | 10 |220 |56 |
@@ -193,7 +193,7 @@ cmd.CommandType = CommandType.StoredProcedure;
 
 다음 표에서는 테이블 반환 매개 변수 사용에 대 한 임시 테스트 결과를 밀리초 단위로 보여 줍니다.
 
-| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
+| 운영 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |124 |32 |
 | 10 |131 |25 |
@@ -233,7 +233,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 다음 임시 테스트 결과는 **SqlBulkCopy** (밀리초)로 일괄 처리의 성능을 보여 줍니다.
 
-| 작업 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
+| 운영 | 온-프레미스에서 Azure(밀리초) | Azure 동일한 데이터 센터(밀리초) |
 | --- | --- | --- |
 | 1 |433 |57 |
 | 10 |441 |32 |
@@ -278,7 +278,7 @@ using (SqlConnection connection = new SqlConnection(CloudConfigurationManager.Ge
 
 다음 임시 테스트 결과는 이러한 insert 문의 성능 (밀리초)을 보여 줍니다.
 
-| 작업 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
+| 운영 | 테이블 반환 매개 변수(밀리초) | 단일 문 INSERT(밀리초) |
 | --- | --- | --- |
 | 1 |32 |20 |
 | 10 |30 |25 |

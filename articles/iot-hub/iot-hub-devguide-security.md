@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.openlocfilehash: b84855057b43daa0aeff4878a69dac4ae765d2ef
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47eae55493c5db281ee1be0f9d32f8f8190fc286
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429298"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76546948"
 ---
 # <a name="control-access-to-iot-hub"></a>IoT Hub에 대한 액세스 제어
 
@@ -347,7 +347,7 @@ var token = generateSasToken(endpoint, policyKey, policyName, 60);
 
 ## <a name="supported-x509-certificates"></a>지원되는 X.509 인증서
 
-인증서 지문 또는 CA(인증 기관)를 Azure IoT Hub에 업로드하면 모든 X.509 인증서를 사용하여 IoT Hub로 디바이스를 인증할 수 있습니다. 인증서 지문을 사용하는 인증은 제공된 지문이 구성된 지문과 일치하는 지만 확인합니다. 인증 기관을 사용하는 인증은 인증서 체인의 유효성을 검사합니다. 
+인증서 지문 또는 CA(인증 기관)를 Azure IoT Hub에 업로드하면 모든 X.509 인증서를 사용하여 IoT Hub로 디바이스를 인증할 수 있습니다. 인증서 지문을 사용 하 여 인증 제공 된 지문이 구성 된 지문과 일치 하는지 확인 합니다. 인증 기관을 사용하는 인증은 인증서 체인의 유효성을 검사합니다. 어떤 방법을 사용 하 든 TLS 핸드셰이크를 사용 하려면 장치에 유효한 인증서와 개인 키가 있어야 합니다. 자세한 내용은 TLS 사양을 참조 하십시오. 예: [RFC 5246-tls (Transport Layer Security) 프로토콜 버전 1.2](https://tools.ietf.org/html/rfc5246/).
 
 지원되는 인증서는 다음과 같습니다.
 
@@ -461,6 +461,8 @@ IoT Hub에 사용자 지정 ID 레지스트리/인증 구성표를 구현하는 
 * [IoT Hub 쿼리 언어](iot-hub-devguide-query-language.md)는 IoT Hub에서 디바이스 쌍 및 작업에 대한 정보를 검색하는 데 사용할 수 있는 쿼리 언어에 대해 설명합니다.
 
 * [IoT Hub MQTT 지원](iot-hub-mqtt-support.md)은 MQTT 프로토콜에 대한 IoT Hub 지원에 대해 자세히 설명합니다.
+
+* [RFC 5246-tls (Transport Layer Security) 프로토콜 버전 1.2은](https://tools.ietf.org/html/rfc5246/) tls 인증에 대 한 자세한 정보를 제공 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

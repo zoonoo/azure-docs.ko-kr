@@ -9,13 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-Customer intent: As an IT admin, I need to be able to order Data Box Disk to upload on-premises data from my server onto Azure.
-ms.openlocfilehash: b67e7bf0b6b79d2ae29c2ba8ed7c337f152faebc
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
+ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74092072"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514122"
 ---
 ::: zone target="chromeless"
 
@@ -29,13 +28,13 @@ ms.locfileid: "74092072"
 
 이 자습서에서는 Azure Data Box Disk를 반송하기 위한 픽업 일정을 예약하는 방법을 설명합니다. 픽업 지침은 디바이스를 반환하는 위치에 따라 달라집니다. 
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
 > * Microsoft에 Data Box Disk 배송
 > * 다른 지역에서 Data Box Disk 픽업
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [자습서: Azure Data Box Disk에 데이터 복사 및 확인](data-box-disk-deploy-copy-data.md)을 참조하세요.
 

@@ -11,14 +11,14 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: b576510749e691b6255c849f14275db221c54460
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745111"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545163"
 ---
-# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance"></a>AI를 사용하여 데이터베이스 성능을 모니터링하고 문제를 해결하는 Intelligent Insights
+# <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
 
 Azure SQL Database Intelligent Insights를 통해 SQL Databases 및 Managed Instance 데이터베이스 성능에 어떤 일이 발생했는지 알 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: e438fb38afb649f6f4c7f595059ef64800977242
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: cfb9f54f5ba219a4db87144ab1e7ebff2b72b69e
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70240342"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514445"
 ---
 ::: zone target = "docs"
 
@@ -35,13 +35,13 @@ ms.locfileid: "70240342"
 이 자습서에서는 다음과 같은 주제에 대해 학습합니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box Heavy 배송
 > * Azure에 대한 데이터 업로드 확인
 > * Data Box Heavy에서 데이터 지우기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -134,7 +134,7 @@ Azure에 대한 업로드가 완료되면 Data Box 디스크의 데이터가 [NI
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * 배송 준비
 > * Microsoft에 Data Box Heavy 배송
 > * Azure에 대한 데이터 업로드 확인

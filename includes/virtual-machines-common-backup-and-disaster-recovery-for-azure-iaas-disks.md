@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 06/05/2018
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 9332079cd77c4dcc972059071165ba0631135b5c
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: cd10bd2a04bfb2a3e3316d86e64a98c75c12e36d
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74012529"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76530892"
 ---
 이 문서에서는 Azure에서 IaaS VM(가상 머신) 및 디스크의 백업 및 DR(재해 복구)을 계획하는 방법을 설명합니다. Managed Disks 및 Unmanaged Disks를 모두 다루고 있습니다.
 
@@ -51,7 +51,7 @@ IaaS 디스크의 경우 데이터의 내구성이 영구 스토리지 플랫폼
 
 이러한 별도의 장애 도메인 때문에 지역화된 하드웨어 오류는 일반적으로 집합에 있는 여러 VM에 동시에 영향을 주지 않습니다. 별도의 오류 도메인이 있으면 애플리케이션에 대한 고가용성을 제공합니다. 고가용성이 필요한 경우에는 가용성 집합을 사용하는 것이 좋습니다. 다음 섹션에서는 재해 복구 측면을 다룹니다.
 
-### <a name="backup-and-disaster-recovery"></a>Backup 및 재해 복구
+### <a name="backup-and-disaster-recovery"></a>백업 및 재해 복구
 
 재해 복구는 드물지만 주요한 인시던트로부터 복구하는 기능입니다. 이러한 인시던트에는 전체 지역에 영향을 주는 서비스 중단과 같이 일시적이지 않은 대규모 오류가 포함됩니다. 재해 복구에는 데이터 백업 및 보관이 포함되며, 백업에서 데이터베이스를 복원하는 것과 같은 수동 작업이 포함될 수 있습니다.
 
@@ -110,7 +110,7 @@ IaaS 애플리케이션 데이터 문제도 발생할 수 있습니다. 애플�
 | 시나리오 | 자동 복제 | DR 솔루션 |
 | --- | --- | --- |
 | 프리미엄 SSD 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
-| 관리되는 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
+| Managed Disks | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | 관리되지 않은 로컬 중복 스토리지 디스크 | 로컬([로컬 중복 스토리지](../articles/storage/common/storage-redundancy-lrs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/) |
 | 관리되지 않은 지역 중복 스토리지 디스크 | 지역 간([지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
 | 관리되지 않은 읽기 액세스 지역 중복 스토리지 디스크 | 지역 간([읽기 액세스 지역 중복 스토리지](../articles/storage/common/storage-redundancy-grs.md#read-access-geo-redundant-storage)) | [Azure Backup](https://azure.microsoft.com/services/backup/)<br/>[일관성 있는 스냅샷](#alternative-solution-consistent-snapshots) |
@@ -151,8 +151,6 @@ Azure Backup은 예약된 시간에 백업 작업을 시작할 때 VM에 설치�
 1.  백업 정책을 구성하고 동일한 UI에서 VM을 선택합니다.
 
 1.  Backup 에이전트가 VM에 설치되어 있는지 확인합니다. Azure 갤러리 이미지를 사용하여 VM을 만든 경우 백업 에이전트가 이미 설치되어 있습니다. 그렇지 않은 경우(즉, 사용자 지정 이미지를 사용하는 경우) [가상 머신에 VM 에이전트 설치](../articles/backup/backup-azure-arm-vms-prepare.md#install-the-vm-agent)에 대한 지침을 사용합니다.
-
-1.  VM에서 백업 서비스가 작동할 수 있도록 네트워크 연결을 허용하는지 확인합니다. [네트워크 연결](../articles/backup/backup-azure-arm-vms-prepare.md#establish-network-connectivity)을 위한 지침을 따릅니다.
 
 1.  이전 단계가 완료된 후에 백업 정책에서 지정한 대로 백업이 정기적으로 실행됩니다. 필요한 경우 Azure Portal의 자격 증명 모음 대시보드에서 첫 번째 백업을 수동으로 트리거할 수 있습니다.
 

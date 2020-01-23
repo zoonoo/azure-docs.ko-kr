@@ -8,12 +8,12 @@ ms.workload: infrastructure-services
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 4f434afdd02d15f98e005b44f5563847f4c5847d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: a7afb80276147c1562a5963a3ae9a319a8b73264
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278202"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544789"
 ---
 # <a name="preview-azure-spot-vms-for-virtual-machine-scale-sets"></a>미리 보기: 가상 머신 확장 집합에 대 한 Azure 스폿 Vm 
 
@@ -91,50 +91,20 @@ $vmssConfig = New-AzVmssConfig `
 
 ## <a name="resource-manager-templates"></a>Resource Manager 템플릿
 
-별색 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 설명 된 것과 동일 합니다. 템플릿의 *virtualMachineScaleSets//virtualMachineProfile* 리소스 유형에 ' priority ' 속성을 추가 하 고 *값을 값으로 지정 합니다* . *2019-03-01* API 버전 이상을 사용 해야 합니다. 
+별색 Vm을 사용 하는 확장 집합을 만드는 프로세스는 [Linux](quick-create-template-linux.md) 또는 [Windows](quick-create-template-windows.md)용 시작 문서에 설명 된 것과 동일 합니다. 
 
-삭제하도록 제거 정책을 설정하려면 'evictionPolicy' 매개 변수를 추가하고 *delete*로 설정합니다.
-
-다음 예제에서는 *미국 서 부*에 *MyScaleSet* 라는 Linux 스폿 확장 집합을 만들고, 제거 시 확장 집합에서 vm을 *삭제* 합니다.
+별색 템플릿 배포의 경우`"apiVersion": "2019-03-01"` 이상을 사용 합니다. 템플릿의 `"virtualMachineProfile":` 섹션에 `priority`, `evictionPolicy` 및 `billingProfile` 속성을 추가 합니다. 
 
 ```json
-{
-  "type": "Microsoft.Compute/virtualMachineScaleSets",
-  "name": "myScaleSet",
-  "location": "East US 2",
-  "apiVersion": "2019-03-01",
-  "sku": {
-    "name": "Standard_DS2_v2",
-    "capacity": "2"
-  },
-  "properties": {
-    "upgradePolicy": {
-      "mode": "Automatic"
-    },
-    "virtualMachineProfile": {
-       "priority": "Spot",
-       "evictionPolicy": "delete",
-       "storageProfile": {
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage"
-        },
-        "imageReference":  {
-          "publisher": "Canonical",
-          "offer": "UbuntuServer",
-          "sku": "16.04-LTS",
-          "version": "latest"
-        }
-      },
-      "osProfile": {
-        "computerNamePrefix": "myvmss",
-        "adminUsername": "azureuser",
-        "adminPassword": "P@ssw0rd!"
-      }
-    }
-  }
-}
+                "priority": "Spot",
+                "evictionPolicy": "Deallocate",
+                "billingProfile": {
+                    "maxPrice": -1
+                }
 ```
+
+제거 된 후에 인스턴스를 삭제 하려면 `evictionPolicy` 매개 변수를 `Delete`으로 변경 합니다.
+
 ## <a name="faq"></a>FAQ
 
 **Q:** 만든 후에는 표준 인스턴스와 동일한 스폿 인스턴스입니다.

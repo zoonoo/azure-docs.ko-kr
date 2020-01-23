@@ -7,24 +7,26 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: bcb0e9551f4415b2aac9eb2d641c91df9f692437
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/22/2020
+ms.openlocfilehash: a8176cc07296b7de7b6aba5356485280ef5ebde1
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979115"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548818"
 ---
 # <a name="create-apache-hadoop-cluster-with-secure-transfer-storage-accounts-in-azure-hdinsight"></a>Azure HDInsight에서 보안 전송 스토리지 계정으로 Apache Hadoop 클러스터 만들기
 
 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md) 기능은 보안 연결을 통해 모든 요청을 계정에 적용하여 Azure Storage 계정의 보안을 강화합니다. 이 기능과 wasbs 체계는 HDInsight 클러스터 버전 3.6 이상에서만 지원됩니다.
+
+**클러스터를 만든 후 보안 저장소 전송을 사용 하도록 설정 하면 저장소 계정을 사용 하 여 오류가 발생할 수 있으므로 권장 되지 않습니다. 속성을 사용 하는 새 클러스터를 만드는 것이 좋습니다.**
 
 ## <a name="prerequisites"></a>필수 조건
 
 이 문서를 시작 하기 전에 다음이 있어야 합니다.
 
 * Azure 구독: 1 개월 무료 평가판 계정을 만들려면 [azure.microsoft.com/free](https://azure.microsoft.com/free)으로 이동 합니다.
-* 보안 전송이 설정 된 Azure Storage 계정 자세한 지침은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. 클러스터를 만든 후 보안 저장소 전송을 사용 하도록 설정 하려면이 문서에서 다루지 않는 추가 단계가 필요 합니다.
+* 보안 전송이 설정 된 Azure Storage 계정 자세한 지침은 [스토리지 계정 만들기](../storage/common/storage-account-create.md) 및 [보안 전송 필요](../storage/common/storage-require-secure-transfer.md)를 참조하세요. 
 * 저장소 계정의 Blob 컨테이너입니다.
 
 ## <a name="create-cluster"></a>클러스터 만들기

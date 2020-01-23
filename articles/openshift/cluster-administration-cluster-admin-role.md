@@ -7,12 +7,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 0cb875122c63be18f7c39cdfea7986d705ed434e
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 610b1e0112b8135aa09ade5c800eaed987635cb4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539265"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545639"
 ---
 # <a name="azure-red-hat-openshift-customer-administrator-role"></a>Azure Red Hat OpenShift 고객 관리자 역할
 
@@ -22,7 +22,6 @@ Azure Red Hat OpenShift 클러스터의 클러스터 관리자입니다. 사용�
 
 > [!Note] 
 > 고객 관리 클러스터의 클러스터 역할은 클러스터 관리자 클러스터 역할과 동일 하지 않습니다.
-
 
 예를 들어`create`(동사 집합)와 연결 된 작업을 실행 하 여 리소스 이름 집합에 대해 작업을 수행할 수 있습니다 (`templates`). 이러한 역할 및 해당 동사 및 리소스 집합에 대 한 세부 정보를 보려면 다음 명령을 실행 합니다.
 
@@ -34,7 +33,13 @@ Azure Red Hat OpenShift 클러스터의 클러스터 관리자입니다. 사용�
 
 ## <a name="configure-the-customer-administrator-role"></a>고객 관리자 역할 구성
 
-`--customer-admin-group-id`플래그를 제공 하 여 클러스터를 만드는 동안에만 고객 관리 클러스터 클러스터 역할을 구성할 수 있습니다. Azure Active Directory 및 관리자 그룹을 구성 하는 방법에 [대 한 자세한 내용은 Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합](howto-aad-app-configuration.md)(영문)을 참조 하세요.
+`--customer-admin-group-id`플래그를 제공 하 여 클러스터를 만드는 동안에만 고객 관리 클러스터 클러스터 역할을 구성할 수 있습니다. 이 필드는 현재 Azure Portal에서 구성할 수 없습니다. Azure Active Directory 및 관리자 그룹을 구성 하는 방법에 [대 한 자세한 내용은 Azure Red Hat OpenShift에 대 한 Azure Active Directory 통합](howto-aad-app-configuration.md)(영문)을 참조 하세요.
+
+## <a name="confirm-membership-in-the-customer-administrator-role"></a>고객 관리자 역할의 멤버 자격 확인
+
+Customer admin 그룹의 멤버 자격을 확인 하려면 OpenShift CLI 명령 `oc get nodes` 또는 `oc projects`를 시도 합니다. 고객 관리 클러스터 역할을 보유 하 고 있는 경우에는 노드 목록이 표시 되 고, 고객 관리-프로젝트 역할만 있는 경우에는 사용 권한 오류가 표시 됩니다 `oc get nodes`. `oc projects`은 작업 중인 프로젝트 뿐 아니라 클러스터의 모든 프로젝트를 표시 합니다.
+
+클러스터에서 역할 및 사용 권한을 자세히 살펴보기 위해 [`oc policy who-can <verb> <resource>`](https://docs.openshift.com/container-platform/3.11/admin_guide/manage_rbac.html#managing-role-bindings) 명령을 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

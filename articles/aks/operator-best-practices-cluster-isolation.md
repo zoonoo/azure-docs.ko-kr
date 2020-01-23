@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
 ms.author: mlearned
-ms.openlocfilehash: 88b2da863b30157de7bb749ae0ca4d040484af52
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cb15f637337df05c61eeac611286b49e23b6adac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293643"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76549192"
 ---
 # <a name="best-practices-for-cluster-isolation-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 클러스터 격리 모범 사례
 
@@ -26,7 +26,7 @@ AKS(Azure Kubernetes Service)에서 클러스터를 관리할 경우 종종 팀 
 
 ## <a name="design-clusters-for-multi-tenancy"></a>다중 테넌트용 클러스터 설계
 
-Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. Kubernetes의 [네임 스페이스][k8s-namespaces] 는 논리적 격리 경계를 만듭니다. 격리 및 다중 테넌트에 대한 추가 Kubernetes 기능 및 고려 사항에는 다음 영역이 포함됩니다.
+Kubernetes는 동일한 클러스터에서 팀 및 워크로드를 논리적으로 격리할 수 있는 기능을 제공합니다. 목표는 각 팀에 필요한 리소스로 범위가 지정된 가장 적은 권한을 제공하는 것입니다. Kubernetes의 [네임 스페이스][k8s-namespaces] 는 논리적 격리 경계를 만듭니다. 격리 및 다중 테 넌 트에 대 한 추가 Kubernetes 기능 및 고려 사항은 다음과 같습니다.
 
 * **예약**에는 리소스 할당량 및 Pod 중단 예산과 같은 기본 기능 사용이 포함됩니다. 이러한 기능에 대 한 자세한 내용은 [AKS의 기본 scheduler 기능에 대 한 모범 사례][aks-best-practices-scheduler]를 참조 하세요.
   * 더 고급 스케줄러 기능에는 taint/toleration, 노드 선택기 및 노드/Pod 선호도 또는 선호도 방지가 포함됩니다. 이러한 기능에 대 한 자세한 내용은 [AKS의 advanced scheduler 기능 모범 사례][aks-best-practices-advanced-scheduler]를 참조 하세요.

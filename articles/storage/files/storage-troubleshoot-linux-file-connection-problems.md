@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2018
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 8b7a743ebcdf74f6ad740e4e4193bbd98da1536d
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 9849e8ab918562267e93506771a4c32cf96533a4
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291127"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544942"
 ---
 # <a name="troubleshoot-azure-files-problems-in-linux"></a>Linux에서 Azure Files 문제 해결
 
@@ -131,9 +131,8 @@ Linux용 SMB 3.0의 암호화 기능이 4.11 커널에 도입되었습니다. �
 Linux SMB 클라이언트가 암호화를 지원하지 않는 경우 파일 공유와 같은 데이터 센터의 Azure Linux VM에서 SMB 2.1을 사용하여 Azure Files를 탑재합니다. 스토리지 계정에서 [보안 전송 필요]( https://docs.microsoft.com/azure/storage/common/storage-require-secure-transfer) 설정을 사용하지 않도록 설정했는지 확인합니다. 
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "액세스 없음" 오류 발생
-
-포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Azure 파일 공유에 액세스 하거나 삭제 하려고 할 때 "액세스 없음" 오류 발생  
+포털에서 Azure 파일 공유에 액세스 하거나 삭제 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
 
 권한 없음  
 오류 코드: 403 

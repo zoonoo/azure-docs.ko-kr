@@ -9,16 +9,16 @@ ms.author: eustacea
 ms.date: 08/30/2019
 ms.topic: conceptual
 ms.service: iot-edge
-ms.openlocfilehash: 871f2ec029379f37fc02bcd79847fa04091f0507
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: d5cfa16196a8815b711fd5277a80f6eb67d3a388
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74666072"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548699"
 ---
 # <a name="azure-iot-edge-security-manager"></a>Azure IoT Edge 보안 관리자
 
-Azure IoT Edge 보안 관리자는 보안 실리콘 하드웨어를 추상화하여 IoT Edge 디바이스 및 이 디바이스의 모든 구성 요소를 보호하기 위해 잘 정립된 보안 코어입니다. 보안 강화를 위한 초점은 기술 통합 지점과 OEM (장비 제조업체)를 제공 합니다.
+Azure IoT Edge 보안 관리자는 보안 실리콘 하드웨어를 추상화하여 IoT Edge 디바이스 및 이 디바이스의 모든 구성 요소를 보호하기 위해 잘 정립된 보안 코어입니다. 보안 관리자는 보안 강화를 위한 초점은 기술 통합 지점과 OEM (장비 제조업체)를 제공 합니다.
 
 ![Azure IoT Edge 보안 관리자](media/edge-security-manager/iot-edge-security-manager.png)
 
@@ -41,7 +41,7 @@ IoT Edge 보안 관리자는 세 가지 구성 요소를 포함합니다.
 
 ## <a name="the-iot-edge-security-daemon"></a>IoT Edge 보안 디먼
 
-IoT Edge 보안 디먼은 IoT Edge security manager의 논리적 작업을 담당 합니다. IoT Edge 장치의 신뢰할 수 있는 컴퓨팅 기반에 대 한 중요 한 부분을 나타냅니다. 
+IoT Edge 보안 디먼은 IoT Edge security manager의 논리적 작업을 담당 합니다. IoT Edge 장치의 신뢰할 수 있는 컴퓨팅 기반에 대 한 중요 한 부분을 나타냅니다.
 
 ### <a name="design-principles"></a>디자인 원칙
 
@@ -79,11 +79,11 @@ IoT Edge 보안 디먼은 보안 강화를 위해 사용 가능한 신뢰 기술
 
 #### <a name="management-api"></a>관리 API
 
-IoT Edge 보안 디먼은 IoT Edge 모듈을 생성/시작/중지/제거할 때 IoT Edge 에이전트에서 호출 하는 관리 API를 제공 합니다. 보안 디먼은 모든 활성 모듈에 대해 "등록"을 저장 합니다. 이러한 등록은 모듈의 ID를 모듈의 일부 속성과 매핑합니다. 이러한 속성의 몇 가지 예에는 컨테이너에서 실행 중인 프로세스의 식별자(pid) 또는 Docker 컨테이너 콘텐츠의 해시가 있습니다.
+IoT Edge 보안 디먼은 IoT Edge 모듈을 생성/시작/중지/제거할 때 IoT Edge 에이전트에서 호출 하는 관리 API를 제공 합니다. 보안 디먼은 모든 활성 모듈에 대해 "등록"을 저장 합니다. 이러한 등록은 모듈의 ID를 모듈의 일부 속성과 매핑합니다. 예를 들어 이러한 모듈 속성에는 컨테이너에서 실행 중인 프로세스의 pid (프로세스 식별자)와 docker 컨테이너 콘텐츠의 해시가 포함 됩니다.
 
-이러한 속성은 작업 API (아래 설명 참조)에서 사용 되어 호출자에 게 작업을 수행할 수 있는 권한이 있는지 확인 합니다.
+이러한 속성은 작업 API (아래 설명 참조)에서 호출자에 게 작업에 대 한 권한이 있는지 확인 하는 데 사용 됩니다.
 
-관리 API는 IoT Edge 에이전트 에서만 호출할 수 있는 특권 수준의 API입니다.  IoT Edge 보안 디먼은 IoT Edge 에이전트를 부트스트랩하고 시작하기 때문에 IoT Edge 에이전트가 변조되지 않았다는 것을 증명한 후에, IoT Edge 에이전트에 대해 암시적인 등록을 만들 수 있습니다. 또한 작업 API가 사용 하는 것과 동일한 증명 프로세스는 관리 API에 대 한 액세스를 IoT Edge 에이전트로만 제한 합니다.
+관리 API는 IoT Edge 에이전트 에서만 호출할 수 있는 특권 수준의 API입니다.  IoT Edge 보안 디먼은 IoT Edge 에이전트를 부트스트랩 하 고 시작 하므로 IoT Edge 에이전트가 변조 되지 않았는지 확인 한 다음 IoT Edge 에이전트에 대 한 암시적 등록을 만들 수 있습니다. 또한 작업 API가 사용 하는 것과 동일한 증명 프로세스는 관리 API에 대 한 액세스를 IoT Edge 에이전트로만 제한 합니다.
 
 #### <a name="container-api"></a>컨테이너 API
 
@@ -93,7 +93,7 @@ IoT Edge 보안 디먼은 IoT Edge 모듈을 생성/시작/중지/제거할 때 
 
 작업 API는 모든 모듈에서 액세스할 수 있습니다. HSM으로 서명 된 서명 된 토큰 또는 X509 인증서와 해당 신뢰 번들을 모듈에 제공 하는 id 증명을 제공 합니다. 트러스트 번들에는 모듈이 신뢰해야 하는 다른 모든 서버용 CA 인증서가 포함됩니다.
 
-IoT Edge 보안 디먼은 증명 프로세스를 사용 하 여이 API를 보호 합니다. 모듈에서이 API를 호출 하면 보안 데몬이 id에 대 한 등록을 찾으려고 시도 합니다. 성공하면 등록의 속성을 사용하여 모듈을 측정합니다. 측정 프로세스의 결과가 등록과 일치 하면 새로운 id 증명이 생성 됩니다. 그리고 해당 CA 인증서(트러스트 번들)가 모듈에 반환됩니다.  모듈은 이 인증서를 사용하여 IoT Hub나 다른 모듈에 연결하거나 서버를 시작합니다. 서명 된 토큰이 만료 되 면 새 인증서를 요청 하는 모듈의 책임이 있습니다. 
+IoT Edge 보안 디먼은 증명 프로세스를 사용 하 여이 API를 보호 합니다. 모듈에서이 API를 호출 하면 보안 데몬이 id에 대 한 등록을 찾으려고 시도 합니다. 성공하면 등록의 속성을 사용하여 모듈을 측정합니다. 측정 프로세스의 결과가 등록과 일치 하면 새로운 id 증명이 생성 됩니다. 그리고 해당 CA 인증서(트러스트 번들)가 모듈에 반환됩니다.  모듈은 이 인증서를 사용하여 IoT Hub나 다른 모듈에 연결하거나 서버를 시작합니다. 서명 된 토큰이 만료 되 면 새 인증서를 요청 하는 모듈의 책임이 있습니다.
 
 ### <a name="integration-and-maintenance"></a>통합 및 유지 관리
 

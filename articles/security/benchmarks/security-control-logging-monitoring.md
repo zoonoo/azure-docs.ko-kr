@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: mbaldwin
 ms.custom: security-recommendations
-ms.openlocfilehash: ceb82bf729470f9996bc9ecc766329a0d1242ec4
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: ae9c678d9dfca895ec74ed92bcb1b541db6b134e
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75930025"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545503"
 ---
 # <a name="security-control-logging-and-monitoring"></a>보안 제어: 로깅 및 모니터링
 
@@ -77,7 +77,7 @@ https://docs.microsoft.com/azure/azure-monitor/platform/platform-logs-overview
 |--|--|--|
 | 2.4 | 6.2, 6.3 | Customer |
 
-Microsoft에서 계산 리소스를 소유 하는 경우 Microsoft는 모니터링을 담당 합니다. 조직에서 계산 리소스를 소유 하 고 있는 경우이를 모니터링 하는 것은 사용자의 책임입니다. Azure Security Center를 사용 하 여 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
+Microsoft에서 계산 리소스를 소유 하는 경우 Microsoft는 모니터링을 담당 합니다. 조직에서 계산 리소스를 소유 하 고 있는 경우이를 모니터링 하는 것은 사용자의 책임입니다. Azure Security Center를 사용 하 여 OS를 모니터링할 수 있습니다. 운영 체제에서 Security Center에 의해 수집 되는 데이터에는 OS 유형 및 버전, OS 로그 (Windows 이벤트 로그), 실행 중인 프로세스, 컴퓨터 이름, IP 주소 및 로그인 한 사용자가 포함 됩니다. 또한 Log Analytics 에이전트는 크래시 덤프 파일을 수집 합니다.
 
 Azure Monitor를 사용 하 여 Azure 가상 컴퓨터 내부 호스트 로그를 수집 하는 방법:
 

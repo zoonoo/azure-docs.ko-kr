@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/02/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 97fdb0b243f71701491f2d2424c04dbd19208ef0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0321d253eb1db414dff2acbb704d3d36726010d9
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291196"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544976"
 ---
 # <a name="troubleshoot-azure-files-problems-in-windows"></a>Windows에서 Azure Files 문제 해결
 
@@ -140,9 +140,8 @@ SMB 외에도 REST를 지 원하는 Azure Files입니다. REST 액세스는 포�
 > AzStorageFileHandle 및 AzStorageFileHandle cmdlet은 Az PowerShell module version 2.4 이상에 포함 되어 있습니다. 최신 Az PowerShell module을 설치 하려면 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
 
 <a id="noaaccessfailureportal"></a>
-## <a name="error-no-access-when-browsing-to-an-azure-file-share-in-the-portal"></a>포털에서 Azure 파일 공유를 찾을 때 "액세스 없음" 오류 발생
-
-포털에서 Azure 파일 공유를 찾을 때 다음 오류가 표시될 수 있습니다.
+## <a name="error-no-access-when-you-try-to-access-or-delete-an-azure-file-share"></a>Azure 파일 공유에 액세스 하거나 삭제 하려고 할 때 "액세스 없음" 오류 발생  
+포털에서 Azure 파일 공유에 액세스 하거나 삭제 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다.
 
 권한 없음  
 오류 코드: 403 

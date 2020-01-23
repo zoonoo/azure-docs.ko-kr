@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 42fa4dfb3e373eac4167ea1fecbd84ff3a7cca0d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 204026825a5132464e1adda611227db2ac7cf91f
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978005"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543990"
 ---
 # <a name="conditional-access-block-access-by-location"></a>조건부 액세스: 위치별 액세스 차단
 
@@ -25,7 +25,7 @@ ms.locfileid: "75978005"
 ## <a name="define-locations"></a>위치 정의
 
 1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
+1. **Azure Active Directory** > **보안** > **조건부 액세스** > **명명 된 위치**를 찾습니다.
 1. **새 위치**를 선택 합니다.
 1. 위치에 이름을 지정 합니다.
 1. 해당 위치나 **국가/지역을**구성 하는 외부에서 액세스할 수 있는 특정 IPv4 주소 범위를 알고 있는 경우 **IP 범위** 를 선택 합니다.

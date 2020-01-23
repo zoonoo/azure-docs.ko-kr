@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 09/03/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: b2ebb4c5a0df360cede084a90ebe5da041a08aa0
-ms.sourcegitcommit: 49c4b9c797c09c92632d7cedfec0ac1cf783631b
+ms.openlocfilehash: 70d5481c37777150927914042133286a77f53b89
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/05/2019
-ms.locfileid: "70241388"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514411"
 ---
 ::: zone target = "docs"
 
@@ -24,7 +24,7 @@ ms.locfileid: "70241388"
 
 자세한 단계별 배포 및 추적 지침은 [자습서: Azure Data Box Heavy 주문](data-box-heavy-deploy-ordered.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 디바이스를 배포하기 전에 설치 장소, Data Box 서비스 및 디바이스에 대한 다음 필수 조건을 완료합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "70241388"
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="order"></a>순서
+## <a name="order"></a>주문
 
 이 단계에는 약 5분 정도가 걸립니다.
 

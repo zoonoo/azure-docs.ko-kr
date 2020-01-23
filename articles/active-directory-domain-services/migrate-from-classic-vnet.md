@@ -7,20 +7,20 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: aafefeb94f3b150789a91c3cf669520ccb522dd8
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 5c50e3c17fe09b735aa4f4104615c4833164d94d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893062"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544160"
 ---
 # <a name="preview---migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>미리 보기-클래식 가상 네트워크 모델에서 리소스 관리자로 Azure AD Domain Services 마이그레이션
 
-Azure Active Directory Domain Services (AD DS)는 현재 클래식 가상 네트워크 모델을 사용 하는 고객이 리소스 관리자 가상 네트워크 모델에 대해 일회성 이동을 지원 합니다.
+Azure Active Directory Domain Services (AD DS)는 현재 클래식 가상 네트워크 모델을 사용 하는 고객이 리소스 관리자 가상 네트워크 모델에 대해 일회성 이동을 지원 합니다. 리소스 관리자 배포 모델을 사용 하는 Azure AD DS 관리 되는 도메인은 세분화 된 암호 정책, 감사 로그 및 계정 잠금 보호와 같은 추가 기능을 제공 합니다.
 
-이 문서에서는 마이그레이션에 대 한 이점과 고려 사항을 설명 하 고 기존 Azure AD DS 인스턴스를 성공적으로 마이그레이션하는 데 필요한 단계를 설명 합니다. 이 기능은 현재 미리 보기로 제공됩니다.
+이 문서에서는 마이그레이션에 대 한 이점과 고려 사항을 설명 하 고 기존 Azure AD DS 인스턴스를 성공적으로 마이그레이션하는 데 필요한 단계를 설명 합니다. 이 마이그레이션 기능은 현재 미리 보기로 제공 됩니다.
 
 ## <a name="overview-of-the-migration-process"></a>마이그레이션 프로세스 개요
 
@@ -106,7 +106,7 @@ Azure AD DS 관리 되는 도메인을 준비 하 고 마이그레이션하면 �
 
 ### <a name="ip-addresses"></a>IP 주소
 
-마이그레이션 후 Azure AD DS 관리 되는 도메인 변경에 대 한 도메인 컨트롤러 IP 주소입니다. 여기에는 보안 LDAP 끝점에 대 한 공용 IP 주소가 포함 됩니다. 새 IP 주소는 리소스 관리자 가상 네트워크의 새 서브넷에 대 한 주소 범위 내에 있습니다.
+마이그레이션 후 Azure AD DS 관리 되는 도메인 변경에 대 한 도메인 컨트롤러 IP 주소입니다. 이 변경에는 보안 LDAP 끝점에 대 한 공용 IP 주소가 포함 됩니다. 새 IP 주소는 리소스 관리자 가상 네트워크의 새 서브넷에 대 한 주소 범위 내에 있습니다.
 
 롤백하는 경우 IP 주소는 롤백된 후 변경 될 수 있습니다.
 
@@ -122,13 +122,13 @@ Azure AD DS는 일반적으로 주소 범위에서 처음 두 개의 사용 가�
 
 기본적으로 2 분 내에 잘못 된 암호 5 회는 30 분 동안 계정을 잠급니다.
 
-잠긴 계정에는에 로그인 할 수 없습니다 .이는 Azure AD DS 관리 되는 도메인 또는 계정에서 관리 하는 응용 프로그램을 관리 하는 기능을 방해할 수 있습니다. Azure AD DS 관리 되는 도메인을 마이그레이션한 후에는 로그인을 반복 해 서 실패 한 시도로 인해 영구 잠금의 원인이 되는 계정이 발생할 수 있습니다. 마이그레이션 후 두 가지 일반적인 시나리오는 다음과 같습니다.
+잠긴 계정은 로그인 하는 데 사용할 수 없습니다 .이는 Azure AD DS 관리 되는 도메인 또는 계정으로 관리 되는 응용 프로그램을 관리 하는 기능을 방해할 수 있습니다. Azure AD DS 관리 되는 도메인을 마이그레이션한 후에는 로그인을 반복 해 서 실패 한 시도로 인해 영구 잠금의 원인이 되는 계정이 발생할 수 있습니다. 마이그레이션 후 두 가지 일반적인 시나리오는 다음과 같습니다.
 
 * 만료 된 암호를 사용 하는 서비스 계정입니다.
     * 서비스 계정은 만료 된 암호를 사용 하 여 로그인을 반복적으로 시도 하 여 계정을 잠급니다. 이 문제를 해결 하려면 자격 증명이 만료 된 응용 프로그램 또는 VM을 찾아 암호를 업데이트 합니다.
 * 악의적인 엔터티가 무차별 암호 대입 시도를 사용 하 여 계정에 로그인 하 고 있습니다.
     * Vm이 인터넷에 노출 되 면 공격자가 서명 하려고 할 때 일반적인 사용자 이름 및 암호 조합을 시도 하는 경우가 많습니다. 이러한 반복적인 실패 한 로그인 시도는 계정을 잠글 수 있습니다. *관리자 또는* *관리자*와 같은 일반 이름으로 관리자 계정을 사용 하지 않는 것이 좋습니다. 예를 들어 관리 계정이 잠기는 것을 최소화 하는 것이 좋습니다.
-    * 인터넷에 노출 되는 Vm의 수를 최소화 합니다. [Azure 방호 (현재 미리 보기 상태)][azure-bastion] 를 사용 하 여 Azure Portal를 통해 vm에 안전 하 게 연결할 수 있습니다.
+    * 인터넷에 노출 되는 Vm의 수를 최소화 합니다. Azure Portal를 사용 하 여 Vm에 안전 하 게 연결 하기 위해 [Azure 방호][azure-bastion] 를 사용할 수 있습니다.
 
 마이그레이션 후 일부 계정이 잠길 수 있는 것으로 의심 되는 경우 최종 마이그레이션 단계에서는 감사를 사용 하도록 설정 하거나 세분화 된 암호 정책 설정을 변경 하는 방법을 간략하게 설명 합니다.
 
@@ -164,11 +164,11 @@ Azure AD DS 관리 되는 도메인을 마이그레이션할 수 있는 가상 �
 
 ## <a name="update-and-verify-virtual-network-settings"></a>가상 네트워크 설정 업데이트 및 확인
 
-마이그레이션을 시작 하기 전에 다음 초기 검사 및 업데이트를 완료 합니다. 이러한 단계는 마이그레이션 전에 언제 든 지 발생할 수 있으며, Azure AD DS 관리 되는 도메인의 작업에 영향을 주지 않습니다.
+마이그레이션 프로세스를 시작 하기 전에 다음 초기 검사 및 업데이트를 완료 합니다. 이러한 단계는 마이그레이션 전에 언제 든 지 발생할 수 있으며, Azure AD DS 관리 되는 도메인의 작업에 영향을 주지 않습니다.
 
 1. 로컬 Azure PowerShell 환경을 최신 버전으로 업데이트 합니다. 마이그레이션 단계를 완료 하려면 버전 *2.3.2*이상이 필요 합니다.
 
-    을 확인 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 개요][azure-powershell]를 참조 하세요.
+    PowerShell 버전을 확인 하 고 업데이트 하는 방법에 대 한 자세한 내용은 [Azure PowerShell 개요][azure-powershell]를 참조 하세요.
 
 1. 기존 리소스 관리자 가상 네트워크를 만들거나 선택 합니다.
 
@@ -210,7 +210,8 @@ Azure PowerShell은 마이그레이션을 위해 Azure AD DS 관리 되는 도�
 
     ```powershell
     Migrate-Aadds `
-        -Prepare -ManagedDomainFqdn contoso.com `
+        -Prepare `
+        -ManagedDomainFqdn contoso.com `
         -Credentials $creds
     ```
 
@@ -273,27 +274,27 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 
 마이그레이션 프로세스가 성공적으로 완료 되 면 일부 선택적 구성 단계에서 감사 로그 또는 전자 메일 알림을 사용 하도록 설정 하거나 세분화 된 암호 정책을 업데이트 합니다.
 
-#### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Azure Monitor를 사용 하 여 감사 로그 구독
+### <a name="subscribe-to-audit-logs-using-azure-monitor"></a>Azure Monitor를 사용 하 여 감사 로그 구독
 
 Azure AD DS는 도메인 컨트롤러에서 문제를 해결 하 고 이벤트를 볼 수 있도록 감사 로그를 노출 합니다. 자세한 내용은 [사용 및 감사 로그 사용][security-audits]을 참조 하세요.
 
 템플릿을 사용 하 여 로그에 노출 되는 중요 한 정보를 모니터링할 수 있습니다. 예를 들어 감사 로그 통합 문서 템플릿은 Azure AD DS 관리 되는 도메인에서 가능한 계정 잠금을 모니터링할 수 있습니다.
 
-#### <a name="configure-azure-ad-domain-services-email-notifications"></a>전자 메일 알림 Azure AD Domain Services 구성
+### <a name="configure-azure-ad-domain-services-email-notifications"></a>전자 메일 알림 Azure AD Domain Services 구성
 
 Azure AD DS 관리 되는 도메인에서 문제가 검색 되 면 알림을 받으려면 Azure Portal에서 전자 메일 알림 설정을 업데이트 합니다. 자세한 내용은 [알림 설정 구성][notifications]을 참조 하세요.
 
-#### <a name="update-fine-grained-password-policy"></a>세분화 암호 정책 업데이트
+### <a name="update-fine-grained-password-policy"></a>세분화 암호 정책 업데이트
 
 필요한 경우 세분화 된 암호 정책을 기본 구성 보다 덜 제한적으로 업데이트할 수 있습니다. 감사 로그를 사용 하 여 덜 제한적인 설정이 적합 한지 확인 한 다음 필요에 따라 정책을 구성할 수 있습니다. 다음 개략적인 단계를 사용 하 여 마이그레이션 후 반복적으로 잠긴 계정의 정책 설정을 검토 하 고 업데이트 합니다.
 
 1. Azure AD DS 관리 되는 도메인에 대 한 제한 사항을 줄이고 감사 로그의 이벤트를 관찰 하는 [암호 정책을 구성][password-policy] 합니다.
 1. 서비스 계정에서 감사 로그에 확인 된 대로 만료 된 암호를 사용 하는 경우 해당 계정을 올바른 암호로 업데이트 합니다.
 1. VM이 인터넷에 노출 되는 경우 로그인을 많이 시도 하는 *관리자*, *사용자*또는 *게스트* 와 같은 일반 계정 이름을 검토 합니다. 가능 하면 보다 일반적으로 명명 된 계정을 사용 하도록 해당 Vm을 업데이트 합니다.
-1. VM의 네트워크 추적을 사용 하 여 공격의 원인을 찾고 해당 IP 주소를 차단 하 여 로그인을 시도할 수 있습니다.
+1. VM의 네트워크 추적을 사용 하 여 공격의 원인을 찾고 해당 IP 주소에서 로그인을 시도할 수 없도록 차단 합니다.
 1. 잠금 문제가 최소화 되 면 세분화 된 암호 정책을 필요한 만큼 제한적으로 업데이트 합니다.
 
-#### <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
+### <a name="creating-a-network-security-group"></a>네트워크 보안 그룹 만들기
 
 Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 들어오는 모든 트래픽을 차단 하는 네트워크 보안 그룹이 필요 합니다. 이 네트워크 보안 그룹은 관리 되는 도메인에 대 한 액세스를 잠그기 위한 추가 보호 계층 역할을 하며 자동으로 생성 되지 않습니다. 네트워크 보안 그룹을 만들고 필요한 포트를 열려면 다음 단계를 검토 합니다.
 
@@ -301,6 +302,8 @@ Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 
 1. 보안 LDAP를 사용 하는 경우 *TCP* 포트 *636*에 들어오는 트래픽을 허용 하도록 네트워크 보안 그룹에 규칙을 추가 합니다. 자세한 내용은 [보안 LDAP 구성][secure-ldap]을 참조 하세요.
 
 ## <a name="roll-back-and-restore-from-migration"></a>마이그레이션에서 롤백 및 복원
+
+마이그레이션 프로세스의 특정 시점까지 Azure AD DS 관리 되는 도메인을 롤백하거나 복원 하도록 선택할 수 있습니다.
 
 ### <a name="roll-back"></a>롤백
 

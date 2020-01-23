@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/12/2020
 ms.author: mlearned
-ms.openlocfilehash: 054113da7fe06436fab0cdfff6c4257f1263de97
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 23a5dbf2333ca86c2d51d54bf983b00a71936eec
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290362"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76547951"
 ---
 # <a name="bring-your-own-keys-byok-with-azure-disks-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Azure 디스크를 사용 하 여 사용자 고유의 키 (BYOK) 가져오기
 
@@ -98,7 +98,7 @@ az role assignment create --assignee $desIdentity --role Reader --scope $keyVaul
 
 ## <a name="create-a-new-aks-cluster-and-encrypt-the-os-disk"></a>새 AKS 클러스터를 만들고 OS 디스크를 암호화 합니다.
 
-**새 리소스 그룹** 및 AKS 클러스터를 만든 다음, 키를 사용 하 여 OS 디스크를 암호화 합니다. 고객 관리 키는 1.17 보다 큰 kubernetes 버전 에서만 지원 됩니다. 
+**새 리소스 그룹** 및 AKS 클러스터를 만든 다음, 키를 사용 하 여 OS 디스크를 암호화 합니다. 고객 관리 키는 1.17 보다 큰 Kubernetes 버전 에서만 지원 됩니다. 
 
 > [!IMPORTANT]
 > AKS 클러스터에 대 한 새 리소스 그룹을 만들어야 합니다.

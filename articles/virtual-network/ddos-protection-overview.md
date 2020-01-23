@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 10/13/2018
+ms.date: 01/22/2020
 ms.author: kumud
-ms.openlocfilehash: ef2319f18b6df15fd7f33e9344e8506f853f47e6
-ms.sourcegitcommit: 6eecb9a71f8d69851bc962e2751971fccf29557f
+ms.openlocfilehash: 23dcabf74284c36f0cb221db7e192859aa75f1f6
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72532230"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544551"
 ---
 # <a name="azure-ddos-protection-standard-overview"></a>Azure DDoS Protection 표준 개요
 
@@ -33,17 +33,17 @@ DDoS(배포된 서비스 거부) 공격은 고객이 애플리케이션을 클�
 
 |기능                                         |DDoS Protection 기본                 |DDoS Protection 표준                      |
 |------------------------------------------------|--------------------------------------|----------------------------------------------|
-|Always on 검색 & 활성 트래픽 모니터링 |yes                                   |yes                                           |
-|자동 공격 완화                    |yes                                   |yes                                           |
+|Always on 검색 & 활성 트래픽 모니터링 |예                                   |예                                           |
+|자동 공격 완화                    |예                                   |예                                           |
 |가용성 보장                          |Azure 지역                          |애플리케이션                                   |
 |완화 정책                             |Azure 트래픽 영역 볼륨에 맞게 조정 |응용 프로그램 트래픽 볼륨에 맞게 조정          |
 |메트릭 및 알림                                |아닙니다.                                    |Azure monitor를 통해 진단 로그를 & 실시간 공격 메트릭                                 |
 |완화 보고서                              |아닙니다.                                    |사후 공격 완화 보고서                |
 |완화 흐름 로그                            |아닙니다.                                    |SIEM 통합을 위한 NRT 로그 스트림           |
 |마이그레이션 정책 사용자 지정                 |아닙니다.                                    |DDoS 전문가 참여                           |
-|지원                                         |최상의 노력                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
+|지원                                         |최상                           |활성 공격 중 DDoS 전문가에 대 한 액세스|
 |SLA                                             |Azure 지역                          |응용 프로그램 보장 & 비용 보호       |
-|가격                                         |체험판                                  |매월 & 사용량 기반                         |
+|가격 책정                                         |체험판                                  |매월 & 사용량 기반                         |
 
 ## <a name="types-of-ddos-attacks-that-ddos-protection-standard-mitigates"></a>DDoS Protection 표준으로 완화되는 DDoS 공격의 유형
 
@@ -76,7 +76,7 @@ DDoS Protection 표준 기능에는 다음이 포함됩니다.
 
 DDoS Protection 표준은 실제 트래픽 사용률을 모니터링하고 이를 DDoS 정책에 정의된 임계값과 지속적으로 비교합니다. 트래픽 임계값이 초과되면 DDoS 완화가 자동으로 시작됩니다. 트래픽이 임계값 아래로 돌아오면 완화가 제거됩니다.
 
-![해결 방법](./media/ddos-protection-overview/mitigation.png)
+![완화 방법](./media/ddos-protection-overview/mitigation.png)
 
 완화 중에 보호되는 리소스로 보낸 트래픽은 DDoS Protection 서비스를 통해 리디렉션되며 다음과 같은 여러 검사가 수행됩니다.
 

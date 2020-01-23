@@ -3,12 +3,12 @@ title: Azure Service Fabric-Service Fabric 응용 프로그램 KeyVault 참조 �
 description: 이 문서에서는 응용 프로그램 암호에 대 한 service fabric KeyVaultReference 지원을 사용 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 09/20/2019
-ms.openlocfilehash: 3f4c4979d0ce1329ac8ba49b236dae20a4e88b53
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: f7d8a083ea5ec4b66c29d392ee98927915465875
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76167119"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545486"
 ---
 #  <a name="keyvaultreference-support-for-service-fabric-applications-preview"></a>Service Fabric 응용 프로그램에 대 한 KeyVaultReference 지원 (미리 보기)
 
@@ -22,7 +22,7 @@ ms.locfileid: "76167119"
 
 - 중앙 비밀 저장소 (CSS).
 
-    CSS (중앙 비밀 저장소)는 서비스 패브릭의 암호화 된 로컬 비밀 캐시 이며 인출 되 면 KeyVaultReference는 CSS로 캐시 됩니다.
+    CSS (중앙 비밀 저장소)는 Service Fabric의 암호화 된 로컬 비밀 캐시입니다. CSS는 중요 한 데이터 (예: 암호, 토큰, 키 등)를 메모리에 암호화 된 상태로 유지 하는 로컬 암호 저장소 캐시입니다. 인출 되 면 KeyVaultReference는 CSS로 캐시 됩니다.
 
     KeyVaultReference 지원에 필요한 모든 기능을 사용 하도록 설정 하려면 `fabricSettings` 아래의 클러스터 구성에 아래를 추가 합니다.
 
