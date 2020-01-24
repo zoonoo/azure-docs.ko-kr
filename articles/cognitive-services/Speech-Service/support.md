@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: jhakulin
-ms.openlocfilehash: 7017c3065e41befab6b5d7cdea47e2e3e6720173
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: d35c02386b7bcb18781dcbd8c209da43d590868c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928654"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169520"
 ---
 # <a name="support-and-help-options"></a>지원 및 도움말 옵션
 
@@ -37,7 +37,7 @@ Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://az
 
 [릴리스 정보](https://aka.ms/csspeech/whatsnew)는 새 릴리스가 출시되는 즉시 업데이트됩니다. 그 정보는 새로운 기능, 향상 및 버그 수정에 대한 정보를 포함합니다.
 
-## <a name="search"></a>Search
+## <a name="search"></a>검색
 
 설명서, 샘플 또는 [Stack Overflow](https://www.stackoverflow.com) 질문에 대한 답변이나 샘플에서 필요한 대답을 찾을 수 있습니다.
 
@@ -55,19 +55,8 @@ Cognitive Services에 대한 뉴스는 [Cognitive Services 블로그](https://az
 
 Azure 고객은 Azure Portal에서 지원 요청을 만들고 관리할 수 있습니다.
 
-* [Azure 포털](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
+* [Azure Portal](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)
 * [미국 정부의 Azure Portal](https://portal.azure.us)
-
-## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
-
-Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
-
-검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [microsoft 인지\]\[음성\]\[](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
-
-> [!TIP]
-> Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
-> * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
-> * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="create-a-github-issue"></a>GitHub 문제 만들기
 
@@ -108,6 +97,16 @@ Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 
  - 상호 작용하는 특정 서비스에 대한 오류를 보고하는 경우 보고된 인시던트의 SessionId 및 시간(표준 시간대 포함)을 보고합니다. SessionId는 받은 모든 콜백/이벤트에 보고됩니다.
  - 기타 추가 정보
 
+## <a name="post-a-question-to-stack-overflow"></a>Stack Overflow에 질문을 게시합니다.
+
+Stack Overflow는 개발 관련 질문에 대한 기본 설정 채널입니다. 여기서는 커뮤니티 구성원과 Microsoft 팀 구성원이 문제 해결에 직접 참여하고 있습니다.
+
+검색을 통해 문제에 대 한 답변을 찾을 수 없는 경우 [microsoft 인지\]\[음성\]\[](https://stackoverflow.com/questions/tagged/microsoft-cognitive+speech)태그를 사용 하 여 Stack Overflow에 새 질문을 제출 합니다.
+
+> [!TIP]
+> Stack Overflow의 다음 게시물에는 질문을 작성하고 소스 코드를 추가하는 방법에 대한 팁이 포함되어 있습니다. 다음 지침을 따르면 커뮤니티 구성원이 질문을 신속하게 평가하고 답변할 수 있는 기회를 늘릴 수 있습니다.  
+> * [좋은 질문을 하는 방법](https://stackoverflow.com/help/how-to-ask)
+> * [최소한의 완전하고 검증 가능한 예제를 만드는 방법](https://stackoverflow.com/help/mcve)
 
 ## <a name="uservoice-forum"></a>UserVoice 포럼
 

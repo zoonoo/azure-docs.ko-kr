@@ -5,12 +5,12 @@ metadata:
   title: Team Data Science Process 설명서
   description: 기민한 반복 데이터 과학 방법론인 Team Data Science Process를 사용하여 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공하는 방법을 알아봅니다. TDSP는 팀 협업 및 학습을 향상하도록 돕습니다. 데이터 과학 이니셔티브의 성공적인 구현을 용이하게 하는 산업의 Microsoft 및 기타 업계에서 모범 사례 및 구조의 추출을 포함합니다. 목표는 회사가 해당 분석 프로그램의 이점을 완전히 이해하도록 돕는 것입니다.
   services: machine-learning
-  author: cjgronlund
+  author: marktab
   ms.service: machine-learning
   ms.subservice: team-data-science-process
   ms.topic: landing-page
-  ms.date: 01/18/2018
-  ms.author: cgronlun
+  ms.date: 01/10/2020
+  ms.author: marktab
 abstract:
   description: Team Data Science Process는 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. TDSP는 팀 협업 및 학습을 향상하도록 돕습니다. 데이터 과학 이니셔티브의 성공적인 구현을 용이하게 하는 산업의 Microsoft 및 기타 업계에서 모범 사례 및 구조의 추출을 포함합니다. 목표는 회사가 해당 분석 프로그램의 이점을 완전히 이해하도록 돕는 것입니다.
 sections:

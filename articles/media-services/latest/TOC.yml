@@ -90,7 +90,7 @@
     - name: 패키징 및 제공
       items:
         - name: 동적 패키징
-          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest'
+          displayName: 'origin, packager, HLS, DASH, CMAF, Smooth, manifest, deliver, format, URL, streaming'
           href: dynamic-packaging-overview.md
         - name: 동적 매니페스트
           href: filters-dynamic-manifest-overview.md
@@ -330,7 +330,7 @@
       href: media-services-community.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=web-mobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/media-services/'
     - name: 동영상
       href: 'https://azure.microsoft.com/resources/videos/index/?services=media-services'
