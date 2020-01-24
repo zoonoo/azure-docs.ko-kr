@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ac0f59ea709e25f3d71a78ece5ebf40690bd3be
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: db9b95f82a18072af538d4aa946431dcef8d9cff
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949629"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154644"
 ---
 # <a name="customize-the-user-interface-of-your-application-using-a-custom-policy-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정
 
@@ -24,7 +24,7 @@ ms.locfileid: "74949629"
 
 이 문서를 완료 하면 브랜드와 모양을 사용 하 여 등록 및 로그인 사용자 지정 정책을 사용할 수 있습니다. Azure AD B2C(Azure Active Directory B2C)를 사용하면 사용자에게 제공되는 HTML 및 CSS 콘텐츠를 거의 완벽하게 제어할 수 있습니다. 사용자 지정 정책을 사용하는 경우 Azure Portal의 컨트롤을 사용하는 대신 XML로 UI 사용자 지정을 구성합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다. 로컬 계정을 사용하여 등록 및 로그인하기 위한 사용자 지정 정책이 작동해야 합니다.
 
@@ -64,7 +64,7 @@ ms.locfileid: "74949629"
 
 Blob storage에서이 HTML 콘텐츠를 호스팅하려면 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **허브** 메뉴에서 **새로 만들기** > **스토리지** > **스토리지 계정**을 차례로 선택합니다.
 1. 스토리지 계정에 대한 **구독**을 선택합니다.
 1. **리소스 그룹**을 만들거나 기존 그룹을 선택합니다.
@@ -101,12 +101,12 @@ Blob storage에서 공용 컨테이너를 만들려면 다음 단계를 수행 �
 다음 단계를 수행 하 여 원본 간 리소스 공유에 대 한 Blob 저장소를 구성 합니다.
 
 1. 메뉴에서 **CORS**를 선택합니다.
-1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. 예: `https://fabrikam.b2clogin.com` 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
+1. **허용된 원본**에 `https://your-tenant-name.b2clogin.com`을 입력합니다. `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다. `https://fabrikam.b2clogin.com`)을 입력합니다. 테넌트 이름을 입력할 때는 모두 소문자를 사용해야 합니다.
 1. **허용된 메소드**에서 `GET`과 `OPTIONS`를 모두 선택합니다.
 1. **허용된 헤더**에 별표(*)를 입력합니다.
 1. **노출된 헤더**에 별표(*)를 입력합니다.
 1. **최대 기간**에 200을 입력합니다.
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **저장**을 클릭합니다.
 
 ## <a name="test-cors"></a>CORS 테스트
 
@@ -125,7 +125,7 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 1. 확장 파일을 엽니다(예: 예: *TrustFrameworkExtensions.xml* **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 복사한 **ContentDefinitions**의 전체 내용을 **BuildingBlocks** 요소의 자식으로 붙여 넣습니다.
 1. 복사한 XML에서 `Id="api.signuporsignin"`을 포함하는 **ContentDefinition** 요소를 검색합니다.
-1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. 예: `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`
+1. **LoadUri** 값을 스토리지에 업로드한 HTML 파일의 URL로 변경합니다. `https://your-storage-account.blob.core.windows.net/your-container/customize-ui.html`)을 입력합니다.
 
     사용자 지정 정책이 다음과 비슷해야 합니다.
 
@@ -146,19 +146,19 @@ UI 사용자 지정을 구성하려면 **ContentDefinition** 및 해당 자식 �
 
 1. 확장 파일을 저장합니다.
 
-## <a name="upload-your-updated-custom-policy"></a>업데이트된 사용자 지정 정책 업로드
+## <a name="upload-and-test-your-updated-custom-policy"></a>업데이트 된 사용자 지정 정책 업로드 및 테스트
 
-1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고 테넌트가 포함된 디렉터리를 선택합니다.
-1. Azure Portal의 왼쪽 위에서 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
-1. **ID 경험 프레임워크**를 선택합니다.
-1. **모든 정책**을 클릭합니다.
-1. **업로드 정책**을 클릭합니다.
+### <a name="upload-the-custom-policy"></a>사용자 지정 정책 업로드
+
+1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
+1. **Azure AD B2C**를 검색 하 고 선택 합니다.
+1. **정책**에서 **Id 경험 프레임 워크**를 선택 합니다.
+1. **사용자 지정 정책 업로드**를 선택 합니다.
 1. 이전에 변경한 확장 파일을 업로드합니다.
 
-## <a name="test-the-custom-policy-by-using-run-now"></a>**지금 실행**을 사용하여 사용자 지정 정책 테스트
+### <a name="test-the-custom-policy-by-using-run-now"></a>**지금 실행**을 사용하여 사용자 지정 정책 테스트
 
-1. **Azure AD B2C** 페이지에서 **모든 정책**으로 이동 합니다.
-1. 업로드한 사용자 지정 정책을 선택하고 **지금 실행** 단추를 클릭합니다.
+1. 업로드 한 정책을 선택 하 고 **지금 실행**을 선택 합니다.
 1. 이메일 주소를 사용하여 등록할 수 있습니다.
 
 ## <a name="reference"></a>참조
@@ -172,7 +172,7 @@ git clone https://github.com/azureadquickstarts/b2c-azureblobstorage-client
 
 sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니다.
 
-| HTML5 템플릿 | 설명 |
+| HTML5 템플릿 | Description |
 |----------------|-------------|
 | *phonefactor.html* | 다단계 인증 페이지의 템플릿으로 사용합니다. |
 | *resetpassword.html* | 암호 찾기 페이지의 템플릿으로 사용합니다. |
@@ -193,7 +193,7 @@ sample_templates/wingtip 폴더에는 다음과 같은 HTML 파일이 있습니�
 
 등록 또는 로그인 사용자 지정 정책 수정 섹션에서 `api.idpselections`에 대한 콘텐츠 정의를 구성했습니다. 다음 표에서는 Azure AD B2C ID 환경 프레임워크에서 인식되는 콘텐츠 정의 ID 및 해당 설명에 대한 전체 집합을 보여 줍니다.
 
-| 콘텐츠 정의 ID | 설명 |
+| 콘텐츠 정의 ID | Description |
 |-----------------------|-------------|
 | *api.error* | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. |
 | *api.idpselections* | **ID 공급자 선택 페이지**입니다. 이 페이지는 로그인하는 동안 사용자가 선택할 수 있는 ID 공급자의 목록을 포함합니다. 이러한 옵션은 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |

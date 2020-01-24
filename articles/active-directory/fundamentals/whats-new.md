@@ -16,12 +16,12 @@ ms.author: lizross
 ms.reviewer: dhanyahk
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4d55cb4667c846b179caef6c2819a08f4e9fe2ae
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 23e48787162bccbf45e420f2deb002879c72fa09
+ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422749"
+ms.lasthandoff: 01/15/2020
+ms.locfileid: "75978875"
 ---
 # <a name="whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능
 
@@ -768,7 +768,7 @@ AzureAD 및 AzureAD Preview PowerShell 모듈에 대 한 새로운 업데이트�
 
 Azure Portal에서 사용할 수 있는 동적 그룹 규칙 작성기에 대 한 몇 가지 UI 기능이 향상 되어 새 규칙을 보다 쉽게 설정 하거나 기존 규칙을 변경 하는 데 도움이 됩니다. 이 디자인 개선을 통해 하나의 식 대신 최대 5 개의 식으로 규칙을 만들 수 있습니다. 또한 사용 되지 않는 장치 속성을 제거 하도록 장치 속성 목록을 업데이트 했습니다.
 
-자세한 내용은 [동적 멤버 관리 규칙 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-update-rule)를 참조 하세요.
+자세한 내용은 [동적 멤버 관리 규칙 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)를 참조 하세요.
 
 ---
 
