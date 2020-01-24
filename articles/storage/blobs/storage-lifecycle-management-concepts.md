@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 012ff33bb31c78b26791e6337ae434acfe4bc865
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351364"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260956"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -34,7 +34,7 @@ ms.locfileid: "75351364"
 
 수명 주기 관리 정책은 범용 v2 (GPv2) 계정, Blob storage 계정 및 프리미엄 블록 Blob storage 계정에서 사용할 수 있습니다. Azure Portal에서 기존 범용 (GPv1) 계정을 GPv2 계정으로 업그레이드할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](../common/storage-account-overview.md)를 참조하세요.  
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 수명 주기 관리 기능은 무료로 제공 됩니다. [Blob 나열](https://docs.microsoft.com/rest/api/storageservices/list-blobs) 및 [Blob 계층 설정](https://docs.microsoft.com/rest/api/storageservices/set-blob-tier) API 호출에 대한 일반 작업 비용은 고객에게 청구됩니다. 삭제 작업은 무료입니다. 가격 책정에 대한 자세한 내용은 [블록 Blob 가격](https://azure.microsoft.com/pricing/details/storage/blobs/)을 참조하세요.
 
@@ -247,6 +247,9 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 
 다음 샘플 규칙은 `container1` 내에 존재 하는 개체에 대 한 작업을 실행 하 고 `foo`에서 시작 하는 계정을 필터링 합니다.  
 
+>[!NOTE]
+>수명 주기 관리는 블록 blob 유형만 지원 합니다.  
+
 - 마지막으로 수정한 시점으로부터 30일 후 Blob을 쿨 계층으로 이동
 - 마지막으로 수정한 시점으로부터 90일 후 Blob을 보관 계층으로 이동
 - 마지막으로 수정한 시점으로부터 2,555일(7년) 후 BLOB 삭제
@@ -350,7 +353,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 때 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
 
 > [!NOTE] 
-> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 PUTBLOCKLIST 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 [](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
+> Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 
 
 ```json
 {

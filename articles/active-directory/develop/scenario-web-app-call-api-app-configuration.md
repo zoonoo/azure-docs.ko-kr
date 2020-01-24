@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e551159ad2d41af37b1f400e91680c49117498d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7bf5256390961f4d469aa70be4b0b0c1069db4cf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423603"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701691"
 ---
 # <a name="web-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 웹 앱-코드 구성
 
@@ -35,7 +34,7 @@ ms.locfileid: "75423603"
 
 웹 앱에 대 한 권한 부여 코드 흐름을 지 원하는 라이브러리는 다음과 같습니다.
 
-| MSAL 라이브러리 | Description |
+| MSAL 라이브러리 | 설명 |
 |--------------|-------------|
 | ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 지원 되는 플랫폼은 .NET Framework 및 .NET Core 플랫폼입니다 (이러한 플랫폼은 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되므로 UWP, Xamarin.ios 및 Xamarin.ios가 아님). |
 | ![MSAL Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Python 웹 응용 프로그램 지원 |

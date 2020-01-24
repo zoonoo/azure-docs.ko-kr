@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6dd50aa00368469a9c5b42c41826da28566268d4
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70125427"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703000"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -55,12 +54,12 @@ ms.locfileid: "70125427"
 
 9/2 주부터 POST 메서드를 사용 하는 인증 요청은 보다 엄격한 HTTP 표준을 사용 하 여 유효성이 검사 됩니다.  특히 공백과 큰따옴표 (")는 요청 양식 값에서 더 이상 제거 되지 않습니다. 이러한 변경으로 인해 기존 클라이언트는 중단 되지 않으며, Azure AD로 전송 되는 요청은 매번 안정적으로 처리 됩니다. 나중에 (위 참조) 요청 내에서 중복 된 매개 변수를 거부 하 고 BOM을 무시할 계획입니다. 
 
-예제:
+예:
 
-현재는 `?e=    "f"&g=h` 와 `?e=f&g=h` 동일 하 게 `e`  == 구문 분석됩니다.`f`  이 변경으로 인해 이제는 `e`  ==  `    "f"` 이를 구문 분석 하 여 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다. 
+현재 `?e=    "f"&g=h` `?e=f&g=h`와 동일 하 게 구문 분석 되므로 `f` == `e`.  이와 같이 변경 하면 `e` == `    "f"` 하 여이를 구문 분석할 수 있습니다 .이는 유효한 인수가 될 가능성이 낮으므로 요청이 실패 합니다. 
 
 
-## <a name="july-2019"></a>7 월 2019
+## <a name="july-2019"></a>2019년 7월
 
 ### <a name="app-only-tokens-for-single-tenant-applications-are-only-issued-if-the-client-app-exists-in-the-resource-tenant"></a>단일 테 넌 트 응용 프로그램에 대 한 앱 전용 토큰은 클라이언트 앱이 리소스 테 넌 트에 있는 경우에만 실행 됩니다.
 
@@ -70,7 +69,7 @@ ms.locfileid: "70125427"
 
 **영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
-보안 변경은 응용 프로그램 전용 토큰 (클라이언트 자격 증명 부여를 통해 권한 부여를 통해)이 발급 되는 방식을 변경 하는 7 월 26 일에 실시간으로 발생 합니다. 이전에는 응용 프로그램에서 테 넌 트의 현재 상태와 상관 없이 해당 응용 프로그램에 대 한 동의한 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다.  이 동작은 리소스 (웹 Api 라고도 함)가 단일 테 넌 트 (기본값)로 설정 되도록 업데이트 되었으므로 클라이언트 응용 프로그램이 리소스 테 넌 트 내에 있어야 합니다.  클라이언트와 api 간의 기존 동의가 아직 필요 하지 않으며, 응용 프로그램에서 `roles` 클레임을 제공 하 고 API에 대 한 예상 값을 포함 하 고 있는지 확인 하기 위해 여전히 자체 권한 부여 검사를 수행 해야 합니다.
+보안 변경은 응용 프로그램 전용 토큰 (클라이언트 자격 증명 부여를 통해 권한 부여를 통해)이 발급 되는 방식을 변경 하는 7 월 26 일에 실시간으로 발생 합니다. 이전에는 응용 프로그램에서 테 넌 트의 현재 상태와 상관 없이 해당 응용 프로그램에 대 한 동의한 다른 앱을 호출 하는 토큰을 가져올 수 있었습니다.  이 동작은 리소스 (웹 Api 라고도 함)가 단일 테 넌 트 (기본값)로 설정 되도록 업데이트 되었으므로 클라이언트 응용 프로그램이 리소스 테 넌 트 내에 있어야 합니다.  클라이언트와 API 간의 기존 동의는 여전히 필요 하지 않으며, 앱이 자체 권한 부여 검사를 수행 하 여 `roles` 클레임이 있고 API에 필요한 값을 포함 하 고 있는지 확인 해야 합니다.
 
 이 시나리오에 대 한 오류 메시지는 현재 다음과 같습니다. 
 
@@ -80,7 +79,7 @@ ms.locfileid: "70125427"
 
 #### <a name="example-request"></a>요청 예
 
-`https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...`이 예제에서 리소스 테 넌 트 (기관)는 contoso.com이 고, 리소스 앱은 contoso 테 넌 트에 `gateway.contoso.com/api` 대해 호출 되는 단일 테 넌 트 앱 이며 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`, 클라이언트 앱입니다.  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.  
+이 예제에서 `https://login.microsoftonline.com/contoso.com/oauth2/authorize?resource=https://gateway.contoso.com/api&response_type=token&client_id=14c88eee-b3e2-4bb0-9233-f5e3053b3a28&...` 리소스 테 넌 트 (기관)는 contoso.com 리소스 앱은 Contoso 테 넌 트에 대해 `gateway.contoso.com/api` 라는 단일 테 넌 트 앱 이며 클라이언트 앱은 `14c88eee-b3e2-4bb0-9233-f5e3053b3a28`됩니다.  클라이언트 앱이 Contoso.com 내에 서비스 주체를 포함 하는 경우이 요청을 계속할 수 있습니다.  그러나 그렇지 않으면 위의 오류가 발생 하 여 요청이 실패 합니다.  
 
 그러나 Contoso 게이트웨이 앱이 다중 테 넌 트 응용 프로그램이 면 Contoso.com 내에서 서비스 사용자가 있는 클라이언트 앱에 관계 없이 요청이 계속 됩니다.  
 
@@ -92,7 +91,7 @@ ms.locfileid: "70125427"
 
 **영향을 받는 프로토콜**: 모든 흐름
 
-이제 Azure AD 응용 프로그램은 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)에 따라 정적 쿼리 매개 변수 (예: https://contoso.com/oauth2?idp=microsoft) OAuth 2.0 요청)로 리디렉션 (회신) uri를 등록 하 고 사용할 수 있습니다.  동적 리디렉션 uri는 보안 위험을 나타내므로 사용할 수 없으며 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없습니다. 즉, `state` 매개 변수를 사용 합니다.
+이제 Azure AD 응용 프로그램은 [RFC 6749](https://tools.ietf.org/html/rfc6749#section-3.1.2)에 따라 정적 쿼리 매개 변수 (예: OAuth 2.0 요청에 대 한 https://contoso.com/oauth2?idp=microsoft) )로 리디렉션 (회신) uri를 등록 하 고 사용할 수 있습니다.  동적 리디렉션 Uri는 보안 위험을 나타내므로 사용할 수 없으며 인증 요청에 대 한 상태 정보를 유지 하는 데 사용할 수 없습니다. 즉, `state` 매개 변수를 사용 합니다.
 
 정적 쿼리 매개 변수는 리디렉션 URI의 다른 부분과 마찬가지로 리디렉션 uri에 대 한 문자열 일치가 적용 됩니다. URI로 디코딩된 redirect_uri와 일치 하는 문자열이 등록 되지 않은 경우 요청이 거부 됩니다.  앱 등록에서 URI를 찾은 경우에는 정적 쿼리 매개 변수를 포함 하 여 전체 문자열이 사용자를 리디렉션하는 데 사용 됩니다. 
 
@@ -111,7 +110,7 @@ ms.locfileid: "70125427"
 
 클라이언트 응용 프로그램은 경우에 따라 짧은 시간 동안 수백 개의 동일한 로그인 요청을 실행 하 여 잘못 동작 하는 경우도 있습니다.  이러한 요청은 성공 하거나 성공 하지 않을 수도 있지만, 모든 사용자에 대 한 대기 시간이 IDP 모든 사용자의 대기 시간이 늘어나고 IDP의 가용성이 감소 합니다.  이러한 응용 프로그램은 정상적인 사용 범위를 벗어나 작동 하 고 올바르게 동작 하도록 업데이트 되어야 합니다.  
 
-중복 요청을 여러 번 실행 하는 클라이언트에 `invalid_grant` `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`오류가 전송 됩니다. 
+중복 요청을 여러 번 실행 하는 클라이언트는 `invalid_grant` 오류 `AADSTS50196: The server terminated an operation because it encountered a loop while processing a request`전송 됩니다. 
 
 대부분의 클라이언트는이 오류를 방지 하기 위해 동작을 변경할 필요가 없습니다.  잘못 구성 된 클라이언트 (토큰 캐싱을 사용 하지 않는 클라이언트 또는 프롬프트 루프를 포함 하는 클라이언트만 이미)는이 오류의 영향을 받습니다.  클라이언트는 다음 요소에 대해 로컬로 (쿠키를 통해) 인스턴스당 추적 됩니다.
 
@@ -125,9 +124,9 @@ ms.locfileid: "70125427"
 
 * 응답 유형 및 모드
 
-짧은 시간 (5 분) 내에 여러 요청 (15 +)을 만드는 앱은 루핑 임을 설명 `invalid_grant` 하는 오류를 받게 됩니다.  요청 되는 토큰은 충분히 수명이 긴 수명 (기본적으로 10 분, 최소 60 분) 이므로이 기간 동안 반복 되는 요청은 필요 하지 않습니다.  
+짧은 시간 (5 분) 내에 여러 요청 (15 +)을 만드는 앱은 루핑 임을 설명 하는 `invalid_grant` 오류를 받게 됩니다.  요청 되는 토큰은 충분히 수명이 긴 수명 (기본적으로 10 분, 최소 60 분) 이므로이 기간 동안 반복 되는 요청은 필요 하지 않습니다.  
 
-모든 앱은 토큰 `invalid_grant` 을 자동으로 요청 하는 대신 대화형 프롬프트를 표시 하 여 처리 해야 합니다.  클라이언트는이 오류를 방지 하기 위해 수신 하는 토큰을 올바르게 캐싱하지 확인 해야 합니다.
+모든 앱은 토큰을 자동으로 요청 하는 대신 대화형 프롬프트를 표시 하 여 `invalid_grant`를 처리 해야 합니다.  클라이언트는이 오류를 방지 하기 위해 수신 하는 토큰을 올바르게 캐싱하지 확인 해야 합니다.
 
 
 ## <a name="october-2018"></a>2018년 10월
