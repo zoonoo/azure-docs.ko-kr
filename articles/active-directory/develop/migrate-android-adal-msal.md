@@ -13,13 +13,12 @@ ms.date: 09/6/2019
 ms.author: twhitney
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0653eef585dd81d2e03585bf45b45ee9df9de292
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0c7b059fd8d9b34ad6d1e565431d39ffc706cb45
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917254"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696710"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 
@@ -241,7 +240,7 @@ MSAL에는 예외 계층이 있으며 각 계층에는 관련 된 특정 오류 
 
 MSAL 예외 목록
 
-|예외  | 설명  |
+|예외  | Description  |
 |---------|---------|
 | `MsalException`     | MSAL에서 throw 된 기본 확인 된 예외입니다.  |
 | `MsalClientException`     | 오류가 클라이언트 쪽 인 경우 throw 됩니다. |

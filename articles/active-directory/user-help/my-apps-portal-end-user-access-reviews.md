@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 232f4b6fde84b7e1cd706b62e0ba9a0998b4171e
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e739024686bdac497b9b7dd450c5ed46e3cf9a63
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231832"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705023"
 ---
 # <a name="perform-an-access-review-from-the-my-apps-portal"></a>내 앱 포털에서 액세스 검토를 수행 합니다.
 
@@ -40,7 +39,7 @@ ms.locfileid: "74231832"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 

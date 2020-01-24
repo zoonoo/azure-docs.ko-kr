@@ -15,19 +15,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 64418138f9eff61cc94a57be4dc5e2625e5fdebb
-ms.sourcegitcommit: be8e2e0a3eb2ad49ed5b996461d4bff7cba8a837
+ms.openlocfilehash: f96393adf0eaed8a28bc1a2ec0def6b0386bd7ac
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72803676"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701980"
 ---
 # <a name="scenario-protected-web-api"></a>시나리오: 보호 된 web API
 
 이 시나리오에서는 인증 된 사용자만 API에 액세스할 수 있도록 웹 API를 노출 하는 방법과이를 보호 하는 방법을 보여 줍니다. 회사 및 학교 계정이 나 개인 Microsoft 개인 계정으로 인증 된 사용자가 web API를 사용 하도록 할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 

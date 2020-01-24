@@ -11,19 +11,18 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ff1a030a17ce4f63427eb6bfebbf84be74f6500d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 232a17a21c7172bbf5056ae990679d87600ee6a0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231813"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705091"
 ---
 # <a name="view-how-your-organization-uses-your-privacy-related-data"></a>조직에서 개인 정보 관련 데이터를 사용 하는 방법 보기
 
 조직에서 **내 계정** 포털의 **개인 정보** 페이지에서 데이터를 사용 하는 방법을 볼 수 있습니다.
 
-## <a name="view-your-privacy-related-info"></a>개인 정보 관련 정보 보기
+## <a name="view-your-privacy-related-info"></a>개인 관련 정보 보기
 
 1. 회사 또는 학교 계정에 로그인한 다음, https://myprofile.microsoft.com/ 페이지로 이동합니다.
 

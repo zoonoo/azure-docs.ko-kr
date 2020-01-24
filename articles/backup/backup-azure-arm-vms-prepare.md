@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 Azure VM 백업
 description: Azure Backup를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure Vm을 백업 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: e5ff3a00d8cb3bf0c5fa3cb4929b7c22d92c7834
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aeadd7bc798f690c67eef38c6dc645204ff39115
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513816"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705550"
 ---
 # <a name="back-up-azure-vms-in-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음에 Azure VM 백업
 
@@ -189,16 +189,11 @@ Azure Backup은 컴퓨터에서 실행 중인 Azure VM 에이전트에 확장을
 **Linux** | 배포의 패키지 리포지토리에서 RPM 또는 DEB 패키지를 사용 하 여를 설치 합니다. 이는 Azure Linux 에이전트를 설치 하 고 업그레이드 하는 데 선호 되는 방법입니다. 모든 [인증 배포 공급자](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros)는 이미지 및 리포지토리에 Azure Linux 에이전트 패키지를 통합합니다. 에이전트는 [GitHub](https://github.com/Azure/WALinuxAgent)에서 사용할 수 있지만 설치하지 않는 것이 좋습니다.<br/><br/> 에이전트를 업데이트 하는 경우 백업 작업이 실행 되 고 있지 않은지 확인 하 고 이진 파일을 업데이트 합니다.
 
 >[!NOTE]
-> 이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.
+> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
 >
 >현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
 >
-> 이 솔루션은 다음과 같은 시나리오에서 특히 유용 합니다.
->  
->1. 중요 한 데이터가 하나의 디스크에만 백업 되 고 VM에 연결 된 나머지 디스크는 백업 하지 않으려고 합니다. 이렇게 하면 백업 저장소 비용이 최소화 됩니다.  
->2. VM 데이터의 일부에 대 한 다른 백업 솔루션이 있습니다. 예를 들어 다른 워크 로드 백업 솔루션을 사용 하 여 데이터베이스 또는 데이터를 백업 하 고 나머지 디스크 및 데이터에 대 한 Azure VM 수준 백업을 사용 하 여 사용 가능한 최상의 기능을 활용 하는 효율적이 고 강력한 시스템을 구축 하려고 합니다.
->
->미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
+>**미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.**
 
 ## <a name="next-steps"></a>다음 단계
 

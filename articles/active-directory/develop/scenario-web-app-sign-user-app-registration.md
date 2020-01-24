@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b08dd5602196bae0e250953c83320e69ddc6da83
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f2513b1fee022199f040ba0dcf83110c0b3b1365
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964823"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701572"
 ---
 # <a name="web-app-that-signs-in-users-app-registration"></a>사용자가 로그인 하는 웹 앱: 앱 등록
 
@@ -53,11 +52,11 @@ ms.locfileid: "74964823"
 
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
-   1. **이름** 섹션에 앱 사용자에 게 표시 되는 의미 있는 응용 프로그램 이름을 입력 합니다. 예를 들어 **AspNetCore-WebApp**를 입력 합니다.
+   1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **AspNetCore-WebApp**를 입력 합니다.
    1. **리디렉션 uri**의 경우 인증에 성공한 후 반환 된 토큰 응답을 받을 응용 프로그램의 형식 및 URI 대상을 추가 합니다. 예를 들어 **https://localhost:44321** 을 입력합니다. 그런 다음 **등록**을 선택합니다.
 1. **인증** 메뉴를 선택한 후 다음 정보를 추가합니다.
    1. **회신 URL**의 경우 **웹**형식의 **https://localhost:44321/signin-oidc** 를 추가 합니다.
-   1. **고급 설정** 섹션에서 **로그 아웃 URL** 을 **https://localhost:44321/signout-oidc** 로 설정 합니다.
+   1. **고급 설정** 섹션에서 **로그아웃 URL**을 **https://localhost:44321/signout-oidc** 으로 설정합니다.
    1. **암시적 허용**에서 **ID 토큰**을 선택합니다.
    1. **저장**을 선택합니다.
 
@@ -65,7 +64,7 @@ ms.locfileid: "74964823"
 
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
    1. 응용 프로그램에 대해 지원 되는 계정 유형을 선택 합니다. ( [지원 되는 계정 유형](./v2-supported-account-types.md)을 참조 하세요.)
-   1. **이름** 섹션에 앱 사용자에 게 표시 되는 의미 있는 응용 프로그램 이름을 입력 합니다. 예를 들어 **Mailapp-openidconnect-v2**를 입력 합니다.
+   1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **Mailapp-openidconnect-v2**를 입력 합니다.
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **https://localhost:44326/** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.
 1. **인증** 메뉴를 선택 합니다.
@@ -99,7 +98,7 @@ ms.locfileid: "74964823"
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
-   1. **이름** 섹션에 앱 사용자에 게 표시 되는 의미 있는 응용 프로그램 이름을 입력 합니다. 예를 들어 **python-webapp**을 입력 합니다.
+   1. **이름** 섹션에서 앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다. 예를 들어 **python-webapp**을 입력 합니다.
    1. **모든 조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)에서** **지원 되는 계정 유형을** 계정으로 변경 합니다.
    1. **Uri 리디렉션 (선택 사항)** 섹션의 콤보 상자에서 **웹** 을 선택 하 고 다음 리디렉션 URI를 입력 **http://localhost:5000/getAToken** 합니다.
 1. **등록**을 선택하여 애플리케이션을 만듭니다.

@@ -15,15 +15,14 @@ ms.date: 1/15/2020
 ms.author: twhitney
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70f629af35978771d48d0a29f9ec625628c3b630
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291263"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701470"
 ---
-# <a name="shared-device-mode-for-android-devices"></a>Android 장치에 대 한 공유 장치 모드
+# <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
 
 > [!NOTE]
 > 이 기능은 공개 미리 보기 상태입니다.
@@ -93,7 +92,7 @@ private IPublicClientApplication mApplication;
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>단일 계정 모드만 지원 해야 하는 이유
 
-공유 장치를 사용 하 여 firstline 작업자에만 사용 되는 앱을 작성 하는 경우 단일 계정 모드만 지원 하도록 응용 프로그램을 작성 하는 것이 좋습니다. 여기에는 의료 기록 앱, 청구서 앱 및 대부분의 lob (기간 업무) 앱과 같이 작업에 초점을 맞춘 대부분의 응용 프로그램이 포함 됩니다. 여러 계정 앱에 포함 된 추가 기능을 구현할 필요가 없으므로 단일 계정 모드만 지원 하면 개발이 간단해 집니다.
+공유 장치를 사용 하 여 firstline 작업자에만 사용 되는 앱을 작성 하는 경우 단일 계정 모드만 지원 하도록 응용 프로그램을 작성 하는 것이 좋습니다. 여기에는 의료 기록 앱, 청구서 앱 및 대부분의 LOB(기간 업무) 앱과 같이 작업에 중점을 둔 대부분의 애플리케이션이 포함됩니다. 여러 계정 앱에 포함 된 추가 기능을 구현할 필요가 없으므로 단일 계정 모드만 지원 하면 개발이 간단해 집니다.
 
 ## <a name="what-happens-when-the-device-mode-changes"></a>장치 모드가 변경 되 면 어떻게 되나요?
 

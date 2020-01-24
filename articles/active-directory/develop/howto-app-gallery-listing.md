@@ -1,6 +1,6 @@
 ---
 title: Azure AD 응용 프로그램 갤러리에 앱 나열 | Microsoft Docs
-description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지 원하는 응용 프로그램을 나열 하는 방법을 알아봅니다.
+description: Azure Active Directory 앱 갤러리에서 Single Sign-On을 지원하는 애플리케이션을 나열하는 방법을 알아봅니다.
 services: active-directory
 author: rwike77
 manager: CelesteDG
@@ -13,31 +13,30 @@ ms.date: 12/06/2019
 ms.author: ryanwi
 ms.reviewer: jeedes
 ms.custom: aaddev, seoapril2019
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3bfdeaba26e98f600b81b3a473326ff4086f1aa2
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b15a83fdde73a1c2c1d91f66017bbf927a2df584
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74967153"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697458"
 ---
-# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Az alkalmazás szerepeltetése az Azure Active Directory alkalmazáskatalógusában
+# <a name="list-your-application-in-the-azure-active-directory-application-gallery"></a>Azure Active Directory 애플리케이션 갤러리에 애플리케이션 나열
 
 이 문서에서는 Azure Active Directory (Azure AD) 응용 프로그램 갤러리에 응용 프로그램을 나열 하 고, SSO (Single Sign-On)를 구현 하 고, 목록을 관리 하는 방법을 보여 줍니다.
 
-## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 응용 프로그램 갤러리 란?
+## <a name="what-is-the-azure-ad-application-gallery"></a>Azure AD 애플리케이션 갤러리란?
 
-- 고객은 최상의 Single Sign-On 환경을 찾을 수 있습니다.
-- 응용 프로그램 구성은 간단 하 고 최소화 됩니다.
-- 빠른 검색은 갤러리에서 응용 프로그램을 찾습니다.
-- 무료, 기본 및 프리미엄 Azure AD 고객은 모두이 통합을 사용할 수 있습니다.
-- 상호 고객은 단계별 구성 자습서를 받습니다.
+- 고객에게 최상의 SSO(Single Sign-On) 환경을 제공합니다.
+- 애플리케이션 구성이 간단하고 최소화됩니다.
+- 갤러리에서 빠른 검색에 애플리케이션을 제공합니다.
+- 무료, 기본 및 프리미엄 Azure AD 고객은 이 통합을 모두 사용할 수 있습니다.
+- 상호 고객을 위한 단계별 구성 자습서가 있습니다.
 - [Scim](https://techcommunity.microsoft.com/t5/Identity-Standards-Blog/Provisioning-with-SCIM-getting-started/ba-p/880010)(도메인 간 id 관리)을 위해 시스템을 사용 하는 고객은 동일한 앱에 대 한 프로 비전을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>필수 조건
 
 - 페더레이션된 응용 프로그램 (Open ID 및 SAML/WS 급지됨)의 경우 응용 프로그램은 Azure AD 앱 갤러리에 나열 하기 위해 SaaS (software as a service) 모델을 지원 해야 합니다. Enterprise gallery 응용 프로그램은 특정 고객이 아닌 여러 고객 구성을 지원 해야 합니다.
-- Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](consent-framework.md) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에서 받은 테 넌 트 ID 및 사용자의 UPN에 따라 사용자 액세스를 제어할 수 있습니다.
+- Open ID Connect의 경우 응용 프로그램을 multitenanted 하 고 [AZURE AD 동의 프레임 워크가](consent-framework.md) 응용 프로그램에 대해 올바르게 구현 되어야 합니다. 사용자는 모든 고객이 응용 프로그램에 동의를 제공할 수 있도록 일반 끝점에 로그인 요청을 보낼 수 있습니다. 토큰에 수신된 테넌트 ID 및 사용자의 UPN을 기반으로 사용자 액세스를 제어할 수 있습니다.
 - SAML 2.0/WS 급지됨의 경우 응용 프로그램에 SP 또는 IDP 모드에서 SAML/WS 공급 SSO 통합을 수행할 수 있는 기능이 있어야 합니다. 요청을 제출 하기 전에이 기능이 제대로 작동 하는지 확인 합니다.
 - 암호 SSO의 경우 응용 프로그램에서 폼 인증을 지원 하는지 확인 하 여 예상 대로 작동 하도록 Single Sign-On 수 있도록 암호 보관을 수행할 수 있도록 합니다.
 - 두 명 이상의 사용자를 등록 하 여 테스트 하려면 영구 계정이 필요 합니다.
@@ -48,7 +47,7 @@ ms.locfileid: "74967153"
 
 ## <a name="submit-the-request-in-the-portal"></a>포털에서 요청 제출
 
-응용 프로그램 통합이 Azure AD에서 작동 하는지 테스트 한 후에는 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 액세스 요청을 제출 합니다. Office 365 계정이 있는 경우 해당 계정을 사용 하 여이 포털에 로그인 합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
+응용 프로그램 통합이 Azure AD에서 작동 하는지 테스트 한 후에는 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 액세스 요청을 제출 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
 
 로그인 한 후 다음 페이지가 표시 되 면 [AZURE AD SSO 통합 팀](<mailto:SaaSApplicationIntegrations@service.microsoft.com>)에 문의 하세요. 요청을 제출 하는 데 사용할 전자 메일 계정을 제공 합니다. Azure AD 팀이 Microsoft 응용 프로그램 네트워크 포털에 계정을 추가 합니다.
 
@@ -60,7 +59,7 @@ ms.locfileid: "74967153"
 
   ![SharePoint portal의 비즈니스 근거 상자](./media/howto-app-gallery-listing/accessrequest.png)
 
-팀에서 세부 정보를 검토 하 고 그에 따라 액세스를 제공 합니다. 요청이 승인 되 면 포털에 로그인 하 고 홈 페이지에서 요청 **제출 (ISV)** 타일을 선택 하 여 요청을 제출할 수 있습니다.
+팀이 세부 정보를 검토하고 적절하게 액세스 권한을 부여합니다. 요청이 승인 되 면 포털에 로그인 하 고 홈 페이지에서 요청 **제출 (ISV)** 타일을 선택 하 여 요청을 제출할 수 있습니다.
 
 ![홈 페이지의 ISV (요청 제출) 타일](./media/howto-app-gallery-listing/homepage.png)
 
@@ -89,7 +88,7 @@ ms.locfileid: "74967153"
 
 ## <a name="implement-sso-by-using-the-federation-protocol"></a>페더레이션 프로토콜을 사용 하 여 SSO 구현
 
-Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 먼저 Azure AD에서 지 원하는 다음 페더레이션 프로토콜 중 하나를 구현 해야 합니다. 또한 Azure AD 응용 프로그램 갤러리 사용 약관에 동의 해야 합니다. [이 웹 사이트](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 Azure AD 응용 프로그램 갤러리의 사용 약관을 읽습니다.
+Azure AD 앱 갤러리에 애플리케이션을 나열하려면 먼저 Azure AD에서 지원하는 다음 페더레이션 프로토콜 중 하나를 구현해야 합니다. 또한 Azure AD 응용 프로그램 갤러리 사용 약관에 동의 해야 합니다. [이 웹 사이트](https://azure.microsoft.com/support/legal/active-directory-app-gallery-terms/)에서 Azure AD 응용 프로그램 갤러리의 사용 약관을 읽습니다.
 
 - **Openid connect connect**: Open ID connect 프로토콜을 사용 하 여 응용 프로그램을 Azure AD와 통합 하려면 [개발자의 지침](v1-authentication-scenarios.md)을 따르세요.
 
@@ -108,7 +107,7 @@ Azure AD 앱 갤러리에서 응용 프로그램을 나열 하려면 먼저 Azur
 
 ## <a name="implement-sso-by-using-the-password-sso"></a>암호 SSO를 사용 하 여 SSO 구현
 
-HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)를 구성 합니다. 암호 보관이 라고도 하는 암호 기반 SSO를 사용 하면 id 페더레이션을 지원 하지 않는 웹 응용 프로그램에 대 한 사용자 액세스 및 암호를 관리할 수 있습니다. 또한 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유 해야 하는 시나리오에 유용 합니다.
+HTML 로그인 페이지가 있는 웹 애플리케이션을 만들어서 [암호 기반 Single Sign-On](../manage-apps/what-is-single-sign-on.md)을 구성합니다. 암호 보관이라고도 하는 암호 기반 SSO를 사용하면 ID 페더레이션을 지원하지 않는 웹 애플리케이션에 대한 사용자 액세스 및 암호를 관리할 수 있습니다. 또한 여러 사용자가 조직의 소셜 미디어 앱 계정과 같은 단일 계정을 공유 해야 하는 시나리오에 유용 합니다.
 
 ![갤러리에 암호 SSO 응용 프로그램 나열](./media/howto-app-gallery-listing/passwordsso.png)
 
@@ -123,7 +122,7 @@ HTML 로그인 페이지가 있는 웹 응용 프로그램을 만들어 [암호 
 
 ## <a name="update-or-remove-an-existing-listing"></a>기존 목록을 업데이트 하거나 제거 합니다.
 
-Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거나 제거 하려면 먼저 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출 해야 합니다. Office 365 계정이 있는 경우 해당 계정을 사용 하 여이 포털에 로그인 합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
+Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거나 제거 하려면 먼저 [응용 프로그램 네트워크 포털](https://microsoft.sharepoint.com/teams/apponboarding/Apps)에서 요청을 제출 해야 합니다. Office 365 계정이 있는 경우 이를 사용하여 해당 포털에 로그인합니다. 그렇지 않으면 Outlook 또는 Hotmail과 같은 Microsoft 계정를 사용 하 여 로그인 합니다.
 
 - 다음 그림에 표시 된 것 처럼 적절 한 옵션을 선택 합니다.
 
@@ -143,7 +142,7 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
 ![고객이 요청한 앱 흐름을 표시 합니다.](./media/howto-app-gallery-listing/customer-request.png)
 
-## <a name="timelines"></a>Idősorok
+## <a name="timelines"></a>타임라인
 
 갤러리에서 SAML 2.0 또는 WS (WS) 응용 프로그램을 나열 하는 프로세스에 대 한 타임 라인은 영업일의 7 ~ 10 일입니다.
 
@@ -153,6 +152,6 @@ Azure AD 앱 갤러리에서 기존 응용 프로그램을 업데이트 하거�
 
   ![갤러리에서 Openid connect Connect 응용 프로그램을 나열 하는 타임 라인](./media/howto-app-gallery-listing/timeline2.png)
 
-## <a name="escalations"></a>확대
+## <a name="escalations"></a>에스컬레이션
 
 모든 에스컬레이션에 대해 SaaSApplicationIntegrations@service.microsoft.com에서 [AZURE AD SSO 통합 팀](mailto:SaaSApplicationIntegrations@service.microsoft.com) 에 전자 메일을 보내면 가능한 한 빨리 응답 합니다.

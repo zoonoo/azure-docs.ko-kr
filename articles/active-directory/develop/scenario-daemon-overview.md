@@ -15,27 +15,26 @@ ms.workload: identity
 ms.date: 09/15/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 70a8c97ee1e10d53cd8da9687a9109eb4ce8ae3d
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: af4b00a630c2fc7d1b806a98f537e8635807609e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965571"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702252"
 ---
 # <a name="scenario-daemon-application-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 디먼 응용 프로그램
 
 웹 Api를 호출 하는 디먼 응용 프로그램을 빌드하는 데 필요한 모든 것을 알아보세요.
 
-## <a name="prerequisites"></a>Előfeltételek
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 
-## <a name="overview"></a>Áttekintés
+## <a name="overview"></a>개요
 
 응용 프로그램은 사용자를 대신 하 여 웹 API를 대신 호출 하는 토큰을 획득할 수 있습니다. 이 시나리오는 디먼 응용 프로그램에 유용 합니다. 표준 OAuth 2.0 [클라이언트 자격 증명](v2-oauth2-client-creds-grant-flow.md) 부여를 사용 하 고 있습니다.
 
-![Démonalkalmazások](./media/scenario-daemon-app/daemon-app.svg)
+![디먼 앱](./media/scenario-daemon-app/daemon-app.svg)
 
 다음은 디먼 앱에 대 한 사용 사례의 몇 가지 예입니다.
 
@@ -64,7 +63,7 @@ ms.locfileid: "74965571"
 - 응용 프로그램 [구성](./scenario-daemon-app-configuration.md) 에서는 응용 프로그램을 등록 하는 동안 Azure AD와 공유 되는 클라이언트 자격 증명을 제공 해야 합니다.
 - 클라이언트 자격 증명 흐름을 사용 하 여 토큰을 획득 하는 데 사용 되는 [범위](scenario-daemon-acquire-token.md#scopes-to-request) 는 정적 범위 여야 합니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [디먼 앱-앱 등록](./scenario-daemon-app-registration.md)

@@ -1,19 +1,19 @@
 ---
 title: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
 description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
-author: snehithm
+author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 88de4464e5b95b49e76e5d9c4f7dc0d6732076e1
-ms.sourcegitcommit: e50a39eb97a0b52ce35fd7b1cf16c7a9091d5a2a
+ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74286172"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705516"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
@@ -69,16 +69,16 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 ```
 
 
-| 필드 | Mandatory | 고정된 값 집합 | 참고 사항 |
+| 필드 | 필수 | 고정된 값 집합 | 메모 |
 |:--- |:--- |:--- |:--- |
 | 상태 |Y |Activated, Resolved |설정한 조건을 기반으로 하는 경고에 대한 상태입니다. |
-| context |Y | |경고 컨텍스트입니다. |
+| 컨텍스트 |Y | |경고 컨텍스트입니다. |
 | timestamp |Y | |경고가 트리거된 시점의 시간입니다. |
 | id |Y | |모든 경고 규칙에는 고유한 ID가 있습니다. |
 | name |Y | |경고 이름입니다. |
-| 설명 |Y | |경고에 대한 설명입니다. |
+| description |Y | |경고에 대한 설명입니다. |
 | conditionType |Y |Metric, Event |metric과 event라는 두 형식의 경고가 지원됩니다. 메트릭 경고는 메트릭 조건을 기반으로 합니다. 이벤트 경고는 활동 로그의 이벤트를 기반으로 합니다. 이 값을 사용하여 경고가 메트릭 또는 이벤트를 기반으로 하는지 확인하세요. |
-| 조건 |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
+| condition(조건) |Y | |**conditionType** 값에 기반하여 확인할 특정 필드입니다. |
 | metricName |메트릭 경고의 경우 | |규칙은 모니터링을 정의하는 메트릭의 이름입니다. |
 | metricUnit |메트릭 경고의 경우 |Bytes, BytesPerSecond, Count, CountPerSecond, Percent, Seconds |메트릭에 사용되는 단위입니다. [허용되는 값](https://msdn.microsoft.com/library/microsoft.azure.insights.models.unit.aspx)을 참조하세요. |
 | metricValue |메트릭 경고의 경우 | |경고를 발생시킨 메트릭의 실제 값입니다. |
@@ -93,10 +93,10 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| 속성 |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. 예: `Dictionary<String, String>`. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| properties |N |선택 사항 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
-> **Azure Monitor REST API**를 사용하여 [properties](https://msdn.microsoft.com/library/azure/dn933805.aspx) 필드만 설정할 수 있습니다.
+> [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.
 >
 >
 

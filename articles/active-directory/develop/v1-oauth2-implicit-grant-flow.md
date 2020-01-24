@@ -17,13 +17,12 @@ ms.date: 08/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: eb751d4cad036135865af9f97e159da104749388
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 2591485c6e528eb9f422ce966ec7738af49dbddc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69532413"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701045"
 ---
 # <a name="understanding-the-oauth2-implicit-grant-flow-in-azure-active-directory-ad"></a>Azure AD(Active Directory)의 OAuth2 암시적 허용 흐름 이해
 
@@ -54,7 +53,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 * 세션 또는 로컬 스토리지와 같은 HTML5 기능이 토큰 캐싱 및 수명 관리를 완전히 제어할 수 있으면서도 쿠키 관리는 앱에서 신경쓸 필요가 없음
 * 액세스 토큰이 교차 사이트 요청 위조(CSRF) 공격에 취약하지 않음
 
-암시적 허용 흐름은 대부분 보안상의 이유로 새로 고침 토큰을 발급하지 않습니다. 새로 고침 토큰은 액세스 토큰처럼 범위가 좁지 않으므로 권한이 클수록 누출될 경우 훨씬 더 큰 피해를 입힙니다. 암시적 흐름에서 토큰은 URL에 전달되므로 가로채기 위험이 인증 코드 부여보다 더 높습니다.
+암시적 허용 흐름은 대부분 보안상의 이유로 새로 고침 토큰을 발급하지 않습니다. 새로 고침 토큰은 액세스 토큰으로 범위가 한정 되지 않고, 훨씬 더 많은 기능을 부여 하므로 누수가 발생 하는 경우 훨씬 더 손상이 좁지. 암시적 흐름에서 토큰은 URL로 전달 되므로 가로채기의 위험은 인증 코드 부여 보다 높습니다.
 
 그러나 JavaScript 애플리케이션에서는 사용자에게 자격 증명을 반복적으로 요구하지 않고 액세스 토큰을 갱신하는 또 다른 메커니즘을 마음대로 사용할 수 있습니다. 애플리케이션은 숨겨진 iframe을 사용하여 Azure AD의 권한 부여 엔드포인트에 대해 새 토큰 요청을 수행할 수 있습니다. 즉, 브라우저가 Azure AD 도메인에 대해 활성 세션을 여전히 가지고 있으면(의미: 세션 쿠키를 가짐) 사용자 상호 작용이 필요 없이 인증 요청이 성공적으로 이루어질 수 있습니다.
 
@@ -62,7 +61,7 @@ JavaScript 기반 접근 방법을 극한까지 확장하는 애플리케이션�
 
 ## <a name="is-the-implicit-grant-suitable-for-my-app"></a>암시적 허용이 내 앱에 적합할까요?
 
-암시적 권한 부여는 다른 권한 부여 보다 더 많은 위험을 표시 하며 주의 해야 하는 영역 (예: [암시적 흐름에서 리소스 소유자를 가장 하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안)이 잘 문서화 되어 있습니다. 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
+암시적 권한 부여는 다른 권한 부여 보다 더 많은 위험을 표시 하며 주의 해야 하는 영역은 잘 문서화 되어 있습니다 (예: [암시적 흐름에서 리소스 소유자를 가장 하는 액세스 토큰 오용][OAuth2-Spec-Implicit-Misuse] 및 [OAuth 2.0 위협 모델 및 보안 고려 사항][OAuth2-Threat-Model-And-Security-Implications]). 그러나 더 높은 위험 프로필은 주로 원격 리소스에서 브라우저에 제공한 활성 코드를 실행하는 애플리케이션을 사용하도록 설정하는 것을 의미한다는 사실 때문입니다. SPA 아키텍처를 계획하는 경우 백 엔드 구성 요소가 없거나 JavaScript를 통해 웹 API를 호출하려고 하므로 토큰 획득을 위해 암시적 흐름을 사용하는 것이 좋습니다.
 
 애플리케이션이 네이티브 클라이언트인 경우 암시적 흐름은 그다지 적합하지 않습니다. 네이티브 클라이언트 상황에서 Azure AD 세션 쿠키가 없으면 오래 지속되는 세션을 유지 관리하는 수단에서 애플리케이션을 사용하지 않게 됩니다. 즉 애플리케이션은 새 리소스에 대한 액세스 토큰을 가져올 때 사용자에게 반복해서 메시지를 표시합니다.
 

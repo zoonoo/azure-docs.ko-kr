@@ -4,12 +4,12 @@ description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recov
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 6a880f84d5e8626d36ac3f4b440436b479ec5f6d
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708531"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705465"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -90,7 +90,8 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 >- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
 >- CRR (지역 간 복원) 기능은 현재 WCUS 지역 에서만 사용할 수 있습니다.
 >- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
->- *"FeatureName": "지역 지역 복원"* 을 사용 하 여이 기능에 대 한 구독을 등록 하세요.
+>- 이 기능에 대 한 구독을 등록 하려면 다음 명령을 사용 하세요.<br>
+>  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`
 >- 제한 된 공개 미리 보기 중에이 기능을 등록 하는 경우 승인 전자 메일 검토에 가격 정책 세부 정보가 포함 됩니다.
 >- 옵트인 후에는 보조 지역에서 백업 항목을 사용 하는 데 최대 48 시간이 걸릴 수 있습니다.
 >- 현재 CRR은 백업 관리 유형 ARM Azure VM에 대해서만 지원 됩니다 (클래식 Azure VM은 지원 되지 않음).  추가 관리 유형이 CRR을 지 원하는 경우 **자동으로** 등록 됩니다.

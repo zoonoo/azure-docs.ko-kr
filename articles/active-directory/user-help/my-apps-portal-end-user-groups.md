@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa251ee361af12ecf3fef3c7cd437fa06c1cea52
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73803929"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704955"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
@@ -41,7 +40,7 @@ ms.locfileid: "73803929"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 

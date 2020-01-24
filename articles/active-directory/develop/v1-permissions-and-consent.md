@@ -17,13 +17,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: jesakowi, justhu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a467593d16c54e73d58f9cb2b67a4fa31eb0179e
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: c13f4cabfbd996c1d811a8a3e35e69893c51154f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73042322"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700926"
 ---
 # <a name="permissions-and-consent-in-the-azure-active-directory-v10-endpoint"></a>Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의
 
@@ -61,7 +60,7 @@ Azure AD의 권한은 사용자, 관리자 또는 앱 개발자가 액세스할 
 > (Get-AzureADServicePrincipal -filter "DisplayName eq 'Microsoft Graph'").AppRoles
 > ```
 
-| 속성 이름 | 설명 | 예제 |
+| 속성 이름 | Description | 예 |
 | --- | --- | --- |
 | `ID` | 이 권한을 고유하게 식별하는 GUID 값입니다. | 570282fd-fa5c-430d-a7fd-fc8dc98a9dca |
 | `IsEnabled` | 이 권한이 사용할 수 있는지 여부를 나타냅니다. | true |
@@ -106,7 +105,7 @@ Azure AD의 애플리케이션이 필요한 리소스 또는 API에 액세스하
   - `Permission`은 사용자가 해당 데이터에 대해 취할 수 있는 작업에 해당합니다.
   - `Modifier`는 다른 권한의 특수화를 설명하기 위해 필요에 따라 사용됩니다.
     
-    다음은 그 예입니다.
+    예:
   - Mail.Read - 사용자가 메일을 읽도록 허용합니다.
   - Mail.ReadWrite - 사용자가 메일을 읽거나 쓰도록 허용합니다.
   - Mail.ReadWrite.All - 관리자 또는 사용자가 조직의 모든 메일에 액세스하도록 허용합니다.

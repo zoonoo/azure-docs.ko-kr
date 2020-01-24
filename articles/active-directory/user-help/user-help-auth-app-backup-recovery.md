@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 827213c8d243e9d66c58195e1d9400bed9c3e337
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 8d4c3d76a1ff7c3fcedbb4d2c22a699f4a2e77d0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74266996"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704785"
 ---
 # <a name="backup-and-recover-account-credentials-using-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용 하 여 계정 자격 증명 백업 및 복구
 
@@ -125,7 +124,7 @@ Microsoft Authenticator 앱은 계정 자격 증명과 계정 순서 같은 관�
 
 계정 자격 증명을 백업하고 새 디바이스에 복구했으니, 계속해서 Microsoft Authenticator 앱을 사용하여 ID를 확인할 수 있습니다. 자세한 내용은 [Microsoft Authenticator 앱을 사용 하 여 계정에 로그인](user-help-sign-in.md)을 참조 하세요.
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
 - [Microsoft Authenticator 앱 이란?](user-help-auth-app-overview.md)
 

@@ -12,13 +12,12 @@ ms.topic: conceptual
 ms.date: 10/28/2019
 ms.author: lizross
 ms.reviewer: kexia
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d998fafbf6b3ba0547991de6c3a8e71b66d91f7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 498c150706cd62168b7c45b1bcf36ad6c3a8b63b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231887"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705210"
 ---
 # <a name="common-problems-and-solutions-with-two-factor-verification-and-your-work-or-school-account"></a>2 단계 인증 및 회사 또는 학교 계정을 사용 하는 일반적인 문제 및 해결 방법
 
@@ -84,9 +83,9 @@ ms.locfileid: "74231887"
 
 2. **추가 보안 인증** 페이지에서 이전 장치를 삭제 하 고 새 장치를 추가 하 여 계정 및 장치 정보를 업데이트 합니다. 자세한 내용은 [2 단계 인증 방법 관리 설정](multi-factor-authentication-end-user-manage-settings.md) 문서를 참조 하세요.
 
-3. 선택 사항입니다. [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 수행 하 여 모바일 장치에 Microsoft Authenticator 앱을 다운로드 하 고 설치 하 고 설정 합니다.
+3. (선택 사항) [Microsoft Authenticator 앱 다운로드 및 설치](user-help-auth-app-download-install.md) 문서의 단계를 수행 하 여 모바일 장치에 Microsoft Authenticator 앱을 다운로드 하 고 설치 하 고 설정 합니다.
 
-4. 선택 사항입니다. [2 단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) 문서의 **신뢰할 수 있는 장치에 대 한 2 단계 확인 프롬프트 켜기** 섹션의 단계에 따라 신뢰할 수 있는 장치에 대 한 2 단계 인증을 설정 합니다.
+4. (선택 사항) [2 단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md#turn-on-two-factor-verification-prompts-on-a-trusted-device) 문서의 **신뢰할 수 있는 장치에 대 한 2 단계 확인 프롬프트 켜기** 섹션의 단계에 따라 신뢰할 수 있는 장치에 대 한 2 단계 인증을 설정 합니다.
 
 ## <a name="im-having-problems-signing-in-on-my-mobile-device-while-traveling"></a>여행 하는 동안 모바일 장치에 로그인 하는 데 문제가 있음
 
@@ -104,9 +103,9 @@ ms.locfileid: "74231887"
 
 이러한 단계를 시도해도 여전히 문제가 발생 하는 경우 지원 센터에 문의 하십시오.
 
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
-- [2단계 확인 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
+- [2단계 인증 방법 설정 관리](multi-factor-authentication-end-user-manage-settings.md)
 
 - [2 단계 인증을 위한 계정 설정](multi-factor-authentication-end-user-first-time.md)
 

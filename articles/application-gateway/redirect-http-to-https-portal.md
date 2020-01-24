@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/13/2019
 ms.author: victorh
-ms.openlocfilehash: dcbc20f768ae80404979d47f23e7e08098757b41
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 51c191a7815bb64243e2324e150c00c2dcb7ec4c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613332"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705329"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-portal"></a>Azure Portal을 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -83,7 +83,7 @@ Export-PfxCertificate `
    - *myVNet* - 가상 네트워크 이름
    - *10.0.0.0/16* - 가상 네트워크 주소 공간
    - *myAGSubnet* - 서브넷 이름
-   - *10.0.1.0/24* - 서브넷 주소 공간
+   - *10.0.0.0/24* - 서브넷 주소 공간
 
      ![가상 네트워크 만들기](./media/create-url-route-portal/application-gateway-vnet.png)
 

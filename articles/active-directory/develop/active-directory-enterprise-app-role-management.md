@@ -13,19 +13,18 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: jeedes
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 702c64fbc4eda2af7132a2117c1b09ca0bf41cff
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a70abd1cddb866037926bbbc881682d50599366b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918596"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699260"
 ---
 # <a name="how-to-configure-the-role-claim-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 애플리케이션에 대한 SAML 토큰에서 발행된 역할 클레임 구성
 
 Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나는 응답 토큰에서 역할 클레임에 대한 클레임 유형을 지정할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - 디렉터리가 설치된 Azure AD 구독
 - SSO(Single Sign-On)를 사용하도록 설정된 구독 애플리케이션에 SSO를 구성해야 함
@@ -73,7 +72,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     d. 동의 확인에 동의합니다. 시스템에 다시 로그인됩니다.
 
-    ㅁ. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
+    e. 버전을 **베타**로 변경하고 다음 쿼리를 사용하여 테넌트에서 서비스 사용자 목록을 가져옵니다.
 
      `https://graph.microsoft.com/beta/servicePrincipals`
 
@@ -173,7 +172,7 @@ Azure AD(Azure Active Directory)를 사용하여 앱을 승인 후에 나타나�
 
     d. **네임스페이스** 상자를 비워 둡니다.
 
-    ㅁ. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
+    e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
     f. **저장**을 선택합니다.
 

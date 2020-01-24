@@ -17,13 +17,12 @@ ms.date: 02/08/2017
 ms.author: ryanwi
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ac618b28fae7410a773012e390dcd6b3a63b966
-ms.sourcegitcommit: bc3a153d79b7e398581d3bcfadbb7403551aa536
+ms.openlocfilehash: 85ed6fc1535daf64394380ded44f74d5f9f939b6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68834776"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701113"
 ---
 # <a name="service-to-service-calls-using-client-credentials-shared-secret-or-certificate"></a>클라이언트 자격 증명을 사용하여 서비스를 호출하는 서비스(공유 암호 또는 인증서)
 
@@ -54,17 +53,17 @@ https://login.microsoftonline.com/<tenant id>/oauth2/token
 ## <a name="service-to-service-access-token-request"></a>서비스 간 액세스 토큰 요청
 클라이언트 애플리케이션이 공유 암호 또는 인증서 중에서 어떤 방식으로 보호되도록 선택되는지에 따라 두 가지 사례가 있습니다.
 
-### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 비밀을 사용하여 액세스 토큰 요청
+### <a name="first-case-access-token-request-with-a-shared-secret"></a>첫 번째 사례: 공유 암호를 사용한 액세스 토큰 요청
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
 | 매개 변수 |  | Description |
 | --- | --- | --- |
-| grant_type |필수 |요청된 부여 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
-| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *애플리케이션 ID*입니다. |
-| client_secret |필수 |Azure AD에서 호출 웹 서비스 또는 디먼 애플리케이션에 대해 등록된 키를 입력합니다. 키를 만들려면 Azure Portal에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션, **설정** 및 **키**를 차례로 클릭하고, 키를 추가합니다.  이 비밀을 제공하는 경우 URL로 인코딩합니다. |
-| resource |필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
+| grant_type |required |요청된 부여 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
+| client_id |required |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *애플리케이션 ID*입니다. |
+| client_secret |required |Azure AD에서 호출 웹 서비스 또는 디먼 애플리케이션에 대해 등록된 키를 입력합니다. 키를 만들려면 Azure Portal에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션, **설정** 및 **키**를 차례로 클릭하고, 키를 추가합니다.  이 비밀을 제공하는 경우 URL로 인코딩합니다. |
+| resource |required |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 다음 HTTP POST는 https://service.contoso.com/ 웹 서비스에 대한 [액세스 토큰](access-tokens.md)을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
@@ -75,20 +74,20 @@ Content-Type: application/x-www-form-urlencoded
 grant_type=client_credentials&client_id=625bc9f6-3bf6-4b6d-94ba-e97cf07a22de&client_secret=qkDwDJlDfig2IpeuUZYKH1Wb8q1V0ju6sILxQQqhJ+s=&resource=https%3A%2F%2Fservice.contoso.com%2F
 ```
 
-### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용하여 액세스 토큰 요청
+### <a name="second-case-access-token-request-with-a-certificate"></a>두 번째 사례: 인증서를 사용한 액세스 토큰 요청
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수 |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| grant_type |필수 |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
-| client_id |필수 |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *애플리케이션 ID*입니다. |
-| client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
-| resource | 필수 |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
+| grant_type |required |요청된 응답 유형을 지정합니다. 클라이언트 자격 증명 부여 흐름에서 값은 **client_credentials**이어야 합니다. |
+| client_id |required |호출 웹 서비스의 Azure AD 클라이언트 ID를 지정합니다. 호출하는 애플리케이션의 클라이언트 ID를 찾으려면 [Azure Portal](https://portal.azure.com)에서 **Azure Active Directory**, **앱 등록** 및 애플리케이션을 차례로 클릭합니다. client_id는 *애플리케이션 ID*입니다. |
+| client_assertion_type |required |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
+| client_assertion |required | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명해야 하는 어설션(JSON Web Token)입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| resource | required |수신 웹 서비스의 앱 ID URI를 입력합니다. 앱 ID URI를 찾으려면 Azure Portal에서 **Azure Active Directory**, **앱 등록**, 서비스 애플리케이션 및 **설정**과 **속성**을 차례로 클릭합니다. |
 
 client_secret 매개 변수가 두 개의 매개 변수 client_assertion_type 및 client_assertion으로 바뀐다는 것을 제외하고 공유 비밀에 따른 요청 사례와 매개 변수는 거의 동일합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 다음 HTTP POST는 인증서를 사용하여 https://service.contoso.com/ 웹 서비스에 대한 액세스 토큰을 요청합니다. `client_id` 은(는) 액세스 토큰을 요청하는 웹 서비스를 식별합니다.
 
 ```
@@ -125,6 +124,6 @@ resource=https%3A%2F%contoso.onmicrosoft.com%2Ffc7664b4-cdd6-43e1-9365-c2e1c4e1b
 }
 ```
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 * [Azure AD의 OAuth 2.0](v1-protocols-oauth-code.md)
 * [공유 암호를 사용한 서비스 간 호출의 C# 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon) 및 [인증서를 사용한 서비스 간 호출의 C# 샘플](https://github.com/Azure-Samples/active-directory-dotnet-daemon-certificate-credential)

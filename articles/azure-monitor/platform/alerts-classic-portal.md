@@ -1,17 +1,17 @@
 ---
 title: Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 description: Azure Portal, CLI 또는 Powershell을 사용하여 클래식 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 알아봅니다.
-author: snehithm
+author: yanivlavi
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
-ms.openlocfilehash: 4a225dbc8e84d65a6ea25f63627599e5bb7d2ced
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: yalavi
+ms.openlocfilehash: fd15d6bb9442d91c672fdd444313880001880e07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66129766"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705601"
 ---
 # <a name="create-view-and-manage-classic-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 클래식 메트릭 경고 만들기, 보기 및 관리
 
@@ -35,7 +35,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 6. 경고가 발생하면 관리자 및 공동 관리자가 이메일 알림을 수신하게 하려면 **소유자에게 이메일 보내기...** 를 선택합니다.
 
-7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 여러 전자 메일 같은 형식의 세미콜론으로 구분 합니다. *전자 메일\@contoso.com;email2\@contoso.com*
+7. 경고가 발생하면 추가 이메일 주소에 알림을 보내려면 **추가 관리자 이메일** 필드에 해당 이메일 주소를 추가합니다. 여러 전자 메일을 세미콜론으로 구분 합니다. *전자 메일\@contoso. .com; email2\@contoso.com*
 
 8. 경고가 발생할 때 URI를 호출하려면 **Webhook** 필드에 유효한 URI를 입력합니다.
 
@@ -53,7 +53,7 @@ Azure Monitor의 클래식 메트릭 경고를 사용하면 메트릭 중 하나
 
 ## <a name="with-azure-cli"></a>Azure CLI 사용
 
-이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)을 통해 Azure CLI 사용을 가장 빠르게 시작할 수 있습니다.
+이전 섹션에서는 Azure Portal을 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 설명했습니다. 이번 섹션에서는 플랫폼 간 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli?view=azure-cli-latest)를 사용하여 동일한 작업을 수행하는 방법을 설명합니다. Azure CLI를 가장 빠르게 사용하는 방법은 [Azure Cloud Shell](https://docs.microsoft.com/azure/cloud-shell/overview?view=azure-cli-latest)입니다.
 
 ### <a name="get-all-classic-metric-alert-rules-in-a-resource-group"></a>리소스 그룹의 모든 클래식 메트릭 경고 규칙 가져오기
 
@@ -127,7 +127,7 @@ az monitor alert delete --name <alert name> --resource-group <group name>
     Get-AzAlertRule -ResourceGroup montest -TargetResourceId /subscriptions/s1/resourceGroups/montest/providers/Microsoft.Compute/virtualMachines/testconfig
     ```
 
-8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 새 사용 해야 하는 경고 규칙을 만들려면 [' 추가-AzMetricAlertRule'](/powershell/module/az.monitor/add-azmetricalertrule) 명령입니다.
+8. 클래식 경고 규칙은 PowerShell을 통해 더 이상 만들 수 없습니다. 경고 규칙을 만들려면 새 [' AzMetricAlertRule '](/powershell/module/az.monitor/add-azmetricalertrule) 명령을 사용 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba41b29cfcea2d9dfcab2cd552040eaffa4e90ff
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 01b923e0d013fab1815456e55eac6036ded772bb
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965282"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701844"
 ---
 # <a name="single-page-application-move-to-production"></a>단일 페이지 응용 프로그램: 프로덕션으로 이동
 
@@ -32,9 +31,9 @@ ms.locfileid: "74965282"
 
 ## <a name="test-your-integration"></a>통합 테스트
 
-[Microsoft id 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트 합니다.
+[Microsoft ID 플랫폼 통합 검사 목록](identity-platform-integration-checklist.md)에 따라 통합을 테스트합니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 사용자를 로그인 하 고 MSAL를 사용 하 여 Microsoft Graph API를 호출 하는 액세스 토큰을 가져오는 방법에 대 한 코드를 설명 하는 빠른 시작 샘플을 자세히 설명 합니다.
 

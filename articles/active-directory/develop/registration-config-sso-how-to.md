@@ -1,5 +1,5 @@
 ---
-title: 응용 프로그램 single sign-on 구성 | Microsoft Docs
+title: 응용 프로그램 Single Sign-On 구성 | Microsoft Docs
 description: Azure AD로 개발 및 등록 중인 사용자 지정 애플리케이션에 대해 Single Sign-On을 구성하는 방법.
 services: active-directory
 documentationcenter: ''
@@ -15,15 +15,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 07/15/2019
 ms.author: ryanwi
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: fbc9f20903d65fbde161d26ed3e194e63d341ccb
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: bb77f376e22428e9259ff3efc84cf6f1cb3491fe
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68320949"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702644"
 ---
-# <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에 대 한 single sign-on을 구성 하는 방법
+# <a name="how-to-configure-single-sign-on-for-an-application"></a>응용 프로그램에 대 한 Single Sign-On를 구성 하는 방법
 
 앱에서 페더레이션된 SSO(Single Sign-On) 사용은 OpenID Connect, SAML 2.0 또는 WS-Fed에 대해 Azure AD를 통해 페더레이션할 때 자동으로 설정됩니다. Azure AD에 기존 세션이 이미 있음에도 불구하고 최종 사용자가 로그인해야 하는 경우 앱이 잘못 구성되었을 수 있습니다.
 

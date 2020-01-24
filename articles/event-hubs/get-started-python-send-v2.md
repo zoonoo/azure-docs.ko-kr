@@ -8,12 +8,12 @@ ms.workload: core
 ms.topic: article
 ms.date: 01/08/2020
 ms.author: spelluru
-ms.openlocfilehash: 11548ba180a2dd6541240431d670812448c502b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7ab79d49aade7dd6e98cf33ce538174d176c784
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981579"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705346"
 ---
 # <a name="send-events-to-or-receive-events-from-event-hubs-using-python"></a>Python을 사용 하 여 Event Hubs에서 이벤트 보내기 또는 받기
 
@@ -42,7 +42,7 @@ Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 
     Azure Blob storage를 사용 하 여 검사점 저장소로 이벤트를 수신 하기 위해이 패키지를 설치 합니다.
 
     ```cmd
-    pip install azure-eventhub-checkpointstoreblobaio
+    pip install azure-eventhub-checkpointstoreblob-aio
     ```
 
 ## <a name="send-events"></a>이벤트 보내기

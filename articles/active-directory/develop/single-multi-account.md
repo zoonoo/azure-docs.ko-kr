@@ -16,13 +16,12 @@ ms.date: 09/26/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ae798c6108ec78b92b1ee6ac167b01c2f72c26d9
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: f2ce993b8fbf2a1b04ea4ad9d992ba278dbc964e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679712"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701419"
 ---
 # <a name="single-and-multiple-account-public-client-apps"></a>단일 및 여러 계정 공용 클라이언트 앱
 
@@ -36,7 +35,7 @@ MSAL은 한 번에 하나의 계정만 사용할 수 있도록 하는 앱에 대
 
 ## <a name="single-account-public-client-application"></a>단일 계정 공용 클라이언트 응용 프로그램
 
-`SingleAccountPublicClientApplication` 클래스를 사용 하면 한 번에 하나의 계정만 로그인 할 수 있는 MSAL 기반 앱을 만들 수 있습니다. `SingleAccountPublicClientApplication`는 다음과 같은 방식으로 `PublicClientApplication`와 다릅니다.
+`SingleAccountPublicClientApplication` 클래스를 사용 하면 한 번에 하나의 계정만 로그인 할 수 있는 MSAL 기반 앱을 만들 수 있습니다. `SingleAccountPublicClientApplication` 와 `PublicClientApplication` 의 차이점은 다음과 같습니다.
 
 - MSAL은 현재 로그인 된 계정을 추적 합니다.
   - 앱이 broker를 사용 하는 경우 (Azure Portal 기본값) broker가 있는 장치에 설치 된 경우 MSAL은 해당 계정을 장치에서 계속 사용할 수 있는지 확인 합니다.

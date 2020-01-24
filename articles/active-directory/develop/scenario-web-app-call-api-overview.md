@@ -14,19 +14,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3888c7f838d6009382f849bc7d3e34c49b3b70a4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9e123195205bb0eb88f0edd4e2dff2e0da9d84ce
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962137"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701657"
 ---
 # <a name="scenario-web-app-that-calls-web-apis"></a>시나리오: 웹 Api를 호출 하는 웹 앱
 
 Microsoft id 플랫폼에서 사용자에 게 로그인 하 고 로그인 한 사용자를 대신 하 여 web Api를 호출 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-prerequisites.md)]
 

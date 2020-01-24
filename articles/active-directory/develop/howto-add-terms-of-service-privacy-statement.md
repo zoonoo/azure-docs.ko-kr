@@ -12,13 +12,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviwer: lenalepa, sureshja
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9ca59120bcfadc6c75e3687be84a0e70f97fc3c2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f28c33f20556825d84edda34752ac64714327526
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74842812"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697339"
 ---
 # <a name="how-to-configure-terms-of-service-and-privacy-statement-for-an-app"></a>방법: 앱에 대 한 서비스 약관 및 개인 정보 취급 방침 구성
 
@@ -40,7 +39,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 
 앱의 서비스 약관 및 개인정보처리방침 문서에 링크를 추가하기 전에 URL이 지침을 준수하는지 확인해야 합니다.
 
-| 지침     | 설명                           |
+| 지침     | Description                           |
 |---------------|---------------------------------------|
 | 형식        | 유효한 URL                             |
 | 유효한 스키마 | HTTP 및 HTTPS<br/>HTTPS 권장 |
@@ -59,7 +58,7 @@ Azure AD(Azure Active Directory)와 Microsoft 계정을 통합하는 앱을 빌�
 ### <a name="azure-portal"></a>Azure Portal 사용
 Azure Portal에서 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **앱 등록** 섹션으로 이동하여 앱을 선택합니다.
 3. **브랜딩** 창을 엽니다.
 4. **서비스 약관 URL** 및 **개인정보처리방침 URL** 필드를 채웁니다.

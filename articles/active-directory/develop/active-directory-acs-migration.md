@@ -13,13 +13,12 @@ ms.workload: identity
 ms.date: 10/03/2018
 ms.author: ryanwi
 ms.reviewer: jlu, annaba, hirsin
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c04377877619c96f139f4b6c1cf826573524d900
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 174a80b99f65393f5c5bbe35b30e7ac5b54a359e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74845555"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76699464"
 ---
 # <a name="how-to-migrate-from-the-azure-access-control-service"></a>방법: Azure Access Control Service에서 마이그레이션
 
@@ -126,7 +125,7 @@ Access Control 구성 요소의 사용 중지 일정은 다음과 같습니다.
 
 Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우드 서비스는 현재 하나 이상의 대체 인증 수단을 지원합니다. 각 서비스마다 올바른 인증 메커니즘이 달라집니다. 공식적인 지침은 각 서비스에 대한 특정 설명서를 참조하는 것이 좋습니다. 참고를 위해 아래에서 각 서비스의 설명서를 안내하고 있습니다.
 
-| 서비스 | 인도 |
+| 서비스 | 지침 |
 | ------- | -------- |
 | Azure Service Bus | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-messaging/service-bus-migrate-acs-sas) |
 | Azure Service Bus Relay | [공유 액세스 서명으로 마이그레이션](https://docs.microsoft.com/azure/service-bus-relay/relay-migrate-acs-sas) |
@@ -147,7 +146,7 @@ Access Control에서 발행하는 토큰을 이용하는 각 Microsoft 클라우
 
 SharePoint 2013, 2016 및 SharePoint Online 고객은 클라우드, 온-프레미스 및 하이브리드 시나리오에서 인증 목적으로 사용 되는 ACS가 오래 되었습니다. 일부 SharePoint 기능 및 사용 사례는 ACS 사용 중지의 영향을 받을 것이고, 일부는 그렇지 않습니다. 아래 표에는 ACS를 활용하는 가장 인기 있는 SharePoint의 일부 기능에 대한 마이그레이션 지침이 요약되어 있습니다.
 
-| 기능 | 인도 |
+| 기능 | 지침 |
 | ------- | -------- |
 | Azure AD에서 사용자 인증 | 이전에는 Azure AD가 인증을 위해 SharePoint에서 요구하는 SAML 1.1 토큰을 지원하지 않았으며, SharePoint를 Azure AD 토큰 형식과 호환되도록 만들기 위해 ACS 토큰을 중간자로 사용했습니다. 이제 [온-프레미스 앱의 Azure AD 앱 갤러리 sharepoint를 사용 하 여 sharepoint를 AZURE AD에 직접 연결할](https://docs.microsoft.com/azure/active-directory/saas-apps/sharepoint-on-premises-tutorial)수 있습니다. |
 | [SharePoint 온-프레미스에서 서버 간 인증 & 앱 인증](https://technet.microsoft.com/library/jj219571(v=office.16).aspx) | ACS 사용 중지의 영향을 받지 않으므로 변경할 필요가 없습니다. | 
@@ -204,7 +203,7 @@ Azure AD 테넌트는 AD FS를 통해 하나 이상의 온-프레미스 Active D
 | SAML 1.1 | 지원됨 | 미리 보기 |
 | SAML 2.0 | 지원됨 | 지원됨 |
 | SWT | 지원됨 | 지원하지 않음 |
-| **사용자 정의** | | |
+| **사용자 지정** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 지원하지 않음 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 지원됨 |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- 페더레이션된 ID 공급자의 클레임 전달 불가<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행 불가<br />- 상수 값을 사용하여 출력 클레임 발행 가능<br />- Azure AD에 동기화된 사용자의 속성을 바탕으로 출력 클레임 발행 가능 |
@@ -255,7 +254,7 @@ Azure AD B2C는 Access Control과 마찬가지로 다양한 계정 유형을 지
 | SAML 1.1 | 지원됨 | 지원하지 않음 |
 | SAML 2.0 | 지원됨 | 지원하지 않음 |
 | SWT | 지원됨 | 지원하지 않음 |
-| **사용자 정의** | | |
+| **사용자 지정** | | |
 | 사용자 지정 가능한 홈 영역 검색/계정 선택 UI | 코드를 다운로드하여 앱에 통합 | 사용자 지정 CSS를 이용하여 UI 사용자 지정 가능 |
 | 사용자 지정 토큰 서명 인증서 업로드 | 지원됨 | 사용자 정책을 통해 사용자 지정 서명 키 지원(인증서는 지원 불가) |
 | 토큰의 클레임 사용자 지정 |- ID 공급자의 입력 클레임 전달<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기<br />- 입력 클레임의 값을 바탕으로 출력 클레임 발행<br />- 상수 값을 사용하여 출력 클레임 발행 |- ID 공급자의 클레임 전달 가능. 일부 클레임에는 사용자 지정 정책 필요<br />- ID 공급자의 액세스 토큰을 클레임으로서 가져오기 불가<br />- 사용자 지정 정책을 통해 입력 클레임의 값을 바탕으로 출력 클레임 발행 가능<br />- 사용자 지정 정책을 통해 상수 값을 바탕으로 출력 클레임 발행 가능 |

@@ -13,13 +13,12 @@ ms.date: 04/05/2019
 ms.author: ryanwi
 ms.reviewer: lenalepa, sureshja, zachowd
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2739f5db8c50449e3481ccdfb495b30edba54ce1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 68040c8ee22454c300296493b6c840eabbca98aa
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966982"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697135"
 ---
 # <a name="how-to-configure-an-applications-publisher-domain"></a>방법: 응용 프로그램의 게시자 도메인 구성
 
@@ -49,11 +48,11 @@ ms.locfileid: "74966982"
 
 앱의 게시자 도메인을 설정 하려면 다음 단계를 수행 합니다.
 
-1. Jelentkezzen be egy munkahelyi vagy iskolai fiókkal vagy a személyes Microsoft-fiókjával az [Azure Portalra](https://portal.azure.com).
+1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 
-1. 계정이 둘 이상의 Azure AD 테 넌 트에 있는 경우:
-   1. 페이지의 오른쪽 위 모퉁이에 있는 메뉴에서 프로필을 선택 하 고 **디렉터리를 전환**합니다.
-   1. 응용 프로그램을 만들려는 Azure AD 테 넌 트로 세션을 변경 합니다.
+1. 계정이 여러 Azure AD 테넌트에 있는 경우:
+   1. 페이지의 오른쪽 위 모서리에 있는 메뉴에서 프로필을 선택한 다음, **디렉터리를 전환**합니다.
+   1. 애플리케이션을 만들려는 Azure AD 테넌트로 세션을 변경합니다.
 
 1. [Azure Active Directory > 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 으로 이동 하 여 구성 하려는 앱을 찾아 선택 합니다.
 
@@ -142,7 +141,7 @@ ms.locfileid: "74966982"
 "https://app2.contoso.com",
 ```
 
-### <a name="exceptions"></a>Kivételek
+### <a name="exceptions"></a>예외
 
 다음 경우에는 단일 루트 도메인 제한이 적용 되지 않습니다.
 

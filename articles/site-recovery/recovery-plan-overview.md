@@ -2,25 +2,27 @@
 title: Azure Site Recovery 복구 계획 정보
 description: Azure Site Recovery에서 복구 계획에 대해 알아봅니다.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 1dd83be03c5b412708e89058ce7667a2ddfef530
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 01/23/2020
+ms.openlocfilehash: beb92bd62d011ef8aaf304dbb769e7694e6d7e60
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75497900"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705856"
 ---
 # <a name="about-recovery-plans"></a>복구 계획 정보
 
 이 문서에서는 [Azure Site Recovery](site-recovery-overview.md)의 복구 계획에 대 한 개요를 제공 합니다.
 
-복구 계획은 복구 그룹으로 컴퓨터를 수집합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
+복구 계획은 장애 조치 (failover)를 위해 컴퓨터를 복구 그룹으로 수집 합니다. 복구 계획은 장애 조치(failover)할 수 있는 독립적인 작은 단위를 만들어서 체계적인 복구 프로세스를 정의하는 데 도움이 됩니다. 단위는 일반적으로 사용자 환경에서 앱을 나타냅니다.
 
 - 복구 계획은 컴퓨터가 장애 조치(failover)되는 방식 및 장애 조치(failover) 후 시작되는 순서를 정의합니다.
+- 복구 계획은 Azure로의 장애 조치 (failover)에 사용 되지만 Azure에서 장애 복구 (failback)에는 사용할 수 없습니다.
 - 최대 100 개의 보호 된 인스턴스를 하나의 복구 계획에 추가할 수 있습니다.
 - 순서, 지침 및 수행할 작업을 추가하여 계획을 사용자 지정할 수 있습니다.
 - 계획을 정의한 후에 장애 조치(failover)를 실행할 수 있습니다.
 - 컴퓨터는 여러 복구 계획에서 참조 될 수 있으며, 이후 계획은 다른 복구 계획을 사용 하 여 이전에 배포 된 컴퓨터의 배포/시작을 건너뜁니다.
+
 
 
 ### <a name="why-use-a-recovery-plan"></a>복구 계획을 사용하는 이유는 무엇인가요?

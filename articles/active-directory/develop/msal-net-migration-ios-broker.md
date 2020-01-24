@@ -1,5 +1,5 @@
 ---
-title: MSAL.NET로 broker를 사용 하 여 Xamarin 앱 마이그레이션
+title: 브로커를 사용하여 MSAL.NET으로 Xamarin 앱 마이그레이션
 titleSuffix: Microsoft identity platform
 description: Microsoft Authenticator를 사용 하는 Xamarin iOS 앱을 ADAL.NET에서 MSAL.NET로 마이그레이션하는 방법에 대해 알아봅니다.
 author: jmprieur
@@ -12,13 +12,12 @@ ms.date: 09/08/2019
 ms.author: jmprieur
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c830b7f6d13d9b85eae34b6193ad2a10e7bfb410
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 17c7949f2bbd6d75343bb2e6825be36b56a20967
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424207"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695333"
 ---
 # <a name="migrate-ios-applications-that-use-microsoft-authenticator-from-adalnet-to-msalnet"></a>Microsoft Authenticator를 사용 하는 iOS 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션
 

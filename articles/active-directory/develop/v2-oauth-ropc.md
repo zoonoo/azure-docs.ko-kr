@@ -17,13 +17,12 @@ ms.date: 11/19/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 24c6bfdc7efc8f15378d4a126b978bc77741b43c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b935ad2491ca486a3bc6878f0332e5390600b1bc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74919327"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700688"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-resource-owner-password-credentials"></a>Microsoft id 플랫폼 및 OAuth 2.0 리소스 소유자 암호 자격 증명
 
@@ -69,7 +68,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &grant_type=password
 ```
 
-| 매개 변수를 포함해야 합니다. | 조건 | 설명 |
+| 매개 변수 | 조건 | Description |
 | --- | --- | --- |
 | `tenant` | 필수 | 사용자를 로그인할 디렉터리 테넌트입니다. 이는 GUID 또는 친숙한 이름 형식일 수 있습니다. 이 매개 변수는 `common` 또는 `consumers`로 설정할 수 없고 `organizations`로 설정할 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 페이지가 앱에 할당 된 응용 프로그램 (클라이언트) ID입니다. | 
@@ -95,9 +94,9 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 }
 ```
 
-| 매개 변수를 포함해야 합니다. | 형식 | 설명 |
+| 매개 변수 | 형식 | Description |
 | --------- | ------ | ----------- |
-| `token_type` | string | 항상 `Bearer`로 설정합니다. |
+| `token_type` | String | 항상 `Bearer`로 설정합니다. |
 | `scope` | 공백으로 구분된 문자열 | 액세스 토큰이 반환된 경우 이 매개 변수는 액세스 토큰이 유효한 범위를 나열합니다. |
 | `expires_in`| int | 포함된 액세스 토큰이 유효한 시간(초)입니다. |
 | `access_token`| 불투명 문자열 | 요청된 [범위](v2-permissions-and-consent.md)에 대해 발급되었습니다. |
@@ -110,7 +109,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 
 사용자가 올바른 사용자 이름 또는 암호를 입력하지 않았거나 클라이언트가 요청된 동의를 수신하지 못한 경우 인증에 실패합니다.
 
-| 오류 | 설명 | 클라이언트 작업 |
+| 오류 | Description | 클라이언트 작업 |
 |------ | ----------- | -------------|
 | `invalid_grant` | 인증에 실패했습니다. | 자격 증명이 올바르지 않거나 클라이언트에 요청된 범위에 대한 동의가 없습니다. 범위가 부여 되지 않은 경우 `consent_required` 오류가 반환 됩니다. 이 오류가 발생하면 클라이언트는 WebView 또는 브라우저를 사용하여 대화형 프롬프트로 사용자를 전송해야 합니다. |
 | `invalid_request` | 요청이 잘못 구성되었습니다. | 권한 부여 형식은 `/common` 또는 `/consumers` 인증 컨텍스트에서 지원 되지 않습니다.  대신 `/organizations` 또는 테 넌 트 ID를 사용 합니다. |

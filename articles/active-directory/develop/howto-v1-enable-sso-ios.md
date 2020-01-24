@@ -15,15 +15,14 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19b010091ebd909745b272fca704bb87adf7924b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7915c0dae652e113410002128e4ea19ddba68a07
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65962631"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696914"
 ---
-# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO 사용
+# <a name="how-to-enable-cross-app-sso-on-ios-using-adal"></a>방법: ADAL을 사용하여 iOS에서 앱 간 SSO를 사용하도록 설정
 
 [!INCLUDE [active-directory-develop-applies-v1-adal](../../../includes/active-directory-develop-applies-v1-adal.md)]
 
@@ -44,7 +43,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
-* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 참조 하세요. [앱 등록](quickstart-register-app.md)
+* Azure AD에 대한 레거시 포털을 사용하여 앱 프로비전 자세한 내용은 [앱 등록](quickstart-register-app.md) 을 참조 하세요.
 * [Azure AD iOS SDK](https://github.com/AzureAD/azure-activedirectory-library-for-objc)와 애플리케이션 통합
 
 ## <a name="single-sign-on-concepts"></a>Single Sign-On 개념
@@ -165,7 +164,7 @@ SDK가 broker 애플리케이션과 함께 작동하여 SSO를 사용하도록 �
 
 소유하고 있는 애플리케이션에서 SSO를 활성화하려면 다음을 수행해야 합니다.
 
-1. 모든 응용 프로그램 사용 된 동일한 클라이언트 ID 또는 응용 프로그램 id입니다.
+1. 모든 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 사용 하는지 확인 합니다.
 2. 모든 애플리케이션이 키 집합을 공유할 수 있도록 Apple에서 동일한 서명 인증서를 공유하는지 확인합니다.
 3. 각 애플리케이션에 대한 동일한 키 집합 권한 부여를 요청합니다.
 4. SDK에 사용했으면 하는 공유 키 집합을 제공합니다.
@@ -231,7 +230,7 @@ App3 리디렉션 URI: `x-msauth-mytestiosapp://com.myapp.mytestapp3`
 </plist>
 ```
 
-각 응용 프로그램에서 사용 하도록 설정 하는 키 집합 권한 부여 해야 하 고 SSO를 사용할 준비가 되었습니다. id SDK에 대 한 입력 키 집합 다음을 사용 하 여 설정에 `ADAuthenticationSettings` 다음 설정을 사용 하 여:
+각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 설정을 사용 하 여 `ADAuthenticationSettings`에서 다음 설정을 사용 하 여 id SDK에 키 집합을 알려 줍니다.
 
 ```
 defaultKeychainSharingGroup=@"com.myapp.mycache";
@@ -240,7 +239,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 > [!WARNING]
 > 애플리케이션에서 키 집합을 공유하는 경우 모든 애플리케이션은 사용자를 삭제하거나 더 심한 경우 애플리케이션에서 모든 토큰을 삭제할 수 있습니다. 백그라운드 작업을 하기 위해 토큰을 사용하는 애플리케이션이 있는 경우에 특히 미치는 영향이 커집니다. 키 집합을 공유하면 ID SDK를 통한 모든 제거 작업에 특히 주의해야 합니다.
 
-정말 간단하죠. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
+이것으로 끝입니다. 이제 SDK는 모든 애플리케이션에서 자격 증명을 공유합니다. 사용자 목록도 애플리케이션 인스턴스 간에 공유됩니다.
 
 ### <a name="turning-on-sso-for-broker-assisted-sso"></a>브로커 지원 SSO에 대한 SSO 설정
 
@@ -253,7 +252,7 @@ defaultKeychainSharingGroup=@"com.myapp.mycache";
 3. URL 구성표 등록.
 4. info.plist 파일에 권한을 추가합니다.
 
-#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 broker 모드 사용
+#### <a name="step-1-enable-broker-mode-in-your-application"></a>1단계: 애플리케이션에서 브로커 모드 활성화
 
 "컨텍스트" 또는 인증 개체의 초기 설정을 만들 때 브로커를 사용하는 애플리케이션에 대한 기능은 설정되어 있습니다. 코드에서 자격 증명 형식을 설정하여 이 작업을 수행합니다.
 
@@ -288,7 +287,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 </array>
 ```
 
-#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3단계: URL 구성표를 사용하여 새 리디렉션 URI 설정
+#### <a name="step-3-establish-a-new-redirect-uri-with-your-url-scheme"></a>3단계: URL 구성표와 함께 새 리디렉션 URI 설정
 
 올바른 애플리케이션에 자격 증명 토큰을 항상 반환하는지 확인하려면 iOS 운영 체제에서 확인할 수 있는 방식으로 애플리케이션에 다시 호출하는지 확인해야 합니다. iOS 운영 체제는 호출하는 애플리케이션의 번들 ID를 Microsoft 브로커 애플리케이션에 보고합니다. 불량 애플리케이션에서 이를 스푸핑할 수 없습니다. 따라서 토큰이 올바른 애플리케이션에 반환되는지 확인하도록 브로커 애플리케이션의 URI와 함께 활용합니다. 이 고유한 리디렉션 URI를 애플리케이션 및 개발자 포털에서 리디렉션 URI로 설정해야 합니다.
 
@@ -300,7 +299,7 @@ ID 플랫폼은 URL을 사용하여 브로커를 호출한 다음, 애플리케�
 
 [Azure Portal](https://portal.azure.com/)을 사용하여 앱 등록에 이 리디렉션 URI를 지정해야 합니다. Azure AD 앱 등록에 대한 자세한 내용은 [Azure Active Directory와 통합](active-directory-how-to-integrate.md)을 참조하세요.
 
-##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에서 리디렉션 URI 추가
+##### <a name="step-3a-add-a-redirect-uri-in-your-app-and-dev-portal-to-support-certificate-based-authentication"></a>3a단계: 인증서 기반 인증을 지원하도록 앱 및 개발자 포털에 리디렉션 URI 추가
 
 인증서 기반 인증을 지원하기 위해 애플리케이션에 해당 지원을 추가하려는 경우 두 번째 “msauth”를 애플리케이션 및 [Azure Portal](https://portal.azure.com/)에 등록하여 인증서 인증을 처리해야 합니다.
 

@@ -5,18 +5,18 @@ services: expressroute
 author: jaredr80
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: ba7bddb2f11732f7de5f1dfa68b66be1204722cc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: c5cb8366465d5983823184c87eb54fad6aaffbd0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083482"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705924"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
-ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct Connect 정보](expressroute-erdirect-about.md)를 참조하세요.
+ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치에서 Microsoft의 글로벌 네트워크에 직접 연결하는 기능을 제공합니다. 자세한 내용은 [ExpressRoute Direct 정보](expressroute-erdirect-about.md)를 참조하세요.
 
 ## <a name="resources"></a>리소스 만들기
 

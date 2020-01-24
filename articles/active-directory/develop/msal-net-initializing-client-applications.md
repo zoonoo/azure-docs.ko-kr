@@ -13,20 +13,19 @@ ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 15c0db66fd357ba150af1901a6b50a645fd1ca88
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 31af3691e9f55eb4263b5976c2dc82c029cbc3a0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74915855"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695554"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 공용 클라이언트 및 기밀 클라이언트 응용 프로그램을 초기화 하는 방법을 설명 합니다.  클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
 
 MSAL.NET 3.x를 사용 하는 경우 응용 프로그램 작성기를 사용 하 여 응용 프로그램을 인스턴스화하는 것이 좋습니다. `PublicClientApplicationBuilder` 및 `ConfidentialClientApplicationBuilder`. 코드 또는 구성 파일에서 응용 프로그램을 구성 하는 강력한 메커니즘을 제공 하거나 두 방법을 모두 혼합 하 여 제공 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다.  등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (GUID를 나타내는 문자열)
@@ -97,7 +96,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 공용 클라이언트나 기밀 클라이언트 응용 프로그램 작성기에서 설정할 수 있는 한정자는 다음과 같습니다.
 
-|보조키 | 설명|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithAuthority()` 7 재정의 | Azure 클라우드, 대상 그룹, 테 넌 트 (테 넌 트 ID 또는 도메인 이름)를 선택 하거나 직접 인증 기관 URI를 제공 하 여 응용 프로그램 기본 기관을 Azure AD 기관에 설정 합니다.|
 |`.WithAdfsAuthority(string)` | 응용 프로그램 기본 기관을 ADFS 기관으로 설정 합니다.|
@@ -116,7 +115,7 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 
 Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해 설정할 수 있는 한정자는 다음과 같습니다.
 
-|보조키 | 설명|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithIosKeychainSecurityGroup()` | **Xamarin.ios만**해당: io 키 체인 보안 그룹 (캐시 지 속성)을 설정 합니다.|
 
@@ -124,7 +123,7 @@ Xamarin.ios에서 공용 클라이언트 응용 프로그램 작성기에 대해
 
 기밀 클라이언트 응용 프로그램 빌더에 대해 설정할 수 있는 한정자는 다음과 같습니다.
 
-|보조키 | 설명|
+|Modifier | Description|
 |--------- | --------- |
 |`.WithCertificate(X509Certificate2 certificate)` | Azure AD를 사용 하 여 응용 프로그램을 식별 하는 인증서를 설정 합니다.|
 |`.WithClientSecret(string clientSecret)` | Azure AD를 사용 하 여 응용 프로그램을 식별 하는 클라이언트 암호 (앱 암호)를 설정 합니다.|

@@ -14,13 +14,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: luleon, paulgarn, jeedes
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 14e1a466902ccb47d57e5f9590ba94bf08c76ec5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7a4a58943b251628780694c001ca441a14e9c09a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918443"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698682"
 ---
 # <a name="how-to-customize-claims-issued-in-the-saml-token-for-enterprise-applications"></a>방법: 엔터프라이즈 응용 프로그램에 대 한 SAML 토큰에서 발급 된 클레임 사용자 지정
 
@@ -56,7 +55,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 **이름 식별자 형식 선택** 드롭다운 목록에서 다음 옵션 중 하나를 선택할 수 있습니다.
 
-| NameID 형식 | 설명 |
+| NameID 형식 | Description |
 |---------------|-------------|
 | **기본값** | Azure AD는 기본 원본 형식을 사용 합니다. |
 | **지속적** | Azure AD는 NameID 형식으로 영구를 사용 합니다. |
@@ -70,12 +69,12 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 `NameIdentifier`(또는 NameID) 클레임의 원하는 소스를 선택합니다. 다음 옵션 중에서 선택할 수 있습니다.
 
-| name | 설명 |
+| 이름 | Description |
 |------|-------------|
 | 이메일 | 사용자의 이메일 주소입니다. |
 | userprincipalName | 사용자의 UPN (사용자 계정 이름) |
 | onpremisessamaccount | 온-프레미스 Azure AD에서 동기화된 SAM 계정 이름입니다. |
-| objectId | Azure AD에서 사용자의 Objectid |
+| objectid | Azure AD에서 사용자의 Objectid |
 | employeeid | 사용자의 직원 ID |
 | 디렉터리 확장 | [Azure AD Connect 동기화를 사용하여 온-프레미스 Active Directory에서 동기화되는](../hybrid/how-to-connect-sync-feature-directory-extensions.md) 디렉터리 확장입니다. |
 | 확장 특성 1-15 | Azure AD 스키마를 확장하는 데 사용되는 온-프레미스 확장 특성입니다. |
@@ -100,7 +99,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 클레임 변환 함수를 사용할 수도 있습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **Join()** | 확인된 도메인에 특성을 조인합니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |
@@ -127,7 +126,7 @@ SAML 요청에 NameIDPolicy에 대 한 요소가 포함 되지 않은 경우 Azu
 
 다음 함수를 사용 하 여 클레임을 변환할 수 있습니다.
 
-| 함수 | 설명 |
+| 함수 | Description |
 |----------|-------------|
 | **ExtractMailPrefix()** | 전자 메일 주소 또는 사용자 계정 이름에서 도메인 접미사를 제거 합니다. 그러면 전달되는 사용자 이름의 첫 부분만 추출됩니다(예: joe_smith@contoso.com 대신 "joe_smith"). |
 | **Join()** | 두 특성을 조인 하 여 새 값을 만듭니다. 필요에 따라 두 특성 사이에 구분 기호를 사용할 수 있습니다. NameID 클레임 변환의 경우 조인은 확인 된 도메인으로 제한 됩니다. 선택한 사용자 식별자 값에 도메인이 있으면 사용자 이름을 추출하여 선택한 확인된 도메인을 추가합니다. 예를 들어, 사용자 식별자 값으로 이메일(joe_smith@contoso.com)을 선택하고 확인된 도메인으로 contoso.onmicrosoft.com을 선택하면 joe_smith@contoso.onmicrosoft.com이 됩니다. |

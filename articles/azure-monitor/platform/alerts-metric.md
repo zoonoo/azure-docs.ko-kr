@@ -1,18 +1,18 @@
 ---
 title: Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 description: Azure Portal 또는 CLI를 사용하여 메트릭 경고 규칙을 만들고, 보고, 관리하는 방법을 알아봅니다.
-author: snehithm
+author: harelbr
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/18/2018
-ms.author: snmuvva
+ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 117b65265c853194e93a97fe5e2b2dcc6e9f5bc2
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 00f5f37591ed2ed250cb756c686ea15136921512
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60712992"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705533"
 ---
 # <a name="create-view-and-manage-metric-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 메트릭 경고 만들기, 보기 및 관리
 

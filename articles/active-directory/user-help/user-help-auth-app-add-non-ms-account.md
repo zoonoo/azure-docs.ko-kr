@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: c01377280c4e4c97b729e27c22496c388652924f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: da5e2f60334148be1206ce61a9c6397a3acf85e3
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278891"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704768"
 ---
 # <a name="add-non-microsoft-accounts-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 타사 계정 추가
 
@@ -43,9 +42,9 @@ ms.locfileid: "74278891"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Google 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
-1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
+1. 컴퓨터에서 https://myaccount.google.com/signinoptions/two-step-verification/enroll-welcome 으로 이동하여 **시작하기**를 선택한 다음, ID를 확인합니다.
 
 2. 페이지에 표시되는 단계에 따라 개인 Google 계정에 2단계 인증을 설정합니다.
 
@@ -79,7 +78,7 @@ ms.locfileid: "74278891"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Facebook 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
 1. 컴퓨터에서 Facebook을 열고 오른쪽 위의 드롭다운 메뉴를 선택한 다음, **설정** > **보안 및 로그인**으로 이동합니다.
 
@@ -119,7 +118,7 @@ ms.locfileid: "74278891"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 GitHub 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
 1. 컴퓨터에서 GitHub를 열고 오른쪽 위에서 사용자 이미지를 선택한 다음, **설정**을 선택합니다.
 
@@ -156,7 +155,7 @@ ms.locfileid: "74278891"
 
 2단계 인증을 설정한 다음, 앱에 계정을 추가하는 방식으로 Amazon 계정을 추가합니다.
 
-### <a name="turn-on-two-factor-verification"></a>2단계 인증 켜기
+### <a name="turn-on-two-factor-verification"></a>2단계 인증 설정
 
 1. 컴퓨터에서 Amazon을 열고 **계정 및 목록** 드롭다운 메뉴를 선택한 다음, **계정**을 선택합니다.
 

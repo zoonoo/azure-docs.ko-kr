@@ -2,13 +2,13 @@
 title: 리소스 유형별 이동 작업 지원
 description: 새 리소스 그룹이나 구독으로 이동할 수 있는 Azure 리소스 종류를 소개합니다.
 ms.topic: conceptual
-ms.date: 01/17/2020
-ms.openlocfilehash: da08775ed6c694b95ecec452507f94638091db0c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/22/2020
+ms.openlocfilehash: 3fe404b8b501056f75ac45ccebc5bdbed1acbe43
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261061"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705482"
 ---
 # <a name="move-operation-support-for-resources"></a>리소스에 대한 이동 작업 지원
 이 문서에서는 Azure 리소스 종류가 이동 작업을 지원하는지 여부에 대한 정보를 제공합니다. 또한 리소스를 이동할 때 고려해 야 할 특수 조건에 대 한 정보를 제공 합니다.
@@ -160,6 +160,7 @@ ms.locfileid: "76261061"
 > - [Microsoft.TerraformOSS](#microsoftterraformoss)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.Token](#microsofttoken)
+> - [microsoft.visualstudio](#microsoftvisualstudio)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
 > - [Microsoft VSOnline](#microsoftvsonline)
 > - [Microsoft.Web](#microsoftweb)
@@ -1521,6 +1522,18 @@ ms.locfileid: "76261061"
 > | 리소스 유형 | 리소스 그룹 | Subscription |
 > | ------------- | ----------- | ---------- |
 > | stores | 예 | 예 |
+
+## <a name="microsoftvisualstudio"></a>microsoft.visualstudio
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 리소스 그룹 | Subscription |
+> | ------------- | ----------- | ---------- |
+> | account | 아닙니다. | 아닙니다. |
+> | 계정/확장 | 아닙니다. | 아닙니다. |
+> | 계정/프로젝트 | 아닙니다. | 아닙니다. |
+
+> [!IMPORTANT]
+> Azure DevOps에 대 한 구독을 변경 하려면 [청구에 사용 되는 azure 구독 변경](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)을 참조 하세요.
 
 ## <a name="microsoftvmwarecloudsimple"></a>Microsoft.VMwareCloudSimple
 

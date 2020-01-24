@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: jlian
-ms.openlocfilehash: 20a1ec4b8eb88f5914ce6b27acc8a472e58f5d29
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec8a00460b4a750339f929eb6879ac6eb63cac8e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457084"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705737"
 ---
 # <a name="understand-iot-hub-metrics"></a>IoT Hub 메트릭 이해
 
@@ -115,7 +115,7 @@ IoT Hub는 허브의 상태와 연결된 디바이스의 총 수에 대한 개�
 
 지금까지 IoT Hub 메트릭의 개요를 살펴보았습니다. Azure IoT Hub를 관리하는 방법에 대한 자세한 내용을 보려면 다음 링크를 따라가십시오.
 
-* [작업 모니터링](iot-hub-operations-monitoring.md)
+* [진단 로그 설정](iot-hub-monitor-resource-health.md)
 
 IoT Hub의 기능을 추가로 탐색하려면 다음을 참조하세요.
 

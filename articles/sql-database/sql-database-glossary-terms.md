@@ -10,45 +10,29 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: ''
-ms.date: 04/26/2019
-ms.openlocfilehash: 86da4ecab387da80954c2267ddeabe32a723474c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 01/22/2020
+ms.openlocfilehash: 733901d38703e02ab7dbe811b0f80a1dfedf03d5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73802732"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705788"
 ---
 # <a name="azure-sql-database-glossary-of-terms"></a>Azure SQL Database 용어집
 
-|Context|용어|자세한 정보|
+|Context|조건|자세한 정보|
 |:---|:---|:---|
-|Azure 서비스 이름|Azure SQL Database 또는 SQL Database|[Azure SQL Database 서비스](sql-database-technical-overview.md)|
-|컴퓨팅 계층|서버를 사용하지 않음 |[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
-||프로비전됨|[서버를 사용 하지 않는 계산 계층](sql-database-serverless.md)
-|배포 옵션 |단일 데이터베이스|[단일 데이터베이스](sql-database-single-database.md)|
-||탄력적 풀|[탄력적 풀](sql-database-elastic-pool.md)|
-||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|
-|서버 개체|SQL Database 서버 또는 데이터베이스 서버|[데이터베이스 서버](sql-database-servers.md)|
-||SQL Database 관리되는 인스턴스 서버, 관리되는 인스턴스 서버 또는 인스턴스 서버|[관리되는 인스턴스](sql-database-managed-instance.md)|
-데이터베이스 개체|Azure SQL 데이터베이스|Azure SQL Database의 모든 데이터베이스|
-||단일 데이터베이스|단일 데이터베이스 배포 옵션을 사용하여 생성된 데이터베이스|
-||풀링된 데이터베이스|탄력적 풀 내에 만들어지거나 그리로 이동된 데이터베이스|
-||인스턴스 데이터베이스|관리되는 인스턴스 내에 만들어진 데이터베이스|
-||기본 데이터베이스|DTU 기반 구매 모델의 기본 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||표준 데이터베이스|DTU 기반 구매 모델의 표준 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||프리미엄 데이터베이스|DTU 기반 구매 모델의 프리미엄 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||범용 데이터베이스|vCore 기반 구매 모델의 범용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||하이퍼스케일 데이터베이스|vCore 기반 구매 모델의 하이퍼스케일 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||중요 비즈니스용 데이터베이스|vCore 기반 구매 모델의 중요 비즈니스용 서비스 계층 내에 만들어지거나 그리로 이동된 데이터베이스|
-||프로 비전 된 데이터베이스|프로 비전 된 계산 계층에 구성 된 데이터베이스|
-|[구매 모델 및 리소스](sql-database-purchase-models.md)|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
+|Azure 서비스|Azure SQL Database 또는 SQL Database|[Azure SQL Database 서비스](sql-database-technical-overview.md)|
+|구매 모델|DTU 기반 구매 모델|[DTU 기반 구매 모델](sql-database-service-tiers-dtu.md)|
 ||vCore 기반 구매 모델|[vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)|
-||vCore|하이퍼바이저가 게스트 OS에 제공하는 코어|
-||서비스 계층|구매 모델 내 서비스 수준|
-||컴퓨팅 크기|서비스 계층 내의 단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스의 컴퓨팅 리소스 양|
-||스토리지 용량|단일 데이터베이스, 탄력적 풀 또는 관리되는 인스턴스에 사용할 수 있는 스토리지 용량|
-||컴퓨팅 세대|서비스 계층의 프로세서 세대|
-|데이터베이스 서버 IP 방화벽 규칙|IP 방화벽 규칙|[IP 방화벽 규칙](sql-database-firewall-configure.md)|
-||서버 수준 IP 방화벽 규칙|[서버 수준 IP 방화벽 규칙](sql-database-firewall-configure.md)|
-|| 데이터베이스 수준 IP 방화벽 규칙|[데이터베이스 수준 IP 방화벽 규칙](sql-database-firewall-configure.md)|
-||가상 네트워크 엔드포인트 및 규칙|[가상 네트워크 엔드포인트 및 규칙](sql-database-vnet-service-endpoint-rule-overview.md)|
+|배포 옵션 |단일 데이터베이스|[단일 데이터베이스](sql-database-single-database.md)|
+||Elastic Pool|[탄력적 풀](sql-database-elastic-pool.md)|
+||Managed Instance|[관리되는 인스턴스](sql-database-managed-instance.md)|
+|서비스 계층|Basic, Standard, Premium, 범용, Hyperscale, 중요 비즈니스용|VCore 모델의 서비스 계층은 [단일 데이터베이스 및 탄력적 풀](sql-database-service-tiers-vcore.md#service-tiers) 및 [관리 되는 인스턴스](sql-database-managed-instance.md#managed-instance-service-tiers)를 참조 하세요. DTU 모델의 서비스 계층은 [dtu 모델](sql-database-service-tiers-dtu.md#compare-the-dtu-based-service-tiers)을 참조 하세요.|
+|컴퓨팅 계층|서버리스 컴퓨팅|[서버리스 컴퓨팅](sql-database-service-tiers-vcore.md#compute-tiers)
+||프로비저닝된 컴퓨팅|[프로비저닝된 컴퓨팅](sql-database-service-tiers-vcore.md#compute-tiers)
+|컴퓨팅 세대|Gen5, M 시리즈, Fsv2 시리즈|[하드웨어 생성](sql-database-service-tiers-vcore.md#hardware-generations)
+|서버 엔터티|SQL Database 서버 또는 데이터베이스 서버|[데이터베이스 서버](sql-database-servers.md)|
+||SQL Database 관리되는 인스턴스 서버, 관리되는 인스턴스 서버 또는 인스턴스 서버|[관리되는 인스턴스](sql-database-managed-instance.md)|
+|리소스 유형|vCore|단일 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스의 계산 리소스에 제공 된 CPU 코어입니다.|
+||계산 크기 및 저장소 크기|계산 크기는 단일 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스에 사용할 수 있는 CPU, 메모리 및 기타 저장소와 관련 없는 리소스의 최대 양입니다.  저장소 크기는 단일 데이터베이스, 탄력적 풀 또는 관리 되는 인스턴스에 사용할 수 있는 최대 저장소 크기입니다.  Vcore 모델의 크기 조정 옵션은 [vcore 단일 데이터베이스](sql-database-vcore-resource-limits-single-databases.md), [vcore 탄력적 풀](sql-database-vcore-resource-limits-elastic-pools.md) 및 [관리 되는 인스턴스](sql-database-managed-instance-resource-limits.md)를 참조 하세요.  DTU 모델의 크기 조정 옵션에 대해서는 [dtu 단일 데이터베이스](sql-database-dtu-resource-limits-single-databases.md) 및 [dtu 탄력적 풀](sql-database-dtu-resource-limits-elastic-pools.md)을 참조 하세요.

@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: c57f625e7f44dc5de6a801ec93bad5433e9a9a66
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 8475e90e247aa2a0c081d25486c4ada0854a9e89
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294289"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705397"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -33,16 +33,11 @@ Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태
 백업 [서버를 사용 하는](backup-architecture.md#architecture-back-up-to-dpmmabs) 백업 및 [지원 요구 사항](backup-support-matrix-mabs-dpm.md)에 대해 자세히 알아보세요.
 
 >[!NOTE]
-> 이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.
+> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
 >
 >현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
 >
-> 이 솔루션은 다음과 같은 시나리오에서 특히 유용 합니다.
->  
->1. 중요 한 데이터가 하나의 디스크에만 백업 되 고 VM에 연결 된 나머지 디스크는 백업 하지 않으려고 합니다. 이렇게 하면 백업 저장소 비용이 최소화 됩니다.  
->2. VM 데이터의 일부에 대 한 다른 백업 솔루션이 있습니다. 예를 들어 다른 워크 로드 백업 솔루션을 사용 하 여 데이터베이스 또는 데이터를 백업 하 고 나머지 디스크 및 데이터에 대 한 Azure VM 수준 백업을 사용 하 여 사용 가능한 최상의 기능을 활용 하는 효율적이 고 강력한 시스템을 구축 하려고 합니다.
->
->미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
+>**미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.**
 
 ## <a name="supported-backup-actions"></a>지원되는 백업 작업
 

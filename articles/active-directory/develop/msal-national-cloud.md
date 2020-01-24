@@ -13,13 +13,12 @@ ms.date: 11/22/2019
 ms.author: negoe
 ms.reviewer: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f1d0d4511b95d56ae41bf9fbb1118318d8374bde
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfca2b1311f1b55f19d5709f7c9ca7c3e366769c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916046"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695741"
 ---
 # <a name="use-msal-in-a-national-cloud-environment"></a>국가별 클라우드 환경에서 MSAL 사용
 
@@ -35,7 +34,7 @@ Microsoft의 전 세계 클라우드 외에도 MSAL (Microsoft 인증 라이브�
 
 이 가이드에서는 회사 및 학교 계정에 로그인 하 고, 액세스 토큰을 가져오고, [Azure Government 클라우드](https://azure.microsoft.com/global-infrastructure/government/) 환경에서 Microsoft Graph API를 호출 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 이러한 필수 구성 요소를 충족 하는지 확인 합니다.
 
@@ -71,7 +70,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 ### <a name="step-1-register-your-application"></a>1단계: 애플리케이션 등록
 
-1. [Azure portal](https://portal.azure.us/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.us/)에 로그인합니다.
     
    다른 국가별 클라우드의 Azure Portal 끝점을 찾으려면 [앱 등록 끝점](authentication-national-cloud.md#app-registration-endpoints)을 참조 하세요.
 
@@ -90,7 +89,7 @@ MSAL.NET를 사용 하 여 사용자를 로그인 하 고 토큰을 획득 하 �
 
 - 노드와 같은 로컬 웹 서버에 대 한 [프로젝트 파일을 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/quickstart.zip) 합니다.
 
-  or
+  또는
 
 - [Visual Studio 프로젝트를 다운로드](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2/archive/vsquickstart.zip)합니다.
 

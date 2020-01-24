@@ -16,13 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e790728cbc7415532754d10773d466e9a0280422
-ms.sourcegitcommit: 0576bcb894031eb9e7ddb919e241e2e3c42f291d
+ms.openlocfilehash: ad58f9b135056ef273f612abc80262a55a7a1f5e
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72373902"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700994"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자 용 Azure Active Directory (v1.0) 개요
 
@@ -53,7 +52,7 @@ Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 
 | ----------------------------------------------------------------------------------| --- |
 | [인증 라이브러리(ADAL)](active-directory-authentication-libraries.md)   | Azure AD에서 제공하는 라이브러리 및 SDK에 대한 개요입니다. |
 | [코드 샘플](sample-v1-code.md)                                  | 모든 Azure AD 코드 샘플의 목록입니다. |
-| [용어](developer-glossary.md)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
+| [용어 설명](developer-glossary.md)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
 |  |  |
 
 

@@ -12,92 +12,91 @@ ms.date: 01/21/2019
 ms.author: ryanwi
 ms.reviewer: jlu
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9cc038e67e5528a52b0b98ea1698da07e8120242
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ad908b814a7c2b4dce9d15153b0991f51f623e8b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966948"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697101"
 ---
-# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화 된 Access Control Service 네임 스페이스 다시 활성화
+# <a name="how-to-reactivate-disabled-access-control-service-namespaces"></a>방법: 비활성화된 Access Control Service 네임스페이스 다시 활성화
 
-11 월 2017에 년 11 월 7 2018 일에 ACS (Azure Active Directory 서비스) (Azure AD) 서비스를 사용 중지 Microsoft Azure Access Control Service 하는 것이 발표 되었습니다.
+2017년 11월에 Microsoft Azure AD(Azure Active Directory) 서비스의 하나인 Azure ACS(Access Control Service)는 2018년 11월 7일부터 사용 중지된다고 발표했습니다.
 
-이후부터 acs 구독 관리자에 대 한 전자 메일을 acs 구독 관리자에 게 전송 합니다 .이 전자 메일에는 2018 년 11 월 7 일 이전에 ACS 사용 중지 시간 12 개월, 9 개월, 6 개월, 3 개월, 1 개월, 2 주, 1 주, 1 일이 만료 됩니다.
+이후 사용 중지일인 2018년 11월 7일로부터 12개월, 9개월, 6개월, 3개월, 1개월, 2주, 1주 및 1일 전에 ACS 사용 중지에 관한 ACS 구독 관리자 이메일로 여러 차례 이메일을 보냈습니다.
 
-2018 년 10 월 3 일, 2018 7 년 11 월 7 일 이전에 마이그레이션을 완료할 수 없는 고객에 게 내선 번호를 제공 하는 전자 메일 및 [블로그 게시물](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)을 통해 발표 되었습니다. 또한이 공지에는 확장을 요청 하기 위한 지침도 포함 되어 있습니다.
+2018년 10월 3일에 (이메일과 [블로그 게시물](https://azure.microsoft.com/blog/one-month-retirement-notice-access-control-service/)을 통해) 2018년 11월 7일까지 마이그레이션을 완료할 수 없는 고객에게 연장을 제공한다고 발표했습니다. 또한 이 공지에는 연장 요청을 위한 지침이 포함되었습니다.
 
-## <a name="why-your-namespace-is-disabled"></a>네임 스페이스를 사용할 수 없는 이유
+## <a name="why-your-namespace-is-disabled"></a>네임스페이스를 사용할 수 없는 이유
 
-확장을 옵트인 (opt in) 하지 않은 경우 2018 년 11 월 7 일부 터 ACS 네임 스페이스를 사용 하지 않도록 설정 하기 시작 합니다. 2019 년 2 월 4 일에 대 한 확장을 이미 요청 했어야 합니다. 그렇지 않으면 PowerShell을 통해 네임 스페이스를 사용 하도록 설정할 수 없습니다.
+연장을 신청하지 않은 경우 2018년 11월 7일에 ACS 네임스페이스를 사용하지 않도록 설정하기 시작했습니다. 2019년 2월 4일로 연장을 요청했어야 합니다. 그렇지 않으면 PowerShell을 통해 네임스페이스를 활성화할 수 없습니다.
 
 > [!NOTE]
-> PowerShell 명령을 실행 하 고 확장을 요청 하려면 구독의 공동 관리자 또는 서비스 관리자 여야 합니다.
+> PowerShell 명령을 실행하고 연장을 요청하려면 구독의 서비스 관리자 또는 공동 관리자여야 합니다.
 
-## <a name="find-and-enable-your-acs-namespaces"></a>ACS 네임 스페이스 찾기 및 사용
+## <a name="find-and-enable-your-acs-namespaces"></a>ACS 네임스페이스 찾기 및 사용하도록 설정
 
-ACS PowerShell을 사용 하 여 모든 ACS 네임 스페이스를 나열 하 고 사용 하지 않도록 설정 된 ACS 네임 스페이스를 다시 활성화할 수 있습니다.
+ACS 네임스페이스를 사용하여 모든 ACS 네임스페이스를 나열하고 사용하지 않게 설정된 항목을 비활성화할 수 있습니다.
 
 1. ACS PowerShell 다운로드 및 설치:
-    1. PowerShell 갤러리로 이동 하 여 [Acs. 네임 스페이스](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)를 다운로드 합니다.
-    1. 모듈을 설치 합니다.
+    1. PowerShell 갤러리로 이동하여 [Acs.Namespaces](https://www.powershellgallery.com/packages/Acs.Namespaces/1.0.2)를 다운로드합니다.
+    1. 모듈 설치:
 
         ```powershell
         Install-Module -Name Acs.Namespaces
         ```
 
-    1. 가능한 모든 명령 목록을 가져옵니다.
+    1. 가능한 모든 명령 목록 가져오기:
 
         ```powershell
         Get-Command -Module Acs.Namespaces
         ```
 
-        특정 명령에 대 한 도움말을 보려면 다음을 실행 합니다.
+        특정 명령에 대한 도움말을 보려면 다음을 실행합니다.
 
         ```powershell
         Get-Help [Command-Name] -Full
         ```
     
         여기서 `[Command-Name]`은 ACS 명령의 이름입니다.
-1. **연결-AcsAccount** cmdlet을 사용 하 여 ACS에 연결 합니다. 
+1. **Connect-AcsAccount** cmdlet을 사용하여 ACS에 연결합니다. 
 
-    명령을 실행 하기 전에 **set-executionpolicy** 를 실행 하 여 실행 정책을 변경 해야 할 수 있습니다.
-1. **Get AcsSubscription** cmdlet을 사용 하 여 사용 가능한 Azure 구독을 나열 합니다.
-1. **Get AcsNamespace** cmdlet을 사용 하 여 ACS 네임 스페이스를 나열 합니다.
-1. `State` `Disabled`되었는지 확인 하 여 네임 스페이스를 사용 하지 않도록 설정 했는지 확인 합니다.
+    **Set-ExecutionPolicy**를 실행하여 실행 정책을 변경해야 명령을 실행할 수 있습니다.
+1. **Get-AcsSubscription** cmdlet을 사용하여 사용 가능한 Azure 구독을 나열합니다.
+1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 나열합니다.
+1. `State`가 `Disabled`인지 확인하여 네임스페이스가 사용하도록 설정되었는지 확인합니다.
 
-    [네임 스페이스를 사용 하지 않도록 설정 ![확인](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
+    [![네임스페이스가 사용하도록 설정되었는지 확인](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png)](./media/howto-reactivate-disabled-acs-namespaces/confirm-disabled-namespace.png#lightbox)
 
-    `nslookup {your-namespace}.accesscontrol.windows.net`를 사용 하 여 도메인이 여전히 활성 상태 인지 확인할 수도 있습니다.
+    `nslookup {your-namespace}.accesscontrol.windows.net`을 사용하여 도메인이 여전히 활성화된 상태인지 확인할 수도 있습니다.
 
-1. **Enable-AcsNamespace** cmdlet을 사용 하 여 ACS 네임 스페이스를 사용 하도록 설정 합니다.
+1. **Get-AcsNamespace** cmdlet을 사용하여 ACS 네임스페이스를 사용하도록 설정합니다.
 
-    네임 스페이스를 사용 하도록 설정한 후에는 네임 스페이스를 2019 년 2 월 4 일 이전에 다시 사용 하지 않도록 확장을 요청할 수 있습니다. 이 날짜 이후에는 ACS에 대 한 모든 요청이 실패 합니다.
+    네임스페이스를 사용하도록 설정한 후에는 네임스페이스가 2019년 2월 4일 이전에는 다시 사용 중지되지 않도록 연장을 요청할 수 있습니다. 이 날짜가 지나면 모든 ACS 요청이 실패합니다.
 
-## <a name="request-an-extension"></a>확장 요청
+## <a name="request-an-extension"></a>연장 요청
 
-2019 년 1 월 21 일에 시작 하는 새 확장 요청을 수행 합니다.
+2019년 1월 21일에 시작하는 새 연장 요청을 진행하고 있습니다.
 
-2019 년 2 월 4 일에 대 한 확장을 요청한 고객에 대 한 네임 스페이스를 사용 하지 않도록 시작 합니다. PowerShell을 통해 네임 스페이스를 다시 사용 하도록 설정할 수 있지만, 48 시간 후에는 네임 스페이스를 다시 사용 하지 않도록 설정할 수 있습니다.
+2019년 2월 4일로 연장을 요청한 고객에 대한 네임스페이스 비활성화를 시작합니다. PowerShell을 통해 여전히 네임스페이스 다시 활성화할 수 있지만 네임스페이스는 48시간 후 다시 비활성화됩니다.
 
-2019 년 3 월 4 일부 터 고객은 더 이상 PowerShell을 통해 네임 스페이스를 다시 사용 하도록 설정할 수 없습니다.
+2019년 3월 4일 이후 고객은 더 이상 PowerShell을 통해 모든 네임스페이스를 다시 활성화할 수 없습니다.
 
-추가 확장은 더 이상 자동으로 승인 되지 않습니다. 마이그레이션하는 데 추가 시간이 필요한 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support) 에 문의 하 여 자세한 마이그레이션 타임 라인을 제공 합니다.
+추가 연장은 더 이상 자동으로 승인되지 않습니다. 마이그레이션할 추가 시간이 필요할 경우 [Azure 지원](https://portal.azure.com/#create/Microsoft.Support)에 문의하여 자세한 마이그레이션 타임라인을 제공하세요.
 
-### <a name="to-request-an-extension"></a>확장을 요청 하려면
+### <a name="to-request-an-extension"></a>연장을 요청하려면
 
 1. Azure Portal에 로그인 하 고 [새 지원 요청](https://portal.azure.com/#create/Microsoft.Support)을 만듭니다.
-1. 다음 예와 같이 새 지원 요청 양식을 작성 합니다.
+1. 다음 예제와 같이 새 지원 요청 양식을 입력합니다.
 
-    | 지원 요청 필드 | Value (Díj) |
+    | 지원 요청 필드 | 값 |
     |-----------------------|--------------------|
     | **문제 유형** | `Technical` |
-    | **Előfizetés** | 구독으로 설정 |
-    | **Szolgáltatás** | `All services` |
-    | **Erőforrás** | `General question/Resource not available` |
-    | **Probléma típusa** | `ACS to SAS Migration` |
-    | **Tárgy** | 문제 설명 |
+    | **구독** | 구독에 대한 설정 |
+    | **서비스** | `All services` |
+    | **리소스** | `General question/Resource not available` |
+    | **문제 유형** | `ACS to SAS Migration` |
+    | **Subject** | 문제 설명 |
 
    ![새 기술 지원 요청의 예를 보여 줍니다.](./media/howto-reactivate-disabled-acs-namespaces/new-technical-support-request.png)
 
@@ -117,11 +116,11 @@ ACS PowerShell을 사용 하 여 모든 ACS 네임 스페이스를 나열 하 �
     [![Updated page with refreshed banner](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png)](./media/howto-reactivate-disabled-acs-namespaces/updated-banner-expanded.png#lightbox)
 -->
 
-## <a name="help-and-support"></a>Súgó és támogatás
+## <a name="help-and-support"></a>도움말 및 지원
 
-- 이 방법에 따라 문제가 발생 한 경우 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의 하세요.
-- ACS 사용 중지에 대 한 질문이 나 피드백이 있는 경우 acsfeedback@microsoft.com에서 문의해 주세요.
+- 이 방법을 수행한 후 문제가 발생하면 [Azure 지원 팀](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)에 문의하세요.
+- ACS 사용 중지에 대한 질문이나 의견은 acsfeedback@microsoft.com에 문의하세요.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
-- [방법: Azure Access Control Service에서 마이그레이션](active-directory-acs-migration.md)에서 ACS 사용 중지에 대 한 정보를 검토 합니다.
+- [방법: Azure Access Control Service에서 마이그레이션](active-directory-acs-migration.md)에서 ACS 사용 중지에 대한 정보를 검토합니다.

@@ -13,13 +13,12 @@ ms.date: 01/16/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 29418e0000f917f7184a230c04b93adeae44efef
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: be2dd887358aa00c87a4b5668a99c425d83b59dc
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261197"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696030"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL를 사용 하 여 인증 요청에서 사용자 지정 상태를 전달 합니다.
 

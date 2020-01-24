@@ -13,13 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8940ca6887e5c37659dd5b8d5a24ba7a2f4b889
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921920"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695707"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -75,11 +74,11 @@ AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
                                             .ExecuteAsync();
 ```
 
-다음으로 바꿀 수 있습니다.
+다음 구문으로 바꿉니다.
 
 - `policy` 이전 문자열 중 하나입니다 (예 `PolicySignUpSignIn`).
 - Android (작업)에는 `ParentActivityOrWindow` 필요 하 고, Windows의 windows 및 iOS의 UIViewController와 같이 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. [UI 대화 상자에서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)자세한 내용을 참조 하세요.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 방법입니다. 다음은 그 예입니다.
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 방법입니다. 예:
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -183,6 +182,6 @@ MSAL.Net는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 
 Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰을 가져오는 방법에 대 한 자세한 내용은 다음 샘플에서 제공 됩니다.
 
-| 샘플 | 플랫폼 | 설명|
+| 샘플 | 플랫폼 | Description|
 |------ | -------- | -----------|
 |[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 Web API에 액세스 하는 방법을 보여주는.|

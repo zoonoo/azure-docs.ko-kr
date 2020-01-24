@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/15/2019
 ms.author: ajburnle
 ms.custom: include file
-ms.openlocfilehash: 88e11adadcc06875964146ad2046828267258038
-ms.sourcegitcommit: bb65043d5e49b8af94bba0e96c36796987f5a2be
+ms.openlocfilehash: e971af5d415ea788f97ab11b58541e629c7eb0ed
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72389350"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694192"
 ---
 ## <a name="lifecycle"></a>수명 주기
 
@@ -33,7 +33,7 @@ ms.locfileid: "72389350"
 
 1. 사용자가 할당을 확장할 수 있도록 허용 하려면 **사용자가 액세스를 확장할 수 있도록 허용** 을 **예**로 설정 합니다.
 
-    정책에서 확장이 허용 되는 경우 사용자는 14 일 동안 전자 메일을 받게 되며, 액세스 패키지 할당은 할당을 확장 하도록 요청 하는 만료로 설정 됩니다.
+    정책에서 확장이 허용 되는 경우 사용자는 14 일 동안 전자 메일을 받게 되며, 액세스 패키지 할당은 할당을 확장 하도록 요청 하는 만료로 설정 됩니다. 사용자가 액세스를 확장 하는 요청을 제출 하는 경우 확장 날짜는 액세스 패키지에 대 한 사용자 액세스 권한을 부여 하는 데 사용 된 정책에 정의 된 대로 할당 만료 날짜 또는 그 이전 이어야 합니다. 예를 들어 정책에서 할당이 6 월 30 일에 만료로 설정 된 것으로 표시 되는 경우 사용자가 요청할 수 있는 최대 확장은 6 월 30 일입니다.
 
     사용자의 액세스가 확장 될 경우 지정 된 확장 날짜 (정책을 만든 사용자의 표준 시간대에 설정 된 날짜) 이후에 액세스 패키지를 요청할 수 없습니다.
 

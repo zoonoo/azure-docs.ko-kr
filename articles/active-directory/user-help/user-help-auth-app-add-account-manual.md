@@ -11,13 +11,12 @@ ms.topic: conceptual
 ms.date: 01/24/2019
 ms.author: lizross
 ms.reviewer: olhaun
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 00f8a0e8d655f9412eceb7b0901ced829e490f78
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 4dd38eee8ebc12ed01874611ec5e532a4d78ede2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69616106"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704802"
 ---
 # <a name="manually-add-an-account-to-the-app"></a>수동으로 앱에 계정 추가
 
@@ -94,7 +93,7 @@ ms.locfileid: "69616106"
 
 5. 컴퓨터의 **백업 확인 방법 추가** 페이지에서 백업 확인 방법을 통해 제공된 Amazon 계정용 6자리 확인 코드를 입력한 다음, **코드 확인 후 계속하기**를 선택합니다.
 
-6. [거의 완료됨] 페이지에서 컴퓨터를 신뢰할 수 있는 디바이스로 설정할지 여부를 결정한 다음, **완료. 2단계 인증 설정**을 선택합니다.
+6. 거의 완료 페이지에서 컴퓨터를 신뢰할 수 있는 장치로 만들지 여부를 결정 한 다음, 파일을 선택 **합니다. 2 단계 인증을 설정**합니다.
 
     **고급 보안 설정** 페이지가 나타나고, 업데이트된 2단계 인증 세부 정보가 표시됩니다.
 

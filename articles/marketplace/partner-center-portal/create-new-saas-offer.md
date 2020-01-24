@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: c39f41af8ed2f1e25064324c0e1da4a6603face8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.date: 01/22/2020
+ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045500"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705822"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -111,7 +111,7 @@ Marketplace 목록을 만들어 Microsoft로 비즈니스를 홍보 하세요. M
 - **잠재 고객이이 목록 제공 서비스와 상호 작용 하 게 하려면 어떻게 해야 하나요?**
 
 ##### <a name="get-it-now-free"></a>지금 받기 (무료)
-앱에 액세스할 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 무료로 제공 합니다.  예: `https://contoso.com/saas-app`
+[Azure Active Directory (AZURE AD)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 무료로 제공 합니다.  예: `https://contoso.com/saas-app`
 
 ##### <a name="free-trial-listing"></a>무료 평가판 (목록)
 [AZURE AD (Azure Active Directory)를 사용 하 여 한 번의 클릭으로 인증](https://docs.microsoft.com/azure/marketplace/marketplace-saas-applications-technical-publishing-guide#using-azure-active-directory-to-enable-trials)을 통해 평가판을 얻을 수 있는 올바른 URL ( *http* 또는 *https*로 시작)을 제공 하 여 고객에 게 제품을 나열 합니다.  예: `https://contoso.com/trial/saas-app` 무료 평가판을 나열 하는 제품은 서비스에서 생성, 관리 및 구성 되며 Microsoft에서 관리 하는 구독을 포함 하지 않습니다.
@@ -389,7 +389,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 검토 해야 합니다. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
 
-#### <a name="pricing"></a>가격
+#### <a name="pricing"></a>가격 책정
 
 - **가격 책정 모델**: 고정 요금 또는 좌석 기반
 

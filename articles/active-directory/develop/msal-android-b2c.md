@@ -13,13 +13,12 @@ ms.date: 9/18/2019
 ms.author: brianmel
 ms.reviewer: rapong
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 98a31ea2daffba19242e73362af5a44e3a392342
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 0998bb04b0dfc69db4696f2e390cfe259eba6718
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917117"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696524"
 ---
 # <a name="use-msal-for-android-with-b2c"></a>B2C와 함께 Android 용 MSAL 사용
 
@@ -140,7 +139,7 @@ pca.acquireTokenSilentAsync(parameters);
 
 ## <a name="specify-a-policy"></a>정책 지정
 
-B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `acquireToken` 또는 `acquireTokenSilent` 매개 변수를 생성할 때 `fromAuthority` 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다.  다음은 그 예입니다.
+B2C의 정책은 별도의 인증 기관으로 표시 되기 때문에 `acquireToken` 또는 `acquireTokenSilent` 매개 변수를 생성할 때 `fromAuthority` 절을 지정 하 여 기본값 이외의 정책을 호출 하는 것이 좋습니다.  예:
 
 ```java
 AcquireTokenParameters parameters = new AcquireTokenParameters.Builder()

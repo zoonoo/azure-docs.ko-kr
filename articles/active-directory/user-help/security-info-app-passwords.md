@@ -11,13 +11,12 @@ ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ee9f6bc1986cb31b1e21a0678e59bf8269988426
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231799"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704891"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보 (미리 보기) 페이지에서 앱 암호 만들기
 
@@ -52,7 +51,7 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 2. 왼쪽 탐색 창 또는 **보안 정보** 블록의 링크에서 **보안 정보**를 선택한 다음, **보안 정보** 페이지에서 **메서드 추가**를 선택합니다.
 
-    ![방법 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
+    ![메서드 추가 옵션이 강조 표시된 보안 정보 페이지](media/security-info/securityinfo-myprofile-addmethod-page.png)
 
 3. **방법 추가** 페이지의 드롭다운 목록에서 **앱 암호**를 선택한 다음, **추가**를 선택합니다.
 
@@ -83,6 +82,6 @@ Outlook 2010과 같은 특정 앱은 2단계 인증을 지원하지 않습니다
 
 2. 확인 상자에서 **예**를 선택하여 **앱 암호**를 삭제합니다. 앱 암호가 삭제되면 보안 정보에서 제거되고 **보안 정보** 페이지에서 사라집니다.
 
-## <a name="for-more-information"></a>Blob에 대한 자세한 내용은
+## <a name="for-more-information"></a>참조 항목
 
 - **보안 정보** 페이지 및 설정 방법에 대한 자세한 내용은 [보안 정보 개요](user-help-security-info-overview.md)를 참조하세요.

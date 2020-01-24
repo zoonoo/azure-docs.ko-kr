@@ -13,13 +13,12 @@ ms.date: 05/29/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 04d1ef1f76b1b1a807f48f7c79e41ada68b561fc
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: e68798861d5799a4314bd9cd9b2eeeadb926a90f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916438"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696149"
 ---
 # <a name="avoid-page-reloads-when-acquiring-and-renewing-tokens-silently-using-msaljs"></a>MSAL를 사용 하 여 토큰을 자동으로 획득 하 고 갱신할 때 페이지를 다시 로드 하지 않습니다.
 JavaScript 용 Microsoft Authentication Library (MSAL)는 숨겨진 `iframe` 요소를 사용 하 여 백그라운드에서 토큰을 자동으로 가져오고 갱신 합니다. Azure AD는 토큰을 토큰 요청에 지정 된 등록 된 redirect_uri으로 다시 반환 합니다 (기본적으로 앱의 루트 페이지). 응답이 302 이므로 `iframe`에서 로드 `redirect_uri`에 해당 하는 HTML이 생성 됩니다. 일반적으로 앱의 `redirect_uri`는 루트 페이지 이므로 다시 로드 됩니다.
@@ -36,7 +35,7 @@ MSAL는 Azure AD에서 발급 된 302를 해제할 수 없고 반환 된 토큰�
 
 ## <a name="initialization-in-your-main-app-file"></a>주 앱 파일의 초기화
 
-앱의 초기화, 라우팅 및 기타 항목을 정의 하는 중앙 Javascript 파일이 하나 있도록 앱이 구조화 된 경우 앱이 `iframe` 로드 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다. 다음은 그 예입니다.
+앱의 초기화, 라우팅 및 기타 항목을 정의 하는 중앙 Javascript 파일이 하나 있도록 앱이 구조화 된 경우 앱이 `iframe` 로드 되는지 여부에 따라 앱 모듈을 조건부로 로드할 수 있습니다. 예:
 
 AngularJS: node.js
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 6e5895392db1d75a985674bf2f878a84bc8dd926
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: fa71ca7ea976ab4d724a061d0d0809cdb5767f4f
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311015"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705754"
 ---
 # <a name="distributed-tracing-and-correlation-through-service-bus-messaging"></a>Service Bus 메시징을 통한 분산 추적 및 상관관계
 
@@ -28,12 +28,12 @@ ms.locfileid: "60311015"
 생산자가 큐를 통해 메시지를 보내는 경우 일반적으로 다른 클라이언트 또는 서비스에서 시작된 다른 논리적 작업 범위에서 발생합니다. 소비자가 메시지를 수신하면 동일한 작업이 계속됩니다. 생산자와 소비자(작업을 처리하는 다른 서비스)가 둘 다 원격 분석 이벤트를 내보내 작업 흐름과 결과를 추적합니다. 이러한 이벤트와 추적 작업을 엔드투엔드에 상호 연결하려면 원격 분석을 보고하는 각 서비스가 추적 컨텍스트를 사용하여 모든 이벤트에 스탬프를 지정해야 합니다.
 
 Microsoft Azure Service Bus 메시징에는 생산자와 소비자가 이러한 추적 컨텍스트를 전달하는 데 사용하는 페이로드 속성이 정의되어 있습니다.
-프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
+프로토콜은 [HTTP 상관관계 프로토콜](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md)을 기반으로 합니다.
 
-| 속성 이름        | 설명                                                 |
+| 속성 이름        | Description                                                 |
 |----------------------|-------------------------------------------------------------|
-|  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
-|  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/corefx/blob/master/src/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
+|  Diagnostic-Id       | 큐에 대한 생산자의 외부 호출 고유 식별자입니다. 이유, 고려 사항 및 형식은 [HTTP 프로토콜의 Request-Id](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#request-id)를 참조하세요. |
+|  Correlation-Context | 작업 처리에 관련된 모든 서비스에 전파되는 작업 컨텍스트입니다. 자세한 내용은 [HTTP 프로토콜의 Correlation-Context](https://github.com/dotnet/runtime/blob/master/src/libraries/System.Diagnostics.DiagnosticSource/src/HttpCorrelationProtocol.md#correlation-context)를 참조하세요. |
 
 ## <a name="service-bus-net-client-auto-tracing"></a>Service Bus .NET 클라이언트 자동 추적
 

@@ -14,13 +14,12 @@ ms.date: 04/13/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cf436881a74cffd0053718413ce83a148fa019d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 19085346fb5797245c9f71911f8178df0a1b742a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74918205"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698427"
 ---
 # <a name="application-and-service-principal-objects-in-azure-active-directory"></a>Azure Active Directory의 애플리케이션 및 서비스 주체 개체
 
@@ -72,7 +71,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 >
 > 또한 기본적으로 네이티브 애플리케이션이 다중 테넌트로 등록됩니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음 다이어그램은 **HR 앱**이라는 샘플 다중 테넌트 애플리케이션의 컨텍스트에서 애플리케이션의 애플리케이션 개체와 해당 서비스 주체 개체를 보여 줍니다. 이 예제 시나리오에는 다음 세 가지 Azure AD 테넌트가 있습니다.
 
@@ -84,7 +83,7 @@ Azure AD 테넌트에 의해 보안이 유지되는 리소스에 액세스하려
 
 이 예제 시나리오는 다음과 같이 이루어져 있습니다.
 
-| 단계 | 설명 |
+| 단계 | Description |
 |------|-------------|
 | 1    | 애플리케이션의 홈 테넌트에서 애플리케이션 및 서비스 주체 개체를 만드는 과정입니다. |
 | 2    | Contoso 관리자와 Fabrikam 관리자가 전적으로 동의한 경우 서비스 주체 개체가 회사의 Azure AD 테넌트에 생성되고 관리자가 부여한 사용 권한이 할당됩니다. 또한 사용자가 개별 사용에 대한 동의를 할 수 있게 HR 앱이 구성/설계될 수 있습니다. |

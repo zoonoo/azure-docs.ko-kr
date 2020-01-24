@@ -4,12 +4,12 @@ description: VM 백업 스택, Resource Manager 배포 모델에 대한 Azure �
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 21e5ae82fc8274874e97d5e91a140b811b36c05e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 7cf437c6b20ea6b688e8e93e401cf71ef0260888
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293830"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705431"
 ---
 # <a name="get-improved-backup-and-restore-performance-with-azure-backup-instant-restore-capability"></a>Azure Backup 인스턴트 복원 기능을 사용하여 향상된 백업 및 복원 성능 얻기
 
@@ -112,14 +112,13 @@ VM 변동에 따라 다릅니다. 안정된 상태에서는 비용 증가를 스
 
 복구 지점에 스냅샷이 있고 사용 가능한 최신 RP인 경우 다음에 성공한 백업이 있을 때까지 보존됩니다. 이는 현재 VM의 문제로 인해 모든 백업이 실패 하는 경우에는 항상 하나 이상의 최신 RP를 제공 하는 최신 GC (가비지 수집) 정책을 기준으로 합니다. 정상적인 시나리오에서는 만료 후 최대 24시간 이내에 RP가 정리됩니다.
 
+### <a name="i-dont-need-instant-restore-functionality-can-it-be-disabled"></a>즉시 복원 기능이 필요 하지 않습니다. 사용 하지 않도록 설정할 수 있나요?
+
+인스턴트 복원 기능은 모든 사용자에 대해 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 없습니다. 스냅숏 보존 기간을 최소 1 일로 줄일 수 있습니다.
+
 >[!NOTE]
-> 이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.
+> **이제 Azure Backup는 Azure 가상 컴퓨터 백업 솔루션을 사용 하 여 선택적 디스크 백업 및 복원을 지원 합니다.**
 >
 >현재 Azure Backup에서는 가상 컴퓨터 백업 솔루션을 사용 하 여 VM의 모든 디스크 (운영 체제 및 데이터)를 백업 하는 작업을 지원 합니다. 디스크 제외 기능을 사용 하면 VM의 여러 데이터 디스크에서 하나 또는 몇 개를 백업 하는 옵션을 사용할 수 있습니다. 이는 백업 및 복원 요구에 효율적이 고 비용 효율적인 솔루션을 제공 합니다. 각 복구 지점에는 백업 작업에 포함 된 디스크의 데이터가 포함 되어 있으므로 복원 작업을 수행 하는 동안 지정 된 복구 지점에서 복원 된 디스크의 하위 집합을 사용할 수 있습니다. 이는 스냅숏과 자격 증명 모음 둘 다의 복원에 적용 됩니다.
 >
-> 이 솔루션은 다음과 같은 시나리오에서 특히 유용 합니다.
->  
->1. 중요 한 데이터가 하나의 디스크에만 백업 되 고 VM에 연결 된 나머지 디스크는 백업 하지 않으려고 합니다. 이렇게 하면 백업 저장소 비용이 최소화 됩니다.  
->2. VM 데이터의 일부에 대 한 다른 백업 솔루션이 있습니다. 예를 들어 다른 워크 로드 백업 솔루션을 사용 하 여 데이터베이스 또는 데이터를 백업 하 고 나머지 디스크 및 데이터에 대 한 Azure VM 수준 백업을 사용 하 여 사용 가능한 최상의 기능을 활용 하는 효율적이 고 강력한 시스템을 구축 하려고 합니다.
->
->미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
+>**미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.**

@@ -13,13 +13,12 @@ ms.date: 10/10/2018
 ms.author: lizross
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3d6385343ed26e5043e1491529fd2454caff4d04
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74028568"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704632"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"여기에서 가져올 수 없습니다." 오류 메시지에 대 한 가능한 해결 방법
 
@@ -51,7 +50,7 @@ ms.locfileid: "74028568"
 ![네트워크에 연결되어 있는지 여부와 관련된 오류 메시지](media/user-help-device-remediation/network-version.png)
 
 ### <a name="to-check-whether-your-device-is-joined-to-your-network"></a>디바이스가 네트워크에 가입되어 있는지 여부를 확인하려면
-1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. 예: alain@contoso.com.
+1. 회사 또는 학교 계정을 사용하여 Windows에 로그인합니다. alain@contoso.com)을 입력합니다.
 
 2. VPN(가상 사설망) 또는 DirectAccess를 통해 회사 네트워크에 연결합니다.
 

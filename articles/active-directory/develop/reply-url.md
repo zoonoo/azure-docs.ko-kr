@@ -10,13 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc13c1057f74fb1eb5a41210ffaf166e69bb06e
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920330"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76702524"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>리디렉션 URI/회신 URL 제한 및 제한 사항
 
@@ -26,7 +25,7 @@ ms.locfileid: "74920330"
 
 다음 표에서는 앱을 등록할 때 추가할 수 있는 리디렉션 Uri의 최대 개수를 보여 줍니다.
 
-| 로그인 중인 계정 | 최대 리디렉션 Uri 수 | 설명 |
+| 로그인 중인 계정 | 최대 리디렉션 Uri 수 | Description |
 |--------------------------|---------------------------------|-------------|
 | 모든 조직의 Azure Active Directory (Azure AD) 테 넌 트에 있는 Microsoft 회사 또는 학교 계정 | 256 | 응용 프로그램 매니페스트의 `signInAudience` 필드가 *AzureADMyOrg* 또는 *AzureADMultipleOrgs* 로 설정 되어 있습니다. |
 | 개인 Microsoft 계정 및 회사 및 학교 계정 | 100 | 응용 프로그램 매니페스트의 `signInAudience` 필드가 *AzureADandPersonalMicrosoftAccount* 로 설정 되어 있습니다. |

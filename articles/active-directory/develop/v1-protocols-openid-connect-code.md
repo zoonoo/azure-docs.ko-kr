@@ -17,13 +17,12 @@ ms.date: 09/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 67f9107e352f1ae52158d09caea4ba8118a3c515
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 6eb71bb4fdaa602dcbce5d351c261493647f3caa
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964432"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700807"
 ---
 # <a name="authorize-access-to-web-applications-using-openid-connect-and-azure-active-directory"></a>OpenID Connect 및 Azure Active Directory를 사용하여 웹 애플리케이션에 대한 액세스 권한 부여
 
@@ -89,13 +88,13 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &nonce=7362CAEA-9CA5-4B43-9BA3-34D7C303EBA7
 ```
 
-| 매개 변수를 포함해야 합니다. |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| tenant |필수 |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
-| client_id |필수 |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory**을 클릭 하 고 **앱 등록**을 클릭 한 다음 응용 프로그램을 선택 하 고 응용 프로그램 페이지에서 응용 프로그램 ID를 찾습니다. |
-| response_type |필수 |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code` 또는 `token`과 같은 다른 response_types을 포함할 수도 있습니다. |
+| tenant |required |요청의 경로에 있는 `{tenant}` 값을 사용하여 애플리케이션에 로그인할 수 있는 사용자를 제어할 수 있습니다. 허용되는 값은 테넌트 독립 토큰에 대한 테넌트 식별자(예: `8eaef023-2b34-4da1-9baa-8bc8c9d6a490`, `contoso.onmicrosoft.com`, `common`)입니다. |
+| client_id |required |Azure AD에 등록할 때 앱에 할당된 애플리케이션 ID입니다. Azure Portal에서 이러한 값을 확인할 수 있습니다. **Azure Active Directory**을 클릭 하 고 **앱 등록**을 클릭 한 다음 응용 프로그램을 선택 하 고 응용 프로그램 페이지에서 응용 프로그램 ID를 찾습니다. |
+| response_type |required |OpenID Connect 로그인을 위한 `id_token` 이 포함되어야 합니다. `code` 또는 `token`과 같은 다른 response_types을 포함할 수도 있습니다. |
 | scope | 권장 | Openid connect Connect 사양에는 `openid`범위가 필요 하며,이는 동의 UI의 "로그인" 권한으로 변환 됩니다. 이 및 기타 OIDC 범위는 v 1.0 끝점에서 무시 되지만 표준 규격 클라이언트의 경우에는 여전히 모범 사례입니다. |
-| nonce |필수 |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다. 그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
+| nonce |required |결과 `id_token`에 클레임으로 포함되는, 앱에서 생성한 요청에 포함되는 값입니다. 그러면 앱이 이 값을 확인하여 토큰 재생 공격을 완화시킬 수 있습니다. 값은 일반적으로 요청의 출처를 식별하는 데 사용할 수 있는 임의의 고유 문자열 또는 GUID입니다. |
 | redirect_uri | 권장 |앱이 인증 응답을 보내고 받을 수 있는 앱의 redirect_uri입니다. URL로 인코드되어야 한다는 점을 제외하고 포털에서 등록한 redirect_uri 중 하나와 정확히 일치해야 합니다. 누락 된 경우 사용자 에이전트가 앱에 대해 등록 된 리디렉션 Uri 중 하나 (임의로)로 다시 전송 됩니다. 최대 길이는 255 바이트입니다. |
 | response_mode |선택 사항 |결과 authorization_code를 앱에 다시 보내는 데 사용해야 하는 방법을 지정합니다. 지원되는 값은 *HTTP 폼 게시*의 경우 `form_post`이고, *URL 조각*의 경우 `fragment`입니다. 웹 애플리케이션의 경우 애플리케이션에 대한 가장 안전한 토큰 전송을 보장하기 위해 `response_mode=form_post`를 사용하는 것이 좋습니다. id_token을 포함하는 모든 흐름의 기본값은 `fragment`입니다.|
 | state |권장 |토큰 응답에 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
@@ -116,7 +115,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&state=12345
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | id_token |앱이 요청한 `id_token` 입니다. `id_token` 을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | state |토큰 응답에도 반환되는 요청에 포함된 값입니다. 일반적으로 [교차 사이트 요청 위조 공격을 방지](https://tools.ietf.org/html/rfc6749#section-10.12)하기 위해 임의로 생성된 고유 값이 사용됩니다. 상태는 인증 요청이 발생하기 전 앱의 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코드하는 데에도 사용됩니다. |
@@ -133,7 +132,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |
@@ -142,7 +141,7 @@ error=access_denied&error_description=the+user+canceled+the+authentication
 
 다음 테이블은 오류 응답의 `error` 매개 변수에 반환될 수 있는 여러 오류 코드를 설명합니다.
 
-| 오류 코드 | 설명 | 클라이언트 작업 |
+| 오류 코드 | Description | 클라이언트 작업 |
 | --- | --- | --- |
 | invalid_request |프로토콜 오류(예: 필수 매개 변수 누락). |요청을 수정하여 다시 제출하십시오. 일반적으로 초기 테스트 중에 발견되는 개발 오류입니다. |
 | unauthorized_client |클라이언트 애플리케이션이 인증 코드를 요청할 수 없습니다. |이 오류는 일반적으로 클라이언트 애플리케이션이 Azure AD에 등록되지 않았거나 사용자의 Azure AD 테넌트에 추가되지 않은 경우 발생합니다. 애플리케이션이 사용자에게 애플리케이션을 설치하고 Azure AD에 추가하기 위한 지침이 포함된 메시지를 표시할 수 있습니다. |
@@ -178,7 +177,7 @@ post_logout_redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 
 ```
 
-| 매개 변수를 포함해야 합니다. |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
 | post_logout_redirect_uri |권장 |성공적으로 로그 아웃 한 후에 사용자가 리디렉션되는 URL입니다.  이 URL은 앱 등록 포털에서 응용 프로그램에 대해 등록 된 리디렉션 Uri 중 하 나와 일치 해야 합니다.  *Post_logout_redirect_uri* 포함 되지 않은 경우 사용자에 게 일반 메시지가 표시 됩니다. |
 
@@ -225,7 +224,7 @@ Content-Type: application/x-www-form-urlencoded
 id_token=eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6Ik1uQ19WWmNB...&code=AwABAAAAvPM1KaPlrEqdFSBzjqfTGBCmLdgfSTLEMPGYuNHSUYBrq...&state=12345
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | id_token |앱이 요청한 `id_token` 입니다. `id_token` 을 사용하여 사용자 ID를 확인하고 사용자와 세션을 시작할 수 있습니다. |
 | 코드 |앱이 요청한 authorization_code입니다. 앱은 인증 코드를 사용하여 대상 리소스에 대한 액세스 토큰을 요청할 수 있습니다. authorization_code는 수명이 매우 짧으며, 일반적으로 약 10분 후에 만료됩니다. |
@@ -243,7 +242,7 @@ Content-Type: application/x-www-form-urlencoded
 error=access_denied&error_description=the+user+canceled+the+authentication
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | error |발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | error_description |개발자가 인증 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |

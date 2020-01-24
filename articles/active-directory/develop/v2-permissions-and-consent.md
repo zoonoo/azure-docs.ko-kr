@@ -17,13 +17,12 @@ ms.date: 12/10/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ff874ee74864c84c976096ac5f7fa4b20cfab48
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 29e099e1c53f83d038caa697d11158fd5939ca7b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997006"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700314"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -200,7 +199,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 ```
 
 
-| 매개 변수를 포함해야 합니다.     | 조건     | 설명                                                                               |
+| 매개 변수     | 조건     | Description                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
 | `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `common`으로 일반 참조될 수 있습니다. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
@@ -219,7 +218,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b95&state=state=12345&admin_consent=True
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `tenant` | 디렉터리 테넌트는 GUID 형식으로 요청한 권한을 애플리케이션에 부여합니다. |
 | `state` | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태는 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩하는 데 사용됩니다. |
@@ -233,7 +232,7 @@ GET http://localhost/myapp/permissions?tenant=a8990e1f-ff32-408a-9f8e-78d3b9139b
 GET http://localhost/myapp/permissions?error=permission_denied&error_description=The+admin+canceled+the+request
 ```
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | `error` | 발생하는 오류 유형을 분류하는 데 사용할 수 있고 오류에 대응하는 데 사용할 수 있는 오류 코드 문자열입니다. |
 | `error_description` | 개발자가 오류의 근본 원인을 식별하도록 도울 수 있는 특정 오류 메시지입니다. |

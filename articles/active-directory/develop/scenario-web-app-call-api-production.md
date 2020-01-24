@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e40920b7045dad6f64b5699bc3c4c560eb399f2a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 439b7e07b2e2aa77afd027fa57cc6f7705626d81
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964959"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701640"
 ---
 # <a name="web-app-that-calls-web-apis---move-to-production"></a>웹 Api를 호출 하는 웹 앱-프로덕션으로 이동
 
@@ -28,12 +27,12 @@ ms.locfileid: "74964959"
 
 [!INCLUDE [Move to production common steps](../../../includes/active-directory-develop-scenarios-production.md)]
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 다음을 보여 주는 전체 ASP.NET Core 웹 앱 점진적 자습서를 사용해 보세요.
 
 - 여러 대상, 국가 또는 소셜 id를 사용 하 여 사용자를 로그인 하는 방법
-- 호출 Microsoft Graph
+- Microsoft Graph 호출
 - 여러 Microsoft Api를 호출 합니다.
 - 증분 동의를 처리 합니다.
 - 사용자 고유의 Web API를 호출 합니다.

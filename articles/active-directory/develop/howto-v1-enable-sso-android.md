@@ -15,13 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4d247c569cdc0beff499cee191b95711a603e42
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b2dfcd1711be107fd161d38e5c9df660d35d8332
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74917559"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696931"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
 
@@ -33,7 +32,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 

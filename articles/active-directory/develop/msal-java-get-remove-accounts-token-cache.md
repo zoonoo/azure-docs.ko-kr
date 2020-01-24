@@ -13,13 +13,12 @@ ms.date: 11/07/2019
 ms.author: sagonzal
 ms.reviewer: navyasri.canumalla
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2f800d8d8665667c51ee57e3fe1c556c3a2d8eb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b138678b186cc41b76254658ad604c2da2d76c1
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424335"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696200"
 ---
 # <a name="get-and-remove-accounts-from-the-token-cache-using-msal-for-java"></a>Java 용 MSAL을 사용 하 여 토큰 캐시에서 계정 가져오기 및 제거
 

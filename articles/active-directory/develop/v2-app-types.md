@@ -17,13 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 21f1da8738946078cb625c76e11ce1bfd62d97ac
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73927169"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700756"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼용 응용 프로그램 종류
 
@@ -59,7 +58,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 이 시나리오의 작동 방식을 확인 하려면 [Microsoft id 플랫폼 시작](v2-overview.md#getting-started) 섹션의 단일 페이지 앱 코드 샘플 중 하나를 사용해 보세요.
 
-## <a name="web-apps"></a>웹 앱
+## <a name="web-apps"></a>웹앱
 
 사용자가 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node)의 경우 사용자 로그인에 [OpenID Connect](active-directory-v2-protocols.md)를 사용할 수 있습니다. OpenID Connect에서는 웹앱이 ID 토큰을 받습니다. ID 토큰은 사용자 ID를 확인하고 클레임 형태로 사용자 정보를 제공하는 보안 토큰입니다.
 

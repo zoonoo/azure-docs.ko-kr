@@ -13,13 +13,12 @@ ms.date: 04/10/2019
 ms.author: nacanuma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: d156ccd4b3f81081433962dcd939a91ab1bc7143
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7238a78279528b4522d09178d00bf916f14bad88
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963232"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696421"
 ---
 # <a name="differences-between-msal-js-and-adal-js"></a>MSAL JS와 ADAL JS의 차이점
 
@@ -74,7 +73,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * 증분 동의에 대한 동적 범위
 
-    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 다음은 그 예입니다.
+    v1.0을 사용하여 애플리케이션을 빌드하는 경우 로그인할 때 사용자가 동의하도록 애플리케이션에서 요구하는 권한의 전체 세트(정적 범위)를 등록해야 했습니다. v2.0에서는 범위 매개 변수를 사용하여 원하는 시간에 권한을 요청할 수 있습니다. 이를 동적 범위라고 합니다. 이를 통해 사용자는 범위에 대한 증분 동의를 제공할 수 있습니다. 따라서 처음에는 사용자가 애플리케이션에 로그인하도록 하고 어떤 종류의 액세스도 필요하지 않은 경우 그렇게 할 수 있습니다. 나중에 사용자의 일정을 읽을 수 있는 기능이 필요한 경우 acquireToken 메서드에서 일정 범위를 요청하고 사용자의 동의를 받을 수 있습니다. 예:
 
     ```javascript
     var request = {
@@ -86,7 +85,7 @@ v2.0에서 `https://login.microsoftonline.com/common` 인증 기관을 사용하
 
 * V1.0 API에 대한 범위
 
-    MSAL.js를 사용하여 V1.0 API에 대한 토큰을 얻는 경우 API의 App ID URI에 `.default`를 범위로 적용하여 API에 등록된 모든 정적 범위를 요청할 수 있습니다. 다음은 그 예입니다.
+    MSAL.js를 사용하여 V1.0 API에 대한 토큰을 얻는 경우 API의 App ID URI에 `.default`를 범위로 적용하여 API에 등록된 모든 정적 범위를 요청할 수 있습니다. 예:
 
     ```javascript
     var request = {

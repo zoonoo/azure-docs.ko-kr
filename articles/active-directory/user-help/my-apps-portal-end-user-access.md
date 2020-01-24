@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b74fa1caad629e6f7f745f84787b6f415876bbae
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: c15580481c153a58122db593f678998be485b57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233188"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705006"
 ---
 # <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>내 앱 포털에서 조직의 클라우드 기반 앱 찾기 및 사용
 
@@ -88,7 +87,7 @@ ms.locfileid: "74233188"
 
 1. 회사 또는 학교 계정에 로그인합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -102,7 +101,7 @@ IOS 및 Android 장치의 Intune Managed Browser에서 조직의 앱을 보고 �
 
 1. 모바일 장치에서 [Apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)에서 Intune Managed Browser 앱을 다운로드 하 여 설치 합니다.
 
-2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com으로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com 으로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -116,7 +115,7 @@ IOS 버전 7 이상을 실행 하는 iPhone 또는 iPad 장치에서 **내 앱**
 
 1. 모바일 장치에서 Safari와 같은 웹 브라우저 앱을 시작 합니다.
 
-2. https://myapps.microsoft.com로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. https://myapps.microsoft.com 로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -130,7 +129,7 @@ Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
 
 1. 모바일 장치에서 Google Chrome 등의 웹 브라우저 앱을 시작 합니다.
 
-2. https://myapps.microsoft.com로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. https://myapps.microsoft.com 로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 

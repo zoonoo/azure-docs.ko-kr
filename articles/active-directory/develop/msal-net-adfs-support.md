@@ -13,13 +13,12 @@ ms.date: 07/16/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1b5124712e4002c9a3a6740986cafc18c12dbb98
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6e40a03e70fa04855037165462761c56f13acc58
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921948"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695622"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET에서 지원 Active Directory Federation Services
 Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 개발 중인 응용 프로그램에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 이러한 응용 프로그램은 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)를 참조 하세요.

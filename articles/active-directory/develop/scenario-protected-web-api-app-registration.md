@@ -16,13 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 86c36661dd8b5d43417ca1d845eef5cdb146f1e9
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ffa5c0ff9aac636a584743f839d780d2df2db5ef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74962528"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701997"
 ---
 # <a name="protected-web-api-app-registration"></a>보호 된 웹 API: 앱 등록
 
@@ -50,7 +49,7 @@ Microsoft id 플랫폼 끝점은 두 가지 유형의 토큰을 발급할 수 �
 
 사용자가 대화형으로 로그인 하지 않았으므로 웹 Api에서 리디렉션 URI를 등록할 필요가 없습니다.
 
-## <a name="expose-an-api"></a>API közzététele
+## <a name="expose-an-api"></a>API 표시
 
 웹 Api에 특정 한 다른 설정은 노출 된 API 및 노출 된 범위입니다.
 

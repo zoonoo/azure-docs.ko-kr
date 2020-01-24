@@ -1,18 +1,18 @@
 ---
 title: 논리 앱 및 runbook을 업데이트 하 여 클래식 경고 마이그레이션 Azure Monitor 준비
+author: yanivlavi
 description: 자발적 마이그레이션을 준비 하기 위해 웹 후크, 논리 앱 및 runbook을 수정 하는 방법에 대해 알아봅니다.
-author: snehithm
 ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: snmuvva
+ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 5235db5cab39be6e36bdf145d3edc7c73fe9da54
-ms.sourcegitcommit: 3073581d81253558f89ef560ffdf71db7e0b592b
+ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68827398"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705567"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>기존 경고 규칙의 마이그레이션을 위해 논리 앱 및 runbook 준비
 
@@ -25,7 +25,7 @@ ms.locfileid: "68827398"
 
 ## <a name="api-changes"></a>API 변경
 
-클래식 경고 규칙 (`microsoft.insights/alertrules`)을 만들고 관리 하는 api는 새 메트릭 경고 (`microsoft.insights/metricalerts`)를 만들고 관리 하는 api와 다릅니다. 지금 기존 경고 규칙을 프로그래밍 방식으로 만들고 관리 하는 경우 새 Api를 사용 하도록 배포 스크립트를 업데이트 합니다.
+`microsoft.insights/alertrules`(클래식 경고 규칙)를 만들고 관리 하는 Api는 새 메트릭 경고 (`microsoft.insights/metricalerts`)를 만들고 관리 하는 Api와 다릅니다. 지금 기존 경고 규칙을 프로그래밍 방식으로 만들고 관리 하는 경우 새 Api를 사용 하도록 배포 스크립트를 업데이트 합니다.
 
 다음 표는 클래식 및 새 경고의 프로그래밍 인터페이스에 대 한 참조입니다.
 
@@ -44,7 +44,7 @@ ms.locfileid: "68827398"
 
 |  |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|경고가 활성화 또는 해결 되었습니까?    | **상태**       | **data.status** |
+|경고가 활성화 또는 해결 되었습니까?    | **status**       | **data.status** |
 |경고에 대 한 컨텍스트 정보     | **context**        | **data.context**        |
 |경고가 활성화 되거나 해결 된 타임 스탬프입니다.     | **context.timestamp**       | **data.context.timestamp**        |
 | 경고 규칙 ID | **context.id** | **data.context.id** |
@@ -72,7 +72,7 @@ ms.locfileid: "68827398"
 
 ## <a name="modify-a-logic-app-to-receive-a-metric-alert-notification"></a>메트릭 경고 알림을 받도록 논리 앱 수정
 
-클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하십시오.
+클래식 경고를 사용 하는 논리 앱을 사용 하는 경우 새 메트릭 경고 페이로드를 구문 분석 하도록 논리 앱 코드를 수정 해야 합니다. 다음 단계를 수행하세요.
 
 1. 새 논리 앱을 만듭니다.
 

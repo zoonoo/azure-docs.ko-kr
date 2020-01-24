@@ -13,13 +13,12 @@ ms.date: 04/12/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c5022533cf0db57779bc36bd74cfb38932f10d6
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e350f4fc3d40b45a1308e1edd9331dc7f71399c5
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75777839"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76696132"
 ---
 # <a name="initialize-client-applications-using-msaljs"></a>MSAL를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 사용자 에이전트 응용 프로그램의 인스턴스에서 JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 초기화 하는 방법을 설명 합니다. 사용자 에이전트 응용 프로그램은 클라이언트 코드가 웹 브라우저와 같은 사용자 에이전트에서 실행 되는 공용 클라이언트 응용 프로그램의 형태입니다. 브라우저 컨텍스트는 공개적으로 액세스할 수 있기 때문에 이러한 클라이언트는 비밀을 저장 하지 않습니다. 클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.

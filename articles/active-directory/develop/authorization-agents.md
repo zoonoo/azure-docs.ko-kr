@@ -12,13 +12,12 @@ ms.date: 09/05/2019
 ms.author: twhitney
 ms.reviewer: shoatman, brianmel, hahamil
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 44a0e93c87c50fbc63cddad349ec9b5fbf45d91f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c2d0c8a877ba856aa7a93bfc960c44b63cbe8f9c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843906"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698002"
 ---
 # <a name="authorization-agents-android"></a>권한 부여 에이전트(Android)
 
@@ -38,7 +37,7 @@ MSAL은 `WebView`또는 시스템 브라우저를 사용 하 여 권한 부여�
 
 응용 프로그램에서 Microsoft Authenticator 또는 회사 포털 지원으로 MSAL을 사용 하는 경우 사용자에 게 앱 중 하나를 사용 하 여 활성 로그인이 있는 경우 사용자가 응용 프로그램 간에 SSO 환경을 제공할 수 있습니다.
 
-## <a name="webview"></a>WebView
+## <a name="webview"></a>웹 보기
 
 앱 내 웹 보기를 사용 하려면 MSAL에 전달 되는 앱 구성 JSON에 다음 줄을 입력 합니다.
 
@@ -79,12 +78,12 @@ MSAL은 장치에 설치 된 브라우저의 전체 목록을 검색 하 여 사
 
 | | 기본 제공 브라우저 | Chrome | Opera  | Microsoft Edge | UC 브라우저 | Firefox |
 | -- |:-------------:| -----:|-----:|-----:|-----:|-----:|
-| Nexus 4 (API 17) | pass | pass |해당 없음 |해당 없음 |해당 없음 |해당 없음 |
+| Nexus 4 (API 17) | pass | pass |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |해당 사항 없음 |
 | Samsung S7 (API 25) | 전달을 | pass | pass | pass | 실패 |pass |
 | Huawei (API 26) |pass * * | pass | 실패 | pass | pass |pass |
 | Vivo (API 26) |pass|pass|pass|pass|pass|실패|
 | 픽셀 2 (API 26) |pass | pass | pass | pass | 실패 |pass |
-| Oppo | pass | 해당 사항 없음 * * * |해당 없음  |해당 없음 |해당 없음 | 해당 없음|
+| Oppo | pass | 해당 사항 없음 * * * |해당 사항 없음  |해당 사항 없음 |해당 사항 없음 | 해당 사항 없음|
 | OnePlus (API 25) |pass | pass | pass | pass | 실패 |pass |
 | Nexus (API 28) |pass | pass | pass | pass | 실패 |pass |
 |MI | pass | pass | pass | pass | 실패 |pass |

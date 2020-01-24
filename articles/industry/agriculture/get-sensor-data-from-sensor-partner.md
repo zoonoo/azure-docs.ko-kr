@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 745e3f0b6c7bd4e6d984ce2df29b9965d4b8ca21
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513741"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705669"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -31,15 +31,13 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 센서 데이터의 스트리밍을 시작한 후에는 FarmBeats 시스템으로 데이터를 가져오는 프로세스를 시작할 수 있습니다. FarmBeats에 대 한 통합을 사용 하도록 설정 하려면 장치 공급자에 게 다음 정보를 제공 합니다.
 
- - API 끝점
+ - API 엔드포인트
  - 테넌트 ID
  - 클라이언트 ID
  - 클라이언트 암호
  - EventHub 연결 문자열
 
-이전 정보는 시스템 통합자에 의해 제공 됩니다. 장치 통합을 사용 하도록 설정할 때 발생할 수 있는 문제는 시스템 통합자에 게 문의 하세요.
-
-또는 Azure Cloud Shell에서이 스크립트를 실행 하 여 자격 증명을 생성할 수 있습니다. 다음 단계를 수행합니다.
+다음 단계를 수행 하 여 위의 정보를 생성할 수 있습니다. (이 단계는 Azure에서 수행 해야 하므로 FarmBeats가 배포 된 Azure 구독에 액세스 해야 합니다.)
 
 1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
 2. https://portal.azure.com/ 에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
@@ -76,7 +74,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 이전 섹션에서 생성 한 자격 증명 집합을 사용 하 여 FarmBeats을 연결 하려면 장치 파트너 포털로 이동 합니다.
 
- - API 끝점
+ - API 엔드포인트
  - EventHub 연결 문자열
  - 클라이언트 ID
  - 클라이언트 암호

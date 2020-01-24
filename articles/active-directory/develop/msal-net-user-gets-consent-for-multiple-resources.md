@@ -13,13 +13,12 @@ ms.date: 04/30/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 89afdbed6870b4ce739ed51131def686c41a3015
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3bd23a1f14d5e3cbf9fc41ade47571c6689f3468
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921763"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76695027"
 ---
 # <a name="user-gets-consent-for-several-resources-using-msalnet"></a>사용자가 MSAL.NET를 사용 하 여 여러 리소스에 대 한 동의를 가져옵니다.
 Microsoft id 플랫폼 끝점에서는 한 번에 여러 리소스에 대 한 토큰을 가져올 수 없습니다. Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하는 경우 획득 토큰 메서드의 범위 매개 변수는 단일 리소스에 대 한 범위만 포함 해야 합니다. 그러나 `.WithExtraScopeToConsent` builder 메서드를 사용 하 여 추가 범위를 지정 하 여 사전에 여러 리소스에 동의할 수 있습니다.

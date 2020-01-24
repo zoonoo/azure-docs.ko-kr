@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 2ab07e55606533390f6f3d2da3caf3ceee981e14
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 6324fd0e2957aea46fb5876aa8c91f0906205ccc
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75840649"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694235"
 ---
 ## <a name="trigger"></a>트리거
 
@@ -28,26 +28,15 @@ ms.locfileid: "75840649"
 
 * **새 함수 인스턴스가 필요 하지 않음**: 함수 크기 조정 논리가 적용 되기 전에 `Function_0`에서 모든 1000 이벤트를 처리할 수 있습니다. 이 경우 모든 1000 메시지는 `Function_0`에 의해 처리 됩니다.
 
-* **추가 함수 인스턴스가 추가 됩니다**. 함수 크기 조정 논리가 `Function_0` 처리할 수 있는 것 보다 많은 메시지를 포함 하는 것으로 확인 되 면 새 함수 앱 인스턴스 (`Function_1`)가 만들어집니다. 이 새 함수에는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 연결 된 인스턴스도 있습니다. 기본 Event Hubs 새 호스트 인스턴스가 메시지 읽기를 시도 하 고 있음을 감지 하는 경우 해당 호스트 인스턴스 간에 파티션의 부하를 분산 합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
+* **추가 함수 인스턴스가 추가 됩니다**. 함수 크기 조정 논리가 `Function_0` 처리할 수 있는 것 보다 많은 메시지를 포함 하는 것으로 확인 되 면 새 함수 앱 인스턴스 (`Function_1`)가 만들어집니다. 이 새 함수에는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 연결 된 인스턴스도 있습니다. 기본 Event Hubs 새 호스트 인스턴스가 메시지 읽기를 시도 하 고 있음을 감지 하면 호스트 인스턴스 간에 파티션의 부하를 분산 합니다. 예를 들어, 파티션 0-4는 `Function_0`에, 파티션 5-9는 `Function_1`에 할당할 수 있습니다.
 
 * **N 개 이상의 함수 인스턴스가 추가**됨: 함수 크기 조정 논리에서 처리할 수 있는 것 보다 더 많은 메시지가 `Function_0`와 `Function_1` 모두 있음을 확인 하면 새로운 `Functions_N` 함수 앱 인스턴스가 만들어집니다.  앱은 `N`가 이벤트 허브 파티션 수보다 큰 지점에 생성 됩니다. 이 예에서 Event Hubs는 다시 파티션을 부하 분산합니다(이 경우, 인스턴스 `Function_0`...`Functions_9`로).
 
-함수가 확장 될 때 `N` 인스턴스는 이벤트 허브 파티션 수보다 큰 숫자입니다. 이 작업은 다른 인스턴스에서 사용할 수 있게 되 면 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스를 사용 하 여 파티션에 대 한 잠금을 획득할 수 있도록 하기 위한 것입니다. 함수 인스턴스가 실행 될 때 사용 되는 리소스에 대해서만 요금이 청구 됩니다. 즉, 이러한 오버 프로 비전에 대해 요금이 청구 되지 않습니다.
+크기 조정이 발생 하면 `N` 인스턴스는 이벤트 허브 파티션 수보다 큰 숫자입니다. 이 패턴은 다른 인스턴스에서 사용할 수 있게 되 면 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 인스턴스를 사용 하 여 파티션에 대 한 잠금을 가져올 수 있도록 하는 데 사용 됩니다. 함수 인스턴스가 실행 될 때 사용 되는 리소스에 대해서만 요금이 청구 됩니다. 즉, 이러한 오버 프로 비전에 대해 요금이 청구 되지 않습니다.
 
 모든 함수 실행이 오류 없이 완료되면 연결된 스토리지 계정에 검사점이 추가됩니다. 확인이 성공 하면 모든 1000 메시지가 다시 검색 되지 않습니다.
 
-## <a name="trigger---example"></a>트리거 - 예제
-
-언어 관련 예제를 참조하세요.
-
-* [C#](#trigger---c-example)
-* [C# 스크립트(.csx)](#trigger---c-script-example)
-* [F#](#trigger---f-example)
-* [Java](#trigger---java-example)
-* [JavaScript](#trigger---javascript-example)
-* [Python](#trigger---python-example)
-
-### <a name="trigger---c-example"></a>트리거 - C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 이벤트 허브 트리거의 메시지 본문을 기록하는 [C# 함수](../articles/azure-functions/functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -99,7 +88,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-### <a name="trigger---c-script-example"></a>트리거 - C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](../articles/azure-functions/functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
 
@@ -117,7 +106,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-#### <a name="version-1x"></a>버전 1.x
+### <a name="version-1x"></a>버전 1.x
 
 ```json
 {
@@ -180,44 +169,7 @@ public static void Run(string[] eventHubMessages, TraceWriter log)
 }
 ```
 
-### <a name="trigger---f-example"></a>트리거 - F# 예제
-
-다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](../articles/azure-functions/functions-reference-fsharp.md)를 보여줍니다. 함수는 이벤트 허브 트리거의 메시지 본문을 기록합니다.
-
-다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 
-
-#### <a name="version-2x-and-higher"></a>2\.x 이상 버전
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "eventHubName": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-#### <a name="version-1x"></a>버전 1.x
-
-```json
-{
-  "type": "eventHubTrigger",
-  "name": "myEventHubMessage",
-  "direction": "in",
-  "path": "MyEventHub",
-  "connection": "myEventHubReadConnectionAppSetting"
-}
-```
-
-F# 코드는 다음과 같습니다.
-
-```fsharp
-let Run(myEventHubMessage: string, log: TraceWriter) =
-    log.Log(sprintf "F# eventhub trigger function processed work item: %s" myEventHubMessage)
-```
-
-### <a name="trigger---javascript-example"></a>트리거 - JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](../articles/azure-functions/functions-reference-node.md)를 보여줍니다. 함수는 [이벤트 메타데이터](#trigger---event-metadata)를 읽고 메시지를 기록합니다.
 
@@ -235,7 +187,7 @@ let Run(myEventHubMessage: string, log: TraceWriter) =
 }
 ```
 
-#### <a name="version-1x"></a>버전 1.x
+### <a name="version-1x"></a>버전 1.x
 
 ```json
 {
@@ -275,7 +227,7 @@ module.exports = function (context, myEventHubMessage) {
 }
 ```
 
-#### <a name="version-1x"></a>버전 1.x
+### <a name="version-1x"></a>버전 1.x
 
 ```json
 {
@@ -305,7 +257,7 @@ module.exports = function (context, eventHubMessages) {
 };
 ```
 
-### <a name="trigger---python-example"></a>트리거 - Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 다음 예제에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](../articles/azure-functions/functions-reference-python.md)를 보여줍니다. 함수는 [이벤트 메타데이터](#trigger---event-metadata)를 읽고 메시지를 기록합니다.
 
@@ -335,7 +287,7 @@ def main(event: func.EventHubEvent):
     logging.info('  Offset =', event.offset)
 ```
 
-### <a name="trigger---java-example"></a>트리거 - Java 예제
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 다음 예제에서는 *함수. json* 파일의 이벤트 허브 트리거 바인딩과 바인딩을 사용 하는 [Java 함수](../articles/azure-functions/functions-reference-java.md) 를 보여 줍니다. 함수는 Event Hub 트리거의 메시지 본문을 기록합니다.
 
@@ -361,9 +313,13 @@ public void eventHubProcessor(
  }
 ```
 
- [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에서 제공되는 매개 변수에 대한 `EventHubTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  이 주석은 기본 Java 형식, POJOs 또는 선택적\<T >를 사용 하는 nullable 값에 사용할 수 있습니다.
+ [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에서 제공되는 매개 변수에 대한 `EventHubTrigger` 주석을 사용합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
-## <a name="trigger---attributes"></a>트리거 - 특성
+ ---
+
+## <a name="trigger---attributes-and-annotations"></a>트리거-특성 및 주석
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](../articles/azure-functions/functions-dotnet-class-library.md)에서 [EventHubTriggerAttribute](https://github.com/Azure/azure-functions-eventhubs-extension/blob/master/src/Microsoft.Azure.WebJobs.Extensions.EventHubs/EventHubTriggerAttribute.cs) 특성을 사용합니다.
 
@@ -377,7 +333,25 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 }
 ```
 
-전체 예제는 [트리거 - C# 예제](#trigger---c-example)를 참조하세요.
+전체 예제는 [트리거 - C# 예제](#trigger)를 참조하세요.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+Java [함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 해당 값이 이벤트 허브에서 제공 되는 매개 변수에 대해 [EventHubTrigger](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhubtrigger) 주석을 사용 합니다. 이러한 주석을 사용하는 매개 변수로 인해 이벤트 도착 시 함수가 실행될 수 있습니다. `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
+
+---
 
 ## <a name="trigger---configuration"></a>트리거 - 구성
 
@@ -398,7 +372,7 @@ public static void Run([EventHubTrigger("samples-workitems", Connection = "Event
 
 ## <a name="trigger---event-metadata"></a>트리거 - 이벤트 메타데이터
 
-Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-functions/./functions-bindings-expressions-patterns.md)을 제공합니다. 이러한 속성을 다른 바인딩에서 바인딩 식의 일부로 사용하거나 코드에서 매개 변수로 사용할 수 있습니다. [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스의 속성은 다음과 같습니다.
+Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-functions/./functions-bindings-expressions-patterns.md)을 제공합니다. 메타 데이터 속성은 다른 바인딩에서 바인딩 식의 일부로 사용 하거나 코드에서 매개 변수로 사용할 수 있습니다. 속성은 [EventData](https://docs.microsoft.com/dotnet/api/microsoft.servicebus.messaging.eventdata) 클래스에서 제공 됩니다.
 
 |속성|유형|Description|
 |--------|----|-----------|
@@ -410,7 +384,7 @@ Event Hubs 트리거는 몇 가지 [메타데이터 속성](../articles/azure-fu
 |`SequenceNumber`|`Int64`|이벤트의 논리적 시퀀스 번호|
 |`SystemProperties`|`IDictionary<String,Object>`|이벤트 데이터를 비롯한 시스템 속성|
 
-이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger---example)를 참조하세요.
+이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#trigger)를 참조하세요.
 
 ## <a name="trigger---hostjson-properties"></a>트리거 - host.json 속성
 
@@ -424,18 +398,7 @@ Event Hubs 출력 바인딩을 사용하여 이벤트 스트림에 이벤트를 
 
 출력 바인딩을 구현 하려고 하기 전에 필요한 패키지 참조가 준비 되어 있는지 확인 합니다.
 
-## <a name="output---example"></a>출력 - 예제
-
-언어 관련 예제를 참조하세요.
-
-* [C#](#output---c-example)
-* [C# 스크립트(.csx)](#output---c-script-example)
-* [F#](#output---f-example)
-* [Java](#output---java-example)
-* [JavaScript](#output---javascript-example)
-* [Python](#output---python-example)
-
-### <a name="output---c-example"></a>출력 - C# 예제
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 메서드 반환 값을 출력으로 사용하여 이벤트 허브로 메시지를 쓰는 [C# 함수](../articles/azure-functions/functions-dotnet-class-library.md)를 보여줍니다.
 
@@ -469,7 +432,7 @@ public static async Task Run(
 }
 ```
 
-### <a name="output---c-script-example"></a>출력 - C# 스크립트 예제
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](../articles/azure-functions/functions-reference-csharp.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
@@ -521,41 +484,7 @@ public static void Run(TimerInfo myTimer, ICollector<string> outputEventHubMessa
 }
 ```
 
-### <a name="output---f-example"></a>출력 - F# 예제
-
-다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [F# 함수](../articles/azure-functions/functions-reference-fsharp.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
-
-다음 예제에서는 *function.json* 파일에 있는 Event Hubs 데이터 바인딩을 표시합니다. 첫 번째 예제는 함수 2.x 이상에 대 한 것이 고 두 번째 예제는 함수 1.x에 대 한 것입니다. 
-
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "eventHubName": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-```json
-{
-    "type": "eventHub",
-    "name": "outputEventHubMessage",
-    "path": "myeventhub",
-    "connection": "MyEventHubSendAppSetting",
-    "direction": "out"
-}
-```
-
-F# 코드는 다음과 같습니다.
-
-```fsharp
-let Run(myTimer: TimerInfo, outputEventHubMessage: byref<string>, log: ILogger) =
-    let msg = sprintf "TimerTriggerFSharp1 executed at: %s" DateTime.Now.ToString()
-    log.LogInformation(msg);
-    outputEventHubMessage <- msg;
-```
-
-### <a name="output---javascript-example"></a>출력 - JavaScript 예제
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [JavaScript 함수](../articles/azure-functions/functions-reference-node.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
@@ -607,7 +536,7 @@ module.exports = function(context) {
 };
 ```
 
-### <a name="output---python-example"></a>출력 - Python 예제
+# <a name="pythontabpython"></a>[Python](#tab/python)
 
 다음 예제에서는 *function.json* 파일의 이벤트 허브 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](../articles/azure-functions/functions-reference-python.md)를 보여줍니다. 함수는 이벤트 허브로 메시지를 씁니다.
 
@@ -637,7 +566,7 @@ def main(timer: func.TimerRequest) -> str:
     return 'Message created at: {}'.format(timestamp)
 ```
 
-### <a name="output---java-example"></a>출력 - Java 예제
+# <a name="javatabjava"></a>[Java](#tab/java)
 
 다음 예에서는 현재 시간을 포함 하는 메시지를 이벤트 허브에 기록 하는 Java 함수를 보여 줍니다.
 
@@ -652,7 +581,11 @@ public String sendTime(
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Event Hub에 게시되는 매개 변수에 대한 `@EventHubOutput` 주석을 사용합니다.  매개 변수 형식은 `OutputBinding<T>`이어야 합니다. 여기서 T는 POJO 또는 원시 Java 형식입니다.
 
-## <a name="output---attributes"></a>출력 - 특성
+---
+
+## <a name="output---attributes-and-annotations"></a>출력-특성 및 주석
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](../articles/azure-functions/functions-dotnet-class-library.md)에서 [EventHubAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.ServiceBus/EventHubs/EventHubAttribute.cs) 특성을 사용합니다.
 
@@ -667,7 +600,25 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 }
 ```
 
-전체 예제는 [출력 - C# 예제](#output---c-example)를 참조하세요.
+전체 예제는 [출력 - C# 예제](#output)를 참조하세요.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+스크립트에서 C# 특성을 지원 하지 않습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+JavaScript에서는 특성을 지원 하지 않습니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+Python에서 특성을 지원 하지 않습니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[Java 함수 런타임 라이브러리](https://docs.microsoft.com/java/api/overview/azure/functions/runtime)에서 값이 이벤트 허브에 게시 되는 매개 변수에 대해 [EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 주석을 사용 합니다. 매개 변수는 `OutputBinding<T>` 형식 이어야 합니다. 여기서 `T`는 POJO 또는 네이티브 Java 형식입니다.
+
+---
 
 ## <a name="output---configuration"></a>출력 - 구성
 
@@ -686,9 +637,35 @@ public static string Run([TimerTrigger("0 */5 * * * *")] TimerInfo myTimer, ILog
 
 ## <a name="output---usage"></a>출력 - 사용
 
-C# 및 C# 스크립트에서는 `out string paramName`과 같은 메서드 매개 변수를 사용하여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 액세스합니다. `<name>`은 *function.json*의 `name` 속성에 지정된 값입니다.
+`out string paramName`와 같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+
+# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+
+`out string paramName`와 같은 메서드 매개 변수를 사용 하 여 메시지를 보냅니다. C# 스크립트에서 `paramName`은 *function.json*의 `name` 속성에 지정된 값입니다. 여러 메시지를 쓰려면 `out string` 대신 `ICollector<string>` 또는 `IAsyncCollector<string>`를 사용할 수 있습니다.
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+`context.bindings.<name>`를 사용 하 여 출력 이벤트에 액세스 합니다. 여기서 `<name>`는 *함수. json*의 `name` 속성에 지정 된 값입니다.
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
+
+- **반환 값**: *함수 json* 의 `name` 속성을 `$return`로 설정 합니다. 이 구성을 사용 하 여 함수의 반환 값은 이벤트 허브 메시지로 유지 됩니다.
+
+- **명령적**: [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. `set` 전달 되는 값은 이벤트 허브 메시지로 유지 됩니다.
+
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+[EventHubOutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.eventhuboutput) 주석을 사용 하 여 함수에서 이벤트 허브 메시지를 출력 하는 두 가지 옵션이 있습니다.
+
+- **반환 값**: 함수 자체에 주석을 적용 하면 함수의 반환 값이 이벤트 허브 메시지로 유지 됩니다.
+
+- **명령적**: 메시지 값을 명시적으로 설정 하려면 [`OutputBinding<T>`](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.OutputBinding)형식의 특정 매개 변수에 주석을 적용 합니다. 여기서 `T`은 Pojo 또는 네이티브 Java 유형입니다. 이 구성을 사용 하 여 `setValue` 메서드에 값을 전달 하면 값이 이벤트 허브 메시지로 유지 됩니다.
+
+---
 
 ## <a name="exceptions-and-return-codes"></a>예외 및 반환 코드
 
@@ -722,6 +699,6 @@ JavaScript에서 `context.bindings.<name>`를 사용하여 출력 이벤트에 �
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|maxBatchSize|64|수신 루프 당 받은 최대 이벤트 수입니다.|
-|prefetchCount|n/a|기본 EventProcessorHost에서 사용할 기본 PrefetchCount입니다.|
-|batchCheckpointFrequency|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|
+|`maxBatchSize`|64|수신 루프 당 받은 최대 이벤트 수입니다.|
+|`prefetchCount`|n/a|기본 `EventProcessorHost`에서 사용 하는 기본 사전 인출 수입니다.|
+|`batchCheckpointFrequency`|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|

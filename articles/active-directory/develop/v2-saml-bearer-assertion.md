@@ -17,13 +17,12 @@ ms.date: 08/05/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7f5b983a00dfc0af2e7a40571ce58fafca5914e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 16f30473ded5f1de5dc94c1cff9da96165b1a01c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964621"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76700212"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-saml-bearer-assertion-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 SAML 전달자 어설션 흐름
 OAuth 2.0 SAML 전달자 어설션 흐름을 사용 하면 클라이언트에서 기존 트러스트 관계를 사용 해야 할 때 SAML 어설션을 사용 하 여 OAuth 액세스 토큰을 요청할 수 있습니다. SAML 어설션에 적용 되는 서명은 권한 있는 앱의 인증을 제공 합니다. SAML 어설션은 id 공급자가 발급 하 고 서비스 공급자가 사용 하는 XML 보안 토큰입니다. 서비스 공급자는 해당 콘텐츠를 사용 하 여 보안 관련 목적의 어설션의 주체를 식별 합니다.
@@ -41,7 +40,7 @@ Azure Active Directory에 페더레이션된 Active Directory Federation Service
 ## <a name="call-graph-using-saml-bearer-assertion"></a>SAML 전달자 어설션을 사용 하 여 그래프 호출
 이제 프로그래밍 방식으로 SAML 어설션을 실제로 페치할 수 있는 방법에 대해 알아보겠습니다. 이 접근 방식은 ADFS로 테스트 됩니다. 그러나이는 SAML 어설션의 반환을 프로그래밍 방식으로 지 원하는 모든 id 공급자와 함께 작동 합니다. 기본 프로세스는 SAML 어설션을 가져오고, 액세스 토큰을 가져오고, Microsoft Graph 액세스 하는 것입니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>필수 조건
 
 권한 부여 서버/환경 (Microsoft 365)과 id 공급자 또는 SAML 2.0 전달자 어설션 (ADFS)의 발급자 간에 트러스트 관계를 설정 합니다. Single Sign-On 및 id 공급자로 ADFS를 구성 하려면 [이 문서](https://blogs.technet.microsoft.com/canitpro/2015/09/11/step-by-step-setting-up-ad-fs-and-enabling-single-sign-on-to-office-365/)를 참조할 수 있습니다.
 

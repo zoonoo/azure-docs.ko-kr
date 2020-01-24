@@ -12,13 +12,12 @@ ms.date: 3/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3ecdffae61fbadfd5d975af942861e24589c6fbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233157"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704870"
 ---
 # <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 회사 또는 학교 계정 정보 업데이트
 

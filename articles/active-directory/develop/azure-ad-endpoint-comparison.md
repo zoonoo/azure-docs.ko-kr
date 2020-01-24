@@ -12,13 +12,12 @@ ms.date: 11/26/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, hirsin, jmprieur, sureshja, jesakowi, lenalepa, kkrishna, negoe
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 882b4a8bfe951212d2d1fe081d16b25641dfa4d4
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: ed48625e4654ac6b8bdaeed713b476ab23d29f97
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843889"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697985"
 ---
 # <a name="why-update-to-microsoft-identity-platform-v20"></a>V 2.0 (Microsoft identity platform)을 업데이트 하는 이유
 
@@ -158,7 +157,7 @@ Microsoft id 플랫폼용으로 등록 된 앱은 제한 된 리디렉션 URL �
 
 `https://new.login.contoso.com`
 
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 `login-east.contoso.com` 및 `login-west.contoso.com`을 리디렉션 URL로 사용하는 앱이 필요하면 리디렉션 URL을 다음 순서로 추가해야 합니다.
 

@@ -13,13 +13,12 @@ ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: lizross
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 78acb1f27b27c53aaaac508e0aa99a5b9c14ff2d
-ms.sourcegitcommit: 083aa7cc8fc958fc75365462aed542f1b5409623
+ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70914927"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705312"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 
@@ -43,11 +42,11 @@ ms.locfileid: "70914927"
 
 2 단계 인증을 사용 하는 방법에 따라 앱 암호를 만들고 삭제할 수 있습니다.
 
-- **조직에서 2 단계 인증 및 추가 보안 확인 페이지를 사용 합니다.** 조직에서 2 단계 인증을 사용 하는 회사 또는 학교 계정 alain@contoso.com(예:)을 사용 하는 경우 [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [추가 보안 인증을 사용 하 여 앱 암호 만들기 및 삭제 페이지](#create-and-delete-app-passwords-from-the-additional-security-verification-page) 를 참조 하세요.
+- **조직에서 2 단계 인증 및 추가 보안 확인 페이지를 사용 합니다.** 조직에서 2 단계 인증을 사용 하 여 회사 또는 학교 계정 (예: alain@contoso.com)을 사용 하는 경우 [추가 보안 인증 페이지](https://account.activedirectory.windowsazure.com/Proofup.aspx)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [추가 보안 인증을 사용 하 여 앱 암호 만들기 및 삭제 페이지](#create-and-delete-app-passwords-from-the-additional-security-verification-page) 를 참조 하세요.
 
-- **조직에서 2 단계 인증 및 Office 365 포털을 사용 합니다.** 조직에서 회사 또는 학교 계정 (예:, alain@contoso.com), 2 단계 확인 및 office 365 앱을 사용 하는 경우 [office 365 포털 페이지](https://www.office.com)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [Office 365 포털을 사용 하 여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal) 를 참조 하세요.
+- **조직에서 2 단계 인증 및 Office 365 포털을 사용 합니다.** 조직에서 회사 또는 학교 계정 (예: alain@contoso.com), 2 단계 확인 및 Office 365 앱을 사용 하는 경우 [office 365 포털 페이지](https://www.office.com)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은이 문서에서 [Office 365 포털을 사용 하 여 앱 암호 만들기 및 삭제](#create-and-delete-app-passwords-using-the-office-365-portal) 를 참조 하세요.
 
-- **개인 Microsoft 계정를 사용 하 여 2 단계 인증을 사용 하 고 있습니다.** 2 단계 인증에 개인 Microsoft 계정 (예:, alain@outlook.com)를 사용 하는 경우 [보안 기본 페이지](https://account.microsoft.com/security/)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 [2 단계 인증을 지원 하지 않는 앱에서 앱 암호 사용](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)을 참조 하세요.
+- **개인 Microsoft 계정를 사용 하 여 2 단계 인증을 사용 하 고 있습니다.** 2 단계 인증에 개인 Microsoft 계정 (예: alain@outlook.com)를 사용 하는 경우 [보안 기본 페이지](https://account.microsoft.com/security/)에서 앱 암호를 관리할 수 있습니다. 자세한 지침은 [2 단계 인증을 지원 하지 않는 앱에서 앱 암호 사용](https://support.microsoft.com/help/12409/microsoft-account-app-passwords-and-two-step-verification)을 참조 하세요.
 
 ## <a name="create-and-delete-app-passwords-from-the-additional-security-verification-page"></a>추가 보안 인증 페이지에서 앱 암호 만들기 및 삭제
 

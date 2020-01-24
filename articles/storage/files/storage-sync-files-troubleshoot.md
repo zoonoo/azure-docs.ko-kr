@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: f211d1c1a8a315ed9d999d146ce4eaf28af43206
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545044"
+ms.locfileid: "76704547"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -298,6 +298,15 @@ Azure 파일 공유에서 직접 변경하는 경우 Azure 파일 동기화는 2
 지정 된 동기화 세션에 대해 PerItemErrorCount의 서버 또는 파일의 동기화 되지 않는 파일 수가 0 보다 큰 경우에는 일부 항목의 동기화가 실패 합니다. 파일 및 폴더는 동기화를 방해 하는 특성을 가질 수 있습니다. 이러한 특징은 영구적일 수 있으며, 파일 또는 폴더 이름에서 지원되지 않는 문자를 제거하는 것처럼 동기화를 다시 시작하기 위한 명시적 조치가 필요합니다. 또한 이러한 특징이 일시적일 수 있습니다. 즉, 파일 또는 폴더가 자동으로 동기화를 다시 시작할 수 있습니다. 예를 들어 핸들이 열려 있는 파일은 파일이 닫히면 자동으로 동기화를 다시 시작합니다. Azure 파일 동기화 엔진이 이러한 문제를 발견하면 오류 로그가 생성되며, 이 오류 로그를 구문 분석하면 현재 올바르게 동기화되지 않는 항목이 나열됩니다.
 
 이러한 오류를 살펴보려면 **FileSyncErrorsReport.ps1** PowerShell 스크립트(Azure 파일 동기화 에이전트의 에이전트 설치 디렉터리에 있음)를 실행하여 열려 있는 핸들, 지원되지 않는 문자 또는 기타 문제로 동기화에 실패한 파일을 식별합니다. ItemPath 필드는 루트 동기화 디렉터리를 기준으로 파일의 위치를 알려줍니다. 아래에서 수정 단계에 대한 일반적인 동기화 오류 목록을 참조하세요.
+
+> [!Note]  
+> FileSyncErrorsReport 스크립트가 "파일 오류가 없습니다"를 반환 하거나 동기화 그룹에 대 한 항목당 오류가 나열 되지 않으면 다음 중 하나가 발생 합니다.
+>
+>- 원인 1: 마지막으로 완료 된 동기화 세션에 항목당 오류가 없습니다. 동기화 되지 않은 파일 0 개를 표시 하려면 포털을 곧 업데이트 해야 합니다. 
+>   - 원격 분석 이벤트 로그에서 [이벤트 ID 9102](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=server%2Cazure-portal#broken-sync) 을 확인 하 여 PerItemErrorCount가 0 인지 확인 합니다. 
+>
+>- 원인 2: 항목 당 오류가 너무 많아 이벤트 로그에이 동기화 그룹에 대 한 오류가 더 이상 포함 되어 있지 않아서 서버에서 ItemResults 이벤트 로그가 래핑 되었습니다.
+>   - 이 문제를 방지 하려면 ItemResults 이벤트 로그 크기를 늘립니다. ItemResults 이벤트 로그는 이벤트 뷰어의 "응용 프로그램 및 서비스 Logs\Microsoft\FileSync\Agent"에서 찾을 수 있습니다. 
 
 #### <a name="troubleshooting-per-filedirectory-sync-errors"></a>파일/디렉터리별 동기화 오류 문제 해결
 **ItemResults 로그 - 항목별 동기화 오류**  

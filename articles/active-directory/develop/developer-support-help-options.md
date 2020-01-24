@@ -13,13 +13,12 @@ ms.date: 05/23/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f1c6d89af1d88be9a241c94462b17edf0c93de2
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: e85a768d8e4f11ca3637bc8f0b394cfb1ea9744a
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74843192"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76697475"
 ---
 # <a name="support-and-help-options-for-developers"></a>개발자를 위한 지원 및 도움말 옵션
 
@@ -32,7 +31,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 > * 인증 라이브러리 중 하나에서 문제가 발생하면 *GitHub* 문제를 제기합니다.
 > * 마지막으로 누군가와 대화할 필요가 있으면 지원 요청을 열 수 있습니다.
 
-## <a name="search"></a>Search
+## <a name="search"></a>검색
 
 개발 관련 질문이 있으면 문서, [GitHub 샘플](https://github.com/azure-samples) 또는 [Stack Overflow](https://www.stackoverflow.com) FAQ에서 답변을 찾을 수 있습니다.
 
@@ -48,7 +47,7 @@ Azure AD(Azure Active Directory), Microsoft ID 또는 Microsoft Graph API와 통
 
 ## <a name="use-the-development-support-tools"></a>개발 지원 도구 사용
 
-| 도구  | 설명  |
+| 도구  | Description  |
 |---------|---------|
 | [jwt.ms](https://jwt.ms) | ID 또는 액세스 토큰을 붙여넣어 클레임 이름 및 값을 디코드합니다. |
 | [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)| Microsoft Graph API에 대해 요청을 하고 응답을 확인할 수 있는 도구입니다. |

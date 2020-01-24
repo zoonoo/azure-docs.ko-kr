@@ -17,13 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b22abde182437bfeb4a42e5c9a0d8e41a4643f8f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 9c02611ea6f083a6ce8f95844e52429fc1152f90
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74964449"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701011"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -55,7 +54,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 
 ### <a name="register-the-middle-tier-service"></a>중간 계층 서비스 등록
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 검색하여 애플리케이션용 Active Directory 테넌트를 선택합니다.
 1. 왼쪽 창에서 **더 많은 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
 1. **앱 등록** , **새 등록**을 차례로 선택 합니다.
@@ -73,7 +72,7 @@ OAuth 2.0 OBO(On-Behalf-Of) 흐름을 사용하면 사용자 인증을 다른 �
 
 ### <a name="register-the-client-application"></a>클라이언트 애플리케이션 등록
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 위쪽 표시줄에서 계정을 선택하고 **디렉터리** 목록에서 검색하여 애플리케이션용 Active Directory 테넌트를 선택합니다.
 1. 왼쪽 창에서 **더 많은 서비스**를 선택하고 **Azure Active Directory**를 선택합니다.
 1. **앱 등록** , **새 등록**을 차례로 선택 합니다.
@@ -109,17 +108,17 @@ https://login.microsoftonline.com/<tenant>/oauth2/token
 
 공유 암호를 사용할 경우 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수를 포함해야 합니다. |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
-| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다. |
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
-| client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
-| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
+| grant_type |required | 토큰 요청의 형식입니다. OBO 요청은 JWT(JSON Web Token)을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |required | 요청에 사용된 액세스 토큰 값입니다. |
+| client_id |required | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
+| client_secret |required | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
+| resource |required | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| requested_token_use |required | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
+| scope |required | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 HTTP POST는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
@@ -143,20 +142,20 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 인증서를 사용한 서비스 간 액세스 토큰 요청에는 다음 매개 변수가 있습니다.
 
-| 매개 변수를 포함해야 합니다. |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
-| 어설션 |필수 | 요청에 사용된 토큰 값입니다. |
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
-| client_assertion_type |필수 |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
-| client_assertion |필수 | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명하는 JSON Web Token입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
-| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| scope |필수 | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
+| grant_type |required | 토큰 요청의 형식입니다. OBO 요청은 JWT 액세스 토큰을 사용하므로 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |required | 요청에 사용된 토큰 값입니다. |
+| client_id |required | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
+| client_assertion_type |required |값은 `urn:ietf:params:oauth:client-assertion-type:jwt-bearer`이어야 합니다. |
+| client_assertion |required | 애플리케이션의 자격 증명으로 등록한 인증서를 사용하여 만들고 서명하는 JSON Web Token입니다. 인증서 등록 방법 및 어설션 형식에 대한 자세한 내용은 [인증서 자격 증명](active-directory-certificate-credentials.md)을 참조하세요.|
+| resource |required | 수신 서비스(보안 리소스)의 앱 ID URI입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| requested_token_use |required | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
+| scope |required | 토큰 요청에 대해 공백으로 구분된 범위 목록입니다. OpenID Connect의 경우, 범위 **openid**를 지정해야 합니다.|
 
 이러한 매개 변수는 `client_secret parameter`가 `client_assertion_type` 및 `client_assertion` 두 매개 변수로 대체되는 경우를 제외하고 공유된 비밀을 통한 요청과 거의 동일합니다.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 다음 HTTP POST는 인증서가 있는 https://graph.windows.net 웹 API용 액세스 토큰을 요청합니다. `client_id`는 액세스 토큰을 요청하는 서비스를 식별합니다.
 
@@ -181,7 +180,7 @@ grant_type=urn%3Aietf%3Aparams%3Aoauth%3Agrant-type%3Ajwt-bearer
 
 성공 응답은 다음 매개 변수가 있는 JSON OAuth 2.0 응답입니다.
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | scope |토큰에 부여된 액세스 범위입니다. |
@@ -231,7 +230,7 @@ Azure AD 토큰 끝점은 조건부 액세스 정책 (예: multi-factor authenti
 
 중간 계층 서비스는 `Authorization` 헤더에서 토큰을 설정하여 다운스트림 웹 API에 대해 인증된 요청을 수행하려면 획득한 액세스 토큰을 사용할 수 있습니다.
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 ```
 GET /me?api-version=2013-11-08 HTTP/1.1
@@ -253,15 +252,15 @@ Authorization: Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiIsIng1dCI6InowMzl6ZHNGdW
 
 SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포함됩니다.
 
-| 매개 변수를 포함해야 합니다. |  | 설명 |
+| 매개 변수 |  | Description |
 | --- | --- | --- |
-| grant_type |필수 | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
-| 어설션 |필수 | 요청에 사용된 액세스 토큰 값입니다.|
-| client_id |필수 | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
-| client_secret |필수 | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
-| resource |필수 | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
-| requested_token_use |필수 | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
-| requested_token_type | 필수 | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
+| grant_type |required | 토큰 요청의 형식입니다. JWT를 사용하는 요청의 경우 값은 **urn:ietf:params:oauth:grant-type:jwt-bearer**이어야 합니다. |
+| 어설션 |required | 요청에 사용된 액세스 토큰 값입니다.|
+| client_id |required | Azure AD에 등록하는 동안 호출 서비스에 할당된 앱 ID입니다. Azure Portal에서 앱 ID를 찾으려면 **Active Directory**, 디렉터리 및 애플리케이션 이름을 차례로 선택합니다. |
+| client_secret |required | Azure AD에서 서비스를 호출하기 위해 등록된 키입니다. 이 값은 등록 시 메모해 두어야 합니다. |
+| resource |required | 수신 서비스(보안 리소스)의 앱 ID URI입니다. SAML 토큰의 대상이 될 리소스입니다. Azure Portal에서 앱 ID URI를 찾으려면 **Active Directory** 및 디렉터리를 차례로 선택합니다. 애플리케이션 이름, **모든 설정** 및 **속성**을 차례로 선택합니다. |
+| requested_token_use |required | 요청 처리 방법을 지정합니다. On-Behalf-Of 흐름에서 이 값은 **on_behalf_of**여야 합니다. |
+| requested_token_type | required | 요청된 토큰의 형식을 지정합니다. 값은 액세스된 리소스의 요구 사항에 따라 **urn:ietf:params:oauth:token-type:saml2** 또는 **urn:ietf:params:oauth:token-type:saml1**입니다. |
 
 응답에는 UTF8 및 Base64url로 인코딩된 SAML 토큰이 포함됩니다.
 
@@ -272,7 +271,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | Description |
 | --- | --- |
 | token_type |토큰 유형 값을 나타냅니다. Azure AD는 **전달자**유형만 지원합니다. 전달자 토큰에 대한 자세한 내용은 [OAuth 2.0 권한 부여 프레임워크: 전달자 토큰 사용(RFC 6750)](https://www.rfc-editor.org/rfc/rfc6750.txt)을 참조하세요. |
 | scope |토큰에 부여된 액세스 범위입니다. |

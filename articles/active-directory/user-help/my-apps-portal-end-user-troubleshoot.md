@@ -12,13 +12,12 @@ ms.date: 03/21/2019
 ms.author: lizross
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11a7376720661e13a03be65df4ee180e0bca20c3
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 2987183900ad3232d46b2152bd52808ae96c802b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68383069"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704836"
 ---
 # <a name="troubleshoot-problems-with-the-my-apps-portal"></a>My Apps 포털 문제 해결
 
@@ -48,11 +47,11 @@ ms.locfileid: "68383069"
 
 **내 앱** 포털에 로그인 하는 데 문제가 있는 경우 다음을 시도할 수 있습니다.
 
-- 올바른 URL을 사용 하 고 있는지 확인 합니다. 또는와 https://myapps.microsoft.com https://myapps.microsoft.com/contoso.com 같은 조직의 사용자 지정 된 페이지 여야 합니다.
+- 올바른 URL을 사용 하 고 있는지 확인 합니다. https://myapps.microsoft.com/contoso.com 와 같이 조직의 사용자 지정 된 페이지 https://myapps.microsoft.com 또는 사용자 지정 된 페이지 여야 합니다.
 
 - 암호가 올바르고 만료 되지 않았는지 확인 합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조 하세요.
 
-- 확인 정보가 최신이 고 정확한 지 확인 합니다. 자세한 내용은 [Azure Multi-factor Authentication의 의미는 무엇 인가요?](multi-factor-authentication-end-user.md) 또는 [보안 정보 방법 및 정보를 변경](security-info-add-update-methods-overview.md)하는 방법을 참조 하세요.
+- 확인 정보가 최신이 고 정확한 지 확인 합니다. 자세한 내용은 [Azure Multi-Factor Authentication 무슨 의미 입니까?](multi-factor-authentication-end-user.md) 또는 [보안 정보 방법 및 정보를 변경](security-info-add-update-methods-overview.md)하는 방법을 참조 하세요.
 
 - **인터넷 속성 > 보안 > 신뢰할 수 있는 사이트** 설정에 **내 앱** 포털 URL을 추가 합니다.
 
@@ -76,7 +75,7 @@ ms.locfileid: "68383069"
 
 - 암호가 올바르고 만료 되지 않았는지 확인 합니다. 자세한 내용은 [회사 또는 학교 암호 재설정](active-directory-passwords-update-your-own-password.md)을 참조 하세요.
 
-- 확인 정보가 최신이 고 정확한 지 확인 합니다. 자세한 내용은 [Azure Multi-factor Authentication의 의미는 무엇 인가요?](multi-factor-authentication-end-user.md) 또는 [보안 정보 방법 및 정보를 변경](security-info-add-update-methods-overview.md)하는 방법을 참조 하세요.
+- 확인 정보가 최신이 고 정확한 지 확인 합니다. 자세한 내용은 [Azure Multi-Factor Authentication 무슨 의미 입니까?](multi-factor-authentication-end-user.md) 또는 [보안 정보 방법 및 정보를 변경](security-info-add-update-methods-overview.md)하는 방법을 참조 하세요.
 
 - 브라우저 캐시를 지우고 다시 로그인 해 보세요.
 

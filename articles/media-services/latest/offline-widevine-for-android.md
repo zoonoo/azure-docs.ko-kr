@@ -14,14 +14,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/08/2019
 ms.author: willzhan
-ms.openlocfilehash: 7c7e1ca8c27ba9b5d7558a75106cf6d3f3e2172e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 55ed849b6083435e70d0943a359c83793ca0842d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513102"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705907"
 ---
-# <a name="offline-widevine-streaming-for-android"></a>Android용 오프라인 Widevine 스트리밍
+# <a name="offline-widevine-streaming-for-android-with-media-services-v3"></a>Media Services v3을 사용 하 여 Android 용 오프 라인 Widevine 스트리밍
 
 온라인 스트리밍을 위해 콘텐츠를 보호하는 것 외에도, 미디어 콘텐츠 구독 및 임대 서비스는 인터넷에 연결되지 않았을 때 작동하는 다운로드 가능한 콘텐츠를 제공합니다. 네트워크에서 연결이 끊긴 상태로 비행하는 비행기 모드에서 재생하려면 휴대폰이나 태블릿에 콘텐츠를 다운로드해야 할 수 있습니다. 콘텐츠를 다운로드하려는 추가적인 시나리오는 다음과 같습니다.
 
