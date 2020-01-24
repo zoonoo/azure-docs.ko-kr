@@ -14,18 +14,18 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: 54b4e6e6a283f46e03f7b94ce96ba79a03f75523
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9604da5252254120ac7bd3fca3f0cc97324aef92
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170387"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293218"
 ---
 # <a name="integrate-azure-devtest-labs-into-your-azure-pipelines-cicd-pipeline"></a>Azure Pipelines CI/CD 파이프라인에 Azure DevTest Labs 통합
 
 *Azure DevTest Labs 작업* 확장을 사용 하 여 Azure Pipelines 지속적인 통합 및 지속적인 업데이트 (CI/CD) 빌드 및 릴리스 파이프라인을 Azure DevTest Labs와 통합할 수 있습니다. 확장은 다음을 비롯 한 몇 가지 작업을 설치 합니다. 
 
-- VM(가상 머신) 만들기
+- VM (가상 컴퓨터) 만들기
 - VM에서 사용자 지정 이미지 만들기
 - VM 삭제 
 
@@ -140,7 +140,7 @@ ms.locfileid: "76170387"
    
    |필드|값|
    |---|---|
-   |**Azure RM 구독**|드롭다운 목록에서 **사용 가능한 Azure 서비스 연결** 또는 **사용 가능한 azure 구독** 에서 서비스 연결 또는 구독을 선택 하 고 필요한 경우 **권한 부여** 를 선택 합니다.<br /><br />**참고:** Azure 구독에 대 한 제한 된 권한 연결을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 서비스 끝점](/azure/devops/pipelines/library/service-endpoints#sep-azure-rm)을 참조 하세요.|
+   |**Azure RM 구독**|드롭다운 목록에서 **사용 가능한 Azure 서비스 연결** 또는 **사용 가능한 azure 구독** 에서 서비스 연결 또는 구독을 선택 하 고 필요한 경우 **권한 부여** 를 선택 합니다.<br /><br />**참고:** Azure 구독에 대 한 제한 된 권한 연결을 만드는 방법에 대 한 자세한 내용은 [Azure Resource Manager 서비스 끝점](/azure/devops/pipelines/library/service-endpoints#sep-azure-resource-manager)을 참조 하세요.|
    |**랩 이름**|랩 VM을 만들 기존 랩의 이름을 선택 합니다.|
    |**템플릿 이름**|소스 코드 리포지토리에 저장 한 템플릿 파일의 전체 경로 및 이름을 입력 합니다. 기본 제공 속성을 사용 하 여 경로를 단순화할 수 있습니다. 예를 들면 다음과 같습니다.<br /><br />`$(System.DefaultWorkingDirectory)/Templates/CreateVMTemplate.json`|
    |**템플릿 매개 변수**|앞에서 정의한 변수에 대 한 매개 변수를 입력 합니다.<br /><br />`-newVMName '$(vmName)' -userName '$(userName)' -password (ConvertTo-SecureString -String '$(password)' -AsPlainText -Force)`|

@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: f017b19ef8bd8e4c44d9e2885da6fbaf172808a1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb4b06eca0d6df6848e2e215d8890569701f7596
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485976"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705618"
 ---
 # <a name="troubleshoot"></a>문제 해결
 
@@ -44,6 +44,38 @@ ms.locfileid: "75485976"
    - *들어오는 메시지가*있는 경우 farmbeatssupport@microsoft.com에 문의 하세요. Datahub 및 Accelerator 로그와 캡처된 원격 분석을 연결 합니다.
 
 로그를 다운로드 하는 방법을 이해 하려면 ["수동으로 로그 수집"](#collect-logs-manually) 섹션으로 이동 하세요.  
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집 후 원격 분석 데이터를 볼 수 없음
+
+**증상**: 장치 또는 센서가 배포 되 고 FarmBeats 및 수집 원격 분석에서 장치/센서를 EventHub에 만들었지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+
+**수정 동작**:
+
+1. 파트너 등록이 올바르게 완료 되었는지 확인-datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하 여이를 확인할 수 있습니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
+2. 올바른 원격 분석 메시지 형식을 사용 했는지 확인 합니다.
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
+}
+```
 
 ### <a name="dont-have-the-azure-event-hubs-connection-string"></a>Azure Event Hubs 연결 문자열이 없음
 

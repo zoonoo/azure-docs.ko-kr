@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 10/28/2019
 ms.author: radeltch
-ms.openlocfilehash: ae2fb4c13633fa2ac22510a98e193bd9f01efb12
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 15abee96f81bca68575d61be1276d4394e9a6f55
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73045383"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293813"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결
 
@@ -35,7 +35,7 @@ ms.locfileid: "73045383"
 
 표준 Azure 부하 분산 장치는 기본 부하 분산 장치에 비해 몇 가지 이점을 제공 합니다. 예를 들어 Azure 가용성 영역에서 작동 하는 경우 보다 쉽게 문제를 해결 하 고 대기 시간을 줄일 수 있도록 더 나은 모니터링 및 로깅 기능을 제공 합니다. "HA 포트" 기능은 모든 포트를 포함 합니다. 즉, 더 이상 모든 개별 포트를 나열할 필요가 없습니다.  
 
-Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중요 한 차이점이 있습니다. 그 중 하나는 공용 끝점에 대 한 아웃 바운드 트래픽을 처리 하는 것입니다. 전체 기본 및 표준 SKU 부하 분산 장치 비교는 [LOAD BALANCER SKU 비교](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview#skus)를 참조 하세요.  
+Azure 부하 분산 장치의 기본 SKU와 표준 SKU 간에는 몇 가지 중요 한 차이점이 있습니다. 그 중 하나는 공용 끝점에 대 한 아웃 바운드 트래픽을 처리 하는 것입니다. 전체 기본 및 표준 SKU 부하 분산 장치 비교는 [LOAD BALANCER SKU 비교](https://docs.microsoft.com/azure/load-balancer/load-balancer-overview)를 참조 하세요.  
  
 공용 IP 주소가 없는 Vm이 내부 (공용 IP 주소 없음) 표준 Azure 부하 분산 장치의 백 엔드 풀에 배치 되는 경우, 추가 구성을 수행 하지 않으면 공용 끝점에 대 한 아웃 바운드 연결이 없습니다.  
 
@@ -71,7 +71,7 @@ SAP 배포에 공용 끝점에 대 한 아웃 바운드 연결이 필요 하지 
 
 ## <a name="additional-external-azure-standard-load-balancer-for-outbound-connections-to-internet"></a>인터넷에 대 한 아웃 바운드 연결에 대 한 추가 외부 Azure 표준 Load Balancer
 
-공용 끝점에서 VM에 대 한 인바운드 연결을 허용 하지 않고 공용 끝점에 대 한 아웃 바운드 연결을 구현 하는 한 가지 옵션은 공용 IP 주소를 사용 하 여 두 번째 부하 분산 장치를 만들고 두 번째 부하 분산 장치의 백 엔드 풀에 Vm을 추가 하 고 정의 하는 것입니다. [아웃 바운드 규칙만](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)  
+공용 끝점에서 VM에 대 한 인바운드 연결을 허용 하지 않고 공용 끝점에 대 한 아웃 바운드 연결을 구현 하는 한 가지 옵션은 공용 IP 주소를 사용 하 여 두 번째 부하 분산 장치를 만들고, 두 번째 부하 분산 장치의 백 엔드 풀에 Vm을 추가 하 고, [아웃 바운드 규칙만](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-rules-overview)정의 하는 것입니다.  
 [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview) 을 사용 하 여 VM의 아웃 바운드 호출에 액세스할 수 있는 공용 끝점을 제어 합니다.  
 자세한 내용은 문서 [아웃 바운드 연결](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections#scenarios)의 시나리오 2를 참조 하세요.  
 구성은 다음과 같습니다.  

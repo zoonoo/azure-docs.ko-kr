@@ -14,13 +14,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: nacanuma
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 111f8d45fced1ed0e9293c874d7a56c64e9fb0e4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f72b2b85fcaae4e0a21e4bbe2f3af79359ca2fa6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74965418"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701912"
 ---
 # <a name="single-page-application-code-configuration"></a>단일 페이지 응용 프로그램: 코드 구성
 
@@ -30,7 +29,7 @@ SPA (단일 페이지 응용 프로그램)에 대 한 코드를 구성 하는 �
 
 Microsoft id 플랫폼은 다음과 같은 MSAL (Microsoft 인증 라이브러리) 라이브러리를 제공 하 여 업계에서 권장 하는 보안 방법을 사용 하 여 암시적 흐름을 지원 합니다.  
 
-| MSAL 라이브러리 | Leírás |
+| MSAL 라이브러리 | Description |
 |--------------|--------------|
 | ![MSAL.js](media/sample-v2-code/logo_js.png) <br/> [MSAL.js](https://github.com/AzureAD/microsoft-authentication-library-for-js)  | 모든 클라이언트 쪽 웹 앱에서 사용 되는 일반 JavaScript 라이브러리로, 각도, Vue 및 반응할 같은 JavaScript 또는 SPA 프레임 워크를 통해 작성 됩니다. |
 | ![MSAL 각도](media/sample-v2-code/logo_angular.png) <br/> [MSAL 각도](https://github.com/AzureAD/microsoft-authentication-library-for-js/blob/dev/lib/msal-angular/README.md) | 각도 프레임 워크를 통해 작성 된 단일 페이지 앱에서 사용을 간소화 하기 위한 핵심 MSAL .js 라이브러리의 래퍼입니다. 이 라이브러리는 미리 보기 상태 이며 특정 각도 버전 및 브라우저와 관련 된 [알려진 문제가](https://github.com/AzureAD/microsoft-authentication-library-for-js/issues?q=is%3Aopen+is%3Aissue+label%3Aangular) 있습니다. |
@@ -70,7 +69,7 @@ import { MsalModule } from '@azure/msal-angular';
   export class AppModule { }
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
 > [로그인 및 로그 아웃](scenario-spa-sign-in.md)

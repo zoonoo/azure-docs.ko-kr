@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: f503377984a347d85af04d85728c53eaad0c4c74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f725d7e902b1e020c26e82007d4d257b2fd21c4
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451348"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293184"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -222,7 +222,7 @@ Tricerat는 Windows 가상 데스크톱 및 기타 데스크톱 플랫폼을 위
 
 Tricerat를 사용 하면 Windows 가상 데스크톱 이상에서 인쇄를 원활 하 게 진행 합니다. Tricerat software를 사용 하면 관리자가 온-프레미스 프린터를 클라우드에 쉽게 연결 하 여 기존 환경에서 새로운 최신 작업 영역으로 엔터프라이즈 인쇄 관리를 확장할 수 있습니다.
 
-- [파트너 웹 사이트로 이동](https://www.tricerat.com/solutions/wvd-microsoft/)합니다.
+- [파트너 웹 사이트로 이동](https://www.tricerat.com/microsoft-printing)합니다.
 
 ## <a name="workspot"></a>Workspot
 

@@ -12,13 +12,12 @@ ms.date: 10/20/2018
 ms.author: ryanwi
 ms.reviewer: paulgarn, hirsin
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: f3c696b3fed36ca8ee7faf6ec78f833191cedf9d
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: d3994b56b55a7aac0ba3ab64d53b6436bc19c45b
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74844654"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76698546"
 ---
 # <a name="signing-key-rollover-in-azure-active-directory"></a>Azure Active Directory에서 서명 키 롤오버
 이 문서에서는 보안 토큰을 서명하기 위해 Azure AD(Azure Active Directory)에 사용되는 공개 키에 대해 알아야 할 내용을 설명합니다. 이러한 키는 정기적으로 롤오버 되며 응급 상황에서 즉시 롤오버 될 수 있다는 점에 유의 해야 합니다. Azure AD를 사용하는 모든 애플리케이션은 키 롤오버 프로세스를 프로그래밍 방식으로 처리하거나 정기적인 수동 롤오버 프로세스를 설정할 수 있어야 합니다. 키의 작동 방식과 롤오버가 애플리케이션에 미친 영향을 평가하는 방법, 필요한 경우 키 롤오버를 처리하도록 애플리케이션을 업데이트하거나 정기적인 수동 롤오버 프로세스를 설정하는 방법을 이해하려면 계속 읽어 보세요.
@@ -305,7 +304,7 @@ WIF v1.0에서 애플리케이션을 빌드한 경우 새 키를 사용하도록
 키가 어딘가에 저장되거나 애플리케이션에 하드 코딩되는 경우 이 지침 문서의 끝에 있는 지침에 따라 수동 롤오버를 수행하여 수동으로 키를 검색하고 적절하게 업데이트할 수 있습니다. Azure AD의 롤오버 케이던스가 늘어나거나 긴급 대역외 롤오버가 발생하는 경우, 향후 작업 중단 및 오버헤드를방지 하기 위해 이 문서에 설명된 방법 중 하나를 사용하여 **자동 롤오버를 지원하도록 애플리케이션을 향상하는 것이 아주 좋습니다**.
 
 ## <a name="how-to-test-your-application-to-determine-if-it-will-be-affected"></a>애플리케이션을 테스트하여 영향을 받을지 확인하는 방법
-스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)의 지침에 따라 애플리케이션이 자동 키 롤오버를 지원하는지 여부를 확인할 수 있습니다.
+스크립트를 다운로드하고 [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey)
 
 ## <a name="how-to-perform-a-manual-rollover-if-your-application-does-not-support-automatic-rollover"></a>애플리케이션이 자동 롤오버를 지원하지 않는 경우 수동 롤오버를 수행하는 방법
 애플리케이션이 자동 롤오버를 지원하지 **않는** 경우 주기적으로 Azure AD의 서명 키를 모니터링하고 적절하게 수동 롤오버를 수행하는 프로세스를 설정해야 합니다. [이 GitHub 리포지토리](https://github.com/AzureAD/azure-activedirectory-powershell-tokenkey) 는 이 작업을 수행하는 방법에 대한 스크립트 및 지침을 포함합니다.

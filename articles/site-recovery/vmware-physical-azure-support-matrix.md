@@ -3,14 +3,14 @@ title: Azure Site Recovery의 VMware/물리적 재해 복구를 위한 지원 �
 description: Azure Site Recovery를 사용 하 여 VMware Vm 및 물리적 서버에서 Azure로의 재해 복구에 대 한 지원을 요약 합니다.
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/21/2020
 ms.author: raynew
-ms.openlocfilehash: 1d6f5df59a318388a7a5fea75d1fd17e18cb7745
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 1ec49e7cab9a79ea2ae308afc096b19b10a8acd5
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864335"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293745"
 ---
 # <a name="support-matrix-for-disaster-recovery--of-vmware-vms-and-physical-servers-to-azure"></a>VMware VM 또는 물리적 서버와 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -78,7 +78,7 @@ Windows 10, Windows 8.1, Windows 8 | 지원됩니다.
 Windows 7 SP1 64 비트 | [업데이트 롤업 36](https://support.microsoft.com/help/4503156) (모바일 서비스 버전 9.22)부터 지원 됩니다. </br></br> 모바일 서비스 에이전트의 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 WINDOWS 7 SP1 컴퓨터에 설치 된 [SSU (서비스 스택 업데이트](https://support.microsoft.com/help/4490628) ) 및 [s h a-2 업데이트가](https://support.microsoft.com/help/4474419) 설치 되어 있어야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Linux | 64 비트 시스템만 지원 됩니다. 32 비트 시스템은 지원 되지 않습니다.<br/><br/>모든 Linux 서버에는 [LIS (linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 설치 되어 있어야 합니다. 테스트 장애 조치/장애 조치 (failover) 후 Azure에서 서버를 부팅 해야 합니다. LIS 구성 요소가 없는 경우 Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다. <br/><br/> Site Recovery는 Azure에서 Linux 서버를 실행하도록 장애 조치(failover)를 오케스트레이션합니다. 그러나 Linux 공급 업체 지원 수명 종료에 해당하지 않는 배포 버전만으로 제한될 수 있습니다.<br/><br/> Linux 배포에서는 배포의 부 버전 릴리스/업데이트에 포함된 스톡 커널만 지원됩니다.<br/><br/> 주요 Linux 배포 버전에서 보호된 시스템을 업그레이드하는 것은 지원되지 않습니다. 업그레이드하려면 복제를 사용하지 않도록 설정하고, 운영 체제를 업그레이드한 다음, 복제를 다시 사용하도록 설정합니다.<br/><br/> Azure에서 Linux 및 오픈 소스 기술에 대 한 지원에 대해 [자세히 알아보세요](https://support.microsoft.com/help/2941892/support-for-linux-and-open-source-technology-in-azure) .
 Linux Red Hat Enterprise | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b> </br> 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) <br/> Red Hat Enterprise Linux 5.2-5.11 & 6.1-6.10을 실행 하는 서버는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
-Linux: CentOS | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.6<br/> <br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
+Linux: CentOS | 5.2 ~ 5.11</b><br/> 6.1 ~ 6.10</b><br/> 7.0 ~ 7.7</b><br/>8.0<br/><br/> CentOS 5.2-5.11 & 6.1-6.10을 실행 하는 서버에는 미리 설치 된 [LIS (Linux Integration Services) 구성 요소가](https://www.microsoft.com/download/details.aspx?id=55106) 없습니다. Azure에서 부팅 하도록 컴퓨터에 대해 복제를 사용 하도록 설정 하기 전에 [구성 요소](https://www.microsoft.com/download/details.aspx?id=55106) 를 설치 해야 합니다.
 Ubuntu | Ubuntu 14.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)<br/><br/>Ubuntu 16.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions) </br> Ubuntu 18.04 LTS 서버 [(지원 되는 커널 버전 검토)](#ubuntu-kernel-versions)
 Debian | Debian 7/Debian 8 [(지원 되는 커널 버전 검토)](#debian-kernel-versions)
 SUSE, Linux | SUSE Linux Enterprise Server 12 SP1, SP2, SP3, SP4 [(지원 되는 커널 버전 검토)](#suse-linux-enterprise-server-12-supported-kernel-versions)<br/> SUSE Linux Enterprise Server 11 SP3 또는 SUSE Linux Enterprise Server 11 SP4<br/> SUSE Linux Enterprise Server 11 SP3에서 s p 4로 복제 된 컴퓨터를 업그레이드할 수 없습니다. 업그레이드 하려면 복제를 사용 하지 않도록 설정 하 고 업그레이드 후 다시 사용 하도록 설정 합니다.

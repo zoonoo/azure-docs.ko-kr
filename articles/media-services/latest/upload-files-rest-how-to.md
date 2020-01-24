@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/10/2019
 ms.author: juliako
-ms.openlocfilehash: a9fd38b857f513ff67ae2fbe4ccd0c6c9540967e
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 38d46978e37ead59deb17a86f643df041452e497
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779164"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705771"
 ---
-# <a name="upload-files-into-a-media-services-account-using-rest"></a>REST를 사용하여 Media Services 계정에 파일 업로드
+# <a name="upload-files-into-a-media-services-v3-account-using-rest"></a>REST를 사용 하 여 Media Services v3 계정에 파일 업로드
 
 Media Services에서 자산에 연결된 Blob 컨테이너에 디지털 파일을 업로드합니다. [자산](https://docs.microsoft.com/rest/api/media/operations/asset) 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다. 자산의 컨테이너에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
