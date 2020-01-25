@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 03/05/2019
 ms.author: cshoe
-ms.openlocfilehash: 6324fd0e2957aea46fb5876aa8c91f0906205ccc
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ec3a7b6420144278df66f693d9fd9933449b3d80
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76694235"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748929"
 ---
 ## <a name="trigger"></a>트리거
 
@@ -24,7 +24,7 @@ ms.locfileid: "76694235"
 * 10 개 파티션
 * 1000 각 파티션에 100 메시지를 포함 하 여 모든 파티션에 균등 하 게 분산 된 이벤트
 
-함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. `Function_0`첫 번째 함수 인스턴스를 호출 해 보겠습니다. 이 `Function_0`함수에는 10 개의 모든 파티션에 대 한 임대를 보유 하는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor)의 단일 인스턴스가 있습니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
+함수를 처음 사용하는 경우 함수 인스턴스가 하나만 있습니다. `Function_0`첫 번째 함수 인스턴스를 호출 해 보겠습니다. `Function_0` 함수에는 10 개의 모든 파티션에 대 한 임대를 보유 하는 [EventProcessorHost](https://docs.microsoft.com/dotnet/api/microsoft.azure.eventhubs.processor) 의 단일 인스턴스가 있습니다. 이 인스턴스는 파티션 0-9에서 이벤트를 읽습니다. 이 지점부터 다음 중 하나가 발생합니다.
 
 * **새 함수 인스턴스가 필요 하지 않음**: 함수 크기 조정 논리가 적용 되기 전에 `Function_0`에서 모든 1000 이벤트를 처리할 수 있습니다. 이 경우 모든 1000 메시지는 `Function_0`에 의해 처리 됩니다.
 
@@ -699,6 +699,6 @@ Python에서 특성을 지원 하지 않습니다.
 
 |속성  |기본값 | Description |
 |---------|---------|---------|
-|`maxBatchSize`|64|수신 루프 당 받은 최대 이벤트 수입니다.|
-|`prefetchCount`|n/a|기본 `EventProcessorHost`에서 사용 하는 기본 사전 인출 수입니다.|
+|`maxBatchSize`|10|수신 루프 당 받은 최대 이벤트 수입니다.|
+|`prefetchCount`|300|기본 `EventProcessorHost`에서 사용 하는 기본 사전 인출 수입니다.|
 |`batchCheckpointFrequency`|1|EventHub 커서 검사점을 만들기 전에 처리할 이벤트 일괄 처리 수입니다.|

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 11/04/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 06b54c3038e8b4f5879a93b696920534c2199008
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 4860dcac666f790fed199536338e50a967113c20
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74414642"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748915"
 ---
 이 문서에서는 Azure Vm (가상 머신)의 가용성 기능에 대 한 개요를 제공 합니다.
 
@@ -54,7 +54,7 @@ Virtual machines 크기 집합을 사용 하 여 오케스트레이션 모드를
 
 |   | "orchestrationMode": "VM" (VirtualMachine)| "orchestrationMode": "ScaleSetVM" (VirtualMachineScaleSetVM) |
 |----|----|----|
-| VM 구성 모델| 없음 VirtualMachineProfile은 확장 집합 모델에서 정의 되지 않습니다. | 필수입니다. VirtualMachineProfile이 확장 집합 모델에 채워집니다. |
+| VM 구성 모델| 없음. VirtualMachineProfile은 확장 집합 모델에서 정의 되지 않습니다. | 필수 사항입니다. VirtualMachineProfile이 확장 집합 모델에 채워집니다. |
 | 확장 집합에 새 VM 추가| VM을 만들 때 vm은 확장 집합에 명시적으로 추가 됩니다. | Vm 구성 모델, 인스턴스 수 및 자동 크기 조정 규칙에 따라 vm이 암시적으로 생성 되 고 확장 집합에 추가 됩니다. |
 | 가용성 영역| 단일 가용성 영역에서 지역 배포 또는 Vm을 지원 합니다.| 는 지역 배포 또는 여러 가용성 영역을 지원 합니다. 영역 분산 전략을 정의할 수 있습니다. |
 | 장애 도메인| 장애 도메인 수를 정의할 수 있습니다. 지역 지원 및 5 가용성 영역에 따라 2 또는 3입니다. 할당 된 VM 장애 도메인은 할당 취소 및 다시 시작을 포함 하 여 VM 수명 주기와 함께 지속 됩니다. | 는 비 영역 배포의 경우 1, 2 또는 3 장애 도메인을 정의 하 고, 가용성 영역 배포에는 5 개를 정의할 수 있습니다. 할당 된 VM 장애 도메인은 VM 수명 주기에 유지 되지 않으며, 할당 시 가상 머신에 장애 도메인이 할당 됩니다. |
@@ -62,7 +62,7 @@ Virtual machines 크기 집합을 사용 하 여 오케스트레이션 모드를
 
 **장애 도메인 및 업데이트 도메인**
 
-가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [지역별 장애 도메인 수를](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability#number-of-fault-domains-per-region)참조 하세요.
+가상 머신 확장 집합은 장애 도메인 및 업데이트 도메인을 정렬 하 여 고가용성을 위한 설계를 간소화 합니다. 확장 집합에 대 한 장애 도메인 수를 정의 하기만 하면 됩니다. 확장 집합에 사용할 수 있는 장애 도메인 수는 지역에 따라 다를 수 있습니다. [Azure에서 가상 머신의 가용성 관리](https://docs.microsoft.com/azure/virtual-machines/windows/manage-availability)를 참조 하세요.
 
 
 ## <a name="availability-sets"></a>가용성 집합
