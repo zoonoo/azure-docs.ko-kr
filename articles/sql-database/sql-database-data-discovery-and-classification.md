@@ -8,16 +8,16 @@ ms.custom: ''
 titleSuffix: Azure SQL Database and SQL Data Warehouse
 ms.devlang: ''
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 08/22/2019
-ms.openlocfilehash: 7161c5554fe2d4993f3bd30ad82d675a71927f23
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dda65c94671044f3c5a569a3f9753951de9eee3a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279193"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717675"
 ---
 # <a name="azure-sql-database-and-sql-data-warehouse-data-discovery--classification"></a>데이터 검색 & 분류 Azure SQL Database 및 SQL Data Warehouse
 
@@ -29,10 +29,10 @@ ms.locfileid: "76279193"
 - 중요한 데이터에 대한 비정상적인 엑세스 모니터링(감사) 및 경고하는 것과 같은 다양한 보안 시나리오.
 - 매우 중요한 데이터가 들어 있는 데이터베이스에 대한 엑세스 제어 및 보안 강화.
 
-데이터 검색 및 분류는 SQL 고급 보안 기능의 통합 패키지로 제공되는 [고급 데이터 보안](sql-database-advanced-data-security.md)(ADS)의 부분입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
+데이터 검색 & 분류는 고급 SQL 보안 기능을 위한 통합 패키지인 광고 ( [Advanced Data Security](sql-database-advanced-data-security.md) ) 제품의 일부입니다. 중앙 SQL ADS 포털을 통해 데이터 검색 및 분류에 액세스하고 데이터 검색 및 분류를 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse에 관한 것입니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server(온-프레미스)에 대한 부분은 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 확인합니다.
+> 이 문서는 Azure SQL Database 및 Azure SQL Data Warehouse와 관련이 있습니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. SQL Server (온-프레미스)에 대해서는 [SQL 데이터 검색 및 분류](https://go.microsoft.com/fwlink/?linkid=866999)를 참조 하세요.
 
 ## <a id="subheading-1"></a>데이터 검색 및 분류란?
 
@@ -130,11 +130,11 @@ Information Protection 정책 관리의 일환으로, 사용자 지정 레이블
 
 ## <a id="subheading-4"></a>권한
 
-다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 읽을 수 있습니다: `Owner`, `Reader`, `Contributor`, `SQL Security Manager`와 `User Access Administrator`
+다음 기본 제공 역할은 Azure SQL database의 데이터 분류를 읽을 수 있습니다. `Owner`, `Reader`, `Contributor`, `SQL Security Manager` 및 `User Access Administrator`.
 
-다음 기본 제공 역할에서 Azure SQL database의 데이터 분류를 수정할 수 있습니다: `Owner`, `Contributor`, `SQL Security Manager`
+다음 기본 제공 역할은 Azure SQL database의 데이터 분류를 수정할 수 있습니다. `Owner`, `Contributor`, `SQL Security Manager`.
 
-[Azure 리소스에 대한 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview)에 대해 확인합니다.
+[Azure 리소스에 대 한 RBAC](https://docs.microsoft.com/azure/role-based-access-control/overview) 에 대 한 자세한 정보
 
 ## <a id="subheading-5"></a>분류 관리
 
@@ -148,7 +148,7 @@ T-SQL을 사용하여 열 분류를 추가/제거하고 전체 데이터베이�
 - 하나 이상의 열에서 분류 제거: [DROP SENSITIVITY CLASSIFICATION](https://docs.microsoft.com/sql/t-sql/statements/drop-sensitivity-classification-transact-sql)
 - 데이터베이스에 대한 모든 분류 보기: [sys.sensitivity_classifications](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-sensitivity-classifications-transact-sql)
 
-# <a name="rest-apistabazure-rest-api"></a>[Rest API](#tab/azure-rest-api)
+# <a name="rest-apistabazure-rest-api"></a>[Rest Api](#tab/azure-rest-api)
 REST Api를 사용 하 여 분류 및 권장 사항을 프로그래밍 방식으로 관리할 수 있습니다. 게시된 REST API는 다음과 같은 작업을 지원합니다.
 
 - [만들기 또는 업데이트](https://docs.microsoft.com/rest/api/sql/sensitivitylabels/createorupdate) -지정 된 열의 민감도 레이블을 만들거나 업데이트 합니다.

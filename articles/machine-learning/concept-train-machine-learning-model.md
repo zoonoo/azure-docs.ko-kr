@@ -9,12 +9,12 @@ ms.author: larryfr
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 09/18/2019
-ms.openlocfilehash: 4902c679fa9b8b0140f7da8f32b3382983a635ed
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f46dd2b30ca84a7e6a1b0fc34ef0fa5bafffaef5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311328"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721118"
 ---
 # <a name="train-models-with-azure-machine-learning"></a>Azure Machine Learning을 사용하여 모델 학습
 
@@ -29,7 +29,7 @@ Azure Machine Learning은 SDK를 사용 하는 code first 솔루션에서 자동
     | [추정](#estimators) | 평가기 클래스 **를 사용 하면 인기 있는 기계 학습 프레임 워크를 기반으로 모델을 쉽게 학습 시킬 수**있습니다. **Scikit**에 대 한 평가기, **PyTorch**, **TensorFlow**및 **체 이너**클래스가 있습니다. 또한 전용 평가기 클래스가 없는 프레임 워크에서 사용할 수 있는 일반 평가기 있습니다. 추정를 사용 하는 경우 실행 구성을 정의 하는 것에 대해 걱정할 필요가 없습니다. |
     | [Machine learning 파이프라인](#machine-learning-pipeline) | 파이프라인은 다른 학습 방법이 아니라 워크플로의 일부로 서 학습을 포함할 수 있는 **모듈 재사용 가능 단계를 사용 하 여 워크플로를 정의 하는 방법입니다**. 기계 학습 파이프라인은 자동화 된 machine learning, 추정 및 실행 구성을 사용 하 여 모델을 학습 하도록 지원 합니다. 파이프라인은 학습에 특별히 집중 되지 않으므로 파이프라인을 사용 하는 이유는 다른 학습 방법 보다 더 다양 합니다. 일반적으로 다음과 같은 경우에 파이프라인을 사용할 수 있습니다.<br>* 장기 실행 교육 작업 또는 데이터 준비와 같은 **무인 프로세스를 예약** 하려고 합니다.<br>* 다른 유형의 계산 리소스 및 저장소 위치에서 조정 된 **여러 단계** 를 사용 합니다.<br>* 파이프라인은 특정 시나리오 (예: 재 학습 또는 일괄 처리 점수 매기기)에 **재사용 가능한 템플릿으로** 사용 합니다.<br>워크플로에 대 한 **데이터 원본, 입력 및 출력을 추적 하 고 버전을** * 합니다.<br>* 워크플로는 **특정 단계에 독립적으로 작동 하는 여러 팀에 의해 구현**됩니다. 그런 다음 워크플로를 구현 하기 위해 파이프라인에서 단계를 함께 조인할 수 있습니다. |
 
-+ **Designer**: Azure Machine Learning designer는 개념 증명을 빌드하기 위한 Machine Learning 또는 코딩 경험이 적은 사용자를 위한 쉬운 진입점을 제공 합니다. 끌어서 놓기 웹 기반 UI를 사용 하 여 모델을 학습 시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용 하거나 코드를 작성 하지 않고 모델을 학습 시킬 수 있습니다.
++ **디자이너**: Azure Machine Learning designer (미리 보기)는 개념 증명을 빌드하기 위한 Machine Learning 또는 코딩 경험이 거의 없는 사용자를 위한 쉬운 진입점을 제공 합니다. 끌어서 놓기 웹 기반 UI를 사용 하 여 모델을 학습 시킬 수 있습니다. 디자인의 일부로 Python 코드를 사용 하거나 코드를 작성 하지 않고 모델을 학습 시킬 수 있습니다.
 
 + **Cli**: MACHINE learning cli는 Azure Machine Learning를 사용 하는 일반적인 태스크에 대 한 명령을 제공 하며, **작업을 스크립팅 및 자동화**하는 데 주로 사용 됩니다. 예를 들어 학습 스크립트나 파이프라인을 만들었으면 CLI를 사용 하 여 일정에 따라 또는 학습에 사용 된 데이터 파일을 업데이트할 때 학습 실행을 시작할 수 있습니다. 학습 모델의 경우 학습 작업을 제출 하는 명령을 제공 합니다. 실행 구성 또는 파이프라인을 사용 하 여 작업을 제출할 수 있습니다.
 
@@ -59,7 +59,7 @@ Python 용 Azure Machine Learning SDK를 사용 하면 Azure Machine Learning를
 반복, 하이퍼 매개 변수 설정, 기능화 및 기타 설정을 정의 합니다. 학습 하는 동안 Azure Machine Learning는 서로 다른 알고리즘과 매개 변수를 병렬로 시도 합니다. 사용자가 정의한 종료 조건에 도달 하면 학습을 중지 합니다. 추정를 사용 하는 경우 실행 구성을 정의 하는 것에 대해 걱정할 필요가 없습니다.
 
 > [!TIP]
-> Python SDK 이외에서 [Azure Machine Learning studio](https://ml.azure.com)를 통해 자동화 된 ML을 사용할 수도 있습니다.
+> Python SDK 외에도 [Azure Machine Learning studio](https://ml.azure.com)를 통해 자동화 된 ML을 사용할 수 있습니다.
 
 * [자동화 된 machine learning 이란?](concept-automated-ml.md)
 * [자습서: 자동화 된 machine learning을 사용 하 여 첫 번째 분류 모델 만들기](tutorial-first-experiment-automated-ml.md)

@@ -8,16 +8,16 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: d6b8cdf43fea63fa4709dd5fc5319bb92ddefc63
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: a31894719863b16cc92f7e5bf4d7c85944c8850e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806976"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721305"
 ---
 # <a name="key-vault-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Key Vault
 
-Key Vault VM 확장은 Azure Key Vault에 저장 된 인증서의 자동 새로 고침을 제공 합니다. 특히 확장은 키 자격 증명 모음에 저장 된 관찰 된 인증서 목록을 모니터링 합니다.  변경을 감지 하면 확장는 해당 인증서를 검색 하 고 설치 합니다. Key Vault VM 확장은 Microsoft에서 현재 Linux Vm에 게시 되 고 지원 됩니다. 이 문서에서는 Linux 용 Key Vault VM 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다. 
+Key Vault VM 확장은 Azure Key Vault에 저장 된 인증서의 자동 새로 고침을 제공 합니다. 특히 확장은 키 자격 증명 모음에 저장 된 관찰 된 인증서 목록을 모니터링 합니다.  변경을 검색 하면 확장에서 해당 인증서를 검색 하 고 설치 합니다. Key Vault VM 확장은 Microsoft에서 현재 Linux Vm에 게시 되 고 지원 됩니다. 이 문서에서는 Linux 용 Key Vault VM 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다. 
 
 ### <a name="operating-system"></a>운영 체제
 
@@ -67,7 +67,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| name | 값/예제 | 데이터 형식 |
+| 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |
@@ -75,9 +75,9 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 | typeHandlerVersion | 1.0 | int |
 | pollingIntervalInS | 3600 | 문자열 |
 | certificateStoreName | MY | 문자열 |
-| linkOnRenewal | false | 부울 |
+| linkOnRenewal | false | boolean |
 | certificateStoreLocation  | LocalMachine | 문자열 |
-| requiredInitialSync | true | 부울 |
+| requiredInitialSync | true | boolean |
 | observedCertificates  | ["https://myvault.vault.azure.net/secrets/mycertificate"] | 문자열 배열
 
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/20/2019
-ms.openlocfilehash: d9daefaec33c435ae9f8eceec370c83de4535f8b
-ms.sourcegitcommit: 8b37091efe8c575467e56ece4d3f805ea2707a64
+ms.openlocfilehash: b05b83086cc9d8449d9517897f347b6e2685aa95
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75830380"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720353"
 ---
 # <a name="azure-hdinsight-frequently-asked-questions"></a>Azure HDInsight: 질문과 대답
 
@@ -233,7 +233,7 @@ Cron 작업을 설정 및 실행 하는 방법에 대 한 자세한 내용은 [c
 ### <a name="why-is-llap-available-on-spark-esp-clusters"></a>Spark ESP 클러스터에서 LLAP을 사용할 수 있는 이유는 무엇 인가요?
 ESP Spark 클러스터에서 LLAP은 성능이 아닌 보안상의 이유로 (예: Apache 레인저) 사용할 수 있습니다. LLAP의 리소스 사용을 수용할 수 있도록 더 큰 노드 Vm을 사용 해야 합니다 (예: 최소 D13V2). 
 
-### <a name="how-can-i-add-addional-aad-groups-after-creating-an-esp-cluster"></a>ESP 클러스터를 만든 후 추가 AAD 그룹을 추가 하려면 어떻게 해야 하나요?
+### <a name="how-can-i-add-additional-aad-groups-after-creating-an-esp-cluster"></a>ESP 클러스터를 만든 후 추가 AAD 그룹을 추가 하려면 어떻게 해야 하나요?
 다음 두 가지 방법으로이 작업을 수행할 수 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 하세요.
 2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹 `A`를 사용 하 여 ESP 클러스터를 만든 경우 나중에 그룹 `B`를 `A` 중첩 된 하위 그룹으로 추가 하 고 약 1 시간 후에는 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 

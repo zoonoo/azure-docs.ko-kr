@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: iainfou
-ms.openlocfilehash: c9f5bcd9921b0324eb194eefd2066f6c0eaa4706
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bf01eea71134d932305cce7665c68d4dcc655cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975199"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712562"
 ---
 # <a name="join-a-windows-server-virtual-machine-to-an-azure-active-directory-domain-services-managed-domain-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure Active Directory Domain Services 관리 되는 도메인에 Windows Server 가상 머신 연결
 
@@ -40,7 +40,7 @@ Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소�
 
 리소스 관리자 템플릿을 사용 하면 코드에서 Azure 인프라를 정의할 수 있습니다. 필수 리소스, 네트워크 연결 또는 Vm 구성은 모두 템플릿에 정의 될 수 있습니다. 이러한 템플릿은 매번 일관 되 고 재현 가능한 배포를 만들며 변경 시 버전을 지정할 수 있습니다. 자세한 내용은 [Azure Resource Manager 템플릿 개요][template-overview]를 참조 하세요.
 
-각 리소스는 JSON을 사용 하 여 템플릿에 정의 됩니다. 다음 JSON 예제에서는 *virtualMachines/extensions* 리소스 유형을 사용 하 여 Active Directory 도메인 가입 확장을 설치 합니다. 매개 변수는 배포 시 지정 하는 데 사용 됩니다. 확장이 배포 되 면 VM이 지정 된 Azure AD DS 관리 되는 도메인에 가입 됩니다.
+각 리소스는 JavaScript Object Notation (JSON)를 사용 하 여 템플릿에 정의 됩니다. 다음 JSON 예제에서는 *virtualMachines/extensions* 리소스 유형을 사용 하 여 Active Directory 도메인 가입 확장을 설치 합니다. 매개 변수는 배포 시 지정 하는 데 사용 됩니다. 확장이 배포 되 면 VM이 지정 된 Azure AD DS 관리 되는 도메인에 가입 됩니다.
 
 ```json
  {
@@ -94,7 +94,7 @@ Windows Server VM을 만들려면 Azure AD DS 관리 되는 도메인에 가입 
     | DNS 레이블 접두사          | VM에 사용할 DNS 이름 (예: *myvm*)을 입력 합니다. |
     | VM 크기                   | *Standard_DS2_v2*와 같은 VM 크기를 지정 합니다. |
     | 가입할 도메인            | Azure AD DS 관리 되는 도메인 DNS 이름 (예: *aadds.contoso.com*)입니다. |
-    | 도메인 사용자 이름           | VM을 관리 되는 도메인에 가입 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |
+    | 도메인 사용자 이름           | `contosoadmin@aadds.contoso.com`와 같이 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정. 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |
     | 도메인 암호           | 이전 설정에 지정 된 사용자 계정의 암호입니다. |
     | 선택적 OU 경로          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대 한 값을 지정 하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가 됩니다. |
     | VM 관리자 사용자 이름         | VM에서 만들 로컬 관리자 계정을 지정 합니다. |
@@ -123,7 +123,7 @@ Azure AD DS 관리 되는 도메인에 가입 하려는 기존 VM 또는 vm 그�
     | 리소스 그룹            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
     | 위치                  | 기존 VM의 위치를 선택 합니다. |
     | VM 목록                   | *MyVM1, myVM2*와 같이 Azure AD DS 관리 되는 도메인에 조인할 기존 VM의 쉼표로 구분 된 목록을 입력 합니다. |
-    | 도메인 가입 사용자 이름     | VM을 관리 되는 도메인에 가입 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |
+    | 도메인 가입 사용자 이름     | `contosoadmin@aadds.contoso.com`와 같이 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정. 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |
     | 도메인 가입 사용자 암호 | 이전 설정에 지정 된 사용자 계정의 암호입니다. |
     | 선택적 OU 경로          | VM을 추가할 사용자 지정 OU입니다. 이 매개 변수에 대 한 값을 지정 하지 않으면 VM이 기본 *AAD DC 컴퓨터* OU에 추가 됩니다. |
 

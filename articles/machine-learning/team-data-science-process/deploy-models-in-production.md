@@ -2,20 +2,20 @@
 title: 프로덕션에서 모델 배포 - Team Data Science Process
 description: 프로덕션에 모델을 배포하여 비즈니스 의사 결정에 유용하게 사용될 수 있도록 하는 방법입니다.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/30/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: ed48ab9f85d28bec926120fea87a5ccf8bb6f9af
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: e3e2ef3340ca836f56176c21cf3d221f0bf172b9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75526773"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722240"
 ---
 # <a name="deploy-models-to-production-to-play-an-active-role-in-making-business-decisions"></a>비즈니스 의사 결정에 적극적인 역할을 수행할 수 있도록 프로덕션에 모델 배포
 
@@ -39,7 +39,7 @@ ms.locfileid: "75526773"
 
 ## <a name="ab-testing"></a>A/B 테스트
 
-프로덕션에 복수의 모델이 있는 경우 [A/B 테스트](https://en.wikipedia.org/wiki/A/B_testing)를 수행하여 모델의 성능을 비교하면 유용할 수 있습니다. 
+여러 모델이 프로덕션 환경에 있는 경우 [A/B 테스트](https://en.wikipedia.org/wiki/A/B_testing) 를 사용 하 여 모델 성능을 비교할 수 있습니다. 
  
 ## <a name="next-steps"></a>다음 단계
 

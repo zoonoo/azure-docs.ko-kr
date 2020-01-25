@@ -1,22 +1,22 @@
 ---
-title: Hadoop 클러스터의 데이터에 대한 기능 만들기 - Team Data Science Process
+title: Azure HDInsight Hadoop 클러스터의 데이터에 대 한 기능 만들기-팀 데이터 과학 프로세스
 description: Azure HDInsight Hadoop 클러스터에 저장된 데이터의 기능을 생성하는 Hive 쿼리의 예입니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 979652a467ea91c05884d2f7a24781f82035e505
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c926aac3ea4360793ff52b616a55dc6198357c8a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982038"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721781"
 ---
 # <a name="create-features-for-data-in-a-hadoop-cluster-using-hive-queries"></a>Hive 쿼리를 사용하여 Hadoop 클러스터의 데이터에 대한 기능 만들기
 이 문서에는 Hive 쿼리를 사용하여 Azure HDInsight Hadoop 클러스터에 저장된 데이터에 대한 기능을 만드는 방법을 보여 줍니다. 이러한 Hive 쿼리는 제공된 스크립트인 포함된 Hive UDF(사용자 정의 함수)를 사용합니다.
@@ -144,14 +144,14 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
         set mapreduce.map.java.opts=-Xmx4096m;
         set mapreduce.task.io.sort.mb=-Xmx1024m;
 
-    이 매개 변수는 Java 힙 공간에 4GB 메모리를 할당하고 정렬에 추가 메모리를 할당하여 정렬 작업의 효율성을 높입니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
+    이 매개 변수는 Java 힙 공간에 4gb 메모리를 할당 하 고 더 많은 메모리를 할당 하 여 정렬을 더 효율적으로 만듭니다. 힙 공간과 관련된 작업 실패 오류가 발생할 경우 이러한 할당 방법을 사용하면 좋습니다.
 
 1. **DFS 블록 크기**: 이 매개 변수는 파일 시스템에 저장되는 최소 데이터 단위를 설정합니다. 예를 들어 DFS 블록 크기가 128MB인 경우 128MB 이하의 모든 데이터는 단일 블록에 저장됩니다. 128MB보다 큰 데이터는 추가 블록에 할당됩니다. 
 2. 블록 크기를 작게 할 경우 이름 노드에서 해당 파일과 관련된 블록을 찾으려면 훨씬 많은 요청을 처리해야 하므로 Hadoop에서 큰 오버헤드가 발생합니다. 기가바이트 단위(또는 그 이상)의 데이터를 처리할 때 권장되는 설정은 다음과 같습니다.
 
         set dfs.block.size=128m;
 
-2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. Hive에서 가능할 때마다 이 작업을 수행하도록 지시하려면 다음과 같이 설정합니다.
+2. **Hive에서 조인 작업 최적화**: 맵/감소 프레임워크의 조인 작업은 일반적으로 감소 단계에서 수행되지만, 맵 단계("맵 조인"이라고도 함)에서 조인 작업을 예약하여 엄청난 이점을 얻을 수 있는 경우도 있습니다. 이 옵션을 설정 합니다.
    
        set hive.auto.convert.join=true;
 
@@ -167,7 +167,7 @@ Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서
 
      보시는 것처럼 데이터 크기를 고려하려 이러한 매개 변수를 "설정"하면 사용되는 매퍼 수를 조정할 수 있습니다.
 
-4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용하여 맵 및 감소 작업에 할당된 메모리를 설정할 수 있으며 성능 조정 시 유용하게 활용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
+4. 아래에 Hive 성능을 최적화하는 **고급 옵션** 몇 가지가 추가로 설명되어 있습니다. 이러한 옵션을 사용 하 여 맵 및 감소 작업에 할당 된 메모리를 설정할 수 있으며 성능을 조정 하는 데 유용할 수 있습니다. 주의할 사항으로, *mapreduce.reduce.memory.mb* 가 Hadoop 클러스터에 있는 각 작업자 노드의 실제 메모리 크기보다 크면 안 됩니다.
    
         set mapreduce.map.memory.mb = 2048;
         set mapreduce.reduce.memory.mb=6144;

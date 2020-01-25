@@ -1,7 +1,7 @@
 ---
 title: R 및 SQL 데이터 형식 및 개체 작업
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
-description: 데이터 형식 및 발생할 수 있는 일반적인 문제를 포함 하 여 Machine Learning 서비스 (미리 보기)를 사용 하 여 Azure SQL Database를 사용 하 여 R에서 데이터 개체를 사용 하는 방법에 알아봅니다.
+description: 발생할 수 있는 일반적인 문제를 포함 하 여 Machine Learning Services (미리 보기)를 사용 하 여 Azure SQL Database에서 R의 데이터 형식 및 데이터 개체를 사용 하는 방법을 알아봅니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: machine-learning
@@ -13,22 +13,22 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: 01d3af14963e92393d34a952bddc8097b7b08f18
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 7dfd12729c5697d1935d098cbd4ed863a4551acd
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65232622"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719877"
 ---
-# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning 서비스 (미리 보기)에서 R 및 SQL 데이터 작업
+# <a name="work-with-r-and-sql-data-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning Services에서 R 및 SQL 데이터 작업 (미리 보기)
 
-이 문서에서는 R 및 SQL Database 간에 데이터를 이동할 때 발생 하는 일반적인 문제 중 일부를 설명 [Machine Learning 서비스 (R)을 사용한 Azure SQL Database에서](sql-database-machine-learning-services-overview.md)합니다. 이 연습을 통해 얻게 환경을 사용자 지정 스크립트에서 데이터로 작업할 때 필수 배경을 제공 합니다.
+이 문서에서는 [Azure SQL Database에서 r을 사용 하 여 Machine Learning Services](sql-database-machine-learning-services-overview.md)에서 r과 SQL Database 간에 데이터를 이동할 때 발생할 수 있는 일반적인 문제 중 일부에 대해 설명 합니다. 이 연습은 고유 스크립트로 데이터 작업을 수행할 때 필요한 기본 배경 지식을 제공합니다.
 
 발생할 수 있는 일반적인 문제는 다음과 같습니다.
 
-- 경우에 따라 데이터 형식이 일치 하지 않습니다.
-- 암시적 변환이 일어날 수 있음
-- CAST 및 Convert 연산이 필요함
+- 경우에 따라 데이터 형식이 일치하지 않음
+- 암시적 변환이 발생할 수 있음
+- 경우에 따라 캐스트 및 변환 작업이 필요함
 - R 및 SQL이 서로 다른 데이터 개체를 사용함
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
@@ -41,13 +41,13 @@ ms.locfileid: "65232622"
 
 - 최신 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 설치했는지 확인합니다. 다른 데이터베이스 관리 또는 쿼리 도구를 사용하여 R 스크립트를 실행할 수 있지만, 이 빠른 시작에서는 SSMS를 사용합니다.
 
-## <a name="working-with-a-data-frame"></a>데이터 프레임을 사용 하 여 작업
+## <a name="working-with-a-data-frame"></a>데이터 프레임 사용
 
-스크립트 결과 R에서 SQL로 반환 될 때 데이터를 반환 해야 합니다는 **data.frame**합니다. 다른 유형의 개체가 든 관계 목록, 요소, 벡터 또는 이진 데이터--스크립트에서 생성 하는 저장된 프로시저 결과의 일부로 출력 하려면 데이터 프레임으로 변환할 수 있어야 합니다. 다행히도 기타 개체를 데이터 프레임으로 변경하는 기능을 지원하는 여러 R 함수가 있습니다. 도 이진 모델을 serialize 하 고이 문서의 뒷부분에서 수행 하는 데이터 프레임에서 반환할 수 있습니다.
+스크립트에서 R을 SQL로 반환 하는 결과를 반환 하는 경우 데이터를 **데이터 프레임**으로 반환 해야 합니다. 스크립트에서 생성하는 다른 형식의 개체는 목록, 요소, 벡터 또는 이진 데이터이든 관계없이 저장 프로시저 결과의 일부로 출력하려면 데이터 프레임으로 변환되어야 합니다. 다행히도 기타 개체를 데이터 프레임으로 변경하는 기능을 지원하는 여러 R 함수가 있습니다. 이진 모델을 직렬화 하 고 데이터 프레임에 반환할 수도 있습니다 .이는이 문서의 뒷부분에서 수행할 수 있습니다.
 
-먼저 몇 가지 기본 R 개체인 벡터, 행렬 및 목록-를 사용 하 여 실험 하 고 데이터 프레임으로 변환 SQL로 전달 되는 출력이 어떻게 변경 되는지 확인 하겠습니다.
+먼저, 몇 가지 기본 R 개체인 벡터, 행렬 및 목록을 실험 하 고 데이터 프레임으로 변환 하면 SQL에 전달 된 출력이 어떻게 변경 되는지 알아보겠습니다.
 
-R에서 다음 두 "Hello World" 스크립트를 비교하세요. 스크립트는 거의 동일 하지만 첫 번째는 세 개의 값을 단일 열로 반환하는 반면, 두 번째는 각각 단일 값을 가진 3개의 열을 반환합니다.
+R에서 두 가지 "Hello World" 스크립트를 비교합니다. 두 스크립트가 거의 동일하게 보이지만 첫 번째 스크립트는 3개 값의 단일 열을 반환하고, 두 번째 스크립트는 각각 하나의 단일 값이 포함된 세 개의 열을 반환합니다.
 
 **예제 1**
 
@@ -67,13 +67,13 @@ EXECUTE sp_execute_external_script @language = N'R'
     , @input_data_1 = N'';
 ```
 
-왜 결과가 다를까요?
+결과가 다른 이유는 무엇일까요?
 
-일반적으로 R `str()` 명령을 사용하여 그 대답을 찾을 수 있습니다. R 스크립트 임의 위치에 `str(object_name)` 함수를 추가하여 지정된 R 개체의 데이터 스키마를 정보성 메시지로 반환합니다. 메시지를 볼 수는 **메시지** SSMS의 탭 합니다.
+일반적으로 R `str()` 명령을 사용하여 그 대답을 찾을 수 있습니다. R 스크립트에 `str(object_name)` 함수를 추가하여 지정된 R 개체의 데이터 스키마가 정보 메시지로 반환되도록 합니다. SSMS의 **메시지** 탭에서 메시지를 볼 수 있습니다.
 
-예 1 및 예 2 있는 결과가 다른 이유를 파악, 삽입할 줄 `str(OutputDataSet)` 끝에 `@script` 다음과 같이 각 문에서 변수 정의:
+예제 1과 예 2의 결과가 다른 이유를 확인 하려면 다음과 같이 각 문에서 `@script` 변수 정의의 끝에 `str(OutputDataSet)` 줄을 삽입 합니다.
 
-**추가 str 함수를 사용 하 여 예제 1**
+**str 함수가 추가된 예제 1**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -85,7 +85,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-**추가 str 함수를 사용 하 여 예제 2**
+**str 함수가 추가된 예제 2**
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -96,7 +96,7 @@ str(OutputDataSet);
     , @input_data_1 = N'  ';
 ```
 
-이제 **Message**에 텍스트를 검토하여 출력이 다른 이유를 확인합니다.
+이제 **메시지**의 텍스트를 검토하여 출력이 다른 이유를 확인합니다.
 
 **결과 - 예제 1**
 
@@ -116,20 +116,20 @@ $ X...      : Factor w/ 1 level " ": 1
 $ c..world..: Factor w/ 1 level "world": 1
 ```
 
-확인한 것처럼 R 구문을 약간 변경한 것이 결과의 스키마에 큰 영향을 미쳤습니다. 세부 정보, 모든 R 데이터 형식에서 차이점의 세부 정보에 설명 되어는 *데이터 구조* 단원의 [Hadley wickham "Advanced R"](http://adv-r.had.co.nz)합니다.
+확인한 것처럼 R 구문을 약간 변경한 것이 결과의 스키마에 큰 영향을 미쳤습니다. 모든 세부 정보에 대 한 자세한 내용은 [Hadley Wickham의 "Advanced R"](http://adv-r.had.co.nz)의 *데이터 구조* 섹션에서 자세히 설명 되어 있습니다.
 
-현재로서는 R 개체를 데이터 프레임으로 강제 변환할 때 예상되는 결과를 확인해야 합니다.
+우선은 R 개체를 데이터 프레임으로 강제 변환할 때 예상 결과를 확인해야 합니다.
 
 > [!TIP]
-> 또한 R id 함수와 같은 사용할 수 `is.matrix`, `is.vector`, 내부 데이터 구조에 대 한 정보를 반환 합니다.
+> `is.matrix`, `is.vector`와 같은 R id 함수를 사용 하 여 내부 데이터 구조에 대 한 정보를 반환할 수도 있습니다.
 
 ## <a name="implicit-conversion-of-data-objects"></a>데이터 개체의 암시적 변환
 
-각 R 데이터 개체에는 두 개의 데이터 개체가 같은 수의 차원을 가지거나 데이터 개체에 다른 데이터 형식이 포함될 경우 다른 데이터 개체와 결합될 때 값을 처리하는 방법에 대한 자체 규칙이 있습니다.
+각 R 데이터 개체에는 다른 데이터 개체와 결합 될 때 값이 처리 되는 방법에 대 한 고유 규칙, 두 데이터 개체의 차수가 동일한 경우 또는 데이터 개체에 다른 유형의 데이터 형식이 포함 되어 있습니다.
 
-예를 들어, R을 사용 하는 행렬 곱셈을 수행 한다고 가정 합시다 4 개의 값을 사용 하 여 배열에서 세 개의 값을 사용 하 여 단일 열 행렬 곱하기 및 결과적으로 4x3 행렬을 예상 하려면.
+예를 들어 R을 사용 하 여 행렬 곱셈을 수행 하려는 경우를 가정해 보겠습니다. 단일 열 행렬을 4 개의 값이 있는 배열에 의해 3 개의 값과 곱하고 4x3 매트릭스가 결과로 나타날 것으로 간주 합니다.
 
-먼저 테스트 데이터의 작은 테이블을 만듭니다.
+먼저 작은 테스트 데이터 테이블을 만듭니다.
 
 ```sql
 CREATE TABLE RTestData (col1 INT NOT NULL)
@@ -163,7 +163,7 @@ WITH RESULT SETS((
             ));
 ```
 
-내부적으로 3개의 값으로 구성된 단일 열이 단일-열 행렬로 변환됩니다. 행렬은 R에서 단지 배열의 특수한 형태이므로, 배열 `y`는 두 인수가 일치하도록 단일 열 행렬로 강제 변환됩니다.
+내부적으로 3개 열이 포함된 열이 단일 열 행렬로 변환됩니다. 행렬은 R에서 특별한 경우인 배열이므로 두 인수가 일치하도록 `y`는 암시적으로 단일 열 행렬로 강제 변환됩니다.
 
 **결과**
 
@@ -173,7 +173,7 @@ WITH RESULT SETS((
 |120|130|140|150|
 |1200|1300|1400|1500|
 
-하지만 `y` 배열 크기를 변경하면 어떻게 되는지 주목하세요.
+하지만 `y` 배열의 크기를 변경할 경우 발생하는 상황을 확인하세요.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -194,13 +194,13 @@ WITH RESULT SETS(([Col1] INT));
 |---|
 |1542|
 
-이유가 무엇일까요? 이 경우 두 인수는 동일한 길이의 벡터로 처리될 수 있으므로 R이 내적(inner product)을 행렬로 반환합니다.  이것이 선형 대 수 규칙에 따라 예상 되는 동작입니다. 그러나 다운스트림 응용 프로그램에서 출력 스키마가 변경 되지 않습니다 필요한 경우 문제가 발생할 수 있습니다.
+그 이유는 무엇입니까? 이 경우 두 인수가 동일한 길이의 벡터로 처리될 수 있기 때문에 R는 내부 곱을 행렬로 반환합니다.  이는 선형 대 수 규칙에 따라 예상 되는 동작입니다. 그러나 다운스트림 응용 프로그램에서 출력 스키마를 변경 하지 않을 것으로 예상 하는 경우 문제가 발생할 수 있습니다.
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>다른 길이의 열 병합 또는 곱하기
 
-R은 다양한 크기의 벡터로 작업하고 이러한 열과 같은 구조를 데이터 프레임에 결합하는데 뛰어난 유연성을 제공합니다. 벡터 리스트는 테이블처럼 보일 수 있지만 데이터베이스 테이블을 관리하는 모든 규칙을 따르지 않습니다.
+R은 다양한 크기의 벡터를 사용하고 이러한 열 유사 구조를 데이터 프레임으로 결합하는 뛰어난 유연성을 제공합니다. 벡터 목록은 테이블처럼 보일 수 있지만 데이터 테이블에 적용되는 모든 규칙을 따르는 것은 아닙니다.
 
-예를 들어 다음 스크립트는 길이가 6인 숫자 배열을 정의하고 R 변수 `df1`에 저장합니다. 숫자 배열을 (위에서 만든) RTestData 테이블의 정수와 함께 결합 한 다음 3 개의 값을 새 데이터 프레임을 포함 하는 `df2`합니다.
+예를 들어 다음 스크립트는 길이가 6인 숫자 배열을 정의하고 R 변수 `df1`에 저장합니다. 그런 다음 숫자 배열은 3 개의 값이 포함 된 RTestData 테이블 (위에서 만든)의 정수와 결합 되어 `df2`새 데이터 프레임을 만듭니다.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -216,7 +216,7 @@ WITH RESULT SETS((
             ));
 ```
 
-R은 데이터 프레임을 채우기 위해 RTestData에서 검색된 요소를 `df1` 배열의 요소 수와 일치하도록 필요한 횟수만큼 반복합니다.
+데이터 프레임을 채우기 위해 R는 RTestData에서 검색된 요소를 `df1` 배열의 요소 수와 일치하도록 필요한 횟수만큼 반복합니다.
 
 **결과**
     
@@ -229,18 +229,18 @@ R은 데이터 프레임을 채우기 위해 RTestData에서 검색된 요소를
 |10|5|
 |100|6|
 
-데이터 프레임만 테이블 처럼 보이지만 실제로 목록은 벡터를 기억 합니다.
+데이터 프레임은 테이블 처럼 보이지만 실제로 벡터 목록입니다.
 
-## <a name="cast-or-convert-sql-data"></a>Cast 또는 convert SQL 데이터
+## <a name="cast-or-convert-sql-data"></a>SQL 데이터 캐스트 또는 변환
 
-R과 SQL에는 동일한 데이터 형식을 사용 하지 않는의 일부 형식 데이터를 가져오고 R 런타임에 전달할 sql에서 쿼리를 실행 하므로 암시적 변환이 일반적으로 발생 합니다. 다른 변환 집합 SQL을 R에서 데이터를 반환할 때 수행이 됩니다.
+R 및 SQL에서는 동일한 데이터 형식을 사용 하지 않으므로 SQL에서 쿼리를 실행 하 여 데이터를 가져온 다음 R 런타임으로 전달 하면 일반적으로 일부 형식의 암시적 변환이 수행 됩니다. 다른 변환 집합은 R에서 SQL로 데이터를 반환할 때 발생 합니다.
 
-- SQL R 프로세스로 쿼리의 데이터 푸시 및 효율성을 높이기 위한 내부 표현으로 변환 합니다.
+- SQL은 쿼리에서 R 프로세스로 데이터를 푸시하고 효율성 향상을 위해 내부 표현으로 변환 합니다.
 - R 런타임이 데이터를 data.frame 변수에 로드하고 데이터에서 고유한 작업을 수행합니다.
-- 데이터베이스 엔진의 내부 보안된 연결을 사용 하 여 SQL 데이터를 반환 하 고 SQL 데이터 형식에 따라 데이터를 제공 합니다.
-- SQL 쿼리를 실행 하 고 테이블 형식 데이터 집합을 처리할 수 있는 클라이언트 또는 네트워크 라이브러리를 사용 하 여 하 SQL에 연결 하 여 데이터를 가져옵니다. 이 클라이언트 애플리케이션은 다른 방식으로 데이터에 영향을 미칠 수 있습니다.
+- 데이터베이스 엔진은 보안 내부 연결을 사용 하 여 데이터를 SQL로 반환 하 고 SQL 데이터 형식에 따라 데이터를 표시 합니다.
+- SQL 쿼리를 실행 하 고 테이블 형식 데이터 집합을 처리할 수 있는 클라이언트 또는 네트워크 라이브러리를 사용 하 여 SQL에 연결 하 여 데이터를 가져옵니다. 이 클라이언트 애플리케이션은 다른 방식으로 데이터에 영향을 미칠 수 있습니다.
 
-이 과정을 보려면에서이 이와 같은 쿼리를 실행 합니다 [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) 데이터 웨어하우스. 이 뷰는 예측 생성에 사용된 매출 데이터를 반환합니다.
+이 애플리케이션이 작동하는 방식을 확인하려면 [AdventureWorksDW](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks) 데이터 웨어하우스에서 이와 같은 쿼리를 실행합니다. 이 뷰는 예측 생성에 사용된 매출 데이터를 반환합니다.
 
 ```sql
 USE AdventureWorksDW
@@ -255,9 +255,9 @@ ORDER BY ReportingDate ASC
 ```
 
 > [!NOTE]
-> 모든 버전의 AdventureWorks를 사용할 수 있으며, 자신의 데이터베이스를 사용해 다른 쿼리를 만들 수 있습니다. 점은 텍스트, 날짜/시간 및 숫자 값을 포함 하는 일부 데이터를 처리 하려고 합니다.
+> 모든 AdventureWorks 버전을 사용하거나 고유 데이터베이스를 사용해서 다른 쿼리를 만들 수 있습니다. 여기서는 텍스트, 날짜/시간 및 숫자 값이 포함 된 일부 데이터를 처리 하려고 합니다.
 
-이제이 쿼리를 사용 하 여 저장된 프로시저에 대 한 입력으로 시도 하세요.
+이제이 쿼리를 저장 프로시저에 대 한 입력으로 사용해 보세요.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -289,15 +289,15 @@ STDOUT message(s) from external script: $ Amount       : num  3400 16925 20350 1
 ```
 
 - datetime 열은 R 데이터 형식 **POSIXct**를 사용하여 처리되었습니다.
-- 텍스트 "ProductSeries"는 **팩터**로 인식되었으며 이는 범주 변수임을 의미합니다. 문자열 값은 기본적으로 팩터로 처리됩니다. 문자열 값은 기본적으로 요소로 처리됩니다. R에 문자열을 전달하면 문자열은 내부 사용을 위해 정수로 변환되고 다시 문자열에 매핑되어서 출력됩니다.
+- 텍스트 열 "ProductSeries"는 범주 변수를 의미하는 **요소**로 식별되었습니다. 문자열 값은 기본적으로 요소로 처리됩니다. R에 문자열을 전달하면 문자열은 내부에서 사용하도록 정수로 변환되고 다시 출력의 문자열에 매핑됩니다.
 
 ## <a name="summary"></a>요약
 
-간단한 예제를 통해 입력으로 SQL 쿼리를 전달할 때 데이터 변환의 결과를 확인할 필요가 있음을 볼 수 있습니다. 일부 SQL 데이터 형식은 R에서 지원 되지 않으므로 오류를 방지 하는 이러한 방법을 고려 합니다.
+이러한 간단한 예제로부터 SQL 쿼리를 입력으로 전달할 때 데이터 변환으로 인한 효과를 확인할 필요성이 있다는 것을 알 수 있습니다. 일부 SQL 데이터 형식은 R에서 지원 되지 않으므로 오류를 방지 하려면 다음과 같은 방법을 고려 하십시오.
 
-- 데이터를 미리 테스트해서 R 코드에 전달할 때 문제가 될 수 있는 스키마의 열 혹은 값을 검사합니다.
+- 데이터를 미리 테스트하고 R 코드에 전달될 때 문제가 될 수 있는 스키마의 열 또는 값을 확인합니다.
 - `SELECT *`를 사용하지 않고 입력 데이터 원본에서 열을 개별적으로 지정하고 각 열이 어떻게 처리되는지 알아봅니다.
-- 문제를 방지하려면 입력 데이터를 준비할 때 필요에 따라 명시적 Cast를 수행합니다.
-- 오류를 유발하거나 모델링에 유용하지 않은 데이터 열(예: GUID 또는 rowguids)은 전달하지 않습니다.
+- 문제를 방지하려면 입력 데이터를 준비할 때 필요에 따라 명시적 캐스트를 수행합니다.
+- 오류를 일으키고 모델링에 유용하지 않은 데이터 열 전달(예: GUIDS 또는 rowguids)을 방지합니다.
 
-지원 되거나 지원 되지 않는 R 데이터 형식에 대 한 자세한 내용은 참조 하세요. [R 라이브러리 및 데이터 형식](/sql/advanced-analytics/r/r-libraries-and-data-types)합니다.
+지원 되거나 지원 되지 않는 R 데이터 형식에 대 한 자세한 내용은 [r 라이브러리 및 데이터 형식](/sql/advanced-analytics/r/r-libraries-and-data-types)을 참조 하세요.

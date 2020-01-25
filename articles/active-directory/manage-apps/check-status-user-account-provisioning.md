@@ -15,12 +15,12 @@ ms.date: 09/09/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e6a6714a1a9e7a2724d07584dd7b548ada2f201b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 77865ad3fe23d1413b6b957d351d9d9d92d22fb7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430221"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711993"
 ---
 # <a name="tutorial-reporting-on-automatic-user-account-provisioning"></a>자습서: 자동 사용자 계정 프로비전에 대한 보고
 
@@ -44,7 +44,7 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 ## <a name="getting-provisioning-reports-from-the-azure-portal"></a>Azure Portal에서 프로 비전 보고서 가져오기
 
-지정 된 응용 프로그램에 대 한 프로 비전 보고서 정보를 가져오려면 먼저 [Azure Portal](https://portal.azure.com) 를 시작 하 고 **작업** 섹션에서 &gt; **Enterprise Apps** &gt; **프로 비전 로그 (미리 보기)** 를 **Azure Active Directory** 합니다. 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
+若要获取给定应用程序的预配报表信息，请 先启动 [Azure 门户](https://portal.azure.com)Azure Active Directory &gt;企业应用&gt; 预配日志（预览）并在活动部分。 프로 비전이 구성 된 엔터프라이즈 응용 프로그램으로 이동할 수도 있습니다. 예를 들어 사용자를 LinkedIn Elevate로 프로비전하는 경우 애플리케이션 세부 정보의 탐색 경로는 다음과 같습니다.
 
 **Azure Active Directory &gt; 엔터프라이즈 애플리케이션 &gt; 모든 애플리케이션 &gt; LinkedIn Elevate**
 
@@ -61,7 +61,7 @@ Azure AD (Azure Active Directory)에는 종단 간 id 수명 주기 관리를 �
 
 **현재 상태** 는 관리자가 프로 비전 작업의 작동 상태를 확인 하는 첫 번째 위치 여야 합니다.
 
- ![요약 보고서](./media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
+ ![요약 보고서](media/check-status-user-account-provisioning/provisioning-progress-bar-section.png)
 
 ## <a name="provisioning-logs-preview"></a>로그 프로 비전 (미리 보기)
 

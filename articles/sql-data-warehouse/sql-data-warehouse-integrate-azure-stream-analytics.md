@@ -11,20 +11,20 @@ ms.date: 03/22/2019
 ms.author: martinle
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 63803f3ac477e48d8d1c14a72e2ee9b9d4860047
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: a655ada93cd9db9db95295d445c0b4f27d772148
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685727"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721203"
 ---
-# <a name="use-azure-stream-analytics-with-sql-data-warehouse"></a>SQL Data Warehouse와 함께 Azure Stream Analytics 사용
-Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개][Introduction to Azure Stream Analytics]를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에 따라 Stream Analytics로 엔드투엔드 솔루션을 만드는 방법에 대해 알 수 있습니다.
+# <a name="use-azure-stream-analytics-with-azure-synapse-analytics"></a>Azure Synapse Analytics에서 Azure Stream Analytics 사용
+Azure Stream Analytics는 완전히 관리되는 서비스로, 클라우드의 스트리밍 데이터에 대해 대기 시간이 짧고 확장성이 뛰어난 고가용성의 복합 이벤트 처리 기능을 제공합니다. [Azure Stream Analytics 소개](../stream-analytics/stream-analytics-introduction.md)를 읽어 기본 사항을 배울 수 있습니다. [Azure Stream Analytics를 사용하여 시작](../stream-analytics/stream-analytics-real-time-fraud-detection.md) 자습서에 따라 Stream Analytics로 엔드투엔드 솔루션을 만드는 방법에 대해 알 수 있습니다.
 
-이 문서에서 Stream Analytics 작업에 대한 출력 싱크로 Azure SQL Data Warehouse 데이터베이스를 사용하는 방법에 대해 배웁니다.
+이 문서에서는 Stream Analytics 작업에 대 한 출력 싱크로 데이터 웨어하우스 데이터베이스를 사용 하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
-먼저, [Azure Stream Analytics를 사용하여 시작][Get started using Azure Stream Analytics] 자습서에서 다음 단계를 실행합니다.  
+먼저, [Azure Stream Analytics를 사용하여 시작](../stream-analytics/stream-analytics-real-time-fraud-detection.md) 자습서에서 다음 단계를 실행합니다.  
 
 1. 이벤트 허브 입력 만들기
 2. 이벤트 생성기 애플리케이션 구성 및 시작
@@ -50,39 +50,20 @@ SQL Database를 선택 합니다.
 * *데이터베이스*: 대상 데이터베이스의 이름을 지정합니다.
 * *서버 이름*: 방금 지정한 데이터베이스에 대한 서버 이름을 지정합니다. Azure Portal을 사용하여 찾을 수 있습니다.
 
-![][server-name]
+![](./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png)
 
 * *사용자 이름*: 데이터베이스에 대한 쓰기 권한이 있는 계정의 사용자 이름을 지정합니다.
 * *암호*: 지정된 사용자 계정에 대한 암호를 제공합니다.
 * *테이블*: 데이터베이스에서 대상 테이블의 이름을 지정합니다.
 
-![][add-database]
+![](./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png)
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 확인 단추를 클릭하여 이 작업 출력을 추가하고 Stream Analytics가 데이터베이스에 성공적으로 연결될 수 있는지 확인합니다.
 
 데이터베이스에 대 한 연결이 성공 하면 포털에 알림이 표시 됩니다. 테스트를 클릭 하 여 데이터베이스에 대 한 연결을 테스트할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-통합 개요는 [SQL Data Warehouse 통합 개요][SQL Data Warehouse integration overview]를 참조하세요.
+통합에 대 한 개요는 [기타 서비스 통합](sql-data-warehouse-overview-integrate.md)을 참조 하세요.
+더 많은 개발 팁은 [데이터 웨어하우스의 디자인 결정 및 코딩 기법](sql-data-warehouse-overview-develop.md)을 참조 하세요.
 
-더 많은 개발 팁은 [SQL Data Warehouse 개발 개요][SQL Data Warehouse development overview]를 참조하세요.
-
-<!--Image references-->
-
-[add-output]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-output.png
-[server-name]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/dw-server-name.png
-[add-database]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/add-database.png
-[test-connection]: ./media/sql-data-warehouse-integrate-azure-stream-analytics/test-connection.png
-
-<!--Article references-->
-
-[Introduction to Azure Stream Analytics]: ../stream-analytics/stream-analytics-introduction.md
-[Get started using Azure Stream Analytics]: ../stream-analytics/stream-analytics-real-time-fraud-detection.md
-[SQL Data Warehouse development overview]:  ./sql-data-warehouse-overview-develop.md
-[SQL Data Warehouse integration overview]:  ./sql-data-warehouse-overview-integrate.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[Azure Stream Analytics documentation]: https://azure.microsoft.com/documentation/services/stream-analytics/

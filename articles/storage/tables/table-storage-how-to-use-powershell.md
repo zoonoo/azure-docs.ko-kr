@@ -1,19 +1,18 @@
 ---
 title: PowerShell을 사용하여 Azure Table Storage 작업 수행 | Microsoft Docs
 description: PowerShell을 사용 하 여 Azure Table storage 계정에서 데이터를 생성, 쿼리, 삭제 하는 등의 일반적인 작업을 실행 하는 방법에 대해 알아봅니다.
-services: cosmos-db
 author: roygara
-ms.service: cosmos-db
+ms.service: storage
 ms.topic: article
 ms.date: 04/05/2019
 ms.author: rogarana
-ms.subservice: cosmosdb-table
-ms.openlocfilehash: 4591cded820bbefb741d55a22d10a91bd4fff383
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.subservice: tables
+ms.openlocfilehash: f1846fae4cbf473df688a2b184c307d72ab2f8d0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868510"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721475"
 ---
 # <a name="perform-azure-table-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Table Storage 작업 수행 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../../includes/storage-table-cosmos-db-langsoon-tip-include.md)]
@@ -38,7 +37,7 @@ Azure Table Storage는 매우 큰 비관계형 구조적 데이터 집합을 저
 > PowerShell에서 이 Azure 기능을 사용하려면 `Az` 모듈이 설치되어 있어야 합니다. `AzTable`의 현재 버전이 이전 AzureRM 모듈과 호환 되지 않습니다.
 > 필요한 경우 [설치 된 Az module의 최신 설치 지침](/powershell/azure/install-az-ps) 을 따르세요.
 
-Azure PowerShell를 설치 하거나 업데이트 한 후에는 엔터티를 관리 하기 위한 명령이 있는 모듈 **AzTable**를 설치 해야 합니다. 이 모듈을 설치하려면 관리자로 PowerShell을 실행하고 **Install-Module** 명령을 사용합니다.
+Azure PowerShell를 설치 하거나 업데이트 한 후에는 엔터티를 관리 하기 위한 명령이 있는 모듈 **AzTable**를 설치 해야 합니다. 이 모듈을 설치하려면 PowerShell을 관리자 권한으로 실행하고 **Install-Module** 명령을 사용합니다.
 
 > [!IMPORTANT]
 > 모듈 이름 호환성을 위해 PowerShell 갤러리에서 `AzureRmStorageTables` 이전 이름으로 동일한 모듈을 계속 게시 하 고 있습니다. 이 문서에서는 새 이름만 참조 합니다.
@@ -141,7 +140,7 @@ Get-AzStorageTable –Context $Ctx | select Name
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 방법 문서를 시작하면서 새 리소스 그룹 및 스토리지 계정을 만들었으면, 해당 리소스 그룹을 제거하여 이 연습에서 만든 자산을 모두 제거할 수 있습니다. 이 명령은 리소스 그룹 자체뿐만 아니라 그룹 내 포함된 모든 리소스를 삭제합니다.
+이 방법 문서를 시작하면서 새 리소스 그룹 및 스토리지 계정을 만들었으면, 해당 리소스 그룹을 제거하여 이 연습에서 만든 자산을 모두 제거할 수 있습니다. 이 명령은 리소스 그룹 자체뿐만 아니라 해당 그룹에 포함된 모든 리소스를 삭제합니다.
 
 ```powershell
 Remove-AzResourceGroup -Name $resourceGroup
@@ -161,7 +160,7 @@ Remove-AzResourceGroup -Name $resourceGroup
 
 자세한 내용은 다음 문서를 참조하세요.
 
-* [Storage PowerShell cmdlet](/powershell/module/az.storage#storage)
+* [스토리지 PowerShell cmdlet](/powershell/module/az.storage#storage)
 
 * [PowerShell에서 Azure 테이블 작업-AzureRmStorageTable/AzTable PS 모듈 v 2.0](https://paulomarquesc.github.io/working-with-azure-storage-tables-from-powershell)
 

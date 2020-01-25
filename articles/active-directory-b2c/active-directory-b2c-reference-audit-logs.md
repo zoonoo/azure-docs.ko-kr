@@ -12,12 +12,12 @@ ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: feefe7cf6d559360defd7c7f830a9e3f2e583cd6
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: e79b2342f481786caf46aeb9454e2961637da335
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948235"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712939"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -32,14 +32,14 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 
 감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
 
-|활동 유형 |설명  |
+|활동 유형 |Description  |
 |---------|---------|
 |권한 부여 |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
 |디렉터리 |관리자가 Azure Portal를 사용 하 여 로그인 할 때 검색 되는 디렉터리 특성과 관련 된 작업입니다. |
 |애플리케이션 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
 |키 |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
 |리소스 |B2C 리소스에 대 한 CRUD 작업 예를 들면 정책 및 id 공급자가 있습니다.
-|Authentication |사용자 자격 증명 및 토큰 발급의 유효성 검사|
+|인증 |사용자 자격 증명 및 토큰 발급의 유효성 검사|
 
 사용자 개체 CRUD 활동의 경우 **핵심 디렉터리** 범주를 참조하세요.
 
@@ -51,9 +51,9 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|섹션|필드|설명|
+|섹션|필드|Description|
 |-------|-----|-----------|
-| 작업 | name | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 작업 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
@@ -165,7 +165,7 @@ Write-Output "Searching for events starting $7daysago"
 $body       = @{grant_type="client_credentials";resource=$resource;client_id=$ClientID;client_secret=$ClientSecret}
 $oauth      = Invoke-RestMethod -Method Post -Uri $loginURL/$tenantdomain/oauth2/token?api-version=1.0 -Body $body
 
-# Parse audit report items, save output to file(s): auditX.json, where X = 0 thru n for number of nextLink pages
+# Parse audit report items, save output to file(s): auditX.json, where X = 0 through n for number of nextLink pages
 if ($oauth.access_token -ne $null) {
     $i=0
     $headerParams = @{'Authorization'="$($oauth.token_type) $($oauth.access_token)"}

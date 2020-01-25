@@ -17,16 +17,16 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8883e3ade7e5d52f3a62346bf8be51ac36042f82
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008531"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714484"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
-Azure Active Directory(Azure AD) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
+Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 방법을 결정하는 데 필요한 모든 정보를 얻을 수 있습니다.
 
 보고 아키텍처는 다음과 같은 구성 요소로 구성됩니다.
 
@@ -45,7 +45,7 @@ Azure Active Directory(Azure AD) 보고서를 통해 사용자 환경의 작동 
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 감사 로그는 최대 1시간의 대기 시간을 발생할 수 있으므로 작업을 완료한 후 감사 활동 데이터가 포털에 표시되는 데 그만큼 오래 걸릴 수 있습니다.
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 감사 로그의 대기 시간은 최대 1 시간 일 수 있으므로 작업을 완료 한 후에 감사 작업 데이터가 포털에 표시 되는 데 시간이 오래 걸릴 수 있습니다.
 
 
 
@@ -77,11 +77,11 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
-- 부여
-- Category
-- 활동
-- 가동 상태
-- 대상
+- 서비스
+- 범주
+- 작업
+- 상태
+- 대상 파악
 - 초기자(작업자)
 - 날짜 범위
 
@@ -89,7 +89,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 **서비스** 필터를 사용 하면 다음 서비스의 드롭다운 목록에서 선택할 수 있습니다.
 
-- 모두
+- 전체
 - 액세스 검토
 - 계정 프로비전 
 - 응용 프로그램 SSO
@@ -103,16 +103,16 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
-- 사용 약관
+- 사용 조건
 
 **범주** 필터를 사용 하면 다음 필터 중 하나를 선택할 수 있습니다.
 
-- 모두
+- 전체
 - AdministrativeUnit
 - ApplicationManagement
 - 인증
 - 권한 부여
-- 연락처
+- 지원 문의
 - 디바이스
 - DeviceConfiguration
 - DirectoryManagement
@@ -130,8 +130,8 @@ Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있�
 
 **상태** 필터를 사용 하면 감사 작업 상태를 기준으로 필터링 할 수 있습니다. 상태는 다음 중 하나일 수 있습니다.
 
-- 모두
-- 성공
+- 전체
+- Success
 - 실패
 
 **대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 
@@ -139,12 +139,12 @@ Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있�
 **시작** 필터를 사용 하 여 행위자의 이름이 나 UPN (universal principal name)을 정의할 수 있습니다. 이름 및 UPN은 대/소문자를 구분 합니다.
 
 **날짜 범위** 필터를 사용 하면 반환 된 데이터에 대 한 기간을 정의할 수 있습니다.  
-가능한 값은
+가능한 값은 다음과 같습니다.
 
 - 1개월
-- 7 일
+- 7일
 - 24시간
-- 사용자 지정
+- 맞춤형 서비스
 
 사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 

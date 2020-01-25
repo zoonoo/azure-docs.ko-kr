@@ -6,16 +6,16 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 12/20/2019
-ms.openlocfilehash: 55efdfe2bb1b37e566654b8041f2cf5ed411cc3f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 01/21/2020
+ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977580"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715850"
 ---
-# <a name="collect-azure-activity-log-with-legacy-settings"></a>레거시 설정을 사용 하 여 Azure 활동 로그 수집
-[Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 최근 까지는 로그 프로필을 만들어 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 에 활동 로그 항목을 보내고 커넥터를 사용 하 여 [Log Analytics 작업 영역](activity-log-collect.md)으로 수집 했습니다. 이 문서에서는 방법, 기존 레거시 설정을 사용 하는 방법 및 진단 설정 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
+# <a name="update-to-azure-activity-log-collection-and-export"></a>Azure 활동 로그 수집 및 내보내기에 대 한 업데이트
+[Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 활동 로그 항목을 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 또는 [Log Analytics 작업 영역](activity-log-collect.md) 으로 보내는 메서드가 [진단 설정을](diagnostic-settings.md)사용 하도록 변경 되었습니다. 이 문서에서는 메서드와 진단 설정 변경 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
 
 
 ## <a name="differences-between-methods"></a>메서드 간 차이점
@@ -39,14 +39,16 @@ ms.locfileid: "75977580"
 ### <a name="differences-in-data"></a>데이터의 차이점
 진단 설정은 활동 로그를 수집 하는 데 사용 된 이전 메서드와 동일한 데이터를 다음과 같은 현재 차이로 수집 합니다.
 
-다음 속성이 제거 되었습니다.
+다음 열이 제거 되었습니다. 이러한 열에 대 한 대체 형식은 다른 형식 이므로이를 사용 하는 로그 쿼리를 수정 해야 할 수도 있습니다. 스키마에서 제거 된 열이 계속 표시 될 수 있지만 데이터로 채워지지 않습니다.
 
-- ActivityStatus
-- ActivitySubstatus 상태
-- OperationName
-- ResourceProvider
+| 제거 열 | 대체 열 |
+|:---|:---|
+| ActivityStatus    | ActivityStatusValue    |
+| ActivitySubstatus 상태 | ActivitySubstatusValue |
+| OperationName     | OperationNameValue     |
+| ResourceProvider  | ResourceProviderValue  |
 
-추가 된 속성은 다음과 같습니다.
+다음 열이 추가 되었습니다.
 
 - Authorization_d
 - Claims_d

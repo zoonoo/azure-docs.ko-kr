@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 8ce5d2965d0127eec01620c702d7d83bd0b39416
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885773"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713389"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
@@ -41,7 +41,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 �
 
 수평 pod autoscaler 및 cluster autoscaler 모두 필요에 따라 pod 및 노드 수를 줄일 수도 있습니다. 클러스터 자동 크기 조정기는 일정 기간 사용되지 않은 용량이 있는 경우 노드 수를 줄입니다. 클러스터 자동 크기 조정기가 제거할 노드의 Pod는 클러스터의 다른 위치에서 안전하게 예약됩니다. 다음 상황에서처럼 Pod를 이동할 수 없는 경우 클러스터 자동 크기 조정기가 규모를 축소하지 못할 수 있습니다.
 
-* Pod가 직접 생성되었고 컨트롤러 개체(예: 배포 또는 복제본 세트)에서 지원되지 않습니다.
+* Pod는 직접 생성 되며 배포 또는 복제본 집합과 같은 컨트롤러 개체에 의해 지원 되지 않습니다.
 * PDB(Pod Disruption Budget)가 너무 제한적이고 이를 사용하면 Pod 수가 특정 임계값보다 낮아질 수 없습니다.
 * Pod는 다른 노드에서 예약된 경우 적용할 수 없는 노드 선택기 또는 선호도 방지를 사용합니다.
 
@@ -154,7 +154,7 @@ Autoscaler에서 로깅되는 내용에 대 한 자세한 내용은 [Kubernetes/
 
 ## <a name="use-the-cluster-autoscaler-with-multiple-node-pools-enabled"></a>여러 노드 풀을 사용할 수 있는 클러스터 autoscaler 사용
 
-클러스터 autoscaler는 [여러 노드 풀](use-multiple-node-pools.md) 을 사용 하도록 설정 된 상태에서 함께 사용할 수 있습니다. 이 문서에 따라 여러 노드 풀을 사용 하도록 설정 하 고 기존 클러스터에 노드 풀을 더 추가 하는 방법을 알아봅니다. 두 기능을 함께 사용 하는 경우 클러스터의 각 개별 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하 고 각각에 고유한 자동 크기 조정 규칙을 전달할 수 있습니다.
+클러스터 autoscaler는 [여러 노드 풀](use-multiple-node-pools.md) 을 사용할 수 있는 경우 함께 사용할 수 있습니다. 이 문서에 따라 여러 노드 풀을 사용 하도록 설정 하 고 기존 클러스터에 노드 풀을 더 추가 하는 방법을 알아봅니다. 두 기능을 함께 사용 하는 경우 클러스터의 각 개별 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하 고 각각에 고유한 자동 크기 조정 규칙을 전달할 수 있습니다.
 
 아래 명령에서는이 문서의 앞부분에 있는 [초기 지침](#create-an-aks-cluster-and-enable-the-cluster-autoscaler) 을 따르고 기존 노드 풀의 최대 개수를 *3* 에서 *5*로 업데이트 하려고 한다고 가정 합니다. [Az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 기존 노드 풀의 설정을 업데이트 합니다.
 
@@ -178,7 +178,7 @@ az aks nodepool update \
   --disable-cluster-autoscaler
 ```
 
-기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려면 [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 *--enable-autoscaler*, *--min-count*및 *--max-count* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다. .
+기존 클러스터에서 클러스터 autoscaler를 다시 사용 하도록 설정 하려는 경우 [az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하 여 *--enable-autoscaler*, *--min-count*및 *--max-count* 매개 변수를 지정 하 여 다시 사용 하도록 설정할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

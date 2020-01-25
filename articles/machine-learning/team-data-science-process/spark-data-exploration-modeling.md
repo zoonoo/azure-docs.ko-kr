@@ -3,20 +3,20 @@ title: Spark로 데이터 탐색 및 모델링 - Team Data Science Process
 description: Azure에서 Spark MLlib 도구 키트의 데이터 탐색 및 모델링 기능을 소개합니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 03/15/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: acc701431afa458efd0768fb3d6898fd1920e333
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 208f176ca942fb382ff2ed81d872602f7229b0a4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60811167"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718636"
 ---
 # <a name="data-exploration-and-modeling-with-spark"></a>Spark로 데이터 탐색 및 모델링
 
@@ -30,7 +30,7 @@ ms.locfileid: "60811167"
 * [SGD로 선형 회귀](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.regression.LinearRegressionWithSGD) 는 SGD(Stochastic Gradient Descent) 메서드를 사용하는 선형 회귀 모델이며 최적화 및 기능에 대해 크기를 조정하여 결재된 팁 금액을 예측합니다. 
 * [LBFGS로 로지스틱 회귀 분석](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.classification.LogisticRegressionWithLBFGS) 또는 "로짓" 회귀는 종속 변수가 데이터 분류를 수행하는 범주인 경우 사용할 수 있는 회귀 모델입니다. LBFGS는 제한된 양의 컴퓨터 메모리를 사용하여 BFGS(Broyden–Fletcher–Goldfarb–Shanno) 알고리즘을 비슷하게 만들고 기계 학습에서 널리 사용되는 준 뉴턴 최적화 알고리즘입니다.
 * [임의 포리스트](https://spark.apache.org/docs/latest/mllib-ensembles.html#Random-Forests) 는 결정 트리의 결합체입니다.  즉, 과잉 맞춤의 위험을 줄이기 위해 많은 결정 트리를 결합합니다. 임의 포리스트는 회귀 및 분류에 사용되며 범주 기능을 처리하고 다중 클래스 분류 설정으로 확장할 수 있습니다. 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 임의 포리스트는 분류 및 회귀를 위해 매우 성공적인 기계 학습 모델 중 하나입니다.
-* [GBT](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) (그라데이션 승격 트리)는 결정 트리의 결합체입니다. GBT는 기능 손실을 최소화하기 위해 결정 트리를 반복적으로 학습합니다. GBT는 회귀 및 분류에 사용되며 범주 기능을 처리하고 기능 크기 조정을 필요로 하지 않으며 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
+* Gbts (그라데이션 향상 된 [트리](https://spark.apache.org/docs/latest/ml-classification-regression.html#gradient-boosted-trees-gbts) )는 의사 결정 트리의 앙상블입니다. GBTS는 의사 결정 트리를 반복적으로 학습 하 여 손실 함수를 최소화 합니다. GBTS는 회귀 및 분류에 사용 되며 범주 기능을 처리 하 고, 기능 크기 조정을 필요로 하지 않으며, 비선형 및 기능 상호 작용을 캡처할 수 있습니다. 또한 다중 클래스 분류 설정에도 사용할 수 있습니다.
 
 또한 모델링 단계에는 각 모델 유형을 학습, 평가 및 저장하는 방법을 보여주는 코드가 포함되어 있습니다. Python은 솔루션을 코딩하고 관련 차트를 표시하는 데 사용합니다.   
 
@@ -47,14 +47,14 @@ ms.locfileid: "60811167"
 
 ### <a name="spark-16-notebooks"></a>Spark 1.6 Notebook
 
-[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): 여러 가지 알고리즘을 사용하여 데이터 탐색, 모델링 및 채점을 수행하는 방법에 대한 정보를 제공합니다.
+[pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark1.6/pySpark-machine-learning-data-science-spark-data-exploration-modeling.ipynb): 몇 가지 알고리즘으로 데이터 탐색, 모델링, 그리고 점수 매기기 등을 수행하는 방법에 대한 정보를 제공합니다.
 
 ### <a name="spark-20-notebooks"></a>Spark 2.0 노트북
 Spark 2.0 클러스터를 사용하여 구현되는 회귀 및 분류 작업은 별도의 Notebook에 위치하며 분류 Notebook은 다른 데이터 집합을 사용합니다.
 
-- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) 설명된 NYC Taxi 운행 및 요금 데이터 세트를 사용하여 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 채점을 수행하는 방법에 대한 정보를 제공합니다. 이 Notebook은 Spark 2.0에 대해 제공했던 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. NYC Taxi 데이터를 분석하는 Notebook 상세 정보는 이 목록에서 다음 Notebook을 참조하세요. 이러한 Notebook을 비교하는 목록 다음의 참고 사항을 확인하세요. 
-- [Spark2.0-pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): 이 파일은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)에 설명된 NYC Taxi 운행 및 요금 데이터 세트를 사용하여 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 채점을 수행하는 방법을 보여줍니다.
-- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 2011년 및 2012년의 유명 항공사 정시 출발 데이터 세트를 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 채점을 수행하는 방법을 보여줍니다. 날씨 요소를 모델에 포함시킬 수 있도록 모델링하기 전에 항공사 데이터 세트와 공항 날씨 데이터(예: 풍속, 온도, 고도 등)를 통합하였습니다.
+- [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb): 이 파일은 NYC Taxi Trip 및 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data) 설명된 데이터 집합을 사용하여 Spark 2.0 클러스터에서 데이터 탐색, 모델링, 점수 매기기를 수행하는 방법에 대한 정보를 제공합니다. 이 Notebook은 Spark 2.0에 대해 제공했던 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. NYC Taxi 데이터를 분석하는 Notebook 상세 정보는 이 목록에서 다음 Notebook을 참조하세요. 이러한 노트북을 비교 하는이 목록 다음에 나오는 참고를 참조 하세요. 
+- [Spark2.0 pySpark3_NYC_Taxi_Tip_Regression.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_NYC_Taxi_Tip_Regression.ipynb): 이 파일은 [여기](https://docs.microsoft.com/azure/machine-learning/machine-learning-data-science-spark-overview#the-nyc-2013-taxi-data)에 설명된 NYC 택시 여정 및 요금 데이터 집합을 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다.
+- [Spark2.0-pySpark3_Airline_Departure_Delay_Classification.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0_pySpark3_Airline_Departure_Delay_Classification.ipynb): 이 파일은 2011년 및 2012년의 유명 항공사 정시 출발 데이터 세트를 사용한 데이터 랭글링(Spark SQL 및 데이터 프레임 작업), 탐색, 모델링 및 점수 매기기를 수행하는 방법을 보여줍니다. 모델링 하기 전에 windspeed, 온도, 고 등의 항공 데이터 집합을 공항 날씨 데이터와 통합 했으므로 이러한 날씨 기능을 모델에 포함할 수 있습니다.
 
 <!-- -->
 
@@ -70,7 +70,7 @@ Spark 2.0 클러스터를 사용하여 구현되는 회귀 및 분류 작업은 
 <!-- -->
 
 > [!NOTE]
-> NYC taxi의 Spark 2.0 Notebook 및 항공사 비행 지연 데이터 집합은 실행하는 데 10분 이상이 소요될 수 있습니다(HDI 클러스터의 크기에 따라 다름). 위의 목록에 있는 첫 번째 노트북은 택시 및 요금 파일이 미리 조인된 다운 샘플링된 NYC 데이터 세트로 실행하면 시간이 더 적게 걸리는 노트북에서 데이터 탐색, 시각화 및 ML 모델 학습의 다양한 측면을 보여줍니다. [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 이 노트북은 완료하는 데 훨씬 짧은 시간(2~3분)이 소요되며 Spark 2.0에 제공된 코드를 신속하게 살펴보기에 좋은 출발점이 될 수 있습니다. 
+> NYC taxi의 Spark 2.0 Notebook 및 항공사 비행 지연 데이터 집합은 실행하는 데 10분 이상이 소요될 수 있습니다(HDI 클러스터의 크기에 따라 다름). 위 목록에서 첫 번째 Notebook은 샘플 수를 줄인 NYC 데이터 집합으로 실행 시간을 줄인 Notebook에서 데이터 탐색, 시각화 및 ML 모델 학습의 다양한 측면을 보여 줍니다. 여기서는 택시 및 요금 파일을 사전에 조인했습니다. [Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/pySpark/Spark2.0/Spark2.0-pySpark3-machine-learning-data-science-spark-advanced-data-exploration-modeling.ipynb) 이 Notebook은 완료하는 데 훨씬 짧은 시간(2-3분)이 소요되며 Spark 2.0에 대해 제공된 코드를 신속하게 탐색하기 위한 좋은 시작점일 수 있습니다. 
 
 <!-- -->
 
@@ -88,7 +88,7 @@ Spark는 Azure Storage Blob(WASB라고도 함)를 읽고 쓸 수 있습니다. �
 
 모델 또는 파일을 WASB에 저장하려면 경로를 올바르게 지정해야 합니다. "wasb///"로 시작하는 경로를 사용하여 Spark 클러스터에 연결된 기본 컨테이너를 참조할 수 있습니다. 다른 위치를 “wasb://”에서 참조합니다.
 
-### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 스토리지 위치에 대한 디렉터리 경로를 설정합니다.
+### <a name="set-directory-paths-for-storage-locations-in-wasb"></a>WASB의 스토리지 위치에 대 한 디렉터리 경로를 설정합니다.
 다음 코드 샘플은 읽을 데이터의 위치 및 모델 출력을 저장할 모델 스토리지 디렉터리에 대한 경로를 지정합니다.
 
     # SET PATHS TO FILE LOCATIONS: DATA AND MODEL STORAGE
@@ -129,9 +129,9 @@ Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨�
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
 
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
-* **%%sql-o \<변수 이름 >** sqlContext에 대해 Hive 쿼리를 실행 합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
+* **%% sql-o \<변수 이름 >** SqlContext에 대해 Hive 쿼리를 실행 합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
-Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
+Jupyter 노트북 커널 및 미리 정의 된 "매직"에 대 한 자세한 내용은 [hdinsight의 Hdinsight Spark Linux 클러스터에서 Jupyter 노트북에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조 하세요.
 
 ## <a name="data-ingestion-from-public-blob"></a>공용 blob에서 데이터 수집
 데이터 과학 프로세스의 첫 번째 단계는 원본에서 분석할 데이터를 수집하여 데이터 탐색 및 모델링 환경에 상주시키는 것입니다. 이 연습에서 이 환경은 Spark입니다. 이 섹션은 일련의 작업을 완료하는 코드를 포함합니다.
@@ -212,7 +212,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 ### <a name="plot-a-histogram-of-passenger-count-frequencies-in-the-sample-of-taxi-trips"></a>Taxi Trip의 샘플에서 승객 수 빈도의 히스토그램을 그립니다.
 이 코드와 후속 코드 조각은 샘플을 쿼리하는 데 SQL 매직을 사용하고 데이터를 그리는 데 로컬 매직을 사용합니다.
 
-* **SQL 매직(`%%sql`)** HDInsight PySpark 커널은 sqlContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (-o VARIABLE_NAME) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 즉, 로컬 모드에서 사용할 수 있습니다.
+* **SQL 매직(`%%sql`)** HDInsight PySpark 커널은 sqlContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (-o VARIABLE_NAME) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있도록 합니다.
 * **`%%local` 매직** 은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 -o 매개 변수를 사용하여 `%%local` 매직을 `%%sql` 매직과 함께 사용합니다. -o 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 %%local 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
 
 코드를 실행한 후 출력이 자동으로 시각화됩니다.
@@ -327,7 +327,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 * 시간을 트래픽 시간 버킷으로 범주화하여 새로운 기능 만들기
 * 범주 기능 인덱스 및 인코딩
 * 기계 학습 함수에 입력에 대한 레이블이 지정된 지점 개체 만들기
-* 데이터의 하위 무작위 샘플링을 만들고 학습 및 테스트 집합으로 분할합니다
+* 데이터의 임의 서브 샘플링을 만들고 학습 및 테스트 집합으로 분할
 * 기능 크기 조정
 * 메모리에서 개체 캐시
 
@@ -360,7 +360,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 ### <a name="index-and-encode-categorical-features-for-input-into-modeling-functions"></a>모델링 기능에 입력에 대한 범주 기능 인덱스 및 인코딩
 이 섹션에는 모델링 기능에 입력에 대한 범주 기능을 인덱싱하거나 인코딩하는 방법을 보여줍니다. MLlib의 모델링 및 예측 함수는 사용하기 전에 범주 입력 데이터로 기능을 인덱싱 또는 인코딩해야 합니다. 모델에 따라 다양한 방식에서 인덱싱하거나 인코딩해야 합니다.  
 
-* **트리 기반 모델링**은 범주를 숫자 값(예: 3개 범주가 있는 기능은 0, 1, 2로 인코딩 가능)으로 인코딩해야 합니다. MLlib의 [StringIndexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 함수에서 제공됩니다. 이 함수는 레이블의 문자열 열을 레이블 주파수에서 정렬한 레이블 인덱스의 열로 인코딩합니다. 입력 및 데이터 처리를 위해 숫자 값으로 인덱스되더라도 범주로 처리되도록 트리 기반 알고리즘을 적절히 지정할 수 있습니다. 
+* **트리 기반 모델링**은 범주를 숫자 값(예: 3개 범주가 있는 기능은 0, 1, 2로 인코딩 가능)으로 인코딩해야 합니다. 이 알고리즘은 MLlib의 [Stringindexer](https://spark.apache.org/docs/latest/ml-features.html#stringindexer) 함수에서 제공 됩니다. 이 함수는 레이블의 문자열 열을 레이블 주파수에서 정렬한 레이블 인덱스의 열로 인코딩합니다. 입력 및 데이터 처리를 위해 숫자 값으로 인덱스되더라도 범주로 처리되도록 트리 기반 알고리즘을 적절히 지정할 수 있습니다. 
 * **로지스틱 및 선형 회귀 모델**은 원 핫 인코딩(one-hot encoding)이 필요하며 이런 경우, 예를 들어 3개의 범주가 있는 기능이 관찰 범주에 따라 각각 0 또는 1을 포함하는 3개의 기능 열로 확장될 수 있습니다. MLlib는 원 핫 인코딩 작업을 수행하는 [OneHotEncoder](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.OneHotEncoder.html#sklearn.preprocessing.OneHotEncoder) 함수를 제공합니다. 이 인코더는 레이블 인덱스의 열을 단 하나의 값을 가진 이진 벡터의 열에 매핑합니다. 이 인코딩을 사용하여 로지스틱 회귀 분석 등과 같은 숫자 값을 가진 기능을 예상하는 알고리즘을 범주 기능에 적용할 수 있습니다.
 
 다음은 범주 기능을 인덱스 및 인코딩하는 코드입니다.
@@ -464,8 +464,8 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
         return  labPt
 
 
-### <a name="create-a-random-sub-sampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>데이터의 하위 무작위 샘플링을 만들고 학습 및 테스트 집합으로 분할합니다
-이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 세트의 크기로 인해 이 예제에 필요하지 않지만 필요한 경우 자신의 문제에 사용하는 방식을 알 수 있도록 여기서 샘플링할 수 있는 방법을 설명합니다. 샘플이 큰 경우 모델을 학습하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
+### <a name="create-a-random-subsampling-of-the-data-and-split-it-into-training-and-testing-sets"></a>데이터의 임의 서브 샘플링을 만들고 학습 및 테스트 집합으로 분할
+이 코드는 데이터의 무작위 샘플링을 만듭니다(25%가 여기에서 사용됨). 데이터 세트의 크기로 인해 이 예제에 필요하지 않지만 필요한 경우 자신의 문제에 사용하는 방식을 알 수 있도록 여기서 샘플링할 수 있는 방법을 설명합니다. 샘플이 클 경우 샘플링을 통해 모델을 학습 하는 동안 상당한 시간을 절약할 수 있습니다. 다음 샘플을 교육 부분(여기서 75%)와 테스트 부분(여기서 25%)로 분할하여 분류 및 회귀 모델링에 사용합니다.
 
     # RECORD START TIME
     timestart = datetime.datetime.now()
@@ -503,7 +503,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 **출력:**
 
-위의 셀을 실행하는 데 걸린 시간: 0.24초
+위의 셀을 실행 하는 데 걸린 시간: 0.24 초
 
 ### <a name="feature-scaling"></a>기능 크기 조정
 데이터 정규화라고도 하는 기능 크기 조정은 폭 넓게 분배된 값을 가진 기능이 목적 함수에서 과도한 가중치를 부여하지 않도록 합니다. 기능 크기 조정에 대한 코드는 단위 분산에 대한 기능의 크기를 조정하는 [StandardScaler](https://spark.apache.org/docs/latest/api/python/pyspark.mllib.html#pyspark.mllib.feature.StandardScaler) 를 사용합니다. 정칙 회귀 또는 SVM(support vector machine)과 같은 광범위한 다른 기계 학습 모델을 학습하기 위한 인기 있는 알고리즘인 SGD(Stochastic Gradient Descent)와 함께 선형 회귀에 사용하기 위해 MLlib에서 제공합니다.
@@ -577,7 +577,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 **출력:** 
 
-위의 셀을 실행하는 데 걸린 시간: 0.15초
+위의 셀을 실행 하는 데 걸린 시간: 0.15 초
 
 ## <a name="predict-whether-or-not-a-tip-is-paid-with-binary-classification-models"></a>팁이 지불되었는지 여부를 이진 분류 모델로 예측합니다.
 이 섹션에서는 Taxi Trip에 팁을 지불했는지 여부를 예측하는 이진 분류 작업에 대한 세 개의 모델을 사용하는 방법을 보여줍니다. 제공된 모델은 다음과 같습니다.
@@ -1080,7 +1080,7 @@ R-sqr = 0.753835096681
     print "BoostedTreeRegressionFileLoc = modelDir + \"" + btregressionfilename + "\"";
 
 
-**출력**
+**OUTPUT**
 
 logisticRegFileLoc = modelDir + "LogisticRegressionWithLBFGS_2016-05-0317_03_23.516568"
 
@@ -1094,10 +1094,10 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
-## <a name="whats-next"></a>다음 작업
+## <a name="whats-next"></a>다음은 무엇일까요?
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다. 고급 데이터 탐색 및 모델링 Notebook은 교차 유효성 검사, 하이퍼 매개 변수 비우기 및 모델 평가 등을 포함한 상세 영역으로 나뉩니다. 
 
-**모델 사용:** 이 항목에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark로 빌드된 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
+**모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.
 
-**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md)을 참조하세요.
+**교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark로 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.
 

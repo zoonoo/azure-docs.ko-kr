@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/30/2019
-ms.openlocfilehash: 38966d537398d2770fba185a59b51956cf2223c3
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/23/2020
+ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290345"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715924"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -95,6 +95,18 @@ Azure Monitor에 의해 수집 된 모든 로그 데이터는 Log Analytics 작�
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>기존 Log Analytics 작업 영역을 다른 Azure 구독으로 이동할 수 있나요?
 리소스 그룹 또는 구독 간에 작업 영역을 이동할 수 있지만 다른 지역으로 이동할 수는 없습니다. [Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동을](platform/move-workspace.md)참조 하세요.
+
+### <a name="why-cant-i-see-query-explorer-and-save-buttons-in-log-analytics"></a>Log Analytics에 쿼리 탐색기 및 저장 단추가 표시 되지 않는 이유는 무엇 인가요?
+
+쿼리 [범위가](log-query/scope.md) 특정 리소스로 설정 된 경우 **쿼리 탐색기**, **저장** 및 **새 경고 규칙** 단추를 사용할 수 없습니다. 경고를 만들고 쿼리를 저장 하거나 로드 하려면 Log Analytics 작업 영역으로 범위가 지정 되어야 합니다. 작업 영역 컨텍스트에서 Log Analytics를 열려면 **Azure Monitor** 메뉴에서 **로그** 를 선택 합니다. 마지막으로 사용한 작업 영역이 선택되지만 다른 작업 영역을 선택할 수 있습니다. [Azure Monitor의 로그 쿼리 범위 및 시간 범위](log-query/scope.md) 를 참조 하세요 Log Analytics
+
+### <a name="why-am-i-getting-the-error-register-resource-provider-microsoftinsights-for-this-subscription-to-enable-this-query-when-opening-log-analytics-from-a-vm"></a>오류가 발생 하는 이유는 다음과 같습니다. VM에서 Log Analytics를 열 때 "이 구독에 대 한 리소스 공급자 '를 등록 하 여이 쿼리를 사용 하도록 설정 하십시오." 
+많은 리소스 공급자가 자동으로 등록 되지만 일부 리소스 공급자를 수동으로 등록 해야 할 수도 있습니다. 등록 범위는 항상 해당 구독입니다. 자세한 내용은 [리소스 공급자 및 형식](../azure-resource-manager/management/resource-providers-and-types.md#azure-portal)을 참조하세요.
+
+### <a name="why-am-i-am-getting-no-access-error-message-when-opening-log-analytics-from-a-vm"></a>VM에서 Log Analytics를 열 때 액세스 권한 없음 오류 메시지가 표시 되는 이유는 무엇 인가요? 
+VM 로그를 보려면 VM 로그를 저장하는 작업 영역에 대한 읽기 권한을 부여 받아야 합니다. 이런 경우 관리자가 Azure에서 내게 권한을 부여해 줘야 합니다.
+
+
 
 
 ## <a name="alerts"></a>경고
@@ -180,6 +192,12 @@ WireData
 ### <a name="what-are-the-firewall-requirements-for-azure-monitor-agents"></a>Azure Monitor 에이전트에 대 한 방화벽 요구 사항은 무엇 인가요?
 방화벽 요구 사항에 대 한 자세한 내용은 [네트워크 방화벽 요구 사항](platform/log-analytics-agent.md#network-firewall-requirements)을 참조 하세요.
 
+
+## <a name="visualizations"></a>시각화
+
+### <a name="why-cant-i-cant-see-view-designer"></a>뷰 디자이너를 볼 수 없는 이유는 무엇입니까?
+
+보기 디자이너는 Log Analytics 작업 영역에서 참가자 권한 이상이 할당 된 사용자 에게만 사용할 수 있습니다.
 
 
 ## <a name="application-insights"></a>Application Insights

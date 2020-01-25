@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Azure Dev 공간에서 개인 투구 리포지토리를 사용 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Container Service, 컨테이너, 투구
 manager: gwallace
-ms.openlocfilehash: dddec69dc019f286c714a09e6f1a7e47240d5572
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b1579adc00540a429170027b66c5d3e508bcb5d4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867279"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718739"
 ---
 # <a name="use-a-private-helm-repository-in-azure-dev-spaces"></a>Azure Dev Spaces에서 개인 투구 리포지토리 사용
 
@@ -37,7 +37,7 @@ azds prep --public
 ```
 
 > [!TIP]
-> `prep` 명령은 프로젝트에 대 한 [Dockerfile 및 투구 차트](../how-dev-spaces-works.md#prepare-your-code) 를 생성 하려고 시도 합니다. Azure Dev Spaces은 이러한 파일을 사용 하 여 코드를 빌드하고 실행 하지만 프로젝트를 빌드하고 실행 하는 방법을 변경 하려는 경우 이러한 파일을 수정할 수 있습니다.
+> `prep` 명령은 프로젝트에 대해 [Dockerfile 및 Helm 차트](../how-dev-spaces-works.md#prepare-your-code)를 생성하려고 합니다. Azure Dev Spaces는 이러한 파일을 사용하여 코드를 빌드하고 실행하지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 응용 프로그램의 차트 디렉터리에 차트를 사용 하 여 [요구 사항 .yaml][helm-requirements] 파일을 만듭니다. 예를 들어 응용 프로그램 이름이 *app1*인 경우 *차트/app1/요구 사항을 만듭니다. yaml*.
 
@@ -81,7 +81,7 @@ Service 'app1' port 80 (http) is available at http://localhost:54256
 
 [helm]: https://docs.helm.sh
 [helm-chart]: https://helm.sh/docs/topics/charts/
-[helm-dependency-update]: https://v2.helm.sh/docs/helm/#helm-dependency-update
-[helm-repo-add]: https://v2.helm.sh/docs/helm/#helm-repo-add
-[helm-repo-update]: https://v2.helm.sh/docs/helm/#helm-repo-update
+[helm-dependency-update]: https://helm.sh/docs/topics/charts/#managing-dependencies-with-the-dependencies-field
+[helm-repo-add]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
+[helm-repo-update]: https://helm.sh/docs/intro/using_helm/#helm-repo-working-with-repositories
 [helm-requirements]: https://helm.sh/docs/topics/charts/#chart-dependencies

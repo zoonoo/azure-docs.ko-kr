@@ -3,12 +3,12 @@ title: Azure Resource Health를 통해 지원되는 리소스 유형 | Microsoft
 description: Azure Resource Health를 통해 지원되는 리소스 유형
 ms.topic: conceptual
 ms.date: 01/29/2019
-ms.openlocfilehash: f25dc32774cb040a2b9873c6811ff184373c5104
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a61c8b90f4dc5e52a875488afb5374e3d6b7ce4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465258"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717077"
 ---
 # <a name="resource-types-and-health-checks-in-azure-resource-health"></a>Azure Resource Health에서 리소스 유형 및 상태 검사
 다음은 리소스 유형별 리소스 상태를 통해 실행되는 모든 검사 목록입니다.
@@ -53,7 +53,7 @@ ms.locfileid: "75465258"
 |---|
 |<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
+## <a name="microsoftdatafactoryfactories"></a>Datafactory/팩터리
 |실행된 검사|
 |---|
 |<ul><li>파이프라인 실행 실패가 있나요?</li><li>Data Factory를 호스팅하는 클러스터가 정상 상태 인가요?</li></ul>|
@@ -104,12 +104,12 @@ ms.locfileid: "75465258"
 |---|
 |<ul><li>Azure Cosmos DB 서비스를 사용할 수 없어서 데이터베이스 또는 컬렉션 요청이 처리되지 않았는가?</li><li>Azure Cosmos DB 서비스를 사용할 수 없어서 문서 요청이 처리되지 않았는가?</li></ul>|
 
-## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
+## <a name="microsofteventhubnamespaces"></a>Microsoft eventhub/네임 스페이스
 |실행된 검사|
 |---|
 |<ul><li>사용자 생성 오류가 발생 한 Event Hubs 네임 스페이스 입니까?</li><li>현재 Event Hubs 네임 스페이스가 업그레이드 되 고 있나요?</li></ul>|
 
-## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
+## <a name="microsofthdinsightclusters"></a>Microsoft hdinsight/클러스터
 |실행된 검사|
 |---|
 |<ul><li>HDInsight 클러스터에서 핵심 서비스를 사용할 수 있나요?</li><li>HDInsight 클러스터가 휴지 상태의 BYOK 암호화에 대 한 키에 액세스할 수 있나요?</li></ul>|
@@ -129,7 +129,7 @@ ms.locfileid: "75465258"
 |---|
 |<ul><li>미디어 서비스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. network/applicationgateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
 |실행된 검사|
 |---|
 |<ul><li>Application Gateway 성능이 저하 됩니까?</li><li>Application Gateway 사용 가능 여부</li></ul>|
@@ -139,7 +139,7 @@ ms.locfileid: "75465258"
 |---|
 |<ul><li>VPN 터널이 연결되어 있는가?</li><li>연결에 구성 충돌이 있는가?</li><li>미리 공유한 키를 적절히 구성하였는가?</li><li>VPN 온-프레미스 디바이스에 연결할 수 있나요?</li><li>IPSec/IKE 보안 정책에 일치하지 않는 사항이 있는가?</li><li>S2S VPN 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li><li>VNET-VNET 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li></ul>|
 
-## <a name="microsoftnetworkexpressreoutecircuits"></a>Microsoft.network/expressreoutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
 |실행된 검사|
 |---|
 |<ul><li>Express 경로 회로가 정상 입니까?</li></ul>|

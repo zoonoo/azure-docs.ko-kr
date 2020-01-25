@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/11/2018
 ms.author: spelluru
-ms.openlocfilehash: 3f16d84f66f2da6094054d161f286070fc86a73b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 29a4d20390575778ccdecde390c257ccf6a48eb1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720126"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720931"
 ---
 # <a name="store-secrets-in-a-key-vault-in-azure-devtest-labs"></a>Azure DevTest Labs의 키 자격 증명 모음에서 비밀 저장
 Azure DevTest Labs를 사용하는 경우 복잡한 비밀을 입력해야 할 수 있습니다. 예를 들어 Windows VM의 암호, Linux VM의 공용 SSH 키 또는 아티팩트를 통해 Git 리포지토리를 복제하기 위한 개인용 액세스 토큰 등입니다. 비밀은 일반적으로 길며 임의 문자를 포함합니다. 따라서 특히 여러 번 동일한 비밀을 사용하는 경우 비밀 입력은 까다롭고 불편할 수 있습니다.

@@ -7,18 +7,18 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 11/13/2019
 ms.author: chenyl
-ms.openlocfilehash: f89fcdd50d958269b5c79c41ebabd69331c905aa
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: a76c9aaabf984723e2b60a7cd42425c9b29c916a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158205"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710821"
 ---
 # <a name="how-to-send-events-from-azure-signalr-service-to-event-grid"></a>Azure SignalR Service에서 Event Grid로 이벤트를 보내는 방법
 
 Azure Event Grid는 pub-sub 모델을 사용 하 여 균일 한 이벤트 소비를 제공 하는 완전히 관리 되는 이벤트 라우팅 서비스입니다. 이 가이드에서는 Azure CLI를 사용 하 여 Azure SignalR 서비스를 만들고, 연결 이벤트를 구독 하 고, 이벤트를 수신 하는 샘플 웹 응용 프로그램을 배포 합니다. 마지막으로 샘플 응용 프로그램에서 연결 하 고 연결을 끊고 이벤트 페이로드를 볼 수 있습니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][azure-account] 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정][azure-account]을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -154,7 +154,7 @@ cd NegotitationServer
 dotnet user-secrets set Azure:SignalR:ConnectionString "<Connection String>"
 dotnet run
 
-# Use a seperate command line
+# Use a separate command line
 # Start a client
 cd SignalRClient
 dotnet run

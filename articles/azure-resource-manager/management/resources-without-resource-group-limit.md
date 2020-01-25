@@ -2,13 +2,13 @@
 title: 800 개수 제한이 없는 리소스
 description: 리소스 그룹에 800 개 이상의 인스턴스를 포함할 수 있는 Azure 리소스 종류를 나열 합니다.
 ms.topic: conceptual
-ms.date: 11/07/2019
-ms.openlocfilehash: c4f452a13c2059c02bf675ca4fe80243257183d5
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.date: 01/23/2020
+ms.openlocfilehash: 42e8ddeebcd1dda4fc67e4e7be137c5e01decdf4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659324"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715616"
 ---
 # <a name="resources-not-limited-to-800-instances-per-resource-group"></a>리소스 그룹당 800 인스턴스로 제한 되지 않는 리소스
 
@@ -26,6 +26,7 @@ ms.locfileid: "75659324"
 * registrations
 * registrations/customerSubscriptions
 * registrations/products
+* verificationKeys
 
 ## <a name="microsoftbotservice"></a>Microsoft.BotService
 
@@ -82,6 +83,7 @@ ms.locfileid: "75659324"
 
 ## <a name="microsoftguestconfiguration"></a>Microsoft.GuestConfiguration
 
+* autoManagedVmConfigurationProfiles
 * configurationprofil
 * guestConfigurationAssignments
 * software
@@ -178,6 +180,10 @@ ms.locfileid: "75659324"
 * apiManagementAccounts/apis
 * sites
 
+## <a name="microsoftinsights"></a>microsoft.insights
+
+* metricalerts
+
 ## <a name="next-steps"></a>다음 단계
 
-할당량 및 제한의 전체 목록은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](../../azure-resource-manager/management/azure-subscription-service-limits.md)을 참조 하세요.
+할당량 및 제한의 전체 목록은 [Azure 구독 및 서비스 제한, 할당량 및 제약 조건](azure-subscription-service-limits.md)을 참조 하세요.

@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: cotresne
-ms.openlocfilehash: 6c946667befdf34a2ae6769b2c1bb43871111c24
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 39b3a96ddd3a9007600d1fa956c4e2d48f6adae9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921032"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714814"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -117,7 +117,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 >__사용 방법:__ 프리미엄 또는 전용 계획에서 Linux 함수 앱을 만들고 실행할 컨테이너 이미지를 지정 합니다. 다음 두 가지 방법으로 수행할 수 있습니다.
 >
 >* Azure Portal에서 Azure App Service 계획에 Linux 함수 앱을 만듭니다. **게시**에서 **Docker 이미지**를 선택 하 고 컨테이너를 구성 합니다. 이미지가 호스트 되는 위치를 입력 합니다.
->* Azure CLI를 사용 하 여 App Service 계획에서 Linux 함수 앱을 만듭니다. 방법을 알아보려면 [사용자 지정 이미지를 사용 하 여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md#create-a-premium-plan)를 참조 하세요.
+>* Azure CLI를 사용 하 여 App Service 계획에서 Linux 함수 앱을 만듭니다. 방법을 알아보려면 [사용자 지정 이미지를 사용 하 여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function)를 참조 하세요.
 >
 >사용자 지정 컨테이너를 사용 하 여 기존 앱에 배포 하려면 [Azure Functions Core Tools](functions-run-local.md)에서 [`func deploy`](functions-run-local.md#publish) 명령을 사용 합니다.
 

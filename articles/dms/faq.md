@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: fc0bac99aa70d7028412c68563a3024720fa49d9
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75745408"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717780"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -96,7 +96,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 1. 대상 데이터베이스를 만듭니다.
 2. 원본 데이터베이스를 평가 합니다.
     * 동일한 마이그레이션의 경우 [DMA](https://www.microsoft.com/download/details.aspx?id=53595)를 사용 하 여 기존 데이터베이스를 평가 합니다.
-    * 다른 유형의 마이그레이션의 경우 (경합 원본에서) [Ssma](https://aka.ms/get-ssma)를 사용 하 여 기존 데이터베이스를 평가 합니다. 또한 SSMA를 사용 하 여 데이터베이스 개체를 변환 하 고 대상 플랫폼으로 스키마를 마이그레이션합니다.
+    * 다른 유형의 마이그레이션 (경쟁 원본에서)의 경우 [Ssma](https://aka.ms/get-ssma)를 사용 하 여 기존 데이터베이스를 평가 합니다. 또한 SSMA를 사용 하 여 데이터베이스 개체를 변환 하 고 대상 플랫폼으로 스키마를 마이그레이션합니다.
 3. Azure Database Migration Service 인스턴스를 만듭니다.
 4. 원본 데이터베이스, 대상 데이터베이스 및 마이그레이션할 테이블을 지정 하는 마이그레이션 프로젝트를 만듭니다.
 5. 전체 로드를 시작 합니다.

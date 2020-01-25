@@ -8,12 +8,12 @@ ms.date: 08/13/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 2591f1846574994b878814f3b08df1de2a6e9fc1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c102941920d2b8746a49be47ef4c5613fa0bc281
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973374"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719078"
 ---
 # <a name="build-highly-available-azure-storage-applications-with-geo-zone-redundant-storage-gzrs-preview"></a>GZRS (지역 중복 저장소) (미리 보기)를 사용 하 여 항상 사용 가능한 Azure Storage 응용 프로그램 빌드
 
@@ -32,6 +32,7 @@ GZRS 및 RA-GZRS는 현재 다음 지역에서 미리 보기로 제공 됩니다
 - 동남아시아
 - 북유럽
 - 서유럽
+- 일본 동부
 - 영국 남부
 - 미국 동부
 - 미국 동부 2
@@ -129,6 +130,7 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 실시간 마이그레이션에 대한 다음과 같은 제한에 유의하십시오.
 
 - Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게 처리하지만 마이그레이션이 완료되는 시기는 보장하지 않습니다. 특정 날짜에 GZRS 또는 RA-GZRS로 데이터를 마이그레이션해야 하는 경우에는 대신 수동 마이그레이션을 수행 하는 것이 좋습니다. 일반적으로 계정에 데이터가 많을수록 해당 데이터를 마이그레이션하는 데 시간이 더 오래 걸립니다.
+- 실시간 마이그레이션은 GRS 또는 RA GRS 복제를 사용 하는 저장소 계정에 대해서만 지원 됩니다. 계정에서 LRS를 사용 하는 경우 계속 하기 전에 먼저 계정의 복제 유형을 GRS 또는 RA-GRS로 변경 해야 합니다. 이 중간 단계는 GRS/RA-GRS에서 제공 하는 보조 끝점을 추가 합니다.
 - 계정에 데이터가 있어야 합니다.
 - 동일한 지역 내에서만 데이터를 마이그레이션할 수 있습니다.
 - 표준 스토리지 계정 유형만 실시간 마이그레이션을 지원합니다. 프리미엄 스토리지 계정은 수동으로 마이그레이션해야 합니다.
@@ -160,4 +162,4 @@ LRS, GRS 또는 RA-GRS 계정에서 GZRS 또는 GZRS로 마이그레이션하는
 - [Azure Storage 복제](https://docs.microsoft.com/azure/storage/common/storage-redundancy)
 - [LRS(로컬 중복 스토리지): Azure Storage에 대한 저렴한 데이터 중복](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs)
 - [ZRS(영역 중복 스토리지): 고가용성 Azure Storage 애플리케이션](https://docs.microsoft.com/azure/storage/common/storage-redundancy-zrs) 
-- [Standard storage 계정에 대 한 확장성 및 성능 목표](scalability-targets-standard-account.md)
+- [표준 스토리지 계정의 확장성 및 성능 목표](scalability-targets-standard-account.md)

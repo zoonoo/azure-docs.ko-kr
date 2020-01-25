@@ -2,20 +2,20 @@
 title: Git를 사용하여 공동 코딩 - Team Data Science Process
 description: Agile 계획과 함께 Git를 사용하여 데이터 과학 프로젝트용 공동 코드 개발을 수행하는 방법입니다.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 08/23/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 3b57621fcec654f11c8e9a68e4568f332dbf9ac6
-ms.sourcegitcommit: 532335f703ac7f6e1d2cc1b155c69fc258816ede
+ms.openlocfilehash: 0708e395eff90ff5b889c05f0fd5e7a98205c5bc
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/30/2019
-ms.locfileid: "70195539"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721900"
 ---
 # <a name="collaborative-coding-with-git"></a>Git를 사용하여 공동 코딩
 
@@ -39,7 +39,7 @@ Windows 또는 Linux에서 다음 Git bash 명령을 사용 하 여 새 분기�
 git checkout -b <new branch name> <base branch name>
 
 ```
-> \<기본 분기 이름을 지정 하지 않으면 새 분기는를 `master`기반으로 합니다. 
+> 기본 분기 이름 \<지정 하지 않으면 새 분기는 `master`을 기반으로 합니다. 
 
 작업 분기로 전환 하려면 다음 명령을 실행 합니다. 
 
@@ -47,7 +47,7 @@ git checkout -b <new branch name> <base branch name>
 git checkout <working branch name>
 ```
 
-작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. 를 `git checkout master` 실행 하면 `master` 분기로 다시 전환 됩니다.
+작업 분기로 전환한 후에는 코드 또는 문서 아티팩트 개발을 시작 하 여 작업 항목을 완료할 수 있습니다. `git checkout master`를 실행 하면 `master` 분기로 다시 전환 됩니다.
 
 각 사용자 스토리 작업 항목에 대해 Git 분기를 만드는 것이 좋습니다. 그런 다음 각 작업 (Task) 작업 항목에 대해 사용자 스토리 분기를 기반으로 분기를 만들 수 있습니다. 동일한 프로젝트에 대해 여러 사용자 스토리를 작업 하거나 동일한 사용자 스토리에 대해 다른 작업을 수행 하는 사용자가 여러 명 있는 경우 사용자 스토리-작업 관계에 해당 하는 계층의 분기를 구성 합니다. 분기를 공유 하는 경우 각 팀 멤버가 다른 분기 또는 다른 코드 또는 다른 아티팩트에 대해 작업을 수행 하 여 충돌을 최소화할 수 있습니다. 
 
@@ -61,7 +61,7 @@ git checkout <working branch name>
 
 ## <a name='WorkonaBranchandCommittheChanges-2'></a>분기에 대 한 작업 및 변경 내용 커밋 
 
-작업 항목 (예: 로컬 컴퓨터의 `script` 분기에 R 스크립트 파일 추가)을 변경한 후에는 다음 Git bash 명령을 사용 하 여 로컬 분기에서 업스트림 작업 분기로 변경 내용을 커밋할 수 있습니다.
+로컬 컴퓨터의 `script` 분기에 R 스크립트 파일을 추가 하는 것과 같이 작업 항목을 변경한 후에는 다음 Git bash 명령을 사용 하 여 로컬 분기에서 업스트림 작업 분기로 변경 사항을 커밋할 수 있습니다.
 
 ```bash
 git status
@@ -76,11 +76,11 @@ git push origin script
 
 하나 이상의 커밋 및 푸시 후에 현재 작업 분기를 기본 분기에 병합할 준비가 되 면 Azure Repos에서 *끌어오기 요청* 을 만들고 제출할 수 있습니다. 
 
-Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있는 **리포지토리** > **끌어오기 요청** 을 가리킵니다. 그런 다음 **새 끌어오기 요청** 단추 또는 **끌어오기 요청 만들기** 링크 중 하나를 선택 합니다.
+Azure DevOps 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있는 **리포지토리** > **끌어오기 요청** 을 가리킵니다. 그런 다음 **새 끌어오기 요청** 단추 또는 **끌어오기 요청 만들기** 링크 중 하나를 선택 합니다.
 
 ![6](./media/collaborative-coding-with-git/6-spring-create-pull-request.png)
 
-**새 끌어오기 요청** 화면에서 필요한 경우 변경 내용을 병합할 Git 리포지토리 및 분기로 이동 합니다. 원하는 다른 정보를 추가 하거나 변경 합니다. **검토자**에서 변경 내용을 검토 해야 하는 이름을 추가 하 고 **만들기**를 선택 합니다. 
+**새 끌어오기 요청** 화면에서 필요한 경우 변경 내용을 병합할 Git 리포지토리 및 분기로 이동 합니다. 원하는 다른 정보를 추가 하거나 변경 합니다. **검토자**에서 검토자의 이름을 추가 하 고 **만들기**를 선택 합니다. 
 
 ![7](./media/collaborative-coding-with-git/7-spring-send-pull-request.png)
 
@@ -98,7 +98,7 @@ Azure devops 프로젝트의 기본 페이지에서 왼쪽 탐색 영역에 있�
 
 ![11](./media/collaborative-coding-with-git/11-spring-merge-pullrequest.png)
 
-왼쪽 탐색 영역에서 **리포지토리** 로 돌아가서 `script` 분기가 삭제 된 이후 마스터 분기로 전환 되었음을 알 수 있습니다.
+왼쪽 탐색 영역에서 **리포지토리** 로 다시 이동 하면 `script` 분기가 삭제 된 후 마스터 분기로 전환 되었음을 알 수 있습니다.
 
 ![12](./media/collaborative-coding-with-git/12-spring-branch-deleted.png)
 

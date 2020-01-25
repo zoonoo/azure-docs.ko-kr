@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.date: 11/14/2019
 ms.topic: conceptual
 ms.author: raynew
-ms.openlocfilehash: a078f1dc7d7aa3727f3f057f284c2ea5da923e07
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 11f593bae6b3aab8355a8f39b56639cad8133b51
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514853"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719554"
 ---
 # <a name="common-questions-about-vmware-to-azure-replication"></a>VMware에서 Azure로 복제에 대한 일반적인 질문
 
@@ -169,7 +169,7 @@ VMware VM을 Azure에 복제하는 경우에는 복제가 계속됩니다.
 
 ### <a name="if-i-use-replication-groups-for-multi-vm-consistency-can-i-add-a-new-vm-to-an-existing-replication-group"></a>다중 VM 일관성에 대해 복제 그룹을 사용하는 경우 새 VM을 기존 복제 그룹에 추가할 수 있나요?
 
-예, 복제를 활성화하면 새 VM을 기존 복제 그룹에 추가할 수 있습니다. 그러나
+예, 복제를 활성화하면 새 VM을 기존 복제 그룹에 추가할 수 있습니다. 但是：
 
 - 복제가 시작 된 후에는 기존 복제 그룹에 VM을 추가할 수 없습니다.
 - 기존 Vm에 대 한 복제 그룹을 만들 수 없습니다.

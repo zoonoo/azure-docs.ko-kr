@@ -15,12 +15,12 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b8dc442720a6c2876990e5012732b363b43ec0cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e776ce8a455f2a5b453e23ebb996de9ddb5175a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430190"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711970"
 ---
 # <a name="managing-user-account-provisioning-for-enterprise-apps-in-the-azure-portal"></a>Azure Portal에서 엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리
 
@@ -38,7 +38,7 @@ Azure Active Directory 포털을 사용 하 여 디렉터리에서 Single Sign-O
 1. 앱을 선택 하 여 리소스 창을 로드 하면 보고서를 보고 앱 설정을 관리할 수 있습니다.
 1. **프로 비전** 을 선택 하 여 선택한 앱에 대 한 사용자 계정 프로 비전 설정을 관리 합니다.
 
-   ![사용자 계정 프로 비전 설정을 관리 하기 위한 프로 비전 화면](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
+   ![사용자 계정 프로 비전 설정을 관리 하기 위한 프로 비전 화면](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning.png)
 
 ## <a name="provisioning-modes"></a>프로비전 모드
 
@@ -68,7 +68,7 @@ Azure Active Directory 포털을 사용 하 여 디렉터리에서 Single Sign-O
 
 Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에 미리 구성 된 매핑 집합이 있습니다. 일부 앱은 그룹이나 연락처 같은 다른 유형의 개체를 관리합니다. 테이블에서 매핑을 선택 하 여 오른쪽에 있는 매핑 편집기를 열고 사용자가이를 보고 사용자 지정할 수 있습니다.
 
-![특성 매핑 화면을 표시 합니다.](./media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
+![특성 매핑 화면을 표시 합니다.](media/configure-automatic-user-provisioning-portal/enterprise-apps-provisioning-mapping.png)
 
 지원되는 사용자 지정은 다음과 같습니다.
 
@@ -88,4 +88,4 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에 미리 �
 
 프로 비전 서비스를 일시 중지 하려면 **프로 비전 상태** 를 **Off** 로 변경 합니다. 이 상태에서 Azure는 앱의 사용자 또는 그룹 개체를 만들거나, 업데이트 하거나, 제거 하지 않습니다. 상태를 다시 **설정** 으로 변경 하면 서비스가 중단 된 위치에서 선택 됩니다.
 
-**현재 상태를 지우고 동기화를 다시 시작 하** 여 초기 주기를 트리거합니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가 하 고 프로 비전 범위에 있는지 확인 합니다. 이는 응용 프로그램이 현재 격리 되 고 있거나 특성 매핑을 변경 해야 하는 경우에 유용할 수 있습니다. 계산 해야 하는 개체의 수로 인해 초기 주기는 일반적인 증분 주기 보다 완료 하는 데 더 오래 걸립니다. 여기에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다 [.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 
+**현재 상태를 지우고 동기화를 다시 시작 하** 여 초기 주기를 트리거합니다. 그러면 서비스는 원본 시스템의 모든 사용자를 다시 평가 하 고 프로 비전 범위에 있는지 확인 합니다. 이는 응용 프로그램이 현재 격리 되 고 있거나 특성 매핑을 변경 해야 하는 경우에 유용할 수 있습니다. 계산 해야 하는 개체의 수로 인해 초기 주기는 일반적인 증분 주기 보다 완료 하는 데 더 오래 걸립니다. [여기](application-provisioning-when-will-provisioning-finish-specific-user.md)에서 초기 및 증분 주기의 성능에 대해 자세히 알아볼 수 있습니다. 

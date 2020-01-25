@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 43c9ba4ff21f32ca321a62c7f11430d82dfc4ec0
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045177"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715869"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -149,7 +149,7 @@ Azure는 [Azure Cost Management + 청구](https://docs.microsoft.com/azure/cost-
 
 사용자 지정 보존을 사용 하 여 `Usage` 및 `AzureActivity` 데이터 형식을 설정할 수 없습니다. 기본 작업 영역 보존 또는 90 일의 최대값을 사용 합니다. 
 
-데이터 형식으로 보존을 설정 하기 위해 Azure Resource Manager에 직접 연결 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 securityevent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
+데이터 형식으로 보존을 설정 하기 위해 Azure Resource Manager에 직접 연결 하는 좋은 도구는 OSS 도구 [ARMclient](https://github.com/projectkudu/ARMClient)입니다.  [David Ebbo](http://blog.davidebbo.com/2015/01/azure-resource-manager-client.html) 및 [Daniel Bowbyes](https://blog.bowbyes.co.nz/2016/11/02/using-armclient-to-directly-access-azure-arm-rest-apis-and-list-arm-policy-details/)에서 ARMclient에 대해 자세히 알아보세요.  ARMClient를 사용 하 여 SecurityEvent 데이터를 730 일 보존으로 설정 하는 예제는 다음과 같습니다.
 
 ```
 armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/Microsoft.OperationalInsights/workspaces/MyWorkspaceName/Tables/SecurityEvent?api-version=2017-04-26-preview "{properties: {retentionInDays: 730}}"

@@ -2,13 +2,13 @@
 title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 37d055503b8c9524392bedaa265025554dc4f8ee
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: b24bf2d8076dbaa1975f5444d597647156a31f4f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479619"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715583"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -132,6 +132,7 @@ ms.locfileid: "75479619"
 > - [Microsoft.Portal](#microsoftportal)
 > - [Microsoft.PowerBI](#microsoftpowerbi)
 > - [Microsoft.PowerBIDedicated](#microsoftpowerbidedicated)
+> - [ProjectBabylon](#microsoftprojectbabylon)
 > - [Microsoft.RecoveryServices](#microsoftrecoveryservices)
 > - [Microsoft.Relay](#microsoftrelay)
 > - [Microsoft RemoteApp](#microsoftremoteapp)
@@ -165,6 +166,7 @@ ms.locfileid: "75479619"
 > - [Microsoft 구독](#microsoftsubscription)
 > - [Microsoft.TimeSeriesInsights](#microsofttimeseriesinsights)
 > - [Microsoft.VMwareCloudSimple](#microsoftvmwarecloudsimple)
+> - [Microsoft VnfManager](#microsoftvnfmanager)
 > - [Microsoft.Web](#microsoftweb)
 > - [WindowsDefenderATP](#microsoftwindowsdefenderatp)
 > - [Microsoft.WindowsIoT](#microsoftwindowsiot)
@@ -222,7 +224,7 @@ ms.locfileid: "75479619"
 > | alertsMetaData | 아닙니다. |
 > | alertsSummary | 아닙니다. |
 > | alertsSummaryList | 아닙니다. |
-> | 피드백 | 아닙니다. |
+> | 있으신가요 | 아닙니다. |
 > | smartDetectorAlertRules | 예 |
 > | smartDetectorRuntimeEnvironments | 아닙니다. |
 > | smartGroups | 아닙니다. |
@@ -282,6 +284,7 @@ ms.locfileid: "75479619"
 > | policySetDefinitions | 아닙니다. |
 > | providerOperations | 아닙니다. |
 > | roleAssignments | 아닙니다. |
+> | roleAssignmentsUsageMetrics | 아닙니다. |
 > | roleDefinitions | 아닙니다. |
 
 ## <a name="microsoftautomation"></a>Microsoft.Automation
@@ -366,6 +369,7 @@ ms.locfileid: "75479619"
 > | billingAccounts / billingProfiles / billingSubscriptions | 아닙니다. |
 > | billingAccounts / billingProfiles / createBillingRoleAssignment | 아닙니다. |
 > | billingAccounts/billingProfiles/고객 | 아닙니다. |
+> | billingAccounts/billingProfiles/지침 | 아닙니다. |
 > | billingAccounts/billingProfiles/송장 | 아닙니다. |
 > | billingAccounts/billingProfiles/청구서/가격표 | 아닙니다. |
 > | billingAccounts / billingProfiles / invoiceSections | 아닙니다. |
@@ -493,6 +497,7 @@ ms.locfileid: "75479619"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | appliedReservations | 아닙니다. |
+> | autoQuotaIncrease | 아닙니다. |
 > | calculateExchange | 아닙니다. |
 > | calculatePrice | 아닙니다. |
 > | calculatePurchasePrice | 아닙니다. |
@@ -509,6 +514,7 @@ ms.locfileid: "75479619"
 > | reservationOrders/분할 | 아닙니다. |
 > | reservationOrders/교환 | 아닙니다. |
 > | reservations | 아닙니다. |
+> | resourceProviders | 아닙니다. |
 > | 리소스 | 아닙니다. |
 > | validateReservationOrder | 아닙니다. |
 
@@ -762,7 +768,7 @@ ms.locfileid: "75479619"
 > | ExternalSubscriptions/차원 | 아닙니다. |
 > | ExternalSubscriptions/예측 | 아닙니다. |
 > | ExternalSubscriptions/Query | 아닙니다. |
-> | Forecast | 아닙니다. |
+> | 예측할 | 아닙니다. |
 > | 쿼리 | 아닙니다. |
 > | register | 아닙니다. |
 > | Reportconfigs | 아닙니다. |
@@ -783,7 +789,7 @@ ms.locfileid: "75479619"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | 연결 | 아닙니다. |
+> | 사이의 | 아닙니다. |
 > | resourceProviders | 예 |
 
 ## <a name="microsoftdatabox"></a>Microsoft.DataBox
@@ -806,6 +812,8 @@ ms.locfileid: "75479619"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | workspaces | 예 |
+> | workspace/dbWorkspaces | 아닙니다. |
+> | 작업 영역/storageEncryption | 아닙니다. |
 > | 작업 영역/virtualNetworkPeerings | 아닙니다. |
 
 ## <a name="microsoftdatacatalog"></a>Microsoft.DataCatalog
@@ -883,6 +891,7 @@ ms.locfileid: "75479619"
 > | ------------- | ----------- |
 > | 서버 | 예 |
 > | 서버/관리자 | 아닙니다. |
+> | 서버/키 | 아닙니다. |
 > | servers/privateEndpointConnectionProxies | 아닙니다. |
 > | servers/privateEndpointConnections | 아닙니다. |
 > | servers/privateLinkResources | 아닙니다. |
@@ -899,6 +908,7 @@ ms.locfileid: "75479619"
 > | ------------- | ----------- |
 > | 서버 | 예 |
 > | 서버/관리자 | 아닙니다. |
+> | 서버/키 | 아닙니다. |
 > | servers/privateEndpointConnectionProxies | 아닙니다. |
 > | servers/privateEndpointConnections | 아닙니다. |
 > | servers/privateLinkResources | 아닙니다. |
@@ -961,8 +971,10 @@ ms.locfileid: "75479619"
 > | ------------- | ----------- |
 > | ElasticPools | 예 |
 > | ElasticPools / IotHubTenants | 예 |
+> | ElasticPools/IotHubTenants/securitySettings | 아닙니다. |
 > | IotHubs | 예 |
 > | IotHubs/eventGridFilters | 아닙니다. |
+> | IotHubs/securitySettings | 아닙니다. |
 > | ProvisioningServices | 예 |
 > | usages | 아닙니다. |
 
@@ -1036,6 +1048,12 @@ ms.locfileid: "75479619"
 > | 도메인/항목 | 아닙니다. |
 > | eventSubscriptions | 아닙니다. |
 > | extensionTopics | 아닙니다. |
+> | 네임 스페이스 | 예 |
+> | 네임 스페이스/a s p 채널 | 아닙니다. |
+> | 파트너 등록 | 예 |
+> | 항목 항목 | 예 |
+> | systemTopics | 예 |
+> | systemTopics/eventSubscriptions | 아닙니다. |
 > | topics | 예 |
 > | topicTypes | 아닙니다. |
 
@@ -1091,6 +1109,8 @@ ms.locfileid: "75479619"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
+> | autoManagedAccounts | 예 |
+> | autoManagedVmConfigurationProfiles | 예 |
 > | configurationprofil | 아닙니다. |
 > | guestConfigurationAssignments | 아닙니다. |
 > | software | 아닙니다. |
@@ -1202,6 +1222,8 @@ ms.locfileid: "75479619"
 > | 클러스터/데이터베이스 | 아닙니다. |
 > | 클러스터/데이터베이스/dataconnections | 아닙니다. |
 > | 클러스터/데이터베이스/eventhubconnections | 아닙니다. |
+> | 클러스터/데이터베이스/principalassignments | 아닙니다. |
+> | 클러스터/principalassignments | 아닙니다. |
 > | 클러스터/sharedidentities | 아닙니다. |
 
 ## <a name="microsoftlabservices"></a>Microsoft.LabServices
@@ -1292,6 +1314,7 @@ ms.locfileid: "75479619"
 > | offerTypes/게시자/제품/계획/configs | 아닙니다. |
 > | offerTypes/publishers/제품/계획/configs/importImage | 아닙니다. |
 > | privategalleryitems | 아닙니다. |
+> | privateStoreClient | 아닙니다. |
 > | products | 아닙니다. |
 > | 게시자 | 아닙니다. |
 > | 게시자/제안 | 아닙니다. |
@@ -1350,9 +1373,10 @@ ms.locfileid: "75479619"
 > | ------------- | ----------- |
 > | assessmentProjects | 예 |
 > | migrateprojects | 예 |
+> | moveCollections | 예 |
 > | projects | 예 |
 
-## <a name="microsoftmixedreality"></a>Microsoft.MixedReality
+## <a name="microsoftmixedreality"></a>MixedReality
 
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
@@ -1492,8 +1516,12 @@ ms.locfileid: "75479619"
 > | linkTargets | 아닙니다. |
 > | storageInsightConfigs | 아닙니다. |
 > | workspaces | 예 |
+> | 작업 영역/데이터 내보내기 | 아닙니다. |
 > | 작업 영역/데이터 원본 | 아닙니다. |
 > | 작업 영역/Linkedservices.json 및 datasets.json | 아닙니다. |
+> | 작업 영역/privateEndpointConnectionProxies | 아닙니다. |
+> | 작업 영역/privateEndpointConnections | 아닙니다. |
+> | 작업 영역/privateLinkResources | 아닙니다. |
 > | 작업 영역/쿼리 | 아닙니다. |
 
 ## <a name="microsoftoperationsmanagement"></a>Microsoft.OperationsManagement
@@ -1551,6 +1579,13 @@ ms.locfileid: "75479619"
 > | ------------- | ----------- |
 > | capacities | 예 |
 
+## <a name="microsoftprojectbabylon"></a>ProjectBabylon
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | 계정 | 예 |
+
 ## <a name="microsoftrecoveryservices"></a>Microsoft.RecoveryServices
 
 > [!div class="mx-tableFixed"]
@@ -1577,7 +1612,7 @@ ms.locfileid: "75479619"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | 계정 | 아닙니다. |
-> | 컬렉션 | 예 |
+> | 수집이 | 예 |
 > | 컬렉션/응용 프로그램 | 아닙니다. |
 > | collections/securityprincipals | 아닙니다. |
 > | 템플릿 이미지 | 아닙니다. |
@@ -1602,6 +1637,7 @@ ms.locfileid: "75479619"
 > | availabilityStatuses | 아닙니다. |
 > | childAvailabilityStatuses | 아닙니다. |
 > | childResources | 아닙니다. |
+> | emergingissues | 아닙니다. |
 > | events | 아닙니다. |
 > | impactedResources | 아닙니다. |
 > | metadata | 아닙니다. |
@@ -1620,12 +1656,7 @@ ms.locfileid: "75479619"
 > | notifyResourceJobs | 아닙니다. |
 > | providers | 아닙니다. |
 > | resourceGroups | 아닙니다. |
-> | 리소스 | 아닙니다. |
 > | 구독 | 아닙니다. |
-> | 구독/공급자 | 아닙니다. |
-> | 구독/리소스 | 아닙니다. |
-> | 구독/tagnames | 아닙니다. |
-> | subscription/tagNames/tagValues | 아닙니다. |
 > | tenants | 아닙니다. |
 
 ## <a name="microsoftsaas"></a>Microsoft.SaaS
@@ -1662,7 +1693,7 @@ ms.locfileid: "75479619"
 > | allowedConnections | 아닙니다. |
 > | applicationWhitelistings | 아닙니다. |
 > | assessmentMetadata | 아닙니다. |
-> | 평가 | 아닙니다. |
+> | 인사 | 아닙니다. |
 > | autoDismissAlertsRules | 아닙니다. |
 > | 자동화 | 예 |
 > | AutoProvisioningSettings | 아닙니다. |
@@ -1708,10 +1739,10 @@ ms.locfileid: "75479619"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
-> | aggregations | 아닙니다. |
+> | 집계 | 아닙니다. |
 > | alertRules | 아닙니다. |
 > | alertRuleTemplates | 아닙니다. |
-> | 책갈피 | 아닙니다. |
+> | 내부의 | 아닙니다. |
 > | cases | 아닙니다. |
 > | dataConnectors | 아닙니다. |
 > | 엔터티 | 아닙니다. |
@@ -1954,6 +1985,16 @@ ms.locfileid: "75479619"
 > | dedicatedCloudServices | 예 |
 > | virtualMachines | 예 |
 
+## <a name="microsoftvnfmanager"></a>Microsoft VnfManager
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 전체 모드 삭제 |
+> | ------------- | ----------- |
+> | devices | 예 |
+> | 판매 | 아닙니다. |
+> | 공급 업체/sku | 아닙니다. |
+> | vnfs | 예 |
+
 ## <a name="microsoftweb"></a>Microsoft.Web
 
 > [!div class="mx-tableFixed"]
@@ -1975,8 +2016,8 @@ ms.locfileid: "75479619"
 > | connections | 예 |
 > | customApis | 예 |
 > | deletedSites | 아닙니다. |
-> | Functions | 아닙니다. |
 > | hostingEnvironments | 예 |
+> | hostingEnvironments/eventGridFilters | 아닙니다. |
 > | hostingEnvironments/multiRolePools | 아닙니다. |
 > | hostingEnvironments/이상 풀 | 아닙니다. |
 > | publishingUsers | 아닙니다. |
@@ -1996,6 +2037,7 @@ ms.locfileid: "75479619"
 > | 사이트/슬롯/hostNameBindings | 아닙니다. |
 > | 사이트/슬롯/네트워크 구성 | 아닙니다. |
 > | sourceControls | 아닙니다. |
+> | staticSites | 예 |
 > | validate | 아닙니다. |
 > | verifyHostingEnvironmentVnet | 아닙니다. |
 

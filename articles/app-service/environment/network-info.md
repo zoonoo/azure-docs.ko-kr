@@ -4,15 +4,15 @@ description: Ase 네트워크 트래픽 및 ASE를 사용 하 여 네트워크 �
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 3b16d7cbba63be9f50b0d186b2162a5755b76802
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb931c309b5f85902d8abc9cc6da45576bff4041
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75375018"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713186"
 ---
 # <a name="networking-considerations-for-an-app-service-environment"></a>App Service Environment에 대한 네트워킹 고려 사항 #
 
@@ -88,7 +88,7 @@ ASE는 다음 포트에서 인터넷에 액세스할 수 있는 주소를 전달
 |-----|------|
 | DNS | 53 |
 | NTP | 123 |
-| 8CRL, Windows 업데이트, Linux 종속성, Azure 서비스 | 80/443 |
+| CRL, Windows 업데이트, Linux 종속성, Azure 서비스 | 80/443 |
 | Azure SQL | 1433 | 
 | 모니터링 | 12000 |
 
@@ -152,7 +152,7 @@ NSG는 Azure Portal 또는 PowerShell을 통해 구성할 수 있습니다. 이 
 
 ASE가 작동 하기 위해 NSG에서 필요한 항목은 트래픽을 허용 하는 것입니다.
 
-**인바운드**
+**인바운드만**
 * 포트 454455의 IP 서비스 태그 AppServiceManagement에서
 * 16001 포트의 부하 분산 장치에서
 * ASE 서브넷에서 모든 포트의 ASE 서브넷으로

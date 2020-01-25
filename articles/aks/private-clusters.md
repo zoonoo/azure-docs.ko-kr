@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 12/10/2019
+ms.date: 1/24/2020
 ms.author: mlearned
-ms.openlocfilehash: 2344e2189d6b0f02e7fed1aab25d32551c1fedcf
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a477c2011ff3c6cf1987ed80ef5c19c26abc40f0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154344"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713334"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 
@@ -128,14 +128,16 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트�
 
 ## <a name="dependencies"></a>종속성  
 * 개인 링크 서비스는 표준 Azure Load Balancer 에서만 지원 됩니다. 기본 Azure Load Balancer 지원 되지 않습니다.  
+* 사용자 지정 DNS 서버를 사용 하려면 DNS를 사용 하 여이 IP 168.63.129.16 전달 되는 AD 서버를 배포 합니다.
 
 ## <a name="limitations"></a>제한 사항 
+* 가용성 영역 현재 지원 되지 않습니다.
 * [Azure 개인 링크 서비스 제한은][private-link-service] 현재 동일한 가상 네트워크에서 지원 되지 않는 개인 클러스터, Azure 개인 끝점 및 가상 네트워크 서비스 끝점에 적용 됩니다.
-* 개인 Azure 가상 네트워크에서 개인 Azure Container Instances (ACI)를 spin 개인 클러스터의 가상 노드가 지원 되지 않습니다.
-* Azure DevOps 통합은 개인 클러스터와 함께 제공 되지 않습니다.
+* 개인 Azure 가상 네트워크에서 개인 Azure Container Instances (ACI)를 spin 개인 클러스터의 가상 노드가 지원 되지 않음
+* 개인 클러스터와 함께 기본 제공 되는 Azure DevOps 통합을 지원 하지 않습니다.
 * Azure Container Registry를 개인 AKS 사용 하도록 설정 해야 하는 고객의 경우 Container Registry 가상 네트워크는 에이전트 클러스터 가상 네트워크와 피어 링 되어야 합니다.
-* 현재 Azure Dev Spaces 지원 하지 않습니다.
-* 기존 AKS 클러스터를 개인 클러스터로 변환 하는 기능을 지원 하지 않습니다.  
+* 현재 Azure Dev Spaces 지원 안 함
+* 기존 AKS 클러스터를 개인 클러스터로 변환 하는 기능이 지원 되지 않음
 * 고객 서브넷에서 개인 끝점을 삭제 하거나 수정 하면 클러스터의 작동이 중지 됩니다. 
 * 컨테이너 라이브 데이터에 대 한 Azure Monitor 현재 지원 되지 않습니다.
 * *사용자 고유의 DNS 가져오기* 는 현재 지원 되지 않습니다.

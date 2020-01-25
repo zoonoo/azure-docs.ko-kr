@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/06/2019
 ms.author: denisgun
-ms.openlocfilehash: a0965dc4011b449e617f6dbaeafb68bfa796b620
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 64e8fab3ac352c906cfb63cd39f89acda4109b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73953942"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719758"
 ---
 # <a name="configure-graphics-processing-unit-gpu-acceleration-for-windows-virtual-desktop"></a>Windows 가상 데스크톱에 대 한 GPU (그래픽 처리 장치) 가속 구성
 
@@ -37,9 +37,9 @@ Windows 가상 데스크톱은 다음과 같은 운영 체제에서 GPU 가속 �
 
 ## <a name="install-supported-graphics-drivers-in-your-virtual-machine"></a>가상 머신에서 지원 되는 그래픽 드라이버 설치
 
-Windows 가상 데스크톱에서 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 그래픽 드라이버를 설치 해야 합니다. Windows를 실행 하는 [N 시리즈 vm에 NVIDIA gpu 드라이버 설치의](/azure/virtual-machines/windows/n-series-driver-setup) 지침에 따라 수동으로 또는 [Nvidia gpu 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows)을 사용 하 여 드라이버를 설치 합니다.
+Windows 가상 데스크톱에서 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 적절 한 그래픽 드라이버를 설치 해야 합니다. [지원 되는 운영 체제 및 드라이버](/azure/virtual-machines/windows/sizes-gpu#supported-operating-systems-and-drivers) 의 지침에 따라 해당 하는 그래픽 공급 업체에서 수동으로 또는 Azure VM 확장을 사용 하 여 드라이버를 설치 합니다.
 
-Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) Windows 가상 데스크톱에서 지원 됩니다.
+Azure에서 배포 된 드라이버만 Windows 가상 데스크톱에서 지원 됩니다. Additionaly NVIDIA Gpu를 사용 하는 Azure Vm의 경우 Windows 가상 데스크톱에 대해 [NVIDIA 그리드 드라이버만](/azure/virtual-machines/windows/n-series-driver-setup#nvidia-grid-drivers) 지원 됩니다.
 
 드라이버를 설치한 후에는 VM을 다시 시작 해야 합니다. 위 지침의 확인 단계를 사용 하 여 그래픽 드라이버가 성공적으로 설치 되었는지 확인 합니다.
 
@@ -49,7 +49,7 @@ Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-mach
 
 1. 로컬 관리자 권한이 있는 계정을 사용 하 여 VM의 데스크톱에 연결 합니다.
 2. 시작 메뉴를 열고 "gpedit.msc"를 입력 하 여 그룹 정책 편집기를 엽니다.
-3. 트리를 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** ** > 원격 데스크톱 세션 호스트** **원격 세션 환경**으로 이동 합니다. > 
+3. 트리를 **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소** > **원격 데스크톱 서비스** ** > 원격 데스크톱 세션 호스트** **원격 세션 환경**으로 이동 합니다.
 4. 정책 선택 **모든 원격 데스크톱 서비스 세션에 하드웨어 기본 그래픽 어댑터 사용** 을 선택 하 고이 정책을 **사용으로 설정** 하 여 원격 세션에서 GPU 렌더링을 사용 하도록 설정 합니다.
 
 ## <a name="configure-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 구성
@@ -74,7 +74,7 @@ Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-mach
 
 앱이 렌더링에 GPU를 사용 하는지 확인 하려면 다음 중 하나를 수행 합니다.
 
-* [드라이버 설치 확인](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) 에 설명 된 대로 `nvidia-smi` 유틸리티를 사용 하 여 앱을 실행할 때 GPU 사용률을 확인 합니다.
+* NVIDIA GPU를 사용 하는 Azure Vm의 경우 [드라이버 설치 확인](/azure/virtual-machines/windows/n-series-driver-setup#verify-driver-installation) 에 설명 된 대로 `nvidia-smi` 유틸리티를 사용 하 여 앱을 실행할 때 GPU 사용률을 확인 합니다.
 * 지원 되는 운영 체제 버전에서 작업 관리자를 사용 하 여 GPU 사용률을 확인할 수 있습니다. "성능" 탭에서 GPU를 선택 하 여 앱에서 GPU를 활용 하는지 확인 합니다.
 
 ## <a name="verify-gpu-accelerated-frame-encoding"></a>GPU 가속 프레임 인코딩 확인
@@ -90,5 +90,5 @@ Azure에서 배포 하는 [NVIDIA 그리드 드라이버만](/azure/virtual-mach
 
 이러한 지침에는 단일 세션 호스트 VM에서 GPU 가속을 사용 하 여 실행 해야 합니다. 더 큰 호스트 풀에서 GPU 가속을 사용 하기 위한 몇 가지 추가 고려 사항:
 
-* [NVIDIA GPU 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows) 을 사용 하 여 여러 vm에서 드라이버 설치 및 업데이트를 간소화 하는 것이 좋습니다.
+* [Vm 확장](/azure/virtual-machines/extensions/overview) 을 사용 하 여 여러 vm에서 드라이버 설치 및 업데이트를 간소화 하는 것이 좋습니다. NVIDIA gpu를 사용 하는 Vm에 [NVIDIA Gpu 드라이버 확장](/azure/virtual-machines/extensions/hpccompute-gpu-windows) 을 사용 하 고 amd gpu를 사용 하는 vm에 대해 Amd Gpu 드라이버 확장 (출시 예정)을 사용 합니다.
 * 여러 Vm에서 그룹 정책 구성을 간소화 하기 위해 Active Directory 그룹 정책를 사용 하는 것이 좋습니다. Active Directory 도메인에 그룹 정책를 배포 하는 방법에 대 한 자세한 내용은 [그룹 정책 개체 작업](https://go.microsoft.com/fwlink/p/?LinkId=620889)을 참조 하세요.

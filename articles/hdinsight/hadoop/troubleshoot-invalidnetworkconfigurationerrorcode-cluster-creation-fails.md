@@ -1,18 +1,18 @@
 ---
 title: InvalidNetworkConfigurationErrorCode 오류-Azure HDInsight
 description: Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 실패 한 클러스터 만들기에 대 한 다양 한 이유
-ms.service: hdinsight
-ms.topic: troubleshooting
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
-ms.date: 08/05/2019
-ms.openlocfilehash: f857ee47f5dd8018d2e26aab47252533b0b17617
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.date: 01/22/2020
+ms.openlocfilehash: 6dd4db999cb130c9816ad023888a4333e968c224
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887107"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720387"
 ---
 # <a name="cluster-creation-fails-with-invalidnetworkconfigurationerrorcode-in-azure-hdinsight"></a>Azure HDInsight에서 InvalidNetworkConfigurationErrorCode를 사용 하 여 클러스터 만들기 실패
 
@@ -28,19 +28,19 @@ ms.locfileid: "75887107"
 
 ### <a name="cause"></a>원인
 
-이 오류는 사용자 지정 DNS 구성의 문제를 가리킵니다. 가상 네트워크 내의 DNS 서버는 Azure의 재귀 확인자에 DNS 쿼리를 전달 하 여 해당 가상 네트워크 내에서 호스트 이름을 확인할 수 있습니다 (자세한 내용은 [가상 네트워크의 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 참조). Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다. 이 IP는 Azure Vm 에서만 액세스할 수 있습니다. 온-프레미스 DNS 서버를 사용 하 고 있거나 DNS 서버가 클러스터 vNet의 일부가 아닌 Azure VM 인 경우에는 작동 하지 않습니다.
+이 오류는 사용자 지정 DNS 구성의 문제를 가리킵니다. 가상 네트워크 내의 DNS 서버는 Azure의 재귀 확인자에 DNS 쿼리를 전달 하 여 해당 가상 네트워크 내에서 호스트 이름을 확인할 수 있습니다 (자세한 내용은 [가상 네트워크의 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 참조). Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다. 이 IP는 Azure Vm 에서만 액세스할 수 있습니다. 온-프레미스 DNS 서버를 사용 하는 경우 또는 DNS 서버가 클러스터의 가상 네트워크에 속하지 않는 Azure VM 인 경우에는 작동 하지 않습니다.
 
 ### <a name="resolution"></a>해상도
 
 1. 클러스터의 일부인 VM으로 Ssh를 실행 하 고 명령 `hostname -f`를 실행 합니다. 그러면 호스트의 정규화 된 도메인 이름이 반환 됩니다 (아래 지침에서 `<host_fqdn>` 이라고 함).
 
-1. 그런 다음 명령 `nslookup <host_fqdn>` (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`)를 실행 합니다. 이 명령은 이름을 IP 주소로 확인 하는 경우 DNS 서버가 제대로 작동 하 고 있음을 의미 합니다. 이 경우 HDInsight를 사용 하 여 지원 사례를 발생 시키고 문제를 조사 합니다. 지원 사례에는 실행 한 문제 해결 단계를 포함 합니다. 이렇게 하면 문제를 더 빠르게 해결 하는 데 도움이 됩니다.
+1. 그런 다음 명령 `nslookup <host_fqdn>` (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net`)를 실행 합니다. 이 명령은 이름을 IP 주소로 확인 하는 경우 DNS 서버가 제대로 작동 하 고 있음을 의미 합니다. 이 경우 HDInsight를 사용 하 여 지원 사례를 제기 하 고 문제를 조사 합니다. 지원 사례에는 실행 한 문제 해결 단계를 포함 합니다. 이렇게 하면 문제를 더 빠르게 해결 하는 데 도움이 됩니다.
 
-1. 위의 명령에서 IP 주소를 반환 하지 않는 경우 `nslookup <host_fqdn> 168.63.129.16` (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`)를 실행 합니다. 이 명령을 사용 하 여 IP를 확인할 수 있는 경우 DNS 서버는 Azure의 DNS로 쿼리를 전달 하 고 있지 않거나 클러스터와 동일한 vNet의 일부인 VM이 아님을 의미 합니다.
+1. 위의 명령에서 IP 주소를 반환 하지 않는 경우 `nslookup <host_fqdn> 168.63.129.16` (예: `nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net 168.63.129.16`)를 실행 합니다. 이 명령을 사용 하 여 IP를 확인할 수 있는 경우 DNS 서버에서 Azure의 DNS로 쿼리를 전달 하지 않거나 클러스터와 동일한 가상 네트워크의 일부인 VM이 아닌 것을 의미 합니다.
 
-1. 클러스터의 vNet에서 사용자 지정 DNS 서버 역할을 할 수 있는 Azure VM이 없으면이를 먼저 추가 해야 합니다. DNS 전달자로 구성 될 vNet에서 VM을 만듭니다.
+1. 클러스터의 가상 네트워크에서 사용자 지정 DNS 서버 역할을 할 수 있는 Azure VM이 없으면이를 먼저 추가 해야 합니다. DNS 전달자로 구성 될 가상 네트워크에 VM을 만듭니다.
 
-1. VNet에 VM을 배포한 후이 VM에 대 한 DNS 전달 규칙을 구성 합니다. 모든 Idn 이름 확인 요청을 168.63.129.16에 전달 하 고 나머지는 DNS 서버로 전달 합니다. 사용자 지정 DNS 서버에 대 한이 설치의 예는 [다음과](../hdinsight-plan-virtual-network-deployment.md) 같습니다.
+1. 가상 네트워크에 VM을 배포한 후이 VM에 대 한 DNS 전달 규칙을 구성 합니다. 모든 Idn 이름 확인 요청을 168.63.129.16에 전달 하 고 나머지는 DNS 서버로 전달 합니다. 사용자 지정 DNS 서버에 대 한이 설치의 예는 [다음과](../hdinsight-plan-virtual-network-deployment.md) 같습니다.
 
 1. Virtual Network DNS 구성에 대 한 첫 번째 DNS 항목으로이 VM의 IP 주소를 추가 합니다.
 
@@ -54,7 +54,7 @@ ms.locfileid: "75887107"
 
 ### <a name="cause"></a>원인
 
-Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 액세스할 수 있도록 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (사용자 정의 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) 섹션을 참조 하세요.
+Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (사용자 정의 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) 섹션을 참조 하세요.
 
 ### <a name="resolution"></a>해상도
 
@@ -67,6 +67,73 @@ Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에
     Azure Portal로 이동 하 여 클러스터가 배포 되는 서브넷과 연결 된 경로 테이블을 식별 합니다. 서브넷에 대 한 경로 테이블을 찾았으면 **경로 섹션을 검사 합니다.**
 
     경로가 정의 되어 있으면 클러스터가 배포 된 지역에 대 한 IP 주소에 대 한 경로가 있는지 확인 하 고 각 경로에 대 한 **NextHopType** 는 **인터넷**입니다. 앞서 언급 한 문서에서 설명 하는 각 필수 IP 주소에 대해 정의 된 경로가 있어야 합니다.
+
+---
+
+## <a name="virtual-network-configuration-is-not-compatible-with-hdinsight-requirement"></a>"가상 네트워크 구성이 HDInsight 요구 사항과 호환 되지 않습니다."
+
+### <a name="issue"></a>문제
+
+오류 설명에는 다음과 비슷한 메시지가 포함 됩니다.
+
+```
+ErrorCode: InvalidNetworkConfigurationErrorCode
+ErrorDescription: Virtual Network configuration is not compatible with HDInsight Requirement. Error: 'Failed to connect to Azure Storage Account; Failed to connect to Azure SQL; HostName Resolution failed', Please follow https://go.microsoft.com/fwlink/?linkid=853974 to fix it.
+```
+
+### <a name="cause"></a>원인
+
+사용자 지정 DNS 설정에 문제가 있을 수 있습니다.
+
+### <a name="resolution"></a>해상도
+
+168.63.129.16이 사용자 지정 DNS 체인에 있는지 확인 합니다. 가상 네트워크 내에서 DNS 서버는 해당 가상 네트워크 내에서 호스트 이름을 확인하기 위해 Azure의 재귀 확인자에게 DNS 쿼리를 전달할 수 있습니다. 자세한 내용은 [가상 네트워크에서 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
+
+1. [Ssh 명령을](../hdinsight-hadoop-linux-use-ssh-unix.md) 사용 하 여 클러스터에 연결 합니다. CLUSTERNAME을 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
+
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
+    ```
+
+1. 다음 명령을 실행하십시오.
+
+    ```bash
+    cat /etc/resolv.conf | grep nameserver*
+    ```
+
+    다음과 유사한 결과가 표시됩니다.
+
+    ```output
+    nameserver 168.63.129.16
+    nameserver 10.21.34.43
+    nameserver 10.21.34.44
+    ```
+
+    결과에 따라 다음 단계 중 하나를 선택 하 여 수행 합니다.
+
+#### <a name="1686312916-is-not-in-this-list"></a>168.63.129.16이 목록에 없습니다.
+
+**옵션 1**  
+[Azure HDInsight에 대 한 가상 네트워크 계획](../hdinsight-plan-virtual-network-deployment.md)에 설명 된 단계를 사용 하 여 가상 네트워크에 대 한 첫 번째 사용자 지정 DNS로 168.63.129.16를 추가 합니다. 이러한 단계는 사용자 지정 DNS 서버가 Linux에서 실행 되는 경우에만 적용 됩니다.
+
+**옵션 2**  
+가상 네트워크에 대 한 DNS 서버 VM을 배포 합니다. 다음 단계를 포함합니다.
+
+* 가상 네트워크에 VM을 만듭니다 .이 VM은 DNS 전달자로 구성 됩니다 (Linux 또는 windows VM 일 수 있음).
+* 이 VM에 대 한 DNS 전달 규칙을 구성 합니다 (모든 Idn 이름 확인 요청을 168.63.129.16에 전달 하 고 나머지는 DNS 서버로 전달).
+* Virtual Network DNS 구성의 첫 번째 DNS 항목으로이 VM의 IP 주소를 추가 합니다.
+
+#### <a name="1686312916-is-in-the-list"></a>168.63.129.16는 목록에 있습니다.
+
+이 경우 HDInsight를 사용 하 여 지원 사례를 만들면 문제를 조사 합니다. 지원 사례에 아래 명령의 결과를 포함 합니다. 이렇게 하면 문제를 신속 하 게 조사 하 고 해결 하는 데 도움이 됩니다.
+
+헤드 노드의 ssh 세션에서 다음을 편집 하 고 실행 합니다.
+
+```bash
+hostname -f
+nslookup <headnode_fqdn> (e.g.nslookup hn1-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+dig @168.63.129.16 <headnode_fqdn> (e.g. dig @168.63.129.16 hn0-hditest.5h6lujo4xvoe1kprq3azvzmwsd.hx.internal.cloudapp.net)
+```
 
 ---
 

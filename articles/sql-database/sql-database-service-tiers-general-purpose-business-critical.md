@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 10/01/2019
-ms.openlocfilehash: 5e3cc12351313b8fb1dedf795031202070ac7cf7
-ms.sourcegitcommit: b5d59c6710046cf105236a6bb88954033bd9111b
+ms.date: 01/23/2020
+ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74558980"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715096"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -32,7 +32,7 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 
 다음 표에서는 최신 세대에 대 한 서비스 계층의 주요 차이점에 대해 설명 합니다 (Gen5). 서비스 계층 특성은 Single Database 및 Managed Instance에서 다를 수 있습니다.
 
-| | 리소스 종류 | 일반적인 용도 |  하이퍼스케일 | 중요 비즈니스 |
+| | 리소스 유형 | 일반적인 용도 |  하이퍼스케일 | 중요 비즈니스용 |
 |:---:|:---:|:---:|:---:|:---:|
 | **적합한 대상** | |  예산 중심의 균형 잡힌 컴퓨팅 및 스토리지 옵션을 제공합니다. | 대부분의 비즈니스 워크로드. 자동 크기 조정 저장소 크기는 최대 100 TB, 유체 수직 및 수평 계산 크기 조정, 빠른 데이터베이스 복원입니다. | 트랜잭션 속도가 높고 IO 대기 시간이 낮은 OLTP 응용 프로그램 는 동시에 업데이트 된 여러 복제본을 사용 하 여 오류 및 빠른 장애 조치에 가장 높은 복원 력을 제공 합니다|
 |  **리소스 종류에서 사용 가능:** ||단일 데이터베이스/탄력적 풀/관리되는 인스턴스 | 단일 데이터베이스 | 단일 데이터베이스/탄력적 풀/관리되는 인스턴스 |
@@ -51,7 +51,7 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 |**가용성**|전체| 99.99% |  [보조 복제본이 하나인 99.95%, 추가 복제본이 있는 99.99%](sql-database-service-tier-hyperscale-faq.md#what-slas-are-provided-for-a-hyperscale-database) | 99.99% <br/> [영역 중복 단일 데이터베이스가 포함 된 99.995%](https://azure.microsoft.com/blog/understanding-and-leveraging-azure-sql-database-sla/) |
 |**백업**|전체|RA-GRS, 7-35일(기본값: 7일)| RA-GRS, 7 일, 상수 시간 지정 시간 복구 (PITR) | RA-GRS, 7-35일(기본값: 7일) |
 |**메모리 내 OLTP** | | N/A | N/A | 사용할 수 있음 |
-|**읽기 전용 복제본**| | 0  | 0 - 4 | 1 (기본 제공, 가격에 포함 됨) |
+|**읽기 전용 복제본**| | 0 기본 제공 <br> 0-4 [지역에서 복제](sql-database-active-geo-replication.md) 사용 | 0-4 기본 제공 | 1 기본 제공, 가격에 포함 <br> 0-4 [지역에서 복제](sql-database-active-geo-replication.md) 사용 |
 |**가격 책정/청구** | 단일 데이터베이스 | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. | [각 복제본 및 사용 된 저장소에 대 한 Vcore에](https://azure.microsoft.com/pricing/details/sql-database/single/) 는 요금이 부과 됩니다. <br/>IOPS는 아직 청구 되지 않습니다. | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. |
 || 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | N/A | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
 |**할인 모델**| | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|

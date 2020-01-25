@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a9e4828428a91c1d1b75fb9d1b9004e52988084
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 214797f187c1812932c00bdf2a39c5ed79e15d4b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425475"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712669"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에 응용 프로그램 등록
 
@@ -88,7 +88,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 ## <a name="create-a-client-secret"></a>클라이언트 비밀 만들기
 
-응용 프로그램에서 토큰에 대 한 코드를 교환 하는 경우 응용 프로그램 암호를 만들어야 합니다.
+응용 프로그램이 액세스 토큰에 대 한 인증 코드를 교환 하는 경우 응용 프로그램 암호를 만들어야 합니다.
 
 #### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
 

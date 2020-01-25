@@ -7,20 +7,25 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 31af550d4f499b4b4440a27037dc210bfdf0cb6f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 01/24/2020
+ms.openlocfilehash: c32e58a43b5409fd9f8ede536167d185270c6a22
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793463"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721577"
 ---
 # <a name="how-to-work-with-search-results-in-azure-cognitive-search"></a>Azure Cognitive Search에서 검색 결과를 사용 하는 방법
 이 문서에서는 총 개수, 문서 검색, 정렬 순서 및 탐색과 같은 검색 결과 페이지의 표준 요소를 구현하는 방법에 대한 지침을 제공합니다. 검색 결과에 데이터 또는 정보를 제공 하는 페이지 관련 옵션은 Azure Cognitive Search 서비스로 전송 되는 [문서 검색](https://docs.microsoft.com/rest/api/searchservice/Search-Documents) 요청을 통해 지정 됩니다. 
 
 REST API의 요청에는 GET 명령, 경로 및 서비스에 필요한 것과 응답을 작성하는 방법을 서비스에 알려주는 쿼리 매개 변수가 포함됩니다. .NET SDK에서 해당하는 API는 [DocumentSearchResult Class](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.documentsearchresult-1)입니다.
 
-몇 가지 코드 샘플에는 [뉴욕 도시 작업 데모 앱](https://azjobsdemo.azurewebsites.net/) 과 [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)에서 찾을 수 있는 웹 프런트 엔드 인터페이스가 포함 되어 있습니다.
+클라이언트에 대 한 검색 페이지를 신속 하 게 생성 하려면 다음 옵션을 탐색 합니다.
+
++ 포털에서 [응용 프로그램 생성기](search-create-app-portal.md) 를 사용 하 여 검색 표시줄, 패싯 탐색 및 결과 영역을 포함 하는 HTML 페이지를 만듭니다.
++ 자습서 [의 C# 첫 번째 앱 만들기](tutorial-csharp-create-first-app.md) 를 따라 기능 클라이언트를 만듭니다.
+
+몇 가지 코드 샘플에는 [뉴욕 도시 작업 데모 앱](https://azjobsdemo.azurewebsites.net/), [라이브 데모 사이트를 사용 하는 JavaScript 샘플 코드](https://github.com/liamca/azure-search-javascript-samples), [CognitiveSearchFrontEnd](https://github.com/LuisCabrer/CognitiveSearchFrontEnd)에서 찾을 수 있는 웹 프런트 엔드 인터페이스가 포함 되어 있습니다.
 
 > [!NOTE]
 > 유효한 요청에는 서비스 URL 및 경로, HTTP 동사, `api-version` 등과 같은 요소의 숫자가 포함됩니다. 요약하자면, 페이지 매김에 관련된 구문만 강조하기 위해 예제를 잘라냈습니다. 요청 구문에 대 한 자세한 내용은 [Azure COGNITIVE SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice)를 참조 하세요.
@@ -88,13 +93,29 @@ Azure Cognitive Search에서 정렬은 `$orderby` 식을 기반으로 하며 `"S
 > 기본 점수 매기기는 다양한 시나리오에 적용할 수 있으므로 대신 사용자 지정 점수 매기기 프로필의 관련성에 기반하는 것이 좋습니다. 사용자 지정 점수 매기기 프로필은 비즈니스에 더 많은 이점을 제공하는 항목 강화 방법을 제공합니다. 자세한 내용은 [점수 매기기 프로필 추가](index-add-scoring-profiles.md)를 참조하세요.
 >
 
+## <a name="hit-highlighting"></a>적중 항목 강조 표시
+
+검색 결과에서 일치 하는 용어에 서식을 적용 하 여 일치 항목을 쉽게 찾을 수 있습니다. 적중 항목 강조 표시 명령은 [쿼리 요청](https://docs.microsoft.com/rest/api/searchservice/search-documents)에 제공 됩니다. 
+
+서식 지정은 전체 용어 쿼리에 적용 됩니다. 엔진에서 쿼리 확장을 발생 시키는 유사 항목 검색 또는 와일드 카드 검색과 같은 부분 용어에 대 한 쿼리는 적중 항목 강조 표시를 사용할 수 없습니다.
+
+```http
+POST /indexes/hotels/docs/search?api-version=2019-05-06 
+    {  
+      "search": "something",  
+      "highlight": "Description"  
+    }
+```
+
+
+
 ## <a name="faceted-navigation"></a>패싯 탐색
 
 종종 페이지의 옆쪽 또는 위쪽에 있는 검색 탐색은 결과 페이지에서 일반적입니다. Azure Cognitive Search에서 패싯 탐색은 미리 정의 된 필터를 기반으로 하는 자체 지향 검색을 제공 합니다. 자세한 내용은 [Azure Cognitive Search의 패싯 탐색](search-faceted-navigation.md) 을 참조 하세요.
 
 ## <a name="filters-at-the-page-level"></a>페이지 수준의 필터
 
-솔루션 디자인에 특정 유형의 콘텐츠에 대 한 전용 검색 페이지가 포함 된 경우 (예: 페이지 맨 위에 부서를 포함 하는 온라인 소매점 응용 프로그램) **onClick** 이벤트와 함께 [필터 식을](search-filters.md) 삽입 하 여 다음을 수행할 수 있습니다. 미리 필터링 된 상태로 페이지를 엽니다.
+솔루션 디자인에 특정 유형의 콘텐츠에 대 한 전용 검색 페이지가 포함 된 경우 (예: 페이지 맨 위에 부서를 포함 하는 온라인 소매점 응용 프로그램), **onClick** 이벤트와 함께 [필터 식을](search-filters.md) 삽입 하 여 미리 필터링 된 상태로 페이지를 열 수 있습니다.
 
 검색 식의 사용 여부에 관계 없이 필터를 보낼 수 있습니다. 예를 들어 다음 요청은 브랜드 이름으로 필터링하고 일치하는 문서만 반환합니다.
 

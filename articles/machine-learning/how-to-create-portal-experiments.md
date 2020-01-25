@@ -11,12 +11,12 @@ author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: 00a316f69cfa77d705a789d40868105e9a098def
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894029"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720404"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -143,7 +143,7 @@ ms.locfileid: "75894029"
 최대| 열의 최대값입니다. 
 카운트| 열에서 누락 되거나 누락 된 항목의 총 수입니다.
 누락되지 않은 수| 열에서 누락 된 항목의 수입니다. 빈 문자열 및 오류는 값으로 처리 되므로 "누락 된 개수"에 영향을 주지 않습니다.
-변위치| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
+변 위치| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
 평균| 열의 산술 평균 또는 평균입니다.
 표준 편차| 이 열의 데이터에 대 한 분산 또는 변형의 크기를 측정 합니다.
 Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값입니다. 
@@ -153,9 +153,15 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 <a name="preprocess"></a>
 
-## <a name="advanced-preprocessing-options"></a>고급 전처리 옵션
+## <a name="advanced-featurization-options"></a>고급 기능화 옵션
 
-실험을 구성할 때 고급 설정 `Preprocess`을 사용 하도록 설정할 수 있습니다. 즉, 다음 데이터 guardrails 및 기능화 단계가 자동으로 수행 됩니다.
+실험을 구성할 때 고급 설정 `feauturization`을 사용 하도록 설정할 수 있습니다. 
+
+|기능화 구성 | Description |
+| ------------- | ------------- |
+|"feauturization" = ' FeaturizationConfig '| 사용자 지정 된 기능화 단계를 사용 해야 함을 나타냅니다. [기능화를 사용자 지정 하는 방법을 알아봅니다](how-to-configure-auto-train.md#customize-feature-engineering).|
+|"feauturization" = ' off '| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
+|"feauturization" = ' auto '| 는 전처리의 일부로 다음 데이터 guardrails 및 기능화 단계가 자동으로 수행 됨을 나타냅니다.|
 
 |전처리&nbsp;단계| Description |
 | ------------- | ------------- |
@@ -177,11 +183,11 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 Guardrail|상태|&nbsp;트리거의 조건&nbsp;
 ---|---|---
-대체&nbsp;&nbsp;값 누락 |**전달** <br> <br> **고정**|    입력&nbsp;열에 누락 값이 없습니다. <br> <br> 일부 열에 누락 된 값이 있습니다.
+대체&nbsp;&nbsp;값 누락 |**성공한** <br> <br> **고정**|    입력&nbsp;열에 누락 값이 없습니다. <br> <br> 일부 열에 누락 된 값이 있습니다.
 교차 유효성 검사|**끝났습니다**|명시적 유효성 검사 집합이 제공 되지 않은 경우
-높은&nbsp;카디널리티&nbsp;기능&nbsp;검색|  **전달** <br> <br>**끝났습니다**|   높은 카디널리티 기능이 검색 되지 않았습니다. <br><br> 높은 카디널리티 입력 열이 검색 되었습니다.
-클래스 잔액 검색 |**전달** <br><br><br>**알림을** |클래스는 학습 데이터에서 균형을 유지 합니다. 데이터 집합은 샘플의 수 및 비율로 측정 된 데이터 집합에 각 클래스의 올바른 표현이 있는 경우 분산 된 것으로 간주 됩니다. <br> <br> 학습 데이터의 클래스가 불균형 합니다.
-시계열 데이터 일관성|**전달** <br><br><br><br> **고정** |<br> 선택한 {가로선, lag, 롤링 창} 값이 분석 되었으며 메모리 부족 문제가 검색 되었습니다. <br> <br>선택한 {가로선, lag, 롤링 창} 값이 분석 되어 실험에서 메모리가 부족 해질 수 있습니다. 지연 또는 롤링 창이 꺼져 있습니다.
+높은&nbsp;카디널리티&nbsp;기능&nbsp;검색|  **성공한** <br> <br>**끝났습니다**|   높은 카디널리티 기능이 검색 되지 않았습니다. <br><br> 높은 카디널리티 입력 열이 검색 되었습니다.
+클래스 잔액 검색 |**성공한** <br><br><br>**알림을** |클래스는 학습 데이터에서 균형을 유지 합니다. 데이터 집합은 샘플의 수 및 비율로 측정 된 데이터 집합에 각 클래스의 올바른 표현이 있는 경우 분산 된 것으로 간주 됩니다. <br> <br> 학습 데이터의 클래스가 불균형 합니다.
+시계열 데이터 일관성|**성공한** <br><br><br><br> **고정** |<br> 선택한 {가로선, lag, 롤링 창} 값이 분석 되었으며 메모리 부족 문제가 검색 되었습니다. <br> <br>선택한 {가로선, lag, 롤링 창} 값이 분석 되어 실험에서 메모리가 부족 해질 수 있습니다. 지연 또는 롤링 창이 꺼져 있습니다.
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
@@ -228,7 +234,7 @@ Guardrail|상태|&nbsp;트리거의 조건&nbsp;
     사용자 지정 배포 자산 사용| 사용자 고유의 점수 매기기 스크립트 및 환경 파일을 업로드 하려는 경우이 기능을 사용 하도록 설정 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md#script).
 
     >[!Important]
-    > 파일 이름은 32 자 미만 이어야 하며 영숫자를 사용 하 여 시작 하 고 끝나야 합니다. 에는 대시, 밑줄, 점 및 영숫자 ()가 포함 될 수 있습니다. 공백은 허용되지 않습니다.
+    > 파일 이름은 32 자 미만 이어야 하며 영숫자를 사용 하 여 시작 하 고 끝나야 합니다. 에는 대시, 밑줄, 점 및 영숫자 ()가 포함 될 수 있습니다. 공백은 허용 되지 않습니다.
 
     *고급* 메뉴에는 [데이터 수집](how-to-enable-app-insights.md) 및 리소스 사용률 설정과 같은 기본 배포 기능이 제공 됩니다. 이러한 기본값을 재정의 하려는 경우이 메뉴에서이 작업을 수행 합니다.
 

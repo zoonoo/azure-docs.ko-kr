@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/26/2019
+ms.date: 01/22/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 40bda408731e90ab4c0c987b981a1c7f16b0de5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2493e893f9afda0642bd838c94538dd0b984bce5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720659"
 ---
 # <a name="azure-classic-subscription-administrators"></a>Azure 클래식 구독 관리자
 
@@ -99,29 +99,11 @@ RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 �
 
 계정 관리자만 구독에 대한 서비스 관리자를 변경할 수 있습니다. 기본적으로, Azure 구독에 가입할 때 서비스 관리자는 계정 관리자와 같습니다. 계정 관리자 역할의 사용자는 Azure Portal에 액세스할 수 없습니다. 서비스 관리자 역할의 사용자는 Azure Portal에 대한 모든 권한이 있습니다. 계정 관리자 및 서비스 관리자가 동일한 사용자이고 서비스 관리자를 다른 사용자로 변경하는 경우 계정 관리자는 Azure Portal에 액세스할 수 없게 됩니다. 그러나 계정 관리자는 계정 센터를 사용하여 언제든지 서비스 관리자를 다시 자신으로 변경할 수 있습니다.
 
-서비스 관리자를 변경하는 방법에는 두 가지가 있습니다. **Azure Portal** 또는 **계정 센터**에서 변경할 수 있습니다.
-
-### <a name="azure-portal"></a>Azure Portal
-
-1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오가 지원 되는지 확인 합니다.
-
-1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-1. [구독](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)을 열고 구독을 선택합니다.
-
-1. **속성**을 클릭합니다.
-
-    ![계정 관리자를 보여 주는 스크린샷](./media/classic-administrators/account-admin.png)
-
-1. 맨 위에서 **서비스 관리자**를 클릭하여 서비스 관리자 창을 엽니다.
-
-    서비스 관리자 단추를 사용할 수 없는 경우 권한이 없는 것입니다. 계정 관리자인 사용자만 서비스 관리자를 변경할 수 있습니다.
-
-1. 새 서비스 관리자를 선택하고 **저장**을 클릭합니다.
+**계정 센터**에서 서비스 관리자를 변경 하려면 다음 단계를 수행 합니다.
 
 ### <a name="account-center"></a>계정 센터
 
-1. 서비스 관리자 변경에 대 한 제한 사항을 확인 하 여 시나리오가 지원 되는지 확인 합니다.
+1. [서비스 관리자 변경에 대 한 제한 사항을](#limitations-for-changing-the-service-administrator)확인 하 여 시나리오가 지원 되는지 확인 합니다.
 
 1. [계정 센터](https://account.windowsazure.com/subscriptions)에 계정 관리자로 로그인합니다.
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b3192e4bf25763e870cc618e5e45f16384607b7f
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: c1ebedcf93d66c01c80f7f40171a7aa27441488d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277983"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722155"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -109,7 +109,7 @@ automl_config = AutoMLConfig(task = "classification")
 * 정적 파일 또는 URL 원본에서 작업 영역으로 데이터를 쉽게 전송
 * 클라우드 계산 리소스에서 실행 되는 경우 학습 스크립트에서 데이터를 사용할 수 있도록 설정
 
-`Dataset` 클래스를 사용 하 여 계산 대상에 데이터를 탑재 하는 방법에 대 한 예제는 [방법을](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target) 참조 하세요.
+有关使用 `Dataset` 类将数据装载到计算目标的示例，请参阅[操作方法](how-to-train-with-datasets.md#option-2--mount-files-to-a-remote-compute-target)。
 
 ## <a name="train-and-validation-data"></a>데이터 학습 및 유효성 검사
 
@@ -187,11 +187,11 @@ automl_config = AutoMLConfig(task = "classification")
 
 [자동화 된 기계 학습 결과 이해](how-to-understand-automated-ml.md)에서 이러한 메트릭의 특정 정의에 대해 알아봅니다.
 
-### <a name="data-preprocessing--featurization"></a>데이터 전처리 & 기능화
+### <a name="data-featurization"></a>데이터 기능화
 
-자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 전처리/기능화을 사용할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
+자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
 
-이 기능화를 사용 하도록 설정 하려면 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"preprocess": True`를 지정 합니다.
+이 기능화를 사용 하도록 설정 하려면 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"featurization": 'auto'`를 지정 합니다.
 
 > [!NOTE]
 > 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
@@ -240,7 +240,7 @@ automl_config = AutoMLConfig(task = 'forecasting',
 
 기본 stack 앙상블 동작을 변경 하기 위해 `AutoMLConfig` 개체에서 `kwargs`로 제공 될 수 있는 여러 기본 인수가 있습니다.
 
-* `stack_meta_learner_type`: 학습자은 개별 다른 유형의 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하는 경우 `LogisticRegressionCV`) `ElasticNet` 및 회귀/예측 작업 (교차 유효성 검사를 사용 하는 경우 `ElasticNetCV`)에 대해 `LogisticRegression` 됩니다. 이 매개 변수는 `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`또는 `LinearRegression`문자열 중 하나일 수 있습니다.
+* `stack_meta_learner_type`: 학습자은 개별 유형이 다른 모델의 출력에 대해 학습 된 모델입니다. 기본 메타 학습자는 분류 작업 (또는 교차 유효성 검사를 사용 하는 경우 `LogisticRegressionCV`) `ElasticNet` 및 회귀/예측 작업 (교차 유효성 검사를 사용 하는 경우 `ElasticNetCV`)에 대해 `LogisticRegression` 됩니다. 이 매개 변수는 `LogisticRegression`, `LogisticRegressionCV`, `LightGBMClassifier`, `ElasticNet`, `ElasticNetCV`, `LightGBMRegressor`또는 `LinearRegression`문자열 중 하나일 수 있습니다.
 * `stack_meta_learner_train_percentage`: 학습자를 학습 하기 위해 예약할 학습 집합 (학습 및 유효성 검사 유형 선택)의 비율을 지정 합니다. 기본값은 `0.2`입니다.
 * `stack_meta_learner_kwargs`: meta 학습자의 이니셜라이저에 전달할 선택적 매개 변수입니다. 이러한 매개 변수 및 매개 변수 형식은 해당 모델 생성자에서 매개 변수 및 매개 변수 형식을 미러링 하 고 모델 생성자에 전달 됩니다.
 
@@ -324,7 +324,7 @@ run = experiment.submit(automl_config, show_output=True)
 ## <a name="understand-automated-ml-models"></a>자동화 된 ML 모델 이해
 
 자동화 된 ML을 사용 하 여 생성 된 모든 모델에는 다음 단계가 포함 됩니다.
-+ 자동화 된 기능 엔지니어링 (전처리 = True 인 경우)
++ 자동화 된 기능 엔지니어링 (`"featurization": 'auto'`)
 + 하이퍼 매개 변수 값을 사용 하 여 크기 조정/정규화 및 알고리즘
 
 자동 ML의 fitted_model 출력에서이 정보를 가져오도록 투명 하 게 만듭니다.
@@ -337,7 +337,7 @@ best_run, fitted_model = automl_run.get_output()
 
 ### <a name="automated-feature-engineering"></a>자동화 된 기능 엔지니어링
 
-Feauturization = auto 일 때 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 하세요.
+`"featurization": 'auto'`때 발생 하는 전처리 및 [자동화 된 기능 엔지니어링](concept-automated-ml.md#preprocess) 목록을 참조 하세요.
 
 다음 예를 살펴보세요.
 + 입력 기능에는 (숫자), B (숫자), C (숫자), D (DateTime)의 네 가지가 있습니다.
@@ -403,7 +403,7 @@ Feauturization = auto 일 때 발생 하는 전처리 및 [자동화 된 기능 
    |----|--------|
    |RawFeatureName|제공 된 데이터 집합의 입력 기능/열 이름입니다.|
    |TypeDetected|입력 기능의 데이터 형식이 검색 되었습니다.|
-   |Dropped|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
+   |놓도록|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
    |EngineeringFeatureCount|자동화 된 기능 엔지니어링 변환을 통해 생성 된 기능의 수입니다.|
    |변환|엔지니어링 된 기능을 생성 하기 위해 입력 기능에 적용 되는 변환 목록입니다.|
    

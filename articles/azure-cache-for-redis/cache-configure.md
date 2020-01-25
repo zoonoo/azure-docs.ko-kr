@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 08/22/2017
 ms.author: yegu
-ms.openlocfilehash: c4d5716c8a31ceccbe23c1f77ad3b88030ff3065
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f10be8efcd2d8e838b4b5f62310eb405f6ed0158
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972136"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714642"
 ---
 # <a name="how-to-configure-azure-cache-for-redis"></a>Azure Cache for Redis를 구성하는 방법
 이 항목에서는 Azure Cache for Redis 인스턴스에 사용할 수 있는 구성에 대해 설명합니다. 또한 Azure Cache for Redis 인스턴스에 대한 기본 Redis 서버 구성에 대해서도 설명합니다.
@@ -40,8 +40,8 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
     * [고급 설정](#advanced-settings)
     * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
     * [규모](#scale)
-    * [Redis 클러스터 크기](#cluster-size)
-    * [Redis 데이터 지속성](#redis-data-persistence)
+    * [클러스터 크기](#cluster-size):
+    * [데이터 지 속성](#redis-data-persistence)
     * [업데이트 예약](#schedule-updates)
     * [지역에서 복제](#geo-replication)
     * [Virtual Network](#virtual-network)
@@ -92,8 +92,8 @@ Azure Cache for Redis 설정은 **리소스 메뉴**를 사용하여 **Azure Cac
 * [고급 설정](#advanced-settings)
 * [Azure Cache for Redis Advisor](#azure-cache-for-redis-advisor)
 * [규모](#scale)
-* [Redis 클러스터 크기](#cluster-size)
-* [Redis 데이터 지속성](#redis-data-persistence)
+* [클러스터 크기](#cluster-size):
+* [데이터 지 속성](#redis-data-persistence)
 * [업데이트 예약](#schedule-updates)
 * [지역에서 복제](#geo-replication)
 * [Virtual Network](#virtual-network)
@@ -201,14 +201,9 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 <a name="cluster-size"></a>
 
 ### <a name="redis-cluster-size"></a>Redis 클러스터 크기
-**(미리 보기) Redis 클러스터 크기** 를 클릭하여 클러스터링을 사용하도록 설정되어 있는 실행 중인 프리미엄 캐시에 대한 클러스터 크기를 변경합니다.
+클러스터링을 사용 하도록 설정 하 고 실행 중인 프리미엄 캐시의 클러스터 크기를 변경 하려면 **클러스터 크기** 를 클릭 합니다.
 
-> [!NOTE]
-> Azure Cache for Redis 프리미엄 계층은 일반 공급되고 있지만, Redis 클러스터 크기 기능은 현재 미리 보기로 있습니다.
->
->
-
-![Redis 클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
+![클러스터 크기](./media/cache-configure/redis-cache-redis-cluster-size.png)
 
 클러스터 크기를 변경하려면 슬라이더를 사용하거나 **분할된 데이터베이스 수** 텍스트 상자에 1에서 10 사이의 수를 입력하고 **확인**을 클릭하여 저장합니다.
 
@@ -219,7 +214,7 @@ Redis keyspace 알림은 **고급 설정** 블레이드에서 구성됩니다. K
 
 
 ### <a name="redis-data-persistence"></a>Redis 데이터 지속성
-**Redis 데이터 지속성** 을 클릭하여 프리미엄 캐시에 대해 데이터 지속성 구성 및 사용 여부를 설정합니다. Azure Cache for Redis는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
+**데이터 지 속성** 을 클릭 하 여 프리미엄 캐시에 대 한 데이터 지 속성을 사용, 사용 안 함 또는 구성 합니다. Azure Cache for Redis는 [RDB 지속성](cache-how-to-premium-persistence.md#configure-rdb-persistence) 또는 [AOF 지속성](cache-how-to-premium-persistence.md#configure-aof-persistence)을 사용하여 Redis 지속성을 제공합니다.
 
 자세한 내용은 [프리미엄 Azure Redis Cache에 대한 지속성을 구성하는 방법](cache-how-to-premium-persistence.md)을 참조하세요.
 

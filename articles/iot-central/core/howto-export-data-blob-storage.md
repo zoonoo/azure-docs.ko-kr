@@ -8,12 +8,12 @@ ms.date: 09/26/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: b6a437af33e3e85b8dc07de223b6e1fd7ce6cb03
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 79d578c910c7d08355901308e00db5912d1f3baf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176243"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721492"
 ---
 # <a name="export-your-data-to-azure-blob-storage"></a>Azure Blob Storage에 데이터 내보내기
 
@@ -27,9 +27,9 @@ ms.locfileid: "73176243"
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-- IoT Central 애플리케이션에서 관리자여야 합니다.
+- IoT Central 애플리케이션에서 관리자여야 함
 
 
 ## <a name="set-up-export-destination"></a>내보내기 대상 설정
@@ -92,7 +92,7 @@ ms.locfileid: "73176243"
 
 ## <a name="path-structure"></a>경로 구조
 
-측정값, 디바이스 및 디바이스 템플릿 데이터가 1분에 1번 스토리지 계정으로 내보내지며, 각 파일에는 마지막으로 내보낸 이후의 일괄 변경 사항이 포함되어 있습니다. 내보낸 데이터는 JSON 또는 Avro 형식의 3 개 폴더에 배치 됩니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
+측정값, 디바이스 및 디바이스 템플릿 데이터를 1분마다 한 번 스토리지 계정으로 내보내며, 각 파일에는 마지막으로 내보낸 이후의 일괄 변경 내용이 포함됩니다. 내보낸 데이터는 JSON 또는 Avro 형식의 3 개 폴더에 배치 됩니다. 스토리지 계정의 기본 경로는 다음과 같습니다.
 - 메시지: {container}/measurements/{hubname}/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 - 장치: {container}/devices/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
 - 장치 템플릿: {container}/deviceTemplates/{YYYY}/{MM}/{dd}/{hh}/{mm}/{filename}
@@ -620,7 +620,7 @@ const avro = require('avsc');
 async function parse(filePath) {
     const records = await load(filePath);
     for (const record of records) {
-        // Fetch the template ID and version from the id and verison properties.
+        // Fetch the template ID and version from the id and version properties.
         const templateId = record.id;
         const templateVersion = record.version;
 

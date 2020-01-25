@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 7d341c7081fef7aee2c33b9a7080d60417ce410d
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 0e6b87ff34d6555fda50518198f9ae3839aa56e6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895189"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719095"
 ---
 # <a name="build-highly-available-applications-with-zone-redundant-storage-zrs"></a>ZRS (영역 중복 저장소)를 사용 하 여 항상 사용 가능한 응용 프로그램 빌드
 
@@ -34,6 +34,7 @@ ZRS는 현재 표준 범용 v2, FileStorage 및 BlockBlobStorage 저장소 계�
 - 서유럽
 - 프랑스 중부
 - 일본 동부
+- 남아프리카 공화국 북부
 - 영국 남부
 - 미국 중부
 - 미국 동부
@@ -88,7 +89,7 @@ ZRS로의 마이그레이션을 위한 두 가지 기본 옵션이 있습니다.
 실시간 마이그레이션에 대한 다음과 같은 제한에 유의하십시오.
 
 - Microsoft에서는 실시간 마이그레이션에 대한 요청을 신속하게 처리하지만 마이그레이션이 완료되는 시기는 보장하지 않습니다. 특정 날짜에 ZRS로 마이그레이션된 데이터가 필요한 경우에는 대신 수동 마이그레이션을 수행하는 것이 좋습니다. 일반적으로 계정에 데이터가 많을수록 해당 데이터를 마이그레이션하는 데 시간이 더 오래 걸립니다. 
-- 실시간 마이그레이션은 LRS 또는 GRS 복제를 사용하는 스토리지 계정에 대해서만 지원됩니다. 계정이 RA-GRS를 사용하는 경우 계속 진행하기 전에 먼저 계정의 복제 유형을 LRS 또는 GRS로 변경해야 합니다. 이 중간 단계에서는 마이그레이션 전에 RA-GRS에서 제공한 보조 읽기 전용 엔드포인트가 제거됩니다.
+- 실시간 마이그레이션은 LRS 복제를 사용 하는 저장소 계정에 대해서만 지원 됩니다. 계정에서 GRS 또는 GRS를 사용 하는 경우 계속 하기 전에 먼저 계정의 복제 유형을 LRS로 변경 해야 합니다. 이 중간 단계는 GRS/RA-GRS에서 제공 하는 보조 끝점을 제거 합니다.
 - 계정에 데이터가 있어야 합니다.
 - 동일한 지역 내에서만 데이터를 마이그레이션할 수 있습니다. 데이터를 원본 계정과 다른 지역에 있는 ZRS 계정으로 마이그레이션하려면 수동 마이그레이션을 수행해야 합니다.
 - 표준 스토리지 계정 유형만 실시간 마이그레이션을 지원합니다. 프리미엄 스토리지 계정은 수동으로 마이그레이션해야 합니다.
@@ -130,9 +131,9 @@ ZRS로의 마이그레이션을 위한 두 가지 기본 옵션이 있습니다.
 
 ZRS는 일반 용도의 v2 계정만 지원 하므로 실시간 마이그레이션에 대 한 요청을 ZRS로 제출 하기 전에 계정을 범용 v2로 업그레이드 해야 합니다. 자세한 내용은 [Azure storage 계정 개요](https://docs.microsoft.com/azure/storage/common/storage-account-overview) 및 [범용 v2 저장소 계정으로 업그레이드를](https://docs.microsoft.com/azure/storage/common/storage-account-upgrade) 참조 하세요.
 
-**읽기 액세스 지역 중복 저장소 (RA-GRS) 계정에 대 한 실시간 마이그레이션을 ZRS로 요청할 수 있나요?**
+**지역 중복 또는 읽기 액세스 지역 중복 저장소 (GRS/RA-GRS) 계정에 대 한 실시간 마이그레이션을 ZRS에 요청할 수 있나요?**
 
-실시간 마이그레이션에 대 한 요청을 ZRS로 제출 하기 전에 응용 프로그램 또는 워크 로드에 보조 읽기 전용 끝점에 대 한 액세스 권한이 더 이상 필요 하지 않은지 확인 하 고 저장소 계정의 복제 유형을 GRS (지역 중복 저장소)로 변경 해야 합니다. 자세한 내용은 [복제 전략 변경](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) 을 참조 하십시오.
+실시간 마이그레이션은 LRS 복제를 사용 하는 저장소 계정에 대해서만 지원 됩니다. 계정에서 GRS 또는 GRS를 사용 하는 경우 계속 하기 전에 먼저 계정의 복제 유형을 LRS로 변경 해야 합니다. 이 중간 단계는 GRS/RA-GRS에서 제공 하는 보조 끝점을 제거 합니다. 또한 실시간 마이그레이션에 대 한 요청을 ZRS로 제출 하기 전에 응용 프로그램 또는 워크 로드에 보조 읽기 전용 끝점에 대 한 액세스 권한이 더 이상 필요 하지 않은지 확인 하 고 저장소 계정의 복제 유형을 LRS (로컬 중복 저장소)로 변경 해야 합니다. 자세한 내용은 [복제 전략 변경](https://docs.microsoft.com/azure/storage/common/storage-redundancy#changing-replication-strategy) 을 참조 하십시오.
 
 **내 저장소 계정에 대 한 실시간 마이그레이션을 요청 하 여 다른 지역에 ZRS?**
 
@@ -146,7 +147,7 @@ ZRS는 일반 용도의 v2 계정만 지원 하므로 실시간 마이그레이�
 
 ZRS 클래식은 1~2개의 지역 내의 데이터 센터에서 데이터를 비동기적으로 복제합니다. 복제된 데이터는 Microsoft가 보조 지역에 장애 조치(failover)를 시작하지 않는 한 사용할 수 없습니다. ZRS 클래식 계정을 LRS, GRS 또는 RA-GRS 계정으로 변환하거나, 이러한 계정에서 ZRS 클래식 계정으로 변환할 수 없습니다. 또한 ZRS 클래식 계정은 메트릭이나 로깅을 지원하지 않습니다.
 
-ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob**에서만 사용할 수 있습니다. 저장소 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
+ZRS 클래식은 GPv1(범용 V1) 스토리지 계정의 **블록 Blob**에서만 사용할 수 있습니다. 스토리지 계정에 대한 자세한 내용은 [Azure Storage 계정 개요](storage-account-overview.md)를 참조하세요.
 
 LRS, ZRS 클래식, GRS 또는 RA-GRS 계정 간에 ZRS 계정 데이터를 수동으로 마이그레이션하려면 AzCopy, Azure Storage Explorer, Azure PowerShell 또는 Azure CLI와 같은 도구 중 하나를 사용합니다. Azure Storage 클라이언트 라이브러리 중 하나를 사용하여 사용자 고유의 마이그레이션 솔루션을 빌드할 수도 있습니다.
 

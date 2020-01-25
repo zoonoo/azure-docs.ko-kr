@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: e115316daf3673d9ad854e7ccd6d5256d729b5af
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921003"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719826"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -21,11 +21,9 @@ ms.locfileid: "75921003"
 
 <a name="new-service-name"></a>
 
-## <a name="new-service-name-for-azure-search"></a>Azure Search에 대 한 새 서비스 이름
+## <a name="new-service-name"></a>새 서비스 이름
 
-Azure Search은 이제 핵심 작업에서 인식 기술 및 AI 처리의 확장 된 사용을 반영 하기 위해 **Azure Cognitive Search** 로 이름이 변경 되었습니다. 인식 기술이 새 기능을 추가 하는 동안 AI를 사용 하는 것은 엄격히 선택 됩니다. AI 없이 Azure Cognitive Search를 계속 사용 하 여 클라우드에서 만들고 관리 하는 인덱스의 개인, 다른 유형의, 텍스트 기반 콘텐츠에 대해 다양 한 전체 텍스트 검색 솔루션을 빌드할 수 있습니다. 
-
-API 버전, Nuget 패키지, 네임 스페이스 및 끝점은 변경 되지 않습니다. 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
+이제 핵심 작업에서 확장 된 (선택 사항) 인식 기술 및 AI 처리 사용을 반영 하기 위해 Azure Search가 **Azure Cognitive Search** 로 이름이 변경 되었습니다. API 버전, NuGet 패키지, 네임 스페이스 및 끝점은 변경 되지 않습니다. 신규 및 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
 
 ## <a name="feature-announcements"></a>기능 알림
 

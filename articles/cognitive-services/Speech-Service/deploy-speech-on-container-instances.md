@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 7/5/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 690a45ad7f009a65686e27eba5095a5a2870039c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e5d9143b0c84b579945b283ccae1cce36a7a4291
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806272"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717414"
 ---
 # <a name="deploy-the-speech-service-container-to-azure-container-instances"></a>Azure Container Instances에 음성 서비스 컨테이너 배포
 
@@ -25,7 +25,7 @@ Cognitive Services [Speech service](speech-container-howto.md) 컨테이너를 A
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-컨테이너에 액세스를 요청하려면 먼저 [Cognitive Services 음성 컨테이너 요청 양식](https://aka.ms/speechcontainerspreview/)을 작성하여 제출합니다. 
+먼저 [Cognitive Services 음성 컨테이너 요청 양식을](https://aka.ms/speechcontainerspreview/) 완료 하 고 전송 하 여 컨테이너에 대 한 액세스를 요청 해야 합니다. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 

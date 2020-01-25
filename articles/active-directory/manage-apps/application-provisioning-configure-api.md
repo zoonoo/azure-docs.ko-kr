@@ -16,16 +16,16 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1ca26c7277f69a817a48884acce116e3a66608ff
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 9a891f87c3d03cf95c8051ee684916bb55441cb0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275728"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76712228"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph Api를 사용 하 여 프로 비전 구성
 
-Azure Portal은 한 번에 하나씩 개별 앱에 대 한 프로 비전을 구성 하는 편리한 방법입니다. 하지만 응용 프로그램의 인스턴스를 여러 개 또는 수백 개 만들 경우 Microsoft Graph Api를 사용 하 여 앱 만들기 및 구성을 쉽게 자동화할 수 있습니다. 이 문서에서는 Api를 통해 프로 비전 구성을 자동화 하는 방법을 설명 합니다. 이 메서드는 [Amazon Web Services](https://docs.microsoft.com/azure/active-directory/saas-apps/amazon-web-service-tutorial#configure-azure-ad-sso)같은 응용 프로그램에 일반적으로 사용 됩니다.
+Azure Portal은 한 번에 하나씩 개별 앱에 대 한 프로 비전을 구성 하는 편리한 방법입니다. 하지만 응용 프로그램의 인스턴스를 여러 개 또는 수백 개 만들 경우 Microsoft Graph Api를 사용 하 여 앱 만들기 및 구성을 쉽게 자동화할 수 있습니다. 이 문서에서는 Api를 통해 프로 비전 구성을 자동화 하는 방법을 설명 합니다. 이 메서드는 [Amazon Web Services](../saas-apps/amazon-web-service-tutorial.md#configure-azure-ad-sso)같은 응용 프로그램에 일반적으로 사용 됩니다.
 
 **Microsoft Graph Api를 사용 하 여 프로 비전 구성을 자동화 하는 단계 개요**
 
@@ -48,7 +48,7 @@ Azure Portal은 한 번에 하나씩 개별 앱에 대 한 프로 비전을 구�
 1. [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 시작
 1. "Microsoft 로그인" 단추를 선택 하 고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용 하 여 로그인 합니다.
 
-    ![Graph 로그인](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph 로그인](media/application-provisioning-configure-api/wd_export_02.png)
 
 1. 로그인이 완료 되 면 왼쪽 창에 사용자 계정 세부 정보가 표시 됩니다.
 
@@ -529,7 +529,7 @@ Content-type: application/json
 }
 
 ```
-## <a name="related-articles"></a>관련된 문서
+## <a name="related-articles"></a>관련 문서
 
 - [동기화 Microsoft Graph 설명서 검토](https://docs.microsoft.com/graph/api/resources/synchronization-overview?view=graph-rest-beta)
 - [사용자 지정 SCIM 앱을 Azure AD와 통합](use-scim-to-provision-users-and-groups.md)

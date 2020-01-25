@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 74b991fce132c991ebd5fbd3789328e2a500da86
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: e7f60335b3e75d93f408dec3386ca0bdcd6a0388
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232308"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711462"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 
@@ -56,7 +56,7 @@ ms.locfileid: "74232308"
 
 Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 사용할 수 있도록 여러 통합 경로를 제공 합니다.
 
-* [AZURE Ad 프로 비전 서비스](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 는 azure ad에서 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 (아웃 바운드 프로 비전) 및 응용 프로그램에서 azure ad로 (인바운드 프로 비전)를 관리 합니다. 서비스는 응용 프로그램에서 제공 하는 SCIM (도메인 간 Id 관리) 사용자 관리 API 끝점에 대 한 시스템에 연결 합니다.
+* [AZURE Ad 프로 비전 서비스](user-provisioning.md) 는 azure ad에서 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 (아웃 바운드 프로 비전) 및 응용 프로그램에서 azure ad로 (인바운드 프로 비전)를 관리 합니다. 서비스는 응용 프로그램에서 제공 하는 SCIM (도메인 간 Id 관리) 사용자 관리 API 끝점에 대 한 시스템에 연결 합니다.
 
 * [Microsoft Graph](https://docs.microsoft.com/graph/)사용 하는 경우 응용 프로그램은 Microsoft Graph API를 쿼리하여 Azure AD에서 응용 프로그램에 대 한 사용자 및 그룹의 인바운드 및 아웃 바운드 프로 비전을 관리 합니다.
 
@@ -68,7 +68,7 @@ Azure AD는 응용 프로그램에 대 한 자동 사용자 프로비저닝을 �
 |---|---|---|---|
 | Azure AD의 사용자 및 그룹 관리| √| √| 사용자만 |
 | 온-프레미스 Active Directory에서 동기화 된 사용자 및 그룹 관리| √*| √*| 사용자만 해당 * |
-| O365 데이터 (팀, SharePoint, 전자 메일, 일정, 문서 등)에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터에 액세스| X +| √| X |
+| O365 데이터 (팀, SharePoint, 전자 메일, 일정, 문서 등)에 대 한 액세스를 프로 비전 하는 동안 사용자 및 그룹 외의 데이터에 액세스| X+| √| X |
 | 비즈니스 규칙에 따라 사용자 만들기, 읽기 및 업데이트| √| √| √ |
 | 비즈니스 규칙에 따라 사용자 삭제| √| √| X |
 | Azure Portal의 모든 응용 프로그램에 대 한 자동 사용자 프로 비전 관리| √| X| √ |
@@ -87,9 +87,9 @@ Azure AD 프로 비전 서비스 사용자의 SCIM 방법에 대 한 자세한 �
 
 * [SCIM 표준에 대 한 자세한 정보](https://aka.ms/SCIMOverview)
 
-* [도메인 간 Id 관리 (SCIM)에 시스템을 사용 하 여 Azure Active Directory에서 응용 프로그램으로 사용자 및 그룹 자동으로 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [도메인 간 Id 관리 (SCIM)에 시스템을 사용 하 여 Azure Active Directory에서 응용 프로그램으로 사용자 및 그룹 자동으로 프로 비전](use-scim-to-provision-users-and-groups.md)
 
-* [Azure AD SCIM 구현 이해](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)
+* [Azure AD SCIM 구현 이해](use-scim-to-provision-users-and-groups.md)
 
 ## <a name="microsoft-graph-for-provisioning"></a>프로 비전을 위한 Microsoft Graph
 
@@ -115,7 +115,7 @@ SAML JIT는 SAML 토큰의 클레임 정보를 사용 하 여 응용 프로그�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [응용 프로그램에 Single Sign-on 사용](https://docs.microsoft.com/azure/active-directory/manage-apps/isv-sso-content)
+* [응용 프로그램에 Single Sign-on 사용](isv-sso-content.md)
 
 * Microsoft의 사이트에 대 한 설명서를 만들려면 [응용 프로그램 목록과](https://microsoft.sharepoint.com/teams/apponboarding/Apps/SitePages/Default.aspx) 파트너를 Microsoft에 제출 하세요.
 

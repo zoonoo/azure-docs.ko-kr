@@ -1,22 +1,22 @@
 ---
 title: 상업적 marketplace 지급 요약 | Azure Marketplace
-description: 지급 요약은 제품을 사용 하 여 달성 한 비용에 대 한 세부 정보를 보여줍니다. 또한, 지급 요약을 통해 언제 지급받을 수 있는지와 지급받는 금액도 알 수 있습니다.
+description: 지급 요약은 제품을 사용 하 여 달성 한 비용에 대 한 세부 정보를 보여줍니다. 또한 지불을 받는 시기와 유료 정도를 알 수 있습니다.
 author: MaggiePucciEvans
 manager: evansma
 ms.author: evansma
 ms.service: marketplace
 ms.topic: guide
 ms.date: 12/10/2019
-ms.openlocfilehash: 997014263f0d12e7cc16a761152870c2ee63d6ec
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6ee6b6f325ba58ecaa3c3acb5d5ded173262bafb
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979692"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715437"
 ---
 # <a name="payout-reporting"></a>지급 보고
 
-[**지급 요약**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) 은 Microsoft에서 달성 한 비용에 대 한 세부 정보를 보여줍니다. 또한, 지급 요약을 통해 언제 지급받을 수 있는지와 지급받는 금액도 알 수 있습니다.
+[**지급 요약**](https://docs.microsoft.com/windows/uwp/publish/payout-summary) 은 Microsoft에서 달성 한 비용에 대 한 세부 정보를 보여줍니다. 또한 지불을 받는 시기와 유료 정도를 알 수 있습니다.
 
 Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성공 지급 대 한 정보도 표시 됩니다. Azure Marketplace 결제에 대 한 자세한 내용은 [Microsoft Azure Marketplace 참여 정책](https://go.microsoft.com/fwlink/p/?LinkId=722436) 및 [Microsoft Azure Marketplace 게시자 계약](https://go.microsoft.com/fwlink/p/?LinkID=699560)을 참조 하세요.
 
@@ -32,25 +32,25 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 ## <a name="roles-and-permission-to-access-the-payout-report"></a>지급 보고서에 액세스할 수 있는 역할 및 사용 권한
 
-| 보고서/페이지    | 계정 소유자    | Manager  | 개발자 | 비즈니스 참여자 |  재무 참여자 | 마케팅 담당자 |
+| 보고서/페이지    | 계정 소유자    | Manager  | 개발자 | 비즈니스 참여자 |  재무 참여자 | 마케터 |
 |------------------|------------------|----------|-----------|----|----|-----|
-| 취득 보고서 (거의 실시간 데이터 포함) | 볼 수 있음 | 볼 수 있음 | 권한 없음 | 권한 없음 | 볼 수 있음 | 권한 없음 |
-| 피드백 보고서/응답 | 볼 수 있고 피드백 보낼 수 있음 | 볼 수 있고 피드백 보낼 수 있음 | 볼 수 있고 피드백 보낼 수 있음 | 권한 없음 | 권한 없음 | 볼 수 있고 피드백 보낼 수 있음 |
-| 상태 보고서 (거의 실시간 데이터 포함) | 볼 수 있음 | 볼 수 있음 | 볼 수 있음 | 볼 수 있음 | 권한 없음 | 권한 없음 |
-| 사용 보고서 | 볼 수 있음 | 볼 수 있음 | 볼 수 있음 | 볼 수 있음 | 권한 없음 | 권한 없음 |
-| 지급 계좌 | 업데이트할 수 있음 | 권한 없음 | 권한 없음 | 권한 없음 | 업데이트할 수 있음 | 권한 없음 |
-| 세금 프로필 | 업데이트할 수 있음 | 권한 없음 | 권한 없음 | 권한 없음 | 업데이트할 수 있음 | 권한 없음 |
-| 지급 요약 | 볼 수 있음 | 권한 없음 | 권한 없음 | 권한 없음 | 볼 수 있음 | 권한 없음 |
+| 취득 보고서 (거의 실시간 데이터 포함) | 보기 가능 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 | 보기 가능 | 액세스 권한 없음 |
+| 사용자 의견 보고서/응답 | 사용자 의견을 보고 보낼 수 있습니다. | 사용자 의견을 보고 보낼 수 있습니다. | 사용자 의견을 보고 보낼 수 있습니다. | 액세스 권한 없음 | 액세스 권한 없음 | 사용자 의견을 보고 보낼 수 있습니다. |
+| 상태 보고서 (거의 실시간 데이터 포함) | 보기 가능 | 보기 가능 | 보기 가능 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 |
+| 사용 보고서 | 보기 가능 | 보기 가능 | 보기 가능 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 |
+| 지급 계정 | 업데이트할 수 있음 | 액세스 권한 없음 | 액세스 권한 없음 | 액세스 권한 없음 | 업데이트할 수 있음 | 액세스 권한 없음 |
+| 세금 프로필 | 업데이트할 수 있음 | 액세스 권한 없음 | 액세스 권한 없음 | 액세스 권한 없음 | 업데이트할 수 있음 | 액세스 권한 없음 |
+| 지급 요약 | 보기 가능 | 액세스 권한 없음 | 액세스 권한 없음 | 액세스 권한 없음 | 보기 가능 | 액세스 권한 없음 |
 
 ## <a name="payout-report-difference-between-cloud-partner-portal-and-partner-center"></a>지급 보고서: Cloud 파트너 포털와 파트너 센터 간의 차이점
 
 | | 클라우드 파트너 포털 | 파트너 센터 |
 |---------|---------|---------|
-| 링크 | https://cloudpartner.azure.com/ | https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory 및 https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments |
+| 링크 | [https://cloudpartner.azure.com/](https://cloudpartner.azure.com) | [https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory](https://partner.microsoft.com/dashboard/payouts/reports/transactionhistory) 和 [https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments](https://partner.microsoft.com/dashboard/payouts/reports/incentivepayments) |
 | 탐색 | Insights 지급에 제공 된 지급 보고 | 파트너 센터에서 제공 하는 지급 보고-지급 아이콘 |
 | 범위 | <ul> <li>진행 중인 컬렉션, 수집 된 컬렉션 및 유료 항목에 대 한 줄 당 트랜잭션 항목 표시 </li> <li>보고 – 진행 중인 컬렉션과 대금 청구 및 아직 유료으로 사용할 수 없는 수집 상태와 품목을 포함 하 여 구매 주문이 만들어진 후 모든 품목을 표시 합니다. </li> </ul> | <ul> <li>적격 소득으로 간주 되는 경우 품목을 표시 합니다.</li> <li>고객은 먼저 Microsoft에 요금을 지불 하 고 Isv는 지급 보고서를 시작 하는 것을 볼 수 있습니다.</li> <li>지급 보고서는 진행 중인 컬렉션과 청구 중인 컬렉션은 표시 하지 않습니다.  </li> </ul>  |
 | 지급 준비가 되지 않은 트랜잭션 | 청구 진행 중 | 다음 예상 결제: 지급 상태가 처리 되지 않음 상태입니다.  |
-| 지급 상태 |  | 일별 <br> 이러한 획득은 지불에 적합 합니다. 이 상태는 동기 프로그램의 프로그램 가이드에 정의 된 대로 냉각 기간 동안 유지 됩니다. <br> <br> 그 <br> 지불 순서-지불을 처리 하기 전에 보류 중인 내부 검토를 생성 했습니다. <br> <br> 보냄: <br> 요금을 은행으로 보냈습니다. |
+| 지급 상태 |  | 일별 <br> 이러한 획득은 지불에 적합 합니다. 이 상태는 동기 프로그램의 프로그램 가이드에 정의 된 대로 냉각 기간 동안 유지 됩니다. <br> <br> 그 <br> 지불 순서-지불을 처리 하기 전에 보류 중인 내부 검토를 생성 했습니다. <br> <br> 냈 <br> 요금을 은행으로 보냈습니다. |
 
 ## <a name="customer-types"></a>고객 유형
 
@@ -70,21 +70,21 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 
 |Description    |    날짜  | 주문/사용  | 지급 |
 |----------|----------|-----------|-------------|
-|주문 기간   | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 현황** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> |  |
+|주문 기간   | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>주문</li> <li>CustomerId</li> </ul> <br> **사용 현황** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> |  |
 |기간 종료일(월)   | 8 월 30 일, 2019 | | |
 |청구 날짜 | 2019 년 9 월 1 일 | | |
 |고객 지불 날짜 | 2019 년 9 월 1 일 | | |
-|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
+|에스크로 기간(신용 카드만 해당, 30일) | 2019 년 9 월 1 일-9 월 30 2019 일 | | **상관 관계 특성 주문:** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>주문</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 일별 |
 |수금 기간 시작일 | 2019 년 9 월 1 일 | | |
 |수금 기간 종료일(최대 30일) | 2019 년 9 월 30 일 | | |
-|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
-|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
+|지불 계산 날짜(매월 15일) | 2019 년 10 월 1 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li>고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>주문</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 그 |
+|지급 날짜 | 2019 년 10 월 15 일 | | **상관 관계 특성** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>주문</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 지불 전송 |
 
 ### <a name="enterprise-agreement-quarterlymonthly-customers"></a>기업 계약 (분기별/월별 고객)
 
 | Description |    날짜  | 사용량 | 지급 |
 |----------|----------|---------|-----------|
-|주문 기간 | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>OrderId</li> <li>CustomerId</li> </ul> <br> **사용 보고서** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> | |
+|주문 기간 | 8 월 15 일, 2019-8 월 30 일, 2019 | **상관 관계 특성 주문** <br> <ul> <li>주문</li> <li>CustomerId</li> </ul> <br> **사용 보고서** <br> <ul> <li>CustomerId </li> <li>고객 이름</li> <li>(UsageReference) PurchaseRecordId/LineItemId</li> <li> 예상 연장 요금 <br> 예상 지급액(PC) </li> </ul> | |
 |기간 종료일(분기) | 2019 년 9 월 30 일 | | |
 |청구 날짜 | 2019 년 10 월 15 일 | | |
 |에스크로 기간(신용 카드만 해당, 30일) | n/a | | |
@@ -93,7 +93,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 |수금 기간 종료일(최대 90일) | 2020 년 1 월 15 일 | | |
 |고객 지불 날짜 | 2019 년 12 월 30 일 | | |
 |지급 계산 | 2020 년 1 월 15 일 | | |
-|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>OrderId</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
+|지급 날짜 | 2 월 15 일 2020 | | **분기별 기반 고객의 경우** <br> <br> **주문 보고서** <br> <ul><li>AssetId</li> <li>고객 ID</li> <li> 고객 이름</li> </ul> <br> **사용 현황** <br> <ul> <li>AssetId</li> <li>CustomerId</li> <li>고객 이름</li> <li>주문</li> <li>LineItemId</li> <li>transactionAmount</li> <li>EarningAmountInLastPaymentCurrency</li> </ul> <br> **지급 상태:** 보냄 |
 
 ## <a name="transaction-history-download-export"></a>트랜잭션 기록 다운로드 내보내기
 
@@ -128,25 +128,25 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 | paymentCurrency                | 지불 프로필에서 파트너가 선택한 통화로 요금을 지불 합니다. 전송 된 지불에 대해서만 표시 됩니다.                                                   |
 | paymentExchangeRate            | ExchangeRateDate를 사용 하 여 지불 통화로 paymentAmountWOTax 계산 하는 데 사용 되는 환율                                            |
 | paymentId            | 지불의 고유 식별자입니다. 이 번호는 은행 명세서에서 볼 수 있습니다.                                            |
-| paymentStatus            | 지급 상태                                            |
+| paymentStatus            | 지불 상태                                            |
 | paymentStatusDescription            | 지불 상태 설명                                            |
 | customerId                     | 항상 비어 있습니다.                                                                                                                     |
 | customerName                   | 항상 비어 있습니다.                                                                                                                     |
 | partNumber                     | 항상 비어 있습니다.                                                                                                                     |
-| productName                    | 트랜잭션에 연결 된 제품 이름                                                                                                       |
+| 제품                    | 트랜잭션에 연결 된 제품 이름                                                                                                       |
 | productId                      | 고유 제품 식별자                                                                                                                |
-| parentProductId                | 고유한 상위 제품 식별자입니다. 참고: 트랜잭션에 대 한 부모 제품이 없으면 부모 제품 ID = 제품 ID입니다. |
-| parentProductName              | 상위 제품의 이름입니다. 참고: 트랜잭션에 대 한 부모 제품이 없으면 부모 제품 이름 = 제품 이름입니다.   |
-| productType                    | 제품 유형입니다(예: 앱, 애드온, 게임 등).                                                                                        |
+| parentProductId                | 고유한 부모 제품 식별자입니다. 참고: 트랜잭션에 대 한 부모 제품이 없으면 부모 제품 ID = 제품 ID입니다. |
+| parentProductName              | 부모 제품의 이름입니다. 참고: 트랜잭션에 대 한 부모 제품이 없으면 부모 제품 이름 = 제품 이름입니다.   |
+| productType                    | 제품 유형 (예: 앱, 추가 기능, 게임 등)                                                                                        |
 | invoiceNumber                  | 송장 번호 (EA에만 적용 가능)                                                                                                  |
 | resellerId                     | 대리점 식별자                                                                                                                      |
-| resellerName                   | 재판매인 이름                                                                                                                            |
-| transactionType                | 거래 유형입니다(예: 구매, 환불, 취소, 지불 거절 등).                                                               |
+| resellerName                   | 대리점 이름                                                                                                                            |
+| transactionType                | 트랜잭션 유형 (예: 구매, 환불, 반전, 비용 정산 등)                                                               |
 | localProviderSeller            | 로컬 공급자/판매자 레코드                                                                                                          |
-| taxRemitted                    | 송금된 세금 금액(판매세, 이용세 또는 VAT/GST 세금)입니다.                                                                                   |
-| taxRemitModel                  | 세금(판매세, 이용세 또는 부가가치세/물품용역세(Goods and Services Tax) 세금) 송금 담당자입니다.                                                                    |
+| taxRemitted                    | 세금 송금 (판매, 사용 또는 VAT/GST 세금).                                                                                   |
+| taxRemitModel                  | Remitting 세금 (판매, 사용 또는 VAT/GST 세금)을 담당 하는 파티.                                                                    |
 | 인 경우 요금                       | 스토어에서 앱 또는 추가 기능을 사용할 수 있도록 하기 위한 요금으로 Microsoft에서 보유 하는 금액입니다.                                            |
-| transactionPaymentMethod       | 거래에 사용된 고객 결제 방법입니다(카드, 모바일 통신사 청구, PayPal 등).                                |
+| transactionPaymentMethod       | 트랜잭션에 사용 되는 고객 지불 방법 (예: 카드, 모바일 운송 업체 청구, PayPal 등)                                |
 | tpan                           | 타사 ad 네트워크를 나타냅니다.                                                                                                     |
 | customerCountry                | 고객 국가                                                                                                                         |
 | customerCity                   | 고객 도시                                                                                                                            |
@@ -165,7 +165,7 @@ Azure Marketplace에서 제품을 판매 하는 경우 **지급 요약**에 성�
 | EarningAmountInLastPaymentCurrency       | 마지막 지불 통화 금액을 획득 합니다 (이전 지불액을 지불 하지 않은 경우 필드는 비어 있음).                                                                                                                   |
 | lastPaymentCurrency       | 마지막 지불 통화 (지불 되지 않은 경우 필드는 비어 있음)                                                                                                                   |
 | AssetId       | Marketplace 서비스의 고객 주문에 대 한 고유 식별자입니다.  트랜잭션 된 구매 라인 항목을 나타냅니다. 여러 자산이 있을 수 있습니다.                                                                                                                   |
-| OrderId       | 고객의 청구서와 관련이 있습니다.                                                                                                                   |
+| 주문       | 고객의 청구서와 관련이 있습니다.                                                                                                                   |
 | LineItemId       | 고객 송장의 개별 줄                                                                                                                   |
 | 고객 국가       | 고객이 제공한 국가 이름입니다.  이는 고객의 Azure 구독에 있는 국가와 다를 수 있습니다.                                                                                                                   |
 | 고객 EmailAddress       | 최종 고객이 제공한 전자 메일 주소입니다.  이는 고객의 Azure 구독에 있는 전자 메일 주소와 다를 수 있습니다.                                                                                                                   |

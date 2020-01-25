@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 06/13/2018
-ms.openlocfilehash: ddb44a064090a108f77d6a6f9a270fab8c55ec90
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 761c464730096eba36bc7c04227745cf362e5cc6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433442"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714474"
 ---
 # <a name="how-to-configure-redis-clustering-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Redis 클러스터링을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 클러스터링을 구성하는 방법에 대해 설명합니다.
@@ -58,12 +58,7 @@ StackExchange.Redis 클라이언트를 통해 클러스터링으로 작업하는
 <a name="cluster-size"></a>
 
 ## <a name="change-the-cluster-size-on-a-running-premium-cache"></a>실행 중인 프리미엄 캐시의 클러스터 크기 변경
-클러스터링을 사용하도록 설정된 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경하려면 **리소스 메뉴**에서 **Redis 클러스터 크기**를 클릭합니다.
-
-> [!NOTE]
-> Azure Cache for Redis 프리미엄 계층은 일반 공급되고 있지만, Redis 클러스터 크기 기능은 현재 미리 보기로 있습니다.
-> 
-> 
+클러스터링을 사용 하도록 설정 된 실행 중인 프리미엄 캐시에서 클러스터 크기를 변경 하려면 **리소스 메뉴**에서 **클러스터 크기** 를 클릭 합니다.
 
 ![Redis 클러스터 크기][redis-cache-redis-cluster-size]
 

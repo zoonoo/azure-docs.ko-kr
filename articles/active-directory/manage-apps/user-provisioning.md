@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d515731b8da186ef7e44a397d5abf87dfa65e83a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433785"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711480"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Azure Active Directory 사용 하 여 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화
 
-Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 사용자 id를 만들 뿐 아니라 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id의 유지 관리 및 제거도 포함 됩니다. 일반적인 시나리오에는 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial)등과 같은 응용 프로그램에 Azure AD 사용자를 프로 비전 하는 작업이 포함 됩니다.
+Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 사용자 id를 만들 뿐 아니라 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id의 유지 관리 및 제거도 포함 됩니다. 일반적인 시나리오에는 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)등과 같은 응용 프로그램에 Azure AD 사용자를 프로 비전 하는 작업이 포함 됩니다.
 
 ![프로 비전 개요 다이어그램](media/user-provisioning/provisioning-overview.png)
 
@@ -63,7 +63,7 @@ Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 
 
    ![Salesforce 로고](media/user-provisioning/gallery-app-logos.png)
 
-   프로 비전을 위해 새 응용 프로그램을 요청 하려는 경우 [응용 프로그램을 앱 갤러리와 통합 하도록 요청할](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing)수 있습니다. 사용자 프로 비전 요청의 경우 응용 프로그램에 SCIM 규격 끝점이 있어야 합니다. 앱을 플랫폼에 빠르게 등록할 수 있도록 응용 프로그램 공급 업체가 SCIM 표준을 따르도록 요청 하세요.
+   프로 비전을 위해 새 응용 프로그램을 요청 하려는 경우 [응용 프로그램을 앱 갤러리와 통합 하도록 요청할](../develop/howto-app-gallery-listing.md)수 있습니다. 사용자 프로 비전 요청의 경우 응용 프로그램에 SCIM 규격 끝점이 있어야 합니다. 앱을 플랫폼에 빠르게 등록할 수 있도록 응용 프로그램 공급 업체가 SCIM 표준을 따르도록 요청 하세요.
 
 * **SCIM 2.0을 지 원하는 응용 프로그램**입니다. 일반적으로 SCIM 2.0 기반 사용자 관리 Api를 구현 하는 응용 프로그램을 연결 하는 방법에 대 한 자세한 내용은 [scim 끝점 빌드 및 사용자 프로 비전 구성](use-scim-to-provision-users-and-groups.md)을 참조 하세요.
 
@@ -81,7 +81,7 @@ Azure AD 갤러리의 응용 프로그램은 다음 두 가지 프로 비전 모
 
 * **수동** 프로 비전은 앱에 대 한 자동 Azure AD 프로 비전 커넥터가 아직 없음을 의미 합니다. 사용자 계정을 수동으로 만들어야 합니다. 예를 들어 사용자를 앱의 관리 포털에 직접 추가 하거나 사용자 계정 세부 정보를 사용 하 여 스프레드시트를 업로드 합니다. 앱에서 제공 하는 설명서를 참조 하거나 앱 개발자에 게 문의 하 여 사용할 수 있는 메커니즘을 확인 하세요.
 
-* **자동**이란 Azure AD 프로비전 커넥터가 이 애플리케이션에 대해 개발되었음을 의미합니다. 응용 프로그램에 대 한 프로 비전을 설정 하는 것과 관련 된 설정 자습서를 따라야 합니다. 앱 자습서는 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)에서 찾을 수 있습니다.
+* **자동**이란 Azure AD 프로비전 커넥터가 이 애플리케이션에 대해 개발되었음을 의미합니다. 응용 프로그램에 대 한 프로 비전을 설정 하는 것과 관련 된 설정 자습서를 따라야 합니다. 앱 자습서는 [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)에서 찾을 수 있습니다.
 
 Azure AD 갤러리에서 자동 프로 비전을 지 원하는 응용 프로그램은 **프로 비전** 아이콘으로 지정 됩니다. 새 갤러리 미리 보기 환경으로 전환 하 여 이러한 아이콘을 표시 합니다. ( **응용 프로그램 추가 페이지**의 맨 위에 있는 배너에서 여기를 클릭 하 여 **새롭고 향상 된 앱 갤러리를 사용해 보세요**.) 링크를 선택 합니다.
 
@@ -91,7 +91,7 @@ Azure AD 갤러리에서 자동 프로 비전을 지 원하는 응용 프로그�
 
 ## <a name="how-do-i-set-up-automatic-provisioning-to-an-application"></a>애플리케이션에 자동 프로비전을 설정하려면 어떻게 합니까?
 
-갤러리에 나열 된 사전 통합 된 응용 프로그램의 경우 자동 프로 비전을 설정 하는 데 단계별 지침을 사용할 수 있습니다. [통합 갤러리 앱에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/saas-apps/)을 참조 하세요. 다음 비디오는 SalesForce에 대 한 자동 사용자 프로 비전을 설정 하는 방법을 보여 줍니다.
+갤러리에 나열 된 사전 통합 된 응용 프로그램의 경우 자동 프로 비전을 설정 하는 데 단계별 지침을 사용할 수 있습니다. [통합 갤러리 앱에 대 한 자습서 목록](../saas-apps/tutorial-list.md)을 참조 하세요. 다음 비디오는 SalesForce에 대 한 자동 사용자 프로 비전을 설정 하는 방법을 보여 줍니다.
 
 > [!VIDEO https://www.youtube.com/embed/pKzyts6kfrw]
 

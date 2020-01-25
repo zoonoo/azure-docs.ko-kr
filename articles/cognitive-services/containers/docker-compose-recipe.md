@@ -1,5 +1,5 @@
 ---
-title: Docker Compose를 사용 하 여 여러 컨테이너 배포
+title: Docker Compose를 사용하여 여러 컨테이너 배포
 titleSuffix: Azure Cognitive Services
 description: 여러 Cognitive Services 컨테이너를 배포 하는 방법을 알아봅니다. 이 문서에서는 Docker Compose를 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 보여 줍니다.
 services: cognitive-services
@@ -8,16 +8,16 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: 95ec80af88e0b89f61bebed08f4b96a09947f401
-ms.sourcegitcommit: f5075cffb60128360a9e2e0a538a29652b409af9
+ms.openlocfilehash: 54a2aac3db47d60f02a45adae9aaa6077d675a43
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68311547"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716903"
 ---
-# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용 하 여 여러 컨테이너 배포
+# <a name="use-docker-compose-to-deploy-multiple-containers"></a>Docker Compose를 사용하여 여러 컨테이너 배포
 
 이 문서에서는 여러 Azure Cognitive Services 컨테이너를 배포 하는 방법을 보여 줍니다. 특히 Docker Compose를 사용 하 여 여러 Docker 컨테이너 이미지를 오케스트레이션 하는 방법을 알아봅니다.
 
@@ -25,11 +25,11 @@ ms.locfileid: "68311547"
 
 단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 텍스트 인식 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 절차를 수행 하려면 로컬에 설치 하 고 실행 해야 하는 여러 도구가 필요 합니다.
 
-* Azure 구독. 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
+* Azure 구독 구독이 없으면 시작하기 전에 [계정](https://azure.microsoft.com/free/)을 만드세요.
 * [Docker 엔진](https://www.docker.com/products/docker-engine). Docker CLI가 콘솔 창에서 작동 하는지 확인 합니다.
 * 올바른 가격 책정 계층이 지정된 Azure 리소스. 다음 가격 책정 계층만이 컨테이너에서 작동 합니다.
   * F0 또는 표준 가격 책정 계층을 사용 하 여 리소스를 **Computer Vision** 합니다.
@@ -162,7 +162,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-다음은 몇 가지 출력 예제입니다.
+다음은 몇 가지 예제 출력입니다.
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -172,13 +172,13 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-the-recognize-text-container"></a>텍스트 인식 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 docker-작성 파일  (예: http://localhost:5021/swagger/index.html )의 지정 된 포트를 사용 하 여 localhost로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
+호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5021/swagger/index.html )를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
 
 ![텍스트 인식 컨테이너](media/recognize-text-swagger-page.png)
 
 ### <a name="test-the-form-recognizer-container"></a>양식 인식기 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 docker-작성 파일  (예: http://localhost:5010/swagger/index.html )의 지정 된 포트를 사용 하 여 localhost로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
+호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5010/swagger/index.html )를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
 
 ![양식 인식기 컨테이너](media/form-recognizer-swagger-page.png)
 

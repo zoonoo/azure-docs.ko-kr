@@ -6,12 +6,12 @@ ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 10/25/2019
-ms.openlocfilehash: 87f79f0ed21ec1f6a550c47f9f60d18511883300
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 9d71dd854c9a5059c2d0a48f57ad3ba5bb1eddf9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74768217"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721322"
 ---
 # <a name="logs-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 로그-단일 서버
 Azure Database for PostgreSQL를 사용 하 여 Postgres의 표준 로그를 구성 하 고 액세스할 수 있습니다. 로그를 사용 하 여 구성 오류를 식별 하 고, 문제를 해결 하 고, 문제를 해결할 수 있습니다. 구성 및 액세스할 수 있는 로깅 정보에는 오류, 쿼리 정보, autovacuum 레코드, 연결 및 검사점이 포함 됩니다. (트랜잭션 로그에 대 한 액세스를 사용할 수 없습니다.)
@@ -99,7 +99,7 @@ AzureDiagnostics
 | TenantId | 테넌트 ID |
 | SourceSystem | `Azure` |
 | TimeGenerated [UTC] | UTC에 로그가 기록된 때의 타임스탬프 |
-| Type | 로그의 형식 항상 `AzureDiagnostics` |
+| 유형 | 로그의 형식 항상 `AzureDiagnostics` |
 | SubscriptionId | 서버가 속한 구독의 GUID |
 | ResourceGroup | 서버가 속한 리소스 그룹의 이름 |
 | ResourceProvider | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORPOSTGRESQL` |

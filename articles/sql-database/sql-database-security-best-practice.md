@@ -8,12 +8,12 @@ ms.author: vanto
 ms.topic: article
 ms.date: 12/23/2019
 ms.reviewer: ''
-ms.openlocfilehash: f93ab61fcba53ebf39adf8ad56137f4a1df7d5fd
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615036"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715188"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Azure SQL Database 보안 모범 사례 플레이 북
 
@@ -462,7 +462,7 @@ CLE를 사용 하는 경우:
 - 3DES를 사용 하지 않도록 비대칭 키/인증서 (암호 아님)를 사용 하 여 대칭 키를 보호 합니다. 
 
 - 내보내기/가져오기 (bacpac 파일)를 통해 셀 수준 암호화를 사용 하 여 데이터베이스를 마이그레이션할 때는 주의 해야 합니다. 
-  - 데이터를 마이그레이션할 때 끊어질 키를 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) 및 기타 모범 사례에 대 한 문서를 참조 하세요.
+  - 데이터를 마이그레이션할 때 키 손실을 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) 및 기타 모범 사례 지침을 참조 하세요.
 
 Always Encrypted를 사용 하는 경우 Azure SQL Database의 높은 권한 사용자가 사용 하는 중요 한 데이터를 보호 하기 위해 Always Encrypted 주로 설계 되어 있습니다 (클라우드 운영자, Dba). 권한이 [높은 권한이 없는 사용자의 중요 한 데이터 보호](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)를 참조 하세요. Always Encrypted를 사용 하 여 응용 프로그램 사용자 로부터 데이터를 보호 하는 경우 다음과 같은 문제를 고려해 야 합니다.
 
@@ -665,7 +665,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 
 > [!NOTE]
-> Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 사용 시 관련된 비용에 주의하세요.또는 Azure Storage 계정에 로그인 감사를 저장하는 것을 고려해 보세요. 
+> Log Analytics 감사를 사용 하도록 설정 하면 수집 요금에 따라 비용이 발생 합니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다. 
 
 **추가 리소스**:
 

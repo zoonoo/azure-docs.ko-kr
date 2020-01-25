@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: ed9b893b11f96a813cee4c751743ceb182a9a0bf
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543038"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715401"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -64,7 +64,7 @@ ms.locfileid: "76543038"
 | **AzureInformationProtection** | Azure Information Protection.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 및 **AzureFrontDoor** 태그에 종속 됩니다. 다음 Ip (이 종속성이 곧 제거 될 예정)를 허용 목록. 13.107.6.181 & 13.107.9.181. | 아웃바운드 | 아닙니다. | 아닙니다. |
 | **AzureIoTHub** | Azure IoT Hub. | 아웃바운드 | 아닙니다. | 아닙니다. |
 | **AzureKeyVault** | Azure Key Vault.<br/><br/>*참고:* 이 태그는 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 예 | 예 |
-| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치. 태그는 Azure 상태 검색이 시작 되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations) (168.63.129.16)로 변환 됩니다. Azure Load Balancer 사용 하지 않는 경우이 규칙을 재정의할 수 있습니다. | 둘 다 | 아닙니다. | 아닙니다. |
+| **AzureLoadBalancer** | Azure 인프라 부하 분산 장치. 태그는 Azure 상태 검색이 시작 되는 [호스트의 가상 IP 주소](security-overview.md#azure-platform-considerations) (168.63.129.16)로 변환 됩니다. 여기에는 Azure Load Balancer 리소스에 대 한 트래픽이 포함 되지 않습니다. Azure Load Balancer 사용 하지 않는 경우이 규칙을 재정의할 수 있습니다. | 둘 다 | 아닙니다. | 아닙니다. |
 | **AzureMachineLearning** | Azure Machine Learning입니다. | 둘 다 | 아닙니다. | 예 |
 | **AzureMonitor** | Log Analytics, Application Insights, AzMon 및 사용자 지정 메트릭 (4Gb 끝점)을 지정 합니다.<br/><br/>*참고:* Log Analytics의 경우이 태그는 **저장소** 태그에 종속 됩니다. | 아웃바운드 | 아닙니다. | 예 |
 | **AzurePlatformDNS** | 기본 인프라 (기본) DNS 서비스입니다.<br/><br>이 태그를 사용 하 여 기본 DNS를 사용 하지 않도록 설정할 수 있습니다. 이 태그를 사용 하는 경우 주의 해야 합니다. [Azure 플랫폼 고려 사항을](https://docs.microsoft.com/azure/virtual-network/security-overview#azure-platform-considerations)참조 하는 것이 좋습니다. 또한이 태그를 사용 하기 전에 테스트를 수행 하는 것이 좋습니다. | 아웃바운드 | 아닙니다. | 아닙니다. |
@@ -82,8 +82,8 @@ ms.locfileid: "76543038"
 | **GuestAndHybridManagement** | Azure Automation 및 게스트 구성. | 둘 다 | 아닙니다. | 예 |
 | **HDInsight** | Azure HDInsight. | 인바운드 | 예 | 아닙니다. |
 | **인터넷** | 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure 소유의 공용 IP 주소 공간이](https://www.microsoft.com/download/details.aspx?id=41653)포함 됩니다. | 둘 다 | 아닙니다. | 아닙니다. |
-| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security | 아웃바운드 | 아닙니다. | 아닙니다. |
-| **MicrosoftContainerRegistry** | Azure Container Registry. | 아웃바운드 | 예 | 예 |
+| **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | 아웃바운드 | 아닙니다. | 아닙니다. |
+| **MicrosoftContainerRegistry** | Microsoft 컨테이너 이미지용 컨테이너 레지스트리 <br/><br/>*참고:* 다음 IP를 허용 목록 하세요 (이 종속성은 곧 제거 될 예정). 204.79.197.219. | 아웃바운드 | 예 | 예 |
 | **Service Bus** | 프리미엄 서비스 계층을 사용 하는 Azure Service Bus 트래픽 | 아웃바운드 | 예 | 예 |
 | **ServiceFabric** | Azure Service Fabric. | 아웃바운드 | 아닙니다. | 아닙니다. |
 | **Sql** | Azure SQL Database, Azure Database for MySQL, Azure Database for PostgreSQL 및 Azure SQL Data Warehouse.<br/><br/>*참고:* 이 태그는 서비스의 특정 인스턴스가 아니라 서비스를 나타냅니다. 예를 들어 태그는 특정 SQL 데이터베이스 또는 서버가 아닌 Azure SQL Database 서비스를 나타냅니다. | 아웃바운드 | 예 | 예 |
@@ -117,7 +117,7 @@ IP 주소 범위 세부 정보와 함께 서비스 태그의 현재 목록을 �
 - [Azure CLI](https://docs.microsoft.com/cli/azure/network?view=azure-cli-latest#az-network-list-service-tags)
 
 > [!NOTE]
-> 공개 미리 보기로 제공 되는 동안 검색 API는 JSON 다운로드에서 반환 된 정보 보다 최신 정보가 아닌 정보를 반환할 수 있습니다. (다음 섹션을 참조하십시오.)
+> 공개 미리 보기로 제공 되는 동안 검색 API는 JSON 다운로드에서 반환 된 정보 보다 최신 정보가 아닌 정보를 반환할 수 있습니다. 다음 섹션을 참조 하십시오.
 
 
 ### <a name="discover-service-tags-by-using-downloadable-json-files"></a>다운로드 가능한 JSON 파일을 사용 하 여 서비스 태그 검색 

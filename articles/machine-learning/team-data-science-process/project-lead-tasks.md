@@ -2,20 +2,20 @@
 title: Team Data Science Process에서 프로젝트 리더의 작업
 description: 팀 데이터 과학 프로세스 팀에서 프로젝트 책임자를 위한 작업에 대 한 자세한 연습
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/24/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 8a94a2ae5298bbee8bb1c9c0fa044eb3189147be
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 4a4d3a1480a852218e698862a509c4af45e49eb8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72244329"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714421"
 ---
 # <a name="project-lead-tasks-in-the-team-data-science-process"></a>팀 데이터 과학 프로세스의 프로젝트 리드 작업
 
@@ -36,7 +36,7 @@ ms.locfileid: "72244329"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos를 사용 하 여 TDSP 프로젝트를 설정 합니다. 팀에서 다른 코드 호스팅 플랫폼을 사용 하는 경우 프로젝트 리더 작업은 동일 하지만 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md) 와 [팀 리더가](team-lead-tasks.md) 다음과 같은 리소스 및 권한을 설정 했다고 가정 합니다.
 
@@ -45,9 +45,9 @@ ms.locfileid: "72244329"
 - 팀 템플릿 및 유틸리티 **리포지토리**
 - 프로젝트에 대 한 리포지토리를 만들고 편집할 수 있는 조직 계정에 대 한 **사용 권한**
 
-리포지토리를 복제 하 고 로컬 컴퓨터 또는 Data Science Virtual Machine (DSVM)에서 콘텐츠를 수정 하거나 Azure file storage를 설정 하 여 DSVM에 탑재 하려면 다음이 필요 합니다.
+리포지토리를 복제 하 고 로컬 컴퓨터 또는 Data Science Virtual Machine (DSVM)에서 콘텐츠를 수정 하거나 Azure file storage를 설정 하 여 DSVM에 탑재 하려면 다음 검사 목록도 고려해 야 합니다.
 
-- Azure 구독.
+- Azure 구독
 - Git이 컴퓨터에 설치 되어 있어야 합니다. DSVM을 사용 하는 경우 Git이 사전 설치 됩니다. 그렇지 않은 경우 [플랫폼 및 도구 부록](platforms-and-tools.md#appendix)을 참조하세요.
 - DSVM을 사용 하려는 경우 Azure에서 만들어지고 구성 된 Windows 또는 Linux DSVM을 사용 합니다. 자세한 내용 및 지침은 [Data Science Virtual Machine 설명서](/azure/machine-learning/data-science-virtual-machine/)를 참조 하세요.
 - Windows DSVM의 경우 컴퓨터에 [GCM (Git Credential Manager)](https://github.com/Microsoft/Git-Credential-Manager-for-Windows) 이 설치 되어 있어야 합니다. *README.md* 파일에서 **다운로드 및 설치** 섹션으로 스크롤하고 **최신 설치 관리자**를 선택 합니다. 설치 관리자 페이지에서 *.exe* 설치 관리자를 다운로드 하 여 실행 합니다. 

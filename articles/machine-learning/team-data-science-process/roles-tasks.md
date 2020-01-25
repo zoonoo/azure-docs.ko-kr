@@ -2,27 +2,27 @@
 title: Team Data Science Process 역할 및 작업
 description: 데이터 과학 그룹의 주요 구성 요소, 직원 역할 및 관련 태스크에 대 한 개요입니다.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/12/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: bbc066f4b01a01a589849ad524b58a9b5d9dfae1
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c1ed731943abf0efdd99ea54d2318fa402835e08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260645"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720013"
 ---
 # <a name="team-data-science-process-roles-and-tasks"></a>Team Data Science Process 역할 및 작업
 
 TDSP (팀 데이터 과학 프로세스)는 Microsoft에서 개발한 프레임 워크로, 예측 분석 솔루션 및 지능형 응용 프로그램을 효율적으로 구축 하는 구조적 방법론을 제공 합니다. 이 문서에서는이 프로세스를 표준화 하는 데이터 과학 팀에 대 한 핵심 인력 역할 및 관련 작업에 대해 간략하게 설명 합니다.
 
-이 소개 문서에서는 전체 데이터 과학 그룹, 데이터 과학 팀 및 TDSP 프로젝트에 대 한 TDSP 환경을 설정 하는 방법에 대 한 자습서에 연결 합니다. 이 자습서에서는 Azure DevOps Projects, Azure Repos 리포지토리 및 Azure Boards agile 계획 도구를 사용 하 여 액세스를 제어 하 고 코드를 호스트 및 공유 하며 팀 작업을 관리 하는 방법에 대 한 자세한 지침을 제공 합니다.
+이 소개 문서에서는 TDSP 환경을 설정 하는 방법에 대 한 자습서에 연결 합니다. 이 자습서에서는 Azure DevOps Projects, Azure Repos 리포지토리 및 Azure Boards를 사용 하는 방법에 대 한 자세한 지침을 제공 합니다.  동기 목표는 개념에서 모델링 및 배포로 이동 하는 것입니다.
 
 이 자습서에서는 Microsoft에서 TDSP를 구현 하는 방법 이므로 Azure DevOps를 사용 합니다. Azure DevOps는 역할 기반 보안, 작업 항목 관리 및 추적, 코드 호스팅, 공유 및 소스 제어를 통합 하 여 공동 작업을 용이 하 게 합니다. 또한이 자습서에서는 Azure [Data Science Virtual Machine](https://aka.ms/dsvm) (dsvm)를 미리 구성 하 고 Microsoft 소프트웨어 및 Azure 서비스와 통합 된 몇 가지 인기 있는 데이터 과학 도구를 포함 하는 분석 데스크톱으로 사용 합니다. 
 
@@ -116,7 +116,7 @@ TDSP (팀 데이터 과학 프로세스)는 Microsoft에서 개발한 프레임 
 워크플로 단계는 세 가지 작업으로 그룹화 할 수 있습니다.
 
 - 스 프린트 계획을 수행 하는 프로젝트 리드
-- 데이터 과학자 분기에서 `git` 작업 항목을 처리 하는 아티팩트를 개발 합니다.
+- 데이터 과학자 작업 항목을 해결 하기 위해 `git` 분기에서 아티팩트를 개발 합니다.
 - 프로젝트 책임자 또는 다른 팀 멤버가 코드 검토를 수행 하 고 작업 분기를 마스터 분기에 병합 합니다.
 
 프로젝트 실행 워크플로에 대 한 자세한 지침은 [데이터 과학 프로젝트의 Agile 개발](agile-development.md)을 참조 하세요.

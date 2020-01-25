@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2cbe5066974734093e440e64eb0b47542e569765
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: d21ebabb34b828624c196922f88380f02234dc05
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940900"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711870"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -39,17 +39,17 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 1. **프로 비전** 을 선택 하 여 선택한 앱에 대 한 사용자 계정 프로 비전 설정을 관리 합니다.
 1. **매핑** 을 확장 하 여 Azure AD와 대상 응용 프로그램 간에 흐르는 사용자 특성을 보고 편집 합니다. 대상 응용 프로그램에서 지 원하는 경우이 섹션에서 필요에 따라 그룹 및 사용자 계정 프로 비전을 구성할 수 있습니다.
 
-   ![매핑을 사용 하 여 사용자 특성 보기 및 편집](./media/customize-application-attributes/21.png)
+   ![매핑을 사용 하 여 사용자 특성 보기 및 편집](media/customize-application-attributes/21.png)
 
 1. 관련 **특성 매핑** 화면을 열려면 **매핑** 구성을 선택 합니다. 일부 특성 매핑은 SaaS 응용 프로그램이 제대로 작동 하는 데 필요 합니다. 필수 특성인 경우 **삭제** 기능을 사용할 수 없습니다.
 
-   ![특성 매핑을 사용 하 여 앱에 대 한 특성 매핑 구성](./media/customize-application-attributes/22.png)
+   ![특성 매핑을 사용 하 여 앱에 대 한 특성 매핑 구성](media/customize-application-attributes/22.png)
 
    이 스크린샷에서는 Salesforce에서 관리 되는 개체의 **Username** 특성이 연결 된 Azure Active Directory 개체의 **userPrincipalName** 값으로 채워지는 것을 볼 수 있습니다.
 
 1. 기존 **특성 매핑을** 선택 하 여 **특성 편집** 화면을 엽니다. 여기에서 Azure AD와 대상 응용 프로그램 간에 흐르는 사용자 특성을 편집할 수 있습니다.
 
-   ![특성 편집을 사용 하 여 사용자 특성 편집](./media/customize-application-attributes/23.png)
+   ![특성 편집을 사용 하 여 사용자 특성 편집](media/customize-application-attributes/23.png)
 
 ### <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해
 
@@ -71,7 +71,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 - **원본 특성** - 원본 시스템의 사용자 특성(예: Azure Active Directory).
 - **대상 특성** – 대상 시스템의 사용자 특성(예: ServiceNow).
-- **Null (선택 사항) 인 경우 기본값** 은 원본 특성이 null 인 경우 대상 시스템에 전달 될 값입니다. 이 값은 사용자를 만들 때만 프로 비전 됩니다. 기존 사용자를 업데이트할 때 "null 인 경우 기본값"이 프로 비전 되지 않습니다. 예를 들어 대상 시스템의 모든 기존 사용자를 특정 직함 (원본 시스템에서 null 인 경우)으로 프로 비전 하려는 경우 다음 [식을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)사용할 수 있습니다. Switch (IsPresent ([jobTitle]), "DefaultValue", "True", [jobTitle]) 원본 시스템에서 null 인 경우 "기본값"을 프로 비전 할 항목으로 바꾸어야 합니다. 
+- **Null (선택 사항) 인 경우 기본값** 은 원본 특성이 null 인 경우 대상 시스템에 전달 될 값입니다. 이 값은 사용자를 만들 때만 프로 비전 됩니다. 기존 사용자를 업데이트할 때 "null 인 경우 기본값"이 프로 비전 되지 않습니다. 예를 들어 대상 시스템의 모든 기존 사용자를 특정 직함 (원본 시스템에서 null 인 경우)으로 프로 비전 하려는 경우 다음 [식을](functions-for-customizing-application-data.md)사용할 수 있습니다. Switch (IsPresent ([jobTitle]), "DefaultValue", "True", [jobTitle]) 원본 시스템에서 null 인 경우 "기본값"을 프로 비전 할 항목으로 바꾸어야 합니다. 
 - **이 특성을 사용 하 여 개체 일치** – 원본 및 대상 시스템 간에 사용자를 고유 하 게 식별 하는 데이 매핑을 사용할지 여부를 지정 합니다. 일반적으로 대상 응용 프로그램의 사용자 이름 필드에 매핑되는 Azure AD의 userPrincipalName 또는 mail 특성에 대해 설정 됩니다.
 - **일치 우선 순위** – 여러 일치 특성을 설정할 수 있습니다. 여러 개가 있는 경우이 필드에 정의 된 순서 대로 평가 됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
 - **이 매핑 적용**
@@ -92,7 +92,7 @@ Azure AD 프로 비전 서비스는 "최적의" 시나리오 (사용자가 대�
 
 ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 그룹 개체 및 사용자 개체를 프로 비전 하는 기능을 지원 합니다. 그룹 개체에는 그룹 멤버와 함께 표시 이름 및 전자 메일 별칭과 같은 그룹 속성이 포함 될 수 있습니다.
 
-![프로 비전 된 그룹 및 사용자 개체가 있는 ServiceNow를 보여 주는 예제](./media/customize-application-attributes/24.png)
+![프로 비전 된 그룹 및 사용자 개체가 있는 ServiceNow를 보여 주는 예제](media/customize-application-attributes/24.png)
 
 **매핑**아래에서 그룹 매핑을 선택 하 고 **특성 매핑** 화면에서 **사용** 을 원하는 옵션으로 설정 하 여 그룹 프로 비전을 선택적으로 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
@@ -193,13 +193,13 @@ SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시 된 
 ## <a name="provisioning-a-role-to-a-scim-app"></a>SCIM 앱에 역할 프로 비전
 다음 단계를 사용 하 여 응용 프로그램에 사용자의 역할을 프로 비전 합니다. 아래 설명은 사용자 지정 SCIM 응용 프로그램에만 적용 됩니다. Salesforce 및 ServiceNow와 같은 갤러리 응용 프로그램의 경우 미리 정의 된 역할 매핑을 사용 합니다. 아래 글머리 기호는 AppRoleAssignments 특성을 응용 프로그램에서 예상 하는 형식으로 변환 하는 방법을 설명 합니다.
 
-- Azure AD의 appRoleAssignment을 응용 프로그램의 역할에 매핑 하려면 [식을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)사용 하 여 특성을 변환 해야 합니다. 정규식을 사용 하 여 역할 세부 정보를 구문 분석 하지 않고도 appRoleAssignment 특성을 role 특성에 **직접 매핑할 수 없습니다** . 
+- Azure AD의 appRoleAssignment을 응용 프로그램의 역할에 매핑 하려면 [식을](functions-for-customizing-application-data.md)사용 하 여 특성을 변환 해야 합니다. 정규식을 사용 하 여 역할 세부 정보를 구문 분석 하지 않고도 appRoleAssignment 특성을 role 특성에 **직접 매핑할 수 없습니다** . 
 
 - **SingleAppRoleAssignment** 
   - **사용 시기:** 단일 역할을 사용자에 게 프로 비전 하 고 주 역할을 지정 하려면 SingleAppRoleAssignment을 사용 합니다. 
   - **구성 방법:** 위에 설명 된 단계를 사용 하 여 특성 매핑 페이지로 이동 하 고 SingleAppRoleAssignment을 사용 하 여 roles 특성에 매핑합니다. 선택할 수 있는 역할 특성에는 다음 세 가지가 있습니다. (역할 [primary eq "True"]. 표시, 역할 [primary eq "True]. 형식 및 역할 [primary eq" True "]. value). 모든 역할 특성을 매핑에 포함 하도록 선택할 수 있습니다. 둘 이상의를 포함 하려면 새 매핑을 추가 하 고 대상 특성으로 포함 하면 됩니다.  
   
-  ![SingleAppRoleAssignment 추가](./media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
+  ![SingleAppRoleAssignment 추가](media/customize-application-attributes/edit-attribute-singleapproleassignment.png)
   - **고려해 야 할 사항**
     - 사용자에 게 여러 역할이 할당 되지 않았는지 확인 합니다. 프로 비전 되는 역할을 보장할 수 없습니다.
     
@@ -231,11 +231,11 @@ SCIM 응용 프로그램의 경우 특성 이름은 아래 예제에 표시 된 
   - **사용 시기:** AppRoleAssignmentsComplex 식을 사용 하 여 사용자에 대 한 여러 역할을 프로 비전 합니다. 
   - **구성 방법:** 위의 설명에 따라 지원 되는 특성 목록을 편집 하 여 역할에 대 한 새 특성을 포함 합니다. 
   
-    ![역할 추가](./media/customize-application-attributes/add-roles.png)<br>
+    ![역할 추가](media/customize-application-attributes/add-roles.png)<br>
 
     그런 다음 AppRoleAssignmentsComplex 식을 사용 하 여 아래 이미지에 표시 된 것 처럼 사용자 지정 역할 특성에 매핑합니다.
 
-    ![AppRoleAssignmentsComplex 추가](./media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
+    ![AppRoleAssignmentsComplex 추가](media/customize-application-attributes/edit-attribute-approleassignmentscomplex.png)<br>
   - **고려해 야 할 사항**
     - 모든 역할은 primary = false로 프로 비전 됩니다.
     - 게시물에는 역할 형식이 포함 되어 있습니다. PATCH 요청에 형식이 포함 되어 있지 않습니다. POST 및 PATCH 요청에서 형식을 전송 하기 위해 노력 하 고 있습니다.

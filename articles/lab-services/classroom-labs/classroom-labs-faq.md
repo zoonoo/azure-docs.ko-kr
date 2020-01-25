@@ -1,6 +1,6 @@
 ---
 title: Azure Lab Services의 교실 랩-FAQ | Microsoft Docs
-description: Azure Lab Services에서 교실 labs에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
+description: 이 문서에서는 Azure Lab Services의 교실 labs에 대 한 FAQ (질문과 대답)를 제공 합니다.
 services: lab-services
 documentationcenter: na
 author: spelluru
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/05/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 3bc58e9545f38508a9e08e9ae1aa9cf8713cc520
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 551167cda28a2bb6007e66c1b4b458a0a7b2e396
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264749"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718019"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 

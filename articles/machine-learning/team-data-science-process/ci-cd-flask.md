@@ -3,24 +3,24 @@ title: Azure Pipelines 팀 데이터 과학 프로세스를 사용 하 여 CI/CD
 description: Docker 및 Kubernetes를 사용 하 여 인공 지능 (AI) 응용 프로그램에 대 한 지속적인 통합 및 지속적인 업데이트 파이프라인을 만듭니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/06/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=jainr, previous-ms.author=jainr
-ms.openlocfilehash: f07ce8e8834a2804b6a5b7668718c8e6bff00fa6
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 42433ec419ac9e02077cd0359e18b5114206f27d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260659"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721832"
 ---
 # <a name="create-cicd-pipelines-for-ai-apps-using-azure-pipelines-docker-and-kubernetes"></a>Azure Pipelines, Docker 및 Kubernetes를 사용 하 여 AI 앱에 대 한 CI/CD 파이프라인 만들기
 
-AI (인공 지능) 응용 프로그램은 사전 학습 기계 학습 (ML) 모델과 함께 포함 된 응용 프로그램 코드입니다. AI 응용 프로그램에는 항상 두 개의 작업 스트림이 있습니다. 데이터 과학자 ML 모델을 빌드하고 앱 개발자가 앱을 빌드하고 최종 사용자에 게 공개 하 여 사용할 수 있습니다. 이 문서에서는 ML 모델을 앱 소스 코드에 포함 하는 AI 응용 프로그램에 대 한 CI/CD (지속적인 통합 및 지속적인 업데이트) 파이프라인을 구현 하는 방법을 설명 합니다. 샘플 코드와 자습서에서는 간단한 Python Flask 웹 응용 프로그램을 사용 하 고 개인 Azure blob storage 계정에서 미리 학습 된 모델을 가져옵니다. AWS S3 저장소 계정을 사용할 수도 있습니다.
+AI (인공 지능) 응용 프로그램은 사전 학습 기계 학습 (ML) 모델과 함께 포함 된 응용 프로그램 코드입니다. AI 응용 프로그램에는 항상 두 가지 작업 스트림이 있습니다. Data 과학자는 ML 모델을 빌드하고 앱 개발자는 앱을 빌드하고 최종 사용자에 게 노출 하 여 사용할 수 있습니다. 이 문서에서는 ML 모델을 앱 소스 코드에 포함 하는 AI 응용 프로그램에 대 한 CI/CD (지속적인 통합 및 지속적인 업데이트) 파이프라인을 구현 하는 방법을 설명 합니다. 샘플 코드와 자습서에서는 Python Flask 웹 응용 프로그램을 사용 하 고 개인 Azure blob storage 계정에서 미리 학습 된 모델을 가져옵니다. AWS S3 저장소 계정을 사용할 수도 있습니다.
 
 > [!NOTE]
 > 다음 프로세스는 CI/CD를 수행 하는 여러 방법 중 하나입니다. 이 도구와 필수 구성 요소에 대 한 대안이 있습니다.
@@ -60,9 +60,9 @@ GitHub에서 [소스 코드](https://github.com/Azure/DevOps-For-AI-Apps) 및 [�
 10. 앱에 대 한 사용자 요청은 DNS 서버를 통해 이동 합니다.
 11. DNS 서버는 부하 분산 장치에 요청을 전달 하 고 응답을 다시 사용자에 게 보냅니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 
 - [TDSP(Team Data Science Process)](/azure/machine-learning/team-data-science-process/)
 - [AML(Azure Machine Learning)](/azure/machine-learning/)
 - [Azure DevOps](https://azure.microsoft.com/services/devops/)
-- [AKS(Azure Kubernetes Services)](/azure/aks/intro-kubernetes)
+- [AKS(Azure Kubernetes Service)](/azure/aks/intro-kubernetes)

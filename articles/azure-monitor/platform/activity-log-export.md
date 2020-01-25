@@ -5,20 +5,21 @@ author: bwren
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 0e5780561df121d3d5af3a9b754d774cc7d6cf76
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969669"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715891"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
-> [!WARNING]
-> 이제 리소스 로그를 수집 하는 방법과 유사한 진단 설정을 사용 하 여 활동 로그를 Log Analytics 작업 영역으로 수집할 수 있습니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석](diagnostic-settings-legacy.md)을 참조 하세요.
+> [!IMPORTANT]
+> Azure 활동 로그를 Azure Storage 및 Azure Event Hubs 전송 하는 메서드가 [진단 설정](diagnostic-settings.md)으로 변경 되었습니다. 이 문서에서는 더 이상 사용 되지 않는 레거시 방법을 설명 합니다. 비교를 보려면 [Azure 활동 로그 수집 및 내보내기](diagnostic-settings-legacy.md) 에 대 한 업데이트를 참조 하세요.
+
 
 Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. Azure Portal에서 활동 로그를 보거나 Azure Monitor에서 수집 된 다른 데이터를 사용 하 여 분석할 수 있는 Log Analytics 작업 영역으로 복사 하는 것 외에도 활동 로그를 Azure storage 계정에 보관 하는 로그 프로필을 만들거나  이벤트 허브.
 
@@ -42,7 +43,7 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 ### <a name="event-hubs"></a>Event Hubs
 활동 로그를 event hub에 전송 하는 경우에는 [이벤트 허브를 만들어야](../../event-hubs/event-hubs-create.md) 합니다 (아직 없는 경우). 이전에 활동 로그 이벤트를이 Event Hubs 네임 스페이스로 스트리밍하는 경우 해당 이벤트 허브가 다시 사용 됩니다.
 
-공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. Event Hubs로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 Event Hubs 네임 스페이스에 대 한 공유 액세스 정책을 만들거나 수정할 수 있습니다.
+공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. 流式传输到事件中心需要“管理”、“发送”和“侦听”权限。 Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 Event Hubs 네임 스페이스에 대 한 공유 액세스 정책을 만들거나 수정할 수 있습니다.
 
 스트리밍을 포함 하도록 활동 로그 로그 프로필을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다. 설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 로그를 내보내는 구독과 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트에 위치합니다.
 
@@ -72,9 +73,14 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 
 Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여 로그 프로필을 만들거나 편집 합니다.
 
-1. Azure Portal **모니터** 메뉴에서 **이벤트 허브로 내보내기**를 선택 합니다.
+1. Azure Portal **Azure Monitor** 메뉴에서 **활동 로그**를 선택 합니다.
+3. **진단 설정**을 클릭합니다.
 
-    ![포털에서 내보내기 단추](media/activity-log-export/portal-export.png)
+   ![진단 설정](media/diagnostic-settings-subscription/diagnostic-settings.png)
+
+4. 레거시 환경에 대해 자주색 배너를 클릭 합니다.
+
+    ![레거시 환경](media/diagnostic-settings-subscription/legacy-experience.png)
 
 3. 표시 되는 블레이드에서 다음을 지정 합니다.
    * 내보낼 이벤트가 있는 지역입니다. 활동 로그는 전역 (비 지역) 로그 이므로 키 이벤트를 누락 하지 않도록 모든 지역을 선택 하 여 대부분의 이벤트에 연결 된 지역이 없도록 해야 합니다.

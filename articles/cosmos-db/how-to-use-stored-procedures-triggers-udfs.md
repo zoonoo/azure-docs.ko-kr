@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/17/2019
 ms.author: mjbrown
-ms.openlocfilehash: 5aea7c0b6b2008724a4a84bca7a63ae745f2dd1b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f914d4f61a746aa3c87ee2c67f096c01b75e378e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441747"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719707"
 ---
 # <a name="how-to-register-and-use-stored-procedures-triggers-and-user-defined-functions-in-azure-cosmos-db"></a>Azure Cosmos DB에서 저장 프로시저, 트리거 및 사용자 정의 함수를 등록하고 사용하는 방법
 
@@ -130,6 +130,7 @@ asyncClient.executeStoredProcedure(sprocLink, requestOptions, storedProcedureArg
         successfulCompletionLatch.countDown();
         System.out.println(storedProcedureResponse.getActivityId());
     }, error -> {
+        successfulCompletionLatch.countDown();
         System.err.println("an error occurred while executing the stored procedure: actual cause: "
                 + error.getMessage());
     });

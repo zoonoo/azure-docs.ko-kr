@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: 03674d8fb42d56d6b4b40d8111c1a7bbce7c312b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514489"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719843"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -130,7 +130,7 @@ Media Services v3은 라이브 이벤트의 라이브 선형 인코딩의 24 시
 
 ### <a name="azure-monitor-support-for-media-services-diagnostic-logs-and-metrics"></a>Media Services 진단 로그 및 메트릭에 대 한 Azure Monitor 지원
 
-이제 Azure Monitor를 사용 하 여 Media Services emmited 원격 분석 데이터를 볼 수 있습니다.
+이제 Azure Monitor를 사용 하 여 Media Services에서 내보낸 원격 분석 데이터를 볼 수 있습니다.
 
 * Azure Monitor 진단 로그를 사용 하 여 Media Services 키 배달 끝점에서 보낸 요청을 모니터링 합니다. 
 * Media Services [스트리밍 끝점](streaming-endpoint-concept.md)에서 내보낸 메트릭을 모니터링 합니다.   

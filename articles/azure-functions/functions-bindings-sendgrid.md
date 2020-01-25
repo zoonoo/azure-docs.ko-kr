@@ -2,15 +2,15 @@
 title: Azure Functions SendGrid 바인딩
 description: Azure Functions SendGrid 바인딩 참조.
 author: craigshoemaker
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/29/2017
 ms.author: cshoe
-ms.openlocfilehash: d70b05842fc7f251af6aefd743f064c037f63b7b
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: e318e5f9b192b9f857a0b97d076ce4cc87cfb73d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710988"
 ---
 # <a name="azure-functions-sendgrid-bindings"></a>Azure Functions SendGrid 바인딩
 
@@ -354,7 +354,7 @@ Python에서 특성을 지원 하지 않습니다.
 | apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey*입니다.| 아닙니다. |
 | to| - | 받는 사람의 이메일 주소입니다. | 예 |
 | 원본| 최저 | 보낸 사람의 전자 메일 주소입니다. |  예 |
-| subject| 제목 | 전자 메일의 제목입니다. | 예 |
+| subject| 제목 | 电子邮件的主题。 | 예 |
 | text| 텍스트 | 전자 메일 내용입니다. | 예 |
 
 선택적 속성은 바인딩에 정의 된 기본값을 포함 하 고 프로그래밍 방식으로 추가 또는 재정의 될 수 있습니다.

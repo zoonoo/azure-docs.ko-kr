@@ -3,20 +3,20 @@ title: SQL 파티션 테이블의 대량 데이터를 병렬로 가져오기 - �
 description: 분할된 테이블을 빌드하여 SQL Server 데이터베이스로 대량 데이터를 빠르게 병렬로 가져옵니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 253f73cc58292778d88417b693c157fcbd7d92bd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 673a801e218d055bf482dc97972e36584cddd402
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61428304"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721339"
 ---
 # <a name="build-and-optimize-tables-for-fast-parallel-import-of-data-into-a-sql-server-on-an-azure-vm"></a>Azure VM에서 SQL Server로 데이터를 빠르게 병렬로 가져오기 위한 테이블 빌드 및 최적화
 
@@ -99,7 +99,7 @@ ms.locfileid: "61428304"
 * 로깅 오버헤드를 최소화하기 위해 [데이터베이스를 변경](https://msdn.microsoft.com/library/bb522682.aspx)하여 트랜잭션 로깅 스키마를 BULK_LOGGED로 변경합니다. 아래는 그 예입니다.
   
         ALTER DATABASE <database_name> SET RECOVERY BULK_LOGGED
-* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. 빅 데이터를 SQL Server 데이터베이스로 신속하게 대량으로 가져오는 방법에 대한 팁은 [1시간 이내에 1TB 로드하기](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조하세요.
+* 신속한 데이터 로드를 위해 대량 가져오기 작업을 병렬로 실행합니다. SQL Server 데이터베이스에 빅 데이터를 대량으로 가져오는 방법에 대 한 팁은 [1 시간 이내에 1Tb 로드](https://blogs.msdn.com/b/sqlcat/archive/2006/05/19/602142.aspx)를 참조 하세요.
 
 다음 PowerShell 스크립트는 BCP를 사용하여 병렬로 데이터를 로드하는 예입니다.
 

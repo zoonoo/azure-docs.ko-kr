@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 9e585f7d13e1686f125055056fd1e2d88e2bf8ff
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903345"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715264"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
@@ -143,7 +143,7 @@ Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있�
                 ],
 ```
 
-앞 발췌는 전체 템플릿이 아니라 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
+위의 발췌는 전체 템플릿이 아니지만 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
 
 ### <a name="cross-zone-load-balancing"></a>영역 간 부하 분산
 

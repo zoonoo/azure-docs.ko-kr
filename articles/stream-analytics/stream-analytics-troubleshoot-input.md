@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 20a161ffc82cb8f74cfcac838856434f83c4e258
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dac3037f82c38980c9ac16685aa7fddac68a2e7b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75354291"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720302"
 ---
 # <a name="troubleshoot-input-connections"></a>입력 연결 문제 해결
 
@@ -24,11 +24,13 @@ ms.locfileid: "75354291"
 
 2.  입력 데이터를 검사합니다.
 
-    해당 입력 데이터가 이벤트 허브로 전달되고 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 Azure Event Hub(이벤트 허브 입력이 사용되는 경우)에 연결합니다.
+    1. 해당 입력 데이터가 이벤트 허브로 전달되고 있는지 확인하려면 [Service Bus 탐색기](https://code.msdn.microsoft.com/windowsapps/Service-Bus-Explorer-f2abca5a)를 사용하여 Azure Event Hub(이벤트 허브 입력이 사용되는 경우)에 연결합니다.
         
-    각 입력에 대해 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용하고 입력된 샘플 데이터를 다운로드합니다.
+    1. 각 입력에 대 한 [**샘플 데이터**](stream-analytics-sample-data-input.md) 단추를 사용 합니다. 입력 샘플 데이터를 다운로드 합니다.
         
-    샘플 데이터를 검사하여 데이터의 셰이프(스키마 및 [데이터 형식](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics))를 파악합니다.
+    1. 데이터의 형태 즉, 스키마 및 [데이터 형식을](https://docs.microsoft.com/stream-analytics-query/data-types-azure-stream-analytics)이해 하려면 샘플 데이터를 검사 합니다.
+
+3.  입력 미리 보기에서 시간 범위를 선택 했는지 확인 합니다. **시간 범위 선택**을 선택 하 고 쿼리를 테스트 하기 전에 샘플 기간을 입력 합니다.
 
 ## <a name="malformed-input-events-causes-deserialization-errors"></a>잘못된 형식의 입력 이벤트로 인해 역직렬화 오류가 발생할 수 있습니다. 
 Stream Analytics 작업의 입력 스트림에 잘못된 형식의 메시지가 포함되어 있으면 역직렬화 문제가 발생합니다. 예를 들어 잘못된 형식의 메시지는 JSON 개체에서 괄호나 중괄호가 누락되거나 시간 필드의 타임스탬프 형식이 잘못된 경우 발생할 수 있습니다. 

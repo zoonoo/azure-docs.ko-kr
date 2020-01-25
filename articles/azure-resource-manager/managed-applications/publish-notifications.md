@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.author: ilahat
 author: ilahat
 ms.date: 11/01/2019
-ms.openlocfilehash: b33366b65fed0042eb3024c2264bce1c4a1c4c1d
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ff058d7b51bd2e5efd80db69e5928d58fc5a7725
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651632"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715675"
 ---
 # <a name="azure-managed-applications-with-notifications"></a>알림을 사용 하는 Azure 관리 되는 응용 프로그램
 
@@ -189,7 +189,7 @@ billingDetails | *관리 되는 응용 프로그램 Azure Marketplace에만 지�
 
 ## <a name="endpoint-authentication"></a>끝점 인증
 Webhook 끝점의 보안을 유지 하 고 알림의 신뢰성을 확인 하려면 다음을 수행 합니다.
-1. https://your-endpoint.com?sig=Guid 와 같이 webhook URI 위에 쿼리 매개 변수를 제공 합니다. 각 알림을 사용 하 여 쿼리 매개 변수 `sig`에 필요한 값 `Guid`있는지 확인 합니다.
+1. 웹 후크 URI 위에 다음과 같이 쿼리 매개 변수를 제공 합니다 (예: https\:. 각 알림을 사용 하 여 쿼리 매개 변수 `sig`에 필요한 값 `Guid`있는지 확인 합니다.
 2. ApplicationId를 사용 하 여 관리 되는 응용 프로그램 인스턴스에서 GET을 실행 합니다. 일관성을 유지 하기 위해 provisioningState이 알림의 provisioningState 일치 하는지 확인 합니다.
 
 ## <a name="notification-retries"></a>알림 다시 시도

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 04/11/2017
-ms.openlocfilehash: e8a1cf0e197841b6af8c65fe00c25aa42dbd0e7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 68c668561123aee943f54e6fdcbad7c6450957f4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433509"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714444"
 ---
 # <a name="how-to-scale-azure-cache-for-redis"></a>Azure Cache for Redis 크기를 조정하는 방법
 Azure Cache for Redis에는 캐시 크기와 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 캐시를 만든 후 애플리케이션 요구 사항이 변경되면 캐시의 크기 및 가격 책정 계층의 크기를 조정할 수 있습니다. 이 문서에서는 Azure Portal과 Azure PowerShell 및 Azure CLI와 같은 도구를 사용하여 캐시 크기를 조정하는 방법을 보여 줍니다.
@@ -166,7 +166,7 @@ Azure Cache for Redis 크기 조정에 대해 자주 묻는 질문과 대답이 
 
 
 ### <a name="how-long-does-scaling-take"></a>크기 조정은 시간이 얼마나 걸리나요?
-크기 조정은 약 20분이 걸립니다. 캐시에 있는 데이터의 양에 따라 다를 수 있습니다.
+크기 조정 시간은 캐시에 있는 데이터의 양에 따라 달라 지 며 완료 하는 데 시간이 더 오래 걸립니다. 크기 조정에는 약 20 분이 걸립니다. 클러스터형 캐시의 경우 분할은 분할 당 약 20 분이 걸립니다.
 
 ### <a name="how-can-i-tell-when-scaling-is-complete"></a>크기 조정이 완료되었는지 어떻게 알 수 있나요?
 Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. 크기 조정이 완료되면 캐시 상태가 **실행 중**으로 변경됩니다.
@@ -176,6 +176,3 @@ Azure Portal에서 진행 중인 크기 조정 작업을 볼 수 있습니다. �
 [redis-cache-pricing-tier-blade]: ./media/cache-how-to-scale/redis-cache-pricing-tier-blade.png
 
 [redis-cache-scaling]: ./media/cache-how-to-scale/redis-cache-scaling.png
-
-
-

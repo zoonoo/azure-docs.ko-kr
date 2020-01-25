@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/4/2019
 ms.author: caya
-ms.openlocfilehash: 0e1ba6d86778b40f96940c417050e242fde33845
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: b98ab8d3c4d03115ea689b4dfd3d8dee753f019d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73797583"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715087"
 ---
 # <a name="autoscale-your-aks-pods-using-application-gateway-metrics-beta"></a>Application Gateway 메트릭을 사용 하 여 AKS pod 자동 크기 조정 (베타)
 
@@ -94,7 +94,7 @@ kubectl get --raw "/apis/external.metrics.k8s.io/v1beta1/namespaces/default/appg
 
 메트릭 서버를 통해 `appgw-request-count-metric`을 노출할 수 있게 되 면 [`Horizontal Pod Autoscaler`](https://docs.microsoft.com/azure/aks/concepts-scale#horizontal-pod-autoscaler) 를 사용 하 여 대상 배포를 확장할 수 있습니다.
 
-다음 예제에서는 `aspnet`샘플 배포를 대상으로 합니다. 최대 `10` Pod에 대 한 `appgw-request-count-metric` > Pod 당 200를 확장 합니다.
+다음 예제에서는 `aspnet`샘플 배포를 대상으로 합니다. 최대 `10` Pod에 대 한 Pod 당 200 > `appgw-request-count-metric` 때 Pod를 확장 합니다.
 
 대상 배포 이름을 바꾸고 다음 자동 크기 조정 구성을 적용 합니다.
 ```yaml

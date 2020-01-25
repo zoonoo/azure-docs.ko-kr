@@ -15,12 +15,12 @@ ms.date: 09/11/2018
 ms.author: mimart
 ms.custom: H1Hack27Feb2017
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1f018edfa7cbb244c57f12c3b83dba086e1590f2
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: a82efda4cf53931dbf81b993b12a2927f02dfa0b
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75778348"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711689"
 ---
 # <a name="attribute-based-application-provisioning-with-scoping-filters"></a>범위 지정 필터를 사용한 특성 기반 애플리케이션 프로비전
 이 문서에서는 범위 지정 필터를 사용하여 어떤 사용자를 애플리케이션에 프로비전할지 결정하는 특성 기반 규칙을 정의하는 방법을 설명합니다.
@@ -52,7 +52,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 
 예를 들어, 다음과 같은 범위 지정 필터를 고려해봅니다.
 
-![범위 지정 필터](./media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
+![범위 지정 필터](media/define-conditional-rules-for-provisioning-user-accounts/scoping-filter.PNG) 
 
 프로비전되는 범위 지정 필터에 따라 사용자는 다음 조건을 충족해야 합니다.
 
@@ -117,7 +117,7 @@ Azure AD 프로비전 서비스에서 처리한 각 사용자 또는 그룹은 �
 |----|----|----|----|
 |userPrincipalName|REGEX 일치|.\*@domain.com |도메인 @domain.com 있는 userPrincipal의 모든 사용자는 프로 비전 범위에 포함 됩니다.|
 |userPrincipalName|REGEX 일치 하지 않음|.\*@domain.com|도메인 @domain.com 있는 userPrincipal의 모든 사용자는 프로 비전 범위를 벗어났습니다.|
-|department|EQUALS|sales|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
+|department|EQUALS|판매액과|판매 부서의 모든 사용자가 프로 비전 범위에 있습니다.|
 |workerID|REGEX 일치|(1[0-9][0-9][0-9][0-9][0-9][0-9])| 100만과 200만 사이에 근무 연수가 Ds가 있는 모든 직원은 프로 비전 범위에 있습니다.|
 
 ## <a name="related-articles"></a>관련 문서

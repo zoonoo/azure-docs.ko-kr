@@ -3,20 +3,20 @@ title: SQL 및 Python을 사용하여 SQL Server에서 기능 만들기 - Team D
 description: Team Data Science Process의 일부인 SQL 및 Python을 사용하여 Azure에서 SQL Server VM에 저장된 데이터에 대한 기능을 생성합니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/21/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 5aa9a4f0ab536c197f08cb64a5cee8280c23039f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 58fa98005d7d89e84404d99cf4f55e456fd91f21
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982066"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721747"
 ---
 # <a name="create-features-for-data-in-sql-server-using-sql-and-python"></a>SQL 및 Python을 사용하여 SQL Server의 데이터에 대한 기능 만들기
 이 문서에서는 데이터에서 알고리즘을 효율적으로 학습할 수 있는 Azure의 SQL Server VM에 저장된 데이터에 대한 기능을 생성하는 방법을 보여 줍니다. SQL 또는 Python 같은 프로그래밍 언어를 사용하여 이 작업을 수행할 수 있습니다. 여기에는 두 방법이 모두 설명되어 있습니다.
@@ -37,9 +37,9 @@ ms.locfileid: "75982066"
 ## <a name="sql-featuregen"></a>SQL로 기능 생성
 이 섹션에서는 SQL을 사용하여 기능을 생성하는 방법에 대해 설명합니다.  
 
-1. [개수 기반 기능 생성](#sql-countfeature)
-2. [범주화 기능 생성](#sql-binningfeature)
-3. [단일 열에서 기능 롤아웃](#sql-featurerollout)
+* [개수 기반 기능 생성](#sql-countfeature)
+* [범주화 기능 생성](#sql-binningfeature)
+* [단일 열에서 기능 롤아웃](#sql-featurerollout)
 
 > [!NOTE]
 > 추가 기능을 생성한 후 이를 기존 테이블에 열로 추가하거나, 추가 기능 및 기본 키를 사용하여 새 테이블을 만들어 원래 테이블에 조인할 수 있습니다.
@@ -47,7 +47,7 @@ ms.locfileid: "75982066"
 > 
 
 ### <a name="sql-countfeature"></a>개수 기반 기능 생성
-이 문서에서는 개수 기능을 생성하는 두 가지 방법을 보여 줍니다. 첫 번째 방법에서는 조건부 합계를 사용하고, 두 번째 방법에서는 'where' 절을 사용합니다. 그런 다음 원래 데이터와 함께 개수 기능을 유지하도록 원래 테이블에 조인할 수 있습니다(기본 키 열 사용).
+이 문서에서는 개수 기능을 생성하는 두 가지 방법을 보여 줍니다. 첫 번째 방법에서는 조건부 합계를 사용하고, 두 번째 방법에서는 'where' 절을 사용합니다. 그런 다음 이러한 새 기능을 원본 테이블 (기본 키 열 사용)과 조인 하 여 원본 데이터와 함께 개수 기능을 사용할 수 있습니다.
 
     select <column_name1>,<column_name2>,<column_name3>, COUNT(*) as Count_Features from <tablename> group by <column_name1>,<column_name2>,<column_name3>
 
@@ -55,7 +55,7 @@ ms.locfileid: "75982066"
     where <column_name3> = '<some_value>' group by <column_name1>,<column_name2>
 
 ### <a name="sql-binningfeature"></a>범주화 기능 생성
-다음 예제에서는 기능으로 사용할 수 있는 숫자 열을 범주화하여(5개의 bin 사용) 범주화된 기능을 생성하는 방법을 보여 줍니다.
+다음 예제에서는 기능으로 사용할 수 있는 숫자 열을 범주화하여(다섯 개의 bin 사용) 범주화된 기능을 생성하는 방법을 보여 줍니다.
 
     `SELECT <column_name>, NTILE(5) OVER (ORDER BY <column_name>) AS BinNumber from <tablename>`
 
@@ -74,9 +74,9 @@ ms.locfileid: "75982066"
 * 세 번째 소수 자릿수는 110m까지 적용되며, 대규모 농경지 또는 기업 부지를 식별할 수 있습니다.
 * 네 번째 소수 자릿수는 11m까지 적용되며, 하나의 필지를 식별할 수 있습니다. 이는 간섭 없이 보정되지 않은 GPS 장치의 일반적인 정확도에 해당됩니다.
 * 다섯 번째 소수 자릿수는 1.1m까지 적용되며, 수목을 서로 구분할 수 있습니다. 상용 GPS 장치에서는 미분 보정을 통해서만 이 수준의 정확도를 실현할 수 있습니다.
-* 여섯 번째 소수 자릿수는 0.11m까지 적용되며, 상세 구조물 배치, 조경 설계, 도로 건설 등에 사용될 수 있습니다. 빙하 및 강의 이동을 추적하는 데 매우 적합합니다. 미분 보정된 GPS와 같은 GPS로 세밀히 측정하여 이를 수행할 수 있습니다.
+* 여섯 번째 소수 자릿수는 최대 0.11 m까지 가치가 있습니다. 지형 디자인,도로 만들기에 대 한 자세한 구조를 위해이 수준을 사용할 수 있습니다. 빙하 및 강의 이동을 추적하는 데 매우 적합합니다. 이러한 목표는 differentially 수정 된 GPS와 같이 GPS으로 세밀히 조치를 수행 하 여 달성할 수 있습니다.
 
-위치 정보는 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. 또한 Bing Maps API( `https://msdn.microsoft.com/library/ff701710.aspx` )와 같은 REST 끝점을 호출하여 지역/구역 정보를 가져올 수 있습니다.
+위치 정보는 지역, 위치 및 도시 정보를 구분하여 기능화할 수 있습니다. Bing Maps API와 같은 REST 끝점을 호출할 수도 있습니다 (지역/구역 정보를 가져오는 `https://msdn.microsoft.com/library/ff701710.aspx` 참조).
 
     select
         <location_columnname>

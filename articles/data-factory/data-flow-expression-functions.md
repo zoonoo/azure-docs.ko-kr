@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 8cbc067326bf77648d242cadaf91b491f50c3848
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 68771ee3d2ae2d43245bd217bedcf59b987786f1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294272"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716726"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>데이터 흐름 매핑의 데이터 변환 식 
 
@@ -716,7 +716,7 @@ ___
 ___
 ### <code>toTimestamp</code>
 <code><b>toTimestamp(<i>&lt;string&gt;</i> : any, [<i>&lt;timestamp format&gt;</i> : string], [<i>&lt;time zone&gt;</i> : string]) => timestamp</b></code><br/><br/>
-선택적 타임 스탬프 형식을 지정 하 여 문자열을 타임 스탬프로 변환 합니다. 가능한 모든 형식에 대해서는 Java SimpleDateFormat를 참조 하세요. 타임 스탬프를 생략 하면 기본 패턴이 사용 됩니다. yyyy-[M] M-[d] d hh: mm: ss [.f ...]가 사용 됩니다. 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. Timestamp는 사용 가능한 형식에 대 한 Java의 SimpleDateFormat를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
+선택적 타임 스탬프 형식을 지정 하 여 문자열을 타임 스탬프로 변환 합니다. 가능한 모든 형식에 대해서는 Java SimpleDateFormat를 참조 하세요. 타임 스탬프를 생략 하면 기본 패턴이 사용 됩니다. yyyy-[M] M-[d] d hh: mm: ss [.f ...]가 사용 됩니다. 선택적인 표준 시간대를 ' GMT ', ' PST ', ' UTC ', ' 아메리카/케이맨 ' 형식으로 전달할 수 있습니다. Timestamp는 999Refer을 사용 하 여 최대 밀리초의 정확도를 지원 하며, 사용 가능한 형식에 대해 Java의 SimpleDateFormat를 참조 합니다. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``toTimestamp('2016-12-31 00:12:00') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('2016-12-31T00:12:00', 'yyyy-MM-dd\'T\'HH:mm:ss', 'PST') -> toTimestamp('2016-12-31 00:12:00')``
 * ``toTimestamp('12/31/2016T00:12:00', 'MM/dd/yyyy\'T\'HH:mm:ss') -> toTimestamp('2016-12-31 00:12:00')``
 * ``millisecond(toTimestamp('2019-02-03 05:19:28.871', 'yyyy-MM-dd HH:mm:ss.SSS')) -> 871``

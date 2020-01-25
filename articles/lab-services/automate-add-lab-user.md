@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs에서 랩 사용자 추가 자동화 | Microsoft Docs
-description: Azure DevTest Labs에서 랩 사용자를 랩에 자동으로 추가 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Resource Manager 템플릿, PowerShell 및 CLI를 사용 하 여 Azure DevTest Labs에서 랩에서 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 services: devtest-lab,lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/02/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: deec67a2c64a57bbb380b3fd87bf820499e6efed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 70a6359923734c83590d4677bb2c93966c925d14
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980061"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718142"
 ---
 # <a name="automate-adding-a-lab-user-to-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩 사용자를 랩에 추가 자동화
 Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비스 개발-테스트 환경을 빠르게 만들 수 있습니다. 그러나 여러 팀과 여러 DevTest Labs 인스턴스가 있는 경우 생성 프로세스를 자동화 하면 시간을 절약할 수 있습니다. [Azure Resource Manager 템플릿을](https://github.com/Azure/azure-devtestlab/tree/master/ARMTemplates) 사용 하면 실습, 랩 vm, 사용자 지정 이미지, 수식을 만들고 자동화 된 방식으로 사용자를 추가할 수 있습니다. 이 문서에서는 특히 DevTest Labs 인스턴스에 사용자를 추가 하는 방법을 집중적으로 설명 합니다.

@@ -3,20 +3,20 @@ title: pandas를 사용하여 Azure Blob Storage에서 데이터 탐색 - Team D
 description: pandas Python 패키지를 사용하여 Azure Blob 컨테이너에 저장된 데이터를 탐색하는 방법
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/09/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 99e041b41c5c569a2329bb2fc6f33e8f5a05c385
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29011760a94a05020150ceddeba4303b87c2f610
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981993"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722189"
 ---
 # <a name="explore-data-in-azure-blob-storage-with-pandas"></a>pandas를 사용하여 Azure Blob Storage의 데이터 탐색
 
@@ -33,7 +33,7 @@ ms.locfileid: "75981993"
 ## <a name="load-the-data-into-a-pandas-dataframe"></a>pandas DataFrame에 데이터 로드
 데이터 세트를 탐색 및 조작하려면 먼저 Blob 원본에서 로컬 파일로 다운로드한 다음, pandas DataFrame에 로드해야 합니다. 이 절차를 수행하는 단계는 다음과 같습니다.
 
-1. blob 서비스를 사용하여 다음 Python 코드 샘플로 Azure blob에서 데이터를 다운로드합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다.
+1. Blob service를 사용 하 여 다음 Python 코드 샘플로 Azure blob에서 데이터를 다운로드 합니다. 다음 코드의 변수를 사용자가 원하는 값으로 대체합니다.
 
 ```python
 from azure.storage.blob import BlockBlobService

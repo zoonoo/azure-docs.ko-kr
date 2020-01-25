@@ -15,17 +15,16 @@ ms.topic: conceptual
 ms.date: 07/11/2017
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ROBOTS: NOINDEX
-ms.openlocfilehash: 99c5e4d99f45e2a642a46f7dc070fb7512ff4d73
-ms.sourcegitcommit: 198c3a585dd2d6f6809a1a25b9a732c0ad4a704f
+ms.openlocfilehash: e7894bfada4d363e89f526280e2925b4f4c6180a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/23/2019
-ms.locfileid: "68422547"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711884"
 ---
 # <a name="problem-configuring-federated-single-sign-on-for-a-non-gallery-application"></a>비갤러리 애플리케이션에 대해 비갤러리 Single Sign-On 구성 문제
 
-애플리케이션을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](https://docs.microsoft.com/azure/active-directory/application-config-sso-how-to-configure-federated-sso-non-gallery) 문서에 있는 단계를 모두 수행했는지 확인합니다.
+애플리케이션을 구성할 때 문제가 발생 할 경우. [Azure Active Directory 애플리케이션 갤러리에 있지 않은 애플리케이션에 Single Sign-On 구성](configure-federated-single-sign-on-non-gallery-applications.md) 문서에 있는 단계를 모두 수행했는지 확인합니다.
 
 ## <a name="cant-add-another-instance-of-the-application"></a>애플리케이션의 다른 인스턴스를 추가할 수 없음
 
@@ -41,7 +40,7 @@ ms.locfileid: "68422547"
 
 사용자 인증 후에 Azure AD에서 응답을 통해 애플리케이션으로 보내는 EntityID(사용자 ID) 형식은 선택할 수 없습니다.
 
-Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](https://docs.microsoft.com/azure/active-directory/develop/active-directory-single-sign-on-protocol-reference#authnrequest) 문서에서 확인할 수 있습니다.
+Azure AD에서는 선택한 값 또는 SAML AuthRequest에서 애플리케이션이 요청한 형식을 기반으로 NameID 특성(사용자 ID)의 형식을 선택합니다. 자세한 내용은 NameIDPolicy 섹션 아래의 [Single Sign-On SAML 프로토콜](../develop/single-sign-on-saml-protocol.md#authnrequest) 문서에서 확인할 수 있습니다.
 
 ## <a name="where-do-i-get-the-application-metadata-or-certificate-from-azure-ad"></a>Azure AD에서 애플리케이션 메타데이터 또는 인증서를 가져오는 위치
 
@@ -69,7 +68,7 @@ Azure AD에서는 메타데이터를 가져오는 URL을 제공하지 않습니�
 
 ## <a name="dont-know-how-to-customize-saml-claims-sent-to-an-application"></a>애플리케이션에 전송된 SAML 클레임을 사용자 지정하는 방법을 알 수 없음
 
-애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](https://docs.microsoft.com/azure/active-directory/active-directory-claims-mapping)을 참조하세요.
+애플리케이션에 전송된 SAML 특성 클레임을 사용자 지정하는 방법을 알아보려면 [Azure Active Directory의 클레임 매핑](../develop/active-directory-claims-mapping.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Active Directory로 애플리케이션 관리](what-is-application-management.md)

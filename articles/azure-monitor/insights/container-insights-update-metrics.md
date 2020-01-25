@@ -3,12 +3,12 @@ title: 메트릭에 대 한 컨테이너에 대 한 Azure Monitor를 업데이�
 description: 이 문서에서는 집계 된 메트릭에 대 한 탐색 및 경고를 지 원하는 사용자 지정 메트릭 기능을 사용 하도록 컨테이너에 Azure Monitor을 업데이트 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: 0a2674df4a05d856b35dd51dbb33af0f407db29f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a7f40cb0523c2366c47da228e49311c2f9579212
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403232"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715912"
 ---
 # <a name="how-to-update-azure-monitor-for-containers-to-enable-metrics"></a>메트릭을 사용 하도록 설정 하는 컨테이너에 대 한 Azure Monitor를 업데이트 하는 방법
 
@@ -22,7 +22,7 @@ ms.locfileid: "75403232"
 
 | 메트릭 네임스페이스 | 메트릭 | Description |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
 | insights.container/pods | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
 
 이러한 새 기능을 지원 하도록 클러스터를 업데이트 하는 것은 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 하 여 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다.
@@ -529,7 +529,7 @@ Azure PowerShell를 사용 하 여 특정 클러스터를 업데이트 하려면
     }
 
     #
-    #   Check AKS cluster existance and access check
+    #   Check AKS cluster existence and access check
     #
     Write-Host("Checking aks cluster exists...")
     $cluster = Get-AzAks -ResourceGroupName $resourceGroupName -Name $clusterName  -ErrorVariable notPresent -ErrorAction SilentlyContinue

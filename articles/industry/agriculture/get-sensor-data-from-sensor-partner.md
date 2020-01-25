@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 9bf5608a44aa19650a507ada3a0a437d34c13277
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d56504c96c5e039f2563a1bfee577fe9b15e8563
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705669"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715571"
 ---
 # <a name="get-sensor-data-from-sensor-partners"></a>센서 파트너에서 센서 데이터 가져오기
 
@@ -31,7 +31,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 센서 데이터의 스트리밍을 시작한 후에는 FarmBeats 시스템으로 데이터를 가져오는 프로세스를 시작할 수 있습니다. FarmBeats에 대 한 통합을 사용 하도록 설정 하려면 장치 공급자에 게 다음 정보를 제공 합니다.
 
- - API 엔드포인트
+ - API 끝점
  - 테넌트 ID
  - 클라이언트 ID
  - 클라이언트 암호
@@ -72,13 +72,16 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 
 ### <a name="integrate-device-data-by-using-the-generated-credentials"></a>생성 된 자격 증명을 사용 하 여 장치 데이터 통합
 
-이전 섹션에서 생성 한 자격 증명 집합을 사용 하 여 FarmBeats을 연결 하려면 장치 파트너 포털로 이동 합니다.
-
- - API 엔드포인트
+이제 이전 섹션에서 생성 된 다음 정보가 있습니다.
+ - API 끝점
  - EventHub 연결 문자열
  - 클라이언트 ID
  - 클라이언트 암호
  - 테넌트 ID
+ 
+FarmBeats를 연결 하기 위해 장치 파트너에 게이를 제공 해야 합니다. 동일한 작업을 수행 하기 위해 장치 파트너 포털로 이동 합니다. 예를 들어 Davis 악기의 장치를 사용 하는 경우 아래 페이지로 이동 하세요.
+
+[Davis 계측](https://weatherlink.github.io/azure-farmbeats/setup)
 
  장치 공급자가 성공적으로 통합 되었는지 확인 합니다. 확인 되 면 Azure FarmBeats에서 모든 장치 및 센서를 볼 수 있습니다.
 

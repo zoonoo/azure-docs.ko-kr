@@ -3,26 +3,26 @@ title: Azure DevOps Services로 데이터 과학 코드 테스트 - Team Data Sc
 description: Team Data Science Process 및 Azure DevOps Services와 함께 UCI 성인 소득 예측 데이터 세트를 활용하여 Azure에서 데이터 과학 코드 테스트
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 05/19/2018
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=weig, previous-ms.author=weig
-ms.openlocfilehash: 10692fcb720be819dcf94a8ecbc541983ffc8853
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 9612114bb368898ccf31b2c8692869b84544b652
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60336697"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722021"
 ---
 # <a name="data-science-code-testing-on-azure-with-the-team-data-science-process-and-azure-devops-services"></a>Team Data Science Process 및 Azure DevOps Services를 통해 Azure에서 데이터 과학 코드 테스트
 이 문서에서는 데이터 과학 워크플로에서 코드를 테스트하기 위한 예비 지침을 제공합니다. 이러한 테스트를 통해 데이터 과학자는 체계적이며 효율적인 방식으로 품질 및 예상되는 코드의 결과를 확인할 수 있습니다. 코드 테스트가 어떻게 수행되는지 보여 주기 위해 이전에 게시한 [UCI 성인 소득 데이터 세트를 사용하는 TDSP(Team Data Science Process) 프로젝트](https://github.com/Azure/MachineLearningSamples-TDSPUCIAdultIncome)를 사용합니다. 
 
 ## <a name="introduction-on-code-testing"></a>코드 테스트 소개
-“단위 테스트”는 소프트웨어 개발을 위한 오랜 관행입니다. 단, 데이터 과학의 경우 무엇을 의미하는지, 그리고 데이터 과학 수명 주기의 다른 단계에서 코드를 어떻게 테스트해야 하는지는 종종 명확하지 않습니다.
+“단위 테스트”는 소프트웨어 개발을 위한 오랜 관행입니다. 하지만 데이터 과학의 경우 "단위 테스트"가 무엇 인지 명확 하지 않으며 다음과 같은 데이터 과학 수명 주기의 다른 단계에 대 한 코드를 테스트 하는 방법을 명확 하 게 설명 하지 않는 경우가 많습니다.
 
 * 데이터 준비
 * 데이터 품질 검사
@@ -54,7 +54,7 @@ ms.locfileid: "60336697"
     
     ![프로젝트 만들기 단계](./media/code-test/create_python_project_in_vs.PNG)
 
-    ![Controllers\HomeController.cs](./media/code-test/solution_explorer_in_vs.PNG)
+    ![솔루션 탐색기](./media/code-test/solution_explorer_in_vs.PNG)
 
 1. Azure DevOps 프로젝트 코드 리포지토리로 프로젝트 코드를 피드합니다. 
 
@@ -114,35 +114,35 @@ ms.locfileid: "60336697"
 
     a. 프로젝트 리포지토리에서 **빌드 및 릴리스**를 선택한 다음, **+새로 만들기**를 선택하여 새 빌드 프로세스를 만듭니다.
 
-       ![Selections for starting a new build process](./media/code-test/create_new_build.PNG)
+    ![새 빌드 프로세스를 시작하기 위한 선택 항목](./media/code-test/create_new_build.PNG)
 
     b. 화면에 표시되는 메시지에 따라 소스 코드 위치, 프로젝트 이름, 리포지토리 및 분기 정보를 선택합니다.
     
-       ![Source, name, repository, and branch information](./media/code-test/fill_in_build_info.PNG)
+    ![원본, 이름, 리포지토리 및 분기 정보](./media/code-test/fill_in_build_info.PNG)
 
-    c. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
+    다. 템플릿을 선택합니다. Python 프로젝트 템플릿이 없으므로 **빈 프로세스**를 선택하여 시작합니다. 
 
-       ![List of templates and "Empty process" button](./media/code-test/start_empty_process_template.PNG)
+    ![템플릿 목록 및 “빈 프로세스” 단추](./media/code-test/start_empty_process_template.PNG)
 
-    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용하여 빌드 프로세스를 완료하려면 여기서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)를 참조하세요.
+    d. 빌드에 이름을 지정하고 에이전트를 선택합니다. DSVM을 사용 하 여 빌드 프로세스를 완료 하려는 경우 여기에서 기본값을 선택할 수 있습니다. 에이전트 설정에 대한 자세한 내용은 [빌드 및 릴리스 에이전트](https://docs.microsoft.com/azure/devops/pipelines/agents/agents?view=vsts)를 참조하세요.
     
-       ![Build and agent selections](./media/code-test/select_agent.PNG)
+    ![빌드 및 에이전트 선택](./media/code-test/select_agent.PNG)
 
-    e. 왼쪽 창에서 **+** 를 선택하여 이 빌드 단계에 대한 작업을 추가합니다. 모든 검사를 완료하기 위해 Python 스크립트 **test1.py**를 실행해야 하므로 이 태스크는 PowerShell 명령을 사용하여 Python 코드를 실행합니다.
+    e. 왼쪽 창에서 **+** 를 선택하여 이 빌드 단계에 대한 작업을 추가합니다. Python 스크립트 **test1.py** 을 실행 하 여 모든 검사를 완료 하기 때문에이 작업은 PowerShell 명령을 사용 하 여 python 코드를 실행 합니다.
     
-       !["Add tasks" pane with PowerShell selected](./media/code-test/add_task_powershell.PNG)
+    ![선택된 PowerShell이 포함된 “작업 추가” 창](./media/code-test/add_task_powershell.PNG)
 
     f. PowerShell 세부 정보에서 PowerShell의 이름 및 버전 같은 필요한 정보를 입력합니다. 형식으로 **인라인 스크립트**를 선택합니다. 
     
-       In the box under **Inline Script**, you can type **python test1.py**. Make sure the environment variable is set up correctly for Python. If you need a different version or kernel of Python, you can explicitly specify the path as shown in the figure: 
+    **인라인 스크립트** 아래 상자에서 **python test1.py**를 입력할 수 있습니다. Python에 대한 환경 변수가 올바르게 설정되어 있는지 확인합니다. Python의 다른 버전 또는 커널이 필요한 경우 그림에 나와 있는 것처럼 경로를 명시적으로 지정할 수 있습니다. 
     
-       ![PowerShell details](./media/code-test/powershell_scripts.PNG)
+    ![PowerShell 세부 정보](./media/code-test/powershell_scripts.PNG)
 
-    g. **저장 및 큐**를 선택하여 빌드 파이프라인 프로세스를 완료합니다.
+    g. **큐 & 저장** 을 선택 하 여 빌드 파이프라인 프로세스를 완료 합니다.
 
-       !["Save & queue" button](./media/code-test/save_and_queue_build_definition.PNG)
+    ![“저장 및 큐” 단추](./media/code-test/save_and_queue_build_definition.PNG)
 
-이제 코드 리포지토리에 새 커밋이 푸시될 때마다 빌드 프로세스가 자동으로 시작됩니다. (여기서는 마스터를 리포지토리로 사용하지만, 사용자가 모든 분기를 정의할 수 있습니다.) 프로세스는 코드에 정의된 모든 내용이 제대로 실행되도록 에이전트 컴퓨터에서 **test1.py** 파일을 실행합니다. 
+이제 코드 리포지토리에 새 커밋이 푸시될 때마다 빌드 프로세스가 자동으로 시작됩니다. (여기서 master를 리포지토리로 사용 하지만 모든 분기를 정의할 수 있습니다.) 프로세스는 에이전트 컴퓨터에서 **test1.py** 파일을 실행 하 여 코드에 정의 된 모든 항목이 올바르게 실행 되는지 확인 합니다. 
 
 알림이 제대로 설정되어 있는 경우 빌드가 완료되면 사용자에게 이메일로 알립니다. 또한 Azure DevOps에서 빌드 상태를 확인할 수 있습니다. 실패한 경우 빌드의 세부 정보를 확인 수 있으며 끊어진 부분을 찾을 수 있습니다.
 

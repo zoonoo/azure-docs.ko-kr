@@ -8,12 +8,12 @@ ms.devlang: java
 ms.topic: reference
 ms.date: 03/13/2019
 ms.author: sngun
-ms.openlocfilehash: 3e36aa268286b9127f36859a1fa4402644994a32
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444835"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76718176"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -42,6 +42,9 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
+* DatabaseAccount의 올바른 클라이언트 쪽 복제본 정책 태그를 업데이트 하 고 캐시에서 databaseAccount 구성 읽기를 설정 했습니다.
 
 ### <a name="a-name245245"></a><a name="2.4.5"/>2.4.5
 * 사용자가 pkRangeId를 제공 하는 경우 잘못 된 파티션 키 범위 오류에 대 한 재시도를 방지 합니다.

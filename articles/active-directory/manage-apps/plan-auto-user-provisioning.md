@@ -12,12 +12,12 @@ ms.date: 10/17/2019
 ms.author: martinco
 ms.reviewer: arvindha
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1e8128066794932abaca4290a5c896354522544
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 44ed85ac8171484cccf39c0b048a5c7a026a657d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732453"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711600"
 ---
 # <a name="plan-an-automatic-user-provisioning-deployment"></a>자동 사용자 프로비저닝 배포 계획
 
@@ -25,7 +25,7 @@ ms.locfileid: "75732453"
 
 Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스 규칙에 따라 SaaS 응용 프로그램에서 사용자 id의 생성, 유지 관리 및 제거를 안전 하 게 자동화 하 여이 프로세스를 간소화 합니다. 이러한 자동화를 통해 클라우드 기반 솔루션에 대 한 종속성을 확장할 때 클라우드 전용 및 하이브리드 환경에서 id 관리 시스템을 효과적으로 확장할 수 있습니다.
 
-기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 해제를 참조 하세요.
+기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](user-provisioning.md) 해제를 참조 하세요.
 
 ## <a name="learn"></a>학습
 
@@ -59,7 +59,7 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 * SSO (Single sign-on)-사용자가 한 번 로그인 하 여 모든 SSO 사용 응용 프로그램에 액세스할 수 있는 기능입니다. 사용자 프로 비전 컨텍스트에서 SSO는 자동 사용자 프로 비전을 사용 하는 모든 시스템에 액세스할 수 있는 단일 계정이 있는 사용자의 결과입니다.
 
-* 원본 시스템-Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. Azure AD는 미리 통합 된 대부분의 프로 비전 커넥터에 대 한 원본 시스템입니다. 그러나 SAP, Workday, AWS 등의 클라우드 응용 프로그램에 대 한 몇 가지 예외가 있습니다. 예를 들어 [Workday에서 AD로의 사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial)을 참조 하세요.
+* 원본 시스템-Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. Azure AD는 미리 통합 된 대부분의 프로 비전 커넥터에 대 한 원본 시스템입니다. 그러나 SAP, Workday, AWS 등의 클라우드 응용 프로그램에 대 한 몇 가지 예외가 있습니다. 예를 들어 [Workday에서 AD로의 사용자 프로 비전](../saas-apps/workday-inbound-tutorial.md)을 참조 하세요.
 
 * 대상 시스템-Azure AD가 프로 비전 하는 사용자의 리포지토리입니다. 대상 시스템은 일반적으로 ServiceNow, Zscaler 및 여유 시간과 같은 SaaS 응용 프로그램입니다. 대상 시스템은 AD와 같은 온-프레미스 시스템 일 수도 있습니다.
 
@@ -72,9 +72,9 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 | 웹 세미나 다시 보기| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
 | 비디오| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 온라인 과정| SkillUp Online: [Id 관리](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Azure AD를 많은 SaaS 응용 프로그램과 통합 하 고 이러한 응용 프로그램에 대 한 사용자 액세스를 보호 하는 방법을 알아봅니다. |
-| 책| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
-| 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)참조 하세요. |
-| FAQ| 자동화 된 사용자 프로 비전에 대 한 질문과 [대답](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) |
+| 온라인 설명서| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
+| 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](../saas-apps/tutorial-list.md)참조 하세요. |
+| FAQ| 자동화 된 사용자 프로 비전에 대 한 질문과 [대답](user-provisioning.md) |
 
 ### <a name="solution-architectures"></a>솔루션 아키텍처
 
@@ -92,9 +92,9 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 1. **Azure AD Connect 에이전트** 는 로컬 Ad에서 Azure ad에 대 한 id (사용자 및 그룹)의 예약 된 동기화를 실행 합니다.
 
-1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
+1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](user-provisioning.md) 시작 합니다. 
 
-1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 변경 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기에](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)변경 내용을 푸시합니다.
+1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 변경 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기에](user-provisioning.md)변경 내용을 푸시합니다.
 
 #### <a name="automatic-user-provisioning-for-cloud-only-enterprises"></a>클라우드 전용 엔터프라이즈에 대 한 자동 사용자 프로 비전
 
@@ -106,9 +106,9 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 1. 사용자/그룹은 Azure AD에서 생성 됩니다.
 
-1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 시작 합니다. 
+1. **AZURE AD 프로 비전 서비스** 는 원본 시스템 및 대상 시스템에 대 한 [초기 순환을](user-provisioning.md) 시작 합니다. 
 
-1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 업데이트 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)를 수행 합니다.
+1. **AZURE AD 프로 비전 서비스** 는 초기 주기 이후에 업데이트 된 모든 사용자 및 그룹에 대 한 원본 시스템을 쿼리하고 [증분 주기](user-provisioning.md)를 수행 합니다.
 
 #### <a name="automatic-user-provisioning-for-cloud-hr-applications"></a>클라우드 HR 응용 프로그램에 대 한 자동 사용자 프로 비전 
 
@@ -138,7 +138,7 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 ### <a name="plan-a-pilot"></a>파일럿 계획
 
-프로덕션의 모든 사용자로 크기를 조정 하기 전에 사용자 수가 작은 테스트 환경에서 자동 사용자 프로 비전의 초기 구성을 수행 하는 것이 좋습니다. 파일럿 실행에 대 한 [모범 사례](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) 를 참조 하세요.
+프로덕션의 모든 사용자로 크기를 조정 하기 전에 사용자 수가 작은 테스트 환경에서 자동 사용자 프로 비전의 초기 구성을 수행 하는 것이 좋습니다. 파일럿 실행에 대 한 [모범 사례](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) 를 참조 하세요.
 
 #### <a name="best-practices-for-a-pilot"></a>파일럿에 대 한 모범 사례  
 
@@ -146,29 +146,29 @@ Azure AD 프로 비전 서비스는 각 응용 프로그램 공급 업체에서 
 
 첫 번째 wave에서 테스트 하 고 피드백을 제공할 수 있는 IT, 유용성 및 기타 적절 한 사용자를 대상으로 합니다. 이 피드백을 사용 하 여 사용자에 게 보내는 통신 및 지침을 추가로 개발 하 고 지원 담당자에 게 표시 되는 문제 유형에 대 한 통찰력을 얻을 수 있습니다.
 
-대상 그룹의 범위를 늘려 더 큰 사용자 그룹에 대 한 롤아웃을 확장 합니다. [동적 그룹 멤버 자격](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-dynamic-membership)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
+대상 그룹의 범위를 늘려 더 큰 사용자 그룹에 대 한 롤아웃을 확장 합니다. [동적 그룹 멤버 자격](../users-groups-roles/groups-dynamic-membership.md)을 통해 또는 대상 그룹에 사용자를 수동으로 추가 하 여이 작업을 수행할 수 있습니다.
 
 ## <a name="plan-application-connections-and-administration"></a>응용 프로그램 연결 및 관리 계획
 
-Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 프로그램을 보고 관리 합니다. [포털에서 응용 프로그램 찾기](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)를 참조 하세요.
+Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 프로그램을 보고 관리 합니다. [포털에서 응용 프로그램 찾기](configure-automatic-user-provisioning-portal.md)를 참조 하세요.
 
 ### <a name="determine-the-type-of-connector-to-use"></a>사용할 커넥터 유형 결정
 
-자동 프로비전을 사용하도록 설정하고 구성하는 데 필요한 실제 단계는 애플리케이션에 따라 달라집니다. 자동으로 프로 비전 하려는 응용 프로그램이 [AZURE AD SaaS 앱 갤러리](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)에 나열 되는 경우 [앱 별 통합 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 를 선택 하 여 사전 통합 된 사용자 프로 비전 커넥터를 구성 해야 합니다.
+자동 프로비전을 사용하도록 설정하고 구성하는 데 필요한 실제 단계는 애플리케이션에 따라 달라집니다. 자동으로 프로 비전 하려는 응용 프로그램이 [AZURE AD SaaS 앱 갤러리](../saas-apps/tutorial-list.md)에 나열 되는 경우 [앱 별 통합 자습서](../saas-apps/tutorial-list.md) 를 선택 하 여 사전 통합 된 사용자 프로 비전 커넥터를 구성 해야 합니다.
 
 그렇지 않은 경우 다음 단계를 수행 합니다.
 
-1. 사전 통합 된 사용자 프로 비전 커넥터에 대 한 [요청을 만듭니다](https://docs.microsoft.com/azure/active-directory/develop/howto-app-gallery-listing) . Microsoft 팀은 SCIM을 지 원하는 경우 사용자와 응용 프로그램 개발자와 협력 하 여 응용 프로그램을 플랫폼에 등록 합니다.
+1. 사전 통합 된 사용자 프로 비전 커넥터에 대 한 [요청을 만듭니다](../develop/howto-app-gallery-listing.md) . Microsoft 팀은 SCIM을 지 원하는 경우 사용자와 응용 프로그램 개발자와 협력 하 여 응용 프로그램을 플랫폼에 등록 합니다.
 
-1. 앱에 대 한 [Byoa SCIM](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) 일반 사용자 프로 비전 지원을 사용 합니다. 이는 사전 통합 된 프로 비전 커넥터 없이 사용자를 앱에 프로 비전 하기 위해 Azure AD에 대 한 요구 사항입니다.
+1. 앱에 대 한 [Byoa SCIM](use-scim-to-provision-users-and-groups.md) 일반 사용자 프로 비전 지원을 사용 합니다. 이는 사전 통합 된 프로 비전 커넥터 없이 사용자를 앱에 프로 비전 하기 위해 Azure AD에 대 한 요구 사항입니다.
 
-1. 응용 프로그램이 BYOA scim 커넥터를 사용할 수 있는 경우 [byoa scim 통합 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-scim-provisioning) 를 참조 하 여 응용 프로그램에 대 한 BYOA scim 커넥터를 구성 합니다.
+1. 응용 프로그램이 BYOA scim 커넥터를 사용할 수 있는 경우 [byoa scim 통합 자습서](use-scim-to-provision-users-and-groups.md) 를 참조 하 여 응용 프로그램에 대 한 BYOA scim 커넥터를 구성 합니다.
 
-자세한 내용은 [AZURE AD 자동 사용자 프로 비전에 사용할 수 있는 응용 프로그램 및 시스템](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 을 참조 하세요.
+자세한 내용은 [AZURE AD 자동 사용자 프로 비전에 사용할 수 있는 응용 프로그램 및 시스템](user-provisioning.md) 을 참조 하세요.
 
 ### <a name="collect-information-to-authorize-application-access"></a>응용 프로그램 액세스 권한을 부여 하는 정보 수집
 
-자동 사용자 프로 비전을 설정 하는 작업은 응용 프로그램 별로입니다. 각 응용 프로그램에 대해 대상 시스템의 사용자 관리 끝점에 연결 하려면 [관리자 자격 증명](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) 을 제공 해야 합니다.
+자동 사용자 프로 비전을 설정 하는 작업은 응용 프로그램 별로입니다. 각 응용 프로그램에 대해 대상 시스템의 사용자 관리 끝점에 연결 하려면 [관리자 자격 증명](configure-automatic-user-provisioning-portal.md) 을 제공 해야 합니다.
 
 아래 이미지는 필수 관리자 자격 증명의 한 가지 버전을 보여 줍니다.
 
@@ -198,17 +198,17 @@ Azure AD 포털을 사용 하 여 프로 비전을 지 원하는 모든 응용 �
 
 자동 사용자 프로 비전을 구현 하기 전에 응용 프로그램에 프로 비전 할 사용자 및 그룹을 결정 해야 합니다.
 
-* [범위 지정 필터](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters) 를 사용 하 여 응용 프로그램에 프로 비전 되는 사용자를 결정 하는 특성 기반 규칙을 정의 합니다.
+* [범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md) 를 사용 하 여 응용 프로그램에 프로 비전 되는 사용자를 결정 하는 특성 기반 규칙을 정의 합니다.
 
-* 그런 다음 추가 필터링을 위해 필요에 따라 [사용자 및 그룹 할당](https://docs.microsoft.com/azure/active-directory/active-directory-coreapps-assign-user-azure-portal) 을 사용 합니다.
+* 그런 다음 추가 필터링을 위해 필요에 따라 [사용자 및 그룹 할당](assign-user-or-group-access-portal.md) 을 사용 합니다.
 
 ### <a name="define-user-and-group-attribute-mapping"></a>사용자 및 그룹 특성 매핑 정의
 
-자동 사용자 프로 비전을 구현 하려면 응용 프로그램에 필요한 사용자 및 그룹 특성을 정의 해야 합니다. Azure AD 사용자 개체와 각 SaaS 응용 프로그램의 사용자 개체 사이에는 미리 구성 된 특성 및 [특성 매핑](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal) 집합이 있습니다. 모든 SaaS 앱에서 그룹 특성을 사용 하도록 설정 하는 것은 아닙니다.
+자동 사용자 프로 비전을 구현 하려면 응용 프로그램에 필요한 사용자 및 그룹 특성을 정의 해야 합니다. Azure AD 사용자 개체와 각 SaaS 응용 프로그램의 사용자 개체 사이에는 미리 구성 된 특성 및 [특성 매핑](configure-automatic-user-provisioning-portal.md) 집합이 있습니다. 모든 SaaS 앱에서 그룹 특성을 사용 하도록 설정 하는 것은 아닙니다.
 
-Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 하거나 [특성 매핑에 대 한 식을 작성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings)하 여를 지원 합니다. 이러한 유연성을 통해 대상 시스템의 특성에서 채워지는 항목을 세밀 하 게 제어할 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration) 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다.
+Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 하거나 [특성 매핑에 대 한 식을 작성](functions-for-customizing-application-data.md)하 여를 지원 합니다. 이러한 유연성을 통해 대상 시스템의 특성에서 채워지는 항목을 세밀 하 게 제어할 수 있습니다. [MICROSOFT GRAPH API](export-import-provisioning-configuration.md) 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다.
 
-자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대 한 사용자 프로 비전 특성 매핑 사용자 지정](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 참조 하세요.
+자세한 내용은 [Azure Active Directory에서 SaaS 응용 프로그램에 대 한 사용자 프로 비전 특성 매핑 사용자 지정](customize-application-attributes.md)을 참조 하세요.
 
 ### <a name="special-considerations-for-user-provisioning"></a>사용자 프로 비전에 대 한 특별 고려 사항
 
@@ -216,9 +216,9 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 * 원본 및 대상 응용 프로그램 간에 사용자/그룹 개체를 매핑하는 데 사용 되는 특성이 복원 가능한 지 확인 합니다. 특성이 변경 되 면 (예: 사용자가 회사의 다른 부분으로 이동) 사용자/그룹이 잘못 프로 비전 되는 것은 아닙니다.
 
-* 응용 프로그램에는 사용자 프로비저닝이 제대로 작동 하기 위해 충족 해야 하는 특정 제한 및/또는 요구 사항이 있을 수 있습니다. 예를 들어, 여유 시간은 특정 특성에 대 한 값을 자릅니다. 각 응용 프로그램에 특정 한 [자동 사용자 프로 비전 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) 를 참조 하세요.
+* 응용 프로그램에는 사용자 프로비저닝이 제대로 작동 하기 위해 충족 해야 하는 특정 제한 및/또는 요구 사항이 있을 수 있습니다. 예를 들어, 여유 시간은 특정 특성에 대 한 값을 자릅니다. 각 응용 프로그램에 특정 한 [자동 사용자 프로 비전 자습서](../saas-apps/tutorial-list.md) 를 참조 하세요.
 
-* 원본 시스템과 대상 시스템 간의 스키마 일관성을 확인 합니다. 일반적인 문제에는 UPN 또는 메일이 일치 하지 않는 등의 특성이 포함 됩니다. 예를 들어 Azure AD의 UPN은 *john_smith@contoso.com* 로 설정 되 고 앱에서 *jsmith@contoso.com* 됩니다. 자세한 내용은 [사용자 및 그룹 스키마 참조](https://docs.microsoft.com/azure/active-directory/manage-apps/use-scim-to-provision-users-and-groups)를 참조 하세요.
+* 원본 시스템과 대상 시스템 간의 스키마 일관성을 확인 합니다. 일반적인 문제에는 UPN 또는 메일이 일치 하지 않는 등의 특성이 포함 됩니다. 예를 들어 Azure AD의 UPN은 *john_smith@contoso.com* 로 설정 되 고 앱에서 *jsmith@contoso.com* 됩니다. 자세한 내용은 [사용자 및 그룹 스키마 참조](use-scim-to-provision-users-and-groups.md)를 참조 하세요.
 
 ## <a name="plan-testing-and-security"></a>테스트 및 보안 계획
 
@@ -233,7 +233,7 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 | 사용자가 대상 시스템에 할당 된 그룹에 추가 됨 | 사용자 개체가 대상 시스템에 프로 비전 됩니다. <br>사용자가 대상 시스템에 로그인 하 여 원하는 작업을 수행할 수 있습니다. |
 | 대상 시스템에 할당 된 그룹에서 사용자가 제거 되었습니다. | 사용자 개체가 대상 시스템에 프로 비전 해제.<br>사용자가 대상 시스템에 로그인 할 수 없습니다. |
 | 사용자 정보는 어떤 방법으로도 Azure AD에서 업데이트 됩니다. | 업데이트 된 사용자 특성은 증분 주기 후 대상 시스템에 반영 됩니다. |
-| 사용자가 범위를 벗어났습니다. | 사용자 개체가 사용 하지 않도록 설정 되거나 삭제 되었습니다. <br>참고:이 동작은 [Workday 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)에 대해 재정의 됩니다. |
+| 사용자가 범위를 벗어났습니다. | 사용자 개체가 사용 하지 않도록 설정 되거나 삭제 되었습니다. <br>참고:이 동작은 [Workday 프로 비전](skip-out-of-scope-deletions.md)에 대해 재정의 됩니다. |
 
 ### <a name="plan-security"></a>보안 계획
 
@@ -243,7 +243,7 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 자동 사용자 프로 비전 구현이 프로덕션 환경에서 원하는 대로 작동 하지 않을 경우 다음 롤백 단계를 통해 이전에 알려진 양호한 상태로 되돌리는 데 도움이 될 수 있습니다.
 
-1. [프로 비전 요약 보고서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) 및 [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/active-directory-saas-provisioning-reporting) 를 검토 하 여 영향을 받는 사용자 및/또는 그룹에 대해 잘못 된 작업이 발생 했는지 확인 합니다.
+1. [프로 비전 요약 보고서](check-status-user-account-provisioning.md) 및 [프로 비전 로그](check-status-user-account-provisioning.md#provisioning-logs-preview) 를 검토 하 여 영향을 받는 사용자 및/또는 그룹에 대해 잘못 된 작업이 발생 했는지 확인 합니다.
 
 1. 프로 비전 감사 로그를 사용 하 여 영향을 받는 사용자 및/또는 그룹의 마지막으로 알려진 양호한 상태를 확인 합니다. 원본 시스템 (Azure AD 또는 AD)도 검토 합니다.
 
@@ -257,13 +257,13 @@ Azure AD는 특성 간 매핑을 직접 지원 하거나 상수 값을 제공 �
 
 Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템 및 대상 시스템에 대 한 초기 주기는 각 대상 시스템에 대 한 모든 사용자 개체의 스냅숏을 만듭니다.
 
-응용 프로그램에 대해 자동 프로 비전을 사용 하도록 설정 하는 경우 초기 주기는 20 분에서 몇 시간까지 걸릴 수 있습니다. 기간은 Azure AD 디렉터리의 크기와 프로 비전 범위에 있는 사용자 수에 따라 달라 집니다. [프로 비전 성능을 향상 하는 방법을](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)참조 하세요.
+응용 프로그램에 대해 자동 프로 비전을 사용 하도록 설정 하는 경우 초기 주기는 20 분에서 몇 시간까지 걸릴 수 있습니다. 기간은 Azure AD 디렉터리의 크기와 프로 비전 범위에 있는 사용자 수에 따라 달라 집니다. [프로 비전 성능을 향상 하는 방법을](application-provisioning-when-will-provisioning-finish.md)참조 하세요.
 
 프로 비전 서비스는 초기 주기 후에 두 시스템의 상태를 저장 하 여 후속 증분 주기의 성능을 향상 시킵니다.
 
 ### <a name="configure-automatic-user-provisioning"></a>자동 사용자 프로비저닝 구성
 
-이를 지 원하는 응용 프로그램에 대 한 자동 사용자 계정 프로 비전 및 프로 비전 해제를 관리 하려면 [Azure Portal](https://portal.azure.com/) 을 사용 합니다. [응용 프로그램에 대 한 자동 프로 비전 설정 어떻게 할까요?](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 의 단계를 따르세요.
+이를 지 원하는 응용 프로그램에 대 한 자동 사용자 계정 프로 비전 및 프로 비전 해제를 관리 하려면 [Azure Portal](https://portal.azure.com/) 을 사용 합니다. [응용 프로그램에 대 한 자동 프로 비전 설정 어떻게 할까요?](user-provisioning.md) 의 단계를 따르세요.
 
 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)를 사용하여 Azure AD 사용자 프로비저닝 서비스를 구성 및 관리할 수도 있습니다.
 
@@ -273,7 +273,7 @@ Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템
 
 ### <a name="monitor-user-provisioning-operation-health"></a>사용자 프로비저닝 작업 상태 모니터링
 
-성공적인 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)후에 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 응용 프로그램과 관련 된 간격으로 증분 업데이트를 무기한 실행 합니다.
+성공적인 [초기 주기](user-provisioning.md)후에 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 응용 프로그램과 관련 된 간격으로 증분 업데이트를 무기한 실행 합니다.
 
 * 서비스를 수동으로 중지 하 고 [Azure Portal](https://portal.azure.com/)를 사용 하거나 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
 
@@ -281,15 +281,15 @@ Azure AD 프로 비전 서비스가 처음으로 실행 될 때 원본 시스템
 
 * 프로 비전 프로세스는 높은 오류 속도로 인해 격리 되 고 자동으로 사용 하지 않도록 설정 될 때 4 주 넘게 격리 상태로 유지 됩니다.
 
-이러한 이벤트 및 프로 비전 서비스에서 수행 하는 다른 모든 작업을 검토 하려면 Azure AD [프로 비전 로그](https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-provisioning-logs?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조 하세요.
+이러한 이벤트 및 프로 비전 서비스에서 수행 하는 다른 모든 작업을 검토 하려면 Azure AD [프로 비전 로그](../reports-monitoring/concept-provisioning-logs.md?context=azure/active-directory/manage-apps/context/manage-apps-context)를 참조 하세요.
 
-프로 비전 주기에서 프로 비전 작업의 진행 상태를 확인 하 고 모니터링 하는 시간을 이해 하려면 [사용자 프로 비전 상태를 확인](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user)하면 됩니다.
+프로 비전 주기에서 프로 비전 작업의 진행 상태를 확인 하 고 모니터링 하는 시간을 이해 하려면 [사용자 프로 비전 상태를 확인](application-provisioning-when-will-provisioning-finish-specific-user.md)하면 됩니다.
 
 ### <a name="gain-insights-from-reports"></a>보고서에서 통찰력 얻기
 
-Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비전 사용 및 운영 상태에 대 한 [추가 정보](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish-specific-user) 를 제공할 수 있습니다.
+Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비전 사용 및 운영 상태에 대 한 [추가 정보](application-provisioning-when-will-provisioning-finish-specific-user.md) 를 제공할 수 있습니다.
 
-관리자는 프로 비전 요약 보고서를 확인 하 여 프로 비전 작업의 작동 상태를 모니터링 해야 합니다. 프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD 감사 로그에 기록 됩니다. [자습서: 자동 사용자 계정 프로 비전에 대 한 보고를](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning)참조 하세요.
+관리자는 프로 비전 요약 보고서를 확인 하 여 프로 비전 작업의 작동 상태를 모니터링 해야 합니다. 프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD 감사 로그에 기록 됩니다. [자습서: 자동 사용자 계정 프로 비전에 대 한 보고를](check-status-user-account-provisioning.md)참조 하세요.
 
 조직의 요구 사항을 충족 하는 흐름에서 이러한 보고서를 소유 하 고 사용 하는 것이 좋습니다. Azure AD는 30 일 동안 대부분의 감사 데이터를 유지 합니다.
 
@@ -297,27 +297,27 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 프로 비전 중에 발생할 수 있는 문제를 해결 하려면 다음 링크를 참조 하세요.
 
-* [Azure AD 갤러리 응용 프로그램에 사용자 프로 비전을 구성 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
+* [Azure AD 갤러리 응용 프로그램에 사용자 프로 비전을 구성 하는 문제](application-provisioning-config-problem.md)
 
-* [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping)
+* [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](user-provisioning-sync-attributes-for-mapping.md)
 
-* [Azure AD 갤러리 응용 프로그램에 대 한 사용자 프로 비전에 몇 시간 이상이 소요 됨](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)
+* [Azure AD 갤러리 응용 프로그램에 대 한 사용자 프로 비전에 몇 시간 이상이 소요 됨](application-provisioning-when-will-provisioning-finish.md)
 
-* [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit)
+* [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](application-provisioning-config-problem-storage-limit.md)
 
-* [사용자가 Azure AD 갤러리 응용 프로그램에 프로 비전 되지 않습니다.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
+* [사용자가 Azure AD 갤러리 응용 프로그램에 프로 비전 되지 않습니다.](application-provisioning-config-problem-no-users-provisioned.md)
 
-* [잘못 된 사용자 집합이 Azure AD 갤러리 응용 프로그램에 프로 비전 되 고 있습니다.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
+* [잘못 된 사용자 집합이 Azure AD 갤러리 응용 프로그램에 프로 비전 되 고 있습니다.](application-provisioning-config-problem-wrong-users-provisioned.md)
 
 ### <a name="helpful-documentation"></a>유용한 설명서
 
-* [특성 매핑에 대 한 식 작성](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [특성 매핑에 대 한 식 작성](functions-for-customizing-application-data.md)
 
 * [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
 
-* [범위를 벗어나는 사용자 계정 삭제 건너뛰기](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)
+* [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
 
-* [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
+* [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)
 
 #### <a name="resources"></a>리소스
 
@@ -328,8 +328,8 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 * [스택 오버플로 Azure AD 포럼](https://stackoverflow.com/questions/tagged/azure-active-directory)
 
 ## <a name="next-steps"></a>다음 단계
-* [자동 사용자 프로 비전 구성](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal)
+* [자동 사용자 프로 비전 구성](configure-automatic-user-provisioning-portal.md)
 
-* [Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration)
+* [Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기](export-import-provisioning-configuration.md)
 
-* [Azure Active directory의 특성 매핑에 대 한 식 작성](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+* [Azure Active directory의 특성 매핑에 대 한 식 작성](functions-for-customizing-application-data.md)

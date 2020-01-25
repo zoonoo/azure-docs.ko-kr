@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: ce6f07a20044efed43cf24b3f0652691dff8b8aa
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658341"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714862"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -53,7 +53,7 @@ NSGs (네트워크 보안 그룹)는 Application Gateway에서 지원 됩니다.
 - 아웃바운드 인터넷 연결은 차단할 수 없습니다. NSG의 기본 아웃 바운드 규칙은 인터넷 연결을 허용 합니다. 다음을 수행하는 것이 좋습니다.
 
   - 기본 아웃 바운드 규칙을 제거 하지 마십시오.
-  - 아웃 바운드 인터넷 연결을 거부 하는 아웃 바운드 규칙을 만들지 마십시오.
+  - 아웃 바운드 연결을 거부 하는 아웃 바운드 규칙은 만들지 마십시오.
 
 - **Azureloadbalancer** 태그의 트래픽이 허용 되어야 합니다.
 
@@ -287,10 +287,10 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
   | 원래 요청           | 경로 규칙       | 백 엔드 경로 재정의 | 백 엔드에 전달 된 요청 |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
-  | /pathrule/home/            | /pathrule*      | 설명은/override            | /override/home/              |
-  | /pathrule/home/secondhome/ | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
-  | /home/                     | /pathrule*      | 설명은/override            | /override/home/              |
-  | /home/secondhome/          | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
+  | /pathrule/home/            | pathrule      | 설명은/override            | /override/home/              |
+  | /pathrule/home/secondhome/ | pathrule      | 설명은/override            | /override/home/secondhome/   |
+  | /home/                     | pathrule      | 설명은/override            | /override/home/              |
+  | /home/secondhome/          | pathrule      | 설명은/override            | /override/home/secondhome/   |
   | /pathrule/home/            | /pathrule/home* | 설명은/override            | 설명은/override                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | 설명은/override            | /override/secondhome/        |
   | pathrule                 | pathrule      | 설명은/override            | 설명은/override                   |

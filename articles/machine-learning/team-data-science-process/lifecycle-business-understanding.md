@@ -3,20 +3,20 @@ title: 팀 데이터 과학 프로세스의 비즈니스 이해
 description: 팀 데이터 과학 프로세스의 데이터 과학 프로젝트에서 비즈니스 이해 단계의 목표, 작업 및 결과물입니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 35d03a52125bd2646f86b96bcffe123d9fab7f64
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a7aaed519f8f97a9be77a263568aeed5257c16d6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60303556"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76710342"
 ---
 # <a name="the-business-understanding-stage-of-the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기의 비즈니스 이해 단계
 
@@ -74,7 +74,7 @@ ms.locfileid: "60303556"
 
 예를 들어 문제를 해결하고 프로젝트 목표를 달성하기 위해 기존 시스템에서 다른 종류의 데이터를 더 수집하고 기록해야 한다고 사실을 확인할 수 있습니다. 이 경우 외부 데이터 원본을 찾거나 새 데이터를 수집하도록 시스템을 업데이트할 수 있습니다.
 
-## <a name="artifacts"></a>아티팩트
+## <a name="artifacts"></a>Artifacts
 이 단계의 결과물은 다음과 같습니다.
 
    * [선언 문서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Project/Charter.md): TDSP 프로젝트 구조 정의에서 표준 템플릿을 제공하는 실무 문서입니다. 새로운 결과를 발견했으며 비즈니스 요구 사항이 달라질 때 프로젝트 전체에서 템플릿을 업데이트합니다. 검색 프로세스를 진행하면서 이 문서에서 반복적으로 더 자세히 추가하는 것이 핵심입니다. 고객 및 기타 이해 관계자가 변경 작업을 수행하도록 만들고 변경 이유를 명확하게 전달해야 합니다.  
@@ -91,4 +91,4 @@ TDSP의 수명 주기에서 각 단계에 대한 링크는 다음과 같습니�
    4. [배포](lifecycle-deployment.md)
    5. [고객 승인](lifecycle-acceptance.md)
 
-특정 시나리오 프로세스의 모든 단계를 보여주는 전체 엔드투엔드 연습도 제공됩니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 
+특정 시나리오에 대 한 프로세스의 모든 단계를 보여 주는 전체 연습을 제공 합니다. [예제 연습](walkthroughs.md) 문서는 링크 및 썸네일 설명을 포함하는 시나리오 목록을 제공합니다. 이 연습에서는 클라우드 및 온-프레미스 도구와 서비스를 워크플로 또는 파이프라인에 결합하여 지능형 애플리케이션을 만드는 방법을 설명합니다. 

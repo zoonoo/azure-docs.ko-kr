@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 12/10/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d5a40b699c01f50ceb1bedbc36e7f1467772336f
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: c0664cbc8097f18ec9722e789ad40d5925781637
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74997074"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711679"
 ---
 # <a name="skip-deletion-of-user-accounts-that-go-out-of-scope"></a>범위를 벗어나는 사용자 계정 삭제 건너뛰기
 
@@ -37,14 +37,14 @@ ms.locfileid: "74997074"
 1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다. 
 1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다. 이 값은 앱의 **ServicePrincipalId**라고도 하고 Graph Explorer 작업에서 사용됩니다.
 
-   ![Workday 앱 서비스 주체 ID](./media/export-import-provisioning-mappings/wd_export_01.png)
+   ![Workday 앱 서비스 주체 ID](media/skip-out-of-scope-deletions/wd_export_01.png)
 
 ## <a name="step-2-sign-into-microsoft-graph-explorer"></a>2 단계: Microsoft Graph 탐색기에 로그인
 
 1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 시작
 1. “Microsoft에 로그인” 단추를 클릭하고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용하여 로그인합니다.
 
-    ![Graph 로그인](./media/export-import-provisioning-mappings/wd_export_02.png)
+    ![Graph 로그인](media/skip-out-of-scope-deletions/wd_export_02.png)
 
 1. 로그인에 성공하면 왼쪽 창에 사용자 계정 세부 정보가 표시됩니다.
 
@@ -56,11 +56,11 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets
 ```
 
-   ![작업 쿼리 가져오기](./media/skip-out-of-scope-deletions/skip-03.png)
+   ![작업 쿼리 가져오기](media/skip-out-of-scope-deletions/skip-03.png)
 
 응답을 텍스트 파일로 복사 합니다. 이 값은 아래에 표시 된 JSON 텍스트와 같이 표시 됩니다. 값은 배포와 관련 하 여 노란색으로 강조 표시 됩니다. 녹색으로 강조 표시 된 줄을 끝에 추가 하 고 blue로 강조 표시 된 Workday 연결 암호를 업데이트 합니다. 
 
-   ![작업 응답 가져오기](./media/skip-out-of-scope-deletions/skip-04.png)
+   ![작업 응답 가져오기](media/skip-out-of-scope-deletions/skip-04.png)
 
 매핑에 추가할 JSON 블록은 다음과 같습니다. 
 
@@ -82,22 +82,22 @@ Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retriev
 ```
 3 단계에서 "요청 본문"에 업데이트 된 텍스트를 복사 하 고 "요청 헤더"에서 "Content-type" 헤더를 "application/json"으로 설정 합니다. 
 
-   ![PUT 요청](./media/skip-out-of-scope-deletions/skip-05.png)
+   ![PUT 요청](media/skip-out-of-scope-deletions/skip-05.png)
 
 "쿼리 실행"을 클릭 합니다. 
 
 출력을 "성공 – 상태 코드 204"으로 가져와야 합니다. 
 
-   ![응답 배치](./media/skip-out-of-scope-deletions/skip-06.png)
+   ![응답 배치](media/skip-out-of-scope-deletions/skip-06.png)
 
 ## <a name="step-5-verify-that-out-of-scope-users-dont-get-disabled"></a>5 단계: 범위를 벗어나는 사용자가 사용 하지 않도록 설정 되었는지 확인
 
 특정 사용자를 건너뛰도록 범위 지정 규칙을 업데이트 하 여 예상 된 동작으로이 플래그를 테스트할 수 있습니다. 아래 예제에서는 새 범위 지정 규칙을 추가 하 여 ID가 21173 (이전에는) 인 직원을 제외 합니다. 
 
-   ![범위 지정 예제](./media/skip-out-of-scope-deletions/skip-07.png)
+   ![범위 지정 예제](media/skip-out-of-scope-deletions/skip-07.png)
 
 다음 프로 비전 주기에서 Azure AD 프로 비전 서비스는 사용자 21173이 범위를 벗어난 것을 식별 하 고 SkipOutOfScopeDeletions 속성을 사용 하도록 설정한 경우 해당 사용자에 대 한 동기화 규칙은 아래와 같이 메시지를 표시 합니다. 
 
-   ![범위 지정 예제](./media/skip-out-of-scope-deletions/skip-08.png)
+   ![범위 지정 예제](media/skip-out-of-scope-deletions/skip-08.png)
 
 

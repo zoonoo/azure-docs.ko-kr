@@ -3,20 +3,20 @@ title: Azure Blob 스토리지 간 데이터 이동 - Team Data Science Process
 description: Azure Storage 탐색기, AzCopy, Python 및 SSIS를 사용 하 여 Azure Blob storage 간에 데이터를 이동 합니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: d885a7fad6e958507e7d9df34bd2b1fb222c6f86
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: fc58651bcb3b266b981fb953fd7341427d47fb2c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053669"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717580"
 ---
 # <a name="move-data-to-and-from-azure-blob-storage"></a>Azure Blob Storage 간 데이터 이동
 
@@ -49,9 +49,9 @@ ms.locfileid: "73053669"
 
 자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/transform-data-using-machine-learning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
-이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드하려면 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
+## <a name="prerequisites"></a>필수 조건
+이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드 하기 전에 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
 
 * Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* 스토리지 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
+* 저장소 계정을 만들고 계정 및 키 정보를 가져오는 방법에 대 한 지침은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조 하세요.
 

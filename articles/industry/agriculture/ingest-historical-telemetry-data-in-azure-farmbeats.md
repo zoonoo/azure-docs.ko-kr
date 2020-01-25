@@ -5,12 +5,12 @@ author: uhabiba04
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: v-umha
-ms.openlocfilehash: 11dcf5dc0f05e51f3f427b09745cb581cc0d3780
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 32eb8e71cfb978fac5b4d6d05af4da4fdc9f67b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513935"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76715529"
 ---
 # <a name="ingest-historical-telemetry-data"></a>기록 원격 분석 데이터 수집
 
@@ -72,7 +72,7 @@ Azure FarmBeats 인스턴스에 파트너 통합을 사용 하도록 설정 해�
 
  이제 필수 자격 증명이 있으므로 장치 및 센서를 정의할 수 있습니다. 이렇게 하려면 FarmBeats Api를 호출 하 여 메타 데이터를 만듭니다. 위의 섹션에서 만든 클라이언트 앱으로 Api를 호출 해야 합니다.
 
- FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다.
+ FarmBeats Datahub에는 장치 또는 센서 메타 데이터를 생성 및 관리할 수 있도록 하는 다음과 같은 Api가 있습니다. 파트너는 메타 데이터를 읽고, 만들고, 업데이트 하는 데에만 액세스할 수 있습니다. **파트너는 삭제를 허용 하지 않습니다.**
 
 - /**DeviceModel**: DeviceModel는 장치 (예: 제조업체 및 장치 유형 (예: 게이트웨이 또는 노드)의 메타 데이터에 해당 합니다.
 - /**장치**: 장치는 팜에 있는 물리적 장치에 해당 합니다.
@@ -381,6 +381,41 @@ write_client.stop()
       ]
     }
   ]
+}
+```
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="cant-view-telemetry-data-after-ingesting-historicalstreaming-data-from-your-sensors"></a>센서에서 기록/스트리밍 데이터를 수집 후 원격 분석 데이터를 볼 수 없음
+
+**증상**: 장치 또는 센서가 배포 되 고 FarmBeats 및 수집 원격 분석에서 장치/센서를 EventHub에 만들었지만 FarmBeats에서 원격 분석 데이터를 가져오거나 볼 수 없습니다.
+
+**수정 동작**:
+
+1. 파트너 등록이 올바르게 완료 되었는지 확인-datahub swagger로 이동 하 고,/파트너 API로 이동 하 고, Get을 수행 하 고, 파트너가 등록 되었는지 확인 하 여이를 확인할 수 있습니다. 그렇지 않은 경우 파트너를 추가 하려면 [여기의 단계](get-sensor-data-from-sensor-partner.md#enable-device-integration-with-farmbeats) 를 따르세요.
+2. 파트너 클라이언트 자격 증명을 사용 하 여 메타 데이터 (DeviceModel, Device, SensorModel, 센서)를 만들었는지 확인 합니다.
+3. 아래 지정 된 대로 올바른 원격 분석 메시지 형식을 사용 했는지 확인 합니다.
+
+```json
+{
+"deviceid": "<id of the Device created>",
+"timestamp": "<timestamp in ISO 8601 format>",
+"version" : "1",
+"sensors": [
+    {
+      "id": "<id of the sensor created>",
+      "sensordata": [
+        {
+          "timestamp": "< timestamp in ISO 8601 format >",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        },
+        {
+          "timestamp": "<timestamp in ISO 8601 format>",
+          "<sensor measure name (as defined in the Sensor Model)>": <value>
+        }
+      ]
+    }
+ ]
 }
 ```
 

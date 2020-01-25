@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4f9fd3a94cf2b6d6ca077b7363e01085e134babd
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: c97e10d2785b7dc1a438c95dca9be94fcef82f94
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658120"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714834"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -71,7 +71,7 @@ else
     }
 ```
 
-### <a name="time-dependant-scripts"></a>시간 종속 스크립트
+### <a name="time-dependent-scripts"></a>시간 종속 스크립트
 
 Runbook을 작성할 때는 신중하게 고려해야 합니다. 앞에서 설명한 대로 Runbook은 강력하고 Runbook이 다시 시작되거나 실패할 수 있는 일시적인 오류를 처리할 수 있는 방식으로 작성되어야 합니다. Runbook이 실패 하면 다시 시도 됩니다. Runbook이 시간 제약 조건 내에서 정상적으로 실행 되는 경우 runbook에서 실행 시간을 확인 하는 논리를 구현 하 여 시작, 종료 또는 규모 확장 등의 작업이 특정 시간 동안만 실행 되도록 해야 합니다.
 
@@ -173,7 +173,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>Throw
+#### <a name="throw"></a>반환할
 
 [Throw](/powershell/module/microsoft.powershell.core/about/about_throw) 를 사용 하 여 종료 오류를 생성할 수 있습니다. 이는 runbook에서 고유한 논리를 정의 하는 경우에 유용할 수 있습니다. 스크립트를 중지 해야 하는 특정 조건이 충족 되는 경우 `throw`를 사용 하 여 스크립트를 중지할 수 있습니다. 다음 예에서는 `throw`를 사용 하는 데 필요한 함수 매개 변수를 보여 줍니다.
 

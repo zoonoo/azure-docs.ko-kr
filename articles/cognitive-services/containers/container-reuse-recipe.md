@@ -1,5 +1,5 @@
 ---
-title: Docker 컨테이너에 대 한 조리법
+title: Docker 容器的脚本
 titleSuffix: Azure Cognitive Services
 description: 배포 및 다시 사용을 위해 구성 설정의 일부 또는 전부를 사용 하 여 컨테이너를 빌드, 테스트 및 저장 하는 방법을 알아봅니다.
 services: cognitive-services
@@ -8,18 +8,18 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.topic: conceptual
-ms.date: 06/26/2019
+ms.date: 01/23/2020
 ms.author: dapine
-ms.openlocfilehash: dbe2e288309b6682041bf3db9fe3d39455359806
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 97342f1dd4f6ce343626ba6c294f09dabe3db5c0
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73647274"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717212"
 ---
 # <a name="create-containers-for-reuse"></a>재사용할 컨테이너 만들기
 
-이러한 컨테이너 레 서를 사용 하 여 다시 사용할 수 있는 Cognitive Services 컨테이너를 만들 수 있습니다. 컨테이너를 시작할 때 필요 _하지_ 않도록 일부 또는 모든 구성 설정을 사용 하 여 컨테이너를 만들 수 있습니다.
+使用这些容器脚本来创建可重复使用的认知服务容器。 컨테이너를 시작할 때 필요 _하지_ 않도록 일부 또는 모든 구성 설정을 사용 하 여 컨테이너를 만들 수 있습니다.
 
 이 새 컨테이너 계층 (설정 포함)이 있고 로컬에서 테스트 한 경우 컨테이너 레지스트리에 컨테이너를 저장할 수 있습니다. 컨테이너가 시작 되 면 현재 컨테이너에 저장 되어 있지 않은 설정만 필요 합니다. 개인 레지스트리 컨테이너는 이러한 설정을 전달할 수 있는 구성 공간을 제공 합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "73647274"
 
 각 서비스에 대 한 `docker run` 명령 예제는 컨테이너에 구성 설정을 저장 하지 않습니다. 콘솔 또는 레지스트리 서비스에서 컨테이너를 시작 하는 경우 이러한 구성 설정이 전달 되어야 합니다. 개인 레지스트리 컨테이너는 이러한 설정을 전달할 수 있는 구성 공간을 제공 합니다.
 
-## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>조리법 재사용: 모든 구성 설정을 컨테이너에 저장 합니다.
+## <a name="reuse-recipe-store-all-configuration-settings-with-container"></a>重用脚本: 将所有配置设置存储到容器
 
 모든 구성 설정을 저장 하려면 해당 설정을 사용 하 여 `Dockerfile`를 만듭니다.
 
@@ -53,7 +53,7 @@ Dockerfile을 만들고 사용 하려는 기존 Cognitive Services 컨테이너�
 * `ENV`를 사용 하 여 호스트 환경 키에서 `{BILLING_ENDPOINT}` 청구 끝점을 설정 합니다.
 * ' ENV '를 사용 하 여 호스트의 환경 키에서 `{ENDPOINT_KEY}` 청구 API 키를 설정 합니다.
 
-### <a name="reuse-recipe-store-billing-settings-with-container"></a>조리법 재사용: 컨테이너를 사용 하 여 청구 설정 저장
+### <a name="reuse-recipe-store-billing-settings-with-container"></a>重用脚本: 使用容器存储计费设置
 
 이 예제에서는 Dockerfile에서 Text Analytics ' 감정 컨테이너를 빌드하는 방법을 보여 줍니다.
 
@@ -66,7 +66,7 @@ ENV EULA=accept
 
 컨테이너를 [로컬로](#how-to-use-container-on-your-local-host) 빌드 및 실행 하 고 필요에 따라 [개인 레지스트리 컨테이너](#how-to-add-container-to-private-registry) 에서 실행 합니다.
 
-### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>조리법 재사용: 컨테이너를 사용 하 여 청구 및 탑재 설정 저장
+### <a name="reuse-recipe-store-billing-and-mount-settings-with-container"></a>重用脚本: 使用容器存储计费和装载设置
 
 이 예제에서는 Dockerfile에서 청구 및 모델을 저장 하는 Language Understanding를 사용 하는 방법을 보여 줍니다.
 
@@ -102,7 +102,7 @@ docker run --rm <your-image-name>
 
 Dockerfile을 사용 하 여 개인 컨테이너 레지스트리에 새 이미지를 추가 하려면 다음 단계를 수행 합니다.  
 
-1. 조리법 다시 사용의 텍스트를 사용 하 여 `Dockerfile`를 만듭니다. `Dockerfile`에는 확장명이 없습니다.
+1. `Dockerfile`使用文本 "重用脚本" 创建。 `Dockerfile`에는 확장명이 없습니다.
 
 1. 꺾쇠 괄호의 모든 값을 고유한 값으로 바꿉니다.
 

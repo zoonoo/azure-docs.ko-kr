@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB 서비스 할당량
 description: 다른 리소스 유형에 대 한 기본 제한 및 서비스 할당량을 Azure Cosmos DB 합니다.
-author: arramac
-ms.author: arramac
+author: jasonwhowell
+ms.author: jasonh
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: d6b66c4a4924f8455b58b930621d6a7b93901a2a
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b954b56d3c4f9d3ae0ad3142b11a8660e341b74a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887617"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711308"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
-이 문서에서는 Azure Cosmos DB의 다른 리소스에 제공 되는 기본 할당량에 대 한 개요를 제공 합니다.
+이 문서에서는 Azure Cosmos DB의 다른 리소스에 제공되는 기본 할당량에 대한 개요를 제공합니다.
 
 ## <a name="storage-and-throughput"></a>저장소 및 처리량
 
@@ -131,7 +131,7 @@ Cosmos DB은 권한 부여에 HMAC를 사용 합니다. 컨테이너, 파티션 
 | 리소스 | 기본 제한 |
 | --- | --- |
 | 최대 마스터 토큰 만료 시간 | 15분  |
-| 최소 리소스 토큰 만료 시간 | 10분  |
+| 최소 리소스 토큰 만료 시간 | 10 분  |
 | 최대 리소스 토큰 만료 시간 | 기본적으로 24 h입니다. [Azure 지원 티켓](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request) 을 작성 하 여이를 늘릴 수 있습니다.|
 | 토큰 권한 부여에 대 한 최대 클럭 오차| 15분 |
 
@@ -147,7 +147,7 @@ Cosmos DB는 [SQL](how-to-sql-query.md)을 사용한 항목 쿼리를 지원 합
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| SQL 쿼리의 최대 길이| 256 <sup>*</sup>|
+| SQL 쿼리의 최대 길이| 256 KB <sup>*</sup>|
 | 쿼리당 최대 조인 수| 5 <sup>*</sup>|
 | 쿼리당 최대 ANDs| 2000 <sup>*</sup>|
 | 쿼리당 최대 ORs| 2000 <sup>*</sup>|
@@ -165,7 +165,7 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 MongoDB 쿼리 메모리 크기 | 40 M B |
+| 최대 MongoDB 쿼리 메모리 크기 | 40 MB |
 | MongoDB 작업에 대 한 최대 실행 시간| 30초 |
 
 ## <a name="try-cosmos-db-free-limits"></a>무료 제한을 Cosmos DB 사용해 보세요.

@@ -12,18 +12,18 @@ ms.workload: identity
 ms.date: 11/22/2019
 ms.author: martinco
 ms.reviewer: arvindha
-ms.openlocfilehash: 2d2cb113261495b0217d056cf62019b79be7fa27
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 8964f710ca4dfdf4710458f857c3a930fd755654
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767860"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711509"
 ---
 # <a name="plan-cloud-hr-application-to-azure-active-directory-user-provisioning"></a>사용자 프로 비전을 Azure Active Directory 클라우드 HR 응용 프로그램 계획
 
 지금까지 IT 직원은 직원을 만들고 업데이트 하 고 삭제 하는 수동 방법에 의존 했습니다. 이러한 메서드는 CSV 파일 업로드 또는 사용자 지정 스크립트를 사용 하 여 직원 데이터를 동기화 하는 등의 방법을 사용 했습니다. 이러한 프로 비전 프로세스는 오류가 발생 하기 쉬우며 안전 하지 않으며 관리가 어렵습니다.
 
-직원, 공급 업체 또는 불확정 작업자의 id 수명 주기를 관리 하기 위해 [AZURE AD (Azure Active Directory) 사용자 프로 비전 서비스](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning) 는 클라우드 기반 HR (인적 자원) 응용 프로그램과의 통합을 제공 합니다. 응용 프로그램의 예로는 Workday 또는 SuccessFactors이 있습니다.
+직원, 공급 업체 또는 불확정 작업자의 id 수명 주기를 관리 하기 위해 [AZURE AD (Azure Active Directory) 사용자 프로 비전 서비스](user-provisioning.md) 는 클라우드 기반 HR (인적 자원) 응용 프로그램과의 통합을 제공 합니다. 응용 프로그램의 예로는 Workday 또는 SuccessFactors이 있습니다.
 
 Azure AD는이 통합을 사용 하 여 다음과 같은 클라우드 HR 응용 프로그램 (앱) 워크플로를 사용 하도록 설정 합니다.
 
@@ -86,7 +86,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.
 - 클라우드 HR 앱에서 시스템 통합 사용자를 만들고 테스트 목적으로 직원 데이터를 변경 하는 관리자 권한
 - Active Directory에 대 한 사용자 프로 비전을 위해 [Azure AD Connect 프로 비전 에이전트](https://go.microsoft.com/fwlink/?linkid=847801)를 호스트 하려면 .net 4.7.1 + runtime을 사용 하 여 Windows server 2012 이상을 실행 하는 서버가 필요 합니다.
-- Active Directory와 Azure AD 간에 사용자를 동기화 하는 [Azure AD Connect](https://docs.microsoft.com/azure/active-directory/hybrid/whatis-azure-ad-connect) .
+- Active Directory와 Azure AD 간에 사용자를 동기화 하는 [Azure AD Connect](../hybrid/whatis-azure-ad-connect.md) .
 
 ### <a name="training-resources"></a>학습 리소스
 
@@ -94,10 +94,10 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 |:-|:-|
 | 비디오 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
-| 자습서 | [Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list) |
-| | [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
-| FAQ | [자동화 된 사용자 프로 비전](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
-| | [Workday에서 Azure AD로 프로 비전](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#frequently-asked-questions-faq) |
+| 자습서 | [Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](../saas-apps/tutorial-list.md) |
+| | [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
+| FAQ | [자동화 된 사용자 프로 비전](user-provisioning.md#what-applications-and-systems-can-i-use-with-azure-ad-automatic-user-provisioning) |
+| | [Workday에서 Azure AD로 프로 비전](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
 
 ### <a name="solution-architecture"></a>솔루션 아키텍처
 
@@ -106,7 +106,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 - **클라우드 HR 앱에서 Active Directory에 대 한 신뢰할 수 있는 HR 데이터 흐름입니다.** 이 흐름에서 HR 이벤트 (Joiners-Leavers 프로세스)는 클라우드 HR 앱 테 넌 트에서 시작 됩니다. Azure AD 프로 비전 서비스 및 Azure AD Connect 프로 비전 에이전트는 클라우드 HR 앱 테 넌 트의 사용자 데이터를 Active Directory으로 프로 비전 합니다. 이벤트에 따라 Active Directory에서 만들기, 업데이트, 사용 및 사용 안 함 작업을 수행할 수 있습니다.
 - **Azure AD와 동기화 하 고 온-프레미스 Active Directory의 전자 메일 및 사용자 이름을 클라우드 HR 앱에 다시 씁니다.** Active Directory에서 계정이 업데이트 된 후에는 Azure AD Connect를 통해 Azure AD와 동기화 됩니다. 이메일 주소 및 사용자 이름 특성은 클라우드 HR 앱 테 넌 트에 다시 쓸 수 있습니다.
 
-![워크플로 다이어그램](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
+![워크플로 다이어그램](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img1.png)
 
 #### <a name="description-of-workflow"></a>워크플로에 대 한 설명
 
@@ -116,7 +116,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 2. **AZURE AD 프로 비전 서비스** 는 클라우드 HR 앱 테 넌 트에서 예약 된 주기를 실행 하 고 Active Directory와 동기화 하기 위해 처리 해야 하는 변경 내용을 식별 합니다.
 3. **AZURE AD 프로 비전 서비스** 는 Active Directory 계정 만들기, 업데이트, 사용 및 사용 안 함 작업을 포함 하는 요청 페이로드를 사용 하 여 Azure AD Connect 프로 비전 에이전트를 호출 합니다.
 4. **Azure AD Connect 프로 비전 에이전트** 는 서비스 계정을 사용 하 여 Active Directory 계정 데이터를 관리 합니다.
-5. **Azure AD Connect** 델타 [동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-sync-whatis) 를 실행 하 여 Active Directory 업데이트를 가져옵니다.
+5. **Azure AD Connect** 델타 [동기화](../hybrid/how-to-connect-sync-whatis.md) 를 실행 하 여 Active Directory 업데이트를 가져옵니다.
 6. **Active Directory** 업데이트는 Azure AD와 동기화 됩니다.
 7. **AZURE ad 프로 비전 서비스** 쓰기는 azure ad에서 클라우드 HR 앱 테 넌 트로 메일 특성 및 사용자 이름을 백업 합니다.
 
@@ -138,7 +138,7 @@ HR 조직의 담당자에 게 기존 HR 비즈니스 프로세스 및 작업자 
 
 HR 비즈니스 프로세스와 id 워크플로를 클라우드 HR 앱에서 대상 시스템으로 통합 하려면 솔루션을 프로덕션 환경에 배포 하기 전에 상당한 양의 데이터 유효성 검사, 데이터 변환, 데이터 정리 및 종단 간 테스트가 필요 합니다.
 
-프로덕션 환경에서 모든 사용자로 크기를 조정 하기 전에 [파일럿 환경](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-deployment-plans#best-practices-for-a-pilot) 에서 초기 구성을 실행 합니다.
+프로덕션 환경에서 모든 사용자로 크기를 조정 하기 전에 [파일럿 환경](../fundamentals/active-directory-deployment-plans.md#best-practices-for-a-pilot) 에서 초기 구성을 실행 합니다.
 
 ## <a name="select-cloud-hr-provisioning-connector-apps"></a>클라우드 HR 프로 비전 커넥터 앱을 선택 합니다.
 
@@ -150,13 +150,13 @@ HR 비즈니스 프로세스와 id 워크플로를 클라우드 HR 앱에서 대
 
 예를 들어 다음 이미지는 Azure AD 앱 갤러리에서 사용할 수 있는 Workday 커넥터 앱을 나열 합니다.
 
-![Azure Active Directory 포털 앱 갤러리](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
+![Azure Active Directory 포털 앱 갤러리](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img2.png)
 
 ### <a name="decision-flow-chart"></a>의사 결정 흐름 차트
 
 다음 의사 결정 흐름 차트를 사용 하 여 시나리오와 관련 된 클라우드 HR 프로 비전 앱을 식별 합니다.
 
-![의사 결정 흐름 차트](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
+![의사 결정 흐름 차트](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img3.png)
 
 ## <a name="design-the-azure-ad-connect-provisioning-agent-deployment-topology"></a>Azure AD Connect 프로 비전 에이전트 배포 토폴로지 디자인
 
@@ -184,7 +184,7 @@ Azure AD Connect 프로 비전 에이전트 배포 토폴로지는 클라우드 
 |구성할 프로 비전 커넥터 앱 수|자식 도메인당 하나의 앱|
 |Azure AD Connect 프로 비전 에이전트에 대 한 서버 호스트|도메인 컨트롤러 Active Directory 찾을 수 있는 배치할의 Windows 2012 R2 +</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
 
-![온-프레미스 에이전트로 이동](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
+![온-프레미스 에이전트로 이동](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img4.png)
 
 ### <a name="single-cloud-hr-app-tenant---target-multiple-child-domains-in-a-disjoint-active-directory-forest"></a>단일 클라우드 HR 앱 테 넌 트-연결 되지 않은 Active Directory 포리스트에 여러 자식 도메인 > 대상으로 합니다.
 
@@ -198,13 +198,13 @@ Azure AD Connect 프로 비전 에이전트 배포 토폴로지는 클라우드 
 |구성할 프로 비전 커넥터 앱 수|자식 도메인당 하나의 앱|
 |Azure AD Connect 프로 비전 에이전트에 대 한 서버 호스트|도메인 컨트롤러 Active Directory 찾을 수 있는 배치할의 Windows 2012 R2 +</br>Azure AD Connect 서비스와 함께 사용할 수 있음|
 
-![단일 클라우드 HR 앱 테 넌 트 Active Directory 포리스트 분리](./media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
+![단일 클라우드 HR 앱 테 넌 트 Active Directory 포리스트 분리](media/plan-cloudhr-provisioning/plan-cloudhr-provisioning-img5.png)
 
 ### <a name="azure-ad-connect-provisioning-agent-requirements"></a>Azure AD Connect 프로 비전 에이전트 요구 사항
 
 사용자 프로 비전 솔루션 Active Directory 클라우드 HR 앱을 사용 하려면 Windows 2012 R2 이상을 실행 하는 서버에서 하나 이상의 Azure AD Connect 프로 비전 에이전트를 배포 해야 합니다. 서버에는 최소 4gb RAM 및 .NET 4.7.1 + runtime이 있어야 합니다. 호스트 서버에 대상 Active Directory 도메인에 대 한 네트워크 액세스 권한이 있는지 확인 합니다.
 
-온-프레미스 환경을 준비 하기 위해 Azure AD Connect 프로 비전 에이전트 구성 마법사는 Azure AD 테 넌 트에 에이전트를 등록 하 고, [포트를 열어](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#open-ports) [url에](https://docs.microsoft.com/azure/active-directory/manage-apps/application-proxy-add-on-premises-application#allow-access-to-urls)대 한 액세스를 허용 하 고, [아웃 바운드 HTTPS 프록시 구성을](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)지원 합니다.
+온-프레미스 환경을 준비 하기 위해 Azure AD Connect 프로 비전 에이전트 구성 마법사는 Azure AD 테 넌 트에 에이전트를 등록 하 고, [포트를 열어](application-proxy-add-on-premises-application.md#open-ports) [url에](application-proxy-add-on-premises-application.md#allow-access-to-urls)대 한 액세스를 허용 하 고, [아웃 바운드 HTTPS 프록시 구성을](../saas-apps/workday-inbound-tutorial.md#how-do-i-configure-the-provisioning-agent-to-use-a-proxy-server-for-outbound-http-communication)지원 합니다.
 
 프로 비전 에이전트는 서비스 계정을 사용 하 여 Active Directory 도메인과 통신 합니다. 에이전트를 설치 하기 전에 다음 요구 사항을 충족 하는 Active Directory 사용자 및 컴퓨터에 서비스 계정을 만듭니다.
 
@@ -221,7 +221,7 @@ Azure AD Connect 프로 비전 에이전트 배포 토폴로지는 클라우드 
 
 ### <a name="define-scoping-filters"></a>범위 지정 필터 정의
 
-[범위 지정 필터](https://docs.microsoft.com/azure/active-directory/active-directory-saas-scoping-filters) 를 사용 하 여 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 프로 비전 할 사용자를 결정 하는 특성 기반 규칙을 정의 합니다.
+[범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md) 를 사용 하 여 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 프로 비전 할 사용자를 결정 하는 특성 기반 규칙을 정의 합니다.
 
 Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
@@ -233,7 +233,7 @@ Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합�
 
 ### <a name="determine-matching-attributes"></a>일치 하는 특성 확인
 
-프로 비전을 사용 하면 원본 시스템과 대상 시스템 간에 기존 계정을 일치 시킬 수 있습니다. 클라우드 HR 앱을 Azure AD 프로 비전 서비스와 통합 하는 경우 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 이동 해야 하는 사용자 데이터를 결정 하는 [특성 매핑을 구성할](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-automatic-user-provisioning-portal#mappings) 수 있습니다.
+프로 비전을 사용 하면 원본 시스템과 대상 시스템 간에 기존 계정을 일치 시킬 수 있습니다. 클라우드 HR 앱을 Azure AD 프로 비전 서비스와 통합 하는 경우 클라우드 HR 앱에서 Active Directory 또는 Azure AD로 이동 해야 하는 사용자 데이터를 결정 하는 [특성 매핑을 구성할](configure-automatic-user-provisioning-portal.md#mappings) 수 있습니다.
 
 Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
@@ -243,13 +243,13 @@ Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합�
 - Id 수명 주기 관점에서 볼 때 직원의 불확정 변환을 어떻게 처리 하나요? 아니면 그렇지 않은 경우
 - 변환 된 사용자가 이전 Active Directory 계정을 유지 하거나 새 계정을 얻을 수 있나요?
 
-요구 사항에 따라 Azure AD는 상수 값을 제공 하거나 특성 [매핑에 대 한 식을 작성](https://docs.microsoft.com/azure/active-directory/active-directory-saas-writing-expressions-for-attribute-mappings)하 여 특성-특성 간 매핑을 직접 지원 합니다. 이러한 유연성을 통해 대상 앱 특성에서 채워지는 사항을 궁극적으로 제어할 수 있습니다. [MICROSOFT GRAPH API](https://docs.microsoft.com/azure/active-directory/manage-apps/export-import-provisioning-configuration) 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다.
+요구 사항에 따라 Azure AD는 상수 값을 제공 하거나 특성 [매핑에 대 한 식을 작성](functions-for-customizing-application-data.md)하 여 특성-특성 간 매핑을 직접 지원 합니다. 이러한 유연성을 통해 대상 앱 특성에서 채워지는 사항을 궁극적으로 제어할 수 있습니다. [MICROSOFT GRAPH API](export-import-provisioning-configuration.md) 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다.
 
 기본적으로 고유한 직원 ID를 나타내는 cloud HR 앱의 특성은 *Active Directory의 고유한 특성에 매핑되* 는 일치 특성으로 사용 됩니다. 예를 들어 Workday 앱 시나리오에서 **workday** **WorkerID** 특성은 Active Directory **employeeID** 특성에 매핑됩니다.
 
 일치 하는 특성을 여러 개 설정 하 고 일치 하는 우선 순위를 할당할 수 있습니다. 일치 하는 우선 순위에 따라 평가 됩니다. 일치 항목이 발견되는 즉시 더 이상 일치 특성을 평가하지 않습니다.
 
-기존 특성 매핑을 변경 하거나 삭제 하는 등 [의 기본 특성 매핑을 사용자 지정할](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes#understanding-attribute-mapping-types)수도 있습니다. 비즈니스 요구 사항에 따라 새 특성 매핑을 만들 수도 있습니다. 자세한 내용은 매핑할 사용자 지정 특성 목록에 대 한 클라우드 HR 앱 자습서 (예: [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#planning-workday-to-active-directory-user-attribute-mapping-and-transformations))를 참조 하세요.
+기존 특성 매핑을 변경 하거나 삭제 하는 등 [의 기본 특성 매핑을 사용자 지정할](customize-application-attributes.md#understanding-attribute-mapping-types)수도 있습니다. 비즈니스 요구 사항에 따라 새 특성 매핑을 만들 수도 있습니다. 자세한 내용은 매핑할 사용자 지정 특성 목록에 대 한 클라우드 HR 앱 자습서 (예: [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations))를 참조 하세요.
 
 ### <a name="determine-user-account-status"></a>사용자 계정 상태 확인
 
@@ -268,7 +268,7 @@ Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수
 | | Employee 및 불확정 작업자 변환은 기존 Active Directory 계정에 어떤 영향을 미칩니까? |
 | | Active Directory에서 Rescind 작업을 처리 하려면 어떻게 해야 하나요? Rescind 작업은 작업을 처리 해야 합니다. 이후 날짜는 연결자 프로세스의 일부로 Active Directory에서 생성 됩니다. |
 
-요구 사항에 따라, 데이터 요소 조합에 따라 Active Directory 계정이 활성화 또는 비활성화 되도록 [AZURE AD 식을](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data) 사용 하 여 매핑 논리를 사용자 지정할 수 있습니다.
+요구 사항에 따라, 데이터 요소 조합에 따라 Active Directory 계정이 활성화 또는 비활성화 되도록 [AZURE AD 식을](functions-for-customizing-application-data.md) 사용 하 여 매핑 논리를 사용자 지정할 수 있습니다.
 
 ### <a name="map-cloud-hr-app-to-active-directory-user-attributes"></a>클라우드 HR 앱을 Active Directory 사용자 특성에 매핑
 
@@ -286,13 +286,13 @@ Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수
 | | 사용자 종료를 처리 하는 데 어떤 효과적인 날짜를 고려 하나요? |
 | | Employee 및 불확정 작업자 변환은 기존 Active Directory 계정에 어떤 영향을 미칩니까? |
 
-요구 사항에 따라 통합 목표에 맞게 매핑을 수정할 수 있습니다. 자세한 내용은 매핑할 사용자 지정 특성 목록에 대 한 특정 클라우드 HR 앱 자습서 (예: [Workday](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#planning-workday-to-active-directory-user-attribute-mapping-and-transformations))를 참조 하세요.
+요구 사항에 따라 통합 목표에 맞게 매핑을 수정할 수 있습니다. 자세한 내용은 매핑할 사용자 지정 특성 목록에 대 한 특정 클라우드 HR 앱 자습서 (예: [Workday](../saas-apps/workday-inbound-tutorial.md#planning-workday-to-active-directory-user-attribute-mapping-and-transformations))를 참조 하세요.
 
 ### <a name="generate-a-unique-attribute-value"></a>고유한 특성 값 생성
 
 Joiners 프로세스를 시작할 때 CN, samAccountName 및 UPN (unique 제약 조건이 있는)과 같은 특성을 설정 하는 경우 고유한 특성 값을 생성 해야 할 수 있습니다.
 
-Azure AD 함수 [Selectuniquevalues](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#selectuniquevalue) 는 각 규칙을 평가한 다음 대상 시스템에서 고유성이 생성 된 값을 확인 합니다. 예제를 보려면 [userPrincipalName (UPN) 특성에 대 한 고유 값 생성](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#generate-unique-value-for-userprincipalname-upn-attribute)을 참조 하세요.
+Azure AD 함수 [Selectuniquevalues](functions-for-customizing-application-data.md#selectuniquevalue) 는 각 규칙을 평가한 다음 대상 시스템에서 고유성이 생성 된 값을 확인 합니다. 예제를 보려면 [userPrincipalName (UPN) 특성에 대 한 고유 값 생성](functions-for-customizing-application-data.md#generate-unique-value-for-userprincipalname-upn-attribute)을 참조 하세요.
 
 > [!NOTE]
 > 이 함수는 현재 Workday에서 사용자 프로 비전을 Active Directory 하는 경우에만 지원 됩니다. 다른 프로 비전 앱과 함께 사용할 수 없습니다.
@@ -301,7 +301,7 @@ Azure AD 함수 [Selectuniquevalues](https://docs.microsoft.com/azure/active-dir
 
 비즈니스 단위, 위치 및 부서에 따라 컨테이너에 Active Directory 사용자 계정을 저장 하는 것이 일반적입니다. 운송업 프로세스를 시작 하 고 감독 기관과 이러한 조직이 변경 되는 경우 Active Directory에서 한 OU에서 다른 OU로 사용자를 이동 해야 할 수 있습니다.
 
-[스위치 ()](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data#switch) 함수를 사용 하 여 OU 할당에 대 한 비즈니스 논리를 구성 하 고 Active Directory 특성 **parentDistinguishedName**에 매핑합니다.
+[스위치 ()](functions-for-customizing-application-data.md#switch) 함수를 사용 하 여 OU 할당에 대 한 비즈니스 논리를 구성 하 고 Active Directory 특성 **parentDistinguishedName**에 매핑합니다.
 
 예를 들어 HR 특성 **지방 자치 체**을 기반으로 OU에 사용자를 만들려는 경우 다음 식을 사용할 수 있습니다.
 
@@ -313,20 +313,20 @@ Switch([Municipality], "OU=Default,OU=Users,DC=contoso,DC=com", "Dallas", "OU=Da
 
 ## <a name="plan-for-password-delivery-of-new-user-accounts"></a>새 사용자 계정의 암호 전달 계획
 
-Joiners 프로세스를 시작 하는 경우 새 사용자 계정의 임시 암호를 설정 하 고 제공 해야 합니다. Azure AD 사용자 프로 비전에 클라우드 HR을 사용 하면 하루에 사용자에 대 한 Azure AD SSPR ( [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) ) 기능을 롤아웃할 수 있습니다.
+Joiners 프로세스를 시작 하는 경우 새 사용자 계정의 임시 암호를 설정 하 고 제공 해야 합니다. Azure AD 사용자 프로 비전에 클라우드 HR을 사용 하면 하루에 사용자에 대 한 Azure AD SSPR ( [셀프 서비스 암호 재설정](../authentication/quickstart-sspr.md) ) 기능을 롤아웃할 수 있습니다.
 
 SSPR는 IT 관리자가 사용자가 암호를 재설정 하거나 계정의 잠금을 해제할 수 있도록 하는 간단한 방법입니다. 클라우드 HR 앱에서 **모바일 번호** 특성을 프로 비전 하 여 Active Directory 하 고 Azure AD와 동기화 할 수 있습니다. **모바일 번호** 특성이 Azure AD에 있는 후 사용자 계정에 대해 SSPR를 사용 하도록 설정할 수 있습니다. 그런 다음, 새 사용자는 인증을 위해 등록 되 고 확인 된 휴대폰 번호를 사용할 수 있습니다.
 
 ## <a name="plan-for-initial-cycle"></a>초기 주기 계획
 
-Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 앱에 대 한 [초기 주기](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle) 를 수행 하 여 cloud hr 앱에 모든 사용자 개체의 스냅숏을 만듭니다. 초기 주기에 소요 되는 시간은 원본 시스템에 있는 사용자 수에 직접적으로 종속 됩니다. 10만 명의 사용자가 있는 일부 클라우드 HR 앱 테 넌 트의 초기 주기는 오랜 시간이 걸릴 수 있습니다.
+Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 앱에 대 한 [초기 주기](how-provisioning-works.md#initial-cycle) 를 수행 하 여 cloud hr 앱에 모든 사용자 개체의 스냅숏을 만듭니다. 초기 주기에 소요 되는 시간은 원본 시스템에 있는 사용자 수에 직접적으로 종속 됩니다. 10만 명의 사용자가 있는 일부 클라우드 HR 앱 테 넌 트의 초기 주기는 오랜 시간이 걸릴 수 있습니다.
 
 **대량 클라우드 HR 앱 테 넌 트 (> 30000 사용자)의** 경우 점진적 단계에서 초기 주기를 실행 합니다. 다른 사용자 프로 비전 시나리오에 대해 Active Directory에 올바른 특성이 설정 되었는지 확인 한 후에만 증분 업데이트를 시작 합니다. 여기에서 순서를 따르세요.
 
 1. [범위 지정 필터](#plan-scoping-filters-and-attribute-mapping)를 설정 하 여 제한 된 사용자 집합에 대해서만 초기 주기를 실행 합니다.
 2. Active Directory 계정 프로 비전 및 첫 번째 실행에 대해 선택한 사용자에 대해 설정 된 특성 값을 확인 합니다. 결과가 예상과 일치 하는 경우 범위 지정 필터를 확장 하 여 더 많은 사용자를 점차적으로 포함 하 고 두 번째 실행에 대 한 결과를 확인 합니다.
 
-테스트 사용자에 대 한 초기 주기의 결과가 만족 스 러 우면 [증분 업데이트](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#incremental-cycles)를 시작 합니다.
+테스트 사용자에 대 한 초기 주기의 결과가 만족 스 러 우면 [증분 업데이트](how-provisioning-works.md#incremental-cycles)를 시작 합니다.
 
 ## <a name="plan-testing-and-security"></a>테스트 및 보안 계획
 
@@ -366,7 +366,7 @@ Azure AD 프로 비전 서비스를 처음 실행 하는 경우 클라우드 HR 
 
 솔루션 요구 사항에 부합 하는 클라우드 HR 앱을 선택 합니다.
 
-**Workday**: workday에서 Active Directory 및 Azure AD로 작업자 프로필을 가져오려면 [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#planning-your-deployment)을 참조 하세요. 필요에 따라 전자 메일 주소와 사용자 이름을 Workday에 다시 쓸 수 있습니다.
+**Workday**: workday에서 Active Directory 및 Azure AD로 작업자 프로필을 가져오려면 [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#planning-your-deployment)을 참조 하세요. 필요에 따라 전자 메일 주소와 사용자 이름을 Workday에 다시 쓸 수 있습니다.
 
 ## <a name="manage-your-configuration"></a>구성 관리
 
@@ -374,21 +374,21 @@ Azure AD는 감사 로그 및 보고서를 통해 조직의 사용자 프로 비
 
 ### <a name="gain-insights-from-reports-and-logs"></a>보고서 및 로그에서 정보 얻기
 
-[초기 주기가](https://docs.microsoft.com/azure/active-directory/manage-apps/how-provisioning-works#initial-cycle)성공적으로 완료 되 면 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격으로 다시 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
+[초기 주기가](how-provisioning-works.md#initial-cycle)성공적으로 완료 되 면 Azure AD 프로 비전 서비스는 다음 이벤트 중 하나가 발생할 때까지 각 앱에 대 한 자습서에 정의 된 간격으로 다시 백 엔드 증분 업데이트를 무기한으로 실행 합니다.
 
 - 서비스가 수동으로 중지 되었습니다. [Azure Portal](https://portal.azure.com/) 또는 적절 한 [Microsoft Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview) 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다.
 - 새 초기 주기는 특성 매핑 또는 범위 지정 필터의 변경에 업데이트로 인해 트리거됩니다.
 - 높은 오류 발생률 때문에 프로 비전 프로세스가 격리 됩니다. 4 주 넘게 격리 상태로 유지 되며,이 경우 자동으로 사용 하지 않도록 설정 됩니다.
 
-이러한 이벤트 및 프로 비전 서비스에서 수행 하는 다른 모든 작업을 검토 하려면 [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 가져오는 방법을 알아봅니다](https://docs.microsoft.com/azure/active-directory/manage-apps/check-status-user-account-provisioning).
+이러한 이벤트 및 프로 비전 서비스에서 수행 하는 다른 모든 작업을 검토 하려면 [로그를 검토 하 고 프로 비전 활동에 대 한 보고서를 가져오는 방법을 알아봅니다](check-status-user-account-provisioning.md).
 
 #### <a name="azure-monitor-logs"></a>Azure Monitor 로그
 
 프로 비전 서비스에서 수행 하는 모든 작업은 Azure AD 감사 로그에 기록 됩니다. 추가 분석을 위해 Azure AD 감사 로그를 Azure Monitor 로그로 라우팅할 수 있습니다. Azure Monitor 로그 (Log Analytics 작업 영역이 라고도 함)를 사용 하 여 데이터를 쿼리하여 이벤트를 찾고, 추세를 분석 하 고, 다양 한 데이터 원본에서 상관 관계를 수행할 수 있습니다. 이 [비디오](https://youtu.be/MP5IaCTwkQg) 를 시청 하 여 실제 사용자 시나리오에서 Azure AD 로그에 Azure Monitor 로그를 사용 하는 이점을 알아보세요.
 
-[AZURE AD 활동 로그에 대 한 log analytics 뷰](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-install-use-log-analytics-views) 를 설치 하 여 사용자 환경에서 이벤트를 프로 비전 하는 [미리 빌드된 보고서](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) 에 액세스할 수 있습니다.
+[AZURE AD 활동 로그에 대 한 log analytics 뷰](../reports-monitoring/howto-install-use-log-analytics-views.md) 를 설치 하 여 사용자 환경에서 이벤트를 프로 비전 하는 [미리 빌드된 보고서](https://github.com/AzureAD/Deployment-Plans/tree/master/Log%20Analytics%20Views) 에 액세스할 수 있습니다.
 
-자세한 내용은 [Azure Monitor 로그를 사용 하 여 AZURE AD 활동 로그를 분석](https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-analyze-activity-logs-log-analytics)하는 방법을 참조 하세요.
+자세한 내용은 [Azure Monitor 로그를 사용 하 여 AZURE AD 활동 로그를 분석](../reports-monitoring/howto-analyze-activity-logs-log-analytics.md)하는 방법을 참조 하세요.
 
 ### <a name="manage-personal-data"></a>개인 데이터 관리
 
@@ -400,21 +400,21 @@ Azure AD 프로 비전 서비스는 30 일 이상 데이터를 저장, 처리 �
 
 프로 비전 중에 발생할 수 있는 문제를 해결 하려면 다음 문서를 참조 하세요.
 
-- [Azure AD 갤러리 응용 프로그램에 사용자 프로 비전을 구성 하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem)
-- [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning-sync-attributes-for-mapping)
-- [Azure AD 갤러리 응용 프로그램에 대 한 사용자 프로 비전에 몇 시간 이상이 소요 됨](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-when-will-provisioning-finish)
-- [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-storage-limit)
-- [사용자가 Azure AD 갤러리 응용 프로그램에 프로 비전 되지 않습니다.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-no-users-provisioned)
-- [잘못 된 사용자 집합이 Azure AD 갤러리 응용 프로그램에 프로 비전 되 고 있습니다.](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-config-problem-wrong-users-provisioned)
-- [에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#setting-up-windows-event-viewer-for-agent-troubleshooting)
-- [서비스 문제 해결을 위한 Azure Portal 감사 로그 설정](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
-- [AD 사용자 계정 생성 작업에 대한 로그 이해](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#understanding-logs-for-ad-user-account-create-operations)
-- [관리자 업데이트 작업에 대한 로그 이해](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#understanding-logs-for-manager-update-operations)
-- [일반적으로 발생하는 오류 해결](https://docs.microsoft.com/azure/active-directory/saas-apps/workday-inbound-tutorial#resolving-commonly-encountered-errors)
+- [Azure AD 갤러리 응용 프로그램에 사용자 프로 비전을 구성 하는 문제](application-provisioning-config-problem.md)
+- [응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화](user-provisioning-sync-attributes-for-mapping.md)
+- [Azure AD 갤러리 응용 프로그램에 대 한 사용자 프로 비전에 몇 시간 이상이 소요 됨](application-provisioning-when-will-provisioning-finish.md)
+- [사용자가 Azure Active Directory 갤러리 애플리케이션에 프로비전을 구성하는 동안 관리자 자격 증명을 저장하는 문제](application-provisioning-config-problem-storage-limit.md)
+- [사용자가 Azure AD 갤러리 응용 프로그램에 프로 비전 되지 않습니다.](application-provisioning-config-problem-no-users-provisioned.md)
+- [잘못 된 사용자 집합이 Azure AD 갤러리 응용 프로그램에 프로 비전 되 고 있습니다.](application-provisioning-config-problem-wrong-users-provisioned.md)
+- [에이전트 문제 해결을 위한 Windows 이벤트 뷰어 설정](../saas-apps/workday-inbound-tutorial.md#setting-up-windows-event-viewer-for-agent-troubleshooting)
+- [서비스 문제 해결을 위한 Azure Portal 감사 로그 설정](../saas-apps/workday-inbound-tutorial.md#setting-up-azure-portal-audit-logs-for-service-troubleshooting)
+- [AD 사용자 계정 생성 작업에 대한 로그 이해](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-ad-user-account-create-operations)
+- [관리자 업데이트 작업에 대한 로그 이해](../saas-apps/workday-inbound-tutorial.md#understanding-logs-for-manager-update-operations)
+- [일반적으로 발생하는 오류 해결](../saas-apps/workday-inbound-tutorial.md#resolving-commonly-encountered-errors)
 
 ### <a name="next-steps"></a>다음 단계
 
-- [특성 매핑에 대 한 식 작성](https://docs.microsoft.com/azure/active-directory/manage-apps/functions-for-customizing-application-data)
+- [특성 매핑에 대 한 식 작성](functions-for-customizing-application-data.md)
 - [Azure AD 동기화 API 개요](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)
-- [범위를 벗어나는 사용자 계정 삭제 건너뛰기](https://docs.microsoft.com/azure/active-directory/manage-apps/skip-out-of-scope-deletions)
-- [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](https://docs.microsoft.com/azure/active-directory/manage-apps/provisioning-agent-release-version-history)
+- [범위를 벗어나는 사용자 계정 삭제 건너뛰기](skip-out-of-scope-deletions.md)
+- [Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록](provisioning-agent-release-version-history.md)

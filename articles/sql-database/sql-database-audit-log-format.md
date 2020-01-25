@@ -5,16 +5,16 @@ services: sql-database
 ms.service: sql-database
 ms.subservice: security
 ms.topic: conceptual
-author: barmichal
-ms.author: mibar
+author: DavidTrigano
+ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 01/03/2019
-ms.openlocfilehash: 5bd3a3ae5ab95076129e2565a578bdc6ac0e1e38
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 13746b86eed75055ceb5203afafb2d27a78ce1d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928629"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722087"
 ---
 # <a name="sql-database-audit-log-format"></a>SQL Database 감사 로그 형식
 
@@ -43,7 +43,7 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 `sqldbauditl
 
 ## <a id="subheading-1"></a>감사 로그 필드
 
-| 이름 (Blob) | 이름 (Event Hubs/Log Analytics) | 설명 | Blob 형식 | Event Hubs/Log Analytics 형식 |
+| 이름 (Blob) | 이름 (Event Hubs/Log Analytics) | Description | Blob 유형 | Event Hubs/Log Analytics 형식 |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | 동작의 ID입니다. | varchar(4) | 문자열 |
 | action_name | action_name_s | 작업의 이름입니다. | N/A | 문자열 |
@@ -66,7 +66,7 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 `sqldbauditl
 | N/A | is_server_level_audit_s | 이 감사가 서버 수준에 있는지를 나타내는 플래그입니다. | N/A | 문자열 |
 | object_ id | object_id_d | 감사가 수행된 대상 엔터티의 ID입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | int | int |
 | object_name | object_name_s | 감사가 수행된 대상 엔터티의 이름입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | sysname | 문자열 |
-| permission_bitmask | permission_bitmask_s | 해당되는 경우 부여, 거부 또는 취소된 사용 권한을 표시합니다. | varbinary(16) | 문자열 |
+| permission_bitmask | permission_bitmask_s | 해당되는 경우 부여, 거부 또는 취소된 사용 권한을 표시합니다. | varbinary (16) | 문자열 |
 | response_rows | response_rows_d | 결과 집합에 반환 된 행 수 | bigint | int |
 | schema_name | schema_name_s | 동작이 수행된 스키마 컨텍스트입니다. 스키마 외부에서 발생 하는 감사의 경우 NULL | sysname | 문자열 |
 | N/A | securable_class_type_s | 감사 중인 class_type에 매핑되는 보안 개체입니다. | N/A | 문자열 |

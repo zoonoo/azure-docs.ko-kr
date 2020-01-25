@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/08/2019
-ms.openlocfilehash: ad9437b135e48dcfaff9efa5f6daf345d78e79ef
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 094d9fe7425a6192ce2af94c3ea18cac20ff9ded
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895331"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720336"
 ---
 # <a name="archived-release-notes"></a>보관된 릴리스 정보
 
@@ -52,10 +52,10 @@ TLS(전송 계층 보안) 및 SSL(Secure Sockets Layer)은 컴퓨터 네트워�
 
 다음 릴리스에서부터 TLS 1.2 연결만 수락 하도록 새 HDInsight 클러스터를 옵트인 하 고 구성할 수 있습니다. 
 
-이후에는 6/30/2020부터 시작 하 여 Azure HDInsight는 모든 HTTPS 연결에 TLS 1.2 이상 버전을 적용 합니다. 모든 클라이언트에서 TLS 1.2 이상 버전을 처리할 수 있도록 준비 하는 것이 좋습니다.
+이후에는 6/30/2020부터 시작 하 여 Azure HDInsight는 모든 HTTPS 연결에 TLS 1.2 이상 버전을 적용 합니다. 모든 클라이언트가 TLS 1.2 이상 버전을 처리할 수 있도록 대비하는 것이 좋습니다.
 
 #### <a name="moving-to-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합으로 이동
-이제 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 프로 비전 합니다. Fe삼 차 2020 (정확한 날짜는 나중에 전달 됨)부터 시작 하 여 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
+이제 HDInsight는 Azure virtual machines를 사용 하 여 클러스터를 프로 비전 합니다. 2020 년 2 월 (정확한 날짜는 나중에 전달 됨)부터 HDInsight는 Azure virtual machine scale sets를 대신 사용 합니다. [Azure 가상 머신 확장 집합](https://docs.microsoft.com/azure/virtual-machine-scale-sets/overview)에 대 한 자세한 내용을 참조 하세요.
 
 #### <a name="esp-spark-cluster-node-size-change"></a>ESP Spark 클러스터 노드 크기 변경 
 예정 된 릴리스에서는 다음을 수행 합니다.
@@ -212,7 +212,7 @@ HDInsight 4.0의 경우 다음 단계를 수행 합니다.
     ```
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
     ```
-1. `sudo kinit <domainuser>` 명령을 입력합니다.
+1. `sudo kinit <domainuser>`명령을 입력 합니다.
 1. 다음 명령을 입력 하 여 스크립트를 실행 합니다.
 
     ```
@@ -225,7 +225,7 @@ HDInsight 3.6의 경우 다음을 수행 합니다.
     ```
     sudo wget https://raw.githubusercontent.com/Azure/hbase-utils/master/replication/hdi_enable_replication.sh
     ```
-1. `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>` 명령을 입력합니다.
+1. `sudo kinit -k -t /etc/security/keytabs/hbase.service.keytab hbase/<FQDN>@<DOMAIN>`명령을 입력 합니다.
 1. 다음 명령을 입력합니다.
 
     ```bash

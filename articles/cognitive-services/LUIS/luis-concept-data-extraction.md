@@ -1,22 +1,15 @@
 ---
 title: 데이터 추출-LUIS
-titleSuffix: Azure Cognitive Services
 description: 의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터를 추출 합니다. Language Understanding에서 추출할 수 있는 데이터의 종류를 알아봅니다 (LUIS).
-services: cognitive-services
 author: diberry
-manager: nitinme
-ms.custom: seodec18
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 09/27/2019
-ms.author: diberry
-ms.openlocfilehash: ff0a9838d1fcc9db3b6cc25b47c840e01056e6cd
-ms.sourcegitcommit: 6fe40d080bd1561286093b488609590ba355c261
+ms.date: 01/23/2020
+ms.openlocfilehash: 1c1a744c06e5347625fb96518bd809481ee797e5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/01/2019
-ms.locfileid: "71703143"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716299"
 ---
 # <a name="extract-data-from-utterance-text-with-intents-and-entities"></a>의도 및 엔터티를 사용 하 여 utterance 텍스트에서 데이터 추출
 LUIS는 사용자의 자연어 발화에서 정보를 가져오는 기능을 제공합니다. 정보는 프로그램, 애플리케이션 또는 챗봇에서 작업을 수행하는 데 사용할 수 있는 방법으로 추출됩니다. 다음 섹션에서는 JSON 예제와 함께 의도 및 엔터티에서 반환되는 데이터에 대해 알아봅니다.
@@ -36,9 +29,9 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 
-`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(**뒤) 및 LUIS 앱의**설정`/apps/` 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
+`appID`는 LUIS 앱을 편집하는 동안 URL의 일부(`/apps/` 뒤) 및 LUIS 앱의 **설정** 페이지에서 사용할 수 있습니다. `subscription-key`는 앱을 쿼리하는 데 사용되는 엔드포인트 키입니다. LUIS를 학습시키는 동안 체험 작성/시작 키를 사용할 수 있지만, 엔드포인트 키를 [필요한 LUIS 사용](luis-boundaries.md#key-limits)을 지원하는 키로 변경해야 합니다. `timezoneOffset` 단위는 분입니다.
 
 **HTTPS 응답**에는 스테이징 또는 프로덕션 엔드포인트의 현재 게시된 모델을 기반으로 LUIS가 확인할 수 있는 모든 의도 및 엔터티 정보가 포함됩니다. 엔드포인트 URL은 [LUIS](luis-reference-regions.md) 웹 사이트의 **관리** 섹션에 있는 **키 및 엔드포인트** 페이지에서 찾을 수 있습니다.
 
@@ -78,11 +71,11 @@ LUIS는 게시된 [엔드포인트](luis-glossary.md#endpoint)의 데이터를 �
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 
 |데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|
-|의도|문자열|topScoringIntent.intent|“GetStoreInfo”|
+|Intent|String|topScoringIntent.intent|“GetStoreInfo”|
 
 두 개 이상의 의도 점수에 따라 의사 결정 봇 또는 LUIS 호출 앱이 결정 되 면 모든 의도의 점수를 반환 합니다.
 
@@ -138,14 +131,14 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 
 의도는 최고 점수에서 최하 점수 순으로 정렬됩니다.
 
 |데이터 개체|데이터 형식|데이터 위치|값|점수|
 |--|--|--|--|:--|
-|의도|문자열|intents[0].intent|“GetStoreInfo”|0.984749258|
-|의도|문자열|intents[1].intent|“None”|0.0168218873|
+|Intent|String|intents[0].intent|“GetStoreInfo”|0.984749258|
+|Intent|String|intents[1].intent|“None”|0.0168218873|
 
 미리 빌드된 도메인을 추가하는 경우, 의도 이름은 의도뿐 아니라 `Utilties` 또는 `Communication`와 같은 도메인을 나타냅니다.
 
@@ -201,13 +194,13 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 
-|Domain|데이터 개체|데이터 형식|데이터 위치|값|
+|도메인|데이터 개체|데이터 형식|데이터 위치|값|
 |--|--|--|--|--|
-|공공 시설|의도|문자열|intents[0].intent|“<b>Utilities</b>.ShowNext”|
-|통신|의도|문자열|intents[1].intent|<b>Communication</b>.StartOver”|
-||의도|문자열|intents[2].intent|“None”|
+|공익사업|Intent|String|intents[0].intent|“<b>Utilities</b>.ShowNext”|
+|통신|Intent|String|intents[1].intent|<b>Communication</b>.StartOver”|
+||Intent|String|intents[2].intent|“None”|
 
 
 ## <a name="data-from-entities"></a>엔터티의 데이터
@@ -250,12 +243,11 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 ```
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 
 ## <a name="tokenized-entity-returned"></a>토큰화된 엔터티가 반환됨
-여러 [문화권](luis-language-support.md#tokenization)은 [토큰화된](luis-glossary.md#token) `entity` 값과 함께 엔터티 개체를 반환합니다. LUIS에서 엔터티 개체로 반환한 startIndex 및 endIndex는 새 토큰화된 값에 매핑되지 않고, 원시 엔터티를 프로그래밍 방식으로 추출하기 위해 원래 쿼리에 매핑됩니다. 
 
-예를 들어, 독일어에서 `das Bauernbrot` 단어는 `das bauern brot`로 토큰화됩니다. 토큰화된 값 `das bauern brot`가 반환되고 원래 값은 원본 쿼리의 startIndex 및 endIndex에서 프로그래밍 방식으로 되어 `das Bauernbrot`가 제공될 수 있습니다.
+LUIS에서 [토큰 지원을](luis-language-support.md#tokenization) 검토 합니다.
 
 ## <a name="simple-entity-data"></a>단순 엔터티 데이터
 
@@ -263,11 +255,11 @@ Querystring 매개 변수를 `show-all-intents=true`설정 합니다. 엔드포�
 
 ## <a name="composite-entity-data"></a>복합 엔터티 데이터
 
-[복합 엔터티](reference-entity-composite.md) 는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다. 
+[복합 엔터티](reference-entity-composite.md) 는 미리 작성 된 엔터티, 단순, 정규식, 목록 엔터티 등의 다른 엔터티로 구성 됩니다. 개별 엔터티가 전체 엔터티를 형성합니다.
 
 ## <a name="list-entity-data"></a>목록 엔터티 데이터
 
-[목록 엔터티](reference-entity-list.md) 는 동의어와 함께 고정 된 닫힌 관련 단어 집합을 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다. 동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다. 
+[목록 엔터티](reference-entity-list.md) 는 동의어와 함께 고정 된 닫힌 관련 단어 집합을 나타냅니다. LUIS는 목록 엔터티에 대한 추가 값을 검색하지 않습니다. **권장** 기능을 사용하여 현재 목록을 기준으로 권장되는 새 단어를 확인합니다. 동일한 값을 갖는 목록 엔터티가 둘 이상 있는 경우, 각 엔터티가 엔드포인트 쿼리에서 반환됩니다.
 
 ## <a name="prebuilt-entity-data"></a>미리 빌드된 엔터티 데이터
 [미리 빌드된](luis-concept-entity-types.md) 엔터티는 오픈 소스 [Recognizers-Text](https://github.com/Microsoft/Recognizers-Text) 프로젝트를 사용하여 정규식 일치를 기반으로 검색됩니다. 미리 빌드된 엔터티는 엔터티 배열로 반환되며 `builtin::` 접두사가 추가된 형식 이름을 사용합니다. 다음 텍스트는 반환된 미리 빌드된 엔터티가 포함된 예제 발화입니다.
@@ -534,7 +526,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 [V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 
-* * * 
+* * *
 ## <a name="regular-expression-entity-data"></a>정규식 엔터티 데이터
 
 [정규식 엔터티](reference-entity-regular-expression.md) 는 사용자가 제공 하는 정규식 패턴을 기반으로 엔터티를 추출 합니다.
@@ -544,21 +536,21 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 ### <a name="add-prebuilt-personname-and-geographyv2-entities"></a>미리 빌드된 PersonName 및 GeographyV2 엔터티 추가
 
-[PersonName](luis-reference-prebuilt-person.md) 및 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 엔터티는 일부 [언어 문화권](luis-reference-prebuilt-entities.md)에서 사용할 수 있습니다. 
+[PersonName](luis-reference-prebuilt-person.md) 및 [GeographyV2](luis-reference-prebuilt-geographyV2.md) 엔터티는 일부 [언어 문화권](luis-reference-prebuilt-entities.md)에서 사용할 수 있습니다.
 
 ### <a name="names-of-people"></a>사용자의 이름
 
-사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 미리 작성 된 **[personName](luis-reference-prebuilt-person.md)** 엔터티 또는 [역할](luis-concept-roles.md) 을 성과 이름으로 사용 하는 **[간단한 엔터티](luis-concept-entity-types.md#simple-entity)** 를 사용 합니다. 
+사용자의 이름에는 언어 및 문화권에 따라 일부 약한 형식이 적용될 수 있습니다. 使用任一预构建 **[personName](luis-reference-prebuilt-person.md)** 实体或 **[简单实体](luis-concept-entity-types.md#simple-entity)** 与[角色](luis-concept-roles.md)的第一个和最后一个名称。
 
 단순 엔터티를 사용 하는 경우 utterance의 서로 다른 부분에 있는 성과 이름을 사용 하는 예제를 제공 하 고, 다른 길이의 길이 발언를 사용 하 여 모든 의도에 대 한 길이 발언를 제공 해야 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ### <a name="names-of-places"></a>위치 이름
 
-위치 이름은 도시, 군, 주,도 및 국가/지역과 같은 설정 및 알려져 있습니다. 미리 작성 된 엔터티 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 를 사용 하 여 위치 정보를 추출 합니다.
+위치 이름은 도시, 군, 주,도 및 국가/지역과 같은 설정 및 알려져 있습니다. 使用预生成的实体 **[geographyV2](luis-reference-prebuilt-geographyv2.md)** 提取位置信息。
 
 ### <a name="new-and-emerging-names"></a>새롭게 떠오르는 이름
 
-일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 형식의 이름은 가장 어려운 데이터 추출 유형입니다. **[간단한 엔터티로](luis-concept-entity-types.md#simple-entity)** 시작 하 고 [구 목록을](luis-concept-feature.md)추가 합니다. 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
+일부 앱은 제품이나 회사와 같이 새롭게 떠오르는 이름을 찾을 수 있어야 합니다. 이러한 형식의 이름은 가장 어려운 데이터 추출 유형입니다. 以开头 **[简单实体](luis-concept-entity-types.md#simple-entity)** ，并添加[短语列表](luis-concept-feature.md)。 정기적으로 엔드포인트 발화를 [검토](luis-how-to-review-endoint-utt.md)하여 올바르게 예측되지 않은 이름에 레이블을 지정합니다.
 
 ## <a name="pattern-roles-data"></a>패턴 역할 데이터
 역할은 엔터티의 컨텍스트 차이입니다.
@@ -599,7 +591,7 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 #### <a name="v3-prediction-endpoint-responsetabv3"></a>[V3 예측 엔드포인트 응답](#tab/V3)
 
-V3에서 **역할 이름은** 개체의 기본 이름입니다. 
+V3에서 **역할 이름은** 개체의 기본 이름입니다.
 
 엔터티 이름은 `Location``Origin` 및 `Destination`라는 두 개의 역할이 있습니다.
 
@@ -687,9 +679,9 @@ Querystring 매개 변수를 사용 하 여 `verbose=true`합니다.
 
 ## <a name="patternany-entity-data"></a>Pattern.any 엔터티 데이터
 
-[패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다.  
+[패턴. any](reference-entity-pattern-any.md) 는 패턴이 시작 되 고 끝나는 위치를 표시 하는 패턴의 템플릿 utterance에만 사용 되는 가변 길이 자리 표시자입니다.
 
-## <a name="sentiment-analysis"></a>정서 분석
+## <a name="sentiment-analysis"></a>감정 분석
 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
 
 ### <a name="sentiment-data"></a>감정 데이터
@@ -1141,7 +1133,7 @@ Querystring 매개 변수로 `verbose=true` 하지 않습니다.
 
 단어나 구가 둘 이상의 목록 엔터티와 일치하는 경우, 엔드포인트 쿼리는 각 목록 엔터티를 반환합니다.
 
-`when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다. 
+`when is the best time to go to red rock?` 쿼리에서 앱이 둘 이상의 목록에 `red`라는 단어를 갖는 경우 LUIS는 모든 엔터티를 인식하고 엔터티의 배열을 JSON 엔드포인트 응답의 일부로 반환합니다.
 
 #### <a name="v2-prediction-endpoint-responsetabv2"></a>[V2 예측 엔드포인트 응답](#tab/V2)
 

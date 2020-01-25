@@ -5,12 +5,12 @@ ms.topic: conceptual
 ms.date: 03/23/2018
 ms.author: pepogors
 ms.custom: sfrev
-ms.openlocfilehash: 4175dfe4ed5b7aa1064e8ba25c5b44243e4c79b0
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e751b3dd9108d364c900bbd059dc89c1eb3770c4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028497"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722342"
 ---
 # <a name="azure-service-fabric-node-types-and-virtual-machine-scale-sets"></a>Azure Service Fabric 노드 형식 및 가상 머신 확장 집합
 
@@ -78,13 +78,13 @@ Service Fabric 가상 머신 확장을 사용 하 여 Azure Virtual Machines에 
 | publisher | Microsoft.Azure.ServiceFabric | Service Fabric 확장 게시자의 이름입니다. |
 | clusterEndpont | 문자열 | URI: 관리 끝점에 대 한 포트 |
 | nodeTypeRef | 문자열 | nodeType의 이름 |
-| durabilityLevel | bronze, silver, gold, platinum | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
+| durabilityLevel | 브론즈, 실버, 골드, 플래티넘 | 변경할 수 없는 Azure 인프라를 일시 중지할 수 있는 시간 |
 | enableParallelJobs | true 또는 false | VM 제거와 같은 계산 ParallelJobs를 사용 하도록 설정 하 고 동시에 동일한 확장 집합에서 VM 다시 부팅 |
 | nicPrefixOverride | 문자열 | 서브넷 접두사 (예: "10.0.0.0/24") |
 | commonNames | string[] | 설치 된 클러스터 인증서의 일반 이름 |
 | x509StoreName | 문자열 | 설치 된 클러스터 인증서가 있는 저장소의 이름 |
 | typeHandlerVersion | 1.1 | 확장의 버전입니다. 1.0 클래식 버전의 확장을 1.1로 업그레이드 하는 것이 좋습니다. |
-| dataPath | 문자열 | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다.
+| 데이터 경로 | 문자열 | Service Fabric 시스템 서비스 및 응용 프로그램 데이터의 상태를 저장 하는 데 사용 되는 드라이브의 경로입니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,26 +3,26 @@ title: 팀 데이터 과학 프로세스 수명 주기
 description: TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다.
 services: machine-learning
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 11/04/2017
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 00efe89314d4a1a5c3302e820b8609adf194aa59
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: a043a1655950f3ed7688e59352f8a912146e12c9
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053235"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720455"
 ---
 # <a name="the-team-data-science-process-lifecycle"></a>팀 데이터 과학 프로세스 수명 주기
 
-TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 일반적으로 프로젝트가 실행될 때 시작부터 끝까지 따라야 하는 단계를 간략하게 설명합니다. [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining)(Cross Industry Standard Process for Data Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process)(Knowledge Discovery in Databases) 또는 조직 자체의 사용자 지정 프로세스 등과 같은 다른 데이터 과학 수명 주기를 사용하는 경우에도 작업 기반 TDSP를 계속 사용할 수 있습니다. 
+TDSP(팀 데이터 과학 프로세스)는 데이터 과학 프로젝트를 구조화하는 데 사용할 수 있는 권장 수명 주기를 제공합니다. 수명 주기는 성공적인 프로젝트가 따르는 전체 단계를 간략하게 설명 합니다. [CRISP-DM](https://wikipedia.org/wiki/Cross_Industry_Standard_Process_for_Data_Mining)(Cross Industry Standard Process for Data Mining), [KDD](https://wikipedia.org/wiki/Data_mining#Process)(Knowledge Discovery in Databases) 또는 조직 자체의 사용자 지정 프로세스 등과 같은 다른 데이터 과학 수명 주기를 사용하는 경우에도 작업 기반 TDSP를 계속 사용할 수 있습니다. 
 
-이 수명 주기는 지능형 애플리케이션의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 애플리케이션은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 및 임시 분석 프로젝트에서 이 프로세스를 사용하여 활용할 수도 있습니다. 하지만 이러한 프로젝트의 경우 여기에 설명된 단계 중 일부가 필요하지 않을 수도 있습니다. 
+이 수명 주기는 지능형 애플리케이션의 일부로 제공되는 데이터 과학 프로젝트를 위해 설계되었습니다. 이러한 애플리케이션은 예측 분석을 위해 기계 학습 또는 인공 지능 모델을 배포합니다. 예비 데이터 과학 프로젝트 및 근간이 분석 프로젝트는이 프로세스를 사용 하 여 이점을 누릴 수도 있습니다. 하지만 이러한 프로젝트의 경우 여기에 설명된 단계 중 일부가 필요하지 않을 수도 있습니다. 
 
 ## <a name="five-lifecycle-stages"></a>5가지 수명 주기 단계
 

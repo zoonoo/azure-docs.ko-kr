@@ -7,16 +7,16 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 01/23/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 85987ca1ff7d2dd204d0a501367efffc8277f138
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939925"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721033"
 ---
 # <a name="sql-data-warehouse-workload-group-isolation-preview"></a>작업 그룹 격리 SQL Data Warehouse (미리 보기)
 
@@ -32,7 +32,7 @@ ms.locfileid: "75939925"
 
 워크 로드 격리는 작업 그룹에 대 한 리소스를 단독으로 예약 하는 것을 의미 합니다.  워크 로드 격리는 [작업 그룹 만들기](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 MIN_PERCENTAGE_RESOURCE 매개 변수를 0 보다 크게 구성 하 여 수행 됩니다.  엄격한 Sla를 준수 해야 하는 연속 실행 작업의 경우 격리는 작업 그룹에 대 한 리소스를 항상 사용할 수 있도록 합니다. 
 
-워크 로드 격리를 구성 하면 보장 된 수준의 동시성이 암시적으로 정의 됩니다. MIN_PERCENTAGE_RESOURCE 30%로 설정 되 고 REQUEST_MIN_RESOURCE_GRANT_PERCENT 2%로 설정 된 경우 작업 그룹에 대해 15-동시성 수준이 보장 됩니다.  보장 된 동시성을 확인 하려면 아래 방법을 고려 하세요.
+워크 로드 격리를 구성 하면 보장 된 수준의 동시성이 암시적으로 정의 됩니다. 예를 들어 `MIN_PERCENTAGE_RESOURCE` 30%로 설정 되 고 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 2%로 설정 된 작업 그룹은 15 개의 동시성이 보장 됩니다.  리소스의 15-2% 슬롯은 `REQUEST_*MAX*_RESOURCE_GRANT_PERCENT` 구성 된 방법에 관계 없이 항상 작업 그룹 내에서 예약 되어 있으므로 동시성 수준이 보장 됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT`이 `REQUEST_MIN_RESOURCE_GRANT_PERCENT` 보다 크고 `CAP_PERCENTAGE_RESOURCE`이 `MIN_PERCENTAGE_RESOURCE` 보다 크면 요청 마다 추가 리소스가 추가 됩니다.  `REQUEST_MAX_RESOURCE_GRANT_PERCENT`와 `REQUEST_MIN_RESOURCE_GRANT_PERCENT`가 같고 `CAP_PERCENTAGE_RESOURCE`이 `MIN_PERCENTAGE_RESOURCE`보다 크면 추가 동시성이 가능 합니다.  보장 된 동시성을 확인 하려면 아래 방법을 고려 하세요.
 
 [보장 된 동시성] = [`MIN_PERCENTAGE_RESOURCE`]/[`REQUEST_MIN_RESOURCE_GRANT_PERCENT`]
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/11/2019
 ms.author: dapine
-ms.openlocfilehash: 5bd7352230d4d9daaed219f654be51dc528bea8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 46e9f8e660c3fd62807d630481e6b3057d2351a5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380187"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717012"
 ---
 # <a name="create-a-custom-keyword-using-speech-studio"></a>Speech Studio를 사용 하 여 사용자 지정 키워드 만들기
 
@@ -49,7 +49,7 @@ ms.locfileid: "75380187"
 
     ![키워드 검토](media/custom-keyword/custom-kws-portal-choose-prons.png)
 
-1. 모델을 생성 하는 데 최대 10 분이 소요 될 수 있습니다. 모델이 완료 되 면 키워드 목록이 **처리** 에서 **성공** 으로 변경 됩니다. 그런 다음 파일을 다운로드할 수 있습니다.
+1. 모델을 생성 하는 데 최대 30 분 정도 걸릴 수 있습니다. 모델이 완료 되 면 키워드 목록이 **처리** 에서 **성공** 으로 변경 됩니다. 그런 다음 파일을 다운로드할 수 있습니다.
 
     ![키워드 검토](media/custom-keyword/custom-kws-portal-download-model.png)
 

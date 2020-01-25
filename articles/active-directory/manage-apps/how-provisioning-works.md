@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 910317201275ba1598ed3e4d89815542b88fb108
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 5238f8ca9258e4f7907d9d9755b7252e60f40de8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75719973"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76711569"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -29,13 +29,13 @@ ms.locfileid: "75719973"
 **AZURE AD 프로 비전 서비스** 는 응용 프로그램 공급 업체에서 제공 하는 Scim (도메인 간 id 관리) 2.0 사용자 관리 API 끝점에 대 한 시스템에 연결 하 여 SaaS 앱 및 기타 시스템에 사용자를 프로 비전 합니다. 이 SCIM 끝점을 사용 하면 Azure AD에서 사용자를 프로그래밍 방식으로 만들고, 업데이트 하 고, 제거할 수 있습니다. 선택한 응용 프로그램의 경우 프로 비전 서비스는 그룹 및 역할과 같은 추가 id 관련 개체를 만들고 업데이트 하 고 제거할 수도 있습니다. Azure AD와 응용 프로그램 간의 프로 비전에 사용 되는 채널은 HTTPS SSL 암호화를 사용 하 여 암호화 됩니다.
 
 
-Azure AD 프로 비전 서비스를 ![](./media/user-provisioning/provisioning0.PNG)
+Azure AD 프로 비전 서비스를 ![](media/how-provisioning-works/provisioning0.PNG)
 *그림 1: AZURE Ad 프로 비전 서비스*
 
-![아웃 바운드 사용자 프로 비전 워크플로](./media/user-provisioning/provisioning1.PNG)
+![아웃 바운드 사용자 프로 비전 워크플로](media/how-provisioning-works/provisioning1.PNG)
 *그림 2: AZURE AD에서 인기 있는 SaaS 응용 프로그램에 대 한 "아웃 바운드" 사용자 프로 비전 워크플로*
 
-인바운드 사용자 프로 비전 워크플로](./media/user-provisioning/provisioning2.PNG)
+인바운드 사용자 프로 비전 워크플로](media/how-provisioning-works/provisioning2.PNG)
 *그림 3: 인기 있는 HCM (인간 자본 관리) 응용 프로그램에서 Azure Active Directory 및 Windows Server로의 "인바운드" 사용자 프로 비전 워크플로를 ![Active Directory*
 
 ## <a name="provisioning-using-scim-20"></a>SCIM 2.0을 사용한 프로 비전
@@ -73,11 +73,11 @@ Azure AD에서 SaaS 응용 프로그램으로 아웃 바운드 프로 비전을 
 
   * 동적 그룹은 Azure AD에서 SaaS 응용 프로그램으로 종단 간 프로 비전의 성능에 영향을 줄 수 있습니다.
 
-  * 동적 그룹의 사용자가 SaaS 응용 프로그램에서 프로 비전 되거나 프로 비전 해제 되는 속도는 동적 그룹이 구성원 자격 변경 내용을 평가할 수 있는 속도에 따라 달라 집니다. 동적 그룹의 처리 상태를 확인 하는 방법에 대 한 자세한 내용은 [멤버 자격 규칙에 대 한 처리 상태 확인](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-create-rule)을 참조 하세요.
+  * 동적 그룹의 사용자가 SaaS 응용 프로그램에서 프로 비전 되거나 프로 비전 해제 되는 속도는 동적 그룹이 구성원 자격 변경 내용을 평가할 수 있는 속도에 따라 달라 집니다. 동적 그룹의 처리 상태를 확인 하는 방법에 대 한 자세한 내용은 [멤버 자격 규칙에 대 한 처리 상태 확인](../users-groups-roles/groups-create-rule.md)을 참조 하세요.
 
   * 사용자가 동적 그룹의 멤버 자격을 잃은 경우 프로 비전 해제 이벤트로 간주 됩니다. 동적 그룹에 대 한 규칙을 만들 때이 시나리오를 고려 합니다.
 
-* **중첩 된 그룹.** Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹의 사용자를 읽거나 프로 비전 할 수 없습니다. 서비스는 명시적으로 할당 된 그룹의 직접 구성원 인 사용자만 읽고 프로 비전 할 수 있습니다. "응용 프로그램에 대 한 그룹 기반 할당"의 이러한 제한은 Single Sign-On에도 영향을 줍니다. [그룹을 사용 하 여 SaaS 응용 프로그램에 대 한 액세스 관리를](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-saasapps)참조 하세요. 대신, 프로 비전 해야 하는 사용자가 포함 된 그룹에서 직접 할당 하거나 [범위](https://docs.microsoft.com/azure/active-directory/manage-apps/define-conditional-rules-for-provisioning-user-accounts) 를 지정 합니다.
+* **중첩 된 그룹.** Azure AD 사용자 프로 비전 서비스는 중첩 된 그룹의 사용자를 읽거나 프로 비전 할 수 없습니다. 서비스는 명시적으로 할당 된 그룹의 직접 구성원 인 사용자만 읽고 프로 비전 할 수 있습니다. "응용 프로그램에 대 한 그룹 기반 할당"의 이러한 제한은 Single Sign-On에도 영향을 줍니다. [그룹을 사용 하 여 SaaS 응용 프로그램에 대 한 액세스 관리를](../users-groups-roles/groups-saasapps.md)참조 하세요. 대신, 프로 비전 해야 하는 사용자가 포함 된 그룹에서 직접 할당 하거나 [범위](define-conditional-rules-for-provisioning-user-accounts.md) 를 지정 합니다.
 
 ### <a name="attribute-based-scoping"></a>특성 기반 범위 지정 
 
@@ -85,7 +85,7 @@ Azure AD에서 SaaS 응용 프로그램으로 아웃 바운드 프로 비전을 
 
 ### <a name="b2b-guest-users"></a>B2B (게스트) 사용자
 
-Azure AD 사용자 프로 비전 서비스를 사용 하 여 Azure AD의 B2B (또는 게스트) 사용자를 SaaS 응용 프로그램에 프로 비전 할 수 있습니다. 그러나 B2B 사용자가 Azure AD를 사용 하 여 SaaS 응용 프로그램에 로그인 하는 경우 SaaS 응용 프로그램에는 특정 방식으로 구성 된 SAML 기반 Single Sign-On 기능이 있어야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 애플리케이션을 구성하는 방법에 대한 자세한 내용은 [B2B 협업을 위한 SaaS 앱 구성]( https://docs.microsoft.com/azure/active-directory/b2b/configure-saas-apps)을 참조하세요.
+Azure AD 사용자 프로 비전 서비스를 사용 하 여 Azure AD의 B2B (또는 게스트) 사용자를 SaaS 응용 프로그램에 프로 비전 할 수 있습니다. 그러나 B2B 사용자가 Azure AD를 사용 하 여 SaaS 응용 프로그램에 로그인 하는 경우 SaaS 응용 프로그램에는 특정 방식으로 구성 된 SAML 기반 Single Sign-On 기능이 있어야 합니다. B2B 사용자의 로그인을 지원하도록 SaaS 애플리케이션을 구성하는 방법에 대한 자세한 내용은 [B2B 협업을 위한 SaaS 앱 구성](../b2b/configure-saas-apps.md)을 참조하세요.
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>프로 비전 주기: 초기 및 증분
 
@@ -160,7 +160,7 @@ ServiceNow, G Suite 및 Box와 같은 일부 응용 프로그램은 사용자를
 
 격리에서 증분 주기의 빈도는 하루에 한 번만 점차적으로 줄어듭니다.
 
-모든 잘못 된 오류를 수정 하 고 다음 동기화 주기를 시작 하면 프로 비전 작업은 격리를 종료 합니다. 프로비저닝 작업이 4주 넘게 격리 상태로 유지되면 프로비저닝 작업을 사용할 수 없게 됩니다. [여기에서 격리 상태에](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-quarantine-status)대해 자세히 알아보세요.
+모든 잘못 된 오류를 수정 하 고 다음 동기화 주기를 시작 하면 프로 비전 작업은 격리를 종료 합니다. 프로비저닝 작업이 4주 넘게 격리 상태로 유지되면 프로비저닝 작업을 사용할 수 없게 됩니다. [여기에서 격리 상태에](application-provisioning-quarantine-status.md)대해 자세히 알아보세요.
 
 ### <a name="how-long-provisioning-takes"></a>프로비저닝 소요 시간
 
@@ -184,7 +184,7 @@ Azure AD 프로 비전 서비스는 응용 프로그램이 suupports 일시 삭�
 
 위의 4 개 이벤트 중 하나가 발생 하 고 대상 응용 프로그램에서 일시 삭제를 지원 하지 않는 경우 프로 비전 서비스는 앱에서 사용자를 영구적으로 삭제 하는 삭제 요청을 보냅니다. 
 
-사용자가 Azure AD에서 삭제 되 고 30 일 후에는 테 넌 트에서 영구적으로 삭제 됩니다. 이 시점에서 프로 비전 서비스는 응용 프로그램에서 사용자를 영구적으로 삭제 하는 삭제 요청을 보냅니다. 30 일 기간 동안 언제 든 지 [사용자를 영구적으로 삭제]( https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-users-restore)하 여 응용 프로그램에 삭제 요청을 보낼 수 있습니다.
+사용자가 Azure AD에서 삭제 되 고 30 일 후에는 테 넌 트에서 영구적으로 삭제 됩니다. 이 시점에서 프로 비전 서비스는 응용 프로그램에서 사용자를 영구적으로 삭제 하는 삭제 요청을 보냅니다. 30 일 기간 동안 언제 든 지 [사용자를 영구적으로 삭제](../fundamentals/active-directory-users-restore.md)하 여 응용 프로그램에 삭제 요청을 보낼 수 있습니다.
 
 특성 매핑에서 Issoft Deleted 특성이 표시 되는 경우 사용자의 상태를 확인 하는 데 사용 되 고 활성 = false로 업데이트 요청을 보낼지 여부를 지정 하 여 사용자를 일시 삭제 합니다. 
 

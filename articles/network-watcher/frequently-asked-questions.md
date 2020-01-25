@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 856c249b72e9e0ff8667d10821ad14b3432b0775
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509192"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720272"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.
 
 ## <a name="general"></a>일반
 
-### <a name="what-is-network-watcher"></a>Network Watcher란?
+### <a name="what-is-network-watcher"></a>Network Watcher 이란?
 Network Watcher는 Azure virtual network의 Virtual Machines, 가상 네트워크, 응용 프로그램 게이트웨이, 부하 분산 장치 및 기타 리소스를 포함 하는 IaaS (Infrastructure as a Service) 구성 요소의 네트워크 상태를 모니터링 하 고 복구 하도록 설계 되었습니다. PaaS (Platform as a Service) 인프라를 모니터링 하거나 웹/모바일 분석을 받기 위한 솔루션은 아닙니다.
 
 ### <a name="what-tools-does-network-watcher-provide"></a>Network Watcher에서 제공 하는 도구
@@ -71,9 +71,9 @@ Network Watcher 확장은 VM에서 트래픽을 생성 하거나 가로채는 �
 ### <a name="what-does-nsg-flow-logs-do"></a>NSG 흐름 로그는 어떻게 되나요?
 Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs.microsoft.com/azure/virtual-network/security-overview)를 통해 결합 및 관리할 수 있습니다. NSG 흐름 로그를 사용 하 여 Nsg를 통한 모든 트래픽에 대 한 5 튜플 흐름 정보를 기록할 수 있습니다. 원시 흐름 로그는 필요에 따라 추가로 처리, 분석, 쿼리 또는 내보낼 수 있는 Azure Storage 계정에 기록 됩니다.
 
-### <a name="how-do-i-use-nsg-flow-logs-on-a-storage-account-with-a-firewall"></a>방화벽이 있는 저장소 계정에서 NSG 흐름 로그를 사용 어떻게 할까요??
+### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-firewall"></a>방화벽 뒤의 저장소 계정을 사용 하 여 NSG 흐름 로그를 사용 어떻게 할까요??
 
-방화벽과 함께 저장소 계정을 사용 하려면 저장소 계정에 액세스 하기 위해 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 제공 해야 합니다.
+방화벽 뒤의 저장소 계정을 사용 하려면 저장소 계정에 액세스 하기 위해 신뢰할 수 있는 Microsoft 서비스에 대 한 예외를 제공 해야 합니다.
 
 * 포털의 전역 검색 또는 [저장소 계정 페이지](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResource/resourceType/Microsoft.Storage%2FStorageAccounts) 에서 저장소 계정 이름을 입력 하 여 저장소 계정으로 이동 합니다.
 * **설정** 섹션 아래에서 **방화벽 및 가상 네트워크**를 선택합니다.
@@ -83,9 +83,9 @@ Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs
 
 몇 분 후에 스토리지 로그를 확인할 수 있습니다. 그러면 업데이트된 타임스탬프 또는 새로 만든 JSON 파일이 표시됩니다.
 
-### <a name="how-do-i-use-nsg-flow-logs-with-service-endpoints-for-storage"></a>저장소에 대 한 서비스 엔드포인트를 사용 하 여 NSG 흐름 로그를 사용 어떻게 할까요??
+### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>서비스 끝점 뒤의 저장소 계정으로 NSG 흐름 로그를 사용 어떻게 할까요??
 
-[서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint)를 참조 하세요. 
+NSG 흐름 로그는 추가 구성을 요구 하지 않고 서비스 끝점에 대 한 것입니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) 를 참조 하세요.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?

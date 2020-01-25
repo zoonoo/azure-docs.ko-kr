@@ -11,15 +11,15 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 01/10/2020
+ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 6117f22b24887e913ed2f8d3a43e80335121636d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934488"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720726"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
 
@@ -125,6 +125,16 @@ ms.locfileid: "75934488"
     ![시스템 할당 관리 id에 대 한 역할 할당](./media/role-assignments-list-portal/azure-resources-user-assigned.png)
 
 1. 구독을 변경 하려면 **구독** 목록을 클릭 합니다.
+
+## <a name="list-number-of-role-assignments"></a>역할 할당의 수를 나열 합니다.
+
+각 구독에서 최대 **2000** 개의 역할 할당을 가질 수 있습니다. 이러한 제한을 추적 하는 데 도움이 되도록 **역할 할당** 탭에는 현재 역할 할당 수를 나열 하는 차트가 포함 됩니다.
+
+![액세스 제어-역할 할당의 수 차트](./media/role-assignments-list-portal/access-control-role-assignments-chart.png)
+
+최대 개수에 근접 하 고 더 많은 역할 할당을 추가 하려고 하면 **역할 할당 추가** 창에 경고가 표시 됩니다. 더 이상 필요 하지 않은 역할 할당을 삭제 하거나 개별 사용자 대신 그룹에 역할을 할당 하 여 역할 할당의 수를 줄일 수 있습니다.
+
+![액세스 제어-역할 할당 추가 경고](./media/role-assignments-list-portal/add-role-assignment-warning.png)
 
 ## <a name="next-steps"></a>다음 단계
 

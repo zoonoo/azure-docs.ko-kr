@@ -2,20 +2,20 @@
 title: 데이터 과학 프로세스의 Agile 개발 - Team Data Science Process
 description: 팀 데이터 과학 프로세스를 사용 하 여 프로젝트 팀 내에서 체계적이 고 버전이 제어 되 고 공동 작업 방식으로 데이터 과학 프로젝트를 실행 합니다.
 author: marktab
-manager: cgronlun
-editor: cgronlun
+manager: marktab
+editor: marktab
 ms.service: machine-learning
 ms.subservice: team-data-science-process
 ms.topic: article
-ms.date: 09/05/2019
+ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 09c5962e62077fbecc9b327320d0bb5b88416ffa
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: c097c14406349d973e905fadb806cc159d9b16d8
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71260678"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76722104"
 ---
 # <a name="agile-development-of-data-science-projects"></a>데이터 과학 프로젝트의 Agile 개발
 
@@ -35,11 +35,11 @@ ms.locfileid: "71260678"
 
 ##  <a name='Terminology-1'></a>작업 항목 형식
 
-TDSP 스 프린트 계획 프레임 워크에는 자주 사용 되는 네 가지 *작업 항목* 형식이 있습니다. *기능*, *사용자 스토리*, *작업*및 *버그*를 제공 합니다. 모든 작업 항목의 백로그는 Git 리포지토리 수준이 아닌 프로젝트 수준에 있습니다. 
+TDSP 스 프린트 계획 프레임 워크에는 *기능*, *사용자 스토리*, *작업*및 *버그*의 네 가지 자주 사용 되는 *작업 항목* 형식이 있습니다. 모든 작업 항목의 백로그는 Git 리포지토리 수준이 아닌 프로젝트 수준에 있습니다. 
 
 작업 항목 형식에 대 한 정의는 다음과 같습니다.
 
-- **기능**: 기능은 프로젝트 참여에 해당 합니다. 클라이언트를 사용 하는 다양 한 계약은 다양 한 기능으로, 프로젝트의 여러 단계를 다양 한 기능으로 간주 하는 것이 가장 좋습니다. *\<ClientName >-\<EngagementName >* 와 같은 스키마를 선택 하 여 기능 이름을 지정할 경우 프로젝트의 컨텍스트를 쉽게 인식 하 고 이름 자체에서 참여를 제공 합니다.
+- **기능**: 프로젝트 참여에 해당 하는 기능입니다. 클라이언트를 사용 하는 다양 한 계약은 다양 한 기능으로, 프로젝트의 여러 단계를 다양 한 기능으로 간주 하는 것이 가장 좋습니다. *\<ClientName >\<EngagementName >* 와 같은 스키마를 선택 하 여 기능 이름을 지정할 경우 프로젝트의 컨텍스트를 쉽게 인식 하 고 이름 자체에서 참여를 제공 합니다.
   
 - **사용자 스토리**: 사용자 스토리는 종단 간 기능을 완료 하는 데 필요한 작업 항목입니다. 사용자 스토리의 예는 다음과 같습니다.
   - 데이터 가져오기 
@@ -49,7 +49,7 @@ TDSP 스 프린트 계획 프레임 워크에는 자주 사용 되는 네 가지
   - 모델 운영 
   - 모델 다시 학습
   
-- **작업**: 작업은 특정 사용자 스토리를 완료 하기 위해 수행 해야 하는 할당 가능한 작업 항목입니다. 예를 들어 *데이터를 가져오는* 사용자 스토리의 작업은 다음과 같을 수 있습니다.
+- **작업**: 태스크는 특정 사용자 스토리를 완료 하기 위해 수행 해야 하는 할당 가능한 작업 항목입니다. 예를 들어 *데이터를 가져오는* 사용자 스토리의 작업은 다음과 같을 수 있습니다.
   - SQL Server 자격 증명 가져오기
   - SQL Data Warehouse에 데이터 업로드
   
@@ -86,7 +86,7 @@ Azure Boards 스 프린트 계획에 대 한 자세한 내용은 [스 프린트�
    
    **개발** 섹션에서 **링크 추가** 를 선택 하 여 프로젝트의 Azure Repos 코드 리포지토리에 기능을 연결할 수도 있습니다. 
    
-   기능 편집을 마친 후 **저장 & 닫기**를 선택 합니다.
+   기능을 편집한 후에 **저장 & 닫기**를 선택 합니다.
    
    ![기능을 편집 하 고 저장 & 닫기를 선택 합니다.](./media/agile-development/3a-add-link-repo.png)
 
@@ -96,7 +96,7 @@ Azure Boards 스 프린트 계획에 대 한 자세한 내용은 [스 프린트�
 
 기능에 새 사용자 스토리를 추가 하려면 다음을 수행 합니다.
 
-1. **백로그** 탭에서 기능의 왼쪽에 있는 **+** 를 선택 합니다. 
+1. **백로그** 탭에서 기능 왼쪽의 **+** 을 선택 합니다. 
    
    ![기능 아래에 새 사용자 스토리를 추가 합니다.](./media/agile-development/4-sprint-add-story.png)
    
@@ -112,7 +112,7 @@ Azure Boards 스 프린트 계획에 대 한 자세한 내용은 [스 프린트�
 
 작업은 각 사용자 스토리를 완료 하는 데 필요한 구체적인 세부 단계입니다. 사용자 스토리의 모든 작업이 완료 되 면 사용자 스토리도 완료 해야 합니다. 
 
-사용자 스토리에 작업을 추가 하려면 사용자 스토리 항목 옆 **+** 에 있는를 선택 하 고 **작업**을 선택 합니다. 작업의 제목 및 기타 정보를 입력 합니다.
+사용자 스토리에 작업을 추가 하려면 사용자 스토리 항목 옆에 있는 **+** 를 선택 하 고 **작업**을 선택 합니다. 작업의 제목 및 기타 정보를 입력 합니다.
 
 ![사용자 스토리에 작업 추가](./media/agile-development/7-sprint-add-task.png)
 
@@ -195,13 +195,13 @@ Azure Boards 스 프린트 계획에 대 한 자세한 내용은 [스 프린트�
    
    ![데이터 과학 프로젝트 작업 항목 만들기](./media/agile-development/17-dsworkitems0.png)
    
-1. Tdsp 프로젝트에서 작업 항목을 추가 하려면 프로젝트 옆에 있는 **+** 를 선택 하 고 만들 작업 항목의 형식을 선택 합니다. 
+1. TDSP 프로젝트 아래에 작업 항목을 추가 하려면 프로젝트 옆에 있는 **+** 를 선택 하 고 만들 작업 항목의 형식을 선택 합니다. 
    
    ![데이터 과학 작업 항목 형식 선택](./media/agile-development/17-dsworkitems1.png)
    
 1. 새 작업 항목의 세부 정보를 입력 하 고 **저장 & 닫기**를 선택 합니다.
    
-1. 작업 항목 옆에 **+** 있는 기호를 계속 선택 하 여 새 tdsp 단계, tdsp 및 작업을 추가 합니다. 
+1. 작업 항목 옆에 있는 **+** 기호를 계속 선택 하 여 새 Tdsp 단계, Tdsp 및 작업을 추가 합니다. 
    
 다음은 데이터 과학 프로젝트 작업 항목을 **백로그** 뷰에 표시 하는 방법의 예입니다.
 

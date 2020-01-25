@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/23/2019
 ms.author: aschhab
-ms.openlocfilehash: 7264b8e5a536c90d106b3bf4a5e26093744327d6
-ms.sourcegitcommit: c79aa93d87d4db04ecc4e3eb68a75b349448cd17
+ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71091823"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720234"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 
@@ -82,12 +82,12 @@ Service Bus 측면에서 메시지 세션 상태는 한 개 메시지 크기의 
 
 ## <a name="impact-of-delivery-count"></a>배달 횟수의 영향
 
-세션의 컨텍스트에서 메시지당 배달 수를 정의 하는 것은 세션 기능이 없어서 정의와 약간 다릅니다. 다음은 배달 횟수가 증가할 때 요약 한 테이블입니다.
+세션의 컨텍스트에서 메시지당 배달 수를 정의 하는 것은 세션 부재의 정의와 약간 다릅니다. 다음은 배달 횟수가 증가할 때 요약 한 테이블입니다.
 
 | 시나리오 | 메시지의 배달 횟수가 증가 됨 |
 |----------|---------------------------------------------|
 | 세션이 수락 되었지만 시간 초과로 인해 세션 잠금이 만료 됩니다. | 예 |
-| 세션이 수락 되 고 세션 내의 메시지가 잠긴 경우에도 완료 되지 않고 세션이 닫힙니다. | 아니요 |
+| 세션이 수락 되 고 세션 내의 메시지가 잠긴 경우에도 완료 되지 않고 세션이 닫힙니다. | 아닙니다. |
 | 세션이 수락 되 고 메시지가 완료 된 다음 세션이 명시적으로 닫힙니다. | 해당 없음 (표준 흐름) 세션에서 제거 되는 메시지 |
 
 ## <a name="next-steps"></a>다음 단계

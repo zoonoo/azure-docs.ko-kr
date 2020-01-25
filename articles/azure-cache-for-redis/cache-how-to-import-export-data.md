@@ -6,12 +6,12 @@ ms.service: cache
 ms.topic: conceptual
 ms.date: 07/31/2017
 ms.author: yegu
-ms.openlocfilehash: df8b65fcb4dd2b9622716052be2df59cbfa5424a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 29ad5ca6c9058b88a539c7a3bb8ace4d9a65083a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971803"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714515"
 ---
 # <a name="import-and-export-data-in-azure-cache-for-redis"></a>Azure Cache for Redis에서 데이터 가져오기 및 내보내기
 가져오기/내보내기는 Azure Cache for Redis 데이터 관리 작업입니다. 즉 프리미엄 캐시에서 Azure Storage 계정의 Blob으로 Azure Cache for Redis 데이터베이스(RDB) 스냅샷을 가져오고 내보내는 방식으로 Azure Cache for Redis에서 데이터를 가져오고 내보낼 수 있습니다.
@@ -24,7 +24,7 @@ ms.locfileid: "75971803"
 이 문서에서는 Azure Cache for Redis를 사용하여 데이터를 가져오고 내보내는 방법에 대한 지침과 자주 묻는 질문에 대한 답변을 제공합니다.
 
 > [!IMPORTANT]
-> Import/Export는 미리 보기 상태이며, [프리미엄 계층](cache-premium-tier-intro.md) 캐시에만 제공됩니다.
+> Import/Export는 [프리미엄 계층](cache-premium-tier-intro.md) 캐시에만 제공됩니다.
 >
 >
 

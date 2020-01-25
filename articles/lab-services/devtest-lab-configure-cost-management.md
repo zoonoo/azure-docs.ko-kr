@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs에서 월간 예상 랩 비용 추세 보기
-description: Azure DevTest Labs의 월간 예상 비용 추세 차트에 대해 알아봅니다.
+description: 이 문서에서는 Azure DevTest Labs의 랩 비용 (월별 예상 비용 추세 차트)을 추적 하는 방법에 대 한 정보를 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: 15ddaa6c73cedb32d920ef943627831c1e9b378b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 2e4fe55fac5edf73e16df05bd38cc2712a94377d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169618"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721730"
 ---
 # <a name="track-costs-associated-with-a-lab-in-azure-devtest-labs"></a>Azure DevTest Labs에서 랩과 관련 된 비용 추적
 이 문서에서는 랩 비용을 추적 하는 방법에 대 한 정보를 제공 합니다. 랩의 현재 월에 대 한 예상 비용 trent을 확인 하는 방법을 보여 줍니다. 또한이 문서에서는 랩에서 리소스 당 월간 누계 비용을 보는 방법을 보여 줍니다.

@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 08/24/2017
-ms.openlocfilehash: 6ff7500712f57d7cf2adad1fc73f68a29f3afc20
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 40cd3467c7a4377427bb8db437e1047382933b1c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75412838"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714882"
 ---
 # <a name="how-to-configure-data-persistence-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 데이터 지속성을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에서 지속성을 구성하는 방법에 대해 설명합니다.
@@ -26,7 +26,13 @@ Azure Cache for Redis에서 Redis 지속성을 제공하는 데 사용하는 모
 * **RDB 지속성** - RDB(Redis 데이터베이스) 지속성이 구성되면 Azure Cache for Redis에서 구성 가능한 백업 빈도에 따라 Azure Cache for Redis 스냅샷을 Redis 이진 형식으로 디스크에 유지합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 가장 최근의 스냅샷을 사용하여 캐시를 재구성합니다. RDB 지속성의 [장점](https://redis.io/topics/persistence#rdb-advantages) 및 [단점](https://redis.io/topics/persistence#rdb-disadvantages)에 대해 자세히 알아봅니다.
 * **AOF 지속성** - AOF(Append only file) 지속성이 구성되면 Azure Cache for Redis에서 모든 쓰기 작업을 Azure Storage 계정에 초당 1회 이상 저장되는 로그에 저장합니다. 중대한 이벤트가 발생하여 주 및 복제본 캐시가 모두 비활성화된 경우 저장된 쓰기 작업을 사용하여 캐시를 재구성합니다. AOF 지속성의 [장점](https://redis.io/topics/persistence#aof-advantages) 및 [단점](https://redis.io/topics/persistence#aof-disadvantages)에 대해 자세히 알아봅니다.
 
-지속성은 캐시를 만드는 중에 **새 Azure Cache for Redis** 블레이드에서 구성하거나 기존 프리미엄 캐시에 대한 **리소스 메뉴**에서 구성합니다.
+지 속성은 사용자가 소유 하 고 관리 하는 Azure Storage 계정에 Redis 데이터를 기록 합니다. 캐시를 만드는 동안 **새 Azure cache For Redis** 블레이드에 대해 구성 하거나 기존 프리미엄 캐시의 **리소스 메뉴** 에서 구성할 수 있습니다.
+
+> [!NOTE]
+> 
+> 데이터는 지속 될 때 자동으로 암호화 Azure Storage 합니다. 암호화에 고유한 키를 사용할 수 있습니다. 자세한 내용은 [Azure Key Vault를 사용 하 여 고객 관리 키](/azure/storage/common/storage-service-encryption?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#customer-managed-keys-with-azure-key-vault)를 참조 하세요.
+> 
+> 
 
 [!INCLUDE [redis-cache-create](../../includes/redis-cache-premium-create.md)]
 
@@ -38,7 +44,7 @@ Azure Cache for Redis에서 Redis 지속성을 제공하는 데 사용하는 모
 
 ## <a name="enable-redis-persistence"></a>Redis 지속성 사용
 
-Redis 지속성은 **Redis 데이터 지속성** 블레이드에서 **RDB** 또는 **AOF** 지속성을 선택하여 사용하도록 설정합니다. 새 캐시의 경우 위의 섹션에서 설명한 대로 캐시 만들기 프로세스 중 이 블레이드에 액세스합니다. 기존 캐시의 경우 캐시의 **리소스 메뉴** 블레이드에서 **Redis 데이터 지속성** 블레이드에 액세스합니다.
+Redis 지 속성은 **RDB** 또는 **aof** 지 속성 중 하나를 선택 하 여 **데이터 지 속성** 블레이드에서 사용 하도록 설정 됩니다. 새 캐시의 경우 위의 섹션에서 설명한 대로 캐시 만들기 프로세스 중 이 블레이드에 액세스합니다. 기존 캐시의 경우 캐시의 **리소스 메뉴** 에서 **데이터 지 속성** 블레이드에 액세스 합니다.
 
 ![Redis 설정][redis-cache-settings]
 
@@ -125,7 +131,7 @@ RDB 및 AOF 지속성:
 * 더 작은 크기로 조정 했고 마지막 백업의 모든 데이터를 저장하기에 충분한 공간이 더 작은 크기에 없는 경우, 일반적으로 [allkeys-lru](https://redis.io/topics/lru-cache) 제거 정책을 사용하여 복원 프로세스 중에 키가 제거됩니다.
 
 ### <a name="can-i-change-the-rdb-backup-frequency-after-i-create-the-cache"></a>캐시를 만든 후 RDB 백업 주기를 변경할 수 있나요?
-그렇습니다. **Redis 데이터 지속성** 블레이드에서 RDB 지속성에 대한 백업 빈도를 변경할 수 있습니다. 자세한 내용은 Redis 지속성 구성을 참조하세요.
+예, **데이터 지 속성** 블레이드에서 RDB 지 속성의 백업 빈도를 변경할 수 있습니다. 자세한 내용은 Redis 지속성 구성을 참조하세요.
 
 ### <a name="why-if-i-have-an-rdb-backup-frequency-of-60-minutes-there-is-more-than-60-minutes-between-backups"></a>RDB 백업 주기가 60분인데 왜 백업 사이 간격이 60분 이상이 되나요?
 RDB 지속성 백업 간격의 주기는 이전 백업 프로세스가 성공적으로 완료되어야 시작됩니다. 백업 간격이 60분이고 백업 프로세스를 성공적으로 완료하는 데 15분이 걸린다면 다음 백업은 이전 백업 시작 시점에서 75분까지 시작되지 않습니다.

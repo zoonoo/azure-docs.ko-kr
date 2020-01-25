@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 10/02/2019
 ms.author: sngun
-ms.openlocfilehash: e8a982a100655934d4ae3ecd64564cf2da82dbbc
-ms.sourcegitcommit: f9e81b39693206b824e40d7657d0466246aadd6e
+ms.openlocfilehash: 8be17f0b624c5c34709fb420adb434b77dbc0d91
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72035560"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721084"
 ---
 # <a name="connect-to-azure-cosmos-db-using-bi-analytics-tools-with-the-odbc-driver"></a>ODBC 드라이버와 함께 BI 분석 도구를 사용하여 Azure Cosmos DB에 연결
 
@@ -90,7 +90,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 ## <a id="#container-mapping"></a>3 단계: 컨테이너 매핑 방법을 사용 하 여 스키마 정의 만들기
 
-사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호**입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 아래 단계는 컨테이너 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 이 샘플링 방법은 컨테이너의 페이지에서 데이터를 검색 하 여 데이터의 구조를 확인 합니다. 컨테이너를 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컨테이너의 데이터가 동일한 경우 효율적이 고 빠릅니다. 컨테이너에 다른 유형의 형식의 데이터가 포함 되어 있는 경우 [테이블 구분 기호 매핑 방법을](#table-mapping) 사용 하 여 컨테이너의 데이터 구조를 확인 하는 보다 강력한 샘플링 방법을 제공 하는 것이 좋습니다. 
+사용할 수 있는 두 가지 유형의 샘플링 메서드는 **컨테이너 매핑** 또는 **테이블 구분 기호**입니다. 샘플링 세션은 두 샘플링 방법을 모두 활용할 수 있지만 각 컨테이너는 특정 샘플링 메서드만 사용할 수 있습니다. 아래 단계는 컨테이너 매핑 방법을 사용 하 여 하나 이상의 컨테이너에 있는 데이터에 대 한 스키마를 만듭니다. 이 샘플링 방법은 컨테이너의 페이지에서 데이터를 검색 하 여 데이터의 구조를 확인 합니다. 컨테이너를 ODBC 쪽의 테이블로 바꿉니다. 이 샘플링 방법은 컨테이너의 데이터가 동일한 경우 효율적이 고 빠릅니다. 컨테이너가 다른 유형의 데이터를 포함 하는 경우 [테이블 구분 기호 매핑 방법을](#table-mapping) 사용 하 여 컨테이너의 데이터 구조를 확인 하는 보다 강력한 샘플링 방법을 제공 하는 것이 좋습니다. 
 
 1. [Azure Cosmos 데이터베이스에 연결](#connect)에서 1-4 단계를 완료 한 후 **ODBC 드라이버 DSN 설정 Azure Cosmos DB** 창에서 **스키마 편집기** 를 클릭 합니다.
 
@@ -143,7 +143,7 @@ ODBC 드라이버를 살펴보겠습니다.
 
 연결된 서버 연결을 설정하여 SSMS(SQL Server Management Studio)에서 Azure Cosmos DB를 쿼리할 수 있습니다.
 
-1. 예를 들어 [으로 명명된 ](#connect)2단계`SDS Name`에서 설명된 대로 시스템 데이터 원본을 만듭니다.
+1. 예를 들어 `SDS Name`으로 명명된 [2단계](#connect)에서 설명된 대로 시스템 데이터 원본을 만듭니다.
 
 1. [SQL Server Management Studio를 설치](https://docs.microsoft.com/sql/ssms/download-sql-server-management-studio-ssms)하고 서버에 연결합니다. 
 
@@ -241,7 +241,7 @@ Invalid use of schema or catalog for OLE DB provider "MSDASQL" for linked server
 
 ## <a name="troubleshooting"></a>문제 해결
 
-다음 오류가 표시되면 **2단계**에서 Azure Portal로부터 복사한 **호스트** 및 [액세스 키](#connect) 값이 올바른지 확인하고 다시 시도하세요. Azure Portal의 **호스트** 및 **액세스 키** 값 오른쪽에 있는 복사 단추를 사용하여 올바른 값을 복사합니다.
+다음 오류가 표시되면 [2단계](#connect)에서 Azure Portal로부터 복사한 **호스트** 및 **액세스 키** 값이 올바른지 확인하고 다시 시도하세요. Azure Portal의 **호스트** 및 **액세스 키** 값 오른쪽에 있는 복사 단추를 사용하여 올바른 값을 복사합니다.
 
     [HY000]: [Microsoft][Azure Cosmos DB] (401) HTTP 401 Authentication Error: {"code":"Unauthorized","message":"The input authorization token can't serve the request. Please check that the expected payload is built as per the protocol, and check the key being used. Server used the following payload to sign: 'get\ndbs\n\nfri, 20 jan 2017 03:43:55 gmt\n\n'\r\nActivityId: 9acb3c0d-cb31-4b78-ac0a-413c8d33e373"}`
 

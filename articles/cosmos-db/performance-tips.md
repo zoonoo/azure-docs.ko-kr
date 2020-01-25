@@ -4,14 +4,14 @@ description: Azure Cosmos database 성능 향상을 위한 클라이언트 구�
 author: SnehaGunda
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: 27f39af480db8c0a044489a2efe6d2e4447b6db1
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "71261319"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720999"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -40,7 +40,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
    * 직접 모드
 
-     직접 모드는 TCP 및 HTTPS 프로토콜을 통한 연결을 지원 하며 [Cosmos/.Net V3 SDK](sql-api-sdk-dotnet-standard.md)를 사용 하는 경우 기본 연결 모드입니다.
+     직접 모드는 TCP 프로토콜을 통한 연결을 지원 하며 [Cosmos/.Net V3 SDK](sql-api-sdk-dotnet-standard.md)를 사용 하는 경우 기본 연결 모드입니다.
 
      게이트웨이 모드를 사용 하는 경우 MongoDB에 Azure Cosmos DB의 API를 사용 하는 경우 Cosmos DB 포트 443 및 포트 10250, 10255 및 10256을 사용 합니다. 포트 10250은 지역 복제 없이 기본 MongoDB 인스턴스에 매핑되고 포트 10255/10256은 지역 복제를 사용하여 MongoDB 인스턴스에 매핑됩니다. 직접 모드에서 TCP를 사용할 때는 Azure Cosmos DB에서 동적 TCP 포트를 사용하므로 게이트웨이 포트 외에 10000에서 20000 사이의 포트 범위가 열려 있는지 확인해야 합니다. 이러한 포트가 열려 있지 않은 경우 TCP를 사용하려고 하면 503 서비스를 사용할 수 없음 오류가 발생합니다. 다음 표에서는 다른 API에 사용할 수 있는 연결 모드 및 각 API에 사용할 수 있는 서비스 포트를 보여줍니다.
 
@@ -49,9 +49,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL (443), Mongo (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443)    |
      |Direct    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
 
-     Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. 직접 TCP 및 HTTPS는 모두 초기 인증 및 암호화 트래픽에 SSL을 사용합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
+     Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 암호화 트래픽에 SSL을 사용 합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
-     SDK V3의 경우 CosmosClient 인스턴스를 만드는 동안 CosmosClientOptions의 일부로 연결 모드가 구성 됩니다.
+     SDK v 3의 경우 CosmosClient 인스턴스를 만드는 동안 연결 모드가 구성 됩니다. CosmosClientOptions의 일부로 직접 모드가 기본값입니다.
 
      ```csharp
      var serviceEndpoint = new Uri("https://contoso.documents.net");
@@ -59,7 +59,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      CosmosClient client = new CosmosClient(serviceEndpoint, authKey,
      new CosmosClientOptions
      {
-        ConnectionMode = ConnectionMode.Direct
+        ConnectionMode = ConnectionMode.Gateway // ConnectionMode.Direct is the default
      });
      ```
 
@@ -71,7 +71,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      DocumentClient client = new DocumentClient(serviceEndpoint, authKey,
      new ConnectionPolicy
      {
-        ConnectionMode = ConnectionMode.Direct,
+        ConnectionMode = ConnectionMode.Direct, //ConnectionMode.Gateway is the default
         ConnectionProtocol = Protocol.Tcp
      });
      ```
@@ -165,7 +165,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    > [!NOTE] 
    > MaxItemCount 속성은 페이지 매김 목적 으로만 사용 하면 안 됩니다. 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 데 주로 사용 됩니다.  
 
-   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`를-1로 설정 하면 SDK가 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 다음은 그 예입니다.
+   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`를-1로 설정 하면 SDK가 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예:
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -215,7 +215,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     쿼리의 복잡성은 작업에 사용되는 요청 단위의 양에 영향을 줍니다. 조건자의 수, 조건자의 특성, UDF 수 및 원본 데이터 집합의 크기는 모두 쿼리 작업의 비용에 영향을 줍니다.
 
-    모든 작업 (만들기, 업데이트 또는 삭제)의 오버 헤드를 측정 하려면 >\<ResourceResponse [헤더 (](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 또는 .net SDK의 FeedResponse\<t >의 해당 requestcharge 속성)를 검사 하 여 다음을 측정 합니다. 이러한 작업에 사용 된 요청 단위 수입니다.
+    모든 작업 (만들기, 업데이트 또는 삭제)에 대 한 오버 헤드를 측정 하려면 >\<ResourceResponse 헤더 (또는 .NET SDK의 FeedResponse\<T >의 해당 RequestCharge 속성)를 검사 하 여 이러한 [작업에 사용](https://docs.microsoft.com/rest/api/cosmos-db/common-cosmosdb-rest-response-headers) 된 요청 단위 수를 측정 합니다.
 
     ```csharp
     // Measure the performance (request units) of writes
