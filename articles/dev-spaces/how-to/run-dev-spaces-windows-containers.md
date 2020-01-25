@@ -5,12 +5,12 @@ ms.date: 01/16/2020
 ms.topic: conceptual
 description: Windows 컨테이너를 사용 하 여 기존 클러스터에서 Azure Dev Spaces를 실행 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Windows 컨테이너
-ms.openlocfilehash: 886f71dcaaca6a636b385ef6b101f0a893ff7035
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 882cdaa8a7b01578b2f04cf939aa14fe4aee7e2e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76157001"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720370"
 ---
 # <a name="interact-with-windows-containers-using-azure-dev-spaces"></a>Azure Dev Spaces를 사용 하 여 Windows 컨테이너와 상호 작용
 
@@ -61,7 +61,7 @@ git clone https://github.com/Azure/dev-spaces
 cd dev-spaces/samples/existingWindowsBackend/mywebapi-windows
 ```
 
-예제 응용 프로그램에서는 [투구][helm-installed] 를 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. `charts` 디렉터리로 이동 하 여 Windows 서비스를 실행 하는 투구를 사용 합니다.
+예제 응용 프로그램에서는 [투구 3][helm-installed] 을 사용 하 여 클러스터에서 Windows 서비스를 실행 합니다. `charts` 디렉터리로 이동 하 여 Windows 서비스를 실행 하는 투구를 사용 합니다.
 
 ```console
 cd charts/
@@ -141,7 +141,7 @@ azds up
 `azds prep --public` 명령은 응용 프로그램에 대 한 투구 차트 및 Dockerfiles를 생성 합니다.
 
 > [!TIP]
-> 프로젝트에 대 한 [Dockerfile 및 투구 차트](../how-dev-spaces-works.md#prepare-your-code) 는 Azure Dev Spaces에서 코드를 빌드하고 실행 하는 데 사용 되지만 프로젝트를 빌드하고 실행 하는 방법을 변경 하려면 이러한 파일을 수정할 수 있습니다.
+> 프로젝트의 [Dockerfile 및 Helm 차트](../how-dev-spaces-works.md#prepare-your-code)는 Azure Dev Spaces에서 코드를 빌드하고 실행하는 데 사용되지만 프로젝트를 빌드하고 실행하는 방법을 변경하려면 이러한 파일을 수정할 수 있습니다.
 
 `azds up` 명령은 네임 스페이스에서 서비스를 실행 합니다.
 
