@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 관리 라이브러리 | Microsoft Docs
-description: .NET에서 Service Bus 네임스페이스 및 메시징 엔터티 관리
+description: 이 문서에서는 Azure Service Bus 관리 라이브러리를 사용 하 여 Service Bus 네임 스페이스 및 엔터티를 동적으로 프로 비전 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: dotnet
 ms.topic: article
-ms.date: 06/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: faf0a5893b7de276b9a411745500daef4d39da6b
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: d0e90d9278ede97de04ad8efeaa59d94a4567f66
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68816086"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756269"
 ---
 # <a name="service-bus-management-libraries"></a>Service Bus 관리 라이브러리
 
@@ -32,7 +32,7 @@ Azure Service Bus 관리 라이브러리는 Service Bus 네임스페이스 및 �
 * 토픽 만들기, 업데이트, 삭제
 * 구독 만들기, 업데이트, 삭제
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 Service Bus 관리 라이브러리 사용을 시작하려면 Azure AD(Azure Active Directory) 서비스로 인증해야 합니다. Azure AD를 사용하려면 Azure 리소스에 대한 액세스를 제공하는 서비스 주체로 인증해야 합니다. 서비스 주체 만들기에 대한 자세한 내용은 다음 문서 중 하나를 참조하세요.  
 

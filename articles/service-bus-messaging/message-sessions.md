@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 메시지 세션 | Microsoft Docs
-description: Azure Service Bus 메시지 시퀀스를 세션으로 처리합니다.
+description: 이 문서에서는 세션을 사용 하 여 관련 메시지의 바인딩되지 않은 시퀀스에 대해 공동 및 순서가 지정 된 처리를 사용 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7da3c3de5074df80c676238e4d43dbd677b0a3b4
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0338663046c21adad358e8fddec12a3cc8151c79
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720234"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759332"
 ---
 # <a name="message-sessions-first-in-first-out-fifo"></a>메시지 세션: FIFO(처음 들어간 것부터 사용) 
 

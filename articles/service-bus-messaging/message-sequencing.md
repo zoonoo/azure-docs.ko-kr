@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 메시지 순서 지정 및 타임스탬프 | Microsoft Docs
-description: 타임스탬프를 통한 Service Bus 메시지 시퀀스 및 순서 유지
+description: 이 문서에서는 Azure Service Bus 메시지의 시퀀싱 및 순서 지정 (타임 스탬프 포함)을 유지 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 8665d0a1fccecf5521a553a894e2a55e52384ec3
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 54d774c00fa650cb9608f46cc07b9d899709eaa5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60402721"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756320"
 ---
 # <a name="message-sequencing-and-timestamps"></a>메시지 순서 지정 및 타임스탬프
 

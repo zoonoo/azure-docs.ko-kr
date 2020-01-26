@@ -1,5 +1,5 @@
 ---
-title: 콘텐츠 인식 인코딩에 대 한 실험적 사전 설정-Azure | Microsoft Docs
+title: 콘텐츠 인식 인코딩에 대 한 미리 설정-Azure Media Services |
 description: 이 문서에서는 Microsoft Azure Media Services v3의 콘텐츠 인식 인코딩에 대해 설명 합니다.
 services: media-services
 documentationcenter: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.date: 04/05/2019
 ms.author: juliako
 ms.custom: ''
-ms.openlocfilehash: c2846759a8daa04fc5c1d3b7f69e2c061bacb272
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 34b4386d536a9845c8a48e7e54612548367b52bc
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933475"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759349"
 ---
-# <a name="experimental-preset-for-content-aware-encoding"></a>콘텐츠 인식 인코딩에 대 한 실험적 사전 설정
+# <a name="a-preset-for-content-aware-encoding"></a>내용 인식 인코딩에 대 한 사전 설정
 
 [적응 비트 전송률 스트리밍을](https://en.wikipedia.org/wiki/Adaptive_bitrate_streaming)통해 콘텐츠를 준비할 수 있도록 하려면 비디오를 여러 비트 전송률 (높음-낮음)으로 인코딩해야 합니다. 비트 전송률이 감소 하므로 품질의 정상 저하를 보장 하기 위해는 비디오 해상도입니다. 이로 인해이를 위한 인코딩 사다리 (해상도 및 비트 전송률 표)가 생성 됩니다. [기본 제공 인코딩 기본 설정](https://docs.microsoft.com/rest/api/media/transforms/createorupdate#encodernamedpreset)Media Services을 참조 하세요.
 

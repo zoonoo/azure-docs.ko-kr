@@ -1,6 +1,6 @@
 ---
 title: AzCopy를 사용하여 Azure DevTest Labs에 VHD 업로드 | Microsoft Docs
-description: AzCopy를 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
+description: 이 문서에서는 AzCopy 명령줄 유틸리티를 사용 하 여 Azure DevTest Labs에서 랩의 저장소 계정에 VHD 파일을 업로드 하는 연습을 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 8cd778762bebf4a9dda3688292ac0a3674e446e1
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 49dc70788bf2a44b6925c5f3f8226fdadab8768c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60634991"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757425"
 ---
 # <a name="upload-vhd-file-to-labs-storage-account-using-azcopy"></a>AzCopy를 사용하여 랩의 스토리지 계정에 VHD 파일 업로드
 

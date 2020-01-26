@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 큐 시작 | Microsoft Docs
-description: Service Bus 메시징 큐를 사용하는 C# 콘솔 애플리케이션을 작성합니다.
+description: 이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 .NET Core 콘솔 응용 프로그램을 만듭니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: tbd
 ms.topic: conceptual
 ms.tgt_pltfrm: dotnet
 ms.workload: na
-ms.date: 11/27/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 49abd1b0542b1a658517561cf1ffead402fa93a5
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 60428e3c5be4ac994f83f44c4492ebd80ee65da7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563397"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760984"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]

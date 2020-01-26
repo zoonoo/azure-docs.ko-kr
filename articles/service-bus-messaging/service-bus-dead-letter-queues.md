@@ -1,6 +1,6 @@
 ---
 title: Service Bus 배달 못 한 편지 큐 | Microsoft Docs
-description: Azure Service Bus 배달 못 한 편지 큐의 개요
+description: Azure Service Bus의 배달 못 한 편지 큐에 대해 설명 합니다. Service Bus 큐 및 토픽 구독은 배달 못 한 편지 큐 라고 하는 보조 하위 큐를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: afa2e6e46579d9ce2906e2686cf40adf4b65ab2b
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: e1c3798c36b497423ea1d0cb5da6fabbd6a935f7
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68516585"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761018"
 ---
 # <a name="overview-of-service-bus-dead-letter-queues"></a>Service Bus 배달 못 한 편지 큐의 개요
 
@@ -82,7 +82,7 @@ broker에 의해 메시지가 이동되면 broker가 메시지의 [DeadLetter](/
 
 이러한 배달 못한 메시지를 검색하기 위해 [FormatTransferDeadletterPath](/dotnet/api/microsoft.azure.servicebus.entitynamehelper.formattransferdeadletterpath) 유틸리티 메서드를 사용하여 받는 사람을 만들 수 있습니다.
 
-## <a name="example"></a>예제
+## <a name="example"></a>예
 
 다음은 메시지 수신자를 만드는 코드 조각입니다. 기본 큐의 수신 루프에서, 이 코드는 [Receive(TimeSpan.Zero)](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)가 포함된 메시지를 검색합니다. 이 속성은 broker에 즉시 사용 가능한 메시지를 즉시 반환하도록 또는 결과 없이 반환하도록 요청합니다. 이 코드는 메시지를 받으면 그 즉시 메시지를 중단하며, 이로 인해 `DeliveryCount`가 증가합니다. 시스템에서 메시지를 DLQ로 이동하면 [ReceiveAsync](/dotnet/api/microsoft.servicebus.messaging.messagereceiver)에서 **null**을 반환하기 때문에 기본 큐가 비어 있고 루프가 종료됩니다.
 

@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus 메시지 지연 | Microsoft Docs
-description: Service Bus 메시지의 배달 지연
+title: Azure Service Bus-메시지 지연
+description: 이 문서에서는 Azure Service Bus 메시지 배달을 지연 하는 방법을 설명 합니다. 메시지는 큐나 구독에 남아 있지만 따로 분리됩니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: fc7e40661ae345412eb0336322599616dc89d6c4
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 249cf7414143f59540d198bb460d8b215f6a7664
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122188"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756354"
 ---
 # <a name="message-deferral"></a>메시지 지연
 

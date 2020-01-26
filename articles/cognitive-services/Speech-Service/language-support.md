@@ -3,20 +3,20 @@ title: 언어 지원-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 음성 서비스는 음성 번역을 통해 음성 텍스트 변환 및 텍스트 음성 변환 변환에 대 한 다양 한 언어를 지원 합니다. 이 문서에서는 서비스 기능별 언어 지원에 대 한 포괄적인 목록을 제공 합니다.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/21/2019
-ms.author: erhopf
+ms.date: 01/23/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: b5f227deb3385d64160f5a469d76b9763057b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381055"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760626"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -24,49 +24,58 @@ ms.locfileid: "75381055"
 
 ## <a name="speech-to-text"></a>음성 텍스트 변환
 
-Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다.  음성 사용자 지정은 현재 `en-US` 및 `de-DE`에 대해서만 사용할 수 있습니다. [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
+Microsoft Speech SDK와 REST API는 모두 다음 언어 (로캘)를 지원 합니다. 정확도를 높이기 위해 오디오 + 사람이 레이블 지정 된 성적 증명서 또는 관련 텍스트: 문장을 업로드 하 여 언어의 하위 집합에 대 한 사용자 지정이 제공 됩니다. 음성 사용자 지정은 현재 `en-US` 및 `de-DE`에 대해서만 사용할 수 있습니다. [여기](how-to-custom-speech.md)에서 사용자 지정에 대해 자세히 알아보세요.
 
- 로캘 | 언어 | 지원됨 | 사용자 지정 가능
+<!--
+To get the AM and ML bits:
+https://westus.cris.ai/swagger/ui/index#/Custom%20Speech%20models%3A/GetSupportedLocalesForModels
+
+To get pronunciation bits:
+https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronunciation Datasets" -> Click on Import -> Locale: the list of locales there correspond to the supported locales
+-->
+
+ 로캘 | 언어 | 지원됨 | 사용자 지정
 ------|------------|-----------|-------------
-`ar-EG` | 아랍어(이집트), 현대 표준 | 예 | 예
-`ar-SA` | 아랍어(사우디아라비아) | 예 | 예
-`ar-AE` | 아랍어 (아랍에미리트) | 예 | 예
-`ar-KW` | 아랍어(쿠웨이트) | 예 | 예
-`ar-QA` | 아랍어(카타르) | 예 | 예
-`ca-ES` | 카탈로니아어 | 예 | 아닙니다.
-`da-DK` | 덴마크어(덴마크) | 예 | 아닙니다.
-`de-DE` | 독일어(독일) | 예 | 예
-`en-AU` | 영어(오스트레일리아) | 예 | 예
-`en-CA` | 영어(캐나다) | 예 | 예
-`en-GB` | 영어(영국) | 예 | 예
-`en-IN` | 영어(인도) | 예 | 예
-`en-NZ` | 영어(뉴질랜드) | 예 | 예
-`en-US` | 영어 (영국) | 예 | 예
-`es-ES` | 스페인어(스페인) | 예 | 예
-`es-MX` | 스페인어(멕시코) | 예 | 예
-`fi-FI` | 핀란드어(핀란드) | 예 | 아닙니다.
-`fr-CA` | 프랑스어(캐나다) | 예 | 예
-`fr-FR` | 프랑스어(프랑스) | 예 | 예
-`gu-IN` | 구자라트어 (인도) | 예 | 예
-`hi-IN` | 힌디어(인도) | 예 | 예
-`it-IT` | 이탈리아어(이탈리아) | 예 | 예
-`ja-JP` | 일본어(일본) | 예 | 예
-`ko-KR` | 한국어(한국) | 예 | 예
-`mr-IN` | 마라티어(인도) | 예 | 예
-`nb-NO` | 노르웨이어(복말)(노르웨이) | 예 | 아닙니다.
-`nl-NL` | 네덜란드어(네덜란드) | 예 | 예
-`pl-PL` | 폴란드어(폴란드) | 예 | 아닙니다.
-`pt-BR` | 포르투갈어 (브라질) | 예 | 예
-`pt-PT` | 포르투갈어(포르투갈) | 예 | 예
-`ru-RU` | 러시아어(러시아) | 예 | 예
-`sv-SE` | 스웨덴어(스웨덴) | 예 | 아닙니다.
-`ta-IN` | 타밀어(인도) | 예 | 예
-`te-IN` | 텔루구어(인도) | 예 | 예
-`zh-CN` | 중국어(북경어, 간체) | 예 | 예
-`zh-HK` | 중국어(광동어, 번체) | 예 | 예
-`zh-TW` | 중국어(대만어) | 예 | 예
+`ar-AE` | 아랍어 (아랍에미리트) | 예 | 아닙니다.
+`ar-BH` | Arabic (Bahrain) | 예 | 언어 모델
+`ar-EG` | 아랍어(이집트), 현대 표준 | 예 | 언어 모델
+`ar-KW` | 아랍어(쿠웨이트) | 예 | 아닙니다.
+`ar-QA` | 아랍어(카타르) | 예 | 아닙니다.
+`ar-SA` | 아랍어(사우디아라비아) | 예 | 아닙니다.
+`ca-ES` | 카탈로니아어 | 예 | 언어 모델
+`da-DK` | 덴마크어(덴마크) | 예 | 언어 모델
+`de-DE` | 독일어(독일) | 예 | 음향 모델<br>언어 모델<br>발음
+`en-AU` | 영어(오스트레일리아) | 예 | 음향 모델<br>언어 모델
+`en-CA` | 영어(캐나다) | 예 | 음향 모델<br>언어 모델
+`en-GB` | 영어(영국) | 예 | 음향 모델<br>언어 모델<br>발음
+`en-IN` | 영어(인도) | 예 | 음향 모델<br>언어 모델
+`en-NZ` | 영어(뉴질랜드) | 예 | 음향 모델<br>언어 모델
+`en-US` | 영어 (영국) | 예 | 음향 모델<br>언어 모델<br>발음
+`es-ES` | 스페인어(스페인) | 예 | 음향 모델<br>언어 모델
+`es-MX` | 스페인어(멕시코) | 예 | 음향 모델<br>언어 모델
+`fi-FI` | 핀란드어(핀란드) | 예 | 언어 모델
+`fr-CA` | 프랑스어(캐나다) | 예 | 음향 모델<br>언어 모델
+`fr-FR` | 프랑스어(프랑스) | 예 | 음향 모델<br>언어 모델<br>발음
+`gu-IN` | 구자라트어 (인도) | 예 | 언어 모델
+`hi-IN` | 힌디어(인도) | 예 | 음향 모델<br>언어 모델
+`it-IT` | 이탈리아어(이탈리아) | 예 | 음향 모델<br>언어 모델<br>발음
+`ja-JP` | 일본어(일본) | 예 | 언어 모델
+`ko-KR` | 한국어(한국) | 예 | 언어 모델
+`mr-IN` | 마라티어(인도) | 예 | 언어 모델
+`nb-NO` | 노르웨이어(복말)(노르웨이) | 예 | 언어 모델
+`nl-NL` | 네덜란드어(네덜란드) | 예 | 언어 모델
+`pl-PL` | 폴란드어(폴란드) | 예 | 언어 모델
+`pt-BR` | 포르투갈어 (브라질) | 예 | 음향 모델<br>언어 모델<br>발음
+`pt-PT` | 포르투갈어(포르투갈) | 예 | 언어 모델
+`ru-RU` | 러시아어(러시아) | 예 | 음향 모델<br>언어 모델
+`sv-SE` | 스웨덴어(스웨덴) | 예 | 언어 모델
+`ta-IN` | 타밀어(인도) | 예 | 언어 모델
+`te-IN` | 텔루구어(인도) | 예 | 아닙니다.
 `th-TH` | 태국어(태국) | 예 | 아닙니다.
-`tr-TR` | 터키 | 예 | 예
+`tr-TR` | 터키 | 예 | 아닙니다.
+`zh-CN` | 중국어(북경어, 간체) | 예 | 음향 모델<br>언어 모델
+`zh-HK` | 중국어(광동어, 번체) | 예 | 언어 모델
+`zh-TW` | 중국어(대만어) | 예 | 언어 모델
 
 ## <a name="text-to-speech"></a>텍스트 음성 변환
 
@@ -102,7 +111,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 로캘 | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 -------|----------|---------|----------|----------
-<sup>&dagger;</sup>`ar-EG` | 아랍어(이집트) | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>**1**</sup>`ar-EG` | 아랍어(이집트) | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | 아랍어(사우디아라비아) | 남성 | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)” | "ar-Naayf"
 `bg-BG` | 불가리아어 | 남성 | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)” | "bg-BG-Ivan"
 `ca-ES` | 카탈로니아어(스페인) | 여성 | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)” | "HerenaRUS"
@@ -184,7 +193,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, HanHanRUS)” | "zh-TW-HanHanRUS"
 | | | 남성 | “Microsoft Server Speech Text to Speech Voice(zh-TW, Zhiwei, Apollo)” | "zh-TW-Zhiwei-Apollo"
 
-&dagger; *ar-예: 최신 표준 아랍어 (MSA)를 지원 합니다.*
+**1** *ar-예: 최신 표준 아랍어 (MSA)를 지원 합니다.*
 
 > [!NOTE]
 > 음성 합성 요청에서 전체 서비스 이름 매핑 또는 짧은 음성 이름을 사용할 수 있습니다.

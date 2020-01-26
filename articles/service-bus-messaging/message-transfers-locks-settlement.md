@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus 전송, 잠금 및 확인 | Microsoft Docs
-description: Service Bus 메시지 전송 및 확인 작업 개요
+title: 메시지 전송, 잠금 및 정착지 Azure Service Bus
+description: 이 문서에서는 메시지 전송, 잠금 및 결산일 작업 Azure Service Bus에 대 한 개요를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/25/2018
+ms.date: 01/24/2019
 ms.author: aschhab
-ms.openlocfilehash: 9aaada1ede8912b8b70f37c628ec918eca9be9d2
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: a2c353d612280981a83b32463d34efdc70878495
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676274"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759281"
 ---
 # <a name="message-transfers-locks-and-settlement"></a>메시지 전송, 잠금 및 확인
 
@@ -96,7 +96,7 @@ for (int i = 0; i < 100; i++)
 
 ## <a name="settling-receive-operations"></a>수신 작업 확인
 
-수신 작업의 경우 Service Bus API 클라이언트에서 두 가지 명시적 모드인 ‘수신 및 삭제’와 ‘보기-잠금’을 사용하도록 설정합니다.
+수신 작업의 경우 Service Bus API 클라이언트에서는 두 가지 명시적 모드인 *수신 및 삭제* 및 *보기-잠금*을 사용할 수 있습니다.
 
 ### <a name="receiveanddelete"></a>ReceiveAndDelete
 

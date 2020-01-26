@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 9a7599cd71c087201b54c594954a6fff377b3e45
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490758"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760830"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -61,7 +61,7 @@ Personalizer는 네임스페이스로 구성된 기능을 인식합니다. 사�
 * http_user_agent
 * VideoResolution
 * UserDeviceInfo
-* Weather
+* 날씨
 * Product_Recommendation_Ratings
 * current_time
 * NewsArticle_TextAnalytics
@@ -107,6 +107,7 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
 * 유니코드로 설정할 수 없습니다.
 * 네임 스페이스 이름에 대해 코드 < 256를 사용 하 여 인쇄 가능한 기호 중 일부를 사용할 수 있습니다. 
 * 코드에는 < 32 (인쇄할 수 없음), 32 (공간), 58 (콜론), 124 (pipe), 126 – 140과 같은 기호를 사용할 수 없습니다.
+* 밑줄 ("_")로 시작 하면 안 됩니다. 그렇지 않으면 기능이 무시 됩니다.
 
 ## <a name="how-to-make-feature-sets-more-effective-for-personalizer"></a>기능 세트를 Personalizer에 더 효과적으로 만드는 방법
 
@@ -176,9 +177,9 @@ Personalizer의 기계 학습 알고리즘은 안정된 기능 세트가 있을 
 
 순위 API에 보내는 작업은 맞춤화하려는 목적에 따라 달라집니다.
 
-다음은 몇 가지 예입니다.
+예를 들어 다음과 같은 노래를 선택할 수 있다.
 
-|목적|실행력|
+|용도|실행력|
 |--|--|
 |새 웹 사이트에서 강조 표시되는 문서를 맞춤화합니다.|각 작업은 잠재적인 뉴스 기사입니다.|
 |웹 사이트의 광고 위치를 최적화합니다.|각 작업은 광고용 레이아웃을 만들기 위한 레이아웃 또는 규칙입니다(예: 맨 위, 오른쪽, 작은 이미지, 큰 이미지).|

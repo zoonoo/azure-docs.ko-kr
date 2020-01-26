@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs |에서 이미지 팩터리 만들기 Microsoft Docs
-description: Git 리포지토리에서 사용할 수 있는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Git 리포지토리에서 사용할 수 있는 샘플 스크립트 (Azure DevTest Labs)를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 11/26/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 7779914d9681d0f80cab9568da6a20b15e3a2eb1
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 2c5a44a9505d4a312be521cdc3219c5e4ce95a42
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74560014"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759451"
 ---
 # <a name="create-a-custom-image-factory-in-azure-devtest-labs"></a>Azure DevTest Labs에서 사용자 지정 이미지 팩터리 만들기
 이 문서에서는 [Git 리포지토리에서](https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/Scripts/ImageFactory)사용할 수 있는 샘플 스크립트를 사용 하 여 사용자 지정 이미지 팩터리를 설정 하는 방법을 보여 줍니다.

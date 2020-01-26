@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus SQLFilter 구문 참조 | Microsoft Docs
-description: SQLFilter 문법에 대한 세부 정보입니다.
+description: 이 문서에서는 SQLFilter 문법에 대 한 세부 정보를 제공 합니다. SqlFilter는 SQL-92 표준의 하위 집합을 지원합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: spelluru
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/05/2018
 ms.author: spelluru
-ms.openlocfilehash: e490c7c24ed38e2988c1f097b09b508746f08178
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: d5a8e165fcee23c5feecd5935983dd77d3ec6c30
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60591800"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759666"
 ---
 # <a name="sqlfilter-syntax"></a>SQLFilter 구문
 
@@ -66,7 +66,7 @@ ms.locfileid: "60591800"
 
 존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -119,11 +119,11 @@ ms.locfileid: "60591800"
   
 `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`:  0개 이상의 문자로 된 문자열입니다.  
+-   `%`: 0개 이상의 문자입니다.  
   
 -   `_`: 단일 문자입니다.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
@@ -172,7 +172,7 @@ ms.locfileid: "60591800"
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
@@ -183,7 +183,7 @@ ms.locfileid: "60591800"
 
 Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은 `System.Boolean`으로 저장됩니다.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
@@ -193,7 +193,7 @@ Boolean 상수는 **TRUE** 또는 **FALSE** 키워드로 표시됩니다. 값은
 
 문자열 상수는 작은따옴표로 묶으며 유효한 유니코드 문자를 포함합니다. 문자열 상수에 포함된 작은따옴표는 두 개의 작은따옴표로 표시됩니다.  
   
-## <a name="function"></a>함수  
+## <a name="function"></a>function  
   
 ```  
 <function> :=  

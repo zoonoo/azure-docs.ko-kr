@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 483f13f89acd1bce0ceb8486ac252e6f844d881f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7af4f68417b25b480ea5422eb13d6b2a5748212c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431735"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759706"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
  
-사용자가 계층화된 파일을 열면 Azure 파일 동기화가 Azure Files에서 파일 데이터를 원활하게 회수하므로, 사용자는 파일이 실제로는 Azure에 저장되어 있음을 몰라도 됩니다. 
+사용자가 계층화 된 파일을 열 때 파일이 Azure에 저장 되어 있는지 알지 못해도 Azure Files에서 파일 데이터를 원활 하 게 회수할 Azure File Sync. 
  
  > [!Important]  
  > 클라우드 계층화는 Windows 시스템 볼륨의 서버 엔드포인트에서 지원되지 않으며 크기가 64KiB보다 큰 파일만 Azure Files로 계층화할 수 있습니다.
@@ -61,7 +61,7 @@ Azure 파일 동기화 에이전트의 버전 4.0 이상에서 지정된 기간 
 
 <a id="how-long-until-my-files-tier"></a>
 ### <a name="ive-added-a-new-server-endpoint-how-long-until-my-files-on-this-server-tier"></a>새 서버 엔드포인트를 추가했습니다. 내 파일은 이 서버에서 언제까지 계층화되나요?
-Azure 파일 동기화 에이전트의 버전 4.0 이상에서 파일이 Azure 파일 공유에 업로드되면 다음 계층화 세션이 실행되는 대로 정책에 따라 계층화됩니다. 이는 한 시간에 한 번 발생합니다. 이전 에이전트에서는 계층화가 발생하는 데 최대 24시간이 걸릴 수 있습니다.
+Azure File Sync 에이전트의 4.0 이상 버전에서는 파일이 Azure 파일 공유에 업로드 된 후 다음 계층화 세션이 실행 되는 즉시 정책에 따라 계층화 됩니다 .이는 한 시간에 한 번 수행 됩니다. 이전 에이전트에서는 계층화가 발생하는 데 최대 24시간이 걸릴 수 있습니다.
 
 <a id="is-my-file-tiered"></a>
 ### <a name="how-can-i-tell-whether-a-file-has-been-tiered"></a>파일이 계층화되었는지 여부는 어떻게 알 수 있나요?
@@ -127,6 +127,13 @@ Windows 파일 탐색기는 파일 크기를 나타내기 위해 **크기** 및 
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
 Invoke-StorageSyncCloudTiering -Path <file-or-directory-to-be-tiered>
 ```
+
+<a id="afs-image-thumbnail"></a>
+### <a name="why-are-my-tiered-files-not-showing-thumbnails-or-previews-in-windows-explorer"></a>계층화 된 파일이 Windows 탐색기에서 미리 보기 또는 미리 보기를 표시 하지 않는 이유는 무엇 인가요?
+계층화 된 파일의 경우에는 미리 보기와 미리 보기가 서버 끝점에 표시 되지 않습니다. 이 동작은 Windows의 미리 보기 캐시 기능이 오프 라인 특성을 사용 하 여 파일 읽기를 의도적으로 건너뜀 때문에 예상 됩니다. 클라우드 계층화를 사용 하는 경우 계층화 된 파일을 통해 읽으면 해당 파일을 다운로드 (회수) 합니다.
+
+이 동작은 Azure File Sync에 한정 되지 않으며, Windows 탐색기에는 오프 라인 특성 집합이 있는 모든 파일에 대 한 "회색 X"가 표시 됩니다. SMB를 통해 파일에 액세스할 때 X 아이콘이 표시 됩니다. 이 동작에 대 한 자세한 설명은을 참조 하세요 [https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105](https://blogs.msdn.microsoft.com/oldnewthing/20170503-00/?p=96105)
+
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure 파일 동기화 배포에 대한 계획](storage-sync-files-planning.md)

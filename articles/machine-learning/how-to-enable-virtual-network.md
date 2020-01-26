@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: 8c3265210f6ba5bb291401ce4691581dac8a0325
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 53644066276aa8e9fb57b4802142bca3fe4b342f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289615"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760857"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -126,7 +126,7 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 ## <a name="compute-instance"></a>Machine Learning 컴퓨팅 사용
 
 > [!NOTE]
-> 계산 인스턴스 (미리 보기)는 현재 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에 대해서만 사용할 수 있으며 곧 제공 되는 다른 지역에 대 한 지원을 제공 합니다.
+> 컴퓨팅 인스턴스(미리 보기)는 현재 서비스 예정인 다른 지역에 대한 지원을 포함하여 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
 > 이러한 영역 중 하나를 사용 하 여 가상 네트워크에 추가할 수 있는 계산 인스턴스를 만듭니다.
 
 가상 네트워크에서 Azure Machine Learning 계산 인스턴스 또는 계산 클러스터를 사용 하려면 다음 네트워크 요구 사항을 충족 해야 합니다.
@@ -179,11 +179,14 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
 - NSG 규칙을 사용 하 여 아웃 바운드 인터넷 연결을 거부 합니다.
 
-- 아웃 바운드 트래픽을 다음 항목으로 제한:
-   - 저장소의 __서비스 태그__ 를 사용 하 여 Azure Storage __Region_Name__ (예: 저장소. eastus)
-   - Azure Container Registry AzureContainerRegistry의 __서비스 태그__ 를 사용 하 여 __Region_Name 합니다__ (예: AzureContainerRegistry).
+- __계산 인스턴스__ 또는 __계산 클러스터__의 경우 다음 항목에 대 한 아웃 바운드 트래픽을 제한 합니다.
+   - __저장소__ 의 __서비스 태그__ 를 사용 하 여 Azure Storage
+   - __AzureContainerRegistry__ 의 __서비스 태그__ 를 사용 하 여 Azure Container Registry
    - __AzureMachineLearning__ 의 __서비스 태그__ 를 사용 하 여 Azure Machine Learning
-   - 계산 인스턴스, Azure Cloud의 경우 __AzureResourceManager__ 의 __서비스 태그__ 를 사용 합니다.
+   
+- __계산 인스턴스의__경우 다음 항목도 추가 합니다.
+   - __AzureResourceManager__ 의 __서비스 태그__ 를 사용 하 여 Azure Resource Manager
+   - __AzureActiveDirectory__ 의 __서비스 태그__ 를 사용 하 여 Azure Active Directory
 
 Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 
@@ -206,12 +209,12 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 > run_config.environment.python.user_managed_dependencies = True
 > ```
 >
-> 평가기 training__
+> __평가기 교육__
 > ```python
-> est = Estimator(source_directory='.', 
->                 script_params=script_params, 
->                 compute_target='local', 
->                 entry_script='dummy_train.py', 
+> est = Estimator(source_directory='.',
+>                 script_params=script_params,
+>                 compute_target='local',
+>                 entry_script='dummy_train.py',
 >                 user_managed=True)
 > run = exp.submit(est)
 > ```

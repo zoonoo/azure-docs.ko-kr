@@ -4,14 +4,14 @@ description: Azure 지역 간에 이동할 수 있는 Azure 리소스 종류를 
 author: rayne-wiselman
 ms.service: azure-resource-manager
 ms.topic: reference
-ms.date: 11/21/2019
+ms.date: 01/20/2020
 ms.author: raynew
-ms.openlocfilehash: 60b8708458e081d66514e092edc9ef9af7c33494
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9bc7dc66ccf3049ac878f7871c816e5ade1afde5
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75485248"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760711"
 ---
 # <a name="support-for-moving-azure-resources-across-regions"></a>지역 간 Azure 리소스 이동에 대 한 지원
 
@@ -186,7 +186,7 @@ ms.locfileid: "75485248"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | 서비스 | 아닙니다. |
+> | 서비스 |  예 | 
 
 ## <a name="microsoftappconfiguration"></a>Microsoft.AppConfiguration
 
@@ -1001,7 +1001,7 @@ ms.locfileid: "75485248"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | vaults | 예 (백업 자격 증명 모음에 대해 생각 합니다. | 
+> | vaults | 아닙니다. [자격 증명 모음을 사용 하지 않도록 설정 하 고 Site Recovery 다시 만들기](https://docs.microsoft.com/azure/site-recovery/move-vaults-across-regions)  | 
 
 
 ## <a name="microsoftrelay"></a>Microsoft.Relay
@@ -1142,7 +1142,7 @@ ms.locfileid: "75485248"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | storageaccounts | 예? | 
+> | storageaccounts | 예 | 
 
 ## <a name="microsoftstoragecache"></a>Microsoft.StorageCache
 
@@ -1220,7 +1220,7 @@ ms.locfileid: "75485248"
 > [!div class="mx-tableFixed"]
 > | 리소스 유형 | 영역 이동 | 
 > | ------------- | ----------- |
-> | stores | 아닙니다. | 
+> | 정보가 | 아닙니다. | 
 
 ## <a name="microsoftvirtualmachineimages"></a>Microsoft.VirtualMachineImages
 

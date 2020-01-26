@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: c9d3a876b75e7d3ed8ff43217227db1a524206f2
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76273490"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759855"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
@@ -133,6 +133,9 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
   -Kind StorageV2
 ```
 
+> [!IMPORTANT]
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 목록에 `-EnableHierarchicalNamespace $True`을 포함 합니다. 
+
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 해당 하는 값을 원하는 값으로 **대체 합니다.**
 
 |복제 옵션  |SkuName 매개 변수  |
@@ -172,6 +175,9 @@ az storage account create \
     --sku Standard_RAGRS \
     --kind StorageV2
 ```
+
+> [!IMPORTANT]
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 목록에 `--enable-hierarchical-namespace true`을 포함 합니다. 
 
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 **sku** 매개 변수를 원하는 값으로 대체 합니다.
 

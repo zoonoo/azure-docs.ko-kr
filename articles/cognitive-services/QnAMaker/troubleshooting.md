@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 01/23/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 7e98fd089ce8ec1285232840a40bb42ac5b81446
-ms.sourcegitcommit: 018e3b40e212915ed7a77258ac2a8e3a660aaef8
+ms.openlocfilehash: e56722831ef05364b8ee4d342553158fba19ffaa
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73795437"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760728"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -26,8 +26,8 @@ QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이�
 
 ## <a name="how-to-get-the-qnamaker-service-endpoint"></a>QnAMaker 서비스 끝점을 가져오는 방법
 
-QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디버깅 목적으로 유용 합니다. 끝점은 https://your-resource-name.azurewebsites.net 형식의 URL입니다.
-    
+QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디버깅 목적으로 유용 합니다. 끝점은 https://your-resource-name.azurewebsites.net 형식으로 된 URL입니다.
+
 1. [Azure Portal](https://portal.azure.com)에서 QnAMaker 서비스(리소스 그룹)로 이동
 
     ![Azure Portal의 QnAMaker Azure 리소스 그룹](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-resourcegroup.png)
@@ -39,21 +39,21 @@ QnAMaker service 끝점은 QnAMaker 지원 또는 UserVoice에 문의할 때 디
 1. 끝점 URL은 개요 섹션에서 사용할 수 있습니다.
 
     ![QnAMaker 끝점](./media/qnamaker-how-to-troubleshoot/qnamaker-azure-gethostname.png)
-    
+
 
 ## <a name="use-the-help-bot-in-the-qna-maker-portal"></a>QnA Maker 포털에서 도움말 봇 사용
 
-QnA Maker는 QnA Maker 포털 내에서 도움이 되는 **도움말** 봇을 제공 합니다. 도움말 봇은 모든 웹 페이지에서 사용할 수 있습니다. 봇은 QnA Maker를 사용 하 여 답변을 제공 하 고 봇에 [ C# bot Framework 코드 프로젝트](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) 를 제공 하므로 고유한 대답 봇으로 신속 하 게 시작 하 고 실행할 수 있습니다. 
+QnA Maker는 QnA Maker 포털 내에서 도움이 되는 **도움말** 봇을 제공 합니다. 도움말 봇은 모든 웹 페이지에서 사용할 수 있습니다. 봇은 QnA Maker를 사용 하 여 답변을 제공 하 고 봇에 [ C# bot Framework 코드 프로젝트](https://github.com/microsoft/BotBuilder-Samples/tree/master/experimental/qnamaker-support) 를 제공 하므로 고유한 대답 봇으로 신속 하 게 시작 하 고 실행할 수 있습니다.
 
 ![! [QnA Maker QnA Maker 포털 내에서 * * Help * * bot를 제공 하 여 도움을 줍니다.] (./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png)](./media/qnamaker-faq/use-qna-maker-help-bot-to-learn-qna-maker-service.png#lightbox)
 
 ## <a name="manage-the-knowledge-base"></a>기술 자료 관리
 
-### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>내 QnA Maker의 일부를 실수로 삭제했습니다. 어떻게 해야 하나요? 
+### <a name="i-accidentally-deleted-a-part-of-my-qna-maker-what-should-i-do"></a>내 QnA Maker의 일부를 실수로 삭제했습니다. 어떻게 해야 하나요?
 
 검색 또는 웹 앱과 같은 QnA Maker 리소스와 함께 생성 된 Azure 서비스를 삭제 하지 마세요. QnA Maker 작동 하기 위해 필요 합니다. 하나를 삭제 하면 QnA Maker 제대로 작동 하지 않습니다.
 
-질문 및 답변 쌍, 파일, URL, 사용자 지정 질문 및 답변, 기술 자료 또는 Azure 리소스를 포함한 모든 삭제는 영구적입니다. 기술 자료를 삭제하기 전에 **설정** 페이지에서 기술 자료를 내보냈는지 확인합니다. 
+질문 및 답변 쌍, 파일, URL, 사용자 지정 질문 및 답변, 기술 자료 또는 Azure 리소스를 포함한 모든 삭제는 영구적입니다. 기술 자료를 삭제하기 전에 **설정** 페이지에서 기술 자료를 내보냈는지 확인합니다.
 
 ### <a name="why-is-my-urlsfiles-not-extracting-question-answer-pairs"></a>URL/파일이 질문-답변 쌍을 추출하지 않는 이유는 무엇인가요?
 
@@ -71,7 +71,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 공유는 QnA Maker 서비스 수준에서 작동합니다. 즉, 서비스의 모든 기술 자료가 공유됩니다. 기술 자료에 대한 공동 작업 방법은 [여기](./How-To/collaborate-knowledge-base.md)를 참조하세요.
 
-### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>동일한 AAD 테넌트에 있지 않은 contributor와 기술 자료를 공유하여 기술 자료를 수정할 수 있나요? 
+### <a name="can-you-share-a-knowledge-base-with-a-contributor-that-is-not-in-the-same-aad-tenant-to-modify-a-knowledge-base"></a>동일한 AAD 테넌트에 있지 않은 contributor와 기술 자료를 공유하여 기술 자료를 수정할 수 있나요?
 
 공유는 Azure RBAC(역할 기반 Access Control)에 따릅니다. 다른 사용자와 Azure의 _모든_ 리소스를 공유할 수 있는 경우 QnA Maker도 공유할 수 있습니다.
 
@@ -103,27 +103,31 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="does-the-knowledge-base-support-rich-data-or-multimedia"></a>기술 자료는 풍부한 데이터 또는 멀티미디어를 지원하나요?
 
-기술 자료는 Markdown을 지원합니다. 그러나 URL에서 자동 추출하는 경우 HTML에서 Markdown으로 변환 기능이 제한됩니다. 모든 기능이 갖춰진 Markdown을 사용하려는 경우 표에서 바로 콘텐츠를 수정하거나, 서식 있는 콘텐츠가 포함된 기술 자료를 업로드할 수 있습니다.
+#### <a name="multimedia-auto-extraction-for-files-and-urls"></a>파일 및 Url에 대 한 멀티미디어 자동 추출
 
-이미지 및 비디오와 같은 멀티미디어는 현재 지원되지 않습니다.
+* URL-HTML-Markdown 변환 기능을 제한 합니다.
+* 파일-지원 되지 않음
+
+#### <a name="answer-text-in-markdown"></a>Markdown의 대답 텍스트
+QnA 집합이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 하 여 공용 Url에서 사용할 수 있는 미디어에 대 한 링크를 포함할 수 있습니다.
 
 ### <a name="does-qna-maker-support-non-english-languages"></a>QnA Maker에서 영어 이외의 언어를 지원하나요?
 
 [지원되는 언어](./Overview/languages-supported.md)에 대한 자세한 내용을 참조하세요.
 
-여러 언어의 콘텐츠가 있는 경우 각 언어마다 별도의 서비스를 만들어야 합니다.
+여러 언어의 콘텐츠가 있는 경우 언어마다 별도의 서비스를 만들어야 합니다.
 
 ## <a name="manage-service"></a>서비스 관리
 
-### <a name="when-should-i-restart-my-app-service"></a>내 App Service를 다시 시작해야 하는 경우는 언제인가요? 
+### <a name="when-should-i-restart-my-app-service"></a>내 App Service를 다시 시작해야 하는 경우는 언제인가요?
 
-**사용자 설정** **페이지**의 [엔드포인트 키](https://www.qnamaker.ai/UserSettings) 테이블에서 기술 자료에 대한 버전 값 옆에 주의 아이콘이 표시되면 App Service를 새로 고칩니다.
+**사용자 설정** [페이지](https://www.qnamaker.ai/UserSettings)의 **끝점 키** 테이블에서 기술 자료에 대 한 버전 값 옆에 주의 아이콘이 있는 경우 app service를 새로 고칩니다.
 
 ### <a name="i-deleted-my-existing-search-service-how-can-i-fix-this"></a>기존 검색 서비스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요?
 
-Azure Cognitive Search 인덱스를 삭제 하는 경우 작업이 마지막 이며 인덱스를 복구할 수 없습니다. 
+Azure Cognitive Search 인덱스를 삭제 하는 경우 작업이 마지막 이며 인덱스를 복구할 수 없습니다.
 
-### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요? 
+### <a name="i-deleted-my-testkb-index-in-my-search-service-how-can-i-fix-this"></a>검색 서비스에서 `testkb` 인덱스를 삭제 했습니다. 이 문제를 어떻게 해결할 수 있나요?
 
 이전 데이터를 복구할 수 없습니다. 새 QnA Maker 리소스를 만들고 기술 자료를 다시 만듭니다.
 
@@ -145,18 +149,18 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 
 1. [Azure Portal](https://portal.azure.com)에서 QnA Maker의 App service를 선택한 다음 서비스를 중지 합니다.
 1. App service에서 **개발 도구**, **고급 도구**, **이동**을 차례로 선택 합니다. 그러면 새 브라우저 창이 열립니다.
-1. **디버그 콘솔**, **CMD** 를 차례로 선택 하 여 명령줄 도구를 엽니다. 
+1. **디버그 콘솔**, **CMD** 를 차례로 선택 하 여 명령줄 도구를 엽니다.
 1. _Site/wwwroot/Data/QnAMaker/_ directory로 이동 합니다.
-1. 이름이 `rd`으로 시작 하는 모든 폴더를 제거 합니다. 
+1. 이름이 `rd`로 시작 하는 모든 폴더를 제거 합니다.
 
     다음을 **삭제 하지 마십시오** .
 
     * KbIdToRankerMappings 파일
     * EndpointSettings. json 파일
-    * EndpointKeys 폴더 
+    * EndpointKeys 폴더
 
 1. App service를 시작 합니다.
-1. 기술 자료에 액세스 하 여 지금 작동 하는지 확인 합니다. 
+1. 기술 자료에 액세스 하 여 지금 작동 하는지 확인 합니다.
 
 
 ## <a name="integrate-with-other-services-including-bots"></a>Bot을 비롯한 다른 서비스와의 통합
@@ -175,13 +179,13 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 
 * 기술 자료 ID입니다.
 * 기술 자료의 게시 된 끝점 사용자 지정 하위 도메인 이름 (`host`이라고 함)은 게시 후 **설정** 페이지에서 찾을 수 있습니다.
-* 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다. 
+* 기술 자료의 게시 된 끝점 키-게시 후 **설정** 페이지에서 찾을 수 있습니다.
 
-이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.  
+이 정보를 사용 하 여 Azure Portal에서 봇의 app service로 이동 합니다. **설정-> 구성-> 응용 프로그램 설정**에서 해당 값을 변경 합니다.
 
-기술 자료의 끝점 키는 ABS 서비스에서 `QnAAuthkey`으로 레이블이 지정 됩니다. 
+기술 자료의 끝점 키에는 ABS 서비스의 `QnAAuthkey` 레이블이 지정 되어 있습니다.
 
-### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>두 개 이상의 클라이언트 응용 프로그램에서 기술 자료를 공유할 수 있나요? 
+### <a name="can-two-or-more-client-applications-share-a-knowledge-base"></a>두 개 이상의 클라이언트 응용 프로그램에서 기술 자료를 공유할 수 있나요?
 
 예, 기술 자료는 원하는 수의 클라이언트에서 쿼리할 수 있습니다. 기술 자료의 응답이 느리거나 시간이 초과 되는 것으로 나타나는 경우 기술 자료와 연결 된 app service에 대 한 서비스 계층을 업그레이드 하는 것이 좋습니다.
 
@@ -194,6 +198,6 @@ App service에 대 한 디스크 공간이 가득 찼을 수 있습니다. 디�
 
 ## <a name="data-storage"></a>데이터 스토리지
 
-### <a name="what-data-is-stored-and-where-is-it-stored"></a>어떤 데이터가 저장되고 어디에 저장되나요? 
+### <a name="what-data-is-stored-and-where-is-it-stored"></a>어떤 데이터가 저장되고 어디에 저장되나요?
 
-QnA Maker 서비스를 만들 때 Azure 지역을 선택했습니다. 기술 자료 및 로그 파일에는 이 지역에 저장됩니다. 
+QnA Maker 서비스를 만들 때 Azure 지역을 선택했습니다. 기술 자료 및 로그 파일에는 이 지역에 저장됩니다.

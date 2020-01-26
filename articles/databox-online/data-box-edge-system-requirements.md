@@ -8,14 +8,14 @@ ms.subservice: edge
 ms.topic: article
 ms.date: 04/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 90c60d586d505ca0c9bd787c37e137f7a38ee1f7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 458c062eef011363724cb894ce67ba75181ba8ba
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60756548"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757869"
 ---
-# <a name="azure-data-box-edge-system-requirements"></a>Azure 데이터 상자 가장자리에 대 한 시스템 요구 사항
+# <a name="azure-data-box-edge-system-requirements"></a>Azure Data Box Edge 시스템 요구 사항
 
 이 문서에서는 Microsoft Azure Data Box Edge 솔루션 및 Azure Data Box Edge에 연결하는 클라이언트에 대한 중요한 시스템 요구 사항을 설명합니다. Data Box Edge를 배포하기 전에 정보를 신중하게 검토하는 것이 좋습니다. 배포 및 후속 작업 중에 필요하면 이 정보를 다시 참조할 수 있습니다.
 
@@ -86,11 +86,11 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 | https://\*.azurecr.io                     | 개인 및 타사 컨테이너 레지스트리(선택 사항) | 
 | https://\*.azure-devices.net              | IoT Hub 액세스(필수)                             | 
 
-### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government에 대 한 게이트웨이에 대 한 URL 패턴
+### <a name="url-patterns-for-gateway-for-azure-government"></a>Azure Government 게이트웨이의 URL 패턴
 
 [!INCLUDE [Azure Government URL patterns for firewall](../../includes/data-box-edge-gateway-gov-url-patterns-firewall.md)]
 
-### <a name="url-patterns-for-compute-for-azure-government"></a>Azure Government에 대 한 계산에 대 한 URL 패턴
+### <a name="url-patterns-for-compute-for-azure-government"></a>Azure Government 계산에 대 한 URL 패턴
 
 | URL 패턴                      | 구성 요소 또는 기능                     |  
 |----------------------------------|---------------------------------------------|
@@ -104,33 +104,33 @@ Data Box Edge 고정 IP 주소에 따라 대부분의 경우 자유롭게 아웃
 
 ## <a name="compute-sizing-considerations"></a>계산 크기 조정 고려 사항
 
-데이터 상자 Edge 장치에 충분 한 용량이 및 장치에서 최적의 성능을 얻을 수 있도록 개발 하 고 솔루션을 테스트 하는 동안 경험을 사용 합니다.
+솔루션을 개발 하 고 테스트 하는 동안 사용자 환경을 사용 하 여 Data Box Edge 장치에 충분 한 용량이 있는지 확인 하 고 장치에서 최적의 성능을 얻을 수 있습니다.
 
-고려해 야 할 요소는 다음과 같습니다.
+고려해 야 할 요인은 다음과 같습니다.
 
-- **컨테이너 세부 사항을** -다음을 고려 합니다.
+- **컨테이너 세부** 정보-다음 사항을 고려 합니다.
 
-    - 워크 로드에 얼마나 많은 컨테이너가? 몇 가지 리소스를 많이 사용 된 및 경량 컨테이너 많이 있을 수 있습니다.
-    - 이란 현재 사용 중인 리소스와 이러한 컨테이너에 할당 된 리소스는 무엇입니까?
-    - 컨테이너에는 얼마나 많은 계층이 공유 하나요?
-    - 사용 하지 않는 컨테이너 있습니까? 여전히 중지 된 컨테이너 디스크 공간을 차지 합니다.
-    - 어떤 언어로 컨테이너를 작성은?
-- **처리 된 데이터의 크기** -데이터의 양을 컨테이너 처리할? 이 데이터 디스크 공간을 사용 하면 메모리에 데이터를 처리할지 여부
-- **예상 성능** -솔루션의 원하는 성능 특징은 무엇입니까? 
+    - 워크 로드에 얼마나 많은 컨테이너가 있나요? 많은 경량 컨테이너와 리소스를 많이 사용 하는 컨테이너를 포함할 수 있습니다.
+    - 이러한 컨테이너에 할당 된 리소스와 사용 중인 리소스는 무엇 인가요?
+    - 컨테이너를 공유 하는 계층은 몇 개입니까?
+    - 사용 하지 않는 컨테이너가 있나요? 중지 된 컨테이너는 여전히 디스크 공간을 차지 합니다.
+    - 컨테이너가 작성 된 언어는 무엇 인가요?
+- **처리 된 데이터 크기** -컨테이너에서 처리할 데이터의 양은 얼마 인가요? 이 데이터는 디스크 공간을 사용 하 고 데이터는 메모리에서 처리 되나요?
+- **예상 성능** -솔루션의 원하는 성능 특성은 무엇 인가요? 
 
-이해 하 고 솔루션의 성능을 구체화, 다음을 사용할 수 있습니다.
+솔루션의 성능을 이해 하 고 구체화 하려면 다음을 사용할 수 있습니다.
 
-- 계산 메트릭을 Azure portal에서 사용할 수 있습니다. 가장자리가 상자의 데이터 리소스를 이동 하 고 이동 **모니터링 > 메트릭**합니다. 확인 합니다 **Edge 계산-메모리 사용량** 및 **Edge 계산-CPU 백분율** 사용 가능한 리소스를 이해 하려면 어떻게 리소스 가져오기 사용 됩니다.
-- 모니터링 명령와 같은 장치의 PowerShell 인터페이스를 통해 사용할 수 있습니다.
+- Azure Portal에서 사용할 수 있는 계산 메트릭입니다. Data Box Edge 리소스로 이동한 후 **모니터링 > 메트릭**으로 이동 합니다. 에 **지 계산 메모리 사용량과** 에 **지 계산-백분율 CPU** 를 확인 하 여 사용 가능한 리소스와 리소스가 사용 되는 방식을 파악 합니다.
+- 다음과 같이 장치의 PowerShell 인터페이스를 통해 사용할 수 있는 모니터링 명령입니다.
 
-    - `dkr` 컨테이너의 라이브 스트림 리소스 사용 통계를 통계입니다. 명령에는 CPU, 메모리 사용량, 메모리 제한 및 네트워크 IO 메트릭 지원합니다.
-    - `dkr system df` 사용 하는 디스크 공간의 크기에 대 한 정보를 가져옵니다. 
-    - `dkr image [prune]` 사용 되지 않는 이미지를 정리 및 공간을 확보 합니다.
-    - `dkr ps --size` 실행 중인 컨테이너의 대략적인 크기를 표시 합니다. 
+    - `dkrdbe stats` 하 여 컨테이너 리소스 사용 통계의 라이브 스트림을 가져옵니다. 명령은 CPU, 메모리 사용량, 메모리 제한 및 네트워크 IO 메트릭을 지원 합니다.
+    - 사용 된 디스크 공간 크기에 대 한 정보를 가져올 `dkrdbe system df`. 
+    - 사용 하지 않는 이미지를 정리 하 고 공간을 확보 `dkrdbe image prune` 합니다.
+    - `dkrdbe ps --size` 하 여 실행 중인 컨테이너의 대략적인 크기를 확인 합니다. 
 
-    사용 가능한 명령에 대 한 자세한 내용은 이동 [모니터 계산 모듈 문제를 해결 하 고](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)입니다.
+    사용 가능한 명령에 대 한 자세한 내용은 [계산 모듈 모니터링 및 문제 해결](data-box-edge-connect-powershell-interface.md#monitor-and-troubleshoot-compute-modules)을 참조 하세요.
 
-마지막으로, 데이터 집합에서 솔루션을 유효성을 검사 하 고 프로덕션 환경에 배포 하기 전에 데이터 상자 가장자리에서 성능을 정량화 해야 합니다.
+마지막으로, 데이터 집합에 대 한 솔루션의 유효성을 검사 하 고 프로덕션 환경에 배포 하기 전에 Data Box Edge에 대 한 성능을 수량화 합니다.
 
 
 ## <a name="next-step"></a>다음 단계

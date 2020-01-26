@@ -1,6 +1,6 @@
 ---
 title: Azure DevTest Labs FAQ | Microsoft 문서
-description: Azure DevTest Labs에 대한 일반적인 질문에 대한 답을 찾습니다.
+description: 이 문서에서는 Azure DevTest Labs에 대 한 FAQ (질문과 대답)를 제공 합니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 07/18/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: afd6ded6dc027e118694078f8b8eeadfe8dd80e4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: de99e9b1e4adceaf08beaf8ad3b5ea114b31a586
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981487"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760524"
 ---
 # <a name="azure-devtest-labs-faq"></a>Azure DevTest Labs FAQ
 Azure DevTest Labs에 대한 일반적인 질문에 대한 답변을 확인합니다.

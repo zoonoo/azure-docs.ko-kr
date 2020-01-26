@@ -1,6 +1,6 @@
 ---
-title: Azure DevTest Labs |의 Azure DevOps에서 이미지 팩터리를 실행 합니다. Microsoft Docs
-description: Azure DevTest Labs에서 사용자 지정 이미지 팩터리를 만드는 방법에 대해 알아봅니다.
+title: Azure DevTest Labs의 Azure DevOps에서 이미지 팩터리를 실행 합니다.
+description: 이 문서에서는 Azure DevOps (이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행 하는 데 필요한 모든 준비 사항을 설명 합니다.
 services: devtest-lab, lab-services
 documentationcenter: na
 author: spelluru
@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 101ed792f091a5074b42e3d06eed27d606d3d2a7
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: bb67f765684c77ed5f8527226bef578e450579e0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638955"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758685"
 ---
 # <a name="run-an-image-factory-from-azure-devops"></a>Azure DevOps에서 이미지 팩터리 실행
 이 문서에서는 Azure DevOps (이전의 Visual Studio Team Services)에서 이미지 팩터리를 실행 하는 데 필요한 모든 준비 사항을 설명 합니다.
@@ -106,7 +106,7 @@ Azure DevOps를 사용 하 여 소스 코드를 저장 하 고 Azure PowerShell�
 2. **Azure 연결 형식**에 대해 **Azure Resource Manager**를 선택 합니다.
 3. **관리** 링크를 선택 하 여 서비스 주체를 설정 합니다.
 
-자세한 내용은 이 [블로그 게시물](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)을 참조하세요. **관리** 링크를 선택 하면 Azure에 대 한 연결을 설정 하는 devops (블로그 게시물의 두 번째 스크린샷)의 올바른 위치가 됩니다. 설정 하는 경우 **서비스 끝점 Azure Resource Manager** 선택 해야 합니다.
+자세한 내용은이 [블로그 게시물](https://devblogs.microsoft.com/devops/automating-azure-resource-group-deployment-using-a-service-principal-in-visual-studio-online-buildrelease-management/)을 참조 하세요. **관리** 링크를 선택 하면 Azure에 대 한 연결을 설정 하는 devops (블로그 게시물의 두 번째 스크린샷)의 올바른 위치가 됩니다. 설정 하는 경우 **서비스 끝점 Azure Resource Manager** 선택 해야 합니다.
 
 ## <a name="complete-the-build-task"></a>빌드 작업 완료
 빌드 작업을 선택 하면 오른쪽 창에 입력 해야 하는 모든 세부 정보가 표시 됩니다.

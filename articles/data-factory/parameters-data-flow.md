@@ -7,12 +7,12 @@ ms.reviewer: daperlov
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: c589cfeab7a812e09ce7f7620e93b72bd362859a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c717d9ab44493d15589030073cd2ab260ef52e1c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746158"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760218"
 ---
 # <a name="parameterizing-mapping-data-flows"></a>매핑 데이터 흐름 매개 변수화
 
@@ -23,9 +23,6 @@ Azure Data Factory의 데이터 흐름 매핑은 매개 변수 사용을 지원 
 * 식 언어를 사용 하 여 정적 리터럴 값 설정
 
 이 기능을 사용 하 여 데이터 흐름을 범용이 고 유연 하며 재사용 가능 하 게 만들 수 있습니다. 이러한 매개 변수를 사용 하 여 데이터 흐름 설정 및 식을 매개 변수화 할 수 있습니다.
-
-> [!NOTE]
-> 파이프라인 제어 흐름 식을 사용 하려면 데이터 흐름 매개 변수가 문자열 유형 이어야 합니다.
 
 ## <a name="create-parameters-in-a-mapping-data-flow"></a>매핑 데이터 흐름에서 매개 변수 만들기
 

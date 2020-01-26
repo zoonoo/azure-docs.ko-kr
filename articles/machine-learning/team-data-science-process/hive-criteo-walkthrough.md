@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/10/2020
 ms.author: tdsp
 ms.custom: seodec18, previous-author=deguhath, previous-ms.author=deguhath
-ms.openlocfilehash: 04bc29fb8a89f6e863f7c009e5299d1c702bf976
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 218fb96f6960e194f0fc4a4a3a3e603388b961c8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721407"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760813"
 ---
 # <a name="the-team-data-science-process-in-action---using-an-azure-hdinsight-hadoop-cluster-on-a-1-tb-dataset"></a>실행 중인 팀 데이터 과학 프로세스-1TB 데이터 집합에서 Azure HDInsight Hadoop 클러스터 사용
 
@@ -56,7 +56,8 @@ Criteo 데이터는 370 GB 이상의 gzip 압축 TSV 파일 1.3 (압축 되지 �
 2. **회귀**: 사용자 기능에서 광고 클릭 확률을 예측합니다.
 
 ## <a name="setup"></a>데이터 과학용 HDInsight Hadoop 클러스터 설정
-**참고:** 이 단계는 일반적으로 **관리자** 작업입니다.
+> [!NOTE]
+> 이 단계는 일반적으로 **관리자** 작업입니다.
 
 다음 3단계에 따라 HDInsight 클러스터를 사용하여 예측 분석 솔루션을 빌드하기 위한 Azure 데이터 과학 환경을 설정합니다.
 
@@ -107,10 +108,8 @@ Criteo 데이터 세트에 대한 Hive 테이블을 만들려면 헤드 노드�
 > [!NOTE]
 > Hive 쿼리를 실행하기 위해 항상 다음 명령을 사용할 수 있습니다.
 >
->
-
-        cd %hive_home%\bin
-        hive
+>        cd %hive_home%\bin
+>        hive
 
 "hive >" 기호와 함께 Hive REPL이 표시되면 쿼리를 잘라내고 붙여넣어 실행하면 됩니다.
 

@@ -14,26 +14,26 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bcb4fa5eb5889698174b65eb576c9caf0c82f857
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5a57fcef3569734964bf6e8a41faa49800798f9b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701674"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759060"
 ---
-# <a name="web-app-that-calls-web-apis---app-registration"></a>웹 Api를 호출 하는 웹 앱-앱 등록
+# <a name="a-web-app-that-calls-web-apis-app-registration"></a>웹 Api를 호출 하는 웹 앱: 앱 등록
 
-웹 Api를 호출 하는 웹 앱은 웹 앱 로그인 사용자와 동일한 등록을 갖습니다. 따라서 [사용자가 로그인 하는 웹 앱](scenario-web-app-sign-user-app-registration.md) 의 지침에 따라 앱을 등록 해야 합니다.
+웹 Api를 호출 하는 웹 앱은 사용자를 로그인 하는 웹 앱과 동일한 등록을 갖습니다. 따라서 [사용자에 게 로그인 하는 웹 앱](scenario-web-app-sign-user-app-registration.md)의 지침에 따라 앱을 등록 합니다.
 
-그러나 웹 앱은 이제 웹 Api를 호출 하므로 기밀 클라이언트 응용 프로그램이 됩니다. 그 이유는 약간의 추가 등록이 필요 합니다. 암호 (클라이언트 자격 증명)를 Microsoft id 플랫폼과 공유 해야 합니다.
+그러나 웹 앱은 이제 웹 Api를 호출 하므로 기밀 클라이언트 응용 프로그램이 됩니다. 이 때문에 몇 가지 추가 등록이 필요 합니다. 앱은 Microsoft id 플랫폼과 클라이언트 자격 증명 또는 *암호*를 공유 해야 합니다.
 
-[!INCLUDE [Pre-requisites](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
+[!INCLUDE [Registration of client secrets](../../../includes/active-directory-develop-scenarios-registration-client-secrets.md)]
 
 ## <a name="api-permissions"></a>API 사용 권한
 
-웹 응용 프로그램은 로그인 한 사용자를 대신 하 여 Api를 호출 합니다. 위임 된 권한을 요청 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가를](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis) 참조 하세요.
+웹 앱은 로그인 한 사용자를 대신 하 여 Api를 호출 합니다. 이렇게 하려면 *위임 된 권한을*요청 해야 합니다. 자세한 내용은 [웹 api에 액세스 하기 위한 권한 추가](quickstart-configure-app-access-web-apis.md#add-permissions-to-access-web-apis)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [앱의 코드 구성](scenario-web-app-call-api-app-configuration.md)
+> [웹 Api를 호출 하는 웹 앱: 코드 구성](scenario-web-app-call-api-app-configuration.md)

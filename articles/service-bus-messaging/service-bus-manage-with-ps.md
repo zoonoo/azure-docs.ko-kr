@@ -1,6 +1,6 @@
 ---
 title: PowerShell을 사용한 Azure Service Bus 리소스 관리 | Microsoft Docs
-description: PowerShell 모듈을 사용하여 Service Bus 리소스 만들기 및 관리
+description: 이 문서에서는 Azure PowerShell 모듈을 사용 하 여 Service Bus 엔터티 (네임 스페이스, 큐, 토픽, 구독)를 만들고 관리 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/21/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0d15aa4d7b8a922f7606b7c4d1b357a80b3cbfab
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e333dfb109840538fd5dec8110e1c32adedce989
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60311049"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759264"
 ---
 # <a name="use-powershell-to-manage-service-bus-resources"></a>PowerShell을 사용하여 Service Bus 리소스 관리
 
@@ -33,7 +33,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 
 시작하려면 다음과 같은 필수 조건을 갖추어야 합니다.
 
-* Azure 구독. 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제안][member offers] 또는 [무료 계정][free account]을 참조하세요.
+* Azure 구독 구독을 얻는 방법에 대한 자세한 내용은 [구매 옵션][purchase options], [구성원 제안][member offers] 또는 [무료 계정][free account]을 참조하세요.
 * Azure PowerShell이 설치된 컴퓨터 관련 지침은 [Azure PowerShell Cmdlet 시작](/powershell/azure/get-started-azureps)을 참조하세요.
 * PowerShell 스크립트, NuGet 패키지 및 .NET Framework 전반에 대한 지식
 
@@ -43,7 +43,7 @@ Azure Resource Manager 템플릿을 사용하여 Service Bus 엔터티를 관리
 
 ## <a name="provision-a-service-bus-namespace"></a>Service Bus 네임스페이스 프로비전
 
-Service Bus 네임 스페이스를 사용할 때 사용할 수 있습니다 합니다 [Get AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [새로 만들기-AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace)를 [제거 AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace), 및 [ 집합 AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlet.
+Service Bus 네임 스페이스로 작업할 때 [AzServiceBusNamespace](/powershell/module/az.servicebus/get-azservicebusnamespace), [AzServiceBusNamespace](/powershell/module/az.servicebus/new-azservicebusnamespace), [AzServiceBusNamespace](/powershell/module/az.servicebus/remove-azservicebusnamespace)및 [AzServiceBusNamespace](/powershell/module/az.servicebus/set-azservicebusnamespace) cmdlet을 사용할 수 있습니다.
 
 이 예제에서는 스크립트에 `$Namespace`과(와) `$Location`(이)라는 몇 가지 로컬 변수를 만듭니다.
 
@@ -83,7 +83,7 @@ Service Bus 네임 스페이스를 사용할 때 사용할 수 있습니다 합�
 
 ### <a name="create-a-namespace-authorization-rule"></a>네임스페이스 권한 부여 규칙 만들기
 
-다음 예제에서는 네임 스페이스 권한 부여 규칙을 사용 하 여 관리 하는 방법을 보여 줍니다 합니다 [새로 만들기-AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule)를 [Get AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [ 집합 AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule), 및 [제거 AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlet.
+다음 예제에서는 [AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/new-azservicebusauthorizationrule), [AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/get-azservicebusauthorizationrule), [AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/set-azservicebusauthorizationrule)및 [AzServiceBusAuthorizationRule](/powershell/module/az.servicebus/remove-azservicebusauthorizationrule) cmdlet을 사용 하 여 네임 스페이스 권한 부여 규칙을 관리 하는 방법을 보여 줍니다.
 
 ```powershell
 # Query to see if rule exists
@@ -147,7 +147,7 @@ else
 
 ### <a name="modify-queue-properties"></a>큐 속성 수정
 
-이전 섹션에서 스크립트를 실행 한 후 사용할 수 있습니다 합니다 [집합 AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) 다음 예제와 같이 큐의 속성을 업데이트 하는 cmdlet:
+이전 섹션에서 스크립트를 실행 한 후에는 다음 예제와 같이 [AzServiceBusQueue](/powershell/module/az.servicebus/set-azservicebusqueue) cmdlet을 사용 하 여 큐의 속성을 업데이트할 수 있습니다.
 
 ```powershell
 $CurrentQ.DeadLetteringOnMessageExpiration = $True

@@ -1,6 +1,6 @@
 ---
 title: 웹 앱에서 web api 호출-Microsoft identity platform | Microsoft
-description: Web api를 호출 하는 웹 앱을 빌드하는 방법에 대해 알아봅니다.
+description: 웹 Api를 호출 하는 웹 앱을 빌드하는 방법 알아보기 (보호 된 웹 API 호출)
 services: active-directory
 documentationcenter: dev-center-name
 author: jmprieur
@@ -14,20 +14,20 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: a1857117d80c6725f801652606fc2d73067ea9da
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 28b4be46dc686c6e1b55f1ab36e0607057ebdbbd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701623"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758974"
 ---
-# <a name="web-app-that-calls-web-apis---call-a-web-api"></a>웹 api를 호출 하는 웹 앱-web API 호출
+# <a name="a-web-app-that-calls-web-apis-call-a-web-api"></a>웹 api를 호출 하는 웹 앱: web API 호출
 
 이제 토큰이 있으므로 보호 된 web API를 호출할 수 있습니다.
 
 # <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
-다음은 `HomeController`동작의 간소화 된 코드입니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. 이 시간 코드가 추가 되어 Microsoft Graph를 REST API으로 호출 하는 방법을 보여 줍니다. Graph API에 대 한 URL은 `appsettings.json` 파일에 제공 되며 `webOptions`라는 변수를 읽습니다.
+`HomeController`작업에 대 한 단순화 된 코드는 다음과 같습니다. 이 코드는 Microsoft Graph를 호출 하는 토큰을 가져옵니다. REST API Microsoft Graph를 호출 하는 방법을 보여 주는 코드가 추가 되었습니다. Microsoft Graph API에 대 한 URL은 appsettings 파일에 제공 되며 `webOptions`라는 변수에서 읽습니다.
 
 ```JSon
 {
@@ -47,10 +47,10 @@ public async Task<IActionResult> Profile()
  string accountIdentifier = claimsPrincipal.GetMsalAccountId();
  string loginHint = claimsPrincipal.GetLoginHint();
 
- // Get the account
+ // Get the account.
  IAccount account = await application.GetAccountAsync(accountIdentifier);
 
- // Special case for guest users as the Guest iod / tenant id are not surfaced.
+ // Special case for guest users, because the guest ID / tenant ID are not surfaced.
  if (account == null)
  {
   var accounts = await application.GetAccountsAsync();
@@ -62,7 +62,7 @@ public async Task<IActionResult> Profile()
                             .ExecuteAsync();
  var accessToken = result.AccessToken;
 
- // Calls the web API (here the graph)
+ // Calls the web API (Microsoft Graph in this case).
  HttpClient httpClient = new HttpClient();
  httpClient.DefaultRequestHeaders.Authorization =
      new AuthenticationHeaderValue(Constants.BearerAuthorizationScheme,accessToken);
@@ -84,7 +84,7 @@ public async Task<IActionResult> Profile()
 > [!NOTE]
 > 동일한 원칙을 사용 하 여 web API를 호출할 수 있습니다.
 >
-> 대부분의 Azure web Api는 호출을 간소화 하는 SDK를 제공 합니다. 이는 Microsoft Graph의 경우 이기도 합니다. 다음 문서에서는 이러한 측면을 보여 주는 자습서를 찾을 수 있습니다.
+> 대부분의 Azure web Api는 API 호출을 간소화 하는 SDK를 제공 합니다. Microsoft Graph도 마찬가지입니다. 다음 문서에서는 API 사용을 보여 주는 자습서를 찾을 수 있는 위치에 대해 알아봅니다.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
@@ -120,7 +120,7 @@ def graphcall():
     token = _get_token_from_cache(app_config.SCOPE)
     if not token:
         return redirect(url_for("login"))
-    graph_data = requests.get(  # Use token to call downstream service
+    graph_data = requests.get(  # Use token to call downstream service.
         app_config.ENDPOINT,
         headers={'Authorization': 'Bearer ' + token['access_token']},
         ).json()

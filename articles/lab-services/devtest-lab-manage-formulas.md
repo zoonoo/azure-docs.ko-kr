@@ -1,6 +1,6 @@
 ---
 title: VM을 만드는 Azure DevTest Labs 수식 관리 | Microsoft 문서
-description: Azure DevTest Labs 수식을 업데이트하고 제거하는 방법 알아보기
+description: 이 문서에서는 기본(사용자 지정 이미지, Marketplace 이미지 또는 다른 수식) 또는 기존 VM에서 수식을 만드는 방법을 보여 줍니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: d8f2ae64e2f8e694de5a7cf5aa9049e63998dca0
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: a668c1f7cf401c109c1041232d7f28dd2accd750
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60562600"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760405"
 ---
 # <a name="manage-azure-devtest-labs-formulas"></a>Azure DevTest Labs 수식 관리
 
@@ -69,7 +69,7 @@ DevTest Lab *사용자* 권한이 있으면 수식을 기준으로 사용하여 
     - **IP 주소 구성** - 공용, 프라이빗 또는 공유 IP 주소를 원하는 경우 지정합니다. 공유 IP 주소에 대한 자세한 내용은 [Azure DevTest Labs에서 공유 IP 주소 이해](./devtest-lab-shared-ip.md)를 참조하세요.
     - **만료 날짜 및 시간** - VM이 자동으로 삭제되도록 VM에 대한 만료 날짜 및 시간을 지정합니다. 
     - **Make this machine claimable**(이 컴퓨터를 클레임 가능하도록 지정) - 컴퓨터를 "클레임 가능"하도록 지정하는 것은 생성 시 소유권을 할당하지 않는다는 것을 의미합니다. 대신 랩 사용자는 랩의 페이지에서 머신에 대한 소유권("클레임")을 가져올 수 있습니다.     
-    - **클레임 할 수 있는 인스턴스 수가** -을 만들려는 클레임 할 수 있는 인스턴스의 수를 지정 합니다. 
+    - **클레임 할 수 인스턴스 수** -만들려는 클레임 할 수 있는 인스턴스 수를 지정 합니다. 
 8. **제출**을 선택하여 수식을 만듭니다.
 
 9. 수식이 만들어지면, **수식** 페이지의 목록에 표시됩니다.

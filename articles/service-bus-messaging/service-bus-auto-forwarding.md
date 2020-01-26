@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus 메시징 엔터티 자동 전달 | Microsoft Docs
-description: Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결하는 방법
+title: 자동 전달 Azure Service Bus 메시징 엔터티
+description: 이 문서에서는 Azure Service Bus 큐 또는 구독을 다른 큐 또는 토픽에 연결 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 1d7b76a58a427b687d0dc36d13cfc00f32196853
-ms.sourcegitcommit: 88ae4396fec7ea56011f896a7c7c79af867c90a1
+ms.openlocfilehash: 8b8883b579233962de61e7247e6ac1cbcb2a6d80
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70390140"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761052"
 ---
 # <a name="chaining-service-bus-entities-with-autoforwarding"></a>자동 전달을 사용한 Service Bus 엔터티 연결
 
@@ -27,7 +27,7 @@ Service Bus *자동 전달* 기능을 통해 동일한 네임스페이스의 일
 
 ## <a name="using-autoforwarding"></a>자동 전달 사용
 
-에서와 같이 queuedescription 또는 subscriptiondescription 개체의 속성 [을][SubscriptionDescription.ForwardTo] 원본에 대 한 [Queuedescription][QueueDescription] 또는 [subscriptiondescription][SubscriptionDescription] 개체의 속성으로 설정 하 여 자동 전달을 사용 하도록 설정할 수 있습니다 [.][QueueDescription.ForwardTo] 예를 들면 다음과 같습니다.
+다음 예와 [같이 queuedescription][QueueDescription.ForwardTo] 또는 subscriptiondescription 개체의 [Queuedescription][QueueDescription] 또는 [subscriptiondescription][SubscriptionDescription] 개체의 속성 [을][SubscriptionDescription.ForwardTo] 설정 하 여 자동 전달을 사용 하도록 설정할 수 있습니다.
 
 ```csharp
 SubscriptionDescription srcSubscription = new SubscriptionDescription (srcTopic, srcSubscriptionName);

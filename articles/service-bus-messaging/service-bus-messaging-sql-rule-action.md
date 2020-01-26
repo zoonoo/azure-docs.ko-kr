@@ -1,6 +1,6 @@
 ---
-title: Azure에서 SQLRuleAction 구문 참조 | Microsoft Docs
-description: SQLRuleAction 문법에 대한 세부 정보입니다.
+title: Azure Service Bus의 SQLRuleAction 구문 참조
+description: 이 문서에서는 SQLRuleAction 구문에 대 한 참조를 제공 합니다. 작업은 조정 된 메시지에 대해 수행 되는 SQL 언어 기반 구문으로 작성 됩니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/05/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 0f9365b72da1cec81eed82756097d32b1d72ca71
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 37615e39577ef60cccc9df91b61a6aa24ca794d0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "60307481"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759631"
 ---
-# <a name="sqlruleaction-syntax"></a>SQLRuleAction 구문
+# <a name="sqlruleaction-syntax-reference-for-azure-service-bus"></a>Azure Service Bus에 대 한 SQLRuleAction 구문 참조
 
 *SqlRuleAction*은 [SqlRuleAction](/dotnet/api/microsoft.servicebus.messaging.sqlruleaction) 클래스의 인스턴스이며 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)에 대해 수행된SQL 언어 기반 구문으로 작성된 일련의 작업을 나타냅니다.   
   
@@ -71,7 +71,7 @@ ms.locfileid: "60307481"
 
 존재하지 않는 시스템 속성에 대한 액세스 시도는 오류이지만 존재하지 않는 사용자 속성에 대한 액세스 시도는 오류가 아닙니다. 대신, 존재하지 않는 사용자 속성은 알 수 없는 값;으로 내부적으로 평가됩니다. 알 수 없는 값은 연산자 평가 중에 특별히 처리됩니다.  
   
-## <a name="propertyname"></a>property_name  
+## <a name="property_name"></a>property_name  
   
 ```  
 <property_name> ::=  
@@ -123,11 +123,11 @@ ms.locfileid: "60307481"
   
  `<pattern>`은 문자열로 평가할 식이어야 합니다. LIKE 연산자에 대한 패턴으로 사용됩니다.      다음 와일드 카드 문자를 포함할 수 있습니다.  
   
--   `%`:  0개 이상의 문자로 된 문자열입니다.  
+-   `%`: 0개 이상의 문자입니다.  
   
 -   `_`: 단일 문자입니다.  
   
-## <a name="escapechar"></a>escape_char  
+## <a name="escape_char"></a>escape_char  
   
 ```  
 <escape_char> ::=  
@@ -176,7 +176,7 @@ ms.locfileid: "60307481"
     0.5E-2  
     ```  
   
-## <a name="booleanconstant"></a>boolean_constant  
+## <a name="boolean_constant"></a>boolean_constant  
   
 ```  
 <boolean_constant> :=  
@@ -187,7 +187,7 @@ ms.locfileid: "60307481"
   
 Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `System.Boolean`으로 저장됩니다.  
   
-## <a name="stringconstant"></a>string_constant  
+## <a name="string_constant"></a>string_constant  
   
 ```  
 <string_constant>  
@@ -197,7 +197,7 @@ Boolean 상수는 `TRUE` 또는 `FALSE` 키워드로 표시됩니다. 값은 `Sy
   
 문자열 상수는 작은따옴표로 묶으며 유효한 유니코드 문자를 포함합니다. 문자열 상수에 포함된 작은따옴표는 두 개의 작은따옴표로 표시됩니다.  
   
-## <a name="function"></a>함수  
+## <a name="function"></a>function  
   
 ```  
 <function> :=  

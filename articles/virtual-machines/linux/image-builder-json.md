@@ -1,18 +1,18 @@
 ---
 title: Azure 이미지 작성기 템플릿 만들기 (미리 보기)
 description: Azure 이미지 작성기에서 사용할 템플릿을 만드는 방법에 대해 알아봅니다.
-author: cynthn
-ms.author: cynthn
-ms.date: 07/31/2019
+author: danis
+ms.author: danis
+ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 4a411603ca5c3c79da0d596396d8fde80b568af2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763082"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760014"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -28,11 +28,15 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
     "tags": {
         "<name": "<value>",
         "<name>": "<value>"
-             },
+             }
     "identity":{},           
     "dependsOn": [], 
     "properties": { 
         "buildTimeoutInMinutes": <minutes>, 
+        "vmProfile": 
+            {
+            "vmSize": "<vmSize>"
+            },
         "build": {}, 
         "customize": {}, 
         "distribute": {} 
@@ -64,6 +68,24 @@ Azure 이미지 작성기는 json 파일을 사용 하 여 이미지 작성기 �
 
 ```json
     "location": "<region>",
+```
+## <a name="vmprofile"></a>vmProfile
+기본적으로 이미지 작성기는 "Standard_D1_v2" 빌드 VM을 사용 합니다 .이를 재정의할 수 있습니다. 예를 들어 GPU VM에 대 한 이미지를 사용자 지정 하려는 경우 GPU VM 크기가 필요 합니다. 이 구성 요소는 선택 사항입니다.
+
+```json
+ {
+    "vmSize": "Standard_D1_v2"
+ },
+```
+
+## <a name="osdisksizegb"></a>osDiskSizeGB
+
+기본적으로 이미지 작성기는 이미지 크기를 변경 하지 않으며 원본 이미지의 크기를 사용 합니다. Os 디스크의 크기를 조정할 수 있습니다 (Win 및 Linux). 참고로, OS에 필요한 최소 필요한 공간 보다 너무 작게 이동 하지 마십시오. 이 값은 선택 사항이 며 값이 0 이면 원본 이미지와 크기가 동일 하 게 유지 됩니다. 이 구성 요소는 선택 사항입니다.
+
+```json
+ {
+    "osDiskSizeGB": 100
+ },
 ```
 
 ## <a name="tags"></a>태그
@@ -135,13 +157,7 @@ Azure 이미지 빌더는 미리 보기를 위해 게시 된 Red Hat Enterprise 
 > 링크의 액세스 토큰은 자주 새로 고쳐집니다. 따라서 템플릿을 제출할 때마다 RH 링크 주소가 변경 되었는지 확인 해야 합니다.
  
 ### <a name="platformimage-source"></a>PlatformImage 원본 
-Azure 이미지 작성기는 다음과 같은 Azure Marketplace 이미지를 지원 합니다.
-* Ubuntu 18.04
-* Ubuntu 16.04
-* RHEL 7.6
-* CentOS 7.6
-* Windows 2016
-* Windows 2019
+Azure 이미지 작성기는 Windows Server 및 클라이언트 및 Linux Azure Marketplace 이미지를 지원 합니다. 전체 목록은 [여기](https://docs.microsoft.com/azure/virtual-machines/windows/image-builder-overview#os-support) 를 참조 하세요. 
 
 ```json
         "source": {
@@ -220,7 +236,8 @@ BuildTimeoutInMinutes 값을 지정 하지 않거나 0으로 설정 하면에서
             {
                 "type": "Shell",
                 "name": "<name>",
-                "scriptUri": "<path to script>"
+                "scriptUri": "<path to script>",
+                "sha256Checksum": "<sha256 checksum>"
             },
             {
                 "type": "Shell",
@@ -246,7 +263,8 @@ BuildTimeoutInMinutes 값을 지정 하지 않거나 0으로 설정 하면에서
         { 
             "type": "Shell", 
             "name": "<name>", 
-            "scriptUri": "<link to script>"        
+            "scriptUri": "<link to script>",
+            "sha256Checksum": "<sha256 checksum>"       
         }, 
     ], 
         "customize": [ 
@@ -266,7 +284,12 @@ OS 지원: Linux
 - **이름** -사용자 지정을 추적 하기 위한 이름 
 - **scriptUri** -파일의 위치에 대 한 URI입니다. 
 - 쉼표로 구분 된 셸 명령의 **인라인** 배열입니다.
- 
+- **sha256Checksum** -파일의 sha256 체크섬 값을 로컬로 생성 한 다음 이미지 작성기에서 체크섬 및 유효성 검사를 수행 합니다.
+    * Sha256Checksum를 생성 하려면 Mac/Linux에서 터미널을 사용 하 여 다음을 실행 합니다. `sha256sum <fileName>`
+
+
+슈퍼 사용자 권한으로 명령을 실행 하려면 `sudo`앞에와 야 합니다.
+
 > [!NOTE]
 > RHEL ISO 원본을 사용 하 여 셸 사용자 지정을 실행 하는 경우 사용자 지정이 발생 하기 전에 첫 번째 사용자 지정 셸에서 Red Hat 자격 서버 등록을 처리 하는지 확인 해야 합니다. 사용자 지정이 완료 되 면 스크립트는 자격 서버에서 등록을 취소 해야 합니다.
 
@@ -275,12 +298,15 @@ OS 지원: Linux
 
 ```json 
      "customize": [ 
-         {
-            "type": "WindowsRestart", 
-            "restartCommand": "shutdown /r /f /t 0 /c", 
-            "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > buildArtifacts/azureImageBuilderRestart.txt",
-            "restartTimeout": "5m"
-         }],
+
+            {
+                "type": "WindowsRestart",
+                "restartCommand": "shutdown /r /f /t 0 /c", 
+                "restartCheckCommand": "echo Azure-Image-Builder-Restarted-the-VM  > c:\\buildArtifacts\\azureImageBuilderRestart.txt",
+                "restartTimeout": "5m"
+            }
+  
+        ],
 ```
 
 OS 지원: Windows
@@ -300,13 +326,16 @@ OS 지원: Windows
         { 
              "type": "PowerShell",
              "name":   "<name>",  
-             "scriptUri": "<path to script>" 
+             "scriptUri": "<path to script>",
+             "runElevated": "<true false>",
+             "sha256Checksum": "<sha256 checksum>" 
         },  
         { 
              "type": "PowerShell", 
              "name": "<name>", 
              "inline": "<PowerShell syntax to run>", 
-             "valid_exit_codes": "<exit code>" 
+             "valid_exit_codes": "<exit code>",
+             "runElevated": "<true or false>" 
          } 
     ], 
 ```
@@ -319,6 +348,10 @@ OS 지원: Windows 및 Linux
 - **scriptUri** -PowerShell 스크립트 파일의 위치에 대 한 URI입니다. 
 - **인라인** – 실행할 인라인 명령이 며 쉼표로 구분 됩니다.
 - **valid_exit_codes** – 스크립트/인라인 명령에서 반환 될 수 있는 유효한 코드 (선택 사항)-스크립트/인라인 명령의 오류를 보고 하지 않습니다.
+- **runelevated** – 선택적, 부울, 상승 된 권한으로 명령 및 스크립트를 실행 하기 위한 지원입니다.
+- **sha256Checksum** -파일의 sha256 체크섬 값을 로컬로 생성 한 다음 이미지 작성기에서 체크섬 및 유효성 검사를 수행 합니다.
+    * [Windows에서](https://docs.microsoft.com/powershell/module/microsoft.powershell.utility/get-filehash?view=powershell-6) PowerShell을 사용 하 여 sha256Checksum을 생성 하려면
+
 
 ### <a name="file-customizer"></a>파일 사용자 지정자
 
@@ -330,7 +363,8 @@ OS 지원: Windows 및 Linux
             "type": "File", 
              "name": "<name>", 
              "sourceUri": "<source location>",
-             "destination": "<destination>" 
+             "destination": "<destination>",
+             "sha256Checksum": "<sha256 checksum>"
          }
      ]
 ```
@@ -398,8 +432,39 @@ Azure 이미지 작성기는 다음과 같은 세 가지 배포 대상을 지원
 
 동일한 구성에서 두 대상 유형에 이미지를 배포할 수 있습니다. [예](https://github.com/danielsollondon/azvmimagebuilder/blob/7f3d8c01eb3bf960d8b6df20ecd5c244988d13b6/armTemplates/azplatform_image_deploy_sigmdi.json#L80)를 참조 하세요.
 
-배포할 대상이 둘 이상 있을 수 있으므로 이미지 작성기는 `runOutputName`을 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리 합니다.  `runOutputName`은 해당 배포에 대 한 정보를 게시 하는 배포를 쿼리할 수 있는 개체입니다. 예를 들어 VHD의 위치나 이미지 버전이 복제 된 지역을 쿼리할 수 있습니다. 모든 배포 대상의 속성입니다. `runOutputName`은 각 배포 대상에 대해 고유 해야 합니다.
- 
+배포할 대상이 둘 이상 있을 수 있으므로 이미지 작성기는 `runOutputName`을 쿼리하여 액세스할 수 있는 모든 배포 대상의 상태를 유지 관리 합니다.  `runOutputName`은 해당 배포에 대 한 정보를 게시 하는 배포를 쿼리할 수 있는 개체입니다. 예를 들어 VHD의 위치 또는 이미지 버전이 복제 된 지역 또는 SIG 이미지 버전이 생성 된 영역을 쿼리할 수 있습니다. 모든 배포 대상의 속성입니다. `runOutputName`은 각 배포 대상에 대해 고유 해야 합니다. 다음은 공유 이미지 갤러리 배포를 쿼리 하는 예제입니다.
+
+```bash
+subscriptionID=<subcriptionID>
+imageResourceGroup=<resourceGroup of image template>
+runOutputName=<runOutputName>
+
+az resource show \
+        --ids "/subscriptions/$subscriptionID/resourcegroups/$imageResourceGroup/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/$runOutputName"  \
+        --api-version=2019-05-01-preview
+```
+
+출력:
+```json
+{
+  "id": "/subscriptions/xxxxxx/resourcegroups/rheltest/providers/Microsoft.VirtualMachineImages/imageTemplates/ImageTemplateLinuxRHEL77/runOutputs/rhel77",
+  "identity": null,
+  "kind": null,
+  "location": null,
+  "managedBy": null,
+  "name": "rhel77",
+  "plan": null,
+  "properties": {
+    "artifactId": "/subscriptions/xxxxxx/resourceGroups/aibDevOpsImg/providers/Microsoft.Compute/galleries/devOpsSIG/images/rhel/versions/0.24105.52755",
+    "provisioningState": "Succeeded"
+  },
+  "resourceGroup": "rheltest",
+  "sku": null,
+  "tags": null,
+  "type": "Microsoft.VirtualMachineImages/imageTemplates/runOutputs"
+}
+```
+
 ### <a name="distribute-managedimage"></a>배포: managedImage
 
 이미지 출력은 관리 되는 이미지 리소스입니다.
@@ -503,13 +568,4 @@ az resource show \
 ## <a name="next-steps"></a>다음 단계
 
 [Azure 이미지 작성기 GitHub](https://github.com/danielsollondon/azvmimagebuilder)에는 다양 한 시나리오에 대 한 샘플 json 파일이 있습니다.
- 
- 
- 
- 
- 
- 
- 
- 
- 
  

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: TomSh
-ms.openlocfilehash: 8fab85b6f1d876cc65ceb44acd60b53c379e59e8
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: c6e74e7992326d2a4b8fe24510742422b005c2e2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121950"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756163"
 ---
 # <a name="isolation-in-the-azure-public-cloud"></a>Azure 퍼블릭 클라우드에서 격리
 Azure를 통해 공유 되는 물리적 인프라에서 응용 프로그램 및 Vm (가상 머신)을 실행할 수 있습니다. 클라우드 환경에서 애플리케이션을 실행하는 데 있어 가장 중요한 경제적 동기 중 하나는 여러 고객에게 공유 리소스에 대한 비용을 분산할 수 있는 능력입니다. 이러한 다중 테넌트 방식은 저렴한 비용으로 서로 다른 고객 간에 리소스를 다중화함으로써 효율성을 향상시킵니다. 아쉽게도 물리적 서버 및 기타 인프라 리소스를 공유하여 임의의 잠재적 악성 사용자에게 속할 수 있는 중요한 애플리케이션과 VM을 실행할 위험이 있습니다.
@@ -111,6 +111,9 @@ Microsoft Azure는 애플리케이션 또는 엔터프라이즈의 요구 사항
 ### <a name="isolated-virtual-machine-sizes"></a>격리 가상 머신 크기
 
 [!INCLUDE [virtual-machines-common-isolation](../../../includes/virtual-machines-common-isolation.md)]
+
+### <a name="dedicated-hosts"></a>전용 호스트
+이전 섹션에서 설명한 isolated 호스트 외에도 Azure는 전용 호스트를 제공 합니다. Azure의 전용 호스트는 하나 이상의 가상 컴퓨터를 호스팅할 수 있는 물리적 서버 및 단일 Azure 구독 전용 서비스를 제공 하는 서비스입니다. 전용 호스트는 물리적 서버 수준에서 하드웨어 격리를 제공 합니다. 다른 Vm은 호스트에 배치 되지 않습니다. 전용 호스트는 동일한 데이터 센터에 배포 되며 동일한 네트워크 및 기본 저장소 인프라를 격리 되지 않은 다른 호스트로 공유 합니다. 자세한 내용은 [Azure 전용 호스트](https://docs.microsoft.com/azure/virtual-machines/windows/dedicated-hosts)의 상세 개요를 참조 하세요.
 
 ### <a name="hyper-v--root-os-isolation-between-root-vm--guest-vms"></a>루트 VM과 게스트 VM 간 Hyper-V 및 루트 OS 격리
 Azure의 컴퓨팅 플랫폼은 Hyper-V 가상 머신에서 모든 고객 코드를 실행한다는 것을 의미하는 머신 가상화를 기반으로 합니다. 각 Azure 노드(또는 네트워크 엔드포인트)에는 하드웨어를 통해 직접 실행되는 하이퍼바이저가 있으며, 노드는 여러 게스트 VM(Virtual Machines)으로 나누어집니다.

@@ -11,12 +11,12 @@ ms.date: 07/12/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 69eb1221686da61868df8b06ed80664ae76d1627
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 69ba3ed981a27dfff41ea9ea52e1da769a9366c4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685509"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759638"
 ---
 # <a name="geo-restore-azure-sql-data-warehouse"></a>지역 복원 Azure SQL Data Warehouse
 
@@ -26,24 +26,24 @@ ms.locfileid: "73685509"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**DTU 용량을 확인합니다.** 각 SQL Data Warehouse는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다. SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청][Request a DTU quota change]을 참조합니다.
+**DTU 용량을 확인합니다.** 각 SQL Data Warehouse는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다. SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
 
 ## <a name="restore-from-an-azure-geographical-region-through-powershell"></a>PowerShell을 통해 Azure 지역에서 복원
 
-지역 백업에서 복원 하려면 [AzSqlDatabaseGeoBackup][Get-AzSqlDatabaseGeoBackup] 및 [AzSqlDatabase][Restore-AzSqlDatabase] cmdlet을 사용 합니다.
+지역 백업에서 복원 하려면 [AzSqlDatabaseGeoBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup) 및 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet을 사용 합니다.
 
 > [!NOTE]
 > 지역 복원을 Gen2로 수행할 수 있습니다! 이렇게 하려면 Gen2 ServiceObjectiveName(예: DW1000**c**)을 선택적 매개 변수로 지정하세요.
 >
 
-1. 시작 하기 전에 [Azure PowerShell을 설치][Install Azure PowerShell]해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
 2. PowerShell을 엽니다.
 2. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 3. 복원할 데이터 웨어하우스를 포함 하는 구독을 선택 합니다.
 4. 복구 하려는 데이터 웨어하우스를 가져옵니다.
 5. 데이터 웨어하우스에 대 한 복구 요청을 만듭니다.
 6. 지역 복원 데이터 웨어하우스의 상태를 확인 합니다.
-7. 복원이 완료된 후에 데이터 웨어하우스를 구성하려면 [복구 후 데이터베이스 구성][Configure your database after recovery]을 참조하세요.
+7. 복원이 완료된 후에 데이터 웨어하우스를 구성하려면 [복구 후 데이터베이스 구성]( ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery)을 참조하세요.
 
 ```Powershell
 $SubscriptionName="<YourSubscriptionName>"
@@ -76,7 +76,7 @@ $GeoRestoredDatabase.status
 
 지역 백업에서 Azure SQL Data Warehouse를 복원 하려면 아래에 설명 된 단계를 따르세요.
 
-1. [Azure Portal][Azure portal] 계정에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com/) 계정에 로그인 합니다.
 1. **+ 리소스 만들기** 를 클릭 하 고 SQL Data Warehouse를 검색 한 후 **만들기**를 클릭 합니다.
 
     ![새 DW](./media/sql-data-warehouse-restore-from-geo-backup/georestore-new.png)
@@ -89,30 +89,5 @@ $GeoRestoredDatabase.status
 2. 데이터 웨어하우스가 복원 되 면 **상태가** 온라인 인지 확인 합니다.
 
 ## <a name="next-steps"></a>다음 단계
-- [기존 데이터 웨어하우스 복원][Restore an existing data warehouse]
-- [삭제 된 데이터 웨어하우스 복원][Restore a deleted data warehouse]
-
-<!--Image references-->
-
-<!--Article references-->
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[How to install and configure Azure PowerShell]: /powershell/azureps-cmdlets-docs
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-
-
-<!--MSDN references-->
-[Restore-AzSqlDatabase]: https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase
-[Get-AzSqlDatabaseGeoBackup]: https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabasegeobackup
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/
+- [기존 데이터 웨어하우스 복원](sql-data-warehouse-restore-active-paused-dw.md)
+- [삭제 된 데이터 웨어하우스 복원](sql-data-warehouse-restore-deleted-dw.md)

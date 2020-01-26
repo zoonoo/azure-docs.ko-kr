@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 메시징-큐, 토픽 및 구독
-description: Service Bus 메시징 엔터티의 개요
+description: 이 문서에서는 Azure Service Bus 메시징 엔터티 (큐, 토픽 및 구독)에 대 한 개요를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: na
 author: axisc
@@ -10,12 +10,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 01/16/2020
 ms.author: aschhab
-ms.openlocfilehash: e5ef189f5ce7b0cb53e5070fcc88630c72239503
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3dc78a22e0e596d812d90fec63475a0b21e9164f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260726"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759587"
 ---
 # <a name="service-bus-queues-topics-and-subscriptions"></a>Service Bus 큐, 토픽 및 구독
 

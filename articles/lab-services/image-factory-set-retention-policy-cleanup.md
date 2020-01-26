@@ -10,14 +10,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 03/25/2019
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5c407edfedd6eb1156a0fec5719cc9435858bd4a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a472c500ee6b968b1459e65e49a352b81e5ea6ec
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456931"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759417"
 ---
 # <a name="set-up-retention-policy-in-azure-devtest-labs"></a>Azure DevTest Labs에서 보존 정책 설정
 이 문서에서는 보존 정책을 설정 하 고, 팩터리를 정리 하 고, 조직의 다른 모든 DevTest 랩에서 이전 이미지를 사용 중지 하는 방법을 설명 합니다. 

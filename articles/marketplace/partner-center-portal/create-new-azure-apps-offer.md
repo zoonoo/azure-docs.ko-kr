@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: eb8540ac1904b46ba428b3b1e703e59c8b18d9e8
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69d7bc81f5adc4797be86f946fdb656b4b6cc682
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046035"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760903"
 ---
 # <a name="create-an-azure-application-offer"></a>Azure 애플리케이션 제품 만들기
 
@@ -156,19 +156,9 @@ Azure 응용 프로그램 제품을 만들려면 먼저 [파트너 센터 계정
 
 제품을 적절 한 마켓플레이스 검색 영역에 추가 하는 데 사용 되는 최소 1 개 및 최대 3 개 범주를 선택 합니다. 제품이 제품 설명에서 이러한 범주를 어떻게 지원 하는지 확인 해야 합니다. 
 
-### <a name="standard-marketplace-terms-and-conditions"></a>표준 마켓플레이스 계약 조건
+### <a name="standard-contract-for-the-microsoft-commercial-marketplace"></a>Microsoft 상업적 marketplace에 대 한 표준 계약
 
-고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft에서는 marketplace에서 트랜잭션을 용이 하 게 하기 위해 표준 계약 템플릿을 제공 합니다.
-
-사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다.
-
-표준 계약은 다음 위치에서 찾을 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2041178
-
-표준 계약을 사용 하려면 **표준 계약 사용?** 상자를 선택 합니다.
-
-#### <a name="terms-of-use"></a>사용 조건
-
-**표준 계약 사용** 확인란을 선택 하지 않은 경우 **사용 약관** 필드에서 사용자의 법적 사용 약관을 제공 해야 합니다. 최대 1만 문자 텍스트를 입력 하거나 사용 약관에 더 긴 설명이 필요한 경우 추가 사용 조건을 찾을 수 있는 URL을 입력 합니다. 고객은 앱을 사용해 볼 수 있도록 이러한 약관에 동의 해야 합니다.
+[!INCLUDE [Commercial marketplace Standard Contract](./includes/marketplace-contract-text.md)]
 
 ## <a name="offer-listing"></a>제품 목록
 
@@ -232,7 +222,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 이 섹션에서는 고객에 게 제품을 표시할 때 사용 되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식 이어야 합니다.
 
-#### <a name="store-logos"></a>Microsoft Store 로고
+#### <a name="store-logos"></a>매장 로고
 
 **소형 (48 x 48)** , **보통 (90 x 90)** 및 **큼 (216 x 216)** 의 세 가지 크기로 제품 로고를 제공 합니다.
 
@@ -287,7 +277,7 @@ Azure 구독 Id를 최대 10 개까지 수동으로 추가 하거나 CSV 파일�
 
 **계획 설정** 탭에서는 계획의 유형에 대 한 고급 구성을 설정 하 고, 다른 계획의 패키지를 다시 사용 하 고, 계획을 사용할 수 있는 클라우드를 설정할 수 있습니다.  이 탭에 대 한 답변은 동일한 계획에 대 한 다른 탭에 표시 되는 필드에 영향을 줍니다.
 
-#### <a name="plan-type"></a>플랜 유형
+#### <a name="plan-type"></a>계획 유형
 
 [Azure 응용 프로그램 계획의 유형에](#types-of-azure-application-plans)서 간략히 설명 된 대로 계획에 솔루션 템플릿 또는 관리 되는 응용 프로그램이 포함 될 지 여부를 선택 합니다.
 
@@ -362,7 +352,7 @@ Azure Government 서비스는 FedRAMP, NIST 800.171 (DIB), ITAR, IRS 1075, DoD L
 
 요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 확인 하세요. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
 
-### <a name="pricing"></a>가격
+### <a name="pricing"></a>가격 책정
 
 이 요금제에 대 한 월별 가격을 제공 합니다.  이 가격은이 솔루션을 통해 배포 된 리소스에 의해 발생 하는 Azure 인프라 또는 종 량 제 소프트웨어 비용에 추가로 부과 됩니다.
 

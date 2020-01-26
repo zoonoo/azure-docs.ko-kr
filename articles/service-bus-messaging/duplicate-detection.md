@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 중복 메시지 검색 | Microsoft Docs
-description: 중복 Service Bus 메시지 검색
+description: 이 문서에서는 Azure Service Bus 메시지에서 중복을 검색 하는 방법을 설명 합니다. 중복 된 메시지는 무시 하 고 삭제할 수 있습니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 4cd5fc50c35f4c4adb63c9d91af05dcf8b2dda40
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c109b9fd310a09e5eb4c6d18cc3536e4d8069c0b
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74924632"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760371"
 ---
 # <a name="duplicate-detection"></a>중복 검색
 
@@ -62,7 +62,7 @@ ms.locfileid: "74924632"
 
 ## <a name="next-steps"></a>다음 단계
 
-Service Bus 메시징에 대해 자세히 알아보려면 다음 토픽을 참조하세요.
+Service Bus 메시징에 대해 자세히 알아보려면 다음 항목을 참조하세요.
 
 * [Service Bus 큐, 토픽 및 구독](service-bus-queues-topics-subscriptions.md)
 * [Service Bus 큐 시작](service-bus-dotnet-get-started-with-queues.md)

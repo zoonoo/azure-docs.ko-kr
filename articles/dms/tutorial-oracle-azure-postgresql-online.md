@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 45b0c012ec8b8d70c1fad99db40f38fb92daf8a0
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 01/24/2020
+ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770648"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759912"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS (미리 보기)를 사용 하 여 Azure Database for PostgreSQL 온라인으로 Oracle 마이그레이션
 
@@ -49,7 +49,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 * [Oracle 11g 릴리스 2(Standard Edition, Standard Edition One 또는 Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)를 다운로드하여 설치합니다.
 * [여기](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002)에서 **HR** 샘플 데이터베이스를 다운로드합니다.
-* ora2pg를 [Windows](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf) 또는 [Linux](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Linux.pdf)에 다운로드하여 설치합니다.
+* [Windows 또는 Linux에서 ora2pg](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)를 다운로드 하 여 설치 합니다.
 * [Azure Database for PostgreSQL에서 인스턴스를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * 이 [문서](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal)의 지침을 사용하여 인스턴스에 연결하고 데이터베이스를 만듭니다.
 * [Express](https://docs.microsoft.com/azure/expressroute/expressroute-introduction) 경로 또는 [VPN](https://docs.microsoft.com/azure/vpn-gateway/vpn-gateway-about-vpngateways)을 사용 하 여 온-프레미스 원본 서버에 대 한 사이트 간 연결을 제공 하는 Azure Resource Manager 배포 모델을 사용 하 여 Azure Database Migration Service에 대 한 Microsoft Azure Virtual Network를 만듭니다. 가상 네트워크를 만드는 방법에 대 한 자세한 내용은 [Virtual Network 설명서](https://docs.microsoft.com/azure/virtual-network/)와 특히 단계별 정보를 포함 하는 빠른 시작 문서를 참조 하세요.
@@ -198,7 +198,7 @@ psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.dat
 
 Azure Database Migration Service에서 마이그레이션 파이프라인을 시작하기 전에, ora2pg를 사용하여 Oracle 테이블 스키마, 저장 프로시저, 패키지 및 기타 데이터베이스 개체가 Postgres와 호환되도록 변환할 수 있습니다. ora2pg로 작업하는 방법은 아래 링크를 참조하세요.
 
-* [Windows에 ora2pg 설치](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows.pdf)
+* [Windows에 ora2pg 설치](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)
 * [Oracle에서 Azure PostgreSQL로 마이그레이션 쿡북](https://github.com/Microsoft/DataMigrationTeam/blob/master/Whitepapers/Oracle%20to%20Azure%20PostgreSQL%20Migration%20Cookbook.pdf)
 
 Azure Database Migration Service는 PostgreSQL 테이블 스키마도 만들 수 있습니다. 이 서비스는 연결된 Oracle 원본의 테이블 스키마에 액세스하여 Azure Database for PostgreSQL에서 호환 가능한 테이블 스키마를 만듭니다. Azure Database Migration Service에서 스키마 생성 및 데이터 이동이 완료되면, Azure Database for PostgreSQL에서 스키마 형식을 검증하고 확인해야 합니다.

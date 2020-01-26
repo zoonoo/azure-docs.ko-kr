@@ -1,22 +1,22 @@
 ---
 title: Azure Service Bus FAQ | Microsoft Docs
-description: Azure Service Bus에 대 한 몇 가지 자주 묻는 질문에 답변 합니다.
+description: 이 문서에서는 Azure Service Bus에 대 한 FAQ (질문과 대답)를 제공 합니다.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c303e2b691f8e7aa7ea3c8fcc69e39d7970ef54e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3cd4e69481fb452391e6dc027cb41fd6dae71b7e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352882"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760252"
 ---
-# <a name="service-bus-faq"></a>Service Bus FAQ
+# <a name="azure-service-bus---frequently-asked-questions-faq"></a>Azure Service Bus-질문과 대답 (FAQ)
 
 이 문서는 Microsoft Azure Service Bus에 대한 일부 자주 묻는 질문에 대해 설명합니다. 또한 일반적인 Azure 가격 책정 및 지원 정보는 [Azure 지원 FAQ](https://azure.microsoft.com/support/faq/)에서 확인할 수 있습니다.
 
@@ -96,7 +96,7 @@ Azure Service Bus에서 다음 프로토콜을 사용 하 여 메시지를 보�
 * 중복 검색
 * Express 엔터티
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 이 섹션은 Service Bus 가격 책정 구조에 대한 일부 자주 묻는 질문을 답변합니다.
 
 [Service Bus 가격 및 대금 청구](https://azure.microsoft.com/pricing/details/service-bus/) 문서에서는 Service Bus의 요금 청구 기준에 대해 설명합니다. Service Bus 가격 책정 옵션에 대한 특정 정보는 [Service Bus 가격 책정 세부 정보](https://azure.microsoft.com/pricing/details/service-bus/)를 참조하세요.

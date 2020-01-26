@@ -1,22 +1,14 @@
 ---
 title: 한도 및 경계 - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한이 있습니다. 테스트 및 게시하기 위해서는 기술 자료를 그러한 제한 내로 유지하는 것이 중요합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: article
-ms.date: 12/10/2019
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: ddf2cb5730f123038c5dbde7ab07b4022f021ced
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/23/2020
+ms.openlocfilehash: 32e12d9e983795d2fb403a5b6bc304289ece92c2
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75381123"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760235"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -33,6 +25,15 @@ ms.locfileid: "75381123"
  예를 들어 계층에 허용되는 인덱스가 15개 있으면 기술 자료 14개를 게시할 수 있습니다(게시되는 기술 자료당 인덱스 1개). 15번째 인덱스(`testkb`)는 모든 기술 자료에서 작성 및 테스트용으로 사용됩니다.
 
 ## <a name="extraction-limits"></a>추출 제한
+
+### <a name="file-naming-constraints"></a>파일 명명 제약 조건
+
+파일 이름에는 다음 문자가 포함 될 수 없습니다.
+
+|문자 사용 안 함|
+|--|
+|작은따옴표 `'`|
+|큰따옴표 `"`|
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 

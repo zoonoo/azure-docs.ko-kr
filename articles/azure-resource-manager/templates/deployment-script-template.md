@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/22/2020
+ms.date: 01/24/2020
 ms.author: jgao
-ms.openlocfilehash: 125fefbb1d83db8b6114b2d09f5bd6da885159ba
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: f18c9c6efb17f84446b9fee3d2df2c0977bed0c4
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547645"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757306"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -35,20 +35,20 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 - 는 스크립트 출력을 지정 하 고 배포에 다시 전달할 수 있습니다.
 
 > [!NOTE]
-> 배포 스크립트는 현재 미리 보기로 제공 됩니다. 이를 사용 하려면 [미리 보기에 등록](https://aka.ms/armtemplatepreviews)해야 합니다.
+> 배포 스크립트는 현재 미리 보기로 있습니다. 이를 사용하려면 [미리 보기에 가입](https://aka.ms/armtemplatepreviews)해야 합니다.
 
 > [!IMPORTANT]
-> 두 개의 배포 스크립트 리소스, 저장소 계정 및 컨테이너 인스턴스는 스크립트 실행 및 문제 해결을 위해 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제 될 때까지 리소스에 대 한 요금이 청구 됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
+> 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
 ## <a name="prerequisites"></a>필수 조건
 
-- **구독 수준에서 참가자의 역할을 하는 사용자 할당 관리 id**입니다. 이 id는 배포 스크립트를 실행 하는 데 사용 됩니다. 하나를 만들려면 Azure Portal를 사용 하거나 [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 사용 하거나 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용 하 여 [사용자 할당 관리 id 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조 하세요. 템플릿을 배포할 때 id ID가 필요 합니다. Id 형식은 다음과 같습니다.
+- **구독 수준에서 기여자 역할이 있는 사용자가 할당한 관리 ID**. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 하나를 만들려면 Azure Portal를 사용 하거나 [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 사용 하거나 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용 하 여 [사용자 할당 관리 id 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조 하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
   ```json
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  다음 PowerShell 스크립트를 사용 하 여 리소스 그룹 이름 및 id 이름을 제공 하 여 ID를 가져옵니다.
+  다음 PowerShell 스크립트를 통해 리소스 그룹 이름과 ID 이름을 제공하여 ID를 가져옵니다.
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
@@ -78,7 +78,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "2.8",
+    "azPowerShellVersion": "3.0",
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -103,15 +103,15 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 
 - **Id**: 배포 스크립트 서비스는 사용자 할당 관리 id를 사용 하 여 스크립트를 실행 합니다. 현재 사용자 할당 관리 id만 지원 됩니다.
 - **kind**: 스크립트의 유형을 지정 합니다. 현재 Azure PowerShell 스크립트만 지원 됩니다. 값은 **Azurepowershell**입니다.
-- **Forceupdatetag**: 템플릿 배포 간에이 값을 변경 하면 배포 스크립트가 강제로 다시 실행 됩니다. 매개 변수의 defaultValue로 설정 해야 하는 newGuid () 또는 utcNow () 함수를 사용 합니다. 자세히 알아보려면 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조 하세요.
+- **Forceupdatetag**: 템플릿 배포 간에이 값을 변경 하면 배포 스크립트가 강제로 다시 실행 됩니다. 매개 변수의 defaultValue로 설정 해야 하는 newGuid () 또는 utcNow () 함수를 사용 합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
 - **azPowerShellVersion**: 사용할 Azure PowerShell 모듈 버전을 지정 합니다. 배포 스크립트는 현재 합니다, 2.8.0 및 3.0.0 버전을 지원 합니다.
-- **인수**: 매개 변수 값을 지정 합니다. 값은 공백으로 구분 됩니다.
+- **인수**: 매개 변수 값을 지정 합니다. 값은 공백으로 구분됩니다.
 - **scriptcontent**: 스크립트 콘텐츠를 지정 합니다. 외부 스크립트를 실행 하려면 대신 `primaryScriptUri`를 사용 합니다. 예제는 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용](#use-external-scripts)을 참조 하세요.
 - **primaryScriptUri**: 지원 되는 powershell 파일 확장명을 사용 하 여 기본 powershell 스크립트에 공개적으로 액세스할 수 있는 Url을 지정 합니다.
 - **Supportingscripturis**: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출 되는 powershell 파일을 지원 하기 위해 공개적으로 액세스할 수 있는 url의 배열을 지정 합니다.
 - **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 된 최대 허용 스크립트 실행 시간을 지정 합니다. 기본값은 **P1D**입니다.
-- **Cleanuppreference 설정**입니다. 스크립트 실행이 터미널 상태가 될 때 배포 리소스 정리의 기본 설정을 지정 합니다. 기본 설정은 **항상**입니다. 즉, 터미널 상태 (성공, 실패, 취소 됨)에도 불구 하 고 리소스를 삭제 합니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
-- **보존 기간**: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료 되 면 배포 스크립트 리소스가 삭제 됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 7 일을 의미 하는 **P1D**입니다. 이 속성은 cleanupPreference 설정이 *Onexpiration*로 설정 된 경우에 사용 됩니다. *Onexpiration* 속성이 현재 활성화 되어 있지 않습니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
+- **Cleanuppreference 설정**입니다. 스크립트 실행이 터미널 상태가 될 때 배포 리소스 정리의 기본 설정을 지정 합니다. 기본 설정은 **항상**입니다. 즉, 터미널 상태 (성공, 실패, 취소 됨)에도 불구 하 고 리소스를 삭제 합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
+- **보존 기간**: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료 되 면 배포 스크립트 리소스가 삭제 됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 7 일을 의미 하는 **P1D**입니다. 이 속성은 cleanupPreference 설정이 *Onexpiration*로 설정 된 경우에 사용 됩니다. *Onexpiration* 속성이 현재 활성화 되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
 ## <a name="use-inline-scripts"></a>인라인 스크립트 사용
 
@@ -194,7 +194,7 @@ reference('<ResourceName>').output.text
 
 사용자 스크립트, 실행 결과 및 stdout 파일은 저장소 계정의 파일 공유에 저장 됩니다. **Azscripts**라는 폴더가 있습니다. 폴더에는 입력 및 출력 파일에 대 한 두 개의 폴더 ( **azscriptinput** 및 **azscriptoutput**)가 있습니다.
 
-출력 폴더에는 **executionresult. json** 및 스크립트 출력 파일이 포함 되어 있습니다. **Executionresult. json**에서 스크립트 실행 오류 메시지를 볼 수 있습니다. 출력 파일은 스크립트가 성공적으로 실행 되는 경우에만 생성 됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일 및 사용자 배포 스크립트 파일이 포함 되어 있습니다. 사용자 배포 스크립트 파일을 수정 된 것으로 바꾸고 Azure container instance에서 배포 스크립트를 다시 실행할 수 있습니다.
+출력 폴더에는 **executionresult.json** 및 스크립트 출력 파일이 포함되어 있습니다. **Executionresult. json**에서 스크립트 실행 오류 메시지를 볼 수 있습니다. 출력 파일은 스크립트가 성공적으로 실행 되는 경우에만 생성 됩니다. 입력 폴더에는 시스템 PowerShell 스크립트 파일과 사용자 배포 스크립트 파일이 포함되어 있습니다. 사용자 배포 스크립트 파일을 수정 된 것으로 바꾸고 Azure container instance에서 배포 스크립트를 다시 실행할 수 있습니다.
 
 REST API를 사용 하 여 리소스 그룹 수준 및 구독 수준에서 배포 스크립트 리소스 배포 정보를 가져올 수 있습니다.
 

@@ -9,12 +9,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 01/07/2020
 tags: connectors
-ms.openlocfilehash: ebedb68f8826642437f53e5c5fa8cd0843e7c20e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: dccb715c974037b4e3080f3e51576feae34c03df
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665852"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757971"
 ---
 # <a name="manage-ibm-informix-database-resources-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 IBM Informix 데이터베이스 리소스 관리
 
@@ -117,7 +117,7 @@ ms.locfileid: "75665852"
 
 1. 입력을 보려면 **입력 링크**에서 URL 링크를 선택 합니다. 출력을 보려면 **출력 링크** 링크에서 URL 링크를 선택 합니다. 다음은 몇 가지 예제 출력입니다.
 
-   * **테이블 가져오기** 테이블 목록을 표시 합니다.
+   * **Get_tables** 테이블 목록이 표시 됩니다.
 
      !["테이블 가져오기" 작업의 출력](./media/connectors-create-api-informix/InformixconnectorGetTablesLogicAppRunOutputs.png)
 

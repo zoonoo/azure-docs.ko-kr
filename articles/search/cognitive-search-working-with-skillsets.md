@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 340e6d3feaf0265597a70229fd2658f009c01f64
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 0637e160454897af774c3bac48fc02866cb71835
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790891"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760796"
 ---
 # <a name="skillset-concepts-and-composition-in-azure-cognitive-search"></a>Azure Cognitive Search의 기술 개념 및 컴퍼지션
 
@@ -37,7 +37,7 @@ ms.locfileid: "74790891"
 ### <a name="enrichment-tree"></a>보강 트리
 
 기술가 문서를 점진적으로 강화 하는 방법을 구상 하기 위해 모든 보강 앞에 문서 모양의 모양을 시작 하겠습니다. 문서 크랙의 출력은 데이터 원본 및 선택한 특정 구문 분석 모드에 따라 달라 집니다. 검색 인덱스에 데이터를 추가할 때 [필드 매핑에서](search-indexer-field-mappings.md) 콘텐츠를 원본으로 지정할 수 있는 문서의 상태 이기도 합니다.
-![파이프라인의 지식 저장소 다이어그램](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "K파이프라인 다이어그램의 nowledge 저장소)
+![파이프라인의 지식 저장소 다이어그램](./media/knowledge-store-concept-intro/annotationstore_sans_internalcache.png "파이프라인의 지식 저장소 다이어그램")
 
 문서가 보강 파이프라인에 있으면 콘텐츠 및 관련 강화 트리로 표시 됩니다. 이 트리는 문서 크랙의 출력으로 인스턴스화됩니다. 보강 트리 형식을 사용 하면 보강 파이프라인이 메타 데이터를 기본 데이터 형식으로 연결 하 고, 유효한 JSON 개체가 아니지만 유효한 JSON 형식으로 프로젝션 할 수 있습니다. 다음 표에서는 보강 파이프라인에 입력 하는 문서의 상태를 보여 줍니다.
 
@@ -56,7 +56,7 @@ ms.locfileid: "74790891"
 각 기술에는 컨텍스트가 필요 합니다. 컨텍스트는 다음을 결정 합니다.
 +   선택 된 노드를 기준으로 기술이 실행 되는 횟수입니다. 형식 컬렉션의 컨텍스트 값의 경우 끝에 ```/*```을 추가 하면 컬렉션의 각 인스턴스에 대해 한 번씩 기술이 호출 됩니다. 
 +   보강 트리에서는 기술 출력이 추가 됩니다. 출력은 항상 트리에 컨텍스트 노드의 자식으로 추가 됩니다. 
-+   입력의 셰이프입니다. 다중 수준 컬렉션의 경우 컨텍스트를 부모 컬렉션으로 설정 하면 기술 입력의 모양에 영향을 줍니다. 예를 들어 국가 목록이 포함 된 보강 트리가 있는 경우 각 보강은 zipcodes 목록을 포함 하는 상태 목록을 포함 합니다.
++   입력의 셰이프입니다. 다중 수준 컬렉션의 경우 컨텍스트를 부모 컬렉션으로 설정 하면 기술에 대 한 입력 모양에 영향을 줍니다. 예를 들어 국가 목록이 포함 된 보강 트리가 있는 경우 각 보강은 zipcodes 목록을 포함 하는 상태 목록을 포함 합니다.
 
 |Context|입력|입력 모양|기술 호출|
 |---|---|---|---|
@@ -65,7 +65,7 @@ ms.locfileid: "74790891"
 
 ### <a name="sourcecontext"></a>SourceContext
 
-`sourceContext`는 기술 입력 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. 기술 자료 저장소에 기술 또는 프로젝트에 대 한 입력으로 전달 하기 위해 새 oject 만들어야 할 수도 있습니다. 보강 노드는 보강 트리의 유효한 JSON 개체가 아닐 수도 있고 트리의 노드가 생성 될 때 해당 노드의 상태만 반환 하는 경우 강화를 기술 입력 이나 프로젝션으로 사용 하면 올바른 형식의 JSON 개체를 만들어야 합니다. `sourceContext`를 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. `sourceContext` 사용은 다음 섹션에 나와 있습니다. 보강를 생성 한 기술 출력에서 기본 형식이 아닌 유효한 JSON 개체 인지 확인 합니다.
+`sourceContext`는 기술 입력 및 [프로젝션](knowledge-store-projection-overview.md)에서만 사용 됩니다. 이 클래스는 여러 수준의 중첩 된 개체를 생성 하는 데 사용 됩니다. 기술 자료 저장소에 기술 또는 프로젝트에 대 한 입력으로 전달 하는 새 개체를 만들어야 할 수도 있습니다. 보강 노드는 보강 트리의 유효한 JSON 개체가 될 수 없고 트리의 노드를 참조 하는 경우에만 생성 될 때 노드의 상태를 반환할 수 있습니다. 강화를 기술 입력 이나 프로젝션으로 사용 하면 올바른 형식의 JSON 개체를 만들어야 합니다. `sourceContext`를 사용 하 여 컨텍스트를 사용 하는 경우에는 여러 기술이 필요한 계층적 익명 형식 개체를 생성할 수 있습니다. `sourceContext` 사용은 다음 섹션에 나와 있습니다. 보강를 생성 한 기술 출력에서 기본 형식이 아닌 유효한 JSON 개체 인지 확인 합니다.
 
 ### <a name="projections"></a>프로젝션
 
@@ -100,7 +100,7 @@ ms.locfileid: "74790891"
 
 ### <a name="skill-2-language-detection"></a>기술 #2 언어 검색
  언어 검색 기술은 기술에서 정의 된 세 번째 (기술 #3) 기술 이지만 다음에 실행할 수 있는 기술입니다. 입력을 요구 하 여 차단 되지 않으므로 이전 기술과 병렬로 실행 됩니다. 앞에 있는 분할 기술과 마찬가지로 언어 감지 기술도 각 문서에 대해 한 번 호출 됩니다. 이제 보강 트리에는 언어에 대 한 새 노드가 있습니다.
- ![기술 #2 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "En기술 #2 실행 후의 richment 트리 ")
+ ![기술 #2 후 보강 트리](media/cognitive-search-working-with-skillsets/enrichment-tree-skill2.png "기술 #2 실행 후 보강 트리")
  
  ### <a name="skill-3-key-phrases-skill"></a>기술 #3: 핵심 구 기술 
 
@@ -114,7 +114,7 @@ ms.locfileid: "74790891"
 
 ## <a name="save-enrichments-in-a-knowledge-store"></a>기술 자료 저장소에 강화 저장 
 
-또한 기술력과는 보강 문서를 테이블 또는 개체로 예측할 수 있는 기술 자료 저장소를 정의 합니다. 보강 데이터를 기술 자료 저장소에 저장 하려면 보강 문서의 일련의 프로젝션을 정의 합니다. 기술 자료 저장소에 대해 자세히 알아보려면 [기술 자료 저장소 개요](knowledge-store-concept-intro.md) 를 참조 하세요.
+또한 기술력과는 보강 문서를 테이블 또는 개체로 예측할 수 있는 기술 자료 저장소를 정의 합니다. 보강 데이터를 기술 자료 저장소에 저장 하려면 보강 문서에 대 한 일련의 프로젝션을 정의 합니다. 기술 자료 저장소에 대해 자세히 알아보려면 [기술 자료 저장소 개요](knowledge-store-concept-intro.md) 를 참조 하세요.
 
 ### <a name="slicing-projections"></a>조각화 프로젝션
 

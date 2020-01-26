@@ -2,14 +2,14 @@
 title: Azure Site Recovery 서비스에 대 한 일반적인 질문
 description: 이 문서에서는 Azure Site Recovery에 대해 널리 사용 되는 일반적인 질문을 설명 합니다.
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/24/2020
 ms.author: raynew
-ms.openlocfilehash: 44abe9eafa9aef9e027778470d3f0483f99b0d32
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: a9d0ae4a6e60a72bbb1148aca1a75c44506b2e9e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863566"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760354"
 ---
 # <a name="general-questions-about-azure-site-recovery"></a>Azure Site Recovery에 대 한 일반적인 질문
 
@@ -56,7 +56,7 @@ Azure Pack, 클라우드 플랫폼 시스템 및 시스템 센터 기반(2012 �
 ### <a name="do-you-support-single-azure-pack-and-single-vmm-server-deployments"></a>단일 Azure Pack 및 단일 VMM 서버 배포가 지원되나요?
 예, Hyper-V 가상 머신을 Azure에 복제하거나 서비스 공급자 사이트 간에 복제할 수 있습니다.  서비스 공급자 사이트 간에 복제할 경우 Azure Runbook 통합을 사용할 수 없습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ### <a name="where-can-i-find-pricing-information"></a>가격 정보는 어디에서 찾을 수 있나요?
 [Site Recovery 가격 책정](https://azure.microsoft.com/pricing/details/site-recovery/) 세부 정보를 검토 합니다.
@@ -147,7 +147,7 @@ Azure Site Recovery는 공용 끝점을 통해 Azure storage 계정 또는 관�
 
 ### <a name="why-cant-i-replicate-over-vpn"></a>VPN을 통해 복제할 수 없는 이유는 무엇인가요?
 
-Azure에 복제 하는 경우 복제 트래픽은 Azure Storage의 공용 끝점에 도달 합니다. 따라서 Express 경로 (Microsoft 피어 링 또는 기존 공용 피어 링)를 사용 하 여 공용 인터넷을 통해서만 복제할 수 있으며 VPN은 작동 하지 않습니다.
+Azure에 복제 하는 경우 복제 트래픽은 Azure Storage의 공용 끝점에 도달 합니다. 따라서 공용 인터넷 이나 Express 경로 (Microsoft 피어 링 또는 기존 공용 피어 링)를 통해서만 복제할 수 있습니다.
 
 ### <a name="can-i-use-riverbed-steelheads-for-replication"></a>복제에 Riverbed SteelHeads를 사용할 수 있나요?
 

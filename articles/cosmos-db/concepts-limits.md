@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB 서비스 할당량
 description: 다른 리소스 유형에 대 한 기본 제한 및 서비스 할당량을 Azure Cosmos DB 합니다.
-author: jasonwhowell
-ms.author: jasonh
+author: abhijitpai
+ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: b954b56d3c4f9d3ae0ad3142b11a8660e341b74a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2cce9cbe20121376ad77692773df1d58fcf5257f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711308"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759775"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -147,7 +147,7 @@ Cosmos DB는 [SQL](how-to-sql-query.md)을 사용한 항목 쿼리를 지원 합
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| SQL 쿼리의 최대 길이| 256 KB <sup>*</sup>|
+| SQL 쿼리의 최대 길이| 256 <sup>*</sup>|
 | 쿼리당 최대 조인 수| 5 <sup>*</sup>|
 | 쿼리당 최대 ANDs| 2000 <sup>*</sup>|
 | 쿼리당 최대 ORs| 2000 <sup>*</sup>|
@@ -165,7 +165,7 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 
 | 리소스 | 기본 제한 |
 | --- | --- |
-| 최대 MongoDB 쿼리 메모리 크기 | 40 MB |
+| 최대 MongoDB 쿼리 메모리 크기 | 40 M B |
 | MongoDB 작업에 대 한 최대 실행 시간| 30초 |
 
 ## <a name="try-cosmos-db-free-limits"></a>무료 제한을 Cosmos DB 사용해 보세요.

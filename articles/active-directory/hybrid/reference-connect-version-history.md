@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3b03833a3e1dd5ee9a3268e19166891243df1b98
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422352"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756303"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -84,6 +84,8 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 ### <a name="fixed-issues"></a>해결된 문제
 
 특정 상황에서 1.4.18.0 버전으로 자동 업그레이드 된 서버는 업그레이드가 완료 된 후 셀프 서비스 암호 재설정 및 비밀 번호 쓰기 저장을 다시 사용 하도록 설정 하지 않았습니다. 이 자동 업그레이드 릴리스는 해당 문제를 해결 하 고 셀프 서비스 암호 재설정 및 비밀 번호 쓰기 저장을 다시 사용 하도록 설정 합니다.
+
+서로게이트 문자를 올바르게 처리 하지 않은 동기화 오류 압축 유틸리티의 버그를 수정 했습니다.
 
 ## <a name="14180"></a>1.4.18.0
 

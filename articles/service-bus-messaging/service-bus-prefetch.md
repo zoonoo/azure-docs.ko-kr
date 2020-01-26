@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 메시지 프리페치 | Microsoft Docs
-description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다.
+description: Azure Service Bus 메시지를 프리페치하여 성능을 향상시킵니다. 응용 프로그램에서 메시지를 요청 하기 전에 로컬 검색에 메시지를 쉽게 사용할 수 있습니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 08/30/2018
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: c63e6bf66e4832a1a5b0b5e6fc3dfbbf02d1e490
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 80717ab940d27e9bf108b3740309bcd7d71668fd
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "62125851"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760660"
 ---
 # <a name="prefetch-azure-service-bus-messages"></a>Azure Service Bus 메시지 프리페치
 

@@ -8,12 +8,12 @@ ms.date: 11/20/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 93e3a5ed442c975f75045d86d6b890ee4113c465
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 255ccb5c8e9529ab9b36186ec0eeb5b3f55ed64f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514258"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759230"
 ---
 # <a name="common-issues-and-resolutions-for-azure-iot-edge"></a>Azure IoT Edge에 대한 일반적인 문제 및 해결 방법
 
@@ -21,7 +21,7 @@ ms.locfileid: "76514258"
 
 ## <a name="run-the-iotedge-check-command"></a>Iotedge ' check ' 명령을 실행 합니다.
 
-IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 문제에 대 한 구성 및 연결 테스트 모음을 수행 하는 `check` 명령을 사용 하는 것입니다. 이 `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
+IoT Edge 문제를 해결 하는 첫 번째 단계는 일반적인 문제에 대 한 구성 및 연결 테스트 컬렉션을 실행 하는 `check` 명령을 사용 하는 것입니다. 이 `check` 명령은 [release 1.0.7](https://github.com/Azure/azure-iotedge/releases/tag/1.0.7) 이상에서 사용할 수 있습니다.
 
 다음과 같이 `check` 명령을 실행 하거나 `--help` 플래그를 포함 하 여 옵션의 전체 목록을 볼 수 있습니다.
 
@@ -265,7 +265,7 @@ Error parsing user input data: invalid hostname. Hostname cannot be empty or gre
 
 **근본 원인**
 
-IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있습니다. 물리적 머신은 일반적으로 긴 호스트 이름을 사용하지 않지만 문제는 가상 머신에서 자주 발생합니다. 특히 Azure에서 호스팅되는 Windows 가상 머신에 자동으로 생성된 호스트 이름이 너무 긴 경향이 있습니다. 
+IoT Edge 런타임은 64자 미만인 호스트 이름만을 지원할 수 있습니다. 물리적 머신은 일반적으로 긴 호스트 이름을 사용하지 않지만 문제는 가상 머신에서 자주 발생합니다. 특히 Azure에서 호스팅되는 Windows 가상 머신에 자동으로 생성된 호스트 이름이 너무 긴 경향이 있습니다.
 
 **해결 방법**
 
@@ -302,7 +302,7 @@ IoT Edge 런타임의 일부인 IoT Edge 허브는 기본적으로 성능에 맞
 
 **해결 방법**
 
-IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false**로 설정 합니다. 이 작업을 수행하는 방법에는 다음 두 가지가 있습니다.
+IoT Edge 허브의 경우 환경 변수 **OptimizeForPerformance** 을 **false**로 설정 합니다. 환경 변수를 설정 하는 방법에는 다음 두 가지가 있습니다.
 
 Azure Portal에서 다음을 수행합니다.
 
@@ -340,7 +340,7 @@ Windows에서 `Get-WinEvent`를 사용할 때 EventLogException을 가져오면 
 
 IoT Edge 디먼에 대한 레지스트리 항목을 설정합니다. 다음 콘텐츠를 사용하여 **iotedge.reg** 파일을 만들고, 파일을 두 번 클릭하거나 `reg import iotedge.reg` 명령을 사용하여 Windows 레지스트리로 가져옵니다.
 
-```
+```reg
 Windows Registry Editor Version 5.00
 
 [HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Services\EventLog\Application\iotedged]
@@ -351,10 +351,10 @@ Windows Registry Editor Version 5.00
 
 ## <a name="iot-edge-module-fails-to-send-a-message-to-the-edgehub-with-404-error"></a>404 오류를 나타내며 IoT Edge 모듈이 edgeHub로 메시지를 보내지 못함
 
-404 `Module not found` 오류를 나타내며 사용자 지정 IoT Edge 모듈이 edgeHub로 메시지를 보내지 못합니다. IoT Edge 디먼은 로그에 다음 메시지를 출력합니다. 
+404 `Module not found` 오류를 나타내며 사용자 지정 IoT Edge 모듈이 edgeHub로 메시지를 보내지 못합니다. IoT Edge 디먼은 로그에 다음 메시지를 출력합니다.
 
 ```output
-Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 ) 
+Error: Time:Thu Jun  4 19:44:58 2018 File:/usr/sdk/src/c/provisioning_client/adapters/hsm_client_http_edge.c Func:on_edge_hsm_http_recv Line:364 executing HTTP request fails, status=404, response_buffer={"message":"Module not found"}u, 04 )
 ```
 
 **근본 원인**
@@ -401,7 +401,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 위의 예에서는 DNS 서버를 공개적으로 액세스할 수 있는 DNS 서비스로 설정 합니다. 에 지 장치가 해당 환경에서이 IP에 액세스할 수 없는 경우 액세스할 수 있는 DNS 서버 주소로 대체 합니다.
 
-플랫폼의 올바른 위치에 `daemon.json`을 배치 합니다. 
+플랫폼의 올바른 위치에 `daemon.json`을 배치 합니다.
 
 | 플랫폼 | 위치 |
 | --------- | -------- |
@@ -410,7 +410,7 @@ IoT Edge는 Azure IoT Edge 런타임 및 배포된 모듈을 보호하기 위해
 
 위치에 이미 `daemon.json` 파일이 있는 경우 **dns** 키를 추가 하 고 파일을 저장 합니다.
 
-*업데이트를 적용 하려면 컨테이너 엔진을 다시 시작 합니다.*
+업데이트를 적용 하려면 컨테이너 엔진을 다시 시작 합니다.
 
 | 플랫폼 | 명령 |
 | --------- | -------- |
@@ -431,7 +431,7 @@ IoT Edge 배포에서 각 모듈의 *Createoptions* 에 대해 DNS 서버를 설
 }
 ```
 
-*EdgeAgent* 및 *edgeHub* 모듈에 대해서도이를 설정 해야 합니다.
+*EdgeAgent* 및 *edgeHub* 모듈에 대해서도이 구성을 설정 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -6,14 +6,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/23/2020
 ms.author: raynew
-ms.openlocfilehash: e5fdf0a14586a0a2ea97d222f4be481e8fe31e51
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 852059317c45dec4885b3f56de5617695d82e1e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754506"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759809"
 ---
 # <a name="azure-to-azure-disaster-recovery-architecture"></a>Azure 간 재해 복구 아키텍처
 
@@ -146,7 +146,7 @@ IP 주소를 사용하여 VM에 대한 아웃바운드 연결을 제어하려면
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
 HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 스토리지 계정에 해당하는 범위를 허용합니다. | 저장할.\<영역 이름 >
-HTTPS 아웃바운드 허용: 포트 443 | Azure AD(Azure Active Directory)에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG(네트워크 보안 그룹) 규칙을 만들어야 합니다.  | AzureActiveDirectory
+HTTPS 아웃바운드 허용: 포트 443 | Azure Active Directory에 해당 하는 범위 허용 (Azure AD)  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
 
@@ -155,7 +155,7 @@ HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 
 **규칙** |  **세부 정보** | **Service 태그**
 --- | --- | --- 
 HTTPS 아웃바운드 허용: 포트 443 | 대상 지역의 저장소 계정에 해당 하는 범위 허용 | 저장할.\<영역 이름 >
-HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당하는 범위를 허용합니다.<br/><br/> Azure AD 주소가 나중에 추가되는 경우 새 NSG 규칙을 만들어야 합니다.  | AzureActiveDirectory
+HTTPS 아웃바운드 허용: 포트 443 | Azure AD에 해당 하는 범위 허용  | AzureActiveDirectory
 HTTPS 아웃바운드 허용: 포트 443 | 원본 지역의 이벤트 허브에 해당 하는 범위를 허용 합니다. | EventsHub.\<영역 이름 >
 HTTPS 아웃바운드 허용: 포트 443 | Azure Site Recovery에 해당 하는 범위 허용  | AzureSiteRecovery
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 39153b05b16395cf2dfc0511efa601d1cc4da550
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e134c69f5d602cb4369e9410e3e2b9d3478b11a0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749696"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76756252"
 ---
 # <a name="scalability-and-performance-targets-for-premium-page-blob-storage-accounts"></a>프리미엄 페이지 blob storage 계정에 대 한 확장성 및 성능 목표
 
@@ -31,7 +31,7 @@ ms.locfileid: "75749696"
 
 | 총 계정 용량                            | 로컬 중복 스토리지 계정의 총 대역폭                     |
 | ------------------------------------------------- | --------------------------------------------------------------------------- |
-| 디스크 용량: 35TB <br>스냅샷 용량: 10TB | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
+| 디스크 용량: 4tb (개별 디스크)/35 TB (모든 디스크의 누적 합계) <br>스냅샷 용량: 10TB | 인바운드<sup>1</sup> + 아웃바운드<sup>2</sup>에 대해 초당 최대 50기가비트 |
 
 <sup>1</sup> 스토리지 계정으로 전송되는 모든 데이터(요청)
 
@@ -45,6 +45,6 @@ ms.locfileid: "75749696"
 
 ## <a name="see-also"></a>참고 항목
 
-- [Standard storage 계정에 대 한 확장성 및 성능 목표](../common/scalability-targets-standard-account.md)
+- [표준 스토리지 계정의 확장성 및 성능 목표](../common/scalability-targets-standard-account.md)
 - [프리미엄 블록 blob storage 계정에 대 한 확장성 목표](../blobs/scalability-targets-premium-block-blobs.md)
 - [Azure 구독 제한 및 할당량](../../azure-resource-manager/management/azure-subscription-service-limits.md)

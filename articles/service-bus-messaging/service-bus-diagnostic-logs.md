@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 진단 로그 | Microsoft Docs
-description: Azure에서 Service Bus에 대 한 진단 로그를 설정 하는 방법을 알아봅니다.
+description: 이 문서에서는 Azure Service Bus에 사용할 수 있는 모든 운영 및 진단 로그에 대 한 개요를 제공 합니다.
 keywords: ''
 documentationcenter: .net
 services: service-bus-messaging
@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: data-services
-ms.date: 01/23/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 5bdda54ef46085cb1f3e33fe1d9f60937da9706f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8eba538a7015648611e6054ce85b381dcfc9105
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355206"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761001"
 ---
 # <a name="enable-diagnostics-logs-for-service-bus"></a>Service Bus에 대 한 진단 로그 사용
 
@@ -76,9 +76,9 @@ Azure Service Bus은 현재 Azure Service Bus 네임 스페이스에서 수행 �
 
 | 범위 | 작업|
 |-------| -------- |
-| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임스페이스 삭제 </li>  </ul> | 
-| Queue | <ul> <li> 큐 만들기</li> <li> 큐 업데이트</li> <li> 큐 삭제 </li> </ul> | 
-| 주제 | <ul> <li> 토픽 만들기 </li> <li> 토픽 업데이트 </li> <li> 토픽 삭제 </li> </ul> |
+| 네임스페이스 | <ul> <li> 네임스페이스 만들기</li> <li> 네임 스페이스 업데이트 </li> <li> 네임 스페이스 삭제 </li>  </ul> | 
+| Queue | <ul> <li> 큐 만들기</li> <li> 업데이트 큐</li> <li> 큐 삭제 </li> </ul> | 
+| 주제 | <ul> <li> 항목 만들기 </li> <li> 업데이트 항목 </li> <li> 항목 삭제 </li> </ul> |
 | Subscription | <ul> <li> 구독 만들기 </li> <li> 구독 업데이트 </li> <li> 구독 삭제 </li> </ul> |
 
 > [!NOTE]

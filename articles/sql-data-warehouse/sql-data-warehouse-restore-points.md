@@ -11,12 +11,12 @@ ms.date: 07/03/2019
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 61ceb2f1271d085321215aff1c6d138feb95d743
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: bf092b5b6c6eb88b565a940de56d614426e34d8e
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692503"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759604"
 ---
 # <a name="user-defined-restore-points"></a>사용자 정의 복원 지점이
 
@@ -24,9 +24,9 @@ ms.locfileid: "73692503"
 
 ## <a name="create-user-defined-restore-points-through-powershell"></a>PowerShell을 통해 사용자 정의 복원 시점 만들기
 
-사용자 정의 복원 지점을 만들려면 [AzSqlDatabaseRestorePoint][New-AzSqlDatabaseRestorePoint] PowerShell cmdlet을 사용 합니다.
+사용자 정의 복원 지점을 만들려면 [AzSqlDatabaseRestorePoint](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0) PowerShell cmdlet을 사용 합니다.
 
-1. 시작 하기 전에 [Azure PowerShell을 설치][Install Azure PowerShell]해야 합니다.
+1. 시작 하기 전에 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
 2. PowerShell을 엽니다.
 3. Azure 계정에 연결하고 사용자 계정과 연결된 모든 구독을 나열합니다.
 4. 복원할 데이터베이스가 포함된 구독을 선택합니다.
@@ -60,7 +60,7 @@ Get-AzSqlDatabaseRestorePoints -ResourceGroupName $ResourceGroupName -ServerName
 
 Azure Portal를 통해 사용자 정의 복원 지점이 만들어질 수도 있습니다.
 
-1. [Azure Portal][Azure portal] 계정에 로그인 합니다.
+1. [Azure Portal](https://portal.azure.com/) 계정에 로그인 합니다.
 
 2. 복원 지점을 만들 SQL Data Warehouse 이동 합니다.
 
@@ -74,28 +74,7 @@ Azure Portal를 통해 사용자 정의 복원 지점이 만들어질 수도 있
 
 ## <a name="next-steps"></a>다음 단계
 
-- [기존 데이터 웨어하우스 복원][Restore an existing data warehouse]
-- [삭제 된 데이터 웨어하우스 복원][Restore a deleted data warehouse]
-- [지역 백업 데이터 웨어하우스에서 복원][Restore from a geo-backup data warehouse]
+- [기존 데이터 웨어하우스 복원](sql-data-warehouse-restore-active-paused-dw.md)
+- [삭제 된 데이터 웨어하우스 복원](sql-data-warehouse-restore-deleted-dw.md)
+- [지역 백업 데이터 웨어하우스에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
 
-<!--Image references-->
-
-<!--Article references-->
-[Azure SQL Database business continuity overview]: ../sql-database/sql-database-business-continuity.md
-[Request a DTU quota change]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[Install Azure PowerShell]: https://docs.microsoft.com/powershell/azure/overview
-[Overview]: ./sql-data-warehouse-restore-database-overview.md
-[Portal]: ./sql-data-warehouse-restore-database-portal.md
-[PowerShell]: ./sql-data-warehouse-restore-database-powershell.md
-[REST]: ./sql-data-warehouse-restore-database-rest-api.md
-[Configure your database after recovery]: ../sql-database/sql-database-disaster-recovery.md#configure-your-database-after-recovery
-[PowerShelldoc]:./sql-data-warehouse-restore-points.md#create-user-defined-restore-points-through-powershell
-[Restore an existing data warehouse]:./sql-data-warehouse-restore-active-paused-dw.md
-[Restore a deleted data warehouse]:./sql-data-warehouse-restore-deleted-dw.md
-[Restore from a geo-backup data warehouse]:./sql-data-warehouse-restore-from-geo-backup.md
-<!--MSDN references-->
-[New-AzSqlDatabaseRestorePoint]: https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabaserestorepoint?view=azps-2.4.0
-
-<!--Other Web references-->
-[Azure Portal]: https://portal.azure.com/

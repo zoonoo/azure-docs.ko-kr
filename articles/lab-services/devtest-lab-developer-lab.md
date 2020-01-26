@@ -1,6 +1,6 @@
 ---
 title: 개발자를 위한 Azure DevTest Labs 사용 | Microsoft Docs
-description: 개발자 시나리오에 Azure DevTest Labs를 사용하는 방법을 알아봅니다.
+description: 개발자 요구 사항을 충족 하는 데 사용할 수 있는 Azure DevTest Labs 기능과 랩을 설정 하기 위해 수행할 수 있는 자세한 단계에 대해 알아봅니다.
 services: devtest-lab,virtual-machines,lab-services
 documentationcenter: na
 author: spelluru
@@ -12,17 +12,17 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 04/17/2018
+ms.date: 01/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 5a293946e4672e7737f912f42511ad0907ba4a81
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: ae44696f62a085bf1e798f0915e2bd1e27c3a78f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61294002"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760150"
 ---
 # <a name="use-azure-devtest-labs-for-developers"></a>개발자를 위한 Azure DevTest Labs 사용
-Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 있지만 기본 시나리오 중 하나는 DevTest Labs를 사용하여 개발자를 위한 개발 컴퓨터를 호스트하는 것입니다. 이 시나리오에서는 DevTest Labs는 다음과 같은 이점을 제공합니다.
+Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 있지만 기본 시나리오 중 하나는 DevTest Labs를 사용하여 개발자를 위한 개발 컴퓨터를 호스트하는 것입니다. 이 시나리오에서 DevTest Labs는 다음과 같은 이점을 제공합니다.
 
 - 개발자는 필요에 따라 개발 컴퓨터를 신속하게 프로비전할 수 있습니다.
 - 개발자는 필요할 때마다 개발 컴퓨터를 쉽게 사용자 지정할 수 있습니다.
@@ -74,7 +74,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
    - VM에 설치하려는 도구(예: 에이전트, Fiddler 및 Visual Studio)
    - VM에서 실행하려는 작업(예: 리포지토리 복제)
-   - 테스트하려는 애플리케이션
+   - 테스트하려는 애플리케이션.
 
    많은 아티팩트는 이미 기본 제공되어 있습니다. 특정 요구에 맞게 추가로 사용자 지정하려는 경우 사용자 고유의 사용자 지정 아티팩트를 만들 수 있습니다.
 
@@ -114,7 +114,7 @@ Azure DevTest Labs를 사용하여 여러 주요 시나리오를 구현할 수 �
 
 6. **각 개발자와 랩 공유**
    
-    개발자와 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](devtest-lab-faq.md#what-is-a-microsoft-account)이 있는 개발자는 Azure 계정이 없어도 됩니다. 개발자는 다른 개발자가 만든 VM을 볼 수 없습니다.  
+    개발자와 공유하는 링크를 사용하여 랩에 직접 액세스할 수 있습니다. [Microsoft 계정](devtest-lab-faq.md#what-is-a-microsoft-account)이 있으면 Azure 계정이 없어도 됩니다. 개발자는 다른 개발자가 만든 VM을 볼 수 없습니다.  
    
     다음 표에 있는 링크를 클릭하면 자세히 알아볼 수 있습니다.
    
