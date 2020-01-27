@@ -326,9 +326,9 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **[Avanade Inc.](https://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남미 |
 | **[Bright Skies GmbH](https://bskies.io/expressroute)** | 유럽
 | **[Ensyst](https://www.ensyst.com.au)** | 아시아
-| **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 북미 |
-| **[FlexManage](https://www.flexmanage.com/cloud)** | 북미 |
-| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 북미 |
+| **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 북아메리카 |
+| **[FlexManage](https://www.flexmanage.com/cloud)** | 북아메리카 |
+| **[Lightstream](https://www.lightstream.tech/partners/microsoft-azure/)** | 북아메리카 |
 | **[The IT Consultancy Group](https://itconsult.com.au/)** | 오스트레일리아 |
 | **[MOQdigital](https://www.moqdigital.com.au/insights/technical/network-connectivity-options-for-azure)** | 오스트레일리아 |
 | **[MSG Services](https://www.msg-services.de/it-services/managed-services/cloud-outsourcing/)** | 유럽(독일) |
@@ -336,8 +336,8 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **[새 서명](https://newsignature.com/technologies/express-route/)** | 유럽 |
 | **[OneAs1a](https://www.oneas1a.com/connectivity.html)** | 아시아 |
 | **[Orange Networks](https://orange-networks.com/blog/88-azureexpressroute)** | 유럽 |
-| **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북미 |
-| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 북미 |
+| **[Perficient](https://www.perficient.com/Partners/Microsoft/Cloud/Azure-ExpressRoute)** | 북아메리카 |
+| **[Presidio](https://info.presidio.com/microsoft-azure-expressroute)** | 북아메리카 |
 | **[sol-tec](https://www.sol-tec.com/what-we-do/)** | 유럽 |
 | **[Venha Pra Nuvem](https://venhapranuvem.com.br/)** | 남아메리카 |
 | **[Vigilant.IT](https://vigilant.it/expressroute)** | 오스트레일리아 |
