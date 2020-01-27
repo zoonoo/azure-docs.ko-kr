@@ -56,6 +56,8 @@
               href: supportability/networking-quota-requests.md
     - name: Azure Portal 문제 해결
       items:
+        - name: 삭제된 대시보드 복구
+          href: recover-shared-deleted-dashboard.md
         - name: 지역 또는 SKU 구독 문제 해결
           href: supportability/sku-series-unavailable.md
         - name: 문제 해결을 위한 브라우저 추적 캡처

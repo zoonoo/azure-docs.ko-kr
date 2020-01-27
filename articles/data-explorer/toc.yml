@@ -27,9 +27,11 @@
       href: visualize-power-bi.md
 - name: 개념
   items:
-    - name: 데이터 수집 개요
-      displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
-      href: ingest-data-overview.md
+    - name: 데이터 수집
+      items:
+        - name: 데이터 수집 개요
+          displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
+          href: ingest-data-overview.md
     - name: 데이터 시각화 개요
       href: viz-overview.md
     - name: 보안 개요
@@ -84,18 +86,20 @@
           href: ingest-data-one-click.md
         - name: 스트리밍 수집
           href: ingest-data-streaming.md
+        - name: SDK 사용
+          items:
+            - name: Python
+              href: python-ingest-data.md
+            - name: Node SDK
+              href: node-ingest-data.md
+            - name: .NET Standard SDK
+              href: net-standard-ingest-data.md
         - name: Kafka
           href: ingest-data-kafka.md
-        - name: Python
-          href: python-ingest-data.md
-        - name: Node SDK
-          href: node-ingest-data.md
-        - name: .NET Standard SDK
-          href: net-standard-ingest-data.md
         - name: Logstash
           href: ingest-data-logstash.md
-        - name: Azure Data Factory를 사용하여 데이터 복사
-          href: data-factory-load-data.md
+        - name: json 형식 데이터
+          href: ingest-json-formats.md
     - name: 쿼리 데이터
       items:
         - name: 쿼리 쓰기
@@ -116,9 +120,9 @@
               href: time-series-analysis.md
             - name: 변칙 검색 및 예측
               href: anomaly-detection.md
-            - name: Machine Learning
+            - name: 기계 학습
               href: machine-learning-clustering.md
-    - name: 데이터 가상화
+    - name: 데이터 시각화
       items:
         - name: Power BI
           items:
@@ -182,7 +186,7 @@
                   href: database-table-policies-csharp.md
                 - name: Python
                   href: database-table-policies-python.md
-        - name: data
+        - name: 데이터
           items:
             - name: 데이터 삭제
               href: delete-data.md
@@ -204,6 +208,8 @@
           items:
             - name: Data Factory와 통합
               href: data-factory-integration.md
+            - name: Azure Data Factory를 사용하여 데이터 복사
+              href: data-factory-load-data.md
             - name: Azure Data Factory 템플릿을 사용하여 데이터 대량 복사
               href: data-factory-template.md
             - name: Azure Data Factory를 사용하여 제어 명령 실행

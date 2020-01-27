@@ -91,7 +91,7 @@
           href: time-series-insights-send-events.md
         - name: 환경 규모 조정
           href: time-series-insights-how-to-scale-your-environment.md
-        - name: 쿼리에 대한 셰이프 JSON
+        - name: 수신 및 쿼리에 대한 Shape JSON
           href: how-to-shape-query-json.md
         - name: 제한 완화
           href: time-series-insights-environment-mitigate-latency.md
@@ -107,11 +107,11 @@
           href: time-series-insights-update-how-to-troubleshoot.md
         - name: 데이터 모델링
           href: time-series-insights-update-how-to-tsm.md
-        - name: 쿼리에 대한 셰이프 JSON
+        - name: 수신 및 쿼리에 대한 Shape JSON
           href: time-series-insights-update-how-to-shape-events.md
         - name: Power BI에 연결
           href: how-to-connect-power-bi.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Time Series Insights
       items:
@@ -141,7 +141,7 @@
       href: time-series-insights-customer-data-requests.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

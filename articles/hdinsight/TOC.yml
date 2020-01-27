@@ -501,6 +501,8 @@
               href: ./hadoop/apache-ambari-troubleshoot-fivezerotwo-error.md
             - name: Apache Ambari는 호스트와 서비스를 표시합니다.
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
+            - name: Apache Ambari 부실 경고
+              href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
             - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Apache Hadoop HDFS 문제 해결
@@ -509,6 +511,8 @@
               href: ./hdinsight-troubleshoot-yarn.md
             - name: Data Lake Store 파일 문제 해결
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
+            - name: Apache Ambari 디렉터리 경고
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
 - name: Apache Kafka
   items:
     - name: 개요
