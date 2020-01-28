@@ -8,12 +8,12 @@ services: iot-edge
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: kgremban
-ms.openlocfilehash: 8a9f0008f1a1ea1a57f3c0e7e17b8cf3ae5e959c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: 23fbbd87230ea0a0147dc9d90c77729f4d531e98
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434533"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76511147"
 ---
 # <a name="connect-modbus-tcp-devices-through-an-iot-edge-device-gateway"></a>IoT Edge 디바이스 게이트웨이를 통해 Modbus TCP 디바이스 연결
 
@@ -26,7 +26,8 @@ Modbus TCP 또는 RTU 프로토콜을 사용 하는 IoT 장치를 Azure IoT hub�
 이 문서에서는 Modbus TCP 프로토콜을 사용한다고 가정합니다. Modbus RTU를 지원하도록 모듈을 구성하는 방법에 대한 자세한 내용은 GitHub의 [Azure IoT Edge Modbus 모듈](https://github.com/Azure/iot-edge-modbus) 프로젝트를 참조하세요.
 
 ## <a name="prerequisites"></a>필수 조건
-* Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 Linux [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 [](quickstart-linux.md)하세요.
+
+* Azure IoT Edge 디바이스 설정 하는 방법에 대 한 연습은 Windows 또는 [Linux](quickstart-linux.md) [에서 Azure IoT Edge 배포](quickstart.md) 를 참조 하세요.
 * IoT Edge 디바이스에 대한 기본 키 연결 문자열입니다.
 * Modbus TCP를 지원하는 물리적 또는 시뮬레이션된 Modbus 디바이스 IPv4 주소를 알고 있어야 합니다.
 
@@ -71,7 +72,7 @@ Modbus 모듈을 통해 들어오는 데이터를 봅니다.
 iotedge logs modbus
 ```
 
-또한 [Visual Studio Code용 Azure IoT Hub Toolkit 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit)(이전 이름 Azure IoT Toolkit 확장)을 사용하여 디바이스에서 보내는 원격 분석을 볼 수도 있습니다.
+[Visual Studio Code에 대 한 Azure IoT Hub 확장](https://marketplace.visualstudio.com/items?itemName=vsciot-vscode.azure-iot-toolkit) (이전의 Azure IoT Toolkit 확장)을 사용 하 여 장치가 보내는 원격 분석을 볼 수도 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
