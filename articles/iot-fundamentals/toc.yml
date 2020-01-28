@@ -6,6 +6,8 @@
       href: iot-introduction.md
     - name: Azure IoT 서비스 및 기술
       href: iot-services-and-technologies.md
+    - name: 지원 및 도움말 옵션
+      href: iot-support-help.md
 - name: 보안
   items:
     - name: 권장 사항
