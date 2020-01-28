@@ -16,29 +16,29 @@ ms.topic: tutorial
 ms.date: 12/02/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9eb369047574ef76dd31996fd16399380ea027c8
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: f26af813fcd4032aabce2305ac8845307d1fca65
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74823155"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262132"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-uniflow-online"></a>자습서: uniFLOW Online과 Azure Active Directory SSO(Single Sign-On) 통합
 
 이 자습서에서는 Azure AD(Azure Active Directory)와 uniFLOW Online을 통합하는 방법에 대해 알아봅니다. uniFLOW Online을 Azure AD와 통합하면 다음을 수행할 수 있습니다.
 
 * Azure AD에서 uniFLOW Online에 액세스할 수 있는 사용자를 제어합니다.
-* 사용자가 해당 Azure AD 계정으로 uniFLOW Online에 자동으로 로그인되도록 설정할 수 있습니다.
+* 사용자가 해당 Azure AD 계정으로 uniFLOW Online에 로그인할 수 있도록 합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
 * Azure AD 구독 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 얻을 수 있습니다.
-* uniFLOW Online SSO(Single Sign-On)를 사용하도록 설정된 구독
+* uniFLOW Online 테넌트.
 
 ## <a name="scenario-description"></a>시나리오 설명
 
@@ -64,11 +64,10 @@ uniFLOW Online이 Azure AD에 통합되도록 구성하려면 갤러리의 uniFL
 uniFLOW Online에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요소를 완료합니다.
 
 1. **[Azure AD SSO 구성](#configure-azure-ad-sso)** - 사용자가 이 기능을 사용할 수 있도록 합니다.
-    * **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
-    * **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
+   1. **[Azure AD 테스트 사용자 만들기](#create-an-azure-ad-test-user)** - B.Simon을 사용하여 Azure AD Single Sign-On을 테스트합니다.
+   1. **[Azure AD 테스트 사용자 할당](#assign-the-azure-ad-test-user)** - B. Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. **[uniFLOW Online SSO 구성](#configure-uniflow-online-sso)** - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-    * **[uniFLOW Online 테스트 사용자 만들기](#create-uniflow-online-test-user)** - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 uniFLOW Online에 만듭니다.
-1. **[SSO 테스트](#test-sso)** - 구성이 작동하는지 여부를 확인합니다.
+    * **[만든 테스트 사용자를 사용하여 uniFLOW Online에 로그인](#sign-in-to-uniflow-online-using-the-created-test-user)** - 애플리케이션 쪽에서 사용자 로그인을 테스트합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
 
@@ -86,24 +85,24 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     | | |
     |-|-|
-    | `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
+    | `https://<tenant_domain_name>.us.uniflowonline.com`|
+    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
+    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
+    | `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     b. **식별자(엔터티 ID)** 텍스트 상자에 다음 패턴을 사용하여 URL을 입력합니다.
 
     | | |
     |-|-|
-    | `https://<tenant_domain_name>.eu.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.us.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.sg.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.jp.uniFLOWonline.com`|
-    | `https://<tenant_domain_name>.au.uniFLOWonline.com`|
+    | `https://<tenant_domain_name>.eu.uniflowonline.com`|
+    | `https://<tenant_domain_name>.us.uniflowonline.com`|
+    | `https://<tenant_domain_name>.sg.uniflowonline.com`|
+    | `https://<tenant_domain_name>.jp.uniflowonline.com`|
+    | `https://<tenant_domain_name>.au.uniflowonline.com`|
 
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [uniFLOW Online 클라이언트 지원 팀](mailto:support@nt-ware.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [uniFLOW Online 클라이언트 지원 팀](mailto:support@nt-ware.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조하거나 uniFLOW Online 테넌트에 표시된 회신 URL을 참조할 수도 있습니다.
 
 1. uniFLOW Online 애플리케이션에는 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 하는 특정 형식의 SAML 어설션이 필요합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -111,10 +110,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 uniFLOW Online 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name |  원본 특성|
+    | 속성 |  원본 특성|
     | -----------| --------------- |
     | displayname | user.displayname |
     | nickname | user.onpremisessamaccountname |
+
+   > [!NOTE]
+   > `user.onpremisessamaccountname` 특성은 Azure AD 사용자가 로컬 Windows Active Directory에서 동기화된 경우에만 값을 포함합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
@@ -128,7 +130,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -138,17 +140,20 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. Azure Portal에서 **엔터프라이즈 애플리케이션**을 선택한 다음, **모든 애플리케이션**을 선택합니다.
 1. 애플리케이션 목록에서 **uniFLOW Online**을 선택합니다.
-1. 앱의 개요 페이지에서 **관리** 섹션을 찾고 **사용자 및 그룹**을 선택합니다.
+1. 앱의 개요 페이지에서 **관리** 섹션으로 이동하여 **사용자 및 그룹**을 선택합니다.
 
    !["사용자 및 그룹" 링크](common/users-groups-blade.png)
 
 1. **사용자 추가**를 선택한 다음, **할당 추가** 대화 상자에서 **사용자 및 그룹**을 선택합니다.
 
-    ![사용자 추가 링크](common/add-assign-user.png)
+   ![사용자 추가 링크](common/add-assign-user.png)
 
 1. **사용자 및 그룹** 대화 상자의 사용자 목록에서 **B.Simon**을 선택한 다음, 화면 아래쪽에서 **선택** 단추를 클릭합니다.
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자의 목록에서 사용자에 대한 적절한 역할을 선택한 다음, 화면의 아래쪽에 있는 **선택** 단추를 클릭합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 클릭합니다.
+
+> [!NOTE]
+> 모든 사용자가 수동 할당 없이 애플리케이션에 액세스할 수 있도록 하려면 **관리** 섹션으로 이동하여 **속성**을 선택합니다. 그런 다음, **사용자 할당 필요** 매개 변수를 **아니오**로 변경합니다.
 
 ## <a name="configure-uniflow-online-sso"></a>uniFLOW Online SSO 구성
 
@@ -185,7 +190,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     a. Display name(표시 이름)을 입력합니다(예: *AzureAD SSO*).
 
-    b. **ADGS Federation Metadata**(ADGS 페더레이션 메타데이터)에 대해 **From URL**(URL에서) 옵션을 선택합니다.
+    b. **ADFS 페더레이션 메타데이터**에 대해 **From URL** 옵션을 선택합니다.
 
     다. Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 **Federation Metadata URl**(페더레이션 메타데이터 URl) 텍스트 상자에 붙여넣습니다.
 
@@ -195,31 +200,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     f. **저장**을 클릭합니다.
 
-### <a name="create-uniflow-online-test-user"></a>uniFLOW Online 테스트 사용자 만들기
+### <a name="sign-in-to-uniflow-online-using-the-created-test-user"></a>만든 테스트 사용자를 사용하여 uniFLOW Online에 로그인
 
-1. 다른 브라우저 창에서 uniFLOW Online 웹 사이트에 관리자 권한으로 로그온합니다.
+1. 다른 웹 브라우저 창에서 테넌트의 uniFLOW Online URL로 이동합니다.
 
-1. 왼쪽 탐색 패널에서 **User**(사용자)를 클릭합니다.
+1. 이전에 만든 ID 공급자를 선택하여 Azure AD 인스턴스를 통해 로그인합니다.
 
-    ![uniFLOW Online 구성](./media/uniflow-online-tutorial/configure1.png)
-
-1. **Add user**(사용자 추가)를 클릭합니다.
-
-    ![uniFLOW Online 구성](./media/uniflow-online-tutorial/user1.png)
-
-1. **Create user manually**(수동으로 사용자 만들기)를 클릭합니다.
-
-    ![uniFLOW Online 구성](./media/uniflow-online-tutorial/user2.png)
-
-1. **CREATE USER MANUALLY**(수동으로 사용자 만들기) 탭에서 조직의 요구 사항에 따라 필요한 값을 제공합니다.
-
-    ![uniFLOW Online 구성](./media/uniflow-online-tutorial/user3.png)
-
-## <a name="test-sso"></a>SSO 테스트
-
-이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
-
-액세스 패널에서 uniFLOW Online 타일을 클릭하면 SSO를 설정한 uniFLOW Online에 자동으로 로그인됩니다. 액세스 패널에 대한 자세한 내용은 [액세스 패널 소개](https://docs.microsoft.com/azure/active-directory/active-directory-saas-access-panel-introduction)를 참조하세요.
+1. 테스트 사용자를 사용하여 로그인합니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 

@@ -4,15 +4,15 @@ description: 이 빠른 시작에서는 Visual Studio Code를 사용하여 Strea
 ms.service: stream-analytics
 author: mamccrea
 ms.author: mamccrea
-ms.date: 09/16/2019
+ms.date: 01/18/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 236d29d2c50a792bc4dc11916964db47ca092807
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: e3e878b4f548da64ab04eb079d51b0846cf35c57
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659596"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76313878"
 ---
 # <a name="quickstart-create-an-azure-stream-analytics-job-in-visual-studio-code-preview"></a>빠른 시작: Visual Studio Code에서 Azure Stream Analytics 작업 만들기(미리 보기)
 
@@ -179,9 +179,11 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
    |IotHubNamespace|MyASAIoTHub|IoT 허브의 이름을 선택하거나 입력합니다. IoT 허브 이름이 동일한 구독에 만들어지면 자동으로 검색됩니다.|
    |SharedAccessPolicyName|iothubowner| |
 
-   CodeLens 기능을 사용하여 문자열을 입력하거나, 드롭다운 목록에서 선택하거나, 파일에서 텍스트를 직접 변경할 수 있습니다. 다음 스크린샷에서는 **구독에서 선택**을 예로 보여 줍니다.
+   CodeLens 기능을 사용하여 문자열을 입력하거나, 드롭다운 목록에서 선택하거나, 파일에서 텍스트를 직접 변경할 수 있습니다. 다음 스크린샷에서는 **구독에서 선택**을 예로 보여 줍니다. 자격 증명은 자동으로 나열되고 로컬 자격 증명 관리자에 저장됩니다.
 
    ![Visual Studio Code에서 입력 구성](./media/quick-create-vs-code/configure-input.png)
+
+   ![Visual Studio Code에서 입력 값 구성](./media/quick-create-vs-code/configure-input-value.png)
 
 ## <a name="preview-input"></a>입력 미리 보기
 
@@ -222,7 +224,7 @@ Stream Analytics 작업을 정의하기 전에 나중에 작업 입력으로 구
 
    ![Visual Studio Code 명령 팔레트를 사용하여 스크립트 컴파일](./media/quick-create-vs-code/compile-script1.png)
 
-- 마우스 오른쪽 단추로 스크립트를 클릭하고, **ASA: 스크립트 컴파일**을 선택합니다.
+- 마우스 오른쪽 단추로 스크립트를 클릭하고, **ASA: Compile Script**를 입력합니다.
 
     ![마우스 오른쪽 단추로 Stream Analytics 스크립트를 클릭하여 컴파일합니다.](./media/quick-create-vs-code/compile-script2.png)
 

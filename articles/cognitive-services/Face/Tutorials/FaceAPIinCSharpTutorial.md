@@ -1,7 +1,7 @@
 ---
 title: '자습서: .NET SDK를 사용하여 이미지에서 얼굴을 감지하여 표시'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Face API를 사용하여 이미지에서 얼굴을 감지하고 포착하는 Windows 앱을 만듭니다.
+description: 이 자습서에서는 Face 서비스를 사용하여 이미지에서 얼굴을 감지하고 포착하는 Windows 앱을 만듭니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: a444294497b82f316e7407999f5203cd13878928
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: ab0ed56b953cf2c0d96fd2d91d9a3b09fddace72
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977967"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165910"
 ---
 # <a name="tutorial-create-a-windows-presentation-framework-wpf-app-to-display-face-data-in-an-image"></a>자습서: 이미지에 얼굴 데이터를 표시하는 WPF(Windows Presentation Framework) 앱 만들기
 
-이 자습서에서는 Azure Face API를 사용하여 .NET 클라이언트 SDK를 통해 이미지에서 얼굴을 감지한 다음, 해당 데이터를 UI에 표시하는 방법을 배웁니다. 얼굴을 감지하고, 각 얼굴 주위에 프레임을 그리고, 상태 표시줄에 얼굴에 대한 설명을 표시하는 WPF 애플리케이션을 만듭니다. 
+이 자습서에서는 Azure Face 서비스를 사용하여 .NET 클라이언트 SDK를 통해 이미지에서 얼굴을 감지한 다음, 해당 데이터를 UI에 표시하는 방법을 알아봅니다. 얼굴을 감지하고, 각 얼굴 주위에 프레임을 그리고, 상태 표시줄에 얼굴에 대한 설명을 표시하는 WPF 애플리케이션을 만듭니다. 
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > - WPF 애플리케이션 만들기
-> - Face API 클라이언트 라이브러리 설치
+> - Face 클라이언트 라이브러리 설치
 > - 클라이언트 라이브러리를 사용하여 이미지에서 얼굴 감지
 > - 감지된 각 얼굴 주위에 프레임 그리기
 > - 강조 표시된 얼굴에 대한 설명을 상태 표시줄에 표시
@@ -37,9 +37,9 @@ ms.locfileid: "74977967"
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기

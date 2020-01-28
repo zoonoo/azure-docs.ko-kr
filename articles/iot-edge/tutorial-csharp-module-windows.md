@@ -9,12 +9,12 @@ ms.date: 04/23/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: 8ed622ff928fa612e6d33ba0647ce258bf4c1c21
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c9a5138146897fdfed4661b85198cbff6b74bf5a
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665219"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293864"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C# IoT Edge 모듈 개발
 
@@ -102,20 +102,21 @@ Azure IoT Edge Tools에서는 Visual Studio에서 지원되는 모든 IoT Edge �
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+3. 모듈 솔루션의 **.env** 파일을 엽니다. (솔루션 탐색기에는 기본적으로 숨겨져 있으므로 표시하려면 **모든 파일 표시** 단추를 선택해야 할 수도 있습니다.) .env 파일에는 deployment.template.json 파일에 표시된 것과 동일한 사용자 이름과 암호 변수가 포함되어야 합니다. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+4. Azure 컨테이너 레지스트리에서 **사용자 이름** 및 **암호** 값을 추가합니다. 
 
-5. Save your changes to the .env file.
+5. .env 파일에 변경 내용을 저장합니다.
 
-### Update the module with custom code
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+기본 모듈 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다. 각 메시지에서 온도 데이터를 분석하고 온도가 특정 임계값을 초과하는 경우에만 IoT Hub로 메시지를 보내도록 모듈을 업데이트합니다. 
 
-1. In Visual Studio, open **CSharpModule** > **Program.cs**.
+1. Visual Studio에서 **CSharpModule** > **Program.cs**를 엽니다.
 
-2. At the top of the **CSharpModule** namespace, add three **using** statements for types that are used later:
+2. **CSharpModule** 네임스페이스의 맨 위에 나중에 사용되는 유형에 새 개의 **using** 문을 추가합니다.
 
     ```csharp
     using System.Collections.Generic;     // For KeyValuePair<>

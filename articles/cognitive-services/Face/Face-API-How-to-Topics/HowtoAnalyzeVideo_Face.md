@@ -1,7 +1,7 @@
 ---
-title: '예제: 실시간 비디오 분석 - Face API'
+title: '예제: 실시간 비디오 분석 - Face'
 titleSuffix: Azure Cognitive Services
-description: Face API를 사용하면 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석할 수 있습니다.
+description: Face 서비스를 사용하면 라이브 비디오 스트림에서 가져온 프레임을 거의 실시간으로 분석할 수 있습니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 03/01/2018
 ms.author: sbowles
-ms.openlocfilehash: e2166354fb45d24e117156e917f4da726ee8406f
-ms.sourcegitcommit: 8e1fb03a9c3ad0fc3fd4d6c111598aa74e0b9bd4
+ms.openlocfilehash: ab3f596000216e8555bb84d0d47aff9a6e969eeb
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70114338"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169894"
 ---
 # <a name="example-how-to-analyze-videos-in-real-time"></a>예제: 실시간으로 비디오를 분석하는 방법
 
@@ -142,7 +142,7 @@ while (true)
 
 라이브러리에는 위에서 설명한 생산자-소비자 시스템을 구현하여 사용자가 웹캠의 비디오 프레임을 처리하는 FrameGrabber 클래스가 있습니다. 사용자가 정확한 형식의 API 호출을 지정할 수 있으며, 새 프레임이 획득되거나 새 분석 결과를 사용할 수 있는 경우 클래스가 이벤트를 사용하여 호출 코드에 알립니다.
 
-몇 가지 가능성을 설명하기 위해 라이브러리를 사용하는 두 개의 샘플 앱이 있습니다. 첫 번째는 간단한 콘솔 앱이며, 간소화된 버전이 아래에 재현되어 있습니다. 이 앱은 기본 웹캠에서 프레임을 잡아 얼굴 감지를 위해 Face API에 제출합니다.
+몇 가지 가능성을 설명하기 위해 라이브러리를 사용하는 두 개의 샘플 앱이 있습니다. 첫 번째는 간단한 콘솔 앱이며, 간소화된 버전이 아래에 재현되어 있습니다. 이 앱은 기본 웹캠에서 프레임을 잡아 얼굴 감지를 위해 Face 서비스에 제출합니다.
 
 ```csharp
 using System;
@@ -159,7 +159,7 @@ namespace VideoFrameConsoleApplication
             // Create grabber, with analysis type Face[]. 
             FrameGrabber<Face[]> grabber = new FrameGrabber<Face[]>();
             
-            // Create Face API Client. Insert your Face API key here.
+            // Create Face Client. Insert your Face API key here.
             private readonly IFaceClient faceClient = new FaceClient(
             new ApiKeyServiceClientCredentials("<subscription key>"),
             new System.Net.Http.DelegatingHandler[] { });
@@ -203,13 +203,12 @@ namespace VideoFrameConsoleApplication
 
 1. [구독](https://azure.microsoft.com/try/cognitive-services/)에서 Vision API에 대한 API 키를 가져옵니다. 비디오 프레임 분석에 적용할 수 있는 API는 다음과 같습니다.
     - [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)
-    - [Emotion API](https://docs.microsoft.com/azure/cognitive-services/emotion/home)
     - [Face API](https://docs.microsoft.com/azure/cognitive-services/face/overview)
 
 2. [Cognitive-Samples-VideoFrameAnalysis](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/) GitHub 리포지토리 복제
 
 3. Visual Studio 2015에서 샘플을 열고 샘플 애플리케이션을 빌드 및 실행합니다.
-    - BasicConsoleSample의 경우 Face API 키가  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
+    - BasicConsoleSample의 경우 Face 키가  [BasicConsoleSample/Program.cs](https://github.com/Microsoft/Cognitive-Samples-VideoFrameAnalysis/blob/master/Windows/BasicConsoleSample/Program.cs)에 직접 하드 코딩되어 있습니다.
     - LiveCameraSample의 경우 앱의 설정 창에 키를 입력해야 합니다. 키는 사용자 데이터로 세션 간에 지속됩니다.
         
 

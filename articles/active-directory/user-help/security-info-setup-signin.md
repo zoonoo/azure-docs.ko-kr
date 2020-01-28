@@ -12,12 +12,12 @@ ms.topic: overview
 ms.date: 08/05/2019
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 710e43aec82c5d154b2e17a20abb2ce4dd481129
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: f75cea566a09a1f4e147b999ad7d2c2d7ea80f29
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278991"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156117"
 ---
 # <a name="set-up-your-security-info-preview-from-a-sign-in-prompt"></a>로그인 프롬프트에서 보안 정보 설정(미리 보기)
 
@@ -26,6 +26,19 @@ ms.locfileid: "74278991"
 이 메시지는 조직에서 요구하는 보안 정보를 설정하지 않은 경우에만 표시됩니다. 이전에 보안 정보를 설정했지만 변경하려는 경우 다양한 보안 정보 기반 방법 문서의 단계를 수행할 수 있습니다. 자세한 내용은 [보안 정보 개요 추가 또는 업데이트](security-info-add-update-methods-overview.md)를 참조하세요.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-preview-notice-security-info.md)]
+
+## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
+
+보안 정보 방법은 2단계 보안 확인 및 암호 재설정에 모두 사용됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
+
+| 방법 | 사용 대상 |
+| ------ | -------- |
+| 인증자 앱 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 문자 메시지 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 전화 통화 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 보안 키 | 2단계 인증 및 암호 재설정 인증입니다. |
+| 이메일 계정 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
+| 보안 질문 | 암호 재설정 인증 전용입니다. 2단계 인증에는 다른 보안 정보 방법을 선택해야 합니다. |
 
 ## <a name="sign-in-to-your-work-or-school-account"></a>회사 또는 학교 계정에 로그인
 
@@ -43,9 +56,9 @@ ms.locfileid: "74278991"
 1. 프롬프트에서 **다음**을 선택하면 **계정 보안 유지 마법사**가 나타나서 관리자와 조직에서 설정해야 하는 첫 번째 방법을 보여 줍니다. 다음 예는 Microsoft Authenticator 앱을 사용하는 경우입니다.
 
    > [!Note]
-   > Microsoft Authenticator 앱 이외의 인증자 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
+   > Microsoft Authenticator 앱 이외의 인증 앱을 사용하려면 **다른 인증 앱 사용** 링크를 선택합니다.
    >
-   > 조직에서 인증자 앱 이외의 다른 방법을 선택할 수 있게 하려면 **다른 인증 방법 설정 링크**를 선택할 수 있습니다.
+   > 조직에서 인증 앱 이외의 다른 메서드를 선택할 수 있게 하려면 **다른 메서드 설정 링크**를 선택하면 됩니다.
 
     ![인증 앱 다운로드 페이지를 보여 주는 계정 보안 유지 마법사](media/security-info/securityinfo-prompt-get-auth-app.png)
 
@@ -53,7 +66,7 @@ ms.locfileid: "74278991"
 
     ![인증자의 계정 설정 페이지를 보여 주는 계정 보안 유지 마법사](media/security-info/securityinfo-prompt-auth-app-setup-acct.png)
 
-3. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지에 남아 있습니다.
+3. 모바일 디바이스에서 Microsoft Authenticator 앱을 설정하는 동안 **계정 설정** 페이지를 열어 둡니다.
 
 4. Microsoft Authenticator 앱을 열고, 알림을 허용하도록 선택하고(프롬프트되는 경우), 오른쪽 위에 있는 **사용자 지정 및 제어** 아이콘에서 **계정 추가**를 선택한 다음, **회사 또는 학교 계정**을 선택합니다.
 

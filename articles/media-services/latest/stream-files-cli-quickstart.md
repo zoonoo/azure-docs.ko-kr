@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 및 Azure CLI를 사용하여 비디오 파일 스트리밍 | Microsoft Docs
+title: Azure Media Services 및 Azure CLI를 사용하여 비디오 파일 스트리밍
 description: 이 자습서의 단계에 따라 새로운 Azure Media Services 계정을 만들고, 파일을 인코딩한 다음, Azure Media Player로 스트리밍합니다.
 services: media-services
 documentationcenter: ''
@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.custom: ''
 ms.date: 08/19/2019
 ms.author: juliako
-ms.openlocfilehash: 58193a94d09dee5df611acf5d98c8661dd18abbb
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: a51b30ad2af29871ed6998e60bb64adf91dfdbbd
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639976"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514377"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---cli"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - CLI
 

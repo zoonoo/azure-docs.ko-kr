@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 01/17/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c097c1f08bd72ed5795e4274c41e4eb48dbe34ad
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 736cca668057f38431f91e36ff8fa97840274a38
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73152954"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120658"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-frankly"></a>자습서: &frankly와 Azure Active Directory 통합
 
@@ -32,10 +32,10 @@ ms.locfileid: "73152954"
 * 사용자가 자신의 Azure AD 계정으로 &frankly에 자동으로 로그인(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 &frankly와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -123,19 +123,15 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 &frankly의 관련 사�
 
     ![인증서 다운로드 링크](common/metadataxml.png)
 
-7. **&frankly 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
-
-    a. 로그인 URL
-
-    b. Azure AD 식별자
-
-    다. 로그아웃 URL
 
 ### <a name="configure-frankly-single-sign-on"></a>&frankly Single Sign-On 구성
 
-**&frankly** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **페더레이션 메타데이터 XML**과 적절히 복사한 URL을 [&frankly 지원 팀](mailto:help@andfrankly.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+&frankly에서 Single Sign-On을 활성화하려면 다음을 수행합니다.
+
+1. &frankly에 로그인합니다. **계정** > **사용자 관리**로 이동합니다.
+1. 인증 메커니즘을 기본값에서 **Enterprise Sign-on(SAML)** 으로 변경합니다.
+1. 이전 섹션의 6단계에서 다운로드한 **페더레이션 메타데이터 XML**을 업로드합니다.
+1. **저장**을 선택합니다.
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -158,7 +154,7 @@ Single Sign-On이 작동하려면 Azure AD 사용자와 &frankly의 관련 사�
     b. **사용자 이름** 필드에 **brittasimon\@yourcompanydomain.extension**을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 

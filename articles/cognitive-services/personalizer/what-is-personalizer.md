@@ -8,68 +8,97 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: personalizer
 ms.topic: overview
-ms.date: 10/23/2019
+ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: b5d38ffeda3600fd90c4ee84acdd29ed599886ae
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707941"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514307"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
-Azure Personalizer는 애플리케이션이 사용자에게 표시할 최상의 환경을 선택할 수 있는 클라우드 기반 API 서비스로, 공통 실시간 동작을 통해 학습합니다.
+Azure Personalizer는 클라이언트 애플리케이션에서 각 사용자를 표시하는 데 가장 적합한 단일 _콘텐츠_ 항목을 선택할 수 있도록 도움을 주는 클라우드 기반 API 서비스입니다. 이 서비스는 콘텐츠 및 컨텍스트에 대해 제공하는 집합적 실시간 정보를 기준으로 콘텐츠 항목에서 가장 적합한 항목을 선택합니다.
 
-* 사용자 및 콘텐츠에 대한 정보를 제공하고 사용자에게 표시할 상위 작업을 받으세요. 
-* Personalizer를 사용하기 전에 데이터를 지우고 레이블을 지정할 필요가 없습니다.
-* 불편하지 않다면 Personalizer에 대한 피드백을 보내주세요. 
-* 실시간 분석 보기 
+콘텐츠 항목이 사용자에게 제공되면 시스템에서 사용자 동작을 모니터링하고 보상 점수를 Personalizer에 다시 보고하여 받은 컨텍스트 정보를 기준으로 가장 적합한 콘텐츠를 선택하는 기능을 향상시킵니다.
 
-[Personalizer의 작동 원리](https://personalizercontentdemo.azurewebsites.net/) 데모를 참조하세요.
+**콘텐츠**는 사용자에게 표시하기 위해 선택하려는 텍스트, 이미지, URL 또는 이메일과 같은 정보의 단위일 수 있습니다.
 
-## <a name="how-does-personalizer-work"></a>Personalizer의 작동 원리
+<!--
+![What is personalizer animation](./media/what-is-personalizer.gif)
+-->
 
-Personalizer는 기계 학습 모델을 사용하여 컨텍스트에서 가장 높은 순위를 지정할 작업을 검색합니다. 클라이언트 애플리케이션은 가능한 작업 목록 및 해당 정보와 컨텍스트 정보를 제공하며, 여기에는 사용자, 디바이스 등에 대한 정보가 포함될 수 있습니다. Personalizer는 수행할 작업을 결정합니다. 클라이언트 애플리케이션은 선택된 작업을 사용할 때 Personalizer에 보상 점수의 형태로 피드백을 제공합니다. 피드백을 받은 후 Personalizer는 향후 순위에 사용되는 자체 모델을 자동으로 업데이트합니다. 시간이 지남에 따라 Personalizer는 기능을 기준으로 각 컨텍스트에서 선택할 최적의 작업을 제안할 수 있는 모델을 학습합니다.
+## <a name="how-does-personalizer-select-the-best-content-item"></a>Personalizer에서 가장 적합한 콘텐츠 항목을 어떻게 선택하나요?
 
-## <a name="how-do-i-use-the-personalizer"></a>Personalizer를 사용하려면 어떻게 할까요?
+Personalizer는 **보충 학습**을 사용하여 모든 사용자의 집합적 동작 및 보상 점수에 따라 가장 적합한 항목(_작업_)을 선택합니다. 작업은 선택할 뉴스 기사, 특정 영화 또는 제품과 같은 콘텐츠 항목입니다.
 
-![Personalizer를 사용하여 사용자에게 표시할 비디오 선택](media/what-is-personalizer/personalizer-example-highlevel.png)
+**순위** 호출에서는 작업 기능과 함께 작업 항목 및 컨텍스트 기능을 사용하여 상위 작업 항목을 선택합니다.
 
-1. 앱에서 개인 설정할 환경을 선택합니다.
-1. Azure Portal에서 개인 설정 서비스의 인스턴스를 만들고 구성합니다. 각 인스턴스는 Personalizer 루프입니다.
-1. [Rank API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank)를 사용하여 사용자에 대한 정보(_기능_)와 콘텐츠(_작업_)를 통해 Personalizer를 호출합니다. Personalizer를 사용하기 전에 깨끗하고 레이블이 지정된 데이터를 제공할 필요가 없습니다. API는 직접 호출하거나 다른 프로그래밍 언어에 사용할 수 있는 SDK를 사용하여 호출할 수 있습니다.
-1. 클라이언트 애플리케이션에서, Personalizer가 선택한 작업을 사용자에게 표시합니다.
-1. [Reward API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)를 사용하여 사용자가 Personalizer의 작업을 선택했는지 여부를 나타내는 피드백을 Personalizer에 제공합니다. 이는 _[보상 점수](concept-rewards.md)_ 입니다.
-1. Azure Portal에서 분석 결과를 살펴보면서 시스템이 어떻게 작동하고 데이터가 어떻게 개인 설정을 도와주는지 평가합니다.
+* **기능이 포함된 작업** - 각 항목에 해당하는 특정 기능이 포함된 콘텐츠 항목
+* **컨텍스트 기능** - 앱을 사용하는 경우 사용자, 해당 컨텍스트 또는 해당 환경의 기능
 
-## <a name="where-can-i-use-personalizer"></a>Personalizer는 어디서 사용할 수 있나요?
+순위 호출은 **보상 작업 ID** 필드에서 사용자에게 표시할 콘텐츠 항목인 __작업__의 ID를 반환합니다.
+사용자에게 표시되는 __작업__은 기계 학습 모델을 사용하여 선택되며, 시간이 지남에 따라 총 보상량을 최대화하려고 합니다.
 
-예를 들어 클라이언트 애플리케이션은 Personalizer를 추가하여 다음 작업을 수행할 수 있습니다.
+몇 가지 예제 시나리오는 다음과 같습니다.
 
-* 뉴스 웹 사이트에서 강조 표시되는 문서를 개인 설정합니다.    
-* 웹 사이트의 광고 위치를 최적화합니다.
-* 쇼핑 웹 사이트에 맞춤형 "추천 항목"을 표시합니다.
-* 특정 사진에 적용할 필터와 같은 사용자 인터페이스 요소를 추천합니다.
-* 사용자 의도를 구체화하거나 작업을 추천하기 위한 채팅 봇의 응답을 선택합니다.
-* 사용자가 비즈니스 프로세스의 다음 단계로 수행해야 하는 제안 사항의 우선 순위를 지정합니다.
+|내용 유형|**작업(기능 포함)**|**컨텍스트 기능**|반환되는 보상 작업 ID<br>(이 콘텐츠 표시)|
+|--|--|--|--|
+|뉴스 목록|a. `The president...`(국가별, 정치, [텍스트])<br>b. `Premier League ...`(글로벌, 스포츠, [텍스트, 이미지, 비디오])<br> 다. `Hurricane in the ...`(국가별, 날씨, [텍스트, 이미지]|뉴스를 읽는 디바이스<br>월 또는 계절<br>|a `The president...`|
+|영화 목록|1. `Star Wars`(1977, [작업, 모험, 판타지], George Lucas)<br>2. `Hoop Dreams`(1994, [다큐멘터리, 스포츠], Steve James<br>3. `Casablanca`(1942, [사랑, 드라마, 전쟁], Michael Curtiz)|영화를 보는 디바이스<br>화면 크기<br>사용자 유형<br>|3. `Casablanca`|
+|제품 목록|i. `Product A` (3Kg, $$$$, 24시간 내 배달)<br>ii. `Product B` (20Kg, $$, 세관에서 2주 배송)<br>iii. `Product C` (3Kg, $$$,48시간 내 배달)|쇼핑을 읽는 디바이스<br>사용자의 지출 계층<br>월 또는 계절|ii. `Product B`|
 
-Personalizer는 사용자 프로필 정보를 지속 및 관리하거나 개별 사용자의 기본 설정 또는 기록을 로깅하는 서비스가 아닙니다. Personalizer는 유사한 기능이 발생할 때 최대 보상을 얻을 수 있는 단일 모델의 컨텍스트 작업에서 각 상호 작용의 기능을 학습합니다. 
+Personalizer는 보충 학습을 사용하여 다음과 같은 조합에 기반한 _보상 작업 ID_라고 하는 가장 적합한 단일 작업을 선택했습니다.
+* 학습된 모델 - Personalizer 서비스에서 받은 과거 정보
+* 현재 데이터 - 기능이 포함된 특정 작업 및 컨텍스트 기능
 
-## <a name="personalization-for-developers"></a>개발자를 위한 개인 설정
+## <a name="when-to-call-personalizer"></a>Personalizer를 호출하는 경우
 
-Personalizer 서비스는 다음과 같은 두 가지 API를 제공합니다.
+Personalizer의 **순위** [API](https://go.microsoft.com/fwlink/?linkid=2092082)는 _콘텐츠를 표시할 때마다_ 실시간으로 호출됩니다. 이를 **이벤트**라고 하며, _event ID_로 표시합니다.
 
-* *Rank*: Rank API를 사용하여 현재 _컨텍스트_에서 표시할 _작업_을 결정합니다. 작업은 각각에 대한 ID 및 정보(_기능_)가 있는 JSON 개체의 배열로 전송됩니다. 컨텍스트는 다른 JSON 개체로 전송됩니다. API는 애플리케이션이 사용자에게 렌더링해야 하는 actionId를 반환합니다.
-* *보상*: 사용자가 애플리케이션과 상호 작용한 후 개인 설정이 0과 1 사이의 숫자로 얼마나 잘 작동하는지 측정하여 [보상 점수](concept-rewards.md)로 보냅니다. 
+Personalizer의 **보상** [API](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)는 실시간으로 호출하거나 인프라에 맞게 조정하기 위해 지연시킬 수 있습니다. 비즈니스 요구 사항에 따라 보상 점수를 결정합니다. 이는 양호한 경우 1, 양호하지 않은 경우 0 또는 비즈니스 목표와 메트릭을 고려하여 만든 알고리즘을 통해 생성된 숫자와 같은 단일 값일 수 있습니다.
 
-![개인 설정에 대한 이벤트의 기본 시퀀스](media/what-is-personalizer/personalization-intro.png)
+## <a name="personalizer-content-requirements"></a>Personalizer 콘텐츠 요구 사항
+
+콘텐츠가 다음과 같은 경우 Personalizer를 사용합니다.
+
+* 선택할 수 있는 항목 세트가 제한되어 있습니다(최대 50개 항목). 더 큰 목록이 있는 경우 [추천 엔진을 사용](where-can-you-use-personalizer.md#use-personalizer-with-recommendation-engines)하여 목록을 50개 항목으로 줄입니다.
+* 순위를 지정하려는 콘텐츠를 설명하는 정보(_기능이 포함된 작업_ 및  _컨텍스트 기능_)가 있습니다.
+* Personalizer가 효과적일 수 있도록 최소 1k/일의 콘텐츠 관련 이벤트가 있습니다. Personalizer가 필요한 최소 트래픽을 받지 못하는 경우 서비스에서 가장 적합한 단일 콘텐츠 항목을 결정하는 데 시간이 더 오래 걸립니다.
+
+Personalizer는 그룹 정보를 거의 실시간으로 사용하여 가장 적합한 단일 콘텐츠 항목을 반환하므로 서비스에서 수행하지 않는 작업은 다음과 같습니다.
+* 사용자 프로필 정보 유지 및 관리
+* 개별 사용자의 기본 설정 또는 기록 로깅
+* 정리된 콘텐츠 및 레이블이 지정된 콘텐츠 요구
+
+## <a name="how-to-design-and-implement-personalizer-for-your-client-application"></a>클라이언트 애플리케이션에 대해 Personalizer를 설계 및 구현하는 방법
+
+1. 콘텐츠, **_작업_** 및 **_컨텍스트_** 를 [설계](concepts-features.md)하고 계획합니다. **_보상_** 점수에 대한 보상 알고리즘을 결정합니다.
+1. 만드는 각 [Personalizer 리소스](how-to-settings.md)는 하나의 학습 루프로 간주됩니다. 루프는 해당 콘텐츠 또는 사용자 환경에 대한 순위 및 보상 호출을 모두 받습니다.
+1. Personalizer를 웹 사이트 또는 콘텐츠 시스템에 추가합니다.
+    1. 콘텐츠가 사용자에게 표시되기 전에 애플리케이션, 웹 사이트 또는 시스템에서 **순위** 호출을 Personalizer에 추가하여 가장 적합한 단일 _콘텐츠_ 항목을 확인합니다.
+    1. 반환되는 _보상 작업 ID_인 가장 적합한 단일 _콘텐츠_ 항목을 사용자에게 표시합니다.
+    1. 다음과 같이 _알고리즘_을 사용자의 동작 방식에 대해 수집한 정보에 적용하여 **보상** 점수를 확인합니다.
+
+        |동작|계산된 보상 점수|
+        |--|--|
+        |사용자가 가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택함|**1**|
+        |사용자가 다른 콘텐츠를 선택함|**0**|
+        |가장 적합한 단일 _콘텐츠_ 항목(보상 작업 ID)을 선택하기 전에 사용자가 일시 중지하여 막연하게 스크롤함|**0.5**|
+
+    1. 0과 1 사이의 보상 점수를 보내는 **보상** 호출을 추가합니다.
+        * 콘텐츠를 표시한 직후
+        * 또는 나중에 오프라인 시스템에서
+    1. 사용 기간 후에 오프라인 평가를 사용하여 [루프를 평가](concepts-offline-evaluation.md)합니다. 오프라인 평가를 사용하면 코드를 변경하거나 사용자 환경에 영향을 주지 않고 Personalizer 서비스의 효율성을 테스트하고 평가할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Personalizer의 새로운 기능](whats-new.md)
+
 * [Personalizer의 작동 원리](how-personalizer-works.md)
 * [보충 학습이란?](concepts-reinforcement-learning.md)
 * [Rank 요청에 대한 기능 및 작업에 대해 알아보기](concepts-features.md)
 * [Reward 요청 점수를 확인하는 방법 알아보기](concept-rewards.md)
+* [빠른 시작]()
+* [자습서]()
 * [대화형 데모 사용](https://personalizationdemo.azurewebsites.net/)

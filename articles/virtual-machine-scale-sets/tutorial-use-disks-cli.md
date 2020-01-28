@@ -1,27 +1,19 @@
 ---
-title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들기 및 사용 | Microsoft Docs
+title: 자습서 - Azure CLI를 사용하여 확장 집합용 디스크 만들기 및 사용
 description: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 관리 디스크를 만들고 사용하는 방법(디스크를 추가, 준비, 나열 및 분리하는 방법 포함)을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 58090e860b79d59021d467fcf73596271c91c7f6
-ms.sourcegitcommit: 039263ff6271f318b471c4bf3dbc4b72659658ec
+ms.openlocfilehash: 01dbbcddf7df8e261e865fbb61c1fcfd5abbd5fc
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2019
-ms.locfileid: "55751160"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278242"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-the-azure-cli"></a>자습서: Azure CLI를 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 가상 머신 확장 집합은 디스크를 사용하여 VM 인스턴스의 운영 체제, 애플리케이션 및 데이터를 저장합니다. 확장 집합을 만들고 관리할 때 예상 작업에 적합한 디스크 크기와 구성을 선택해야 합니다. 이 자습서에서는 VM 디스크를 만들고 관리하는 방법에 대해 설명합니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
@@ -33,7 +25,7 @@ ms.locfileid: "55751160"
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -51,10 +43,10 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 | Type | 일반적인 크기 | 최대 임시 디스크 크기(GiB) |
 |----|----|----|
 | [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 1600 |
-| [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
+| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 576 |
 | [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
 | [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 1,440 |
+| [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 1440 |
 | [고성능](../virtual-machines/linux/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 
@@ -65,7 +57,7 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
 | Type | 일반적인 크기 | VM당 최대 데이터 디스크 수 |
 |----|----|----|
 | [범용](../virtual-machines/linux/sizes-general.md) | A, B 및 D 시리즈 | 64 |
-| [Compute에 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 64 |
+| [컴퓨팅 최적화](../virtual-machines/linux/sizes-compute.md) | F 시리즈 | 64 |
 | [메모리에 최적화](../virtual-machines/linux/sizes-memory.md) | D, E, G 및 M 시리즈 | 64 |
 | [Storage에 최적화](../virtual-machines/linux/sizes-storage.md) | L 시리즈 | 64 |
 | [GPU](../virtual-machines/linux/sizes-gpu.md) | N 시리즈 | 64 |

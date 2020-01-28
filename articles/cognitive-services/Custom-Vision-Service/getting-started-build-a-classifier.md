@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: e7aa4a557821ee49867a8ea82f92ef04dfbef689
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b664a586398e297a00ea9cd8fe68dc65e6ade5c8
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978682"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170020"
 ---
 # <a name="quickstart-how-to-build-a-classifier-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 분류자를 빌드하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "74978682"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 분류자를 학습시키는 데 사용할 이미지 세트. 이미지 선택 팁은 아래 설명을 참조하세요.
 
@@ -110,6 +110,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="manage-training-iterations"></a>학습 반복 관리
 
 분류자를 학습시킬 때마다 업데이트된 고유 성능 메트릭을 사용하여 새로운 _반복_이 생성됩니다. **성능** 탭의 왼쪽 창에서 모든 반복을 확인할 수 있습니다. 사용하지 않는 반복을 삭제하는 데 사용할 수 있는 **삭제** 단추도 있습니다. 반복을 삭제하면 해당 반복에 고유하게 연결된 이미지도 모두 삭제됩니다.
+
+학습된 모델에 프로그래밍 방식으로 액세스하는 방법을 알아보려면 [예측 API에서 모델 사용](./use-prediction-api.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

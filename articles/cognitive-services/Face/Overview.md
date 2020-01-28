@@ -1,7 +1,7 @@
 ---
-title: Face API란?
+title: Face 서비스란?
 titleSuffix: Azure Cognitive Services
-description: Azure Cognitive Services Face API는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다.
+description: Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다.
 author: PatrickFarley
 manager: nitinme
 ms.service: cognitive-services
@@ -9,25 +9,25 @@ ms.subservice: face-api
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 75f2969562dd2de041ffaa146c394f1a18c7756b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: c4e2253229f4461bcb6a2a9fe3e561f3cde29760
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961542"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170249"
 ---
-# <a name="what-is-the-azure-face-api"></a>Azure Face API란?
+# <a name="what-is-the-azure-face-service"></a>Azure Face 서비스란?
 
-Azure Cognitive Services Face API는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 이러한 시나리오의 예로 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석/관리, 모바일 앱 및 로봇 공학이 있습니다.
+Azure Cognitive Services Face 서비스는 이미지에서 사람의 얼굴을 감지, 인식 및 분석하는 데 사용되는 알고리즘을 제공합니다. 사람의 얼굴 정보를 처리하는 기능은 서로 다른 다양한 소프트웨어 시나리오에서 중요합니다. 이러한 시나리오의 예로 보안, 자연스러운 사용자 인터페이스, 이미지 콘텐츠 분석/관리, 모바일 앱 및 로봇 공학이 있습니다.
 
-Face API는 여러 가지 다른 함수를 제공합니다. 다음 섹션에서는 각 함수에 대해 설명합니다. 계속 참조하여 자세히 알아보세요.
+Face 서비스는 여러 가지 다른 함수를 제공합니다. 다음 섹션에서는 각 함수에 대해 설명합니다. 계속 참조하여 자세히 알아보세요.
 
 ## <a name="face-detection"></a>얼굴 감지
 
-Face API는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 얼굴 감지는 필요에 따라 일련의 얼굴 관련 특성을 추출할 수 있습니다. 머리 자세, 성별, 연령, 감정, 수염, 안경 등이 그 예입니다.
+Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치의 사각형 좌표를 반환합니다. 얼굴 감지는 필요에 따라 일련의 얼굴 관련 특성을 추출할 수 있습니다. 머리 자세, 성별, 연령, 감정, 수염, 안경 등이 그 예입니다.
 
 > [!NOTE]
-> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 사용할 수도 있습니다. 얼굴 데이터를 사용하여 추가 작업을 수행하려면 이 문서에서 설명하는 서비스인 Face API를 사용합니다.
+> 얼굴 감지 기능은 [Computer Vision API](https://docs.microsoft.com/azure/cognitive-services/computer-vision/home)를 통해 사용할 수도 있습니다. 얼굴 데이터를 사용하여 추가 작업을 수행하려면 이 문서에서 설명하는 서비스인 Face 서비스를 사용합니다.
 
 ![얼굴 주위에 사각형이 그려지고 연령과 성별이 표시된 여자와 남자의 이미지](./Images/Face.detection.jpg)
 
@@ -73,9 +73,9 @@ Identify API는 사람 데이터베이스에서 감지된 얼굴을 식별하는
 
 ## <a name="sample-apps"></a>샘플 앱
 
-다음 샘플 애플리케이션에서는 Face API를 사용하는 몇 가지 방법을 보여 줍니다.
+다음 샘플 애플리케이션에서는 Face 서비스를 사용하는 몇 가지 방법을 보여 줍니다.
 
-- [Microsoft Face API: Windows 클라이언트 라이브러리 및 샘플](https://github.com/Microsoft/Cognitive-Face-Windows)은 얼굴 감지, 분석 및 식별에 대한 몇 가지 시나리오를 보여 주는 WPF 앱입니다.
+- [Face API: Windows 클라이언트 라이브러리 및 샘플](https://github.com/Microsoft/Cognitive-Face-Windows)은 얼굴 감지, 분석 및 식별에 대한 몇 가지 시나리오를 보여 주는 WPF 앱입니다.
 - [FamilyNotes UWP 앱](https://github.com/Microsoft/Windows-appsample-familynotes)은 가족 메모 공유 시나리오에서 음성, Cortana, 잉크 및 카메라와 함께 얼굴 식별 기능을 사용하는 UWP(유니버설 Windows 플랫폼) 앱입니다.
 
 ## <a name="data-privacy-and-security"></a>데이터 개인 정보 보호 및 보안

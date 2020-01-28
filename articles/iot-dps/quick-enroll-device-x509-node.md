@@ -9,12 +9,12 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: nodejs
 ms.custom: mvc
-ms.openlocfilehash: 6d926ccaac5ca05fe6f137102cbfdd45b0e182bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4bb3af4ddad7e40cbf7edd58cf5899ced2757512
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434623"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548801"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-nodejs"></a>빠른 시작: Node.js를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
@@ -147,7 +147,10 @@ Node.js 서비스 샘플을 탐색하려면 이 빠른 시작에서 만든 리�
 3. Azure Portal의 Device Provisioning Service에서 **인증서**를 선택하여 이 빠른 시작을 위해 업로드한 인증서를 선택하고 **인증서 세부 정보** 창 위쪽의 **삭제** 단추를 누릅니다.  
  
 ## <a name="next-steps"></a>다음 단계
+
 이 빠른 시작에서는 Azure IoT Hub Device Provisioning Service를 사용하여 X.509 중간 또는 루트 CA 인증서에 대한 그룹 등록을 만들었습니다. 디바이스 프로비전에 대해 자세히 알아보려면 Azure Portal에서 Device Provisioning Service 설치에 대한 자습서를 살펴보세요. 
+
+또한 [Node.js 디바이스 프로비저닝 샘플](https://github.com/Azure/azure-iot-sdk-node/tree/master/provisioning/device/samples)을 참조하세요.
  
 > [!div class="nextstepaction"]
 > [Azure IoT Hub Device Provisioning Service 자습서](./tutorial-set-up-cloud.md)

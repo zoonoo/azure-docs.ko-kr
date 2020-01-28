@@ -1,33 +1,25 @@
 ---
-title: ASP.NET Core에 기능 플래그를 추가하기 위한 빠른 시작 | Microsoft Docs
-description: ASP.NET Core 앱에 기능 플래그 추가 및 Azure App Configuration에서 기능 플래그 관리에 대한 빠른 시작
-services: azure-app-configuration
-documentationcenter: ''
-author: yegu-ms
-manager: maiye
-editor: ''
-ms.assetid: ''
+title: ASP.NET Core에 기능 플래그를 추가하기 위한 빠른 시작
+description: ASP.NET Core 앱에 기능 플래그를 추가하고 Azure App Configuration을 사용하여 관리
+author: jpconnock
 ms.service: azure-app-configuration
-ms.devlang: csharp
 ms.topic: quickstart
-ms.tgt_pltfrm: ASP.NET Core
-ms.workload: tbd
-ms.date: 04/19/2019
-ms.author: yegu
-ms.openlocfilehash: 1b36bc1b1f28c687450acad4cc61fa5442cff082
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.date: 01/14/2020
+ms.author: jeconnoc
+ms.openlocfilehash: 6858648bc07546f30d4ebb92150c52f8c7729acd
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184995"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260289"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
-이 빠른 시작에서는 Azure App Configuration을 ASP.NET Core 웹앱에 통합하여 엔드투엔드 기능 관리를 구현하는 방법을 보여줍니다. App Configuration 서비스를 사용하여 중앙에서 모든 기능 플래그를 저장하고 상태를 제어할 수 있습니다. 
+이 빠른 시작에서는 Azure App Configuration을 사용하여 ASP.NET Core 애플리케이션에서 기능 관리의 엔드투엔드 구현을 만듭니다. App Configuration 서비스를 사용하여 중앙에서 모든 기능 플래그를 저장하고 상태를 제어합니다. 
 
 .NET Core 기능 관리 라이브러리는 포괄적인 기능 플래그 지원을 통해 프레임워크를 확장합니다. 이 라이브러리는 .NET Core 구성 시스템을 기반으로 빌드됩니다. 또한 해당 .NET Core 구성 공급자를 통해 App Configuration과 원활하게 통합됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [.NET Core SDK](https://dotnet.microsoft.com/download)
@@ -36,11 +28,12 @@ ms.locfileid: "74184995"
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
 
-6. **기능 관리자** >  **+추가**를 선택하여 다음 기능 플래그를 추가합니다.
+6. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
 
-    | 키 | 시스템 상태 |
-    |---|---|
-    | 베타 | 꺼짐 |
+    > [!div class="mx-imgBorder"]
+    > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
+
+    지금은 `label`을 정의하지 않은 상태로 둡니다.
 
 ## <a name="create-an-aspnet-core-web-app"></a>ASP.NET Core 웹앱 만들기
 
@@ -58,9 +51,13 @@ ms.locfileid: "74184995"
 
 [비밀 관리자 도구](https://docs.microsoft.com/aspnet/core/security/app-secrets)를 프로젝트에 추가합니다. 비밀 관리자 도구는 개발 작업용 중요 데이터를 프로젝트 트리 외부에 저장합니다. 이 방법을 사용하면 소스 코드 내에서 앱 암호를 실수로 공유하는 경우를 방지할 수 있습니다.
 
+> [!IMPORTANT]
+> .NET Core 2.x와 3.x 간에는 상당한 차이점이 있습니다.  사용자 환경에 따라 올바른 구문을 선택합니다.
+
 1. *.csproj* 파일을 엽니다.
 1. 다음 예제처럼 `UserSecretsId` 요소를 추가하고, 값을 해당 값으로 바꿉니다(일반적으로 GUID).
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -76,16 +73,25 @@ ms.locfileid: "74184995"
 
     </Project>
     ```
-
-1. 파일을 저장합니다.
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```xml
+    <Project Sdk="Microsoft.NET.Sdk.Web">
+    
+        <PropertyGroup>
+            <TargetFramework>netcoreapp3.1</TargetFramework>
+            <UserSecretsId>79a3edd0-2092-40a2-a04d-dcb46d5ca9ed</UserSecretsId>
+        </PropertyGroup>
+    </Project>
+    ```
+    ---
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` 및 `Microsoft.FeatureManagement.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
     ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 2.0.0-preview-009470001-12
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 1.0.0-preview-009000001-1251
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
@@ -108,19 +114,13 @@ ms.locfileid: "74184995"
 
     App Configuration API를 사용하여 이 비밀에 액세스할 수 있습니다. 콜론(:)은 지원되는 모든 플랫폼에서 App Configuration API를 통해 구성 이름에서 작동합니다. [환경별 구성](https://docs.microsoft.com/aspnet/core/fundamentals/configuration)을 참조하세요.
 
-1. *Program.cs*를 열고 .NET Core App Configuration 공급자에 대한 참조를 추가합니다.
-
-    ```csharp
-    using Microsoft.Extensions.Configuration.AzureAppConfiguration;
-    ```
-
 1. `config.AddAzureAppConfiguration()` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다.
     
     > [!IMPORTANT]
     > .NET Core 3.0에서 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다.  사용자 환경에 따라 올바른 구문을 선택합니다.
 
-    ### <a name="update-createwebhostbuilder-for-net-core-2x"></a>.NET Core 2.x용 `CreateWebHostBuilder` 업데이트
-
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
         WebHost.CreateDefaultBuilder(args)
@@ -135,8 +135,8 @@ ms.locfileid: "74184995"
             .UseStartup<Startup>();
     ```
 
-    ### <a name="update-createhostbuilder-for-net-core-3x"></a>.NET Core 3.x용 `CreateHostBuilder` 업데이트
-
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
         Host.CreateDefaultBuilder(args)
@@ -151,7 +151,7 @@ ms.locfileid: "74184995"
         })
         .UseStartup<Startup>());
     ```
-
+    ---
 
 1. *Startup.cs*를 열고 .NET Core 기능 관리자에 대한 참조를 추가합니다.
 
@@ -161,22 +161,75 @@ ms.locfileid: "74184995"
 
 1. `services.AddFeatureManagement()` 메서드를 호출하여 기능 플래그 지원을 추가하도록 `ConfigureServices` 메서드를 업데이트합니다. 필요에 따라 `services.AddFeatureFilter<FilterType>()`을 호출하여 기능 플래그에 사용할 필터를 포함할 수 있습니다 :
 
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
+        services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_2);        
         services.AddFeatureManagement();
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp    
+    public void ConfigureServices(IServiceCollection services)
+    {
+        services.AddControllersWithViews();
+        services.AddFeatureManagement();
+    }
+    ```
+    ---
 
 1. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있는 미들웨어를 추가합니다.
-
+    
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
-        app.UseAzureAppConfiguration();
-        app.UseMvc();
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            
+            app.UseStaticFiles();
+            app.UseCookiePolicy();
+            app.UseAzureAppConfiguration();
+            app.UseMvc(routes =>
+            {
+                routes.MapRoute(
+                    name: "default",
+                    template: "{controller=Home}/{action=Index}/{id?}");
+            });
     }
     ```
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    ```csharp
+    public void Configure(IApplicationBuilder app, IHostingEnvironment env)
+    {
+            if (env.IsDevelopment())
+            {
+                app.UseDeveloperExceptionPage();
+            }
+            else
+            {
+                app.UseExceptionHandler("/Home/Error");
+            }
+            app.UseStaticFiles();
+            app.UseRouting();
+            app.UseAuthorization();
+            app.UseEndpoints(endpoints =>
+            {
+                endpoints.MapControllerRoute(
+                    name: "default",
+                    pattern: "{controller=Home}/{action=Index}/{id?}");
+            });
+            app.UseAzureAppConfiguration();
+    }
+    ```
+    ---
 
 1. *MyFeatureFlags.cs* 파일을 추가합니다.
 
@@ -278,19 +331,19 @@ ms.locfileid: "74184995"
     dotnet run
     ```
 
-1. 브라우저 창을 열고, 로컬로 호스팅되는 웹앱에 대한 기본 URL인 `https://localhost:5001`으로 이동합니다.
+1. 브라우저 창을 열고, 로컬로 호스팅되는 웹앱에 대한 기본 URL인 `https://localhost:5000`으로 이동합니다.
+    Azure Cloud Shell에서 작업하는 경우 *웹 미리 보기* 단추와 *구성*을 차례로 선택합니다.  메시지가 표시되면 포트 5000을 선택합니다.
 
-    ![로컬로 빠른 시작 앱 시작](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
+    ![웹 미리 보기 단추 찾기](./media/quickstarts/cloud-shell-web-preview.png)
+
+    브라우저에는 아래 이미지와 비슷한 페이지가 표시되어야 합니다.
+    ![로컬로 앱 실행 빠른 시작](./media/quickstarts/aspnet-core-feature-flag-local-before.png)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 리소스**를 선택하고, 빠른 시작에서 만든 App Configuration 저장소 인스턴스를 선택합니다.
 
-1. **기능 관리자**를 선택하고, **Beta** 키의 상태를 다음과 같이 **On**으로 변경합니다.
+1. **기능 관리자**를 선택하고, **Beta** 키의 상태를 **On**으로 변경합니다.
 
-    | 키 | 시스템 상태 |
-    |---|---|
-    | 베타 | 설정 |
-
-1. 명령 프롬프트로 다시 전환하고 `Ctrl-C`를 눌러 실행 중인 `dotnet` 프로세스를 취소한 다음, `dotnet run`을 다시 실행하여 애플리케이션을 다시 시작합니다.
+1. 명령 프롬프트로 돌아가서 `Ctrl-C`를 눌러 실행 중인 `dotnet` 프로세스를 취소합니다.  `dotnet run`을 사용하여 애플리케이션을 다시 시작합니다.
 
 1. 새 구성 설정을 확인하려면 브라우저 페이지를 새로 고칩니다.
 

@@ -1,6 +1,6 @@
 ---
 title: Objective-C의 광역 위치 재결정
-description: Objective-C에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
+description: Objective-C의 광역 위치 재결정을 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: d60bb9dbb546db1af6f689dbdcb485354fb7174e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 251f0d8609921bd1d0222d9e30c537ecbb2a04bd
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277229"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548274"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-objective-c"></a>Objective-C에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-objective-c"></a>Objective-C의 광역 위치 재결정을 사용하여 앵커를 만들고 찾는 방법
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74277229"
 
 Azure Spatial Anchors는 사용자가 만든 앵커와 디바이스 내 위치 센서 데이터를 연결할 수 있습니다. 이 데이터를 사용하여 디바이스 근처에 앵커가 있는지 여부를 신속하게 확인할 수도 있습니다. 자세한 내용은 [광역 위치 재결정](../concepts/coarse-reloc.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

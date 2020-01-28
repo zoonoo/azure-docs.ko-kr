@@ -1,5 +1,5 @@
 ---
-title: '예제: 대규모 기능 사용 - Face API'
+title: '예제: 대규모 기능 사용 - Face'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드는 기존 PersonGroup 및 FaceList 개체에서 LargePersonGroup 및 LargeFaceList 개체로 확장하는 방법에 대한 문서입니다.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 05/01/2019
 ms.author: sbowles
-ms.openlocfilehash: 976baaef11251715218ecea71986f08ec5f72996
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: dc0964e40e9214e414d865c06006f1d36e97eeb2
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73743737"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169776"
 ---
 # <a name="example-use-the-large-scale-feature"></a>예제: 대규모 기능 사용
 
@@ -23,14 +23,14 @@ ms.locfileid: "73743737"
 
 LargePersonGroup과 LargeFaceList는 총괄하여 대규모 작업이라고 합니다. LargePersonGroup은 최대 100만 명의 사람을 포함할 수 있으며, 각 사람마다 최대 248개의 얼굴이 있습니다. LargeFaceList는 최대 100만 개의 얼굴을 포함할 수 있습니다. 대규모 작업은 기존의 PersonGroup 및 FaceList와 비슷하지만 새 아키텍처로 인해 몇 가지 차이점이 있습니다. 
 
-샘플은 Azure Cognitive Services Face API 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
+샘플은 Azure Cognitive Services Face 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
 
 > [!NOTE]
 > Identification 및 FindSimilar에 대한 Face 검색 성능을 대규모로 사용하도록 설정하려면 LargeFaceList 및 LargePersonGroup을 전처리하도록 Train 작업을 도입합니다. 학습 시간은 실제 용량에 따라 초 단위에서 약 30분까지 다양합니다. 학습 기간 동안 성공적인 학습 작업이 이전에 수행된 경우 Identification 및 FindSimilar를 수행할 수 있습니다. 단점은 대규모 학습으로의 새 게시 마이그레이션이 완료될 때까지 새로 추가된 사람과 얼굴이 결과에 표시되지 않는 것입니다.
 
 ## <a name="step-1-initialize-the-client-object"></a>1단계: 클라이언트 개체 초기화
 
-Face API 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceClient 클래스의 생성자를 통해 전달됩니다. 예:
+Face 클라이언트 라이브러리를 사용하면 구독 키 및 구독 엔드포인트가 FaceClient 클래스의 생성자를 통해 전달됩니다. 다음은 그 예입니다.
 
 ```csharp
 string SubscriptionKey = "<Subscription Key>";
@@ -64,9 +64,9 @@ PersonGroup의 모든 얼굴과 사람을 새 LargePersonGroup에 추가합니�
 | FaceList API | LargeFaceList API |
 |:---:|:---:|
 | 생성 | 생성 |
-| 삭제 | 삭제 |
+| DELETE | DELETE |
 | 가져오기 | 가져오기 |
-| 나열 | 나열 |
+| 목록 | 목록 |
 | 업데이트 | 업데이트 |
 | - | 학습 |
 | - | 학습 상태 가져오기 |

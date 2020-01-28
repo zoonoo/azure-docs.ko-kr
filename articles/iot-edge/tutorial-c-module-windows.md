@@ -9,12 +9,12 @@ ms.date: 05/28/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: d44e85b069a38f48ad4ad06814db5fbcb58c9dc6
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 10e218098c1831f213db25b87ef2c9ebfdd9e749
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665223"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293881"
 ---
 # <a name="tutorial-develop-a-c-iot-edge-module-for-windows-devices"></a>자습서: Windows 디바이스용 C IoT Edge 모듈 개발
 
@@ -110,33 +110,37 @@ Visual Studio를 사용하여 C 코드를 개발하고 Azure IoT Edge를 실행�
        "address": "<registry name>.azurecr.io"
      }
    }
+   ```
+   
+3. 모듈 솔루션의 **.env** 파일을 엽니다. (솔루션 탐색기에는 기본적으로 숨겨져 있으므로 표시하려면 **모든 파일 표시** 단추를 선택해야 할 수도 있습니다.) .env 파일에는 deployment.template.json 파일에 표시된 것과 동일한 사용자 이름과 암호 변수가 포함되어야 합니다. 
 
-3. Open the **.env** file in your module solution. (It's hidden by default in the Solution Explorer, so you might need to select the **Show All Files** button to display it.) The .env file should contain the same username and password variables that you saw in the deployment.template.json file. 
+4. Azure 컨테이너 레지스트리에서 **사용자 이름** 및 **암호** 값을 추가합니다. 
 
-4. Add the **Username** and **Password** values from your Azure container registry. 
+5. .env 파일에 변경 내용을 저장합니다.
 
-5. Save your changes to the .env file.
+### <a name="update-the-module-with-custom-code"></a>사용자 지정 코드를 사용하여 모듈 업데이트
 
-### Update the module with custom code
-
-The default module code receives messages on an input queue and passes them along through an output queue. Let's add some additional code so that the module processes the messages at the edge before forwarding them to IoT Hub. Update the module so that it analyzes the temperature data in each message, and only sends the message to IoT Hub if the temperature exceeds a certain threshold. 
+기본 모듈 코드는 입력 큐의 메시지를 받고 출력 큐를 통해 메시지를 전달합니다. IoT Hub에 전달하기 전에 모듈이 에지에서 메시지를 처리하도록 몇 가지 추가 코드를 추가해보겠습니다. 각 메시지에서 온도 데이터를 분석하고 온도가 특정 임계값을 초과하는 경우에만 IoT Hub로 메시지를 보내도록 모듈을 업데이트합니다. 
 
 
-1. The data from the sensor in this scenario comes in JSON format. To filter messages in JSON format, import a JSON library for C. This tutorial uses Parson.
+1. 이 시나리오의 센서 데이터는 JSON 형식으로 들어옵니다. JSON 형식의 메시지를 필터링하려면 C용 JSON 라이브러리를 가져와야 합니다. 이 자습서에서는 Parson을 사용합니다.
 
-   1. Download the [Parson GitHub repository](https://github.com/kgabis/parson). Copy the **parson.c** and **parson.h** files into the **CModule** project.
+   1. [Parson GitHub 리포지토리](https://github.com/kgabis/parson)를 다운로드합니다. **parson.c** 및 **parson.h** 파일을 **CModule** 프로젝트에 복사합니다.
 
-   2. In Visual Studio, open the **CMakeLists.txt** file from the CModule project folder. At the top of the file, import the Parson files as a library called **my_parson**.
+   2. Visual Studio의 CModule 프로젝트 폴더에서 **CMakeLists.txt** 파일을 엽니다. 파일의 맨 위에서, Parson 파일을 **my_parson**이라는 라이브러리로 가져옵니다.
 
       ```
-      add_library(my_parson        parson.c        parson.h    )
+      add_library(my_parson
+          parson.c
+          parson.h
+      )
       ```
 
-   3. Add `my_parson` to the list of libraries in the **target_link_libraries** section of the CMakeLists.txt file.
+   3. CMakeLists.txt 파일의 **target_link_libraries** 섹션에 있는 라이브러리 목록에 `my_parson`을 추가합니다.
 
-   4. Save the **CMakeLists.txt** file.
+   4. **CMakeLists.txt** 파일을 저장합니다.
 
-   5. Open **CModule** > **main.c**. At the bottom of the list of include statements, add a new one to include `parson.h` for JSON support:
+   5. **CModule** > **main.c** 파일을 엽니다. include 문 목록의 맨 아래에서, JSON을 지원하기 위한 `parson.h`를 포함하는 새 명령문을 추가합니다.
 
       ```c
       #include "parson.h"

@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: tutorial
-ms.date: 05/31/2019
+ms.date: 01/17/2020
 ms.author: alkohli
 Customer intent: As an IT admin, I need to understand how to install Data Box Edge in datacenter so I can use it to transfer data to Azure.
-ms.openlocfilehash: 0a9939155d92897019dc1ad5651d249cda11b993
-ms.sourcegitcommit: cababb51721f6ab6b61dda6d18345514f074fb2e
+ms.openlocfilehash: fe74db34e62a80935954c6cfc2e591d49a84b0b7
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/04/2019
-ms.locfileid: "66476931"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263951"
 ---
 # <a name="tutorial-install-azure-data-box-edge"></a>자습서: Azure Data Box Edge 설치
 
@@ -22,14 +22,14 @@ ms.locfileid: "66476931"
 
 설치가 완료되려면 약 2시간 정도 걸릴 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 디바이스 포장 풀기
 > * 랙에 디바이스 탑재
 > * 디바이스에 케이블 연결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 물리적 디바이스를 설치하기 위한 필수 조건은 다음과 같습니다.
 
@@ -86,7 +86,7 @@ ms.locfileid: "66476931"
 > Data Box Edge 디바이스는 올바른 작동을 위해 랙에 탑재되어야 합니다.
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - 시작하기 전에 보안, 환경 및 규정 정보 소책자의 보안 지침을 읽으세요. 이 소책자는 디바이스와 함께 배송되었습니다.
 - 랙 엔클로저의 맨 아래에 가장 가까운 할당된 공간에 레일 설치를 시작합니다.
@@ -154,21 +154,10 @@ ms.locfileid: "66476931"
 
     ![슬램 래치 연결 및 해제](./media/data-box-edge-deploy-install/engaging-releasing-slam-latch.png)
 
-### <a name="route-the-cables"></a>케이블 연결
-
-> [!NOTE]
->  선택 사항인 CMA(케이블 관리 암)를 주문하지 않은 경우 레일 키트에 제공된 두 개의 벨크로 스트랩을 사용하여 시스템 후면에서 케이블을 연결합니다.
-
-1. 양쪽 랙 플랜지의 내부 측면에 외부 CMA 브라켓을 찾습니다.
-2. 케이블을 시스템 커넥터에서 왼쪽 및 오른쪽으로 당겨 빼내서 조심스럽게 모읍니다.
-3. 끈을 후크에 꿰고 시스템의 각 측면에 있는 바깥쪽 CMA 브래킷의 슬롯을 통해 감아서 케이블 다발을 고정합니다.
-
-
-    ![케이블 연결](./media/data-box-edge-deploy-install/routing-cables.png)
 
 ## <a name="cable-the-device"></a>디바이스에 케이블 연결
 
-다음 절차에서는 전원 및 네트워크를 위해 Data Box Edge 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
+케이블을 라우팅한 다음, 디바이스를 케이블로 연결합니다. 다음 절차에서는 전원 및 네트워크를 위해 Data Box Edge 디바이스에 케이블을 연결하는 방법에 대해 설명합니다.
 
 디바이스 케이블 연결을 시작하기 전에 다음이 필요합니다.
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 12/17/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 8aaa19a9d5bd5d7b2764320d5d91c8a6c010b3c8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d469d52a6db6c3640d07b46422ffe669a898dde8
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433316"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262999"
 ---
 # <a name="entity-functions"></a>엔터티 함수
 
@@ -49,11 +49,13 @@ ms.locfileid: "75433316"
 
 ## <a name="define-entities"></a>엔터티 정의
 
-현재, 엔터티를 정의하기 위한 다음과 같은 두 가지 고유한 API를 제공하고 있습니다.
+현재, 엔터티를 정의하기 위한 두 가지 고유한 API는 다음과 같습니다.
 
 **함수 기반 구문**: 엔터티가 함수로 표시되고 애플리케이션에서 작업을 명시적으로 디스패치합니다. 이 구문은 간단한 상태, 몇 가지 작업 또는 동적 작업 세트(예: 애플리케이션 프레임워크)가 있는 엔터티에서 효율적으로 작동합니다. 이 구문은 컴파일 타임에 형식 오류를 catch하지 않으므로 유지 관리하는 데 번거로울 수 있습니다.
 
-**클래스 기반 구문**: 엔터티와 작업이 클래스와 메서드로 표시됩니다. 이 구문은 더 쉽게 읽을 수 있는 코드를 생성하며, 형식이 안전한 방식으로 작업을 호출할 수 있도록 합니다. 클래스 기반 구문은 함수 기반 구문 위에 있는 씬(thin) 계층이므로 두 변형을 모두 동일한 애플리케이션에서 교대로 사용할 수 있습니다.
+**클래스 기반 구문(.NET 전용)** : 엔터티와 작업이 클래스와 메서드로 표시됩니다. 이 구문은 더 쉽게 읽을 수 있는 코드를 생성하며, 형식이 안전한 방식으로 작업을 호출할 수 있도록 합니다. 클래스 기반 구문은 함수 기반 구문 위에 있는 씬(thin) 계층이므로 두 변형을 모두 동일한 애플리케이션에서 교대로 사용할 수 있습니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ### <a name="example-function-based-syntax---c"></a>예제: 함수 기반 구문 - C#
 
@@ -107,11 +109,13 @@ public class Counter
 
 클래스 기반 구문과 이를 사용하는 방법에 대한 자세한 내용은 [엔터티 클래스 정의](durable-functions-dotnet-entities.md#defining-entity-classes)를 참조하세요.
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ### <a name="example-javascript-entity"></a>예제: JavaScript 엔터티
 
 지속성 엔터티는 `durable-functions` npm 패키지의 버전 **1.3.0**부터 JavaScript에서 사용할 수 있습니다. 다음 코드는 JavaScript로 작성된 지속성 함수로 구현된 `Counter` 엔터티입니다.
 
-**function.json**
+**Counter/function.json**
 ```json
 {
   "bindings": [
@@ -125,7 +129,7 @@ public class Counter
 }
 ```
 
-**index.js**
+**Counter/index.js**
 ```javascript
 const df = require("durable-functions");
 
@@ -146,6 +150,8 @@ module.exports = df.entity(function(context) {
 });
 ```
 
+---
+
 ## <a name="access-entities"></a>액세스 엔터티
 
 엔터티는 단방향 또는 양방향 통신을 사용하여 액세스할 수 있습니다. 다음은 두 가지 형태의 통신을 구분하는 용어입니다. 
@@ -161,12 +167,14 @@ module.exports = df.entity(function(context) {
 
 다음 예제에서는 엔터티에 액세스하는 다양한 방법을 보여 줍니다.
 
-> [!NOTE]
-> 간단히 하기 위해 다음 예제에서는 엔터티에 액세스하기 위한 느슨하게 형식화된 구문을 보여 줍니다. 일반적으로 더 많은 형식 검사를 제공하므로 [인터페이스를 통해 엔터티에 액세스](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)하는 것이 좋습니다.
-
 ### <a name="example-client-signals-an-entity"></a>예제: 클라이언트에서 엔터티에 신호 보내기
 
 일반 Azure 함수(클라이언트 함수라고도 함)에서 엔터티에 액세스하려면 [엔터티 클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용합니다. 다음 예제에서는 이 바인딩을 사용하여 엔터티에 신호를 보내는 큐 트리거 함수를 보여 줍니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+> [!NOTE]
+> 간단히 하기 위해 다음 예제에서는 엔터티에 액세스하기 위한 느슨하게 형식화된 구문을 보여 줍니다. 일반적으로 더 많은 형식 검사를 제공하므로 [인터페이스를 통해 엔터티에 액세스](durable-functions-dotnet-entities.md#accessing-entities-through-interfaces)하는 것이 좋습니다.
 
 ```csharp
 [FunctionName("AddFromQueue")]
@@ -181,6 +189,8 @@ public static Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -191,11 +201,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 *신호*라는 용어는 엔터티 API 호출이 단방향이며 비동기적임을 의미합니다. 클라이언트 함수는 엔터티에서 작업을 처리한 시기를 인식할 수 없습니다. 또한 클라이언트 함수는 결과 값 또는 예외를 관찰할 수 없습니다. 
 
 ### <a name="example-client-reads-an-entity-state"></a>예제: 클라이언트에서 엔터티 상태 읽기
 
 클라이언트 함수는 다음 예제와 같이 엔터티의 상태를 쿼리할 수도 있습니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("QueryCounter")]
@@ -209,6 +223,8 @@ public static async Task<HttpResponseMessage> Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -220,11 +236,15 @@ module.exports = async function (context) {
 };
 ```
 
+---
+
 엔터티 상태 쿼리는 지속성 추적 저장소로 보내지고 엔터티의 가장 최근 지속됨 상태를 반환합니다. 이 상태는 항상 "커밋됨” 상태입니다. 즉 작업을 실행하는 중간에 가정된 임시 중간 상태가 아닙니다. 그러나 이 상태는 엔터티의 메모리 내 상태에 비해 오래되었을 수 있습니다. 다음 섹션에서 설명한 대로 오케스트레이션만 엔터티의 메모리 내 상태를 읽을 수 있습니다.
 
 ### <a name="example-orchestration-signals-and-calls-an-entity"></a>예제: 오케스트레이션에서 엔터티에 신호 보내기 및 엔터티 호출
 
 오케스트레이터 함수는 [오케스트레이션 트리거 바인딩](durable-functions-bindings.md#orchestration-trigger)에서 API를 사용하여 엔터티에 액세스할 수 있습니다. 다음 예제 코드에서는 `Counter` 엔터티를 호출하고 신호를 보내는 오케스트레이터 함수를 보여 줍니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("CounterOrchestration")]
@@ -243,6 +263,8 @@ public static async Task Run(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -257,6 +279,8 @@ module.exports = df.orchestrator(function*(context){
 > [!NOTE]
 > JavaScript는 현재 오케스트레이터에서 엔터티 신호를 지원하지 않습니다. 대신 `callEntity`를 사용하세요.
 
+---
+
 오케스트레이션만 엔터티를 호출하고, 반환 값 또는 예외일 수 있는 응답을 받을 수 있습니다. [클라이언트 바인딩](durable-functions-bindings.md#entity-client)을 사용하는 클라이언트 함수는 엔터티에 대한 신호만 보낼 수 있습니다.
 
 > [!NOTE]
@@ -266,6 +290,8 @@ module.exports = df.orchestrator(function*(context){
 
 엔터티 함수는 작업을 실행하는 동안 다른 엔터티(또는 자체)에 신호를 보낼 수 있습니다.
 예를 들어 카운터 값이 100에 도달하면 "마일스톤에 도달했음” 신호를 일부 모니터 엔터티에 보내도록 이전 `Counter` 엔터티 예제를 수정할 수 있습니다.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
    case "add":
@@ -280,6 +306,8 @@ module.exports = df.orchestrator(function*(context){
         break;
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
     case "add":
         const amount = context.df.getInput();
@@ -291,7 +319,9 @@ module.exports = df.orchestrator(function*(context){
         break;
 ```
 
-## <a name="entity-coordination"></a>엔터티 조정
+---
+
+## <a name="entity-coordination"></a>엔터티 조정(현재 .NET 전용)
 
 여러 엔터티 간에 작업을 조정해야 하는 경우가 있을 수 있습니다. 예를 들어 은행 애플리케이션에서 개별 은행 계좌를 나타내는 엔터티가 있을 수 있습니다. 한 계정에서 다른 계정으로 자금을 이체하는 경우 원본 계정에 충분한 금액이 있는지 확인해야 합니다. 또한 원본 및 대상 계정에 대한 업데이트가 업무상 일관된 방식으로 수행되도록 해야 합니다.
 

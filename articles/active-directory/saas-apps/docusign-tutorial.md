@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/02/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8f02492dd7c9563c8c0002a63f0b105bd0be8b14
-ms.sourcegitcommit: 7f6d986a60eff2c170172bd8bcb834302bb41f71
+ms.openlocfilehash: 3022303f319ba7955f80ae0b52783fa9b5d411f2
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71345576"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76290073"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-docusign"></a>자습서: DocuSign과 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -33,7 +32,7 @@ ms.locfileid: "71345576"
 
 Azure AD와 SaaS(Software as a Service) 앱 연결에 대해 자세히 알아보려면 [Azure AD의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -49,6 +48,7 @@ Azure AD와 SaaS(Software as a Service) 앱 연결에 대해 자세히 알아보
 * DocuSign에서 *Just-In-Time* 사용자 프로비저닝을 지원합니다.
 
 * DocuSign에서 [자동 사용자 프로비저닝](https://docs.microsoft.com/azure/active-directory/saas-apps/docusign-provisioning-tutorial)을 지원합니다.
+* DocuSign을 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-docusign-from-the-gallery"></a>갤러리에서 DocuSign 추가
 
@@ -72,7 +72,7 @@ DocuSign에서 Azure AD SSO를 구성하고 테스트하려면 다음 구성 요
     1. [Azure AD 테스트 사용자를 생성](#create-an-azure-ad-test-user)하여 B.Simon으로 Azure AD Single Sign-On을 테스트합니다.
     1. [Azure AD 테스트 사용자를 할당](#assign-the-azure-ad-test-user)하여 B.Simon이 Azure AD Single Sign-On을 사용할 수 있도록 합니다.
 1. [DocuSign SSO 구성](#configure-docusign-sso) - 애플리케이션 쪽에서 Single Sign-On 설정을 구성합니다.
-1. [DocuSign 테스트 사용자 만들기](#create-docusign-test-user) - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 DocuSign에 만듭니다.
+    1. [DocuSign 테스트 사용자 만들기](#create-docusign-test-user) - B.Simon의 Azure AD 표현과 연결된 해당 사용자를 DocuSign에 만듭니다.
 1. [SSO 테스트](#test-sso)는 구성이 작동하는지 확인합니다.
 
 ## <a name="configure-azure-ad-sso"></a>Azure AD SSO 구성
@@ -140,7 +140,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 2. 확장이 브라우저에 추가되면 **DocuSign 설정**을 선택합니다. DocuSign 애플리케이션으로 이동합니다. 여기서는 DocuSign에 로그인하는 데 필요한 관리자 자격 증명을 제공합니다. 브라우저 확장에서 애플리케이션을 자동으로 구성하고 3-5단계를 자동화합니다.
 
-    ![구성 설정](common/setup-sso.png)
+    ![설정 구성](common/setup-sso.png)
 
 3. DocuSign을 수동으로 설정하려면 새 웹 브라우저 창을 열고 DocuSign 회사 사이트에 관리자 권한으로 로그인합니다.
 
@@ -236,6 +236,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure AD의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 DocuSign 사용해 보기](https://aad.portal.azure.com/)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 DocuSign을 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
 <!--Image references-->
 

@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: overview
 ms.date: 09/08/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 54e1eb0be18de8e5ed420e96629d6f23473272fe
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: caa62483373a240991cfec96437cea7849d9b19c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74545721"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261554"
 ---
 # <a name="durable-orchestrations"></a>지속성 오케스트레이션
 
@@ -55,7 +55,9 @@ Durable Functions는 이벤트 소싱을 투명하게 사용합니다. 오케스
 
 ## <a name="orchestration-history"></a>오케스트레이션 기록
 
-지속성 작업 프레임워크의 이벤트 소싱 동작은 작성하는 오케스트레이터 함수 코드와 밀접하게 연관되어 있습니다. 다음 C# 또는 오케스트레이터 함수와 같은 활동 체이닝 오케스트레이터 함수가 있다고 가정해 보세요.
+지속성 작업 프레임워크의 이벤트 소싱 동작은 작성하는 오케스트레이터 함수 코드와 밀접하게 연관되어 있습니다. 다음 오케스트레이터 함수와 같은 활동 체이닝 오케스트레이터 함수가 있다고 가정해 보세요.
+
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 ```csharp
 [FunctionName("E1_HelloSequence")]
@@ -73,7 +75,7 @@ public static async Task<List<string>> Run(
 }
 ```
 
-JavaScript에서 코딩하는 경우 활동 체이닝 오케스트레이터 함수는 다음 예제 코드와 같을 수 있습니다.
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
 ```javascript
 const df = require("durable-functions");
@@ -88,6 +90,8 @@ module.exports = df.orchestrator(function*(context) {
     return output;
 });
 ```
+
+---
 
 각 `await`(C#) 또는 `yield`(JavaScript) 문에서 지속성 작업 프레임워크는 함수의 실행 상태 검사점을 일부 지속성 스토리지 백 엔드(일반적으로 Azure Table 스토리지)에 설정합니다. 이 상태를 *오케스트레이션 기록*이라고 합니다.
 
@@ -106,7 +110,7 @@ module.exports = df.orchestrator(function*(context) {
 
 완료되면 앞에서 보여 준 함수의 기록은 Azure Table Storage에서 다음 표와 비슷합니다(예시를 위해 간략히 설명함).
 
-| PartitionKey(InstanceId)                     | EventType             | 타임 스탬프               | 입력 | Name             | 결과                                                    | 상태 |
+| PartitionKey(InstanceId)                     | EventType             | 타임스탬프               | 입력 | 속성             | 결과                                                    | 상태 |
 |----------------------------------|-----------------------|----------|--------------------------|-------|------------------|-----------------------------------------------------------|
 | eaee885b | ExecutionStarted      | 2017-05-05T18:45:28.852Z | null  | E1_HelloSequence |                                                           |                     |
 | eaee885b | OrchestratorStarted   | 2017-05-05T18:45:32.362Z |       |                  |                                                           |                     |
@@ -139,7 +143,7 @@ module.exports = df.orchestrator(function*(context) {
   * **OrchestratorCompleted**: 오케스트레이터 함수가 기다리고 있습니다.
   * **ContinueAsNew**: 오케스트레이터 함수가 완료되고 새 상태로 다시 시작되었습니다. `Result` 열에 다시 시작되는 인스턴스의 입력으로 사용되는 값이 포함됩니다.
   * **ExecutionCompleted**: 오케스트레이터 함수가 실행되어 완료되었거나 실패했습니다. `Result` 열에 함수 또는 오류 세부 정보의 출력이 저장됩니다.
-* **Timestamp**: 기록 이벤트의 UTC 타임스탬프입니다.
+* **타임스탬프**: 기록 이벤트의 UTC 타임스탬프입니다.
 * **Name**: 호출된 함수의 이름입니다.
 * **입력**: JSON 형식의 함수 입력입니다.
 * **결과**: 함수의 출력, 즉, 반환 값입니다.
@@ -182,7 +186,7 @@ module.exports = df.orchestrator(function*(context) {
 
 자세한 내용 및 예제는 [오류 처리](durable-functions-error-handling.md) 문서를 참조하세요.
 
-### <a name="critical-sections-durable-functions-2x"></a>임계 영역(Durable Functions 2.x)
+### <a name="critical-sections-durable-functions-2x-currently-net-only"></a>임계 섹션(Durable Functions 2.x, 현재 .NET에만 해당)
 
 오케스트레이션 인스턴스는 단일 스레드이므로 오케스트레이션 *내*의 경합 상태에 대해 걱정할 필요가 없습니다. 그러나 오케스트레이션에서 외부 시스템과 상호 작용할 때 경합 상태가 발생할 수 있습니다. 오케스트레이터 함수는 외부 시스템과 상호 작용할 때 경합 상태를 완화하기 위해 .NET의 `LockAsync` 메서드를 사용하여 *임계 영역*을 정의할 수 있습니다.
 
@@ -212,7 +216,9 @@ public static async Task Synchronize(
 
 [오케스트레이터 함수 코드 제약 조건](durable-functions-code-constraints.md)에서 설명한 대로 오케스트레이터 함수는 I/O를 수행할 수 없습니다. 이 제한 사항에 대한 일반적인 해결 방법은 활동 함수에서 I/O를 수행해야 하는 코드를 래핑하는 것입니다. 외부 시스템과 상호 작용하는 오케스트레이션은 활동 함수를 사용하여 HTTP 호출을 수행하고 결과를 오케스트레이션에 반환합니다.
 
-오케스트레이터 함수는 이 일반적인 패턴을 간소화하기 위해 .NET의 `CallHttpAsync` 메서드를 사용하여 HTTP API를 직접 호출할 수 있습니다. `CallHttpAsync`는 기본 요청/응답 패턴을 지원하는 것 외에도 일반적인 비동기 HTTP 202 폴링 패턴을 자동으로 처리하도록 지원하고, [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용한 외부 서비스 인증도 지원합니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+오케스트레이터 함수는 이 일반적인 패턴을 간소화하기 위해 `CallHttpAsync` 메서드를 사용하여 HTTP API를 직접 호출할 수 있습니다.
 
 ```csharp
 [FunctionName("CheckSiteAvailable")]
@@ -232,6 +238,8 @@ public static async Task CheckSiteAvailable(
 }
 ```
 
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
 ```javascript
 const df = require("durable-functions");
 
@@ -244,6 +252,10 @@ module.exports = df.orchestrator(function*(context) {
 });
 ```
 
+---
+
+이 메서드는 기본 요청/응답 패턴을 지원하는 것 외에도 일반적인 비동기 HTTP 202 폴링 패턴을 자동으로 처리하도록 지원하고, [관리 ID](../../active-directory/managed-identities-azure-resources/overview.md)를 사용한 외부 서비스 인증도 지원합니다.
+
 자세한 내용 및 예제는 [HTTP 기능](durable-functions-http-features.md) 문서를 참조하세요.
 
 > [!NOTE]
@@ -251,9 +263,11 @@ module.exports = df.orchestrator(function*(context) {
 
 ### <a name="passing-multiple-parameters"></a>여러 매개 변수 전달
 
-활동 함수에는 여러 매개 변수를 직접 전달할 수 없습니다. 개체 배열을 전달하거나 .NET에서 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용하는 것이 좋습니다.
+활동 함수에는 여러 매개 변수를 직접 전달할 수 없습니다. 개체 또는 복합 개체의 배열로 전달하는 것이 좋습니다.
 
-다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
+# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+
+.NET에서는 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples) 개체를 사용할 수도 있습니다. 다음 샘플은 [C# 7](https://docs.microsoft.com/dotnet/csharp/whats-new/csharp-7#tuples)로 추가된 [ValueTuples](https://docs.microsoft.com/dotnet/csharp/tuples)의 새로운 기능을 사용하는 것입니다.
 
 ```csharp
 [FunctionName("GetCourseRecommendations")]
@@ -289,6 +303,36 @@ public static async Task<object> Mapper([ActivityTrigger] IDurableActivityContex
     };
 }
 ```
+
+# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+
+#### <a name="orchestrator"></a>오케스트레이터
+
+```javascript
+const df = require("durable-functions");
+
+module.exports = df.orchestrator(function*(context) {
+    const location = {
+        city: "Seattle",
+        state: "WA"
+    };
+    const weather = yield context.df.callActivity("GetWeather", location);
+
+    // ...
+};
+```
+
+#### <a name="activity"></a>작업
+
+```javascript
+module.exports = async function (context, location) {
+    const {city, state} = location; // destructure properties into variables
+
+    // ...
+};
+```
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

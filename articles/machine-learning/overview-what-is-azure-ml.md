@@ -8,12 +8,12 @@ ms.topic: overview
 author: j-martens
 ms.author: jmartens
 ms.date: 11/04/2019
-ms.openlocfilehash: cd94001cfe795e7aa78a1332325052afce6b8ec6
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4c6a9a2b5991c9f99bf728ecfed144cc77e4c49a
+ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75762810"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76314337"
 ---
 # <a name="what-is-azure-machine-learning"></a>Azure Machine Learning이란?
 
@@ -46,7 +46,7 @@ Azure Machine Learning은 개발자와 데이터 과학자에게 다음을 비�
 
 + <a href="https://azure.github.io/azureml-sdk-for-r/reference/index.html" target="_blank">R용 SDK</a>를 사용하여 고유한 코드를 작성하는 R 스크립트 또는 Notebook이나 디자이너에서 사용하는 R 모듈
 
-+ [Visual Studio Code 확장](how-to-vscode-tools.md)
++ [Visual Studio Code 확장](tutorial-setup-vscode-extension.md)
 
 + [기계 학습 CLI](reference-azure-machine-learning-cli.md)
 
@@ -66,7 +66,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 코드를 작성할 필요가 전혀 또는 거의 없는 학습 및 배포를 위해 다음 도구를 사용해 보세요.
 
-+ **Azure Machine Learning 디자이너(미리 보기)**
++ **Azure Machine Learning 디자이너**
 
   이 디자이너를 사용하면 코드를 전혀 작성하지 않고도 기계 학습 모델의 데이터 준비, 교육, 테스트, 배포, 관리 및 추적을 수행할 수 있습니다. 프로그래밍이 필요하지 않으며, 데이터 세트와 모듈을 시각적으로 연결하여 모델을 구성할 수 있습니다. [디자이너 자습서](tutorial-designer-automobile-price-train-score.md)를 사용해 보세요.
 
@@ -85,7 +85,7 @@ SDK를 사용하여 [모델 학습 및 튜닝을 자동화](tutorial-auto-train-
 
 그런 다음, [Python용 Azure Machine Learning SDK](https://aka.ms/aml-sdk), [Azure Machine Learning Studio](https://ml.azure.com) 또는 [기계 학습 CLI](reference-azure-machine-learning-cli.md)를 사용하여 배포된 모델을 관리할 수 있습니다.
 
-이러한 모델은 사용 가능하며 대량의 데이터에 대한 예측을 [실시간으로](how-to-consume-web-service.md) 또는 [비동기적으로](how-to-run-batch-predictions.md) 반환할 수 있습니다.
+이러한 모델은 사용 가능하며 대량의 데이터에 대한 예측을 [실시간으로](how-to-consume-web-service.md) 또는 [비동기적으로](how-to-use-parallel-run-step.md) 반환할 수 있습니다.
 
 또한 고급 [기계 학습 파이프라인](concept-ml-pipelines.md)을 사용하여 데이터 준비부터 모델 학습, 평가 및 배포까지 각 단계에서 공동 작업을 수행할 수 있습니다. 파이프라인을 통해 다음을 수행할 수 있습니다.
 

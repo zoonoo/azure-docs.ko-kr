@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services를 사용하여 URL에 따라 원격 파일 인코딩 및 스트림 - REST | Microsoft Docs
+title: Azure Media Services v3를 사용하여 원격 파일 및 스트림 인코딩
 description: 이 자습서의 단계에 따라 REST를 사용하여 Azure Media Services에서 URL에 따라 파일을 인코딩하고 콘텐츠를 스트림합니다.
 services: media-services
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 11/05/2019
 ms.author: juliako
-ms.openlocfilehash: 128513c3af5ce6c0853b63d86959e4c3c35de93c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: d4175f2508edab1cf54e415652e9e9cb37b879b1
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685118"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514343"
 ---
 # <a name="tutorial-encode-a-remote-file-based-on-url-and-stream-the-video---rest"></a>자습서: URL에 따라 원격 파일 인코딩 및 비디오 스트림 - REST
 
@@ -40,7 +40,7 @@ Azure Media Services를 사용하면 다양한 브라우저 및 디바이스에�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Media Services 계정 만들기](create-account-cli-how-to.md)
 

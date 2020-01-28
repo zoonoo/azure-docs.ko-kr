@@ -1,5 +1,5 @@
 ---
-title: '예제: 이미지에서 얼굴 식별 - Face API'
+title: '예제: 이미지에서 얼굴 식별 - Face'
 titleSuffix: Azure Cognitive Services
 description: 이 가이드에서는 미리 알려진 사람으로부터 만들어진 PersonGroup 개체를 사용하여 알 수 없는 얼굴을 식별하는 방법을 보여 줍니다.
 services: cognitive-services
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: ec209eb2c60efcb1363c177aad0fe5a72ad2a239
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0b1cf99fe6e2aa4d7fcb12c3fb96b10b42c7c0b7
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977185"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169907"
 ---
 # <a name="example-identify-faces-in-images"></a>예제: 이미지에서 얼굴 식별
 
-이 가이드에서는 미리 알려진 사람으로부터 만들어진 PersonGroup 개체를 사용하여 알 수 없는 얼굴을 식별하는 방법을 보여 줍니다. 샘플은 Azure Cognitive Services Face API 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
+이 가이드에서는 미리 알려진 사람으로부터 만들어진 PersonGroup 개체를 사용하여 알 수 없는 얼굴을 식별하는 방법을 보여 줍니다. 샘플은 Azure Cognitive Services Face 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
 
 ## <a name="preparation"></a>준비
 
@@ -42,7 +42,7 @@ https://westus.api.cognitive.microsoft.com/face/v1.0/detect[?returnFaceId][&retu
 ```
 
 대안으로 구독 키를 **ocp-apim-subscription-key: &lt;구독 키&gt;** HTTP 요청 헤더에 지정합니다.
-클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceClient 클래스의 생성자를 통해 전달됩니다. 예:
+클라이언트 라이브러리를 사용하는 경우 구독 키는 FaceClient 클래스의 생성자를 통해 전달됩니다. 다음은 그 예입니다.
  
 ```csharp 
 private readonly IFaceClient faceClient = new FaceClient(
@@ -131,7 +131,7 @@ while(true)
 
 ## <a name="step-4-identify-a-face-against-a-defined-persongroup"></a>4단계: 정의된 PersonGroup에 대해 얼굴 식별
 
-Face API에서 식별을 수행하는 경우 그룹 내의 모든 얼굴에 걸쳐 테스트 얼굴의 유사성을 계산합니다. 테스트 얼굴에 대해 가장 유사한 사람을 반환합니다. 이 프로세스는 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API 또는 클라이언트 라이브러리의 IdentifyAsync 메서드를 통해 수행됩니다.
+Face 서비스에서 식별을 수행하는 경우 그룹 내의 모든 얼굴에 걸쳐 테스트 얼굴의 유사성을 계산합니다. 테스트 얼굴에 대해 가장 유사한 사람을 반환합니다. 이 프로세스는 [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API 또는 클라이언트 라이브러리의 IdentifyAsync 메서드를 통해 수행됩니다.
 
 이전 단계를 사용하여 테스트 얼굴을 감지해야 합니다. 그런 다음, 얼굴 ID를 두 번째 인수로 식별 API에 전달합니다. 여러 얼굴 ID를 한 번에 식별할 수 있습니다. 결과에는 식별된 모든 결과가 포함됩니다. 기본적으로 식별 프로세스는 테스트 얼굴과 가장 많이 일치하는 한 사람만 반환합니다. 원하는 경우 식별 프로세스에서 더 많은 후보를 반환하도록 하려면 선택적인 maxNumOfCandidatesReturned 매개 변수를 지정합니다.
 
@@ -183,7 +183,7 @@ PersonGroup은 이전의 설계 제한에 따라 최대 10,000명을 포함할 �
 - [PersonGroup – Train](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395249) API를 사용하여 PersonGroup을 학습시킵니다.
 - [Face - Identify](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395239) API를 사용하여 PersonGroup에 대해 알 수 없는 얼굴을 식별합니다.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 - [얼굴 인식 개념](../concepts/face-recognition.md)
 - [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)

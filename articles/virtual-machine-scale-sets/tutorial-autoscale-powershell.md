@@ -1,33 +1,25 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 자동으로 확장 집합 크기 조정 | Microsoft Docs
+title: 자습서 - Azure PowerShell을 사용하여 자동으로 확장 집합 크기 조정
 description: Azure PowerShell을 사용하여 CPU 요구량이 늘거나 줄어듦에 따라 가상 머신 확장 집합의 크기를 자동으로 조정하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 2d743b53f5ca74299c865d381f0832729fc956f4
-ms.sourcegitcommit: 13d5eb9657adf1c69cc8df12486470e66361224e
+ms.openlocfilehash: 50fb0c1c13ceba88b1894fa0f3165dd40b8e23cf
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68677586"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278419"
 ---
 # <a name="tutorial-automatically-scale-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합의 크기를 자동으로 조정
 
 [!INCLUDE [requires-azurerm](../../includes/requires-azurerm.md)]
 
-확장 집합을 만들 때 실행할 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+확장 집합을 만들 때 실행하려는 VM 인스턴스 수를 정의합니다. 애플리케이션 수요가 변경될 때는 VM 인스턴스 수를 자동으로 늘리거나 줄일 수 있습니다. 자동 크기 조정 기능을 사용하면 고객 수요에 따라 조정하거나 앱 수명 주기 동안 애플리케이션 성능 변화에 대응할 수 있습니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
 
 > [!div class="checklist"]
 > * 확장 집합에 자동 크기 조정 사용
@@ -35,7 +27,7 @@ ms.locfileid: "68677586"
 > * VM 인스턴스 스트레스 테스트 및 자동 크기 조정 규칙 트리거
 > * 요구량이 줄면 자동으로 다시 크기 조정
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 Azure Cloud Shell 현재 버전을 포함하여 Azure PowerShell 모듈 버전 6.8.1 이상에 영향을 주는 알려진 문제가 있습니다. 이 자습서는 Azure PowerShell 모듈 6.0.0-6.8.0 버전에서만 실행할 수 있습니다. `Get-Module -ListAvailable AzureRM`을 실행하여 버전을 찾습니다. 또한 PowerShell을 로컬로 실행하는 경우 `Connect-AzureRmAccount`를 실행하여 Azure와 연결해야 합니다.
 
@@ -66,7 +58,7 @@ New-AzureRmVmss `
 확장 집합 리소스와 VM을 모두 만들고 구성하는 데 몇 분 정도 걸립니다.
 
 ## <a name="create-a-rule-to-autoscale-out"></a>자동 크기 확장 규칙 만들기
-애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 사용자는 모니터링할 메트릭(예: CPU 또는 디스크), 지정된 임계값을 애플리케이션 로드가 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어할 수 있습니다.
+애플리케이션 수요가 증가하면 확장 집합의 VM 인스턴스 부하가 증가합니다. 증가된 로드가 단순한 요구가 아닌 일관된 요구인 경우 확장 집합의 VM 인스턴스 수를 늘리도록 자동 크기 조정 규칙을 구성할 수 있습니다. 이러한 VM 인스턴스를 만들고 애플리케이션을 배포하면 확장 집합이 부하 분산 장치를 통해 트래픽을 분산하기 시작합니다. 모니터링할 메트릭(예: CPU 또는 디스크), 애플리케이션 로드가 지정된 임계값을 충족해야 하는 기간, 확장 집합에 추가할 VM 인스턴스 수를 제어합니다.
 
 평균 CPU 로드가 5분간 70%를 초과할 경우 [New-AzureRmAutoscaleRule](/powershell/module/AzureRM.Insights/New-AzureRmAutoscaleRule)을 사용하여 확장 집합의 VM 인스턴스 수를 늘리는 규칙을 만들어 보겠습니다. 규칙이 트리거되면 VM 인스턴스 수가 3만큼 늘어납니다.
 
@@ -78,10 +70,10 @@ New-AzureRmVmss `
 | *-TimeGrain*            | 분석을 위해 메트릭이 수집되는 빈도입니다.                                                                   | 1분       |
 | *-MetricStatistic*      | 분석을 위해 수집된 메트릭을 집계하는 방법을 정의합니다.                                                | 평균        |
 | *-TimeWindow*           | 메트릭과 임계값을 비교하기 전에 모니터링하는 기간입니다.                                   | 5분      |
-| *-Operator*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 보다 큼   |
+| *-Operator*             | 메트릭 데이터를 임계값과 비교하는 데 사용되는 연산자입니다.                                                     | 다음보다 큼   |
 | *-Threshold*            | 자동 크기 조정 규칙이 작업을 트리거하도록 하는 값입니다.                                                      | 70%            |
 | *-ScaleActionDirection* | 규칙이 적용될 때 확장 집합이 확장 또는 축소되어야 하는지를 정의합니다.                                             | 증가       |
-| *–ScaleActionScaleType* | VM 인스턴스 수를 특정 값으로 변경해야 함을 나타냅니다.                                    | 변경 수   |
+| *-ScaleActionScaleType* | VM 인스턴스 수를 특정 값으로 변경해야 함을 나타냅니다.                                    | 변경 수   |
 | *-ScaleActionValue*     | 규칙이 트리거되면 VM 인스턴스의 백분율을 변경해야 합니다.                                            | 3              |
 | *-ScaleActionCooldown*  | 자동 크기 조정 작업이 적용될 시간을 주기 위해 규칙을 다시 적용하기 전에 대기할 시간입니다. | 5분      |
 
@@ -97,7 +89,7 @@ $myRuleScaleOut = New-AzureRmAutoscaleRule `
   -Operator "GreaterThan" `
   -Threshold 70 `
   -ScaleActionDirection "Increase" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 3 `
   -ScaleActionCooldown 00:05:00
 ```
@@ -119,7 +111,7 @@ $myRuleScaleIn = New-AzureRmAutoscaleRule `
   -TimeWindow 00:05:00 `
   -ScaleActionCooldown 00:05:00 `
   -ScaleActionDirection "Decrease" `
-  –ScaleActionScaleType "ChangeCount" `
+  -ScaleActionScaleType "ChangeCount" `
   -ScaleActionValue 1
 ```
 

@@ -1,25 +1,23 @@
 ---
 title: OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 description: OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
-services: container-service
 author: zr-msft
-manager: jeconnoc
 ms.service: container-service
 ms.topic: overview
 ms.date: 12/05/2017
 ms.author: zarhoads
-ms.openlocfilehash: 7a887905bcb4b09c1b4ae179116b3f08c75caabd
-ms.sourcegitcommit: 563f8240f045620b13f9a9a3ebfe0ff10d6787a2
+ms.openlocfilehash: 131e767daa920f03db5ec9a3aac711fc850c7132
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/01/2019
-ms.locfileid: "58758293"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76276799"
 ---
 # <a name="integrate-with-azure-managed-services-using-open-service-broker-for-azure-osba"></a>OSBA(Open Service Broker for Azure)를 사용하여 Azure에서 관리되는 서비스와 통합
 
-[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure 관리 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 애플리케이션 배포에 중점을 두고 있습니다.
+[Kubernetes 서비스 카탈로그][kubernetes-service-catalog]와 함께 OSBA(Open Service Broker for Azure)를 사용하면 개발자가 Kubernetes에서 Azure에서 관리되는 서비스를 활용할 수 있습니다. 이 가이드는 Kubernetes 서비스 카탈로그, OSBA(Open Service Broker for Azure) 및 Kubernetes를 사용하는 Azure에서 관리되는 서비스를 사용하는 애플리케이션 배포에 중점을 두고 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독
 
 * Azure CLI: [로컬로 설치][azure-cli-install]하거나 [Azure Cloud Shell][azure-cloud-shell]에서 사용합니다.
@@ -28,7 +26,7 @@ ms.locfileid: "58758293"
 
 * Azure 구독에서 Contributor 역할로 서비스 사용자를 만드는 권한
 
-* 기존 AKS(Azure Kubernetes Service) 클러스터. AKS 클러스터가 필요한 경우 [AKS 클러스터 만들기][create-aks-cluster] 빠른 시작을 따릅니다.
+* 기존 AKS(Azure Kubernetes Service) 클러스터. AKS 클러스터가 필요한 경우 [AKS 클러스터 만들기][create-aks-cluster] 빠른 시작을 수행하세요.
 
 ## <a name="install-service-catalog"></a>서비스 카탈로그 설치
 
@@ -75,7 +73,7 @@ v1beta1.storage.k8s.io               10
 
 ## <a name="install-open-service-broker-for-azure"></a>Open Service Broker for Azure 설치
 
-다음 단계는 Azure에서 관리하는 서비스에 대한 카탈로그를 포함하는 [Open Service Broker for Azure][open-service-broker-azure]에 설치하는 것입니다. 사용 가능한 Azure 서비스의 예로는 Azure Database for PostgreSQL, Azure Database for MySQL 및 Azure SQL Database가 있습니다.
+다음 단계에서는 Azure에서 관리되는 서비스에 대한 카탈로그가 포함된 [Open Service Broker for Azure][open-service-broker-azure]를 설치합니다. 사용 가능한 Azure 서비스의 예로는 Azure Database for PostgreSQL, Azure Database for MySQL 및 Azure SQL Database가 있습니다.
 
 Open Service Broker for Azure Helm 리포지토리 추가부터 시작합니다.
 
@@ -83,7 +81,7 @@ Open Service Broker for Azure Helm 리포지토리 추가부터 시작합니다.
 helm repo add azure https://kubernetescharts.blob.core.windows.net/azure
 ```
 
-다음 Azure CLI 명령을 사용하여 [서비스 사용자][create-service-principal]를 만듭니다.
+다음 Azure CLI 명령으로 [서비스 사용자][create-service-principal]를 만듭니다.
 
 ```azurecli-interactive
 az ad sp create-for-rbac
@@ -131,7 +129,7 @@ helm install azure/open-service-broker-azure --name osba --namespace osba \
     --set azure.clientSecret=$AZURE_CLIENT_SECRET
 ```
 
-OSBA 배포가 완료되면 서비스 브로커, 서비스 클래스, 서비스 계획 등을 쿼리하기 위해 사용하기 쉬운 명령줄 인터페이스인 [서비스 카탈로그 CLI][service-catalog-cli]을 설치합니다.
+OSBA 배포가 완료되면 서비스 broker, 서비스 클래스, 서비스 계획 등을 쿼리하는 데 사용하기 쉬운 명령줄 인터페이스인 [서비스 카탈로그 CLI][service-catalog-cli]를 설치합니다.
 
 다음 명령을 실행하여 서비스 카탈로그 CLI 이진을 설치합니다.
 
@@ -146,7 +144,7 @@ chmod +x ./svcat
 ./svcat get brokers
 ```
 
-다음과 비슷한 결과가 나타나야 합니다.
+다음과 비슷한 내용이 출력됩니다.
 
 ```
   NAME                               URL                                STATUS
@@ -191,7 +189,7 @@ kubectl get secrets -n wordpress -o yaml
 
 이 문서에 따라 서비스 카탈로그를 AKS(Azure Kubernetes Service)에 배포했습니다. Open Service Broker for Azure를 사용하여 Azure에서 관리되는 서비스(이 경우 Azure Database for MySQL)를 사용하는 WordPress 설치를 배포했습니다.
 
-다른 업데이트된 OSBA 기반 Helm 차트에 액세스하려면 [Azure/helm-charts][helm-charts] 저장소를 참조하세요. OSBA와 함께 작동하는 자신만의 차트를 만들려는 경우 [새 차트 만들기][helm-create-new-chart]를 참조하세요.
+업데이트된 다른 OSBA 기반 Helm 차트에 액세스하려면 [Azure/helm-charts][helm-charts]를 참조하세요. OSBA와 작동하는 자신의 차트를 만들려면 [새 차트 만들기][helm-create-new-chart]를 참조하세요.
 
 <!-- LINKS - external -->
 [helm-charts]: https://github.com/Azure/helm-charts

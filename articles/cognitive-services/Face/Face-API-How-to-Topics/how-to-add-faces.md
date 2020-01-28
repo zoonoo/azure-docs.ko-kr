@@ -1,7 +1,7 @@
 ---
-title: '예제: PersonGroup에 얼굴 추가 - Face API'
+title: '예제: PersonGroup에 얼굴 추가 - Face'
 titleSuffix: Azure Cognitive Services
-description: 이 가이드에서는 Azure Cognitive Services Face API를 사용하여 PersonGroup 개체에 다수의 사람과 얼굴을 추가하는 방법을 보여줍니다.
+description: 이 가이드에서는 Azure Cognitive Services Face 서비스를 사용하여 PersonGroup 개체에 다수의 사람과 얼굴을 추가하는 방법을 보여줍니다.
 services: cognitive-services
 author: SteveMSFT
 manager: nitinme
@@ -10,16 +10,16 @@ ms.subservice: face-api
 ms.topic: sample
 ms.date: 04/10/2019
 ms.author: sbowles
-ms.openlocfilehash: 2f8a6272b02aea5948be79ddf72d105c4f72bb33
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 240905d538afc5c0f4b7f0e0bf400fac23c3183f
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73744252"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169821"
 ---
 # <a name="add-faces-to-a-persongroup"></a>PersonGroup에 얼굴 추가
 
-이 가이드에서는 PersonGroup 개체에 다수의 사람과 얼굴을 추가하는 방법을 보여줍니다. 동일한 전략이 LargePersonGroup, FaceList 및 LargeFaceList 개체에도 적용됩니다. 이 샘플은 Azure Cognitive Services Face API .NET 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
+이 가이드에서는 PersonGroup 개체에 다수의 사람과 얼굴을 추가하는 방법을 보여줍니다. 동일한 전략이 LargePersonGroup, FaceList 및 LargeFaceList 개체에도 적용됩니다. 이 샘플은 Azure Cognitive Services Face .NET 클라이언트 라이브러리를 사용하여 C#으로 작성되었습니다.
 
 ## <a name="step-1-initialization"></a>1단계: 초기화
 
@@ -60,7 +60,7 @@ static async Task WaitCallLimitPerSecondAsync()
 
 ## <a name="step-2-authorize-the-api-call"></a>2단계: API 호출 권한 부여
 
-클라이언트 라이브러리를 사용하는 경우 구독 키를 **FaceClient** 클래스의 생성자에 전달해야 합니다. 예:
+클라이언트 라이브러리를 사용하는 경우 구독 키를 **FaceClient** 클래스의 생성자에 전달해야 합니다. 다음은 그 예입니다.
 
 ```csharp
 private readonly IFaceClient faceClient = new FaceClient(
@@ -87,7 +87,7 @@ await faceClient.LargePersonGroup.CreateAsync(personGroupId, personGroupName);
 사람이 동시에 만들어지고 호출 제한을 초과하지 않기 위해 `await WaitCallLimitPerSecondAsync()`도 적용됩니다.
 
 ```csharp
-CreatePersonResult[] persons = new CreatePersonResult[PersonCount];
+Person[] persons = new Person[PersonCount];
 Parallel.For(0, PersonCount, async i =>
 {
     await WaitCallLimitPerSecondAsync();
@@ -129,13 +129,13 @@ Parallel.For(0, PersonCount, async i =>
 - LargePersonGroup의 특정 FaceList 또는 사람 하나에 얼굴을 추가/삭제하는 작업은 순차적으로 처리됩니다.
 - 간단하게 하기 위해 이 가이드에서는 잠재적 예외 처리 방법을 생략했습니다. 견고성을 강화하려면 적절한 재시도 정책을 적용하세요.
 
-다음과 같은 기능을 설명하고 보여주었습니다.
+다음 기능에 대해 설명하고 시연했습니다.
 
 - [PersonGroup - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395244) API를 사용하여 PersonGroup을 만듭니다.
 - [PersonGroup Person - Create](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523c) API를 사용하여 사람을 만듭니다.
 - [PersonGroup Person - Add Face](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523b) API를 사용하여 사람에 얼굴을 추가합니다.
 
-## <a name="related-topics"></a>관련된 항목
+## <a name="related-topics"></a>관련 항목
 
 - [이미지에서 얼굴 식별](HowtoIdentifyFacesinImage.md)
 - [이미지에서 얼굴 감지](HowtoDetectFacesinImage.md)

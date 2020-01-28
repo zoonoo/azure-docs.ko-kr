@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1bc721f4521c9ac9b8ed8fed2d6b41f6a1b8bd72
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 68474738aabde1b14752aa33789d7e40c3831908
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74846405"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76154842"
 ---
 # <a name="tutorial-complete-an-azure-multi-factor-authentication-pilot-roll-out"></a>자습서: Azure Multi-Factor Authentication 파일럿 배포 완료
 
@@ -26,7 +26,7 @@ ms.locfileid: "74846405"
 > * Azure Multi-Factor Authentication 사용
 > * Azure Multi-Factor Authentication 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 적어도 평가판 라이선스가 설정된 작동 중인 Azure AD 테넌트
 * 전역 관리자 권한이 있는 계정
@@ -36,7 +36,7 @@ ms.locfileid: "74846405"
 ## <a name="enable-azure-multi-factor-authentication"></a>Azure Multi-Factor Authentication 사용
 
 1. 전역 관리자 계정을 사용하여 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** , **조건부 액세스**로 이동합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동
 1. **새 정책**을 선택합니다.
 1. 정책 이름을 **MFA 파일럿**으로 지정합니다.
 1. **사용자 및 그룹** 아래에서 **사용자 및 그룹 선택** 라디오 단추를 선택합니다.
@@ -70,7 +70,7 @@ ms.locfileid: "74846405"
 이 자습서에서 구성한 기능을 더 이상 사용하지 않으려면 다음과 같이 변경합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
-1. **Azure Active Directory** , **조건부 액세스**로 이동합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. 사용자가 만든 조건부 액세스 정책을 선택합니다.
 1. **삭제**를 클릭합니다.
 

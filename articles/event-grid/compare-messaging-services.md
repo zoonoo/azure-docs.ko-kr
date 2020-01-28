@@ -9,12 +9,12 @@ ms.topic: overview
 ms.date: 10/22/2019
 ms.author: spelluru
 ms.custom: seodec18
-ms.openlocfilehash: 77497d709d7106bf7c13d1fafcc4e64ee0ed1d39
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6122f17637e76f42cc4fbcc87ac9f48da3cdca36
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790304"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76122205"
 ---
 # <a name="choose-between-azure-messaging-services---event-grid-event-hubs-and-service-bus"></a>세 가지 Azure 메시징 서비스인 Event Grid, Event Hubs 및 Service Bus 중에서 선택합니다.
 
@@ -38,17 +38,17 @@ Azure는 솔루션 전체에서 이벤트 메시지 배달에 도움이 되는 �
 
 시리즈 이벤트는 조건을 보고하며 분석이 가능합니다. 이벤트는 시간 순서가 지정되며 상호 연관됩니다. 소비자는 발생한 결과를 분석하기 위해 순차화된 일련의 이벤트가 필요합니다.
 
-### <a name="message"></a>Message
+### <a name="message"></a>메시지
 
 메시지는 사용되거나 다른 위치에 저장되는 서비스에서 생성된 원시 데이터입니다. 메시지는 메시지 파이프라인을 트리거한 데이터를 포함합니다. 메시지 게시자는 소비자가 메시지를 처리하는 방식에 대한 기대를 합니다. 양측 사이에 계약이 존재합니다. 예를 들어 게시자는 원시 데이터가 포함된 메시지를 보내고 소비자가 이 데이터로부터 파일을 만들고 작업이 완료되면 응답을 보낼 것으로 기대합니다.
 
 ## <a name="comparison-of-services"></a>서비스의 비교
 
-| 서비스 | 목적 | Type | 사용하는 경우 |
+| 서비스 | 목적 | Type | 사용 시기 |
 | ------- | ------- | ---- | ----------- |
 | Event Grid | 사후 프로그래밍 | 이벤트 배포(불연속) | 상태 변경에 대응 |
 | Event Hubs | 빅 데이터 파이프라인 | 이벤트 스트리밍(시리즈) | 원격 분석 및 분산 데이터 스트리밍 |
-| Service Bus | 높은 가치의 엔터프라이즈 메시지 | Message | 주문 처리 및 금융 거래 |
+| Service Bus | 높은 가치의 엔터프라이즈 메시지 | 메시지 | 주문 처리 및 금융 거래 |
 
 ### <a name="event-grid"></a>Event Grid
 

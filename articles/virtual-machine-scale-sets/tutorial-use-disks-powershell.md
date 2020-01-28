@@ -1,27 +1,19 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 만들기 및 사용 | Microsoft Docs
+title: 자습서 - Azure PowerShell을 사용하여 확장 집합용 디스크 만들기 및 사용
 description: Azure PowerShell을 사용하여 디스크를 추가, 준비, 나열 및 분리하는 방법을 포함하여, 가상 머신 확장 집합이 있는 Managed Disks를 만들고 사용하는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 6035a6ddd690db456edfa5777ca2d41e4be8b919
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: ba2d216b9827eeb499df40ceffca16780bdf5a02
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728593"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278266"
 ---
 # <a name="tutorial-create-and-use-disks-with-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합이 있는 디스크 만들기 및 사용
 
@@ -34,7 +26,7 @@ ms.locfileid: "66728593"
 > * 디스크 성능
 > * 데이터 디스크 연결 및 준비
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -55,7 +47,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 | [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md) | F 시리즈 | 576 |
 | [메모리에 최적화](../virtual-machines/windows/sizes-memory.md) | D, E, G 및 M 시리즈 | 6144 |
 | [Storage에 최적화](../virtual-machines/windows/sizes-storage.md) | L 시리즈 | 5630 |
-| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1,440 |
+| [GPU](../virtual-machines/windows/sizes-gpu.md) | N 시리즈 | 1440 |
 | [고성능](../virtual-machines/windows/sizes-hpc.md) | A 및 H 시리즈 | 2000 |
 
 

@@ -1,9 +1,7 @@
 ---
 title: 빠른 시작 - Azure Portal에서 가상 머신 확장 집합 만들기
 description: 가상 머신을 신속하게 생성하여 Azure Portal을 확장하는 방법을 학습하여 배포를 시작합니다.
-services: virtual-machine-scale-sets.
 author: cynthn
-manager: gwallace
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
@@ -12,12 +10,12 @@ ms.topic: quickstart
 ms.custom: H1Hack27Feb2017
 ms.date: 10/23/2019
 ms.author: cynthn
-ms.openlocfilehash: 5a44aad7471c29a387337a5ee988e66287fca3ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2acde4efa1dc118498f3c7da29c75e48c0478ac0
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351134"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76543140"
 ---
 # <a name="quickstart-create-a-virtual-machine-scale-set-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 가상 머신 확장 집합 만들기
 
@@ -33,7 +31,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 Azure [Load Balancer](../load-balancer/load-balancer-overview.md)는 들어오는 트래픽을 정상 상태의 가상 머신 인스턴스 간에 분산합니다. 
 
-먼저 포털을 사용하여 공용 기본 Load Balancer를 만듭니다. 만드는 이름과 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
+먼저 포털을 사용하여 공용 표준 Load Balancer를 만듭니다. 만드는 이름과 공용 IP 주소는 자동으로 부하 분산 장치의 프런트 엔드로 구성됩니다.
 
 1. 검색 상자에 **부하 분산 장치**를 입력합니다. 검색 결과의 **Marketplace**에서 **부하 분산 장치**를 선택합니다.
 1. **부하 분산 장치 만들기** 페이지의 **기본 사항** 탭에서 다음 정보를 입력하거나 선택합니다.

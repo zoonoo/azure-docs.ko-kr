@@ -1,19 +1,17 @@
 ---
-title: 자습서 - Azure Red Hat OpenShift 클러스터 삭제 | Microsoft Docs
+title: 자습서 - Azure Red Hat OpenShift 클러스터 삭제
 description: 이 자습서에서는 Azure CLI를 사용하여 Azure Red Hat OpenShift 클러스터를 삭제하는 방법 알아보기
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: 0ad70f4c3681705377a350fee8b02a55c526f26c
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: c335236a2b0b05f03bef1ebef37f1129a5d0352b
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67669348"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278766"
 ---
 # <a name="tutorial-delete-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 삭제
 
@@ -30,7 +28,7 @@ ms.locfileid: "67669348"
 > * [Azure Red Hat OpenShift 클러스터 크기 조정](tutorial-scale-cluster.md)
 > * Azure Red Hat OpenShift 클러스터 삭제
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -44,7 +42,7 @@ Azure CLI를 로컬로 실행하는 경우 `az login`을 실행하여 Azure에 �
 az login
 ```
 
-여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꾼 후 실행합니다.
+여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
 
 ## <a name="step-2-delete-the-cluster"></a>2단계: 클러스터 삭제
 

@@ -1,19 +1,17 @@
 ---
-title: 자습서 - Azure Red Hat OpenShift 클러스터 크기 조정 | Microsoft Docs
+title: 자습서 - Azure Red Hat OpenShift 클러스터 크기 조정
 description: Azure CLI를 사용하여 Microsoft Azure Red Hat OpenShift 클러스터의 크기를 조정하는 방법 알아보기
-services: container-service
 author: jimzim
 ms.author: jzim
-manager: jeconnoc
 ms.topic: tutorial
 ms.service: container-service
 ms.date: 05/06/2019
-ms.openlocfilehash: deb136a70c24cb7bd1b6c60505cc6ab0376a7b02
-ms.sourcegitcommit: 2e4b99023ecaf2ea3d6d3604da068d04682a8c2d
+ms.openlocfilehash: bf9172f0c84834c951446520ff0bfcc3ef756c9c
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/09/2019
-ms.locfileid: "67672428"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76278317"
 ---
 # <a name="tutorial-scale-an-azure-red-hat-openshift-cluster"></a>자습서: Azure Red Hat OpenShift 클러스터 크기 조정
 
@@ -30,7 +28,7 @@ ms.locfileid: "67672428"
 > * Azure Red Hat OpenShift 클러스터 크기 조정
 > * [Azure Red Hat OpenShift 클러스터 삭제](tutorial-delete-cluster.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에:
 
@@ -44,7 +42,7 @@ Azure CLI를 로컬로 실행하는 경우 `az login`을 실행하여 Azure에 �
 az login
 ```
 
-여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꾼 후 실행합니다.
+여러 구독에 액세스할 수 있으면 `az account set -s {subscription ID}`에서 `{subscription ID}`를 사용하려는 구독으로 바꿔서 실행합니다.
 
 ## <a name="step-2-scale-the-cluster-with-additional-nodes"></a>2단계: 추가 노드를 사용하여 클러스터 크기 조정
 

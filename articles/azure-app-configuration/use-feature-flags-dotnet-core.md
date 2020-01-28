@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 04/19/2019
 ms.author: yegu
 ms.custom: mvc
-ms.openlocfilehash: 99559c0c77c3e4b29badec1c0be2d741df1f0621
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 4fe49c25ad71c48103f044915d187099b75b3d04
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67798370"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76121253"
 ---
 # <a name="tutorial-use-feature-flags-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 기능 플래그 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "67798370"
 
 [ASP.NET Core 앱에 기능 플래그 추가 빠른 시작](./quickstart-feature-flag-aspnet-core.md)에서는 ASP.NET Core 애플리케이션에서 기능 플래그를 추가하는 다양한 방법을 보여줍니다. 이 자습서에서는 해당 방법을 자세히 설명합니다. 전체 내용은 [ASP.NET Core 기능 관리 설명서](https://go.microsoft.com/fwlink/?linkid=2091410)를 참조하세요.
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 배웁니다.
 
 > [!div class="checklist"]
 > * 애플리케이션의 핵심 부분에 기능 가용성을 제어하는 기능 플래그를 추가합니다.
@@ -172,12 +172,12 @@ public enum MyFeatureFlags
 
 ## <a name="feature-flag-checks"></a>기능 플래그 확인
 
-먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 예:
+먼저 기능 플래그가 *on*으로 설정되었는지 확인하는 것이 기능 관리의 기본 패턴입니다. on으로 설정된 경우 기능 관리자는 해당 기능에 포함된 작업을 실행합니다. 다음은 그 예입니다.
 
 ```csharp
 IFeatureManager featureManager;
 ...
-if (featureManager.IsEnabled(nameof(MyFeatureFlags.FeatureA)))
+if (await featureManager.IsEnabledAsync(nameof(MyFeatureFlags.FeatureA)))
 {
     // Run the following code
 }
@@ -254,7 +254,7 @@ MVC 보기에서 `<feature>` 태그를 사용하여 기능 플래그의 사용 �
 
 ## <a name="mvc-filters"></a>MVC 필터
 
-MVC 필터를 기능 플래그의 상태에 따라 활성화되도록 설정할 수 있습니다. 다음 코드는 `SomeMvcFilter`라는 MVC 필터를 추가합니다. 이 필터는 `FeatureA`가 사용되는 경우에만 MVC 파이프라인 내에서 트리거됩니다.
+MVC 필터를 기능 플래그의 상태에 따라 활성화되도록 설정할 수 있습니다. 다음 코드는 `SomeMvcFilter`라는 MVC 필터를 추가합니다. 이 필터는 `FeatureA`가 사용되는 경우에만 MVC 파이프라인 내에서 트리거됩니다. 이 기능은 `IAsyncActionFilter`로 제한됩니다. 
 
 ```csharp
 using Microsoft.FeatureManagement.FeatureFilters;
@@ -267,16 +267,6 @@ public void ConfigureServices(IServiceCollection services)
         options.Filters.AddForFeature<SomeMvcFilter>(nameof(MyFeatureFlags.FeatureA));
     });
 }
-```
-
-## <a name="routes"></a>경로
-
-기능 플래그를 사용하여 동적으로 경로를 표시할 수 있습니다. 다음 코드는 `FeatureA`가 사용되는 경우에만 `Beta`를 기본 컨트롤러로 설정하는 경로를 추가합니다.
-
-```csharp
-app.UseMvc(routes => {
-    routes.MapRouteForFeature(nameof(MyFeatureFlags.FeatureA), "betaDefault", "{controller=Beta}/{action=Index}/{id?}");
-});
 ```
 
 ## <a name="middleware"></a>미들웨어

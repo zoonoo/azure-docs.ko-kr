@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 09/05/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d54580d395b17d80742ed95aefa479f4bc104484
-ms.sourcegitcommit: 4d177e6d273bba8af03a00e8bb9fe51a447196d0
+ms.openlocfilehash: e6ea52474f3b352fabf19050f20012438e9d0c19
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/04/2019
-ms.locfileid: "71960101"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76120593"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-confluence-saml-sso-by-microsoft"></a>자습서: Confluence SAML SSO by Microsoft와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -37,7 +37,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 Atlassian Confluence 서버와 함께 Microsoft Azure Active Directory 계정을 사용하여 Single Sign-On을 사용하도록 설정합니다. 이러한 방식으로 모든 조직 사용자는 Azure AD 자격 증명을 사용하여 Confluence 애플리케이션에 로그인할 수 있습니다. 이 플러그 인은 페더레이션에 대해 SAML 2.0을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -64,24 +64,8 @@ Confluence SAML SSO by Microsoft와 Azure AD 통합을 구성하려면 다음 �
 현재 기준으로 다음 버전의 Confluence가 지원됩니다.
 
 - Confluence: 5.0 ~ 5.10
-- Confluence: 6.0.1
-- Confluence: 6.1.1
-- Confluence: 6.2.1
-- Confluence: 6.3.4
-- Confluence: 6.4.0
-- Confluence: 6.5.0
-- Confluence: 6.6.2
-- Confluence: 6.7.0
-- Confluence: 6.8.1
-- Confluence: 6.9.0
-- Confluence: 6.10.0
-- Confluence: 6.10.3
-- Confluence: 6.11.0
-- Confluence: 6.12.0
-- Confluence: 6.13.5
-- Confluence: 6.15.3
-- Confluence: 6.15.4
-- Confluence: 6.15.8
+- Confluence: 6.0.1 ~ 6.15.9
+- Confluence: 7.0.1 ~ 7.1.0
 
 > [!NOTE]
 > Confluence 플러그 인도 Ubuntu 버전 16.04에서 작동한다는 점에 유의하세요.
@@ -149,7 +133,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -177,11 +161,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 마우스로 선 위를 가리키고 **추가 기능**을 클릭합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon1.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon1.png)
 
 1. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=56503)에서 플러그 인을 다운로드합니다. **업로드 추가 기능** 메뉴를 사용하여 Microsoft에서 제공하는 플러그 인을 수동으로 업로드합니다. 플러그 인 다운로드에는 [Microsoft 서비스 계약](https://www.microsoft.com/servicesagreement/)이 적용됩니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon12.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon12.png)
 
 1. Confluence 역방향 프록시 시나리오 또는 부하 분산 장치 시나리오를 실행하려면 다음 단계를 수행합니다.
 
@@ -192,19 +176,19 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     `scheme="https" proxyName="<subdomain.domain.com>" proxyPort="<proxy_port>" secure="true"`
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/reverseproxy1.png)
 
     b. 프록시/부하 분산 장치에 따라 **시스템 설정**에서 **기준 URL**을 변경합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/reverseproxy2.png)
 
 1. 플러그 인이 설치되면 **추가 기능 관리** 섹션의 **사용자가 설치한** 추가 기능 섹션에 표시됩니다. **구성**을 클릭하여 새 플러그 인을 구성합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon15.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon15.png)
 
 1. 구성 페이지에서 다음 단계를 수행합니다.
 
-    ![Configure Single Sign-On](./media/confluencemicrosoft-tutorial/addon54.png)
+    ![Single Sign-on 구성](./media/confluencemicrosoft-tutorial/addon54.png)
 
     > [!TIP]
     > 메타데이터를 확인하는 데 오류가 없도록 앱에 매핑된 인증서가 하나만 있는지 확인합니다. 인증서가 여러 개 있으면 메타데이터를 확인할 때 관리자에게 오류가 표시됩니다.

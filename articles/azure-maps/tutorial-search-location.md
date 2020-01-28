@@ -1,20 +1,20 @@
 ---
 title: '자습서: 맵에서 주변 위치 검색 | Microsoft Azure Maps'
-description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 맵의 주변 위치(관심 지점)를 검색하는 방법을 알아봅니다.
+description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 맵에서 관심 지점을 검색하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/12/2019
+ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 65a091dbe935967d63a11c3c40dd834207f34782
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 974a60bafb3e9be56618824d6205d21c364d6601
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910818"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76153023"
 ---
 # <a name="tutorial-search-nearby-points-of-interest-using-azure-maps"></a>자습서: Azure Maps를 사용하여 주변 관심 지점 검색
 
@@ -69,7 +69,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="create-a-new-map"></a>새 지도 만들기
 
-지도 컨트롤 API는 Maps를 웹 애플리케이션에 쉽게 통합할 수 있도록 하는 편리한 클라이언트 라이브러리입니다. 기본 REST 서비스 호출의 복잡성을 숨기고 스타일 지정 및 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
+맵 컨트롤 API는 편리한 클라이언트 라이브러리입니다. 이 API를 사용하면 맵을 웹 애플리케이션에 쉽게 통합할 수 있습니다. 기본 REST 서비스 호출의 복잡성을 숨기고 사용자 지정 가능한 구성 요소를 사용하여 생산성을 향상합니다. 다음 단계에서는 지도 컨트롤 API가 포함된 정적 HTML 페이지를 만드는 방법을 보여줍니다.
 
 1. 로컬 컴퓨터에서 새 파일을 만들고 이름을 **MapSearch.html**로 지정합니다.
 2. 다음 HTML 구성 요소를 파일에 추가합니다.
@@ -133,7 +133,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
    이 세그먼트는 Azure Maps 계정 키에 대한 맵 컨트롤 API를 초기화합니다. `atlas`는 API 및 관련 시각적 구성 요소가 포함된 네임스페이스입니다. `atlas.Map`은 시각적 및 대화형 웹 지도에 대한 컨트롤을 제공합니다.
 
-4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 이것은 계정 키를 사용하고 `atlas.Map`을 호출하여 만들 수 있는 가장 기본적인 지도입니다.
+4. 변경 내용을 파일에 저장하고 브라우저에서 해당 HTML 페이지를 엽니다. 표시된 맵은 계정 키를 통해 `atlas.Map`을 호출하여 만들 수 있는 가장 기본적인 지도입니다.
 
    ![지도 보기](./media/tutorial-search-location/basic-map.png)
 
@@ -163,7 +163,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     });
     ```
 
-   이 코드 세그먼트에서 `ready` 이벤트가 맵에 추가되며, 맵 리소스가 로드되어 맵에 액세스할 준비가 되면 실행됩니다. 맵 `ready` 이벤트 처리기에서, 결과 데이터를 저장하는 데이터 원본이 만들어집니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 레이어는 데이터 원본의 결과 데이터를 렌더링하는 방식을 지정합니다. 이 예에서는 짙은 파란색의 둥근 핀 아이콘이 결과 좌표의 중앙에 위치하며 다른 아이콘을 겹칠 수 있습니다. 결과 레이어는 맵 레이어에 추가됩니다.
+   이 코드 세그먼트에서 `ready` 이벤트가 맵에 추가되며, 맵 리소스가 로드되어 맵에 액세스할 준비가 되면 실행됩니다. 맵 `ready` 이벤트 처리기에서, 결과 데이터를 저장하는 데이터 원본이 만들어집니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 계층은 데이터 원본의 결과 데이터를 렌더링하는 방법을 지정합니다. 이 경우 결과는 결과 좌표를 중심으로 짙은 파란색 둥근 핀 아이콘으로 렌더링되고 다른 아이콘이 겹칠 수 있습니다. 결과 레이어는 맵 레이어에 추가됩니다.
 
 <a id="usesearch"></a>
 
@@ -215,7 +215,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
     });
     ```
 
-3. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 이제 맵이 시애틀 중심에 있고, 둥근 파란색 핀이 해당 영역의 주유소 위치를 표시하고 있습니다.
+3. **MapSearch.html** 파일을 저장하고, 브라우저를 새로 고칩니다. 해당 지역의 주유소 위치에 둥근 파란색 핀이 있는 시애틀 중심으로 맵이 표시됩니다.
 
    ![검색 결과가 포함된 지도 보기](./media/tutorial-search-location/pins-map.png)
 
@@ -229,9 +229,9 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="add-interactive-data"></a>대화형 데이터 추가
 
-지금까지 만든 맵은 검색 결과의 위도/경도 데이터만 살펴봅니다. 그러나 Maps 검색 서비스에서 반환하는 원시 JSON을 살펴보면 이름과 주소를 포함하여 각 주유소에 대한 추가 정보가 있음을 알 수 있습니다. 대화형 팝업 상자를 사용하여 해당 데이터를 맵에 통합할 수 있습니다.
+지금까지 만든 맵은 검색 결과의 위도/경도 데이터만 살펴봅니다. 그러나 맵 검색 서비스에서 반환하는 원시 JSON에는 각 주유소에 대한 추가 정보가 포함되어 있습니다. 이름과 주소를 포함합니다. 대화형 팝업 상자를 사용하여 해당 데이터를 맵에 통합할 수 있습니다.
 
-1. 맵 `ready` 이벤트 처리기에서 유사 항목 검색 서비스를 쿼리하는 코드 뒤에 다음 코드 줄을 추가합니다. 이렇게 하면 팝업 인스턴스가 만들어지고 기호 레이어에 mouseover 이벤트가 추가됩니다.
+1. 맵 `ready` 이벤트 처리기에서 유사 항목 검색 서비스를 쿼리하는 코드 뒤에 다음 코드 줄을 추가합니다. 이 코드에는 팝업 인스턴스가 만들어지고 기호 레이어에 mouseover 이벤트가 추가됩니다.
 
     ```JavaScript
    //Create a popup but leave it closed so we can update it and display it later.

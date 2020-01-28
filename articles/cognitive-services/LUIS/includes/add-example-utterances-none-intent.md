@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 11/20/2019
 ms.author: diberry
-ms.openlocfilehash: e4147fbb27c8538f801f6c49f8b535a283faf50f
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: c81aaa02af0895e6c3a851fe15273d85de9b55bc
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74325896"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76262754"
 ---
 클라이언트 애플리케이션은 발언에 의미가 있는지 또는 애플리케이션에 적합한지 여부를 알아야 합니다. **없음** 의도는 생성 프로세스의 일부로 각 애플리케이션에 추가되어 클라이언트 애플리케이션이 발화에 응답하지 않아야 하는지 여부를 확인합니다.
 
@@ -30,7 +30,6 @@ LUIS가 발언에 대해 **없음** 의도를 반환하는 경우 클라이언�
     |`None` 예제 발화|
     |--|
     |`Barking dogs are annoying`|
-    |`Order a pizza for me`|
     |`Penguins in the ocean`|
 
     이러한 예제에서는 `pizza`, `cheese`, `crust`, `pickup` `deliver`와 같이 주체 도메인에서 원하는 단어를 사용하지 않아야 합니다.

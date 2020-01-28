@@ -1,31 +1,31 @@
 ---
-title: 빠른 시작 - Azure Portal을 사용하여 Service Bus 큐 만들기 | Microsoft Docs
+title: Azure Portal을 사용하여 Service Bus 큐 만들기
 description: 이 빠른 시작에서는 Azure Portal을 사용하여 Service Bus 큐를 만드는 방법에 대해 알아봅니다. 그런 다음, 샘플 클라이언트 애플리케이션을 사용하여 큐에서 메시지를 보내고 받습니다.
 services: service-bus-messaging
 author: spelluru
 ms.service: service-bus-messaging
 ms.topic: quickstart
 ms.custom: mvc
-ms.date: 09/03/2019
+ms.date: 01/16/2020
 ms.author: spelluru
-ms.openlocfilehash: dc9b8260a8ddde6633bc9215d9efff7aaaa71ad3
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 0c88db652efe54a497af094160fb426be7c43d16
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70242390"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260840"
 ---
 # <a name="quickstart-use-azure-portal-to-create-a-service-bus-queue"></a>빠른 시작: Azure Portal을 사용하여 Service Bus 큐 만들기
 이 빠른 시작에서는 [Azure Portal][Azure portal]을 사용하여 메시징 네임스페이스 및 해당 네임스페이스 내에 큐를 만들고 네임스페이스에서 권한 부여 자격 증명을 얻은 다음, Service Bus 큐에서 메시지를 보내고 받는 방법을 보여 줍니다. 그런 다음, [.NET 표준 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus)를 사용하여 이 큐에서 메시지를 보내고 받는 방법을 보여 줍니다.
 
 [!INCLUDE [howto-service-bus-queues](../../includes/howto-service-bus-queues.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음을 설치했어야 합니다.
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
-- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상 Visual Studio를 사용하여 큐로 메시지를 보내고 큐에서 메시지를 받는 샘플을 작성합니다. 이 샘플은 PowerShell을 사용하여 만든 큐를 테스트하는 것입니다. 
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정][]을 만들 수 있습니다.
+- [Visual Studio 2017 업데이트 3(버전 15.3, 26730.01)](https://www.visualstudio.com/vs) 이상 Visual Studio를 사용하여 큐로 메시지를 보내고 큐에서 메시지를 받는 샘플을 빌드합니다. 이 샘플은 PowerShell을 사용하여 만든 큐를 테스트하는 것입니다. 
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
 
 [!INCLUDE [service-bus-create-namespace-portal](../../includes/service-bus-create-namespace-portal.md)]

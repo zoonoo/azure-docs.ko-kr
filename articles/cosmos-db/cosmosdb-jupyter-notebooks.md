@@ -1,17 +1,17 @@
 ---
-title: Azure Cosmos DB에 기본 제공되는 Jupyter Notebook 지원 소개
+title: Azure Cosmos DB(미리 보기)에 기본 제공되는 Jupyter Notebooks 지원 소개
 description: Azure Cosmos DB에 기본 제공되는 Jupyter Notebook 지원을 사용하여 대화형으로 쿼리를 실행하는 방법을 알아봅니다.
 ms.service: cosmos-db
 ms.topic: overview
 ms.date: 09/22/2019
 author: markjbrown
 ms.author: mjbrown
-ms.openlocfilehash: 8026140a07ce8ed03a7bec57f03a1ca1708f85ac
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5c6d7ae458c30d462c599042e254f4243daf474c
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72756972"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76260874"
 ---
 # <a name="built-in-jupyter-notebooks-support-in-azure-cosmos-db"></a>Azure Cosmos DB에 기본 제공되는 Jupyter Notebook 지원
 

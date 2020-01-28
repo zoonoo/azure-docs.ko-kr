@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: Azure Portal을 사용하여 하이브리드 모드 인스턴스 만들기'
 titleSuffix: Azure Database Migration Service
-description: Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스를 만들 수 있습니다.
+description: Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스를 만듭니다.
 services: database-migration
 author: HJToland3
 ms.author: jtoland
@@ -11,13 +11,13 @@ ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
-ms.date: 12/17/2019
-ms.openlocfilehash: 64d4998e287f9981c666dee54fc3b67886791bbf
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.date: 01/21/2019
+ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708294"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274805"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 
@@ -73,7 +73,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
     - 원본 또는 대상 서버에 가장 가까운 **위치**를 선택합니다.
     - **서비스 모드**에서 **하이브리드(미리 보기)** 를 선택합니다.
 
-           ![Create migration service - basics](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
+         ![마이그레이션 서비스 만들기 - 기본 사항](media/quickstart-create-data-migration-service-hybrid-portal/dms-create-service-basics.png)
 
 4. **검토 + 만들기**를 선택합니다.
 
@@ -186,7 +186,7 @@ Azure Portal을 통해 Azure Database Migration Service Hybrid Worker를 설치�
 > [!IMPORTANT]
 > 이 스크립트는 하이브리드 모드에 기존 Azure Database Migration Service 인스턴스가 있고, 사용된 Azure 계정에 테넌트에서 AdApp을 만들고 구독에서 RBAC를 수정할 수 있는 권한이 있다고 가정합니다.
 
-스크립트 맨 위에 매개 변수를 입력한 다음, 관리자 PowerShell 인스턴스에서 스크립트를 실행하기만 하면 됩니다.
+스크립트 상단에 있는 매개 변수를 입력한 다음, 관리자 PowerShell 인스턴스에서 스크립트를 실행합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: tutorial
 ms.custom: seo-lt-2019
 ms.date: 01/08/2020
-ms.openlocfilehash: f5e36095c506918298404758523642073dfd19c7
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 6c501205812ac72da8cd970b61b71e493888cef1
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75865225"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156729"
 ---
 # <a name="data-integration-using-azure-data-factory-and-azure-data-share"></a>Azure Data Factory 및 Azure Data Share를 사용하여 데이터 통합
 
@@ -99,7 +99,7 @@ Azure Data Factory 연결된 서비스에서는 외부 리소스에 대한 연�
 
 ![포털](media/lab-data-flow-data-share/configure10.png)
 
-## <a name="ingest-data-from-azure-sql-db-into-adls-gen2-using-the-copy-activity"></a>복사 작업을 사용하여 Azure SQL DB에서 ADLS gen2로 데이터 수집
+## <a name="ingest-data-using-the-copy-activity"></a>복사 작업을 사용하여 데이터 수집
 
 이 섹션에서는 Azure SQL DB의 테이블 하나를 ADLS gen2 스토리지 계정으로 수집하는 복사 작업을 사용하여 파이프라인을 만듭니다. 파이프라인을 추가하고, 데이터 세트를 구성하고, ADF UX를 통해 파이프라인을 디버그하는 방법을 알아봅니다. 이 자습서에 사용되는 구성 패턴은 관계형 데이터 저장소에서 파일 기반 데이터 저장소로 복사하는 데 적용할 수 있습니다.
 

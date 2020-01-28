@@ -11,12 +11,12 @@ ms.topic: sample
 ms.date: 04/17/2019
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 01e932caf5edc91d5556b60d33e4d100574f93f5
-ms.sourcegitcommit: f2771ec28b7d2d937eef81223980da8ea1a6a531
+ms.openlocfilehash: b492d8e3bdcf6d9a41df3eb79ef159985cc715cf
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/20/2019
-ms.locfileid: "71170043"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76168874"
 ---
 # <a name="sample-explore-an-image-processing-app-with-c"></a>샘플: C#으로 이미지 처리 앱 탐색
 
@@ -28,7 +28,7 @@ Computer Vision을 사용하는 기본 Windows 애플리케이션을 탐색합�
 > * 샘플 앱 실행 및 다양한 시나리오 수행을 위한 상호 작용
 > * 샘플 앱에 포함된 다양한 시나리오 탐색
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 샘플 앱을 탐색하기 전에 다음 필수 조건을 충족하는지 확인합니다.
 
@@ -89,7 +89,7 @@ git clone --recurse-submodules https://github.com/Microsoft/Cognitive-Face-Windo
 
 1. 탐색 창의 **시나리오 선택**에서 현재 샘플 앱에 포함된 시나리오 중 하나를 선택합니다.  
 
-   | 시나리오 | 설명 |
+   | 시나리오 | Description |
    |----------|-------------|
    |이미지 분석 | [이미지 분석](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fa) 작업을 사용하여 로컬 또는 원격 이미지를 분석합니다. 분석에 사용할 시각적 기능 및 언어를 선택하고 이미지 및 결과를 모두 볼 수 있습니다.  |
    |도메인 모델을 사용한 이미지 분석 | [도메인 특정 모델 나열](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e1fd) 작업을 사용하여 선택할 수 있는 도메인 모델을 나열하고, [도메인 특정 콘텐츠 인식](https://westcentralus.dev.cognitive.microsoft.com/docs/services/5adf991815e1060e6355ad44/operations/56f91f2e778daf14a499e200) 작업을 사용하여 선택한 도메인 모델을 통해 로컬 또는 원격 이미지를 분석합니다. 또한 분석에 사용할 언어를 선택할 수 있습니다. |
@@ -311,4 +311,4 @@ Computer Vision 샘플 앱에 포함된 다른 시나리오와 달리, 이 시�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Face API 시작](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)
+> [Face 서비스 시작](../../Face/Tutorials/FaceAPIinCSharpTutorial.md)

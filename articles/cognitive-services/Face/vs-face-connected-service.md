@@ -1,7 +1,7 @@
 ---
-title: '자습서: Face API C#'
+title: '자습서: Face Connected Service'
 titleSuffix: Azure Cognitive Services
-description: Cognitive Services Face API를 사용하여 이미지에서 얼굴 특성을 감지하는 Windows 앱을 만듭니다.
+description: Cognitive Services Face 서비스를 사용하여 이미지에서 얼굴 특성을 감지하는 Windows 앱을 만듭니다.
 services: cognitive-services
 author: ghogen
 manager: nitinme
@@ -10,27 +10,27 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: ghogen
-ms.openlocfilehash: 4b204b9895a2afea4c78d1d92f2cca68f77ae708
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e0fe92fc7f19c3c899bcccfa9f9cc18029af049c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970298"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76170232"
 ---
-# <a name="connecting-to-cognitive-services-face-api-by-using-connected-services-in-visual-studio"></a>Visual Studio의 연결된 서비스를 사용하여 Cognitive Services Face API에 연결
+# <a name="connect-to-the-face-service-by-using-connected-services-in-visual-studio"></a>Visual Studio의 연결된 서비스를 사용하여 Face 서비스에 연결
 
-Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 및 구성하고 태그를 지정할 수 있습니다.
+Azure Face 서비스를 사용하여 사진의 얼굴을 감지, 분석 및 구성하고 태그를 지정할 수 있습니다.
 
-이 문서 및 함께 제공되는 문서에서는 Cognitive Services Face API용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
+이 문서 및 함께 제공되는 문서에서는 Face 서비스용 Visual Studio 연결된 서비스 기능 사용에 대한 세부 정보를 제공합니다. 이 기능은 Cognitive Services 확장이 설치된 Visual Studio 2017 15.7 이상에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
+- Azure 구독 아직 구독이 없는 경우 [무료 계정](https://azure.microsoft.com/pricing/free-trial/)을 등록할 수 있습니다.
 - **Web Development** 워크로드가 설치된 Visual Studio 2017 버전 15.7 이상. [여기에서 다운로드하세요](https://www.visualstudio.com/downloads/).
 
 [!INCLUDE [vs-install-cognitive-services-vsix](../../../includes/vs-install-cognitive-services-vsix.md)]
 
-## <a name="create-a-project-and-add-support-for-cognitive-services-face-api"></a>프로젝트를 만들고 Cognitive Services Face API에 대한 지원 추가
+## <a name="create-a-project-and-add-support-for-face"></a>프로젝트 만들기 및 Face에 대한 지원 추가
 
 1. 새 ASP.NET Core 웹 프로젝트를 만듭니다. 빈 프로젝트 템플릿을 사용합니다. 
 
@@ -47,16 +47,16 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
 
    ![구독 선택](media/vs-face-connected-service/Cog-Face-Connected-Service-1.PNG)
 
-1. 사용하려는 구독을 선택하고, Face API의 이름을 선택하거나 편집 링크를 선택하여 자동으로 생성된 이름을 수정하고 리소스 그룹 및 가격 책정 계층을 선택합니다.
+1. 사용하려는 구독을 선택하고, Face 서비스의 이름을 선택하거나 편집 링크를 선택하여 자동으로 생성된 이름을 수정하고 리소스 그룹 및 가격 책정 계층을 선택합니다.
 
    ![연결된 서비스 세부 정보 편집](media/vs-face-connected-service/Cog-Face-Connected-Service-2.PNG)
 
    가격 책정 계층에 대한 자세한 내용은 링크를 따릅니다.
 
 1. 추가를 선택하여 연결된 서비스에 대한 지원을 추가합니다.
-   Visual Studio는 Face API에 대한 연결을 지원하기 위해 프로젝트를 수정하여 NuGet 패키지, 구성 파일 항목 및 기타 변경 사항을 추가합니다.
+   Visual Studio는 Face 서비스에 대한 연결을 지원하기 위해 프로젝트를 수정하여 NuGet 패키지, 구성 파일 항목 및 기타 변경 사항을 추가합니다.
 
-## <a name="use-the-face-api-to-detect-attributes-of-faces-in-an-image"></a>Face API를 사용하여 이미지에서 얼굴 특성 감지
+## <a name="use-the-face-service-to-detect-attributes-of-faces-in-an-image"></a>Face 서비스를 사용하여 이미지에서 얼굴 특성 감지
 
 1. Startup.cs에서 다음 using 문을 추가합니다.
  
@@ -79,7 +79,7 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
       }
    ```
 
-1. 프로젝트의 wwwroot 폴더에 images 폴더를 추가하고 wwwroot 폴더에 이미지 파일을 추가합니다. 예를 들어, 이 [Face API 페이지](https://azure.microsoft.com/services/cognitive-services/face/)에 나오는 이미지 중 하나를 사용할 수 있습니다. 이미지 중 하나를 마우스 오른쪽 단추로 클릭하고, 로컬 하드 드라이브에 저장한 후 솔루션 탐색기에서 images 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택하여 프로젝트에 추가합니다. 프로젝트는 솔루션 탐색기에서 다음과 같이 표시됩니다.
+1. 프로젝트의 wwwroot 폴더에 images 폴더를 추가하고 wwwroot 폴더에 이미지 파일을 추가합니다. 예를 들어, Azure Portal의 [Face 페이지](https://azure.microsoft.com/services/cognitive-services/face/)에 있는 이미지 중 하나를 사용할 수 있습니다. 이미지 중 하나를 마우스 오른쪽 단추로 클릭하고, 로컬 하드 드라이브에 저장한 후 솔루션 탐색기에서 images 폴더를 마우스 오른쪽 단추로 클릭하고 **추가** > **기존 항목**을 선택하여 프로젝트에 추가합니다. 프로젝트는 솔루션 탐색기에서 다음과 같이 표시됩니다.
  
    ![이미지 파일이 있는 images 폴더](media/vs-face-connected-service/Cog-Face-Connected-Service-6.PNG)
 
@@ -87,7 +87,7 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
 
    ![변경된 내용만 복사](media/vs-face-connected-service/Cog-Face-Connected-Service-5.PNG)
  
-1. Configure 메서드를 다음 코드로 바꾸어 Face API에 액세스하고 이미지를 테스트합니다. imagePath 문자열을 얼굴 이미지에 대한 올바른 경로 및 파일 이름으로 변경합니다.
+1. Configure 메서드를 다음 코드로 바꾸어 Face 서비스에 액세스하고 이미지를 테스트합니다. imagePath 문자열을 얼굴 이미지에 대한 올바른 경로 및 파일 이름으로 변경합니다.
 
    ```csharp
     // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -231,9 +231,9 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
         }
    ```
 
-1. 웹 애플리케이션을 실행하고 Face API가 이미지에서 찾은 결과를 확인합니다.
+1. 웹 애플리케이션을 실행하고 Face 서비스가 이미지에서 찾은 결과를 확인합니다.
  
-   ![Face API 이미지 및 서식이 지정된 결과](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
+   ![Face 서비스 이미지 및 서식이 지정된 결과](media/vs-face-connected-service/Cog-Face-Connected-Service-4.PNG)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
@@ -245,4 +245,4 @@ Cognitive Services Face API를 사용하여 사진의 얼굴을 감지, 분석 �
 
 ## <a name="next-steps"></a>다음 단계
 
-[Face API 설명서](Overview.md)를 읽어 Face API에 대해 자세히 알아봅니다.
+[Face 설명서](Overview.md)를 읽어 Face 서비스에 대해 자세히 알아봅니다.

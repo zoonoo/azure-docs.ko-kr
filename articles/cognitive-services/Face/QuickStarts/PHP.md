@@ -1,7 +1,7 @@
 ---
 title: '빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지'
 titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작에서는 PHP와 함께 Face API를 사용하여 이미지에서 얼굴을 감지합니다.
+description: 이 빠른 시작에서는 PHP와 함께 Face REST API를 사용하여 이미지에서 얼굴을 감지합니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,20 +10,20 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: fb9539c8aa0477cbfbf11ce08635e4e9ccebb2ce
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0f76ec4ce1072b247be7f46610d37190cd282a22
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977933"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169751"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-php"></a>빠른 시작: REST API 및 PHP를 사용하여 이미지에서 얼굴 감지
 
 이 빠른 시작에서는 이미지에서 사람 얼굴을 감지하기 위해 PHP와 함께 Azure Face REST API를 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다.
 - [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 - PHP [HTTP_Request2](https://pear.php.net/package/HTTP_Request2) 패키지
 - PHP 지원 웹 브라우저입니다. 이를 설정하지 않은 경우 머신에 [XAMPP](https://www.apachefriends.org/)를 설치 및 설정하면 됩니다.

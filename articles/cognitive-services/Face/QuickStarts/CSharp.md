@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 9d903a7d2d7e0cfe899da1fbb8869805f1f4f857
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e4174ba19d518b4b1dfef9921fe39b0c76f6d1e3
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74961253"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169291"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-c"></a>빠른 시작: Face REST API 및 C#을 사용하여 이미지에서 얼굴 감지
 
@@ -23,9 +23,9 @@ ms.locfileid: "74961253"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다.
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 
 ## <a name="create-the-visual-studio-project"></a>Visual Studio 프로젝트 만들기
@@ -244,7 +244,7 @@ namespace DetectFace
 
 ## <a name="run-the-app"></a>앱 실행
 
-성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 표시합니다. 예:
+성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 표시합니다. 다음은 그 예입니다.
 
 ```json
 [
@@ -342,7 +342,7 @@ namespace DetectFace
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face API와 함께 REST 호출을 사용하여 이미지의 얼굴을 감지하고 해당 특성을 반환하는 간단한 .NET 콘솔 애플리케이션을 만들었습니다. 다음으로, Face API 참조 설명서를 살펴보고 지원되는 시나리오에 대해 자세히 알아보세요.
+이 빠른 시작에서는 Azure Face 서비스와 함께 REST 호출을 사용하여 이미지의 얼굴을 감지하고 해당 특성을 반환하는 간단한 .NET 콘솔 애플리케이션을 만들었습니다. 다음으로, Face API 참조 설명서를 살펴보고 지원되는 시나리오에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

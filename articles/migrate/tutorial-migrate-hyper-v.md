@@ -4,12 +4,12 @@ description: Azure Migrate 서버 마이그레이션을 사용하여 온-프레�
 ms.topic: tutorial
 ms.date: 11/18/2019
 ms.custom: MVC
-ms.openlocfilehash: b9c0de866a61ee2646d987c4fb98cb24a218417b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: a321c3e731a6649f0831f7d515f1c464b311c9ac
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028978"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76545911"
 ---
 # <a name="migrate-hyper-v-vms-to-azure"></a>Hyper-V VM을 Azure로 마이그레이션 
 
@@ -181,7 +181,7 @@ Azure Migrate 프로젝트에서 복제하는 첫 번째 VM인 경우 Azure Migr
 - **서비스 버스**: Azure Migrate: 서버 마이그레이션은 Service Bus를 사용하여 복제 오케스트레이션 메시지를 어플라이언스에 보냅니다.
 - **게이트웨이 스토리지 계정**: Azure Migrate: 서버 마이그레이션은 게이트웨이 스토리지 계정을 사용하여 복제되는 VM에 대한 상태 정보를 저장합니다.
 - **로그 스토리지 계정**: Azure Migrate 어플라이언스는 VM에 대한 복제 로그를 로그 스토리지 계정에 업로드합니다. Azure Migrate는 복제 정보를 복제본 관리 디스크에 적용합니다.
-- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. 준비할 때 키 자격 증명 모음에서 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. Hyper-V VM 평가 및 마이그레이션에 [준비된 Azure](tutorial-prepare-hyper-v.md#prepare-azure). 
+- **키 자격 증명 모음**: Azure Migrate 어플라이언스는 키 자격 증명 모음을 사용하여 서비스 버스에 대한 연결 문자열을 관리하고, 복제에 사용되는 스토리지 계정에 대한 키에 액세스합니다. Hyper-V VM 평가 및 마이그레이션을 위해 [Azure를 준비](tutorial-prepare-hyper-v.md#prepare-azure)할 때 Key Vault가 스토리지 계정에 액세스하는 데 필요한 권한을 설정해야 합니다. 
 
 
 ## <a name="track-and-monitor"></a>추적 및 모니터링

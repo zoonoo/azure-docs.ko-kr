@@ -1,5 +1,5 @@
 ---
-title: Microsoft Authenticator 앱 개요 - Azure Active Directory | Microsoft Docs
+title: Microsoft Authenticator 앱이란? - Azure Active Directory | Microsoft Docs
 description: Microsoft Authenticator 앱의 정의, 작동 원리 및 이 콘텐츠 섹션에 포함된 정보를 비롯하여 Microsoft Authenticator 앱에 대해 알아봅니다.
 services: active-directory
 author: eross-msft
@@ -9,20 +9,17 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: overview
-ms.date: 01/24/2019
+ms.date: 01/15/2020
 ms.author: lizross
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3766436851cb2f31fa7bb070402191e03ad9ad1
-ms.sourcegitcommit: 04ec7b5fa7a92a4eb72fca6c6cb617be35d30d0c
+ms.openlocfilehash: 468005094ab8a9c42d7eacdfefa990565a3297f3
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/22/2019
-ms.locfileid: "68382344"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76155811"
 ---
 # <a name="what-is-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱이란?
-
->[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자의 경우 [Azure Active Directory 문서](https://docs.microsoft.com/azure/active-directory)에서 Azure AD(Azure Active Directory) 환경을 설정하고 관리하는 방법에 대한 자세한 정보를 찾을 수 있습니다.
 
 2단계 인증을 사용하는 경우 Microsoft Authenticator 앱으로 계정에 쉽게 로그인할 수 있습니다. 2단계 인증을 사용하면 특히 중요한 정보를 볼 때 보다 안전하게 계정에 액세스할 수 있습니다. 암호를 잊어버리거나 암호가 노출될 수 있으므로 2단계 인증은 다른 사람이 침입하기 어렵게 만들어서 계정을 보호하는 추가 보안 단계입니다.
 
@@ -37,13 +34,11 @@ Microsoft Authenticator 앱은 다음을 비롯한 여러 가지 방법으로 �
 > [!Important]
 > Microsoft Authenticator 앱은 2단계 인증을 사용하는 모든 계정에 사용할 수 있으며 TOTP(시간 제약이 있는 일회성 암호) 표준을 지원합니다.
 >
-> 조직에서 사용자가 인증자 앱을 사용해 로그인하여 조직 데이터 및 문서에 액세스하도록 요청할 수 있습니다. 사용자 이름이 앱에 나타날 수 있지만, 이 계정은 실제로, 사용자가 등록 과정을 완료할 때까지는 확인 방법으로 사용되도록 설정되지 않습니다. 자세한 내용은 [회사 또는 학교 암호 추가](user-help-auth-app-add-work-school-account.md)를 참조하세요.
-> 
-> 계정에 로그인하는 데 문제가 있는 경우 [Microsoft 계정에 로그인할 수 없는 경우](https://support.microsoft.com/help/12429)에서 도움말을 참조하세요. Microsoft 계정에 로그인하려고 하면 ["해당 Microsoft 계정은 존재하지 않습니다"](https://support.microsoft.com/help/13811) 메시지가 수신될 때 어떻게 해야 하는지 확인하세요.
+>이 문서는 Microsoft Authenticator 앱을 다운로드하여 보안 확인 방법으로 사용하려는 사용자를 위해 작성되었습니다. 직원 및 기타 용도로 Authenticator 앱을 사용하여 암호 없는 로그인을 설정하는 방법에 대한 정보를 찾는 관리자는 [Microsoft Authenticator 앱으로 암호 없는 로그인 사용(미리 보기)](https://docs.microsoft.com/azure/active-directory/authentication/howto-authentication-passwordless-phone)을 참조하세요.
 
 ## <a name="terminology"></a>용어
 
-| 용어|설명|
+| 용어|Description|
 | ----|-----------|
 | 2단계 인증 | 암호 및 PIN 같은 두 가지 인증 정보만 사용해야 하는 인증 프로세스입니다. Microsoft Authenticator 앱은 표준 2단계 인증 및 암호 없는 로그인을 지원합니다. |
 | MFA(Multi-Factor authentication) | 모든 2단계 인증은 다단계 인증이며, 조직의 요구 사항에 따라 *최소한* 두 가지 인증 정보를 사용해야 합니다. |
@@ -77,7 +72,7 @@ PIN을 사용하여 인증 프로세스를 완료하는 경우 디바이스의 �
 
 ## <a name="in-this-section"></a>섹션 내용
 
-| 문서 | 설명 |
+| 아티클 | Description |
 | ------ | ------------ |
 | [앱 다운로드 및 설치](user-help-auth-app-download-install.md) | Android 및 iOS를 실행하는 디바이스용 Microsoft Authenticator 앱을 받아서 설치할 수 있는 위치 및 방법을 설명합니다. |
 | [회사 또는 학교 계정 추가](user-help-auth-app-add-work-school-account.md) | Microsoft Authenticator 앱에 다양한 회사 또는 학교 계정과 개인 계정을 추가하는 방법을 설명합니다. |

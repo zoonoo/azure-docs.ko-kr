@@ -8,12 +8,12 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 16920a46e64306daa331957df24babba8ac4b731
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a9f9c6ebd55752ea5a3400da8d42b6c6487277df
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75612873"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514649"
 ---
 # <a name="tutorial-configure-an-iot-edge-device"></a>자습서: IoT Edge 디바이스 구성
 
@@ -262,7 +262,7 @@ IoT Edge VM을 만들 때 사용한 *Azure IoT Edge on Ubuntu* 이미지는 conf
       trusted_ca_certs: "/edgeMlCertificates/azure-iot-test-only.root.ca.cert.pem"
     ```
 
-    "certificates:"에 선행 공백이 없고 각 인증서 앞에 두 개의 공백이 있는지 확인합니다.
+    **certificates:** 줄에 선행 공백이 없고 중첩된 각 인증서가 두 개의 공백으로 들여쓰기되었는지 확인합니다.
 
     nano를 마우스 오른쪽 단추로 클릭하면 클립보드의 내용이 현재 커서 위치에 붙여넣기 됩니다. 문자열을 바꾸려면 키보드 화살표를 사용하여 바꿀 문자열로 이동하고, 문자열을 삭제한 다음, 마우스 오른쪽 단추로 클릭하여 버퍼에서 붙여넣습니다.
 

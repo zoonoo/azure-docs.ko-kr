@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 12/17/2019
+ms.date: 01/21/2020
 ms.author: helohr
-ms.openlocfilehash: dd5167af5f45ebae0529e16f224065627085e9b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75348820"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76514275"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -86,17 +86,27 @@ Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같
 >[!NOTE]
 >Azure 구독이 필요한 경우에는 [1개월 평가판에 가입](https://azure.microsoft.com/free/)하면 됩니다. Azure 평가판 버전을 사용하는 경우 Windows Server Active Directory와 Azure Active Directory가 동기화 상태를 유지하도록 Azure AD Domain Services를 사용해야 합니다.
 
-Windows Virtual Desktop용으로 만드는 Azure 가상 머신에는 다음 URL에 대한 아웃바운드 TCP 443 액세스 권한이 있어야 합니다.
+Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL에 대한 액세스 권한이 있어야 합니다.
 
-* *.wvd.microsoft.com
-* \*.blob.core.windows.net
-* *.core.windows.net
-* \*.servicebus.windows.net
-* prod.warmpath.msftcloudes.com
-* catalogartifact.azureedge.net
+|주소|아웃바운드 포트|목적|
+|---|---|---|
+|*.wvd.microsoft.com|TCP 포트 443|서비스 트래픽|
+|\*.blob.core.windows.net|TCP 포트 443|에이전트, SXS 스택 업데이트 및 에이전트 트래픽|
+|*.core.windows.net|TCP 포트 443|에이전트 트래픽|
+|\*.servicebus.windows.net|TCP 포트 443|에이전트 트래픽|
+|prod.warmpath.msftcloudes.com|TCP 포트 443|에이전트 트래픽|
+|catalogartifact.azureedge.net|TCP 포트 443|Azure Marketplace|
+|kms.core.windows.net|TCP 포트 1688|Windows 10 정품 인증|
+
+>[!IMPORTANT]
+>이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure AD와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
 
 >[!NOTE]
->이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure AD와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+>서비스 트래픽과 관련된 URL에는 와일드카드 문자(*)를 사용해야 합니다. 에이전트 관련 트래픽에 *를 사용하지 않으려는 경우 와일드 카드 없이 URL을 찾는 방법은 다음과 같습니다.
+>
+>1. Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
+>2. **이벤트 뷰어**를 열고 **Windows** > **애플리케이션 로그**로 이동하여 이벤트 ID 3702를 찾습니다.
+>3. 이벤트 ID 3702 아래에 있는 URL을 허용 목록으로 지정합니다. 이벤트 ID 3702 아래의 URL은 지역별로 다릅니다. 가상 머신을 배포하려는 각 지역에 대한 관련 URL을 사용하여 허용 목록 프로세스를 반복해야 합니다.
 
 Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
 

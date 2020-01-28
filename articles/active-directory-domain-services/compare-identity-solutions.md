@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: 04a1f19ddf894467a9129e8a16c951298a6af529
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d2495605cccf658b15e812fd85fd65671e84d15b
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474719"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544279"
 ---
 # <a name="compare-self-managed-active-directory-domain-services-azure-active-directory-and-managed-azure-active-directory-domain-services"></a>자체 관리형 Active Directory Domain Services, Azure Active Directory 및 관리형 Azure Active Directory Domain Services 비교
 
@@ -27,8 +27,8 @@ ms.locfileid: "73474719"
     * AD DS는 온-프레미스 IT 환경을 갖춘 많은 조직의 중앙 구성 요소이며, 핵심 사용자 계정 인증 및 컴퓨터 관리 기능을 제공합니다.
 * **Azure AD(Azure Active Directory)** - Office 365, Azure Portal 또는 SaaS 애플리케이션과 같은 리소스에 사용자 계정 및 인증 서비스를 제공하는 클라우드 기반 ID 및 모바일 디바이스 관리입니다.
     * Azure AD는 온-프레미스 AD DS 환경과 동기화하여 클라우드에서 기본적으로 작동하는 단일 ID를 사용자에게 제공할 수 있습니다.
-* **Azure AD DS(Azure Active Directory Domain Services)** - 도메인 조인, 그룹 정책, LDAP 및 Kerberos/NTLM 인증과 같은 완전히 호환되는 기존 AD DS 기능의 하위 세트를 관리되는 도메인 서비스에 제공합니다.
-    * Azure AD DS는 온-프레미스 AD DS 환경과 자체적으로 동기화할 수 있는 Azure AD와 통합되어 중앙 ID 사용 사례를 리프트 앤 시프트 전략의 일환으로 Azure에서 실행되는 기존 웹 애플리케이션으로 확장합니다.
+* **Azure AD DS(Azure Active Directory Domain Services)** - 도메인 조인, 그룹 정책, LDAP 및 Kerberos / NTLM 인증과 같은 완전히 호환되는 기존 AD DS 기능의 하위 집합을 관리되는 도메인 서비스에 제공합니다.
+    * Azure AD DS는 자체 온-프레미스 AD DS 환경과 동기화 할 수 있는 Azure AD와 통합됩니다. 이 기능은 중앙 ID 사용 사례를 리프트 앤 시프트 전략의 일부로 Azure에서 실행되는 기존 웹 애플리케이션으로 확장합니다.
 
 이 개요 문서에서는 조직의 요구 사항에 따라 이러한 ID 솔루션이 함께 작동하거나 독립적으로 사용되는 방법을 비교 및 대조합니다.
 
@@ -47,8 +47,8 @@ Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 
 
 클라우드에서 ID를 애플리케이션과 서비스에 제공하는 자체 관리형 AD DS 환경에 대한 일반적인 배포 모델은 다음과 같습니다.
 
-* **독립 실행형 클라우드 전용 AD DS** - Azure VM이 도메인 컨트롤러로 구성되고, 별도의 클라우드 전용 AD DS 환경이 만들어집니다. 이 AD DS 환경은 온-프레미스 AD DS 환경과 통합되지 않습니다. 다른 자격 증명 세트를 사용하여 클라우드에서 VM에 로그인하고 관리합니다.
-* **리소스 포리스트 배포** - Azure VM이 도메인 컨트롤러로 구성되고, AD DS 도메인이 기존 포리스트의 일부로 만들어집니다. 그러면 트러스트 관계가 온-프레미스 AD DS 환경에 구성됩니다. 다른 Azure VM은 클라우드에서 이 리소스 포리스트의 도메인에 조인할 수 있습니다. 사용자 인증은 온-프레미스 AD DS 환경에 대한 VPN/ExpressRoute 연결을 통해 실행됩니다.
+* **독립 실행형 클라우드 전용 AD DS** - Azure VM이 도메인 컨트롤러로 구성되고 별도의 클라우드 전용 AD DS 환경이 만들어집니다. 이 AD DS 환경은 온-프레미스 AD DS 환경과 통합되지 않습니다. 클라우드에서 VM을 로그인하고 관리하는 데 다른 자격 증명 세트가 사용됩니다.
+* **리소스 포리스트 배포** - Azure VM은 도메인 컨트롤러로 구성되고 기존 포리스트의 일부인 AD DS 도메인이 만들어집니다. 그러면 트러스트 관계가 온-프레미스 AD DS 환경에 구성됩니다. 다른 Azure VM은 클라우드에서 이 리소스 포리스트의 도메인에 조인할 수 있습니다. 사용자 인증은 온-프레미스 AD DS 환경에 대한 VPN/ExpressRoute 연결을 통해 실행됩니다.
 * **온-프레미스 도메인을 Azure로 확장** - Azure 가상 네트워크가 VPN/ExpressRoute 연결을 통해 온-프레미스 네트워크에 연결됩니다. Azure VM은 이 Azure 가상 네트워크에 연결되므로 온-프레미스 AD DS 환경의 도메인에 조인할 수 있습니다.
     * 다른 방법으로, Azure VM을 만들어 온-프레미스 AD DS 도메인에서 복제본 도메인 컨트롤러로 승격시키는 것입니다. 이러한 도메인 컨트롤러는 VPN/ExpressRoute 연결을 통해 온-프레미스 AD DS 환경에 복제됩니다. 온-프레미스 AD DS 도메인은 효과적으로 Azure로 확장됩니다.
 
@@ -66,7 +66,7 @@ Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 
 | **사용자 지정 OU 구조**                           | **&#x2713;** | **&#x2713;** |
 | **그룹 정책**                                  | **&#x2713;** | **&#x2713;** |
 | **스키마 확장**                             | **&#x2715;** | **&#x2713;** |
-| **AD 도메인/포리스트 트러스트**                     | **&#x2715;** | **&#x2713;** |
+| **AD 도메인/포리스트 트러스트**                     | **&#x2713;** (단방향 아웃바운드 포리스트 트러스트 전용) | **&#x2713;** |
 | **LDAPS(보안 LDAP)**                           | **&#x2713;** | **&#x2713;** |
 | **LDAP 읽기**                                     | **&#x2713;** | **&#x2713;** |
 | **LDAP 쓰기**                                    | **&#x2713;** (관리되는 도메인 내) | **&#x2713;** |
@@ -74,7 +74,7 @@ Azure AD DS는 기능의 더 작은 하위 세트를 기존의 자체 관리형 
 
 ## <a name="azure-ad-ds-and-azure-ad"></a>Azure AD DS 및 Azure AD
 
-Azure AD를 사용하면 조직에서 사용하는 디바이스의 ID를 관리하고 이러한 디바이스에서 회사 리소스에 대한 액세스를 제어할 수 있습니다. 사용자는 또한 디바이스에 ID를 제공하는 Azure AD에 자신의 개인 디바이스(BYO(Bring-Your-Own), 모델)를 등록할 수 있습니다. 그러면 사용자가 Azure AD에 로그인하고 디바이스를 사용하여 보안 리소스에 액세스할 때 Azure AD에서 해당 디바이스를 인증합니다. 디바이스는 Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 소프트웨어를 사용하여 관리할 수 있습니다. 이 관리 기능을 사용하면 중요한 리소스에 대한 액세스를 정책 준수 관리형 디바이스로 제한할 수 있습니다.
+Azure AD를 사용하면 조직에서 사용하는 디바이스의 ID를 관리하고 이러한 디바이스에서 회사 리소스에 대한 액세스를 제어할 수 있습니다. 사용자는 디바이스에 ID를 제공하는 Azure AD에 자신의 개인 디바이스(BYO(Bring-Your-Own) 모델)를 등록할 수도 있습니다. 그러면 사용자가 Azure AD에 로그인하고 디바이스를 사용하여 보안 리소스에 액세스할 때 Azure AD에서 해당 디바이스를 인증합니다. 디바이스는 Microsoft Intune과 같은 MDM(모바일 디바이스 관리) 소프트웨어를 사용하여 관리할 수 있습니다. 이 관리 기능을 사용하면 중요한 리소스에 대한 액세스를 정책 준수 관리형 디바이스로 제한할 수 있습니다.
 
 또한 기존 컴퓨터와 랩톱도 Azure AD에 조인할 수 있습니다. 이 메커니즘은 사용자가 회사 자격 증명을 사용하여 디바이스에 로그인할 수 있도록 하는 것과 같이 개인 디바이스를 Azure AD에 등록할 때와 동일한 이점을 누릴 수 있습니다.
 

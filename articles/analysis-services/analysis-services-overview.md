@@ -4,15 +4,15 @@ description: 클라우드에서 엔터프라이즈급 데이터 모델을 제공
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: overview
-ms.date: 10/30/2019
+ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: ee107ffdc677a0feffbdaf1441d77a8ed05f2c94
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: f72da87ae53039e825f2102bebb12e59821706f8
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749693"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274786"
 ---
 # <a name="what-is-azure-analysis-services"></a>Azure Analysis Services란?
 
@@ -34,7 +34,7 @@ Azure Analysis Services는 다양한 Azure Services와 통합되어 정교한 �
 
 ## <a name="the-right-tier-when-you-need-it"></a>필요할 때 올바른 계층
 
-Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, CPU 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
+Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서 사용할 수 있습니다. 각 계층 내에서 계획 비용은 처리 능력, QPU(쿼리 처리 단위) 및 메모리 크기에 따라 달라집니다. 서버를 만들 때 계층 내에서 계획을 선택합니다. 동일한 계층 내에서 계획을 위 또는 아래로 변경하거나 상위 계층으로 업그레이드할 수 있지만, 상위 계층에서 하위 계층으로 다운그레이드할 수는 없습니다.
 
 ### <a name="developer-tier"></a>개발자 계층
 
@@ -47,7 +47,7 @@ Azure Analysis Services는 **개발자**, **기본** 및 **표준** 계층에서
 
 ### <a name="basic-tier"></a>기본 계층
 
-해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 *사용할 수 없습니다*. 큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
+해당 계층은 소규모 테이블 형식 모델, 제한된 사용자 동시성 및 단순한 데이터 새로 고침 요구 사항이 있는 프로덕션 솔루션에 권장됩니다. 쿼리 복제본 스케일 아웃은 이 계층에 ‘사용할 수 없습니다’.  큐브 뷰, 여러 파티션 및 DirectQuery 테이블 형식 모델 기능은 이 계층에서 *지원되지 않습니다*.  
 
 |계획  |QPU  |메모리(GB)  |
 |---------|---------|---------|
@@ -232,7 +232,7 @@ Azure Analysis Services는 [DMV(동적 관리 뷰)](https://docs.microsoft.com/a
 
 Azure Analysis Services에 관련된 설명서는 여기에 포함됩니다. 브라우저 화면 왼쪽에 있는 목차를 사용하여 아티클을 찾습니다. 
 
-Azure Analysis Services 테이블 형식 모델이 SQL Server Analysis Services의 테이블 형식 모델과 거의 동일하기 때문에 [SQL Server Analysis Services 설명서](https://docs.microsoft.com/analysis-services/analysis-services-overview)에 광범위한 라이브러리 공유 개념, 절차, 개발자 및 참조 문서가 있습니다. SQL Server Analysis Services 설명서의 아티클은 제목 아래에서 적용 대상 배너에 의해 Azure Analysis Services에 적용되는지를 보여줍니다.
+Azure Analysis Services 테이블 형식 모델은 SQL Server Analysis Services의 테이블 형식 모델과 거의 동일하기 때문에 [SQL Server Analysis Services 설명서](https://docs.microsoft.com/analysis-services/analysis-services-overview)에는 광범위한 공유 데이터 모델링 자습서, 개념, 절차, 개발자 및 참조 문서 라이브러리가 있습니다. SQL Server Analysis Services 설명서의 아티클은 제목 아래에서 적용 대상 배너에 의해 Azure Analysis Services에 적용되는지를 보여줍니다.
 
 ![공유 설명서](./media/analysis-services-overview/aas-overview-applies-to.png)
 

@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: a9719ec7db4dead94478225cc47130b289a539c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5e66632fab0306da7766f079733cd1d8cb3edc8d
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442348"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76544092"
 ---
 # <a name="quickstart-direct-web-traffic-with-azure-application-gateway---azure-portal"></a>빠른 시작: Azure Application Gateway를 통해 웹 트래픽 보내기 - Azure Portal
 
@@ -66,7 +66,7 @@ Azure 계정을 사용하여 [Azure Portal](https://portal.azure.com) 에 로그
 
 1. **프런트 엔드** 탭에서 **프런트 엔드 IP 주소 형식**이 **퍼블릭**으로 설정되어 있는지 확인합니다. <br>사용 사례에 따라 프런트 엔드 IP를 공용 또는 프라이빗 IP로 구성할 수 있습니다. 이 예제에서는 공용 프런트 엔드 IP를 선택합니다.
    > [!NOTE]
-   > Application Gateway v2 SKU의 경우 **공용** 프런트 엔드 IP 구성만 선택할 수 있습니다. 프라이빗 프런트 엔드 IP 구성(ILB 모드만 해당)만 현재 v2 SKU에서 사용할 수 없습니다. 퍼블릭 및 프라이빗 프런트 엔드 IP 구성을 모두 사용할 수 있습니다.
+   > Application Gateway v2 SKU의 경우 **퍼블릭** 프런트 엔드 IP 구성이 있어야 합니다. 여전히 퍼블릭 및 프라이빗 프런트 엔드 IP 구성을 모두 사용할 수 있지만 프라이빗 전용 프런트 엔드 IP 구성(ILB 모드만 해당)은 현재 v2 SKU에 대해 사용하도록 설정되어 있지 않습니다. 
 
 2. **퍼블릭 IP 주소**에 대해 **새로 만들기**를 선택하고 퍼블릭 IP 주소 이름으로 *myAGPublicIPAddress*를 입력한 후 **확인**을 선택합니다. 
 

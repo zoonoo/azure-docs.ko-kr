@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 7097f399b2bf5a3b0f9adb990fbd66785adc09aa
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: d6d0a5cdf4b33ba290042627f0ceaf4cf73a375c
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978001"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169321"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-rest-api-and-java"></a>빠른 시작: REST API 및 Java를 사용하여 이미지에서 얼굴 감지
 
@@ -23,9 +23,9 @@ ms.locfileid: "74978001"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다.
 - 원하는 Java IDE
 
 ## <a name="create-the-java-project"></a>Java 프로젝트 만들기
@@ -154,7 +154,7 @@ public class Main {
 
 ## <a name="run-the-app"></a>앱 실행
 
-코드를 컴파일하고 실행합니다. 성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 콘솔 창에서 표시합니다. 예:
+코드를 컴파일하고 실행합니다. 성공적인 응답은 얼굴 데이터를 쉽게 읽을 수 있는 JSON 형식으로 콘솔 창에서 표시합니다. 다음은 그 예입니다.
 
 ```json
 [{
@@ -248,7 +248,7 @@ public class Main {
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face API와 함께 REST 호출을 사용하여 이미지의 얼굴을 감지하고 해당 특성을 반환하는 간단한 Java 콘솔 애플리케이션을 만들었습니다. 다음으로, Android 애플리케이션에서 이 기능을 사용하여 더 많은 작업을 수행하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure Face API에 대한 REST 호출을 사용하여 이미지의 얼굴을 감지하고 해당 특성을 반환하는 간단한 Java 콘솔 애플리케이션을 만들었습니다. 다음으로, Android 애플리케이션에서 이 기능을 사용하여 더 많은 작업을 수행하는 방법에 대해 알아봅니다.
 
 > [!div class="nextstepaction"]
 > [자습서: 얼굴을 감지하고 포착하는 Android 앱 만들기](../Tutorials/FaceAPIinJavaForAndroidTutorial.md)

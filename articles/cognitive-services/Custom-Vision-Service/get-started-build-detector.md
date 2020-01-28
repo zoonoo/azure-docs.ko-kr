@@ -10,12 +10,12 @@ ms.subservice: custom-vision
 ms.topic: quickstart
 ms.date: 12/05/2019
 ms.author: anroth
-ms.openlocfilehash: 0d9c175db1370fe07b3278a46d910c59d81df860
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8aef46f0b9c3dc526f1fbed3d9bc59f97771b509
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74969924"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169999"
 ---
 # <a name="quickstart-how-to-build-an-object-detector-with-custom-vision"></a>빠른 시작: Custom Vision을 사용하여 개체 탐지기를 빌드하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "74969924"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 탐지기 모델을 학습시키는 데 사용할 이미지 세트. [샘플 이미지](https://github.com/Azure-Samples/cognitive-services-python-sdk-samples/tree/master/samples/vision/images) 세트는 GitHub에서 사용할 수 있습니다. 또는 아래 팁을 사용하여 사용자 고유의 이미지를 선택할 수 있습니다.
 
@@ -45,7 +45,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 1. 프로젝트에 대한 이름과 설명을 입력합니다. 그런 다음 리소스 그룹을 선택합니다. 로그인한 계정이 Azure 계정과 연결되어 있으면 리소스 그룹 드롭다운에는 Custom Vision Service 리소스를 포함하는 모든 Azure 리소스 그룹이 표시됩니다. 
 
    > [!NOTE]
-   > 사용할 수 있는 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 것과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인하세요. 또한 Custom Vision 포털에서 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 "디렉터리"를 선택했는지 확인하세요. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
+   > 사용 가능한 리소스 그룹이 없는 경우 [Azure Portal](https://portal.azure.com/)에 로그인하는 데 사용한 계정과 동일한 계정으로 [customvision.ai](https://customvision.ai)에 로그인했는지 확인합니다. 또한 Custom Vision 포털에서 Custom Vision 리소스가 있는 Azure Portal의 디렉터리와 동일한 "디렉터리"를 선택했는지 확인하세요. 두 사이트 모두, 화면 오른쪽 위에 있는 드롭다운 계정 메뉴에서 디렉터리를 선택할 수 있습니다. 
 
 1. __프로젝트 형식__ 아래에서 __개체 감지__를 선택합니다.
 
@@ -107,6 +107,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="manage-training-iterations"></a>학습 반복 관리
 
 탐지기를 학습시킬 때마다 업데이트된 자체 성능 메트릭을 사용하여 새 _반복_을 만듭니다. **성능** 탭의 왼쪽 창에서 모든 반복을 확인할 수 있습니다. 왼쪽 창에는 사용하지 않는 반복을 삭제하는 데 사용할 수 있는 **삭제** 단추도 있습니다. 반복을 삭제하면 해당 반복에 고유하게 연결된 이미지도 모두 삭제됩니다.
+
+학습된 모델에 프로그래밍 방식으로 액세스하는 방법을 알아보려면 [예측 API에서 모델 사용](./use-prediction-api.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b1f5c837f1912df407960fca41387eb84986381e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28d6e5362df9f41822525af0d256cfd99568d6de
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423144"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512133"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-federated-domains"></a>자습서: 페더레이션 도메인용 하이브리드 Azure Active Directory 조인 구성
 
@@ -155,6 +155,9 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 - 디바이스 등록에 대한 로컬 인트라넷 설정 구성
 - Windows 하위 수준 컴퓨터용 Microsoft Workplace Join 설치
 
+> [!NOTE]
+> Windows 7 지원은 2020년 1월 14일에 종료되었습니다. 자세한 내용은 [Windows 7에 대한 지원이 종료됨](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)을 참조하세요.
+
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>디바이스 등록에 대한 로컬 인트라넷 설정 구성
 
 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하고 디바이스가 Azure AD를 인증할 때 인증서 프롬프트를 표시하지 않으려면 도메인에 가입된 디바이스에 정책을 푸시하여 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가할 수 있습니다.
@@ -169,7 +172,7 @@ Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공�
 
 Windows 하위 수준 디바이스를 등록하려면 조직에서는 [비 Windows 10 컴퓨터용 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)을 설치해야 합니다. 비 Windows 10 컴퓨터용 Microsoft Workplace Join은 Microsoft 다운로드 센터에서 사용할 수 있습니다.
 
- [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수에 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
+ [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/)와 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수에 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
 
 설치 관리자는 사용자 컨텍스트에서 실행되는 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 Azure AD를 사용하여 인증한 후 사용자 자격 증명을 사용하여 Azure AD에 디바이스를 자동으로 조인합니다.
 

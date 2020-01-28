@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 12/27/2019
+ms.date: 01/16/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c8a8f3895f41ac987b934b86f8d646b281c37c93
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79f5284f95f6157c70461179177179a9fbee4fe0
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561989"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76293694"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-servicenow"></a>자습서: ServiceNow와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -46,9 +46,15 @@ Azure AD와 SaaS(Software as a Service) 앱 통합에 대해 자세히 알아보
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. ServiceNow는 **SP** 시작 SSO 및 [자동화된 사용자 프로비저닝](servicenow-provisioning-tutorial.md)을 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
 
-SSO를 설정할 수 있는 Azure AD를 사용하여 ServiceNow Classic(모바일) 애플리케이션을 구성할 수 있습니다. Azure AD는 Android 및 iOS 사용자를 지원합니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
+* ServiceNow에서 **SP** 시작 SSO를 지원합니다.
+
+* ServiceNow에서 [자동화된 사용자 프로비저닝](servicenow-provisioning-tutorial.md)을 지원합니다.
+
+* ServiceNow를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
+
+* SSO를 설정할 수 있는 Azure AD를 사용하여 ServiceNow Classic(모바일) 애플리케이션을 구성할 수 있습니다. Azure AD는 Android 및 iOS 사용자를 지원합니다. 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 ## <a name="add-servicenow-from-the-gallery"></a>갤러리에서 ServiceNow 추가
 
@@ -460,3 +466,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [사용자 프로비전 구성](servicenow-provisioning-tutorial.md)
 
 - [Azure AD에서 ServiceNow 사용해보기](https://aad.portal.azure.com)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/protect-servicenow)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 ServiceNow를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

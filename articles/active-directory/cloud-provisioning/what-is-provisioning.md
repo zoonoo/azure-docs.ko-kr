@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 166fb9320672e63b8c53717133dc61aa93f57a62
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 305108e576ad4e60089c929c9b780e8cee559540
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74868646"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76167622"
 ---
 # <a name="what-is-identity-provisioning"></a>ID 프로비저닝이란?
 
@@ -50,9 +50,7 @@ HR에서 클라우드로 프로비저닝하려면 HR 시스템에 있는 정보�
 
 ![클라우드 프로비저닝](media/what-is-provisioning/cloud3.png)
 
-앱 프로비저닝에서는 사용자가 액세스해야 하는 애플리케이션의 사용자 및 역할이 프로비저닝됩니다.  
-
-가장 일반적인 시나리오는 Azure AD의 사용자가 O365 또는 Salesforce로 프로비저닝되는 경우입니다.
+Azure AD(Azure Active Directory)에서 **[앱 프로비저닝](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)** 이라는 용어는 사용자가 액세스해야 하는 클라우드 애플리케이션에서 사용자 ID와 역할을 자동으로 만드는 것을 의미합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](https://docs.microsoft.com/azure/active-directory/saas-apps/dropboxforbusiness-provisioning-tutorial), [Salesforce](https://docs.microsoft.com/azure/active-directory/saas-apps/salesforce-provisioning-tutorial), [ServiceNow](https://docs.microsoft.com/azure/active-directory/saas-apps/servicenow-provisioning-tutorial) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
 
 ## <a name="directory-provisioning"></a>디렉터리 프로비저닝
 

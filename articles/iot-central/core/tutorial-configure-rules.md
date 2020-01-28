@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 9c2c8c1bacf4abfa775747a03d2a4a6121b67714
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 9140114e7d31f24770bdcce9aae849b01aae9996
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74106582"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76263649"
 ---
 # <a name="tutorial-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>자습서: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 
@@ -22,15 +22,16 @@ ms.locfileid: "74106582"
 
 [!INCLUDE [iot-central-original-pnp](../../../includes/iot-central-original-pnp-note.md)]
 
-이 자습서에서는 연결된 공조 디바이스의 온도가 90&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
+이 자습서에서는 연결된 공조 디바이스의 온도가 70&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 원격 분석 기반 규칙 만들기
 > * 작업 추가
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 [애플리케이션에서 새 디바이스 유형 정의](tutorial-define-device-type.md) 자습서를 완료해야 작업할 **연결된 공조 디바이스** 템플릿을 만들 수 있습니다.
 
@@ -48,14 +49,14 @@ ms.locfileid: "74106582"
 
     ![규칙 보기](media/tutorial-configure-rules/newrule.png)
 
-5. 규칙을 정의하려면 다음 표의 정보를 사용합니다.
+4. 규칙을 정의하려면 다음 표의 정보를 사용합니다.
 
     | 설정                                      | 값                             |
     | -------------------------------------------- | ------------------------------    |
-    | Name                                         | 공조 장치 온도 경고 |
+    | 속성                                         | 공조 장치 온도 경고 |
     | 이 템플릿의 모든 디바이스에 규칙 사용 | 설정                                |
-    | 조건                                    | 온도가 90보다 큼    |
-    | 집계                                  | 없음                              |
+    | 조건                                    | 온도가 70보다 큼    |
+    | 집계                                  | None                              |
 
     ![온도 규칙 조건](media/tutorial-configure-rules/temperaturerule.png)
 
@@ -71,10 +72,11 @@ ms.locfileid: "74106582"
 
 2. 작업을 정의하려면 다음 표의 정보를 사용합니다.
 
-    | 설정   | 값                          |
-    | --------- | ------------------------------ |
-    | 받는 사람        | 이메일 주소             |
-    | 메모     | 공조 장치 온도가 임계값을 초과했습니다. |
+    | 설정      | 값                                               |
+    | ------------ | --------------------------------------------------- |
+    | 표시 이름 | 이메일 온도 경고                             |
+    | 수행할 작업           | 이메일 주소                                  |
+    | 메모        | 공조 장치 온도가 임계값을 초과했습니다. |
 
     > [!NOTE]
     > 이메일 알림을 받으려면 이메일 주소가 [애플리케이션의 사용자 ID](howto-administer.md)여야 하며, 사용자는 최소 한 번 이상 애플리케이션에 로그인했어야 합니다.
@@ -92,16 +94,18 @@ ms.locfileid: "74106582"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 <!-- Repeat task list from intro -->
 > [!div class="nextstepaction"]
+>
 > * 원격 분석 기반 규칙 만들기
 > * 작업 추가
 
 임계값 기반 규칙을 정의했으니, 그 다음 단계는 [운영자 보기 사용자 지정](tutorial-customize-operator.md)입니다.
 
 Azure IoT Central에서 다양한 유형의 규칙 및 규칙 정의를 매개 변수화하는 방법에 대한 자세한 내용은 다음을 참조하세요.
+
 * [원격 분석 규칙을 만들고 알림을 설정합니다](howto-create-telemetry-rules.md).
 * [이벤트 규칙을 만들고 알림을 설정합니다](howto-create-event-rules.md).
 

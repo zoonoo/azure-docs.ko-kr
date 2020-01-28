@@ -10,12 +10,12 @@ ms.subservice: face-api
 ms.topic: quickstart
 ms.date: 12/06/2019
 ms.author: pafarley
-ms.openlocfilehash: 2a3deff1d6220d21c3796b22dc7c39ea284cb36b
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7897c1602a8b9ed6a1fea68e80d57cd5bae1c004
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977950"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165960"
 ---
 # <a name="quickstart-detect-faces-in-an-image-using-the-face-rest-api-and-nodejs"></a>빠른 시작: Face REST API 및 Node.js를 사용하여 이미지에서 얼굴 감지
 
@@ -23,9 +23,9 @@ ms.locfileid: "74977950"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다.
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다.
 - [Visual Studio Code](https://code.visualstudio.com/download) 같은 코드 편집기
 
 ## <a name="set-up-the-node-environment"></a>노드 환경 설정
@@ -100,7 +100,7 @@ request.post(options, (error, response, body) => {
 node facedetection.js
 ```
 
-콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 예:
+콘솔 창에 얼굴 정보가 JSON 데이터로 표시됩니다. 다음은 그 예입니다.
 
 ```json
 [
@@ -283,7 +283,7 @@ node facedetection.js
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Face API를 호출하는 Node.js 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
+이 빠른 시작에서는 Azure Face 서비스를 호출하는 Node.js 스크립트를 작성하여 이미지에서 얼굴을 감지하고 특성을 반환했습니다. 다음에는 Face API 참조 설명서를 살펴보고 보다 자세히 알아보겠습니다.
 
 > [!div class="nextstepaction"]
 > [Face API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395236)

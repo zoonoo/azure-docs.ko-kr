@@ -1,27 +1,19 @@
 ---
-title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리 | Microsoft Docs
+title: 자습서 - Azure 가상 머신 확장 집합 만들기 및 관리
 description: Azure PowerShell을 사용하여 인스턴스를 시작하고 중지하는 방법, 확장 집합 용량을 변경하는 방법 등의 몇 가지 일반적인 관리 작업과 함께 가상 머신 확장 집합을 만드는 방법을 알아봅니다.
-services: virtual-machine-scale-sets
-documentationcenter: ''
 author: cynthn
-manager: jeconnoc
-editor: ''
 tags: azure-resource-manager
-ms.assetid: ''
 ms.service: virtual-machine-scale-sets
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
 ms.date: 05/18/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 694fc0ba6d59497cfc53efb6f2607bc6a7d4ad2d
-ms.sourcegitcommit: 1aefdf876c95bf6c07b12eb8c5fab98e92948000
+ms.openlocfilehash: 14616fcc9fd63731c50c5977c88b5030f60664ff
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/06/2019
-ms.locfileid: "66728690"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76271404"
 ---
 # <a name="tutorial-create-and-manage-a-virtual-machine-scale-set-with-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 가상 머신 확장 집합 만들기 및 관리
 
@@ -34,7 +26,7 @@ ms.locfileid: "66728690"
 > * 수동으로 확장 집합 크기 조정
 > * 일반적인 확장 집합 관리 작업 수행
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
@@ -156,7 +148,7 @@ Azure Marketplace에는 VM 인스턴스를 만드는 데 사용할 수 있는 �
 Get-AzVMImagePublisher -Location "EastUS"
 ```
 
-지정된 게시자에 대한 이미지 목록을 보려면 [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)를 사용합니다. 이미지 목록은 `-PublisherName` 또는 `–Offer`로 필터링할 수도 있습니다. 다음 예제에서는 게시자 이름이 *MicrosoftWindowsServer*이고 *WindowsServer*와 일치하는 제품이 있는 모든 이미지에 대한 목록이 필터링됩니다.
+지정된 게시자에 대한 이미지 목록을 보려면 [Get-AzVMImageSku](/powershell/module/az.compute/get-azvmimagesku)를 사용합니다. 이미지 목록은 `-PublisherName` 또는 `-Offer`로 필터링할 수도 있습니다. 다음 예제에서는 게시자 이름이 *MicrosoftWindowsServer*이고 *WindowsServer*와 일치하는 제품이 있는 모든 이미지에 대한 목록이 필터링됩니다.
 
 ```azurepowershell-interactive
 Get-AzVMImageSku -Location "EastUS" -PublisherName "MicrosoftWindowsServer" -Offer "WindowsServer"
@@ -205,7 +197,7 @@ VM 인스턴스 크기 또는 *SKU*에 따라 VM 인스턴스에 사용할 수 �
 ### <a name="vm-instance-sizes"></a>VM 인스턴스 크기
 다음 표에서는 일반적인 VM 크기를 사용 사례로 분류하고 있습니다.
 
-| Type                     | 일반적인 크기           |    설명       |
+| Type                     | 일반적인 크기           |    Description       |
 |--------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------|
 | [범용](../virtual-machines/windows/sizes-general.md)         |Dsv3, Dv3, DSv2, Dv2, DS, D, Av2, A0-7| CPU 대 메모리 비율이 적당합니다. 개발/테스트와 소규모에서 중간 정도의 애플리케이션 및 데이터 솔루션에 적합합니다.  |
 | [컴퓨팅 최적화](../virtual-machines/windows/sizes-compute.md)   | Fs, F             | CPU 대 메모리 비율이 높습니다. 트래픽이 중간 정도인 애플리케이션, 네트워크 어플라이언스 및 일괄 처리 프로세스에 적합합니다.        |

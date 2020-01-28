@@ -3,18 +3,18 @@ title: '빠른 시작: Azure Maps를 사용하여 대화형 맵 검색 | Microso
 description: Microsoft Azure Maps 웹 SDK를 사용하여 대화형 맵 검색을 위한 데모 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 11/08/2019
+ms.date: 1/14/2020
 ms.topic: quickstart
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 5f11fa4fce38b125e21564b4cfbe4582e55a7b64
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4081dd383fc0e7378bc8c8438781c13e6a34e075
+ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910688"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76156440"
 ---
 # <a name="quickstart-create-an-interactive-search-map-by-using-azure-maps"></a>빠른 시작: Azure Maps를 사용하여 대화형 검색 맵 만들기
 
@@ -61,7 +61,7 @@ Maps 계정이 성공적으로 만들어지면 Maps API를 쿼리할 수 있는 
 
 ## <a name="download-the-application"></a>애플리케이션 다운로드
 
-1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html) 파일의 콘텐츠를 다운로드하거나 복사합니다.
+1. [interactiveSearch.html](https://github.com/Azure-Samples/AzureMapsCodeSamples/blob/master/AzureMapsCodeSamples/Tutorials/interactiveSearch.html)로 이동하고 이를 클릭하여 GitHub 사용자 인터페이스 내의 콘텐츠를 확인합니다. **Raw** 단추를 마우스 오른쪽 단추로 클릭하고 파일 내용을 복사하거나 '다른 이름으로 저장'을 클릭하여 파일을 다운로드합니다.
 2. 이 파일의 콘텐츠를 **AzureMapDemo.html**에 로컬로 저장합니다. 텍스트 편집기에서 엽니다.
 3. `<Your Azure Maps Key>` 문자열을 검색합니다. 이 문자열을 이전 섹션의 **기본 키** 값으로 바꿉니다.
 

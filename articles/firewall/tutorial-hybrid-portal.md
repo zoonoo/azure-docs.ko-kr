@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/02/2019
+ms.date: 01/18/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: 4a4fd2f89bc662f394b59aa6295c3a909cb8552b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b0847cda78c2e6d1df87eeaedc35850103840151
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73468471"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76264732"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -29,7 +29,7 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 ![하이브리드 네트워크의 방화벽](media/tutorial-hybrid-ps/hybrid-network-firewall.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 변수 선언
@@ -45,15 +45,17 @@ Azure Firewall을 사용하여 허용 및 거부된 네트워크 트래픽을 �
 
 Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure PowerShell을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성](tutorial-hybrid-ps.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 시나리오가 제대로 작동하기 위해서는 세 가지 주요 요구 사항이 있습니다.
+하이브리드 네트워크는 허브 및 스포크 아키텍처 모델을 사용하여 Azure VNet과 온-프레미스 네트워크 간에 트래픽을 라우팅합니다. 허브 및 스포크 아키텍처에는 다음과 같은 요구 사항이 있습니다.
 
-- Azure Firewall IP 주소를 가리키는 스포크 서브넷의 UDR(사용자 정의 경로)이 기본 게이트웨이입니다. 이 경로 테이블에서 BGP 경로 전파를 **사용 안 함**으로 설정해야 합니다.
-- 허브 게이트웨이 서브넷의 UDR은 스포크 네트워크에 대한 다음 호프로 방화벽 IP 주소를 가리켜야 합니다.
+- VNet-Hub를 VNet-Spoke로 피어링하는 경우 **AllowGatewayTransit**을 설정합니다. 허브 및 스포크 네트워크 아키텍처에서 스포크 가상 네트워크는 게이트웨이 전송을 통해 모든 스포크 가상 네트워크에서 VPN 게이트웨이를 배포하는 대신 허브에서 VPN 게이트웨이를 공유할 수 있습니다. 
 
-   Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
-- VNet-Hub와 VNet-Spoke를 피어링할 때는 **AllowGatewayTransit**, VNet-Spoke와 VNet-Hub를 피어링할 때는 **UseRemoteGateways**를 설정합니다.
+   또한 게이트웨이에 연결된 가상 네트워크 또는 온-프레미스 네트워크에 대한 경로는 게이트웨이 전송을 사용하여 피어링된 가상 네트워크에 대한 라우팅 테이블에 자동으로 전파됩니다. 자세한 내용은 [가상 네트워크 피어링을 위한 VPN 게이트웨이 전송 구성](../vpn-gateway/vpn-gateway-peering-gateway-transit.md)을 참조하세요.
+
+- VNet-Spoke를 VNet-Hub에 피어링할 때 **UseRemoteGateways**를 설정합니다. **UseRemoteGateways**가 설정되고 원격 피어링의 **AllowGatewayTransit**도 설정된 경우, 스포크 가상 네트워크는 전송을 위해 원격 가상 네트워크의 게이트웨이를 사용합니다.
+- 스포크 서브넷 트래픽을 허브 방화벽을 통해 라우팅하려면 **BGP 경로 전파 사용 안 함** 옵션 집합을 사용하여 방화벽을 가리키는 UDR(사용자 정의 경로)이 필요합니다. **BGP 경로 전파 사용 안 함** 옵션은 스포크 서브넷에 대한 경로 배포를 방지합니다. 이렇게 하면 학습된 경로가 UDR과 충돌하지 않습니다.
+- 스포크 네트워크에 대한 다음 홉으로 방화벽 IP 주소를 가리키는 허브 게이트웨이 서브넷에서 UDR을 구성합니다. Azure Firewall 서브넷에서는 BGP로부터 경로를 학습하므로 UDR이 필요하지 않습니다.
 
 이 경로를 만드는 방법은 이 자습서의 [경로 만들기](#create-the-routes) 섹션을 참조하세요.
 
@@ -153,7 +155,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
    |---------|---------|
    |Subscription     |\<구독\>|
    |Resource group     |**FW-Hybrid-Test** |
-   |Name     |**AzFW01**|
+   |속성     |**AzFW01**|
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 리소스 사용**:<br> **VNet-hub**|
    |공용 IP 주소     |새로 만들기: <br>**이름** - **fw-pip**. |

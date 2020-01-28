@@ -1,6 +1,6 @@
 ---
 title: C++/WinRT의 광역 위치 재결정
-description: C++/WinRT에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
+description: C++/WinRT의 광역 위치 재결정을 사용하여 앵커를 만들고 찾는 방법에 대해 자세히 설명합니다.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,14 +8,14 @@ ms.author: bobuc
 ms.date: 09/19/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: dd759ed4cbda936b00ce2ac0946184f9f6581c78
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 6d2bb4c563bd7bae186ce9832ff0472f17a8afd3
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790354"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76548291"
 ---
-# <a name="how-to-create-and-locate-anchors-using-on-device-sensors-in-cwinrt"></a>C++/WinRT에서 디바이스 내 센서를 사용하여 앵커를 만들고 찾는 방법
+# <a name="how-to-create-and-locate-anchors-using-coarse-relocalization-in-cwinrt"></a>C++/WinRT의 광역 위치 재결정을 사용하여 앵커를 만들고 찾는 방법
 
 > [!div  class="op_single_selector"]
 > * [Unity](set-up-coarse-reloc-unity.md)
@@ -27,7 +27,7 @@ ms.locfileid: "74790354"
 
 Azure Spatial Anchors는 사용자가 만든 앵커와 디바이스 내 위치 센서 데이터를 연결할 수 있습니다. 이 데이터를 사용하여 디바이스 근처에 앵커가 있는지 여부를 신속하게 확인할 수도 있습니다. 자세한 내용은 [광역 위치 재결정](../concepts/coarse-reloc.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

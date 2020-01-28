@@ -16,12 +16,12 @@ ms.date: 11/29/2018
 ms.author: cynthn
 ms.custom: mvc
 ms.subservice: disks
-ms.openlocfilehash: 05ad0b95b106b56d92cdbc5a7acd23cc34de7ae4
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: b288091172c71be82e70d90eb8817b2130f2cbef
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780269"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76277303"
 ---
 # <a name="tutorial---manage-azure-disks-with-azure-powershell"></a>자습서- Azure PowerShell을 사용하여 Azure 디스크 관리
 
@@ -44,7 +44,7 @@ Cloud Shell을 열려면 코드 블록의 오른쪽 위 모서리에 있는 **�
 
 Azure Virtual Machine을 만들면 두 개의 디스크가 자동으로 가상 머신에 연결됩니다. 
 
-**운영 체제 디스크** - 운영 체제 디스크는 최대 4TB까지 가능하며 VM 운영 체제를 호스트합니다.  OS 디스크는 기본적으로 *C:* 드라이브 문자가 할당됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
+**운영 체제 디스크** - 운영 체제 디스크는 최대 4TB까지 가능하며 VM 운영 체제를 호스트합니다. [Azure Marketplace](https://azure.microsoft.com/marketplace/) 이미지에서 새 VM(가상 머신)을 만드는 경우 일반적으로 127GB(하지만 일부 이미지는 더 작은 OS 디스크 크기임)입니다. OS 디스크는 기본적으로 *C:* 드라이브 문자가 할당됩니다. OS 디스크의 디스크 캐싱 구성은 OS 성능에 맞게 최적화됩니다. OS 디스크는 애플리케이션 또는 데이터를 호스트해서는 **안 됩니다**. 애플리케이션 및 데이터는 데이터 디스크를 사용하며 여기에 대해서는 이 문서의 뒷부분에서 자세히 설명합니다.
 
 **임시 디스크** - 임시 디스크는 VM과 같은 Azure 호스트에 있는 반도체 드라이브를 사용합니다. 임시 디스크는 성능이 높고 임시 데이터 처리 등의 작업에 사용할 수 있습니다. 그러나 VM이 새 호스트로 이동되면 임시 디스크에 저장된 모든 데이터는 제거됩니다. 임시 디스크의 크기는 [VM 크기](sizes.md)에 따라 결정됩니다. 임시 디스크는 기본적으로 *D:* 드라이브 문자가 할당됩니다.
 

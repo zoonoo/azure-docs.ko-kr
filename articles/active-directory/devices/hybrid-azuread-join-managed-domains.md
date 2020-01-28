@@ -11,16 +11,16 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 787900918035dc8b14d3a173496ab1a23b0f93bb
-ms.sourcegitcommit: c8a102b9f76f355556b03b62f3c79dc5e3bae305
+ms.openlocfilehash: 17bfbc29f38230dc2533c9ccc63cdee4fc776717
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/06/2019
-ms.locfileid: "68813080"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512111"
 ---
 # <a name="tutorial-configure-hybrid-azure-active-directory-join-for-managed-domains"></a>자습서: 관리되는 도메인용 하이브리드 Azure Active Directory 조인 구성
 
-조직의 사용자와 같이 디바이스는 보호하려는 핵심 ID입니다. 디바이스의 ID를 사용하여 언제 어디서든 리소스를 보호할 수 있습니다. 다음 방법 중 하나를 사용하여 디바이스 ID를 Azure AD(Azure Active Directory)로 가져와서 관리하면 이 목표를 달성할 수 있습니다.
+디바이스는 조직의 사용자처럼 보호해야 하는 핵심 ID입니다. 디바이스의 ID를 사용하여 언제 어디서든 리소스를 보호할 수 있습니다. 다음 방법 중 하나를 사용하여 디바이스 ID를 Azure AD(Azure Active Directory)로 가져와서 관리하면 이 목표를 달성할 수 있습니다.
 
 - Azure AD 조인
 - 하이브리드 Azure AD 조인
@@ -32,7 +32,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 
 관리형 환경은 [Seamless Single Sign-On](../hybrid/how-to-connect-sso.md)을 사용하여 [PHS(암호 해시 동기화)](../hybrid/whatis-phs.md) 또는 [PTA(통과 인증)](../hybrid/how-to-connect-pta.md)를 통해 배포할 수 있습니다. 이러한 시나리오는 인증용 페더레이션 서버를 구성할 필요가 없습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 하이브리드 Azure AD 조인 구성
@@ -40,7 +40,7 @@ Azure AD에 디바이스를 가져오면 클라우드와 온-프레미스 리소
 > * 가입 디바이스 확인
 > * 문제 해결
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 사용자가 다음 항목에 대해 잘 알고 있다고 가정합니다.
 
@@ -64,9 +64,9 @@ Azure AD Connect에서 Azure AD에 조인된 하이브리드 Azure AD가 될 디
 - `https://enterpriseregistration.windows.net`
 - `https://login.microsoftonline.com`
 - `https://device.login.microsoftonline.com`
-- `https://autologon.microsoftazuread-sso.com` (seamless SSO를 사용하거나 사용할 계획이 있는 경우)
+- `https://autologon.microsoftazuread-sso.com`(Seamless SSO를 사용하거나 사용할 계획이 있는 경우)
 
-조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우에 Microsoft는 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)를 구현](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))하는 것을 권장합니다. WPAD를 구성하고 관리하는 문제가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요. 
+조직에서 아웃바운드 프록시를 통해 인터넷에 액세스해야 하는 경우에 Windows 10 컴퓨터에서 디바이스를 Azure AD에 등록할 수 있도록 [WPAD(웹 프록시 자동 검색)를 구현](https://docs.microsoft.com/previous-versions/tn-archive/cc995261(v%3dtechnet.10))하는 것이 좋습니다. WPAD를 구성하고 관리하는 문제가 발생하는 경우 [자동 검색 문제 해결](https://docs.microsoft.com/previous-versions/tn-archive/cc302643(v=technet.10))을 참조하세요. 
 
 WPAD를 사용하지 않고 컴퓨터에서 프록시 설정을 구성해야 하는 경우 Windows 10 1709로 시작할 수 있습니다. 자세한 내용은 [GPO(그룹 정책 개체)를 사용하여 WinHTTP 설정 구성](https://blogs.technet.microsoft.com/netgeeks/2018/06/19/winhttp-proxy-settings-deployed-by-gpo/)을 참조하세요.
 
@@ -134,6 +134,9 @@ Azure AD Connect를 사용하여 하이브리드 Azure AD 조인을 구성하려
 - Seamless SSO 구성
 - Windows 하위 수준 컴퓨터용 Microsoft Workplace Join 설치
 
+> [!NOTE]
+> Windows 7 지원은 2020년 1월 14일에 종료되었습니다. 자세한 내용은[Windows 7에 대한 지원이 종료됨](https://support.microsoft.com/en-us/help/4057281/windows-7-support-ended-on-january-14-2020)을 참조하세요.
+
 ### <a name="configure-the-local-intranet-settings-for-device-registration"></a>디바이스 등록에 대한 로컬 인트라넷 설정 구성
 
 Windows 하위 수준 디바이스의 하이브리드 Azure AD 조인을 성공적으로 완료하고 디바이스가 Azure AD를 인증할 때 인증서 프롬프트를 표시하지 않으려면 도메인에 가입된 디바이스에 정책을 푸시하여 Internet Explorer의 로컬 인트라넷 영역에 다음 URL을 추가할 수 있습니다.
@@ -151,7 +154,7 @@ Azure AD 클라우드 인증 방법으로 [PHS](../hybrid/whatis-phs.md) 또는 
 
 Windows 하위 수준 디바이스를 등록하려면 조직에서는 [비 Windows 10 컴퓨터용 Microsoft Workplace Join](https://www.microsoft.com/download/details.aspx?id=53554)을 설치해야 합니다. 비 Windows 10 컴퓨터용 Microsoft Workplace Join은 Microsoft 다운로드 센터에서 사용할 수 있습니다.
 
- [System Center Configuration Manager](https://www.microsoft.com/cloud-platform/system-center-configuration-manager) 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수에 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
+ [Microsoft Endpoint Configuration Manager](https://docs.microsoft.com/configmgr/)와 같은 소프트웨어 배포 시스템을 사용하여 패키지를 배포할 수 있습니다. 패키지는 `quiet` 매개 변수에 표준 자동 설치 옵션을 지원합니다. 구성 관리자의 현재 분기는 완료된 등록을 추적하는 기능과 같은 이전 버전보다 나은 이점이 추가로 제공됩니다.
 
 설치 관리자는 사용자 컨텍스트에서 실행되는 예약된 작업을 시스템에 만듭니다. 사용자가 Windows에 로그인할 때 이 작업이 트리거됩니다. 이 작업은 Azure AD를 사용하여 인증한 후 사용자 자격 증명을 사용하여 Azure AD에 디바이스를 자동으로 조인합니다.
 
@@ -169,7 +172,7 @@ Azure 테넌트에서 디바이스 등록 상태를 확인하려면 [Azure Activ
 
 1. 관리자 권한으로 Windows PowerShell을 엽니다.
 1. `Connect-MsolService`를 입력하여 Azure 테넌트에 연결합니다.  
-1. `get-msoldevice -deviceId <deviceId>`을 입력합니다.
+1. `get-msoldevice -deviceId <deviceId>`를 입력합니다.
 1. **Enabled**가 **True**로 설정되어 있는지 확인인합니다.
 
 ## <a name="troubleshoot-your-implementation"></a>구현 문제 해결

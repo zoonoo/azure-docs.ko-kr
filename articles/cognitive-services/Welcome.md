@@ -10,12 +10,12 @@ ms.subservice: ''
 ms.topic: overview
 ms.date: 12/19/2019
 ms.author: nitinme
-ms.openlocfilehash: 544ca198b846ca5032bdf400b300ac076d729d88
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 332f33bb4046a9ca9d6abf9bec75f60bb4ca9e32
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834138"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76169103"
 ---
 # <a name="what-are-azure-cognitive-services"></a>Azure Cognitive Services란?
 
@@ -27,7 +27,7 @@ Azure Cognitive Services는 개발자가 직접적인 AI 또는 데이터 과학
 |:-----------|:------------------|
 |[Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/ "Computer Vision")|Computer Vision 서비스는 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 대한 액세스를 제공합니다.|
 |[Custom Vision Service](https://docs.microsoft.com/azure/cognitive-services/Custom-Vision-Service/home "사용자 지정 시각 서비스")|Custom Vision Service를 사용하면 사용자 지정 이미지 분류자를 빌드할 수 있습니다.|
-|[Face API](https://docs.microsoft.com/azure/cognitive-services/face/ "Face API")|Face API는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다.|
+|[Face](https://docs.microsoft.com/azure/cognitive-services/face/ "Face")| Face 서비스는 개선된 얼굴 인식 알고리즘에 액세스할 수 있도록 하여 얼굴 특성 감지 및 인식을 지원합니다.|
 |[Form Recognizer](https://docs.microsoft.com/azure/cognitive-services/form-recognizer/ "Form Recognizer")(미리 보기)|Form Recognizer는 양식 문서에서 키-값 쌍 및 테이블 데이터를 식별하고 추출합니다. 그런 다음, 원본 파일의 관계를 포함한 정형 데이터를 출력합니다.|
 |[Ink Recognizer](https://docs.microsoft.com/azure/cognitive-services/ink-recognizer/ "Ink Recognizer")(미리 보기)|Ink Recognizer를 사용하면 디지털 잉크 스트로크 데이터, 모양 및 필기 내용을 인식하여 분석하고, 모든 인식된 엔터티를 사용하여 문서 구조를 출력할 수 있습니다.|
 |[Video Indexer](https://docs.microsoft.com/azure/cognitive-services/video-indexer/video-indexer-overview "비디오 인덱서")|Video Indexer를 사용하여 비디오에서 인사이트를 추출할 수 있습니다.|

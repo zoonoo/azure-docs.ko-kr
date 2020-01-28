@@ -9,14 +9,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/02/2020
+ms.date: 01/17/2020
 ms.author: banders
-ms.openlocfilehash: 2beb1d3e4468ff96f629dd6ec7015376a7f3a904
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 75b6dd1b2d76d12087270e155551402d1bcd4965
+ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984008"
+ms.lasthandoff: 01/19/2020
+ms.locfileid: "76274018"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -127,7 +127,7 @@ Enterprise Portal의 **보고서** > **사용 요약**에 있는 Azure Marketpla
 
 ![사용 요약의 M + C 옵션을 보여 주는 스크린샷](./media/review-enterprise-agreement-bill/ea-portal-usage-sumary-cm-option.png)  
 
-**Azure Marketplace** 합계가 마켓플레이스 청구서의 **총 판매**와 일치해야 합니다. 사용량 기반 요금에 대한 자세한 내용을 보려면 **사용량 다운로드**로 이동합니다. **마켓플레이스 요금** 아래에서 **다운로드**를 선택합니다. 이 보고서는 세금을 포함하지 않거나 일회성 구매를 보여 줍니다.  
+**Azure Marketplace** 합계가 마켓플레이스 청구서의 **총 판매**와 일치해야 합니다. 사용량 기반 요금에 대한 자세한 내용을 보려면 **사용량 다운로드**로 이동합니다. **마켓플레이스 요금** 아래에서 **다운로드**를 선택합니다. 마켓플레이스 가격은 게시자가 결정한 세금을 포함합니다. 고객은 트랜잭션에 대한 세금을 징수하기 위해 게시자로부터 별도의 송장을 받지 않습니다.
 
 ![마켓플레이스 요금 아래의 다운로드 옵션을 보여 주는 스크린샷](./media/review-enterprise-agreement-bill/ea-portal-download-usage-marketplace.png)
 

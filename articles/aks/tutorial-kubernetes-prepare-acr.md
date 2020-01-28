@@ -8,16 +8,16 @@ ms.topic: tutorial
 ms.date: 12/19/2018
 ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 5089326af1d7f6e057667cd916f35de92bf517ef
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 04fbea9714224f0ecbac0e14618caaf39fa3cedf
+ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614237"
+ms.lasthandoff: 01/21/2020
+ms.locfileid: "76291144"
 ---
 # <a name="tutorial-deploy-and-use-azure-container-registry"></a>자습서: Azure Container Registry 배포 및 사용
 
-ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 레지스트리입니다. 프라이빗 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법에 대해 알아봅니다.
+ACR(Azure Container Registry)은 컨테이너 이미지를 위한 프라이빗 레지스트리입니다. 프라이빗 컨테이너 레지스트리를 사용하면 애플리케이션 및 사용자 지정 코드를 안전하게 빌드하고 배포할 수 있습니다. 7부 중 2부에 해당하는 이 자습서에서는 ACR 인스턴스를 배포하고 컨테이너 이미지를 푸시합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * ACR(Azure Container Registry) 인스턴스 만들기
@@ -80,7 +80,7 @@ ACR에 *azure-vote-front* 컨테이너 이미지를 사용하려면 레지스트
 az acr list --resource-group myResourceGroup --query "[].{acrLoginServer:loginServer}" --output table
 ```
 
-이제 컨테이너 레지스트리의 *acrloginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1*을 추가합니다.
+이제 컨테이너 레지스트리의 *acrLoginServer* 주소를 사용하여 로컬 *azure-vote-front* 이미지에 태그를 지정합니다. 이미지 버전을 표시하려면 이미지 이름 끝에 *:v1*을 추가합니다.
 
 ```console
 docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v1
@@ -142,7 +142,7 @@ v1
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 AKS 클러스터에서 사용하기 위해 Azure Container Registry를 만들고 이미지를 푸시했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 AKS 클러스터에서 사용하기 위해 Azure Container Registry를 만들고 이미지를 푸시했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * ACR(Azure Container Registry) 인스턴스 만들기

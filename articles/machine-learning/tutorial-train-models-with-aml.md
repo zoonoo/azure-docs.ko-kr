@@ -10,12 +10,12 @@ author: sdgilley
 ms.author: sgilley
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: ab407ffbc0e22a2f65436741ce5c7019ac7fc540
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
+ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532466"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76261367"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -105,7 +105,9 @@ exp = Experiment(workspace=ws, name=experiment_name)
 
 ### <a name="create-or-attach-an-existing-compute-target"></a>기존 컴퓨팅 대상 만들기 또는 연결
 
-데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
+데이터 과학자는 관리형 서비스인 Azure Machine Learning 컴퓨팅을 사용하여 Azure 가상 머신 클러스터에서 기계 학습 모델을 학습할 수 있습니다. 예를 들어 GPU가 지원되는 VM이 있습니다. 이 자습서에서는 학습 환경으로 Azure Machine Learning 컴퓨팅을 만듭니다. 이 자습서의 뒷부분에서 이 VM에서 실행할 Python 코드를 제출합니다. 
+
+아래 코드는 작업 영역에 아직 컴퓨팅 클러스터가 없으면 새로 만듭니다.
 
  **컴퓨팅 대상을 만드는 데 약 5분이 걸립니다.** 작업 영역에 이미 컴퓨팅 리소스가 있으면 코드는 해당 컴퓨팅 리소스를 사용하고 만들기 프로세스를 건너뜁니다.
 
@@ -146,7 +148,7 @@ else:
     print(compute_target.get_status().serialize())
 ```
 
-이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 컴퓨팅 리소스가 준비되었습니다.
+이제 클라우드에서 모델을 학습하는 데 필요한 패키지 및 컴퓨팅 리소스가 준비되었습니다. 
 
 ## <a name="explore-data"></a>데이터 살펴보기
 
@@ -215,7 +217,7 @@ plt.show()
 
 ## <a name="train-on-a-remote-cluster"></a>원격 클러스터에서 학습
 
-이 태스크의 경우 이전에 설정한 원격 학습 클러스터로 작업을 제출하세요.  작업을 제출하는 방법은 아래와 같습니다.
+이 태스크의 경우 이전에 설정한 원격 학습 클러스터에서 실행할 작업을 제출하세요.  작업을 제출하는 방법은 아래와 같습니다.
 * 디렉터리 만들기
 * 학습 스크립트 만들기
 * Estimator 개체 만들기

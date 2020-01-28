@@ -1,7 +1,7 @@
 ---
 title: '자습서: Android SDK를 사용하여 이미지에서 얼굴 감지 및 포착'
 titleSuffix: Azure Cognitive Services
-description: 이 자습서에서는 Face API를 사용하여 이미지에서 얼굴을 감지하고 포착하는 샘플 Android 앱을 만들 것입니다.
+description: 이 자습서에서는 Face 서비스를 사용하여 이미지에서 얼굴을 감지하고 포착하는 샘플 Android 앱을 만들 것입니다.
 services: cognitive-services
 author: PatrickFarley
 manager: nitinme
@@ -10,22 +10,22 @@ ms.subservice: face-api
 ms.topic: tutorial
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: ce0b308077505d5af1d757f1684c50505b11831e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8d5bef141f83eedaa996bb63c1fb814aeb6af197
+ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977797"
+ms.lasthandoff: 01/17/2020
+ms.locfileid: "76165971"
 ---
 # <a name="tutorial-create-an-android-app-to-detect-and-frame-faces-in-an-image"></a>자습서: 이미지에서 얼굴을 감지하고 포착하는 Android 앱 만들기
 
-이 자습서에서는 Azure Face API를 사용하여 Java SDK를 통해 이미지에서 사람 얼굴을 감지하고 포착하는 Android 애플리케이션을 만듭니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
+이 자습서에서는 Azure Face 서비스를 사용하여 Java SDK를 통해 이미지에서 사람 얼굴을 감지하고 포착하는 Android 애플리케이션을 만듭니다. 이 애플리케이션은 선택한 이미지를 표시하고 감지된 각 얼굴 주위에 프레임을 그립니다.
 
 이 자습서에서는 다음을 수행하는 방법에 대해 설명합니다.
 
 > [!div class="checklist"]
 > - Android 애플리케이션 만들기
-> - Face API 클라이언트 라이브러리 설치
+> - Face 클라이언트 라이브러리 설치
 > - 클라이언트 라이브러리를 사용하여 이미지에서 얼굴 감지
 > - 감지된 각 얼굴 주위에 프레임 그리기
 
@@ -35,9 +35,9 @@ ms.locfileid: "74977797"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Face API 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face API 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+- Face 구독 키. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=face-api)에서 평가판 구독 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Face 서비스를 구독하고 키를 가져옵니다. 그런 다음, 각각 `FACE_SUBSCRIPTION_KEY` 및 `FACE_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 - [Visual Studio 2015 또는 2017](https://www.visualstudio.com/downloads/)의 모든 버전.
 - API 수준 22 이상의 [Android Studio](https://developer.android.com/studio/)(Face 클라이언트 라이브러리에 필요).
 
@@ -123,7 +123,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Face API Java SDK를 사용하는 기본 프로세스를 배웠으며, 이미지에서 얼굴을 감지 및 포착하는 애플리케이션을 만들었습니다. 다음으로, 얼굴 감지에 대해 자세히 알아보세요.
+이 자습서에서는 Face Java SDK를 사용하는 기본 프로세스를 배웠으며, 이미지에서 얼굴을 감지 및 포착하는 애플리케이션을 만들었습니다. 다음으로, 얼굴 감지에 대해 자세히 알아보세요.
 
 > [!div class="nextstepaction"]
 > [이미지에서 얼굴을 감지하는 방법](../Face-API-How-to-Topics/HowtoDetectFacesinImage.md)

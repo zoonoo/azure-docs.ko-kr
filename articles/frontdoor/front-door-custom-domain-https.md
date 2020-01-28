@@ -12,12 +12,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 10/05/2018
 ms.author: sharadag
-ms.openlocfilehash: 5b44bfd94dffa14fcd501f5e0ddea11309adabf6
-ms.sourcegitcommit: beb34addde46583b6d30c2872478872552af30a1
+ms.openlocfilehash: 40ec859802da2f00154e750ea717da3da0f46568
+ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69907838"
+ms.lasthandoff: 01/22/2020
+ms.locfileid: "76512864"
 ---
 # <a name="tutorial-configure-https-on-a-front-door-custom-domain"></a>자습서: Front Door 사용자 지정 도메인에서 HTTPS 구성
 
@@ -33,7 +33,7 @@ Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름�
 
 - 완전한 인증서 관리: 사용자를 위해 모든 인증서 조달 및 관리가 처리됩니다. 만료되기 전에 인증서가 자동으로 프로비전되고 갱신되므로 인증서 만료로 인해 서비스가 중단될 위험이 없습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > - 사용자 지정 도메인에서 HTTPS 프로토콜을 사용하도록 설정
 > - AFD 관리 인증서 사용 
@@ -44,7 +44,7 @@ Azure Front Door Service는 기본적으로 Front Door 기본 호스트 이름�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서 단계를 완료하기 전에 먼저 Front Door를 만들고 하나 이상의 사용자 지정 도메인을 등록해야 합니다. 자세한 내용은 [자습서: Front Door에 사용자 지정 도메인 추가](front-door-custom-domain.md)를 참조하세요.
 
@@ -91,7 +91,7 @@ Azure Front Door Service에서 관리되는 인증서를 사용하면 단 몇 �
 PowerShell을 통해 Azure Active Directory에 Azure Front Door Service의 서비스 사용자를 앱으로 등록합니다.
 
 > [!NOTE]
-> 이 작업은 테넌트당 **한 번** 수행해야 합니다.
+> 이 작업을 수행하려면 글로벌 관리자 권한이 필요하며, 테넌트 당 **한 번**만 수행하면 됩니다.
 
 1. 필요한 경우 로컬 컴퓨터의 PowerShell에 [Azure PowerShell](/powershell/azure/install-az-ps)을 설치합니다.
 
@@ -147,7 +147,7 @@ Front Door의 프런트 엔드 호스트에 사용자 지정 도메인을 추가
 
 CNAME 레코드는 다음 형식이어야 합니다. 여기서 *Name*은 사용자 지정 도메인 이름이고 *Value*는 Front Door의 기본 .azurefd.net 호스트 이름입니다.
 
-| Name            | type  | 값                 |
+| 속성            | Type  | 값                 |
 |-----------------|-------|-----------------------|
 | <www.contoso.com> | CNAME | contoso.azurefd.net |
 
@@ -269,5 +269,5 @@ We encountered an unexpected error while processing your HTTPS request. Please t
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Front Door를 만드는 방법](quickstart-create-front-door.md)을 알아봅니다.
+- [Front Door를 만드는](quickstart-create-front-door.md) 방법을 알아봅니다.
 - [Front Door의 작동 원리](front-door-routing-architecture.md)를 알아봅니다.

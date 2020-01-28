@@ -10,12 +10,12 @@ ms.topic: tutorial
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 84220d5dda26c25f40138629e2be1f10d57fe3c4
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: df7198b68a083abf9be4ffe88e7a5dd848b2c535
+ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72555121"
+ms.lasthandoff: 01/16/2020
+ms.locfileid: "76119519"
 ---
 # <a name="integrate-apache-kafka-connect-support-on-azure-event-hubs-preview"></a>Azure Event Hubs(미리 보기)에 Apache Kafka Connect 지원 통합
 수집되는 비즈니스 요구 사항이 증가함에 따라 다양한 외부 소스 및 싱크에 대한 수집 요구 사항도 증가합니다. [Apache Kafka Connect](https://kafka.apache.org/documentation/#connect)는 Kafka 클러스터를 통해 MySQL, HDFS 같은 외부 시스템 및 파일 시스템에 연결하고 데이터를 가져오는/내보내는 프레임워크를 제공합니다. 이 자습서에서는 Kafka 지원 Event hubs와 함께 Kafka Connect 프레임워크를 사용하는 방법을 안내합니다.
@@ -34,7 +34,7 @@ ms.locfileid: "72555121"
 > * Kafka Connect 실행
 > * 커넥터 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
 
 - 동작합니다. 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만들 수 있습니다.
@@ -107,7 +107,9 @@ plugin.path={KAFKA.DIRECTORY}/libs # path to the libs directory within the Kafka
 4. `./bin/connect-distributed.sh /PATH/TO/connect-distributed.properties`을 실행합니다.  `'INFO Finished starting connectors and tasks'` 메시지가 보이면 Connect 작업자 REST API와 상호 작용할 준비가 완료된 것입니다. 
 
 > [!NOTE]
-> Event Hubs는 자동으로 토픽을 만드는 Kafka 클라이언트를 지원합니다. Azure Portal에서 네임스페이스를 신속하게 살펴보면 Connect 작업자의 내부 토픽이 자동으로 만들어진 것을 알 수 있습니다.
+> Kafka Connect는 Kafka AdminClient API를 사용하여 압축을 비롯한 권장 구성이 포함된 토픽을 자동으로 만듭니다. Azure Portal에서 네임스페이스를 신속하게 살펴보면 Connect 작업자의 내부 토픽이 자동으로 만들어진 것을 알 수 있습니다.
+>
+>Kafka Connect 내부 토픽은 **압축을 사용해야 합니다**.  Event Hubs 팀은 내부 연결 토픽이 잘못 구성된 경우 잘못된 구성을 수정하는 일을 담당하지 않습니다.
 
 ### <a name="create-connectors"></a>커넥터 만들기
 이 섹션에서는 FileStreamSource 및 FileStreamSink 커넥터를 작동하는 방법을 안내합니다. 
