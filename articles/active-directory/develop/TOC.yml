@@ -404,6 +404,8 @@
               href: active-directory-optional-claims.md
             - name: 토큰 수명 구성
               href: active-directory-configurable-token-lifetimes.md
+            - name: Chrome 브라우저에서 SameSite 쿠키 변경 내용 처리
+              href: howto-handle-samesite-cookie-changes-chrome-browser.md
         - name: 애플리케이션 구성
           items:
             - name: 새로운 Azure Portal 앱 등록 학습 가이드

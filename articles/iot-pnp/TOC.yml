@@ -105,9 +105,13 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge 솔루션
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
         - name: IoT 디바이스 SDK
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
+- name: 리소스
+  items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help

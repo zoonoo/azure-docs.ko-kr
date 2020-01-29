@@ -110,6 +110,8 @@
           href: connect-azure-stack.md
     - name: 다중 테넌트(MSSP)
       href: multiple-tenants-service-providers.md
+    - name: CMK(고객 관리형 키) 설정
+      href: customer-managed-keys.md
     - name: 경고에서 인시던트 만들기
       href: create-incidents-from-alerts.md
     - name: 사냥

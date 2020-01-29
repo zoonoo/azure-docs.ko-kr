@@ -37,6 +37,8 @@
       href: concept-security-module.md
     - name: 보안 경고
       href: concept-security-alerts.md
+    - name: 사용자 지정 가능한 보안 경고
+      href: concept-customizable-security-alerts.md
     - name: 보안 권장 사항
       href: concept-recommendations.md
     - name: 기초

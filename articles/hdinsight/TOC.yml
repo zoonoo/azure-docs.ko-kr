@@ -503,16 +503,20 @@
               href: ./hadoop/apache-ambari-troubleshoot-down-hosts-services.md
             - name: Apache Ambari 부실 경고
               href: ./hadoop/apache-ambari-troubleshoot-stale-alerts.md
+            - name: Apache Ambari 디렉터리 경고
+              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
             - name: 속도가 느리거나 오류가 발생하는 HDInsight 클러스터 문제 해결
               href: ./hdinsight-troubleshoot-failed-cluster.md
             - name: Apache Hadoop HDFS 문제 해결
               href: ./hdinsight-troubleshoot-hdfs.md
             - name: Apache Hadoop YARN 문제 해결
               href: ./hdinsight-troubleshoot-yarn.md
+            - name: Yarn 로그에서 잘못된 BCFile 오류가 발생함
+              href: ./hadoop/troubleshoot-yarn-log-invalid-bcfile.md
             - name: Data Lake Store 파일 문제 해결
               href: ./hadoop/hdinsight-troubleshoot-data-lake-files.md
-            - name: Apache Ambari 디렉터리 경고
-              href: ./hadoop/apache-ambari-troubleshoot-directory-alerts.md
+            - name: 서비스 시작 시 포트 충돌
+              href: ./hadoop/troubleshoot-port-conflict.md
 - name: Apache Kafka
   items:
     - name: 개요
@@ -870,5 +874,5 @@
           items:
             - name: ESP 인증 문제
               href: ./domain-joined/domain-joined-authentication-issues.md
-            - name: ESP를 사용하여 Zeppelin에 로그인할 수 없음
-              href: ./domain-joined/domain-joined-zeppelin-signin.md
+            - name: DomainNotFound를 사용하여 클러스터 생성에 실패함
+              href: ./domain-joined/troubleshoot-domainnotfound.md

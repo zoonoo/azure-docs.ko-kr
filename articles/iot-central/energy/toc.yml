@@ -96,7 +96,7 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge 솔루션
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -104,6 +104,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 고객 데이터 요청
       href: ../core/iot-central-customer-data-requests.md?toc=/azure/iot-central/energy/toc.json&bc=/azure/iot-central/energy/breadcrumb/toc.json
     - name: 지원되는 브라우저

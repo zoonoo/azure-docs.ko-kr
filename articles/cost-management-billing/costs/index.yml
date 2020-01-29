@@ -9,14 +9,13 @@ metadata:
   ms.collection: collection
   author: bandersmsft
   ms.author: banders
-  ms.manager: dougeby
-  ms.date: 12/18/2019
-  ms.openlocfilehash: 33821c027d242da1a9361a796280213b5265dcde
-  ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+  ms.date: 01/24/2020
+  ms.openlocfilehash: 274d4f6b88923fc0c6d3cda03a4ffa73535e13b1
+  ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/15/2020
-  ms.locfileid: "75983225"
+  ms.lasthandoff: 01/28/2020
+  ms.locfileid: "76769652"
 landingContent:
 - title: Cost Management에 대해 알아보기
   linkLists:
@@ -32,6 +31,10 @@ landingContent:
       url: understand-cost-mgt-data.md
     - text: 범위 이해 및 작업
       url: understand-work-scopes.md
+  - linkListType: video
+    links:
+    - text: Azure Cost Management 비디오
+      url: https://www.youtube.com/c/AzureCostManagement
 - title: Azure 비용 분석 및 관리
   linkLists:
   - linkListType: quickstart
@@ -58,14 +61,6 @@ landingContent:
       url: get-started-partners.md
     - text: Power BI Desktop을 사용하여 연결
       url: /power-bi/desktop-connect-azure-cost-management
-- title: AWS 비용 분석 및 관리
-  linkLists:
-  - linkListType: how-to-guide
-    links:
-    - text: AWS 통합 설정 및 구성
-      url: aws-integration-set-up-configure.md
-    - text: AWS 비용 및 사용량 관리
-      url: aws-integration-manage.md
 - title: Cost Management API
   linkLists:
   - linkListType: concept
@@ -82,3 +77,19 @@ landingContent:
       url: /azure/templates/microsoft.consumption/budgets
     - text: Cost Management REST API 샘플
       url: https://github.com/Azure-Samples/Cost-Management-Samples
+- title: 최신 기능
+  linkLists:
+  - linkListType: whats-new
+    links:
+    - text: 월별 업데이트
+      url: https://azure.microsoft.com/blog/tag/cost-management/
+    - text: 기능 업데이트
+      url: https://azure.microsoft.com/updates/?product=cost-management
+- title: AWS 비용 분석 및 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: AWS 통합 설정 및 구성
+      url: aws-integration-set-up-configure.md
+    - text: AWS 비용 및 사용량 관리
+      url: aws-integration-manage.md

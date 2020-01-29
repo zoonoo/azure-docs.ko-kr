@@ -34,8 +34,6 @@
       href: spring-cloud-tutorial-bind-redis.md
     - name: Azure MySQL에 애플리케이션 바인딩
       href: spring-cloud-tutorial-bind-mysql.md
-    - name: Jenkins 및 Azure CLI를 사용하여 Azure Spring Cloud에 앱 배포
-      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: 개념
   items:
     - name: Azure Spring Cloud 할당량 및 제한 이해
@@ -56,10 +54,18 @@
       href: diagnostic-services.md
     - name: 실시간으로 Azure Spring Cloud 앱 로그 스트림
       href: spring-cloud-howto-log-streaming.md
-    - name: Azure Spring Cloud에서 CI/CD 파이프라인 자동화
-      href: spring-cloud-howto-cicd.md
     - name: Azure Spring Cloud에서 영구 스토리지 사용
       href: spring-cloud-howto-persistent-storage.md
+- name: Azure Spring Cloud에 DevOps 배포
+  items:
+    - name: Azure DevOps를 사용하는 CI/CD
+      href: spring-cloud-howto-cicd.md
+    - name: GitHub 작업을 사용하는 CI/CD
+      href: spring-cloud-howto-github-actions.md
+    - name: GitHub 작업에서 Key Vault를 사용하여 Azure Spring Cloud 인증
+      href: spring-cloud-github-actions-key-vault.md
+    - name: Jenkins를 사용하는 CI/CD
+      href: /azure/jenkins/tutorial-jenkins-deploy-cli-spring-cloud-service
 - name: 참조
   items:
     - name: Azure CLI 플러그 인

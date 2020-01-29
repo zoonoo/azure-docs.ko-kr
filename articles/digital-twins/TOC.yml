@@ -67,17 +67,19 @@
           href: how-to-navigate-apis.md
         - name: 일반적인 쿼리 패턴
           href: how-to-query-common-apis.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 사용자 정의 함수 클라이언트 라이브러리
       href: reference-user-defined-functions-client-library.md
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'C#용 Azure Digital Twins 샘플(.NET)'
       href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
     - name: Azure Digital Twins REST API
       href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
@@ -93,3 +95,31 @@
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
     - name: 동영상
       href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
+- name: 관련 항목
+  items:
+    - name: 솔루션
+      items:
+        - name: IoT 솔루션 가속기
+          href: /azure/iot-suite
+        - name: IoT Central
+          href: /azure/iot-central/iot-support-help
+    - name: 플랫폼 서비스
+      items:
+        - name: IoT Hub
+          href: /azure/iot-hub
+        - name: IoT 플러그 앤 플레이
+          href: /azure/iot-pnp
+        - name: IoT Hub Device Provisioning Service
+          href: /azure/iot-dps
+        - name: 지도
+          href: /azure/azure-maps
+        - name: 서비스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
+        - name: Time Series Insights
+          href: /azure/time-series-insights
+    - name: Edge 솔루션
+      items:
+        - name: IoT Edge
+          href: /azure/iot-edge
+        - name: IoT 디바이스 SDK
+          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

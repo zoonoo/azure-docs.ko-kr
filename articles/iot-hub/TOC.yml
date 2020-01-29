@@ -378,6 +378,8 @@
   items:
     - name: Azure CLI
       href: /cli/azure/iot
+    - name: Azure PowerShell
+      href: '/powershell/module/az.iothub#iot'
     - name: .NET(서비스)
       href: /dotnet/api/microsoft.azure.devices
     - name: .NET(디바이스)
@@ -432,7 +434,7 @@
           href: /azure/azure-maps
         - name: Time Series Insights
           href: /azure/time-series-insights
-    - name: IoT Edge
+    - name: Edge 솔루션
       items:
         - name: Azure IoT Edge
           href: /azure/iot-edge
@@ -440,6 +442,8 @@
           href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'
 - name: 리소스
   items:
+    - name: 지원 및 도움말 옵션
+      href: /azure/iot-fundamentals/iot-support-help
     - name: 'C#(.NET)용 Azure IoT 샘플'
       href: 'https://azure.microsoft.com/resources/samples/azure-iot-samples-csharp/'
     - name: Node.js용 Azure IoT 샘플

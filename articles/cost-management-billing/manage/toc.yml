@@ -75,6 +75,8 @@
           href: pay-by-invoice.md
         - name: 추가 구독 만들기
           href: create-subscription.md
+        - name: CSP 구독 전송
+          href: transfer-subscriptions-subscribers-csp.md
         - name: 구독 정보 내보내기
           href: export-subscriptions.md
     - name: 기업 계약 구독 관리
