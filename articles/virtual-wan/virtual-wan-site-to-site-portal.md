@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect my local site to my VNets using Virtual WAN and I don't want to go through a Virtual WAN partner.
-ms.openlocfilehash: 10b9dba2f54a2d20b0cb405285772f8c3d74b3a4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4278cb2e8c5152f522258a37c37acda5efbacf8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450853"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775336"
 ---
 # <a name="tutorial-create-a-site-to-site-connection-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사이트 간 연결 만들기
 
@@ -123,7 +123,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
     * 허브에 연결된 VNet의 **주소 공간**<br>예제:
 
          ```
-        "ConnectedSubnets":["10.2.0.0/16","10.30.0.0/16"]
+        "ConnectedSubnets":["10.2.0.0/16","10.3.0.0/16"]
          ```
     * 가상 허브 vpngateway의 **IP 주소**. vpngateway의 각 연결은 활성-활성 구성의 2개 터널로 구성되므로 이 파일에 두 IP 주소가 모두 나열됩니다. 이 예제에서는 각 사이트에 대한 “Instance0” 및 “Instance1”이 표시됩니다.<br>예제:
 
@@ -152,7 +152,7 @@ VPN 디바이스 구성을 사용하여 온-프레미스 VPN 디바이스를 구
                "Region":"West Europe",
                "ConnectedSubnets":[ 
                   "10.2.0.0/16",
-                  "10.30.0.0/16"
+                  "10.3.0.0/16"
                ]
             },
             "gatewayConfiguration":{ 

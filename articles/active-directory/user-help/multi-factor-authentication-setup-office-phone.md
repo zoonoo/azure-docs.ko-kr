@@ -10,13 +10,12 @@ ms.workload: identity
 ms.topic: overview
 ms.date: 08/12/2019
 ms.author: lizross
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1adbb913fc8ec6376f1c5f47708da4fd7df740ff
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 32d58a5536cda5a5a446eee15401dabc0c936304
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69619854"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705227"
 ---
 # <a name="set-up-an-office-phone-as-your-two-factor-verification-method"></a>2단계 인증 방법으로 사무실 전화 설정
 
@@ -35,12 +34,12 @@ ms.locfileid: "69619854"
 
     ![지정된 전화 번호 테스트](media/multi-factor-authentication-verification-methods/multi-factor-authentication-office-phone-test.png)
 
-3. **3단계: 기존 애플리케이션 사용 유지** 영역에서 제공된 앱 암호를 복사하여 안전한 곳에 붙여넣습니다.
+3. **3단계: 기존 애플리케이션 사용 유지** 영역에 제공된 앱 암호를 복사하여 안전한 곳에 붙여넣습니다.
 
     ![추가 보안 인증 페이지의 앱 암호 영역](media/multi-factor-authentication-verification-methods/multi-factor-authentication-app-passwords.png)
 
     >[!Note]
-    >이전 앱으로 앱 암호를 사용하는 방법에 대한 자세한 내용은 [앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md)를 참조하세요. 2단계 인증을 지원하지 않는 이전 앱을 계속 사용하려는 경우에만 앱 암호를 사용해야 합니다.
+    >이전 앱에서 앱 암호를 사용하는 방법에 대한 자세한 내용은 [앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md)를 참조하세요. 2단계 인증을 지원하지 않는 이전 앱을 계속 사용하려는 경우에만 앱 암호를 사용해야 합니다.
 
 4. **완료** 를 선택합니다.
 
@@ -52,6 +51,6 @@ ms.locfileid: "69619854"
 
 - [앱 암호 관리](multi-factor-authentication-end-user-app-passwords.md)
 
-- [2단계 인증을 사용한 로그인](multi-factor-authentication-end-user-signin.md)
+- [2단계 인증을 사용하여 로그인](multi-factor-authentication-end-user-signin.md)
 
-- [2단계 인증에 관한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)
+- [2단계 확인에 대한 도움말 보기](multi-factor-authentication-end-user-troubleshoot.md)

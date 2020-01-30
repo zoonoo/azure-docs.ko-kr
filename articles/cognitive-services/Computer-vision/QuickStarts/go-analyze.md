@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/05/2019
+ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 9f6814a355adb952dbf7fa1be15784306ed10ca1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 8c0b245575819ce062999dda8deb7e76cb1ee1bf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978410"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772467"
 ---
 # <a name="quickstart-analyze-a-remote-image-using-the-computer-vision-rest-api-with-go"></a>빠른 시작: Go와 함께 Computer Vision REST API를 사용하여 원격 이미지 분석
 
@@ -24,10 +24,10 @@ ms.locfileid: "74978410"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/ai/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=cognitive-services)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [Go](https://golang.org/dl/)가 설치되어 있어야 합니다.
-- Computer Vision에 대한 구독 키가 있어야 합니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 그런 다음, 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
+* 최신 버전의 [Go](https://golang.org/dl/)
+* Computer Vision 구독 키입니다. [Cognitive Services 사용해보기](https://azure.microsoft.com/try/cognitive-services/?api=computer-vision)에서 평가판 키를 가져올 수 있습니다. 또는 [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Computer Vision을 구독하고 키를 가져옵니다. 그런 다음, 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 서비스 엔드포인트 문자열에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
 
 ## <a name="create-and-run-the-sample"></a>샘플 만들기 및 실행
 
@@ -35,10 +35,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 아래 코드를 텍스트 편집기에 복사합니다.
 1. 필요에 따라 `imageUrl` 값을 분석하려는 다른 이미지의 URL로 바꿉니다.
-1. 코드를 `.go` 확장명의 파일로 저장합니다. 예: `analyze-image.go`
+1. 코드를 `.go` 확장명의 파일로 저장합니다. `analyze-image.go`)을 입력합니다.
 1. 명령 프롬프트 창을 엽니다.
-1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. 예: `go build analyze-image.go`
-1. 프롬프트에서 컴파일된 패키지를 실행합니다. 예: `analyze-image`
+1. 프롬프트에서 `go build` 명령을 실행하여 파일에서 패키지를 컴파일합니다. `go build analyze-image.go`)을 입력합니다.
+1. 프롬프트에서 컴파일된 패키지를 실행합니다. `analyze-image`)을 입력합니다.
 
 ```go
 package main

@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 8ec3e399459adfbb7cef9e3eafbaa024fec1589f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 26c7996d6a955a183121a59254131dcb1dc6706f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447614"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844265"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
@@ -155,9 +155,8 @@ Azure Portal에서 QnA Maker 및 봇 프레임워크 리소스를 정리합니�
 
 자세한 내용은 다음을 참조하세요.
 
-* [답변의 Markdown 형식](../concepts/data-sources-supported.md)
-* [markdown 테스트](../concepts/data-sources-supported.md#testing-your-markdown)
-* QnA Maker [ 데이터 원본](../Concepts/data-sources-supported.md).
+* [답변의 Markdown 형식](../reference-markdown-format.md)
+* QnA Maker [ 데이터 원본](../concepts/knowledge-base.md).
 * [봇 리소스 구성 설정](../tutorials/create-qna-bot.md).
 
 > [!div class="nextstepaction"]

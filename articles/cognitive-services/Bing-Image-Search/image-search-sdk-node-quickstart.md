@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-image-search
 ms.topic: quickstart
-ms.date: 12/06/2019
+ms.date: 01/22/2020
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: e41c3409ac5b81fe9e099ab34abd7256ef39d330
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dd81942832e598319261829e67fd0b8f1704fc99
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930582"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716195"
 ---
 # <a name="quickstart-search-for-images-with-the-bing-image-search-sdk-for-nodejs"></a>빠른 시작: Node.js용 Bing Image Search SDK를 사용하여 이미지 검색
 
@@ -24,10 +24,10 @@ ms.locfileid: "74930582"
 
 이 샘플에 대한 소스 코드는 추가 오류 처리 및 주석과 함께 [GitHub](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/blob/master/Samples/imageSearch.js)에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [Node.js용 Cognitive Services Image Search SDK](https://www.npmjs.com/package/azure-cognitiveservices-imagesearch)
-    * `npm install azure-cognitiveservices-imagesearch`를 사용하여 설치
+* [Node.js용 Cognitive Services Image Search SDK](https://www.npmjs.com/package/@azure/cognitiveservices-imagesearch)
+    * `npm install @azure/cognitiveservices-imagesearch`를 사용하여 설치
 * [Node.js Azure Rest](https://www.npmjs.com/package/ms-rest-azure) 모듈
     * `npm install ms-rest-azure`를 사용하여 설치
 
@@ -39,7 +39,7 @@ ms.locfileid: "74930582"
 
     ```javascript
     'use strict';
-    const ImageSearchAPIClient = require('azure-cognitiveservices-imagesearch');
+    const ImageSearchAPIClient = require('@azure/cognitiveservices-imagesearch');
     const CognitiveServicesCredentials = require('ms-rest-azure').CognitiveServicesCredentials;
     ```
 
@@ -52,7 +52,7 @@ ms.locfileid: "74930582"
     //the search term for the request
     let searchTerm = "canadian rockies";
 
-    //instantiate the image search client 
+    //instantiate the image search client
     let credentials = new CognitiveServicesCredentials(serviceKey);
     let imageSearchApiClient = new ImageSearchAPIClient(credentials);
 
@@ -60,7 +60,7 @@ ms.locfileid: "74930582"
 
 ## <a name="create-an-asynchronous-helper-function"></a>비동기 도우미 함수 만들기
 
-1. 클라이언트를 비동기적으로 호출할 함수를 만들고 Bing Image Search 서비스에서 응답을 반환합니다.  
+1. 클라이언트를 비동기적으로 호출할 함수를 만들고 Bing Image Search 서비스에서 응답을 반환합니다.
     ```javascript
     //a helper function to perform an async call to the Bing Image Search API
     const sendQuery = async () => {
@@ -71,7 +71,7 @@ ms.locfileid: "74930582"
 
 1. 도우미 함수를 호출하고 해당 `promise`를 처리하여 응답에서 반환되는 이미지 결과를 구문 분석합니다.
 
-    응답이 검색 결과를 포함하는 경우 첫 번째 결과를 저장하고 썸네일 URL, 원본 URL 및 반환된 총 이미지 수와 같은 세부 내용을 출력합니다.  
+    응답이 검색 결과를 포함하는 경우 첫 번째 결과를 저장하고 썸네일 URL, 원본 URL 및 반환된 총 이미지 수와 같은 세부 내용을 출력합니다.
     ```javascript
     sendQuery().then(imageResults => {
         if (imageResults == null) {
@@ -98,9 +98,9 @@ ms.locfileid: "74930582"
 
 ## <a name="see-also"></a>참고 항목
 
-* [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)  
-* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)  
-* [Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
+* [Bing Image Search란?](https://docs.microsoft.com/azure/cognitive-services/bing-image-search/overview)
+* [온라인 대화형 데모 사용해보기](https://azure.microsoft.com/services/cognitive-services/bing-image-search-api/)
+* [무료 Cognitive Services 액세스 키 가져오기](https://azure.microsoft.com/try/cognitive-services/?api=bing-image-search-api)
 * [Azure Cognitive Services SDK에 대한 Node.js 샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples)
 * [Azure Cognitive Services 설명서](https://docs.microsoft.com/azure/cognitive-services)
 * [Bing Image Search API 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-images-api-v7-reference)

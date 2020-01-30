@@ -12,13 +12,12 @@ ms.date: 05/09/2019
 ms.author: ryanwi
 ms.custom: aaddev, identityplatformtop40
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 58a68b89ce38664c0d0ec87b509fe5f872cfd78c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bb741fe36e00c3d528470866669e64e9b0b221ae
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921418"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704139"
 ---
 # <a name="quickstart-register-an-application-with-the-microsoft-identity-platform"></a>빠른 시작: Microsoft ID 플랫폼에 애플리케이션 등록
 
@@ -30,13 +29,13 @@ ms.locfileid: "74921418"
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정이 둘 이상의 테넌트에 대해 액세스를 제공하는 경우 오른쪽 위 모서리에 있는 계정을 선택하여 원하는 Azure AD 테넌트로 포털 세션을 설정합니다.
-1. **Azure Active Directory**를 검색하여 선택합니다. **Active Directory** 페이지에서 **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
+1. **Azure Active Directory**를 검색하고 선택합니다. **Active Directory** 페이지에서 **앱 등록**을 선택한 다음, **새 등록**을 선택합니다.
 1. **애플리케이션 등록** 페이지가 표시되면 애플리케이션의 등록 정보를 입력합니다.
 
    - **이름** -앱의 사용자에게 표시되는 의미 있는 애플리케이션 이름을 입력합니다.
    - **지원되는 계정 유형** - 애플리케이션이 지원하려는 계정을 선택합니다.
 
-       | 지원되는 계정 유형 | 설명 |
+       | 지원되는 계정 유형 | Description |
        |-------------------------|-------------|
        | **이 조직 디렉터리의 계정만** | 업무용(LOB) 애플리케이션을 빌드하는 경우 이 옵션을 선택합니다. 애플리케이션이 디렉터리에 등록되지 않은 경우에는 이 옵션을 사용할 수 없습니다.<br><br>이 옵션은 Azure AD 단일 테넌트에 매핑됩니다.<br><br>디렉터리 외부에 앱을 등록하지 않은 한 기본 옵션입니다. 디렉터리 외부에 앱을 등록할 경우 기본값은 Azure AD 다중 테넌트 및 개인 Microsoft 계정입니다. |
        | **모든 조직 디렉터리의 계정** | 모든 비즈니스 및 교육용 고객을 대상으로 하려는 경우 이 옵션을 선택합니다.<br><br>이 옵션은 Azure AD 전용 다중 테넌트에 매핑됩니다.<br><br>Azure AD 전용 단일 테넌트로 앱을 등록한 경우 **인증** 블레이드에서 Azure AD 멀티 테넌트로 업데이트할 수 있고 다시 단일 테넌트로 되돌릴 수 있습니다. |

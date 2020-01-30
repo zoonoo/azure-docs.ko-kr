@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/02/2019
+ms.date: 01/14/2020
 ms.author: dylankil
-ms.openlocfilehash: 3293c4ea76010e5f39c793a1faee14d9a74226a0
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: a252afae0a007ee0b791b56d19ffb0685848d30a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945220"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844363"
 ---
 # <a name="tutorial-launch-the-immersive-reader-using-the-python-sample-project"></a>자습서: Python 샘플 프로젝트를 사용하여 몰입형 리더 시작
 

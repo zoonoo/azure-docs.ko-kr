@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 209c63207653e98967a5a66e36c0cae53b7e044f
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 720b3e56e1dd45bd2940b337adefa6ebdaa2e5a1
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75550318"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719724"
 ---
 # <a name="tutorial-create-and-test-a-device-capability-model-using-visual-studio-code"></a>자습서: Visual Studio Code를 사용하여 디바이스 기능 모델 만들기 및 테스트
 
@@ -233,7 +233,7 @@ VS Code를 사용하여 IoT 플러그 앤 플레이 디바이스에서 구현하
           "name": "deviceinfo"
         }
       ],
-      "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+      "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
     }
     ```
 

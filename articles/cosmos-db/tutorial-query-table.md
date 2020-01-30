@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB에서 테이블 데이터를 쿼리하는 방법
 description: OData 필터 및 LINQ 쿼리를 사용하여 Azure Cosmos DB Table API 계정에 저장된 데이터를 쿼리하는 방법 알아보기
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: tutorial
 ms.date: 05/21/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 7dc2c00f273f327755dab52a4bda02840d911f96
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 8f31ace0045dad2f038a1eded52a41ffb1932f99
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74869921"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770477"
 ---
 # <a name="tutorial-query-azure-cosmos-db-by-using-the-table-api"></a>자습서: Table API를 사용하여 Azure Cosmos DB 쿼리
 
@@ -36,7 +36,7 @@ Azure Cosmos DB의 [Table API](table-introduction.md)는 키/값(테이블) 데�
 
 Azure Cosmos DB에서 제공하는 프리미엄 기능에 대한 자세한 내용은 [Azure Cosmos DB: Table API](table-introduction.md) 및 [.NET에서 Table API를 통해 개발](tutorial-develop-table-dotnet.md)을 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 쿼리가 작동하려면 Azure Cosmos DB 계정이 있어야 하며 컨테이너에 엔터티 데이터가 있어야 합니다. 이들 중 하나라도 없는가요? 그러면 [5분 빠른 시작](create-table-dotnet.md) 또는 [개발자 자습서](tutorial-develop-table-dotnet.md)를 수행하여 계정을 만들고 데이터베이스를 채워 놓으세요.
 
@@ -84,18 +84,9 @@ https://<mytableapi-endpoint>/People()?$filter=PartitionKey%20eq%20'Smith'%20and
 해당 OData 쿼리 식으로 변환되는 LINQ를 사용하여 쿼리할 수도 있습니다. 다음은 .NET SDK를 사용하여 쿼리를 작성하는 방법을 보여 주는 예제입니다.
 
 ```csharp
-CloudTableClient tableClient = account.CreateCloudTableClient();
-CloudTable table = tableClient.GetTableReference("People");
-
-TableQuery<CustomerEntity> query = new TableQuery<CustomerEntity>()
-    .Where(
-        TableQuery.CombineFilters(
-            TableQuery.GenerateFilterCondition("PartitionKey", QueryComparisons.Equal, "Smith"),
-            TableOperators.And,
-            TableQuery.GenerateFilterCondition("Email", QueryComparisons.Equal,"Ben@contoso.com")
-    ));
-
-await table.ExecuteQuerySegmentedAsync<CustomerEntity>(query, null);
+IQueryable<CustomerEntity> linqQuery = table.CreateQuery<CustomerEntity>()
+            .Where(x => x.PartitionKey == "4")
+            .Select(x => new CustomerEntity() { PartitionKey = x.PartitionKey, RowKey = x.RowKey, Email = x.Email });
 ```
 
 ## <a name="next-steps"></a>다음 단계

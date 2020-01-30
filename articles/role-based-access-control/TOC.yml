@@ -40,8 +40,6 @@
           href: role-definitions.md
         - name: 역할 정의 나열
           href: role-definitions-list.md
-        - name: 기본 제공 역할
-          href: built-in-roles.md
     - name: 역할 할당 나열
       items:
         - name: 포털
@@ -96,6 +94,8 @@
       href: troubleshooting.md
 - name: 참조
   items:
+    - name: 기본 제공 역할
+      href: built-in-roles.md
     - name: 리소스 공급자 작업
       href: resource-provider-operations.md
     - name: RBAC 제한

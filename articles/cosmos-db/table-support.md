@@ -5,15 +5,15 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: overview
 ms.date: 12/02/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 4f742ce34ec429f0fc822562c1ad4ad07f3e7965
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 82397e49e473b8660dfada54a0e05cafe0da4120
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74870431"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770677"
 ---
 # <a name="developing-with-azure-cosmos-db-table-api-and-azure-table-storage"></a>Azure Cosmos DB Table API 및 Azure Table storage로 개발하기
 
@@ -42,7 +42,7 @@ Azure Table Storage에는 개발에 사용할 수 있는 다음과 같은 SDK가
 
 - [WindowsAzure.Storage .NET SDK](https://www.nuget.org/packages/WindowsAzure.Storage/). 이 라이브러리를 통해 스토리지 Table 서비스를 사용할 수 있습니다.
 - [Python SDK](https://github.com/Azure/azure-cosmos-table-python). Python용 Azure Cosmos DB Table SDK는 Table Storage 서비스를 지원합니다(Azure Table Storage 및 Cosmos DB의 Table API는 동일한 기능과 함수를 공유하므로 SDK 개발 노력을 고려하기 위해 이 SDK를 사용하는 것이 좋습니다).
-- [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 저장소를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
+- [Java용 Azure Storage SDK](https://github.com/azure/azure-storage-java). 이 Azure Storage SDK는 Java에서 Azure Table 스토리지를 사용하기 위한 클라이언트 라이브러리를 제공합니다.
 - [Node.js SDK](https://github.com/Azure/azure-storage-node). 이 SDK는 스토리지 Table 서비스를 사용하기 위한 Node.js 패키지 및 브라우저 호환 JavaScript 클라이언트 라이브러리를 제공합니다.
 - [AzureRmStorageTable PowerShell 모듈](https://www.powershellgallery.com/packages/AzureRmStorageTable). 이 PowerShell 모듈에는 스토리지 테이블과 함께 작동하는 cmdlet이 있습니다.
 - [C++용 Azure Storage 클라이언트 라이브러리](https://github.com/Azure/azure-storage-cpp/). 이 라이브러리를 사용하면 Azure Storage에 애플리케이션을 빌드할 수 있습니다.

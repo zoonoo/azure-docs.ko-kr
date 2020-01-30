@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: ed5e5c63bed90136e498491a6735cbaa127cf1f9
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d7853d388b9159328a515818697ba9ddd5b95637
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689677"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773191"
 ---
 # <a name="tutorial-add-tags-in-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 태그 추가
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이전 템플릿에서는 스토리지 계정, App Service 계획 및 웹앱을 배포했습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/quickstart-template/azuredeploy.json":::
 
 이러한 리소스를 배포한 후에는 비용을 추적하고 범주에 속하는 리소스를 찾아야 할 수도 있습니다. 이러한 문제를 해결하는 데 도움이 되는 태그를 추가할 수 있습니다.
 
@@ -36,7 +36,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 다음 예제에서는 템플릿의 변경 내용을 강조 표시합니다. 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json?range=1-118&highlight=46-52,64,86,103)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json" range="1-118" highlight="46-52,64,78,102":::
 
 ## <a name="deploy-template"></a>템플릿 배포
 

@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 44cdd4307be56d864afb45d619958cc59a3fa978
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74220527"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719503"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터 쿼리
 
@@ -27,7 +27,7 @@ ms.locfileid: "74220527"
 
 이 빠른 시작에서는 Node.js 앱을 사용하여 Azure Cosmos DB에서 [SQL API](sql-api-introduction.md) 계정에 연결하는 방법을 보여줍니다. 그런 다음, Azure Cosmos DB SQL 쿼리를 사용하여 데이터를 쿼리하고 관리할 수 있습니다. 이 문서에서 빌드하는 Node.js 앱은 [SQL JavaScript SDK](sql-api-sdk-node.md)를 사용합니다. 이 빠른 시작은 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) 버전 2.0을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
 [!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
@@ -142,11 +142,11 @@ Azure Portal로 돌아가서 Azure Cosmos 계정의 연결 문자열 세부 정�
 
 3. 포털에서 URI 값을 복사(복사 단추 사용)한 후 이 값을 `config.js`의 엔드포인트 키 값으로 만듭니다. 
 
-    `config.endpoint = "https://FILLME.documents.azure.com"`
+    `config.endpoint = "<Your Azure Cosmos account URI>"`
 
 4. 그 다음, 포털에서 사용자의 기본 키 값을 복사한 후 `config.js`의 `config.key` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
-    `config.key = "FILLME"`
+    `config.key = "<Your Azure Cosmos account key>"`
     
 ## <a name="run-the-app"></a>앱 실행
 

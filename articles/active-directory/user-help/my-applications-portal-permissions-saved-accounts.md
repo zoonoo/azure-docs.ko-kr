@@ -12,13 +12,12 @@ ms.topic: overview
 ms.date: 10/30/2019
 ms.author: lizross
 ms.custom: user-help
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9fa8bc27f014b794059f30a62d47f298096df2f1
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 36abbee0bf25550425f4e476e6a4e7b75df815a6
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73573795"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76705057"
 ---
 # <a name="edit-or-revoke-application-permissions-in-the-my-apps-preview-portal"></a>내 앱(미리 보기) 포털에서 애플리케이션 사용 권한 편집 또는 해지
 
@@ -51,7 +50,7 @@ ms.locfileid: "73573795"
 
 ## <a name="related-articles"></a>관련 문서
 
-- [프로필 및 계정 정보 업데이트](my-account-portal-overview.md). **내 프로필**(미리 보기) 포털에 표시되는 개인 정보를 업데이트하는 방법에 대한 지침입니다.
+- [프로필 및 계정 정보 업데이트](my-account-portal-overview.md) **내 프로필**(미리 보기) 포털에 표시되는 개인 정보를 업데이트하는 방법에 대한 지침입니다.
 
 - [조직 관리](my-account-portal-organizations-page.md). **내 프로필** 포털의 **조직** 페이지에서 조직 관련 정보를 확인하고 관리하는 방법에 대한 지침입니다.
 

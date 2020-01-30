@@ -10,12 +10,12 @@ ms.date: 01/02/2020
 ms.topic: include
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: d421de69f856790b89c866a6c8b7221e9214aef4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: b141fcdb2aacc8654999d023c4174c7eb9bc177f
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772944"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76761447"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -39,19 +39,19 @@ ms.locfileid: "75772944"
 
 프로젝트에 대한 기본 사항으로 작동하는 몇 가지 코드를 추가해 보겠습니다. `recognizeIntent()`라는 비동기 메서드를 만듭니다.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,73-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-16,72-80)]
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-`IntentRecognizer` 개체를 초기화하기 전에 LUIS 예측 리소스의 키와 위치를 사용하는 구성을 만들어야 합니다. 
+`IntentRecognizer` 개체를 초기화하기 전에 LUIS 예측 리소스의 키와 위치를 사용하는 구성을 만들어야 합니다.
 
 > [!IMPORTANT]
-> 시작 키와 제작 키가 작동하지 않습니다. 이전에 만든 예측 키와 위치를 사용해야 합니다. 자세한 내용은 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요. 
+> 시작 키와 제작 키가 작동하지 않습니다. 이전에 만든 예측 키와 위치를 사용해야 합니다. 자세한 내용은 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
 `recognizeIntent()` 메서드에 이 코드를 삽입합니다. 다음 값을 업데이트해야 합니다.
 
-* `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다. 
-* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다. 
+* `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다.
+* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다.
 
 >[!TIP]
 > 이러한 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
@@ -70,14 +70,14 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 
 ## <a name="add-a-languageunderstandingmodel-and-intents"></a>LanguageUnderstandingModel 및 의도 추가
 
-`LanguageUnderstandingModel`을 의도 인식기와 연결하고 인식되길 원하는 의도를 추가해야 합니다. 홈 자동화를 위해 미리 빌드된 도메인에서 의도를 사용할 것입니다. 
+`LanguageUnderstandingModel`을 의도 인식기와 연결하고 인식되길 원하는 의도를 추가해야 합니다. 홈 자동화를 위해 미리 빌드된 도메인에서 의도를 사용할 것입니다.
 
-이 코드를 `IntentRecognizer` 아래에 삽입합니다. `"YourLanguageUnderstandingAppId"`를 LUIS 앱 ID로 바꾸어야 합니다. 
+이 코드를 `IntentRecognizer` 아래에 삽입합니다. `"YourLanguageUnderstandingAppId"`를 LUIS 앱 ID로 바꾸어야 합니다.
 
 >[!TIP]
 > 이 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-34)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=31-33)]
 
 ## <a name="recognize-an-intent"></a>의도 인식
 
@@ -85,7 +85,7 @@ Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. �
 
 이 코드를 모델 아래에 삽입합니다.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=44)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=43)]
 
 ## <a name="display-the-recognition-results-or-errors"></a>인식 결과(또는 오류) 표시
 
@@ -93,7 +93,7 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 
 이 코드를 `auto result = recognizer->RecognizeOnceAsync().get();` 아래에 삽입합니다.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=47-72)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=46-71)]
 
 ## <a name="check-your-code"></a>코드 확인
 
@@ -102,7 +102,7 @@ Speech Service에서 인식 결과가 반환되면 이에 따라 작업을 수�
 > [!NOTE]
 > 이 버전에 몇 가지 주석을 추가했습니다.
 
-[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-81)]
+[!code-cpp[](~/samples-cognitive-services-speech-sdk/quickstart/cpp/windows/intent-recognition/helloworld/helloworld.cpp?range=6-79)]
 
 ## <a name="build-and-run-your-app"></a>앱 빌드 및 실행
 

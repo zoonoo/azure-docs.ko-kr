@@ -12,13 +12,12 @@ ms.workload: identity
 ms.date: 04/11/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ab2b3c1872de25c2d78198a0e23c0067ef0c9ea
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: deeecbe96a0809435ae1f805d35cb4a0bd34d8ef
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968088"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703545"
 ---
 # <a name="quickstart-add-microsoft-identity-platform-sign-in-to-an-aspnet-web-app"></a>빠른 시작: ASP.NET 웹앱에 Microsoft ID 플랫폼 로그인 추가
 
@@ -158,7 +157,7 @@ public void Configuration(IAppBuilder app)
 > | `PostLogoutRedirectUri`     | 서명 해제 후 사용자가 전송되는 URL |
 > | `Scope`     | 요청되는 범위 목록이며 공백으로 구분 |
 > | `ResponseType`     | 인증에서의 응답이 ID 토큰을 포함하는 요청 |
-> | `TokenValidationParameters`     | 토큰 유효성 검사에 대한 매개 변수 목록. 이 경우, `ValidateIssuer`는 `false`로 설정되어 모든 개인이나 회사 또는 학교 계정 형식에서 로그인을 사용할 수 있음을 나타냄 |
+> | `TokenValidationParameters`     | 토큰 유효성 검사에 대한 매개 변수 목록입니다. 이 경우, `ValidateIssuer`는 `false`로 설정되어 모든 개인이나 회사 또는 학교 계정 형식에서 로그인을 사용할 수 있음을 나타냄 |
 > | `Notifications`     | 여러 *OpenIdConnect* 메시지에서 실행할 수 있는 대리자 목록 |
 
 
@@ -185,7 +184,7 @@ public void SignIn()
 > [!TIP]
 > 위의 메서드를 사용하여 인증 질문을 요청하는 것은 선택 사항이며 일반적으로 보기에서 인증되거나 인증되지 않은 모든 사용자가 액세스할 수 있도록 하려는 경우 사용됩니다. 또는 다음 섹션에 설명된 메서드를 사용하여 컨트롤러를 보호할 수 있습니다.
 
-### <a name="protect-a-controller-or-a-controllers-method"></a>컨트롤러 또는 컨트롤러 메서드 보호하기
+### <a name="protect-a-controller-or-a-controllers-method"></a>컨트롤러 또는 컨트롤러 메서드 보호
 
 `[Authorize]` 특성을 사용하여 컨트롤러나 컨트롤러 작업을 보호할 수 있습니다. 이 특성은 컨트롤러나 작업에 액세스를 제한하여, *인증되지 않은* 사용자가 `[Authorize]` 특성으로 데코레이팅된 작업이나 컨트롤러 중 하나에 액세스하려고 할 때 인증 질문이 자동으로 발생하여, 인증된 사용자만 컨트롤러의 작업에 액세스하게 합니다.
 

@@ -12,13 +12,12 @@ ms.date: 08/07/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: lenalepa, aragra, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec5fe8e93c9032a07c1defe5b28753e0f520a320
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 32691892ccae31541855f47bd8274aa28b6dc185
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74963336"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704292"
 ---
 # <a name="quickstart-configure-a-client-application-to-access-web-apis"></a>빠른 시작: 웹 API에 액세스하는 클라이언트 애플리케이션 구성
 
@@ -40,7 +39,7 @@ ms.locfileid: "74963336"
 * [웹 애플리케이션에 자격 증명 추가](#add-credentials-to-your-web-application)
 * [웹 API에 액세스 권한 추가](#add-permissions-to-access-web-apis)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음과 같은 필수 구성을 완료했는지 확인합니다.
 
@@ -54,7 +53,7 @@ ms.locfileid: "74963336"
 
 1. [Azure Portal](https://portal.azure.com)에 회사 또는 학교 계정, 개인 Microsoft 계정으로 로그인합니다.
 1. 계정에서 둘 이상의 테넌트에 액세스할 수 있는 경우 오른쪽 위 모서리에서 있는 계정을 선택하고 포털 세션을 원하는 Azure AD 테넌트로 설정합니다.
-1. **Azure Active Directory**를 검색하여 선택합니다. 
+1. **Azure Active Directory**를 검색하고 선택합니다. 
 1. 왼쪽 창에서 **앱 등록**을 선택합니다.
 1. 구성하려는 애플리케이션을 찾아 선택합니다. 앱을 선택하면 볼 **개요** 또는 기본 등록 페이지가 나타납니다.
 1. 웹 API에 액세스하도록 애플리케이션을 구성하는 단계를 따릅니다.
@@ -127,7 +126,7 @@ ms.locfileid: "74963336"
 
    | 플랫폼                | 선택 사항              | 구성 설정            |
    |-------------------------|----------------------|-----------------------------------|
-   | **웹 애플리케이션**    | **웹**              | 애플리케이션의 **리디렉션 URI**를 입력합니다. |
+   | **웹 애플리케이션**    | **Web**              | 애플리케이션의 **리디렉션 URI**를 입력합니다. |
    | **모바일 애플리케이션** | **iOS**              | Info.plist의 XCode 또는 [빌드 설정]에서 찾을 수 있는 앱의 **번들 ID**를 입력합니다. 번들 ID를 추가하면 애플리케이션의 리디렉션 URI가 자동으로 만들어집니다. |
    |                         | **Android**          | * AndroidManifest.xml 파일에서 찾을 수 있는 앱의 **패키지 이름**을 제공합니다.<br/>* **서명 해시**를 생성하여 입력합니다. 서명 해시를 추가하면 애플리케이션의 리디렉션 URI가 자동으로 만들어집니다.  |
    | **데스크톱 + 디바이스**   | **데스크톱 + 디바이스** | * 선택 사항입니다. 데스크톱 및 디바이스용 애플리케이션을 빌드하는 경우 추천되는 **제안된 리디렉션 URI** 중 하나를 선택합니다.<br/>* 선택 사항입니다. Azure AD에서 인증 요청에 대한 응답으로 사용자를 리디렉션하는 위치로 사용되는 **사용자 지정 리디렉션 URI**를 입력합니다. 예를 들어 상호 작용을 원하는 .NET Core 애플리케이션의 경우 `https://localhost`를 사용합니다. |

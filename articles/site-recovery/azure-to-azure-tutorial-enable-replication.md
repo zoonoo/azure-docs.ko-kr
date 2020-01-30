@@ -2,14 +2,15 @@
 title: Azure Site Recovery를 사용하여 Azure VM 재해 복구 설정
 description: Azure Site Recovery 서비스를 사용하여 다른 Azure 지역에 Azure VM의 재해 복구를 설정하는 방법을 알아봅니다.
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 1/24/2020
+ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 7d78064285057f6abd91c3ca95e01ec86f1a1a39
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 979b390f65363b43f33ce2f09d26844c3cc1a2e8
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169341"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759792"
 ---
 # <a name="set-up-disaster-recovery-for-azure-vms"></a>Azure VM에 대한 재해 복구 설정
 
@@ -75,17 +76,6 @@ URL 기반 방화벽 프록시를 사용하여 아웃바운드 연결을 제어�
 ### <a name="outbound-connectivity-for-ip-address-ranges"></a>IP 주소 범위에 대한 아웃바운드 연결
 
 NSG(네트워크 보안 그룹)를 사용하는 경우 Azure Storage, Azure Active Directory, Site Recovery 서비스 및 Site Recovery 모니터링에 액세스할 수 있는 서비스 태그 기반 NSG 규칙을 만듭니다. [자세히 알아보기](azure-to-azure-about-networking.md#outbound-connectivity-for-ip-address-ranges).
-
-> [!NOTE]
-> 아웃바운드 액세스를 위해 항상 서비스 태그를 사용하여 NSG 규칙을 구성하는 것이 좋습니다.
-
-IP 주소를 사용하여 아웃바운드 연결을 제어하려면 IP 기반 방화벽, 프록시 또는 NSG 규칙에 대해 다음 주소를 허용합니다.
-
-- [Microsoft Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)
-- [Windows Azure 데이터 센터 IP 범위(독일)](https://www.microsoft.com/download/details.aspx?id=54770)
-- [Windows Azure 데이터 센터 IP 범위(중국)](https://www.microsoft.com/download/details.aspx?id=42064)
-- [Office 365 URL 및 IP 주소 범위](https://support.office.com/article/Office-365-URLs-and-IP-address-ranges-8548a211-3fe7-47cb-abb1-355ea5aa88a2#bkmk_identity)
-- [Site Recovery 서비스 엔드포인트 IP 주소](https://aka.ms/site-recovery-public-ips)
 
 ## <a name="verify-azure-vm-certificates"></a>Azure VM 인증서 확인
 

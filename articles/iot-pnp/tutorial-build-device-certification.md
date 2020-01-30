@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: 2dae0a31ad53a777f5ae88c1c12f988d2f80630a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ce7d3ee8a0d05d837bc0049cba688cffe14d8a8c
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867412"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721645"
 ---
 # <a name="build-an-iot-plug-and-play-preview-device-thats-ready-for-certification"></a>즉시 인증 가능한 IoT 플러그 앤 플레이 미리 보기 디바이스 빌드
 
@@ -71,7 +71,7 @@ IoT 플러그 앤 플레이 디바이스의 경우 디바이스 기능을 JSON �
     "urn:yourcompanyname:sample:Thermostat:1",
     "urn:azureiot:DeviceManagement:DeviceInformation:1"
   ],
-  "@context": "http://azureiot.com/v1/contexts/CapabilityModel.json"
+  "@context": "http://azureiot.com/v1/contexts/IoTModel.json"
 }
 ```
 

@@ -8,19 +8,19 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 10/18/2019
 ms.author: diberry
-ms.openlocfilehash: cc8f01d5608b36521185695cd5f7be531ba7aeaf
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a262db04e51015edb760a8b04952dfa24b2ad63a
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500713"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748909"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 시작 키.
 * cognitive-services-language-understanding GitHub 리포지토리에서 [TravelAgent 앱](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/quickstarts/change-model/TravelAgent.json)을 가져옵니다.
 * 가져온 TravelAgent 앱의 LUIS 애플리케이션 ID입니다. 애플리케이션 ID는 애플리케이션 대시보드에 표시됩니다.
-* 발화를 수신하는 애플리케이션 내의 버전 ID입니다. 기본 ID는 "0.1"입니다.
+* 발언을 수신하는 애플리케이션 내의 버전 ID입니다. 기본 ID는 "0.1"입니다.
 * [Node.js](https://nodejs.org/) 프로그래밍 언어 
 * [Visual Studio Code](https://code.visualstudio.com/)
 
@@ -89,8 +89,8 @@ Go를 사용하여 기계 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-
             body: utterances
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     const train = async (verb) => {
     
@@ -104,8 +104,8 @@ Go를 사용하여 기계 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-
             body: null // The body can be empty for a training request
         };
     
-        const reponse = await requestpromise(options)
-        console.log(reponse.body);
+        const response = await requestpromise(options)
+        console.log(response.body);
     }
     
     // MAIN

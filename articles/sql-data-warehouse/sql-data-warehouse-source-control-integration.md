@@ -10,12 +10,12 @@ ms.subservice: integration
 ms.date: 08/23/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 82d366b3f807e21e3531da00da78520fed90bc66
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: fc1fdddc7a157828fcc4770c4e8237af9a45fdc3
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645253"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720030"
 ---
 # <a name="source-control-integration-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse를 위한 원본 제어 통합
 
@@ -55,7 +55,7 @@ ms.locfileid: "73645253"
 
 3. Visual Studio의 팀 탐색기에서 로컬 Git 리포지토리에 대한 모든 변경 내용을 커밋합니다. 
 
-   ![커밋](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "커밋")  
+   ![커밋](media/sql-data-warehouse-source-control-integration/6.5-commit-push-changes.png "Commit")  
 
 4. 변경 내용이 복제된 리포지토리에 로컬로 커밋되었으므로 Azure DevOps 프로젝트에서 변경 내용을 Azure Repo 리포지토리에 동기화하고 푸시합니다.
 
@@ -82,13 +82,3 @@ ms.locfileid: "73645253"
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure SQL Data Warehouse를 위한 개발](sql-data-warehouse-overview-develop.md)
-
-<!--Image references-->
-
-<!--Article references-->
-
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-

@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: overview
 ms.date: 01/21/2020
 ms.author: diberry
-ms.openlocfilehash: 756363d0c46dee6f7d0037fda48ab22dbdaeb0b0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 685e4f841ba077c81f46a27af8040fa6c57c0021
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514307"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846220"
 ---
 # <a name="what-is-personalizer"></a>Personalizer란?
 
@@ -99,6 +99,6 @@ Personalizer는 그룹 정보를 거의 실시간으로 사용하여 가장 적�
 * [보충 학습이란?](concepts-reinforcement-learning.md)
 * [Rank 요청에 대한 기능 및 작업에 대해 알아보기](concepts-features.md)
 * [Reward 요청 점수를 확인하는 방법 알아보기](concept-rewards.md)
-* [빠른 시작]()
-* [자습서]()
+* [빠른 시작](sdk-learning-loop.md)
+* [자습서](tutorial-use-azure-notebook-generate-loop-data.md)
 * [대화형 데모 사용](https://personalizationdemo.azurewebsites.net/)

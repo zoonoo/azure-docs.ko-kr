@@ -7,14 +7,14 @@ author: metanMSFT
 ms.service: cognitive-services
 ms.subservice: immersive-reader
 ms.topic: tutorial
-ms.date: 08/01/2019
+ms.date: 01/14/2020
 ms.author: metan
-ms.openlocfilehash: 48e74f7dd6fa6f2c7fafe10797a301b3d4cc7f1d
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 69ff58d6cdabe49000b00afecfc6b4ad1a3f2daa
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045248"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841849"
 ---
 # <a name="tutorial-create-an-ios-app-that-launches-the-immersive-reader-with-content-from-a-photo-swift"></a>자습서: 사진의 콘텐츠를 사용하여 몰입형 리더를 시작하는 iOS 앱 만들기(Swift)
 
@@ -99,4 +99,4 @@ Xcode에서 Ctrl+R을 누르거나 재생 단추를 클릭하여 프로젝트를
 
 ## <a name="next-steps"></a>다음 단계
 
-* [몰입형 판독기 SDK 참조](./reference.md) 살펴보기
+* [몰입형 리더 SDK 참조](./reference.md) 살펴보기

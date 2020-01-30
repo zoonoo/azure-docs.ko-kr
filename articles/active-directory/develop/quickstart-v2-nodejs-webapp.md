@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/28/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:ASP.NET
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a2869333fe0e9103724b9b1075270a5c3301c472
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0d69f762cea53f2a4c022ad6dddb52faeced1adf
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968020"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703340"
 ---
 # <a name="quickstart-add-sign-in-using-openid-connect-to-a-nodejs-web-app"></a>빠른 시작: OpenID Connect를 사용하여 Node.js 웹앱에 로그인 추가
 
@@ -25,7 +24,7 @@ ms.locfileid: "74968020"
 
 이 빠른 시작에서는 Express와 함께 Node.js를 사용하여 빌드한 웹 애플리케이션에서 OpenID Connect 인증을 설정하는 방법을 알아봅니다. 샘플은 모든 플랫폼에서 실행되도록 설계되었습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 
@@ -44,7 +43,7 @@ ms.locfileid: "74968020"
 1. **새 등록**을 선택합니다.
 
 1. **애플리케이션 등록** 페이지가 표시되면 앱의 등록 정보를 입력합니다.
-    - **이름** 섹션에서 앱 사용자에게 표시할 의미 있는 이름을 입력합니다. 예:  MyWebApp
+    - **이름** 섹션에서 앱 사용자에게 표시할 의미 있는 이름을 입력합니다. 다음은 그 예입니다.  MyWebApp
     - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(얘: Skype, Xbox, Outlook.com)** 을 선택합니다.
 
     리디렉션 URI가 여러 개 있는 경우 나중에 앱이 성공적으로 만들어진 후 **인증** 탭에서 URI를 추가해야 합니다.

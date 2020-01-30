@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: abafa00febe0431acf5c678cc179c6c114fa9179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6a12d92c0cfb9d86ebf4c335c351944997f79b4e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75470838"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773159"
 ---
 # <a name="tutorial-use-parameter-files-to-deploy-your-resource-manager-template"></a>자습서: 매개 변수 파일을 사용하여 Resource Manager 템플릿 배포
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 템플릿에는 배포 중에 제공할 수 있는 매개 변수가 많이 있습니다. 이전 자습서의 끝 부분에서, 템플릿은 다음과 같았습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.json":::
 
 이 템플릿은 잘 작동하지만 이제 템플릿에 전달하는 매개 변수를 쉽게 관리하려고 합니다.
 
@@ -36,13 +36,13 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 VS Code에서 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 **azuredeploy.parameters.dev.json**이라는 이름으로 저장합니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.dev.json":::
 
 이 파일은 개발 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 Standard_LRS를 사용하고, 리소스 이름에 **dev**를 접두사로 사용하고 **Environment** 태그를 **Dev**로 설정합니다.
 
 다시, 다음 내용이 포함된 새 파일을 만듭니다. 이 파일을 **azuredeploy.parameters.prod.json**이라는 이름으로 저장합니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-tags/azuredeploy.parameters.prod.json":::
 
 이 파일은 프로덕션 환경에 대한 매개 변수 파일입니다. 스토리지 계정에 Standard_GRS를 사용하고, 리소스 이름에 **contoso**를 접두사로 사용하고 **Environment** 태그를 **Production**으로 설정합니다. 실제 프로덕션 환경에서는 무료가 아닌 SKU로 App Service를 사용할 수 있지만 이 자습서에서는 이 SKU를 계속 사용합니다.
 

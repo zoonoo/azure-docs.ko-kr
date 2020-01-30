@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 0c064f86bf417cf653f2404da2458d240e5e8211
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8b0e7d717ed5c06600adf261f7ce5b44f572adf9
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379380"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774251"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-curl"></a>빠른 시작: cURL과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 

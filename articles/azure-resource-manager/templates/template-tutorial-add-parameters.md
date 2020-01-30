@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 28c171dfa067ec9b3eff2e0d7e5d5dd0a0c274c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 89101a96f4fc228e2d5c45d67e10b52ac5d8aa11
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471688"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773198"
 ---
 # <a name="tutorial-add-parameters-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 매개 변수 추가
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json":::
 
 이 템플릿에 문제가 있음을 알 수 있습니다. 스토리지 계정 이름이 하드 코딩되어 있습니다. 이 템플릿은 매번 동일한 스토리지 계정을 배포하는 데에만 사용할 수 있습니다. 다른 이름의 스토리지 계정을 배포하려면, 새 템플릿을 만들어야 하며, 이것은 배포를 자동화하기에 타당한 방법이 아닙니다.
 
@@ -36,7 +36,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json?range=1-26&highlight=4-10,15)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-name/azuredeploy.json" range="1-26" highlight="4-10,15":::
 
 ## <a name="deploy-template"></a>템플릿 배포
 
@@ -80,7 +80,7 @@ az group deployment create \
 
 이전 템플릿은 항상 Standard_LRS 스토리지 계정을 배포했습니다. 환경에 따라 다른 SKU를 배포하는 유연성이 필요할 수도 있습니다. 다음 예제는 SKU에 대한 매개 변수를 추가하기 위한 변경 내용을 보여줍니다. 전체 파일을 복사하여 템플릿에 붙여넣습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json?range=1-40&highlight=10-23,32)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json" range="1-40" highlight="10-23,32":::
 
 **storageSKU** 매개 변수에는 기본값이 있습니다. 이 값은 배포 중에 값이 지정되지 않은 경우 사용됩니다. 허용되는 값 목록도 있습니다. 이 값은 스토리지 계정을 만드는 데 필요한 값과 일치합니다. 작동하지 않는 SKU는 템플릿 사용자가 전달하지 않도록 합니다.
 

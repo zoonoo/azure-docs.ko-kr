@@ -4,12 +4,12 @@ description: Ansible을 사용하여 AKS(Azure Kubernetes Service) 클러스터�
 keywords: ansible, azure, devops, bash, cloudshell, 플레이북, aks, 컨테이너, kubernetes, azure active directory, rbac
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 1be123eb06bd2679169478daf27a7148d2a8b055
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 5fac42383ee56318cc4b8f39323c02d05853dbb6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156862"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836969"
 ---
 # <a name="tutorial-configure-role-based-access-control-rbac-roles-in-azure-kubernetes-service-aks-using-ansible"></a>자습서: Ansible을 사용하여 AKS(Azure Kubernetes Service)에서 RBAC(역할 기반 액세스 제어) 역할 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "74156862"
 > * Azure AD 사용 AKS 클러스터 만들기
 > * 클러스터에서 RBAC 역할 구성
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [open-source-devops-prereqs-create-service-principal.md](../../includes/open-source-devops-prereqs-create-service-principal.md)]
@@ -156,7 +156,7 @@ subjects:
   name: <your-aad-account>
 ```
 
-`&lt;your-aad-account>` 자리 표시자를 Azure AD 테넌트 [개체 ID](#get-the-azure-ad-object-id)로 바꿉니다.
+`<your-aad-account>` 자리 표시자를 Azure AD 테넌트 [개체 ID](#get-the-azure-ad-object-id)로 바꿉니다.
 
 새 역할을 AKS에 배포하는 다음 플레이북을 `aks-kube-deploy.yml`로 저장합니다.
 

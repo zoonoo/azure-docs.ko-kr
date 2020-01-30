@@ -9,12 +9,12 @@ author: MashaMSFT
 ms.author: mathoma
 ms.reviewer: carlrab
 ms.date: 11/21/2019
-ms.openlocfilehash: e1ee616adadcabb2deb3fa08a5f3d4f768fddfd5
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: fa6e393500e9deeb91ee84aa5255320003817f08
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045656"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719894"
 ---
 # <a name="tutorial-configure-transactional-replication-between-two-managed-instances-and-sql-server"></a>자습서: 두 개의 관리형 인스턴스와 SQL Server 간의 트랜잭션 복제 구성
 
@@ -385,7 +385,7 @@ INSERT INTO ReplTest (ID, c1) VALUES (15, 'pub')
 
 **새 구독** 마법사를 사용하여 새 구독을 추가할 때 **게시** 페이지에서 사용 가능한 옵션으로 나열된 데이터베이스 및 게시가 없을 수 있으며 다음 오류 메시지가 표시될 수 있습니다.
 
-`There are no publications to which yuo can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
+`There are no publications to which you can subscribe, either because this server has no publications or because you do not have sufficient privileges to access the publications.`
  
 이 오류 메시지는 정확하고 연결된 게시자에서 사용할 수 있는 게시가 없거나 권한이 부족한 경우에도 이 오류는 이전 버전의 SQL Server Management Studio에서 발생할 수 있습니다. 이를 근본 원인으로 제외하려면 SQL Server Management Studio 18.0 이상으로 업그레이드해 보세요. 
 

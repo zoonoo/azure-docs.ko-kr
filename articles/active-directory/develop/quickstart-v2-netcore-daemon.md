@@ -13,21 +13,20 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: edcfe4d7dff5d84ceaf07a8aafd5f9b485308bd5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6f7e2380bff7d6d3e6fafd1b3d44b65de972e57d
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920670"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703391"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-using-console-apps-identity"></a>빠른 시작: 콘솔 앱의 ID를 사용하여 토큰 가져오기 및 Microsoft Graph API 호출
 
 이 빠른 시작에서는 앱의 ID를 사용하여 액세스 토큰을 가져온 다음, 디렉터리에 [사용자 목록](https://docs.microsoft.com/graph/api/user-list)을 표시하도록 Microsoft Graph API를 호출할 수 있는 .NET Core 애플리케이션을 작성하는 방법을 알아봅니다. 이 시나리오는 헤드리스, 무인 작업 또는 Windows 서비스를 사용자의 ID 대신 애플리케이션 ID를 사용하여 실행해야 하는 경우에 유용합니다.
 
-![이 빠른 시작에서 생성된 샘플 앱의 작동 방식](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
+![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 [.NET Core 2.2](https://www.microsoft.com/net/download/dotnet-core/2.2)가 필요합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 07bf3070e42af8a03ce1fd7ea4445fc76557e8a3
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73645505"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760762"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW)란?
 
@@ -54,43 +54,14 @@ SQL Analytics는 열 형식 스토리지를 사용하여 관계형 테이블에 
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Azure Synapse 아키텍처](/azure/sql-data-warehouse/massively-parallel-processing-mpp-architecture) 살펴보기
+- [Azure Synapse 아키텍처](massively-parallel-processing-mpp-architecture.md) 살펴보기
 - 빠르게 [SQL 풀 만들기](create-data-warehouse-portal.md)
-- [샘플 데이터 로드][load sample data]
-- [비디오](/azure/sql-data-warehouse/sql-data-warehouse-videos) 살펴보기
+- [샘플 데이터 로드](sql-data-warehouse-load-sample-databases.md)
+- [비디오](https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse) 살펴보기
 
 또는 다음과 같은 기타 Azure Synapse 리소스를 살펴봅니다.  
-* [블로그] 검색
-* [기능 요청] 제출
-* [고객 자문 팀 블로그] 검색
-* [지원 티켓 만들기]
-* [MSDN 포럼] 검색
-* [Stack Overflow 포럼] 검색
-
-
-<!--Image references-->
-[1]: ./media/sql-data-warehouse-overview-what-is/dwarchitecture.png
-
-<!--Article references-->
-[지원 티켓 만들기]: ./sql-data-warehouse-get-started-create-support-ticket.md
-[load sample data]: ./sql-data-warehouse-load-sample-databases.md
-[create a data warehouse]: ./sql-data-warehouse-get-started-provision.md
-[Migration documentation]: ./sql-data-warehouse-overview-migrate.md
-[Azure Synapse Analytics solution partners]: ./sql-data-warehouse-partner-business-intelligence.md
-[Integrated tools overview]: ./sql-data-warehouse-overview-integrate.md
-[Backup and restore overview]: ./sql-data-warehouse-restore-database-overview.md
-[Azure glossary]: ../azure-glossary-cloud-terminology.md
-
-<!--MSDN references-->
-
-<!--Other Web references-->
-[블로그]: https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/
-[고객 자문 팀 블로그]: https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/
-[기능 요청]: https://feedback.azure.com/forums/307516-sql-data-warehouse
-[MSDN 포럼]: https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=AzureSQLDataWarehouse
-[Stack Overflow 포럼]: https://stackoverflow.com/questions/tagged/azure-sqldw
-[Twitter]: https://twitter.com/hashtag/SQLDW
-[Videos]: https://azure.microsoft.com/documentation/videos/index/?services=sql-data-warehouse
-[SLA for Azure Synapse Analytics]: https://azure.microsoft.com/support/legal/sla/sql-data-warehouse/v1_0/
-[Volume Licensing]: https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=37
-[Service Level Agreements]: https://azure.microsoft.com/support/legal/sla/
+* [블로그](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/) 검색
+* [기능 요청](https://feedback.azure.com/forums/307516-sql-data-warehouse) 제출
+* [지원 티켓 만들기](sql-data-warehouse-get-started-create-support-ticket.md)
+* [MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureSQLDataWarehouse) 검색
+* [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw) 검색

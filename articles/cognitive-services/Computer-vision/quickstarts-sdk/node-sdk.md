@@ -7,25 +7,25 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 12/05/2019
+ms.date: 01/22/2020
 ms.author: pafarley
-ms.openlocfilehash: 95b15924db7e5b1b788656d7592bb4ad87e07ce2
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 530665168cc1ed21f1664e3012bbf37e52d96fbf
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166757"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716173"
 ---
 # <a name="quickstart-computer-vision-client-library-for-nodejs"></a>빠른 시작: Node.js용 Computer Vision 클라이언트 라이브러리
 
-Node.js용 Computer Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다. 
+Node.js용 Computer Vision 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 
 Node.js용 Computer Vision 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
 * [이미지 분석](#analyze-an-image)
 * [인쇄 텍스트 및 필기 텍스트 읽기](#read-printed-and-handwritten-text)
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/azure-cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-computervision/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-computervision) | [패키지(npm)](https://www.npmjs.com/package/@azure/cognitiveservices-computervision) | [샘플](https://azure.microsoft.com/resources/samples/?service=cognitive-services&term=vision&sort=0)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -38,20 +38,20 @@ Node.js용 Computer Vision 클라이언트 라이브러리를 사용하여 다�
 
 Azure Cognitive Services는 구독하는 Azure 리소스로 표시됩니다. 로컬 머신에서 [Azure Portal](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account) 또는 [Azure CLI](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account-cli)를 사용하여 Computer Vision용 리소스를 만듭니다. 다음도 가능합니다.
 
-* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.  
+* 7일 동안 유효한 [평가판 키](https://azure.microsoft.com/try/cognitive-services/#decision)를 가져옵니다. 이 키는 가입 후 [Azure 웹 사이트](https://azure.microsoft.com/try/cognitive-services/my-apis/)에서 사용할 수 있습니다.
 * [Azure Portal](https://portal.azure.com/)에서 리소스를 확인합니다.
 
 평가판 구독 또는 리소스에서 키를 가져온 후에는 각각 `COMPUTER_VISION_SUBSCRIPTION_KEY` 및 `COMPUTER_VISION_ENDPOINT`라는 키 및 엔드포인트 URL에 대한 [환경 변수를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account#configure-an-environment-variable-for-authentication).
- 
+
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-`package.json` 파일을 사용하여 노드 애플리케이션을 만들려면 `npm init` 명령을 실행합니다. 
+`package.json` 파일을 사용하여 노드 애플리케이션을 만들려면 `npm init` 명령을 실행합니다.
 
 ```console
 npm init
@@ -59,7 +59,7 @@ npm init
 
 ### <a name="install-the-client-library"></a>클라이언트 라이브러리 설치
 
-`ms-rest-azure` 및 `azure-cognitiveservices-computervision` NPM 패키지를 설치합니다.
+`ms-rest-azure` 및 `@azure/cognitiveservices-computervision` NPM 패키지를 설치합니다.
 
 ```console
 npm install @azure/cognitiveservices-computervision
@@ -177,11 +177,11 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 사용할 이미지의 URL을 정의합니다.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult_image)]
 
 그런 다음, 다음 코드를 추가하여 성인 콘텐츠를 검색하고 결과를 콘솔에 인쇄합니다.
 
-[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)] 
+[!code-javascript[](~/cognitive-services-quickstart-code/javascript/ComputerVision/ComputerVisionQuickstart.js?name=snippet_adult)]
 
 ### <a name="get-image-color-scheme"></a>이미지 색 구성표 가져오기
 
@@ -195,7 +195,7 @@ Computer Vision Node.js SDK의 주요 기능 중 일부를 처리하는 클래�
 
 ### <a name="get-domain-specific-content"></a>도메인 특정 콘텐츠 가져오기
 
-Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분석을 수행할 수 있습니다. 자세한 내용은 [도메인 특정 콘텐츠](../concept-detecting-domain-content.md)를 참조하세요. 
+Computer Vision은 특수 모델을 사용하여 이미지에 대한 추가 분석을 수행할 수 있습니다. 자세한 내용은 [도메인 특정 콘텐츠](../concept-detecting-domain-content.md)를 참조하세요.
 
 먼저 분석할 이미지의 URL을 정의합니다.
 

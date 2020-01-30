@@ -3,13 +3,13 @@ title: '빠른 시작: LUIS(Language Understanding) 작성 클라이언트 라�
 description: 이 빠른 시작을 통해 LUIS 클라이언트 라이브러리를 시작합니다. 이러한 단계에 따라 패키지를 설치하고 기본 작업을 위한 예제 코드를 사용해 봅니다.
 ms.topic: quickstart
 ms.date: 01/14/2020
-zone_pivot_groups: programming-languages-set-six
-ms.openlocfilehash: 2e01e07a5d6d706ae184a44ad840829df6f33ee7
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+zone_pivot_groups: programming-languages-set-diberry-3core
+ms.openlocfilehash: 16aa45ab0f0860b93815601a2f82eff34dbd1f6f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170488"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774235"
 ---
 # <a name="quickstart-language-understanding-luis-authoring-client-library"></a>빠른 시작: LUIS(Language Understanding) 작성 클라이언트 라이브러리
 

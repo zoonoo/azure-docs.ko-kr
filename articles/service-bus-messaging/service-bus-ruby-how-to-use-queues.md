@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Ruby에서 Azure Service Bus 큐를 사용하는 방법'
-description: '빠른 시작: Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다. 코드 샘플은 Ruby로 작성되었습니다.'
+title: Ruby에서 Azure Service Bus 큐를 사용하는 방법
+description: 이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 Ruby 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: ruby
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: ruby
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 09fdc58254d260b6ffeff958b6bbda50332adfac
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: a699543bb442e7c57d57e72acb2cdf6ac40159c1
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718764"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760592"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-ruby"></a>빠른 시작: Ruby에서 Service Bus 큐를 사용하는 방법
 
@@ -27,10 +27,10 @@ ms.locfileid: "73718764"
 
 이 자습서에서는 Service Bus 큐와 메시지를 주고 받는 Ruby 애플리케이션을 만드는 방법에 대해 알아봅니다. 샘플은 Ruby로 작성되었으며 Azure gem을 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계를 따릅니다.
-    1. Service Bus **큐**의 빠른 **개요**을 읽습니다. 
+    1. Service Bus **큐**의 빠른 **개요**를 읽습니다. 
     2. Service Bus **네임스페이스**를 만듭니다. 
     3. **연결 문자열**을 가져옵니다. 
 

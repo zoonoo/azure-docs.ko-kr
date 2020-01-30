@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: tutorial
 ms.date: 12/17/2019
 ms.author: diberry
-ms.openlocfilehash: 3cecf334189989574e82772205c7d32298240867
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 06f51ca83449b39861e7565cc9accc29efbece3f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447810"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843976"
 ---
 # <a name="tutorial-fix-unsure-predictions-by-reviewing-endpoint-utterances"></a>자습서: 엔드포인트 발언을 검토하여 알 수 없는 예측 수정
 이 자습서에서는 LUIS에서 확실하지 않은 LUIS HTTPS 엔드포인트를 통해 받은 발화를 확인하거나 수정하여 앱 예측을 향상시킵니다. 예약된 LUIS 유지 관리의 일반적인 부분으로 엔드포인트 발화를 검토해야 합니다.
@@ -46,7 +46,7 @@ ms.locfileid: "75447810"
 
 1.  [앱 JSON 파일](https://github.com/Azure-Samples/cognitive-services-language-understanding/blob/master/documentation-samples/tutorials/custom-domain-sentiment-HumanResources.json?raw=true)을 다운로드하고 저장합니다.
 
-1. [미리 보기 LUIS 포털](https://preview.luis-ai)에서 .json 파일을 새 앱으로 가져옵니다.
+1. [미리 보기 LUIS 포털](https://preview.luis.ai)에서 .json 파일을 새 앱으로 가져옵니다.
 
 1. **관리** 섹션의 **버전** 탭에서 버전을 복제하고 `review`라는 이름을 지정합니다.
 

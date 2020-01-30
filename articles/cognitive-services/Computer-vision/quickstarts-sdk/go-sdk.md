@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: computer-vision
 ms.topic: quickstart
-ms.date: 10/22/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: d9d68f018b34c13f6570bf83c408bd436f0cc8c6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e4ac76f83ad4bedb420c52606598095c66747f2d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382312"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765305"
 ---
 # <a name="quickstart-computer-vision-client-library-for-go"></a>빠른 시작: Go용 Computer Vision 클라이언트 라이브러리
 
@@ -263,5 +263,5 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 > [!div class="nextstepaction"]
 > [Computer Vision API 참조(Go)](https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v2.1/computervision)
 
-* [Computer Vision API란?](../Home.md)
+* [Computer Vision이란?](../Home.md)
 * 이 샘플의 소스 코드는 [GitHub](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/go/ComputerVision/ComputerVisionQuickstart.go)에서 확인할 수 있습니다.

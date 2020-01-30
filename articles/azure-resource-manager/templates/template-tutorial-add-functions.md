@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: b32b0377502697e32e56e5c8324ca287c9a3cf69
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1db391f42aeb4fdf80baf001150f845daef3bf4f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471808"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773218"
 ---
 # <a name="tutorial-add-template-functions-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 템플릿 함수 추가
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-sku/azuredeploy.json":::
 
 스토리지 계정의 위치는 **미국 동부**로 하드 코딩되어 있습니다. 하지만 스토리지 계정을 다른 지역에 배포해야 할 수도 있습니다. 유연성이 부족한 템플릿 문제가 다시 발생합니다. 위치에 대한 매개 변수를 추가할 수 있지만 기본값이 하드 코딩된 값보다 적절하면 매우 유용할 수 있습니다.
 
@@ -40,7 +40,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json?range=1-44&highlight=24-27,34)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json" range="1-44" highlight="24-27,34":::
 
 ## <a name="deploy-template"></a>템플릿 배포
 

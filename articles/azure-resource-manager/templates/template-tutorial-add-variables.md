@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: a27022f8c06449d8b05f90f78055b983bc88c01c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 881d91d5b8ca06a9591b8752af0a73da7f00b0c1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471528"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765497"
 ---
 # <a name="tutorial-add-variables-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 변수 추가
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-location/azuredeploy.json":::
 
 스토리지 계정 이름에는 고유한 이름을 제공해야 하므로 매개 변수를 사용하기 어렵습니다. 이 시리즈의 이전 자습서를 완료한 경우 고유한 이름을 추측하는 데 질렸을 것입니다. 스토리지 계정의 고유한 이름을 생성하는 변수를 추가하면 이 문제를 해결할 수 있습니다.
 
@@ -34,7 +34,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 다음 예에서는 고유한 스토리지 계정 이름을 만드는 변수를 템플릿에 추가하는 변경 사항이 강조 표시되어 있습니다. 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json?range=1-47&highlight=5-9,29-31,36)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json" range="1-47" highlight="5-9,29-31,36":::
 
 **uniqueStorageName**이라는 변수가 포함되어 있는 것을 확인하세요. 이 변수는 4개의 함수를 사용하여 문자열 값을 생성합니다.
 

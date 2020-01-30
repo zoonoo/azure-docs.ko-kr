@@ -2,18 +2,18 @@
 author: aahill
 ms.service: cognitive-services
 ms.topic: include
-ms.date: 10/28/2019
+ms.date: 01/22/2020
 ms.author: aahi
-ms.openlocfilehash: 7cb3dce31592771deb5c57b9d73670465f7424fe
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: d5197cfe749ae27b9f8807ba62825c8a73371c85
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281477"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748863"
 ---
 <a name="HOLTop"></a>
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [패키지(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-node/tree/master/lib/services/cognitiveServicesTextAnalytics) | [패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-textanalytics) | [샘플](https://github.com/Azure-Samples/cognitive-services-node-sdk-samples/)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -28,13 +28,13 @@ ms.locfileid: "76281477"
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
 
-콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
+콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다.
 
 ```console
 mkdir myapp && cd myapp
 ```
 
-`package.json` 파일을 사용하여 노드 애플리케이션을 만들려면 `npm init` 명령을 실행합니다. 
+`package.json` 파일을 사용하여 노드 애플리케이션을 만들려면 `npm init` 명령을 실행합니다.
 
 ```console
 npm init
@@ -67,9 +67,9 @@ npm install @azure/cognitiveservices-textanalytics @azure/ms-rest-js
 
 Text Analytics 클라이언트는 키를 사용하여 Azure에 인증하는 [TextAnalyticsClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-textanalytics/textanalyticsclient) 개체입니다. 클라이언트는 텍스트를 단일 문자열 또는 일괄 처리로 분석하는 몇 가지 메서드를 제공합니다.
 
-텍스트는 사용된 메서드에 따라 `id`, `text` 및 `language` 특성의 조합이 포함된 `dictionary` 개체인 `documents`의 목록으로 API에 보내집니다. `text` 특성은 분석할 텍스트를 `language` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다. 
+텍스트는 사용된 메서드에 따라 `id`, `text` 및 `language` 특성의 조합이 포함된 `dictionary` 개체인 `documents`의 목록으로 API에 보내집니다. `text` 특성은 분석할 텍스트를 `language` 원본에 저장하며, `id`는 임의의 값이 될 수 있습니다.
 
-응답 개체는 각 문서에 대한 분석 정보가 포함된 목록입니다. 
+응답 개체는 각 문서에 대한 분석 정보가 포함된 목록입니다.
 
 ## <a name="code-examples"></a>코드 예제
 

@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 924c369465bf53ea5f58de906bd0894ce822cac3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471678"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765581"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 리소스 추가
 
@@ -28,7 +28,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 **{provide-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다. 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. **store1**을 접두사로 사용하고 이니셜과 오늘 날짜를 추가하는 이름 지정 패턴을 시도해 볼 수 있습니다. 예를 들어 **store1abc09092019**와 같은 이름을 사용할 수 있습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json?range=1-19&highlight=5-17)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
 스토리지 계정에 대한 고유 이름을 추측하는 것은 쉽지 않으며 대량 배포를 자동화하는 데 적합하지 않습니다. 이 자습서 시리즈의 뒷부분에서 고유한 이름을 쉽게 만들 수 있는 템플릿 기능을 사용합니다.
 

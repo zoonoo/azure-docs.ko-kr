@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: tutorial
 ms.date: 11/11/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7ccc4aaed8e5827fbc06b252c8c88b814d9a31fb
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: c2a15393c5c8e685e9a565f1099eeee935c0d5da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74134000"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845834"
 ---
 # <a name="use-logic-apps-to-receive-email-about-status-changes-of-key-vault-secrets"></a>Logic Apps를 사용하여 키 자격 증명 모음 비밀의 상태 변경에 대한 이메일 수신
 
@@ -22,10 +22,10 @@ ms.locfileid: "74134000"
 
 Azure Key Vault/Azure Event Grid 통합에 대한 개요는 [Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)](event-grid-overview.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Logic Apps에서 지원하는 이메일 공급자(예: Office 365 Outlook)가 제공한 이메일 계정 이 이메일 계정은 이벤트 알림을 보내는 데 사용됩니다. 지원되는 Logic App 커넥터의 전체 목록은 [커넥터 개요](/connectors)를 참조하세요.
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+- Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 - Azure 구독의 키 자격 증명 모음. [Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색](quick-create-cli.md)의 단계에 따라 새로운 키 자격 증명 모음을 빠르게 만들 수 있습니다.
 
 ## <a name="create-a-logic-app-via-event-grid"></a>Event Grid를 통해 논리 앱 만들기
@@ -34,7 +34,6 @@ Azure Key Vault/Azure Event Grid 통합에 대한 개요는 [Azure Event Grid를
 
 Azure Event Grid 구독을 만들려면 다음 단계를 수행합니다.
 
-1. 다음 링크를 사용하여 Azure Portal을 엽니다. https://portal.azure.com/?Microsoft_Azure_KeyVault_ShowEvents=true&Microsoft_Azure_EventGrid_publisherPreview=true 
 1. Azure Portal에서 키 자격 증명 모음으로 이동하여 **이벤트 > 시작**을 선택하고 **Logic Apps**를 클릭합니다.
 
     

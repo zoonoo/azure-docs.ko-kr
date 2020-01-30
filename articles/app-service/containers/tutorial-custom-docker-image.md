@@ -8,18 +8,18 @@ ms.topic: tutorial
 ms.date: 03/27/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: d960af01eed9fae0fec2566772799e4972053d7b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 965897afc8e23c123575de0c497d4071ff4ca85a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687491"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767094"
 ---
 # <a name="tutorial-build-a-custom-image-and-run-in-app-service-from-a-private-registry"></a>자습서: 개인 레지스트리의 App Service에서 사용자 지정 이미지 빌드 및 실행
 
 [App Service](app-service-linux-intro.md)는 Linux에서 PHP 7.3 및 Node.js 10.14와 같은 특정 버전을 지원하는 기본 제공 Docker 이미지를 제공합니다. App Service는 Docker 컨테이너 기술을 사용하여 기본 제공 이미지와 사용자 지정 이미지를 모두 PaaS(Platform as a Service)로 호스팅합니다. 이 자습서에서는 App Service에서 사용자 지정 이미지를 빌드하고 실행하는 방법을 알아봅니다. 이 패턴은 기본 제공 이미지에 선택한 언어가 포함되어 있지 않거나 기본 제공 이미지에 제공되지 않는 특정 구성이 애플리케이션에 필요한 경우에 유용합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 개인 컨테이너 레지스트리에 사용자 지정 이미지 배포
@@ -31,7 +31,7 @@ ms.locfileid: "74687491"
 
 [!INCLUDE [Free trial note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -122,7 +122,7 @@ az acr credential show --name <azure-container-registry-name>
 출력에는 사용자 이름과 함께 두 개의 암호가 표시됩니다.
 
 ```json
-<
+{
   "passwords": [
     {
       "name": "password",
@@ -147,7 +147,7 @@ docker login <azure-container-registry-name>.azurecr.io --username <registry-use
 
 ### <a name="push-image-to-azure-container-registry"></a>Azure Container Registry에 이미지 푸시하기
 
-Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 예:
+Azure Container Registry용 로컬 이미지에 대한 태그를 지정합니다. 다음은 그 예입니다.
 ```bash
 docker tag mydockerimage <azure-container-registry-name>.azurecr.io/mydockerimage:v1.0.0
 ```

@@ -3,12 +3,12 @@ title: 자습서 - Azure Kubernetes Service에 Application Gateway 수신 컨트
 description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: 898a2052f31965ee45ab2cc5df6956af4831b0d2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: da9768c8b2ad854b116ef1b9eab801661f547bfa
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867394"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772865"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 
@@ -51,7 +51,7 @@ ms.locfileid: "75867394"
     cd clouddrive
     ```
 
-1. 이름이 `terraform-aks-k8s`인 디렉터리를 만듭니다.
+1. 이름이 `terraform-aks-appgw-ingress`인 디렉터리를 만듭니다.
 
     ```bash
     mkdir terraform-aks-appgw-ingress
@@ -553,7 +553,7 @@ Terraform은 `terraform.tfstate` 파일을 통해 로컬로 상태를 추적합�
     az storage container create -n tfstate --account-name <YourAzureStorageAccountName> --account-key <YourAzureStorageAccountKey>
     ```
 
-## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터를 만듭니다.
+## <a name="create-the-kubernetes-cluster"></a>Kubernetes 클러스터 만들기
 이 섹션에서는 `terraform init` 명령을 사용하여 이전 섹션에서 만든 구성 파일을 정의하는 리소스를 만드는 방법을 보여 줍니다.
 
 1. Cloud Shell에서 Terraform을 초기화합니다. 자리 표시자를 Azure 스토리지 계정에 대한 적절한 값으로 바꿉니다.
@@ -731,8 +731,8 @@ kubectl create -f https://raw.githubusercontent.com/Azure/aad-pod-identity/maste
     - `armAuth.secretJSON`: 서비스 주체 비밀 유형을 선택한 경우(`armAuth.type`을 `servicePrincipal`로 설정한 경우)에만 필요합니다.
 
     주요 참고 사항:
-    - `identityResourceID` 값은 terraform 스크립트에서 생성되고 `echo "$(terraform output identity_client_id)"`를 실행하여 찾을 수 있습니다.
-    - `identityClientID` 값은 terraform 스크립트에서 생성되고 `echo "$(terraform output identity_resource_id)"`를 실행하여 찾을 수 있습니다.
+    - `identityResourceID` 값은 terraform 스크립트에서 생성되고 `echo "$(terraform output identity_resource_id)"`를 실행하여 찾을 수 있습니다.
+    - `identityClientID` 값은 terraform 스크립트에서 생성되고 `echo "$(terraform output identity_client_id)"`를 실행하여 찾을 수 있습니다.
     - `<resource-group>` 값은 App Gateway의 리소스 그룹입니다.
     - `<identity-name>` 값은 생성된 ID의 이름입니다.
     - 지정된 구독에 대한 모든 ID는 `az identity list`를 사용하여 나열할 수 있습니다.

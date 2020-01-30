@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure Service Bus 큐를 만드는 방법 �
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, 서비스 버스, 큐
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: 9903419a52be61cd7ec74214858bce81df7e727e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 8ba4c2296d903c4f35aa36eb92dfbc3b56ec4b18
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155815"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713226"
 ---
 # <a name="tutorial-configure-queues-in-azure-service-bus-using-ansible"></a>자습서: Ansible을 사용하여 Azure Service Bus에 큐 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "74155815"
 > * 큐 정보 검색
 > * 큐 SAS 정책 철회
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -68,7 +68,7 @@ ms.locfileid: "74155815"
           var: queue
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook servicebus_queue.yml
@@ -90,7 +90,7 @@ ansible-playbook servicebus_queue.yml
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -102,10 +102,10 @@ ansible-playbook servicebus_queue.yml
           var: policy
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 - `rights` 값은 사용자가 큐에 대해 갖는 권한을 나타냅니다. `manage`, `listen`, `send` 또는 `listen_send` 중 하나를 값으로 지정하세요.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook servicebus_queue_policy.yml
@@ -135,10 +135,10 @@ ansible-playbook servicebus_queue_policy.yml
           var: ns
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 - `show_sas_policies` 값은 지정된 네임스페이스 아래에 SAS 정책을 표시할지 여부를 나타냅니다. 추가 네트워크 오버헤드를 방지하기 위해 이 값은 기본적으로 `False`입니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook servicebus_namespace_info.yml
@@ -170,10 +170,10 @@ ansible-playbook servicebus_namespace_info.yml
           var: queue
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 - `show_sas_policies` 값은 지정된 큐 아래에 SAS 정책을 표시할지 여부를 나타냅니다. 추가 네트워크 오버헤드를 방지하기 위해 이 값은 기본적으로 `False`로 설정됩니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook servicebus_queue_info.yml
@@ -193,7 +193,7 @@ ansible-playbook servicebus_queue_info.yml
       namespace: servicebustestns
       queue: servicebustestqueue
   tasks:
-    - name: Create a policy with send and listen priviledge
+    - name: Create a policy with send and listen privilege
       azure_rm_servicebussaspolicy:
           name: "{{ queue }}-policy"
           queue: "{{ queue }}"
@@ -202,7 +202,7 @@ ansible-playbook servicebus_queue_info.yml
           state: absent
 ```
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook servicebus_queue_policy_delete.yml

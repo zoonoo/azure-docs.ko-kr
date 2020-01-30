@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: quickstart
-ms.date: 11/12/2019
+ms.date: 01/23/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 431d2eac6b612bee629df184ed80c5c8a15513db
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 2f3d96926221a69e1cf216be81368a2eb87c938a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74273377"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758339"
 ---
 # <a name="quickstart-add-guest-users-to-your-directory-in-the-azure-portal"></a>빠른 시작: Azure Portal에서 디렉터리에 게스트 사용자 추가
 
@@ -27,7 +27,7 @@ ms.locfileid: "74273377"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서의 시나리오를 완료하려면 다음이 필요합니다.
 

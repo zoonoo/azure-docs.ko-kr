@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: quickstart
 ms.date: 11/22/2019
 ms.author: diberry
-ms.openlocfilehash: ae5e3481d51a27b05afdb334e6e04c785a68c01a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 664d6006ab78f91a8ed0e199cf78fae9512efd73
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447685"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843042"
 ---
 # <a name="quickstart-add-questions-and-answer-with-qna-maker-portal"></a>빠른 시작: QnA Maker 포털을 사용하여 질문 및 답변 추가
 
@@ -86,7 +86,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="add-metadata-to-filter-the-answers"></a>답변을 필터링하기 위한 메타데이터 추가
 
-메타데이터가 질문 및 답변 세트에 추가되면 클라이언트 애플리케이션에서 필터링된 답변을 요청할 수 있습니다. 이 필터는 [첫 번째 및 두 번째 순위 매기기](../concepts/knowledge-base.md#ranker-process)를 적용하기 전에 적용됩니다.
+메타데이터가 질문 및 답변 세트에 추가되면 클라이언트 애플리케이션에서 필터링된 답변을 요청할 수 있습니다. 이 필터는 [첫 번째 및 두 번째 순위 매기기](../concepts/query-knowledge-base.md#ranker-process)를 적용하기 전에 적용됩니다.
 
 1. [이 빠른 시작의 첫 번째 테이블](#qna-table)에서 메타데이터 없이 두 번째 질문 및 답변 세트를 추가한 다음, 다음 단계를 계속 진행합니다.
 

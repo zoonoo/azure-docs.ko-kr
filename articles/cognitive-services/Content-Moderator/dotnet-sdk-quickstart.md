@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: quickstart
-ms.date: 10/25/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 52f00b1c35daab142e4131c60110aa0ed686a6bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dccd2ebb6ac2c11e19e986d39eabda5f0ab6a8fc
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75382058"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774298"
 ---
 # <a name="quickstart-content-moderator-client-library-for-net"></a>빠른 시작: .NET용 Content Moderator 클라이언트 라이브러리
 
@@ -274,7 +274,6 @@ Cognitive Services 구독을 정리하고 제거하려면 리소스나 리소스
 * [Azure CLI](../cognitive-services-apis-create-account-cli.md#clean-up-resources)
 
 ## <a name="next-steps"></a>다음 단계
-
 
 이 빠른 시작에서는 Content Moderator .NET 라이브러리를 사용하여 조정 작업을 수행하는 방법을 알아보았습니다. 다음으로, 개념 가이드를 참조하여 이미지 또는 다른 미디어의 조정에 대해 자세히 알아봅니다.
 

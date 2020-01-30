@@ -5,12 +5,12 @@ author: mumian
 ms.date: 10/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 540e037e83d359dc67cb32f98dec0319bf490707
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 381f9f54a95b6d457aa65c7e8ef6abe49fe9eeea
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471708"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765742"
 ---
 # <a name="tutorial-add-outputs-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 출력 추가
 
@@ -26,7 +26,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 이전 자습서의 끝 부분에 템플릿에는 다음 JSON이 있습니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-variable/azuredeploy.json":::
 
 스토리지 계정을 배포하지만 스토리지 계정에 대한 정보는 반환하지 않습니다. 나중에 참조할 수 있도록 새 리소스에서 속성을 캡처해야 할 수도 있습니다.
 
@@ -36,7 +36,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 다음 예에는 출력 값을 추가하는 템플릿에 대한 변경 사항이 강조 표시되어 있습니다. 전체 파일을 복사하고 템플릿을 해당 콘텐츠로 바꿉니다.
 
-[!code-json[](~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json?range=1-53&highlight=47-52)]
+:::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-outputs/azuredeploy.json" range="1-53" highlight="47-52":::
 
 추가한 출력 값과 관련하여 알아두어야 할 몇 가지 중요한 항목이 있습니다.
 

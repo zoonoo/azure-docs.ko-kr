@@ -6,15 +6,15 @@ ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: overview
 ms.date: 05/20/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.reviewer: sngun
-ms.openlocfilehash: 37249d904343a4eddb0d1e82f451c3b9e95a479d
-ms.sourcegitcommit: 24fd3f9de6c73b01b0cee3bcd587c267898cbbee
+ms.openlocfilehash: 20c799f89394dd8978f120097b054a9adf9f1280
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 05/20/2019
-ms.locfileid: "65953506"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770731"
 ---
 # <a name="azure-table-storage-overview"></a>Azure Table Storage 개요
 
@@ -28,7 +28,7 @@ Table Storage를 사용하여 웹 애플리케이션의 사용자 데이터, 주
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Microsoft Azure Storage 탐색기](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, MacOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
+* [Microsoft Azure Storage Explorer](../vs-azure-tools-storage-manage-with-storage-explorer.md)는 Windows, macOS 및 Linux에서 Azure Storage 데이터로 시각적으로 작업할 수 있도록 해주는 Microsoft의 독립 실행형 무료 앱입니다.
 
 * [.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table 스토리지 시작](table-storage-how-to-use-dotnet.md)
 

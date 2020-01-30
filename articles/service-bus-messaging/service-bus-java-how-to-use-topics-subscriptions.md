@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Java에서 Azure Service Bus 토픽 및 구독 사용'
-description: '빠른 시작: Azure에서 Service Bus 토픽 및 구독을 사용합니다.'
+title: Java에서 Azure Service Bus 토픽 및 구독 사용
+description: 이 빠른 시작에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다.
 services: service-bus-messaging
 documentationcenter: java
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: Java
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 8a721d929ff89fd644c78296ae54cee757bf9610
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9b75b5cd5e674020f41897309a3c69b9371cc768
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720010"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759298"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-java"></a>빠른 시작: Java에서 Service Bus 토픽 및 구독 사용
 
@@ -28,9 +28,9 @@ ms.locfileid: "73720010"
 
 이 빠른 시작에서는 Azure Service Bus 토픽에 메시지를 보낸 후 해당 토픽의 구독에서 메시지를 수신하는 Java 코드를 작성합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 항목 및 해당 항목에 대한 하나 이상의 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md): 다음 작업을 수행합니다.
     1. Service Bus **네임스페이스**를 만듭니다.
     2. **연결 문자열**을 가져옵니다.

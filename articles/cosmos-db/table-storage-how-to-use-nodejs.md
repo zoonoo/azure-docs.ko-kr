@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: sample
 ms.date: 04/05/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: a5246ed4018fd4d5bc38649d6a476bc82bcbbf7b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: d04cf082f5dc7ca3ae07b60dc193c66613fa5c4f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441195"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771073"
 ---
 # <a name="how-to-use-azure-table-storage-or-the-azure-cosmos-db-table-api-from-nodejs"></a>Node.js에서 Azure Table Storage 또는 Azure Cosmos DB Table API를 사용하는 방법
 [!INCLUDE [storage-selector-table-include](../../includes/storage-selector-table-include.md)]

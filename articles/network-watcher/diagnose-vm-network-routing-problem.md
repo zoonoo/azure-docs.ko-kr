@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: 이 자습서에서는 Azure Network Watcher의 다음 홉 기능을 사용하여 가상 머신 네트워크 라우팅 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose virtual machine (VM) network routing problem that prevents communication to different destinations.
@@ -16,18 +15,18 @@ ms.topic: tutorial
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: f9c7139dc9c27ed5b4f97f38e98b4663e9676288
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 52d398fa9c258528ef8f87842ba94f139bbf737b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276040"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845212"
 ---
 # <a name="tutorial-diagnose-a-virtual-machine-network-routing-problem-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 네트워크 라우팅 문제 진단
 
-VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 방법에 대해 알아봅니다.
+VM(가상 머신)을 배포하는 경우 Azure는 관련된 몇 가지 기본 경로를 만듭니다. 사용자 지정 경로를 만들어 Azure의 기본 경로를 재정의할 수 있습니다. 경우에 따라 사용자 지정 경로는 VM에서 다른 리소스와 통신할 수 없게 됩니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * VM 만들기
@@ -51,7 +50,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVm|
+    |속성|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
@@ -66,11 +65,11 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
 Network Watcher와의 네트워크 통신을 테스트하려면 먼저 하나 이상의 Azure 지역에서 Network Watcher를 사용하도록 설정하고 Network Watcher의 다음 홉 기능을 사용하여 통신을 테스트해야 합니다.
 
-### <a name="enable-network-watcher"></a>Network Watcher 사용
+### <a name="enable-network-watcher"></a>네트워크 감시자 사용
 
 하나 이상의 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [다음 홉 사용](#use-next-hop)으로 건너뜁니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
 2. **지역**을 선택하여 확장하고, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
 
     ![Network Watcher 사용](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)

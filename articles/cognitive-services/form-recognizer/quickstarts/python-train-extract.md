@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 10/03/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 1d20b4e43db667c16676779350785835a997738f
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 14b902014305899260ba7d7d9eb0f13afaf64733
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660361"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774163"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-python"></a>빠른 시작: Python에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
@@ -200,7 +200,7 @@ print("Train operation did not complete within the allocated time.")
 
 [!INCLUDE [analyze forms](../includes/python-custom-analyze.md)]
 
-프로세스가 완료되면 다음 형식의 JSON 콘텐츠가 포함된 `200 (Success)` 응답을 받게 됩니다. 이 응답은 간단한 설명을 위해 단축되었습니다. 기본 키/값 쌍 연결 및 테이블은 `"pageResults"` 노드에 있습니다. *includeTextDetails* URL 매개 변수를 통해 일반 텍스트 추출도 지정한 경우 `"readResults"` 노드에는 문서에 있는 모든 텍스트의 내용과 위치가 표시됩니다.
+프로세스가 완료되면 다음 형식의 JSON 콘텐츠가 포함된 `200 (Success)` 응답을 받게 됩니다. 이 응답은 간단한 설명을 위해 단축되었습니다. 기본 키/값 쌍 연결 및 테이블은 `"pageResults"` 노드에 있습니다. *includeTextDetails* URL 매개 변수를 통해 일반 텍스트 추출도 지정한 경우 `"readResults"` 노드에는 문서에 있는 모든 텍스트의 콘텐츠와 위치가 표시됩니다.
 
 ```bash
 {
@@ -451,7 +451,7 @@ print("Train operation did not complete within the allocated time.")
 }
 ```
 
-## <a name="improve-results"></a>결과 향상
+## <a name="improve-results"></a>결과 개선
 
 [!INCLUDE [improve results](../includes/improve-results-unlabeled.md)]
 

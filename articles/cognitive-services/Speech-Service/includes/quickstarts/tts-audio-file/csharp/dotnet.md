@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: dfe2d5925e19697a2e3ed4491958da1325df5574
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 72086f1df2b497a722b2752b56a32e6c269fe32d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468292"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768143"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -185,7 +185,7 @@ namespace helloworld
 
 이제 앱을 빌드하고 음성 서비스를 사용하여 음성 합성을 테스트할 준비가 되었습니다.
 
-1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **솔루션 빌드**를 선택합니다.
+1. **코드 컴파일** - Visual Studio의 메뉴 모음에서 **빌드** > **빌드 솔루션**을 선택합니다.
 2. **앱 시작** - 메뉴 모음에서 **디버그** > **디버깅 시작**을 선택하거나 **F5** 키를 누릅니다.
 3. **합성 시작** - 텍스트가 음성으로 변환되고 지정된 오디오 데이터에 저장됩니다.
 

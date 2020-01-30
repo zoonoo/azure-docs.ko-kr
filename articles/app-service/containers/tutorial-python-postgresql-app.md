@@ -3,17 +3,17 @@ title: '자습서: Postgre를 사용하는 Linux Python 앱'
 description: Azure의 PostgreSQL 데이터베이스와 연결하여 Azure App Service에서 Linux Python 앱이 작동하도록 하는 방법에 대해 알아봅니다. 이 자습서에서는 Django가 사용됩니다.
 ms.devlang: python
 ms.topic: tutorial
-ms.date: 12/14/2019
+ms.date: 01/23/2020
 ms.custom:
 - mvc
 - seodec18
 - seo-python-october2019
-ms.openlocfilehash: e0880cd1c16a8a0080551bbeaefe04f2f8dd705b
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 3aa5b5085a6120ca513f0aeba344e7f541f0fd72
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75681047"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76713417"
 ---
 # <a name="tutorial-run-a-python-django-web-app-with-postgresql-in-azure-app-service"></a>자습서: Azure App Service에서 PostgreSQL을 사용하여 Python(Django) 웹앱 실행
 
@@ -47,6 +47,11 @@ ms.locfileid: "75681047"
 로컬 터미널 창에서 기본 제공 `postgres` 사용자 권한으로 `psql`을 실행하여 로컬 PostgreSQL 서버에 연결합니다.
 
 ```bash
+sudo su - postgres
+psql
+```
+또는
+```PowerShell
 psql -U postgres
 ```
 
@@ -166,7 +171,7 @@ Cloud Shell에서 [az postgres server create](/cli/azure/postgres/server?view=az
 *\<resourcegroup-name>* 및 *\<region>* 을 사용하려는 리소스 그룹의 이름 및 지역으로 바꿉니다. *\<admin-username>* 및 *\<admin-password>* 의 경우 데이터베이스 관리자 계정에 대한 사용자 자격 증명을 만듭니다. 나중에 PostgreSQL 서버 및 데이터베이스에 로그인하는 데 사용할 *\<admin-username>* 및 *\<admin-password>* 를 잊지 마세요.
 
 ```azurecli-interactive
-az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen4_1
+az postgres server create --resource-group <resourcegroup-name> --name <postgresql-name> --location "<region>" --admin-user <admin-username> --admin-password <admin-password> --sku-name B_Gen5_1
 ```
 
 Azure Database for PostgreSQL 서버가 만들어지면 Azure CLI에서 다음 예제와 같은 JSON 코드를 반환합니다.
@@ -174,15 +179,19 @@ Azure Database for PostgreSQL 서버가 만들어지면 Azure CLI에서 다음 �
 ```json
 {
   "administratorLogin": "myusername",
+  "earliestRestoreDate": "2020-01-22T19:02:15.727000+00:00",
   "fullyQualifiedDomainName": "myservername.postgres.database.azure.com",
   "id": "/subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/myresourcegroup/providers/Microsoft.DBforPostgreSQL/servers/myservername",
-  "location": "westus",
+  "location": "westeurope",
+  "masterServerId": "",
   "name": "myservername",
+  "replicaCapacity": 5,
+  "replicationRole": "None",
   "resourceGroup": "myresourcegroup",
   "sku": {
     "capacity": 1,
-    "family": "Gen4",
-    "name": "B_Gen4_1",
+    "family": "Gen5",
+    "name": "B_Gen5_1",
     "size": null,
     "tier": "Basic"
   },
@@ -276,6 +285,8 @@ python manage.py runserver
 
 *http:\//localhost:8000*으로 다시 이동하여 표시된 설문 조사 질문을 확인합니다. 이제 앱에서 데이터를 Azure Database for PostgreSQL 데이터베이스에 쓰고 있습니다.
 
+Django 서버를 중지하려면 터미널에서 Ctrl+C를 입력합니다.
+
 ## <a name="deploy-the-web-app-to-azure-app-service"></a>Azure App Service에 웹앱 배포
 
 이 단계에서는 Azure Database for PostgreSQL 데이터베이스에 연결된 Python 앱을 Azure App Service에 배포합니다.
@@ -353,25 +364,29 @@ az webapp config appsettings set --name <app-name> --resource-group <resourcegro
 [!INCLUDE [app-service-plan-no-h](../../../includes/app-service-web-git-push-to-azure-no-h.md)]
 
 ```bash 
-Counting objects: 7, done.
+Counting objects: 60, done.
 Delta compression using up to 8 threads.
-Compressing objects: 100% (7/7), done.
-Writing objects: 100% (7/7), 775 bytes | 0 bytes/s, done.
-Total 7 (delta 4), reused 0 (delta 0)
+Compressing objects: 100% (51/51), done.
+Writing objects: 100% (60/60), 15.37 KiB | 749.00 KiB/s, done.
+Total 60 (delta 9), reused 0 (delta 0)
+remote: Deploy Async
 remote: Updating branch 'master'.
 remote: Updating submodules.
-remote: Preparing deployment for commit id '6520eeafcc'.
-remote: Generating deployment script.
-remote: Running deployment command...
-remote: Python deployment.
-remote: Kudu sync from: '/home/site/repository' to: '/home/site/wwwroot'
+remote: Preparing deployment for commit id '06f3f7c0cb'.
+remote: Repository path is /home/site/repository
+remote: Running oryx build...
+remote: Build orchestrated by Microsoft Oryx, https://github.com/Microsoft/Oryx
+remote: You can report issues at https://github.com/Microsoft/Oryx/issues
 . 
 . 
 . 
+remote: Done in 100 sec(s).
+remote: Running post deployment command(s)...
+remote: Triggering recycle (preview mode disabled).
 remote: Deployment successful.
-remote: App container will begin restart within 10 seconds.
+remote: Deployment Logs : 'https://<app-name>.scm.azurewebsites.net/newui/jsonviewer?view_url=/api/deployments/06f3f7c0cb52ce3b4aff85c2b5099fbacb65ab94/log'
 To https://<app-name>.scm.azurewebsites.net/<app-name>.git 
-   06b6df4..6520eea  master -> master
+ * [new branch]      master -> master
 ```  
 
 App Service 배포 서버는 리포지토리 루트에서 *requirements.txt*를 살펴보고 `git push` 후에 Python 패키지 관리를 자동으로 실행합니다.

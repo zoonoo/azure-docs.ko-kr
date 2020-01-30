@@ -12,13 +12,12 @@ ms.date: 08/14/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: aragra, lenalepa, sureshja
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a45b3ee9bf9cea71255ac9a83f970d2b6c72b67f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: e005ba9c5458849863bd4668ffde1e0f6fb4bf91
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74966115"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76704224"
 ---
 # <a name="quickstart-configure-an-application-to-expose-web-apis"></a>빠른 시작: 웹 API를 공개하는 애플리케이션 구성
 
@@ -26,7 +25,7 @@ ms.locfileid: "74966115"
 
 이 빠른 시작에서는 클라이언트 애플리케이션이 사용할 수 있게 새 범위를 공개하도록 애플리케이션을 구성하는 방법을 살펴봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음과 같은 필수 구성을 완료했는지 확인합니다.
 
@@ -60,16 +59,16 @@ UI를 통해 새 범위를 공개하려면
 
 1. **범위 추가** 페이지가 나타나면 범위 정보를 입력합니다.
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     |-------|-------------|
-    | **범위 이름** | 의미 있는 범위 이름을 입력합니다.<br><br>예: `Employees.Read.All` |
+    | **범위 이름** | 의미 있는 범위 이름을 입력합니다.<br><br>`Employees.Read.All`)을 입력합니다. |
     | **동의할 수 있는 사람** | 범위를 사용자가 동의할 수 있는지 또는 관리자 동의가 필요한지 선택합니다. 높은 권한을 적용하려면 **관리자만**을 선택합니다. |
     | **관리자 동의 표시 이름** | 관리자에게 표시되는 의미 있는 범위 설명을 입력합니다.<br><br>예를 들어 `Read-only access to Employee records` |
     | **관리자 동의 설명** | 관리자에게 표시되는 의미 있는 범위 설명을 입력합니다.<br><br>예를 들어 `Allow the application to have read-only access to all Employee data.` |
 
     사용자가 범위에 동의할 수 있는 경우 다음 필드에 대한 값도 추가합니다.
 
-    | 필드 | 설명 |
+    | 필드 | Description |
     |-------|-------------|
     | **사용자 동의 표시 이름** | 사용자에게 표시되는 의미 있는 범위 이름을 입력합니다.<br><br>예를 들어 `Read-only access to your Employee records` |
     | **사용자 동의 설명** | 사용자에게 표시되는 의미 있는 설명을 입력합니다.<br><br>예를 들어 `Allow the application to have read-only access to your Employee data.` |

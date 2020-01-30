@@ -17,13 +17,12 @@ ms.date: 08/28/2019
 ms.author: twhitney
 ms.reviewer: jak
 ms.custom: aaddev
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: a401f019f38d00790b1975f7a0a68d6097c21a70
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: b7fe65938b6f96a649a5a2a9ec1d1b921a95dd49
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920364"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703085"
 ---
 # <a name="using-redirect-uris-with-the-microsoft-authentication-library-for-ios-and-macos"></a>iOS 및 macOS용 Microsoft 인증 라이브러리를 통해 리디렉션 URI 사용
 
@@ -41,7 +40,7 @@ MSAL(Microsoft 인증 라이브러리)을 사용하려면 리디렉션 URI를 �
 
 Microsoft Identity 플랫폼이 여러 앱 간에 토큰을 공유하려면 각 앱의 클라이언트 ID 또는 애플리케이션 ID가 동일해야 합니다. 이것은 앱을 포털에 등록할 때 제공되는 고유 식별자입니다(Apple에서 앱별로 등록하는 애플리케이션 번들 ID는 아님).
 
-리디렉션 URI는 iOS 앱마다 달라야 합니다. 그래야 애플리케이션 ID를 공유하는 다른 앱을 Microsoft ID 서비스가 고유하게 식별할 수 있습니다. 각 애플리케이션은 Azure Portal에 여러 리디렉션 URI를 등록할 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예:
+리디렉션 URI는 iOS 앱마다 달라야 합니다. 그래야 애플리케이션 ID를 공유하는 다른 앱을 Microsoft ID 서비스가 고유하게 식별할 수 있습니다. 각 애플리케이션은 Azure Portal에 여러 리디렉션 URI를 등록할 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 다음은 그 예입니다.
 
 Azure Portal에 다음과 같은 애플리케이션 등록이 있는 경우,
 
@@ -83,7 +82,7 @@ MSAL은 리디렉션 URI가 올바르게 등록되었는지 확인하고 그렇�
 
 ## <a name="use-a-custom-redirect-uri"></a>사용자 지정 리디렉션 URI 사용
 
-사용자 지정 리디렉션 URI를 사용하려면 `redirectUri` 매개 변수를 `MSALPublicClientApplicationConfig`에 전달하고 개체를 초기화할 때 해당 개체를 `MSALPublicClientApplication`에 전달합니다. 리디렉션 URI가 유효하지 않으면 이니셜라이저는 `nil`을 반환하고 추가 정보를 사용하여 `redirectURIError`를 설정합니다.  예:
+사용자 지정 리디렉션 URI를 사용하려면 `redirectUri` 매개 변수를 `MSALPublicClientApplicationConfig`에 전달하고 개체를 초기화할 때 해당 개체를 `MSALPublicClientApplication`에 전달합니다. 리디렉션 URI가 유효하지 않으면 이니셜라이저는 `nil`을 반환하고 추가 정보를 사용하여 `redirectURIError`를 설정합니다.  다음은 그 예입니다.
 
 Objective-C:
 

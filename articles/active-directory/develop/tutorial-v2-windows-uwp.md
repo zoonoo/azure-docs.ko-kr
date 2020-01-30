@@ -15,13 +15,12 @@ ms.workload: identity
 ms.date: 12/13/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: e2a243b11c2789afe0b2eb7ffd8de032dc10d8d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4a62026ecec2317173361f166adcc3a7981f6d1c
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75423344"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76701181"
 ---
 # <a name="call-microsoft-graph-api-from-a-universal-windows-platform-application-xaml"></a>유니버설 Windows 플랫폼 애플리케이션(XAML)에서 Microsoft Graph API 호출
 

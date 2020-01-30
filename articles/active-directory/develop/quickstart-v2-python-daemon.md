@@ -11,13 +11,12 @@ ms.workload: identity
 ms.date: 10/22/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:Python
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: 400dfb1ad8b0682194974e6d829cc42bad37bf75
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 4a45f516f751609b413948278e2f2cfca47c9da2
+ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74920619"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76703306"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-python-console-app-using-apps-identity"></a>빠른 시작: 앱의 ID를 사용하여 Python 콘솔 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -26,7 +25,7 @@ ms.locfileid: "74920619"
 > [!div renderon="docs"]
 > ![이 빠른 시작에서 생성된 샘플 앱의 작동 방식 표시](media/quickstart-v2-netcore-daemon/netcore-daemon-intro.svg)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 샘플을 실행하려면 다음이 필요합니다.
 

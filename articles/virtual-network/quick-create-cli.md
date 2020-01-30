@@ -11,14 +11,14 @@ ms.devlang: azurecli
 ms.topic: quickstart
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.openlocfilehash: 6306d893f491f93cc31b7e478afe5632e997285c
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: 3cbfee90997c6b7cd9df1ec76543d77a4402100f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64692635"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774530"
 ---
 # <a name="quickstart-create-a-virtual-network-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 가상 네트워크 만들기
 
@@ -106,7 +106,7 @@ ssh <publicIpAddress>
 
 ## <a name="communicate-between-vms"></a>VM 간 통신
 
-*myVm2* 및 *myVm1* VM 간의 비공개 통신을 확인하려면 다음 명령을 입력합니다.
+*myVm2* 및 *myVm1* VM 간의 프라이빗 통신을 확인하려면 다음 명령을 입력합니다.
 
 ```bash
 ping myVm1 -c 4

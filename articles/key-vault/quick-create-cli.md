@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc, seo-javascript-september2019, seo-javascript-october2019
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: f005266b6e2e12a13f79b3f2007b1bbbafb4acef
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.openlocfilehash: 1b5ebbcd3a891149a72b3dbe8cb19b3c8de528a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311554"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773759"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -73,7 +73,7 @@ az keyvault create --name "Contoso-Vault2" --resource-group "ContosoResourceGrou
 az keyvault secret set --vault-name "Contoso-Vault2" --name "ExamplePassword" --value "hVFkk965BuUv"
 ```
 
-이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. 현재 버전을 가져오려면 **https://ContosoVault.vault.azure.net/secrets/ExamplePassword** 를 사용합니다. 
+이제 해당 URI를 사용하여 Azure Key Vault에 추가한 이 암호를 참조할 수 있습니다. 현재 버전을 가져오려면 **https://Contoso-Vault2.vault.azure.net/secrets/ExamplePassword** 를 사용합니다. 
 
 비밀에 들어 있는 값을 일반 텍스트로 보려면:
 
@@ -94,9 +94,9 @@ az group delete --name ContosoResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서를 참조하세요.
+이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault 개요](key-vault-overview.md) 읽기
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
 - [Azure CLI az keyvault 명령](/cli/azure/keyvault?view=azure-cli-latest)에 대한 참조를 참조하세요.
-- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md)에 대해 알아보기
+- [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

@@ -6,13 +6,13 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: tutorial
-ms.date: 11/17/2019
-ms.openlocfilehash: 2574f27b4b86bab276a56f95fda9fa2a1434c095
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 01/29/2020
+ms.openlocfilehash: c160f04ef7120a6c90991d8e6ecdf98b2f0d348e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74995935"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836562"
 ---
 # <a name="tutorial-ingest-and-query-monitoring-data-in-azure-data-explorer"></a>자습서: Azure Data Explorer에서 모니터링 데이터 수집 및 쿼리 
 
@@ -30,7 +30,7 @@ ms.locfileid: "74995935"
 > [!NOTE]
 > 모든 리소스를 동일한 Azure 위치나 지역에 만듭니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [Azure Data Explorer 클러스터 및 데이터베이스](create-cluster-database-portal.md). 이 자습서에서 데이터베이스 이름은 *TestDatabase*입니다.
@@ -44,7 +44,7 @@ ms.locfileid: "74995935"
 Azure 진단 메트릭 및 로그와 활동 로그는 Azure 서비스에서 내보내, 해당 서비스의 작업에 대한 데이터를 제공합니다. 
 
 # <a name="diagnostic-metricstabdiagnostic-metrics"></a>[진단 메트릭](#tab/diagnostic-metrics)
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 진단 메트릭은 1분의 시간 조직으로 집계됩니다. 쿼리 기간에 대한 Azure Data Explorer 메트릭 이벤트 스키마의 예제는 다음과 같습니다.
 
@@ -78,7 +78,7 @@ Azure 진단 메트릭 및 로그와 활동 로그는 Azure 서비스에서 내�
 ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 Azure Data Explorer [진단 수집 로그](using-diagnostic-logs.md#diagnostic-logs-schema)의 예제는 다음과 같습니다.
 
@@ -134,7 +134,7 @@ Azure Data Explorer [진단 수집 로그](using-diagnostic-logs.md#diagnostic-l
 }
 ```
 # <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 Azure 활동 로그는 구독에 있는 리소스에 대해 수행되는 작업에 대한 인사이트를 제공하는 구독 수준 로그입니다. 액세스를 확인하기 위한 활동 로그 이벤트의 예제는 다음과 같습니다.
 
@@ -330,7 +330,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 2. 대상 테이블에 [업데이트 정책](/azure/kusto/concepts/updatepolicy)을 추가합니다. 이 정책은 *DiagnosticRawRecords* 중간 데이터 테이블에서 새로 수집된 데이터에 대한 쿼리를 자동으로 실행하고, 해당 결과를 *DiagnosticMetrics* 테이블에 수집합니다.
 
     ```kusto
-    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticMetrics policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticMetricsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="diagnostic-logstabdiagnostic-logs"></a>[진단 로그](#tab/diagnostic-logs)
@@ -344,7 +344,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
         | mv-expand events = Records
         | where isnotempty(events.operationName)
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Result = tostring(events.resultType),
@@ -363,7 +363,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 2. 대상 테이블에 [업데이트 정책](/azure/kusto/concepts/updatepolicy)을 추가합니다. 이 정책은 *DiagnosticRawRecords* 중간 데이터 테이블에서 새로 수집된 데이터에 대한 쿼리를 자동으로 실행하고, 해당 결과를 *DiagnosticLogs* 테이블에 수집합니다.
 
     ```kusto
-    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True"}]'
+    .alter table DiagnosticLogs policy update @'[{"Source": "DiagnosticRawRecords", "Query": "DiagnosticLogsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 
 # <a name="activity-logstabactivity-logs"></a>[활동 로그](#tab/activity-logs)
@@ -376,7 +376,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
         ActivityLogsRawRecords
         | mv-expand events = Records
         | project
-            Timestamp = todatetime(events.time),
+            Timestamp = todatetime(events['time']),
             ResourceId = tostring(events.resourceId),
             OperationName = tostring(events.operationName),
             Category = tostring(events.category),
@@ -393,7 +393,7 @@ Azure Data Explorer 웹 UI를 사용하여 Azure Data Explorer 데이터베이�
 2. 대상 테이블에 [업데이트 정책](/azure/kusto/concepts/updatepolicy)을 추가합니다. 이 정책은 *ActivityLogsRawRecords* 중간 데이터 테이블에서 새로 수집된 데이터에 대한 쿼리를 자동으로 실행하고, 해당 결과를 *ActivityLogs* 테이블에 수집합니다.
 
     ```kusto
-    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True"}]'
+    .alter table ActivityLogs policy update @'[{"Source": "ActivityLogsRawRecords", "Query": "ActivityLogRecordsExpand()", "IsEnabled": "True", "IsTransactional": true}]'
     ```
 ---
 

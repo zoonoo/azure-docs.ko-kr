@@ -5,12 +5,12 @@ author: rloutlaw
 ms.topic: quickstart
 ms.date: 08/10/2018
 ms.custom: mvc, devcenter, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: ef81ff1d3d42e3c9e2ba5d4187f5b5805d35d900
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 813e65eadf9f54f7a0ac148681b25988ed6950b9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562037"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845454"
 ---
 # <a name="quickstart-use-java-and-maven-to-create-and-publish-a-function-to-azure"></a>빠른 시작: Java 및 Maven을 사용하여 함수를 만들고 Azure에 게시
 
@@ -29,9 +29,8 @@ Java를 사용하여 함수를 개발하려면 다음을 설치해야 합니다.
 - [Apache Maven](https://maven.apache.org), 버전 3.0 이상
 - [Azure CLI]
 - [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.6.666 이상
-- Azure 구독
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+활성 상태인 Azure 구독도 필요합니다. [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
 
 > [!IMPORTANT]

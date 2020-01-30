@@ -1,10 +1,9 @@
 ---
 title: '빠른 시작: Python에서 Azure Service Bus 큐 사용'
-description: Python에서 Azure Service Bus 큐를 사용하는 방법을 알아봅니다.
+description: 이 문서에서는 Python을 사용하여 Azure Service Bus 큐에서 메시지를 보내고 받는 방법을 설명합니다.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: b95ee5cd-3b31-459c-a7f3-cf8bcf77858b
 ms.service: service-bus-messaging
@@ -12,15 +11,15 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-python-october2019
-ms.openlocfilehash: d0f579fcd82860380f1aaa651a61c0259d075a0d
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: aa9ffc48d9b1374fa510f450bab2c66641421446
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748536"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773489"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-python"></a>빠른 시작: Python에서 Azure Service Bus 큐 사용
 
@@ -30,8 +29,8 @@ ms.locfileid: "73748536"
 
 Python Azure Service Bus 라이브러리에 대한 자세한 내용은 [Python용 Service Bus 라이브러리](/python/api/overview/azure/servicebus?view=azure-python)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 만든 Service Bus 네임스페이스입니다. **공유 액세스 정책** 화면에서 기본 연결 문자열을 복사하여 이 문서의 뒷부분에서 사용합니다. 
 - [Python Azure Service Bus][Python Azure Service Bus package] 패키지가 설치되어 있는 Python 3.4x 이상. 자세한 내용은 [Python 설치 가이드](/azure/python/python-sdk-azure-install)를 참조하세요. 
 
