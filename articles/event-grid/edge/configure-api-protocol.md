@@ -9,20 +9,20 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: f39968476f2fecf655e6c69bea2ff19304d2b465
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 908bc941ee7379de067621e10adf5fd6ee6df559
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992523"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841813"
 ---
 # <a name="configure-event-grid-api-protocols"></a>Event Grid API 프로토콜 구성
 
 이 가이드에서는 Event Grid 모듈의 가능한 프로토콜 구성에 대 한 예를 제공 합니다. Event Grid 모듈은 해당 관리 및 런타임 작업에 대 한 API를 노출 합니다. 다음 표에서는 프로토콜 및 포트를 캡처합니다.
 
-| 프로토콜 | Port | 설명 |
+| 프로토콜 | Port | Description |
 | ---------------- | ------------ | ------------ |
-| http | 5888 | 기본적으로 해제 되어 있습니다. 테스트 중에만 유용 합니다. 프로덕션 워크 로드에는 적합 하지 않습니다.
+| HTTP | 5888 | 기본적으로 해제 되어 있습니다. 테스트 중에만 유용 합니다. 프로덕션 워크 로드에는 적합 하지 않습니다.
 | HTTPS | 4438 | 기본값
 
 모든 가능한 구성에 대 한 [보안 및 인증](security-authentication.md) 가이드를 참조 하세요.
@@ -32,8 +32,8 @@ ms.locfileid: "72992523"
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -43,8 +43,8 @@ ms.locfileid: "72992523"
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {
@@ -66,8 +66,8 @@ ms.locfileid: "72992523"
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ]
 }
  ```
@@ -77,8 +77,8 @@ ms.locfileid: "72992523"
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=enabled",
-    "inbound:serverAuth:serverCert:source=IoTEdge"
+    "inbound__serverAuth__tlsPolicy=enabled",
+    "inbound__serverAuth__serverCert__source=IoTEdge"
   ],
   "HostConfig": {
     "PortBindings": {

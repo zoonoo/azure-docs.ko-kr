@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: a9c45321d12b659febfeb4913d66ea3732813918
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9b9e39776e519a91a4464532e11e85da711087b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769526"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766246"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -131,7 +131,19 @@ public static void Run(
 
 ```
 
-또한 확장과 같은 파일 이름 부분에 대한 식을 만들 수 있습니다. Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [스토리지 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
+파일 이름 부분에 대 한 식을 만들 수도 있습니다. 다음 예제에서 함수는 패턴과 일치 하는 파일 이름에 대해서만 트리거됩니다. `anyname-anyfile.csv`
+
+```json
+{
+    "name": "myBlob",
+    "type": "blobTrigger",
+    "direction": "in",
+    "path": "testContainerName/{date}-{filetype}.csv",
+    "connection": "OrderStorageConnection"
+}
+```
+
+Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자세한 내용은 [스토리지 blob 바인딩 참조](functions-bindings-storage-blob.md)를 확인하세요.
 
 ## <a name="trigger-metadata"></a>트리거 메타데이터
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/05/2019
 ms.author: kumud
-ms.openlocfilehash: f6f77268952f0ac7c01498ab8833bdad592bdc3f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 56e02d5723fefe45f5df15a4889a35fc55d8da3b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155607"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842387"
 ---
 # <a name="ip-address-types-and-allocation-methods-in-azure"></a>IP 주소 유형 및 Azure에서 할당 메서드
 
@@ -33,7 +33,7 @@ ms.locfileid: "76155607"
 > Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../azure-resource-manager/management/deployment-models.md?toc=%2fazure%2fvirtual-network%2ftoc.json)이라는 두 가지 배포 모델이 있습니다.  이 문서에서는 Resource Manager 배포 모델 사용을 설명하며 Microsoft에서는 대부분의 새로운 배포에 대해 [클래식 배포 모델](virtual-network-ip-addresses-overview-classic.md) 대신 이 모델을 사용하도록 권장합니다.
 > 
 
-클래식 배포 모델에 익숙한 경우 [클래식과 Resource Manager 간 IP 주소 지정의 차이](virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)를 확인하십시오.
+클래식 배포 모델에 익숙한 경우 [클래식과 Resource Manager 간 IP 주소 지정의 차이](/previous-versions/azure/virtual-network-ip-addresses-overview-classic.md#differences-between-resource-manager-and-classic-deployments)를 확인하십시오.
 
 ## <a name="public-ip-addresses"></a>공용 IP 주소
 

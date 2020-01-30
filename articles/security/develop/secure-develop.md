@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 9a4f5094837b0c642c4de75180039064de4e40c2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513986"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834980"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 구현 및 확인 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -89,7 +89,7 @@ Azure Marketplace에서는 정적 코드 분석을 수행 하 고 코드 검토�
 
 무차별 암호 대입 및 사전 기반 추측을 방지 하려면 강력한 암호 정책을 구현 하 여 사용자가 복잡 한 암호를 만들 수 있도록 해야 합니다 (예: 12 자 최소 길이 및 영숫자 및 특수 문자 필요).
 
-Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 있습니다. Azure AD B2C는 [기본 제공 정책](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [셀프 서비스 암호 재설정](../../active-directory-b2c/active-directory-b2c-reference-sspr.md)등을 제공 하 여 암호 관리에 도움이 됩니다.
+Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 있습니다. Azure AD B2C는 [기본 제공 정책](../../active-directory-b2c/tutorial-create-user-flows.md#create-a-password-reset-user-flow), [셀프 서비스 암호 재설정](../../active-directory-b2c/user-flow-self-service-password-reset.md)등을 제공 하 여 암호 관리에 도움이 됩니다.
 
 기본 계정에 대 한 공격 으로부터 보호 하려면 모든 키와 암호를 교체할 수 있는지 확인 하 고 리소스를 설치한 후에 생성 되거나 교체 되었는지 확인 합니다.
 

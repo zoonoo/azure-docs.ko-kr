@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: dc64570ccf69c321f33b9689362def8c9caf975e
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715401"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775260"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -79,7 +79,7 @@ ms.locfileid: "76715401"
 | **ElasticAFD** | 탄력적 Azure Front 도어. | 둘 다 | 아닙니다. | 아닙니다. |
 | **EventHub** | Azure Event Hubs. | 아웃바운드 | 예 | 예 |
 | **게이트웨이 관리자** | Azure VPN Gateway 및 Application Gateway 전용 배포에 대 한 관리 트래픽 | 인바운드 | 아닙니다. | 아닙니다. |
-| **GuestAndHybridManagement** | Azure Automation 및 게스트 구성. | 둘 다 | 아닙니다. | 예 |
+| **GuestAndHybridManagement** | Azure Automation 및 게스트 구성. | 아웃바운드 | 아닙니다. | 예 |
 | **HDInsight** | Azure HDInsight. | 인바운드 | 예 | 아닙니다. |
 | **인터넷** | 가상 네트워크 외부에 있고 공용 인터넷에서 연결할 수 있는 IP 주소 공간입니다.<br/><br/>주소 범위에는 [Azure 소유의 공용 IP 주소 공간이](https://www.microsoft.com/download/details.aspx?id=41653)포함 됩니다. | 둘 다 | 아닙니다. | 아닙니다. |
 | **MicrosoftCloudAppSecurity** | Microsoft Cloud App Security. | 아웃바운드 | 아닙니다. | 아닙니다. |

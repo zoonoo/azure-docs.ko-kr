@@ -4,27 +4,24 @@ titleSuffix: Azure Network Watcher
 description: Azure Portal을 사용하여 Network Watcher의 패킷 캡처 기능을 관리하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 59edd945-34ad-4008-809e-ea904781d918
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/10/2018
-ms.author: kumud
-ms.openlocfilehash: 4950ef8b763967e4e852e319429cc263a4a85f6c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 6fc4a25e39fb8f27151b2e3bec1959d74a619233
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277864"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840830"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-portal"></a>포털에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
-Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽을 추적하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버그할 수 있습니다. 원격으로 패킷 캡처를 트리거할 수 있으면 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담이 없어지고 시간이 단축됩니다.
+Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 추적하는 캡처 세션을 만들 수 있습니다. 원하는 트래픽만 캡처할 수 있도록 캡처 세션에 대 한 필터가 제공됩니다. 패킷 캡처를 통해 사후 및 사전 대응적으로 네트워크 예외를 진단할 수 있습니다. 또한 네트워크 침입에 대한 정보를 가져오는 네트워크 통계를 수집하는 것을 포함하여 클라이언트 서버 간 통신을 디버그할 수 있습니다. 원격으로 패킷 캡처를 트리거할 수 있으면 원하는 가상 머신에서 수동으로 패킷 캡처를 실행하는 부담이 없어지고 시간이 단축됩니다.
 
 이 문서에서는 패킷 캡처를 시작, 중지, 다운로드 및 삭제하는 방법을 알아봅니다. 
 
@@ -73,7 +70,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 컴퓨터 간에 트래픽�
 > [!NOTE]
 > 포털은 자동으로 다음을 수행합니다.
 >  * 지역에 아직 Network Watcher가 없는 경우 선택한 가상 머신이 있는 지역과 동일한 지역에 Network Watcher를 만듭니다.
->  * 아직 설치되지 않은 경우 *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) 또는 [Windows](../virtual-machines/windows/extensions-nwa.md) 가상 머신 확장을 가상 머신에 추가합니다.
+>  * *AzureNetworkWatcherExtension* [Linux](../virtual-machines/linux/extensions-nwa.md) 또는 [Windows](../virtual-machines/windows/extensions-nwa.md) 가상 머신 확장이 아직 설치 되지 않은 경우 가상 머신에 추가 합니다.
 
 ## <a name="delete-a-packet-capture"></a>패킷 캡처 삭제
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 673807377914aabad5b90d1ac2ecc16623870d30
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063366"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840182"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -38,15 +38,15 @@ ms.locfileid: "71063366"
 
 **TrustFrameworkPolicy** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 |---------- | -------- | ----------- |
 | PolicySchemaVersion | 예 | 정책을 실행하는 데 사용할 스키마 버전입니다. 값은 `0.3.0.0`이어야 합니다. |
-| TenantObjectId | 아니요 | Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 고유 개체 식별자입니다. |
+| TenantObjectId | 아닙니다. | Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 고유 개체 식별자입니다. |
 | TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
 | PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
 | PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
-| DeploymentMode | 아니요 | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
-| UserJourneyRecorderEndpoint | 아니요 | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요. |
+| DeploymentMode | 아닙니다. | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요. |
+| UserJourneyRecorderEndpoint | 아닙니다. | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요. |
 
 
 다음 예제는 **TrustFrameworkPolicy** 요소를 지정하는 방법을 보여 줍니다.
@@ -80,7 +80,7 @@ ms.locfileid: "71063366"
 - 모든 수준의 자식 정책은 부모 정책에서 상속하고 새 요소를 추가하여 확장할 수 있습니다.
 - 수준 수에는 제한이 없습니다.
 
-자세한 내용은 [사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)을 참조하세요.
+자세한 내용은 [사용자 지정 정책 시작](custom-policy-get-started.md)을 참조하세요.
 
 ## <a name="base-policy"></a>기본 정책
 
@@ -88,7 +88,7 @@ ms.locfileid: "71063366"
 
 **BasePolicy** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 | Description |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | --------|
 | TenantId | 1:1 | Azure AD B2C 테넌트의 식별자입니다. |
 | PolicyId | 1:1 | 부모 정책의 식별자입니다. |
@@ -138,7 +138,7 @@ B2C_1A_TrustFrameWorkBase 또는 B2C_1A_TrustFrameworkExtensionPolicy:
 
 사용자 경험은 사용자가 진행하는 과정의 비즈니스 논리를 정의합니다. 각 사용자 경험은 인증 및 정보 수집의 측면에서 순서대로 일련의 작업을 수행하는 오케스트레이션 단계 집합입니다.
 
-[스타터 팩](active-directory-b2c-get-started-custom.md#custom-policy-starter-pack)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 소셜 계정의 연결 및 연결을 해제 하는 등의 다른 시나리오에 더 많은 사용자 경험를 추가할 수 있습니다.
+[스타터 팩](custom-policy-get-started.md#custom-policy-starter-pack)의 **SocialAndLocalAccounts** 정책 파일은 SignUpOrSignIn, ProfileEdit, PasswordReset 사용자 경험을 포함합니다. 전자 메일 주소를 변경 하거나 소셜 계정의 연결 및 연결을 해제 하는 등의 다른 시나리오에 더 많은 사용자 경험를 추가할 수 있습니다.
 
 오케스트레이션 단계는 [기술 프로필](technicalprofiles.md)을 호출할 수 있습니다. 기술 프로필은 다른 유형의 당사자와 통신하기 위한 기본 제공 메커니즘이 있는 프레임워크를 제공합니다. 예를 들어 기술 프로필은 다음 작업을 수행할 수 있습니다.
 

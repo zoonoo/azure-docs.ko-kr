@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: c093cea9f8719722cc44c9d6424c06039360e90f
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690398"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769181"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -200,7 +200,7 @@ Load Balancer는 통과 서비스(TCP 연결을 종료하지 않음)이며, 클�
 
 UDP 데이터 그램은 정상 백엔드 끝점으로 전달 됩니다.
 
-UDP는 비연결형이며 UDP에 대해 추적된 흐름 상태가 없습니다. 백 엔드 끝점의 상태 프로브가 실패 하면 기존 UDP 흐름이 백 엔드 풀의 다른 정상 인스턴스로 이동 될 수 있습니다.
+UDP는 비연결형이며 UDP에 대해 추적된 흐름 상태가 없습니다. 백 엔드 끝점의 상태 프로브가 실패 하면 기존 UDP 흐름이 백 엔드 풀의 다른 정상 인스턴스로 이동 합니다.
 
 백 엔드 풀의 모든 인스턴스에 대한 모든 프로브가 실패하면 기본 및 표준 Load Balancer에 대한 기존 UDP 흐름이 종료됩니다.
 

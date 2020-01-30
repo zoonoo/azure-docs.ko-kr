@@ -9,21 +9,21 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 991f7ebf51be5f805a8b12fa0af0fefeff0ef582
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 5ba26584f08e705b24749a76d6f607aa84b48fab
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76309560"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769118"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Machine learning 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
-
+이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK의 디버그 및 문제 해결
-다음 섹션에서는 파이프라인을 빌드할 때 발생 하는 일반적인 문제에 대 한 개요와 파이프라인에서 실행 되는 코드를 디버깅 하기 위한 다른 전략을 제공 합니다. 예상 대로 실행 되는 파이프라인을 가져오는 데 문제가 있는 경우 다음 팁을 사용 하세요. 
+다음 섹션에서는 파이프라인을 빌드할 때 발생 하는 일반적인 문제에 대 한 개요와 파이프라인에서 실행 되는 코드를 디버깅 하기 위한 다른 전략을 제공 합니다. 예상 대로 실행 되는 파이프라인을 가져오는 데 문제가 있는 경우 다음 팁을 사용 하세요.
+
 ### <a name="testing-scripts-locally"></a>로컬에서 스크립트 테스트
 
 파이프라인에서 가장 일반적으로 발생 하는 오류 중 하나는 연결 된 스크립트 (데이터 정리 스크립트, 점수 매기기 스크립트 등)가 의도 한 대로 실행 되 고 있지 않거나, Azure 컴퓨터의 작업 영역에서 디버깅 하기 어려운 원격 계산 컨텍스트의 런타임 오류를 포함 하는 것입니다. 학습 스튜디오. 
@@ -79,7 +79,49 @@ ms.locfileid: "76309560"
 | 파이프라인이 단계를 다시 사용 하지 않음 | 단계 다시 사용은 기본적으로 사용 되지만 파이프라인 단계에서 사용 하지 않도록 설정 하지 않았는지 확인 합니다. 다시 사용 하지 않도록 설정 된 경우 단계의 `allow_reuse` 매개 변수는 `False`로 설정 됩니다. |
 | 파이프라인이 불필요 하 게 다시 실행 되 고 있습니다. | 기본 데이터 또는 스크립트가 변경 될 때만 단계가 다시 실행 되도록 하려면 각 단계에 대 한 디렉터리를 분리 합니다. 여러 단계에 동일한 원본 디렉터리를 사용 하는 경우 불필요 한 다시 실행이 발생할 수 있습니다. 파이프라인 단계 개체의 `source_directory` 매개 변수를 사용 하 여 해당 단계에 대 한 격리 된 디렉터리를 가리키고 여러 단계에 대해 동일한 `source_directory` 경로를 사용 하지 않는지 확인 합니다. |
 
-## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너의 디버그 및 문제 해결
+### <a name="logging-options-and-behavior"></a>로깅 옵션 및 동작
+
+다음 표에서는 파이프라인에 대 한 다양 한 디버그 옵션에 대 한 정보를 제공 합니다. 여기에 표시 된 Azure Machine Learning, Python 및 OpenCensus 뿐 아니라 다른 옵션도 존재 하므로 완전 한 목록은 아닙니다.
+
+| 라이브러리                    | 유형   | 예                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
+|----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
+| Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
+| Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
+| OpenCensus Python          | 로그    | `logger.addHandler(AzureLogHandler())`<br>`logging.log(message)` | Application Insights 추적                | [Application Insights에서 파이프라인 디버그](how-to-debug-pipelines-application-insights.md)<br><br>[OpenCensus Azure Monitor Exporters](https://github.com/census-instrumentation/opencensus-python/tree/master/contrib/opencensus-ext-azure)<br>[Python 로깅 cookbook](https://docs.python.org/3/howto/logging-cookbook.html) |
+
+#### <a name="logging-options-example"></a>로깅 옵션 예제
+
+```python
+import logging
+
+from azureml.core.run import Run
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+run = Run.get_context()
+
+# Azure ML Scalar value logging
+run.log("scalar_value", 0.95)
+
+# Python print statement
+print("I am a python print statement, I will be sent to the driver logs.")
+
+# Initialize python logger
+logger = logging.getLogger(__name__)
+logger.setLevel(args.log_level)
+
+# Plain python logging statements
+logger.debug("I am a plain debug statement, I will be sent to the driver logs.")
+logger.info("I am a plain info statement, I will be sent to the driver logs.")
+
+handler = AzureLogHandler(connection_string='<connection string>')
+logger.addHandler(handler)
+
+# Python logging with OpenCensus AzureLogHandler
+logger.warning("I am an OpenCensus warning statement, find me in Application Insights!")
+logger.error("I am an OpenCensus error statement with custom dimensions", {'step_id': run.id})
+``` 
+
+## <a name="debug-and-troubleshoot-in-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너에서 디버그 및 문제 해결 (미리 보기)
 
 이 섹션에서는 디자이너의 파이프라인 문제를 해결 하는 방법에 대 한 개요를 제공 합니다.
 디자이너에서 만든 파이프라인의 경우 제작 페이지나 파이프라인 실행 세부 정보 페이지에서 **로그 파일** 을 찾을 수 있습니다.
@@ -103,6 +145,9 @@ ms.locfileid: "76309560"
 1. 미리 보기 창에서 모듈을 선택 합니다.
 1. 속성 창에서 **로그** 탭으로 이동 합니다.
 1. 로그 파일을 선택 `70_driver_log.txt`
+
+## <a name="debug-and-troubleshoot-in-application-insights"></a>Application Insights 디버그 및 문제 해결
+이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

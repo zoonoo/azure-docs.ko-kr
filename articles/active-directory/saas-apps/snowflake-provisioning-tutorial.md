@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 눈송이 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 눈송이 구성 Microsoft Docs'
 description: 사용자 계정을 눈송이에 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 04d9ec8cad2404466d2df649df4d5c461768b76f
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 2aaf1d2b377abc0b10b0b14de03d01c7f6fae5b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68693550"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767760"
 ---
 # <a name="tutorial-configure-snowflake-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 눈송이 구성
 
@@ -29,9 +29,9 @@ ms.locfileid: "68693550"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 >
-> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -56,10 +56,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 눈송이를 구성 하기 전에 눈송이에서 SCIM 프로 비전을 사용 하도록 설정 해야 합니다.
 
-> [!NOTE]
-> 이 통합은 현재 눈송이에서 비공개 미리 보기 상태입니다. 눈송이 계정에서이 기능을 사용 하도록 설정 하려면 눈송이 판매 담당자에 게 문의 하세요.
-
-1. 눈송이 관리 콘솔에 로그인 합니다. 강조 표시 된 작업 영역에서 아래에 표시 된 쿼리를 입력 하 고 **실행**을 클릭 합니다.
+1. 눈송이 관리 콘솔에 로그인 합니다. 강조 표시 된 워크시트에서 아래에 표시 된 쿼리를 입력 하 고 **실행**을 클릭 합니다.
 
     ![눈송이 관리 콘솔](media/Snowflake-provisioning-tutorial/image00.png)
 
@@ -98,7 +95,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 눈송이를 구�
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 눈송이에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 사용 해제 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [눈송이 single sign-on 자습서](Snowflake-tutorial.md)에 제공 된 지침에 따라 눈송이에 대해 SAML 기반 single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [눈송이 single sign-on 자습서](Snowflake-tutorial.md)에 제공 된 지침에 따라 눈송이에 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-snowflake-in-azure-ad"></a>Azure AD에서 눈송이에 대해 자동 사용자 프로 비전을 구성 하려면:
 
@@ -118,17 +115,17 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 눈송이를 구�
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. 관리자 자격 증명 섹션 아래에 있는 `https://<Snowflake Account URL>/scim/v2` 테 넌 트 URL에 입력 합니다. 테 넌 트 URL의 예는 다음과 같습니다.`https://acme.snowflakecomputing.com/scim/v2`
+5. 관리자 자격 증명 섹션 아래에 있는 테 넌 트 URL에 `https://<Snowflake Account URL>/scim/v2`을 입력 합니다. 테 넌 트 URL의 예: `https://acme.snowflakecomputing.com/scim/v2`
 
 6. 이전에 **비밀 토큰**에서 검색 된 **Scim 인증 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 눈송이에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 눈송이 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
-    ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
+    ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
 7. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![알림 이메일](common/provisioning-notification-email.png)
 
-8. **Save**을 클릭합니다.
+8. **저장**을 클릭합니다.
 
 9. **매핑** 섹션에서 **Azure Active Directory 사용자를 눈송이에 동기화를**선택 합니다.
 
@@ -150,15 +147,15 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 눈송이를 구�
 
 14. 눈송이에 대해 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![프로 비전 상태 전환 설정](common/provisioning-toggle-on.png)
+    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
-15. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 눈송이에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
+15. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 눈송이에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다. 이 옵션을 사용할 수 없는 경우 관리자 자격 증명에서 필수 필드를 구성 하 고 **저장** 을 클릭 한 후 페이지를 새로 고칩니다. 
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 16. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-    ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
     이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 눈송이의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
@@ -168,7 +165,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 눈송이를 구�
 
 * 눈송이 생성 SCIM 토큰은 6 개월 후에 만료 됩니다. 프로 비전 동기화가 계속 작동 하도록 허용 하기 위해 만료 되기 전에 새로 고쳐야 합니다. 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)

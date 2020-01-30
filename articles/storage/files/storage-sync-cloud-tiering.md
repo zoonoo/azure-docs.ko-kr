@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/21/2018
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 7af4f68417b25b480ea5422eb13d6b2a5748212c
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: fea9cebc5199fc7c1fc5c081aa45f08044c21e44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759706"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768201"
 ---
 # <a name="cloud-tiering-overview"></a>클라우드 계층화 개요
 Azure 파일 동기화의 선택적 기능인 클라우드 계층화를 사용하는 경우 액세스 빈도가 높은 파일은 서버에 로컬로 캐시되고 그 외의 모든 파일은 정책 설정에 따라 Azure Files에서 계층화됩니다. 파일을 계층화할 경우 Azure 파일 동기화 파일 시스템 필터(StorageSync.sys)는 파일을 포인터 또는 재분석 지점으로 로컬로 대체합니다. 재분석 지점은 Azure Files의 파일에 대한 URL을 나타냅니다. 계층화된 파일의 경우 NTFS에서 FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS 특성과 “offline” 특성이 모두 설정되므로 타사 애플리케이션이 계층화된 파일을 안전하게 식별할 수 있습니다.
@@ -103,11 +103,10 @@ PowerShell을 사용하여 파일을 강제로 회수할 수도 있습니다. �
     
 ```powershell
 Import-Module "C:\Program Files\Azure\StorageSyncAgent\StorageSync.Management.ServerCmdlets.dll"
-Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint> -Order CloudTieringPolicy
+Invoke-StorageSyncFileRecall -Path <path-to-to-your-server-endpoint>
 ```
-
-`-Order CloudTieringPolicy`를 지정 하면 가장 최근에 수정한 파일이 먼저 회수 됩니다.
-기타 선택적 매개 변수:
+선택적 매개 변수:
+* `-Order CloudTieringPolicy`는 가장 최근에 수정 된 파일을 먼저 회수 합니다.  
 * `-ThreadCount`은 동시에 회수할 수 있는 파일 수를 결정 합니다.
 * `-PerFileRetryCount`은 현재 차단 된 파일에 대 한 회수를 시도 하는 빈도를 결정 합니다.
 * `-PerFileRetryDelaySeconds`회수 시도 사이의 시간 (초)을 결정 하 고, 항상 이전 매개 변수와 함께 사용 해야 합니다.

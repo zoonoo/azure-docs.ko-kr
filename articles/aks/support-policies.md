@@ -5,14 +5,14 @@ services: container-service
 author: jnoller
 ms.service: container-service
 ms.topic: article
-ms.date: 04/01/2019
+ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: c018e511bbeed41bc9caf721562349a37ad0e748
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707216"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767377"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 지원 정책
 
@@ -42,6 +42,8 @@ Microsoft와 AKS 팀은 서비스 가용성 및 기능을 배포 하 고, 운영
 
 > [!NOTE]
 > AKS worker 노드는 Azure Portal 일반 Azure IaaS 리소스로 표시 됩니다. 그러나 이러한 가상 머신은 사용자 지정 Azure 리소스 그룹 (MC\\*)에 배포 됩니다. AKS worker 노드를 변경할 수 있습니다. 예를 들어, SSH (Secure Shell)를 사용 하 여 일반 가상 컴퓨터를 변경 하는 방법 (그러나 기본 OS 이미지를 변경 하 고 업데이트 또는 다시 부팅을 통해 변경 내용이 유지 되지 않을 수 있음)을 변경 하는 방식으로 AKS 작업자 노드를 변경할 수 있으며, 다른 Azure 리소스를 AKS에 연결할 수 있습니다. 작업자 노드. 하지만 *대역 외 관리 및 사용자 지정을* 변경 하는 경우 AKS 클러스터가 unsupportable 될 수 있습니다. Microsoft 지원 변경 하도록 지시 하지 않는 한 작업자 노드를 변경 하지 마세요.
+
+위에서 정의한 대로 지원 되지 않는 작업 (예: 모든 에이전트 노드의 대역외 할당 취소)을 실행 하면 클러스터가 지원 되지 않는 상태로 렌더링 됩니다. AKS은 30 일이 넘은 연장 된 기간에 대 한 지원 지침에서 구성 된 제어 평면을 보관할 권리를 보유 합니다. AKS는 클러스터 etcd 메타 데이터의 백업을 유지 관리 하 고 클러스터를 쉽게 다시 할당할 수 있습니다. 이 재할당은 활성 에이전트 노드에 대 한 업그레이드 또는 규모와 같이 클러스터를 다시 지원 하도록 설정 하는 작업에 의해 시작 될 수 있습니다.
 
 ## <a name="shared-responsibility"></a>공동 책임
 

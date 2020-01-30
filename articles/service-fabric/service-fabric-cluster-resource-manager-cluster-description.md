@@ -5,12 +5,12 @@ author: masnider
 ms.topic: conceptual
 ms.date: 08/18/2017
 ms.author: masnider
-ms.openlocfilehash: 56765fa16bc1ea96f1429b72fded38c4385e65ec
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7142e3f9aaa25e7ba327194c04ad6a9b5f4e3ad1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452116"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774486"
 ---
 # <a name="describe-a-service-fabric-cluster-by-using-cluster-resource-manager"></a>클러스터를 사용 하 여 Service Fabric 클러스터 설명 리소스 관리자
 Azure Service Fabric의 클러스터 리소스 관리자 기능은 클러스터를 설명 하는 몇 가지 메커니즘을 제공 합니다.
@@ -472,7 +472,7 @@ Update-ServiceFabricService -Stateful -ServiceName $serviceName -PlacementConstr
 
 둘째, 서비스를 효율적으로 실행 하는 데 중요 한 분산 및 최적화가 있습니다. 비용 효율적 이거나 성능에 민감한 서비스 제공으로 일부 노드가 핫이 될 수 있지만 다른 노드가 콜드 인 경우 핫 노드는 리소스 경합 및 성능 저하를 초래 합니다. 콜드 노드는 낭비 된 리소스와 비용 증가를 나타냅니다. 
 
-Service Fabric는 리소스를 *메트릭으로*나타냅니다. 메트릭은 서비스 패브릭에 대해 설명하려는 논리적 또는 물리적 리소스입니다. 메트릭에 대 한 예로는 "워크 Queuedepth" 또는 "MemoryInMb"가 있습니다. Service Fabric 노드에서 제어할 수 있는 물리적 리소스에 대 한 자세한 내용은 [리소스 관리](service-fabric-resource-governance.md)를 참조 하세요. 사용자 지정 메트릭 및 해당 용도를 구성 하는 방법에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 참조 하세요.
+Service Fabric는 리소스를 *메트릭으로*나타냅니다. 메트릭은 서비스 패브릭에 대해 설명하려는 논리적 또는 물리적 리소스입니다. 메트릭에 대 한 예로는 "워크 Queuedepth" 또는 "MemoryInMb"가 있습니다. Service Fabric 노드에서 제어할 수 있는 물리적 리소스에 대 한 자세한 내용은 [리소스 관리](service-fabric-resource-governance.md)를 참조 하세요. 클러스터 리소스 관리자에서 사용 하는 기본 메트릭과 사용자 지정 메트릭을 구성 하는 방법에 대 한 자세한 내용은 [이 문서](service-fabric-cluster-resource-manager-metrics.md)를 참조 하세요.
 
 메트릭은 배치 제약 조건 및 노드 속성과 다릅니다. 노드 속성은 노드 자체의 정적 설명자입니다. 메트릭은 노드에서 실행 될 때 노드에 포함 되 고 서비스가 사용 하는 리소스를 설명 합니다. 노드 속성은 **Hasssd** 일 수 있으며 true 또는 false로 설정할 수 있습니다. 해당 SSD에서 사용 가능한 공간의 양과 서비스에서 사용 되는 공간은 "DriveSpaceInMb"와 같은 메트릭입니다. 
 

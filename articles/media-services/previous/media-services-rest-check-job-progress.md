@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ec72b7e7bf4c2b859e8ceecf617c90a4853cb517
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: cac8622c95ca2cb08ef412ac7117caac0c52ca56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74901495"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773607"
 ---
 # <a name="how-to-check-job-progress"></a>방법: 작업 진행 상태 확인
 
@@ -42,7 +42,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 응답:

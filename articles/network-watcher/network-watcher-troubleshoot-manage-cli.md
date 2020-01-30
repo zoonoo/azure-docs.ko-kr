@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Azure Network Watcher 문제 해결 Azure CLI를 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 2838bc61-b182-4da8-8533-27db8fdbd177
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: ca61486ce58ccd3385518c2d22e0690c1fb34d16
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: dc0aa8e6099a7ec017aead2fe0f16e9712e17936
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277805"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840726"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher-azure-cli"></a>Azure Network Watcher Azure CLI를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 

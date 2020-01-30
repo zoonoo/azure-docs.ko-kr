@@ -1,6 +1,6 @@
 ---
-title: Azure Service Bus premium 및 standard 계층 Microsoft Docs
-description: Service Bus 프리미엄 및 표준 메시징 계층
+title: Azure Service Bus 프리미엄 및 표준 계층
+description: 이 문서에서는 Azure Service Bus의 표준 및 프리미엄 계층에 대해 설명 합니다. 는 이러한 계층을 비교 하 고 기술적 차이를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: cc783dc4b2bf49724f4a2c7ab9cd9904ded2c703
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ef3cc8d4c7354b43389244e72c2dbc5899b8db25
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75352854"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774561"
 ---
 # <a name="service-bus-premium-and-standard-messaging-tiers"></a>Service Bus 프리미엄 및 표준 메시징 계층
 

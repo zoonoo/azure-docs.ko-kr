@@ -3,12 +3,12 @@ title: 컨테이너에 대 한 Azure Monitor를 사용 하 여 Kubernetes 클러
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 AKS 및 AKS 클러스터의 상태를 보고 분석 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 12/01/2019
-ms.openlocfilehash: 9ee710eb916923756633e65f3287751ba9a9dde3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f50ef13efca78bbb5285b99759b8111dc1915ad0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75405088"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843993"
 ---
 # <a name="understand-kubernetes-cluster-health-with-azure-monitor-for-containers"></a>컨테이너용 Azure Monitor를 사용하여 Kubernetes 클러스터 상태 파악
 
@@ -23,7 +23,7 @@ ms.locfileid: "75405088"
 >[!NOTE]
 >AKS 엔진 클러스터를 지원 하려면 다음을 충족 하는지 확인 합니다.
 >- 최신 버전의 [투구 클라이언트](https://helm.sh/docs/using_helm/)를 사용 하 고 있습니다.
->- 컨테이너 화 된 에이전트 버전은 *microsoft/oms: ciprod11012019*입니다. 에이전트를 업그레이드 하려면 [Kubernetes 클러스터에서 에이전트 업그레이드](container-insights-manage-agent.md#upgrading-agent-on-monitored-kubernetes-cluster)를 참조 하세요.
+>- 컨테이너 화 된 에이전트 버전은 *microsoft/oms: ciprod11012019*입니다. 에이전트를 업그레이드 하려면 [Kubernetes 클러스터에서 에이전트 업그레이드](container-insights-manage-agent.md#upgrade-agent-on-monitored-kubernetes-cluster)를 참조 하세요.
 >
 
 ## <a name="overview"></a>개요
@@ -48,13 +48,13 @@ Kubernetes 클러스터 상태는 다음과 같은 Kubernetes 개체 및 추상�
 * 노드 및 컨테이너에서 메모리 사용률을 평가 합니다.
 * Kubernetes에서 보고 하는 준비 상태 계산을 기반으로 하는 Pod 및 노드의 상태입니다.
 
-상태를 표시하는 데 사용되는 아이콘은 다음과 같습니다.
+상태를 나타내는 데 사용 되는 아이콘은 다음과 같습니다.
 
 |아이콘|의미|  
 |--------|-----------|  
-|![정상 상태를 나타내는 녹색 확인 아이콘](./media/container-insights-health/healthyicon.png)|성공, 상태 양호(녹색)|  
-|![노란색 삼각형과 느낌표(경고)](./media/container-insights-health/warningicon.png)|경고(노란색)|  
-|![흰색 X가 포함된 빨간색 단추(위험 상태를 나타냄)](./media/container-insights-health/criticalicon.png)|위험(빨간색)|  
+|![정상 상태임을 나타내는 녹색 확인 아이콘](./media/container-insights-health/healthyicon.png)|성공, 상태 양호 (녹색)|  
+|![노란색 삼각형 및 느낌표는 경고입니다.](./media/container-insights-health/warningicon.png)|경고 (노란색)|  
+|![흰색 X가 있는 빨간색 단추는 위험 상태를 나타냅니다.](./media/container-insights-health/criticalicon.png)|위험 (빨간색)|  
 |![회색으로 표시 됨 아이콘](./media/container-insights-health/grayicon.png)|알 수 없음 (회색)|  
 
 ## <a name="monitor-configuration"></a>모니터 구성

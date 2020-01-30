@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: Network Watcher 및 Grafana를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석합니다.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
+author: damendo
 tags: azure-resource-manager
 ms.assetid: ''
 ms.service: network-watcher
@@ -15,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/15/2017
-ms.author: mareat
-ms.openlocfilehash: e92f4db575e4b318af8dc7bf3ba2eb4b69a3a2d9
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c48d5a02cdb8ef63904642c6c2c76cb5d61e1f9d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277949"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840913"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-using-network-watcher-and-grafana"></a>Network Watcher 및 Grafana를 사용하여 네트워크 보안 그룹 흐름 로그 관리 및 분석
 

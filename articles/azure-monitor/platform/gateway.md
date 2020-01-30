@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/24/2019
-ms.openlocfilehash: b68f19faa1542b873e90a4ce6d0426db7f3ff871
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 30854382b5a6dfd0faabfc2f59340dc21518d6f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547305"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773284"
 ---
 # <a name="connect-computers-without-internet-access-by-using-the-log-analytics-gateway-in-azure-monitor"></a>에서 Log Analytics 게이트웨이를 사용 하 여 인터넷에 액세스 하지 않고 컴퓨터 연결 Azure Monitor
 
@@ -204,13 +204,13 @@ Windows Server 2016 네트워크 부하 분산 클러스터를 설계하고 배�
 
 ### <a name="azure-load-balancer"></a>Azure Load Balancer
 
-Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기**섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-create-basic-load-balancer-portal.md) 시작에 설명 된 단계를 수행 합니다.   
+Azure Load Balancer를 디자인 하 고 배포 하는 방법을 알아보려면 [Azure Load Balancer 무엇 인가요?](../../load-balancer/load-balancer-overview.md)를 참조 하세요. 기본 부하 분산 장치를 배포 하려면 **백 엔드 서버 만들기**섹션에 설명 된 단계를 제외 하 고이 [빠른](../../load-balancer/quickstart-load-balancer-standard-public-portal.md) 시작에 설명 된 단계를 수행 합니다.   
 
 > [!NOTE]
 > **기본 SKU**를 사용 하 여 Azure Load Balancer를 구성 하려면 Azure virtual Machines가 가용성 집합에 속해야 합니다. 가용성 집합에 대해 자세히 알아보려면 [Azure에서 Windows 가상 머신의 가용성 관리](../../virtual-machines/windows/manage-availability.md)를 참조 하세요. 기존 가상 컴퓨터를 가용성 집합에 추가 하려면 [VM 가용성 집합 Azure Resource Manager 설정](https://gallery.technet.microsoft.com/Set-Azure-Resource-Manager-f7509ec4)을 참조 하세요.
 > 
 
-부하 분산 장치를 만든 후에는 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 백 엔드 풀을 만들어야 합니다. 빠른 시작 문서 섹션 [부하 분산 장치에 대 한 리소스 만들기](../../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-resources-for-the-load-balancer)에 설명 된 단계를 따릅니다.  
+부하 분산 장치를 만든 후에는 하나 이상의 게이트웨이 서버에 트래픽을 분산 하는 백 엔드 풀을 만들어야 합니다. 빠른 시작 문서 섹션 [부하 분산 장치에 대 한 리소스 만들기](../../load-balancer/quickstart-load-balancer-standard-public-portal.md)에 설명 된 단계를 따릅니다.  
 
 >[!NOTE]
 >상태 프로브를 구성 하는 경우 게이트웨이 서버의 TCP 포트를 사용 하도록 구성 해야 합니다. 상태 프로브는 상태 검사에 대 한 응답에 따라 부하 분산 장치 순환에서 게이트웨이 서버를 동적으로 추가 하거나 제거 합니다. 
@@ -255,7 +255,7 @@ Operations Manager 관리 그룹이 Log Analytics 작업 영역에 처음으로 
 
    a. **시작** 을 선택 하 고 **cmd**를 입력 합니다.  
 
-   b. **명령 프롬프트**를 마우스 오른쪽 단추로 클릭한 다음 **관리자 권한으로 실행**을 선택합니다.  
+   b. **명령 프롬프트** 를 마우스 오른쪽 단추로 클릭 하 고 **관리자 권한으로 실행**을 선택 합니다.  
 
 1. 다음 명령을 입력합니다.
 

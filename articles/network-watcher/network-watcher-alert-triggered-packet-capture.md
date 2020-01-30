@@ -4,9 +4,7 @@ titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Network Watcher에서 경고로 트리거된 패킷 캡처를 만드는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 75e6e7c4-b3ba-4173-8815-b00d7d824e11
 ms.service: network-watcher
 ms.devlang: na
@@ -14,13 +12,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 26599776abdf7ecbb6c86c332a40e0c2b7d6e67e
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: ea506e137d71fc3124a4f93f1e97750a08dd4284
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276129"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842940"
 ---
 # <a name="use-packet-capture-for-proactive-network-monitoring-with-alerts-and-azure-functions"></a>경고 및 Azure Functions를 통한 사전 네트워크 모니터링을 위해 패킷 캡처 사용
 
@@ -37,7 +35,7 @@ Azure 에코시스템 내에서 Network Watcher, Alerting 및 Functions를 사�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 최신 버전의 [Azure PowerShell](/powershell/azure/install-Az-ps)
 * Network Watcher의 기존 인스턴스. [Network Watcher 인스턴스](network-watcher-create.md)가 아직 없는 경우에는 새로 만듭니다.
@@ -140,7 +138,7 @@ Network Watcher PowerShell cmdlet을 사용하려면 최신 PowerShell 모듈을
 
 1. **Az. Network** 하위 폴더를 마우스 오른쪽 단추로 클릭 하 고 **파일 업로드**를 선택 합니다. 
 
-6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음 **확인**을 선택합니다. 
+6. Azure 모듈로 이동합니다. 로컬 **Az. Network** 폴더에서 폴더의 모든 파일을 선택 합니다. 그런 다음, **확인**을 선택합니다. 
 
 7. **Az. Accounts** 및 **az .resources**에 대해 이러한 단계를 반복 합니다.
 
@@ -346,7 +344,7 @@ $Encryptedpassword
 
   |**설정** | **값** | **세부 정보** |
   |---|---|---|
-  |**Name**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
+  |**이름**|TCP_Segments_Sent_Exceeded|경고 규칙의 이름입니다.|
   |**설명**|전송된 TCP 세그먼트가 임계값을 초과함|경고 규칙에 대한 설명입니다.|
   |**메트릭**|전송된 TCP 세그먼트| 경고를 트리거하는 데 사용할 메트릭입니다. |
   |**Condition**|보다 큼| 메트릭을 평가할 때 사용할 조건입니다.|

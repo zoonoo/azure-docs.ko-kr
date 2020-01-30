@@ -3,22 +3,20 @@ title: Azure Network Watcher 연결 문제 해결 소개 | Microsoft Docs
 description: 이 페이지는 Network Watcher 연결 문제 해결 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/11/2017
-ms.author: kumud
-ms.openlocfilehash: 9510905f67ee943b4b1dfa5a14c2753efac39da7
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: cae3072a3468b232e95d7c1949948b71059695ea
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64705808"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842872"
 ---
 # <a name="introduction-to-connection-troubleshoot-in-azure-network-watcher"></a>Azure Network Watcher의 연결 문제 해결 소개
 
@@ -27,11 +25,11 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 > [!IMPORTANT]
 > 연결 문제 해결은 문제를 해결하는 VM에 `AzureNetworkWatcherExtension` VM 확장이 설치되어 있어야 합니다. Windows VM에서 확장을 설치하려면 [Windows용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/windows/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하고 Linux VM인 경우 [Linux용 Azure Network Watcher 에이전트 가상 머신 확장](../virtual-machines/linux/extensions-nwa.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)을 방문하세요. 확장은 대상 엔드포인트에서 필요하지 않습니다.
 
-## <a name="response"></a>response
+## <a name="response"></a>응답
 
 다음 테이블에 연결 문제 해결이 실행 완료되었을 때 반환되는 속성이 나와 있습니다.
 
-|자산  |설명  |
+|속성  |Description  |
 |---------|---------|
 |ConnectionStatus     | 연결 확인의 상태입니다. 가능한 결과는 **연결 가능** 및 **연결 불가능**입니다.        |
 |AvgLatencyInMs     | 연결 확인 중 평균 대기 시간(밀리초)입니다. (검사 상태가 연결 가능인 경우에만 표시됩니다.)        |
@@ -74,7 +72,7 @@ Network Watcher의 연결 문제 해결 기능은 가상 머신에서 VM(가상 
 
 연결 문제 해결은 연결에 대한 오류 형식을 반환합니다. 다음 테이블에 반환된 현재 오류 형식의 목록이 나와 있습니다.
 
-|Type  |설명  |
+|유형  |Description  |
 |---------|---------|
 |CPU     | 높은 CPU 사용률       |
 |메모리     | 높은 메모리 사용률       |

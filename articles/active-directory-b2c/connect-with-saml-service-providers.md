@@ -12,12 +12,12 @@ ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 16651441919ecd5167e518f68addd8964e767001
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76043517"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836663"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -41,11 +41,11 @@ SAML을 사용 하 여 두 가지 비 배타 코어 시나리오 요약:
 | 시나리오 | Azure AD B2C 역할 | 방법 |
 | -------- | ----------------- | ------- |
 | 응용 프로그램은 인증을 완료 하는 데 SAML 어설션이 필요 합니다. | **Azure AD B2C는 IdP (id 공급자) 역할을 합니다.**<br />Azure AD B2C는 응용 프로그램에 대 한 SAML IdP 역할을 합니다. | 이 문서의 내용: |
-| 내 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 호환 id 공급자를 사용 하는 single sign-on이 필요 합니다.  | **Azure AD B2C SP (서비스 공급자) 역할을 합니다.**<br />Azure AD B2C는 SAML id 공급자에 연결할 때 서비스 공급자 역할을 합니다. 응용 프로그램과 SAML id 공급자 간의 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 사용 하 여 SAML IdP ADFS로 로그인 설정](active-directory-b2c-custom-setup-adfs2016-idp.md)</li><li>[사용자 지정 정책을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](active-directory-b2c-setup-sf-app-custom.md)</li></ul> |
+| 내 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 호환 id 공급자를 사용 하는 single sign-on이 필요 합니다.  | **Azure AD B2C SP (서비스 공급자) 역할을 합니다.**<br />Azure AD B2C는 SAML id 공급자에 연결할 때 서비스 공급자 역할을 합니다. 응용 프로그램과 SAML id 공급자 간의 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 사용 하 여 SAML IdP ADFS로 로그인 설정](identity-provider-adfs2016-custom.md)</li><li>[사용자 지정 정책을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-custom.md)</li></ul> |
 
 ## <a name="prerequisites"></a>필수 조건
 
-* [Azure AD B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료 합니다. 이 문서에서 설명 하는 사용자 지정 정책 시작 팩의 *Socialandlocalaccounts* 사용자 지정 정책이 필요 합니다.
+* [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료 합니다. 이 문서에서 설명 하는 사용자 지정 정책 시작 팩의 *Socialandlocalaccounts* 사용자 지정 정책이 필요 합니다.
 * SAML (Security Assertion Markup Language) 프로토콜에 대 한 기본적인 이해
 * SAML SP (서비스 공급자)로 구성 된 웹 응용 프로그램입니다. 이 자습서에서는 사용자가 제공 하는 [SAML 테스트 응용 프로그램][samltest] 을 사용할 수 있습니다.
 

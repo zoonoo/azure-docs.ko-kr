@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 07/08/2019
 ms.author: cshoe
-ms.openlocfilehash: 599becae0225bea623c383ead49cd9abcea6fff2
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 35df4c6c20345053bcc39a267a90a7bb1b227241
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231104"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766242"
 ---
 # <a name="register-azure-functions-binding-extensions"></a>Azure Functions 바인딩 확장 등록
 
@@ -26,10 +26,10 @@ Azure Functions 버전 2.x에서 [바인딩은](./functions-triggers-bindings.md
 
 | 개발 환경 |등록<br/> (Functions 1.x)  |등록<br/> (Functions 2.x)  |
 |-------------------------|------------------------------------|------------------------------------|
-|Azure 포털|자동|자동|
+|Azure Portal|자동|자동|
 |Non-.NET 언어 또는 로컬 Azure 핵심 도구 개발|자동|[Azure Functions Core Tools 및 확장 번들 사용](#extension-bundles)|
 |C#Visual Studio를 사용 하는 클래스 라이브러리|[NuGet 도구 사용](#vs)|[NuGet 도구 사용](#vs)|
-|Visual Studio Code를 사용하는 C# 클래스 라이브러리|해당 없음|[.NET Core CLI 사용](#vs-code)|
+|Visual Studio Code를 사용하는 C# 클래스 라이브러리|N/A|[.NET Core CLI 사용](#vs-code)|
 
 ## <a name="extension-bundles"></a>로컬 개발용 확장 번들
 
@@ -62,9 +62,6 @@ Install-Package Microsoft.Azure.WebJobs.Extensions.ServiceBus -Version <TARGET_V
 `Install-Package`를 사용 하 여 바인딩을 참조 하는 경우에는 [확장 번들](#extension-bundles)을 사용할 필요가 없습니다. 이 방법은 Visual Studio에서 빌드된 클래스 라이브러리에만 적용 됩니다.
 
 ## <a name="vs-code"></a>C# Visual Studio Code를 포함 하는 클래스 라이브러리
-
-> [!NOTE]
-> [확장 번들](#extension-bundles) 을 사용 하 여 함수에서 호환 되는 바인딩 확장 패키지 집합을 자동으로 설치 하는 것이 좋습니다. 
 
 **Visual Studio Code**에서 .NET Core CLI의 C# [dotnet add package](https://docs.microsoft.com/dotnet/core/tools/dotnet-add-package) 명령을 사용 하 여 명령 프롬프트에서 클래스 라이브러리 프로젝트에 대 한 패키지를 설치 합니다. 다음 예제에서는 바인딩을 추가 하는 방법을 보여 줍니다.
 

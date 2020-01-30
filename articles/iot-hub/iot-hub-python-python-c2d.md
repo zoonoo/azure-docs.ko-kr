@@ -8,12 +8,12 @@ ms.devlang: python
 ms.topic: conceptual
 ms.date: 07/30/2019
 ms.author: robinsh
-ms.openlocfilehash: 4cda59448856630468076ef63c51b8a216a31bd0
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 53bff62795e54d88e768b3a22c8b358519b69a91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71001971"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767815"
 ---
 # <a name="send-cloud-to-device-messages-with-iot-hub-python"></a>IoT Hub(Python)를 사용하여 클라우드-디바이스 메시지 보내기
 
@@ -41,7 +41,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 [!INCLUDE [iot-hub-include-python-sdk-note](../../includes/iot-hub-include-python-sdk-note.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 [!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
 
@@ -51,7 +51,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
 
 1. 텍스트 편집기를 사용하여 **SimulatedDevice.py** 파일을 만듭니다.
 
-2. **SimulatedDevice.py** 파일 앞에 다음 `import` 문 및 변수를 추가합니다.
+2. **SimulatedDevice.py** 파일의 시작 부분에 다음 `import` 문 및 변수를 추가합니다.
 
    ```python
     import threading
@@ -85,7 +85,7 @@ Azure IoT Hub는 수백만 개의 디바이스와 솔루션 백 엔드 간에 �
     ```python
     def iothub_client_sample_run():
         try:
-            client = iothub_client_init()
+            client = IoTHubDeviceClient.create_from_connection_string(CONNECTION_STRING)
 
             message_listener_thread = threading.Thread(target=message_listener, args=(client,))
             message_listener_thread.daemon = True

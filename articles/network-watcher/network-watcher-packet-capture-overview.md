@@ -3,23 +3,20 @@ title: Azure Network Watcher에서 패킷 캡처 소개 | Microsoft Docs
 description: 이 페이지는 Network Watcher 패킷 캡처 기능에 대한 개요를 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 3a81afaa-ecd9-4004-b68e-69ab56913356
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 8ef9da86377ac6f1b012cb0ebfd9d6866bc0c620
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1f17463125cead64bd58a2d07e53eee4d3cfcd70
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67061581"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840811"
 ---
 # <a name="introduction-to-variable-packet-capture-in-azure-network-watcher"></a>Azure Network Watcher에서 변수 패킷 캡처 소개
 
@@ -34,7 +31,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 
 **캡처 구성**
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |**패킷당 최대 바이트(bytes)** | 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다. 캡처된 각 패킷의 바이트 수이며 비어 있으면 모든 바이트가 캡처됩니다. IPv4 헤더만 필요한 경우 여기서 34를 나타냅니다. |
 |**세션당 최대 바이트(bytes)** | 값이 세션 끝에 도달할 때까지 캡처된 총 바이트 수입니다.|
@@ -42,7 +39,7 @@ Network Watcher 변수 패킷을 사용하면 가상 머신 간에 트래픽을 
 
 **필터링(선택 사항)**
 
-|자산|설명|
+|속성|Description|
 |---|---|
 |**프로토콜** | 패킷 캡처에 대해 필터링할 프로토콜입니다. 사용 가능한 값은 TCP, UDP 및 모두입니다.|
 |**로컬 IP 주소** | 이 값은 패킷 캡처를 로컬 IP 주소가 이 필터 값과 일치하는 패킷으로 필터링합니다.|

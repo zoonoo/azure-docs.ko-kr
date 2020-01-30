@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 09/17/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 88ad32a289d499cd385f8f3095113a4b329b80f4
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6c486e59f32afd09a9934ae2298172ccb4ee2414
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701538"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768096"
 ---
 # <a name="web-app-that-signs-in-users-move-to-production"></a>사용자가 로그인 하는 웹 앱: 프로덕션으로 이동
 
@@ -29,6 +29,13 @@ ms.locfileid: "76701538"
 
 ## <a name="next-steps"></a>다음 단계
 
+### <a name="same-site"></a>같은 사이트
+
+새 버전의 Chrome 브라우저에서 발생할 수 있는 문제를 이해 해야 합니다.
+
+> [!div class="nextstepaction"]
+> [Chrome 브라우저에서 SameSite 쿠키 변경을 처리 하는 방법](howto-handle-samesite-cookie-changes-chrome-browser.md)
+
 ### <a name="scenario-for-calling-web-apis"></a>웹 Api 호출에 대 한 시나리오
 
 웹 앱이 로그인 한 후에는 로그인 한 사용자를 대신 하 여 web Api를 호출할 수 있습니다. 웹 앱에서 웹 Api를 호출 하는 것은 다음 시나리오의 개체입니다.
@@ -36,7 +43,7 @@ ms.locfileid: "76701538"
 > [!div class="nextstepaction"]
 > [Web API를 호출하는 웹앱](scenario-web-app-call-api-overview.md)
 
-### <a name="deep-dive-aspnet-core-web-app-tutorial"></a>심층 살펴보기: ASP.NET Core 웹 앱 자습서
+## <a name="deep-dive-aspnet-core-web-app-tutorial"></a>심층 살펴보기: ASP.NET Core 웹 앱 자습서
 
 이 ASP.NET Core 자습서를 사용 하 여 사용자를 로그인 하는 다른 방법에 대해 알아봅니다. 
 
@@ -51,7 +58,7 @@ ms.locfileid: "76701538"
 - [Azure AD B2C](https://aka.ms/aadb2c)
 - 국가별 클라우드
 
-### <a name="sample-code-java-web-app"></a>샘플 코드: Java 웹 앱
+## <a name="sample-code-java-web-app"></a>샘플 코드: Java 웹 앱
 
 GitHub에서이 샘플의 Java 웹 앱에 대해 자세히 알아보세요. 
 

@@ -3,23 +3,21 @@ title: Azure 트래픽 분석 | Microsoft Docs
 description: 트래픽 분석을 사용하여 Azure 네트워크 보안 그룹 흐름 로그를 분석하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/15/2018
-ms.author: kumud
+ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: 91fb4551f4651f44a1f7358951c5d4cc0ff70644
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: 6cec7c813b0723ac770da6ebd04f4d2cf26a1409
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907149"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840590"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -85,7 +83,7 @@ Azure 가상 네트워크에는 NSG 흐름 로그가 있으며, 이 로그는 �
 * 인도 남부
 * 일본 동부 
 * 일본 서부
-* 미국 정부 버지니아
+* US Gov 버지니아
 * 중국 동부 2
 
 ## <a name="supported-regions-log-analytics-workspaces"></a>지원 되는 지역: Log Analytics 작업 영역
@@ -114,10 +112,10 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * 한국 중부
 * 인도 중부
 * 일본 동부
-* 미국 정부 버지니아
+* US Gov 버지니아
 * 중국 동부 2
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
@@ -125,10 +123,10 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 |배포 모델   | 역할                   |
 |---------          |---------               |
-|리소스 관리자   | 소유자                  |
-|                   | 참여자            |
-|                   | 읽기 권한자                 |
-|                   | 네트워크 참여자    |
+|Resource Manager   | 소유자                  |
+|                   | 참가자            |
+|                   | 판독기                 |
+|                   | 네트워크 참가자    |
 
 계정이 기본 제공 역할 중 하나에 할당되지 않은 경우 구독 수준에서 다음 작업이 할당된 [사용자 지정 역할](../role-based-access-control/custom-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)에 할당되어야 합니다.
 
@@ -189,7 +187,7 @@ New-AzStorageAccount `
 > [!IMPORTANT]
 > 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.
 
-5. *트래픽 분석 상태*를 **켜기**로 선택합니다.
+5. **트래픽 분석 상태**를 *켜기*로 선택합니다.
 6. 처리 간격을 선택 합니다. 선택한 내용에 따라 흐름 로그는 저장소 계정에서 수집 되 고 트래픽 분석에 의해 처리 됩니다. 1 시간 마다 또는 10 분 마다 처리 간격을 선택할 수 있습니다. 
 7. 기존 Log Analytics(OMS) 작업 영역을 선택하거나 **새 작업 영역 만들기**를 클릭하여 새로 만듭니다. Log Analytics 작업 영역은 트래픽 분석에서 집계 및 인덱싱된 데이터를 저장하는 데 사용되며, 이 데이터는 분석을 생성하는 데 사용됩니다. 기존 작업 영역을 선택하는 경우 해당 작업 영역이 [지원되는 지역](#supported-regions-log-analytics-workspaces) 중 하나에 있어야 하고 새 쿼리 언어로 업그레이드되어야 합니다. 기존 작업 영역을 업그레이드하지 않으려면 또는 지원되는 지역에 작업 영역이 없으면 새로 만듭니다. 쿼리 언어에 대한 자세한 내용은 [새 로그 검색으로 Azure Log Analytics 업그레이드](../log-analytics/log-analytics-log-search-upgrade.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조하세요.
 
@@ -206,7 +204,7 @@ Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.net
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
-포털의 왼쪽에서 **모든 서비스**를 선택한 다음, *필터* 상자에 **모니터**를 입력합니다. 검색 결과에 **모니터**가 표시되면 모니터를 선택합니다. 트래픽 분석 및 그 기능을 탐색하려면 **Network Watcher**, **트래픽 분석**을 차례로 선택합니다.
+포털의 왼쪽에서 **모든 서비스**를 선택한 다음, **필터** 상자에 *모니터*를 입력합니다. 검색 결과에 **모니터**가 표시되면 모니터를 선택합니다. 트래픽 분석 및 그 기능을 탐색하려면 **Network Watcher**, **트래픽 분석**을 차례로 선택합니다.
 
 ![트래픽 분석 대시보드에 액세스](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 
@@ -294,7 +292,7 @@ Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.net
 
     ![트래픽 분포를 보여주는 대시보드](./media/traffic-analytics/dashboard-showcasing-traffic-distribution.png)
 
-- 지역 지도에는 데이터 센터 (배포 됨/배포 안 함/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 및 활성에 대해 무해/악성 트래픽을 기여 하는 국가/지역 등의 매개 변수를 선택할 수 있는 위쪽 리본 메뉴가 표시 됩니다. 배포가
+- 지역 지도에는 데이터 센터 (배포 됨/배포 안 함/활성/비활성/트래픽 분석 사용/트래픽 분석 사용 안 함) 및 활성 배포에 대 한 무해/악성 트래픽을 기여 하는 국가/지역 등의 매개 변수를 선택할 수 있는 최상위 리본 메뉴가 표시 됩니다.
 
     ![활성 배포를 표시하는 지역 지도 보기](./media/traffic-analytics/geo-map-view-showcasing-active-deployment.png)
 
@@ -382,7 +380,7 @@ Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.net
 
     ![로그 검색의 상위 NSG 규칙 통계 세부 정보](./media/traffic-analytics/top-nsg-rules-statistics-details-in-log-search.png)
 
-## <a name="frequently-asked-questions"></a>질문과 대답
+## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
 
 자주 묻는 질문에 대한 답변은 [트래픽 분석 FAQ](traffic-analytics-faq.md)를 참조하세요.
 

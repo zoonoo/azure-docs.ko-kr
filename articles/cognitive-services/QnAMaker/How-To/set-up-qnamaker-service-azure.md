@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/13/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: ec19f4b4140fb6f4a1dc968f4e2cac3c3d7a1e76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dc3bb6882963205e17e37f52ec9dcdffecdf9e21
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75447705"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843199"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -116,9 +116,37 @@ QnA Maker는 여러 Azure 리소스를 만듭니다. 관리를 줄이고 비용 
 
 [App service](../../../app-service/index.yml) 및 [Search 서비스](../../../search/index.yml)에 대해 자세히 알아보세요.
 
-### <a name="using-a-single-search-service"></a>단일 검색 서비스 사용
+## <a name="using-a-single-search-service"></a>단일 검색 서비스 사용
 
 포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
+
+Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우 모든 리소스를 만들고 기존 검색 서비스를 사용 하는 App Service 만들기를 제어할 수 있습니다.
+
+
+## <a name="configure-qna-maker-to-use-different-cognitive-search-resource"></a>다른 Cognitive Search 리소스를 사용 하도록 QnA Maker 구성
+
+포털을 통해 QnA 서비스 및 해당 종속성 (예: 검색)을 만드는 경우 검색 서비스가 만들어지고 QnA Maker 서비스에 연결 됩니다. 이러한 리소스를 만든 후 이전에 기존 검색 서비스를 사용 하도록 App Service 설정을 업데이트 하 고 방금 만든 검색 서비스를 제거할 수 있습니다.
+
+QnA Maker의 **App Service** 리소스는 Cognitive Search 리소스를 사용 합니다. QnA Maker에서 사용 하는 Cognitive Search 리소스를 변경 하려면 Azure Portal에서 설정을 변경 해야 합니다.
+
+1. 사용할 QnA Maker Cognitive Search 리소스의 **관리자 키** 와 **이름을** 가져옵니다.
+
+1. [Azure Portal](https://portal.azure.com) 에 로그인 하 고 QnA Maker 리소스와 연결 된 **App Service** 를 찾습니다. 둘 다 동일한 이름을 갖습니다.
+
+1. **설정**, **구성**을 차례로 선택 합니다. 그러면 QnA Maker의 App Service에 대 한 모든 기존 설정이 표시 됩니다.
+
+    > [!div class="mx-imgBorder"]
+    > App Service 구성 설정을 보여 주는 Azure Portal 스크린샷 ![](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+
+1. 다음 키에 대 한 값을 변경 합니다.
+
+    * **AzureSearchAdminKey**
+    * **AzureSearchName**
+
+1. 새 설정을 사용 하려면 App service를 다시 시작 해야 합니다. **개요**를 선택한 다음 **다시 시작**을 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > 구성 설정이 변경 된 후 App Service 다시 시작 하 Azure Portal의 스크린샷 ![](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우 모든 리소스를 만들고 기존 검색 서비스를 사용 하는 App Service 만들기를 제어할 수 있습니다.
 

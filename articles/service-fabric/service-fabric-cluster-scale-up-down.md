@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: ef7d4c3d3d48bed790851834d848f05060243636
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 42193ee06eda3f1d8c56b4db3251763b9dc52076
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451951"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774457"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -101,7 +101,7 @@ Service fabric 시스템 서비스는 클러스터의 주 노드 형식에서 �
 클러스터의 노드를 업그레이드 도메인과 장애 도메인 전체에 고르게 분산하여 균등하게 사용하려면 가장 최근에 생성된 노드를 먼저 제거해야 합니다. 즉, 노드는 생성된 순서의 역순으로 제거되어야 합니다. 가장 최근에 생성된 노드는 `virtual machine scale set InstanceId` 속성 값이 최대인 노드입니다. 아래 코드 예제에는 가장 최근에 생성된 노드를 반환합니다.
 
 ```powershell
-Get-ServiceFabricNode | Sort-Object { $_.NodeName.Substring($_.NodeName.LastIndexOf('_') + 1) } -Descending | Select-Object -First 1
+Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
 ```azurecli

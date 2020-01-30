@@ -11,16 +11,16 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3370ec8de0fb49b92c0fb4dd429439e293ad1d8b
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: bc8dbfd315702f666d6b811e855d6bcd99df938e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949877"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836051"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
-Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-directory-b2c-overview-custom.md) 클레임 확인자는 정책 이름, 요청 상관 관계 ID, 사용자 인터페이스 언어 등과 같은 권한 부여 요청에 대 한 컨텍스트 정보를 제공 합니다.
+Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](custom-policy-overview.md) 클레임 확인자는 정책 이름, 요청 상관 관계 ID, 사용자 인터페이스 언어 등과 같은 권한 부여 요청에 대 한 컨텍스트 정보를 제공 합니다.
 
 입력 또는 출력 클레임에서 클레임 해결 프로그램을 사용하려면 [ClaimsSchema](claimsschema.md) 요소 아래에서 **ClaimType** 문자열을 정의한 후 입력 또는 출력 클레임 요소의 클레임 해결 프로그램에 **DefaultValue**를 설정합니다. Azure AD B2C는 클레임 해결 프로그램의 값을 읽고 기술 프로필의 값을 사용합니다.
 
@@ -46,16 +46,16 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 ### <a name="culture"></a>문화권
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------- | --------|
 | {Culture:LanguageName} | 언어에 대한 2자 ISO 코드 | en |
 | {Culture:LCID}   | 언어 코드의 LCID | 1033 |
 | {Culture:RegionName} | 지역에 대한 2자 ISO 코드 | 미국 |
-| {Culture:RFC5646} | RFC5646 언어 코드 | en-US |
+| {Culture:RFC5646} | RFC5646 언어 코드 | ko-KR |
 
 ### <a name="policy"></a>정책
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------- | --------|
 | {Policy:PolicyId} | 신뢰 당사자 정책 이름입니다. | B2C_1A_signup_signin |
 | {Policy:RelyingPartyTenantId} | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
@@ -64,7 +64,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 ### <a name="openid-connect"></a>OpenID Connect
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------- | --------|
 | {OIDC:AuthenticationContextReferences} |`acr_values` 쿼리 문자열 매개 변수입니다. | N/A |
 | {OIDC:ClientId} |`client_id` 쿼리 문자열 매개 변수입니다. | 00000000-0000-0000-0000-000000000000 |
@@ -78,7 +78,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 ### <a name="context"></a>Context
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------- | --------|
 | {Context:BuildNumber} | ID 경험 프레임워크 버전(빌드 번호)입니다.  | 1.0.507.0 |
 | {Context:CorrelationId} | 상관관계 ID입니다.  | 00000000-0000-0000-0000-000000000000 |
@@ -91,7 +91,7 @@ Azure Active Directory B2C (Azure AD B2C) [사용자 지정 정책의](active-di
 
 OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 사용자 경험에서 클레임에 매핑될 수 있습니다. 예를 들어, 애플리케이션의 요청에는 이름이 `app_session`, `loyalty_number` 또는 사용자 지정 쿼리 문자열인 쿼리 문자열 매개 변수가 포함될 수 있습니다.
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------------------- | --------|
 | {OAUTH-KV:campaignId} | 쿼리 문자열 매개 변수입니다. | hawaii |
 | {OAUTH-KV:app_session} | 쿼리 문자열 매개 변수입니다. | A3C5R |
@@ -100,7 +100,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="oauth2"></a>OAuth2
 
-| 클레임 | 설명 | 예제 |
+| 클레임 | Description | 예 |
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 액세스 토큰 | N/A |
 
@@ -137,9 +137,9 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="dynamic-ui-customization"></a>동적 UI 사용자 지정
 
-Azure AD B2C를 사용하면 페이지 콘텐츠를 동적으로 렌더링할 수 있도록 HTML 콘텐츠 정의 엔드포인트에 쿼리 문자열 매개 변수를 전달할 수 있습니다. 예를 들어, 웹 또는 모바일 애플리케이션에서 전달한 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](active-directory-b2c-ui-customization-custom-dynamic.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
+Azure AD B2C를 사용하면 페이지 콘텐츠를 동적으로 렌더링할 수 있도록 HTML 콘텐츠 정의 엔드포인트에 쿼리 문자열 매개 변수를 전달할 수 있습니다. 예를 들어, 웹 또는 모바일 애플리케이션에서 전달한 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
-다음 예제는 쿼리 문자열에 이름이 **campaignId**이고 `hawaii` 값, `en-US` **언어** 코드 및 클라이언트 ID를 나타내는 **app**이 포함된 매개 변수를 전달합니다.
+다음 예제는 쿼리 문자열에 이름이 **campaignId**이고 `hawaii` 값, `en-US`**언어** 코드 및 클라이언트 ID를 나타내는 **app**이 포함된 매개 변수를 전달합니다.
 
 ```XML
 <UserJourneyBehaviors>
@@ -159,7 +159,7 @@ Azure AD B2C를 사용하면 페이지 콘텐츠를 동적으로 렌더링할 �
 
 ### <a name="application-insights-technical-profile"></a>Application Insights 기술 프로필
 
-Azure Application Insights 및 클레임 해결 프로그램을 사용하면 사용자 동작에 대한 인사이트를 얻을 수 있습니다. Application Insights 기술 프로필에서 Azure Application Insights에 지속되는 입력 클레임을 보냅니다. 자세한 내용은 [Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적](active-directory-b2c-custom-guide-eventlogger-appins.md)을 참조하세요. 다음 예는 정책 ID, 상관 관계 ID, 언어 및 클라이언트 ID를 Azure Application Insights에 보냅니다.
+Azure Application Insights 및 클레임 해결 프로그램을 사용하면 사용자 동작에 대한 인사이트를 얻을 수 있습니다. Application Insights 기술 프로필에서 Azure Application Insights에 지속되는 입력 클레임을 보냅니다. 자세한 내용은 [Application Insights를 사용하여 Azure AD B2C 경험의 사용자 동작 추적](analytics-with-application-insights.md)을 참조하세요. 다음 예는 정책 ID, 상관 관계 ID, 언어 및 클라이언트 ID를 Azure Application Insights에 보냅니다.
 
 ```XML
 <TechnicalProfile Id="AzureInsights-Common">

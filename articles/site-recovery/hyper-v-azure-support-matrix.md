@@ -5,14 +5,14 @@ author: rayne-wiselman
 manager: carmonm
 ms.service: site-recovery
 ms.topic: conceptual
-ms.date: 1/10/2020
+ms.date: 1/27/2020
 ms.author: raynew
-ms.openlocfilehash: bfa3f592ca799b71bef7c7f9409864026f6c8d6a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d4409fe61bfe1f0a9fe74171f5b1ec471b9a6a26
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863896"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774434"
 ---
 # <a name="support-matrix-for-disaster-recovery-of-on-premises-hyper-v-vms-to-azure"></a>온-프레미스 Hyper-V VM과 Azure 간 재해 복구를 위한 지원 매트릭스
 
@@ -33,7 +33,7 @@ Hyper-V(Virtual Machine Manager 없음) | Virtual Machine Manager에서 관리�
 **Server** | **요구 사항** | **세부 정보**
 --- | --- | ---
 Hyper-V(Virtual Machine Manager 없이 실행 중) |  Windows Server 2019, Windows Server 2016 (server core 설치 포함), 최신 업데이트가 포함 된 Windows Server 2012 R2 | Azure Site Recovery 및 플랜을 사용하여 Windows Server 2012 R2 또는 SCVMM 2012 R2를 이미 구성했고 OS를 업그레이드할 계획이라면 지침 [설명서](upgrade-2012R2-to-2016.md)를 따르세요. 
-Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.<br/><br/>
+Hyper-V(Virtual Machine Manager로 실행 중) | Virtual Machine Manager 2019, Virtual Machine Manager 2016, Virtual Machine Manager 2012 R2 | Virtual Machine Manager 사용 하는 경우 Virtual Machine Manager 2019에서 Windows Server 2019 호스트를 관리 해야 합니다. 마찬가지로, Windows Server 2016 호스트는 Virtual Machine Manager 2016에서 관리 되어야 합니다.<br/><br/> 참고: Windows Server 2019 호스트의 경우 대체 위치로 장애 복구 (Failback)가 지원 되지 않습니다.
 
 
 ## <a name="replicated-vms"></a>복제된 VM
@@ -51,8 +51,8 @@ VM 구성 | Azure로 복제하는 VM은 [Azure 요구 사항](#azure-vm-requirem
 
 **동작** | **세부 정보**
 --- | ---
-복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
-복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용하지 않도록 설정하고, 변경 작업을 수행하고, VM에 복제를 다시 사용하도록 설정.
+복제된 Hyper-V VM에서 디스크 크기 조정 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
+복제된 Hyper-V VM에서 디스크 추가 | 지원되지 않습니다. 복제를 사용 하지 않도록 설정 하 고, 변경 하 고, VM에 대 한 복제를 다시 사용 하도록 설정 합니다.
 
 ## <a name="hyper-v-network-configuration"></a>Hyper-V 네트워크 구성
 
@@ -111,7 +111,7 @@ SMB 3.0 | 아닙니다. | 아닙니다.
 RDM | 해당 없음 | 해당 없음
 디스크 1TB 이상 | 예, 최대 4,095GB | 예, 최대 4,095GB
 디스크: 4K 논리/실제 섹터 | 미지원: 1세대/2세대 | 미지원: 1세대/2세대
-디스크: 4K 논리/512바이트 물리 섹터 | 예 |  예
+디스크: 4K 논리 및 512 바이트 실제 섹터 | 예 |  예
 논리 볼륨 관리(LVM)입니다. LVM은 데이터 디스크에서만 지원됩니다. Azure는 단일 OS 디스크만 제공합니다. | 예 | 예
 스트라이프 디스크 포함 볼륨 1TB 이상 | 예 | 예
 스토리지 공간 | 아닙니다. | 아닙니다.
@@ -133,8 +133,8 @@ RDM | 해당 없음 | 해당 없음
 미사용 암호화 (CMK) <br></br> (관리 디스크에 대 한 장애 조치 (failover)에만 해당)| 예 (PowerShell Az 3.3.0 모듈을 통해) | 예 (PowerShell Az 3.3.0 모듈을 통해)
 프리미엄 스토리지 | 예 | 예
 Import/Export 서비스 | 아닙니다. | 아닙니다.
-방화벽이 설정 된 Azure storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
-저장소 계정 수정 | 아닙니다. 복제를 사용 하도록 설정한 후에는 대상 Azure storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 활성화 합니다. | 아닙니다.
+방화벽이 설정 된 Azure Storage 계정 | 예. 대상 저장소 및 캐시 | 예. 대상 저장소 및 캐시
+저장소 계정 수정 | 아닙니다. 복제를 사용 하도록 설정한 후에는 대상 Azure Storage 계정을 수정할 수 없습니다. 수정 하려면 재해 복구를 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 합니다. | 아닙니다.
 
 
 ## <a name="azure-compute-features"></a>Azure 컴퓨팅 기능

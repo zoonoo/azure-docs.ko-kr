@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 1ecbca99a65d99cc3b8d842a7b61d858398a80ff
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a03bc24b689df342be40536c26149a7611fc5176
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74885707"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773640"
 ---
 # <a name="managing-media-services-entities-with-rest"></a>REST를 사용하여 Media Services 엔터티 관리  
 
 > [!div class="op_single_selector"]
-> * [REST](media-services-rest-manage-entities.md)
+> * [REST (영문)](media-services-rest-manage-entities.md)
 > * [.NET](media-services-dotnet-manage-entities.md)
 > 
 > 
@@ -34,7 +34,7 @@ Microsoft Azure Media Services는 OData v3에 빌드된 REST 기반 서비스입
 이 항목에서는 REST를 사용하여 Azure Media Services 엔터티를 관리하는 방법을 보여 줍니다.
 
 >[!NOTE]
-> 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일 보다 오래된 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
+> 2017년 4월 1일부터 레코드의 총 수가 최고 할당량 미만인 경우에도 사용자 계정에 있는 90일이 지난 작업 레코드는 연결된 태스크 레코드와 함께 자동으로 삭제됩니다. 예를 들어, 2017년 4월 1일에는 계정에 있는 2016년 12월 31일 이전의 모든 작업 레코드가 자동으로 삭제됩니다. 작업/태스크 정보를 보관해야 하는 경우에는 이 항목에 설명된 코드를 사용할 수 있습니다.
 
 ## <a name="considerations"></a>고려 사항  
 
@@ -54,7 +54,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
     Content-Length: 74
@@ -71,7 +71,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -82,7 +82,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -91,7 +91,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -102,7 +102,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -113,7 +113,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -132,7 +132,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
 
@@ -146,7 +146,7 @@ Media Services의 모든 엔터티는 POST HTTP 요청을 통해 Assets와 같�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 21
@@ -164,7 +164,7 @@ File Storage에 대한 가용성 섹션을 확인하세요.
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: media.windows.net
     Content-Length: 0

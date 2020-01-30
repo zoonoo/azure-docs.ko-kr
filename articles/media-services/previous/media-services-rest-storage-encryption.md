@@ -14,17 +14,17 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 30ac6a94142c9b9d987fb3fd32b3483cc6dc130c
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 2a5ef1837375cc395a871f9a9860fa8bde572a94
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64867586"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773596"
 ---
 # <a name="encrypting-your-content-with-storage-encryption"></a>스토리지 암호화로 콘텐츠 암호화 
 
 > [!NOTE]
-> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > Media Services v2 없는 새로운 특징 또는 기능은 추가 됩니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 참고: [v2에서 v3 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md)
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >   
 
 AES-256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로컬에서 암호화한 다음 암호화된 상태로 저장할 Azure Storage에 이를 업로드하는 것이 좋습니다.
@@ -46,15 +46,15 @@ Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체�
 
 ### <a name="storage-side-encryption"></a>스토리지 쪽 암호화
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 키 관리|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|지원됨|
-|[스토리지 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|지원되지 않음|
+|[스토리지 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원하지 않음|지원하지 않음|
 
 <sup>1</sup> Media Services가 깨끗한/어떠한 형태의 암호화도 없는 콘텐츠 처리를 지원하기는 하지만, 그렇게 하지 않는 것이 좋습니다.
 
-<sup>2</sup> Media Services v3에서 스토리지 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 스토리지 암호화된 자산과 작동하지만 새로 만들기를 허용하지는 않습니다.
+<sup>2</sup> Media Services v3에서 스토리지 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 스토리지 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
 
 ## <a name="connect-to-media-services"></a>Media Services에 연결
 
@@ -113,14 +113,14 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
 
     스토리지 암호화를 위해 다음 속성을 요청 본문에 포함해야 합니다.
 
-    요청 본문 속성    | 설명
+    요청 본문 속성    | Description
     ---|---
-    Id | ContentKey ID는 다음 형식을 사용 하 여 생성 됩니다 "nb:kid:UUID:\<새 GUID >"입니다.
+    Id | ContentKey ID는 "nb: kid: UUID:\<새 GUID >" 형식을 사용 하 여 생성 됩니다.
     ContentKeyType | 콘텐츠 키 형식은 키를 정의하는 정수입니다. 스토리지 암호화 형식에서 값은 1입니다.
     EncryptedContentKey | 256비트(32바이트) 값인 새 콘텐츠 키 값을 만듭니다. GetProtectionKeyId 및 GetProtectionKey 메서드에 대한 HTTP GET 요청을 실행하여 Microsoft Azure Media Services에서 검색하는 스토리지 암호화 X.509 인증서를 사용하여 키를 암호화합니다. .NET 코드에 대한 예제로, **여기** 에 정의된 [EncryptSymmetricKeyData](https://github.com/Azure/azure-sdk-for-media-services/blob/dev/src/net/Client/Common/Common.FileEncryption/EncryptionUtils.cs)메서드를 참조하세요.
     ProtectionKeyId | 콘텐츠 키를 암호화하는 데 사용한 스토리지 암호화 X.509 인증서에 대한 보호 키 ID입니다.
     ProtectionKeyType | 콘텐츠 키를 암호화하는 데 사용한 보호 키에 대한 암호화 형식입니다. 이 값은 예제에서 StorageEncryption(1)입니다.
-    Checksum |콘텐츠 키에 대한 MD5 계산 된 체크섬입니다. 콘텐츠 키로 콘텐츠 ID를 암호화하여 계산합니다. 예제 코드는 체크섬을 계산하는 방법을 보여줍니다.
+    체크섬 |콘텐츠 키에 대한 MD5 계산 된 체크섬입니다. 콘텐츠 키로 콘텐츠 ID를 암호화하여 계산합니다. 예제 코드는 체크섬을 계산하는 방법을 보여줍니다.
 
 
 ### <a name="retrieve-the-protectionkeyid"></a>ProtectionKeyId 검색
@@ -134,7 +134,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 응답:
@@ -165,7 +165,7 @@ AES 256비트 암호화를 사용하여 암호화되지 않은 콘텐츠를 로�
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 78d1247a-58d7-40e5-96cc-70ff0dfa7382
     Host: media.windows.net
 
@@ -193,7 +193,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
 
 콘텐츠 키를 만들 때 설정해야 하는 값 중 하나가 이 유형입니다. 스토리지 암호화를 사용할 때 값은 '1'로 설정해야 합니다. 
 
-다음 예제에서는 저장소 암호화("1")에 대해 설정된 **ContentKeyType**과 "0"으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
+다음 예제에서는 스토리지 암호화(&quot;1&quot;)에 대해 설정된 **ContentKeyType**과 &quot;0&quot;으로 설정된 **ProtectionKeyType**으로 **ContentKey**를 만들어서 보호 키 ID가 X.509 인증서 지문임을 나타내는 방법을 보여줍니다.  
 
 요청
 
@@ -205,7 +205,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     {
     "Name":"ContentKey",
@@ -254,7 +254,7 @@ X.509 인증서를 검색한 다음 이 인증서의 공개 키를 사용하여 
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"Name":"BigBuckBunny" "Options":1}
@@ -301,7 +301,7 @@ ContentKey를 만든 후 다음 예제와 같이 $links 작업을 사용하여 �
     Accept-Charset: UTF-8
     Content-Type: application/json
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
     {"uri":"https://wamsbayclus001rest-hs.cloudapp.net/api/ContentKeys('nb%3Akid%3AUUID%3A01e6ea36-2285-4562-91f1-82c45736047c')"}
@@ -326,7 +326,7 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드하면 **MERGE** HTT
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
     Content-Length: 164
 

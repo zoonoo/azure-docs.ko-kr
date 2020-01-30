@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: nodejs
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: b849db465bb9a30456e9f93f9439c53cb26c9e52
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: 0f94ae4a4b5ad7806658c4ae54146d4ac940750e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480184"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771306"
 ---
 # <a name="azure-cosmos-db-table-api-for-nodejs-release-notes-and-resources"></a>Node.js용 Azure Cosmos DB Table API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -44,7 +44,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 새로운 기능 및 최적화는 현재 SDK에만 추가되어 있으며, 따라서 항상 최신 SDK 버전으로 가능한 한 빨리 업그레이드할 것을 권장합니다. 
 
-| Version | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |2017년 11월 15일 |--- |
 

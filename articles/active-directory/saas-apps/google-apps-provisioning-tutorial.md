@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d754964ac6c16c87e6f0825b4f1a955d38fa3530
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756231"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841253"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
@@ -209,6 +209,7 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 ## <a name="common-issues"></a>일반 문제
 * 권한 부여 오류는 GSuite의 관리자에 대 한 연결을 설정 하는 데 사용 되는 계정이 아닌 경우에 발생할 수 있습니다. 액세스 권한을 부여 하는 데 사용 되는 계정에 사용자가 프로 비전 해야 하는 **모든 도메인** 에 대 한 관리자 권한이 있는지 확인 합니다. 
+* Azure AD는 응용 프로그램에 액세스할 수 없도록 GSuite의 사용자 비활성화를 지원 하지만 GSuite의 사용자는 삭제 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

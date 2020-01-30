@@ -1,10 +1,9 @@
 ---
-title: Azure Service Bus의 트랜잭션 처리 개요 | Microsoft Docs
-description: Azure Service Bus 원자성 트랜잭션 및 send via에 대한 개요
+title: Azure Service Bus에서 트랜잭션 처리 개요
+description: 이 문서에서는 Azure Service Bus의 트랜잭션 처리 및 전송 via 기능에 대 한 개요를 제공 합니다.
 services: service-bus-messaging
 documentationcenter: .net
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: 64449247-1026-44ba-b15a-9610f9385ed8
 ms.service: service-bus-messaging
@@ -12,18 +11,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 09/22/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: a839a4cad824a74bde388317cf3aaddf9c5bd47f
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 22744ecbced40b3195f4d047227b1e2a37228102
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332349"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774515"
 ---
 # <a name="overview-of-service-bus-transaction-processing"></a>Service Bus 트랜잭션 처리의 개요
 
-이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 대부분의 토론에 나온은 [Service Bus 샘플을 사용 하 여 AMQP 트랜잭션을](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)합니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
+이 문서에서는 Microsoft Azure Service Bus의 트랜잭션 기능을 설명합니다. 설명의 대부분은 [Service Bus 샘플을 사용 하는 Amqp 트랜잭션에](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)설명 되어 있습니다. 이 문서는 트래잭션 처리에 대한 개요와 Service Bus의 *send via* 기능으로 제한되며 원자적 트랜잭선 샘플의 범위는 훨씬 광범위하고 더 복잡합니다.
 
 ## <a name="transactions-in-service-bus"></a>Service Bus의 트랜잭션
 
@@ -52,7 +51,7 @@ Service Bus는 트랜잭션 범위 내에서 단일 메시징 엔터티(큐, 토
 
 ### <a name="see-it-in-code"></a>실제 코드 엿보기
 
-이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예를 들면 다음과 같습니다.
+이러한 전송을 설정하기 위해 전송 큐를 통해 대상 큐를 목표로 하는 메시지 보낸 사람을 생성합니다. 또한 같은 큐에서 메시지를 풀링하는 수신기가 있을 수도 있습니다. 예:
 
 ```csharp
 var connection = new ServiceBusConnection(connectionString);
@@ -61,7 +60,7 @@ var sender = new MessageSender(connection, QueueName);
 var receiver = new MessageReceiver(connection, QueueName);
 ```
 
-간단한 트랜잭션이 이러한 요소를 다음 예제와 같이 사용합니다. 전체 예제를 참조 하려면 참조는 [GitHub에서 코드를 소스](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia):
+다음 예제와 같이 단순 트랜잭션은 이러한 요소를 사용 합니다. 전체 예제를 참조 하려면 [GitHub의 소스 코드](https://github.com/Azure/azure-service-bus/tree/master/samples/DotNet/Microsoft.Azure.ServiceBus/TransactionsAndSendVia/TransactionsAndSendVia/AMQPTransactionsSendVia)를 참조 하세요.
 
 ```csharp
 var receivedMessage = await receiver.ReceiveAsync();

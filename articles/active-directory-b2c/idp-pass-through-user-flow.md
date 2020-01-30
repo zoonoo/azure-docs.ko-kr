@@ -11,20 +11,20 @@ ms.topic: conceptual
 ms.date: 08/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 345924c10feabe9a7d5f50905689a4a0edb065ce
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 25a8181d404091064c26407c98fe31465cd4f4b3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948814"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838958"
 ---
 # <a name="pass-an-access-token-through-a-user-flow-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 흐름 통과
 
-Azure Active Directory B2C (Azure AD B2C) [사용자 흐름](active-directory-b2c-reference-policies.md) 은 응용 프로그램 사용자에 게 id 공급자를 등록 하거나 로그인 할 수 있는 기회를 제공 합니다. 이 과정이 시작되면 Azure AD B2C는 ID 공급자로부터 [액세스 토큰](active-directory-b2c-reference-tokens.md)을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자는 Azure AD B2C에서 등록한 애플리케이션으로 토큰이 통과되도록 사용자 흐름에서 클레임을 활성화합니다.
+Azure Active Directory B2C (Azure AD B2C) [사용자 흐름](user-flow-overview.md) 은 응용 프로그램 사용자에 게 id 공급자를 등록 하거나 로그인 할 수 있는 기회를 제공 합니다. 이 과정이 시작되면 Azure AD B2C는 ID 공급자로부터 [액세스 토큰](tokens-overview.md)을 받습니다. Azure AD B2C는 이 토큰을 사용하여 해당 사용자에 대한 정보를 검색합니다. 사용자는 Azure AD B2C에서 등록한 애플리케이션으로 토큰이 통과되도록 사용자 흐름에서 클레임을 활성화합니다.
 
-Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Google](active-directory-b2c-setup-goog-app.md)이 포함된 [OAuth 2.0](active-directory-b2c-reference-oauth-code.md) ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
+Azure AD B2C는 현재 [Facebook](identity-provider-facebook.md) 및 [Google](identity-provider-google.md)이 포함된 [OAuth 2.0](authorization-code-flow.md) ID 공급자의 액세스 토큰 통과만 지원합니다. 다른 모든 ID 공급자에 대한 클레임은 빈 상태로 반환됩니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * 애플리케이션에서 [v2 사용자 흐름](user-flow-versions.md)을 사용하고 있어야 합니다.
 * 사용자 흐름은 OAuth 2.0 ID 공급자를 사용하여 구성됩니다.
@@ -47,7 +47,7 @@ Azure AD B2C는 현재 [Facebook](active-directory-b2c-setup-fb-app.md) 및 [Goo
 Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레임을 검토하기 위해 Azure AD B2C 토큰이 `https://jwt.ms`로 반환되도록 하는 것이 유용할 수 있습니다.
 
 1. 사용자 흐름의 개요 페이지에서 **사용자 흐름 실행**을 선택합니다.
-2. **애플리케이션**의 경우 사용자가 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL**에서 `https://jwt.ms`가 표시되어야 합니다.
+2. **애플리케이션**은 이전에 등록한 애플리케이션을 선택합니다. 아래 예제에서 토큰을 보려면 **회신 URL**에서 `https://jwt.ms`가 표시되어야 합니다.
 3. **사용자 흐름 실행**을 클릭한 다음, 계정 자격 증명으로 로그인합니다. **idp_access_token** 클레임에 ID 공급자의 액세스 토큰이 표시되어야 합니다.
 
     다음 예제와 비슷한 내용이 표시됩니다.
@@ -56,4 +56,4 @@ Azure AD B2C에서 애플리케이션을 테스트하는 경우 포함된 클레
 
 ## <a name="next-steps"></a>다음 단계
 
-[Azure AD B2C 토큰 개요](active-directory-b2c-reference-tokens.md)에서 자세히 알아보세요.
+[Azure AD B2C 토큰 개요](tokens-overview.md)에서 자세히 알아보세요.

@@ -16,16 +16,16 @@ ms.workload: na
 ms.date: 09/19/2018
 ms.author: terrylan
 Customer intent: As an IT Pro or decision maker I am trying to learn about identity management capabilities in Azure
-ms.openlocfilehash: 021767aa20dc35459c68fead674ff00510af2538
-ms.sourcegitcommit: 07700392dd52071f31f0571ec847925e467d6795
+ms.openlocfilehash: cdf07c6a4cb98f17a9bc15934a7be42ba70810f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70129371"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840454"
 ---
 # <a name="azure-identity-management-security-overview"></a>Azure ID 관리 보안 개요
 
- ID 관리는 [보안 주체](/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체(ID)에는 서비스, 애플리케이션, 사용자, 그룹 등이 있습니다. Microsoft ID 및 액세스 관리 솔루션은 IT가 클라우드 및 회사 데이터 센터에서 애플리케이션 및 리소스에 대한 액세스를 보호하도록 도움을 줍니다. 이러한 보호를 통해 Multi-Factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
+ ID 관리는 [보안 주체](/windows/security/identity-protection/access-control/security-principals)를 인증하고 권한을 부여하는 프로세스입니다. 해당 주체(ID)에 대한 정보를 제어하는 작업도 포함됩니다. 보안 주체 (id)에는 서비스, 응용 프로그램, 사용자, 그룹 등이 포함 될 수 있습니다. Microsoft id 및 액세스 관리 솔루션을 사용 하면 회사 데이터 센터와 클라우드 간에 응용 프로그램 및 리소스에 대 한 액세스를 보호할 수 있습니다. 이러한 보호를 통해 Multi-Factor Authentication 및 조건부 액세스 정책과 같은 추가 수준의 유효성 검사를 수행할 수 있습니다. 고급 보안 보고, 감사 및 경고를 통해 의심스러운 작업을 모니터링하여 잠재적인 보안 문제를 완화시킵니다. [Azure Active Directory Premium](/azure/active-directory/active-directory-editions) 은 수천 개의 클라우드 SaaS(software as a service) 앱에 SSO(Single Sign-On)을 제공하고 온-프레미스를 실행하는 웹앱에 액세스를 제공합니다.
  
 Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수행할 수 있습니다.
 
@@ -40,12 +40,12 @@ Azure AD(Azure Active Directory)의 보안 이점을 활용하여 다음을 수�
 
 * Single Sign-On
 * 역방향 프록시
-* Multi-Factor Authentication
+* 다중 인증(Multi-Factor Authentification)
 * RBAC(역할 기반 액세스 제어)
 * 보안 모니터링, 경고 및 기계 학습 기반 보고서
 * 소비자 ID 및 액세스 관리
 * 디바이스 등록
-* Privileged Identity Management
+* 권한 있는 ID 관리
 * ID 보호
 * 하이브리드 ID 관리/Azure AD Connect
 * Azure AD 액세스 검토
@@ -60,7 +60,7 @@ Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장�
 
 사용자는 여러 사용자 이름과 암호 집합을 관리할 필요가 없을 뿐만 아니라, 해당 조직 그룹 및 직원 상태에 따라 애플리케이션 액세스를 자동으로 프로비전하거나 프로비전을 해제할 수 있습니다. Azure AD는 SaaS 애플리케이션에 대한 사용자의 액세스를 중앙에서 관리할 수 있는 보안 및 액세스 관리 제어를 도입했습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Single Sign-On 개요](https://azure.microsoft.com/documentation/videos/overview-of-single-sign-on/)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../../active-directory/manage-apps/what-is-single-sign-on.md)
@@ -70,18 +70,18 @@ Azure AD는 온-프레미스 Active Directory 환경을 클라우드로 확장�
 
 Azure AD 애플리케이션 프록시를 사용하면 [SharePoint](https://support.office.com/article/What-is-SharePoint-97b915e6-651b-43b2-827d-fb25777f446f?ui=en-US&rs=en-US&ad=US) 사이트, [Outlook 웹앱](https://technet.microsoft.com/library/jj657718.aspx), [IIS](https://www.iis.net/) 기반 앱과 같은 온-프레미스 애플리케이션을 프라이빗 네트워크 내에 게시할 수 있으며 네트워크 외부 사용자가 안전하게 액세스할 수 있게 합니다. 애플리케이션 프록시에서는 Azure AD가 지원하는 수천 개의 SaaS 애플리케이션과 함께, 많은 유형의 온-프레미스 웹 애플리케이션에 대한 원격 액세스 및 SSO를 제공합니다. 직원들은 자택에서 개인용 디바이스를 사용하여 앱에 로그인하고 이 클라우드 기반 프록시를 통해 인증할 수 있습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure AD 애플리케이션 프록시 사용](/azure/active-directory/manage-apps/application-proxy-enable)
 * [Azure AD 애플리케이션 프록시를 사용하여 애플리케이션 게시](/azure/active-directory/active-directory-application-proxy-publish)
 * [애플리케이션 프록시를 사용하는 Single Sign-On](../../active-directory/manage-apps/application-proxy-configure-single-sign-on-with-kcd.md)
 * [조건부 액세스 사용](../../active-directory/manage-apps/application-proxy-integrate-with-sharepoint-server.md)
 
-## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
+## <a name="multi-factor-authentication"></a>다중 인증(Multi-Factor Authentification)
 
 Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하고 사용자 로그인 및 트랜잭션에 중요한 제2의 보안 계층을 추가하는 인증 방법입니다. 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다. 전화 통화, 문자 메시지 또는 모바일 앱 알림 또는 확인 코드 및 타사 OAuth 토큰과 같은 다양한 확인 옵션을 통해 강력한 인증을 전달합니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Multi-Factor Authentication](https://azure.microsoft.com/documentation/services/multi-factor-authentication/)
 * [Azure Multi-Factor Authentication 정의](/azure/active-directory/authentication/multi-factor-authentication)
@@ -91,7 +91,7 @@ Azure Multi-Factor Authentication은 1 초과 인증 방법을 사용해야 하�
 
 RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있는 Azure Resource Manager를 기반으로 하는 권한 부여 시스템입니다. RBAC를 사용하면 사용자의 액세스 수준을 세부적으로 제어할 수 있습니다. 예를 들어 어떤 사용자는 가상 네트워크만 관리하도록 제한하고 다른 사용자는 리소스 그룹의 모든 리소스를 관리하도록 제한할 수 있습니다. Azure에는 사용 가능한 기본 제공 역할이 여러 개 있습니다. 다음은 네 가지 기본 제공 역할입니다. 처음 세 개는 모든 리소스 종류에 적용됩니다.
 
-자세한 정보:
+자세히 보기:
 
 * [RBAC(역할 기반 액세스 제어)란?](/azure/role-based-access-control/overview)
 * [Azure 리소스에 대한 기본 제공 역할](/azure/role-based-access-control/built-in-roles)
@@ -103,12 +103,12 @@ RBAC는 Azure의 리소스에 대한 액세스를 세밀하게 관리할 수 있
 Azure Portal에서 보고서는 다음 범주에 속합니다.
 
 * **비정상 보고서**: 비정상으로 확인된 로그인 이벤트를 포함합니다. 이러한 활동을 인식하고 이벤트가 의심스러운지 확인할 수 있게 해 줍니다.
-* **통합 애플리케이션 보고서**: 클라우드 애플리케이션이 조직에서 사용되는 방법에 대한 인사이트를 제공합니다. Azure AD는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
+* **통합 애플리케이션 보고서**: 클라우드 애플리케이션이 조직에서 사용되는 방식을 파악할 수 있게 해 줍니다. Azure AD는 수천 개의 클라우드 애플리케이션과 통합을 제공합니다.
 * **오류 보고서**: 외부 애플리케이션에 계정을 프로비전할 때 발생할 수 있는 오류를 나타냅니다.
 * **사용자별 보고서**: 특정 사용자에 대한 디바이스/로그인 활동 데이터를 표시합니다.
 * **활동 로그**: 최근 24시간, 최근 7일 또는 최근 30일 이내에 감사된 모든 이벤트의 레코드와 그룹 활동 변경 사항, 암호 재설정 및 등록 활동이 포함됩니다.
 
-자세한 정보:
+자세히 보기:
 
 * [액세스 및 사용 보고서 보기](/azure/active-directory/active-directory-view-access-usage-reports)
 * [Azure Active Directory Reporting 시작하기](/azure/active-directory/active-directory-reporting-getting-started)
@@ -122,11 +122,11 @@ Azure AD B2C는 수억 개의 ID로 확장하는 소비자 지향 애플리케�
 
 Azure AD B2C를 사용하면 소비자는 기존 소셜 계정(Facebook, Google, Amazon, LinkedIn)을 사용하거나 새 자격 증명(이메일 주소 및 암호 또는 사용자 이름 및 암호)을 만들어서 애플리케이션을 등록할 수 있습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure Active Directory B2C란?](https://azure.microsoft.com/services/active-directory-b2c/)
-* [Azure Active Directory B2C 미리 보기: 애플리케이션에서 소비자 등록 및 로그인](../../active-directory-b2c/active-directory-b2c-overview.md)
-* [Azure Active Directory B2C 미리 보기: 애플리케이션 유형](../../active-directory-b2c/active-directory-b2c-apps.md)
+* [Azure Active Directory B2C 미리 보기: 애플리케이션에 소비자 등록 및 로그인](../../active-directory-b2c/overview.md)
+* [Azure Active Directory B2C 미리 보기: 애플리케이션 유형](../../active-directory-b2c/application-types.md)
 
 ## <a name="device-registration"></a>디바이스 등록
 
@@ -134,13 +134,13 @@ Azure AD device registration은 장치 기반 [조건부 액세스](/azure/activ
 
 Intune과 같은 모바일 디바이스 관리 솔루션과 함께 사용할 경우 Azure AD의 디바이스 특성이 디바이스에 대한 추가 정보로 업데이트됩니다. 그런 다음 보안 및 규정 준수에 대 한 표준을 충족 하도록 장치에서 액세스를 적용 하는 조건부 액세스 규칙을 만들 수 있습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure AD 디바이스 등록 시작](/azure/active-directory/active-directory-conditional-access-device-registration-overview)
 * [Windows 도메인에 가입된 디바이스의 Azure AD 자동 디바이스 등록](/azure/active-directory/active-directory-conditional-access-automatic-device-registration)
 * [Windows 도메인 가입 디바이스에 대한 Azure AD 자동 등록 설정](/azure/active-directory/active-directory-conditional-access-automatic-device-registration-setup)
 
-## <a name="privileged-identity-management"></a>Privileged Identity Management
+## <a name="privileged-identity-management"></a>권한 있는 ID 관리
 
 Azure AD Privileged Identity Management를 사용하여 Azure AD 및 기타 Microsoft 온라인 서비스(Office 365 및 Microsoft Intune 등)에서 권한 있는 ID를 관리, 제어, 모니터링하고 리소스에 액세스할 수 있습니다.
 
@@ -153,7 +153,7 @@ Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 * 관리자 액세스 기록 및 관리자 할당 변경에 대한 보고서를 가져옵니다.
 * 권한 있는 역할의 액세스에 대한 알림을 받을 수 있습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure AD Privileged Identity Management란?](../../active-directory/privileged-identity-management/pim-configure.md)
 * [PIM에서 Azure AD 디렉터리 역할 할당](../../active-directory/privileged-identity-management/pim-how-to-add-role-to-user.md)
@@ -162,10 +162,10 @@ Azure AD Privileged Identity Management로 다음을 수행할 수 있습니다.
 
 Azure AD ID 보호은 조직의 id에 영향을 주는 위험 검색 및 잠재적 취약성에 대 한 통합 보기를 제공 하는 보안 서비스입니다. ID 보호는 Azure AD 비정상 작업 보고서를 통해 사용할 수 있는 기존 Azure AD 변칙 검색 기능을 활용합니다. Id 보호에는 실시간으로 변칙을 검색할 수 있는 새로운 위험 검색 유형도 도입 됩니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure AD ID 보호](/azure/active-directory/identity-protection/overview)
-* [Channel 9: Azure AD 및 ID 쇼: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
+* [Channel 9: Azure AD 및 ID 표시: ID 보호 미리 보기](https://channel9.msdn.com/Series/Azure-AD-Identity/Azure-AD-and-Identity-Show-Identity-Protection-Preview)
 
 ## <a name="hybrid-identity-managementazure-ad-connect"></a>하이브리드 ID 관리/Azure AD Connect
 
@@ -176,7 +176,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 * 통과 인증
 * 상태 모니터링
 
-자세한 정보:
+자세히 보기:
 
 * [하이브리드 ID 백서](https://download.microsoft.com/download/D/B/A/DBA9E313-B833-48EE-998A-240AA799A8AB/Hybrid_Identity_White_Paper.pdf)
 * [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)
@@ -186,7 +186,7 @@ Microsoft의 ID 솔루션은 온-프레미스 및 클라우드 기반 기능을 
 
 Azure AD(Azure Active Directory) 액세스 검토를 사용하면 조직에서 그룹 멤버 자격을 효율적으로 관리하고 엔터프라이즈 애플리케이션에 액세스하고 권한 있는 역할을 할당할 수 있습니다.
 
-자세한 정보:
+자세히 보기:
 
 * [Azure AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)
 * [Azure AD 액세스 검토를 사용하여 사용자 액세스 관리](../../active-directory/governance/access-reviews-overview.md)

@@ -2,13 +2,13 @@
 title: 컨테이너용 Azure Monitor 에이전트를 관리하는 방법 | Microsoft Docs
 description: 이 문서에서는 컨테이너용 Azure Monitor에서 사용되는 컨테이너화된 Log Analytics 에이전트를 통해 가장 일반적인 유지 관리 작업을 관리하는 방법을 설명합니다.
 ms.topic: conceptual
-ms.date: 01/13/2020
-ms.openlocfilehash: b1fd9b70865dfb6bb71dadfe76620129e053acbb
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.date: 01/24/2020
+ms.openlocfilehash: 1a1f8d690979a846dbf5041999180221752acc0b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932869"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843959"
 ---
 # <a name="how-to-manage-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 관리하는 방법
 
@@ -16,13 +16,13 @@ ms.locfileid: "75932869"
 
 ## <a name="how-to-upgrade-the-azure-monitor-for-containers-agent"></a>컨테이너용 Azure Monitor 에이전트를 업그레이드하는 방법
 
-컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 새로운 버전의 에이전트가 릴리스되면 AKS(Azure Kubernetes Service)에 호스트된 관리형 Kubernetes 클러스터에서 에이전트가 자동으로 업그레이드됩니다.  
+컨테이너용 Azure Monitor는 Log Analytics 에이전트가 Linux용으로 컨테이너화된 버전을 사용합니다. 새 버전의 에이전트가 릴리스되면 에이전트가 AKS (Azure Kubernetes Service)에서 호스트 되는 관리 되는 Kubernetes 클러스터 및 Azure Red Hat OpenShift에서 자동으로 업그레이드 됩니다. [하이브리드 Kubernetes 클러스터](container-insights-hybrid-setup.md) 의 경우 에이전트가 관리 되지 않으므로 에이전트를 수동으로 업그레이드 해야 합니다.
 
-에이전트 업그레이드에 실패할 경우 이 문서에서 에이전트를 수동으로 업그레이드하는 프로세스에 대해 설명합니다. 릴리스된 버전을 따르려면 [에이전트 릴리스 알림](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조하세요.   
+AKS에서 호스트 되는 클러스터에 대해 에이전트 업그레이드에 실패 하는 경우이 문서에서는 에이전트를 수동으로 업그레이드 하는 프로세스에 대해서도 설명 합니다. 릴리스된 버전을 따르려면 [에이전트 릴리스 알림](https://github.com/microsoft/docker-provider/tree/ci_feature_prod)을 참조하세요.
 
-### <a name="upgrading-agent-on-monitored-kubernetes-cluster"></a>모니터링되는 Kubernetes 클러스터에서 에이전트 업그레이드
+### <a name="upgrade-agent-on-monitored-kubernetes-cluster"></a>모니터링 되는 Kubernetes 클러스터의 업그레이드 에이전트
 
-Azure Red Hat OpenShift를 제외 하 고 클러스터에서 에이전트를 업그레이드 하는 프로세스는 두 개의 바로 앞 단계로 구성 됩니다. 첫 번째 단계는 Azure CLI를 사용하여 컨테이너용 Azure Monitor를 사용한 모니터링을 비활성화하는 것입니다.  [모니터링 비활성화](container-insights-optout.md?#azure-cli) 문서에서 설명하는 단계를 수행하세요. Azure CLI를 사용하면 작업 영역에 저장된 솔루션과 그 데이터에 영향을 주지 않으면서 클러스터에 포함된 노드에서 에이전트를 제거할 수 있습니다. 
+Azure Red Hat OpenShift를 제외 하 고 클러스터에서 에이전트를 업그레이드 하는 프로세스는 두 개의 바로 앞 단계로 구성 됩니다. 첫 번째 단계는 Azure CLI를 사용하여 컨테이너용 Azure Monitor를 사용한 모니터링을 비활성화하는 것입니다. [모니터링 비활성화](container-insights-optout.md?#azure-cli) 문서에서 설명하는 단계를 수행하세요. Azure CLI를 사용하면 작업 영역에 저장된 솔루션과 그 데이터에 영향을 주지 않으면서 클러스터에 포함된 노드에서 에이전트를 제거할 수 있습니다. 
 
 >[!NOTE]
 >사용자가 이 유지 관리 활동을 수행하는 동안 클러스터에 포함된 노드는 수집된 데이터를 전달하지 않고, 사용자가 에이전트를 제거한 시점과 새로운 버전을 설치한 시점 사이의 데이터가 성능 보기에 표시되지 않습니다. 
@@ -52,6 +52,29 @@ Azure Red Hat OpenShift를 제외 하 고 클러스터에서 에이전트를 업
     omi 1.4.2.5
     omsagent 1.6.0-163
     docker-cimprov 1.0.0.31
+
+## <a name="upgrade-agent-on-hybrid-kubernetes-cluster"></a>하이브리드 Kubernetes 클러스터에서 에이전트 업그레이드
+
+온-프레미스에서 호스트 되는 Kubernetes 클러스터에서 에이전트를 업그레이드 하는 프로세스는 다음 명령을 실행 하 여 Azure의 AKS 엔진과 Azure Stack 완료할 수 있습니다.
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<my_prod_cluster> incubator/azuremonitor-containers
+```
+
+Log Analytics 작업 영역이 Azure 중국에 있는 경우 다음 명령을 실행 합니다.
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.domain=opinsights.azure.cn,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+```
+
+Log Analytics 작업 영역이 Azure 미국 정부에 있는 경우 다음 명령을 실행 합니다.
+
+```
+$ helm upgrade --name myrelease-1 \
+--set omsagent.domain=opinsights.azure.us,omsagent.secret.wsid=<your_workspace_id>,omsagent.secret.key=<your_workspace_key>,omsagent.env.clusterName=<your_cluster_name> incubator/azuremonitor-containers
+```
 
 ## <a name="how-to-disable-environment-variable-collection-on-a-container"></a>컨테이너에서 환경 변수 수집을 사용하지 않도록 설정하는 방법
 

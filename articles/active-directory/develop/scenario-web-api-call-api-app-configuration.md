@@ -15,18 +15,20 @@ ms.workload: identity
 ms.date: 07/16/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: dd38cb58e6e6db9767be9adb8f299107601de580
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 82b5e1d9753fbb65fd81f24b06016d302457144e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701776"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834096"
 ---
 # <a name="a-web-api-that-calls-web-apis-code-configuration"></a>웹 Api를 호출 하는 웹 API: 코드 구성
 
 Web API를 등록 한 후에는 응용 프로그램에 대 한 코드를 구성할 수 있습니다.
 
 웹 api를 구성 하는 데 사용 하는 코드는 web API를 보호 하는 데 사용 되는 코드를 기반으로 하 여 다운스트림 웹 api를 호출 합니다. 자세한 내용은 [보호 된 웹 API: 앱 구성](scenario-protected-web-api-app-configuration.md)을 참조 하세요.
+
+# <a name="aspnet-coretabaspnetcore"></a>[ASP.NET Core](#tab/aspnetcore)
 
 ## <a name="code-subscribed-to-ontokenvalidated"></a>OnTokenValidated 검사 된 코드
 
@@ -47,7 +49,7 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
     services.AddTokenAcquisition();
     services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationScheme, options =>
     {
-        // When an access token for our own web API is validated, we add it 
+        // When an access token for our own web API is validated, we add it
         // to the MSAL.NET cache so that it can be used from the controllers.
         options.Events = new JwtBearerEvents();
 
@@ -55,7 +57,7 @@ public static IServiceCollection AddProtectedApiCallsWebApis(this IServiceCollec
         {
             context.Success();
 
-            // Adds the token to the cache and handles the incremental consent 
+            // Adds the token to the cache and handles the incremental consent
             // and claim challenges
             AddAccountToCacheFromJwt(context, scopes);
             await Task.FromResult(0);
@@ -142,6 +144,82 @@ private void AddAccountToCacheFromJwt(IEnumerable<string> scopes, JwtSecurityTok
      }
 }
 ```
+# <a name="javatabjava"></a>[Java](#tab/java)
+
+(OBO) 흐름은 다운스트림 웹 API를 호출 하는 토큰을 가져오는 데 사용 됩니다. 이 흐름에서 web API는 클라이언트 응용 프로그램에서 사용자 위임 권한이 있는 전달자 토큰을 받은 다음 다른 액세스 토큰에 대해이 토큰을 교환 하 여 다운스트림 웹 API를 호출 합니다.
+
+아래 코드는 web API에서 스프링 보안 프레임 워크의 `SecurityContextHolder`을 사용 하 여 유효성이 검사 된 전달자 토큰을 가져옵니다. 그런 다음 MSAL Java 라이브러리를 사용 하 여 `OnBehalfOfParameters`에 대 한 `acquireToken` 호출을 통해 다운스트림 API에 대 한 토큰을 가져옵니다. MSAL은 API에 대 한 후속 호출에서 `acquireTokenSilently`를 사용 하 여 캐시 된 토큰을 가져올 수 있도록 토큰을 캐시 합니다.
+
+```Java
+@Component
+class MsalAuthHelper {
+
+    @Value("${security.oauth2.client.authority}")
+    private String authority;
+
+    @Value("${security.oauth2.client.client-id}")
+    private String clientId;
+
+    @Value("${security.oauth2.client.client-secret}")
+    private String secret;
+
+    @Autowired
+    CacheManager cacheManager;
+
+    private String getAuthToken(){
+        String res = null;
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+        if(authentication != null){
+            res = ((OAuth2AuthenticationDetails) authentication.getDetails()).getTokenValue();
+        }
+        return res;
+    }
+
+    String getOboToken(String scope) throws MalformedURLException {
+        String authToken = getAuthToken();
+
+        ConfidentialClientApplication application =
+                ConfidentialClientApplication.builder(clientId, ClientCredentialFactory.create(secret))
+                        .authority(authority).build();
+
+        String cacheKey = Hashing.sha256()
+                .hashString(authToken, StandardCharsets.UTF_8).toString();
+
+        String cachedTokens = cacheManager.getCache("tokens").get(cacheKey, String.class);
+        if(cachedTokens != null){
+            application.tokenCache().deserialize(cachedTokens);
+        }
+
+        IAuthenticationResult auth;
+        SilentParameters silentParameters =
+                SilentParameters.builder(Collections.singleton(scope))
+                        .build();
+        auth = application.acquireTokenSilently(silentParameters).join();
+
+        if (auth == null){
+            OnBehalfOfParameters parameters =
+                    OnBehalfOfParameters.builder(Collections.singleton(scope),
+                            new UserAssertion(authToken))
+                            .build();
+
+            auth = application.acquireToken(parameters).join();
+        }
+
+        cacheManager.getCache("tokens").put(cacheKey, application.tokenCache().serialize());
+
+        return auth.accessToken();
+    }
+}
+```
+
+# <a name="pythontabpython"></a>[Python](#tab/python)
+
+(OBO) 흐름은 다운스트림 웹 API를 호출 하는 토큰을 가져오는 데 사용 됩니다. 이 흐름에서 web API는 클라이언트 응용 프로그램에서 사용자 위임 권한이 있는 전달자 토큰을 받은 다음 다른 액세스 토큰에 대해이 토큰을 교환 하 여 다운스트림 웹 API를 호출 합니다.
+
+Python web API는 클라이언트에서 받은 전달자 토큰의 유효성을 검사 하기 위해 일부 미들웨어를 사용 해야 합니다. Web API는 [`acquire_token_on_behalf_of`](https://msal-python.readthedocs.io/en/latest/?badge=latest#msal.ConfidentialClientApplication.acquire_token_on_behalf_of) 메서드를 호출 하 여 Msal Python 라이브러리를 사용 하 여 다운스트림 api에 대 한 액세스 토큰을 가져올 수 있습니다. MSAL Python을 사용 하 여이 흐름을 보여 주는 샘플은 아직 사용할 수 없습니다.
+
+---
 
 [Node.js 및 Azure Functions](https://github.com/Azure-Samples/ms-identity-nodejs-webapi-onbehalfof-azurefunctions/blob/master/MiddleTierAPI/MyHttpTrigger/index.js#L61)에서 obo flow 구현의 예제를 확인할 수도 있습니다.
 

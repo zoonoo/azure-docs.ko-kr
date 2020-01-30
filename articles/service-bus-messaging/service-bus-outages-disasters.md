@@ -1,20 +1,20 @@
 ---
 title: 작동 중단 및 재해 로부터 Azure Service Bus 응용 프로그램 방지
-description: 잠재적 Service Bus 가동 중단으로부터 애플리케이션을 보호하는 기술.
+description: 이 문서에서는 잠재적인 Azure Service Bus 중단 으로부터 응용 프로그램을 보호 하는 기술을 제공 합니다.
 services: service-bus-messaging
 author: axisc
 manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 09/14/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9375ea4637db7727a40477177f180ab70bd4f417
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a7f5d5eacb2d03e64ae95d34e1cf0bd37bbc7f2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462143"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774597"
 ---
 # <a name="best-practices-for-insulating-applications-against-service-bus-outages-and-disasters"></a>Service Bus 가동 중단 및 재해로부터 애플리케이션을 보호하기 위한 모범 사례
 

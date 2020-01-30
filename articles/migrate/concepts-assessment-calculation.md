@@ -3,19 +3,19 @@ title: Azure Migrate의 평가
 description: Azure Migrate의 평가에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: a8912263432bc0e9cd7172c4b6c9b118132863d3
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 5fc61d9987c9e728a5d83cb3ab3f91b8e8f5f740
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029107"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833331"
 ---
 # <a name="about-assessments-in-azure-migrate"></a>Azure Migrate 평가 정보
 
 이 문서에서는 Azure Migrate에서 평가를 계산 하는 방법을 설명 합니다. [서버 평가를 참조](migrate-services-overview.md#azure-migrate-server-assessment-tool)하세요. 온-프레미스 컴퓨터의 그룹에 대 한 평가를 실행 하 여 Azure Migrate로 마이그레이션할 준비가 되었는지 여부를 파악 합니다.
 
 ## <a name="how-do-i-run-an-assessment"></a>평가를 실행할 어떻게 할까요? 있나요?
-Azure Migrate: 서버 평가 또는 다른 Azure 또는 타사 도구를 사용 하 여 평가를 실행할 수 있습니다. Azure Migrate 프로젝트를 만든 후 필요한 도구를 추가 합니다. [추가 정보] (how-to-add-tool-first-time.md
+Azure Migrate: 서버 평가 또는 다른 Azure 또는 타사 도구를 사용 하 여 평가를 실행할 수 있습니다. Azure Migrate 프로젝트를 만든 후 필요한 도구를 추가 합니다. [자세히 알아보기](how-to-add-tool-first-time.md)
 
 ### <a name="collect-compute-data"></a>계산 데이터 수집
 

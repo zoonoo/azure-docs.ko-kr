@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 324c0e9b8dcaafacaac52b622ce9c533d82c7ff1
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7df283b12a0d04d2b785c13a2f12b03115581e79
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100705"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841715"
 ---
 # <a name="delivery-and-retry"></a>배달 및 다시 시도
 
@@ -27,9 +27,9 @@ Event Grid는 지속성이 있는 배달을 제공합니다. 각 메시지에 �
 
 Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 대기 합니다. 구독자의 끝점이 응답을 ACK 하지 않으면 메시지는 이후 재시도를 위해 백오프 큐 중 하나에 큐에 삽입 됩니다.
 
-다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 다음과 같습니다.-
+다시 시도가 시도 되는 일정을 결정 하는 두 개의 미리 구성 된 백오프 큐가 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
-| 일정 | 설명 |
+| 일정 | Description |
 | ---------| ------------ |
 | 1분 | 여기에서 종료 되는 메시지는 1 분 마다 시도 됩니다.
 | 10분 | 여기에서 종료 되는 메시지는 10 분 마다 시도 됩니다.
@@ -43,7 +43,7 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 
 ## <a name="retry-policy-limits"></a>재시도 정책 제한
 
-재시도 정책을 결정 하는 두 가지 구성이 있습니다. 다음과 같습니다.-
+재시도 정책을 결정 하는 두 가지 구성이 있습니다. 아래에 이 계정과 키의 예제가 나와 있습니다.
 
 * 최대 시도 횟수
 * 이벤트 TTL (time to live)
@@ -52,12 +52,12 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 
 ## <a name="configuring-defaults-for-all-subscribers"></a>모든 구독자에 대 한 기본값 구성
 
-`brokers:defaultMaxDeliveryAttempts` 및 `broker:defaultEventTimeToLiveInSeconds`에는 Event Grid 배포의 일부로 구성할 수 있는 두 가지 속성이 있습니다 .이 속성은 모든 구독자의 다시 시도 정책 기본값을 제어 합니다.
+`brokers__defaultMaxDeliveryAttempts` 및 `broker__defaultEventTimeToLiveInSeconds`에는 Event Grid 배포의 일부로 구성할 수 있는 두 가지 속성이 있습니다 .이 속성은 모든 구독자의 다시 시도 정책 기본값을 제어 합니다.
 
-| 속성 이름 | 설명 |
+| 속성 이름 | Description |
 | ---------------- | ------------ |
-| `broker:defaultMaxDeliveryAttempts` | 이벤트를 전달할 최대 시도 횟수입니다. 기본값은 30입니다.
-| `broker:defaultEventTimeToLiveInSeconds` | 이벤트가 전달 되지 않은 경우 삭제 되는 이벤트 TTL (초)입니다. 기본값: **7200** 초
+| `broker__defaultMaxDeliveryAttempts` | 이벤트를 전달할 최대 시도 횟수입니다. 기본값은 30입니다.
+| `broker__defaultEventTimeToLiveInSeconds` | 이벤트가 전달 되지 않은 경우 삭제 되는 이벤트 TTL (초)입니다. 기본값: **7200** 초
 
 ## <a name="configuring-defaults-per-subscriber"></a>구독자 당 기본값 구성
 
@@ -71,8 +71,8 @@ Event Grid는 메시지를 전달한 후 응답에 대해 최대 60 초까지 �
 ```json
 {
   "Env": [
-    "broker:defaultMaxDeliveryAttempts=3",
-    "broker:defaultEventTimeToLiveInSeconds=1800"
+    "broker__defaultMaxDeliveryAttempts=3",
+    "broker__defaultEventTimeToLiveInSeconds=1800"
   ],
   "HostConfig": {
     "PortBindings": {

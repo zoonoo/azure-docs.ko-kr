@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: ac9ded703ed18abd9543b6e32e59afe6ccf711a9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: d605b852d37af3b1e2ef0868084f3c0b99c24784
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263424"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765732"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링 되는 항목
 이 문서에서는 Azure Monitor에 의해 모니터링 되는 다양 한 응용 프로그램 및 서비스에 대해 설명 합니다. 
@@ -27,7 +27,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 | 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 응용 프로그램을 모니터링 하는 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. |
-| [컨테이너용 Azure Monitor](insights/container-insights-overview.md) | AKS (Azure Kubernetes Service)에서 호스트 되는 Azure Container Instances 또는 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드의 성능을 모니터링 합니다. |
+| [컨테이너 Azure Monitor](insights/container-insights-overview.md) | AKS (Azure Kubernetes Service)에서 호스트 되는 Azure Container Instances 또는 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드의 성능을 모니터링 합니다. |
 | [Cosmos DB에 대 한 Azure Monitor (미리 보기)](insights/cosmosdb-insights-overview.md) | 통합 된 대화형 환경에서 모든 Azure Cosmos DB 리소스의 전반적인 성능, 오류, 용량 및 작업 상태에 대 한 보기를 제공 합니다. |
 | [네트워크에 대 한 Azure Monitor (미리 보기)](insights/network-insights-overview.md) | 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하 여 리소스 종속성을 식별 하 고 웹 사이트 이름을 검색 하기만 하면 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 사용할 수 있습니다. |
 [리소스 그룹에 대 한 Azure Monitor (미리 보기)](insights/resource-group-insights.md) |  전체 리소스 그룹의 상태 및 성능에 대 한 컨텍스트를 제공 하는 동시에 개별 리소스에 발생 하는 문제를 심사 하 고 진단 합니다. |
@@ -42,7 +42,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |:---|:---|
 | [에이전트 상태](insights/solution-agenthealth.md) | Log Analytics 에이전트의 상태와 구성을 분석 합니다. |
 | [경고 관리](platform/alert-management-solution.md) | System Center Operations Manager, Nagios 또는 Zabbix에서 수집 된 경고를 분석 합니다. |
-| [서비스 맵](insights/service-map.md) | 는 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑합니다. 에서는 동일한 기능이 제공 됩니다.   |
+| [서비스 맵](insights/service-map.md) | 는 Windows 및 Linux 시스템에서 응용 프로그램 구성 요소를 자동으로 검색 하 고 서비스 간 통신을 매핑합니다. |
 
 
 
@@ -63,14 +63,14 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |Advisor | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |AI Builder | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Analysis Services | 예 | 예 | 아닙니다. |  |
-|API for FHIR | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|FHIR 용 API | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |API Management | 예 | 예 | 아닙니다. |  |
 |App Service | 예 | 예 | 아닙니다. |  |
 |AppConfig | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Application Gateway | 예 | 예 | 아닙니다. |  |
 |증명 서비스 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Automation | 예 | 예 | 아닙니다. |  |
-|Azure Service Manager(RDFE) | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|Azure Service Manager (RDFE) | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Backup | 아닙니다. | 예 | 아닙니다. |  |
 |Bastion | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Batch | 예 | 예 | 아닙니다. |  |
@@ -91,17 +91,17 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |데이터 탐색기 | 예 | 예 | 아닙니다. |  |
 |Data Factory | 예 | 예 | 아닙니다. |  |
 |Data Factory v2 | 아닙니다. | 예 | 아닙니다. |  |
-|Data Share | 아닙니다. | 아닙니다. | 아닙니다. |  |
-|Database for MariaDB | 예 | 예 | 아닙니다. |  |
-|Database for MySQL | 예 | 예 | 아닙니다. |  |
-|Database for PostgreSQL | 예 | 예 | 아닙니다. |  |
+|데이터 공유 | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|MariaDB 용 데이터베이스 | 예 | 예 | 아닙니다. |  |
+|MySQL 용 데이터베이스 | 예 | 예 | 아닙니다. |  |
+|PostgreSQL 용 데이터베이스 | 예 | 예 | 아닙니다. |  |
 |Database Migration Service | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Databricks | 아닙니다. | 예 | 아닙니다. |  |
 |DDoS Protection | 예 | 예 | 아닙니다. |  |
 |DevOps | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |DNS | 예 | 아닙니다. | 아닙니다. |  |
 |도메인 이름 | 아닙니다. | 아닙니다. | 아닙니다. |  |
-|DPS | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|않으면 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Dynamics 365 고객 참여 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Dynamics 365 재무 및 작업 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Event Grid | 예 | 아닙니다. | 아닙니다. |  |
@@ -111,7 +111,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |Front Door | 예 | 예 | 아닙니다. |  |
 |Functions | 예 | 예 | 아닙니다. |  |
 |HDInsight | 아닙니다. | 예 | 아닙니다. |  |
-|HPC Cache | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|HPC 캐시 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Information Protection | 아닙니다. | 예 | 아닙니다. |  |
 |Intune | 아닙니다. | 예 | 아닙니다. |  |
 |IoT Central | 아닙니다. | 아닙니다. | 아닙니다. |  |
@@ -125,7 +125,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |지도  | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Media Services | 예 | 예 | 아닙니다. |  |
 |Microsoft Flow | 아닙니다. | 아닙니다. | 아닙니다. |  |
-|Microsoft Managed Desktop | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|Microsoft에서 관리 하는 데스크톱 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Microsoft PowerApps | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Microsoft Social Engagement | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Microsoft Stream | 예 | 예 | 아닙니다. |  |
@@ -156,7 +156,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 |스택 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Storage | 예 | 아닙니다. | [예](insights/storage-insights-overview.md) |  |
 |저장소 캐시 | 아닙니다. | 아닙니다. | 아닙니다. |  |
-|스토리지 동기화 서비스 | 아닙니다. | 아닙니다. | 아닙니다. |  |
+|저장소 동기화 서비스 | 아닙니다. | 아닙니다. | 아닙니다. |  |
 |Stream Analytics | 예 | 예 | 아닙니다. |  |
 |Time Series Insights | 예 | 예 | 아닙니다. |  |
 |TINA | 아닙니다. | 아닙니다. | 아닙니다. |  |

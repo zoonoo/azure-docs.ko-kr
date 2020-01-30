@@ -8,14 +8,14 @@ ms.topic: include
 ms.date: 07/12/2019
 ms.author: danlep
 ms.custom: include file
-ms.openlocfilehash: 5cca18b881250ce99df35d681bec6091ea4a27b9
-ms.sourcegitcommit: 3877b77e7daae26a5b367a5097b19934eb136350
+ms.openlocfilehash: 94adac6ba232f8931d00083432c027ddccb2ce64
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/30/2019
-ms.locfileid: "68642099"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842500"
 ---
-명령 출력에서 섹션은 `identity` 작업에 설정 된 형식의 `SystemAssigned` id를 보여 줍니다. 는 `principalId` id의 서비스 사용자 id입니다.
+명령 출력의 `identity` 섹션에서는 작업에 설정 된 `SystemAssigned` 형식의 id를 보여 줍니다. `principalId`는 id의 서비스 사용자 ID입니다.
 
 ```console
 [...]
@@ -28,10 +28,10 @@ ms.locfileid: "68642099"
   "location": "eastus",
 [...]
 ``` 
-[Az acr task show][az-acr-task-show] 명령을 사용 하 여 다음 명령에서 사용할 principalid를 변수에 저장 합니다.
+[Az acr task show][az-acr-task-show] 명령을 사용 하 여 나중에 명령에서 사용할 principalid를 변수에 저장 합니다. 다음 명령에서 작업 및 레지스트리 이름을 대체 합니다.
 
 ```azurecli
-principalID=$(az acr task show --name dockerhubtask --registry myregistry --query identity.principalId --output tsv)
+principalID=$(az acr task show --name mytask --registry myregistry --query identity.principalId --output tsv)
 ```
 
 <!-- LINKS - Internal -->

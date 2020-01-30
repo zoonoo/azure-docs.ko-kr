@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.tgt_pltfrm: arduino
 ms.date: 05/31/2019
 ms.author: robinsh
-ms.openlocfilehash: 073a766662b2ead4b816276fa7fda6dc5e6caca7
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 6c7981d15acf2b2b71dfb4234f85b738efe62ce0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954641"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767958"
 ---
 # <a name="visualize-real-time-sensor-data-from-your-azure-iot-hub-in-a-web-application"></a>웹 응용 프로그램에서 Azure IoT hub의 실시간 센서 데이터 시각화
 
@@ -49,7 +49,7 @@ ms.locfileid: "73954641"
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
@@ -165,10 +165,10 @@ set EventHubConsumerGroup=YourConsumerGroupName
    az appservice plan create --name <app service plan name> --resource-group <your resource group name> --sku FREE
    ```
 
-2. 이제 App Service 계획에서 웹 앱을 프로 비전 합니다. `--deployment-local-git` 매개 변수를 사용 하면 로컬 컴퓨터의 Git 리포지토리에서 웹 앱 코드를 업로드 하 고 배포할 수 있습니다. 웹 앱 이름은 전역적으로 고유 해야 하며 대/소문자, 숫자 및 하이픈을 포함할 수 있습니다.
+2. 이제 App Service 계획에서 웹 앱을 프로 비전 합니다. `--deployment-local-git` 매개 변수를 사용 하면 로컬 컴퓨터의 Git 리포지토리에서 웹 앱 코드를 업로드 하 고 배포할 수 있습니다. 웹 앱 이름은 전역적으로 고유 해야 하며 대/소문자, 숫자 및 하이픈을 포함할 수 있습니다. 사용 중인 node.js 런타임의 버전에 따라 `--runtime` 매개 변수에 대해 노드 버전 10.6 이상을 지정 해야 합니다. `az webapp list-runtimes` 명령을 사용 하 여 지원 되는 런타임 목록을 가져올 수 있습니다.
 
    ```azurecli-interactive
-   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --deployment-local-git
+   az webapp create -n <your web app name> -g <your resource group name> -p <your app service plan name> --runtime "node|10.6" --deployment-local-git
    ```
 
 3. 이제 IoT hub 연결 문자열 및 이벤트 허브 소비자 그룹을 지정 하는 환경 변수에 대 한 응용 프로그램 설정을 추가 합니다. 개별 설정은 `-settings` 매개 변수에서 구분 된 공간입니다. IoT hub에 대 한 서비스 연결 문자열과이 자습서의 앞부분에서 만든 소비자 그룹을 사용 합니다. 값을 따옴표로 묶으면 안 됩니다.
@@ -227,7 +227,7 @@ set EventHubConsumerGroup=YourConsumerGroupName
     az webapp show -n <your web app name> -g <your resource group name> --query state
     ```
 
-11. 브라우저에서 `https://<your web app name>.azurewebsites.net`으로 이동합니다. 웹 앱을 로컬로 표시할 때 표시 되는 것과 비슷한 웹 페이지입니다. 장치가 실행 중이 고 데이터를 전송 하는 경우 장치에서 보낸 50 가장 최근 온도 및 습도 판독값의 실행 플롯이 표시 되어야 합니다.
+11. 브라우저에서 `https://<your web app name>.azurewebsites.net` 으로 이동합니다. 웹 앱을 로컬로 표시할 때 표시 되는 것과 비슷한 웹 페이지입니다. 장치가 실행 중이 고 데이터를 전송 하는 경우 장치에서 보낸 50 가장 최근 온도 및 습도 판독값의 실행 플롯이 표시 되어야 합니다.
 
 ## <a name="troubleshooting"></a>문제 해결
 

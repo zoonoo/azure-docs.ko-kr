@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8d2570af6abb34a87ac4c69dd63408c8ec2e8005
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 5a20f40c893c36823906d5cecadd9be21b8a4fd2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511514"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836017"
 ---
 # <a name="claimsproviders"></a>ClaimsProviders
 
@@ -41,7 +41,7 @@ ms.locfileid: "66511514"
 
 **ClaimsProviders** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | ClaimsProvider | 1:n | 다양한 사용자 journeys에서 활용할 수 있는 인증된 청구 공급자입니다. |
 
@@ -49,13 +49,13 @@ ms.locfileid: "66511514"
 
 **ClaimsProvider** 요소에는 다음과 같은 하위 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ---------- | ----------- |
-| Domain | 0:1 | 클레임 공급자의 도메인 이름을 포함하는 문자열입니다. 예를 들어, 클레임 공급자에 Facebook 기술 프로필이 포함된 경우 도메인 이름은 Facebook.com입니다. 이 도메인 이름은 기술 프로필에 의해 대체되지 않는 한, 청구 제공자에 정의된 모든 기술 프로필에 사용됩니다. 도메인 이름은 **domain_hint**에서 참조할 수도 있습니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md) 섹션의 **소셜 공급자로 로그인 리디렉션** 섹션을 참조하세요. |
-| DisplayName | 0:1 | 사용자에게 표시할 수 있는 클레임 공급자의 이름을 포함하는 문자열입니다. |
+| 도메인 | 0:1 | 클레임 공급자의 도메인 이름을 포함하는 문자열입니다. 예를 들어, 클레임 공급자에 Facebook 기술 프로필이 포함된 경우 도메인 이름은 Facebook.com입니다. 이 도메인 이름은 기술 프로필에 의해 대체되지 않는 한, 청구 제공자에 정의된 모든 기술 프로필에 사용됩니다. 도메인 이름은 **domain_hint**에서 참조할 수도 있습니다. 자세한 내용은 [Azure Active Directory B2C를 사용하여 직접 로그인 설정](direct-signin.md) 섹션의 **소셜 공급자로 로그인 리디렉션** 섹션을 참조하세요. |
+| DisplayName | 1:1 | 사용자에게 표시할 수 있는 클레임 공급자의 이름을 포함하는 문자열입니다. |
 | [TechnicalProfiles](technicalprofiles.md) | 0:1 | 클레임 공급자가 지원하는 기술 프로필 세트입니다. |
 
-**ClaimsProvider** 클레임 공급자에 기술 프로필의 관계를 구성 합니다. 다음 예에서는 Azure Active Directory 기술 프로필을 사용하여 Azure Active Directory 클레임 공급자를 보여 줍니다.
+**ClaimsProvider** 는 기술 프로필이 클레임 공급자와 관련 되는 방식을 구성 합니다. 다음 예에서는 Azure Active Directory 기술 프로필을 사용하여 Azure Active Directory 클레임 공급자를 보여 줍니다.
 
 ```XML
 <ClaimsProvider>

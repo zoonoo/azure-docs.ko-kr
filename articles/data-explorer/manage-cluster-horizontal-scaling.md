@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 52a9c0a13723361bbc93362cdd9e2c73ef0372f2
-ms.sourcegitcommit: b5ff5abd7a82eaf3a1df883c4247e11cdfe38c19
+ms.openlocfilehash: 8ab192957ead806b4bb3ae8e7395589f3b1ecbbe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74942242"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76833297"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>변경 수요에 맞게 Azure 데이터 탐색기의 클러스터 수평적 크기 조정 (규모 확장) 관리
 
@@ -58,9 +58,10 @@ Azure 데이터 탐색기 클러스터의 크기를 조정 하는 데는 두 가
 클러스터가 과도 한 사용률 상태에 가까워지면 최적의 성능을 유지 하기 위해 규모를 확장 합니다. 규모 확장은 다음과 같은 경우에 발생 합니다.
 * 클러스터 인스턴스 수가 사용자가 정의한 최대 인스턴스 수를 벗어났습니다.
 * 캐시 사용률은 한 시간 이상에 대해 높습니다.
+* CPU는 한 시간 이상에 대해 높습니다.
 
 > [!NOTE]
-> Scale out 논리는 현재 수집 사용률 및 CPU 메트릭을 고려 하지 않습니다. 이러한 메트릭이 사용 사례에 중요 한 경우 [사용자 지정 자동 크기 조정을](#custom-autoscale)사용 합니다.
+> Scale out 논리는 현재 수집 사용률 메트릭을 고려 하지 않습니다. 이 메트릭이 사용 사례에 중요 한 경우 [사용자 지정 자동 크기 조정](#custom-autoscale)을 사용 합니다.
 
 **규모 확장**
 
@@ -104,11 +105,11 @@ Azure 데이터 탐색기 클러스터의 크기를 조정 하는 데는 두 가
     | **기간(분)** | 시스템이 메트릭을 계산하는 경우에 다시 확인하는 적절한 기간을 선택합니다. 처음에는 기본값 10분으로 시작합니다. |
     |  |  |
 
-    **작업**
+    **동작**
 
     | 설정 | 설명 및 값 |
     | --- | --- |
-    | **작업** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
+    | **연산** | 규모를 감축하거나 규모를 확장하는 적절한 옵션을 선택합니다. |
     | **인스턴스 수** | 메트릭 조건을 충족할 경우 추가하거나 제거할 노드 또는 인스턴스 수를 선택합니다. |
     | **정지(분)** | 크기 조정 작업 간의 적절한 시간 간격을 선택합니다. 기본값 5분으로 시작합니다. |
     |  |  |

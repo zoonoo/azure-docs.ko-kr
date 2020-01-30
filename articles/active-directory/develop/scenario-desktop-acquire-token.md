@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: bc00f348e9443384c7799bf227efd7309d6aeac2
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 50ac62ded92b69f44324f4f9c5eacee939159449
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702201"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834130"
 ---
 # <a name="desktop-app-that-calls-web-apis-acquire-a-token"></a>웹 Api를 호출 하는 데스크톱 앱: 토큰 획득
 
@@ -413,13 +413,13 @@ application.acquireToken(with: interactiveParameters, completionBlock: { (result
 
 - `PublicClientApplicationBuilder` 전달 된 기관은 다음을 충족 해야 합니다.
   - 테 넌 트 `https://login.microsoftonline.com/{tenant}/`형식입니다. 여기서 `tenant`은 테 넌 트 ID 또는 테 넌 트와 연결 된 도메인을 나타내는 GUID입니다.
-  - 모든 [회사 및 학교 계정](`https://login.microsoftonline.com/organizations/`)
+  - 회사 및 학교 계정의 경우: `https://login.microsoftonline.com/organizations/`합니다.
   - Microsoft 개인 계정은 지원 되지 않습니다. /Common 또는/소비자 테 넌 트를 사용할 수 없습니다.
 
 - Windows 통합 인증은 자동 흐름입니다.
   - 응용 프로그램의 사용자에 게는 응용 프로그램을 사용 하기 위해 이전에 동의한 있어야 합니다.
   - 또는 테 넌 트 관리자가 응용 프로그램을 사용 하려면 테 넌 트의 모든 사용자에 게 이전에 동의한 해야 합니다.
-  - 즉, 다음과 같습니다.
+  - 즉, 다음을 수행 합니다.
     - 개발자가 자신에 대 한 Azure Portal에서 **Grant** 단추를 선택 했습니다.
     - 또는 테 넌 트 관리자가 응용 프로그램 등록의 **API 사용 권한** 탭에 있는 **{테 넌 트 도메인}에 대 한 관리자 동의 허용/취소** 단추를 선택 했습니다. 자세한 내용은 [웹 api에 액세스할 수 있는 권한 추가](https://docs.microsoft.com/azure/active-directory/develop/quickstart-configure-app-access-web-apis#add-permissions-to-access-web-apis)를 참조 하세요.
     - 또는 사용자가 응용 프로그램에 동의할 수 있는 방법을 제공 했습니다. 자세한 내용은 [개별 사용자 동의 요청](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent#requesting-individual-user-consent)을 참조 하세요.
@@ -581,7 +581,7 @@ PublicClientApplication app = PublicClientApplication.builder(TestData.PUBLIC_CL
 
 자세한 내용은 [B2C를 사용 하는 ROPC (리소스 소유자 암호 자격 증명)](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/AAD-B2C-specifics#resource-owner-password-credentials-ropc-with-b2c)를 참조 하세요.
 
-### <a name="use-it"></a>사용하기
+### <a name="use-it"></a>사용
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -887,7 +887,7 @@ Azure AD를 사용한 대화형 인증에는 웹 브라우저가 필요 합니�
 
 2. 인증에 성공 하면 명령줄 앱은 백 채널을 통해 필요한 토큰을 수신 하 고이를 사용 하 여 필요한 웹 API 호출을 수행 합니다.
 
-### <a name="use-it"></a>사용하기
+### <a name="use-it"></a>사용
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 

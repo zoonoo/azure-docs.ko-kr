@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1c5b4904419af1fe86e43dc2f781ef43ce8dd762
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078779"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842685"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
@@ -54,7 +54,7 @@ Azure VM 자동 다시 시작 또는 서비스 복구는 다음 두 수준에서
 Azure에서 제공하는 호스트 및 VM 모니터링을 사용하면 정상 Azure 호스트에서 호스트 문제가 발생한 Azure VM을 자동으로 다시 시작합니다. 
 
 >[!IMPORTANT]
->Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>을 참조하세요.
+>Azure 서비스 복구 과정에서 게스트 OS의 커널이 비상 상태인 Linux VM은 다시 시작되지 않습니다. 일반적으로 사용되는 Linux 릴리스의 기본 설정은 Linux 커널이 비상 상태인 VM 또는 서버를 자동으로 다시 시작하지 않는 것입니다. 대신 커널 디버거를 연결하여 분석할 수 있도록 OS의 커널 비상 상태를 유지할 것을 예상합니다. Azure는 이러한 동작을 인식하여 게스트 OS가 이러한 상태인 VM을 자동으로 다시 시작하지 않습니다. 이러한 경우가 매우 드물다는 가정입니다. VM 다시 시작을 사용하도록 설정하는 기본 동작을 덮어쓸 수 있습니다. 기본 동작을 변경하려면 /etc/sysctl.conf에 'kernel.panic' 매개 변수를 사용합니다. 이 매개 변수에 설정하는 시간은 초 단위입니다. 일반적인 권장 값은 이 매개 변수를 통해 재부팅을 트리거하기 전에 20~30초 동안 기다리는 것입니다. <https://gitlab.com/procps-ng/procps/blob/master/sysctl.conf>도 참조하세요.
 
 이 시나리오에서 사용하는 두 번째 기능은 VM을 다시 부팅한 후 다시 시작한 VM에서 실행되는 HANA 서비스가 자동으로 시작된다는 것입니다. [HANA 서비스 자동 다시 시작](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.01/en-US/cf10efba8bea4e81b1dc1907ecc652d3.html)은 다양한 HANA 서비스의 Watchdog 서비스를 통해 설정할 수 있습니다.
 
@@ -108,7 +108,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>자동 장애 조치가 있는 SAP HANA 시스템 복제
 
-한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](http://linux-ha.org/wiki/STONITH) 디바이스와 함께 [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) 프레임워크를 기반으로 합니다. 
+한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](http://www.linux-ha.org/wiki/STONITH) 디바이스와 함께 [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) 프레임워크를 기반으로 합니다. 
 
 SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자동 장애 조치가 구성됩니다. 두 번째 VM에서 SAP HANA 인스턴스는 핫 대기 노드로 작동합니다. 대기 노드는 주 SAP HANA 인스턴스에서 변경 레코드의 동기 스트림을 받습니다. 트랜잭션이 HANA 주 노드에서 애플리케이션을 통해 커밋되면, 보조 SAP HANA 노드에서 커밋된 레코드를 받았음을 확인할 때까지 주 HANA 노드는 애플리케이션에 대한 커밋 확인을 기다립니다. SAP HANA는 두 개의 동기 복제 모드를 제공합니다. 이러한 두 동기 복제 모드에 대한 자세한 내용 및 차이점에 대한 설명은 [SAP HANA 시스템 복제에 대한 복제 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) 문서를 읽어보세요.
 

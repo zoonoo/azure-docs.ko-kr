@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: d342cff6d322195ee88a74215f814be7d702aa5e
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 3d7b3922c9bb7eb79cd6436ba1b265714678fcc8
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761979"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774900"
 ---
 # <a name="how-to-get-a-media-processor-instance"></a>미디어 프로세서 인스턴스를 가져오는 방법
 > [!div class="op_single_selector"]
@@ -59,7 +59,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <token>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: media.windows.net
 
 응답:
@@ -84,7 +84,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계

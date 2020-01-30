@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: willzhan; johndeu
-ms.openlocfilehash: 66c69552157df957e572a3af092131a3b7e560d5
-ms.sourcegitcommit: de47a27defce58b10ef998e8991a2294175d2098
+ms.openlocfilehash: fc6766943747c066581fe3820481cfe4a35d5296
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67871701"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774972"
 ---
 # <a name="use-azure-ad-authentication-to-access-the-media-services-api-with-rest"></a>Azure AD 인증을 사용하여 REST로 Media Services API 액세스
 
@@ -36,7 +36,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
     > [!NOTE]
     > **서비스 주체**는 Azure Media Services에 연결하는 대다수 애플리케이션에 사용하는 것이 좋은 모범 사례입니다. 
 
-이 자습서에서는 다음 작업을 수행하는 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure Portal에서 인증 정보 가져오기
@@ -47,14 +47,14 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 > [!IMPORTANT]
 > 현재 Media Services는 Azure Access Control 서비스 인증 모델을 지원합니다. 하지만 Access Control 인증은 2018년 6월 1일부로 사용 중단되었습니다. 가능한 빨리 Azure AD 인증 모델로 마이그레이션하는 것이 좋습니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - [Azure Portal을 사용하여 Azure Media Services 계정을 만듭니다](media-services-portal-create-account.md).
 - [Azure AD 인증을 사용하여 Azure Media Services API 액세스 개요](media-services-use-aad-auth-to-access-ams-api.md) 문서를 검토합니다.
 - [Postman](https://www.getpostman.com/) REST 클라이언트를 설치하여 이 문서에 나와 있는 REST API를 실행합니다. 
 
-    이 자습서에서는 **Postman**을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. 다른 대안은 다음과 같습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
+    이 자습서에서는 **Postman**을 사용하지만 어떤 REST 도구든 사용할 수 있습니다. **Visual Studio Code**와 REST 플러그 인을 함께 사용하거나, **Telerik Fiddler**를 사용할 수도 있습니다. 
 
 ## <a name="get-the-authentication-information-from-the-azure-portal"></a>Azure Portal에서 인증 정보 가져오기
 
@@ -62,7 +62,7 @@ Azure Media Services와 함께 Azure AD 인증을 사용할 때 다음 두 가�
 
 Media Services API에 액세스하려면 다음 데이터 요소를 수집해야 합니다.
 
-|설정|예제|설명|
+|설정|예|Description|
 |---|-------|-----|
 |Azure Active Directory 테넌트 도메인|microsoft.onmicrosoft.com|STS(보안 토큰 서비스) 엔드포인트처럼 Azure AD는 <https://login.microsoftonline.com/{your-ad-tenant-name.onmicrosoft.com}/oauth2/token> 형식을 사용하여 만들어집니다. Azure AD는 리소스(액세스 토큰)에 액세스하기 위해 JWT를 발급합니다.|
 |REST API 엔드포인트|<https://amshelloworld.restv2.westus.media.azure.net/api/>|애플리케이션에서 모든 Media Services REST API 호출이 수행되는 엔드포인트입니다.|
@@ -83,7 +83,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 5. 기존 **Azure AD 애플리케이션**을 선택하거나 아래와 같이 새 애플리케이션을 만듭니다.
 
     > [!NOTE]
-    > Azure Media REST 요청이 성공하려면, 호출하는 사용자가 액세스하려는 Media Services 계정에 대한 **참가자** 또는 **소유자** 역할을 가지고 있어야 합니다. “원격 서버에서 (401) 권한 없음 오류를 반환했습니다.”라는 예외가 표시되면 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control)를 참조하세요.
+    > Azure Media REST 요청이 성공하려면, 호출하는 사용자가 액세스하려는 Media Services 계정에 대한 **참가자** 또는 **소유자** 역할을 가지고 있어야 합니다. "원격 서버에서 (401) 권한 없음 오류를 반환했습니다."라는 예외가 표시되면 [액세스 제어](media-services-use-aad-auth-to-access-ams-api.md#access-control)를 참조하세요.
 
     새 AD 앱을 만들어야 하는 경우 다음 단계를 수행합니다.
     
@@ -180,7 +180,7 @@ Media Services API에 액세스하려면 다음 데이터 요소를 수집해야
 5. Postman 창 오른쪽의 **Bulk Edit** 링크를 클릭합니다.
 6. 다음 헤더를 붙여 넣습니다.
 
-        x-ms-version:2.15
+        x-ms-version:2.19
         Accept:application/json
         Content-Type:application/json
         DataServiceVersion:3.0

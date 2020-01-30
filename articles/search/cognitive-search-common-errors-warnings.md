@@ -8,12 +8,12 @@ ms.author: abmotley
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 9cf3bcc514118c7f8052981c39023d6cac361d22
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2da009189e0265aafcb26b7ec96837965f1ea0c5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314728"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838550"
 ---
 # <a name="troubleshooting-common-indexer-errors-and-warnings-in-azure-cognitive-search"></a>Azure Cognitive Search에서 일반적인 인덱서 오류 및 경고 문제 해결
 
@@ -74,7 +74,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 | 문서 키가 없습니다. | 문서 키를 누락 하거나 비워 둘 수 없습니다. | 모든 문서에 유효한 문서 키가 있는지 확인 |
 | 문서 키가 잘못 되었습니다. | 문서 키는 1024 자를 초과할 수 없습니다. | 유효성 검사 요구 사항에 맞게 문서 키를 수정 합니다. |
 | 필드에 필드 매핑을 적용할 수 없습니다. | 매핑 함수 `'functionName'` `'fieldName'`필드에 적용할 수 없습니다. 배열은 null 일 수 없습니다. 매개 변수 이름: 바이트 | 인덱서에 정의 된 [필드 매핑을](search-indexer-field-mappings.md) 두 번 확인 하 고 실패 한 문서의 지정 된 필드의 데이터와 비교 합니다. 필드 매핑 또는 문서 데이터를 수정 해야 할 수도 있습니다. |
-| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 열 `'fieldName'`의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0 - 현재 현결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
+| 필드 값을 읽을 수 없습니다. | 인덱스 `'fieldIndex'`에서 열 `'fieldName'`의 값을 읽을 수 없습니다. 서버에서 결과를 받을 때 전송 수준 오류가 발생했습니다. (공급자: TCP 공급자, 오류: 0-기존 연결이 원격 호스트에 의해 강제로 끊겼습니다.) | 이러한 오류는 일반적으로 데이터 원본의 기본 서비스와 관련 된 예기치 않은 연결 문제로 인해 발생 합니다. 나중에 인덱서를 통해 문서를 다시 실행 해 보세요. |
 
 <a name="could-not-execute-skill"/>
 
@@ -147,7 +147,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 | 문서에 컬렉션에 너무 많은 개체가 포함 되어 있습니다. | 문서의 컬렉션이 [모든 복합 컬렉션 제한에서 최대 요소](search-limits-quotas-capacity.md#index-limits) 를 초과 합니다. "키 `'1000052'` 있는 문서에는 컬렉션의 `'4303'` 개체가 있습니다 (JSON 배열). 최대 `'3000'` 개체는 전체 문서에서 컬렉션에 있을 수 있습니다. 컬렉션에서 개체를 제거 하 고 문서 인덱싱을 다시 시도 하십시오. " | 문서에 있는 복잡 한 컬렉션의 크기를 제한 아래로 줄여서 저장소 사용률을 줄이려면 권장 합니다.
 | 쿼리가 나 인덱싱 등의 다른 부하에서 서비스를 하 고 있으므로 대상 인덱스에 연결 하는 데 문제가 있습니다 (재시도 후 지속 됨). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스의 부하가 높습니다. | [Search 서비스 확장](search-capacity-planning.md)
 | 서비스 업데이트를 위해 검색 서비스를 패치 하 고 있거나 토폴로지를 다시 구성 하는 중입니다. | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 검색 서비스가 현재 다운 되었거나 검색 서비스에서 전환 중입니다. | [SLA 설명서](https://azure.microsoft.com/support/legal/sla/search/v1_0/) 당 99.9%의 가용성을 위해 3 개 이상의 복제본을 사용 하 여 서비스를 구성 합니다.
-| 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
+| 기본 계산/네트워킹 리소스에서 오류가 발생 했습니다 (드문 경우). | 인덱스 업데이트에 대 한 연결을 설정 하지 못했습니다. 알 수 없는 오류가 발생 했습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다.
 | 네트워크 문제로 인해 대상 인덱스에 대해 수행 된 인덱싱 요청이 시간 제한 기간 내에 승인 되지 않았습니다. | 적시에 검색 인덱스에 대 한 연결을 설정할 수 없습니다. | 실패 상태에서 선택할 수 있도록 [일정에 따라 실행](search-howto-schedule-indexers.md) 되도록 인덱서를 구성 합니다. 또한이 오류 조건이 지속 되는 경우 인덱서 [일괄 처리 크기](https://docs.microsoft.com/rest/api/searchservice/create-indexer#parameters) 를 줄여 보세요.
 
 <a name="could-not-index-document-because-the-indexer-data-to-index-was-invalid"/>
@@ -249,7 +249,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 ```
 
 이 오류 메시지를 생성할 수 있는 각 기술에 대해 현재 지원 되는 언어에 대 한 몇 가지 참조는 다음과 같습니다.
-* [Text Analytics 지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) ( [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)및 [SentimentSkill](cognitive-search-skill-sentiment.md)의 경우)
+* [Text Analytics 지원 되는 언어](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages) ( [KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md), [EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md), [SentimentSkill](cognitive-search-skill-sentiment.md)및 [PIIDetectionSkill](cognitive-search-skill-pii-detection.md))
 * [Translator 지원 언어](https://docs.microsoft.com/azure/cognitive-services/translator/language-support) ( [텍스트 TranslationSkill](cognitive-search-skill-text-translation.md))
 * [텍스트 SplitSkill](cognitive-search-skill-textsplit.md) 지원 되는 언어: `da, de, en, es, fi, fr, it, ko, pt`
 
@@ -303,7 +303,7 @@ Blob 데이터 원본이 있는 인덱서가 문서 (예: PDF 파일)에서 콘�
 <a name="truncated-extracted-text-to-x-characters"/>
 
 ## <a name="warning-truncated-extracted-text-to-x-characters"></a>경고: 추출 된 텍스트가 X 문자로 잘렸습니다.
-인덱서는 한 문서에서 추출할 수 있는 텍스트의 크기를 제한 합니다. 이 한도는 가격 책정 계층에 따라 달라 집니다. 무료 계층은 32000 자, Basic의 경우 64000, standard, Standard S2 및 Standard S3 계층의 경우 400만입니다. 잘린 텍스트는 인덱싱되지 않습니다. 이 경고를 방지 하려면 많은 양의 텍스트를 포함 하는 문서를 여러 개의 작은 문서로 분리 해 보세요. 
+인덱서는 한 문서에서 추출할 수 있는 텍스트의 크기를 제한 합니다. 이 한도는 가격 책정 계층에 따라 달라 집니다. 무료 계층의 경우 32000 자, 400만 Basic의 경우 64000, 표준 S2의 경우 800만, 표준 S3의 경우 1600만입니다. 잘린 텍스트는 인덱싱되지 않습니다. 이 경고를 방지 하려면 많은 양의 텍스트를 포함 하는 문서를 여러 개의 작은 문서로 분리 해 보세요. 
 
 자세한 내용은 [인덱서 제한](search-limits-quotas-capacity.md#indexer-limits)을 참조 하세요.
 

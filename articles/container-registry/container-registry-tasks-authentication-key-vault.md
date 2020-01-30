@@ -1,14 +1,14 @@
 ---
 title: ACR 작업에서 외부 인증
-description: Azure Container Registry (ACR) 작업에서 Azure 리소스에 대 한 관리 id를 사용 하도록 설정 하 여 작업이 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽을 수 있도록 합니다.
+description: Azure 리소스에 관리 되는 id를 사용 하 여 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽도록 Azure Container Registry 작업 (ACR 작업)을 구성 합니다.
 ms.topic: article
-ms.date: 07/12/2019
-ms.openlocfilehash: a7086050a4aef380f11298c819817692396216b2
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/14/2020
+ms.openlocfilehash: 47d3d643ee1287ef4f444095a2c6cfe6dcab294b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456229"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842523"
 ---
 # <a name="external-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure에서 관리 하는 id를 사용 하 여 ACR 작업에서 외부 인증 
 
@@ -20,13 +20,13 @@ ms.locfileid: "74456229"
 
 ## <a name="scenario-overview"></a>시나리오 개요
 
-예제 작업은 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽습니다. 자격 증명은 Docker 허브의 개인 리포지토리에 대 한 쓰기 (푸시) 권한이 있는 Docker 허브 계정에 대 한 자격 증명입니다. 자격 증명을 읽으려면 관리 되는 id를 사용 하 여 작업을 구성 하 고 적절 한 권한을 할당 합니다. Id와 연결 된 태스크는 이미지를 빌드하고 Docker 허브에 로그인 하 여 이미지를 개인 리포지토리로 푸시합니다. 
+예제 작업은 Azure key vault에 저장 된 Docker 허브 자격 증명을 읽습니다. 자격 증명은 개인 Docker 허브 리포지토리에 대 한 쓰기 (푸시) 권한이 있는 Docker 허브 계정에 대 한 자격 증명입니다. 자격 증명을 읽으려면 관리 되는 id를 사용 하 여 작업을 구성 하 고 적절 한 권한을 할당 합니다. Id와 연결 된 태스크는 이미지를 빌드하고 Docker 허브에 로그인 하 여 이미지를 개인 리포지토리로 푸시합니다. 
 
 이 예에서는 사용자 할당 또는 시스템 할당 관리 id를 사용 하는 단계를 보여 줍니다. 선택한 id는 조직의 요구 사항에 따라 달라 집니다.
 
 실제 시나리오에서 회사는 빌드 프로세스의 일부로 Docker 허브의 개인 리포지토리에 이미지를 게시할 수 있습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 작업을 실행 하는 Azure container registry가 필요 합니다. 이 문서에서이 레지스트리의 이름은 *myregistry*입니다. 을 이후 단계에서 사용자 고유의 레지스트리 이름으로 바꿉니다.
 
@@ -71,7 +71,7 @@ az keyvault secret set \
 이 예제 작업의 단계는 [Yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. 로컬 작업 디렉터리에 `dockerhubtask.yaml` 라는 파일을 만들고 다음 내용을 붙여 넣습니다. 파일의 키 자격 증명 모음 이름을 키 자격 증명 모음의 이름으로 바꾸어야 합니다.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 # Replace mykeyvault with the name of your key vault
 secrets:
   - id: username
@@ -80,12 +80,12 @@ secrets:
     keyvault: https://mykeyvault.vault.azure.net/secrets/Password
 steps:
 # Log in to Docker Hub
-  - cmd: docker login --username '{{.Secrets.username}}' --password '{{.Secrets.password}}'
+  - cmd: bash echo '{{.Secrets.password}}' | docker login --username '{{.Secrets.username}}' --password-stdin 
 # Build image
-  - build: -t {{.Values.PrivateRepo}}:{{.Run.ID}} https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
+  - build: -t {{.Values.PrivateRepo}}:$ID https://github.com/Azure-Samples/acr-tasks.git -f hello-world.dockerfile
 # Push image to private repo in Docker Hub
   - push:
-    - {{.Values.PrivateRepo}}:{{.Run.ID}}
+    - {{.Values.PrivateRepo}}:$ID
 ```
 
 작업 단계는 다음을 수행 합니다.
@@ -94,6 +94,7 @@ steps:
 * `docker login` 명령에 암호를 전달 하 여 Docker 허브를 통해 인증 합니다.
 * [Azure 샘플/acr-작업](https://github.com/Azure-Samples/acr-tasks.git) 리포지토리에서 샘플 Dockerfile을 사용 하 여 이미지를 빌드합니다.
 * 개인 Docker 허브 리포지토리에 이미지를 푸시합니다.
+
 
 ## <a name="option-1-create-task-with-user-assigned-identity"></a>옵션 1: 사용자 할당 id를 사용 하 여 작업 만들기
 
@@ -140,7 +141,10 @@ az acr task create \
 다음 [az keyvault set-policy][az-keyvault-set-policy] 명령을 실행 하 여 key vault에 대 한 액세스 정책을 설정 합니다. 다음 예에서는 id가 키 자격 증명 모음에서 암호를 읽을 수 있도록 허용 합니다. 
 
 ```azurecli
-az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --object-id $principalID --secret-permissions get
+az keyvault set-policy --name mykeyvault \
+  --resource-group myResourceGroup \
+  --object-id $principalID \
+  --secret-permissions get
 ```
 
 ## <a name="manually-run-the-task"></a>수동으로 작업 실행
@@ -148,7 +152,7 @@ az keyvault set-policy --name mykeyvault --resource-group myResourceGroup --obje
 관리 id를 사용 하도록 설정한 태스크가 성공적으로 실행 되는지 확인 하려면 [az acr task run][az-acr-task-run] 명령을 사용 하 여 수동으로 작업을 트리거합니다. `--set` 매개 변수는 개인 리포지토리 이름을 작업에 전달 하는 데 사용 됩니다. 이 예제에서 자리 표시자 리포지토리 이름은 *hubuser/hubrepo*입니다.
 
 ```azurecli
-az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo 
+az acr task run --name dockerhubtask --registry myregistry --set PrivateRepo=hubuser/hubrepo
 ```
 
 작업이 성공적으로 실행 되 면 출력은 Docker 허브에 대 한 성공적인 인증을 표시 하 고 이미지가 성공적으로 빌드되고 개인 리포지토리로 푸시됩니다.

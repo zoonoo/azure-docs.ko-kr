@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 6bba4414390efa6e07be6c253fe55f1638d414dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974101"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769109"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스인 이란?
 
@@ -32,14 +32,14 @@ Azure Machine Learning 계산 인스턴스 (미리 보기)는 데이터 과학�
 
 ## <a name="why-use-a-compute-instance"></a>계산 인스턴스를 사용 하는 이유
 
-계산 인스턴스는 machine learning 개발 환경에 최적화 된 완벽 하 게 관리 되는 클라우드 기반 워크스테이션입니다. BitLocker는 다음과 같은 이점을 제공합니다.
+계산 인스턴스는 machine learning 개발 환경에 최적화 된 완벽 하 게 관리 되는 클라우드 기반 워크스테이션입니다. 다음과 같은 이점이 있습니다.
 
 |주요 이점||
 |----|----|
 |생산성|데이터 과학자는 통합 된 노트북 및 웹 브라우저에서 다음 도구를 사용 하 여 모델을 빌드 및 배포할 수 있습니다.<br/>-Jupyter<br/>-JupyterLab<br/>-RStudio|
 |관리 되는 & 보안|보안 공간을 줄이고 엔터프라이즈 보안 요구 사항에 따라 규정 준수를 추가 합니다. 계산 인스턴스는 다음과 같은 강력한 관리 정책과 보안 네트워킹 구성을 제공 합니다.<br/><br/>-리소스 관리자 템플릿 또는 Azure Machine Learning SDK에서 자동 프로 비전<br/>- [역할 기반 액세스 제어 (RBAC)](/azure/role-based-access-control/overview)<br/>[가상 네트워크 지원](how-to-enable-virtual-network.md#compute-instance) - <br/>-Ssh 액세스를 사용 하거나 사용 하지 않도록 설정 하는 SSH 정책|
 |&nbsp;또는&nbsp;ML 구성|미리 구성 된 최신 ML 패키지, 심층 학습 프레임 워크, GPU 드라이버를 사용 하 여 설치 작업에 대 한 시간을 절약 하세요.|
-|포괄적인 사용자 지정 가능|Gpu를 비롯 한 Azure VM 형식에 대 한 광범위 한 지원과 패키지 및 드라이버 설치와 같은 지속적인 낮은 수준의 사용자 지정을 통해 고급 시나리오를 간편 하 게 만들 수 있습니다. |
+|완전히 사용자 지정 가능|Gpu를 비롯 한 Azure VM 형식에 대 한 광범위 한 지원과 패키지 및 드라이버 설치와 같은 지속적인 낮은 수준의 사용자 지정을 통해 고급 시나리오를 간편 하 게 만들 수 있습니다. |
 
 ## <a name="contents"></a>도구 및 환경
 
@@ -115,9 +115,9 @@ Azure Machine Learning studio의 작업 영역에서 **compute**를 선택한 �
 
 ![계산 인스턴스 관리](./media/concept-compute-instance/manage-compute-instance.png)
 
-다음 동작을 수행할 수 있습니다.
+다음 작업을 수행할 수 있습니다.
 
-* 계산 인스턴스를 만듭니다. 이름을 지정 하 고, Gpu를 포함 하 여 Azure VM 유형을 지정 하 고, SSH 액세스를 사용/사용 하지 않도록 설정 하 고, 가상 네트워크 설정을 구성 합니다 통합 된 노트북, Azure Portal, 리소스 관리자 템플릿 또는 Azure Machine Learning SDK에서 직접 인스턴스를 만들 수도 있습니다. 계산 인스턴스 생성에 적용 되는 지역 당 전용 코어 할당량은 통합 되어 Azure Machine Learning 계산 클러스터 할당량과 공유 됩니다.
+* 계산 인스턴스를 만듭니다. 이름을 지정 하 고, Gpu를 포함 한 Azure VM 유형 (만든 후 VM 유형을 변경할 수 없음)을 지정 하 고, SSH 액세스를 사용/사용 하지 않도록 설정 하 고, 가상 네트워크 설정을 구성 합니다 (선택 사항). 통합 된 노트북, Azure Portal, 리소스 관리자 템플릿 또는 Azure Machine Learning SDK에서 직접 인스턴스를 만들 수도 있습니다. 계산 인스턴스 생성에 적용 되는 지역 당 전용 코어 할당량은 통합 되어 Azure Machine Learning 계산 클러스터 할당량과 공유 됩니다.
 * 계산 인스턴스 탭 새로 고침
 * 계산 인스턴스 시작, 중지 및 다시 시작
 * 계산 인스턴스 삭제
@@ -138,7 +138,7 @@ Azure Machine Learning studio의 작업 영역에서 **compute**를 선택한 �
 
 계산 인스턴스 생성에 적용 되는 지역 당 전용 코어 할당량은 통합 되어 Azure Machine Learning 교육 클러스터 할당량과 공유 됩니다. 
 
-## <a name="compute-target"></a>컴퓨팅 대상
+## <a name="compute-target"></a>계산 대상
 
 계산 인스턴스는 Azure Machine Learning 계산 학습 클러스터와 유사한 [학습 계산 대상](concept-compute-target.md#train) 으로 사용할 수 있습니다. TensorFlow/PyTorch 추정를 사용 하 여 분산 학습 작업을 실행할 다중 GPU VM을 프로 비전 합니다. 실행 구성을 만들고이를 사용 하 여 계산 인스턴스에서 실험을 실행할 수도 있습니다. 계산 인스턴스는 테스트/디버깅 시나리오에 대 한 로컬 추론 배포 대상으로 사용할 수 있습니다.
 

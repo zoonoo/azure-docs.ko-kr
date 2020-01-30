@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: f05be2725ef766bb1e5fd7f2624e754a2e21698a
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: c5040721705b90a981f1f8a45a3a2eb70eefde05
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563176"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772157"
 ---
 # <a name="iot-hub-ip-addresses"></a>IP 주소 IoT Hub
 
@@ -30,9 +30,11 @@ IoT Hub 공용 끝점의 IP 주소 접두사는 _AzureIoTHub_ [service 태그](.
 
 * 장치의 방화벽 구성에서 허용 규칙을 추가할 때 [해당 프로토콜에서 사용 하는 특정 포트](./iot-hub-devguide-protocols.md#port-numbers)를 제공 하는 것이 가장 좋습니다.
 
-* IoT hub의 IP 주소 접두사는 변경 될 수 있습니다. 이러한 변경 내용은 영향을 받기 전에 서비스 태그를 통해 정기적으로 게시 됩니다. 따라서 최신 서비스 태그를 정기적으로 검색 하 고 사용 하는 프로세스를 개발 하는 것이 중요 합니다. 이 프로세스는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 자동화할 수 있습니다.
+* IoT hub의 IP 주소 접두사는 변경 될 수 있습니다. 이러한 변경 내용은 영향을 받기 전에 서비스 태그를 통해 정기적으로 게시 됩니다. 따라서 최신 서비스 태그를 정기적으로 검색 하 고 사용 하는 프로세스를 개발 하는 것이 중요 합니다. 이 프로세스는 [서비스 태그 검색 API](../virtual-network/service-tags-overview.md#service-tags-on-premises)를 통해 자동화할 수 있습니다. 서비스 태그 검색 API는 아직 미리 보기 상태 이며 경우에 따라 태그 및 IP 주소의 전체 목록을 생성 하지 못할 수도 있습니다. 검색 API를 일반적으로 사용할 수 있을 때까지 [다운로드 가능한 JSON 형식으로 서비스 태그](../virtual-network/service-tags-overview.md#discover-service-tags-by-using-downloadable-json-files)를 사용 하는 것이 좋습니다. 
 
 * AzureIoTHub를 사용 *합니다. [ region name]* 태그를 지정 하 여 특정 지역의 IoT hub 끝점에서 사용 하는 IP 접두사를 식별 합니다. 데이터 센터 재해 복구를 고려 하거나 [지역 장애 조치 (failover)](iot-hub-ha-dr.md) 를 위해 IoT Hub 지역 쌍 지역의 IP 접두사에 대 한 연결도 사용 하도록 설정 해야 합니다.
+
+* IoT Hub 방화벽 규칙을 설정 하면 IoT Hub에 대해 Azure CLI 및 PowerShell 명령을 실행 하는 데 필요한 연결을 차단할 수 있습니다. 이를 방지 하려면 클라이언트의 IP 주소 접두사에 대 한 허용 규칙을 추가 하 여 CLI 또는 PowerShell 클라이언트가 IoT Hub와 통신할 수 있도록 다시 설정할 수 있습니다.  
 
 
 ## <a name="limitations-and-workarounds"></a>제한 사항 및 해결 방법
@@ -43,6 +45,6 @@ IoT Hub 공용 끝점의 IP 주소 접두사는 _AzureIoTHub_ [service 태그](.
 
 * 저장소 계정으로 라우팅할 때 IoT Hub의 IP 주소 접두사에서 트래픽을 허용 하는 것은 저장소 계정이 IoT Hub 다른 지역에 있는 경우에만 가능 합니다.
 
-## <a name="support-for-ipv6"></a>IPv6에 대한 지원 
+## <a name="support-for-ipv6"></a>I p v 6에 대 한 지원 
 
 I p v 6은 현재 IoT Hub에서 지원 되지 않습니다.

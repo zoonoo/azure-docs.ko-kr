@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.subservice: blobs
-ms.openlocfilehash: f393ab23df49751efbbcb3d70314b2ac404a8b77
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3f9a1cfa92ffa454758849f52cc1977cef6df63a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981826"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768388"
 ---
 # <a name="optimize-costs-for-blob-storage-with-reserved-capacity"></a>예약 된 용량으로 Blob 저장소에 대 한 비용 최적화
 
@@ -54,7 +54,7 @@ Azure Storage reserved capacity는 범용 v2 (GPv2) 및 Blob storage 계정을 �
 
 - 종 량 제 요금은 하나 이상의 Enterprise 또는 개별 구독에 대 한 **소유자** 역할에 속해야 합니다.
 - 엔터프라이즈 구독의 경우 EA 포털에서 **예약 된 인스턴스 추가** 를 사용 하도록 설정 해야 합니다. 이 설정을 비활성화하려면 구독의 EA 관리자여야 합니다.
-- CSP(클라우드 솔루션 공급자) 프로그램의 경우 관리 담당자 또는 영업 담당자만 Azure Cosmos DB 예약 용량을 구입할 수 있습니다.
+- CSP (클라우드 솔루션 공급자) 프로그램의 경우 관리 에이전트 또는 판매 에이전트만 Azure Blob Storage 예약 된 용량을 구매할 수 있습니다.
 
 ## <a name="determine-required-capacity-before-purchase"></a>구매 하기 전에 필요한 용량 확인
 

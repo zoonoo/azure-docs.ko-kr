@@ -3,12 +3,12 @@ title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백�
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure virtual machines에 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: c5df198d009f0d4a9f37a68d6b21386f06842722
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753959"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765525"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -24,66 +24,70 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 > * 백업 구성
 > * 주문형 백업 작업 실행
 
+>[!NOTE]
+>Azure **vm의 SQL server에 대 한 일시 삭제 및 AZURE vm 워크 로드의 SAP HANA에 대 한 일시** 삭제는 이제 미리 보기로 제공 됩니다.<br>
+>미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
 백업할 데이터베이스를 설정 하려면 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [권한 설정](tutorial-backup-sap-hana-db.md#setting-up-permissions) 섹션을 참조 하세요.
 
 ### <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 
-모든 작업에 대해 SAP HANA VM에는 Azure 공용 IP 주소에 대 한 연결이 필요 합니다. Azure 공용 IP 주소에 연결 하지 않고 VM 작업 (데이터베이스 검색, 백업 구성, 백업 예약, 복구 지점의 복원 등)이 실패 합니다.
+모든 작업에서는 SAP HANA VM이 Azure 공용 IP 주소에 연결되어 있어야 합니다. Azure 공용 IP 주소에 연결되지 않으면 VM 작업(데이터베이스 검색, 백업 구성, 백업 예약, 복구 지점 복원 등)이 실패합니다.
 
-다음 옵션 중 하나를 사용 하 여 연결을 설정 합니다.
+다음 옵션 중 하나를 사용하여 연결을 설정합니다.
 
 #### <a name="allow-the-azure-datacenter-ip-ranges"></a>Azure 데이터 센터 IP 범위 허용
 
-이 옵션은 다운로드 한 파일의 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 를 허용 합니다. NSG (네트워크 보안 그룹)에 액세스 하려면 AzureNetworkSecurityRule cmdlet을 사용 합니다. 수신 받는 사람 목록에 지역별 Ip만 포함 되어 있는 경우 인증을 사용 하도록 설정 하려면 수신 받는 사람 목록에 Azure Active Directory (Azure AD) 서비스 태그를 업데이트 해야 합니다.
+이 옵션은 다운로드한 파일의 [IP 범위](https://www.microsoft.com/download/details.aspx?id=41653)를 허용합니다. NSG(네트워크 보안 그룹)에 액세스하려면 Set-AzureNetworkSecurityRule cmdlet을 사용합니다. 안전한 수신자 목록에 지역별 IP만 포함되어 있는 경우 인증을 사용하도록 설정하려면 안전한 수신자 목록에 Azure AD(Azure Active Directory) 서비스 태그를 업데이트해야 합니다.
 
-#### <a name="allow-access-using-nsg-tags"></a>NSG 태그를 사용 하 여 액세스 허용
+#### <a name="allow-access-using-nsg-tags"></a>NSG 태그를 사용하여 액세스 허용
 
-NSG를 사용 하 여 연결을 제한 하는 경우 AzureBackup 서비스 태그를 사용 하 여 Azure Backup에 대 한 아웃 바운드 액세스를 허용 해야 합니다. 또한 Azure AD 및 Azure Storage에 대 한 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags) 을 사용 하 여 인증 및 데이터 전송에 대 한 연결을 허용 해야 합니다. Azure Portal 또는 PowerShell을 통해 수행할 수 있습니다.
+NSG를 사용하여 연결을 제한하는 경우 AzureBackup 서비스 태그를 사용하여 Azure Backup에 대한 아웃바운드 액세스를 허용해야 합니다. 또한 Azure AD 및 Azure Storage에 대한 [규칙](https://docs.microsoft.com/azure/virtual-network/security-overview#service-tags)을 사용하여 인증 및 데이터 전송에 대한 연결을 허용해야 합니다. Azure Portal 또는 PowerShell에서 수행할 수 있습니다.
 
-포털을 사용 하 여 규칙을 만들려면 다음을 수행 합니다.
+포털을 사용하여 규칙을 만들려면 다음을 수행합니다.
 
-  1. **모든 서비스**에서 **네트워크 보안** 그룹으로 이동 하 여 네트워크 보안 그룹을 선택 합니다.
-  2. **설정**에서 **아웃 바운드 보안 규칙** 을 선택 합니다.
-  3. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명 된 대로 새 규칙을 만드는 데 필요한 모든 세부 정보를 입력 합니다. **대상** 옵션을 **서비스 태그로** 설정 하 고 **대상 서비스 태그** 를 **azurebackup**으로 설정 했는지 확인 합니다.
-  4. **추가**를 클릭 하 여 새로 만든 아웃 바운드 보안 규칙을 저장 합니다.
+  1. **모든 서비스**에서 **네트워크 보안 그룹**으로 이동하여 네트워크 보안 그룹을 선택합니다.
+  2. **설정** 아래에서 **아웃바운드 보안 규칙**을 선택합니다.
+  3. **추가**를 선택합니다. [보안 규칙 설정](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group#security-rule-settings)에 설명된 대로 새 규칙을 만드는 데 필요한 세부 정보를 모두 입력합니다. **대상** 옵션이 **서비스 태그**로 설정되고 **대상 서비스 태그**가 **AzureBackup**으로 설정되어 있는지 확인합니다.
+  4. **추가**를 클릭하여 새로 만든 아웃바운드 보안 규칙을 저장합니다.
 
-PowerShell을 사용 하 여 규칙을 만들려면
+PowerShell을 사용하여 규칙을 만들려면 다음을 수행합니다.
 
- 1. Azure 계정 자격 증명을 추가 하 고 국가를 업데이트 합니다.<br/>
+ 1. Azure 계정 자격 증명을 추가하고 국가를 업데이트합니다.<br/>
       `Add-AzureRmAccount`<br/>
 
- 2. NSG 구독 선택<br/>
+ 2. NSG 구독을 선택합니다.<br/>
       `Select-AzureRmSubscription "<Subscription Id>"`
 
- 3. NSG 선택<br/>
+ 3. NSG를 선택합니다.<br/>
     `$nsg = Get-AzureRmNetworkSecurityGroup -Name "<NSG name>" -ResourceGroupName "<NSG resource group name>"`
 
- 4. Azure Backup 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
+ 4. Azure Backup 서비스 태그에 대한 아웃바운드 허용 규칙을 추가합니다.<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureBackupAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureBackup" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
 
- 5. 저장소 서비스 태그에 아웃 바운드 규칙 허용 추가<br/>
+ 5. Storage 서비스 태그에 대한 아웃바운드 허용 규칙을 추가합니다.<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "StorageAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "Storage" -DestinationPortRange 443 -Description "Allow outbound traffic to Azure Backup service"`
 
- 6. AzureActiveDirectory service 태그에 아웃 바운드 규칙 허용 추가<br/>
+ 6. AzureActiveDirectory 서비스 태그에 대한 아웃바운드 허용 규칙을 추가합니다.<br/>
     `Add-AzureRmNetworkSecurityRuleConfig -NetworkSecurityGroup $nsg -Name "AzureActiveDirectoryAllowOutbound" -Access Allow -Protocol * -Direction Outbound -Priority <priority> -SourceAddressPrefix * -SourcePortRange * -DestinationAddressPrefix "AzureActiveDirectory" -DestinationPortRange 443 -Description "Allow outbound traffic to AzureActiveDirectory service"`
 
- 7. NSG 저장<br/>
+ 7. NSG를 저장합니다.<br/>
     `Set-AzureRmNetworkSecurityGroup -NetworkSecurityGroup $nsg`
 
-**Azure 방화벽 태그를 사용 하 여 액세스를 허용**합니다. Azure 방화벽을 사용 하는 경우 AzureBackup [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용 하 여 응용 프로그램 규칙을 만듭니다. 이렇게 하면 Azure Backup에 대 한 아웃 바운드 액세스가 가능 합니다.
+**Azure Firewall 태그를 사용하여 액세스를 허용합니다.** Azure Firewall을 사용하는 경우 AzureBackup [FQDN 태그](https://docs.microsoft.com/azure/firewall/fqdn-tags)를 사용하여 애플리케이션 규칙을 만듭니다. 이는 Azure Backup에 대한 아웃바운드 액세스를 허용합니다.
 
-**트래픽을 라우팅하는 HTTP 프록시 서버를 배포**합니다. Azure VM에서 SAP HANA 데이터베이스를 백업 하면 VM의 백업 확장이 HTTPS Api를 사용 하 여 Azure Backup 및 데이터에 대 한 관리 명령을 Azure Storage 보냅니다. 또한 백업 확장은 인증에 Azure AD를 사용 합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
+**트래픽을 라우팅하는 HTTP 프록시 서버를 배포합니다**. Azure VM에서 SAP HANA 데이터베이스를 백업하는 경우 VM의 백업 확장에서 HTTPS API를 사용하여 관리 명령을 Azure Backup에 보내고 데이터를 Azure Storage에 보냅니다. 백업 확장도 인증에 Azure AD를 사용합니다. HTTP 프록시를 통해 이 세 가지 서비스에 대한 백업 확장 트래픽을 라우팅합니다. 확장의 공용 인터넷에 액세스하도록 구성된 유일한 구성 요소입니다.
 
 연결 옵션에는 다음과 같은 장점과 단점이 있습니다.
 
 **옵션** | **장점** | **단점**
 --- | --- | ---
-IP 범위 허용 | 추가 비용 없음 | 시간이 지남에 따라 IP 주소 범위가 변경 되기 때문에 관리가 복잡 합니다. <br/><br/> 뿐만 아니라 Azure 전체에 대 한 액세스를 제공 Azure Storage
-NSG 서비스 태그 사용 | 범위 변경이 자동으로 병합 됨에 따라 보다 쉽게 관리할 수 있습니다. <br/><br/> 추가 비용 없음 <br/><br/> | NSGs에만 사용할 수 있습니다. <br/><br/> 전체 서비스에 대 한 액세스를 제공 합니다.
-Azure 방화벽 FQDN 태그 사용 | 필요한 Fqdn이 자동으로 관리 되기 때문에 관리 하기가 더 쉬워졌습니다. | Azure 방화벽과 함께 사용할 수 있습니다.
-HTTP 프록시 사용 | 저장소 Url에 대 한 프록시를 세부적으로 제어할 수 있습니다. <br/><br/> Vm에 대 한 인터넷 액세스의 단일 지점 <br/><br/> Azure IP 주소 변경이 적용 되지 않음 | 프록시 소프트웨어를 사용 하 여 VM을 실행 하기 위한 추가 비용
+IP 범위 허용 | 추가 비용 없음 | 시간이 지남에 따라 IP 주소 범위가 변경되므로 관리가 복잡함 <br/><br/> Azure Storage뿐만 아니라 Azure 전체에 대한 액세스 제공
+NSG 서비스 태그 사용 | 범위 변경이 자동으로 병합되어 관리가 더 쉬움 <br/><br/> 추가 비용 없음 <br/><br/> | NSG에만 사용할 수 있음 <br/><br/> 전체 서비스에 대한 액세스 제공
+Azure Firewall FQDN 태그 사용 | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음
+HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제어가 허용됨 <br/><br/> VM에 대한 인터넷 액세스의 단일 지점 <br/><br/> Azure IP 주소 변경이 적용되지 않음 | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음
 
 ## <a name="onboard-to-the-public-preview"></a>공개 미리 보기에 온보딩
 

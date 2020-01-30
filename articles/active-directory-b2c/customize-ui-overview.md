@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 09/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d737d010f323a5d5b230091ad07ba530d25d6e51
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: d14e6f98f49f112c8b20abec573b48c3b12705db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949409"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841236"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -28,15 +28,15 @@ ms.locfileid: "74949409"
 
 ### <a name="user-flows"></a>사용자 흐름
 
-[사용자 흐름](active-directory-b2c-reference-policies.md)을 사용 하는 경우 기본 제공 *페이지 레이아웃 템플릿을*사용 하거나 고유한 HTML 및 CSS를 사용 하 여 사용자 흐름 페이지의 모양을 변경할 수 있습니다. 두 방법 모두이 문서의 뒷부분에서 설명 합니다.
+[사용자 흐름](user-flow-overview.md)을 사용 하는 경우 기본 제공 *페이지 레이아웃 템플릿을*사용 하거나 고유한 HTML 및 CSS를 사용 하 여 사용자 흐름 페이지의 모양을 변경할 수 있습니다. 두 방법 모두이 문서의 뒷부분에서 설명 합니다.
 
 [Azure Portal](tutorial-customize-ui.md) 를 사용 하 여 사용자 흐름에 대 한 UI 사용자 지정을 구성할 수 있습니다.
 
 ### <a name="custom-policies"></a>사용자 지정 정책
 
-[사용자 지정 정책을](active-directory-b2c-overview-custom.md) 사용 하 여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집 기능을 제공 하 [는 경우 정책 파일을 사용 하 여 UI를 사용자 지정](active-directory-b2c-ui-customization-custom.md)합니다.
+[사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집 기능을 제공 하 [는 경우 정책 파일을 사용 하 여 UI를 사용자 지정](custom-policy-ui-customization.md)합니다.
 
-고객의 결정에 따라 동적 콘텐츠를 제공 해야 하는 경우 쿼리 문자열에 전송 된 매개 변수에 따라 [페이지 콘텐츠를 동적으로 변경할](active-directory-b2c-ui-customization-custom-dynamic.md) 수 있는 사용자 지정 정책을 사용 합니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
+고객의 결정에 따라 동적 콘텐츠를 제공 해야 하는 경우 쿼리 문자열에 전송 된 매개 변수에 따라 [페이지 콘텐츠를 동적으로 변경할](custom-policy-ui-customization-dynamic.md) 수 있는 사용자 지정 정책을 사용 합니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -65,6 +65,8 @@ ms.locfileid: "74949409"
 템플릿을 선택하면 선택한 레이아웃이 사용자 흐름의 모든 페이지에 적용되고 각 페이지의 URI는 **사용자 지정 페이지 URI** 필드에 표시됩니다.
 
 ## <a name="custom-html-and-css"></a>사용자 지정 HTML 및 CSS
+
+사용자 지정 HTML 및 CSS를 사용 하 여 고유한 정책 레이아웃을 디자인 하려는 경우 정책에 있는 각 레이아웃 이름에 대해 "사용자 지정 페이지 콘텐츠 사용"을 전환 하 여이 작업을 수행할 수 있습니다. 사용자 지정 레이아웃 구성과 관련 하 여 아래 지침을 따르세요.
 
 Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)라는 방법을 사용 하 여 고객의 브라우저에서 코드를 실행 합니다.
 
@@ -150,7 +152,7 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 
 ## <a name="localize-content"></a>콘텐츠 지역화
 
-Azure AD B2C 테넌트에서 [사용자 언어 지정](active-directory-b2c-reference-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
+Azure AD B2C 테넌트에서 [사용자 언어 지정](user-flow-language-customization.md)을 사용하여 HTML 콘텐츠를 지역화합니다. 이 기능을 사용 하도록 설정 하면 Azure AD B2C Openid connect Connect 매개 변수 `ui-locales`를 끝점으로 전달할 수 있습니다. 콘텐츠 서버는 이 매개 변수를 사용하여 언어별 HTML 페이지를 제공할 수 있습니다.
 
 사용되는 로캘에 따라 다른 위치에서 콘텐츠를 끌어올 수 있습니다. CORS 사용 엔드포인트에서 특정 언어에 대한 콘텐츠를 호스트하도록 폴더 구조를 설정합니다. 와일드 카드 값 `{Culture:RFC5646}`을 사용하는 경우 적합한 구조를 호출합니다.
 
@@ -179,4 +181,4 @@ GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-clien
     [Azure Active Directory B2C에서 애플리케이션의 사용자 인터페이스 사용자 지정](tutorial-customize-ui.md).
 - **사용자 지정 정책을**사용 하는 경우 다음 문서를 사용 하 여 UI 사용자 지정을 시작할 수 있습니다.
 
-    [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](active-directory-b2c-ui-customization-custom.md).
+    [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 애플리케이션의 사용자 인터페이스 사용자 지정](custom-policy-ui-customization.md).

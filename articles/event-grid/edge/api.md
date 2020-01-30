@@ -9,12 +9,12 @@ ms.date: 10/03/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: ee2b3a35b6f1817b89541a31d0bde4adf00ade2a
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 19f86b1d8233e05844201e1095c1f79324955cd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992536"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841832"
 ---
 # <a name="rest-api"></a>REST API
 이 문서에서는의 Azure Event Grid에 대 한 REST Api에 대해 설명 IoT Edge
@@ -41,7 +41,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 
 ```Content-Type: application/json; charset=utf-8```
 
-구조적 모드에서 **CloudEventSchemaV1_0** 의 경우 content-type 값은 다음 값 중 하나일 수 있습니다.
+구조적 모드에서 **CloudEventSchemaV1_0** 하는 경우 content-type 값은 다음 값 중 하나일 수 있습니다.
 
 ```Content-Type: application/cloudevents+json```
     
@@ -183,6 +183,7 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
             "eventExpiryInMinutes": 120,
             "maxDeliveryAttempts": 50
         },
+        "persistencePolicy": "true",
         "destination":
         {
             "endpointType": "WebHook",
@@ -619,8 +620,8 @@ IoT Edge Event Grid에는 HTTP (포트 5888) 및 HTTPS (포트 4438)를 통해 �
 `endpointUrl` 특성에 대 한 제약 조건:
 - Null이 아니어야 합니다.
 - 절대 URL 이어야 합니다.
-- EventGridModule 설정에서 outbound__webhook__httpsOnly가 true로 설정 된 경우에는 HTTPS 여야 합니다.
-- Outbound__webhook__httpsOnly를 false로 설정 하면 HTTP 또는 HTTPS를 사용할 수 있습니다.
+- EventGridModule 설정에서 outbound__webhook__httpsOnly true로 설정 된 경우에는 HTTPS 여야 합니다.
+- Outbound__webhook__httpsOnly false로 설정 하면 HTTP 또는 HTTPS가 될 수 있습니다.
 
 `eventDeliverySchema` 속성에 대 한 제약 조건:
 - 구독 항목의 입력 스키마와 일치 해야 합니다.
@@ -673,9 +674,9 @@ EndpointUrl
 - 절대 URL 이어야 합니다.
 - 요청 URL 경로에 `/api/events` 경로를 정의 해야 합니다.
 - 쿼리 문자열에 `api-version=2018-01-01` 있어야 합니다.
-- EventGridModule 설정에서 outbound__eventgrid__httpsOnly가 true로 설정 되어 있으면 (기본적으로 true 임) HTTPS 여야 합니다.
-- Outbound__eventgrid__httpsOnly가 false로 설정 된 경우 HTTP 또는 HTTPS가 될 수 있습니다.
-- Outbound__eventgrid__allowInvalidHostnames을 false (기본값)로 설정 하면 다음 끝점 중 하나를 대상으로 해야 합니다.
+- EventGridModule 설정에서 outbound__eventgrid__httpsOnly true로 설정 되어 있으면 (기본적으로 true 임) HTTPS 여야 합니다.
+- Outbound__eventgrid__httpsOnly false로 설정 된 경우 HTTP 또는 HTTPS가 될 수 있습니다.
+- Outbound__eventgrid__allowInvalidHostnames false (기본값은 false)로 설정 된 경우 다음 끝점 중 하나를 대상으로 해야 합니다.
    - `eventgrid.azure.net`
    - `eventgrid.azure.us`
    - `eventgrid.azure.cn`
@@ -686,3 +687,93 @@ SasKey:
 TopicName:
 - EventDeliverySchema가 EventGridSchema로 설정 된 경우이 필드의 값은 클라우드의 Event Grid 전달 되기 전에 모든 이벤트의 토픽 필드에 배치 됩니다.
 - EventDeliverySchema이 CustomEventSchema로 설정 된 경우이 속성은 무시 되 고 사용자 지정 이벤트 페이로드는 수신 된 그대로 전달 됩니다.
+
+## <a name="set-up-event-hubs-as-a-destination"></a>Event Hubs를 대상으로 설정
+
+이벤트 허브에 게시 하려면 `endpointType` `eventHub`으로 설정 하 고 다음을 제공 합니다.
+
+* connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 이벤트 허브에 대 한 연결 문자열입니다.
+
+    >[!NOTE]
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 이벤트 허브로 이동 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 하 여 엔터티 관련 연결 문자열을 생성할 수 있습니다.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "eventHub",
+              "properties": {
+                "connectionString": "<your-event-hub-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-queues-as-a-destination"></a>Service Bus 큐를 대상으로 설정
+
+Service Bus 큐에 게시 하려면 `endpointType`를 `serviceBusQueue`로 설정 하 고 다음을 제공 합니다.
+
+* connectionString: 공유 액세스 정책을 통해 대상으로 생성 되는 특정 Service Bus 큐에 대 한 연결 문자열입니다.
+
+    >[!NOTE]
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 Service Bus 큐로 이동 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 하 여 엔터티 관련 연결 문자열을 생성 합니다.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusQueue",
+              "properties": {
+                "connectionString": "<your-service-bus-queue-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-service-bus-topics-as-a-destination"></a>대상으로 Service Bus 항목 설정
+
+Service Bus 항목에 게시 하려면 `endpointType`를 `serviceBusTopic`로 설정 하 고 다음을 제공 합니다.
+
+* connectionString: 공유 액세스 정책을 통해 생성 되는 대상으로 지정 된 특정 Service Bus 항목에 대 한 연결 문자열입니다.
+
+    >[!NOTE]
+    > 연결 문자열은 특정 엔터티 여야 합니다. 네임 스페이스 연결 문자열 사용은 작동 하지 않습니다. Azure Portal에서 게시 하려는 특정 Service Bus 토픽으로 이동 하 여 엔터티 관련 연결 문자열을 생성 하 고 **공유 액세스 정책** 을 클릭 하 여 새 엔터티 관련 connecection 문자열을 생성 합니다.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "serviceBusTopic",
+              "properties": {
+                "connectionString": "<your-service-bus-topic-connection-string>"
+              }
+            }
+          }
+        }
+    ```
+
+## <a name="set-up-storage-queues-as-a-destination"></a>저장소 큐를 대상으로 설정
+
+저장소 큐에 게시 하려면 `endpointType` `storageQueue`으로 설정 하 고 다음을 제공 합니다.
+
+* queueName: 게시 하는 저장소 큐의 이름입니다.
+* connectionString: 저장소 큐가 있는 저장소 계정에 대 한 연결 문자열입니다.
+
+    >[!NOTE]
+    > 줄 Event Hubs, Service Bus 큐 및 Service Bus 항목은 저장소 큐에 사용 되는 연결 문자열은 엔터티만 관련 되지 않습니다. 대신 저장소 계정에 대 한 연결 문자열 이어야 합니다.
+
+    ```json
+        {
+          "properties": {
+            "destination": {
+              "endpointType": "storageQueue",
+              "properties": {
+                "queueName": "<your-storage-queue-name>",
+                "connectionString": "<your-storage-account-connection-string>"
+              }
+            }
+          }
+        }
+    ```

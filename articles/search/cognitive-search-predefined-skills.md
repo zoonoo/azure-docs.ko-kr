@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f419b19b576ebf6f7f853b41128908487f047df6
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 4f0975aceeb55c8f184ebe4e6a44d819b4a8bf38
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113366"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837863"
 ---
 # <a name="built-in-cognitive-skills-for-text-and-image-processing-during-indexing-azure-cognitive-search"></a>인덱싱 중 텍스트 및 이미지 처리를 위한 기본 제공 인식 기술 (Azure Cognitive Search)
 
@@ -22,19 +22,20 @@ ms.locfileid: "74113366"
 > [!NOTE]
 > 처리 빈도를 늘리거나 문서를 추가하거나 AI 알고리즘을 추가하여 범위를 확장할 때 [청구 가능한 Cognitive Services 리소스를 연결](cognitive-search-attach-cognitive-services.md)해야 합니다. Cognitive Services에서 API를 호출하는 경우와 Azure Cognitiv Search에서 문서 크래킹 단계의 일부로 이미지를 추출하는 경우에는 요금이 부과됩니다. 문서에서 텍스트 추출할 때는 요금이 발생하지 않습니다.
 >
-> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
+> 기본 제공 기술을 실행하는 요금은 기존 [Cognitive Services 종량제 가격](https://azure.microsoft.com/pricing/details/cognitive-services/)으로 청구됩니다. 이미지 추출 가격 책정은 [Azure Cognitiv Search 가격 책정 페이지](https://go.microsoft.com/fwlink/?linkid=2042400)에 설명되어 있습니다.
 
 
 ## <a name="built-in-skills"></a>기본 제공 기술
 
 여러 기술은 사용하거나 생성하는 대상에 유연성이 있습니다. 일반적으로 대부분의 기술은 미리 학습된 모델을 기반으로 하므로 고유한 학습 데이터를 사용하여 모델을 학습할 수 없습니다. 다음 표에서는 Microsoft에서 제공하는 기술을 열거하고 설명합니다. 
 
-| 기술 | 설명 |
+| 기술 | Description |
 |-------|-------------|
 | [Microsoft.Skills.Text.KeyPhraseSkill](cognitive-search-skill-keyphrases.md) | 이 기술은 미리 학습된 모델을 통해 용어 배치, 언어 규칙, 다른 용어에 대한 근접성 및 원본 데이터 내에서 용어가 비정상적인 정도에 따라 중요한 문구를 검색합니다. |
 | [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)  | 이 기술은 미리 학습된 모델을 통해 사용된 언어를 검색합니다(문서당 하나의 언어 ID). 동일한 텍스트 세그먼트 내에서 여러 언어가 사용되는 경우 주로 사용된 언어의 LCID가 출력됩니다.|
 | [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md) | 필드 컬렉션에서 단일 필드로 텍스트를 통합합니다.  |
 | [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md) | 이 기술은 미리 학습된 모델을 통해 고정된 범주 세트(사람, 위치, 조직, 이메일, URL, 날짜/시간 필드)에 대한 엔터티를 설정합니다. |
+| [PIIDetectionSkill.](cognitive-search-skill-pii-detection.md)  | 이 기술은 미리 학습 된 모델을 사용 하 여 지정 된 텍스트에서 개인 식별이 가능한 정보를 추출 합니다. 또한이 기술은 검색 된 PII 엔터티를 텍스트에서 마스킹 하는 다양 한 옵션을 제공 합니다.  |
 | [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)  | 이 기술은 미리 학습된 모델을 통해 레코드 단위로 긍정적이거나 부정적인 감정의 점수를 매깁니다. 점수는 0에서 1 사이입니다. 감정을 검색할 수 없는 null인 경우와 중립으로 간주되는 텍스트의 경우 둘 다 중립 점수가 지정됩니다.  |
 | [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md) | 콘텐츠를 증분 방식으로 보강하거나 보충할 수 있도록 텍스트를 페이지로 분할합니다. |
 | [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md) | 이 기술은 미리 학습 된 모델을 사용 하 여 표준화 또는 지역화 사용 사례에 대 한 입력 텍스트를 다양 한 언어로 번역 합니다. |
@@ -48,7 +49,7 @@ ms.locfileid: "74113366"
 
 [사용자 지정 기술](cognitive-search-custom-skill-web-api.md)만들기에 대 한 지침은 [사용자 지정 인터페이스를 정의 하는 방법](cognitive-search-custom-skill-interface.md) 및 [예제: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)를 참조 하세요.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
 + [사용자 지정 기술 인터페이스 정의](cognitive-search-custom-skill-interface.md)

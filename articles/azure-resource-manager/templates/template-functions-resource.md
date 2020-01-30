@@ -3,12 +3,12 @@ title: 템플릿 함수-리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 01/20/2020
-ms.openlocfilehash: 1b860876b0d8967a6a3f90c7bb68f20d6c442109
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9021d7419820a9d321658c2b1fea8edb7e79b9a0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513867"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773246"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -443,7 +443,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 | 매개 변수 | 필수 | 유형 | Description |
 |:--- |:--- |:--- |:--- |
-| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포 된 리소스를 참조 하는 경우 리소스 ID를 제공 합니다. |
+| resourceName 또는 resourceIdentifier |예 |문자열 |리소스의 이름 또는 고유 식별자입니다. 현재 템플릿의 리소스를 참조할 경우 리소스 이름만 매개 변수로 지정합니다. 이전에 배포 된 리소스를 참조 하거나 리소스 이름이 모호한 경우 리소스 ID를 제공 합니다. |
 | apiVersion |아닙니다. |문자열 |지정된 리소스의 API 버전입니다. 리소스가 동일한 템플릿 내에서 프로비전되지 않은 경우 이 매개 변수를 포함합니다. 일반적으로 **yyyy-mm-dd** 형식입니다. 리소스에 대 한 유효한 API 버전은 [템플릿 참조](/azure/templates/)를 참조 하세요. |
 | 'Full' |아닙니다. |문자열 |전체 리소스 개체를 반환할지 여부를 지정하는 값입니다. `'Full'`을 지정하지 않으면 리소스의 속성 개체만 반환됩니다. 전체 개체에는 리소스 ID 및 위치와 같은 값이 포함됩니다. |
 
@@ -460,11 +460,11 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 ```json
 "outputs": {
     "BlobUri": {
-        "value": "[reference(concat('Microsoft.Storage/storageAccounts/', parameters('storageAccountName')), '2016-01-01').primaryEndpoints.blob]",
+        "value": "[reference(resourceId('Microsoft.Storage/storageAccounts', parameters('storageAccountName')).primaryEndpoints.blob]",
         "type" : "string"
     },
     "FQDN": {
-        "value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')), '2016-03-30').dnsSettings.fqdn]",
+        "value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName')).dnsSettings.fqdn]",
         "type" : "string"
     }
 }
@@ -476,11 +476,11 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 {
   "type": "Microsoft.KeyVault/vaults",
   "properties": {
-    "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
+    "tenantId": "[subscription().tenantId]",
     "accessPolicies": [
       {
-        "tenantId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.tenantId]",
-        "objectId": "[reference(concat('Microsoft.Compute/virtualMachines/', variables('vmName')), '2017-03-30', 'Full').identity.principalId]",
+        "tenantId": "[reference(reosurceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.tenantId]",
+        "objectId": "[reference(resourceId('Microsoft.Compute/virtualMachines', variables('vmName')), '2019-03-01', 'Full').identity.principalId]",
         "permissions": {
           "keys": [
             "all"
@@ -520,10 +520,10 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 "value": "[reference(resourceId(parameters('storageResourceGroup'), 'Microsoft.Storage/storageAccounts', parameters('storageAccountName')), '2018-07-01')]"
 ```
 
-참조 하는 리소스에 대해 모호성을 피하려면 정규화 된 리소스 이름을 제공할 수 있습니다.
+참조 하는 리소스에 대해 모호성을 피하려면 정규화 된 리소스 식별자를 제공할 수 있습니다.
 
 ```json
-"value": "[reference(concat('Microsoft.Network/publicIPAddresses/', parameters('ipAddressName')))]"
+"value": "[reference(resourceId('Microsoft.Network/publicIPAddresses', parameters('ipAddressName'))]"
 ```
 
 리소스에 대한 정규화된 참조를 생성할 때 형식과 이름의 세그먼트를 결합하는 순서는 단순히 두 세그먼트의 연결이 아닙니다. 대신, 네임스페이스 뒤에 구체성이 낮은 순으로 *형식/이름* 쌍의 시퀀스를 사용합니다.
@@ -534,6 +534,8 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 `Microsoft.Compute/virtualMachines/myVM/extensions/myExt`는 올바릅니다. `Microsoft.Compute/virtualMachines/extensions/myVM/myExt`는 올바르지 않습니다.
 
+리소스 ID 만들기를 간소화 하려면 `concat()` 함수 대신이 문서에 설명 된 `resourceId()` 함수를 사용 합니다.
+
 ### <a name="get-managed-identity"></a>관리 id 가져오기
 
 [Azure 리소스에 대 한 관리 되는 id](../../active-directory/managed-identities-azure-resources/overview.md) 는 일부 리소스에 대해 암시적으로 생성 된 [확장 리소스 형식](../management/extension-resource-types.md) 입니다. 관리 id가 템플릿에 명시적으로 정의 되어 있지 않기 때문에 id가 적용 되는 리소스를 참조 해야 합니다. `Full`를 사용 하 여 암시적으로 생성 된 id를 비롯 한 모든 속성을 가져옵니다.
@@ -541,7 +543,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 예를 들어 가상 머신 확장 집합에 적용 되는 관리 되는 id에 대 한 테 넌 트 ID를 가져오려면 다음을 사용 합니다.
 
 ```json
-"tenantId": "[reference(concat('Microsoft.Compute/virtualMachineScaleSets/',  variables('vmNodeType0Name')), variables('vmssApiVersion'), 'Full').Identity.tenantId]"
+"tenantId": "[reference(resourceId('Microsoft.Compute/virtualMachineScaleSets',  variables('vmNodeType0Name')), '2019-03-01', 'Full').Identity.tenantId]"
 ```
 
 ### <a name="reference-example"></a>참조 예제

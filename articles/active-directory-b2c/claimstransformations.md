@@ -10,18 +10,18 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c904ac9d4c59a467dd8402ec44682c3cbd03fd8d
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66511544"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836703"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
 [!INCLUDE [active-directory-b2c-advanced-audience-warning](../../includes/active-directory-b2c-advanced-audience-warning.md)]
 
-**ClaimsTransformations** 요소에는 [사용자 지정 정책](active-directory-b2c-overview-custom.md)의 일부분으로 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록이 포함되어 있습니다. 클레임 변환에서는 지정된 클레임을 다른 클레임으로 변환합니다. 클레임 변환에서는 문자열 컬렉션에 항목을 추가하거나 문자열 대/소문자를 변경하는 등의 변환 메서드를 지정합니다.
+**ClaimsTransformations** 요소에는 [사용자 지정 정책](custom-policy-overview.md)의 일부분으로 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록이 포함되어 있습니다. 클레임 변환에서는 지정된 클레임을 다른 클레임으로 변환합니다. 클레임 변환에서는 문자열 컬렉션에 항목을 추가하거나 문자열 대/소문자를 변경하는 등의 변환 메서드를 지정합니다.
 
 사용자 경험에서 사용할 수 있는 클레임 변환 함수 목록을 포함하려면 정책의BuildingBlocks 섹션에서 ClaimsTransformations XML 요소를 선언해야 합니다.
 
@@ -33,9 +33,9 @@ ms.locfileid: "66511544"
 </ClaimsTransformations>
 ```
 
-합니다 **ClaimsTransformation** 요소에는 다음 특성을 포함 합니다.
+**ClaimsTransformation** 요소는 다음 특성을 포함 합니다.
 
-| 특성 |필수 | 설명 |
+| attribute |필수 | Description |
 | --------- |-------- | ----------- |
 | Id |예 | 클레임 변환을 고유하게 식별하는 데 사용되는 식별자입니다. 정책의 다른 XML 요소에서 식별자를 참조합니다. |
 | TransformationMethod | 예 | 클레임 변환에서 사용할 변환 메서드입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -59,7 +59,7 @@ ms.locfileid: "66511544"
 ```
 
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | 클레임 변환의 입력으로 가져올 클레임 유형을 지정하는 **InputClaim** 요소 목록입니다. 이러한 각 요소는 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조를 포함합니다. |
 | InputParameters | 0:1 | 클레임 변환에 대한 입력으로 제공되는 **InputParameter** 요소 목록입니다.  
@@ -69,7 +69,7 @@ ms.locfileid: "66511544"
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -77,7 +77,7 @@ ms.locfileid: "66511544"
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 |필수 | 설명 |
+| attribute |필수 | Description |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다. |
 | TransformationClaimType |예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -86,13 +86,13 @@ ms.locfileid: "66511544"
 
 **InputParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | 필요한 입력 매개 변수니다. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| 특성 | 필수 |설명 |
+| attribute | 필수 |Description |
 | --------- | ----------- |----------- |
 | Id | 예 | 클레임 변환 메서드의 매개 변수에 대한 참조인 식별자입니다. 각 클레임 변환 메서드에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 클레임 변환 표를 참조하세요. |
 | DataType | 예 | 사용자 지정 정책 XML 스키마의 DataType 열거에 따른 String, Boolean, Int, DateTime 등의 매개 변수 데이터 형식입니다. 이 형식은 산술 연산을 정확하게 수행하는 데 사용됩니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -102,7 +102,7 @@ ms.locfileid: "66511544"
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | 설명 |
+| 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 필요한 출력 클레임 유형입니다. |
 
@@ -110,7 +110,7 @@ ms.locfileid: "66511544"
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 |필수 | 설명 |
+| attribute |필수 | Description |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | 예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
 | TransformationClaimType | 예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |

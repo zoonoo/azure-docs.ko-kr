@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 12/10/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 00d5ba6fd86ea722270dfbe73324323bd831a529
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 8a562345caf47540321528560a5ee0b4854c42a9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263373"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840284"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -260,7 +260,7 @@ public class ResponseContent
 
 RESTful 기술 프로필을 사용 하는 예제는 다음 문서를 참조 하세요.
 
-- [Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](active-directory-b2c-custom-rest-api-netfw.md)
-- [HTTP 기본 인증을 사용하여 RESTful 서비스 보호](active-directory-b2c-custom-rest-api-netfw-secure-basic.md)
-- [클라이언트 인증서를 사용하여 RESTful 서비스 보호](active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
-- [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합](active-directory-b2c-rest-api-validation-custom.md)
+- [Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력의 유효성 검사로 통합](rest-api-claims-exchange-dotnet.md)
+- [HTTP 기본 인증을 사용하여 RESTful 서비스 보호](secure-rest-api-dotnet-basic-auth.md)
+- [클라이언트 인증서를 사용하여 RESTful 서비스 보호](secure-rest-api-dotnet-certificate-auth.md)
+- [연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합](custom-policy-rest-api-claims-validation.md)

@@ -3,12 +3,12 @@ title: SAP HANA Backup 지원 매트릭스
 description: 이 문서에서는 azure backup을 사용 하 여 Azure Vm에 SAP HANA 데이터베이스를 백업할 때 지원 되는 시나리오 및 제한 사항에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/7/2019
-ms.openlocfilehash: 2063da4c5210cace41454d8bdc5b12e636ba76cd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 82d844385290ab0dc2953537c1f9a3387dd7b2b2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705652"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842634"
 ---
 # <a name="support-matrix-for-backup-of-sap-hana-databases-on-azure-vms"></a>Azure VM의 SAP HANA 데이터베이스 백업에 대한 지원 매트릭스
 
@@ -33,7 +33,7 @@ Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Micros
 | **시나리오**               | **지원 되는 구성**                                | **지원 되지 않는 구성**                              |
 | -------------------------- | ------------------------------------------------------------ | ------------------------------------------------------------ |
 | **토폴로지**               | Azure Linux Vm 에서만 실행 되는 SAP HANA                    | HANA Large Instances (HLI)                                   |
-| **지역**                   | **GA**<br />**유럽** – 유럽 서부, 유럽, 프랑스 중부, 프랑스 남부, 영국 남부, 영국 서부, 독일 북부, 독일 중서부, 스위스 북부, 스위스 서부<br />**아시아 태평양** – 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부<br /><br>**미리 보기:**<br />**아메리카** – 미국 중부, 미국 동부 2, 미국 동부, 미국 중 북부, 미국 중 북부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 캐나다 동부, 브라질 남부<br />**아시아 태평양** – 동아시아, 동남 아시아, 인도 중부, 인도 남부 | 중국 동부, 중국 북부, 중국 동부 2,, 중국 북부 2, 인도 서 부, 중앙 스위스 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서 부, 아랍에미리트 북부, 아랍에미리트 중부, Azure Government 지역 |
+| **지역**                   | **GA**<br />**유럽** – 유럽 서부, 유럽, 프랑스 중부, 영국 남부, 영국 서부, 독일 북부, 독일 중서부, 스위스 북부, 스위스 서부<br />**아시아 태평양** – 오스트레일리아 중부, 오스트레일리아 중부 2, 오스트레일리아 동부, 오스트레일리아 남동쪽, 일본 동부, 일본 서 부, 대한민국 중부, 한국 남부<br /><br>**미리 보기:**<br />**미주** – 미국 중부, 미국 동부 2, 미국 동부, 미국 중 북부, 미국 중 북부, 미국 서 부 2, 미국 서 부, 미국 서 부, 캐나다 중부, 캐나다 동부 <br />**아시아 태평양** – 동아시아, 동남 아시아, 인도 중부, 인도 남부 | 중국 동부, 중국 북부, 중국 동부 2,, 중국 북부 2, 인도 서 부, 중앙 스위스 북부, 남아프리카 공화국 북부, 남아프리카 공화국 서 부, 아랍에미리트 북부, 아랍에미리트 중부, Azure Government 지역, 프랑스 남부, 브라질 남부 |
 | **OS 버전**            | SLES 12 SP2, SP3 또는 SP4                                | SLES 15, RHEL                                                |
 | **HANA 버전**          | HANA 1.x의 SDC, HANA 2.x의 MDC < = SPS04 Rev 44            | -                                                            |
 | **HANA 배포**       | 단일 Azure VM에 SAP HANA-확장만               | 확장                                                    |

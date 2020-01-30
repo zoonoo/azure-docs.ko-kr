@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB Table API .NET SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜 및 각 버전의 변경 내용을 포함하여 Azure Cosmos DB Table API에 대해 자세히 알아봅니다.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 08/17/2018
-ms.openlocfilehash: 5e98c40384207c77b4ea7e9557a7d1ebebd95e47
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 5a5305ffd388d2573d250d93131c1fed236008b7
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058578"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771623"
 ---
-# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET API: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-table-net-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET API: 다운로드 및 릴리스 정보
 
 > [!div class="op_single_selector"]
 > * [.NET](table-sdk-dotnet.md)
@@ -80,14 +80,14 @@ ms.locfileid: "71058578"
 
 Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK 사용 중지 최소 **12개월** 전에 알림을 제공합니다.
 
-라이브러리 `Microsoft.Azure.CosmosDB.Table` 는 현재 .NET Framework에만 사용할 수 있으며 유지 관리 모드 이며 곧 사용 되지 않습니다. 새 기능 및 최적화는 .NET Standard 라이브러리 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)에만 추가 됩니다. 따라서 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드 하는 것이 좋습니다 (예:).
+`Microsoft.Azure.CosmosDB.Table` 라이브러리는 현재 .NET Framework에만 사용할 수 있으며 유지 관리 모드 이며 곧 사용 되지 않을 예정입니다. 새 기능 및 최적화는 .NET Standard 라이브러리 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)에만 추가 됩니다. 따라서 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table)로 업그레이드 하는 것이 좋습니다 (예:).
 
 [Windowsazure.servicebus-windowsazure.storage-premiumtable](https://www.nuget.org/packages/WindowsAzure.Storage-PremiumTable/0.1.0-preview) 미리 보기 패키지는 더 이상 사용 되지 않습니다. WindowsAzure.Storage-PremiumTable SDK는 2018년 11월 15일부터 사용이 중지되고 사용 중지된 SDK에 대한 요청도 허용되지 않습니다. 
 
 사용 중지된 SDK를 사용하는 Azure Cosmos DB에 대한 요청은 서비스에서 거부됩니다.
 <br/>
 
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.1.2](#2.1.2) |2019 년 9 월 16 일| |
 | [2.1.0](#2.1.0) |2019년 1월 22일|2020 년 4 월 01 일 |
@@ -95,7 +95,7 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 | [1.1.3](#1.1.3) |2018년 7월 17일|2019 년 12 월 01 일 |
 | [1.1.1](#1.1.1) |2018년 3월 26일|2019 년 12 월 01 일 |
 | [1.1.0](#1.1.0) |2018년 2월 21일|2019 년 12 월 01 일 |
-| [1.0.0](#1.0.0) |2017년 11월 15일|2019 년 11 월 15 일 |
+| [1.0.0](#1.0.0) |2017년 11월 15일|2019년 11월 15일 |
 | 0.9.0-preview |2017년 11월 11일 |2019 년 11 월 11 일 |
 
 ## <a name="troubleshooting"></a>문제 해결
@@ -122,6 +122,6 @@ Unable to resolve dependency 'Microsoft.Azure.Storage.Common'. Source(s) used: '
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 
 Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요. 

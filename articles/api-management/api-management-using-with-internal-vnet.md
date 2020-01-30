@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/31/2019
 ms.author: apimpm
-ms.openlocfilehash: c4607a2dce995e554f0426f1beb810fe213015de
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6054c595bca26dc2a0432c53369a60a61e3efde0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430606"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841866"
 ---
 # <a name="using-azure-api-management-service-with-an-internal-virtual-network"></a>내부 가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure Virtual Networks에서 Azure API Management에서는 인터넷에서 액세스할 수 없는 API를 관리할 수 있습니다. 다양한 VPN 기술은 연결을 만드는 데 사용할 수 있습니다. API Management는 가상 네트워크 내의 두 가지 주요 모드로 배포됩니다.
@@ -126,7 +126,7 @@ API Management가 외부 가상 네트워크 모드인 경우 Azure에서 DNS를
 
 * 서브넷 범위에서 부하가 분산 된 *개인* 가상 IP 주소는 예약 되며 가상 네트워크 내에서 API Management 서비스 끝점에 액세스 하는 데 사용 됩니다. 이 *개인* IP 주소는 Azure Portal 서비스에 대 한 개요 블레이드에서 찾을 수 있습니다. 이 주소는 가상 네트워크에서 사용 하는 DNS 서버에 등록 해야 합니다.
 * 또한 부하 분산 된 *공용* IP 주소 (VIP)는 포트 3443을 통해 관리 서비스 끝점에 대 한 액세스를 제공 하도록 예약 됩니다. 이 *공용* IP 주소는 Azure Portal 서비스에 대 한 개요 블레이드에서 찾을 수 있습니다. *공용* IP 주소는 포트 3443을 통해 `management` 끝점에 대 한 제어 평면 트래픽용 으로만 사용 되며 [microsoft.apimanagement][ServiceTags] servicetag로 잠글 수 있습니다.
-* 서브넷 IP 범위 (DIP)의 IP 주소는 서비스의 각 VM에 할당 되 고 가상 네트워크 내의 리소스에 액세스 하는 데 사용 됩니다. 공용 IP 주소 (VIP)는 가상 네트워크 외부의 리소스에 액세스 하는 데 사용 됩니다. IP 제한 목록을 사용 하 여 가상 네트워크 내의 리소스를 보호 하는 경우 서비스에서 액세스 권한을 부여 하거나 제한 하기 위해 API Management 서비스가 배포 되는 서브넷의 전체 범위를 지정 해야 합니다.
+* 서브넷 IP 범위 (DIP)의 IP 주소는 서비스의 각 VM에 할당 되며, 가상 네트워크 내의 리소스에 액세스 하는 데 사용 됩니다. 공용 IP 주소 (VIP)는 가상 네트워크 외부의 리소스에 액세스 하는 데 사용 됩니다. IP 제한 목록을 사용 하 여 가상 네트워크 내의 리소스를 보호 하는 경우 서비스에서 액세스 권한을 부여 하거나 제한 하려면 API Management 서비스를 배포 하는 데 사용 되는 서브넷의 전체 범위를 지정 해야 합니다.
 * 부하 분산 된 공용 및 개인 IP 주소는 Azure Portal의 개요 블레이드에서 찾을 수 있습니다.
 * 에서 서비스를 제거한 다음 가상 네트워크에 다시 추가 하면 공용 및 개인 액세스용으로 할당 된 IP 주소가 변경 될 수 있습니다. 이 문제가 발생 하는 경우 가상 네트워크 내에서 DNS 등록, 라우팅 규칙 및 IP 제한 목록을 업데이트 해야 할 수 있습니다.
 

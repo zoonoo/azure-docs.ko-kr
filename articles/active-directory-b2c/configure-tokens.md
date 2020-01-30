@@ -10,18 +10,18 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 83f8051fa31b6431d4a8515e2c0912cc1872a402
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: d6b18596082df6f1cfbe2a47627712b8b69cb355
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71064385"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76836612"
 ---
 # <a name="configure-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 토큰 구성
 
-이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [토큰의 수명 및 호환성](active-directory-b2c-reference-tokens.md) 을 구성 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [토큰의 수명 및 호환성](tokens-overview.md) 을 구성 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 사용자가 애플리케이션에 가입하고 로그인할 수 있는 [사용자 흐름을 만듭니다](tutorial-create-user-flows.md).
 
@@ -39,7 +39,7 @@ ms.locfileid: "71064385"
 
     ![Azure Portal 토큰 수명 속성 설정](./media/configure-tokens/token-lifetime.png)
 
-8. **Save**을 클릭합니다.
+8. **저장**을 클릭합니다.
 
 ## <a name="configure-token-compatibility"></a>토큰 호환성 구성
 
@@ -50,11 +50,11 @@ ms.locfileid: "71064385"
 
     ![Azure Portal의 토큰 호환성 속성 설정](./media/configure-tokens/token-compatibility.png)
 
-5. **Save**을 클릭합니다.
+5. **저장**을 클릭합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[액세스 토큰을 사용하는 방법](active-directory-b2c-access-tokens.md)에 대해 자세히 알아보세요.
+[액세스 토큰을 사용하는 방법](access-tokens.md)에 대해 자세히 알아보세요.
 
 
 

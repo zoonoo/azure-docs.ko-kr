@@ -10,23 +10,23 @@ ms.topic: conceptual
 ms.date: 04/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c75eae72b94c807897d74e365ec9f4ef74c83dd9
-ms.sourcegitcommit: f209d0dd13f533aadab8e15ac66389de802c581b
+ms.openlocfilehash: 6147dc64833f44f24afe14cd1da34432a3735519
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71063664"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840233"
 ---
 # <a name="configure-session-behavior-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 세션 동작 구성
 
-이 기능은 다음의 [사용자 흐름별](active-directory-b2c-reference-policies.md) 세분화된 제어를 제공합니다.
+이 기능은 다음의 [사용자 흐름별](user-flow-overview.md) 세분화된 제어를 제공합니다.
 
 - Azure AD B2C에서 관리하는 웹 애플리케이션 세션의 수명.
 - Azure AD B2C 테넌트에 있는 여러 앱 및 사용자 흐름의 SSO(Single Sign-On) 동작
 
 이러한 설정을 암호 재설정 사용자 흐름에는 사용할 수 없습니다.
 
-Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](active-directory-b2c-reference-oidc.md)을 지원합니다. 다음 속성을 사용하여 웹 애플리케이션 세션을 관리할 수 있습니다.
+Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화하도록 [OpenID Connect 인증 프로토콜](openid-connect.md)을 지원합니다. 다음 속성을 사용하여 웹 애플리케이션 세션을 관리할 수 있습니다.
 
 ## <a name="session-behavior-properties"></a>세션 동작 속성
 
@@ -58,4 +58,4 @@ Azure AD B2C는 웹 애플리케이션에 대한 보안 로그인을 활성화�
 
     ![Azure Portal의 세션 동작 속성 설정](./media/session-behavior/session-behavior.png)
 
-8. **Save**을 클릭합니다.
+8. **저장**을 클릭합니다.

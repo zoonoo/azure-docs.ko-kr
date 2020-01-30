@@ -9,18 +9,20 @@ ms.topic: conceptual
 author: FrancescaLazzeri
 ms.author: lazzeri
 ms.date: 11/04/2019
-ms.openlocfilehash: b43f2f351345f05c3eb56a84fb1a0eadb4826707
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 82d4131170002a3d9ffd78933c9dc566c3b1d921
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771515"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767623"
 ---
 # <a name="machine-learning-algorithm-cheat-sheet-for-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너에 대 한 Machine Learning 알고리즘 참고 자료 시트
 
 **Azure Machine Learning 알고리즘 치트 시트**를 사용하면 예측 분석 모델에 대한 적합한 알고리즘을 선택할 수 있습니다.
 
-Azure Machine Learning에는 ***분류***, ***추천 시스템***, ***클러스터링***, ***변칙 검색***, ***회귀*** 및 ***텍스트 분석*** 제품군의 많은 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
+Azure Machine Learning에는 ***분류***, ***추천 시스템***, ***클러스터링***, ***변칙 검색***, ***회귀***및 ***텍스트 분석*** 제품군의 많은 알고리즘 라이브러리가 있습니다. 각 항목은 다양한 유형의 기계 학습 문제를 해결하기 위해 고안되었습니다.
+
+추가 지침은 [알고리즘을 선택 하는 방법](how-to-select-algorithms.md) 을 참조 하세요.
 
 ## <a name="download-machine-learning-algorithm-cheat-sheet"></a>다운로드: Machine Learning 알고리즘 참고 자료 시트
 
@@ -32,7 +34,7 @@ Azure Machine Learning에는 ***분류***, ***추천 시스템***, ***클러스�
 
 ## <a name="how-to-use-the-machine-learning-algorithm-cheat-sheet"></a>Machine Learning 알고리즘 참고 자료 시트를 사용 하는 방법
 
-알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 시작점을 제안하기 위한 용도로만 제공됩니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘과 데이터를 생성 한 시스템의 원칙을 이해 하는 것은 간단 하지 않습니다.
+알고리즘 치트 시트에서 제공된 제안 사항은 대략적인 위치 조정 규칙입니다. 제안을 변형하거나 명백하게 위반할 수 있습니다. 이 참고 자료 시트는 시작점을 제안 하기 위한 것입니다. 데이터에 대해 여러 알고리즘을 실행하고 비교해 보세요. 각 알고리즘과 데이터를 생성 한 시스템의 원칙을 이해 하는 것은 간단 하지 않습니다.
 
 모든 기계 학습 알고리즘에는 고유한 스타일 또는 귀납적 바이어스가 있습니다. 특정 문제에 대해 여러 알고리즘이 적합할 수 있으며 한 알고리즘이 다른 알고리즘 보다 더 적합할 수 있습니다. 하지만 어떤 것이 가장 적합한지 항상 미리 알 수 없습니다. 이러한 경우 여러 알고리즘이 참고 자료에 함께 나열됩니다. 적절한 전략은 한 알고리즘을 시도하고, 결과가 만족스럽지 않을 경우 다른 알고리즘을 시도하는 것입니다. 
 
@@ -48,17 +50,17 @@ Machine Learning의 세 가지 주요 범주는 *감독 학습*, *자율 학습*
 
 ### <a name="unsupervised-learning"></a>자율 학습
 
-자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 이는 K-Means처럼 클러스터로 그룹화하거나 더 간단하게 표시되도록 복잡한 데이터를 보는 다양한 방법을 찾는 것을 의미할 수 있습니다.
+자율 학습에서는 데이터 요소에 연결된 레이블이 없습니다. 대신, 자율 학습 알고리즘의 목표는 어떤 방식으로든 데이터를 구성하거나 해당 구조를 설명하는 것입니다. 자율 learning은 데이터를 클러스터로 그룹화 하 고, K를 사용 하 여 데이터를 더 간단 하 게 표시 하기 위해 복잡 한 데이터를 볼 수 있는 다양 한 방법을 찾습니다.
 
 ### <a name="reinforcement-learning"></a>강화 학습
 
-보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 애플리케이션에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호에 따라 알고리즘은 가장 높은 보상을 달성하기 위해 해당 전략을 수정합니다. 
+보충 학습에서는 알고리즘이 각 데이터 요소에 대한 응답으로 작업을 선택합니다. 이는 지정 시간 센서 판독값 집합이 한 데이터 요소이며 알고리즘으로 로봇의 다음 동작을 선택해야 하는 로봇 공학의 일반적인 접근 방식입니다. 사물 인터넷의 애플리케이션에 적합한 학습이기도 합니다. 또한 학습 알고리즘은 짧은 시간 후에 결정이 얼마나 효율적이었는지를 나타내는 보상 신호를 받습니다. 이 신호를 기반으로 알고리즘은 최고 보상을 얻기 위해 전략을 수정 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Machine Learning 및 Azure Portal의 스튜디오에 대해 알아봅니다](overview-what-is-azure-ml.md).
+* [알고리즘을 선택 하는 방법](how-to-select-algorithms.md) 에 대 한 추가 지침을 참조 하세요.
 
-* [알고리즘 및 모듈 참조](algorithm-module-reference/module-reference.md)에서 알고리즘 및 모듈의 목록을 참조 하세요.
+* [Azure Machine Learning 및 Azure Portal의 스튜디오에 대해 알아봅니다](overview-what-is-azure-ml.md).
 
 * [자습서: Azure Machine Learning designer에서 예측 모델을 작성](tutorial-designer-automobile-price-train-score.md)합니다.
 

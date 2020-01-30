@@ -11,18 +11,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 11/19/2019
+ms.date: 01/28/2020
 ms.author: allensu
-ms.openlocfilehash: 21fc494f52b168f92da6972ee44be33b4e227a66
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 63706a3cdd34e5656f881c8668d8b88d9ac2e9ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046066"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843925"
 ---
 # <a name="troubleshoot-azure-load-balancer"></a>Azure Load Balancer 문제 해결
-
-[!INCLUDE [load-balancer-basic-sku-include.md](../../includes/load-balancer-basic-sku-include.md)]
 
 이 페이지에서는 일반적인 Azure Load Balancer 질문에 대한 문제 해결 정보를 제공합니다. Load Balancer 연결을 사용할 수 없을 때 가장 일반적인 증상은 다음과 같습니다. 
 - Load Balancer 뒤의 VM이 상태 프로브에 응답하지 않습니다. 

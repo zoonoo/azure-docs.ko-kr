@@ -3,7 +3,7 @@ title: 2 세대 Vm에 대 한 Azure 지원
 description: 2 세대 Vm에 대 한 Azure 지원 개요
 services: virtual-machines-linux
 documentationcenter: ''
-author: laurenhughes
+author: ju-shim
 manager: gwallace
 editor: ''
 tags: azure-resource-manager
@@ -11,14 +11,14 @@ ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
-ms.date: 12/03/2019
-ms.author: lahugh
-ms.openlocfilehash: cfa8d28a41bb5551277bca29c118698ecaa8d112
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/28/2020
+ms.author: jushiman
+ms.openlocfilehash: 766ac4f67c0d448f3988eb66c84dddbf44076ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74791742"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841145"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -30,14 +30,14 @@ ms.locfileid: "74791742"
 
 ## <a name="generation-2-vm-sizes"></a>2 세대 VM 크기
 
-1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다. 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 2 세대 지원을 제공 합니다.
+1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다 (Mv2 시리즈 Vm은 제외). 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 2 세대 지원을 제공 합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
 * [DC 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
 * [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
 * [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
 * [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
-* [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
+* [GS-series](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
 * [HB-시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
 * [HC 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
 * [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
@@ -125,6 +125,12 @@ Windows 및 SLES에 대 한 2 세대 이미지는 Gen1 이미지와 동일한 �
 Get-AzVMImageSku -Location westus2 -PublisherName MicrosoftWindowsServer -Offer WindowsServer
 ```
 
+또는 Azure CLI를 사용 하 여 **게시자**에 나열 된 사용 가능한 2 세대 이미지를 볼 수 있습니다.
+
+```azurecli
+az vm image list --publisher Canonical --sku gen2 --output table --all
+```
+
 OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIOS) 또는 2 세대 (UEFI) VM SKU를 선택 합니다 .이는 다음과 같습니다.
 
 ```powershell
@@ -138,7 +144,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
 
 1 세대 VM을 만드는 것과 같은 방법으로 관리 되는 이미지 또는 관리 디스크에서 2 세대 VM을 만들 수 있습니다.
 
-### <a name="virtual-machine-scale-sets"></a>가상 머신 크기 집합
+### <a name="virtual-machine-scale-sets"></a>가상 머신 확장 집합
 
 또한 가상 머신 확장 집합을 사용 하 여 2 세대 Vm을 만들 수 있습니다. Azure CLI에서 Azure 확장 집합을 사용 하 여 2 세대 Vm을 만듭니다.
 

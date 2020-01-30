@@ -16,12 +16,12 @@ ms.date: 11/07/2019
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 11/07/2019
-ms.openlocfilehash: 0cf593ce4ab9e0ba299d10b34422ee30661f38a9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 618be4bc2d7669879daa927d5c4392b1097d29af
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228151"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774880"
 ---
 # <a name="tutorial-push-notifications-to-specific-ios-devices-using-azure-notification-hubs"></a>자습서: Azure Notification Hubs를 사용하여 특정 iOS 디바이스에 알림 푸시
 
@@ -31,7 +31,7 @@ ms.locfileid: "74228151"
 
 이 자습서에서는 Azure Notification Hubs를 사용하여 iOS 앱에 속보 알림을 브로드캐스트하는 방법을 보여줍니다. 완료하면, 관심이 있는 속보 범주를 등록하고 해당 범주의 푸시 알림만 받을 수 있습니다. 이 시나리오는 RSS 수집기, 음악 애호가를 위한 앱 등 이전에 관심을 보인 사용자 그룹에 알림을 보내야 하는 많은 앱에 공통된 패턴입니다.
 
-브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그* 를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
+브로드캐스트 시나리오를 사용하려면 알림 허브에서 등록을 만들 때 하나 이상의 *태그*를 포함하면 됩니다. 태그에 알림이 전송되면 태그에 대해 등록된 디바이스에서 알림을 받게 됩니다. 태그는 단순히 문자열이므로 사전에 프로비전해야 할 필요가 없습니다. 태그에 대한 자세한 내용은 [Notification Hubs 라우팅 및 태그 식](notification-hubs-tags-segment-push-message.md)을 참조하세요.
 
 이 자습서에서 수행하는 단계는 다음과 같습니다.
 
@@ -41,7 +41,7 @@ ms.locfileid: "74228151"
 > * 디바이스에서 알림 보내기
 > * 앱 실행 및 알림 생성
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 항목은 [자습서: Azure Notification Hubs를 사용 하 여 iOS 앱에 알림 푸시][get-started]에서 만든 앱을 기반으로 합니다. 이 자습서를 시작 하기 전에 [자습서: Azure Notification Hubs를 사용 하 여 iOS 앱에 알림 푸시를][get-started]이미 완료 해야 합니다.
 
@@ -75,7 +75,7 @@ ms.locfileid: "74228151"
     - (IBAction)subscribe:(id)sender;
     ```
 
-4. **라는 새** Cocoa Touch 클래스`Notifications`를 만듭니다. 다음 코드를 Notifications.h 파일의 인터페이스 섹션에 복사합니다.
+4. `Notifications`라는 새 **Cocoa Touch 클래스**를 만듭니다. 다음 코드를 Notifications.h 파일의 인터페이스 섹션에 복사합니다.
 
     ```objc
     @property NSData* deviceToken;
@@ -146,7 +146,7 @@ ms.locfileid: "74228151"
     @property (nonatomic) Notifications* notifications;
     ```
 
-8. `didFinishLaunchingWithOptions`의 `AppDelegate.m` 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
+8. `AppDelegate.m`의 `didFinishLaunchingWithOptions` 메서드에서 메서드 시작 부분에 알림 인스턴스를 초기화하는 코드를 추가합니다.  
     `HUBNAME` 및 `HUBLISTENACCESS`(`hubinfo.h`에 정의됨)는 `<hub name>` 및 `<connection string with listen access>` 자리 표시자를 알림 허브 이름과 앞서 얻었던 *DefaultListenSharedAccessSignature*의 연결 문자열로 바꿉니다.
 
     ```objc
@@ -154,12 +154,12 @@ ms.locfileid: "74228151"
     ```
 
     > [!NOTE]
-    > 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 권한 키가 사용됩니다.
+    > 클라이언트 앱과 함께 배포되는 자격 증명은 일반적으로 안전하지 않기 때문에 클라이언트 앱과 함께 listen access용 키만 배포해야 합니다. Listen access를 통해 앱에서 알림을 등록할 수 있지만, 기존 등록을 수정할 수 없으며 알림을 전송할 수도 없습니다. 안전한 백 엔드 서비스에서 알림을 보내고 기존 등록을 변경하는 데에는 모든 액세스 키가 사용됩니다.
 
-9. `didRegisterForRemoteNotificationsWithDeviceToken`의 `AppDelegate.m` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 `subscribeWithCategories`구독**단추에 대한 응답으로** 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
+9. `AppDelegate.m`의 `didRegisterForRemoteNotificationsWithDeviceToken` 메서드에서 디바이스 토큰을 `notifications` 클래스에 전달하는 다음 코드로 메서드의 코드를 바꿉니다. `notifications` 클래스는 범주를 사용하여 알림에 대해 등록을 수행합니다. 사용자가 범주 선택 항목을 변경하는 경우 **구독** 단추에 대한 응답으로 `subscribeWithCategories` 메서드를 호출하여 범주 선택 항목을 업데이트합니다.
 
     > [!NOTE]
-    > APNS(Apple Push Notification Service)에서 할당하는 디바이스 토큰은 언제든지 변경될 수 있으므로 알림 실패를 피하려면 알림을 자주 등록해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
+    > APNS (Apple Push Notification Service)에서 할당 하는 장치 토큰은 언제 든 지 변경 될 수 있으므로 알림 실패를 방지 하려면 알림을 자주 등록 해야 합니다. 이 예제에서는 앱이 시작될 때마다 알림을 등록합니다. 자주(하루 두 번 이상) 실행되는 앱에서는 이전 등록 이후 만 하루가 지나지 않은 경우 대역폭 유지를 위한 등록을 건너뛸 수 있습니다.
 
     ```objc
     self.notifications.deviceToken = deviceToken;
@@ -197,7 +197,7 @@ ms.locfileid: "74228151"
 
     이 메서드는 단일 **UIAlert**를 표시하여 앱이 실행 중일 때 수신된 알림을 처리합니다.
 
-11. `ViewController.m`에서 `import`에 대한 `AppDelegate.h` 문을 추가하고 XCode 생성 `subscribe` 메서드에 다음 코드를 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
+11. `ViewController.m`에서 `AppDelegate.h`에 대한 `import` 문을 추가하고 XCode 생성 `subscribe` 메서드에 다음 코드를 복사합니다. 이 코드는 사용자 인터페이스에서 사용자가 선택한 새 범주 태그를 사용하도록 알림 등록을 업데이트합니다.
 
     ```objc
     #import "Notifications.h"
@@ -255,7 +255,7 @@ Visual Studio에 액세스할 수 없는 경우 다음 섹션으로 건너뛰고
 
 일반적으로 백 엔드 서비스에서 알림을 보내지만 속보 알림은 앱 자체에서 직접 보낼 수 있습니다. 이렇게 하려면 [Notification Hubs 시작][get-started] 자습서에서 정의한 `SendNotificationRESTAPI` 메서드를 업데이트 합니다.
 
-1. `ViewController.m`에서 범주 태그에 대한 매개 변수를 허용하고 적절한 `SendNotificationRESTAPI`템플릿[ 알림을 보내도록 다음과 같이 ](notification-hubs-templates-cross-platform-push-messages.md) 메서드를 업데이트합니다.
+1. `ViewController.m`에서 범주 태그에 대한 매개 변수를 허용하고 적절한 [템플릿](notification-hubs-templates-cross-platform-push-messages.md) 알림을 보내도록 다음과 같이 `SendNotificationRESTAPI` 메서드를 업데이트합니다.
 
     ```objc
     - (void)SendNotificationRESTAPI:(NSString*)categoryTag

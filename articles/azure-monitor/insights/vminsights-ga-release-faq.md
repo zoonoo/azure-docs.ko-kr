@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 12/05/2019
-ms.openlocfilehash: 4833b8a1835bd5da3327c73058f170fb0a5738a8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/24/2020
+ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450696"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765759"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
 
@@ -20,19 +20,28 @@ ms.locfileid: "75450696"
 
 ## <a name="updates-for-azure-monitor-for-vms"></a>VM용 Azure Monitor에 대 한 업데이트
 
-2020 년 1 월에 새 버전의 VM용 Azure Monitor을 릴리스할 계획입니다. 이 릴리스 후 Vm에 대 한 Azure 모니터를 사용 하도록 설정 하는 고객은 자동으로 새 버전을 수신 하지만 이미 VM용 Azure Monitor를 사용 하는 기존 고객은 업그레이드 하 라는 메시지가 표시 됩니다 이 질문과 설명서에서는 여러 작업 영역에 대규모 배포가 있는 경우 대규모 업그레이드를 수행 하는 지침을 제공 합니다.
+새 버전의 VM용 Azure Monitor를 출시 했습니다. Vm에 대 한 Azure 모니터를 사용 하도록 설정 하는 고객은 이제 새 버전을 받게 되지만 이미 VM용 Azure Monitor를 사용 하는 기존 고객은 업그레이드 하 라는 메시지가 표시 됩니다. 이 질문과 설명서에서는 여러 작업 영역에 대규모 배포가 있는 경우 대규모 업그레이드를 수행 하는 지침을 제공 합니다.
 
-이 업그레이드를 통해 VM용 Azure Monitor 성능 데이터는 [컨테이너에 대해 Azure Monitor](container-insights-overview.md)와 동일한 `InsightsMetrics` 테이블에 저장 되며, 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 또한 이전에 사용한 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수 있습니다. 이 새 테이블을 사용하도록 성능 보기도 업데이트됩니다.
+이 업그레이드를 통해 VM용 Azure Monitor 성능 데이터는 [컨테이너에 대 한 Azure Monitor](container-insights-overview.md)와 동일한 *InsightsMetrics* 테이블에 저장 되므로 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 또한 이전에 사용한 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수 있습니다. 
 
-연결 데이터 집합에 대 한 새 데이터 형식으로 이동 하 고 있습니다. 이 변경 내용은 12 월 2019에 발생 하며 Azure 업데이트 블로그에서 발표 될 예정입니다. 현재 `ServiceMapComputer_CL`에 저장 된 데이터와 사용자 지정 로그 테이블인 `ServiceMapProcess_CL`는 `VMComputer` 및 `VMProcess`이라는 전용 데이터 형식으로 이동 됩니다. 전용 데이터 형식으로 이동 하면 데이터 수집에 대 한 우선 순위가 부여 되 고 테이블 스키마는 모든 고객에 게 표준화 됩니다.
+다음 주 또는 두 개에서이 새 테이블을 사용 하도록 성능 보기도 업데이트 됩니다.
 
 기존 고객에 게 업그레이드를 요청 하면 워크플로의 중단이 발생 합니다. 따라서 GA 이후에는 공개 미리 보기에서이 작업을 수행 하도록 선택 했습니다.
 
+
 ## <a name="what-is-changing"></a>변경되는 내용
 
-현재 VM용 Azure Monitor에 대 한 온 보 딩 프로세스를 완료 하면 모니터링 데이터를 저장 하기 위해 선택한 작업 영역에서 서비스 맵 솔루션을 사용 하도록 설정 하 고 Vm에서 수집한 데이터에 대 한 성능 카운터를 구성 합니다. Log Analytics 작업 영역에이 데이터를 저장 하는 새 위치와 함께 데이터 수집에 대 한 추가 기능을 포함 하는 **VMInsights**라는 새 솔루션을 릴리스할 예정입니다.
+Log Analytics 작업 영역에이 데이터를 저장 하는 새 위치와 함께 데이터 수집에 대 한 추가 기능을 포함 하는 VMInsights 라는 새 솔루션이 출시 되었습니다. 
 
-현재 Log Analytics 작업 영역에서 성능 카운터를 사용 하는 프로세스는 `Perf` 테이블로 데이터를 보냅니다. 이 새 솔루션은 Azure Monitor 컨테이너에도 사용 되는 `InsightsMetrics` 라는 테이블로 데이터를 보냅니다. 이 테이블 스키마를 사용 하면 성능 테이블 형식과 호환 되지 않는 추가 메트릭과 서비스 데이터 집합을 저장할 수 있습니다.
+이전에는 작업 영역에서 ServiceMap 솔루션을 사용 하도록 설정 하 고 Log Analytics 작업 영역에서 성능 카운터를 설정 하 여 데이터를 *Perf* 테이블로 보냅니다. 이 새 솔루션은 컨테이너의 Azure Monitor에도 사용 되는 *InsightsMetrics* 라는 테이블로 데이터를 보냅니다. 이 테이블 스키마를 사용 하면 *성능* 테이블 형식과 호환 되지 않는 추가 메트릭과 서비스 데이터 집합을 저장할 수 있습니다.
+
+
+## <a name="how-do-i-upgrade"></a>업그레이드 어떻게 할까요??
+업그레이드가 필요한 각 VM은 Azure Portal VM용 Azure Monitor의 **시작** 탭에서 확인할 수 있습니다. 단일 VM을 업그레이드 하거나 여러 개를 선택 하 여 함께 업그레이드할 수 있습니다. 다음 명령을 사용 하 여 PowerShell을 사용 하 여 업그레이드 합니다.
+
+```PowerShell
+Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
+```
 
 ## <a name="what-should-i-do-about-the-performance-counters-in-my-workspace-if-i-install-the-vminsights-solution"></a>VMInsights 솔루션을 설치 하는 경우 내 작업 영역에서 성능 카운터는 어떻게 해야 하나요?
 

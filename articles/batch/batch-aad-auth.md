@@ -12,14 +12,14 @@ ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
-ms.date: 08/15/2019
+ms.date: 01/28/2020
 ms.author: jushiman
-ms.openlocfilehash: 56fcd5a8a02e292fdf43f9d22f3987813bce0743
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ce3582539d6130e13ef205806d780164ba70c4fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029815"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842540"
 ---
 # <a name="authenticate-batch-service-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch 서비스 솔루션 인증
 
@@ -143,6 +143,67 @@ Azure Portal에서 다음 단계를 따릅니다.
 이제 액세스 제어 설정에서 RBAC 역할이 할당된 애플리케이션이 표시됩니다.
 
 ![애플리케이션에 RBAC 역할 할당](./media/batch-aad-auth/app-rbac-role.png)
+
+### <a name="assign-a-custom-role"></a>사용자 지정 역할 할당
+
+사용자 지정 역할은 작업, 작업 등을 제출 하기 위해 사용자에 게 세부적인 사용 권한을 부여 합니다. 이를 통해 사용자가 풀 만들기 또는 노드 수정과 같은 비용에 영향을 주는 작업을 수행할 수 없도록 할 수 있습니다.
+
+사용자 지정 역할을 사용 하 여 다음 RBAC 작업에 대해 Azure AD 사용자, 그룹 또는 서비스 주체에 권한을 부여할 수 있습니다.
+
+- Microsoft.Batch/batchAccounts/pools/write
+- Microsoft.Batch/batchAccounts/pools/delete
+- Microsoft.Batch/batchAccounts/pools/read
+- Microsoft. Batch/batchAccounts/jobSchedules/write
+- Microsoft. Batch/batchAccounts/jobSchedules/삭제
+- Microsoft. Batch/batchAccounts/jobSchedules/읽기
+- Microsoft. Batch/batchAccounts/jobs/write
+- Microsoft. Batch/batchAccounts/jobs/delete
+- Microsoft. Batch/batchAccounts/jobs/read
+- Microsoft.Batch/batchAccounts/certificates/write
+- Microsoft.Batch/batchAccounts/certificates/delete
+- Microsoft.Batch/batchAccounts/certificates/read
+- Microsoft. Batch/batchAccounts/read (읽기 작업의 경우)
+- Microsoft. Batch/batchAccounts/listKeys/action (모든 작업)
+
+사용자 지정 역할은 Batch 계정 자격 증명 (공유 키)이 아닌 Azure AD에서 인증 된 사용자를 위한 것입니다. Batch 계정 자격 증명은 Batch 계정에 대 한 모든 권한을 부여 합니다. 또한 자동 풀를 사용 하는 작업에는 풀 수준 권한이 필요 합니다.
+
+사용자 지정 역할 정의의 예는 다음과 같습니다.
+
+```json
+{
+ "properties":{
+    "roleName":"Azure Batch Custom Job Submitter",
+    "type":"CustomRole",
+    "description":"Allows a user to submit jobs to Azure Batch but not manage pools",
+    "assignableScopes":[
+      "/subscriptions/88888888-8888-8888-8888-888888888888"
+    ],
+    "permissions":[
+      {
+        "actions":[
+          "Microsoft.Batch/*/read",
+          "Microsoft.Authorization/*/read",
+          "Microsoft.Resources/subscriptions/resourceGroups/read",
+          "Microsoft.Support/*",
+          "Microsoft.Insights/alertRules/*"
+        ],
+        "notActions":[
+
+        ],
+        "dataActions":[
+          "Microsoft.Batch/batchAccounts/jobs/*",
+          "Microsoft.Batch/batchAccounts/jobSchedules/*"
+        ],
+        "notDataActions":[
+
+        ]
+      }
+    ]
+  }
+}
+```
+
+사용자 지정 역할을 만드는 방법에 대 한 일반적인 내용은 [Azure 리소스에 대 한 사용자 지정 역할](../role-based-access-control/custom-roles.md)을 참조 하세요.
 
 ### <a name="get-the-tenant-id-for-your-azure-active-directory"></a>Azure Active Directory에 대한 테넌트 ID 가져오기
 

@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 55872d48dcf2a85812e1627e4e85bcd98b25d576
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 3c609c659d99ce6eca0326a5a14cbbb67099e686
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271317"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840471"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -121,6 +121,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 ## <a name="change-log"></a>변경 로그
 
+- 01/28/2020: RHEL의 [Azure vm에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) 을 변경 하 여 SAP HANA 클러스터 리소스 시간 제한을 Red Hat 시간 제한 권장 사항에 맞춥니다.
 - 01/17/2020: [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 을 변경 하 여 기존 vm을 근접 배치 그룹으로 이동 하는 섹션을 변경 합니다.
 - 01/17/2020: Azure 가용성 영역을 [사용 하 여 SAP 워크 로드 구성을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 변경 하 여 가용성 영역 간의 대기 시간 측정을 자동화 하는 절차를 가리키도록 합니다.
 - 01/16/2020: [Azure에서 SAP HANA (Large Instances)를 설치 및 구성 하는 방법에 따라](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation) OS 릴리스를 HANA IaaS 하드웨어 디렉터리에 맞게 조정 합니다.

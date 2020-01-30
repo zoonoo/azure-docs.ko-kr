@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 3b98975df194af4625087e1beb556efb2a347f43
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872063"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767984"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -342,11 +342,11 @@ Azure Cosmos DB에서 인덱싱 정책은 아래 방법 중 하나를 사용 하
 > [!NOTE]
 > 인덱싱 정책을 업데이트할 때 Azure Cosmos DB에 대 한 쓰기는 중단 되지 않습니다. 인덱스를 업데이트 하는 동안 쿼리는 다시 인덱싱하는 동안 일부 결과를 반환할 수 있습니다.
 
-## <a name="use-the-azure-portal"></a>Azure 포털 사용
+## <a name="use-the-azure-portal"></a>Azure Portal 사용
 
 Azure Cosmos 컨테이너는 자체의 인덱싱 정책을 Azure Portal에서 직접 편집할 수 있는 JSON 문서로 저장합니다.
 
-1. [Azure portal](https://portal.azure.com/)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
 1. 새 Azure Cosmos 계정을 만들거나 기존 계정을 선택합니다.
 
@@ -607,9 +607,9 @@ const containerResponse = await client.database('database').container('container
 const indexTransformationProgress = replaceResponse.headers['x-ms-documentdb-collection-index-transformation-progress'];
 ```
 
-## <a name="use-the-python-sdk"></a>Python SDK 사용
+## <a name="use-the-python-sdk-v3"></a>Python SDK V3 사용
 
-[Python SDK](https://pypi.org/project/azure-cosmos/)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-python.md) 참조)를 사용하는 경우 컨테이너 구성은 사전으로 관리됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
+[PYTHON SDK V3](https://pypi.org/project/azure-cosmos/) (사용과 관련 하 여 [이 빠른](create-sql-api-python.md) 시작 참조)을 사용 하는 경우 컨테이너 구성이 사전으로 관리 됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
 
 컨테이너의 세부 정보를 검색 합니다.
 
@@ -669,6 +669,72 @@ container['indexingPolicy']['compositeIndexes'] = [
 
 ```python
 response = client.ReplaceContainer(containerPath, container)
+```
+
+## <a name="use-the-python-sdk-v4"></a>Python SDK V4 사용
+
+[PYTHON SDK V4](https://pypi.org/project/azure-cosmos/)를 사용 하는 경우 컨테이너 구성이 사전으로 관리 됩니다. 이 사전에서 인덱싱 정책 및 해당 정책의 모든 특성에 액세스할 수 있습니다.
+
+컨테이너의 세부 정보를 검색 합니다.
+
+```python
+database_client = cosmos_client.get_database_client('database')
+container_client = database_client.get_container_client('container')
+container = container_client.read()
+```
+
+인덱싱 모드를 일관 되 게 설정
+
+```python
+indexingPolicy = {
+    'indexingMode': 'consistent'
+}
+```
+
+포함 된 경로 및 공간 인덱스를 사용 하 여 인덱싱 정책 정의
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "spatialIndexes":[
+        {"path":"/location/*","types":["Point"]}
+    ],
+    "includedPaths":[{"path":"/age/*","indexes":[]}],
+    "excludedPaths":[{"path":"/*"}]
+}
+```
+
+제외 된 경로를 사용 하 여 인덱싱 정책 정의
+
+```python
+indexingPolicy = {
+    "indexingMode":"consistent",
+    "includedPaths":[{"path":"/*","indexes":[]}],
+    "excludedPaths":[{"path":"/name/*"}]
+}
+```
+
+복합 인덱스 추가
+
+```python
+indexingPolicy['compositeIndexes'] = [
+    [
+        {
+            "path": "/name",
+            "order": "ascending"
+        },
+        {
+            "path": "/age",
+            "order": "descending"
+        }
+    ]
+]
+```
+
+변경 내용으로 컨테이너 업데이트
+
+```python
+response = database_client.replace_container(container_client, container['partitionKey'], indexingPolicy)
 ```
 
 ## <a name="next-steps"></a>다음 단계

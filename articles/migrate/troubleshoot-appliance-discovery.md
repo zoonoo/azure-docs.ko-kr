@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: d66e792b901742f903dccf7a0e7999db4d02e26a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289529"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772028"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -113,7 +113,7 @@ ms.locfileid: "76289529"
     1. 관리자 권한으로 메모장을 엽니다.
     2. C:\Windows\System32\Drivers\etc\hosts 파일을 엽니다.
     3. 행에 IP 주소 및 호스트 이름을 추가 합니다. 이 오류가 표시 되는 각 호스트 또는 클러스터에 대해 반복 합니다.
-    4. 변경 내용을 저장하고 호스트 파일을 닫습니다.
+    4. Hosts 파일을 저장 한 후 닫습니다.
     5. 어플라이언스 관리 앱을 사용 하 여 어플라이언스를 호스트에 연결할 수 있는지 여부를 확인 합니다. 30 분 후 Azure Portal에 이러한 호스트에 대 한 최신 정보가 표시 됩니다.
 
 ## <a name="discovered-vms-not-in-portal"></a>검색 된 Vm이 포털에 없음
@@ -131,7 +131,7 @@ ms.locfileid: "76289529"
 
 ## <a name="vm-data-not-in-portal"></a>포털에 없는 VM 데이터
 
-검색 된 Vm이 포털에 표시 되지 않으면 몇 분 정도 기다립니다. 검색 된 데이터가 포털에 표시 되는 데 최대 30 분이 걸립니다. 30 분 후에 데이터가 없으면 다음과 같이 새로 고쳐 보세요.
+검색 된 Vm이 포털에 표시 되지 않거나 VM 데이터가 오래 된 경우 몇 분 정도 기다립니다. 검색 된 VM 구성 데이터의 변경 내용이 포털에 표시 되는 데 최대 30 분이 걸립니다. 응용 프로그램 데이터의 변경 내용이 나타날 때까지 몇 시간이 걸릴 수 있습니다. 이 시간 이후 데이터가 없으면 다음과 같이 새로 고쳐 보세요.
 
 1. 서버 ** > ** **Azure Migrate 서버 평가**에서 **개요**를 선택 합니다.
 2. **관리**에서 **에이전트 상태**를 선택 합니다.
@@ -166,7 +166,8 @@ Azure Migrate은 Azure Migrate: 서버 평가를 사용 하 여 응용 프로그
 9009: "서버에 설치 된 응용 프로그램을 검색할 수 없습니다." | 서버의 Windows UAC (사용자 계정 컨트롤) 설정이 제한적이 고 설치 된 응용 프로그램의 검색을 방지 하는 경우 발생할 수 있습니다. | 서버에서 ' 사용자 계정 컨트롤 ' 설정을 검색 하 고 서버에서 하위 두 수준 중 하나로 UAC 설정을 구성 합니다.
 9010: "서버에 설치 된 응용 프로그램을 검색할 수 없습니다." | 내부 오류가 있을 수 있습니다.  | Tf 문제는 24 시간 내에 해결 되지 않으므로 지원 담당자에 게 문의 하세요.
 8084: "VMware 오류로 인해 응용 프로그램을 검색할 수 없습니다. <Exception from VMware>" | Azure Migrate 어플라이언스는 VMware Api를 사용 하 여 응용 프로그램을 검색 합니다. 응용 프로그램을 검색 하는 동안 vCenter Server에서 예외가 throw 되는 경우이 문제가 발생할 수 있습니다. VMware의 오류 메시지는 포털에 표시 된 오류 메시지에 표시 됩니다. | [VMware 설명서](https://pubs.vmware.com/vsphere-51/topic/com.vmware.wssdk.apiref.doc/index-faults.html)에서 메시지를 검색 하 고 문제를 해결 하는 단계를 수행 합니다. 해결할 수 없는 경우 Microsoft 지원에 문의 하세요.
-
+9012: "서버에 설치 된 응용 프로그램을 검색할 수 없습니다." | 내부 오류로 인해 문제가 발생할 수 있습니다.  | 24 시간 내에 문제가 해결 되지 않으면 고객 지원 담당자에 게 문의 하세요.
+9013: "서버에 설치 된 응용 프로그램을 검색할 수 없습니다." | VM에 로그인 할 때마다 새 임시 프로필이 생성 됩니다.  | 제공 된 게스트 사용자에 대해 임시 프로필을 만들지 않았는지 확인 합니다.
 
 
 

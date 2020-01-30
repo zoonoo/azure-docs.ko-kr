@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 92925dc32d7f26b224811aa852112a275f112b35
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 3f6d4849b02f320c7479469b4ee56be50e4f8dee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950836"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840097"
 ---
 # <a name="javascript-and-page-layout-versions-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 JavaScript 및 페이지 레이아웃 버전
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure AD B2C은 사용자 흐름 및 사용자 지정 정책의 사용자 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 패키지 콘텐츠 집합을 제공 합니다. 응용 프로그램에 대해 JavaScript를 사용 하도록 설정 하려면 사용자 [지정 정책](active-directory-b2c-overview-custom.md) 에 요소를 추가 하거나 포털에서 사용자 흐름을 사용 하도록 설정 하 고, 페이지 레이아웃을 선택 하 고, 요청에 [b2clogin.com](b2clogin.md) 를 사용 해야 합니다.
+Azure AD B2C은 사용자 흐름 및 사용자 지정 정책의 사용자 인터페이스 요소에 대 한 HTML, CSS 및 JavaScript를 포함 하는 패키지 콘텐츠 집합을 제공 합니다. 응용 프로그램에 대해 JavaScript를 사용 하도록 설정 하려면 사용자 [지정 정책](custom-policy-overview.md) 에 요소를 추가 하거나 포털에서 사용자 흐름을 사용 하도록 설정 하 고, 페이지 레이아웃을 선택 하 고, 요청에 [b2clogin.com](b2clogin.md) 를 사용 해야 합니다.
 
 [Javascript](javascript-samples.md) 클라이언트 쪽 코드를 사용 하도록 설정 하려는 경우 javascript를 기반으로 하는 요소를 변경할 수 없도록 해야 합니다. 그렇지 않으면 사용자 페이지에서 예기치 않은 동작이 변경 될 수 있습니다. 이러한 문제를 방지 하기 위해 페이지 레이아웃 사용을 강제 적용 하 고 페이지 레이아웃 버전을 지정할 수 있습니다. 이렇게 하면 JavaScript를 기반으로 하는 모든 콘텐츠 정의를 변경할 수 없습니다. JavaScript를 사용 하지 않으려는 경우에도 페이지에 대 한 페이지 레이아웃 버전을 지정할 수 있습니다.
 

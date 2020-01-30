@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 9c654c65577c44b1773ff98cb1206beeb5206ba4
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 4cf2bc919ecb8b39a23b23df95a6f37396f50603
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60761780"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774876"
 ---
 # <a name="configuring-azure-media-services-telemetry-with-rest"></a>REST를 사용하여 Azure Media Services 원격 분석 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "60761780"
 - 알림 엔드포인트 가져오기
 - 모니터링을 위한 알림 엔드포인트 만들기 
 
-    알림 끝점을 만들려면 EndPointType AzureTable (2) 하 고 endPontAddress를 저장소 테이블 집합으로 설정 합니다 (예: https:\//telemetryvalidationstore.table.core.windows.net/).
+    알림 끝점을 만들려면 EndPointType을 AzureTable (2)로 설정 하 고 endPontAddress를 storage 테이블로 설정 합니다 (예: https:\//telemetryvalidationstore.table.core.windows.net/).
   
 - 모니터링 구성 가져오기
 
@@ -49,7 +49,7 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/StorageAccounts HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -77,14 +77,14 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
     
-### <a name="response"></a>response
+### <a name="response"></a>응답
     HTTP/1.1 200 OK
     Cache-Control: no-cache
     Content-Length: 20
@@ -110,7 +110,7 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/NotificationEndPoints HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -126,9 +126,9 @@ ms.locfileid: "60761780"
     }
 
 > [!NOTE]
-> 변경 해야 합니다 "https:\//telemetryvalidationstore.table.core.windows.net" 저장소 계정에는 값입니다.
+> "Https:\//telemetryvalidationstore.table.core.windows.net" 값을 저장소 계정으로 변경 해야 합니다.
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -152,14 +152,14 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     GET https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
     Authorization: (redacted)
     Host: wamsbnp1clus001rest-hs.cloudapp.net
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
     
     HTTP/1.1 200 OK
     Cache-Control: no-cache
@@ -182,7 +182,7 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     POST https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations HTTP/1.1
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -201,7 +201,7 @@ ms.locfileid: "60761780"
        ]
     }
 
-### <a name="response"></a>response
+### <a name="response"></a>응답
 
     HTTP/1.1 201 Created
     Cache-Control: no-cache
@@ -225,7 +225,7 @@ ms.locfileid: "60761780"
 ### <a name="request"></a>요청
 
     DELETE https://wamsbnp1clus001rest-hs.cloudapp.net/api/MonitoringConfigurations('nb%3Amcid%3AUUID%3A1a8931ae-799f-45fd-8aeb-9641740295c2')
-    x-ms-version: 2.13
+    x-ms-version: 2.19
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
     Accept: application/json; odata=verbose
@@ -241,6 +241,6 @@ ms.locfileid: "60761780"
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

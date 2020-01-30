@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.date: 10/09/2019
 ms.author: v-six
-ms.openlocfilehash: a47dc1032115f8bcae0c7bdc37c84ab3b68ec4a8
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 455cb1e0067217be6edcf665e8c07e8fcd684ab5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432300"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842404"
 ---
 # <a name="troubleshoot-linux-vm-starting-issues-due-to-file-system-errors"></a>파일 시스템 오류로 인 한 Linux VM 시작 문제 해결
 
@@ -39,7 +39,7 @@ Checking all file systems.
 /dev/sda1: UNEXPECTED INCONSISTENCY; RUN fsck MANUALLY
 ```
 
-### <a name="example-2"></a>예 2
+### <a name="example-2"></a>예제 2
 
 ```
 EXT4-fs (sda1): INFO: recovery required on readonly filesystem
@@ -48,7 +48,7 @@ EXT4-fs warning (device sda1): ext4_clear_journal_err:4531: Filesystem error rec
 EXT4-fs warning (device sda1): ext4_clear_journal_err:4532: Making fs in need of filesystem check.
 ```
 
-### <a name="example-3"></a>예 3
+### <a name="example-3"></a>예제 3
 
 ```
 [  14.252404] EXT4-fs (sda1): Couldn’t remount RDWR because of unprocessed orphan inode list.  Please unmount/remount instead
@@ -88,7 +88,7 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
 2. 전원 아이콘 단추를 선택한 다음, VM 다시 시작을 선택 합니다. (직렬 콘솔이 사용 하도록 설정 되지 않았거나 연결 되지 않은 경우 단추가 표시 되지 않습니다.)
 
-   ![이미지로](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
+   ![IMAGE](./media/linux-recovery-cannot-ssh-to-linux-vm-due-to-file-system-errors-fsck/restart-vm.png)
 
 3. 에서 VM을 응급 모드로 부팅 합니다.
 
@@ -110,20 +110,20 @@ Linux에는 사용할 수 있는 몇 가지 파일 시스템 검사기가 있습
 
    ```
    mkdir /temp
-   mount /dev/sda2 /temp
+   mount /dev/sda1 /temp
    ```
 
 8. 디스크를 탑재 하지 못하는 경우-L 옵션 (force log 제로화)을 사용 하 여 xfs_repair 명령을 실행 합니다.
 
    ```
-   xfs_repair /dev/sda2 -L
+   xfs_repair /dev/sda1 -L
    ```
 
 9. 다음으로 파일 시스템을 탑재 해 봅니다. 디스크가 성공적으로 탑재 되 면 다음과 같은 출력이 표시 됩니다.
  
    ```
-   XFS (sda2): Mounting V1 Filesystem
-   XFS (sda2): Ending clean mount
+   XFS (sda1): Mounting V1 Filesystem
+   XFS (sda1): Ending clean mount
    ```
 
 10. VM을 다시 시작 하 고 문제가 해결 되었는지 확인 합니다.

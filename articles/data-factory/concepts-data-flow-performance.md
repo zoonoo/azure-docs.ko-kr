@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 3036fb44cdd636c4a7b9e690ee19aa3d5ab2f5ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/25/2020
+ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444518"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773856"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -129,6 +129,12 @@ CosmosDB 싱크에 대 한 처리량 및 일괄 처리 속성 설정은 파이�
 * 일괄 처리 크기: 데이터의 대략적인 행 크기를 계산 하 고 행 크기 * 일괄 처리 크기가 200만 보다 적은지 확인 합니다. 이 경우 일괄 처리 크기를 늘려 더 나은 처리량을 얻습니다.
 * 처리량: 문서를 CosmosDB에 더 빨리 쓸 수 있도록 여기에서 더 높은 처리량 설정을 설정 합니다. 높은 처리량 설정에 따라 높은 수준의 비용을 염두에 두십시오.
 *   쓰기 처리량 예산: 분당 총 RUs 보다 작은 값을 사용 합니다. 많은 수의 Spark 파티션이 포함 된 데이터 흐름이 있는 경우 예산 처리량을 설정 하면 해당 파티션에 대 한 균형을 높일 수 있습니다.
+
+## <a name="join-performance"></a>조인 성능
+
+데이터 흐름의 조인 성능을 관리 하는 작업은 데이터 변환의 수명 주기 동안 수행 되는 매우 일반적인 작업입니다. ADF에서 데이터 흐름은 이러한 작업이 Spark의 해시 조인으로 수행 되므로 조인 전에 데이터를 정렬 하지 않아도 됩니다. 그러나 "브로드캐스트" 조인 최적화를 사용 하 여 성능 향상의 이점을 누릴 수 있습니다. 이렇게 하면 조인 관계 양쪽의 콘텐츠를 Spark 노드에 푸시하여 섞 습니다 하지 않습니다. 이는 참조 조회에 사용 되는 작은 테이블에 적합 합니다. 노드 메모리에 맞지 않을 수 있는 큰 테이블은 브로드캐스트 최적화에 적합 하지 않습니다.
+
+다른 조인 최적화는 결합이 크로스 조인을 구현 하는 추세를 방지 하는 방식으로 조인을 빌드하는 것입니다. 예를 들어, 조인 조건에 리터럴 값을 포함 하는 경우 Spark는 전체 카티션 곱을 먼저 수행 하는 요구 사항으로 표시 된 다음 조인 된 값을 필터링 합니다. 그러나 조인 조건의 양쪽에 열 값이 있는 경우 이러한 Spark로 인 한 카티션 곱을 방지 하 고 조인 및 데이터 흐름의 성능을 향상 시킬 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

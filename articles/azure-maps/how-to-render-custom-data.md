@@ -3,18 +3,18 @@ title: 래스터 맵에서 사용자 지정 데이터 렌더링 | Microsoft Azur
 description: 이 문서에서는 Microsoft Azure Maps 정적 이미지 서비스를 사용 하 여 래스터 맵에 사용자 지정 데이터를 렌더링 하는 방법을 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 07/29/2019
+ms.date: 01/23/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: c052ae1f7bab902dcd22b3cc081907468874b35c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f036847a9d46231d65d150cd4e0a76471d1ad612
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911463"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766008"
 ---
 # <a name="render-custom-data-on-a-raster-map"></a>래스터 맵에서 사용자 지정 데이터 렌더링
 
@@ -29,7 +29,7 @@ ms.locfileid: "75911463"
 
 ### <a name="create-an-azure-maps-account"></a>Azure Maps 계정 만들기
 
-이 문서의 절차를 완료 하려면 먼저 Azure Maps 계정을 만들고 사용자에 게 매핑 계정 키를 가져와야 합니다. 계정 [만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대 한 자세한 내용은 [Azure Maps 인증 관리](./how-to-manage-authentication.md)를 참조 하세요.
+이 문서의 절차를 완료 하려면 먼저 Azure Maps 계정을 만들고 Maps 계정 키를 가져와야 합니다. 계정 [만들기](quick-demo-map-app.md#create-an-account-with-azure-maps) 의 지침에 따라 Azure Maps 계정 구독을 만들고 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account) 의 단계에 따라 계정에 대 한 기본 키를 가져옵니다. Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리](./how-to-manage-authentication.md)를 참조하세요.
 
 
 ## <a name="render-pushpins-with-labels-and-a-custom-image"></a>레이블 및 사용자 지정 이미지를 사용 하 여 압정 렌더링
@@ -43,7 +43,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 
 1. 요청을 저장할 컬렉션을 만듭니다. Postman 앱에서 **새로 만들기**를 선택 합니다. **새로 만들기** 창에서 **컬렉션**을 선택 합니다. 컬렉션 이름을로 하 고 **만들기** 단추를 선택 합니다. 
 
-2. 요청을 만들려면 **새로 만들기** 를 다시 선택 합니다. **새로 만들기** 창에서 **요청**을 선택 합니다. 압정에 대 한 **요청 이름을** 입력 하 고, 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 하 고, **저장**을 선택 합니다.
+2. 요청을 만들려면 **새로 만들기** 를 다시 선택 합니다. **새로 만들기** 창에서 **요청**을 선택 합니다. 압정에 대 한 **요청 이름을** 입력 합니다. 이전 단계에서 만든 컬렉션을 요청을 저장할 위치로 선택 하 고 **저장**을 선택 합니다.
     
     ![Postman에서 요청 만들기](./media/how-to-render-custom-data/postman-new.png)
 
@@ -142,13 +142,13 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-5. 상태 URI를 복사 하 고 해당 값을 데이터를 업로드 하는 데 사용한 Azure Maps 계정 구독 키로 사용 하 여 구독 키 매개 변수를 추가 합니다. 상태 URI 형식은 아래와 같습니다.
+5. 상태 URI를 복사 하 고 Azure Maps 계정 구독 키 값을 사용 하 여 구독 키 매개 변수를 추가 합니다. 데이터를 업로드 하는 데 사용한 것과 동일한 계정 구독 키를 사용 합니다. 상태 URI 형식은 아래와 같습니다.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
    ```
 
-6. 을 (를) 가져오려면 Postman 앱에서 새 탭을 열고 작성기 탭에서 GET HTTP 메서드를 선택 하 고 상태 URI에서 GET 요청을 수행 합니다. 데이터 업로드가 성공하면 응답 본문에 udId가 있습니다. UdId를 복사 합니다.
+6. UdId을 가져오려면 Postman 앱에서 새 탭을 열고 작성기 탭에서 GET HTTP 메서드를 선택 하 고 상태 URI에서 GET 요청을 수행 합니다. 데이터 업로드가 성공하면 응답 본문에 udId가 있습니다. UdId를 복사 합니다.
 
    ```JSON
    {
@@ -156,7 +156,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
    }
    ```
 
-7. 데이터 업로드 API에서 받은 `udId` 값을 사용 하 여 맵의 기능을 렌더링 합니다. 이렇게 하려면 이전 섹션에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 다음 URL을 입력 하 여 GET 요청을 수행 합니다.
+7. 데이터 업로드 API에서 받은 `udId` 값을 사용 하 여 맵의 기능을 렌더링 합니다. 이렇게 하려면 이전 섹션에서 만든 컬렉션에서 새 탭을 엽니다. 작성기 탭에서 GET HTTP 메서드를 선택 하 고 {subscription-key} 및 {udId}을 값으로 바꾸고,이 URL을 입력 하 여 GET 요청을 수행 합니다.
 
     ```HTTP
     https://atlas.microsoft.com/map/static/png?subscription-key={subscription-key}&api-version=1.0&layer=basic&style=main&zoom=12&center=-73.96682739257812%2C40.78119135317995&pins=default|la-35+50|ls12|lc003C62|co9B2F15||'Times Square'-73.98516297340393 40.758781646381024|'Central Park'-73.96682739257812 40.78119135317995&path=lc0000FF|fc0000FF|lw3|la0.80|fa0.30||udid-{udId}
@@ -192,7 +192,7 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
 > 이 섹션의 절차에는 가격 책정 계층 s 1의 Azure Maps 계정이 필요 합니다.
 
 
-`sc` scale 스타일 한정자를 사용 하 여 압정 및 해당 레이블을 더 크거나 작게 만들 수 있습니다. 이 한정자는 0 보다 큰 값을 사용 합니다. 값 1이 표준 배율입니다. 값이 1보다 크면 핀이 확대되고, 값이 1보다 작으면 축소됩니다. 스타일 한정자에 대 한 자세한 내용은 [정적 이미지 서비스 경로 매개 변수](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)를 참조 하세요.
+스타일 한정자를 추가 하 여 핀의 모양을 수정할 수 있습니다. 예를 들어 압정 및 해당 레이블을 더 크게 만들려면 `sc` "눈금 스타일" 한정자를 사용 합니다. 이 한정자는 0 보다 큰 값을 사용 합니다. 값 1이 표준 배율입니다. 값이 1보다 크면 핀이 확대되고, 값이 1보다 작으면 축소됩니다. 스타일 한정자에 대 한 자세한 내용은 [정적 이미지 서비스 경로 매개 변수](https://docs.microsoft.com/rest/api/maps/render/getmapimage#uri-parameters)를 참조 하세요.
 
 
 사용자 지정 레이블을 사용 하 여 원과 압정를 렌더링 하려면 다음 단계를 따르세요.
@@ -206,6 +206,18 @@ Azure Maps 계정 S0 계층은 `pins` 매개 변수의 단일 인스턴스만 �
     응답 이미지는 다음과 같습니다.
 
     ![사용자 지정 압정를 사용 하 여 원 렌더링](./media/how-to-render-custom-data/circle-custom-pins.png)
+
+2. 마지막 단계에서 압정 색을 변경 하려면 "co" 스타일 한정자를 변경 합니다. `pins=default|la15+50|al0.66|lc003C62|co002D62|`를 살펴보면 현재 색이 CSS에서 #002D62로 지정 됩니다. #41d42a로 변경 하려는 경우를 가정해 보겠습니다. `pins=default|la15+50|al0.66|lc003C62|co41D42A|`와 같이 "co" 지정자 뒤에 새 색 값을 씁니다. 새 GET 요청을 만듭니다.
+
+    ```HTTP
+    https://atlas.microsoft.com/map/static/png?api-version=1.0&style=main&layer=basic&zoom=14&height=700&Width=700&center=-122.13230609893799,47.64599069048016&path=lcFF0000|lw2|la0.60|ra1000||-122.13230609893799 47.64599069048016&pins=default|la15+50|al0.66|lc003C62|co41D42A||'Microsoft Corporate Headquarters'-122.14131832122801  47.64690503939462|'Microsoft Visitor Center'-122.136828 47.642224|'Microsoft Conference Center'-122.12552547454833 47.642940335653996|'Microsoft The Commons'-122.13687658309935  47.64452336193245&subscription-key={subscription-key}
+    ```
+
+    Pin 색을 변경한 후의 응답 이미지는 다음과 같습니다.
+
+    ![업데이트 된 압정가 있는 원 렌더링](./media/how-to-render-custom-data/circle-updated-pins.png)
+
+마찬가지로 다른 스타일 한정자를 변경, 추가 및 제거할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

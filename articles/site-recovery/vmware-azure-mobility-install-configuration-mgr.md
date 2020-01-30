@@ -5,12 +5,12 @@ author: Rajeswari-Mamilla
 ms.topic: how-to
 ms.date: 12/22/2019
 ms.author: ramamill
-ms.openlocfilehash: 43e6a39a52eb81573b4a4ba8ad63d48d0e51dedd
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 50f8b5b4412e02692bf2b5d57b7f0dee27c2a25a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514822"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842702"
 ---
 # <a name="automate-mobility-service-installation"></a>모바일 서비스 설치 자동화
 
@@ -19,7 +19,7 @@ ms.locfileid: "76514822"
 Azure에 대 한 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 Site Recovery를 배포할 때 복제 하려는 각 컴퓨터에 모바일 서비스 에이전트를 설치 합니다. 모바일 서비스는 컴퓨터에서 데이터 쓰기를 캡처하여 복제를 위해 Site Recovery 프로세스 서버에 전달 합니다. 다음 두 가지 방법으로 모바일 서비스를 배포할 수 있습니다.
 
 - **강제 설치**: Azure Portal에서 컴퓨터에 대 한 복제를 사용 하도록 설정 하는 경우 모바일 서비스 에이전트를 설치 Site Recovery 수 있습니다.
-- **수동 설치**: 각 컴퓨터에 모바일 서비스를 수동으로 설치 합니다. 푸시 및 수동 설치에 [대해 자세히 알아보세요](/vmware-physical-mobility-service-overview.md) .
+- **수동 설치**: 각 컴퓨터에 모바일 서비스를 수동으로 설치 합니다. 푸시 및 수동 설치에 [대해 자세히 알아보세요](vmware-physical-mobility-service-overview.md) .
 - **자동 배포**: Microsoft Endpoint Configuration Manager와 같은 소프트웨어 배포 도구 또는 Intigua JetPatch와 같은 타사 도구를 사용 하 여 설치를 자동화 합니다.
 
 자동 설치 및 업데이트는 다음과 같은 경우에 솔루션을 제공 합니다.

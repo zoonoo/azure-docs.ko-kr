@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 8db9e60e9ce99eaf2621821825620966b8b8b4ae
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 6854400f2152a5952a7b24dbd860d7ad4bfc943d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60640081"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774926"
 ---
 # <a name="how-to-encode-an-asset-by-using-media-encoder-standard"></a>Media Encoder Standard를 사용하여 자산을 인코딩하는 방법
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "60640081"
 
 인터넷을 통해 디지털 비디오를 배달하려면 미디어를 압축해야 합니다. 디지털 비디오 파일은 대용량이기 때문에 인터넷을 통해 전달하거나 고객의 디바이스에서 제대로 표시하지 못할 수 있습니다. Encoding은 고객이 미디어를 볼 수 있도록 비디오 및 오디오를 압축하는 과정입니다.
 
-Encoding 작업은 Azure Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 한 인코딩에서 다른 인코딩으로 미디어 파일을 변환합니다. 인코드할 때는 Media Services 기본 제공 인코더(미디어 인코더 표준)를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 인코더에 정의된 미리 설정 문자열을 사용하여 또는 미리 설정 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다. 사용할 수 있는 미리 설정 유형을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](https://msdn.microsoft.com/library/mt269960)을 참조하세요.
+Encoding 작업은 Azure Media Services에서 가장 일반적인 처리 작업 중 하나입니다. 인코딩 작업을 만들어 미디어 파일을 한 인코딩에서 다른 인코딩으로 변환합니다. 인코드할 때는 Media Services 기본 제공 인코더(미디어 인코더 표준)를 사용할 수 있습니다. 또한 Media Services 파트너가 제공하는 인코더를 사용할 수 있습니다. 타사 인코더는 Azure Marketplace를 통해 사용할 수 있습니다. 인코더에 정의된 미리 설정 문자열을 사용하여 또는 미리 설정 구성 파일을 사용하여 인코딩 작업의 세부 정보를 지정할 수 있습니다. 사용할 수 있는 미리 설정 유형을 보려면 [Media Encoder Standard에 대한 작업 미리 설정](https://msdn.microsoft.com/library/mt269960)을 참조하세요.
 
 각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다.
 
@@ -61,7 +61,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 >
 > Media Services에서 엔터티에 액세스할 때는 HTTP 요청에서 구체적인 헤더 필드와 값을 설정해야 합니다. 자세한 내용은 [Media Services REST API 개발 설정](media-services-rest-how-to-use.md)을 참조하세요.
 >
-> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)으로 설정해야 합니다. Accept: application/json;odata=verbose.
+> JSON을 사용하고 요청(예: 연결된 개체 참조)에서 **__metadata** 키워드를 사용하도록 지정할 때 **Accept** 헤더를 [JSON 자세한 정보 표시 형식](https://www.odata.org/documentation/odata-version-3-0/json-verbose-format/)(Accept: application/json;odata=verbose)으로 설정해야 합니다.
 >
 >
 
@@ -74,7 +74,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
         Authorization: Bearer <ENCODED JWT TOKEN> 
         x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
         Host: media.windows.net
@@ -116,7 +116,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
@@ -160,7 +160,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: multipart/mixed
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
     Host: media.windows.net
 
@@ -180,7 +180,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {"Name" : "NewTestJob", "InputMediaAssets@odata.bind":["https://media.windows.net/api/Assets('nb%3Acid%3AUUID%3A2a22445d-1500-80c6-4b34-f1e5190d33c6')"]}
@@ -197,7 +197,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     MaxDataServiceVersion: 3.0
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN> 
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: 00000000-0000-0000-0000-000000000000
 
     {  
@@ -221,7 +221,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -248,7 +248,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN> 
     Host: media.windows.net
 
@@ -273,7 +273,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="next-steps"></a>다음 단계

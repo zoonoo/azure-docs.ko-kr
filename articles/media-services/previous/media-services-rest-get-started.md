@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: f0f9b2c974c0a095719973b1c6173d682718dbbf
-ms.sourcegitcommit: 470041c681719df2d4ee9b81c9be6104befffcea
+ms.openlocfilehash: 8989acc6d21a3c53be9d97c74ed7fbf03ba54819
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "69014865"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773676"
 ---
 # <a name="get-started-with-delivering-content-on-demand-using-rest"></a>REST를 사용한 주문형 콘텐츠 제공 시작  
 
@@ -36,10 +36,10 @@ ms.locfileid: "69014865"
 
 <a href="./media/media-services-rest-get-started/media-services-overview-object-model.png" target="_blank"><img src="./media/media-services-rest-get-started/media-services-overview-object-model-small.png"></a> 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 Media Services REST API를 사용하여 개발을 시작하려면 다음 필수 조건이 필요합니다.
 
-* Azure 계정. 자세한 내용은 [Azure 무료 체험](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
+* Azure 계정. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 * Media Services 계정. Media Services 계정을 만들려면 [Media Services 계정을 만드는 방법](media-services-portal-create-account.md)을 참조하세요.
 * Media Services REST API를 사용하여 개발하는 방법을 이해합니다. 자세한 내용은 [Media Services REST API 개요](media-services-rest-how-to-use.md)를 참조하세요
 * HTTP 요청 및 응답을 보낼 수 있도록 선택한 애플리케이션입니다. 이 자습서에서는 [Fiddler](https://www.telerik.com/download/fiddler)를 사용합니다.
@@ -85,7 +85,7 @@ AMS API에 연결하는 방법에 대한 자세한 내용은 [Azure AD 인증을
 
 ## <a id="upload"></a>REST API를 통해 새 자산을 만들고 비디오를 업로드합니다.
 
-Media Services에서 자산에 디지털 파일을 업로드합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 선택 자막 파일(및 이러한 파일에 대한 메타데이터)이 포함될 수 있습니다.  자산에 파일이 업로드되면 이후 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
+Media Services에서 자산에 디지털 파일을 업로드합니다. **자산** 엔터티에는 비디오, 오디오, 이미지, 미리 보기 컬렉션, 텍스트 트랙 및 닫힌 캡션 파일 (및 이러한 파일에 대 한 메타 데이터)이 포함 될 수 있습니다.  파일이 자산에 업로드 되 면 추가 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전 하 게 저장 됩니다.
 
 자산을 만들 때 제공해야 하는 값 중 하나는 자산 생성 옵션입니다. **옵션** 속성은 자산으로 만들 수 있는 암호화 옵션을 설명하는 열거 값입니다. 유효한 값은 이 목록의 값의 조합이 아니라 아래 목록에 있는 값 중 하나입니다.
 
@@ -109,7 +109,7 @@ Media Services에서 자산에 디지털 파일을 업로드합니다. **자산*
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     x-ms-client-request-id: c59de965-bc89-4295-9a57-75d897e5221e
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 45
@@ -163,7 +163,7 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 164
 
@@ -225,7 +225,7 @@ Blob 컨테이너에 디지털 미디어 파일을 업로드 한 후 **MERGE** H
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 74
 
@@ -270,7 +270,7 @@ SAS URL의 형식은 다음과 같습니다.
 다음과 같은 몇 가지 고려 사항이 적용됩니다.
 
 * 지정된 자산과 연관된 고유 로케이터는 한 번에 5개 이상 가질 수 없습니다. 
-* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
+* 파일을 즉시 업로드해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 클라이언트 컴퓨터와 Media Services 사이에 시간차가 있을 수 있기 때문입니다. 또한 StartTime 값은 다음 DateTime 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").    
 * 로케이터를 만든 후 사용할 수 있을 때까지 30-40초의 지연이 있을 수 있습니다. 이 문제는 [SAS URL](https://docs.microsoft.com/azure/storage/common/storage-dotnet-shared-access-signature-part-1) 및 원본 로케이터 모두에 적용됩니다.
 
 다음 예제에서는 요청 본문의 형식 속성에서 정의한 대로(SAS 로케이터의 경우 "1" 그리고 주문형 원본 로케이터의 경우 "2") SAS URL 로케이터를 만드는 방법을 보여 줍니다. 반환된 **경로** 속성은 파일 업로드 시 반드시 사용해야 하는 URL을 포함합니다.
@@ -284,7 +284,7 @@ SAS URL의 형식은 다음과 같습니다.
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 178
 
@@ -332,14 +332,14 @@ SAS URL의 형식은 다음과 같습니다.
 AccessPolicy와 로케이터를 설정했으면 실제 파일은 Azure Storage REST API를 사용하여 Azure Blob Storage 컨테이너에 업로드됩니다. 블록 blob으로 파일을 업로드해야 합니다. 페이지 blob은 Azure Media Services에서 지원되지 않습니다.  
 
 > [!NOTE]
-> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?` )을 입력합니다.
+> 이전 섹션에서 받은 로케이터 **경로** 값에 업로드하려는 파일에 대한 파일 이름을 추가해야 합니다. `https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4?`)을 입력합니다.
 >
 >
 
 Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
 ### <a name="update-the-assetfile"></a>AssetFile 업데이트
-이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.
+이제 파일을 업로드했으므로 FileAsset 크기(및 기타) 정보를 업데이트합니다. 예:
 
     MERGE https://wamsbayclus001rest-hs.cloudapp.net/api/Files('nb%3Acid%3AUUID%3Af13a0137-0a62-9d4c-b3b9-ca944b5142c5') HTTP/1.1
     Content-Type: application/json
@@ -348,7 +348,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
     {  
@@ -376,7 +376,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -395,7 +395,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 **HTTP 응답**
@@ -409,7 +409,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
 
 Media Services에 자산을 삽입하고 나면 미디어를 클라이언트에 배달하기 전에 인코딩, 트랜스믹싱, 워터마크 지정 등을 수행할 수 있습니다. 이러한 활동은 높은 성능과 가용성을 보장하기 위해 여러 백그라운드 역할 인스턴스에 대해 예약 및 실행합니다. 이러한 활동을 작업이라고 하며 각 작업은 자산 파일에서 실제 작업을 수행하는 원자성 작업으로 구성됩니다(자세한 내용은 [작업](https://docs.microsoft.com/rest/api/media/operations/job), [태스크](https://docs.microsoft.com/rest/api/media/operations/task) 설명 참조).
 
-앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 다음 형식 중 하나로 동적 패키징합니다. HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH
+앞에서 언급한 대로, Azure Media Services 작업 시 가장 일반적인 시나리오 중 하나는 적응 비트 전송률 스트리밍을 클라이언트에 제공하는 것입니다. Media Services는 적응 비트 전송률 MP4 파일을 HLS(HTTP 라이브 스트리밍), 부드러운 스트리밍, MPEG DASH 형식 중 하나로 동적 패키징합니다.
 
 다음 섹션에서는 하나의 인코딩 작업을 포함하는 작업을 만드는 방법을 보여 줍니다. 이 작업은 **미디어 인코더 표준**을 사용하여 메자닌 파일을 적응 비트 전송률 MP4 집합으로 트랜스코딩하도록 지정합니다. 이 섹션에서는 작업 진행 상황을 모니터링하는 방법도 보여 줍니다. 작업이 완료되면 자산에 대한 액세스하는 데 필요한 로케이터를 만들 수 있습니다.
 
@@ -426,7 +426,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     Accept: application/json
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -460,7 +460,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     }
 
 ### <a name="create-a-job"></a>작업 만들기
-각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 다음 두 가지 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업 엔터티에 대한 작업 탐색 속성 또는 OData 일괄 처리를 통해 작업을 인라인으로 정의할 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
+각 작업을 수행하려는 처리 유형에 따라 하나 이상의 작업을 가질 수 있습니다. REST API를 통해 두 방법 중 하나로 작업 및 관련된 작업을 만들 수 있습니다. 작업은 작업 엔터티에 대한 작업 탐색 속성 또는 OData 배치를 통해 인라인으로 정의될 수 있습니다. Media Services SDK는 일괄 처리를 사용합니다. 하지만 이 문서에 있는 코드 예제 가독성의 경우 작업은 인라인으로 정의됩니다. Batch 처리에 대한 정보는 [Open Data Protocol(OData) Batch 처리](https://www.odata.org/documentation/odata-version-3-0/batch-processing/)를 참조하세요.
 
 다음 예제에서는 특정 해상도와 품질로 비디오를 인코딩하기 위해 하나의 작업 집합으로 작업을 만들어 게시하는 방법을 보여 줍니다. 다음 설명서 섹션은 미디어 인코더 표준 프로세서에서 지원하는 모든 [작업 사전 설정](https://msdn.microsoft.com/library/mt269960) 목록을 포함합니다.  
 
@@ -473,7 +473,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     Accept: application/json;odata=verbose
     Accept-Charset: UTF-8
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
     Content-Length: 482
 
@@ -595,7 +595,7 @@ Media Services에서 미디어 프로세서는 인코딩, 형식 변환, 콘텐�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 0
@@ -632,7 +632,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
     Accept: application/json;odata=verbose
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.2
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
 
@@ -656,7 +656,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
     Accept-Charset: UTF-8
     User-Agent: Microsoft ADO.NET Data Services
     Authorization: Bearer <ENCODED JWT TOKEN>
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Host: wamsbayclus001rest-hs.cloudapp.net
 
 
@@ -694,7 +694,7 @@ Media Services를 사용하면 CancelJob 함수를 통해 실행 중인 작업�
 
 ## <a id="publish_get_urls"></a>REST API를 통해 자산을 게시하고 스트리밍 기능 및 URL 점진적 다운로드를 사용
 
-자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다. 하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다. 
+자산을 스트리밍하거나 다운로드하려면 먼저 로케이터를 만들어 자산을 "게시"해야 합니다. 로케이터는 자산에 포함된 파일에 대한 액세스를 제공합니다. Media Services는 두 가지 유형의 로케이터를 지원합니다.하나는 OnDemandOrigin 로케이터로서 미디어를 스트리밍하는 데 사용되고(예: MPEG DASH, HLS 또는 부드러운 스트리밍) 다른 하나는 SAS(공유 액세스 서명) 로케이터로서 미디어 파일을 다운로드하는 데 사용됩니다. 
 
 로케이터를 만든 후에 파일을 스트리밍하거나 다운로드하는 데 사용되는 URL을 작성할 수 있습니다.
 
@@ -733,7 +733,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 74
@@ -744,7 +744,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 성공하면 사용자가 만든 AccessPolicy 엔터티를 설명하는 201 성공 코드가 반환됩니다. 이제 AccessPolicy Id를 로케이터 엔터티를 만들기 위해 배달하려는 파일이 포함된 자산(예: 출력 자산)의 자산 ID와 함께 사용합니다.
 
 > [!NOTE]
-> 이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 Media Services 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 다음 날짜/시간 형식이어야 합니다. YYYY-MM-DDTHH:mm:ssZ(예: "2014-05-23T17:53:50Z").
+> 이 기본 워크플로는 자산을 통합할 때 파일을 업로드하는 것과 같습니다(이 항목의 앞부분에서 설명함). 또한 파일을 업로드하는 것과 마찬가지로 사용자(또는 클라이언트)가 파일에 즉시 액세스해야 하는 경우 StartTime 값을 현재 시간에서 5분 전으로 설정해야 합니다. 이 동작은 클라이언트와 Media Services 사이에 시간차가 있을 수 있기 때문에 필요합니다. StartTime 값은 YYYY-MM-DDTHH:mm:ssZ(예: 2014-05-23T17:53:50Z) 형식의 DateTime이어야 합니다.
 >
 >
 
@@ -756,7 +756,7 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs.net
     Content-Length: 182
@@ -817,11 +817,11 @@ MPEG DASH에 대한 스트리밍 URL의 형식은 다음과 같습니다.
 AccessPolicy와 로케이터를 설정했으면 Azure Storage REST API를 사용하여 파일을 다운로드할 수 있습니다.  
 
 > [!NOTE]
-> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 IPv4 주소를 사용하는 경우 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? 을 선택합니다. 을 선택합니다. 을 선택합니다.
+> 다운로드하려는 파일의 파일 이름을 이전 섹션에서 받은 로케이터 **경로** 값에 추가해야 합니다. 예를 들어 https://storagetestaccount001.blob.core.windows.net/asset-e7b02da4-5a69-40e7-a8db-e8f4f697aac0/BigBuckBunny.mp4? . . .
 
 Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API](https://docs.microsoft.com/rest/api/storageservices/Blob-Service-REST-API)를 참조하세요.
 
-이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 이는 아래와 같이 함수의 반환값을 데이터 프레임으로 바로 변환하는 데 사용할 수 있음을 나타냅니다.    
+이전에 수행한 인코딩 작업(적응 MP4 집합으로 인코딩)의 결과로 점진적으로 다운로드할 수 있는 여러 MP4 파일이 있습니다. 예:    
 
     https://storagetestaccount001.blob.core.windows.net/asset-38058602-a4b8-4b33-b9f0-6880dc1490ea/BigBuckBunny_H264_650kbps_AAC_und_ch2_96kbps.mp4?sv=2012-02-12&sr=c&si=166d5154-b801-410b-a226-ee2f8eac1929&sig=P2iNZJAvAWpp%2Bj9yV6TQjoz5DIIaj7ve8ARynmEM6Xk%3D&se=2015-02-14T01:13:05Z
 
@@ -847,7 +847,7 @@ Azure Storage Blob 작업에 대한 자세한 내용은 [Blob 서비스 REST API
     Accept: application/json
     DataServiceVersion: 3.0
     MaxDataServiceVersion: 3.0
-    x-ms-version: 2.17
+    x-ms-version: 2.19
     Authorization: Bearer <ENCODED JWT TOKEN>
     Host: wamsbayclus001rest-hs
     Content-Length: 182
@@ -918,5 +918,5 @@ MPEG DASH를 스트리밍하려면 "/매니페스트" 뒤에 추가(format=mpd-t
 ## <a name="next-steps-media-services-learning-paths"></a>다음 단계: Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

@@ -7,16 +7,16 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 8bb8711bc4a6134ec740a55d9f5d5794b2de77ca
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 0380689ae6ca81e3f31a07f1e205c7773fdea8c6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73588591"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773952"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-redash"></a>Redash의 Azure 데이터 탐색기에서 데이터 시각화
 
-[Redash](https://www.redash.io/) 는 데이터 원본을 연결 하 고 쿼리하고 데이터를 시각화 하 고 동료와 공유할 수 있는 대시보드를 작성 합니다. 이 문서에서는 Redash에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 데이터를 시각화 하는 방법에 대해 알아봅니다.
+[Redash](https://redash.io/) 는 데이터 원본을 연결 하 고 쿼리하고 데이터를 시각화 하 고 동료와 공유할 수 있는 대시보드를 작성 합니다. 이 문서에서는 Redash에 대 한 데이터 원본으로 Azure 데이터 탐색기를 설정 하 고 데이터를 시각화 하는 방법에 대해 알아봅니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -64,7 +64,7 @@ ms.locfileid: "73588591"
 
 ### <a name="create-a-query-using-a-parameter"></a>매개 변수를 사용 하 여 쿼리 만들기
 
-1. 새 쿼리를 만들기 위한 > **쿼리** 를 **만듭니다** . {{}} 중괄호를 사용 하 여 매개 변수를 추가 합니다. **{{}}** 을 선택 하 여 **매개 변수 추가** 창을 엽니다. *설정 아이콘* 을 선택 하 여 기존 매개 변수의 특성을 수정 하 고 **< parameter_name >** 창을 열 수도 있습니다. 
+1. 새 쿼리를 만들기 위한 > **쿼리** 를 **만듭니다** . {{}} 중괄호를 사용 하 여 매개 변수를 추가 합니다. **{{}}** 을 선택 하 여 **매개 변수 추가** 창을 엽니다. *설정 아이콘* 을 선택 하 여 기존 매개 변수의 특성을 수정 하 고 **< parameter_name >** 창으로 열 수도 있습니다. 
 
     ![매개 변수 삽입](media/redash/insert-parameter.png)
 

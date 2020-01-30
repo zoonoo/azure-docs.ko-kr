@@ -1,29 +1,29 @@
 ---
-title: 신뢰도 점수 - QnA Maker
+title: 신뢰도 점수-QnA Maker
 titleSuffix: Azure Cognitive Services
-description: 신뢰도 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
+description: 기술 자료가 게시 되어야 합니다. 게시 된 후에는 generateAnswer API를 사용 하 여 런타임 예측 끝점에서 기술 자료가 쿼리 됩니다.
 services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/27/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e2f7136ea7b973386eeb746a74ad09fadb490e83
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: d901a803311805825c22503af6098e805a67e8f6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74229114"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843455"
 ---
-# <a name="confidence-score-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 신뢰도 점수
-사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다. 
+# <a name="the-confidence-score-of-an-answer"></a>답변의 신뢰도 점수
+사용자 쿼리가 기술 자료와 일치하면 QnA Maker는 신뢰도 점수와 함께 관련 응답을 반환합니다. 이 점수는 응답이 지정된 사용자 쿼리에 올바르게 일치한다는 신뢰도를 나타냅니다.
 
 신뢰도 점수는 0과 100 사이의 숫자입니다. 점수가 100이면 정확히 일치할 가능성이 높지만 점수가 0이면 일치하는 응답을 찾지 못한 것입니다. 이 점수가 높을수록 응답의 신뢰도가 높습니다. 지정된 쿼리에 대해 여러 응답이 반환될 수 있습니다. 이 경우 응답은 높은 신뢰도 점수부터 반환됩니다.
 
-아래 예제에서는 2개 질문을 포함하는 QnA 엔터티 1개를 볼 수 있습니다. 
+아래 예제에서는 2개 질문을 포함하는 QnA 엔터티 1개를 볼 수 있습니다.
 
 
 ![샘플 QnA 쌍](../media/qnamaker-concepts-confidencescore/ranker-example-qna.png)
@@ -57,9 +57,9 @@ ms.locfileid: "74229114"
 > [!NOTE]
 > QnA Maker의 최신 버전에는 점수 매기기 논리에 대한 개선 사항이 포함되며 임계값에 영향을 줄 수 있습니다. 언제든지 서비스를 업데이트하여 필요한 경우 임계값을 테스트하고 조정해야 합니다. [여기](https://www.qnamaker.ai/UserSettings)에서 QnA 서비스 버전을 확인할 수 있습니다. 최신 업데이트를 가져오는 방법은 [여기](../How-To/set-up-qnamaker-service-azure.md#get-the-latest-runtime-updates)를 참조하세요.
 
-## <a name="set-threshold"></a>임계값 설정 
+## <a name="set-threshold"></a>임계값 설정
 
-이 임계값 점수를 [Generateanswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 설정 합니다. 즉, GenerateAnswer를 호출할 때마다이를 설정 합니다. 
+이 임계값 점수를 [Generateanswer API JSON 본문](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)의 속성으로 설정 합니다. 즉, GenerateAnswer를 호출할 때마다이를 설정 합니다.
 
 Bot 프레임 워크에서 또는 [C#](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-c) [node.js](../how-to/metadata-generateanswer-usage.md?#use-qna-maker-with-a-bot-in-nodejs)를 사용 하 여 옵션 개체의 일부로 점수를 설정 합니다.
 
@@ -72,40 +72,23 @@ Bot 프레임 워크에서 또는 [C#](../how-to/metadata-generateanswer-usage.m
 
 
 ## <a name="confidence-score-differences-between-test-and-production"></a>테스트와 프로덕션의 신뢰도 점수 차이
-콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 콘텐츠와 게시 된 기술 자료가 서로 다른 Azure Cognitive Search 인덱스에 있기 때문입니다. 
+콘텐츠가 동일하더라도 기술 자료의 테스트 버전과 게시된 버전 간에 답변의 신뢰도 점수가 사소하게 변경될 수 있습니다. 이는 테스트 콘텐츠와 게시 된 기술 자료가 서로 다른 Azure Cognitive Search 인덱스에 있기 때문입니다.
 
 테스트 인덱스에는 기술 자료의 모든 QnA 쌍이 포함 되어 있습니다. 테스트 인덱스를 쿼리할 때 쿼리는 전체 인덱스에 적용 된 다음 해당 특정 기술 자료에 대 한 파티션으로 결과가 제한 됩니다. 테스트 쿼리 결과가 기술 자료의 유효성을 검사 하는 기능에 부정적인 영향을 주는 경우 다음을 수행할 수 있습니다.
 * 다음 중 하나를 사용 하 여 기술 자료를 구성 합니다.
-    * 1 KB로 제한 된 리소스: 단일 QnA 리소스 (및 결과 Azure Cognitive Search 테스트 인덱스)를 단일 기술 자료로 제한 합니다. 
+    * 1 KB로 제한 된 리소스: 단일 QnA 리소스 (및 결과 Azure Cognitive Search 테스트 인덱스)를 단일 기술 자료로 제한 합니다.
     * 2 리소스-테스트의 경우 1, 프로덕션의 경우 1: 테스트 (자체 테스트 및 프로덕션 인덱스 사용) 및 제품 (자체 테스트 및 프로덕션 인덱스도 있음)에 대해 하나를 사용 하는 두 개의 QnA Maker 리소스가 있습니다.
 * 그리고 테스트와 프로덕션 기술 자료를 모두 쿼리할 때 항상 **[top](../how-to/improve-knowledge-base.md#use-the-top-property-in-the-generateanswer-request-to-get-several-matching-answers)** 과 같은 동일한 매개 변수를 사용 합니다.
 
 기술 자료를 게시하면 기술 자료의 QnA 콘텐츠가 테스트 인덱스에서 Azure Search의 프로덕션 인덱스로 이동합니다. [게시](../Quickstarts/create-publish-knowledge-base.md#publish-the-knowledge-base) 작업의 작동 방식을 알아보세요.
 
-다른 지역에 기술 자료가 있는 경우 각 지역은 자체 Azure Cognitive Search 인덱스를 사용 합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다. 
+다른 지역에 기술 자료가 있는 경우 각 지역은 자체 Azure Cognitive Search 인덱스를 사용 합니다. 다른 인덱스가 사용되므로 점수가 정확하게 일치하지 않습니다.
 
 
 ## <a name="no-match-found"></a>일치하는 항목 없음
-순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 끝점을 호출 하는 bot 또는 응용 프로그램 코드에서이 [기본 응답](#change-default-answer) 을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
-
-## <a name="change-default-answer"></a>기본 답변 변경
-
-1. [Azure Portal](https://portal.azure.com)로 이동한 다음, 직접 만든 QnA Maker 서비스를 나타내는 리소스 그룹으로 이동합니다.
-
-2. **App Service**를 클릭하여 엽니다.
-
-    ![Azure Portal에서 QnA Maker에 대한 App service에 액세스](../media/qnamaker-concepts-confidencescore/set-default-response.png)
-
-3. **애플리케이션 설정**을 클릭하고 **DefaultAnswer** 필드를 원하는 기본 응답으로 편집합니다. 페이지 맨 아래에 있는 **저장**을 참조하세요.
-
-    ![애플리케이션 설정을 선택한 다음, QnA Maker에 대한 DefaultAnswer 편집](../media/qnamaker-concepts-confidencescore/change-response.png)
-
-4. App Service 다시 시작
-
-    ![DefaultAnswer를 변경한 후 QnA Maker appservice를 다시 시작](../media/qnamaker-faq/qnamaker-appservice-restart.png)
-
+순위 지정에서 적절한 일치 항목을 찾지 못하면 신뢰도 점수 0.0 또는 “없음”이 반환되고 기본 응답은 “No good match found in the KB”(KB에 적절한 일치 항목이 없습니다.)입니다. 끝점을 호출 하는 bot 또는 응용 프로그램 코드에서이 [기본 응답](../How-To/metadata-generateanswer-usage.md) 을 재정의할 수 있습니다. 또는 Azure에서 재정의 응답을 설정할 수도 있으며, 이 경우 특정 QnA Maker 서비스에 배포된 모든 기술 자료의 기본값이 변경됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 > [!div class="nextstepaction"]
-> [지원되는 데이터 원본](./data-sources-supported.md)
+> [모범 사례](./best-practices.md)
 

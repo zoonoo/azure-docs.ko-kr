@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: d97d908ddf5d55bf09d96a5ef16fa79a7afde7b4
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: a4f26f180e34ee9c7a0222b0d7f6be95c78de1b4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951108"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840386"
 ---
 # <a name="define-an-oauth1-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 OAuth1 기술 프로필 정의
 
@@ -26,7 +26,7 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 ## <a name="protocol"></a>프로토콜
 
-**Protocol** 요소의 **Name** 특성은 `OAuth1`으로 설정해야 합니다. 예를 들어 **Twitter-OAUTH1** 기술 프로필의 프로토콜은 `OAuth1`입니다.
+**Protocol** 요소의 **Name** 특성은 `OAuth1`로 설정해야 합니다. 예를 들어 **Twitter-OAUTH1** 기술 프로필의 프로토콜은 `OAuth1`입니다.
 
 ```XML
 <TechnicalProfile Id="Twitter-OAUTH1">
@@ -66,15 +66,15 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 </OutputClaims>
 ```
 
-## <a name="metadata"></a>Metadata
+## <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| client_id | yes | ID 공급자의 애플리케이션 식별자입니다. |
+| client_id | 예 | ID 공급자의 애플리케이션 식별자입니다. |
 | ProviderName | 아닙니다. | ID 공급자의 이름입니다. |
-| request_token_endpoint | yes | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
-| authorization_endpoint | yes | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
-| access_token_endpoint | yes | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
+| request_token_endpoint | 예 | RFC 5849에 따른 요청 토큰 엔드포인트의 URL입니다. |
+| authorization_endpoint | 예 | RFC 5849에 따른 권한 부여 엔드포인트의 URL입니다. |
+| access_token_endpoint | 예 | RFC 5849에 따른 토큰 엔드포인트의 URL입니다. |
 | ClaimsEndpoint | 아닙니다. | 사용자 정보 엔드포인트의 URL입니다. |
 | ClaimsResponseFormat | 아닙니다. | 클레임 응답 형식입니다.|
 
@@ -82,9 +82,9 @@ Azure Active Directory B2C (Azure AD B2C)는 [OAuth 1.0 프로토콜](https://to
 
 **CryptographicKeys** 요소에는 다음 특성이 포함됩니다.
 
-| 특성 | 필수 | 설명 |
+| attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| client_secret | yes | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
+| client_secret | 예 | ID 공급자 애플리케이션의 클라이언트 암호입니다.   |
 
 ## <a name="redirect-uri"></a>리디렉션 URI
 
@@ -94,7 +94,7 @@ ID 공급자의 리디렉션 URL을 구성할 때 `https://login.microsoftonline
 
 예시:
 
-- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](active-directory-b2c-custom-setup-twitter-idp.md)
+- [사용자 지정 정책을 사용하여 OAuth1 ID 공급자로 Twitter 추가](identity-provider-twitter-custom.md)
 
 
 

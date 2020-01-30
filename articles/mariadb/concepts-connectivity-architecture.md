@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58f6e49280925b550deff21ecf04528d91d924d7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: d658a1fb590d117e116321bc854abd2753b5c0f1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760133"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775064"
 ---
 # <a name="connectivity-architecture-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 연결 아키텍처
 이 문서에서는 Azure 내부 및 외부의 클라이언트에서 Azure Database for MariaDB 인스턴스로 트래픽이 전송 되는 방법 뿐만 아니라 Azure Database for MariaDB 연결 아키텍처에 대해 설명 합니다.
@@ -50,14 +50,14 @@ ms.locfileid: "76760133"
 | 인도 남부 | 104.211.224.146  |
 | 인도 서부 | 104.211.160.80    |
 | 일본 동부 | 13.78.61.196, 191.237.240.43  |
-| 일본 서부 | 104.214.148.156, 191.238.68.11    |
+| 일본 서부 | 104.214.148.156, 191.238.68.11, 40.74.96.6, 40.74.96.7    |
 | 한국 중부 | 52.231.32.42   |
 | 한국 남부 | 52.231.200.86    |
 | 미국 중북부 | 23.96.178.199, 23.98.55.75, 52.162.104.35, 52.162.104.36    |
 | 북유럽 | 40.113.93.91, 191.235.193.75    |
 | 남아프리카 공화국 북부  | 102.133.152.0    |
 | 남아프리카 공화국 서부 | 102.133.24.0   |
-| 미국 중남부 |13.66.62.124, 23.98.162.75   |
+| 미국 중남부 |13.66.62.124, 23.98.162.75, 20.45.120.0, 104.214.16.39   |
 | 동남아시아 | 104.43.15.0, 23.100.117.95, 40.78.233.2, 23.98.80.12     |
 | 아랍에미리트 중부 | 20.37.72.64  |
 | 아랍에미리트 북부 | 65.52.248.0    |

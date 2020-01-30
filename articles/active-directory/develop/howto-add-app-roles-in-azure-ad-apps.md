@@ -14,12 +14,12 @@ ms.date: 09/24/2018
 ms.author: kkrishna
 ms.reviewer: kkrishna, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: d16ab7acd87fa6cc7907f8fee3400c2e416e6cfe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5400ede4f3afd9f94d7380c6dfd55d8aa45d08ca
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697424"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834249"
 ---
 # <a name="how-to-add-app-roles-in-your-application-and-receive-them-in-the-token"></a>방법: 애플리케이션에서 앱 역할을 추가하고 토큰에서 수신하기
 
@@ -44,7 +44,7 @@ RBAC(역할 기반 액세스 제어)는 애플리케이션에서 권한 부여�
 1. `appRoles` 설정을 찾고 모든 애플리케이션 역할을 추가하여 앱 매니페스트를 편집합니다.
 
      > [!NOTE]
-     > 이 매니페스트의 각 앱 역할 정의는 `id` 속성에 대해 다른 유효한 GUID를 가져야 합니다. 
+     > 이 매니페스트의 각 앱 역할 정의에는 `id` 속성의 매니페스트 컨텍스트 내에서 유효한 GUID가 달라 야 합니다.    
      > 
      > 각 앱 역할 정의의 `value` 속성은 응용 프로그램의 코드에 사용 되는 문자열과 정확 하 게 일치 해야 합니다. `value` 속성은 공백을 포함할 수 없습니다. 이 경우 매니페스트를 저장 하면 오류가 표시 됩니다.
      

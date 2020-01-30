@@ -8,12 +8,12 @@ ms.date: 08/09/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 58959310a0daec3835585f64c53f2b8853eb553e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: bb31a10623bd5e8ea9a406b37acf84995774045c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548597"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772299"
 ---
 # <a name="prepare-to-deploy-your-iot-edge-solution-in-production"></a>IoT Edge 솔루션을 프로덕션 단계에서 배포하도록 준비
 
@@ -39,7 +39,7 @@ IoT Edge 디바이스는 Raspberry Pi부터 노트북, 서버에서 실행되는
 
 디바이스 CA 인증서의 역할을 이해하려면 [Azure IoT Edge에서 인증서를 사용하는 방법](iot-edge-certs.md)을 참조하세요.
 
-IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에 프로덕션 인증서 설치](how-to-create-transparent-gateway.md)를 참조 하세요.
+IoT Edge 장치에 인증서를 설치 하 고이를 config.xml 파일에서 참조 하는 방법에 대 한 자세한 내용은 [IoT Edge 장치에 프로덕션 인증서 설치](how-to-install-production-certificates.md)를 참조 하세요.
 
 ### <a name="have-a-device-management-plan"></a>디바이스 관리 계획 준비
 

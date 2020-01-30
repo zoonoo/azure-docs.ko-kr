@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 0f3aaa2489b94d254d64d5844e1a2e41d5ecc132
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695707"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834198"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -176,7 +176,7 @@ MSAL.Net는 [토큰 캐시](/dotnet/api/microsoft.identity.client.tokencache?vie
 또는 [B2C 사용자 지정 정책을](https://aka.ms/ief)사용 하는 경우 응용 프로그램에 추가 클레임을 반환 하는 기능을 제공 하기 때문에 `tid` 클레임을 사용할 수 있습니다. [클레임 변환](/azure/active-directory-b2c/claims-transformation-technical-profile) 에 대 한 자세한 정보
 
 #### <a name="mitigation-for-missing-from-the-token-response"></a>"토큰 응답에 없음"에 대 한 완화
-한 가지 옵션은 "이름" 클레임을 기본 사용자 이름으로 사용 하는 것입니다. 프로세스는이 [B2C > 문서](../../active-directory-b2c/active-directory-b2c-reference-policies.md) 에 설명 되어 있습니다. 반환 클레임 열에서 프로필 편집 환경에 성공 후 응용 프로그램으로 다시 보낸 권한 부여 토큰에서 반환 하려는 클레임을 선택 합니다. 예를 들어 표시 이름, 우편 번호를 선택 합니다.
+한 가지 옵션은 "이름" 클레임을 기본 사용자 이름으로 사용 하는 것입니다. 프로세스는이 [B2C > 문서](../../active-directory-b2c/user-flow-overview.md) 에 설명 되어 있습니다. 반환 클레임 열에서 프로필 편집 환경에 성공 후 응용 프로그램으로 다시 보낸 권한 부여 토큰에서 반환 하려는 클레임을 선택 합니다. 예를 들어 표시 이름, 우편 번호를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계 
 

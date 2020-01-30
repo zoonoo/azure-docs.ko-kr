@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 5eeb223601a3990ef899d7eea96378a8b2a28eee
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: d85f6ba9d50b7d30930322ca34cb15edb30e1472
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933526"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775006"
 ---
 # <a name="were-moving-virtual-machine-vm-images-on-azure-marketplace-to-managed-disk-storage"></a>Azure Marketplace에서 VM (가상 컴퓨터) 이미지를 관리 되는 디스크 저장소로 이동 하 고 있습니다.
 
@@ -56,6 +56,10 @@ VM 이미지의 사용자에 게는 가동 중단이 발생 하지 않습니다.
 ### <a name="can-i-publish-updates-to-my-vm-images-during-the-move"></a>이동 하는 동안 내 VM 이미지에 업데이트를 게시할 수 있나요?
 
 이동 하는 동안에는 VM 이미지를 업데이트할 수 없습니다.
+
+### <a name="will-the-publishing-process-change-after-my-vm-image-is-moved-to-managed-disk"></a>내 VM 이미지를 관리 디스크로 이동한 후에 게시 프로세스가 변경 됩니까?
+
+아니요. 게시 프로세스는 동일 하 게 유지 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

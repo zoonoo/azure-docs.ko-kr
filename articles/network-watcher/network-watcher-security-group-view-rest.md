@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 PowerShell을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: a2f418fe-f5d2-43ed-8dc3-df0ed2a4d4ac
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: f11e288c28274e08fdabe7fee02a099410611872
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: c9c76e9c06d4c45a096cff79dac82bb80ebe25d1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277904"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840743"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-rest-api"></a>REST API를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -38,13 +35,13 @@ ms.locfileid: "74277904"
 
 이 시나리오에서는 Network Watcher Rest API를 호출하여 가상 머신에 대한 보안 그룹 보기를 가져옵니다. PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩니다. ARMClient는 [Chocolatey의 ARMClient](https://chocolatey.org/packages/ARMClient)에서 chocolatey에 있습니다.
 
-이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
+이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신을 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
 ## <a name="scenario"></a>시나리오
 
 이 문서에서 다루는 시나리오는 지정된 가상 머신에 대한 효과적으로 적용된 보안 규칙을 검색합니다.
 
-## <a name="log-in-with-armclient"></a>ARMClient로 로그인
+## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
 ```powershell
 armclient login
@@ -64,7 +61,7 @@ $resourceGroupName = '<resource group name>'
 armclient get https://management.azure.com/subscriptions/${subscriptionId}/ResourceGroups/${resourceGroupName}/providers/Microsoft.Compute/virtualMachines?api-version=2015-05-01-preview
 ```
 
-필요한 정보는 다음 예제에 볼 수 있는 것처럼 응답에서 **형식 아래의**id`Microsoft.Compute/virtualMachines`입니다.
+필요한 정보는 다음 예제에 볼 수 있는 것처럼 응답에서 `Microsoft.Compute/virtualMachines` 형식 아래의 **id**입니다.
 
 ```json
 ...,

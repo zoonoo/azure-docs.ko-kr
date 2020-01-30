@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 06/17/2019
+ms.date: 01/27/2020
 ms.author: mlearned
-ms.openlocfilehash: 497dab37f178a9ae7d0ab6cd647a10bac44539f8
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: d1d04ab3ebb96d2739b991620b05aa307d9eaf91
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73472505"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76767448"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 
@@ -69,7 +69,7 @@ az feature register --name WindowsPreview --namespace Microsoft.ContainerService
 az feature list -o table --query "[?contains(name, 'Microsoft.ContainerService/WindowsPreview')].{Name:name,State:properties.state}"
 ```
 
-등록 상태가 `Registered` 인 경우 Ctrl + C를 눌러 상태 모니터링을 중지 합니다.  그런 다음 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
+등록 상태가 `Registered`인 경우 Ctrl + C를 눌러 상태 모니터링을 중지 합니다.  그런 다음 [az provider register][az-provider-register] 명령을 사용 하 여 *ContainerService* 리소스 공급자의 등록을 새로 고칩니다.
 
 ```azurecli-interactive
 az provider register --namespace Microsoft.ContainerService
@@ -126,7 +126,7 @@ Windows Server 컨테이너의 노드 풀을 지 원하는 AKS 클러스터를 �
 > [!NOTE]
 > 클러스터가 안정적으로 작동 되도록 하려면 기본 노드 풀에서 2 개 이상의 노드를 실행 해야 합니다.
 
-사용자 고유의 보안 *PASSWORD_WIN* 을 제공 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
+사용자 고유의 보안 *PASSWORD_WIN* 제공 합니다 (이 문서의 명령은 BASH 셸에 입력 됨).
 
 ```azurecli-interactive
 PASSWORD_WIN="P@ssw0rd1234"
@@ -136,7 +136,7 @@ az aks create \
     --name myAKSCluster \
     --node-count 2 \
     --enable-addons monitoring \
-    --kubernetes-version 1.14.6 \
+    --kubernetes-version 1.15.7 \
     --generate-ssh-keys \
     --windows-admin-password $PASSWORD_WIN \
     --windows-admin-username azureuser \
@@ -162,10 +162,10 @@ az aks nodepool add \
     --os-type Windows \
     --name npwin \
     --node-count 1 \
-    --kubernetes-version 1.14.6
+    --kubernetes-version 1.15.7
 ```
 
-위의 명령은 *npwin* 라는 새 노드 풀을 만들고 *myAKSCluster*에 추가 합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장 되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은 `az aks create`을 실행할 때 생성 되는 기본 vnet에서 기본 서브넷을 사용 합니다.
+위의 명령은 *npwin* 라는 새 노드 풀을 만들고 *myAKSCluster*에 추가 합니다. Windows Server 컨테이너를 실행 하기 위해 노드 풀을 만들 때 *노드-vm 크기* 의 기본값은 *Standard_D2s_v3*입니다. *노드-vm 크기* 매개 변수를 설정 하도록 선택 하는 경우 [제한 된 vm 크기][restricted-vm-sizes]목록을 확인 하세요. 권장 되는 최소 크기는 *Standard_D2s_v3*입니다. 위의 명령은 `az aks create`실행 될 때 생성 되는 기본 vnet의 기본 서브넷도 사용 합니다.
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
@@ -191,8 +191,8 @@ kubectl get nodes
 
 ```
 NAME                                STATUS   ROLES   AGE    VERSION
-aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.14.6
-aksnpwin987654                      Ready    agent   108s   v1.14.6
+aks-nodepool1-12345678-vmssfedcba   Ready    agent   13m    v1.15.7
+aksnpwin987654                      Ready    agent   108s   v1.15.7
 ```
 
 ## <a name="run-the-application"></a>애플리케이션 실행
@@ -266,7 +266,7 @@ service/sample created
 
 애플리케이션이 실행되면 애플리케이션 프런트 엔드를 인터넷에 공개하는 Kubernetes 서비스가 만들어집니다. 이 프로세스를 완료하는 데 몇 분이 걸릴 수 있습니다. 경우에 따라 서비스를 프로 비전 하는 데 몇 분 이상 걸릴 수 있습니다. 이러한 경우 최대 10 분이 허용 됩니다.
 
-진행 상태를 모니터링하려면 [ 인수와 함께 ][kubectl-get]kubectl get service`--watch` 명령을 사용합니다.
+진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service][kubectl-get] 명령을 사용합니다.
 
 ```azurecli-interactive
 kubectl get service sample --watch

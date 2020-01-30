@@ -8,12 +8,12 @@ ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
 ms.date: 01/10/2020
-ms.openlocfilehash: 3d0220f23c8098222b93473dc6c7aa7a4f2dd791
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75933452"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765407"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -79,7 +79,6 @@ OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱�
 
 Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 구성 합니다. 그런 다음, 획득한 토큰을 사용하여 Azure Digital Twins로 인증된 HTTP 요청을 만듭니다.
 
-1. [www.getpostman.com](https://www.getpostman.com/)으로 이동하여 앱을 다운로드합니다.
 1. **권한 부여 URL**이 올바른지 확인합니다. 다음과 같은 형식이어야 합니다.
 
     ```plaintext
@@ -88,9 +87,13 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
 
     | 이름  | 다음 항목으로 교체 | 예 |
     |---------|---------|---------|
-    | YOUR_AZURE_TENANT | 테넌트 또는 조직의 이름 | `microsoft` |
+    | YOUR_AZURE_TENANT | 테 넌 트 또는 조직의 이름입니다. Azure Active Directory 앱 등록의 영숫자 **테 넌 트 ID** 대신 사용자에 게 친숙 한 이름을 사용 합니다. | `microsoft` |
 
-1. **권한 부여 탭**을 선택하고, **OAuth 2.0**을 선택한 다음, **새 액세스 토큰 가져오기**를 선택합니다.
+1. [www.getpostman.com](https://www.getpostman.com/)으로 이동하여 앱을 다운로드합니다.
+
+1. Postman 앱을 열고, 새로 만들기 | 새로 만들기를 차례로 클릭하고, [요청]을 선택합니다. 요청 이름을 입력 합니다. 저장할 컬렉션 또는 폴더를 선택 하 고 저장을 클릭 합니다. 
+
+1. GET 요청을 수행 하려고 합니다. **권한 부여** 탭을 선택 하 고 OAuth 2.0을 선택한 다음 **새 액세스 토큰 가져오기**를 선택 합니다.
 
     | 필드  | 값 |
     |---------|---------|

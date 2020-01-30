@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 753977ed0516e934f661d81904b60ff9935aa423
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981169"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843551"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -620,9 +620,9 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 ### <a name="basic-authentication"></a>기본 인증
 
-[기본](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-basic.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
+[기본](../active-directory-b2c/secure-rest-api-dotnet-basic-auth.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | Basic | 사용할 인증 유형입니다. |
 | **사용자 이름** | `username` | 예 | <*사용자 이름*>| 대상 서비스 엔드포인트에 대한 액세스를 인증하는 사용자 이름입니다. |
@@ -653,7 +653,7 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 [클라이언트 인증서](../active-directory/authentication/active-directory-certificate-based-authentication-get-started.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **클라이언트 인증서** <br>또는 <br>`ClientCertificate` | SSL(Secure Sockets Layer) 클라이언트 인증서에 사용할 인증 유형입니다. 자체 서명된 인증서가 지원되지만 SSL에 대한 자체 서명된 인증서는 지원되지 않습니다. |
 | **Pfx** | `pfx` | 예 | <*로 인코딩된 .pfx-파일-콘텐츠*> | PFX(개인 정보 교환) 파일의 base64로 인코딩된 콘텐츠 <p><p>PFX 파일을 b a s e 64로 인코딩된 형식으로 변환 하려면 다음 단계를 수행 하 여 PowerShell을 사용할 수 있습니다. <p>1. 인증서 콘텐츠를 변수에 저장 합니다. <p>   `$pfx_cert = get-content 'c:\certificate.pfx' -Encoding Byte` <p>2. `ToBase64String()` 함수를 사용 하 여 인증서 콘텐츠를 변환 하 고 해당 콘텐츠를 텍스트 파일에 저장 합니다. <p>   `[System.Convert]::ToBase64String($pfx_cert) | Out-File 'pfx-encoded-bytes.txt'` |
@@ -682,7 +682,7 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 * [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 Api 보안](../api-management/api-management-howto-mutual-certificates-for-clients.md)
 * [Azure API Management에서 클라이언트 인증서 인증을 사용 하 여 백 엔드 서비스 보호](../api-management/api-management-howto-mutual-certificates.md)
-* [클라이언트 인증서를 사용 하 여 RESTfuL 서비스 보호](../active-directory-b2c/active-directory-b2c-custom-rest-api-netfw-secure-cert.md)
+* [클라이언트 인증서를 사용 하 여 RESTfuL 서비스 보호](../active-directory-b2c/secure-rest-api-dotnet-certificate-auth.md)
 * [응용 프로그램 인증을 위한 인증서 자격 증명](../active-directory/develop/active-directory-certificate-credentials.md)
 * [Azure App Service의 애플리케이션 코드에서 SSL 인증서 사용](../app-service/configure-ssl-certificate-in-code.md)
 
@@ -692,10 +692,10 @@ HTTP 및 HTTPS 끝점은 다양 한 종류의 인증을 지원 합니다. 이러
 
 [Active Directory OAuth](../active-directory/develop/about-microsoft-identity-platform.md) 옵션을 사용할 수 있는 경우 다음과 같은 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | **Active Directory OAuth** <br>또는 <br>`ActiveDirectoryOAuth` | 사용할 인증 유형입니다. Logic Apps 현재 [OAuth 2.0 프로토콜](../active-directory/develop/v2-overview.md)을 따릅니다. |
-| **테넌트** | `tenant` | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
+| **넌** | `tenant` | 예 | <*tenant-ID*> | Azure AD 테넌트의 테넌트 ID |
 | **대상** | `audience` | 예 | <*resource-to-authorize*> | 권한 부여에 사용할 리소스(예: `https://management.core.windows.net/`) |
 | **클라이언트 ID** | `clientId` | 예 | <*client-ID*> | 권한 부여를 요청하는 앱에 대한 클라이언트 ID |
 | **자격 증명 유형** | `credentialType` | 예 | 인증서 <br>또는 <br>비밀 | 클라이언트에서 권한 부여를 요청 하는 데 사용 하는 자격 증명 형식입니다. 이 속성 및 값은 논리 앱의 기본 정의에 표시 되지 않지만 선택한 자격 증명 유형에 대해 표시 되는 속성을 결정 합니다. |
@@ -746,7 +746,7 @@ Authorization: OAuth realm="Photos",
 
 원시 인증을 지 원하는 트리거 또는 작업에서 다음 속성 값을 지정 합니다.
 
-| 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+| 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | Description |
 |---------------------|-----------------|----------|-------|-------------|
 | **인증** | `type` | 예 | Raw | 사용할 인증 유형입니다. |
 | **값** | `value` | 예 | <*권한 부여 헤더-값*> | 인증에 사용할 인증 헤더 값입니다. |
@@ -781,7 +781,7 @@ Authorization: OAuth realm="Photos",
 
 3. 관리 id를 사용 하려는 트리거 또는 작업에서 다음 속성 값을 지정 합니다.
 
-   | 속성 (디자이너) | Property(JSON) | 필수 | 값 | Description |
+   | 속성 (디자이너) | 속성 (JSON) | 필수 | 값 | Description |
    |---------------------|-----------------|----------|-------|-------------|
    | **인증** | `type` | 예 | **관리 ID** <br>또는 <br>`ManagedServiceIdentity` | 사용할 인증 유형입니다. |
    | **대상** | `audience` | 예 | <*대상-리소스 ID*> | 액세스 하려는 대상 리소스의 리소스 ID입니다. <p>예를 들어 `https://storage.azure.com/`는 모든 저장소 계정에 대해 인증에 대 한 액세스 토큰을 사용할 수 있습니다. 그러나 특정 저장소 계정에 대 한 `https://fabrikamstorageaccount.blob.core.windows.net`와 같은 루트 서비스 URL을 지정할 수도 있습니다. <p>**참고**:이 속성은 일부 트리거 또는 작업에서 숨겨질 수 있습니다. 이 속성을 표시 하려면 트리거 또는 작업에서 **새 매개 변수 추가** 목록을 열고 **대상 그룹**을 선택 합니다. <p><p>**중요**:이 대상 리소스 ID가 필요한 후행 슬래시를 포함 하 여 Azure AD에 필요한 값과 정확 하 게 일치 하는지 확인 합니다. 따라서 모든 Azure Blob Storage 계정에 대 한 `https://storage.azure.com/` 리소스 ID는 후행 슬래시가 필요 합니다. 그러나 특정 저장소 계정에 대 한 리소스 ID는 후행 슬래시가 필요 하지 않습니다. 이러한 리소스 Id를 찾으려면 [AZURE AD를 지 원하는 azure 서비스](../active-directory/managed-identities-azure-resources/services-support-managed-identities.md#azure-services-that-support-azure-ad-authentication)를 참조 하세요. |

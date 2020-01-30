@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 배포 계획
 description: Azure에 대 한 프로덕션 Service Fabric 클러스터 배포를 계획 하 고 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/20/2019
-ms.openlocfilehash: 69fb97e4e679b3ce5817a51d619799a3384fd753
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 32d48f9ffa056d252bdf762304340f245d80fd26
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463327"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834453"
 ---
 # <a name="plan-and-prepare-for-a-cluster-deployment"></a>클러스터 배포 계획 및 준비
 
@@ -37,9 +37,59 @@ Azure Service Fabric을 사용하면 Windows Server 또는 Linux를 실행하는
 
 주 노드 유형에 대 한 최소 Vm 수는 선택한 [안정성 계층][reliability] 에 따라 결정 됩니다.
 
-주 [노드 형식에 대 한 최소](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads)을 참조 하세요. 
+주 [노드 형식에 대 한 최소](service-fabric-cluster-capacity.md#primary-node-type---capacity-guidance)권장 사항, 주 노드가 [아닌 노드 형식에 대 한 상태 저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateful-workloads)및 [주 노드가 아닌 노드 형식에 대 한 상태 비저장 작업](service-fabric-cluster-capacity.md#non-primary-node-type---capacity-guidance-for-stateless-workloads)을 참조 하세요.
 
 최소 노드 수는이 노드 유형에 서 실행 하려는 응용 프로그램/서비스의 복제본 수를 기반으로 해야 합니다.  [Service Fabric 응용 프로그램에 대 한 용량 계획](service-fabric-capacity-planning.md) 을 통해 응용 프로그램을 실행 하는 데 필요한 리소스를 예상할 수 있습니다. 나중에 응용 프로그램 워크 로드를 변경 하기 위해 클러스터를 확장 하거나 축소할 수 있습니다. 
+
+#### <a name="use-ephemeral-os-disks-for-virtual-machine-scale-sets"></a>가상 머신 확장 집합에 대 한 사용 후 삭제 OS 디스크 사용
+
+*삭제 된 OS 디스크* 는 로컬 VM (가상 컴퓨터)에 생성 되며 원격 Azure Storage에 저장 되지 않습니다. 기존 영구 OS 디스크, 삭제 된 OS 디스크와 비교할 때 모든 Service Fabric 노드 유형 (기본 및 보조)에 권장 됩니다.
+
+* OS 디스크에 대 한 읽기/쓰기 대기 시간 줄이기
+* 빠른 다시 설정/이미지로 다시 설치 노드 관리 작업 사용
+* 전체 비용 절감 (디스크가 무료 이며 추가 저장소 비용이 발생 하지 않음)
+
+임시 OS 디스크는 특정 Service Fabric 기능이 아니라 Service Fabric 노드 형식에 매핑되는 Azure *가상 머신 확장 집합* 의 기능입니다. Service Fabric와 함께 사용 하려면 클러스터 Azure Resource Manager 템플릿에서 다음을 수행 해야 합니다.
+
+1. 노드 형식에서 임시 OS 디스크에 대해 [지원 되는 AZURE VM 크기](../virtual-machines/windows/ephemeral-os-disks.md) 를 지정 하 고 VM 크기에는 os 디스크 크기를 지원 하기에 충분 한 캐시 크기가 있는지 확인 합니다 (아래 *참고* 참조). 예를 들어:
+
+    ```xml
+    "vmNodeType1Size": {
+        "type": "string",
+        "defaultValue": "Standard_DS3_v2"
+    ```
+
+    > [!NOTE]
+    > 캐시 크기가 VM 자체의 OS 디스크 크기 보다 크거나 같은 VM 크기를 선택 해야 합니다. 그렇지 않으면 Azure 배포에 오류가 발생할 수 있습니다 (처음에 허용 되는 경우에도).
+
+2. `2018-06-01` 이상의 가상 머신 확장 집합 버전 (`vmssApiVersion`)을 지정 합니다.
+
+    ```xml
+    "variables": {
+        "vmssApiVersion": "2018-06-01",
+    ```
+
+3. 배포 템플릿의 가상 머신 확장 집합 섹션에서 `diffDiskSettings`에 대 한 `Local` 옵션을 지정 합니다.
+
+    ```xml
+    "apiVersion": "[variables('vmssApiVersion')]",
+    "type": "Microsoft.Compute/virtualMachineScaleSets",
+        "virtualMachineProfile": {
+            "storageProfile": {
+                "osDisk": {
+                        "vhdContainers": ["[concat(reference(concat('Microsoft.Storage/storageAccounts/', parameters('vmStorageAccountName')), variables('storageApiVersion')).primaryEndpoints.blob, parameters('vmStorageAccountContainerName'))]"],
+                        "caching": "ReadOnly",
+                        "createOption": "FromImage",
+                        "diffDiskSettings": {
+                            "option": "Local"
+                        },
+                }
+            }
+        }
+    ```
+
+자세한 정보 및 추가 구성 옵션은 [Azure vm에 대 한 임시 OS 디스크](../virtual-machines/windows/ephemeral-os-disks.md) 를 참조 하세요. 
+
 
 ### <a name="select-the-durability-and-reliability-levels-for-the-cluster"></a>클러스터의 내구성 및 안정성 수준 선택
 지속성 계층은 기본 Azure 인프라와 함께 VM에 있는 권한을 이 시스템에 표시하는 데 사용됩니다. 주 노드 유형에서 이 권한을 사용하면 Service Fabric이 시스템 서비스 및 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(VM 다시 부팅, VM 이미지로 다시 설치, 또는 VM 마이그레이션 등)을 일시 중지할 수 있습니다. 주가 아닌 노드 형식에서 이 권한을 사용하면 Service Fabric이 상태 저장 서비스에 대한 쿼럼 요구 사항에 영향을 주는 VM 수준 인프라 요청(예: VM 다시 부팅, VM 이미지로 다시 설치, VM 마이그레이션)을 일시 중지할 수 있습니다.  사용할 수준 및 시기에 대 한 다양 한 수준 및 권장 사항의 장점은 [클러스터의 내구성 특성][durability]을 참조 하세요.

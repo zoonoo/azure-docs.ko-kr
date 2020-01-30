@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: article
-ms.date: 01/06/2019
+ms.date: 01/27/2019
 ms.author: aahi
-ms.openlocfilehash: a9bfa2a51341bf60f92378f5d96a390bd1d92db1
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 9aa00898c6a567d495ed0c66bcf7bd475067fa0d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732781"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774132"
 ---
 # <a name="how-to-use-named-entity-recognition-in-text-analytics"></a>Text Analytics에서 명명된 엔터티 인식 사용 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "75732781"
 
 ### <a name="entity-linking"></a>엔터티 연결
 
-엔터티 연결은 텍스트에 있는 엔터티의 id를 식별 하 고 구분 하는 기능입니다. 예를 들어 `Mars` 단어가 행성을 참조 하는지 또는 전쟁의 로마자를 참조 하는지 확인 합니다. 이 프로세스에서는 인식 된 엔터티를 텍스트에 연결 하기 위해 기술 자료가 적절 한 언어로 존재 해야 합니다. 
+엔터티 연결은 텍스트에 있는 엔터티의 id를 식별 하 고 구분 하는 기능입니다. 예를 들어 `Mars` 단어가 행성을 참조 하는지 또는 전쟁의 로마자를 참조 하는지 확인 합니다. 이 프로세스에서는 인식 된 엔터티를 텍스트에 연결 하기 위해 기술 자료가 적절 한 언어로 존재 해야 합니다. 엔터티 링크는이 기술 자료로 [위키백과](https://www.wikipedia.org/) 를 사용 합니다.
 
 
 ### <a name="named-entity-recognition-ner"></a>NER(명명된 엔터티 인식)
@@ -36,7 +36,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 | 기능                                                         | NER v2 | NER v3 |
 |-----------------------------------------------------------------|--------|--------|
-| 단일 및 일괄 처리 요청에 대 한 메서드                          | X      | X      |
+| 단일 및 일괄 처리 요청을 위한 메서드                          | X      | X      |
 | 여러 범주에서 기본 엔터티 인식              | X      | X      |
 | 인식 된 엔터티의 확장 된 분류                 |        | X      |
 | 엔터티 연결 및 NER 요청을 보내기 위한 별도의 끝점입니다. |        | X      |
@@ -83,7 +83,7 @@ NER (명명 된 엔터티 인식)는 텍스트에서 다양 한 엔터티를 식
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/entities`
 
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3 (공개 미리 보기)](#tab/version-3)
+#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
 
 ### <a name="entity-types"></a>엔터티 형식
 
@@ -150,11 +150,11 @@ NER
 
 ---
 
-텍스트 분석 API 키를 포함 하도록 요청 헤더를 설정 합니다. 요청 본문에서 준비한 JSON 문서를 제공 합니다.
+Text Analytics API 키를 포함하도록 요청 헤더를 설정합니다. 요청 본문에서 준비한 JSON 문서를 제공 합니다.
 
 ### <a name="example-ner-request"></a>예제 NER 요청 
 
-다음은 API에 보낼 수 있는 콘텐츠의 예입니다. 요청 형식은 두 API 버전에 대해 동일 합니다.
+다음은 API에 보낼 수 있는 콘텐츠의 예입니다. 두 API 버전의 요청 형식은 동일합니다.
 
 ```json
 {
@@ -172,7 +172,7 @@ NER
 
 요청을 받으면 분석이 수행됩니다. 분당 및 초당 보낼 수 있는 요청의 크기와 수에 대한 내용은 개요의 [데이터 제한](../overview.md#data-limits) 섹션을 참조하세요.
 
-텍스트 분석 API 상태 비저장입니다. 사용자의 계정에 저장 된 데이터는 없으며 결과가 응답에서 즉시 반환 됩니다.
+Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터가 저장되지 않으며, 결과가 응답에서 즉시 반환됩니다.
 
 ## <a name="view-results"></a>결과 보기
 
@@ -217,7 +217,7 @@ NER
 }
 ```
 
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3 (공개 미리 보기)](#tab/version-3)
+#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
 
 ### <a name="example-v3-responses"></a>V3 응답 예
 

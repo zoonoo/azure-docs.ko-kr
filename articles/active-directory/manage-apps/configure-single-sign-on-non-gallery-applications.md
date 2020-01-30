@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c99c38c9a1972bc434c7fa61d6745dac0d79d7b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711959"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841968"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성
 
@@ -26,7 +26,7 @@ ms.locfileid: "76711959"
 > [!NOTE]
 > 갤러리 앱을 추가하나요? 이에 대한 단계별 설치 지침은 [SaaS 앱 자습서 목록](../saas-apps/tutorial-list.md)에서 확인하세요.
 
-코드를 작성 하지 않고 비 갤러리 응용 프로그램에 대해 SAML Single Sign-On를 구성 하려면 구독이 나 Azure AD Premium 있어야 하 고 응용 프로그램에서 SAML 2.0을 지원 해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
+코드를 작성 하지 않고 비 갤러리 응용 프로그램에 대 한 SAML Single Sign-On을 구성 하려면 Azure AD Premium 라이선스와 함께 구독이 있어야 하 고 응용 프로그램에서 SAML 2.0을 지원 해야 합니다. Azure AD 버전에 대한 자세한 내용은 [Azure AD 가격 책정](https://azure.microsoft.com/pricing/details/active-directory/)에서 확인할 수 있습니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

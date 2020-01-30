@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: bc45f05da553f456094c1ca96454090ded4d9f4f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 8833a70b88b59c59dd373f1cfa9535fd7205ceb5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290430"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837751"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
@@ -176,6 +176,20 @@ $vm = Add-AzVMDataDisk -VM $vm -Name $diskName -CreateOption Empty -DiskSizeInGB
 
 Update-AzVM -ResourceGroupName $rgName -VM $vm
 
+```
+
+#### <a name="encrypt-existing-unattached-managed-disks"></a>연결 되지 않은 기존 관리 디스크 암호화 
+
+다음 스크립트를 사용 하 여 기존 디스크를 암호화 하려면 실행 중인 VM에 연결 해서는 안 됩니다.
+
+```PowerShell
+$rgName = "yourResourceGroupName"
+$diskName = "yourDiskName"
+$diskEncryptionSetName = "yourDiskEncryptionSetName"
+ 
+$diskEncryptionSet = Get-AzDiskEncryptionSet -ResourceGroupName $rgName -Name $diskEncryptionSetName
+ 
+New-AzDiskUpdateConfig -EncryptionType "EncryptionAtRestWithCustomerKey" -DiskEncryptionSetId $diskEncryptionSet.Id | Update-AzDisk -ResourceGroupName $rgName -DiskName $diskName
 ```
 
 #### <a name="create-a-virtual-machine-scale-set-using-a-marketplace-image-encrypting-the-os-and-data-disks-with-customer-managed-keys"></a>Marketplace 이미지를 사용 하 여 가상 머신 확장 집합 만들기, 고객이 관리 하는 키를 사용 하 여 OS 및 데이터 디스크 암호화

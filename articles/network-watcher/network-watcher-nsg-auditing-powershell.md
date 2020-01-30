@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 네트워크 보안 그룹의 감사를 구성하는 방법에 대한 설명을 제공합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 78a01bcf-74fe-402a-9812-285f3501f877
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: f4c553cd144f7c921121aa943e3c40849891f957
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 59c1b6e6c281a736a79d110bd7d943344bcd5130
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278052"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840981"
 ---
 # <a name="automate-nsg-auditing-with-azure-network-watcher-security-group-view"></a>Azure Network Watcher 보안 그룹 보기를 사용하여 NSG 감사 자동화
 
@@ -35,7 +32,7 @@ ms.locfileid: "74278052"
 
 이 시나리오에서는 가상 머신에서 반환된 보안 그룹 보기 결과를 알려진 적합한 기준선과 비교합니다.
 
-이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 컴퓨터를 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
+이 시나리오에서는 사용자가 Network Watcher를 만드는 [Network Watcher 만들기](network-watcher-create.md)의 단계를 이미 수행했다고 가정합니다. 또한 시나리오에서는 유효한 가상 머신을 포함한 리소스 그룹을 사용할 수 있다고 가정합니다.
 
 ## <a name="scenario"></a>시나리오
 
@@ -135,7 +132,7 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>VM 확인
 
-`Get-AzNetworkWatcherSecurityGroupView` cmdlet을 실행하려면 가상 머신이 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
+`Get-AzNetworkWatcherSecurityGroupView`cmdlet을 실행하려면 가상 머신이 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName "testrg" -Name "testvm1"

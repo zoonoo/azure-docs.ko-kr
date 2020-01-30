@@ -11,12 +11,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 1/10/2020
-ms.openlocfilehash: 593ceb884e751ca3115b08baf0c9c7e802057f54
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 065610a9de4898d012cef8a16849c09a81f0774c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864987"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841100"
 ---
 # <a name="configure-an-azure-sql-server-integration-services-ssis-integration-runtime-ir-to-join-a-virtual-network"></a>가상 네트워크에 가입 하기 위해 Azure SQL Server Integration Services (SSIS) IR (통합 런타임) 구성
 
@@ -42,9 +42,9 @@ ms.locfileid: "75864987"
 
     - 가상 네트워크의 리소스 그룹이 특정 Azure 네트워크 리소스를 만들고 삭제할 수 있는지 확인 합니다.
     
-        Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 이러한 리소스에는 다음과 같은 것이 포함됩니다.
+        Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 이러한 리소스는 다음과 같습니다.
         - 이름 *\<Guid >-azurebatch-cloudserviceloadbalancer* 를 사용 하는 Azure 부하 분산 장치
-        - 이름이 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup 인 네트워크 작업 보안 그룹
+        - 이름 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup를 사용 하는 네트워크 보안 그룹
         - 이름이-azurebatch-cloudservicepublicip 인 Azure 공용 IP 주소
     
         이러한 리소스는 Azure-SSIS IR 시작 될 때 생성 됩니다. Azure-SSIS IR 중지 될 때 삭제 됩니다. Azure-SSIS IR 중단 되지 않도록 차단 하려면 다른 리소스에서 이러한 네트워크 리소스를 다시 사용 하지 마세요.
@@ -66,7 +66,7 @@ ms.locfileid: "75864987"
 
 ## <a name="configure-a-virtual-network"></a>가상 네트워크 구성
 
-Azure-SSIS IR에 연결 하기 전에 가상 네트워크에 대 한 Azure Portal를 사용 합니다.
+Azure Portal를 사용 하 여 Azure-SSIS IR에 연결 하기 전에 가상 네트워크를 구성 합니다.
 
 1. Microsoft Edge 또는 Google Chrome을 시작합니다. 현재 이러한 웹 브라우저만 Data Factory UI를 지원 합니다.
 

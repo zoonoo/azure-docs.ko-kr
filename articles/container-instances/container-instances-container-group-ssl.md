@@ -3,22 +3,22 @@ title: 컨테이너 그룹에서 SSL 사용
 description: Azure Container Instances에서 실행 되는 컨테이너 그룹에 대 한 SSL 또는 TLS 끝점을 만듭니다.
 ms.topic: article
 ms.date: 04/03/2019
-ms.openlocfilehash: 7578ad6f8c451694a90dde00b74bf2e8c6c61109
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 541d53a9a9530f7ac80227dbae598b3da2691301
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483488"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773068"
 ---
 # <a name="enable-an-ssl-endpoint-in-a-container-group"></a>컨테이너 그룹에서 SSL 끝점 사용
 
 이 문서에서는 응용 프로그램 컨테이너와 SSL 공급자를 실행 하는 사이드카 컨테이너를 사용 하 여 [컨테이너 그룹](container-instances-container-groups.md) 을 만드는 방법을 보여 줍니다. 별도의 SSL 끝점을 사용 하 여 컨테이너 그룹을 설정 하 여 응용 프로그램 코드를 변경 하지 않고 응용 프로그램에 대 한 SSL 연결을 사용 하도록 설정 합니다.
 
-두 개의 컨테이너로 구성 된 컨테이너 그룹을 설정 합니다.
+두 개의 컨테이너로 구성 된 예제 컨테이너 그룹을 설정 합니다.
 * 공용 Microsoft [aci-helloworld](https://hub.docker.com/_/microsoft-azuredocs-aci-helloworld) 이미지를 사용 하 여 간단한 웹 앱을 실행 하는 응용 프로그램 컨테이너입니다. 
 * SSL을 사용 하도록 구성 된 public [Nginx](https://hub.docker.com/_/nginx) 이미지를 실행 하는 사이드카 컨테이너 
 
-이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용 하 여 Nginx에 대 한 포트 443만 노출 합니다. Nginx는 포트 80에서 내부적으로 수신 대기 하는 도우미 웹 앱에 대 한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기 하는 컨테이너 앱에 대 한 예제를 적용할 수 있습니다.
+이 예제에서 컨테이너 그룹은 공용 IP 주소를 사용 하 여 Nginx에 대 한 포트 443만 노출 합니다. Nginx는 포트 80에서 내부적으로 수신 대기 하는 도우미 웹 앱에 대 한 HTTPS 요청을 라우팅합니다. 다른 포트에서 수신 대기 하는 컨테이너 앱에 대 한 예제를 적용할 수 있습니다. 컨테이너 그룹에서 SSL을 사용 하도록 설정 하는 다른 방법은 [다음 단계](#next-steps) 를 참조 하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -38,7 +38,7 @@ openssl req -new -newkey rsa:2048 -nodes -keyout ssl.key -out ssl.csr
 
 프롬프트에 따라 식별 정보를 추가 합니다. 일반 이름에 인증서와 연결 된 호스트 이름을 입력 합니다. 암호를 입력 하 라는 메시지가 표시 되 면 입력 하지 않고 Enter 키를 눌러 암호 추가를 건너뜁니다.
 
-다음 명령을 실행 하 여 인증서 요청에서 자체 서명 된 인증서 (.crt 파일)를 만듭니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+다음 명령을 실행 하 여 인증서 요청에서 자체 서명 된 인증서 (.crt 파일)를 만듭니다. 예:
 
 ```console
 openssl x509 -req -days 365 -in ssl.csr -signkey ssl.key -out ssl.crt
@@ -235,4 +235,10 @@ app-with-ssl  myresourcegroup  Running   mcr.microsoft.com/azuredocs/nginx, aci-
 
 이 문서에서는 사이드카의 Nginx를 사용 하지만 [Caddy](https://caddyserver.com/)와 같은 다른 SSL 공급자를 사용할 수 있습니다.
 
-컨테이너 그룹에서 SSL을 사용 하도록 설정 하는 또 다른 방법은 [azure application gateway](../application-gateway/overview.md)를 사용 하 여 [azure 가상 네트워크](container-instances-vnet.md) 에 그룹을 배포 하는 것입니다. 게이트웨이를 SSL 끝점으로 설정할 수 있습니다. 게이트웨이에서 SSL 종료를 사용 하도록 조정할 수 있는 샘플 [배포 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet) 을 참조 하세요.
+[Azure 가상 네트워크](container-instances-vnet.md)에 컨테이너 그룹을 배포 하는 경우 다음을 포함 하 여 백 엔드 컨테이너 인스턴스에 대해 SSL 끝점을 사용 하도록 설정 하는 다른 옵션을 고려할 수 있습니다.
+
+* [Azure Functions 프록시](../azure-functions/functions-proxies.md)
+* [Azure API Management](../api-management/api-management-key-concepts.md)
+* [Azure Application Gateway](../application-gateway/overview.md)
+
+응용 프로그램 게이트웨이를 사용 하려면 샘플 [배포 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/201-aci-wordpress-vnet)을 참조 하세요.

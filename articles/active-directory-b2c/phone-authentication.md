@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 96bf088e6db29817d1ae4276c254a84723e5d03d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480191"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840335"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C)의 전화 등록 및 로그인을 사�
 
 * [Azure AD B2C 테넌트](tutorial-create-tenant.md)
 * 테 넌 트에 [등록 된 웹 응용 프로그램](tutorial-register-applications.md)
-* 테 넌 트에 업로드 된 [사용자 지정 정책](active-directory-b2c-get-started-custom.md)
+* 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
 
 ## <a name="get-the-phone-sign-up--sign-in-starter-pack"></a>전화 등록 & 로그인 시작 팩 가져오기
 
@@ -44,7 +44,7 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 
 1. 각 파일에서 `yourtenant` 문자열을 Azure AD B2C 테 넌 트의 이름으로 바꿉니다. 예를 들어 B2C 테 넌 트의 이름이 *contosob2c*인 경우 `yourtenant.onmicrosoft.com`의 모든 인스턴스가 `contosob2c.onmicrosoft.com`됩니다.
 
-1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](active-directory-b2c-get-started-custom.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 경우 *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework*필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 **`Phone_Email_Base.xml`** `/phone-number-passwordless/`업데이트 합니다.
+1. [Azure Active Directory B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 [사용자 지정 정책에 응용 프로그램 id 추가](custom-policy-get-started.md#add-application-ids-to-the-custom-policy) 섹션에 설명 된 단계를 완료 합니다. 이 경우 *IdentityExperienceFramework* 및 *ProxyIdentityExperienceFramework*필수 구성 요소를 완료할 때 등록 한 두 응용 프로그램의 **응용 프로그램 (클라이언트) id** 로 **`Phone_Email_Base.xml`** `/phone-number-passwordless/`업데이트 합니다.
 
 ## <a name="upload-the-policy-files"></a>정책 파일을 업로드 합니다.
 

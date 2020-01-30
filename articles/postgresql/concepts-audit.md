@@ -5,13 +5,13 @@ author: rachel-msft
 ms.author: raagyema
 ms.service: postgresql
 ms.topic: conceptual
-ms.date: 10/14/2019
-ms.openlocfilehash: c0ce1648d7b5f7c25044ed8f66eafcca7b0009f4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 01/28/2020
+ms.openlocfilehash: 45490e398abd8b5bd3c10adb95b56e1019d2bb94
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747349"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842472"
 ---
 # <a name="audit-logging-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL의 감사 로깅-단일 서버
 
@@ -23,7 +23,7 @@ Azure Database for PostgreSQL에서 데이터베이스 활동에 대 한 감사 
 
 계산 및 저장소 크기 조정과 같은 작업에 대 한 Azure 리소스 수준 로그를 원하는 경우 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md)를 참조 하세요.
 
-## <a name="usage-considerations"></a>용도 고려 사항
+## <a name="usage-considerations"></a>사용 고려 사항
 기본적으로 pgAudit 로그 문은 Postgres의 표준 로깅 기능을 사용하여 일반 로그 문과 함께 내보내집니다. Azure Database for PostgreSQL에서 이러한 .log 파일은 Azure Portal 또는 CLI를 통해 다운로드할 수 있습니다. 파일 컬렉션에 대 한 최대 저장소는 1gb이 고 각 파일은 최대 7 일 동안 사용할 수 있습니다 (기본값은 3 일). 이 서비스는 단기 저장소 옵션입니다.
 
 또는 Azure Monitor의 진단 로그 서비스에 내보내도록 모든 로그를 구성할 수 있습니다. Azure Monitor 진단 로깅을 사용 하는 경우 사용자의 선택에 따라 로그가 자동으로 (JSON 형식으로) Azure Storage, Event Hubs 및/또는 Azure Monitor 로그에 전송 됩니다.
@@ -65,10 +65,8 @@ pgAudit를 사용 하면 세션 또는 개체 감사 로깅을 구성할 수 있
 [PgAudit를 설치한](#installing-pgaudit)후에는 해당 매개 변수를 구성 하 여 로깅을 시작할 수 있습니다. [Pgaudit 설명서](https://github.com/pgaudit/pgaudit/blob/master/README.md#settings) 는 각 매개 변수의 정의를 제공 합니다. 먼저 매개 변수를 테스트 하 고 예상 되는 동작을 확인 하 고 있는지 확인 합니다.
 
 > [!NOTE]
-> `pgaudit.log_client`을 ON으로 설정 하면 로그를 파일에 기록 하는 대신 클라이언트 프로세스 (예: psql)로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다.
-
-> [!NOTE]
-> `pgaudit.log_level`은 `pgaudit.log_client` on 인 경우에만 사용할 수 있습니다. 또한 Azure Portal에는 현재 `pgaudit.log_level`에 대 한 버그가 있습니다. 여러 수준을 선택할 수 있음을 의미 하는 콤보 상자가 표시 됩니다. 그러나 한 수준만 선택해야 합니다. 
+> `pgaudit.log_client`을 ON으로 설정 하면 로그를 파일에 기록 하는 대신 클라이언트 프로세스 (예: psql)로 리디렉션합니다. 이 설정은 일반적으로 사용하지 않도록 설정해야 합니다. <br> <br>
+> `pgaudit.log_level`은 `pgaudit.log_client` on 인 경우에만 사용할 수 있습니다.
 
 > [!NOTE]
 > Azure Database for PostgreSQL에서는 pgAudit 설명서에 설명 된 대로 `-` (빼기) 기호 바로 가기를 사용 하 여 `pgaudit.log`를 설정할 수 없습니다. 모든 필수 문 클래스(READ, WRITE 등)는 개별적으로 지정해야 합니다.
@@ -87,6 +85,22 @@ t=%m u=%u db=%d pid=[%p]:
 ### <a name="getting-started"></a>시작
 신속 하 게 시작 하려면 `pgaudit.log`를 `WRITE`로 설정 하 고 로그를 열어 출력을 검토 합니다. 
 
+## <a name="viewing-audit-logs"></a>감사 로그 보기
+.Log 파일을 사용 하는 경우 PostgreSQL 오류 로그와 동일한 파일에 감사 로그가 포함 됩니다. 로그 파일은 Azure [portal](howto-configure-server-logs-in-portal.md) 또는 [CLI](howto-configure-server-logs-using-cli.md)에서 다운로드할 수 있습니다. 
+
+Azure 진단 로깅을 사용 하는 경우 로그에 액세스 하는 방법은 선택한 끝점에 따라 다릅니다. Azure Storage는 [로그 저장소 계정](../azure-monitor/platform/resource-logs-collect-storage.md) 문서를 참조 하세요. Event Hubs에 대해서는 [Stream Azure logs](../azure-monitor/platform/resource-logs-stream-event-hubs.md) 문서를 참조 하세요.
+
+Azure Monitor 로그의 경우 로그는 선택한 작업 영역으로 전송 됩니다. Postgres 로그 **는 azurediagnostics 수집 모드** 를 사용 하므로 azurediagnostics 테이블에서 쿼리할 수 있습니다. 테이블의 필드는 아래에 설명 되어 있습니다. [Azure Monitor 로그 쿼리](../azure-monitor/log-query/log-query-overview.md) 개요의 쿼리 및 경고에 대해 자세히 알아보세요.
+
+이 쿼리를 사용 하 여 시작할 수 있습니다. 쿼리를 기반으로 경고를 구성할 수 있습니다.
+
+마지막 날에 특정 서버에 대 한 모든 Postgres 로그를 검색 합니다.
+```
+AzureDiagnostics
+| where LogicalServerName_s == "myservername"
+| where TimeGenerated > ago(1d) 
+| where Message contains "AUDIT:"
+```
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Database for PostgreSQL 로그인에 대해 알아보기](concepts-server-logs.md)

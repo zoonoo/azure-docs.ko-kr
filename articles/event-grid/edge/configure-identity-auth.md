@@ -9,16 +9,16 @@ ms.date: 10/05/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 336b6157128468169264d6ffa9564da4d9338aae
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: 0aedeea2a6ad08e1627c2d1a6ebde6c91a4d02d9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72992445"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841768"
 ---
 # <a name="configure-identity-for-the-event-grid-module"></a>Event Grid 모듈의 id 구성
 
-이 문서에서는 Event Grid 모듈에 대해 사용할 수 있는 id 구성의 예를 제공 합니다. 기본적으로 Event Grid 모듈은 IoT 보안 데몬에 의해 구성 된 대로 해당 id 인증서를 제공 합니다. Id 인증서는 이벤트를 전달할 때 나가는 호출에 Event Grid 모듈에서 제공 됩니다. 그런 다음 Event Grid 이벤트에 대 한 구독자는 이벤트를 수락 하기 전에 이벤트를 보낸 Event Grid 모듈이 정말로 유효한 지 확인 하도록 선택할 수 있습니다.
+이 문서에서는 Edge에서 그리드에 대 한 id를 구성 하는 방법을 보여 줍니다. 기본적으로 Event Grid 모듈은 IoT 보안 데몬에 의해 구성 된 대로 해당 id 인증서를 제공 합니다. Edge에서 Event Grid는 이벤트를 전달할 때 해당 id 인증서를 나가는 호출에 표시 합니다. 그런 다음 구독자는를 허용 하기 전에 이벤트를 보낸 Event Grid 모듈 인지 확인할 수 있습니다.
 
 모든 가능한 구성에 대 한 [보안 및 인증](security-authentication.md) 가이드를 참조 하세요.
 
@@ -28,8 +28,8 @@ ms.locfileid: "72992445"
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge"
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge"
   ]
 }
  ```
@@ -40,7 +40,7 @@ ms.locfileid: "72992445"
 ```json
  {
   "Env": [
-    "outbound:clientAuth:clientCert:enabled=false"
+    "outbound__clientAuth__clientCert__enabled=false"
   ]
 }
  ```

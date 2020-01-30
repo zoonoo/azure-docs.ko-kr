@@ -1,25 +1,24 @@
 ---
 title: Azure Monitor Azure Service Bus 메트릭 Microsoft Docs
-description: Azure Monitor를 사용 하 여 Service Bus 엔터티 모니터링
+description: 이 문서에서는 Azure Monitor를 사용 하 여 Service Bus 엔터티 (큐, 토픽 및 구독)를 모니터링 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: .NET
 author: axisc
-manager: timlt
 editor: spelluru
 ms.service: service-bus-messaging
 ms.topic: article
-ms.date: 11/06/2018
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 6d25bdf6ff8e790466f3a28e3b6043e347d74198
-ms.sourcegitcommit: 55f7fc8fe5f6d874d5e886cb014e2070f49f3b94
+ms.openlocfilehash: 569eb31c6cbe8b95773d52f6e1325801fbabf86f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71261852"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773541"
 ---
 # <a name="azure-service-bus-metrics-in-azure-monitor"></a>Azure Monitor Azure Service Bus 메트릭
 
-Service Bus 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준에서뿐만 아니라 엔터티 수준에서 Service Bus 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Service Bus의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. 메트릭은 Azure 지원에 문의할 필요 없이 근본 원인 문제를 해결할 수도 있습니다.
+Service Bus 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준에서뿐만 아니라 엔터티 수준에서 Service Bus 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Service Bus의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
 Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
 
@@ -44,7 +43,7 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 
-## <a name="billing"></a>대금 청구
+## <a name="billing"></a>청구
 
 Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부과 됩니다. 이러한 요금은 경고를 설정 하 고 저장 하기 전에 포털에서 사용할 수 있어야 합니다. 
 
@@ -57,17 +56,17 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 모든 메트릭 값은 매분마다 Azure Monitor에 전송됩니다. 시간 세분성은 메트릭 값이 표시되는 시간 간격을 정의합니다. 모든 Service Bus 메트릭에 대해 지원되는 시간 간격은 1분입니다.
 
-## <a name="request-metrics"></a>메트릭 요청
+## <a name="request-metrics"></a>요청 메트릭
 
 데이터 및 관리 작업 요청 수를 계산합니다.
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-| 들어오는 요청| 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-|Successful Requests|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-|서버 오류|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-|사용자 오류 (다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-|제한 된 요청|사용량 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
+| 들어오는 요청| 지정된 기간 동안 Service Bus 서비스에 대한 요청 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|성공한 요청|지정된 기간 동안 Service Bus 서비스에 대한 성공한 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|서버 오류|지정된 기간 동안 Service Bus 서비스에서 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|사용자 오류 (다음 하위 섹션 참조)|지정된 기간 동안 사용자 오류로 인해 처리되지 않은 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|제한 된 요청|사용량 초과로 인해 제한된 요청 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ### <a name="user-errors"></a>사용자 오류
 
@@ -79,36 +78,36 @@ Azure Monitor에 대 한 메트릭 및 경고는 경고 단위로 요금이 부�
 
 ## <a name="message-metrics"></a>메시지 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-|나가는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
-| 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
-| ActiveMessages| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/> 차원: EntityName |
-| 배달 못 한 메시지| 큐/토픽에서 배달 못 한 메시지의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균 <br/>차원: EntityName |
-| 예약된 메시지| 큐/토픽에 있는 예약 된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 유형: 평균  <br/> 차원: EntityName |
+|들어오는 메시지|지정된 기간 동안 Service Bus에 전송된 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|보내는 메시지|지정된 기간 동안 Service Bus에서 수신한 이벤트 또는 메시지 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+| 메시지| 큐/토픽에 있는 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
+| ActiveMessages| 큐/토픽에 있는 활성 메시지 수 <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/> 차원: EntityName |
+| 배달 못 한 메시지| 큐/토픽에서 배달 못 한 메시지의 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균 <br/>차원: EntityName |
+| 예약된 메시지| 큐/토픽에 있는 예약 된 메시지 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 평균  <br/> 차원: EntityName |
 
 ## <a name="connection-metrics"></a>연결 메트릭
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|ActiveConnections|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 유형: Total <br/> 차원: EntityName|
+|ActiveConnections|네임스페이스와 엔터티의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="resource-usage-metrics"></a>리소스 사용량 메트릭
 
 > [!NOTE] 
 > 다음 메트릭은 **프리미엄** 계층에서만 제공됩니다. 
 
-| 메트릭 이름 | 설명 |
+| 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|네임스페이스당 CPU 사용량|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: Percent <br/> 집계 유형: 최대값 <br/> 차원: EntityName|
-|네임스페이스당 메모리 크기 사용량|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: Percent <br/> 집계 유형: 최대값 <br/> 차원: EntityName|
+|네임스페이스당 CPU 사용량|네임스페이스의 CPU 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
+|네임스페이스당 메모리 크기 사용량|네임스페이스의 메모리 사용량 비율입니다.<br/><br/> 단위: % <br/> 집계 형식: 최대 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 
 Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을 지원합니다. 메트릭에 차원을 추가하는 것은 선택 사항입니다. 차원을 추가하지 않는 경우 메트릭은 네임스페이스 수준에서 지정됩니다. 
 
-|차원 이름|설명|
+|차원 이름|Description|
 | ------------------- | ----------------- |
 |EntityName| Service Bus는 네임스페이스에서 메시징 엔터티를 지원합니다.|
 
@@ -126,7 +125,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         ![네임스페이스 선택](./media/service-bus-metrics-azure-monitor/select-namespace.png)
 1. **조건 추가**를 선택하고, **신호 논리 구성** 페이지에서 다음 작업을 수행합니다.
     1. **신호 형식**으로 **메트릭**을 선택합니다. 
-    2. 신호를 선택합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다. **서비스 오류**. 
+    2. 신호를 선택합니다. 예: **서비스 오류**. 
 
         ![서버 오류 선택](./media/service-bus-metrics-azure-monitor/select-server-errors.png)
     1. **조건**으로 **다음보다 큼**을 선택합니다.
@@ -140,7 +139,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
     2. 경고에 대한 **설명** 을 입력합니다.
     3. 경고의 **심각도**를 선택합니다. 
 
-        ![경고 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
+        ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/alert-details.png)
 1. **규칙 만들기** 페이지에서 **작업 그룹 정의**를 선택하고, **새 작업 그룹**을 선택하고, **작업 그룹 추가 페이지**에서 다음 작업을 수행합니다. 
     1. 작업 그룹의 이름을 입력합니다.
     2. 작업 그룹의 짧은 이름을 입력합니다. 
@@ -154,7 +153,7 @@ Azure Service Bus는 Azure Monitor의 메트릭에 대해 다음과 같은 차�
         2. **이메일 주소**를 입력합니다. 
         3. **확인**을 선택합니다.
 
-            ![경고 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
+            ![경고 세부 정보](./media/service-bus-metrics-azure-monitor/add-action-group.png)
         4. **작업 그룹 추가** 페이지에서 **확인**을 선택합니다. 
 1. **규칙 만들기** 페이지에서 **경고 규칙 만들기**를 선택합니다. 
 

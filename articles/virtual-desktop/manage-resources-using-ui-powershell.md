@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: d7304c1267c4a4f5548bb57ffb3e6016fac21d99
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e3ea11f4faad204756f9e1296b5190e1f81a5cc0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122511"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772790"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>PowerShell을 사용 하 여 관리 도구 배포
 
@@ -163,4 +163,4 @@ Azure AD 응용 프로그램 구성을 확인 하 고 동의를 제공 하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-관리 도구를 배포하고 연결하는 방법을 배웠으므로, 이제 Azure Service 도움말을 사용하여 서비스 이슈와 상태 권고를 모니터링하는 방법을 알아볼 수 있습니다. 자세한 내용은 [서비스 경고 설정 자습서](./set-up-service-alerts.md)를 참조하세요.
+관리 도구를 배포하고 연결하는 방법을 배웠으므로, 이제 Azure Service Health를 사용하여 서비스 이슈와 상태 권고를 모니터링하는 방법을 알아볼 수 있습니다. 자세한 내용은 [서비스 경고 설정 자습서](./set-up-service-alerts.md)를 참조하세요.

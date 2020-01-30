@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 2453b29c5efd768930f534df89d4c62320ed4770
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965353"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772586"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -77,13 +77,15 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
 - Microsoft Azure 구독
 - Azure 가상 머신의 Windows 도메인
-- Azure 가상 컴퓨터와 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 계정입니다.
+- Azure 가상 컴퓨터와 Active Directory 모두에서 개체를 만들 수 있는 권한이 있는 도메인 사용자 계정입니다.
+- SQL Server 서비스를 실행할 도메인 사용자 계정으로, 파일 공유를 탑재할 때를 사용 하 여 가상 컴퓨터에 로그인 할 수 있습니다.  
 - 이러한 구성 요소에 대 한 충분 한 IP 주소 공간이 있는 Azure 가상 네트워크 및 서브넷:
    - 가상 컴퓨터 2 대
    - 장애 조치 클러스터 IP 주소
    - 각 FCI에 대한 IP 주소
 - 도메인 컨트롤러를 가리키는 Azure 네트워크에 구성 된 DNS입니다.
-- 데이터 파일에 대 한 데이터베이스의 저장소 할당량을 기반으로 하는 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) 입니다.
+- 데이터 파일용 데이터베이스의 저장소 할당량에 따라 클러스터 된 드라이브로 사용할 [프리미엄 파일 공유](../../../storage/files/storage-how-to-create-premium-fileshare.md) 입니다.
+- Windows Server 2012 R2이 하 버전을 사용 하는 경우 클라우드 미러링 모니터 서버 Windows 2016 이상에서 지원 되므로 파일 공유 감시로 사용할 다른 파일 공유가 필요 합니다. 다른 Azure 파일 공유를 사용 하거나 별도의 가상 머신에서 파일 공유를 사용할 수 있습니다. 다른 Azure 파일 공유를 사용 하려는 경우 클러스터 된 드라이브에 사용 되는 프리미엄 파일 공유와 동일한 프로세스를 사용 하 여 탑재할 수 있습니다. 
 
 이러한 필수 구성 요소가 준비 되 면 장애 조치 (failover) 클러스터 빌드를 시작할 수 있습니다. 첫 번째 단계는 가상 머신을 만드는 것입니다.
 
@@ -180,7 +182,8 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 1. 클러스터에 참여 하는 각 SQL Server VM에 대해 이러한 단계를 반복 합니다.
 
   > [!IMPORTANT]
-  > 백업 파일에 대 한 별도의 파일 공유를 사용 하 여 데이터 및 로그 파일에 대 한이 공유의 IOPS 및 공간 용량을 저장 하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
+  > - 백업 파일에 대 한 별도의 파일 공유를 사용 하 여 데이터 및 로그 파일에 대 한이 공유의 IOPS 및 공간 용량을 저장 하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
+  > - Windows 2012 R2 이상 버전을 사용 하는 경우 다음 단계를 수행 하 여 파일 공유 감시로 사용할 파일 공유를 탑재 합니다. 
 
 ## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>3 단계: 파일 공유를 사용 하 여 장애 조치 (failover) 클러스터 구성
 
@@ -189,7 +192,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 1. Windows Server 장애 조치 (Failover) 클러스터링 기능을 추가 합니다.
 1. 클러스터의 유효성을 검사 합니다.
 1. 장애 조치 (failover) 클러스터를 만듭니다.
-1. 클라우드 감시를 만듭니다.
+1. 클라우드 감시 (Windows Server 2016 이상) 또는 파일 공유 감시 (Windows Server 2012 R2이 하 버전의 경우)를 만듭니다.
 
 
 ### <a name="add-windows-server-failover-clustering"></a>Windows Server 장애 조치 (Failover) 클러스터링 추가
@@ -263,9 +266,9 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 ```
 
 
-### <a name="create-a-cloud-witness"></a>클라우드 감시 만들기
+### <a name="create-a-cloud-witness-win-2016-"></a>클라우드 감시 만들기 (Win 2016 이상)
 
-클라우드 감시는 Azure storage blob에 저장 되는 새로운 유형의 클러스터 쿼럼 감시입니다. 이렇게 하면 미러링 모니터 공유를 호스트 하는 별도의 VM이 필요 하지 않습니다.
+Windows Server 2016 이상에서는 클라우드 감시를 만들어야 합니다. 클라우드 감시는 Azure storage blob에 저장 되는 새로운 유형의 클러스터 쿼럼 감시입니다. 이렇게 하면 감시 공유를 호스트 하는 별도의 VM 또는 별도의 파일 공유를 사용 하지 않아도 됩니다.
 
 1. [장애 조치 클러스터에 대한 클라우드 감시를 만듭니다](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness).
 
@@ -273,7 +276,11 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. 액세스 키 및 컨테이너 URL을 저장합니다.
 
-1. 장애 조치(Failover) 클러스터 쿼럼 감시를 구성합니다. [사용자 인터페이스에서 쿼럼 감시 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)을 참조 하세요.
+### <a name="configure-quorum"></a>쿼럼 구성 
+
+Windows Server 2016 이상에서는 방금 만든 클라우드 감시를 사용 하도록 클러스터를 구성 합니다. 모든 단계를 수행 하 여 [사용자 인터페이스에서 쿼럼 감시를 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness)합니다.
+
+Windows Server 2012 R2 및 이전 버전의 경우 [사용자 인터페이스에서 쿼럼 감시 구성](https://technet.microsoft.com/windows-server-docs/failover-clustering/deploy-cloud-witness#to-configure-cloud-witness-as-a-quorum-witness) 의 동일한 단계를 따르고 **쿼럼 감시 선택** 페이지에서 **파일 공유 감시 구성** 옵션을 선택 합니다. 별도의 가상 머신에서 구성 하거나 Azure에서 탑재 한 파일 공유 감시로 할당 한 파일 공유를 지정 합니다. 
 
 
 ## <a name="step-4-test-cluster-failover"></a>4 단계: 클러스터 장애 조치 테스트
@@ -296,7 +303,7 @@ New-Cluster -Name <FailoverCluster-Name> -Node ("<node1>","<node2>") –StaticAd
 
 1. **새로 만들기 SQL Server 장애 조치 (failover) 클러스터 설치**를 선택 합니다. 마법사의 지침에 따라 SQL Server FCI를 설치합니다.
 
-   FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를이 형식으로 입력 합니다 (예: `\\storageaccountname.file.core.windows.net\filesharename\foldername`). 파일 서버를 데이터 디렉터리로 지정 했음을 알려주는 경고가 표시 됩니다. 이 경고는 정상적인 것입니다. 파일 공유를 유지 하는 데 사용 된 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 계정과 동일 해야 합니다.
+   FCI 데이터 디렉터리는 프리미엄 파일 공유에 있어야 합니다. 공유의 전체 경로를이 형식으로 입력 합니다 (예: `\\storageaccountname.file.core.windows.net\filesharename\foldername`). 파일 서버를 데이터 디렉터리로 지정 했음을 알려주는 경고가 표시 됩니다. 이 경고는 예상 됩니다. 파일 공유를 보관할 때 사용 하 여 VM에 RDP 할 사용자 계정이 SQL Server 서비스에서 가능한 오류를 방지 하는 데 사용 하는 계정과 동일한 계정 인지 확인 합니다.
 
    :::image type="content" source="media/virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share/use-file-share-as-data-directories.png" alt-text="SQL 데이터 디렉터리로 파일 공유 사용":::
 

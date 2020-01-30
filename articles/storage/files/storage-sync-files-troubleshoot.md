@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 1/22/2019
 ms.author: jeffpatt
 ms.subservice: files
-ms.openlocfilehash: 009d9e864773fb3a2578504b043fb30302cedb22
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 527d0a602b9da1f2d4f21890e896eba9a951494b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704547"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842719"
 ---
 # <a name="troubleshoot-azure-file-sync"></a>Azure 파일 동기화 문제 해결
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 유지하면서 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Azure 파일 동기화는 Windows Server를 Azure 파일 공유의 빠른 캐시로 변환합니다. SMB, NFS 및 FTPS를 포함하여 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다. 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -1084,7 +1084,35 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
        - 관리자 권한의 명령 프롬프트에서 `fltmc`를 실행합니다. StorageSync.sys 및 StorageSyncGuard.sys 파일 시스템 필터 드라이버가 나열되는지 확인합니다.
 
 > [!NOTE]
-> 파일이 계층화에 실패하면 이벤트 ID 9003이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). 문제를 진단하기 위해 추가 정보가 필요한 경우 운영 및 진단 이벤트 로그를 사용해야 합니다.
+> 파일이 계층화에 실패하면 이벤트 ID 9003이 원격 분석 이벤트 로그에 1시간에 한 번 기록됩니다(오류 코드 하나당 이벤트 하나가 기록). [계층화 오류 및 재구성](#tiering-errors-and-remediation) 섹션을 확인 하 여 오류 코드에 대 한 수정 단계가 나열 되는지 확인 합니다.
+
+### <a name="tiering-errors-and-remediation"></a>계층화 오류 및 수정
+
+| HRESULT | HRESULT(10진) | 오류 문자열 | 문제 | 재구성 |
+|---------|-------------------|--------------|-------|-------------|
+| 0x80c86043 | -2134351805 | ECS_E_GHOSTING_FILE_IN_USE | 파일이 사용 중이기 때문에 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 파일이 더 이상 사용 되지 않을 때 계층화 됩니다. |
+| 0x80c80241 | -2134375871 | ECS_E_GHOSTING_EXCLUDED_BY_SYNC | 파일이 동기화에 의해 제외 되어 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 동기화 제외 목록의 파일은 계층화 할 수 없습니다. |
+| 0x80c86042 | -2134351806 | ECS_E_GHOSTING_FILE_NOT_FOUND | 서버에서 파일을 찾을 수 없으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속 발생 하면 서버에 파일이 있는지 확인 하십시오. |
+| 0x80c83053 | -2134364077 | ECS_E_CREATE_SV_FILE_DELETED | 파일이 Azure 파일 공유에서 삭제 되었으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 다음 다운로드 동기화 세션이 실행 될 때 서버에서 파일을 삭제 해야 합니다. |
+| 0x80c8600e | -2134351858 | ECS_E_AZURE_SERVER_BUSY | 네트워크 문제로 인해 파일을 계층화 하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
+| 0x80072ee7 | -2147012889 | WININET_E_NAME_NOT_RESOLVED | 네트워크 문제로 인해 파일을 계층화 하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
+| 0x80070005 | -2147024891 | ERROR_ACCESS_DENIED | 액세스 거부 오류로 인해 파일을 계층화 하지 못했습니다. 파일이 DFS-R 읽기 전용 복제 폴더에 있는 경우이 오류가 발생할 수 있습니다. | Azure 파일 동기화는 DFS-R 읽기 전용 복제 폴더에서 서버 엔드포인트를 지원하지 않습니다. 자세한 내용은 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#distributed-file-system-dfs) 를 참조 하세요. |
+| 0x80072efe | -2147012866 | WININET_E_CONNECTION_ABORTED | 네트워크 문제로 인해 파일을 계층화 하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
+| 0x80c80261 | -2134375839 | ECS_E_GHOSTING_MIN_FILE_SIZE | 파일 크기가 지원 되는 크기 보다 작으므로 파일을 계층화 하지 못했습니다. | 에이전트 버전이 9.0 보다 작은 경우 지원 되는 최소 파일 크기는 64kb입니다. 에이전트 버전이 9.0 이상이 면 지원 되는 최소 파일 크기는 파일 시스템 클러스터 크기 (이중 파일 시스템 클러스터 크기)를 기반으로 합니다. 예를 들어 파일 시스템 클러스터 크기가 4kb 이면 최소 파일 크기는 8kb입니다. |
+| 0x80c83007 | -2134364153 | ECS_E_STORAGE_ERROR | Azure 저장소 문제로 인해 파일을 계층화 하지 못했습니다. | 오류가 지속 되 면 지원 요청을 엽니다. |
+| 0x800703e3 | -2147023901 | ERROR_OPERATION_ABORTED | 파일이 동시에 회수 되었으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 회수가 완료 되 고 파일이 더 이상 사용 되지 않는 경우 파일이 계층화 됩니다. |
+| 0x80c80264 | -2134375836 | ECS_E_GHOSTING_FILE_NOT_SYNCED | 파일이 Azure 파일 공유와 동기화 되지 않았으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 이 파일은 Azure 파일 공유와 동기화 된 후 계층에 있습니다. |
+| 0x80070001 | -2147942401 | ERROR_INVALID_FUNCTION | 클라우드 계층화 필터 드라이버 (microsoft.storagesync)가 실행 되 고 있지 않으므로 파일을 계층화 하지 못했습니다. | 이 문제를 해결 하려면 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행 합니다. fltmc load microsoft.storagesync <br>Fltmc 명령을 실행할 때 microsoft.storagesync 필터 드라이버를 로드 하지 못한 경우 Azure File Sync 에이전트를 제거 하 고 서버를 다시 시작한 후 Azure File Sync 에이전트를 다시 설치 하십시오. |
+| 0x80070070 | -2147024784 | ERROR_DISK_FULL | 서버 끝점이 있는 볼륨의 디스크 공간이 부족 하 여 파일을 계층화 하지 못했습니다. | 이 문제를 해결 하려면 서버 끝점이 있는 볼륨에서 100 이상의 디스크 공간을 확보 합니다. |
+| 0x80070490 | -2147023728 | ERROR_NOT_FOUND | 파일이 Azure 파일 공유와 동기화 되지 않았으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 이 파일은 Azure 파일 공유와 동기화 된 후 계층에 있습니다. |
+| 0x80c80262 | -2134375838 | ECS_E_GHOSTING_UNSUPPORTED_RP | 지원 되지 않는 재분석 지점 이므로 파일을 계층화 하지 못했습니다. | 파일이 데이터 중복 제거 재분석 지점인 경우 [계획 가이드](https://docs.microsoft.com/azure/storage/files/storage-sync-files-planning#data-deduplication) 의 단계에 따라 데이터 중복 제거 지원을 사용 하도록 설정 합니다. 데이터 중복 제거 이외의 재분석 지점이 있는 파일은 지원 되지 않으며 계층화 되지 않습니다.  |
+| 0x80c83052 | -2134364078 | ECS_E_CREATE_SV_STREAM_ID_MISMATCH | 파일이 수정 되었으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 수정 된 파일이 Azure 파일 공유와 동기화 되 면 파일이 계층에 포함 됩니다. |
+| 0x80c80269 | -2134375831 | ECS_E_GHOSTING_REPLICA_NOT_FOUND | 파일이 Azure 파일 공유와 동기화 되지 않았으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 이 파일은 Azure 파일 공유와 동기화 된 후 계층에 있습니다. |
+| 0x80072ee2 | -2147012894 | WININET_E_TIMEOUT | 네트워크 문제로 인해 파일을 계층화 하지 못했습니다. | 아무 조치도 취할 필요가 없습니다. 오류가 계속 발생 하면 Azure 파일 공유에 대 한 네트워크 연결을 확인 합니다. |
+| 0x80c80017 | -2134376425 | ECS_E_SYNC_OPLOCK_BROKEN | 파일이 수정 되었으므로 계층에 오류가 발생 했습니다. | 아무 조치도 취할 필요가 없습니다. 수정 된 파일이 Azure 파일 공유와 동기화 되 면 파일이 계층에 포함 됩니다. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | 시스템 리소스 부족으로 인해 파일을 계층화 하지 못했습니다. | 오류가 계속 발생 하면 시스템 리소스를 소모 하는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
+
+
 
 ### <a name="how-to-troubleshoot-files-that-fail-to-be-recalled"></a>회수에 실패한 파일의 문제 해결 방법  
 파일을 회수하지 못한 경우:
@@ -1109,7 +1137,7 @@ New-FsrmFileScreen -Path "E:\AFSdataset" -Description "Filter unsupported charac
 | 0x80c86002 | -2134351870 | ECS_E_AZURE_RESOURCE_NOT_FOUND | Azure 파일 공유에서 액세스할 수 없기 때문에 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일이 Azure 파일 공유에 있는지 확인 합니다. 파일이 Azure 파일 공유에 있으면 최신 Azure File Sync [에이전트 버전](https://docs.microsoft.com/azure/storage/files/storage-files-release-notes#supported-versions)으로 업그레이드 합니다. |
 | 0x80c8305f | -2134364065 | ECS_E_EXTERNAL_STORAGE_ACCOUNT_AUTHORIZATION_FAILED | 저장소 계정에 대 한 권한 부여 실패로 인해 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 [저장소 계정에 대 한 액세스 권한이 Azure File Sync](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#troubleshoot-rbac)있는지 확인 하세요. |
 | 0x80c86030 | -2134351824 | ECS_E_AZURE_FILE_SHARE_NOT_FOUND | Azure 파일 공유에 액세스할 수 없으므로 파일을 회수 하지 못했습니다. | 파일 공유가 있고 액세스할 수 있는지 확인 하십시오. 파일 공유를 삭제 하 고 다시 만든 경우 동기화 그룹을 삭제 하 고 다시 만들기 위해 [Azure 파일 공유가 삭제 되 고 다시 생성 되었으므로 동기화 실패](https://docs.microsoft.com/azure/storage/files/storage-sync-files-troubleshoot?tabs=portal1%2Cazure-portal#-2134375810) 에 설명 된 단계를 수행 합니다. |
-| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | Insuffcient 시스템 리소스 때문에 파일을 회수 하지 못했습니다. | 오류가 계속 발생 하면 시스템 리소스를 소모 하는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
+| 0x800705aa | -2147023446 | ERROR_NO_SYSTEM_RESOURCES | 시스템 리소스가 부족 하 여 파일을 회수 하지 못했습니다. | 오류가 계속 발생 하면 시스템 리소스를 소모 하는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
 | 0x8007000e | -2147024882 | ERROR_OUTOFMEMORY | Insuffcient 메모리로 인해 파일을 회수 하지 못했습니다. | 오류가 계속 발생 하면 메모리 부족 상태를 발생 시키는 응용 프로그램 또는 커널 모드 드라이버를 조사 하십시오. |
 | 0x80070070 | -2147024784 | ERROR_DISK_FULL | 디스크 공간이 부족 하 여 파일을 회수 하지 못했습니다. | 이 문제를 해결 하려면 파일을 다른 볼륨으로 이동 하 여 볼륨의 공간을 확보 하거나, 볼륨의 크기를 늘리거나, 호출-StorageSyncCloudTiering cmdlet을 사용 하 여 파일을 계층으로 강제 합니다. |
 

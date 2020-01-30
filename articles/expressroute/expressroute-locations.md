@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 01/17/2020
+ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: da84bea51271829e7d3e513ada21c69dbd61916c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 61bc77e7ac7671cd439eedea25eac11c91457aa9
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719962"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838720"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -50,7 +50,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **일본** | 일본 서부, 일본 동부 |오사카, 도쿄 |
 | **오세아니아** | 오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니, Sydney2 |
 | **대한민국** | 한국 중부, 한국 남부 |부산, 서울|
-| **아랍에미리트** | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
+| **UAE** | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
 | **남아프리카 공화국** | 남아프리카 공화국 서 부, 남아프리카 공화국 북부 |케이프타운, 요하네스버그 |
 | **남미** | 브라질 남부 |상파울루 |
 
@@ -119,7 +119,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 뉴포트(웨일스), 상파울루, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **LG CNS** |지원됨 |지원됨 |부산, 서울 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, Dubai2, 더블린, 프랑크푸르트, 홍콩 특별 행정구, Las Vegas, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, Oslo, 퍼스, 퀘벡 City, San Antonio, 시애틀, 실리콘 계곡, 싱가포르, 싱가포르 2, 시드니, 도쿄, 전, 워싱턴 DC, 취리히 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, Dubai2, 더블린, 프랑크푸르트, Geneva, 홍콩 특별 행정구, Las Vegas, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, Oslo, 퍼스, 퀘벡 City, San Antonio, 시애틀, 실리콘 계곡, 싱가포르, 싱가포르 2, 시드니, 도쿄, 전, 워싱턴 DC, 취리히 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |지원됨 |지원됨 |런던 |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |지원됨 |지원됨 |달라스, 로스앤젤레스, 마이애미, 상 파울로, 워싱턴 DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |
@@ -181,6 +181,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **서비스 공급자** | **Microsoft Azure** | **Office 365** | **위치** |
 | --- | --- | --- | --- |
 | **China Telecom** |지원됨 |지원되지 않음 |베이징, Beijing2, 상하이, Shanghai2 |
+| **중국 Unicom** | 지원됨 | 지원되지 않음 | Beijing2 |
 | **[GDS](http://www.gds-services.com/en/about_2.html)** |지원됨 |지원되지 않음 |베이징2, 상하이2 |
 
 자세한 내용은 [중국의 ExpressRoute](http://www.windowsazure.cn/home/features/expressroute/)를 참조하세요.

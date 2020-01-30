@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: a65f0918d04f77bc3076449347bb20046f73e92a
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: e622abd16f900ca811385ddada187f3c96e7d758
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779957"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773933"
 ---
 # <a name="ingest-data-from-event-hub-into-azure-data-explorer"></a>Event Hub에서 Azure Data Explorer로 데이터 수집
 
@@ -118,6 +118,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
     | 이벤트 허브 | *test-hub* | 앞에서 만든 이벤트 허브입니다. |
     | 소비자 그룹 | *test-group* | 앞에서 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
     | 이벤트 시스템 속성 | 관련 속성 선택 | [이벤트 허브 시스템 속성](/azure/service-bus-messaging/service-bus-amqp-protocol-guide#message-annotations)입니다. 이벤트 메시지 마다 여러 레코드가 있는 경우 시스템 속성이 첫 번째 속성에 추가 됩니다. 시스템 속성을 추가 하는 경우 선택한 속성을 포함 하도록 테이블 스키마 및 [매핑을](/azure/kusto/management/mappings) [만들거나](/azure/kusto/management/tables#create-table) [업데이트](/azure/kusto/management/tables#alter-table-and-alter-merge-table) 합니다. |
+    | 압축 | *없음* | 이벤트 허브 메시지 페이로드의 압축 유형입니다. 지원 되는 압축 유형: *None, GZip*.|
     | | |
 
     **대상 테이블:**
@@ -128,15 +129,15 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
     | Table | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
-    | 데이터 형식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE 및 TXT입니다. 지원 되는 압축 옵션: GZip |
-    | 열 매핑 | *TestMapping* | **Testdatabase**에서 만든 [매핑으로](/azure/kusto/management/mappings) , 들어오는 JSON 데이터를 **testdatabase**의 열 이름 및 데이터 형식에 매핑합니다. JSON, MULTILINE JSON 또는 AVRO 및 다른 형식에 대한 선택 사항이 필요합니다.|
+    | 데이터 형식 | *JSON* | 지원 되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOHSV, SCSV, TSV, TSVE, TXT, ORC 및 PARQUET입니다. |
+    | 열 매핑 | *TestMapping* | **Testdatabase**에서 만든 [매핑으로](/azure/kusto/management/mappings) , 들어오는 JSON 데이터를 **testdatabase**의 열 이름 및 데이터 형식에 매핑합니다. JSON 또는 여러 줄 JSON에 필요 하 고 다른 형식의 경우 선택 사항입니다.|
     | | |
 
     > [!NOTE]
     > * 동적 라우팅을 사용하려면 **라우팅 정보를 포함하는 내 데이터**를 선택합니다. [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest) 주석에서 볼 수 있듯이 데이터에는 필수 라우팅 정보가 포함됩니다. 정적 및 동적 속성을 모두 설정하는 경우 동적 속성은 정적 속성을 재정의합니다. 
     > * 데이터 연결을 만든 후에 큐에 넣은 이벤트만 수집 됩니다.
-    > * [Azure Portal에서 지원 요청](https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/overview)을 열어 정적 라우팅에 대해 GZip 압축을 사용 하도록 설정 합니다. [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)에 표시 된 것 처럼 동적 라우팅에 대해 GZip 압축을 사용 하도록 설정 합니다. 
-    > * Avro 형식 및 이벤트 시스템 속성은 압축 페이로드에 지원 되지 않습니다.
+    > * [샘플 앱](https://github.com/Azure-Samples/event-hubs-dotnet-ingest)에 표시 된 것 처럼 동적 속성을 통해 압축 유형을 설정할 수도 있습니다.
+    > * Avro, ORC 및 PARQUET 형식 및 이벤트 시스템 속성은 GZip 압축 페이로드에 지원 되지 않습니다.
 
 [!INCLUDE [data-explorer-container-system-properties](../../includes/data-explorer-container-system-properties.md)]
 

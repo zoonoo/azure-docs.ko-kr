@@ -6,17 +6,17 @@ ms.author: orspodek
 ms.reviewer: kerend
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 01/23/2020
-ms.openlocfilehash: ef5c7de782d833aad96516d3e5357a0ed575a781
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/27/2020
+ms.openlocfilehash: d293b76e004d693813a074cb8551a86cb3c0bec2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722877"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772343"
 ---
 # <a name="ingest-json-formatted-sample-data-into-azure-data-explorer"></a>JSON 형식의 샘플 데이터를 Azure 데이터 탐색기 수집
 
-이 문서에서는 JSON 형식의 데이터를 Azure 데이터 탐색기 데이터베이스에 수집 하는 방법을 보여 줍니다. 원시 및 매핑된 JSON의 간단한 예제를 시작 하 고, 여러 줄로 된 JSON을 계속 진행 하 고, 배열 및 사전을 포함 하는 더 복잡 한 JSON 스키마를 다룰 수 있습니다. 
+이 문서에서는 JSON 형식의 데이터를 Azure 데이터 탐색기 데이터베이스에 수집 하는 방법을 보여 줍니다. 원시 및 매핑된 JSON의 간단한 예제를 시작 하 고, 여러 줄로 된 JSON을 계속 진행 하 고, 배열 및 사전을 포함 하는 더 복잡 한 JSON 스키마를 다룰 수 있습니다.  이 예에서는 KQL (Kusto query language), C#또는 Python을 사용 하 여 JSON 형식의 데이터를 수집 하는 프로세스를 자세히 설명 합니다. Kusto 쿼리 언어 `ingest` 제어 명령은 엔진 끝점에 직접 실행 됩니다. 프로덕션 시나리오에서 수집은 클라이언트 라이브러리 또는 데이터 연결을 사용 하 여 데이터 관리 서비스에 대해 실행 됩니다. Azure [데이터 탐색기 Python 라이브러리를 사용 하 여 데이터 수집](/azure/data-explorer/python-ingest-data) 을 읽고 [AZURE 데이터 탐색기 .NET Standard SDK를 사용 하 여 데이터를 수집 하 여](/azure/data-explorer/net-standard-ingest-data) 이러한 클라이언트 라이브러리와의 수집 데이터에 대 한 연습을 진행 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -81,9 +81,6 @@ Kusto 쿼리 언어를 사용 하 여 원시 JSON 형식으로 데이터를 수�
     ```Kusto
     .ingest into table RawEvents h'https://kustosamplefiles.blob.core.windows.net/jsonsamplefiles/simple.json?st=2018-08-31T22%3A02%3A25Z&se=2020-09-01T22%3A02%3A00Z&sp=r&sv=2018-03-28&sr=b&sig=LQIbomcKI8Ooz425hWtjeq6d61uEaq21UVX7YrM61N4%3D' with (format=json, jsonMappingReference=RawEventMapping)
     ```
-
-    > [!NOTE]
-    > 그러면 엔진 끝점에 직접 실행 되는 `ingest` 제어 명령이 표시 됩니다. 프로덕션 시나리오에서 수집은 클라이언트 라이브러리 또는 데이터 연결을 사용 하 여 데이터 관리 서비스에 대해 실행 됩니다. Azure [데이터 탐색기 Python 라이브러리를 사용 하 여 데이터 수집](/azure/data-explorer/python-ingest-data) 을 읽고 [AZURE 데이터 탐색기 .NET Standard SDK를 사용 하 여 데이터를 수집 하 여](/azure/data-explorer/net-standard-ingest-data) 이러한 클라이언트 라이브러리와의 수집 데이터에 대 한 연습을 진행 합니다.
 
 # <a name="ctabc-sharp"></a>[C#](#tab/c-sharp)
 

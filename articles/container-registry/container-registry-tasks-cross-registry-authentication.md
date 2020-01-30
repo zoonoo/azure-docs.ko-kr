@@ -2,19 +2,19 @@
 title: ACR 작업에서의 크로스 레지스트리 인증
 description: Azure 리소스에 관리 되는 id를 사용 하 여 다른 개인 Azure 컨테이너 레지스트리에 액세스 하는 Azure Container Registry 작업 (ACR 작업) 구성
 ms.topic: article
-ms.date: 07/12/2019
-ms.openlocfilehash: 3dc4792f196ab7553f3167983ce34850669fa5bc
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.date: 01/14/2020
+ms.openlocfilehash: 47b2a50784cf56b089fea0981e5a06d581b8ba3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74456189"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842499"
 ---
 # <a name="cross-registry-authentication-in-an-acr-task-using-an-azure-managed-identity"></a>Azure로 관리 되는 id를 사용 하 여 ACR 작업에서의 크로스 레지스트리 인증 
 
 [ACR 작업](container-registry-tasks-overview.md)에서 [Azure 리소스에 대해 관리 되는 id를 사용 하도록 설정할](container-registry-tasks-authentication-managed-identity.md)수 있습니다. 작업은 자격 증명을 제공 하거나 관리할 필요 없이 id를 사용 하 여 다른 Azure 리소스에 액세스할 수 있습니다. 
 
-이 문서에서는 작업을 실행 하는 데 사용 된 것과 다른 레지스트리에서 이미지를 끌어오는 작업에서 관리 되는 id를 사용 하도록 설정 하는 방법에 대해 알아봅니다.
+이 문서에서는 작업에서 관리 되는 id를 사용 하 여 작업을 실행 하는 데 사용 된 것과 다른 레지스트리에서 이미지를 가져오는 방법에 대해 알아봅니다.
 
 이 문서에서는 Azure 리소스를 만들기 위해 Azure CLI 버전 2.0.68 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli]를 참조하세요.
 
@@ -26,7 +26,7 @@ ms.locfileid: "74456189"
 
 실제 시나리오에서 조직은 모든 개발 팀이 응용 프로그램을 빌드하기 위해 사용 하는 기본 이미지 집합을 유지할 수 있습니다. 이러한 기본 이미지는 회사 레지스트리에 저장 되며, 각 개발 팀에는 끌어오기 권한만 있습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 두 개의 Azure 컨테이너 레지스트리가 필요 합니다.
 
@@ -55,11 +55,11 @@ az acr build --image baseimages/node:9-alpine --registry mybaseregistry --file D
 이 예제 [다단계 작업](container-registry-tasks-multi-step.md) 의 단계는 [yaml 파일](container-registry-tasks-reference-yaml.md)에 정의 되어 있습니다. 로컬 작업 디렉터리에 `helloworldtask.yaml` 라는 파일을 만들고 다음 내용을 붙여넣습니다. 빌드 단계의 `REGISTRY_NAME` 값을 기본 레지스트리의 서버 이름으로 업데이트 합니다.
 
 ```yml
-version: v1.0.0
+version: v1.1.0
 steps:
 # Replace mybaseregistry with the name of your registry containing the base image
-  - build: -t {{.Run.Registry}}/hello-world:{{.Run.ID}}  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
-  - push: ["{{.Run.Registry}}/hello-world:{{.Run.ID}}"]
+  - build: -t $Registry/hello-world:$ID  https://github.com/Azure-Samples/acr-build-helloworld-node.git -f Dockerfile-app --build-arg REGISTRY_NAME=mybaseregistry.azurecr.io
+  - push: ["$Registry/hello-world:$ID"]
 ```
 
 빌드 단계에서는 [Azure-Samples/acr-helloworld-노드](https://github.com/Azure-Samples/acr-build-helloworld-node.git) 리포지토리의 `Dockerfile-app` 파일을 사용 하 여 이미지를 작성 합니다. `--build-arg`는 기본 이미지를 풀 하는 기본 레지스트리를 참조 합니다. 성공적으로 빌드되면 이미지는 작업을 실행 하는 데 사용 되는 레지스트리에 푸시됩니다.
@@ -116,12 +116,15 @@ baseregID=$(az acr show --name mybaseregistry --query id --output tsv)
 [Az role assign create][az-role-assignment-create] 명령을 사용 하 여 id를 기본 레지스트리에 `acrpull` 역할에 할당 합니다. 이 역할에는 레지스트리에서 이미지를 끌어올 수 있는 권한만 있습니다.
 
 ```azurecli
-az role assignment create --assignee $principalID --scope $baseregID --role acrpull
+az role assignment create \
+  --assignee $principalID \
+  --scope $baseregID \
+  --role acrpull
 ```
 
 ## <a name="add-target-registry-credentials-to-task"></a>작업에 대상 레지스트리 자격 증명 추가
 
-이제 [az acr task credential add][az-acr-task-credential-add] 명령을 사용 하 여 id의 자격 증명을 작업에 추가 합니다. 이렇게 하면 기본 레지스트리를 사용 하 여 인증할 수 있습니다. 작업에서 사용 하도록 설정 된 관리 id의 형식에 해당 하는 명령을 실행 합니다. 사용자 할당 id를 사용 하도록 설정한 경우 id의 클라이언트 ID를 사용 하 여 `--use-identity`를 전달 합니다. 시스템이 할당 한 id를 사용 하도록 설정한 경우 `--use-identity [system]`를 전달 합니다.
+이제 [az acr task credential add][az-acr-task-credential-add] 명령을 사용 하 여 작업에서 id의 자격 증명을 사용 하 여 기본 레지스트리를 인증할 수 있도록 합니다. 작업에서 사용 하도록 설정 된 관리 id의 형식에 해당 하는 명령을 실행 합니다. 사용자 할당 id를 사용 하도록 설정한 경우 id의 클라이언트 ID를 사용 하 여 `--use-identity`를 전달 합니다. 시스템이 할당 한 id를 사용 하도록 설정한 경우 `--use-identity [system]`를 전달 합니다.
 
 ```azurecli
 # Add credentials for user-assigned identity to the task

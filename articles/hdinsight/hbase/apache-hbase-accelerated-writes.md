@@ -1,19 +1,18 @@
 ---
 title: Apache HBase에 대 한 Azure HDInsight 가속 쓰기
 description: Premium managed disks를 사용 하 여 Apache HBase Write 미리 로그의 성능을 개선 하는 Azure HDInsight 가속 쓰기 기능의 개요를 제공 합니다.
-services: hdinsight
-ms.service: hdinsight
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
+ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 08/21/2019
-ms.openlocfilehash: ebcc91bb374183a3f2fe000f37c66230459befa3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.date: 01/24/2020
+ms.openlocfilehash: 7165bab96d037f6782bc9aa6767cadd9b35f058c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156933"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76764609"
 ---
 # <a name="azure-hdinsight-accelerated-writes-for-apache-hbase"></a>Apache HBase에 대 한 Azure HDInsight 가속 쓰기
 
@@ -33,13 +32,13 @@ MemStore를 플러시하는 동안에는 지역 **서버가** 충돌 하거나 �
 
 ## <a name="accelerated-writes-feature-in-azure-hdinsight-for-apache-hbase"></a>Apache HBase 용 Azure HDInsight의 가속화 되는 쓰기 기능
 
-가속화 된 쓰기 기능은 클라우드 저장소에 있는 미리 쓰기 로그를 사용 하 여 발생 하는 더 높은 쓰기 대기 시간 문제를 해결 합니다.  HDInsight Apache HBase 클러스터의 가속화 된 쓰기 기능을 통해 프리미엄 SSD 관리 디스크를 모든 영역 서버 (작업자 노드)에 연결 합니다. 그런 다음 쓰기 미리 로그가 클라우드 저장소 대신 이러한 프리미엄 관리 디스크에 탑재 된 HDFS (Hadoop 파일 시스템)에 기록 됩니다.  프리미엄 managed disks는 Ssd (반도체 디스크)를 사용 하 고 내결함성을 갖춘 뛰어난 i/o 성능을 제공 합니다.  관리 되지 않는 디스크와 달리, 한 저장소 단위가 중단 되 면 동일한 가용성 집합의 다른 저장소 단위에는 영향을 주지 않습니다.  결과적으로 managed disks는 응용 프로그램에 대 한 낮은 쓰기 대기 시간과 더 나은 복원 력을 제공 합니다. Azure managed disks에 대해 자세히 알아보려면 [azure managed Disks 소개](../../virtual-machines/windows/managed-disks-overview.md)를 참조 하세요. 
+가속화 된 쓰기 기능은 클라우드 저장소에 있는 미리 쓰기 로그를 사용 하 여 발생 하는 더 높은 쓰기 대기 시간 문제를 해결 합니다.  HDInsight Apache HBase 클러스터의 가속화 된 쓰기 기능을 통해 프리미엄 SSD 관리 디스크를 모든 영역 서버 (작업자 노드)에 연결 합니다. 그런 다음 쓰기 미리 로그가 클라우드 저장소 대신 이러한 프리미엄 관리 디스크에 탑재 된 HDFS (Hadoop 파일 시스템)에 기록 됩니다.  프리미엄 managed disks는 Ssd (반도체 디스크)를 사용 하 고 내결함성을 갖춘 뛰어난 i/o 성능을 제공 합니다.  관리 되지 않는 디스크와 달리 한 저장소 단위가 중단 되 면 동일한 가용성 집합의 다른 저장 단위에 영향을 주지 않습니다.  결과적으로 managed disks는 응용 프로그램에 대 한 낮은 쓰기 대기 시간과 더 나은 복원 력을 제공 합니다. Azure managed disks에 대해 자세히 알아보려면 [azure managed Disks 소개](../../virtual-machines/windows/managed-disks-overview.md)를 참조 하세요.
 
 ## <a name="how-to-enable-accelerated-writes-for-hbase-in-hdinsight"></a>HDInsight에서 HBase에 대해 가속화 되는 쓰기를 사용 하도록 설정 하는 방법
 
-가속화 된 쓰기 기능을 사용 하 여 새 HBase 클러스터를 만들려면 **3 단계 저장소**에 도달할 때까지 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md) 의 단계를 따릅니다. **Metastore 설정**에서 **가속 쓰기 사용**옆의 확인란을 클릭 합니다. 그런 다음 클러스터를 만들기 위한 나머지 단계를 계속 진행 합니다.
+가속화 된 쓰기 기능을 사용 하 여 새 HBase 클러스터를 만들려면 **3 단계 저장소**에 도달할 때까지 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md) 의 단계를 따릅니다. **Metastore 설정**에서 **HBase 가속 쓰기 사용**옆의 확인란을 선택 합니다. 그런 다음 클러스터를 만들기 위한 나머지 단계를 계속 진행 합니다.
 
-![HDInsight Apache HBase에 대 한 가속 쓰기 옵션 사용](./media/apache-hbase-accelerated-writes/accelerated-writes-cluster-creation.png)
+![HDInsight Apache HBase에 대 한 가속 쓰기 옵션 사용](./media/apache-hbase-accelerated-writes/azure-portal-cluster-storage-hbase.png)
 
 ## <a name="other-considerations"></a>기타 고려 사항
 

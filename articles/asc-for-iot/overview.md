@@ -1,6 +1,6 @@
 ---
 title: IoT에 대 한 Azure Security Center 정의 | Microsoft Docs
-description: IoT 기능 및 서비스에 대 한 Azure Security Center에 대해 자세히 알아보고 IoT 용 Azure Security Center 모든 IoT 자산에서 종합적인 IoT 보안을 제공 하는 방법을 이해 하세요.
+description: IoT 기능 및 서비스에 대 한 Azure Security Center에 대해 자세히 알아보고 IoT 용 Azure Security Center에서 종합적인 IoT 보안을 제공 하는 방법을 이해 하세요.
 services: asc-for-iot
 ms.service: asc-for-iot
 documentationcenter: na
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/26/2019
 ms.author: mlottner
-ms.openlocfilehash: 1b428af1f1c01a3b1b1429f51d76ebfdeb4c1cc6
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 6a4fc842113218294b3e2ab449e27cfa94c5cfd3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664967"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76766517"
 ---
 # <a name="introducing-azure-security-center-for-iot"></a>IoT용 Azure Security Center 소개
 
@@ -52,7 +52,7 @@ IoT 용 Azure Security Center를 사용 하 여 컴퓨터, 네트워크 및 Azur
 
 이 개요에서는 IoT 용 Azure Security Center의 기능 및 서비스에 대해 알아보았습니다. IoT 아키텍처, 필수 구성 요소에 대 한 Azure Security Center 및 시작 하는 방법을 알아보려면 다음 문서를 참조 하세요.
 
-- [Architecture](architecture.md)
+- [아키텍처](architecture.md)
 - [서비스 필수 구성 요소](service-prerequisites.md)
 - [시작](getting-started.md)
 - [솔루션 정의](quickstart-configure-your-solution.md)

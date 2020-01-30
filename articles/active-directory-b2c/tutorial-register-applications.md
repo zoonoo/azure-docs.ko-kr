@@ -11,16 +11,16 @@ ms.topic: article
 ms.date: 10/16/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 214797f187c1812932c00bdf2a39c5ed79e15d4b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712669"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840114"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에 응용 프로그램 등록
 
-[응용 프로그램](active-directory-b2c-apps.md) 은 Azure Active Directory B2C (Azure AD B2C)와 상호 작용 하기 전에 관리 하는 테 넌 트에 등록 되어야 합니다. 이 자습서에서는 Azure Portal을 사용하여 웹 애플리케이션을 등록하는 방법을 보여줍니다.
+[응용 프로그램](application-types.md) 은 Azure Active Directory B2C (Azure AD B2C)와 상호 작용 하기 전에 관리 하는 테 넌 트에 등록 되어야 합니다. 이 자습서에서는 Azure Portal을 사용하여 웹 애플리케이션을 등록하는 방법을 보여줍니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

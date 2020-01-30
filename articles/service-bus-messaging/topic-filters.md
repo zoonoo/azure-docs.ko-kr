@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 토픽 필터 | Microsoft Docs
-description: Azure Service Bus 토픽 필터
+description: 이 문서에서는 구독자가 필터를 지정 하 여 토픽에서 수신 하려는 메시지를 정의 하는 방법을 설명 합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: clemensv
@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 09/26/2018
+ms.date: 01/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 41af53dbfbb5c863007a332445a2f184fcbcbf81
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: b8ffbb16763bfe6485ebf2ab770f4537ddbc8569
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60332230"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774492"
 ---
 # <a name="topic-filters-and-actions"></a>토픽 필터 및 작업
 

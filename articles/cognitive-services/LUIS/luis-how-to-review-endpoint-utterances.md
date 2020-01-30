@@ -1,7 +1,7 @@
 ---
 title: 사용자 길이 발언 검토-LUIS
 titleSuffix: Azure Cognitive Services
-description: 활성 학습에서 캡처한 길이 발언을 검토 하 여 의도를 선택 하 고 엔터티를 읽기 전용 길이 발언로 표시 합니다. 변경 내용 적용, 학습 및 게시.
+description: 활성 학습에서 캡처한 길이 발언을 검토 하 여 의도를 선택 하 고 엔터티를 읽기 전용 길이 발언로 표시 합니다. 변경 내용 적용, 학습 및 게시
 services: cognitive-services
 author: diberry
 manager: nitinme
@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: ed0b9450217b06ff145641d9e268ccee28ee49b2
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 95b7c7446a47fafd26d00b0da4d880786340fcd0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76710589"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775145"
 ---
 # <a name="how-to-improve-the-luis-app-by-reviewing-endpoint-utterances"></a>엔드포인트 길이 발언을 검토 하 여 LUIS 앱을 개선 하는 방법
 
@@ -27,6 +27,22 @@ ms.locfileid: "76710589"
 ## <a name="enable-active-learning"></a>활성 학습 사용
 
 활성 학습을 사용 하도록 설정 하려면 사용자 쿼리를 기록해 야 합니다. 이는 `log=true` querystring 매개 변수 및 값을 사용 하 여 [끝점 쿼리](luis-get-started-create-app.md#query-the-v3-api-prediction-endpoint) 를 호출 하 여 수행 됩니다.
+
+LUIS 포털을 사용 하 여 올바른 끝점 쿼리를 생성 합니다.
+
+1. [PREVIEW LUIS 포털](https://preview.luis.ai/)의 앱 목록에서 앱을 선택 합니다.
+1. **관리** 섹션으로 이동한 다음 **Azure 리소스**를 선택 합니다.
+1. 할당 된 예측 리소스의 경우 **쿼리 매개 변수 변경**을 선택 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![LUIS 포털을 사용 하 여 활성 학습에 필요한 로그를 저장 합니다.](./media/luis-tutorial-review-endpoint-utterances/azure-portal-change-query-url-settings.png)
+
+1. **로그 저장** 을 전환 하 고 **완료**를 선택 하 여 저장 합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![LUIS 포털을 사용 하 여 활성 학습에 필요한 로그를 저장 합니다.](./media/luis-tutorial-review-endpoint-utterances/luis-portal-manage-azure-resource-save-logs.png)
+
+     이 작업은 `log=true` querystring 매개 변수를 추가 하 여 URL의 예를 변경 합니다. 런타임 끝점에 대 한 예측 쿼리를 만들 때 변경 된 예제 쿼리 URL을 복사 하 여 사용 합니다.
 
 ## <a name="correct-intent-predictions-to-align-utterances"></a>길이 발언를 맞추기 위한 올바른 의도 예측
 

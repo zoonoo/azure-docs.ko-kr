@@ -3,22 +3,20 @@ title: Azure 트래픽 분석 질문과 대답 | Microsoft Docs
 description: 트래픽 분석에 대해 자주 묻는 질문에 대한 대답을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/08/2018
-ms.author: kumud
-ms.openlocfilehash: 991bb91c5bc1f6d695d5b363cdb08268f1ee83df
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.author: damendo
+ms.openlocfilehash: 5e31ed905f05070c8715a63ef3386b0006df0a75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907105"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840624"
 ---
 # <a name="traffic-analytics-frequently-asked-questions"></a>트래픽 분석 질문과 대답
 
@@ -90,7 +88,7 @@ ms.locfileid: "73907105"
 - 인도 남부
 - 일본 동부
 - 일본 서부
-- 미국 정부 버지니아
+- US Gov 버지니아
 - 중국 동부 2
 
 Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
@@ -115,7 +113,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 - 한국 중부
 - 인도 중부
 - 일본 동부
-- 미국 정부 버지니아
+- US Gov 버지니아
 - 중국 동부 2
 
 ## <a name="can-the-nsgs-i-enable-flow-logs-for-be-in-different-regions-than-my-workspace"></a>흐름 로그를 설정하려는 NSG가 작업 영역과 다른 지역에 있어도 되나요?
@@ -136,7 +134,7 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 
 ## <a name="can-i-store-raw-logs-in-a-different-subscription"></a>원시 로그를 다른 구독에 저장할 수 있나요?
 
-아니요. 흐름 로그에 NSG를 사용할 수 있는 스토리지 계정에 원시 로그를 저장할 수 있습니다. 그러나 스토리지 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
+아닙니다. 흐름 로그에 NSG를 사용할 수 있는 스토리지 계정에 원시 로그를 저장할 수 있습니다. 그러나 스토리지 계정과 원시 로그는 둘 다 동일한 구독 및 지역에 있어야 합니다.
 
 ## <a name="what-if-i-cant-configure-an-nsg-for-traffic-analytics-due-to-a-not-found-error"></a>“찾을 수 없음” 오류로 인해 트래픽 분석에 대해 NSG를 구성할 수 없으면 어떻게 하나요?
 
@@ -266,6 +264,62 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - "새 경고 규칙"을 클릭 하 여 경고를 만듭니다.
 - 경고를 만들려면 [로그 경고 설명서](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-log) 를 참조 하세요.
 
+## <a name="how-do-i-check-which-vms-are-receiving-most-on-premise-traffic"></a>어떻게 할까요? 가장 많은 온-프레미스 트래픽을 수신 하는 Vm 확인
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            | where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+             | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by vm
+            | render timechart
+
+  Ip의 경우:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d 
+            | make-series TotalTraffic = sum(traffic) default = 0 on FlowStartTime_t from datetime(<time>) to datetime(<time>) step 1m by IP
+            | render timechart
+
+Time의 경우 형식: yyyy-mm-dd 00:00:00을 사용 합니다.
+
+## <a name="how-do-i-check-standard-deviation-in-traffic-recieved-by-my-vms-from-on-premise-machines"></a>온-프레미스 컴퓨터에서 내 Vm이 받은 트래픽의 표준 편차를 확인 어떻게 할까요?
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand vm = pack_array(VM1_s, VM2_s) to typeof(string)
+            | where isnotempty(vm) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by vm
+
+
+Ip의 경우:
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and FlowType_s == "S2S" 
+            //| where <Scoping condition>
+            | mvexpand IP = pack_array(SrcIP_s, DestIP_s) to typeof(string)
+            | where isnotempty(IP) 
+            | extend traffic = AllowedInFlows_d + DeniedInFlows_d + AllowedOutFlows_d + DeniedOutFlows_d // For bytes use: | extend traffic = InboundBytes_d + OutboundBytes_d
+            | summarize deviation = stdev(traffic)  by IP
+            
+## <a name="how-do-i-check-which-ports-are-reachable-or-bocked-between-ip-pairs-with-nsg-rules"></a>NSG 규칙을 사용 하 여 IP 쌍 간에 연결할 수 있는 포트 (또는 bocked)를 확인 어떻게 할까요?
+
+            AzureNetworkAnalytics_CL
+            | where SubType_s == "FlowLog" and TimeGenerated between (startTime .. endTime)
+            | extend sourceIPs = iif(isempty(SrcIP_s), split(SrcPublicIPs_s, " ") , pack_array(SrcIP_s)),
+            destIPs = iif(isempty(DestIP_s), split(DestPublicIPs_s," ") , pack_array(DestIP_s))
+            | mvexpand SourceIp = sourceIPs to typeof(string)
+            | mvexpand DestIp = destIPs to typeof(string)
+            | project SourceIp = tostring(split(SourceIp, "|")[0]), DestIp = tostring(split(DestIp, "|")[0]), NSGList_s, NSGRule_s, DestPort_d, L4Protocol_s, FlowStatus_s 
+            | summarize DestPorts= makeset(DestPort_d) by SourceIp, DestIp, NSGList_s, NSGRule_s, L4Protocol_s, FlowStatus_s
+
 ## <a name="how-can-i-navigate-by-using-the-keyboard-in-the-geo-map-view"></a>지역 지도 보기에서 키보드를 사용하여 탐색할 수 있나요?
 
 지역 지도 페이지에는 두 개의 기본 섹션이 있습니다.
@@ -286,7 +340,7 @@ armclient post "https://management.azure.com/subscriptions/<NSG subscription id>
 - 지도에서 강조 표시된 다른 노드로 이동하려면 `Tab` 또는 `Right arrow` 키를 사용하여 앞으로 이동합니다. 뒤로 이동하려면 `Shift+Tab` 또는 `Left arrow` 키를 사용합니다.
 - 지도에서 강조 표시된 노드를 선택하려면 `Enter` 또는 `Down arrow` 키를 사용합니다.
 - 노드를 선택하면 해당 노드의 **정보 도구 상자**로 포커스가 이동됩니다. 기본적으로 포커스는 **정보 도구 상자**의 닫힌 단추로 이동합니다. **상자** 보기 내부에서 추가로 이동하려면 `Right arrow` 및 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. `Enter` 키를 누르면 **정보 도구 상자**에서 포커스가 있는 단추를 선택한 것과 동일한 효과가 적용됩니다.
-- `Tab`정보 도구 상자**에 포커스가 있는 동안**  키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
+- **정보 도구 상자**에 포커스가 있는 동안 `Tab` 키를 누르면 선택된 노드와 동일한 대륙의 끝점으로 포커스가 이동합니다. `Right arrow` 및 `Left arrow` 키를 사용하여 이러한 엔드포인트 간을 이동합니다.
 - 다른 흐름 엔드포인트 또는 대륙 클러스터로 이동하려면 `Tab` 키를 사용하여 앞으로 이동하고 `Shift+Tab` 키를 사용하여 뒤로 이동합니다.
 - **대륙 클러스터**에 포커스가 있을 때 `Enter` 또는 `Down` 화살표 키를 사용하여 대륙 클러스터 내부의 엔드포인트를 강조 표시할 수 있습니다. 대륙 클러스터의 정보 상자에서 엔드포인트와 [닫기] 단추 간을 이동하려면 `Right arrow` 또는 `Left arrow` 키를 사용하여 각각 앞으로 또는 뒤로 이동할 수 있습니다. 아무 엔드포인트에서 `Shift+L` 키를 사용하여 선택한 노드와 엔드포인트를 잇는 연결선으로 전환할 수 있습니다. `Shift+L`을 다시 누르면 선택한 엔드포인트로 이동할 수 있습니다.
         

@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 12/09/2018
 ms.author: mavane
 ms.custom: seodec18
-ms.openlocfilehash: 0e4dd67e1686d3b63376138d1be2d1f7df4bb41a
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: fa0df19053c3c238e3c00c46733cb4626dd64072
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290651"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773137"
 ---
 # <a name="develop-azure-resource-manager-templates-for-cloud-consistency"></a>클라우드 일관성을 위한 Azure Resource Manager 템플릿 개발
 
@@ -449,7 +449,7 @@ API 프로필은 템플릿의 필수 요소가 아닙니다. 요소를 추가해
 다음 reference 템플릿 함수는 스토리지 리소스 공급자에서 엔드포인트 네임스페이스를 검색합니다.
 
 ```json
-"diskUri":"[concat(reference(concat('Microsoft.Storage/storageAccounts/', variables('storageAccountName')), '2015-06-15').primaryEndpoints.blob, 'container/myosdisk.vhd')]"
+"diskUri":"[concat(reference(resourceId('Microsoft.Storage/storageAccounts', variables('storageAccountName'))).primaryEndpoints.blob, 'container/myosdisk.vhd')]"
 ```
 
 스토리지 계정 엔드포인트의 하드 코딩된 값을 `reference` 템플릿 함수로 바꾸면 엔드포인트 참조를 변경하지 않고도 동일한 템플릿을 사용하여 다른 환경에 배포할 수 있습니다.

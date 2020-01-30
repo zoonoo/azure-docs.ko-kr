@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Power BI를 사용하여 NSG 흐름 로그를 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
-editor: ''
-ms.assetid: 1e4f95fa-f5f0-4e03-bc25-008fbfc4934c
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: mareat
-ms.openlocfilehash: 05378799dd77a17b69adbcf492af2e1cb1030375
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 955e13b88037aa42b59707698549b1c980720990
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277723"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840607"
 ---
 # <a name="visualizing-network-security-group-flow-logs-with-power-bi"></a>Power BI를 사용하여 네트워크 보안 그룹 흐름 로그 시각화
 
@@ -45,7 +42,7 @@ ms.locfileid: "74277723"
 
 제공된 템플릿은 편집 가능하므로 사용자는 템플릿을 수정하여 새 데이터와 시각 효과를 추가하거나 본인의 요구 사항에 맞게 쿼리를 편집할 수 있습니다.
 
-## <a name="setup"></a>설치
+## <a name="setup"></a>설치 프로그램
 
 시작하기 전에 계정에 있는 하나 이상의 네트워크 보안 그룹에서 네트워크 보안 그룹 흐름 로깅을 사용하도록 설정해야 합니다. 네트워크 보안 흐름 로그를 사용하도록 설정하는 방법에 대한 지침은 [네트워크 보안 그룹에 대한 흐름 로깅 소개](network-watcher-nsg-flow-logging-overview.md) 문서를 참조하세요.
 
@@ -112,7 +109,7 @@ ms.locfileid: "74277723"
 
 본인의 요구 사항에 맞게 얼마든지 이 템플릿을 사용자 지정해도 됩니다. Power BI를 네트워크 보안 그룹 흐름 로그와 함께 사용할 수 있는 매우 다양한 방법이 있습니다. 
 
-## <a name="notes"></a>참고 사항
+## <a name="notes"></a>메모
 
 * 로그는 기본적으로 `https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/`에 저장됩니다.
 

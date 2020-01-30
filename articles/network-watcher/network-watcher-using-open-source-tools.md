@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 페이지에서는 Capanalysis와 함께 Network Watcher 패킷 캡처를 사용하여 VM과 주고 받는 트래픽을 시각화하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 936d881b-49f9-4798-8e45-d7185ec9fe89
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3baf73eed09e6880820952b8457526b6c21dd83b
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: f36db28b58cd57b6407019b378a82632aa6c6228
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277753"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840658"
 ---
 # <a name="visualize-network-traffic-patterns-to-and-from-your-vms-using-open-source-tools"></a>오픈 소스 도구를 사용하여 VM과 주고 받는 네트워크 트래픽 패턴 시각화
 
@@ -38,7 +35,7 @@ Azure VM에 간단한 웹 애플리케이션을 배포했으며 오픈 소스 �
 
 ### <a name="install-capanalysis"></a>CapAnalysis 설치
 
-가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis에서 공식 절차를 참조하세요.
+가상 머신에 CapAnalysis를 설치하는 방법은 https://www.capanalysis.net/ca/how-to-install-capanalysis 에서 공식 절차를 참조하세요.
 CapAnalysis에 원격으로 액세스하려면 새 인바운드 보안 규칙을 추가하여 VM에서 9877 포트를 열어야 합니다. 네트워크 보안 그룹에서 규칙을 만드는 방법에 대한 자세한 내용은 [기존 NSG에서 규칙 만들기](../virtual-network/manage-network-security-group.md#create-a-security-rule)를 참조하세요. 규칙이 추가되면 `http://<PublicIP>:9877`에서 CapAnalysis에 액세스할 수 있습니다.
 
 ### <a name="use-azure-network-watcher-to-start-a-packet-capture-session"></a>Azure Network Watcher를 사용하여 패킷 캡처 세션 시작
@@ -97,7 +94,7 @@ Network Watcher의 패킷 캡처 기능을 사용하면 네트워크 과학 수�
 
 [NSG 흐름 기록](network-watcher-nsg-flow-logging-overview.md)을 방문하여 NSG 흐름 로그에 대해 자세히 알아보기
 
-[Power BI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)를 방문하여 Power BI로 NSG 흐름 로그를 시각화하는 방법 알아보기
+[PowerBI에서 NSG 흐름 로그 시각화](network-watcher-visualize-nsg-flow-logs-power-bi.md)에서 Power BI로 NSG 흐름 로그를 시각화하는 방법에 대해 알아보세요.
 <!--Image references-->
 
 [1]: ./media/network-watcher-using-open-source-tools/figure1.png

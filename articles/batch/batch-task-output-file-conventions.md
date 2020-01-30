@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 11/14/2018
 ms.author: jushiman
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cf9372cfc89aca3285128c96c1b7e6756ba42cda
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 306407252a6f5bc4071947b6aafa2d50bccc97a8
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026223"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842736"
 ---
 # <a name="persist-job-and-task-data-to-azure-storage-with-the-batch-file-conventions-library-for-net"></a>.NET용 Batch 파일 규칙 라이브러리를 사용하여 Azure Storage에 작업 및 태스크 데이터 유지
 
@@ -46,7 +46,7 @@ Azure Batch는 태스크 출력을 유지하는 한 가지 이상의 방법을 �
 
 ## <a name="what-is-the-batch-file-conventions-standard"></a>Batch 파일 규칙 표준이란?
 
-[Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/psSdkJson6/src/SDKs/Batch/Support/FileConventions#conventions)(영문)은 출력 파일이 작성되는 대상 컨테이너 및 Blob 경로에 대한 이름 지정 체계를 제공합니다. 파일 규칙 표준을 준수하는 Azure Storage에 유지된 파일은 Azure Portal에서 자동으로 볼 수 있습니다. 포털에서는 명명 규칙을 인식하고 있으므로 이 표준을 준수하는 파일을 표시할 수 있습니다.
+[Batch 파일 규칙 표준](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files)(영문)은 출력 파일이 작성되는 대상 컨테이너 및 Blob 경로에 대한 이름 지정 체계를 제공합니다. 파일 규칙 표준을 준수하는 Azure Storage에 유지된 파일은 Azure Portal에서 자동으로 볼 수 있습니다. 포털에서는 명명 규칙을 인식하고 있으므로 이 표준을 준수하는 파일을 표시할 수 있습니다.
 
 .NET용 파일 규칙 라이브러리는 파일 규칙 표준에 따라 스토리지 컨테이너와 태스크 출력 파일의 이름을 자동으로 지정합니다. 또한 파일 규칙 라이브러리는 작업 ID, 태스크 ID 또는 용도에 따라 Azure Storage의 출력 파일을 쿼리하는 메서드를 제공합니다.
 
@@ -228,15 +228,15 @@ Azure Portal에서 태스크 출력 파일과 로그를 보려면 관심 있는 
 - Batch 서비스 API를 사용하여 출력 데이터를 유지하는 방법에 대한 내용은 [Batch 서비스 API를 사용하여 Azure Storage에 태스크 데이터 유지](batch-task-output-files.md)를 참조하세요.
 
 [forum_post]: https://social.msdn.microsoft.com/Forums/en-US/87b19671-1bdf-427a-972c-2af7e5ba82d9/installing-applications-and-staging-data-on-batch-compute-nodes?forum=azurebatch
-[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/AutoRest/src/Batch/FileConventions
-[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
+[github_file_conventions]: https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files
+[github_file_conventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [github_persistoutputs]: https://github.com/Azure/azure-batch-samples/tree/master/CSharp/ArticleProjects/PersistOutputs
 [github_samples]: https://github.com/Azure/azure-batch-samples
 [net_batchclient]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.batchclient.aspx
 [net_cloudjob]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudjob.aspx
 [net_cloudstorageaccount]: https://docs.microsoft.com/java/api/com.microsoft.azure.storage._cloud_storage_account
 [net_cloudtask]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.cloudtask.aspx
-[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/AutoRest/src/Batch/FileConventions/README.md
+[net_fileconventions_readme]: https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/batch/Microsoft.Azure.Batch.Conventions.Files/README.md
 [net_joboutputkind]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputkind.aspx
 [net_joboutputstorage]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.aspx
 [net_joboutputstorage_saveasync]: https://msdn.microsoft.com/library/azure/microsoft.azure.batch.conventions.files.joboutputstorage.saveasync.aspx

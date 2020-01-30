@@ -11,27 +11,27 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 8860f2bea2877e7775db20be79181352d8cd55c8
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 6737b75a955bb12072722f274ac589cb6d525ffb
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705270"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772548"
 ---
 # <a name="configure-kerberos-constrained-delegation-kcd-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 Kerberos 제한 위임 (KCD) 구성
 
-응용 프로그램을 실행할 때 이러한 응용 프로그램이 다른 사용자의 컨텍스트에서 리소스에 액세스 해야 할 수 있습니다. Active Directory Domain Services (AD DS)는이 사용 사례를 활성화 하는 *Kerberos 위임* 이라는 메커니즘을 지원 합니다. 그러면 KCD (Kerberos *제한* 위임)는이 메커니즘을 기반으로 하 여 사용자의 컨텍스트에서 액세스할 수 있는 특정 리소스를 정의 합니다. Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인은 기존의 온-프레미스 AD DS 환경에서 더 안전 하 게 잠겨 있으므로 보다 안전한 *리소스 기반* kcd를 사용 합니다.
+응용 프로그램을 실행할 때 이러한 응용 프로그램이 다른 사용자의 컨텍스트에서 리소스에 액세스 해야 할 수 있습니다. Active Directory Domain Services (AD DS)는이 사용 사례를 활성화 하는 *Kerberos 위임* 이라는 메커니즘을 지원 합니다. 그러면 KCD (Kerberos *제한* 위임)는이 메커니즘을 기반으로 하 여 사용자의 컨텍스트에서 액세스할 수 있는 특정 리소스를 정의 합니다. Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인은 기존의 온-프레미스 AD DS 환경 보다 안전 하 게 잠겨 있으므로 보다 안전한 *리소스 기반* kcd를 사용 합니다.
 
 이 문서에서는 Azure AD DS 관리 되는 도메인에서 리소스 기반 Kerberos 제한 위임을 구성 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.

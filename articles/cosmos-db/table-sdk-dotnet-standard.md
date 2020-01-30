@@ -1,21 +1,21 @@
 ---
 title: Azure Cosmos DB Table API .NET Standard SDK 및 리소스
 description: 릴리스 날짜, 사용 중지 날짜, 각 버전 간의 변경 내용을 포함하여 Azure Cosmos DB Table API 및 .NET Standard SDK에 대한 모든 것을 알아봅니다.
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: reference
 ms.date: 03/18/2019
-ms.openlocfilehash: c1422b6411fc60383cffa6c3082108bb940c4343
-ms.sourcegitcommit: 1752581945226a748b3c7141bffeb1c0616ad720
+ms.openlocfilehash: 48fd85e27feb3d0c7f7f722dbbd502be55684385
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/14/2019
-ms.locfileid: "70996209"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771584"
 ---
-# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB 테이블 .NET Standard API: 다운로드 및 릴리스 정보
+# <a name="azure-cosmos-db-table-net-standard-api-download-and-release-notes"></a>Azure Cosmos DB Table .NET Standard API: 다운로드 및 릴리스 정보
 > [!div class="op_single_selector"]
 > 
 > * [.NET](table-sdk-dotnet.md)
@@ -88,14 +88,14 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 이 플랫폼 간 .NET Standard 라이브러리 [Cosmos](https://www.nuget.org/packages/Microsoft.Azure.Cosmos.Table) 는 .NET Framework 라이브러리 [CosmosDB](https://www.nuget.org/packages/Microsoft.Azure.CosmosDB.Table)를 대체 합니다 .이 테이블은
 
 ### <a name="200-series"></a>2.0.0 시리즈
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [2.0.0-preview](#2.0.0-preview) |모든 게스트 22, 2019 |--- |
 
 ### <a name="100-series"></a>1.0.0 시리즈
-| 버전 | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [1.0.5](#1.0.5) |2019 년 9 월 13 일 |--- |
+| [1.0.5](#1.0.5) |2019년 9월 13일 |--- |
 | [1.0.5-미리 보기](#1.0.5-preview) |Iguest 20, 2019 |--- |
 | [1.0.4](#1.0.4) |2019, |--- |
 | [1.0.4-미리 보기](#1.0.4-preview) |2019 년 7 월 26 일 |--- |
@@ -112,5 +112,5 @@ Microsoft는 최신/지원 버전으로 원활히 전환할 수 있도록 SDK �
 
 [!INCLUDE [cosmos-db-sdk-faq](../../includes/cosmos-db-sdk-faq.md)]
 
-## <a name="see-also"></a>참고자료
+## <a name="see-also"></a>참고 항목
 Azure Cosmos DB Table API에 대한 자세한 내용은 [Azure Cosmos DB Table API 소개](table-introduction.md)를 참조하세요.

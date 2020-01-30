@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 1/05/2020
-ms.openlocfilehash: 7b45ddce0435a903c63855dea8a01353a7ab36ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9b838edea4b5f47fe57305c593944ef5fa93a63c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722546"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768672"
 ---
 # <a name="use-auto-failover-groups-to-enable-transparent-and-coordinated-failover-of-multiple-databases"></a>자동 장애 조치(failover) 그룹을 통해 여러 데이터베이스의 투명하고 조정된 장애 조치(failover)를 사용할 수 있습니다.
 
@@ -326,8 +326,8 @@ OLTP 작업을 수행할 때 `<fog-name>.zone_id.database.windows.net`을 서버
 비즈니스 연속성 계획이 자동 장애 조치에서 그룹을 사용하는 장애 조치가 필요한 경우 기존 방화벽 규칙을 사용하여 SQL 데이터베이스에 대한 액세스를 제한할 수 있습니다. 자동 장애 조치를 지원하려면 다음 단계를 수행합니다.
 
 1. [공용 IP를 만듭니다.](../virtual-network/virtual-network-public-ip-address.md#create-a-public-ip-address)
-2. [공용 부하 분산 장치를 만들고](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-a-basic-load-balancer) 여기에 공용 IP를 할당합니다.
-3. 프런트 엔드 구성 요소에 대한 [가상 네트워크 및 가상 머신을 만듭니다.](../load-balancer/quickstart-create-basic-load-balancer-portal.md#create-back-end-servers)
+2. [공용 부하 분산 장치를 만들고](../load-balancer/quickstart-load-balancer-standard-public-portal.md) 여기에 공용 IP를 할당합니다.
+3. 프런트 엔드 구성 요소에 대한 [가상 네트워크 및 가상 머신을 만듭니다.](../load-balancer/quickstart-load-balancer-standard-public-portal.md)
 4. [네트워크 보안 그룹을 만들고](../virtual-network/security-overview.md) 인바운드 연결을 구성합니다.
 5. 'Sql' [서비스 태그](../virtual-network/security-overview.md#service-tags)를 사용하여 아웃바운드 연결이 Azure SQL 데이터베이스에 대해 열려 있는지 확인합니다.
 6. [SQL 데이터베이스 방화벽 규칙](sql-database-firewall-configure.md)을 만들어서 1단계에서 만든 공용 IP 주소에서 인바운드 트래픽을 허용합니다.

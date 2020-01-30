@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/09/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 259ce2b1881c31c2558539fed34513575d193a48
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961989"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840420"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Azure Portal를 사용 하 여에서 소비자 사용자를 만들고 삭제 Azure AD B2C
 
@@ -30,7 +30,7 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 [Azure AD B2C의 사용자 계정 개요](user-overview.md)에 설명 된 대로 Azure AD B2C 디렉터리에서 만들 수 있는 사용자 계정에는 다음 세 가지 유형이 있습니다.
 
 * Work
-* Guest
+* 게스트
 * 소비자
 
 이 문서에서는 Azure Portal에서 **소비자 계정** 으로 작업 하는 방법을 집중적으로 설명 합니다. 작업 및 게스트 계정을 만들고 삭제 하는 방법에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 사용자 추가 또는 삭제](../active-directory/fundamentals/add-users-azure-active-directory.md)를 참조 하세요.
@@ -61,4 +61,4 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 
 ## <a name="next-steps"></a>다음 단계
 
-자동화 된 사용자 관리 시나리오의 경우 (예: 다른 id 공급자에서 Azure AD B2C 디렉터리로 사용자 [마이그레이션) Azure AD B2C: 사용자 마이그레이션](active-directory-b2c-user-migration.md)을 참조 하세요.
+자동화 된 사용자 관리 시나리오의 경우 (예: 다른 id 공급자에서 Azure AD B2C 디렉터리로 사용자 [마이그레이션) Azure AD B2C: 사용자 마이그레이션](user-migration.md)을 참조 하세요.

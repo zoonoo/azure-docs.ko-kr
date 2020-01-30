@@ -10,12 +10,12 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.date: 12/27/2019
-ms.openlocfilehash: 247e41faa39520089dc5c95a34b4fb4b6b618761
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: ee5acc97e4b05a0e93f4ceee8c04b400da211b49
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552137"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769504"
 ---
 # <a name="understanding-data-factory-pricing-through-examples"></a>예제를 통해 Data Factory 가격 책정 이해
 
@@ -156,7 +156,7 @@ ms.locfileid: "75552137"
 | 데이터 흐름 가정: 실행 시간 = 10 분 + 10 분 TTL | 10 \* 16 개 TTL을 사용 하는 일반 계산의 코어 10 개 |
 | 파이프라인 모니터링 가정: 하나의 실행만 발생했습니다. | 다시 시도되는 2개의 모니터링 실행 기록(파이프라인 실행에 대해 1개, 활동 실행에 대해 1개) |
 
-**총 시나리오 가격: $0.3011**
+**총 시나리오 가격: $1.4631**
 
 - Data Factory 작업 = **$0.0001**
   - 읽기/쓰기 = 10\*00001 = $0.0001 [1 R/W = $0.50/50000 = 0.00001]

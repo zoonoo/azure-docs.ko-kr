@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/06/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 990493b6b2c3757849168d8fb82a4b38f55364e2
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951067"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840267"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -36,9 +36,9 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 - **단일 페이지 애플리케이션** - 주로 JavaScript에 작성되는 프런트 엔드 애플리케이션입니다. 애플리케이션은 대체로 AngularJS, Ember.js 또는 Durandal과 같은 프레임워크를 사용하여 작성됩니다.
 - **기밀 클라이언트 흐름** - 애플리케이션 클라이언트 ID의 유효성은 검사하지만 애플리케이션 비밀의 유효성은 검사하지 않습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-[Azure Active Directory B2C에서 사용자 지정 정책 시작](active-directory-b2c-get-started-custom.md)의 단계를 완료합니다.
+[Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
 ## <a name="register-an-application"></a>애플리케이션 등록
 
@@ -227,7 +227,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     </UserJourney>
     ```
 
-7. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **정책 업로드**를 선택합니다.
+7. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
 8. **정책이 있는 경우 덮어쓰기**를 사용하도록 설정하고 *TrustFrameworkExtensions.xml* 파일을 찾아서 선택합니다.
 9. **업로드**를 클릭합니다.
 
@@ -248,7 +248,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     <OutputClaim ClaimTypeReferenceId="surname" DefaultValue="" />
     ```
 
-5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **정책 업로드**를 선택합니다.
+5. Azure AD B2C 테넌트의 **사용자 지정 정책** 페이지에서 **업로드 정책**을 선택합니다.
 6. **정책이 있는 경우 덮어쓰기**를 사용 하도록 설정한 다음 *ROPC_Auth .xml* 파일로 이동 하 여 선택 합니다.
 7. **업로드**를 클릭합니다.
 
@@ -261,11 +261,11 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | Value |
+| 키 | 값 |
 | --- | ----- |
-| username | `user-account` |
-| 암호 | `password1` |
-| grant_type | 암호 |
+| 사용자 이름 | `user-account` |
+| password | `password1` |
+| grant_type | password |
 | scope | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |
@@ -306,7 +306,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | Value |
+| 키 | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |
@@ -342,4 +342,4 @@ Azure AD B2C는 공용 클라이언트 리소스 소유자 암호 자격 증명�
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Active Directory B2C 사용자 지정 정책 시작 팩](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/tree/master/scenarios/source/aadb2c-ief-ropc)에서 이 시나리오의 전체 예제를 참조하세요.
-- [토큰 참조](active-directory-b2c-reference-tokens.md)에서 Azure Active Directory B2C에 사용되는 토큰에 대해 자세히 알아봅니다.
+- [토큰 참조](tokens-overview.md)에서 Azure Active Directory B2C에 사용되는 토큰에 대해 자세히 알아봅니다.

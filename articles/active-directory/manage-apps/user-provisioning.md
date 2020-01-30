@@ -15,16 +15,16 @@ ms.date: 11/25/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eefdb42cebad2b7f532392254b652742527ed862
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9848e686188288b507a0a74d0f9fa16f8f0e4253
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841202"
 ---
 # <a name="automate-user-provisioning-and-deprovisioning-to-applications-with-azure-active-directory"></a>Azure Active Directory 사용 하 여 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화
 
-Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 사용자 id를 만들 뿐 아니라 자동 프로 비전에는 상태 또는 역할이 변경 되는 사용자 id의 유지 관리 및 제거도 포함 됩니다. 일반적인 시나리오에는 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md)등과 같은 응용 프로그램에 Azure AD 사용자를 프로 비전 하는 작업이 포함 됩니다.
+Azure AD (Azure Active Directory)에서 용어 **앱 프로 비전은** 사용자가 액세스 해야 하는 클라우드 ([SaaS](https://azure.microsoft.com/overview/what-is-saas/)) 응용 프로그램에서 사용자 id 및 역할을 자동으로 만드는 것을 의미 합니다. 자동 프로비저닝에는 사용자 ID를 생성하는 것 외에도 상태 또는 역할이 변경될 때 사용자 ID의 유지 관리 및 제거가 포함됩니다. 일반적인 시나리오에는 Azure AD 사용자를 [Dropbox](../saas-apps/dropboxforbusiness-provisioning-tutorial.md), [Salesforce](../saas-apps/salesforce-provisioning-tutorial.md), [ServiceNow](../saas-apps/servicenow-provisioning-tutorial.md) 등과 같은 애플리케이션에 프로비저닝하는 것이 포함됩니다.
 
 ![프로 비전 개요 다이어그램](media/user-provisioning/provisioning-overview.png)
 
@@ -67,7 +67,7 @@ Azure AD는 널리 사용 되는 많은 SaaS 앱 및 인적 자원 시스템에 
 
 * **SCIM 2.0을 지 원하는 응용 프로그램**입니다. 일반적으로 SCIM 2.0 기반 사용자 관리 Api를 구현 하는 응용 프로그램을 연결 하는 방법에 대 한 자세한 내용은 [scim 끝점 빌드 및 사용자 프로 비전 구성](use-scim-to-provision-users-and-groups.md)을 참조 하세요.
 
-## <a name="what-is-scim"></a>SCIM 이란?
+## <a name="what-is-system-for-cross-domain-identity-management-scim"></a>SCIM (도메인 간 Id 관리)에 대 한 시스템 이란?
 
 프로 비전 및 프로 비전 해제를 자동화 하기 위해 앱은 독점적인 사용자 및 그룹 Api를 노출 합니다. 그러나 둘 이상의 앱에서 사용자를 관리 하려는 사용자는 모든 앱이 사용자 만들기 또는 업데이트, 그룹에 사용자 추가 또는 프로 비전 해제와 같은 간단한 작업을 수행 하려고 한다는 것을 알 수 있습니다. 그러나 이러한 모든 간단한 작업은 다른 끝점 경로, 사용자 정보를 지정 하는 다양 한 메서드 및 정보의 각 요소를 나타내는 다른 스키마를 사용 하 여 약간 약간 다르게 구현 됩니다.
 

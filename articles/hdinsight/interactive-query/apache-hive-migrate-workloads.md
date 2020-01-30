@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/13/2019
-ms.openlocfilehash: 9f49a9224ed123b76f4d300c27a8dd5822e50ea3
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: eceb4b312476d701ec8ce4eb0ce4886621824b3a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74706030"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841594"
 ---
 # <a name="migrate-azure-hdinsight-36-hive-workloads-to-hdinsight-40"></a>HDInsight 4.0로 Azure HDInsight 3.6 Hive 워크 로드 마이그레이션
 
@@ -73,13 +73,13 @@ Metastore **복사가** 완료 되 면 기존 HDInsight 3.6 클러스터의 [스
 
 아래 표에 있는 값을 사용 합니다. `SQLSERVERNAME DATABASENAME USERNAME PASSWORD`를 **복사** 된 Hive metastore에 대 한 적절 한 값으로 바꾸고 공백으로 구분 합니다. SQL server 이름을 지정할 때 ". database.windows.net"를 포함 하지 마십시오.
 
-|자산 | Value |
+|속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|name|Hive 업그레이드|
+|이름|Hive 업그레이드|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/hivemetastoreschemaupgrade/launch-schema-upgrade.sh`|
 |노드 유형|Head|
-|parameters|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
+|매개 변수|SQLSERVERNAME DATABASENAME 사용자 이름 암호|
 
 > [!Warning]  
 > HDInsight 3.6 메타 데이터 스키마를 HDInsight 4.0 스키마로 변환 하는 업그레이드는 되돌릴 수 없습니다.
@@ -176,14 +176,16 @@ HDInsight 4.0에서 HiveCLI는 Beeline로 대체 되었습니다. HiveCLI은 Hiv
 
 HDInsight 3.6에서 Hive 서버와 상호 작용 하는 GUI 클라이언트는 Ambari Hive 뷰입니다. HDInsight 4.0은 Ambari View와 함께 제공 되지 않습니다. 고객이 핵심 HDInsight 서비스가 아닌 DAS (Data Analytics Studio)를 사용할 수 있는 방법을 제공 하 고 있습니다. DAS는 HDInsight 클러스터에 기본 제공 되지 않으며 공식적으로 지원 되는 패키지가 아닙니다. 그러나 다음과 같이 [스크립트 작업](../hdinsight-hadoop-customize-cluster-linux.md) 을 사용 하 여 클러스터에 DAS를 설치할 수 있습니다.
 
-|자산 | Value |
+|속성 | 값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|name|DAS|
+|이름|DAS|
 |Bash 스크립트 URI|`https://hdiconfigactions.blob.core.windows.net/dasinstaller/LaunchDASInstaller.sh`|
 |노드 유형|Head|
 
-5 ~ 10 분 정도 기다린 다음 URL: `https://CLUSTERNAME.azurehdinsight.net/das/`을 사용 하 여 데이터 분석 스튜디오를 시작 합니다.
+10 ~ 15 분 정도 기다린 다음이 URL을 사용 하 여 데이터 분석 스튜디오를 시작 합니다. `https://CLUSTERNAME.azurehdinsight.net/das/`.
+
+DAS에 액세스 하기 전에 Ambari UI를 새로 고치거 나 모든 Ambari 구성 요소를 다시 시작 해야 할 수 있습니다.
 
 DAS가 설치 되 면 쿼리 뷰어에서 실행 한 쿼리가 표시 되지 않으면 다음 단계를 수행 합니다.
 

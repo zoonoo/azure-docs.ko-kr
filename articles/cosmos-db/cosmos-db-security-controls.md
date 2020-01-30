@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: sngun
-ms.openlocfilehash: 1ac4d12f58977497642cdb0706ab7e85e9a4db64
-ms.sourcegitcommit: e9776e6574c0819296f28b43c9647aa749d1f5a6
+ms.openlocfilehash: d06afb3670b1c3af3f1acf0bd690c1e3e266a11c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75913086"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771800"
 ---
 # <a name="security-controls-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 보안 제어
 
@@ -52,7 +52,7 @@ ms.locfileid: "75913086"
 | 미사용 서버 쪽 암호화: 고객 관리 키 (BYOK) | 예 | [Azure Cosmos DB 계정의 고객이 관리 하는 키 구성을](how-to-setup-cmk.md) 참조 하세요.  |
 | 열 수준 암호화 (Azure Data Services)| 예 | 테이블 API Premium 에서만. 모든 Api에서이 기능을 지 원하는 것은 아닙니다. [Azure Cosmos DB 소개: Table API를](table-introduction.md)참조 하세요. |
 | 전송 중 암호화 (예: Express 경로 암호화, VNet 암호화 및 VNet-VNet 암호화)| 예 | 전송 시 모든 Azure Cosmos DB 데이터가 암호화 됩니다. |
-| API 호출 암호화| 예 | Azure Cosmos DB에 대 한 모든 연결은 HTTPS를 지원 합니다. Azure Cosmos DB는 TLS 1.2도 지원 합니다.<br>최소 TLS 버전 서버 쪽을 적용할 수 있습니다. 이렇게 하려면 [cosmosdbpm@microsoft.com](maito:cosmosdbpm@microsoft.com])에 문의 하세요. |
+| API 호출 암호화| 예 | Azure Cosmos DB에 대 한 모든 연결은 HTTPS를 지원 합니다. Azure Cosmos DB는 TLS 1.2도 지원 합니다.<br>최소 TLS 버전 서버 쪽을 적용할 수 있습니다. 이렇게 하려면 [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)에 문의 하세요. |
 
 ## <a name="configuration-management"></a>Configuration Management
 

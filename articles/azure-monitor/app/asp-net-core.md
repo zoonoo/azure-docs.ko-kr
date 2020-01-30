@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/22/2019
-ms.openlocfilehash: 52314f0802acd6a296177d53ee9babb133172761
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5f54605dd5b43236a75fe73aa3b47a4e619530a1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407503"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76765805"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -416,7 +416,7 @@ Application Insights의 사용자 지정 데이터 보고에 대 한 자세한 �
 
 예. SDK에 대 한 기능 지원은 모든 플랫폼에서 동일 하지만 다음과 같은 경우는 예외입니다.
 
-* 성능 카운터는 Windows 에서만 지원 됩니다.
+* [성능 카운터](https://docs.microsoft.com/azure/azure-monitor/app/performance-counters) 는 Windows 에서만 지원 되므로 SDK는 Linux에서 [이벤트 카운터](https://docs.microsoft.com/azure/azure-monitor/app/eventcounters) 를 수집 합니다. 대부분의 메트릭은 동일 합니다.
 * `ServerTelemetryChannel` 기본적으로 사용 하도록 설정 되어 있지만 Linux 또는 MacOS에서 응용 프로그램을 실행 하는 경우에는 네트워크 문제가 있는 경우 채널이 일시적으로 원격 분석을 유지 하기 위해 로컬 저장소 폴더를 자동으로 만들지 않습니다. 이러한 제한으로 인해 임시 네트워크 또는 서버 문제가 있으면 원격 분석이 손실 됩니다. 이 문제를 해결 하려면 채널에 대 한 로컬 폴더를 구성 합니다.
 
 ```csharp

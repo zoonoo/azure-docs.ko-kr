@@ -3,8 +3,7 @@ title: Azure 네트워크 보안 그룹 흐름 로그 분석 - Graylog | Microso
 description: Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그를 관리하고 분석하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: mattreatMSFT
-manager: vitinnan
+author: damendo
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -14,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2017
-ms.author: mareat
-ms.openlocfilehash: a5fadcfce154740a79a8764f44f08b21ad18f4d8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: damendo
+ms.openlocfilehash: 1e597a81967a8fb6be2959d53e65ad01135e5e25
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60625286"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842906"
 ---
 # <a name="manage-and-analyze-network-security-group-flow-logs-in-azure-using-network-watcher-and-graylog"></a>Network Watcher 및 Graylog를 사용하여 Azure에서 네트워크 보안 그룹 흐름 로그 관리 및 분석
 

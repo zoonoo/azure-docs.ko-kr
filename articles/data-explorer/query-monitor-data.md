@@ -7,13 +7,13 @@ ms.author: orspodek
 ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 07/10/2019
-ms.openlocfilehash: 43d91bff6b8b67e79a9549c1524f918166c9adc4
-ms.sourcegitcommit: f3f4ec75b74124c2b4e827c29b49ae6b94adbbb7
+ms.date: 01/28/2020
+ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/12/2019
-ms.locfileid: "70934003"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843588"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 데이터 쿼리
 
@@ -23,10 +23,10 @@ Azure 데이터 탐색기 프록시 흐름:
 
 ![ADX 프록시 흐름](media/adx-proxy/adx-proxy-flow.png)
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 > [!NOTE]
-> ADX 프록시는 미리 보기 모드입니다. 이 기능을 사용 하도록 설정 하려면 [Adxproxy](mailto:adxproxy@microsoft.com) 팀에 문의 하세요.
+> ADX 프록시는 미리 보기 모드입니다. [프록시에 연결](#connect-to-the-proxy) 하 여 클러스터에 대해 adx 프록시 기능을 사용 하도록 설정 합니다. [Adxproxy](mailto:adxproxy@microsoft.com) 팀에 질문을 합니다.
 
 ## <a name="connect-to-the-proxy"></a>프록시에 연결
 
@@ -36,9 +36,10 @@ Azure 데이터 탐색기 프록시 흐름:
 
 1. Azure 데이터 탐색기 UI (https://dataexplorer.azure.com/clusters) 에서 **클러스터 추가**를 선택 합니다.
 
-1. **클러스터 추가** 창에서 다음을 수행 합니다.
-
-    * LA 또는 AI 클러스터에 URL을 추가 합니다. 예: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+1. **클러스터 추가** 창에서 LA 또는 AI 클러스터에 URL을 추가 합니다. 
+    
+    * LA: `https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`
+    * AI: `https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`
 
     * **추가**를 선택합니다.
 
@@ -52,7 +53,7 @@ Azure 데이터 탐색기 프록시 흐름:
 
 ## <a name="run-queries"></a>쿼리 실행
 
-Kusto Explorer, ADX 웹 탐색기, Jupyter Kqlmagic 또는 REST API를 사용 하 여 프록시 클러스터를 쿼리할 수 있습니다. 
+Kusto 탐색기, ADX Web UI, Jupyter Kqlmagic, Flow, PowerQuery, PowerShell, Jarvis, Lens, REST API 등의 Kusto 쿼리를 지 원하는 클라이언트 도구를 사용 하 여 쿼리를 실행할 수 있습니다.
 
 > [!TIP]
 > * 데이터베이스 이름에는 프록시 클러스터에 지정 된 리소스와 같은 이름을 지정 해야 합니다. 이름은 대/소문자를 구분 합니다.
@@ -60,19 +61,9 @@ Kusto Explorer, ADX 웹 탐색기, Jupyter Kqlmagic 또는 REST API를 사용 �
 >     * 이름에 특수 문자가 포함 되어 있으면 프록시 클러스터 이름에서 URL 인코딩으로 바꿉니다. 
 >     * 이름에 [KQL 식별자 이름 규칙](/azure/kusto/query/schema-entities/entity-names)을 충족 하지 않는 문자가 포함 된 경우에는 대시 **-** 문자로 대체 됩니다.
 
-### <a name="query-against-the-native-azure-data-explorer-cluster"></a>네이티브 Azure 데이터 탐색기 클러스터에 대 한 쿼리 
+### <a name="direct-query-from-your-la-or-ai-adx-proxy-cluster"></a>LA 또는 AI ADX 프록시 클러스터에서 직접 쿼리
 
-Azure 데이터 탐색기 클러스터에서 쿼리를 실행 합니다 (예: *help* Cluster의 *stormevents* 테이블). 쿼리를 실행할 때 왼쪽 창에서 기본 Azure 데이터 탐색기 클러스터가 선택 되어 있는지 확인 합니다.
-
-```kusto
-StormEvents | take 10 // Demonstrate query through the native ADX cluster
-```
-
-![쿼리 StormEvents 테이블](media/adx-proxy/query-adx.png)
-
-### <a name="query-against-your-la-or-ai-cluster"></a>LA 또는 AI 클러스터에 대 한 쿼리
-
-LA 또는 AL 클러스터에서 쿼리를 실행 하는 경우 왼쪽 창에서 LA 또는 AI 클러스터가 선택 되어 있는지 확인 합니다. 
+LA 또는 AI 클러스터에서 쿼리를 실행 합니다. 왼쪽 창에서 클러스터가 선택 되어 있는지 확인 합니다. 
 
 ```kusto
 Perf | take 10 // Demonstrate query through the proxy on the LA workspace
@@ -80,20 +71,9 @@ Perf | take 10 // Demonstrate query through the proxy on the LA workspace
 
 ![LA 작업 영역 쿼리](media/adx-proxy/query-la.png)
 
-### <a name="query-your-la-or-ai-cluster-from-the-adx-proxy"></a>ADX 프록시에서 LA 또는 AI 클러스터 쿼리  
+### <a name="cross-query-of-your-la-or-ai-adx-proxy-cluster-and-the-adx-native-cluster"></a>LA 또는 AI ADX 프록시 클러스터와 ADX native cluster의 크로스 쿼리 
 
-프록시에서 LA 또는 AI 클러스터에 대해 쿼리를 실행 하는 경우 왼쪽 창에서 ADX native cluster가 선택 되어 있는지 확인 합니다. 다음 예제에서는 기본 ADX 클러스터를 사용 하 여 LA 작업 영역 쿼리를 보여 줍니다.
-
-```kusto
-cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name').Perf
-| take 10 
-```
-
-![Azure 데이터 탐색기 프록시에서 쿼리](media/adx-proxy/query-adx-proxy.png)
-
-### <a name="cross-query-of-la-or-ai-cluster-and-the-adx-cluster-from-the-adx-proxy"></a>ADX 프록시에서 LA 또는 AI 클러스터와 ADX 클러스터의 크로스 쿼리 
-
-프록시에서 클러스터 간 쿼리를 실행 하는 경우 왼쪽 창에서 ADX native cluster가 선택 되어 있는지 확인 합니다. 다음 예에서는 LA 작업 영역에서 adx 클러스터 테이블 `union`(사용)을 결합 하는 방법을 보여 줍니다.
+프록시에서 클러스터 간 쿼리를 실행 하는 경우 왼쪽 창에서 ADX native cluster가 선택 되어 있는지 확인 합니다. 다음 예에서는 `union`를 사용 하 여 LA 작업 영역과 ADX 클러스터 테이블을 결합 하는 방법을 보여 줍니다.
 
 ```kusto
 union StormEvents, cluster('https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>').Perf
@@ -105,9 +85,9 @@ let CL1 = 'https://ade.loganalytics.io/subscriptions/<subscription-id>/resourceg
 union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 ```
 
-![Azure 데이터 탐색기 프록시의 크로스 쿼리](media/adx-proxy/cross-query-adx-proxy.png)
+   [Azure 데이터 탐색기 프록시의 ![크로스 쿼리](media/adx-proxy/cross-query-adx-proxy.png)](media/adx-proxy/cross-query-adx-proxy.png#lightbox)
 
-연산자를 사용 하는 대신 연산자를 사용 하 여 [`hint`](/azure/kusto/query/joinoperator#join-hints) Azure 데이터 탐색기 기본 클러스터 (프록시가 아닌)에서 실행 해야 할 수 있습니다. [ `join` ](/azure/kusto/query/joinoperator) 
+Union 대신 [`join` 연산자](/azure/kusto/query/joinoperator)를 사용 하는 경우에는 프록시가 아닌 Azure 데이터 탐색기 네이티브 클러스터에서 실행 하는 [`hint`](/azure/kusto/query/joinoperator#join-hints) 필요할 수 있습니다. 
 
 ## <a name="additional-syntax-examples"></a>추가 구문 예제
 
@@ -115,10 +95,10 @@ union <ADX table>, cluster(CL1).database(<workspace-name>).<table name>
 
 |구문 설명  |Application Insights  |Log Analytics  |
 |----------------|---------|---------|
-| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 (**클러스터 간 쿼리에 권장**) |   cluster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | cluster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
-| 이 구독의 모든 앱/작업 영역을 포함 하는 클러스터입니다.    |     cluster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    cluster (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
-|구독의 모든 앱/작업 영역을 포함 하 고이 리소스 그룹의 구성원 인 클러스터    |   cluster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    cluster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
-|이 구독에 정의 된 리소스를 포함 하는 클러스터      |    cluster (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  cluster (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
+| 이 구독에 정의 된 리소스를 포함 하는 클러스터 내의 데이터베이스 (**클러스터 간 쿼리에 권장**) |   클러스터 (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>').database('<ai-app-name>`) | 클러스터 (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>').database('<workspace-name>`)     |
+| 이 구독의 모든 앱/작업 영역을 포함 하는 클러스터입니다.    |     클러스터 (`https://ade.applicationinsights.io/subscriptions/<subscription-id>`)    |    클러스터 (`https://ade.loganalytics.io/subscriptions/<subscription-id>`)     |
+|구독의 모든 앱/작업 영역을 포함 하 고이 리소스 그룹의 구성원 인 클러스터    |   클러스터 (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |    클러스터 (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>`)      |
+|이 구독에 정의 된 리소스를 포함 하는 클러스터      |    클러스터 (`https://ade.applicationinsights.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.insights/components/<ai-app-name>`)    |  클러스터 (`https://ade.loganalytics.io/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>`)     |
 
 ## <a name="next-steps"></a>다음 단계
 

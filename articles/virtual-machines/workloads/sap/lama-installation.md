@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
 ms.author: sedusch
-ms.openlocfilehash: ffe68352fed0b9c0df0cdfb971c085d1bb7f18c4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2df0bfe8041216e207193832c8f7ca48967c4e5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978069"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842438"
 ---
 # <a name="sap-lama-connector-for-azure"></a>Azure용 SAP LaMa 커넥터
 
@@ -87,7 +87,7 @@ Azure 커넥터는 서비스 주체를 사용 하 여 Microsoft Azure에 대 한
 1. 새 등록을 클릭 합니다.
 1. 이름을 입력 하 고 등록을 클릭 합니다.
 1. 새 앱을 선택 하 고 설정 탭에서 인증서 & 암호를 클릭 합니다.
-1. 새 클라이언트 암호를 만들고, 새 키에 대 한 설명을 입력 하 고, 비밀을 exire 하 고 저장을 클릭 하는 경우를 선택 합니다.
+1. 새 클라이언트 암호를 만들고, 새 키에 대 한 설명을 입력 하 고, 암호가 만료 되는 시점을 선택 하 고, 저장을 클릭 합니다.
 1. 값을 기록해 둡니다. 서비스 주체의 암호로 사용됩니다.
 1. 애플리케이션 ID를 적어둡니다. 서비스 주체의 사용자 이름으로 사용됩니다.
 

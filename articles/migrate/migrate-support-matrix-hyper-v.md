@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 평가 지원
 description: Azure Migrate의 Hyper-v 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 1a036e2f22bb1fd9dac65a3cc643224ecbea3c69
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 9c1228992d71e56b9118e88967478e619c14959a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154808"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76834470"
 ---
 # <a name="support-matrix-for-hyper-v-assessment"></a>Hyper-v 평가를 위한 지원 매트릭스
 
@@ -25,7 +25,7 @@ ms.locfileid: "76154808"
 --- | ---
 **평가 제한**| 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 35000 hyper-v vm을 검색 하 고 평가 합니다.
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 프로젝트는 VMware Vm, Hyper-v Vm 및 물리적 서버를 평가 제한까지 포함할 수 있습니다.
-**검색** | Azure Migrate 어플라이언스는 5000 Hyper-v Vm을 검색할 수 있습니다.<br/><br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+**조사** | Azure Migrate 어플라이언스는 5000 Hyper-v Vm을 검색할 수 있습니다.<br/><br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
 평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
@@ -64,7 +64,7 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 **디바이스** | **연결**
 --- | ---
-**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+**기기가** | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ``` https://<appliance-ip-or-name>:44368 ```<br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443 (HTTPS), 5671 및 5672 (AMQP)의 아웃 바운드 연결
 **Hyper-v 호스트/클러스터** | CIM(Common Information Model) (CIM) 세션을 사용 하 여 Hyper-v Vm의 구성과 성능 메타 데이터를 끌어오기 위해 WinRM 포트 5985 (HTTP) 및 5986 (HTTPS)에서 인바운드 연결
 
 ## <a name="agent-based-dependency-visualization"></a>에이전트 기반 종속성 시각화

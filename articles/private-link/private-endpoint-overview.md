@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 38f424287788537cc5711bab8da60b5798a84b3a
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867681"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842455"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -50,13 +50,13 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 ## <a name="private-link-resource"></a>개인 링크 리소스 
 개인 링크 리소스는 지정 된 개인 끝점의 대상 대상입니다. 다음은 사용 가능한 개인 링크 리소스 종류 목록입니다. 
  
-|개인 링크 리소스 이름  |리소스 유형   |하위 리소스  |
+|개인 링크 리소스 이름  |리소스 유형   |하위  |
 |---------|---------|---------|
 |**개인 링크 서비스** (사용자 고유의 서비스)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure SQL 데이터 웨어하우스** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (테이블, table_secondary)<BR> 큐 (큐, queue_secondary)<BR> 파일 (파일, file_secondary)<BR> 웹 (웹, web_secondary)        |
-|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)       |
+|**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake 파일 시스템 Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.azurecosmosdb/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
 |**Azure Database for PostgreSQL-단일 서버** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
@@ -101,7 +101,7 @@ FQDN (정규화 된 도메인 이름)을 사용 하 여 연결 문자열의 일�
  
 Azure 서비스의 경우 다음 표에 설명 된 대로 권장 된 영역 이름을 사용 합니다.
 
-|개인 링크 리소스 유형   |하위 리소스  |영역 이름  |
+|개인 링크 리소스 유형   |Subresource  |영역 이름  |
 |---------|---------|---------|
 |SQL DB/DW (Microsoft .Sql/servers)    |  Sql Server (sqlServer)        |   privatelink.database.windows.net       |
 |저장소 계정 (Microsoft. Storage/storageAccounts)    |  Blob (blob, blob_secondary)        |    privatelink.blob.core.windows.net      |

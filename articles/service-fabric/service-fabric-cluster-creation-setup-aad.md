@@ -3,12 +3,12 @@ title: 클라이언트 인증에 대한 Azure Active Directory 설정
 description: Service Fabric 클러스터에 대한 클라이언트를 인증하려면 Azure AD(Azure Active Directory)를 설정하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 6/28/2019
-ms.openlocfilehash: bbad991e955a31e3f3c53931889f630e521e1a8c
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 2a6ffdb1c1fdc447545477286a6d131be2449cdb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614692"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843823"
 ---
 # <a name="set-up-azure-active-directory-for-client-authentication"></a>클라이언트 인증에 대한 Azure Active Directory 설정
 
@@ -104,9 +104,19 @@ Service Fabric Explorer에서 Azure AD에 로그인할 때 페이지가 "AADSTS5
 Service Fabric Explorer를 나타내는 클러스터(웹) 애플리케이션이 Azure AD에 대해 인증을 시도하며, 해당 요청의 일부로 리디렉션 반환 URL을 제공합니다. 그렇지만 Azure AD 애플리케이션 **REPLY URL** 목록에 표시되지 않습니다.
 
 #### <a name="solution"></a>솔루션
-AAD 페이지에서 “앱 등록”을 선택하고, 클러스터 애플리케이션을 선택한 다음, **회신 URL** 단추를 선택합니다. “회신 URL” 페이지에서 Service Fabric Explorer URL을 목록에 추가하거나 목록의 항목 중 하나를 대체합니다. 마친 후 변경 사항을 저장합니다.
+Azure AD 페이지에서 **앱 등록**를 선택 하 고 클러스터 응용 프로그램을 선택한 다음 **회신 url**을 선택 합니다. **회신 url** 창에서 목록에 Service Fabric Explorer URL을 추가 하거나 목록의 항목 중 하나를 바꿉니다. 변경 내용을 저장합니다.
 
-![웹 애플리케이션 회신 URL][web-application-reply-url]
+![웹 응용 프로그램 회신 URL][web-application-reply-url]
+
+### <a name="connecting-to-the-cluster-using-azure-ad-authentication-via-powershell-gives-an-error-when-you-sign-in-aadsts50011"></a>PowerShell을 통해 Azure AD 인증을 사용 하 여 클러스터에 연결 하면 "AADSTS50011"에 로그인 할 때 오류가 발생 합니다.
+#### <a name="problem"></a>문제
+PowerShell을 통해 Azure AD를 사용 하 여 Service Fabric 클러스터에 연결 하려고 할 때 로그인 페이지에서 오류를 반환 합니다. "AADSTS50011: 요청에 지정 된 회신 url이 응용 프로그램에 대해 구성 된 회신 url과 일치 하지 않습니다. &lt;guid&gt;."
+
+#### <a name="reason"></a>이유
+위의 문제와 마찬가지로 PowerShell은 azure ad에 대해 인증을 시도 하며,이는 Azure ad 응용 프로그램 **회신 url** 목록에 나열 되지 않은 리디렉션 URL을 제공 합니다.  
+
+#### <a name="solution"></a>솔루션
+이전 문제와 동일한 프로세스를 사용 하지만 URL은 명령줄 인증에 대 한 특별 한 리디렉션과 `urn:ietf:wg:oauth:2.0:oob`로 설정 되어야 합니다.
 
 ### <a name="connect-the-cluster-by-using-azure-ad-authentication-via-powershell"></a>PowerShell 통해 Azure AD 인증을 사용하여 클러스터 연결
 Service Fabric 클러스터에 연결하려면 다음 PowerShell 명령 예제를 사용합니다.

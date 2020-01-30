@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 문서에서는 보안 그룹 보기를 사용하여 가상 머신 보안을 분석하기 위해 PowerShell을 사용하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: 04e76b49-6a1b-4d0f-9a9b-51cf2f4df5a2
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 3127d60263437a18e0c8d9a98ebdfad31049c58d
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 4cba2c7e25b5f76b0638da1c551514f102247ae0
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277906"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840794"
 ---
 # <a name="analyze-your-virtual-machine-security-with-security-group-view-using-powershell"></a>PowerShell를 사용하는 보안 그룹 보기에서 Virtual Machine 보안 분석
 
@@ -42,7 +39,7 @@ ms.locfileid: "74277906"
 
 ## <a name="scenario"></a>시나리오
 
-이 문서에서 다루는 시나리오는 지정된 가상 컴퓨터에 대한 효과적으로 구성된 보안 규칙을 검색합니다.
+이 문서에서 다루는 시나리오는 지정된 가상 머신에 대한 효과적으로 구성된 보안 규칙을 검색합니다.
 
 ## <a name="retrieve-network-watcher"></a>Network Watcher 검색
 
@@ -54,7 +51,7 @@ $networkWatcher = Get-AzResource | Where {$_.ResourceType -eq "Microsoft.Network
 
 ## <a name="get-a-vm"></a>VM 확인
 
-`Get-AzNetworkWatcherSecurityGroupView` cmdlet을 실행하려면 가상 머신이 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
+`Get-AzNetworkWatcherSecurityGroupView`cmdlet을 실행하려면 가상 머신이 필요합니다. 다음 예제는 VM 개체를 가져옵니다.
 
 ```powershell
 $VM = Get-AzVM -ResourceGroupName testrg -Name testvm1

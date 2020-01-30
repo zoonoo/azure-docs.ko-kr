@@ -11,12 +11,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 12/05/2019
 ms.author: diberry
-ms.openlocfilehash: de078399a29af1c7eb2ae3fb237e1550ccaeacfa
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 681f00adde1d440fbb41f2e66652db34d53fbf99
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872301"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843263"
 ---
 # <a name="use-follow-up-prompts-to-create-multiple-turns-of-a-conversation"></a>추가 작업 프롬프트를 사용하여 여러 대화 설정 만들기
 
@@ -65,7 +65,7 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 
 * 머리글 및 하위 머리글을 사용 하 여 계층을 나타냅니다. 예를 들어, 부모 QnA 및 h2를 표시 하 여 프롬프트로 사용 해야 하는 QnA를 나타낼 수 있습니다. 작은 머리글 크기를 사용 하 여 후속 계층을 나타냅니다. 문서에서 구조를 의미 하는 스타일, 색 또는 기타 메커니즘을 사용 하지 않습니다. QnA Maker는 다중 전환 프롬프트를 추출 하지 않습니다.
 
-* 제목의 첫 번째 문자는 대문자 여야 합니다. 
+* 제목의 첫 번째 문자는 대문자 여야 합니다.
 
 * 물음표, `?`제목을 끝에 표시 하지 않습니다.
 
@@ -113,10 +113,10 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 1. **Signout**에 대 한 행의 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
 1. **추가 작업 프롬프트** 팝업 창의 필드에 다음 값을 입력 합니다.
 
-    |필드|Value|
+    |필드|값|
     |--|--|
     |표시 텍스트|**장치 끄기를**입력 합니다. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
-    |컨텍스트 전용| 이 확인란을 선택합니다. 질문이 컨텍스트를 지정 하는 경우에만 대답이 반환 됩니다.|
+    |컨텍스트 전용| 이 확인란을 선택 합니다. 질문이 컨텍스트를 지정 하는 경우에만 대답이 반환 됩니다.|
     |답변에 대 한 링크|**로그인 화면 사용** 을 입력 하 여 기존 질문 및 답변 쌍을 찾습니다.|
 
 
@@ -150,10 +150,10 @@ KB를 게시 한 후에는 **Bot 만들기** 단추를 선택 하 여 QnA Maker 
 1. 이 질문에 대 한 **응답** 열에서 **추가 작업 프롬프트 추가**를 선택 합니다.
 1. **추가 작업 프롬프트 (미리 보기)** 에서 다음 값을 입력 하 여 새 추가 작업 프롬프트를 만듭니다.
 
-    |필드|Value|
+    |필드|값|
     |--|--|
     |표시 텍스트|*Windows 계정을 만듭니다*. 추가 작업 프롬프트에 표시할 사용자 지정 텍스트입니다.|
-    |컨텍스트 전용|이 확인란을 선택합니다. 이 대답은 질문이 컨텍스트를 지정 하는 경우에만 반환 됩니다.|
+    |컨텍스트 전용|이 확인란을 선택 합니다. 이 대답은 질문이 컨텍스트를 지정 하는 경우에만 반환 됩니다.|
     |답변에 대 한 링크|답변으로 다음 텍스트를 입력 합니다.<br>*신규 또는 기존 전자 메일 계정을 사용 하 여 Windows 계정을 [만듭니다](https://account.microsoft.com/)* .<br>데이터베이스를 저장 하 고 학습 하면이 텍스트가 변환 됩니다. |
     |||
 
@@ -368,7 +368,7 @@ JSON 응답에서 반환 되는 [표시 텍스트와 표시 순서](https://docs
 
 ## <a name="export-knowledge-base-for-version-control"></a>버전 제어를 위한 기술 자료 내보내기
 
-QnA Maker는 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 QnA Maker 포털에서 [버전 제어를 지원](../concepts/development-lifecycle-knowledge-base.md#version-control-of-a-knowledge-base) 합니다.
+QnA Maker은 내보낸 파일에 다중 전환 대화 단계를 포함 하 여 버전 제어를 지원 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

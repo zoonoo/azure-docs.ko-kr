@@ -6,14 +6,14 @@ ms.subservice: cosmosdb-table
 ms.devlang: python
 ms.topic: reference
 ms.date: 11/20/2018
-author: wmengmsft
-ms.author: wmeng
-ms.openlocfilehash: a26e69d756c0f5b8bb26d85d2901e686aba50771
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+author: sakash279
+ms.author: akshanka
+ms.openlocfilehash: 420c9e5a1e86f54e52905e7d7d2459fa2f68e405
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "66480161"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771281"
 ---
 # <a name="azure-cosmos-db-table-api-sdk-for-python-release-notes-and-resources"></a>Python용 Azure Cosmos DB Table API SDK: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -51,7 +51,7 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 <br/>
 
-| Version | 릴리스 날짜 | 사용 중지 날짜 |
+| 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
 | [1.0.0](#1.0.0) |2017년 11월 15일 |--- |
 | [0.37.1](#0.37.1) |2017년 10월 5일 |--- |

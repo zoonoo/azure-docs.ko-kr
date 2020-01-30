@@ -1,5 +1,5 @@
 ---
-title: 활성 지역 복제
+title: 활성 지리적 복제
 description: 활성 지역 복제를 사용하여 동일하거나 다른 데이터 센터(Azure 지역)에 개별 데이터베이스의 읽기 기능한 보조 데이터베이스를 만들 수 있습니다.
 services: sql-database
 ms.service: sql-database
@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 07/09/2019
-ms.openlocfilehash: 33697fd8d3b0c6faea423026e1462834c6b1ef4c
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: e32250102d095f341b2de918037b9ad834adfd33
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822652"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76842661"
 ---
 # <a name="creating-and-using-active-geo-replication"></a>활성 지역 복제 만들기 및 사용
 
-활성 지역 복제는 동일하거나 다른 데이터 센터(Azure 지역)의 SQL Database 서버에 개별 데이터베이스의 읽기 가능한 보조 데이터베이스를 만들 수 있는 Azure SQL Database 기능입니다.
+활성 지역 복제는 동일 하거나 다른 데이터 센터 (지역)에 있는 SQL Database 서버에서 개별 데이터베이스의 읽기 가능한 보조 데이터베이스를 만들 수 있는 Azure SQL Database 기능입니다.
 
 > [!NOTE]
 > Managed Instance는 활성 지역 복제를 지원하지 않습니다. Managed Instance의 지리적 장애 조치(failover)에 대한 내용은 [자동 장애 조치(failover) 그룹](sql-database-auto-failover-group.md)을 참조하세요.
@@ -124,6 +124,79 @@ ms.locfileid: "73822652"
 
 SQL Database 컴퓨팅 크기에 대한 자세한 내용은 [SQL Database 서비스 계층이란?](sql-database-purchase-models.md)를 참조하세요.
 
+## <a name="cross-subscription-geo-replication"></a>구독 간 지역에서 복제
+
+서로 다른 구독에 속한 두 데이터베이스 간에 활성 지역 복제를 설정 하려면 (동일한 테 넌 트에 있는지 여부에 관계 없이)이 섹션에 설명 된 특수 절차를 따라야 합니다.  이 절차는 SQL 명령을 기반으로 하며 다음이 필요 합니다. 
+
+- 두 서버에서 권한 있는 로그인 만들기
+- 두 서버에서 변경을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다 (예: SQL Server Management Studio를 실행 하는 호스트의 IP 주소). 
+
+변경을 수행 하는 클라이언트에는 주 서버에 대 한 네트워크 액세스가 필요 합니다. 클라이언트의 동일한 IP 주소를 보조 서버의 허용 목록에 추가 해야 하지만, 보조 서버에 대 한 네트워크 연결은 반드시 필요한 것은 아닙니다. 
+
+### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터
+
+1. 변경 작업을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다. 자세한 내용은 [방화벽 구성](sql-database-firewall-configure.md)을 참조 하세요. 
+1. 활성 지역 복제를 설정 하는 전용 로그인을 만들고 필요에 따라 자격 증명을 조정 합니다.
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01'
+   ```
+
+1. 해당 사용자를 만들어 dbmanager 역할에 할당 합니다. 
+
+   ```sql
+   create user geodrsetup for login gedrsetup
+   alter role geodrsetup dbmanager add member geodrsetup
+   ```
+
+1. 이 쿼리를 사용 하 여 새 로그인의 SID를 기록해 둡니다. 
+
+   ```sql
+   select sid from sys.sql_logins where name = 'geodrsetup'
+   ```
+
+### <a name="on-the-source-database-on-the-primary-server"></a>주 서버의 원본 데이터베이스
+
+1. 동일한 로그인에 대 한 사용자 만들기:
+
+   ```sql
+   create user geodrsetup for login geodrsetup
+   ```
+
+1. 사용자를 db_owner 역할에 추가 합니다.
+
+   ```sql
+   alter role db_owner add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-secondary-server"></a>보조 서버의 마스터 
+
+1. 변경 작업을 수행 하는 클라이언트의 허용 목록에 IP 주소를 추가 합니다. 주 서버의 정확한 IP 주소와 동일 해야 합니다. 
+1. 동일한 사용자 이름 및 SID를 사용 하 여 주 서버에서와 동일한 로그인을 만듭니다. 
+
+   ```sql
+   create login geodrsetup with password = 'ComplexPassword01', sid=0x010600000000006400000000000000001C98F52B95D9C84BBBA8578FACE37C3E
+   ```
+
+1. 해당 사용자를 만들어 dbmanager 역할에 할당 합니다.
+
+   ```sql
+   create user geodrsetup for login geodrsetup;
+   alter role dbmanager add member geodrsetup
+   ```
+
+### <a name="on-the-master-of-the-primary-server"></a>주 서버의 마스터
+
+1. 새 로그인을 사용 하 여 주 서버의 마스터에 로그인 합니다. 
+1. 보조 서버에 원본 데이터베이스의 보조 복제본을 만듭니다 (필요에 따라 데이터베이스 이름 및 서버 이름 조정).
+
+   ```sql
+   alter database dbrep add secondary on server <servername>
+   ```
+
+초기 설치 후에는 만든 사용자, 로그인 및 방화벽 규칙을 제거할 수 있습니다. 
+
+
 ## <a name="keeping-credentials-and-firewall-rules-in-sync"></a>자격 증명 및 방화벽 규칙을 동기화 상태로 유지
 
 지리적으로 복제 된 데이터베이스에는 [데이터베이스 수준 IP 방화벽 규칙](sql-database-firewall-configure.md) 을 사용 하는 것이 좋습니다. 이렇게 하면 모든 보조 데이터베이스가 주 데이터베이스와 동일한 IP 방화벽 규칙을 갖도록 하기 위해 데이터베이스를 사용 하 여 이러한 규칙을 복제할 수 있습니다. 이렇게 하면 고객이 주 데이터베이스 및 보조 데이터베이스를 호스팅하는 서버에서 수동으로 방화벽 규칙을 구성하고 유지 관리할 필요가 없습니다. 마찬가지로, 데이터 액세스에 [포함된 데이터베이스 사용자](sql-database-manage-logins.md)를 사용하면 주 데이터베이스와 보조 데이터베이스의 사용자 자격 증명이 항상 똑같기 때문에 장애 조치(failover) 시에 로그인과 암호가 불일치하여 중단되는 일이 없습니다. [Azure Active Directory](../active-directory/fundamentals/active-directory-whatis.md)가 추가되면서 고객은 주 데이터베이스 및 보조 데이터베이스에 대한 사용자 액세스를 관리할 수 있으므로 데이터베이스의 자격 증명을 모두 관리할 필요가 없습니다.
@@ -167,13 +240,13 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 > [!IMPORTANT]
 > 이러한 Transact-SQL 명령은 활성 지역 복제에만 적용되고 장애 조치(failover) 그룹에는 적용되지 않습니다. 따라서 장애 조치(failover) 그룹만 지원하는 Managed Instance에도 적용되지 않습니다.
 
-| 명령 | 설명 |
+| 명령 | Description |
 | --- | --- |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작하려면 ADD SECONDARY ON SERVER 인수를 사용합니다. |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |장애 조치를 시작하기 위해 보조 데이터베이스를 기본 데이터베이스로 전환하려면 FAILOVER 또는 FORCE_FAILOVER_ALLOW_DATA_LOSS를 사용합니다. |
 | [ALTER DATABASE](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql?view=azuresqldb-current) |SQL Database와 지정된 보조 데이터베이스 간의 데이터 복제를 종료하려면 REMOVE SECONDARY ON SERVER를 사용합니다. |
 | [sys.geo_replication_links](/sql/relational-databases/system-dynamic-management-views/sys-geo-replication-links-azure-sql-database) |Azure SQL Database 서버의 각 데이터베이스에 대한 모든 기존 복제 링크에 대한 정보를 반환합니다. |
-| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |지정된 SQL 데이터베이스의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다. |
+| [sys.dm_geo_replication_link_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-geo-replication-link-status-azure-sql-database) |지정된 SQL Database의 복제 링크에 대한 마지막 복제 시간, 마지막 복제 지연 및 기타 정보를 가져옵니다. |
 | [sys.dm_operation_status](/sql/relational-databases/system-dynamic-management-views/sys-dm-operation-status-azure-sql-database) |복제 링크의 상태를 비롯한 모든 데이터베이스 작업에 대한 상태를 표시합니다. |
 | [sp_wait_for_database_copy_sync](/sql/relational-databases/system-stored-procedures/active-geo-replication-sp-wait-for-database-copy-sync) |커밋된 모든 트랜잭션이 복제되고 활성 보조 데이터베이스에서 승인될 때까지 애플리케이션이 대기하도록 합니다. |
 |  | |
@@ -182,9 +255,9 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 > [!IMPORTANT]
-> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대 한 자세한 내용은 [AzureRM](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)를 참조 하세요. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
+> Azure SQL Database, Azure Resource Manager PowerShell 모듈은 계속 지원하지만 모든 향후 개발은 Az.Sql 모듈에 대해 진행됩니다. 이러한 cmdlet에 대한 내용은 [AzureRM.Sql](https://docs.microsoft.com/powershell/module/AzureRM.Sql/)을 참조합니다. Az 모듈과 AzureRm 모듈에서 명령의 인수는 실질적으로 동일합니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 | --- | --- |
 | [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase) |하나 이상의 데이터베이스를 가져옵니다. |
 | [New-AzSqlDatabaseSecondary](https://docs.microsoft.com/powershell/module/az.sql/new-azsqldatabasesecondary) |기존 데이터베이스에 대한 보조 데이터베이스를 만들고 데이터 복제를 시작합니다. |
@@ -198,12 +271,12 @@ RPO와 관련 하 여 지연을 모니터링 하려면 주 데이터베이스에
 
 ### <a name="rest-api-manage-failover-of-single-and-pooled-databases"></a>REST API: 단일 및 풀링된 데이터베이스의 장애 조치 (failover) 관리
 
-| API | 설명 |
+| API | Description |
 | --- | --- |
 | [데이터베이스 생성 또는 업데이트(createMode=Restore)](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |주 보조 데이터베이스 또는 보조 데이터베이스를 만들거나, 업데이트하거나, 복원합니다. |
 | [데이터베이스 만들기 또는 업데이트 상태 가져오기](https://docs.microsoft.com/rest/api/sql/databases/createorupdate) |만들기 작업 동안 상태를 반환합니다. |
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(Failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |현재 주 데이터베이스에서 장애 조치(failover)를 통해 주 데이터베이스로 사용할 보조 데이터베이스를 설정합니다. **이 옵션은 Managed Instance에 대해 지원되지 않습니다.**|
-| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(Failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |현재 주 데이터베이스에서 장애 조치(failover)를 통해 주 데이터베이스로 사용할 보조 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. **이 옵션은 Managed Instance에 대해 지원되지 않습니다.**|
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획된 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failover) |현재 주 데이터베이스에서 장애 조치(failover)를 통해 주 데이터베이스로 사용할 보조 데이터베이스를 설정합니다. **이 옵션은 Managed Instance에 대해 지원되지 않습니다.**|
+| [보조 데이터베이스를 주 데이터베이스로 설정(계획되지 않은 장애 조치(failover))](https://docs.microsoft.com/rest/api/sql/replicationlinks/failoverallowdataloss) |현재 주 데이터베이스에서 장애 조치(failover)를 통해 주 데이터베이스로 사용할 보조 데이터베이스를 설정합니다. 이 작업으로 인해 데이터가 손실될 수 있습니다. **이 옵션은 Managed Instance에 대해 지원되지 않습니다.**|
 | [복제 링크 가져오기](https://docs.microsoft.com/rest/api/sql/replicationlinks/get) |지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 특정 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. **이 옵션은 Managed Instance에 대해 지원되지 않습니다.**|
 | [복제 링크 - 데이터베이스 기준 목록](https://docs.microsoft.com/rest/api/sql/replicationlinks/listbydatabase) | 지역에서 복제 파트너 관계의 지정된 SQL 데이터베이스에 대한 모든 복제 링크를 가져옵니다. sys.geo_replication_links 카탈로그 뷰에 표시되는 정보를 검색합니다. |
 | [복제 링크 삭제](https://docs.microsoft.com/rest/api/sql/replicationlinks/delete) | 데이터베이스 복제 링크를 삭제합니다. 장애 조치(failover) 중에 수행할 수 없습니다. |

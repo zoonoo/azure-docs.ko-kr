@@ -1,18 +1,18 @@
 ---
-title: PowerShell을 사용 하 여 Azure Files 백업 및 복원
-description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 백업 하 고 복원 하는 방법에 대해 알아봅니다.
+title: PowerShell을 사용 하 여 Azure Files 백업
+description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/20/2019
-ms.openlocfilehash: f9665bbc3562faab760562e1e6729d8be0796acd
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 5147ab893d4ebad395d7dbd8cc25872177ec10a2
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294051"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773094"
 ---
-# <a name="back-up-and-restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 백업 및 복원
+# <a name="back-up-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 백업
 
-이 문서에서는 Azure PowerShell를 사용 하 여 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 사용 하 여 Azure Files 파일 공유를 백업 하 고 복구 하는 방법을 설명 합니다.
+이 문서에서는 Azure PowerShell를 사용 하 여 [Azure Backup](backup-overview.md) Recovery Services 자격 증명 모음을 사용 하 여 Azure Files 파일 공유를 백업 하는 방법을 설명 합니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -22,8 +22,6 @@ ms.locfileid: "76294051"
 > * Recovery Services 자격 증명 모음을 만듭니다.
 > * Azure 파일 공유에 대 한 백업을 구성 합니다.
 > * 백업 작업을 실행 합니다.
-> * 백업 된 Azure 파일 공유 또는 공유에서 개별 파일을 복원 합니다.
-> * 백업 및 복원 작업을 모니터링 합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
@@ -274,148 +272,6 @@ testAzureFS       Backup               Completed            11/12/2018 2:42:07 P
 주문형 백업은 10 년 동안 스냅숏을 유지 하는 데 사용할 수 있습니다. Scheduler를 사용 하 여 선택한 보존으로 주문형 PowerShell 스크립트를 실행 하 여 매주, 월 또는 연도 마다 스냅숏을 정기적으로 수행할 수 있습니다. 정기적인 스냅숏을 만드는 동안 Azure backup을 사용 하 여 [주문형 백업의 제한 사항을](https://docs.microsoft.com/azure/backup/backup-azure-files-faq#how-many-on-demand-backups-can-i-take-per-file-share) 참조 하세요.
 
 샘플 스크립트를 찾고 있는 경우 주기적으로 백업을 예약 하 고 최대 10 년까지 유지할 수 있도록 하는 Azure Automation runbook을 사용 하 여 GitHub (<https://github.com/Azure-Samples/Use-PowerShell-for-long-term-retention-of-Azure-Files-Backup>)에서 샘플 스크립트를 참조할 수 있습니다.
-
-### <a name="modify-the-protection-policy"></a>보호 정책 수정
-
-Azure 파일 공유를 백업 하는 데 사용 되는 정책을 변경 하려면 [AzRecoveryServicesBackupProtection](https://docs.microsoft.com/powershell/module/az.recoveryservices/enable-azrecoveryservicesbackupprotection?view=azps-1.4.0)을 사용 합니다. 관련 백업 항목 및 새 백업 정책을 지정 합니다.
-
-다음 예제는 **testAzureFS** 보호 정책을 **dailyafs**에서 **monthlyafs**로 변경합니다.
-
-```powershell
-$monthlyafsPol =  Get-AzRecoveryServicesBackupProtectionPolicy -Name "monthlyafs"
-$afsContainer = Get-AzRecoveryServicesBackupContainer -FriendlyName "testStorageAcct" -ContainerType AzureStorage
-$afsBkpItem = Get-AzRecoveryServicesBackupItem -Container $afsContainer -WorkloadType AzureFiles -Name "testAzureFS"
-Enable-AzRecoveryServicesBackupProtection -Item $afsBkpItem -Policy $monthlyafsPol
-```
-
-## <a name="restore-azure-file-shares-and-files"></a>Azure 파일 공유 및 파일 복원
-
-공유에서 전체 파일 공유 또는 특정 파일을 복원할 수 있습니다. 원본 위치 또는 대체 위치에 복원할 수 있습니다.
-
-### <a name="fetch-recovery-points"></a>복구 지점 가져오기
-
-[AzRecoveryServicesBackupRecoveryPoint](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackuprecoverypoint?view=azps-1.4.0) 를 사용 하 여 백업 된 항목에 대 한 모든 복구 지점의 목록을 표시 합니다.
-
-다음 스크립트에서:
-
-* **$Rp** 변수는 지난 7 일간 선택한 백업 항목에 대 한 복구 지점의 배열입니다.
-* 배열은 인덱스 **0**의 가장 최근 복구 지점부터 시간이 역순으로 정렬됩니다.
-* 복구 지점을 선택하려면 표준 PowerShell 배열 인덱싱을 사용합니다.
-* 예에서, **$rp[0]** 은 최신 복구 지점을 선택합니다.
-
-```powershell
-$startDate = (Get-Date).AddDays(-7)
-$endDate = Get-Date
-$rp = Get-AzRecoveryServicesBackupRecoveryPoint -Item $afsBkpItem -StartDate $startdate.ToUniversalTime() -EndDate $enddate.ToUniversalTime()
-
-$rp[0] | fl
-```
-
-출력은 다음과 유사 합니다.
-
-```powershell
-FileShareSnapshotUri : https://testStorageAcct.file.core.windows.net/testAzureFS?sharesnapshot=2018-11-20T00:31:04.00000
-                       00Z
-RecoveryPointType    : FileSystemConsistent
-RecoveryPointTime    : 11/20/2018 12:31:05 AM
-RecoveryPointId      : 86593702401459
-ItemName             : testAzureFS
-Id                   : /Subscriptions/00000000-0000-0000-0000-000000000000/resourceGroups/testVaultRG/providers/Micros                      oft.RecoveryServices/vaults/testVault/backupFabrics/Azure/protectionContainers/StorageContainer;storage;teststorageRG;testStorageAcct/protectedItems/AzureFileShare;testAzureFS/recoveryPoints/86593702401462
-WorkloadType         : AzureFiles
-ContainerName        : storage;teststorageRG;testStorageAcct
-ContainerType        : AzureStorage
-BackupManagementType : AzureStorage
-```
-
-관련 복구 지점을 선택한 후에는 파일 공유 또는 파일을 원본 위치 또는 대체 위치에 복원 합니다.
-
-### <a name="restore-an-azure-file-share-to-an-alternate-location"></a>Azure 파일 공유를 대체 위치로 복원
-
-[AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 를 사용 하 여 선택한 복구 지점으로 복원 합니다. 이러한 매개 변수를 지정 하 여 대체 위치를 식별 합니다.
-
-* **Targetstorageaccountname**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
-* **TargetFileShareName**: 백업 된 콘텐츠가 복원 되는 대상 저장소 계정 내의 파일 공유입니다.
-* **Targetfolder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
-* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
-
-다음과 같이 매개 변수를 사용 하 여 cmdlet을 실행 합니다.
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -ResolveConflict Overwrite
-```
-
-이 명령은 다음 예제에 표시된 대로 추적할 ID가 포함된 작업을 반환합니다.
-
-```powershell
-WorkloadName     Operation            Status               StartTime                 EndTime                   JobID
-------------     ---------            ------               ---------                 -------                   -----
-testAzureFS        Restore              InProgress           12/10/2018 9:56:38 AM                               9fd34525-6c46-496e-980a-3740ccb2ad75
-```
-
-### <a name="restore-an-azure-file-to-an-alternate-location"></a>대체 위치로 Azure 파일 복원
-
-[AzRecoveryServicesBackupItem](https://docs.microsoft.com/powershell/module/az.recoveryservices/restore-azrecoveryservicesbackupitem?view=azps-1.4.0) 를 사용 하 여 선택한 복구 지점으로 복원 합니다. 이러한 매개 변수를 지정 하 여 대체 위치를 식별 하 고 복원 하려는 파일을 고유 하 게 식별 합니다.
-
-* **Targetstorageaccountname**: 백업 된 콘텐츠를 복원할 저장소 계정입니다. 대상 스토리지 계정은 자격 증명 모음과 동일한 위치에 있어야 합니다.
-* **TargetFileShareName**: 백업 된 콘텐츠가 복원 되는 대상 저장소 계정 내의 파일 공유입니다.
-* **Targetfolder**: 데이터가 복원 되는 파일 공유의 폴더입니다. 백업된 콘텐츠를 루트 폴더로 복원해야 하는 경우 대상 폴더 값을 빈 문자열로 제공합니다.
-* **Sourcefilepath**: 파일 공유 내에서 복원할 파일의 절대 경로입니다. 이 경로는 **Get-AzStorageFile** PowerShell cmdlet에 사용되는 경로와 동일합니다.
-* **Sourcefiletype**: 디렉터리 또는 파일을 선택 했는지 여부입니다. **디렉터리** 또는 **파일**을 수락합니다.
-* **Resolveconflict가**: 복원 된 데이터와 충돌 하는 경우 명령입니다. **덮어쓰기** 또는 **건너뛰기**를 수락합니다.
-
-추가 매개 변수 (SourceFilePath 및 Sourcefilepath)는 복원 하려는 개별 파일에만 관련 됩니다.
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -TargetStorageAccountName "TargetStorageAcct" -TargetFileShareName "DestAFS" -TargetFolder "testAzureFS_restored" -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-이 명령은 이전 섹션과 같이 추적할 ID가 있는 작업을 반환 합니다.
-
-### <a name="restore-azure-file-shares-and-files-to-the-original-location"></a>Azure 파일 공유 및 파일을 원래 위치로 복원
-
-원래 위치로 복원 하는 경우 대상 및 대상 관련 매개 변수를 지정할 필요가 없습니다. **ResolveConflict**만 제공해야 합니다.
-
-#### <a name="overwrite-an-azure-file-share"></a>Azure 파일 공유 덮어쓰기
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -ResolveConflict Overwrite
-```
-
-#### <a name="overwrite-an-azure-file"></a>Azure 파일 덮어쓰기
-
-```powershell
-Restore-AzRecoveryServicesBackupItem -RecoveryPoint $rp[0] -SourceFileType File -SourceFilePath "TestDir/TestDoc.docx" -ResolveConflict Overwrite
-```
-
-## <a name="track-backup-and-restore-jobs"></a>백업 및 복원 작업 추적
-
-주문형 백업 및 복원 작업은 [요청 시 백업을 실행할](#trigger-an-on-demand-backup)때 표시 된 것 처럼 ID와 함께 작업을 반환 합니다. [AzRecoveryServicesBackupJobDetails](https://docs.microsoft.com/powershell/module/az.recoveryservices/get-azrecoveryservicesbackupjob?view=azps-1.4.0) cmdlet을 사용 하 여 작업 진행률 및 세부 정보를 추적 합니다.
-
-```powershell
-$job = Get-AzRecoveryServicesBackupJob -JobId 00000000-6c46-496e-980a-3740ccb2ad75 -VaultId $vaultID
-
- $job | fl
-
-
-IsCancellable        : False
-IsRetriable          : False
-ErrorDetails         : {Microsoft.Azure.Commands.RecoveryServices.Backup.Cmdlets.Models.AzureFileShareJobErrorInfo}
-ActivityId           : 00000000-5b71-4d73-9465-8a4a91f13a36
-JobId                : 00000000-6c46-496e-980a-3740ccb2ad75
-Operation            : Restore
-Status               : Failed
-WorkloadName         : testAFS
-StartTime            : 12/10/2018 9:56:38 AM
-EndTime              : 12/10/2018 11:03:03 AM
-Duration             : 01:06:24.4660027
-BackupManagementType : AzureStorage
-
-$job.ErrorDetails
-
- ErrorCode ErrorMessage                                          Recommendations
- --------- ------------                                          ---------------
-1073871825 Microsoft Azure Backup encountered an internal error. Wait for a few minutes and then try the operation again. If the issue persists, please contact Microsoft support.
-```
 
 ## <a name="next-steps"></a>다음 단계
 

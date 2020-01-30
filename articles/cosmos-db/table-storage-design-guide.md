@@ -5,21 +5,21 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.topic: conceptual
 ms.date: 05/21/2019
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.custom: seodec18
-ms.openlocfilehash: 74bd22de81e385a4fbd9129a70616e24b594b0b4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 166076d366cbbf7bef24648772beaba9b3a88253
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441330"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771528"
 ---
 # <a name="azure-table-storage-table-design-guide-scalable-and-performant-tables"></a>Azure 테이블 저장소 테이블 디자인 가이드: 확장 가능 하 고 성능이 뛰어난 테이블
 
 [!INCLUDE [storage-table-cosmos-db-tip-include](../../includes/storage-table-cosmos-db-tip-include.md)]
 
-확장 가능 하 고 성능이 뛰어난 테이블을 디자인 하려면 비용을 비롯 한 다양 한 요인을 고려해 야 합니다. 이전에 관계형 데이터베이스에 대 한 스키마를 디자인 한 경우 이러한 고려 사항이 익숙할 것입니다. 그러나 Azure Table storage와 관계형 모델 간에는 몇 가지 유사점이 있지만 많은 중요 한 차이점이 있습니다. 이러한 차이는 일반적으로 관계형 데이터베이스에 익숙한 사용자에 게 명확 하 게 표시 될 수 있는 다양 한 디자인을 야기 하지만 테이블 저장소와 같은 NoSQL 키/값 저장소를 디자인 하는 경우에는 적합 합니다.
+확장 가능하고 성능이 뛰어난 테이블을 디자인하려면 비용을 비롯한 다양한 요인을 고려해야 합니다. 이전에 관계형 데이터베이스에 대한 스키마를 디자인한 적이 있다면 이러한 고려 사항이 익숙할 것입니다. 그러나 Azure Table Storage와 관계형 모델 간에는 몇 가지 유사점이 있지만 중요한 차이점도 많이 있습니다. 이러한 차이점으로 인해 일반적으로 관계형 데이터베이스에 익숙한 사용자에게는 직관에 반하거나 잘못된 것으로 보일 수 있지만 Table Storage와 같은 NoSQL 키/값 저장소를 디자인하는 경우에는 매우 적절한 다른 디자인이 도출됩니다.
 
 테이블 저장소는 수십억 개의 엔터티 (관계형 데이터베이스 용어에 있는 "행") 또는 높은 트랜잭션 볼륨을 지원 해야 하는 데이터 집합을 포함할 수 있는 클라우드 규모의 응용 프로그램을 지원 하도록 설계 되었습니다. 따라서 데이터를 저장 하는 방법에 대해 다르게 생각해 보고 테이블 저장소의 작동 방식을 이해 해야 합니다. 잘 디자인 된 NoSQL 데이터 저장소를 사용 하면 솔루션을 관계형 데이터베이스를 사용 하는 솔루션 보다 훨씬 더 저렴 한 비용으로 확장할 수 있습니다. 이 가이드에서는 이러한 항목에 대해 설명합니다.  
 

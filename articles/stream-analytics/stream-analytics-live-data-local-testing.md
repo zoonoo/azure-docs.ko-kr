@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: cda02408f9e90cb9f19a4f7d806a34e5cff9c33c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f2876ea32bdcd900a454ae6b7ac58c11b8ec67c3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426046"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840488"
 ---
 # <a name="test-live-data-locally-using-azure-stream-analytics-tools-for-visual-studio-preview"></a>Azure Stream Analytics Tools for Visual Studio를 사용하여 로컬로 라이브 데이터 테스트(미리 보기)
 
@@ -38,7 +38,6 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 2. 라이브 데이터를 테스트하려면 드롭다운 상자에서 **클라우드 입력 사용**을 선택합니다.
 
    ![Azure Stream Analytics Visual Studio 라이브 클라우드 입력](./media/stream-analytics-live-data-local-testing/stream-analytics-local-testing-cloud-input.png)
-
 
 3. **시작 시간**을 설정하여 작업에서 입력 데이터 처리를 시작할 시기를 정의합니다. 정확한 결과를 보장하려면 작업이 입력 데이터를 미리 읽어야 할 수도 있습니다. 기본 시간은 현재 시간에서 30분 전으로 설정됩니다.
 
@@ -65,6 +64,5 @@ Azure Stream Analytics Tools for Visual Studio를 사용하면 Azure Event Hub, 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Stream Analytics Tools for Visual Studio를 사용하여 Stream Analytics 작업 만들기](stream-analytics-quick-create-vs.md)
-* [Visual Studio용 Azure Stream Analytics 도구 설치](stream-analytics-tools-for-visual-studio-install.md)
 * [Visual Studio를 사용하여 로컬로 Stream Analytics 쿼리 테스트](stream-analytics-vs-tools-local-run.md)
 * [Visual Studio를 사용하여 Azure Stream Analytics 작업 보기](stream-analytics-vs-tools.md)

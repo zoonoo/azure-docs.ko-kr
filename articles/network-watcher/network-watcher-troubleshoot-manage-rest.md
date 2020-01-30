@@ -4,23 +4,20 @@ titleSuffix: Azure Network Watcher
 description: REST를 사용하여 Azure Network Watcher에서 Virtual Network 게이트웨이 및 연결 문제를 해결하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
-ms.assetid: e4d5f195-b839-4394-94ef-a04192766e55
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 06/19/2017
-ms.author: kumud
-ms.openlocfilehash: 9b3898a7c4cd09b59da0fc167b758199119793eb
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: ab9f7fd95d7081b66e05dfd3d6a5ef47eb3c4053
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277793"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840675"
 ---
 # <a name="troubleshoot-virtual-network-gateway-and-connections-using-azure-network-watcher"></a>Azure Network Watcher를 사용하여 Virtual Network 게이트웨이 및 연결 문제 해결
 
@@ -49,7 +46,7 @@ PowerShell을 사용하여 REST API를 호출하는 데 ARMclient가 사용됩�
 
 Network Watcher 문제 해결은 Virtual Network 게이트웨이 및 연결에 발생한 문제를 해결하는 기능을 제공합니다. 리소스 문제 해결을 요청하는 경우 로그를 쿼리하고 검사합니다. 검사가 완료되면 결과가 반환됩니다. 문제 해결 API 요청은 장기 실행 요청이며 결과를 반환하는 데 몇 분이 걸릴 수 있습니다. 로그는 스토리지 계정의 컨테이너에 저장됩니다.
 
-## <a name="log-in-with-armclient"></a>ARMClient로 로그인
+## <a name="log-in-with-armclient"></a>ARMClient에 로그인
 
 ```powershell
 armclient login

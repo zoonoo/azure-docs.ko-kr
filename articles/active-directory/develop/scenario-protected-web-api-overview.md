@@ -15,16 +15,18 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: f96393adf0eaed8a28bc1a2ec0def6b0386bd7ac
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: abe4ecf77e7a65251830ff822b15f79291471202
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701980"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773347"
 ---
 # <a name="scenario-protected-web-api"></a>시나리오: 보호 된 web API
 
-이 시나리오에서는 인증 된 사용자만 API에 액세스할 수 있도록 웹 API를 노출 하는 방법과이를 보호 하는 방법을 보여 줍니다. 회사 및 학교 계정이 나 개인 Microsoft 개인 계정으로 인증 된 사용자가 web API를 사용 하도록 할 수 있습니다.
+이 시나리오에서는 web API를 노출 하는 방법에 대해 알아봅니다. 또한 인증 된 사용자만 액세스할 수 있도록 web API를 보호 하는 방법을 알아봅니다.
+
+Web API를 사용 하려면 회사 및 학교 계정으로 인증 된 사용자를 사용 하도록 설정 하거나 Microsoft 개인 계정을 사용 하도록 설정 해야 합니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -32,10 +34,10 @@ ms.locfileid: "76701980"
 
 ## <a name="specifics"></a>자세히
 
-웹 Api를 보호 하기 위해 알아야 할 몇 가지 사항은 다음과 같습니다.
+웹 Api를 보호 하기 위해 알아야 하는 구체적인 정보는 다음과 같습니다.
 
-- 앱 등록에서 하나 이상의 범위를 노출 해야 합니다. Web API에서 허용 하는 토큰 버전은 로그인 대상 그룹에 따라 달라 집니다.
-- Web api에 대 한 코드를 구성 하는 경우 web API를 호출할 때 사용 되는 토큰의 유효성을 검사 해야 합니다.
+- 앱 등록에서 하나 이상의 범위를 노출 해야 합니다. 웹 API에서 허용 하는 토큰 버전은 로그인 대상 그룹에 따라 달라 집니다.
+- Web api에 대 한 코드 구성에서는 web API를 호출할 때 사용 되는 토큰의 유효성을 검사 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

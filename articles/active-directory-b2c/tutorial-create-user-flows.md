@@ -10,16 +10,16 @@ ms.topic: article
 ms.date: 06/07/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: cc492b29fd6bc4a820543740e9d1962fc74f2cfc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840148"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 
-응용 프로그램에 사용자가 등록, 로그인 또는 프로필을 관리할 수 있는 [사용자 흐름이](active-directory-b2c-reference-policies.md) 있을 수 있습니다. Azure Active Directory B2C (Azure AD B2C) 테 넌 트에서 다른 형식의 여러 사용자 흐름을 만들고 필요에 따라 응용 프로그램에서 사용할 수 있습니다. 애플리케이션에 사용자 흐름을 다시 사용할 수 있습니다.
+응용 프로그램에 사용자가 등록, 로그인 또는 프로필을 관리할 수 있는 [사용자 흐름이](user-flow-overview.md) 있을 수 있습니다. Azure Active Directory B2C (Azure AD B2C) 테 넌 트에서 다른 형식의 여러 사용자 흐름을 만들고 필요에 따라 응용 프로그램에서 사용할 수 있습니다. 애플리케이션에 사용자 흐름을 다시 사용할 수 있습니다.
 
 이 문서에서는 다음 방법을 설명합니다.
 

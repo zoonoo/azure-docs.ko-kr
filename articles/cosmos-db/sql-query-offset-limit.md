@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: mjbrown
-ms.openlocfilehash: a8df220be211c3c8d8cdeab8a8aebfd35e77ebf8
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 3d23676885323e370cee1e9cc9e98c7128faf2e0
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732589"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771580"
 ---
 # <a name="offset-limit-clause-in-azure-cosmos-db"></a>Azure Cosmos DB 오프셋 제한 절
 
@@ -37,7 +37,11 @@ OFFSET <offset_amount> LIMIT <limit_amount>
 
 ## <a name="remarks"></a>설명
   
-  Offset LIMIT 절에는 오프셋과 제한 수가 모두 필요 합니다. 선택적 `ORDER BY` 절을 사용 하는 경우에는 정렬 된 값에 대해 skip을 수행 하 여 결과 집합을 생성 합니다. 그렇지 않은 경우 쿼리는 값의 고정 순서를 반환 합니다. 이 절은 이제 단일 파티션 내의 쿼리와 파티션 간 쿼리를 지원 합니다.
+  `OFFSET` 개수와 `LIMIT` 개수는 모두 `OFFSET LIMIT` 절에 필요 합니다. 선택적 `ORDER BY` 절을 사용 하는 경우에는 정렬 된 값에 대해 skip을 수행 하 여 결과 집합을 생성 합니다. 그렇지 않은 경우 쿼리는 값의 고정 순서를 반환 합니다.
+
+  `OFFSET LIMIT`로 쿼리를 사용 하는 경우 오프셋 수가 증가 함에 따라 비용이 증가 합니다. 결과의 여러 페이지가 있는 쿼리의 경우 일반적으로 연속 토큰을 사용 하는 것이 좋습니다. 연속 토큰은 나중에 쿼리를 다시 시작할 수 있는 위치에 대 한 "책갈피"입니다. `OFFSET LIMIT`사용 하는 경우 "책갈피"가 없습니다. 쿼리의 다음 페이지를 반환 하려는 경우 처음부터 시작 해야 합니다.
+  
+  문서 전체를 건너뛰고 클라이언트 리소스를 저장 하려는 경우에 `OFFSET LIMIT`를 사용 해야 합니다. 예를 들어, 1000th 쿼리 결과로 건너뛰려면 결과 1 ~ 999을 볼 필요가 없는 경우 `OFFSET LIMIT`를 사용 해야 합니다. 백 엔드에서는 건너뛴 문서를 포함 하 여 각 문서를 로드 하는 `OFFSET LIMIT`. 성능 이점은 불필요 한 문서 처리를 방지 하 여 클라이언트 리소스를 절약 하는 것입니다.
 
 ## <a name="examples"></a>예시
 

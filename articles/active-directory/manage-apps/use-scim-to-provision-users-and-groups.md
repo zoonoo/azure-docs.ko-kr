@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a6ad3e91b6826680eb8bcc9da4fc9d1cee37564c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 2c2f0abeab31fc64fceb10bf17ef90924efefa22
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711621"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841219"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -237,7 +237,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-user"></a>사용자 가져오기
 
 ###### <a name="request-1"></a>요구
-*/Users/5d48a0a8e9f04aa38008 가져오기* 
+*GET /Users/5d48a0a8e9f04aa38008* 
 
 ###### <a name="response-1"></a>응답 (사용자 찾음)
 *HTTP/1.1 200 정상*
@@ -285,7 +285,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-2"></a>요구
 
-*GET/사용자? filter = userName eq "Test_User_dfeef4c5-5681 -4387-b016-bdf221e82081"*
+*GET /Users?filter=userName eq "Test_User_dfeef4c5-5681-4387-b016-bdf221e82081"*
 
 ##### <a name="response-2"></a>응답이
 
@@ -496,7 +496,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-6"></a>요구
 
-*DELETE /Users/5171a35d82074e068ce2 HTTP/1.1*
+*/Users/5171a35d82074e068ce2 HTTP/1.1 삭제*
 
 ##### <a name="response-6"></a>응답이
 
@@ -513,7 +513,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-7"></a>요구
 
-*POST/Groups HTTP/1.1*
+*POST /Groups HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:Group", "http://schemas.microsoft.com/2006/11/ResourceManagement/ADSCIM/2.0/Group"],
@@ -548,7 +548,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-8"></a>요구
 
-*GET/Groups/40734ae655284ad3abcc? excludedAttributes = members HTTP/1.1*
+*GET /Groups/40734ae655284ad3abcc?excludedAttributes=members HTTP/1.1*
 
 ##### <a name="response-8"></a>응답이
 *HTTP/1.1 200 정상*
@@ -569,7 +569,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 #### <a name="get-group-by-displayname"></a>DisplayName by displayName 가져오기
 
 ##### <a name="request-9"></a>요구
-*/Groups? excludedAttributes = members & filter = displayName eq "displayName" HTTP/1.1*
+*GET /Groups?excludedAttributes=members&filter=displayName eq "displayName" HTTP/1.1*
 
 ##### <a name="response-9"></a>응답이
 
@@ -619,7 +619,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-11"></a>요구
 
-*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -642,7 +642,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 ##### <a name="request-12"></a>요구
 
-*PATCH/Groups/a99962b9f99d4c4fac67 HTTP/1.1*
+*PATCH /Groups/a99962b9f99d4c4fac67 HTTP/1.1*
 ```json
 {
     "schemas": ["urn:ietf:params:scim:api:messages:2.0:PatchOp"],
@@ -1375,6 +1375,8 @@ SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정�
 *  토큰 교환 URL: 일반적으로 클라이언트 인증을 사용 하 여 액세스 토큰에 대 한 권한 부여를 교환 하기 위해 클라이언트에서 사용 하는 URL입니다.
 *  클라이언트 ID: 권한 부여 서버는 클라이언트에서 제공 하는 등록 정보를 나타내는 고유한 문자열인 클라이언트 식별자 인 등록 된 클라이언트를 발급 합니다.  클라이언트 식별자가 비밀이 아닙니다. 리소스 소유자에 게 노출 되며 클라이언트 인증에 단독으로 사용 하면 **안** 됩니다.  
 *  클라이언트 암호: 클라이언트 암호는 권한 부여 서버에서 생성 하는 암호입니다. 권한 부여 서버에만 알려진 고유한 값 이어야 합니다. 
+
+OAuth v1은 클라이언트 암호의 노출 때문에 지원 되지 않습니다. OAuth v2가 지원 됩니다.  
 
 모범 사례 (권장 되지만 필수는 아님):
 * 여러 리디렉션 Url을 지원 합니다. 관리자는 "portal.azure.com" 및 "aad.portal.azure.com" 모두에서 프로 비전을 구성할 수 있습니다. 여러 리디렉션 Url을 지원 하기 때문에 사용자가 두 포털에서 액세스 권한을 부여할 수 있습니다.

@@ -15,36 +15,36 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: f857cfabfcacc5bb11e152a53fddee612c63d75b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 88062c2134600d5b1460858c3799cfc8daa83744
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702439"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775222"
 ---
 # <a name="daemon-app-that-calls-web-apis---code-configuration"></a>웹 Api를 호출 하는 디먼 앱-코드 구성
 
 웹 Api를 호출 하는 디먼 응용 프로그램에 대 한 코드를 구성 하는 방법을 알아봅니다.
 
-## <a name="msal-libraries-supporting-daemon-apps"></a>디먼 앱을 지 원하는 MSAL 라이브러리
+## <a name="msal-libraries-that-support-daemon-apps"></a>디먼 앱을 지 원하는 MSAL 라이브러리
 
-디먼 앱을 지 원하는 Microsoft 라이브러리는 다음과 같습니다.
+이러한 Microsoft 라이브러리는 디먼 앱을 지원 합니다.
 
   MSAL 라이브러리 | Description
   ------------ | ----------
-  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | 디먼 응용 프로그램을 빌드하는 데 지원 되는 플랫폼은 .NET Framework 및 .NET Core 플랫폼 (UWP, Xamarin.ios 및 Xamarin이 아님, 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되는 플랫폼)입니다.
-  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Python에서 디먼 응용 프로그램 지원
-  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Java에서 디먼 응용 프로그램 지원
+  ![MSAL.NET](media/sample-v2-code/logo_NET.png) <br/> MSAL.NET  | .NET Framework 및 .NET Core 플랫폼은 디먼 응용 프로그램을 빌드할 때 지원 됩니다. (UWP, Xamarin.ios 및 Xamarin.ios는 공용 클라이언트 응용 프로그램을 빌드하는 데 사용 되기 때문에 지원 되지 않습니다.)
+  ![Python](media/sample-v2-code/logo_python.png) <br/> MSAL Python | Python에서 디먼 응용 프로그램 지원.
+  ![Java](media/sample-v2-code/logo_java.png) <br/> MSAL Java | Java에서 데몬 응용 프로그램 지원.
 
-## <a name="configuration-of-the-authority"></a>인증 기관 구성
+## <a name="configure-the-authority"></a>인증 기관 구성
 
-디먼 응용 프로그램은 위임 된 사용 권한을 사용 하지 않지만 응용 프로그램 사용 권한은 *지원* 되는 계정 유형은 *조직 디렉터리와 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의*계정일 수 없습니다. 실제로 Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 부여 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
+디먼 응용 프로그램은 위임 된 권한 대신 응용 프로그램 사용 권한을 사용 합니다. 따라서 지원 되는 계정 유형은 조직 디렉터리 또는 개인 Microsoft 계정 (예: Skype, Xbox, Outlook.com)의 계정일 수 없습니다. Microsoft 개인 계정의 디먼 응용 프로그램에 대 한 동의를 허용 하는 테 넌 트 관리자가 없습니다. 조직 *에서* *계정이* 나 계정을 선택 해야 합니다.
 
 따라서 응용 프로그램 구성에 지정 된 기관은 테 넌 트 (조직에 연결 된 테 넌 트 ID 또는 도메인 이름을 지정)로 지정 해야 합니다.
 
-ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우 `organizations`를 사용할 수 있습니다. 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant) 을 참조 하세요. 또한 현재 MSAL에는 제한 사항이 있습니다. `organizations`는 클라이언트 자격 증명이 인증서가 아닌 응용 프로그램 암호 인 경우에만 허용 됩니다.
+ISV 이며 다중 테 넌 트 도구를 제공 하려는 경우 `organizations`를 사용할 수 있습니다. 하지만 관리자 동의를 부여 하는 방법에 대해서도 설명 해야 합니다. 자세한 내용은 [전체 테 넌 트에 대 한 동의 요청](v2-permissions-and-consent.md#requesting-consent-for-an-entire-tenant)을 참조 하세요. 또한 현재 MSAL에는 제한이 있습니다. 클라이언트 자격 증명이 인증서가 아닌 응용 프로그램 암호 인 경우에만 `organizations` 허용 됩니다.
 
-## <a name="application-configuration-and-instantiation"></a>응용 프로그램 구성 및 인스턴스화
+## <a name="configure-and-instantiate-the-application"></a>응용 프로그램 구성 및 인스턴스화
 
 MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증서)은 기밀 클라이언트 응용 프로그램 생성의 매개 변수로 전달 됩니다.
 
@@ -55,9 +55,9 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 
 구성 파일은 다음을 정의 합니다.
 
-- 권한 또는 클라우드 인스턴스와 tenantId
-- 응용 프로그램 등록에서 가져온 ClientID
-- 클라이언트 암호 또는 인증서
+- 권한 또는 클라우드 인스턴스 및 테 넌 트 ID입니다.
+- 응용 프로그램 등록에서 가져온 클라이언트 ID입니다.
+- 클라이언트 암호 또는 인증서 중 하나입니다.
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -73,7 +73,7 @@ MSAL 라이브러리에서 클라이언트 자격 증명 (암호 또는 인증�
 }
 ```
 
-ClientSecret 또는 certificateName을 제공 합니다. 두 설정은 모두 배타적입니다.
+`ClientSecret` 또는 `CertificateName`를 제공 합니다. 이러한 설정은 배타적입니다.
 
 # <a name="pythontabpython"></a>[Python](#tab/python)
 
@@ -104,7 +104,7 @@ ClientSecret 또는 certificateName을 제공 합니다. 두 설정은 모두 �
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-다음은 샘플을 구성 하기 위해 MSAL Java dev 샘플에서 사용 되는 클래스입니다. [TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java).
+[TestData](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/public-client/TestData.java) 는 Msal Java dev 샘플을 구성 하는 데 사용 되는 클래스입니다.
 
 ```Java
 public class TestData {
@@ -118,12 +118,11 @@ public class TestData {
 
 ---
 
-### <a name="instantiation-of-the-msal-application"></a>MSAL 응용 프로그램 인스턴스화
+### <a name="instantiate-the-msal-application"></a>MSAL 응용 프로그램 인스턴스화
 
-MSAL 응용 프로그램을 인스턴스화하려면 다음을 수행 해야 합니다.
+MSAL 응용 프로그램을 인스턴스화하려면 MSAL 패키지 (언어에 따라)를 추가, 참조 또는 가져와야 합니다.
 
-- MSAL 패키지 추가, 참조 또는 가져오기 (언어에 따라 다름)
-- 그런 다음 클라이언트 암호 또는 인증서를 사용 하는 경우 (또는 고급 시나리오로 서명 된 어설션으로)에 따라 구성이 달라 집니다.
+클라이언트 암호 또는 인증서를 사용 하는지 여부에 따라 구성이 달라 집니다 (또는 고급 시나리오로 서명 된 어설션).
 
 #### <a name="reference-the-package"></a>패키지 참조
 
@@ -133,7 +132,7 @@ MSAL 응용 프로그램을 인스턴스화하려면 다음을 수행 해야 합
 
 [IdentityClient](https://www.nuget.org/packages/Microsoft.Identity.Client) NuGet 패키지를 응용 프로그램에 추가 합니다.
 MSAL.NET에서 기밀 클라이언트 응용 프로그램은 `IConfidentialClientApplication` 인터페이스로 표시 됩니다.
-소스 코드에서 MSAL.NET 네임 스페이스 사용
+소스 코드에서 MSAL.NET 네임 스페이스를 사용 합니다.
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -157,7 +156,7 @@ import com.microsoft.aad.msal4j.IAuthenticationResult;
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-secrets"></a>클라이언트 암호를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="instantiate-the-confidential-client-application-with-a-client-secret"></a>클라이언트 암호를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
 클라이언트 암호를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 코드는 다음과 같습니다.
 
@@ -175,7 +174,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential=config["secret"],
@@ -197,7 +196,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="instantiate-the-confidential-client-application-with-client-certificate"></a>클라이언트 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="instantiate-the-confidential-client-application-with-a-client-certificate"></a>클라이언트 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
 인증서를 사용 하 여 응용 프로그램을 빌드하는 코드는 다음과 같습니다.
 
@@ -216,7 +215,7 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
@@ -228,12 +227,12 @@ app = msal.ConfidentialClientApplication(
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-MSAL에서 Java는 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 두 가지 빌더가 있습니다.
+MSAL Java에는 인증서를 사용 하 여 기밀 클라이언트 응용 프로그램을 인스턴스화하는 두 가지 빌더가 있습니다.
 
 ```Java
 
-InputStream pkcs12Certificate = ... ; /* containing PCKS12 formatted certificate*/
-string certificatePassword = ... ;    /* contains the password to access the certificate */
+InputStream pkcs12Certificate = ... ; /* Containing PCKS12-formatted certificate*/
+string certificatePassword = ... ;    /* Contains the password to access the certificate */
 
 ConfidentialClientApplication app = ConfidentialClientApplication.builder(
         TestData.CONFIDENTIAL_CLIENT_ID,
@@ -257,7 +256,7 @@ ConfidentialClientApplication app = ConfidentialClientApplication.builder(
 
 ---
 
-#### <a name="advanced-scenario---instantiate-the-confidential-client-application-with-client-assertions"></a>고급 시나리오-클라이언트 어설션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
+#### <a name="advanced-scenario-instantiate-the-confidential-client-application-with-client-assertions"></a>고급 시나리오: 클라이언트 어설션을 사용 하 여 기밀 클라이언트 응용 프로그램 인스턴스화
 
 # <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
 
@@ -268,7 +267,7 @@ MSAL.NET에는 기밀 클라이언트 앱에 서명 된 어설션을 제공 하�
 - `.WithClientAssertion()`
 - `.WithClientClaims()`
 
-`WithClientAssertion`사용 하는 경우 서명 된 JWT를 제공 해야 합니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md) 자세히 설명 되어 있습니다.
+`WithClientAssertion`사용 하는 경우 서명 된 JWT를 제공 해야 합니다. 이 고급 시나리오는 [클라이언트 어설션에](msal-net-client-assertions.md)자세히 설명 되어 있습니다.
 
 ```csharp
 string signedClientAssertion = ComputeAssertion();
@@ -277,8 +276,8 @@ app = ConfidentialClientApplicationBuilder.Create(config.ClientId)
                                           .Build();
 ```
 
-`WithClientClaims`를 사용 하는 경우 MSAL.NET는 Azure AD에서 예상한 클레임 및 전송 하려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 자체적으로 계산 합니다.
-다음은이 작업을 수행 하는 방법에 대 한 코드 조각입니다.
+`WithClientClaims`사용 하는 경우 MSAL.NET는 Azure AD에서 예상한 클레임 및 보내려는 추가 클라이언트 클레임을 포함 하는 서명 된 어설션을 생성 합니다.
+이 코드는 다음을 수행 하는 방법을 보여 줍니다.
 
 ```csharp
 string ipAddress = "192.168.1.2";
@@ -299,7 +298,7 @@ MSAL Python에서이 `ConfidentialClientApplication`의 개인 키로 서명 되
 ```Python
 config = json.load(open(sys.argv[1]))
 
-# Create a preferably long-lived app instance which maintains a token cache.
+# Create a preferably long-lived app instance that maintains a token cache.
 app = msal.ConfidentialClientApplication(
     config["client_id"], authority=config["authority"],
     client_credential={"thumbprint": config["thumbprint"], "private_key": open(config['private_key_file']).read()},
@@ -310,7 +309,7 @@ app = msal.ConfidentialClientApplication(
     )
 ```
 
-자세한 내용은 MSAL Python의 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)참조 설명서를 참조 하세요.
+자세한 내용은 [ConfidentialClientApplication](https://msal-python.readthedocs.io/en/latest/#msal.ClientApplication.__init__)에 대 한 Msal Python 참조 설명서를 참조 하세요.
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 

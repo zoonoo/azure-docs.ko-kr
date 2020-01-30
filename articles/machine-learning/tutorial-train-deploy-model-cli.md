@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: f920df20a8dc1cace76f641ce1c71f9b91a30bf4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 70253e66903916bde05f9e6e55e3c0609cb4a146
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867663"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841117"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -246,7 +246,7 @@ az ml dataset register -f dataset.json --skip-validation
 > [!IMPORTANT]
 > 다음 섹션에서 사용 되는 `id` 항목의 값을 복사 합니다.
 
-데이터 집합을 설명 하는 JSON 파일에 대 한 보다 포괄적인 템플릿을 확인 하려면 다음 명령을 사용 합니다.
+데이터 집합에 대 한 보다 포괄적인 템플릿을 보려면 다음 명령을 사용 합니다.
 ```azurecli-interactive
 az ml dataset register --show-template
 ```
@@ -288,7 +288,7 @@ data:
 
 데이터 집합을 등록할 때 반환 되는 값과 일치 하도록 `id` 항목의 값을 변경 합니다. 이 값은 학습 중에 계산 대상으로 데이터를 로드 하는 데 사용 됩니다.
 
-이 YAML은 다음을 수행 합니다.
+이 YAML은 학습 중에 다음 작업을 수행 합니다.
 
 * 학습 환경에서 데이터 집합의 ID를 기반으로 데이터 집합을 탑재 하 고 `mnist` 환경 변수에 탑재 지점에 대 한 경로를 저장 합니다.
 * `--data-folder` 인수를 사용 하 여 학습 환경 내에 있는 데이터 (탑재 지점)의 위치를 스크립트에 전달 합니다.
@@ -298,7 +298,7 @@ data:
 > [!TIP]
 > .Runconfig 파일을 수동으로 만들 수 있지만이 예의 내용은 리포지토리에 포함 된 `generate-runconfig.py` 파일을 사용 하 여 만들었습니다. 이 파일은 등록 된 데이터 집합에 대 한 참조를 가져오고, 프로그래밍 방식으로 실행 구성을 만든 다음, 파일에 유지 합니다.
 
-실행 구성 파일에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)을 참조 하거나이 [JSON 파일](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json) 을 참조 하 여 .runconfig에 대 한 전체 스키마를 확인 합니다.
+실행 구성 파일에 대 한 자세한 내용은 [모델 학습을 위한 계산 대상 설정 및 사용](how-to-set-up-training-targets.md#create-run-configuration-and-submit-run-using-azure-machine-learning-cli)을 참조 하세요. 전체 JSON 참조는 [runconfigschema. json](https://github.com/microsoft/MLOps/blob/b4bdcf8c369d188e83f40be8b748b49821f71cf2/infra-as-code/runconfigschema.json)을 참조 하세요.
 
 ## <a name="submit-the-training-run"></a>학습 실행 제출
 
@@ -379,7 +379,9 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 이 명령은 이전에 등록 한 모델의 버전 1을 사용 하 여 `myservice`라는 새 서비스를 배포 합니다.
 
-`inferenceConfig.yml` 파일은 입력 스크립트 (`score.py`) 및 소프트웨어 종속성과 같은 유추를 수행 하는 방법에 대 한 정보를 제공 합니다. 이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
+`inferenceConfig.yml` 파일은 유추에 모델을 사용 하는 방법에 대 한 정보를 제공 합니다. 예를 들어, 항목 스크립트 (`score.py`) 및 소프트웨어 종속성을 참조 합니다. 
+
+이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
 
 `aciDeploymentConfig.yml`은 서비스를 호스트 하는 데 사용 되는 배포 환경을 설명 합니다. 배포 구성은 배포에 사용 하는 계산 형식에만 적용 됩니다. 이 경우 Azure Container Instance가 사용 됩니다. 자세한 내용은 [배포 구성 스키마](reference-azure-machine-learning-cli.md#deployment-configuration-schema)를 참조 하세요.
 

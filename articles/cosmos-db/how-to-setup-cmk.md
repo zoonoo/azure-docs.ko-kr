@@ -7,17 +7,17 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: c77e89c509f10155ddc27e92f09465959b629f67
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7a77a54dc59ec427bf6abdf8fc1d410533b5be44
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979211"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76771895"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Azure Cosmos 계정에 대 한 고객 관리 키 구성
 
 > [!NOTE]
-> 지금은이 기능을 사용 하기 위해 액세스를 요청 해야 합니다. 이렇게 하려면 [cosmosdbpm@microsoft.com](mailto:cosmosdbpm@microsoft.com)에 문의 하세요.
+> 지금은이 기능을 사용 하기 위해 액세스를 요청 해야 합니다. 이렇게 하려면 [azurecosmosdbcmk@service.microsoft.com](mailto:azurecosmosdbcmk@service.microsoft.com)에 문의 하세요.
 
 Azure Cosmos 계정에 저장 된 데이터는 자동으로 원활 하 게 암호화 됩니다. Azure Cosmos DB는 미사용 데이터를 암호화 하는 데 사용 되는 키를 관리 하는 두 가지 옵션을 제공 합니다.
 

@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 01/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c2b74830463702e7de02d00bcfe88521fce2c803
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: caa7cbed7c56b63bcbf5ad8f287ab6cf32575c15
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932039"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76840301"
 ---
 # <a name="relyingparty"></a>RelyingParty
 
@@ -125,7 +125,7 @@ ms.locfileid: "75932039"
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | 범위 | 예 | Single Sign-On 동작의 범위입니다. 가능한 값은 `Suppressed`, `Tenant`, `Application` 또는 `Policy`입니다. `Suppressed` 값은 동작이 표시되지 않음을 나타냅니다. 예를 들어 Single Sign-On 세션의 경우에는 사용자에 대해 세션이 유지되지 않으며 ID 공급자를 선택하라는 메시지가 항상 사용자에게 표시됩니다. `TrustFramework` 값은 보안 프레임워크의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Tenant` 값은 테넌트의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 테넌트의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Application` 값은 요청을 수행하는 애플리케이션의 모든 정책에 동작이 적용됨을 나타냅니다. 예를 들어 애플리케이션의 두 공용 경험 간을 이동하는 사용자에게는 ID 공급자를 선택하라는 메시지가 표시되지 않습니다. `Policy` 값은 동작이 한 정책에만 적용됨을 나타냅니다. 예를 들어 보안 프레임워크의 두 공용 경험 간을 이동하는 사용자가 정책 간을 전환할 때 ID 공급자를 선택하라는 메시지가 표시됩니다. |
-| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](active-directory-b2c-reference-kmsi-custom.md)를 참조하세요. |
+| KeepAliveInDays | 예 | 사용자가 로그인 상태로 유지되는 기간을 제어합니다. 값을 0으로 설정하면 KMSI 기능이 해제됩니다. 자세한 내용은 [로그인 유지](custom-policy-keep-me-signed-in.md)를 참조하세요. |
 
 ## <a name="journeyinsights"></a>JourneyInsights
 
@@ -140,7 +140,7 @@ ms.locfileid: "75932039"
 | ServerEnabled | 예 | 가능한 값은 `true` 또는 `false`입니다. 값이 `true`인 경우 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 Application Insights에 전송합니다. |
 | TelemetryVersion | 예 | 값은 `1.0.0`여야 합니다. |
 
-자세한 내용은 [로그 수집](active-directory-b2c-troubleshoot-custom.md)을 참조하세요.
+자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요.
 
 ## <a name="contentdefinitionparameters"></a>ContentDefinitionParameters
 
@@ -162,7 +162,7 @@ Azure AD B2C에서 사용자 지정 정책을 사용하면 쿼리 문자열에 �
 | --------- | -------- | ----------- |
 | 이름 | 예 | 키 값 쌍의 이름입니다. |
 
-자세한 내용은 [사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성](active-directory-b2c-ui-customization-custom-dynamic.md)을 참조하세요.
+자세한 내용은 [사용자 지정 정책을 사용하여 동적 콘텐츠로 UI 구성](custom-policy-ui-customization-dynamic.md)을 참조하세요.
 
 ## <a name="technicalprofile"></a>TechnicalProfile
 
