@@ -1,6 +1,6 @@
 ---
 title: 거친 Relocalization
-description: 거칠게 다시 지역화 빠른 시작 가이드.
+description: 정교 하지 않은 재 지역화를 사용 하 여 가까운 앵커를 찾는 방법을 알아봅니다.
 author: bucurb
 manager: dacoghl
 services: azure-spatial-anchors
@@ -8,12 +8,12 @@ ms.author: bobuc
 ms.date: 09/18/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 6143f50b9f1f6738daf3e69d4cc0e00742e1e35a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4c1604eaad1ebdedf6a360a647fe5b9f95c829c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75356346"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844397"
 ---
 # <a name="coarse-relocalization"></a>광역 위치 재결정
 

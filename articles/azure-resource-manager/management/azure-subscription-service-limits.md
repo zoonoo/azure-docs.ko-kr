@@ -3,13 +3,13 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/02/2020
-ms.openlocfilehash: ebfa1139ba0649280634bc0fd18627ba74f0c3cc
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.date: 01/28/2020
+ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294119"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845973"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 한도, 할당량 및 제약 조건
 

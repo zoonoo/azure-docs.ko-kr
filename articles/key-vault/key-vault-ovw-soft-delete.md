@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 89b7dc639a3140f17a62087c5ba0d05fb6df4d7f
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70883142"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845802"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -36,13 +36,21 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 이 기능을 사용할 경우 Key Vault 또는 Key Vault 개체에 대한 DELETE 작업은 일시 삭제로 수행됩니다. 즉, 지정된 보존 기간(90일) 동안 리소스가 유지되며 개체는 삭제된 것으로 표시됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다. 
 
-일시 삭제는 선택적 Key Vault 동작이며, 이 릴리스에서 **기본적으로 사용되지 않습니다**. [CLI](key-vault-soft-delete-cli.md) 또는 [Powershell](key-vault-soft-delete-powershell.md)을 통해 설정할 수 있습니다.
+일시 삭제는 이제 새로 만든 키 자격 증명 모음에 대해 기본적으로 설정 되어 있습니다. [Azure CLI](key-vault-soft-delete-cli.md) 또는 [Azure Powershell](key-vault-soft-delete-powershell.md)을 통해 사용 하지 않도록 설정할 수 있습니다.
+
+기본 보존 기간은 90 일 이지만 보존 정책 간격은 Azure Portal 7 일에서 90 일 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용 합니다. 
+
+키 자격 증명 모음에 대해 일시 삭제가 설정 된 후에는 사용 하지 않도록 설정할 수 없으며 보존 정책 간격은 변경할 수 없습니다. 
+
+보존 기간이 경과 될 때까지 일시 삭제 된 key vault의 이름을 다시 사용할 수 없습니다. 
 
 ### <a name="purge-protection"></a>보호 제거 
 
-보호 제거를 설정 하는 경우 90 일의 보존 기간이 경과할 때까지 삭제 된 상태의 자격 증명 모음 또는 개체를 제거할 수 없습니다. 이러한 자격 증명 모음 및 개체는 계속 복구할 수 있으며, 고객은 보존 정책을 준수 하도록 보장 합니다. 
-
 보호 제거는 선택적 Key Vault 동작으로, **기본적으로 사용 하도록 설정 되어 있지 않습니다**. [CLI](key-vault-soft-delete-cli.md#enabling-purge-protection) 또는 [Powershell](key-vault-soft-delete-powershell.md#enabling-purge-protection)을 통해 설정할 수 있습니다.
+
+보호 제거를 설정 하는 경우 보존 기간이 지날 때까지 삭제 된 상태의 자격 증명 모음 또는 개체를 제거할 수 없습니다. 일시 삭제 된 자격 증명 모음 및 개체는 계속 복구할 수 있으므로 보존 정책이 적용 됩니다. 
+
+기본 보존 기간은 90 일 이지만 보존 정책 간격은 Azure Portal 7 일에서 90 일 사이의 값으로 설정할 수 있습니다. 보존 정책 간격이 설정 되 고 저장 된 후에는 해당 자격 증명 모음에 대해 변경할 수 없습니다. 
 
 ### <a name="permitted-purge"></a>허용된 제거
 
@@ -86,6 +94,6 @@ Key Vault 또는 Key Vault 개체를 복구하지 않으면 보존 간격이 끝
 
 다음 두 가이드는 일시 삭제 사용에 대한 기본 사용 시나리오를 제공합니다.
 
-- [PowerShell로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md) 
-- [CLI로 Key Vault 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)
+- [PowerShell을 사용한 키 자격 증명 모음 일시 삭제를 사용하는 방법](key-vault-soft-delete-powershell.md) 
+- [CLI를 사용한 키 자격 증명 모음 일시 삭제를 사용하는 방법](key-vault-soft-delete-cli.md)
 

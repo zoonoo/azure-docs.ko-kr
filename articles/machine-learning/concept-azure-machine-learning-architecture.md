@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: e3dcd9305a48b0d34f1bcbea64d6628efabc1235
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8e1f144fdf94df445fb64b9b489cba1e9998f381
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546064"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845625"
 ---
 # <a name="how-azure-machine-learning-works-architecture-and-concepts"></a>Azure Machine Learning 작동 방법: 아키텍처 및 개념
 
@@ -85,7 +85,7 @@ Azure Machine Learning 다음 도구를 사용 합니다.
 ### <a name="compute-instance"></a>계산 인스턴스 (미리 보기)
 
 > [!NOTE]
-> 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다. 
 
 **Azure Machine Learning 계산 인스턴스** (이전의 노트북 VM)는 기계 학습을 위해 설치 된 여러 도구 및 환경을 포함 하는 완전히 관리 되는 클라우드 기반 워크스테이션입니다. 계산 인스턴스는 학습 및 추론 작업에 대 한 계산 대상으로 사용할 수 있습니다. 대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [계산 클러스터 Azure Machine Learning](how-to-set-up-training-targets.md#amlcompute) 계산 대상이 더 나은 선택입니다.

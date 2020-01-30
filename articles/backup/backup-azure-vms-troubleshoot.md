@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure 가상 컴퓨터의 백업 및 복원에�
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 08/30/2019
-ms.openlocfilehash: 9828309b080f5831a073fb7c5149455dc649fa13
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 6baf878a1afac011997800b78f059e254e3f2a06
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513799"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845539"
 ---
 # <a name="troubleshooting-backup-failures-on-azure-virtual-machines"></a>Azure 가상 머신에서 백업 오류 문제 해결
 
@@ -278,6 +278,6 @@ VM 백업은 기본 스토리지에 대한 스냅샷 명령 실행을 사용합�
 IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. 고정 프라이빗 IP가 필요한 경우 Azure Portal 또는 PowerShell을 통해 구성합니다. VM 내 DHCP 옵션이 활성화되었는지 확인합니다.
 PowerShell을 통해 고정 IP를 설정하는 방법에 대한 자세한 정보를 가져옵니다.
 
-* [기존 VM에 고정 내부 IP를 추가하는 방법](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
+* [기존 VM에 고정 내부 IP를 추가하는 방법](/previous-versions/azure/virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)
 * [네트워크 인터페이스에 할당된 개인 IP 주소의 할당 방법 변경](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface)
 

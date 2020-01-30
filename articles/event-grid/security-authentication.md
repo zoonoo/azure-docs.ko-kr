@@ -8,12 +8,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 05/22/2019
 ms.author: babanisa
-ms.openlocfilehash: dfa53acaf392e225873a40b05b8517de2f9780dc
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: e8913c1f198c89bdcd779d2faf2706f9d4079c5c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74169571"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846299"
 ---
 # <a name="event-grid-security-and-authentication"></a>Event Grid 보안 및 인증 
 
@@ -85,9 +85,9 @@ SubscriptionValidationEvent 예가 다음 예제에 나와 있습니다.
 }
 ```
 
-HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락 됨은 올바른 Event Grid 구독 유효성 검사 응답으로 인식 되지 않습니다. Http 요청은 30 초 내에 완료 되어야 합니다. 작업이 30 초 내에 완료 되지 않으면 작업이 취소 되 고 5 초 후에 다시 시도 될 수 있습니다. 모든 시도가 실패 하면 유효성 검사 핸드셰이크 오류로 처리 됩니다.
+HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락은 유효한 Event Grid 구독 유효성 검사 응답으로 인식되지 않습니다. Http 요청은 30 초 내에 완료 되어야 합니다. 작업이 30 초 내에 완료 되지 않으면 작업이 취소 되 고 5 초 후에 다시 시도 될 수 있습니다. 모든 시도가 실패 하면 유효성 검사 핸드셰이크 오류로 처리 됩니다.
 
-또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 중 상태로 유지 됩니다. 유효성 검사 Url은 포트 553를 사용 합니다. 방화벽 규칙이 포트 553를 차단할 경우 성공적인 수동 핸드셰이크를 위해 규칙을 업데이트 해야 할 수 있습니다.
+또는 유효성 검사 URL에 GET 요청을 수동으로 전송하여 구독이 유효한지 수동으로 검사할 수 있습니다. 이벤트 구독은 유효성을 검사할 때까지 보류 상태로 유지됩니다. 유효성 검사 Url은 포트 553를 사용 합니다. 방화벽 규칙이 포트 553를 차단할 경우 성공적인 수동 핸드셰이크를 위해 규칙을 업데이트 해야 할 수 있습니다.
 
 구독 유효성 검사 핸드셰이크 처리 예제를 보려면 [C# 샘플](https://github.com/Azure-Samples/event-grid-dotnet-publish-consume-events/blob/master/EventGridConsumer/EventGridConsumer/Function1.cs)을 참조하세요.
 
@@ -95,7 +95,7 @@ HTTP 200 정상 응답 상태 코드를 반환해야 합니다. HTTP 202 수락 
 
 이벤트 구독을 만드는 동안 "제공 된 끝점의 유효성을 검사 하는 데 실패 했습니다. https:\// 자세한 내용은 https:\//aka.ms/esvalidation "를 참조 하세요 .이는 유효성 검사 핸드셰이크에 오류가 있음을 나타냅니다. 이 오류를 해결하려면 다음과 같은 측면을 확인합니다.
 
-* 대상 엔드포인트에서 애플리케이션 코드를 제어할 수 있습니까? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 애플리케이션 코드에 액세스할 수 있습니까?
+* 대상 끝점에서 실행 되는 응용 프로그램 코드를 제어 하나요? 예를 들어, HTTP 트리거 기반 Azure Function을 작성하는 경우 이를 변경하기 위해 애플리케이션 코드에 액세스할 수 있습니까?
 * 애플리케이션 코드에 액세스할 수 있는 경우 위의 샘플에서와 같이 ValidationCode 기반 핸드셰이크 메커니즘을 구현하세요.
 
 * 애플리케이션 코드에 액세스할 수 없는 경우(예: 웹후크를 지원하는 타사 서비스를 사용하는 경우), 수동 핸드셰이크 메커니즘을 사용할 수 있습니다. 2018-05-01-미리 보기 API 버전 이상(Event Grid Azure CLI 확장 설치)을 사용하여 유효성 검사 이벤트에서 validationUrl을 수신했는지 확인합니다. 수동 유효성 검사 핸드셰이크를 완료하려면 `validationUrl` 속성의 값을 가져오고 웹 브라우저에서 해당 URL을 방문합니다. 유효성 검사에 성공하는 경우 유효성 검사가 성공했다는 메시지가 웹 브라우저에 표시됩니다. 해당 이벤트 구독의 프로비저닝 상태가 “성공”이라고 표시됩니다. 
@@ -348,6 +348,10 @@ Event Grid는 이벤트 구독을 관리하기 위한 두 가지 기본 제공 �
 ```
 
 [PowerShell](../role-based-access-control/custom-roles-powershell.md), [Azure CLI](../role-based-access-control/custom-roles-cli.md) 및 [REST](../role-based-access-control/custom-roles-rest.md)를 사용하여 사용자 지정 역할을 만들 수 있습니다.
+
+## <a name="encryption-at-rest"></a>휴지 상태의 암호화
+
+Event Grid 서비스에서 디스크에 기록 하는 모든 이벤트 또는 데이터는 Microsoft에서 관리 하는 키로 암호화 되어 암호화 된 상태로 유지 됩니다. 또한 이벤트 또는 데이터가 유지 되는 최대 기간은 [Event Grid 재시도 정책을](delivery-and-retry.md)준수 하 여 24 시간입니다. Event Grid는 24 시간 후에 모든 이벤트 또는 데이터를 자동으로 삭제 하 고, 이벤트의 ttl (time to live) 중 더 작은 값을 자동으로 삭제 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

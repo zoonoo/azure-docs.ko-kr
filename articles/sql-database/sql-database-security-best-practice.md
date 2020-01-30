@@ -6,14 +6,14 @@ ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 12/23/2019
+ms.date: 01/22/2020
 ms.reviewer: ''
-ms.openlocfilehash: 82297850bf6d03215963a1f81dda166550f2b0d5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715188"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845875"
 ---
 # <a name="azure-sql-database-security-best-practices-playbook"></a>Azure SQL Database 보안 모범 사례 플레이 북
 
@@ -103,10 +103,10 @@ ms.locfileid: "76715188"
 > - Azure에 부여 된 RBAC 권한은 Azure SQL DB 권한에 적용 되지 않습니다. 이러한 권한은 기존 SQL 사용 권한을 사용 하 여 SQL DB에서 수동으로 만들거나 매핑해야 합니다.
 > - 클라이언트 쪽 Azure AD 인증에는 VNet에 대 한 인터넷 또는 UDR (사용자 정의 경로)을 통해 액세스 해야 합니다.
 > - Azure AD 액세스 토큰은 클라이언트 쪽에서 캐시 되 고 수명은 토큰 구성에 따라 달라 집니다. [Azure Active Directory에서 구성 가능한 토큰 수명](../active-directory/develop/active-directory-configurable-token-lifetimes.md) 문서를 참조 하세요.
+> - Azure AD 인증 문제를 해결 하는 방법에 대 한 지침은 다음 블로그를 참조 하세요 <https://techcommunity.microsoft.com/t5/azure-sql-database/troubleshooting-problems-related-to-azure-ad-authentication-with/ba-p/1062991>
 
 ### <a name="multi-factor-authentication-mfa"></a>MFA(Multi-Factor Authentication)
 
-> [!NOTE]
 > 설명: OSA 사례 #2, ISO Access Control (AC)
 
 MFA (Azure Multi-Factor Authentication)는 둘 이상의 인증 형태를 요구 하 여 추가 보안을 제공 합니다.
@@ -143,7 +143,6 @@ MFA (Azure Multi-Factor Authentication)는 둘 이상의 인증 형태를 요구
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-users"></a>사용자에 대 한 암호 기반 인증 사용 최소화
 
-> [!NOTE]
 > 설명: OSA 사례 #4, ISO Access Control (AC)
 
 암호 기반 인증 방법은 더 약한 형태의 인증입니다. 자격 증명이 손상 되거나 실수로 제공 될 수 있습니다.
@@ -159,7 +158,6 @@ MFA (Azure Multi-Factor Authentication)는 둘 이상의 인증 형태를 요구
 
 ### <a name="minimize-the-use-of-password-based-authentication-for-applications"></a>응용 프로그램에 대 한 암호 기반 인증 사용 최소화 
 
-> [!NOTE]
 > 설명: OSA 사례 #4, ISO Access Control (AC)
 
 **구현 방법**:
@@ -217,7 +215,6 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 ### <a name="implement-principle-of-least-privilege"></a>최소 권한의 원칙 구현
 
-> [!NOTE]
 > 설명: FedRamp controls AC-06, NIST: AC-6, OSA 연습 #3
 
 최소 권한의 원칙에 따라 사용자에 게 작업을 완료 하는 데 필요한 것 보다 많은 권한이 부여 되는 것은 아닙니다. 자세한 내용은 [충분 한 관리](https://docs.microsoft.com/powershell/scripting/learn/remoting/jea/overview)문서를 참조 하세요.
@@ -276,10 +273,9 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 ### <a name="implement-separation-of-duties"></a>의무 분리 구현
 
-> [!NOTE]
 > 설명: FedRamp: AC-04, NIST: AC-5, ISO: 6.1.2, PCI 6.4.2, SOC: CM-3, SDL-3
 
-의무의 분리 (분리 라고도 함)는 중요 한 작업을 여러 사용자에 게 할당 된 여러 작업으로 분할 하 여 데이터 위반을 방지 하는 요구 사항을 설명 합니다.
+의무의 분리 (분리 라고도 함)는 중요 한 작업을 여러 사용자에 게 할당 된 여러 작업으로 분할 하기 위한 요구 사항을 설명 합니다. 의무를 분리 하면 데이터 위반을 방지할 수 있습니다.
 
 **구현 방법**:
 
@@ -295,7 +291,7 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
   - 관리 되는 인스턴스에서 서버 차원의 태스크 (새 로그인, 데이터베이스 만들기)에 대 한 서버 역할을 만듭니다. 
   - 데이터베이스 수준 태스크에 대 한 데이터베이스 역할을 만듭니다.
 
-- 중요 한 특정 작업의 경우 사용자 대신 작업을 실행 하기 위해 인증서로 서명 된 특수 저장 프로시저를 만드는 것이 좋습니다. 
+- 특정 한 중요 한 태스크의 경우 인증서로 서명 된 특수 저장 프로시저를 만들어 사용자를 대신 하 여 작업을 실행 하는 것이 좋습니다. 
   - 예: [자습서: 인증서로 저장 프로시저 서명](https://docs.microsoft.com/sql/relational-databases/tutorial-signing-stored-procedures-with-a-certificate) 
 
 - Azure Key Vault에서 고객 관리 키를 사용 하 여 TDE (투명한 데이터 암호화)를 구현 하 여 데이터 소유자와 보안 소유자 간에 업무를 분리할 수 있습니다. 
@@ -326,9 +322,9 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 - 기본 제공 RBAC 역할의 정의를 검색 하 여 사용 되는 사용 권한을 확인 하 고, Powershell을 통해 이러한 항목의 발췌 및 cumulations을 기반으로 사용자 지정 역할을 만들 수 있습니다. 
 
-- Db_owner 데이터베이스 역할의 멤버는 TDE (투명한 데이터 암호화)와 같은 보안 설정을 변경 하거나 SLO를 변경할 수 있으므로이 멤버 자격은 신중 하 게 부여 되어야 합니다. 반면 DB 옵션 변경 등의 데이터베이스 설정을 변경 하는 등의 많은 작업에는 db_owner 권한이 필요 합니다. 감사는 모든 솔루션에서 주요 역할을 수행 합니다.
+- Db_owner 데이터베이스 역할의 멤버는 TDE (투명한 데이터 암호화)와 같은 보안 설정을 변경 하거나 SLO를 변경할 수 있으므로이 멤버 자격은 신중 하 게 부여 되어야 합니다. 그러나 db_owner 권한이 필요한 많은 태스크가 있습니다. DB 옵션 변경 등의 데이터베이스 설정을 변경 하는 것과 같은 작업입니다. 감사는 모든 솔루션에서 주요 역할을 수행 합니다.
 
-- Db_owner를 사용 하 여 사용 권한만 있는 사용자 데이터를 볼 수는 없습니다. 데이터베이스에 매우 중요 한 데이터가 있는 경우 Always Encrypted를 사용 하 여 db_owners 또는 다른 DBA가 해당 데이터를 볼 수 없도록 방지할 수 있습니다.
+- Db_owner 권한을 제한 하 여 관리 계정이 사용자 데이터를 볼 수 없도록 할 수는 없습니다. 데이터베이스에 매우 중요 한 데이터가 있는 경우 Always Encrypted를 사용 하 여 db_owners 또는 다른 DBA가 해당 데이터를 볼 수 없도록 방지할 수 있습니다.
 
 > [!NOTE]
 > 의무를 분리 하는 것은 보안 관련 작업 또는 문제 해결 작업에 어려움이 있습니다. 개발 및 최종 사용자 역할과 같은 다른 영역은 더 쉽게 구분할 수 있습니다. 대부분의 호환성 관련 컨트롤을 사용 하면 다른 솔루션이 실용적이 지 않을 때 감사와 같은 대체 제어 기능을 사용할 수 있습니다.
@@ -348,7 +344,6 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 ### <a name="perform-regular-code-reviews"></a>일반 코드 검토 수행
 
-> [!NOTE]
 > 설명: PCI: 6.3.2, SOC: SDL-3 
 
 의무의 분리는 데이터베이스의 데이터로 제한 되지 않지만 응용 프로그램 코드를 포함 합니다. 악의적인 코드는 잠재적으로 보안 제어를 우회할 수 있습니다. 사용자 지정 코드를 프로덕션에 배포 하기 전에 배포 되는 항목을 검토 하는 것이 중요 합니다.
@@ -375,7 +370,7 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 - 검토를 수행 하는 사용자가 코드 검토 및 보안 코딩의 원래 코드 작성자 및 지식 이외의 개인 인지 확인 합니다.
 
-- 코드 변경 내용에 대 한 모든 소스를 알고 있어야 합니다. 코드는 T-sql 스크립트에 있을 수 있습니다. 실행 하거나 보기, 함수, 트리거 및 저장 프로시저의 형태로 배포할 임시 명령 일 수 있습니다. 또한 SSIS 패키지, Azure Data Factory 및 기타 서비스에서 실행 되는 SQL 에이전트 작업 정의 (단계)의 일부일 수 있습니다.
+- 코드 변경 내용에 대 한 모든 소스를 알고 있어야 합니다. 코드는 T-sql 스크립트에 있을 수 있습니다. 실행 하거나 보기, 함수, 트리거 및 저장 프로시저의 형태로 배포할 임시 명령 일 수 있습니다. SQL 에이전트 작업 정의에 포함 될 수 있습니다 (단계). SSIS 패키지, Azure Data Factory 및 기타 서비스 내에서 실행할 수도 있습니다.
 
 ## <a name="data-protection"></a>데이터 보호
 
@@ -387,14 +382,12 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 ### <a name="encrypt-data-in-transit"></a>전송 중인 데이터 암호화
 
-> [!NOTE]
 > 설명: OSA 사례 #6, ISO 컨트롤 제품군: 암호화
 
 클라이언트와 서버 간에 데이터가 이동 하는 동안 데이터를 보호 합니다. [네트워크 보안](#network-security)을 참조 하세요.
 
 ### <a name="encrypt-data-at-rest"></a>미사용 암호화 데이터
 
-> [!NOTE]
 > 설명: OSA 사례 #6, ISO 컨트롤 제품군: 암호화
 
 미사용 데이터 암호화는 데이터베이스, 로그 및 백업 파일에 유지 되는 데이터의 암호화 보호입니다.
@@ -402,7 +395,7 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 **구현 방법**:
 
 - 서비스 관리 키를 사용 하는 [TDE (투명 데이터베이스 암호화](transparent-data-encryption-azure-sql.md) )는 Azure SQL Database에서 2017 이후에 생성 된 모든 데이터베이스에 대해 기본적으로 사용 하도록 설정 됩니다.
-- 관리 되는 인스턴스에서 데이터베이스를 온-프레미스 서버에서 복원 작업의 결과로 만든 경우 원본 데이터베이스의 TDE 설정이 적용 됩니다. 원본 데이터베이스에서 TDE를 사용 하도록 설정 하지 않은 경우 관리 되는 인스턴스에 대해 TDE를 수동으로 설정 하는 것이 좋습니다.
+- 관리 되는 인스턴스에서 데이터베이스가 온-프레미스 서버를 사용 하 여 복원 작업에서 만들어진 경우 원본 데이터베이스의 TDE 설정이 적용 됩니다. 원본 데이터베이스에서 TDE를 사용 하도록 설정 하지 않은 경우 관리 되는 인스턴스에 대해 TDE를 수동으로 설정 하는 것이 좋습니다.
 
 **모범 사례**:
 
@@ -414,42 +407,42 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 ### <a name="protect-sensitive-data-in-use-from-high-privileged-unauthorized-users"></a>권한이 없는 사용자가 사용 하는 중요 한 데이터 보호
 
-사용 중인 데이터는 SQL 쿼리를 실행 하는 동안 데이터베이스 시스템의 메모리에 저장 되는 데이터입니다. 데이터베이스에서 중요 한 데이터를 저장 하는 경우 조직에서 Microsoft 운영자 또는 Dba와 같은 높은 권한이 있는 사용자가 SQL Server 프로세스의 메모리에서 데이터를 추출 하는 것을 방지 하 고이를 수행할 수 없도록 해야 할 수 있습니다. 데이터베이스를 쿼리할 때 일반 텍스트 데이터를 보려면
+사용 중인 데이터는 SQL 쿼리를 실행 하는 동안 데이터베이스 시스템의 메모리에 저장 되는 데이터입니다. 데이터베이스에서 중요 한 데이터를 저장 하는 경우 조직에서는 권한이 높은 사용자가 데이터베이스에서 중요 한 데이터를 볼 수 없도록 해야 할 수 있습니다. 조직의 Microsoft operators 또는 Dba와 같은 높은 권한 사용자는 데이터베이스를 관리할 수 있지만 SQL Server 프로세스의 메모리 또는 데이터베이스를 쿼리하여 중요 한 데이터를 보고 잠재적으로 빼내기 위해 공공 수 없습니다.
 
 **구현 방법**:
 
-- [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 사용 하 여 메모리/사용 시에도 중요 한 데이터가 Azure SQL Database 일반 텍스트로 노출 되지 않도록 합니다. 이를 통해 Dba (데이터베이스 관리자) 및 클라우드 관리자 (또는 권한이 없지만 권한이 없는 사용자를 가장할 수 있는 잘못 된 행위자)의 데이터를 보호 하 고 데이터에 액세스할 수 있는 사용자를 제어할 수 있습니다.
+- [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 사용 하 여 메모리/사용 시에도 중요 한 데이터가 Azure SQL Database 일반 텍스트로 노출 되지 않도록 합니다. Always Encrypted는 Dba (데이터베이스 관리자) 및 클라우드 관리자 (또는 권한이 없지만 권한이 없는 사용자를 가장할 수 있는 잘못 된 행위자)의 데이터를 보호 하 고 데이터에 액세스할 수 있는 사용자를 보다 강력 하 게 제어할 수 있도록 합니다.
 
 **모범 사례**:
 
-- Always Encrypted은 미사용 데이터 (TDE) 또는 전송 중 (SSL/TLS)을 암호화 하는 대체 방법이 아니며, 성능 및 기능 영향을 최소화 하기 위해 중요 하지 않은 데이터에는 사용할 수 없습니다. TDE 및 TLS와 함께 Always Encrypted를 사용 하는 것은 미사용 데이터, 전송 중 및 사용 중인 데이터의 포괄적인 보호에 사용 하는 것이 좋습니다. 
+- Always Encrypted은 미사용 데이터 (TDE) 또는 전송 중 (SSL/TLS)을 대체 하지 않습니다. 성능 및 기능 영향을 최소화 하기 위해 중요 하지 않은 데이터에는 Always Encrypted를 사용할 수 없습니다. TDE 및 TLS (전송 계층 보안)와 함께 Always Encrypted를 사용 하는 것은 미사용 데이터, 전송 중 및 사용 중인 데이터의 포괄적인 보호에 사용 하는 것이 좋습니다. 
 
-- Always Encrypted를 사용 하 여 악의적인 Dba 로부터 데이터를 보호 하는 경우 역할 구분을 사용 하 여 Always Encrypted 키를 관리 합니다. 역할 분리를 사용 하면 보안 관리자가 물리적 키를 만들며 DBA는 데이터베이스의 물리적 키를 설명 하는 열 마스터 키 및 열 암호화 키 메타 데이터 개체를 만듭니다. 이 과정에서 보안 관리자는 데이터베이스에 대 한 액세스가 필요 하지 않으며 DBA는 일반 텍스트의 물리적 키에 액세스할 필요가 없습니다. 
+- Always Encrypted를 사용 하 여 악의적인 Dba 로부터 데이터를 보호 하는 경우 역할 구분을 사용 하 여 Always Encrypted 키를 관리 합니다. 역할 분리를 사용 하면 보안 관리자가 물리적 키를 만듭니다. DBA는 데이터베이스의 물리적 키를 설명 하는 열 마스터 키 및 열 암호화 키 메타 데이터 개체를 만듭니다. 이 과정에서 보안 관리자는 데이터베이스에 대 한 액세스가 필요 하지 않으며 DBA는 일반 텍스트의 물리적 키에 액세스할 필요가 없습니다. 
   - 자세한 내용은 [역할 구분을 사용 하 여 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) 문서를 참조 하세요. 
 
 - 관리를 용이 하 게 하기 위해 Azure Key Vault에 열 마스터 키를 저장 합니다. 키 관리를 지 원하는 Windows 인증서 저장소 (일반적으로 중앙 키 관리 솔루션과 달리 분산 키 저장소 솔루션)를 사용 하지 마십시오. 
 
-- 여러 키 (열 마스터 키 또는 열 암호화 키) 사용의 장단점을 신중 하 게 고려해 야 합니다. 키 관리 비용을 줄이기 위해 키 수를 작게 유지 합니다. 각 사용자 그룹이 서로 다른 키를 사용 하 고 다른 데이터에 액세스 하는 경우를 제외 하 고는 한 열 마스터 키와 데이터베이스당 하나의 열 암호화 키가 일반적으로 키 회전이 아닌 안정적인 상태 환경에서 충분 합니다.  
+- 여러 키 (열 마스터 키 또는 열 암호화 키) 사용의 장단점을 신중 하 게 고려해 야 합니다. 키 관리 비용을 줄이기 위해 키 수를 작게 유지 합니다. 단일 열 마스터 키와 데이터베이스당 하나의 열 암호화 키가 일반적으로 안정적인 상태 환경에서 충분 합니다 (키 회전이 아닌). 각각 서로 다른 키를 사용 하 고 다른 데이터에 액세스 하는 다른 사용자 그룹이 있는 경우 추가 키가 필요할 수 있습니다.  
 
 - 규정 준수 요구 사항에 따라 열 마스터 키를 회전 합니다. 열 암호화 키를 회전 해야 하는 경우 온라인 암호화를 사용 하 여 응용 프로그램 가동 중지 시간을 최소화 하는 것이 좋습니다. 
   - [성능 및 가용성 고려 사항](https://docs.microsoft.com/sql/relational-databases/security/encryption/configure-column-encryption-using-powershell#performance-and-availability-considerations)문서를 참조 하세요. 
 
 - 데이터의 계산 (같음)을 지원 해야 하는 경우 결정적 암호화를 사용 합니다. 그렇지 않으면 임의 암호화를 사용 합니다. 낮은 엔트로피 데이터 집합 또는 공개적으로 알려진 배포가 포함 된 데이터 집합에는 결정적 암호화를 사용 하지 마십시오. 
 
-- 사용자의 동의 없이 제 3 자에 게 데이터에 액세스 하는 것에 관심이 있는 경우 일반 텍스트의 키 및 데이터에 대 한 액세스 권한이 있는 모든 응용 프로그램 및 도구가 Microsoft Azure 클라우드 외부에서 실행 되도록 합니다. 키에 대 한 액세스 권한이 없으면 제 3 자가 암호화를 우회 하지 않는 한 데이터를 암호 해독할 수 없습니다.
+- 동의 없이 데이터에 액세스 하는 제 3 자에 대해 염려 하는 경우 일반 텍스트의 키 및 데이터에 대 한 액세스 권한이 있는 모든 응용 프로그램 및 도구가 Microsoft Azure 클라우드 외부에서 실행 되도록 합니다. 키에 대 한 액세스 권한이 없으면 제 3 자가 암호화를 우회 하지 않는 한 데이터를 암호 해독할 수 없습니다.
 
-- Always Encrypted는 키 및 보호 된 데이터에 대 한 임시 액세스 권한을 부여 하는 것을 쉽게 지원 하지 않습니다. 예를 들어 dba와 키를 공유 해야 하는 경우 dba가 중요 하 고 암호화 된 데이터에 대 한 정리 작업을 수행할 수 있도록 하기 위해 dba의 데이터에 대 한 액세스를 안정성 취소 하는 유일한 방법은 열 암호화 키와 열를 모두 회전 하는 것입니다. mn 마스터 키는 데이터를 보호 하는 데 비용이 많이 드는 작업입니다. 
+- Always Encrypted는 키 및 보호 된 데이터에 대 한 임시 액세스 권한을 부여 하는 것을 쉽게 지원 하지 않습니다. 예를 들어 dba와 키를 공유 하 여 DBA가 중요 하 고 암호화 된 데이터에 대해 일부 정리 작업을 수행할 수 있도록 해야 하는 경우. DBA에서 데이터에 대 한 액세스를 취소 하는 유일한 방법은 데이터를 보호 하는 열 암호화 키와 열 마스터 키를 모두 순환 하는 것입니다 .이는 비용이 많이 드는 작업입니다. 
 
-- 암호화 된 열에서 일반 텍스트 값에 액세스 하려면 cmk를 포함 하는 키 저장소에 구성 된 열을 보호 하는 CMK에 대 한 액세스 권한이 있어야 합니다. 또한 사용자에 게 VIEW ANY COLUMN MASTER KEY DEFINITION 및 VIEW ANY COLUMN ENCRYPTION KEY DEFINITION database 권한이 있어야 합니다.
+- 암호화 된 열에서 일반 텍스트 값에 액세스 하려면 사용자가 CMK를 보유 하는 키 저장소에 구성 된 열을 보호 하는 CMK에 대 한 액세스 권한이 있어야 합니다. 또한 사용자에 게 **VIEW ANY COLUMN MASTER KEY definition** 및 **VIEW ANY COLUMN ENCRYPTION key definition** database 권한이 있어야 합니다.
 
 ### <a name="control-access-of-application-users-to-sensitive-data-through-encryption"></a>암호화를 통해 중요 한 데이터에 대 한 응용 프로그램 사용자의 액세스 제어
 
-암호화는 암호화 키에 대 한 액세스 권한이 있고 데이터를 보거나 업데이트할 수 있는 특정 응용 프로그램 사용자만을 보장 하는 방법으로 사용할 수 있습니다.
+암호화는 암호화 키에 대 한 액세스 권한이 있는 특정 응용 프로그램 사용자만 데이터를 보거나 업데이트할 수 있도록 하는 방법으로 사용할 수 있습니다.
 
 **구현 방법**:
 
 - CLE (셀 수준 암호화)를 사용 합니다. 자세한 내용은 [데이터 열 암호화](https://docs.microsoft.com/sql/relational-databases/security/encryption/encrypt-a-column-of-data) 문서를 참조 하세요. 
-- 또는 Always Encrypted를 사용 하는 것이 좋습니다. 단, 아래에 나열 된 제한 사항을 알고 있어야 합니다.
+- Always Encrypted를 사용 하지만 제한 사항을 알고 있어야 합니다. 제한 사항은 다음과 같습니다.
 
 **모범 사례**
 
@@ -464,11 +457,9 @@ CLE를 사용 하는 경우:
 - 내보내기/가져오기 (bacpac 파일)를 통해 셀 수준 암호화를 사용 하 여 데이터베이스를 마이그레이션할 때는 주의 해야 합니다. 
   - 데이터를 마이그레이션할 때 키 손실을 방지 하는 방법에 대 한 [Azure SQL Database에서 셀 수준 암호화 사용에 대 한 권장 사항](https://blogs.msdn.microsoft.com/sqlsecurity/2015/05/12/recommendations-for-using-cell-level-encryption-in-azure-sql-database/) 및 기타 모범 사례 지침을 참조 하세요.
 
-Always Encrypted를 사용 하는 경우 Azure SQL Database의 높은 권한 사용자가 사용 하는 중요 한 데이터를 보호 하기 위해 Always Encrypted 주로 설계 되어 있습니다 (클라우드 운영자, Dba). 권한이 [높은 권한이 없는 사용자의 중요 한 데이터 보호](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)를 참조 하세요. Always Encrypted를 사용 하 여 응용 프로그램 사용자 로부터 데이터를 보호 하는 경우 다음과 같은 문제를 고려해 야 합니다.
+Always Encrypted는 주로 Azure SQL Database (클라우드 연산자, Dba)의 높은 권한 사용자가 사용 하는 중요 한 데이터를 보호 하기 위해 설계 되었습니다. 권한이 [높은 권한이 없는 사용자의 중요 한 데이터 보호](#protect-sensitive-data-in-use-from-high-privileged-unauthorized-users)를 참조 하세요. Always Encrypted를 사용 하 여 응용 프로그램 사용자 로부터 데이터를 보호 하는 경우 다음과 같은 문제를 고려해 야 합니다.
 
-- 열 암호화 키 및 열 마스터 키에 액세스할 수 있는 권한을 사용자에 게 부여 하 여 중요 한 데이터에 대 한 액세스 권한을 사용자에 게 부여 하면 해당 액세스 권한을 안정적으로 취소할 수 있습니다. 열 암호화 키를 회전 해야 합니다 .이 작업은 모든 열을 다시 암호화 합니다. 열 암호화 키는을 보호 합니다. 
-
-- 기본적으로 Always Encrypted를 지 원하는 모든 Microsoft 클라이언트 드라이버는 열 암호화 키의 전역 (응용 프로그램당) 캐시를 유지 관리 합니다. 클라이언트 드라이버에서 열 마스터 키를 포함 하는 키 저장소에 연결 하 여 일반 텍스트 열 암호화 키를 얻은 후에는 일반 텍스트 열 암호화 키가 캐시 되어 다중 사용자 응용 프로그램 사용자의 데이터를 격리 하기가 어려워집니다. 응용 프로그램에서 키 저장소 (예: Azure Key Vault)와 상호 작용할 때 최종 사용자를 가장 하는 경우, 사용자의 쿼리가 열 암호화 키를 사용 하 여 캐시를 채운 후 동일한 키를 필요로 하지만 다른 사용자가 트리거한 후속 쿼리는 캐시 된 키입니다. 드라이버는 키 저장소를 호출 하지 않으며 두 번째 사용자에 게 열 암호화 키에 대 한 액세스 권한이 있는지 확인 하지 않습니다. 따라서 사용자가 키에 액세스할 수 없는 경우에도 사용자가 암호화 된 데이터를 볼 수 있습니다. 다중 사용자 응용 프로그램 내에서 사용자를 격리 하려면 드라이버에서 각 데이터 암호화 또는 암호 해독에 대 한 키 저장소에 연결 해야 하므로 추가 성능 오버 헤드가 발생 하는 열 암호화 키 캐싱을 사용 하지 않도록 설정 해야 할 수 있습니다. 연산의.
+- 기본적으로 Always Encrypted를 지 원하는 모든 Microsoft 클라이언트 드라이버는 열 암호화 키의 전역 (응용 프로그램당) 캐시를 유지 관리 합니다. 클라이언트 드라이버가 열 마스터 키를 포함 하는 키 저장소에 연결 하 여 일반 텍스트 열 암호화 키를 얻은 후에는 일반 텍스트 열 암호화 키가 캐시 됩니다. 이렇게 하면 다중 사용자 응용 프로그램 사용자의 데이터를 격리 하기가 어려워집니다. 응용 프로그램에서 키 저장소 (예: Azure Key Vault)와 상호 작용할 때 최종 사용자를 가장 하는 경우, 사용자의 쿼리가 열 암호화 키를 사용 하 여 캐시를 채운 후 동일한 키를 필요로 하지만 다른 사용자가 트리거한 후속 쿼리는 캐시 된 키입니다. 드라이버는 키 저장소를 호출 하지 않으며 두 번째 사용자에 게 열 암호화 키에 대 한 액세스 권한이 있는지 확인 하지 않습니다. 따라서 사용자가 키에 액세스할 수 없는 경우에도 사용자가 암호화 된 데이터를 볼 수 있습니다. 다중 사용자 응용 프로그램 내에서 사용자를 격리 하기 위해 열 암호화 키 캐싱을 사용 하지 않도록 설정할 수 있습니다. 캐싱을 사용 하지 않도록 설정 하면 드라이버에서 각 데이터 암호화 또는 암호 해독 작업에 대해 키 저장소에 연결 해야 하므로 추가 성능 오버 헤드가 발생 합니다.
 
 ### <a name="protect-data-against-unauthorized-viewing-by-application-users-while-preserving-data-format"></a>데이터 형식을 유지 하면서 응용 프로그램 사용자의 무단 보기 로부터 데이터 보호
 권한이 없는 사용자가 데이터를 볼 수 없도록 방지 하는 또 다른 방법은 데이터 형식 및 형식을 유지 하면서 데이터를 난독 처리 하거나 마스킹하 여 사용자 응용 프로그램에서 데이터를 계속 처리 하 고 표시할 수 있도록 하는 것입니다.
@@ -488,15 +479,15 @@ Always Encrypted를 사용 하는 경우 Azure SQL Database의 높은 권한 사
 - 앱 사용자가 임시 쿼리를 실행 하는 것을 허용 하지 않습니다 (동적 데이터 마스킹를 해결할 수 있음).  
   - 자세한 내용은 유추를 [사용 하 여 마스킹 또는 무차별 대입 기법 무시](https://docs.microsoft.com/sql/relational-databases/security/dynamic-data-masking#security-note-bypassing-masking-using-inference-or-brute-force-techniques) 문서를 참조 하세요.  
 
-- 적절 한 액세스 제어 정책 (SQL 사용 권한, 역할, RLS를 통해)을 사용 하 여 마스킹된 열에서 업데이트를 수행할 수 있는 사용자 권한을 제한 합니다. 열에 대 한 마스크를 만들면 해당 열에 대 한 업데이트가 차단 되지 않습니다. 따라서 마스크 된 열을 쿼리할 때 사용자가 마스킹된 데이터를 수신 하더라도 쓰기 권한이 있는 사용자는 동일한 사용자가 데이터를 업데이트할 수 있습니다.    
+- 적절 한 액세스 제어 정책 (SQL 사용 권한, 역할, RLS를 통해)을 사용 하 여 마스킹된 열에서 업데이트를 수행할 수 있는 사용자 권한을 제한 합니다. 열에 대 한 마스크를 만들면 해당 열에 대 한 업데이트가 차단 되지 않습니다. 마스킹된 열을 쿼리할 때 마스킹된 데이터를 수신 하는 사용자는 쓰기 권한이 있는 경우 데이터를 업데이트할 수 있습니다.    
 
--  동적 데이터 마스킹는 마스킹된 값의 통계 속성을 유지 하지 않습니다 .이 값은 쿼리 결과에 영향을 줄 수 있습니다. 예를 들어 필터링 된 데이터에 대 한 필터링 조건자 또는 조인이 포함 된 쿼리를 사용할 수 있습니다
+-  동적 데이터 마스킹는 마스킹된 값의 통계 속성을 유지 하지 않습니다. 이는 쿼리 결과에 영향을 미칠 수 있습니다 (예: 마스킹된 데이터에 대 한 필터링 조건자 또는 조인이 포함 된 쿼리).
 
 ## <a name="network-security"></a>네트워크 보안
 네트워크 보안은 Azure SQL Database 전송 중인 데이터를 보호 하기 위한 액세스 제어 및 모범 사례를 나타냅니다.
 
 ### <a name="configure-my-client-to-connect-securely-to-azure-sql-database"></a>Azure SQL Database에 안전 하 게 연결 하도록 클라이언트 구성 
-이전 프로토콜 및 암호 그룹에 대 한 종속성으로 인해 잘 알려진 취약점에서 Azure SQL Database에 연결 하는 클라이언트 컴퓨터 및 응용 프로그램을 방지 합니다.
+잘 알려진 취약점 (예: 이전 TLS 프로토콜 및 암호 그룹 사용)을 사용 하 여 클라이언트 컴퓨터 및 응용 프로그램을 Azure SQL Database에 연결 하지 못하게 하는 방법에 대 한 모범 사례입니다.
 
 **구현 방법**:
 
@@ -511,16 +502,16 @@ Always Encrypted를 사용 하는 경우 Azure SQL Database의 높은 권한 사
 
 - [Tls (Transport Layer Security) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings#tls-10)에 Azure SQL Database에 연결 하는 클라이언트 컴퓨터에서 ssl 2.0, ssl 3.0, tls 1.0 및 tls 1.1의 취약성을 통해 공격 벡터를 줄입니다. 
 
-- [Tls/SSL (SCHANNEL SSP)의 암호 그룹](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel) 당 클라이언트에서 사용할 수 있는 암호 그룹을 확인 하 고 [Tls 암호 그룹 순서를 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)하는 경우에만 3des를 사용 하지 않도록 설정 합니다. 
+- 클라이언트에서 사용할 수 있는 암호 그룹 확인: [TLS/SSL (SCHANNEL SSP)의 암호 그룹](https://docs.microsoft.com/windows/desktop/SecAuthN/cipher-suites-in-schannel)입니다. 특히, [TLS 암호 그룹 순서 구성](https://docs.microsoft.com/windows-server/security/tls/manage-tls#configuring-tls-cipher-suite-order)에 따라 3des를 사용 하지 않도록 설정 합니다. 
 
-- 관리 되는 인스턴스를 사용 하는 경우 서버 쪽에서 암호화를 적용 하는 **프록시** 연결 형식 (기본값)을 사용 합니다. **리디렉션** 연결 유형은 현재 암호화 적용을 지원 하지 않으며 개인 IP 연결에 대해서만 사용할 수 있습니다. 
-  - 자세한 내용은 [AZURE SQL 연결 아키텍처-연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조 하세요.
-  - 암호화는 프록시 및 리디렉션 연결 형식 모두에 대해 적용 됩니다. 
+- Azure SQL Database의 경우 프록시 및 리디렉션 연결 형식 모두에 대해 암호화가 적용 됩니다. 관리 되는 인스턴스를 사용 하는 경우 서버 쪽에서 암호화를 적용 하는 **프록시** 연결 형식 (기본값)을 사용 합니다. **리디렉션** 연결 유형은 현재 암호화 적용을 지원 하지 않으며 개인 IP 연결에 대해서만 사용할 수 있습니다. 
+
+- 자세한 내용은 [AZURE SQL 연결 아키텍처-연결 정책](sql-database-connectivity-architecture.md#connection-policy)을 참조 하세요.
+
 
 ### <a name="minimize-attack-surface"></a>공격 노출 영역 최소화
-Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 하 여 악의적인 사용자의 공격을 받을 수 있는 기능 수를 최소화 합니다.
+악의적인 사용자의 공격을 받을 수 있는 기능 수를 최소화 합니다. Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 합니다.
 
-> [!NOTE]
 > 설명: OSA 사례 #5
 
 **구현 방법**:
@@ -528,7 +519,7 @@ Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 하 여 �
 단일 데이터베이스 또는 탄력적 풀을 포함 하는 Azure SQL Database 서버에서 다음을 수행 합니다.
 - Azure 서비스에 대 한 액세스 허용을 OFF로 설정 합니다.
 
-- 가상 네트워크 서비스 끝점 및 가상 네트워크 방화벽 규칙을 사용 합니다.
+- VNet 서비스 끝점 및 VNet 방화벽 규칙을 사용 합니다.
 
 - 개인 링크 (미리 보기)를 사용 합니다.
 
@@ -538,9 +529,9 @@ Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 하 여 �
 **모범 사례**:
 
 - 개인 끝점 (예: 전용 데이터 경로 사용)에 연결 하 여 Azure SQL Database에 대 한 액세스를 제한 합니다. 
-  - 외부 액세스를 방지 하기 위해 관리 되는 인스턴스를 가상 네트워크 내부에 격리할 수 있습니다. 동일한 지역의 동일한 또는 피어 링 가상 네트워크에 상주 하는 응용 프로그램 및 도구는 직접 액세스할 수 있습니다. 다른 지역의 응용 프로그램 및 도구는 VNet 간 연결 또는 Express 경로 회로 피어 링을 활용 하 여 연결을 설정할 수 있습니다. 고객은 NSG (네트워크 보안 그룹)를 사용 하 여 관리 되는 인스턴스에 액세스 해야 하는 리소스로만 포트 1433을 통해 액세스를 제한 해야 합니다. 
-  - 단일 데이터베이스 또는 탄력적 풀을 포함 하는 SQL Database 서버의 경우 가상 네트워크 내에서 SQL Database 서버에 대 한 전용 개인 IP를 제공 하는 [개인 링크](sql-database-private-endpoint-overview.md) 기능을 사용 합니다. 가상 네트워크 방화벽 규칙을 사용 하 [는 가상 네트워크 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 SQL Database 서버에 대 한 액세스를 제한할 수도 있습니다.
-  - 모바일 사용자는 지점 및 사이트 간 VPN 연결을 활용 하 여 데이터 경로를 통해 연결 해야 합니다.
+  - 외부 액세스를 방지 하기 위해 관리 되는 인스턴스를 VNet 내부에 격리할 수 있습니다. 동일한 지역에 있는 동일한 또는 피어 링 VNet에 있는 응용 프로그램 및 도구는 직접 액세스할 수 있습니다. 다른 지역의 응용 프로그램 및 도구는 VNet 간 연결 또는 Express 경로 회로 피어 링을 사용 하 여 연결을 설정할 수 있습니다. 고객은 NSG (네트워크 보안 그룹)를 사용 하 여 관리 되는 인스턴스에 액세스 해야 하는 리소스로만 포트 1433을 통해 액세스를 제한 해야 합니다. 
+  - 단일 데이터베이스 또는 탄력적 풀을 포함 하는 SQL Database 서버의 경우 VNet 내에서 SQL Database 서버에 대 한 전용 개인 IP를 제공 하는 [개인 링크](sql-database-private-endpoint-overview.md) 기능을 사용 합니다. Vnet 방화벽 규칙을 사용 하 여 [Vnet 서비스 끝점](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 SQL Database 서버에 대 한 액세스를 제한할 수도 있습니다.
+  - 모바일 사용자는 지점 및 사이트 간 VPN 연결을 사용 하 여 데이터 경로를 통해 연결 해야 합니다.
   - 온-프레미스 네트워크에 연결 된 사용자는 사이트 간 VPN 연결 또는 Express 경로를 사용 하 여 데이터 경로를 통해 연결 해야 합니다.
 
 - 공용 끝점 (예: 공용 데이터 경로 사용)에 연결 하 여 Azure SQL Database에 액세스할 수 있습니다. 다음 모범 사례를 고려해 야 합니다. 
@@ -577,7 +568,7 @@ Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 하 여 �
 
 - [Azure Virtual Network에 앱을 통합](../app-service/web-sites-integrate-with-vnet.md) 하 여 전용 데이터 경로를 관리 되는 인스턴스에 연결 합니다. 필요에 따라 [ASE (App Service 환경)](../app-service/environment/intro.md)를 사용 하 여 웹 앱을 배포할 수도 있습니다. 
 
-- ASE 또는 VNet 통합 웹 앱을 사용 하는 웹 앱의 경우 SQL Database 서버의 데이터베이스에 연결 하는 경우 [Vnet 서비스 끝점 및 Vnet 방화벽 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 특정 vnet 및 서브넷에서의 액세스를 제한할 수 있습니다. 그런 다음 **Azure 서비스 허용** 을 OFF로 설정 합니다. 또한 ASE를 개인 데이터 경로를 통해 관리 되는 인스턴스에 연결할 수 있습니다.  
+- ASE 또는 VNet 통합 웹 앱이 있는 웹 앱의 경우 SQL Database 서버의 데이터베이스에 연결 하는 경우 [Vnet 서비스 끝점 및 Vnet 방화벽 규칙](sql-database-vnet-service-endpoint-rule-overview.md) 을 사용 하 여 특정 vnet 및 서브넷에서 액세스를 제한할 수 있습니다. 그런 다음 **Azure 서비스 허용** 을 OFF로 설정 합니다. 또한 ASE를 개인 데이터 경로를 통해 관리 되는 인스턴스에 연결할 수 있습니다.  
 
 - [Azure App Service를 사용 하 여 PaaS 웹 및 모바일 응용 프로그램을 보호 하는 방법에 대 한](../security/security-paas-applications-using-app-services.md)문서에 따라 웹 앱이 구성 되어 있는지 확인 합니다. 
 
@@ -606,14 +597,13 @@ Azure SQL Database에 대 한 네트워크 액세스 제어를 구현 하 여 �
 ### <a name="protect-against-distributed-denial-of-service-ddos-attacks"></a>DDoS (분산 서비스 거부) 공격 으로부터 보호
 DDoS (배포 된 서비스 거부) 공격은 악의적인 사용자가 Azure 인프라를 과도 하 게 사용 하 여 유효한 로그인 및 워크 로드를 거부 하는 데 많은 양의 네트워크 Azure SQL Database 트래픽을 전송 하는 데 사용 됩니다.
 
-> [!NOTE]
 > 설명: OSA 사례 #9
 
 **구현 방법**:
 
 DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정 됩니다. 여기에는 공용 끝점에 대 한 네트워크 수준 공격의 실시간 완화 및 상시 트래픽 모니터링이 포함 됩니다. 
 
-- [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) 를 사용 하 여 가상 네트워크에 배포 된 리소스에 연결 된 공용 IP 주소를 모니터링할 수 있습니다.
+- [Azure DDoS Protection](../virtual-network/ddos-protection-overview.md) 를 사용 하 여 vnet에 배포 된 리소스에 연결 된 공용 IP 주소를 모니터링할 수 있습니다.
 
 - [Azure SQL Database에 대 한 Advanced Threat Protection](sql-database-threat-detection-overview.md) 을 사용 하 여 데이터베이스에 대 한 Dos (서비스 거부) 공격을 감지 합니다.
 
@@ -644,12 +634,12 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 **모범 사례**:
 
-- [Azure Security Center 표준 계층](../security-center/security-center-pricing.md)으로 전환 하 여 특정 SQL Database 서버 또는 관리 되는 인스턴스 또는 구독의 모든 SQL Database 서버 및 관리 되는 인스턴스에 대 한 Azure SQL Database에 대 한 [고급 데이터 보안](sql-database-advanced-data-security.md#getting-started-with-ads) 를 구성 합니다. 
+- 특정 SQL Database 서버 또는 관리 되는 인스턴스에 대 한 Azure SQL Database에 대 한 [광고 (Advanced Data Security)](sql-database-advanced-data-security.md#getting-started-with-ads) 구성 합니다. [Azure Security Center 표준 계층](../security-center/security-center-pricing.md)으로 전환 하 여 구독에 있는 모든 SQL Database 서버 및 관리 되는 인스턴스에 대해 광고를 구성할 수도 있습니다. 
 
-- 전체 조사 환경을 사용 하려면 [SQL Database 감사](sql-database-auditing.md) 를 사용 하 여 데이터베이스 이벤트를 추적 하 고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역에서 감사 로그에 기록 하는 것이 좋습니다. 
+- 전체 조사 환경을 위해서는 [SQL Database 감사](sql-database-auditing.md)를 사용 하도록 설정 하는 것이 좋습니다. 감사를 사용 하면 데이터베이스 이벤트를 추적 하 고 Azure Storage 계정 또는 Azure Log Analytics 작업 영역에서 감사 로그에 쓸 수 있습니다. 
 
 ### <a name="audit-critical-security-events"></a>중요 보안 이벤트 감사
-데이터베이스 이벤트를 추적 하면 데이터베이스 작업을 이해 하 고 비즈니스 문제나 의심 스러운 보안 위반을 나타낼 수 있는 불일치 및 비정상을 파악할 수 있습니다. 또한 규정 준수 표준을 준수 하도록 설정 하 고 지원 합니다. 
+데이터베이스 이벤트를 추적 하면 데이터베이스 작업을 이해 하는 데 도움이 됩니다. 비즈니스 문제나 의심 스러운 보안 위반을 나타낼 수 있는 불일치 및 비정상을 파악할 수 있습니다. 또한 규정 준수 표준을 준수 하도록 설정 하 고 지원 합니다. 
 
 **구현 방법**:
 
@@ -660,12 +650,12 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 **모범 사례**:
 
 - 데이터베이스 서버에서 감사 이벤트에 대 한 [SQL Database 감사](sql-database-auditing.md) 를 구성 하면 해당 서버에 있는 모든 기존 및 새로 만든 데이터베이스가 감사 됩니다.
-- 기본적으로 감사 정책에는 데이터베이스에 대 한 모든 작업 (쿼리, 저장 프로시저 및 성공 및 실패 한 로그인)이 포함 되어 많은 수의 감사 로그가 생성 될 수 있습니다. 사용자는 [PowerShell을 사용 하 여 다양 한 유형의 작업 및 작업 그룹에 대 한 감사를 구성](sql-database-auditing.md#subheading-7)하 고, 감사 된 작업의 수를 제어 하 고, 이벤트 손실의 위험을 최소화 하는 것이 좋습니다. 이렇게 하면 고객이 필요한 감사 데이터만 캡처할 수 있습니다.
+- 기본적으로 감사 정책에는 데이터베이스에 대 한 모든 작업 (쿼리, 저장 프로시저 및 성공 및 실패 한 로그인)이 포함 되어 많은 수의 감사 로그가 생성 될 수 있습니다. 사용자가 [PowerShell을 사용 하 여 다양 한 유형의 작업 및 작업 그룹에 대 한 감사를 구성](sql-database-auditing.md#subheading-7)하는 것이 좋습니다. 이렇게 구성 하면 감사 된 작업의 수를 제어 하 고 이벤트 손실의 위험을 최소화할 수 있습니다. 사용자 지정 감사 구성을 통해 고객은 필요한 감사 데이터만 캡처할 수 있습니다.
 - 감사 로그는 [Azure Portal](https://portal.azure.com/)에서 직접 사용 하거나 구성 된 저장소 위치에서 사용할 수 있습니다. 
 
 
 > [!NOTE]
-> Log Analytics 감사를 사용 하도록 설정 하면 수집 요금에 따라 비용이 발생 합니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다. 
+> Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 사용 시 관련된 비용에 주의하세요.또는 Azure Storage 계정에 로그인 감사를 저장하는 것을 고려해 보세요. 
 
 **추가 리소스**:
 
@@ -673,13 +663,12 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 - [SQL Server 감사](https://docs.microsoft.com/sql/relational-databases/security/auditing/sql-server-audit-database-engine) 
 
 ### <a name="secure-audit-logs"></a>보안 감사 로그
-의무를 분리 하 고 감사자 로부터 DBA를 분리 하도록 지원 하려면 저장소 계정에 대 한 액세스를 제한 하는 조치를 취해야 합니다. 
+저장소 계정에 대 한 액세스를 제한 하 여 업무 분리를 지원 하 고 감사자와 DBA를 분리 합니다. 
 
 **구현 방법**:
 
-- Azure Storage에 감사 로그를 저장 하는 경우 저장소 계정에 대 한 액세스 제어를 사용 하 여 저장소 계정에 대 한 액세스를 최소 보안 원칙으로 제한 해야 합니다.
-
-- 자세한 내용은 [Azure Storage에 대 한 액세스 권한 부여](../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조 하세요.
+- Azure Storage에 감사 로그를 저장 하는 경우 저장소 계정에 대 한 액세스가 최소한의 보안 원칙으로 제한 되는지 확인 합니다. 저장소 계정에 대 한 액세스 권한이 있는 사용자를 제어 합니다.
+    - 자세한 내용은 [Azure Storage에 대 한 액세스 권한 부여](../storage/common/storage-auth.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)를 참조 하세요.
 
 **모범 사례**:
 
@@ -701,13 +690,13 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 **모범 사례**:
 
-- 처음에는 데이터베이스에서 VA를 실행 하 고, 보안 모범 사례를 oppose 하는 수정 실패 검사를 반복 하 고, 검색이 ' 정리 ' (모든 검사 통과) 될 때까지 허용 되는 구성에 대 한 기준을 설정 합니다.  
+- 처음에는 데이터베이스에서 VA를 실행 하 고 보안 모범 사례를 oppose 수정 실패 검사를 반복 합니다. 검사가 _깨끗_하거나 모든 검사가 통과 될 때까지 허용 되는 구성에 대 한 기준을 설정 합니다.  
 
 - 정기적 되풀이 검색을 구성 하 여 매주 한 번 실행 하 고 요약 전자 메일을 받을 관련 사용자를 구성 합니다. 
 
-- 각 주간 검색 후 VA 요약을 검토 합니다. 발견 된 취약성에 대해 이전 검사 결과에서 드리프트를 평가 하 고 확인을 해결 해야 하는지 또는 구성 변경에 대 한 정당한 이유가 있는지 확인 합니다.   
+- 각 주간 검색 후 VA 요약을 검토 합니다. 발견 된 취약성에 대해 이전 검사 결과에서 드리프트를 평가 하 고 확인을 해결 해야 하는지 확인 합니다. 구성 변경에 대 한 정당한 이유가 있는지 검토 합니다.   
 
-- 확인을 해결 하 고 관련 된 기준을 업데이트 하거나 작업을 확인 하기 위한 티켓 항목을 만들고 해결 될 때까지 이러한 항목을 추적 합니다. 
+- 확인을 해결 하 고 관련 된 기준을 업데이트 합니다. 작업을 확인 하 고 해결 될 때까지 추적 하는 데 사용할 티켓 항목을 만듭니다. 
 
 **추가 리소스**:
 
@@ -716,12 +705,12 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 ### <a name="identify-and-tag-sensitive-data"></a>중요 한 데이터 식별 및 태그 지정 
 
-잠재적으로 중요 한 데이터가 포함 된 열을 검색 합니다. 고급 민감도 기반 감사 및 보호 시나리오를 활용 하도록 열을 분류 합니다. 
+잠재적으로 중요 한 데이터가 포함 된 열을 검색 합니다. 고급 민감도 기반 감사 및 보호 시나리오를 사용 하도록 열을 분류 합니다. 
 
 **구현 방법**:
 
 - [SQL 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md) 를 사용 하 여 데이터베이스에서 중요 한 데이터를 검색, 분류, 레이블 및 보호 합니다. 
-  - SQL 데이터 검색 및 분류 대시보드에서 자동 검색으로 만든 분류 권장 사항을 보고 중요 한 데이터가 분류로 영구적으로 태그 지정 되도록 관련 분류를 적용 합니다. 레이블에. 
+  - SQL 데이터 검색 및 분류 대시보드에서 자동 검색을 통해 생성 되는 분류 권장 사항을 봅니다. 중요 한 데이터에 분류 레이블로 영구적으로 태그를 지정 하는 관련 분류를 적용 합니다. 
   - 자동화 된 메커니즘에 의해 검색 되지 않은 추가 중요 데이터 필드에 대 한 분류를 수동으로 추가 합니다. 
 - 자세한 내용은 [SQL 데이터 검색 & 분류](https://docs.microsoft.com/sql/relational-databases/security/sql-data-discovery-and-classification)를 참조 하세요.
 
@@ -729,7 +718,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 - 정기적으로 분류 대시보드를 모니터링 하 여 데이터베이스의 분류 상태를 정확 하 게 평가 합니다. 데이터베이스 분류 상태에 대 한 보고서는 준수 및 감사를 위해 공유 하도록 내보내거나 인쇄할 수 있습니다.
 
-- 중요 한 데이터 검색 규칙을 추적 하 고 분류를 위해 권장 되는 열에서 드리프트를 식별 하 여 SQL 취약성 평가에서 권장 되는 중요 한 데이터의 상태를 지속적으로 모니터링 합니다.  
+- SQL 취약성 평가에서 권장 되는 중요 한 데이터의 상태를 지속적으로 모니터링 합니다. 중요 한 데이터 검색 규칙을 추적 하 고 분류를 위해 권장 되는 열에서 드리프트를 식별 합니다.  
 
 - 조직의 특정 요구에 맞게 조정 된 방식으로 분류를 사용 합니다. Azure Security Center의 [SQL Information Protection](../security-center/security-center-info-protection-policy.md) 정책에서 Information Protection 정책 (민감도 레이블, 정보 유형, 검색 논리)을 사용자 지정 합니다. 
 
@@ -739,7 +728,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 **구현 방법**:
 
 - SQL 감사 및 데이터 분류를 조합 하 여 사용 합니다. 
-  - [SQL Database 감사](sql-database-auditing.md) 로그에서 특히 중요 한 데이터에 대 한 액세스를 추적 하 고, 액세스 한 데이터와 같은 정보 및 민감도 레이블 ( [중요 한 데이터에 대 한 액세스 감사](sql-database-data-discovery-and-classification.md#subheading-3)참조)을 볼 수 있습니다. 
+  - [SQL Database 감사](sql-database-auditing.md) 로그에서 특히 중요 한 데이터에 대 한 액세스를 추적할 수 있습니다. 또한 액세스 한 데이터와 같은 정보 및 해당 민감도 레이블을 볼 수 있습니다. 자세한 내용은 [중요 한 데이터에 대 한 액세스 감사](sql-database-data-discovery-and-classification.md#subheading-3)를 참조 하세요. 
 
 **모범 사례**:
 
@@ -774,16 +763,16 @@ SQL 데이터베이스를 포함 하 여 데이터 센터의 보안 상태를 �
 현재 Azure SQL Database에서는 데이터 반출 위협을 완화 하기 위해 다음과 같은 기술을 제공 합니다. 
 
 - Azure Vm의 NSGs에 대 한 허용 및 거부 규칙의 조합을 사용 하 여 VM에서 액세스할 수 있는 지역을 제어 합니다. 
-- 단일 데이터베이스 또는 탄력적 풀을 포함 하는 Azure SQL Database 서버를 사용 하는 경우 다음을 설정 합니다.
+- 단일 데이터베이스 또는 탄력적 풀을 포함 하는 Azure SQL Database 서버를 사용 하는 경우 다음 옵션을 설정 합니다.
   - Azure 서비스를 해제할 수 있습니다.
   - VNet 방화벽 규칙을 설정 하 여 Azure VM을 포함 하는 서브넷의 트래픽만 허용 합니다.
   - [개인 링크](sql-database-private-endpoint-overview.md) 사용
-- 관리 되는 인스턴스의 경우에는 기본적으로 개인 IP 액세스를 사용 하 여 rogue VM의 첫 번째 데이터 반출 문제를 해결 합니다. 관리 되는 인스턴스 서브넷에 대해 가장 제한적인 정책을 자동으로 설정 하도록 서비스를 설정 하는 서브넷에서 서브넷 위임 기능을 설정 합니다.
+- 관리 되는 인스턴스의 경우에는 기본적으로 개인 IP 액세스를 사용 하 여 rogue VM의 첫 번째 데이터 반출 문제를 해결 합니다. 서브넷에서 서브넷 위임 기능을 설정 하 여 관리 되는 인스턴스 서브넷에 대해 가장 제한적인 정책을 자동으로 설정 합니다.
 - 악의적인 DBA의 관심사는 더 큰 노출 영역이 있고 네트워킹 요구 사항이 고객에 게 표시 되기 때문에 관리 되는 인스턴스에 더 노출 됩니다. 이에 대 한 가장 좋은 완화 방법은이 보안 가이드의 모든 사례를 적용 하 여 첫 번째 장소에서 Rogue DBA 시나리오를 방지 하는 것입니다 (데이터 exfiltration에 대해서는 아님). Always Encrypted은 중요 한 데이터를 암호화 하 고 DBA에 게 키를 액세스할 수 없도록 유지 하는 방법 중 하나입니다.
 
 ## <a name="security-aspects-of-business-continuity-and-availability"></a>비즈니스 연속성 및 가용성의 보안 측면
 
-대부분의 보안 표준은 단일 실패 지점이 발생 하지 않도록 중복성 및 장애 조치 (failover) 기능을 구현 하 여 달성할 수 있는 운영 연속성 측면에서 데이터 가용성을 해결 합니다. 재해 시나리오의 경우 데이터 및 로그 파일의 백업을 유지 하는 것이 일반적인 방법입니다. 다음 섹션에서는 Azure에 기본 제공 되는 기능에 대 한 개략적인 개요를 제공 하 고 특정 요구 사항에 맞게 구성할 수 있는 추가 옵션을 제공 합니다. 
+대부분의 보안 표준은 단일 실패 지점이 발생 하지 않도록 중복성 및 장애 조치 (failover) 기능을 구현 하 여 달성할 수 있는 운영 연속성 측면에서 데이터 가용성을 해결 합니다. 재해 시나리오의 경우 데이터 및 로그 파일의 백업을 유지 하는 것이 일반적인 방법입니다. 다음 섹션에서는 Azure에 기본 제공 되는 기능에 대 한 개략적인 개요를 제공 합니다. 또한 특정 요구 사항을 충족 하도록 구성할 수 있는 추가 옵션을 제공 합니다. 
 
 - Azure는 기본적으로 고가용성 [및 Azure SQL Database](sql-database-high-availability.md) 을 제공 합니다. 
 

@@ -4,12 +4,12 @@ description: OS 및 런타임, 앱의 런타임 및 패치 수준, 업데이트 
 ms.topic: article
 ms.date: 02/02/2018
 ms.custom: seodec18
-ms.openlocfilehash: 1a56fed04399325be315d8d977e5a72223bddac5
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 02fa89305c19ee4ec5e151ad36f7f5fa3e130f63
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688582"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846251"
 ---
 # <a name="os-and-runtime-patching-in-azure-app-service"></a>Azure App Service의 OS 및 런타임 패치
 
@@ -83,6 +83,7 @@ az webapp config set --java-version 1.8 --java-container Tomcat --java-container
 | PHP 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `php --version` |
 | 기본 Node.js 버전 | [Cloud Shell](../cloud-shell/overview.md)에서 다음 명령을 실행합니다. <br> `az webapp config appsettings list --resource-group <groupname> --name <appname> --query "[?name=='WEBSITE_NODE_DEFAULT_VERSION']"` |
 | Python 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `python --version` |  
+| Java 버전 | `https://<appname>.scm.azurewebsites.net/DebugConsole`의 명령 프롬프트에서 다음 명령을 실행합니다. <br> `java -version` |  
 
 > [!NOTE]  
 > 레지스트리 위치 `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows\CurrentVersion\Component Based Servicing\Packages`에 액세스합니다. 여기에는 ["KB" 패치](https://docs.microsoft.com/security-updates/SecurityBulletins/securitybulletins)에 대한 정보가 저장되고 잠겨집니다.

@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 12/30/2019
-ms.openlocfilehash: a64912921e5ce8c0dc76fbf2ae0be8fb34bacf1a
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.date: 1/28/2020
+ms.openlocfilehash: 270e9a31c28e7209cfe43ea8307b928ed3257a35
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75553021"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845268"
 ---
 # <a name="read-input-in-any-format-using-net-custom-deserializers"></a>.NET 사용자 지정 deserializers를 사용 하 여 모든 형식의 입력 읽기
 
@@ -80,7 +80,7 @@ Skippable 오류는 `UserDefinedOperator`의 Initialize 메서드를 통해 전�
 
 ## <a name="deserializer-examples"></a>역직렬 변환기 예제
 
-이 섹션에서는 Protobuf 및 CSV에 대 한 사용자 지정 deserializers를 작성 하는 방법을 보여 줍니다. 추가 예제를 보려면 [GitHub의 Azure Stream Analytics](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers)을 참조 하세요.
+이 섹션에서는 Protobuf 및 CSV에 대 한 사용자 지정 deserializers를 작성 하는 방법을 보여 줍니다. 이벤트 허브 캡처에 대 한 AVRO 형식과 같은 추가 예제는 [GitHub의 Azure Stream Analytics](https://github.com/Azure/azure-stream-analytics/tree/master/CustomDeserializers)을 참조 하세요.
 
 ### <a name="protocol-buffer-protobuf-format"></a>프로토콜 버퍼 (Protobuf) 형식
 

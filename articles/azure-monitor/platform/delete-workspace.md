@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 03be29cde42478abf32492f55a296aeee0a4a478
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: fabb2524547bd7837d3644d79f0023311ddccdfc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547254"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845544"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
@@ -23,7 +23,7 @@ ms.locfileid: "76547254"
 Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에이전트를 포함 하는 작업 영역을 14 일 내에 복구 하도록 허용 하기 위해 일시 삭제 작업이 수행 됩니다. 일시 삭제 기간이 지나면 작업 영역 리소스와 해당 데이터는 복구할 수 없습니다. 해당 데이터가 영구적으로 삭제 되 고 30 일 이내에 완전히 제거 될 때까지 대기 됩니다. 작업 영역 이름은 ' 릴리스 ' 이며 새 작업 영역을 만드는 데 사용할 수 있습니다.
 
 > [!NOTE]
-> 일시 삭제 동작은 해제할 수 없습니다. 삭제 작업에서 ' force ' 태그를 사용할 때 일시 삭제를 재정의 하는 옵션을 곧 추가할 예정입니다.
+> 일시 삭제 동작을 재정의 하 고 작업 영역을 영구적으로 삭제 하려면 [영구 작업 영역 삭제](#Permanent workspace delete)의 단계를 수행 합니다.
 
 작업 영역을 삭제할 때 서비스 작업에 부정적인 영향을 줄 수 있는 중요 한 데이터 및 구성이 있을 수 있으므로 주의를 기울여야 합니다. 다음과 같이 Log Analytics에 데이터를 저장 하는 에이전트, 솔루션 및 기타 Azure 서비스와 소스를 검토 합니다.
 

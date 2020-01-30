@@ -1,31 +1,19 @@
 ---
 title: Azure Migrate 지원 매트릭스
 description: Azure Migrate 서비스에 대 한 지원 설정 및 제한 사항에 대 한 요약을 제공 합니다.
-services: backup
-author: rayne-wiselman
-manager: carmonm
-ms.service: azure-migrate
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: fa6ea1ec1992c94d44531cda9802290edf8db301
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74669146"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846554"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
 [Azure Migrate 서비스](migrate-overview.md) 를 사용 하 여 컴퓨터를 평가 하 고 Microsoft Azure 클라우드로 마이그레이션할 수 있습니다. 이 문서에서는 Azure Migrate 시나리오 및 배포에 대 한 일반적인 지원 설정 및 제한 사항을 요약 합니다.
-
-
-## <a name="azure-migrate-versions"></a>Azure Migrate 버전
-
-Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
-
-- **현재 버전**:이 버전을 사용 하 여 새 Azure Migrate 프로젝트를 만들고, 온-프레미스 평가를 검색 하 고, 평가 및 마이그레이션을 오케스트레이션 할 수 있습니다. [자세히 알아보기](whats-new.md#release-version-july-2019).
-- **이전 버전**: 이전 버전의 Azure Migrate를 사용 하는 고객의 경우 (온-프레미스 VMware vm에 대 한 평가만 지원 됨) 이제 현재 버전을 사용 해야 합니다. 이전 버전에서는 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다.
 
 ## <a name="supported-assessmentmigration-scenarios"></a>지원 되는 평가/마이그레이션 시나리오
 
@@ -71,6 +59,16 @@ Hyper-V VM | 단일 프로젝트에서 최대 35000 Hyper-v Vm을 평가 합니�
 
 프로젝트에는 VMware Vm과 Hyper-v Vm이 모두 포함 될 수 있습니다 (평가 제한까지).
 
+## <a name="azure-permissions"></a>Azure 권한
+
+Azure에서 작업 하려면 컴퓨터 평가 및 마이그레이션을 시작 하기 전에 이러한 권한이 필요 합니다. Azure Migrate
+
+**Task** | **권한** | **세부 정보**
+--- | --- | ---
+Azure Migrate 프로젝트 만들기 | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [hyper-v](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-create-project)에 대해 설정 합니다.
+Azure Migrate 어플라이언스 등록 | Azure Migrate 경량 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 하 여 Azure Migrate server 평가를 통해 vmware vm을 평가 하 고 Azure Migrate server migration을 사용 하 여 vmware vm의 [에이전트 없는 마이그레이션을](server-migrate-overview.md) 실행 합니다. 이 어플라이언스는 VM을 검색하고 VM 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/> 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만들며, 이러한 앱을 만들기 위한 권한이 필요합니다.<br/><br/> - 첫 번째 앱은 Azure Migrate 서비스 엔드포인트와 통신합니다.<br/><br/> - 두 번째 앱은 등록 중에 만든 Azure Key Vault에 액세스하여 Azure AD 앱 정보 및 어플라이언스 구성 설정을 저장합니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [hyper-v](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)에 대해 설정 합니다.
+VMware 에이전트 없는 마이그레이션을 위한 주요 자격 증명 모음 만들기 | 에이전트 없는 Azure Migrate 서버 마이그레이션을 사용 하 여 VMware Vm을 마이그레이션하려면 Azure Migrate 구독에서 복제 저장소 계정에 대 한 액세스 키를 관리 하는 Key Vault를 만듭니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대 한 사용 권한 (소유자 또는 참가자 및 사용자 액세스 관리자)을 설정 합니다. | 사용 권한을 [설정](tutorial-prepare-vmware.md#assign-role-assignment-permissions) 합니다.
+
 ## <a name="supported-geographies"></a>지원 되는 지역
 
 여러 지역에서 Azure Migrate 프로젝트를 만들 수 있습니다. 이러한 지역에만 프로젝트를 만들 수 있지만 다른 대상 위치의 컴퓨터를 평가 하거나 마이그레이션할 수 있습니다. 프로젝트 지역은 검색된 메타데이터를 저장하는 데만 사용됩니다.
@@ -104,6 +102,14 @@ VMware Vm에 대 한 Azure Migrate 서버 평가 및 서버 마이그레이션 �
 
 Hyper-v Vm에 대 한 Azure Migrate 서버 평가 및 서버 마이그레이션 지원 매트릭스를 [검토](migrate-support-matrix-hyper-v.md) 합니다.
 
+
+
+## <a name="azure-migrate-versions"></a>Azure Migrate 버전
+
+Azure Migrate 서비스에는 다음과 같은 두 가지 버전이 있습니다.
+
+- **현재 버전**:이 버전을 사용 하 여 새 Azure Migrate 프로젝트를 만들고, 온-프레미스 평가를 검색 하 고, 평가 및 마이그레이션을 오케스트레이션 할 수 있습니다. [자세히 알아보기](whats-new.md#release-version-july-2019).
+- **이전 버전**: 이전 버전의 Azure Migrate를 사용 하는 고객의 경우 (온-프레미스 VMware vm에 대 한 평가만 지원 됨) 이제 현재 버전을 사용 해야 합니다. 이전 버전에서는 새 Azure Migrate 프로젝트를 만들거나 새 검색을 수행할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

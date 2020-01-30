@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/22/2019
 ms.author: tomfitz
 ms.custom: include file
-ms.openlocfilehash: 890095718833c90a6764d0799d2081b393b1d0bd
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: ee80c04a6365c2cf337c4033a90df8d2993c299d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72887810"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845990"
 ---
 다음 제한은 이벤트 도메인이 *아닌* 시스템 항목 및 사용자 지정 항목 Azure Event Grid에 적용 됩니다.
 
@@ -23,7 +23,7 @@ ms.locfileid: "72887810"
 | 토픽당 이벤트 구독 | 500 |
 | 사용자 지정 토픽에 대한 게시 비율(수신) | 토픽별 초당 5,000개 이벤트 |
 | 게시 요청 | 초당 250 |
-| 이벤트 크기 | GA (일반 공급)에서 64 KB 지원. 1mb에 대 한 지원은 현재 미리 보기 상태입니다. |
+| 이벤트 크기 | 1mb (여러 64 이벤트로 청구 됨) |
 
 다음 제한은 이벤트 도메인에만 적용 됩니다.
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: jmartens
 author: j-martens
 ms.date: 12/09/2019
-ms.openlocfilehash: 9798cbd2b1c9dca489e843a7102f213757e4de75
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 27243f47df7da22ab4adda088bdf631c1030dd6c
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771822"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845191"
 ---
 # <a name="debug-interactively-on-an-azure-machine-learning-compute-instance-with-vs-code-remote"></a>VS Code 원격을 사용 하 여 Azure Machine Learning 계산 인스턴스에서 대화형으로 디버그
 
 이 문서에서는 VS Code에서 **코드를 대화형으로 디버그할** 수 있도록 Azure Machine Learning 계산 인스턴스에서 원격 Visual Studio Code를 설정 하는 방법에 대해 알아봅니다. 
 
 > [!NOTE]
-> 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
 
 + [Azure Machine Learning 계산 인스턴스](concept-compute-instance.md) 는 데이터 과학자 완전히 관리 되는 클라우드 기반 워크스테이션 이며 IT 관리자에 게 관리 및 엔터프라이즈 준비 기능을 제공 합니다. 
 

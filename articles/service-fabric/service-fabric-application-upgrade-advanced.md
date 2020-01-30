@@ -2,21 +2,87 @@
 title: 고급 응용 프로그램 업그레이드 항목
 description: 이 문서에서는 서비스 패브릭 애플리케이션 업그레이드와 관련된 고급 항목을 다룹니다.
 ms.topic: conceptual
-ms.date: 2/23/2018
-ms.openlocfilehash: bd95d651e02cb61bcbe7a108db92afce8b5484bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 1/28/2020
+ms.openlocfilehash: 09f3fdf1f26a13c6722eb039e132256f33be38ff
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457520"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845439"
 ---
-# <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 애플리케이션 업그레이드: 고급 항목
-## <a name="adding-or-removing-service-types-during-an-application-upgrade"></a>애플리케이션을 업그레이드하는 동안 서비스 유형 추가 또는 제거
+# <a name="service-fabric-application-upgrade-advanced-topics"></a>Service Fabric 응용 프로그램 업그레이드: 고급 항목
+
+## <a name="add-or-remove-service-types-during-an-application-upgrade"></a>응용 프로그램 업그레이드 중 서비스 유형 추가 또는 제거
+
 게시된 애플리케이션에 업그레이드의 일부로 새 서비스 유형이 추가되는 경우 배포된 애플리케이션에도 새 서비스 유형이 추가됩니다. 이러한 업그레이드는 이미 애플리케이션에 포함된 서비스 인스턴스에 영향을 주지 않지만, 추가된 서비스 유형의 인스턴스를 만들어야만 새 서비스 유형이 활성화됩니다([New-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricservice?view=azureservicefabricps) 참조).
 
 마찬가지로, 업그레이드의 일부로 애플리케이션에서 서비스 유형을 제거할 수도 있습니다. 그러나 제거하려는 서비스 유형의 모든 서비스 인스턴스를 제거한 후 업그레이드를 진행해야 합니다([Remove-ServiceFabricService](https://docs.microsoft.com/powershell/module/servicefabric/remove-servicefabricservice?view=azureservicefabricps) 참조).
 
+## <a name="avoid-connection-drops-during-stateless-service-planned-downtime-preview"></a>상태 비저장 서비스의 계획 된 가동 중지 시간 (미리 보기)에 대 한 연결 삭제 방지
+
+응용 프로그램/클러스터 업그레이드 또는 노드 비활성화와 같이 계획 된 상태 비저장 인스턴스 가동 중지 시간의 경우 중단 된 끝점이 제거 되기 때문에 연결을 삭제할 수 있습니다.
+
+이를 방지 하려면 서비스 구성에서 복제본 *인스턴스 닫기 지연 기간* 을 추가 하 여 *requestdrain* (미리 보기) 기능을 구성 합니다. 이렇게 하면 상태 비저장 인스턴스에서 알린 끝점이 인스턴스를 닫기 위해 지연 타이머가 시작 *되기 전에* 제거 됩니다. 이렇게 지연 하면 인스턴스가 실제로 중단 되기 전에 기존 요청을 정상적으로 종료할 수 있습니다. 클라이언트는 콜백 함수에의 한 끝점 변경에 대 한 알림이 제공 되므로 끝점을 다시 확인 하 고 인스턴스에 새 요청을 전송 하지 않을 수 있습니다.
+
+### <a name="service-configuration"></a>서비스 구성
+
+서비스 쪽에서 지연을 구성 하는 방법에는 여러 가지가 있습니다.
+
+ * **새 서비스를 만들 때**`-InstanceCloseDelayDuration`를 지정 합니다.
+
+    ```powershell
+    New-ServiceFabricService -Stateless [-ServiceName] <Uri> -InstanceCloseDelayDuration <TimeSpan>`
+    ```
+
+ * **응용 프로그램 매니페스트의 기본값 섹션에서 서비스를 정의 하는 동안**`InstanceCloseDelayDurationSeconds` 속성을 할당 합니다.
+
+    ```xml
+          <StatelessService ServiceTypeName="Web1Type" InstanceCount="[Web1_InstanceCount]" InstanceCloseDelayDurationSeconds="15">
+              <SingletonPartition />
+          </StatelessService>
+    ```
+
+ * **기존 서비스를 업데이트할 때**`-InstanceCloseDelayDuration`를 지정 합니다.
+
+    ```powershell
+    Update-ServiceFabricService [-Stateless] [-ServiceName] <Uri> [-InstanceCloseDelayDuration <TimeSpan>]`
+    ```
+
+### <a name="client-configuration"></a>클라이언트 구성
+
+끝점이 변경 될 때 알림을 수신 하기 위해 클라이언트는 다음과 같은 콜백 (`ServiceManager_ServiceNotificationFilterMatched`)을 등록할 수 있습니다. 
+
+```csharp
+    var filterDescription = new ServiceNotificationFilterDescription
+    {
+        Name = new Uri(serviceName),
+        MatchNamePrefix = true
+    };
+    fbClient.ServiceManager.ServiceNotificationFilterMatched += ServiceManager_ServiceNotificationFilterMatched;
+    await fbClient.ServiceManager.RegisterServiceNotificationFilterAsync(filterDescription);
+
+private static void ServiceManager_ServiceNotificationFilterMatched(object sender, EventArgs e)
+{
+      // Resolve service to get a new endpoint list
+}
+```
+
+변경 알림은 끝점이 변경 되었음을 나타냅니다. 클라이언트는 끝점을 다시 확인 하 고, 더 이상 보급 되지 않는 끝점은 사용 하지 않고 곧 다운 됩니다.
+
+### <a name="optional-upgrade-overrides"></a>선택적 업그레이드 재정의
+
+서비스 당 기본 지연 기간을 설정 하는 것 외에도 동일한 (`InstanceCloseDelayDurationSec`) 옵션을 사용 하 여 응용 프로그램/클러스터를 업그레이드 하는 동안 지연을 재정의할 수 있습니다.
+
+```powershell
+Start-ServiceFabricApplicationUpgrade [-ApplicationName] <Uri> [-ApplicationTypeVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+
+Start-ServiceFabricClusterUpgrade [-CodePackageVersion] <String> [-ClusterManifestVersion] <String> [-InstanceCloseDelayDurationSec <UInt32>]
+```
+
+지연 기간은 호출 된 업그레이드 인스턴스에만 적용 되며, 그렇지 않으면 개별 서비스 지연 구성을 변경 하지 않습니다. 예를 들어 미리 구성 된 업그레이드 지연을 건너뛰려면이를 사용 하 여 `0` 지연 시간을 지정할 수 있습니다.
+
 ## <a name="manual-upgrade-mode"></a>수동 업그레이드 모드
+
 > [!NOTE]
 > *Monitored* 업그레이드 모드는 모든 Service Fabric 업그레이드에 권장하는 모드입니다.
 > *UnmonitoredManual* 모드는 업그레이드가 실패 또는 일시 중단된 경우에만 고려해야 합니다. 
@@ -30,6 +96,7 @@ ms.locfileid: "75457520"
 마지막으로, *UnmonitoredAuto* 모드는 사용자 입력이 필요 없고 애플리케이션 상태 정책을 평가하지 않으므로 서비스를 개발하거나 테스트하는 동안 빠른 업그레이드 반복을 수행하는 데 유용합니다.
 
 ## <a name="upgrade-with-a-diff-package"></a>diff 패키지로 업그레이드
+
 전체 애플리케이션 패키지를 프로비전하는 대신, 전체 애플리케이션 매니페스트 및 전체 서비스 매니페스트와 함께 업데이트된 코드/config/데이터 패키지만 포함하는 diff 패키지를 프로비전하여 업그레이드를 수행할 수도 있습니다. 전체 애플리케이션 패키지는 클러스터에 애플리케이션을 처음으로 설치하는 경우에만 필요합니다. 후속 업그레이드는 전체 애플리케이션 패키지 또는 diff 패키지에서 수행할 수 있습니다.  
 
 애플리케이션 패키지에서 찾을 수 없는 diff 패키지의 애플리케이션 매니페스트 또는 서비스 매니페스트는 자동으로 현재 프로비전된 버전으로 대체됩니다.
@@ -113,7 +180,7 @@ HealthState            : Ok
 ApplicationParameters  : { "ImportantParameter" = "2"; "NewParameter" = "testAfter" }
 ```
 
-## <a name="rolling-back-application-upgrades"></a>애플리케이션 업그레이드 롤백
+## <a name="roll-back-application-upgrades"></a>응용 프로그램 업그레이드 롤백
 
 업그레이드를 세 가지 모드(*Monitored*, *UnmonitoredAuto* 또는 *UnmonitoredManual*) 중 하나로 롤포워드할 수 있지만, 롤백은 *UnmonitoredAuto* 또는 *UnmonitoredManual* 모드에서만 가능합니다. *UnmonitoredAuto* 모드에서 수행하는 롤백은 *UpgradeReplicaSetCheckTimeout*의 기본값이 다르다는 점을 제외하고 롤포워드와 동일한 방식으로 작동합니다([애플리케이션 업그레이드 매개 변수](service-fabric-application-upgrade-parameters.md) 참조). *UnmonitoredManual* 모드에서 수행하는 롤백은 롤포워드와 동일한 방식으로 작동합니다. 롤백은 각 UD가 완료되면 자체적으로 일시 중단한 후 [ Resume-servicefabricapplicationupgrade](https://docs.microsoft.com/powershell/module/servicefabric/resume-servicefabricapplicationupgrade?view=azureservicefabricps)를 사용하여 명시적으로 다시 시작하고 롤백을 계속 진행해야 합니다.
 

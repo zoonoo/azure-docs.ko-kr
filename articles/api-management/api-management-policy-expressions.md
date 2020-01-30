@@ -13,17 +13,17 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 03/22/2019
 ms.author: apimpm
-ms.openlocfilehash: e9e6eff4c527ff2e22be57ebc1eb3dcdb3c4e0ab
-ms.sourcegitcommit: 824e3d971490b0272e06f2b8b3fe98bbf7bfcb7f
+ms.openlocfilehash: 6614e70d130abe46067c657bda3ccdd7000caddc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72241986"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845284"
 ---
 # <a name="api-management-policy-expressions"></a>API Management 정책 식
-이 문서에서는 C# 7 정책 식 구문에 대해 설명합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.
+이 문서에서는 7의 C# 정책 식 구문에 대해 설명 합니다. 각 식에서 암시적으로 제공된 [컨텍스트](api-management-policy-expressions.md#ContextVariables) 변수와 .NET Framework 형식의 허용된 [하위 집합](api-management-policy-expressions.md#CLRTypes)에 액세스합니다.
 
-추가 정보
+자세한 내용:
 
 - 백 엔드 서비스에 컨텍스트 정보를 제공하는 방법을 참조합니다. [쿼리 문자열 매개 변수 설정](api-management-transformation-policies.md#SetQueryStringParameter) 및 [HTTP 헤더 설정](api-management-transformation-policies.md#SetHTTPheader) 정책을 사용하여 이 정보를 제공합니다.
 - [JWT 유효성 검사](api-management-access-restriction-policies.md#ValidateJWT) 정책을 사용하여 토큰 클레임에 따라 작업에 대한 액세스 권한을 미리 부여하는 방법을 참조합니다.
@@ -74,143 +74,143 @@ ms.locfileid: "72241986"
 ## <a name="CLRTypes"></a> 정책 식에 허용된 .NET Framework 형식
 다음 표에서는 .NET Framework 형식과 정책 식에 허용된 멤버를 보여 줍니다.
 
-|형식|지원되는 멤버|
+|유형|지원되는 멤버|
 |--------------|-----------------------|
-|Newtonsoft.Json.Formatting|모두|
+|Newtonsoft.Json.Formatting|전체|
 |Newtonsoft.Json.JsonConvert|SerializeObject,는 deserializeobject|
-|Newtonsoft.Json.Linq.Extensions|모두|
-|Newtonsoft.Json.Linq.JArray|모두|
-|Newtonsoft.Json.Linq.JConstructor|모두|
-|Newtonsoft.Json.Linq.JContainer|모두|
-|Newtonsoft.Json.Linq.JObject|모두|
-|Newtonsoft.Json.Linq.JProperty|모두|
-|Newtonsoft.Json.Linq.JRaw|모두|
-|Newtonsoft.Json.Linq.JToken|모두|
-|Newtonsoft.Json.Linq.JTokenType|모두|
-|Newtonsoft.Json.Linq.JValue|모두|
-|System.Array|모두|
-|System.BitConverter|모두|
-|System.Boolean|모두|
-|System.Byte|모두|
-|System.Char|모두|
-|System.Collections.Generic.Dictionary<TKey, TValue>|모두|
-|System.Collections.Generic.HashSet\<T>|모두|
-|System.Collections.Generic.ICollection\<T>|모두|
-|System.Collections.Generic.IDictionary<TKey, TValue>|모두|
-|System.Collections.Generic.IEnumerable\<T>|모두|
-|System.Collections.Generic.IEnumerator\<T>|모두|
-|System.Collections.Generic.IList\<T>|모두|
-|System.Collections.Generic.IReadOnlyCollection\<T>|모두|
-|System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|모두|
-|System.Collections.Generic.ISet\<T>|모두|
-|System.Collections.Generic.KeyValuePair<TKey, TValue>|모두|
-|System.Collections.Generic.List\<T>|모두|
-|System.Collections.Generic.Queue\<T>|모두|
-|System.Collections.Generic.Stack\<T>|모두|
-|System.Convert|모두|
+|Newtonsoft.Json.Linq.Extensions|전체|
+|Newtonsoft.Json.Linq.JArray|전체|
+|Newtonsoft.Json.Linq.JConstructor|전체|
+|Newtonsoft.Json.Linq.JContainer|전체|
+|Newtonsoft.Json.Linq.JObject|전체|
+|Newtonsoft.Json.Linq.JProperty|전체|
+|Newtonsoft.Json.Linq.JRaw|전체|
+|Newtonsoft.Json.Linq.JToken|전체|
+|Newtonsoft.Json.Linq.JTokenType|전체|
+|Newtonsoft.Json.Linq.JValue|전체|
+|System.Array|전체|
+|System.BitConverter|전체|
+|System.Boolean|전체|
+|System.Byte|전체|
+|System.Char|전체|
+|System.Collections.Generic.Dictionary<TKey, TValue>|전체|
+|System.Collections.Generic.HashSet\<T>|전체|
+|System.Collections.Generic.ICollection\<T>|전체|
+|System.Collections.Generic.IDictionary<TKey, TValue>|전체|
+|System.Collections.Generic.IEnumerable\<T>|전체|
+|System.Collections.Generic.IEnumerator\<T>|전체|
+|System.Collections.Generic.IList\<T>|전체|
+|System.Collections.Generic.IReadOnlyCollection\<T>|전체|
+|System.Collections.Generic.IReadOnlyDictionary<TKey, TValue>|전체|
+|System.Collections.Generic.ISet\<T>|전체|
+|System.Collections.Generic.KeyValuePair<TKey, TValue>|전체|
+|System.Collections.Generic.List\<T>|전체|
+|System.Collections.Generic.Queue\<T>|전체|
+|System.Collections.Generic.Stack\<T>|전체|
+|System.Convert|전체|
 |System.DateTime|(생성자), Add, AddDays, AddHours, Addhours, Addhours, Addhours, Addhours, Addhours, Addhours, Date, Day, DayOfWeek, DayOfYear, DaysInMonth, Hour, IsDaylightSavingTime, IsLeapYear, Int32.maxvalue, 밀리초, Minute, MinValue, Month , 구문 분석, 초, 빼기, 틱, TimeOfDay, 오늘, ToString, UtcNow, Year|
 |System.DateTimeKind|Utc|
-|System.DateTimeOffset|모두|
-|System.Decimal|모두|
-|System.Double|모두|
-|System.Exception|모두|
-|System.Guid|모두|
-|System.Int16|모두|
-|System.Int32|모두|
-|System.Int64|모두|
-|System.IO.StringReader|모두|
-|System.IO.StringWriter|모두|
-|System.Linq.Enumerable|모두|
-|System.Math|모두|
-|System.MidpointRounding|모두|
-|System.Net.WebUtility|모두|
-|System.Nullable|모두|
-|System.Random|모두|
-|System.SByte|모두|
-|System.Security.Cryptography.AsymmetricAlgorithm|모두|
-|System.Security.Cryptography.CipherMode|모두|
-|System.Security.Cryptography.HashAlgorithm|모두|
-|System.Security.Cryptography.HashAlgorithmName|모두|
-|System.Security.Cryptography.HMAC|모두|
-|System.Security.Cryptography.HMACMD5|모두|
-|System.Security.Cryptography.HMACSHA1|모두|
-|System.Security.Cryptography.HMACSHA256|모두|
-|System.Security.Cryptography.HMACSHA384|모두|
-|System.Security.Cryptography.HMACSHA512|모두|
-|System.Security.Cryptography.KeyedHashAlgorithm|모두|
-|System.Security.Cryptography.MD5|모두|
-|System.Security.Cryptography.Oid|모두|
-|System.Security.Cryptography.PaddingMode|모두|
-|System.Security.Cryptography.RNGCryptoServiceProvider|모두|
-|System.Security.Cryptography.RSA|모두|
-|System.Security.Cryptography.RSAEncryptionPadding|모두|
-|System.Security.Cryptography.RSASignaturePadding|모두|
-|System.Security.Cryptography.SHA1|모두|
-|System.Security.Cryptography.SHA1Managed|모두|
-|System.Security.Cryptography.SHA256|모두|
-|System.Security.Cryptography.SHA256Managed|모두|
-|System.Security.Cryptography.SHA384|모두|
-|System.Security.Cryptography.SHA384Managed|모두|
-|System.Security.Cryptography.SHA512|모두|
-|System.Security.Cryptography.SHA512Managed|모두|
-|System.Security.Cryptography.SymmetricAlgorithm|모두|
-|System.Security.Cryptography.X509Certificates.PublicKey|모두|
-|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|모두|
+|System.DateTimeOffset|전체|
+|System.Decimal|전체|
+|System.Double|전체|
+|System.Exception|전체|
+|System.Guid|전체|
+|System.Int16|전체|
+|System.Int32|전체|
+|System.Int64|전체|
+|System.IO.StringReader|전체|
+|System.IO.StringWriter|전체|
+|System.Linq.Enumerable|전체|
+|System.Math|전체|
+|System.MidpointRounding|전체|
+|System.Net.WebUtility|전체|
+|System.Nullable|전체|
+|System.Random|전체|
+|System.SByte|전체|
+|System.Security.Cryptography.AsymmetricAlgorithm|전체|
+|System.Security.Cryptography.CipherMode|전체|
+|System.Security.Cryptography.HashAlgorithm|전체|
+|System.Security.Cryptography.HashAlgorithmName|전체|
+|System.Security.Cryptography.HMAC|전체|
+|System.Security.Cryptography.HMACMD5|전체|
+|System.Security.Cryptography.HMACSHA1|전체|
+|System.Security.Cryptography.HMACSHA256|전체|
+|System.Security.Cryptography.HMACSHA384|전체|
+|System.Security.Cryptography.HMACSHA512|전체|
+|System.Security.Cryptography.KeyedHashAlgorithm|전체|
+|System.Security.Cryptography.MD5|전체|
+|System.Security.Cryptography.Oid|전체|
+|System.Security.Cryptography.PaddingMode|전체|
+|System.Security.Cryptography.RNGCryptoServiceProvider|전체|
+|System.Security.Cryptography.RSA|전체|
+|System.Security.Cryptography.RSAEncryptionPadding|전체|
+|System.Security.Cryptography.RSASignaturePadding|전체|
+|System.Security.Cryptography.SHA1|전체|
+|System.Security.Cryptography.SHA1Managed|전체|
+|System.Security.Cryptography.SHA256|전체|
+|System.Security.Cryptography.SHA256Managed|전체|
+|System.Security.Cryptography.SHA384|전체|
+|System.Security.Cryptography.SHA384Managed|전체|
+|System.Security.Cryptography.SHA512|전체|
+|System.Security.Cryptography.SHA512Managed|전체|
+|System.Security.Cryptography.SymmetricAlgorithm|전체|
+|System.Security.Cryptography.X509Certificates.PublicKey|전체|
+|System.Security.Cryptography.X509Certificates.RSACertificateExtensions|전체|
 |System.security.cryptography.x509certificates.x509certificate2. System.security.cryptography.x509certificates.x500distinguishedname|이름|
-|System.security.cryptography.x509certificates.x509certificate2입니다.|모두|
-|System.Security.Cryptography.X509Certificates.X509Certificate2|모두|
-|System.security.cryptography.x509certificates.x509certificate2. X509ContentType|모두|
-|System.security.cryptography.x509certificates.x509certificate2. X509NameType|모두|
-|System.Single|모두|
-|System.String|모두|
-|System.StringComparer|모두|
-|System.StringComparison|모두|
-|System.StringSplitOptions|모두|
-|System.Text.Encoding|모두|
+|System.security.cryptography.x509certificates.x509certificate2입니다.|전체|
+|System.Security.Cryptography.X509Certificates.X509Certificate2|전체|
+|System.security.cryptography.x509certificates.x509certificate2. X509ContentType|전체|
+|System.security.cryptography.x509certificates.x509certificate2. X509NameType|전체|
+|System.Single|전체|
+|System.String|전체|
+|System.StringComparer|전체|
+|System.StringComparison|전체|
+|System.StringSplitOptions|전체|
+|System.Text.Encoding|전체|
 |System.Text.RegularExpressions.Capture|Index, Length, Value|
 |System.Text.RegularExpressions.CaptureCollection|Count, Item|
 |System.Text.RegularExpressions.Group|Captures, Success|
 |System.Text.RegularExpressions.GroupCollection|Count, Item|
 |System.Text.RegularExpressions.Match|Empty, Groups, Result|
 |System.Text.RegularExpressions.Regex|(생성자), IsMatch, Match, Matches, Replace, Unescape, Split|
-|System.Text.RegularExpressions.RegexOptions|모두|
-|System.Text.StringBuilder|모두|
-|System.TimeSpan|모두|
-|System.TimeZone|모두|
-|System.TimeZoneInfo.AdjustmentRule|모두|
-|System.TimeZoneInfo.TransitionTime|모두|
-|System.TimeZoneInfo|모두|
-|System.Tuple|모두|
-|System.UInt16|모두|
-|System.UInt32|모두|
-|System.UInt64|모두|
-|System.Uri|모두|
-|System.UriPartial|모두|
-|System.Xml.Linq.Extensions|모두|
-|System.Xml.Linq.XAttribute|모두|
-|System.Xml.Linq.XCData|모두|
-|System.Xml.Linq.XComment|모두|
-|System.Xml.Linq.XContainer|모두|
-|System.Xml.Linq.XDeclaration|모두|
+|System.Text.RegularExpressions.RegexOptions|전체|
+|System.Text.StringBuilder|전체|
+|System.TimeSpan|전체|
+|System.TimeZone|전체|
+|System.TimeZoneInfo.AdjustmentRule|전체|
+|System.TimeZoneInfo.TransitionTime|전체|
+|System.TimeZoneInfo|전체|
+|System.Tuple|전체|
+|System.UInt16|전체|
+|System.UInt32|전체|
+|System.UInt64|전체|
+|System.Uri|전체|
+|System.UriPartial|전체|
+|System.Xml.Linq.Extensions|전체|
+|System.Xml.Linq.XAttribute|전체|
+|System.Xml.Linq.XCData|전체|
+|System.Xml.Linq.XComment|전체|
+|System.Xml.Linq.XContainer|전체|
+|System.Xml.Linq.XDeclaration|전체|
 |System.Xml.Linq.XDocument|다음을 제외한 모든: 로드|
-|System.Xml.Linq.XDocumentType|모두|
-|System.Xml.Linq.XElement|모두|
-|System.Xml.Linq.XName|모두|
-|System.Xml.Linq.XNamespace|모두|
-|System.Xml.Linq.XNode|모두|
-|System.Xml.Linq.XNodeDocumentOrderComparer|모두|
-|System.Xml.Linq.XNodeEqualityComparer|모두|
-|System.Xml.Linq.XObject|모두|
-|System.Xml.Linq.XProcessingInstruction|모두|
-|System.Xml.Linq.XText|모두|
-|System.Xml.XmlNodeType|모두|
+|System.Xml.Linq.XDocumentType|전체|
+|System.Xml.Linq.XElement|전체|
+|System.Xml.Linq.XName|전체|
+|System.Xml.Linq.XNamespace|전체|
+|System.Xml.Linq.XNode|전체|
+|System.Xml.Linq.XNodeDocumentOrderComparer|전체|
+|System.Xml.Linq.XNodeEqualityComparer|전체|
+|System.Xml.Linq.XObject|전체|
+|System.Xml.Linq.XProcessingInstruction|전체|
+|System.Xml.Linq.XText|전체|
+|System.Xml.XmlNodeType|전체|
 
 ## <a name="ContextVariables"></a> 컨텍스트 변수
 `context`라는 변수는 모든 정책 [식](api-management-policy-expressions.md#Syntax)에서 암시적으로 사용할 수 있습니다. 해당 멤버는 `\request`와 관련된 정보를 제공합니다. 모든 `context` 멤버는 읽기 전용입니다.
 
 |컨텍스트 변수|허용된 메서드, 속성 및 매개 변수 값|
 |----------------------|-------------------------------------------------------|
-|context|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [작업](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string < string, object ><br /><br /> void Trace(message: string)|
+|컨텍스트|[Api](#ref-context-api): [IApi](#ref-iapi)<br /><br /> [배포](#ref-context-deployment)<br /><br /> Elapsed: TimeSpan - 타임스탬프 값과 현재 시간 사이의 시간 간격<br /><br /> [LastError](#ref-context-lasterror)<br /><br /> [연산](#ref-context-operation)<br /><br /> [Product](#ref-context-product)<br /><br /> [요청](#ref-context-request)<br /><br /> RequestId: Guid - 고유한 요청 식별자<br /><br /> [응답](#ref-context-response)<br /><br /> [구독](#ref-context-subscription)<br /><br /> Timestamp: DateTime - 요청이 수신된 시점<br /><br /> Tracing: bool - 추적의 설정 여부를 나타냅니다. <br /><br /> [사용자](#ref-context-user)<br /><br /> [Variables](#ref-context-variables): ireadonlydictionary<string < string, object ><br /><br /> void Trace(message: string)|
 |<a id="ref-context-api"></a>context.Api|Id: string<br /><br /> IsCurrentRevision: bool<br /><br />  Name: string<br /><br /> Path: string<br /><br /> Revision: string<br /><br /> ServiceUrl: [Iurl](#ref-iurl)<br /><br /> Version: string |
 |<a id="ref-context-deployment"></a>context.Deployment|Region: string<br /><br /> ServiceName: string<br /><br /> Certificates: IReadOnlyDictionary<string, X509Certificate2>|
 |<a id="ref-context-lasterror"></a>context.LastError|Source: string<br /><br /> Reason: string<br /><br /> Message: string<br /><br /> Scope: string<br /><br /> Section: string<br /><br /> Path: string<br /><br /> PolicyId: string<br /><br /> context.LastError에 대한 자세한 내용은 [오류 처리](api-management-error-handling-policies.md)를 참조하세요.|
@@ -224,7 +224,7 @@ ms.locfileid: "72241986"
 |<a id="ref-context-user"></a>context.User|Email: string<br /><br /> FirstName: string<br /><br /> Groups: IEnumerable <[Igroup](#ref-igroup)\><br /><br /> Id: string<br /><br /> Id: IEnumerable <[Iuseridentity](#ref-iuseridentity)\><br /><br /> LastName: string<br /><br /> Note: string<br /><br /> RegistrationDate: DateTime|
 |<a id="ref-iapi"></a>IApi|Id: string<br /><br /> Name: string<br /><br /> Path: string<br /><br /> Protocols: IEnumerable<string\><br /><br /> ServiceUrl: [Iurl](#ref-iurl)<br /><br /> SubscriptionKeyParameterNames: [ISubscriptionKeyParameterNames](#ref-isubscriptionkeyparameternames)|
 |<a id="ref-igroup"></a>IGroup|Id: string<br /><br /> Name: string|
-|<a id="ref-imessagebody"></a>IMessageBody|As < T\>(preserveContent: bool = false): Where T: string, byte [], JObject, Jobject, Jobject, XNode, XElement, XDocument<br /><br /> 지정된 형식 `context.Request.Body.As<T>`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Response.Body.As<T>` 또는 `T` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
+|<a id="ref-imessagebody"></a>IMessageBody|As < T\>(preserveContent: bool = false): Where T: string, byte [], JObject, Jobject, Jobject, XNode, XElement, XDocument<br /><br /> 지정된 형식 `T`에서 요청 또는 응답 메시지 본문을 읽는 데 `context.Request.Body.As<T>` 또는 `context.Response.Body.As<T>` 메서드가 사용됩니다. 기본적으로 이 메서드는 원래 메시지 본문 스트림을 사용하고 반환된 후에는 사용할 수 없게 렌더링합니다. 이 메서드가 본문 스트림의 복사본에 대해 작동하도록 하여 이러한 문제를 피하려면 `preserveContent` 매개 변수를 `true`로 설정합니다. 예제를 보려면 [여기](api-management-transformation-policies.md#SetBody)로 이동하세요.|
 |<a id="ref-iurl"></a>IUrl|Host: string<br /><br /> Path: string<br /><br /> Port: int<br /><br /> [쿼리](#ref-iurl-query): ireadonlydictionary<string < string, string [] ><br /><br /> QueryString: string<br /><br /> Scheme: string|
 |<a id="ref-iuseridentity"></a>IUserIdentity|Id: string<br /><br /> Provider: string|
 |<a id="ref-isubscriptionkeyparameternames"></a>ISubscriptionKeyParameterNames|Header: string<br /><br /> Query: string|

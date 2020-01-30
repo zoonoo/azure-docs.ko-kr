@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 10/01/2019
-ms.openlocfilehash: aeda79ec4cb850ce73db18398c57d90aa4eb2acd
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 226ed1fcc72eada399c0a9a9eb4225d79cd83dd7
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759502"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845895"
 ---
 # <a name="hyperscale-service-tier"></a>하이퍼스케일 서비스 계층
 
@@ -72,7 +72,7 @@ Azure SQL Database의 하이퍼스케일 서비스 계층은 다음과 같은 �
 
 - **스토리지**:
 
-  하이퍼스케일 데이터베이스를 구성하는 경우 최대 데이터 크기를 지정할 필요가 없습니다. 하이퍼스케일 계층에서는 실제 할당에 따라 데이터베이스의 스토리지 요금이 청구됩니다. 저장소는 10gb와 100 TB 40 사이에서 동적으로 40 조정 되는 증분 단위로 자동으로 할당 됩니다. 하이퍼 규모의 데이터베이스는 10gb의 시작 크기를 사용 하 여 생성 되며, 40 GB의 크기에 도달할 때까지 10 분 마다 10gb의 증가를 시작 합니다.
+  하이퍼스케일 데이터베이스를 구성하는 경우 최대 데이터 크기를 지정할 필요가 없습니다. 하이퍼스케일 계층에서는 실제 할당에 따라 데이터베이스의 스토리지 요금이 청구됩니다. 저장소는 40 기가바이트와 100 TB 사이에서 자동으로 할당 되며 10gb로 증가 합니다. 필요한 경우 여러 데이터 파일을 동시에 확장할 수 있습니다. 하이퍼 규모의 데이터베이스는 10gb의 시작 크기를 사용 하 여 생성 되며, 40 GB의 크기에 도달할 때까지 10 분 마다 10gb의 증가를 시작 합니다.
 
 하이퍼스케일 가격 책정에 대한 자세한 내용은 [Azure SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/single/)을 참조하세요.
 
@@ -110,15 +110,15 @@ Azure Storage는 데이터베이스의 모든 데이터 파일을 포함 합니�
 
 추가 읽기 전용 컴퓨팅 노드를 신속하게 스핀업/스핀다운하는 기능을 사용하여 하이퍼스케일 아키텍처는 상당한 읽기 기능을 허용하며 더 많은 쓰기 요청을 제공하기 위해 기본 컴퓨팅 노드를 해제할 수도 있습니다. 또한 하이퍼스케일 아키텍처의 공유 스토리지 아키텍처로 인해 컴퓨팅 노드 규모를 빠르게 확대/축소할 수 있습니다.
 
-## <a name="create-a-hyperscale-database"></a>하이퍼스케일 데이터베이스 만들기
+## <a name="create-a-hyperscale-database"></a>Hyperscale 데이터베이스 만들기
 
-하이퍼스케일 데이터베이스는 [Azure Portal](https://portal.azure.com), [T-SQL](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용하여 만들 수 있습니다. 하이퍼스케일 데이터베이스는 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용해야만 사용이 가능합니다.
+[Azure Portal](https://portal.azure.com), [t-sql](https://docs.microsoft.com/sql/t-sql/statements/create-database-transact-sql?view=azuresqldb-current), [Powershell](https://docs.microsoft.com/powershell/module/azurerm.sql/new-azurermsqldatabase) 또는 [CLI](https://docs.microsoft.com/cli/azure/sql/db#az-sql-db-create)를 사용 하 여 hyperscale 데이터베이스를 만들 수 있습니다. Hyperscale 데이터베이스는 [Vcore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용 하는 경우에만 사용할 수 있습니다.
 
 다음 T-SQL 명령은 하이퍼스케일 데이터베이스를 생성합니다. `CREATE DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다. 유효한 서비스 목표 목록은 [리소스 제한을](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases#hyperscale---provisioned-compute---gen4) 참조 하세요.
 
 ```sql
--- Create a HyperScale Database
-CREATE DATABASE [HyperScaleDB1] (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Create a Hyperscale Database
+CREATE DATABASE [HyperscaleDB1] (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 그러면 4 개 코어를 사용 하는 Gen5 하드웨어에서 하이퍼 확장 데이터베이스를 만듭니다.
@@ -130,14 +130,14 @@ GO
 다음 T-SQL 명령은 하이퍼스케일 서비스 계층으로 데이터베이스를 이동합니다. `ALTER DATABASE` 문에 버전 및 서비스 목표를 둘 다 지정해야 합니다.
 
 ```sql
--- Alter a database to make it a HyperScale Database
-ALTER DATABASE [DB2] MODIFY (EDITION = 'HyperScale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
+-- Alter a database to make it a Hyperscale Database
+ALTER DATABASE [DB2] MODIFY (EDITION = 'Hyperscale', SERVICE_OBJECTIVE = 'HS_Gen5_4');
 GO
 ```
 
 ## <a name="connect-to-a-read-scale-replica-of-a-hyperscale-database"></a>하이퍼스케일 데이터베이스의 읽기 확장 복제본에 연결
 
-하이퍼스케일 데이터베이스에서 클라이언트가 제공한 연결 문자열의 `ApplicationIntent` 인수는 연결이 쓰기 복제본으로 라우팅되는지 또는 읽기 전용 보조 복제본으로 라우팅되는지를 나타냅니다. `ApplicationIntent`가 `READONLY`로 설정되고 데이터베이스에 보조 복제본이 없는 경우에는 연결이 주 복제본으로 라우팅되고 기본값은 `ReadWrite` 동작으로 설정됩니다.
+Hyperscale 데이터베이스에서 클라이언트가 제공 하는 연결 문자열의 `ApplicationIntent` 인수는 연결이 쓰기 복제본 또는 읽기 전용 보조 복제본으로 라우팅되도록 할지를 결정 합니다. `ApplicationIntent`가 `READONLY`로 설정되고 데이터베이스에 보조 복제본이 없는 경우에는 연결이 주 복제본으로 라우팅되고 기본값은 `ReadWrite` 동작으로 설정됩니다.
 
 ```cmd
 -- Connection string with application intent
@@ -160,7 +160,7 @@ Azure SQL Database Hyperscale DB를 현재 호스트 되는 지역이 아닌 다
 2. 자동 백업에서 Azure SQL 데이터베이스를 복원 하는 방법에 대 한 페이지의 [지역 복원](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#geo-restore) 항목의 지침을 따르세요.
 
 > [!NOTE]
-> 원본 및 대상이 별도의 지역에 있기 때문에 데이터베이스는 원본 데이터베이스와 함께 스냅숏 저장소를 원본 데이터베이스와 공유할 수 없습니다 .이는 비-지역 복원에서 매우 신속 하 게 완료 됩니다.  하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 대상이 지역에서 복제 된 저장소의 쌍을 이루는 지역에 있는 경우에도 데이터 크기 조정 작업이 수행 됩니다.  즉, 지역 복원 작업을 수행 하는 경우 복원 되는 데이터베이스의 크기에 비례하여 시간이 소요 됩니다.  대상이 쌍을 이루는 지역에 있는 경우 복사본은 데이터 센터 내에 있습니다 .이는 인터넷을 통한 긴 거리 복사 보다 훨씬 더 빠르지만 모든 비트를 복사 합니다.
+> 원본 및 대상이 별도의 지역에 있기 때문에 데이터베이스는 원본 데이터베이스와 함께 스냅숏 저장소를 원본 데이터베이스와 공유할 수 없습니다 .이는 비-지역 복원에서 매우 신속 하 게 완료 됩니다. 하이퍼 규모의 데이터베이스에 대 한 지역 복원의 경우 대상이 지역에서 복제 된 저장소의 쌍을 이루는 지역에 있는 경우에도 데이터 크기 조정 작업이 수행 됩니다.  즉, 지역 복원 작업을 수행 하는 경우 복원 되는 데이터베이스의 크기에 비례하여 시간이 소요 됩니다.  대상이 쌍을 이루는 지역에 있는 경우 복사본은 지역 내에 있으며,이는 지역 간 복사 보다 훨씬 빠르지만 여전히 데이터의 크기를 조정 하는 작업입니다.
 
 ## <a name=regions></a>사용 가능한 지역
 

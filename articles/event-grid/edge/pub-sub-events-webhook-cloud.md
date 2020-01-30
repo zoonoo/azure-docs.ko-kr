@@ -9,20 +9,20 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 5fb6cab4bfeea4308873210fb5f9122b37b61dcd
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: c82f1edfc3acd73c1d38425f963aaaf2976a1cc5
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100319"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844595"
 ---
 # <a name="tutorial-publish-subscribe-to-events-in-cloud"></a>자습서: 게시, 클라우드에서 이벤트 구독
 
-이 문서에서는 IoT Edge에서 Event Grid를 사용 하 여 이벤트를 게시 하 고 구독 하는 데 필요한 모든 단계를 안내 합니다.
+이 문서에서는 IoT Edge에서 Event Grid를 사용 하 여 이벤트를 게시 하 고 구독 하는 데 필요한 모든 단계를 안내 합니다. 이 자습서에서는 및 Azure Function을 이벤트 처리기로 사용 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요.
 
 진행 하기 전에 Event Grid 토픽 및 구독을 이해 하려면 [Event Grid 개념](concepts.md) 을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 이 자습서를 완료 하려면 다음이 필요 합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -107,6 +107,8 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 ## <a name="create-an-event-subscription"></a>이벤트 구독 만들기
 
 구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 모든 이벤트를 수신 하려면 구독자가 관심 있는 토픽에서 Event grid 구독을 만들어야 합니다.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용 하 여 subscription2를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
@@ -203,3 +205,4 @@ public static async Task<IActionResult> Run(HttpRequest req, ILogger log)
 * [Linux](persist-state-linux.md) 또는 [Windows](persist-state-windows.md) 에서 Event Grid 모듈의 지 속성 설정
 * [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성
 * 이 [자습서](forward-events-event-grid-cloud.md) 를 수행 하 여 클라우드에서 Azure Event Grid로 이벤트 전달
+* [Edge에서 토픽 및 구독 모니터링](monitor-topics-subscriptions.md)

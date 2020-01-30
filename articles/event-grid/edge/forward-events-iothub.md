@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 073205b5bdc3f6de80bd7e347469c3f06aeb515b
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: d0034810ff86de2a40e275ca54a2f0f9cbc856c2
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098664"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844703"
 ---
 # <a name="tutorial-forward-events-to-iothub"></a>자습서: IoTHub로 이벤트 전달
 
@@ -28,7 +28,7 @@ ms.locfileid: "73098664"
 - [Event Grid 개념](concepts.md)
 - [IoT Edge 허브](../../iot-edge/module-composition.md) 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 이 자습서를 완료 하려면 다음이 필요 합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -81,6 +81,8 @@ ms.locfileid: "73098664"
 ## <a name="create-event-subscription"></a>이벤트 구독 만들기
 
 구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 이벤트를 수신 하려면 관심 있는 토픽에서 Event grid 구독을 만들어야 합니다.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 아래 콘텐츠를 사용 하 여 subscription4를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
@@ -212,3 +214,4 @@ Event Grid 모듈에서 전달 된 이벤트를 볼 수 있도록 IoT Hub에서 
 * [Linux](persist-state-linux.md) 또는 [Windows](persist-state-windows.md) 에서 Event Grid 모듈의 지 속성 설정
 * [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성
 * 이 [자습서](forward-events-event-grid-cloud.md) 를 수행 하 여 클라우드에서 Azure Event Grid로 이벤트 전달
+* [Edge에서 토픽 및 구독 모니터링](monitor-topics-subscriptions.md)

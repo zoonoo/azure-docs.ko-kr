@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/16/2018
 ms.author: kumud
-ms.openlocfilehash: 3624c8fd8b15f6d35917f4ead676221d93a26ddc
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: dfa7681b43bd18e15ee929156ab9a45bb9790c5b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646492"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845578"
 ---
 # <a name="plan-virtual-networks"></a>가상 네트워크 계획
 
@@ -39,7 +39,7 @@ ms.locfileid: "75646492"
 
 ## <a name="subscriptions"></a>구독
 
-각 구독 내에서 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/architecture/cloud-adoption-guide/subscription-governance#define-your-hierarchy)를 참조하세요.
+각 구독 내에서 [한도](../azure-resource-manager/management/azure-subscription-service-limits.md?toc=%2fazure%2fvirtual-network%2ftoc.json#networking-limits)까지 필요한 개수의 가상 네트워크를 배포할 수 있습니다. 일부 조직은 예를 들어 부서마다 구독이 다릅니다. 자세한 내용 및 구독에 대한 고려 사항은 [구독 거버넌스](/azure/cloud-adoption-framework/reference/migration-with-enterprise-scaffold#define-your-hierarchy)를 참조하세요.
 
 ## <a name="segmentation"></a>분할
 

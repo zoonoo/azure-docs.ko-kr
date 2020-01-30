@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 11/19/2019
+ms.date: 01/29/2020
 ms.author: victorh
-ms.openlocfilehash: ac8ec9a86c388f41493d60d79a21db28fbf2aa95
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 8b55f31f12ab1057ac2e0f625a0285b6518cc44a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646214"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845779"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -54,7 +54,7 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
-Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 HTTP/S 이외의 프로토콜용입니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다.
+Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 일반적으로 비 HTTP/S 프로토콜에 사용 됩니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다. 최적의 인바운드 HTTP/S 보호를 사용 하려면 [Azure 애플리케이션 게이트웨이에서 Azure 웹 응용 프로그램 방화벽과](../web-application-firewall/ag/ag-overview.md)같은 웹 응용 프로그램 방화벽을 사용 합니다.
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure Firewall에서는 어떤 로깅 및 분석 서비스를 지원하나요?
 

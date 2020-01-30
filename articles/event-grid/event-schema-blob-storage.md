@@ -7,18 +7,21 @@ ms.service: event-grid
 ms.topic: reference
 ms.date: 01/17/2019
 ms.author: spelluru
-ms.openlocfilehash: 9c5b7b4301eb9cf019399795fc45b69fe152061d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4a71f50a130bd9b22965d39fa942b47c70857a86
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722325"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844482"
 ---
 # <a name="azure-event-grid-event-schema-for-blob-storage"></a>Azure Event Grid Blob Storage에 대한 이벤트 스키마
 
 이 문서에서는 Blob Storage 이벤트에 대한 속성 및 스키마를 제공합니다. 이벤트 스키마에 대 한 소개는 [Azure Event Grid 이벤트 스키마](event-schema.md)를 참조 하세요.
 
 샘플 스크립트 및 자습서 목록은 [스토리지 이벤트 원본](event-sources.md#storage)을 참조하세요.
+
+>[!NOTE]
+> Kind **StorageV2 (범용 v2)** 및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **저장소 (genral 용도의 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
 
 ## <a name="list-of-events-for-blob-rest-apis"></a>Blob REST Api에 대 한 이벤트 목록
 

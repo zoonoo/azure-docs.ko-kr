@@ -7,12 +7,12 @@ ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: babanisa
-ms.openlocfilehash: e7cddf95a6537e5799acc523effb484c2249453d
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 25a24c5bb44c77038a508e4c2f4e099132101f6a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548053"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844737"
 ---
 # <a name="use-cloudevents-v10-schema-with-event-grid"></a>Event Grid에서 CloudEvents v 1.0 스키마 사용
 
@@ -73,7 +73,6 @@ CloudEvents 스키마에서 이벤트의 입출력 둘 다에 Event Grid를 사�
 |--------------------|---------------------
 | CloudEvents 형식 | CloudEvents 형식
 | Event Grid 형식  | CloudEvents 형식
-| CloudEvents 형식 | Event Grid 형식
 | Event Grid 형식  | Event Grid 형식
 
 모든 이벤트 스키마에 대해, Event Grid는 Event Grid 토픽에 게시할 때와 이벤트 구독을 만들 때 유효성 검사를 요구합니다. 자세한 내용은 [Event Grid 보안 및 인증](security-authentication.md)을 참조하세요.
@@ -109,8 +108,6 @@ New-AzureRmEventGridTopic `
   -Name <topic_name> `
   -InputSchema CloudEventSchemaV1_0
 ```
-
-현재 버전의 CloudEvents는 이벤트의 일괄 처리를 지원하지 않습니다. CloudEvent 스키마를 갖는 이벤트를 토픽에 게시하려면 각 이벤트를 개별적으로 게시합니다.
 
 ### <a name="output-schema"></a>출력 스키마입니다.
 

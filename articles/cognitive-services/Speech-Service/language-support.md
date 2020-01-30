@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/23/2020
+ms.date: 01/28/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 34d362a4b28ade5116c68e2243a2341bab9fca9d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760626"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845324"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -72,7 +72,7 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
 `ta-IN` | 타밀어(인도) | 예 | 언어 모델
 `te-IN` | 텔루구어(인도) | 예 | 아닙니다.
 `th-TH` | 태국어(태국) | 예 | 아닙니다.
-`tr-TR` | 터키 | 예 | 아닙니다.
+`tr-TR` | 터키어(터키) | 예 | 아닙니다.
 `zh-CN` | 중국어(북경어, 간체) | 예 | 음향 모델<br>언어 모델
 `zh-HK` | 중국어(광동어, 번체) | 예 | 언어 모델
 `zh-TW` | 중국어(대만어) | 예 | 언어 모델
@@ -111,7 +111,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 
 로캘 | 언어 | 성별 | 전체 서비스 이름 매핑 | 짧은 이름
 -------|----------|---------|----------|----------
-<sup>**1**</sup>`ar-EG` | 아랍어(이집트) | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-EG-Hoda"
+<sup>1</sup>`ar-EG` | 아랍어(이집트) | 여성 | "Microsoft Server Speech Text to Speech Voice(ar-EG, Hoda)" | "ar-EG-Hoda"
 `ar-SA` | 아랍어(사우디아라비아) | 남성 | “Microsoft Server Speech Text to Speech Voice(ar-SA, Naayf)” | "ar-Naayf"
 `bg-BG` | 불가리아어 | 남성 | “Microsoft Server Speech Text to Speech Voice(bg-BG, Ivan)” | "bg-BG-Ivan"
 `ca-ES` | 카탈로니아어(스페인) | 여성 | “Microsoft Server Speech Text to Speech Voice(ca-ES, HerenaRUS)” | "HerenaRUS"
@@ -181,7 +181,7 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 `ta-IN` | 타밀어(인도) | 남성 | “Microsoft Server Speech Text to Speech Voice(ta-IN, Valluvar)” | "ta-Valluvar"
 `te-IN` | 텔루구어(인도) | 여성 | “Microsoft Server Speech Text to Speech Voice(te-IN, Chitra)” | "te-Chitra"
 `th-TH` | 태국어 | 남성 | “Microsoft Server Speech Text to Speech Voice(th-TH, Pattara)” | "th-TH-Pattara"
-`tr-TR` | 터키어 | 여성 | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
+`tr-TR` | 터키어(터키) | 여성 | “Microsoft Server Speech Text to Speech Voice(tr-TR, SedaRUS)” | "tr-TR-SedaRUS"
 `vi-VN` | 베트남어 | 남성 | “Microsoft Server Speech Text to Speech Voice(vi-VN, An)” | "vi-VN-An"
 `zh-CN` | 중국어(본토) | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-CN, HuihuiRUS)” | "zh-CN-HuihuiRUS"
 | | | 여성 | “Microsoft Server Speech Text to Speech Voice(zh-CN, Yaoyao, Apollo)” | "zh-cn-Yaoyao-아폴로"

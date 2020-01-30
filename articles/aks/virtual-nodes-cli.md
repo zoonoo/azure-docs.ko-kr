@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.service: container-service
 ms.date: 05/06/2019
 ms.author: mlearned
-ms.openlocfilehash: 43ea197c4dc774a4e011cd9fb2b3adcf94866d90
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 423f0866494054702330c8e51fb1ef45e74a0650
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926077"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845711"
 ---
 # <a name="create-and-configure-an-azure-kubernetes-services-aks-cluster-to-use-virtual-nodes-using-the-azure-cli"></a>Azure CLI에서 가상 노드를 사용하는 AKS(Azure Kubernetes Service) 클러스터 만들기 및 구성
 
@@ -174,7 +174,7 @@ az aks create \
     --client-secret <password>
 ```
 
-몇 분 후 명령이 완료되고 클러스터에 대해 JSON 형식 정보가 반환됩니다.
+몇 분 후에 명령이 완료되고 클러스터에 대한 JSON 형식의 정보가 반환됩니다.
 
 ## <a name="enable-virtual-nodes-addon"></a>가상 노드 추가 기능 사용
 
@@ -319,6 +319,10 @@ az aks disable-addons --resource-group myResourceGroup --name myAKSCluster --add
 
 이제 가상 네트워크 리소스 및 리소스 그룹을 제거합니다.
 
+
+> [!NOTE]
+> 네트워크 프로필을 제거 하는 동안 오류가 발생 하는 경우 플랫폼에서 3-4 일을 허용 하 여 자동으로 문제를 완화 하 고 삭제를 다시 시도 합니다. 네트워크 프로필을 즉시 삭제 해야 하는 경우 Azure Container Instances 서비스를 참조 하는 [지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/) .
+
 ```azurecli-interactive
 # Change the name of your resource group, cluster and network resources as needed
 RES_GROUP=myResourceGroup
@@ -334,12 +338,6 @@ NETWORK_PROFILE_ID=$(az network profile list --resource-group $NODE_RES_GROUP --
 
 # Delete the network profile
 az network profile delete --id $NETWORK_PROFILE_ID -y
-
-# Get the service association link (SAL) ID
-SAL_ID=$(az network vnet subnet show --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --query id --output tsv)/providers/Microsoft.ContainerInstance/serviceAssociationLinks/default
-
-# Delete the default SAL ID for the subnet
-az resource delete --ids $SAL_ID --api-version 2018-07-01
 
 # Delete the subnet delegation to Azure Container Instances
 az network vnet subnet update --resource-group $RES_GROUP --vnet-name $AKS_VNET --name $AKS_SUBNET --remove delegations 0

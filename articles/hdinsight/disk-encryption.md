@@ -7,14 +7,14 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/06/2019
-ms.openlocfilehash: 2c015db828bcbfa8b26f519b3a4707b5ec69b8f3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b452cb986e6f662aeb33c2a475f18695ebc75745
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982505"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846090"
 ---
-# <a name="customer-managed-key-disk-encryption"></a>고객이 관리 하는 키 디스크 암호화
+# <a name="customer-managed-key-disk-encryption"></a>고객 관리형 키 디스크 암호화
 
 Azure HDInsight는 HDInsight 클러스터 Vm에 연결 된 관리 디스크 및 리소스 디스크의 데이터에 대해 BYOK (Bring Your Own Key) 암호화 라고도 하는 고객 관리 키를 지원 합니다. 이 기능을 사용 하면 Azure Key Vault를 사용 하 여 HDInsight 클러스터에서 미사용 데이터를 보호 하는 암호화 키를 관리할 수 있습니다. 클러스터에는 암호화 키가 Microsoft에서 관리 하거나 고객이 관리할 수 있는 하나 이상의 연결 된 Azure Storage 계정이 있을 수 있지만 암호화 서비스는 다릅니다.
 
@@ -79,7 +79,7 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     b. **주체 선택** 아래에서 직접 만든 사용자가 할당한 관리 ID를 선택합니다.
 
-    ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/disk-encryption/add-key-vault-access-policy-select-principal.png)
+    ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/disk-encryption/azure-portal-add-access-policy.png)
 
     다. **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
 
@@ -100,6 +100,8 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
 클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. `https://contoso-kv.vault.azure.net/keys/myClusterKey/46ab702136bc4b229f8b10e8c2997fa4`)을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다.
+
+![새 클러스터 만들기](./media/disk-encryption/create-cluster-portal.png)
 
 ### <a name="using-azure-cli"></a>Azure CLI 사용
 

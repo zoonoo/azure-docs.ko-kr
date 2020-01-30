@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 875d8f498fc8405a53d8fb60631c52ce09b30a62
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 95cd759a5ef4f5f67ecf56e60595e709bbc8b44f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431921"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845690"
 ---
 # <a name="live-transcription-preview"></a>라이브 기록 (미리 보기)
 
@@ -31,7 +31,7 @@ Azure 미디어 서비스는 다양 한 프로토콜에서 비디오, 오디오 
 
 ## <a name="creating-the-live-event"></a>라이브 이벤트 만들기 
 
-라이브 이벤트를 만들려면 다음과 같이 PUT 작업을 2019-05-01 버전으로 전송 합니다. 
+라이브 이벤트를 만들려면 다음과 같이 PUT 작업을 2019-05-01-preview 버전으로 전송 합니다. 
 
 ```
 PUT https://management.azure.com/subscriptions/:subscriptionId/resourceGroups/:resourceGroupName/providers/Microsoft.Media/mediaServices/:accountName/liveEvents/:liveEventName?api-version=2019-05-01-preview&autoStart=true 

@@ -3,19 +3,29 @@ title: Azure Automation으로 변경 내용 추적
 description: 변경 내용 추적 솔루션을 사용하면 사용자 환경에서 발생하는 소프트웨어 및 Windows 서비스의 변경 내용을 식별할 수 있습니다.
 services: automation
 ms.subservice: change-inventory-management
-ms.date: 04/29/2019
+ms.date: 01/28/2019
 ms.topic: conceptual
-ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 7dce249a3e1e13fc9d7d2a962e7f056c803eb23e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 83babd65fdf22ab40b0137d93a1cbe7f1fd7ff04
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418740"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844805"
 ---
 # <a name="track-changes-in-your-environment-with-the-change-tracking-solution"></a>변경 내용 추적 솔루션으로 사용자 환경의 변경 내용 추적
 
-이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 Windows 및 Linux 소프트웨어, Windows 및 Linux 파일, Windows 레지스트리 키, Windows 서비스 및 Linux 디먼의 변경 내용을 추적합니다. 구성 변경 내용을 식별하면 운영 문제를 쉽게 특정할 수 있습니다.
+이 문서에서는 변경 내용 추적 솔루션을 사용하여 사용자 환경의 변경 내용을 쉽게 식별할 수 있습니다. 이 솔루션은 운영 문제를 쉽게 파악할 수 있도록 다음 구성 변경 내용을 추적 합니다.
+
+- Windows 소프트웨어
+- Linux 소프트웨어 (패키지)
+
+    >[!NOTE]
+    >변경 내용 추적는 배포의 패키지 관리자를 사용 하 여 관리 되는 소프트웨어만 추적 합니다.
+
+- Windows 및 Linux 파일
+- Windows 레지스트리 키
+- Windows 서비스
+- Linux 데몬
 
 모니터링 되는 서버에서 설치 된 소프트웨어, Windows 서비스, Windows 레지스트리 및 파일 및 Linux 디먼에 대 한 변경 내용은 클라우드의 Azure Monitor 서비스로 전송 되어 처리 됩니다. 논리는 수신된 데이터에 적용되며 클라우드 서비스는 데이터를 기록합니다. 변경 내용 추적 대시보드의 정보를 사용하여 서버 인프라에서 수행한 변경 내용을 쉽게 확인할 수 있습니다.
 
@@ -159,6 +169,8 @@ Azure Security Center Azure 변경 내용 추적에서 빌드된 FIM (파일 무
 
 * Windows 레지스트리 추적을 위한 재귀
 * 네트워크 파일 시스템
+* 다른 설치 방법이 추적 되지 않습니다.
+* \* .exe 파일은 Windows에 대해 추적 되지 않습니다.
 
 기타 제한 사항은 다음과 같습니다.
 

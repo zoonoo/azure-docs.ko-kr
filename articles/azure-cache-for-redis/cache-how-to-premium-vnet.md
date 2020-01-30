@@ -6,12 +6,12 @@ ms.author: yegu
 ms.service: cache
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: f449dc08dede30a7dec977bb66e0a2c0b509a1f0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6c7c041565f6376e7f8b8b84f5076b30c1eec7bf
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846396"
 ---
 # <a name="how-to-configure-virtual-network-support-for-a-premium-azure-cache-for-redis"></a>프리미엄 Azure Cache for Redis에 대한 Virtual Network 지원을 구성하는 방법
 Azure Cache for Redis에는 클러스터링, 지속성, 가상 네트워크 지원과 같은 프리미엄 계층 기능을 포함하여 캐시 크기 및 기능을 유연하게 선택할 수 있는 다양한 캐시 제안이 있습니다. VNet은 클라우드의 프라이빗 네트워크입니다. Azure Cache for Redis 인스턴스가 VNet으로 구성되면 공개적으로 주소를 지정할 수 없으며, VNet 내의 가상 머신과 애플리케이션에서만 액세스할 수 있습니다. 이 문서에서는 프리미엄 Azure Cache for Redis에 대한 가상 네트워크 지원을 구성하는 방법에 대해 설명합니다.
@@ -37,7 +37,7 @@ VNet(Virtual Network) 지원은 캐시를 만드는 중에 **새 Azure Cache for
 
 ![가상 네트워크][redis-cache-vnet]
 
-**서브넷** 드롭다운 목록에서 원하는 서브넷을 선택한 후 원하는 **고정 IP 주소**를 지정합니다. 클래식 VNet을 사용하는 경우 **고정 IP 주소** 필드는 선택적이며, 아무 항목도 지정하지 않으면 선택한 서브넷에서 하나가 자동으로 선택됩니다.
+**서브넷** 드롭다운 목록에서 원하는 서브넷을 선택 합니다.  원하는 경우 **고정 IP 주소**를 지정 합니다. **고정 IP 주소** 필드는 선택 사항이 며, 지정 되지 않은 경우 선택한 서브넷에서 하나를 선택 합니다.
 
 > [!IMPORTANT]
 > Azure Cache for Redis를 Resource Manager VNet에 배포하는 경우 캐시는 Azure Cache for Redis 인스턴스를 제외하고는 다른 리소스가 포함되지 않은 전용 서브넷에 있어야 합니다. Azure Cache for Redis를 다른 리소스가 포함된 서브넷의 Resource Manager VNet에 배포하려고 하면 배포가 실패합니다.

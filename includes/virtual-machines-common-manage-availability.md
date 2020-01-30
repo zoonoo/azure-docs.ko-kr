@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/27/2018
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 5350ecdd3b73894e43db3b9f342fc657cf73f224
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 40810b9a9b295f2aa9d56caaf4b51cab7dbbe5bc
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268188"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887671"
 ---
 ## <a name="understand-vm-reboots---maintenance-vs-downtime"></a>VM 다시 부팅 이해 - 유지 관리 및 가동 중지
 Azure의 가상 컴퓨터가 초래할 수 있는 세 가지 시나리오, 즉, 계획되지 않은 하드웨어 유지 관리, 예기치 않은 가동 중지 및 계획된 유지 관리가 있습니다.
@@ -79,12 +79,13 @@ Get-AzComputeResourceSku | where{$_.ResourceType -eq 'availabilitySets' -and $_.
 az vm list-skus --resource-type availabilitySets --query '[?name==`Aligned`].{Location:locationInfo[0].location, MaximumFaultDomainCount:capabilities[0].value}' -o Table
 ```
 
-> 참고: 특정 상황에서는 동일한 가용성 집합의 두 Vm 부분이 동일한 FaultDomain을 공유 하는 경우 발생할 수 있습니다. 가용성 집합으로 이동 하 여 "장애 도메인" 열을 확인 하 여 확인할 수 있습니다.
-> Vm을 배포 하는 동안 다음 시퀀스가 발생 하면이 동작을 관찰할 수 있습니다.
+> [!NOTE]
+> 특정 상황에서는 동일한 가용성 집합의 두 Vm이 동일한 FaultDomain을 공유할 수 있습니다. 가용성 집합으로 이동 하 고 **장애 도메인** 열을 확인 하 여이를 확인할 수 있습니다.
+> 이는 Vm을 배포 하는 동안 다음 순서로 발생할 수 있습니다.
 > - 첫 번째 VM 배포
 > - 첫 번째 VM 중지/할당 취소
 > - 두 번째 vm을 배포 하는 경우 두 번째 vm의 OS 디스크는 첫 번째 VM과 동일한 장애 도메인에 생성 될 수 있으므로 두 번째 vm은 동일한 FaultDomain에도 적용 됩니다. 
-> 이 문제를 방지 하려면 배포 간에 VM을 중지/할당 취소 하지 않는 것이 좋습니다.
+> 이 문제를 방지 하려면 배포 간에 Vm을 중지/할당 취소 하지 않는 것이 좋습니다.
 
 비관리 디스크에서 VM을 사용하려는 경우 VM의 VHD(가상 하드 디스크)를 [페이지 Blob](https://docs.microsoft.com/rest/api/storageservices/Understanding-Block-Blobs--Append-Blobs--and-Page-Blobs#about-page-blobs)으로 저장하는 스토리지 계정에 대한 아래의 모범 사례를 따릅니다.
 

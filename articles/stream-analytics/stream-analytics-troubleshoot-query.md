@@ -8,12 +8,12 @@ ms.service: stream-analytics
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.custom: seodec18
-ms.openlocfilehash: 5534a46ba99d1536d331b5852ef47588f03d73a4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bf0740bbdd4754aeba43e64f1076a1bea33cffc6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980270"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844425"
 ---
 # <a name="troubleshoot-azure-stream-analytics-queries"></a>Azure Stream Analytics 쿼리 문제 해결
 
@@ -21,21 +21,24 @@ ms.locfileid: "75980270"
 
 ## <a name="query-is-not-producing-expected-output"></a>쿼리가 예상 출력을 생성하지 않음
 1.  로컬로 테스트하여 오류를 검사합니다.
-    - **쿼리** 탭에서 **테스트**를 선택합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
-    - 또한 Visual Studio용 Stream Analytics 도구를 사용하여 [실시간 입력에 대해 직접 쿼리를 테스트](stream-analytics-live-data-local-testing.md)할 수도 있습니다.
+    - Azure Portal의 **쿼리** 탭에서 **테스트**를 선택 합니다. 다운로드한 샘플 데이터를 사용하여 [쿼리를 테스트](stream-analytics-test-query.md)합니다. 모든 오류를 검사하고 수정합니다.   
+    - Visual Studio 또는 [Visual Studio Code](visual-studio-code-local-run-live-input.md)Azure Stream Analytics 도구를 사용 하 여 [쿼리를 로컬로 테스트할](stream-analytics-live-data-local-testing.md) 수도 있습니다. 
 
-2.  [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
+2.  Visual Studio 용 Azure Stream Analytics 도구에서 [작업 다이어그램을 사용 하 여 로컬로 쿼리 디버그 단계별 작업 다이어그램을 사용](debug-locally-using-job-diagram.md) 합니다. 작업 다이어그램은 여러 쿼리 단계를 통해 입력 원본 (이벤트 허브, IoT Hub 등)에서 데이터 흐름을 표시 하 고, 마지막으로 싱크에 출력 하는 방법을 보여 주기 위한 것입니다. 각 쿼리 단계는 WITH 문을 사용 하 여 스크립트에 정의 된 임시 결과 집합에 매핑됩니다. 각 중간 결과 집합의 각 쿼리 단계에서 데이터와 메트릭을 확인 하 여 문제의 원인을 찾을 수 있습니다.
+    작업 다이어그램 미리 보기 결과를 ![](./media/debug-locally-using-job-diagram/preview-result.png)
 
-3.  다음과 같은 공통 문제를 제거합니다.
+3.  [**Timestamp By**](https://docs.microsoft.com/stream-analytics-query/timestamp-by-azure-stream-analytics)를 사용하는 경우 이벤트에 [작업 시작 시간](stream-analytics-out-of-order-and-late-events.md)보다 큰 타임스탬프가 있는지 확인합니다.
+
+4.  다음과 같은 공통 문제를 제거합니다.
     - 쿼리의 [**WHERE**](https://docs.microsoft.com/stream-analytics-query/where-azure-stream-analytics) 절은 출력이 생성되지 않도록 방지하는 모든 이벤트를 필터링했습니다.
     - [**캐스트**](https://docs.microsoft.com/stream-analytics-query/cast-azure-stream-analytics) 기능이 실패하면 작업이 실패합니다. 형식 캐스팅 오류를 방지하려면 [**TRY_CAST**](https://docs.microsoft.com/stream-analytics-query/try-cast-azure-stream-analytics)를 대신 사용하세요.
     - 창 함수를 사용하는 경우 전체 창 기간을 기다려서 쿼리의 출력을 확인합니다.
     - 작업 시작 시간 전에 이벤트에 대한 타임스탬프가 있으므로 이벤트가 손실됩니다.
 
-4.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정**으로 이동하여 [**이벤트 순서 지정**](stream-analytics-out-of-order-and-late-events.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다.
+5.  이벤트 순서 지정 정책이 예상대로 구성되었는지 확인합니다. **설정**으로 이동하여 [**이벤트 순서 지정**](stream-analytics-out-of-order-and-late-events.md)을 선택합니다. 정책은 **테스트** 단추를 사용하여 쿼리를 테스트하는 경우 적용되지 *않습니다*. 이것이 브라우저에서 테스트할 때와 프로덕션의 작업을 실행할 때의 차이입니다. 
 
-5. 감사 및 진단 로그를 사용하여 디버그합니다.
-    - [감사 로그](../azure-resource-manager/management/view-activity-logs.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
+6. 감사 및 진단 로그를 사용하여 디버그합니다.
+    - [감사 로그](../azure-resource-manager/resource-group-audit.md)를 사용하고 필터링하여 오류를 식별하고 디버그합니다.
     - [작업 진단 로그](stream-analytics-job-diagnostic-logs.md)를 사용하여 오류를 식별하고 디버그합니다.
 
 ## <a name="job-is-consuming-too-many-streaming-units"></a>작업이 너무 많은 스트리밍 단위를 소비함

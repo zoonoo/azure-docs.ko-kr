@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 05/31/2019
+ms.date: 01/28/2020
 ms.author: mlearned
-ms.openlocfilehash: cbc653b86ed83f9d6a7348d39f51dc7cd49c6892
-ms.sourcegitcommit: 0f54f1b067f588d50f787fbfac50854a3a64fff7
+ms.openlocfilehash: d1fdd17b0f6b8ed91d4496f7e9e5a578e53556fe
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/12/2019
-ms.locfileid: "67615681"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845221"
 ---
 # <a name="use-azure-role-based-access-controls-to-define-access-to-the-kubernetes-configuration-file-in-azure-kubernetes-service-aks"></a>Azure 역할 기반 액세스 제어를 사용하여 AKS(Azure Kubernetes Service)의 Kubernetes 구성 파일에 대한 액세스 정의
 
@@ -20,7 +20,7 @@ ms.locfileid: "67615681"
 
 이 문서에서는 AKS 클러스터의 구성 정보를 받을 수 있는 사람을 제한하는 RBAC 역할을 할당하는 방법을 보여줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -28,20 +28,24 @@ ms.locfileid: "67615681"
 
 ## <a name="available-cluster-roles-permissions"></a>사용 가능한 클러스터 역할 권한
 
-`kubectl` 도구를 사용하여 AKS 클러스터와 상호 작용할 때는 클러스터 연결 정보를 정의하는 구성 파일이 사용됩니다. 이러한 구성 파일은 일반적으로 *~/.kube/config*에 저장됩니다. 이 *kubeconfig* 파일에 여러 클러스터를 정의할 수 있습니다. [Kubectl config 사용-컨텍스트][kubectl-config-use-context] 명령을 사용 하 여 클러스터 간을 전환 합니다.
+`kubectl` 도구를 사용하여 AKS 클러스터와 상호 작용할 때는 클러스터 연결 정보를 정의하는 구성 파일이 사용됩니다. 이 구성 파일은 일반적으로 *~/.kube/config*에 저장 됩니다. 이 *kubeconfig* 파일에 여러 클러스터를 정의할 수 있습니다. [Kubectl config 사용-컨텍스트][kubectl-config-use-context] 명령을 사용 하 여 클러스터 간을 전환 합니다.
 
 [Az aks][az-aks-get-credentials] 명령을 사용 하 여 aks 클러스터에 대 한 액세스 자격 증명을 가져오고이를 *kubeconfig* 파일에 병합할 수 있습니다. Azure 역할 기반 액세스 제어(RBAC)를 사용하여 이러한 자격 증명에 대한 액세스를 제어할 수 있습니다. 이러한 Azure RBAC 역할을 사용하여 *kubeconfig* 파일을 검색할 수 있는 사람과 그 사람이 클러스터 내에서 가지는 권한을 정의할 수 있습니다.
 
 두 가지 기본 제공 역할은 다음과 같습니다.
 
 * **Azure Kubernetes Service 클러스터 관리자 역할**  
-    * *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 관리자 자격 증명을 나열][api-cluster-admin]합니다.
-    * *clusterAdmin* 역할의 *kubeconfig*를 다운로드합니다.
+  * *Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 관리자 자격 증명을 나열][api-cluster-admin]합니다.
+  * *clusterAdmin* 역할의 *kubeconfig*를 다운로드합니다.
 * **Azure Kubernetes Service 클러스터 사용자 역할**
-    * *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 사용자 자격 증명을 나열][api-cluster-user]합니다.
-    * *clusterUser* 역할의 *kubeconfig*를 다운로드합니다.
+  * *Microsoft.ContainerService/managedClusters/listClusterUserCredential/action* API 호출에 대한 액세스를 허용합니다. 이 API 호출은 [클러스터 사용자 자격 증명을 나열][api-cluster-user]합니다.
+  * *clusterUser* 역할의 *kubeconfig*를 다운로드합니다.
 
 이러한 RBAC 역할은 AD (Azure Active Directory) 사용자 또는 그룹에 적용할 수 있습니다.
+
+> ! 두고 Azure AD를 사용 하는 클러스터에서 *Clusteruser* 역할이 있는 사용자에 게 로그인을 요청 하는 빈 *kubeconfig* 파일이 있습니다. 로그인 되 면 사용자는 해당 Azure AD 사용자 또는 그룹 설정에 따라 액세스 권한을 가집니다. *Clusteradmin* 역할이 있는 사용자에 게는 관리자 액세스 권한이 있습니다.
+>
+> Azure AD를 사용 하지 않는 클러스터는 *Clusteradmin* 역할만 사용 합니다.
 
 ## <a name="assign-role-permissions-to-a-user-or-group"></a>사용자 또는 그룹에 역할 권한 할당
 
@@ -69,7 +73,7 @@ az role assignment create \
 ```
 
 > [!TIP]
-> Azure AD 그룹에 사용 권한을 할당 하려는 경우 *사용자가*아닌 *그룹* 의 `--assignee` 개체 ID를 사용 하 여 이전 예제에 표시 된 매개 변수를 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*라는 Azure AD 그룹의 개체 ID를 가져옵니다.`az ad group show --group appdev --query objectId -o tsv`
+> Azure AD 그룹에 사용 권한을 할당 하려면 이전 예에 표시 된 `--assignee` 매개 변수를 *사용자가*아닌 *그룹* 의 개체 ID로 업데이트 합니다. 그룹의 개체 ID를 가져오려면 [az ad group show][az-ad-group-show] 명령을 사용 합니다. 다음 예제에서는 *appdev*: `az ad group show --group appdev --query objectId -o tsv` 이라는 Azure AD 그룹의 개체 ID를 가져옵니다.
 
 필요에 따라 이전에 할당한 역할을 *클러스터 사용자 역할*로 변경할 수 있습니다.
 
@@ -125,7 +129,7 @@ users:
 
 ## <a name="remove-role-permissions"></a>역할 권한 제거
 
-역할 할당을 제거 하려면 [az role assignments delete][az-role-assignment-delete] 명령을 사용 합니다. 이전 명령에서 가져온 계정 ID 및 클러스터 리소스 ID를 지정 합니다. 사용자가 아닌 그룹에 역할을 할당 한 경우 `--assignee` 매개 변수에 대 한 계정 개체 id 대신 적절 한 그룹 개체 id를 지정 합니다.
+역할 할당을 제거 하려면 [az role assignments delete][az-role-assignment-delete] 명령을 사용 합니다. 이전 명령에서 가져온 계정 ID 및 클러스터 리소스 ID를 지정 합니다. 사용자가 아닌 그룹에 역할을 할당 한 경우 `--assignee` 매개 변수에 대 한 계정 개체 ID 대신 적절 한 그룹 개체 ID를 지정 합니다.
 
 ```azurecli-interactive
 az role assignment delete --assignee $ACCOUNT_ID --scope $AKS_CLUSTER

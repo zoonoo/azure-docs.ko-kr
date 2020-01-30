@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 169b0c8084259ac27b466dbfd3606e465da35d99
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098630"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844553"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
 
@@ -23,7 +23,7 @@ ms.locfileid: "73098630"
 > [!NOTE]
 > Azure Event Grid 토픽 및 구독에 대 한 자세한 내용은 [Event Grid 개념](concepts.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 이 자습서를 완료 하려면 다음이 필요 합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -59,11 +59,13 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
    * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **컨테이너 만들기 옵션**:
 
+   [!INCLUDE [event-grid-edge-module-version-update](../../../includes/event-grid-edge-module-version-update.md)]
+
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -178,6 +180,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 ## <a name="create-an-event-subscription"></a>이벤트 구독 만들기
 
 구독자는 토픽에 게시 된 이벤트를 등록할 수 있습니다. 이벤트를 수신 하려면 관심 있는 토픽에 대 한 Event Grid 구독을 만들어야 합니다.
+
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용 하 여 구독을 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
@@ -307,4 +311,5 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 - [설명서](configure-client-auth.md) 에 따라 클라이언트 인증 구성
 - 이 [자습서](pub-sub-events-webhook-cloud.md) 를 수행 하 여 클라우드에서 Azure Functions로 이벤트 전달
 - [IoT Edge에서 Blob Storage 이벤트에 대응](react-blob-storage-events-locally.md)
+- [Edge에서 토픽 및 구독 모니터링](monitor-topics-subscriptions.md)
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7e83aa69cb4099885fc45e719c812a6c92299b7a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75359966"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76887691"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -145,28 +145,20 @@ Azure Managed Disks에서는 현재 로컬 중복 스토리지 Managed Disks만 
 
 프리미엄 SSD, 표준 SSD 및 표준 HDD 지원 스냅숏이 있습니다. 이러한 세 가지 디스크 유형에 대해 스냅숏은 모든 디스크 크기 (최대 32 TiB 크기의 디스크 포함)에 대해 지원 됩니다. 울트라 디스크는 스냅숏을 지원 하지 않습니다.
 
-### <a name="disk-reservation"></a>디스크 예약
+**Azure disk 예약은 무엇 인가요?**
+디스크 예약은 1 년간의 디스크 저장소를 미리 구입 하 여 총 비용을 절감할 수 있는 옵션입니다. Azure 디스크 예약에 대 한 자세한 내용은 주제: [Azure disk에 예약 할인이 적용 되는 방법 이해](../articles/cost-management-billing/reservations/understand-disk-reservations.md)문서를 참조 하세요.
 
-**Azure disk 예약은?**
-디스크 예약은 1 년간의 디스크 저장소를 미리 구입 하 여 총 비용을 절감할 수 있는 옵션입니다.
+**Azure disk 예약은 제공 하는 옵션은 무엇 인가요?** Azure disk 예약은 1 년 동안 P30 (TiB)에서 P80 (32 TiB)까지 지정 된 Sku에서 프리미엄 Ssd를 구매 하는 옵션을 제공 합니다. 디스크 예약을 구매 하는 데 필요한 최소 디스크 크기에 대 한 제한은 없습니다. 또한 단일, 선불 결제 또는 월별 결제로 지불하도록 선택할 수 있습니다. 프리미엄 SSD Managed Disks에는 추가 트랜잭션 비용이 적용 되지 않습니다. 
 
-**Azure disk 예약은 제공 하는 옵션은 무엇 인가요?**
-Azure disk 예약은 1 년 동안 P30 (TiB)에서 P80 (32 TiB)까지 지정 된 Sku에서 프리미엄 Ssd를 구매 하는 옵션을 제공 합니다. 디스크 예약을 구매 하는 데 필요한 최소 디스크 크기에 대 한 제한은 없습니다. 또한 단일, 선불 결제 또는 월별 결제로 지불하도록 선택할 수 있습니다. 프리미엄 SSD Managed Disks에는 추가 트랜잭션 비용이 적용 되지 않습니다.
+예약은 용량이 아니라 디스크 형식으로 수행 됩니다. 즉, P80 (32 TiB) 디스크를 예약 하는 경우 단일 P80 디스크를 사용할 수 없습니다. 그러면 해당 특정 예약을 두 개의 작은 P70 (16 TiB) 디스크로 분할할 수 없습니다. 물론 두 개의 별도 P70 (16 TiB) 디스크를 포함 하 여 원하는 만큼 또는 적은 수의 디스크를 예약할 수 있습니다.
 
-예약은 용량이 아니라 디스크 형식으로 수행 됩니다. 즉, P80 (32 TiB) 디스크를 예약 하는 경우 단일 P80 디스크를 사용할 수 없습니다. 그러면 해당 특정 예약을 두 개의 작은 P70 (16 TiB) 디스크로 divvy 수 없습니다. 물론 두 개의 별도 P70 (16 TiB) 디스크를 포함 하 여 원하는 만큼 또는 적은 수의 디스크를 예약할 수 있습니다.
+**Azure disk 예약은 어떻게 적용 되나요?**  
+디스크 예약은 예약 된 VM (가상 컴퓨터) 인스턴스와 유사한 모델을 따릅니다. VM 인스턴스는 다른 Sku에 디스크 예약을 적용할 수 없다는 차이가 있습니다. VM 인스턴스에 대 한 자세한 내용은 [Azure Reserved VM Instances를 사용 하 여 비용](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) 절감을 참조 하세요.    
 
-**Azure disk 예약은 어떻게 청구 되나요?**
-- EA (기업계약) 고객의 경우 azure 디스크 예약을 구매 하는 데 먼저 Azure 금액 약정을 사용 합니다. EA 고객이 모든 현금 약정 금액을 사용 하는 시나리오에서 디스크 예약은 계속 구매할 수 있으며 이러한 구매는 다음 초과분 청구서에 대 한 단일 선불 지불에 대해 송장이 청구 됩니다.
+**여러 지역에 걸쳐 Azure 디스크 예약을 통해 구매한 내 데이터 저장소를 사용할 수 있나요?**     
+Azure 디스크 예약은 특정 지역 및 SKU (미국 동부 2의 P30 처럼)에 대해 구매 되므로 이러한 구문 외부에서 사용할 수 없습니다. 다른 지역 또는 Sku에서 디스크 저장소 요구 사항에 대 한 추가 Azure 디스크 예약을 항상 구매할 수 있습니다. 
 
-- Azure.com를 통해 구매 하는 고객의 경우 구매 시 파일의 신용 카드에는 Azure 디스크 예약의 전체 선불 지불 (또는 월간 고정 지불)이 부과 됩니다.
-
-**Azure disk 예약은 어떻게 적용 되나요?**
-디스크 예약은 예약 된 VM (가상 컴퓨터) 인스턴스와 유사한 모델을 따릅니다. VM 인스턴스는 다른 Sku에 디스크 예약을 적용할 수 없다는 차이가 있습니다. VM 인스턴스에 대 한 자세한 내용은 [Azure Reserved VM Instances를 사용 하 여 비용](../articles/virtual-machines/linux/prepay-reserved-vm-instances.md) 절감을 참조 하세요. 
-
-**여러 지역에 걸쳐 Azure 디스크 예약을 통해 구매한 내 데이터 저장소를 사용할 수 있나요?**
-Azure 디스크 예약은 특정 지역 및 SKU (미국 동부 2의 P30 처럼)에 대해 구매 되므로 이러한 구문 외부에서 사용할 수 없습니다. 다른 지역 또는 Sku에서 디스크 저장소 요구 사항에 대 한 추가 Azure 디스크 예약을 항상 구매할 수 있습니다.
-
-**Azure 디스크 예약이 만료 되 면 어떻게 되나요?**
+**Azure 디스크 예약이 만료 되 면 어떻게 되나요?**    
 만료 전에 30 일 후에 만료 날짜에 다시 전자 메일 알림을 받게 됩니다. 예약이 만료 되 면 배포 된 디스크는 계속 실행 되 고 최신 [종 량 제 요금](https://azure.microsoft.com/pricing/details/managed-disks/)으로 청구 됩니다.
 
 ## <a name="ultra-disks"></a>Ultra disks

@@ -3,9 +3,7 @@ title: Azure Network Watcher 인스턴스 만들기 | Microsoft Docs
 description: Azure 지역에서 Network Watcher를 사용하도록 설정하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: b1314119-0b87-4f4d-b44c-2c4d0547fb76
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: fd293c2815721295715c5e02846c55d4cdb74a32
-ms.sourcegitcommit: e0e6663a2d6672a9d916d64d14d63633934d2952
+ms.author: damendo
+ms.openlocfilehash: b091c501fb565fb267c40f686dc037e41f3c90ee
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72693480"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845130"
 ---
 # <a name="create-an-azure-network-watcher-instance"></a>Azure Network Watcher 인스턴스 만들기
 
@@ -29,7 +27,7 @@ Network Watcher는 Azure 내에서, Azure로, Azure로부터 네트워크 시나
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="network-watcher-is-automatically-enabled"></a>Network Watcher가 자동으로 사용하도록 설정됨
-구독에서 가상 네트워크를 만들거나 업데이트하는 경우 가상 네트워크의 지역에서 Network Watcher가 자동으로 사용됩니다. 리소스에 대한 영향이나 Network Watcher를 자동으로 사용하도록 설정하는 데 관련된 요금은 없습니다.
+구독에서 가상 네트워크를 만들거나 업데이트하면 가상 네트워크 지역에서 Network Watcher가 자동으로 사용하도록 설정됩니다. 리소스에 대한 영향이나 Network Watcher를 자동으로 사용하도록 설정하는 데 관련된 요금은 없습니다.
 
 #### <a name="opt-out-of-network-watcher-automatic-enablement"></a>Network Watcher 자동 사용 옵트아웃
 Network Watcher 자동 사용을 옵트아웃하려면 다음 명령을 실행하여 옵트아웃할 수 있습니다.

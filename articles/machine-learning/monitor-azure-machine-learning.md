@@ -9,12 +9,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 11/04/2019
-ms.openlocfilehash: 1c5b2879659305e55bb01e4cfab27c7a1b343155
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c35afe6e3d6ec74e8fc7cd134f533d1e618c820e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894861"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845732"
 ---
 # <a name="monitoring-azure-machine-learning"></a>모니터링 Azure Machine Learning
 
@@ -32,7 +32,7 @@ ms.locfileid: "75894861"
 
 Azure Machine Learning는 Azure에서 전체 스택 모니터링 서비스인 Azure Monitor를 사용 하 여 모니터링 데이터를 기록 합니다. Azure Monitor는 Azure 리소스를 모니터링 하는 완전 한 기능 집합을 제공 합니다. 또한 다른 클라우드 및 온-프레미스의 리소스도 모니터링할 수 있습니다.
 
-모니터링 기능에 대 한 개요를 제공 하는 [Azure Monitor 개요](/azure/azure-monitor/overview)문서부터 시작 합니다. 다음 섹션에서는 Azure Machine Learning와 함께 Azure Monitor를 사용 하는 특성을 제공 하 여이 정보를 작성 합니다.
+모니터링 기능에 대 한 개요를 제공 하는 [Azure Monitor 개요](/azure/azure-monitor/overview)문서부터 시작 합니다. 다음 섹션에서는 Azure Machine Learning에서 Azure Monitor 사용에 대 한 구체적인 정보를 제공 하 여이 정보를 작성 합니다.
 
 Azure Monitor와 관련 된 비용을 이해 하려면 [사용량 및 예상 비용](/azure/azure-monitor/platform/usage-estimated-costs)을 참조 하세요. 데이터가 Azure Monitor에 표시 되는 데 걸리는 시간을 이해 하려면 [로그 데이터 수집 시간](/azure/azure-monitor/platform/data-ingestion-time)을 참조 하세요.
 

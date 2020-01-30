@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate의 VMware 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 74dae71404fe827c9e19d5e3042afd2f98a7a5dd
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154689"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846184"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
@@ -25,7 +25,7 @@ ms.locfileid: "76154689"
 --- | ---
 **평가 제한**| 단일 [프로젝트](migrate-support-matrix.md#azure-migrate-projects)에서 최대 35000 VMware vm을 검색 하 고 평가 합니다.
 **프로젝트 제한** | Azure 구독에서 여러 프로젝트를 만들 수 있습니다. 프로젝트는 VMware Vm, Hyper-v Vm 및 물리적 서버를 평가 제한까지 포함할 수 있습니다.
-**검색** | Azure Migrate 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.
+**조사** | Azure Migrate 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.
 **평가** | 단일 그룹에 최대 35000 대의 컴퓨터를 추가할 수 있습니다.<br/><br/> 단일 평가에서 최대 35000 Vm을 평가할 수 있습니다.
 
 평가에 대해 자세히 [알아보세요](concepts-assessment-calculation.md) .
@@ -37,7 +37,7 @@ ms.locfileid: "76154689"
 
 **지원** | **세부 정보**
 --- | ---
-**검색** | 검색은 에이전트 없이 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
+**조사** | 검색은 에이전트 없이 컴퓨터 게스트 자격 증명을 사용 하 고 WMI 및 SSH 호출을 사용 하 여 컴퓨터에 원격으로 액세스 합니다.
 **지원 되는 컴퓨터** | 온-프레미스 VMware Vm.
 **컴퓨터 운영 체제** | 모든 Windows 및 Linux 버전
 **vCenter 자격 증명** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정과 게스트 작업 > Virtual Machines에 대 한 권한이 설정 되어 있습니다.
@@ -52,7 +52,7 @@ ms.locfileid: "76154689"
 --- | ---
 **vCenter Server** | 검색 하 고 평가 하려는 컴퓨터는 vCenter Server 버전 5.5, 6.0, 6.5 또는 6.7에서 관리 해야 합니다.
 **사용 권한 (평가)** | 읽기 전용 계정을 vCenter Server 합니다.
-**권한 (앱 검색)** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정 및 가상 컴퓨터에 대 한 권한이 설정 된 게스트 작업 > 합니다.
+**권한 (앱 검색)** | 읽기 전용 액세스 권한이 있는 vCenter Server 계정 및 가상 컴퓨터에 대 한 권한이 설정 된 **게스트 작업 >** 합니다.
 **권한 (종속성 시각화)** | 읽기 전용 액세스 권한이 있는 센터 서버 계정 및 **게스트 작업** > **가상 컴퓨터** 에 대 한 권한이 설정 되어 있습니다.
 
 
@@ -67,8 +67,9 @@ Azure Migrate는 검색 및 평가를 위해 [Azure Migrate 어플라이언스](
 
 **디바이스** | **연결**
 --- | ---
-어플라이언스 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
+기기가 | 어플라이언스에 대 한 원격 데스크톱 연결을 허용 하기 위해 TCP 포트 3389에서 인바운드 연결<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하기 위한 포트 44368의 인바운드 연결: ```https://<appliance-ip-or-name>:44368``` <br/><br/>Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443 (HTTPS), 5671 및 5672 (AMQP)의 아웃 바운드 연결
 vCenter Server | 어플라이언스에서 평가를 위한 구성 및 성능 메타 데이터를 수집할 수 있도록 TCP 포트 443에서 인바운드 연결 <br/><br/> 어플라이언스는 기본적으로 포트 443의 vCenter에 연결 됩니다. VCenter 서버가 다른 포트에서 수신 대기 하는 경우 검색을 설정할 때 포트를 수정할 수 있습니다.
+ESXi 호스트 | **[응용 프로그램 검색](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#application-discovery) 및 에이전트 없는 [종속성 시각화](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware#agentless-dependency-visualization) 에만 필요 합니다.** <br/><br/> 어플라이언스는 TCP 포트 443의 ESXi 호스트에 연결 하 여 응용 프로그램을 검색 하 고 호스트에서 실행 되는 Vm에서 에이전트 없는 종속성 시각화를 실행 합니다.
 
 ## <a name="agent-based-dependency-visualization"></a>에이전트 기반 종속성 시각화
 

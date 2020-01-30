@@ -3,12 +3,12 @@ title: Azure CLI를 사용 하 여 Azure 파일 공유 백업
 description: Azure CLI를 사용 하 여 Recovery Services 자격 증명 모음에서 Azure 파일 공유를 백업 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/14/2020
-ms.openlocfilehash: 10ae6d88e8a40ba4175e664ed338f0a02be7a7ca
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: ff1d8c6245521d2d0262b0440177d65713058742
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294488"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844044"
 ---
 # <a name="back-up-azure-file-shares-with-cli"></a>CLI를 사용 하 여 Azure 파일 공유 백업
 
@@ -104,7 +104,7 @@ Name                                  ResourceGroup
 
 요청 시 백업을 트리거하기 위해 다음 매개 변수를 정의 해야 합니다.
 
-* **--container-name** 은 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](https://docs.microsoft.com/azure/backup/container?view=azure-cli-latest#az-backup-container-list) 명령을 사용 합니다.
+* **--container-name** 은 파일 공유를 호스트 하는 저장소 계정의 이름입니다. 컨테이너의 **이름** **또는 이름을 검색** 하려면 [az backup container list](/cli/azure/backup/container?view=azure-cli-latest#az-backup-container-list) 명령을 사용 합니다.
 * **--name** 은 요청 시 백업을 트리거할 파일 공유의 이름입니다. 백업 된 항목 의 이름 **또는 이름을** 검색 하려면 [az backup item list](https://docs.microsoft.com/cli/azure/backup/item?view=azure-cli-latest#az-backup-item-list) 명령을 사용 합니다.
 * **--유지-** 복구 지점을 보존할 시점까지 날짜를 지정 합니다. 값은 UTC 시간 형식 (dd-mm-yyyy)으로 설정 해야 합니다.
 

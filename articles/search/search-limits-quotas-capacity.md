@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: 690a9751111ca4c86ebb34825f2845ea59d6f186
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6ee339cb709a5d825b39b4accf294761c99ee41a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462499"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846275"
 ---
 # <a name="service-limits-in-azure-cognitive-search"></a>Azure Cognitive Search의 서비스 제한
 
@@ -117,7 +117,7 @@ ms.locfileid: "75462499"
 | 최대 실행 시간 <sup>5</sup> | 1-3분 |24시간 |24시간 |24시간 |24시간 |N/A  |24시간 |24시간 |
 | 인식 검색 기능이나 이미지 분석을 통한 Blob 인덱싱의 최대 실행 시간 <sup>5</sup> | 3~10분 |2시간 |2시간 |2시간 |2시간 |N/A  |2시간 |2시간 |
 | Blob 인덱서: 최대 Blob 크기(MB) |16 |16 |128 |256 |256 |N/A  |256 |256 |
-| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4&nbsp;백만 |4&nbsp;백만 |4&nbsp;백만 |N/A |4&nbsp;백만 |4&nbsp;백만 |
+| Blob 인덱서: Blob에서 추출된 콘텐츠의 최대 문자 |32,000 |64,000 |4&nbsp;백만 |8&nbsp;백만 |16&nbsp;백만 |N/A |4&nbsp;백만 |4&nbsp;백만 |
 
 <sup>1</sup> 무료 계층의 인덱서 최대 실행 시간은 Blob 원본의 경우 3분이고 기타 모든 데이터 원본의 경우 1분입니다. Cognitive Services를 호출 하는 AI 인덱싱의 경우 무료 서비스는 하루 20 개의 무료 트랜잭션으로 제한 되며, 여기서 트랜잭션은 보강 파이프라인을 통해 성공적으로 전달 되는 문서로 정의 됩니다.
 
@@ -151,7 +151,7 @@ QPS 예상 값은 모든 고객에 의해 독립적으로 개발되어야 합니
 
 ## <a name="data-limits-ai-enrichment"></a>데이터 제한 (AI 보강)
 
-[엔터티를 인식](cognitive-search-skill-entity-recognition.md)하기 위해 Text Analytics 리소스를 호출 하는 [AI 보강 파이프라인](cognitive-search-concept-intro.md) , [키 구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md)및 [언어 검색](cognitive-search-skill-language-detection.md) 에는 데이터 제한이 적용 됩니다. 레코드의 최대 크기는 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)으로 측정 되는 5만 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
+[엔터티 인식을](cognitive-search-skill-entity-recognition.md)위해 Text Analytics 리소스를 호출 하는 [AI 보강 파이프라인](cognitive-search-concept-intro.md) , [핵심 문구 추출](cognitive-search-skill-keyphrases.md), [감정 분석](cognitive-search-skill-sentiment.md), [언어 검색](cognitive-search-skill-language-detection.md)및 [PII 검색](cognitive-search-skill-pii-detection.md) 은 데이터 제한에 따라 달라 집니다. 레코드의 최대 크기는 [`String.Length`](https://docs.microsoft.com/dotnet/api/system.string.length)으로 측정 되는 5만 자 여야 합니다. 감성 분석기로 보내기 전에 데이터를 분할해야 할 경우 [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 사용합니다.
 
 ## <a name="throttling-limits"></a>제한 제한
 

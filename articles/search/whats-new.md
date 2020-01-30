@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: a9c64f4bafa770de9bbbd97ae9a0295b72d81f54
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 24114defe5e78bb7adbd006adc4ddbf8250b3188
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719826"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844975"
 ---
 # <a name="whats-new-in-azure-cognitive-search"></a>Azure Cognitive Search의 새로운 기능
 
@@ -26,6 +26,10 @@ ms.locfileid: "76719826"
 이제 핵심 작업에서 확장 된 (선택 사항) 인식 기술 및 AI 처리 사용을 반영 하기 위해 Azure Search가 **Azure Cognitive Search** 로 이름이 변경 되었습니다. API 버전, NuGet 패키지, 네임 스페이스 및 끝점은 변경 되지 않습니다. 신규 및 기존 검색 솔루션은 서비스 이름 변경의 영향을 받지 않습니다.
 
 ## <a name="feature-announcements"></a>기능 알림
+
+### <a name="february-2020"></a>2 월 2020
+
++ [PII 검색](cognitive-search-skill-pii-detection.md) 은 입력 텍스트에서 개인 식별이 가능한 정보를 추출 하 고 다양 한 방법으로 해당 텍스트를 마스킹할 수 있는 옵션을 제공 하는 인덱싱 중에 사용 되는 인식 기술입니다.
 
 ### <a name="january-2020"></a>2020년 1월
 
@@ -52,7 +56,7 @@ ms.locfileid: "76719826"
 
 + [문서 추출 (미리 보기)](cognitive-search-skill-document-extraction.md) 은 기술 내에서 파일의 콘텐츠를 추출할 수 있는 인덱싱 중에 사용 되는 인식 기술입니다. 이전에는 문서 크랙 기술 실행 되기 전에 발생 했습니다. 이 기술 외에도 기술 실행 내에서이 작업을 수행할 수 있습니다.
 
-+ [텍스트 번역 (미리 보기)](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
++ [텍스트 번역](cognitive-search-skill-text-translation.md) 은 텍스트를 평가 하는 인덱싱 중에 사용 되는 인식 기술 이며, 각 레코드에 대해 지정 된 대상 언어로 변환 된 텍스트를 반환 합니다.
 
 + [Power BI 템플릿은](https://github.com/Azure-Samples/cognitive-search-templates/blob/master/README.md) Power BI desktop의 기술 자료 저장소에서 보강 콘텐츠를 시각화 하 고 분석할 수 있습니다. 이 템플릿은 [데이터 가져오기 마법사](knowledge-store-create-portal.md)를 통해 만든 Azure table 프로젝션 용으로 설계 되었습니다.
 

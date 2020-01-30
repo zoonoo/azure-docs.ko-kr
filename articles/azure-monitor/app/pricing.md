@@ -8,12 +8,12 @@ author: DaleKoetke
 ms.author: dalek
 ms.date: 11/27/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: aaa551619b48bb385bf5b1fef2331d382e32a040
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b0a800a95d00e482b2342911111f43cfadb5a9c6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406546"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845628"
 ---
 # <a name="manage-usage-and-costs-for-application-insights"></a>Application Insights의 사용량 및 비용 관리
 
@@ -38,9 +38,9 @@ Application Insights를 아직 사용 하지 않는 경우 [Azure Monitor 가격
 
 ### <a name="data-collection-when-using-sampling"></a>샘플링을 사용 하는 경우 데이터 수집
 
-ASP.NET SDK의 [적응 샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#adaptive-sampling-in-your-aspnetaspnet-core-web-applications)을 사용 하 여 기본 Application Insights 모니터링을 위해 지정 된 최대 트래픽 속도로 유지 되도록 데이터 볼륨을 자동으로 조정 합니다. 응용 프로그램에서 디버깅 또는 사용량이 낮은 경우와 같이 낮은 원격 분석을 생성 하는 경우 볼륨이 구성 된 초당 이벤트 수준 미만인 경우 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 고용량 응용 프로그램의 경우 초당 5 개 이벤트의 기본 임계값을 사용 하는 경우 적응 샘플링은 일일 이벤트 수를 432000 개로 제한 합니다. 일반적인 평균 이벤트 크기인 1kb를 사용 하는 경우이는 응용 프로그램을 호스트 하는 노드당 31 일에 해당 하는 원격 분석 13.4에 해당 합니다. 샘플링은 각 노드에 대해 로컬에서 수행 되기 때문입니다. 
+ASP.NET SDK의 [적응 샘플링](sampling.md#adaptive-sampling)을 사용 하 여 기본 Application Insights 모니터링을 위해 지정 된 최대 트래픽 속도로 유지 되도록 데이터 볼륨을 자동으로 조정 합니다. 응용 프로그램에서 디버깅 또는 사용량이 낮은 경우와 같이 낮은 원격 분석을 생성 하는 경우 볼륨이 구성 된 초당 이벤트 수준 미만인 경우 샘플링 프로세서에 의해 항목이 삭제 되지 않습니다. 고용량 응용 프로그램의 경우 초당 5 개 이벤트의 기본 임계값을 사용 하는 경우 적응 샘플링은 일일 이벤트 수를 432000 개로 제한 합니다. 일반적인 평균 이벤트 크기인 1kb를 사용 하는 경우이는 응용 프로그램을 호스트 하는 노드당 31 일에 해당 하는 원격 분석 13.4에 해당 합니다. 샘플링은 각 노드에 대해 로컬에서 수행 되기 때문입니다. 
 
-적응 샘플링을 지원 하지 않는 Sdk의 경우, 유지할 데이터의 백분율 또는 [ASP.NET, ASP.NET Core 및 Java 웹 사이트에 대 한 고정 비율 샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#fixed-rate-sampling-for-aspnet-aspnet-core-java-websites-and-python-applications) 을 사용 하 여 Application Insights에서 데이터를 수신 하는 경우를 샘플링 하는 수집 [샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)을 사용 하 여 웹 서버와 웹 브라우저에서 전송 되는 트래픽을 줄일 수 있습니다.
+적응 샘플링을 지원 하지 않는 Sdk의 경우, 유지할 데이터의 백분율 또는 [ASP.NET, ASP.NET Core 및 Java 웹 사이트에 대 한 고정 비율 샘플링](sampling.md#fixed-rate-sampling) 을 사용 하 여 Application Insights에서 데이터를 수신 하는 경우를 샘플링 하는 수집 [샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#ingestion-sampling)을 사용 하 여 웹 서버와 웹 브라우저에서 전송 되는 트래픽을 줄일 수 있습니다.
 
 ### <a name="learn-from-what-similar-customers-collect"></a>비슷한 고객이 수집 하는 내용 살펴보기
 

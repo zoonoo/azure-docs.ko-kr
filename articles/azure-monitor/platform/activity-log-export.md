@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e46574ae7f8faa67c2cc0c1afef1917270f69175
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715891"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845474"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
@@ -36,14 +36,15 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 ### <a name="storage-account"></a>Storage 계정
 활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 저장소 계정에 로그 및 메트릭을 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
 
-설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 스토리지 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다.
-> [!NOTE]
->  현재는 보안 가상 네트워크 뒤에 있는 스토리지 계정에 데이터를 보관할 수 없습니다.
+설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 스토리지 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다. 
+
+> [!TIP]
+> 보안 가상 네트워크 뒤의 저장소 계정에 대 한 액세스를 제공 하려면 [Azure Storage 방화벽 및 가상 네트워크 구성](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions) 을 참조 하세요.
 
 ### <a name="event-hubs"></a>Event Hubs
 활동 로그를 event hub에 전송 하는 경우에는 [이벤트 허브를 만들어야](../../event-hubs/event-hubs-create.md) 합니다 (아직 없는 경우). 이전에 활동 로그 이벤트를이 Event Hubs 네임 스페이스로 스트리밍하는 경우 해당 이벤트 허브가 다시 사용 됩니다.
 
-공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. 流式传输到事件中心需要“管理”、“发送”和“侦听”权限。 Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 Event Hubs 네임 스페이스에 대 한 공유 액세스 정책을 만들거나 수정할 수 있습니다.
+공유 액세스 정책은 스트리밍 메커니즘에서 보유하는 권한을 정의합니다. Event Hubs로 스트리밍하려면 관리, 보내기 및 수신 권한이 필요 합니다. Event Hubs 네임 스페이스의 구성 탭에 있는 Azure Portal에서 Event Hubs 네임 스페이스에 대 한 공유 액세스 정책을 만들거나 수정할 수 있습니다.
 
 스트리밍을 포함 하도록 활동 로그 로그 프로필을 업데이트 하려면 해당 Event Hubs 권한 부여 규칙에 대 한 ListKey 권한이 있어야 합니다. 설정을 구성하는 사용자에게 구독 모두에 액세스할 수 있는 적절한 RBAC 액세스 권한이 있다면 Event Hubs 네임스페이스가 로그를 내보내는 구독과 동일한 구독에 위치하지 않아도 됩니다. 구독은 모두 동일한 AAD 테넌트에 위치합니다.
 

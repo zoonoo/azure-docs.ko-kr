@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 83b4e1e10af8e398f6671f6b2561485bfdb6b7f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432477"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846122"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
@@ -136,7 +136,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
 
 4. 이제 Python 스크립트를 실행할 때 값을 입력 하 라는 메시지가 표시 되지만 값만 셸에 인쇄 됩니다. 만든 `SpanData` Azure Monitor으로 전송 됩니다. `dependencies`에서 내보낸 범위 데이터를 찾을 수 있습니다.
 
-5. OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](https://docs.microsoft.com/azure/azure-monitor/app/sampling#configuring-fixed-rate-sampling-in-opencensus-python)을 참조 하세요.
+5. OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications)을 참조 하세요.
 
 6. 추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus [원격 분석 상관 관계](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)를 참조 하세요.
 

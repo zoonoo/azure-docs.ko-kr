@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 4a5f60c2da8a77f385dba40dcd4d342583e989c1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547424"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845422"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -65,11 +65,13 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 1. 함수 앱 프로젝트에 대 한 폴더를 선택 하 고 **함수 프로젝트에 사용할 언어를 선택**합니다.
 
+1. 핵심 도구를 아직 설치 하지 않은 경우 설치할 핵심 도구의 버전을 **선택** 하 라는 메시지가 표시 됩니다. 버전 2.x 또는 이후 버전을 선택 합니다. 
+
 1. **HTTP 트리거** 함수 템플릿을 선택 하거나, **지금 건너뛰기** 를 선택 하 여 함수 없이 프로젝트를 만들 수 있습니다. 나중에 항상 [함수를 프로젝트에 추가할](#add-a-function-to-your-project) 수 있습니다.
 
     ![HTTP 트리거 템플릿 선택](./media/functions-develop-vs-code/create-function-choose-template.png)
 
-1. 함수 이름에 대해 **Httptrigger** 를 입력 하 고 Enter 키를 선택한 다음 **함수** 권한 부여를 선택 합니다. 이 권한 부여 수준에서는 함수 끝점을 호출할 때 [함수 키](functions-bindings-http-webhook.md#authorization-keys) 를 제공 해야 합니다.
+1. 함수 이름에 대해 **Httpexample** 을 입력 하 고 Enter 키를 선택한 다음 **함수** 권한 부여를 선택 합니다. 이 권한 부여 수준에서는 함수 끝점을 호출할 때 [함수 키](functions-bindings-http-webhook.md#authorization-keys) 를 제공 해야 합니다.
 
     ![함수 권한 부여 선택](./media/functions-develop-vs-code/create-function-auth.png)
 
@@ -189,6 +191,8 @@ context.bindings.msg = "Name passed to the function: " req.query.name;
 ---
 
 [!INCLUDE [Supported triggers and bindings](../../includes/functions-bindings.md)]
+
+[!INCLUDE [functions-sign-in-vs-code](../../includes/functions-sign-in-vs-code.md)]
 
 ## <a name="publish-to-azure"></a>Azure에 게시
 

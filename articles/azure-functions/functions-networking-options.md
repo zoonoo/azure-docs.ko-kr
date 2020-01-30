@@ -5,12 +5,12 @@ author: alexkarcher-msft
 ms.topic: conceptual
 ms.date: 4/11/2019
 ms.author: alkarche
-ms.openlocfilehash: 1a9c058e590e5df9ab9ec82d900e22f7154d00a0
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 79c27d252136281249c217f51019e53987922334
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75561935"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846461"
 ---
 # <a name="azure-functions-networking-options"></a>Azure Functions 네트워킹 옵션
 
@@ -30,11 +30,11 @@ ms.locfileid: "75561935"
 
 |                |[소비 계획](functions-scale.md#consumption-plan)|[프리미엄 요금제](functions-scale.md#premium-plan)|[App Service 계획](functions-scale.md#app-service-plan)|[App Service Environment](../app-service/environment/intro.md)|
 |----------------|-----------|----------------|---------|-----------------------|  
-|[인바운드 IP 제한 & 개인 사이트 액세스](#inbound-ip-restrictions)|✅예|✅예|✅예|✅예|
-|[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예 (지역)|✅예 (지역 및 게이트웨이)|✅예|
-|[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| ✅예 |✅예|✅예|
-|[하이브리드 연결](#hybrid-connections) (Windows에만 해당)|❌아니요|✅예|✅예|✅예|
-|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ❌아니요|❌아니요|✅예|
+|[인바운드 IP 제한 & 개인 사이트 액세스](#inbound-ip-restrictions)|예 ✅|예 ✅|예 ✅|예 ✅|
+|[가상 네트워크 통합](#virtual-network-integration)|❌아니요|✅예 (지역)|✅예 (지역 및 게이트웨이)|예 ✅|
+|[가상 네트워크 트리거 (비 HTTP)](#virtual-network-triggers-non-http)|❌아니요| 예 ✅ |예 ✅|예 ✅|
+|[하이브리드 연결](#hybrid-connections) (Windows에만 해당)|❌아니요|예 ✅|예 ✅|예 ✅|
+|[아웃 바운드 IP 제한](#outbound-ip-restrictions)|❌아니요| ❌아니요|❌아니요|예 ✅|
 
 ## <a name="inbound-ip-restrictions"></a>인바운드 IP 제한
 
@@ -136,7 +136,7 @@ Key Vault 서비스 끝점을 사용 하 여 보호 되는 경우 현재 [Key Va
 다음 Azure CLI 명령을 사용 하 여 가상 네트워크 트리거를 사용 하도록 설정할 수도 있습니다.
 
 ```azurecli-interactive
-az resource update -g <resource_group> -n <premium_plan_name> --set properties.functionsRuntimeScaleMonitoringEnabled=1
+az resource update -g <resource_group> -n <function_app_name>/config/web --set properties.functionsRuntimeScaleMonitoringEnabled=1 --resource-type Microsoft.Web/sites
 ```
 
 가상 네트워크 트리거는 함수 런타임의 버전 2.x 이상에서 지원 됩니다. 다음과 같은 HTTP가 아닌 트리거 형식이 지원 됩니다.

@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 502a495bad4115daf9f0f4ffed276a307adf1fc4
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: 7184fb5c45ce41de2bd63b55fb67cbd9ba6361e3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73100648"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844720"
 ---
 # <a name="tutorial-forward-events-to-event-grid-cloud"></a>자습서: Event Grid 클라우드에 이벤트 전달
 
@@ -23,9 +23,9 @@ ms.locfileid: "73100648"
 * 클라우드의 edge 이벤트에 대응 합니다.
 * 클라우드에서 Event Grid에 이벤트를 전달 하 고 Azure Event Hubs 또는 Azure Storage 큐를 사용 하 여 클라우드에서 처리 하기 전에 이벤트를 버퍼링 합니다.
 
-이 자습서를 완료 하려면 [edge](concepts.md) 및 [Azure](../concepts.md)에 대 한 Event Grid 개념을 이해 해야 합니다.
+ 이 자습서를 완료 하려면 [edge](concepts.md) 및 [Azure](../concepts.md)에 대 한 Event Grid 개념을 이해 해야 합니다. 추가 대상 형식은 [이벤트 처리기](event-handlers.md)를 참조 하세요. 
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 이 자습서를 완료 하려면 다음이 필요 합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
@@ -83,6 +83,7 @@ ms.locfileid: "73100648"
   
 ## <a name="create-event-grid-subscription-at-the-edge"></a>에 지에서 Event Grid 구독 만들기
 
+[!INCLUDE [event-grid-deploy-iot-edge](../../../includes/event-grid-edge-persist-event-subscriptions.md)]
 
 1. 다음 콘텐츠를 사용 하 여 subscription3를 만듭니다. 페이로드에 대 한 자세한 내용은 [API 설명서](api.md) 를 참조 하세요.
 
@@ -201,3 +202,4 @@ ms.locfileid: "73100648"
 * IoT Edge에서 Azure Event Grid를 사용 하 여 발생 하는 문제를 해결 하려면 [문제 해결 가이드](troubleshoot.md)를 참조 하세요.
 * 이 [자습서](forward-events-iothub.md) 에 따라 IoTHub로 이벤트 전달
 * 이 [자습서](pub-sub-events-webhook-cloud.md) 에 따라 클라우드의 Webhook에 이벤트 전달
+* [Edge에서 토픽 및 구독 모니터링](monitor-topics-subscriptions.md)

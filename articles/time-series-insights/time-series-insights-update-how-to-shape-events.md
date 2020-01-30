@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 12/16/2019
 ms.custom: seodec18
-ms.openlocfilehash: 567770c00c645aeb79e1efb0e9119b9ac829f3fe
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fd744e6283b00b0dfdd50805cb628f5bc40ab8d6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861662"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846146"
 ---
 # <a name="shape-events-with-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기를 사용하여 이벤트 셰이핑
 
@@ -156,5 +156,4 @@ Time Series Instance 미리 보기에서는 쿼리 시간 중에 테이블을 �
 
 ## <a name="next-steps"></a>다음 단계
 
-- 이러한 지침을 적용 하려면 [쿼리 구문 미리 보기 Azure Time Series Insights](./time-series-insights-query-data-csharp.md)를 참조 하세요. 데이터 액세스에 대 한 Time Series Insights 미리 보기 REST API의 쿼리 구문에 대해 자세히 알아보세요.
-- 지원 되는 JSON 셰이프에 대 한 자세한 내용은 [지원 되는 json 셰이프](./time-series-insights-send-events.md#supported-json-shapes)를 참조 하세요.
+이러한 지침을 적용 하려면 [쿼리 구문 미리 보기 Azure Time Series Insights](./time-series-insights-query-data-csharp.md)를 참조 하세요. 데이터 액세스에 대 한 Time Series Insights 미리 보기 REST API의 쿼리 구문에 대해 자세히 알아보세요.

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 4891ec0ae87f0d7b0cd7e5d5d550f955a8fde1db
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312382"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844078"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -49,7 +49,7 @@ ms.locfileid: "76312382"
 
 + 웹에서:
     + [Azure Machine Learning studio](https://ml.azure.com) 
-    + [Azure Machine Learning 디자이너](concept-designer.md) - [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용할 수 있습니다.
+    + [Azure Machine Learning designer (미리 보기)](concept-designer.md) - [Enterprise edition](overview-what-is-azure-ml.md#sku) 작업 영역 에서만 사용할 수 있습니다.
 + [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하는 모든 python 환경에서
 + [R에 대 한 AZURE MACHINE LEARNING SDK](https://azure.github.io/azureml-sdk-for-r/reference/index.html)를 사용 하는 r 환경에서
 + Azure Machine Learning [CLI 확장](https://docs.microsoft.com/azure/machine-learning/reference-azure-machine-learning-cli) 을 사용 하 여 명령줄에서
@@ -79,7 +79,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 노트북 VM 만들기 |   | **&check;** | |     |
 
 > [!NOTE]
-> 컴퓨팅 인스턴스는 **미국 중북부** 또는 **영국 남부** 지역이 있는 작업 영역에서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다.
 
 ## <a name='create-workspace'></a>작업 영역 만들기

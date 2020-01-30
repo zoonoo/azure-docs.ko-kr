@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/10/2019
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: 8656bbb070e2b05a06ea22dd1634a40182b440cb
-ms.sourcegitcommit: b45ee7acf4f26ef2c09300ff2dba2eaa90e09bc7
+ms.openlocfilehash: b453a04a170764a037eed7415eaf71e5a4d37526
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73098659"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844594"
 ---
 ## <a name="deploy-event-grid-iot-edge-module"></a>Event Grid IoT Edge 모듈 배포
 
@@ -43,6 +43,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. 드롭다운 목록의 모듈 형식에서 **IoT Edge 모듈** 을 선택 합니다.
 1. 컨테이너의 이름, 이미지, 컨테이너 만들기 옵션을 제공 합니다.
 
+[!INCLUDE [event-grid-edge-module-version-update](event-grid-edge-module-version-update.md)]
+
    * **이름**: eventgridmodule
    * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge:latest`
    * **컨테이너 만들기 옵션**:
@@ -50,8 +52,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     ```json
         {
           "Env": [
-            "inbound:clientAuth:clientCert:enabled=false",
-            "outbound:webhook:httpsOnly=false"
+            "inbound__clientAuth:clientCert__enabled=false",
+            "outbound__webhook__httpsOnly=false"
           ],
           "HostConfig": {
             "PortBindings": {

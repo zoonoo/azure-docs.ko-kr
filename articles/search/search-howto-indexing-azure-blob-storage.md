@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4f662df6692e03cf3eb948b0d8e2ae51002e815d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 793258b572fdcf2487d4b20fa07fb4ef5524b149
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113013"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846257"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 Azure Blob Storage에서 문서를 인덱싱하는 방법
 
@@ -134,14 +134,14 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 * 문서의 텍스트 콘텐츠가 `content`라는 문자열 필드로 추출됩니다.
 
 > [!NOTE]
-> Azure Cognitive Search는 가격 책정 계층에 따라 추출 되는 텍스트의 양을 제한 합니다. 무료 계층은 32000 자, Basic의 경우 64000, standard, Standard S2 및 Standard S3 계층의 경우 400만입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
+> Azure Cognitive Search는 가격 책정 계층에 따라 추출 되는 텍스트의 양을 제한 합니다. 무료 계층의 경우 32000 자, 400만 Basic의 경우 64000, standard S2의 경우 800만, 표준 S3의 경우 1600만입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
 
 * BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우).
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
   * **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.
-  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예: `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
-  * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. 예: `application/octet-stream`.
+  * **metadata\_storage\_path**(Edm.String - 스토리지 계정을 포함한 BLOB의 전체 URI. 예를 들어 `https://myaccount.blob.core.windows.net/my-container/my-folder/subfolder/resume.pdf`
+  * **metadata\_storage\_content\_type**(Edm.String) - BLOB를 업로드하기 위해 사용한 코드에 지정된 콘텐츠 형식. `application/octet-stream`)을 입력합니다.
   * **metadata\_storage\_last\_modified**(Edm.DateTimeOffset) - BLOB에 대해 마지막으로 수정된 타임스탬프. Azure Cognitive Search는이 타임 스탬프를 사용 하 여 초기 인덱싱 후 모든 항목을 다시 인덱싱하도록 방지 하기 위해 변경 된 blob를 식별 합니다.
   * **metadata\_storage\_size** (Edm.Int64) - BLOB 크기(바이트).
   * **metadata\_storage\_content\_md5**(Edm.String) - BLOB 콘텐츠의 MD5 해시(사용 가능한 경우).
@@ -162,8 +162,8 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
 
 어떤 추출된 필드를 인덱스에 대한 키 필드에 매핑할지 신중하게 고려해야 합니다. 후보는 다음과 같습니다.
 
-* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 유효하지 않은 문자를 처리할 수 있습니다. 이렇게 하면 Lookup과 같은 API 호출에 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.
-* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 `/`문서 키로 유효하지 않은[ ](https://docs.microsoft.com/rest/api/searchservice/naming-rules) 문자가 분명히 포함됩니다.  위와 같이 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용하여 키를 인코딩하는 옵션이 제공됩니다.
+* **metadata\_storage\_name** - 편리한 후보일 수 있으나 1) 다른 폴더에 같은 이름을 가진 BLOB를 포함할 수 있으므로 이름이 고유하지 않을 수 있으며 2) 이름에 대시와 같은 문서 키로 유효하지 않은 문자가 포함될 수 있습니다. `base64Encode` [필드 매핑 함수](search-indexer-field-mappings.md#base64EncodeFunction) 를 사용 하 여 잘못 된 문자를 처리할 수 있습니다. 이렇게 하면 조회와 같은 API 호출에서 문서 키를 전달할 때 문서 키를 인코딩해야 합니다. 예를 들어 .NET에서 이러한 용도로 [UrlTokenEncode 메서드](https://msdn.microsoft.com/library/system.web.httpserverutility.urltokenencode.aspx)를 사용할 수 있습니다.
+* **metadata\_storage\_path** - 전체 경로를 사용하여 고유성을 보장할 수 있지만 해당 경로에 [문서 키로 유효하지 않은](https://docs.microsoft.com/rest/api/searchservice/naming-rules)`/` 문자가 분명히 포함됩니다.  위에서 설명한 것 처럼 `base64Encode` [함수](search-indexer-field-mappings.md#base64EncodeFunction)를 사용 하 여 키를 인코딩할 수 있습니다.
 * 위의 옵션이 작동하지 않는 경우 BLOB에 사용자 지정 메타데이터 속성을 추가할 수 있습니다. 그러나 이 옵션에는 해당 메타데이터 속성을 모든 BLOB에 추가하는 BLOB 업로드 프로세스가 필요합니다. 키는 필수 속성이므로 해당 속성이 없는 모든 BLOB는 인덱싱에 실패합니다.
 
 > [!IMPORTANT]
@@ -236,7 +236,7 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
 
 * `storageMetadata` - [표준 BLOB 속성 및 사용자가 지정한 메타데이터](../storage/blobs/storage-properties-metadata.md)만 인덱싱되도록 지정합니다.
 * `allMetadata` - BLOB 콘텐츠에서 추출한 [Content-Type별 메타데이터](#ContentSpecificMetadata) 및 스토리지 메타데이터가 인덱싱되도록 지정합니다.
-* `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 기본값입니다.
+* `contentAndMetadata` - Blob에서 추출한 모든 메타데이터 및 텍스트 콘텐츠가 인덱싱되도록 지정합니다. 이것은 기본값입니다.
 
 예를 들어 스토리지 메타데이터만 인덱싱하려면 다음을 사용합니다.
 
@@ -256,7 +256,7 @@ Azure Cognitive Search에서 문서 키는 문서를 고유 하 게 식별 합�
 | 속성 이름 | 속성 값 | 설명 |
 | --- | --- | --- |
 | AzureSearch_Skip |"true" |BLOB 인덱서가 BLOB을 완전히 건너뛰도록 지시합니다. 메타데이터와 콘텐츠 추출이 모두 시도되지 않습니다. 특정 BLOB이 반복적으로 실패하고 인덱싱 프로세스가 중단되는 경우에 유용합니다. |
-| AzureSearch_SkipContent |"true" |특정 Blob으로 범위가 지정된 `"dataToExtract" : "allMetadata"`위에[ 설명된 ](#PartsOfBlobToIndex) 설정과 동일합니다. |
+| AzureSearch_SkipContent |"true" |특정 Blob으로 범위가 지정된 [위에](#PartsOfBlobToIndex) 설명된 `"dataToExtract" : "allMetadata"` 설정과 동일합니다. |
 
 <a name="DealingWithErrors"></a>
 ## <a name="dealing-with-errors"></a>오류 처리
@@ -299,7 +299,7 @@ BLOB 인덱서가 일정에 따라 실행되도록 설정하는 경우 BLOB의 `
 2. 데이터 원본에서 일시 삭제 검색 정책을 구성합니다.
 3. 인덱서에서 Blob을 처리하고 나면(인덱서 상태 API로 표시됨) 이 Blob을 물리적으로 삭제할 수 있습니다.
 
-예를 들어 다음 정책은 `IsDeleted` 값의 메타데이터 속성 `true`가 있는 경우 Blob을 삭제해야 하는 것으로 간주합니다.
+예를 들어 다음 정책은 `true` 값의 메타데이터 속성 `IsDeleted`가 있는 경우 Blob을 삭제해야 하는 것으로 간주합니다.
 
     PUT https://[service name].search.windows.net/datasources/blob-datasource?api-version=2019-05-06
     Content-Type: application/json

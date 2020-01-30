@@ -3,9 +3,7 @@ title: Azure Network Watcher로 패킷 검사 | Microsoft Docs
 description: 이 문서에서는 Network Watcher를 사용하여 VM에서 수집한 패킷에 심도 있는 검사를 수행하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.assetid: 7b907d00-9c35-40f5-a61e-beb7b782276f
 ms.service: network-watcher
 ms.devlang: na
@@ -13,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 7f3fc69bbfd881a26ceb25705852558b66c60153
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.author: damendo
+ms.openlocfilehash: c937a07133dc38d2d9e1e1ef2cc324b4c8bb360e
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "64716911"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845073"
 ---
 # <a name="packet-inspection-with-azure-network-watcher"></a>Azure Network Watcher로 패킷 검사
 
@@ -53,7 +51,7 @@ WireShark를 시작합니다.
 
 ### <a name="step-3"></a>3단계
 
-TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 이 패킷이 수신되면 서버는 클라이언트로부터 SYN을 수신했다는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간에서 클라이언트가 [SYN] 패킷을 전송한 시간을 뺀 값으로 RTT를 계산합니다.
+TCP 대화에서 초기 RTT(왕복 시간)를 보려면 TCP 핸드셰이크에 관련된 처음 두 패킷만 확인합니다. 세 방향 핸드셰이크에서 처음 두 패킷([SYN], [SYN, ACK] 패킷)을 사용할 것입니다. TCP 헤더에 설정된 플래그에 따라 이름이 지정되었습니다. 핸드셰이크에서 마지막 패킷인 [ACK] 패킷은 이 시나리오에서는 사용하지 않습니다. 클라이언트에 의해 [SYN] 패킷이 전송됩니다. 수신 되 면 서버는 클라이언트에서 SYN을 수신 하는 승인으로 [ACK] 패킷을 보냅니다. 서버의 응답에는 오버헤드가 거의 필요하지 않다는 사실에 따라 [SYN, ACK] 패킷이 클라이언트에 수신된 시간에서 클라이언트가 [SYN] 패킷을 전송한 시간을 뺀 값으로 RTT를 계산합니다.
 
 WireShark를 사용하여 이 값을 계산합니다.
 

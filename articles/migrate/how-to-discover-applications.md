@@ -3,12 +3,12 @@ title: Azure Migrate를 사용 하 여 온-프레미스 서버에서 앱, 역할
 description: Azure Migrate Server 평가를 사용 하 여 온-프레미스 서버에서 앱, 역할 및 기능을 검색 하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 11/20/2019
-ms.openlocfilehash: 454d70a53c3ea00a4dc592703c0bc04d5517b97f
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 7c3a6360e051b8cb694393695e75578ce2c135ec
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280767"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846323"
 ---
 # <a name="discover-machine-apps-roles-and-features"></a>컴퓨터 앱, 역할 및 기능 검색
 
@@ -28,7 +28,7 @@ Azure Migrate를 사용 하는 앱 검색: 서버 평가는 에이전트 없이 
 2. Azure Migrate: 서버 평가 도구를 프로젝트에 [추가](how-to-assess.md) 했는지 확인 합니다.
 4. Azure Migrate 어플라이언스를 사용 하 여 VMware Vm을 검색 하 고 평가 하기 위한 [vmware 요구 사항을](migrate-support-matrix-vmware.md#vmware-requirements) 확인 하세요.
 5. Azure Migrate 어플라이언스를 배포 하기 위한 [요구 사항을](migrate-appliance.md) 확인 합니다.
-6. 응용 프로그램 검색에 대 한 [지원 및 요구 사항을 확인](/migrate-support-matrix-vmware.md#application-discovery) 합니다.
+6. 응용 프로그램 검색에 대 한 [지원 및 요구 사항을 확인](migrate-support-matrix-vmware.md#application-discovery) 합니다.
 
 ## <a name="prepare-for-app-discovery"></a>앱 검색 준비
 

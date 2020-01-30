@@ -11,12 +11,12 @@ ms.date: 03/22/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 376b7b8a734e5064713237e9250542a4c5cc18f1
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: a4a2eccc3c46b7f982836c73d3144f1793e5034b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73903082"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846189"
 ---
 # <a name="using-transactions-in-sql-data-warehouse"></a>SQL Data Warehouse의 트랜잭션 사용
 솔루션 개발을 위한 Azure SQL Data Warehouse의 트랜잭션 구현을 위한 팁
@@ -25,7 +25,7 @@ ms.locfileid: "73903082"
 예상한 것처럼 SQL Data Warehouse는 데이터 웨어하우스 워크로드의 일부로 트랜잭션을 지원합니다. 그러나 SQL Data Warehouse의 성능은 SQL Server와 비교할 때 일부 기능이 제한되는 수준으로 유지됩니다. 이 문서는 차이점을 강조 표시하고 다른 부분에 대해 설명합니다. 
 
 ## <a name="transaction-isolation-levels"></a>트랜잭션 격리 수준
-SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭션 지원의 격리 수준은 READ UNCOMMITTED로 제한되며 이 수준은 변경할 수 없습니다. READ UNCOMMITTED가 염려되는 경우 다양한 코딩 메서드를 구현하여 데이터의 더티 읽기를 방지할 수 있습니다. 가장 인기 있는 메서드는 CTAS 및 테이블 파티션 전환(슬라이딩 창 패턴이라고 하는)을 모두 사용하여 사용자 준비 중인 데이터 쿼리를 방지합니다. 데이터를 사전 필터링하는 뷰가 일반적인 접근 방법이기도 합니다.  
+SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 트랜잭션 지원의 격리 수준은 커밋되지 않은 읽기의 기본값입니다.  Master 데이터베이스에 연결 된 경우 사용자 데이터베이스에 대 한 READ_COMMITTED_SNAPSHOT 데이터베이스 옵션을 설정 하 여 커밋된 스냅숏 격리를 읽도록 변경할 수 있습니다.  사용 하도록 설정 되 면이 데이터베이스의 모든 트랜잭션은 커밋된 읽기 스냅숏 격리에서 실행 되 고 세션 수준에서 커밋되지 않은 읽기 설정은 적용 되지 않습니다. 자세한 내용은 [ALTER DATABASE SET 옵션 (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest) 을 참조 하세요.
 
 ## <a name="transaction-size"></a>트랜잭션 크기
 단일 데이터 수정 트랜잭션은 크기가 제한됩니다. 이러한 제한은 배포 기준으로 적용됩니다. 따라서 제한을 배포 수와 곱하여 전체 할당을 계산할 수 있습니다. 트랜잭션에 포함된 대략적인 최대 행 수를 구하려면 배포 용량을 각 행의 전체 크기로 나눕니다. 가변 길이 열의 경우에는 최대 크기를 사용하는 대신, 평균 열 길이를 사용하는 것을 고려합니다.
@@ -35,7 +35,7 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 * 균일한 데이터 분포가 발생했습니다. 
 * 평균 행 길이는 250바이트입니다.
 
-## <a name="gen2"></a>Gen2
+## <a name="gen2"></a>2세대
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |
@@ -47,16 +47,16 @@ SQL Data Warehouse는 ACID 트랜잭션을 구현합니다. 그러나, 트랜잭
 | DW1000c |7.5 |60 |450 |30,000,000 |1,800,000,000 |
 | DW1500c |11.25 |60 |675 |45,000,000 |2,700,000,000 |
 | DW2000c |15 |60 |900 |60,000,000 |3,600,000,000 |
-| DW2500c |18.75 |60 |1125 |7500만 |45억 |
+| DW2500c |18.75 |60 |1125 |75,000,000 |4,500,000,000 |
 | DW3000c |22.5 |60 |1,350 |90,000,000 |5,400,000,000 |
-| DW5000c |37.5 |60 |2250 |1억5000만 |90억 |
+| DW5000c |37.5 |60 |2250 |150,000,000 |9,000,000,000 |
 | DW6000c |45 |60 |2,700 |180,000,000 |10,800,000,000 |
-| DW7500c |56.25 |60 |3375 |2억2500만 |135억 |
+| DW7500c |56.25 |60 |3375 |225,000,000 |13,500,000,000 |
 | DW10000c |75 |60 |4500 |300,000,000 |180억 |
-| DW15000c |112.5 |60 |6750 |4억5000만 |270억 |
-| DW30000c |225 |60 |13500 |900,000,000 |540억 |
+| DW15000c |112.5 |60 |6750 |450,000,000 |27,000,000,000 |
+| DW30000c |225 |60 |13500 |900,000,000 |54,000,000,000 |
 
-## <a name="gen1"></a>Gen1
+## <a name="gen1"></a>1세대
 
 | [DWU](sql-data-warehouse-overview-what-is.md) | 배포 당 단면 (GB) | 배포 수 | 최대 트랜잭션 크기 (GB) | # 배포당 행 수 | 트랜잭션당 최대 행 수 |
 | --- | --- | --- | --- | --- | --- |

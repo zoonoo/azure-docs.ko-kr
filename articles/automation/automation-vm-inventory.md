@@ -4,18 +4,23 @@ description: 인벤토리 수집을 사용하여 가상 컴퓨터 관리
 services: automation
 ms.subservice: change-inventory-management
 keywords: 인벤토리, 자동화, 변경, 추적
-ms.date: 02/06/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
-ms.openlocfilehash: c5ac5cb1b1f02ea1e8b7eccb65fba978c99cc4f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d0324038b8a38d7eba84e5472b8f90439b0322c1
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75419822"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844822"
 ---
 # <a name="manage-an-azure-virtual-machine-with-inventory-collection"></a>인벤토리 수집을 사용하여 Azure 가상 컴퓨터 관리
 
-가상 컴퓨터의 리소스 페이지에서 Azure 가상 컴퓨터에 대한 인벤토리 추적을 활성화할 수 있습니다. 컴퓨터의 소프트웨어, 파일, Linux 디먼, Windows 서비스 및 Windows 레지스트리 키에 대한 인벤토리를 수집하고 볼 수 있습니다. 이 방법은 인벤토리 수집을 설정 및 구성하는 브라우저 기반 사용자 인터페이스를 제공합니다.
+가상 컴퓨터의 리소스 페이지에서 Azure 가상 컴퓨터에 대한 인벤토리 추적을 활성화할 수 있습니다. 컴퓨터에서 다음 인벤토리 정보를 수집 하 고 볼 수 있습니다.
+
+- Windows 소프트웨어 (Windows 응용 프로그램 및 Windows 업데이트), 서비스, 파일 및 레지스트리 키
+- Linux 소프트웨어 (패키지) 디먼 및 파일
+
+이 방법은 인벤토리 수집을 설정 및 구성하는 브라우저 기반 사용자 인터페이스를 제공합니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 

@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/08/2019
-ms.openlocfilehash: 56be45b8d0f8086d9a64811fe715fad967fca33e
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/24/2020
+ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027764"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844686"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -23,7 +23,7 @@ ms.locfileid: "76027764"
 
 Azure HDInsight는 Azure에서 오픈 소스 분석을 위해 기업 고객 들 사이에서 가장 인기 있는 서비스 중 하나입니다.
 
-## <a name="release-date-01092019"></a>릴리스 날짜: 01/09/2019
+## <a name="release-date-01092020"></a>릴리스 날짜: 01/09/2020
 
 이 릴리스는 HDInsight 3.6 및 4.0에 모두 적용 됩니다. HDInsight 릴리스는 며칠 동안 모든 지역에서 사용할 수 있습니다. 릴리스 날짜는 첫 번째 지역 릴리스 날짜를 나타냅니다. 아래 변경 내용이 표시 되지 않으면 며칠 동안 해당 지역에서 릴리스가 라이브 될 때까지 기다려 주세요.
 
@@ -65,3 +65,34 @@ HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니
 
 ## <a name="component-version-change"></a>구성 요소 버전 변경
 이 릴리스에 대 한 구성 요소 버전이 변경 되지 않았습니다. HDInsight 4.0 ad HDInsight 3.6의 최신 구성 요소 버전은 여기에서 찾을 수 있습니다.
+
+## <a name="known-issues"></a>알려진 문제
+
+2020 년 1 월 24 일에는 Jupyter 노트북을 사용 하려고 할 때 오류가 발생할 수 있는 활성 문제가 있습니다. 아래 단계를 사용 하 여 문제를 해결 하십시오. 최신 정보는이 [MSDN 게시물](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) 또는이 [stackoverflow 게시물](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) 을 참조 하거나 추가 질문을 할 수도 있습니다. 이 페이지는 문제가 해결 될 때 업데이트 됩니다.
+
+**Errors**
+
+* ValueError: 해당 버전이 없으므로 노트북을 v5로 변환할 수 없습니다.
+* 노트북 로드 중 오류가 발생 했습니다 .이 노트북을 로드 하는 동안 알 수 없는 오류가 발생 했습니다. 이 버전은 전자 필기장 형식 v4 또는 이전을 로드할 수 있습니다.
+
+**원인** 
+
+클러스터의 py 파일이 4.4. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. _version
+
+**해결 방법**
+
+새 Jupyter 노트북을 만들고 위에 나열 된 오류 중 하나를 수신 하는 경우 다음 단계를 수행 하 여 문제를 해결 합니다.
+
+1. https://CLUSTERNAME.azurehdinsight.net 로 이동 하 여 웹 브라우저에서 Ambari을 엽니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. Ambari의 왼쪽 메뉴에서 **Jupyter**를 클릭 한 다음 **서비스 작업**에서 **중지**를 클릭 합니다.
+1. Jupyter 서비스를 실행 하는 클러스터 헤드 노드로 ssh를 실행 합니다.
+1. Sudo 모드에서 다음 _version/usr/bin/anaconda/lib/python2.7/site-packages/nbformat/py 파일을 엽니다.
+1. 기존 항목에는 다음 코드와 유사한 내용이 표시 되어야 합니다. 
+
+    version_info = (5, 0, 3)
+
+    항목을 다음과 같이 수정 합니다. 
+    
+    version_info = (4, 4, 0)
+1. 파일을 저장합니다.
+1. Ambari로 돌아가서 **서비스 작업**에서 **모두 다시 시작**을 클릭 합니다.

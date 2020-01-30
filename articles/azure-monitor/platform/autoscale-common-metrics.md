@@ -4,12 +4,12 @@ description: Cloud Services, Virtual Machines 및 Web Apps의 자동 크기 조�
 ms.topic: conceptual
 ms.date: 12/6/2016
 ms.subservice: autoscale
-ms.openlocfilehash: 7b9c19ba3b85813eb12f6b906427f3cfdc9a0f67
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2c335168683212337876c963a7cfdb441d0ac69a
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364597"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845568"
 ---
 # <a name="azure-monitor-autoscaling-common-metrics"></a>Azure Monitor 자동 크기 조정 공용 메트릭
 
@@ -36,7 +36,7 @@ VM 규모 집합을 사용 중인데 특정 메트릭이 목록에 표시되지 
 - [Resource Manager 기반 Windows 및 Linux VM용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachines)
 - [Resource Manager 기반 Windows 및 Linux VM Scale Sets용 호스트 메트릭](../../azure-monitor/platform/metrics-supported.md#microsoftcomputevirtualmachinescalesets)
 
-### <a name="guest-os-metrics-resource-manager-based-windows-vms"></a>게스트 OS 메트릭 Resource Manager 기반 Windows VM
+### <a name="guest-os-metrics-for-resource-manager-based-windows-vms"></a>리소스 관리자 기반 Windows Vm에 대 한 게스트 OS 메트릭
 Azure에서 VM을 만들 때 진단 확장을 사용하여 진단을 사용하도록 설정합니다. 진단 확장을 사용하여 VM 내에서 가져온 메트릭 집합을 내보냅니다. 즉, 기본적으로 내보내지 않도록 메트릭의 자동 크기 조정을 해제할 수 있습니다.
 
 PowerShell에서 다음 명령을 사용하여 메트릭 목록을 생성할 수 있습니다.
@@ -129,8 +129,8 @@ Get-AzMetricDefinition -ResourceId <resource_id> | Format-Table -Property Name,U
 | \NetworkInterface\TotalTxErrors |카운트 |
 | \NetworkInterface\TotalCollisions |카운트 |
 
-## <a name="commonly-used-web-server-farm-metrics"></a>일반적으로 사용되는 웹(서버 팜) 메트릭
-Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에는 사용 가능한 서버 팜(Web Apps) 메트릭이 나열되어 있습니다.
+## <a name="commonly-used-app-service-server-farm-metrics"></a>일반적으로 사용 되는 App Service (서버 팜) 메트릭
+Http 큐 길이와 같이 공용 웹 서버 메트릭을 기반으로 자동 크기 조정을 수행할 수도 있습니다. 메트릭 이름은 **HttpQueueLength**입니다.  다음 섹션에서는 사용 가능한 App Service (서버 팜) 메트릭을 나열 합니다.
 
 ### <a name="web-apps-metrics"></a>Web Apps 메트릭
 PowerShell에서 다음 명령을 사용하여 Web Apps 메트릭 목록을 생성할 수 있습니다.
@@ -159,8 +159,8 @@ Azure Portal의 **설정** 블레이드에서 이 설정을 구성합니다. VM 
 
 ```
 "metricName": "ApproximateMessageCount",
- "metricNamespace": "",
- "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
+"metricNamespace": "",
+"metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ClassicStorage/storageAccounts/STORAGE_ACCOUNT_NAME/services/queue/queues/QUEUE_NAME"
  ```
 
 (클래식이 아닌) 스토리지 계정의 경우 metricTrigger는 다음을 포함합니다.
@@ -177,7 +177,7 @@ Service Bus 큐의 메시지 수인 Service Bus 큐 길이의 크기를 조정�
 VM Scale Sets의 경우 *metricName*을 *ApproximateMessageCount*로 사용하고 스토리지 큐 ID를 *metricResourceUri*로 전달하도록 Resource Manager 템플릿에서 자동 크기 조정 설정을 업데이트할 수 있습니다.
 
 ```
-"metricName": "MessageCount",
+"metricName": "ApproximateMessageCount",
  "metricNamespace": "",
 "metricResourceUri": "/subscriptions/SUBSCRIPTION_ID/resourceGroups/RES_GROUP_NAME/providers/Microsoft.ServiceBus/namespaces/SB_NAMESPACE/queues/QUEUE_NAME"
 ```

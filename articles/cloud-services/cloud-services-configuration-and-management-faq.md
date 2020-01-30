@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 47a75d10f6016eb49061f9e7158b00899a387f2f
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 50dd6e2387abbf5b24adcee708dd2ff387e33261
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75660616"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845383"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -174,11 +174,11 @@ Cloud Services의 현재 WAD 설정을 가져오기 위해 [Get-AzureServiceDiag
 
 ### <a name="how-do-i-associate-a-static-ip-address-to-my-cloud-service"></a>클라우드 서비스에 고정 IP 주소를 연결하려면 어떻게 할까요?
 고정 IP 주소를 설정하려면 예약된 IP 만들어야 합니다. 이 예약된 IP는 새 클라우드 서비스 또는 기존 배포에 연결할 수 있습니다. 자세한 내용은 다음과 같은 문서를 참조하세요.
-* [예약된 IP 주소를 만드는 방법](../virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
-* [기존 클라우드 서비스의 IP 주소 예약](../virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-* [예약된 IP를 새 클라우드 서비스에 연결](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
-* [실행 중인 배포에 예약된 IP 연결](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
-* [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](../virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+* [예약된 IP 주소를 만드는 방법](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#manage-reserved-vips)
+* [기존 클라우드 서비스의 IP 주소 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
+* [예약된 IP를 새 클라우드 서비스에 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-new-cloud-service)
+* [실행 중인 배포에 예약된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-running-deployment)
+* [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 ### <a name="what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides"></a>Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?
 Azure에는 위협으로부터 보호하기 위해 데이터 센터 실제 서버에 있는 IP/ID가 있습니다. 또한 고객은 웹 애플리케이션 방화벽, 네트워크 방화벽, 맬웨어 방지 프로그램, 침입 감지 및 방지 시스템(IDS/IPS) 등과 같은 타사 보안 솔루션을 배포할 수 있습니다. 자세한 내용은 [데이터 및 자산 보호 및 글로벌 보안 표준 준수](https://www.microsoft.com/en-us/trustcenter/Security/AzureSecurity)를 참조하세요.

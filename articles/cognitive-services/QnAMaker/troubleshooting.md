@@ -11,12 +11,12 @@ ms.topic: article
 ms.date: 01/23/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: e56722831ef05364b8ee4d342553158fba19ffaa
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 159b00f9417f4a572655f1f93208dbc755012922
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760728"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844856"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -95,7 +95,7 @@ Azure에서 QnA Maker 서비스를 아직 만들지 않았습니다. 만드는 �
 
 ### <a name="why-is-my-sharepoint-link-not-getting-extracted"></a>SharePoint 링크가 추출되지 않는 이유는 무엇인가요?
 
-자세한 내용은 [데이터 원본 위치](./Concepts/data-sources-supported.md#data-source-locations)를 참조하세요.
+자세한 내용은 [데이터 원본 위치](./Concepts/knowledge-base.md#data-source-locations)를 참조하세요.
 
 ### <a name="the-updates-that-i-made-to-my-knowledge-base-are-not-reflected-on-publish-why-not"></a>기술 자료에 수행한 업데이트가 게시에 반영되지 않습니다. 왜 그런가요?
 

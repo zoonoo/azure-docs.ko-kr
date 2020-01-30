@@ -8,12 +8,12 @@ manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
 ms.topic: conceptual
-ms.openlocfilehash: e31153a1c490948266714633202d5e59fe66fa3a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d8461cb2d98ec8fe914c2cc878e9002d132c9995
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980479"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845828"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -75,7 +75,8 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../azure-databricks/what-is-azure-databricks.md)|
 |Azure API Management|[MSI를 사용 하 여 Key Vault에서 사용자 지정 도메인에 대 한 인증서 배포](../api-management/api-management-howto-use-managed-service-identity.md#use-the-managed-service-identity-to-access-other-resources)|
 |Azure Data Factory|[Data Factory에서 Key Vault의 데이터 저장소 자격 증명 페치](https://go.microsoft.com/fwlink/?linkid=2109491)|
-
+|Azure Event Hubs|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/event-hubs/configure-customer-managed-key)|
+|Azure Service Bus|[고객이 관리 하는 키 시나리오의 key vault에 대 한 액세스 허용](https://docs.microsoft.com/azure/service-bus-messaging/configure-customer-managed-key)|
 
 
 > [!NOTE]

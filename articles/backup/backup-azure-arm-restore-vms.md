@@ -4,12 +4,12 @@ description: Azure Portal을 사용하여 복구 지점에서 Azure Virtual Mach
 ms.reviewer: geg
 ms.topic: conceptual
 ms.date: 09/17/2019
-ms.openlocfilehash: 98101639d82ede2a6c625ea9da413bcf93f6a185
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d0b2e85fa3dfb0168c40c6b8838c7b9890c92ab6
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75753939"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844010"
 ---
 # <a name="how-to-restore-azure-vm-data-in-azure-portal"></a>Azure Portal에서 Azure VM 데이터를 복원 하는 방법
 
@@ -161,7 +161,7 @@ CRR을 사용 하는 경우 보조 지역에서 백업 항목을 볼 수 있습�
 
 ![복원 지점 선택](./media/backup-azure-arm-restore-vms/sec-rp.png)
 
-![구성 복원](./media/backup-azure-arm-restore-vms/rest-config.png)
+![복원 구성](./media/backup-azure-arm-restore-vms/rest-config.png)
 
 ![진행 중인 복원 알림 트리거](./media/backup-azure-arm-restore-vms/restorenotifications.png)
 
@@ -214,7 +214,7 @@ VM을 복원해야 하는 일반적인 시나리오는 여러 가지가 있습�
 VM이 복원되면 주의해야 할 몇 가지 사항이 있습니다.
 
 - 백업 구성 중에 제공되는 확장이 설치되지만 사용하도록 설정되어 있지 않습니다. 문제가 있으면 확장을 다시 설치합니다.
-- 백업된 VM에 고정 IP 주소가 있으면 복원된 VM에서 동적 IP 주소를 사용하도록 하여 충돌을 방지합니다. [고정 IP 주소는 복원된 VM에 추가](../virtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있습니다.
+- 백업된 VM에 고정 IP 주소가 있으면 복원된 VM에서 동적 IP 주소를 사용하도록 하여 충돌을 방지합니다. [고정 IP 주소는 복원된 VM에 추가](/previous-versions/azurevirtual-network/virtual-networks-reserved-private-ip.md#how-to-add-a-static-internal-ip-to-an-existing-vm)할 수 있습니다.
 - 복원된 VM에는 가용성 집합이 없습니다. 복원 디스크 옵션을 사용 하는 경우 제공 된 템플릿 또는 PowerShell을 사용 하 여 디스크에서 VM을 만들 때 [가용성 집합을 지정할](../virtual-machines/windows/tutorial-availability-sets.md) 수 있습니다.
 - Ubuntu와 같은 cloud-init 기반 Linux 배포를 사용하면 보안상의 이유로 복원 후에 암호가 차단됩니다. 복원된 VM에서 VMAccess 확장을 사용하여 [암호를 재설정](../virtual-machines/linux/reset-password.md)하세요. 복원 후에 암호를 다시 설정할 필요가 없도록 이러한 배포에서 SSH 키를 사용하는 것이 좋습니다.
 - VM이 도메인 컨트롤러와의 관계로 인해 복원 된 후 VM에 액세스할 수 없는 경우 다음 단계에 따라 VM을 가져옵니다.

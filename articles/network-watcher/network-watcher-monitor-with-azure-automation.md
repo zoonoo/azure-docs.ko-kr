@@ -4,22 +4,20 @@ titleSuffix: Azure Network Watcher
 description: 이 문서에서는 Azure Automation 및 Network Watcher로 온-프레미스 연결을 진단하는 방법을 설명합니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 ms.service: network-watcher
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
-ms.author: kumud
-ms.openlocfilehash: 07847289c156aaa48b9d15c40d4135ce2cf39c10
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.author: damendo
+ms.openlocfilehash: 74c9f44ff5fbbbb50bba1594d371633fd49857eb
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74275902"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845049"
 ---
 # <a name="monitor-vpn-gateways-with-network-watcher-troubleshooting"></a>Azure Network Watcher 문제 해결로 VPN Gateway 모니터링
 
@@ -61,7 +59,7 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ![자동화 계정 개요][1]
 
-### <a name="step-2"></a>2단계:
+### <a name="step-2"></a>2단계
 
 **Runbook 추가**를 클릭하여 Runbook 만들기 과정을 시작합니다.
 
@@ -73,13 +71,13 @@ Runbook은 VPN 터널의 연결 상태를 확인하는 스크립트를 사용하
 
 ![Runbook 추가 블레이드][3]
 
-### <a name="step-4"></a>4단계
+### <a name="step-4"></a>4단계:
 
 이 단계에서는 Runbook에 이름을 부여하는데, 예제에서 이를 **Get-VPNGatewayStatus**라고 합니다. Runbook에 설명이 포함된 이름을 부여하는 것이 중요하며 다음 표준 PowerShell 이름 지정 기준에 따라 이름을 지정하는 것이 좋습니다. 이 예제에 대한 Runbook 형식은 **PowerShell**이고, 다른 옵션은 그래픽, PowerShell 워크플로 및 그래픽 PowerShell 워크플로입니다.
 
 ![Runbook 블레이드][4]
 
-### <a name="step-5"></a>단계
+### <a name="step-5"></a>5단계
 
 이 단계에서는 Runbook이 생성되고 다음 코드 예제는 예제에 필요한 모든 코드를 제공합니다. \<value\>를 포함하는 코드의 항목은 구독의 값으로 대체해야 합니다.
 
@@ -145,25 +143,25 @@ else
     }
 ```
 
-### <a name="step-6"></a>6단계:
+### <a name="step-6"></a>6단계
 
 Runbook을 저장했으면 일정을 연결하여 Runbook의 실행을 자동화해야 합니다. 프로세스를 시작하려면 **일정**을 클릭합니다.
 
-![6단계:][6]
+![6단계][6]
 
 ## <a name="link-a-schedule-to-the-runbook"></a>Runbook에 일정 연결
 
 새 일정이 생성되어야 합니다. **Runbook에 일정 연결**을 클릭합니다.
 
-![7단계:][7]
+![7단계][7]
 
 ### <a name="step-1"></a>1단계
 
 **일정** 블레이드에서 **새 일정 만들기**를 클릭합니다.
 
-![8단계:][8]
+![8단계][8]
 
-### <a name="step-2"></a>2단계:
+### <a name="step-2"></a>2단계
 
 **새 일정** 블레이드에서 일정 정보를 입력합니다. 설정할 수 있는 값은 다음 목록에 있습니다.
 
