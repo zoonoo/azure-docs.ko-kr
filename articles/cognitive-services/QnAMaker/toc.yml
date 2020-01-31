@@ -67,23 +67,37 @@
       href: Tutorials/create-qna-bot.md
 - name: 개념
   items:
-    - name: 기술 자료
-      href: Concepts/knowledge-base.md
-      displayName: 'metadata, pair'
-    - name: LUIS 및 QnA Maker 사용
-      href: ../luis/choose-natural-language-processing-service.md?toc=/azure/cognitive-services/qnamaker/toc.json
-    - name: 기술 자료의 개발 수명 주기
-      href: Concepts/development-lifecycle-knowledge-base.md
-      displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: Azure 리소스
+      href: Concepts/azure-resources.md
+    - name: 기술 자료 디자인
+      items:
+        - name: 언어용
+          href: Concepts/design-language-culture.md
+        - name: 클라이언트 애플리케이션용
+          href: Concepts/integration-with-other-applications.md
+    - name: 데이터 원본 및 콘텐츠
+      items:
+        - name: 데이터 원본에서 가져오기
+          href: Concepts/knowledge-base.md
+        - name: 콘텐츠 유형 가져옴
+          href: Concepts/content-types.md
+        - name: 질문 및 대답 세트
+          href: Concepts/question-answer-set.md
+    - name: 기술 자료 수명 주기
+      items:
+        - name: 개발 수명 주기
+          href: Concepts/development-lifecycle-knowledge-base.md
+          displayName: 'version control, test, index, publish, monitor usage, create'
+    - name: 기술 자료 쿼리
+      items:
+        - name: 답변 구하기
+          displayName: 'DefaultAnswer, Default answer'
+          href: Concepts/query-knowledge-base.md
+        - name: 신뢰도 점수
+          href: Concepts/confidence-score.md
     - name: 모범 사례
       href: Concepts/best-practices.md
       displayName: 'tag, rank, score, threshold, question, alternate, filter, synonym, answer, active learning, collaborate, alteration, metadata, bot, personality, extraction, chit-chat'
-    - name: 신뢰도 점수
-      displayName: 'DefaultAnswer, Default answer'
-      href: Concepts/confidence-score.md
-    - name: 지원되는 데이터 원본
-      href: Concepts/data-sources-supported.md
-      displayName: 'metadata, pair, sharepoint, authentication, permissions, faq, pdf, excel, xls, rtf, html, txt, tsv, url, end of line, new line, carriage return, markdown, commonmark, format, standard'
 - name: 방법 가이드
   items:
     - name: 기술 자료 편집
@@ -106,6 +120,8 @@
         - name: 메타데이터를 사용하여 응답 가져오기
           href: How-To/metadata-generateanswer-usage.md
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
+        - name: 기본 답변 설정
+          href: How-to/change-default-answer.md
         - name: QnA Maker 및 LUIS로 봇 만들기
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 언어 선택

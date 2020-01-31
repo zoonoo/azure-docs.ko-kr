@@ -400,6 +400,8 @@
           href: cognitive-search-skill-conditional.md
         - name: 문서 추출
           href: cognitive-search-skill-document-extraction.md
+        - name: PII 검색
+          href: cognitive-search-skill-pii-detection.md
     - name: 사용자 지정 기술
       items:
         - name: 사용자 지정 Web API

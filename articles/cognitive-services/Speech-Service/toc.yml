@@ -459,6 +459,8 @@
           href: speech-sdk.md
         - name: 시나리오 가용성
           href: scenario-availability.md
+        - name: 애플리케이션 배송
+          href: ship-application.md
     - name: 빠른 시작
       items:
         - name: 프로젝트 만들기

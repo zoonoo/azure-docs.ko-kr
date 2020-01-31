@@ -79,6 +79,8 @@
       href: samples-powershell.md
 - name: 개념
   items:
+    - name: TLS(전송 계층 보안)
+      href: notification-hubs-tls12.md
     - name: 엔터프라이즈 푸시 아키텍처 지침
       href: notification-hubs-enterprise-push-notification-architecture.md
     - name: 디바이스 등록
@@ -138,7 +140,7 @@
       href: notification-hubs-push-notification-fixer.md
     - name: Baidu 클라우드 푸시를 사용하여 푸시 알림
       href: notification-hubs-baidu-china-android-notifications-get-started.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: .NET
       href: /dotnet/api/microsoft.azure.notificationhubs
@@ -158,7 +160,7 @@
       href: notification-hubs-sdks.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/notification-hubs/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=notificationhubs'

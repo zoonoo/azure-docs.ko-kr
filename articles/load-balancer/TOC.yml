@@ -28,12 +28,6 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load Balancer에서 포트 전달 구성
       href: tutorial-load-balancer-port-forwarding-portal.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: 개념
   items:
     - name: 구성 요소 및 제한 사항
@@ -50,8 +44,6 @@
           href: load-balancer-query-metrics-rest-api.md
     - name: 고가용성 포트
       href: load-balancer-ha-ports-overview.md
-    - name: IPv6 지원
-      href: 'https://docs.microsoft.com/azure/virtual-network/ipv6-overview'
     - name: 여러 프런트 엔드
       href: load-balancer-multivip-overview.md
     - name: 아웃바운드 연결
@@ -68,10 +60,6 @@
   items:
     - name: 기본 공용 Load Balancer를 표준 공용 Load Balancer로 업그레이드
       href: upgrade-basic-standard.md
-    - name: 가용성 영역에 VM 부하 분산(CLI)
-      href: load-balancer-standard-public-zone-redundant-cli.md
-    - name: 영역 내에 VM 부하 분산(CLI)
-      href: load-balancer-standard-public-zonal-cli.md
     - name: 아웃바운드 규칙 구성
       items:
         - name: Azure CLI
@@ -121,6 +109,12 @@
       items:
         - name: Azure Load Balancer 문제 해결
           href: load-balancer-troubleshoot.md
+- name: 샘플
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 참조
   items:
     - name: 코드 샘플
