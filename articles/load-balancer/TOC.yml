@@ -6,16 +6,14 @@
       href: load-balancer-overview.md
 - name: 빠른 시작
   items:
-    - name: Azure Load Balancer 만들기
-      items:
-        - name: 포털
-          href: quickstart-load-balancer-standard-public-portal.md
-        - name: Azure CLI
-          href: quickstart-load-balancer-standard-public-cli.md
-        - name: Azure PowerShell
-          href: quickstart-create-standard-load-balancer-powershell.md
-        - name: 템플릿
-          href: quickstart-load-balancer-standard-public-template.md
+    - name: 포털
+      href: quickstart-load-balancer-standard-public-portal.md
+    - name: Azure CLI
+      href: quickstart-load-balancer-standard-public-cli.md
+    - name: Azure PowerShell
+      href: quickstart-create-standard-load-balancer-powershell.md
+    - name: 템플릿
+      href: quickstart-load-balancer-standard-public-template.md
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산
@@ -28,6 +26,12 @@
       href: tutorial-load-balancer-standard-public-zonal-portal.md
     - name: Load Balancer에서 포트 전달 구성
       href: tutorial-load-balancer-port-forwarding-portal.md
+- name: 샘플
+  items:
+    - name: Azure CLI
+      href: cli-samples.md
+    - name: Azure PowerShell
+      href: powershell-samples.md
 - name: 개념
   items:
     - name: 구성 요소 및 제한 사항
@@ -109,12 +113,6 @@
       items:
         - name: Azure Load Balancer 문제 해결
           href: load-balancer-troubleshoot.md
-- name: 샘플
-  items:
-    - name: Azure CLI
-      href: cli-samples.md
-    - name: Azure PowerShell
-      href: powershell-samples.md
 - name: 참조
   items:
     - name: 코드 샘플

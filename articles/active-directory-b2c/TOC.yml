@@ -382,6 +382,7 @@
       href: 'https://azure.microsoft.com/resources/samples/?service=active-directory-b2c'
     - name: 쿠키 정의
       href: cookie-definitions.md
+      displayName: 'cookies, SameSite'
     - name: 오류 코드
       href: error-codes.md
     - name: 지역 가용성 및 데이터 상주
