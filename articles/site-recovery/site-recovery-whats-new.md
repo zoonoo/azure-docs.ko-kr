@@ -3,12 +3,12 @@ title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 4a9feff3b0bc98b5d9853268d033e60de55ea5ea
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024818"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896040"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -20,17 +20,17 @@ ms.locfileid: "76024818"
 
 ## <a name="supported-updates"></a>지원 되는 업데이트
 
-Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 각각은 다음 표에 요약되어 있습니다.
+Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 N은 최신 릴리스 버전입니다. 다음 표에 요약 되어 있습니다.
 
 **Update** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
-[롤업 43](https://support.microsoft.com/help/4531426/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
+[롤업 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [롤업 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [롤업 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [롤업 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
 [롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
-        
+
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
 
@@ -153,7 +153,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 
 **기능** | **세부 정보**
 --- | ---
-새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md). 
+새 프로세스 서버 경고 | 새 프로세스 서버 경고가 추가 되었습니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md).
 
 ### <a name="hyper-v-disaster-recovery"></a>Hyper-v 재해 복구
 
@@ -183,7 +183,7 @@ Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있�
 **기능** | **세부 정보**
 --- | ---
 **Azure AD가 없는 암호화** | 이제 Azure AD 앱이 없는 암호화가 Windows를 실행 하는 관리 디스크에 대 한 Azure VM 복제에 지원 됩니다.
-**장애 조치 (failover) 용 네트워크 리소스** | 이제 다른 지역으로 장애 조치 (failover) 할 때 네트워크 리소스 설정 (NSGs, 부하 분산, 공용 IP 주소)을 VM에 연결할 수 있습니다. 
+**장애 조치 (failover) 용 네트워크 리소스** | 이제 다른 지역으로 장애 조치 (failover) 할 때 네트워크 리소스 설정 (NSGs, 부하 분산, 공용 IP 주소)을 VM에 연결할 수 있습니다.
 
 ## <a name="updates-july-2019"></a>업데이트 (7 월 2019)
 
@@ -255,7 +255,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 **기능** | **세부 정보**
 --- | ---
-**프로세스 서버 모니터링** | 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 향상 된 서버 상태 보고 및 경고와 함께 프로세스 서버 문제를 모니터링 하 고 문제를 해결 합니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md). 
+**프로세스 서버 모니터링** | 온-프레미스 VMware Vm 및 물리적 서버의 재해 복구를 위해 향상 된 서버 상태 보고 및 경고와 함께 프로세스 서버 문제를 모니터링 하 고 문제를 해결 합니다. [자세히 알아보기](vmware-physical-azure-monitor-process-server.md).
 
 
 
@@ -284,7 +284,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 ## <a name="updates-february-2019"></a>업데이트 (2 월 2019)
 
-### <a name="update-rollup-34"></a>업데이트 롤업 34 
+### <a name="update-rollup-34"></a>업데이트 롤업 34
 
 [업데이트 롤업 34](https://support.microsoft.com/help/4490016/update-rollup-34-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -294,7 +294,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
 
 
-### <a name="update-rollup-33"></a>업데이트 롤업 33 
+### <a name="update-rollup-33"></a>업데이트 롤업 33
 
 [업데이트 롤업 33](https://support.microsoft.com/help/4489582/update-rollup-33-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -304,17 +304,19 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
 
 
-### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구 
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
-**네트워크 매핑** | 이제 Azure VM 재해 복구의 경우 복제를 사용 하도록 설정할 때 사용 가능한 모든 대상 네트워크를 사용할 수 있습니다. 
+**네트워크 매핑** | 이제 Azure VM 재해 복구의 경우 복제를 사용 하도록 설정할 때 사용 가능한 모든 대상 네트워크를 사용할 수 있습니다.
 **표준 SSD** | 이제 [표준 SSD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-standard-ssd)를 사용 하 여 Azure vm에 대 한 재해 복구를 설정할 수 있습니다.
 **스토리지 공간 다이렉트** | 고가용성을 위해 [스토리지 공간 다이렉트](https://docs.microsoft.com/windows-server/storage/storage-spaces/storage-spaces-direct-overview) 를 사용 하 여 Azure VM 앱에서 실행 되는 앱에 대 한 재해 복구를 설정할 수 있습니다.  Site Recovery와 함께 S2D (스토리지 공간 다이렉트)를 사용 하면 Azure VM 워크 로드의 포괄적인 보호 기능을 제공 합니다. S2D를 사용 하면 Azure에서 게스트 클러스터를 호스트할 수 있습니다. 이 기능은 VM이 SAP ASCS 계층, SQL Server 또는 스케일 아웃 파일 서버와 같은 중요 한 응용 프로그램을 호스트 하는 경우에 특히 유용 합니다.
 
 
 ### <a name="vmwarephysical-server-disaster-recovery"></a>VMware/물리적 서버 재해 복구
+
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
@@ -332,7 +334,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 
 [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
-### <a name="update-rollup-32"></a>업데이트 롤업 32 
+### <a name="update-rollup-32"></a>업데이트 롤업 32
 
 [업데이트 롤업 32](https://support.microsoft.com/help/4485985/update-rollup-32-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -353,13 +355,13 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 ### <a name="vmware-vmsphysical-servers-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구
 
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
- 
+
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** | Redhat Enterprise Linux 7.6, RedHat 워크스테이션 6/7, Oracle Linux 6.10 및 Oracle Linux 7.6, Ubuntu, Debian 및 SUSE에 대 한 새 커널 버전에 대 한 지원이 추가 되었습니다.
 
 
-### <a name="update-rollup-31"></a>업데이트 롤업 31 
+### <a name="update-rollup-31"></a>업데이트 롤업 31
 
 [업데이트 롤업 31](https://support.microsoft.com/help/4478871/update-rollup-31-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -368,8 +370,10 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
 
-### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제 
+### <a name="vmware-vmsphysical-servers-replication"></a>VMware v m/물리적 서버 복제
+
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
+
 **기능** | **세부 정보**
 --- | ---
 **Linux 지원** |  Red Hat 호환 커널 및 UEK (Unbreakable Enterprise Kernel) 릴리스 5에 대 한 Oracle Linux 6.8, Oracle Linux 6.9 및 Oracle Linux 7.0에 대 한 지원이 추가 되었습니다.
@@ -380,6 +384,7 @@ Site Recovery은 이제 캐시 저장소 또는 대상 저장소에 범용 v2 �
 **UEFI 지원** | Azure Vm은 부팅 유형 UEFI를 지원 하지 않습니다. 이제 Site Recovery를 사용 하 여 UEFI를 사용 하 여 온-프레미스 물리적 서버를 Azure로 마이그레이션할 수 있습니다. 마이그레이션 전에 부팅 유형을 BIOS로 변환 하 여 서버를 Site Recovery 마이그레이션합니다. Site Recovery 이전에 Vm에 대해서만이 변환을 지원 했습니다. Windows Server 2012 이상을 실행 하는 물리적 서버에 대 한 지원이 제공 됩니다.
 
 ### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
@@ -411,7 +416,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 ## <a name="updates-october-2018"></a>업데이트 (10 월 2018)
 
-### <a name="update-rollup-30"></a>업데이트 롤업 30 
+### <a name="update-rollup-30"></a>업데이트 롤업 30
 
 [업데이트 롤업 30](https://support.microsoft.com/help/4468181/azure-site-recovery-update-rollup-30) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -431,7 +436,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **방화벽 사용 저장소 (PowerShell)** | [방화벽 사용 저장소 계정](https://docs.microsoft.com/azure/storage/common/storage-network-security)에 대 한 지원이 추가 되었습니다.<br/><br/> 재해 복구를 위해 방화벽 사용 저장소 계정에서 관리 되지 않는 디스크를 사용 하 여 Azure Vm을 다른 Azure 지역에 복제할 수 있습니다.<br/><br/> 방화벽 사용 저장소 계정을 관리 되지 않는 디스크에 대 한 대상 저장소 계정으로 사용할 수 있습니다.<br/><br/> PowerShell을 사용 하는 경우에만 지원 됩니다.
 
 
-### <a name="update-rollup-29"></a>업데이트 롤업 29 
+### <a name="update-rollup-29"></a>업데이트 롤업 29
 
 [업데이트 롤업 29](https://support.microsoft.com/help/4466466/update-rollup-29-for-azure-site-recovery) 는 다음과 같은 업데이트를 제공 합니다.
 
@@ -443,7 +448,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 
 ## <a name="updates-august-2018"></a>업데이트 (8 월 2018)
 
-### <a name="update-rollup-28"></a>업데이트 롤업 28 
+### <a name="update-rollup-28"></a>업데이트 롤업 28
 
 [업데이트 롤업 28](https://support.microsoft.com/help/4460079/update-rollup-28-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
 
@@ -452,7 +457,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
 
-### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구 
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
@@ -461,12 +466,12 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **클라우드 지원** | 독일 클라우드의 Azure Vm에 대해 지원 되는 재해 복구.
 **구독 간 재해 복구** | 동일한 Azure Active Directory 테 넌 트 내에서 다른 구독의 Azure Vm을 다른 지역으로 복제 하는 기능을 지원 합니다. [자세히 알아보기](https://aka.ms/cross-sub-blog).
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
 **기능** | **세부 정보**
 --- | ---
-**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대 한 지원이 추가 되었습니다.<br/><br/> 기존 BIOS 호환성 모드에서 GPT (GUID 파티션 테이블) 파티션 스타일을 사용 하는 Linux 기반 Vm이 이제 지원 됩니다. 자세한 내용은 [AZURE VM FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) 를 참조 하세요. 
+**Linux 지원** | RedHat Enterprise Linux 6.10, CentOS 6.10에 대 한 지원이 추가 되었습니다.<br/><br/> 기존 BIOS 호환성 모드에서 GPT (GUID 파티션 테이블) 파티션 스타일을 사용 하는 Linux 기반 Vm이 이제 지원 됩니다. 자세한 내용은 [AZURE VM FAQ](https://docs.microsoft.com/azure/virtual-machines/linux/faq-for-disks) 를 참조 하세요.
 **마이그레이션 후 Vm에 대 한 재해 복구** | 복제를 사용 하도록 설정 하기 전에 VM에서 모바일 서비스를 제거할 필요 없이 온-프레미스 VMware VM을 Azure로 마이그레이션하는 보조 지역에 대 한 재해 복구를 사용 하도록 지원 합니다.
 **Windows Server 2008** | Windows Server 2008 R2/2008 64 비트 및 32 비트를 실행 하는 컴퓨터를 마이그레이션하기 위한 지원<br/><br/> 마이그레이션만 (복제 및 장애 조치). 장애 복구는 지원 되지 않습니다.
 
@@ -481,7 +486,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 **공급자 및 에이전트** | Site Recovery 에이전트 및 공급자 (롤업에 자세히 설명 됨)에 대 한 업데이트입니다.
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명).
 
-### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구 
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
 
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
@@ -489,7 +494,7 @@ Azure Vm의 재해 복구는 VM 라이선스 비용, 네트워크 및 저장소 
 --- | ---
 **Linux 지원** | Red Hat Enterprise Linux 7.5에 대 한 지원이 추가 되었습니다.
 
-### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구 
+### <a name="vmware-vmphysical-server-disaster-recovery"></a>VMware v m/물리적 서버 재해 복구
 
 이번 달에 추가 된 기능은 표에 요약 되어 있습니다.
 
