@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 330f3100858d517666ac14fa8c206b4c06998c4f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74274216"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896909"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -32,11 +32,11 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 ## <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
 
-https://myapps.microsoft.com의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com 의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![Azure AD 액세스 패널 포털을 보여 주는 스크린샷](media/what-is-single-sign-on/azure-ad-access-panel.png)
 
-기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 작업 영역을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 제공 하 여 쉽게 찾을 수 있습니다. 예를 들어 작업 영역을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 작업 영역을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법 (미리 보기)](access-panel-workspaces.md)을 참조 하세요. 
+기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 컬렉션을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 표시 하 여 쉽게 찾을 수 있습니다. 예를 들어 컬렉션을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 컬렉션을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법](access-panel-collections.md)을 참조 하세요. 
 
 액세스 패널은 Azure Portal과 별개이며, 사용자에게 Azure 구독이나 Office 365 구독이 필요하지 않습니다.
 

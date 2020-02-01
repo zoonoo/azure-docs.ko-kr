@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: c93c936664f65e7846f6c4ad82d9aead973fa129
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772604"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905722"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
@@ -202,7 +202,21 @@ pipeline_run.wait_for_completion()
 |**재사용 가능**|재 학습 및 일괄 처리 점수 매기기와 같은 특정 시나리오에 대 한 파이프라인 템플릿을 만듭니다. 간단한 REST 호출을 통해 외부 시스템에서 게시 된 파이프라인을 트리거합니다.|
 |**추적 및 버전 관리**|반복하면서 데이터 및 결과 경로를 수동으로 추적하는 대신, Pipelines SDK를 사용하여 데이터 원본, 입력 및 출력의 이름과 버전을 명시적으로 지정합니다. 생산성 향상을 위해 스크립트와 데이터를 별도로 관리할 수도 있습니다.|
 | **성과** | 중요 한 영역을 분리 하 고 변경 내용을 격리 하면 소프트웨어 품질이 높은 속도로 향상 됩니다. | 
-|**협업**|파이프라인을 통해 데이터 과학자는 기계 학습 디자인 프로세스의 모든 영역에서 공동 작업을 수행할 수 있으며 파이프라인 단계에서 동시에 작업할 수 있습니다.|
+|**작업할**|파이프라인을 통해 데이터 과학자는 기계 학습 디자인 프로세스의 모든 영역에서 공동 작업을 수행할 수 있으며 파이프라인 단계에서 동시에 작업할 수 있습니다.|
+
+## <a name="modules"></a>모듈
+
+파이프라인 단계를 통해 이전 실행의 결과를 다시 사용할 수 있지만 대부분의 경우에는 필요한 스크립트와 종속 파일을 로컬에서 사용할 수 있어야 한다고 가정 합니다. 데이터 과학자가 기존 코드를 기반으로 빌드해야 하는 경우에는 스크립트 및 종속성이 별도의 리포지토리에서 복제 되어야 하는 경우가 많습니다.
+
+모듈은 파이프라인 단계 사용과 유사 하지만 작업 영역을 통해 버전 관리를 용이 하 게 하 여 공동 작업 및 재사용을 가능 하 게 합니다. 모듈은 여러 파이프라인에서 다시 사용 하도록 설계 되었으며 다양 한 사용 사례에 대 한 특정 계산을 조정 하기 위해 발전 시킬 수 있습니다. 사용자는 외부 리포지토리를 사용 하지 않고 작업 영역을 통해 다음 작업을 수행할 수 있습니다.
+
+* 새 모듈을 만들고 기존 모듈의 새 버전을 게시 합니다.
+* 기존 버전 사용 중단
+* 소비자가 해당 버전을 사용할 수 없도록 버전 표시
+* 기본 버전 지정
+* 작업 영역에서 버전별 모듈을 검색 하 여 팀이 동일한 코드를 사용 하도록 합니다.
+
+Azure Machine Learning 파이프라인에서 모듈을 만들고 연결 하 고 사용 하는 방법에 대 한 코드 예제는 [노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/machine-learning-pipelines/intro-to-pipelines/aml-pipelines-how-to-use-modulestep.ipynb) 을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

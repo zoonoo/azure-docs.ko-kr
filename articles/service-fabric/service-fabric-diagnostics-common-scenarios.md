@@ -1,16 +1,14 @@
 ---
 title: Azure Service Fabric 일반적인 시나리오 진단
 description: Azure Service Fabric 응용 프로그램 내에서 일반적인 모니터링 및 진단 시나리오를 해결 하는 방법에 대해 알아봅니다.
-author: srrengar
 ms.topic: article
 ms.date: 02/25/2019
-ms.author: srrengar
-ms.openlocfilehash: b012e37bef7fe21e869fc3af415ca57b74c61dd8
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 3c7f027bad71d48db5fba002f778f23db8225fa5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645789"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906956"
 ---
 # <a name="diagnose-common-scenarios-with-service-fabric"></a>Service Fabric을 사용하여 일반적인 시나리오 진단
 
@@ -134,6 +132,7 @@ Reliable [Services](service-fabric-reliable-serviceremoting-diagnostics.md) 및 
 
 ## <a name="next-steps"></a>다음 단계
 
+* [일반 코드 패키지 활성화 오류 조회](./service-fabric-diagnostics-code-package-errors.md)
 * [AI에 경고 설정](../azure-monitor/app/alerts.md) - 성능 또는 사용 변경에 대한 알림 받기
 * [Application Insights의 스마트 검색](../azure-monitor/app/proactive-diagnostics.md) - 잠재적인 성능 문제를 경고하기 위해 AI에 전송되는 원격 분석에 대한 사전 분석 수행
 * 검색 및 진단에 도움이 되 Azure Monitor 로그 [경고](../log-analytics/log-analytics-alerts.md) 에 대해 자세히 알아보세요.

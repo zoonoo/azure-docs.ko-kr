@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 메시 앱
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Service Fabric mesh 응용 프로그램 리소스를 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 96f628cb1a54b0c68f81bbafea42e5b9313f42ec
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 7c571136e6bef64c2024c81db85ef736f64a4e01
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645381"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906063"
 ---
 # <a name="sfctl-mesh-app"></a>sfctl mesh app
 애플리케이션 리소스를 가져오고 삭제합니다.

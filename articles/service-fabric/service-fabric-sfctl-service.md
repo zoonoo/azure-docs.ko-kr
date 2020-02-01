@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 서비스
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 서비스, 서비스 유형 및 서비스 패키지를 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 24ba7fea2ed51ea57c0a44e3c1f26b5df6043e1e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 696de713129ca71dd7f2451501a7cc9eca0ee9b9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639074"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906228"
 ---
 # <a name="sfctl-service"></a>sfctl service
 서비스, 서비스 유형 및 서비스 패키지를 생성, 삭제 및 관리합니다.
@@ -110,7 +110,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --int-scheme-low | 균일한 정수 파티션 구성표를 사용하는 경우 키 정수 범위의 시작입니다. |
 | --load-metrics | 노드에서 서비스의 부하를 분산할 때 사용되는 메트릭의 JSON 인코딩된 목록입니다. |
 | --min-replica-set-size | 숫자로 된 최소 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다. |
-| --move-cost | 서비스에 대한 이동 비용을 지정합니다. 가능한 값\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | 서비스에 대한 이동 비용을 지정합니다. 가능한 값은\: ' 0 ', ' Low ', ' Medium ', ' High ', ' VeryHigh '입니다. |
 | --named-scheme | 서비스에 여러 개의 명명된 파티션이 있어야 함을 나타냅니다. |
 | --named-scheme-list | 명명된 파티션 구성표를 사용하는 경우 서비스를 분할할 이름의 JSON 인코딩된 목록입니다. |
 | --no-persisted-state | true인 경우 서비스에 로컬 디스크에 저장된 영구 상태가 없거나 메모리에만 상태가 저장됨을 나타냅니다. |
@@ -118,6 +118,7 @@ Service Fabric 노드에 배포된 코드 패키지 목록을 가져옵니다.
 | --quorum-loss-wait | 파티션이 쿼럼 손실 상태가 될 수 있는 최대 지속 시간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --replica-restart-wait | 복제본이 다운된 시점과 새 복제본이 생성되는 시점 사이의 간격(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --scaling-policies | 이 서비스에 대한 크기 조정 정책의 JSON 인코딩된 목록입니다. |
+| --서비스 배치-시간 | 빌드를 중단 된 것으로 보고 하기 전에 복제본이 InBuild를 유지할 수 있는 기간입니다. 상태 저장 서비스에만 적용됩니다. |
 | --singleton-scheme | 서비스에 단일 파티션이 있거나 분할되지 않은 서비스여야 함을 나타냅니다. |
 | --stand-by-replica-keep | StandBy 복제본이 제거되기 전 유지되는 최대 기간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --stateful | 서비스가 상태 저장 서비스임을 나타냅니다. |
@@ -562,11 +563,12 @@ Service Fabric 클러스터에 프로비저닝된 애플리케이션 유형에�
 | --instance-count | 인스턴스 수입니다. 상태 비저장 서비스에만 적용됩니다. |
 | --load-metrics | 노드에서 부하를 분산할 때 사용되는 메트릭의 JSON 인코딩된 목록입니다. |
 | --min-replica-set-size | 숫자로 된 최소 복제본 세트 크기입니다. 상태 저장 서비스에만 적용됩니다. |
-| --move-cost | 서비스에 대한 이동 비용을 지정합니다. 가능한 값\: 'Zero', 'Low', 'Medium', 'High'. |
+| --move-cost | 서비스에 대한 이동 비용을 지정합니다. 가능한 값은\: ' 0 ', ' Low ', ' Medium ', ' High ', ' VeryHigh '입니다. |
 | --placement-policy-list | 서비스에 대한 배치 정책 및 연결된 도메인 이름의 JSON 인코딩된 목록입니다. 정책은 하나 이상의\: `NonPartiallyPlaceService`, `PreferPrimaryDomain`, `RequireDomain``RequireDomainDistribution`수 있습니다. |
 | --quorum-loss-wait | 파티션이 쿼럼 손실 상태가 될 수 있는 최대 지속 시간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --replica-restart-wait | 복제본이 다운된 시점과 새 복제본이 생성되는 시점 사이의 간격(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --scaling-policies | 이 서비스에 대한 크기 조정 정책의 JSON 인코딩된 목록입니다. |
+| --서비스 배치-시간 | 빌드를 중단 된 것으로 보고 하기 전에 복제본이 InBuild를 유지할 수 있는 기간입니다. 상태 저장 서비스에만 적용됩니다. |
 | --stand-by-replica-keep | StandBy 복제본이 제거되기 전 유지되는 최대 기간(초)입니다. 상태 저장 서비스에만 적용됩니다. |
 | --stateful | 대상 서비스가 상태 저장 서비스임을 나타냅니다. |
 | --stateless | 대상 서비스가 상태 비저장 서비스임을 나타냅니다. |

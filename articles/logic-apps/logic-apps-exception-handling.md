@@ -8,12 +8,12 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.date: 01/11/2020
 ms.topic: article
-ms.openlocfilehash: 21314d3c80832c14538130ce373ccf6d2dd19f18
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 73b116117530e5a2103b604efbf757d691006508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965946"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906688"
 ---
 # <a name="handle-errors-and-exceptions-in-azure-logic-apps"></a>Azure Logic Apps에서 예외 및 오류 처리
 
@@ -360,9 +360,9 @@ ms.locfileid: "75965946"
 
 다른 예외 처리 패턴을 수행하려면 이 문서의 앞부분에서 설명한 식을 사용할 수 있습니다. 필터링 된 전체 오류 배열을 허용 하는 범위 외부에서 단일 예외 처리 작업을 실행 하 고 `For_each` 작업을 제거 하도록 선택할 수 있습니다. 앞에서 설명한 대로 `\@result()` 응답에서 기타 유용한 속성을 포함할 수도 있습니다.
 
-## <a name="azure-diagnostics-and-metrics"></a>Azure Diagnostics 및 메트릭
+## <a name="set-up-azure-monitor-logs"></a>Azure Monitor 로그 설정
 
-이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. [Azure 진단](../logic-apps/logic-apps-monitor-your-logic-apps.md) 은 모든 실행 및 작업 상태를 포함 하 여 모든 워크플로 이벤트를 Azure Storage 계정 또는 [Azure Event Hubs](../event-hubs/event-hubs-about.md)를 사용 하 여 만든 이벤트 허브로 보내는 간단한 방법을 제공 합니다.
+이전 패턴은 실행 내에서 오류 및 예외를 처리하는 훌륭한 방법이지만 실행 자체와는 독립적으로 오류를 식별하고 오류에 대응할 수도 있습니다. [Azure Monitor](../azure-monitor/overview.md) 은 모든 실행 및 작업 상태를 포함 하 여 모든 워크플로 이벤트를 [Log Analytics 작업 영역](../azure-monitor/platform/data-platform-logs.md), [azure storage 계정](../storage/blobs/storage-blobs-overview.md)또는 [azure Event Hubs](../event-hubs/event-hubs-about.md)에 전송 하는 간단한 방법을 제공 합니다.
 
 실행 상태를 평가하려면 로그 및 메트릭을 모니터링하거나 선호하는 모든 모니터링 도구에 게시할 수 있습니다. 한 가지 잠재적 옵션은 Event Hubs를 통해 모든 이벤트를 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)로 스트리밍하는 것입니다. Stream Analytics에서는 진단 로그의 모든 잘못된 부분, 평균 또는 오류를 기반으로 라이브 쿼리를 작성할 수 있습니다. Stream Analytics를 사용하여 큐, 토픽, SQL, Azure Cosmos DB 및 Power BI와 같은 다른 데이터 원본에 정보를 보낼 수 있습니다.
 

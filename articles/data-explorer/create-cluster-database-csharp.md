@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 7dc032d52a8cb3c5c54cf57c7ae7bf697796b5cc
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 2d800dc401b0d85b26a71817a1a70d66539203ae
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910596"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902114"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-c"></a>C#을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -75,7 +75,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
    | clusterName | *mykustocluster* | 원하는 클러스터 이름입니다.|
    | skuName | *Standard_D13_v2* | 클러스터에 사용될 SKU입니다. |
    | 계층 | *Standard* | SKU 계층입니다. |
-   | 용량 | *number* | 클러스터의 인스턴스 수입니다. |
+   | 수용 | *number* | 클러스터의 인스턴스 수입니다. |
    | resourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
 
     > [!NOTE]
@@ -97,10 +97,13 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
     var hotCachePeriod = new TimeSpan(3650, 0, 0, 0);
     var softDeletePeriod = new TimeSpan(3650, 0, 0, 0);
     var databaseName = "mykustodatabase";
-    var database = new Database(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
+    var database = new ReadWriteDatabase(location: location, softDeletePeriod: softDeletePeriod, hotCachePeriod: hotCachePeriod);
 
     await kustoManagementClient.Databases.CreateOrUpdateAsync(resourceGroupName, clusterName, databaseName, database);
     ```
+
+        [!NOTE]
+        If you are using C# version 2.0.0 or below, use Database instead of ReadWriteDatabase.
 
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
@@ -113,7 +116,7 @@ Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등�
 2. 다음 명령을 실행하여 직접 만든 데이터베이스를 살펴봅니다.
 
     ```csharp
-    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName);
+    kustoManagementClient.Databases.Get(resourceGroupName, clusterName, databaseName) as ReadWriteDatabase;
     ```
 
 이제 클러스터와 데이터베이스가 있습니다.

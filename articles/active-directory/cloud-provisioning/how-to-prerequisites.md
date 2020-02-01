@@ -11,12 +11,12 @@ ms.date: 12/06/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 019c2f8a13a80de395803ca1782e578c049a7923
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 51e5c58d29f01cadcc3ea2e8ec48ae67e58c4180
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549349"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909043"
 ---
 # <a name="prerequisites-for-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로 비전을 위한 필수 구성 요소
 이 문서에서는 id 솔루션으로 Azure AD (Azure AD) Connect cloud 프로 비전을 선택 하 고 Azure Active Directory 사용 하는 방법에 대 한 지침을 제공 합니다.
@@ -29,6 +29,9 @@ Azure AD Connect 클라우드 프로 비전을 사용 하려면 다음이 필요
 - Azure AD 테 넌 트에 대 한 전역 관리자 계정.
 - Windows 2012 R2 이상 버전을 사용 하는 프로 비전 에이전트에 대 한 온-프레미스 서버입니다.
 - 온-프레미스 방화벽 구성.
+
+>[!NOTE]
+>프로 비전 에이전트는 현재 영어 언어 서버에만 설치할 수 있습니다. 영어가 아닌 서버에 영어 언어 팩을 설치 하는 것은 올바른 해결 방법이 아니므로 에이전트가 설치 되지 않습니다. 
 
 문서의 나머지 부분에서는 이러한 필수 조건에 대 한 단계별 지침을 제공 합니다.
 

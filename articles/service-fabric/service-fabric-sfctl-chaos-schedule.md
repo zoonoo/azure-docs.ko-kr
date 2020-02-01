@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 비정상 일정
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 비정상 일정에 대 한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: bff83e1d25d04f91611f5bea6c69dfcd299af04c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 29b365c48e405830e238945f1d94156f477c15b4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639176"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906179"
 ---
 # <a name="sfctl-chaos-schedule"></a>sfctl chaos schedule
 chaos schedule을 가져오고 설정합니다.
@@ -71,9 +71,10 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
 
 ### <a name="examples"></a>예시
 
-다음 명령은 Chaos를 1일 24시간, 주 7일 실행하는 2016-01-01에 시작하여 2038-01-01에 만료되는 일정을 설정합니다(현재 일정에 버전 0이 있다고 가정). Chaos는 해당 시간에 대해 클러스터에서 예약됩니다.
-
-    sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
+다음 명령은 Chaos를 1일 24시간, 주 7일 실행하는 2016-01-01에 시작하여 2038-01-01에 만료되는 일정을 설정합니다(현재 일정에 버전 0이 있다고 가정).
+Chaos는 해당 시간에 대해 클러스터에서 예약됩니다.
+```
+sfctl chaos schedule set --version 0 --start-date-utc "2016-01-01T00:00:00.000Z" --expiry-date-utc "2038-01-01T00:00:00.000Z"
     --chaos-parameters-dictionary
     [
     {
@@ -134,6 +135,8 @@ Chaos는 Chaos Schedule에 따라 실행을 자동으로 예약합니다. 제공
         ]
     }
     ]
+```
+
 
 
 ## <a name="next-steps"></a>다음 단계

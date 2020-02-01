@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4da2e3696dd1fad1dcce81831385f1e21891f97
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 43f355f22774477466d2965cef02adcc4ec4f497
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712529"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908856"
 ---
 # <a name="integrate-your-existing-nps-infrastructure-with-azure-multi-factor-authentication"></a>기존 NPS 인프라를 Azure Multi-Factor Authentication과 통합
 
@@ -192,6 +192,23 @@ PowerShell 스크립트에서 생성하는 자체 서명된 인증서 대신 사
 
 > [!NOTE]
 > PowerShell 스크립트로 인증서를 생성하는 대신 자체 인증서를 사용할 경우 NPS 명명 규약을 따르도록 합니다. 주체 이름은 **CN=\<TenantID\>,OU=Microsoft NPS Extension**이어야 합니다. 
+
+### <a name="microsoft-azure-government-additional-steps"></a>추가 단계 Microsoft Azure Government
+
+Azure Government 클라우드를 사용 하는 고객의 경우 각 NPS 서버에 다음과 같은 추가 구성 단계가 필요 합니다.
+
+1. NPS 서버에서 **레지스트리 편집기** 를 엽니다.
+1. `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\AzureMfa`로 이동합니다. 다음 키 값을 설정 합니다.
+
+    | 레지스트리 키       | 값 |
+    |--------------------|-----------------------------------|
+    | AZURE_MFA_HOSTNAME | adnotifications.windowsazure.us   |
+    | STS_URL            | https://login.microsoftonline.us/ |
+
+1. 위의 두 단계를 반복 하 여 각 NPS 서버에 대 한 레지스트리 키 값을 설정 합니다.
+1. 각 NPS 서버에 대 한 NPS 서비스를 다시 시작 합니다.
+
+    최소한의 영향을 위해 각 NPS 서버를 NLB 회전에서 한 번에 하나씩 가져와 모든 연결이 드레이닝 될 때까지 기다립니다.
 
 ### <a name="certificate-rollover"></a>인증서 롤오버
 

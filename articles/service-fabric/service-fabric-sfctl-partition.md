@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 파티션
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 에는 서비스에 대 한 파티션을 관리 하는 명령 목록이 포함 되어 있습니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: c50fcb348dad7960be81f80ecb7c455dbffaadb3
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: c038ef3266a727bf6984a5bd88ca540a589380db
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646061"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905846"
 ---
 # <a name="sfctl-partition"></a>sfctl partition
 모든 서비스에 대한 파티션을 쿼리 및 관리합니다.
@@ -38,10 +38,13 @@ ms.locfileid: "75646061"
 ## <a name="sfctl-partition-data-loss"></a>sfctl partition data-loss
 이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다.
 
-파티션의 OnDataLossAsync API에 대한 호출을 트리거합니다.  이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다. 파티션의 OnDataLoss API에 대한 호출을 트리거합니다. 실제 데이터 손실은 지정된 DataLossMode에 따라 달라집니다.  <br> - PartialDataLoss - 복제본의 쿼럼만 제거되고 파티션에 대한 OnDataLoss가 트리거되지만 실제 데이터 손실은 진행 중인 복제의 존재 여부에 따라 달라집니다.  <br> - FullDataLoss - 모든 복제본이 제거되므로 모든 데이터가 손실되고 OnDataLoss가 트리거됩니다. 이 API는 대상으로 상태 저장 서비스로만 호출되어야 합니다. 시스템 서비스를 대상으로 이 API를 호출하는 것은 권장되지 않습니다.
+파티션의 OnDataLossAsync API에 대한 호출을 트리거합니다.  이 API는 지정한 파티션에 대한 데이터 손실을 유도합니다. 파티션의 OnDataLoss API에 대한 호출을 트리거합니다. 실제 데이터 손실은 지정된 DataLossMode에 따라 달라집니다.
+- PartialDataLoss: 복제본의 쿼럼이 제거 되 고 파티션에 대 한 OnDataLoss가 트리거되고 실제 데이터 손실은 진행 중인 복제가 있는지 여부에 따라 달라 집니다.  
+- FullDataLoss: 모든 복제본이 제거 되므로 모든 데이터가 손실 되 고 OnDataLoss가 트리거됩니다. 이 API는 대상으로 상태 저장 서비스로만 호출되어야 합니다. 시스템 서비스를 대상으로 이 API를 호출하는 것은 권장되지 않습니다.
 
 > [!NOTE]   
 > 이 API가 호출되면 취소할 수 없습니다. CancelOperation을 호출하면 실행을 중지하고 내부 시스템 상태를 정리합니다. 명령이 데이터 손실을 충분히 진행시킨 경우 데이터를 복원하지 않습니다. 동일한 OperationId로 GetDataLossProgress API를 호출하여 이 API로 시작된 작업에 대한 정보를 반환합니다.
+
 ### <a name="arguments"></a>인수
 
 |인수|Description|

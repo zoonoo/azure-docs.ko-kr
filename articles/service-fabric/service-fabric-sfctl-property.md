@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric CLI-sfctl 속성
-description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 속성을 표시 하 고 쿼리 하는 명령 목록을 포함 합니다.
+description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 속성을 저장 하 고 쿼리 하는 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: d9129f07db9f3499b51707965d10426dbc3d3c12
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a9bd75e0b7f8bfceb50a71ca83b60ff1e7b45508
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639108"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905822"
 ---
 # <a name="sfctl-property"></a>sfctl property
 Service Fabric 이름 아래에 있는 저장소 및 쿼리 속성입니다.
@@ -105,7 +105,7 @@ Service Fabric 속성을 만들거나 업데이트합니다.
 | --- | --- |
 | --name-id       [필수] | 'fabric\:' URI 체계가 없는 Service Fabric 이름입니다. |
 | --property-name [필수] | Service Fabric 속성의 이름입니다. |
-| --value         [필수] | Service Fabric 속성 값을 설명합니다. JSON 문자열입니다. <br><br> json 문자열에는 데이터의 'Kind' 및 데이터의 'Value'라는 두 필드가 있습니다. 'Kind' 값은 JSON 문자열에 나타나는 데 첫 번째 항목이어야 하며, 'Binary', 'Int64', 'Double', 'String' 또는 'Guid' 값일 수 있습니다. 값은 지정된 형식으로 직렬화될 수 있어야 합니다. 'Kind'와 'Data' 값은 문자열로 제공되어야 합니다. |
+| --value         [필수] | Service Fabric 속성 값을 설명합니다. JSON 문자열입니다. <br><br> Json 문자열에는 데이터의 ' 종류 '와 데이터의 ' 데이터 '로 입력 된 값의 두 필드가 있습니다. 'Kind' 값은 JSON 문자열에 나타나는 데 첫 번째 항목이어야 하며, 'Binary', 'Int64', 'Double', 'String' 또는 'Guid' 값일 수 있습니다. 값은 지정된 형식으로 직렬화될 수 있어야 합니다. 'Kind'와 'Data' 값은 문자열로 제공되어야 합니다. |
 | --custom-id-type | 속성의 사용자 지정 형식 ID입니다. 이 속성을 사용하여 사용자는 속성 값의 형식을 태그 지정할 수 있습니다. |
 | --timeout -t | 기본값\: 60. |
 

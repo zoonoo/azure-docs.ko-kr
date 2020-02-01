@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 설정 원격 분석
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Sfctl 원격 분석을 구성 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: cdb4a44c8f19b31c164e2ba3ea5e16b7a09e743e
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6af5fa944ef399756f9e890ddd77a7f5f32e2bfb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645279"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903020"
 ---
 # <a name="sfctl-settings-telemetry"></a>sfctl settings telemetry
 이 sfctl 인스턴스에 로컬인 원격 분석 설정을 구성합니다.

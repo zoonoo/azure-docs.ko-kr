@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
 ms.author: sngun
-ms.openlocfilehash: feab221c24034fe29df420b4f9eb6d84e06a90b5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 11b84877171fae8e788d3298973fd74645b35480
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719339"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901922"
 ---
 # <a name="deploy-azure-cosmos-db-and-azure-app-service-web-apps-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 Azure App Service Web Apps 배포
 이 자습서에서는 Azure Resource Manager 템플릿을 사용하여 [Microsoft Azure Cosmos DB](https://azure.microsoft.com/services/cosmos-db/), [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714) 웹앱 및 샘플 웹 애플리케이션을 배포 및 통합하는 방법을 설명합니다.
@@ -69,7 +69,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스의 배포 및 �
    ![템플릿 배포 UI의 스크린샷](./media/create-website/TemplateDeployment6.png)
 7. 배포가 완료되면 리소스 그룹 창이 열립니다.
    ![리소스 그룹 창 스크린샷](./media/create-website/TemplateDeployment7.png)  
-8. 애플리케이션을 사용하려면 웹앱 URL로 이동합니다(위의 예제에서 URL은 http://mydemodocdbwebapp.azurewebsites.net) 이 됨).  다음과 같은 웹 애플리케이션이 표시됩니다.
+8. 응용 프로그램을 사용 하려면 웹 앱 URL로 이동 합니다. 위의 예제에서는 URL이 `http://mydemodocdbwebapp.azurewebsites.net`됩니다.  다음과 같은 웹 애플리케이션이 표시됩니다.
    
    ![샘플 Todo 애플리케이션](./media/create-website/image2.png)
 9. 계속해서 웹앱에서 몇 가지 작업을 만든 다음, Azure Portal의 리소스 그룹 창으로 돌아옵니다. 리소스 목록에서 Azure Cosmos DB 계정 리소스를 클릭한 다음 **데이터 탐색기**를 클릭합니다.

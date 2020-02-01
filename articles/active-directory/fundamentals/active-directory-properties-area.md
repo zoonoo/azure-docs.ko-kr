@@ -5,6 +5,7 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/17/2018
@@ -12,12 +13,12 @@ ms.author: ajburnle
 ms.reviewer: bpham
 ms.custom: it-pro, seodec18
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0a2397662112bda6c6789b25691848344a4e611b
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 95f1877ae630919ba7da5a851b5f8291ade2d165
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68561817"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897589"
 ---
 # <a name="add-your-organizations-privacy-info-using-azure-active-directory"></a>Azure Active Directory를 사용하여 조직의 개인 정보 추가
 이 아티클에서는 테넌트 관리자가 Azure Portal을 통해 조직의 Azure AD(Azure Active Directory) 테넌트에 관련 개인 정보를 추가할 수 있는 방법을 설명합니다.
@@ -52,7 +53,7 @@ Azure AD의 **속성** 영역에 조직의 개인 정보를 추가합니다.
 
         ![메시지를 포함한 B2B 협업 검토 권한 상자](media/active-directory-properties-area/active-directory-no-privacy-statement-or-contact.png)
 
-4.            **저장**을 선택합니다.
+4.  **저장**을 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [Azure Active Directory B2B 협업 초대 상환](https://aka.ms/b2bredemption)

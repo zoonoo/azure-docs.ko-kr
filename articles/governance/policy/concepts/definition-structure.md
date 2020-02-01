@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 909d8e69e02b55ee6e45515b0d9c316a549e1332
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972842"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904420"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -175,6 +175,9 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 ## <a name="display-name-and-description"></a>표시 이름 및 설명
 
 **displayName** 및 **description**을 사용하여 정책 정의를 식별하고 사용하는 시기에 대한 컨텍스트를 제공합니다. **displayName**은 최대 길이가 _128_자이고 **description**은 최대 길이가 _512_자입니다.
+
+> [!NOTE]
+> 정책 정의를 만들거나 업데이트 하는 동안 **id**, **형식**및 **이름은** json 외부의 속성으로 정의 되며 json 파일에는 필요 하지 않습니다. SDK를 통해 정책 정의를 인출 하면 **id**, **유형**및 **이름** 속성이 JSON의 일부로 반환 되지만 각각 정책 정의와 관련 된 읽기 전용 정보입니다.
 
 ## <a name="policy-rule"></a>정책 규칙
 

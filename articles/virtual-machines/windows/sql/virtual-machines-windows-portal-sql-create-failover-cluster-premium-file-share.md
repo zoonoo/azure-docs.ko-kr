@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 3bd13a63c3f4fa275f7e4789c184802445519388
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772586"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906793"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -185,7 +185,7 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
   > - 백업 파일에 대 한 별도의 파일 공유를 사용 하 여 데이터 및 로그 파일에 대 한이 공유의 IOPS 및 공간 용량을 저장 하는 것이 좋습니다. 백업 파일에 프리미엄 또는 표준 파일 공유 중 하나를 사용할 수 있습니다.
   > - Windows 2012 R2 이상 버전을 사용 하는 경우 다음 단계를 수행 하 여 파일 공유 감시로 사용할 파일 공유를 탑재 합니다. 
 
-## <a name="step-3-configure-the-failover-cluster-with-the-file-share"></a>3 단계: 파일 공유를 사용 하 여 장애 조치 (failover) 클러스터 구성
+## <a name="step-3-configure-the-failover-cluster"></a>3 단계: 장애 조치 (failover) 클러스터 구성
 
 다음 단계는 장애 조치 (failover) 클러스터를 구성 하는 것입니다. 이 단계에서는 다음 하위 단계를 완료 합니다.
 

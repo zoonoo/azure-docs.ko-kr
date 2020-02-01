@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: 7eea4c05a48c5e055766f942cc44ee4cf189de5d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f83fb2377f2db1deaed453131a61e26677b3d87d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840864"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896390"
 ---
 # <a name="manage-packet-captures-with-azure-network-watcher-using-the-azure-cli"></a>Azure CLI에서 Azure Network Watcher를 사용하여 패킷 캡처 관리
 
@@ -52,7 +52,7 @@ Network Watcher 패킷 캡처를 사용하면 가상 머신 간에 트래픽을 
 
 ### <a name="step-1"></a>1단계
 
-`az vm extension set` cmdlet을 실행하여 게스트 가상 머신에 패킷 캡처 에이전트를 설치합니다.
+`az vm extension set` 명령을 실행 하 여 게스트 가상 머신에 패킷 캡처 에이전트를 설치 합니다.
 
 Windows Virtual Machines의 경우:
 
@@ -63,15 +63,21 @@ az vm extension set --resource-group resourceGroupName --vm-name virtualMachineN
 Linux 가상 머신의 경우:
 
 ```azurecli
-az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux--version 1.4
+az vm extension set --resource-group resourceGroupName --vm-name virtualMachineName --publisher Microsoft.Azure.NetworkWatcher --name NetworkWatcherAgentLinux --version 1.4
 ```
 
 ### <a name="step-2"></a>2단계
 
-에이전트가 설치되어 있는지 확인하려면 `vm extension show` cmdlet을 실행하고 리소스 그룹과 가상 머신 이름을 전달합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
+에이전트가 설치 되어 있는지 확인 하려면 `vm extension show` 명령을 실행 하 여 리소스 그룹 및 가상 컴퓨터 이름으로 전달 합니다. 결과 목록을 확인하여 에이전트가 설치되어 있는지 확인합니다.
 
+Windows Virtual Machines의 경우:
 ```azurecli
 az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name NetworkWatcherAgentWindows
+```
+
+Linux 가상 머신의 경우:
+```azurecli
+az vm extension show --resource-group resourceGroupName --vm-name virtualMachineName --name AzureNetworkWatcherExtension
 ```
 
 다음 샘플은 실행 중인 `az vm extension show`에서 응답의 예제입니다.
@@ -100,31 +106,24 @@ az vm extension show --resource-group resourceGroupName --vm-name virtualMachine
 
 이전 단계가 완료되면 패킷 캡처 에이전트는 가상 머신에 설치됩니다.
 
+
 ### <a name="step-1"></a>1단계
-
-다음 단계는 Network Watcher 인스턴스를 검색하는 것입니다. Network Watcher의 이름이 4단계의 `az network watcher show` cmdlet으로 전달됩니다.
-
-```azurecli
-az network watcher show --resource-group resourceGroup --name networkWatcherName
-```
-
-### <a name="step-2"></a>2단계
 
 스토리지 계정을 검색합니다. 이 스토리지 계정은 패킷 캡처 파일을 저장하는 데 사용됩니다.
 
 ```azurecli
-azure storage account list
+az storage account list
 ```
 
-### <a name="step-3"></a>3단계
+### <a name="step-2"></a>2단계
 
-패킷 캡처에 의해 저장되는 데이터를 제한하는 데 필터를 사용할 수 있습니다. 다음 예제에서는 몇 가지 필터를 사용하여 패킷 캡처를 설정합니다.  처음 세 개의 필터는 로컬 IP 10.0.0.3에서 대상 포트 20, 80 및 443으로 나가는 TCP 트래픽을 수집합니다.  마지막 필터는 UDP 트래픽만을 수집합니다.
+이 시점에서 패킷 캡처를 만들 준비가 되었습니다.  먼저 구성할 수 있는 매개 변수를 살펴보겠습니다. 필터는 패킷 캡처에 의해 저장 되는 데이터를 제한 하는 데 사용할 수 있는 매개 변수 중 하나입니다. 다음 예제에서는 몇 가지 필터를 사용하여 패킷 캡처를 설정합니다.  처음 세 개의 필터는 로컬 IP 10.0.0.3에서 대상 포트 20, 80 및 443으로 나가는 TCP 트래픽을 수집합니다.  마지막 필터는 UDP 트래픽만을 수집합니다.
 
 ```azurecli
 az network watcher packet-capture create --resource-group {resourceGroupName} --vm {vmName} --name packetCaptureName --storage-account {storageAccountName} --filters "[{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"20\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"80\"},{\"protocol\":\"TCP\", \"remoteIPAddress\":\"1.1.1.1-255.255.255\",\"localIPAddress\":\"10.0.0.3\", \"remotePort\":\"443\"},{\"protocol\":\"UDP\"}]"
 ```
 
-다음 예제는 `az network watcher packet-capture create` cmdlet을 실행하는 예상된 출력입니다.
+다음 예는 `az network watcher packet-capture create` 명령 실행의 예상 출력입니다.
 
 ```json
 {
@@ -179,13 +178,13 @@ roviders/microsoft.compute/virtualmachines/{vmName}/2017/05/25/packetcapture_16_
 
 ## <a name="get-a-packet-capture"></a>패킷 캡처 가져오기
 
-`az network watcher packet-capture show-status` cmdlet을 실행하고 현재 실행 중이거나 완료된 패킷 캡처의 상태를 검색합니다.
+`az network watcher packet-capture show-status` 명령을 실행 하 여 현재 실행 중이거나 완료 된 패킷 캡처의 상태를 검색 합니다.
 
 ```azurecli
 az network watcher packet-capture show-status --name packetCaptureName --location {networkWatcherLocation}
 ```
 
-다음 예제는 `az network watcher packet-capture show-status` cmdlet의 출력입니다. 다음 예제는 TimeExceeded StopReason으로 인해 캡처가 중지된 경우입니다. 
+다음 예제는 `az network watcher packet-capture show-status` 명령의 출력입니다. 다음 예제는 TimeExceeded StopReason으로 인해 캡처가 중지된 경우입니다. 
 
 ```
 {
@@ -204,14 +203,14 @@ cketCaptures/packetCaptureName",
 
 ## <a name="stop-a-packet-capture"></a>패킷 캡처 중지
 
-`az network watcher packet-capture stop` cmdlet을 실행하여 캡처 세션이 진행 중인 경우 중지됩니다.
+`az network watcher packet-capture stop` 명령을 실행 하 여 캡처 세션이 진행 중인 경우 중지 됩니다.
 
 ```azurecli
 az network watcher packet-capture stop --name packetCaptureName --location westcentralus
 ```
 
 > [!NOTE]
-> cmdlet은 현재 실행 중인 캡처 세션 또는 이미 중지된 기존 세션에서 실행되는 경우 응답을 반환하지 않습니다.
+> 이 명령은 현재 실행 중인 캡처 세션 또는 이미 중지 된 기존 세션에서 실행 될 때 응답을 반환 하지 않습니다.
 
 ## <a name="delete-a-packet-capture"></a>패킷 캡처 삭제
 

@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 비정상
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 비정상 상황을 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b91c11dfb9b1249420429bee20f12439fffa4853
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6668446363361fbc6d24afc3d11a36a0b786667d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646180"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906171"
 ---
 # <a name="sfctl-chaos"></a>sfctl chaos
 비정상 상황 테스트 서비스를 시작하고, 중지하고 보고합니다.
