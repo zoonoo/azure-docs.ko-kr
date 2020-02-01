@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스에서 준비 프로브 설정
 description: Azure Container Instances 컨테이너가 준비 된 경우에만 요청을 수신 하도록 프로브를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 10/17/2019
-ms.openlocfilehash: 5ebbcdeee231e3e67abd6758485a12984137997e
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533554"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901843"
 ---
 # <a name="configure-readiness-probes"></a>준비 상태 프로브 구성
 
@@ -17,6 +17,9 @@ ms.locfileid: "74533554"
 이 문서에서는 프로브가 성공 했을 때 컨테이너가 트래픽을 수신할 수 있도록 준비 프로브를 포함 하는 컨테이너 그룹을 배포 하는 방법을 설명 합니다.
 
 Azure Container Instances은 비정상 컨테이너가 자동으로 다시 시작 되도록 구성할 수 있는 [선거의 프로브](container-instances-liveness-probe.md)도 지원 합니다.
+
+> [!NOTE]
+> 현재는 가상 네트워크에 배포 된 컨테이너 그룹에서 준비 프로브를 사용할 수 없습니다.
 
 ## <a name="yaml-configuration"></a>YAML 구성
 

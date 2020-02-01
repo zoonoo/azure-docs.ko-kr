@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.workload: infrastructure-services
 ms.date: 01/28/2020
 ms.author: cherylmc
-ms.openlocfilehash: 61bc77e7ac7671cd439eedea25eac11c91457aa9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f76d94cc50d1451835bd14577efc8f68acb0390
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838720"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901601"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -97,7 +97,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **du datamena** |지원됨 |지원됨 | Dubai2 |
 | **eir** |지원됨 |지원됨 |더블린|
 | **[엡실론 글로벌 통신](https://www.epsilontel.com/solutions/direct-cloud-connect)** |지원됨 |지원됨 |싱가포르, 싱가포르 2 |
-| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 시카고, 달라스, 더블린, Geneva, 홍콩 특별 행정구, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 뉴욕, 오사카, 파리, 상 파울로, 시애틀, 실리콘 계곡, 싱가포르, 스톡홀름, 시드니, 도쿄,, 워싱턴 DC |
+| **[Equinix](https://www.equinix.com/partners/microsoft-azure/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 시카고, 달라스, 더블린, 프랑크푸르트, Geneva, 홍콩 특별 행정구, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 뉴욕, 오사카, 파리, 상 파울로, 시애틀, 실리콘 계곡, 싱가포르, 스톡홀름, 시드니, 도쿄, 전, 워싱턴 DC |
 | **Etisalat 아랍에미리트** |지원됨 |지원됨 |두바이|
 | **[euNetworks](https://eunetworks.com/services/solutions/cloud-connect/microsoft-azure-expressroute/)** |지원됨 |지원됨 |암스테르담, Amsterdam2, 더블린, 런던 |
 | **FarEasTone** |지원됨 |지원됨 |타이베이|
@@ -210,6 +210,8 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
   * [Megaport](https://www.megaport.com/services/microsoft-expressroute/)
   * [NextDC](https://www.nextdc.com/)
   * [PacketFabric](https://www.packetfabric.com/cloud-connectivity/microsoft-azure) 
+  * [Teraco](https://www.teraco.co.za/platform-teraco/africa-cloud-exchange/)
+
 * 연결 공급자가 선택한 피어링 위치로 네트워크를 확장합니다.
   * 연결 공급자는 단일 실패 지점이 없도록 항상 사용 가능한 방식으로 연결을 확장하는지 확인합니다.
 * Microsoft에 연결할 연결 공급자로 Exchange를 지정하여 ExpressRoute 회로를 정렬합니다.

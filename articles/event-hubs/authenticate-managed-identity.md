@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 08/22/2019
 ms.author: spelluru
-ms.openlocfilehash: cbd7de7d526e1954aaad60f7d71e5cdf202f6a29
-ms.sourcegitcommit: 007ee4ac1c64810632754d9db2277663a138f9c4
+ms.openlocfilehash: 0c5d3eca4a01488f521f9a85fa129eb0ac72c363
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "69992836"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904557"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 Azure Event Hubs [는 azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 Azure Active Directory (azure AD) 인증을 지원 합니다. Azure 리소스에 대 한 관리 id는 azure Virtual Machines (Vm), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다 Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.
@@ -43,7 +43,7 @@ RBAC 역할을 할당 하는 방법에 대 한 자세한 내용은 [Event Hubs �
 응용 프로그램을 만든 후에는 다음 단계를 수행 합니다. 
 
 1. **설정** 으로 이동 하 여 **id**를 선택 합니다. 
-1. **상태** 를 선택 합니다. 
+1. **상태** **를 선택 합니다.** 
 1. **저장**을 선택하여 설정을 저장합니다. 
 
     ![웹 앱에 대 한 관리 id](./media/authenticate-managed-identity/identity-web-app.png)
@@ -71,18 +71,74 @@ Event Hubs 리소스에 역할을 할당 하려면 Azure Portal에서 해당 리
 
 역할을 할당 하면 웹 응용 프로그램은 정의 된 범위에서 Event Hubs 리소스에 액세스할 수 있습니다. 
 
-### <a name="test-the-web-application"></a>웹 응용 프로그램 테스트
+### <a name="test-the-web-application"></a>웹 애플리케이션 테스트
+1. Event Hubs 네임 스페이스 및 이벤트 허브를 만듭니다. 
+2. Azure에 웹 앱을 배포 합니다. GitHub에서 웹 응용 프로그램에 대 한 링크는 다음 탭 섹션을 참조 하세요. 
+3. SendReceive .aspx가 웹 앱에 대 한 기본 문서로 설정 되었는지 확인 합니다. 
+3. 웹 앱에 대 한 **id** 를 사용 하도록 설정 합니다. 
+4. 이 id를 네임 스페이스 수준이 나 이벤트 허브 수준에서 **Event Hubs 데이터 소유자** 역할에 할당 합니다. 
+5. 웹 응용 프로그램을 실행 하 고, 네임 스페이스 이름 및 이벤트 허브 이름 및 메시지를 입력 하 고, **보내기**를 선택 합니다. 이벤트를 받으려면 **수신**을 선택 합니다. 
+
+#### <a name="azuremessagingeventhubs-latesttablatest"></a>[EventHubs (최신)](#tab/latest)
+이제 웹 응용 프로그램을 시작 하 고 브라우저가 샘플 aspx 페이지를 가리키도록 할 수 있습니다. [GitHub 리포지토리의](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)Event Hubs 리소스에서 데이터를 보내고 받는 샘플 웹 응용 프로그램을 찾을 수 있습니다.
+
+[NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)에서 최신 패키지를 설치 하 고 **EventHubConsumerClient**를 사용 하 여 **EventHubProducerClient** 및 수신 이벤트를 사용 하 여 Event Hubs에 이벤트를 보내기 시작 합니다.  
+
+```csharp
+protected async void btnSend_Click(object sender, EventArgs e)
+{
+    await using (EventHubProducerClient producerClient = new EventHubProducerClient(txtNamespace.Text, txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        // create a batch
+        using (EventDataBatch eventBatch = await producerClient.CreateBatchAsync())
+        {
+
+            // add events to the batch. only one in this case. 
+            eventBatch.TryAdd(new EventData(Encoding.UTF8.GetBytes(txtData.Text)));
+
+            // send the batch to the event hub
+            await producerClient.SendAsync(eventBatch);
+        }
+
+        txtOutput.Text = $"{DateTime.Now} - SENT{Environment.NewLine}{txtOutput.Text}";
+    }
+}
+protected async void btnReceive_Click(object sender, EventArgs e)
+{
+    await using (var consumerClient = new EventHubConsumerClient(EventHubConsumerClient.DefaultConsumerGroupName, $"{txtNamespace.Text}.servicebus.windows.net", txtEventHub.Text, new DefaultAzureCredential()))
+    {
+        int eventsRead = 0;
+        try
+        {
+            using CancellationTokenSource cancellationSource = new CancellationTokenSource();
+            cancellationSource.CancelAfter(TimeSpan.FromSeconds(5));
+
+            await foreach (PartitionEvent partitionEvent in consumerClient.ReadEventsAsync(cancellationSource.Token))
+            {
+                txtOutput.Text = $"Event Read: { Encoding.UTF8.GetString(partitionEvent.Data.Body.ToArray()) }{ Environment.NewLine}" + txtOutput.Text;
+                eventsRead++;
+            }
+        }
+        catch (TaskCanceledException ex)
+        {
+            txtOutput.Text = $"Number of events read: {eventsRead}{ Environment.NewLine}" + txtOutput.Text;
+        }
+    }
+}
+```
+
+#### <a name="microsoftazureeventhubs-legacytabold"></a>[EventHubs (레거시)](#tab/old)
 이제 웹 응용 프로그램을 시작 하 고 브라우저가 샘플 aspx 페이지를 가리키도록 할 수 있습니다. [GitHub 리포지토리의](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp)Event Hubs 리소스에서 데이터를 보내고 받는 샘플 웹 응용 프로그램을 찾을 수 있습니다.
 
-[Nuget](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)에서 최신 패키지를 설치 하 고 다음 코드와 같이 EventHubClient를 사용 하 여 Event hubs에서 데이터를 보내고 받는 작업을 시작 합니다. 
+[NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)에서 최신 패키지를 설치 하 고 다음 코드와 같이 EventHubClient를 사용 하 여 Event hubs에서 데이터를 보내고 받는 작업을 시작 합니다. 
 
 ```csharp
 var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHubNamespace}/"), EventHubName);
 ```
+---
 
 ## <a name="next-steps"></a>다음 단계
-- GitHub에서 [샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp) 을 다운로드 합니다.
-- Azure 리소스의 관리 id에 대해 알아보려면 다음 문서를 참조 하세요. [Azure 리소스용 관리 ID란?](../active-directory/managed-identities-azure-resources/overview.md)
+- Azure 리소스에 대 한 관리 id [는 무엇 인가요? azure 리소스에 대 한 관리 id는 무엇입니까?](../active-directory/managed-identities-azure-resources/overview.md) 를 참조 하세요.
 - 다음 관련 문서를 참조 하세요.
     - [Azure Active Directory를 사용 하 여 응용 프로그램에서 Azure Event Hubs에 대 한 요청 인증](authenticate-application.md)
     - [공유 액세스 서명을 사용 하 여 Azure Event Hubs에 대 한 요청 인증](authenticate-shared-access-signature.md)

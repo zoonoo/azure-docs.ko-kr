@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/15/2019
 ms.author: memildin
-ms.openlocfilehash: bd896cbee98bd61518c9a093f86e088f0b018d73
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 79154a13722654ef5cbbe7ac99bb67d4b761fe60
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156661"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903449"
 ---
 # <a name="improve-your-secure-score-in-azure-security-center"></a>Azure Security Center의 보안 점수 향상
 
@@ -34,7 +34,7 @@ ms.locfileid: "76156661"
 ## <a name="secure-score-calculation"></a>보안 점수 계산
 
 Security Center는 보안 권장 사항을 검토하고 고급 알고리즘을 적용하여 각 권장 사항의 중요도를 판별하는 보안 분석가의 작업을 모방합니다.
-Azure Security Center에서는 지속적으로 활성 권장 사항을 검토하고 이를 기반으로 보안 점수를 계산하며, 권장 사항의 점수는 워크로드 보안에 가장 많은 영향을 주는 심각도 및 보안 모범 사례에서 파생됩니다.
+Azure Security center는 활성 권장 사항을 지속적으로 검토 하 고 이러한 권장 사항을 기반으로 하 여 보안 점수를 계산 합니다. 권장 사항의 점수는 가장 많은 워크 로드 보안에 영향을 주는 심각도 및 보안 모범 사례에서 파생 됩니다.
 
 Security Center에서는 **전체 보안 점수**도 제공합니다. 
 

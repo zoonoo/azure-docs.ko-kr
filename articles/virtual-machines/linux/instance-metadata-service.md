@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 04/25/2019
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: ad3f9329ce79812e908fd15037e2054ca5a8906e
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 5b3f3eea4d23d84d684648d19fb67258d1ea2050
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045164"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907006"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -444,7 +444,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>메타데이터 API
+## <a name="metadata-apis"></a>메타 데이터 Api
 
 메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
@@ -542,7 +542,7 @@ Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMD
 
 인스턴스 메타데이터는 Powershell 유틸리티 `curl`을 통해 Windows에서 검색할 수 있습니다.
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -922,7 +922,7 @@ OS 디스크 개체에는 VM에서 사용 하는 OS 디스크에 대 한 다음 
 
 데이터    | Description
 --------|-----------------
-캐싱 | 캐싱 요구 사항
+= | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)
@@ -937,7 +937,7 @@ writeAcceleratorEnabled | WriteAccelerator를 디스크에서 사용할 수 있�
 
 데이터    | Description
 --------|-----------------
-캐싱 | 캐싱 요구 사항
+= | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)

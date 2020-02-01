@@ -4,12 +4,12 @@ description: 신규 또는 기존 Azure Virtual Network에 컨테이너 그룹�
 ms.topic: article
 ms.date: 01/06/2020
 ms.author: danlep
-ms.openlocfilehash: 920ad9598f17fbab25218827045a396d953a6531
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 40f312ce8bc08c9b59e7c47f05b6a5d3dc94a994
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845183"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901874"
 ---
 # <a name="deploy-container-instances-into-an-azure-virtual-network"></a>Azure Virtual Network에 컨테이너 인스턴스 배포
 
@@ -259,10 +259,6 @@ az container delete --resource-group myResourceGroup --name appcontaineryaml -y
 ```
 
 ### <a name="delete-network-resources"></a>네트워크 리소스 삭제
-
-
-> [!NOTE]
-> 네트워크 프로필을 제거 하는 동안 오류가 발생 하는 경우 플랫폼에서 3-4 일을 허용 하 여 자동으로 문제를 완화 하 고 삭제를 다시 시도 합니다. 네트워크 프로필을 즉시 삭제 해야 하는 경우 Azure Container Instances 서비스를 참조 하는 [지원 요청을 여세요](https://azure.microsoft.com/support/create-ticket/) .
 
 이 기능에는 현재 이전에 만든 네트워크 리소스를 삭제 하기 위해 몇 가지 추가 명령이 필요 합니다. 이 문서의 이전 섹션에 나왔던 예제 명령을 사용하여 가상 네트워크와 서브넷을 만들었다면 아래 스크립트를 사용하여 해당 네트워크 리소스를 삭제할 수 있습니다.
 

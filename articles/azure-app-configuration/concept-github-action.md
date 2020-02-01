@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 동기화와 함께 GitHub 작업 사용
 description: Github 리포지토리에서 정의 된 작업을 수행 하는 경우 GitHub 작업을 사용 하 여 앱 구성 인스턴스에 업데이트를 트리거합니다.
-author: jpconnock
-ms.author: jeconnoc
+author: lisaguthrie
+ms.author: lcozzens
 ms.date: 01/14/2020
 ms.topic: conceptual
 ms.service: azure-app-configuration
-ms.openlocfilehash: 1b7586e6321318a3fe4566e8c744c17a1d7ee179
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 269ae5630d1524cb8f89d3af8728892079f6eb5f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310619"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899615"
 ---
 # <a name="sync-your-app-configuration-instance-using-github-actions"></a>GitHub 작업을 사용 하 여 앱 구성 인스턴스 동기화
 Azure 앱 구성은 github 리포지토리에서 수행 된 작업에 의해 트리거되는 경우 GitHub 작업을 사용 하 여 앱 구성 인스턴스를 업데이트 합니다. GitHub 워크플로를 활용 하 여 앱 구성을 업데이트할 수 있습니다. 앱 구성 업데이트를 앱 코드 업데이트에 사용 되는 것과 동일한 워크플로로 통합할 수 있습니다.
@@ -192,7 +192,7 @@ jobs:
 | 구분 기호 | 예 | 구성 파일을 키-값 쌍으로 평면화 할 때 사용 되는 구분 기호입니다.  유효한 값은입니다. , ; : - _ __ / |
 | 접두사 | 아닙니다. | 키의 시작 부분에 추가할 접두사입니다. |
 | label | 아닙니다. | 키-값 쌍을 설정할 때 사용 되는 레이블입니다. 지정 하지 않으면 null 레이블이 사용 됩니다. |
-| strict | 아닙니다. | Strict 모드를 사용 하는지 여부를 결정 하는 부울 값입니다. 기본값은 False입니다. |
+| 제품과 | 아닙니다. | Strict 모드를 사용 하는지 여부를 결정 하는 부울 값입니다. 기본값은 False입니다. |
 | 크기 | 아닙니다. | 구성 파일을 평면화 하는 최대 깊이입니다.  깊이는 양수 여야 합니다.  기본값에는 최대 깊이가 없습니다. |
 | tags | 아닙니다. | 키-값 쌍에 대해 설정 된 태그를 지정 합니다.  필요한 형식은 다음 모양의 JSON 개체에 대 한 문자열 형식 형식입니다. {[propertyName: string]: string;} 각 속성 이름-값은 태그가 됩니다. |
 

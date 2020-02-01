@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.date: 12/23/2019
-ms.openlocfilehash: 36e665f889ece48661a859e1a9a44f23aec08c37
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 6e3cf8fa70d6abe8005fe2d2de059c0a3944ff81
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75548883"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905309"
 ---
 # <a name="debug-apache-spark-applications-on-an-hdinsight-cluster-with-azure-toolkit-for-intellij-through-ssh"></a>SSH를 통해 Azure Toolkit for IntelliJ를 사용 하 여 HDInsight 클러스터에서 Apache Spark 응용 프로그램 디버그
 
@@ -25,7 +25,7 @@ ms.locfileid: "75548883"
 
 * Windows 사용자의 경우: Windows 컴퓨터에서 로컬 Spark Scala 응용 프로그램을 실행 하는 동안 [Spark-2356](https://issues.apache.org/jira/browse/SPARK-2356)에 설명 된 대로 예외를 받을 수 있습니다. 이 예외는 Windows에 WinUtils.exe가 없기 때문에 발생합니다.
 
-    이 오류를 해결하려면 [실행 파일을 다운로드](https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe)하여 **C:\WinUtils\bin** 등의 위치에 저장합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
+    이 오류를 해결 하려면 **C:\WinUtils\bin**와 같은 위치에 `https://public-repo-1.hortonworks.com/hdp-win-alpha/winutils.exe`을 다운로드 합니다. 그런 다음 **HADOOP_HOME** 환경 변수를 추가하고 이 변수 값을 **C:\WinUtils**로 설정합니다.
 
 * [INTELLIJ 아이디어](https://www.jetbrains.com/idea/download/#section=windows) (커뮤니티 버전은 무료입니다.).
 

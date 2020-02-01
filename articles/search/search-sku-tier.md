@@ -7,13 +7,13 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/17/2019
-ms.openlocfilehash: 772f6f51fb98b3a9adbd1efe6571842c667e8e8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/30/2020
+ms.openlocfilehash: 35dbd064a09a96dae58e1b15a6d8889bda45ee0d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427024"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899837"
 ---
 # <a name="choose-a-pricing-tier-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 가격 책정 계층 선택
 
@@ -21,15 +21,20 @@ Azure Cognitive Search 서비스를 만들면 서비스 수명 동안 고정 된
 
 대부분의 고객은 서비스를 평가할 수 있도록 무료 계층으로 시작 합니다. 사후 평가, 개발 및 프로덕션 배포를 위해 상위 계층 중 하나에서 두 번째 서비스를 만드는 것이 일반적입니다.
 
-무료 계층을 비롯 한 모든 계층은 일반적으로 기능 패리티를 제공 하지만 더 큰 워크 로드는 더 높은 계층에 대 한 요구를 지시할 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
+## <a name="feature-availability-by-tier"></a>계층 별 기능 가용성
 
-> [!NOTE] 
-> 패리티 기능에 대 한 예외는 S3 HD에서 사용할 수 없는 [인덱서](search-indexer-overview.md)입니다.
->
+거의 모든 기능은 무료를 포함 하 여 모든 계층에서 사용할 수 있지만 리소스 집약적 기능이 나 워크플로는 충분 한 용량을 제공 하지 않으면 제대로 작동 하지 않을 수 있습니다. 예를 들어 [AI 보강](cognitive-search-concept-intro.md) 에는 데이터 집합이 작은 경우를 제외 하 고 무료 서비스에서 시간이 오래 걸리는 장기 실행 기술이 있습니다.
 
-## <a name="available-tiers"></a>사용 가능한 계층
+다음 표에서는 계층 관련 기능 제약 조건에 대해 설명 합니다.
 
-계층은 기능보다는 서비스를 호스팅하는 하드웨어의 특성을 반영하며 다음과 같이 구분됩니다.
+| 기능 | 제한 사항 |
+|---------|-------------|
+| [인덱서에](search-indexer-overview.md) | S3 HD에서는 인덱서를 사용할 수 없습니다. |
+| [고객이 관리 하는 암호화 키](search-security-manage-encryption-keys.md) | 무료 계층에서는 사용할 수 없습니다. |
+
+## <a name="tiers-skus"></a>계층 (Sku)
+
+계층은 다음과 같이 구분 됩니다.
 
 + 만들 수 있는 인덱스 및 인덱서 수량
 + 파티션(실제 스토리지)의 크기와 속도
@@ -97,9 +102,9 @@ SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)**
 
 대부분의 고객은 총 용량의 일부만 온라인 상태로 유지하고 나머지는 보류 상태로 둡니다. 요금 청구를 위해 SU 수식으로 계산 되는 온라인 상태로 전환 되는 파티션 및 복제본의 수는 시간별로 청구 되는 항목을 결정 합니다.
 
-## <a name="how-to-manage-and-reduce-costs"></a>비용을 관리 하 고 절감 하는 방법
+## <a name="how-to-manage-costs"></a>비용을 관리 하는 방법
 
-다음 제안 외에도 [요금 청구 및 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started)를 참조 하세요.
+다음 제안 사항은 비용을 최소한으로 유지 하는 데 도움이 될 수 있습니다.
 
 - 대역폭 요금을 최소화 하거나 제거 하기 위해 동일한 지역에 있거나 가능한 적은 수의 지역에 모든 리소스를 만듭니다.
 
@@ -109,7 +114,11 @@ SU는 서비스에서 사용 하는 *복제본* 및 *파티션* **(R x P = SU)**
 
 - 인덱싱 등의 리소스를 많이 사용 하는 작업을 확장 한 다음 일반 쿼리 워크 로드에 대해 다시 조정 합니다. Azure Cognitive Search에 대 한 최소 구성 (하나의 파티션과 하나의 복제본으로 구성 된 SU)부터 시작 하 여 더 많은 용량이 필요한 경우를 나타내는 사용 패턴을 식별 하는 사용자 활동을 모니터링 합니다. 예측 가능한 패턴이 있는 경우 크기 조정을 활동과 동기화 할 수 있습니다 .이를 자동화 하는 코드를 작성 해야 합니다.
 
-청구서를 줄이기 위해 search 서비스를 종료할 수 없습니다. 전용 리소스는 항상 작동 하며 서비스 수명 동안 독점적으로 사용 하도록 할당 됩니다. 서비스 자체를 기준으로 청구서를 낮추는 유일한 방법은 복제본과 파티션을 여전히 허용 되는 성능 및 [SLA 준수](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 제공 하는 수준으로 축소 하거나 더 낮은 계층에서 서비스를 만드는 것입니다 (S1 시간당 요금은 S2 또는 S3 요금 보다 낮음). 부하 예측의 하단에서 서비스를 프로 비전 한다고 가정 하 고, 서비스를 증가 시키는 경우 두 번째 대규모 계층화 된 서비스를 만들고 두 번째 서비스에서 인덱스를 다시 작성 한 다음 첫 번째 서비스를 삭제할 수 있습니다.
+또한 기본 제공 도구 및 지출 관련 기능에 대 한 [청구 및 비용 관리](https://docs.microsoft.com/azure/billing/billing-getting-started) 를 방문해 보세요.
+
+임시 방식으로 검색 서비스를 종료 하는 것은 불가능 합니다. 전용 리소스는 항상 작동 하며 서비스 수명 동안 독점적으로 사용 하도록 할당 됩니다. 서비스 삭제는 영구적 이며 연결 된 데이터도 삭제 합니다.
+
+서비스 자체를 기준으로 청구서를 낮추는 유일한 방법은 복제본과 파티션을 여전히 허용 되는 성능 및 [SLA 준수](https://azure.microsoft.com/support/legal/sla/search/v1_0/)를 제공 하는 수준으로 축소 하거나 더 낮은 계층에서 서비스를 만드는 것입니다 (S1 시간당 요금은 S2 또는 S3 요금 보다 낮음). 부하 예측의 하단에서 서비스를 프로 비전 한다고 가정 하 고, 서비스를 증가 시키는 경우 두 번째 대규모 계층화 된 서비스를 만들고 두 번째 서비스에서 인덱스를 다시 작성 한 다음 첫 번째 서비스를 삭제할 수 있습니다.
 
 ## <a name="how-to-evaluate-capacity-requirements"></a>용량 요구 사항을 평가 하는 방법
 

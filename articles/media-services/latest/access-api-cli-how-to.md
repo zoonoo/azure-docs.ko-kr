@@ -12,12 +12,12 @@ ms.topic: article
 ms.custom: mvc
 ms.date: 05/15/2019
 ms.author: juliako
-ms.openlocfilehash: d66b3e1b6ed2c8eef9f5cd21c0657648ad550ebe
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 06ca26ee9a8af7f49aba6a48a1831d30d5886851
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896146"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896337"
 ---
 # <a name="access-azure-media-services-api-with-the-azure-cli"></a>Azure CLI를 사용하여 Azure Media Services API 액세스
  
@@ -28,11 +28,12 @@ Azure AD 서비스 주체 인증을 사용 하 여 Azure Media Services API에 �
 * REST Media Services의 리소스 URI
 * Azure AD 애플리케이션 값: 클라이언트 ID 및 클라이언트 암호.
 
-자세한 설명은 [Media Services V3 Api 액세스](media-services-apis-overview.md#accessing-the-azure-media-services-api)를 참조 하세요.
+> [!IMPORTANT]
+> 자세한 설명은 [Media Services V3 Api에 액세스](media-services-apis-overview.md#accessing-the-azure-media-services-api)를 검토 합니다.
 
 이 문서에서는 Azure CLI를 사용하여 Azure AD 애플리케이션과 서비스 주체를 만들고 Azure Media Services 리소스에 액세스하는 데 필요한 값을 얻는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>전제 조건 
+## <a name="prerequisites"></a>필수 조건 
 
 [Media Services 계정 만들기](create-account-cli-how-to.md)
 

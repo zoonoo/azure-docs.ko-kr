@@ -11,12 +11,12 @@ ms.author: anjangsh
 ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 6d51213402f852daee8fe4a6b5dbbd473afda659
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 917a698840850182d2d41ef780ba01d948e11c2f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122460"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896380"
 ---
 # <a name="azure-sql-data-warehouse-release-notes"></a>Azure SQL Data Warehouse 릴리스 정보
 
@@ -38,6 +38,7 @@ ms.locfileid: "76122460"
 | --- | --- |
 |**작업 관리 포털 메트릭 (미리 보기)**|10 월 이전에 preview에 대 한 [워크 로드 격리](/azure/sql-data-warehouse/sql-data-warehouse-workload-isolation) 릴리스를 사용 하 여 사용자는 시스템 리소스를 효율적으로 관리 하 고 비즈니스 sla를 충족할 수 있도록 자신의 [작업 그룹](/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 을 만들 수 있습니다.  Azure Synapse Analytics에 대 한 전반적인 [워크 로드](/azure/sql-data-warehouse/sql-data-warehouse-workload-management) 향상의 일환으로 이제 새로운 [워크 로드 관리 모니터링 메트릭을](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor) 사용할 수 있습니다.</br> </br> 이제 워크 로드 모니터링에는 다음과 같은 메트릭이 더 많이 있습니다. </br> -유효 cap 리소스 백분율  </br> -유효 min 리소스 백분율 </br> -작업 그룹 활성 쿼리 </br> -최대 리소스% 별 작업 그룹 할당 </br> -시스템 percent의 작업 그룹 할당 </br> -작업 그룹 쿼리 시간 제한 </br> -작업 그룹 큐에 대기 중인 쿼리 </br></br> 이러한 메트릭을 사용 하 여 [작업 그룹 병목 상태](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#workload-group-bottleneck) 또는 [미달 사용 작업 격리](/azure/sql-data-warehouse/sql-data-warehouse-workload-management-portal-monitor#underutilized-workload-isolation)로 구성 된 작업 그룹을 식별할 수 있습니다.  이러한 메트릭은 작업 그룹별 분할을 허용 하는 Azure Portal에서 사용할 수 있습니다.  자주 사용 하는 그래프를 필터링 하 고 대시보드에 고정 하 여 정보에 빠르게 액세스할 수 있습니다.|
 |**포털 모니터링 메트릭**| 전체 쿼리 작업을 모니터링 하기 위해 다음 메트릭이 포털에 추가 되었습니다. </br> -활성 쿼리 </br> -큐에 대기 중인 쿼리 </br> </br>이러한 메트릭은 [리소스 사용률 모니터링 및 쿼리 작업 설명서](/azure/sql-data-warehouse/sql-data-warehouse-concept-resource-utilization-query-activity)의 기존 메트릭과 함께 설명 됩니다.|
+|**제품 이름**|6 월 2020 까지는 SELECT @@VERSION에서 반환 된 제품 이름이 Microsoft Azure SQL Data Warehouse에서 Azure Synapse Analytics로 변경 됩니다. 릴리스 정보에 일정이 게시 됩니다. 이 변경은 응용 프로그램 코드에서 SELECT @@VERSION의 결과에서 제품 이름을 구문 분석 하는 고객과 관련이 있습니다. 제품 재 브랜딩으로 인 한 응용 프로그램 코드 변경을 방지 하려면 다음 명령을 사용 하 여 데이터베이스 제품 이름 및 버전에 대 한 SERVERPROPERTY을 쿼리 합니다. </br> DW 버전 번호 XX를 반환 합니다. XXXXX. X (제품 이름 없음) 다음 명령을 사용 합니다. SELECT SERVERPROPERTY (' ProductVersion ') </br> 엔진 버전을 반환 하려면 다음 명령을 사용 하 여 Azure Synapse Analytics (이전의 SQL Data Warehouse)에 대해 6을 반환 합니다. SERVERPROPERTY (' EngineEdition ')를 선택 합니다.|
 
 ## <a name="october-2019"></a>2019년 10월
 

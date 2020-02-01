@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 12/19/2019
-ms.openlocfilehash: c571a4f36372b250a05564182b240bc4007240a1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 02f1e5e3f3252ffa026d8dffe9fe83c9e5abe65b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977803"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899132"
 ---
 # <a name="ip-addresses-used-by-application-insights-and-log-analytics"></a>Application Insights 및 Log Analytics에서 사용되는 IP 주소
 [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md) 서비스는 많은 IP 주소를 사용합니다. 모니터링하는 앱이 방화벽 뒤에서 호스팅되는 경우 이러한 주소를 알아야 할 수도 있습니다.
@@ -56,6 +56,14 @@ Application Insights SDK 및/또는 상태 모니터가 데이터를 포털에 �
 
 ## <a name="availability-tests"></a>가용성 테스트
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md) 가 실행되는 주소 목록입니다. 앱에서 웹 테스트를 실행하려고 하지만 웹 서버가 특정 클라이언트 서비스를 제공하도록 제한된 경우 가용성 테스트 서버에서 들어오는 트래픽을 허용해야 합니다.
+
+Azure 네트워크 보안 그룹을 사용 하는 경우 원본 **서비스 태그로** **서비스 태그** 를 **원본** 으로 선택 하 고 **ApplicationInsightsAvailability** 를 사용 하 여 가용성 테스트 Application Insights의 트래픽을 허용 하는 **인바운드 포트 규칙** 을 추가 하기만 하면 됩니다.
+
+>[!div class="mx-imgBorder"]
+>설정 아래에서 인바운드 보안 규칙을 선택한 다음 탭의 맨 위에 있는 추가를 선택 ](./media/ip-addresses/add-inbound-security-rule.png) ![
+
+>[!div class="mx-imgBorder"]
+>인바운드 보안 규칙 추가 탭을 ![](./media/ip-addresses/add-inbound-security-rule2.png)
 
 이 주소에서 들어오는 트래픽에 대한 80(http) 및 443(https) 포트를 엽니다(IP 주소가 위치별로 그룹화됨).
 

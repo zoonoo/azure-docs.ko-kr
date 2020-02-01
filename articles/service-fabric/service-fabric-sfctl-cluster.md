@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 클러스터
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 클러스터를 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 807457f3edaef8e0edcdbf53b482e2e4ffee174c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 007ad6f59f0ce304db579f4faa1bb95611a93a37
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639159"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906142"
 ---
 # <a name="sfctl-cluster"></a>sfctl cluster
 Service Fabric 클러스터를 선택하고, 관리하고, 운영합니다.
@@ -93,7 +93,7 @@ Service Fabric 클러스터의 상태를 가져옵니다.
 | --applications-health-state-filter | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 애플리케이션 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용 가능한 값은 HealthStateFilter 열거형의 멤버 또는 멤버에 대한 비트 연산에서 가져온 정수 값입니다. 필터와 일치하는 애플리케이션만 반환됩니다. 모든 애플리케이션은 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 애플리케이션의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --events-health-state-filter | 상태에 따라 반환된 HealthEvent 개체의 컬렉션을 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 이벤트만 반환됩니다. 모든 이벤트는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 모든 이벤트가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --exclude-health-statistics | 상태 통계가 쿼리 결과의 일부로 반환되어야 하는지 여부를 나타냅니다. False(기본값). 통계는 Ok, Warning 및 Error 상태의 자식 엔터티 수를 보여줍니다. |
-| --include-system-application-health-statistics | 상태 통계에 패브릭\:/시스템 응용 프로그램 상태 통계를 포함할지 여부를 나타냅니다. False(기본값). IncludeSystemApplicationHealthStatistics를 true로 설정 하면 패브릭\:/시스템 응용 프로그램에 속하는 엔터티가 상태 통계에 포함 됩니다. 그렇지 않으면 쿼리 결과는 사용자 애플리케이션에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계를 쿼리 결과에 포함해야 합니다. |
+| --include-system-application-health-statistics | 상태 통계에 fabric\:/System 애플리케이션 상태 통계를 포함할지 여부를 지정합니다. False(기본값). IncludeSystemApplicationHealthStatistics가 true로 설정된 경우 fabric\:/System 애플리케이션에 속한 엔터티를 포함합니다. 그렇지 않으면 쿼리 결과는 사용자 애플리케이션에 대해서만 상태 통계를 포함합니다. 이 매개 변수를 적용하려면 상태 통계를 쿼리 결과에 포함해야 합니다. |
 | --nodes-health-state-filter | 상태에 따라 클러스터 상태 쿼리의 결과로 반환된 노드 상태 개체를 필터링할 수 있습니다. 이 매개 변수에 사용할 수 있는 값은 다음 상태 중 하나의 정수 값을 포함합니다. 필터와 일치하는 노드만 반환됩니다. 모든 노드는 집계된 상태를 평가하는 데 사용됩니다. 지정하지 않으면 모든 항목이 반환됩니다. 상태 값은 플래그 기반 열거형이므로 값은 비트 OR 연산자를 사용하여 구한 값의 조합일 수 있습니다. 예를 들어 제공된 값이 6이면 HealthState 값이 OK(2) 및 Warning(4)인 노드의 상태가 반환됩니다.  <br> - Default - 기본값. 모든 HealthState와 일치합니다. 값은 0입니다.  <br> - None - 모든 HealthState 값과 일치하지 않는 필터입니다. 주어진 상태 컬렉션에 대해 결과를 반환하지 않기 위해 사용됩니다. 값은 1입니다.  <br> - Ok – HealthState 값이 Ok인 입력과 일치하는 필터입니다. 값은 2입니다.  <br> - Warning – HealthState 값이 Warning인 입력과 일치하는 필터입니다. 값은 4입니다.  <br> - Error - HealthState 값이 Error인 입력과 일치하는 필터입니다. 값은 8입니다.  <br> - All - 모든 HealthState 값의 입력과 일치하는 필터입니다. 값은 65535입니다. |
 | --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
 
@@ -235,7 +235,7 @@ Service Fabric 클러스터에서 상태 보고서를 보냅니다. 보고서는
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트에서 전환에 대해 보고 하는 경우 시간을 무제한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 
@@ -250,7 +250,7 @@ Service Fabric 클러스터에서 상태 보고서를 보냅니다. 보고서는
 ## <a name="sfctl-cluster-select"></a>sfctl cluster select
 Service Fabric 클러스터 엔드포인트에 연결합니다.
 
-보안 클러스터에 연결한 경우, 인증서(.crt) 및 키 파일(.key)에 대한 절대 경로를 지정하거나 단일 파일을 양쪽 모두(.pem)로 지정합니다. 둘 다 지정하지 마세요. 보안 클러스터에 연결한 경우 필요에 따라 CA 번들 파일 또는 신뢰할 수 있는 CA 인증서 디렉터리에 대한 절대 경로를 지정합니다.  Localhost에 대 한 연결을 포함 하 여이 명령을 먼저 실행 하지 않고 클러스터에 연결할 수 없습니다. 그러나 로컬 클러스터에 연결 하는 데는 명시적인 끝점이 필요 하지 않습니다.
+보안 클러스터에 연결한 경우, 인증서(.crt) 및 키 파일(.key)에 대한 절대 경로를 지정하거나 단일 파일을 양쪽 모두(.pem)로 지정합니다. 둘 다 지정하지 마세요. 보안 클러스터에 연결한 경우 필요에 따라 CA 번들 파일 또는 신뢰할 수 있는 CA 인증서 디렉터리에 대한 절대 경로를 지정합니다.  Localhost에 대 한 연결을 포함 하 여이 명령을 먼저 실행 하지 않고 클러스터에 연결할 수 없습니다. 그러나 로컬 클러스터에 연결 하는 데는 명시적인 끝점이 필요 하지 않습니다.  자체 서명 된 인증서 또는 잘 알려진 CA가 서명 하지 않은 다른 인증서를 사용 하는 경우 유효성 검사를 통과 하도록--CA 매개 변수를 전달 합니다. 프로덕션 클러스터에 있지 않은 경우 클라이언트 쪽 유효성 검사를 사용 하지 않는 경우 (자체 서명 되었거나 잘 알려지지 않은 CA 서명에 유용)--확인 안 함 옵션을 사용 합니다. 가능 하면 프로덕션 클러스터에는 권장 되지 않습니다. 그렇지 않으면 인증서 확인 오류가 발생할 수 있습니다.
 
 ### <a name="arguments"></a>인수
 

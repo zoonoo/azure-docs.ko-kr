@@ -1,19 +1,19 @@
 ---
 title: 클러스터 오류 사전 만들기
 description: 클러스터 오류 사전을 만드는 방법을 알아봅니다.
-ms.reviewer: hrasheed
 author: karkrish
-ms.service: hdinsight
-ms.custom: hdinsightactive,hdiseo17may2017
-ms.topic: troubleshooting
-ms.date: 11/19/2019
 ms.author: v-todmc
-ms.openlocfilehash: ee9ed5374b12c3130d952770a4be6a759e37339a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.reviewer: hrasheed
+ms.service: hdinsight
+ms.topic: troubleshooting
+ms.custom: hdinsightactive,hdiseo17may2017
+ms.date: 11/19/2019
+ms.openlocfilehash: 6e5ed996a0f44bae6c37027bc01f30be85d164f9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156865"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905491"
 ---
 # <a name="azure-hdinsight-cluster-creation-errors"></a>Azure HDInsight: 클러스터 생성 오류
 
@@ -210,7 +210,7 @@ Id를 관리 하는 데 필요한 권한을 제공 하지 않았습니다. 사�
 
 ### <a name="resolution"></a>해상도
 
-클러스터 배포에 영향을 줄 수 있는 Azure 가동 중단에 대 한 [azure 상태](https://status.azure.com/status) 페이지를 확인 합니다. 작동 중단이 발생 하지 않으면 클러스터 배포를 다시 시도 합니다.
+클러스터 배포에 영향을 줄 수 있는 Azure 가동 중단에 대 한 [azure 상태](https://status.azure.com) 페이지를 확인 합니다. 작동 중단이 발생 하지 않으면 클러스터 배포를 다시 시도 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

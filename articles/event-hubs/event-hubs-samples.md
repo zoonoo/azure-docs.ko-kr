@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/09/2020
+ms.date: 01/15/2020
 ms.author: shvija
-ms.openlocfilehash: 1d8106b60433f8f9023c892a2cf0ab8044b4f22c
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: e70d2e07f74a48e1d99e04c5369a933cfd9cede1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75939970"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905357"
 ---
 # <a name="git-repositories-with-samples-for-azure-event-hubs"></a>Azure Event Hubs에 대한 샘플이 있는 Git 리포지토리 
 [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples)에 대한 Event Hubs 샘플을 찾을 수 있습니다. 이러한 샘플은 [Azure Event Hubs](/azure/event-hubs/)의 주요 기능을 보여줍니다. 이 문서는 사용할 수 있는 샘플 각각을 링크를 사용하여 범주화하고 설명합니다.
@@ -29,29 +29,29 @@ ms.locfileid: "75939970"
 
 | 버전 | 샘플 위치 |
 | ------- | ---------------- | 
-| 5.0.0 이상 | [GitHub에 대한 Event Hubs 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[GitHub의 Event Hubs 프로세서 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
-| 4.1.0 | [GitHub 위치](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
+| EventHubs 버전 5 (최신 버전) | [GitHub에 대한 Event Hubs 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)<br/>[GitHub의 Event Hubs 프로세서 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples) | 
+| EventHubs 버전 4 (레거시) | [GitHub 위치](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/) |
 
 ## <a name="java-samples"></a>Java 샘플
 
 | 버전 | 샘플 위치 |
 | ------- | ---------------- | 
-| 5.0.0 이상 | [GitHub 위치](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
-| 3.0.2 | [GitHub 위치](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
+| azure-메시징-eventhubs 버전 5 (최신 버전) | [GitHub 위치](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs) | 
+| azure-eventhubs 버전 3 (레거시) | [GitHub 위치](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/) |
 
 ## <a name="python-samples"></a>Python 샘플
 
 | 버전 | 샘플 위치 |
 | ------- | ---------------- | 
-| 5.0.0 이상 | [GitHub 위치](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
-| 1.3.3 | [GitHub 위치](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
+| azure-eventhub 버전 5 (최신) | [GitHub 위치](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/eventhub/azure-eventhub/samples) | 
+| azure-eventhub 버전 1 (레거시) | [GitHub 위치](https://github.com/Azure/azure-sdk-for-python/tree/release/eventhub-v1/sdk/eventhub/azure-eventhubs/examples) |
 
 ## <a name="nodejs-samples"></a>Node.js 샘플
 
 | 버전 | 샘플 위치 |
 | ------- | ---------------- | 
-| 5.0.0 이상 | [GitHub 위치](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) | 
-| 2.1.0 | [GitHub 위치](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
+| azure/event hubs 버전 5 (최신 버전) | [GitHub 위치](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/eventhub/event-hubs/samples) | 
+| azure/event hubs 버전 2 (레거시) | [GitHub 위치](https://github.com/Azure/azure-sdk-for-js/tree/%40azure/event-hubs_2.1.0/sdk/eventhub/event-hubs/samples) |
 
 
 ## <a name="go-samples"></a>Go 샘플

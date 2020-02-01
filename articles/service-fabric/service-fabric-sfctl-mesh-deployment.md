@@ -1,16 +1,16 @@
 ---
 title: Azure Service Fabric CLI-sfctl 메시 배포
-description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Service Fabric 메시 리소스를 만들기 위한 명령 목록을 포함 합니다.
+description: Azure Service Fabric 명령줄 인터페이스인 sfctl에 대해 알아봅니다. Service Fabric 메시 리소스를 만들기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 6512cce075906fc8708a39fa0747ec27be33e961
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 108389407221779ed20e81310f084b7b5c23b8c7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645364"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906033"
 ---
 # <a name="sfctl-mesh-deployment"></a>sfctl mesh deployment
 Service Fabric Mesh 리소스를 만듭니다.
@@ -28,8 +28,8 @@ Service Fabric Mesh 리소스의 배포를 만듭니다.
 
 |인수|Description|
 | --- | --- |
-| --input-yaml-files[필수] | Yaml 파일을 포함 하는 디렉터리 (재귀)의 모든 yaml 파일 또는 상대/절대 경로에 대 한 쉼표로 구분 된 상대/절대 파일 경로입니다. |
-| --parameters | Yaml 파일에 대 한 상대/절대 경로 또는 재정의 해야 하는 매개 변수를 포함 하는 json 개체입니다. |
+| --input-yaml-files[필수] | Yaml 파일을 포함 하는 디렉터리의 상대 또는 절대 경로 또는 모든 yaml 파일의 쉼표로 구분 된 상대 또는 절대 파일 경로입니다. |
+| --parameters | Yaml 파일에 대 한 상대 또는 절대 경로 또는 재정의 해야 하는 매개 변수를 포함 하는 json 개체입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

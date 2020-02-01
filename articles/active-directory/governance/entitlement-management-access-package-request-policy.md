@@ -16,12 +16,12 @@ ms.date: 10/15/2019
 ms.author: ajburnle
 ms.reviewer: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 649a4a50766d26f73584dae4481652c8007b2e9e
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 493ba6396a7ceb11b917fbda5dd6c37c070f2fee
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73174668"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897623"
 ---
 # <a name="change-request-and-approval-settings-for-an-access-package-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 액세스 패키지에 대 한 요청 및 승인 설정 변경
 
@@ -42,6 +42,9 @@ ms.locfileid: "73174668"
 | 내 디렉터리의 사용자와 내 디렉터리의 사용자가 액세스 패키지를 요청 하도록 허용 합니다. | 여러 접두사 |
 | 일부 사용자에 대해 다른 승인 설정을 지정 하려고 합니다. | 여러 접두사 |
 | 일부 사용자가 패키지 할당을 액세스 하 여 다른 사용자가 액세스를 확장할 수 있도록 하려고 합니다. | 여러 접두사 |
+
+여러 정책이 적용 될 때 사용 되는 우선 순위 논리에 대 한 자세한 내용은 [여러 정책](entitlement-management-troubleshoot.md#multiple-policies
+)을 참조 하세요.
 
 ### <a name="open-an-existing-policy-of-request-and-approval-settings"></a>요청 및 승인 설정의 기존 정책 열기
 
@@ -83,7 +86,7 @@ ms.locfileid: "73174668"
 
     ![이름 및 설명을 사용 하 여 정책 만들기](./media/entitlement-management-access-package-request-policy/policy-name-description.png)
 
-1. **다음** 을 클릭 하 여 **요청** 탭을 엽니다.
+1. **다음**을 클릭하여 **요청** 탭을 엽니다.
 
 1. 다음 요청 섹션 중 하나에서 단계를 수행 합니다.
 

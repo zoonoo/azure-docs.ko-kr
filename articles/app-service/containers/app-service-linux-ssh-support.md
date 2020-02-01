@@ -8,20 +8,18 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 299bbfbc50e9ba779898ab0e0e9dec060bf6541d
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687585"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898747"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
-[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 새 웹앱의 런타임 스택에 사용되는 기본 제공 Docker 이미지가 있는 앱 컨테이너에 SSH 지원을 제공합니다. 
+[SSH(Secure Shell)](https://wikipedia.org/wiki/Secure_Shell)는 주로 명령줄 터미널에서 원격으로 관리 명령을 실행하는 데 사용합니다. Linux의 App Service는 앱 컨테이너에 SSH 지원을 제공 합니다. 
 
-![런타임 스택](./media/app-service-linux-ssh-support/app-service-linux-runtime-stack.png)
-
-사용자 지정 Docker 이미지의 경우 사용자 지정 이미지에서 SSH 서버를 구성하여 지원합니다.
+![Linux App Service SSH](./media/app-service-linux-ssh-support/app-service-linux-ssh.png)
 
 SSH 및 SFTP를 사용하여 로컬 개발 컴퓨터에서 직접 컨테이너에 연결할 수도 있습니다.
 

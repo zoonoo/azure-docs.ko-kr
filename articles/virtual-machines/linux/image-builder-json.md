@@ -7,12 +7,12 @@ ms.date: 01/23/2020
 ms.topic: article
 ms.service: virtual-machines-linux
 manager: gwallace
-ms.openlocfilehash: 9183805e2817459ac2c408648981b6989edf4e62
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 4ac2c1266933716697a658b1ba88efd8c2f05d34
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760014"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905751"
 ---
 # <a name="preview-create-an-azure-image-builder-template"></a>미리 보기: Azure 이미지 작성기 템플릿 만들기 
 
@@ -317,6 +317,8 @@ OS 지원: Windows
 - **restartCheckCommand** – 다시 시작 성공 여부를 확인 하는 명령입니다 (선택 사항). 
 - **restartTimeout** -크기 및 단위의 문자열로 지정 된 다시 시작 시간 제한입니다. 예를 들어 `5m` (5 분) 또는 `2h` (2 시간)입니다. 기본값은 ' 5m '입니다.
 
+### <a name="linux-restart"></a>Linux 다시 시작  
+Linux 다시 시작 사용자 지정자는 없지만 드라이버를 설치 하는 경우 또는 다시 시작 해야 하는 구성 요소를 설치 하는 경우 셸 사용자 지정자를 사용 하 여 설치 하 고 다시 시작을 호출할 수 있으며, 빌드 VM에 대해 20min의 SSH 시간 제한이 있습니다.
 
 ### <a name="powershell-customizer"></a>PowerShell 사용자 지정자 
 셸 사용자 지정자는 PowerShell 스크립트 및 인라인 명령 실행을 지원 합니다. IB에서 액세스할 수 있도록 스크립트를 공개적으로 액세스할 수 있어야 합니다.

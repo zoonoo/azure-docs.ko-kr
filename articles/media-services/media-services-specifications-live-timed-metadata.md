@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/22/2019
 ms.author: johndeu
-ms.openlocfilehash: e686328464ac88abf28a0a8985d338838abca3d0
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 03b40dea4949bb50c30f7755b56294ac53107403
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514241"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905253"
 ---
 # <a name="signaling-timed-metadata-in-live-streaming"></a>라이브 스트리밍의 신호 타이밍 메타데이터 
 
@@ -47,7 +47,7 @@ ms.locfileid: "76514241"
 | 광고 중단            | 하나 이상의 광고를 배달 하도록 예약할 수 있는 위치 또는 시점 활용 가능 및 배치 기회와 동일 합니다.                                                                                                                     |
 | Ad 의사 결정 서비스 | 사용자에 게 표시 되는 ad 및 기간을 결정 하는 외부 서비스입니다. 서비스는 일반적으로 파트너에 의해 제공 되며이 문서에 대 한 범위를 벗어났습니다.                                                                    |
 | 암시                 | 예정 된 ad 중단의 시간 및 매개 변수를 나타냅니다. 큐는 ad 중단에 대 한 보류 중인 전환, ad 중단 내에서 다음 ad로의 보류 중인 스위치, 보류 중인 스위치를 광고에서 주 콘텐츠로 나타낼 수 있습니다.           |
-| 패키지 작성 도구            | "스트리밍 끝점" Azure Media Services는 대시 및 HLS에 대 한 동적 패키징 기능을 제공 하며 미디어 업계에서 "패키지 작성" 이라고 합니다.                                                                              |
+| Packager            | "스트리밍 끝점" Azure Media Services는 대시 및 HLS에 대 한 동적 패키징 기능을 제공 하며 미디어 업계에서 "패키지 작성" 이라고 합니다.                                                                              |
 | 프레젠테이션 시간   | 이벤트가 뷰어에 제공되는 시간입니다. 시간은 뷰어에 이벤트가 표시되는 미디어 타임라인의 순간을 나타냅니다. 예를 들어 SCTE-35 splice_info() 명령 메시지의 프레젠테이션 시간은 splice_time()입니다. |
 | 도착 시간        | 이벤트 메시지가 도착하는 시간입니다. 이벤트 메시지가 이벤트의 프레젠테이션 시간에 앞서 보내지므로 이 시간은 일반적으로 이벤트의 프레젠테이션 시간과 구분됩니다.                                                    |
 | 스파스 트랙        | 연속적이지 않으며, 부모 트랙 또는 컨트롤 트랙과 시간 동기화되는 미디어 트랙입니다.                                                                                                                                                  |
@@ -249,7 +249,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
  
 #### <a name="example-mpeg-dash-manifest-output-when-using-adobe-rtmp-simple-mode"></a>Adobe RTMP simple mode를 사용 하는 경우의 예제 MPEG 대시 매니페스트 출력
 
-[Adobe simple mode를 사용 하는 Mpd EventStream에 대 한 예제 3.3.2.1를](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode) 참조 하세요.
+[Adobe simple mode를 사용 하는 Mpd EventStream 예제 3.3.2.1를](#3321-example-mpeg-dash-mpd-manifest-signaling-of-rtmp-streaming-using-adobe-simple-mode) 참조 하세요.
 
 [단일 기간 및 Adobe simple 모드를 사용 하는 3.3.3.1 대시 매니페스트 예를](#3331-example-mpeg-dash-manifest-mpd-with-single-period-eventstream-using-adobe-simple-mode-signals) 참조 하세요.
 
@@ -280,7 +280,7 @@ Azure Media Services는 라이브 스트림에서 여러 실시간 동기화 메
 [3.3.3.2 예: SCTE를 사용 하 여 대시 매니페스트 섹션](#3332-example-mpeg-dash-manifest-mpd-with-multi-period-eventstream-using-adobe-scte35-mode-signaling) 을 참조 하세요.-35
 
 #### <a name="example-hls-manifest-m3u8-with-scte-35-mode-signal"></a>M3u8-aapl-v3 예: SCTE-35 mode 신호를 사용 하는 예제 HLS
-[예 3.3.1.1 예: SCTE-35을 사용 하 여 HLS 매니페스트 예를](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35) 참조 하세요.
+[3.2.1.1 예제 HLS manifest WITH SCTE-35 섹션을](#3211-example-hls-manifest-m3u8-showing-ext-x-daterange-signaling-of-scte-35) 참조 하세요.
 
 ## <a name="215-rtmp-ad-signaling-with-oncuepoint-for-elemental-live"></a>2.1.5 RTMP Ad 신호를 "onCuePoint"로 사용
 

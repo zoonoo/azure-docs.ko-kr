@@ -4,16 +4,16 @@ description: AzCopy를 구성 하 고 최적화 하 고 문제를 해결 합니�
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 10/16/2019
+ms.date: 01/28/2020
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: dineshm
-ms.openlocfilehash: 6a1dcd2d8734d7701dab6d913beb8af0ad4e35ab
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 00ce40e24a01b765419186a609ecf19ce53c772b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75371397"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905267"
 ---
 # <a name="configure-optimize-and-troubleshoot-azcopy"></a>AzCopy 구성, 최적화 및 문제 해결
 
@@ -41,6 +41,14 @@ AzCopy에 대 한 프록시 설정을 구성 하려면 `https_proxy` 환경 변�
 ## <a name="optimize-performance"></a>성능 최적화
 
 성능을 벤치 마크 한 다음 명령 및 환경 변수를 사용 하 여 성능 및 리소스 소비량 간의 최적의 균형을 찾을 수 있습니다.
+
+이 섹션에서는 다음과 같은 최적화 작업을 수행할 수 있습니다.
+
+> [!div class="checklist"]
+> * 벤치 마크 테스트 실행
+> * 처리량 최적화
+> * 메모리 사용 최적화 
+> * 파일 동기화 최적화
 
 ### <a name="run-benchmark-tests"></a>벤치 마크 테스트 실행
 
@@ -97,6 +105,14 @@ azcopy jobs resume <job-id> --cap-mbps 10
 | **Windows** | `set AZCOPY_BUFFER_GB=<value>` |
 | **Linux** | `export AZCOPY_BUFFER_GB=<value>` |
 | **MacOS** | `export AZCOPY_BUFFER_GB=<value>` |
+
+### <a name="optimize-file-synchronization"></a>파일 동기화 최적화
+
+[Sync](storage-ref-azcopy-sync.md) 명령은 대상에 있는 모든 파일을 식별 한 다음 동기화 작업을 시작 하기 전에 파일 이름과 마지막 수정 타임 스탬프를 비교 합니다. 많은 수의 파일이 있는 경우이 사전 처리를 제거 하 여 성능을 향상 시킬 수 있습니다. 
+
+이를 수행 하려면 대신 [azcopy copy](storage-ref-azcopy-copy.md) 명령을 사용 하 고 `--overwrite` 플래그를 `ifSourceNewer`으로 설정 합니다. AzCopy는 사전 검색 및 비교를 수행 하지 않고 파일을 복사할 때 파일을 비교 합니다. 이를 통해 비교할 많은 파일이 있는 경우 성능에 지를 제공할 수 있습니다.
+
+[Azcopy copy](storage-ref-azcopy-copy.md) 명령은 대상에서 파일을 삭제 하지 않으므로 대상 파일이 원본에 더 이상 존재 하지 않을 때 해당 파일을 삭제 하려면 `true` 또는 `prompt`값으로 설정 된 `--delete-destination` 플래그가 있는 [azcopy sync](storage-ref-azcopy-sync.md) 명령을 사용 합니다. 
 
 ## <a name="troubleshoot-issues"></a>문제 해결
 

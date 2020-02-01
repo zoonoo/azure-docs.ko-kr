@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 630a018c25ac8663fd369c1256e376b8039182c9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b5875d0672fc187920883abe208ad30c4d2b1051
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910812"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898544"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps 날씨 범위
 
@@ -86,8 +86,8 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 수리남                                 | ✓ |   |  ✓| 
 | 트리니다드 토바고                      | ✓ |   |  ✓| 
 | 터크스 케이커스 제도                 | ✓ |   |  ✓| 
-| 미국령 해외 제도                    | ✓ |   |  ✓| 
-| 미국령 버전 아일랜드                      | ✓ |   |  ✓| 
+| 미국 소수 외부 제도                    | ✓ |   |  ✓| 
+| 미국령 버진 아일랜드                      | ✓ |   |  ✓| 
 | 미국                            | ✓ | ✓ |  ✓| 
 | 우루과이                                  | ✓ |   |  ✓| 
 | 베네수엘라                                | ✓ |   |  ✓| 
@@ -110,8 +110,8 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 중앙 아프리카 공화국    | ✓               |                              |        ✓| 
 | 차드                        | ✓               |                              |        ✓| 
 | 코모로                     | ✓               |                              |        ✓| 
-| 콩고민주공화국                 | ✓               |                              |        ✓|
-| 코트디부와르               | ✓               |                              |        ✓| 
+| 콩고 민주 공화국                 | ✓               |                              |        ✓|
+| 기타               | ✓               |                              |        ✓| 
 | 지부티                    | ✓               |                              |        ✓| 
 | 이집트                       | ✓               |                              |        ✓| 
 | 적도 기니           | ✓               |                              |        ✓| 
@@ -179,7 +179,6 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 아프가니스탄                       | ✓ |   |  ✓| 
 | 미국령 사모아                    | ✓ |   |  ✓| 
 | 오스트레일리아                         | ✓ | ✓ |  ✓| 
-| 아제르바이잔                        | ✓ |   |  ✓| 
 | 방글라데시                        | ✓ |   |  ✓| 
 | 부탄                            | ✓ |   |  ✓| 
 | 영국령 인도양 식민지    | ✓ |   |  ✓| 
@@ -247,7 +246,8 @@ Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 
 | 알바니아                | ✓ |   |  ✓| 
 | 안도라                | ✓ |   |  ✓| 
 | 아르메니아                | ✓ |   |  ✓| 
-| 오스트리아                | ✓ | ✓ |  ✓| 
+| 오스트리아                | ✓ | ✓ |  ✓|
+| 아제르바이잔             | ✓ |   |  ✓| 
 | 벨로루시                | ✓ |   |  ✓| 
 | 벨기에                | ✓ | ✓ |  ✓| 
 | 보스니아 헤르체고비나 | ✓ | ✓ |  ✓| 

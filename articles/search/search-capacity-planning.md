@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 4020a40b87c32bdbd07e390a0d04769cb3d47f7d
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 349587063c528fef1cbdb09d84e61e82443d45d1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112136"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906720"
 ---
 # <a name="scale-up-partitions-and-replicas-to-add-capacity-for-query-and-index-workloads-in-azure-cognitive-search"></a>파티션 및 복제본을 확장 하 여 Azure Cognitive Search의 쿼리 및 인덱스 작업에 대 한 용량 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "74112136"
 더 적은 SU를 사용하면 비례적으로 청구 금액이 줄어듭니다. 대금 청구는 서비스가 설정되는 동안 적용됩니다. 서비스를 일시적으로 사용하지 않는 경우 대금 청구를 피하는 유일한 방법은 서비스를 삭제한 다음 필요할 때 다시 만드는 것입니다.
 
 > [!Note]
-> 서비스를 삭제하면 해당 서비스에 있는 모든 것이 삭제됩니다. 지속형 검색 데이터를 백업 하 고 복원 하기 위해 Azure Cognitive Search 내에는 기능이 없습니다. 기존 인덱스를 새 서비스에 다시 배포하려면 처음에 인덱스를 만들고 로드할 때 사용한 프로그램을 실행 해야 합니다. 
+> 서비스를 삭제하면 해당 서비스에 있는 모든 것이 삭제됩니다. Azure Cognitive Search 내에는 유지되는 검색 데이터를 백업하고 복원하는 기능이 없습니다. 기존 인덱스를 새 서비스에 다시 배포하려면 처음에 인덱스를 만들고 로드할 때 사용한 프로그램을 실행 해야 합니다. 
 
 ## <a name="terminology-replicas-and-partitions"></a>용어: 복제본 및 파티션
 복제본 및 파티션은 검색 서비스를 백업 하는 기본 리소스입니다.
@@ -89,10 +89,10 @@ Azure Cognitive Search에서 서비스는 처음에 하나의 파티션과 하�
 | **복제본 1개.** |1 SU |2 SU |3 SU |4 SU |6 SU |12 SU |
 | **복제본 2개** |2 SU |4 SU |6 SU |8 SU |12 SU |24 SU |
 | **복제본 3개** |3 SU |6 SU |9 SU |12 SU |18 SU |36 SU |
-| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |해당 없음 |
-| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |해당 없음 |
-| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |해당 없음 |
-| **복제본 12개** |12 SU |24 SU |36 SU |해당 없음 |해당 없음 |해당 없음 |
+| **복제본 4개** |4 SU |8 SU |12 SU |16 SU |24 SU |N/A |
+| **복제본 5개** |5 SU |10 SU |15 SU |20 SU |30 SU |N/A |
+| **복제본 6개** |6 SU |12 SU |18 SU |24 SU |36 SU |N/A |
+| **복제본 12개** |12 SU |24 SU |36 SU |N/A |N/A |N/A |
 
 SU, 가격 책정 및 용량에 대해서는 Azure Websites에 자세히 설명되어 있습니다. 자세한 내용은 [가격 정보](https://azure.microsoft.com/pricing/details/search/)를 참조하세요.
 
@@ -123,7 +123,7 @@ Azure Cognitive Search에 대 한 고가용성은 인덱스를 다시 작성 하
 > [!NOTE]
 > 인덱스를 다시 작성 하지 않고 Azure Cognitive Search 인덱스에 새 필드를 추가할 수 있습니다. 새 필드의 값은 인덱스에 이미 있는 모든 문서에 대해 null이 됩니다.
 
-다시 작성하는 동안 인덱스 가용성을 유지하려면 동일한 서비스에 이름이 다른 인덱스 복사본을 두거나 다른 서비스에 이름이 같은 인덱스 복사본을 두고 코드로 리디렉션 또는 장애 조치(failover) 논리를 제공해야 합니다.
+인덱스를 다시 작성 하는 경우 데이터가 새 인덱스에 추가 되는 기간이 있습니다. 이 시간 동안 이전 인덱스를 계속 사용할 수 있게 하려면 동일한 서비스에 다른 이름을 가진 이전 인덱스의 복사본 또는 다른 서비스에 동일한 이름의 인덱스 복사본이 있어야 합니다. 을 입력 한 후 코드에 리디렉션 또는 장애 조치 (failover) 논리를 제공 합니다.
 
 ## <a name="disaster-recovery"></a>재해 복구
 현재, 재해 복구를 위한 기본 제공 메커니즘은 없습니다. 파티션이나 복제본을 제거하는 것은 재해 복구 목표를 달성하기 위한 전략으로 올바르지 않습니다. 가장 일반적인 방법은 다른 지역에서 두 번째 검색 서비스를 설정하여 서비스 수준에서 중복성을 추가하는 것입니다. 인덱스를 다시 작성하는 동안 가용성과 마찬가지로 리디렉션 또는 장애 조치 논리를 사용자 코드에서 가져와야 합니다.

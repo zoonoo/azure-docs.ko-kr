@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: b4cf5dc53c0fe256c9ecab5a844300224b860e44
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926738"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901327"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 
@@ -21,7 +21,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 ## <a name="influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트 
 
-[Telegraf](https://docs.influxdata.com/telegraf/v1.7/)는 150개 이상의 다양한 원본에서 메트릭을 수집할 수 있는 플러그 인 기반 에이전트입니다. VM에서 실행되는 워크로드에 따라 특수한 입력 플러그 인을 활용하여 메트릭을 수집하도록 에이전트를 구성할 수 있습니다. 예를 들어, MySQL, NGINX, Apache 등이 있습니다. 그런 다음, 에이전트는 출력 플러그 인을 사용하여 선택한 대상에 쓸 수 있습니다. Telegraf 에이전트는 Azure Monitor 사용자 지정 메트릭 REST API와 직접 통합되고 Azure Monitor 출력 플러그 인을 지원합니다. 이 플러그 인을 사용하면 에이전트가 Linux VM에서 워크로드 특정 메트릭을 수집한 다음, 사용자 지정 메트릭으로 Azure Monitor에 전송할 수 있습니다. 
+[Telegraf](https://docs.influxdata.com/telegraf/)는 150개 이상의 다양한 원본에서 메트릭을 수집할 수 있는 플러그 인 기반 에이전트입니다. VM에서 실행되는 워크로드에 따라 특수한 입력 플러그 인을 활용하여 메트릭을 수집하도록 에이전트를 구성할 수 있습니다. 예를 들어, MySQL, NGINX, Apache 등이 있습니다. 그런 다음, 에이전트는 출력 플러그 인을 사용하여 선택한 대상에 쓸 수 있습니다. Telegraf 에이전트는 Azure Monitor 사용자 지정 메트릭 REST API와 직접 통합되고 Azure Monitor 출력 플러그 인을 지원합니다. 이 플러그 인을 사용하면 에이전트가 Linux VM에서 워크로드 특정 메트릭을 수집한 다음, 사용자 지정 메트릭으로 Azure Monitor에 전송할 수 있습니다. 
 
  ![Telegraph 에이전트 개요](./media/collect-custom-metrics-linux-telegraf/telegraf-agent-overview.png)
 
@@ -29,7 +29,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 
 이 자습서에서는 Ubuntu 16.04 LTS 운영 체제를 실행하는 Linux VM을 배포합니다. Telegraf 에이전트는 대부분의 Linux 운영 체제에 대해 지원됩니다. Debian 및 RPM 패키지는 모두 [InfluxData 다운로드 포털](https://portal.influxdata.com/downloads)에서 패키지되지 않은 Linux 이진 파일과 함께 사용할 수 있습니다. 추가 설치 지침 및 옵션은 이 [Telegraf 설치 가이드](https://docs.influxdata.com/telegraf/v1.8/introduction/installation/)를 참조하세요. 
 
-[Azure portal](https://portal.azure.com)에 로그인합니다.
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 새 Linux VM을 만듭니다. 
 
@@ -39,7 +39,7 @@ Azure Monitor를 사용하면 애플리케이션 원격 분석, Azure 리소스�
 1. VM 이름 (예: **MyTelegrafVM**)을 제공 합니다.  
 1. 디스크 유형은 **SSD**로 그대로 둡니다. 그런 다음 **azureuser**와 같은 **사용자 이름을**제공 합니다. 
 1. **인증 유형**으로 **암호**를 선택 합니다. 나중에 이 VM에 대해 SSH를 수행할 때 사용할 암호를 입력합니다. 
-1. **새 리소스 그룹을 만들도록**선택 합니다. 그런 다음 **Myresourcegroup**과 같은 이름을 제공 합니다. **위치**를 선택 합니다. 그런 다음 **확인**을 선택합니다. 
+1. **새 리소스 그룹을 만들도록**선택 합니다. 그런 다음 **Myresourcegroup**과 같은 이름을 제공 합니다. **위치**를 선택 합니다. 그런 다음, **확인**을 선택합니다. 
 
     ![Ubuntu VM 만들기](./media/collect-custom-metrics-linux-telegraf/create-vm.png)
 

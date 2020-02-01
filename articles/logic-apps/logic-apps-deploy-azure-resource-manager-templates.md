@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 506c518e8bdd889c585feb92f2a6baee8ba0147c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 662f8c2a4184e858d33dc40effed363ef3ec17e5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979093"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904965"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포
 
@@ -128,4 +128,4 @@ Azure Pipelines 사용에 대 한 일반적인 개략적인 단계는 다음과 
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [논리 앱 모니터링](../logic-apps/logic-apps-monitor-your-logic-apps.md)
+> [논리 앱 모니터링](../logic-apps/monitor-logic-apps.md)

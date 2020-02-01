@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b606566fa2b8154eb9ac8fda97d3c3ae81cd3447
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 4b5ac2e899de33614fa30b1f4baf0e85efec26bb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767430"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898864"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -194,7 +194,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="directory-writersdirectory-writers-permissions"></a>[디렉터리 작성기](#directory-writers-permissions)
 
-[승인 프레임 워크](../develop/quickstart-v1-integrate-apps-with-azure-ad.md)를 지원 하지 않는 응용 프로그램에 할당 될 레거시 역할입니다. 이 역할은 어느 사용자에게나 할당되면 안 됩니다.
+[승인 프레임 워크](../develop/quickstart-register-app.md)를 지원 하지 않는 응용 프로그램에 할당 될 레거시 역할입니다. 이 역할은 어느 사용자에게나 할당되면 안 됩니다.
 
 ### <a name="dynamics-365-administrator--crm-administratorcrm-service-administrator-permissions"></a>[Dynamics 365 관리자/CRM 관리자](#crm-service-administrator-permissions)
 

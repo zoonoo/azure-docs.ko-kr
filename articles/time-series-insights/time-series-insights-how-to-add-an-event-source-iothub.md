@@ -9,14 +9,14 @@ manager: cshankar
 ms.reviewer: v-mamcge, jasonh, kfile
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 01/30/2020
 ms.custom: seodec18
-ms.openlocfilehash: 9aace01e2f3d514ee5f4b406f4067e104151e5d6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 3ea73e2ca20faea30294bc5d5e1788415095c39f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863328"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905376"
 ---
 # <a name="add-an-iot-hub-event-source-to-your-time-series-insights-environment"></a>Time Series Insights 환경에 IoT Hub 이벤트 원본 추가
 
@@ -54,7 +54,7 @@ IoT Hub에 새 소비자 그룹을 추가하려면
 
 1. 왼쪽 메뉴에서 **모든 리소스**를 선택합니다. Time Series Insights 환경을 선택합니다.
 
-1. **환경 토폴로지**에서 **이벤트 원본**을 선택한 다음, **추가**를 선택합니다.
+1. **설정**아래에서 **이벤트 원본**을 선택 하 고 **추가**를 선택 합니다.
 
    [이벤트 원본 ![선택 하 고 추가 단추를 선택 합니다.](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png)](media/time-series-insights-how-to-add-an-event-source-iothub/tsi-add-event-source.png#lightbox)
 

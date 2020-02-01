@@ -7,21 +7,21 @@ author: curtand
 manager: daveba
 editor: ''
 ms.service: active-directory
+ms.subservice: pim
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.subservice: pim
 ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 05e69bad41391be5153eca0fb1930ffc59da453b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8bc4b518cd2400cf3826b31a590d499c1ad031e7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429913"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896520"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
@@ -110,7 +110,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. **근거** 상자에 비즈니스 근거를 입력 합니다.
 
-1. **승인**을 선택합니다. 승인에 대 한 Azure 알림을 받게 됩니다.
+1. **승인**을 선택 합니다. 승인에 대 한 Azure 알림을 받게 됩니다.
 
     ![요청이 승인 되었음을 보여 주는 승인 알림](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
 

@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 메시 네트워크
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Service Fabric 메시 네트워크 리소스를 가져오고 삭제 하는 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 2d9d86d41dc031cca2730011c2322e9feb30c827
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 9aa0b6795508cb94200c486df092b867c1086316
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646129"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906002"
 ---
 # <a name="sfctl-mesh-network"></a>sfctl mesh network
 메시 네트워크 리소스를 가져오고 삭제합니다.

@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 08/21/2019
 ms.author: victorh
 ms.reviewer: tyao
-ms.openlocfilehash: 6b5793408545c2a61a30b5d89bc41d35460ed3eb
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 52108d40c53c2470d542bd9c6816453ba2b6ebba
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119468"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896291"
 ---
 # <a name="configure-an-ip-restriction-rule-with-a-web-application-firewall-for-azure-front-door-service"></a>Azure Front 도어 서비스에 대 한 웹 응용 프로그램 방화벽을 사용 하 여 IP 제한 규칙 구성
 이 문서에서는 Azure CLI, Azure PowerShell 또는 Azure Resource Manager 템플릿을 사용 하 여 Azure Front 도어 서비스의 WAF (웹 응용 프로그램 방화벽)에서 IP 제한 규칙을 구성 하는 방법을 보여 줍니다.
@@ -66,12 +66,12 @@ az network front-door waf-policy rule create \
 다음으로 규칙에 일치 조건을 추가 합니다.
 
 ```azurecli
-az network front-door waf-policy rule match-condition add\
+az network front-door waf-policy rule match-condition add \
 --match-variable RemoteAddr \
---operator IPMatch
---values "ip-address-range-1" "ip-address-range-2"
---negate true\
---name IPAllowListRule\
+--operator IPMatch \
+--values "ip-address-range-1" "ip-address-range-2" \
+--negate true \
+--name IPAllowListRule \
   --resource-group <resource-group-name> \
   --policy-name IPAllowPolicyExampleCLI 
   ```
@@ -91,7 +91,7 @@ az network front-door waf-policy rule match-condition add\
 
    ```azurecli
    az network front-door update \
-     --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/<resource- name>/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
+     --set FrontendEndpoints[0].WebApplicationFirewallPolicyLink.id=/subscriptions/<subscription ID>/resourcegroups/resource-group-name/providers/Microsoft.Network/frontdoorwebapplicationfirewallpolicies/IPAllowPolicyExampleCLI \
      --name <frontdoor-name>
      --resource-group <resource-group-name>
    ```

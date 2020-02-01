@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: d5b8121c7888903f3e4552a21a6ddc175ecc5176
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73489095"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906609"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 호스팅합니다.
 
@@ -207,7 +207,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
    ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. **집계** 선택기에서 *합계*를 선택합니다.
+5. *집계* 선택기에서 **합계**를 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 집계](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 
@@ -221,10 +221,5 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Storage에서 정적 웹 사이트 호스팅](storage-blob-static-website.md)
-* [Azure CDN를 사용 하 여 HTTPS를 통한 사용자 지정 도메인으로 blob 액세스](storage-https-custom-domain-cdn.md)
-* [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
-* [Azure 기능](/azure/azure-functions/functions-overview)
-* [Azure App Service](/azure/app-service/overview)
-* [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)
-* [자습서: Azure DNS에 도메인 호스트](../../dns/dns-delegate-domain-azure-dns.md)
+* 정적 웹 사이트를 사용 하 여 사용자 지정 도메인을 구성 하는 방법을 알아봅니다. [Azure Blob Storage 끝점에 사용자 지정 도메인 매핑을](storage-custom-domain-name.md)참조 하세요.
+

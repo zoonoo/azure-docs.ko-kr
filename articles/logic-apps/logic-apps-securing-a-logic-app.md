@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 10/11/2019
-ms.openlocfilehash: 4f8c20534cdd5abdf5ae97bb097238cf508480c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 73b8a559eddec51dbc01f1d55f70414360ff2956
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843551"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898439"
 ---
 # <a name="secure-access-and-data-in-azure-logic-apps"></a>Azure Logic Apps에서 액세스 및 데이터 보호
 
@@ -324,7 +324,7 @@ SAS (공유 액세스 서명)와 함께 논리 앱을 호출할 수 있는 클�
 
 #### <a name="considerations-when-hiding-inputs-and-outputs"></a>입력 및 출력을 숨길 때의 고려 사항
 
-* 트리거 또는 작업에서 입력 또는 출력의 보안을 유지 하는 경우 Logic Apps는 보안 데이터를 Azure Log Analytics에 보내지 않습니다. 또한 모니터링에 대해 [추적 된 속성](logic-apps-monitor-your-logic-apps.md#azure-diagnostics-event-settings-and-details) 을 해당 트리거나 작업에 추가할 수 없습니다.
+* 트리거 또는 작업에서 입력 또는 출력의 보안을 유지 하는 경우 Logic Apps는 보안 데이터를 Azure Log Analytics에 보내지 않습니다. 또한 모니터링에 대해 [추적 된 속성](../logic-apps/monitor-logic-apps-log-analytics.md#extend-data) 을 해당 트리거나 작업에 추가할 수 없습니다.
 
 * [워크플로 기록을 처리 하는 LOGIC APPS API](https://docs.microsoft.com/rest/api/logic/) 는 보안 출력을 반환 하지 않습니다.
 
@@ -806,7 +806,7 @@ Authorization: OAuth realm="Photos",
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Logic Apps에 대 한 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)  
-* [논리 앱 모니터링](logic-apps-monitor-your-logic-apps.md)  
-* [논리 앱 오류 및 문제 진단](logic-apps-diagnosing-failures.md)  
-* [논리 앱 배포 자동화](logic-apps-azure-resource-manager-templates-overview.md)
+* [Azure Logic Apps에 대 한 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)  
+* [논리 앱 모니터링](../logic-apps/monitor-logic-apps-log-analytics.md)  
+* [논리 앱 오류 및 문제 진단](../logic-apps/logic-apps-diagnosing-failures.md)  
+* [논리 앱 배포 자동화](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md)

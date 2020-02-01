@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: a954898a334ead15d8ffdf6dab6e6a309bd57089
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659834"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901479"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -72,7 +72,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 > [!NOTE]
 > 아래의 각 항목에 대 한 숫자 제한 [모니터링에 대 한 구독 서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#azure-monitor-limits) 을 참조 하세요.  
 
-### <a name="automation-runbook"></a>자동화 Runbook
+### <a name="automation-runbook"></a>Automation Runbook
 Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-resource-manager/management/azure-subscription-service-limits.md) 제한을 참조 하세요.
 
 작업 그룹에 제한 된 수의 Runbook 작업이 있을 수 있습니다. 
@@ -88,13 +88,13 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-r
 
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
-### <a name="email-azure-resource-manager-role"></a>메일 Azure Resource Manager 역할
+### <a name="email-azure-resource-manager-role"></a>전자 메일 Azure Resource Manager 역할
 구독 역할의 멤버에 게 전자 메일을 보냅니다.
 
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
 ### <a name="function"></a>함수
-작업으로 구성 된 함수 앱에 대 한 함수 키는 현재 v2 함수 앱을 사용 하 여 앱 설정 "AzureWebJobsSecretStorageType"을 "파일"로 구성 하는 함수 API를 통해 읽습니다. 자세한 내용은 [함수 V2에서 키 관리의 변경 내용]( https://aka.ms/funcsecrets)을 참조 하세요.
+[Azure Functions](../../azure-functions/functions-create-first-azure-function.md#create-a-function-app)에서 기존 HTTP 트리거 끝점을 호출 합니다.
 
 작업 그룹에 제한 된 수의 함수 작업이 있을 수 있습니다.
 

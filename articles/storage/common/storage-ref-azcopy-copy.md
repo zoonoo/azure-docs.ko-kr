@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: 0c1b09fbc425a80fe1f8d075c5a83455167073c3
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9ac15e6909498c38f618a24be6b010dc2774b07
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74029994"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905511"
 ---
 # <a name="azcopy-copy"></a>azcopy copy
 
@@ -59,7 +59,7 @@ Windows에서는 레지스트리에서 MIME 형식이 추출 됩니다. 플래�
 azcopy copy [source] [destination] [flags]
 ```
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 OAuth 인증을 사용 하 여 단일 파일을 업로드 합니다. AzCopy에 아직 로그인 하지 않은 경우 다음 명령을 실행 하기 전에 AzCopy login 명령을 실행 하세요.
 
@@ -81,7 +81,7 @@ SAS 토큰을 사용 하 여 전체 디렉터리를 업로드 합니다.
   
 - azcopy cp "/path/to/dir" "https://[account]./[container]/[path/to/directory]? [SAS] "--recursive = true
 
-or
+또는
 
 - azcopy cp "/path/to/dir" "https://[account]./[container]/[path/to/directory]? [SAS] "--recursive = true--입력-md5
 
@@ -147,25 +147,25 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS (Amazon Web Services) s 3에서 Blob Storage 단일 개체를 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
   
-- azcopy cp "https://s3.amazonaws.com/[버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
+- azcopy cp "https://s3.amazonaws.com/ [버킷]/[object]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/blob]? [SAS] "
 
 액세스 키 및 SAS 토큰을 사용 하 여 AWS s 3에서 전체 디렉터리를 Blob Storage에 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/[버킷]/[폴더]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/directory]? [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/ [버킷]/[폴더]" "https://[destaccount]. blob. w i n d o w s/[container]/[path/to/directory]? [SAS] "--recursive = true
 
-[폴더] 자리 표시자를 더 잘 이해 하려면 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html를 참조 하세요.
+[폴더] 자리 표시자를 더 잘 이해 하려면 https://docs.aws.amazon.com/AmazonS3/latest/user-guide/using-folders.html 를 참조 하세요.
 
 액세스 키 및 SAS 토큰을 사용 하 여 Blob Storage Amazon Web Services (AWS)에서 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/" "https://[destaccount]. blob. [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/ " "https://[destaccount]. blob. [SAS] "--recursive = true
 
 액세스 키 및 SAS 토큰을 사용 하 여 Amazon Web Services (AWS) 지역에서 Blob Storage 모든 버킷을 복사 합니다. 먼저 AWS S3 source에 대 한 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 합니다.
 
-- azcopy cp "https://s3-[region]. amazonaws/" "https://[destaccount]. blob. w i n d? [SAS] "--recursive = true
+- azcopy cp "https://s3- [region]. amazonaws/" "https://[destaccount]. blob. w i n d? [SAS] "--recursive = true
 
 버킷 이름에 와일드 카드 기호 (*)를 사용 하 여 버킷의 하위 집합을 복사 합니다. 이전 예제와 마찬가지로 액세스 키와 SAS 토큰이 필요 합니다. AWS S3 원본에 대해 환경 변수 AWS_ACCESS_KEY_ID 및 AWS_SECRET_ACCESS_KEY를 설정 해야 합니다.
 
-- azcopy cp "https://s3.amazonaws.com/[버킷 * 이름]/" "https://[destaccount] .cc.net? [SAS] "--recursive = true
+- azcopy cp "https://s3.amazonaws.com/ [버킷 * 이름]/" "https://[destaccount] .cc.net? [SAS] "--recursive = true
 
 ## <a name="options"></a>옵션
 
@@ -217,7 +217,7 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--추측-mime 형식**                   AzCopy에서 파일의 확장명 또는 내용을 기준으로 콘텐츠 형식을 검색 하지 못하도록 합니다.
 
-**--** 이 플래그가 true로 설정 된 경우 문자열을 덮어써서 destination은 충돌 하는 파일 및 Blob을 덮어씁니다. 가능한 값에는 ' true ', ' false ' 및 ' prompt '가 포함 됩니다. (기본값 "true")
+**--** 이 플래그가 true로 설정 된 경우 문자열을 덮어써서 destination은 충돌 하는 파일 및 Blob을 덮어씁니다. 가능한 값에는 ' true ', ' false ', ' ifSourceNewer ' 및 ' prompt '가 있습니다. (기본값 "true")
 
 **--** 이 blob 계층을 사용 하 여 Azure Storage에 페이지 blob 계층 문자열을 업로드 합니다. (기본 "없음")
 
@@ -241,6 +241,6 @@ SAS 토큰을 사용 하 여 모든 blob 컨테이너, 디렉터리 및 blob을 
 
 **--output-** 명령 출력의 문자열 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 ' text '입니다. (기본 "텍스트")
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

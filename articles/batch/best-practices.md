@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: batch
 ms.topic: article
 manager: gwallace
-ms.openlocfilehash: 20fc7844054fc7e05f56105e69ad6bd8a4272ed8
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: c2acd09df51b942a08a85d96d907e064367377a7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026151"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900288"
 ---
 # <a name="azure-batch-best-practices"></a>Azure Batch 모범 사례
 
@@ -67,7 +67,7 @@ Batch 풀은 Batch 서비스에서 작업을 실행 하기 위한 계산 리소�
 
 풀 할당 오류는 첫 번째 할당 중 또는 후속 크기 조정 중에 언제 든 지 발생할 수 있습니다. 이는 일괄 처리에서 사용 하는 다른 Azure 서비스의 오류 또는 지역에서 일시적인 용량 고갈로 인 한 것일 수 있습니다. 코어 할당량은 보장은 아니지만 한도입니다.
 
-### <a name="unplanned-downtime"></a>계획되지 않은 가동 중지 시간
+### <a name="unplanned-downtime"></a>계획 되지 않은 가동 중지 시간
 
 Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습니다. 이는 일괄 처리에 대 한 시나리오 또는 워크플로를 계획 하 고 개발할 때 염두에 두어야 합니다.
 
@@ -152,3 +152,15 @@ Batch 풀에서 Azure의 가동 중지 시간 이벤트를 경험할 수 있습�
 ### <a name="security-isolation"></a>보안 격리
 
 격리를 위해 시나리오에서 서로 다른 작업을 격리 해야 하는 경우 별도의 풀에 포함 하 여 이러한 작업을 격리 해야 합니다. 풀은 Batch의 보안 격리 경계 이며 기본적으로 두 개의 풀이 표시 되지 않거나 서로 통신할 수 없습니다. 격리 수단으로 별도의 Batch 계정을 사용 하지 마십시오.
+
+## <a name="moving"></a>중
+
+### <a name="move-batch-account-across-regions"></a>지역 간 Batch 계정 이동 
+
+한 지역에서 다른 지역으로 기존 Batch 계정을 이동 하려는 다양 한 시나리오가 있습니다. 예를 들어 재해 복구 계획의 일부로 다른 지역으로 이동 하는 것이 좋습니다.
+
+Azure Batch 계정은 한 지역에서 다른 지역으로 이동할 수 없습니다. 그러나 Azure Resource Manager 템플릿을 사용 하 여 Batch 계정의 기존 구성을 내보낼 수 있습니다.  그런 다음 Batch 계정을 템플릿으로 내보내고 대상 지역과 일치 하도록 매개 변수를 수정한 다음 새 지역에 템플릿을 배포 하 여 다른 지역의 리소스를 준비할 수 있습니다. 템플릿을 새 지역에 업로드 한 후에는 인증서, 작업 일정 및 응용 프로그램 패키지를 다시 만들어야 합니다. 변경 내용을 커밋하고 Batch 계정의 이동을 완료 하려면 원래 Batch 계정이 나 리소스 그룹을 삭제 해야 합니다.  
+
+리소스 관리자 및 템플릿에 대 한 자세한 내용은 빠른 시작 [: Azure Portal를 사용 하 여 Azure Resource Manager 템플릿 만들기 및 배포](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-quickstart-create-templates-use-the-portal)를 참조 하세요.
+
+

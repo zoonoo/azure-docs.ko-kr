@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 6ea1bce6c14d7266b5ce49b94e39d661bfc57717
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713315"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901532"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -397,7 +397,7 @@ Kubernetes 스케줄러는 taint 및 toleration을 사용하여 노드에서 실
 이 예에서는--taints 명령을 사용 하 여 GPU 기반 노드에 taint을 적용 합니다. 이전 `kubectl get nodes` 명령의 출력에서 GPU 기반 노드의 이름을 지정 합니다. Taint는 *키: 값* 으로 적용 된 다음 일정 옵션으로 적용 됩니다. 다음 예제에서는 *sku = gpu* 쌍을 사용 하 고, 그렇지 않은 경우 *noschedule* 기능이 있는 pod를 정의 합니다.
 
 ```console
-az aks nodepool --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
+az aks nodepool add --node-taints aks-gpunodepool-28993262-vmss000000 sku=gpu:NoSchedule
 ```
 
 다음 기본 예제 YAML 매니페스트는 toleration를 사용 하 여 Kubernetes scheduler가 GPU 기반 노드에서 NGINX pod를 실행 하도록 허용 합니다. MNIST 데이터 집합에 대해 Tensorflow 작업을 실행 하는 보다 적절 하 고 시간이 많이 걸리는 예제는 [AKS에서 계산 집약적인 작업에 Gpu 사용][gpu-cluster]을 참조 하세요.

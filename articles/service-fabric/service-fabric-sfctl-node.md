@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 노드
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 클러스터 노드를 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 43b242d6c7c41b6198b8f909ab5ae056f0982307
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 5881e6485003abd4fd23a7f6d06a428e768c00fa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645296"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905884"
 ---
 # <a name="sfctl-node"></a>sfctl node
 클러스터를 형성하는 노드를 관리합니다.
@@ -19,17 +19,44 @@ ms.locfileid: "75645296"
 
 |명령|Description|
 | --- | --- |
+| -구성-매개 변수-재정의 | 지정 된 노드에 대 한 구성 재정의 목록을 추가 합니다. |
 | disable | 지정한 비활성화 의도로 Microsoft Azure Service Fabric 클러스터 노드를 비활성화합니다. |
 | enable | 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다. |
+| 가져오기-구성-재정의 | 지정 된 노드에 대 한 구성 재정의 목록을 가져옵니다. |
 | 의료 | Microsoft Azure Service 패브릭 노드의 상태를 가져옵니다. |
 | 정보 | Microsoft Azure Service Fabric 클러스터에서 특정 노드에 관한 정보를 가져옵니다. |
 | list | Microsoft Azure Service Fabric 클러스터에서 노드 목록을 가져옵니다. |
 | load | Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다. |
+| 제거-구성-재정의 | 지정 된 노드에서 구성 재정의를 제거 합니다. |
 | remove-state | 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다. |
 | report-health | Microsoft Azure Service 패브릭 노드에 관한 상태 보고서를 보냅니다. |
 | restart | Microsoft Azure Service Fabric 클러스터 노드를 다시 시작합니다. |
 | transition | 클러스터 노드를 시작하거나 중지합니다. |
 | transition-status | StartNodeTransition을 사용하여 시작된 작업의 진행률을 가져옵니다. |
+
+## <a name="sfctl-node-add-configuration-parameter-overrides"></a>sfctl 노드 추가 구성-매개 변수-재정의
+지정 된 노드에 대 한 구성 재정의 목록을 추가 합니다.
+
+이 api를 사용 하면 지정 된 노드에 기존 구성 재정의를 모두 추가할 수 있습니다.
+
+### <a name="arguments"></a>인수
+
+|인수|Description|
+| --- | --- |
+| --config-매개 변수-재정의-목록 [필수] | 구성 재정의 목록을 추가 하는 방법에 대 한 설명입니다. |
+| --node name [필수] | 노드의 이름입니다. |
+| --force | 지정 된 노드에 구성 재정의를 강제로 추가 합니다. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
+
+### <a name="global-arguments"></a>전역 인수
+
+|인수|Description|
+| --- | --- |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
 ## <a name="sfctl-node-disable"></a>sfctl node disable
 지정한 비활성화 의도로 Microsoft Azure Service Fabric 클러스터 노드를 비활성화합니다.
@@ -58,6 +85,28 @@ ms.locfileid: "75645296"
 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다.
 
 현재 비활성화되어 있는 Microsoft Azure Service Fabric 클러스터 노드를 활성화합니다. 일단 활성화되면 노드는 다시 새로운 복제본을 배치하는 것이 가능한 대상이 되고 노드에 남아 있는 모든 비활성화된 복제본은 다시 활성화됩니다.
+
+### <a name="arguments"></a>인수
+
+|인수|Description|
+| --- | --- |
+| --node-name [필수] | 노드의 이름입니다. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
+
+### <a name="global-arguments"></a>전역 인수
+
+|인수|Description|
+| --- | --- |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
+
+## <a name="sfctl-node-get-configuration-overrides"></a>sfctl 노드 get 구성-재정의
+지정 된 노드에 대 한 구성 재정의 목록을 가져옵니다.
+
+이 api를 사용 하면 지정 된 노드에서 모든 기존 구성 재정의를 가져올 수 있습니다.
 
 ### <a name="arguments"></a>인수
 
@@ -167,10 +216,32 @@ Microsoft Azure Service 패브릭 노드의 부하 정보를 가져옵니다.
 | --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
 | --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
 
+## <a name="sfctl-node-remove-configuration-overrides"></a>sfctl 노드 제거-재정의
+지정 된 노드에서 구성 재정의를 제거 합니다.
+
+이 api는 지정 된 노드에서 모든 기존 구성 재정의를 제거 하도록 허용 합니다.
+
+### <a name="arguments"></a>인수
+
+|인수|Description|
+| --- | --- |
+| --node-name [필수] | 노드의 이름입니다. |
+| --timeout -t | 작업을 수행 하기 위한 서버 제한 시간 (초)입니다. 이 시간 제한은 요청 된 작업이 완료 될 때까지 클라이언트가 대기 하는 기간을 지정 합니다. 이 매개 변수의 기본값은 60 초입니다.  기본값\: 60. |
+
+### <a name="global-arguments"></a>전역 인수
+
+|인수|Description|
+| --- | --- |
+| --debug | 로깅의 자세한 정도를 늘려 모든 디버그 로그를 표시합니다. |
+| --help -h | 이 도움말 메시지를 표시하고 종료합니다. |
+| --output -o | 출력 형식입니다.  허용되는 값\: json, jsonc, table, tsv.  기본값\: json. |
+| --query | JMESPath 쿼리 문자열입니다. 자세한 내용 및 예제는 http\://jmespath.org/를 참조하세요. |
+| --verbose | 로깅의 자세한 정도를 늘립니다. 전체 디버그 로그를 표시하려면 --debug를 사용합니다. |
+
 ## <a name="sfctl-node-remove-state"></a>sfctl node remove-state
 노드의 지속된 상태가 영구적으로 제거되거나 손실되었음을 Microsoft Azure Service Fabric에 알립니다.
 
-해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오. Service Fabric 6.5부터 시드 노드에이 API를 사용 하려면 시드 노드를 일반 (비 초기값) 노드로 변경한 다음이 API를 호출 하 여 노드 상태를 제거 하세요. 클러스터가 Azure에서 실행 되는 경우 시드 노드가 다운 된 후에 Service Fabric는 초기값이 아닌 노드로 자동 변경 하려고 시도 합니다. 이 작업을 수행 하려면 주 노드 형식의 비 시드 노드 수가 다운 시드 노드 수보다 작지 않아야 합니다. 필요한 경우 주 노드 형식에 노드를 더 추가 하 여이를 구현 합니다. 독립 실행형 클러스터의 경우 다운 시드 노드가 상태를 그대로 유지 하지 않을 것으로 예상 되는 경우 클러스터에서 해당 노드를 제거 합니다. https\://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes를 참조 하세요.
+해당 노드의 지속된 상태를 복구할 수 없다는 것을 의미합니다. 일반적으로 하드 디스크가 초기화 정리되거나 하드 디스크의 작동이 중단하는 경우에 발생합니다. 이 작업을 성공시키려면 노드는 중단되어야 합니다. 이 작업을 사용하면 Service Fabric에서 해당 노드의 복제본이 더 이상 존재하지 않으며, Service Fabric에서 해당 복제본이 다시 작동하기를 기다리는 것을 중지해야 함을 알 수 있습니다. 노드의 상태가 제거되지 않고 노드가 해당 상태 그대로 다시 작동할 수 있는 경우 이 cmdlet을 실행하지 마십시오. Service Fabric 6.5부터 시드 노드에이 API를 사용 하려면 시드 노드를 일반 (비 초기값) 노드로 변경한 다음이 API를 호출 하 여 노드 상태를 제거 하세요. 클러스터가 Azure에서 실행 되는 경우 시드 노드가 다운 된 후에 Service Fabric는 초기값이 아닌 노드로 자동 변경 하려고 시도 합니다. 이 작업을 수행 하려면 주 노드 형식의 비 시드 노드 수가 다운 시드 노드 수보다 작지 않아야 합니다. 필요한 경우 주 노드 형식에 노드를 더 추가 하 여이를 구현 합니다. 독립 실행형 클러스터의 경우 다운 시드 노드가 상태를 그대로 유지 하지 않을 것으로 예상 되는 경우 클러스터에서 해당 노드를 제거 합니다. https\://docs.microsoft.com/en-us/azure/service-fabric/service-fabric-cluster-windows-server-add-remove-nodes를 참조 하세요.
 
 ### <a name="arguments"></a>인수
 
@@ -207,7 +278,7 @@ Microsoft Azure Service 패브릭 노드에 관한 상태 보고서를 보냅니
 | --remove-when-expired | 보고서가 만료될 때 Health 스토어에서 제거할지 여부를 나타내는 값입니다. <br><br> true로 설정된 경우 보고서는 만료된 후 Health 스토어에서 제거됩니다. false로 설정된 경우 보고서는 만료될 때 오류로 처리됩니다. 이 속성의 값은 기본적으로 false입니다. 클라이언트가 주기적으로 보고하는 경우 RemoveWhenExpired를 false(기본값)로 설정해야 합니다. 이러한 방식은 문제가 있고(예: 교착 상태) 보고할 수 없는 보고자이며, 엔터티는 상태 보고서가 만료되는 경우 오류로 평가됩니다. 엔터티를 오류 성능 상태에 있는 것으로 플래그 지정합니다. |
 | --sequence-number | 숫자 문자열의 이 상태 보고서에 대한 일련 번호입니다. <br><br> 보고서 일련 번호는 Health 스토어에서 유효하지 않은 보고서를 검색하는 데 사용됩니다. 지정되지 않은 경우 일련 번호는 보고서가 추가될 때 상태 클라이언트에서 자동으로 생성됩니다. |
 | --timeout -t | 기본값\: 60. |
-| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트에서 전환에 대해 보고 하는 경우 시간을 무제한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
+| --ttl | 이 상태 보고서가 유효한 기간입니다. 이 필드는 기간을 지정하는 데 ISO8601 형식을 사용합니다. <br><br> 클라이언트가 주기적으로 보고하는 경우 TTL(Time to Live)보다 높은 빈도로 보고서를 보내야 합니다. 클라이언트가 전환 시 보고하는 경우 TTL(Time to live)을 무한으로 설정할 수 있습니다. TTL(Time to live)이 만료되면 상태 정보를 포함하는 상태 이벤트는 RemoveWhenExpired가 true인 경우 Health 스토어에서 제거되거나 RemoveWhenExpired가 false인 경우 오류로 평가됩니다. 지정되지 않은 경우 TTL(Time to live)은 무한 값으로 기본 설정됩니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

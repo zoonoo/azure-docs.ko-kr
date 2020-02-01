@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/30/2020
 ms.author: helohr
-ms.openlocfilehash: e525976edee08097d75605ea1921d0552ed02785
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b7c7c21f14eddf29c3dda1f420d7748a4c23e53d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841066"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906890"
 ---
 # <a name="windows-virtual-desktop-partner-integrations"></a>Windows 가상 데스크톱 파트너 통합
 
@@ -38,6 +38,14 @@ Microsoft Azure의 VMware 수평 클라우드를 사용 하면 고유한 Microso
 
 - [Microsoft Azure에서 수평 클라우드의 기술 미리 보기에 등록](https://www.vmware.com/learn/323526_TECH_PREVIEW_REG.html)합니다.
 - [파트너 웹 사이트로 이동](https://www.vmware.com/products/horizon-cloud-virtual-desktops.html)합니다.
+
+## <a name="10zig"></a>10ZiG
+
+![10ZiG 로고](./media/partners/10zig.png)
+
+최첨단 씬 및 제로 클라이언트 하드웨어 및 소프트웨어를 갖춘 10ZiG 기술은 Microsoft 및 전용 Microsoft Azure 및 Windows 가상 데스크톱 파트너와의 위해 노력해 왔으며 파트너입니다. 10ZiG Windows 10 IoT 기반 씬 클라이언트는 모든 Windows 가상 데스크톱 다중 사용자를 위한 강력 하 고 안정적 이며 경제적인 끝점입니다. 10ZiG 관리자 소프트웨어는 추가 비용 없이 라이선스 제한 없이 탁월한 관리 및 배포를 제공 합니다. 10ZiG 기술 팀, 사전 보증 프로그램 및 문제 없는 데모는 클라우드에서 한 번의 Windows 가상 데스크톱 다중 세션 지원 솔루션입니다.
+
+가상 데스크톱의 씬 및 제로 클라이언트 끝점 장치 및 관리 소프트웨어에 대 한 10ZiG's 세계 시장 리더십은 고객에 게 어떻게 작동 하는지 예시 합니다. 씬 클라이언트 하드웨어는 고객이 각자의 요구에 따라 적절 한 클라이언트 장치를 받을 수 있도록 설계 된 신중의 혜택 기능 및 옵션을 제공 합니다. 10ZiG는 Windows 기반 및 Linux 기반 클라이언트를 사용 하 여 고객 환경에 맞게 장치를 사용자 지정 하 여 클라우드 내부 및 외부 모두에서 가상 데스크톱에 최대한의 성능을 제공 합니다.
 
 ## <a name="cloudhouse"></a>Cloudhouse
 
@@ -133,6 +141,14 @@ Liquidware Essentials는 사용자 프로필을 효율적으로 수집 하 고 �
 - [공동 솔루션 brief를 참조](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3oSY1)하세요.
 - [파트너 웹 사이트로 이동](https://www.liquidware.com/solutions/solutions-platform/microsoft)합니다.
 
+## <a name="liquit"></a>Liquit
+
+![Liquit 로고](./media/partners/liquit.png)
+
+Liquit 응용 프로그램 집계 및 배달 소프트웨어를 사용 하 여 기업 및 서비스 공급자는 모든 작업 영역 백 엔드 (Citrix, VMWare, Windows 가상 데스크톱, RDP 및 레거시)에 연결 하 고 결합 하 고 사용자 지정 되 고 일관적인 고객을 제공할 수 있습니다. 고객의 응용 프로그램이 상주 하는 위치에 관계 없이 환경을 제공 합니다. 고객이 스마트 아이콘을 게시할 때 Liquit는 고객의 위치, 장치 및 프로필 권한을 기반으로 응용 프로그램을 시작할 위치를 결정 합니다.
+
+인증 된 통합 파트너인 Liquit는 rip 및 바꾸기 지연 없이 클라우드로의 전환을 가속화 하는 데 도움이 됩니다. Windows 가상 데스크톱은 기존 환경에 쉽게 연결 하 고 작업 영역을 만들고 바탕 화면을 제공할 수 있습니다. 그런 다음 이전 플랫폼에서 마이그레이션을 수행 하 고 사용자에 게 확인 하지 않고 백 엔드를 변경할 수 있습니다. 일관적인 최종 사용자 환경, 유연한 인프라를 얻고 어디에 있든 상관 없이 응용 프로그램의 제어를 유지 관리 합니다.
+
 ## <a name="login-vsi"></a>로그인 .VSI
 
 ![로그인 .VSI 로고](./media/partners/loginvsi.png)
@@ -202,6 +218,16 @@ RDPSoft는 강력 하 고 저렴 한 모니터링, 관리 및 보고 솔루션�
 RDPSoft의 원격 데스크톱 회사 솔루션은 Windows 가상 데스크톱 관리를 향상 시킵니다. 프리미엄 관리 기능을 사용 하면 원격 지원, 사용자 세션 및 프로세스 관리를 제공 하 여 지원 센터 직원에 게 Windows 가상 데스크톱 관리 작업을 간편 하 게 위임할 수 있습니다. 이와 동시에 원격 데스크톱 지향 도구 모음은 사용자 단위 성능 및 로드, 사용자 활동 및 감사, Windows 가상 데스크톱 연결 품질 (대기 시간 및 대역폭), 라이선스 및 보안에 대 한 풍부한 메트릭을 중앙 Azure SQL에 수집 합니다. 검토할 데이터베이스 인스턴스입니다. RDPSoft를 사용 하면 풍부한 기록 보고 및 종합적인 대시보드를 클릭 하 여 바로 이동할 수 있습니다.
 
 - [파트너 웹 사이트로 이동](https://www.rdpsoft.com/products/remote-desktop-commander/suite/)
+
+## <a name="sepago"></a>sepago
+
+![sepago 로고](./media/partners/sepago.png)
+
+sepago는 Cologne에서 4 개의 친구에 의해 2002에서 설립 되었습니다. 현재 sepago는 Cologne, 뮌헨 및 함부르크의 독일 전반에 있는 위치를 포함 하는 sepagists 수가 꾸준히 늘어나는 IT 관리 컨설팅입니다. sepago는 자동화 된 응용 프로그램 프로 비전, 가상화, 클라우드 솔루션 및 IT 보안 전문가입니다. sepago는 디지털 전환 방식으로 중간 규모 및 대기업을 지원 하 고 사용자가 안전 하 고 효율적으로 작업할 수 있도록 합니다.
+
+sepago의 혁신 및 개발 랩은 빅 데이터 및 AI 기술을 사용 하 여 스마트 솔루션을 구축 합니다. 이러한 솔루션은 Windows 가상 데스크톱과 같은 파트너 제품의 비즈니스, 사용자 환경 및 판을 개선 하는 데 중점을 둡니다.
+
+- [파트너 웹 사이트로 이동](https://www.sepago.de/wvd-value-add-tools/)
 
 ## <a name="thinprint"></a>ThinPrint
 

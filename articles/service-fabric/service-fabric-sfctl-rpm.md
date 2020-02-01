@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl rpm
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 복구 관리자 서비스에 대 한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 674970276046034d13801db7c1bb4ab5175385fb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1787c0c8a8d5994ce1f1e9e4c55f155bbca6934c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639091"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904937"
 ---
 # <a name="sfctl-rpm"></a>sfctl rpm
 복구 관리자 서비스에 쿼리하고 명령을 보냅니다.
@@ -77,7 +77,7 @@ ms.locfileid: "75639091"
 |인수|Description|
 | --- | --- |
 | --executor-filter | 클레임된 작업이 목록에 포함되어야 하는 복구 실행기의 이름입니다. |
-| --state-filter | 결과 목록에 포함되어야 하는 작업 상태를 지정하는 다음 값의 비트 OR입니다. <br> 1 - 생성됨 <br>2 - 클레임됨  <br>4 - 준비 중  <br>8 - 승인됨  <br>16 - 실행 중  <br>32 - 복원 중  <br>64 - 완료됨 |
+| --state-filter | 결과 목록에 포함되어야 하는 작업 상태를 지정하는 다음 값의 비트 OR입니다. <ul><li>1 - 생성됨</li><li>2-요청 됨</li><li>4-준비</li><li>8-승인 됨</li><li>16-실행 중</li><li>32-복원 중</li><li>64 - 완료됨</li></ul>
 | --task-id-filter | 일치 시킬 복구 작업 ID 접두사입니다. |
 
 ### <a name="global-arguments"></a>전역 인수

@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스에서 선거의 프로브 설정
 description: Azure Container Instances의 비정상 컨테이너를 다시 시작하도록 활동성 프로브를 구성하는 방법을 알아봅니다
 ms.topic: article
 ms.date: 06/08/2018
-ms.openlocfilehash: 96d98d18a3f0ac666fb2c057216f7844b176d177
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481684"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901902"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
@@ -17,6 +17,9 @@ ms.locfileid: "74481684"
 이 문서에서는 활동성 프로브가 포함된 컨테이너 그룹을 배포하는 방법을 설명하고, 시뮬레이션된 비정상 컨테이너를 다시 시작하는 방법을 보여줍니다.
 
 또한 Azure Container Instances은 준비가 된 경우에만 트래픽이 컨테이너에 도달할 수 있도록 구성할 수 있는 [준비 프로브](container-instances-readiness-probe.md)를 지원 합니다.
+
+> [!NOTE]
+> 현재는 가상 네트워크에 배포 된 컨테이너 그룹에서 선거의 프로브를 사용할 수 없습니다.
 
 ## <a name="yaml-deployment"></a>YAML 배포
 
@@ -60,7 +63,7 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>시작 명령
 
-배포는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 합니다 .이는 문자열 배열을 수락 하는 `command` 속성으로 정의 됩니다. 이 예제에서는 다음 명령을 전달하여 bash 세션을 시작하고 `healthy` 디렉터리 내에 `/tmp` 파일을 만듭니다.
+배포는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 합니다 .이는 문자열 배열을 수락 하는 `command` 속성으로 정의 됩니다. 이 예제에서는 다음 명령을 전달하여 bash 세션을 시작하고 `/tmp` 디렉터리 내에 `healthy` 파일을 만듭니다.
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"

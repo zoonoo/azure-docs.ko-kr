@@ -8,12 +8,12 @@ ms.author: jonfan
 ms.reviewer: estfan, logicappspm
 ms.topic: article
 ms.date: 05/30/2017
-ms.openlocfilehash: 10c9a1d3723ed30bee5437c3ab7a41308e253bd8
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 97399635399c12022006ac95e60c5828bf2a9dc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666655"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905444"
 ---
 # <a name="migrate-your-apps-and-solutions-from-biztalk-services-to-azure-logic-apps"></a>BizTalk Services에서 Azure Logic Apps 앱 및 솔루션 마이그레이션
 
@@ -125,7 +125,7 @@ BizTalk Services와는 달리 이러한 작업은 전송 프로토콜에서 분�
 
 ## <a name="manage-and-monitor"></a>관리 및 모니터링
 
-BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps는 [Azure Portal](../logic-apps/logic-apps-monitor-your-logic-apps.md)을 통해 더 풍부한 추적 및 모니터링 기능을 제공하며, 이동 중인 경우에는 사물을 주시하는 모바일 앱을 포함합니다.
+BizTalk Services의 전용 포털에서 문제를 모니터링하고 해결할 수 있는 추적 기능을 제공했습니다. Logic Apps은 [Azure Portal에서 논리 앱을 모니터링](../logic-apps/monitor-logic-apps.md)하기 위한 보다 풍부한 추적 및 모니터링 기능을 제공 하며, 이동 중에는 관심을 유지 하기 위한 모바일 앱을 포함 합니다.
 
 ## <a name="high-availability"></a>고가용성
 

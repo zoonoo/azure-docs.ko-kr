@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 662b2792a2e09603425b1988138326799334f323
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0912316d1c41f46e5dba74b58017f4fd5e8ed529
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973438"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909179"
 ---
 ### <a name="portal"></a>포털
 
@@ -77,6 +77,7 @@ ms.locfileid: "75973438"
 이제 키 자격 증명 모음 및 디스크 암호화 집합을 만들고 설정 했으므로 암호화를 사용 하 여 VM을 배포할 수 있습니다.
 VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일한 차이점은 다른 리소스와 동일한 지역에 VM을 배포 하 고 고객 관리 키를 사용 하도록 선택 하는 것입니다.
 
+1. [디스크 암호화 세트 링크](https://aka.ms/diskencryptionsets)를 엽니다.
 1. **Virtual Machines** 를 검색 하 고 **+ 추가** 를 선택 하 여 VM을 만듭니다.
 1. **기본** 탭에서 디스크 암호화 집합과 동일한 지역을 선택 하 고 Azure Key Vault 합니다.
 1. **기본** 탭에 있는 다른 값을 원하는 대로 입력 합니다.
@@ -96,6 +97,7 @@ VM 배포 프로세스는 표준 배포 프로세스와 유사 합니다. 유일
 > [!CAUTION]
 > VM에 연결 된 모든 디스크에 대해 디스크 암호화를 사용 하도록 설정 하려면 VM을 중지 해야 합니다.
 
+1. [디스크 암호화 세트 링크](https://aka.ms/diskencryptionsets)를 엽니다.
 1. 디스크 암호화 집합 중 하 나와 동일한 지역에 있는 VM으로 이동 합니다.
 1. VM을 열고 **중지**를 선택 합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Azure Cosmos DB에서 JavaScript 통합 쿼리 API 사용
+title: Azure Cosmos DB 저장 프로시저 및 트리거에서 JavaScript 통합 쿼리 API 사용
 description: 이 문서에서는 Azure Cosmos DB에서 저장 프로시저 및 트리거를 만들기 위한 JavaScript LINQ(Language-Integrated Query) API의 개념을 소개합니다.
 author: markjbrown
 ms.service: cosmos-db
@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 08/01/2019
 ms.author: mjbrown
 ms.reviewer: sngun
-ms.openlocfilehash: 8396608cdbc5638a3640f94c94b44ad7c5f52a73
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b7ad470b3330224e80a7160fc1a37bb5ee1cde8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445322"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901828"
 ---
 # <a name="javascript-query-api-in-azure-cosmos-db"></a>Azure Cosmos DB의 JavaScript 쿼리 API
 
-Azure Cosmos DB의 SQL API를 사용하여 쿼리를 발급하는 방식과 더불어 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/)를 사용하면 JavaScript 인터페이스를 통해 최적화된 쿼리를 수행할 수 있습니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
+Azure Cosmos DB의 SQL API를 사용 하 여 쿼리를 실행 하는 것 외에도 [Cosmos DB 서버 쪽 SDK](https://azure.github.io/azure-cosmosdb-js-server/) 는 Cosmos DB 저장 프로시저 및 트리거에서 최적화 된 쿼리를 수행 하기 위한 JavaScript 인터페이스를 제공 합니다. 이 JavaScript 인터페이스를 사용하기 위해 SQL 언어를 알 필요는 없습니다. JavaScript 쿼리 API를 사용하면 조건자 함수를 ECMAScript5의 배열 기본 제공 항목과 익숙한 구문 및 Lodash와 같은 인기 있는 JavaScript 라이브러리가 포함된 함수 호출 시퀀스에 전달하여 쿼리를 프로그래밍 방식으로 작성할 수 있습니다. 쿼리는 JavaScript 런타임으로 구문 분석되고 Azure Cosmos DB 인덱스를 사용하여 효율적으로 실행됩니다.
 
 ## <a name="supported-javascript-functions"></a>지원되는 JavaScript 함수
 

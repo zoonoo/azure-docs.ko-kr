@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 78654dfd5a11219d39d53b4042157333656f9aa3
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834762"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905707"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -124,7 +124,7 @@ test_labels = test_data.pop(label).values
 
 자세한 내용은 [참조 설명서](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig) 를 참조 하세요.
 
-시간 계열 설정을 사전 개체로 만듭니다. `time_column_name`를 데이터 집합의 `day_datetime` 필드로 설정 합니다. `grain_column_names` 매개 변수를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 저장소 A와 B에 대 한 하나입니다. 마지막으로 전체 테스트 집합을 예측 하기 위해 `max_horizon`를 50으로 설정 합니다. `target_rolling_window_size`를 사용 하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 두 기간의 대상 값에 대 한 단일 지연을 지정 합니다. `max_horizon`, `target_rolling_window_size` 및 `target_lags`을 자동으로 검색 하는 "자동"으로 설정 하는 것이 좋습니다. 아래 예제에서는 이러한 매개 변수가에 대해 "auto" 설정이 사용 되었습니다. 
+시간 계열 설정을 사전 개체로 만듭니다. `time_column_name`를 데이터 집합의 `day_datetime` 필드로 설정 합니다. `grain_column_names` 매개 변수를 정의 하 여 데이터에 대해 **두 개의 개별 시계열 그룹이** 생성 되도록 합니다. 저장소 A와 B에 대 한 하나입니다. 마지막으로 전체 테스트 집합을 예측 하기 위해 `max_horizon`를 50으로 설정 합니다. `target_rolling_window_size`를 사용 하 여 예측 기간을 10 개로 설정 하 고 `target_lags` 매개 변수를 사용 하 여 두 기간의 대상 값에 대 한 단일 지연을 지정 합니다. `max_horizon`, `target_rolling_window_size` 및 `target_lags`을 자동으로 검색 하는 "자동"으로 설정 하는 것이 좋습니다. 아래 예제에서는 이러한 매개 변수에 "auto" 설정을 사용 했습니다. 
 
 ```python
 time_series_settings = {
@@ -226,7 +226,7 @@ label_fcst, data_trans = fitted_pipeline.forecast(
 from sklearn.metrics import mean_squared_error
 from math import sqrt
 
-rmse = sqrt(mean_squared_error(actual_lables, predict_labels))
+rmse = sqrt(mean_squared_error(actual_labels, predict_labels))
 rmse
 ```
 

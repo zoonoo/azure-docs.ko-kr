@@ -8,12 +8,12 @@ ms.date: 10/16/2019
 ms.author: normesta
 ms.subservice: common
 ms.reviewer: zezha-msft
-ms.openlocfilehash: e7998ea0753ba7ab5d97142c34dc9e333f8b4f5d
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d6b2fbe28aae8e8233aaeb75bc9b43a35a9ab588
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034073"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905289"
 ---
 # <a name="azcopy-login"></a>azcopy login
 
@@ -43,7 +43,7 @@ azcopy login [flags]
 - [AzCopy 및 파일 스토리지를 사용하여 데이터 전송](storage-use-azcopy-files.md)
 - [AzCopy 구성, 최적화 및 문제 해결](storage-use-azcopy-configure.md)
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 일반으로 설정 된 기본 AAD 테 넌 트 ID로 대화형으로 로그인 합니다.
 
@@ -99,8 +99,10 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 
 ## <a name="options"></a>옵션
 
-|옵션|설명|
+|옵션|Description|
 |--|--|
+|--aad-끝점|사용할 Azure Active Directory 끝점입니다. 기본 (https://login.microsoftonline.com) 는 공용 Azure 클라우드에 대해 올바릅니다. 국가별 클라우드에서 인증할 때이 매개 변수를 설정 합니다. [AZURE AD 인증 끝점](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud#azure-ad-authentication-endpoints)을 참조 하세요.
+관리 서비스 ID에는이 플래그가 필요 하지 않습니다.|
 |--응용 프로그램 id 문자열|사용자 할당 id의 응용 프로그램 ID입니다. 서비스 주체 인증에 필요 합니다.|
 |--certificate-path 문자열|SPN 인증을 위한 인증서의 경로입니다. 인증서 기반 서비스 주체 인증에 필요 합니다.|
 |-h, --help|로그인 명령에 대 한 도움말 콘텐츠를 표시 합니다.|
@@ -113,11 +115,11 @@ azcopy login --service-principal --certificate-path /path/to/my/cert
 
 ## <a name="options-inherited-from-parent-commands"></a>부모 명령에서 상속 된 옵션
 
-|옵션|설명|
+|옵션|Description|
 |---|---|
 |--0mbps uint32|전송 률 (메가 비트/초)을 대문자로 처리 합니다. 순간 처리량은 cap와 약간 다를 수 있습니다. 이 옵션을 0으로 설정 하거나 생략 하면 처리량이 생략 되지 않습니다.|
 |--출력 형식 문자열|명령의 출력 형식입니다. 텍스트, json 등을 선택할 수 있습니다. 기본값은 "text"입니다.|
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 - [azcopy](storage-ref-azcopy.md)

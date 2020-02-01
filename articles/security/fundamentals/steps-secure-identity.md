@@ -8,14 +8,14 @@ ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/28/2019
+ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: b416b38cfac48260f3375696caa2ecabcb4d57a9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973920"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903579"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 
@@ -28,8 +28,8 @@ ms.locfileid: "75973920"
 * 자격 증명을 강화합니다.
 * 공격 노출 영역을 줄입니다.
 * 위협 응답을 자동화합니다.
-* 감사 및 모니터링의 인식률을 높입니다.
-* 자가 진단으로 더 예측 가능하고 완벽한 최종 사용자 보안을 사용하도록 설정합니다.
+* 클라우드 인텔리전스를 활용 합니다.
+* 최종 사용자 셀프 서비스를 사용 하도록 설정 합니다.
 
 이 검사 목록을 읽는 동안 완료 된 기능 및 단계를 계속 추적 해야 합니다.
 
@@ -116,7 +116,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 다양 한 [AZURE AD 응용 프로그램 동의 환경](https://docs.microsoft.com/azure/active-directory/develop/application-consent-experience), [사용 권한 및 동의 유형](https://docs.microsoft.com/azure/active-directory/develop/v2-permissions-and-consent)및 조직의 보안 상태에 대 한 영향을 이해 하는 것이 중요 합니다. 기본적으로 Azure AD의 모든 사용자는 Microsoft id 플랫폼을 활용 하는 응용 프로그램에 조직의 데이터에 액세스할 수 있는 권한을 부여할 수 있습니다. 사용자가 자신에 게 동의할 수 있도록 허용 하는 경우에는 사용자가 Microsoft 365, Azure 및 기타 서비스와 통합 하는 유용한 응용 프로그램을 쉽게 획득할 수 있으며, 사용 하지 않거나 모니터링 하는 경우 위험을 나타낼 수 있습니다.
 
-사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 [향후 사용자 동의 작업을 사용 하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) 하는 것이 좋습니다. 최종 사용자 동의가 사용 하지 않도록 설정 된 경우 이전 동의 부여는 여전히 적용 되지만 관리자는 이후의 모든 승인 작업을 수행 해야 합니다. 사용자가 통합 [관리자 동의 요청 워크플로](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) 를 통하거나 사용자의 지원 프로세스를 통해 관리자 동의를 요청할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하기 전에 감사 로그를 검토 하 여 사용자가 동의 응용 프로그램을 파악 하 고 그에 따라 변경을 계획 하는 것이 좋습니다. 모든 사용자가 액세스할 수 있도록 허용 하려는 응용 프로그램의 경우에는 [모든 사용자를 대신](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)하 여 동의를 부여 하 여 개별적으로 동의한 않은 사용자가 앱에 액세스할 수 있도록 하는 것이 좋습니다. 모든 시나리오에서 이러한 응용 프로그램을 모든 사용자가 사용할 수 있도록 하려는 경우 [응용 프로그램 할당](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) 및 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 를 사용 하 여 앱에 대 한 사용자 액세스를 제한 합니다.
+사용자의 노출 영역을 줄이고이 위험을 완화 하기 위해 [향후 사용자 동의 작업을 사용 하지 않도록 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-removing-user-access#i-want-to-disable-all-future-user-consent-operations-to-any-application) 하는 것이 좋습니다. 최종 사용자 동의가 사용 하지 않도록 설정 된 경우 이전 동의 부여는 여전히 적용 되지만 관리자는 이후의 모든 승인 작업을 수행 해야 합니다. 사용자가 통합 [관리자 동의 요청 워크플로](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow) 를 통하거나 사용자의 지원 프로세스를 통해 관리자 동의를 요청할 수 있습니다. 최종 사용자 동의를 사용 하지 않도록 설정 하기 전에 [권장 사항을](https://docs.microsoft.com/azure/active-directory/manage-apps/manage-consent-requests) 사용 하 여 조직에서 이러한 변경을 계획 합니다. 모든 사용자가 액세스할 수 있도록 허용 하려는 응용 프로그램의 경우에는 [모든 사용자를 대신](https://docs.microsoft.com/azure/active-directory/develop/v2-admin-consent)하 여 동의를 부여 하 여 개별적으로 동의한 않은 사용자가 앱에 액세스할 수 있도록 하는 것이 좋습니다. 모든 시나리오에서 이러한 응용 프로그램을 모든 사용자가 사용할 수 있도록 하려는 경우 [응용 프로그램 할당](https://docs.microsoft.com/azure/active-directory/manage-apps/methods-for-assigning-users-and-groups) 및 [조건부 액세스](https://docs.microsoft.com/azure/active-directory/conditional-access/overview) 를 사용 하 여 앱에 대 한 사용자 액세스를 제한 합니다.
 
 사용자의 수를 줄이고, 지원 볼륨을 최소화 하 고, 사용자가 비 Azure AD 자격 증명을 사용 하 여 응용 프로그램에 등록 하지 못하도록 하려면 사용자가 새 응용 프로그램에 대해 관리자 승인을 요청할 수 있는지 확인 합니다. 동의 작업을 제어 하 고 나면 관리자는 앱 및 동의한 권한을 정기적으로 감사 해야 합니다.
 
@@ -134,7 +134,7 @@ Azure AD에 직접 인증하도록 애플리케이션을 구성하는 조직은 
 
 Azure AD PIM을 사용하도록 설정한 다음, 관리자 역할이 할당된 사용자를 보고, 해당 역할에서 필요 없는 계정을 제거합니다. 나머지 권한 있는 사용자의 경우 영구 상태에서 적격 상태로 이동합니다. 마지막으로, 사용자가 권한 있는 역할에 대한 액세스 권한을 얻어야 하는 경우 필요한 변경 제어를 통해 안전하게 얻을 수 있습니다.
 
-권한 있는 계정 프로세스 배포의 일부로, 직접 잠글 경우 Azure AD에 액세스할 수 있도록 [두 개 이상의 비상 계정을 만드는 모범 사례](../../active-directory/users-groups-roles/directory-admin-roles-secure.md)를 수행합니다.
+권한 있는 계정 프로세스를 배포 하는 과정의 일환으로, 사용자가 직접 잠근 경우 Azure AD에 계속 액세스할 수 있도록 [두 개 이상의 응급 계정을 만드는 모범 사례](../../active-directory/users-groups-roles/directory-admin-roles-secure.md) 를 따릅니다.
 
 ## <a name="step-3---automate-threat-response"></a>3단계 - 위협 응답 자동화
 
@@ -152,7 +152,7 @@ Azure Active Directory에는 검색 및 응답 사이의 대기 시간을 제거
 
 ![익명 IP 주소에서 로그인](./media/steps-secure-identity/azure-ad-sec-steps2.png)
 
-## <a name="step-4---increase-your-awareness"></a>4단계 - 인식률 높이기
+## <a name="step-4---utilize-cloud-intelligence"></a>4 단계-클라우드 인텔리전스 활용
 
 보안 관련 이벤트의 감사와 로깅 및 관련 경고는 효과적인 보호 전략의 중요한 구성 요소입니다. 보안 로그 및 보고서는 의심스러운 활동에 대한 전자 기록을 제공하며, 네트워크의 외부 침투와 내부 공격의 시도 또는 성공을 나타낼 수 있는 패턴을 검색할 수 있도록 도움을 줍니다. 감사를 사용 하 여 사용자 활동을 모니터링 하 고, 규정 준수를 문서화 하 고, 법정 분석을 수행할 수 있습니다. 경고는 보안 이벤트의 알림을 제공합니다.
 
@@ -180,7 +180,7 @@ Azure AD Identity Protection은 매일 모니터링해야 하는 두 가지 중�
 
 사용자는 자신의 프로필 정보 및 사용자 데이터 (예: 전자 메일)에 대 한 액세스 권한을 얻을 수 있는 손상 된 웹 사이트에 대 한 탐색으로 속아 서 수 있습니다. 악의적인 행위자는 획득한 승인된 권한을 사용하여 사서함 콘텐츠를 암호화하고, 사서함 데이터를 되찾으려면 몸값을 지불하라고 요구할 수 있습니다. 관리자는 사용자에 게 부여 된 사용 권한을 [검토 하 고 감사](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하거나 사용자가 기본적으로 동의를 부여 하지 않도록 설정 해야 합니다.
 
-사용자가 제공 하는 사용 권한을 감사 하는 것 외에도, 프리미엄 환경에서 사용할 수 있는 기능인 [위험한 또는 원치 않는 OAuth 응용 프로그램](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth)을 쉽게 찾을 수 있습니다.
+사용자가 제공 하는 사용 권한을 감사 하는 것 외에도 프리미엄 환경에서 [위험한 또는 원치 않는 OAuth 응용 프로그램을 찾을](https://docs.microsoft.com/cloud-app-security/investigate-risky-oauth) 수 있습니다.
 
 ## <a name="step-5---enable-end-user-self-service"></a>5 단계-최종 사용자 셀프 서비스 사용
 
@@ -192,11 +192,11 @@ Azure AD의 [SSPR (셀프 서비스 암호 재설정)](../../active-directory/au
 
 ### <a name="implement-self-service-group-and-application-access"></a>셀프 서비스 그룹 및 응용 프로그램 액세스 구현
 
-Azure AD는 보안 그룹, Office 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리 하는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md) 를 통해 그룹 소유자는 관리 역할을 할당 하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Office 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [AZURE AD 자격 관리](../../active-directory/governance/entitlement-management-overview.md) 는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 추가로 지원 합니다.  직원이 아닌 사용자에 게 액세스 권한을 승인 해야 하는 사용자 지정 정책을 사용 하 여 자신이 소유한 그룹, 팀, 응용 프로그램 및 SharePoint Online 사이트에 대 한 고유한 액세스 패키지를 구성 하는 기능을 관리자가 아닌 사용자에 게 위임할 수 있습니다. 승인자 인 관리자 및 비즈니스 파트너 스폰서.
+Azure AD는 보안 그룹, Office 365 그룹, 응용 프로그램 역할 및 액세스 패키지 카탈로그를 사용 하 여 관리자가 아닌 리소스에 대 한 액세스를 관리할 수 있는 기능을 제공 합니다.  [셀프 서비스 그룹 관리](../../active-directory/users-groups-roles/groups-self-service-management.md) 를 통해 그룹 소유자는 관리 역할을 할당 하지 않고도 자신의 그룹을 관리할 수 있습니다. 또한 사용자는 관리자를 사용 하 여 요청을 처리 하지 않고 Office 365 그룹을 만들고 관리할 수 있으며 사용 하지 않는 그룹은 자동으로 만료 됩니다.  [AZURE AD 자격 관리](../../active-directory/governance/entitlement-management-overview.md) 는 포괄적인 액세스 요청 워크플로 및 자동 만료를 통해 위임 및 가시성을 추가로 지원 합니다.  직원이 아닌 사용자에 게 액세스 권한을 승인 해야 하는 사용자 지정 정책을 사용 하 여 자신이 소유한 그룹, 팀, 응용 프로그램 및 SharePoint Online 사이트에 대 한 고유한 액세스 패키지를 구성 하는 기능을 관리자가 아닌 사용자에 게 위임할 수 있습니다. 승인자 인 관리자 및 비즈니스 파트너 스폰서.
 
 ### <a name="implement-azure-ad-access-reviews"></a>Azure AD 액세스 검토 구현
 
-[AZURE AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용 하 여 액세스 패키지 및 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 권한 있는 역할 할당을 관리 하 여 보안 표준을 유지 관리할 수 있습니다.  사용자 자체, 리소스 소유자 및 기타 검토자에의 한 일반적인 감독은 사용자가 더 이상 필요 하지 않은 기간 동안 액세스를 유지 하지 않도록 합니다.
+[AZURE AD 액세스 검토](../../active-directory/governance/access-reviews-overview.md)를 사용 하 여 액세스 패키지 및 그룹 멤버 자격, 엔터프라이즈 응용 프로그램에 대 한 액세스 및 권한 있는 역할 할당을 관리 하 여 보안 표준을 유지 관리할 수 있습니다.  사용자 자체, 리소스 소유자 및 기타 검토자에의 한 일반적인 감독은 사용자가 더 이상 필요 하지 않은 오랜 기간 동안 액세스를 유지 하지 않도록 합니다.
 
 ## <a name="summary"></a>요약
 
@@ -205,7 +205,7 @@ Azure AD는 보안 그룹, Office 365 그룹, 응용 프로그램 역할 및 액
 * 자격 증명을 강화합니다.
 * 공격 노출 영역을 줄입니다.
 * 위협 응답을 자동화합니다.
-* 감사 및 모니터링의 인식률을 높입니다.
+* 클라우드 인텔리전스를 활용 합니다.
 * 자가 진단으로 더 예측 가능하고 완벽한 최종 사용자 보안을 사용하도록 설정합니다.
 
 ID 보안에 대해 진지하게 고려해 주신 것에 감사를 드리며, 이 문서가 여러분 조직의 더 안전한 태세를 위한 유용한 로드맵이 되길 바랍니다.

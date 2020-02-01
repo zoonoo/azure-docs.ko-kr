@@ -8,6 +8,7 @@ manager: daveba
 editor: curtand
 ms.assetid: 19e3cf15-f150-46a3-a10c-2990702cd700
 ms.service: active-directory
+ms.subservice: hybrid
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -15,15 +16,15 @@ ms.topic: conceptual
 ms.date: 07/18/2017
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73f30f4f16ad879468a424d6e5cbe81e68b7c33d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: e27287a414a2a4edef3e9090b7d91beb1c70f554
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60350644"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897326"
 ---
 # <a name="using-azure-ad-connect-health-with-ad-ds"></a>AD DS와 함께 Azure AD Connect Health 사용
-다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. AD DS의 지원되는 버전은 다음과 같습니다. Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016
+다음 문서는 Azure AD Connect Health와 함께 Active Directory Domain Services를 모니터링하는 방법에 중점을 둡니다. 지원되는 AD DS 버전은 Windows Server 2008 R2, Windows Server 2012, Windows Server 2012 R2 및 Windows Server 2016입니다.
 
 Azure AD Connect Health를 사용한 AD FS 모니터링에 대한 자세한 내용은 [AD FS와 함께 Azure AD Connect Health 사용](how-to-connect-health-adfs.md)을 참조하세요. 또한 Azure AD Connect Health와 함께 Azure AD Connect (동기화)를 모니터링하는 방법에 대한 정보는 [동기화를 위해 Azure AD Connect Health 사용](how-to-connect-health-sync.md)을 참조하세요.
 
@@ -55,7 +56,7 @@ AD DS용 Azure AD Connect Health 내의 경고 섹션은 도메인 컨트롤러�
 
 기본적으로 미리 선택한 네 개의 성능 카운터가 있습니다. 그러나 필터 명령을 클릭하고 원하는 성능 카운터를 선택하거나 선택을 취소하여 다른 성능 카운터를 포함할 수 있습니다. 또한, 성능 카운터 그래프를 두 번 클릭하면 새 블레이드가 열리며, 여기에는 모니터링되는 각각의 도메인 컨트롤러에 대한 데이터 요소가 포함됩니다.
 
-## <a name="related-links"></a>관련 링크
+## <a name="related-links"></a>관련된 링크
 * [Azure AD Connect Health](whatis-hybrid-identity-health.md)
 * [Azure AD Connect Health Agent 설치](how-to-connect-health-agent-install.md)
 * [Azure AD Connect Health 작업](how-to-connect-health-operations.md)

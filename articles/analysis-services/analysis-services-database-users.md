@@ -4,15 +4,15 @@ description: Azure의 Analysis Services 서버에서 데이터베이스 역할 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 10/29/2019
+ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 9d1f3387fcea732e002689a4cdeaaf1d50d8a56f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73147002"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901498"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -42,12 +42,12 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
   
 4.  다음 사용 권한 중 하나를 선택합니다.  
   
-    |사용 권한|설명|  
+    |사용 권한|Description|  
     |----------------|-----------------|  
-    |**None**|멤버는 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
+    |**없음**|멤버는 모델 스키마를 읽거나 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
     |**읽기**|멤버는 행 필터를 기반으로 데이터를 쿼리할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
     |**읽기 및 처리**|멤버는 행 수준 필터를 기반으로 데이터를 쿼리하고 처리 및 모두 처리 작업을 실행할 수 있지만 모델 스키마를 수정할 수 없습니다.|  
-    |**처리**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
+    |**처리**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 읽거나 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
     |**관리자**|멤버는 모델 스키마를 수정하고 모든 데이터를 쿼리할 수 있습니다.|   
   
 5.  만들려는 역할에 읽기 또는 읽기 및 처리 권한이 있는 경우 DAX 수식을 사용하여 행 필터를 추가할 수 있습니다. **행 필터** 탭을 클릭하고 테이블을 선택한 다음 **DAX 필터** 필드를 클릭하고 DAX 수식을 입력합니다.
@@ -71,7 +71,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 3. 사용 권한을 선택합니다.
 
-   |사용 권한|설명|  
+   |사용 권한|Description|  
    |----------------|-----------------|  
    |**모든 권한(관리자)**|멤버는 모델 스키마, 프로세스를 수정할 수 있으며 모든 데이터를 쿼리할 수 있습니다.| 
    |**데이터베이스 처리**|멤버는 처리 및 모두 처리 작업을 실행할 수 있습니다. 모델 스키마를 수정할 수 없으며 데이터를 쿼리할 수 없습니다.|  
@@ -121,7 +121,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 
 [SqlServer](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference) 모듈은 TMSL(테이블 형식 모델 스크립트 언어) 쿼리 또는 스크립트를 허용하는 범용 Invoke-ASCmd cmdlet 및 작업 관련 데이터베이스 관리 cmdlet을 제공합니다. 다음 cmdlet은 데이터베이스 역할 및 사용자 관리에 사용됩니다.
   
-|Cmdlet|설명|
+|Cmdlet|Description|
 |------------|-----------------| 
 |[Add-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/Add-RoleMember)|데이터베이스 역할에 구성원을 추가합니다.| 
 |[Remove-RoleMember](https://docs.microsoft.com/powershell/module/sqlserver/remove-rolemember)|데이터베이스 역할에서 구성원을 제거합니다.|   
@@ -131,7 +131,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 
 행 필터는 특정 역할의 멤버가 쿼리할 수 있는 테이블의 행을 정의합니다. 행 필터는 DAX 수식을 사용하여 모델의 각 테이블에 대해 정의됩니다.  
   
-읽기 권한과 읽기 및 처리 권한을 가진 역할에 대해서만 행 필터를 정의할 수 있습니다. 기본적으로 특정 테이블에 대해 행 필터가 정의되지 않은 경우 다른 테이블에서 교차 필터링을 적용하지 않는 한 멤버는 테이블의 모든 행을 쿼리할 수 있습니다.
+행 필터는 읽기와 읽기 및 처리 권한이 있는 역할에 대해서만 정의할 수 있습니다. 기본적으로 특정 테이블에 대해 행 필터가 정의되지 않은 경우 다른 테이블에서 교차 필터링을 적용하지 않는 한 멤버는 테이블의 모든 행을 쿼리할 수 있습니다.
   
  해당 특정 역할의 멤버가 쿼리할 수 있는 행을 정의하려면 행 필터에 DAX 수식이 필요하며, 이 수식은 TRUE/FALSE 값으로 계산되어야 합니다. DAX 수식에 포함되지 않은 행은 쿼리할 수 없습니다. 예를 들어 *=Customers [Country] = “USA”* 같은 행 필터 식을 사용하는 Customers 테이블에서 Sales 역할의 멤버는 USA의 고객만 볼 수 있습니다.  
   
@@ -139,7 +139,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 |Table|DAX 식|  
 |-----------|--------------------|  
-|Region|=Region[Country]="USA"|  
+|지역|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
 |트랜잭션|=Transactions[Year]=2016|  
   

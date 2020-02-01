@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 09/13/2019
+ms.date: 01/28/2020
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: dc3bb6882963205e17e37f52ec9dcdffecdf9e21
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 00b8e6d44ed8449aa4ddf8716039c8c85c558b8f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843199"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901722"
 ---
 # <a name="manage-qna-maker-resources"></a>QnA Maker 리소스 관리
 
@@ -97,7 +97,8 @@ QnA Maker 리소스를 만든 Azure Portal에서 구독 키를 확인 하 고 �
 
 2. 키 보기 또는 다시 설정:
 
-    ![끝점 키 관리자](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)
+    > [!div class="mx-imgBorder"]
+    > [서비스 설정에서 끝점 키를 표시, 복사 또는 설정 ![](../media/qnamaker-how-to-key-management/Endpoint-keys1.png)](../media/qnamaker-how-to-key-management/Endpoint-keys1.png#lightbox)
 
     >[!NOTE]
     >키가 손상 되었다고 생각 되 면 키를 새로 고칩니다. 클라이언트 애플리케이션 또는 봇 코드에 해당 변경 내용을 적용해야 할 수도 있습니다.
@@ -136,7 +137,7 @@ QnA Maker의 **App Service** 리소스는 Cognitive Search 리소스를 사용 �
 1. **설정**, **구성**을 차례로 선택 합니다. 그러면 QnA Maker의 App Service에 대 한 모든 기존 설정이 표시 됩니다.
 
     > [!div class="mx-imgBorder"]
-    > App Service 구성 설정을 보여 주는 Azure Portal 스크린샷 ![](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)
+    > [App Service 구성 설정을 보여 주는 Azure Portal의 ![스크린샷](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png)](../media/qnamaker-how-to-upgrade-qnamaker/change-search-service-app-service-configuration.png#lightbox)
 
 1. 다음 키에 대 한 값을 변경 합니다.
 
@@ -146,7 +147,7 @@ QnA Maker의 **App Service** 리소스는 Cognitive Search 리소스를 사용 �
 1. 새 설정을 사용 하려면 App service를 다시 시작 해야 합니다. **개요**를 선택한 다음 **다시 시작**을 선택 합니다.
 
     > [!div class="mx-imgBorder"]
-    > 구성 설정이 변경 된 후 App Service 다시 시작 하 Azure Portal의 스크린샷 ![](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
+    > [구성 설정이 변경 된 후 App Service 다시 시작 하 Azure Portal ![스크린샷](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)](../media/qnamaker-how-to-upgrade-qnamaker/screenshot-azure-portal-restart-app-service.png)
 
 Azure Resource Manager 템플릿을 통해 QnA 서비스를 만드는 경우 모든 리소스를 만들고 기존 검색 서비스를 사용 하는 App Service 만들기를 제어할 수 있습니다.
 

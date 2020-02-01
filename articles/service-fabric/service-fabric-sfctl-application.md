@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 응용 프로그램
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 응용 프로그램을 관리 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4d416408fd83d7bc316c7045c2a0031fe50d36f5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b4e1066bba1db387c9dc0600bc55522f0b5fe897
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645415"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906200"
 ---
 # <a name="sfctl-application"></a>sfctl application
 애플리케이션 및 애플리케이션 유형을 성, 삭제 및 관리합니다.
@@ -529,10 +529,13 @@ Microsoft Azure Service Fabric 애플리케이션 패키지를 이미지 저장�
 
 |인수|Description|
 | --- | --- |
-| --path   [필수] | 로컬 애플리케이션 패키지 경로입니다. |
+| --path [필수] | 로컬 애플리케이션 패키지 경로입니다. |
+| --압축 | 응용 프로그램 패키지 Service Fabric에만 적용 됩니다. 기본 위치나 압축 위치 매개 변수로 지정 된 위치에 압축 된 응용 프로그램 패키지를 포함 하는 새 폴더를 만든 다음 새로 만든 폴더를 업로드 합니다. <br><br> Sfctl에서 이미 압축 된 파일을 생성 한 경우이 플래그가 설정 되 면 덮어씁니다. 디렉터리가 응용 프로그램 패키지가 아닌 경우 오류가 반환 됩니다. 이미 압축 된 응용 프로그램 패키지인 경우 폴더는 그대로 복사 됩니다. 기본적으로 새로 만든 압축 된 응용 프로그램 패키지는 성공적으로 업로드 한 후에 삭제 됩니다. 업로드에 실패 한 경우 필요에 따라 압축 된 패키지를 수동으로 정리 하세요. 압축 된 위치 매개 변수가 존재 하지 않는 디렉터리를 참조 하는 경우에는 삭제 된 빈 디렉터리 제거 되지 않습니다. |
+| --압축 위치 | 압축 된 응용 프로그램 패키지를 저장할 위치입니다. <br><br> 위치를 제공 하지 않으면 압축 된 패키지는 경로 인수에 지정 된 부모 디렉터리 아래 sfctl_compressed_temp 이라는 새로 만든 폴더에 배치 됩니다. 예를 들어 path 인수의 값이 C\:/FolderA/AppPkg 인 경우 압축 된 패키지는 C\:/FolderA/sfctl_compressed_temp/AppPkg.에 추가 됩니다. |
 | --imagestore-string | 애플리케이션 패키지를 업로드할 대상 이미지 저장소입니다.  기본값\: fabric\:ImageStore. <br><br> 파일 위치에 업로드 하려면 ' file\:'를 사용 하 여이 매개 변수를 시작 합니다. 그렇지 않으면 값이 기본값과 같은 이미지 저장소 연결 문자열 이어야 합니다. |
+| --압축 된 상태 | 업로드 완료 성공 시 생성 된 압축 패키지를 유지할지 여부입니다. <br><br> 설정 하지 않은 경우 성공적으로 완료 되 면 압축 된 앱 패키지가 삭제 됩니다. 업로드가 실패 한 경우 응용 프로그램 패키지는 항상 다시 업로드할 출력 디렉터리에 보관 됩니다. |
 | --show-progress | 큰 패키지에 대한 파일 업로드 진행률을 표시합니다. |
-| --timeout -t | 총 시간 제한 (초)입니다. 업로드 제한 시간이 경과 되 면 업로드가 실패 하 고 오류가 반환 됩니다. 이 제한 시간은 전체 응용 프로그램 패키지에 적용 되며, 개별 파일 시간 제한은 남은 시간 제한 기간과 같습니다.  기본값\: 300입니다. |
+| --timeout -t | 총 시간 제한 (초)입니다. 업로드 제한 시간이 경과 되 면 업로드가 실패 하 고 오류가 반환 됩니다. 이 제한 시간은 전체 응용 프로그램 패키지에 적용 되며, 개별 파일 시간 제한은 남은 시간 제한 기간과 같습니다. 시간 제한에는 응용 프로그램 패키지를 압축 하는 데 필요한 시간이 포함 되지 않습니다.  기본값\: 300입니다. |
 
 ### <a name="global-arguments"></a>전역 인수
 

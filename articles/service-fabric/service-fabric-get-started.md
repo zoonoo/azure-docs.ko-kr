@@ -3,14 +3,14 @@ title: Windows 개발 환경 설정
 description: 런타임, SDK 및 도구를 설치하고 로컬 개발 클러스터를 만듭니다. 이 설정을 완료하면 Windows에서 애플리케이션을 빌드할 수 있습니다.
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 01/07/2020
+ms.date: 01/28/2020
 ms.custom: sfrev
-ms.openlocfilehash: e65ba228540529ec1f852442ebc838a60631fa5c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 70a819636b786cedce5bbd0abd0d2594738cbfb9
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750220"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904114"
 ---
 # <a name="prepare-your-development-environment-on-windows"></a>Windows에서 개발 환경 준비
 
@@ -68,8 +68,8 @@ SDK만 필요한 경우 다음 패키지를 설치할 수 있습니다.
 
 현재 버전은 다음과 같습니다.
 
-* Service Fabric SDK 및 도구 4.0.457
-* Service Fabric runtime 7.0.457
+* Service Fabric SDK 및 도구 4.0.464
+* Service Fabric runtime 7.0.464
 
 지원되는 버전 목록은 [Service Fabric 버전](service-fabric-versions.md)을 참조하세요.
 

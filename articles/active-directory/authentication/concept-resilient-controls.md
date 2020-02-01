@@ -6,17 +6,18 @@ author: martincoetzer
 manager: daveba
 tags: azuread
 ms.service: active-directory
+ms.subservice: authentication
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/19/2018
+ms.date: 01/29/2020
 ms.author: martinco
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 478cccb3a8235291a4c4f0566cd130b4b75dbe6b
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 0ca5817e744ff81efcd549bc328d7ce5eeedb2d2
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74208565"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76908737"
 ---
 # <a name="create-a-resilient-access-control-management-strategy-with-azure-active-directory"></a>Azure Active Directory를 사용하여 복원력 있는 액세스 제어 관리 전략 수립
 
@@ -117,7 +118,7 @@ MFA(다단계 인증) 또는 단일 네트워크 위치와 같은 단일 액세�
 * 하나의 자격 증명 유형 또는 하나의 액세스 제어 메커니즘의 중단으로 인해 앱에 대한 액세스에 영향을 주는 경우 일단의 대체 정책을 구성합니다. 타사 MFA 공급자가 필요한 활성 정책에 대한 백업과 같이 도메인 조인이 제어로 필요한 정책을 사용 안 함 상태로 구성합니다.
 * [암호 지침](https://aka.ms/passwordguidance) 백서의 사례에 따라 MFA를 요구하지 않을 때 악의적인 행위자의 암호 추측에 대한 위험을 줄입니다.
 * [Azure AD SSPR(셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr) 및 [Azure AD 암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/howto-password-ban-bad-on-premises-deploy)를 배포하여 사용자가 금지하도록 선택한 일반적인 암호와 용어를 사용하지 못하도록 합니다.
-* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
+* 특정 인증 수준에 도달하지 못하는 경우 단순히 전체 액세스로 대체하는 대신 앱 내에서 액세스를 제한하는 정책을 사용합니다. 예:
   * 제한된 세션 클레임을 Exchange 및 SharePoint로 보내는 백업 정책을 구성합니다.
   * 조직에서 MCAS(Microsoft Cloud App Security)를 사용하는 경우 MCAS를 사용하는 정책으로 대체한 다음, MCAS에서 읽기 전용 액세스만 허용하고 업로드는 허용하지 않는 것이 좋습니다.
 * 중단 시 정책을 쉽게 찾을 수 있도록 해당 정책의 이름을 지정합니다. 정책 이름에 포함되는 요소는 다음과 같습니다.
@@ -210,7 +211,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 - 조직에서 통과 인증 또는 페더레이션을 통해 하이브리드 ID 솔루션을 사용합니다.
 - 온-프레미스 ID 시스템(예: Active Directory, AD FS 또는 종속 구성 요소)을 사용할 수 없습니다. 
  
-온-프레미스 ID 시스템의 가동이 중단되면 [암호 해시 동기화를 사용하도록 전환](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)할 수 있으므로 조직에서 복원력을 높이려면 [암호 해시 동기화를 사용하도록 설정](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)해야 합니다.
+온-프레미스 ID 시스템의 가동이 중단되면 [암호 해시 동기화를 사용하도록 전환](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-user-signin)할 수 있으므로 조직에서 복원력을 높이려면 [암호 해시 동기화를 사용하도록 설정](https://docs.microsoft.com/azure/security/fundamentals/choose-ad-authn)해야 합니다.
 
 #### <a name="microsoft-recommendations"></a>Microsoft 추천 사항
  조직에서 페더레이션 또는 통과 인증을 사용하는지 여부에 관계없이 Azure AD Connect 마법사를 사용하여 암호 해시 동기화를 사용하도록 설정합니다.
@@ -259,7 +260,7 @@ EMnnn - ENABLE IN EMERGENCY: [Disruption][i/n] - [Apps] - [Controls] [Conditions
 >[!NOTE]
  > Azure MFA에 대한 [신뢰할 수 있는 IP](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-mfasettings)는 [Azure AD Premium 라이선스](https://docs.microsoft.com/azure/active-directory/authentication/concept-mfa-licensing)에서만 구성할 수 있습니다.
 
-## <a name="learn-more"></a>자세한 정보
+## <a name="learn-more"></a>자세히 알아보기
 
 * [Azure AD 인증 설명서](https://docs.microsoft.com/azure/active-directory/authentication/howto-mfaserver-iis)
 * [Azure AD에서 응급 액세스 관리 계정 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/directory-emergency-access)

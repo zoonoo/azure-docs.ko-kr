@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 01/24/2020
-ms.openlocfilehash: 9d484afb1d80ee6b110438cc3ddea1d3d67ad999
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/29/2020
+ms.openlocfilehash: 091ca4d632d89405d85c66e264aff9867979fcd4
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844686"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905240"
 ---
 # <a name="release-notes"></a>릴리스 정보
 
@@ -68,7 +68,7 @@ HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니
 
 ## <a name="known-issues"></a>알려진 문제
 
-2020 년 1 월 24 일에는 Jupyter 노트북을 사용 하려고 할 때 오류가 발생할 수 있는 활성 문제가 있습니다. 아래 단계를 사용 하 여 문제를 해결 하십시오. 최신 정보는이 [MSDN 게시물](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) 또는이 [stackoverflow 게시물](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) 을 참조 하거나 추가 질문을 할 수도 있습니다. 이 페이지는 문제가 해결 될 때 업데이트 됩니다.
+2020 년 1 월 29 일에는 Jupyter 노트북을 사용 하려고 할 때 오류가 발생할 수 있는 활성 문제가 있습니다. 아래 단계를 사용 하 여 문제를 해결 하십시오. 최신 정보는이 [MSDN 게시물](https://social.msdn.microsoft.com/Forums/en-us/8c763fb4-79a9-496f-a75c-44a125e934ac/hdinshight-create-not-create-jupyter-notebook?forum=hdinsight) 또는이 [stackoverflow 게시물](https://stackoverflow.com/questions/59687614/azure-hdinsight-jupyter-notebook-not-working/59831103) 을 참조 하거나 추가 질문을 할 수도 있습니다. 이 페이지는 문제가 해결 될 때 업데이트 됩니다.
 
 **Errors**
 
@@ -77,22 +77,26 @@ HDInsight는 계속 해 서 클러스터 안정성과 성능을 향상 시킵니
 
 **원인** 
 
-클러스터의 py 파일이 4.4. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x. _version
+클러스터의 py 파일이 4.4. x. x. x. x. x. x. x. x. x. x. x. x. x. x. x로 업데이트 되었습니다. _version
 
 **해결 방법**
 
 새 Jupyter 노트북을 만들고 위에 나열 된 오류 중 하나를 수신 하는 경우 다음 단계를 수행 하 여 문제를 해결 합니다.
 
-1. https://CLUSTERNAME.azurehdinsight.net 로 이동 하 여 웹 브라우저에서 Ambari을 엽니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+1. `https://CLUSTERNAME.azurehdinsight.net`로 이동 하 여 웹 브라우저에서 Ambari을 엽니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
 1. Ambari의 왼쪽 메뉴에서 **Jupyter**를 클릭 한 다음 **서비스 작업**에서 **중지**를 클릭 합니다.
 1. Jupyter 서비스를 실행 하는 클러스터 헤드 노드로 ssh를 실행 합니다.
 1. Sudo 모드에서 다음 _version/usr/bin/anaconda/lib/python2.7/site-packages/nbformat/py 파일을 엽니다.
-1. 기존 항목에는 다음 코드와 유사한 내용이 표시 되어야 합니다. 
+1. Version_info의 값을 확인 합니다.
+1. Version_info 값이로 설정 되어 있으면 다음을 수행 합니다. 
 
     version_info = (5, 0, 3)
 
-    항목을 다음과 같이 수정 합니다. 
+    그런 다음 항목을 다음으로 수정 합니다. 
     
     version_info = (4, 4, 0)
-1. 파일을 저장합니다.
+
+    파일을 저장 합니다. 
+
+    Version_info 이미 (4, 4, 0)로 설정 된 경우에는 Ambari만 다시 시작 해야 하는 경우에는 추가 변경이 필요 하지 않으므로 다음 단계로 계속 진행 합니다.
 1. Ambari로 돌아가서 **서비스 작업**에서 **모두 다시 시작**을 클릭 합니다.

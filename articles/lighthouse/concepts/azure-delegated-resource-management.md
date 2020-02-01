@@ -1,14 +1,14 @@
 ---
 title: Azure 위임 리소스 관리
 description: 관리형 서비스를 통해 서비스 공급자는 Azure Marketplace에서 고객에게 리소스 관리 제품을 판매할 수 있습니다.
-ms.date: 01/17/2020
+ms.date: 01/30/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1fc3d95b1becccc014afeb4621d17770a03e38a4
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 15814b1ca3b1b78de521033836e3614d18fd0c71
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263917"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904308"
 ---
 # <a name="azure-delegated-resource-management"></a>Azure 위임 리소스 관리
 
@@ -44,7 +44,7 @@ Azure 위임 리소스 관리에 고객을 온보딩하는 경우 Azure Portal�
 
 ## <a name="support-for-azure-delegated-resource-management"></a>Azure 위임 리소스 관리에 대한 지원
 
-Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형**에서 **기술**을 선택합니다. 구독을 선택한 다음, **위임된 리소스 관리**(**모니터링 및 관리**)를 선택합니다.
+Azure 위임 리소스 관리와 관련하여 도움이 필요한 경우 Azure Portal에서 지원 요청을 열 수 있습니다. **문제 유형**에서 **기술**을 선택합니다. 구독을 선택한 다음 **Lighthouse** ( **모니터링 & 관리**아래)를 선택 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

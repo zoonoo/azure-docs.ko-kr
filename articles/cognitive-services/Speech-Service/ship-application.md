@@ -3,20 +3,20 @@ title: 음성 SDK-음성 서비스를 사용 하 여 앱 개발
 titleSuffix: Azure Cognitive Services
 description: 지원 되는 플랫폼에서 Speech SDK를 사용 하는 응용 프로그램을 배포 하는 방법을 알아봅니다.
 services: cognitive-services
-author: jhakulin
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.author: jhakulin
+ms.date: 01/30/2020
+ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: f4200a0a43507a335f0e4e59e5a794d2bc4d6142
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 4f75adba27c8173f918fa1afbd44f307d50eb995
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74816558"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902017"
 ---
 # <a name="ship-an-application"></a>애플리케이션 배송
 
@@ -39,7 +39,7 @@ Cognitive Services Speech SDK를 사용 하려면 시스템에서 [Visual Studio
 
 필요한 Speech SDK 파일은 애플리케이션과 동일한 디렉터리에 배포할 수 있습니다. 이렇게 하면 애플리케이션이 라이브러리에 직접 액세스할 수 있습니다. 애플리케이션과 일치하는 올바른 버전(Win32/x64)을 선택해야 합니다.
 
-| name | 함수 |
+| 이름 | 함수 |
 | :--- | :------- |
 | `Microsoft.CognitiveServices.Speech.core.dll`   | 네이티브 및 관리된 배포에 필요한 핵심 SDK |
 | `Microsoft.CognitiveServices.Speech.csharp.dll` | 관리된 배포에 필요                      |

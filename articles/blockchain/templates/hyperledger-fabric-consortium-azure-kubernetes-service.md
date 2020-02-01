@@ -4,12 +4,12 @@ description: Azure Kubernetes Service에서 Hyperledger Fabric consortium 네트
 ms.date: 01/08/2020
 ms.topic: article
 ms.reviewer: v-umha
-ms.openlocfilehash: 59e13b671f68c29271227d481b41562256d66fd6
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 93f78f2c8bc32a2012e5635e0daec10b8c51d167
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289648"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901620"
 ---
 # <a name="hyperledger-fabric-consortium-on-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 hyperledger 패브릭 컨소시엄
 
@@ -466,7 +466,7 @@ npm run queryCC -- -o $ORGNAME -u $USER_IDENTITY -n $CC_NAME -c $CHANNEL -f <que
 
 ```
 
-각각 `<queryFunction>` 및 `<queryFuncArgs>`에서 쿼리 함수 이름 및 쉼표로 구분 된 인수 목록을 전달 합니다. Chaincode를 참조로 `fabcar` 하 여 전 세계 상태 집합의 모든 자동차를 `"queryAllCars"` 하 고 `<queryArgs>' to `"" ' `<queryFunction>` 합니다.
+각각 `<queryFunction>` 및 `<queryFuncArgs>`에서 쿼리 함수 이름 및 쉼표로 구분 된 인수 목록을 전달 합니다. Chaincode를 참조로 `fabcar` 하 여 전 세계 상태 집합의 모든 자동차를 `"queryAllCars"` `<queryFunction>` 하 고 `""`로 `<queryArgs>` 쿼리 합니다.
 
 명령에 전달 된 인수에 대 한 자세한 내용은 명령 도움말을 참조 하세요.
 

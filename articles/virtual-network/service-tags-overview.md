@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 8d5377f7ec8de14f3d7d55bc109f6be731991051
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 1fec2778ce8c839c5bac0c1d74085db0f8b283ce
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775260"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903010"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -43,7 +43,7 @@ ms.locfileid: "76775260"
 | 태그 | 용도 | 인바운드 또는 아웃 바운드를 사용할 수 있나요? | 지역별 일 수 있나요? | Azure 방화벽과 함께 사용할 수 있나요? |
 | --- | -------- |:---:|:---:|:---:|:---:|:---:|:---:|:---:|
 | **ApiManagement** | Azure API Management 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | 예 |
-| **ApplicationInsightsAvailability** | Application Insights 가용성. | 둘 다 | 아닙니다. | 아닙니다. |
+| **ApplicationInsightsAvailability** | Application Insights 가용성. | 인바운드 | 아닙니다. | 아닙니다. |
 | **AppService**    | Azure App Service 이 태그는 웹 앱 프런트 엔드에 대 한 아웃 바운드 보안 규칙에 권장 됩니다. | 아웃바운드 | 예 | 예 |
 | **AppServiceManagement** | App Service Environment 전용 배포에 대 한 관리 트래픽 | 둘 다 | 아닙니다. | 예 |
 | **AzureActiveDirectory** | Azure Active Directory | 아웃바운드 | 아닙니다. | 예 |

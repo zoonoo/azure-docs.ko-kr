@@ -17,12 +17,12 @@ ms.date: 08/08/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f7a025835275169b260dfd1f91b65341b5ba02ff
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: da2d598c7bb6d7b06e57dd497d1e2aebf1b63694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294102"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898895"
 ---
 # <a name="sign-in-activity-report-error-codes"></a>로그인 활동 보고서 오류 코드 
 
@@ -143,6 +143,7 @@ ms.locfileid: "76294102"
 |53002|사용 된 응용 프로그램은 조건부 액세스에 대해 승인 된 응용 프로그램이 아닙니다. 사용자가 액세스 권한을 부여받으려면 사용하도록 승인된 애플리케이션 목록에 있는 애플리케이션 중 하나를 사용해야 합니다.|
 |53003|조건부 액세스 정책으로 인해 액세스가 차단 되었습니다.|
 |53004|사용자는 이 콘텐츠에 액세스하기 전에 다단계 인증 등록 프로세스를 완료해야 합니다. 사용자가 다단계 인증을 등록해야 합니다.|
+|53032|Azure AD ID 보호 정책으로 인해 계정이 차단 되었습니다.|
 |65001|Y 애플리케이션에 대한 액세스 권한이 X 애플리케이션에 없거나 권한이 취소되었습니다. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보내세요. 또는 사용자 또는 관리자가 X ID로 애플리케이션을 사용하는 데 동의하지 않았습니다. Z 리소스에 대한 Y 앱을 대신하여 테넌트 관리자에게 권한 부여 요청을 보내세요.|
 |65004|사용자가 응용 프로그램에 액세스하는 데 동의하지 않았습니다. 사용자가 로그인을 다시 시도하고 응용 프로그램에 동의해야 합니다.|
 |65005|애플리케이션에 필요한 리소스 액세스 목록에 리소스에서 검색 가능한 애플리케이션이 없거나, 클라이언트 애플리케이션에서 필요한 리소스 액세스 목록에 지정되지 않은 리소스에 대한 액세스를 요청했거나, Graph 서비스에서 잘못된 요청 또는 찾을 수 없는 리소스를 반환했습니다. 애플리케이션에서 SAML을 지원하는 경우 잘못된 식별자(엔터티)로 애플리케이션을 구성했을 수 있습니다. 아래 링크를 사용하여 SAML에 대한 해결 방법을 시도해 보세요. [https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav#no-resource-in-requiredresourceaccess-list](https://docs.microsoft.com/azure/active-directory/application-sign-in-problem-federated-sso-gallery?/?WT.mc_id=DMC_AAD_Manage_Apps_Troubleshooting_Nav)|

@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 설정
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 로컬 sfctl 설정을 구성 하기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4920409e0d37a6cbb64e011fd9cd5f08fb39d30c
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b805b7047b00f416664a001f02f311f6b387af19
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639046"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76896266"
 ---
 # <a name="sfctl-settings"></a>sfctl settings
 이 sfctl 인스턴스에 로컬인 설정을 구성합니다.

@@ -2,13 +2,13 @@
 title: Azure Service Fabric에서 지원 되는 클러스터 버전
 description: Service Fabric 팀 블로그의 최신 릴리스에 대 한 링크를 포함 하 여 Azure Service Fabric의 클러스터 버전에 대해 알아봅니다.
 ms.topic: troubleshooting
-ms.date: 11/18/2019
-ms.openlocfilehash: 1d54f4f459b71469c5d10c949d35841572242c07
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.date: 01/28/2020
+ms.openlocfilehash: 80ecf0861f3d740fff6b68b0373f94d0e2845a9d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75639006"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76903486"
 ---
 # <a name="supported-service-fabric-versions"></a>지원되는 Service Fabric 버전
 
@@ -30,7 +30,7 @@ ms.locfileid: "75639006"
 | 5.4.* | 5.1.158.* |버전 2.4보다 작거나 같음 |2017년 5월 10일       |
 | 5.5.* | 5.4.164.* |버전 2.5보다 작거나 같음 |2017년 8월 10일    |
 | 5.6.* | 5.4.164.* |버전 2.6보다 작거나 같음 |2017년 10월 13일   |
-| 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017년 12월 15일  |
+| 5.7.* | 5.4.164.* |버전 2.7보다 작거나 같음 |2017 년 12 월 15 일  |
 | 6.0.* | 5.6.205.* |버전 2.8보다 작거나 같음 |2018 년 3 월 30 일     |
 | 6.1.* | 5.7.221.* |버전 3.0보다 작거나 같음 |2018년 7월 15일      |
 | 6.2.* | 6.0.232.* |버전 3.1보다 작거나 같음 |2018 년 10 월 26 일   |
@@ -100,3 +100,4 @@ ms.locfileid: "75639006"
 | 6.5 CU3 | 6.5.664.9590 | 6.5.466.1 |
 | 6.5 CU5 | 6.5.676.9590 | 6.5.467.1 |
 | 7.0 RTO | 7.0.457.9590 | 7.0.457.1 |
+| 7.0 CU2 | 7.0.464.9590 | 7.0.464.1 |

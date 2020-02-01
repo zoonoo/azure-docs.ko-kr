@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 08/12/2019
+ms.date: 01/30/2020
 ms.author: akjosh
-ms.openlocfilehash: 072e30baa4ebb976a662019e5213f7eb26808a93
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 604be42ec74f75e3aa9c790092ed83aee4ad25e1
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969956"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76907017"
 ---
 # <a name="azure-monitor-virtual-machine-extension-for-windows"></a>Windows 용 가상 머신 확장 Azure Monitor
 
@@ -38,6 +38,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 
 | Windows 에이전트 번들 버전 Log Analytics | Azure Monitor Windows VM 확장 버전 | 출시 날짜 | 릴리스 정보 |
 |--------------------------------|--------------------------|--------------------------|--------------------------|
+| 10.20.18018 | 1.0.18018 | 2019년 10월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li></ul> |
 | 10.20.18011 | 1.0.18011 | 2019년 7월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> MaxExpressionDepth를 1만으로 증가 </li></ul> |
 | 10.20.18001 | 1.0.18001 | 2019년 6월 | <ul><li> 사소한 버그 수정 및 안정화 기능 향상 </li><li> 프록시 연결을 만들 때 기본 자격 증명을 사용 하지 않도록 설정 하는 기능 추가 (WINHTTP_AUTOLOGON_SECURITY_LEVEL_HIGH 지원) </li></ul>|
 | 10.19.13515 | 1.0.13515 | 2019년 3월 | <ul><li>사소한 안정화 픽스 </li></ul> |
@@ -46,7 +47,7 @@ Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터
 | 8.0.11103 | n/a |  2018년 4월 | |
 | 8.0.11081 | 1.0.11081 | 11 월 2017 | | 
 | 8.0.11072 | 1.0.11072 | 9 월 2017 | |
-| 8.0.11049 | 1.0.11049 | 2017년 2월 | |
+| 8.0.11049 | 1.0.11049 | 2 월 2017 | |
 
 ### <a name="azure-security-center"></a>Azure Security Center
 

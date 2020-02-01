@@ -1,17 +1,17 @@
 ---
 title: Azure 앱 구성 복원 력 및 재해 복구
 description: Azure 앱 구성을 사용 하 여 복원 력 및 재해 복구를 구현 하는 방법에 대해 설명 합니다.
-author: yegu-ms
-ms.author: yegu
+author: lisaguthrie
+ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
 ms.date: 05/29/2019
-ms.openlocfilehash: cd706e42eff19ebacf92b77d2438af80dc16a5fb
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028234"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899645"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3(sp3)](#tab/core3x)
+#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>

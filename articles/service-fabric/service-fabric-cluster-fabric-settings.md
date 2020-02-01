@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: ba98d4d30d14cb3a1981652fc0b86354923a8851
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772128"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905192"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -89,6 +89,7 @@ ms.locfileid: "75772128"
 |TargetReplicaSetSize |int, 기본값: 7 |허용되지 않음|ClusterManager의 TargetReplicaSetSize입니다. |
 |UpgradeHealthCheckInterval |시간(초), 기본값: 60 |동적|모니터링되는 애플리케이션 업그레이드 동안 시스템 상태 확인 빈도 |
 |UpgradeStatusPollInterval |시간(초), 기본값: 60 |동적|애플리케이션 업그레이드 상태에 대한 풀링 간격. 이 값은 GetApplicationUpgradeProgress 호출에 대한 업데이트 속도를 결정합니다. |
+|CompleteClientRequest | bool, 기본값: false |동적| CM에서 수락 하는 경우 클라이언트 요청을 완료 합니다. |
 
 ## <a name="common"></a>일반
 
@@ -568,6 +569,8 @@ ms.locfileid: "75772128"
 |ValidatePlacementConstraint | bool, 기본값: true |동적| 서비스의 ServiceDescription을 업데이트할 때 서비스에 대한 PlacementConstraint 식의 유효성을 검사할지 여부를 지정합니다. |
 |ValidatePrimaryPlacementConstraintOnPromote| Bool, 기본값: TRUE |동적|장애 조치 (failover) 시 기본 기본 설정에 대해 서비스에 대 한 배치 Ementconstraint 식이 평가 되는지 여부를 지정 합니다. |
 |VerboseHealthReportLimit | int, 기본값: 20 | 동적|상태 경고를 보고하기 전에 복제본이 배치되지 않아야 하는 횟수를 정의합니다(자세한 상태 보고를 사용하도록 설정한 경우). |
+|NodeLoadsOperationalTracingEnabled | bool, 기본값: true |동적|이벤트 저장소에서 노드 로드 작업 구조 추적을 사용 하도록 설정 하는 구성입니다. |
+|NodeLoadsOperationalTracingInterval | TimeSpan, 기본값: Common:: TimeSpan:: FromSeconds (20) | 동적|시간 간격은 초 단위로 지정합니다. 각 서비스 도메인의 이벤트 저장소에 대 한 추적 노드 로드 간격입니다. |
 
 ## <a name="reconfigurationagent"></a>ReconfigurationAgent
 

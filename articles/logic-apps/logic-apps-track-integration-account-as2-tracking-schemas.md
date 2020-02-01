@@ -1,38 +1,38 @@
 ---
 title: B2B 메시지에 대 한 AS2 추적 스키마
-description: 엔터프라이즈 통합 팩을 사용하여 Azure Logic Apps 통합 계정에서 B2B 메시지를 모니터링하는 AS2 추적 스키마 만들기
+description: Azure Logic Apps에서 AS2 메시지를 모니터링 하는 추적 스키마 만들기
 services: logic-apps
 ms.suite: integration
 author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 01/27/2017
-ms.openlocfilehash: 515d7cfc985ee9929f70de2c862170ff79ae4d60
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.date: 01/01/2020
+ms.openlocfilehash: bccf69362279afd9e8148b20b61ff3ea9b472a03
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792814"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906964"
 ---
-# <a name="create-schemas-for-tracking-as2-messages-and-mdns-in-integration-accounts-for-azure-logic-apps"></a>Azure Logic Apps 통합 계정에서 AS2 메시지 및 MDN을 추적하는 스키마 만들기
+# <a name="create-schemas-for-tracking-as2-messages-in-azure-logic-apps"></a>Azure Logic Apps에서 AS2 메시지를 추적 하기 위한 스키마 만들기
 
 기업 간(B2B) 트랜잭션의 성공, 오류 및 메시지 속성을 모니터링하려면 통합 계정에 AS2 추적 스키마를 사용하면 됩니다.
 
 * AS2 메시지 추적 스키마
-* AS2 MDN 추적 스키마
+* AS2 MDN (메시지 처리 알림) 추적 스키마
 
 ## <a name="as2-message-tracking-schema"></a>AS2 메시지 추적 스키마
 
 ```json
 {
-   "agreementProperties": {  
-      "senderPartnerName": "",  
-      "receiverPartnerName": "",  
-      "as2To": "",  
-      "as2From": "",  
-      "agreementName": ""  
-   },  
+   "agreementProperties": {
+      "senderPartnerName": "",
+      "receiverPartnerName": "",
+      "as2To": "",
+      "as2From": "",
+      "agreementName": ""
+   },
    "messageProperties": {
       "direction": "",
       "messageId": "",
@@ -43,10 +43,8 @@ ms.locfileid: "74792814"
       "isMessageEncrypted": "",
       "isMessageCompressed": "",
       "correlationMessageId": "",
-      "incomingHeaders": {
-       },
-      "outgoingHeaders": {
-       },
+      "incomingHeaders": {},
+      "outgoingHeaders": {},
       "isNrrEnabled": "",
       "isMdnExpected": "",
       "mdnType": ""
@@ -54,28 +52,28 @@ ms.locfileid: "74792814"
 }
 ```
 
-| 자산 | Type | 설명 |
-| --- | --- | --- |
-| senderPartnerName | string | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
-| receiverPartnerName | string | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |
-| as2To | string | AS2 메시지의 헤더에서 AS2 메시지 받는 사람의 이름입니다. (필수) |
-| as2From | string | AS2 메시지의 헤더에서 AS2 메시지 보낸 사람의 이름입니다. (필수) |
-| agreementName | string | 메시지가 확인되는 AS2 규약의 이름입니다. (선택 사항) |
-| direction | string | 메시지 흐름, 수신 또는 송신 방향 (필수) |
-| messageId | string | AS2 메시지의 헤더에서 AS2 메시지 ID입니다. 선택 사항입니다. |
-| dispositionType |string | MDN(메시지 처리 알림) 처리 유형 값입니다. (선택 사항) |
-| fileName | string | AS2 메시지의 헤더에서 파일 이름입니다. (선택 사항) |
-| isMessageFailed |Boolean | AS2 메시지의 실패 여부입니다. (필수) |
-| isMessageSigned | Boolean | AS2 메시지의 서명 여부입니다. (필수) |
-| isMessageEncrypted | Boolean | AS2 메시지의 암호화 여부입니다. (필수) |
-| isMessageCompressed |Boolean | AS2 메시지의 압축 여부입니다. (필수) |
-| correlationMessageId | string | MDN과 메시지를 상호 연관 짓기 위한 AS2 메시지 ID입니다. (선택 사항) |
-| incomingHeaders |JToken의 사전 | 들어오는 AS2 메시지 헤더 세부 정보입니다. (선택 사항) |
-| outgoingHeaders |JToken의 사전 | 보내는 AS2 메시지 헤더 세부 정보입니다. (선택 사항) |
-| isNrrEnabled | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. (필수) |
-| isMdnExpected | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. (필수) |
-| mdnType | 열거형 | 허용되는 값은 **NotConfigured**, **Sync** 또는 **Async**입니다. (필수) |
-||||
+| 속성 | 필수 | 유형 | Description |
+|----------|----------|------|-------------|
+| senderPartnerName | 아닙니다. | String | AS2 메시지 보낸 사람의 파트너 이름 |
+| receiverPartnerName | 아닙니다. | String | AS2 메시지 받는 사람의 파트너 이름 |
+| as2To | 예 | String | AS2 메시지의 헤더에서 AS2 메시지 받는 사람 이름 |
+| as2From | 예 | String | As2 메시지의 헤더에서 보내는 AS2 메시지의 이름입니다. |
+| agreementName | 아닙니다. | String | 메시지가 확인되는 AS2 규약의 이름 |
+| direction | 예 | String | 메시지 흐름의 방향으로, `receive` 또는 `send` |
+| messageId | 아닙니다. | String | AS2 메시지 헤더의 AS2 메시지 ID입니다. |
+| dispositionType | 아닙니다. | String | MDN (메시지 처리 알림) 처리 유형 값 |
+| fileName | 아닙니다. | String | AS2 메시지 헤더의 파일 이름입니다. |
+| isMessageFailed | 예 | 부울 | AS2 메시지의 실패 여부 |
+| isMessageSigned | 예 | 부울 | AS2 메시지의 서명 여부 |
+| isMessageEncrypted | 예 | 부울 | AS2 메시지의 암호화 여부 |
+| isMessageCompressed | 예 | 부울 | AS2 메시지의 압축 여부 |
+| correlationMessageId | 아닙니다. | String | Mdn와 메시지를 상호 연결 하는 AS2 메시지 ID |
+| incomingHeaders | 아닙니다. | JToken의 사전 | 들어오는 AS2 메시지 헤더 세부 정보 |
+| outgoingHeaders | 아닙니다. | JToken의 사전 | 보내는 AS2 메시지 헤더 세부 정보 |
+| isNrrEnabled | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
+| isMdnExpected | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
+| mdnType | 예 | 열거형 | 허용 되는 값: `NotConfigured`, `Sync`및 `Async` |
+|||||
 
 ## <a name="as2-mdn-tracking-schema"></a>AS2 MDN 추적 스키마
 
@@ -86,7 +84,7 @@ ms.locfileid: "74792814"
       "receiverPartnerName": "",
       "as2To": "",
       "as2From": "",
-      "agreementName": "g"
+      "agreementName": ""
    },
    "messageProperties": {
       "direction": "",
@@ -107,26 +105,26 @@ ms.locfileid: "74792814"
 }
 ```
 
-| 자산 | Type | 설명 |
-| --- | --- | --- |
-| senderPartnerName | string | AS2 메시지 보낸 사람의 파트너 이름입니다. (선택 사항) |
-| receiverPartnerName | string | AS2 메시지 받는 사람의 파트너 이름입니다. (선택 사항) |
-| as2To | string | AS2 메시지를 받는 파트너 이름입니다. (필수) |
-| as2From | string | AS2 메시지를 보내는 파트너 이름입니다. (필수) |
-| agreementName | string | 메시지가 확인되는 AS2 규약의 이름입니다. (선택 사항) |
-| direction |string | 메시지 흐름, 수신 또는 송신 방향 (필수) |
-| messageId | string | AS2 메시지 ID입니다. (선택 사항) |
-| OriginalMessageId |string | AS2 원래 메시지 ID입니다. (선택 사항) |
-| dispositionType | string | MDN 처리 유형 값입니다. (선택 사항) |
-| isMessageFailed |Boolean | AS2 메시지의 실패 여부입니다. (필수) |
-| isMessageSigned |Boolean | AS2 메시지의 서명 여부입니다. (필수) |
-| isNrrEnabled | Boolean | 값을 알 수 없는 경우 기본값을 사용합니다. (필수) |
-| statusCode | 열거형 | 허용되는 값은 **Accepted**, **Rejected** 및 **AcceptedWithErrors**입니다. (필수) |
-| micVerificationStatus | 열거형 | 허용되는 값은 **NotApplicable**, **Succeeded** 또는 **Failed**입니다. (필수) |
-| correlationMessageId | string | 상관 관계 ID입니다. 원래 메시지 ID(MDN이 구성된 메시지의 메시지 ID)입니다. (선택 사항) |
-| incomingHeaders | JToken의 사전 | 들어오는 메시지 헤더 세부 정보를 나타냅니다. (선택 사항) |
-| outgoingHeaders |JToken의 사전 | 보내는 메시지 헤더 세부 정보를 나타냅니다. (선택 사항) |
-||||
+| 속성 | 필수 | 유형 | Description |
+|----------|----------|------|-------------|
+| senderPartnerName | 아닙니다. | String | AS2 메시지 보낸 사람의 파트너 이름 |
+| receiverPartnerName | 아닙니다. | String | AS2 메시지 받는 사람의 파트너 이름 |
+| as2To | 예 | String | AS2 메시지를 받는 파트너 이름 |
+| as2From | 예 | String | AS2 메시지를 보내는 파트너 이름 |
+| agreementName | 아닙니다. | String | 메시지가 확인되는 AS2 규약의 이름 |
+| direction | 예 | String | 메시지 흐름의 방향으로, `receive` 또는 `send` |
+| messageId | 아닙니다. | String | AS2 메시지 ID |
+| OriginalMessageId | 아닙니다. | String | AS2 원래 메시지 ID |
+| dispositionType | 아닙니다. | String | MDN 처리 유형 값 |
+| isMessageFailed | 예 | 부울 | AS2 메시지의 실패 여부 |
+| isMessageSigned | 예 | 부울 | AS2 메시지의 서명 여부 |
+| isNrrEnabled | 예 | 부울 | 값을 알 수 없는 경우 기본값을 사용할지 여부입니다. |
+| statusCode | 예 | 열거형 | 허용 되는 값: `Accepted`, `Rejected`및 `AcceptedWithErrors` |
+| micVerificationStatus | 예 | 열거형 | 허용 되는 값:`NotApplicable`, `Succeeded`및 `Failed` |
+| correlationMessageId | 아닙니다. | String | MDN이 구성 된 원본 메시지의 ID 인 상관 관계 ID |
+| incomingHeaders | 아닙니다. | JToken의 사전 | 들어오는 메시지 헤더 정보 |
+| outgoingHeaders | 아닙니다. | JToken의 사전 | 보내는 메시지 헤더 정보 |
+|||||
 
 ## <a name="b2b-protocol-tracking-schemas"></a>B2B 프로토콜 추적 스키마
 
@@ -137,5 +135,4 @@ ms.locfileid: "74792814"
 
 ## <a name="next-steps"></a>다음 단계
 
-* [B2B 메시지 모니터링](logic-apps-monitor-b2b-message.md)에 대해 알아봅니다.
-* [Azure Monitor 로그에서 B2B 메시지 추적](../logic-apps/logic-apps-track-b2b-messages-omsportal.md) 에 대해 알아봅니다.
+* [Azure Monitor 로그를 사용 하 여 B2B 메시지 모니터링](../logic-apps/monitor-b2b-messages-log-analytics.md)

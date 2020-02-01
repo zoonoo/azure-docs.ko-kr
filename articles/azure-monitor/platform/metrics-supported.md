@@ -8,12 +8,12 @@ ms.topic: reference
 ms.date: 12/18/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 475e91957ab94538d07112ba808edd7c7d08f59e
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 0210317ef74433b740feb043a1cc4f1f9bc2ef57
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310784"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901159"
 ---
 # <a name="supported-metrics-with-azure-monitor"></a>Azure Monitor에서 지원되는 메트릭
 
@@ -993,7 +993,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |---|---|---|---|---|---|
 |TransactionCount|트랜잭션 수|카운트|카운트|총 트랜잭션 수|TransactionCount|
 |SuccessCount|성공 수|카운트|카운트|성공한 트랜잭션 수|SuccessCount|
-|FailureCount|실패한 수|카운트|카운트|실패 한 트랜잭션 수|FailureCount|
+|FailureCount|실패 수|카운트|카운트|실패 한 트랜잭션 수|FailureCount|
 |SuccessLatency|성공 대기 시간|밀리초|평균|성공한 트랜잭션 대기 시간|SuccessCount|
 
 ## <a name="microsofteventgriddomains"></a>Microsoft.EventGrid/domains
@@ -1460,7 +1460,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |FailedRequests|실패한 요청|카운트|합계|Application Gateway가 제공하는 실패한 요청 수|BackendSettingsPool|
 |ResponseStatus|응답 상태|카운트|합계|Application Gateway에서 반환된 HTTP 응답 상태|HttpStatusGroup|
 |CurrentConnections|현재 연결|카운트|합계|Application Gateway와 설정된 현재 연결 수|없음|
-|CpuUtilization|CPU Utilization|백분율|평균|Application Gateway의 현재 CPU 사용률|없음|
+|CpuUtilization|CPU 사용률|백분율|평균|Application Gateway의 현재 CPU 사용률|없음|
 |CapacityUnits|현재 용량 단위|카운트|평균|소비 된 용량 단위|없음|
 |이상|현재 계산 단위|카운트|평균|소비 된 계산 단위|없음|
 |BackendResponseStatus|백 엔드 응답 상태|카운트|합계|백 엔드 멤버에 의해 생성 된 HTTP 응답 코드의 수입니다. Application Gateway에서 생성 된 응답 코드는 여기에 포함 되지 않습니다.|BackendServer, BackendPool, BackendHttpSetting, HttpStatusGroup|
@@ -1534,8 +1534,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 
 |메트릭|메트릭 표시 이름|단위|집계 형식|Description|차원|
 |---|---|---|---|---|---|
-|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|연결 이름|
-|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|연결 이름|
+|ErGatewayConnectionBitsInPerSecond|BitsInPerSecond|초당 개수|평균|초당 Azure 수신 비트|ConnectionName|
+|ErGatewayConnectionBitsOutPerSecond|BitsOutPerSecond|초당 개수|평균|초당 Azure 송신 비트|ConnectionName|
 
 ## <a name="microsoftnetworktrafficmanagerprofiles"></a>Microsoft.Network/trafficManagerProfiles
 
@@ -1851,8 +1851,8 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |dwu_used|DWU 사용됨|카운트|최대|DWU를 사용 했습니다. 데이터 웨어하우스에만 적용 됩니다.|없음|
 |cache_hit_percent|캐시 적중 비율|백분율|최대|캐시 적중 비율입니다. 데이터 웨어하우스에만 적용 됩니다.|없음|
 |cache_used_percent|캐시 사용 비율|백분율|최대|캐시 사용 백분율입니다. 데이터 웨어하우스에만 적용 됩니다.|없음|
-|sqlserver_process_core_percent|SQL Server 프로세스 코어 백분율|백분율|최대|SQL DB 프로세스의 백분율로 나타낸 CPU 사용량입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|없음|
-|sqlserver_process_memory_percent|SQL Server 프로세스 메모리 비율|백분율|최대|SQL DB 프로세스의 백분율로 나타낸 메모리 사용량입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|없음|
+|sqlserver_process_core_percent|SQL Server 프로세스 코어 백분율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 CPU 사용량 백분율입니다. 현재 서버 리스 데이터베이스에 대해서만 사용할 수 있습니다.|없음|
+|sqlserver_process_memory_percent|SQL Server 프로세스 메모리 비율|백분율|최대|운영 체제에 따라 측정 되는 SQL Server 프로세스의 메모리 사용량 백분율입니다. 현재 서버 리스 데이터베이스에 대해서만 사용할 수 있습니다.|없음|
 |tempdb_data_size|Tempdb 데이터 파일 크기 (Kb)|카운트|최대|Tempdb 데이터 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|없음|
 |tempdb_log_size|Tempdb 로그 파일 크기 (Kb)|카운트|최대|Tempdb 로그 파일 크기 (Kb)입니다. 데이터 웨어하우스에는 적용 되지 않습니다.|없음|
 |tempdb_log_used_percent|Tempdb 백분율 로그가 사용 됨|백분율|최대|Tempdb 백분율 로그가 사용 되었습니다. 데이터 웨어하우스에는 적용 되지 않습니다.|없음|
@@ -1885,7 +1885,7 @@ Azure Monitor에서는 포털에서의 차트 작성, REST API를 통한 액세�
 |sessions_percent|세션 백분율|백분율|평균|세션 백분율|없음|
 |database_sessions_percent|세션 백분율|백분율|평균|세션 백분율|DatabaseResourceId|
 |eDTU_limit|eDTU 제한|카운트|평균|eDTU 제한. DTU 기반 탄력적 풀에 적용 됩니다.|없음|
-|storage_limit|데이터의 최대 크기|바이트|평균|데이터의 최대 크기|없음|
+|storage_limit|데이터 최대 크기|바이트|평균|데이터 최대 크기|없음|
 |eDTU_used|eDTU 사용|카운트|평균|eDTU를 사용 했습니다. DTU 기반 탄력적 풀에 적용 됩니다.|없음|
 |database_eDTU_used|eDTU 사용|카운트|평균|eDTU 사용|DatabaseResourceId|
 |storage_used|사용 되는 데이터 공간|바이트|평균|사용 되는 데이터 공간|없음|

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 934c99c25ca37526ac31fd9bbaf58623fdbdf166
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76764395"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905610"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
 
@@ -45,6 +45,10 @@ Azure HDInsight에서 관리 id는 클러스터의 각 노드에 프로 비전 �
 * [Azure Data Lake Storage Gen2](hdinsight-hadoop-use-data-lake-storage-gen2.md#create-a-user-assigned-managed-identity)
 * [Enterprise Security Package](domain-joined/apache-domain-joined-configure-using-azure-adds.md#create-and-authorize-a-managed-identity)
 * [Kafka Bring Your Own Key (BYOK)](kafka/apache-kafka-byok.md#get-started-with-byok)
+
+## <a name="faq"></a>FAQ
+### <a name="what-happens-if-i-delete-the-managed-identity-after-the-cluster-creation"></a>클러스터를 만든 후에 관리 되는 id를 삭제 하면 어떻게 되나요?
+관리 id가 필요할 때 클러스터는 문제가 발생 합니다. 현재 클러스터를 만든 후에 관리 제거할 id를 업데이트 하거나 변경할 수 있는 방법은 없습니다. 따라서 클러스터 런타임 중에 관리 id가 삭제 되지 않도록 하는 것이 좋습니다. 또는 클러스터를 다시 만들고 새 관리 id를 할당할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

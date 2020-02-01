@@ -1,6 +1,6 @@
 ---
-title: Plan an Azure Active Directory Access Panel deployment
-description: Guidance on deploying the Azure Active Directory Access Panel
+title: Azure Active Directory 액세스 패널 배포 계획
+description: Azure Active Directory 액세스 패널 배포에 대 한 지침
 services: active-directory
 author: barbaraselden
 manager: CelesteDG
@@ -15,84 +15,84 @@ ms.date: 09/27/2019
 ms.author: baselden
 ms.reviewer: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5e9b2119964ec2af792e2f2a5b942fde12cf7eab
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 04d8b6c6d40aa81bf56baed59f90417f2147fa56
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512854"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897065"
 ---
-# <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Plan an Azure Active Directory Access Panel deployment
+# <a name="plan-an-azure-active-directory-access-panel-deployment"></a>Azure Active Directory 액세스 패널 배포 계획
 
-The Azure Active Directory (Azure AD) Access Panel is a web-based portal that helps lower support costs, increase productivity and security, and reduce user frustration. The system includes detailed reporting that tracks when you access the system and notifies administrators of misuse or abuse.
+Azure AD (Azure Active Directory) 액세스 패널은 지원 비용을 절감 하 고, 생산성과 보안을 높이고, 사용자의 불만을 줄이는 데 도움이 되는 웹 기반 포털입니다. 시스템에는 시스템에 액세스할 때 추적 하는 상세 보고가 포함 되며 관리자에 게 오용 또는 남용 알림이 포함 됩니다.
 
-By using the Azure AD Access Panel, you can:
+Azure AD 액세스 패널을 사용 하 여 다음을 수행할 수 있습니다.
 
-* Discover and access all of their company’s Azure AD-connected resources, such as applications
-* Request access to new apps and groups
-* Manage access to these resources for others
-* Manage self-service password resets and Azure Multi-Factor Authentication settings
-* Manage their devices
+* 모든 회사의 Azure AD 연결 리소스 (예: 응용 프로그램)를 검색 하 고 액세스 합니다.
+* 새 앱 및 그룹에 대 한 액세스 요청
+* 다른 사용자를 위해 이러한 리소스에 대 한 액세스 관리
+* 셀프 서비스 암호 재설정 및 Azure Multi-Factor Authentication 설정 관리
+* 장치 관리
 
-It also allows administrators to manage:
+또한 관리자는 다음을 관리할 수 있습니다.
 
 * 서비스 약관
 * 조직
 * 액세스 검토
 
 
-## <a name="benefits-of-azure-ad-access-panel-integration"></a>Benefits of Azure AD Access Panel integration
+## <a name="benefits-of-azure-ad-access-panel-integration"></a>Azure AD 액세스 패널 통합의 이점
 
-The Azure AD Access Panel benefits businesses in the following ways:
+Azure AD 액세스 패널은 다음과 같은 방법으로 비즈니스를 활용 합니다.
 
-**Provides intuitive user experience**: The Access Panel provides you with a single platform for all of your Azure single sign-on (SSO)-connected applications. You have a unified portal to find existing settings and new capabilities, like group management and self-service password reset, as they're added. The intuitive experience allows users to return to work faster and be more productive, while reducing their frustration.
+**직관적인 사용자 환경 제공**: 액세스 패널에서는 모든 SSO (Azure Single Sign-On) 연결 응용 프로그램에 대 한 단일 플랫폼을 제공 합니다. 추가 된 그룹 관리 및 셀프 서비스 암호 재설정과 같은 기존 설정 및 새로운 기능을 찾을 수 있는 통합 포털이 있습니다. 직관적인 환경을 사용 하면 사용자가 더 빨리 작업 하 고 생산성을 높일 수 있을 뿐 아니라 사용자의 불만을 줄일 수 있습니다.
 
-**Increases productivity**: All user applications in the Access Panel have SSO enabled. Enabling SSO across enterprise applications and Office 365 creates a superior sign-in experience by reducing or eliminating additional sign-in prompts. The Access Panel uses self-service and dynamic membership and improves the overall security of your identity system. It does this by ensuring that the right people manage access to the applications. The Access Panel serves as a coherent landing page for you to quickly find resources and continue work tasks.
+**생산성 향상**: 액세스 패널의 모든 사용자 응용 프로그램에서 SSO를 사용 하도록 설정 합니다. 엔터프라이즈 응용 프로그램 및 Office 365에서 SSO를 사용 하도록 설정 하면 추가 로그인 프롬프트를 줄이거나 제거 하 여 뛰어난 로그인 환경을 만들 수 있습니다. 액세스 패널에서는 셀프 서비스와 동적 구성원 자격을 사용 하 고 id 시스템의 전반적인 보안을 향상 시킵니다. 이를 위해 적절 한 사용자가 응용 프로그램에 대 한 액세스를 관리할 수 있도록 합니다. 액세스 패널은 리소스를 빠르게 찾고 작업을 계속할 수 있는 일관 된 방문 페이지로 사용 됩니다.
 
-**Manages cost**: Enabling the Access Panel with Azure AD can help with the divestment of on-premises infrastructures. It reduces support costs by providing you with a consistent portal to find all of your apps, request access to resources, and manage accounts.
+**비용 관리**: Azure AD에서 액세스 패널을 사용 하도록 설정 하면 온-프레미스 인프라의 divestment 도움이 될 수 있습니다. 모든 앱을 찾고, 리소스에 대 한 액세스를 요청 하 고, 계정을 관리 하는 일관 된 포털을 제공 하 여 지원 비용을 절감 합니다.
 
-**Increases flexibility and security**: The Access Panel gives you access to the security and flexibility that a cloud platform provides. Administrators can easily change settings to applications and resources and can accommodate new security requirements without affecting users.
+**유연성 및 보안 강화**: 액세스 패널을 통해 클라우드 플랫폼에서 제공 하는 보안과 유연성에 액세스할 수 있습니다. 관리자는 응용 프로그램 및 리소스에 대 한 설정을 쉽게 변경할 수 있으며 사용자에 게 영향을 주지 않고 새로운 보안 요구 사항을 수용할 수 있습니다.
 
-**Enables robust auditing and usage tracking**: Auditing and usage tracking for all user capabilities let you know when users are using their resources and ensures that you can assess security.
+**강력한 감사 및 사용 추적 사용**: 모든 사용자 기능에 대 한 감사 및 사용 추적을 사용 하면 사용자가 자신의 리소스를 사용 하 고 있는지 확인 하 고 보안을 평가할 수 있습니다.
 
-### <a name="licensing-considerations"></a>Licensing considerations
+### <a name="licensing-considerations"></a>라이선스 고려 사항
 
-The Access Panel is free and requires no licenses to use at a basic level. However, the number of objects in your directory and the additional features you want to deploy can require additional licenses. Some common Azure AD scenarios that have licensing requirements include the following security features:
+액세스 패널은 무료 이며 기본 수준에서 사용할 수 있는 라이선스가 필요 하지 않습니다. 그러나 디렉터리의 개체 수와 배포 하려는 추가 기능에는 추가 라이선스가 필요할 수 있습니다. 라이선스 요구 사항이 있는 몇 가지 일반적인 Azure AD 시나리오는 다음과 같은 보안 기능을 포함 합니다.
 
 * [Azure Multi-Factor Authentication](https://docs.microsoft.com/azure/multi-factor-authentication/multi-factor-authentication-how-it-works)
 
-* [Group-based membership](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
+* [그룹 기반 구성원 자격](https://docs.microsoft.com/azure/active-directory/active-directory-manage-groups)
 
 * [셀프 서비스 암호 재설정](https://docs.microsoft.com/azure/active-directory/authentication/quickstart-sspr)
 
 * [Azure Active Directory ID 보호](https://docs.microsoft.com/azure/active-directory/active-directory-identityprotection)
 
-See the [full licensing guide for Azure AD](https://azure.microsoft.com/pricing/details/active-directory/).
+[AZURE AD에 대 한 전체 라이선스 가이드](https://azure.microsoft.com/pricing/details/active-directory/)를 참조 하세요.
 
-### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Prerequisites for deploying the Azure AD Access Panel
+### <a name="prerequisites-for-deploying-the-azure-ad-access-panel"></a>Azure AD 액세스 패널 배포를 위한 필수 구성 요소
 
-Complete the following prerequisites before you begin this project:
+이 프로젝트를 시작 하기 전에 다음 필수 구성 요소를 완료 하십시오.
 
-* [Integrate application SSO](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
+* [응용 프로그램 SSO 통합](https://docs.microsoft.com/azure/active-directory/manage-apps/plan-sso-deployment)
 
-* [Manage Azure AD user and group infrastructure](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
+* [Azure AD 사용자 및 그룹 인프라 관리](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-manage-groups)
 
-## <a name="plan-the-azure-ad-access-panel-deployment"></a>Plan the Azure AD Access Panel deployment
+## <a name="plan-the-azure-ad-access-panel-deployment"></a>Azure AD 액세스 패널 배포 계획
 
-The following table outlines the key use cases for an Access Panel deployment:
+다음 표에서는 액세스 패널 배포에 대 한 주요 사용 사례를 간략하게 설명 합니다.
 
 | 영역| Description |
 | - | - |
-| 액세스| Access Panel portal is accessible from corporate and personal devices within the corporate network. |
-|액세스 | Access Panel portal is accessible from corporate devices outside of the corporate network. |
-| 감사| Usage data is downloaded into corporate systems at least every 29 days. |
-| 거버넌스| Life cycle of the user assignments to Azure AD-connected applications and groups is defined and monitored. |
-| 보안| Access to resources is controlled via user and group assignments. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |
+| 액세스| 액세스 패널 포털은 회사 네트워크 내의 회사 및 개인 장치에서 액세스할 수 있습니다. |
+|액세스 | 액세스 패널 포털은 회사 네트워크 외부의 회사 장치에서 액세스할 수 있습니다. |
+| 감사| 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 됩니다. |
+| 거버넌스| Azure AD에 연결 된 응용 프로그램 및 그룹에 대 한 사용자 할당의 수명 주기는 정의 되 고 모니터링 됩니다. |
+| 보안| 리소스에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. 권한 있는 사용자만 리소스 액세스를 관리할 수 있습니다. |
 | 성능 중심| 액세스 할당 전파 타임 라인은 문서화 및 모니터링 됩니다. |
-| 설치 환경| 사용자는 액세스 패널 기능과이 기능을 사용 하는 방법을 알고 있습니다.|
-| 설치 환경| 사용자는 응용 프로그램 및 그룹에 대 한 액세스를 관리할 수 있습니다.|
-| 설치 환경| 사용자는 자신의 계정을 관리할 수 있습니다. |
-| 설치 환경| 사용자는 브라우저 호환성을 인식 합니다. |
+| 사용자 환경| 사용자는 액세스 패널 기능과이 기능을 사용 하는 방법을 알고 있습니다.|
+| 사용자 환경| 사용자는 응용 프로그램 및 그룹에 대 한 액세스를 관리할 수 있습니다.|
+| 사용자 환경| 사용자는 자신의 계정을 관리할 수 있습니다. |
+| 사용자 환경| 사용자는 브라우저 호환성을 인식 합니다. |
 | 지원| 사용자는 액세스 패널 문제에 대 한 지원을 찾을 수 있습니다. |
 
 ### <a name="best-practices-for-deploying-the-azure-ad-access-panel"></a>Azure AD 액세스 패널 배포에 대 한 모범 사례
@@ -227,9 +227,9 @@ SaaS 응용 프로그램을 배포 하 고 구성 하는 방법에 대 한 자�
 
 모든 Azure AD SSO 사용 응용 프로그램을 My Apps 시작 관리자에 추가할 수 있습니다. 다른 응용 프로그램은 연결 된 SSO 옵션을 사용 하 여 추가 됩니다. 기존 웹 응용 프로그램의 URL에 연결 되는 응용 프로그램 타일을 구성할 수 있습니다. 연결 된 SSO를 사용 하면 모든 응용 프로그램을 Azure AD SSO로 마이그레이션하지 않고도 My Apps 포털로 사용자의 연결을 시작할 수 있습니다. 사용자 환경을 방해 하지 않고 Azure AD SSO 구성 응용 프로그램으로 점진적으로 이동할 수 있습니다.
 
-#### <a name="use-my-apps-workspaces-preview"></a>내 앱 작업 영역 사용 (미리 보기)
+#### <a name="use-my-apps-collections"></a>내 앱 컬렉션 사용
 
-기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 작업 영역을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 제공 하 여 쉽게 찾을 수 있습니다. 예를 들어 작업 영역을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 작업 영역을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법 (미리 보기)](access-panel-workspaces.md)을 참조 하세요. 
+기본적으로 모든 응용 프로그램은 단일 페이지에 함께 나열 됩니다. 그러나 컬렉션을 사용 하 여 관련 응용 프로그램을 함께 그룹화 하 고 별도의 탭에 표시 하 여 쉽게 찾을 수 있습니다. 예를 들어 컬렉션을 사용 하 여 특정 작업 역할, 작업, 프로젝트 등에 대해 응용 프로그램의 논리적 그룹을 만들 수 있습니다. 자세한 내용은 [My Apps 컬렉션을 사용 하 여 사용자 액세스 패널을 사용자 지정 하는 방법](access-panel-collections.md)을 참조 하세요. 
 
 #### <a name="plan-whether-to-use-my-apps-or-an-existing-portal"></a>내 앱 또는 기존 포털의 사용 여부 계획
 
@@ -340,7 +340,7 @@ Azure Active Directory 내에서 필요한 작업을 수행 하려면 최소 권
 | - | -| -|
 | 기술 지원팀 관리자| 계층 1 지원| 없음 |
 | Id 관리| 문제가 Azure AD에 영향을 주는 경우 구성 및 디버그| 글로벌 관리자 |
-| 애플리케이션 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
+| 응용 프로그램 관리자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 | 인프라 관리자| 인증서 롤오버 소유자| 글로벌 관리자 |
 | 비즈니스 소유자/관련자| 응용 프로그램의 사용자 증명, 권한이 있는 사용자의 구성| 없음 |
 

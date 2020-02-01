@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/13/2017
-ms.openlocfilehash: 433d53e09fce6d3f6b2010956da91c4b7cf91d49
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 111fab880887b54b2415d433bda2368c951381bd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770172"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901223"
 ---
 # <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
 Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
@@ -201,7 +201,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 ## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Cloud Services 애플리케이션과 진단 구성 배포 및 업데이트
 Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx**입니다.  
 
-이 시점에서 Visual Studio의 모든 배포 및 배포 업데이트 작업, Visual Studio Team System 및 MSBuild에 기반하고 **/t:publish** 대상을 사용하는 모든 명령 또는 스크립트에는 패키징 프로세스에 있는 *.wadcfgx* 가 포함됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure Diagnostics 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
+이 시점에서 Visual Studio, Visual Studio Team System 및 MSBuild를 기반으로 하 고 `/t:publish` 대상을 사용 하는 모든 명령 또는 스크립트의 모든 배포 및 배포 업데이트 작업에는 패키징 프로세스의 *diagnostics.wadcfgx* 가 포함 됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure Diagnostics 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
 
 애플리케이션 및 Azure Diagnostics 구성을 배포한 후에 이벤트 허브의 대시보드에서 즉시 작업을 확인하게 됩니다. 이것은 사용자가 선택한 분석 도구 또는 수신기 클라이언트에서 실행 부하 과다 경로 데이터를 볼 준비가 되었다는 것을 나타냅니다.  
 
@@ -215,13 +215,72 @@ Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포
 >
 
 ## <a name="view-hot-path-data"></a>실행 부하 과다 경로 데이터 보기
-이전에 설명한 대로 Event Hubs 데이터를 수신하고 처리하는 많은 사용 사례가 있습니다.
+이전에 설명한 대로 Event Hubs 데이터를 수신하고 처리하는 많은 사용 사례가 있습니다. 한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 애플리케이션을 만드는 것입니다. 
 
-한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 애플리케이션을 만드는 것입니다. [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다.  
+#### <a name="net-sdk-latest-500-or-latertablatest"></a>[.NET SDK 최신 버전 (5.0.0 이상)](#tab/latest)
+[Event Hubs 시작](../../event-hubs/get-started-dotnet-standard-send-v2.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다.
 
-콘솔 애플리케이션에는 [이벤트 프로세서 호스트 NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다.  
+```csharp
+using System;
+using System.Text;
+using System.Threading.Tasks;
+using Azure.Storage.Blobs;
+using Azure.Messaging.EventHubs;
+using Azure.Messaging.EventHubs.Processor;
+namespace Receiver1204
+{
+    class Program
+    {
+        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
+        private static readonly string eventHubName = "EVENT HUB NAME";
+        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
+        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
 
-**기본** 함수에서 꺾쇠 괄호로 묶인 값을 리소스에 사용할 값으로 바꾸십시오.   
+        static async Task Main()
+        {
+            // Read from the default consumer group: $Default
+            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
+
+            // Create a blob container client that the event processor will use 
+            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
+
+            // Create an event processor client to process events in the event hub
+            EventProcessorClientOptions options = new EventProcessorClientOptions { }
+            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
+
+            // Register handlers for processing events and handling errors
+            processor.ProcessEventAsync += ProcessEventHandler;
+            processor.ProcessErrorAsync += ProcessErrorHandler;
+
+            // Start the processing
+            await processor.StartProcessingAsync();
+
+            // Wait for 10 seconds for the events to be processed
+            await Task.Delay(TimeSpan.FromSeconds(10));
+
+            // Stop the processing
+            await processor.StopProcessingAsync();
+        }
+
+        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
+        {
+            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
+            return Task.CompletedTask;
+        }
+
+        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
+        {
+            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
+            Console.WriteLine(eventArgs.Exception.Message);
+            return Task.CompletedTask;
+        }
+    }
+}
+```
+
+#### <a name="net-sdk-legacy-410-or-earliertablegacy"></a>[.NET SDK 레거시 (4.1.0 또는 이전 버전)](#tab/legacy)
+
+[Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다. 콘솔 애플리케이션에는 [이벤트 프로세서 호스트 Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다. **기본** 함수에서 꺾쇠 괄호로 묶인 값을 리소스에 사용할 값으로 바꾸십시오.   
 
 ```csharp
 //Console application code for EventHub test client
@@ -303,6 +362,7 @@ namespace EventHubListener
     }
 }
 ```
+---
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Event Hubs 싱크 문제 해결
 * 이벤트 허브가 들어오거나 나가는 이벤트 활동을 예상대로 표시하지 않습니다.
@@ -310,7 +370,7 @@ namespace EventHubListener
     이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx**의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
 * 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
 
-    우선 이벤트 허브 및 구성 정보가 이전에 설명한 대로 정확한지를 확인합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
+    먼저 앞에서 설명한 대로 이벤트 허브 및 구성 정보가 올바른지 확인 합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
 * 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
 
     Azure Diagnostics 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블(**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
@@ -386,7 +446,7 @@ namespace EventHubListener
 </ServiceConfiguration>
 ```
 
-가상 머신에 대한 JSON 설정은 다음과 같습니다.
+가상 컴퓨터에 대 한 동일한 JSON 설정은 다음과 같습니다.
 
 공용 설정
 ```JSON

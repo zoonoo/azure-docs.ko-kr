@@ -3,12 +3,12 @@ title: Azure 리소스-QnA Maker
 description: QnA Maker는 각각 다른 용도로 사용 되는 여러 Azure 소스를 사용 합니다. 이를 개별적으로 사용 하는 방법을 이해 하면 올바른 가격 책정 계층을 계획 하 고 선택 하거나 가격 책정 계층을 변경 하는 시기를 알 수 있습니다. 이러한 기능을 조합 하 여 사용 하는 방법을 이해 하면 문제 발생 시 문제를 찾아 해결할 수 있습니다.
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 2b3a06122ce6123cd8edcedf5dfbf38c3c12218a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 77aced459c7731a2cac432538cfc66ed9ce83f9d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846367"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76902073"
 ---
 # <a name="azure-resources-for-qna-maker"></a>QnA Maker에 대 한 Azure 리소스
 
@@ -111,6 +111,10 @@ QnA Maker 리소스에서 만든 첫 번째 기술 자료는 Cognitive Search �
 QnA Maker 리소스는 작성 및 게시 Api 뿐만 아니라 런타임에 QnA 집합의 NLP (자연어 처리) 기반 #2 ranker (두 번째 순위 계층)에 대 한 액세스를 제공 합니다.
 
 두 번째 순위는 메타 데이터 및 추가 작업 프롬프트를 포함할 수 있는 지능형 필터를 적용 합니다.
+
+#### <a name="qna-maker-resource-configuration-settings"></a>QnA Maker 리소스 구성 설정
+
+[QnA Maker 포털](https://qnamaker.ai)에서 새 기술 자료를 만들 때 **언어** 설정은 리소스 수준에서 적용 되는 유일한 설정입니다. 리소스의 첫 번째 기술 자료를 만들 때 언어를 선택 합니다. 
 
 ### <a name="app-service-and-app-service-plan"></a>App service 및 App service 계획
 

@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewers: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 01/14/2020
 tags: connectors
-ms.openlocfilehash: 822a6d1cd812ead8e677a66a9b1e47ebdbcf8aea
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 0949e50c5a4993dfbcc83b41ef01d2cea82350a8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030148"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900271"
 ---
 # <a name="receive-and-respond-to-incoming-https-calls-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 들어오는 HTTPS 호출 받기 및 응답
 
@@ -23,7 +23,9 @@ ms.locfileid: "76030148"
 * 다른 논리 앱에서 HTTPS 호출을 받고 응답 합니다.
 
 > [!NOTE]
-> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
+> 요청 트리거는 들어오는 호출에 TLS (전송 계층 보안) 1.2 *만* 지원 합니다. 나가는 호출은 TLS 1.0, 1.1 및 1.2를 계속 지원 합니다. 자세한 내용은 [TLS 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조 하세요.
+>
+> SSL 핸드셰이크 오류가 표시 되 면 TLS 1.2을 사용 하는지 확인 합니다. 들어오는 호출의 경우 지원 되는 암호 그룹은 다음과 같습니다.
 >
 > * TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
 > * TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256

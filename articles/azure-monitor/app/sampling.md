@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: e30c4812ad11d7b39197062da30c90b2d8b1649b
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281073"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899085"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -531,7 +531,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *항상 보고 싶은 확실히 드문 이벤트가 있습니다. 이전의 샘플링 모듈에서 그 이벤트를 어떻게 가져올 수 있습니까?*
 
-* 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 아래와 같이 보존 하려는 원격 분석 항목에 대 한 `SamplingPercentage`를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다.
+* 이를 위해 사용자 지정 [TelemetryInitializer](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)을 작성 하는 것이 가장 좋습니다 .이는 아래와 같이 보존 하려는 원격 분석 항목에 대 한 `SamplingPercentage`를 100로 설정 합니다. 이니셜라이저가 원격 분석 프로세서 (샘플링 포함) 보다 먼저 실행 되도록 보장 되므로 모든 샘플링 기술이 샘플링 고려 사항에서이 항목을 무시 하 게 됩니다. ASP.NET SDK, ASP.NET Core SDK, JavaScript SDK 및 Java SDK에서 사용자 지정 원격 분석 이니셜라이저를 사용할 수 있습니다. 예를 들어 ASP.NET SDK를 사용 하 여 원격 분석 이니셜라이저를 구성할 수 있습니다.
 
     ```csharp
     public class MyTelemetryInitializer : ITelemetryInitializer

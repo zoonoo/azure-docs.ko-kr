@@ -4,12 +4,12 @@ ms.service: storage
 ms.topic: include
 ms.date: 05/06/2019
 ms.author: rogarana
-ms.openlocfilehash: d76338ccd4dcdf7a9a9a96baa1fb47ed5272d5ff
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 8a8619da831dfa5b240bd93d3a046c49cc30affa
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822009"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901420"
 ---
 | 리소스 | 표준 파일 공유 | 프리미엄 파일 공유 |
 |----------|---------------|------------------------------------------|
@@ -27,4 +27,4 @@ ms.locfileid: "72822009"
 | 최대 개체(디렉터리 및 파일) 이름 길이 | 2048 문자 | 2048 문자 |
 | 최대 경로 이름 구성 요소(경로 \A\B\C\D의 각 문자가 구성 요소) | 255자 | 255자 |
 
-모든 지역에서 사용할 수 \* 사용 가능한 지역 목록은 [지역 가용성](../articles/storage/files/storage-files-planning.md#regional-availability) 을 참조 하세요.
+사용 가능한 지역에 대 한 자세한 내용은 [지역 가용성](../articles/storage/files/storage-files-planning.md#regional-availability) 을 참조 하세요. \*

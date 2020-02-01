@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: 8dc5599e681d9aee84f884cd4990163a2481d386
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708165"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906596"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -81,24 +81,18 @@ ms.locfileid: "75708165"
 
 그러나 기본 blob 서비스 끝점에 대 한 공용 액세스 `https://contosoblobaccount.blob.core.windows.net/$web/index.html` 개인에서 공용으로 변경 됩니다. 이제 사용자는 이러한 두 끝점 중 하나를 사용 하 여 해당 파일을 열 수 있습니다.
 
-## <a name="content-delivery-network-cdn-and-secure-socket-layer-ssl-support"></a>Content Delivery Network (CDN) 및 SSL (Secure Socket Layer) 지원
+## <a name="mapping-a-custom-domain-to-a-static-website-url"></a>정적 웹 사이트 URL에 사용자 지정 도메인 매핑
 
-사용자 지정 도메인 및 HTTPS를 통해 정적 웹 사이트 파일을 사용할 수 있도록 설정 하려면 [Azure CDN을 사용 하 여 https를 통한 사용자 지정 도메인으로 blob 액세스를](storage-https-custom-domain-cdn.md)참조 하세요. 이 프로세스의 일부로, 기본 *blob service* 끝점과는 달리 CDN을 기본 *정적 웹 사이트* 끝점으로 가리켜야 합니다. CDN 구성이 즉시 실행 되지 않을 때 콘텐츠가 표시 될 때까지 몇 분 정도 기다려야 할 수 있습니다.
+사용자 지정 도메인을 통해 정적 웹 사이트를 사용할 수 있도록 설정할 수 있습니다. 
 
-정적 웹 사이트를 업데이트 하는 경우 CDN 끝점을 제거 하 여 CDN에 지 서버에서 캐시 된 콘텐츠를 지워야 합니다. 자세한 내용은 [Azure CDN 엔드포인트 제거](../../cdn/cdn-purge-endpoint.md)를 참조하세요.
+Azure Storage 기본적으로 지원 하기 때문에 사용자 지정 도메인에 대 한 HTTP 액세스를 사용 하는 것이 더 쉽습니다. Azure Storage에서 기본적으로 사용자 지정 도메인을 사용 하 여 HTTPS를 지원 하지 않기 때문에 HTTPS를 사용 하도록 설정 하려면 Azure CDN를 사용 해야 합니다. 단계별 지침은 [Azure Blob Storage 끝점에 사용자 지정 도메인 매핑](storage-custom-domain-name.md) 을 참조 하세요.
 
-> [!NOTE]
-> HTTPS는 기본적으로 계정 웹 끝점을 통해 지원 되므로 웹 끝점은 HTTP 및 HTTPS를 통해 액세스할 수 있습니다. 그러나 저장소 계정이 HTTPS를 통한 보안 전송을 요구 하도록 구성 된 경우 사용자는 HTTPS 끝점을 사용 해야 합니다. 자세한 내용은 [Azure Storage에서 보안 전송 필요](../common/storage-require-secure-transfer.md)를 참조 하세요.
->
-> HTTPS를 통한 사용자 지정 도메인을 사용 하려면 현재 Azure CDN를 사용 해야 합니다.
+저장소 계정이 HTTPS를 통한 [보안 전송을 요구](../common/storage-require-secure-transfer.md) 하도록 구성 된 경우 사용자는 https 끝점을 사용 해야 합니다. 
 
-## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
+> [!TIP]
+> Azure에서 도메인을 호스트 하는 것이 좋습니다. 자세한 내용은 [Azure DNS에서 도메인 호스팅](../../dns/dns-delegate-domain-azure-dns.md)을 참조 하세요.
 
-사용자 지정 도메인을 통해 정적 웹 사이트를 사용할 수 있도록 설정할 수 있습니다. 자세히 알아보려면 [Azure Storage 계정에 대 한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)을 참조 하세요.
-
-Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 [Azure DNS에서 도메인](../../dns/dns-delegate-domain-azure-dns.md)호스팅을 참조 하세요.
-
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 정적 웹 사이트 호스팅을 무료로 사용할 수 있습니다. 사이트에서 활용 하는 blob 저장소 및 운영 비용에 대해서만 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
@@ -111,8 +105,7 @@ Azure에서 도메인을 호스트 하는 방법에 대 한 자세한 내용은 
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Storage에서 정적 웹 사이트를 호스팅합니다.](storage-blob-static-website-how-to.md)
-* [Azure CDN를 사용 하 여 HTTPS를 통한 사용자 지정 도메인으로 blob 액세스](storage-https-custom-domain-cdn.md)
-* [Blob 또는 웹 엔드포인트에 대한 사용자 지정 도메인 이름 구성](storage-custom-domain-name.md)
+* [Azure Blob Storage 끝점에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

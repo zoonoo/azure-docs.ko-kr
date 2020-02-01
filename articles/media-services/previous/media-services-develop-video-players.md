@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: b8d4ff3e833dcbe92802845796e3b826735b68ce
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 39459267919747ed49e9fa3f05746294eaf741dc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "61465646"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906832"
 ---
 # <a name="develop-video-player-applications"></a>비디오 플레이어 애플리케이션 개발
 ## <a name="overview"></a>개요
@@ -33,7 +33,7 @@ Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows
 
 Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리밍 및 HLS 스트리밍 형식으로 제공하여 재생할 수 있습니다. Azure Media Player는 이러한 다양한 형식을 고려하여 플랫폼/브라우저 기능에 따라 최상의 링크를 자동으로 재생합니다. Microsoft Azure Media Services에서 PlayReady 암호화 또는 AES 128 비트 봉투 암호화로 자산의 동적 암호화를 사용할 수 있습니다. 적절하게 구성된 경우 Azure Media Player를 사용하여 PlayReady의 및 AES 128 비트 암호화된 콘텐츠를 암호 해독할 수 있습니다. 
 
-추가 정보
+자세한 내용:
 
 * [Azure Media Player](https://aka.ms/ampinfo)
 * [Azure Media Player 서비스 설명서](https://aka.ms/ampdocs) 
@@ -50,7 +50,7 @@ Microsoft Azure Media Services에서 컨텐츠를 DASH, 부드러운 스트리�
 * [HTML5 플레이어 프레임워크 설명서](https://playerframework.codeplex.com/wikipage?title=HTML5%20Player&referringTitle=Documentation) 
 * [OSMF용 Microsoft 부드러운 스트리밍 플러그인](https://www.microsoft.com/download/details.aspx?id=36057) 
 * [Microsoft® 부드러운 스트리밍 클라이언트 이식 키트 라이선스](https://aka.ms/sspk) 
-* [XBOX 비디오 애플리케이션 개발](https://xbox.create.msdn.com/) 
+* [XBOX 비디오 애플리케이션 개발](https://www.xbox.com/en-US/developers) 
 
 ## <a name="advertising"></a>광고
 Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워크를 통해 광고 삽입에 대한 지원을 제공합니다. 광고를 지원하는 플레이어 프레임워크는 Windows 8, Silverlight, Windows Phone 8 및 iOS 디바이스에 사용할 수 있습니다. 각 플레이어 프레임워크는 플레이어 애플리케이션을 구현하는 방법을 보여주는 샘플 코드를 포함합니다. 미디어에 삽입할 수 있는 서로 다른 세 종류의 광고가 있습니다.
@@ -61,17 +61,17 @@ Azure Media Services는 Windows 미디어 플랫폼: 플레이어 프레임워�
 
 동반-플레이어 외부에 표시되는 광고
 
-광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 재생하고 VAST XML을 포함하는 시기를 지정합니다. 또한 MAST 파일은 VAST XML도 포함할 수 있는 광고를 시퀀스하는 다른 방법입니다. VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다. 자세한 내용은 [광고 삽입](https://msdn.microsoft.com/library/dn387398.aspx)을 참조하세요.
+광고는 기본 비디오 타임 라인에 언제든지 배치할 수 있습니다. 플레이어에 광고를 재생하는 시기 및 재생하는 광고를 알려야 합니다. 이 작업은 표준 XML 기반 파일 집합을 사용하여 수행됩니다. VAST(Video Ad Service Template), VMAP(Digital Video Multiple Ad Playlist), MAST(Media Abstract Sequencing Template) 및 VPAID(Digital Video Player Ad Interface Definition). VAST 파일은 표시할 광고를 지정합니다. VMAP 파일은 다양한 광고를 언제 재생할지를 지정합니다(이 파일에 VAST XML이 포함됨). 또한 MAST 파일은 VAST XML도 포함할 수 있는 광고를 시퀀스하는 다른 방법입니다. VPAID 파일은 비디오 플레이어와 광고 또는 광고 서버 간의 인터페이스를 정의합니다. 자세한 내용은 [광고 삽입](https://msdn.microsoft.com/library/dn387398.aspx)을 참조하세요.
 
 라이브 스트리밍 비디오의 선택 캡션 및 광고 지원에 대한 정보는 [지원되는 선택 캡션 및 광고 삽입 표준](https://msdn.microsoft.com/library/c49e0b4d-357e-4cca-95e5-2288924d1ff3#caption_ad)을 참조하세요.
 
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공
+## <a name="provide-feedback"></a>피드백 제공하기
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [DASH.js를 사용하여 HTML5 애플리케이션에 MPEG-DASH 적응 스트리밍 비디오 포함](media-services-embed-mpeg-dash-in-html5.md)
 
 [GitHub dash.js 리포지토리](https://github.com/Dash-Industry-Forum/dash.js)

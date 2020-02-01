@@ -1,5 +1,5 @@
 ---
-title: 양식 인식기의 새로운 기능
+title: Form Recognizer의 새로운 기능
 titleSuffix: Azure Cognitive Services
 description: 양식 인식기 API에 대 한 최신 변경 내용을 이해 합니다.
 author: PatrickFarley
@@ -9,14 +9,14 @@ ms.subservice: forms-recognizer
 ms.topic: conceptual
 ms.date: 12/12/2019
 ms.author: pafarley
-ms.openlocfilehash: cb5639dcf0e13ea03d34604816b3939085674c2e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2109d25d3962063c711dcab491855d9ebf1cf694
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462374"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901889"
 ---
-# <a name="whats-new-in-form-recognizer"></a>양식 인식기의 새로운 기능
+# <a name="whats-new-in-form-recognizer"></a>Form Recognizer의 새로운 기능
 
 이 문서에서는 새 버전의 양식 인식기 API와 함께 제공 되는 주요 변경 내용을 중점적으로 설명 합니다.
 
@@ -25,13 +25,10 @@ ms.locfileid: "75462374"
 
 ## <a name="form-recognizer-20-preview"></a>양식 인식기 2.0 (미리 보기)
 
-> [!IMPORTANT]
-> 양식 인식기 2.0는 현재 `West US 2` 및 `West Europe` 지역의 구독에 사용할 수 있습니다. 구독이이 지역에 없는 경우 1.0 API를 사용 합니다. 사용자 지정 모델을 학습 하 고 사용 하기 위한 빠른 시작은 v 1.0 및 v2.0 모두에 사용할 수 있습니다.
-
 ### <a name="new-features"></a>새로운 기능
 
 * **사용자 지정 모델**
-  * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이로 인해 모델이 더 잘 수행 되며, 키가 없는 값을 포함 하는 복잡 한 폼 또는 폼을 사용 하는 모델을 생성할 수 있습니다.
+  * **레이블로 학습** 이제 수동으로 레이블이 지정 된 데이터를 사용 하 여 사용자 지정 모델을 학습 시킬 수 있습니다. 이 방법은 모델 성능이 향상되며, 복잡한 양식 또는 키 없는 값을 포함하는 양식과 함께 작동하는 모델을 생성할 수 있습니다.
   * **비동기 API** 비동기 API 호출을 사용 하 여 대량 데이터 집합 및 파일을 학습 하 고 분석할 수 있습니다.
   * **TIFF 파일 지원** 이제 TIFF 문서에서 데이터를 학습 하 고 추출할 수 있습니다.
   * **추출 정확도 향상**

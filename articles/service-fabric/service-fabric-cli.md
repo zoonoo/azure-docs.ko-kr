@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI 시작
 description: Azure Service Fabric CLI를 사용하는 방법에 대해 알아봅니다. 클러스터에 연결하는 방법과 애플리케이션을 관리하는 방법을 알아봅니다.
 author: jeffj6123
 ms.topic: conceptual
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 4c3a41fe4dba351c10ad8488d4d339bc797597ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463384"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904826"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -30,7 +30,8 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 | CLI 버전   | 지원되는 런타임 버전 |
 |---------------|---------------------------|
-| 최신 (~ = 8)  | 최신 (~ = 6.5)            |
+| 최신 (~ = 9)  | 최신(~=7)              |
+| 8.0.0         | 6.5                       |
 | 7.1.0         | 6.4                       |
 | 6.0.0         | 6.3                       |
 | 5.0.0         | 6.2                       |

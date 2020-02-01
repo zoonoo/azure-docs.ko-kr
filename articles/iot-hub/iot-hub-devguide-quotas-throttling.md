@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.openlocfilehash: c17576bb8cd772742b5335000a2453ff34753779
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 64f285ea27bde4565d051a84a65c5b4d7b8e9e8c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457072"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906990"
 ---
 # <a name="reference---iot-hub-quotas-and-throttling"></a>참조 - IoT Hub 할당량 및 제한
 
@@ -107,6 +107,7 @@ IoT Hub에는 다른 작업 제한도 적용됩니다.
 | 자동 장치 및 모듈 구성<sup>1</sup> | 유료 SKU 허브당 100개 구성입니다. 체험 SKU 허브당 20개 구성입니다. |
 | 자동 배포 IoT Edge<sup>1</sup> | 배포당 20개의 모듈 100 유료 SKU 허브 당 배포 (계층화 된 배포 포함) 무료 SKU 허브 당 10 개의 배포. |
 | 쌍<sup>1</sup> | Desired 속성의 최대 크기 및 보고 된 속성 섹션은 각각 32 KB입니다. 태그 섹션의 최대 크기는 8kb입니다. |
+| 공유 액세스 정책 | 공유 액세스 정책의 최대 수는 16입니다. |
 
 <sup>1</sup>이 기능은 IoT Hub의 기본 계층에서 사용할 수 없습니다. 자세한 내용은 [올바른 IoT Hub를 선택하는 방법](iot-hub-scaling.md)을 참조하세요.
 

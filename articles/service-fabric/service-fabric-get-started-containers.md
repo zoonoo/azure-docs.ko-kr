@@ -1,14 +1,14 @@
 ---
 title: Azure Service Fabric 컨테이너 응용 프로그램 만들기
-description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 애플리케이션을 사용하여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리로 푸시하고, Service Fabric 컨테이너 애플리케이션을 빌드 및 배포합니다.
+description: Azure Service Fabric에서 첫 번째 Windows 컨테이너 애플리케이션을 만듭니다. Python 응용 프로그램을 사용 하 여 Docker 이미지를 빌드하고, 이미지를 컨테이너 레지스트리에 푸시한 다음, 컨테이너를 빌드하고 Azure Service Fabric에 배포 합니다.
 ms.topic: conceptual
 ms.date: 01/25/2019
-ms.openlocfilehash: 6ff3fb3057b21f389d42ad98fe4ebb2803f5fc8e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8e1de48874655721f708bfd1dfdda8d975f94c4b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458021"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906256"
 ---
 # <a name="create-your-first-service-fabric-container-application-on-windows"></a>Windows에서 첫 번째 Service Fabric 컨테이너 애플리케이션 만들기
 
@@ -16,7 +16,7 @@ ms.locfileid: "75458021"
 > * [Windows](service-fabric-get-started-containers.md)
 > * [Linux](service-fabric-get-started-containers-linux.md)
 
-Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 애플리케이션이 포함된 Docker 이미지를 만들고 로컬 머신에서 실행되는 Service Fabric 클러스터에 배포하는 과정을 안내합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
+Service Fabric 클러스터의 Windows 컨테이너에서 기존 애플리케이션을 실행하더라도 애플리케이션을 변경할 필요가 없습니다. 이 문서에서는 Python [Flask](http://flask.pocoo.org/) 웹 응용 프로그램이 포함 된 Docker 이미지를 만들고 Azure Service Fabric 클러스터에 배포 하는 과정을 안내 합니다. 또한 [Azure Container Registry](/azure/container-registry/)를 통해 컨테이너화된 애플리케이션을 공유할 수도 있습니다. 이 문서에서는 Docker에 대한 기본적으로 이해하고 있다고 가정합니다. [Docker 개요](https://docs.docker.com/engine/understanding-docker/)를 참고하여 Docker에 대해 알아볼 수 있습니다.
 
 > [!NOTE]
 > 이 문서는 Windows 개발 환경에 적용됩니다.  Service Fabric 클러스터 런타임 및 Docker 런타임이 동일한 OS에서 실행되어야 합니다.  Windows 컨테이너는 Linux 클러스터에서 실행할 수 없습니다.

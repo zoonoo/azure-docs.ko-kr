@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: apimpm
-ms.openlocfilehash: 81daada7a62da86772d4657a1a8aaff91f27b673
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4dd026377d5824853dd713a59a86ed742990bade
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045586"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898838"
 ---
 # <a name="azure-api-management-developer-portal-overview"></a>Azure API Management 개발자 포털 개요
 
@@ -68,7 +68,7 @@ ms.locfileid: "76045586"
 
 포털은 [용지 비트 프레임 워크](https://paperbits.io/)의 조정 된 포크를 기반으로 합니다. 원래 용지 비트 기능은 API Management 특정 위젯 (예: Api 목록, 제품 목록) 및 콘텐츠 저장 및 검색을 위한 API Management 서비스에 대 한 커넥터를 제공 하도록 확장 되었습니다.
 
-## <a name="faq"></a> 질문과 대답
+## <a name="faq"></a>질문과 대답
 
 이 섹션에서는 일반적인 특성상 새로운 개발자 포털에 대 한 일반적인 질문에 답변 합니다. 자체 호스팅 버전과 관련 된 질문은 [GitHub 리포지토리의 wiki 섹션](https://github.com/Azure/api-management-developer-portal/wiki)을 참조 하세요.
 
@@ -213,6 +213,18 @@ New-AzRoleAssignment -SignInName "user1@contoso.com" -RoleDefinitionName "APIM N
 API Management 서비스가 VNet에 있는 경우 위의 VNet 연결 질문을 참조 하세요.
 
 또한 사용자 지정 도메인에 할당 되 고 브라우저에서 트러스트 되지 않은 SSL 인증서로 인해 호출 오류가 발생할 수 있습니다. 완화를 위해 관리 끝점 사용자 지정 도메인을 제거할 수 있습니다. 신뢰할 수 있는 인증서가 있는 기본 끝점으로 대체 됩니다 API Management.
+
+### <a name="whats-the-browser-support-for-the-portal"></a>포털에 대 한 브라우저 지원 이란?
+
+| 브라우저                     | 지원됨       |
+|-----------------------------|-----------------|
+| Apple Safari                | 예<sup>1</sup> |
+| Google Chrome               | 예<sup>1</sup> |
+| Microsoft Edge              | 예<sup>1</sup> |
+| Microsoft Internet Explorer | 아닙니다.              |
+| Mozilla Firefox             | 예<sup>1</sup> |
+
+ <small><sup>1</sup> 은 최신 프로덕션 버전 두 개에서 지원 됩니다.</small>
 
 ## <a name="next-steps"></a>다음 단계
 

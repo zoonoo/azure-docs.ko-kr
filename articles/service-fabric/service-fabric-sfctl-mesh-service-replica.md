@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 메시 서비스-복제본
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 응용 프로그램 리소스에 대 한 복제본 정보를 가져오기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 219a691dd1b74ec2214c156018e6e3f62366f523
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: ac604ec0a854964746ef34627b054e853662265f
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645330"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905945"
 ---
 # <a name="sfctl-mesh-service-replica"></a>sfctl mesh service-replica
 복제본 세부 정보를 가져오고 애플리케이션 리소스에 있는 지정된 서비스의 복제본을 나열합니다.

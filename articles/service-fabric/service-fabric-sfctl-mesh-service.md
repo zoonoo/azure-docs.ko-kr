@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 메시 서비스
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. 응용 프로그램 리소스에 대 한 서비스 세부 정보를 가져오기 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: 1ae04d054a254746d59b85f4fe366cebf19e3faf
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2b9f16062b02d7a1a3403d396643a7989b8976b7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646095"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905933"
 ---
 # <a name="sfctl-mesh-service"></a>sfctl mesh service
 애플리케이션 리소스의 서비스를 나열하고 서비스 세부 정보를 가져옵니다.

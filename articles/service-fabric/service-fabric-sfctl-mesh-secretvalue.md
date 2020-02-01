@@ -3,14 +3,14 @@ title: Azure Service Fabric CLI-sfctl 메시 secretvalue
 description: Sfctl, Azure Service Fabric 명령줄 인터페이스에 대해 알아봅니다. Service Fabric 메시 secretvalue 리소스 가져오기 및 삭제를 위한 명령 목록을 포함 합니다.
 author: jeffj6123
 ms.topic: reference
-ms.date: 9/17/2019
+ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: a29d32dff9ad51942acb30dd834ad6fbd362ac65
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: b2fe3a7995cdd88a8f63d0d865e72e9f161cf9d7
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646112"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905971"
 ---
 # <a name="sfctl-mesh-secretvalue"></a>sfctl mesh secretvalue
 메시 비밀 값 리소스를 가져오고 삭제합니다.

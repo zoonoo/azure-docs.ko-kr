@@ -1,161 +1,252 @@
 ---
-title: Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성 | Microsoft Docs
-description: Azure Portal을 사용하여 고유한 CNAME(정식 이름)을 Azure 스토리지 계정의 Blob 스토리지 또는 웹 엔드포인트에 매핑합니다.
+title: Azure Blob Storage 끝점에 사용자 지정 도메인 매핑
+titleSuffix: Azure Storage
+description: Azure Storage 계정의 Blob Storage 또는 웹 끝점에 사용자 지정 도메인을 매핑합니다.
 author: normesta
 ms.service: storage
 ms.topic: conceptual
-ms.date: 06/26/2018
+ms.date: 01/23/2020
 ms.author: normesta
 ms.reviewer: dineshm
 ms.subservice: blobs
-ms.openlocfilehash: 2359befc05bff867a8f8b17943ed67d906ff4971
-ms.sourcegitcommit: 040abc24f031ac9d4d44dbdd832e5d99b34a8c61
+ms.openlocfilehash: 892f8bb24da00f1bd5827725f40fdc4359be0937
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/16/2019
-ms.locfileid: "69534332"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906548"
 ---
-# <a name="configure-a-custom-domain-name-for-your-azure-storage-account"></a>Azure 스토리지 계정에 대한 사용자 지정 도메인 이름 구성
+# <a name="map-a-custom-domain-to-an-azure-blob-storage-endpoint"></a>Azure Blob Storage 끝점에 사용자 지정 도메인 매핑
 
-Azure Storage 계정에서 Blob 데이터에 액세스할 수 있도록 사용자 지정 도메인을 구성할 수 있습니다. Azure Blob 스토리지에 대한 기본 엔드포인트는 *\<storage-account-name>.blob.core.windows.net*입니다. [정적 websites 기능의](storage-blob-static-website.md)일부로 생성 된 웹 끝점을 사용할 수도 있습니다. 사용자 지정 도메인 및 하위 도메인 (예: *www\.contoso.com*)을 저장소 계정의 blob 또는 웹 끝점에 매핑하는 경우 사용자가 해당 도메인을 사용 하 여 저장소 계정의 blob 데이터에 액세스할 수 있습니다.
+사용자 지정 도메인을 blob service 끝점 또는 [정적 웹 사이트](storage-blob-static-website.md) 끝점에 매핑할 수 있습니다. 
+
+> [!NOTE] 
+> 이 매핑은 하위 도메인에 대해서만 작동 합니다 (예: `www.contoso.com`). 웹 끝점을 루트 도메인 (예: `contoso.com`)에서 사용할 수 있도록 하려면 Azure CDN를 사용 해야 합니다. 지침은이 문서의 HTTPS를 [사용 하 여 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 이 문서의 해당 섹션으로 이동 하 여 사용자 지정 도메인의 루트 도메인을 사용 하도록 설정 했기 때문에 HTTPS를 사용 하도록 설정 하는 단계는 선택 사항입니다. 
+
+<a id="enable-http" />
+
+## <a name="map-a-custom-domain-with-only-http-enabled"></a>HTTP만 사용 하는 사용자 지정 도메인 매핑
+
+이 방법은 더 쉽지만 HTTP 액세스만 가능 합니다. 저장소 계정이 HTTPS를 통한 [보안 전송을 요구](../common/storage-require-secure-transfer.md) 하도록 구성 된 경우 사용자 지정 도메인에 대 한 https 액세스를 사용 하도록 설정 해야 합니다. 
+
+HTTPS 액세스를 사용 하도록 설정 하려면이 문서의 [https를 사용 하도록 설정 된 사용자 지정 도메인 매핑](#enable-https) 섹션을 참조 하세요. 
+
+<a id="map-a-domain" />
+
+### <a name="map-a-custom-domain"></a>사용자 지정 도메인 매핑
 
 > [!IMPORTANT]
-> Azure Storage는 아직 기본적으로 사용자 지정 도메인으로 HTTPS를 지원하지 않습니다. 현재 [Azure CDN을 사용하여 HTTP를 통해 사용자 지정 도메인으로 Blob에 액세스](storage-https-custom-domain-cdn.md)할 수 있습니다.
-> 
-> 
-> [!NOTE]
-> 스토리지 계정은 현재 계정당 하나의 사용자 정의 도메인 이름만 지원합니다. 웹 및 Blob 서비스 엔드포인트 모두에 사용자 지정 도메인 이름을 매핑할 수는 없습니다.
-> 
-> [!NOTE]
-> 매핑은 하위 도메인 (예: www\.contoso.com)에 대해서만 작동 합니다. 루트 도메인 (예: contoso.com)에서 웹 끝점을 사용할 수 있도록 하려면 [Azure CDN 끝점에 사용자 지정 도메인을 추가](https://docs.microsoft.com/azure/cdn/cdn-map-content-to-custom-domain)해야 합니다.
+> 구성을 완료 하는 동안 사용자는 사용자 지정 도메인을 잠깐 사용할 수 없습니다. 현재 도메인에서 가동 중지 시간이 0 인 SLA (서비스 수준 계약)를 사용 하는 응용 프로그램을 지 원하는 경우이 문서의 [가동 중지 시간이 없는 사용자 지정 도메인 매핑](#zero-down-time) 섹션의 단계에 따라 DNS 매핑이 수행 되는 동안 사용자가 도메인에 액세스할 수 있는지 확인 합니다.
 
-다음 테이블에서는 이름이 *mystorageaccount*인 스토리지 계정에 있는 Blob 데이터의 여러 샘플 URL을 보여 줍니다. 저장소 계정에 대해 등록 된 사용자 지정 하위 도메인은 *www\.contoso.com*:
+사용자가 도메인을 일시적으로 사용할 수 없는 경우 다음 단계를 수행 합니다.
 
-| 리소스 형식 | 기본 URL | 사용자 지정 도메인 URL |
-| --- | --- | --- |
-| Storage 계정 | http:\//mystorageaccount.blob.core.windows.net | http:\//www.contoso.com |
-| Blob |http:\//mystorageaccount.blob.core.windows.net/mycontainer/myblob | http:\//www.contoso.com/mycontainer/myblob |
-| 루트 컨테이너 | http:\//mystorageaccount.blob.core.windows.net/myblob 또는 http:\//mystorageaccount.blob.core.windows.net/$root/myblob | http:\//www.contoso.com/myblob 또는 http:\//www.contoso.com/$root/myblob |
-| Web |  http:\//mystorageaccount. [ 영역]. w i n. w i n. w i n d o w s/$web\//[indexdoc] 또는 http:/mystorageaccount. [ 영역]. w i n. w i n d o w s. w i\/n d o w s/[indexdoc] 또는 http:/mystorageaccount 영역]. w i n. w i n. w i n\/d o w s/$web 또는 http:/mystorageaccount. [ 영역]. 웹. | http:\//www.contoso.com/$web 또는\/http:/www.contoso.com/또는 http:\//www.contoso.com/$web/[indexdoc] 또는 http:\//www.contoso.com/[indexdoc] |
+: heavy_check_mark: 1 단계: 저장소 끝점의 호스트 이름을 가져옵니다.
 
-> [!NOTE]  
-> 다음 섹션에 표시된 대로 Blob 서비스 엔드포인트에 대한 모든 예제는 웹 서비스 엔드포인트에도 적용됩니다.
+: heavy_check_mark: 2 단계: 도메인 공급자를 사용 하 여 CNAME (정식 이름) 레코드를 만듭니다.
 
-## <a name="direct-vs-intermediary-cname-mapping"></a>직접 및 중간 CNAME 매핑
+: heavy_check_mark: 3 단계: Azure에 사용자 지정 도메인을 등록 합니다. 
 
-다음 두 가지 방법 중 하나를 사용 하 여 사용자 지정 도메인 앞\.에 하위 도메인 (예: www contoso.com)을 저장소 계정에 대 한 blob 끝점으로 지정할 수 있습니다. 
-* 직접 CNAME 매핑을 사용합니다.
-* *asverify* 중간 하위 도메인을 사용합니다.
+: heavy_check_mark: 4 단계: 사용자 지정 도메인을 테스트 합니다.
 
-### <a name="direct-cname-mapping"></a>직접 CNAME 매핑
+<a id="endpoint" />
 
-첫 번째 가장 단순한 방법은 사용자 지정 도메인 및 하위 도메인을 Blob 엔드포인트에 직접 매핑하는 CNAME(정식 이름) 레코드를 만드는 것입니다. CNAME 레코드는 원본 도메인을 대상 도메인에 매핑하는 DNS(Domain Name System) 기능입니다. 이 예제에서 원본 도메인은 사용자 지정 도메인 및 하위 도메인 (예:*www\.contoso.com*)입니다. 대상 도메인은 Blob service 엔드포인트입니다(예: *mystorageaccount.blob.core.windows.net*).
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>1 단계: 저장소 끝점의 호스트 이름 가져오기 
 
-직접 매핑 방법은 “사용자 지정 도메인 등록”에서 설명합니다.
-
-### <a name="intermediary-mapping-with-asverify"></a>*asverify*를 사용하여 중간 매핑
-
-두 번째 매핑 방법도 CNAME 레코드를 사용합니다. 그러나 가동 중지 시간을 방지하려면 먼저 Azure에서 인식하는 특수한 하위 도메인 *asverify*를 사용합니다.
-
-사용자 지정 도메인을 Blob 엔드포인트에 매핑하면 [Azure Portal](https://portal.azure.com)에서 도메인을 등록하는 동안 잠시 가동 중지될 수 있습니다. 현재 도메인에서 가동 중지 시간이 없어야 하는 SLA(서비스 수준 계약)가 설정된 애플리케이션을 지원하고 있다면 Azure *asverify* 하위 도메인을 중간 등록 단계로 사용합니다. 이 단계를 통해 DNS 매핑이 진행되는 동안 사용자가 도메인에 액세스할 수 있어야 합니다.
-
-중간 방법은 *asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록에서 설명합니다.
-
-## <a name="register-a-custom-domain"></a>사용자 지정 도메인 등록
-다음 명령문을 적용하는 경우 이 섹션의 프로시저를 사용하여 도메인을 등록합니다.
-* 도메인을 사용자가 잠깐 사용할 수 없는 경우는 문제가 되지 않습니다.
-* 사용자 지정 도메인은 현재 애플리케이션을 호스팅하고 있지 않습니다. 
-
-Azure DNS를 사용하여 Azure Blob 저장소에 대한 사용자 지정 DNS 이름을 구성할 수 있습니다. 자세한 내용은 [Azure DNS를 사용하여 Azure 서비스에 대해 사용자 지정 도메인 설정 제공](https://docs.microsoft.com/azure/dns/dns-custom-domain#blob-storage)을 참조하세요.
-
-사용자 지정 도메인이 현재 가동 중지 시간이 없어야 하는 애플리케이션을 지원하고 있다면 *asverify* 하위 도메인을 사용하여 사용자 지정 도메인 등록의 절차를 사용합니다.
-
-사용자 지정 도메인 이름을 구성하려면 DNS에서 새 CNAME 레코드를 만듭니다. CNAME 레코드에서 도메인 이름의 별칭을 지정합니다. 해당 예제에서는 사용자 지정 도메인의 주소를 스토리지 계정의 Blob 스토리지 엔드포인트에 매핑합니다.
-
-일반적으로 도메인 등록 기관의 웹 사이트에서 도메인의 DNS 설정을 관리할 수 있습니다. 각 등록 기관은 서로 유사하면서 약간 다른 방법으로 CNAME 레코드를 지정하지만 개념은 동일합니다. 일부 기본 도메인 등록 패키지에서 DNS 구성을 제공하지 않으므로 CNAME 레코드를 만들려면 먼저 도메인 등록 패키지를 업그레이드해야 할 수 있습니다.
+호스트 이름은 프로토콜 식별자 및 후행 슬래시가 없는 저장소 끝점 URL입니다. 
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-1. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
-   **사용자 지정 도메인** 창이 열립니다.
+2. 메뉴 창의 **설정**에서 **속성**을 선택 합니다.  
 
-1. 도메인 등록 기관의 웹 사이트에 로그인한 다음, DNS 관리 페이지로 이동합니다.  
+3. **주 Blob Service 끝점** 또는 **기본 정적 웹 사이트 끝점** 의 값을 텍스트 파일에 복사 합니다. 
+
+4. 해당 문자열에서 프로토콜 식별자 (*예:* HTTPS)와 후행 슬래시를 제거 합니다. 다음 표에는 예제가 나와 있습니다.
+
+   | 끝점의 유형입니다. |  엔드포인트(endpoint) | 호스트 이름 |
+   |------------|-----------------|-------------------|
+   |blob 서비스  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
+   |정적 웹 사이트  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
+  
+   나중에이 값을 따로 설정 합니다.
+
+<a id="create-cname-record" />
+
+#### <a name="step-2-create-a-canonical-name-cname-record-with-your-domain-provider"></a>2 단계: 도메인 공급자를 사용 하 여 정식 이름 (CNAME) 레코드 만들기
+
+호스트 이름을 가리키는 CNAME 레코드를 만듭니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다.
+
+1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
+
    **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
 
-1. CNAME을 관리하기 위한 섹션을 찾습니다.  
+2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
+
    고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
 
-1. 새 CNAME 레코드를 만들고 **www** 나 **사진과** 같은 하위 도메인 별칭 (하위 도메인은 필수 이며 루트 도메인은 지원 되지 않음)을 입력 한 다음 호스트 이름을 제공 합니다.  
-   호스트 이름은 Blob 서비스 엔드포인트입니다. 해당 형식은 *mystorageaccount*가 스토리지 계정의 이름인 *\<mystorageaccount>.blob.core.windows.net*입니다. 사용할 호스트 이름이 [Azure Portal](https://portal.azure.com)에서 **사용자 지정 도메인** 창의 항목 #1에 표시됩니다. 
+3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
 
-1. **사용자 지정 도메인** 창의 텍스트 상자에 하위 도메인을 포함하여 사용자 지정 도메인 이름을 입력합니다.  
-   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우 **www\.contoso.com**를 입력 합니다. 하위 도메인이 *photos*이면 **photos.contoso.com**을 입력합니다.
+   - `www` 또는 `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다. 
+      
+   - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint) 섹션에서 가져온 호스트 이름 
 
-1. 사용자 지정 도메인을 등록하려면 **저장**을 선택합니다.  
-   등록에 성공한 경우 포털에서 스토리지 계정이 성공적으로 업데이트되었음을 알립니다.
+<a id="register" />
 
-새 CNAME 레코드가 DNS를 통해 전파된 후 사용자에게 적절한 사용 권한이 있는 경우 사용자는 사용자 지정 도메인을 사용하여 Blob 데이터를 확인할 수 있습니다.
-
-## <a name="register-a-custom-domain-by-using-the-asverify-subdomain"></a>*asverify* 하위 도메인을 통해 사용자 지정 도메인 등록
-현재 사용자 지정 도메인이 가동 중지 시간이 없어야 하는 SLA가 있는 애플리케이션을 지원하는 경우 이 섹션의 프로시저를 통해 사용자 지정 도메인을 등록하세요. *asverify.\<subdomain>.\<customdomain>* 에서 *asverify.\<storageaccount>.blob.core.windows.net*까지 가리키는 CNAME을 만들어 Azure에 도메인을 미리 등록할 수 있습니다. 그런 다음, *\<subdomain>.\<customdomain>* 에서 *\<storageaccount>.blob.core.windows.net*까지 가리키는 두 번째 CNAME을 만들 수 있습니다. 그러면 사용자 지정 도메인에 대한 트래픽이 Blob 엔드포인트로 직접 보내집니다.
-
-*asverify* 하위 도메인은 Azure에서 인식하는 특수한 하위 도메인입니다. 고유한 하위 도메인 앞에 *asverify* 를 추가하면 도메인의 DNS 레코드를 수정하지 않아도 Azure에서 사용자 지정 도메인을 인식할 수 있습니다. 도메인의 DNS 레코드를 수정하면 가동 중지 시간 없이 Blob 엔드포인트에 매핑됩니다.
+#### <a name="step-3-register-your-custom-domain-with-azure"></a>3 단계: Azure에 사용자 지정 도메인 등록
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-1. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+
+   ![사용자 지정 도메인 옵션](./media/storage-custom-domain-name/custom-domain-button.png "사용자 지정 도메인")
+
    **사용자 지정 도메인** 창이 열립니다.
 
-1. DNS 공급자의 웹 사이트에 로그인한 다음, DNS 관리 페이지로 이동합니다.  
-   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
+   
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우 `www.contoso.com`를 입력 합니다. 하위 도메인이 *사진이*면 `photos.contoso.com`를 입력 합니다.
 
-1. CNAME을 관리하기 위한 섹션을 찾습니다.  
-   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+4. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
 
-1. 새 CNAME 레코드 만들고 **asverify.www** 또는 **asverify.photos** 같은 *asverify* 하위 도메인을 포함하는 하위 도메인 별칭을 지정한 다음, 호스트 이름을 지정합니다.  
-   호스트 이름은 Blob 서비스 엔드포인트입니다. 해당 형식은 *mystorageaccount*가 스토리지 계정의 이름인 *asverify.\<mystorageaccount>.blob.core.windows.net*입니다. 사용할 호스트 이름이 [Azure Portal](https://portal.azure.com)에서 *사용자 지정 도메인* 창의 항목 #2에 표시됩니다.
+   CNAME 레코드가 DNS (도메인 이름 서버)를 통해 전파 된 후 사용자에 게 적절 한 권한이 있는 경우 사용자 지정 도메인을 사용 하 여 blob 데이터를 볼 수 있습니다.
 
-1. **사용자 지정 도메인** 창의 텍스트 상자에 하위 도메인을 포함하여 사용자 지정 도메인 이름을 입력합니다.  
-   *asverify*를 포함하지 않습니다. 예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우 **www\.contoso.com**를 입력 합니다. 하위 도메인이 *photos*이면 **photos.contoso.com**을 입력합니다.
-
-1. **간접 CNAME 유효성 검사 사용** 확인란을 선택합니다.
-
-1. 사용자 지정 도메인을 등록하려면 **저장**을 선택합니다.  
-   등록에 성공한 경우 포털에서 스토리지 계정이 성공적으로 업데이트되었음을 알립니다. 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 스토리지 계정으로 라우팅되지 않습니다.
-
-1. DNS 공급자의 웹 사이트로 돌아간 다음, 하위 도메인을 Blob 서비스 엔드포인트에 매핑한 CNAME 레코드를 하나 더 만듭니다.  
-   예를 들어 하위 도메인을 *www* 또는 *photos*(*asverify* 없이)로 지정하고, 호스트 이름을 *mystorageaccount*가 스토리지 계정의 이름인 *\<mystorageaccount>.blob.core.windows.net*로 지정합니다. 이 단계에서 사용자 지정 도메인 등록이 완료됩니다.
-
-1. 마지막으로 중간 단계로만 필요한, *asverify* 하위 도메인을 포함하는 새로 만든 CNAME 레코드를 삭제할 수 있습니다.
-
-새 CNAME 레코드가 DNS를 통해 전파된 후 사용자에게 적절한 사용 권한이 있는 경우 사용자는 사용자 지정 도메인을 사용하여 Blob 데이터를 확인할 수 있습니다.
-
-## <a name="test-your-custom-domain"></a>사용자 지정 도메인 테스트
+#### <a name="step-4-test-your-custom-domain"></a>4 단계: 사용자 지정 도메인 테스트
 
 사용자 지정 도메인이 Blob 서비스 엔드포인트에 매핑되었는지 확인하려면 스토리지 계정 내의 공용 컨테이너에서 Blob을 만듭니다. 그런 다음, 웹 브라우저에서 `http://<subdomain.customdomain>/<mycontainer>/<myblob>` 형식의 URI를 사용하여 Blob에 액세스합니다.
 
 예를 들어 *photos.contoso.com* 사용자 지정 하위 도메인의 *myforms* 컨테이너에서 웹 양식에 액세스하려면 `http://photos.contoso.com/myforms/applicationform.htm` URI를 사용할 수 있습니다.
 
-## <a name="deregister-a-custom-domain"></a>사용자 지정 도메인 등록 취소
+<a id="zero-down-time" />
 
-Blob Storage 엔드포인트에 대한 사용자 지정 도메인 등록을 취소하려면 다음 절차 중 하나를 사용합니다.
+### <a name="map-a-custom-domain-with-zero-downtime"></a>가동 중지 시간이 0 인 사용자 지정 도메인 매핑
 
-### <a name="azure-portal"></a>Azure Portal
+> [!NOTE]
+> 사용자가 도메인을 일시적으로 사용할 수 없는 경우이 문서의 [사용자 지정 도메인 매핑](#map-a-domain) 섹션에 나오는 단계를 수행 하는 것이 좋습니다. 더 간단한 단계를 포함 하는 간단한 방법입니다.  
+
+현재 도메인에서 가동 중지 시간이 0 인 SLA (서비스 수준 계약)를 사용 하는 응용 프로그램을 지 원하는 경우 DNS 매핑이 수행 되는 동안 사용자가 도메인에 액세스할 수 있는지 확인 하려면 다음 단계를 수행 합니다. 
+
+: heavy_check_mark: 1 단계: 저장소 끝점의 호스트 이름을 가져옵니다.
+
+: heavy_check_mark: 2 단계: 도메인 공급자를 사용 하 여 중간 정식 이름 (CNAME) 레코드를 만듭니다.
+
+: heavy_check_mark: 3 단계: Azure를 사용 하 여 사용자 지정 도메인을 미리 등록 합니다.
+
+: heavy_check_mark: 4 단계: 도메인 공급자를 사용 하 여 CNAME 레코드를 만듭니다.
+
+: heavy_check_mark: 5 단계: 사용자 지정 도메인을 테스트 합니다.
+
+<a id="endpoint-2" />
+
+#### <a name="step-1-get-the-host-name-of-your-storage-endpoint"></a>1 단계: 저장소 끝점의 호스트 이름 가져오기 
+
+호스트 이름은 프로토콜 식별자 및 후행 슬래시가 없는 저장소 끝점 URL입니다. 
+
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
+
+2. 메뉴 창의 **설정**에서 **속성**을 선택 합니다.  
+
+3. **주 Blob Service 끝점** 또는 **기본 정적 웹 사이트 끝점** 의 값을 텍스트 파일에 복사 합니다. 
+
+4. 해당 문자열에서 프로토콜 식별자 (*예:* HTTPS)와 후행 슬래시를 제거 합니다. 다음 표에는 예제가 나와 있습니다.
+
+   | 끝점의 유형입니다. |  엔드포인트(endpoint) | 호스트 이름 |
+   |------------|-----------------|-------------------|
+   |blob 서비스  | `https://mystorageaccount.blob.core.windows.net/` | `mystorageaccount.blob.core.windows.net` |
+   |정적 웹 사이트  | `https://mystorageaccount.z5.web.core.windows.net/` | `mystorageaccount.z5.web.core.windows.net` |
+  
+   나중에이 값을 따로 설정 합니다.
+
+#### <a name="step-2-create-a-intermediary-canonical-name-cname-record-with-your-domain-provider"></a>2 단계: 도메인 공급자를 사용 하 여 중간 정식 이름 (CNAME) 레코드 만들기
+
+호스트 이름을 가리키는 임시 CNAME 레코드를 만듭니다. CNAME 레코드는 원본 도메인을 대상 도메인 이름에 매핑하는 DNS 레코드의 형식입니다.
+
+1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
+
+   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+
+2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
+
+   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+
+3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
+
+   - `www` 또는 `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
+
+     `asverify` 하위 도메인을 별칭에 추가 합니다. 예를 들어 `asverify.www` 또는 `asverify.photos`입니다.
+       
+   - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint) 섹션에서 가져온 호스트 이름 
+
+     호스트 이름에 하위 도메인 `asverify`를 추가 합니다. 예: `asverify.mystorageaccount.blob.core.windows.net`
+
+4. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
+
+   등록에 성공한 경우 포털에서 스토리지 계정이 성공적으로 업데이트되었음을 알립니다. 사용자 지정 도메인이 Azure에서 확인되었지만 도메인에 대한 트래픽은 아직 스토리지 계정으로 라우팅되지 않습니다.
+
+#### <a name="step-3-pre-register-your-custom-domain-with-azure"></a>3 단계: Azure를 사용 하 여 사용자 지정 도메인 미리 등록
+
+Azure에 사용자 지정 도메인을 미리 등록 하는 경우 도메인에 대 한 DNS 레코드를 수정 하지 않고도 Azure에서 사용자 지정 도메인을 인식할 수 있도록 허용 합니다. 이런 방식으로 도메인에 대 한 DNS 레코드를 수정 하면 가동 중지 시간 없이 blob 끝점에 매핑됩니다.
+
+1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
+
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+
+   ![사용자 지정 도메인 옵션](./media/storage-custom-domain-name/custom-domain-button.png "사용자 지정 도메인")
+
+   **사용자 지정 도메인** 창이 열립니다.
+
+3. **도메인 이름** 텍스트 상자에 하위 도메인을 포함 하 여 사용자 지정 도메인의 이름을 입력 합니다.  
+   
+   예를 들어 도메인이 *contoso.com* 이 고 하위 도메인 별칭이 *www*인 경우 `www.contoso.com`를 입력 합니다. 하위 도메인이 *사진이*면 `photos.contoso.com`를 입력 합니다.
+
+4. **간접 CNAME 유효성 검사 사용** 확인란을 선택합니다.
+
+5. 사용자 지정 도메인을 등록 하려면 **저장** 단추를 선택 합니다.
+  
+   CNAME 레코드가 DNS (도메인 이름 서버)를 통해 전파 된 후 사용자에 게 적절 한 권한이 있는 경우 사용자 지정 도메인을 사용 하 여 blob 데이터를 볼 수 있습니다.
+
+#### <a name="step-4-create-a-cname-record-with-your-domain-provider"></a>4 단계: 도메인 공급자를 사용 하 여 CNAME 레코드 만들기
+
+호스트 이름을 가리키는 임시 CNAME 레코드를 만듭니다.
+
+1. 도메인 등록자의 웹 사이트에 로그인 하 고 DNS 설정 관리 페이지로 이동 합니다.
+
+   **도메인 이름**, **DNS** 또는 **이름 서버 관리**라는 섹션에서 해당 페이지를 찾을 수 있습니다.
+
+2. CNAME 레코드 관리에 대 한 섹션을 찾습니다. 
+
+   고급 설정 페이지로 이동하여 **CNAME**, **별칭** 또는 **하위 도메인**을 찾아야 할 수 있습니다.
+
+3. CNAME 레코드를 만듭니다. 해당 레코드의 일부로 다음 항목을 제공 합니다. 
+
+   - `www` 또는 `photos`와 같은 하위 도메인 별칭입니다. 하위 도메인은 필수 이며 루트 도메인은 지원 되지 않습니다.
+      
+   - 이 문서 앞부분의 [저장소 끝점의 호스트 이름 가져오기](#endpoint-2) 섹션에서 가져온 호스트 이름 
+
+#### <a name="step-5-test-your-custom-domain"></a>5 단계: 사용자 지정 도메인 테스트
+
+사용자 지정 도메인이 Blob 서비스 엔드포인트에 매핑되었는지 확인하려면 스토리지 계정 내의 공용 컨테이너에서 Blob을 만듭니다. 그런 다음, 웹 브라우저에서 `http://<subdomain.customdomain>/<mycontainer>/<myblob>` 형식의 URI를 사용하여 Blob에 액세스합니다.
+
+예를 들어 *photos.contoso.com* 사용자 지정 하위 도메인의 *myforms* 컨테이너에서 웹 양식에 액세스하려면 `http://photos.contoso.com/myforms/applicationform.htm` URI를 사용할 수 있습니다.
+
+### <a name="remove-a-custom-domain-mapping"></a>사용자 지정 도메인 매핑 제거
+
+사용자 지정 도메인 매핑을 제거 하려면 사용자 지정 도메인의 등록을 취소 합니다. 다음 절차 중 하나를 사용 합니다.
+
+#### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
 사용자 지정 도메인 설정을 제거하려면 다음을 수행합니다.
 
 1. [Azure Portal](https://portal.azure.com)에서 스토리지 계정으로 이동합니다.
 
-1. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
+2. 메뉴 창의 **Blob Service** 아래에서 **사용자 지정 도메인**을 선택합니다.  
    **사용자 지정 도메인** 창이 열립니다.
 
-1. 사용자 지정 도메인 이름이 포함된 텍스트 상자의 콘텐츠를 지웁니다.
+3. 사용자 지정 도메인 이름이 포함된 텍스트 상자의 콘텐츠를 지웁니다.
 
-1. **저장** 단추를 선택합니다.
+4. **저장** 단추를 선택합니다.
 
-사용자 지정 도메인이 성공적으로 제거된 경우 스토리지 계정이 성공적으로 업데이트되었다는 포털 알림이 표시됩니다.
+사용자 지정 도메인이 성공적으로 제거 되 면 저장소 계정이 성공적으로 업데이트 되었음을 알리는 포털 알림이 표시 됩니다.
 
-### <a name="azure-cli"></a>Azure CLI
+#### <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 사용자 지정 도메인 등록을 제거하려면 [az storage account update](https://docs.microsoft.com/cli/azure/storage/account) CLI 명령을 사용한 다음, `--custom-domain` 인수 값에 빈 문자열(`""`)을 지정합니다.
 
@@ -177,7 +268,7 @@ Blob Storage 엔드포인트에 대한 사용자 지정 도메인 등록을 취�
       --custom-domain ""
   ```
 
-### <a name="powershell"></a>PowerShell
+#### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -200,8 +291,39 @@ Blob Storage 엔드포인트에 대한 사용자 지정 도메인 등록을 취�
       -AccountName "mystorageaccount" `
       -CustomDomainName ""
   ```
+---
+
+<a id="enable-https" />
+
+## <a name="map-a-custom-domain-with-https-enabled"></a>HTTPS를 사용 하도록 설정 된 사용자 지정 도메인 매핑
+
+이 방법은 더 많은 단계를 포함 하지만 HTTPS 액세스를 가능 하 게 합니다. 
+
+사용자가 HTTPS를 사용 하 여 blob 또는 웹 콘텐츠에 액세스 하지 않아도 되는 경우이 문서의 [HTTP를 사용 하도록 설정 된 사용자 지정 도메인 매핑](#enable-http) 섹션을 참조 하세요. 
+
+사용자 지정 도메인을 매핑하고 HTTPS 액세스를 사용 하도록 설정 하려면 다음을 수행 합니다.
+
+1. Blob 또는 웹 끝점에서 [Azure CDN](../../cdn/cdn-overview.md) 를 사용 하도록 설정 합니다. 
+
+   Blob Storage 끝점은 [Azure CDN와 Azure Storage 계정 통합](../../cdn/cdn-create-a-storage-account-with-cdn.md)을 참조 하세요. 
+
+   정적 웹 사이트 끝점의 경우 [Azure CDN와 정적 웹 사이트 통합](static-website-content-delivery-network.md)을 참조 하세요.
+
+2. [Azure CDN 콘텐츠를 사용자 지정 도메인에 매핑합니다](../../cdn/cdn-map-content-to-custom-domain.md).
+
+3. [Azure CDN 사용자 지정 도메인에서 HTTPS를 사용하도록 설정합니다](../../cdn/cdn-custom-ssl.md).
+
+   > [!NOTE] 
+   > 정적 웹 사이트를 업데이트 하는 경우 CDN 끝점을 제거 하 여 CDN에 지 서버에서 캐시 된 콘텐츠를 지워야 합니다. 자세한 내용은 [Azure CDN 엔드포인트 제거](../../cdn/cdn-purge-endpoint.md)를 참조하세요.
+
+4. 필드 다음 지침을 검토 합니다.
+
+   * [Azure CDN를 사용 하는 SAS (공유 액세스 서명) 토큰](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#shared-access-signatures)입니다.
+
+   * [Azure CDN를 사용 하는 HTTP에서 HTTPS로의 리디렉션](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection)입니다.
+
+   * [Azure CDN에서 Blob Storage를 사용 하는 경우 가격 책정 및 청구](https://docs.microsoft.com/azure/cdn/cdn-storage-custom-domain-https#http-to-https-redirection)
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 지정 도메인을 Azure CDN(Content Delivery Network) 엔드포인트에 매핑](../../cdn/cdn-map-content-to-custom-domain.md)
-* [Azure CDN을 사용하여 HTTP를 통해 사용자 지정 도메인으로 Blob 액세스](storage-https-custom-domain-cdn.md)
-* [Azure Blob 스토리지에서 정적 웹 사이트 호스팅(미리 보기)](storage-blob-static-website.md)
+
+* [Azure Blob storage의 정적 웹 사이트 호스팅에 대해 알아보기](storage-blob-static-website.md)

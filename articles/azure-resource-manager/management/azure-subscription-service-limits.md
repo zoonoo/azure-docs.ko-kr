@@ -3,19 +3,21 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/28/2020
-ms.openlocfilehash: c6661ce6d3e0f62c47b1f234898dbf47de36f3ee
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 01/30/2020
+ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845973"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901400"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 한도, 할당량 및 제약 조건
 
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
 
 Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개요](https://azure.microsoft.com/pricing/)를 참조 하세요. 여기서 [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 사용 하 여 비용을 예측할 수 있습니다. 특정 서비스 (예: [Windows vm](https://azure.microsoft.com/pricing/details/virtual-machines/#Windows))에 대 한 가격 정보 페이지로 이동할 수도 있습니다. 비용 관리에 대한 팁은 [Azure 청구 및 비용 관리를 사용하여 예상치 못한 비용 방지](../../billing/billing-getting-started.md)를 참조하세요.
+
+리소스 이름에 대 한 제한은 [Azure 리소스에 대 한 명명 규칙 및 제한 사항](resource-name-rules.md)을 참조 하세요.
 
 > [!NOTE]
 > 제한 또는 할당량을 기본 한도 이상으로 올리려면 [무료로 온라인 고객 지원 요청을 여세요](../templates/error-resource-quota.md). 다음 표에 표시 된 최대 제한 값을 초과 하 여 한도를 발생 시킬 수 없습니다. 최대 제한 열이 없는 경우 리소스는 조정 가능한 제한이 없습니다.
@@ -25,7 +27,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 
 ## <a name="limits-and-azure-resource-manager"></a>제한 및 Azure Resource Manager
 
-이제 여러 Azure 리소스를 단일 Azure 리소스 그룹으로 결합할 수 있습니다. 리소스 그룹을 사용 하는 경우에는 Azure Resource Manager를 사용 하 여 지역 수준에서 전역으로 한 번만 관리 됩니다. Azure 리소스 그룹에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
+여러 Azure 리소스를 단일 Azure 리소스 그룹으로 결합할 수 있습니다. 리소스 그룹을 사용 하는 경우에는 Azure Resource Manager를 사용 하 여 지역 수준에서 전역으로 한 번만 관리 됩니다. Azure 리소스 그룹에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
 
 다음 제한 사항 목록에서 새 테이블은 Azure Resource Manager를 사용할 때 제한의 차이를 반영 합니다. 예를 들어 **구독 제한** 테이블과 **구독 제한-Azure Resource Manager** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용 되는 경우 첫 번째 테이블에만 표시 됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
@@ -484,3 +486,4 @@ SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](../../sql-dat
 * [Azure 제한 및 향상 이해](https://azure.microsoft.com/blog/2014/06/04/azure-limits-quotas-increase-requests/)
 * [Azure의 가상 컴퓨터 및 클라우드 서비스 크기](../../virtual-machines/linux/sizes.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)
 * [Azure Cloud Services의 크기](../../cloud-services/cloud-services-sizes-specs.md)
+* [Azure 리소스에 대 한 명명 규칙 및 제한 사항](resource-name-rules.md)

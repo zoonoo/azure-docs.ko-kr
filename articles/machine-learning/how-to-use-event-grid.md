@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 885ddd5c25a36e2b12379ea7639956c1c4ca5437
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75538424"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76904273"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>이벤트 기반 기계 학습 워크플로 만들기 (미리 보기)
 
@@ -32,21 +32,6 @@ Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사�
 
 * Azure Machine Learning 작업 영역에 대 한 참가자 또는 소유자 액세스는 이벤트를 만들 수 있습니다.
 * 웹 후크 또는 이벤트 허브와 같은 이벤트 처리기 끝점을 선택 합니다. 자세한 내용은 [이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)를 참조 하세요. 
-
-## <a name="register-resource-providers"></a>리소스 공급자 등록
-
-11 월 1 2019 이전에 Azure Event Grid 또는 Machine Learning을 사용한 경우이 문서의 단계를 수행 하기 전에 리소스 공급자를 다시 등록 해야 할 수 있습니다. 공급자를 다시 등록 하려면 다음 단계를 사용 합니다.
-
-1. Azure Portal로 이동 하 여 __구독__을 선택 합니다. 작업 하려는 구독을 선택 합니다.
-1. __리소스 공급자__를 선택한 다음 __eventgrid__를 검색 합니다.
-1. __Microsoft EventGrid__ 항목을 선택 하 고 __다시 등록__을 선택 합니다.
-
-    ![다시 등록-리소스 공급자](./media/how-to-use-event-grid/re-register-resource-provider.png)
-
-1. __MachineLearningServices__를 검색 하 고 항목을 선택한 다음 __다시 등록__을 선택 합니다.
-
-> [!TIP]
-> 이러한 단계를 완료할 수 있는 권한이 없는 경우 구독 관리자에 게 문의 하 여 수행 합니다.
 
 ## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Azure Portal를 사용 하 여 machine learning 이벤트 구성
 
