@@ -130,6 +130,9 @@
     - name: 성능 고려 사항
       href: functions-best-practices.md
       displayName: best practice
+    - name: 스토리지 고려 사항
+      href: storage-considerations.md
+      displayName: 'encryption, keys'
     - name: Functions 프록시
       href: functions-proxies.md
     - name: 네트워킹 옵션
