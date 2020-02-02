@@ -2,20 +2,20 @@
 title: Azure Traffic Manager 설정 확인
 description: 이 문서에서는 Traffic Manager 설정을 확인 하 고 트래픽 라우팅 메서드를 테스트 하는 방법에 대해 알아봅니다.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: ad74e5c51d5939218ebb546993d416b3df1cd04b
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.author: rohink
+ms.openlocfilehash: 94ab5e550f0053fa19b9b93f1d67690211543325
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023519"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938388"
 ---
 # <a name="verify-traffic-manager-settings"></a>Traffic Manager 설정 확인
 
@@ -32,8 +32,8 @@ DNS 이름이 사용자 프로필에서 엔드포인트의 IP 주소로 확인�
 ### <a name="check-traffic-manager-profile-using-nslookup-and-ipconfig-in-windows"></a>Windows에서 nslookup 및 ipconfig를 사용하여 Traffic Manager 프로필을 확인합니다.
 
 1. 관리자로 명령 또는 Windows PowerShell 프롬프트를 엽니다.
-2. `ipconfig /flushdns` 를 입력하여 DNS 확인자 캐시를 플러시합니다.
-3. `nslookup <your Traffic Manager domain name>`을 입력합니다. 예를 들어 다음 명령은 접두사 *myapp.contoso*가 있는 도메인 이름을 확인합니다.
+2. `ipconfig /flushdns`를 입력하여 DNS 확인자 캐시를 플러시합니다.
+3. `nslookup <your Traffic Manager domain name>`. 예를 들어 다음 명령은 접두사 *myapp.contoso*가 있는 도메인 이름을 확인합니다.
 
         nslookup myapp.contoso.trafficmanager.net
 

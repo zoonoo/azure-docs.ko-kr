@@ -11,12 +11,12 @@ ms.date: 01/13/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 66edde9591d4491fa630772f99372f9901319b2f
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75940593"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935405"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
 
@@ -31,7 +31,7 @@ ms.locfileid: "75940593"
 - 데이터 웨어하우스에서 데이터 내보내기
 
 데이터 웨어하우스의 성능 용량은 [데이터 웨어하우스 단위](what-is-a-data-warehouse-unit-dwu-cdwu.md)에 의해 결정됩니다.
-- 모든 성능 프로필에 할당 된 리소스를 보려면 [메모리 및 동시성 제한] 메모리-limits.md)를 참조 하세요.
+- 모든 성능 프로필에 할당 된 리소스를 보려면 [메모리 및 동시성 제한](memory-concurrency-limits.md)을 참조 하세요.
 - 용량을 조정 하려면 [확장 하거나 축소할](quickstart-scale-compute-portal.md)수 있습니다.
 
 

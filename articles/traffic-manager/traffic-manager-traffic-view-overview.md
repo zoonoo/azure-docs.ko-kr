@@ -3,21 +3,21 @@ title: Azure Traffic Manager의 트래픽 보기
 description: 이 소개에서는 Traffic manager 트래픽 보기의 작동 방식에 대해 알아봅니다.
 services: traffic-manager
 documentationcenter: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: infrastructure
 ms.date: 03/16/2018
-ms.author: allensu
+ms.author: rohink
 ms.custom: ''
-ms.openlocfilehash: 1cdad5873ea0f6d2fab129aef7be012ea11e8a60
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: d5a03fde564b14baee97f50fa63fd58bf83694b7
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023254"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938351"
 ---
 # <a name="traffic-manager-traffic-view"></a>Traffic Manager 트래픽 보기
 
@@ -66,7 +66,7 @@ Traffic Manager 페이지에서 **트래픽 보기** 섹션으로 이동하면 �
 
 Azure Portal에서 테이블 형식으로 트래픽 보기 데이터를 볼 수 있습니다. 각 DNS 확인자 IP/엔드포인트 쌍에 DNS 확인자의 IP 주소, 엔드포인트가 위치한(있는 경우) Azure 지역의 이름 및 지리적 위치, 해당 DNS 확인자부터 해당 엔드포인트와 관련된 요청 볼륨 및 해당 DNS(사용 가능한 경우)를 사용하는 최종 사용자와 관련된 대표 대기 시간을 표시하는 항목이 있습니다. 또한 CSV 파일로 트래픽 보기 데이터를 다운로드하여 원하는 분석 워크플로의 일부로 사용할 수 있습니다.
 
-## <a name="billing"></a>결제
+## <a name="billing"></a>청구
 
 트래픽 보기를 사용할 경우 제공되는 정보를 생성하는 데 사용된 데이터 요소 수에 따라 요금이 청구됩니다. 현재 사용되는 유일한 데이터 요소 형식은 Traffic Manager 프로필에 대해 수신된 쿼리입니다. 가격 책정에 대한 자세한 내용은 [Traffic Manager 가격 책정 페이지](https://azure.microsoft.com/pricing/details/traffic-manager/)를 참조하세요.
 

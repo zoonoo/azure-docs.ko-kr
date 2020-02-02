@@ -1,6 +1,6 @@
 ---
-title: Azure Batch 태스크 완료 이벤트 | Microsoft Docs
-description: Batch 태스크 완료 이벤트에 대한 참조입니다.
+title: Azure Batch 태스크 완료 이벤트
+description: Batch 태스크 완료 이벤트에 대한 참조입니다. 이 이벤트는 종료 코드에 관계없이 태스크가 완료되면 내보내집니다.
 services: batch
 author: ju-shim
 manager: gwallace
@@ -11,12 +11,12 @@ ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
 ms.author: jushiman
-ms.openlocfilehash: 0a325060097f11b38e3b35d032c572b9dfbe0cc7
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2f591330df4a3757ba1f5c6be1a34955c4cc2fa6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026120"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937745"
 ---
 # <a name="task-complete-event"></a>태스크 완료 이벤트
 

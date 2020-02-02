@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: troubleshooting
 ms.date: 08/26/2019
-ms.openlocfilehash: 093bfbd976ace41f635976ff27fa4292e5c4df3c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1e13c7ef8eae81ef2a12a8761b0596f6329f94dc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905146"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937918"
 ---
 # <a name="troubleshoot-cluster-creation-failures-with-azure-hdinsight"></a>Azure HDInsight를 사용 하 여 클러스터 만들기 오류 문제 해결
 
@@ -64,7 +64,7 @@ Express 경로 또는 사용자 지정 DNS 서버를 사용 하는 경우 [Azure
 
 ## <a name="resources-locks"></a>리소스 잠금  
 
-[가상 네트워크 및 리소스 그룹에 대 한 잠금이](../../azure-resource-manager/management/lock-resources.md)없는지 확인 합니다.  
+[가상 네트워크 및 리소스 그룹에 대 한 잠금이](../../azure-resource-manager/management/lock-resources.md)없는지 확인 합니다. 리소스 그룹이 잠겨 있으면 클러스터를 만들거나 삭제할 수 없습니다. 
 
 ## <a name="unsupported-component-versions"></a>지원 되지 않는 구성 요소 버전
 

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 6652ca30d9f38eb6184fce5f1ff5428d29c271a6
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: e2ad8eb181685d3ac3de8b1e0ed7ef8ddfa4e224
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911266"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933292"
 ---
 # <a name="add-controls-to-a-map"></a>지도에 컨트롤 추가
 
-이 문서에서는 지도에 컨트롤을 추가 하는 방법을 보여 줍니다. 또한 모든 컨트롤 및 [스타일 선택기](https://docs.microsoft.com/azure/azure-maps/choose-map-style)를 사용하여 지도를 만드는 방법도 알아봅니다.
+이 문서에서는 지도에 컨트롤을 추가 하는 방법을 보여 줍니다. 또한 모든 컨트롤과 [스타일 선택](https://docs.microsoft.com/azure/azure-maps/choose-map-style)으로 지도를 만드는 방법을 알아봅니다.
 
 ## <a name="add-zoom-control"></a>확대/축소 컨트롤 추가
 
@@ -39,7 +39,7 @@ map.controls.add(new atlas.control.ZoomControl(), {
 
 ## <a name="add-pitch-control"></a>피치 컨트롤 추가
 
-피치 컨트롤은 피치를 기준으로 tilting 하는 단추를 추가 합니다. 다음 코드 샘플에서는 [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) 클래스의 인스턴스를 만들고 지도의 오른쪽 위 모퉁이에 추가 합니다.
+피치 컨트롤은 피치를 기준으로 tilting 하는 단추를 추가 합니다. 다음 코드 샘플에서는 [PitchControl](/javascript/api/azure-maps-control/atlas.control.pitchcontrol) 클래스의 인스턴스를 만듭니다. 지도의 오른쪽 위 모퉁이에 PitchControl를 추가 합니다.
 
 ```javascript
 //Construct a pitch control and add it to the map.

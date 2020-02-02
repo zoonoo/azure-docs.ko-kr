@@ -2,13 +2,13 @@
 title: 컨테이너 인스턴스에서 선거의 프로브 설정
 description: Azure Container Instances의 비정상 컨테이너를 다시 시작하도록 활동성 프로브를 구성하는 방법을 알아봅니다
 ms.topic: article
-ms.date: 06/08/2018
-ms.openlocfilehash: 566f7952aff1cf460272fbb418a2a0efff411881
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 11c6c9d39067c536bf4325f74eb24b2ab64ef515
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901902"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934170"
 ---
 # <a name="configure-liveness-probes"></a>활동성 프로브 구성
 
@@ -63,41 +63,41 @@ az container create --resource-group myResourceGroup --name livenesstest -f live
 
 ### <a name="start-command"></a>시작 명령
 
-배포는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 합니다 .이는 문자열 배열을 수락 하는 `command` 속성으로 정의 됩니다. 이 예제에서는 다음 명령을 전달하여 bash 세션을 시작하고 `/tmp` 디렉터리 내에 `healthy` 파일을 만듭니다.
+배포에는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 하는 `command` 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 비정상 상태를 입력 하는 컨테이너를 시뮬레이션 합니다.
+
+먼저 bash 세션을 시작 하 고 `/tmp` 디렉터리 내에 `healthy` 라는 파일을 만듭니다. 그런 다음 파일을 삭제 하기 전에 30 초 동안 대기한 다음 10 분의 절전 모드로 전환 합니다.
 
 ```bash
 /bin/sh -c "touch /tmp/healthy; sleep 30; rm -rf /tmp/healthy; sleep 600"
 ```
 
- 그런 다음 파일을 삭제 하기 전에 30 초 동안 대기 하 고 10 분 절전 모드로 전환 됩니다.
-
 ### <a name="liveness-command"></a>활동성 명령
 
-이 배포는 선거의 check 역할을 하는 `exec` 선거의 명령을 지 원하는 `livenessProbe`를 정의 합니다. 이 명령이 0이 아닌 값으로 종료되면 컨테이너가 종료되었다가 다시 시작되고, `healthy` 파일을 찾을 수 없다는 신호를 보냅니다. 이 명령이 종료 코드 0으로 무사히 종료되면 아무 작업도 수행되지 않습니다.
+이 배포는 선거의 check 역할을 하는 `exec` 선거의 명령을 지 원하는 `livenessProbe`를 정의 합니다. 이 명령이 0이 아닌 값으로 종료 되 면 컨테이너는 종료 되 고 다시 시작 되며 `healthy` 파일을 찾을 수 없습니다. 이 명령이 종료 코드 0으로 성공적으로 종료 되 면 아무 동작도 수행 되지 않습니다.
 
 `periodSeconds` 속성은 활동성 명령을 5초마다 실행해야 한다고 지정합니다.
 
 ## <a name="verify-liveness-output"></a>활동성 출력 확인
 
-처음 30초 안에는 시작 명령에서 만든 `healthy` 파일이 존재합니다. 활동성 명령이 `healthy` 파일의 존재 여부를 확인하면 상태 코드에서는 성공을 알리는 0을 반환하므로 다시 시작이 발생하지 않습니다.
+처음 30초 안에는 시작 명령에서 만든 `healthy` 파일이 존재합니다. 선거의 명령에서 `healthy` 파일의 존재 여부를 확인할 때 상태 코드는 0을 반환 하 고, 신호를 다시 시작 하지 않습니다.
 
-30초 후 `cat /tmp/healthy`가 실패하고 비정상 및 중지 이벤트가 발생합니다.
+30 초 후에 `cat /tmp/healthy` 명령이 실패 하 여 비정상 및 종료 이벤트가 발생 합니다.
 
 이러한 이벤트는 Azure Portal 또는 Azure CLI에서 볼 수 있습니다.
 
 ![포털 비정상 이벤트][portal-unhealthy]
 
-Azure Portal에서 이벤트를 보면 `Unhealthy` 형식의 이벤트는 활동성 명령이 실패하는 즉시 트리거됩니다. 후속 이벤트는 `Killing` 형식이며, 다시 시작될 수 있도록 컨테이너 삭제를 나타냅니다. 컨테이너의 다시 시작 횟수는이 이벤트가 발생할 때마다 증가 합니다.
+Azure Portal에서 이벤트를 확인 하 여 선거의 명령이 실패 하면 `Unhealthy` 형식의 이벤트가 트리거됩니다. 후속 이벤트는 컨테이너 삭제를 나타내는 `Killing`형식 이므로 다시 시작을 시작할 수 있습니다. 컨테이너의 다시 시작 횟수는이 이벤트가 발생할 때마다 증가 합니다.
 
-다시 시작이 즉시 완료되므로 공용 IP 주소나 노드 관련 콘텐츠 같은 리소스는 그대로 유지됩니다.
+다시 시작은 내부에서 완료 되므로 공용 IP 주소 및 노드 별 내용과 같은 리소스가 유지 됩니다.
 
 ![포털 다시 시작 카운터][portal-restart]
 
-활동성 프로브가 지속적으로 실패하여 다시 시작을 너무 많이 트리거하면 컨테이너의 백오프 지연이 급격하게 증가합니다.
+선거의 프로브를 지속적으로 실패 하 고 다시 시작을 트리거하는 경우 컨테이너는 지 수 백오프 지연 시간을 입력 합니다.
 
 ## <a name="liveness-probes-and-restart-policies"></a>활동성 프로브 및 다시 시작 정책
 
-다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 선거의 프로브를 설정 하는 경우 선거의 검사에 실패 하 여 컨테이너 그룹을 다시 시작 하지 않습니다. 그 대신 컨테이너 그룹은 컨테이너 그룹의 다시 시작 정책 `Never`를 따릅니다.
+다시 시작 정책은 활동성 프로브에 의해 트리거되는 다시 시작 동작보다 우선합니다. 예를 들어 `restartPolicy = Never` *및* 선거의 프로브를 설정 하는 경우 선거의 검사에 실패 하 여 컨테이너 그룹을 다시 시작 하지 않습니다. 컨테이너 그룹은 대신 `Never`의 컨테이너 그룹 다시 시작 정책을 준수 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

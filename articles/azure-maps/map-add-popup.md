@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 79bafb331cb7ad38ea7cad9e510b22886b647764
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 45d210725f7f09663b126528479655d7f4d9c19f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911143"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933348"
 ---
 # <a name="add-a-popup-to-the-map"></a>맵에 팝업 추가
 
@@ -22,7 +22,7 @@ ms.locfileid: "75911143"
 
 ## <a name="understand-the-code"></a>코드 이해
 
-다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 마우스 이벤트가 기호 계층에 추가 되어 마우스로 기호 마커를 가리키거나 끌 때 팝업을 트리거하고 팝업을 닫습니다. 표식 기호가 가리킴 이면 팝업의 `position` 속성이 표식의 위치로 업데이트 되 고 `content` 옵션이 가리키고 있는 point 기능의 `name` 및 `description` 속성을 래핑하는 일부 HTML로 업데이트 됩니다. 그러면 팝업이 해당 `open` 함수를 사용 하 여 맵에 표시 됩니다.
+다음 코드에서는 기호 계층을 사용 하 여 `name` 및 `description` 속성이 있는 point 기능을 맵에 추가 합니다. [Popup 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.popup?view=azure-iot-typescript-latest) 의 인스턴스가 만들어졌지만 표시 되지 않습니다. 기호 계층에 마우스 이벤트를 추가 하 여 팝업을 열고 닫는 팝업을 트리거합니다. 표식 기호가 가리킴 이면 팝업의 `position` 속성이 표식의 위치로 업데이트 되 고 `content` 옵션이 가리킨 point 기능의 `name` 및 `description` 속성을 래핑하는 일부 HTML로 업데이트 됩니다. 그러면 팝업이 해당 `open` 함수를 사용 하 여 맵에 표시 됩니다.
 
 ```javascript
 //Define an HTML template for a custom popup content laypout.
@@ -85,7 +85,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## <a name="reusing-a-popup-with-multiple-points"></a>여러 점을 사용하여 팝업을 다시 사용
 
-많은 수의 점이 있고 한 번에 하나의 popup만 표시 하려는 경우 가장 좋은 방법은 하나의 popup을 만들고 각 요소 기능에 대해 popup을 만드는 대신 다시 사용 하는 것입니다. Popup을 다시 사용 하면 응용 프로그램에서 만든 DOM 요소의 수가 크게 줄어 성능이 향상 될 수 있습니다. 다음 샘플에서는 3 포인트 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
+많은 수의 점이 있고 한 번에 하나의 popup만 표시 하려는 경우에는 팝업을 하나 만들고 다시 사용 하는 것이 가장 좋습니다. Popup을 다시 사용 하면 응용 프로그램에서 만든 DOM 요소의 수가 크게 줄어 성능이 향상 될 수 있습니다. 다음 샘플에서는 3 포인트 기능을 만듭니다. 그 중 하나를 클릭하면 해당 점 기능에 대한 콘텐츠와 함께 팝업이 표시됩니다.
 
 <br/>
 
@@ -94,7 +94,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## <a name="customizing-a-popup"></a>팝업 사용자 지정
 
-기본적으로 popup에는 흰색 배경, 아래쪽에는 포인터 화살표, 오른쪽 위 모서리에 닫기 단추가 있습니다. 다음 샘플에서는 팝업의 `fillColor` 옵션을 사용 하 여 배경색을 검은색으로 변경 합니다. `shoCloseButton` 옵션을 false로 설정 하 여 닫기 단추를 제거 합니다. 팝업의 HTML 콘텐츠는 팝업의 가장자리에서 패딩 된 10 픽셀을 사용 하 고 텍스트는 흰색으로 표시 되어 검은색 배경에 잘 표시 됩니다.  
+기본적으로 popup에는 흰색 배경, 아래쪽에는 포인터 화살표, 오른쪽 위 모서리에 닫기 단추가 있습니다. 다음 샘플에서는 팝업의 `fillColor` 옵션을 사용 하 여 배경색을 검은색으로 변경 합니다. `CloseButton` 옵션을 false로 설정 하 여 닫기 단추를 제거 합니다. 팝업의 HTML 콘텐츠는 팝업의 가장자리에서 10 픽셀의 안쪽 여백을 사용 합니다. 텍스트는 흰색 이므로 검은색 배경에 잘 표시 됩니다.  
 
 <br/>
 
@@ -104,7 +104,7 @@ map.events.add('mouseleave', symbolLayer, function (){
 
 ## <a name="popup-events"></a>Popup 이벤트
 
-팝업은 열고, 닫고, 끌 수 있습니다. Popup 클래스는 개발자가 이러한 작업에 반응 하는 데 도움이 되는 이벤트를 제공 합니다. 다음 샘플에서는 팝업을 열거나 닫거나 끌 때 발생 하는 이벤트를 강조 표시 합니다. 
+팝업은 열고, 닫고, 끌 수 있습니다. Popup 클래스는 개발자가 이러한 이벤트에 대응할 수 있도록 하는 이벤트를 제공 합니다. 다음 샘플에서는 사용자가 팝업을 열거나 닫거나 끌 때 발생 하는 이벤트를 강조 표시 합니다. 
 
 <br/>
 

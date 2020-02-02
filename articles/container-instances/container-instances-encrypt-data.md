@@ -2,14 +2,15 @@
 title: 배포 데이터 암호화
 description: 컨테이너 인스턴스 리소스에 대해 유지 되는 데이터의 암호화 및 고객이 관리 하는 키를 사용 하 여 데이터를 암호화 하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 01/10/2020
-ms.author: danlep
-ms.openlocfilehash: 146effd7f1a7ad1ddd94886d1a79e2914bd1c94b
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.date: 01/17/2020
+author: dkkapur
+ms.author: dekapur
+ms.openlocfilehash: 14a51ce103d831bcf1dfd52c892102f72531a4c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75904212"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934311"
 ---
 # <a name="encrypt-deployment-data"></a>배포 데이터 암호화
 
@@ -23,7 +24,7 @@ ACI의 데이터는 256 비트 AES 암호화를 사용 하 여 암호화 및 암
 
 Microsoft 관리 키를 사용 하 여 컨테이너 데이터의 암호화를 사용 하거나 사용자 고유의 키를 사용 하 여 암호화를 관리할 수 있습니다. 다음 표에서는 이러한 옵션을 비교 합니다. 
 
-|    |    Microsoft에서 관리 하는 키     |     고객 관리 키     |
+|    |    Microsoft에서 관리 하는 키     |     고객 관리형 키     |
 |----|----|----|
 |    암호화/암호 해독 작업    |    Azure    |    Azure    |
 |    키 저장소    |    Microsoft 키 저장소    |    Azure Key Vault    |
@@ -87,15 +88,18 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
 > [!IMPORTANT]
 > 고객이 관리 하는 키로 배포 데이터를 암호화 하는 것은 현재 롤아웃 중인 최신 API 버전 (2019-12-01)에서 사용할 수 있습니다. 배포 템플릿에서이 API 버전을 지정 합니다. 이 문제에 문제가 있는 경우 Azure 지원에 문의 하세요.
 
-키 자격 증명 모음 키 및 액세스 정책이 설정 되 면 ACI 배포 템플릿에 다음 속성을 추가 합니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아볼 수 있습니다. 
+키 자격 증명 모음 키 및 액세스 정책이 설정 되 면 ACI 배포 템플릿에 다음 속성을 추가 합니다. [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)에서 템플릿을 사용 하 여 ACI 리소스를 배포 하는 방법에 대해 자세히 알아보세요. 
+* `resources`에서 `apiVersion`를 `2012-12-01`로 설정 합니다.
+* 배포 템플릿의 컨테이너 그룹 속성 섹션 아래에 다음 값을 포함 하는 `encryptionProperties`를 추가 합니다.
+  * `vaultBaseUrl`: key vault의 DNS 이름은 포털에 있는 주요 자격 증명 모음 리소스의 개요 블레이드에서 찾을 수 있습니다.
+  * `keyName`: 이전에 생성 된 키의 이름입니다.
+  * `keyVersion`: 키의 현재 버전입니다. 키 자체 (키 자격 증명 모음 리소스의 설정 섹션에 있는 "키" 아래)를 클릭 하 여 찾을 수 있습니다.
+* 컨테이너 그룹 속성에서 값 `Standard`를 사용 하 여 `sku` 속성을 추가 합니다. `sku` 속성은 API 버전 2019-12-01에 필요 합니다.
 
-특히 배포 템플릿의 컨테이너 그룹 속성 섹션에서 다음 값을 포함 하는 "값 속성"을 추가 합니다.
-* vaultBaseUrl: 키 자격 증명 모음의 DNS 이름은 포털의 주요 자격 증명 모음 리소스의 개요 블레이드에서 찾을 수 있습니다.
-* keyName: 이전에 생성 된 키의 이름입니다.
-* keyVersion: 키의 현재 버전입니다. 키 자체 (키 자격 증명 모음 리소스의 설정 섹션에 있는 "키" 아래)를 클릭 하 여 찾을 수 있습니다.
-
+다음 템플릿 코드 조각에서는 배포 데이터를 암호화 하는 다음과 같은 추가 속성을 보여 줍니다.
 
 ```json
+[...]
 "resources": [
     {
         "name": "[parameters('containerGroupName')]",
@@ -108,12 +112,107 @@ ACI 서비스에서 키에 액세스할 수 있도록 하는 새 액세스 정�
                 "keyName": "acikey",
                 "keyVersion": "xxxxxxxxxxxxxxxx"
             },
+            "sku": "Standard",
             "containers": {
                 [...]
             }
         }
     }
 ]
+```
+
+다음은 [자습서: 리소스 관리자 템플릿을 사용 하 여 다중 컨테이너 그룹 배포](https://docs.microsoft.com/azure/container-instances/container-instances-multi-container-group)의 템플릿에서 적용 되는 전체 템플릿입니다. 
+
+```json
+{
+  "$schema": "https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+  "contentVersion": "1.0.0.0",
+  "parameters": {
+    "containerGroupName": {
+      "type": "string",
+      "defaultValue": "myContainerGroup",
+      "metadata": {
+        "description": "Container Group name."
+      }
+    }
+  },
+  "variables": {
+    "container1name": "aci-tutorial-app",
+    "container1image": "mcr.microsoft.com/azuredocs/aci-helloworld:latest",
+    "container2name": "aci-tutorial-sidecar",
+    "container2image": "mcr.microsoft.com/azuredocs/aci-tutorial-sidecar"
+  },
+  "resources": [
+    {
+      "name": "[parameters('containerGroupName')]",
+      "type": "Microsoft.ContainerInstance/containerGroups",
+      "apiVersion": "2019-12-01",
+      "location": "[resourceGroup().location]",
+      "properties": {
+        "encryptionProperties": {
+            "vaultBaseUrl": "https://example.vault.azure.net",
+            "keyName": "acikey",
+            "keyVersion": "xxxxxxxxxxxxxxxx"
+        },
+        "sku": "Standard",  
+        "containers": [
+          {
+            "name": "[variables('container1name')]",
+            "properties": {
+              "image": "[variables('container1image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              },
+              "ports": [
+                {
+                  "port": 80
+                },
+                {
+                  "port": 8080
+                }
+              ]
+            }
+          },
+          {
+            "name": "[variables('container2name')]",
+            "properties": {
+              "image": "[variables('container2image')]",
+              "resources": {
+                "requests": {
+                  "cpu": 1,
+                  "memoryInGb": 1.5
+                }
+              }
+            }
+          }
+        ],
+        "osType": "Linux",
+        "ipAddress": {
+          "type": "Public",
+          "ports": [
+            {
+              "protocol": "tcp",
+              "port": "80"
+            },
+            {
+                "protocol": "tcp",
+                "port": "8080"
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "outputs": {
+    "containerIPv4Address": {
+      "type": "string",
+      "value": "[reference(resourceId('Microsoft.ContainerInstance/containerGroups/', parameters('containerGroupName'))).ipAddress.ip]"
+    }
+  }
+}
 ```
 
 ### <a name="deploy-your-resources"></a>리소스 배포

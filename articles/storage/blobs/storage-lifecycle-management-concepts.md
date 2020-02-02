@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: 6bf391f22843991bf224539b82037c0e29251e7b
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260956"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939233"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -348,9 +348,9 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 }
 ```
 
-### <a name="archive-data-at-ingest"></a>수집 시 데이터 보관
+### <a name="archive-data-after-ingest"></a>수집 후 데이터 보관
 
-일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 때 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
+일부 데이터는 클라우드에 유휴 상태로 유지되며 드물지만 한 번 액세스됩니다. 다음 수명 주기 정책은 수집 되는 즉시 데이터를 보관 하도록 구성 됩니다. 이 예제에서는 컨테이너 `archivecontainer` 내의 저장소 계정에서 블록 blob을 보관 계층으로 전환 합니다. 전환은 마지막으로 수정한 시간 이후에 0 일 후에 blob에서 작동 하 여 수행 됩니다.
 
 > [!NOTE] 
 > Blob을 직접 업로드 하는 것이 더 효율적입니다. [Putblob](https://docs.microsoft.com/rest/api/storageservices/put-blob) 에 대 한 [PUTBLOCKLIST](https://docs.microsoft.com/rest/api/storageservices/put-block-list) 또는 REST 버전 2018-11-09 이상 또는 최신 blob storage 클라이언트 라이브러리를 사용 하 여 에 대 한 액세스 계층 헤더를 사용할 수 있습니다. 

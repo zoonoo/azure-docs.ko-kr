@@ -3,12 +3,12 @@ title: Azure Service Health 이란?
 description: Azure 앱이 현재 및 향후 Azure 서비스 문제 및 유지 관리에 의해 어떤 영향을 받는지에 대한 개인 설정된 정보입니다.
 ms.topic: article
 ms.date: 05/10/2019
-ms.openlocfilehash: 4d9d9dcb4db483b524cb7be8e006ba12edcc8442
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 039583d9243f8ce76b33afcee098e71a670b5285
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463961"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939210"
 ---
 # <a name="what-is-azure-service-health"></a>Azure Service Health 이란?
 
@@ -27,3 +27,5 @@ Azure [상태](azure-status-overview.md) 는 azure의 azure **[상태 페이지]
 **Azure 상태 페이지, Azure Service Health 및 Azure Resource Health에 대 한 개요를 시청 하세요.**
 
 >[!VIDEO https://www.microsoft.com/en-us/videoplayer/embed/RE2OgX6]
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]

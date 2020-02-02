@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 11/11/2019
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: e52296f459c68fab2816faa2606674ddc1b370ee
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b7a3d443b64943c097a51eeae4be6253a0466e18
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896363"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933707"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -40,7 +40,7 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 
 [!INCLUDE [partners](../../includes/virtual-wan-partners-include.md)]
 
-다음 파트너는 앞으로는 Arista, 아루바 HPE, Cisco Systems, F5 Networks, Open Systems, SharpLink 및 VMWare Velocloud와 같은 로드맵에 예정 되어 있습니다.
+다음 파트너는 가까운 장래에는 Arista, 아루바 HPE, Cisco Systems, F5 Networks, Open Systems, Oracle Talari, SharpLink 및 VMWare Velocloud에 예정 되어 있습니다.
 
 ## <a name="locations"></a>위치
 

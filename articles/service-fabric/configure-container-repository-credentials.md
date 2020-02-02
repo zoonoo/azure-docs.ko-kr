@@ -1,20 +1,19 @@
 ---
 title: Azure Service Fabric-컨테이너 리포지토리 자격 증명 구성
 description: 컨테이너 레지스트리에서 이미지를 다운로드 하기 위한 리포지토리 자격 증명 구성
-author: arya
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.author: arya
-ms.openlocfilehash: 25fe3c69b19d397137d1e1802e941e0433a1b160
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 9bd6e6a0a22f7568760f014897fd28ff47e9450b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351667"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934986"
 ---
 # <a name="configure-repository-credentials-for-your-application-to-download-container-images"></a>컨테이너 이미지를 다운로드 하기 위해 응용 프로그램에 대 한 리포지토리 자격 증명 구성
 
-ApplicationManifest.xml 파일의 `ContainerHostPolicies`에 `RepositoryCredentials`를 추가하여 컨테이너 레지스트리 인증을 구성합니다. 서비스에서 리포지토리의 컨테이너 이미지를 다운로드할 수 있게 하는 myregistry.azurecr.io 컨테이너 레지스트리에 대한 계정과 암호를 추가합니다.
+응용 프로그램 매니페스트의 `ContainerHostPolicies` 섹션에 `RepositoryCredentials`를 추가 하 여 컨테이너 레지스트리 인증을 구성 합니다. 컨테이너 레지스트리에 대 한 계정 및 암호를 추가 합니다 (아래 예제에서는*myregistry.azurecr.io* ) .이를 통해 서비스는 리포지토리에서 컨테이너 이미지를 다운로드할 수 있습니다.
 
 ```xml
 <ServiceManifestImport>
@@ -55,7 +54,7 @@ Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리
 * DefaultContainerRepositoryAccountName(문자열)
 * DefaultContainerRepositoryPassword(문자열)
 * IsDefaultContainerRepositoryPasswordEncrypted(bool)
-* DefaultContainerRepositoryPasswordType(문자열) --- 6.4 런타임부터 지원됨
+* DefaultContainerRepositoryPasswordType (문자열)
 
 다음은 ClusterManifestTemplate 파일의 `Hosting` 섹션 내에 추가할 수 있는 항목의 예입니다. `Hosting` 섹션은 클러스터를 만들 때 또는 나중에 구성 업그레이드에서 추가할 수 있습니다. 자세한 내용은 [Azure Service Fabric 클러스터 설정 변경](service-fabric-cluster-fabric-settings.md) 및 [Azure Service Fabric 애플리케이션 비밀 관리](service-fabric-application-secret-management.md)를 참조하세요.
 
@@ -90,19 +89,19 @@ Service Fabric를 사용 하면 응용 프로그램에서 기본 리포지토리
 ]
 ```
 
-## <a name="leveraging-the-managed-identity-of-the-virtual-machine-scale-set-by-using-managed-identity-service-msi"></a>MSI (관리 Id 서비스)를 사용 하 여 가상 머신 확장 집합의 관리 Id 활용
+## <a name="use-tokens-as-registry-credentials"></a>토큰을 레지스트리 자격 증명으로 사용
 
-Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이너에 대 한 이미지를 다운로드할 수 있습니다.  이 기능은 기본 가상 머신 확장 집합의 관리 되는 id를 활용 하 여 레지스트리에 인증 하므로 사용자 자격 증명을 관리할 필요가 없습니다.  MSI에 대 한 자세한 내용은 [관리 서비스 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 를 참조 하세요.  이 기능을 사용 하려면 다음 단계를 수행 해야 합니다.
+Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이너에 대 한 이미지를 다운로드할 수 있습니다.  이 기능은 기본 가상 머신 확장 집합의 *관리 되는 id* 를 활용 하 여 레지스트리에 인증 하므로 사용자 자격 증명을 관리할 필요가 없습니다.  자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 참조 하세요.  이 기능을 사용 하려면 다음 단계를 수행 해야 합니다.
 
-1.  시스템 할당 관리 Id가 VM에 대해 사용 하도록 설정 되어 있는지 확인 합니다 (아래 스크린샷 참조).
+1. *시스템 할당 관리 id* 가 VM에 대해 사용 하도록 설정 되어 있는지 확인 합니다.
 
-    ![가상 머신 확장 집합 id 만들기](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
+    ![Azure Portal: 가상 머신 확장 집합 id 만들기 옵션](./media/configure-container-repository-credentials/configure-container-repository-credentials-acr-iam.png)
 
-2.  그런 다음 VM (SS)에 사용 권한을 부여 하 여 레지스트리에서 이미지를 끌어오거나 읽습니다.  Azure 블레이드를 통해 ACR의 Access Control (IAM)로 이동 하 고 아래와 같이 VM (SS)에 올바른 권한을 부여 합니다.
+2. 레지스트리에서 이미지를 끌어오거나 읽도록 가상 머신 확장 집합에 대 한 권한을 부여 합니다. Azure Portal에서 Azure Container Registry의 Access Control (IAM) 블레이드에서 가상 컴퓨터에 대 한 *역할 할당* 을 추가 합니다.
 
     ![ACR에 VM 보안 주체 추가](./media/configure-container-repository-credentials/configure-container-repository-credentials-vmss-identity.png)
 
-3.  위의 단계가 완료 되 면 applicationmanifest .xml 파일을 수정 합니다.  "ContainerHostPolicies" 레이블이 지정 된 태그를 찾아 `‘UseTokenAuthenticationCredentials=”true”`특성을 추가 합니다.
+3. 그런 다음 응용 프로그램 매니페스트를 수정 합니다. `ContainerHostPolicies` 섹션에서 `‘UseTokenAuthenticationCredentials=”true”`특성을 추가 합니다.
 
     ```xml
       <ServiceManifestImport>
@@ -121,4 +120,4 @@ Service Fabric에서는 토큰을 자격 증명으로 사용 하 여 컨테이�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [컨테이너 레지스트리 인증](/azure/container-registry/container-registry-authentication)에 대 한 자세한 내용을 참조 하세요.
+* [컨테이너 레지스트리 인증](../container-registry/container-registry-authentication.md)에 대 한 자세한 내용을 참조 하세요.

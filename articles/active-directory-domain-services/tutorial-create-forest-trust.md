@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: bd0ec46d224e68f92b5d042826633d1efc7c336e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425427"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931226"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services (미리 보기)에서 온-프레미스 도메인에 아웃 바운드 포리스트 트러스트 만들기
 
@@ -45,7 +45,7 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance-advanced].
     
     > [!IMPORTANT]
-    > *리소스* 포리스트를 사용 하 여 Azure AD DS 관리 되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대 한 트러스트를 만들 수 있습니다.
+    > *리소스* 포리스트를 사용 하 여 Azure AD DS 관리 되는 도메인을 만들어야 합니다. 기본 옵션은 *사용자* 포리스트를 만듭니다. 리소스 포리스트만 온-프레미스 AD DS 환경에 대 한 트러스트를 만들 수 있습니다. 또한 관리 되는 도메인에 *Enterprise* SKU를 최소한으로 사용 해야 합니다. 필요한 경우 [Azure AD DS 관리 되는 도메인에 대 한 SKU를 변경][howto-change-sku]합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -188,7 +188,7 @@ Azure AD DS 리소스 포리스트에 연결 된 Windows Server VM을 사용 하
 1. **그룹 또는 사용자 이름** 목록에서 *FileServerAccess* 를 선택 합니다. **FileServerAccess에 대 한 사용 권한** 목록에서 **수정** 및 **쓰기** 권한에 대해 *허용* 을 선택 하 고 **확인**을 선택 합니다.
 1. **공유** 탭을 선택 하 고 **고급 공유 ...** 를 선택 합니다.
 1. **이 폴더 공유**를 선택한 다음 **공유 이름** 에 파일 공유에 대 한 기억 하기 쉬운 이름 (예: *CrossForestShare*)을 입력 합니다.
-1. **사용 권한**을 선택합니다. **모든 사람에 대 한 사용 권한** 목록에서 **변경** 권한에 대해 **허용** 을 선택 합니다.
+1. **권한**을 선택 합니다. **모든 사람에 대 한 사용 권한** 목록에서 **변경** 권한에 대해 **허용** 을 선택 합니다.
 1. **확인** 을 두 번 선택 하 고 **닫기**를 선택 합니다.
 
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>리소스에 대 한 크로스 포리스트 인증의 유효성 검사
@@ -220,3 +220,4 @@ Azure AD DS의 포리스트 형식에 대 한 자세한 개념 정보는 [리소
 [create-azure-ad-tenant]: ../active-directory/fundamentals/sign-up-organization.md
 [associate-azure-ad-tenant]: ../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md
 [create-azure-ad-ds-instance-advanced]: tutorial-create-instance-advanced.md
+[howto-change-sku]: change-sku.md

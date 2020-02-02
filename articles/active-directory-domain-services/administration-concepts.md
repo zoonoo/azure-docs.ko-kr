@@ -8,14 +8,14 @@ ms.service: active-directory
 ms.subservice: domain-services
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: f239bab48e732755361fe734fdc24b37d3823c63
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: 682935fa2324b8de4992ab2f90c7f71e05c4f8ac
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74481024"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931576"
 ---
 # <a name="management-concepts-for-user-accounts-passwords-and-administration-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services의 사용자 계정, 암호 및 관리에 대 한 관리 개념
 
@@ -34,7 +34,7 @@ Azure AD DS에서 사용자, 그룹, 자격 증명 및 정책과 같은 모든 �
 * 사용자 계정은 Azure AD에서 동기화 할 수 있습니다. 여기에는 Azure AD에서 직접 만든 클라우드 전용 사용자 계정과 Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화 된 하이브리드 사용자 계정이 포함 됩니다.
     * Azure AD DS의 대부분 사용자 계정은 Azure AD의 동기화 프로세스를 통해 생성 됩니다.
 * 사용자 계정은 Azure AD DS 관리 되는 도메인에서 수동으로 만들 수 있으며 Azure AD에 존재 하지 않습니다.
-    * Azure AD DS 에서만 실행 되는 응용 프로그램에 대 한 서비스 계정을 만들어야 하는 경우 관리 되는 도메인에서 수동으로 만들 수 있습니다. Azure AD에서 동기화가 단방향 이므로 azure AD DS에서 만든 사용자 계정은 Azure AD에 다시 동기화 되지 않습니다.
+    * Azure AD DS 에서만 실행 되는 응용 프로그램에 대 한 서비스 계정을 만들어야 하는 경우 관리 되는 도메인에서 수동으로 만들 수 있습니다. Azure AD에서 동기화는 한 가지 방법으로 azure AD DS에서 만든 사용자 계정은 Azure AD에 다시 동기화 되지 않습니다.
 
 ## <a name="password-policy"></a>암호 정책
 
@@ -60,7 +60,7 @@ Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화
 적절히 구성되면 사용 가능한 암호 해시가 Azure AD DS 관리형 도메인에 저장됩니다. Azure AD DS 관리형 도메인을 삭제하면 해당 지점에 저장된 암호 해시도 모두 삭제됩니다. 나중에 Azure AD DS 관리 되는 도메인을 만드는 경우 Azure AD의 동기화 된 자격 증명 정보를 다시 사용할 수 없습니다. 암호 해시를 다시 저장 하려면 암호 해시 동기화를 다시 구성 해야 합니다. 이전에는 도메인 조인 VM 또는 사용자가 즉시 인증할 수 없었으므로 Azure AD에서 암호 해시를 새 Azure AD DS 관리형 도메인에 생성하고 저장해야 합니다. 자세한 내용은 [Azure AD DS 및 Azure AD Connect에 대한 암호 해시 동기화 프로세스][azure-ad-password-sync]를 참조하세요.
 
 > [!IMPORTANT]
-> Azure AD Connect은 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치 되 고 구성 되어야 합니다. Azure AD로 개체를 다시 동기화 하기 위해 Azure AD DS 관리 되는 도메인에 Azure AD Connect를 설치 하는 것은 지원 되지 않습니다.
+> Azure AD Connect는 온-프레미스 AD DS 환경과의 동기화를 위해서만 설치되고 구성되어야 합니다. 개체를 Azure AD로 개체를 다시 동기화하기 위해 Azure AD DS 관리형 도메인에 Azure AD Connect를 설치하는 것은 지원되지 않습니다.
 
 ## <a name="forests-and-trusts"></a>포리스트 및 트러스트
 
@@ -68,11 +68,41 @@ Azure AD Connect를 사용 하 여 온-프레미스 AD DS 환경에서 동기화
 
 Azure AD DS에서 포리스트는 도메인을 하나만 포함 합니다. 온-프레미스 AD DS 포리스트에는 여러 도메인이 포함 되는 경우가 많습니다. 특히 인수 및 합병 후에 규모가 많은 조직의 경우 여러 온-프레미스 포리스트가 있을 수 있으며, 각 포리스트는 여러 도메인을 포함 합니다.
 
-기본적으로 Azure AD DS 관리 되는 도메인은 *사용자* 포리스트로 생성 됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함 하 여 Azure AD의 모든 개체를 동기화 합니다. 사용자 계정은 도메인에 가입 된 VM에 로그인 하는 등 Azure AD DS 관리 되는 도메인에 대해 직접 인증할 수 있습니다. 사용자 포리스트는 암호 해시를 동기화 할 수 있고 사용자가 스마트 카드 인증과 같은 독점적인 로그인 방법을 사용 하지 않는 경우 작동 합니다.
+기본적으로 Azure AD DS 관리 되는 도메인은 *사용자* 포리스트로 생성 됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 계정은 도메인에 가입 된 VM에 로그인 하는 등 Azure AD DS 관리 되는 도메인에 대해 직접 인증할 수 있습니다. 사용자 포리스트는 암호 해시를 동기화 할 수 있고 사용자가 스마트 카드 인증과 같은 독점적인 로그인 방법을 사용 하지 않는 경우 작동 합니다.
 
 Azure AD DS *리소스* 포리스트에서는 사용자가 온-프레미스 AD DS에서 단방향 포리스트 *트러스트* 를 통해 인증 합니다. 이 방법을 사용 하면 사용자 개체 및 암호 해시가 Azure AD DS에 동기화 되지 않습니다. 사용자 개체 및 자격 증명은 온-프레미스 AD DS에만 존재 합니다. 이 접근 방식을 통해 기업은 Azure에서 LDAPS, Kerberos 또는 NTLM 등의 클래식 인증에 의존 하는 리소스 및 응용 프로그램 플랫폼을 호스트할 수 있지만 모든 인증 문제나 문제는 제거 됩니다. Azure AD DS 리소스 포리스트는 현재 미리 보기로 제공 됩니다.
 
 Azure AD DS의 포리스트 형식에 대 한 자세한 내용은 [리소스 포리스트 란 무엇 인가요?][concepts-forest] [azure AD DS에서 포리스트 트러스트는 어떻게 작동 하나요?][concepts-trust] 를 참조 하세요.
+
+## <a name="azure-ad-ds-skus"></a>Azure AD DS Sku
+
+Azure AD DS에서 사용 가능한 성능 및 기능은 SKU를 기반으로 합니다. 관리 되는 도메인을 만들 때 SKU를 선택 하 고 관리 되는 도메인이 배포 된 후 비즈니스 요구 사항이 변경 되 면 Sku를 전환할 수 있습니다. 다음 표에서는 사용 가능한 Sku와 해당 Sku 간의 차이점을 간략하게 설명 합니다.
+
+| SKU name   | 최대 개체 수 | Backup 주기 | 최대 아웃 바운드 포리스트 트러스트 수 |
+|------------|----------------------|------------------|----|
+| Standard   | 제한 없음            | 7 일 마다     | 0  |
+| 엔터프라이즈 | 제한 없음            | 3 일 마다     | 5  |
+| 프리미엄    | 제한 없음            | 매일            | 10 |
+
+이러한 Azure AD DS Sku 이전에는 Azure AD DS 관리 되는 도메인의 개체 (사용자 및 컴퓨터 계정) 수를 기반으로 하는 청구 모델이 사용 되었습니다. 관리 되는 도메인의 개체 수를 기반으로 하는 변수 가격은 더 이상 없습니다.
+
+자세한 내용은 [Azure AD DS 가격 책정 페이지][pricing]를 참조 하세요.
+
+### <a name="managed-domain-performance"></a>관리 되는 도메인 성능
+
+도메인 성능은 응용 프로그램에 대해 인증을 구현 하는 방법에 따라 달라 집니다. 추가 계산 리소스는 쿼리 응답 시간을 향상 시키고 동기화 작업에 소요 되는 시간을 줄이는 데 도움이 될 수 있습니다. SKU 수준이 늘어나면 관리 되는 도메인에 사용할 수 있는 계산 리소스가 늘어납니다. 응용 프로그램의 성능을 모니터링 하 고 필요한 리소스를 계획 합니다.
+
+비즈니스 또는 응용 프로그램 요구 사항이 변경 되 고 Azure AD DS 관리 되는 도메인에 대 한 추가 계산 성능이 필요한 경우 다른 SKU로 전환할 수 있습니다.
+
+### <a name="backup-frequency"></a>Backup 주기
+
+백업 빈도는 관리 되는 도메인의 스냅숏을 만드는 빈도를 결정 합니다. 백업은 Azure 플랫폼에서 관리 하는 자동화 된 프로세스입니다. 관리 되는 도메인에 문제가 발생 하는 경우 Azure 지원은 백업에서 복원 하는 데 도움이 될 수 있습니다. 동기화는 azure AD *에서* 한 가지 방법으로 수행 되므로 azure AD DS 관리 되는 도메인의 모든 문제는 azure ad 또는 온-프레미스 AD DS 환경 및 기능에 영향을 주지 않습니다.
+
+SKU 수준이 늘어나면 이러한 백업 스냅숏 빈도가 높아집니다. 비즈니스 요구 사항 및 RPO (복구 지점 목표)를 검토 하 여 관리 되는 도메인에 필요한 백업 빈도를 결정 합니다. 비즈니스 또는 응용 프로그램 요구 사항이 변경 되 고 더 자주 백업 해야 하는 경우 다른 SKU로 전환할 수 있습니다.
+
+### <a name="outbound-forests"></a>아웃 바운드 포리스트
+
+이전 섹션에서는 Azure AD DS 관리 되는 도메인에서 온-프레미스 AD DS 환경 (현재 미리 보기로 제공)으로 트러스트 하는 방법에 대해 자세히 설명 합니다. SKU는 Azure AD DS 관리 되는 도메인에 대해 만들 수 있는 최대 포리스트 트러스트 수를 결정 합니다. 비즈니스 및 응용 프로그램 요구 사항을 검토 하 여 실제로 필요한 신뢰의 수를 확인 하 고 적절 한 Azure AD DS SKU를 선택 합니다. 비즈니스 요구 사항이 변경 되 고 추가 포리스트 트러스트를 만들어야 하는 경우에는 다른 SKU로 전환할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -87,3 +117,6 @@ Azure AD DS의 포리스트 형식에 대 한 자세한 내용은 [리소스 포
 [tutorial-create-instance-advanced]: tutorial-create-instance-advanced.md
 [concepts-forest]: concepts-resource-forest.md
 [concepts-trust]: concepts-forest-trust.md
+
+<!-- EXTERNAL LINKS -->
+[pricing]: https://azure.microsoft.com/pricing/details/active-directory-ds/

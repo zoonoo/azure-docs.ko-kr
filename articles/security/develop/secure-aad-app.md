@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/12/2019
 ms.author: terrylan
-ms.openlocfilehash: a936fb4a0a6eadc2840fc6d642428091a6b0fe9e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 11bf7c0ae05c2e52d59efb32be47ce6bd96fac4f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771277"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937974"
 ---
 # <a name="develop-secure-app-for-an-azure-ad-app"></a>Azure AD 앱에 대 한 보안 앱 개발
 ## <a name="overview"></a>개요
@@ -185,7 +185,7 @@ $gwSubnet = New-AzVirtualNetworkSubnetConfig -Name 'appgwsubnet' -AddressPrefix 
 
 #Assign an address range to be used for the back-end address pool.
 
-$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.0.0/24
+$nicSubnet = New-AzVirtualNetworkSubnetConfig  -Name 'appsubnet' -AddressPrefix 10.0.2.0/24
 
 #Create a virtual network with the subnets defined in the preceding steps.
 
@@ -212,7 +212,7 @@ $fipconfig = New-AzApplicationGatewayFrontendIPConfig -Name 'fip01' -PublicIPAdd
 
 #Configure the back-end IP address pool with the IP addresses of the back-end web servers
 
-$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.0.0
+$pool = New-AzApplicationGatewayBackendAddressPool -Name 'pool01' -BackendIPAddresses 10.0.3.11
 
 #Configure the front-end IP port for the public IP endpoint
 
@@ -222,6 +222,7 @@ $fp = New-AzApplicationGatewayFrontendPort -Name 'port01'  -Port 443
 
 $passwd = ConvertTo-SecureString  "P@ssword!1" -AsPlainText -Force 
 $cert = New-AzApplicationGatewaySSLCertificate -Name cert01 -CertificateFile "C:\AAD\Securities\Certificates\sslcert.com.cer" -Password $passwd 
+
 
 #Create the HTTP listener for the application gateway
 
@@ -334,7 +335,7 @@ App Service 인스턴스를 가상 네트워크와 통합할 수 있습니다. �
 
 5. NSG의 서브넷 블레이드에서 **연결**을 선택 하 고, 배포에서 만든 가상 네트워크를 선택 하 고, **gw**이라는 게이트웨이 서브넷을 선택 합니다. NSG가 서브넷에 적용 됩니다.
 
-6. 이전 단계에서와 같이 App Service 인스턴스에 대 한 다른 NSG를 만듭니다. 이름을 지정합니다. 응용 프로그램 게이트웨이 NSG와 마찬가지로 포트 443에 대 한 인바운드 규칙을 추가 합니다.
+6. 이전 단계에서와 같이 App Service 인스턴스에 대 한 다른 NSG를 만듭니다. 이름을 지정 합니다. 응용 프로그램 게이트웨이 NSG와 마찬가지로 포트 443에 대 한 인바운드 규칙을 추가 합니다.
 
    이 앱의 경우를 포함 하지 않는 App Service Environment 인스턴스에 App Service 인스턴스가 배포 되어 있는 경우 App Service NSG의 인바운드 보안 그룹에서 포트 454-455를 열어 Azure Service Health 프로브를 허용 하는 인바운드 규칙을 추가할 수 있습니다. 구성:
 
@@ -465,7 +466,7 @@ Azure는 관리자가 포털에 로그인 하는 데 2 단계 인증이 필요 �
    1. Azure Portal에서 **Azure Active Directory** 탭으로 이동 합니다.
    2. 보안 범주 아래에서 조건부 액세스를 선택 합니다. 이 화면이 표시 됩니다.
 
-       ![조건부 액세스 - 정책](./media/secure-aad-app/ad-mfa-conditional-add.png)
+       ![조건부 액세스-정책](./media/secure-aad-app/ad-mfa-conditional-add.png)
 
 새 정책을 만들 수 없는 경우
 
@@ -518,7 +519,7 @@ Azure 센티널을 설정 하려면 먼저 다양 한 리소스에서 수집 된
 
    3. 검색 상자를 사용 하 여 **Azure 센티널**을 검색 합니다.
 
-   ![Azure Sentinel 검색](./media/secure-aad-app/sentinel-add.png)
+   ![Azure 센티널 검색](./media/secure-aad-app/sentinel-add.png)
 
    *Azure 센티널 검색*
 

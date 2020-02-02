@@ -2,20 +2,20 @@
 title: Azure Traffic Manager - 트래픽 라우팅 방법
 description: 이 문서는 Traffic Manager에서 사용하는 다양한 트래픽 라우팅 방법을 이해하는 데 도움이 됩니다.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: allensu
-ms.openlocfilehash: 824fabf6e694b7148486d6593cf17f741d9e5c9e
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 4a035506943eeffa2c3fc4fec27c47da4136683b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483788"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938461"
 ---
 # <a name="traffic-manager-routing-methods"></a>Traffic Manager 라우팅 방법
 
@@ -179,7 +179,7 @@ Traffic Manager는 DNS 쿼리의 원본 IP 주소를 읽고 해당 사항이 발
 
 ## <a name="next-steps"></a>다음 단계
 
-[Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 사용하여 고가용성 애플리케이션을 개발하는 방법 알아보기
+[Traffic Manager 엔드포인트 모니터링](traffic-manager-monitoring.md)을 사용하여 고가용성 애플리케이션을 개발하는 방법을 알아봅니다.
 
 
 

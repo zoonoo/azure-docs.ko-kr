@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: fbfe120484f7a5fdfb847448a4bba2309f3fedc6
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543565"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932387"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -26,8 +26,8 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 모델을 [배포 하는 위치](#target) 와 관계 없이 워크플로는 다음과 유사 합니다.
 
 1. 모델을 등록합니다.
-1. 배포를 준비합니다. (자산, 사용량, 컴퓨팅 대상을 지정합니다.)
-1. 컴퓨팅 대상에 모델을 배포합니다.
+1. 배포 준비. (자산, 사용량, 계산 대상 지정)
+1. 계산 대상에 모델을 배포 합니다.
 1. 웹 서비스 라고도 하는 배포 된 모델을 테스트 합니다.
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
@@ -174,9 +174,9 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
 
 ## <a name="prepare-to-deploy"></a>배포 준비
 
-모델을 배포하려면 다음 항목이 필요합니다.
+모델을 배포 하려면 다음 항목이 필요 합니다.
 
-* **항목 스크립트**. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 받은 후 결과를 반환 합니다.
+* **항목 스크립트**입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 받은 후 결과를 반환 합니다.
 
     > [!IMPORTANT]
     > * 항목 스크립트는 모델에 따라 다릅니다. 들어오는 요청 데이터의 형식, 모델에 필요한 데이터의 형식 및 클라이언트에 반환 되는 데이터 형식을 이해 해야 합니다.
@@ -187,21 +187,21 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
     >
     >   시나리오에 사용할 수 있는 대안은 [일괄 처리 예측](how-to-use-parallel-run-step.md)으로, 점수 매기기 중 데이터 저장소에 대 한 액세스를 제공 합니다.
 
-* 항목 스크립트나 모델을 실행하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지 같은 **종속성**.
+* 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**.
 
-* 배포된 모델을 호스트하는 컴퓨팅 대상에 대한 **배포 구성**. 이 구성에서는 모델을 실행하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명합니다.
+* 배포 된 모델을 호스팅하는 계산 대상의 **배포 구성** 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
 
-이러한 항목은 *추론 구성* 및 *배포 구성*에 캡슐화됩니다. 추론 구성은 항목 스크립트 및 기타 종속성을 참조합니다. SDK를 사용하여 배포를 수행하는 경우 이러한 구성을 프로그래밍 방식으로 정의합니다. CLI를 사용하는 경우 JSON 파일에서 정의합니다.
+이러한 항목은 *유추 구성* 및 *배포 구성*에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다. SDK를 사용 하 여 배포를 수행 하는 경우 이러한 구성을 프로그래밍 방식으로 정의 합니다. CLI를 사용 하는 경우 JSON 파일에서 정의 합니다.
 
 ### <a id="script"></a>1. 항목 스크립트 및 종속성 정의
 
-항목 스크립트는 배포된 웹 서비스에 전송된 데이터를 받아서 모델에 전달합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. *이 스크립트는 모델에 따라 다릅니다*. 모델에 필요한 데이터를 이해 하 고 반환 해야 합니다.
+항목 스크립트는 배포 된 웹 서비스에 전송 된 데이터를 받아서 모델에 전달 합니다. 그런 후 모델이 반환한 응답을 수락한 후 클라이언트에 반환합니다. *이 스크립트는 모델에 따라 다릅니다*. 모델에 필요한 데이터를 이해 하 고 반환 해야 합니다.
 
-이 스크립트는 모델을 로드하고 실행하는 2가지 함수를 포함합니다.
+스크립트에는 모델을 로드 하 고 실행 하는 두 가지 함수가 포함 되어 있습니다.
 
 * `init()`: 일반적으로이 함수는 전역 개체에 모델을 로드 합니다. 이 함수는 웹 서비스의 Docker 컨테이너가 시작 될 때 한 번만 실행 됩니다.
 
-* `run(input_data)`:이 함수는 모델을 사용 하 여 입력 데이터를 기반으로 값을 예측 합니다. 실행에 대한 입력 및 출력은 일반적으로 직렬화 및 역직렬화에 JSON을 사용합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 보내기 전에 또는 클라이언트에 반환하기 전에 데이터를 변환할 수 있습니다.
+* `run(input_data)`:이 함수는 모델을 사용 하 여 입력 데이터를 기반으로 값을 예측 합니다. 실행의 입력 및 출력은 일반적으로 serialization 및 deserialization을 위해 JSON을 사용 합니다. 원시 이진 데이터를 사용할 수도 있습니다. 모델에 데이터를 보내기 전에 데이터를 변환 하거나 클라이언트에 반환 하기 전에 데이터를 변환할 수 있습니다.
 
 #### <a name="locate-model-files-in-your-entry-script"></a>항목 스크립트에서 모델 파일 찾기
 
@@ -220,17 +220,23 @@ AZUREML_MODEL_DIR은 서비스 배포 중에 생성 되는 환경 변수입니�
 | 단일 모델 | 모델을 포함 하는 폴더의 경로입니다. |
 | 여러 모델 | 모든 모델을 포함 하는 폴더의 경로입니다. 모델은이 폴더의 이름 및 버전으로 위치 합니다 (`$MODEL_NAME/$VERSION`). |
 
-모델의 파일에 대 한 경로를 가져오려면 환경 변수를 원하는 파일 이름과 결합 합니다.
-모델 파일의 파일 이름은 등록 및 배포 중에 보존 됩니다. 
+모델 등록 및 배포 중에 모델은 AZUREML_MODEL_DIR 경로에 배치 되 고 원래 파일 이름은 유지 됩니다.
+
+항목 스크립트의 모델 파일에 대 한 경로를 가져오려면 환경 변수를 찾고 있는 파일 경로와 결합 합니다.
 
 **단일 모델 예제**
 ```python
+# Example when the model is a file
 model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_regression_model.pkl')
+
+# Example when the model is a folder containing a file
+file_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'my_model_folder', 'sklearn_regression_model.pkl')
 ```
 
 **여러 모델 예제**
 ```python
-model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model/1/sklearn_regression_model.pkl')
+# Example when the model is a file, and the deployment contains multiple models
+model_path = os.path.join(os.getenv('AZUREML_MODEL_DIR'), 'sklearn_model', '1', 'sklearn_regression_model.pkl')
 ```
 
 ##### <a name="get_model_path"></a>get_model_path
@@ -425,7 +431,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLRequest` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
+> `AMLRequest` 클래스는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
 >
 > 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
 >
@@ -471,7 +477,7 @@ def run(request):
 ```
 
 > [!IMPORTANT]
-> `AMLResponse` 클래스가 `azureml.contrib` 네임스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
+> `AMLResponse` 클래스는 `azureml.contrib` 네임 스페이스에 있습니다. 이 네임 스페이스의 엔터티는 서비스를 개선 하기 위해 작업할 때 자주 변경 됩니다. 이 네임 스페이스의 모든 항목을 Microsoft에서 완벽 하 게 지원 하지 않는 미리 보기로 간주 해야 합니다.
 >
 > 로컬 개발 환경에서 테스트를 수행 해야 하는 경우 다음 명령을 사용 하 여 구성 요소를 설치할 수 있습니다.
 >
@@ -859,7 +865,7 @@ Azure Machine Learning 계산을 사용한 일괄 처리 유추 연습은 [일�
 ## <a name="download-a-model"></a>모델 다운로드
 사용자 고유의 실행 환경에서 사용 하기 위해 모델을 다운로드 하려는 경우 다음 SDK/CLI 명령을 사용 하 여이 작업을 수행할 수 있습니다.
 
-SDK:
+SDK
 ```python
 model_path = Model(ws,'mymodel').download()
 ```
@@ -912,7 +918,7 @@ service_name = 'onnx-mnist-service'
 service = Model.deploy(ws, service_name, [model])
 ```
 
-### <a name="scikit-learn-models"></a>Scikit-learn 모델
+### <a name="scikit-learn-models"></a>Scikit-모델 배우기
 
 모든 기본 제공 scikit 모델 유형에 대해서는 코드 모델 배포가 지원 되지 않습니다.
 

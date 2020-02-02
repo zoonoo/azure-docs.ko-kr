@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5b59bdc06d455c7bd0ec9cf889f5cfa382948467
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 8503b12be628fe7d5651221c9d0379bee3e292bd
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911179"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933474"
 ---
 # <a name="add-a-line-layer-to-the-map"></a>지도에 선 계층 추가
 
@@ -23,7 +23,7 @@ ms.locfileid: "75911179"
 > [!TIP]
 > 기본적으로 선 계층은 다각형의 좌표와 데이터 원본의 줄을 렌더링 합니다. LineString 기능만 렌더링 하도록 계층을 제한 하려면 계층의 `filter` 속성을 `['==', ['geometry-type'], 'LineString']`로 설정 하거나 MultiLineString 기능을 포함 하려는 경우에는 `['any', ['==', ['geometry-type'], 'LineString'], ['==', ['geometry-type'], 'MultiLineString']]` 합니다.
 
-다음 코드에서는 줄을 만들고 데이터 소스에 추가 하 고 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 클래스를 사용 하 여 선 계층으로 렌더링 하는 방법을 보여 줍니다.
+다음 코드에서는 줄을 만드는 방법을 보여 줍니다. 데이터 원본에 줄을 추가한 다음 [LineLayer](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.linelayer?view=azure-iot-typescript-latest) 클래스를 사용 하 여 선 계층으로 렌더링 합니다.
 
 ```javascript
 //Create a data source and add it to the map.
@@ -51,7 +51,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="add-symbols-along-a-line"></a>줄을 따라 기호 추가
 
-이 샘플에서는 지도의 선을 따라 화살표 아이콘을 추가 하는 방법을 보여 줍니다. 기호 계층을 사용 하는 경우 "배치" 옵션을 "줄"로 설정 합니다. 이렇게 하면 선이 따라 기호가 렌더링 되 고 아이콘이 (0도 = 오른쪽)로 회전 합니다.
+이 샘플에서는 지도의 선을 따라 화살표 아이콘을 추가 하는 방법을 보여 줍니다. 기호 계층을 사용 하는 경우 "배치" 옵션을 "줄"로 설정 합니다. 이 옵션은 선을 따라 기호를 렌더링 하 고 아이콘 (0도 = 오른쪽)을 회전 합니다.
 
 <br/>
 
@@ -66,7 +66,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="add-a-stroke-gradient-to-a-line"></a>선에 선 그라데이션 추가
 
-선에 단일 스트로크 색을 적용 하는 것 외에도 색 그라데이션을 사용 하 여 선을 채워서 한 줄 세그먼트에서 다음 줄 세그먼트로의 전환을 표시할 수 있습니다. 예를 들어 선 그라데이션을 사용 하 여 시간 및 거리에 따른 변경 내용 또는 연결 된 개체 라인에서 서로 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본의 `lineMetrics` 옵션을 true로 설정 하 고 색 그라데이션 식을 줄의 `strokeColor` 옵션에 전달할 수 있어야 합니다. 스트로크 그라데이션 식은 계산 된 선 메트릭을 식에 노출 하는 `['line-progress']` 데이터 식을 참조 해야 합니다.
+선에 단일 스트로크 색을 적용할 수 있습니다. 색 그라데이션을 사용 하 여 선을 채워서 한 줄 세그먼트에서 다음 선분으로의 전환을 표시할 수도 있습니다. 예를 들어 선 그라데이션을 사용 하 여 시간 및 거리에 따른 변경 내용 또는 연결 된 개체 라인에서 서로 다른 온도를 나타낼 수 있습니다. 줄에이 기능을 적용 하려면 데이터 원본의 `lineMetrics` 옵션을 true로 설정 하 고 색 그라데이션 식을 줄의 `strokeColor` 옵션에 전달할 수 있어야 합니다. 스트로크 그라데이션 식은 계산 된 선 메트릭을 식에 노출 하는 `['line-progress']` 데이터 식을 참조 해야 합니다.
 
 <br/>
 
@@ -76,7 +76,7 @@ map.layers.add(new atlas.layer.LineLayer(dataSource, null, {
 
 ## <a name="customize-a-line-layer"></a>선 계층 사용자 지정
 
-선 계층 여러 스타일 지정 옵션입니다. 사용할 도구는 다음과 같습니다.
+선 계층에는 여러 스타일 옵션이 있습니다. 사용할 도구는 다음과 같습니다.
 
 <br/>
 

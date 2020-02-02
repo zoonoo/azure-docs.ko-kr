@@ -3,7 +3,7 @@ title: Traffic Manager 엔드포인트 유형 | Microsoft Docs
 description: 이 문서에서는 Azure Traffic Manager와 함께 사용할 수 있는 다양한 유형의 엔드포인트를 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/29/2017
-ms.author: allensu
-ms.openlocfilehash: 9de5b161c6bb1897058898dddd620ad093f148be
-ms.sourcegitcommit: 6d2a147a7e729f05d65ea4735b880c005f62530f
+ms.author: rohink
+ms.openlocfilehash: 3d8f899a7899243129d31c2620a51dc764a8e917
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69981064"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938653"
 ---
 # <a name="traffic-manager-endpoints"></a>Traffic Manager 엔드포인트
 
@@ -67,7 +67,7 @@ Traffic Manager에서 엔드포인트로 Web Apps를 구성하는 경우 몇 가
 
 1. '표준' SKU 이상에서의 Web Apps만 Traffic Manager와 함께 사용할 수 있습니다. 더 낮은 SKU의 웹앱을 추가하려는 시도는 실패합니다. 기존 웹앱의 SKU를 다운그레이드하면 Traffic Manager는 해당 웹앱에 더 이상 트래픽을 전송하지 않게 됩니다. 지원되는 계획에 대한 자세한 내용은 [App Service 계획](https://azure.microsoft.com/pricing/details/app-service/plans/)을 참조하세요.
 2. 엔드포인트에서 HTTP 요청을 받으면 요청의 '호스트' 헤더를 사용하여 요청을 처리해야 하는 웹앱을 결정합니다. 호스트 헤더는 요청을 시작하는 데 사용된 DNS 이름을 포함합니다(예: 'contosoapp.azurewebsites.net'). 웹앱에 다른 DNS 이름을 사용하려면 DNS 이름은 앱에 대한 사용자 지정 도메인 이름으로 등록되어야 합니다. Azure 엔드포인트로 Web App 엔드포인트를 추가하면 Traffic Manager 프로필 DNS 이름은 앱에 대해 자동으로 등록됩니다. 이 등록은 엔드포인트가 삭제될 때 자동으로 제거됩니다.
-3. 각 Traffic Manager 프로필은 각 Azure 지역에서 최대 하나의 웹앱 엔드포인트를 가질 수 있습니다. 이 제약 조건을 해결하려면 웹앱을 외부 엔드포인트로 구성할 수 있습니다. 자세한 내용은 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)을 참조하세요.
+3. 각 Traffic Manager 프로필은 각 Azure 지역에서 최대 하나의 Web App 엔드포인트를 가질 수 있습니다. 이 제약 조건을 해결하려면 웹앱을 외부 엔드포인트로 구성할 수 있습니다. 자세한 내용은 [FAQ](traffic-manager-faqs.md#traffic-manager-endpoints)을 참조하세요.
 
 ## <a name="enabling-and-disabling-endpoints"></a>엔드포인트 활성화 및 비활성화
 

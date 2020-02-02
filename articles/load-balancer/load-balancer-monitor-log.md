@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/27/2018
 ms.author: allensu
-ms.openlocfilehash: 7ed58201fa7aa1e608cba6d64ac95740cf9a60dc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 0a21af683d9fa7849d3e96c545983c9f40a8d4c6
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965930"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935327"
 ---
 # <a name="azure-monitor-logs-for-public-basic-load-balancer"></a>공용 기본 Load Balancer에 대 한 Azure Monitor 로그
 
@@ -156,11 +156,11 @@ JSON 출력은 부하 분산 장치에서 경고를 만든 이유를 설명 하�
 
 속성 필드의 JSON 출력은 상태 프로브 상태에 대한 기본 정보를 보여 줍니다. *Dipdowncount* 속성은 실패 한 프로브 응답으로 인해 네트워크 트래픽을 수신 하지 않는 백 엔드의 총 인스턴스 수를 표시 합니다.
 
-### <a name="view-and-analyze-the-audit-log"></a>감사 로그 보기 및 분석
+### <a name="view-and-analyze-the-activity-log"></a>활동 로그 보기 및 분석
 
-다음 방법을 사용하여 감사 로그 데이터를 보고 분석할 수 있습니다.
+다음 방법을 사용하여 활동 로그 데이터를 보고 분석할 수 있습니다.
 
-* **Azure 도구:** Azure PowerShell, Azure CLI (명령줄 인터페이스), Azure REST API 또는 Azure Portal를 통해 감사 로그에서 정보를 검색 합니다. 각 방법에 대한 단계별 지침은 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
+* **Azure 도구:** Azure PowerShell, Azure CLI (명령줄 인터페이스), Azure REST API 또는 Azure Portal를 통해 활동 로그에서 정보를 검색 합니다. 각 방법에 대한 단계별 지침은 [리소스 관리자로 작업 감사](../azure-resource-manager/management/view-activity-logs.md) 문서에 자세히 나와 있습니다.
 * **Power BI:** [Power BI](https:// .microsoft.com/pricing) 계정이 아직 없는 경우에는 무료로 사용해볼 수 있습니다. [Power BI에 대한 Azure 감사 로그 콘텐츠 팩](https:// .microsoft.com/documentation/ -content-pack-azure-audit-logs)을 사용하여 미리 구성된 대시보드에서 데이터를 분석하거나 요구 사항에 맞게 보기를 사용자 지정할 수 있습니다.
 
 ### <a name="view-and-analyze-the-health-probe-and-event-log"></a>상태 프로브 및 이벤트 로그 보기 및 분석

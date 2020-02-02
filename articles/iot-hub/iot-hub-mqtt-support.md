@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 183b85ad8a61c76942981ebb764512b8a090b0a8
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 150927ac05cba058d1d152ce568d7a462043d076
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890452"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937755"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -49,6 +49,24 @@ MQTT 프로토콜을 지 원하는 [장치 sdk](https://github.com/Azure/azure-i
 | [C](https://github.com/Azure/azure-iot-sdk-c/tree/master/iothub_client/samples/iothub_client_sample_mqtt_dm) |MQTT_Protocol |
 | [C#](https://github.com/Azure/azure-iot-sdk-csharp/tree/master/iothub/device/samples) |TransportType.Mqtt |
 | [Python](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device/samples) |기본적으로 MQTT 항상 지원 |
+
+### <a name="default-keep-alive-timeout"></a>기본 keep-alive 시간 제한 
+
+클라이언트/IoT Hub 연결이 유지 되도록 하기 위해 서비스와 클라이언트는 모두 연결 *유지* ping을 서로 정기적으로 보냅니다. IoT SDK를 사용 하는 클라이언트는 아래 테이블에 정의 된 간격으로 keep-alive를 전송 합니다.
+
+|언어  |기본 keep-alive 간격  |구성 가능 여부  |
+|---------|---------|---------|
+|Node.js     |   180 초      |     아닙니다.    |
+|Java     |    230 초     |     아닙니다.    |
+|C     | 240 초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
+|C#     | 300초 |  [예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
+|Python (V2)   | 60초 |  아닙니다.   |
+
+[Mqtt 사양을](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)따라 IoT Hub의 keep-alive ping 간격은 클라이언트 연결 유지 값의 1.5 배입니다. 그러나 모든 Azure 서비스가 Azure 부하 분산 장치 TCP 유휴 시간 제한 (29.45 분)에 바인딩되기 때문에 IoT Hub는 최대 서버 쪽 제한 시간을 29.45 분 (1767 초)으로 제한 합니다. 
+
+예를 들어, Java SDK를 사용 하는 장치는 keep-alive ping을 보낸 다음 네트워크 연결을 잃게 됩니다. 230 초 후 장치는 오프 라인 상태 이기 때문에 keep-alive ping이 누락 되었습니다. 그러나 IoT Hub는 연결을 즉시 닫지 않으며 [404104 DeviceConnectionClosedRemotely](iot-hub-troubleshoot-error-404104-deviceconnectionclosedremotely.md)오류가 발생 하 여 장치의 연결을 끊기 전에 다른 `(230 * 1.5) - 230 = 115` 초 동안 대기 합니다. 
+
+설정할 수 있는 최대 클라이언트 연결 유지 값은 초 `1767 / 1.5 = 1177`입니다. 모든 트래픽은 keep-alive로 다시 설정 됩니다. 예를 들어 성공적인 SAS 토큰 새로 고침은 keep-alive를 다시 설정 합니다.
 
 ### <a name="migrating-a-device-app-from-amqp-to-mqtt"></a>디바이스 앱을 AMQP에서 MQTT로 마이그레이션
 
@@ -153,7 +171,7 @@ Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합�
 
 모듈 ID를 사용하여 MQTT를 통해 IoT Hub에 연결하는 작업은 디바이스([위](#using-the-mqtt-protocol-directly-as-a-device)에서 설명됨)와 비슷하지만 다음을 사용해야 합니다.
 
-* 클라이언트 ID를 `{device_id}/{module_id}`로 설정합니다.
+* 클라이언트 ID를 `{device_id}/{module_id}`설정 합니다.
 
 * 사용자 이름 과 암호를 사용하여 인증하는 경우 사용자 이름을 `<hubname>.azure-devices.net/{device_id}/{module_id}/?api-version=2018-06-30`으로 설정하고 모듈 ID와 연결된 SAS 토큰을 암호로 사용합니다.
 
@@ -230,10 +248,6 @@ client.publish("devices/" + device_id + "/messages/events/", "{id=123}", qos=1)
 client.loop_forever()
 ```
 
-필수 조건에 대 한 설치 지침은 다음과 같습니다.
-
-[!INCLUDE [iot-hub-include-python-installation-notes](../../includes/iot-hub-include-python-installation-notes.md)]
-
 장치 인증서를 사용 하 여 인증 하려면 위의 코드 조각을 다음과 같이 변경 합니다. 인증서 기반 인증을 준비 하는 방법에 대 한 [X.509 CA 인증서를 가져오는 방법](./iot-hub-x509ca-overview.md#how-to-get-an-x509-ca-certificate) 을 참조 하세요.
 
 ```python
@@ -281,13 +295,13 @@ IoT Hub에서 메시지를 수신하려면 디바이스는 `devices/{device_id}/
 
 디바이스는 `devices/{device_id}/messages/devicebound/#` 항목 필터로 표시되는 디바이스 특정 엔드포인트를 성공적으로 구독하기 전에는 IoT Hub로부터 어떠한 메시지도 수신하지 않습니다 구독이 설정된 후에는 디바이스가 구독 시간 이후 전송된 클라우드-디바이스 메시지를 수신합니다. 디바이스가 **CleanSession** 플래그가 **0**으로 설정되어 연결되면 다양한 세션 간에 구독이 유지됩니다. 이 경우 다음 번에 디바이스가 **CleanSession 0**으로 연결될 때, 연결되지 않은 동안 보내진 미해결 메시지를 수신하게 됩니다. 디바이스가 **1**로 설정된 **CleanSession** 플래그를 사용하는 경우 디바이스-엔드포인트를 구독할 때까지 IoT Hub에서 어떠한 메시지도 수신하지 않습니다.
 
-IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_id}/messages/devicebound/`, 또는 `devices/{device_id}/messages/devicebound/{property_bag}`와 함께 메시지를 배달합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
+IoT Hub는 **토픽 이름이** `devices/{device_id}/messages/devicebound/`또는 메시지 속성이 있는 경우 `devices/{device_id}/messages/devicebound/{property_bag}` 메시지를 배달 합니다. `{property_bag}` 에는 메시지 속성의 URL 인코딩된 키/값 쌍이 있습니다. 애플리케이션 속성 및 사용자 설정 가능 시스템 속성(예: **messageId** 또는 **correlationId**)만 속성 모음에 포함됩니다. 시스템 속성 이름에는 접두사 **$** 가 있고, 애플리케이션 속성은 접두사가 없는 원래 속성 이름을 사용합니다.
 
 디바이스 앱이 **QoS 2**의 토픽을 구독하는 경우, IoT Hub는 **SUBACK** 패킷에서 최대 QoS level 1을 부여합니다. 그런 다음 IoT Hub는 메시지를 QoS 1을 사용하는 디바이스에 전달합니다.
 
 ## <a name="retrieving-a-device-twins-properties"></a>디바이스 쌍 속성 검색
 
-먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 `$iothub/twin/GET/?$rid={request id}`요청 ID**에 채워진 값을 사용하여 빈 메시지를**  항목에 보냅니다. 그러면 서비스는 요청과 동일한 `$iothub/twin/res/{status}/?$rid={request id}`요청 ID**를 사용하여**  항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
+먼저 작업의 응답을 수신하기 위해 디바이스가 `$iothub/twin/res/#`을 구독합니다. 그런 다음 **요청 ID**에 채워진 값을 사용하여 빈 메시지를 `$iothub/twin/GET/?$rid={request id}` 항목에 보냅니다. 그러면 서비스는 요청과 동일한 **요청 ID**를 사용하여 `$iothub/twin/res/{status}/?$rid={request id}` 항목에 대한 디바이스 쌍 데이터를 포함하는 응답 메시지를 보냅니다.
 
 요청 ID는 [IoT Hub 메시징 개발자 가이드](iot-hub-devguide-messaging.md)에 따라 메시지 속성 값에 대 한 유효한 값일 수 있으며 상태는 정수로 유효성이 검사 됩니다.
 
@@ -309,7 +323,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 가능한 상태 코드:
 
-|가동 상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
 | 204 | 성공(반환되는 콘텐츠 없음) |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
@@ -319,7 +333,7 @@ IoT Hub는 메시지 속성이 있는 경우 **토픽 이름** `devices/{device_
 
 ## <a name="update-device-twins-reported-properties"></a>디바이스 쌍의 reported 속성 업데이트
 
-reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서 이 형식의 요청/응답 상호 작용을 구현하려면 해당 업데이트 요청의 디바이스에서 처음에 제공한 요청 ID(`$rid`)의 개념을 활용합니다. 이 요청 ID는 IoT Hub의 응답에도 포함되어 디바이스가 이전의 특정 요청에 대한 응답을 상호 연결하도록 합니다.
+reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토픽에서 게시를 통해 IoT Hub에 요청을 발급합니다. IoT Hub는 요청을 처리한 후에 다른 항목에 대한 게시를 통해 업데이트 작업의 성공 또는 실패 상태를 응답합니다. 해당 쌍 업데이트 요청의 결과에 대해 알리기 위해 디바이스에서 이 토픽을 구독할 수 있습니다. MQTT에서이 유형의 요청/응답 상호 작용을 구현 하기 위해 업데이트 요청에서 장치에 의해 처음 제공 된 요청 ID (`$rid`) 개념을 활용 합니다. 이 요청 ID는 장치에서 특정 이전 요청에 대 한 응답과의 상관 관계를 지정할 수 있도록 IoT Hub의 응답에도 포함 됩니다.
 
 다음 시퀀스에서는 디바이스가 IoT Hub의 디바이스 쌍에서 보고된 속성을 업데이트하는 방법을 설명합니다.
 
@@ -340,9 +354,9 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|가동 상태 | 설명 |
+|상태 | Description |
 | ----- | ----------- |
-| 200 | 성공 |
+| 200 | Success |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
 | 5** | 서버 오류 |
@@ -392,7 +406,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 자세한 내용은 [직접 메서드 개발자 가이드](iot-hub-devguide-direct-methods.md)를 참조 하세요.
 
-## <a name="additional-considerations"></a>추가 고려 사항
+## <a name="additional-considerations"></a>기타 고려 사항
 
 최종 고려 사항으로 클라우드 측에서 MQTT 프로토콜 동작을 사용자 지정 해야 하는 경우 [Azure IoT 프로토콜 게이트웨이](iot-hub-protocol-gateway.md)를 검토 해야 합니다. 이 소프트웨어를 통해 IoT Hub와 직접 인터페이스되는 고성능 사용자 지정 프로토콜을 배포할 수 있습니다. Azure IoT 프로토콜 게이트웨이를 사용하면 brownfield MQTT 배포를 수용하는 디바이스 프로토콜 또는 기타 사용자 지정 프로토콜을 사용자 지정할 수 있습니다. 그렇지만 이 방법을 사용하는 경우 사용자 지정 프로토콜 게이트웨이를 실행하고 작동해야 합니다.
 

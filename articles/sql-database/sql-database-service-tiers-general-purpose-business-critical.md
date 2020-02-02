@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
-ms.date: 01/23/2020
-ms.openlocfilehash: fab24d55509ab315775437ca343e35fc90174f63
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 01/30/2020
+ms.openlocfilehash: 09cc9e1475616700aa77cdf92fd7ca808cd4290c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715096"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937849"
 ---
 # <a name="azure-sql-database-service-tiers"></a>Azure SQL Database 서비스 계층
 
@@ -53,7 +53,7 @@ Azure SQL Database는 인프라 오류가 발생 한 경우에도 99.99%의 가�
 |**메모리 내 OLTP** | | N/A | N/A | 사용할 수 있음 |
 |**읽기 전용 복제본**| | 0 기본 제공 <br> 0-4 [지역에서 복제](sql-database-active-geo-replication.md) 사용 | 0-4 기본 제공 | 1 기본 제공, 가격에 포함 <br> 0-4 [지역에서 복제](sql-database-active-geo-replication.md) 사용 |
 |**가격 책정/청구** | 단일 데이터베이스 | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. | [각 복제본 및 사용 된 저장소에 대 한 Vcore에](https://azure.microsoft.com/pricing/details/sql-database/single/) 는 요금이 부과 됩니다. <br/>IOPS는 아직 청구 되지 않습니다. | [Vcore, 예약 된 저장소 및 백업 저장소가](https://azure.microsoft.com/pricing/details/sql-database/single/) 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다. |
-|| 관리되는 인스턴스 | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | N/A | [Vcore 및 예약 된 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에는 요금이 부과 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.<br/>백업 저장소에 아직 요금이 청구 되지 않았습니다. | 
+|| 관리되는 인스턴스 | [Vcore, 예약 된 저장소 및 백업 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에 대 한 요금이 청구 됩니다. <br/>IOPS는 요금이 청구 되지 않습니다.| N/A | [Vcore, 예약 된 저장소 및 백업 저장소](https://azure.microsoft.com/pricing/details/sql-database/managed/) 에 대 한 요금이 청구 됩니다. <br/>IOPS에는 요금이 부과 되지 않습니다.| 
 |**할인 모델**| | [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독| [예약 인스턴스](sql-database-reserved-capacity.md)<br/>[Azure 하이브리드 혜택](sql-database-azure-hybrid-benefit.md) (개발/테스트 구독에서 사용할 수 없음)<br/>[엔터프라이즈](https://azure.microsoft.com/offers/ms-azr-0148p/) 및 [종 량](https://azure.microsoft.com/offers/ms-azr-0023p/) 제 개발/테스트 구독|
 
 자세한 내용은 [단일 데이터베이스 (vcore)](sql-database-vcore-resource-limits-single-databases.md), 단일 [데이터베이스 풀 (vcore)](sql-database-dtu-resource-limits-single-databases.md), [단일 데이터베이스 (dtu](sql-database-dtu-resource-limits-single-databases.md)), [dtu (단일 데이터베이스 풀)](sql-database-dtu-resource-limits-single-databases.md)및 [Managed Instance](sql-database-managed-instance-resource-limits.md) 페이지의 서비스 계층 간의 자세한 차이점을 참조 하세요.

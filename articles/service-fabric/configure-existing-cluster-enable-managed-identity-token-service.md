@@ -1,28 +1,30 @@
 ---
-title: Azure Service Fabric-관리 되는 id 지원을 사용 하도록 기존 Azure Service Fabric 클러스터 구성
-description: 이 문서에서는 관리 되는 id에 대 한 지원을 사용 하도록 기존 Azure Service Fabric 클러스터를 구성 하는 방법을 보여 줍니다.
+title: 기존 Service Fabric 클러스터에서 관리 id 지원 구성
+description: 기존 Azure Service Fabric 클러스터에서 관리 id 지원을 사용 하도록 설정 하는 방법은 다음과 같습니다.
 ms.topic: article
 ms.date: 12/09/2019
-ms.openlocfilehash: 13b8b38a206b0dae0877263a5cda56a134d4788d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: cb6e4ab00afd80cba41881e46296f7046a905919
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351599"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934956"
 ---
-# <a name="configure-an-existing-azure-service-fabric-cluster-to-enable-managed-identity-support-preview"></a>관리 되는 Id 지원을 사용 하도록 기존 Azure Service Fabric 클러스터 구성 (미리 보기)
-Azure Service Fabric 응용 프로그램의 관리 되는 id 기능에 액세스 하려면 먼저 클러스터에서 **관리 되는 Id 토큰 서비스** 를 사용 하도록 설정 해야 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창에 있는 **시스템** 섹션의 이름 **Fabric:/System/ManagedIdentityTokenService**에서 실행 되는 Service Fabric Explorer에서 해당 서비스를 볼 수 있습니다.
+# <a name="configure-managed-identity-support-in-an-existing-service-fabric-cluster-preview"></a>기존 Service Fabric 클러스터에서 관리 되는 id 지원 구성 (미리 보기)
+
+Service Fabric 응용 프로그램에서 [Azure 리소스에 관리 되는 id](../active-directory/managed-identities-azure-resources/overview.md) 를 사용 하려면 먼저 클러스터에서 *관리 되는 id 토큰 서비스* 를 사용 하도록 설정 합니다. 이 서비스는 관리 되는 id를 사용 하 여 Service Fabric 응용 프로그램을 인증 하 고 사용자 대신 액세스 토큰을 가져오는 일을 담당 합니다. 서비스를 사용 하도록 설정 하면 왼쪽 창에 있는 **시스템** 섹션의 이름 **Fabric:/System/ManagedIdentityTokenService**에서 실행 되는 Service Fabric Explorer에서 해당 서비스를 볼 수 있습니다.
 
 > [!NOTE]
 > **관리 되는 Id 토큰 서비스**를 사용 하려면 Service Fabric runtime version 6.5.658.9590 이상이 필요 합니다.  
-> 
+>
 > 클러스터 리소스를 열고 **Essentials** 섹션에서 **Service Fabric 버전** 속성을 확인 하 여 Azure Portal에서 클러스터의 Service Fabric 버전을 찾을 수 있습니다.
-> 
+>
 > 클러스터가 **수동** 업그레이드 모드에 있는 경우 먼저 6.5.658.9590 이상으로 업그레이드 해야 합니다.
 
+## <a name="enable-managed-identity-token-service-in-an-existing-cluster"></a>기존 클러스터에서 *관리 되는 Id 토큰 서비스* 사용
 
-## <a name="enable-the-managed-identity-token-service-in-an-existing-cluster"></a>기존 클러스터에서 관리 되는 Id 토큰 서비스를 사용 하도록 설정
-기존 클러스터에서 관리 되는 Id 토큰 서비스를 사용 하려면 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하 고 각 노드의 다시 시작을 요청 하는 두 가지 변경 사항을 지정 하 여 클러스터 업그레이드를 시작 해야 합니다. 이렇게 하려면 Azure Resource Manager 템플릿에 다음 두 코드 조각을 추가 합니다.
+기존 클러스터에서 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하려면 두 가지 변경 사항을 지정 하 여 클러스터 업그레이드를 시작 해야 합니다. (1) 관리 되는 Id 토큰 서비스를 사용 하도록 설정 하 고, (2) 각 노드를 다시 시작 하도록 요청 합니다. 먼저 클러스터 Azure Resource Manager 템플릿에 다음 코드 조각을 추가 합니다.
 
 ```json
 "fabricSettings": [

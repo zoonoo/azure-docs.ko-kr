@@ -3,7 +3,7 @@ title: 서브넷 트래픽 라우팅 구성-Azure Traffic Manager
 description: 이 문서에서는 특정 서브넷의 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2018
-ms.author: allensu
-ms.openlocfilehash: d3751a14e8c317d6a4f23c1aa051b7e13305acf5
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.author: rohink
+ms.openlocfilehash: 60cddce610d223433d0ffe1f6b9234625aca9881
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74014603"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938747"
 ---
 # <a name="direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
 
@@ -25,9 +25,9 @@ ms.locfileid: "74014603"
 
 이 문서에서 설명되는 시나리오에서는 서브넷 라우팅을 사용하여 사용자 쿼리의 IP 주소에 따라 트래픽을 내부 웹 사이트 또는 프로덕션 웹 사이트로 라우팅합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음 항목을 배포해야 합니다.
 - 서로 다른 Azure 지역에서 실행되는 두 개의 기본 웹 사이트 - **미국 동부**(내부 웹 사이트로 사용) 및 **유럽 서부**(프로덕션 웹 사이트로 사용).
 - Traffic Manager를 테스트하기 위한 두 개의 테스트 VM - **미국 동부**에 VM 하나 및 **유럽 서부**에 두 번째 VM.
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
@@ -45,7 +45,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
 2. 각 VM에 IIS 서버를 설치하고 웹 사이트를 방문할 때 사용자가 연결되는 VM 이름을 설명하는 기본 웹 사이트 페이지를 업데이트합니다.
 
 #### <a name="create-vms-for-running-websites"></a>웹 사이트 운영을 위한 VM 만들기
-이 섹션에서는 *미국 동부*와 *유럽 서부* Azure 지역에 **myEndpointVMEastUS** 및 **myEndpointVMWEurope**이라는 2개의 VM을 만듭니다.
+이 섹션에서는 **미국 동부**와 **유럽 서부** Azure 지역에 *myEndpointVMEastUS* 및 *myEndpointVMWEurope*이라는 2개의 VM을 만듭니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Compute** > **Windows Server 2016 VM**를 선택합니다.
 2. **기본 사항**에 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
@@ -56,7 +56,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |리소스 그룹| **새로 만들기**를 선택한 다음, *myResourceGroupTM1*을 입력합니다.|
-    |Location| **미국 동부**를 선택합니다.|
+    |위치| **미국 동부**를 선택합니다.|
     |||
 
 4. **크기 선택**에서 VM 크기를 선택합니다.
@@ -64,7 +64,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     
     |설정|값|
     |---|---|
-    |가상 네트워크| **가상 네트워크**를 선택하고 **가상 네트워크 만들기**에서 **이름에** *myVNet1*을 입력하고 서브넷에 *mySubnet*을 입력합니다.|
+    |가상 네트워크| **가상 네트워크**를 선택하고 **가상 네트워크 만들기**에서 **이름에***myVNet1*을 입력하고 서브넷에 *mySubnet*을 입력합니다.|
     |네트워크 보안 그룹|**기본**을 선택하고 **공용 인바운드 포트 선택** 드롭다운에서 **HTTP** 및 **RDP**를 선택합니다. |
     |부트 진단|**사용 안 함**을 선택합니다.|
     |||
@@ -76,7 +76,7 @@ https://portal.azure.com에서 Azure Portal에 로그인합니다.
     |설정|값|
     |---|---|
     |리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroupTM2*를 입력합니다.|
-    |Location|서유럽|
+    |위치|서유럽|
     |VM 이름 | myIISVMWEurope|
     |가상 네트워크 | **가상 네트워크**를 선택하고 **가상 네트워크 만들기**에서 **이름**에 *myVNet2*를 입력하고 서브넷에 *mySubnet*을 입력합니다.|
     |||
@@ -131,7 +131,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
 ### <a name="create-test-vms"></a>테스트 VM 만들기
 
-이 섹션에서는 각 Azure 지역(*미국 동부* 및 *유럽 서부*)에 VM(**mVMEastUS** 및 **myVMWestEurope**)을 만듭니다. 이 VM을 사용하여 사용자가 웹 사이트를 탐색할 때 Traffic Manager가 가장 가까운 IIS 서버로 트래픽을 라우팅하는 방식을 테스트합니다.
+이 섹션에서는 각 Azure 지역(**미국 동부** 및 **유럽 서부**)에 VM(*mVMEastUS* 및 *myVMWestEurope*)을 만듭니다. 이 VM을 사용하여 사용자가 웹 사이트를 탐색할 때 Traffic Manager가 가장 가까운 IIS 서버로 트래픽을 라우팅하는 방식을 테스트합니다.
 
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Compute** > **Windows Server 2016 VM**를 선택합니다.
 2. **기본 사항**에 다음 정보를 입력하거나 선택하고, 나머지 설정에 대한 기본값을 그대로 적용한 다음, **만들기**를 선택합니다.
@@ -177,7 +177,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
     | ---                     | ---                                                |
     | 이름                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **서브넷** 라우팅 방법을 선택합니다.                                       |
-    | 구독            | 사용 중인 구독을 선택합니다.                          |
+    | Subscription            | 구독을 선택합니다.                          |
     | 리소스 그룹          | **기존**을 선택하고, *myResourceGroupTM1*을 입력합니다. |
     | |                              |
     |
@@ -194,7 +194,7 @@ IIS 서버를 실행하는 두 개의 VM - *myIISVMEastUS* & *myIISVMWEurope*을
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | 형식                    | Azure 엔드포인트                                   |
+    | 유형                    | Azure 엔드포인트                                   |
     | 이름           | myTestWebSiteEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | **공용 IP 주소를 선택**하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
@@ -209,8 +209,8 @@ IIS 서버를 실행하는 두 개의 VM - *myIISVMEastUS* & *myIISVMWEurope*을
 이 섹션에서는 Traffic Manager가 주어진 서브넷에서 특정 엔드포인트로 사용자 트래픽을 라우팅하는 방법을 테스트합니다. 실행 중인 Traffic Manager를 보려면 다음 단계를 완료합니다.
 1. Traffic Manager 프로필의 DNS 이름을 확인합니다.
 2. 실행 중인 Traffic Manager를 보는 방법은 다음과 같습니다.
-    - *미국 동부* 지역에 있는 테스트 VM(**myVMEastUS**)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾아서 이동합니다.
-    - *유럽 서부* 지역에 있는 테스트 VM(**myVMEastUS**)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾아서 이동합니다.
+    - **미국 동부** 지역에 있는 테스트 VM(*myVMEastUS*)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾아서 이동합니다.
+    - **유럽 서부** 지역에 있는 테스트 VM(*myVMEastUS*)의 웹 브라우저에서 Traffic Manager 프로필의 DNS 이름을 찾아서 이동합니다.
 
 ### <a name="determine-dns-name-of-traffic-manager-profile"></a>Traffic Manager 프로필의 DNS 이름 확인
 이 자습서에서는 간단하게 Traffic Manager 프로필의 DNS 이름을 사용하여 웹 사이트를 방문합니다.
@@ -235,7 +235,7 @@ Traffic Manager 프로필의 DNS 이름은 다음과 같이 확인할 수 있습
 
    ![Traffic Manager 프로필 테스트](./media/traffic-manager-subnet-routing-method/test-traffic-manager.png)
 
-2. 다음으로, 1~5단계를 사용하여 *유럽 서부*에 있는 VM **myVMWestEurope**에 연결하고 이 VM에서 Traffic Manager 프로필 도메인 이름을 찾아서 이동합니다. VM *myVMWestEurope* IP 주소가 *myIISVMEastUS* 엔드포인트와 연결되어 있으므로 웹 브라우저에서 테스트 웹 사이트 서버인 *myIISVMWEurope*을 시작합니다.
+2. 다음으로, 1~5단계를 사용하여 **유럽 서부**에 있는 VM *myVMWestEurope*에 연결하고 이 VM에서 Traffic Manager 프로필 도메인 이름을 찾아서 이동합니다. VM *myVMWestEurope* IP 주소가 *myIISVMEastUS* 엔드포인트와 연결되어 있으므로 웹 브라우저에서 테스트 웹 사이트 서버인 *myIISVMWEurope*을 시작합니다.
 
 ## <a name="delete-the-traffic-manager-profile"></a>Traffic Manager 프로필 삭제
 더 이상 필요하지 않으면 리소스 그룹(**ResourceGroupTM1** 및 **ResourceGroupTM2**)을 삭제합니다. 이렇게 하려면 리소스 그룹(**ResourceGroupTM1** 또는 **ResourceGroupTM2**)을 선택한 다음, **삭제**를 선택합니다.

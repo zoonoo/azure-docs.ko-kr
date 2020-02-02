@@ -4,7 +4,7 @@ titleSuffix: Azure DNS
 description: 이 학습 경로에서 .NET SDK를 사용 하 여 Azure DNS에서 DNS 영역 및 레코드 집합 만들기를 시작 합니다.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.assetid: eed99b87-f4d4-4fbf-a926-263f7e30b884
 ms.service: dns
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/19/2016
-ms.author: allensu
-ms.openlocfilehash: 4c682749de0be6329a254bda25a32954dd44e6db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: rohink
+ms.openlocfilehash: c497209e456ff838786edaa19e46ebc5c1858d5f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978711"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938868"
 ---
 # <a name="create-dns-zones-and-record-sets-using-the-net-sdk"></a>.NET SDK를 사용하여 DNS 영역 및 레코드 집합 만들기
 

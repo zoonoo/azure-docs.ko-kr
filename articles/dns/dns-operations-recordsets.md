@@ -3,7 +3,7 @@ title: Azure PowerShell을 사용하여 Azure DNS의 DNS 레코드 관리 | Micr
 description: Azure DNS에서 도메인을 호스트하는 경우 Azure DNS에서 DNS 레코드 집합 및 레코드를 관리합니다. 레코드 집합 및 레코드 작업에 대한 모든 PowerShell 명령입니다.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: timlt
 ms.assetid: 7136a373-0682-471c-9c28-9e00d2add9c2
 ms.service: dns
@@ -13,13 +13,13 @@ ms.tgt_pltfrm: na
 ms.custom: H1Hack27Feb2017
 ms.workload: infrastructure-services
 ms.date: 12/21/2016
-ms.author: allensu
-ms.openlocfilehash: c11a5c4a3cfe18fbc203ad641ab1de866915bcc4
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b9244d9b2bdc9cb20195bbc103c0b1eb48a9de63
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211680"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932541"
 ---
 # <a name="manage-dns-records-and-recordsets-in-azure-dns-using-azure-powershell"></a>Azure PowerShell을 사용하여 Azure DNS에서 DNS 레코드 및 레코드 집합 관리
 
@@ -181,7 +181,7 @@ $rs = Get-AzDnsRecordSet -Name "www" -RecordType A -Zone $zone
 
 ## <a name="list-record-sets"></a>레코드 집합 나열
 
-`Get-AzDnsZone` 및/또는 `-Name` 매개 변수를 생략하여 영역에 있는 레코드 집합을 나열하도록 `-RecordType`을 사용할 수도 있습니다.
+`-Name` 및/또는 `-RecordType` 매개 변수를 생략하여 영역에 있는 레코드 집합을 나열하도록 `Get-AzDnsZone`을 사용할 수도 있습니다.
 
 다음 예제에서는 영역에 있는 모든 레코드 집합을 반환합니다.
 
@@ -230,7 +230,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
     Set-AzDnsRecordSet -RecordSet $rs
     ```
 
-`Set-AzDnsRecordSet`을 사용하여 Azure DNS의 기존 레코드 집합 및 포함된 모든 레코드를 지정된 레코드 집합으로 *바꿉니다*. [Etag 검사](dns-zones-records.md#etags)를 사용하여 동시 변경 내용을 덮어쓰지 않도록 합니다. 선택적 `-Overwrite` 스위치를 사용하여 이러한 검사를 무시할 수 있습니다.
+`Set-AzDnsRecordSet`를 사용 하면 Azure DNS의 기존 레코드 집합 (및 포함 하는 모든 레코드)을 지정 된 레코드 집합으로 *바꿉니다* . [Etag 검사](dns-zones-records.md#etags)를 사용하여 동시 변경 내용을 덮어쓰지 않도록 합니다. 선택적 `-Overwrite` 스위치를 사용하여 이러한 검사를 무시할 수 있습니다.
 
 이 작업 시퀀스를 *파이프*할 수도 있습니다. 즉, 레코드 집합 개체를 매개 변수로 전달하는 대신 파이프를 통해 전달합니다.
 
@@ -238,7 +238,7 @@ $recordsets = Get-AzDnsRecordSet -Zone $zone
 Get-AzDnsRecordSet -Name "www" –ZoneName "contoso.com" -ResourceGroupName "MyResourceGroup" -RecordType A | Add-AzDnsRecordConfig -Ipv4Address "5.6.7.8" | Set-AzDnsRecordSet
 ```
 
-위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `-Ipv4Address`의 `Add-AzDnsRecordConfig` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
+위의 예제에서는 'A' 형식의 기존 레코드 집합에 'A' 레코드를 추가하는 방법을 보여 줍니다. 비슷한 작업 시퀀스를 사용하여 다른 형식의 레코드 집합에 레코드를 추가하면 `Add-AzDnsRecordConfig`의 `-Ipv4Address` 매개 변수를 각 레코드 형식에 특정된 다른 매개 변수로 대체합니다. 각 레코드 형식의 매개 변수는 위의 추가 레코드 형식 예제에 표시된 대로 `New-AzDnsRecordConfig` cmdlet의 경우와 동일합니다.
 
 'CNAME' 또는 'SOA' 형식의 레코드 집합은 둘 이상의 레코드를 포함할 수 없습니다. 이 제약 조건은 DNS 표준에서 발생합니다. Azure DNS의 제한 사항이 아닙니다.
 
@@ -388,7 +388,7 @@ Get-AzDnsRecordSet -Name www -RecordType A -ZoneName "contoso.com" -ResourceGrou
 
 `$ConfirmPreference` PowerShell 기본 설정 변수 값에 `Medium` 이하의 값이 있는 경우 각 cmdlet은 확인 메시지를 표시합니다. `$ConfirmPreference`의 기본 값이 `High`이기 때문에 기본 PowerShell 설정을 사용하는 경우 이러한 프롬프트가 표시되지 않습니다.
 
-`$ConfirmPreference` 매개 변수를 사용하여 현재 `-Confirm` 설정을 재정의할 수 있습니다. `-Confirm` 또는 `-Confirm:$True`를 지정하는 경우 cmdlet은 실행하기 전에 확인을 위한 메시지를 표시합니다. `-Confirm:$False`을 지정하는 경우 cmdlet은 확인을 위한 메시지를 표시하지 않습니다. 
+`-Confirm` 매개 변수를 사용하여 현재 `$ConfirmPreference` 설정을 재정의할 수 있습니다. `-Confirm` 또는 `-Confirm:$True`를 지정하는 경우 cmdlet은 실행하기 전에 확인을 위한 메시지를 표시합니다. `-Confirm:$False`을 지정하는 경우 cmdlet은 확인을 위한 메시지를 표시하지 않습니다. 
 
 `-Confirm` 및 `$ConfirmPreference`에 대한 자세한 내용은 [기본 설정 변수 정보](/powershell/module/microsoft.powershell.core/about/about_preference_variables)를 참조하세요.
 

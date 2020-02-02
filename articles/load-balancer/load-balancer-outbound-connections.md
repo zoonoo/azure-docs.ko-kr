@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 5bdcd955919a91760f16287a62956542cfaa47c5
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f9135d0a602bfa1f36f9723311e82a4d26abe6c9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225294"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934564"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -40,7 +40,7 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 메서드 | IP 프로토콜 | 설명 |
+| SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
 | 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. |
@@ -161,9 +161,9 @@ Azure는 각 VM NIC의 IP 구성에 SNAT 포트를 미리 할당합니다. 풀�
 | 풀 크기(VM 인스턴스) | IP 구성별로 미리 할당된 SNAT 포트|
 | --- | --- |
 | 1-50 | 1,024 |
-| 51-100 | 512 |
-| 101-200 | 256 |
-| 201-400 | 128 |
+| 51~100 | 512 |
+| 101~200 | 256 |
+| 201~400 | 128 |
 | 401-800 | 64 |
 | 801-1,000 | 32 |
 
@@ -195,7 +195,7 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 ### <a name="snatexhaust"></a> SNAT(PAT) 포트 고갈 관리
 [PAT](#pat) 에 사용 되는 사용 [후 삭제 포트](#preallocatedports) 는 공용 Ip [주소가 없는 독립 실행형 vm](#defaultsnat) 및 [공용 ip 주소가 없는 부하 분산 vm](#lb)에 설명 된 대로 소모 성 리소스입니다.
 
-동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](#preallocatedports)에서 사용하는 미리 할당된 [삭제 포트](#pat))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
+동일한 대상 IP 주소 및 포트에 대해 많은 아웃바운드 TCP 또는 UDP 연결을 시작할 것인지 알고 있는 경우 실패하는 아웃바운드 연결을 확인하고, 지원 서비스에서 SNAT 포트([PAT](#pat)에서 사용하는 미리 할당된 [삭제 포트](#preallocatedports))가 고갈될 것이라는 알림을 받는 경우 몇 가지 일반적인 완화 옵션을 사용할 수 있습니다. 다음 옵션을 검토하고 시나리오에 가장 적합한 옵션을 결정합니다. 한 가지 이상의 옵션이 이 시나리오를 관리하는 데 도움이 될 수 있습니다.
 
 아웃바운드 연결 동작을 이해하는 데 어려움이 있는 경우 IP 스택 통계(netstat)를 사용할 수 있습니다. 또는 패킷 캡처를 사용하여 연결 동작을 관찰하면 도움이 될 수 있습니다. 이러한 패킷 캡처는 인스턴스의 게스트 OS에서 수행할 수도 있고 [패킷 캡처용 Network Watcher](../network-watcher/network-watcher-packet-capture-manage-portal.md)를 사용할 수도 있습니다.
 
@@ -210,7 +210,7 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 연결 풀링은 애플리케이션을 개발하는 데 사용하는 프레임워크 또는 애플리케이션에 대한 구성 설정에 이미 존재할 수 있습니다. 연결 풀링을 연결 재사용과 결합할 수 있습니다. 그러면 여러 요청이 동일한 대상 IP 주소 및 포트에 고정되고 예측 가능한 수의 포트를 사용합니다. 또한 TCP 트랜잭션을 효율적으로 사용하여 대기 시간 및 리소스 사용량이 감소하기 때문에 요청에도 이득입니다. 여러 UDP 흐름을 관리하면 고갈 조건을 피하고 SNAT 포트 활용도를 관리할 수 있으므로 UDP 트랜잭션이 도움이 될 수 있습니다.
 
 #### <a name="retry logic"></a>덜 적극적인 재시도 논리를 사용하도록 애플리케이션 수정
-[PAT](#preallocatedports)에 사용되는 [미리 할당된 삭제 포트](#pat)가 고갈되거나 애플리케이션 오류가 발생하면 지연 및 백오프 논리 없는 적극적인 또는 무차별 대입 재시도로 인해 고갈 상태가 발생하거나 지속됩니다. 덜 적극적인 재시도 논리를 사용하여 사용 후 삭제 포트에 대한 수요를 줄일 수 있습니다. 
+[PAT](#pat)에 사용되는 [미리 할당된 삭제 포트](#preallocatedports)가 고갈되거나 애플리케이션 오류가 발생하면 지연 및 백오프 논리 없는 적극적인 또는 무차별 대입 재시도로 인해 고갈 상태가 발생하거나 지속됩니다. 덜 적극적인 재시도 논리를 사용하여 사용 후 삭제 포트에 대한 수요를 줄일 수 있습니다. 
 
 삭제 포트의 유휴 시간 제한은 4분입니다(조정 불가능). 다시 시도 횟수가 너무 엄격하면 고갈이 스스로 지울 수 있는 기회가 없습니다. 따라서 디자인할 때 애플리케이션이 트랜잭션을 어떤 방식으로 얼마나 자주 다시 시도하는지 고려하는 것이 중요합니다.
 
@@ -237,7 +237,7 @@ SNAT 포트 할당은 IP 전송 프로토콜과 관련이 있으며(TCP 및 UDP�
 
 ### <a name="idletimeout"></a>keepalive를 사용하여 아웃바운드 유휴 시간 제한 다시 설정
 
-아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. 이 시간 제한은 조정할 수 없습니다. 그러나 필요한 경우 전송(예: TCP keepalive) 또는 애플리케이션 레이어 keepalive를 사용하여 유휴 흐름을 새로 고치고 이 유휴 시간 제한을 다시 설정할 수 있습니다.  
+아웃바운드 연결에는 4분의 유휴 시간 제한이 적용됩니다. [아웃 바운드 규칙](../load-balancer/load-balancer-outbound-rules-overview.md#idletimeout)을 통해이 시간 제한을 조정할 수 있습니다. 전송 (예: TCP keepalive) 또는 응용 프로그램 계층 keepalive을 사용 하 여 유휴 흐름을 새로 고치고 필요한 경우이 유휴 시간 제한을 다시 설정할 수도 있습니다.  
 
 TCP Keepalive를 사용하는 경우 연결의 한 쪽에서 사용하도록 설정하는 것으로 충분합니다. 예를 들어 서버 쪽에서만 사용하도록 설정해도 흐름의 유휴 타이머가 다시 설정되며 양쪽에서 TCP Keepalive를 시작하지 않아도 됩니다.  데이터베이스 클라이언트 서버 구성을 포함하여 애플리케이션 계층에 대한 유사한 개념이 있습니다.  서버 쪽에서 사용 가능한 애플리케이션 관련 Keepalive 옵션을 확인합니다.
 
@@ -257,7 +257,7 @@ NSG가 AZURE_LOADBALANCER 기본 태그의 상태 프로브 요청을 차단할 
 
 ## <a name="limitations"></a>제한 사항
 - 포털에서 부하 분산 규칙을 구성할 때 옵션으로 DisableOutboundSnat을 사용할 수 없습니다.  REST, 템플릿 또는 클라이언트 도구를 대신 사용합니다.
-- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스의 기능 방법의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 각 서비스 자체 또는 기본 플랫폼은 사전 통보 없이 변경될 수 있으므로 이 부작용을 사용하지 마세요. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 아웃 바운드 연결을 만들어야 한다고 항상 가정해야 합니다. 이 문서에 설명된 [기본 SNAT](#defaultsnat) 시나리오 3은 사용할 수 없습니다.
+- VNet 및 기타 Microsoft 플랫폼 서비스가 없는 웹 작업자 역할은 사전 VNet 서비스 및 다른 플랫폼 서비스 작동 방식의 부작용으로 인해 내부 표준 Load Balancer만 사용할 때 액세스할 수 있습니다. 각 서비스 자체 또는 기본 플랫폼은 사전 통보 없이 변경될 수 있으므로 이 부작용을 사용하지 마세요. 내부 표준 Load Balancer만 사용하는 경우 원하면 명시적으로 아웃 바운드 연결을 만들어야 한다고 항상 가정해야 합니다. 이 문서에 설명된 [기본 SNAT](#defaultsnat) 시나리오 3은 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

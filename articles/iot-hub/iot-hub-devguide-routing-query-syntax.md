@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: 859b15954f64f8b481f6b86c04fc28b542599f02
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 04db62f402c25dd4a04281047f684dc23d41a502
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890491"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934630"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -50,13 +50,13 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 속성 | 형식 | 설명 |
+| 속성 | 유형 | Description |
 | -------- | ---- | ----------- |
-| contentType | string | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
-| contentEncoding | string | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
-| iothub-connection-device-id | string | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
-| iothub-enqueuedtime | string | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
-| iothub-interface-name | string | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
+| contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
+| contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
+| iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
+| iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
+| iothub-interface-name | 문자열 | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
 
@@ -143,7 +143,7 @@ deviceClient.sendEvent(message, (err, res) => {
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 본문에 대한 쿼리는 접두사로 `$body`를 사용해야 합니다. 쿼리 식에 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 또한 쿼리 식은 본문 참조를 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 본문에 대한 쿼리는 접두사로 `$body`을 사용해야 합니다. 쿼리 식에 본문 참조, 본문 배열 참조 또는 여러 본문 참조를 사용할 수 있습니다. 또한 쿼리 식은 본문 참조를 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
 
 ```sql
 $body.Weather.HistoricalData[0].Month = 'Feb' 
@@ -163,7 +163,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ## <a name="message-routing-query-based-on-device-twin"></a>디바이스 쌍에 따른 메시지 라우팅 쿼리 
 
-메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대 한 쿼리는 지원 되지 않습니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
+메시지 라우팅을 사용하면 JSON 개체인 [디바이스 쌍](iot-hub-devguide-device-twins.md) 태그 및 속성에서 쿼리를 사용할 수 있습니다. 모듈 쌍에 대 한 쿼리도 지원 됩니다. 디바이스 쌍 태그 및 속성의 샘플은 다음과 같습니다.
 
 ```JSON
 {
@@ -196,7 +196,7 @@ $body.Weather.Temperature = 50 AND processingPath = 'hot'
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 본문에 대한 쿼리는 접두사로 `$twin`를 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
+메시지 본문에 대한 쿼리는 접두사로 `$twin`을 사용해야 합니다. 또한 쿼리 식은 쌍 태그 또는 속성 참조를 본문 참조, 메시지 시스템 속성 및 메시지 애플리케이션 속성 참조와 결합할 수 있습니다. 쿼리가 대/소문자를 구분하지 않으므로 태그 및 속성에 고유한 이름을 사용하는 것이 좋습니다. 이는 장치 쌍 및 모듈 쌍 모두에 적용 됩니다. 또한 속성 이름으로 `twin`, `$twin`, `body` 또는 `$body`를 사용하지 않도록 합니다. 예를 들어 다음은 모든 유효한 쿼리 식입니다. 
 
 ```sql
 $twin.properties.desired.telemetryConfig.sendFrequency = '5m'

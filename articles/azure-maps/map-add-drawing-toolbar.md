@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 553dffd14182c93a52ed076e742830c68130551b
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4c89765a3bc59a37a182a2dfabf0727f95b575b8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911226"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933219"
 ---
 # <a name="add-a-drawing-tools-toolbar-to-a-map"></a>지도에 드로잉 도구 모음 추가
 
@@ -68,7 +68,7 @@ drawingManager = new atlas.drawing.DrawingManager(map, {
 
 ## <a name="change-drawing-rendering-style"></a>그리기 렌더링 스타일 변경
 
-다음 코드는 그리기 관리자에서 렌더링 계층을 가져오고 드로잉의 렌더링 스타일을 변경 하는 옵션을 수정 합니다. 이 경우 점은 파란색 표식 아이콘으로 렌더링 되 고 선은 빨강 및 4 픽셀 너비 이며, 다각형은 녹색 채우기 색과 주황색 윤곽선을 갖습니다.
+다음 코드는 그리기 관리자에서 렌더링 계층을 가져오고 드로잉의 렌더링 스타일을 변경 하는 옵션을 수정 합니다. 이 경우 점은 파란색 표식 아이콘을 사용 하 여 렌더링 됩니다. 줄은 빨강 및 4 픽셀 너비입니다. 다각형에는 녹색 채우기 색과 주황색 윤곽선이 있습니다.
 
 ```Javascript
 var layers = drawingManager.getLayers();

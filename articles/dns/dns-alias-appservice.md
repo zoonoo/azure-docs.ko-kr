@@ -2,17 +2,17 @@
 title: 영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 description: 영역 루트에서 Azure DNS 별칭 레코드를 사용하여 부하가 분산된 웹앱 호스트
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 08/10/2019
-ms.author: allensu
-ms.openlocfilehash: a673a74f8f6f919e7ebb7fc3b065ee0742ab3a10
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8ba96a028d51e6e5503bb4a8e6735b48033c9ba1
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74212361"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937359"
 ---
 # <a name="host-load-balanced-azure-web-apps-at-the-zone-apex"></a>영역 루트에서 워크로드가 분산된 Azure 웹앱 호스트
 
@@ -24,9 +24,9 @@ DNS 프로토콜은 영역 루트에서 A 또는 AAAA 레코드를 제외한 다
 
 이 문서에서는 사용자 도메인 루트에 대한 별칭 레코드를 만들고, 웹앱에 대한 Traffic Manager 프로필 엔드포인트를 구성하는 방법을 알아봅니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
@@ -43,7 +43,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 구성 정보에 대한 다음 표를 사용하여 리소스 그룹에 두 개의 웹 App Service 계획을 만듭니다. App Service 계획을 만드는 방법에 대한 자세한 내용은 [Azure에서 App Service 계획 관리](../app-service/app-service-plan-manage.md)를 참조하세요.
 
 
-|이름  |운영 체제  |Location  |가격 책정 계층  |
+|이름  |운영 체제  |위치  |가격 책정 계층  |
 |---------|---------|---------|---------|
 |ASP-01     |Windows|미국 동부|개발/테스트 D1-공유|
 |ASP-02     |Windows|미국 중부|개발/테스트 D1-공유|
@@ -58,7 +58,7 @@ Azure DNS에서 도메인을 호스트하기 위한 지침은 [자습서: Azure 
 4. **만들기**를 선택합니다.
 5. 기본값을 적용하고, 다음 표를 사용하여 두 개의 웹앱을 구성합니다.
 
-   |이름<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|Region|App Service 계획/위치
+   |이름<br>(.azurewebsites.net 내에서 고유해야 합니다.)|리소스 그룹 |런타임 스택|지역|App Service 계획/위치
    |---------|---------|-|-|-------|
    |App-01|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 동부|ASP-01 (D1)|
    |App-02|기존 리소스 사용<br>리소스 그룹 선택|.NET Core 2.2|미국 중부|ASP-02 (D1)|
@@ -87,7 +87,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 3. **추가**를 선택합니다.
 4. 다음 표를 사용하여 엔드포인트를 구성합니다.
 
-   |에  |이름  |대상  |Location  |사용자 지정 헤더 설정|
+   |유형  |이름  |대상 파악  |위치  |사용자 지정 헤더 설정|
    |---------|---------|---------|---------|---------|
    |외부 엔드포인트     |End-01|App-01에 기록한 IP 주소|미국 동부|호스트:\<App-01에 기록한 URL\><br>예: **호스트:app-01.azurewebsites.net**|
    |외부 엔드포인트     |End-02|App-02에 기록한 IP 주소|미국 중부|호스트:\<App-02에 기록한 URL\><br>예: **호스트:app-02.azurewebsites.net**
@@ -104,7 +104,7 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용 하 여 레코드 집합을 추가 합니다. 값에 대해 이전에 기록한 실제 웹 앱 URL을 사용 합니다.
 
-   |이름  |에  |값|
+   |이름  |유형  |값|
    |---------|---------|-|
    |@     |TXT|App-01.azurewebsites.net|
 
@@ -132,9 +132,9 @@ Traffic Manager 프로필을 만드는 방법에 대한 자세한 내용은 [빠
 2. **레코드 집합**을 선택합니다.
 3. 다음 표를 사용하여 레코드 집합을 추가합니다.
 
-   |이름  |에  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
+   |이름  |유형  |별칭 레코드 집합  |별칭 형식  |Azure 리소스|
    |---------|---------|---------|---------|-----|
-   |@     |변수를 잠그기 위한|예|Azure 리소스|Traffic Manager - 프로필|
+   |@     |A|예|Azure 리소스|Traffic Manager - 프로필|
 
 
 ## <a name="test-your-web-apps"></a>웹앱 테스트

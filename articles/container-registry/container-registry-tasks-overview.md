@@ -3,12 +3,12 @@ title: ACR 작업 개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 ms.topic: article
 ms.date: 09/05/2019
-ms.openlocfilehash: 96997f963f0bcb319d5318e2dd88a6e1e21fb36b
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74840768"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938872"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -56,15 +56,15 @@ GitHub 또는 Azure DevOps의 공용 또는 개인 Git 리포지토리로 코드
 
 ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 다음과 같은 트리거를 지원 합니다.
 
-| 트리거 | 기본적으로 사용하도록 설정됨 |
+| 트리거 | 기본적으로 사용 |
 | ------- | ------------------ |
-| 커밋 | yes |
+| Commit | 예 |
 | 끌어오기 요청 | 아닙니다. |
 
 소스 코드 업데이트 트리거를 구성 하려면 공용 또는 개인 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 해야 합니다.
 
 > [!NOTE]
-> 현재 ACR 작업은 GitHub Enterprise 리포지토리에서 커밋 또는 끌어오기 요청 트리거를 지원 하지 않습니다.
+> 현재 ACR 작업은 GitHub Enterprise 리포지토리에서 커밋 또는 끌어오기 요청 트리거를 지원하지 않습니다.
 
 두 번째 ACR 작업 자습서인 [Azure Container Registry 작업을 사용하여 컨테이너 이미지 빌드 자동화](container-registry-tutorial-build-task.md)에서 소스 코드 커밋 시 빌드를 트리거하는 방법을 알아보세요.
 
@@ -116,12 +116,13 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | 설명 | 예제 |
+| 컨텍스트 위치 | Description | 예 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |
 | GitHub 분기 | 공용 또는 개인 GitHub 리포지토리의 특정 분기.| `https://github.com/gituser/myapp-repo.git#mybranch` |
 | GitHub 하위 폴더 | 공용 또는 개인 GitHub 리포지토리의 하위 폴더에 있는 파일입니다. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#mybranch:myfolder` |
+| GitHub 커밋 | 공용 또는 개인 GitHub 리포지토리의 특정 커밋. 예제에서는 SHA (커밋 해시)와 하위 폴더 사양의 조합을 보여 줍니다. | `https://github.com/gituser/myapp-repo.git#git-commit-hash:myfolder` |
 | Azure DevOps 하위 폴더 | 공용 또는 개인 Azure 리포지토리의 하위 폴더 내 파일. 예제에서는 분기와 하위 폴더 사양의 조합을 보여 줍니다. | `https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder` |
 | 원격 Tarball | 원격 웹 서버의 압축된 아카이브에 있는 파일. | `http://remoteserver/myapp.tar.gz` |
 
@@ -132,9 +133,9 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 
 기본적으로 ACR 작업은 Linux OS 및 amd64 아키텍처용 이미지를 빌드합니다. 다른 아키텍처에 대 한 Windows 이미지 또는 Linux 이미지를 빌드하기 위해 `--platform` 태그를 지정 합니다. Os를 지정 하 고 필요에 따라 OS/아키텍처 형식으로 지원 되는 아키텍처를 지정 합니다 (예: `--platform Linux/arm`). ARM 아키텍처의 경우 필요에 따라 OS/아키텍처/변형 형식 (예: `--platform Linux/arm64/v8`)에서 variant를 지정 합니다.
 
-| OS | 건축|
+| OS | 아키텍처|
 | --- | ------- | 
-| Linux | amd64<br/>arm<br/>arm64<br/>386 |
+| Linux | amd64<br/>암<br/>arm64<br/>386 |
 | Windows | amd64 |
 
 ## <a name="view-task-logs"></a>작업 로그 보기

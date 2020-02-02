@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 10152087b45a4048f30f382b237017efbbb63787
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 71344f954990952856f031829f13273e062b62c5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769883"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933161"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -29,7 +29,7 @@ Azure Automation에서 runbook을 실행 하는 동안 오류가 발생 하는 �
 
 2. 특정 메시지에 대 한 **runbook** [오류 스트림을](https://docs.microsoft.com/azure/automation/automation-runbook-output-and-messages#runbook-output) 조사 하 고 아래 오류와 비교 합니다.
 
-3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 automation 계정으로 사용할 수 있는지 확인 합니다. [Azure Automation에서 Azure 모듈 업데이트](..//automation-update-azure-modules.md)아래의 지침에 따라 모듈을 최신 버전으로 업데이트 합니다. 문제 해결에 대 한 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
+3. **노드 및 자동화 작업 영역에 필요한 모듈이 있는지 확인 합니다.** Runbook이 모듈을 가져오는 경우 모듈 [가져오기](../shared-resources/modules.md#import-modules)에 나열 된 단계를 사용 하 여 Automation 계정에 사용할 수 있는지 확인 합니다. [Azure Automation에서 Azure 모듈 업데이트의](..//automation-update-azure-modules.md)지침에 따라 모듈을 최신 버전으로 업데이트 합니다. 문제 해결에 대 한 자세한 내용은 [모듈 문제 해결](shared-resources.md#modules)을 참조 하세요.
 
 Runbook이 일시 중단 되었거나 예기치 않게 실패 한 경우:
 
@@ -49,7 +49,7 @@ Run Login-AzureRMAccount to login.
 
 ### <a name="cause"></a>원인
 
-실행 계정을 사용하지 않거나 실행 계정이 만료되면 이 오류가 발생할 수 있습니다. [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조 하세요.
+실행 계정을 사용 하지 않거나 실행 계정이 만료 된 경우이 오류가 발생할 수 있습니다. [Azure Automation 실행 계정 관리](https://docs.microsoft.com/azure/automation/manage-runas-account)를 참조 하세요.
 
 이 오류에는 두 가지 주요 원인이 있습니다.
 
@@ -62,7 +62,7 @@ AzureRM 모듈 하나를 업데이트 한 후이 오류가 표시 되 면 모든
 
 다른 구독에 있는 리소스에 액세스 하려는 경우 아래 단계에 따라 사용 권한을 구성할 수 있습니다.
 
-1. Automation 계정의 실행 계정으로 이동 하 여 응용 프로그램 ID 및 지문을 복사 합니다.
+1. Automation 실행 계정으로 이동 하 여 응용 프로그램 ID 및 지문을 복사 합니다.
   응용 프로그램 ID 및 지문 ![복사](../media/troubleshoot-runbooks/collect-app-id.png)
 1. Automation 계정이 호스팅되지 않은 구독의 Access Control로 이동 하 고 새 역할 할당을 추가 합니다.
   ![액세스 제어](../media/troubleshoot-runbooks/access-control.png)
@@ -142,7 +142,7 @@ Azure 계정에서 Multi-Factor Authentication을 사용하면 Azure Active Dire
 
 ### <a name="resolution"></a>해상도
 
-Azure 클래식 배포 모델 cmdlet에 인증서를 사용하려면 [인증서를 만들고 추가하여 Azure 서비스 관리](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조하세요. Azure Resource Manager cmdlet에 서비스 주체를 사용하려면 [Azure Portal을 사용하여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager를 사용하여 서비스 주체 인증](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)을 참조하세요.
+Azure 클래식 배포 모델 cmdlet에 인증서를 사용 하려면 [azure 서비스를 관리 하는 인증서 만들기 및 추가](https://blogs.technet.com/b/orchestrator/archive/2014/04/11/managing-azure-services-with-the-microsoft-azure-automation-preview-service.aspx)를 참조 하세요. Azure Resource Manager cmdlet에서 서비스 주체를 사용 하려면 [Azure Portal를 사용 하 여 서비스 주체 만들기](../../active-directory/develop/howto-create-service-principal-portal.md) 및 [Azure Resource Manager](../../active-directory/develop/howto-authenticate-service-principal-powershell.md)를 사용 하 여 서비스 주체 인증을 참조 하세요.
 
 ## <a name="get-serializationsettings"></a>시나리오: get_SerializationSettings 방법에 대 한 작업 스트림에 오류가 표시 됩니다.
 
@@ -168,7 +168,7 @@ At line:16 char:1
 
 ### <a name="resolution"></a>해상도
 
-Az 및 AzureRM cmdlet은 동일한 Runbook에 가져와 사용할 수 없습니다. Azure Automation에서 Az 지원에 대한 자세한 내용을 보려면 [Azure Automation에서 Az 모듈 지원](../az-modules.md)을 참조하세요.
+Az 및 AzureRM cmdlet은 동일한 runbook에서 가져와서 사용할 수 없습니다. Azure Automation의 Az cmdlet에 대 한 자세한 내용은 [Azure Automation의 az module support](../az-modules.md)을 참조 하십시오.
 
 ## <a name="task-was-cancelled"></a>시나리오: 다음 오류로 인해 Runbook이 실패합니다. 작업이 취소됨
 
@@ -208,7 +208,7 @@ Runbook이 실행 시 올바른 컨텍스트를 사용하지 않습니다.
 # Ensures that any credentials apply only to the execution of this runbook
 Disable-AzureRmContextAutosave –Scope Process
 
-# Connect to Azure with RunAs account
+# Connect to Azure with Run As account
 $ServicePrincipalConnection = Get-AutomationConnection -Name 'AzureRunAsConnection'
 
 Add-AzureRmAccount `
@@ -243,24 +243,24 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 ### <a name="cause"></a>원인
 
-다음 이유 중 하나로 인해 이 오류가 발생할 수 있습니다.
+이 오류는 다음과 같은 이유로 인해 발생할 수 있습니다.
 
-* cmdlet이 포함된 모듈을 자동화 계정으로 가져오지 못했습니다.
-* cmdlet이 포함된 모듈을 가져왔지만 만료되었습니다.
+* Cmdlet을 포함 하는 모듈은 Automation 계정으로 가져오지 않습니다.
+* Cmdlet을 포함 하는 모듈을 가져오지만 최신 상태가 아닙니다.
 
 ### <a name="resolution"></a>해상도
 
 다음 작업 중 하나를 완료하여 이 오류를 해결할 수 있습니다.
 
-모듈이 Azure 모듈인 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md)을 참조하여 자동화 계정에서 모듈을 업데이트하는 방법을 알아봅니다.
+모듈이 Azure 모듈인 경우 Automation 계정에서 모듈을 업데이트 하는 방법을 알아보려면 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 을 참조 하세요.
 
 별도의 모듈인 경우 Automation 계정에 모듈을 가져와야 합니다.
 
-## <a name="job-attempted-3-times"></a>시나리오: Runbook 작업 시작을 세 번 시도했지만 매번 시작하지 못했습니다.
+## <a name="job-attempted-3-times"></a>시나리오: runbook 작업 시작을 세 번 시도 했지만 매번 시작 하지 못했습니다.
 
 ### <a name="issue"></a>문제
 
-다음 오류로 인해 Runbook이 실패합니다.
+다음 오류가 발생 하 여 runbook이 실패 합니다.
 
 ```error
 The job was tried three times but it failed
@@ -268,33 +268,31 @@ The job was tried three times but it failed
 
 ### <a name="cause"></a>원인
 
-다음 문제 중 하나로 인해 이 오류가 발생합니다.
+이 오류는 다음 문제 중 하나로 인해 발생 합니다.
 
-* 메모리 제한. 샌드박스에 대한 메모리 할당량의 문서화된 제한은 [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에서 확인할 수 있습니다. 400MB를 초과하는 메모리를 사용하는 경우 작업에 실패할 수 있습니다.
+* 메모리 제한. 400 MB를 초과 하는 메모리를 사용 하는 경우 작업이 실패할 수 있습니다. Sandbox에 할당 된 메모리에 대 한 문서화 된 제한은 [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에서 찾을 수 있습니다. 
 
-* 네트워크 소켓입니다. [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)에 설명된 대로 Azure 샌드박스에서는 동시 네트워크 소켓이 1000개로 제한됩니다.
+* 네트워크 소켓입니다. Azure 샌드박스는 1000의 동시 네트워크 소켓으로 제한 됩니다. [Automation 서비스 제한](../../azure-resource-manager/management/azure-subscription-service-limits.md#automation-limits)을 참조 하세요.
 
-* 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않은 경우에 이 오류가 발생할 수 있습니다. 일반적으로 Runbook에서 "명령을 찾을 수 없습니다." 또는 "매개 변수를 바인딩할 수 없습니다."라는 메시지를 반환합니다.
+* 모듈이 호환되지 않음. 모듈 종속성이 올바르지 않을 수 있습니다. 이 경우 runbook은 일반적으로 "명령 찾을 수 없음" 또는 "매개 변수를 바인딩할 수 없습니다." 메시지를 반환 합니다.
 
-* Runbook이 Azure 샌드박스에서 실행 되는 runbook의 실행 파일 또는 하위 프로세스를 호출 하려고 했습니다. 이 시나리오는 Azure 샌드박스에서 지원되지 않습니다.
+* 샌드박스에 대 한 Active Directory 인증 안 함 Runbook이 Azure 샌드박스에서 실행 되는 실행 파일 또는 하위 프로세스를 호출 하려고 했습니다. ADAL (Azure Active Directory 인증 라이브러리)을 사용 하 여 Azure AD에서 인증 하도록 runbook을 구성 하는 것은 지원 되지 않습니다.
 
-* Runbook이 출력 스트림에 너무 많은 예외 데이터를 쓰려고 했습니다.
+* 예외 데이터가 너무 많습니다. Runbook이 출력 스트림에 너무 많은 예외 데이터를 쓰려고 했습니다.
 
 ### <a name="resolution"></a>해상도
 
-다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
+* 메모리 제한, 네트워크 소켓 메모리 제한 내에서 작업을 수행 하는 권장 방법은 여러 runbook 간에 워크 로드를 분할 하 고, 메모리에서 더 작은 데이터를 처리 하 고, runbook에서 불필요 한 출력을 쓰지 않도록 하 고, PowerShell 워크플로에 작성 된 검사점 수를 고려 하는 것입니다. runbook. Clear 메서드 (예: `$myVar.clear`)를 사용 하 여 변수를 지우고 `[GC]::Collect`를 사용 하 여 가비지 수집을 즉시 실행 합니다. 이러한 작업은 런타임 중에 Runbook의 메모리 공간을 줄입니다.
 
-* 메모리 제한 내에서 작업하기 위해 제안된 방법은 여러 Runbook 간에 워크로드를 분할하고, 메모리에서 많은 데이터를 처리하지 않고, Runbook에서 불필요한 출력을 작성하지 않으며, PowerShell 워크플로 Runbook에 작성하는 검사점의 수를 고려하는 것입니다. `$myVar.clear()`와 같은 clear 메서드를 사용하여 변수를 지우고, `[GC]::Collect()`를 사용하여 가비지 수집을 즉시 실행할 수 있습니다. 이러한 작업은 런타임 중에 Runbook의 메모리 공간을 줄입니다.
+* 모듈이 호환되지 않음. [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md)의 단계에 따라 Azure 모듈을 업데이트 합니다.
 
-* [Azure Automation에서 Azure PowerShell 모듈을 업데이트하는 방법](../automation-update-azure-modules.md) 단계에 따라 Azure 모듈을 업데이트합니다.
+* 샌드박스에 대해 ADAL을 사용 하 여 인증 하지 않습니다. Runbook을 사용 하 여 Azure AD에 인증할 때 Automation 계정에서 Azure AD 모듈을 사용할 수 있는지 확인 합니다. Runbook이 자동화 하는 작업을 수행 하는 데 필요한 권한을 실행 계정에 부여 해야 합니다.
 
-* 다른 솔루션은 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다. Hybrid Worker는 Azure 샌드박스의 메모리 및 네트워크 제한 사항에 따라 제한되지 않습니다.
+  Runbook이 Azure 샌드박스에서 실행 되는 실행 파일 또는 하위 프로세스를 호출할 수 없는 경우 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 runbook을 사용 합니다. 하이브리드 작업자는 Azure 샌드박스에 있는 메모리 및 네트워크 제한으로 제한 되지 않습니다.
 
-* Runbook에서 프로세스(예: .exe 또는 subprocess.call)를 호출해야 하는 경우 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행해야 합니다.
+* 예외 데이터가 너무 많습니다. 작업 출력 스트림에는 1MB 제한이 있습니다. Runbook이 try/catch 블록의 실행 파일 또는 하위 프로세스에 대 한 호출을 포함 하는지 확인 합니다. 작업이 예외를 throw 하는 경우 코드에서 예외의 메시지를 자동화 변수에 쓰도록 합니다. 이 방법은 메시지가 작업 출력 스트림에 기록 되지 않도록 합니다.
 
-* 작업 출력 스트림에는 1MB 제한이 있습니다. Try/catch 블록에서 실행 파일 또는 하위 프로세스에 대 한 호출을 묶어야 합니다. 예외를 throw 하는 경우 해당 예외의 메시지를 자동화 변수에 씁니다. 이렇게 하면 작업 출력 스트림에 기록 되지 않습니다.
-
-## <a name="sign-in-failed"></a>시나리오: Azure 계정 로그인에 실패
+## <a name="sign-in-failed"></a>시나리오: Azure 계정에 로그인 하지 못했습니다.
 
 ### <a name="issue"></a>문제
 
@@ -353,7 +351,7 @@ No certificate was found in the certificate store with thumbprint
    }
    ```
 
-## <a name="child-runbook-object"></a>개체 참조가 개체의 인스턴스로 설정 되지 않았습니다.
+## <a name="child-runbook-object"></a>시나리오: 개체 참조가 개체의 인스턴스로 설정 되지 않았습니다.
 
 ### <a name="issue"></a>문제
 
@@ -365,11 +363,11 @@ Object reference not set to an instance of an object
 
 ### <a name="cause"></a>원인
 
-[Start-AzureRmAutomationRunbook](/powershell/module/AzureRM.Automation/Start-AzureRmAutomationRunbook)에 개체가 포함되어 있으면 출력 스트림을 올바르게 처리하지 못하는 알려진 문제가 있습니다.
+Start-azurermautomationrunbook가 개체를 포함 하는 경우 출력 스트림을 올바르게 처리 하지 않는 알려진 문제가 있습니다.
 
 ### <a name="resolution"></a>해상도
 
-이 문제를 해결하려면 폴링 논리를 대신 구현하고 [Get-AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet을 사용하여 출력을 검색하는 것이 좋습니다. 이 논리의 샘플은 다음 예에서 정의됩니다.
+이 문제를 해결 하려면 폴링 논리를 구현 하 고 [AzureRmAutomationJobOutput](/powershell/module/azurerm.automation/get-azurermautomationjoboutput) cmdlet을 사용 하 여 출력을 검색 하는 것이 좋습니다. 이 논리의 샘플은 다음 예에서 정의됩니다.
 
 ```powershell
 $automationAccountName = "ContosoAutomationAccount"
@@ -417,7 +415,7 @@ Runbook이 PowerShell 워크플로인 경우, 워크플로가 일시 중단되�
 * 개체 전체를 전달하지 말고 복합 개체에서 필요한 이름 또는 값만 전달합니다.
 * PowerShell 워크플로 Runbook 대신 PowerShell Runbook을 사용합니다.
 
-## <a name="quota-exceeded"></a>시나리오: 할당된 할당량을 초과하여 Runbook 작업 실패
+## <a name="quota-exceeded"></a>시나리오: 할당 된 할당량이 초과 되어 Runbook 작업이 실패 함
 
 ### <a name="issue"></a>문제
 
@@ -435,9 +433,9 @@ The quota for the monthly total job run time has been reached for this subscript
 
 매월 처리 시간을 500분 이상 사용하려면 구독을 무료 계층에는 기본 계층으로 변경해야 합니다. 다음 단계에 따라 기본 계층으로 업그레이드할 수 있습니다.
 
-1. Azure 구독에 로그인
-2. 업그레이드하려는 Automation 계정 선택
-3. **설정** > **가격 책정**을 차례로 클릭합니다.
+1. Azure 구독에 로그인합니다.
+2. 업그레이드할 Automation 계정을 선택 합니다.
+3. **설정**, **가격 책정**을 차례로 클릭 합니다.
 4. 페이지 아래쪽의 **사용**을 클릭하여 계정을 **기본** 계층으로 업그레이드합니다.
 
 ## <a name="cmdlet-not-recognized"></a>시나리오: Runbook을 실행해도 cmdlet이 인식되지 않음
@@ -459,11 +457,11 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
 * cmdlet 이름을 올바르게 입력했는지 확인합니다.
-* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에서 cmdlet을 사용할 수 있는지와 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는지를 확인한 후, 캔버스에 해당 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
+* Automation 계정에 cmdlet이 있는지와 충돌이 없는지 확인 합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에서 cmdlet을 사용할 수 있는지와 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는지를 확인한 후, 캔버스에 해당 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
 * 이름이 충돌하고 서로 다른 두 모듈에서 cmdlet을 사용할 수 있는 경우 이 문제는 cmdlet에 대한 정규화된 이름을 사용하여 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.
 * 온-프레미스의 Hybrid Worker 그룹에서 Runbook을 실행하는 경우 Hybrid Worker를 호스트하는 머신에 모듈 및 cmdlet이 설치되어 있는지 확인합니다.
 
-## <a name="long-running-runbook"></a>시나리오: 장기 실행 Runbook이 완료되지 않음
+## <a name="long-running-runbook"></a>시나리오: 장기 실행 runbook이 완료 되지 못함
 
 ### <a name="issue"></a>문제
 
@@ -477,13 +475,13 @@ Azure Automation 내에서 프로세스를 "공평 분배" 방식으로 모니�
 
 ### <a name="cause"></a>원인
 
-Runbook이 Azure 샌드박스의 공평 분배에 허용된 3시간 제한을 초과하여 실행되었습니다.
+Runbook이 Azure 샌드박스에서 공평 하 게 공유에서 허용 하는 3 시간 제한을 초과 했습니다.
 
 ### <a name="resolution"></a>해상도
 
 권장되는 해결 방법 중 하나는 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다.
 
-Hybrid Worker는 Azure 샌드박스의 [공평 분배](../automation-runbook-execution.md#fair-share)에 허용된 3시간 Runbook 제한 사항에 따라 제한되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 Hybrid Runbook Worker에서 실행된 Runbook은 다시 시작 동작을 지원하도록 개발되어야 합니다.
+하이브리드 작업자는 Azure 샌드박스에 있는 [공평](../automation-runbook-execution.md#fair-share) 하 게 공유 3 시간 runbook 제한에 의해 제한 되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 다시 시작 동작을 지원 하도록 Hybrid Runbook Worker에서 실행 되는 runbook을 개발 해야 합니다.
 
 또 다른 옵션은 [자식 Runbook](../automation-child-runbooks.md)을 만들어 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 여러 리소스에서 동일한 함수를 반복하는 경우 해당 함수를 자식 Runbook으로 이동할 수 있습니다. 이러한 자식 Runbook은 각각 개별 프로세스에서 병렬로 실행됩니다. 이 동작은 부모 Runbook이 완료되는 총 기간을 감소시킵니다.
 
@@ -511,7 +509,7 @@ Azure Automation Runbook에 대한 웹후크를 호출하려고 시도하면 다
 
 webhook가 비활성화된 경우Azure Portal을 통해 webhook를 다시 활성화할 수 있습니다. webhook가 만료되면 webhook를 삭제하고 다시 만들어야 합니다. 아직 만료되지 않은 경우에만 [웹후크를 갱신](../automation-webhooks.md#renew-webhook)할 수 있습니다.
 
-## <a name="429"></a>시나리오: 429: 요청 비율이 현재 너무 깁니다. 다시 해 보세요.
+## <a name="429"></a>시나리오: 429: 요청 비율이 현재 너무 큼 ...
 
 ### <a name="issue"></a>문제
 
@@ -565,45 +563,45 @@ Azure Automation 대신 hybrid worker를 사용 하 여 작업을 실행 하는 
 
 ## <a name="runbook-fails-with-no-permission-or-some-variation"></a>"권한 없음" 또는 약간의 변형으로 인해 Runbook이 실패
 
-실행 계정에 현재 계정과 동일한 Azure 리소스 권한이 없는 것일 수 있습니다. 실행 계정에 스크립트에 사용된 [리소스에 대한 액세스 권한](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)이 있는지 확인합니다.
+실행 계정에는 현재 계정으로 Azure 리소스에 대 한 사용 권한이 없을 수 있습니다. 실행 계정에 스크립트에서 사용 되는 [리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
 
 ## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
 
-* Runbook이 이전에 실행 되었지만 중지 된 경우 실행 [계정이 만료 되지 않았는지 확인](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)합니다.
-* webhook를 사용하여 Runbook을 시작하는 경우 [webhook가 만료되지 않았는지 확인](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook)합니다.
+* Runbook이 이전에 실행 되었지만 중지 된 경우 [실행 계정이](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) 만료 되지 않았는지 확인 합니다.
+* 웹 후크를 사용 하 여 runbook을 시작 하는 경우 [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) 가 만료 되지 않았는지 확인 합니다.
 
 ## <a name="issues-passing-parameters-into-webhooks"></a>웹 후크에 매개 변수를 전달 하는 문제
 
-웹 후크에 매개 변수를 전달 하는 방법에 대 한 도움말 [은 webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
 
 ## <a name="issues-using-az-modules"></a>Az modules 사용 문제
 
-Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az 모듈](https://docs.microsoft.com/azure/automation/az-modules) 을 참조 하세요.
+Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az modules](https://docs.microsoft.com/azure/automation/az-modules) 항목을 참조 하세요.
 
 ## <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
 
-[Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior)의 지침을 따르면 동시 작업, 여러 번 생성되는 리소스, 그 외에 시간에 민감한 Runbook의 논리와 관련된 이슈를 방지할 수 있습니다.
+[Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) 의 지침에 따라 동시 작업, 여러 번 생성 된 리소스 또는 runbook의 다른 타이밍 관련 논리와 관련 된 문제를 방지 합니다.
 
-## <a name="runbook-fails-with-the-errors-no-permission-forbidden-403-or-some-variation"></a>Runbook이 실패 (권한 없음, 사용 권한 없음, 403 또는 일부 변형) 오류가 발생 하 여 실패 합니다.
+## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook이 권한 없음, 사용 권한 없음 (403) 또는 일부 변형 오류로 인해 실패 함
 
-실행 계정에 현재 계정과 동일한 Azure 리소스 권한이 없는 것일 수 있습니다. RunAs 계정에 스크립트에 사용 [된 리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
+실행 계정에는 현재 계정으로 Azure 리소스에 대 한 사용 권한이 없을 수 있습니다. 실행 계정에 스크립트에서 사용 되는 [리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
 
 ## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
 
-* Runbook이 이전에 실행 되었지만 중지 된 경우 실행 계정이 [만료 되지](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)않았는지 확인 합니다.
+* Runbook이 이전에 실행 되었지만 중지 된 경우 실행 계정이 만료 되지 않았는지 확인 합니다. [인증 갱신](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)을 참조 하세요.
 * 웹 후크를 사용 하 여 runbook을 시작 하는 경우 webhook [가 만료 되지](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook)않았는지 확인 합니다.
 
 ## <a name="passing-parameters-into-webhooks"></a>webhook에 매개 변수 전달
 
-웹 후크에 매개 변수를 전달 하는 방법에 대 한 도움말 [은 webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
+웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
 
 ## <a name="using-az-modules"></a>Az 모듈 사용
 
-Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az 모듈](https://docs.microsoft.com/azure/automation/az-modules) 을 참조 하세요.
+Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. [Runbook의 Az modules을](https://docs.microsoft.com/azure/automation/az-modules)참조 하십시오.
 
-## <a name="using-self-signed-certificates"></a>자체 서명된 인증서 사용
+## <a name="using-self-signed-certificates"></a>자체 서명 된 인증서 사용
 
-자체 서명 된 인증서를 사용 하려면 [새 인증서 만들기](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate)의 지침을 따라야 합니다.
+자체 서명 된 인증서를 사용 하려면 [새 인증서 만들기](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate)를 참조 하세요.
 
 ## <a name="recommended-documents"></a>권장되는 문서
 

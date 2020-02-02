@@ -3,7 +3,7 @@ title: Azure에서 부하 분산 서비스 사용 | Microsoft Docs
 description: 이 자습서에서는 Azure 부하 분산 포트폴리오인 Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 시나리오를 만드는 방법을 보여줍니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/27/2016
-ms.author: allensu
-ms.openlocfilehash: 4a7f8fd45b1e496ba3f0208d523ac569a24e9e7c
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: b77248813463f51d4bd2c5186e421aec43ffaf52
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227780"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939217"
 ---
 # <a name="using-load-balancing-services-in-azure"></a>Azure에서 부하 분산 서비스 사용
 
@@ -140,7 +140,7 @@ Traffic Manager, Application Gateway 및 Load Balancer를 사용하여 이 웹 �
 
    ![Traffic Manager 엔드포인트 "추가" 단추](./media/traffic-manager-load-balancing-azure/s3-tm-add-endpoint.png)
 
-3. 다음 정보를 입력하여 엔드포인트를 만드세요.
+3. 다음 정보를 입력하여 엔드포인트을 만드세요.
 
    * **유형**: 부하 분산 엔드포인트의 유형을 선택합니다. 이 시나리오에서는 이전에 구성된 Application Gateway 인스턴스에 연결 중이기 때문에 **Azure 엔드포인트**를 선택합니다.
    * **이름**: 엔드포인트의 이름을 입력합니다.

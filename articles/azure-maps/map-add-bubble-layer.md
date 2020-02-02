@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 0088cced84da08828d02d3a0f83846babf286b71
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 462d820824ad6c53ad4b93ad5c88c66128619467
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911280"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933660"
 ---
 # <a name="add-a-bubble-layer-to-a-map"></a>맵에 거품형 계층 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "75911280"
 
 ## <a name="add-a-bubble-layer"></a>거품형 계층 추가
 
-다음 코드는 데이터 소스에 점의 배열을 로드 하 고이를 [거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)에 연결 합니다. 거품형 계층에는 각 거품의 반지름을 5 픽셀, 흰색 채우기 색, 파란색 스트로크 색 및 6 픽셀의 스트로크 너비로 렌더링 하는 옵션이 제공 됩니다. 
+다음 코드는 데이터 소스에 점의 배열을 로드 합니다. 그런 다음 데이터 요소가 [거품형 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.bubblelayer?view=azure-iot-typescript-latest)에 연결 됩니다. 거품형 계층은 각 거품의 반지름을 5 픽셀, 흰색 채우기 색, 파란색 스트로크 색 및 스트로크 너비 6 픽셀으로 렌더링 합니다. 
 
 ```javascript
 //Add point locations.

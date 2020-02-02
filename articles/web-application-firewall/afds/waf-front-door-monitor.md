@@ -7,12 +7,12 @@ ms.topic: article
 services: web-application-firewall
 ms.date: 08/21/2019
 ms.author: victorh
-ms.openlocfilehash: 0c705139c082f13f40362e598f0fda9ba0a128a5
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3446df6effd85a07beb463c1caa40c5826a9e019
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512484"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934703"
 ---
 # <a name="azure-web-application-firewall-monitoring-and-logging"></a>Azure 웹 응용 프로그램 방화벽 모니터링 및 로깅 
 
@@ -43,16 +43,66 @@ AzureDiagnostics
 
 ```
 
+WAF 로그에서 기록 된 요청의 예는 다음과 같습니다.
+
+``` WAFlogQuerySample
+{
+    "PreciseTimeStamp": "2020-01-25T00:11:19.3866091Z",
+    "time": "2020-01-25T00:11:19.3866091Z",
+    "category": "FrontdoorWebApplicationFirewallLog",
+    "operationName": "Microsoft.Network/FrontDoor/WebApplicationFirewallLog/Write",
+    "properties": {
+        "clientIP": "xx.xx.xxx.xxx",
+        "socketIP": "xx.xx.xxx.xxx",
+        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/?q=../../x",
+        "ruleName": "Microsoft_DefaultRuleSet-1.1-LFI-930100",
+        "policy": "WafDemoCustomPolicy",
+        "action": "Block",
+        "host": "wafdemofrontdoorwebapp.azurefd.net",
+        "refString": "0p4crXgAAAABgMq5aIpu0T6AUfCYOroltV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+        "policyMode": "prevention"
+    }
+}
+
+``` 
+
 다음 예제 쿼리는 AccessLogs 항목을 가져옵니다.
 
 ``` AccessLogQuery
 AzureDiagnostics
 | where ResourceType == "FRONTDOORS" and Category == "FrontdoorAccessLog"
 
+```
+
+액세스 로그에서 기록 된 요청의 예는 다음과 같습니다.
+
+``` AccessLogSample
+{
+    "PreciseTimeStamp": "2020-01-25T00:11:12.0160150Z",
+    "time": "2020-01-25T00:11:12.0160150Z",
+    "category": "FrontdoorAccessLog",
+    "operationName": "Microsoft.Network/FrontDoor/AccessLog/Write",
+    "properties": {
+        "trackingReference": "0n4crXgAAAACnRKbdALbyToAqNfSHssDvV1NURURHRTA2MTMANjMxNTAwZDAtOTRiNS00YzIwLTljY2YtNjFhNzMyOWQyYTgy",
+        "httpMethod": "GET",
+        "httpVersion": "2.0",
+        "requestUri": "https://wafdemofrontdoorwebapp.azurefd.net:443/",
+        "requestBytes": "710",
+        "responseBytes": "3116",
+        "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/81.0.4017.0 Safari/537.36 Edg/81.0.389.2",
+        "clientIp": "xx.xx.xxx.xxx",
+        "timeTaken": "0.598",
+        "securityProtocol": "TLS 1.2",
+        "routingRuleName": "WAFdemoWebAppRouting",
+        "backendHostname": "wafdemouksouth.azurewebsites.net:443",
+        "sentToOriginShield": false,
+        "httpStatusCode": "200",
+        "httpStatusDetails": "200"
+    }
+}
 
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
 - [전면 도어](../../frontdoor/front-door-overview.md)에 대해 자세히 알아보세요.
-

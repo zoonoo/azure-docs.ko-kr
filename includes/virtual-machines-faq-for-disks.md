@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 05/13/2019
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 161d9d18c914f65b3ab3ef7e44f8cd2f4a1992db
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 39bcaac2ca94eedebd991a1c4e93f324ef651888
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887691"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961557"
 ---
 이 문서에서는 Azure Managed Disks 및 Azure 프리미엄 SD 디스크에 대해 몇몇 자주 묻는 질문과 대답을 설명합니다.
 
@@ -429,7 +429,7 @@ P4(32GiB) 및 P6(64GiB) 디스크 크기는 관리되지 않는 디스크 및 �
 
 **Azure Backup 및 Azure Site Recovery 서비스에서 지원 되는 가장 큰 디스크 크기는 무엇 인가요?**
 
-Azure Backup 및 Azure Site Recovery 서비스에서 지원하는 최대 디스크 크기는 4TiB입니다. 최대 32 TiB의 더 큰 디스크에 대 한 지원은 아직 제공 되지 않습니다.
+Azure Backup에서 지 원하는 최대 디스크 크기는 32 TiB (암호화 된 디스크의 경우 4 TiB)입니다. Azure Site Recovery에서 지 원하는 최대 디스크 크기는 8 TiB입니다. 최대 32 TiB의 더 큰 디스크에 대 한 지원은 아직 Azure Site Recovery에서 사용할 수 없습니다.
 
 **디스크 크기 (> 4 TiB)에 대해 권장 되는 VM 크기는 디스크 IOPS 및 대역폭 최적화를 위해 표준 SSD 및 표준 HDD 디스크에 대해 권장 되는 VM 크기는 무엇 인가요?**
 

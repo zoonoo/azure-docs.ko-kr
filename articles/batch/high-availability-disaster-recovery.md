@@ -1,6 +1,6 @@
 ---
-title: 고가용성 및 재해 복구 - Azure Batch | Microsoft Docs
-description: 지역별 서비스 중단 시에 사용하도록 Batch 애플리케이션을 설계하는 방법을 알아봅니다.
+title: 고가용성 및 재해 복구-Azure Batch
+description: 지역 가동 중단에 대 한 Batch 응용 프로그램을 디자인 하는 방법을 알아봅니다. 워크 로드는 다른 지역으로 장애 조치 (failover) 하거나 둘 이상의 지역 간에 분할 되어야 합니다.
 services: batch
 documentationcenter: ''
 author: ju-shim
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 01/29/2019
 ms.author: jushiman
-ms.openlocfilehash: f30d2d8e7d08277a5782c3fc39c10fcdff9463f2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 11546a6a664e6fb185a32d8e6cd593a850803fe8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029543"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930119"
 ---
 # <a name="design-your-application-for-high-availability"></a>고가용성을 위해 애플리케이션 디자인
 

@@ -3,17 +3,17 @@ title: 도메인 영역 파일 가져오기 및 내보내기-Azure CLI
 titleSuffix: Azure DNS
 description: Azure CLI를 사용하여 Azure DNS에 DNS 영역 파일을 가져오고 내보내는 방법을 알아봅니다
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.date: 4/3/2019
-ms.author: allensu
+ms.author: rohink
 ms.topic: conceptual
-ms.openlocfilehash: 036486ed15c9d6502b5e1655bdab4643128bca4b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 9475870185e4aee1b6f2ffbe175435cd4f6d8bed
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74082909"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936968"
 ---
 # <a name="import-and-export-a-dns-zone-file-using-the-azure-cli"></a>Azure CLI를 사용하여 DNS 영역 파일 가져오기 및 내보내기
 
@@ -55,7 +55,7 @@ Azure DNS에 DNS 영역 파일을 가져오기 전에 영역 파일의 복사본
 * `$ORIGIN` 지시어는 선택적이며 지원됩니다. `$ORIGIN` 을(를) 설정하지 않는 경우 사용된 기본 값은 명령줄에 지정된 영역 이름입니다(그리고 종료하는 ".").
 * `$INCLUDE` 및 `$GENERATE` 지시어는 지원되지 않습니다.
 * 이러한 레코드 유형은 지원 됩니다 (A, AAAA, CAA, CNAME, MX, NS, SOA, SRV 및 TXT).
-* SOA 레코드는 영역이 만들어질 때 Azure DNS에서 자동으로 생성됩니다. 영역 파일을 가져오는 경우 *매개 변수를*제외한`host` 모든 SOA 매개 변수는 영역 파일에서 가져옵니다. 이 매개 변수는 Azure DNS에서 제공 되는 값을 사용합니다. 이 매개 변수가 Azure DNS에서 제공하는 기본 이름 서버를 참조해야 하기 때문입니다.
+* SOA 레코드는 영역이 만들어질 때 Azure DNS에서 자동으로 생성됩니다. 영역 파일을 가져오는 경우 `host` 매개 변수를 *제외한* 모든 SOA 매개 변수는 영역 파일에서 가져옵니다. 이 매개 변수는 Azure DNS에서 제공 되는 값을 사용합니다. 이 매개 변수가 Azure DNS에서 제공하는 기본 이름 서버를 참조해야 하기 때문입니다.
 * 또한 영역을 만들 때 역영 광선의 이름 서버 레코드 집합은 Azure DNS에서 자동으로 만들어집니다. 이 레코드 집합의 TTL만을 가져옵니다. 이러한 레코드는 Azure DNS에서 제공하는 이름 서버 이름을 포함합니다. 레코드 데이터를 가져온 영역 파일에 포함된 값으로 덮어쓰지 않습니다.
 * 공개 미리 보기 중에 Azure DNS는 단일 문자 TXT 레코드만 지원합니다. 다중 문자열 TXT 레코드는 연결되어 255자로 제한됩니다.
 

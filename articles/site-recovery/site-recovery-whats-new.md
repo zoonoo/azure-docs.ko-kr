@@ -2,13 +2,13 @@
 title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 01/07/2020
-ms.openlocfilehash: ecd42c624cf1fe62c8041a0b8798585c8870cabc
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/31/2020
+ms.openlocfilehash: d6aa04586c9c087a736c7e1b10b8c21328a63cab
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896040"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934931"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -36,6 +36,18 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 ## <a name="updates-january-2020"></a>업데이트 (1 월 2020)
 
+### <a name="update-rollup-44"></a>업데이트 롤업 44
+[업데이트 롤업 44](https://support.microsoft.com/help/4538187/update-rollup-44-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**문제 해결/향상** | Site Recovery 에이전트와 공급자에 대 한 여러 업데이트 (rollup에 자세히 설명 되어 있습니다)
+
+### <a name="azure-vmware-disaster-recovery"></a>Azure VMware 재해 복구
+
+Azure virtual machines는 이제 고객이 관리 하는 키를 사용 하 여 미사용 암호화를 사용 하도록 설정 하는 Vm을 지원 합니다. [자세히 알아보기](azure-to-azure-how-to-enable-replication-cmk-disks.md).
+
+
 ### <a name="update-rollup-43"></a>업데이트 롤업 43
 
 [업데이트 롤업 43](https://support.microsoft.com/help/4537047/update-rollup-43-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
@@ -58,7 +70,7 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 **문제 해결/향상** | 다양 한 수정 및 개선 사항 (롤업에 자세히 설명)
 
 
-## <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
+### <a name="azure-vm-disaster-recovery"></a>Azure VM 재해 복구
 
 Azure VM 재해 복구에 대 한 새로운 기능이 표에 요약 되어 있습니다.
 

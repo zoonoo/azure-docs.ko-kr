@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 01/31/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 008f0b1b83e8ba856fae2fe40b026dcc645e46ab
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 20b99cfffdaa0d942ccd4d954909810342cbfcb8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845324"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935336"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -240,8 +240,10 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 | 몽 다오어      | `mww`          |
 | 헝가리어      | `hu`          |
 | 인도네시아어      | `id`          |
+| 아일랜드어      | `ga`          |
 | 이탈리아어      | `it`          |
 | 일본어      | `ja`          |
+| 칸나다어      | `kn`          |
 | 스와힐리어      | `sw`          |
 | 클링곤어      | `tlh`          |
 | 클링곤어(plqaD)      | `tlh-Qaak`          |
@@ -250,11 +252,14 @@ Microsoft Speech SDK 및 REST Api는 모두 로캘에 의해 식별 되는 특�
 | 리투아니아어      | `lt`          |
 | 마다가스카르어      | `mg`          |
 | 말레이어      | `ms`          |
+| 말라얄람어      | `ml`          |
 | 몰타어      | `mt`          |
 | 노르웨이어      | `nb`          |
 | 페르시아어      | `fa`          |
 | 폴란드어      | `pl`          |
-| 포르투갈어      | `pt`          |
+| 포르투갈어 (브라질)      | `pt-br`          |
+| 포르투갈어(포르투갈)      | `pt-pt`          |
+| 펀잡어      | `pa`          |
 | 케레타로 오토미어      | `otq`          |
 | 루마니아어      | `ro`          |
 | 러시아어      | `ru`          |

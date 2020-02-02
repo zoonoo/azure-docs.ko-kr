@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab, vanto
 ms.date: 01/21/2020
-ms.openlocfilehash: fb9b665f5631e6992966679b1dc0864539fde543
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: d28eb6c4ee4fadf8a090a17121f6910eb34135e3
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514558"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935200"
 ---
 # <a name="what-is-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스는 무엇입니까?
 
@@ -188,7 +188,7 @@ Azure SQL Database에서는 관리되는 새로운 인스턴스를 자동으로 
 
 다음 표에는 특정 관리 작업을 취소 하는 기능과 일반적인 전체 기간이 요약 되어 있습니다.
 
-범주  |작업  |취소 가능  |예상 취소 기간  |
+범주  |작업  |취소  |예상 취소 기간  |
 |---------|---------|---------|---------|
 |배포 |인스턴스 만들기 |아닙니다. |  |
 |업데이트 |인스턴스 저장소 확장/축소 (범용) |아닙니다. |  |
@@ -303,7 +303,7 @@ Managed Instance 배포 옵션은 SQL 2008 데이터베이스와 호환됩니다
 
 ### <a name="key-differences-between-sql-server-on-premises-and-in-a-managed-instance"></a>SQL Server 온-프레미스와 Managed Instance의 주요 차이점
 
-Managed Instance 배포 옵션은 클라우드에서 항상 최신 상태로 유지되는 이점이 있습니다. 즉, 온-프레미스 SQL Server의 일부 기능이 사용되지 않거나 사용 중지되거나 대체될 수 있습니다. 특정 기능이 약간 다른 방식으로 작동하거나 사용자에게 전체 제어 권한이 없는 환경에서 서비스가 실행되면 이 사실을 도구에서 인식해야 하는 경우가 있습니다.
+Managed Instance 배포 옵션은 클라우드에서 항상 최신 상태로 유지되는 이점이 있습니다. 즉, 온-프레미스 SQL Server의 일부 기능이 사용되지 않거나 사용 중지되거나 대체될 수 있습니다. 특정 기능이 약간 다른 방식으로 작동 하거나 완전히 제어 하지 않는 환경에서 서비스가 실행 되는 것을 도구에서 인식 해야 하는 경우가 있습니다.
 
 - [Always On 가용성 그룹](https://docs.microsoft.com/sql/database-engine/availability-groups/windows/always-on-availability-groups-sql-server)과 유사한 기술을 사용하여 고가용성이 기본 제공되고 미리 구성됩니다.
 - 자동 백업 및 특정 시점 복원. 고객은 자동 백업 체인을 방해하지 않는 `copy-only` 백업을 시작할 수 있습니다.

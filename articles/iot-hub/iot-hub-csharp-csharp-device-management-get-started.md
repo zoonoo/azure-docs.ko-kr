@@ -9,12 +9,12 @@ ms.devlang: csharp
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: robinsh
-ms.openlocfilehash: 0ab714efc3e9eb0de9d6753854031110e09fe06b
-ms.sourcegitcommit: aaa82f3797d548c324f375b5aad5d54cb03c7288
+ms.openlocfilehash: 79e65671613364f5cc05153d90cfdcd5959a279f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/29/2019
-ms.locfileid: "70147844"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939318"
 ---
 # <a name="get-started-with-device-management-net"></a>장치 관리 시작 (.NET)
 
@@ -34,7 +34,7 @@ ms.locfileid: "70147844"
 
 * **Triggerreboot**. 이 앱은 시뮬레이션 된 장치 앱에서 직접 메서드를 호출 하 고, 응답을 표시 하 고, 업데이트 된 보고 속성을 표시 합니다.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 * Visual Studio.
 
@@ -58,7 +58,7 @@ ms.locfileid: "70147844"
 
 이 섹션에서는 직접 메서드를 사용 하 여 장치에서 원격 C#재부팅을 시작 하는를 사용 하 여 .net 콘솔 앱을 만듭니다. 앱은 디바이스 쌍 쿼리를 사용하여 해당 디바이스에 대한 마지막 다시 시작 시간을 검색합니다.
 
-1. Visual Studio에서 **새 프로젝트 만들기**를 선택 합니다.
+1. Visual Studio에서 **새 프로젝트 만들기**를 선택합니다.
 
 1. **새 프로젝트 만들기**에서 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 찾아 선택 하 고 **다음**을 선택 합니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "70147844"
    using Microsoft.Azure.Devices.Shared;
    ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 `{iot hub connection string}` 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. `{iot hub connection string}` 자리 표시자 값을 이전에 [IoT Hub 연결 문자열 가져오기](#get-the-iot-hub-connection-string)에서 복사한 IoT Hub 연결 문자열로 바꿉니다.
 
    ```csharp
    static RegistryManager registryManager;
@@ -126,7 +126,7 @@ ms.locfileid: "70147844"
    Console.ReadLine();
    ```
 
-1. 빌드**솔루션** **빌드** > 를 선택 합니다.
+1. **빌드** > **솔루션 빌드**를 선택합니다.
 
 > [!NOTE]
 > 이 자습서에서는 디바이스의 보고된 속성에 대한 쿼리를 한 번만 수행합니다. 프로덕션 코드에서는 보고된 속성의 변경 사항을 감지하도록 폴링하는 것이 좋습니다.
@@ -143,7 +143,7 @@ ms.locfileid: "70147844"
 
 시뮬레이션 된 장치 앱을 만들려면 다음 단계를 수행 합니다.
 
-1. Visual Studio의 이미 만든 triggerreboot 솔루션에서 **파일** > **새로 만들기** > **프로젝트**를 선택 합니다. **새 프로젝트 만들기**에서 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 찾아 선택 하 고 **다음**을 선택 합니다.
+1. Visual Studio의 이미 만든 TriggerReboot 솔루션에서 **파일** > **새** > **프로젝트**를 선택 합니다. **새 프로젝트 만들기**에서 **콘솔 앱 (.NET Framework)** 프로젝트 템플릿을 찾아 선택 하 고 **다음**을 선택 합니다.
 
 1. **새 프로젝트 구성**에서 프로젝트 이름을 *SimulateManagedDevice*로, **솔루션**에 대해 **솔루션에 추가**를 선택 합니다. **만들기**를 선택합니다.
 
@@ -164,7 +164,7 @@ ms.locfileid: "70147844"
     using Microsoft.Azure.Devices.Shared;
     ```
 
-1. **Program** 클래스에 다음 필드를 추가합니다. 자리 표시자 `{device connection string}` 값을 [IoT hub에서 새 장치를 등록](#register-a-new-device-in-the-iot-hub)하기 전에 기록한 장치 연결 문자열로 바꿉니다.
+1. **Program** 클래스에 다음 필드를 추가합니다. `{device connection string}` 자리 표시자 값을 [IoT hub에서 새 장치를 등록](#register-a-new-device-in-the-iot-hub)하기 전에 기록한 장치 연결 문자열로 바꿉니다.
 
     ```csharp
     static string DeviceConnectionString = "{device connection string}";
@@ -200,7 +200,7 @@ ms.locfileid: "70147844"
            Console.WriteLine("Error in sample: {0}", ex.Message);
        }
 
-       string result = "'Reboot started.'";
+       string result = @"{""result"":""Reboot started.""}";
        return Task.FromResult(new MethodResponse(Encoding.UTF8.GetBytes(result), 200));
    }
    ```
@@ -234,9 +234,9 @@ ms.locfileid: "70147844"
 
 1. 솔루션 탐색기에서 솔루션을 마우스 오른쪽 단추로 클릭 하 고 **시작 프로젝트 설정**을 선택 합니다.
 
-1. **공용 속성** > **시작 프로젝트**에서 **단일 시작 프로젝트**를 선택한 다음 **SimulateManagedDevice** 프로젝트를 선택 합니다. **확인**을 선택하여 변경 내용을 저장합니다.
+1. **일반 속성** > **시작 프로젝트**에서 **단일 시작 프로젝트**를 선택한 다음 **SimulateManagedDevice** 프로젝트를 선택 합니다. **확인** 을 선택하여 변경 내용을 저장합니다.
 
-1. 빌드**솔루션** **빌드** > 를 선택 합니다.
+1. **빌드** > **솔루션 빌드**를 선택합니다.
 
 > [!NOTE]
 > 간단히 하기 위해 이 자습서에서는 재시도 정책을 구현하지 않습니다. 프로덕션 코드에서는 [일시적인 오류 처리](/azure/architecture/best-practices/transient-faults)에 제안 된 대로 재시도 정책 (예: 지 수 백오프)을 구현 해야 합니다.

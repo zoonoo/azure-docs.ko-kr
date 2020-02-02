@@ -3,22 +3,22 @@ title: Azure Traffic Manager 성능 고려 사항 | Microsoft Docs
 description: Traffic Manager의 성능 및 Traffic Manager 사용 시 웹 사이트의 성능을 테스트 하는 방법에 대한 이
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/16/2017
-ms.author: allensu
-ms.openlocfilehash: 315165677bd3186bb3bdc87ed688c426776569fc
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: 84367a00643c48e7fe2fb7f907bab64589193b2e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071046"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938534"
 ---
-# <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사항
+# <a name="performance-considerations-for-traffic-manager"></a>Traffic Manager 성능 고려 사
 
 이 페이지에서는 Traffic Manager를 사용할 때의 성능 고려 사항에 대해 설명합니다. 다음과 같은 시나리오를 고려해 보세요.
 
@@ -28,7 +28,7 @@ WestUS 및 EastAsia 지역에 웹 사이트 인스턴스가 있습니다. 인스
 
 Traffic Manager가 웹 사이트에 미칠 수 있는 유일한 성능 영향은 초기 DNS 조회입니다. Traffic Manager 프로필의 이름에 대한 DNS 요청은 trafficmanager.net 영역을 호스팅하는 Microsoft DNS 루트 서버에서 처리됩니다. Traffic Manager는 Traffic Manager 정책 및 검색 결과에 기반하여 Microsoft DNS 루트 서버에 정보를 표시하고 정기적으로 업데이트합니다. 따라서 초기 DNS 조회 중에도 DNS 쿼리가 Traffic Manager에 전송되지 않습니다.
 
-Traffic Manager는 여러 구성 요소 구성 됩니다. DNS 서버, API 서비스, 저장소 계층 및 서비스를 모니터링 하는 끝점 이름을 지정 합니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 엔드포인트 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
+Traffic Manager는 DNS 이름 서버, API 서비스, 스토리지 계층 및 서비스를 모니터링 하는 엔드포인트 등 여러 구성 요소로 이루어져 있습니다. Traffic Manager 서비스 구성 요소가 실패해도 Traffic Manager 프로필과 연결된 DNS 이름에 아무런 영향이 없습니다. Microsoft DNS 서버에 있는 레코드는 변경되지 않고 유지됩니다. 그러나 엔드포인트 모니터링 및 DNS 업데이트는 일어나지 않습니다. 따라서, Traffic Manager는 기본 사이트가 작동을 중단하는 경우 DNS가 장애 조치 사이트를 가리키도록 업데이트하지 못합니다.
 
 DNS 이름 확인은 신속하고 결과는 캐시됩니다. 초기 DNS 조회 속도는 클라이언트가 이름 확인을 위해 사용하는 DNS 서버에 따라 다릅니다. 일반적으로 클라이언트는 50ms 이내에 DNS 조회를 완료할 수 있습니다. 조회 결과는 DNS TTL(Time-to-Live)기간 동안 캐시됩니다. Traffic Manager에 대한 기본 TTL은 300 초입니다.
 
@@ -58,7 +58,7 @@ Traffic Manager 프로필의 성능 및 동작을 이해하는 데 사용할 수
 
 * [CA 앱 가상 모니터](https://asm.ca.com/en/checkit.php)
 
-    조사식 마우스 Check Website 도구로 알려진 이전,이 사이트 볼 DNS 확인 시간 여러 지리적 지역에서 동시에 있습니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
+    이전에는 조사식-마우스 확인 웹 사이트 도구 라고 하는이 사이트에서는 여러 지리적 지역에서 동시에 DNS 확인 시간을 보여 줍니다. DNS 확인 시간, 연결 시간 및 여러 지리적 위치에서의 속도를 보려면 URL을 입력하십시오. 이 테스트를 사용하면 어떤 호스티드 서비스가 전 세계의 서로 다른 위치에 대해 반환되는지 볼 수 있습니다.
 
     ![pulse1](./media/traffic-manager-performance-considerations/traffic-manager-web-site-watchmouse.png)
 

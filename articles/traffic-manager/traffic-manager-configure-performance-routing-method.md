@@ -4,20 +4,20 @@ description: 이 문서에서는 가장 낮은 대기 시간으로 트래픽을 
 services: traffic-manager
 manager: twooley
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: 5e9b02a4145d86b86ea3ba0d509d06b7c148cc6d
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: f5e9b7690c28793a35c692a6125a6b11c7a140a4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67048468"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938767"
 ---
 # <a name="configure-the-performance-traffic-routing-method"></a>성능 트래픽 라우팅 방법 구성
 

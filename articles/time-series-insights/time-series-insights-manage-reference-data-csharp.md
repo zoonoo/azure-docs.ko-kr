@@ -9,20 +9,30 @@ manager: cshankar
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 01/27/2020
+ms.date: 01/31/2020
 ms.custom: seodec18
-ms.openlocfilehash: 2bdd11c3b53b650e636d53942fcb94142de556b2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 079cfcee543cf1ce36c4a1394479a622b3658789
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772835"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935113"
 ---
 # <a name="manage-ga-reference-data-for-an-azure-time-series-insights-environment-using-c"></a>을 사용 하 여 Azure Time Series Insights 환경의 GA 참조 데이터 관리C#
 
 이 문서에서는 Azure Time Series Insights GA C# [참조 데이터 관리 api](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 프로그래밍 방식 api 요청을 결합, [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet)및 Azure Active Directory 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="summary"></a>요약
+
+아래 샘플 코드에서는 다음과 같은 기능을 보여 줍니다.
+
+* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **publicclientapplication**을 사용 하 여 액세스 토큰을 획득 합니다.
+* GA [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
+* 일반적인 [오류 코드](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)를 비롯 한 일반적인 응답 코드입니다.
+    
+    참조 데이터 관리 API는 각 항목을 개별적으로 처리 하 고 하나의 항목을 포함 하는 오류는 다른 항목을 성공적으로 완료 하는 것을 방지 하지 않습니다. 예를 들어 요청에 100 항목이 있고 한 항목에 오류가 있는 경우 99 항목이 기록 되 고 하나는 거부 됩니다.
+
+## <a name="prerequisites-and-setup"></a>필수 구성 요소 및 설치
 
 샘플 코드를 컴파일 및 실행하기 전에 다음 단계를 완료합니다.
 
@@ -296,16 +306,6 @@ namespace CsharpTsiMsalGaSample
     }
 }
 ```
-
-## <a name="summary"></a>요약
-
-위의 샘플 코드는 다음과 같은 기능을 보여 줍니다.
-
-* [MSAL.NET](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet) **publicclientapplication**을 사용 하 여 액세스 토큰을 획득 합니다.
-* GA [참조 데이터 관리 API](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api)에 대 한 순차적 생성, 읽기, 업데이트 및 삭제 작업입니다.
-* 일반적인 [오류 코드](https://docs.microsoft.com/rest/api/time-series-insights/ga-reference-data-api#validation-and-error-handling)를 비롯 한 일반적인 응답 코드입니다.
-    
-    참조 데이터 관리 API는 각 항목을 개별적으로 처리 하 고 하나의 항목을 포함 하는 오류는 다른 항목을 성공적으로 완료 하는 것을 방지 하지 않습니다. 예를 들어 요청에 100 항목이 있고 한 항목에 오류가 있는 경우 99 항목이 기록 되 고 하나는 거부 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: c424b905f44d6fd3a80a08ef925df4d0a06dd7d8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705380"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936243"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -19,6 +19,8 @@ ms.locfileid: "76705380"
 - [AZURE VM (가상 머신) 백업](backup-support-matrix-iaas.md) 에 대 한 지원 매트릭스
 - [System Center Data Protection Manager (DPM)/Microsoft Azure Backup Server (MABS)](backup-support-matrix-mabs-dpm.md) 를 사용 하 여 백업을 위한 지원 매트릭스
 - [MARS (Microsoft Azure Recovery Services) 에이전트](backup-support-matrix-mars-agent.md) 를 사용 하 여 백업에 대 한 지원 매트릭스
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="vault-support"></a>자격 증명 모음 지원
 

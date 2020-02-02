@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: 5732df2551eafa74b81f9a918a1cb7cf5ac1395c
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8a53f1cfbde2f518848e7ef1104bf41ba4996961
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768034"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936400"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -78,7 +78,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
     "AddWordLevelTimestamps" : "True | False",
     "AddSentiment" : "True | False",
     "AddDiarization" : "True | False",
-    "TranscriptionResultsContainerUrl" : "<SAS to Azure container to store results into (write permission required)>"
+    "TranscriptionResultsContainerUrl" : "<service SAS URI to Azure container to store results into (write permission required)>"
   }
 }
 ```
@@ -94,7 +94,7 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 | `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
 | `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용되는 값인 `true`는 발언당 감정을 사용 설정하고 `false`(기본값)는 사용하지 않도록 설정합니다. |
 | `AddDiarization` | 두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하는 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.|
-|`TranscriptionResultsContainerUrl`|Azure의 쓰기 가능한 컨테이너에 대 한 SAS 토큰 (선택 사항)입니다. 결과는이 컨테이너에 저장 됩니다.
+|`TranscriptionResultsContainerUrl`|Azure의 쓰기 가능한 컨테이너에 [서비스 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다.
 
 ### <a name="storage"></a>Storage
 

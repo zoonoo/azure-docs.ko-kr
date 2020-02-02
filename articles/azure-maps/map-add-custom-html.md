@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 5a15b3b9e51772d8c7e5312968fecb180069e2a7
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4cc3b1789ef2f7ef44e5421cbacb5a93c2a0a1ff
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911240"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933616"
 ---
 # <a name="add-html-markers-to-the-map"></a>맵에 HTML 표식 추가
 
@@ -24,7 +24,7 @@ ms.locfileid: "75911240"
 > HTML 표식은 데이터 원본에 연결하지 않습니다. 대신 위치 정보가 표식에 직접 추가되고 표식이 [HtmlMarkerManager](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.htmlmarkermanager?view=azure-iot-typescript-latest)인 맵 `markers` 속성에 추가됩니다.
 
 > [!IMPORTANT]
-> WebGL을 사용하여 렌더링하는 Azure Maps 웹 컨트롤의 대부분 계층과는 달리, HTML 표식은 렌더링에 기존 DOM 요소를 사용합니다. 따라서 HTML 표식이 페이지를 더 추가할수록 DOM 요소가 더 많아집니다. HTML 표식을 매우 많이 추가하고 나면 성능이 저하될 수 있습니다. 더 큰 데이터 세트의 경우 데이터를 클러스터링하거나 기호 또는 거품형 계층을 사용하는 것이 좋습니다.
+> WebGL을 사용하여 렌더링하는 Azure Maps 웹 컨트롤의 대부분 계층과는 달리, HTML 표식은 렌더링에 기존 DOM 요소를 사용합니다. 따라서 더 많은 HTML 표식이 페이지에 추가 되 고 더 많은 DOM 요소가 있습니다. HTML 표식을 매우 많이 추가하고 나면 성능이 저하될 수 있습니다. 더 큰 데이터 세트의 경우 데이터를 클러스터링하거나 기호 또는 거품형 계층을 사용하는 것이 좋습니다.
 
 ## <a name="add-an-html-marker"></a>HTML 표식 추가
 
@@ -33,7 +33,7 @@ ms.locfileid: "75911240"
 다음 코드에서는 HTML 표식을 만들고 color 속성을 "DodgerBlue"로 설정 하 고 text 속성을 "10"으로 설정 합니다. 팝업은 표식에 연결 되 고 `click` 이벤트는 팝업의 표시 여부를 전환 하는 데 사용 됩니다.
 
 ```javascript
-//Create a HTML marker and add it to the map.
+//Create an HTML marker and add it to the map.
 var marker = new atlas.HtmlMarker({
     color: 'DodgerBlue',
     text: '10',

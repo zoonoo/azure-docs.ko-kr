@@ -3,7 +3,7 @@ title: Azure의 역방향 DNS 개요-Azure DNS
 description: 이 학습 경로에서 역방향 DNS가 작동 하는 방법 및 Azure에서 사용 하는 방법에 대 한 학습을 시작 합니다.
 services: dns
 documentationcenter: na
-author: asudbring
+author: rohinkoul
 manager: KumuD
 ms.service: dns
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/29/2017
-ms.author: allensu
-ms.openlocfilehash: 2788cc3957e9822e61c10f5f06a29802e225bcbf
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: bf3da62e989f0e029efdc8e9c70f5f45e0ddd765
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211025"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76932307"
 ---
 # <a name="overview-of-reverse-dns-and-support-in-azure"></a>Azure의 역방향 DNS 및 지원 개요
 

@@ -2,13 +2,13 @@
 title: 컨테이너 인스턴스에서 준비 프로브 설정
 description: Azure Container Instances 컨테이너가 준비 된 경우에만 요청을 수신 하도록 프로브를 구성 하는 방법에 대해 알아봅니다.
 ms.topic: article
-ms.date: 10/17/2019
-ms.openlocfilehash: 50cb341788434a6dc0bb0a1423d9e59a3d93634d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 01/30/2020
+ms.openlocfilehash: 64bb4a3e429ce820835abbf8e235600e592f7868
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901843"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935690"
 ---
 # <a name="configure-readiness-probes"></a>준비 상태 프로브 구성
 
@@ -23,7 +23,7 @@ Azure Container Instances은 비정상 컨테이너가 자동으로 다시 시�
 
 ## <a name="yaml-configuration"></a>YAML 구성
 
-예를 들어 준비 프로브를 포함 하는 다음 코드 조각을 사용 하 여 `readiness-probe.yaml` 파일을 만듭니다. 이 파일은 작은 웹 앱을 실행 하는 컨테이너로 구성 된 컨테이너 그룹을 정의 합니다. 앱이 공용 `mcr.microsoft.com/azuredocs/aci-helloworld` 이미지에서 배포 됩니다. 이 컨테이너 앱은 [Azure CLI를 사용 하 여 Azure에 컨테이너 인스턴스를 배포 하](container-instances-quickstart.md)는 것과 같은 빠른 시작 에서도 보여 줍니다.
+예를 들어 준비 프로브를 포함 하는 다음 코드 조각을 사용 하 여 `readiness-probe.yaml` 파일을 만듭니다. 이 파일은 작은 웹 앱을 실행 하는 컨테이너로 구성 된 컨테이너 그룹을 정의 합니다. 앱이 공용 `mcr.microsoft.com/azuredocs/aci-helloworld` 이미지에서 배포 됩니다. 이 컨테이너 화 된 앱은 Azure CLI 및 기타 빠른 시작을 [사용 하 여 Azure에 컨테이너 인스턴스 배포](container-instances-quickstart.md) 에도 설명 되어 있습니다.
 
 ```yaml
 apiVersion: 2018-10-01
@@ -63,7 +63,9 @@ type: Microsoft.ContainerInstance/containerGroups
 
 ### <a name="start-command"></a>시작 명령
 
-YAML 파일에는 컨테이너를 시작할 때 실행할 시작 명령이 포함 되어 있으며,이는 문자열 배열을 수락 하는 `command` 속성에 의해 정의 됩니다. 이 명령은 웹 앱이 실행 되는 시간을 시뮬레이션 하지만 컨테이너가 준비 되지 않습니다. 먼저 셸 세션을 시작 하 고 `node` 명령을 실행 하 여 웹 앱을 시작 합니다. 또한 240 초 동안 절전 모드를 중지 하는 명령을 시작 합니다. 그 후에는 `/tmp` 디렉터리 내 `ready` 라는 파일을 만듭니다.
+배포에는 컨테이너를 처음 실행 하기 시작할 때 실행 되는 시작 명령을 정의 하는 `command` 속성이 포함 되어 있습니다. 이 속성은 문자열 배열을 허용 합니다. 이 명령은 웹 앱이 실행 되는 시간을 시뮬레이션 하지만 컨테이너가 준비 되지 않습니다. 
+
+먼저 셸 세션을 시작 하 고 `node` 명령을 실행 하 여 웹 앱을 시작 합니다. 또한 240 초 동안 절전 모드를 중지 하는 명령을 시작 합니다. 그 후에는 `/tmp` 디렉터리 내 `ready` 라는 파일을 만듭니다.
 
 ```console
 node /usr/src/app/index.js & (sleep 240; touch /tmp/ready); wait

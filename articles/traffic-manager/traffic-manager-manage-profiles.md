@@ -1,9 +1,9 @@
 ---
 title: Microsoft Azure Traffic Manager 프로필 | Microsoft Docs
-description: 이 문서에서는 만들기, 사용 안 함, 사용 및 Azure Traffic Manager 프로필을 삭제 합니다.
+description: 이 문서에서는 Azure Traffic Manager 프로필을 만들고, 사용 하지 않도록 설정 하 고, 삭제 하는 방법을 설명 합니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 manager: twooley
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 05/10/2017
-ms.author: allensu
-ms.openlocfilehash: 8ec30a4d3f02505e764cd6f8dcec42c56d11ed27
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.author: rohink
+ms.openlocfilehash: adfe7d117d2329832a5b5e9e782a9029a682ff3b
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "67071108"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938603"
 ---
 # <a name="manage-an-azure-traffic-manager-profile"></a>Azure Traffic Manager 프로필 관리
 

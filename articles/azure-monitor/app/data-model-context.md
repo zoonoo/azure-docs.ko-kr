@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 05/15/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 0351f4fe65745242da58d3c3fb2f9fbe5c722d06
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 893e1c3a58f4a62a1e0e9b734cc156b3d75d8779
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677449"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76933059"
 ---
 # <a name="telemetry-context-application-insights-data-model"></a>원격 분석 컨텍스트: Application Insights 데이터 모델
 
@@ -96,7 +96,7 @@ ms.locfileid: "72677449"
 
 ## <a name="account-id"></a>계정 ID
 
-다중 테넌트 애플리케이션에서 이는 사용자가 작업하는 데 사용하는 계정 ID 또는 이름입니다. 예를 들어 Azure Portal의 구독 ID 또는 플랫폼을 블로깅하는 블로그 이름일 수 있습니다.
+다중 테넌트 애플리케이션에서 이는 사용자가 작업하는 데 사용하는 계정 ID 또는 이름입니다. 예는 블로그 플랫폼에 대 한 Azure Portal 또는 블로그 이름의 구독 ID 일 수 있습니다.
 
 최대 길이: 1024
 

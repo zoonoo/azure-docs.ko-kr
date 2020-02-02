@@ -2,17 +2,17 @@
 title: 전용 영역에 대 한 시나리오-Azure DNS
 description: 이 문서에서는 Azure DNS Private Zones 사용에 대 한 일반적인 시나리오에 대해 알아봅니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: article
 ms.date: 10/05/2019
-ms.author: allensu
-ms.openlocfilehash: 2eb7e9e4df5bdf0f8eb047cc8594bd862245770d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: ab850adb2e9a25778d5f44ba711eb0762fe562c8
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210469"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939332"
 ---
 # <a name="azure-dns-private-zones-scenarios"></a>Azure DNS 전용 영역 시나리오
 
@@ -54,5 +54,5 @@ Azure DNS에서 [프라이빗 DNS 영역을 만드는](./private-dns-getstarted-
 
 [DNS 영역 및 레코드 개요](dns-zones-records.md)를 참조하여 DNS 영역 및 레코드에 대해 알아봅니다.
 
-Azure의 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
+Azure의 몇 가지 다른 주요 [네트워킹 기능](../networking/networking-overview.md)을 알아봅니다.
 

@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 3cc03ba1670299f1ea43a1fde666c2917eaf6b9d
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 8cff61d547e75b186869b3ab4d57c5eb12e6e2f5
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770461"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76935456"
 ---
 # <a name="choose-the-right-mysql-server-option-in-azure"></a>Azure에서 적절 한 MySQL Server 옵션을 선택 합니다.
 
@@ -36,7 +36,7 @@ Azure를 사용 하면 호스트 된 가상 머신 IaaS (infrastructure as a ser
 | SLA(서비스 수준 약정)                | 99.99% 가용성의 SLA를 제공 합니다.| 동일한 가용성 집합에서 두 개 이상의 인스턴스를 사용 하 여 최대 99.95%의 가용성을 제공 합니다.<br/><br/>premium storage를 사용 하는 단일 인스턴스 VM의 99.9% 가용성.<br/><br/>99.99% 여러 가용성 집합에 여러 인스턴스가 있는 가용성 영역를 사용 합니다.<br/><br/>[VIRTUAL MACHINES SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_8/)를 참조 하세요. |
 | 운영 체제 패치        | 자동  | 고객이 관리 |
 | MySQL 패치     | 자동  | 고객이 관리 |
-| 고가용성 | HA (고가용성) 모델은 노드 수준의 중단이 발생 한 경우에 대 한 기본 제공 장애 조치 (failover) 메커니즘을 기반으로 합니다. 이 경우 서비스는 새 인스턴스를 자동으로 만들고이 인스턴스에 저장소를 연결 합니다. | 고객은 고가용성을 설계, 구현, 테스트 및 유지 관리 합니다. 기능에는 always on 장애 조치 (failover) 클러스터링, always on 그룹 복제, 로그 전달 또는 트랜잭션 복제가 포함 될 수 있습니다.|
+| 고가용성 | HA (고가용성) 모델은 노드 수준의 중단이 발생 한 경우에 대 한 기본 제공 장애 조치 (failover) 메커니즘을 기반으로 합니다. 이 경우 서비스는 새 인스턴스를 자동으로 만들고이 인스턴스에 저장소를 연결 합니다. | 고객은 고가용성을 설계, 구현, 테스트 및 유지 관리 합니다. 기능에는 클러스터링, 복제 등이 포함 될 수 있습니다.|
 | 영역 중복 | 현재 지원되지 않음 | Azure Vm은 서로 다른 가용성 영역에서 실행 되도록 설정할 수 있습니다. 온-프레미스 솔루션의 경우 고객은 자체 보조 데이터 센터를 만들고 관리 하 고 유지 관리 해야 합니다.|
 | 하이브리드 시나리오 | [입력 데이터 복제](https://docs.microsoft.com/azure/mysql/concepts-data-in-replication)를 사용 하 여 외부 MySQL 서버에서 Azure Database for MySQL 서비스로 데이터를 동기화 할 수 있습니다. 외부 서버는 온-프레미스 가상 머신 또는 다른 클라우드 공급 기업이 호스트하는 데이터베이스 서비스에 있을 수 있습니다.<br/><br/> [복제본 읽기](https://docs.microsoft.com/azure/mysql/concepts-read-replicas) 기능을 사용 하면 Azure Database for MySQL 마스터 서버에서 최대 5 개의 읽기 전용 복제 서버로 데이터를 복제할 수 있습니다. 복제본은 동일한 Azure 지역 내에 있거나 여러 지역에 있습니다. 읽기 전용 복제본은 binlog 복제 기술을 사용 하 여 비동기적으로 업데이트 됩니다.| 고객이 관리
 | 백업 및 복원 | 에서 자동으로 [서버 백업을](https://docs.microsoft.com/azure/mysql/concepts-backup#backups) 만들고 로컬 중복 또는 지역 중복 인 사용자 구성 저장소에 저장 합니다. 이 서비스는 전체, 차등 및 트랜잭션 로그 백업을 수행 합니다. | 고객이 관리 |
