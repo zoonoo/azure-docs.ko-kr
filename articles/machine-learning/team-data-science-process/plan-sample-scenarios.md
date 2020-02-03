@@ -118,7 +118,7 @@ ms.locfileid: "76710483"
    
     a.  SQL Server VM에 로그인 합니다.
    
-    b.  如果数据尚未保存，请从 Azure 存储容器将数据文件下载到本地 VM 文件夹。
+    b.  데이터가 아직 저장 되지 않은 경우 Azure storage 컨테이너에서 로컬 VM 폴더로 데이터 파일을 다운로드 합니다.
    
     다.  SQL Server Management Studio를 실행합니다.
    

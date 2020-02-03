@@ -19,7 +19,7 @@ ms.locfileid: "76718823"
 
 서비스에 볼륨을 탑재하려면 Service Fabric Mesh 애플리케이션에 볼륨 리소스를 만든 다음, 사용자 서비스에서 해당 볼륨을 참조합니다.  볼륨 리소스를 선언하고 서비스 리소스에서 참조하는 작업은 [YAML 기반 리소스 파일](#declare-a-volume-resource-and-update-the-service-resource-yaml) 또는 [JSON 기반 배포 템플릿](#declare-a-volume-resource-and-update-the-service-resource-json)에서 수행할 수 있습니다. 볼륨을 탑재하기 전에 먼저 Azure Storage 계정을 만들고 [Azure Files에 파일 공유](/azure/storage/files/storage-how-to-create-file-share)를 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 > [!NOTE]
 > **WINDOWS RS5 개발 컴퓨터에 대 한 배포의 알려진 문제:** Azurefile 볼륨의 탑재를 방지 하는 RS5 Windows 컴퓨터에 Powershell cmdlet SmbGlobalMapping에 대 한 오픈 버그가 있습니다. 다음은 AzureFile 기반 볼륨이 로컬 개발 컴퓨터에 탑재 될 때 발생 하는 샘플 오류입니다.
 ```
@@ -85,7 +85,7 @@ az storage account keys list --account-name <storageAccountName> --query "[?keyN
 
 애플리케이션 리소스의 피어로 볼륨 리소스를 만듭니다. 이름 및 공급 기업(Azure Files 기반 볼륨을 사용하려면 “SFAzureFile”)를 지정합니다. `azureFileParameters`에서 이전 단계에서 확인한 `<fileShareName>`, `<storageAccountName>` 및 `<storageAccountKey>` 값에 대한 매개 변수를 지정합니다.
 
-서비스에 볼륨을 탑재하려면 서비스의 `codePackages` 요소에 `volumeRefs`를 추가합니다.  `name`은 볼륨의 리소스 ID(또는 볼륨 리소스의 배포 템플릿 매개 변수)와 volume.yaml 리소스 파일에 선언된 볼륨의 이름입니다.  `destinationPath`는 볼륨이 탑재될 로컬 디렉터리입니다.
+서비스에 볼륨을 탑재하려면 서비스의 `volumeRefs` 요소에 `codePackages`를 추가합니다.  `name`은 볼륨의 리소스 ID(또는 볼륨 리소스의 배포 템플릿 매개 변수)와 volume.yaml 리소스 파일에 선언된 볼륨의 이름입니다.  `destinationPath`는 볼륨이 탑재될 로컬 디렉터리입니다.
 
 ```json
 {

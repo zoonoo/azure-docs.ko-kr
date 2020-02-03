@@ -39,7 +39,7 @@ ms.locfileid: "76718636"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
 
 ## <a name="spark-clusters-and-notebooks"></a>Spark 클러스터 및 Notebook
@@ -1094,7 +1094,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0317_06_51.737282"
 
-## <a name="whats-next"></a>다음은 무엇일까요?
+## <a name="whats-next"></a>다음 단계
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다. 고급 데이터 탐색 및 모델링 Notebook은 교차 유효성 검사, 하이퍼 매개 변수 비우기 및 모델 평가 등을 포함한 상세 영역으로 나뉩니다. 
 
 **모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.

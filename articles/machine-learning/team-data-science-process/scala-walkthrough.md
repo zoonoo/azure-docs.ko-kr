@@ -39,7 +39,7 @@ Java 가상 머신 기반 언어인 [Scala](https://www.scala-lang.org/)는 개�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 * Azure 구독이 있어야 합니다. 아직 없으면 [Azure 무료 평가판을 다운로드하세요](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/).
 * 다음 절차를 완료하려면 Azure HDInsight 3.4 Spark 1.6 클러스터가 필요합니다. 클러스터를 만들려면 [시작: Azure HDInsight에서 Apache Spark 만들기](../../hdinsight/spark/apache-spark-jupyter-spark-sql.md)를 참조하세요. **클러스터 형식 선택** 메뉴에서 클러스터 형식 및 버전을 설정합니다.
 
@@ -260,7 +260,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
 기본적으로 Jupyter Notebook에서 실행하는 코드 조각의 출력은 작업자 노드에서 유지되는 세션 컨텍스트 내에서 사용할 수 있습니다. 모든 계산에 대한 작업자 노드에 여정을 저장하는 경우와 계산에 필요한 모든 데이터를 Jupyter 서버 노드(헤드 노드)에서 로컬로 사용할 수 있는 경우, `%%local` 매직을 사용하여 Jupyter 서버에서 코드 조각을 실행할 수 있습니다.
 
 * **SQL 매직**(`%%sql`). HDInsight Spark 커널은 SQLContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (`-o VARIABLE_NAME`) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 이 설정은 로컬 모드에서 출력을 사용할 수 있음을 의미 합니다.
-* `%%local` **magic**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `-o` 매개 변수를 사용하여 `%%local` 매직을 `%%sql` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
+* `%%local` **magic**. `%%local` 매직은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `%%local` 매개 변수를 사용하여 `%%sql` 매직을 `-o` 매직과 함께 사용합니다. `-o` 매개 변수는 SQL 쿼리의 출력을 로컬로 유지하고 그 다음 `%%local` 매직은 로컬로 유지되는 SQL 쿼리의 출력에 대해 로컬로 실행할 다음 코드 조각 집합을 트리거합니다.
 
 ### <a name="query-the-data-by-using-sql"></a>SQL을 사용하여 데이터 쿼리
 이 쿼리는 요금 금액, 승객 수 및 팁 금액에 따라 택시 여정을 검색합니다.
@@ -291,7 +291,7 @@ Blob Storage에 모델 또는 파일을 저장하려면 경로를 적절히 지�
 
 * Table
 * 원형
-* 라인
+* 꺾은선형
 * 영역
 * 가로 막대형
 
@@ -535,9 +535,9 @@ Spark ML을 사용하여 트리 기반 모델링 기능에 사용할 대상 및 
 ## <a name="binary-classification-model-predict-whether-a-tip-should-be-paid"></a>이진 분류 모델: 팁이 지불되었는지 예측
 이 섹션에서는 팁이 지불되었는지 아닌지를 예측하기 위해 이진 분류 모델을 세 가지 형식으로 만듭니다.
 
-* Spark ML `LogisticRegression()` 함수를 사용하는 **로지스틱 회귀 모델**
-* Spark ML `RandomForestClassifier()` 함수를 사용하는 **임의 포리스트 분류 모델**
-* MLlib `GradientBoostedTrees()` 함수를 사용하는 **그라데이션 향상 트리 분류 모델**
+* Spark ML **함수를 사용하는**로지스틱 회귀 모델`LogisticRegression()`
+* Spark ML **함수를 사용하는**임의 포리스트 분류 모델`RandomForestClassifier()`
+* MLlib **함수를 사용하는**그라데이션 향상 트리 분류 모델`GradientBoostedTrees()`
 
 ### <a name="create-a-logistic-regression-model"></a>로지스틱 회귀 모델 만들기
 다음으로, Spark ML `LogisticRegression()` 함수를 사용하여 로지스틱 회귀 모델을 만듭니다. 다음과 같은 단계를 통해 모델 빌딩 코드를 만듭니다.
@@ -728,8 +728,8 @@ Area under ROC curve: 0.9846895479241554
 ## <a name="regression-model-predict-tip-amount"></a>회귀 모델: 팁 금액 예측
 이 섹션에서는 팁 금액을 예측하기 위해 두 가지 형식의 회귀 모델을 만듭니다.
 
-* Spark ML `LinearRegression()` 함수를 사용하는 **정칙 선형 회귀 모델** 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
-* Spark ML `GBTRegressor()` 함수를 사용하는 **그라데이션 향상 트리 회귀 모델**
+* Spark ML **함수를 사용하는**정칙 선형 회귀 모델`LinearRegression()` 모델을 저장하고 테스트 데이터에 대해 모델을 평가합니다.
+* Spark ML **함수를 사용하는**그라데이션 향상 트리 회귀 모델`GBTRegressor()`
 
 ### <a name="create-a-regularized-linear-regression-model"></a>정칙 선형 회귀 모델 만들기
     # RECORD THE START TIME

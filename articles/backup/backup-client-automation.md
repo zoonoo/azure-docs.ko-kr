@@ -14,7 +14,7 @@ ms.locfileid: "76710871"
 
 이 문서에서는 Windows Server 또는 Windows Client에서 Azure Backup을 설정하고 백업과 복원을 관리하기 위해 PowerShell을 사용하는 방법을 보여 줍니다.
 
-## <a name="install-azure-powershell"></a>Azure PowerShell 설치
+## <a name="install-azure-powershell"></a>Azure Powershell 설치
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -658,7 +658,7 @@ ItemLastModifiedTime : 21-Jun-14 6:43:02 AM
 $RecoveryOption = New-OBRecoveryOption -DestinationPath "C:\temp" -OverwriteType Skip
 ```
 
-이제 `Get-OBRecoverableItem` cmdlet의 출력에서 선택한 `$Item`에 대해 [Start-OBRecovery](https://technet.microsoft.com/library/hh770402.aspx) 명령을 사용하여 복원 프로세스를 트리거합니다.
+이제 [ cmdlet의 출력에서 선택한 ](https://technet.microsoft.com/library/hh770402.aspx)에 대해 `$Item`Start-OBRecovery`Get-OBRecoverableItem` 명령을 사용하여 복원 프로세스를 트리거합니다.
 
 ```powershell
 Start-OBRecovery -RecoverableItem $Item -RecoveryOption $RecoveryOption

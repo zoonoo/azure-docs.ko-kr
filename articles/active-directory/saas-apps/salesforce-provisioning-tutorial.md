@@ -26,7 +26,7 @@ ms.locfileid: "76714383"
 
 이 자습서의 목적은 사용자 계정을 Azure AD에서 Salesforce로 자동 프로비전 및 프로비전 해제하도록 Salesforce 및 Azure AD에서 수행해야 하는 단계를 설명하는 것입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -82,15 +82,15 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 6. Salesforce 보안 토큰을 얻으려면 새 탭을 열고 동일한 Salesforce 관리자 계정에 로그인합니다. 페이지의 오른쪽 위 모서리에 있는 사용자 이름을 클릭하고 **설정**을 클릭합니다.
 
-    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비전 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-my-settings.png "자동 사용자 프로비저닝 사용")
 
 7. 왼쪽 탐색 패널에서 **내 개인 정보**를 클릭하여 관련 섹션을 확장하고 **내 보안 토큰 재설정**을 클릭합니다.
   
-    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비전 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-personal-reset.png "자동 사용자 프로비저닝 사용")
 
 8. **보안 토큰 재설정** 페이지에서 **보안 토큰 재설정** 단추를 클릭합니다.
 
-    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비전 사용")
+    ![자동 사용자 프로 비전 사용](./media/salesforce-provisioning-tutorial/sf-reset-token.png "자동 사용자 프로비저닝 사용")
 
 9. 이 관리자 계정과 연결된 전자 메일 받은 편지함을 확인합니다. Salesforce.com에서 새 보안 토큰이 포함된 전자 메일을 찾습니다.
 
@@ -119,7 +119,7 @@ Azure Active Directory는 "할당"이라는 개념을 사용하여 어떤 사용
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
 
-## <a name="common-issues"></a>일반 문제
+## <a name="common-issues"></a>일반적인 문제
 * Salesforce에 대 한 액세스 권한을 부여 하는 데 문제가 있는 경우 다음을 확인 합니다.
     * 사용 된 자격 증명에는 Salesforce에 대 한 관리자 액세스 권한이 있습니다.
     * 사용 중인 Salesforce 버전은 웹 액세스 (예: 개발자, 엔터프라이즈, 샌드박스 및 Salesforce의 무제한 버전)를 지원 합니다.

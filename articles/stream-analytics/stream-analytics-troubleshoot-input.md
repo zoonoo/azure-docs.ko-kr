@@ -70,7 +70,7 @@ Event Hubs를 사용하는 모범 사례는 여러 소비자 그룹을 사용하
 ### <a name="add-a-consumer-group-in-event-hubs"></a>Event Hubs에 소비자 그룹 추가
 Event Hubs 인스턴스에 새 소비자 그룹을 추가하려면 다음 단계를 수행합니다.
 
-1. Azure Portal에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 
 2. Event Hubs를 찾습니다.
 
@@ -137,7 +137,7 @@ FROM data
 
 세 개 이상의 입력이 동일한 Event Hubs 소비자 그룹에 연결된 쿼리의 경우 개별 소비자 그룹을 만듭니다. 이를 위해서는 추가 Stream Analytics 입력을 만들어야 합니다.
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 
 추가 지원이 필요한 경우 [Azure Stream Analytics 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=AzureStreamAnalytics)을 참조하세요.
 

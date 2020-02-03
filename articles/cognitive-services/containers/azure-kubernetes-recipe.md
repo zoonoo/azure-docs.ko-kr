@@ -21,12 +21,12 @@ ms.locfileid: "76716880"
 
 언어 감지 컨테이너를 배포하는 방법을 알아봅니다. 이 절차에서는 로컬 Docker 컨테이너를 만들고, 컨테이너를 고유한 프라이빗 컨테이너 레지스트리로 푸시하고, Kubernetes 클러스터에서 컨테이너를 실행하고, 웹 브라우저에서 테스트하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 절차를 수행하려면 로컬로 설치 및 실행해야 하는 몇 가지 도구가 필요합니다. Azure Cloud Shell은 사용하지 않도록 합니다.
 
 * Azure 구독을 사용합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* 이 절차에서 사용되는 [샘플](https://github.com/Azure-Samples/cognitive-services-containers-samples)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://git-scm.com/downloads)
+* 이 절차에서 사용되는 [샘플](https://git-scm.com/downloads)을 복제할 수 있도록 사용하는 운영 체제용 [Git](https://github.com/Azure-Samples/cognitive-services-containers-samples)
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Docker 엔진](https://www.docker.com/products/docker-engine). 콘솔 창에서 Docker CLI를 가 작동하는지 확인합니다.
 * [kubectl](https://storage.googleapis.com/kubernetes-release/release/v1.13.1/bin/windows/amd64/kubectl.exe).
@@ -178,7 +178,7 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     az ad sp create-for-rbac --skip-assignment
     ```
 
-    assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `<client-secret>`을 위해 `password`를 저장합니다.
+    assignee 매개 변수에 대한 결과 `appId` 값을 3단계 `<appId>`에 저장합니다. 다음 섹션의 클라이언트-암호 매개 변수 `password`을 위해 `<client-secret>`를 저장합니다.
 
     ```console
     > az ad sp create-for-rbac --skip-assignment
@@ -307,20 +307,20 @@ Azure Kubernetes Service에 컨테이너를 배포하려면 컨테이너 이미�
     aks-nodepool1-13756812-1   Ready     agent     6m        v1.9.11
     ```
 
-1. 다음 파일을 복사하고 이름을 `language.yml`로 지정합니다. 이 파일에는 두 컨테이너 유형인 `language-frontend` 웹 사이트 컨테이너 및 `language` 검색 컨테이너 각각에 대한 `service` 섹션 및 `deployment` 섹션이 있습니다.
+1. 다음 파일을 복사하고 이름을 `language.yml`로 지정합니다. 이 파일에는 두 컨테이너 유형인 `service` 웹 사이트 컨테이너 및 `deployment` 검색 컨테이너 각각에 대한 `language-frontend` 섹션 및 `language` 섹션이 있습니다.
 
     [!code-yml[Kubernetes orchestration file for the Cognitive Services containers sample](~/samples-cogserv-containers/Kubernetes/language/language.yml "Kubernetes orchestration file for the Cognitive Services containers sample")]
 
 1. 다음 표에 따라 `language.yml`의 언어-프런트 엔드 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    언어-프런트 엔드 배포 설정|용도|
+    언어-프런트 엔드 배포 설정|목적|
     |--|--|
     |줄 32<br> `image` 속성|Container Registry에 있는 프런트 엔드 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language-frontend:v1`|
     |줄 44<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
 
 1. 다음 표에 따라 `language.yml`의 언어 배포 줄을 변경하여 고유한 컨테이너 레지스트리에 이미지 이름, 클라이언트 비밀 및 텍스트 분석 설정을 추가합니다.
 
-    |언어 배포 설정|용도|
+    |언어 배포 설정|목적|
     |--|--|
     |줄 78<br> `image` 속성|Container Registry에 있는 언어 이미지의 이미지 위치입니다.<br>`<container-registry-name>.azurecr.io/language:1.1.006770001-amd64-preview`|
     |줄 95<br> `name` 속성|이전 섹션에서 `<client-secret>`으로 나타낸 이미지의 컨테이너 레지스트리 비밀입니다.|
@@ -391,7 +391,7 @@ replicaset.apps/language-frontend-68b9969969   1         1         1         13h
 
 ## <a name="test-the-client-application-container"></a>클라이언트 애플리케이션 컨테이너 테스트
 
-`http://<external-ip>/helloworld` 형식을 사용하여 브라우저의 URL을 `language-frontend` 컨테이너의 외부 IP로 변경합니다. 영어 문화권 텍스트인 `helloworld`는 `English`로 예측됩니다.
+`language-frontend` 형식을 사용하여 브라우저의 URL을 `http://<external-ip>/helloworld` 컨테이너의 외부 IP로 변경합니다. 영어 문화권 텍스트인 `helloworld`는 `English`로 예측됩니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

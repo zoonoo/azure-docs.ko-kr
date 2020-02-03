@@ -32,7 +32,7 @@ HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설
 HDInsight Spark 2.0 클러스터와 함께 사용하도록 Spark 1.6용 Jupyter Notebook을 수정하려면 Python 코드 파일을 [이 파일](https://github.com/Azure/Azure-MachineLearning-DataScience/blob/master/Misc/Spark/Python/Spark2.0_ConsumeRFCV_NYCReg.py)로 바꿉니다. 이 코드는 Spark 2.0에서 생성된 모델을 사용하는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 1. 이 연습을 완료하려면 Azure 계정과 Spark 1.6(또는 Spark 2.0) HDInsight 클러스터가 필요합니다. 이러한 요구 사항을 충족시키는 방법에 대한 자세한 지침은 [Azure HDInsight에서 Spark를 사용하는 데이터 과학 개요](spark-overview.md)를 참조하세요. 이 항목에는 여기에서 사용된 NYC 2013 Taxi 데이터에 대한 설명 및 Spark 클러스터의 Jupyter Notebook에서 코드를 실행하는 방법에 대한 지침이 포함되어 있습니다. 
 2. Spark 1.6 클러스터 또는 spark 2.0 노트북에 대 한 [spark 토픽을 사용 하 여 데이터 탐색 및 모델링](spark-data-exploration-modeling.md) 을 통해 작업 하 여 여기서 점수를 매길 기계 학습 모델을 만듭니다. 
@@ -112,7 +112,7 @@ Jupyter Notebook과 함께 제공되는 PySpark 커널에는 사전 설정 컨�
 PySpark 커널은 특수 명령인 일부 미리 정의된 "매직"을 제공하며 이러한 매직은 %%를 사용하여 호출할 수 있습니다. 이러한 코드 샘플에 사용되는 다음과 같은 두 가지 명령이 있습니다.
 
 * **%%local** 다음 줄의 코드는 로컬로 실행됩니다. 코드는 유효한 Python 코드여야 합니다.
-* **%%sql -o \<variable name>** 
+* **%% sql-o \<변수 이름 >** 
 * sqlContext에 대해 Hive 쿼리를 실행합니다. -o 매개 변수가 전달된 경우 쿼리 결과가 %%local Python 컨텍스트에서 Pandas 데이터 프레임으로 유지됩니다.
 
 Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 자세한 내용은 [HDInsight의 HDInsight Spark Linux 클러스터에서 Jupyter Notebook에 사용할 수 있는 커널](../../hdinsight/spark/apache-spark-jupyter-notebook-kernels.md)을 참조하세요.
@@ -586,6 +586,6 @@ HTTP 호출을 위한 Python 코드는 다음과 같습니다.
 
 ![Logic Apps 디자이너](./media/spark-model-consumption/spark-logica-app-client.png)
 
-## <a name="whats-next"></a>다음은 무엇일까요?
+## <a name="whats-next"></a>다음 단계
 **교차 유효성 검사 및 하이퍼 매개 변수 비우기**: 교차 유효성 검사 및 하이퍼 매개 변수 비우기를 사용하여 모델을 학습하는 방법은 [Spark를 사용한 고급 데이터 탐색 및 모델링](spark-advanced-data-exploration-modeling.md) 을 참조하세요.
 

@@ -30,7 +30,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 
 ## <a name="extension-schema"></a>확장 스키마
 
-다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 특히 다음과 같은 혜택이 있습니다.  
+다음 JSON은 Key Vault VM 확장에 대한 스키마를 보여 줍니다. 확장에는 protected 설정이 필요하지 않습니다. 모든 설정은 보안의 영향을 받지 않는 정보로 간주됩니다. 확장에는 모니터링되는 비밀 목록, 폴링 빈도 및 대상 인증서 저장소가 필요합니다. 특히 다음에 대한 내용을 설명합니다.  
 ```json
     {
       "type": "Microsoft.Compute/virtualMachines/extensions",
@@ -67,7 +67,7 @@ Key Vault VM 확장은 다음 Linux 배포를 지원 합니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 | 데이터 형식 |
+| 속성 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2019-07-01 | date |
 | publisher | Microsoft.Azure.KeyVault | 문자열 |

@@ -30,13 +30,13 @@ SendGrid 바인딩은 [Microsoft.Azure.WebJobs.Extensions.SendGrid](https://www.
 
 [!INCLUDE [functions-package-v2](../../includes/functions-package-v2.md)]
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
 다음 예제에서는 Service Bus 큐 트리거와 SendGrid 출력 바인딩을 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
 
-### <a name="synchronous"></a>동기
+### <a name="synchronous"></a>Synchronous
 
 ```cs
 [FunctionName("SendEmail")]
@@ -346,16 +346,16 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *함수 json* 파일 및 `SendGrid` 특성/주석에서 사용할 수 있는 바인딩 구성 속성을 보여 줍니다.
 
-| *function. json* 속성 | 특성/주석 속성 | Description | 선택 사항 |
+| *function. json* 속성 | 특성/주석 속성 | 설명 | 옵션 |
 |--------------------------|-------------------------------|-------------|----------|
-| type |n/a| `sendGrid`로 설정해야 합니다.| 아닙니다. |
-| direction |n/a| `out`로 설정해야 합니다.| 아닙니다. |
-| name |n/a| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 아닙니다. |
-| apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey*입니다.| 아닙니다. |
-| to| - | 받는 사람의 이메일 주소입니다. | 예 |
-| 원본| 최저 | 보낸 사람의 전자 메일 주소입니다. |  예 |
-| subject| 제목 | 电子邮件的主题。 | 예 |
-| text| 텍스트 | 전자 메일 내용입니다. | 예 |
+| type |해당 없음| `sendGrid`로 설정해야 합니다.| 예 |
+| direction |해당 없음| `out`로 설정해야 합니다.| 예 |
+| name |해당 없음| 요청 또는 요청 본문의 함수 코드에 사용 되는 변수 이름입니다. 반환 값이 하나만 있는 경우 이 값은 `$return`입니다. | 예 |
+| apiKey | ApiKey | API 키가 포함 된 앱 설정의 이름입니다. 설정 되지 않은 경우 기본 앱 설정 이름은 *Azurewebjobssendgridapikey*입니다.| 예 |
+| to| 수행할 작업 | 받는 사람의 이메일 주소입니다. | yes |
+| 원본| 보낸 사람 | 보낸 사람의 전자 메일 주소입니다. |  yes |
+| subject| 제목 | 전자 메일의 제목입니다. | yes |
+| text| 텍스트 | 전자 메일 내용입니다. | yes |
 
 선택적 속성은 바인딩에 정의 된 기본값을 포함 하 고 프로그래밍 방식으로 추가 또는 재정의 될 수 있습니다.
 
@@ -381,9 +381,9 @@ Python에서 특성을 지원 하지 않습니다.
 }
 ```  
 
-|속성  |기본값 | Description |
+|속성  |기본값 | 설명 |
 |---------|---------|---------| 
-|원본|n/a|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
+|원본|해당 없음|모든 함수에서 보낸 사람의 이메일 주소입니다.| 
 
 
 ## <a name="next-steps"></a>다음 단계

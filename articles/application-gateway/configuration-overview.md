@@ -25,7 +25,7 @@ Azure 애플리케이션 게이트웨이는 다양 한 시나리오에 대해 �
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-virtual-network-and-dedicated-subnet"></a>Azure 가상 네트워크 및 전용 서브넷
 
@@ -93,7 +93,7 @@ V2 SKU의 경우 Application Gateway 서브넷에서 UDRs가 지원 되지 않�
 
 프런트 엔드 ip 주소는 프런트 엔드 IP에서 들어오는 요청을 확인 하는 *수신기*에 연결 됩니다.
 
-## <a name="listeners"></a>수신기
+## <a name="listeners"></a>Listeners
 
 수신기는 포트, 프로토콜, 호스트 및 IP 주소를 사용 하 여 들어오는 연결 요청을 확인 하는 논리적 엔터티입니다. 수신기를 구성할 때 게이트웨이의 들어오는 요청에서 해당 값과 일치 하는 값을 입력 해야 합니다.
 
@@ -264,7 +264,7 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
 수신기에서 HTTPS와 결합 된이 설정은 [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)을 지원 합니다. 이를 통해 백 엔드에 암호화 된 중요 한 데이터를 안전 하 게 전송할 수 있습니다. 종단 간 SSL을 사용 하도록 설정 된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용 하는 인증서를 사용 하 여 구성 해야 합니다.
 
-### <a name="port"></a>Port
+### <a name="port"></a>포트
 
 이 설정은 백 엔드 서버가 application gateway의 트래픽을 수신 대기 하는 포트를 지정 합니다. 1에서 65535 사이의 포트를 구성할 수 있습니다.
 
@@ -287,10 +287,10 @@ Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HT
 
   | 원래 요청           | 경로 규칙       | 백 엔드 경로 재정의 | 백 엔드에 전달 된 요청 |
   | -------------------------- | --------------- | --------------------- | ---------------------------- |
-  | /pathrule/home/            | pathrule      | 설명은/override            | /override/home/              |
-  | /pathrule/home/secondhome/ | pathrule      | 설명은/override            | /override/home/secondhome/   |
-  | /home/                     | pathrule      | 설명은/override            | /override/home/              |
-  | /home/secondhome/          | pathrule      | 설명은/override            | /override/home/secondhome/   |
+  | /pathrule/home/            | /pathrule*      | 설명은/override            | /override/home/              |
+  | /pathrule/home/secondhome/ | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
+  | /home/                     | /pathrule*      | 설명은/override            | /override/home/              |
+  | /home/secondhome/          | /pathrule*      | 설명은/override            | /override/home/secondhome/   |
   | /pathrule/home/            | /pathrule/home* | 설명은/override            | 설명은/override                   |
   | /pathrule/home/secondhome/ | /pathrule/home* | 설명은/override            | /override/secondhome/        |
   | pathrule                 | pathrule      | 설명은/override            | 설명은/override                   |
@@ -325,7 +325,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 이 기능은 응용 프로그램 게이트웨이에서 들어오는 요청의 *호스트* 헤더를 지정한 호스트 이름으로 바꿉니다.
 
-예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에 전달 되 면 원래 요청 * https://appgw.eastus.cloudapp.azure.com/path1 * https://www.contoso.com/path1 로 변경 됩니다.
+예를 들어 **호스트 이름** 설정에 *www.contoso.com* 가 지정 된 경우 요청이 백 엔드 서버에 전달 되 면 원래 요청 * https://appgw.eastus.cloudapp.azure.com/path1 * https://www.contoso.com/path1로 변경 됩니다.
 
 ## <a name="back-end-pool"></a>백 엔드 풀
 

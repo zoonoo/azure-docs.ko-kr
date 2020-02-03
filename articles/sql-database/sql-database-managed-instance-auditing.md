@@ -216,7 +216,7 @@ ms.locfileid: "76719911"
 
 감사 로그가 Azure Monitor 로그에 기록 되는 경우 감사 데이터에 대 한 고급 검색을 실행할 수 있는 Log Analytics 작업 영역에서 사용할 수 있습니다. 시작 지점으로 Log Analytics 작업 영역으로 이동 하 고 *일반* 섹션에서 *로그* 를 클릭 하 고 `search "SQLSecurityAuditEvents"`와 같은 간단한 쿼리를 입력 하 여 감사 로그를 확인 합니다.  
 
-Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조 하세요.
+Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조 하세요.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 

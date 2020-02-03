@@ -73,7 +73,7 @@ ms.locfileid: "76714515"
    > 내보내기는 페이지 Blob을 사용하고, 클래식 및 Resource Manager 스토리지 계정 양쪽 모두에서 지원되지만, Blob Storage 계정에서는 현재 지원되지 않습니다. 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md)를 참조하세요.
    >
 
-    ![Storage 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
+    ![스토리지 계정](./media/cache-how-to-import-export-data/cache-export-data-choose-account.png)
 3. 원하는 Blob 컨테이너를 선택하고 **선택**을 클릭합니다. 새 컨테이너를 사용하려면 **컨테이너 추가** 를 클릭하여 컨테이너를 추가한 다음 목록에서 선택합니다.
 
     ![스토리지 컨테이너 선택](./media/cache-how-to-import-export-data/cache-export-data-container.png)

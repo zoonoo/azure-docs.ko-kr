@@ -52,7 +52,7 @@ ms.locfileid: "76720489"
 
 Azure Machine Learning 웹 서비스를 사용하는 모델 운영의 예는 [Azure Machine Learning 웹 서비스 배포](../studio/deploy-a-machine-learning-web-service.md)를 참조하세요. 프로덕션 모델 및 배포되는 데이터 파이프라인에 원격 분석 및 모니터링을 구현하는 것이 좋습니다. 이 연습은 후속 시스템 상태 보고 및 문제 해결에 도움이 됩니다.  
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>아티팩트
 
 * 시스템 상태 및 주요 메트릭을 표시하는 상태 대시보드
 * 배포 세부 정보가 포함된 최종 모델링 보고서

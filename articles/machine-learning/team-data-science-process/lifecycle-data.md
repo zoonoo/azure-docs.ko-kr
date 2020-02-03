@@ -63,7 +63,7 @@ TDSP는 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataSc
    * 스트리밍 또는 실시간 
    * 하이브리드 
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>아티팩트
 이 단계의 결과물은 다음과 같습니다.
 
    * [데이터 품질 보고서](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/DataSummaryReport.md): 이 보고서에는 데이터 요약, 각 속성과 대상 간의 관계, 변수 순위 등이 포함됩니다. TDSP의 일부로 제공되는 [IDEAR](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/DataReport-Utils) 도구는 CSV 파일이나 관계형 테이블과 같이 테이블 형식의 데이터 집합에서 이 보고서를 신속하게 생성할 수 있습니다. 

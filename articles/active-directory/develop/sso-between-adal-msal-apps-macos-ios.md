@@ -52,8 +52,8 @@ MSAL 결과에서 `MSALAccount` 개체를 받으면 `identifier` 속성에 계�
 | 계정 식별자                | MSAL                                                         | ADAL 2.7. x      | 이전 ADAL (ADAL 2.7. x 이전) |
 | --------------------------------- | ------------------------------------------------------------ | --------------- | ------------------------------ |
 | 표시할 식별자            | `username`                                                   | `userId`        | `userId`                       |
-| 고유 하 게 표시할 때 고유 하지 않은 식별자 | `identifier`                                                 | `homeAccountId` | N/A                            |
-| 알려진 계정 id 없음               | `MSALPublicClientApplication`에서 `allAccounts:` API를 통해 모든 계정 쿼리 | N/A             | N/A                            |
+| 고유 하 게 표시할 때 고유 하지 않은 식별자 | `identifier`                                                 | `homeAccountId` | 해당 없음                            |
+| 알려진 계정 id 없음               | `MSALPublicClientApplication`에서 `allAccounts:` API를 통해 모든 계정 쿼리 | 해당 없음             | 해당 없음                            |
 
 이러한 식별자를 제공 하는 `MSALAccount` 인터페이스는 다음과 같습니다.
 
@@ -207,7 +207,7 @@ Returns account for for the given username (received from an account object retu
                               error:(NSError * __autoreleasing *)error;
 ```
 
-예:
+다음은 그 예입니다.
 
 Objective-C:
 

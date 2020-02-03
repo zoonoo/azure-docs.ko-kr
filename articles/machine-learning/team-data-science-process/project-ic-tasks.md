@@ -32,7 +32,7 @@ ms.locfileid: "76721254"
 > [!NOTE] 
 > 이 문서에서는 Microsoft에서 TDSP를 구현 하는 방법 이기 때문에 Azure Repos 및 Data Science Virtual Machine (DSVM)를 사용 하 여 TDSP 환경을 설정 합니다. 팀에서 다른 코드 호스팅 또는 개발 플랫폼을 사용 하는 경우 개별 참여자 작업은 동일 하지만이 작업을 완료 하는 방법은 다를 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서는 [그룹 관리자](group-manager-tasks.md), [팀 리더](team-lead-tasks.md)및 [프로젝트 리더가](project-lead-tasks.md)다음 리소스 및 사용 권한을 설정 했다고 가정 합니다.
 

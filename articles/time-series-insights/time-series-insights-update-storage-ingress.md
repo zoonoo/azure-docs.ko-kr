@@ -49,12 +49,12 @@ Azure Time Series Insights Azure IoT Hub 또는 Azure Event Hubs를 통해 전�
 
 다음은 지원 되는 데이터 형식 목록입니다.
 
-| 데이터 형식 | Description |
+| 데이터 형식 | 설명 |
 |-----------|------------------|-------------|
 | bool      |   두 상태 중 하나를 갖는 데이터 형식 true 또는 false입니다.       |
-| dateTime    |   일반적으로 날짜와 시간으로 표시 된 시간을 나타냅니다. DateTimes는 ISO 8601 형식 이어야 합니다.      |
+| dateTime    |   일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. DateTimes는 ISO 8601 형식 이어야 합니다.      |
 | double    |   배정밀도 64 비트 IEEE 754 부동 소수점
-| 문자열    |   유니코드 문자로 구성 된 텍스트 값입니다.          |
+| 문자열    |   유니코드 문자로 구성되는 텍스트 값입니다.          |
 
 #### <a name="objects-and-arrays"></a>개체 및 배열
 

@@ -78,7 +78,7 @@ Linux에서 원격 빌드를 사용 하도록 설정 하려면 다음 [응용 �
 
 앱이 Linux에서 원격으로 빌드되면 [배포 패키지에서 실행](run-functions-from-deployment-package.md)됩니다. 
 
-##### <a name="consumption-plan"></a>사용량 과금 플랜
+##### <a name="consumption-plan"></a>소비 계획
 
 소비 계획에서 실행 되는 Linux 함수 앱은 배포 옵션을 제한 하는 SCM/Kudu 사이트를 포함 하지 않습니다. 그러나 소비 계획에서 실행 되는 Linux의 함수 앱은 원격 빌드를 지원 합니다.
 

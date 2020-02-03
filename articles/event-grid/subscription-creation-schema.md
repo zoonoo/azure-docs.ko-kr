@@ -16,13 +16,13 @@ ms.locfileid: "76720761"
 ---
 # <a name="event-grid-subscription-schema"></a>Event Grid 구독 스키마
 
-Event Grid 구독을 만들려면 이벤트 만들기 구독 작업에 요청을 보냅니다. 이때 다음 형식을 사용합니다.
+Event Grid 구독을 만들려면 이벤트 만들기 구독 작업에 요청을 보냅니다. 다음 형식을 사용하십시오.
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/{group-name}/providers/{resource-provider}/{resource-type}/{resource-name}/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
 ``` 
 
-예를 들어 `examplegroup`이라는 리소스 그룹의 `examplestorage`라는 스토리지 계정에 대한 이벤트 구독을 만들려면 다음 형식을 사용합니다.
+예를 들어 `examplestorage`이라는 리소스 그룹의 `examplegroup`라는 스토리지 계정에 대한 이벤트 구독을 만들려면 다음 형식을 사용합니다.
 
 ```HTTP
 PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Microsoft.Storage/storageaccounts/examplestorage/Microsoft.EventGrid/eventSubscriptions/{event-type-definitions}?api-version=2018-01-01
@@ -32,21 +32,21 @@ PUT /subscriptions/{subscription-id}/resourceGroups/examplegroup/providers/Micro
  
 ## <a name="event-subscription-properties"></a>이벤트 구독 속성
 
-| 속성 | 유형 | Description |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | destination | object | 엔드포인트를 정의하는 개체입니다. |
 | filter | object | 이벤트 유형을 필터링하기 위한 선택적 필드입니다. |
 
-### <a name="destination-object"></a>대상 개체
+### <a name="destination-object"></a>destination object
 
-| 속성 | 유형 | Description |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | endpointType | 문자열 | 구독(웹후크/HTTP, Event Hub 또는 큐)에 대한 엔드포인트의 형식입니다. | 
 | endpointUrl | 문자열 | 이 이벤트 구독에서 이벤트의 대상 URL입니다. | 
 
 ### <a name="filter-object"></a>필터 개체
 
-| 속성 | 유형 | Description |
+| 속성 | Type | 설명 |
 | -------- | ---- | ----------- |
 | includedEventTypes | array | 이벤트 메시지의 이벤트 유형이 이러한 이벤트 유형 이름 중 하나와 정확하게 일치할 때 일치합니다. 이벤트 이름이 이벤트 원본에 대해 등록된 이벤트 유형 이름과 일치하지 않는 경우 오류가 발생합니다. 기본값은 모든 이벤트 유형과 일치합니다. |
 | subjectBeginsWith | 문자열 | 이벤트 메시지의 제목 필드에 대한 접두사-일치 필터입니다. 기본값 또는 빈 문자열은 모두 일치합니다. | 

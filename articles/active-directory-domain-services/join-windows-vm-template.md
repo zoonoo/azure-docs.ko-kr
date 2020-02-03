@@ -24,7 +24,7 @@ Azure Vm (가상 머신)의 배포 및 구성을 자동화 하기 위해 리소�
 
 이 문서에서는 리소스 관리자 템플릿을 사용 하 여 Windows Server VM을 만들고 Azure AD DS 관리 되는 도메인에 가입 하는 방법을 보여 줍니다. 또한 Azure AD DS 도메인에 기존 Windows Server VM을 조인 하는 방법에 대해 알아봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -87,7 +87,7 @@ Windows Server VM을 만들려면 Azure AD DS 관리 되는 도메인에 가입 
     | 설정                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
-    | 리소스 그룹            | VM에 대 한 리소스 그룹을 선택 합니다. |
+    | Resource group            | VM에 대 한 리소스 그룹을 선택 합니다. |
     | 위치                  | VM의 위치를 선택 합니다. |
     | 기존 VNET 이름        | VM을 연결할 기존 가상 네트워크의 이름 (예: *Myvnet*)입니다. |
     | 기존 서브넷 이름      | *작업 부하*와 같은 기존 가상 네트워크 서브넷의 이름입니다. |
@@ -120,7 +120,7 @@ Azure AD DS 관리 되는 도메인에 가입 하려는 기존 VM 또는 vm 그�
     | 설정                   | 값 |
     |---------------------------|-------|
     | Subscription              | Azure AD Domain Services를 사용하도록 설정한 동일한 Azure 구독을 선택합니다. |
-    | 리소스 그룹            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
+    | Resource group            | 기존 VM을 사용 하 여 리소스 그룹을 선택 합니다. |
     | 위치                  | 기존 VM의 위치를 선택 합니다. |
     | VM 목록                   | *MyVM1, myVM2*와 같이 Azure AD DS 관리 되는 도메인에 조인할 기존 VM의 쉼표로 구분 된 목록을 입력 합니다. |
     | 도메인 가입 사용자 이름     | `contosoadmin@aadds.contoso.com`와 같이 VM을 관리 되는 도메인에 연결 하는 데 사용 해야 하는 Azure AD DS 관리 되는 도메인의 사용자 계정. 이 계정은 *AZURE AD DC 관리자* 그룹의 구성원 이어야 합니다. |

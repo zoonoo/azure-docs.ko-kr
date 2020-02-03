@@ -312,7 +312,7 @@ Python 클라이언트 라이브러리에서 Pandas DataFrame을 다음 형식�
 
 `data_type_id`, `name` 및 `description` 매개 변수는 선택 사항이고 기본적으로 이전 값이 됩니다. `dataframe` 매개 변수는 항상 필요합니다.
 
-데이터가 이미 직렬화된 경우 `update_from_dataframe` 대신 `update_from_raw_data`를 사용합니다. `dataframe` 대신 `raw_data`만 전달하면, 비슷하게 작동합니다.
+데이터가 이미 직렬화된 경우 `update_from_raw_data` 대신 `update_from_dataframe`를 사용합니다. `raw_data` 대신 `dataframe`만 전달하면, 비슷하게 작동합니다.
 
 <!-- Images -->
 [security]:./media/python-data-access/security.png

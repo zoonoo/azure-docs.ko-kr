@@ -43,33 +43,33 @@ Blob storage에 저장 된 감사 로그는 Azure Storage 계정의 `sqldbauditl
 
 ## <a id="subheading-1"></a>감사 로그 필드
 
-| 이름 (Blob) | 이름 (Event Hubs/Log Analytics) | Description | Blob 유형 | Event Hubs/Log Analytics 형식 |
+| 이름 (Blob) | 이름 (Event Hubs/Log Analytics) | 설명 | Blob 유형 | Event Hubs/Log Analytics 형식 |
 |-------------|---------------------------------|-------------|-----------|-------------------------------|
 | action_id | action_id_s | 동작의 ID입니다. | varchar(4) | 문자열 |
-| action_name | action_name_s | 작업의 이름입니다. | N/A | 문자열 |
+| action_name | action_name_s | 작업의 이름입니다. | 해당 없음 | 문자열 |
 | additional_information | additional_information_s | XML로 저장 된 이벤트에 대 한 추가 정보 | nvarchar(4000) | 문자열 |
 | affected_rows | affected_rows_d | 쿼리의 영향을 받는 행 수 | bigint | int |
 | application_name | application_name_s| 클라이언트 응용 프로그램의 이름 | nvarchar(128) | 문자열 |
 | audit_schema_version | audit_schema_version_d | 항상 1 | int | int |
 | class_type | class_type_s | 감사가 수행 되는 감사 가능한 엔터티의 형식 | varchar(2) | 문자열 |
-| class_type_desc | class_type_description_s | 감사가 수행 되는 감사 가능한 엔터티에 대 한 설명 | N/A | 문자열 |
+| class_type_desc | class_type_description_s | 감사가 수행 되는 감사 가능한 엔터티에 대 한 설명 | 해당 없음 | 문자열 |
 | client_ip | client_ip_s | 클라이언트 응용 프로그램의 원본 IP | nvarchar(128) | 문자열 |
-| connection_id | N/A | 서버에 있는 연결의 ID입니다. | GUID | N/A |
+| connection_id | 해당 없음 | 서버에 있는 연결의 ID입니다. | GUID | 해당 없음 |
 | data_sensitivity_information | data_sensitivity_information_s | 데이터베이스의 분류 된 열을 기반으로 감사 된 쿼리에서 반환 되는 정보 유형 및 민감도 레이블입니다. [Azure SQL Database 데이터 검색 및 분류](sql-database-data-discovery-and-classification.md) 에 대 한 자세한 정보 | nvarchar(4000) | 문자열 |
 | database_name | database_name_s | 동작이 발생 한 데이터베이스 컨텍스트입니다. | sysname | 문자열 |
 | database_principal_id | database_principal_id_d | 작업이 수행 되는 데이터베이스 사용자 컨텍스트의 ID입니다. | int | int |
 | database_principal_name | database_principal_name_s | 작업이 수행 되는 데이터베이스 사용자 컨텍스트의 이름 | sysname | 문자열 |
 | duration_milliseconds | duration_milliseconds_d | 쿼리 실행 기간 (밀리초) | bigint | int |
 | event_time | event_time_t | 감사 가능한 동작이 발생 한 날짜 및 시간 | datetime2 | Datetime |
-| host_name | N/A | 클라이언트 호스트 이름 | 문자열 | N/A |
+| host_name | 해당 없음 | 클라이언트 호스트 이름 | 문자열 | 해당 없음 |
 | is_column_permission | is_column_permission_s | 열 수준 사용 권한임을 나타내는 플래그입니다. 1 = true, 0 = false | bit | 문자열 |
-| N/A | is_server_level_audit_s | 이 감사가 서버 수준에 있는지를 나타내는 플래그입니다. | N/A | 문자열 |
+| 해당 없음 | is_server_level_audit_s | 이 감사가 서버 수준에 있는지를 나타내는 플래그입니다. | 해당 없음 | 문자열 |
 | object_ id | object_id_d | 감사가 수행된 대상 엔터티의 ID입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | int | int |
 | object_name | object_name_s | 감사가 수행된 대상 엔터티의 이름입니다. 여기에는 서버 개체, 데이터베이스, 데이터베이스 개체, 스키마 개체 등이 포함 됩니다. 엔터티가 서버 자체 이거나 개체 수준에서 감사가 수행 되지 않는 경우 0입니다. | sysname | 문자열 |
-| permission_bitmask | permission_bitmask_s | 해당되는 경우 부여, 거부 또는 취소된 사용 권한을 표시합니다. | varbinary (16) | 문자열 |
+| permission_bitmask | permission_bitmask_s | 해당되는 경우 부여, 거부 또는 취소된 사용 권한을 표시합니다. | varbinary(16) | 문자열 |
 | response_rows | response_rows_d | 결과 집합에 반환 된 행 수 | bigint | int |
 | schema_name | schema_name_s | 동작이 수행된 스키마 컨텍스트입니다. 스키마 외부에서 발생 하는 감사의 경우 NULL | sysname | 문자열 |
-| N/A | securable_class_type_s | 감사 중인 class_type에 매핑되는 보안 개체입니다. | N/A | 문자열 |
+| 해당 없음 | securable_class_type_s | 감사 중인 class_type에 매핑되는 보안 개체입니다. | 해당 없음 | 문자열 |
 | sequence_group_id | sequence_group_id_g | 고유 식별자 | varbinary | GUID |
 | sequence_number | sequence_number_d | 너무 커서 감사에 대 한 쓰기 버퍼에 맞지 않는 단일 감사 레코드 내의 레코드 시퀀스를 추적 합니다. | int | int |
 | server_instance_name | server_instance_name_s | 감사가 수행 된 서버 인스턴스의 이름입니다. | sysname | 문자열 |

@@ -103,8 +103,8 @@ trip\_data와 trip\_fare를 조인할 고유 키는 medallion, hack\_license 및
 다음 AzCopy 명령에서 다음 매개 변수를 Hadoop 클러스터를 만들고 데이터 파일의 압축을 풀 때 지정한 실제 값으로 바꿉니다.
 
 * ***\<path_to_data_folder >*** 압축을 푼 데이터 파일이 들어 있는 컴퓨터의 디렉터리 (경로 포함)입니다.  
-* ***Hadoop 클러스터의 저장소 계정 이름\<*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
-* ***Hadoop 클러스터의 기본 컨테이너\<*** 클러스터에서 사용 하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 동일 합니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
+* ***Hadoop 클러스터의 저장소 계정 이름\<>*** HDInsight 클러스터와 연결 된 저장소 계정입니다.
+* ***Hadoop 클러스터의 기본 컨테이너\<>*** 클러스터에서 사용 하는 기본 컨테이너입니다. 기본 컨테이너의 이름은 일반적으로 클러스터 자체의 이름과 동일 합니다. 예를 들어 클러스터가 "abc123.azurehdinsight.net"인 경우 기본 컨테이너는 abc123입니다.
 * ***\<저장소 계정 키 >*** 클러스터에서 사용 하는 저장소 계정의 키입니다.
 
 명령 프롬프트 또는 Windows PowerShell 창에서 다음 두 AzCopy 명령을 실행합니다.
@@ -382,7 +382,7 @@ Hive 디렉터리 프롬프트에서 다음 명령을 사용하여 fare 데이�
 > 
 > 
 
-이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 파티션 변수 **month**의 영향을 받기 때문에 테이블을 분할하면 쿼리 성능이 개선됩니다. 쿼리 결과는 `C:\temp` 헤드 노드의 로컬 파일 **queryoutput.tsv**에 작성됩니다.
+이 예제에서는 지정된 기간 내의 여정이 100개가 넘는 medallion(택시 번호)을 식별합니다. 쿼리는 파티션 변수 **month**의 영향을 받기 때문에 테이블을 분할하면 쿼리 성능이 개선됩니다. 쿼리 결과는 **헤드 노드의 로컬 파일**queryoutput.tsv`C:\temp`에 작성됩니다.
 
     hive -f "C:\temp\sample_hive_trip_count_by_medallion.hql" > C:\temp\queryoutput.tsv
 
@@ -574,7 +574,7 @@ Hive 디렉터리 프롬프트에서 다음을 실행합니다.
 예비 데이터 분석 단계를 마쳤으므로 이제 Machine Learning에서 모델을 빌드하기 위한 데이터를 다운 샘플링할 수 있습니다. 이 섹션에서는 Hive 쿼리를 사용하여 데이터를 다운 샘플링하는 방법을 보여 줍니다. 그런 다음 Machine Learning [데이터 가져오기][import-data] 모듈에서 액세스 합니다.
 
 ### <a name="down-sampling-the-data"></a>데이터 다운 샘플링
-이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키(**medallion**, **hack\_license** 및 **pickup\_datetime**)에 **nyctaxidb.trip** 및 **nyctaxidb.fare** 테이블을 조인합니다. 그런 다음, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
+이 절차에는 두 단계가 있습니다. 먼저 모든 레코드에 있는 세 개의 키(**medallion**, **hack**license**및**pickup**datetime\_)에** nyctaxidb.trip **및 \_nyctaxidb.fare** 테이블을 조인합니다. 그런 다음, 이진 분류 레이블 **tipped**와 다중 클래스 분류 레이블 **tip\_class**를 생성합니다.
 
 Machine Learning의 [데이터 가져오기][import-data] 모듈에서 직접 다운 샘플링 된 데이터를 사용할 수 있으려면 앞의 쿼리 결과를 내부 Hive 테이블에 저장 해야 합니다. 아래에서는 내부 Hive 테이블을 만들고 해당 콘텐츠를 조인 및 다운 샘플링된 데이터로 채웁니다.
 
@@ -721,7 +721,7 @@ Machine Learning의 [데이터 가져오기][import-data] 모듈에서 Hive 쿼�
 
 [데이터 가져오기][import-data] 모듈 및 입력할 매개 변수에 대 한 몇 가지 세부 정보는 다음과 같습니다.
 
-**Hcatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우 https://abc123.azurehdinsight.net 를 사용 합니다.
+**Hcatalog 서버 URI**: 클러스터 이름이 **abc123**인 경우 https://abc123.azurehdinsight.net를 사용 합니다.
 
 **Hadoop user account name**: 클러스터에 대해 선택한 사용자 이름입니다(원격 액세스 사용자 이름이 아님).
 

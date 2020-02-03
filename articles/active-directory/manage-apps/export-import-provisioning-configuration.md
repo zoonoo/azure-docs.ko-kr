@@ -44,7 +44,7 @@ Microsoft Graph API 및 Graph 탐색기를 사용 하 여 사용자 프로 비�
 
 ## <a name="step-3-retrieve-the-provisioning-job-id-of-the-provisioning-app"></a>3 단계: 프로 비전 앱의 프로 비전 작업 ID 검색
 
-Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
+Microsoft Graph Explorer에서 [servicePrincipalId]를 **1단계**에서 추출된 [ServicePrincipalId](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)로 바꾸고 다음 GET 쿼리를 실행합니다.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/jobs

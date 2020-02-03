@@ -69,7 +69,7 @@ ms.locfileid: "76720472"
 
 여러 알고리즘 및 매개 변수 스윕을 통해 실행하여 기본 모델을 생성할 수 있는 [자동화된 모델링 및 보고 도구](https://github.com/Azure/Azure-TDSP-Utilities/blob/master/DataScienceUtilities/Modeling)에 TDSP를 제공합니다. 또한 각 모델의 성능과 변수 중요도를 포함한 매개 변수 조합을 요약한 기본 모델링 보고서를 생성합니다. 이 프로세스는 추가 기능 엔지니어링을 진행할 수 있으므로 반복적입니다. 
 
-## <a name="artifacts"></a>Artifacts
+## <a name="artifacts"></a>아티팩트
 이 단계에서 생성되는 아티팩트는 다음과 같습니다.
 
    * [기능 집합](https://github.com/Azure/Azure-TDSP-ProjectTemplate/blob/master/Docs/Data_Report/Data%20Defintion.md): 모델링을 위해 개발된 기능은 **데이터 정의** 보고서의 **기능 집합** 섹션에 설명되어 있습니다. 여기에는 기능을 생성하는 코드에 대한 조언과 기능을 생성한 방법에 대한 설명이 있습니다.

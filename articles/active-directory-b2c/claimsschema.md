@@ -42,13 +42,13 @@ ms.locfileid: "76713080"
 
 **ClaimType** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
+| Id | yes | 클레임 형식에 사용되는 식별자입니다. 다른 요소는 정책에서 이 식별자를 사용할 수 있습니다. |
 
 **ClaimType** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayName | 0:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | DataType | 0:1 | 클레임의 형식입니다. boolean, date, dateTime, int, long, string, stringCollection, alternativeSecurityIdCollection 데이터 형식을 사용할 수 있습니다. |
@@ -63,16 +63,16 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **DefaultPartnerClaimTypes**는 다음 요소를 함할 수 있습니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 프로토콜 | 0:n | 기본 파트너 클레임 형식 이름이 포함된 프로토콜 목록입니다. |
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 이름 | 예 | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
-| PartnerClaimType | 예 | 사용할 클레임 형식 이름입니다. |
+| 속성 | yes | Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 다음과 같습니다. OAuth1, OAuth2, SAML2, OpenIdConnect. |
+| PartnerClaimType | yes | 사용할 클레임 형식 이름입니다. |
 
 다음 예제에서는 ID 경험 프레임워크가 SAML2 ID 공급자 또는 신뢰 당사자 애플리케이션과 상호 작용할 때 **surname** 클레임이 `http://schemas.xmlsoap.org/ws/2005/05/identity/claims/surname`에 매핑되며 OpenIdConnect 및 OAuth2와 상호 작용할 때는 `family_name`에 매핑됩니다.
 
@@ -88,7 +88,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 </ClaimType>
 ```
 
-그러므로 Azure AD B2C에서 발급하는 JWT 토큰에서는 ClaimType 이름 **surname** 대신 `family_name`이 생략됩니다.
+그러므로 Azure AD B2C에서 발급하는 JWT 토큰에서는 ClaimType 이름 `family_name`surname**대신**이 생략됩니다.
 
 ```JSON
 {
@@ -104,12 +104,12 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Mask** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| `Type` | 예 | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
-| `Regex` | 아닙니다. | **`Type`** `Regex`으로 설정 된 경우 사용할 정규식을 지정 합니다.
+| `Type` | yes | 클레임 마스크의 형식입니다. 가능한 값은 `Simple` 또는 `Regex`입니다. `Simple` 값은 문자열 클레임의 앞부분에 단순 텍스트 마스크가 적용됨을 나타냅니다. `Regex` 값은 문자열 클레임 전체에 정규식이 적용됨을 나타냅니다.  `Regex` 값을 지정하는 경우에는 사용할 정규식과 함께 선택적 특성도 정의해야 합니다. |
+| `Regex` | 예 | **`Type`** `Regex`으로 설정 된 경우 사용할 정규식을 지정 합니다.
 
-다음 예제에서는 `Simple` 마스크를 사용하여 **PhoneNumber** 클레임을 구성합니다.
+다음 예제에서는 **마스크를 사용하여**PhoneNumber`Simple` 클레임을 구성합니다.
 
 ```XML
 <ClaimType Id="PhoneNumber">
@@ -124,7 +124,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ![브라우저에 표시 되는 전화 번호 클레임으로, Xs로 마스크 된 처음 6 자리](./media/claimsschema/mask.png)
 
-다음 예제에서는 `Regex` 마스크를 사용하여 **AlternateEmail** 클레임을 구성합니다.
+다음 예제에서는 **마스크를 사용하여**AlternateEmail`Regex` 클레임을 구성합니다.
 
 ```XML
 <ClaimType Id="AlternateEmail">
@@ -144,13 +144,13 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Restriction** 요소는 다음 특성을 포함할 수 있습니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| MergeBehavior | 아닙니다. | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
+| MergeBehavior | 예 | 식별자가 같은 상위 정책에서 ClaimType과 열거 값을 병합하는 데 사용할 메서드입니다. 기본 정책에 지정된 클레임을 덮어쓰는 경우 이 특성을 사용합니다. 가능한 값은 `Append`, `Prepend` 또는 `ReplaceAll`입니다. `Append` 값은 상위 정책에 지정된 컬렉션 끝에 추가해야 하는 데이터 컬렉션입니다. `Prepend` 값은 상위 정책에 지정된 컬렉션 앞에 추가해야 하는 데이터 컬렉션입니다. `ReplaceAll` 값은 상위 정책에 지정되어 있는 무시해야 하는 데이터 컬렉션입니다. |
 
 **Restriction** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
 | 패턴 | 1:1 | 사용할 정규식입니다. |
@@ -159,13 +159,13 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 텍스트 | 예 | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
-|값 | 예 | 이 옵션 선택과 연결된 클레임 값입니다. |
-| SelectByDefault | 아닙니다. | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
+| 텍스트 | yes | 이 옵션에 대해 사용자 인터페이스에서 사용자에게 표시되는 표시 문자열입니다. |
+|값 | yes | 이 옵션 선택과 연결된 클레임 값입니다. |
+| SelectByDefault | 예 | UI에서 이 옵션을 기본적으로 선택해야 하는지 여부를 나타냅니다. 가능한 값은 True 또는 False입니다. |
 
-다음 예제에서는 기본값을 `New York`으로 설정하여 **city** 드롭다운 목록 클레임을 구성합니다.
+다음 예제에서는 기본값을 **으로 설정하여** city`New York` 드롭다운 목록 클레임을 구성합니다.
 
 ```XML
 <ClaimType Id="city">
@@ -188,10 +188,10 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 **Pattern** 요소는 다음 특성을 포함할 수 있습니다.
 
-| attribute | 필수 | Description |
+| attribute | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| RegularExpression | 예 | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
-| HelpText | 아닙니다. | 이 클레임의 패턴 또는 정규식입니다. |
+| RegularExpression | yes | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
+| HelpText | 예 | 이 클레임의 패턴 또는 정규식입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 
@@ -216,7 +216,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ## <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용할 수 있는 텍스트 상자, 암호, 드롭다운 목록 등의 다양한 사용자 입력 유형을 지원합니다. [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 사용자로부터 정보를 수집할 때는 **UserInputType**을 지정해야 합니다.
+Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용할 수 있는 텍스트 상자, 암호, 드롭다운 목록 등의 다양한 사용자 입력 유형을 지원합니다. **자체 어설션된 기술 프로필**을 통해 사용자로부터 정보를 수집할 때는 [UserInputType](self-asserted-technical-profile.md)을 지정해야 합니다.
 
 ### <a name="textbox"></a>TextBox
 
@@ -251,7 +251,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="password"></a>암호
+### <a name="password"></a>Password
 
 **Password** 사용자 입력 유형은 사용자가 입력하는 암호를 기록하는 데 사용됩니다.
 
@@ -268,7 +268,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 
 ### <a name="datetimedropdown"></a>DateTimeDropdown
 
-**DateTimeDropdown** 사용자 입력 유형은 년/월/일을 선택하는 드롭다운 집합을 제공하는 데 사용됩니다. Predicates 및 PredicateValidations 요소를 사용하여 최소 및 최대 날짜 값을 제어할 수 있습니다. 자세한 내용은 [Predicates 및 PredicateValidations](predicates.md)의 **날짜 범위 구성** 섹션을 참조하세요.
+**DateTimeDropdown** 사용자 입력 유형은 년/월/일을 선택하는 드롭다운 집합을 제공하는 데 사용됩니다. Predicates 및 PredicateValidations 요소를 사용하여 최소 및 최대 날짜 값을 제어할 수 있습니다. 자세한 내용은 **Predicates 및 PredicateValidations**의 [날짜 범위 구성](predicates.md) 섹션을 참조하세요.
 
 ![datetimedropdown이 포함된 클레임 형식 사용](./media/claimsschema/datetimedropdown.png)
 

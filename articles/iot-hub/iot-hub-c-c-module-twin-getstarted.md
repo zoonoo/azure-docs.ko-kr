@@ -31,7 +31,7 @@ ms.locfileid: "76719146"
 > [!NOTE]
 > 디바이스와 솔루션 백 엔드에서 실행하기 위해 두 애플리케이션을 빌드하는 데 사용할 수 있는 Azure IoT SDK에 관한 정보는 [Azure IoT SDK](iot-hub-devguide-sdks.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 Azure 계정. (계정이 없는 경우 몇 분 안에 [Azure 체험 계정](https://azure.microsoft.com/pricing/free-trial/)을 만들 수 있습니다.)
 
@@ -49,7 +49,7 @@ ms.locfileid: "76719146"
 
 ## <a name="create-a-device-identity-and-a-module-identity-in-iot-hub"></a>IoT Hub에서 디바이스 ID 및 모듈 ID 만들기
 
-이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 C 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 디바이스 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 [IoT Hub 개발자 가이드](iot-hub-devguide-identity-registry.md)의 **ID 레지스트리** 섹션을 참조하세요. 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
+이 섹션에서는 IoT Hub의 ID 레지스트리에 디바이스 ID 및 모듈 ID를 만드는 C 앱을 만듭니다. ID 레지스트리에 항목이 없는 경우 디바이스 또는 모듈을 IoT Hub에 연결할 수 없습니다. 자세한 내용은 **IoT Hub 개발자 가이드**의 [ID 레지스트리](iot-hub-devguide-identity-registry.md) 섹션을 참조하세요. 이 콘솔 앱을 실행하면 디바이스 및 모듈 둘 다의 고유한 ID 및 키가 생성됩니다. 디바이스 및 모듈은 IoT Hub에 디바이스-클라우드 메시지를 보낼 때 이러한 값을 사용하여 자신을 식별합니다. ID는 대/소문자를 구분합니다.
 
 C 파일에 다음 코드를 추가합니다.
 

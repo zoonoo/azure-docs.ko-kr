@@ -20,16 +20,16 @@ ms.locfileid: "76715912"
 
 이 기능의 일부로 사용할 수 있는 메트릭은 다음과 같습니다.
 
-| 메트릭 네임스페이스 | 메트릭 | Description |
+| 메트릭 네임스페이스 | 메트릭 | 설명 |
 |------------------|--------|-------------|
-| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, Memoryrssbytes, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
+| insights.container/nodes | cpuUsageMillicores, cpuUsagePercentage, memoryRssBytes, memoryRssPercentage, memoryWorkingSetBytes, memoryWorkingSetPercentage, nodesCount | 이러한 항목은 *노드* 메트릭이 며, *호스트* 를 차원으로 포함 하 고, 다음을 포함 합니다.<br> *호스트* 차원에 대 한 값으로 서의 노드 이름입니다. |
 | insights.container/pods | podCount | 이러한 메트릭은 *pod* 메트릭입니다. ControllerName, Kubernetes namespace, name, phase로 다음을 포함 합니다. |
 
 이러한 새 기능을 지원 하도록 클러스터를 업데이트 하는 것은 Azure Portal, Azure PowerShell 또는 Azure CLI에서 수행할 수 있습니다. Azure PowerShell 및 CLI를 사용 하 여 클러스터 당 또는 구독의 모든 클러스터에 대해이를 사용 하도록 설정할 수 있습니다. AKS의 새 배포에는이 구성 변경 및 기능이 자동으로 포함 됩니다.
 
 각 프로세스는 에이전트에서 수집한 데이터를 클러스터 리소스에 게시할 수 있도록 클러스터의 서비스 주체에 **모니터링 메트릭 게시자** 역할을 할당 합니다. 모니터링 메트릭 게시자에는 리소스에 대해 메트릭을 푸시할 수 있는 권한만 있고, 모든 상태를 변경 하거나, 리소스를 업데이트 하거나, 데이터를 읽을 수 없습니다. 역할에 대 한 자세한 내용은 [모니터링 메트릭 게시자 역할](../../role-based-access-control/built-in-roles.md#monitoring-metrics-publisher)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 다음을 확인 합니다.
 

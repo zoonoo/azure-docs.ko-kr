@@ -39,7 +39,7 @@ ms.locfileid: "76721883"
 * [웹 애플리케이션](https://anomalydetection-aml.azurewebsites.net/)은 데이터에서 비상 감지 API의 결과를 평가하고 시각화하는 데 도움이 됩니다.
 
 > [!NOTE]
-> [이 API](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)에서 제공되는 **IT Anomaly Insights 솔루션**을 사용해 봅니다.
+> **이 API**에서 제공되는 [IT Anomaly Insights 솔루션](https://gallery.cortanaintelligence.com/MachineLearningAPI/Anomaly-Detection-2)을 사용해 봅니다.
 >
 <!-- This Solution is no longer available
 > To get this end to end solution deployed to your Azure subscription <a href="https://gallery.cortanaintelligence.com/Solution/Anomaly-Detection-Pre-Configured-Solution-1" target="_blank">**Start here >**</a>
@@ -82,7 +82,7 @@ API를 호출하려면 엔드포인트 위치 및 API 키를 알고 있어야 �
         }
     }
 
-### <a name="sample-response"></a>샘플 응답
+### <a name="sample-response"></a>예제 응답
 `ColumnNames` 필드를 보려면 요청에 `details=true`를 URL 매개 변수로 포함 해야 합니다.  이러한 필드 각각의 의미에 대해서는 아래 표를 참조하세요.
 
     {
@@ -111,7 +111,7 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="detectors"></a>감지기
 변칙 검색 API는 세 가지 광범위 한 범주로 감지기을 지원 합니다. 각 감지기의 구체적인 입력 매개 변수 및 출력에 대한 자세한 내용은 다음 테이블에서 찾을 수 있습니다.
 
-| 감지기 범주 | 감지기 | Description | 입력 매개 변수 | outputs |
+| 감지기 범주 | 감지기 | 설명 | 입력 매개 변수 | outputs |
 | --- | --- | --- | --- | --- |
 | 급증 감지기 |TSpike 감지기 |값이 첫 번째와 세 번째 사분위 수에서 얼마나 떨어져 있는지를 기반으로 급증과 급락을 감지합니다. |*tspikedetector.sensitivity:* 1-10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |TSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
 | 급증 감지기 | ZSpike 감지기 |데이터 요소가 평균값에서 얼마나 떨어져 있는지를 기반으로 급증 및 급락을 감지합니다. |*zspikedetector.sensitivity:* 1~10 범위의 정수 값을 갖습니다. 기본값: 3. 값이 높을수록 더 극단값을 포착하므로 민감도는 낮습니다. |ZSpike: 이진 값 – 급증/급락이 감지되면 ‘1’, 그 외 경우는 ‘0’ |
@@ -121,23 +121,23 @@ Score API는 비계절성 시계열 데이터에 이상 감지를 실행하는 �
 ### <a name="parameters"></a>매개 변수
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | Description | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | Type | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
-| bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| trenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |모두 |열거형 |Both, Spikes, Dips |모두 |
+| bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |None |3.25-5(값이 낮을수록 높은 민감도) |
+| trenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |None |3.25-5(값이 낮을수록 높은 민감도) |
 | tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
 | zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 없음 |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| outputs | Description |
+| outputs | 설명 |
 | --- | --- |
 | 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
-| 데이터 |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
+| data |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | Tspike |TSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | ZSpike |ZSpike 감지기의 급증 감지 여부를 나타내는 이진 표시기 |
 | rpscore |양방향 수준 변화에 대한 이상 점수를 나타내는 부동 소수점 숫자 |
@@ -157,27 +157,27 @@ ScoreWithSeasonality API는 계절성 패턴이 있는 시계열에 대한 이�
 
 이러한 입력 매개 변수에 대한 자세한 정보는 아래 테이블에 나와 있습니다.
 
-| 입력 매개 변수 | Description | 기본 설정 | 유형 | 유효 범위 | 제안 범위 |
+| 입력 매개 변수 | 설명 | 기본 설정 | Type | 유효 범위 | 제안 범위 |
 | --- | --- | --- | --- | --- | --- |
 | preprocess.aggregationInterval |입력 시계열 집계에 대한 초 단위 집계 간격 |0(집계가 수행되지 않음) |integer |0: 집계 건너뜀, > 0 기타 |5분에서 1일, 시계열 종속 |
-| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |N/A |
-| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |N/A |
+| preprocess.aggregationFunc |지정된 AggregationInterval로 데이터를 집계하는 데 사용되는 함수 |평균 |열거형 |평균, 합계, 길이 |해당 없음 |
+| preprocess.replaceMissing |누락된 데이터를 입력하는 데 사용되는 값 |lkv(마지막으로 알려진 값) |열거형 |0, lkv, 평균 |해당 없음 |
 | detectors.historywindow |이상 점수 계산에 사용된 내역(데이터 요소 수) |500 |integer |10-2000 |시계열에 종속 |
-| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |둘 다 |열거형 |Both, Spikes, Dips |둘 다 |
-| bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| postrenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
-| negtrenddetector.sensitivity |부정적인 추세 감지기에 대한 민감도 |3.25 |double |없음 |3.25-5(값이 낮을수록 높은 민감도) |
+| detectors.spikesdips | 급증만, 급락만 또는 둘 다 감지할지 여부 |모두 |열거형 |Both, Spikes, Dips |모두 |
+| bileveldetector.sensitivity |양방향 수준 변화 감지기에 대한 민감도. |3.25 |double |None |3.25-5(값이 낮을수록 높은 민감도) |
+| postrenddetector.sensitivity |긍정적인 추세 감지에 대한 민감도. |3.25 |double |None |3.25-5(값이 낮을수록 높은 민감도) |
+| negtrenddetector.sensitivity |부정적인 추세 감지기에 대한 민감도 |3.25 |double |None |3.25-5(값이 낮을수록 높은 민감도) |
 | tspikedetector.sensitivity |TSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
 | zspikedetector.sensitivity |ZSpike 감지기의 민감도 |3 |integer |1-10 |3-5(값이 낮을수록 높은 민감도) |
 | seasonality.enable |계절성 분석이 수행될지 여부 |true |boolean |true, false |시계열에 종속 |
 | seasonality.numSeasonality |감지할 정기적 주기의 최대 수 |1 |integer |1, 2 |1-2 |
-| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |N/A |
-| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |N/A |
+| seasonality.transform |이상 감지를 적용하기 전에 계절성 (및) 추세 구성 요소가 제거될지 여부 |deseason |열거형 |none, deseason, deseasontrend |해당 없음 |
+| postprocess.tailRows |출력 결과에 유지할 최신 데이터 요소의 수 |0 |integer |0(모든 데이터 요소 유지), 또는 결과에 유지할 데이터 요소의 수 지정 |해당 없음 |
 
 ### <a name="output"></a>출력
 API는 시계열 데이터에서 모든 감지기를 실행하고 각 시점에 대한 이진 급증 표시기와 이상 점수를 반환합니다. 아래 테이블은 API의 결과 목록입니다.
 
-| outputs | Description |
+| outputs | 설명 |
 | --- | --- |
 | 시간 |원시 데이터의 타임스탬프 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |
 | OriginalData |원시 데이터의 값 또는 집계 (및/또는) 누락 데이터 대체가 적용되는 경우 집계 (및/또는) 대체된 데이터 |

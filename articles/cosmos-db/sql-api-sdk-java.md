@@ -53,7 +53,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 * 최적화 된 파티션 키 범위 캐시 새로 고침입니다.
 * SDK가 서버에서 partition split 힌트를 즐거움 잘못 된 클라이언트 쪽 라우팅 캐시가 새로 고쳐지지 않는 시나리오를 수정 합니다.
 
-### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2
+### <a name="a-name242242"></a><a name="2.4.2"/>2.4.2 sections
 * 최적화 된 컬렉션 캐시 새로 고침입니다.
 
 ### <a name="a-name241241"></a><a name="2.4.1"/>2.4.1
@@ -127,7 +127,7 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 
 ### <a name="a-name11501150"></a><a name="1.15.0"/>1.15.0
 * JSON Serialization 성능이 향상되었습니다.
-* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator 에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
+* 이 SDK 버전은 https://aka.ms/cosmosdb-emulator에서 다운로드할 수 있는 최신 버전의 Azure Cosmos DB 에뮬레이터가 필요합니다.
 
 ### <a name="a-name11401140"></a><a name="1.14.0"/>1.14.0
 * Microsoft 친구 라이브러리에 대한 내부 변경입니다.

@@ -237,7 +237,7 @@ ESP Spark 클러스터에서 LLAP은 성능이 아닌 보안상의 이유로 (�
 다음 두 가지 방법으로이 작업을 수행할 수 있습니다. 1-클러스터를 만들 때 클러스터를 다시 만들고 추가 그룹을 추가할 수 있습니다. AAD에서 범위 동기화를 사용 하는 경우 그룹 B가 범위 지정 동기화에 포함 되어 있는지 확인 하세요.
 2-그룹을 ESP 클러스터를 만드는 데 사용 된 이전 그룹의 중첩 된 하위 그룹으로 추가 합니다. 예를 들어 그룹 `A`를 사용 하 여 ESP 클러스터를 만든 경우 나중에 그룹 `B`를 `A` 중첩 된 하위 그룹으로 추가 하 고 약 1 시간 후에는 클러스터에서 자동으로 동기화 되 고 사용할 수 있습니다. 
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 ### <a name="can-i-add-an-azure-data-lake-storage-gen2-to-an-existing-hdinsight-cluster-as-an-additional-storage-account"></a>기존 HDInsight 클러스터에 Azure Data Lake Storage Gen2 추가 저장소 계정으로 추가할 수 있나요?
 
@@ -249,7 +249,7 @@ Azure Portal의 클러스터 속성에서 **Data Lake Storage Gen1 액세스** �
  
 ### <a name="how-can-i-calculate-the-usage-of-storage-accounts-and-blob-containers-for-my-hdinsight-clusters"></a>HDInsight 클러스터에 대 한 저장소 계정 및 blob 컨테이너의 사용을 계산 하려면 어떻게 해야 하나요?
 
-다음 중 하나를 수행합니다.
+다음 작업 중 하나를 수행합니다.
 
 - [PowerShell 사용](../storage/scripts/storage-blobs-container-calculate-size-powershell.md)
 
@@ -345,7 +345,7 @@ http://<headnodehost>:8080/api/v1/clusters/<ClusterName>/services/YARN/component
 > [!NOTE]
 > 말아가 암호를 묻는 메시지를 표시 합니다. 클러스터 로그인 사용자 이름에 대해 올바른 암호를 입력 해야 합니다.
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 ### <a name="how-much-does-it-cost-to-deploy-an-hdinsight-cluster"></a>HDInsight 클러스터를 배포 하는 비용은 얼마 인가요?
 

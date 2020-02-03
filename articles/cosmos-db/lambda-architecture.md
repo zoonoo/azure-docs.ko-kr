@@ -179,7 +179,7 @@ val writeConfig = Config(writeConfigMap)
 
 ```
 
-`SaveMode`(문서에 대한 `Overwrite` 또는 `Append` 중 어떤 작업인지 여부를 나타냄)가 지정되면 이전 예제의 Spark SQL 쿼리와 비슷한 `tweets_bytags` 데이터 프레임을 만듭니다.  `tweets_bytags` 데이터 프레임이 만들어지면 이전에 지정한 `writeConfig`를 사용하는 `write` 메서드를 통해 이 데이터 프레임을 저장할 수 있습니다.
+`SaveMode`(문서에 대한 `Overwrite` 또는 `Append` 중 어떤 작업인지 여부를 나타냄)가 지정되면 이전 예제의 Spark SQL 쿼리와 비슷한 `tweets_bytags` 데이터 프레임을 만듭니다.  `tweets_bytags` 데이터 프레임이 만들어지면 이전에 지정한 `write`를 사용하는 `writeConfig` 메서드를 통해 이 데이터 프레임을 저장할 수 있습니다.
 
 ```
 // Import SaveMode so you can Overwrite, Append, ErrorIfExists, Ignore

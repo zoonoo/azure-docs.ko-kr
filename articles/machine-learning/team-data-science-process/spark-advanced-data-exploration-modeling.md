@@ -198,7 +198,7 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 이 코드와 후속 코드 조각은 샘플을 쿼리하는 데 SQL 매직을 사용하고 데이터를 그리는 데 로컬 매직을 사용합니다.
 
 * **SQL 매직(`%%sql`)** HDInsight PySpark 커널은 sqlContext에 대해 간편한 인라인 HiveQL 쿼리를 지원합니다. (-o VARIABLE_NAME) 인수는 Jupyter 서버에서 Pandas 데이터 프레임으로 SQL 쿼리의 출력을 유지합니다. 즉, 로컬 모드에서 사용할 수 있습니다.
-* **`%%local` 매직** 은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `%%sql -o` 매직을 사용하여 쿼리를 실행한 후에 `%%local`을 사용합니다. -o 매개 변수는 SQL 쿼리 출력을 로컬로 유지합니다. 그런 다음 `%%local` 매직은 로컬로 유지된 SQL 쿼리 출력에 대해 다음 코드 조각 집합이 로컬로 실행되도록 트리거합니다. 코드를 실행한 후 출력이 자동으로 시각화됩니다.
+* **`%%local` 매직** 은 HDInsight 클러스터의 헤드 노드인 Jupyter 서버에서 코드를 로컬로 실행하는 데 사용됩니다. 일반적으로 `%%local` 매직을 사용하여 쿼리를 실행한 후에 `%%sql -o`을 사용합니다. -o 매개 변수는 SQL 쿼리 출력을 로컬로 유지합니다. 그런 다음 `%%local` 매직은 로컬로 유지된 SQL 쿼리 출력에 대해 다음 코드 조각 집합이 로컬로 실행되도록 트리거합니다. 코드를 실행한 후 출력이 자동으로 시각화됩니다.
 
 이 쿼리는 승객 수에 따라 여정을 검색합니다. 
 
@@ -1453,7 +1453,7 @@ BoostedTreeClassificationFileLoc = modelDir + "GradientBoostingTreeClassificatio
 
 BoostedTreeRegressionFileLoc = modelDir + "GradientBoostingTreeRegression_2016-05-0316_52_18.827237"
 
-## <a name="whats-next"></a>다음은 무엇일까요?
+## <a name="whats-next"></a>다음 단계
 Spark MlLib로 회귀 및 분류 모델을 만든 경우 이러한 모델의점수를  매기고 평가하는 방법을 배울 수 있습니다.
 
 **모델 사용:** 이 토픽에서 만든 분류 및 회귀 모델의 점수를 매기고 평가하는 방법을 알아보려면 [Spark에서 만든 기계 학습 모델 점수 매기기 및 평가](spark-model-consumption.md)를 참조하세요.

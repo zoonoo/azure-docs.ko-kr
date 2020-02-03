@@ -13,7 +13,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76715114"
 ---
-# <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service에서 인증 및 권한 부여
+# <a name="authentication-and-authorization-in-azure-app-service"></a>Azure App Service의 인증 및 권한 부여
 
 > [!NOTE]
 > 지금은 AAD V2 (MSAL 포함)가 Azure 앱 서비스 및 Azure Functions에 대해 지원 되지 않습니다. 업데이트를 다시 확인 하세요.
@@ -31,7 +31,7 @@ Azure App Service는 내장된 인증 및 권한 부여 지원을 제공하므�
 
 기본 모바일 응용 프로그램과 관련된 자세한 내용은 [Azure App Service를 사용하여 모바일 응용 프로그램에 대한 사용자 인증 및 권한 부여](../app-service-mobile/app-service-mobile-auth.md)를 참조하세요.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 인증 및 권한 부여 모듈은 애플리케이션 코드와 동일한 샌드박스에서 실행됩니다. 이 기능이 활성화되면 애플리케이션 코드에 의해 처리되기 전에 들어오는 모든 HTTP 요청이 여기를 통과합니다.
 
@@ -101,7 +101,7 @@ App Service는 [페더레이션 ID](https://en.wikipedia.org/wiki/Federated_iden
 | 단계 | SDK 공급자가 없는 경우 | SDK 공급자가 있는 경우 |
 | - | - | - |
 | 1. 사용자 로그인 | 클라이언트를 `/.auth/login/<provider>`로 리디렉션합니다. | 클라이언트 코드는 공급자의 SDK를 사용하여 사용자를 직접 로그인시키고 인증 토큰을 받습니다. 자세한 내용은 공급자 설명서를 참조하세요. |
-| 2. 인증 후 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 검사를 위해 `/.auth/login/<provider>`에 [공급자의 토큰을 게시](app-service-authentication-how-to.md#validate-tokens-from-providers)합니다. |
+| 2. 인증 후 | 공급자가 클라이언트를 `/.auth/login/<provider>/callback`으로 리디렉션합니다. | 클라이언트 코드는 유효성 검사를 위해 [에 ](app-service-authentication-how-to.md#validate-tokens-from-providers)공급자의 토큰을 게시`/.auth/login/<provider>`합니다. |
 | 3. 인증 된 세션 설정 | App Service는 인증된 쿠키를 응답에 추가합니다. | App Service는 자체 인증 토큰을 클라이언트 코드로 반환합니다. |
 | 4. 인증 된 콘텐츠 제공 | 클라이언트는 후속 요청에 인증 쿠키를 포함합니다(브라우저에 의해 자동 처리됨). | 클라이언트 코드는 `X-ZUMO-AUTH` 헤더에 인증 토큰을 제공합니다(Mobile Apps 클라이언트 SDK에 의해 자동 처리됨). |
 

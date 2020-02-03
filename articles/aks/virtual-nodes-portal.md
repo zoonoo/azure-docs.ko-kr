@@ -44,7 +44,7 @@ Microsoft.ContainerInstance  Registered
 az provider register --namespace Microsoft.ContainerInstance
 ```
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 가상 노드 배포에 대해 지원 되는 지역은 다음과 같습니다.
 
@@ -73,7 +73,7 @@ az provider register --namespace Microsoft.ContainerInstance
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-https://portal.azure.com 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-an-aks-cluster"></a>AKS 클러스터 만들기
 
@@ -81,7 +81,7 @@ Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기** > **Kubernete
 
 **기본** 페이지에서 다음 옵션을 구성합니다.
 
-- *프로젝트 세부 정보*: Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. *myAKSCluster* 같은 **Kubernetes 클러스터 이름**을 입력합니다.
+- *프로젝트 세부 정보*: Azure 구독을 선택하고 *myResourceGroup* 같은 Azure 리소스 그룹을 선택하거나 만듭니다. **myAKSCluster** 같은 *Kubernetes 클러스터 이름*을 입력합니다.
 - *클러스터 세부 정보*: AKS 클러스터의 지역, Kubernetes 버전 및 DNS 이름 접두사를 선택합니다.
 - *주 노드 풀*: AKS 노드에 대 한 VM 크기를 선택 합니다. AKS 클러스터를 배포한 후에는 VM 크기를 변경할 수 **없습니다**.
      - 클러스터에 배포할 노드 수를 선택합니다. 이 문서에서는 **노드 수**를 *1*로 설정합니다. 클러스터를 배포한 후에 노드 수를 조정할 수 **있습니다**.
@@ -191,13 +191,13 @@ Pod에는 가상 노드에 사용하도록 위임된 Azure 가상 네트워크 �
 kubectl run -it --rm virtual-node-test --image=debian
 ```
 
-`apt-get`을 사용하여 Pod에 `curl`을 설치합니다.
+`curl`을 사용하여 Pod에 `apt-get`을 설치합니다.
 
 ```azurecli-interactive
 apt-get update && apt-get install -y curl
 ```
 
-이제 *http://10.241.0.4* 같은 `curl` 을 사용하여 Pod 주소에 액세스합니다. 앞의 `kubectl get pods` 명령에서 본 내부 IP 주소를 입력합니다.
+이제 `curl` *http://10.241.0.4 같은* 을 사용하여 Pod 주소에 액세스합니다. 앞의 `kubectl get pods` 명령에서 본 내부 IP 주소를 입력합니다.
 
 ```azurecli-interactive
 curl -L http://10.241.0.4

@@ -25,7 +25,7 @@ ms.locfileid: "76715779"
 
 ## <a name="azure-monitor-pricing-model"></a>Azure Monitor 가격 책정 모델
 
-기본 Azure Monitor 청구 모델은 클라우드 기반의 소비 기반 가격 ("종 량 제")입니다. 사용한 만큼만 요금을 지불합니다. 가격 정보는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 사용할 수 있습니다. 
+기본 Azure Monitor 청구 모델은 클라우드 기반의 소비 기반 가격 ("종 량 제")입니다. 사용한 양만큼만 요금을 지급합니다. 가격 정보는 [경고, 메트릭, 알림](https://azure.microsoft.com/pricing/details/monitor/), [Log Analytics](https://azure.microsoft.com/pricing/details/log-analytics/) 및 [Application Insights](https://azure.microsoft.com/pricing/details/application-insights/)에 사용할 수 있습니다. 
 
 로그 데이터에 대 한 종 량 제 모델 외에도 Log Analytics에는 용량 예약이 있으므로 종 량 제 가격에 비해 25%까지 절약할 수 있습니다. 용량 예약 가격 책정을 통해 100 g b/일에 시작 하는 예약을 구매할 수 있습니다. 예약 수준 위의 모든 사용량은 종 량 제 요금으로 청구 됩니다. 용량 예약 가격 책정에 [대해 자세히 알아보세요](https://azure.microsoft.com/pricing/details/monitor/) .
 

@@ -33,7 +33,7 @@ ms.locfileid: "76719877"
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
 
@@ -194,7 +194,7 @@ WITH RESULT SETS(([Col1] INT));
 |---|
 |1542|
 
-그 이유는 무엇입니까? 이 경우 두 인수가 동일한 길이의 벡터로 처리될 수 있기 때문에 R는 내부 곱을 행렬로 반환합니다.  이는 선형 대 수 규칙에 따라 예상 되는 동작입니다. 그러나 다운스트림 응용 프로그램에서 출력 스키마를 변경 하지 않을 것으로 예상 하는 경우 문제가 발생할 수 있습니다.
+그 이유는 이 경우 두 인수가 동일한 길이의 벡터로 처리될 수 있기 때문에 R는 내부 곱을 행렬로 반환합니다.  이는 선형 대 수 규칙에 따라 예상 되는 동작입니다. 그러나 다운스트림 응용 프로그램에서 출력 스키마를 변경 하지 않을 것으로 예상 하는 경우 문제가 발생할 수 있습니다.
 
 ## <a name="merge-or-multiply-columns-of-different-length"></a>다른 길이의 열 병합 또는 곱하기
 

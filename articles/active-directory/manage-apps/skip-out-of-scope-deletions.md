@@ -50,7 +50,7 @@ ms.locfileid: "76711679"
 
 ## <a name="step-3-get-existing-app-credentials-and-connectivity-details"></a>3 단계: 기존 앱 자격 증명 및 연결 정보 가져오기
 
-Microsoft Graph Explorer에서 [servicePrincipalId]를 [1단계](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)에서 추출된 **ServicePrincipalId**로 바꾸고 다음 GET 쿼리를 실행합니다.
+Microsoft Graph Explorer에서 [servicePrincipalId]를 **1단계**에서 추출된 [ServicePrincipalId](#step-1-retrieve-your-provisioning-app-service-principal-id-object-id)로 바꾸고 다음 GET 쿼리를 실행합니다.
 
 ```http
    GET https://graph.microsoft.com/beta/servicePrincipals/[servicePrincipalId]/synchronization/secrets

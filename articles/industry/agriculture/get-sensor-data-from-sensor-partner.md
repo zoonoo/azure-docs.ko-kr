@@ -40,7 +40,7 @@ Azure FarmBeats를 사용 하면 IoT 장치 및 센서의 스트리밍 데이터
 다음 단계를 수행 하 여 위의 정보를 생성할 수 있습니다. (이 단계는 Azure에서 수행 해야 하므로 FarmBeats가 배포 된 Azure 구독에 액세스 해야 합니다.)
 
 1. [Zip 파일](https://aka.ms/farmbeatspartnerscriptv2)을 다운로드 하 고 로컬 드라이브에 압축을 풉니다. Zip 파일 안에는 파일이 하나 있습니다.
-2. https://portal.azure.com/ 에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
+2. https://portal.azure.com/에 로그인 하 고 Azure Active Directory-> 앱 등록으로 이동 합니다.
 
 3. FarmBeats 배포의 일부로 만들어진 앱 등록을 클릭 합니다. FarmBeats 데이터 허브와 동일한 이름을 갖게 됩니다.
 

@@ -75,7 +75,7 @@ module.exports = async function (context) {
 
 비동기 함수를 내보낼 때는 `return` 값을 사용하도록 출력 바인딩을 구성할 수도 있습니다. 하나의 출력 바인딩이 있는 경우에 권장됩니다.
 
-`return`을 사용하여 출력을 할당하려면 `function.json`에서 `name` 속성을 `$return`으로 변경합니다.
+`return`을 사용하여 출력을 할당하려면 `name`에서 `$return` 속성을 `function.json`으로 변경합니다.
 
 ```json
 {
@@ -108,7 +108,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    module.exports = async function(context, myTrigger, myInput, myOtherInput) { ... };
    ```
    
- - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 *function.json*에서 정의된 `name` 속성으로 이름이 지정됩니다.
+ - **[`context.bindings`](#contextbindings-property) 개체의 모든 멤버입니다.** 각 멤버는 `name`function.json*에서 정의된*  속성으로 이름이 지정됩니다.
  
    ```javascript
    module.exports = async function(context) { 
@@ -129,7 +129,7 @@ JavaScript에서 [바인딩](functions-triggers-bindings.md)은 함수의 functi
    ```
 
 ### <a name="outputs"></a>outputs
-출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 *function.json*에 정의된 대로 바인딩의 `name` 속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
+출력(`direction === "out"`의 바인딩)은 다양한 방법으로 함수에서 작성될 수 있습니다. 모든 경우에 `name`function.json*에 정의된 대로 바인딩의*  속성은 함수에서 작성된 개체 멤버의 이름에 해당합니다. 
 
 다음 방법 중 하나로 출력 바인딩에 데이터를 할당할 수 있습니다 (이러한 메서드를 결합 하지 않음).
 
@@ -224,7 +224,7 @@ context.bindings.myOutput = {
         a_number: 1 };
 ```
 
-`context.binding` 개체 대신 `context.done` 메서드를 사용하여 출력 바인딩 데이터를 정의하도록 선택할 수 있습니다(아래 참조).
+`context.done` 개체 대신 `context.binding` 메서드를 사용하여 출력 바인딩 데이터를 정의하도록 선택할 수 있습니다(아래 참조).
 
 ### <a name="contextbindingdata-property"></a>context.bindingData property
 
@@ -265,7 +265,7 @@ context.log(message)
 기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 방법                 | Description                                |
+| 방법                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
@@ -342,7 +342,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | Description                                                    |
+| 속성      | 설명                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _headers_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -357,7 +357,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | Description                                               |
+| 속성  | 설명                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -368,7 +368,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 HTTP 트리거로 작업할 때 여러 가지 방법으로 HTTP 요청 및 응답 개체에 액세스할 수 있습니다.
 
-+ **`context` 개체의 `req` 및 `res` 속성에서.** 이러한 방식으로 전체 `context.bindings.name` 패턴을 사용하지 않고 대신 기존 패턴을 사용하여 context 개체에서 HTTP 데이터에 액세스할 수 있습니다. 다음 예제에서는 `context`의 `req` 및 `res` 개체에 액세스하는 방법을 보여 줍니다.
++ **`req` 개체의 `res` 및 `context` 속성에서.** 이러한 방식으로 전체 `context.bindings.name` 패턴을 사용하지 않고 대신 기존 패턴을 사용하여 context 개체에서 HTTP 데이터에 액세스할 수 있습니다. 다음 예제에서는 `req`의 `res` 및 `context` 개체에 액세스하는 방법을 보여 줍니다.
 
     ```javascript
     // You can access your HTTP request off the context ...
@@ -462,7 +462,7 @@ module.exports = function(context) {
 3. `D:\home\site\wwwroot`로 이동한 다음 package.json 파일을 페이지 위쪽의 **wwwroot** 폴더로 끌어갑니다.  
     다른 방법으로 함수 앱에 파일을 업로드할 수도 있습니다. 자세한 내용은 [함수 앱 파일을 업데이트하는 방법](functions-reference.md#fileupdate)을 참조하세요. 
 
-4. package.json 파일을 업로드한 후 **Kudu 원격 실행 콘솔**에서 `npm install` 명령을 실행합니다.  
+4. package.json 파일을 업로드한 후 `npm install`Kudu 원격 실행 콘솔**에서**  명령을 실행합니다.  
     이 작업은 package.json 파일에 표시된 패키지를 다운로드하고 함수 앱을 다시 시작합니다.
 
 ## <a name="environment-variables"></a>환경 변수
@@ -489,7 +489,7 @@ module.exports = async function (context, myTimer) {
 
 ### <a name="using-scriptfile"></a>`scriptFile` 사용
 
-기본적으로 JavaScript 함수는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유하는 `index.js` 파일에서 실행됩니다.
+기본적으로 JavaScript 함수는 해당하는 `index.js`과 동일한 부모 디렉터리를 공유하는 `function.json` 파일에서 실행됩니다.
 
 `scriptFile`은 다음 예제와 같은 폴더 구조를 가져오는 데 사용할 수 있습니다.
 
@@ -505,7 +505,7 @@ FunctionApp
  | - package.json
 ```
 
-`myNodeFunction`의 `function.json`에는 실행할 내보낸 함수가 있는 파일을 가리키는 `scriptFile` 속성이 포함되어야 합니다.
+`function.json`의 `myNodeFunction`에는 실행할 내보낸 함수가 있는 파일을 가리키는 `scriptFile` 속성이 포함되어야 합니다.
 
 ```json
 {
@@ -520,7 +520,7 @@ FunctionApp
 
 `scriptFile`(또는 `index.js`)에서 함수를 찾아서 실행하려면 `module.exports`를 사용하여 함수를 내보내야 합니다. 기본적으로 트리거되면 실행되는 함수는 해당 파일의 내보내기, `run`이라는 이름의 내보내기 또는 `index`라고 명명된 내보내기입니다.
 
-다음 예제와 같이 `function.json`에서 `entryPoint`를 사용하여 구성할 수 있습니다.
+다음 예제와 같이 `entryPoint`에서 `function.json`를 사용하여 구성할 수 있습니다.
 
 ```json
 {

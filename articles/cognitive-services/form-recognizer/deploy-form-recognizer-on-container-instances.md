@@ -28,7 +28,7 @@ Cognitive Services [양식 인식기](form-recognizer-container-howto.md) 컨테
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-在请求访问该容器之前，必须先填写并提交[认知服务表单识别器容器访问请求表单](https://aka.ms/FormRecognizerRequestAccess)。 这也会注册计算机视觉。 不需要单独注册计算机视觉请求表单。 
+컨테이너에 대 한 액세스를 요청 하려면 먼저 [Cognitive Services 양식 인식기 컨테이너 액세스 요청 폼](https://aka.ms/FormRecognizerRequestAccess) 을 완료 하 고 제출 해야 합니다. 이렇게 하면 Computer Vision에 등록 됩니다. Computer Vision 요청 양식에 별도로 등록할 필요가 없습니다. 
 
 [!INCLUDE [Request access](../../../includes/cognitive-services-containers-request-access-only.md)]
 

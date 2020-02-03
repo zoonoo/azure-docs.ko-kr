@@ -27,7 +27,7 @@ ms.locfileid: "76721781"
 
 이 작업은 [TDSP(팀 데이터 과학 프로세스)](https://docs.microsoft.com/azure/machine-learning/team-data-science-process/)의 단계입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)
@@ -130,11 +130,11 @@ Hive 테이블에 텍스트 필드가 있고 이 텍스트 필드에 공백으�
         and dropoff_latitude between 30 and 90
         limit 10;
 
-두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 함수 `toRad()`는 각도를 라디안으로 변환 하는 pi/180 *lat_or_lon*뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank">Wikipedia</a>에서 제공하는 정의를 사용하여 `atan` 함수가 `atan2` 함수를 구현합니다.
+두 GPS 좌표 사이의 거리를 계산하는 수학 방정식은 <a href="http://www.movable-type.co.uk/scripts/latlong.html" target="_blank">Movable Type Scripts</a> 사이트에서 찾을 수 있으며, 작성자는 Peter Lapisu입니다. 이 Javascript에서 함수 `toRad()`는 각도를 라디안으로 변환 하는 pi/180 *lat_or_lon*뿐입니다. 여기서 *lat_or_lon*은 위도 또는 경도입니다. Hive에서 `atan2` 함수를 제공하지 않고 `atan` 함수를 제공하므로 위의 Hive 쿼리에서는 `atan2`Wikipedia`atan`에서 제공하는 정의를 사용하여 <a href="https://en.wikipedia.org/wiki/Atan2" target="_blank"> 함수가 </a> 함수를 구현합니다.
 
 ![작업 영역 만들기](./media/create-features-hive/atan2new.png)
 
-Hive에 포함된 UDF 전체 목록은 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">Apache Hive wiki</a>의 **기본 제공 함수** 섹션에서 확인할 수 있습니다.  
+Hive에 포함된 UDF 전체 목록은 **Apache Hive wiki**의 <a href="https://cwiki.apache.org/confluence/display/Hive/LanguageManual+UDF#LanguageManualUDF-MathematicalFunctions" target="_blank">기본 제공 함수</a> 섹션에서 확인할 수 있습니다.  
 
 ## <a name="tuning"></a> 고급 항목: Hive 매개 변수를 조정하여 쿼리 속도 개선
 Hive 클러스터의 기본 매개 변수 설정이 Hive 쿼리 및 쿼리에서 처리하는 데이터에 적합하지 않을 수 있습니다. 이 섹션에서는 사용자가 조정하여 Hive 쿼리 성능을 개선할 수 있는 일부 매개 변수에 대해 설명합니다. 사용자는 매개 변수 조정 쿼리를 먼저 추가한 후 데이터 처리 쿼리를 추가해야 합니다.

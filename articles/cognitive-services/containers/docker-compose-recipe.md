@@ -25,7 +25,7 @@ ms.locfileid: "76716903"
 
 단일 호스트 컴퓨터에서 여러 컨테이너 이미지를 오케스트레이션 하는 것이 유용할 수 있습니다. 이 문서에서는 텍스트 인식 및 폼 인식기 컨테이너를 함께 가져옵니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 절차를 수행 하려면 로컬에 설치 하 고 실행 해야 하는 여러 도구가 필요 합니다.
 
@@ -162,7 +162,7 @@ ocr_1    | Application started. Press Ctrl+C to shut down.
 
 [!INCLUDE [Tip for using docker list](../../../includes/cognitive-services-containers-docker-list-tip.md)]
 
-다음은 몇 가지 예제 출력입니다.
+다음은 몇 가지 출력 예제입니다.
 
 ```
 IMAGE ID            REPOSITORY                                                                 TAG
@@ -172,13 +172,13 @@ IMAGE ID            REPOSITORY                                                  
 
 ### <a name="test-the-recognize-text-container"></a>텍스트 인식 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5021/swagger/index.html )를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
+호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5021/swagger/index.html)를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 텍스트 인식 끝점을 테스트할 수 있습니다.
 
 ![텍스트 인식 컨테이너](media/recognize-text-swagger-page.png)
 
 ### <a name="test-the-form-recognizer-container"></a>양식 인식기 컨테이너 테스트
 
-호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5010/swagger/index.html )를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
+호스트 컴퓨터에서 브라우저를 열고 docker에서 지정 된 포트 (예: http://localhost:5010/swagger/index.html)를 사용 하 여 **localhost** 로 이동 합니다. API에서 "사용해 보세요." 기능을 사용 하 여 폼 인식기 끝점을 테스트할 수 있습니다.
 
 ![양식 인식기 컨테이너](media/form-recognizer-swagger-page.png)
 

@@ -173,7 +173,7 @@ catch
 }
 ```
 
-#### <a name="throw"></a>반환할
+#### <a name="throw"></a>Throw
 
 [Throw](/powershell/module/microsoft.powershell.core/about/about_throw) 를 사용 하 여 종료 오류를 생성할 수 있습니다. 이는 runbook에서 고유한 논리를 정의 하는 경우에 유용할 수 있습니다. 스크립트를 중지 해야 하는 특정 조건이 충족 되는 경우 `throw`를 사용 하 여 스크립트를 중지할 수 있습니다. 다음 예에서는 `throw`를 사용 하는 데 필요한 함수 매개 변수를 보여 줍니다.
 
@@ -197,7 +197,7 @@ Azure 샌드박스에서 실행 되는 Runbook 작업은 장치나 응용 프로
 
 다음 표에서는 작업의 가능한 여러 상태를 설명합니다. PowerShell에는 두 가지 유형의 오류, 즉 종료되는 오류와 종료되지 않는 오류가 있습니다. 종료되는 오류는 발생하는 경우 Runbook 상태를 **실패**로 설정합니다. 종료되지 않는 오류를 사용하면 오류 발생 후에도 스크립트가 계속 진행될 수 있습니다. 종료되지 않는 오류의 예는 존재하지 않는 경로로 `Get-ChildItem` cmdlet을 사용하는 것입니다. PowerShell은 경로가 없다는 것을 확인하고 오류가 throw한 후 다음 폴더로 계속 진행됩니다. 이 오류는 Runbook 상태를 **실패**로 설정하지 않으며 **완료**로 표시될 수 있습니다. 종료되지 않는 오류에서 강제로 Runbook을 중지하려면 cmdlet에서 `-ErrorAction Stop`을 사용할 수 있습니다.
 
-| 상태 | Description |
+| 상태 | 설명 |
 |:--- |:--- |
 | Completed |작업이 완료되었습니다. |
 | 실패 |[그래픽 및 PowerShell 워크플로 Runbook](automation-runbook-types.md)의 경우 Runbook을 컴파일하지 못했습니다. [PowerShell 스크립트 Runbook](automation-runbook-types.md)의 경우 Runbook을 시작하지 못했거나 작업에서 예외가 발생했습니다. |

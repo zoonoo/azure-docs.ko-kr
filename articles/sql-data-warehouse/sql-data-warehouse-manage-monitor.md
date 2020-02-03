@@ -20,7 +20,7 @@ ms.locfileid: "76721152"
 # <a name="monitor-your-workload-using-dmvs"></a>DMV를 사용하여 작업 모니터링
 이 문서에서는 동적 관리 뷰(DMV)를 사용하여 워크로드를 모니터링하는 방법을 설명합니다. 포함 된 Azure SQL Data Warehouse에서 쿼리 실행을 조사 하 고 있습니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 이 문서의 DMV를 쿼리하려면 VIEW DATABASE STATE 또는 CONTROL 권한이 필요합니다. 일반적으로 VIEW DATABASE STATE 권한 부여를 선호합니다. 훨씬 제한적이기 때문입니다.
 
 ```sql
@@ -171,10 +171,10 @@ ORDER BY waits.object_name, waits.object_type, waits.state;
 쿼리가 적극적으로 다른 쿼리의 리소스를 대기 중인 경우 상태는 **AcquireResources**입니다.  쿼리가 필요한 리소스를 모두 가지고 있으면 상태는 **Granted**입니다.
 
 ## <a name="monitor-tempdb"></a>tempdb 모니터링
-Tempdb는 쿼리를 실행 하는 동안 중간 결과를 저장 하는 데 사용 됩니다. Tempdb 데이터베이스의 사용률이 높으면 쿼리 성능이 저하 될 수 있습니다. Azure SQL Data Warehouse의 각 노드에는 tempdb에 대 한 약 1TB의 원시 공간이 있습니다. 다음은 tempdb 사용을 모니터링 하 고 쿼리에서 tempdb 사용을 줄이는 데 유용한 팁입니다. 
+Tempdb는 쿼리를 실행하는 동안 중간 결과를 저장하는 데 사용됩니다. Tempdb 데이터베이스의 높은 사용률은 쿼리 성능을 저하시킬 수 있습니다. Azure SQL Data Warehouse의 각 노드는 약 1TB의 tempdb에 대한 원시 공간에 있습니다. 다음은 tempdb의 사용량 모니터링 및 쿼리에서의 tempdb 사용량 감소에 대한 팁입니다. 
 
-### <a name="monitoring-tempdb-with-views"></a>뷰를 사용 하 여 tempdb 모니터링
-Tempdb 사용 현황을 모니터링 하려면 먼저 [SQL Data Warehouse Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)에서 [vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 보기를 설치 합니다. 그러면 다음 쿼리를 실행 하 여 실행 된 모든 쿼리에 대 한 노드당 tempdb 사용량을 확인할 수 있습니다.
+### <a name="monitoring-tempdb-with-views"></a>뷰를 사용하여 tempdb 모니터링
+Tempdb 사용 현황을 모니터링 하려면 먼저 [SQL Data Warehouse Microsoft 도구 키트](https://github.com/Microsoft/sql-data-warehouse-samples/tree/master/solutions/monitoring)에서 [vw_sql_requests](https://github.com/Microsoft/sql-data-warehouse-samples/blob/master/solutions/monitoring/scripts/views/microsoft.vw_sql_requests.sql) 보기를 설치 합니다. 그런 다음 모든 실행된 쿼리에 대한 노드당 tempdb 사용량을 보려면 다음 쿼리를 실행할 수 있습니다.
 
 ```sql
 -- Monitor tempdb
@@ -206,9 +206,9 @@ WHERE DB_NAME(ssu.database_id) = 'tempdb'
 ORDER BY sr.request_id;
 ```
 
-많은 양의 메모리를 사용 하는 쿼리가 있거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 최종 데이터 이동 작업에서 실패 하는 [select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문으로 매우 큰 CREATE TABLE 때문일 수 있습니다. 이는 일반적으로 분산 쿼리 계획에서 최종 INSERT SELECT 바로 전에 ShuffleMove 작업으로 식별 될 수 있습니다.  ShuffleMove를 [dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 사용 하 여 작업을 모니터링할 수 있습니다. 
+많은 양의 메모리를 사용 하는 쿼리가 있거나 tempdb 할당과 관련 된 오류 메시지를 받은 경우 최종 데이터 이동 작업에서 실패 하는 [select (CTAS)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse) 또는 [INSERT select](https://docs.microsoft.com/sql/t-sql/statements/insert-transact-sql) 문으로 매우 큰 CREATE TABLE 때문일 수 있습니다. 이것은 일반적으로 최종 INSERT SELECT 직전 분산된 쿼리 계획 ShuffleMove 작업으로 식별할 수 있습니다.  ShuffleMove를 [dm_pdw_request_steps](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-request-steps-transact-sql) 사용 하 여 작업을 모니터링할 수 있습니다. 
 
-가장 일반적인 완화 방법은 CTAS 또는 INSERT SELECT 문을 여러 개의 load 문으로 분할 하는 것입니다. 따라서 데이터 볼륨은 노드 tempdb 제한 당 1TB를 초과 하지 않습니다. 또한 클러스터의 크기를 더 크게 조정 하 여 더 많은 노드 간에 tempdb 크기를 분산할 수 있습니다. 그러면 각 개별 노드에서 tempdb를 줄일 수 있습니다.
+가장 일반적인 완화 방법은 데이터 볼륨이 tempdb 노드 제한당 1TB를 초과하지 않도록 CTAS 또는 INSERT SELECT 문을 여러 load 문으로 분해하는 것입니다. 또한 각 개별 노드에서 tempdb를 줄여 더 많은 노드에 tempdb 크기를 분산하여 더 큰 크기로 클러스터를 확장할 수 있습니다.
 
 CTAS 및 INSERT SELECT 문 외에도 메모리 부족으로 실행 되는 복잡 한 쿼리는 tempdb로 분할 되어 쿼리가 실패할 수 있습니다.  Tempdb로 분산 하지 않도록 더 큰 [리소스 클래스](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management) 를 사용 하 여 실행 하는 것이 좋습니다.
 

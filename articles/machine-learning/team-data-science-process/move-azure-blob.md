@@ -49,7 +49,7 @@ ms.locfileid: "76717580"
 
 자세한 내용은 [Azure 데이터 팩터리 및 Azure Machine Learning을 사용하여 예측 파이프라인 만들기](../../data-factory/transform-data-using-machine-learning.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자에게 Azure 구독, 스토리지 계정 및 계정에 해당하는 스토리지 키가 있다고 가정합니다. 데이터를 업로드/다운로드 하기 전에 Azure Storage 계정 이름 및 계정 키를 알아야 합니다.
 
 * Azure 구독을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.

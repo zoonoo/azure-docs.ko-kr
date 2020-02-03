@@ -22,7 +22,7 @@ Azure managed disks에는 Azure ultra Ssd (미리 보기), 프리미엄 SSD, 표
 
  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 변환 하려면 VM (가상 컴퓨터)을 다시 시작 해야 하므로 기존 유지 관리 기간 동안에는 디스크 저장소의 마이그레이션을 예약 해야 합니다.
 * 디스크가 관리 되지 않는 경우 먼저 [관리 디스크로 변환](convert-unmanaged-to-managed-disks.md) 하 여 저장소 옵션 간을 전환할 수 있습니다.

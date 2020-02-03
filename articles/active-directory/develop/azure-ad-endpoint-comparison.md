@@ -186,7 +186,7 @@ Microsoft id 플랫폼에서 사용 하기 위해 앱을 등록 하는 방법을
 Microsoft id 플랫폼 끝점이 SAML 또는 WS-FEDERATION을 지원 하지 않습니다. Openid connect Connect 및 OAuth 2.0만 지원 합니다.  v1.0 엔드포인트에서 OAuth 2.0 프로토콜의 주목할 만한 변경 내용은 다음과 같습니다. 
 
 * `email` 클레임은 선택적 클레임이 구성되어 있는 경우 **또는** 요청에서 범위=메일로 지정된 경우 반환됩니다. 
-* 이제 `resource` 매개 변수 대신 `scope` 매개 변수가 지원됩니다.  
+* 이제 `scope` 매개 변수 대신 `resource` 매개 변수가 지원됩니다.  
 * OAuth 2.0 사양을 보다 잘 준수하도록 많은 응답이 수정되었습니다(예: `expires_in`을 string 대신 int로 올바르게 반환).  
 
 Microsoft id 플랫폼 끝점에서 지원 되는 프로토콜 기능의 범위를 더 잘 이해 하려면 [Openid connect Connect 및 OAuth 2.0 프로토콜 참조](active-directory-v2-protocols.md)를 참조 하세요.

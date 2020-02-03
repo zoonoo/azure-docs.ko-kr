@@ -28,7 +28,7 @@ ms.locfileid: "76721747"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 사용자가 다음 작업을 수행한 것으로 가정합니다.
 
 * Azure Storage 계정을 만들었습니다. 지침이 필요한 경우 [Azure Storage 계정 만들기](../../storage/common/storage-account-create.md)

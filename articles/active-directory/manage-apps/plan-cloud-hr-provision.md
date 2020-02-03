@@ -53,7 +53,7 @@ Azure AD 사용자 프로 비전과 클라우드 HR 앱 통합은 다음을 수�
 - 클라우드 HR 앱에서 검색 된 변경 정보만 기반으로 하나 이상의 Active Directory 포리스트, 도메인 및 Ou로 사용자를 동기화 할 수 있어야 합니다.
 - 전자 메일에 Office 365를 사용 합니다.
 
-## <a name="learn"></a>학습
+## <a name="learn"></a>배우기
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스를 위한 토대를 만듭니다. 이를 통해 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킬 수 있습니다.
 
@@ -80,7 +80,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 또한 클라우드 HR 앱에서 소스인 Active Directory 또는 Azure AD로 프로 비전 되는 모든 사용자에 대해 유효한 Azure AD Premium P1 이상의 구독 라이선스가 필요 합니다. 클라우드 HR 앱에서 소유 하 고 있는 라이선스 수가 잘못 된 경우 사용자 프로 비전 중에 오류가 발생할 수 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD 전역 관리자 액세스를 사용 하 여 Azure AD Connect 프로 비전 에이전트를 구성 합니다.
 - 클라우드 HR 앱의 테스트 및 프로덕션 인스턴스입니다.
@@ -92,7 +92,7 @@ HR 중심 IT 프로 비전의이 기능은 다음과 같은 중요 한 비즈니
 
 | **리소스** | **링크 및 설명** |
 |:-|:-|
-| 비디오 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
+| 동영상 | [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) |
 | | [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) |
 | 자습서 | [Azure AD와 SaaS 앱을 통합 하는 방법에 대 한 자습서 목록](../saas-apps/tutorial-list.md) |
 | | [자습서: 자동 사용자 프로 비전을 위한 Workday 구성](../saas-apps/workday-inbound-tutorial.md#frequently-asked-questions-faq) |
@@ -257,7 +257,7 @@ Joiners 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합�
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Id 수명 주기 관점에서 rehires을 어떻게 처리 하나요? 이전 직원 Id를 계속 고용 하나요? |
 | | 향후에는 고용를 처리 하 고 사전에 Active Directory 계정을 만들어야 하나요? 이러한 계정은 사용 또는 사용 안 함 상태로 생성 되나요? |
@@ -276,7 +276,7 @@ Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수
 
 Joiners-Leavers 프로세스를 시작 하는 경우 다음 요구 사항을 수집 합니다.
 
-| 프로세스 | 요구 사항 |
+| Process | 요구 사항 |
 | - | - |
 | **Joiners** | Active Directory 계정 생성 프로세스 수동, 자동화 또는 부분적으로 자동화 되었습니까? |
 | | 클라우드 HR 앱에서 Active Directory로 사용자 지정 특성을 전파할 계획 입니까? |

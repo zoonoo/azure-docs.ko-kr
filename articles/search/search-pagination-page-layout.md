@@ -53,7 +53,7 @@ Azure Cognitive Search에서는 `$count`, `$top`및 `$skip` 매개 변수를 사
 
     GET /indexes/online-catalog/docs?search=*&$top=15&$skip=30&$count=true
 
-## <a name="layout"></a>Layout
+## <a name="layout"></a>레이아웃
 
 검색 결과 페이지에서 축소판 이미지, 필드의 하위 집합 및 전체 제품 페이지에 대한 링크를 표시할 수 있습니다.
 
