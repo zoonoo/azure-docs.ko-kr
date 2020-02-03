@@ -33,7 +33,7 @@ Azure VM 이미지 작성기 (Azure 이미지 작성기)를 사용 하 여 Windo
 - VHD 형식으로 이미지 만들기
  
 
-## <a name="regions"></a>개 지역
+## <a name="regions"></a>영역
 이러한 지역에서 Azure 이미지 작성기 서비스를 미리 볼 수 있습니다. 이미지는 이러한 영역 외부에 배포할 수 있습니다.
 - 미국 동부
 - 미국 동부 2
@@ -60,7 +60,7 @@ AIB은 다음에 대 한 소스로 RHEL ISO의를 지원 합니다.
 
 RHEL 7.6 Iso은 지원 되지 않지만 테스트 되 고 있습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 
 ![Azure 이미지 작성기의 개념 그리기](./media/virtual-machines-image-builder-overview/image-builder.png)
@@ -79,7 +79,7 @@ Azure 이미지 작성기는 Azure 리소스 공급자가 액세스할 수 있�
 1. 이미지를 만드는 과정에서 이미지 작성기는 템플릿에 따라 이미지를 배포한 다음 해당 프로세스에 대해 만들어진 IT_\<DestinationResourceGroup > _\<TemplateName > 리소스 그룹의 추가 리소스를 삭제 합니다.
 
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 Azure VM 이미지 작성기에서 관리 되는 이미지 또는 공유 이미지 갤러리에 이미지를 배포 하도록 허용 하려면 "Azure 가상 컴퓨터 이미지 작성기" (앱 ID: cf32a0cc-373c-47c9-9156-0db11f6a6dfc)에 대 한 ' 참가자 ' 권한을 제공 해야 합니다. )를 설정 합니다. 
 

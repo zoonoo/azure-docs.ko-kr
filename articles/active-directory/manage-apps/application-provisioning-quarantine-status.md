@@ -33,7 +33,7 @@ Azure AD 프로 비전 서비스는 구성의 상태를 모니터링 하 고 비
 
 응용 프로그램이 격리 되어 있는지 여부를 확인 하는 방법에는 다음 세 가지가 있습니다.
   
-- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용 프로그램** * > &lt;* **프로 비전&gt;프로 비전** 을 탐색 하 고 맨 아래에 있는 진행률 표시줄로 스크롤합니다.  
+- Azure Portal에서 **Azure Active Directory** > **Enterprise 응용 프로그램** * > &lt;* **프로 비전&gt;프로 비전** 을 탐색 하 고 맨 아래에 있는 진행률 표시줄로 스크롤합니다. >   
 
   ![격리 상태를 보여 주는 프로 비전 상태 표시줄](media/application-provisioning-quarantine-status/progress-bar-quarantined.png)
 

@@ -78,13 +78,13 @@ TLS 1.2만 허용 하도록 구성 된 IoT Hub는 다음과 같은 권장 암호
 
 IoT Hub 클라이언트 Sdk에서 TLS 1.2 및 허용 되는 암호화를 구성 하려면 아래 링크를 사용 하세요.
 
-| 언어 | TLS 1.2 지원 됨 | 설명서 |
+| 언어 | TLS 1.2 지원 됨 | 문서화 |
 |----------|-------------------|---------------|
-| C        | 예               | [링크](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | 예               | [링크](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | 예               | [링크](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | 예               | [링크](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJs   | 예               | [링크](https://aka.ms/Tls_Node_SDK_IoT) |
+| C        | yes               | [링크](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | yes               | [링크](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | yes               | [링크](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | yes               | [링크](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | yes               | [링크](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>IoT Edge 설정에서 TLS 1.2 사용

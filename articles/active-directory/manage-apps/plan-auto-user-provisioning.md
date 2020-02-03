@@ -27,7 +27,7 @@ Azure Active Directory (Azure AD) 자동 사용자 프로 비전은 비즈니스
 
 기능을 더 잘 이해 하려면 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 사용자 프로 비전 및 프로 비전](user-provisioning.md) 해제를 참조 하세요.
 
-## <a name="learn"></a>학습
+## <a name="learn"></a>배우기
 
 사용자 프로 비전은 지속적인 id 거 버 넌 스에 대 한 토대를 만들고 신뢰할 수 있는 id 데이터를 사용 하는 비즈니스 프로세스의 품질을 향상 시킵니다.
 
@@ -69,10 +69,10 @@ Azure AD는 응용 프로그램 갤러리 메뉴에 제공 된 템플릿을 사�
 
 | 리소스| 링크 및 설명 |
 | - | - |
-| 웹 세미나 다시 보기| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
-| 비디오| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
+| 주문형 웹 세미나| [Azure AD를 사용 하 여 엔터프라이즈 응용 프로그램 관리](https://info.microsoft.com/CO-AZUREPLAT-WBNR-FY18-03Mar-06-ManageYourEnterpriseApplicationsOption1-MCW0004438_02OnDemandRegistration-ForminBody.html)<br>Azure AD를 사용 하 여 엔터프라이즈 SaaS 응용 프로그램에 대 한 SSO를 구현 하 고 액세스를 제어 하는 최선의 방법을 알아보세요. |
+| 동영상| [활성 Azure 디렉터리의 사용자 프로비저닝 이란?](https://youtu.be/_ZjARPpI6NI) <br> [활성 Azure 디렉터리에 사용자 프로 비전을 배포 하는 방법](https://youtu.be/pKzyts6kfrw) <br> [Salesforce를 Azure AD와 통합: 사용자 프로 비전을 자동화 하는 방법](https://azure.microsoft.com/resources/videos/integrating-salesforce-with-azure-ad-how-to-automate-user-provisioning/) |
 | 온라인 과정| SkillUp Online: [Id 관리](https://skillup.online/courses/course-v1:Microsoft+AZ-100.5+2018_T3/about) <br> Azure AD를 많은 SaaS 응용 프로그램과 통합 하 고 이러한 응용 프로그램에 대 한 사용자 액세스를 보호 하는 방법을 알아봅니다. |
-| 온라인 설명서| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
+| 서적| [웹 응용 프로그램에 대 한 Azure Active Directory 최신 인증 (개발자 참조) 첫 번째 버전](https://www.amazon.com/Authentication-Directory-Applications-Developer-Reference/dp/0735696942/ref=sr_1_fkmr0_1?keywords=Azure+multifactor+authentication&qid=1550168894&s=gateway&sr=8-1-fkmr0)입니다.  <br> 이러한 새 환경에 대 한 Active Directory 인증 솔루션을 구축 하기 위한 신뢰할 수 있는 심층 소개 가이드입니다. |
 | 자습서| [SaaS 앱을 AZURE AD와 통합 하는 방법에 대 한 자습서 목록을](../saas-apps/tutorial-list.md)참조 하세요. |
 | FAQ| 자동화 된 사용자 프로 비전에 대 한 질문과 [대답](user-provisioning.md) |
 

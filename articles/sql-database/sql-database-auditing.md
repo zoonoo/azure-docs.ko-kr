@@ -85,13 +85,13 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
     ![탐색 창][3]
 
-5. **새로 만들기** - 이제 감사 로그가 작성될 위치를 구성하기 위한 여러 가지 옵션이 있습니다. Azure storage 계정에 로그를 기록 하거나, Azure Monitor 로그에서 사용 하기 위해 Log Analytics 작업 영역에 기록 하거나, 이벤트 허브를 사용 하 여 이벤트 허브에 로그를 쓸 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
+5. **새로 만들기** - 이제 감사 로그가 작성될 위치를 구성하기 위한 여러 가지 옵션이 있습니다. Azure Storage 계정에, Azure Monitor 로그 사용에 대해 Log Analytics 작업 영역에 또는 이벤트 허브 사용에 대해 이벤트 허브에 로그를 작성할 수 있습니다. 이러한 옵션을 조합하여 구성할 수 있으며, 감사 로그는 각각에 대해 작성됩니다.
   
   > [!NOTE]
    >서버 또는 데이터베이스 수준 감사 이벤트에 대해 변경할 수 없는 로그 저장소를 구성 하려는 고객은 [Azure Storage에서 제공](https://docs.microsoft.com/azure/storage/blobs/storage-blob-immutability-policies-manage#enabling-allow-protected-append-blobs-writes) 하는 지침을 따라야 합니다.
   
   > [!WARNING]
-   > Log Analytics 감사를 사용 하도록 설정 하면 수집 요금에 따라 비용이 발생 합니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다.
+   > Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다.
 
     ![스토리지 옵션](./media/sql-database-auditing-get-started/auditing-select-destination.png)
 
@@ -101,7 +101,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    > - 보존 기간의 기본값은 0 (보존 기간 제한 없음)입니다. 감사를 위해 저장소 계정을 구성할 때 **저장소 설정** 에서 **보존 (일)** 슬라이더를 이동 하 여이 값을 변경할 수 있습니다.
    > - 보존 기간을 0 (무제한 보존)에서 다른 값으로 변경 하는 경우 보존 값이 변경 된 후에 기록 된 로그에만 보존이 적용 됩니다 (보존 기간을 제한 없음으로 설정한 기간 동안 기록 된 로그는 다음 이후에도 유지 됨). 보존이 사용 됨)
 
-    ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+    ![저장소 계정](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 7. Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log Analytics(미리 보기)** 를 선택하고 **Log Analytics 세부 정보**를 엽니다. 로그를 쓸 Log Analytics 작업 영역을 선택하거나 만든 다음, **확인**을 클릭합니다.
 
@@ -145,7 +145,7 @@ Azure Monitor 로그에 감사 로그를 기록 하도록 선택한 경우:
  
 
 - 또는 Log Analytics 블레이드에서 감사 로그에 액세스할 수도 있습니다. Log Analytics 작업 영역을 열고 **일반** 섹션 아래에서 **로그**를 클릭합니다. *"SQLSecurityAuditEvents" 검색*과 같은 간단한 쿼리를 시작하여 감사 로그를 볼 수 있습니다.
-    여기에서 [Azure Monitor 로그](../log-analytics/log-analytics-log-search.md) 를 사용 하 여 감사 로그 데이터에 대 한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합 된 검색 및 사용자 지정 대시보드를 사용 하 여 모든 워크 로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 수 있는 실시간 operational 정보를 제공 합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../log-analytics/log-analytics-log-search.md)를 참조 하세요.
+    여기에서 [Azure Monitor 로그](../log-analytics/log-analytics-log-search.md) 를 사용 하 여 감사 로그 데이터에 대 한 고급 검색을 실행할 수도 있습니다. Azure Monitor 로그는 통합된 검색 및 사용자 지정 대시보드를 사용하여 모든 워크로드 및 서버에서 수백만 개의 레코드를 쉽게 분석할 실시간 작업 통찰력을 제공합니다. Azure Monitor 로그 검색 언어 및 명령에 대 한 유용한 정보는 [Azure Monitor logs 검색 참조](../log-analytics/log-analytics-log-search.md)를 참조 하세요.
 
 이벤트 허브에 감사 로그를 작성하도록 선택한 경우:
 
@@ -166,7 +166,7 @@ Azure Storage 계정에 감사 로그를 작성하도록 선택한 경우 로그
     **감사 레코드**가 열리고, 여기서 로그를 볼 수 있습니다.
 
   - **감사 레코드** 페이지의 맨 위에서 **필터**를 클릭하여 특정 날짜를 볼 수 있습니다.
-  - **감사 원본**을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 *데이터베이스 감사 정책*에서 생성된 감사 레코드 간을 전환할 수 있습니다.
+  - *감사 원본*을 전환하여 *서버 감사 정책*에서 생성된 감사 레코드와 **데이터베이스 감사 정책**에서 생성된 감사 레코드 간을 전환할 수 있습니다.
   - **SQL 삽입 감사 레코드만 표시** 확인란을 선택하여 SQL 삽입 관련 감사 레코드만 볼 수 있습니다.
 
        ![탐색 창][8]
@@ -294,7 +294,7 @@ WHERE 절 지원을 사용하여 추가 필터링에 대해 확장된 정책입�
 - [감사가 설정된 Azure SQL Server를 배포하여 Event Hubs에 감사 로그 쓰기](https://github.com/Azure/azure-quickstart-templates/tree/master/201-sql-auditing-server-policy-to-eventhub)
 
 > [!NOTE]
-> 연결 된 샘플은 외부 공용 리포지토리에 있으며 보증 없이 ' 있는 그대로 ' 제공 되며 Microsoft 지원 프로그램/서비스에서 지원 되지 않습니다.
+> 연결된 샘플은 외부 공용 저장소에 있고 보증 없이 '있는 그대로' 제공되며 모든 Microsoft 지원 프로그램/서비스에서 지원되지 않습니다.
 
 <!--Anchors-->
 [Azure SQL Database Auditing overview]: #subheading-1

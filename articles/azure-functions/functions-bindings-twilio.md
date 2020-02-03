@@ -327,7 +327,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *function.json* 파일 및 `TwilioSms` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-| v1 function.json 속성 | v2 function.json 속성 | 특성 속성 |Description|
+| v1 function.json 속성 | v2 function.json 속성 | 특성 속성 |설명|
 |---------|---------|---------|----------------------|
 |**type**|**type**| `twilioSms`로 설정해야 합니다.|
 |**direction**|**direction**| `out`로 설정해야 합니다.|

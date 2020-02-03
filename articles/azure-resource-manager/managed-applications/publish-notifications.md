@@ -28,7 +28,7 @@ Azure 관리 되는 응용 프로그램 알림을 통해 게시자는 관리 되
 6. 이 문서의 **알림 스키마** 섹션에 설명 된 지침에 따라 알림 요청을 구문 분석 하 고 알림을 바탕으로 비즈니스 논리를 구현 합니다.
 
 ## <a name="add-service-catalog-application-definition-notifications"></a>서비스 카탈로그 응용 프로그램 정의 알림 추가
-#### <a name="azure-portal"></a>Azure Portal
+#### <a name="azure-portal"></a>Azure portal
 시작 하려면 [Azure Portal을 통해 서비스 카탈로그 응용 프로그램 게시](./publish-portal.md)를 참조 하세요.
 
 ![Azure Portal의 서비스 카탈로그 응용 프로그램 정의 알림](./media/publish-notifications/service-catalog-notifications.png)
@@ -74,7 +74,7 @@ PUT | 성공 | PUT 후에 관리 되는 응용 프로그램의 전체 프로 비
 PUT | 실패 | 어떤 지점에서 든 응용 프로그램 인스턴스 프로 비전의 실패.
 패치 | 성공 | 관리 되는 응용 프로그램 인스턴스에 성공적으로 패치 한 후 태그, JIT 액세스 정책 또는 관리 id를 업데이트 합니다.
 Delete | 삭제 중 | 사용자가 관리 되는 앱 인스턴스의 삭제를 시작 하는 즉시
-Delete | 삭제됨 | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
+Delete | Deleted | 관리 되는 응용 프로그램을 모두 삭제 하 고 성공적으로 삭제 한 후
 Delete | 실패 | 프로 비전 해제 프로세스 중에 삭제를 차단 하는 오류가 발생 한 후
 ## <a name="notification-schema"></a>알림 스키마
 알림을 처리 하기 위해 webhook 끝점을 실행 하는 경우 페이로드를 구문 분석 하 여 중요 한 속성을 가져온 다음 알림에 대 한 동작을 수행 해야 합니다. 서비스 카탈로그와 Azure Marketplace 관리 되는 응용 프로그램 알림은 동일한 속성을 많이 제공 합니다. 샘플 다음에 나오는 표에는 두 가지 작은 차이점이 설명 되어 있습니다.
@@ -176,7 +176,7 @@ POST https://{your_endpoint_URI}/resource?{optional_parameter}={optional_paramet
 
 ```
 
-매개 변수 | Description
+매개 변수 | 설명
 ---|---
 eventType | 알림을 트리거한 이벤트의 유형입니다. (예: PUT, PATCH, DELETE)
 applicationId | 알림이 트리거된 관리 되는 응용 프로그램의 정규화 된 리소스 식별자입니다.

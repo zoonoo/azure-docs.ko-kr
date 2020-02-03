@@ -602,7 +602,8 @@ ___
 제공 된 조건자 함수를 사용 하 여 배열을 정렬 합니다. Sort는 #item1 식 함수에서 두 개의 연속 된 요소에 대 한 참조를 예상 하 고 #item2 * ``sort([4, 8, 2, 3], compare(#item1, #item2)) -> [2, 3, 4, 8]``
 * ``sort(['a3', 'b2', 'c1'], iif(right(#item1, 1) >= right(#item2, 1), 1, -1)) -> ['c1', 'b2', 'a3']``
 ___
-### <code>soundex</code><br/><br/>
+### <code>soundex</code>
+<code><b>soundex(<i>&lt;value1&gt;</i> : string) => string</b></code><br/><br/>
 문자열 * ``soundex('genius') -> 'G520'``
 ___
 ### <code>split</code>의 soundex 코드를 가져옵니다 

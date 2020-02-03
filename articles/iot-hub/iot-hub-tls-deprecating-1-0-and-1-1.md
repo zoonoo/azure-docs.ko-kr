@@ -35,4 +35,4 @@ TLS 핸드셰이크 중에는 다음 암호화만 허용 됩니다.
 
 ## <a name="customer-feedback"></a>고객 의견
 
-TLS 1.2 적용이 업계 전반에서 최상의 암호화 선택이며 계획된 대로 구현될 예정이지만, Microsoft는 TLS 1.2를 채택하는 특정 배포 및 관련 어려움에 대해 고객의 의견을 듣고자 합니다. 이러한 목적을 위해 [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com)에 주석을 보낼 수 있습니다.
+TLS 1.2을 적용 하는 것은 업계 전체의 최고 수준의 암호화 선택 이며 계획 대로 사용 하도록 설정 되지만, microsoft는 특정 배포와 관련 하 여 TLS 1.2을 채택 하는 데 관련 된 문제에 대 한 고객의 의견을 듣고 싶습니다. 이러한 목적을 위해 [iot_tls1_deprecation@microsoft.com](mailto:iot_tls1_deprecation@microsoft.com)에 주석을 보낼 수 있습니다.

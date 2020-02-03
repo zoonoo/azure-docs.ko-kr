@@ -53,7 +53,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>가상 머신을 호스팅하는 서버가 작동 중인가?</li><li>호스트 OS 부팅이 완료되었는가?</li><li>가상 컴퓨터 컨테이너가 프로비전되고 전원이 공급되는가?</li><li>호스트와 스토리지 계정 간에 네트워크 연결이 되어 있는가?</li><li>게스트 OS의 부팅이 완료되었는가?</li><li>진행 중인 계획된 유지 관리가 있는가?</li></ul>|
 
-## <a name="microsoftdatafactoryfactories"></a>Datafactory/팩터리
+## <a name="microsoftdatafactoryfactories"></a>Microsoft.datafactory/factories
 |실행된 검사|
 |---|
 |<ul><li>파이프라인 실행 실패가 있나요?</li><li>Data Factory를 호스팅하는 클러스터가 정상 상태 인가요?</li></ul>|
@@ -104,12 +104,12 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>Azure Cosmos DB 서비스를 사용할 수 없어서 데이터베이스 또는 컬렉션 요청이 처리되지 않았는가?</li><li>Azure Cosmos DB 서비스를 사용할 수 없어서 문서 요청이 처리되지 않았는가?</li></ul>|
 
-## <a name="microsofteventhubnamespaces"></a>Microsoft eventhub/네임 스페이스
+## <a name="microsofteventhubnamespaces"></a>Microsoft.eventhub/namespaces
 |실행된 검사|
 |---|
 |<ul><li>사용자 생성 오류가 발생 한 Event Hubs 네임 스페이스 입니까?</li><li>현재 Event Hubs 네임 스페이스가 업그레이드 되 고 있나요?</li></ul>|
 
-## <a name="microsofthdinsightclusters"></a>Microsoft hdinsight/클러스터
+## <a name="microsofthdinsightclusters"></a>Microsoft.hdinsight/clusters
 |실행된 검사|
 |---|
 |<ul><li>HDInsight 클러스터에서 핵심 서비스를 사용할 수 있나요?</li><li>HDInsight 클러스터가 휴지 상태의 BYOK 암호화에 대 한 키에 액세스할 수 있나요?</li></ul>|
@@ -129,7 +129,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>미디어 서비스를 실행 하 고 있습니까?</li></ul>|
 
-## <a name="microsoftnetworkapplicationgateways"></a>Microsoft.network/applicationgateways
+## <a name="microsoftnetworkapplicationgateways"></a>Microsoft. network/applicationgateways
 |실행된 검사|
 |---|
 |<ul><li>Application Gateway 성능이 저하 됩니까?</li><li>Application Gateway 사용 가능 여부</li></ul>|
@@ -139,7 +139,7 @@ ms.locfileid: "76717077"
 |---|
 |<ul><li>VPN 터널이 연결되어 있는가?</li><li>연결에 구성 충돌이 있는가?</li><li>미리 공유한 키를 적절히 구성하였는가?</li><li>VPN 온-프레미스 디바이스에 연결할 수 있나요?</li><li>IPSec/IKE 보안 정책에 일치하지 않는 사항이 있는가?</li><li>S2S VPN 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li><li>VNET-VNET 연결이 적절히 프로비전되었는가 아니면 실패한 상태인가?</li></ul>|
 
-## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft.network/expressroutecircuits
+## <a name="microsoftnetworkexpressroutecircuits"></a>Microsoft. network/expressroutecircuits
 |실행된 검사|
 |---|
 |<ul><li>Express 경로 회로가 정상 입니까?</li></ul>|

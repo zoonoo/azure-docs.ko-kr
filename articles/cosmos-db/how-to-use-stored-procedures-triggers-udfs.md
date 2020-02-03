@@ -21,7 +21,7 @@ Azure Cosmos DB의 SQL API는 저장 프로시저, 트리거 및 JavaScript로 �
 
 저장 프로시저는 JavaScript를 사용하여 작성됩니다. Azure Cosmos 컨테이너 내에서 항목을 만들고, 업데이트하고, 읽고, 쿼리하고, 삭제할 수 있습니다. Azure Cosmos DB에서 저장 프로시저를 작성하는 방법에 대한 자세한 내용은 [Azure Cosmos DB에서 저장 프로시저를 작성하는 방법](how-to-write-stored-procedures-triggers-udfs.md#stored-procedures) 문서를 참조하세요.
 
-다음 예제에서는 Azure Cosmos DB SDK를 사용하여 저장 프로시저를 등록하고 호출하는 방법을 보여줍니다. 저장 프로시저에 대한 원본이 `spCreateToDoItem.js`로 저장되면 [문서 만들기](how-to-write-stored-procedures-triggers-udfs.md#create-an-item)를 참조하세요.
+다음 예제에서는 Azure Cosmos DB SDK를 사용하여 저장 프로시저를 등록하고 호출하는 방법을 보여줍니다. 저장 프로시저에 대한 원본이 [로 저장되면 ](how-to-write-stored-procedures-triggers-udfs.md#create-an-item)문서 만들기`spCreateToDoItem.js`를 참조하세요.
 
 > [!NOTE]
 > 분할된 컨테이너의 경우 저장 프로시저를 실행할 때 파티션 키 값은 요청 옵션에서 제공되어야 합니다. 저장 프로시저의 범위는 항상 파티션 키로 지정됩니다. 다른 파티션 키 값을 가진 항목은 저장 프로시저에 표시되지 않습니다. 이 트리거에도 적용되었습니다.
@@ -195,7 +195,7 @@ client.ExecuteStoredProcedure(sproc_link, new_item, {'partitionKey': 'Personal'}
 
 ## <a id="pre-triggers"></a>사전 트리거를 실행하는 방법
 
-다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사전 트리거를 등록하고 호출하는 방법을 보여줍니다. 이 사전 트리거의 원본이 `trgPreValidateToDoItemTimestamp.js`로 저장되면 [사전 트리거 예제](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers)를 참조하세요.
+다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사전 트리거를 등록하고 호출하는 방법을 보여줍니다. 이 사전 트리거의 원본이 [로 저장되면 ](how-to-write-stored-procedures-triggers-udfs.md#pre-triggers)사전 트리거 예제`trgPreValidateToDoItemTimestamp.js`를 참조하세요.
 
 실행하는 경우 사전 트리거가 `PreTriggerInclude`를 지정한 다음, 트리거의 이름을 목록 개체에 전달하여 RequestOptions 개체에 전달됩니다.
 
@@ -353,7 +353,7 @@ client.CreateItem(container_link, item, {
 
 ## <a id="post-triggers"></a>사후 트리거를 실행하는 방법
 
-다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사후 트리거를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 `trgPostUpdateMetadata.js`로 저장되면 [사후 트리거 예제](how-to-write-stored-procedures-triggers-udfs.md#post-triggers)를 참조하세요.
+다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사후 트리거를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 [로 저장되면 ](how-to-write-stored-procedures-triggers-udfs.md#post-triggers)사후 트리거 예제`trgPostUpdateMetadata.js`를 참조하세요.
 
 ### <a name="post-triggers---net-sdk-v2"></a>사후 트리거-.NET SDK V2
 
@@ -500,7 +500,7 @@ client.CreateItem(container_link, item, {
 
 ## <a id="udfs"></a>사용자 정의 함수로 작업하는 방법
 
-다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사용자 정의 함수를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 `udfTax.js`로 저장되면 [사용자 정의 함수 예제](how-to-write-stored-procedures-triggers-udfs.md#udfs)를 참조하세요.
+다음 예제에서는 Azure Cosmos DB SDK를 사용하여 사용자 정의 함수를 등록하는 방법을 보여줍니다. 이 사후 트리거의 원본이 [로 저장되면 ](how-to-write-stored-procedures-triggers-udfs.md#udfs)사용자 정의 함수 예제`udfTax.js`를 참조하세요.
 
 ### <a name="user-defined-functions---net-sdk-v2"></a>사용자 정의 함수-.NET SDK V2
 

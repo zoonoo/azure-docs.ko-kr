@@ -1,5 +1,5 @@
 ---
-title: 팀 데이터 과학 프로세스가 무엇인가요?
+title: Team Data Science Process란 무엇인가요?
 description: 예측 분석 솔루션 및 지능형 애플리케이션을 제공하는 데이터 과학 방법론을 제공합니다.
 services: machine-learning
 author: marktab
@@ -18,7 +18,7 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 01/24/2020
 ms.locfileid: "76721390"
 ---
-# <a name="what-is-the-team-data-science-process"></a>팀 데이터 과학 프로세스가 무엇인가요?
+# <a name="what-is-the-team-data-science-process"></a>Team Data Science Process란 무엇인가요?
 
 TDSP(Team Data Science Process)는 예측 분석 솔루션 및 지능형 애플리케이션을 효율적으로 제공하는 기민한 반복 데이터 과학 방법론입니다. TDSP는 팀 역할이 가장 잘 작동 하는 방법을 제안 하 여 팀 공동 작업 및 학습을 개선 하는 데 도움이 됩니다. TDSP에는 데이터 과학 이니셔티브를 성공적으로 구현 하는 데 도움이 되는 Microsoft 및 기타 업계 선두 업체의 모범 사례 및 구조가 포함 되어 있습니다. 목표는 회사가 해당 분석 프로그램의 이점을 완전히 이해하도록 돕는 것입니다.
 
@@ -63,13 +63,13 @@ TDSP에서 주기의 각 단계에 대한 목표, 작업 및 설명서 아티팩
 
 다음 다이어그램은 이러한 작업(세로 축)에 대한 수명 주기(가로 축)의 각 역할에 관련된 작업(파란색) 및 아티팩트(녹색)의 그리드 뷰를 제공합니다. 
 
-[![TDSP-roles-and-tasks](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
+[![TDSP-역할-및 작업](./media/overview/tdsp-tasks-by-roles.png)](./media/overview/tdsp-tasks-by-roles.png#lightbox)
 
 ## <a name="standardized-project-structure"></a>표준화된 프로젝트 구조
 
 모든 프로젝트가 디렉터리 구조를 공유하고 템플릿을 사용해서 프로젝트 문서를 만든다면 팀 멤버들이 프로젝트 정보를 쉽게 찾을 수 있습니다. 모든 코드와 문서는 팀 협업을 활성화하도록 Git, TFS 또는 Subversion과 같은 VCS(버전 제어 시스템)에 저장됩니다. Jira, Rally 및 Azure DevOps와 같은 기민한 프로젝트 추적 시스템의 추적 작업 및 기능을 통해 개별 기능에 대한 코드를 자세히 추적할 수 있습니다. 또한 이러한 추적을 통해 팀에서는 비용 평가에서도 더 나은 결과를 낼 수 있습니다. TDSP는 버전 관리, 정보 보안 및 협업을 위해 VCS에 각 프로젝트별로 따로 리포지토리를 만드는 것을 권장합니다. 모든 프로젝트에서 표준화된 구조를 가지면 조직 전체에 걸쳐 규격화된 지식을 구축하는 데 도움이 됩니다.
 
-TDSP에서는 폴더 구조와 표준 위치에 꼭 있어야 하는 파일들로 된 템플릿을 제공합니다. 이 폴더 구조는 데이터 탐색과 기능 추출을 위한 코드가 포함된 파일과 모델 반복을 기록한 파일들을 관리합니다. 이러한 템플릿을 사용하면 팀 멤버가 다른 사용자의 수행 작업을 이해하고 팀에 새 멤버를 추가하는 것이 더 쉬워집니다. 마크다운 형식으로 문서 템플릿을 보고 업데이트하는 것은 쉽습니다. 템플릿을 사용 하 여 각 프로젝트에 대 한 주요 질문에 대 한 검사 목록을 제공 하 여 문제가 잘 정의 되 고 결과물이 예상 품질을 충족 하는지 확인할 수 있습니다. 예를 들면 다음과 같습니다.
+TDSP에서는 폴더 구조와 표준 위치에 꼭 있어야 하는 파일들로 된 템플릿을 제공합니다. 이 폴더 구조는 데이터 탐색과 기능 추출을 위한 코드가 포함된 파일과 모델 반복을 기록한 파일들을 관리합니다. 이러한 템플릿을 사용하면 팀 멤버가 다른 사용자의 수행 작업을 이해하고 팀에 새 멤버를 추가하는 것이 더 쉬워집니다. 마크다운 형식으로 문서 템플릿을 보고 업데이트하는 것은 쉽습니다. 템플릿을 사용 하 여 각 프로젝트에 대 한 주요 질문에 대 한 검사 목록을 제공 하 여 문제가 잘 정의 되 고 결과물이 예상 품질을 충족 하는지 확인할 수 있습니다. 다음은 이러한 템플릿의 예입니다.
 
 - 비즈니스 문제 및 프로젝트의 범위를 문서화하는 프로젝트 헌장
 - 원시 데이터의 구조 및 통계를 문서화하는 데이터 보고서
@@ -86,7 +86,7 @@ TDSP에서는 폴더 구조와 표준 위치에 꼭 있어야 하는 파일들�
 TDSP는 공유 분석 및 스토리지 인프라를 관리하기 위해 다음의 사항을 추천합니다.
 
 - 데이터 세트를 저장하기 위한 클라우드 파일 시스템 
-- databases
+- 데이터베이스
 - 빅 데이터(Hadoop 또는 Spark) 클러스터 
 - 기계 학습 서비스 
 
@@ -94,7 +94,7 @@ TDSP는 공유 분석 및 스토리지 인프라를 관리하기 위해 다음�
 
 다음은 여러 프로젝트를 진행하면서 다양한 클라우드 분석 인프라 구성 요소를 공유하는 팀의 예입니다.
 
-[![TDSP-infrastructure](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
+[![TDSP-인프라](./media/overview/tdsp-analytics-infra.png)](./media/overview/tdsp-analytics-infra.png#lightbox) 
 
 
 ## <a name="tools-and-utilities-for-project-execution"></a>프로젝트 실행을 위한 도구 및 유틸리티

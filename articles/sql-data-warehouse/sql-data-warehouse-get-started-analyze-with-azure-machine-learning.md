@@ -34,7 +34,7 @@ ms.locfileid: "76721288"
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 단계별로 실행하려면 다음이 필요합니다.
 
 * AdventureWorksDW 샘플 데이터로 미리 로드된 SQL Data Warehouse. 프로비전하려면 [SQL Data Warehouse 만들기](create-data-warehouse-portal.md) 를 참조하고 샘플 데이터 로드를 선택합니다. 데이터 웨어하우스는 있지만 샘플 데이터가 없는 경우 [샘플 데이터를 수동으로 로드](sql-data-warehouse-load-sample-databases.md)할 수 있습니다.

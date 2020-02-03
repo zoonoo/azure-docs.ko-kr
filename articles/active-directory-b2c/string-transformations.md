@@ -34,7 +34,7 @@ ms.locfileid: "76712857"
 | InputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임의 형식입니다. |
 | InputParameter | stringComparison | 문자열 | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
 
-**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
+**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](validation-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](self-asserted-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "76712857"
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **inputClaim1**: someone@contoso.com
@@ -111,7 +111,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **email**: SomeOne@contoso.com
@@ -142,7 +142,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 매개 변수:
     - **value**: Contoso 서비스 약관...
@@ -157,7 +157,7 @@ ms.locfileid: "76712857"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | 문자열 | 비교할 첫 번째 클레임 형식입니다. |
 | InputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임 형식입니다. |
-| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| InputParameter | 연산자 | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | boolean | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -179,7 +179,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **inputClaim1**: someone@contoso.com
@@ -197,7 +197,7 @@ ms.locfileid: "76712857"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | 문자열 | 비교할 클레임의 형식입니다. |
-| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| InputParameter | 연산자 | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | compareTo | 문자열 | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | boolean | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
@@ -220,7 +220,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 - 입력 클레임:
     - **inputClaim1**: v1
 - 입력 매개 변수:
@@ -255,7 +255,7 @@ ms.locfileid: "76712857"
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 매개 변수:
     - **randomGeneratorType**: GUID
@@ -278,7 +278,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 매개 변수:
     - **randomGeneratorType**: INTEGER
@@ -315,7 +315,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
@@ -352,7 +352,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputClaim1**: Joe
@@ -398,7 +398,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **mapFromClaim**: B2C_V1_90001
@@ -435,7 +435,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputParameterId**: test.com
@@ -492,7 +492,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **emailAddress**: joe@outlook.com
@@ -534,7 +534,7 @@ ms.locfileid: "76712857"
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **inputClaim**: v1
@@ -580,7 +580,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
     - **claimToMatch**: Minor

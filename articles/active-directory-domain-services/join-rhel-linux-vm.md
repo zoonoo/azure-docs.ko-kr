@@ -24,7 +24,7 @@ ms.locfileid: "76712589"
 
 이 문서에서는 Azure AD DS 관리 되는 도메인에 Red Hat Enterprise Linux (RHEL) VM을 조인 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 

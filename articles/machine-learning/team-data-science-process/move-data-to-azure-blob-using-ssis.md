@@ -34,7 +34,7 @@ SSIS를 사용하여 하이브리드 데이터 통합 시나리오에서 일반�
 > 
 > 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에 설명 된 작업을 수행 하려면 Azure 구독 및 Azure Storage 계정이 설정 되어 있어야 합니다. 데이터를 업로드 하거나 다운로드 하려면 Azure Storage 계정 이름 및 계정 키가 필요 합니다.
 
 * **Azure 구독**을 설정하려면 [1개월 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -64,7 +64,7 @@ File Storage 시작하기
 
 작업에 사용되는 매개 변수는 다음과 같습니다.
 
-| 필드 | Description |
+| 필드 | 설명 |
 | --- | --- |
 | **AzureStorageConnection** |기존 Azure Storage 연결 관리자를 지정 하거나 blob 파일이 호스트 되는 위치를 가리키는 Azure Storage 계정을 참조 하는 연결 관리자를 새로 만듭니다. |
 | **BlobContainer** |업로드 된 파일을 blob으로 보유 하는 blob 컨테이너의 이름을 지정 합니다. |

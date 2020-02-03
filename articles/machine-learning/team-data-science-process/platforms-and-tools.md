@@ -26,7 +26,7 @@ TDSP를 사용 하는 데이터 과학 팀에서 사용할 수 있는 분석 리
 - 데이터 과학 Virtual Machine(Windows 및 Linux CentOS)
 - HDInsight Spark 클러스터
 - Synapse Analytics
-- Azure Data Lake
+- Azure 데이터 레이크
 - HDInsight Hive 클러스터
 - Azure File Storage
 - SQL Server 2019 R 및 Python 서비스
@@ -70,7 +70,7 @@ Azure SQL Data Warehouse를 사용하면 과도하게 프로비전하거나 요�
 Azure SQL Data Warehouse에 대한 자세한 내용은 [SQL Data Warehouse](https://azure.microsoft.com/services/sql-data-warehouse) 웹 사이트를 참조하세요. SQL Data Warehouse를 사용하여 엔드투엔드 고급 분석 솔루션을 빌드하는 방법은 [실행 중인 Team Data Science Process: SQL Data Warehouse 사용](sqldw-walkthrough.md)을 참조하세요.
 
 
-## <a name="azure-data-lake"></a>Azure Data Lake
+## <a name="azure-data-lake"></a>Azure 데이터 레이크
 
 Azure Data Lake는 공식적인 요구 사항 또는 스키마 적용에 앞서 단일 위치에 수집 된 모든 유형의 데이터에 대 한 엔터프라이즈 수준의 리포지토리입니다. 이러한 유연성을 통해 크기, 구조 또는 수집 속도에 관계 없이 모든 형식의 데이터를 데이터 레이크에 보관할 수 있습니다. 그런 다음 조직에서는 Hadoop 또는 고급 분석을 사용하여 이러한 데이터 레이크에서 패턴을 찾을 수 있습니다. 또한 데이터 레이크는 데이터를 큐레이팅하고 데이터 웨어하우스로 이동하기 전에 저렴한 비용으로 데이터를 준비하기 위한 리포지토리 역할을 수행할 수 있습니다.
 

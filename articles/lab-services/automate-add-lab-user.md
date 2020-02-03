@@ -24,7 +24,7 @@ Azure DevTest Labs를 사용 하면 Azure Portal를 사용 하 여 셀프 서비
 
 랩에 사용자를 추가 하려면 랩에 대 한 **DevTest Labs 사용자** 역할에 사용자를 추가 합니다. 이 문서에서는 다음 방법 중 하나를 사용 하 여 랩에 사용자를 자동으로 추가 하는 방법을 보여 줍니다.
 
-- Azure Resource Manager 템플릿
+- Azure 리소스 관리자 템플릿
 - Azure PowerShell cmdlet 
 - Azure CLI.
 

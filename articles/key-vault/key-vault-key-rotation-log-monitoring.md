@@ -36,7 +36,7 @@ Key Vault가 있으면 이를 사용하여 키 및 암호를 저장할 수 있�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="set-up-key-vault"></a>Key Vault 설정
+## <a name="set-up-key-vault"></a>주요 자격 증명 모음 설정
 
 애플리케이션을 통해 Azure Key Vault에서 비밀을 검색하려면 먼저 비밀을 만들어 Key Vault에 업로드해야 합니다.
 
@@ -189,7 +189,7 @@ Azure Automation 키 자격 증명 모음에서 비밀 값을 설정 하도록 �
 > [!NOTE]
 > 이 문서를 작성할 당시 위에 명시된 모듈만 다음 스크립트에 대해 업데이트되어야 합니다. 자동화 작업이 실패 하는 경우 필요한 모든 모듈과 해당 종속성을 가져왔는지 확인 합니다.
 
-Azure Automation 연결에 대 한 응용 프로그램 ID를 검색 한 후에는이 응용 프로그램에 자격 증명 모음에서 암호를 업데이트할 수 있는 권한이 있는지 key vault에 알려야 합니다. 다음 PowerShell 명령을 사용 합니다.
+Azure Automation 연결에 대 한 응용 프로그램 ID를 검색 한 후에는이 응용 프로그램에 자격 증명 모음에서 암호를 업데이트할 수 있는 권한이 있는지 key vault에 알려야 합니다. 다음과 같은 PowerShell 명령을 사용합니다.
 
 ```powershell
 Set-AzKeyVaultAccessPolicy -VaultName <vaultName> -ServicePrincipalName <applicationIDfromAzureAutomation> -PermissionsToSecrets Set

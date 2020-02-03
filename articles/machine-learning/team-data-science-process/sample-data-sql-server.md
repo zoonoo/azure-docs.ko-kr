@@ -22,7 +22,7 @@ ms.locfileid: "76717653"
 
 이 문서에서는 SQL 또는 Python 프로그래밍 언어를 사용하여 Azure의 SQL Server에 저장된 데이터를 샘플링하는 방법을 보여줍니다. 또한 샘플링된 데이터를 파일에 저장하고, Azure blob에 업로드한 다음, Azure Machine Learning Studio로 읽어 들여 Azure Machine Learning으로 이동하는 방법을 보여 줍니다.
 
-Python 샘플링은 Azure의 SQL Sever와 [Pandas](https://pandas.pydata.org/) 라이브러리에 연결하기 위해 [pyodbc](https://code.google.com/p/pyodbc/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
+Python 샘플링은 Azure의 SQL Sever와 [Pandas](https://code.google.com/p/pyodbc/) 라이브러리에 연결하기 위해 [pyodbc](https://pandas.pydata.org/) ODBC 라이브러리를 사용하여 샘플링을 수행합니다.
 
 > [!NOTE]
 > 이 문서의 샘플 SQL 코드에서는 데이터가 Azure의 SQL Server에 있는 것으로 가정합니다. 그렇지 않은 경우 Azure의 SQL Server로 데이터를 이동하는 방법에 대한 지침은 [Azure의 SQL Server로 데이터 이동](move-sql-server-virtual-machine.md) 문서를 참조하세요.

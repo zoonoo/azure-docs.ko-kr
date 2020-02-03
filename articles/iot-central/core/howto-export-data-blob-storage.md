@@ -27,7 +27,7 @@ ms.locfileid: "76721492"
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - IoT Central 애플리케이션에서 관리자여야 함
 
@@ -132,7 +132,7 @@ ms.locfileid: "76721492"
 연속 데이터 내보내기를 처음으로 켜면 모든 디바이스가 포함된 단일 스냅샷이 내보내집니다. 각 디바이스에는 다음 항목이 포함됩니다.
 - IoT Central의 디바이스 `id`
 - 디바이스의 `name`
-- [Device Provisioning Service](/azure/iot-central/core/howto-connect-nodejs)의 `deviceId`
+- `deviceId`Device Provisioning Service[의 ](/azure/iot-central/core/howto-connect-nodejs)
 - 디바이스 템플릿 정보
 - 속성 값
 - 설정 값

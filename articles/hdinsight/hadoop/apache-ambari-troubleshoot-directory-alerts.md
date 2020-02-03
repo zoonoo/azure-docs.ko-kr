@@ -31,7 +31,7 @@ Apache Ambari에서 다음과 유사한 오류가 표시 됩니다.
 
 영향을 받는 작업자 노드에 Ambari alert의 언급 된 디렉터리가 없습니다.
 
-## <a name="resolution"></a>해상도
+## <a name="resolution"></a>해결 방법
 
 영향을 받는 작업자 노드에 존재 하지 않는 디렉터리를 수동으로 만듭니다.
 

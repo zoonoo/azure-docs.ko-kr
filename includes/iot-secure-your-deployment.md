@@ -53,7 +53,7 @@ IoT Hub는 네트워크에서 토큰이 전송되는 것을 피하기 위해 보
 
 * AMQP: SASL PLAIN 및 AMQP 클레임 기반 보안(IoT 허브 수준 토큰의 경우 `{policyName}@sas.root.{iothubName}`, 디바이스 범위 토큰의 경우 `{deviceId}`)
 
-* MQTT: CONNECT 패킷은 **사용자 이름** 필드에서는 `{deviceId}`를 `{ClientId}`, `{IoThubhostname}/{deviceId}`로 사용하고, **암호** 필드에서는 SAS 토큰을 사용합니다.
+* MQTT: CONNECT 패킷은 `{deviceId}`사용자 이름`{ClientId}` 필드에서는 `{IoThubhostname}/{deviceId}`를 **,** 로 사용하고, **암호** 필드에서는 SAS 토큰을 사용합니다.
 
 * HTTP: 올바른 토큰은 권한 부여 요청 헤더에 있습니다.
 
@@ -91,7 +91,7 @@ Azure IoT Hub에서는 각 보안 키에 대해 [액세스 제어 정책](../art
 
 * **DeviceConnect**. 디바이스 지향 엔드포인트에 대한 액세스를 부여합니다. 예를 들어 디바이스-클라우드 메시지를 보내고 클라우드-디바이스 메시지를 받을 수 있는 권한을 클라우드에 부여합니다. 이 권한은 디바이스에서 사용됩니다.
 
-디바이스 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 [보안 토큰](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app)과 함께 IoT Hub에서 **DeviceConnect** 권한을 얻을 수 있습니다. 또한 디바이스에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
+디바이스 ID 키를 사용하거나 공유 액세스 키를 사용하는 등 두 가지 방법으로 **보안 토큰**과 함께 IoT Hub에서 [DeviceConnect](../articles/iot-hub/iot-hub-devguide-security.md#use-sas-tokens-in-a-device-app) 권한을 얻을 수 있습니다. 또한 디바이스에서 액세스할 수 있는 모든 기능이 `/devices/{deviceId}`접두사가 있는 엔드포인트에서 디자인 시 노출되는 것을 유념해야 합니다.
 
 [서비스 구성 요소는 적절한 권한을 부여하는 공유 액세스 정책을 사용하여 보안 토큰을 생성할 수 있습니다](../articles/iot-hub/iot-hub-devguide-security.md#use-security-tokens-from-service-components).
 

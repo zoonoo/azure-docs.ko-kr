@@ -30,7 +30,7 @@ ms.locfileid: "76720387"
 
 이 오류는 사용자 지정 DNS 구성의 문제를 가리킵니다. 가상 네트워크 내의 DNS 서버는 Azure의 재귀 확인자에 DNS 쿼리를 전달 하 여 해당 가상 네트워크 내에서 호스트 이름을 확인할 수 있습니다 (자세한 내용은 [가상 네트워크의 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md) 참조). Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다. 이 IP는 Azure Vm 에서만 액세스할 수 있습니다. 온-프레미스 DNS 서버를 사용 하는 경우 또는 DNS 서버가 클러스터의 가상 네트워크에 속하지 않는 Azure VM 인 경우에는 작동 하지 않습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 1. 클러스터의 일부인 VM으로 Ssh를 실행 하 고 명령 `hostname -f`를 실행 합니다. 그러면 호스트의 정규화 된 도메인 이름이 반환 됩니다 (아래 지침에서 `<host_fqdn>` 이라고 함).
 
@@ -56,7 +56,7 @@ ms.locfileid: "76720387"
 
 Azure Storage 및 SQL에 고정 IP 주소가 없으므로 이러한 서비스에 대 한 액세스를 허용 하려면 모든 Ip에 대 한 아웃 바운드 연결을 허용 해야 합니다. 정확한 해결 단계는 NSG (네트워크 보안 그룹) 또는 UDR (사용자 정의 규칙)을 설정 했는지 여부에 따라 달라 집니다. 이러한 구성에 대 한 자세한 내용은 [네트워크 보안 그룹 및 사용자 정의 경로를 사용 하 여 HDInsight로 네트워크 트래픽 제어](../hdinsight-plan-virtual-network-deployment.md#hdinsight-ip) 섹션을 참조 하세요.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 * 클러스터가 [NSG (네트워크 보안 그룹)](../../virtual-network/virtual-network-vnet-plan-design-arm.md)를 사용 하는 경우
 
@@ -85,7 +85,7 @@ ErrorDescription: Virtual Network configuration is not compatible with HDInsight
 
 사용자 지정 DNS 설정에 문제가 있을 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 168.63.129.16이 사용자 지정 DNS 체인에 있는지 확인 합니다. 가상 네트워크 내에서 DNS 서버는 해당 가상 네트워크 내에서 호스트 이름을 확인하기 위해 Azure의 재귀 확인자에게 DNS 쿼리를 전달할 수 있습니다. 자세한 내용은 [가상 네트워크에서 이름 확인](../../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md#name-resolution-that-uses-your-own-dns-server)을 참조 하세요. Azure의 재귀 확인자에 대한 액세스는 가상 IP 168.63.129.16을 통해 제공됩니다.
 
