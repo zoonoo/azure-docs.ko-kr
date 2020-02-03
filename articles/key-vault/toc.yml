@@ -118,6 +118,8 @@
       href: event-grid-logicapps.md
     - name: Azure Policy와 통합
       href: azure-policy.md
+    - name: Azure Private Link Service와 통합(미리 보기)
+      href: private-link-service.md
     - name: Azure Key Vault 로깅
       href: key-vault-logging.md
     - name: 방화벽 뒤에 액세스
@@ -188,7 +190,7 @@
       href: common-parameters-and-headers.md
     - name: 고객 데이터
       href: key-vault-customer-data.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/key-vault/'
     - name: 지역 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/?products=key-vault'

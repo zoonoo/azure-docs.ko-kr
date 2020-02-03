@@ -7,14 +7,14 @@ ms.service: virtual-machines
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 12/06/2019
+ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7ca98723511cc7297b462747d4e1e12ca9bd38c2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: fc9cebd24b67e2991e89384e93479beafa889a7a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979009"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964858"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>미리 보기: 유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -37,7 +37,7 @@ ms.locfileid: "75979009"
 
 - Vm은 [전용 호스트](./linux/dedicated-hosts.md)에 있거나 [격리 된 VM 크기](./linux/isolation.md)를 사용 하 여 만들어야 합니다.
 - 35 일 후 업데이트가 자동으로 적용 됩니다.
-- 사용자에 게는 **리소스 소유자** 액세스 권한이 있어야 합니다.
+- 사용자에 게 **리소스 참여자** 액세스 권한이 있어야 합니다.
 
 
 ## <a name="enable-the-powershell-module"></a>PowerShell 모듈 사용
@@ -131,7 +131,19 @@ New-AzConfigurationAssignment `
 
 [AzMaintenanceUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azmaintenanceupdate) 를 사용 하 여 보류 중인 업데이트가 있는지 확인 합니다. `-subscription`를 사용 하 여 로그인 한 VM과 다른 VM의 Azure 구독을 지정 합니다.
 
-업데이트가 없는 경우이 명령은 `Resource not found...StatusCode: 404`오류 메시지를 반환 합니다.
+표시할 업데이트가 없는 경우이 명령은 아무것도 반환 하지 않습니다. 그렇지 않으면 PSApplyUpdate 개체를 반환 합니다.
+
+```json
+{
+   "maintenanceScope": "Host",
+   "impactType": "Freeze",
+   "status": "Pending",
+   "impactDurationInSec": 9,
+   "notBefore": "2020-02-21T16:47:44.8728029Z",
+   "properties": {
+      "resourceId": "/subscriptions/39c6cced-4d6c-4dd5-af86-57499cd3f846/resourcegroups/Ignite2019/providers/Microsoft.Compute/virtualMachines/MCDemo3"
+} 
+```
 
 ### <a name="isolated-vm"></a>격리 된 VM
 
@@ -144,6 +156,7 @@ Get-AzMaintenanceUpdate `
   -ResourceType VirtualMachines `
   -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ### <a name="dedicated-host"></a>전용 호스트
 
@@ -158,6 +171,7 @@ Get-AzMaintenanceUpdate `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute | Format-Table
 ```
+
 
 ## <a name="apply-updates"></a>업데이트 적용
 
@@ -174,6 +188,8 @@ New-AzApplyUpdate `
    -ResourceType VirtualMachines `
    -ProviderName Microsoft.Compute
 ```
+
+성공 하면이 명령은 `PSApplyUpdate` 개체를 반환 합니다. `Get-AzApplyUpdate` 명령의 Name 특성을 사용 하 여 업데이트 상태를 확인할 수 있습니다. [업데이트 상태 확인](#check-update-status)을 참조 하세요.
 
 ### <a name="dedicated-host"></a>전용 호스트
 
@@ -192,7 +208,16 @@ New-AzApplyUpdate `
 ## <a name="check-update-status"></a>업데이트 상태 확인
 [AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/get-azapplyupdate) 를 사용 하 여 업데이트 상태를 확인 합니다. 아래에 표시 된 명령은 `-ApplyUpdateName` 매개 변수에 대 한 `default`를 사용 하 여 최신 업데이트의 상태를 보여 줍니다. 업데이트 이름 ( [AzApplyUpdate](https://docs.microsoft.com/powershell/module/az.maintenance/new-azapplyupdate) 명령에 의해 반환 됨)을 대체 하 여 특정 업데이트의 상태를 가져올 수 있습니다.
 
-표시할 업데이트가 없는 경우이 명령은 `Resource not found...StatusCode: 404`오류 메시지를 반환 합니다.
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
 
 ### <a name="isolated-vm"></a>격리 된 VM
 
@@ -219,7 +244,7 @@ Get-AzApplyUpdate `
    -ResourceParentName myHostGroup `
    -ResourceParentType hostGroups `
    -ProviderName Microsoft.Compute `
-   -ApplyUpdateName default
+   -ApplyUpdateName myUpdateName
 ```
 
 ## <a name="remove-a-maintenance-configuration"></a>유지 관리 구성 제거

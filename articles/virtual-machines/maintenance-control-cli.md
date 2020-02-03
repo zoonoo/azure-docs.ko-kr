@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 6172b5da60037051517a43b1b3b8b91b50ab2aac
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: e2eb77bfd000ecaa3bad5fd3c5792d1aa3a81964
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895897"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964875"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>미리 보기: 유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
@@ -31,13 +31,13 @@ ms.locfileid: "75895897"
 > [!IMPORTANT]
 > 유지 관리 제어는 현재 공개 미리 보기로 제공 됩니다.
 > 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-> 
+>
 
 ## <a name="limitations"></a>제한 사항
 
 - Vm은 [전용 호스트](./linux/dedicated-hosts.md)에 있거나 [격리 된 VM 크기](./linux/isolation.md)를 사용 하 여 만들어야 합니다.
 - 35 일 후 업데이트가 자동으로 적용 됩니다.
-- 사용자에 게는 **리소스 소유자** 액세스 권한이 있어야 합니다.
+- 사용자에 게 **리소스 참여자** 액세스 권한이 있어야 합니다.
 
 
 ## <a name="install-the-maintenance-extension"></a>유지 관리 확장 설치
@@ -151,6 +151,23 @@ az maintenance assignment list \
 
 `az maintenance update list`를 사용 하 여 보류 중인 업데이트가 있는지 확인 합니다. 업데이트--구독이 VM을 포함 하는 구독의 ID가 되도록 합니다.
 
+업데이트가 없는 경우이 명령은 `Resource not found...StatusCode: 404`텍스트를 포함 하는 오류 메시지를 반환 합니다.
+
+업데이트가 있는 경우 보류 중인 업데이트가 여러 개 있더라도 하나만 반환 됩니다. 이 업데이트에 대 한 데이터는 개체에서 반환 됩니다.
+
+```text
+[
+  {
+    "impactDurationInSec": 9,
+    "impactType": "Freeze",
+    "maintenanceScope": "Host",
+    "notBefore": "2020-03-03T07:23:04.905538+00:00",
+    "resourceId": "/subscriptions/9120c5ff-e78e-4bd0-b29f-75c19cadd078/resourcegroups/DemoRG/providers/Microsoft.Compute/hostGroups/demoHostGroup/hosts/myHost",
+    "status": "Pending"
+  }
+]
+  ```
+
 ### <a name="isolated-vm"></a>격리 된 VM
 
 격리 된 VM에 대 한 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다.
@@ -166,7 +183,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트의 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
+전용 호스트 (ADH)에 대해 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az maintenance update list \
@@ -182,7 +199,7 @@ az maintenance update list \
 
 ## <a name="apply-updates"></a>업데이트 적용
 
-`az maintenance apply update`를 사용 하 여 보류 중인 업데이트를 적용 합니다.
+`az maintenance apply update`를 사용 하 여 보류 중인 업데이트를 적용 합니다. 성공할 경우이 명령은 업데이트의 세부 정보를 포함 하는 JSON을 반환 합니다.
 
 ### <a name="isolated-vm"></a>격리 된 VM
 
@@ -191,7 +208,7 @@ az maintenance update list \
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myMaintenanceRG\
+   --resource-group myMaintenanceRG \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute
@@ -205,7 +222,7 @@ az maintenance applyupdate create \
 ```azurecli-interactive
 az maintenance applyupdate create \
    --subscription 1111abcd-1a11-1a2b-1a12-123456789abc \
-   -g myHostResourceGroup \
+   --resource-group myHostResourceGroup \
    --resource-name myHost \
    --resource-type hosts \
    --provider-name Microsoft.Compute \
@@ -217,9 +234,9 @@ az maintenance applyupdate create \
 
 `az maintenance applyupdate get`를 사용 하 여 업데이트의 진행률을 확인할 수 있습니다. 
 
-### <a name="isolated-vm"></a>격리 된 VM
+`default`를 업데이트 이름으로 사용 하 여 마지막 업데이트에 대 한 결과를 확인 하거나 `myUpdateName` `az maintenance applyupdate create`를 실행할 때 반환 된 업데이트 이름으로 바꿀 수 있습니다.
 
-`myUpdateName`을 `az maintenance applyupdate create`를 실행할 때 반환 된 업데이트 이름으로 바꿉니다.
+### <a name="isolated-vm"></a>격리 된 VM
 
 ```azurecli-interactive
 az maintenance applyupdate get \
@@ -227,7 +244,7 @@ az maintenance applyupdate get \
    --resource-name myVM \
    --resource-type virtualMachines \
    --provider-name Microsoft.Compute \
-   --apply-update-name myUpdateName 
+   --apply-update-name default 
 ```
 
 ### <a name="dedicated-host"></a>전용 호스트
@@ -241,7 +258,7 @@ az maintenance applyupdate get \
    --provider-name Microsoft.Compute \
    --resource-parent-name myHostGroup \ 
    --resource-parent-type hostGroups \
-   --apply-update-name default \
+   --apply-update-name myUpdateName \
    --query "{LastUpdate:lastUpdateTime, Name:name, ResourceGroup:resourceGroup, Status:status}" \
    --output table
 ```

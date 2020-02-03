@@ -8,12 +8,12 @@ ms.date: 05/20/2019
 author: rboucher
 ms.author: robb
 ms.subservice: metrics
-ms.openlocfilehash: 5d38786d3c7b852d3a9b65cd366eed68ebbb01e3
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: dcf5276393400be864e738d89bc5713f5aac242b
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152955"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963481"
 ---
 # <a name="azure-monitor-platform-metrics-exportable-via-diagnostic-settings"></a>진단 설정을 통해 내보낼 수 있는 Azure Monitor 플랫폼 메트릭
 
@@ -24,6 +24,19 @@ Azure Monitor는 기본적으로 구성 없이 [플랫폼 메트릭을](data-pla
 2. 메트릭 사용 [REST API](https://docs.microsoft.com/rest/api/monitor/metrics/list)
 
 Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 모든 메트릭이 진단 설정을 사용 하 여 내보낼 수 있는 것은 아닙니다. 아래 표는 진단 설정을 사용 하 여 내보낼 수 있으며 내보낼 수 없는 목록입니다.
+
+테이블에는 다음 열이 포함 되어 있습니다. 
+- 진단 설정을 통해 내보낼 수 있나요? 
+- ResourceType 
+- 메트릭 
+- MetricDisplayName
+- 단위 
+- AggregationType
+
+
+> [!NOTE]
+> 아래 표에는 아래쪽에 가로 스크롤 막대가 있을 수 있습니다. 누락 된 정보가 있다고 생각 되는 경우 스크롤 막대가 왼쪽에 표시 되는지 확인 합니다.  
+
 
 진단 설정을 통해 내보낼 수 있나요? | ResourceType | 메트릭 | MetricDisplayName | 단위 | AggregationType
 |----|-----|------|----|----|-----|
@@ -751,7 +764,7 @@ Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 모든 메트릭�
 아닙니다. | Microsoft.DocumentDB/databaseAccounts | ServiceAvailability | 서비스 가용성 | 백분율 | 평균
 예 | Microsoft.DocumentDB/databaseAccounts | TotalRequests | 총 요청 수 | 카운트 | 카운트
 예 | Microsoft.DocumentDB/databaseAccounts | TotalRequestUnits | 총 요청 단위 | 카운트 | 합계
-아닙니다. | EnterpriseKnowledgeGraph/서비스 | FailureCount | 실패한 수 | 카운트 | 카운트
+아닙니다. | EnterpriseKnowledgeGraph/서비스 | FailureCount | 실패 수 | 카운트 | 카운트
 아닙니다. | EnterpriseKnowledgeGraph/서비스 | SuccessCount | 성공 수 | 카운트 | 카운트
 아닙니다. | EnterpriseKnowledgeGraph/서비스 | SuccessLatency | 성공 대기 시간 | 밀리초 | 평균
 아닙니다. | EnterpriseKnowledgeGraph/서비스 | TransactionCount | 트랜잭션 수 | 카운트 | 카운트
@@ -1395,7 +1408,7 @@ Azure Monitor 백 엔드에서 복잡 하지 않기 때문에 모든 메트릭�
 예 | Microsoft.Sql/servers/elasticPools | log_write_percent | 로그 IO 비율 | 백분율 | 평균
 예 | Microsoft.Sql/servers/elasticPools | physical_data_read_percent | 데이터 IO 비율 | 백분율 | 평균
 예 | Microsoft.Sql/servers/elasticPools | sessions_percent | 세션 백분율 | 백분율 | 평균
-예 | Microsoft.Sql/servers/elasticPools | storage_limit | 데이터의 최대 크기 | 바이트 | 평균
+예 | Microsoft.Sql/servers/elasticPools | storage_limit | 데이터 최대 크기 | 바이트 | 평균
 예 | Microsoft.Sql/servers/elasticPools | storage_percent | 사용 되는 데이터 공간 (%) | 백분율 | 평균
 예 | Microsoft.Sql/servers/elasticPools | storage_used | 사용 되는 데이터 공간 | 바이트 | 평균
 예 | Microsoft.Sql/servers/elasticPools | tempdb_data_size | Tempdb 데이터 파일 크기 (Kb) | 카운트 | 최대

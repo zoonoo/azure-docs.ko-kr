@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/03/2019
+ms.date: 1/30/2020
 ms.author: mlottner
-ms.openlocfilehash: 4d91eecc6168ae195fecdf788f091fd70b785f05
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.openlocfilehash: 8bbbd8248c7418b667e34389cb47bd3f6b4f06ab
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937124"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963821"
 ---
 # <a name="send-security-messages-sdk"></a>보안 메시지 보내기 SDK
 
@@ -46,7 +46,7 @@ IoT에 대 한 Azure Security Center는 다음 조건을 사용 하 여 보안 �
 - 메시지가 [보안 메시지 스키마](https://aka.ms/iot-security-schemas) 를 준수 하는 경우
 - 메시지를 보내기 전에 보안 메시지로 설정 된 경우
 
-각 보안 메시지에는 `AgentId` `MessageSchemaVersion` , `AgentVersion`및 보안 이벤트 목록과 같은 보낸 사람의 메타 데이터가 포함 됩니다.
+각 보안 메시지에는 `AgentId`, `AgentVersion`, `MessageSchemaVersion`, 보안 이벤트 목록과 같은 보낸 사람의 메타 데이터가 포함 됩니다.
 스키마는 이벤트 유형을 포함 하 여 보안 메시지의 유효한 속성 및 필수 속성을 정의 합니다.
 
 >[!Note]
@@ -192,14 +192,21 @@ function SendSecurityMessage(messageContent)
 
 #### <a name="python-api"></a>Python API
 
+Python API를 사용 하려면 [azure-iot-장치](https://pypi.org/project/azure-iot-device/)패키지를 설치 해야 합니다.
+
+Python API를 사용 하는 경우 고유한 장치 또는 모듈 연결 문자열을 사용 하 여 모듈 또는 장치를 통해 보안 메시지를 보낼 수 있습니다. 다음 Python 스크립트 예제를 사용 하는 경우 장치에서 **IoTHubDeviceClient**을 사용 하 고, 모듈에 **IoTHubModuleClient**을 사용 합니다. 
+
 ```python
+from azure.iot.device.aio import IoTHubDeviceClient, IoTHubModuleClient
+from azure.iot.device import Message
+
 async def send_security_message_async(message_content):
     conn_str = os.getenv("<connection_string>")
     device_client = IoTHubDeviceClient.create_from_connection_string(conn_str)
     await device_client.connect()
     security_message = Message(message_content)
     security_message.set_as_security_message()
-    await device_client.send_d2c_message(security_message)
+    await device_client.send_message(security_message)
     await device_client.disconnect()
 ```
 

@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 59c350b267583a2bccfdd66996aa6c1f97954218
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7e533d5826d429a716ad1592d75159782ed43fa7
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845422"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964019"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -79,6 +79,8 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
     ![Visual Studio Code에서 HTTP 트리거 함수 템플릿](./media/functions-develop-vs-code/new-function-full.png)
 
+### <a name="generated-project-files"></a>생성 된 프로젝트 파일
+
 프로젝트 템플릿은 선택한 언어로 프로젝트를 만들고 필요한 종속성을 설치 합니다. 모든 언어에 대해 새 프로젝트에는 다음 파일이 있습니다.
 
 * **host.json**: 함수 호스트를 구성할 수 있습니다. 이러한 설정은 로컬에서 함수를 실행 하는 경우와 Azure에서 함수를 실행 하는 경우에 적용 됩니다. 자세한 내용은 [host.json 참조](functions-host-json.md)를 참조하세요.
@@ -87,6 +89,30 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
     >[!IMPORTANT]
     >로컬. 설정 json 파일은 암호를 포함할 수 있기 때문에 프로젝트 소스 제어에서 제외 해야 합니다.
+
+언어에 따라 다음과 같은 다른 파일이 생성 됩니다.
+
+# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+
+* 함수를 구현 하는 [HttpExample.cs 클래스 라이브러리 파일](functions-dotnet-class-library.md#functions-class-library-project) 입니다.
+
+# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+
+* 루트 폴더의 package. json 파일
+
+* 함수 코드를 포함 하는 node.js 파일, [함수 json 정의 파일](functions-reference-node.md#folder-structure) 및 [node.js 파일이](functions-reference-node.md#exporting-a-function)포함 된 httpexample 폴더입니다.
+
+<!-- # [PowerShell](#tab/powershell)
+
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the run.ps1 file, which contains the function code.
+ 
+# [Python](#tab/python)
+    
+* A project-level requirements.txt file that lists packages required by Functions.
+    
+* An HttpExample folder that contains the [function.json definition file](functions-reference-python.md#programming-model) and the \_\_init\_\_.py file, which contains the function code.
+     -->
+---
 
 이 시점에서 [함수 json 파일을 수정](#add-a-function-to-your-project) 하거나 [ C# 클래스 라이브러리 함수에 매개 변수를 추가](#add-a-function-to-your-project)하 여 입력 및 출력 바인딩을 함수에 추가할 수 있습니다.
 

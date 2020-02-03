@@ -888,13 +888,19 @@
             - name: 외부 액세스 추적
               href: /azure/databricks/applications/mlflow/access-hosted-tracking-server
               maintainContext: true
+        - name: MLflow 검색 API를 사용하여 대시보드 빌드
+          href: /azure/databricks/applications/mlflow/build-dashboards
+          maintainContext: true
         - name: '모델 저장, 로드 및 배포'
           items:
             - name: '저장, 로드 및 배포 개요'
               href: /azure/databricks/applications/mlflow/models
               maintainContext: true
             - name: MLflow 모델 예제
-              href: /azure/databricks/applications/mlflow/  model-examples
+              href: /azure/databricks/applications/mlflow/model-example
+              maintainContext: true
+            - name: Azure에서 scikit 학습 모델 배포
+              href: /azure/databricks/applications/mlflow/scikit-learn-model-deployment-on-azure-ml
               maintainContext: true
         - name: MLflow 프로젝트를 사용하여 실행 재현
           href: /azure/databricks/applications/mlflow/projects
@@ -1411,7 +1417,7 @@
               maintainContext: true
         - name: Python
           items:
-            - name: Anaconda를 사용하여 클러스터 만들기
+            - name: Conda를 사용하여 클러스터 만들기
               href: /azure/databricks/kb/python/anaconda-environment
               maintainContext: true
             - name: Cython 설치 및 컴파일
@@ -1465,6 +1471,9 @@
           items:
             - name: Scala에서 C++ 코드 실행
               href: /azure/databricks/kb/scala/running-c-plus-plus-code-scala
+              maintainContext: true
+            - name: 동시 Spark JAR 작업이 실패함
+              href: /azure/databricks/kb/scala/spark-jar-job-error
               maintainContext: true
         - name: SQL
           items:

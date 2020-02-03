@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/16/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 4cef4e09038288e4609f37c4e33f225bd79113be
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 93f645c41780d5ad5a342a04fc909d5c253fdaf3
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76166645"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964728"
 ---
 ## <a name="mfa"></a>MFA 페이지 열기
 
@@ -29,10 +29,3 @@ ms.locfileid: "76166645"
 2. **사용**을 선택합니다.
 
    ![선택](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/mfa2.jpg)
-
-## <a name="enableauth"></a>인증 사용
-
-1. **Azure Active Directory-> Enterprise 응용 프로그램-모든 응용 프로그램 >** 으로 이동 합니다.
-2. **엔터프라이즈 응용 프로그램-모든 응용 프로그램** 페이지에서 **Azure VPN**을 선택 합니다.
-
-   ![디렉터리 ID](./media/vpn-gateway-vwan-openvpn-azure-ad-mfa/user1.jpg)

@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: de532bb02b4ecf5e912a71df404418338325d582
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450191"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963940"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -101,6 +101,23 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
 중복 제거된 디스크 백업 | | | ![부분적으로][yellow]<br/><br/> 온-프레미스에 배포된 DPM/MABS 서버에만 해당합니다.
 
 ![테이블 키](./media/backup-architecture/table-key.png)
+
+## <a name="backup-policy-essentials"></a>백업 정책 기본 정보
+
+- 자격 증명 모음당 백업 정책을 만듭니다.
+- 다음 워크로드의 백업에 대한 백업 정책을 만들 수 있음
+  - Azure VM
+  - Azure VM의 SQL
+  - Azure 파일 공유
+- 다양한 리소스에 정책을 할당할 수 있습니다. 여러 Azure VM을 보호하는 데 Azure VM 백업 정책을 사용할 수 있습니다.
+- 두 구성 요소로 이루어진 정책
+  - 일정: 백업을 수행하는 경우
+  - 보존: 각 백업을 보존해야 할 기간
+- 특정 시점을 사용하여 "매일" 또는 "매주"로 일정을 정의할 수 있습니다.
+- "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
+- "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
+- "매월", "매년" 백업 지점의 보존은 "LongTermRetention"이라고 합니다.
+- 자격 증명 모음을 만들면 "DefaultPolicy" 라는 Azure VM 백업에 대 한 정책도 만들어지고 Azure Vm을 백업 하는 데 사용할 수 있습니다.
 
 ## <a name="architecture-built-in-azure-vm-backup"></a>아키텍처: 기본 제공 Azure VM 백업
 

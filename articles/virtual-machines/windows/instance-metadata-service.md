@@ -11,15 +11,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 04/25/2019
+ms.date: 01/31/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 8849029f59ee4eef3baa43a6027022598e12d102
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 25b61b7e21e70c1cd4d27f88a0f5ce965c01c5a5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045894"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964654"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -444,7 +444,7 @@ Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/meta
 }
 ```
 
-## <a name="metadata-apis"></a>메타데이터 API
+## <a name="metadata-apis"></a>메타 데이터 Api
 
 메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
@@ -542,7 +542,7 @@ Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMD
 
 인스턴스 메타데이터는 Powershell 유틸리티 `curl`을 통해 Windows에서 검색할 수 있습니다.
 
- ```bash
+ ```powershell
 curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
 ```
 
@@ -923,7 +923,7 @@ OS 디스크 개체에는 VM에서 사용 하는 OS 디스크에 대 한 다음 
 
 데이터    | Description
 --------|-----------------
-캐싱 | 캐싱 요구 사항
+= | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)
@@ -938,7 +938,7 @@ writeAcceleratorEnabled | WriteAccelerator를 디스크에서 사용할 수 있�
 
 데이터    | Description
 --------|-----------------
-캐싱 | 캐싱 요구 사항
+= | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)
@@ -1055,7 +1055,7 @@ Puppet | https://github.com/keirans/azuremetadata
 8. 서비스에 대한 지원을 받으려면 어떻게 하나요?
    * 서비스에 대한 지원을 받으려면 Azure Portal에서 긴 다시 시도 후 메타데이터 응답을 받을 수 없는 VM에 대한 지원 문제를 만듭니다.
 9. 서비스를 호출하는 데 요청 시간이 초과됩니다.
-   * 메타데이터 호출은 VM의 네트워크 카드에 할당된 기본 IP 주소로부터 수행되어야 합니다. 경로를 변경한 경우라면 사용 중인 네트워크 카드의 169.254.0.0/16 주소에 대한 경로도 있어야 합니다.
+   * 메타 데이터 호출은 VM의 기본 네트워크 카드에 할당 된 기본 IP 주소에서 이루어져야 하며, 경로를 변경 하는 경우 네트워크 카드에서 169.254.0.0/16 주소에 대 한 경로가 있어야 합니다.
 10. 가상 머신 확장 집합에서 태그를 업데이트했는데 VM과 달리 인스턴스에 태그가 나타나지 않습니다.
     * 현재 ScaleSets의 경우 태그는 재부팅/이미지로 다시 설치/인스턴스에 대한 디스크 변경이 있을 때만 VM에 표시됩니다.
 

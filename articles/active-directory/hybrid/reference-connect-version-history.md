@@ -12,12 +12,12 @@ ms.date: 10/7/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6ba7ba4be103beb494c31a844d1871c22c25b8c6
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 75fdc59b9110c3bfc29fe52be917a7d6e6636b8a
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756303"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963209"
 ---
 # <a name="azure-ad-connect-version-release-history"></a>Azure AD Connect: 버전 릴리스 내역
 Azure AD(Azure Active Directory) 팀은 새로운 기능과 성능으로 Azure AD Connect를 정기적으로 업데이트합니다. 모든 추가 내용이 모든 대상에 적용되는 것은 아닙니다.
@@ -39,7 +39,7 @@ Azure AD Connect에서 업그레이드하는 단계 | Azure AD Connect 릴리스
 일부 버전의 Azure AD Connect는 자동 업그레이드에 사용할 수 있습니다. 릴리스 상태는 릴리스가 자동 업그레이드 또는 다운로드에만 사용할 수 있는지 여부를 나타냅니다. 자동 업그레이드가 Azure AD Connect 서버에서 활성화된 경우 해당 서버는 자동으로 자동 업그레이드용으로 릴리스되는 최신 버전의 Azure AD Connect로 업그레이드됩니다. 일부 Azure AD Connect 구성을 자동 업그레이드에 사용할 수 있습니다. [자동 업그레이드](how-to-connect-install-automatic-upgrade.md)에 대한 자세한 내용은 이 링크 참조
 
 >[!IMPORTANT]
-> 2020 년 11 월 1 일부 터 사용 중단 프로세스를 구현 하기 시작 합니다. 18 개월 전에 릴리스된 Azure AD Connect 버전은 더 이상 사용 되지 않습니다. 이번에는 버전 1.1.751.0 (4/12/2018에 릴리스 됨)와 이전 버전의 Azure AD Connect 모든 릴리스를 사용 중단 하 여이 프로세스를 시작 하 고, 새 버전이 출시 될 때마다 이전 버전의 Azure AD Connect 사용 중단을 평가 합니다.
+> 2020 년 11 월 1 일부 터 사용 중단 프로세스를 구현 하기 시작 합니다. 18 개월 전에 릴리스된 Azure AD Connect 버전은 더 이상 사용 되지 않습니다. 이번에는 버전 1.3.20.0 (4/24/2019에 릴리스 됨)와 이전 버전의 Azure AD Connect 모든 릴리스를 사용 중단 하 여이 프로세스를 시작 하 고, 새 버전이 출시 될 때마다 이전 버전의 Azure AD Connect 사용 중단을 평가 합니다.
 >
 > 최적의 지원 환경을 받으려면 최신 버전의 Azure AD Connect를 실행 하 고 있는지 확인 해야 합니다. 
 >

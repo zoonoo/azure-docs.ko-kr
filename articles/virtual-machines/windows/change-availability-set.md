@@ -1,32 +1,25 @@
 ---
 title: Vm 가용성 집합 변경
-description: Azure PowerShell 및 Resource Manager 배포 모델을 사용하여 가상 머신에 대한 가용성 집합을 변경하는 방법에 대해 알아봅니다.
-keywords: ''
-services: virtual-machines-windows
-documentationcenter: ''
+description: Azure PowerShell를 사용 하 여 가상 머신에 대 한 가용성 집합을 변경 하는 방법을 알아봅니다.
+ms.service: virtual-machines
 author: cynthn
-manager: gwallace
-editor: ''
-tags: azure-resource-manager
-ms.service: virtual-machines-windows
-ms.workload: infrastructure-services
-ms.tgt_pltfrm: vm-windows
 ms.topic: article
-ms.date: 02/12/2019
+ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 7d03d684edfded1450043b943fc188c7aa07dc16
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 092dafff6622d3402322eb96d0fe4215e52e16b5
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74039565"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964926"
 ---
-# <a name="change-the-availability-set-for-a-windows-vm"></a>Windows VM에 대한 가용성 집합 변경
+# <a name="change-the-availability-set-for-a-vm"></a>VM에 대한 가용성 집합 변경
 다음 단계에서는 Azure PowerShell을 사용하여 VM의 가용성 집합을 변경하는 방법을 설명합니다. VM은 생성될 때만 가용성 집합에 추가될 수 있습니다. 가용성 집합을 변경하려면 가상 머신을 삭제한 다음, 다시 만들어야 합니다. 
+
+이 문서는 Linux 및 Windows Vm 모두에 적용 됩니다.
 
 이 문서는 2019/2/12에 [Azure Cloud Shell](https://shell.azure.com/powershell) 및 [Az PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps) 버전 1.2.0을 사용하여 마지막으로 테스트되었습니다.
 
- 
 
 ## <a name="change-the-availability-set"></a>가용성 집합 변경 
 
@@ -61,12 +54,13 @@ ms.locfileid: "74039565"
 # Remove the original VM
     Remove-AzVM -ResourceGroupName $resourceGroup -Name $vmName    
 
-# Create the basic configuration for the replacement VM
+# Create the basic configuration for the replacement VM. 
     $newVM = New-AzVMConfig `
        -VMName $originalVM.Name `
        -VMSize $originalVM.HardwareProfile.VmSize `
        -AvailabilitySetId $availSet.Id
-  
+ 
+# For a Linux VM, change the last parameter from -Windows to -Linux 
     Set-AzVMOSDisk `
        -VM $newVM -CreateOption Attach `
        -ManagedDiskId $originalVM.StorageProfile.OsDisk.ManagedDisk.Id `

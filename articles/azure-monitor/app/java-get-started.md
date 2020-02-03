@@ -1,5 +1,5 @@
 ---
-title: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석
+title: '빠른 시작: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
 ms.service: azure-monitor
 ms.subservice: application-insights
@@ -7,39 +7,40 @@ ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: 0686cea590ca26096b443dba21b05dc3335c7add
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927249"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963685"
 ---
-# <a name="get-started-with-application-insights-in-a-java-web-project"></a>Java 웹 프로젝트에서 Application Insights 시작
+# <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
-[Application Insights](https://azure.microsoft.com/services/application-insights/)는 라이브 애플리케이션의 성능 및 사용을 이해하는 데 도움이 되는 확장 가능한 분석 서비스입니다. 이를 통해 [요청을 자동으로 계측하고, 종속성을 추적하고, 성능 카운터를 수집하고](auto-collect-dependencies.md#java), 성능 문제 및 예외를 진단 하 고, 앱을 사용 하 여 사용자가 수행 하는 작업을 [코드 기록][api] 추적 
+이 빠른 시작에서는 Application Insights를 사용 하 여 요청을 자동으로 계측 하 고, 종속성을 추적 하 고, 성능 카운터를 수집 하 고, 성능 문제 및 예외를 진단 하 고, 앱을 통해 사용자가 수행 하는 작업을 추적 하는
 
-![개요 샘플 데이터 스크린샷](./media/java-get-started/overview-graphs.png)
+Application Insights는 라이브 응용 프로그램의 성능 및 사용을 이해 하는 데 도움이 되는 웹 개발자를 위한 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
+## <a name="prerequisites"></a>필수 조건
 
-다음 작업을 수행해야 합니다.
+* 활성 구독을 포함 하는 Azure 계정. [계정을 무료로 만드세요](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* 작동 하는 Java 응용 프로그램입니다.
 
-* Java 7 이상
-* [Microsoft Azure](https://azure.microsoft.com/)구독.
+## <a name="get-an-application-insights-instrumentation-key"></a>Application Insights 계측 키 가져오기
 
-## <a name="1-get-an-application-insights-instrumentation-key"></a>1. Application Insights 계측 키를 가져옵니다.
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
-2. Application Insights 리소스 만들기 Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+2. Azure Portal에서 Application Insights 리소스를 만듭니다. Java 웹 애플리케이션에 대한 애플리케이션 종류를 설정합니다.
 
 3. 새 리소스의 계측 키를 찾습니다. 코드 프로젝트에 이 키를 곧바로 붙여넣어야 합니다.
 
     ![새 리소스 개요에서 속성을 클릭하고 계측 키 복사](./media/java-get-started/instrumentation-key-001.png)
 
-## <a name="2-add-the-application-insights-sdk-for-java-to-your-project"></a>2. 프로젝트에 Java 용 Application Insights SDK 추가
-*프로젝트에 적합한 방법을 선택합니다.*
+## <a name="add-the-application-insights-sdk-for-java-to-your-project"></a>프로젝트에 Java용 Aplication Insights SDK 추가
 
-#### <a name="if-youre-using-maven-a-namemaven-setup-"></a>Maven을 사용하는 경우... <a name="maven-setup" />
-빌드에 Maven을 사용하도록 프로젝트가 이미 설정된 경우 pom.xml 파일에 다음 코드를 병합합니다.
+*프로젝트 형식을 선택 합니다.*
+
+# <a name="maventabmaven"></a>[Maven](#tab/maven)
+
+프로젝트에서 빌드에 Maven를 사용 하도록 이미 설정 되어 있는 경우 다음 코드를 *pom .xml* 파일에 병합 합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -55,8 +56,9 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
     </dependencies>
 ```
 
-#### <a name="if-youre-using-gradle-a-namegradle-setup-"></a>Gradle을 사용하는 경우... <a name="gradle-setup" />
-빌드에 Gradle을 사용하도록 프로젝트가 이미 설정된 경우 다음 코드를 build.gradle 파일에 병합합니다.
+# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+
+빌드에 Gradle를 사용 하도록 프로젝트를 이미 설정한 경우에는 *Gradle* 파일에 다음 코드를 병합 합니다.
 
 그런 다음 프로젝트 종속성을 새로 고쳐 다운로드한 이진을 가져옵니다.
 
@@ -68,25 +70,28 @@ Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱�
     }
 ```
 
-#### <a name="otherwise-if-you-are-manually-managing-dependencies-"></a>그렇지 않으면 수동으로 종속성을 관리하는 경우...
+# <a name="other-typestabother"></a>[기타 형식](#tab/other)
+
 [최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
-### <a name="questions"></a>질문...
+---
+
+### <a name="questions"></a>문의 사항
 * *`-web-auto`, `-web` 및 `-core` 구성 요소 간의 관계는 무엇 인가요?*
   * `applicationinsights-web-auto`는 런타임에 Application Insights 서블릿 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
   * 또한 `applicationinsights-web`는 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서블릿 필터를 수동으로 등록 해야 합니다.
   * 예를 들어 응용 프로그램이 서블릿 기반이 아닌 경우에는 완전 한 API만 제공 `applicationinsights-core`.
   
 * *SDK를 최신 버전으로 업데이트하려면 어떻게 해야 하나요?*
-  * Gradle 또는 Maven을 사용하는 경우...
+  * Gradle 또는 Maven를 사용 하는 경우 ...
     * 빌드 파일을 업데이트 하 여 최신 버전을 지정 합니다.
-  * 종속성을 수동으로 관리하는 경우...
+  * 종속성을 수동으로 관리 하는 경우 ...
     * 최신 버전의 [Java용 Application Insights SDK](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)를 다운로드하여 이전 버전을 대체합니다. 변경 내용은 [SDK 릴리스 정보](https://github.com/Microsoft/ApplicationInsights-Java#release-notes)에 설명되어 있습니다.
 
-## <a name="3-add-an-applicationinsightsxml-file"></a>3. ApplicationInsights .xml 파일을 추가 합니다.
-ApplicationInsights.xml을 프로젝트의 리소스 폴더에 추가하거나 ApplicationInsights.xml이 프로젝트의 배포 클래스 경로에 추가되었는지 확인합니다. 다음 XML을 복사합니다.
+## <a name="add-an-applicationinsightsxml-file"></a>*Applicationinsights .xml* 파일 추가
+프로젝트의 resources 폴더에 *Applicationinsights .xml* 을 추가 하거나 프로젝트의 배포 클래스 경로에 추가 되어 있는지 확인 합니다. 다음 XML을 복사합니다.
 
-Azure 포털에서 가져온 계측 키를 대체합니다.
+계측 키를 Azure Portal 가져온 항목으로 바꿉니다.
 
 ```XML
 <?xml version="1.0" encoding="utf-8"?>
@@ -115,18 +120,18 @@ Azure 포털에서 가져온 계측 키를 대체합니다.
 </ApplicationInsights>
 ```
 
-필요에 따라 애플리케이션에 액세스할 수 있는 위치에 구성 파일이 있으면 됩니다.  `-Dapplicationinsights.configurationDirectory` 시스템 속성은 ApplicationInsights.xml을 포함하는 디렉터리를 지정합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
+필요에 따라 구성 파일은 응용 프로그램에 액세스할 수 있는 위치에 있을 수 있습니다.  시스템 속성 `-Dapplicationinsights.configurationDirectory` *Applicationinsights .xml*을 포함 하는 디렉터리를 지정 합니다. 예를 들어 `E:\myconfigs\appinsights\ApplicationInsights.xml`에 있는 구성 파일은 `-Dapplicationinsights.configurationDirectory="E:\myconfigs\appinsights"` 속성을 사용하여 구성됩니다.
 
 * 계측 키는 원격 분석의 모든 항목과 함께 전송되며 리소스에서 표시하도록 Application Insights에 알려줍니다.
 * HTTP 요청 구성 요소는 선택 사항입니다. 자동으로 포털에 요청 및 응답 시간에 대한 원격 분석을 보냅니다.
-* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 이는 서버가 수신하는 요청마다 식별자를 할당하며 'Operation.Id' 속성으로 원격 분석의 모든 항목에 이 식별자를 속성으로 추가합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
+* 이벤트 상관 관계는 HTTP 요청 구성 요소에 추가됩니다. 서버에서 받은 각 요청에 식별자를 할당 합니다. 그런 다음 ' Operation.Id ' 속성으로 원격 분석의 모든 항목에이 식별자를 속성으로 추가 합니다. [진단 검색][diagnostic]에서 필터를 설정하여 각 요청과 연결된 원격 분석의 상관 관계를 지정할 수 있습니다.
 
 ### <a name="alternative-ways-to-set-the-instrumentation-key"></a>계측 키를 설정하는 다른 방법
 Application Insights SDK는 다음 순서로 키를 찾습니다.
 
 1. 시스템 속성:-DAPPINSIGHTS_INSTRUMENTATIONKEY = your_ikey
 2. 환경 변수: APPINSIGHTS_INSTRUMENTATIONKEY
-3. 구성 파일: ApplicationInsights.xml
+3. 구성 파일: *Applicationinsights .xml*
 
 또한 [코드로 설정](../../azure-monitor/app/api-custom-events-metrics.md#ikey)할 수 있습니다.
 
@@ -139,14 +144,14 @@ Application Insights SDK는 다음 순서로 키를 찾습니다.
     }
 ```
 
-## <a name="4-add-agent"></a>4. 에이전트 추가
+## <a name="add-agent"></a>에이전트 추가
 
 나가는 HTTP 호출, JDBC 쿼리, 응용 프로그램 로깅 및 더 나은 작업 이름을 캡처하기 위해 [Java 에이전트를 설치](java-agent.md) 합니다.
 
-## <a name="5-run-your-application"></a>5. 응용 프로그램을 실행 합니다.
+## <a name="run-your-application"></a>애플리케이션 실행
 응용 프로그램을 디버그 모드로 개발 컴퓨터에서 실행하거나 서버에 게시합니다.
 
-## <a name="6-view-your-telemetry-in-application-insights"></a>6. Application Insights에서 원격 분석 보기
+## <a name="view-your-telemetry-in-application-insights"></a>Application Insights에서 원격 분석 보기
 [Microsoft Azure 포털](https://portal.azure.com)의 Application Insights 리소스로 돌아갑니다.
 
 HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 몇 초 정도 기다린 다음 새로고침을 클릭합니다.)
@@ -191,7 +196,7 @@ HTTP 요청 데이터가 개요 블레이드에 표시됩니다. (없는 경우 
 
 ## <a name="azure-app-service-config-spring-boot"></a>Azure App Service 구성 (스프링 부팅)
 
-Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **Web.config** 를 수정 하 고 다음을 추가 합니다.
+Windows에서 실행 되는 스프링 부팅 앱을 Azure 앱 서비스에서 실행 하려면 추가 구성이 필요 합니다. **Web.config** 를 수정 하 고 다음 구성을 추가 합니다.
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -230,7 +235,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 ![프로세스 전용 바이트가 선택 된 메트릭 창의 스크린샷](./media/java-get-started/011-perf-counters.png)
 
 ### <a name="customize-performance-counter-collection"></a>성능 카운터 수집 사용자 지정
-성능 카운터의 표준 집합 수집을 사용하지 않으려면 ApplicationInsights.xml 파일의 루트 노드 아래에 다음 코드를 추가합니다.
+표준 성능 카운터 집합의 컬렉션을 사용 하지 않도록 설정 하려면 다음 코드를 *Applicationinsights .xml* 파일의 루트 노드 아래에 추가 합니다.
 
 ```XML
     <PerformanceCounters>
@@ -284,7 +289,7 @@ Application Insights Java SDK는 이제 [W3C 분산 추적](https://w3c.github.i
 이제 웹 서버에서 원격 분석을 보내려 합니다. 애플리케이션을 전체적으로 파악하기 위해 모니터링을 추가할 수 있습니다.
 
 * [웹 페이지에 원격 분석을 추가][usage] 하여 페이지 보기 및 사용자 메트릭을 모니터링합니다.
-* [웹 테스트를 설정][availability]하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
+* [웹 테스트를 설정][availability] 하여 애플리케이션이 라이브 상태로 유지되며 응답하는지 확인할 수 있습니다.
 
 ## <a name="send-your-own-telemetry"></a>사용자 고유의 원격 분석 전송
 이제 SDK를 설치한 했으므로 API를 사용하여 사용자 고유의 원격 분석을 전송할 수 있습니다.

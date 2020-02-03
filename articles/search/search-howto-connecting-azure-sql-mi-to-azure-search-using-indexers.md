@@ -8,12 +8,12 @@ ms.author: victliu
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 0f91775e0175b4b4af9b57fa96e389c3a2a22564
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 65e483fd772e20daa73b465ea17dfa6ecde42233
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863124"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964892"
 ---
 # <a name="configure-a-connection-from-an-azure-cognitive-search-indexer-to-sql-managed-instance"></a>Azure Cognitive Search 인덱서에 SQL Managed Instance에 대 한 연결 구성
 
@@ -35,11 +35,14 @@ ms.locfileid: "75863124"
    ![NSG 인바운드 보안 규칙](media/search-howto-connecting-azure-sql-mi-to-azure-search-using-indexers/nsg-rule.png "NSG 인바운드 보안 규칙")
 
 > [!NOTE]
-> 현재 규칙 (`public_endpoint_inbound`)을 두 개의 규칙으로 대체 하 여 관리 되는 SQL 인스턴스에 대 한 인바운드 액세스를 보다 제한적으로 선택할 수 있습니다.
+> 인덱서는 데이터를 읽기 위해 SQL Managed Instance를 공용 끝점으로 구성 해야 합니다.
+> 그러나 현재 규칙 (`public_endpoint_inbound`)을 다음 2 개의 규칙으로 바꿔 해당 공용 끝점에 대 한 인바운드 액세스를 제한 하도록 선택할 수 있습니다.
 >
-> * `AzureCognitiveSearch` [service 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`)에서 인바운드 액세스 허용
+> * `AzureCognitiveSearch` [service 태그](https://docs.microsoft.com/azure/virtual-network/service-tags-overview#available-service-tags) ("SOURCE" = `AzureCognitiveSearch`, "NAME" = `cognitive_search_inbound`)에서 인바운드 액세스를 허용 합니다.
 >
-> * 정규화 된 도메인 이름 (예: `<your-search-service-name>.search.windows.net`)을 ping 하 여 가져올 수 있는 검색 서비스의 IP 주소에서 인바운드 액세스를 허용 합니다. ("SOURCE" = `IP address`)
+> * 정규화 된 도메인 이름 (예: `<your-search-service-name>.search.windows.net`)을 ping 하 여 가져올 수 있는 검색 서비스의 IP 주소에서 인바운드 액세스를 허용 합니다. ("SOURCE" = `IP address`, "NAME" = `search_service_inbound`)
+>
+> 이러한 두 규칙 각각에 대해 "PORT" = `3342`, "PROTOCOL" = `TCP`, "DESTINATION" = `Any`, "ACTION" =를 설정 `Allow`
 
 ## <a name="get-public-endpoint-connection-string"></a>공용 끝점 연결 문자열 가져오기
 **공용 끝점** 에 대 한 연결 문자열을 사용 해야 합니다 (포트 1433이 아닌 포트 3342).

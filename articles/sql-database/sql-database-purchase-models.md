@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
-ms.date: 04/26/2019
-ms.openlocfilehash: 6dbe61c47a7323e2dec599d2f3c77453aa6f8d82
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/01/2020
+ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74973529"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964773"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
@@ -47,9 +47,9 @@ Azure SQL Database를 사용 하면 성능 및 비용 요구에 맞는 완전히
 
 프로 비전 된 계산 계층에서 계산 비용은 응용 프로그램에 대해 프로 비전 된 총 계산 용량을 반영 합니다.
 
-중요 비즈니스용 서비스 계층에서는 3개 이상의 복제본이 자동으로 할당됩니다. 이러한 추가 계산 리소스 할당을 반영 하기 위해 vCore 기반 구매 모델의 가격은 범용 서비스 계층에 있는 것 보다 중요 한 비즈니스 서비스 계층의 약 2.7 x 보다 높습니다. 마찬가지로 업무상 중요 한 서비스 계층에서 GB 당 더 높은 저장소 가격은 SSD 저장소의 높은 i/o 및 짧은 대기 시간을 반영 합니다.
+중요 비즈니스용 서비스 계층에서는 3개 이상의 복제본이 자동으로 할당됩니다. 이러한 추가 계산 리소스 할당을 반영 하기 위해 vCore 기반 구매 모델의 가격은 범용 서비스 계층 보다 중요 비즈니스용 서비스 계층의 약 2.7 보다 높습니다. 마찬가지로 중요 비즈니스용 서비스 계층에서 GB 당 더 높은 저장소 가격은 SSD 저장소의 더 높은 IO 제한과 낮은 대기 시간을 반영 합니다.
 
-두 계층 모두 standard storage를 사용 하기 때문에 백업 저장소 비용은 비즈니스에 중요 한 서비스 계층 및 범용 서비스 계층에 대해 동일 합니다.
+두 계층 모두 백업에 표준 저장소를 사용 하므로 백업 저장소 비용은 중요 비즈니스용 서비스 계층 및 범용 서비스 계층에 대해 동일 합니다.
 
 ### <a name="serverless-compute-costs"></a>서버를 사용 하지 않는 계산 비용
 
@@ -67,7 +67,7 @@ Azure SQL Database를 사용 하면 성능 및 비용 요구에 맞는 완전히
 
 VCore (가상 코어)는 논리적 CPU를 나타내며 하드웨어 세대와 하드웨어의 물리적 특성 (예: 코어 수, 메모리 및 저장소 크기) 중에서 선택할 수 있는 옵션을 제공 합니다. VCore 기반 구매 모델은 개별 리소스 소비의 유연성, 제어, 투명성 및 온-프레미스 워크 로드 요구 사항을 클라우드로 변환 하는 간단한 방법을 제공 합니다. 이 모델을 사용 하면 워크 로드 요구 사항에 따라 계산, 메모리 및 저장소 리소스를 선택할 수 있습니다.
 
-VCore 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md)및 [관리 되는 인스턴스의](sql-database-managed-instance.md) [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스용](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우에는 [대규모 서비스 계층](sql-database-service-tier-hyperscale.md)을 선택할 수도 있습니다.
+VCore 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-database-scale.md), [탄력적 풀](sql-database-elastic-pool.md)및 [관리 되는 인스턴스의](sql-database-managed-instance.md) [범용](sql-database-high-availability.md#basic-standard-and-general-purpose-service-tier-availability) 및 [중요 비즈니스용](sql-database-high-availability.md#premium-and-business-critical-service-tier-availability) 서비스 계층 중에서 선택할 수 있습니다. 단일 데이터베이스의 경우에는 [Hyperscale 서비스 계층](sql-database-service-tier-hyperscale.md)을 선택할 수도 있습니다.
 
 VCore 기반 구매 모델을 사용 하 여 독립적으로 계산 및 저장소 리소스를 선택 하 고, 온-프레미스 성능을 일치 시키고, 가격을 최적화할 수 있습니다. VCore 기반 구매 모델에서 다음에 대 한 비용을 지불 합니다.
 
@@ -84,7 +84,7 @@ VCore 기반 구매 모델을 사용 하 여 독립적으로 계산 및 저장�
 DTU 기반 구매 모델에서 vCore 기반 구매 모델로 변환 하려면 다음 엄지 규칙을 사용 하 여 계산 크기를 선택 합니다.
 
 - 표준 계층의 모든 100 Dtu에는 범용 서비스 계층의 vCore가 하나 이상 필요 합니다.
-- 프리미엄 계층의 모든 125 Dtu에는 업무상 중요 한 서비스 계층에 하나 이상의 vCore가 필요 합니다.
+- 프리미엄 계층의 125 Dtu 마다 중요 비즈니스용 서비스 계층에서 vCore가 하나 이상 필요 합니다.
 
 ## <a name="dtu-based-purchasing-model"></a>DTU 기반 구매 모델
 
@@ -102,7 +102,7 @@ DTU 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-d
 
 ![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 다음은 그 예입니다.
+Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 예:
 
 - 데이터베이스의 계산 크기를 늘려서 Dtu를 두 배로 늘리면 해당 데이터베이스에서 사용할 수 있는 리소스 집합이 배가 됩니다.
 - 1750 dtu를 포함 하는 프리미엄 서비스 계층 P11 데이터베이스는 5 개의 dtu를 포함 하는 기본 서비스 계층 데이터베이스 보다 350 배 더 이상의 dtu 계산 기능을 제공 합니다.  
@@ -125,7 +125,19 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터�
 
 ### <a name="determine-the-number-of-dtus-needed-by-a-workload"></a>워크로드에 필요한 DTU 수 결정
 
-기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 Azure SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 Azure SQL Database 워크 로드의 경우 [쿼리 성능 정보](sql-database-query-performance.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [Dm_db_ RESOURCE_STATS](https://msdn.microsoft.com/library/dn800981.aspx) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 확인할 수 있습니다. [Sys. resource_stats](https://msdn.microsoft.com/library/dn269979.aspx) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분의 평균에 대 한 낮은 정확도로 표시 됩니다.
+기존 온-프레미스 또는 SQL Server 가상 머신 워크 로드를 Azure SQL Database 마이그레이션하려면 [dtu 계산기](https://dtucalculator.azurewebsites.net/) 를 사용 하 여 필요한 dtu의 수를 대략적으로 계산 합니다. 기존 Azure SQL Database 워크 로드의 경우 [쿼리 성능 정보](sql-database-query-performance.md) 를 사용 하 여 데이터베이스 리소스 사용 (dtu)을 이해 하 고 워크 로드 최적화에 대 한 심층적인 통찰력을 얻습니다. [DM_DB_RESOURCE_STATS](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV (동적 관리 뷰)를 사용 하 여 지난 1 시간의 리소스 소비량을 확인할 수 있습니다. [Sys. resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database) 카탈로그 뷰는 지난 14 일간의 리소스 사용을 표시 하지만 5 분의 평균에 대 한 낮은 정확도로 표시 됩니다.
+
+### <a name="determine-dtu-utilization"></a>DTU 사용률 확인
+
+데이터베이스 또는 탄력적 풀의 DTU/eDTU 한도를 기준으로 DTU/eDTU 사용률의 평균 백분율을 확인 하려면 다음 수식을 사용 합니다.
+
+`avg_dtu_percent = MAX(avg_cpu_percent, avg_data_io_percent, avg_log_write_percent)`
+
+이 수식에 대 한 입력 값은 [sys. dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database), [resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-resource-stats-azure-sql-database)및 [elastic_pool_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-catalog-views/sys-elastic-pool-resource-stats-azure-sql-database) dmv에서 가져올 수 있습니다. 즉, 데이터베이스 또는 탄력적 풀의 DTU/edtu 제한에 대 한 DTU/eDTU 사용률의 비율을 확인 하려면 지정 된 시점에 `avg_cpu_percent`, `avg_data_io_percent`및 `avg_log_write_percent`에서 가장 큰 비율 값을 선택 합니다.
+
+> [!NOTE]
+> 데이터베이스의 DTU 한도는 데이터베이스에 사용할 수 있는 CPU, 읽기, 쓰기 및 메모리에 따라 결정 됩니다. 그러나 SQL Server 데이터베이스 엔진은 일반적으로 데이터 캐시에 사용 가능한 모든 메모리를 사용 하 여 성능을 향상 시키기 때문에 `avg_memory_usage_percent` 값은 일반적으로 현재 데이터베이스 로드에 관계 없이 100%에 가깝습니다. 따라서 메모리가 DTU 제한에 간접적으로 영향을 주는 경우에도 DTU 사용률 수식에서 사용 되지 않습니다.
+>
 
 ### <a name="workloads-that-benefit-from-an-elastic-pool-of-resources"></a>탄력적 리소스 풀의 이점을 활용할 수 있는 워크로드
 

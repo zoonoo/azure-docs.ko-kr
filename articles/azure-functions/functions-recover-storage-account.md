@@ -5,33 +5,29 @@ author: alexkarcher-msft
 ms.topic: article
 ms.date: 09/05/2018
 ms.author: alkarche
-ms.openlocfilehash: 40037252ddf8e505ae7fe734813d598e7de96336
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 910b582cb40b9f8aff6a553621b4677d6b019826
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834229"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963889"
 ---
 # <a name="how-to-troubleshoot-functions-runtime-is-unreachable"></a>"Functions 런타임에 연결할 수 없음" 문제를 해결하는 방법
 
-
-## <a name="error-text"></a>오류 텍스트
-이 문서는 함수 포털에 표시 될 때 다음 오류에 대 한 문제를 해결 하기 위한 것입니다.
+이 문서는 Azure Portal에 표시 될 때 "함수 런타임에 접근할 수 없습니다" 오류 메시지가 표시 되는 문제를 해결 하기 위한 것입니다. 이 오류가 발생 하면 포털에 다음과 같은 오류 문자열이 표시 됩니다.
 
 `Error: Azure Functions Runtime is unreachable. Click here for details on storage configuration`
 
-### <a name="summary"></a>요약
-Azure Functions 런타임을 시작할 수 없으면 이 문제가 발생합니다. 이 오류가 발생하는 가장 일반적인 원인은 함수 앱이 스토리지 계정에 액세스할 수 없기 때문입니다. [여기서 스토리지 계정 요구 사항에 대해 자세히 알아보세요.](https://docs.microsoft.com/azure/azure-functions/functions-create-function-app-portal#storage-account-requirements)
+이는 Azure Functions 런타임를 시작할 수 없을 때 발생 합니다. 이 오류가 발생하는 가장 일반적인 원인은 함수 앱이 스토리지 계정에 액세스할 수 없기 때문입니다. 자세히 알아보려면 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.
 
-### <a name="troubleshooting"></a>문제 해결
-이 문서에서는 가장 흔히 발생하는 4가지 오류 사례, 해당 오류를 확인하는 방법 및 각 사례를 해결하는 방법을 안내합니다.
+이 문서의 나머지 부분에서는 각 사례를 식별 하 고 해결 하는 방법을 비롯 하 여이 오류의 다음 원인을 해결 하는 데 도움이 됩니다.
 
-1. 스토리지 계정이 삭제됨
-1. 스토리지 계정 애플리케이션 설정이 삭제됨
-1. 스토리지 계정 자격 증명이 잘못됨
-1. 스토리지 계정에 액세스할 수 없음
-1. 일일 실행 할당량 포화 상태
-1. 앱이 방화벽 뒤에 있습니다.
++ [스토리지 계정이 삭제됨](#storage-account-deleted)
++ [스토리지 계정 애플리케이션 설정이 삭제됨](#storage-account-application-settings-deleted)
++ [스토리지 계정 자격 증명이 잘못됨](#storage-account-credentials-invalid)
++ [스토리지 계정에 액세스할 수 없음](#storage-account-inaccessible)
++ [일일 실행 할당량 초과](#daily-execution-quota-full)
++ [앱이 방화벽 뒤에 있습니다.](#app-is-behind-a-firewall)
 
 
 ## <a name="storage-account-deleted"></a>스토리지 계정이 삭제됨
@@ -60,9 +56,9 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 ### <a name="guidance"></a>지침
 
-* 이러한 설정에 대해서는 "슬롯 설정"을 선택하지 않습니다. 배포 슬롯을 교환하면 함수가 손상됩니다.
+* 이러한 설정에 대해 "슬롯 설정"을 선택 하지 마세요. 배포 슬롯을 교환 하면 함수 앱이 중단 됩니다.
 * 이러한 설정은 자동 배포의 일부로 수정 하지 마십시오.
-* 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함하지 않는 자동화된 배포를 사용하는 경우 나중에 설정을 추가하더라도 앱이 작동하지 않습니다.
+* 이러한 설정은 생성 시에 제공되어야 하며 유효한 상태여야 합니다. 이러한 설정을 포함 하지 않는 자동화 된 배포는 나중에 설정이 추가 된 경우에도 실행 되지 않는 함수 앱을 생성 합니다.
 
 ## <a name="storage-account-credentials-invalid"></a>스토리지 계정 자격 증명이 잘못됨
 
@@ -70,36 +66,31 @@ Azure Portal에서 스토리지 계정을 검색하여 계정이 아직 있는�
 
 ## <a name="storage-account-inaccessible"></a>스토리지 계정에 액세스할 수 없음
 
-함수 앱은 스토리지 계정에 액세스할 수 있어야 합니다. Functions의 스토리지 계정 액세스를 차단하는 일반적인 문제는 다음과 같습니다.
+함수 앱은 저장소 계정에 액세스할 수 있어야 합니다. Functions의 스토리지 계정 액세스를 차단하는 일반적인 문제는 다음과 같습니다.
 
-* 스토리지 계정에서 전송/수신하는 트래픽을 허용하는 올바른 네트워크 규칙을 포함하지 않고 앱 서비스 환경에 배포된 함수 앱
-* 스토리지 계정 방화벽이 사용하도록 설정되었는데 Functions에서 전송/수신하는 트래픽을 허용하도록 구성되지 않음 [이 문서에서 스토리지 계정 방화벽 구성에 대해 자세히 살펴보세요.](https://docs.microsoft.com/azure/storage/common/storage-network-security?toc=%2fazure%2fstorage%2ffiles%2ftoc.json)
++ 저장소 계정에 대 한 트래픽을 허용 하는 올바른 네트워크 규칙 없이 ASE (App Service 환경)에 배포 된 함수 앱입니다.
 
-## <a name="daily-execution-quota-full"></a>일일 실행 할당량 포화 상태
++ 저장소 계정 방화벽이 사용 하도록 설정 되어 있고 기능에서 들어오고 나가는 트래픽을 허용 하도록 구성 되어 있지 않습니다. 자세한 내용은 [Azure Storage 방화벽 및 가상 네트워크 구성](../storage/common/storage-network-security.md)을 참조하세요.
 
-매일 실행 할당량을 구성한 경우 함수 앱이 일시적으로 비활성화되고 포털 컨트롤은 대부분 사용할 수 없게 됩니다. 
+## <a name="daily-execution-quota-full"></a>매일 실행 할당량이 꽉 참
 
-* 확인 하려면 포털에서 플랫폼 기능 > 함수 앱 설정을 엽니다. 할당량을 초과 하는 경우 다음 메시지가 표시 됩니다.
-    * `The Function App has reached daily usage quota and has been stopped until the next 24 hours time frame.`
-* 할당량을 제거하고 앱을 다시 시작하여 문제를 해결합니다.
+매일 실행 할당량이 구성 된 경우 함수 앱을 일시적으로 사용 하지 않도록 설정 하 여 많은 포털 컨트롤을 사용할 수 없게 됩니다. 
+
++ [Azure Portal](https://portal.azure.com)를 확인 하려면 함수 앱에서 **플랫폼 기능** > **함수 앱 설정** 을 엽니다. 설정한 **일별 사용 할당량** 을 초과 하는 경우 다음 메시지가 표시 됩니다.
+
+    `The function app has reached daily usage quota and has been stopped until the next 24 hours time frame.`
+
++ 이 문제를 해결 하려면 매일 할당량을 제거 하거나 늘리고 앱을 다시 시작 합니다. 그렇지 않으면 다음 날까지 앱 실행이 차단 됩니다.
 
 ## <a name="app-is-behind-a-firewall"></a>앱이 방화벽 뒤에 있습니다.
 
 함수 앱이 [내부적으로 부하가 분산 된 App Service Environment](../app-service/environment/create-ilb-ase.md) 에서 호스트 되 고 인바운드 인터넷 트래픽을 차단 하도록 구성 되어 있거나 인터넷 액세스를 차단 하도록 구성 된 [인바운드 IP 제한이](functions-networking-options.md#inbound-ip-restrictions) 있는 경우 함수 런타임에 연결할 수 없게 됩니다. Azure Portal는 실행 중인 앱을 직접 호출 하 여 함수 목록을 가져오고 KUDU 끝점에 대 한 HTTP 호출도 수행 합니다. `Platform Features` 탭의 플랫폼 수준 설정은 계속 사용할 수 있습니다.
 
-* ASE 구성을 확인 하려면 ASE가 있는 서브넷의 NSG로 이동 하 고 인바운드 규칙의 유효성을 검사 하 여 응용 프로그램에 액세스 하는 컴퓨터의 공용 IP에서 들어오는 트래픽을 허용 합니다. 앱을 실행 하는 가상 네트워크에 연결 된 컴퓨터 또는 가상 네트워크에서 실행 되는 가상 컴퓨터에서 포털을 사용할 수도 있습니다. [인바운드 규칙 구성에 대 한 자세한 내용은 여기를 참조 하세요.](https://docs.microsoft.com/azure/app-service/environment/network-info#network-security-groups)
+ASE 구성을 확인 하려면 ASE가 있는 서브넷의 NSG로 이동 하 고 인바운드 규칙의 유효성을 검사 하 여 응용 프로그램에 액세스 하는 컴퓨터의 공용 IP에서 들어오는 트래픽을 허용 합니다. 앱을 실행 하는 가상 네트워크에 연결 된 컴퓨터 또는 가상 네트워크에서 실행 되는 가상 컴퓨터에서 포털을 사용할 수도 있습니다. [인바운드 규칙 구성에 대 한 자세한 내용은 여기를 참조 하세요.](../app-service/environment/network-info.md#network-security-groups)
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 함수 앱이 다시 작동하므로 빠른 시작과 개발자 참조를 확인하여 작업을 다시 진행하세요.
+함수 앱 모니터링에 대해 알아봅니다.
 
-* [첫 번째 Azure Function 만들기](functions-create-first-azure-function.md)  
-  Azure Functions 빠른 시작을 사용하여 바로 첫 번째 함수를 만듭니다. 
-* [Azure Functions 개발자 참조](functions-reference.md)  
-  Azure Functions 런타임, 함수 코딩, 트리거 및 바인딩 정의에 대한 참조에 대해 더욱 기술적인 정보를 제공합니다.
-* [Azure Functions 테스트](functions-test-a-function.md)  
-  함수를 테스트하는 다양한 도구와 기법을 설명합니다.
-* [Azure Functions 크기 조정 방법](functions-scale.md)  
-  소비 호스팅 요금제, 올바른 요금제 선택 방법을 포함하여 Azure Functions에서 사용 가능한 서비스 요금제에 대해 설명합니다. 
-* [Azure App Service에 대해 자세히 알아보기](../app-service/overview.md)  
-  Azure Functions는 개발, 환경 변수, 진단 등의 주요 함수에 대한 Azure App Service를 활용합니다. 
+> [!div class="nextstepaction"]
+> [모니터 Azure Functions](functions-monitoring.md)

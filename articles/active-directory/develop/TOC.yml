@@ -740,16 +740,18 @@
   items:
     - name: 용어
       href: developer-glossary.md
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
+    - name: 동영상
+      href: identity-videos.md
     - name: Azure AD 블로그
       href: 'https://cloudblogs.microsoft.com/enterprisemobility/?product=azure-active-directory'
     - name: Microsoft ID 플랫폼 개발자 블로그
       href: 'https://developer.microsoft.com/en-us/identity/blogs/'
+    - name: Azure 로드맵
+      href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Microsoft에 로그인 시도
       href: 'https://azure.microsoft.com/develop/identity/signin/'
+    - name: Azure 리소스에 대한 관리 ID
+      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'
     - name: 도움말 보기
       displayName: 'support, help options'
       href: developer-support-help-options.md
-    - name: Azure 리소스에 대한 관리 ID
-      href: 'https://docs.microsoft.com/azure/active-directory/managed-service-identity/overview'

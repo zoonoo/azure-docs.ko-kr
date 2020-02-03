@@ -330,16 +330,13 @@
     - name: 모니터
       items:
         - name: 논리 앱 모니터링
-          href: logic-apps-monitor-your-logic-apps.md
+          href: monitor-logic-apps.md
         - name: Azure Monitor 로그를 사용하여 논리 앱 모니터링
-          href: logic-apps-monitor-your-logic-apps-oms.md
+          href: monitor-logic-apps-log-analytics.md
         - name: Azure Monitor 로그를 사용하여 B2B 메시지 모니터링
-          href: logic-apps-monitor-b2b-message.md
-          items:
-            - name: Azure Monitor 로그를 사용하여 B2B 메시지 추적
-              href: logic-apps-track-b2b-messages-omsportal.md
-            - name: Azure Monitor 로그를 사용하여 B2B 메시지에서 쿼리 만들기
-              href: logic-apps-track-b2b-messages-omsportal-query-filter-control-number.md
+          href: monitor-b2b-messages-log-analytics.md
+        - name: 모니터링 및 추적 쿼리 만들기
+          href: create-monitoring-tracking-queries.md
     - name: '예제, 시나리오 및 연습'
       href: logic-apps-examples-and-scenarios.md
       items:

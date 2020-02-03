@@ -9,16 +9,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 01/30/2020
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bf241bc15ccdcf9e7d65f277c235f1aa668fcbe0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696643"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962097"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -39,7 +39,7 @@ ms.locfileid: "76696643"
  
 클라이언트를 구축 하는 방법에 따라 Microsoft id 플랫폼에서 지원 되는 인증 흐름 중 하나 (또는 여러 개)를 사용할 수 있습니다.  이러한 흐름은 다양 한 토큰 (id_tokens, 새로 고침 토큰, 액세스 토큰) 뿐만 아니라 인증 코드를 생성 하 고 다른 토큰을 사용 하 여 작동 하도록 할 수 있습니다. 이 차트에서는 다음 개요를 제공 합니다.
  
-|흐름 | 필요 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
+|흐름 | 위해서는 | id_token | 액세스 토큰 | 토큰 새로 고침 | 인증 코드 | 
 |-----|----------|----------|--------------|---------------|--------------------|
 |[인증 코드 흐름](v2-oauth2-auth-code-flow.md) | | x | x | x | x|  
 |[암시적 흐름](v2-oauth2-implicit-grant-flow.md) | | x        | x    |      |                    |
@@ -101,7 +101,7 @@ MSAL은 [OAuth 2 just-in-time 인증 흐름](v2-oauth2-on-behalf-of-flow.md)을 
 
 ![흐름에 대 한 다이어그램](media/msal-authentication-flows/on-behalf-of.png)
 
-위의 다이어그램에서 다음을 확인할 수 있습니다.
+위의 다이어그램에서:
 
 1. 응용 프로그램은 web API에 대 한 액세스 토큰을 획득 합니다.
 2. 클라이언트 (웹, 데스크톱, 모바일 또는 단일 페이지 응용 프로그램)는 HTTP 요청의 인증 헤더에 액세스 토큰을 전달자 토큰으로 추가 하 여 보호 된 웹 API를 호출 합니다. Web API는 사용자를 인증 합니다.
@@ -149,7 +149,7 @@ MSAL은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 
 
 ![장치 코드 흐름 다이어그램](media/msal-authentication-flows/device-code.png)
 
-위의 다이어그램에서 다음을 확인할 수 있습니다.
+위의 다이어그램에서:
 
 1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin) ). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
 

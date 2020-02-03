@@ -11,12 +11,12 @@ ms.workload: na
 ms.topic: article
 ms.date: 12/13/2019
 ms.author: juliako
-ms.openlocfilehash: e7770a3faef0ccf7ca0f5b8c56f98007b8d89436
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 52d8dda8b543e5bdf3ca88ae3784df65be3a2ba1
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719843"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962946"
 ---
 # <a name="azure-media-services-v3-release-notes"></a>Azure Media Services v3 릴리스 정보
 
@@ -36,6 +36,13 @@ ms.locfileid: "76719843"
 
 자세한 내용은 [Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침](migrate-from-v2-to-v3.md#known-issues)을 참조하세요.
 
+## <a name="january-2020"></a>2020년 1월
+
+### <a name="improvements-in-media-processors"></a>미디어 프로세서의 향상 된 기능
+
+- 비디오 분석에서 인터레이스 소스에 대 한 향상 된 지원 – 이러한 콘텐츠는 이제 유추 엔진으로 전송 되기 전에 올바르게 인터레이스 되지 않습니다.
+- "최상" 모드로 미리 보기를 생성할 때 인코더는 이제 30 초 이상 검색 하 여 단색이 아닌 프레임을 선택 합니다.
+ 
 ## <a name="november-2019"></a>2019년 11월
 
 ### <a name="live-transcription-preview"></a>라이브 기록 미리 보기

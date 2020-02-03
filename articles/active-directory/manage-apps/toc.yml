@@ -151,8 +151,8 @@
               href: methods-for-assigning-users-and-groups.md
             - name: 앱에 사용자 할당
               href: assign-user-or-group-access-portal.md
-            - name: 내 앱에서 작업 영역 만들기(미리 보기)
-              href: access-panel-workspaces.md
+            - name: 내 앱에서 컬렉션 만들기
+              href: access-panel-collections.md
             - name: 셀프 서비스 앱 액세스 사용
               href: access-panel-manage-self-service-access.md
             - name: 앱에 대한 사용자 액세스 권한을 제거하는 메서드

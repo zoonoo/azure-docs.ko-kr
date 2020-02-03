@@ -6,17 +6,17 @@ documentationcenter: ''
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 12/23/2019
+ms.date: 02/01/2020
 author: swinarko
 ms.author: sawinark
 ms.reviewer: douglasl
 manager: mflasko
-ms.openlocfilehash: fec34c54971878178b2a5ea4548ad20d3b51b104
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 7e8a1793a329a863c9df97ae5ddcbee6cef10e8e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119920"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964346"
 ---
 # <a name="join-an-azure-ssis-integration-runtime-to-a-virtual-network"></a>Azure-SSIS 통합 런타임을 Azure 가상 네트워크에 조인
 
@@ -233,7 +233,7 @@ Azure-SSIS IR의 아웃 바운드 트래픽을 검사 하는 기능이 필요 �
 
 ### <a name="resource-group"></a>리소스 그룹 설정
 
-Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 이러한 리소스에는 다음과 같은 것이 포함됩니다.
+Azure-SSIS IR은 가상 네트워크와 동일한 리소스 그룹에 특정 네트워크 리소스를 만들어야 합니다. 이러한 리소스는 다음과 같습니다.
 - 이름 *\<Guid >-azurebatch-cloudserviceloadbalancer*를 사용 하는 Azure 부하 분산 장치
 - 이름이\<Guid > 인 Azure 공용 IP 주소 *-azurebatch-cloudservicepublicip*.
 - 이름이 *\<Guid >-azurebatch-cloudservicenetworksecuritygroup*인 네트워크 작업 보안 그룹입니다. 
@@ -428,6 +428,20 @@ Azure Resource Manager 가상 네트워크 또는 클래식 가상 네트워크�
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
+### <a name="define-the-variables"></a>변수를 정의합니다.
+
+```powershell
+$ResourceGroupName = "[your Azure resource group name]"
+$DataFactoryName = "[your data factory name]"
+$AzureSSISName = "[your Azure-SSIS IR name]"
+# Virtual network info: Classic or Azure Resource Manager
+$VnetId = "[your virtual network resource ID or leave it empty]" # REQUIRED if you use an Azure SQL Database server with IP firewall rules/virtual network service endpoints or a managed instance with private endpoint to host SSISDB, or if you require access to on-premises data without configuring a self-hosted IR. We recommend an Azure Resource Manager virtual network, because classic virtual networks will be deprecated soon.
+$SubnetName = "[your subnet name or leave it empty]" # WARNING: Use the same subnet as the one used for your Azure SQL Database server with virtual network service endpoints, or a different subnet from the one used for your managed instance with a private endpoint
+# Public IP address info: OPTIONAL to provide two standard static public IP addresses with DNS name under the same subscription and in the same region as your virtual network
+$FirstPublicIP = "[your first public IP address resource ID or leave it empty]"
+$SecondPublicIP = "[your second public IP address resource ID or leave it empty]"
+```
+
 ### <a name="configure-a-virtual-network"></a>가상 네트워크 구성
 
 Azure-SSIS IR를 가상 네트워크에 연결 하려면 먼저 가상 네트워크를 구성 해야 합니다. 가상 네트워크에 가입 하기 위해 Azure-SSIS IR에 대 한 가상 네트워크 권한 및 설정을 자동으로 구성 하려면 다음 스크립트를 추가 합니다.
@@ -463,26 +477,15 @@ Azure-SSIS IR을 만드는 동시에 가상 네트워크에 조인할 수 있습
 1. 가상 네트워크에 조인하도록 Azure-SSIS IR을 구성합니다. 
 1. Azure-SSIS IR을 시작합니다. 
 
-### <a name="define-the-variables"></a>변수를 정의합니다.
-
-```powershell
-$ResourceGroupName = "<your Azure resource group name>"
-$DataFactoryName = "<your Data Factory name>" 
-$AzureSSISName = "<your Azure-SSIS IR name>"
-# Specify the information about your classic or Azure Resource Manager virtual network.
-$VnetId = "<your Azure virtual network resource ID>"
-$SubnetName = "<the name of subnet in your virtual network>"
-```
-
 ### <a name="stop-the-azure-ssis-ir"></a>Azure-SSIS IR 중지
 
 가상 네트워크에 연결 하려면 먼저 Azure-SSIS IR를 중지 해야 합니다. 이 명령은 모든 노드를 해제하고 청구를 중지합니다.
 
 ```powershell
 Stop-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                            -DataFactoryName $DataFactoryName `
-                                            -Name $AzureSSISName `
-                                            -Force 
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force 
 ```
 
 ### <a name="configure-virtual-network-settings-for-the-azure-ssis-ir-to-join"></a>Azure-SSIS IR이 조인하기 위한 가상 네트워크 설정을 구성합니다.
@@ -515,11 +518,20 @@ Azure-SSIS IR를 가상 네트워크에 연결 하려면 `Set-AzDataFactoryV2Int
 
 ```powershell
 Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                           -DataFactoryName $DataFactoryName `
-                                           -Name $AzureSSISName `
-                                           -Type Managed `
-                                           -VnetId $VnetId `
-                                           -Subnet $SubnetName
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -VnetId $VnetId `
+    -Subnet $SubnetName
+
+# Add public IP address parameters if you bring your own static public IP addresses
+if(![string]::IsNullOrEmpty($FirstPublicIP) -and ![string]::IsNullOrEmpty($SecondPublicIP))
+{
+    $publicIPs = @($FirstPublicIP, $SecondPublicIP)
+    Set-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
+        -DataFactoryName $DataFactoryName `
+        -Name $AzureSSISName `
+        -PublicIPs $publicIPs
+}
 ```
 
 ### <a name="start-the-azure-ssis-ir"></a>Azure-SSIS IR 시작
@@ -528,10 +540,9 @@ Azure-SSIS IR를 시작 하려면 다음 명령을 실행 합니다.
 
 ```powershell
 Start-AzDataFactoryV2IntegrationRuntime -ResourceGroupName $ResourceGroupName `
-                                             -DataFactoryName $DataFactoryName `
-                                             -Name $AzureSSISName `
-                                             -Force
-
+    -DataFactoryName $DataFactoryName `
+    -Name $AzureSSISName `
+    -Force
 ```
 
 이 명령을 완료하는 데 20~30분이 걸립니다.

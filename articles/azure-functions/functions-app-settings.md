@@ -3,12 +3,12 @@ title: Azure Functions에 대한 앱 설정 참조
 description: Azure Functions 앱 설정 또는 환경 변수에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 09/22/2018
-ms.openlocfilehash: 87852d940204f574350321e2690b70c9835093d9
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 3853ccbfd492bfaf4a82d62e6d31ab938285ee2e
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921107"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963702"
 ---
 # <a name="app-settings-reference-for-azure-functions"></a>Azure Functions에 대한 앱 설정 참조
 
@@ -32,14 +32,14 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobsdashboard"></a>AzureWebJobsDashboard
 
-로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+로그를 저장하고 포털의 **모니터** 탭에 표시하기 위한 선택적인 스토리지 계정 연결 문자열입니다. 이 설정은 Azure Functions 런타임의 버전 1.x를 대상으로 하는 앱에만 유효 합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. 자세히 알아보려면 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.
 
 |키|샘플 값|
 |---|------------|
-|AzureWebJobsDashboard|DefaultEndpointsProtocol=https;AccountName=[name];AccountKey=[key]|
+|AzureWebJobsDashboard|DefaultEndpointsProtocol = https; AccountName =<name>; AccountKey =<key>|
 
-> [!TIP]
-> 성능 및 환경을 위해 AzureWebJobsDashboard 대신 모니터링을 위해 App Insights 및 APPINSIGHTS_INSTRUMENTATIONKEY를 사용하는 것이 좋습니다.
+> [!NOTE]
+> 성능 및 환경을 향상 시키기 위해 런타임 버전 2.x 이상 버전에서는 `AzureWebJobsDashboard`대신 모니터링에 APPINSIGHTS_INSTRUMENTATIONKEY 및 App Insights를 사용 합니다.
 
 ## <a name="azurewebjobsdisablehomepage"></a>AzureWebJobsDisableHomepage
 
@@ -79,7 +79,7 @@ Application Insights를 사용하는 경우 Application Insights 계측 키입�
 
 ## <a name="azurewebjobsstorage"></a>AzureWebJobsStorage
 
-Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 스토리지 계정 연결 문자열을 사용합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](functions-create-function-app-portal.md#storage-account-requirements)을 참조하세요.
+Azure Functions 런타임은 HTTP 트리거 함수를 제외한 모든 함수에 대해 이 스토리지 계정 연결 문자열을 사용합니다. 스토리지 계정은 Blob, 큐 및 테이블을 지원하는 범용 계정이어야 합니다. [스토리지 계정](functions-infrastructure-as-code.md#storage-account) 및 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
 |키|샘플 값|
 |---|------------|

@@ -13,49 +13,81 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: azurecli
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 01/23/2019
 ms.author: danis
-ms.openlocfilehash: 7b3f64d0629ba5d7aaf85b854e1ee8e5a1410f94
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e3a09a0d8412af711bfb6c539dc9d2829b1f0898
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458609"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964586"
 ---
-# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure의 가상 머신에 대한 Cloud-init 지원
-이 문서에서는 Azure에서 프로 비전 하는 시간에 VM (가상 머신) 또는 가상 머신 확장 집합을 구성 하기 위해 [클라우드 초기화](https://cloudinit.readthedocs.io) 에 대해 존재 하는 지원을 설명 합니다. Azure에서 리소스가 프로비전되면 처음 부팅 시 이러한 cloud-init 스크립트가 실행됩니다.  
+# <a name="cloud-init-support-for-virtual-machines-in-azure"></a>Azure에서 가상 머신에 대 한 클라우드 초기화 지원
+이 문서에서는 Azure에서 프로 비전 하는 시간에 VM (가상 머신) 또는 가상 머신 확장 집합을 구성 하기 위해 [클라우드 초기화](https://cloudinit.readthedocs.io) 에 대해 존재 하는 지원을 설명 합니다. 이러한 클라우드 init 구성은 Azure에서 리소스를 프로 비전 한 후 처음 부팅 될 때 실행 됩니다.  
 
-## <a name="cloud-init-overview"></a>Cloud-init 개요
-[Cloud-init](https://cloudinit.readthedocs.io)는 처음 부팅 시 Linux VM을 사용자 지정하는 데 널리 사용되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일의 형식을 제대로 지정하는 방법에 대한 자세한 내용은 [cloud-init 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
+VM 프로 비전은 Azure에서 VM을 전달 하 여 호스트 이름, 사용자 이름, 암호 등의 매개 변수 값을 만들고 VM이 부팅 될 때 VM에서 사용할 수 있도록 하는 프로세스입니다. ' 프로 비전 에이전트 '는 이러한 값을 사용 하 고, VM을 구성 하 고, 완료 되 면 다시 보고 합니다. 
 
-Cloud-init는 배포에서도 작동합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. cloud-init에서 선택한 배포판의 기본 패키지 관리 도구를 자동으로 사용합니다.
+Azure는 두 가지 프로 비전 에이전트 [클라우드 init](https://cloudinit.readthedocs.io)와 [azure LINUX 에이전트 (WALA)](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-linux)를 지원 합니다.
 
-Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 통해 클라우드 init 배포 및 구성이 Vm 및 가상 머신 확장 집합에서 원활 하 게 작동 합니다. 다음 표에서는 Azure 플랫폼에서 현재 사용 가능한 cloud-init 지원 이미지를 보여 줍니다.
+## <a name="cloud-init-overview"></a>클라우드-초기화 개요
+[클라우드 초기화](https://cloudinit.readthedocs.io) 는 처음 부팅 될 때 Linux VM을 사용자 지정 하는 데 널리 사용 되는 방법입니다. Cloud-init를 사용하여 패키지를 설치하고 파일을 쓰거나, 사용자 및 보안을 구성할 수 있습니다. 초기 부팅 프로세스 중에 cloud-init가 호출되므로 구성을 적용하기 위한 추가 단계나 필요한 에이전트가 없습니다.  `#cloud-config` 파일 또는 다른 입력의 형식을 올바르게 지정 하는 방법에 대 한 자세한 내용은 [클라우드 초기화 설명서 사이트](https://cloudinit.readthedocs.io/en/latest/topics/format.html#cloud-config-data)를 참조 하세요.  `#cloud-config` 파일은 base64로 인코딩된 텍스트 파일입니다.
 
-| 게시자 | 제품 | SKU | 버전 | cloud-init 준비 여부 |
-|:--- |:--- |:--- |:--- |:--- |
-|Canonical |UbuntuServer |18.04-LTS |latest |예 | 
-|Canonical |UbuntuServer |16.04-LTS |latest |예 | 
-|Canonical |UbuntuServer |14.04.5-LTS |latest |예 |
-|CoreOS |CoreOS |Stable |latest |예 |
-|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |미리 보기 |
-|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01|미리 보기 |
-|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 |
-|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 |미리 보기 |
-    
-현재 Azure Stack는 클라우드 init를 사용 하 여 RHEL 4.x 및 CentOS 4.x의 프로 비전을 지원 하지 않습니다.
+클라우드 초기화는 배포 간에도 작동 합니다. 예를 들어, 패키지를 설치하는 데 **apt-get install** 또는 **yum install**은 사용하지 않습니다. 대신 설치할 패키지 목록을 정의할 수 있습니다. 클라우드 초기화는 자동으로 사용자가 선택한 배포판에 대 한 기본 패키지 관리 도구를 사용 합니다.
 
-* RHEL 7.6, 클라우드 초기화 패키지의 경우 지원 되는 패키지는 *18.2-1입니다. el7_6.2* 
-* RHEL 7.7 (미리 보기), 클라우드 초기화 패키지의 경우 미리 보기 패키지는 *18.5 -3. el7*
-* CentOS 7.7 (미리 보기), 클라우드 초기화 패키지의 경우 미리 보기 패키지는 *18.5 -3. el7. CentOS*
-* Oracle 7.7 (preview), 클라우드 초기화 패키지의 경우 미리 보기 패키지는 *18.5-3.0.1. el7입니다.*
+Azure Marketplace에서 cloud-init 활성화 이미지를 사용할 수 있도록 하기 위해 승인된 Linux 배포판 파트너와 적극적으로 공조하고 있습니다. 이러한 이미지를 사용하면 VM 및 가상 머신 확장 집합에서 cloud-init 배포 및 구성 작업을 원활하게 진행할 수 있습니다. 처음에는 Azure에서 OS를 사용 하 여 클라우드 초기화 기능을 보장 하기 위해 보증 Linux 배포판 파트너 및 업스트림과 공동 작업을 수행 합니다. 그러면 패키지가 업데이트 되 고 배포판 패키지 리포지토리에서 사용 가능 하 게 공개적으로 됩니다. 
+
+Azure에서 보증 Linux 배포판 OS의 클라우드 초기화를 사용할 수 있도록 하는 두 가지 단계가 있습니다. 패키지 지원 및 이미지 지원:
+* ' Azure에 대 한 클라우드 초기화 패키지 지원 '은 앞으로 지원 되거나 미리 보기에 있는 클라우드 초기화 패키지를 문서화 하므로 사용자 지정 이미지에서 OS와 함께 이러한 패키지를 사용할 수 있습니다.
+* 이미지가 이미 클라우드 초기화를 사용 하도록 구성 된 경우 ' 이미지 클라우드-초기화 준비 ' 문서입니다.
+
+
+### <a name="canonical"></a>Canonical
+| 게시자/버전| 제품 | SKU | 버전 | 이미지 클라우드-초기화 준비 | Azure의 클라우드 초기화 패키지 지원|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|정식 18.04 |UbuntuServer |18.04-LTS |latest |예 | 예 |
+|정식 16.04|UbuntuServer |16.04-LTS |latest |예 | 예 |
+|정식 14.04|UbuntuServer |14.04.5-LTS |latest |예 | 예 |
+
+### <a name="rhel"></a>RHEL
+| 게시자/버전 | 제품 | SKU | 버전 | 이미지 클라우드-초기화 준비 | Azure의 클라우드 초기화 패키지 지원|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|RedHat 7.6 |RHEL |7-RAW-CI |7.6.2019072418 |예 | 예-패키지 버전에 대 한 지원: *18.2-1. el7_6 2*|
+|RedHat 7.7 |RHEL |7-RAW-CI |7.7.2019081601 | 예 (미리 보기 이미지 이며, 모든 RHEL 7.7 이미지가 클라우드 init를 지 원하는 경우이를 2020 제거 합니다. | 예-패키지 버전: *18.5 -3. el7* 에서 지원|
+|RedHat 7.7 |RHEL |7-RAW | n/a| 아니요-2 월 2020 시작 하기 위한 이미지 업데이트| 예-패키지 버전: *18.5 -3. el7* 에서 지원|
+|RedHat 7.7 |RHEL |7-LVM | n/a| 아니요-2 월 2020 시작 하기 위한 이미지 업데이트| 예-패키지 버전: *18.5 -3. el7* 에서 지원|
+|RedHat 7.7 |RHEL |7.7 | n/a| 아니요-2 월 2020 시작 하기 위한 이미지 업데이트 | 예-패키지 버전: *18.5 -3. el7* 에서 지원|
+|RedHat 7.7 |rhel byos | rhel-lvm77 | n/a|아니요-2 월 2020 시작 하기 위한 이미지 업데이트  | 예-패키지 버전: *18.5 -3. el7* 에서 지원|
+
+### <a name="centos"></a>CentOS
+
+| 게시자/버전 | 제품 | SKU | 버전 | 이미지 클라우드-초기화 준비 | Azure의 클라우드 초기화 패키지 지원|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|OpenLogic 7.7 |CentOS |7-CI |7.7.20190920 |예 (미리 보기 이미지 이며, 모든 CentOS 7.7 이미지가 클라우드 init를 지 원하는 경우이를 2020 제거 합니다. | 예-패키지 버전: *18.5 -3. el7. centos* 에서 지원 됩니다.|
+
+* Cloud init를 사용 하도록 설정 된 CentOS 7.7 이미지는 여기에서 2 월 2020에 업데이트 됩니다. 
+
+### <a name="oracle"></a>Oracle
+
+| 게시자/버전 | 제품 | SKU | 버전 | 이미지 클라우드-초기화 준비 | Azure의 클라우드 초기화 패키지 지원|
+|:--- |:--- |:--- |:--- |:--- |:--- |
+|Oracle 7.7 |Oracle-Linux |77-ci |7.7.01| 미리 보기 이미지 (미리 보기 이미지 이며, 모든 Oracle 7.7 이미지가 클라우드 init를 지 원하는 경우이를 2020 제거 합니다. | 아니요, 미리 보기에서 패키지는: *18.5-3.0.1. el7*
+
+### <a name="debian--suse-sles"></a>Debian & SuSE SLES
+현재 preview 지원에 대 한 작업을 수행 하 고 있으며 2 월 및 3 월 2020에 업데이트를 제공 합니다.
+
+현재 Azure Stack는 클라우드 초기화 사용 이미지의 프로 비전을 지원 합니다.
+
 
 ## <a name="what-is-the-difference-between-cloud-init-and-the-linux-agent-wala"></a>cloud-init와 Linux 에이전트(WALA)의 차이는 무엇입니까?
-WALA는 VM을 프로비전 및 구성하고 Azure 확장을 처리하는 데 사용되는 Azure 플랫폼 관련 에이전트입니다. 기존 cloud-init 고객이 현재 cloud-init 스크립트를 사용할 수 있도록, Linux 에이전트 대신 cloud-init를 사용하도록 VM을 구성하는 작업을 개선하고 있습니다.  Linux 시스템을 구성하기 위해 cloud-init 스크립트에 이미 투자한 경우 **추가 설정이 필요 없습니다**. 
+WALA는 Vm을 프로 비전 및 구성 하 고 [azure 확장](https://docs.microsoft.com/azure/virtual-machines/extensions/features-linux)을 처리 하는 데 사용 되는 azure 플랫폼별 에이전트입니다. 
 
-프로비전할 때 AzureCLI `--custom-data` 스위치를 포함하지 않으면 WALA는 VM을 프로비전하는 데 필요한 최소한의 VM 프로비전 매개 변수를 사용하여 기본 설정으로 배포를 완료합니다.  cloud-init `--custom-data` 스위치를 참조하면 사용자 지정 데이터에 포함된 것이 무엇이든(개인 설정 또는 전체 스크립트) 관계없이 WALA 기본값을 재정의합니다. 
+기존 클라우드 init 고객이 현재 클라우드 초기화 스크립트를 사용 하거나 새로운 고객에 게 다양 한 클라우드 초기화 구성 기능을 활용할 수 있도록 하기 위해 Linux 에이전트 대신 클라우드 초기화를 사용 하도록 Vm을 구성 하는 작업을 개선 하 고 있습니다. Linux 시스템을 구성 하기 위한 클라우드 init 스크립트에 대 한 기존 투자가 있는 경우 클라우드 초기화를 사용 하도록 설정 하는 데 **필요한 추가 설정은 없습니다** . 
 
-VM의 WALA 구성은 최대 VM 프로비전 시간 내에서 작업하도록 시간이 제한됩니다.  VM에 적용되는 Cloud-init 구성은 시간 제약 조건이 없으므로 제한 시간 초과로 인한 배포 실패가 없습니다. 
+클라우드 초기화는 Azure 확장을 처리할 수 없으므로 WALA는 이미지에서 확장을 처리 해야 하지만 프로 비전 코드를 사용 하지 않도록 설정 해야 합니다. 클라우드 init에서 프로 비전 하도록 변환 되는 보증 Linux 배포판 이미지의 경우 WALA가 있습니다. 설치 하 고 올바르게 설치 합니다.
+
+VM을 만들 때 프로 비전 시간에 Azure CLI `--custom-data` 스위치를 포함 하지 않으면 VM을 프로 비전 하 고 기본값을 사용 하 여 배포를 완료 하는 데 필요한 최소 VM 프로 비전 매개 변수를 클라우드-init 또는 WALA에서 사용 합니다.  `--custom-data` 스위치를 사용 하 여 클라우드 init 구성을 참조 하는 경우 VM이 부팅 될 때 사용자 지정 데이터에 포함 된 모든 항목이 클라우드 초기화에 제공 됩니다.
+
+Vm에 적용 되는 클라우드 초기화 구성에는 시간 제한이 없으며 시간 초과로 인해 배포에 실패 하지 않습니다. WALA의 경우에는 적용 되지 않습니다. 사용자 지정 데이터를 처리 하도록 WALA 기본값을 변경 하는 경우 총 VM 프로 비전 시간 허용 한도를 초과할 수 없습니다 .이 경우 VM 만들기가 실패 합니다.
 
 ## <a name="deploying-a-cloud-init-enabled-virtual-machine"></a>cloud-init를 사용하는 가상 머신 배포
 cloud-init를 사용하는 가상 머신 배포 방법은 배포하는 동안 cloud-init 지원 배포를 참조하는 것만큼 간단합니다.  Linux 배포 유지 관리자는 cloud-init를 사용하도록 설정하고 기본 Azure 게시 이미지와 통합하도록 선택해야 합니다. 배포하려는 이미지에서 cloud-init가 설정되었는지 확인한 후 AzureCLI를 사용하여 이미지를 배포할 수 있습니다. 
@@ -107,3 +139,4 @@ cloud-init 로깅에 대한 자세한 내용은 [cloud-init 설명서](https://c
 - [패키지 관리자를 실행하여 첫 번째 부팅 시 기존 패키지 업데이트](cloudinit-update-vm.md)
 - [VM 로컬 호스트 이름 변경](cloudinit-update-vm-hostname.md) 
 - [애플리케이션 패키지 설치, 구성 파일 업데이트 및 키 삽입](tutorial-automate-vm-deployment.md)
+ 

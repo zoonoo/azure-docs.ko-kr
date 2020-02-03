@@ -5,12 +5,12 @@ ms.assetid: 9058fb2f-8a93-4036-a921-97a0772f503c
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 19674cb024bd9b9c9ea9f510080e30614fad8b60
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f808ff2a88a86df25b555f94257168e2d176e7f8
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75433305"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963662"
 ---
 # <a name="optimize-the-performance-and-reliability-of-azure-functions"></a>Azure Functions의 성능 및 안정성 최적화
 
@@ -74,7 +74,9 @@ Azure Functions 플랫폼에서 사용하는 구성 요소를 위해 이미 제�
 
 ### <a name="avoid-sharing-storage-accounts"></a>저장소 계정 공유 방지
 
-함수 앱을 만들 때이를 저장소 계정과 연결 해야 합니다. 저장소 계정 연결은 [Azurewebjobsstorage 응용 프로그램 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리 됩니다. 성능을 최대화 하려면 각 함수 앱에 대해 별도의 저장소 계정을 사용 합니다. 이는 특히 많은 양의 저장소 트랜잭션을 생성 하는 Durable Functions 또는 이벤트 허브 트리거 함수가 있는 경우에 특히 중요 합니다. 응용 프로그램 논리가 직접 (저장소 SDK를 사용 하 여) 또는 저장소 바인딩 중 하나를 통해 Azure Storage와 상호 작용 하는 경우 전용 저장소 계정을 사용 해야 합니다. 예를 들어 blob 저장소에 일부 데이터를 기록 하는 이벤트 허브 트리거 함수가 있는 경우 두 개의 저장소 계정을 사용 합니다. 하나는 함수 앱에 대 한 것이 고 다른 하나는 함수에 의해 저장 되는 blob에 대 한&mdash;합니다.
+함수 앱을 만들 때이를 저장소 계정과 연결 해야 합니다. 저장소 계정 연결은 [Azurewebjobsstorage 응용 프로그램 설정](./functions-app-settings.md#azurewebjobsstorage)에서 유지 관리 됩니다. 
+
+[!INCLUDE [functions-shared-storage](../../includes/functions-shared-storage.md)]
 
 ### <a name="dont-mix-test-and-production-code-in-the-same-function-app"></a>동일한 함수 앱에서 테스트와 프로덕션 코드의 혼합 금지
 

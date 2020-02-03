@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1e9a22e6ff76c0d26a346192c69bc067e7d42ccf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fd6cacae9c7af705b0de7b59e0f25f25637a5a89
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425334"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76962495"
 ---
 # <a name="password-policies-and-restrictions-in-azure-active-directory"></a>Azure Active Directory에서 암호 정책 및 제한
 
@@ -85,8 +85,8 @@ Azure AD에 로그인해야 하는 모든 사용자 계정에는 해당 계정�
 | 허용되지 않는 문자 | 유니코드 문자 |
 | 암호 제한 |<ul><li>최소 8 자에서 최대 256 자까지 입력할 수가 있습니다.</li><li>다음 4개 중 3개가 필요합니다.<ul><li>소문자</li><li>대문자</li><li>숫자(0-9)</li><li>기호(이전 암호 제한 참조)</li></ul></li></ul> |
 | 암호 만료 기간 (최대 암호 사용 기간) |<ul><li>기본값: **90**일</li><li>값은 Windows PowerShell용 Azure Active Directory 모듈에서 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
-| 암호 만료 알림 (사용자가 암호 만료를 알리는 경우) |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
-| 암호 만료 (암호가 만료 되는 경우) |<ul><li>기본값: **false**일(사용 가능한 암호 만료임을 나타냄)</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
+| 암호 만료 알림 (사용자에 게 암호 만료 알림이 제공 된 경우) |<ul><li>기본값: **14**일(암호 만료 이전)</li><li>값은 `Set-MsolPasswordPolicy` cmdlet을 사용하여 구성할 수 있습니다.</li></ul> |
+| 암호 만료 (암호의 만료 안 함) |<ul><li>기본값: **false** (암호의 만료 날짜를 나타냄).</li><li>`Set-MsolUser` cmdlet을 사용하여 개별 사용자 계정에 대한 값을 구성할 수 있습니다.</li></ul> |
 | 암호 변경 기록 | 사용자 암호를 변경할 때 마지막 암호를 다시 사용할 수 *없습니다*. |
 | 암호 재설정 기록 | 사용자가 잊어버린 암호를 재설정할 때 마지막 암호를 다시 사용할 수 *있습니다*. |
 | 계정 잠금 | 로그인 시도를 10번 실패하면(잘못된 암호) 1분 동안 사용자가 잠기게 됩니다. 잘못된 로그인을 더 시도하면 사용자가 잠기는 시간이 더 늘어납니다. [스마트 잠금](howto-password-smart-lockout.md) 기능은 동일한 암호에 대해 잠금 카운터가 증가하는 것을 방지하기 위해 마지막 세 개의 잘못된 암호 해시를 추적합니다. 동일한 잘못된 암호를 여러 번 입력하면 이 동작으로 인해 계정이 잠기지 않습니다. |
@@ -149,7 +149,7 @@ Microsoft 클라우드 서비스의 전역 관리자 또는 사용자 관리자�
    Set-AzureADUser -ObjectId <user ID> -PasswordPolicies DisablePasswordExpiration
    ```
 
-   * 조직 내 모든 사용자의 암호를 기간 제한 없음으로 설정하려면 다음 cmdlet을 실행합니다.
+   * 조직의 모든 사용자에 대 한 암호를 만료 되지 않도록 설정 하려면 다음 cmdlet을 실행 합니다.
 
    ```powershell
    Get-AzureADUser -All $true | Set-AzureADUser -PasswordPolicies DisablePasswordExpiration

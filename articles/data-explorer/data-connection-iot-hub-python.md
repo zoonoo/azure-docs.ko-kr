@@ -7,29 +7,29 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 7e1d9021abbbe507f3bf287291d5638c77f6e0cb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 86e966cc3bf98e63edbe90d7649242dcb1ccdf42
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667360"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964382"
 ---
 # <a name="create-an-iot-hub-data-connection-for-azure-data-explorer-by-using-python-preview"></a>Python (미리 보기)을 사용 하 여 Azure 데이터 탐색기에 대 한 IoT Hub 데이터 연결 만들기
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-iot-hub.md)
+> * [포털](ingest-data-iot-hub.md)
 > * [C#](data-connection-iot-hub-csharp.md)
 > * [Python](data-connection-iot-hub-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-iot-hub-resource-manager.md)
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 blob 컨테이너에 기록 된 Event Hubs, IoT Hub 및 blob에서 수집 (데이터 로드)을 제공 합니다. 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에 대 한 IoT Hub 데이터 연결을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* [클러스터 및 데이터베이스](create-cluster-database-csharp.md) 만들기
-* [테이블 및 열 매핑](net-standard-ingest-data.md#create-a-table-on-your-test-cluster) 만들기
-* [데이터베이스 및 테이블 정책](database-table-policies-csharp.md) 설정 (선택 사항)
+* [클러스터 및 데이터베이스](create-cluster-database-python.md) 만들기
+* [테이블 및 열 매핑](python-ingest-data.md#create-a-table-on-your-cluster) 만들기
+* [데이터베이스 및 테이블 정책](database-table-policies-python.md) 설정 (선택 사항)
 * [공유 액세스 정책이 구성 된 IoT Hub](ingest-data-iot-hub.md#create-an-iot-hub)를 만듭니다.
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
@@ -59,20 +59,20 @@ credentials = ServicePrincipalCredentials(
     )
 kusto_management_client = KustoManagementClient(credentials, subscription_id)
 
-resource_group_name = "testrg";
+resource_group_name = "testrg"
 #The cluster and database that are created as part of the Prerequisites
-cluster_name = "mykustocluster";
-database_name = "mykustodatabase";
-data_connection_name = "myeventhubconnect";
+cluster_name = "mykustocluster"
+database_name = "mykustodatabase"
+data_connection_name = "myeventhubconnect"
 #The IoT hub that is created as part of the Prerequisites
 iot_hub_resource_id = "/subscriptions/xxxxxxxx-xxxxx-xxxx-xxxx-xxxxxxxxx/resourceGroups/xxxxxx/providers/Microsoft.Devices/IotHubs/xxxxxx";
-shared_access_policy_name = "iothubforread";
-consumer_group = "$Default";
-location = "Central US";
+shared_access_policy_name = "iothubforread"
+consumer_group = "$Default"
+location = "Central US"
 #The table and column mapping that are created as part of the Prerequisites
-table_name = "StormEvents";
-mapping_rule_name = "StormEvents_CSV_Mapping";
-data_format = "csv";
+table_name = "StormEvents"
+mapping_rule_name = "StormEvents_CSV_Mapping"
+data_format = "csv"
 
 #Returns an instance of LROPoller, check https://docs.microsoft.com/python/api/msrest/msrest.polling.lropoller?view=azure-python
 poller = kusto_management_client.data_connections.create_or_update(resource_group_name=resource_group_name, cluster_name=cluster_name, database_name=database_name, data_connection_name=data_connection_name,
@@ -96,6 +96,6 @@ poller = kusto_management_client.data_connections.create_or_update(resource_grou
 | iot_hub_resource_id | *리소스 ID* | 수집할 데이터를 보유 하는 IoT hub의 리소스 ID입니다.|
 | shared_access_policy_name | *iothubforread* | IoT Hub에 연결할 장치 및 서비스에 대 한 권한을 정의 하는 공유 액세스 정책의 이름입니다. |
 | consumer_group | *$Default* | 이벤트 허브의 소비자 그룹입니다.|
-| location | *미국 중부* | 데이터 연결 리소스의 위치입니다.|
+| 위치 | *미국 중부* | 데이터 연결 리소스의 위치입니다.|
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-python](../../includes/data-explorer-data-connection-clean-resources-python.md)]

@@ -3,12 +3,12 @@ title: Azure Functions에서 소비 계획 비용 예측
 description: Azure의 소비 계획에서 함수 앱을 실행할 때 발생할 수 있는 비용을 보다 정확 하 게 예측 하는 방법을 알아봅니다.
 ms.date: 9/20/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6a68069ab9af54c1c8cfaf6c20727181e48ba1ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 0e3177d7c65eb1624441427f123e6f95095bdbbd
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75890311"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963991"
 ---
 # <a name="estimating-consumption-plan-costs"></a>소비 계획의 비용 예측
 
@@ -47,7 +47,7 @@ Durable Functions 소비 계획에서 실행할 수도 있습니다. Durable Fun
 
 | 관련 비용 | Description |
 | ------------ | ----------- |
-| **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세히 알아보려면 [Storage 계정 요구 사항](functions-scale.md#storage-account-requirements)을 참조 하세요.|
+| **스토리지 계정** | 각 함수 앱에는 [별도로 청구](https://azure.microsoft.com/pricing/details/storage/)되는 연결 된 범용 [Azure Storage 계정이](../storage/common/storage-introduction.md#types-of-storage-accounts)있어야 합니다. 이 계정은 함수 런타임에서 내부적으로 사용 되지만 저장소 트리거 및 바인딩에 사용할 수도 있습니다. 저장소 계정이 없는 경우 함수 앱을 만들 때 하나씩 만들어집니다. 자세히 알아보려면 [Storage 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조 하세요.|
 | **Application Insights** | 함수는 [Application Insights](../azure-monitor/app/app-insights-overview.md) 을 사용 하 여 함수 앱에 고성능 모니터링 환경을 제공 합니다. 필수는 아니지만 [Application Insights 통합을 사용 하도록 설정](functions-monitoring.md#enable-application-insights-integration)해야 합니다. 원격 분석 데이터의 무료 부여는 매달 포함 됩니다. 자세히 알아보려면 [Azure Monitor 가격 책정 페이지](https://azure.microsoft.com/pricing/details/monitor/)를 참조 하세요. |
 | **네트워크 대역폭** | 동일한 지역에 있는 Azure 서비스 간의 데이터 전송에 대해서는 지불 하지 않습니다. 그러나 다른 지역 또는 Azure 외부로 아웃 바운드 데이터 전송에 대 한 비용을 발생 시킬 수 있습니다. 자세한 내용은 [대역폭 가격 정보](https://azure.microsoft.com/pricing/details/bandwidth/)를 참조 하세요. |
 

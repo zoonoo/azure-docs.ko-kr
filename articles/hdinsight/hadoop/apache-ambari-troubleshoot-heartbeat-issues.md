@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 09/11/2019
-ms.openlocfilehash: ae5cfcfcd394aab644b35ac66aafa213dc49dd42
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ae05a0d0866c38c2414bacb638fa90936bb6dc15
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895376"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76964620"
 ---
 # <a name="apache-ambari-heartbeat-issues-in-azure-hdinsight"></a>Azure HDInsight의 Apache Ambari 하트 비트 문제
 
@@ -82,6 +82,21 @@ Ambari 에이전트가 실행 되 고 있지 않기 때문에 경고가 발생 �
     ```
 
     장애 조치 (failover) 컨트롤러 서비스가 실행 되 고 있지 않으면 hdinsight 에이전트가 장애 조치 (failover) 컨트롤러를 시작 하지 못하도록 하는 문제가 원인일 수 있습니다. `/var/log/hdinsight-agent/hdinsight-agent.out` 파일에서 hdinsight 에이전트 로그를 확인 합니다.
+
+## <a name="scenario-heartbeat-lost-for-ambari"></a>시나리오: Ambari에 대 한 하트 비트 손실
+
+### <a name="issue"></a>문제
+
+Ambari 하트 비트 에이전트가 손실 되었습니다.
+
+### <a name="cause"></a>원인
+
+OMS 로그의 CPU 사용률이 높습니다.
+
+### <a name="resolution"></a>해상도
+
+* [AzHDInsightOperationsManagementSuite](https://docs.microsoft.com/powershell/module/az.hdinsight/disable-azhdinsightoperationsmanagementsuite?view=azps-2.8.0) PowerShell 모듈을 사용 하 여 OMS 로깅을 사용 하지 않도록 설정 합니다. 
+* `mdsd.warn` 로그 파일 삭제
 
 ---
 

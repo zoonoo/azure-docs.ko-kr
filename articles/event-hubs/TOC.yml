@@ -26,13 +26,13 @@
           href: event-hubs-resource-manager-namespace-event-hub.md
     - name: 이벤트 보내기 및 받기
       items:
-        - name: .NET Core
-          href: event-hubs-dotnet-standard-getstarted-send.md
-        - name: Java
+        - name: .NET Core(Azure.Messaging.EventHubs)
+          href: get-started-dotnet-standard-send-v2.md
+        - name: Java(azure-eventhubs)
           href: event-hubs-java-get-started-send.md
-        - name: Python
+        - name: Python(azure-eventhub 버전 5)
           href: get-started-python-send-v2.md
-        - name: Node.js
+        - name: Node.js(azure/event-hubs 버전 5)
           href: get-started-node-send-v2.md
         - name: Go
           href: event-hubs-go-get-started-send.md
@@ -40,15 +40,13 @@
           href: event-hubs-c-getstarted-send.md
         - name: Apache Storm(받기 전용)
           href: event-hubs-storm-getstarted-receive.md
-        - name: .NET Framework
-          href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 이벤트 캡처
       items:
         - name: Azure Portal을 사용하여 Event Hubs 캡처를 사용하도록 설정
           href: event-hubs-capture-enable-through-portal.md
         - name: Resource Manager 템플릿을 사용하여 Event Hubs 캡처를 사용하도록 설정
           href: event-hubs-resource-manager-namespace-event-hub-enable-capture.md
-        - name: Python을 사용하여 Event Hubs 데이터 캡처
+        - name: Python을 사용하여 Event Hubs 데이터 캡처(azure-eventhub 버전 5)
           href: get-started-capture-python-v2.md
     - name: Apache Kafka용 Event Hubs로 스트리밍
       href: event-hubs-quickstart-kafka-enabled-event-hubs.md
@@ -71,8 +69,10 @@
   items:
     - name: Event Hubs 용어
       href: event-hubs-features.md
-    - name: 이벤트 프로세서 호스트
+    - name: 이벤트 프로세서 호스트(레거시 SDK)
       href: event-hubs-event-processor-host.md
+    - name: 이벤트 프로세서(최신 SDK)
+      href: event-processor-balance-partition-load.md
     - name: 가용성 및 일관성
       href: event-hubs-availability-and-consistency.md
     - name: 확장성
@@ -116,20 +116,26 @@
           href: event-hubs-exchange-events-different-protocols.md
         - name: 프로그래밍 가이드
           items:
-            - name: Python
+            - name: .NET(Azure.Messaging.EventHubs)
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/README.md'
+            - name: Python(azure-eventhub 버전 5)
               href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/README.md'
-            - name: JavaScript
+            - name: JavaScript(azure/event-hubs 버전 5)
               href: 'https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/README.md'
-            - name: .NET 프로그래밍 가이드
+            - name: .NET(Microsoft.Azure.EventHubs)
               href: event-hubs-programming-guide.md
-        - name: Python을 사용하여 캡처된 데이터 읽기(레거시)
+        - name: Python을 사용하여 캡처된 데이터 읽기(azure-eventhub 버전 1)
           href: event-hubs-capture-python.md
-        - name: 이벤트 보내기 및 받기(레거시)
+        - name: 송신 및 수신 이벤트(이전 버전/패키지)
           items:
-            - name: Python(레거시)
+            - name: .NET Core(Microsoft.Azure.EventHubs)
+              href: event-hubs-dotnet-standard-getstarted-send.md
+            - name: Python(azure-eventhub 버전 1)
               href: event-hubs-python-get-started-send.md
-            - name: Node.js(레거시)
+            - name: Node.js(azure/event-hubs 버전 2)
               href: event-hubs-node-get-started-send.md
+            - name: .NET Framework(Microsoft.Azure.EventHubs)
+              href: event-hubs-dotnet-framework-getstarted-send.md
     - name: 데이터 처리
       items:
         - name: Azure Stream Analytics를 사용하여 데이터 처리
@@ -186,34 +192,52 @@
           href: resource-manager-exceptions.md
 - name: 참조
   items:
-    - name: Java
-      items:
-        - name: com.microsoft.azure.eventhubs
-          href: /java/api/com.microsoft.azure.eventhubs
-        - name: com.microsoft.azure.eventprocessorhost
-          href: /java/api/com.microsoft.azure.eventprocessorhost
     - name: .NET
       items:
-        - name: Microsoft.Azure.EventHubs
-          href: /dotnet/api/microsoft.azure.eventhubs
-        - name: Microsoft.Azure.EventHubs.Processor
-          href: /dotnet/api/microsoft.azure.eventhubs.processor
-        - name: Microsoft.ServiceBus.Messaging
-          href: /dotnet/api/microsoft.servicebus.messaging
-        - name: Microsoft.ServiceBus.Messaging.EventProcessorHost
-          href: /dotnet/api/microsoft.servicebus.messaging.eventprocessorhost
-        - name: Microsoft.Azure.Management.EventHub
+        - name: 클라이언트 라이브러리
+          items:
+            - name: Microsoft.Azure.Event Hubs에서 Azure.Messaging.EventHubs로 마이그레이션
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md'
+            - name: Azure.Messaging.EventHubs(최신)
+              href: /dotnet/api/azure.messaging.eventhubs?view=azure-dotnet-preview
+            - name: Microsoft.Azure.EventHubs(레거시)
+              href: /dotnet/api/microsoft.azure.eventhubs
+            - name: Microsoft.ServiceBus.Messaging(레거시)
+              href: /dotnet/api/microsoft.servicebus.messaging
+        - name: 관리 라이브러리
           href: /dotnet/api/microsoft.azure.management.eventhub
-    - name: Node.js
+    - name: Java
       items:
-        - name: 버전 2에서 버전 5로 마이그레이션
-          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
-        - name: API 참조
-          href: /javascript/api/overview/azure/event-hub?view=azure-node-latest
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure-eventhubs
+              href: /java/api/overview/azure/eventhubs/client?view=azure-java-stable
+        - name: 관리 라이브러리
+          href: /java/api/com.microsoft.azure.management.eventhub?view=azure-java-stable
     - name: Python
       items:
-        - name: 버전 1에서 버전 5로 마이그레이션
+        - name: azure-eventhub 버전 1에서 버전 5로 마이그레이션
           href: 'https://github.com/Azure/azure-sdk-for-python/blob/master/sdk/eventhub/azure-eventhub/migration_guide.md'
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure-eventhub 버전 5
+              href: /python/api/azure-eventhub/?view=azure-python-preview
+            - name: azure-eventhub 버전 1
+              href: /python/api/azure-eventhub/?view=azure-python
+        - name: 관리 라이브러리
+          href: /python/api/overview/azure/event-hub?view=azure-python
+    - name: Node.js
+      items:
+        - name: azure/eventhubs 버전 2에서 버전 5로 마이그레이션
+          href: 'https://github.com/Azure/azure-sdk-for-js/blob/master/sdk/eventhub/event-hubs/migrationguide.md'
+        - name: 클라이언트 라이브러리
+          items:
+            - name: azure/eventhubs 버전 5
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-preview
+            - name: azure/eventhubs 버전 2
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
+        - name: 관리 라이브러리
+          href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: REST (영문)
       href: /rest/api/eventhub
     - name: Resource Manager 템플릿
@@ -228,7 +252,7 @@
       href: event-hubs-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/event-hubs/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

@@ -4,33 +4,18 @@ description: 이 문서에서는 REST API를 사용 하 여 백업 정책 (일�
 ms.topic: conceptual
 ms.date: 08/21/2018
 ms.assetid: 5ffc4115-0ae5-4b85-a18c-8a942f6d4870
-ms.openlocfilehash: a086fc9c8be22f177d7fb1205e3545ddc52f5c83
-ms.sourcegitcommit: 428fded8754fa58f20908487a81e2f278f75b5d0
+ms.openlocfilehash: 0718ebc3612f53f1c2cc279096dd92de69bb5ef6
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74554898"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963855"
 ---
 # <a name="create-azure-recovery-services-backup-policies-using-rest-api"></a>REST API를 사용하여 Azure Recovery Services 백업 정책 만들기
 
 Azure Recovery Services 자격 증명 모음에 대한 백업 정책을 만드는 단계는 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)에 간략하게 설명돼 있습니다. Azure VM 백업에 대한 정책을 만들려면 이 문서를 참조로 사용하겠습니다.
 
-## <a name="backup-policy-essentials"></a>백업 정책 기본 정보
-
-- 자격 증명 모음당 백업 정책을 만듭니다.
-- 다음 워크로드의 백업에 대한 백업 정책을 만들 수 있음
-  - Azure VM
-  - Azure VM의 SQL
-  - Azure 파일 공유
-- 다양한 리소스에 정책을 할당할 수 있습니다. 여러 Azure VM을 보호하는 데 Azure VM 백업 정책을 사용할 수 있습니다.
-- 두 구성 요소로 이루어진 정책
-  - 일정: 백업을 수행하는 경우
-  - 보존: 각 백업을 보존해야 할 기간
-- 특정 시점을 사용하여 "매일" 또는 "매주"로 일정을 정의할 수 있습니다.
-- "매일", "매주", "매월", "매년" 단위로 백업 지점에 대한 보존을 정의할 수 있습니다.
-- "매주"는 그 주의 특정 날짜의 백업을 참조하고, "매월"은 그 달의 특정 날짜의 백업을 의미하며, "매년"은 그 해의 특정 날짜의 백업을 참조합니다.
-- "매월", "매년" 백업 지점의 보존은 "LongTermRetention"이라고 합니다.
-- 자격 증명 모음을 만들면 "DefaultPolicy" 라는 Azure VM 백업에 대 한 정책도 만들어지고 Azure Vm을 백업 하는 데 사용할 수 있습니다.
+## <a name="create-or-update-a-policy"></a>정책 만들기 또는 업데이트
 
 Azure Backup 정책을 만들거나 업데이트하려면 다음 *PUT* 작업을 사용합니다.
 
@@ -44,10 +29,10 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 예를 들어 Azure VM 백업의 백업을 만들려면 요청 본문의 구성 요소는 다음과 같습니다.
 
-|name  |필수  |Type  |설명  |
+|이름  |필수  |유형  |Description  |
 |---------|---------|---------|---------|
 |properties     |   참      |  ProtectionPolicy:[AzureIaaSVMProtectionPolicy](/rest/api/backup/protectionpolicies/createorupdate#azureiaasvmprotectionpolicy)      | ProtectionPolicyResource 속성        |
-|tags     |         | Object        |  리소스 태그       |
+|tags     |         | 개체        |  리소스 태그       |
 
 요청 본문의 전체 정의 목록은 [백업 정책 REST API 문서](/rest/api/backup/protectionpolicies/createorupdate)를 참조하세요.
 
@@ -152,7 +137,7 @@ URI에서 `{policyName}` 및 `{vaultName}`을 제공합니다. 요청 본문에 
 
 다른 작업을 만들 때 202 (수락 됨) 두 개의 응답을 반환 하 고 해당 작업이 완료 되 면 200 (OK)를 반환 합니다.
 
-|name  |Type  |설명  |
+|이름  |유형  |Description  |
 |---------|---------|---------|
 |200 정상     |    [보호 PolicyResource](/rest/api/backup/protectionpolicies/createorupdate#protectionpolicyresource)     |  확인       |
 |202 수락됨     |         |     수락됨    |
