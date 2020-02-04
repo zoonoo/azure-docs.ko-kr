@@ -47,7 +47,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
      |연결 모드  |지원되는 프로토콜  |지원되는 SDK  |API/서비스 포트  |
      |---------|---------|---------|---------|
      |게이트웨이  |   HTTPS    |  모든 SDK    |   SQL (443), Mongo (10250, 10255, 10256), 테이블 (443), Cassandra (10350), 그래프 (443)    |
-     |Direct    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
+     |직접    |     TCP    |  .NET SDK    | 10000-20,000개 범위 내의 포트 |
 
      Azure Cosmos DB는 HTTPS를 통해 단순한 개방형 RESTful 프로그래밍 모델을 제공합니다. 또한 통신 모델이 RESTful이며 .NET 클라이언트 SDK를 통해 사용할 수 있는 효율적인 TCP 프로토콜도 제공합니다. TCP 프로토콜은 초기 인증 및 암호화 트래픽에 SSL을 사용 합니다. 최상의 성능을 위해 가능한 경우 TCP 프로토콜을 사용 합니다.
 
@@ -165,7 +165,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
    > [!NOTE] 
    > MaxItemCount 속성은 페이지 매김 목적 으로만 사용 하면 안 됩니다. 단일 페이지에서 반환 되는 최대 항목 수를 줄여 쿼리 성능을 향상 시키는 데 주로 사용 됩니다.  
 
-   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`를-1로 설정 하면 SDK가 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 예:
+   사용 가능한 Azure Cosmos DB Sdk를 사용 하 여 페이지 크기를 설정할 수도 있습니다. FeedOptions의 [MaxItemCount](/dotnet/api/microsoft.azure.documents.client.feedoptions.maxitemcount?view=azure-dotnet) 속성을 사용 하면 열거 작업에서 반환할 최대 항목 수를 설정할 수 있습니다. `maxItemCount`를-1로 설정 하면 SDK가 문서 크기에 따라 가장 적합 한 값을 자동으로 찾습니다. 다음은 그 예입니다.
     
    ```csharp
     IQueryable<dynamic> authorResults = client.CreateDocumentQuery(documentCollection.SelfLink, "SELECT p.Author FROM Pages p WHERE p.Title = 'About Seattle'", new FeedOptions { MaxItemCount = 1000 });
@@ -183,9 +183,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     - 실행 가능한 애플리케이션의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 **32비트 선호** 옵션의 선택을 취소하면 됩니다.
 
-    - VSTest 기반 테스트 프로젝트의 경우 **Visual Studio 테스트** 메뉴 옵션에서 **테스트**->**테스트 설정**->**기본 프로세서 아키텍처 X64**를 선택하면 됩니다.
+    - VSTest 기반 테스트 프로젝트의 경우 **Visual Studio 테스트** 메뉴 옵션에서 ->테스트->테스트 설정**기본 프로세서 아키텍처 X64**를 선택하면 됩니다.
 
-    - 로컬로 배포된 ASP.NET 웹 애플리케이션의 경우 **도구**->**옵션**->**프로젝트 및 솔루션**->**웹 프로세스**에서 **웹 사이트 및 프로젝트에 64비트 버전의 IIS Express 사용**을 선택하면 됩니다.
+    - 로컬로 배포된 ASP.NET 웹 애플리케이션의 경우 **도구**옵션->프로젝트 및 솔루션->웹 프로세스->에서 **웹 사이트 및 프로젝트에 64비트 버전의 IIS Express 사용**을 선택하면 됩니다.
 
     - Azure에 배포된 ASP.NET 웹 애플리케이션에서는 Azure Portal의 **애플리케이션 설정**에서 **64비트 플랫폼**을 선택하면 됩니다.
 

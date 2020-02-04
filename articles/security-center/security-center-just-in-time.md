@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 782a23ba95519438dd369d3f69f52f7526461821
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 69a5452134e290f2072a9316ce1f067296ed2320
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156763"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939406"
 ---
 # <a name="manage-virtual-machine-access-using-just-in-time"></a>Just-In-Time을 사용하여 가상 머신 액세스 관리
 
-JIT(Just-In-Time) VM(가상 머신) 액세스를 사용하면 Azure VM으로의 인바운드 트래픽을 잠글 수 있으므로, 필요한 경우 VM에 연결할 수 있는 간편한 액세스를 제공하는 동시에 공격에 대한 노출을 줄일 수 있습니다.
+JIT (just-in-time) VM (가상 머신) 액세스를 사용 하 여 Azure Vm에 대 한 인바운드 트래픽을 잠글 수 있으며, 필요할 때 Vm에 연결 하는 데 편리한 액세스를 제공 하는 동시에 공격에 대 한 노출을 줄일 수 있습니다.
 
 > [!NOTE]
 > Just-In-Time 기능은 Security Center의 표준 계층에서 사용할 수 있습니다. Security Center의 가격 책정 계층에 대해 자세히 알아보려면 [가격 책정](security-center-pricing.md)을 참조하세요.
@@ -48,7 +48,7 @@ Just-In-Time을 사용하도록 설정하면 Security Center는 NSG 규칙을 �
 
 | 사용자가 다음을 수행할 수 있도록 설정: | 설정할 권한|
 | --- | --- |
-| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당 합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> 구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다. <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
+| VM에 대 한 JIT 정책 구성 또는 편집 | *역할에 다음 작업을 할당 합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/> `Microsoft.Security/locations/jitNetworkAccessPolicies/write` </li><li> VM의 구독 또는 리소스 그룹의 범위: <br/>`Microsoft.Compute/virtualMachines/write`</li></ul> | 
 |VM에 대한 JIT 액세스 요청 | *사용자에 게 다음 작업을 할당 합니다.*  <ul><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/initiate/action` </li><li>VM과 연결 된 구독 또는 리소스 그룹의 범위:<br/>  `Microsoft.Security/locations/jitNetworkAccessPolicies/*/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Compute/virtualMachines/read` </li><li>  구독 또는 리소스 그룹 또는 VM의 범위에서 다음을 수행 합니다.<br/> `Microsoft.Network/networkInterfaces/*/read` </li></ul>|
 
 

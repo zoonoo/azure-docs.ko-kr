@@ -1150,6 +1150,9 @@
             - name: 사용자 인터페이스 성능 문제 분석
               href: /azure/databricks/kb/cloud/har-log-analysis
               maintainContext: true
+            - name: 작업 영역에서 작업이 진행되지 않음
+              href: /azure/databricks/kb/cloud/azure-vnet-jobs-not-progressing
+              maintainContext: true
         - name: 클러스터
           items:
             - name: 클러스터의 코어 수 계산
@@ -1248,6 +1251,9 @@
               maintainContext: true
             - name: WASB에서 파일을 읽을 수 없음
               href: /azure/databricks/kb/data-sources/wasb-check-blob-types
+              maintainContext: true
+            - name: JDBC 데이터 원본에서 읽기 성능 최적화
+              href: /azure/databricks/kb/data-sources/jdbc-optimize-read
               maintainContext: true
         - name: DBFS
           items:

@@ -67,21 +67,11 @@
     - name: 봇으로 사용
       items:
         - name: 'C# 사용'
-          items:
-            - name: 1. 기본 봇 만들기
-              href: luis-csharp-tutorial-bf-v4.md
-              displayName: 'bot framework, framework, sdk, abs'
-            - name: 2. Application Insights에 원격 분석 추가
-              href: luis-tutorial-bot-csharp-appinsights.md
-              displayName: 'Application insight, kusto'
+          href: luis-csharp-tutorial-bf-v4.md
+          displayName: 'bot framework, framework, sdk, abs'
         - name: Node.js 사용
-          items:
-            - name: 1. 기본 봇 만들기
-              displayName: 'bot framework, framework, sdk, abs'
-              href: luis-nodejs-tutorial-bf-v4.md
-            - name: 2. Application Insights에 원격 분석 추가
-              displayName: 'Application insight, kusto'
-              href: luis-tutorial-bot-nodejs-appinsights.md
+          displayName: 'bot framework, framework, sdk, abs'
+          href: luis-nodejs-tutorial-bf-v4.md
 - name: 개념
   items:
     - name: 개발 수명 주기

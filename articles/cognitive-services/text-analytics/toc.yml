@@ -14,10 +14,8 @@
   items:
     - name: 클라이언트 라이브러리
       items:
-        - name: v3.0-미리보기를 사용하여 텍스트 분석
+        - name: 클라이언트 라이브러리를 사용하여 텍스트 분석
           href: quickstarts/text-analytics-sdk.md
-        - name: v2를 사용하여 텍스트 분석
-          href: quickstarts/text-analytics-sdk-v2.md
     - name: REST API
       items:
         - name: Java 사용
