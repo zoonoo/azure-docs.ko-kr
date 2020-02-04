@@ -6,7 +6,7 @@ ms.date: 01/28/2020
 ms.author: raynew
 ms.openlocfilehash: 5c29b80f30b024d34ec4e8f65e51b59fc70e8f93
 ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 01/29/2020
 ms.locfileid: "76846554"
