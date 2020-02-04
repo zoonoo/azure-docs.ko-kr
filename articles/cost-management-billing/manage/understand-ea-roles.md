@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 01/02/2020
 ms.author: banders
 ms.openlocfilehash: ae33d320213cc526710845e78c23a83143a73771
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989905"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
@@ -97,7 +97,7 @@ Azure Portal에서 표시되는 가격은 사용자의 관리 역할 및 엔터�
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함|소유자|소매 가격|
 |계정 소유자 또는 부서 관리자|✔ 사용 |none|가격 없음|
 |계정 소유자 또는 부서 관리자|✘ 사용 안 함 |none|가격 없음|
-|없음|적용되지 않음 |소유자|소매 가격|
+|None|해당 없음 |소유자|소매 가격|
 
 엔터프라이즈 관리자 역할 및 요금 보기 정책은 Enterprise Portal에서 설정합니다. RBAC 역할은 Azure Portal에서 업데이트할 수 있습니다. 자세한 내용은 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 

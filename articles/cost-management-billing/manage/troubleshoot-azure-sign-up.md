@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: e13a55143e554a55a2902fc2350f6fde6a8afb09
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989294"
 ---
 # <a name="troubleshoot-azure-sign-up"></a>Azure 등록 문제 해결
@@ -32,7 +32,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 
 
 오류를 해결하려면 Azure에 등록하려고 할 때 발생하는 문제를 선택하십시오.
 
-### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>오류: *계정 문제로 인해 등록을 계속할 수 없습니다. 청구 지원에 문의 하세요.*
+### <a name="error-we-cannot-proceed-with-sign-up-due-to-an-issue-with-your-account-please-contact-billing-support"></a>오류: *계정에서 발생한 문제로 인해 등록을 진행할 수 없습니다. 청구 지원 담당자에게 문의하세요.*
 
 이 문제를 해결하려면 다음 단계를 수행합니다.
 
@@ -109,7 +109,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 새 계정을 등록할 
 
 Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 연결된 유효한 OSA(Online Service Activation) 키가 있어야 합니다. OSA 키가 없는 경우 [Microsoft Pinpoint](https://pinpoint.microsoft.com/)에 나열된 Microsoft 파트너 중 한 곳에 문의하세요.
 
-### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>오류: *Azure 구독에 대 한 자격이 없습니다* .
+### <a name="error-you-are-not-eligible-for-an-azure-subscription"></a>오류: *Azure 구독에 적합한 사용자가 아님*
 
 이 문제를 해결하려면 다음 내용이 사실인지 재차 확인하십시오.
 
@@ -117,7 +117,7 @@ Azure In Open 구독을 만들려면 하나 이상의 Azure In Open 토큰이 �
 - 신용 카드 정보가 정확합니다.
 - 동일한 정보가 사용된 Microsoft 계정이 아직 없습니다.
 
-### <a name="error-your-current-account-type-is-not-supported"></a>오류: *현재 계정 유형이 지원 되지* 않습니다.
+### <a name="error-your-current-account-type-is-not-supported"></a>오류: *현재 계정 유형은 지원되지 않습니다.*
 
 이 문제는 계정이 [관리되지 않는 Azure AD 디렉터리](../../active-directory/users-groups-roles/directory-self-service-signup.md)에 등록되어 있고 조직의 Azure AD 디렉터리에 없는 경우에 발생할 수 있습니다.
 

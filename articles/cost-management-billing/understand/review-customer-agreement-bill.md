@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/22/2019
 ms.author: banders
 ms.openlocfilehash: 3cbc4ab4f0e2ad18c7d1d430ed5501e23b5f5f4d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75983728"
 ---
 # <a name="tutorial-review-your-microsoft-customer-agreement-invoice"></a>자습서: Microsoft 고객 계약 청구서 검토
@@ -41,7 +41,7 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 

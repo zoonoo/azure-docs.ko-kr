@@ -14,10 +14,10 @@ ms.date: 04/29/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: a1cbbbcb110e9943f9714d9f6463c01b408fc1d7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993051"
 ---
 # <a name="change-the-profile-information-for-your-azure-account"></a>Azure 계정의 프로필 정보 변경
@@ -76,7 +76,7 @@ Microsoft는 계정 관리자가 아닌 계정 사용자 프로필의 이메일 
 
 * Azure Portal의 [연락처 정보](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade) 영역으로 이동하여 이메일 주소를 입력합니다. 제공한 주소를 통해 서비스와 마케팅 통신을 받게 됩니다. Azure 계정 센터 프로필의 이메일 주소가 자동으로 일치되도록 업데이트됩니다. 프로필 이메일 주소를 업데이트해도 로그인 이메일 주소는 업데이트되지 않습니다.
 
-* [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)에서 이니셜이나 그림이 있는 아이콘을 선택합니다. 그런 다음 상황에 맞는 메뉴 ( **...** )를 선택 합니다. 그런 다음 메뉴에서 **내 연락처 정보** 를 선택 하 고 전자 메일 주소를 입력 합니다. 제공한 주소를 통해 서비스와 마케팅 통신을 받게 됩니다. Azure 계정 센터 프로필의 이메일 주소가 자동으로 일치되도록 업데이트됩니다. 프로필 이메일 주소를 업데이트해도 로그인 이메일 주소는 업데이트되지 않습니다.
+* [Azure Portal](https://portal.azure.com/#blade/HubsExtension/ContactInfoBlade)에서 이니셜이나 그림이 있는 아이콘을 선택합니다. 그런 다음, 상황에 맞는 메뉴( **...** )를 선택합니다. 다음으로, 메뉴에서 **내 연락처 정보**를 선택하고 이메일 주소를 입력합니다. 제공한 주소를 통해 서비스와 마케팅 통신을 받게 됩니다. Azure 계정 센터 프로필의 이메일 주소가 자동으로 일치되도록 업데이트됩니다. 프로필 이메일 주소를 업데이트해도 로그인 이메일 주소는 업데이트되지 않습니다.
 
 ![Azure에서 이메일 주소를 업데이트 하는 예](./media/change-azure-account-profile/azure-contact-information.png)
 
@@ -98,7 +98,7 @@ Microsoft는 계정 관리자가 아닌 계정 사용자 프로필의 이메일 
     ![Azure 구독의 이름을 바꾸는 예](./media/change-azure-account-profile/rename-sub.png)
 1. 이름을 바꾼 다음, **저장**을 선택합니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

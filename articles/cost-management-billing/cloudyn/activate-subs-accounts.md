@@ -1,21 +1,20 @@
 ---
 title: Azure 구독 및 계정 활성화 | Microsoft Docs
 description: Azure Resource Manager API를 사용하여 신규 및 기존 계정에 대한 액세스를 사용하도록 설정하고 일반적인 계정 문제를 해결합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 09/19/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: vitavor
 ms.custom: secdec18
-ms.openlocfilehash: a3d40e478d1fbb4a789124b72b73268db37540ab
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6b788df15b14f8e2e0b394cf7002a1c8236d2c67
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75983131"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770497"
 ---
 # <a name="activate-azure-subscriptions-and-accounts-with-cloudyn"></a>Cloudyn으로 Azure 구독 및 계정 활성화
 

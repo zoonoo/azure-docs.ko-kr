@@ -13,10 +13,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: f94b79e03cf97275ec4dacf17e097e1678e81d10
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989424"
 ---
 # <a name="understand-your-azure-external-services-charges"></a>Azure 외부 서비스 요금의 이해
@@ -57,7 +57,7 @@ MCA 또는 MPA가 없는 경우 타사 요금에 대해 별도의 청구서를 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**를 검색합니다.
 1. 왼쪽 메뉴에서 **청구서**를 선택합니다.
-1. **Azure Marketplace 및 예약** 탭을 클릭 합니다.  Azure marketplace 및 예약 탭의 ![그림](./media/understand-azure-marketplace-charges/invoice-tabs.png)
+1. **Azure Marketplace 및 Reservations** 탭을 클릭합니다.  ![Azure Marketplace 및 Reservations 탭 모습](./media/understand-azure-marketplace-charges/invoice-tabs.png)
 1. 구독 드롭다운에서 청구서를 보려는 외부 서비스가 포함된 구독을 선택합니다.
 
 ## <a name="external-spending-for-ea-customers"></a>EA 고객에 대한 외부 지출
@@ -111,7 +111,7 @@ EA 고객은 EA 포털에서 외부 서비스 지출을 살펴보고 다운로�
 ## <a name="check-billing-account-type"></a>청구 계정 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

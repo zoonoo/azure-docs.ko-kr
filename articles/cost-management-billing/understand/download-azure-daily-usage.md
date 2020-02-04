@@ -9,10 +9,10 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.openlocfilehash: 02d446d1b70b64092501804e793b400e983a4d80
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995131"
 ---
 # <a name="view-and-download-your-azure-usage-and-charges"></a>Azure 사용량 및 요금 보기 및 다운로드
@@ -31,8 +31,8 @@ MCA(Microsoft 고객 계약)가 있는 경우 청구 프로필 소유자, 기여
 1. 액세스 권한에 따라 청구 계정 또는 청구 프로필을 선택해야 할 수도 있습니다.
 1. 왼쪽 메뉴에서 **청구** 아래의 **청구서**를 선택합니다.
 1. 청구서 그리드에서 다운로드하려는 사용량에 해당하는 청구 기간의 행을 찾습니다.
-1. **다운로드 아이콘** 또는 오른쪽에 있는 줄임표 (`...`)를 선택 합니다.
-1. 다운로드 창이 오른쪽에 열립니다. **사용 세부 정보** 섹션에서 **다운로드** 를 선택 합니다.
+1. **다운로드 아이콘** 또는 오른쪽에 있는 줄임표(`...`)를 선택합니다.
+1. 오른쪽에 다운로드 창이 열립니다. **사용량 세부 정보** 섹션에서 **다운로드**를 선택합니다.
 
 ## <a name="download-usage-for-ea-customers"></a>EA 고객의 사용량 다운로드
 
@@ -61,7 +61,7 @@ Microsoft 고객 계약이 있는 경우 현재 청구 기간에 대한 월간 �
 ## <a name="check-your-billing-account-type"></a>청구 계정 유형 확인
 [!INCLUDE [billing-check-account-type](../../../includes/billing-check-account-type.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

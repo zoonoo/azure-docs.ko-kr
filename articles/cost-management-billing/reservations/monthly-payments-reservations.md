@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 11/01/2019
 ms.author: banders
 ms.openlocfilehash: cf9bb7f3b9661d5957ad569fce7112fe16659761
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995950"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
@@ -23,7 +23,7 @@ ms.locfileid: "75995950"
 
 월별 결제는 다음에 사용할 수 있습니다.
 
-- Virtual Machines
+- 가상 머신
 - Azure Storage
 - SQL Database
 - SQL Data Warehouse

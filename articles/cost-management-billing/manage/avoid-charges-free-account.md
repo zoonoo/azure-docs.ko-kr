@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 632d8ef84fc30ee7e97b8961d74fbb95ced42234
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990061"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Azure 체험 계정으로 요금 청구 방지
@@ -56,7 +56,7 @@ Azure 무료 계정으로 매월 제한된 양의 무료 서비스를 얻습니�
 
 체험 서비스 및 수량이 만료되면 사용 중인 모든 서비스에 대해 종량제 요금이 청구됩니다. Azure Portal을 사용하여 사용하지 않는 서비스에 대한 리소스를 삭제할 수 있습니다. 모든 Azure 서비스를 사용하지 않으려는 경우 [구독을 취소](cancel-azure-subscription.md)할 수 있습니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

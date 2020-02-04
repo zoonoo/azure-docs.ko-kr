@@ -1,5 +1,5 @@
 ---
-title: Red Hat 예약 계획 할인-Azure
+title: Red Hat 예약 요금제 할인 - Azure
 description: 가상 머신의 Red Hat 소프트웨어에 Red Hat 요금제 할인이 적용되는 방법을 알아봅니다.
 services: billing
 documentationcenter: ''
@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: cwatson
 ms.openlocfilehash: 280764d3b9185abd1d8112f641007a7dc1861b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995326"
 ---
 # <a name="understand-how-the-red-hat-linux-enterprise-software-reservation-plan-discount-is-applied-for-azure"></a>Azure에 Red Hat Linux Enterprise 소프트웨어 예약 요금제 할인이 적용되는 방식 이해
@@ -124,7 +124,7 @@ Azure Portal Marketplace 이름:
 |64개 vCPU VM 라이선스|d37c8e17-e5f2-4060-881b-080dd4a8c4ce|2.166666667|64s_v3|
 |72개 vCPU VM 라이선스|14341b96-e92c-4dca-ba66-322c88a79aa6|2.166666667|F72s_v2|
 |96개 vCPU VM 라이선스|8b2e5cb8-0362-4cbf-a30a-115e8d6dbc49|2.166666667||
-|128개 vCPU VM 라이선스|9b198a68-974a-47a7-9013-49169ac0f2e9|2.166666667| M128MS|
+|128개 vCPU VM 라이선스|9b198a68-974a-47a7-9013-49169ac0f2e9|2.166666667| M128ms|
 
 ### <a name="rhel-for-sap-hana"></a>RHEL for SAP HANA
 
@@ -152,7 +152,7 @@ Azure Portal Marketplace 이름:
 |64개 vCPU VM 라이선스|3c8157b2-a57d-45ce-ba02-bd86e9209795|2.166666667|64s_v3|
 |72개 vCPU VM 라이선스|5e87a3ee-7afb-4040-b8d9-b109ddb38f31|2.166666667|F72s_v2|
 |96개 vCPU VM 라이선스|b13895fc-0d06-4de9-b860-627c471cd247|2.166666667||
-|128개 vCPU VM 라이선스|6e67ac0b-19d3-4289-96df-05d0093d4b3b|2.166666667| M128MS|
+|128개 vCPU VM 라이선스|6e67ac0b-19d3-4289-96df-05d0093d4b3b|2.166666667| M128ms|
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -165,6 +165,6 @@ Azure Portal Marketplace 이름:
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).

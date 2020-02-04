@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: v-miegge
 ms.openlocfilehash: 74cf3f197895823bcbd94db0bf3c7bd8065df767
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988137"
 ---
 # <a name="troubleshoot-azure-subscription-sign-in-issues"></a>Azure 구독 로그인 문제 해결
@@ -32,7 +32,7 @@ ms.locfileid: "75988137"
 
 - 페이지를 새로 고칩니다.
 - 다른 인터넷 브라우저를 사용합니다.
-- 브라우저에 대해 프라이빗 검색 모드를 사용합니다. Internet Explorer: **도구** > **안전** > **InPrivate 브라우징**을 클릭 한 다음 [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인 하 여 로그인 합니다.
+- 브라우저에 대해 프라이빗 검색 모드를 사용합니다. Internet Explorer: **도구** > **안전** > **InPrivate 브라우징**을 클릭한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인합니다.
 
 ### <a name="you-are-automatically-signed-in-as-a-different-user"></a>다른 사용자로 자동으로 로그인됨
 
@@ -42,20 +42,20 @@ ms.locfileid: "75988137"
 
 - 캐시의 선택을 취소하고 인터넷 쿠키를 삭제합니다. Internet Explorer에서 **도구** > **인터넷 옵션** > **삭제**를 클릭합니다. 임시 파일, 쿠키, 암호 및 검색 기록에 대한 확인란이 선택되었는지 확인한 후 삭제를 클릭합니다.
 - Internet Explorer 설정을 재설정하여 수행한 모든 개인 설정을 되돌립니다. **도구** > **인터넷 옵션** > **고급** >을 클릭하고 **개인 설정 삭제** 상자 > **재설정**을 선택합니다.
-- 브라우저에 대해 프라이빗 검색 모드를 사용합니다. Internet Explorer: **도구** > **안전** > **InPrivate 브라우징**을 클릭 한 다음 [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인 하 여 로그인 합니다.
+- 브라우저에 대해 프라이빗 검색 모드를 사용합니다. Internet Explorer:  **도구** > **안전** > **InPrivate 브라우징**을 클릭한 다음, [Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.azure.com/Subscriptions)에 로그인합니다.
 
 ### <a name="i-can-sign-in-but-i-see-no-subscriptions-found"></a>로그인할 수 있지만 *구독을 찾을 수 없음*이 표시됩니다.
 
 잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다.
 
-**시나리오 1:** [Azure Portal](https://portal.azure.com/) 에 오류 메시지가 수신 되었습니다.
+**시나리오 1:** [Azure Portal](https://portal.azure.com/)에서 오류 메시지가 표시됨
 
 이 문제를 해결하려면
 
 - 오른쪽 위에 있는 계정을 클릭하여 올바른 Azure 디렉터리를 선택했는지 확인합니다.
 - 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 계정을 [소유자로 추가](add-change-subscription-administrator.md)합니다.
 
-**시나리오 2:** [Azure 계정 센터](https://account.windowsazure.com/Subscriptions) 에 오류 메시지가 수신 되었습니다.
+**시나리오 2:** [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지가 표시됨
 
 사용한 계정이 계정 관리자인지 확인합니다. 계정 관리자가 누구인지 확인하려면 다음 단계를 따르세요.
 

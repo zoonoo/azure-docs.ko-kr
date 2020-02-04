@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 99ceebe0825c868e40f6a68f44ca55eee91f087c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992778"
 ---
 # <a name="create-services-included-with-azure-free-account"></a>Azure 무료 계정에 포함된 서비스 만들기
@@ -34,7 +34,7 @@ Azure 체험 계정에는 12개월 동안 사용할 수 있는 제한 수량의 
 ## <a name="create-multiple-service-instances-in-allowed-limits"></a>허용된 한도에서 여러 서비스 인스턴스 만들기
 사용량 합계가 사용 한도를 벗어나지만 않으면 서비스의 여러 인스턴스를 만들 수 있습니다. 예를 들어 Azure 무료 계정을 사용하여 매월 750시간 동안 B1S Windows 가상 머신을 무료로 사용할 수 있습니다. 원하는 어떤 조합이든 750시간을 사용할 수 있습니다. 예를 들어 B1S Windows 가상 머신을 5개 만들고 각각 150시간씩 사용할 수 있습니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 09/24/2019
 ms.author: banders
 ms.openlocfilehash: a35d7d4ef24218c96e305abf623f746c92c8aa87
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993701"
 ---
 # <a name="add-or-change-azure-subscription-administrators"></a>Azure 구독 관리자 추가 또는 변경
@@ -77,6 +77,6 @@ RBAC를 사용하여 리소스에 대한 액세스를 관리하는 것이 좋습
 * [방법: Azure Active Directory에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)
 * [Azure Active Directory의 관리자 역할 사용 권한](../../active-directory/users-groups-roles/directory-assign-admin-roles.md)
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.

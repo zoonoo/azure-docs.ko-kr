@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 26c132d42bfc89c9b6e887c8ca02232848513698
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992076"
 ---
 # <a name="azure-ea-vm-reserved-instances"></a>Azure EA VM 예약 인스턴스
@@ -54,7 +54,7 @@ EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면
 
 ### <a name="how-to-view-reserved-instance-purchase-details"></a>예약 인스턴스 구매 세부 정보를 보는 방법
 
-[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)의 왼쪽에 있는 _예약_ 메뉴를 통해 예약 인스턴스 구매 세부 정보를 볼 수 있습니다. 왼쪽 메뉴에서 **보고서** 를 선택 하 고 [ _사용 요약_ ] 탭에서 [ _서비스별 요금_ ] 섹션까지 아래로 스크롤합니다. 섹션 아래쪽으로 스크롤하고, 예약 인스턴스 구매 및 사용은 서비스 이름 옆에 ' 1 년 ' 또는 ' 3 년 ' 지정 (예: Standard_DS1_v2에서는 eastus 1 년 또는 Standard_D2s_v3 eastus2 3 년)으로 표시 되는 끝에 나열 됩니다.
+[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)의 왼쪽에 있는 _예약_ 메뉴를 통해 예약 인스턴스 구매 세부 정보를 볼 수 있습니다. 왼쪽 메뉴에서 **보고서**를 선택하고 _사용량 요약_ 탭에서 _서비스별 청구_ 섹션까지 아래로 스크롤합니다. 섹션의 아래쪽으로 스크롤하면, 예약된 인스턴스 구매 및 사용량이 서비스 이름 옆에 ‘1년’ 또는 ‘3년’ 지정으로 표시된 것처럼 마지막에 나열됩니다. 예를 들면 다음과 같습니다. Standard_DS1_v2 eastus 1년 또는 Standard_D2s_v3 eastus2 3년.
 
 ### <a name="how-can-i-change-the-subscription-associated-with-reserved-instance-or-transfer-my-reserved-instance-benefits-to-a-subscription-under-the-same-account"></a>예약된 인스턴스와 연결된 구독을 변경하거나 예약 인스턴스 혜택을 동일한 계정의 구독에 전송하려면 어떻게 해야 하나요?
 
@@ -65,7 +65,7 @@ EA 등록을 사용하도록 설정하여 예약된 인스턴스를 추가하면
 
 ### <a name="how-to-view-reserved-instance-usage-details"></a>예약 인스턴스 사용량 세부 정보를 보는 방법
 
-[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)(대금 청구 정보를 볼 수 있는 EA 고객용)에서 _보고서_ > _사용량 요약_ > _서비스별 청구_에 있는 예약 인스턴스 사용량 세부 정보를 볼 수 있습니다. 예약 인스턴스는 ' 예약 '을 포함 하는 서비스 이름으로 식별할 수 있습니다. 예를 들어 예약-기본 VM 또는 Virtual Machines 예약-Windows 서버 1 코어)로 식별할 수 있습니다.
+[Azure Portal](https://aka.ms/reservations) 또는 [Azure EA Portal](https://ea.azure.com/)(대금 청구 정보를 볼 수 있는 EA 고객용)에서 _보고서_ > _사용량 요약_ > _서비스별 청구_에 있는 예약 인스턴스 사용량 세부 정보를 볼 수 있습니다. 예약된 인스턴스는 ‘예약’을 포함하는 서비스 이름으로 식별할 수 있습니다. 예를 들면 다음과 같습니다. 예약-기본 VM 또는 Virtual Machines 예약-Windows Svr(1코어).
 
 사용량 세부 정보 및 고급 보고서 다운로드 CSV에는 추가 예약된 인스턴스 사용량 정보가 포함되어 있습니다. _추가 정보_ 필드는 예약된 인스턴스 사용량을 식별하는 데 도움이 됩니다.
 

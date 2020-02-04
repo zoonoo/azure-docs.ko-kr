@@ -1,27 +1,26 @@
 ---
 title: Azure의 Cloudyn용 학습 동영상 | Microsoft Docs
 description: Cloudyn용 학습 동영상에서는 Cloudyn 사용을 시작하는 방법과 해당 기능을 사용하는 방법을 안내합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 05/20/2019
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 9cb075791e57889279ecbd3505792bddbecbb139
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: b6605f160ded47d134588d637cbd7e6a14eb3525
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75993935"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76774022"
 ---
 # <a name="cloudyn-walk-through-training-videos"></a>Cloudyn 연습 교육 비디오
 
 다음 동영상에서는 Cloudyn 사용을 시작하는 방법과 해당 기능을 사용하는 방법을 안내하는 데모를 제공합니다. Cloudyn은 Microsoft Azure, Amazon Web Services 및 Google Cloud Platform을 포함하는 다중 클라우드 비용 추적 및 최적화를 지원합니다.
 
-## <a name="overview-video"></a>개요 비디오
+## <a name="overview-video"></a>개요 동영상
 
 [Cloudyn 소개](https://youtu.be/NWIRny6Wpsk)
 

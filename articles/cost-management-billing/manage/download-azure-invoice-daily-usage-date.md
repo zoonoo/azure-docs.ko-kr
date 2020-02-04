@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: c5068dc38597d64634f19297fa7784de8d55d590
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992557"
 ---
 # <a name="download-or-view-your-azure-billing-invoice-and-daily-usage-data"></a>Azure 청구서 및 일간 사용량 현황 데이터 다운로드 또는 보기
@@ -119,7 +119,7 @@ Microsoft 고객 계약이 있으면 이메일로 청구서 받기로 옵트인�
 
 ### <a name="opt-out-of-getting-your-billing-profile-invoices-in-email"></a>이메일로 청구 프로필 청구서 받기에서 옵트아웃
 
-위의 단계를 수행 하 고 **옵트아웃 (opt out**)을 클릭 하 여 전자 메일로 송장을 수신 하지 않도록 옵트아웃 (opt out) 할 수 있습니다. 모든 소유자, 참가자, 독자 및 송장 관리자는 전자 메일을 통해 송장을 받을 수 없습니다. 읽기 권한자는 이메일 청구서 기본 설정을 변경할 수 없습니다.
+위의 단계를 수행하고 **옵트아웃**을 클릭하면 이메일로 청구서 받기에서 옵트아웃할 수 있습니다. 그러면 소유자, 기여자, 읽기 권한자 및 청구서 관리자가 이메일로 청구서 받기에서 모두 옵트아웃됩니다. 읽기 권한자는 이메일 청구서 기본 설정을 변경할 수 없습니다.
 
 ## <a name="download-usage-in-azure-portal"></a>Azure Portal에서 사용량 다운로드
 
@@ -171,7 +171,7 @@ EA 고객이 사용량 데이터를 살펴보고 다운로드하려면 요금 �
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

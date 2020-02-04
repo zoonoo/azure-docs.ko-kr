@@ -1,21 +1,20 @@
 ---
 title: CSP 파트너 정보를 사용하여 Azure의 Cloudyn에 등록
 description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 11/18/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
-manager: benshy
-ms.openlocfilehash: 420bca89903b3b88d7930165f95742ebb4f74d5d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: 169a188e842fac667091aacd3c7e8b762a32ecf8
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75983011"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76774065"
 ---
 # <a name="register-with-the-csp-partner-program-and-view-cost-data"></a>CSP 파트너 프로그램에 등록 및 데이터 비용 보기
 
@@ -35,7 +34,7 @@ CSP 파트너로서 Cloudyn에 등록할 수 있습니다. 등록하면 Cloudyn 
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 

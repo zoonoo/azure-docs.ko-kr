@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 계약에 대 한 청구 설정-Azure
+title: Microsoft 고객 계약에 대한 청구 설정 - Azure
 description: Microsoft 고객 계약에 대한 청구 계정을 설정하는 방법을 알아봅니다.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 117d657712eba8d24ab18987f3e761553c15a858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994637"
 ---
 # <a name="set-up-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 청구 계정 설정
@@ -186,7 +186,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
 
     - 기업계약 계층 구조에 해당하는 청구 계층 구조가 새 청구 계정에 생성됩니다. 자세한 내용은 [달라지는 청구 계층 구조 이해](#understand-changes-to-your-billing-hierarchy)를 참조하세요.
     - 기업계약 등록의 관리자에게는 조직의 요금 청구를 계속 관리할 수 있도록 새 청구 계정에 대한 액세스 권한이 제공됩니다.
-    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **이 전환 중에는 Azure 서비스에 영향을 주지 않습니다. 중단 없이 계속 실행 됩니다**.
+    - Azure 구독에 대한 청구는 새 계정으로 전환됩니다. **전환 중에 Azure 서비스에 영향을 주지 않습니다. 서비스는 중단 없이 계속 실행됩니다**.
     - 기존에 보유한 Azure 예약은 혜택 또는 기간에 대한 변경 없이 새 청구 계정으로 이전됩니다.
 
 4. **전환 상태** 페이지에서 전환 상태를 모니터링할 수 있습니다.
@@ -213,7 +213,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
 
 기업계약 등록에서 새 청구 계정으로 전환된 Azure 구독은 Azure 구독 페이지에 표시됩니다. 일부 구독이 누락되었다고 생각되면 Azure Portal에서 수동으로 구독 청구를 전환합니다. 자세한 내용은 [다른 사용자로부터 Azure 구독의 청구 소유권 받기](mca-request-billing-ownership.md)를 참조하세요.
 
-### <a name="azure-reservations"></a>Azure Reservations
+### <a name="azure-reservations"></a>Azure 예약
 
 기업계약 등록에 포함된 Azure 예약은 혜택 또는 기간에 대한 변경 없이 새 청구 계정으로 이전됩니다. 전환 전에 완료된 트랜잭션은 새 청구 계정에 표시되지 않습니다. 그러나 [Azure 예약 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)를 방문하여 예약의 혜택이 구독에 적용되는지 확인할 수 있습니다.
 
@@ -267,7 +267,7 @@ Azure RBAC(역할 기반 액세스 제어)를 사용하여 설정된 Azure 리�
 
 엔터프라이즈 관리자 및 부서 관리자는 청구서 섹션 소유자 또는 청구서 섹션 읽기 권한자로 나열되고, 부서의 계정 소유자는 Azure 구독 작성자로 나열됩니다. 모든 청구서 섹션에 대해 같은 단계를 반복하여 기업계약 등록의 모든 부서에 대한 액세스 권한을 확인합니다. 부서에 속하지 않은 계정 소유자에게는 **기본 청구서 섹션**이라는 청구서 섹션에 대한 권한이 부여됩니다. 관리자의 액세스 권한이 누락되었다고 생각되면 Azure Portal에서 액세스 권한을 부여할 수 있습니다. 자세한 내용은 [Azure Portal에서 청구 역할 관리](understand-mca-roles.md#manage-billing-roles-in-the-azure-portal)를 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

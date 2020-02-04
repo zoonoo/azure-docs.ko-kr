@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: banders
 ms.openlocfilehash: 7216af00413b1f8022957ac134f67a5c27b6cc78
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987903"
 ---
 # <a name="resolve-past-due-balance-for-your-azure-subscription"></a>Azure 구독의 미지불금액 해결
@@ -59,6 +59,6 @@ ms.locfileid: "75987903"
 결제가 처리되었으나 구독이 여전히 사용할 수 없게 설정된 경우 [Azure 지원](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에 문의하세요.
 
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

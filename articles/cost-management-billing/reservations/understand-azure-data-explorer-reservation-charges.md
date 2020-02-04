@@ -9,10 +9,10 @@ ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995625"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Azure Data Explorer에 예약 할인이 적용되는 방식 이해
@@ -33,10 +33,10 @@ Azure Data Explorer 예약된 용량을 구입한 후 예약의 특성 및 수�
 > * 예약된 용량 절감을 최대화하려면 Azure Data Explorer 클러스터에 사용되는 가상 머신에 대한 [예약 용량](../../virtual-machines/windows/prepay-reserved-vm-instances.md)을 구매하는 것이 **가장 좋습니다**.
 > * 예약 구매 시 모든 지역에 할인이 적용됩니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 다음 예제에서는 구입한 태그 단위 수 및 실행되는 시기에 따라 Azure Data Explorer 예약된 용량 할인이 적용되는 방법을 보여줍니다.
-예를 들어 엔진 클러스터 크기: **2 D11_v2 vm**의 경우 총 주문형 요금은 시간당 Azure 데이터 탐색기 태그 측정기 4 개 단위에 대 한 것입니다. 
+예를 들어 엔진 클러스터 크기가 **2 D11_v2 VM**이면 총 주문형 요금은 시간당 Azure Data Explorer 태그 요금제의 4개 단위에 해당합니다. 
 
 **시나리오 1** 
 
@@ -58,7 +58,7 @@ Azure Data Explorer 태그 단위 8개에 대해 Azure Data Explorer 예약된 �
 
 청구 사용량 보고서에서 Azure 예약의 애플리케이션에 대해 알아보고 확인하려면 [Azure 예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

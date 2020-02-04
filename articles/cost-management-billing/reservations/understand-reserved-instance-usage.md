@@ -1,5 +1,5 @@
 ---
-title: 개별 구독에 대 한 Azure 예약 사용량
+title: 개별 구독에 대한 Azure 예약 사용량
 description: 종량제 요금을 사용하는 개별 구독에 대한 Azure 예약의 적용 방법을 이해하기 위해 사용량을 판독하는 방법을 알아봅니다.
 author: bandersmsft
 manager: yashr
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1404f8626086124aa2c6affcf2d173cef0be7df3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995365"
 ---
 # <a name="understand-azure-reservation-usage-for-your-individual-subscription-with-pay-as-you-go-rates-subscription"></a>종량제 요금을 사용하는 개별 구독에 대한 Azure 예약 사용량 이해
@@ -55,7 +55,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 
 1. **추가 정보** 필드의 **ReservationId**는 VM에 적용된 예약입니다.
 2. **ConsumptionMeter**는 VM에 대한 요금제 ID입니다.
-3. **예약-기본 VM** **측정기 하위 범주** 줄은 statement 섹션에서 $0 비용을 나타냅니다. 예약에서 이미 이 VM 실행 비용을 지불했습니다.
+3. **예약 - 기본 VM** **요금제 하위 범주** 줄은 명령문 섹션에 있는 $0인 비용을 나타냅니다. 예약에서 이미 이 VM 실행 비용을 지불했습니다.
 4. **요금제 ID**는 예약에 대한 요금제 ID입니다. 이 요금제의 비용은 $0입니다. 이 요금제 ID는 예약 할인을 받을 수 있는 VM에 표시됩니다.
 5. Standard_DS1_v2는 하나의 vCPU VM이며 해당 VM은 Azure Hybrid Benefit 없이 배포됩니다. 따라서 이 요금제는 Windows 소프트웨어의 추가 요금을 포함합니다. D 시리즈 1개 코어 VM에 해당하는 요금제를 찾으려면 [Azure Reserve VM Instances Windows 소프트웨어 비용](reserved-instance-windows-software-costs.md)을 참조하세요. Azure 하이브리드 혜택이 있는 경우 이 추가 비용이 적용되지 않습니다.
 
@@ -69,7 +69,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 |---| --- |
 |ReservationId |446ec809-423d-467c-8c5c-bbd5d22906b1|
 |수량 |2|
-|제품| SQL Database Gen 4(2개 코어)|
+|Product| SQL Database Gen 4(2개 코어)|
 |지역 | eastus |
 
 ### <a name="statement-section-of-csv-file"></a>CSV 파일의 명령문 섹션
@@ -90,7 +90,7 @@ CSV 파일의 이 섹션에서는 예약에 대한 총 사용량을 보여 줍�
 2. **ConsumptionMeter**는 SQL Database 리소스에 대한 요금제 ID입니다.
 3. **요금제 ID**는 예약 요금제입니다. 이 요금제의 비용은 $0입니다. 예약 할인을 받을 수 있는 모든 SQL Database 리소스는 이 요금제 ID를 CSV 파일로 표시합니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

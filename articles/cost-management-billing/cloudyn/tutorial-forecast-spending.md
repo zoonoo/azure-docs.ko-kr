@@ -1,21 +1,20 @@
 ---
 title: 자습서 - Azure에서 Cloudyn을 사용하여 소비 예측 | Microsoft Docs
 description: 이 자습서에서는 기존 사용량 및 소비 데이터를 사용하여 소비를 예측하는 방법을 알아봅니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: ab2a29eacbb2881dbfc0f383f70dbb5148506f5a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: 43b48cf96baaa01408d068de509e5be9fdf950ca
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984318"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769922"
 ---
 # <a name="tutorial-forecast-future-spending"></a>자습서: 향후 소비 예측
 

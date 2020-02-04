@@ -1,15 +1,15 @@
 ---
 author: amberbhargava
-ms.service: billing
+ms.service: cost-management-billing
 ms.topic: include
 ms.date: 02/28/2019
 ms.author: amberb
-ms.openlocfilehash: 42e52ac964ec78e12be64d1bda63d7d04ff9beca
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0cdcc26ca0ae64455f8a27b13c2e4bc87e0ecb68
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73850427"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "74222676"
 ---
 계약 유형을 검사하여 Microsoft 파트너 계약의 청구 계정에 액세스할 수 있는지 확인합니다.
  

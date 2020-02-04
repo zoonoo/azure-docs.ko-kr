@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 034df0de027a50c61e5a7cab3d1e829446002c86
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75993597"
 ---
 # <a name="sign-up-for-an-office-365-subscription-with-your-azure-account"></a>Azure 계정으로 Office 365 구독에 등록
@@ -70,6 +70,6 @@ Office 365 계정과 Azure 구독이 둘 다 이미 있는 경우 [Azure 구독�
 
     ![Azure Portal 디렉터리 역할 대금 청구 관리자를 보여 주는 스크린샷](./media/azure-account-for-office-365-subscription/billing-directoryrole-limited.png)
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

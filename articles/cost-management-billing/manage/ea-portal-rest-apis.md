@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 8680a575872053f4b575db70ec649b6c1669b961
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992141"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
@@ -121,14 +121,14 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | SubscriptionId | SubscriptionId | SubscriptionId |   |
 | SubscriptionGuid | MOCPSubscriptionGuid | SubscriptionGuid |   |
 | 구독 이름 | SubscriptionName | SubscriptionName |   |
-| 날짜 | 날짜 | 날짜 | 서비스 카탈로그 보고서가 실행된 날짜를 표시합니다. 형식은 타임스탬프 없는 날짜 문자열입니다. |
-| 월 | 월 | 월 |   |
+| Date | Date | Date | 서비스 카탈로그 보고서가 실행된 날짜를 표시합니다. 형식은 타임스탬프 없는 날짜 문자열입니다. |
+| Month | Month | Month |   |
 | 일 | 일 | 일 |   |
-| 년 | 년 | 년 |   |
-| 제품 | BillableItemName | 제품 |   |
+| Year | Year | Year |   |
+| Product | BillableItemName | Product |   |
 | 측정기 ID | ResourceGUID | MeterId |   |
 | 미터 범주 | 서비스 | MeterCategory | 서비스를 찾는 데 도움이 됩니다. 여러 ServiceType이 있는 서비스와 관련이 있습니다. Virtual Machines를 예로 들 수 있습니다. |
-| 미터 하위 범주 | ServiceType | MeterSubCategory | 서비스에 대한 두 번째 수준의 세부 정보를 제공합니다. A1 VM(Windows 외)을 예로 들 수 있습니다.  |
+| 측정기 하위 범주 | ServiceType | MeterSubCategory | 서비스에 대한 두 번째 수준의 세부 정보를 제공합니다. A1 VM(Windows 외)을 예로 들 수 있습니다.  |
 | 미터 영역 | ServiceRegion | MeterRegion | 서비스에 필요한 세 번째 수준의 세부 정보입니다. ResourceGUID의 영역 컨텍스트를 찾는 데 유용합니다. |
 | 미터 이름 | ServiceResource | MeterName | 서비스의 이름입니다. |
 | 사용량 | ResourceQtyConsumed | ConsumedQuantity |   |
@@ -140,11 +140,11 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | ServiceInfo1 | ServiceInfo1 | ServiceInfo1 |   |
 | ServiceInfo2 | ServiceInfo2 | ServiceInfo2 |   |
 | AdditionalInfo | AdditionalInfo | AdditionalInfo |   |
-| 태그 | 태그 | 태그 |   |
+| 태그들 | 태그들 | 태그들 |   |
 | 스토어 서비스 식별자   | OrderNumber | StoreServiceIdentifier   |   |
 | 부서 이름 | DepartmentName | DepartmentName |   |
 | 비용 센터 | CostCenter | CostCenter |   |
-| 단위 | UnitOfMeasure | UnitOfMeasure | 값 예: 시간, GB, 이벤트, 푸시, 단위, 단위 시간, MB, 일별 단위 |
+| 측정 단위 | UnitOfMeasure | UnitOfMeasure | 예제 값: 시간, GB, 이벤트, 푸시, 단위, 단위 시간, MB, 일별 단위 |
 | ResourceGroup | ResourceGroup | ResourceGroup |   |
 
 #### <a name="azure-marketplace-report"></a>Azure Marketplace 보고서
@@ -156,10 +156,10 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | SubscriptionId | SubscriptionId | SubscriptionId |
 | SubscriptionGuid | SubscriptionGuid | SubscriptionGuid |
 | 구독 이름 | SubscriptionName |  SubscriptionName |
-| 날짜 | BillingCycle |  날짜(날짜 문자열만 있음. 타임스탬프 없음)
-| 월 | 월 |  월 |
+| Date | BillingCycle |  날짜(날짜 문자열만 있음. 타임스탬프 없음)
+| Month | Month |  Month |
 | 일 | 일 |  일 |
-| 년 | 년 |  년 |
+| Year | Year |  Year |
 | 측정기 ID | MeterResourceId |  MeterId |
 | 게시자 이름 | PublisherFriendlyName |  PublisherName |
 | 제품 이름 | OfferFriendlyName |  OfferName |
@@ -167,10 +167,10 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | 사용량 | BilledQty |  ConsumedQuantity |
 | ResourceRate | ResourceRate | ResourceRate |
 | ExtendedCost | ExtendedCost | ExtendedCost |
-| 단위 | UnitOfMeasure | UnitOfMeasure |
+| 측정 단위 | UnitOfMeasure | UnitOfMeasure |
 | 인스턴스 ID | InstanceId | InstanceId |
 | 추가 정보 | AdditionalInfo | AdditionalInfo |
-| 태그 | 태그 | 태그 |
+| 태그들 | 태그들 | 태그들 |
 | 주문 번호 | OrderNumber | OrderNumber |
 | 부서 이름 | DepartmentNames | DepartmentName |
 | 비용 센터 | CostCenters |  CostCenter |
@@ -181,7 +181,7 @@ JSON 형식은 CSV 보고서에서 생성됩니다. 따라서 형식이 요약 C
 | CSV 열 이름 | JSON 열 이름 | 주석 |
 | --- | --- | --- |
 | 서비스 | 서비스 |  가격 변경 없음 |
-| 단위 | UnitOfMeasure |   |
+| 측정 단위 | UnitOfMeasure |   |
 | 초과분 부품 번호 | ConsumptionPartNumber |   |
 | 초과분 단가 | ConsumptionPrice |   |
 | 통화 코드 | CurrencyCode |     |

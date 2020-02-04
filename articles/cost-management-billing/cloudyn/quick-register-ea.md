@@ -1,21 +1,20 @@
 ---
 title: Cloudyn에 Azure 기업계약 등록 | Microsoft Docs
 description: 이 빠른 시작 정보에서는 Cloudyn 평가판 구독을 만들고 Cloudyn 포털에 로그인하는 데 필요한 등록 프로세스를 상세히 설명합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: quickstart
 ms.custom: seodec18
 ms.service: cost-management-billing
-manager: benshy
-ms.openlocfilehash: 1a8754f0b35fd5ec662feecf8777efd8593fa659
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: dcb4a04ced1d36a6d0717b9a65150faacc702cc5
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982941"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769967"
 ---
 # <a name="register-an-azure-enterprise-agreement-and-view-cost-data"></a>Azure Enterprise Agreement 등록 및 비용 데이터 보기
 
@@ -25,7 +24,7 @@ Azure Cost Management는 Cloudyn과 비슷한 기능을 제공합니다. Azure C
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ## <a name="register-with-cloudyn"></a>Cloudyn에 등록
 

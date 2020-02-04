@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
 ms.openlocfilehash: f7382fc81bbb7e0f3ac61b19c1efa1e7de3e9ed7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995469"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-sql-databases"></a>Azure SQL Database에 예약 할인이 적용되는 방법
@@ -33,21 +33,21 @@ Reserved Virtual Machine Instances의 경우 [Azure Reserved VM Instances 할인
 
 ## <a name="discount-applied-to-sql-databases"></a>SQL Database에 적용되는 할인
 
- SQL Database 예약된 용량 할인은 매시간으로 실행 중인 SQL Database에 적용됩니다. 구입하는 예약은 실행 중인 SQL Database에서 내보낸 컴퓨팅 사용량과 일치합니다. 1시간 내내 실행되지 않는 SQL Database의 경우 예약 특성과 일치하는 다른 SQL Database에 예약이 자동으로 적용됩니다. 할인은 동시에 실행되는 SQL Database에 적용할 수 있습니다. 예약 특성과 일치하는 전체 시간 동안 실행되는 SQL Database가 없는 경우 해당 시간 동안 예약 할인의 모든 이점을 활용할 수 없습니다.
+ SQL Database 예약된 용량 할인은 매시간으로 실행 중인 SQL Database에 적용됩니다. 구입하는 예약은 실행 중인 SQL Database에서 내보낸 컴퓨팅 사용량과 일치합니다. 전체 시간 동안 실행되지 않는 SQL Database의 경우 예약 특성과 일치하는 다른 SQL Database에 예약이 자동으로 적용됩니다. 할인은 동시에 실행되는 SQL Database에 적용할 수 있습니다. 예약 특성과 일치하는 전체 시간 동안 실행되는 SQL Database가 없는 경우 해당 시간 동안 예약 할인의 모든 이점을 활용할 수 없습니다.
 
 다음 예제에서는 구입한 코어 수 및 실행되는 시기에 따라 SQL Database 예약된 용량 할인이 적용되는 방법을 보여줍니다.
 
-- 시나리오 1: 8코어 SQL Database에 대한 SQL Database 예약된 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16코어 SQL Database를 실행합니다. SQL Database 컴퓨팅 사용량의 8개 코어에 대한 종량제 가격으로 요금이 청구됩니다. 8코어 SQL Database 컴퓨팅 사용량의 1시간 동안 예약 할인을 받게 됩니다.
+- 시나리오 1: 8개 코어 SQL Database에 대한 SQL Database 예약 용량을 구입합니다. 예약의 나머지 특성과 일치하는 16코어 SQL Database를 실행합니다. SQL Database 컴퓨팅 사용량의 8개 코어에 대한 종량제 가격으로 요금이 청구됩니다. 8코어 SQL Database 컴퓨팅 사용량의 1시간 동안 예약 할인을 받게 됩니다.
 
 이러한 예제의 나머지의 경우 구입하는 SQL Database 예약된 용량이 16코어 SQL Database에 대한 것이며 나머지 예약 특성이 실행 중인 SQL Database와 일치한다고 가정합니다.
 
-- 시나리오 2: 각각의 1시간 동안 8개의 코어를 사용하여 두 개의 SQL Database를 실행합니다. 16코어 예약 할인은 8개의 코어 SQL Database 모두에 대한 컴퓨팅 사용량에 적용됩니다.
-- 시나리오 3: 오후 1시에서 오후 1시 30분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
-- 시나리오 4: 오후 1시에서 오후 1시 45분까지 하나의 16코어 SQL Database를 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
+- 시나리오 2: 두 개의 8개 코어 SQL Database를 각각 1시간 동안 실행합니다. 16코어 예약 할인은 8개의 코어 SQL Database 모두에 대한 컴퓨팅 사용량에 적용됩니다.
+- 시나리오 3: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 30분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 둘 다 예약 할인에 포함됩니다.
+- 시나리오 4: 하나의 16개 코어 SQL Database를 오후 1시에서 오후 1시 45분까지 실행합니다. 오후 1시 30분에서 오후 2시까지 다른 16코어 SQL Database를 실행합니다. 15분의 중복에 대한 종량제 가격으로 요금이 청구됩니다. 예약 할인은 나머지 시간에 대한 컴퓨팅 사용량에 적용됩니다.
 
 청구 사용량 보고서에서 Azure 예약의 애플리케이션을 이해하고 보려면 [Azure 예약 사용량 이해](understand-reserved-instance-usage-ea.md)를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -17,10 +17,10 @@ ms.date: 12/02/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 9f78675878bd7a36e27ec1bdce0f3e38540d6039
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991439"
 ---
 # <a name="manage-access-to-billing-information-for-azure"></a>Azure의 청구 정보에 대한 액세스 관리
@@ -114,6 +114,6 @@ Azure Portal의 계정에 대한 청구 정보에 대한 액세스를 다른 사
 - 소유자 또는 참가자 등의 다른 역할의 사용자는 청구 정보에 액세스할 수만 있고 Azure 서비스에는 액세스할 수 없습니다. 이러한 역할을 관리하려면 [RBAC 및 Azure Portal을 사용하여 액세스 관리](../../role-based-access-control/role-assignments-portal.md)를 참조하세요.
 - 역할에 대한 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

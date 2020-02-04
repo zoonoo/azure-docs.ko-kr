@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 계약에 대 한 청구 역할-Azure
+title: Microsoft 고객 계약에 대한 청구 역할 - Azure
 description: Azure의 Microsoft 고객 계약에서 청구 계정에 대한 청구 역할에 대해 알아봅니다.
 author: amberbhargava
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: eaec828abe83164d18796cfb2e795a363353fab4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75987942"
 ---
 # <a name="understand-microsoft-customer-agreement-administrative-roles-in-azure"></a>Azure의 Microsoft 고객 계약 관리자 역할 이해
@@ -203,7 +203,7 @@ Microsoft 고객 계약의 청구 계정을 관리하려면 다음 섹션에서 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 규약의 EA 작업-Azure
+title: Microsoft 고객 계약의 EA 작업 - Azure
 description: 새 청구 계정에서 기업계약 작업을 완료하는 방법에 대해 알아봅니다.
 author: amberbhargava
 manager: amberb
@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 01/02/2020
 ms.author: banders
 ms.openlocfilehash: 0cdf95b8d91938d6b9b4de413bc5d5dcb8caa2f4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991244"
 ---
 # <a name="complete-enterprise-agreement-tasks-in-your-billing-account-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약의 청구 계정에서 기업계약 작업 완료
@@ -29,7 +29,7 @@ ms.locfileid: "75991244"
 
 ![ea-mca-post-transition-hierarchy 이미지](./media/mca-enterprise-operations/mca-post-transition-hierarchy.png)
 
-| 기업계약   | Microsoft 고객 계약    |
+| 기업 계약   | Microsoft 고객 계약    |
 |------------------------|--------------------------------------------------------|
 | 등록            | 기업계약 등록과 비슷하게 청구 프로필을 사용하여 조직의 청구를 관리합니다. 엔터프라이즈 관리자는 청구 프로필의 소유자가 됩니다. 청구 프로필에 대해 자세히 알아보려면 [청구 프로필 이해](../understand/mca-overview.md#billing-profiles)를 참조하세요.
 | department            | 기업계약 등록에 포함된 부서와 비슷하게 청구서 섹션을 사용하여 비용을 구성할 수 있습니다. 부서는 청구서 섹션이 되고 부서 관리자는 해당 청구서 섹션의 소유자가 됩니다. 청구서 섹션에 대한 자세한 내용은 [청구서 섹션 이해](../understand/mca-overview.md#invoice-sections)를 참조하세요. |
@@ -132,7 +132,7 @@ Azure Portal의 [Cost Management + 청구 페이지](https://portal.azure.com/#b
 
 **Azure 구독 작성자** - 기업계약의 부서별로 생성된 청구서 섹션에서 Azure 구독 작성자 역할이 할당됩니다. 계정이 부서에 속해 있지 않으면 기본 청구서 섹션이라는 섹션에서 Azure 구독 작성자 역할이 할당됩니다. 이 역할을 통해 청구서 섹션에 대한 Azure 구독을 만들 수 있습니다.
 
-### <a name="create-an-azure-subscription"></a>Azure 구독 만들기
+### <a name="create-an-azure-subscription"></a>Azure 구독을 만듭니다.
 
 Azure Portal에서 청구서 섹션에 대한 Azure 구독을 만들 수 있습니다. 자세한 내용은 [Microsoft 고객 계약에 대한 추가 Azure 구독 만들기](create-subscription.md)를 참조하세요.
 
@@ -144,7 +144,7 @@ Azure Portal에서 청구서 섹션에 대한 Azure 구독을 만들 수 있습�
 
 [구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade) 또는 Azure 비용 분석에서 구독 요금을 볼 수 있습니다. Azure 비용 분석에 대한 자세한 내용은 [비용 분석을 사용하여 비용 탐색 및 분석](../costs/quick-acm-cost-analysis.md)을 참조하세요.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 10/24/2019
 ms.author: banders
 ms.openlocfilehash: 13ac51fc4cefa4d66cf9d8310dce80704454bd93
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "76122154"
 ---
 # <a name="get-started-with-your-microsoft-partner-agreement-billing-account"></a>Microsoft 파트너 계약 청구 계정 시작
@@ -76,7 +76,7 @@ CSP [2계층 모델](https://docs.microsoft.com/partner-center)의 간접 공급
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

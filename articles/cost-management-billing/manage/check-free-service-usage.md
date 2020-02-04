@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 83937e31d844ba0cc8efc17f1ecefa2ad6e7a7c1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992830"
 ---
 # <a name="check-usage-of-free-services-included-with-your-azure-free-account"></a>Azure 무료 계정에 포함된 무료 서비스의 사용량 확인
@@ -38,19 +38,19 @@ ms.locfileid: "75992830"
 
     표에는 다음과 같은 열이 있습니다.
 
-* **측정기:** 사용 중인 서비스에 대 한 측정 단위를 식별 합니다.
+* **미터:** 사용 중인 서비스에 대한 측정 단위를 식별합니다.
 * **사용/한도:** 현재 월의 사용량 및 측정기의 제한입니다.
-* **상태:** 서비스의 사용 상태입니다. 사용량에 따라, 다음 상태 중 하나일 수 있습니다.
-  * **사용 하지 않음:** 측정기를 사용 하지 않았거나 측정기 사용이 청구 시스템에 도달 하지 않았습니다.
-  * **\<Date>** 에 초과됨: \<Date>에 측정기 제한에 도달했습니다.
-  * **초과할 가능성이 낮음:** 측정기에 대 한 제한을 초과할 가능성이 낮습니다.
-  * **\<날짜 >를 초과 합니다.** \<날짜 >에서 미터의 제한을 초과할 가능성이 높습니다.
+* **상태:** 서비스의 사용량 상태입니다. 사용량에 따라, 다음 상태 중 하나일 수 있습니다.
+  * **사용 중이 아님:** 측정기를 사용하지 않았거나 측정기의 사용량이 청구 시스템에 연결되지 않았습니다.
+  * **\<Date>에 초과됨:** \<Date>에 측정기 제한에 도달했습니다.
+  * **초과할 가능성이 낮음:** 측정기의 제한을 초과할 가능성이 낮습니다.
+  * **\<Date>에 초과:** \<Date>에 측정기 제한에 도달할 가능성이 높습니다.
 
 > [!IMPORTANT]
 >
 > 무료 서비스는 Azure 체험 계정에 가입할 때 생성된 구독에 대해서만 사용할 수 있습니다. 구독 개요 페이지에서 무료 서비스 테이블을 볼 수 없는 경우 구독에 사용할 수 없습니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

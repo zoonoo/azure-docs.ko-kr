@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 11/14/2019
 ms.author: banders
 ms.openlocfilehash: 7807129061328d1c6d563b9058987388e84c6e4c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995690"
 ---
 # <a name="software-costs-not-included-with-azure-reserved-vm-instances"></a>Azure Reserved VM Instances에 포함되지 않는 Windows 소프트웨어 비용
@@ -75,6 +75,6 @@ Azure용 예약에 대해 자세히 알아보려면 다음 문서를 참조하�
 - [종량제 구독의 예약 사용량 이해](understand-reserved-instance-usage.md)
 - [엔터프라이즈 등록에서 예약 사용량 이해](understand-reserved-instance-usage-ea.md)
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

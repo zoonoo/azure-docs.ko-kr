@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: c148351a4475bfdbee474a5e0951cc3b5717404e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995729"
 ---
 # <a name="how-azure-databricks-pre-purchase-discount-is-applied"></a>Azure Databricks 사전 구매 할인이 적용되는 방법
@@ -43,7 +43,7 @@ DBCU 요금제 사용을 결정하려면 Azure Portal > **예약**으로 이동�
 
 사전 구매 할인이 Databricks 사용량에 적용되는 경우 주문형 요금은 사용량 데이터에 0으로 표시됩니다. 예약 비용 및 사용량에 대한 자세한 내용은 [기업 계약 예약 비용 및 사용량 가져오기](understand-reserved-instance-usage-ea.md)를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest).
 

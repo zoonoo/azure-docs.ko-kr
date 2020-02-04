@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 992e46cd8f10ff3c434f34a9f90c777870f3ada4
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995820"
 ---
 # <a name="apis-for-azure-reservation-automation"></a>Azure 예약 자동화용 API
@@ -38,7 +38,7 @@ REST API를 사용하여 Azure 예약 및 소프트웨어 플랜을 프로그래
 PUT https://management.azure.com/providers/Microsoft.Capacity/reservationOrders/<GUID>?api-version=2019-04-01
 ```
 
-요청 본문:
+본문 요청:
 
 ```
 {
@@ -108,7 +108,7 @@ EA 고객인 경우 조직의 예약이 사용되는 방식을 프로그래밍 �
 
 범위를 프로그래밍 방식으로 변경하려면 API [예약 - 업데이트](/rest/api/reserved-vm-instances/reservation/update)를 사용합니다.
 
-## <a name="learn-more"></a>자세히 알아보기
+## <a name="learn-more"></a>자세한 정보
 
 - [Azure 예약이란?](save-compute-costs-reservations.md)
 - [VM 예약 할인이 적용되는 방식 이해](../manage/understand-vm-reservation-charges.md)

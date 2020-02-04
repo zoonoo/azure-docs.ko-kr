@@ -14,10 +14,10 @@ ms.topic: conceptual
 ms.date: 11/28/2018
 ms.author: banders
 ms.openlocfilehash: 33fa553e9148a1ac838e6bf53fc83cf7eadd7499
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992583"
 ---
 # <a name="create-an-additional-azure-subscription"></a>추가 Azure 구독 만들기
@@ -34,9 +34,9 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 
 |청구 계정  |사용 권한  |
 |---------|---------|
-|EA(기업계약) |  기업계약 등록에 대한 계정 소유자 역할 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](understand-ea-roles.md)를 참조하세요.    |
+|EA(기업 계약) |  기업계약 등록에 대한 계정 소유자 역할 자세한 내용은 [Azure의 Azure 기업계약 관리 역할 이해](understand-ea-roles.md)를 참조하세요.    |
 |MCA(Microsoft 고객 계약) |  청구서 섹션, 청구 프로필 또는 청구 계정에 대한 소유자 또는 기여자 역할 또는 청구서 섹션의 Azure 구독 작성자 역할  자세한 내용은 [구독 청구 역할 및 작업](understand-mca-roles.md#subscription-billing-roles-and-tasks)을 참조하세요.    |
-|MPA(Microsoft 파트너 계약) |   CSP 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.  사용자는 Azure 구독을 만들기 위해 파트너 테 넌 트에 서명 해야 합니다.   |
+|MPA(Microsoft 파트너 계약) |   CSP 파트너 조직의 글로벌 관리자 및 관리 에이전트 역할. 자세히 알아보려면 [파트너 센터 - 사용자 역할 및 사용 권한 할당](https://docs.microsoft.com/partner-center/permissions-overview)을 참조하세요.  Azure 구독을 만들려면 사용자가 파트너 테넌트에 서명해야 합니다.   |
 
 ## <a name="create-a-subscription-in-the-azure-portal"></a>Azure Portal에 구독 만들기
 
@@ -57,8 +57,8 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 
 |필드  |정의  |
 |---------|---------|
-|이름     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
-|제품     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 EA 개발/테스트를 선택하고 그렇지 않은 경우 Microsoft Azure 엔터프라이즈를 사용합니다. DevTest 제품은 EA 개발/테스트 구독을 만들기 위해 등록 계정에 대해 활성화되어야 합니다.|
+|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|제안     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 EA 개발/테스트를 선택하고 그렇지 않은 경우 Microsoft Azure 엔터프라이즈를 사용합니다. DevTest 제품은 EA 개발/테스트 구독을 만들기 위해 등록 계정에 대해 활성화되어야 합니다.|
 
 **Microsoft 고객 계약**
 
@@ -66,8 +66,8 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |---------|---------|
 |청구 프로필     | 구독에 대한 요금은 선택한 청구 프로필로 청구됩니다. 하나의 청구 프로필에만 액세스할 수 있는 경우 선택 영역이 회색으로 표시됩니다.     |
 |청구서 섹션     | 구독에 대한 요금은 청구 프로필 청구서의 이 섹션에 표시됩니다. 하나의 청구서 섹션에만 액세스할 수 있는 경우 선택 영역이 회색으로 표시됩니다.  |
-|요금제     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 DevTest용 Microsoft Azure 플랜을 선택하고 그렇지 않은 경우 Microsoft Azure 플랜을 사용합니다. 청구 프로필에 대해 하나의 계획만 활성화되는 경우 선택 영역이 회색으로 표시됩니다.  |
-|이름     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|계획     | 개발 또는 테스트 작업에 이 구독을 사용하려는 경우 DevTest용 Microsoft Azure 플랜을 선택하고 그렇지 않은 경우 Microsoft Azure 플랜을 사용합니다. 청구 프로필에 대해 하나의 계획만 활성화되는 경우 선택 영역이 회색으로 표시됩니다.  |
+|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
 
 **Microsoft 파트너 계약**
 
@@ -75,7 +75,7 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 |---------|---------|
 |Customer    | 선택한 고객에 대한 구독이 생성됩니다. 고객이 한 명만 있는 경우 선택 영역이 회색으로 표시됩니다.  |
 |Reseller    | 고객에게 서비스를 제공하는 재판매인입니다. 이 필드는 CSP 2계층 모델에서 간접 공급자에만 적용되는 선택적 필드입니다. |
-|이름     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
+|속성     | Azure Portal에서 구독을 쉽게 식별하는 데 도움이 되는 표시 이름입니다.  |
 
 ## <a name="create-an-additional-azure-subscription-programmatically"></a>프로그래밍 방식으로 추가 Azure 구독 만들기
 
@@ -88,6 +88,6 @@ MOSP(Microsoft 온라인 서비스 프로그램) 청구 계정이 있는 경우 
 - [리소스 조직 및 관리를 위한 관리 그룹 만들기](../../governance/management-groups/create.md)
 - [Azure 구독 취소](cancel-azure-subscription.md)
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

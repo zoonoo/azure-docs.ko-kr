@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: banders
 ms.openlocfilehash: 8e083391a04188345143f8fdf9a5a945abcd9eb1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994286"
 ---
 # <a name="change-your-azure-subscription-to-a-different-offer"></a>다른 제품으로 Azure 구독 변경
@@ -62,7 +62,7 @@ ms.locfileid: "75994286"
    ![녹색 단추를 클릭합니다.](./media/switch-azure-offer/confirmpage.png)
 1. 성공! 이제 구독이 새 제안으로 전환되었습니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 다음 섹션에서는 자주 묻는 질문에 대답합니다.
 
 ### <a name="what-is-an-azure-offer"></a>Azure 제품이란?
@@ -97,7 +97,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 
 제품을 전환할 경우 [기본 제한을 초과하는 제한 또는 할당량 증가](../../azure-portal/supportability/resource-manager-core-quotas-request.md)는 다시 설정됩니다. 기본 제한을 초과하는 더 많은 리소스가 있더라도 서비스 작동이 중단되지 않습니다. 예를 들어 구독에서 200개 코어를 사용하고 제안을 전환하면 코어 할당량이 기본값인 20개 코어로 다시 설정됩니다. 200개 코어를 사용하는 VM은 영향을 받지 않으며 계속 실행됩니다. 그렇지만 다른 할당량 증가 요청을 지정하지 않는 경우 더 많은 코어를 프로비저전할 수 없습니다.
 
-#### <a name="billing"></a>청구
+#### <a name="billing"></a>결제
 
 전환한 날 모든 미결제 요금에 대한 송장이 생성됩니다. 그런 다음, 새 제안의 가격 책정 조건에 따라 구독 요금이 청구됩니다. 구독 요금 청구일은 제안을 변경한 날짜로 변경됩니다. 제품 변경 전 사용 및 요금 청구 데이터는 보존되지 않으므로 전환하기 전에 복사본을 다운로드하는 것이 좋습니다.
 
@@ -111,7 +111,7 @@ Azure 제안은 사용자가 소유한 Azure 구독의 *유형*을 말합니다.
 * 리소스를 새 구독으로 바로 마이그레이션할 수 있으며 자세한 방법은 [새 리소스 그룹 또는 구독으로 리소스 이동](../../azure-resource-manager/management/move-resource-group-and-subscription.md)을 참조하세요.
 * Azure 구독과 그 안에 있는 모든 것의 소유권을 다른 사람에게 양도하려면 [Azure 구독의 소유권 이전](billing-subscription-transfer.md)을 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

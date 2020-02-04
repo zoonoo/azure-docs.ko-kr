@@ -17,10 +17,10 @@ ms.date: 05/11/2018
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 1573a5d5d9b537b208b2f6d6aea29b9738ddad3e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75988111"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류
@@ -29,13 +29,13 @@ ms.locfileid: "75988111"
 
 ## <a name="symptom"></a>증상
 
-[Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 “구독을 찾을 수 없음” 오류 메시지가 표시됩니다.
+[Azure Portal](https://portal.azure.com/) 또는 [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인을 시도할 때 다음의 오류 메시지가 표시됩니다. "구독을 찾을 수 없음"
 
 ## <a name="cause"></a>원인
 
 잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다. 
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>시나리오 1: [Azure Portal](https://portal.azure.com)에서 오류 메시지가 표시됨
 
@@ -54,6 +54,6 @@ ms.locfileid: "75988111"
 1. 확인하려는 구독을 선택한 다음 **설정**에서 확인합니다.
 1. **속성**을 선택합니다. 구독의 계정 관리자는 **계정 관리자** 상자에 표시됩니다.  
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).

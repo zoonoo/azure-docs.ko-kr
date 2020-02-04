@@ -1,5 +1,5 @@
 ---
-title: 예약 된 용량을 사용 하 여 Azure App Service 저장
+title: 예약 용량으로 Azure App Service에 저장
 description: 예약 용량으로 Azure App Service 격리 인지세 비용을 절감하는 방법을 알아봅니다.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: 8161b169e8801fae4a9aa81290cf29ec28abf858
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995885"
 ---
 # <a name="save-costs-for-azure-app-service-isolated-stamp-fee-with-reserved-capacity"></a>예약 용량으로 Azure App Service 격리 인지세 비용 절감
@@ -47,7 +47,7 @@ ms.locfileid: "75995885"
 **구매하려면 다음을 수행합니다.**
 
 1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/CreateBlade/referrer/documentation/filters/%7B%22reservedResourceType%22%3A%22AppService%22%7D)로 이동합니다.
-1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용하세요. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 (제품 번호: MS-MS-AZR-0017P-0003P 또는 MS-MS-AZR-0017P-0017P) 또는 CSP 구독 이어야 합니다.
+1. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 **구독** 목록을 사용하세요. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P) 또는 CSP 구독입니다.
     - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
     - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 1. 구독 범위를 선택하려면 **범위**를 선택합니다.
@@ -57,7 +57,7 @@ ms.locfileid: "75995885"
 1. **지역**을 선택하여 예약 용량에 포함되는 Azure 지역을 선택하고 카트에 예약을 추가합니다.
 1. 격리된 계획 유형을 선택한 후 **선택**을 클릭합니다.  
     ![예 ](./media/prepay-app-service-isolated-stamp/app-service-isolated-stamp-select.png)
-1. 예약할 App Service 격리 스탬프 수량을 입력합니다. 예를 들어 수량 3은 지역에 예약된 3개의 스탬프를 제공합니다. **다음: 검토 + 구매**를 클릭 합니다.
+1. 예약할 App Service 격리 스탬프 수량을 입력합니다. 예를 들어 수량 3은 지역에 예약된 3개의 스탬프를 제공합니다. **다음: 검토 + 구매**를 클릭합니다.
 1. 검토하고 **지금 구매**를 클릭합니다.
 
 구매 후에는 [예약](https://portal.azure.com/#blade/Microsoft_Azure_Reservations/ReservationsBrowseBlade)으로 이동하여 구매 상태를 확인하고 언제든지 모니터링할 수 있습니다.

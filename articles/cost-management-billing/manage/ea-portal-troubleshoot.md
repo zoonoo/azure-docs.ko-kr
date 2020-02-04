@@ -9,10 +9,10 @@ ms.topic: troubleshooting
 ms.service: cost-management-billing
 manager: boalcsva
 ms.openlocfilehash: 41af65c2bfa35da30a0172ae7a39b3bad56597b8
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992128"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
@@ -146,9 +146,9 @@ EA 등록에는 여러 EA 관리자가 있을 수 있으며, 다른 EA 관리자
 
 ### <a name="what-is-the-difference-between-a-workschool-account-and-microsoft-account"></a>회사/학교 계정과 Microsoft 계정의 차이점은 무엇인가요?
 
-**Microsoft 계정:** [https://signup.live.com](https://signup.live.com)에서 Live ID에 연결 된 계정입니다.
+**Microsoft 계정:** [https://signup.live.com](https://signup.live.com)의 Live ID에 연결된 계정입니다.
 
-**회사/학교 계정:** 클라우드 페더레이션이 포함 된 active directory를 설정 하 고 모든 계정이 단일 테 넌 트에 있는 회사에만 사용할 수 있습니다. 회사의 내부 활성 디렉터리가 클라우드에 페더레이션되면 사용자를 회사/학교 권한 부여 형식으로 추가할 수 있습니다.
+**회사/학교 계정:** 클라우드에 페더레이션된 활성 디렉터리를 설정하고 모든 계정이 단일 테넌트에 있는 회사에서만 사용할 수 있습니다. 회사의 내부 활성 디렉터리가 클라우드에 페더레이션되면 사용자를 회사/학교 권한 부여 형식으로 추가할 수 있습니다.
 
   2016년 9월부터 Microsoft는 더 이상 주소가 지정된 회사 또는 학교 이메일을 Microsoft 계정으로 등록할 수 없습니다. 자세한 내용은 [https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/](https://blogs.technet.microsoft.com/enterprisemobility/2016/09/15/cleaning-up-the-azure-ad-and-microsoft-account-overlap/) 자료를 참조하세요.
 

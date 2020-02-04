@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 계약 가격표의 약관-Azure
+title: Microsoft 고객 계약 가격표의 용어 - Azure
 description: Azure에서 Microsoft 고객 계약 청구서의 사용량 및 청구서를 읽고 이해하는 방법을 알아봅니다.
 author: bandersmsft
 manager: jureid
@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 09/26/2019
 ms.author: banders
 ms.openlocfilehash: 44ead1d376bf8b57134380db90733ed48deda14e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994481"
 ---
 # <a name="terms-in-your-microsoft-customer-agreement-price-sheet"></a>Microsoft 고객 계약 가격표의 용어
@@ -48,19 +48,19 @@ ms.locfileid: "75994481"
 | meterSubCategory  | 측정기 하위 분류 범주의 이름입니다.  |
 | meterType  |  측정기 유형의 이름입니다. |
 | meterRegion  | 서비스에 대한 측정기를 사용할 수 있는 지역의 이름입니다. 데이터 센터 위치에 따라 가격이 책정되는 특정 서비스에 대한 데이터 센터의 위치를 식별합니다.    |
-| 제품  | 요금을 발생 제품의 이름입니다. 예: 기본 SQL DB와 표준 SQL DB 비교  |
+| Product  | 요금이 발생하는 제품의 이름입니다. 예: 기본 SQL DB 또는 표준 SQL DB  |
 | productId  | 측정기가 사용된 제품의 고유 식별자입니다. |
 | productOrderName  | 구매한 제품 플랜의 이름입니다. |
-| serviceFamily  | Azure 서비스의 유형입니다. 예: Compute, Analytics, Security |
+| serviceFamily  | Azure 서비스의 특정 유형입니다. 예: 컴퓨팅, 분석, 보안 |
 | tierMinimumUnits  | 가격이 정의된 계층 범위의 하한값을 정의합니다. 예를 들어 범위가 0에서 100인 경우 tierMinimumUnits는 0이 됩니다.  |
 | unitOfMeasure  | 서비스 청구를 위한 측정 단위를 식별합니다. 예를 들어 컴퓨팅 서비스는 시간당 청구됩니다. |
-| unitPrice  | 측정기 및 제품 주문 이름에 특정한 청구 시기의 단위당 가격입니다(유효한 혼합 가격이 아님).  참고: 단위 가격은 계층 전체에서 차등 가격이 있는 서비스의 경우 사용 세부 정보 다운로드의 유효 가격과 동일 하지 않습니다.  다중 계층 가격이 적용되는 서비스의 경우, 유효 가격은 계층 전체의 혼합률이며 계층별 단가를 나타내지 않습니다. 혼합 가격 또는 유효 가격은 (각 계층이 특정 단가를 가지는) 여러 계층에 걸친 소비 수량의 순 가격입니다. |
+| unitPrice  | 측정기 및 제품 주문 이름에 특정한 청구 시기의 단위당 가격입니다(유효한 혼합 가격이 아님).  참고: 단가는 계층 간 차등 가격이 있는 서비스의 경우 사용 내역 다운로드의 유효 가격과 동일하지 않습니다.  다중 계층 가격이 적용되는 서비스의 경우, 유효 가격은 계층 전체의 혼합률이며 계층별 단가를 나타내지 않습니다. 혼합 가격 또는 유효 가격은 (각 계층이 특정 단가를 가지는) 여러 계층에 걸친 소비 수량의 순 가격입니다. |
 
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

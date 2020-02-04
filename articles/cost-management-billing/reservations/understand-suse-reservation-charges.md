@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 09/30/2019
 ms.author: banders
 ms.openlocfilehash: f3d0c123fcbd16f3a4125ad74f0502863b6ce6d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995261"
 ---
 # <a name="azure-software-plan-discount"></a>Azure 소프트웨어 요금제 할인
@@ -77,7 +77,7 @@ Azure Portal Marketplace 이름:
 |SLES for HPC 3-4 vCPU|e531e1c0-09c9-4d83-b7d0-a2c6741faa22|2|D4s_v3|
 |SLES for HPC 5+ vCPU|4edcd5a5-8510-49a8-a9fc-c9721f501913|2.6|D8s_v3|
 
-### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server for HPC 표준
+### <a name="suse-linux-enterprise-server-for-hpc-standard"></a>SUSE Linux Enterprise Server for HPC Standard
 
 Azure Portal Marketplace 이름:
 
@@ -127,9 +127,9 @@ Azure Portal Marketplace 이름:
 |SLES 64 vCPU |7f5a36ed-d5b5-4732-b6bb-837dbf0fb9d8|3.2| D64s_v3|
 |SLES 72 코어 vCPU |93329a72-24d7-4faa-93d9-203f367ed334|3.2|F72s_v2|
 |SLES 96 코어 vCPU |2018c3a8-ff13-41f8-b64d-9558c5206547|3.2||
-|SLES 128 코어 vCPU |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128MS|
+|SLES 128 코어 vCPU |ac27e4d7-44b5-4fee-bc1a-78ac5b4abaf7|3.2| M128ms|
 
-### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server 표준
+### <a name="suse-linux-enterprise-server-standard"></a>SUSE Linux Enterprise Server Standard
 
 Azure Portal Marketplace 이름:
 
@@ -143,7 +143,7 @@ Azure Portal Marketplace 이름:
 |SLES 3-4 코어 vCPU |0c3ebb4c-db7d-4125-b45a-0534764d4bda|1.92308|D4s_v3|
 |SLES 5+ vCPU |7b349b65-d906-42e5-833f-b2af38513468|2.30769| D8s_v3|
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

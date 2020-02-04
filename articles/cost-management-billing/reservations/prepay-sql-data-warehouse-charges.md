@@ -1,5 +1,5 @@
 ---
-title: Azure reserved capacity를 사용 하 여 SQL Data Warehouse 요금 절감
+title: Azure 예약 용량으로 SQL Data Warehouse 요금 절감
 description: 예약 용량으로 SQL Data Warehouse 요금에 대한 비용을 절감하는 방법을 알아봅니다.
 services: billing
 author: yashesvi
@@ -9,15 +9,15 @@ ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: banders
 ms.openlocfilehash: b4069c9b18f9591e79d983a1317f00df11cf0611
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995846"
 ---
 # <a name="save-costs-for-sql-data-warehouse-charges-with-reserved-capacity"></a>예약 용량으로 SQL Data Warehouse 요금에 대한 비용 절감
 
-1년 또는 3년 동안 cDWU 사용량에 대한 예약을 커밋하여 Azure SQL Data Warehouse 비용을 절약할 수 있습니다. SQL Data Warehouse 예약 용량을 구매하려면 Azure 지역 및 용어를 선택해야 합니다. 그런 다음, SQL Data Warehouse SKU를 카트에 추가하고 구매하려는 cDWU 단위 용량을 선택합니다.
+1년 또는 3년 동안 cDWU 사용량에 대한 예약을 커밋하여 Azure SQL Data Warehouse 비용을 절약할 수 있습니다. SQL Data Warehouse 예약 용량을 구매하려면 Azure 지역 및 용어를 선택해야 합니다. 그런 다음, SQL Data Warehouse SKU를 카트에 추가하고 구매하려는 cDWU 단위의 용량을 선택합니다.
 
 예약을 구매하는 경우 예약 특성과 일치하는 SQL Data Warehouse 사용에 대해 종량제 요금이 더 이상 청구되지 않습니다.
 
@@ -45,7 +45,7 @@ SQL Data Warehouse 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이터 �
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
-3. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 구독 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업 계약 (제품 번호: MS-AZR-0017P-0017P 또는 MS-AZR-0017P-Ms-azr-0148p) 또는 종 량 제 (제품 번호: MS-AZR-0017P-0003P 또는 MS-MS-AZR-0017P-0017P) 이어야 합니다.
+3. 구독을 선택합니다. 예약 용량의 요금을 지불하는 데 사용되는 구독을 선택하려면 구독 목록을 사용합니다. 구독의 결제 방법에는 예약 용량에 대한 비용이 청구됩니다. 구독 유형은 기업계약(제안 번호: MS-AZR-0017P 또는 MS-AZR-0148P) 또는 종량제(제안 번호: MS-AZR-0003P 또는 MS-AZR-0023P)여야 합니다.
    - Enterprise 구독에 대한 요금은 등록의 금액 약정 잔액에서 차감되거나 초과 비용으로 청구됩니다.
    - 종량제 구독에 대한 요금은 신용 카드 또는 구독 시 선택한 청구서 결제 방법으로 청구됩니다.
 4. 범위를 선택합니다. 구독 범위를 선택하려면 범위를 사용합니다.
@@ -67,7 +67,7 @@ SQL Data Warehouse 예약 크기는 사용하는 총 cDWU(컴퓨팅 데이터 �
 
 예약 할인은 SQL Data Warehouse 예약된 용량 예약 범위 및 지역과 일치하는 SQL Data Warehouse 인스턴스의 수에 자동으로 적용됩니다. [Azure Portal](https://portal.azure.com/), PowerShell, CLI 또는 API를 통해 SQL Data Warehouse 예약된 용량의 범위를 업데이트할 수 있습니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://portal.azure.com/).
 

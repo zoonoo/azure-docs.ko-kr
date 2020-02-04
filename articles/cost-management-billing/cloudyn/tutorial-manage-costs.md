@@ -1,21 +1,20 @@
 ---
 title: 자습서 - Azure에서 Cloudyn을 사용하여 비용 관리 | Microsoft Docs
 description: 이 자습서에서는 비용 할당 및 쇼백과 차지백 보고서를 사용하여 비용을 관리하는 방법을 알아봅니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: tutorial
 ms.service: cost-management-billing
 ms.custom: seodec18
-manager: benshy
-ms.openlocfilehash: d4117e8a40f277c6ac0213272176b75a1c161eb1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.reviewer: benshy
+ms.openlocfilehash: c628a30e5a49e6bf9c0938ca8cccc0f349777668
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75984218"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769900"
 ---
 # <a name="tutorial-manage-costs-by-using-cloudyn"></a>자습서: Cloudyn을 사용하여 비용 관리
 

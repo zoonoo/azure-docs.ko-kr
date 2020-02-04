@@ -1,21 +1,20 @@
 ---
 title: Azure에서 Cloudyn을 위한 스토리지 계정 구성 | Microsoft Docs
 description: 이 문서에서는 Cloudyn을 위한 Azure Storage 계정 및 AWS 스토리지 버킷 구성 방법을 설명합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: secdec18
-ms.openlocfilehash: 2a8f3645dcf2987d0c0a204e7e8a86cd6d718e47
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: aa5fc1dddec6931b5eff1e34cf6c12b218bdf2fd
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994871"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76769949"
 ---
 # <a name="configure-storage-accounts-for-cloudyn"></a>Cloudyn을 위한 스토리지 계정 구성
 
@@ -23,7 +22,7 @@ ms.locfileid: "75994871"
 
 Cloudyn 보고서를 Cloudyn 포털, Azure Storage 또는 AWS 스토리지 버킷에 저장할 수 있습니다. Cloudyn 포털에 보고서를 저장하는 것은 무료입니다. 그러나 클라우드 서비스 공급자의 스토리지에 보고서를 저장하는 것은 선택 사항이며 추가 비용이 발생합니다. 이 문서는 보고서를 저장하도록 Azure Storage 계정 및 AWS(Amazon Web Services) 스토리지 버킷을 구성하는 데 도움을 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Storage 계정 또는 Amazon 스토리지 버킷이 있어야 합니다.
 
@@ -35,7 +34,7 @@ AWS 단순 스토리지 서비스(S3) 버킷이 없는 경우 만들어야 합�
 
 Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. 스토리지 계정에 대한 세부 정보를 수집하고 Cloudyn 포털에 복사합니다.
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. **모든 서비스**를 선택하고 **스토리지 계정**을 선택한 후 사용하려는 스토리지 계정으로 스크롤한 다음, 해당 계정을 선택합니다.
 3. 스토리지 계정 페이지의 **설정** 아래에서 **액세스 키**를 클릭합니다.
 4. **스토리지 계정 이름** 및 **연결 문자열**을 key1 아래에 복사합니다.  
@@ -53,7 +52,7 @@ Cloudyn에 사용할 Azure Storage를 구성하는 과정은 간단합니다. �
 
 ## <a name="configure-an-aws-storage-bucket"></a>AWS 스토리지 버킷 구성
 
-Cloudyn은 기존 AWS 자격 증명인 사용자 또는 역할을 사용하여 버킷에 보고서를 저장합니다. 액세스를 테스트하기 위해 Cloudyn은 파일 이름 _check-bucket-permission.txt_를 사용하여 작은 텍스트 파일을 버킷에 저장하려고 합니다.
+Cloudyn에서는 사용자 또는 역할의 기존 AWS 자격 증명을 사용하여 사용자 버킷에 보고서를 저장합니다. 액세스를 테스트하기 위해 Cloudyn은 파일 이름 _check-bucket-permission.txt_를 사용하여 작은 텍스트 파일을 버킷에 저장하려고 합니다.
 
 Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제공합니다. 그런 다음, 기존 버킷을 사용하거나 보고서를 저장할 새 버킷을 만듭니다. 마지막으로, 스토리지 클래스를 관리하거나, 수명 주기 규칙을 설정하거나, 불필요한 파일을 제거하는 방법을 결정합니다.
 
@@ -65,7 +64,7 @@ Cloudyn 역할 또는 사용자에게 버킷에 대한 PutObject 권한을 제�
 2. 서비스 목록에서 **IAM**을 선택합니다.
 3. 콘솔 왼쪽의 **정책**을 선택하고 **정책 만들기**를 클릭합니다.
 4. **JSON** 탭을 클릭합니다.
-5. 다음 정책을 사용하여 S3 버킷에 보고서를 저장할 수 있습니다. 다음 정책 예제를 복사 하 여 **JSON** 탭에 붙여 넣습니다. &lt;bucketname&gt;를 버킷 이름으로 바꿉니다.
+5. 다음 정책을 사용하여 S3 버킷에 보고서를 저장할 수 있습니다. 다음 정책 예제를 복사한 후 **JSON** 탭에 붙여 넣습니다. &lt;bucketname&gt;을 버킷 이름으로 바꿉니다.
 
    ```json
    {

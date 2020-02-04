@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 7555fc490804a847e61a46f194e77c62f0a985d9
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989749"
 ---
 # <a name="terms-in-your-microsoft-partner-agreement-invoice"></a>Microsoft 파트너 계약 청구서의 용어
@@ -36,10 +36,10 @@ ms.locfileid: "75989749"
 
 <!-- add screenshot -->
 
-| 조건 | Description |
+| 용어 | Description |
 | --- | --- |
 | 구매처 |결제 계정 속성에 있는 법적 실체의 주소|
-| 청구 대상 |청구 프로필 속성에 있는, 청구서를 받는 청구 프로필의 청구 주소|
+| 청구지 |청구 프로필 속성에 있는, 청구서를 받는 청구 프로필의 청구 주소|
 | 청구 프로필 |청구서를 받는 청구 프로필의 이름 |
 | P.O. number |추적을 위해 사용자에 의해 할당된 선택적 구매 주문 번호 |
 | 청구서 번호 |추적 용도로 사용하는 Microsoft에서 생성한 고유 청구서 번호 |
@@ -52,10 +52,10 @@ ms.locfileid: "75989749"
 
 <!-- add screenshot -->
 
-| 조건 | Description |
+| 용어 | Description |
 | --- | --- |
 | Charges|마지막 청구 기간 이후 청구 프로필에 대한 총 Microsoft 요금 수 |
-| 인증 |반품에서 받은 크레딧 |
+| 크레딧 |반품에서 받은 크레딧 |
 | 적용된 Azure 크레딧 | 청구 기간마다 Azure 요금에 자동으로 적용되는 Azure 크레딧 |
 | 소계 |세전 금액 |
 | 세금 |청구 프로필의 국가/지역에 따라 납부하는 세금의 유형 및 금액. 세금을 납부할 필요가 없으면 청구서에 세금이 표시되지 않습니다. |
@@ -77,7 +77,7 @@ ms.locfileid: "75989749"
 ## <a name="check-access-to-a-microsoft-partner-agreement"></a>Microsoft 파트너 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mpa](../../../includes/billing-check-mpa.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

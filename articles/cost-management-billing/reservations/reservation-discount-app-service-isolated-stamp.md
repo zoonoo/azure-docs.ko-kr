@@ -1,5 +1,5 @@
 ---
-title: Azure App Service에 대 한 예약 할인
+title: Azure App Service에 대한 예약 할인
 description: Azure App Service 격리 스탬프에 예약 할인이 적용되는 방법을 알아봅니다.
 services: billing
 author: yashesvi
@@ -9,10 +9,10 @@ ms.topic: conceptual
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: 1294ee126ecef1f635ffc4d6bec6da02c6171897
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995794"
 ---
 # <a name="how-reservation-discounts-apply-to-azure-app-service-isolated-stamps"></a>Azure App Service 격리 스탬프에 예약 할인이 적용되는 방법
@@ -39,10 +39,10 @@ Linux 예약을 구매해야 하는 유일한 경우는 스탬프에 Linux 작�
 
 다음 예제에서는 배포에 따라 격리 인지세 예약 인스턴스 할인이 적용되는 방법을 보여줍니다.
 
-- **예 1**: App Service 격리 스탬프가 없는 지역에서 격리 된 예약 된 스탬프 용량의 인스턴스 하나를 구매 합니다. 지역에 새 스탬프를 배포하고 이 스탬프에 예약된 요금을 지불합니다.
-- **예 2**: 이미 App Service 격리 스탬프가 배포 된 지역에서 격리 된 예약 된 스탬프 용량의 인스턴스 하나를 구입할 수 있습니다. 배포된 스탬프에 예약된 요금을 받기 시작합니다.
-- **예 3**: App Service 격리 스탬프가 이미 배포 된 지역에서 격리 된 예약 된 스탬프 용량의 인스턴스 하나를 구입할 수 있습니다. 배포된 스탬프에 대해 예약된 요금을 받기 시작합니다. 나중에 스탬프를 삭제하고 새 스탬프를 배포합니다. 새 스탬프에 예약된 요금을 받습니다. 배포된 스탬프가 없는 기간 동안 할인은 이월되지 않습니다.
-- **예 4**: 한 지역에서 격리 된 Linux 예약 된 스탬프 용량의 인스턴스 하나를 구매한 후 영역에 새 스탬프를 배포 합니다. 스탬프가 작업자 없이 처음 배포되면 Windows 스탬프 미터를 내보냅니다. 할인을 받지 못합니다. 첫 번째 Linux 작업자가 스탬프를 배포하면 Linux 스탬프 미터를 내보내고 예약 할인이 적용됩니다. Windows 작업자가 나중에 스탬프에 배포되면 스탬프 미터가 Windows로 되돌아갑니다. 격리된 Linux 예약 스탬프 예약에 대해 더 이상 할인을 받지 않습니다.
+- **예제 1**: App Service 격리 스탬프가 없는 지역에서 격리된 예약 스탬프 용량 인스턴스를 하나 구매합니다. 지역에 새 스탬프를 배포하고 이 스탬프에 예약된 요금을 지불합니다.
+- **예제 2**: App Service 격리 스탬프가 이미 배포된 지역에서 격리된 예약 스탬프 용량 인스턴스를 하나 구매합니다. 배포된 스탬프에 예약된 요금을 받기 시작합니다.
+- **예제 3**: App Service 격리 스탬프가 이미 배포된 지역에서 격리된 예약 스탬프 용량 인스턴스를 하나 구매합니다. 배포된 스탬프에 대해 예약된 요금을 받기 시작합니다. 나중에 스탬프를 삭제하고 새 스탬프를 배포합니다. 새 스탬프에 예약된 요금을 받습니다. 배포된 스탬프가 없는 기간 동안 할인은 이월되지 않습니다.
+- **예제 4**: 한 지역에서 격리된 Linux 예약 스탬프 용량 인스턴스를 하나 구입한 다음, 이 지역에 새 스탬프를 배포합니다. 스탬프가 작업자 없이 처음 배포되면 Windows 스탬프 미터를 내보냅니다. 할인을 받지 못합니다. 첫 번째 Linux 작업자가 스탬프를 배포하면 Linux 스탬프 미터를 내보내고 예약 할인이 적용됩니다. Windows 작업자가 나중에 스탬프에 배포되면 스탬프 미터가 Windows로 되돌아갑니다. 격리된 Linux 예약 스탬프 예약에 대해 더 이상 할인을 받지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

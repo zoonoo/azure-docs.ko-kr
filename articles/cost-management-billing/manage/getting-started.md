@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: a78edc29ef85430dc8af57e60dfcba1f2e46413e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991478"
 ---
 # <a name="prevent-unexpected-charges-with-azure-billing-and-cost-management"></a>Azure 청구 및 비용 관리를 사용하여 예기치 않은 비용 방지
@@ -29,12 +29,12 @@ Azure에 등록하면 몇 가지 방법을 통해 지출을 보다 명확히 파
 - EA(기업계약), CSP(클라우드 솔루션 공급자) 및 Azure 스폰서쉽 고객을 위한 추가 리소스와 도구를 사용합니다.
 - [Azure 체험 계정](https://azure.microsoft.com/free/)으로 [가장 인기 있는 Azure 서비스 중 일부를 12개월 동안 무료로](create-free-services.md) 사용합니다. 아래에 나열된 권장 사항과 함께 [체험 계정에서 요금 청구 방지](avoid-charges-free-account.md)를 참조하세요.
 
-## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 얻기
+## <a name="get-estimated-costs-before-adding-azure-services"></a>Azure 서비스를 추가하기 전에 예상 비용 구하기
 
 다음 도구 중 하나를 사용하여 Azure 서비스 사용에 대한 비용을 예측합니다.
-- Azure 가격 계산기
+- Azure 요금 계산기
 - Azure 가격표
-- Azure Portal
+- Azure portal
 
 다음 섹션의 이미지에서는 미국 달러로 가격 책정 예를 보여 줍니다.
 
@@ -82,7 +82,7 @@ Azure 서비스가 실행되면 비용을 정기적으로 확인하여 Azure 지
 
 4. 태그, 리소스 종류 및 시간 범위와 같은 다양한 속성을 기준으로 필터링할 수 있습니다. 속성에 대한 필터를 추가하고 필터링할 값을 선택하려면 **필터 추가**를 클릭합니다. 보기를 쉼표로 구분된 값(.csv) 파일로 내보내려면 **내보내기**를 선택합니다.
 
-5. 또한 차트의 레이블을 눌러 해당 레이블의 일별 지출 기록을 확인할 수 있습니다. 예를 들어 아래 스크린샷에서는 virtual machines를 클릭 하면 Vm을 실행 하는 일일 비용이 표시 됩니다.
+5. 또한 차트의 레이블을 눌러 해당 레이블의 일별 지출 기록을 확인할 수 있습니다. 예를 들어 아래 스크린샷에서 가상 머신을 클릭하면 VM 실행에 대한 일별 비용이 표시됩니다.
 
     ![Azure Portal의 사용 기록 보기 스크린 샷](./media/getting-started/costhistory.png)
 
@@ -128,9 +128,9 @@ Azure [청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](htt
 ### <a name="ea-csp-and-sponsorship-customers"></a>EA, CSP 및 스폰서쉽 고객
 계정 관리자 또는 Azure 파트너에 시작하도록 알립니다.
 
-| 제품 | 리소스 |
+| 제안 | 리소스 |
 |-------------------------------|-----------------------------------------------------------------------------------|
-| EA(기업계약) | [EA 포털](https://ea.azure.com/), [도움말 문서](https://ea.azure.com/helpdocs) 및 [Power BI 보고서](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
+| EA(기업 계약) | [EA 포털](https://ea.azure.com/), [도움말 문서](https://ea.azure.com/helpdocs) 및 [Power BI 보고서](https://powerbi.microsoft.com/documentation/powerbi-content-pack-azure-enterprise/) |
 | CSP(클라우드 솔루션 공급자) | 공급자에게 알림 |
 | Azure 스폰서쉽 | [스폰서쉽 포털](https://www.microsoftazuresponsorships.com/) |
 
@@ -179,7 +179,7 @@ SLA 임계값은 서비스에 따라 다릅니다. 예를 들어 SQL 웹 계층�
 
 자세한 내용은 [서비스 수준 계약](https://azure.microsoft.com/support/legal/sla/) 및 [Azure 서비스에 대한 SLA 요약](https://azure.microsoft.com/support/legal/sla/summary/) 설명서를 참조하세요.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

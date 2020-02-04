@@ -1,5 +1,5 @@
 ---
-title: Microsoft 고객 계약 청구 시작-Azure
+title: Microsoft 고객 계약 청구 시작 - Azure
 description: Microsoft 고객 계약 청구 계정 이해
 author: bandersmsft
 manager: amberbhargava
@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 09/10/2019
 ms.author: banders
 ms.openlocfilehash: 7d26c98ae8e5b9b95038a4a775134282703fa7c6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995118"
 ---
 # <a name="get-started-with-your-microsoft-customer-agreement-billing-account"></a>Microsoft 고객 계약 청구 계정 시작
@@ -51,7 +51,7 @@ Azure Portal에서 청구서를 확인하고, 문서를 다운로드하고, 설�
 
 각 청구 프로필에는 청구서를 결제하는 데 사용되는 고유한 결제 방법이 있습니다. 다음과 같은 결제 방법이 지원됩니다.
 
-| 유형             | 정의  |
+| Type             | 정의  |
 |------------------|-------------|
 |Azure 크레딧    |  크레딧이 청구서의 적격 요금에 자동으로 적용되므로 지불해야 하는 금액이 줄어듭니다. 자세한 내용은 [청구 프로필의 Azure 크레딧 잔액 추적](../manage/mca-check-azure-credits-balance.md)을 참조하세요. |
 |수표/전신 송금 | 수표/전신 송금을 통한 결제가 승인된 계정인 경우. 수표/전신 송금을 통해 청구서 대금을 지불할 수 있습니다. 지불 지침은 청구서에 제공됩니다. |
@@ -65,7 +65,7 @@ Azure Portal에서 청구서를 확인하고, 문서를 다운로드하고, 설�
 
 Azure 계획에 따라 Azure 구독의 가격 책정 및 서비스 수준 계약이 결정됩니다. 이는 청구 프로필을 만들 때 자동으로 사용하도록 설정됩니다. 청구 프로필과 연결된 모든 청구서 섹션은 이러한 계획을 사용할 수 있습니다. 청구서 섹션에 대한 액세스 권한이 있는 사용자는 계획을 사용하여 Azure 구독을 만듭니다. Microsoft 고객 계약의 청구 계정에서 지원되는 Azure 계획은 다음과 같습니다.
 
-| 요금제             | 정의  |
+| 계획             | 정의  |
 |------------------|-------------|
 |Microsoft Azure 계획   | 사용자가 모든 워크로드를 실행할 수 있는 구독을 만들 수 있게 허용합니다.  |
 |개발/테스트용 Microsoft Azure 계획 | Visual Studio 구독자가 개발 또는 테스트 워크로드용으로 제한된 구독을 만들 수 있게 허용합니다. 이러한 구독은 Azure Portal의 배타적 가상 머신 이미지에 대한 액세스 권한 및 요금 할인과 같은 혜택을 받습니다. |
@@ -81,7 +81,7 @@ Azure 계획에 따라 Azure 구독의 가격 책정 및 서비스 수준 계약
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 지원에 문의
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

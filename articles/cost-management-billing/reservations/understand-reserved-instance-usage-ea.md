@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 06/30/2019
 ms.author: banders
 ms.openlocfilehash: af0769ae4e242c86a56ff63d5f7c9ecbe9382b48
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995417"
 ---
 # <a name="get-enterprise-agreement-reservation-costs-and-usage"></a>기업계약 예약 비용 및 사용량 가져오기
@@ -33,7 +33,7 @@ ms.locfileid: "75995417"
 
 ## <a name="reservation-charges-in-azure-usage-data"></a>Azure 사용량 데이터의 예약 요금
 
-데이터는 두 개의 개별 데이터 집합, 즉 _실제 cost_ 및 _분할 상환 비용_으로 나뉩니다. 두 데이터 세트의 차이점은 다음과 같습니다.
+데이터는 다음과 같은 두 가지 데이터 세트로 나뉩니다. 하나는 _실제 비용_이고 다른 하나는 _분할 상환 비용_입니다. 두 데이터 세트의 차이점은 다음과 같습니다.
 
 **실제 비용** - 월별 청구서를 조정하는 데이터를 제공합니다. 이 데이터에는 예약 구매 비용 및 예약 적용 세부 정보가 포함되어 있습니다. 이 데이터를 사용하면 특정 날짜에 예약 할인을 받는 구독, 리소스 그룹 또는 리소스를 알 수 있습니다. 예약 할인을 받은 사용량의 EffectivePrice는 0입니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "75995417"
 | 예약 구매 | 이 보기에서 사용할 수 있습니다.<br><br>  이 데이터를 얻으려면 ChargeType = &quot;Purchase&quot;로 필터링합니다. <br><br> 요금이 부과되는 예약을 확인하려면 ReservationID 또는 ReservationName을 참조하세요.  | 이 보기에 적용할 수 없습니다. <br><br> 구매 비용은 분할 상환 데이터에 제공되지 않습니다. |
 | EffectivePrice | 예약 할인을 받는 사용량의 금액은 0입니다. | 이 금액은 예약 할인이 적용되는 사용량에 대한 시간당 예약 비용에 비례합니다. |
 | 사용하지 않는 예약(해당 날짜에 예약을 사용하지 않은 시간 및 폐기된 시간의 금전적 가치 제공) | 이 보기에서 사용할 수 없습니다. | 이 보기에서 사용할 수 있습니다.<br><br> 이 데이터를 얻으려면 ChargeType = &quot;UnusedReservation&quot;으로 필터링합니다.<br><br>  사용률이 낮은 예약을 확인하려면 ReservationID 또는 ReservationName을 참조하세요. 이 데이터를 통해 해당 날짜에 얼마나 많은 예약이 낭비되었는지 알 수 있습니다.  |
-| UnitPrice(가격표의 리소스 가격) | 사용할 수 있음 | 사용할 수 있음 |
+| UnitPrice(가격표의 리소스 가격) | 사용 가능 | 사용 가능 |
 
 Azure 사용량 데이터에 제공되는 다른 정보가 변경되었습니다.
 
@@ -65,9 +65,9 @@ API를 사용하여 데이터를 가져오거나 Azure Portal에서 데이터를
 
 새 데이터를 가져오려면 [사용량 세부 정보 API](/rest/api/consumption/usagedetails/list)를 호출합니다. 용어에 대한 자세한 내용은 [사용 약관](../understand/understand-usage.md)을 참조하세요. 호출자는 [EA Portal](https://ea.azure.com)을 사용하는 기업계약의 엔터프라이즈 관리자여야 합니다. 읽기 전용 엔터프라이즈 관리자도 데이터를 가져올 수 있습니다.
 
-이 데이터는 [기업 고객을 위한 보고 api-사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)에서 사용할 수 없습니다.
+이 데이터는 [기업 고객을 위한 보고 API - 사용량 세부 정보](/rest/api/billing/enterprise/billing-enterprise-api-usage-detail)에서 사용할 수 없습니다.
 
-다음은 사용량 세부 정보 API에 대 한 호출의 예입니다.
+다음은 사용량 세부 정보 API에 대한 호출 예제입니다.
 
 ```
 https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enrollmentId}/providers/Microsoft.Billing/billingPeriods/{billingPeriodId}/providers/Microsoft.Consumption/usagedetails?metric={metric}&amp;api-version=2019-05-01&amp;$filter={filter}
@@ -89,7 +89,7 @@ https://management.azure.com/providers/Microsoft.Billing/billingAccounts/{enroll
 
 ## <a name="download-the-usage-csv-file-with-new-data"></a>새 데이터가 포함된 사용량 CSV 파일 다운로드
 
-EA 관리자는 Azure Portal에서 새로운 사용량 데이터가 포함된 CSV 파일을 다운로드할 수 있습니다. 이 데이터는 EA 포털 (ea.azure.com)에서 사용할 수 없습니다. 새 데이터를 보려면 Azure Portal (portal.azure.com)에서 사용 파일을 다운로드 해야 합니다.
+EA 관리자는 Azure Portal에서 새로운 사용량 데이터가 포함된 CSV 파일을 다운로드할 수 있습니다. 이 데이터는 EA 포털(ea.azure.com)에서 사용할 수 없습니다. 새 데이터를 보려면 Azure Portal(portal.azure.com)에서 사용 파일을 다운로드해야 합니다.
 
 Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Microsoft_Azure_Billing/ModernBillingMenuBlade/BillingAccounts)로 이동합니다.
 
@@ -111,7 +111,7 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 ### <a name="get-underutilized-reservation-quantity-and-costs"></a>사용률이 낮은 예약 수량 및 비용 가져오기
 
-분할 상환 Cost 데이터를 가져오고 _Chargetchar=_ _UnusedReservation_에 대 한 필터를 제공 합니다. 사용하지 않는 날짜별 예약 수량 및 비용을 가져옵니다. _ReservationId_ 또는 _ProductOrderId_를 사용하여 각각 예약 또는 예약 주문에 대한 데이터를 필터링할 수 있습니다. 예약 사용률이 100%이면 레코드의 수량은 0입니다.
+분할 상환 비용 데이터를 가져오고 _ChargeType_ _= UnusedReservation_으로 필터링합니다. 사용하지 않는 날짜별 예약 수량 및 비용을 가져옵니다. _ReservationId_ 또는 _ProductOrderId_를 사용하여 각각 예약 또는 예약 주문에 대한 데이터를 필터링할 수 있습니다. 예약 사용률이 100%이면 레코드의 수량은 0입니다.
 
 ### <a name="amortize-reservation-costs"></a>예약 비용 분할
 
@@ -122,8 +122,8 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 구독, 리소스 그룹 또는 태그를 따라 예약 사용 요금을 다른 조직에 차지백할 수 있습니다. 분할 상환 비용 데이터는 다음 데이터 형식에 대한 예약 사용률의 금전적 가치를 제공합니다.
 
 - 리소스(예: VM)
-- 리소스 그룹
-- 태그
+- Resource group
+- 태그들
 - Subscription
 
 ### <a name="get-the-blended-rate-for-chargeback"></a>차지백의 혼합 비율 구하기
@@ -148,9 +148,9 @@ Azure Portal에서 [Cost Management + 청구](https://portal.azure.com/#blade/Mi
 
 ![비용 분석에서 분할 상환 비용을 선택하는 위치를 보여주는 예제](./media/understand-reserved-instance-usage-ea/portal-cost-analysis-amortized-view.png)
 
-사용량, 구매 및 환불 내역을 보려면 요금 유형별로 그룹화하고, 예약 및 주문형 비용 내역을 보려면 예약별로 그룹화합니다. 실제 비용을 구매할 때 표시 되는 유일한 예약 비용은 분할 상환 비용을 볼 때 혜택을 사용 하는 개별 리소스에 할당 됩니다. 분할 상환 비용을 살펴볼 때 새로운 **UnusedReservation** 요금 유형도 표시됩니다.
+사용량, 구매 및 환불 내역을 보려면 요금 유형별로 그룹화하고, 예약 및 주문형 비용 내역을 보려면 예약별로 그룹화합니다. 실제 비용을 살펴볼 때 표시되는 유일한 예약 비용은 구매입니다. 그러나 분할 상환 비용을 살펴볼 때에는 혜택을 사용한 개별 리소스에 비용이 할당됩니다. 분할 상환 비용을 살펴볼 때 새로운 **UnusedReservation** 요금 유형도 표시됩니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

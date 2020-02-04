@@ -11,10 +11,10 @@ ms.workload: na
 ms.date: 08/06/2019
 ms.author: banders
 ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75994052"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
@@ -28,7 +28,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="reservation-order-and-reservation"></a>예약 주문 및 예약
 
-예약을 구매 하면 **예약 순서** 와 **예약**이라는 두 개체가 만들어집니다.
+예약을 구매하면, **예약 주문** 및 **예약**이라는 두 가지 개체가 생성됩니다.
 
 구매 시 예약 주문에 하나의 예약이 포함됩니다. 분할, 병합, 부분 환불 또는 교환 등의 작업은 **예약 주문**에 새 예약을 생성합니다.
 
@@ -157,7 +157,7 @@ EA(기업계약) 고객인 경우 조직에서 예약을 사용하는 방법을 
 - 사용하지 않는 수량을 교환합니다. 자세한 내용은 [취소 및 교환](#cancel-exchange-or-refund-reservations)을 참조하세요.
 
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

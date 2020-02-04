@@ -14,10 +14,10 @@ ms.workload: na
 ms.date: 08/12/2019
 ms.author: jaserano
 ms.openlocfilehash: 986af72ed2ac10a285cfe32768d8541b7fce2428
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989996"
 ---
 # <a name="troubleshoot-azure-payment-issues"></a>Azure 결제 문제 해결
@@ -50,7 +50,7 @@ Microsoft Azure Portal 또는 Azure 계정 센터에서 지불 정보 계정을 
 
 ## <a name="unable-to-make-payment-for-a-subscription"></a>구독에 대한 결제를 수행할 수 없음
 
-오류 메시지가 표시 되는 경우: *결제 기한이 지났습니다. 지불 방법에 문제가* 있거나 *죄송 합니다. 정보를 저장할 수 없습니다. 브라우저를 닫고 다시 시도 하세요.* 이는 금융 기관에 의해 카드가 거부 되었기 때문에 카드에 대 한 결제는 보류 중입니다.
+다음과 같은 오류 메시지가 표시되는 경우에는, *결제 기한이 지났습니다. 결제 방법에 문제가 있습니다* 또는 *죄송합니다. 이 정보를 저장할 수 없습니다. 브라우저를 닫고 다시 시도하세요.* ,금융 기관에서 카드를 거부하여 카드에 결제 보류 중인 내역이 남아 있기 때문일 수 있습니다.
 
 신용 카드로 결제할 수 있는 잔액이 충분한 지 확인하십시오. 그렇지 않으면, 다른 카드를 사용하여 결제하거나 금융 기관에 연락하여 문제를 해결하십시오.
 

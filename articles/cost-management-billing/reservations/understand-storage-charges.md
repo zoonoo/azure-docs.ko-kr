@@ -7,10 +7,10 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: tamram
 ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75995313"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Azure Storage에 예약 할인이 적용되는 방식 이해
@@ -47,7 +47,7 @@ Azure Storage 예약된 용량 할인은 “use-it-or-lose-it(사용 또는 소�
 
 예약 기간 내의 지정된 시간에 101TB의 스토리지 용량을 사용했다고 가정합니다. 데이터 100TB에 예약 할인이 적용되며 나머지 1TB는 해당 시간에 대한 종량제 요금으로 청구됩니다. 다음 시간에 사용량이 100TB로 변경되면 모든 사용량은 예약에 포함됩니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하기
+## <a name="need-help-contact-us"></a>도움 필요 시 문의처
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/20/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: 139ad67035a96fb67bd96c4abb14ce9e1f26bf4f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: 6f974ae35dbf23a134b775fe0d4f8cf5195a75af
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75989060"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76773924"
 ---
 # <a name="reports-available-in-the-cloudyn-portal"></a>Cloudyn 포털에 제공되는 보고서
 
@@ -198,7 +198,7 @@ Cloudyn은 _계정 선호도_를 적용하여 할당이 각 연결된 계정의 
 7. **날짜**에서 일회성 요금을 선택한 경우 **적용 날짜**에 요금이 결제되는 날짜를 입력합니다. 반복 청구 요금을 선택한 경우 청구 시작 날짜와 종료 날짜를 포함하는 날짜 범위를 입력합니다.
 8. **엔터티 트리**에서 요금을 적용하려는 엔터티를 선택한 후 **On**(설정)을 선택합니다.
 
-_요금은 엔터티에 할당 될 때 사용자가 변경할 수 없습니다. 부모 엔터티에 대해 관리자가 추가한 요금은 읽기 전용입니다._
+_요금이 엔터티에 할당되면 사용자가 변경할 수 없습니다. 관리자가 부모 엔터티에 추가한 요금은 읽기 전용입니다._
 
 사용자 지정 요금을 보려면
 
@@ -210,9 +210,9 @@ Cost Allocation 360을 사용하여 소비된 클라우드 리소스에 비용�
 
 사용자 지정 비용 모델을 만드는 방법에 대한 자세한 내용은 [자습서: Cloudyn을 사용한 비용 관리](tutorial-manage-costs.md)를 참조하세요.
 
-### <a name="cost-vs-budget-over-time-report"></a>비용 대비 시간당 예산 보고서
+### <a name="cost-vs-budget-over-time-report"></a>시간당 비용 및 예산 보고서
 
-비용과 예산에 따른 예산 보고서를 사용 하면 기본 비용 참가자를 예산과 비교할 수 있습니다. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
+시간당 비용 및 예산 보고서를 사용하여 주 비용 기여요인을 예산과 비교할 수 있습니다. 시간당 (초과/미만/액면) 예산 사용량을 볼 수 있도록 할당된 예산이 보고서에 표시됩니다. 보고서의 맨 위에서 필드 표시/숨기기를 사용하면 비용, 예산, 축적된 비용 또는 총 예산을 보도록 선택할 수 있습니다.
 
 ### <a name="current-month-projected-cost-report"></a>이번 달 예상 비용 보고서
 
@@ -246,7 +246,7 @@ Cost Allocation 360을 사용하여 소비된 클라우드 리소스에 비용�
 
 완료된 예산을 CSV 파일로 내보내려면 **작업**에서 **내보내기**를 선택하여 파일을 다운로드합니다.
 
-완료 되 면 예산이 비용 분석 보고서 및 시간에 따른 비용 보고서에 표시 됩니다. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
+완료되면 예산이 비용 분석 보고서와 시간당 비용 및 예산 보고서에 표시됩니다. 예산 임계값을 기준으로 보고서를 예약할 수도 있습니다.
 
 ### <a name="azure-resource-explorer-report"></a>Azure Resource Explorer 보고서
 
@@ -448,7 +448,7 @@ AWS 예약 인스턴스를 구매한 경우 이 보고서에는 RI로 실행되�
 
 그래프를 클릭하여 드릴다운하고, 시간당 인스턴스 CPU 보고서를 열어 인스턴스의 분석 결과를 볼 수 있습니다.
 
-- **필드 표시/숨기기**를 사용하여 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
+- **필드 표시/숨기기**를 사용하여: 타임스탬프, 평균 CPU, 최소 CPU, 최대 CPU 등의 필드를 추가하거나 제거합니다.
 - **날짜 범위**를 입력하여 날짜 또는 날짜 범위를 입력하고 특정 InstanceID로 드릴합니다.
 - **확장 필터**를 사용하여 모든 인스턴스 ID 또는 특정 인스턴스 ID를 표시합니다.
 - **확대**를 클릭하여 CPU 사용률 보고서를 엽니다.

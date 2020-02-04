@@ -1,21 +1,20 @@
 ---
 title: Azure의 Cloudyn에 Amazon Web Services 계정 연결 | Microsoft Docs
 description: Cloudyn 보고서에서 비용 및 사용량 현황 데이터를 보려면 Amazon Web Services 계정을 연결합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 01/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: benshy
+ms.reviewer: benshy
 ms.custom: seodec18
-ms.openlocfilehash: b64d54df43b27abb51210995f2426e23690fa2d3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.openlocfilehash: dcb4c30fe485559834791fa567856bc78cff067e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75994884"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76770337"
 ---
 # <a name="connect-an-amazon-web-services-account"></a>Amazon Web Services 계정 연결
 
@@ -45,11 +44,11 @@ AWS IAM ID에 대한 자세한 내용은 [ID(사용자, 그룹 및 역할)](http
 1. https://console.aws.amazon.com/iam/home 에서 AWS 콘솔에 로그인하고 **역할**을 선택합니다.
 2. **역할 만들기**를 클릭한 다음, **Another AWS account**(다른 AWS 계정)을 선택합니다.
 3. **계정 ID** 상자에 `432263259397`을 붙여넣습니다. 이 계정 ID는 AWS가 Cloudyn 서비스에 할당하는 Cloudyn 데이터 수집기 계정입니다. 표시된 정확한 계정 ID를 사용합니다.
-4. **옵션** 옆에 있는 **외부 ID 필요**를 선택합니다. Cloudyn의 **외부 ID** 필드에서 이전에 복사한 고유한 값을 붙여넣습니다. 그런 후 **다음: 권한**을 클릭합니다.  
+4. **옵션** 옆에 있는 **외부 ID 필요**를 선택합니다. Cloudyn의 **외부 ID** 필드에서 이전에 복사한 고유한 값을 붙여넣습니다. 그런 다음, **다음: 사용 권한**을 클릭합니다.  
     ![Cloudyn의 외부 ID를 역할 만들기 페이지에 붙여넣기](./media/connect-aws-account/create-role01.png)
-5. **Attach permissions policies**(권한 연결 정책) 아래 **정책 유형** 필터 상자 검색에 `ReadOnlyAccess`를 입력하고, **ReadOnlyAccess**를 선택한 후 **다음: 검토**를 클릭합니다.  
+5. **권한 연결 정책**의 **정책 유형** 필터 상자 검색에 `ReadOnlyAccess`를 입력하고 **ReadOnlyAccess**를 선택한 다음, **다음: 검토**를 클릭합니다.  
     ![정책 이름 목록에서 읽기 전용 액세스 선택](./media/connect-aws-account/readonlyaccess.png)
-6. 검토 페이지에서 선택 내용이 올바른지 확인하고 **역할 이름**을 입력합니다. 예: *Azure-Cost-Mgt*. **역할 설명을**입력 합니다. 예를 들어 ‘Cloudyn을 위한 역할 할당’을 입력한 다음, **역할 만들기**를 클릭합니다.
+6. 검토 페이지에서 선택 내용이 올바른지 확인하고 **역할 이름**을 입력합니다. 예: *Azure-Cost-Mgt*. **역할 설명**을 입력합니다. 예를 들어 ‘Cloudyn을 위한 역할 할당’을 입력한 다음, **역할 만들기**를 클릭합니다. 
 7. 만들어진 역할을 **역할** 목록에서 클릭하고 요약 페이지에서 **역할 ARN** 값을 복사합니다. 역할 ARN(Amazon Resource Name) 값은 나중에 Cloudyn에서 구성을 등록할 때 사용합니다.  
     ![요약 페이지에서 역할 ARN 복사](./media/connect-aws-account/role-arn.png)
 
@@ -80,10 +79,10 @@ Cloudyn에서 데이터를 수집하고 보고서를 채우기 시작합니다. 
 1. https://console.aws.amazon.com/iam/home 에서 AWS 콘솔에 로그인하고 **사용자**를 선택합니다.
 2. **사용자 추가**를 클릭합니다.
 3. **사용자 이름** 필드에 사용자 이름을 입력합니다.
-4. **액세스 유형**에 **프로그래밍 방식 액세스**를 선택하고 **Next: Permissions**(다음: 권한)을 클릭합니다.  
+4. **액세스 유형**에 **프로그래밍 방식 액세스**를 선택하고 **다음: 사용 권한**을 클릭합니다.  
     ![사용자 추가 페이지의 사용자 이름 입력](./media/connect-aws-account/add-user01.png)
 5. 권한에 대해 **Attach existing policies directly**(기존 정책 직접 연결)을 선택합니다.
-6. **Attach permissions policies**(권한 연결 정책) 아래 **정책 유형** 필터 상자 검색에 `ReadOnlyAccess`를 입력하고, **ReadOnlyAccess**를 선택한 후 **다음: 검토**를 클릭합니다.  
+6. **권한 연결 정책**의 **정책 유형** 필터 상자 검색에 `ReadOnlyAccess`를 입력하고 **ReadOnlyAccess**를 선택한 다음, **다음: 검토**를 클릭합니다.  
     ![사용자에 대한 사용 권한을 설정하기 위해 ReadOnlyAccess 선택](./media/connect-aws-account/set-permission-for-user.png)
 7. 검토 페이지에서 선택 내용이 올바른지 확인한 다음, **사용자 만들기**를 입력합니다.
 8. 완료 페이지에 액세스 키 ID 및 비밀 액세스 키가 표시됩니다. 이 정보를 사용하여 Cloudyn에서 등록을 구성합니다.

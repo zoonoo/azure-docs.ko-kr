@@ -14,10 +14,10 @@ ms.date: 10/01/2019
 ms.author: banders
 ms.custom: H1Hack27Feb2017
 ms.openlocfilehash: 3e1e99313454c8352b96b8f11ec35f482521f7b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989775"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
@@ -30,7 +30,7 @@ ms.locfileid: "75989775"
 
 ## <a name="upgrade-your-azure-free-account"></a>Azure 체험 계정 업그레이드
 
-Azure 체험 계정을 업그레이드할 때 가입할 때부터 30일 동안 남은 크레딧을 유지합니다. 예: 1 월 1 일에 등록 하 고 5 월 5 일에 업그레이드 하는 경우 30 년 11 월까지 사용 되지 않는 크레딧을 사용할 수 있습니다. 업그레이드 후 12개월 동안 무료 서비스에도 액세스할 수 있습니다.
+Azure 체험 계정을 업그레이드할 때 가입할 때부터 30일 동안 남은 크레딧을 유지합니다. 다음은 그 예입니다.  11월 1일에 가입하고 11월 5일에 업그레이드하는 경우 사용되지 않은 크레딧을 11월 30일까지 사용할 수 있습니다. 업그레이드 후 12개월 동안 무료 서비스에도 액세스할 수 있습니다.
 
 1. [Azure 포털](https://portal.azure.com)
 1. **구독**을 검색합니다.

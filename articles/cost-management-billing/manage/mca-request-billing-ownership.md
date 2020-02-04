@@ -13,10 +13,10 @@ ms.workload: na
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: f7d6c6cbe5b99cb429b5399df7ba9765c1553901
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991114"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-from-other-accounts"></a>다른 계정에서 Azure 구독의 청구 소유권 얻기
@@ -35,29 +35,29 @@ ms.locfileid: "75991114"
 
     ![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 청구 범위 페이지에서 구독 사용에 대 한 비용을 지불 하는 데 사용 되는 청구 계정을 선택 합니다. 청구 계정은 **Microsoft 고객 계약**유형 이어야 합니다.
+3. 청구 범위 페이지에서 구독 사용에 대한 비용을 지불하는 데 사용되는 청구 계정을 선택합니다. 청구 계정은 **Microsoft 고객 계약** 유형이어야 합니다.
 
     ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-request-billing-ownership/list-of-scopes.png)
 
     > [!NOTE]
     >
-    > Azure Portal는 사용자가 액세스 하는 마지막 청구 범위를 기억 하 고 다음에 Cost Management + 청구 페이지로 이동할 때 범위를 표시 합니다. 이전에 Cost Management + 청구를 방문한 경우 청구 범위 페이지가 표시 되지 않습니다. 그렇다면 [올바른 범위](#check-for-access)에 있는지 확인 합니다. 그렇지 않은 경우 [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal) 하 여 Microsoft 고객 계약에 대 한 청구 계정을 선택 합니다.
+    > Azure Portal은 사용자가 액세스한 마지막 청구 범위를 기억했다가 다음에 Cost Management + 청구 페이지로 이동하면 해당 범위를 표시합니다. 이전에 Cost Management + 청구 페이지를 방문한 경우 청구 범위 페이지가 표시되지 않습니다. 이런 경우, [올바른 범위](#check-for-access)에 있는지 확인하십시오. 그렇지 않으면, [범위를 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)하여 Microsoft 고객 계약에 대한 청구 계정을 선택하십시오.
 
-4. 왼쪽에서 **청구 프로필** 을 선택 합니다.
+4. 왼쪽에서 **청구 프로필**을 선택합니다.
 
     ![청구 프로필 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
     > [!Note]
     >
-    > 청구 프로필이 표시 되지 않으면 올바른 청구 범위가 아닙니다. Microsoft 고객 계약에 대 한 청구 계정을 선택한 다음 청구 프로필을 선택 해야 합니다. 범위를 변경 하는 방법에 대 한 자세한 내용은 [Azure Portal에서 청구 범위 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)을 참조 하세요.
+    > 청구 프로필이 표시되지 않으면 올바른 청구 범위에 있지 않은 것입니다. Microsoft 고객 계약에 대한 청구 계정을 선택한 다음, 청구 프로필을 선택해야 합니다. 범위를 변경하는 방법을 알아보려면 [Azure Portal에서 청구 범위 전환](view-all-accounts.md#switch-billing-scope-in-the-azure-portal)을 참조하세요.
 
-5. 목록에서 **청구 프로필** 을 선택 합니다. 구독의 소유권을 모두 사용 하는 경우 해당 사용량에 대 한 요금은이 청구 프로필로 청구 됩니다.
+5. 목록에서 **청구 프로필**을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 이 청구 프로필로 청구됩니다.
 
 6. 왼쪽에서 **청구서 섹션**을 선택합니다.
 
     ![청구서 섹션 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 모두 사용 하면 청구 프로필 청구서의이 섹션에 해당 사용량이 할당 됩니다.
+7. 목록에서 청구서 섹션을 선택합니다. 구독의 소유권을 가져온 다음에는 사용량에 대한 요금은 청구 프로필 청구서의 이 섹션에 할당됩니다.
 
 8. 왼쪽 아래에서 **전송 요청**을 선택한 다음, **새 요청 추가**를 선택합니다.
 
@@ -83,19 +83,19 @@ ms.locfileid: "75991114"
 
     ![Cost Management + 청구에 대한 Azure Portal 검색을 보여 주는 스크린샷](./media/mca-request-billing-ownership/billing-search-cost-management-billing.png)
 
-3. 청구 범위 페이지에서 전송 요청을 보낸 청구 계정을 선택 합니다.
+3. 청구 범위 페이지에서 전송 요청을 보낸 청구 계정을 선택합니다.
 
-4. 왼쪽에서 **청구 프로필** 을 선택 합니다.
+4. 왼쪽에서 **청구 프로필**을 선택합니다.
 
     ![청구 프로필 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-profiles.png)     
 
-5. 전송 요청을 보낸 **청구 프로필** 을 선택 합니다.
+5. 전송 요청을 보낸 **청구 프로필**을 선택합니다.
 
 6. 왼쪽에서 **청구서 섹션**을 선택합니다.
 
     ![청구서 섹션 선택을 보여 주는 스크린샷](./media/mca-request-billing-ownership/mca-select-invoice-sections.png)   
 
-7. 전송 요청을 보낸 목록에서 송장 섹션을 선택 합니다.
+7. 목록에서 전송 요청을 보낸 청구서 섹션을 선택합니다.
 
 8. 왼쪽 아래에서 **전송 요청**을 선택합니다. 전송 요청 페이지에는 다음 정보가 표시됩니다.
 
@@ -207,7 +207,7 @@ SaaS 제품은 구독과 함께 전송되지 않습니다. [Azure 지원에 문�
 ## <a name="check-for-access"></a>액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 지원에 문의
 
 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 신속하게 해결하세요.
 

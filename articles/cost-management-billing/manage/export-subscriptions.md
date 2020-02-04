@@ -16,10 +16,10 @@ ms.topic: conceptual
 ms.date: 06/15/2018
 ms.author: banders
 ms.openlocfilehash: 553cc7fd27571ebc925e33f824060c023664a369
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75991777"
 ---
 # <a name="export-and-view-your-top-level-subscription-information"></a>최상위 구독 정보 내보내기 및 보기
@@ -28,7 +28,7 @@ ms.locfileid: "75991777"
 [!INCLUDE [gdpr-dsr-and-stp-note](../../../includes/gdpr-dsr-and-stp-note.md)]
 
 다운로드한 .json 파일에서 제공하는 정보는 다음과 같습니다.
-- Email: 계정과 연결된 이메일 주소입니다.
+- 전자 메일: 계정과 연결된 이메일 주소입니다.
 - Puid: 결제 계정과 연결된 고유 식별자입니다.
 - SubscriptionIds: 구독 ID별로 열거된 계정에 속한 구독 목록입니다.
 

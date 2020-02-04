@@ -12,10 +12,10 @@ ms.topic: conceptual
 ms.date: 07/22/2019
 ms.author: banders
 ms.openlocfilehash: 6ae55e0075883de08af516b71089f00353975b34
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992843"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가, 업데이트 또는 제거
@@ -133,7 +133,7 @@ Azure Portal에서 새 신용 카드를 추가하거나, 기존 신용 카드를
 ## <a name="troubleshooting"></a>문제 해결
 가상 카드 또는 선불 카드는 지원하지 않습니다. 유효한 신용 카드를 추가하거나 업데이트할 때 오류가 발생하면 프라이빗 모드에서 브라우저를 열어 보세요.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 다음 섹션에서는 신용 카드 정보를 변경하는 방법에 관한 자주 묻는 질문에 대답합니다.
 
 ### <a name="my-subscription-is-disabled-why-cant-i-remove-my-credit-card-now"></a>내 구독을 사용할 수 없습니다. 지금 내 신용 카드를 제거할 수 없는 이유는 무엇입니까?
@@ -163,7 +163,7 @@ Azure Portal에서 새 신용 카드를 추가하거나, 기존 신용 카드를
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

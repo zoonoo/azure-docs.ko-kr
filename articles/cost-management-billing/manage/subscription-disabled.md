@@ -13,10 +13,10 @@ ms.topic: conceptual
 ms.date: 07/01/2019
 ms.author: banders
 ms.openlocfilehash: be5c8cac1b0b7f926f97206ec27bf6fbc9914c91
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75989918"
 ---
 # <a name="reactivate-a-disabled-azure-subscription"></a>비활성화된 Azure 구독 다시 활성화
@@ -57,7 +57,7 @@ Azure에 대한 청구 작업을 모니터링하고 관리하려면 [Azure 청�
 
 다른 구독 유형의 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 구독을 다시 활성화합니다.
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 

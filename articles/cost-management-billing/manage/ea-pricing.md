@@ -13,10 +13,10 @@ ms.date: 09/30/2019
 ms.author: banders
 ms.custom: seodec18
 ms.openlocfilehash: 14346ceda9574d18050108e585d5ff4cdb133e31
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75992024"
 ---
 # <a name="view-and-download-your-organizations-azure-pricing"></a>조직의 Azure 가격 책정 보기 및 다운로드
@@ -36,7 +36,7 @@ Azure EA(기업계약), MCA(Microsoft 고객 계약) 또는 MPA(Microsoft 파트
 
    ![청구 아래의 사용량 및 요금을 보여 주는 스크린샷](./media/ea-pricing/ea-pricing-usage-charges-nav.png)
 
-1. 해당 월에 Azure Portal 검색](./media/ea-pricing/download-icon.png) **다운로드** 를 표시 하 ![스크린샷을 선택 합니다.
+1. 해당 월의 ![Azure Portal 검색을 보여 주는 스크린샷](./media/ea-pricing/download-icon.png) **다운로드**를 선택합니다.
 
 1. **가격표** 아래에서 **csv 다운로드**를 선택합니다.
 

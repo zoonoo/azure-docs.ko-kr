@@ -12,10 +12,10 @@ ms.workload: na
 ms.date: 10/01/2019
 ms.author: banders
 ms.openlocfilehash: b48cc5d5a36a382909adb250dd76b4f5783a4340
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
-ms.translationtype: MT
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
+ms.lasthandoff: 01/31/2020
 ms.locfileid: "75990906"
 ---
 # <a name="terms-in-the-azure-usage-and-charges-file-for-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 Azure 사용량 및 요금 파일의 용어
@@ -34,11 +34,11 @@ EA 고객이었으면 Azure 청구 프로필 사용량 CSV 파일의 용어가 A
 
 | Azure EA 사용량 CSV | Microsoft 고객 계약 Azure 사용량 및 요금 CSV |
 | --- | --- |
-| 날짜 | date |
-| 월| date |
+| Date | date |
+| Month| date |
 | 일 | date |
-| 년 | date |
-| 제품 | product |
+| Year | date |
+| Product | product |
 | MeterId | meterID |
 | MeterCategory | meterCategory |
 | MeterSubCategory | meterSubCategory |
@@ -53,8 +53,8 @@ EA 고객이었으면 Azure 청구 프로필 사용량 CSV 파일의 용어가 A
 | ServiceInfo1 | serviceInfo1 |
 | ServiceInfo2 | serviceInfo2 |
 | AdditionalInfo | additionalInfo |
-| 태그 | tags |
-| StoreServiceIdentifier | N/A |
+| 태그들 | tags |
+| StoreServiceIdentifier | 해당 없음 |
 | DepartmentName | invoiceSection |
 | CostCenter | costCenter |
 | UnitOfMeasure | unitofMeasure |
@@ -65,7 +65,7 @@ EA 고객이었으면 Azure 청구 프로필 사용량 CSV 파일의 용어가 A
 
 다음 용어는 Azure 사용량 및 요금 파일에 표시됩니다.
 
-조건 | Description
+용어 | Description
 --- | ---
 invoiceId | 청구서 PDF에 나열되는 고유 문서 ID
 previousInvoiceId | 이 품목이 환불인 경우 원래 청구서에 대한 참조
@@ -107,8 +107,8 @@ resourceLocation | 리소스가 실행되는 데이터 센터의 위치를 식�
 위치 | 동일한 지역에 대해 서로 다른 리소스 위치가 구성된 경우 리소소의 정규화된 위치
 quantity | 구매하거나 사용한 단위 수
 unitOfMeasure | 서비스 청구를 위한 측정 단위. 예를 들어 컴퓨팅 서비스는 시간당 청구됩니다.
-chargeType | 요금의 유형. 값 <ul><li>AsCharged-사용량: Azure 서비스 사용량을 기준으로 계산 되는 요금입니다. 여기에는 예약된 인스턴스로 인해 요금이 청구되지 않은 VM에 대한 사용량이 포함됩니다.</li><li>AsCharged: Marketplace 구매에서 일회성 또는 고정 된 반복 요금</li><li>AsCharged: 소비 단위를 기준으로 요금이 청구 되는 마켓플레이스 서비스에 대 한 요금</li></ul>
-isAzureCreditEligible | Azure 크레딧을 사용 하기 위해 서비스에 대 한 요금이 청구 될 수 있는지 여부를 나타내는 플래그 (값: True, False)
+chargeType | 요금의 유형. 값 <ul><li>AsCharged-Usage: Azure 서비스 사용량을 기준으로 발생하는 요금. 여기에는 예약된 인스턴스로 인해 요금이 청구되지 않은 VM에 대한 사용량이 포함됩니다.</li><li>AsCharged-PurchaseMarketplace: Marketplace 구매의 일회성 요금 또는 고정된 반복 요금</li><li>AsCharged-UsageMarketplace: 소비 단위를 기반으로 청구되는 Marketplace 서비스에 대한 요금</li></ul>
+isAzureCreditEligible | 서비스에 대한 요금을 Azure 크레딧을 사용하여 지불할 수 있는지 여부를 나타내는 플래그(값: True, False)
 serviceInfo1 | 서비스 관련 메타데이터
 serviceInfo2 | 선택적 서비스 특정 메타데이터를 캡처하는 레거시 필드입니다.
 additionalInfo | 추가 서비스 관련 메타데이터
@@ -121,7 +121,7 @@ tags | 리소스에 할당하는 태그
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]
 
-## <a name="need-help-contact-us"></a>도움이 필요하세요? 문의하세요.
+## <a name="need-help-contact-us"></a>도움 필요 시 문의하세요.
 
 질문이 있거나 도움이 필요한 경우 [지원 요청을 만드세요](https://go.microsoft.com/fwlink/?linkid=2083458).
 
