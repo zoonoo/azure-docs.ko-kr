@@ -85,7 +85,7 @@ Dynamics 365 for Customer Engagement 제품을 작성하기 위한 4개의 기�
 
 이 섹션에서는 패키지를 사용할 수 있는 CRM의 패키지 지역을 선택합니다. 어떤 국가/지역이 제공 되는 CRM 지역에 대 한 자세한 내용은 다음 링크를 참조 하세요. [https://o365datacentermap.azurewebsites.net/](https://o365datacentermap.azurewebsites.net/)
 
-참고: 독일 “자치 및 미국 정부 클라우드” 자치에 배포하려면 인증 중에 특수 권한 및 유효성 검사가 필요합니다.
+참고: 독일 “자치 및 US Gov 클라우드” 자치에 배포하려면 인증 중에 특수 권한 및 유효성 검사가 필요합니다.
 
 ## <a name="storefront-details"></a>상점 세부 정보
 

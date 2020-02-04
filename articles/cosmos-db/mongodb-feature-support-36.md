@@ -4,25 +4,25 @@ description: Azure Cosmos DB의 API for MongoDB(3.6 버전) 지원 기능 및 �
 ms.service: cosmos-db
 ms.subservice: cosmosdb-mongo
 ms.topic: overview
-ms.date: 10/16/2019
+ms.date: 01/15/2020
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: a48fb82402cd4719cb210ec2dab55b3a0f7883ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a32affab45ab99a89113644bb08c4f2b57d69018
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441630"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721016"
 ---
 # <a name="azure-cosmos-dbs-api-for-mongodb-36-version-supported-features-and-syntax"></a>Azure Cosmos DB의 API for MongoDB(3.6 버전): 지원되는 기능 및 구문
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 아무 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 사용하여 Azure Cosmos DB의 API for MongoDB와 통신할 수 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하면 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)에 따라 기존 클라이언트 드라이버를 사용할 수 있습니다.
+Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. 오픈 소스 MongoDB 클라이언트 [드라이버](https://docs.mongodb.org/ecosystem/drivers)를 사용하여 Azure Cosmos DB의 API for MongoDB와 통신할 수 있습니다. Azure Cosmos DB의 API for MongoDB를 사용하면 MongoDB [유선 프로토콜](https://docs.mongodb.org/manual/reference/mongodb-wire-protocol)에 따라 기존 클라이언트 드라이버를 사용할 수 있습니다.
 
 Azure Cosmos DB의 API for MongoDB를 사용하면 Cosmos DB가 제공하는 모든 엔터프라이즈 기능과 함께 익숙한 MongoDB의 이점을 누릴 수 있습니다. 이러한 기능에는 [글로벌 배포](distribute-data-globally.md), [자동 분할](partition-data.md), 가용성 및 대기 시간 보장, 모든 필드의 자동 인덱싱, 저장 데이터 암호화, 백업 등이 포함됩니다.
 
 ## <a name="protocol-support"></a>프로토콜 지원
 
-Azure Cosmos DB의 API for MongoDB는 새 계정의 경우 기본적으로 MongoDB 서버 버전 **3.6**과 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다.
+Azure Cosmos DB의 API for MongoDB는 새 계정의 경우 기본적으로 MongoDB 서버 버전 **3.6**과 호환됩니다. 지원되는 연산자 및 제한 사항이나 예외는 다음과 같습니다. 이러한 프로토콜을 인식하는 모든 클라이언트 드라이버는 Azure Cosmos DB의 API for MongoDB에 연결할 수 있습니다. Azure Cosmos DB의 API for MongoDB 계정을 사용하는 경우 3.6 버전의 계정에는 `*.mongo.cosmos.azure.com` 형식의 엔드포인트가 있지만 3.2 버전의 계정에는 `*.documents.azure.com` 형식의 엔드포인트가 있습니다.
 
 ## <a name="query-language-support"></a>쿼리 언어 지원
 
@@ -34,43 +34,77 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 ### <a name="query-and-write-operation-commands"></a>쿼리 및 쓰기 작업 명령
 
-- delete
-- 찾기
-- findAndModify
-- getLastError
-- getMore
-- insert
-- update
+|명령  |지원됨 |
+|---------|---------|
+|delete | yes |
+|찾기 | yes     |
+|findAndModify | yes  |
+|getLastError|   yes |
+|getMore  |  yes  |
+|getPrevError | 예  |
+|insert  |   yes  |
+|parallelCollectionScan  | yes   |
+|resetError |   예  |
+|update  |   yes  |
+|[스트림 변경](mongodb-change-streams.md)  |  yes  |
+|GridFS |   yes  |
 
 ### <a name="authentication-commands"></a>인증 명령
 
-- logout
-- authenticate
-- getnonce
+|명령  |지원됨 |
+|---------|---------|
+|authenticate    |   yes      |
+|logout    |      yes   |
+|getnonce   |    yes     |
+
 
 ### <a name="administration-commands"></a>관리 명령
 
-- dropDatabase
-- listDatabases
-- listCollections
-- drop
-- create
-- filemd5
-- createIndexes
-- listIndexes
-- dropIndexes
-- connectionStatus
-- reIndex
-- killCursors
+|명령  |지원됨 |
+|---------|---------|
+|닫힌 컬렉션   |   예      |
+|cloneCollectionAsCapped     |   예      |
+|collMod     |   예      |
+|collMod: expireAfterSeconds   |   예      |
+|convertToCapped   |  예       |
+|copydb     |  예       |
+|create   |    yes     |
+|createIndexes     |  yes       |
+|currentOp     |  yes       |
+|drop     |   yes      |
+|dropDatabase     |  yes       |
+|dropIndexes     |   yes      |
+|filemd5    |   yes      |
+|killCursors    |  yes       |
+|killOp     |   예      |
+|listCollections     |  yes       |
+|listDatabases     |  yes       |
+|listIndexes     |  yes       |
+|reIndex     |    yes     |
+|renameCollection     |    예     |
+|connectionStatus    |     예    |
 
 ### <a name="diagnostics-commands"></a>진단 명령
 
-- buildInfo
-- collStats
-- dbStats
-- hostInfo
-- listDatabases
-- whatsmyuri
+|명령  |지원됨 |
+|---------|---------|
+|buildInfo       |   yes      |
+|collStats    |  yes       |
+|connPoolStats     |  예       |
+|connectionStatus     |  예       |
+|dataSize     |   예      |
+|dbHash    |    예     |
+|dbStats     |   yes      |
+|설명     | 예        |
+|설명: executionStats     |     예    |
+|기능     |    예     |
+|hostInfo     |   예      |
+|listDatabases       |   yes      |
+|listCommands     |  예       |
+|프로파일러     |  예       |
+|serverStatus     |  예       |
+|top     |    예     |
+|whatsmyuri     |   yes      |
 
 <a name="aggregation-pipeline"/>
 
@@ -78,252 +112,433 @@ Azure Cosmos DB의 API for MongoDB는 다음과 같은 데이터베이스 명령
 
 ### <a name="aggregation-commands"></a>집계 명령
 
-- aggregate
-- count
-- distinct
+|명령  |지원됨 |
+|---------|---------|
+|aggregate |   yes  |
+|count     |   yes  |
+|distinct  | yes |
+|mapReduce | 예 |
 
 ### <a name="aggregation-stages"></a>집계 단계
 
-- $project
-- $match
-- $limit
-- $skip
-- $unwind
-- $group
-- $sample
-- $sort
-- $lookup
-- $out
-- $count
-- $addFields
-- $redact
-- $replaceRoot
+|명령  |지원됨 |
+|---------|---------|
+|$collStats |예|
+|$project   |yes|
+|$match |yes|
+|$redact|   yes|
+|$limit |yes|
+|$skip  |yes|
+|$unwind|   yes|
+|$group |   yes|
+|$sample|       yes|
+|$sort  |yes|
+|$geoNear|  예|
+|$lookup    |   yes|
+|$out       |yes|
+|$indexStats|       예|
+|$facet |예|
+|$bucket|   예|
+|$bucketAuto|   예|
+|$sortByCount|  yes|
+|$addFields |yes|
+|$replaceRoot|  yes|
+|$count |yes|
+|$currentOp|    예|
+|$listLocalSessions |예|
+|$listSessions  |예|
+|$graphLookup   |예|
 
-### <a name="aggregation-expressions"></a>집계 식
+### <a name="boolean-expressions"></a>부울 식
 
-#### <a name="boolean-expressions"></a>부울 식
+|명령  |지원됨 |
+|---------|---------|
+|$and| yes|
+|$or|yes|
+|$not|yes|
 
-- $and
-- $or
-- $not
+### <a name="set-expressions"></a>식 설정
 
-#### <a name="set-expressions"></a>식 설정
+|명령  |지원됨 |
+|---------|---------|
+| $setEquals | yes|
+|$setIntersection|yes|
+| $setUnion|yes|
+| $setDifference|yes|
+| $setIsSubset|yes|
+| $anyElementTrue|yes|
+| $allElementsTrue|yes|
 
-- $setEquals
-- $setIntersection
-- $setUnion
-- $setDifference
-- $setIsSubset
-- $anyElementTrue
-- $allElementsTrue
+### <a name="comparison-expressions"></a>비교 식
 
-#### <a name="comparison-expressions"></a>비교 식
+|명령  |지원됨 |
+|---------|---------|
+|$cmp     |  yes       |
+|$eq|   yes| 
+|$gt |  yes| 
+|$gte|  yes| 
+|$lt    |yes|
+|$lte|  yes| 
+|$ne    |   yes| 
+|$in    |   yes| 
+|$nin   |   yes| 
 
-- $cmp
-- $eq
-- $gt
-- $gte
-- $lt
-- $lte
-- $ne
+### <a name="arithmetic-expressions"></a>산술 식
 
-#### <a name="arithmetic-expressions"></a>산술 식
+|명령  |지원됨 |
+|---------|---------|
+|$abs |  yes       |
+| $add |  yes       |
+| $ceil |  yes       |
+| $divide |  yes       |
+| $exp |  yes       |
+| $floor |  yes       |
+| $ln |  yes       |
+| $log |  yes       |
+| $log10 |  yes       |
+| $mod |  yes       |
+| $multiply |  yes       |
+| $pow |  yes       |
+| $sqrt |  yes       |
+| $subtract |  yes       |
+| $trunc |  yes       |
 
-- $abs
-- $add
-- $ceil
-- $divide
-- $exp
-- $floor
-- $ln
-- $log
-- $log10
-- $mod
-- $multiply
-- $pow
-- $sqrt
-- $subtract
-- $trunc
+### <a name="string-expressions"></a>문자열 식
 
-#### <a name="string-expressions"></a>문자열 식
+|명령  |지원됨 |
+|---------|---------|
+|$concat |  yes       |
+| $indexOfBytes|  yes       |
+| $indexOfCP|  yes       |
+| $split|  yes       |
+| $strLenBytes|  yes       |
+| $strLenCP|  yes       |
+| $strcasecmp|  yes       |
+| $substr|  yes       |
+| $substrBytes|  yes       |
+| $substrCP|  yes       |
+| $toLower|  yes       |
+| $toUpper|  yes       |
 
-- $concat
-- $indexOfBytes
-- $indexOfCP
-- $split
-- $strLenBytes
-- $strLenCP
-- $strcasecmp
-- $substr
-- $substrBytes
-- $substrCP
-- $toLower
-- $toUpper
+### <a name="text-search-operator"></a>텍스트 검색 연산자
 
-#### <a name="array-expressions"></a>배열 식
+|명령  |지원됨 |
+|---------|---------|
+| $meta | 예|
 
-- $arrayElemAt
-- $concatArrays
-- $filter
-- $indexOfArray
-- $isArray
-- $range
-- $reverseArray
-- $size
-- $slice
-- $in
+### <a name="array-expressions"></a>배열 식
 
-#### <a name="date-expressions"></a>날짜 식
+|명령  |지원됨 |
+|---------|---------|
+|$arrayElemAt   |   yes|
+|$arrayToObject|    yes|
+|$concatArrays  |   yes|
+|$filter    |   yes|
+|$indexOfArray  |yes|
+|$isArray   |   yes|
+|$objectToArray |yes|
+|$range |yes|
+|$reverseArray  |   yes|
+|$reduce|   yes|
+|$size  |   yes|
+|$slice |   yes|
+|$zip   |   yes|
+|$in    |   yes|
 
-- $dayOfYear
-- $dayOfMonth
-- $dayOfWeek
-- $year
-- $month
-- $week
-- $hour
-- $minute
-- $second
-- $millisecond
-- $isoDayOfWeek
-- $isoWeek
+### <a name="variable-operators"></a>변수 연산자
 
-#### <a name="conditional-expressions"></a>조건부 식
+|명령  |지원됨 |
+|---------|---------|
+|$map   |예|
+|$let   |yes|
 
-- $cond
-- $ifNull
+### <a name="system-variables"></a>시스템 변수
 
-## <a name="aggregation-accumulators"></a>집계 누적기
+|명령  |지원됨 |
+|---------|---------|
+|$$CURRENT| yes|
+|$$DESCEND|     yes|
+|$$KEEP     |yes|
+|$$PRUNE    |   yes|
+|$$REMOVE   |yes|
+|$$ROOT     |yes|
 
-Cosmos DB는 다음을 제외한 모든 MongoDB v3.6 누적기를 지원합니다.
+### <a name="literal-operator"></a>리터럴 연산자
 
-- $stdDevPop
-- $stdDevSamp
+|명령  |지원됨 |
+|---------|---------|
+|$literal   |yes|
+
+### <a name="date-expressions"></a>날짜 식
+
+|명령  |지원됨 |
+|---------|---------|
+|$dayOfYear |yes    |
+|$dayOfMonth|   yes |
+|$dayOfWeek |yes    |
+|$year  |yes    |
+|$month |yes|   
+|$week  |yes    |
+|$hour  |yes    |
+|$minute|   yes|    
+|$second    |yes    |
+|$millisecond|  yes|    
+|$dateToString  |yes    |
+|$isoDayOfWeek  |yes    |
+|$isoWeek   |yes    |
+|$dateFromParts|    예| 
+|$dateToParts   |예 |
+|$dateFromString|   예|
+|$isoWeekYear   |yes    |
+
+### <a name="conditional-expressions"></a>조건부 식
+
+|명령  |지원됨 |
+|---------|---------|
+| $cond| yes|
+| $ifNull| yes|
+| $switch |yes|
+
+### <a name="data-type-operator"></a>데이터 형식 연산자
+
+|명령  |지원됨 |
+|---------|---------|
+| $type| yes|
+
+### <a name="accumulator-expressions"></a>누적기 식
+
+|명령  |지원됨 |
+|---------|---------|
+|$sum   |yes    |
+|$avg   |yes    |
+|$first|    yes|
+|$last  |yes    |
+|$max   |yes    |
+|$min   |yes    |
+|$push| yes|
+|$addToSet| yes|
+|$stdDevPop|    예  |
+|$stdDevSamp|   예|
+
+### <a name="merge-operator"></a>Merge 연산자
+
+|명령  |지원됨 |
+|---------|---------|
+| $mergeObjects | yes|
+
+## <a name="data-types"></a>데이터 형식
+
+|명령  |지원됨 |
+|---------|---------|
+|Double |yes    |
+|String |yes    |
+|Object |yes    |
+|Array  |yes    |
+|이진 데이터    |yes|   
+|ObjectId   |yes    |
+|부울    |yes    |
+|Date   |yes    |
+|Null   |yes    |
+|32비트 정수(int)   |yes    |
+|타임스탬프  |yes    |
+|64비트 정수(long)  |yes    |
+|MinKey |yes    |
+|MaxKey |yes    |
+|Decimal128 |yes|   
+|정규식 |yes|
+|JavaScript |yes|
+|JavaScript(범위 포함)|   yes |
+|정의되지 않음  |yes    |
+
+## <a name="indexes-and-index-properties"></a>인덱스 및 인덱스 속성
+
+### <a name="indexes"></a>인덱스
+
+|명령  |지원됨 |
+|---------|---------|
+|단일 필드 인덱스 |yes    |
+|복합 인덱스 |yes    |
+|Multikey 인덱스 |yes    |
+|텍스트 인덱스 |예|
+|2dsphere   |yes    |
+|2d 인덱스   |예 |
+|해시된 인덱스   | yes|
+
+### <a name="index-properties"></a>인덱스 속성
+
+|명령  |지원됨 |
+|---------|---------|
+|TTL|   yes |
+|고유한 |yes|
+|부분|   예|
+|대/소문자 구분 안 함   |예|
+|스파스 |예 |
+|배경|    yes |
 
 ## <a name="operators"></a>연산자
 
-다음 연산자는 해당 사용 예제에서 지원됩니다. 아래의 쿼리에서 사용되는 이 샘플 문서를 고려하세요.
+### <a name="logical-operators"></a>논리 연산자
 
-```json
-{
-  "Volcano Name": "Rainier",
-  "Country": "United States",
-  "Region": "US-Washington",
-  "Location": {
-    "type": "Point",
-    "coordinates": [
-      -121.758,
-      46.87
-    ]
-  },
-  "Elevation": 4392,
-  "Type": "Stratovolcano",
-  "Status": "Dendrochronology",
-  "Last Known Eruption": "Last known eruption from 1800-1899, inclusive"
-}
-```
+|명령  |지원됨 |
+|---------|---------|
+|$or    |   yes|
+|$and   |   yes|
+|$not   |   yes|
+|$nor   |   yes| 
 
-연산자 | 예제 |
---- | --- |
-$eq | `{ "Volcano Name": { $eq: "Rainier" } }` |  | -
-$gt | `{ "Elevation": { $gt: 4000 } }` |  | -
-$gte | `{ "Elevation": { $gte: 4392 } }` |  | -
-$lt | `{ "Elevation": { $lt: 5000 } }` |  | -
-$lte | `{ "Elevation": { $lte: 5000 } }` | | -
-$ne | `{ "Elevation": { $ne: 1 } }` |  | -
-$in | `{ "Volcano Name": { $in: ["St. Helens", "Rainier", "Glacier Peak"] } }` |  | -
-$nin | `{ "Volcano Name": { $nin: ["Lassen Peak", "Hood", "Baker"] } }` | | -
-$or | `{ $or: [ { Elevation: { $lt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$and | `{ $and: [ { Elevation: { $gt: 4000 } }, { "Volcano Name": "Rainier" } ] }` |  | -
-$not | `{ "Elevation": { $not: { $gt: 5000 } } }`|  | -
-$nor | `{ $nor: [ { "Elevation": { $lt: 4000 } }, { "Volcano Name": "Baker" } ] }` |  | -
-$exists | `{ "Status": { $exists: true } }`|  | -
-$type | `{ "Status": { $type: "string" } }`|  | -
-$mod | `{ "Elevation": { $mod: [ 4, 0 ] } }` |  | -
-$regex | `{ "Volcano Name": { $regex: "^Rain"} }`|  | -
+### <a name="element-operators"></a>요소 연산자
 
-### <a name="notes"></a>메모
+|명령  |지원됨 |
+|---------|---------|
+|$exists|   yes|
+|$type  |   yes|
+
+### <a name="evaluation-query-operators"></a>평가 쿼리 연산자
+
+|명령  |지원됨 |
+|---------|---------|
+|$expr  |   예|
+|$jsonSchema    |   예|
+|$mod   |   yes|
+|$regex |   yes|
+|$text  | 아니요(지원되지 않습니다. 대신 $regex를 사용합니다.)| 
+|$where |예| 
 
 $regex 쿼리에서 왼쪽에 고정된 식은 인덱스 검색을 허용합니다. 그러나 ‘i’ 한정자(대/소문자 구분 없음) 및 ‘m’ 한정자(여러 줄)를 사용하면 모든 식에서 컬렉션 검사가 수행됩니다.
-‘$’ 또는 ‘|’을 포함해야 하는 경우 두 개 이상의 정규식 쿼리를 만드는 것이 가장 좋습니다.
-예를 들어, 원래 쿼리가 ```find({x:{$regex: /^abc$/})```인 경우 이를 ```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```로 수정해야 합니다.
-첫 번째 부분은 인덱스를 사용하여 ^abc로 시작하는 문서로 검색을 제한하며, 두 번째 부분은 정확한 항목의 일치를 확인합니다.
-막대 연산자 ‘|’는 “or” 함수 역할을 하고, ```find({x:{$regex: /^abc|^def/})``` 쿼리는 ‘x’ 필드에 “abc” 또는 “def”로 시작하는 값이 있는 문서를 일치하는 항목으로 검색합니다. 인덱스를 사용하려면 쿼리를 $or 연산자 ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```에 의해 조인된 두 개의 서로 다른 쿼리로 나누는 것이 좋습니다.
+
+‘$’ 또는 ‘|’을 포함해야 하는 경우 두 개 이상의 정규식 쿼리를 만드는 것이 가장 좋습니다. 예를 들어, 다음 원래 쿼리가 ```find({x:{$regex: /^abc$/})```인 경우 이를 다음과 같이 수정해야 합니다.
+
+```find({x:{$regex: /^abc/, x:{$regex:/^abc$/}})```입니다.
+
+첫 번째 부분은 인덱스를 사용하여 ^abc로 시작하는 문서로 검색을 제한하며, 두 번째 부분은 정확한 항목의 일치를 확인합니다. 막대 연산자 ‘|’는 “or” 함수 역할을 하고, ```find({x:{$regex: /^abc|^def/})``` 쿼리는 ‘x’ 필드에 “abc” 또는 “def”로 시작하는 값이 있는 문서를 일치하는 항목으로 검색합니다. 인덱스를 사용하려면 쿼리를 $or 연산자 ```find( {$or : [{x: $regex: /^abc/}, {$regex: /^def/}] })```에 의해 조인된 두 개의 서로 다른 쿼리로 나누는 것이 좋습니다.
+
+### <a name="array-operators"></a>배열 연산자
+
+|명령  |지원됨 | 
+|---------|---------|
+| $all | yes| 
+| $elemMatch | yes| 
+| $size | yes | 
+
+### <a name="comment-operator"></a>설명 연산자
+
+|명령  |지원됨 | 
+|---------|---------|
+$comment |yes| 
+
+### <a name="projection-operators"></a>프로젝션 연산자
+
+|명령  |지원됨 |
+|---------|---------|
+|$elemMatch |yes|
+|$meta| 예|
+|$slice | yes|
 
 ### <a name="update-operators"></a>업데이트 연산자
 
 #### <a name="field-update-operators"></a>필드 업데이트 연산자
 
-- $inc
-- $mul
-- $rename
-- $setOnInsert
-- $set
-- $unset
-- $min
-- $max
-- $currentDate
+|명령  |지원됨 |
+|---------|---------|
+|$inc   |   yes|
+|$mul   |   yes|
+|$rename    |   yes|
+|$setOnInsert|  yes|
+|$set   |yes|
+|$unset| yes|
+|$min   |yes|
+|$max   |yes|
+|$currentDate   | yes|
 
 #### <a name="array-update-operators"></a>배열 업데이트 연산자
 
-- $addToSet
-- $pop
-- $pullAll
-- $pull
-- $pushAll
-- $push
-- $each
-- $slice
-- $sort
-- $position
+|명령  |지원됨 |
+|---------|---------|
+|$  |yes|
+|$[]|   yes|
+|$[<identifier>]|   yes|
+|$addToSet  |yes|
+|$pop   |yes|
+|$pullAll|  yes|
+|$pull  |yes|
+|$push  |yes|
+|$pushAll| yes|
+
+
+#### <a name="update-modifiers"></a>한정자 업데이트
+
+|명령  |지원됨 |
+|---------|---------|
+|$each  |   yes|
+|$slice |yes|
+|$sort  |yes|
+|$position  |yes|
 
 #### <a name="bitwise-update-operator"></a>비트 업데이트 연산자
 
-- $bit
+|명령  |지원됨 |
+|---------|---------|
+| $bit  |   yes|    
+|$bitsAllSet    |   예|
+|$bitsAnySet    |   예|
+|$bitsAllClear  |예|
+|$bitsAnyClear  |예|
 
 ### <a name="geospatial-operators"></a>지리 공간적 연산자
 
-연산자 | 예제 | |
---- | --- | --- |
-$geoWithin | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | yes |
-$geoIntersects |  ```{ "Location.coordinates": { $geoIntersects: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$near | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$nearSphere | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | yes |
-$geometry | ```{ "Location.coordinates": { $geoWithin: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
-$minDistance | ```{ "Location.coordinates": { $nearSphere : { $geometry: {type: "Point", coordinates: [ -121, 46 ]}, $minDistance: 1000, $maxDistance: 1000000 } } }``` | yes |
-$maxDistance | ```{ "Location.coordinates": { $nearSphere : [ -121, 46  ], $maxDistance: 0.50 } }``` | yes |
-$center | ```{ "Location.coordinates": { $geoWithin: { $center: [ [-121, 46], 1 ] } } }``` | yes |
-$centerSphere | ```{ "Location.coordinates": { $geoWithin: { $centerSphere: [ [ -121, 46 ], 5 ] } } }``` | yes |
-$box | ```{ "Location.coordinates": { $geoWithin: { $box:  [ [ 0, 0 ], [ -122, 47 ] ] } } }``` | yes |
-$polygon | ```{ "Location.coordinates": { $near: { $geometry: { type: "Polygon", coordinates: [ [ [ -121.9, 46.7 ], [ -121.5, 46.7 ], [ -121.5, 46.9 ], [ -121.9, 46.9 ], [ -121.9, 46.7 ] ] ] } } } }``` | yes |
+연산자 | 지원됨| 
+--- | --- |
+$geoWithin | yes |
+$geoIntersects | yes | 
+$near |  yes |
+$nearSphere |  yes |
+$geometry |  yes |
+$minDistance | yes |
+$maxDistance | yes |
+$center | yes |
+$centerSphere | yes |
+$box | yes |
+$polygon |  yes |
+
+## <a name="cursor-methods"></a>커서 메서드
+
+|명령  |지원됨 |
+|---------|---------|
+|cursor.batchSize() |   yes|
+|cursor.close() |yes|
+|cursor.isClosed()|     yes|
+|cursor.collation()|    예|
+|cursor.comment()   |yes|
+|cursor.count() |yes|
+|cursor.explain()|  예|
+|cursor.forEach()   |yes|
+|cursor.hasNext()   |yes|
+|cursor.hint()  |yes|
+|cursor.isExhausted()|  yes|
+|cursor.itcount()   |yes|
+|cursor.limit() |yes|
+|cursor.map()   |yes|
+|cursor.maxScan()   |yes|
+|cursor.maxTimeMS()|    yes|
+|cursor.max()   |yes|
+|cursor.min()   |yes|
+|cursor.next()| yes|
+|cursor.noCursorTimeout()   |예|
+|cursor.objsLeftInBatch()   |yes|
+|cursor.pretty()|   yes|
+|cursor.readConcern()|  yes|
+|cursor.readPref()      |yes|
+|cursor.returnKey() |예|
+|cursor.showRecordId()| 예|
+|cursor.size()  |Nes|
+|cursor.skip()  |yes|
+|cursor.sort()  |   yes|
+|cursor.tailable()| 예|
+|cursor.toArray()   |yes|
 
 ## <a name="sort-operations"></a>정렬 작업
 
 `findOneAndUpdate` 작업을 사용할 경우 단일 필드에 대한 정렬 작업이 지원되지만 여러 필드에 대한 정렬 작업은 지원되지 않습니다.
-
-## <a name="additional-operators"></a>추가 연산자
-
-연산자 | 예제 | 메모
---- | --- | --- |
-$all | ```{ "Location.coordinates": { $all: [-121.758, 46.87] } }``` |
-$elemMatch | ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } } }``` |  
-$size | ```{ "Location.coordinates": { $size: 2 } }``` |
-$comment |  ```{ "Location.coordinates": { $elemMatch: {  $lt: 0 } }, $comment: "Negative values"}``` |
-$text |  | 지원되지 않습니다. 대신 $regex를 사용합니다.
-
-## <a name="unsupported-operators"></a>지원되지 않는 연산자
-
-```$where``` 및 ```$eval``` 연산자는 Azure Cosmos DB에서 지원되지 않습니다.
-
-### <a name="methods"></a>메서드
-
-다음 메서드가 지원됩니다.
-
-#### <a name="cursor-methods"></a>커서 메서드
-
-방법 | 예제 | 메모
---- | --- | --- |
-cursor.sort() | ```cursor.sort({ "Elevation": -1 })``` | 정렬 키가 없는 문서가 반환되지 않음
 
 ## <a name="unique-indexes"></a>고유 인덱스
 

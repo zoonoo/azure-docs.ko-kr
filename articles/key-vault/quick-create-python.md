@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: a514dbce91a98bd51e51b1724d631bc224b2f33a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: b76441c8b11032d3713d7679acfc7f350533b76b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75527929"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769189"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-python"></a>빠른 시작: Python용 Azure Key Vault 클라이언트 라이브러리
 
@@ -22,7 +22,7 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - 키 및 암호에 대한 보안과 제어를 강화합니다.
 - 몇 분 안에 암호화 키를 만들고 가져옵니다.
 - 클라우드 규모와 글로벌 중복성을 통해 대기 시간을 줄입니다.
-- SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
+- TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
 [API 참조 설명서](/python/api/overview/azure/key-vault?view=azure-python) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/keyvault) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-keyvault/)

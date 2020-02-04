@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: Node.js에서 azure/service-bus 큐를 사용하는 방법'
-description: '빠른 시작: Node.js 앱에서 azure/service-bus 패키지를 사용하여 Azure에서 Service Bus 큐를 사용하는 방법에 대해 알아봅니다.'
+title: Node.js에서 azure/service-bus 큐를 사용하는 방법
+description: 새 @azure/service-bus 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 Nodejs 프로그램을 작성하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -11,14 +11,14 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 9901ccd6bb1abf27bb1141c618d0bfde167b9cc3
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 9db359d8331859e3eebf345d91fe5dc6e66c0d4c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721678"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774583"
 ---
 # <a name="quickstart-how-to-use-service-bus-queues-with-nodejs-and-the-azureservice-bus-package"></a>빠른 시작: Node.js 앱 및 azure/service-bus 패키지에서 Service Bus 큐를 사용하는 방법
 > [!div class="op_multi_selector" title1="프로그래밍 언어" title2="Node.js 패키지"]
@@ -27,8 +27,8 @@ ms.locfileid: "73721678"
 
 이 자습서에서는 새 [@azure/service-bus](https://www.npmjs.com/package/@azure/service-bus) 패키지를 사용하여 Service Bus 큐와 메시지를 주고 받는 Nodejs 프로그램을 작성하는 방법에 대해 알아봅니다. 이 패키지는 더 빠른 [AMQP 1.0 프로토콜](service-bus-amqp-overview.md)을 사용하는 반면, 이전 [azure-sb](https://www.npmjs.com/package/azure-sb) 패키지는 [Service Bus REST 런타임 API](/rest/api/servicebus/service-bus-runtime-rest)를 사용했습니다. 샘플은 JavaScript로 작성되었습니다.
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/credit-for-visual-studio-subscribers/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - 작업할 큐가 없는 경우 [Azure Portal을 사용하여 Service Bus 큐 만들기](service-bus-quickstart-portal.md) 문서의 단계에 따라 큐를 만듭니다. Service Bus 인스턴스에 대한 연결 문자열 및 자신이 만든 큐의 이름을 적어둡니다. 샘플에서 사용할 것입니다.
 
 > [!NOTE]

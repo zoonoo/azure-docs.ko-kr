@@ -1,6 +1,6 @@
 ---
 title: Azure PowerShell 샘플 - Event Grid | Microsoft Docs
-description: Event Grid에 대한 Azure PowerShell 샘플
+description: 이 문서에는 Azure Event Grid용 Azure PowerShell 스크립팅 샘플에 대한 링크가 포함된 표가 포함되어 있습니다.
 services: event-grid
 author: spelluru
 manager: timlt
@@ -8,14 +8,14 @@ ms.service: event-grid
 ms.devlang: na
 ms.topic: sample
 ms.tgt_pltfrm: na
-ms.date: 01/06/2019
+ms.date: 01/23/2020
 ms.author: spelluru
-ms.openlocfilehash: b49c0126a8a65040fd0f51ffd0a1ef6f7174ec64
-ms.sourcegitcommit: cf88cf2cbe94293b0542714a98833be001471c08
+ms.openlocfilehash: c3dea89b609dadb4cac26537c6669f5c7806f94e
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2019
-ms.locfileid: "54468165"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76717535"
 ---
 # <a name="azure-powershell-samples-for-event-grid"></a>Event Grid에 대한 Azure PowerShell 샘플
 

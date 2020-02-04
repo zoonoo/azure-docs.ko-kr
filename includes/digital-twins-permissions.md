@@ -7,14 +7,14 @@ author: alinamstanciu
 manager: bertvanhoof
 ms.service: digital-twins
 ms.topic: include
-ms.date: 01/06/2020
+ms.date: 01/23/2020
 ms.custom: include file
-ms.openlocfilehash: a6adbe095b3ed486be8eb2e2611db5a40162d5dd
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a1576e4a97af5de0b936c662de636aae542a19b5
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895444"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76748896"
 ---
 >[!NOTE]
 >이 섹션에서는 [Azure AD 앱 등록](https://docs.microsoft.com/azure/active-directory/develop/quickstart-register-app)을 위한 지침을 제공합니다.
@@ -33,9 +33,18 @@ ms.locfileid: "75895444"
 
 1. [앱이 **퍼블릭 클라이언트**로 등록되었는지](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration) 확인하려면 앱 등록을 위한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **공용 클라이언트로 애플리케이션 처리**에 **예**를 선택하고 **저장**을 누릅니다.
 
-    **액세스 토큰**을 선택하여 Manifest.json에서 **oauth2AllowImplicitFlow** 설정을 사용하도록 설정합니다.
+    1. **리디렉션 URI**는 인증 요청에 의해 제공된 주소와 일치해야 합니다.
 
-    [![공용 클라이언트 구성 설정](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
+        * 로컬 개발 환경에서 호스팅되는 앱의 경우 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다. **기본 클라이언트 형식**을 예로 설정해야 합니다.
+        * Azure App Service에서 호스팅되는 단일 페이지 앱의 경우 **웹**을 선택합니다.
+
+        **퍼블릭 클라이언트(모바일 및 데스크톱)** 를 선택하고 `http://localhost:8080/`을 입력합니다.
+
+        [![리디렉션 URI 구성](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png)](./media/digital-twins-permissions/aad-app-configure-redirect-uris.png#lightbox)
+
+    1. **액세스 토큰**을 선택하여 리소스의 **매니페스트** JSON에서**oauth2AllowImplicitFlow** 설정을 `true`로 구성합니다.
+
+        [![공용 클라이언트 구성 설정](./media/digital-twins-permissions/aad-configure-public-client.png)](./media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
 
 1.  등록된 앱의 **개요** 창을 열고 임시 파일에 다음 엔터티의 값을 복사합니다. 이러한 값을 사용하여 다음 섹션에서 샘플 애플리케이션을 구성할 수 있습니다.
 

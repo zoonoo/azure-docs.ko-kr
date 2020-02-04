@@ -1,15 +1,15 @@
 ---
 title: Azure Blockchain Service 멤버 만들기 - Azure Portal
 description: Azure Portal을 사용하여 블록체인 컨소시엄을 위한 Azure Blockchain Service 멤버를 만듭니다.
-ms.date: 11/18/2019
+ms.date: 01/23/2020
 ms.topic: quickstart
 ms.reviewer: janders
-ms.openlocfilehash: 90f859e4d2e2621afad9cab11d66e81018bd3147
-ms.sourcegitcommit: 12d902e78d6617f7e78c062bd9d47564b5ff2208
+ms.openlocfilehash: 03cd4be1228fcf6a501203e6efb40a8b45c30d0c
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/24/2019
-ms.locfileid: "74455773"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760779"
 ---
 # <a name="quickstart-create-an-azure-blockchain-service-blockchain-member-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Blockchain Service 블록체인 멤버 만들기
 
@@ -19,7 +19,7 @@ ms.locfileid: "74455773"
 
 ## <a name="create-a-blockchain-member"></a>블록체인 멤버 만들기
 
-신규 또는 기존 컨소시엄에서 Quorum 원장 프로토콜을 실행하는 블록체인 멤버를 만듭니다.
+Azure Blockchain Service 멤버는 프라이빗 컨소시엄 블록체인 네트워크의 블록체인 노드입니다. 멤버를 프로비저닝할 때 컨소시엄 네트워크를 만들거나 조인할 수 있습니다. 컨소시엄 네트워크에 멤버가 하나 이상이 필요합니다. 참가자가 필요로 하는 블록체인 멤버 수는 시나리오에 따라 달라집니다. 컨소시엄 참가자는 하나 이상의 블록체인 멤버를 보유하거나 다른 참가자와 멤버를 공유할 수 있습니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다.
@@ -27,17 +27,16 @@ ms.locfileid: "74455773"
 
     ![서비스 만들기](./media/create-member/create-member.png)
 
-    설정 | 설명
+    설정 | Description
     --------|------------
     Subscription | 서비스에 사용할 Azure 구독을 선택합니다. 구독이 여러 개인 경우, 리소스에 대해 요금이 청구되는 구독을 선택합니다.
     Resource group | 새 리소스 그룹 이름을 만들거나, 구독에서 기존 이름을 선택합니다.
     지역 | 멤버를 만들 지역을 선택합니다. 컨소시엄의 모든 멤버가 같은 위치에 있어야 합니다.
     프로토콜 | 현재 Azure Blockchain Service 미리 보기는 쿼럼 프로토콜을 지원합니다.
-    컨소시엄 | 새 컨소시엄인 경우 고유한 이름을 입력합니다. 초대를 통해 컨소시엄에 참가하는 경우 참가하는 컨소시엄을 선택합니다.
-    Name | Azure Blockchain Service 멤버의 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.
+    컨소시엄 | 새 컨소시엄인 경우 고유한 이름을 입력합니다. 초대를 통해 컨소시엄에 참가하는 경우 참가하는 컨소시엄을 선택합니다. 컨소시엄에 대한 자세한 내용은 [Azure Blockchain Service 컨소시엄](consortium.md)을 참조하세요.
+    속성 | Azure Blockchain Service 멤버의 고유한 이름을 선택합니다. 블록체인 멤버 이름에는 소문자와 숫자만 사용할 수 있습니다. 첫 번째 자리는 반드시 문자여야 합니다. 이름의 길이는 2-20자 사이여야 합니다.
     멤버 계정 암호 | 멤버 계정 암호는 멤버용으로 생성된 Ethereum 계정의 프라이빗 키를 암호화하는 데 사용됩니다. 컨소시엄 관리용 멤버 계정과 멤버 계정 암호를 사용합니다.
-    설명 | 컨소시엄에 대한 설명입니다.
-    가격 | 새 서비스의 노드 구성 및 비용입니다. **변경** 링크를 선택하여 **표준** 계층과 **기본** 계층 중에 선택합니다.
+    가격 책정 | 새 서비스의 노드 구성 및 비용입니다. **변경** 링크를 선택하여 **표준** 계층과 **기본** 계층 중에 선택합니다.
     노드 암호 | 멤버의 기본 트랜잭션 노드에 대한 암호입니다. 블록체인 멤버의 기본 트랜잭션 노드 공용 엔드포인트에 연결할 때 기본 인증용 암호를 사용합니다.
 
 1. **검토 + 만들기**를 선택하여 설정의 유효성을 검사합니다. **만들기**를 선택하여 서버를 프로비저닝합니다. 프로비저닝에는 약 10분이 걸립니다.
@@ -59,7 +58,7 @@ ms.locfileid: "74455773"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Blockchain Service 멤버 및 새로운 컨소시엄을 배포했습니다. 다음 빠른 시작에 따라 Ethereum용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service의 컨소시엄에 연결해 보세요.
+이 빠른 시작에서는 Azure Blockchain Service 멤버 및 새로운 컨소시엄을 배포했습니다. 다음 빠른 시작을 통해 Ethereum용 Azure Blockchain Development Kit를 사용하여 Azure Blockchain Service 멤버에 연결합니다.
 
 > [!div class="nextstepaction"]
 > [Visual Studio Code를 사용하여 Azure Blockchain Service에 연결](connect-vscode.md)

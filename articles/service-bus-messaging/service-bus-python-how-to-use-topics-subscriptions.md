@@ -1,10 +1,9 @@
 ---
 title: '빠른 시작: Python에서 Azure Service Bus 토픽 및 구독 사용'
-description: Python에서 Azure Service Bus 토픽 및 구독을 사용하는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Service Bus 항목, 구독, 항목에 구독 보내기, 구독에서 메시지 수신을 만드는 방법을 보여줍니다.
 services: service-bus-messaging
 documentationcenter: python
 author: axisc
-manager: timlt
 editor: spelluru
 ms.assetid: c4f1d76c-7567-4b33-9193-3788f82934e4
 ms.service: service-bus-messaging
@@ -12,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: python
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
-ms.openlocfilehash: 94a49b31139947c6323ab391b78ecd03ee911e0a
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 03e22c4c179850e5140015c0abc2d89f16d4b624
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748497"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774555"
 ---
 # <a name="quickstart-use-service-bus-topics-and-subscriptions-with-python"></a>빠른 시작: Python에서 Service Bus 토픽 및 구독 사용
 
@@ -33,8 +32,8 @@ ms.locfileid: "73748497"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>필수 조건
-- Azure 구독. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- Azure 구독 [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 - [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 만든 Service Bus 네임스페이스입니다. **공유 액세스 정책** 화면에서 이 빠른 시작의 뒷부분에서 사용할 수 있도록 네임스페이스 이름, 공유 액세스 키 이름 및 기본 키 값을 복사합니다. 
 - [Azure Python SDK][Azure Python package] 패키지가 설치되어 있는 Python 3.4x 이상. 자세한 내용은 [Python 설치 가이드](/azure/python/python-sdk-azure-install)를 참조하세요.
 

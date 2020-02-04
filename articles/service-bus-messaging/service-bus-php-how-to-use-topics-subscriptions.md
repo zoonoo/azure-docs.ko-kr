@@ -1,6 +1,6 @@
 ---
-title: '빠른 시작: PHP에서 Service Bus 토픽을 사용하는 방법'
-description: '빠른 시작: Azure에서 PHP와 함께 Service Bus 토픽을 사용하는 방법에 대해 알아봅니다.'
+title: PHP에서 Azure Service Bus 항목을 사용하는 방법
+description: 이 자습서에서는 PHP 애플리케이션에서 Azure Service Bus 항목 및 구독을 사용하는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: php
 author: axisc
@@ -12,14 +12,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: PHP
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: b55d3c93f9926b7446dadf069b37a878caa81e15
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 92f25f4bdac4942478c93f717c81eadd2c2f5b4a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73721643"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760677"
 ---
 # <a name="quickstart-how-to-use-service-bus-topics-and-subscriptions-with-php"></a>빠른 시작: PHP에서 Service Bus 토픽 및 구독을 사용하는 방법
 
@@ -33,8 +33,8 @@ ms.locfileid: "73721643"
 - 구독에서 메시지 받기
 - 토픽 및 구독 삭제
 
-## <a name="prerequisites"></a>필수 조건
-1. Azure 구독. 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
+1. Azure 구독 이 자습서를 완료하려면 Azure 계정이 필요합니다. [Visual Studio 또는 MSDN 구독자 혜택](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A85619ABF)을 활성화해도 되고, 또는 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A85619ABF)에 가입해도 됩니다.
 2. [빠른 시작: Azure Portal을 사용하여 Service Bus 토픽 및 해당 토픽에 대한 구독 만들기](service-bus-quickstart-topics-subscriptions-portal.md)의 단계에 따라 Service Bus **네임스페이스**를 만들고 **연결 문자열**을 가져옵니다.
 
     > [!NOTE]

@@ -9,17 +9,16 @@ ms.service: load-balancer
 Customer intent: As an IT administrator, I want to learn more about the Azure Load Balancer components and limitations and how it will affect my environment.
 ms.devlang: na
 ms.topic: overview
-ms.custom: seodec18
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 01/14/2019
+ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 31c247199bfbfc57ffef376649edefd487fd1962
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263543"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76757802"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer 구성 요소 및 제한 사항
 Azure Load Balancer에는 해당 작업을 위한 몇 가지 주요 구성 요소가 포함되어 있습니다.  이러한 구성 요소는 Azure Portal, Azure CLI 또는 Azure PowerShell을 통해 구독에서 구성할 수 있습니다.  
@@ -58,7 +57,7 @@ Azure Load Balancer에는 해당 작업을 위한 몇 가지 주요 구성 요�
 
 Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기본적인 기능을 제공합니다.
 
-* **부하 분산 알고리즘**: Azure Load Balancer를 사용하면 프런트 엔드에 도착하는 트래픽을 백 엔드 풀 인스턴스로 분산시키는 부하 분산 규칙을 만들 수 있습니다. Load Balancer는 인바운드 흐름 배포에 해싱 알고리즘을 사용하고, 흐름의 헤더를 백 엔드 풀 인스턴스에 다시 작성합니다. 상태 프로브가 정상 백 엔드 엔드포인트을 나타내면 서버에서 새 흐름을 받을 수 있습니다.
+* **부하 분산 알고리즘**: Azure Load Balancer를 사용하면 프런트 엔드에 도착하는 트래픽을 백 엔드 풀 인스턴스로 분산시키는 부하 분산 규칙을 만들 수 있습니다. Load Balancer는 인바운드 흐름(바이트 아님) 배포에 해싱 알고리즘을 사용하고 흐름의 헤더를 백 엔드 풀 인스턴스에 다시 작성합니다. 상태 프로브가 정상 백 엔드 엔드포인트을 나타내면 서버에서 새 흐름을 받을 수 있습니다.
 기본적으로 Load Balancer는 5 튜플 해시를 사용합니다. 
 
    해시에는 다음이 포함됩니다. 

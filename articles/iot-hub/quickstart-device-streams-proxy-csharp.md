@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: b48c43f90be3f43b05dcb4028c774836ffd196b7
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: a1b6adc37d78e3fa73d7ae70237d678af6b9dc99
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045965"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769460"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-c-proxy-application-preview"></a>빠른 시작: C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
@@ -72,7 +72,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    az extension add --name azure-cli-iot-ext
    ```
 
-* [C# 샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)하고 ZIP 보관 파일을 추출합니다.
+* [Azure IoT C# 샘플을 다운로드](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)하고 ZIP 보관 파일을 추출합니다.
 
 * 사용자를 인증하는 데 사용되는 디바이스(Windows 또는 Linux)의 유효한 사용자 계정 및 자격 증명입니다.
 

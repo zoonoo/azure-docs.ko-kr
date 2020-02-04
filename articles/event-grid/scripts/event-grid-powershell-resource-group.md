@@ -1,23 +1,22 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독 | Microsoft Docs
-description: Azure PowerShell 스크립트 샘플 - 리소스 그룹 구독
+description: 이 문서에서는 리소스 그룹에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure PowerShell 스크립트를 제공합니다.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
-manager: timlt
+author: spelluru
 ms.service: event-grid
 ms.devlang: powershell
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 12/10/2018
-ms.author: tomfitz
-ms.openlocfilehash: db4be11286825a8a990918a80c687f86c2294c6d
-ms.sourcegitcommit: 3102f886aa962842303c8753fe8fa5324a52834a
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: e285f628d1ec3afce55dc8fe4efa50a361dab5ed
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/23/2019
-ms.locfileid: "66117181"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720812"
 ---
 # <a name="subscribe-to-events-for-a-resource-group-with-powershell"></a>PowerShell을 사용하여 리소스 그룹에 대한 이벤트 구독
 
@@ -25,7 +24,7 @@ ms.locfileid: "66117181"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-미리 보기 샘플 스크립트를 사용하려면 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
+미리 보기 샘플 스크립트에는 Event Grid 모듈이 필요합니다. 설치하려면 `Install-Module -Name AzureRM.EventGrid -AllowPrerelease -Force -Repository PSGallery`를 실행합니다.
 
 ## <a name="sample-script---stable"></a>샘플 스크립트 - 안정적
 

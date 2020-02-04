@@ -1,6 +1,6 @@
 ---
 title: Azure Service Bus 메시지 개요 | Microsoft Docs
-description: Service Bus 메시징에 대한 설명
+description: 이 문서에서는 완전 관리형 엔터프라이즈 통합 메시지 브로커인 Azure Service Bus에 대한 개괄적인 개요를 제공합니다.
 services: service-bus-messaging
 documentationcenter: ''
 author: axisc
@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 11/04/2019
 ms.custom: mvc
 ms.author: aschhab
-ms.openlocfilehash: 12d4bada4f84098f1559ea7b59fbbd35e0801347
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: 49a54491c36ef29209d1a53094cc5baf57057557
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561592"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76759383"
 ---
 # <a name="what-is-azure-service-bus"></a>Azure Service Bus란?
 

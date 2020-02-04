@@ -8,12 +8,12 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: overview
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: ac7fefd8ecabd40070b422c169befe64c08f12a8
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 563e2da8eba228636b05db2112739fdead4a4aa3
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74277075"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844890"
 ---
 # <a name="frequently-asked-questions-about-azure-spatial-anchors"></a>Azure Spatial Anchors에 대한 FAQ
 
@@ -112,6 +112,7 @@ GA(일반 공급) 날짜는 곧 발표할 예정입니다.
 **A:** 개발자는 다음과 같이 해당 디바이스에 익숙한 도구와 프레임워크를 사용하여 Azure Spatial Anchors를 통해 앱을 빌드할 수 있습니다.
 
 - HoloLens, iOS 및 Android의 Unity
+- iOS 및 Android의 Xamarin
 - iOS의 Swift 또는 Object-C
 - Android의 Java 또는 Android NDK
 - HoloLens의 C++/WinRT

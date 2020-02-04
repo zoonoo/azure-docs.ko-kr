@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/19/2019
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: d0acc2d92c564f89f4777ccb243c7255e47c9105
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514122"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845477"
 ---
 ::: zone target="chromeless"
 
@@ -155,10 +155,28 @@ ms.locfileid: "76514122"
 
    문제가 발생하는 경우 adbo@microsoft.com에 있는 Data Box Operations Asia에 문의하세요. 제목 헤더에 작업 이름과 발생한 문제를 입력합니다.
 
-3. 택배 회사에 전달합니다. 
+3. 택배 회사에 전달합니다.
 
+### <a name="in-self-managedtabin-selfmanaged"></a>[자체 관리에서](#tab/in-selfmanaged)
+
+일본, 싱가포르, 대한민국 및 서유럽에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리 배송 옵션을 선택한 경우 다음 지침을 따르세요. 
+
+1. Azure Portal에서 주문한 제품의 **개요 블레이드**로 이동합니다. **일정 픽업**을 선택하면 표시되는 지침을 따릅니다. 주문을 취소할 때 사용되는 인증 코드가 표시되어야 합니다.
+
+2. 디바이스를 반환할 준비가 되면 다음 템플릿을 사용하여 Azure Data Box 운영 팀에 이메일을 보냅니다.
+
+    ```
+    To: adbops@microsoft.com
+    Subject: Request for Azure Data Box Disk drop-off for order: ‘orderName’
+    Body: 
+     a. Order name
+     b. Contact name of the person dropping off. You will need to display a Government approved ID during the drop off.
+    ```
+3. Azure Data Box 운영 팀은 사용자와 협력하여 Azure 데이터 센터에 대한 드롭오프를 정렬합니다.
 
 ::: zone target="docs"
+
+---
 
 ## <a name="next-steps"></a>다음 단계
 

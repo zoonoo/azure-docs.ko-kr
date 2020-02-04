@@ -1,6 +1,6 @@
 ---
 title: azure-sb 패키지를 사용하여 Node.js에서 Azure Service Bus 큐 사용
-description: '빠른 시작: Node.js app에서 Azure의 Service Bus 큐를 사용하는 방법에 대해 알아봅니다.'
+description: azure-sb 패키지를 사용하여 Azure Service Bus 큐와 메시지를 주고 받는 Node.js 애플리케이션을 만드는 방법에 대해 알아봅니다.
 services: service-bus-messaging
 documentationcenter: nodejs
 author: axisc
@@ -12,15 +12,15 @@ ms.workload: tbd
 ms.tgt_pltfrm: na
 ms.devlang: nodejs
 ms.topic: quickstart
-ms.date: 11/05/2019
+ms.date: 01/27/2020
 ms.author: aschhab
 ms.custom: seo-javascript-september2019, seo-javascript-october2019
-ms.openlocfilehash: 5fa74bdc632154e361fc4d95ed602e4b4d39a198
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fee7ff6ffbd18cf514ce1bfda81aca727ed362c3
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462175"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773516"
 ---
 # <a name="quickstart-use-service-bus-queues-in-azure-with-nodejs-and-the-azure-sb-package"></a>빠른 시작: Azure에서 Node.js 및 azure-sb 패키지를 통해 Service Bus 큐 사용
 

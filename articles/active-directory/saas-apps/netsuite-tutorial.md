@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/22/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a9be353e6a030708ea0b9939689d8669506d3b80
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 6a920e58f1ffd4c3e3e9769bf6346100a8677b90
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289036"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76760058"
 ---
 # <a name="tutorial-integrate-azure-ad-single-sign-on-sso-with-netsuite"></a>자습서: NetSuite와 Azure AD SSO(Single Sign-On) 통합
 
@@ -98,8 +98,12 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
     | `https://<Account ID>.na1.sandbox.NetSuite.com/saml2/acs`|
     | `https://<Account ID>.na2.sandbox.NetSuite.com/saml2/acs`|
 
-    > [!NOTE]
-    > 이전 URL의 값은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 해당 값을 얻으려면 [NetSuite 클라이언트 지원 팀](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 형식을 참조할 수도 있습니다.
+    * Netsuite 구성 아래의 8 단계 자습서 뒷부분에서 설명하는 Netsuite 구성 섹션에서 **<`Account ID`>** 값을 가져옵니다. 정확한 도메인(이 경우 system.na0.netsuite.com)을 찾을 수 있습니다.
+
+        ![Single Sign-On 구성](./media/NetSuite-tutorial/domain-value.png)
+
+        > [!NOTE]
+        > 이전 URL의 값은 실제 값이 아닙니다. 이 값을 실제 회신 URL로 업데이트합니다. 해당 값을 얻으려면 [NetSuite 클라이언트 지원 팀](http://www.netsuite.com/portal/services/support-services/suitesupport.shtml)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 형식을 참조할 수도 있습니다.
 
 1. NetSuite 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 할당 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -204,7 +208,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음을 수
 
     b. 오른쪽 열의 **회사 정보** 창에서 **계정 ID** 값을 복사합니다.
 
-    다. NetSuite 계정에서 복사한 **계정 ID**를 Azure AD의 **특성 값** 상자에 붙여넣습니다. 
+    다. NetSuite 계정에서 복사한 **계정 ID**를 Azure AD의 **특성 값** 상자에 붙여넣습니다.
 
 10. 사용자가 NetSuite에 Single Sign-On을 수행하려면 먼저 NetSuite에 적절한 권한을 할당해야 합니다. 이러한 권한을 할당하려면 다음을 수행합니다.
 

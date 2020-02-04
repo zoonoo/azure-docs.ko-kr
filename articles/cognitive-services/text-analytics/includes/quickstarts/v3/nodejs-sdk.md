@@ -9,12 +9,12 @@ ms.topic: include
 ms.date: 01/13/2020
 ms.author: aahi
 ms.reviewer: sumeh, assafi
-ms.openlocfilehash: 69899f521e73cb5af1af145a0915dbe1a017f307
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 8ae78bb8c0b70e20bfe12b8dc52c02abb6030bdf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76281178"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774105"
 ---
 <a name="HOLTop"></a>
 
@@ -22,6 +22,7 @@ ms.locfileid: "76281178"
 
 > [!NOTE]
 > * 이 빠른 시작에서는 Text Analytics 클라이언트 라이브러리의 `3.0-preview` 버전을 사용합니다. 여기에는 향상된 [감정 분석](../../../how-tos/text-analytics-how-to-sentiment-analysis.md#sentiment-analysis-versions-and-features) 및 [NER(명명된 엔터티 인식)](../../../how-tos/text-analytics-how-to-entity-linking.md#named-entity-recognition-versions-and-features)에 대한 공개 미리 보기가 포함되어 있습니다.
+>
 > * 이 문서의 코드에서는 단순성 이유로 보안되지 않은 자격 증명 스토리지를 사용합니다. 프로덕션 시나리오의 경우 성능 및 확장성을 위해 문자열을 일괄 처리로 보내는 것이 좋습니다. 예를 들어 `Sentiment()` 대신 `SentimentBatchAsync()`를 호출합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
@@ -36,6 +37,9 @@ ms.locfileid: "76281178"
 [!INCLUDE [text-analytics-resource-creation](../resource-creation.md)]
 
 ### <a name="create-a-new-nodejs-application"></a>새 Node.js 애플리케이션 만들기
+
+> [!NOTE]
+> [브라우저에서](https://github.com/Azure/azure-sdk-for-js/blob/master/documentation/Bundling.md) 이 버전의 Text Analytics 클라이언트 라이브러리를 실행할 수도 있습니다.
 
 콘솔 창(예: cmd, PowerShell 또는 Bash)에서 앱에 대한 새 디렉터리를 만들고 이 디렉터리로 이동합니다. 
 

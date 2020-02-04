@@ -389,6 +389,8 @@
               href: cognitive-search-predefined-skills.md
             - name: 조건부
               href: cognitive-search-skill-conditional.md
+            - name: 사용자 지정 엔터티 조회
+              href: cognitive-search-skill-custom-entity-lookup.md
             - name: 문서 추출
               href: cognitive-search-skill-document-extraction.md
             - name: 엔터티 인식

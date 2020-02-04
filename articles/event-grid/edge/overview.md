@@ -7,19 +7,19 @@ ms.service: event-grid
 ms.topic: overview
 ms.date: 10/22/2019
 ms.author: babanisa
-ms.openlocfilehash: e03429ed3df5bd3518d5e5194bd842b9a4f290ba
-ms.sourcegitcommit: 92d42c04e0585a353668067910b1a6afaf07c709
+ms.openlocfilehash: feac5891734731e6f7377750127958a40a815036
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/28/2019
-ms.locfileid: "72991496"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844662"
 ---
 # <a name="what-is-azure-event-grid-on-azure-iot-edge"></a>Azure IoT Edge의 Azure Event Grid란?
-IoT Edge의 Event Grid는 모든 게시/구독 및 이벤트 기반 시나리오를 위한 Azure Event Grid의 강력한 성능과 유연성을 에지에 제공합니다. 토픽을 만들고 이벤트를 게시할 수 있으며, 대상이 동일한 디바이스의 모듈이든, 다른 에지 디바이스의 모듈이든 또는 클라우드의 서비스든 상관없이 여러 대상을 구독할 수 있습니다.
+IoT Edge의 Event Grid는 Azure Event Grid의 강력한 성능과 유연성을 에지에 제공합니다. 토픽을 만들고 이벤트를 게시할 수 있으며, 대상이 동일한 디바이스의 모듈이든, 다른 에지 디바이스의 모듈이든 또는 클라우드의 서비스든 상관없이 여러 대상을 구독할 수 있습니다.
 
-클라우드와 마찬가지로, IoT Edge 모듈의 Event Grid는 이벤트의 라우팅, 필터링 및 안정적인 전달을 처리합니다. 고급 문자열, 숫자 및 부울 필터를 사용하여 이벤트를 필터링하면 관련 이벤트만 다른 이벤트 처리기로 보낼 수 있습니다. 다시 시도 논리는 게시 시점에 사용할 수 없더라도 이벤트가 대상 모듈, 에지 디바이스 또는 클라우드 서비스에 도달하도록 보장합니다. IoT Edge의 Event Grid를 강력한 저장소 및 전달 메커니즘으로 사용할 수 있습니다.
+클라우드와 마찬가지로, IoT Edge 모듈의 Event Grid는 이벤트의 라우팅, 필터링 및 안정적인 전달을 처리합니다. 고급 문자열, 숫자 및 부울 필터를 사용하여 이벤트를 필터링하면 관련 이벤트만 다른 이벤트 처리기로 보낼 수 있습니다. 재시도 논리는 이벤트가 게시 시점에 사용할 수 없는 경우에도 대상 목적지에 도달하도록 합니다. IoT Edge의 Event Grid를 강력한 저장소 및 전달 메커니즘으로 사용할 수 있습니다.
 
-IoT Edge의 Event Grid는 CloudEvents v1.0 및 사용자 지정 이벤트 스키마를 모두 지원합니다. 또한 Azure 및 타사와의 손쉬운 상호 운용성을 위해 클라우드의 Event Grid와 동일한 게시 및 구독 의미 체계를 지원합니다.
+IoT Edge의 Event Grid는 CloudEvents v1.0 및 사용자 지정 이벤트 스키마를 모두 지원합니다. 또한 손쉬운 상호 운용성을 위해 클라우드의 Event Grid와 동일한 Pub/Sub 의미 체계를 지원합니다.
 
 이 문서에서는 IoT Edge의 Azure Event Grid에 대한 개요를 제공합니다. 에지에서 이 모듈을 사용하는 방법에 대한 단계별 지침은 [로컬로 이벤트 게시 및 구독](pub-sub-events-webhook-local.md)을 참조하세요. 
 
@@ -29,7 +29,7 @@ IoT Edge의 Event Grid는 CloudEvents v1.0 및 사용자 지정 이벤트 스키
 
 ## <a name="when-to-use-event-grid-on-iot-edge"></a>IoT Edge에서 Event Grid를 사용하는 시기
 
-IoT Edge의 Event Grid는 에지와 클라우드 간에 이벤트 기반 아키텍처를 빌드할 수 있는 일관적이고 사용하기 쉽고 안정적인 이벤트 모델을 제공하기 위해 개발되었습니다.
+IoT Edge의 Event Grid는 에지와 클라우드 사이에 사용하기 쉽고 신뢰할 수 있는 이벤트 모델을 제공합니다.
 
 IoT Edge의 Event Grid는 Azure 클라우드 서비스에 대한 대칭형 런타임 노출 영역을 사용하여 빌드되었기 때문에, 필요한 모든 위치에서 동일한 이벤트와 API 호출을 사용할 수 있습니다. 게시/구독을 클라우드에서 수행하든, 에지에서 수행하든, 또는 클라우드와 에지 사이에서 수행하든 상관없이, 이제 IoT Edge의 Event Grid에서 모두 처리할 수 있습니다.
 
@@ -55,8 +55,12 @@ IoT Edge의 Event Grid는 원하는 위치로 이벤트를 보낼 수 있도록 
 
 * IoT Hub, 함수 및 사용자 지정 모듈을 비롯한 기타 모듈
 * 기타 에지 디바이스
-* Azure Event Grid 및 Azure Functions를 포함하여 클라우드에 호스팅되는 서비스
-* webhook
+* 웹후크
+* Azure Event Grid 클라우드 서비스
+* Event Hubs
+* Service Bus 큐
+* Service Bus 토픽
+* Storage 큐
 
 ## <a name="supported-environments"></a>지원되는 환경
 현재 Windows 64비트, Linux 64비트 및 ARM 32비트 환경이 지원됩니다.

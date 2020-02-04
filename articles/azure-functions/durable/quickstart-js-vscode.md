@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: 94ba2830824c4a918e9451a9fc5140d422110370
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231306"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845716"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "74231306"
 
 ![Azure에서 지속성 함수 실행](./media/quickstart-js-vscode/functions-vs-code-complete.png)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -38,7 +38,31 @@ ms.locfileid: "74231306"
 
 [!INCLUDE [functions-install-vs-code-extension](../../../includes/functions-install-vs-code-extension.md)]
 
-[!INCLUDE [functions-create-function-app-vs-code](../../../includes/functions-create-function-app-vs-code.md)]
+## <a name="create-an-azure-functions-project"></a>로컬 프로젝트 만들기 
+
+이 섹션에서는 Visual Studio Code를 사용하여 로컬 Azure Functions 프로젝트를 만듭니다. 
+
+1. Visual Studio Code에서 F1 키를 눌러 명령 팔레트를 엽니다. 명령 팔레트에서 `Azure Functions: Create new project...`을 검색하여 선택합니다.
+
+1. 프로젝트 작업 영역에 대한 디렉터리 위치를 선택하고 **선택**을 선택합니다.
+
+    > [!NOTE]
+    > 다음 단계는 작업 영역 외부에서 완료하도록 설계되었습니다. 이 경우 작업 영역에 포함된 프로젝트 폴더를 선택하지 마십시오.
+
+1. 프롬프트에 따라 원하는 언어에 대한 다음 정보를 제공합니다.
+
+    | prompt | 값 | Description |
+    | ------ | ----- | ----------- |
+    | 함수 앱 프로젝트에 대한 언어를 선택합니다. | JavaScript | 로컬 Node.js Functions 프로젝트를 만듭니다. |
+    | 버전 선택 | Azure Functions v2 | 핵심 도구가 아직 설치되지 않은 경우에만 이 옵션이 표시됩니다. 이 경우 앱을 처음 실행할 때 핵심 도구가 설치됩니다. |
+    | 프로젝트의 첫 번째 함수에 대한 템플릿 선택 | HTTP 트리거 | 새 함수 앱에서 HTTP 트리거 함수를 만듭니다. |
+    | 함수 이름 제공 | HttpTrigger | Enter 키를 눌러 기본 이름을 사용합니다. |
+    | 권한 부여 수준 | 함수 | `function` 권한 부여 수준에서는 함수의 HTTP 엔드포인트를 호출할 때 액세스 키를 제공해야 합니다. 이렇게 하면 보안되지 않은 엔드포인트에 액세스하기가 더 어려워집니다. 자세한 내용은 [권한 부여 키](../functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.  |
+    | 프로젝트를 여는 방법을 선택합니다. | 작업 영역에 추가 | 현재 작업 영역에 함수 앱을 만듭니다. |
+
+필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-run-local.md#local-settings-file) 구성 파일이 포함되어 있습니다. 또한 [function.json 정의 파일](../functions-reference-node.md#folder-structure) 및 함수 코드가 포함된 Node.js 파일인 [index.js 파일](../functions-reference-node.md#exporting-a-function)을 포함하는 HttpExample 폴더를 만듭니다.
+
+package.json 파일도 루트 폴더에 생성됩니다.
 
 ## <a name="install-the-durable-functions-npm-package"></a>Durable Functions npm 패키지 설치
 

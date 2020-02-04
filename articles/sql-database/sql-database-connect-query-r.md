@@ -1,5 +1,5 @@
 ---
-title: Machine Learning Services와 함께 R을 사용하여 쿼리
+title: Machine Learning Services와 함께 R을 사용하여 데이터베이스 쿼리(미리 보기)
 titleSuffix: Azure SQL Database Machine Learning Services (preview)
 description: 이 문서에서는 Azure SQL Database Machine Learning Services와 함께 R 스크립트를 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 쿼리하는 방법을 보여줍니다.
 services: sql-database
@@ -13,58 +13,33 @@ ms.author: garye
 ms.reviewer: davidph, carlrab
 manager: cgronlun
 ms.date: 05/29/2019
-ms.openlocfilehash: a54b538247f81ea3bb0ea70a2af374158bd9e2ff
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7103afc29e4021d950d9a3634b190f4439ecfe8d
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73826983"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768506"
 ---
 # <a name="quickstart-use-r-with-machine-learning-services-to-query-an-azure-sql-database-preview"></a>빠른 시작: Machine Learning Services와 함께 R을 사용하여 Azure SQL 데이터베이스 쿼리(미리 보기)
 
-이 빠른 시작에서는 Machine Learning Services에서 [R](https://www.r-project.org/)을 사용하여 Azure SQL 데이터베이스에 연결하고, Transact-SQL 문을 사용하여 데이터를 쿼리하는 방법을 보여줍니다. Machine Learning Services는 Azure SQL Database의 기능이며, 데이터베이스 내 R 스크립트를 실행하는 데 사용됩니다. 자세한 내용은 [Azure SQL Database Machine Learning Services(R 포함)(미리 보기)](sql-database-machine-learning-services-overview.md)를 참조하세요.
+이 빠른 시작에서는 Machine Learning Services와 함께 R을 사용하여 Azure SQL 데이터베이스에 연결하고, T-SQL 문을 사용하여 데이터를 쿼리합니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
+- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure SQL 데이터베이스](sql-database-single-database-get-started.md)
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
 
-- Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
+> [!IMPORTANT]
+> 이 문서의 스크립트는 **Adventure Works** 데이터베이스를 사용하도록 작성되었습니다.
 
-<!-- Managed instance is not supported during the preview
-  || Single database | Managed instance |
-  |:--- |:--- |:---|
-  | Create| [Portal](sql-database-single-database-get-started.md) | [Portal](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | Configure | [Server-level IP firewall rule](sql-database-server-level-firewall-rule.md) | [Connectivity from a VM](sql-database-managed-instance-configure-vm.md) |
-  ||| [Connectivity from on-site](sql-database-managed-instance-configure-p2s.md) |
-  | Load data | Adventure Works loaded per quickstart | [Restore Wide World Importers](sql-database-managed-instance-get-started-restore.md) |
-  ||| Restore or import Adventure Works from [BACPAC](sql-database-import.md) file from [GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) |
-  |||
--->
+> [!NOTE]
+> 공개 미리 보기로 제공되는 동안 Microsoft는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정하지만 현재 관리형 인스턴스 배포 옵션은 지원되지 않습니다.
 
-  || 단일 데이터베이스 |
-  |:--- |:--- |
-  | 생성| [포털](sql-database-single-database-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) |
-  | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md) |
-  | 데이터 로드 | Adventure Works(빠른 시작마다 로드됨) |
-  |||
-
-  > [!NOTE]
-  > Azure SQL Database Machine Learning Services(R 포함) 미리 보기 중에는 관리형 인스턴스 배포 옵션이 지원되지 않습니다.
-
-<!-- Managed instance is not supported during the preview
-  > [!IMPORTANT]
-  > The scripts in this article are written to use the Adventure Works database. With a managed instance, you must either import the Adventure Works database into an instance database or modify the scripts in this article to use the Wide World Importers database.
--->
-
-- Machine Learning Services(R 포함)를 사용하도록 설정. Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup) 단계를 수행하세요.
-
-- 최신 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms). 다른 데이터베이스 관리 또는 쿼리 도구를 사용하여 R 스크립트를 실행할 수 있지만, 이 빠른 시작에서는 SSMS를 사용합니다.
+R이 포함된 Machine Learning Services는 데이터베이스 내 R 스크립트를 실행하는 데 사용되는 Azure SQL 데이터베이스의 기능입니다. 자세한 내용은 [R 프로젝트](https://www.r-project.org/)를 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 
@@ -84,7 +59,7 @@ Azure SQL 데이터베이스에 연결하는 데 필요한 연결 정보를 가�
 
 1. 전체 R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 전달합니다.
 
-   이 스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
+   스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 안의 모든 항목이 유효한 R 코드여야 합니다.
    
    >[!IMPORTANT]
    >이 예제의 코드에서는 데이터베이스를 만들 때 원본으로 선택할 수 있는 샘플 AdventureWorksLT 데이터를 사용합니다. 사용자 데이터베이스에 다른 데이터가 있는 경우 SELECT 쿼리에 해당 데이터베이스의 테이블을 사용합니다. 

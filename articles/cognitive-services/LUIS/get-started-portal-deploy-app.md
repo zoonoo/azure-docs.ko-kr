@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 01/27/2020
 ms.author: diberry
-ms.openlocfilehash: a67852d333a86c5acf20e8bf69004aa9131e1f9f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0ee2b33aa3388b3cb99aa42c338ded800c9679a4
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448065"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772490"
 ---
 # <a name="quickstart-deploy-an-app-in-the-luis-portal"></a>빠른 시작: LUIS 포털에서 앱 배포
 
@@ -74,6 +74,9 @@ LUIS에 대한 새 리소스를 만들 때마다 LUIS 앱에 리소스를 할당
 1. 작성 키를 앱에 추가하려면 동일한 단계를 수행합니다.
 
 1. 테이블에서 새 예측 리소스에 대한 새 행을 찾고, 엔드포인트 URL을 복사합니다. 예측을 위한 LUIS API 엔드포인트에 `HTTP GET`을 요청할 수 있도록 올바르게 구성되어 있습니다.
+
+> [!TIP]
+> 활성 학습을 사용하여 LUIS 앱을 개선하려면 **쿼리 매개 변수 변경**을 선택하고 **로그 저장**을 선택합니다. 이 작업은 `log=true` 쿼리 문자열 매개 변수를 추가하여 예제 URL을 변경합니다. 런타임 엔드포인트에 예측 쿼리를 만들 때 변경된 예제 쿼리 URL을 복사하여 사용합니다.
 
 ## <a name="train-the-app"></a>앱 학습
 

@@ -1,17 +1,17 @@
 ---
 title: Kubernetes에서 팀 개발
 services: azure-dev-spaces
-ms.date: 04/25/2019
+ms.date: 01/22/2020
 ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 및 마이크로서비스를 사용하여 Kubernetes 개발 팀을 수행하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: b84bb67556eda3a453ede5a6fb745d8ae472fb6c
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: d2b31cce6604cef31de6f034566ebd46a4e92750
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290413"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76721594"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces
 
@@ -27,7 +27,7 @@ ms.locfileid: "76290413"
 
 - Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 - [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)
-- [Helm 2.13 - 2.16이 설치되었습니다][helm-installed].
+- [Helm 3이 설치되었습니다][helm-installed].
 
 ## <a name="create-an-azure-kubernetes-service-cluster"></a>Azure Kubernetes Service 클러스터 만들기
 
@@ -82,39 +82,14 @@ Kubernetes에서 샘플 애플리케이션을 실행하는 명령은 기존 프�
 
 Azure Dev Spaces는 배포에 사용되는 도구와 관계없이 클러스터에서 애플리케이션을 실행한 후에 팀 개발에 사용할 수 있습니다.
 
-`helm init` 및 `helm install` 명령을 사용하여 클러스터에 샘플 애플리케이션을 설정하고 설치합니다.
+`helm install` 명령을 사용하여 클러스터에 샘플 애플리케이션을 설정하고 설치합니다.
 
 ```cmd
 cd charts/
-helm init --wait
-helm install -n bikesharing . --dep-up --namespace dev --atomic 
-```
-> [!Note]
-> **RBAC 사용 클러스터를 사용하는 경우**에는 [Tiller에 대한 서비스 계정](https://helm.sh/docs/using_helm/#role-based-access-control)을 구성해야 합니다. 그렇지 않으면, `helm` 명령이 실패합니다.
-
-`helm install` 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 명령 출력은 완료되었을 때 클러스터에 배포된 모든 서비스의 상태를 보여 줍니다.
-
-```cmd
-$ cd charts/
-$ helm init --wait
-...
-Happy Helming!
-
-$ helm install -n bikesharing . --dep-up --namespace dev --atomic
-
-Hang tight while we grab the latest from your chart repositories...
-...
-NAME               READY  UP-TO-DATE  AVAILABLE  AGE
-bikes              1/1    1           1          4m32s
-bikesharingweb     1/1    1           1          4m32s
-billing            1/1    1           1          4m32s
-gateway            1/1    1           1          4m32s
-reservation        1/1    1           1          4m32s
-reservationengine  1/1    1           1          4m32s
-users              1/1    1           1          4m32s
+helm install bikesharing . --dependency-update --namespace dev --atomic
 ```
 
-샘플 애플리케이션이 클러스터에 설치되고 클러스터에서 Dev Spaces를 사용하도록 설정되었으므로 `azds list-uris` 명령을 사용하여 현재 선택된 *dev*에 샘플 애플리케이션에 대한 URL을 표시합니다.
+`helm install` 명령을 완료하는 데 몇 분 정도 걸릴 수 있습니다. 샘플 애플리케이션이 클러스터에 설치되고 클러스터에서 Dev Spaces를 사용하도록 설정되었으므로 `azds list-uris` 명령을 사용하여 현재 선택된 *dev*에 샘플 애플리케이션에 대한 URL을 표시합니다.
 
 ```cmd
 $ azds list-uris
@@ -235,5 +210,5 @@ Azure Dev Spaces를 통해 여러 컨테이너에서 더 복잡한 앱을 개발
 > [!div class="nextstepaction"]
 > [여러 컨테이너 작업 및 팀 개발](multi-service-nodejs.md)
 
-[helm-installed]: https://v2.helm.sh/docs/using_helm/#installing-helm
+[helm-installed]: https://helm.sh/docs/intro/install/
 [supported-regions]: https://azure.microsoft.com/global-infrastructure/services/?products=kubernetes-service

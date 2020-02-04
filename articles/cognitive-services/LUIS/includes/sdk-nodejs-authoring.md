@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: 65611dfb171008deab9d1d6cb15f0470fcbc2753
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 58ee74f7b01738e67f9fddd39eb4eee59cdb65b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170490"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774217"
 ---
 Node.js용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -25,7 +25,7 @@ Node.js용 LUIS(Language Understanding) 작성 클라이언트 라이브러리�
 * 앱 학습 및 게시
 * 앱 삭제
 
-[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [작성 패키지(NPM)](https://www.npmjs.com/package/azure-cognitiveservices-luis-authoring) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
+[참조 설명서](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/cognitiveservices/cognitiveservices-luis-authoring) | [작성 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-authoring), [런타임 패키지(NPM)](https://www.npmjs.com/package/@azure/cognitiveservices-luis-runtime) | [샘플](https://github.com/Azure-Samples/cognitive-services-quickstart-code/blob/master/javascript/LUIS/luis_authoring_quickstart.js)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -125,7 +125,7 @@ LUIS(Language Understanding) 작성 클라이언트는 Azure를 인증하는 [LU
 
 ## <a name="authenticate-the-client"></a>클라이언트 인증
 
-키를 사용하여 [CognitiveServicesCredentials]() 개체를 만들어서 엔드포인트와 함께 사용하여 [LUISAuthoringClient]() 개체를 만듭니다.
+키를 사용하여 [CognitiveServicesCredentials](https://docs.microsoft.com/javascript/api/@azure/ms-rest-js/apikeycredentials?view=azure-node-latest) 개체를 만들어서 엔드포인트와 함께 사용하여 [LUISAuthoringClient](https://docs.microsoft.com/javascript/api/@azure/cognitiveservices-luis-authoring/luisauthoringclient?view=azure-node-latest) 개체를 만듭니다.
 
 [!code-javascript[Create LUIS client object](~/cognitive-services-quickstart-code/javascript/LUIS/luis_authoring_quickstart.js?name=AuthoringCreateClient)]
 

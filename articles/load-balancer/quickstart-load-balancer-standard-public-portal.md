@@ -1,12 +1,12 @@
 ---
-title: '빠른 시작: 표준 Load Balancer 만들기 - Azure Portal'
+title: '빠른 시작: 공용 Load Balancer 만들기 - Azure Portal'
 titleSuffix: Azure Load Balancer
-description: 이 빠른 시작에서는 Azure Portal을 사용하여 표준 Load Balancer를 만드는 방법을 보여줍니다.
+description: 이 빠른 시작에서는 Azure Portal을 사용하여 Load Balancer를 만드는 방법을 보여줍니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard Load Balancer so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a Load Balancer so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
@@ -15,16 +15,16 @@ ms.workload: infrastructure-services
 ms.date: 01/08/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 027e05b3fbf7163c4a1b927a2b83db84c7eef1ff
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 4a5775be66f95fb69db761c2356a61f80068bc75
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771464"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843874"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
 
-부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. Azure Portal을 사용하여 VM(가상 머신)의 부하를 분산하는 부하 분산 장치를 만들 수 있습니다. 이 빠른 시작에서는 표준 부하 분산 장치를 사용하여 VM의 부하를 분산하는 방법을 보여줍니다.
+부하를 분산하면 들어오는 요청이 여러 가상 머신에 분산되어 가용성 및 확장성이 향상됩니다. Azure Portal을 사용하여 VM(가상 머신)의 부하를 분산하는 부하 분산 장치를 만들 수 있습니다. 이 빠른 시작에서는 공용 Load Balancer를 사용하여 VM의 부하를 분산하는 방법을 보여줍니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다. 
 
@@ -32,9 +32,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="create-a-standard-load-balancer"></a>표준 Load Balancer 만들기
+## <a name="create-a-load-balancer"></a>Load Balancer 만들기
 
-이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 표준 Load Balancer를 만듭니다. 공용 표준 Load Balancer 또는 내부 표준 Load Balancer를 만들 수 있습니다. 표준 Load Balancer는 표준 공용 IP 주소만 지원하며 기본 공용 IP 주소는 지원되지 않습니다. 공용 표준 Load Balancer를 만들 때 표준 Load Balancer의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 
+이 섹션에서는 가상 머신의 부하를 분산하는 데 도움이 되는 Load Balancer를 만듭니다. 공용 Load Balancer 또는 내부 Load Balancer를 만들 수 있습니다. 공용 Load Balancer를 만들 때 Load Balancer의 프런트 엔드(기본 이름은 *LoadBalancerFrontend*)로 구성된 새 공용 IP 주소도 만들어야 합니다.
 
 1. 화면 왼쪽 상단에서 **리소스 만들기** > **네트워킹** > **Load Balancer**를 선택합니다.
 2. **부하 분산 장치 만들기** 페이지의 **기본** 탭에서 다음 정보를 입력하거나 선택하고, 나머지 설정은 기본값을 그대로 유지한 다음, **검토 + 만들기**를 선택합니다.
@@ -46,10 +46,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 속성                   | *myLoadBalancer*                                   |
     | 지역         | **유럽 서부**를 선택합니다.                                        |
     | Type          | **공용**을 선택합니다.                                        |
-    | SKU           | **표준**을 선택합니다.                          |
-    | 공용 IP 주소 | **새로 만들기**를 선택합니다. |
+    | SKU           | **표준** 또는 **기본**을 선택합니다. Microsoft는 프로덕션 워크로드에 대한 표준을 권장합니다.  |
+    | 공용 IP 주소 | **새로 만들기**를 선택합니다. 사용할 기존 공용 IP가 있는 경우 **기존 공용 IP 사용**을 선택합니다. |
     | 공용 IP 주소 이름              | 텍스트 상자에 *myPublicIP*를 입력합니다.   |
-    |가용성 영역| **영역 중복**을 선택합니다.    |
+    | 가용성 영역 | 복원력 있는 Load Balancer를 만들려면 *Zone-redundant*를 입력합니다. 영역 Load Balancer를 만들려면 1, 2 또는 3에서 특정 영역을 선택합니다. |
+
 3. **검토 + 만들기** 탭에서 **만들기**를 선택합니다.   
 
     ![표준 Load Balancer 만들기](./media/quickstart-load-balancer-standard-public-portal/create-standard-load-balancer.png)
@@ -58,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 섹션에서는 백 엔드 주소 풀 및 상태 프로브에 대한 Load Balancer 설정을 구성하고, 분산 장치 규칙을 지정합니다.
 
-### <a name="create-a-backend-address-pool"></a>백 엔드 주소 풀 만들기
+### <a name="create-a-backend-pool"></a>백 엔드 풀 만들기
 
 Load Balancer에 연결된 가상(NIC)의 IP 주소를 백 엔드 주소 풀에 포함하여 VM으로 트래픽을 분산합니다. 인터넷 트래픽의 부하를 분산하기 위한 가상 머신을 포함할 백 엔드 주소 풀 *myBackendPool*을 만듭니다.
 
@@ -122,7 +123,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 1. 나머지는 기본값으로 두고, **만들기**를 선택합니다.
 
 ### <a name="create-virtual-machines"></a>가상 머신 만들기
-표준 Load Balancer는 백 엔드 풀에서 표준 IP 주소를 사용하는 VM만 지원합니다. 이 섹션에서는 이전에 생성된 표준 Load Balancer의 백 엔드 풀에 나중에 추가된 세 가지 다른 영역(*영역 1*, *영역 2* 및 *영역 3*)에 표준 공용 IP 주소를 사용하는 세 개의 VM(*myVM1*, *myVM2* 및 *myVM3*)을 만듭니다.
+공용 IP SKU와 Load Balancer SKU가 일치해야 합니다. 표준 Load Balancer의 경우 백 엔드 풀에서 표준 IP 주소가 있는 VM을 사용합니다. 이 섹션에서는 이전에 생성된 Load Balancer의 백 엔드 풀에 나중에 추가된 세 가지 다른 영역(*영역 1*, *영역 2* 및 *영역 3*)에 표준 공용 IP 주소를 사용하는 세 개의 VM(*myVM1*, *myVM2* 및 *myVM3*)을 만듭니다. 기본을 선택한 경우 기본 IP 주소가 있는 VM을 사용합니다.
 
 1. 포털의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **Windows Server 2019 Datacenter**를 차례로 선택합니다. 
    
@@ -138,7 +139,7 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 1. **네트워킹** 탭에서 다음 항목이 선택되어 있는지 확인합니다.
    - **가상 네트워크**: *myVnet*
    - **서브넷**: *myBackendSubnet*
-   - **공용 IP** > **새로 만들기**를 선택하고 **공용 IP 주소 만들기** 창에서 **SKU**에 **표준**을 선택하고 **가용성 영역**에 **영역 중복**을 차례로 선택한 다음, **확인**을 선택합니다.
+   - **공용 IP** > **새로 만들기**를 선택하고 **공용 IP 주소 만들기** 창에서 **SKU**에 **표준**을 선택하고 **가용성 영역**에 **영역 중복**을 차례로 선택한 다음, **확인**을 선택합니다. 기본 Load Balancer를 만든 경우 기본을 선택합니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 사용할 것을 권장합니다.
    - 방화벽 유형인 NSG(네트워크 보안 그룹)를 만들려면 **네트워크 보안 그룹** 아래에서 **고급**을 선택합니다. 
        1. **네트워크 보안 그룹 구성** 필드에서 **새로 만들기**를 선택합니다. 
        1. *myNetworkSecurityGroup*을 입력하고, **확인**을 선택합니다.
@@ -167,15 +168,20 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 1. 왼쪽 메뉴에서 **모든 서비스**를 선택하고 **모든 리소스**를 선택한 다음, 리소스 목록에서 **myResourceGroupSLB** 리소스 그룹에 있는 **myNetworkSecurityGroup**을 선택합니다.
 2. **설정** 아래에서 **인바운드 보안 규칙**을 선택한 다음, **추가**를 선택합니다.
 3. 포트 80을 사용하는 인바운드 HTTP 연결을 허용하도록 *myHTTPRule*이라고 하는 인바운드 보안 규칙에 다음 값을 입력합니다.
-    - *서비스 태그* - **소스**로 입력합니다.
-    - *인터넷* - **원본 서비스 태그**로 입력합니다.
-    - *80* - **대상 포트 범위**로 입력합니다.
-    - *TCP* - **프로토콜**로 입력합니다.
-    - *허용* - **작업**에 대해 선택합니다.
-    - *100* - **우선 순위**로 입력합니다.
-    - *myHTTPRule* - 이름으로 입력합니다.
-    - *HTTP 허용* - 설명으로 입력합니다.
+    - **원본**: *서비스 태그*
+    -  **원본 서비스 태그**: *인터넷*
+    - **대상 포트 범위**: *80*
+    - **프로토콜**: *TCP*
+    - **작업**: *허용*
+    - **우선 순위**: *100*
+    - **이름**: *myHTTPRule* 
+    - **설명**: "*HTTP 허용* 
 4. **추가**를 선택합니다.
+5. 필요한 경우 다음과 같은 다른 값을 사용하여 인바운드 RDP 규칙에 대한 단계를 반복합니다.
+   - **대상 포트 범위**: *3389*를 입력합니다.
+   - **우선 순위**: *200*을 입력합니다. 
+   - **Name**: *MyRDPRule*을 입력합니다. 
+   - **설명**: *RDP 허용*을 입력합니다. 
  
 ### <a name="install-iis"></a>IIS 설치
 
@@ -214,7 +220,6 @@ Load Balancer가 앱의 상태를 모니터링하도록 하려면 상태 프로�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, Load Balancer 트래픽 규칙 및 상태 프로브를 구성한 다음, Load Balancer를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 Azure Load Balancer에 대한 자습서를 계속 진행합니다.
+이 빠른 시작에서는 표준 Load Balancer를 만들고, 거기에 VM을 연결하고, Load Balancer 트래픽 규칙 및 상태 프로브를 구성한 다음, Load Balancer를 테스트합니다. Azure Load Balancer에 대해 자세히 알아보려면 [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)를 계속 진행하세요.
 
-> [!div class="nextstepaction"]
-> [Azure Load Balancer 자습서](tutorial-load-balancer-standard-public-zone-redundant-portal.md)
+[Load Balancer 및 가용성 영역](load-balancer-standard-availability-zones.md)에 대해 자세히 알아봅니다.

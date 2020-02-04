@@ -13,32 +13,34 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: a47e7a81ba486056841bdc0fe65cfd10f1b2c412
-ms.sourcegitcommit: fad368d47a83dadc85523d86126941c1250b14e2
+ms.openlocfilehash: 5b2f8231952d25f5858f8e06a957f1056ecc3651
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/19/2019
-ms.locfileid: "71123185"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768502"
 ---
-# <a name="create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행
+# <a name="quickstart-create-and-run-simple-r-scripts-in-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)에서 간단한 R 스크립트 만들기 및 실행
 
-이 빠른 시작에서는 [Azure SQL Database에서 Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)의 공개 미리 보기를 사용하여 일단의 간단한 R 스크립트를 만들고 실행합니다. 올바른 형식의 R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 래핑하고 SQL 데이터베이스에서 스크립트를 실행하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure SQL Database에서 Machine Learning Services(R 포함)를 사용하여 R 스크립트 세트를 만들고 실행합니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [서버 수준 방화벽 규칙](sql-database-single-database-get-started.md)이 있는 [Azure SQL 데이터베이스](sql-database-server-level-firewall-rule.md)
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
 
-- 이러한 연습에서 예제 코드를 실행하려면 먼저 Machine Learning Services(R 포함)를 사용하도록 설정된 Azure SQL 데이터베이스가 있어야 합니다. Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup) 단계를 수행하세요.
+> [!NOTE]
+> Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다.
 
-- 최신 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 설치했는지 확인합니다. 다른 데이터베이스 관리 또는 쿼리 도구를 사용하여 R 스크립트를 실행할 수 있지만 이 빠른 시작에서는 SSMS를 사용합니다.
-
-- 이 빠른 시작을 수행하려면 서버 수준 방화벽 규칙을 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-server-level-firewall-rule.md)를 참조하세요.
+이 예제에서는 저장 프로시저 [sp_execute_external_script](/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)를 사용하여 올바른 형식의 R 스크립트를 래핑합니다.
 
 ## <a name="run-a-simple-script"></a>간단한 스크립트 실행
 
-R 스크립트를 실행하려면 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 시스템 저장 프로시저에 인수로 전달합니다.
+R 스크립트를 실행하려면 이를 시스템 저장 프로시저 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)에 대한 인수로 전달합니다.
 
 다음 단계에서는 SQL 데이터베이스에서 이 예제 R 스크립트를 실행합니다.
 
@@ -56,7 +58,7 @@ print(c(c, d))
 
 1. 전체 R 스크립트를 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql) 저장 프로시저에 전달합니다.
 
-   이 스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 내부의 모든 항목이 유효한 R 코드여야 합니다.
+   스크립트는 `@script` 인수를 통해 전달됩니다. `@script` 인수 안의 모든 항목이 유효한 R 코드여야 합니다.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -73,11 +75,11 @@ print(c(c, d))
 
    > [!NOTE]
    > 관리자는 외부 코드를 자동으로 실행할 수 있습니다. 다음 명령을 사용하여 다른 사용자에게 권한을 부여할 수 있습니다.
-   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<username\>*
+   <br>**GRANT EXECUTE ANY EXTERNAL SCRIPT TO** *\<사용자 이름\>* .
 
-2. 올바른 결과가 계산되며, `print` R 함수에서 결과를 **메시지** 창에 반환합니다.
+2. 올바른 결과가 계산되고 R `print` 함수가 결과를 **메시지** 창에 반환합니다.
 
-   다음과 같이 표시됩니다.
+   다음과 비슷합니다.
 
     **결과**
 
@@ -88,7 +90,7 @@ print(c(c, d))
 
 ## <a name="run-a-hello-world-script"></a>Hello World 스크립트 실행
 
-일반적인 예제 스크립트는 "Hello World" 문자열을 출력하는 스크립트입니다. 다음 명령을 실행합니다.
+일반적인 예제 스크립트는 "Hello World" 문자열만 출력하는 스크립트입니다. 다음 명령을 실행합니다.
 
 ```sql
 EXECUTE sp_execute_external_script @language = N'R'
@@ -102,12 +104,12 @@ GO
 
 | | |
 |-|-|
-| @language | 호출할 언어 확장을 정의합니다(이 경우 R). |
-| @script | R 런타임에 전달되는 명령을 정의합니다. 전체 R 스크립트는 이 인수에 유니코드 텍스트로 묶어야 합니다. 텍스트를 **nvarchar** 형식의 변수에 추가한 다음, 해당 변수를 호출할 수도 있습니다. |
-| @input_data_1 | 쿼리에서 반환되어 데이터를 데이터 프레임으로 SQL Server에 반환하는 R 런타임에 전달되는 데이터입니다. |
-|WITH RESULT SETS | SQL Server에 대해 반환된 데이터 테이블의 스키마를 정의하고, "Hello World"를 **int** 데이터 형식의 열 이름으로 추가하는 절입니다. |
+| @language | 호출할 언어 확장을 정의합니다(이 경우에는 R). |
+| @script | R 런타임으로 전달되는 명령을 정의합니다. 전체 R 스크립트는 이 인수에 유니코드 텍스트로 묶어야 합니다. **nvarchar** 형식의 변수에 텍스트를 추가한 다음, 변수를 호출할 수도 있습니다. |
+| @input_data_1 | 쿼리에서 반환된 데이터는 R 런타임에 전달되고 R 런타임은 데이터를 SQL Server에 데이터 프레임으로 전달합니다. |
+|WITH RESULT SETS | 절은 SQL Server에 대해 반환된 데이터 테이블의 스키마를 정의하고 "Hello World"를 열 이름 및 **int**(데이터 형식)로 추가합니다. |
 
-명령에서 출력하는 텍스트는 다음과 같습니다.
+이 명령은 다음 텍스트를 출력합니다.
 
 | Hello World |
 |-------------|
@@ -115,11 +117,11 @@ GO
 
 ## <a name="use-inputs-and-outputs"></a>입력 및 출력 사용
 
-기본적으로 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)는 일반적으로 유효한 SQL 쿼리 형식으로 제공하는 하나의 데이터 세트를 입력으로 받아들입니다. 그런 다음, 단일 R 데이터 프레임을 출력으로 반환합니다.
+기본적으로 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)는 일반적으로 유효한 SQL 쿼리 형식으로 제공하는 하나의 데이터 세트를 입력으로 받아들입니다. 그런 후 단일 R 데이터 프레임을 출력으로 반환합니다.
 
 지금은 [sp_execute_external_script](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-execute-external-script-transact-sql)의 기본 입력 및 출력 변수인 **InputDataSet** 및 **OutputDataSet**를 사용하겠습니다.
 
-1. 작은 테스트 데이터 테이블을 만듭니다.
+1. 테스트 데이터의 작은 테이블을 만듭니다.
 
     ```sql
     CREATE TABLE RTestData (col1 INT NOT NULL)
@@ -146,7 +148,7 @@ GO
 
     ![RTestData 테이블의 콘텐츠](./media/sql-database-quickstart-r-create-script/select-rtestdata.png)
 
-1. 다음 R 스크립트를 실행합니다. `SELECT` 문을 사용하여 테이블에서 데이터를 검색하고, R 런타임을 통해 전달한 다음, 데이터를 데이터 프레임으로 반환합니다. `WITH RESULT SETS` 절에서는 SQL Database에 대해 반환된 데이터 테이블의 스키마를 정의하고, *NewColName* 열 이름을 추가합니다.
+1. 다음 R 스크립트를 실행합니다. `SELECT` 문을 사용하여 테이블에서 데이터를 검색하고 R 런타임을 통해 이를 전달하고 데이터를 데이터 프레임으로 반환합니다. `WITH RESULT SETS` 절에서는 SQL Database에 대해 반환된 데이터 테이블의 스키마를 정의하고, *NewColName* 열 이름을 추가합니다.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -157,9 +159,9 @@ GO
 
     **결과**
 
-    ![테이블의 데이터를 반환하는 R 스크립트의 출력](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
+    ![테이블에서 데이터를 반환하는 R 스크립트의 출력](./media/sql-database-quickstart-r-create-script/r-output-rtestdata.png)
 
-1. 이제 입력 및 출력 변수의 이름을 변경해 보겠습니다. 기본 입력 및 출력 변수 이름은 **InputDataSet** 및 **OutputDataSet**이며, 이 스크립트에서 해당 이름을 **SQL_in** 및 **SQL_out**으로 변경합니다.
+1. 이제 입력 및 출력 변수의 이름을 변경하겠습니다. 기본 입력 및 출력 변수 이름은 **InputDataSet** 및 **OutputDataSet**입니다. 이 스크립트는 이름을 **SQL_in** 및 **SQL_out**으로 변경합니다.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -173,11 +175,11 @@ GO
     R은 대/소문자를 구분합니다. R 스크립트(**SQL_out**, **SQL_in**)에서 사용되는 입력 및 출력 변수는 대/소문자를 포함하여 `@input_data_1_name` 및 `@output_data_1_name`으로 정의된 값과 일치해야 합니다.
 
    > [!TIP]
-   > 한 데이터 세트만 매개 변수로 전달할 수 있으며, 한 데이터 세트만 반환할 수 있습니다. 그러나 R 코드 내에서 다른 데이터 세트를 호출할 수 있으며 데이터 세트 외에도 다른 유형의 출력을 반환할 수 있습니다. 또한 모든 매개 변수에 OUTPUT 키워드를 추가하여 결과와 함께 반환되게 만들 수 있습니다.
+   > 하나의 입력 데이터 세트만 매개 변수로 전달할 수 있으며 하나의 데이터 세트만 반환할 수 있습니다. 그러나 R 코드 내에서 다른 데이터 세트를 호출할 수 있으며 데이터 세트 외에 다른 유형의 출력을 반환할 수 있습니다. 또한 모든 매개 변수에 OUTPUT 키워드를 추가하여 결과와 함께 반환되게 만들 수 있습니다.
 
 1. 입력 데이터 없이 R 스크립트만 사용하여 값을 생성할 수도 있습니다(`@input_data_1`이 공백으로 설정됨).
 
-   다음 스크립트에서는 "hello" 및 "world" 텍스트를 출력합니다.
+   다음 스크립트는 "hello" 및 "world" 텍스트를 출력합니다.
 
     ```sql
     EXECUTE sp_execute_external_script @language = N'R'
@@ -203,7 +205,7 @@ EXECUTE sp_execute_external_script @language = N'R'
 GO
 ```
 
-R `print` 함수는 **메시지** 창에 버전을 반환합니다. 아래 출력 예제에서 이 경우 3.4.4 R 버전이 SQL Database에 설치되어 있음을 확인할 수 있습니다.
+R `print` 함수는 버전을 **메시지** 창으로 반환합니다. 아래 출력 예제에서 이 경우 3.4.4 R 버전이 SQL Database에 설치되어 있음을 확인할 수 있습니다.
 
 **결과**
 
@@ -230,7 +232,7 @@ nickname       Someone to Lean On
 
 Microsoft는 SQL 데이터베이스에 Machine Learning Services가 미리 설치된 다양한 R 패키지를 제공합니다.
 
-버전, 종속성, 라이선스 및 라이브러리 경로 정보를 포함하여 설치된 R 패키지 목록을 확인하려면 다음 스크립트를 실행합니다.
+버전, 종속 항목, 라이선스 및 라이브러리 경로 정보를 포함하여 설치된 R 패키지 목록을 보려면 다음 스크립트를 실행합니다.
 
 ```SQL
 EXEC sp_execute_external_script @language = N'R'
@@ -245,11 +247,11 @@ WITH result sets((
             ));
 ```
 
-출력은 R의 `installed.packages()`에서 제공되며 결과 집합으로 반환됩니다.
+R의 `installed.packages()`에서 출력이 생성되고 결과 집합으로 반환됩니다.
 
 **결과**
 
-![R에 설치된 패키지](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
+![R의 설치된 패키지](./media/sql-database-quickstart-r-create-script/r-installed-packages.png)
 
 ## <a name="next-steps"></a>다음 단계
 

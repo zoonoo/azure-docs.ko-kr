@@ -15,13 +15,12 @@ ms.date: 11/26/2019
 ms.author: hahamil
 ms.reviwer: brandwe
 ms.custom: aaddev, identityplatformtop40
-ms.collection: M365-identity-device-management
-ms.openlocfilehash: b4c4c9bc025e8fd506b298ed676674899e318481
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: d851e23e8f6915c7d52565f18eff4a73bd96c9c0
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689336"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758838"
 ---
 # <a name="tutorial-sign-in-users-and-call-the-microsoft-graph-from-an-android-application"></a>자습서: Android 애플리케이션에서 사용자 로그인 및 Microsoft Graph 호출 
 
@@ -86,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 6. **Android 앱 구성** 페이지의 **서명 해시** 섹션에서 **개발 서명 해시 생성**을 클릭합니다. 플랫폼에 사용할 KeyTool 명령을 복사합니다.
 
    > [!Note]
-   > KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다.
+   > KeyTool.exe는 JDK(Java Development Kit)의 일부로 설치됩니다. 또한 OpenSSL 도구를 설치하여 KeyTool 명령도 실행해야 합니다. 자세한 내용은 [키 생성에 대한 Android 설명서](https://developer.android.com/studio/publish/app-signing#generate-key)를 참조하세요. 
 
 7. KeyTool에서 생성된 **서명 해시**를 입력합니다.
 8. `Configure`를 클릭하고 **Android 구성** 페이지에 나타나는 **MSAL 구성**을 저장합니다. 그러면 나중에 앱을 구성할 때 이 구성을 입력할 수 있습니다.  **Done**을 클릭합니다.
@@ -156,8 +155,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
         jcenter()
     }  
     dependencies{
-        implementation 'com.microsoft.identity.client:msal:1.0.+'
+        implementation 'com.microsoft.identity.client:msal:1.2.+'
         implementation 'com.microsoft.graph:microsoft-graph:1.5.+'
+    }
+    packagingOptions{
+        exclude("META-INF/jersey-module-version") 
     }
     ```
     [Microsoft Graph SDK에 대한 자세한 정보](https://github.com/microsoftgraph/msgraph-sdk-java/)
@@ -191,7 +193,7 @@ import com.microsoft.identity.client.exception.*;
 ## <a name="instantiate-publicclientapplication"></a>PublicClientApplication 인스턴스화
 #### <a name="initialize-variables"></a>변수 초기화 
 ```java
-private final static String[] SCOPES = {"User.Read"};
+private final static String[] SCOPES = {"File.Read"};
 /* Azure AD v2 Configs */
 final static String AUTHORITY = "https://login.microsoftonline.com/common";
 private ISingleAccountPublicClientApplication mSingleAccountApp;

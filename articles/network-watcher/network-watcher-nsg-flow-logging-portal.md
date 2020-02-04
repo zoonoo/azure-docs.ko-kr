@@ -1,12 +1,9 @@
 ---
-title: 자습서 - Azure Portal을 사용하여 VM을 오고 가는 네트워크 트래픽 흐름 기록
-titleSuffix: Azure Network Watcher
-description: 이 자습서에서는 Network Watcher의 NSG 흐름 기록 기능을 사용하여 VM 간에 네트워크 트래픽 흐름을 기록하는 방법을 알아봅니다.
+title: VM 간에 네트워크 트래픽 흐름 기록 - 자습서 - Azure Portal | Microsoft Docs
+description: Network Watcher의 NSG 흐름 기록 기능을 사용하여 VM 간에 네트워크 트래픽 흐름을 기록하는 방법을 알아봅니다.
 services: network-watcher
 documentationcenter: na
-author: KumudD
-manager: twooley
-editor: ''
+author: damendo
 tags: azure-resource-manager
 Customer intent: I need to log the network traffic to and from a VM so I can analyze it for anomalies.
 ms.assetid: 01606cbf-d70b-40ad-bc1d-f03bb642e0af
@@ -16,16 +13,23 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 04/30/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: 7f4466b6f6de5028db8b62389c9d5ddbdafc9d62
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: c295e6c8ffea564e157545c4662cbe7e1841edae
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280988"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76841015"
 ---
 # <a name="tutorial-log-network-traffic-to-and-from-a-virtual-machine-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 머신 간에 네트워크 트래픽 기록
+
+> [!div class="op_single_selector"]
+> - [Azure Portal](network-watcher-nsg-flow-logging-portal.md)
+> - [PowerShell](network-watcher-nsg-flow-logging-powershell.md)
+> - [Azure CLI](network-watcher-nsg-flow-logging-cli.md)
+> - [REST API](network-watcher-nsg-flow-logging-rest.md)
+> - [Azure 리소스 관리자](network-watcher-nsg-flow-logging-azure-resource-manager.md)
 
 NSG(네트워크 보안 그룹)를 사용하면 VM(가상 머신)에 대한 인바운드 트래픽 및 VM(가상 머신)으로부터의 아웃바운드 트래픽을 필터링할 수 있습니다. Network Watcher의 NSG 흐름 기록 기능을 사용하여 NSG를 통해 흐르는 네트워크 트래픽을 기록할 수 있습니다. 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -93,7 +97,10 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
     | 위치       | **미국 동부**를 선택합니다.                                           |
     | Resource group | **기존 항목 사용**을 선택한 다음, **myResourceGroup**을 선택합니다. |
 
-    스토리지 계정은 NSG와 같은 영역에 있어야 합니다. 스토리지 계정을 만들 때 몇 분이 걸릴 수 있습니다. 스토리지 계정을 만들 때까지 나머지 단계를 계속하지 않습니다.     
+    스토리지 계정을 만들 때 몇 분이 걸릴 수 있습니다. 스토리지 계정을 만들 때까지 나머지 단계를 계속하지 않습니다. 만들지 않고 기존 스토리지 계정을 사용하는 경우 스토리지 계정에 대한 **설정** 아래의 **방화벽 및 가상 네트워크**에 **모든 네트워크**(기본값)가 선택된 스토리지 계정을 선택하도록 합니다. 모든 경우에 스토리지 계정은 NSG와 동일한 영역에 있어야 합니다.
+
+    > [!NOTE]
+    > Microsoft.Insight 및 Microsoft.Network 공급자는 현재 Azure Storage에 대해 신뢰할 수 있는 Microsoft Services로 지원되지만 NSG Flow 로그는 아직 완전히 온보딩되지 않았습니다. NSG Flow 로깅을 사용하려면 이 기능이 완전히 온보딩될 때까지 **모든 네트워크**를 선택해야 합니다. 
 4. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 5. **로그**에서 다음 그림에 표시된 대로 **NSG 흐름 로그**를 선택합니다.
 
@@ -107,8 +114,9 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
 9. 3단계에 만든 스토리지 계정을 선택합니다.
    > [!NOTE]
-   > 다음과 같은 경우 NSG Flow 로그가 스토리지 계정에서 작동하지 않습니다.
-   > * 스토리지 계정은 [계층 구조 네임스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용하도록 설정되어 있습니다.
+   > 다음과 같은 경우 NSG 흐름 로그가 스토리지 계정에서 작동하지 않습니다.
+   > * 스토리지 계정은 방화벽을 사용하도록 설정되어 있습니다.
+   > * 스토리지 계정은 [계층 구조 네임스페이스](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-namespace)를 사용하도록 설정되었습니다.
 1. 포털의 맨 왼쪽 위에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
 10. **보존(일)** 을 5로 선택한 다음, **저장**을 선택합니다.
 
@@ -120,7 +128,7 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
    ![흐름 로그 다운로드](./media/network-watcher-nsg-flow-logging-portal/download-flow-logs.png)
 
 3. [NSG 흐름 로그 사용](#enable-nsg-flow-log)의 2단계에서 구성된 스토리지 계정을 선택합니다.
-4. **Blob 서비스**에서 **컨테이너**를 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
+4. **Blob service**에서 **Blob**을 선택한 다음, **insights-logs-networksecuritygroupflowevent** 컨테이너를 선택합니다.
 5. 컨테이너에서 다음 그림에 표시된 대로 PT1H.json 파일에 도달할 때까지 폴더 계층으로 탐색합니다. 다음 명명 규칙에 따라 폴더 계층에 로그 파일을 작성합니다. https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecuritygroupflowevent/resourceId=/SUBSCRIPTIONS/{subscriptionID}/RESOURCEGROUPS/{resourceGroupName}/PROVIDERS/MICROSOFT.NETWORK/NETWORKSECURITYGROUPS/{nsgName}/y={year}/m={month}/d={day}/h={hour}/m=00/macAddress={macAddress}/PT1H.json
 
    ![흐름 로그](./media/network-watcher-nsg-flow-logging-portal/log-file.png)
@@ -220,4 +228,4 @@ NSG 흐름을 기록하려면 **Microsoft.Insights** 공급자가 필요합니�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 NSG에 NSG 흐름 로깅을 사용하도록 설정하는 방법을 알아보았습니다. 파일에 기록된 데이터를 다운로드하고 보는 방법도 알아보았습니다. json 파일의 원시 데이터를 해석하기 어려울 수 있습니다. 데이터를 시각화하기 위해 Network Watcher [트래픽 분석](traffic-analytics.md), Microsoft [PowerBI](network-watcher-visualize-nsg-flow-logs-power-bi.md) 및 기타 도구를 사용할 수 있습니다.
+이 자습서에서는 NSG에 NSG 흐름 로깅을 사용하도록 설정하는 방법을 알아보았습니다. 파일에 기록된 데이터를 다운로드하고 보는 방법도 알아보았습니다. json 파일의 원시 데이터를 해석하기 어려울 수 있습니다. Flow Logs 데이터를 시각화하기 위해 [Azure Traffic Analytics](traffic-analytics.md), [Microsoft Power BI](network-watcher-visualize-nsg-flow-logs-power-bi.md) 및 기타 도구를 사용할 수 있습니다. [PowerShell](network-watcher-nsg-flow-logging-powershell.md), [Azure CLI](network-watcher-nsg-flow-logging-cli.md), [REST API](network-watcher-nsg-flow-logging-rest.md) 및 [ARM 템플릿](network-watcher-nsg-flow-logging-azure-resource-manager.md)과 같은 NSG Flow Logs를 사용하도록 설정하는 다른 방법을 시도할 수 있습니다.

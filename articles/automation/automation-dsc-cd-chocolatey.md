@@ -65,7 +65,7 @@ New-AzureRmResourceGroup –Name MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-
 New-AzureRmAutomationAccount –ResourceGroupName MY-AUTOMATION-RG –Location MY-RG-LOCATION-IN-QUOTES –Name MY-AUTOMATION-ACCOUNT
 ```
 
-자동화 계정을 미국 동부 2, 미국 중남부, 미국 버지니아 주 정부, 유럽 서부, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 유럽 북부 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
+자동화 계정을 미국 동부 2, 미국 중남부, US Gov 버지니아, 서유럽, 동남 아시아, 일본 동부, 인도 중부 및 오스트레일리아 남동부, 캐나다 중부, 북유럽 등의 지역 중 하나에 놓을 수 있습니다(즉, 위치).
 
 ## <a name="step-2-vm-extension-tweaks-to-the-resource-manager-template"></a>2단계: Resource Manager 템플릿에 대한 VM 확장 조정
 

@@ -31,7 +31,7 @@ Azure는 VM이 상주 하는 클라우드 지역에 따라 KMS (키 관리 서�
 * Azure 퍼블릭 클라우드 지역: kms.core.windows.net:1688
 * Azure 중국 21Viant 국가 클라우드 지역: kms.core.chinacloudapi.cn:1688
 * Azure 독일 국가 클라우드 지역: kms.core.cloudapi.de:1688
-* Azure 미국 정부 국가 클라우드 지역: kms.core.usgovcloudapi.net:1688
+* Azure US Gov 국가 클라우드 지역: kms.core.usgovcloudapi.net:1688
 
 ## <a name="symptom"></a>증상
 

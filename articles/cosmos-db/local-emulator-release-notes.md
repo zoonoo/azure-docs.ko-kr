@@ -3,15 +3,15 @@ title: Azure Cosmos Emulator 다운로드 및 릴리스 정보
 description: 다양한 버전에 대한 Azure Cosmos 에뮬레이터 릴리스 정보를 가져오고 정보를 다운로드합니다.
 ms.service: cosmos-db
 ms.topic: tutorial
-author: markjbrown
-ms.author: mjbrown
+author: milismsft
+ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: e14ee617aca20fc18226651acfadab6ab2bdd939
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445301"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719690"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,10 @@ ms.locfileid: "75445301"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="290"></a>2.9.0
+
+- 이 릴리스에는 일관성을 일관된 접두사로 설정하고 사용자 및 사용 권한의 최대 제한을 늘리는 옵션이 추가되었습니다.
 
 ### <a name="272"></a>2.7.2
 

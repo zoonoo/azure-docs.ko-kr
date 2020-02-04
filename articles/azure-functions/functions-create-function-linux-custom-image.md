@@ -1,376 +1,956 @@
 ---
 title: 사용자 지정 이미지를 사용하여 Linux에서 Azure Functions 만들기
 description: 사용자 지정 Linux 이미지에서 실행되는 Azure Functions를 만드는 방법을 알아봅니다.
-ms.date: 09/27/2019
+ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: e70edac09c8b2d61c148c9ba0fd04ec231e9a965
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+zone_pivot_groups: programming-languages-set-functions01
+ms.openlocfilehash: edb947f0748c186e146bce5f4dbe9d0b95a2568d
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769322"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76846492"
 ---
-# <a name="create-a-function-on-linux-using-a-custom-image"></a>사용자 지정 이미지를 사용하여 Linux에서 함수 만들기
+# <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
-Azure Functions를 사용하면 사용자 지정 컨테이너에서 Linux의 함수를 호스팅할 수 있습니다. [기본 Azure App Service 컨테이너에 호스팅](functions-create-first-azure-function-azure-cli-linux.md)할 수도 있습니다. 이 기능을 사용하려면 [Functions 2.x 런타임](functions-versions.md)이 필요합니다.
+이 자습서에서는 Linux 기본 이미지를 사용하여 Python 코드를 사용자 지정 Docker 컨테이너로 만들어 Azure Functions에 배포합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공하지 않는 특정 종속성 또는 구성이 있는 경우 일반적으로 사용자 지정 이미지를 사용합니다.
 
-이 자습서에서는 함수를 사용자 지정 Docker 이미지로 Azure에 배포하는 방법에 대해 알아봅니다. 이 패턴은 기본 제공 컨테이너 이미지를 사용자 지정해야 하는 경우에 유용합니다. 함수에 특정 언어 버전이 필요하거나 기본 제공 이미지에서 제공되지 않는 특정 종속성 또는 구성이 필요한 경우 사용자 지정 이미지를 사용할 수 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다. 
-
-이 자습서에서는 Azure Functions 핵심 도구를 사용하여 사용자 지정 Linux 이미지에서 함수를 만드는 방법을 안내합니다. Azure CLI를 사용하여, 만든 이미지를 Azure에서 함수 앱에 게시합니다. 나중에 Azure Queue storage에 연결하도록 함수를 업데이트합니다.
+또한 [Linux에서 호스팅되는 첫 번째 함수 만들기](functions-create-first-azure-function-azure-cli-linux.md)에서 설명한 대로 기본 Azure App Service 컨테이너를 사용할 수도 있습니다. Azure Functions에 대해 지원되는 기본 이미지는 [Azure Functions 기본 이미지 리포지토리](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 핵심 도구를 사용하여 함수 앱과 Dockerfile을 만듭니다.
+> * Azure Functions Core Tools를 사용하여 함수 앱 및 Dockerfile 만들기
 > * Docker를 사용하여 사용자 지정 이미지 빌드
 > * 컨테이너 레지스트리에 사용자 지정 이미지 게시
-> * Azure Storage 계정 만들기
-> * 프리미엄 호스팅 계획 만들기
+> * Azure에서 함수 앱을 지원하는 리소스 만들기
 > * Docker 허브에서 함수 앱 배포
 > * 함수 앱에 애플리케이션 설정 추가
 > * 지속적인 배포 사용
 > * 컨테이너에 SSH 연결 사용
 > * Queue Storage 출력 바인딩 추가 
 
-다음 단계는 Mac, Windows 또는 Linux 컴퓨터에서 지원됩니다. 
+이 자습서는 Windows, Mac OS 또는 Linux를 실행하는 모든 컴퓨터에서 수행할 수 있습니다. 자습서를 완료하면 Azure 계정에서 몇 달러(US) 정도의 비용이 발생합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 샘플을 실행하기 전에 다음 사항이 준비되어야 합니다.
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](./functions-run-local.md#v2) 버전 2.7.1846 이상
+- [Azure CLI](/cli/azure/install-azure-cli) 버전 2.0.77 이상
+- [Azure Functions 2.x 런타임](functions-versions.md)
+- 언어 런타임 구성 요소는 다음과 같습니다.
+    ::: zone pivot="programming-language-csharp"
+    - [.NET Core 2.2. x 이상](https://dotnet.microsoft.com/download)
+    ::: zone-end
+    ::: zone pivot="programming-language-javascript"
+    - [Node.JS](https://nodejs.org/en/download/)
+    ::: zone-end
+    ::: zone pivot="programming-language-powershell"
+    - [PowerShell](/powershell/scripting/install/installing-windows-powershell?view=powershell-7)
+    ::: zone-end
+    ::: zone pivot="programming-language-python"
+    - [Python 3.6 - 64비트](https://www.python.org/downloads/release/python-3610/) 또는 [Python 3.7 - 64비트](https://www.python.org/downloads/release/python-376/)
+    ::: zone-end
+    ::: zone pivot="programming-language-typescript"
+    - [Node.JS](https://nodejs.org/en/download/)
+    - [TypeScript](http://www.typescriptlang.org/#download-links)
+    ::: zone-end
+- [Docker](https://docs.docker.com/install/)
+- [Docker ID](https://hub.docker.com/signup)
 
-* [Azure Core Tools 버전 2.x](functions-run-local.md#v2)를 설치합니다.
+### <a name="prerequisite-check"></a>필수 구성 요소 확인
 
-* [Azure CLI]( /cli/azure/install-azure-cli)를 설치합니다. 이 문서에서 설명하는 단계를 수행하려면 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다.  
-[Azure Cloud Shell](https://shell.azure.com/bash)을 사용할 수도 있습니다.
+1. 터미널 또는 명령 창에서 `func --version`을 실행하여 Azure Functions Core Tools가 2.7.1846 버전 이상인지 확인합니다.
+1. `az --version`을 실행하여 Azure CLI 버전이 2.0.76 이상인지 확인합니다.
+1. `az login`을 실행하여 Azure에 로그인하고 활성 구독을 확인합니다.
+1. `docker login`을 실행하여 Docker에 로그인합니다. Docker가 실행되지 않으면 이 명령이 실패합니다. 이 경우 Docker를 시작하여 명령을 다시 시도하세요.
 
-* 활성화된 Azure 구독.
+## <a name="create-and-test-the-local-functions-project"></a>로컬 함수 프로젝트 만들기 및 테스트
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+1. 터미널 또는 명령 프롬프트에서 이 자습서의 폴더를 적절한 위치에 만든 다음, 해당 폴더로 이동합니다.
 
-[!INCLUDE [functions-cloud-shell-note](../../includes/functions-cloud-shell-note.md)]
+1. [가상 환경 만들기 및 활성화](functions-create-first-function-python.md#create-and-activate-a-virtual-environment)의 지침에 따라 이 자습서에서 사용할 가상 환경을 만듭니다.
 
-## <a name="create-the-local-project"></a>로컬 프로젝트 만들기
+1. 선택한 언어에 대해 다음 명령을 실행하여 함수 앱 프로젝트를 `LocalFunctionsProject`라는 폴더에 만듭니다. `--docker` 옵션은 프로젝트에 대한 `Dockerfile`을 생성하는데, 이는 Azure Functions 및 선택한 런타임에서 사용하는 데 적합한 사용자 지정 컨테이너를 정의합니다.
 
-명령줄에서 다음 명령을 실행하여 현재 로컬 디렉터리의 `MyFunctionProj` 폴더에 함수 앱 프로젝트를 만듭니다. Python 프로젝트의 경우 [가상 환경에서 실행 중이어야 합니다](functions-create-first-function-python.md#create-and-activate-a-virtual-environment).
+    ::: zone pivot="programming-language-csharp"
+    ```
+    func init LocalFunctionsProject --worker-runtime dotnet --docker
+    ```
+    ::: zone-end
 
-```bash
-func init MyFunctionProj --docker
-```
+    ::: zone pivot="programming-language-javascript"
+    ```
+    func init LocalFunctionsProject --worker-runtime node --language javascript --docker
+    ```
+    ::: zone-end
 
-`--docker` 옵션을 포함할 때는 프로젝트에 대해 dockerfile이 생성됩니다. 이 파일은 프로젝트를 실행하는 사용자 지정 컨테이너를 만드는 데 사용됩니다. 사용하는 기본 이미지는 작업자 런타임 언어 선택에 따라 다릅니다.  
+    ::: zone pivot="programming-language-powershell"
+    ```
+    func init LocalFunctionsProject --worker-runtime powershell --docker
+    ```
+    ::: zone-end
 
-메시지가 표시되면 다음 언어 중에서 작업자 런타임을 선택합니다.
+    ::: zone pivot="programming-language-python"
+    ```
+    func init LocalFunctionsProject --worker-runtime python --docker
+    ```
+    ::: zone-end
 
-* `dotnet`: .NET Core 클래스 라이브러리 프로젝트(.csproj)를 만듭니다.
-* `node`: JavaScript 프로젝트를 만듭니다.
-* `python`: Python 프로젝트를 만듭니다.  
+    ::: zone pivot="programming-language-typescript"
+    ```
+    func init LocalFunctionsProject --worker-runtime node --language typescript --docker
+    ```
+    ::: zone-end
+    
+1. 프로젝트 폴더로 이동합니다.
 
-다음 명령을 사용하여 새 `MyFunctionProj` 프로젝트 폴더로 이동합니다.
+    ```
+    cd LocalFunctionsProject
+    ```
+    
+1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
-```bash
-cd MyFunctionProj
-```
+    ```
+    func new --name HttpExample --template "HTTP trigger"
+    ```
 
-[!INCLUDE [functions-create-function-core-tools](../../includes/functions-create-function-core-tools.md)]
+1. 함수를 로컬로 테스트하려면 *LocalFunctionsProject* 폴더에서 로컬 Azure Functions 런타임 호스트를 시작합니다.
+   
+    ::: zone pivot="programming-language-csharp"
+    ```
+    func start --build
+    ```
+    ::: zone-end
 
-[!INCLUDE [functions-run-function-test-local](../../includes/functions-run-function-test-local.md)]
+    ::: zone pivot="programming-language-javascript"
+    ```
+    func start
+    ```
+    ::: zone-end
 
-## <a name="build-from-the-docker-file"></a>Docker 파일에서 빌드
+    ::: zone pivot="programming-language-powershell"
+    ```
+    func start
+    ```
+    ::: zone-end
 
-프로젝트 루트 폴더에서 _Dockerfile_을 확인합니다. 이 파일은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다. 다음 예제는 JavaScript(Node.js) 작업자 런타임에서 함수 앱을 실행하는 컨테이너를 만드는 Dockerfile입니다. 
+    ::: zone pivot="programming-language-python"
+    ```
+    func start
+    ```
+    ::: zone-end    
 
-```Dockerfile
-FROM mcr.microsoft.com/azure-functions/node:2.0
+    ::: zone pivot="programming-language-typescript"
+    ```
+    npm install
+    ```
 
-ENV AzureWebJobsScriptRoot=/home/site/wwwroot
-COPY . /home/site/wwwroot
-```
+    ```
+    npm start
+    ```
+    ::: zone-end
 
-> [!NOTE]
-> Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+1. 출력에 `HttpExample` 엔드포인트가 표시되면 `http://localhost:7071/api/HttpExample?name=Functions`로 이동합니다. 브라우저에는 "Hello, Functions"와 같은 메시지(선택한 프로그래밍 언어에 따라 약간씩 다름)가 표시됩니다.
 
-### <a name="run-the-build-command"></a>`build` 명령을 실행합니다.
+1. **Ctrl**-**C**를 사용하여 호스트를 중지합니다.
 
-루트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 이름(`mydockerimage`) 및 태그(`v1.0.0`)를 입력합니다. `<docker-id>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
+## <a name="build-the-container-image-and-test-locally"></a>컨테이너 이미지 빌드 및 로컬로 테스트
 
-```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
-```
+1. (선택 사항) *LocalFunctionsProj* 폴더에서 *Dockerfile"을 검사합니다. Dockerfile은 Linux에서 함수 앱을 실행하는 데 필요한 환경을 설명합니다. 
 
-명령이 완료되면 새 컨테이너를 로컬에서 실행할 수 있습니다.
+    ::: zone pivot="programming-language-csharp"
+    ```Dockerfile
+    FROM microsoft/dotnet:2.2-sdk AS installer-env
 
-### <a name="run-the-image-locally"></a>로컬에서 이미지 실행
-로컬 컨테이너에서 Docker 이미지를 실행하여 빌드된 이미지가 작동하는지 확인합니다. [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 실행하고 이미지의 이름 및 태그를 전달합니다. `-p` 인수를 사용하여 포트를 지정해야 합니다.
+    COPY . /src/dotnet-function-app
+    RUN cd /src/dotnet-function-app && \
+        mkdir -p /home/site/wwwroot && \
+        dotnet publish *.csproj --output /home/site/wwwroot
+    
+    # To enable ssh & remote debugging on app service change the base image to the one below
+    # FROM mcr.microsoft.com/azure-functions/dotnet:2.0-appservice 
+    FROM mcr.microsoft.com/azure-functions/dotnet:2.0
+    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    
+    COPY --from=installer-env ["/home/site/wwwroot", "/home/site/wwwroot"]
+    ```
+    ::: zone-end
 
-```bash
-docker run -p 8080:80 -it <docker-ID>/mydockerimage:v1.0.0
-```
+    ::: zone pivot="programming-language-javascript"
+    ```Dockerfile
+    # To enable ssh & remote debugging on app service change the base image to the one below
+    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/node:2.0
+    
+    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    
+    COPY . /home/site/wwwroot
+    
+    RUN cd /home/site/wwwroot && \
+    npm install    
+    ```
+    ::: zone-end
 
-로컬 Docker 컨테이너에서 실행되는 사용자 지정 이미지를 사용하여 <http://localhost:8080>으로 이동하여 함수 앱 및 컨테이너가 제대로 작동하는지 확인합니다.
+    ::: zone pivot="programming-language-powershell"
+    ```Dockerfile
+    # To enable ssh & remote debugging on app service change the base image to the one below
+    # FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/powershell:2.0
+    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    
+    COPY . /home/site/wwwroot    
+    ```
+    ::: zone-end
 
-![함수 앱을 로컬로 실행합니다.](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
+    ::: zone pivot="programming-language-python"
+    ```Dockerfile
+    # To enable ssh & remote debugging on app service change the base image to the one below
+    # FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
+    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7
+    
+    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    
+    COPY requirements.txt /
+    RUN pip install -r /requirements.txt
+    
+    COPY . /home/site/wwwroot    
+    ```
+    ::: zone-end
 
-> [!NOTE]
-> 이 시점에서 특정 HTTP 함수를 호출하려고 하면 HTTP 401 오류 응답이 나타납니다. 함수가 Azure에서와 동일하게 로컬 컨테이너에서 실행되어, 함수 키가 필요하기 때문입니다. 컨테이너가 함수 앱에 아직 게시되지 않았으므로 사용 가능한 함수 키가 없습니다. 나중에 핵심 도구를 사용하여 컨테이너를 게시할 때 함수 키가 표시됩니다. 로컬 컨테이너에서 실행 중인 함수를 테스트하려는 경우 [인증 키](functions-bindings-http-webhook.md#authorization-keys)를 `anonymous`로 변경할 수 있습니다. 
+    ::: zone pivot="programming-language-typescript"
+    ```Dockerfile
+    # To enable ssh & remote debugging on app service change the base image to the one below
+    # FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    FROM mcr.microsoft.com/azure-functions/node:2.0
+    
+    ENV AzureWebJobsScriptRoot=/home/site/wwwroot \
+        AzureFunctionsJobHost__Logging__Console__IsEnabled=true
+    
+    COPY . /home/site/wwwroot
+    
+    RUN cd /home/site/wwwroot && \
+    npm install    
+    ```
+    ::: zone-end
 
-컨테이너에서 함수 앱을 확인한 후 실행을 중지합니다. 이제 사용자 이미지를 Docker 허브 계정으로 푸시할 수 있습니다.
+    > [!NOTE]
+    > Azure Functions에 대해 지원되는 기본 이미지의 전체 목록은 [Azure Functions 기본 이미지 페이지](https://hub.docker.com/_/microsoft-azure-functions-base)에 나와 있습니다.
+    
+1. *LocalFunctionsProject* 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 실행하고 `azurefunctionsimage` 이름 및 `v1.0.0` 태그를 제공합니다. `<docker_id>`를 Docker 허브 계정 ID로 바꿉니다. 이 명령은 컨테이너에 대한 Docker 이미지를 빌드합니다.
 
-## <a name="push-to-docker-hub"></a>Docker Hub로 푸시
+    ```
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
+    ```
+    
+    명령이 완료되면 새 컨테이너를 로컬에서 실행할 수 있습니다.
+    
+1. 빌드를 테스트하려면 [docker run](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 로컬 컨테이너에서 이미지를 실행합니다. 여기서 `<docker_id>`를 Docker ID로 다시 바꾸고, `-p 8080:80` 포트 인수를 추가합니다.
 
-레지스트리는 이미지를 호스팅하고 이미지 및 컨테이너 서비스를 제공하는 애플리케이션입니다. 이미지를 공유하려면 레지스트리에 푸시해야 합니다. Docker 허브는 Docker 이미지의 레지스트리이며 고유한 공개 또는 프라이빗 리포지토리를 호스팅할 수 있습니다.
+    ```
+    docker run -p 8080:80 -it <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+    
+1. 로컬 컨테이너에서 이미지가 실행되면 브라우저가 `http://localhost:8080`으로 열립니다. 이 경우 아래 이미지와 같은 자리 표시자가 표시됩니다. Azure에서와 같이 로컬 컨테이너에서 함수가 실행되고 있으므로 이 이미지가 표시됩니다. 즉, *function.json*에서 `"authLevel": "function"` 속성을 사용하여 정의된 액세스 키로 보호됩니다. 그러나 컨테이너는 아직 Azure의 함수 앱에 게시되지 않았으므로 이 키를 아직 사용할 수 없습니다. 로컬로 테스트하려면 docker를 중지하고, 권한 부여 속성을 `"authLevel": "anonymous"`로 변경하고, 이미지를 다시 빌드하고, docker를 다시 시작합니다. 그런 다음, *function.json*에서 `"authLevel": "function"`을 다시 설정합니다. 자세한 내용은 [권한 부여 키](functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.
 
-이미지를 푸시하려면 먼저 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 Docker 허브에 로그인해야 합니다. `<docker-id>`를 사용자의 계정 이름으로 바꾸고, 콘솔의 프롬프트에서 암호를 입력합니다. 다른 Docker 허브 암호 옵션은 [docker login 명령 설명서](https://docs.docker.com/engine/reference/commandline/login/)를 참조하세요.
+    ![컨테이너가 로컬로 실행되고 있음을 나타내는 자리 표시자 이미지](./media/functions-create-function-linux-custom-image/run-image-local-success.png)
 
-```bash
-docker login --username <docker-id>
-```
+1. 컨테이너에서 함수 앱이 확인되면 **Ctrl**+**C**를 사용하여 docker를 중지합니다.
 
-“로그인했습니다.”라는 메시지를 통해 로그인 상태를 확인할 수 있습니다. 로그인했으면 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 명령을 사용하여 이미지를 Docker 허브에 푸시합니다.
+## <a name="push-the-image-to-docker-hub"></a>Docker Hub에 이미지 푸시
 
-```bash
-docker push <docker-id>/mydockerimage:v1.0.0
-```
+Docker Hub는 이미지를 호스팅하고 이미지 및 컨테이너 서비스를 제공하는 컨테이너 레지스트리입니다. Azure에 배포하는 기능이 포함된 이미지를 공유하려면 해당 이미지를 레지스트리로 푸시해야 합니다.
 
-푸시가 성공하면 이미지를 Azure에서 새 함수 앱에 대한 배포 원본으로 사용할 수 있습니다.
+1. 아직 Docker에 로그인하지 않은 경우 [docker login](https://docs.docker.com/engine/reference/commandline/login/) 명령을 사용하여 이 작업을 수행합니다. 여기서 `<docker_id>`를 Docker ID로 바꿉니다. 이 명령은 사용자 이름과 암호를 입력하라는 메시지를 표시합니다. “로그인했습니다.”라는 메시지를 통해 로그인했음을 확인할 수 있습니다.
 
-[!INCLUDE [functions-create-resource-group](../../includes/functions-create-resource-group.md)]
+    ```
+    docker login
+    ```
+    
+1. 로그인했으면 [docker push](https://docs.docker.com/engine/reference/commandline/push/) 명령을 사용하여 이미지를 Docker Hub로 푸시합니다. 여기서 `<docker_id>`를 Docker ID로 다시 바꿉니다.
 
-[!INCLUDE [functions-create-storage-account](../../includes/functions-create-storage-account.md)]
+    ```
+    docker push <docker_id>/azurefunctionsimage:v1.0.0
+    ```
 
-## <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
+1. 네트워크 속도에 따라 이미지를 처음 푸시하는 데 몇 분 정도 걸릴 수 있습니다(이후에 변경 내용을 푸시하는 속도는 훨씬 더 빠름). 기다리는 동안 다음 섹션으로 진행하여 다른 터미널에서 Azure 리소스를 만들 수 있습니다.
 
-사용자 지정 Functions 컨테이너에 대한 Linux 호스팅은 [전용(App Service) 플랜](functions-scale.md#app-service-plan) 및 [프리미엄 플랜](functions-premium-plan.md#features)에서 지원됩니다. 이 자습서에서는 필요에 따라 크기를 조정할 수 있는 프리미엄 플랜을 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요.
+## <a name="create-supporting-azure-resources-for-your-function"></a>함수를 지원하는 Azure 리소스 만들기
 
-다음 예에서는 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 미국 서부 지역(`-location WestUS`) 및 Linux 컨테이너(`--is-linux`)에 `myPremiumPlan`이라는 프리미엄 플랜을 만듭니다.
+함수 코드를 Azure에 배포하려면 다음 세 가지 리소스를 만들어야 합니다.
 
-```azurecli-interactive
-az functionapp plan create --resource-group myResourceGroup --name myPremiumPlan \
---location WestUS --number-of-workers 1 --sku EP1 --is-linux
-```
+- 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
+- Azure Storage 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.
+- Azure 함수 앱 - 함수 코드를 실행할 수 있는 환경을 제공합니다. 함수 앱은 로컬 함수 프로젝트에 매핑되며, 함수를 논리적 단위로 그룹화하여 리소스를 더 쉽게 관리, 배포 및 공유할 수 있습니다.
 
-## <a name="create-an-app-from-the-image"></a>이미지에서 앱 만들기
+이러한 항목은 Azure CLI 명령을 사용하여 만듭니다. 각 명령은 완료 시 JSON 출력을 제공합니다.
 
-함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Docker 허브 이미지에서 함수 앱을 만듭니다.
+1. [az login](/cli/azure/reference-index#az-login) 명령을 사용하여 Azure에 로그인합니다.
 
-다음 명령에서 `<app_name>` 자리 표시자 및 `<storage_name>`의 스토리지 계정 이름을 고유한 함수 앱 이름으로 바꿉니다. `<app_name>`은 함수 앱의 기본 DNS 도메인으로 사용되므로 이름이 Azure의 모든 앱에서 고유해야 합니다. 이전과 마찬가지로 `<docker-id>`는 사용자의 Docker 계정 이름입니다.
+    ```azurecli
+    az login
+    ```
+    
+1. [az group create](/cli/azure/group#az-group-create) 명령을 사용하여 리소스 그룹을 만듭니다. 다음 예제에서는 `AzureFunctionsContainers-rg`라는 리소스 그룹을 `westeurope` 지역에 만듭니다. (일반적으로 `az account list-locations` 명령에서 사용 가능한 지역을 사용하여 리소스 그룹과 리소스를 가까운 지역에 만듭니다.)
 
-```azurecli-interactive
-az functionapp create --name <app_name> --storage-account  <storage_name>  --resource-group myResourceGroup \
---plan myPremiumPlan --deployment-container-image-name <docker-id>/mydockerimage:v1.0.0
-```
+    ```azurecli
+    az group create --name AzureFunctionsContainers-rg --location westeurope
+    ```
+    
+    > [!NOTE]
+    > Linux 및 Windows 앱을 동일한 리소스 그룹에 호스트할 수 없습니다. Windows 함수 앱 또는 웹앱이 포함된 `AzureFunctionsContainers-rg`이라는 기존 리소스 그룹이 있는 경우 다른 리소스 그룹을 사용해야 합니다.
+    
+1. [az storage account create](/cli/azure/storage/account#az-storage-account-create) 명령을 사용하여 범용 스토리지 계정을 리소스 그룹 및 지역에 만듭니다. 다음 예제에서 `<storage_name>`을 적절하고 전역적으로 고유한 이름으로 바꿉니다. 이름은 3~24자의 숫자와 소문자만 포함해야 합니다. `Standard_LRS`는 일반적인 범용 계정을 지정합니다.
 
-_deployment-container-image-name_ 매개 변수는 Docker 허브에서 호스팅되는 이미지가 함수 앱을 만드는 데 사용됨을 나타냅니다. 배포에 사용되는 이미지에 대한 정보를 보려면 [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 명령을 사용합니다. 다른 이미지에서 배포하려면 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 명령을 사용합니다.
+    ```azurecli
+    az storage account create --name <storage_name> --location westeurope --resource-group AzureFunctionsContainers-rg --sku Standard_LRS
+    ```
+    
+    이 자습서의 경우 스토리지 계정에 대한 약간의 비용(몇 USD 센트)만 발생합니다.
+    
+1. 명령을 사용하여 **탄력적 프리미엄 1** 가격 책정 계층(`--sku EP1`), 서유럽 지역(`-location westeurope` 또는 근처의 적절한 지역 사용) 또는 Linux 컨테이너(`--is-linux`)에서 `myPremiumPlan`이라는 Azure Functions 프리미엄 요금제를 만듭니다.
 
-## <a name="configure-the-function-app"></a>함수 앱 구성
+    ```azurecli
+    az functionapp plan create --resource-group AzureFunctionsContainers-rg --name myPremiumPlan --location westeurope --number-of-workers 1 --sku EP1 --is-linux
+    ```   
 
-함수에는 기본 스토리지 계정에 연결하기 위한 연결 문자열이 필요합니다. 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env)이나 유사한 명령을 사용하여 Dockerfile에서 이 애플리케이션 설정을 환경 변수로 대신 설정해야 합니다.
+    사용자 지정 함수 컨테이너에 대한 Linux 호스팅은 [전용(App Service) 계획](functions-scale.md#app-service-plan) 및 [프리미엄 요금제](functions-premium-plan.md#features)에서 지원됩니다. 여기서는 필요에 따라 확장할 수 있는 프리미엄 요금제를 사용합니다. 호스팅에 대한 자세한 내용은 [Azure Functions 호스팅 계획 비교](functions-scale.md)를 참조하세요. 비용을 계산하려면 [Functions 가격 페이지](https://azure.microsoft.com/pricing/details/functions/)를 참조하세요.
 
-이 경우 `<storage_name>`는 만든 기본 스토리지 계정의 이름입니다. [az storage account show-connection-string](/cli/azure/storage/account) 명령으로 연결 문자열을 가져옵니다. 함수 앱에서 [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) 명령으로 이 애플리케이션 설정을 추가합니다.
+    또한 이 명령은 동일한 리소스 그룹에 연결된 Azure Application Insights 인스턴스를 프로비저닝하여 함수 앱을 모니터링하고 로그를 볼 수 있습니다. 자세한 내용은 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요. 인스턴스를 활성화할 때까지 비용이 발생하지 않습니다.
 
-```azurecli-interactive
-storageConnectionString=$(az storage account show-connection-string \
---resource-group myResourceGroup --name <storage_name> \
---query connectionString --output tsv)
+## <a name="create-and-configure-a-function-app-on-azure-with-the-image"></a>이미지를 사용하여 Azure에서 함수 앱 만들기 및 구성
 
-az functionapp config appsettings set --name <app_name> \
---resource-group myResourceGroup \
---settings AzureWebJobsStorage=$storageConnectionString
-```
+Azure의 함수 앱은 호스팅 계획에서 함수 실행을 관리합니다. 이 섹션에서는 이전 섹션의 Azure 리소스를 사용하여 Docker Hub의 이미지에서 함수 앱을 만들고 Azure Storage에 대한 연결 문자열을 사용하여 구성합니다.
 
-> [!NOTE]
-> 컨테이너가 프라이빗인 경우 다음 애플리케이션 설정도 설정해야 합니다.  
-> - DOCKER_REGISTRY_SERVER_USERNAME  
-> - DOCKER_REGISTRY_SERVER_PASSWORD  
->
-> 이러한 값을 선택하기 위해서는 함수 앱을 중지했다가 시작해야 합니다.
+1. [az functionapp create](/cli/azure/functionapp#az-functionapp-create) 명령을 사용하여 Functions 앱을 만듭니다. 다음 예제에서 `<storage_name>`을 이전 섹션에서 스토리지 계정에 사용한 이름으로 바꿉니다. 또한 `<app_name>`을 적절하고 전역적으로 고유한 이름으로 바꾸고, `<docker_id>`를 Docker ID로 바꿉니다.
 
-## <a name="verify-your-functions"></a>함수 확인
+    ```azurecli
+    az functionapp create --name <app_name> --storage-account <storage_name> --resource-group AzureFunctionsContainers-rg --plan myPremiumPlan --deployment-container-image-name <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+    
+    *deployment-container-image-name* 매개 변수는 함수 앱에 사용할 이미지를 지정합니다. [az functionapp config container show](/cli/azure/functionapp/config/container#az-functionapp-config-container-show) 명령을 사용하여 배포에 사용되는 이미지에 대한 정보를 볼 수 있습니다. 또한 [az functionapp config container set](/cli/azure/functionapp/config/container#az-functionapp-config-container-set) 명령을 사용하여 다른 이미지에서 배포할 수도 있습니다.
 
-<!-- we should replace this with a CLI or API-based approach, when we get something better than REST -->
+1. [az storage account show-connection-string](/cli/azure/storage/account) 명령을 사용하여 만든 스토리지 계정에 대한 연결 문자열을 검색하고, 이를 `storageConnectionString` 셸 변수에 할당합니다.
 
-만든 HTTP 트리거 함수는 엔드포인트를 호출할 때 [함수 키](functions-bindings-http-webhook.md#authorization-keys)가 필요합니다. 현재, 키를 포함하여 함수 URL을 가져오는 가장 쉬운 방법은 [Azure Portal]에서 가져오는 것입니다. 
+    ```azurecli
+    az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv
+    
+1. Add this setting to the function app by using the [az functionapp config appsettings set](/cli/azure/functionapp/config/appsettings#az-functionapp-config-appsettings-set) command. In the following command, replace `<app_name>` with the name of your function app, and replace `<connection_string>` with the connection string from the previous step (a long encoded string that begins with "DefaultEndpointProtocol="):
+ 
+    ```azurecli
+    az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=<connection_string>
+    ```
+
+1. 이제 함수에서 이 연결 문자열을 사용하여 스토리지 계정에 액세스할 수 있습니다.
 
 > [!TIP]
-> [키 관리 API](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용하여 함수 키를 구할 수도 있으며, 이 경우 [인증을 위한 전달자 토큰](/cli/azure/account#az-account-get-access-token)을 제시해야 합니다.
+> bash에서는 클립보드를 사용하는 대신 셸 변수를 사용하여 연결 문자열을 캡처할 수 있습니다. 먼저, 다음 명령을 사용하여 연결 문자열이 포함된 변수를 만듭니다.
+> 
+> ```bash
+> storageConnectionString=$(az storage account show-connection-string --resource-group AzureFunctionsContainers-rg --name <storage_name> --query connectionString --output tsv)
+> ```
+> 
+> 그런 다음, 두 번째 명령에서 해당 변수를 참조합니다.
+> 
+> ```azurecli
+> az functionapp config appsettings set --name <app_name> --resource-group AzureFunctionsContainers-rg --settings AzureWebJobsStorage=$storageConnectionString
+> ```
 
-페이지 맨 위에 있는 **검색** 상자에 함수 앱 이름을 입력하고 **App Service** 리소스를 선택하여 [Azure Portal]에서 새 함수 앱을 찾습니다.
+> [!NOTE]    
+> 사용자 지정 이미지를 프라이빗 컨테이너 계정에 게시하는 경우 연결 문자열에 Dockerfile의 환경 변수를 대신 사용해야 합니다. 자세한 내용은 [ENV 명령](https://docs.docker.com/engine/reference/builder/#env)을 참조하세요. `DOCKER_REGISTRY_SERVER_USERNAME` 및 `DOCKER_REGISTRY_SERVER_PASSWORD` 변수도 설정해야 합니다. 값을 사용하려면 이미지를 다시 빌드하고, 이미지를 레지스트리로 푸시한 다음, Azure에서 함수 앱을 다시 시작해야 합니다.
 
-**MyHttpTrigger** 함수를 선택하고 **</> 함수 URL 가져오기** > **기본값(함수 키)**  > **복사**를 선택합니다.
+## <a name="verify-your-functions-on-azure"></a>Azure에서 함수 확인
 
-![Azure Portal에서 함수 URL 복사](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)
+이제 이미지를 Azure의 함수 앱에 배포하면 HTTP 요청을 통해 함수를 호출할 수 있습니다. *function.json* 정의에는 `"authLevel": "function"` 속성이 포함되어 있으므로 먼저 액세스 키("함수 키"라고도 함)를 가져와서 엔드포인트에 대한 모든 요청에 URL 매개 변수로 포함해야 합니다.
 
-이 URL에서 함수 키는 `code` 쿼리 매개 변수입니다. 
+1. Azure Portal을 사용하거나 Azure CLI에서 `az rest` 명령을 사용하여 액세스(함수) 키를 통해 함수 URL을 검색합니다.
 
-> [!NOTE]  
-> 함수 앱이 컨테이너로 배포되기 때문에 포털에서 함수 코드를 변경할 수 없습니다. 대신 로컬 컨테이너에서 프로젝트를 업데이트하고 Azure에 다시 게시해야 합니다.
+    # <a name="portaltabportal"></a>[포털](#tab/portal)
 
-함수 URL을 브라우저의 주소 표시줄에 붙여 넣습니다. `&name=<yourname>` 쿼리 문자열을 이 URL의 마지막에 추가하고 키보드에서 `Enter` 키를 눌러 요청을 실행합니다. 브라우저에 함수에서 반환한 응답이 표시될 것입니다.
+    1. Azure Portal에 로그인한 다음, 페이지 위쪽의 **검색** 상자에서 함수 앱 이름을 입력하여 함수 앱을 찾습니다. 결과에서 **App Service** 리소스를 선택합니다.
 
-다음 예에서는 브라우저의 응답을 보여 줍니다.
+    1. 왼쪽 탐색 패널의 **함수(읽기 전용)** 아래에서 함수 이름을 선택합니다.
 
-![브라우저에 함수 응답.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
+    1. 세부 정보 패널에서 **</>함수 URL 가져오기**를 선택합니다.
+    
+        ![Azure Portal의 함수 URL 가져오기 명령](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key.png)   
 
-요청 URL에는 기본적으로 HTTP를 통해 함수에 액세스하는 데 필요한 키가 포함됩니다. 
+    1. 팝업에서 **기본값(함수 키)** , **복사**를 차례로 선택합니다. 키는 `?code=` 뒤에 나오는 문자열입니다.
 
-## <a name="enable-continuous-deployment"></a>연속 배포 사용
+        ![Azure Portal에서 함수 URL 복사](./media/functions-create-function-linux-custom-image/functions-portal-get-url-key-popup.png)   
 
-컨테이너를 사용하는 이점 중 하나는 지속적인 배포에 대한 지원입니다. Functions를 사용하면 컨테이너가 레지스트리에서 업데이트될 때 업데이트를 자동으로 배포할 수 있습니다. [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) 명령을 사용하여 연속 배포를 사용하도록 설정합니다.
+    > [!NOTE]  
+    > 함수 앱이 컨테이너로 배포되기 때문에 포털에서 함수 코드를 변경할 수 없습니다. 대신, 로컬 이미지에서 프로젝트를 업데이트하고, 해당 이미지를 레지스트리로 다시 푸시한 다음, Azure로 다시 배포해야 합니다. 이후 섹션에서 지속적인 배포를 설정할 수 있습니다.
+    
+    # <a name="azure-clitabazurecli"></a>[Azure CLI](#tab/azurecli)
 
-```azurecli-interactive
-az functionapp deployment container config --enable-cd \
---query CI_CD_URL --output tsv \
---name <app_name> --resource-group myResourceGroup
-```
+    1. `<subscription_id>`, `<resource_group>` 및 `<app_name>`을 각각 Azure 구독 ID, 함수 앱의 리소스 그룹 및 함수 앱의 이름으로 바꾼 형식으로 URL 문자열을 구성합니다.
 
-이 명령은 연속 배포를 사용하도록 설정한 후 배포 웹후크 URL을 반환합니다. [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) 명령을 사용하여 이 URL을 반환할 수도 있습니다. 
+        ```
+        "/subscriptions/<subscription_id>/resourceGroups/<resource_group>/providers/Microsoft.Web/sites/<app_name>/host/default/listKeys?api-version=2018-11-01"
+        ```
 
-배포 URL을 복사하고 DockerHub 리포지토리로 이동한 후 **웹후크** 탭을 선택하고 웹후크의 **웹후크 이름**을 입력하고 **웹후크 URL**에 URL을 붙여넣은 후 더하기 기호( **+** )를 선택합니다.
+        예를 들어 URL은 다음과 같은 주소로 보일 수 있습니다.
 
-![DockerHub 리포지토리에서 웹후크 추가](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+        ```
+        "/subscriptions/1234aaf4-1234-abcd-a79a-245ed34eabcd/resourceGroups/AzureFunctionsContainers-rg/providers/Microsoft.Web/sites/msdocsfunctionscontainer/host/default/listKeys?api-version=2018-11-01"
+        ```
 
-웹후크가 설정된 경우 DockerHub에서 연결된 이미지를 업데이트하면 함수 앱이 다운로드되고 최신 이미지가 설치됩니다.
+        > [!TIP]
+        > 대신, 편의를 위해 URL을 환경 변수에 할당하고 `az rest` 명령에서 이 변수를 사용할 수 있습니다.
+    
+    1. 다음 `az rest` 명령(Azure CLI 버전 2.0.77 이상에서 사용 가능)을 실행합니다. 여기서 `<uri>`를 마지막 단계의 URI 문자열(따옴표 포함)로 바꿉니다.
+
+        ```azurecli
+        az rest --method post --uri <uri> --query functionKeys.default --output tsv
+        ```
+
+    1. 명령의 출력은 함수 키입니다. 이 경우 전체 함수 URL은 `https://<app_name>.azurewebsites.net/api/<function_name>?code=<key>`입니다. 여기서 `<app_name>`, `<function_name>` 및 `<key>`를 특정 값으로 바꿉니다.
+    
+        > [!NOTE]
+        > 여기서 검색된 키는 함수 앱의 모든 함수에 대해 작동하는 *host* 키입니다. 포털에 표시된 메서드는 하나의 함수에 대해서만 키를 검색합니다.
+
+    ---
+
+1. 함수 URL을 브라우저의 주소 표시줄에 붙여넣고, `&name=Azure` 매개 변수를 이 URL의 끝에 추가합니다. 브라우저에 "Hello Azure"와 같은 텍스트가 표시됩니다.
+
+    ![브라우저에 함수 응답.](./media/functions-create-function-linux-custom-image/function-app-browser-testing.png)
+
+1. 권한 부여를 테스트하려면 URL에서 code= 매개 변수를 제거하고 함수에서 응답을 받지 않았는지 확인합니다.
+
+
+## <a name="enable-continuous-deployment-to-azure"></a>Azure로의 지속적인 배포 사용
+
+레지스트리의 이미지를 업데이트할 때마다 Azure Functions에서 이미지 배포를 자동으로 업데이트하도록 설정할 수 있습니다.
+
+1. [az functionapp deployment container config](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-config) 명령을 사용하여 지속적인 배포를 사용하도록 설정합니다. 여기서 `<app_name>`을 함수 앱 이름으로 바꿉니다.
+
+    ```azurecli
+    az functionapp deployment container config --enable-cd --query CI_CD_URL --output tsv --name <app_name> --resource-group AzureFunctionsContainers-rg
+    ```
+    
+    이 명령은 지속적인 배포를 사용하도록 설정하고 배포 웹후크 URL을 반환합니다. (이 URL은 나중에 [az functionapp deployment container show-cd-url](/cli/azure/functionapp/deployment/container#az-functionapp-deployment-container-show-cd-url) 명령을 사용하여 검색할 수 있습니다.)
+
+1. 배포 웹후크 URL을 클립보드에 복사합니다.
+
+1. [Docker Hub](https://hub.docker.com/)를 열고, 로그인하여, 탐색 모음에서  **리포지토리**를 선택합니다. 이미지를 찾아 선택하고, **웹후크** 탭을 선택하고, **웹후크 이름**을 지정하고, URL을 **웹후크 URL**에 붙여넣은 다음, **만들기**를 선택합니다.
+
+    ![DockerHub 리포지토리에서 웹후크 추가](./media/functions-create-function-linux-custom-image/dockerhub-set-continuous-webhook.png)  
+
+1. 웹후크 세트를 사용하면 Docker Hub에서 이미지를 업데이트할 때마다 Azure Functions에서 해당 이미지를 다시 배포합니다.
 
 ## <a name="enable-ssh-connections"></a>SSH 연결 사용
 
-SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설정할 수 있습니다. SSH를 사용하면 App Service 고급 도구(Kudu)를 사용하여 컨테이너에 연결할 수 있습니다. SSH를 사용하여 컨테이너에 쉽게 연결할 수 있도록, Functions는 SSH를 사용하도록 이미 설정된 기본 이미지를 제공합니다. 
+SSH를 사용하면 컨테이너와 클라이언트 간의 보안 통신을 설정할 수 있습니다. SSH를 사용하면 App Service 고급 도구(Kudu)를 사용하여 컨테이너에 연결할 수 있습니다. SSH를 사용하여 컨테이너에 쉽게 연결할 수 있도록 Azure Functions는 이미 SSH를 사용하도록 설정된 기본 이미지를 제공합니다. Dockerfile을 편집한 다음, 해당 이미지를 다시 빌드하여 다시 배포하기만 하면 됩니다. 그런 다음, 고급 도구(Kudu)를 통해 컨테이너에 연결할 수 있습니다.
 
-### <a name="change-the-base-image"></a>기본 이미지 변경
+1. Dockerfile에서 `-appservice` 문자열을 `FROM` 명령의 기본 이미지에 추가합니다.
 
-dockerfile에서 `FROM` 명령의 기본 이미지에 문자열 `-appservice`를 추가합니다. JavaScript 프로젝트의 경우 다음과 같은 모양입니다.
+    ::: zone pivot="programming-language-csharp"
+    ```Dockerfile
+    FROM microsoft/dotnet:2.2-sdk-appservice AS installer-env
+    ```
+    ::: zone-end
 
-```docker
-FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
-```
+    ::: zone pivot="programming-language-javascript"
+    ```Dockerfile
+    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    ```
+    ::: zone-end
 
-두 기본 이미지의 차이점으로 인해 컨테이너에 SSH 연결이 가능합니다. 이러한 차이점은 [이 App Services 자습서](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections)에 자세히 설명되어 있습니다.
+    ::: zone pivot="programming-language-powershell"
+    ```Dockerfile
+    FROM mcr.microsoft.com/azure-functions/powershell:2.0-appservice
+    ```
+    ::: zone-end
 
-### <a name="rebuild-and-redeploy-the-image"></a>이미지 다시 빌드 및 다시 배포
+    ::: zone pivot="programming-language-python"
+    ```Dockerfile
+    FROM mcr.microsoft.com/azure-functions/python:2.0-python3.7-appservice
+    ```
+    ::: zone-end
 
-루트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 다시 실행하고 이전처럼 `<docker-id>`를 Docker Hub 계정 ID로 바꿉니다. 
+    ::: zone pivot="programming-language-typescript"
+    ```Dockerfile
+    FROM mcr.microsoft.com/azure-functions/node:2.0-appservice
+    ```
+    ::: zone-end
 
-```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.0 .
-```
+    기본 이미지 간의 차이점은 [App Services - 사용자 지정 Docker 이미지 자습서](../app-service/containers/tutorial-custom-docker-image.md#enable-ssh-connections)에서 설명하고 있습니다.
 
-업데이트된 이미지를 Docker Hub로 다시 푸시합니다.
+1. `docker build` 명령을 다시 사용하여 이미지를 다시 빌드합니다. 여기서 `<docker_id>`를 Docker ID로 바꿉니다.
 
-```bash
-docker push <docker-id>/mydockerimage:v1.0.0
-```
+    ```
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.0 .
+    ```
+    
+1. 업데이트된 이미지를 Docker Hub로 푸시합니다. 이 경우 이미지의 업데이트된 세그먼트만 업로드해야 하는 첫 번째 푸시에 비해 훨씬 더 짧은 시간이 걸립니다.
 
-업데이트된 이미지가 함수 앱에 다시 배포됩니다.
+    ```
+    docker push <docker_id>/azurefunctionsimage:v1.0.0
+    ```
+    
+1. Azure Functions에서 자동으로 이미지를 함수 앱으로 다시 배포합니다. 이 프로세스는 1분 이내에 수행됩니다.
 
-### <a name="connect-to-your-container-in-azure"></a>Azure에서 컨테이너에 연결
+1. 브라우저에서 `https://<app_name>.scm.azurewebsites.net/`을 엽니다. 여기서 `<app_name>`을 고유한 이름으로 바꿉니다. 이 URL은 함수 앱 컨테이너의 고급 도구(Kudu) 엔드포인트입니다.
 
-브라우저에서 함수 앱 컨테이너의 다음 고급 도구(Kudu) `scm.` 엔드포인트로 이동하여 `<app_name>`을 함수 앱의 이름으로 바꿉니다.
+1. Azure 계정에 로그인한 다음, **SSH**를 선택하여 컨테이너와의 연결을 설정합니다. Azure에서 아직도 컨테이너 이미지를 업데이트하고 있는 경우 연결하는 데 몇 분 정도 걸릴 수 있습니다.
 
-```
-https://<app_name>.scm.azurewebsites.net/
-```
+1. 컨테이너와의 연결이 설정되면 `top` 명령을 실행하여 현재 실행 중인 프로세스를 확인합니다. 
 
-Azure 계정에 로그인 한 다음, **SSH** 탭을 선택하여 컨테이너에 SSH 연결을 만듭니다.
+    ![SSH 세션에서 실행되는 Linux top 명령](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
 
-연결이 설정되면 `top` 명령을 실행하여 현재 실행 중인 프로세스를 확인합니다. 
+## <a name="write-to-an-azure-storage-queue"></a>Azure Storage 큐에 쓰기
 
-![SSH 세션에서 실행되는 Linux top 명령](media/functions-create-function-linux-custom-image/linux-custom-kudu-ssh-top.png)
-
-## <a name="write-to-queue-storage"></a>Queue Storage에 쓰기
-
-Functions를 사용하면 자체 통합 코드를 작성하지 않고도 Azure 서비스 및 기타 리소스를 함수에 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩*은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. *트리거*는 특수한 형식의 입력 바인딩입니다. 함수에는 하나의 트리거만 있지만, 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
+Azure Functions를 사용하면 고유한 통합 코드를 작성해야 하는 다른 Azure 서비스 및 리소스에 함수를 연결할 수 있습니다. 입력과 출력을 모두 나타내는 이러한 *바인딩*은 함수 정의 내에서 선언됩니다. 바인딩의 데이터는 함수에 매개 변수로 제공됩니다. *트리거*는 특수한 형식의 입력 바인딩입니다. 함수에는 하나의 트리거만 있지만, 여러 개의 입력 및 출력 바인딩이 있을 수 있습니다. 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md)을 참조하세요.
 
 이 섹션에서는 함수를 Azure Storage 큐와 통합하는 방법을 보여줍니다. 이 함수에 추가하는 출력 바인딩은 HTTP 요청의 데이터를 큐의 메시지에 씁니다.
 
-### <a name="download-the-function-app-settings"></a>함수 앱 설정 다운로드
+## <a name="retrieve-the-azure-storage-connection-string"></a>Azure Storage 연결 문자열 검색
 
-[!INCLUDE [functions-app-settings-download-local-cli](../../includes/functions-app-settings-download-local-cli.md)]
+이전에는 함수 앱에서 사용할 Azure Storage 계정을 만들었습니다. 이 계정의 연결 문자열은 Azure의 앱 설정에 안전하게 저장됩니다. 이 설정을 *local.settings.json* 파일에 다운로드하면 함수를 로컬로 실행할 때 동일한 계정의 Storage 큐에 해당 연결 쓰기를 사용할 수 있습니다. 
 
-### <a name="enable-extension-bundles"></a>확장 번들 사용
+1. 프로젝트의 루트에서 다음 명령을 실행합니다. 여기서 `<app_name>`을 이전 빠른 시작의 함수 앱 이름으로 바꿉니다. 이 명령은 파일의 기존 값을 덮어씁니다.
 
-Queue storage 출력 바인딩을 사용하므로 프로젝트를 실행하기 전에 스토리지 바인딩 확장을 설치해야 합니다. 
+    ```
+    func azure functionapp fetch-app-settings <app_name>
+    ```
+    
+1. *local.settings.json*을 열고, Storage 계정 연결 문자열인 `AzureWebJobsStorage`라는 값을 찾습니다. 이 문서의 다른 섹션에서 `AzureWebJobsStorage` 이름과 연결 문자열을 사용합니다.
 
+> [!IMPORTANT]
+> *local.settings.json*에는 Azure에서 다운로드한 비밀이 포함되어 있으므로 항상 이 파일을 원본 제어에서 제외하세요. 로컬 함수 프로젝트를 사용하여 만든 *.gitignore* 파일은 기본적으로 해당 파일이 제외됩니다.
 
-# <a name="javascript--pythontabnodejspython"></a>[JavaScript/Python](#tab/nodejs+python)
+### <a name="add-an-output-binding-to-functionjson"></a>function.json에 출력 바인딩 추가
 
-[!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
+Azure Functions에서 각 바인딩 형식에는 *function.json* 파일에 정의되는 `direction`, `type` 및 고유한 `name`이 필요합니다. *function.json*에는 이미 "httpTrigger" 형식의 입력 바인딩과 HTTP 응답에 대한 출력 바인딩이 포함되어 있습니다. 바인딩을 스토리지 큐에 추가하려면 파일을 다음과 같이 수정합니다. 여기서는 큐가 코드에서 `msg`라는 입력 인수로 표시되는 "queue" 형식에 대한 출력 바인딩이 추가됩니다. 또한 큐 바인딩에는 사용할 큐의 이름(이 경우 `outqueue`)과 연결 문자열을 보유하는 설정의 이름(이 경우 `AzureWebJobStorage`)이 필요합니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+::: zone pivot="programming-language-csharp"
 
-HTTP 및 타이머 트리거를 제외하고 바인딩은 확장 패키지로 구현됩니다. 터미널 창에서 다음 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행하여 프로젝트에 스토리지 확장 패키지를 추가합니다.
+C# 클래스 라이브러리 프로젝트에서 바인딩은 함수 메서드의 바인딩 특성으로 정의됩니다. 그런 다음, 이러한 특성을 기반으로 하여 *function.json* 파일이 자동으로 생성됩니다.
 
-```bash
-dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+1. 큐 바인딩의 경우 다음 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행하여 Storage 확장 패키지를 프로젝트에 추가합니다.
+
+    ```
+    dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
+    ```
+
+1. *HttpTrigger.cs* 파일을 열고, 다음 `using` 문을 추가합니다.
+
+    ```cs
+    using Microsoft.Azure.WebJobs.Extensions.Storage;
+    ```
+    
+1. 다음 매개 변수를 `Run` 메서드 정의에 추가합니다.
+    
+    ```csharp
+    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg
+    ```
+    
+    이제 `Run` 메서드 정의는 다음 코드와 일치합니다.
+    
+    ```csharp
+    [FunctionName("HttpTrigger")]
+    public static async Task<IActionResult> Run(
+        [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+        [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
+    ```
+
+`msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 이 경우 출력은 `outqueue`라는 스토리지 큐입니다. 스토리지 계정에 대한 연결 문자열은 `StorageAccountAttribute`로 설정됩니다. 이 특성은 스토리지 계정 연결 문자열을 포함하는 설정을 나타내며 클래스, 메서드 또는 매개 변수 수준에서 적용될 수 있습니다. 이 경우 기본 스토리지 계정을 이미 사용하고 있으므로 `StorageAccountAttribute`를 생략할 수 있습니다.
+
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+
+HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
+
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "res"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
 ```
+::: zone-end
 
-> [!TIP]
-> Visual Studio를 사용하는 경우, NuGet 패키지 관리자를 사용하여 이 패키지를 추가할 수도 있습니다.
+::: zone pivot="programming-language-powershell"
 
----
+HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
 
-이제 프로젝트에 Storage 출력 바인딩을 추가할 수 있습니다.
-
-### <a name="add-an-output-binding"></a>출력 바인딩 추가
-
-Functions에서 각 바인딩 형식의 `direction`, `type` 및 고유한 `name`을 function.json 파일에 정의해야 합니다. 이러한 특성을 정의하는 방법은 함수 앱의 언어에 따라 달라집니다.
-
-# <a name="javascript--pythontabnodejspython"></a>[JavaScript/Python](#tab/nodejs+python)
-
-[!INCLUDE [functions-add-output-binding-json](../../includes/functions-add-output-binding-json.md)]
-
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-[!INCLUDE [functions-add-storage-binding-csharp-library](../../includes/functions-add-storage-binding-csharp-library.md)]
-
----
-
-### <a name="add-code-that-uses-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
-
-바인딩이 정의되면 바인딩의 `name`을 사용하여 함수 시그니처의 특성으로 액세스할 수 있습니다. 출력 바인딩을 사용하면 인증을 받거나 큐 참조를 가져오거나 데이터를 쓸 때 Azure Storage SDK 코드를 사용할 필요가 없습니다. Functions 런타임 및 큐 출력 바인딩이 이러한 작업을 알아서 처리합니다.
-
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
-
-[!INCLUDE [functions-add-output-binding-js](../../includes/functions-add-output-binding-js.md)]
-
-# <a name="pythontabpython"></a>[Python](#tab/python)
-
-[!INCLUDE [functions-add-output-binding-python](../../includes/functions-add-output-binding-python.md)]
-
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
-
-[!INCLUDE [functions-add-storage-binding-csharp-library-code](../../includes/functions-add-storage-binding-csharp-library-code.md)]
-
----
-
-### <a name="update-the-hosted-container"></a>호스트된 컨테이너 업데이트
-
-루트 폴더에서 [docker build](https://docs.docker.com/engine/reference/commandline/build/) 명령을 다시 실행하고 이번에는 태그의 버전을 `v1.0.2`로 업데이트합니다. 이전처럼 `<docker-id>`를 Docker Hub 계정 ID로 바꿉니다. 
-
-```bash
-docker build --tag <docker-id>/mydockerimage:v1.0.2
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
 ```
+::: zone-end
 
-업데이트된 이미지를 리포지토리로 다시 푸시합니다.
+::: zone pivot="programming-language-python"
 
-```bash
-docker push <docker-id>/mydockerimage:v1.0.2
+HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
+
+```json
+{
+  "scriptFile": "__init__.py",
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "req",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "$return"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
 ```
+::: zone-end
 
-### <a name="verify-the-updates-in-azure"></a>Azure에서 업데이트 확인
+::: zone pivot="programming-language-typescript"
 
-브라우저에서 이전과 동일한 URL을 사용하여 함수를 트리거합니다. 동일한 응답이 표시됩니다. 단, 이번에는 `name` 매개 변수로 전달한 문자열이 `outqueue` 스토리지 큐에 기록됩니다.
+HTTP 바인딩 뒤에 큐 바인딩을 추가하여 다음과 일치하도록 *function.json*을 업데이트합니다.
 
-[!INCLUDE [functions-storage-account-set-cli](../../includes/functions-storage-account-set-cli.md)]
+```json
+{
+  "bindings": [
+    {
+      "authLevel": "function",
+      "type": "httpTrigger",
+      "direction": "in",
+      "name": "Request",
+      "methods": [
+        "get",
+        "post"
+      ]
+    },
+    {
+      "type": "http",
+      "direction": "out",
+      "name": "Response"
+    },
+    {
+      "type": "queue",
+      "direction": "out",
+      "name": "msg",
+      "queueName": "outqueue",
+      "connection": "AzureWebJobsStorage"
+    }
+  ]
+}
+```
+::: zone-end
 
-[!INCLUDE [functions-query-storage-cli](../../includes/functions-query-storage-cli.md)]
+## <a name="add-code-to-use-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
-[!INCLUDE [functions-cleanup-resources](../../includes/functions-cleanup-resources.md)]
+바인딩이 정의되면 바인딩 이름(이 경우 `msg`)이 함수 코드(또는 JavaScript 및 TypeScript의 `context` 개체)에서 인수로 표시됩니다. 그런 다음, 해당 변수를 사용하여 메시지를 큐에 쓸 수 있습니다. 인증, 큐 참조 가져오기 또는 데이터 쓰기를 위한 코드를 작성해야 합니다. 이러한 모든 통합 작업은 Azure Functions 런타임 및 큐 출력 바인딩에서 편리하게 처리됩니다.
+
+::: zone pivot="programming-language-csharp"
+```csharp
+[FunctionName("HttpTrigger")]
+public static async Task<IActionResult> Run(
+    [HttpTrigger(AuthorizationLevel.Function, "get", "post", Route = null)] HttpRequest req, 
+    [Queue("outqueue"), StorageAccount("AzureWebJobsStorage")] ICollector<string> msg, ILogger log)
+{
+    log.LogInformation("C# HTTP trigger function processed a request.");
+
+    string name = req.Query["name"];
+
+    string requestBody = await new StreamReader(req.Body).ReadToEndAsync();
+    dynamic data = JsonConvert.DeserializeObject(requestBody);
+    name = name ?? data?.name;
+
+    if (!string.IsNullOrEmpty(name))
+    {
+        // Add a message to the output collection.
+        msg.Add(string.Format("Name passed to the function: {0}", name));
+    }
+    
+    return name != null
+        ? (ActionResult)new OkObjectResult($"Hello, {name}")
+        : new BadRequestObjectResult("Please pass a name on the query string or in the request body");
+}
+```
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+```js
+module.exports = async function (context, req) {
+    context.log('JavaScript HTTP trigger function processed a request.');
+
+    if (req.query.name || (req.body && req.body.name)) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " +
+            (req.query.name || req.body.name);
+
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+```
+::: zone-end
+
+::: zone pivot="programming-language-powershell"
+```powershell
+using namespace System.Net
+
+# Input bindings are passed in via param block.
+param($Request, $TriggerMetadata)
+
+# Write to the Azure Functions log stream.
+Write-Host "PowerShell HTTP trigger function processed a request."
+
+# Interact with query parameters or the body of the request.
+$name = $Request.Query.Name
+if (-not $name) {
+    $name = $Request.Body.Name
+}
+
+if ($name) {
+    $outputMsg = "Name passed to the function: $name"
+    Push-OutputBinding -name msg -Value $outputMsg
+
+    $status = [HttpStatusCode]::OK
+    $body = "Hello $name"
+}
+else {
+    $status = [HttpStatusCode]::BadRequest
+    $body = "Please pass a name on the query string or in the request body."
+}
+
+# Associate values to output bindings by calling 'Push-OutputBinding'.
+Push-OutputBinding -Name Response -Value ([HttpResponseContext]@{
+    StatusCode = $status
+    Body = $body
+})
+```
+::: zone-end
+
+::: zone pivot="programming-language-python"
+```python
+import logging
+
+import azure.functions as func
+
+
+def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
+
+    name = req.params.get('name')
+    if not name:
+        try:
+            req_body = req.get_json()
+        except ValueError:
+            pass
+        else:
+            name = req_body.get('name')
+
+    if name:
+        msg.set(name)
+        return func.HttpResponse(f"Hello {name}!")
+    else:
+        return func.HttpResponse(
+            "Please pass a name on the query string or in the request body",
+            status_code=400
+        )
+```
+::: zone-end
+
+::: zone pivot="programming-language-typescript"
+```typescript
+import { AzureFunction, Context, HttpRequest } from "@azure/functions"
+
+const httpTrigger: AzureFunction = async function (context: Context, req: HttpRequest): Promise<void> {
+    context.log('HTTP trigger function processed a request.');
+    const name = (req.query.name || (req.body && req.body.name));
+
+    if (name) {
+        // Add a message to the Storage queue.
+        context.bindings.msg = "Name passed to the function: " +
+            (req.query.name || req.body.name);
+        
+        context.res = {
+            // status: 200, /* Defaults to 200 */
+            body: "Hello " + (req.query.name || req.body.name)
+        };
+    }
+    else {
+        context.res = {
+            status: 400,
+            body: "Please pass a name on the query string or in the request body"
+        };
+    }
+};
+
+export default httpTrigger;
+```
+::: zone-end
+
+### <a name="update-the-image-in-the-registry"></a>레지스트리의 이미지 업데이트
+
+1. 루트 폴더에서 `docker build`를 다시 실행하고, 이번에는 태그의 버전을 `v1.0.1`로 업데이트합니다. 이전과 같이 `<docker_id>`를 Docker Hub 계정 ID로 바꿉니다.
+
+    ```
+    docker build --tag <docker_id>/azurefunctionsimage:v1.0.1
+    ```
+    
+1. `docker push`를 사용하여 업데이트된 이미지를 리포지토리로 다시 푸시합니다.
+
+    ```
+    docker push <docker_id>/azurefunctionsimage:v1.0.1
+    ```
+
+1. 지속적인 업데이트를 구성했으므로 레지스트리의 이미지를 다시 업데이트하면 Azure에서 함수 앱이 자동으로 업데이트됩니다.
+
+## <a name="view-the-message-in-the-azure-storage-queue"></a>Azure Storage 큐의 메시지 보기
+
+브라우저에서 이전과 동일한 URL을 사용하여 함수를 호출합니다. 함수 코드의 해당 부분을 수정하지 않았으므로 브라우저에서 이전과 동일한 응답을 표시해야 합니다. 그러나 추가된 코드에서 `name` URL 매개 변수를 사용하는 메시지를 `outqueue` 스토리지 큐에 작성했습니다.
+
+큐는 [Azure Portal](../storage/queues/storage-quickstart-queues-portal.md) 또는 [Microsoft Azure Storage Explorer](https://storageexplorer.com/)에서 볼 수 있습니다. 또한 다음 단계에서 설명한 대로 Azure CLI에서 큐를 볼 수도 있습니다.
+
+1. 함수 프로젝트의 *local.setting.json* 파일을 열고, 연결 문자열 값을 복사합니다. 터미널 또는 명령 창에서 다음 명령을 실행하여 `AZURE_STORAGE_CONNECTION_STRING`이라는 환경 변수를 만들고, `<connection_string>` 대신 특정 연결 문자열을 붙여넣습니다. (이 환경 변수는 `--connection-string` 인수를 사용하여 연결 문자열을 각 후속 명령에 제공할 필요가 없음을 의미합니다.)
+
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    
+    ```bash
+    AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    
+    ```powershell
+    $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
+    ```
+    
+    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    
+    ```cmd
+    set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
+    ```
+    
+    ---
+    
+1. (선택 사항) [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 봅니다. 이 명령의 출력에는 함수에서 첫 번째 메시지를 해당 큐에 쓸 때 만들어진 `outqueue`라는 이름의 큐가 포함되어야 합니다.
+    
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    
+    ```azurecli
+    az storage queue list --output tsv
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    
+    ```azurecli
+    az storage queue list --output tsv
+    ```
+    
+    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    
+    ```azurecli
+    az storage queue list --output tsv
+    ```
+    
+    ---
+
+1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 이 명령은 [base64 인코딩](functions-bindings-storage-queue.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
+
+    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    
+    ```bash
+    echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
+    ```
+    
+    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    
+    ```powershell
+    [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
+    ```
+    
+    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    
+    메시지 컬렉션을 역참조하고 base64에서 디코딩해야 하므로 PowerShell을 실행하고 PowerShell 명령을 사용합니다.
+
+    ---
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+이 자습서에서 만든 리소스를 사용하여 Azure Function을 계속 사용하려면 해당 리소스를 모두 그대로 유지할 수 있습니다. Azure Functions 프리미엄 요금제를 만들었으므로 매일 1~2USD의 지속적인 비용이 발생합니다.
+
+지속적인 비용을 방지하려면 `AzureFunctionsContainer-rg` 리소스 그룹을 삭제하여 해당 그룹의 모든 리소스를 정리합니다. 
+
+```azurecli
+az group delete --name AzureFunctionsContainer-rg
+```
 
 ## <a name="next-steps"></a>다음 단계
-
-Azure의 함수 앱에 사용자 지정 컨테이너를 성공적으로 배포했으면, 다음 항목에 대해 자세히 읽어보세요.
 
 + [함수 모니터링](functions-monitoring.md)
 + [비율 크기 조정 및 호스팅 옵션](functions-scale.md)
 + [Kubernetes 기반 서버리스 호스팅](functions-kubernetes-keda.md)
-
-[Azure Portal]: https://portal.azure.com

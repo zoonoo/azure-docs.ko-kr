@@ -4,8 +4,7 @@ titleSuffix: Azure Network Watcher
 description: 이 빠른 시작에서는 Azure Network Watcher의 IP 흐름 확인 기능을 사용하여 가상 머신 네트워크 트래픽 필터 문제를 진단하는 방법에 대해 알아봅니다.
 services: network-watcher
 documentationcenter: network-watcher
-author: KumudD
-manager: twooley
+author: damendo
 editor: ''
 tags: azure-resource-manager
 Customer intent: I need to diagnose a virtual machine (VM) network traffic filter problem that prevents communication to and from a VM.
@@ -16,14 +15,14 @@ ms.topic: quickstart
 ms.tgt_pltfrm: network-watcher
 ms.workload: infrastructure
 ms.date: 04/20/2018
-ms.author: kumud
+ms.author: damendo
 ms.custom: mvc
-ms.openlocfilehash: d436fab100dc05cde8a434af564c67477b33d8d3
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 68f575164487f726c2f6c7477ceacd731bb52b0f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276005"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844924"
 ---
 # <a name="quickstart-diagnose-a-virtual-machine-network-traffic-filter-problem-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 가상 머신 네트워크 트래픽 필터 문제 진단
 
@@ -43,7 +42,7 @@ Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 
     |설정|값|
     |---|---|
-    |Name|myVm|
+    |속성|myVm|
     |사용자 이름| 선택한 사용자 이름을 입력합니다.|
     |암호| 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     |Subscription| 구독을 선택합니다.|
@@ -62,7 +61,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 하나 �
 
 하나 이상의 지역에서 이미 Network Watcher를 사용하도록 설정한 경우 [IP 흐름 확인 사용](#use-ip-flow-verify)으로 건너뜁니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+1. 포털에서 **모든 서비스**를 선택합니다. **필터 상자**에 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
 2. 이전 단계에서 VM이 배포된 지역이기 때문에 미국 동부 지역에서 네트워크 감시자를 활성화합니다. **지역**을 선택하여 확장하고, 다음 그림처럼 **미국 동부** 오른쪽에서 **...** 를 선택합니다.
 
     ![Network Watcher 사용](./media/diagnose-vm-network-traffic-filtering-problem/enable-network-watcher.png)
@@ -73,7 +72,7 @@ Network Watcher와의 네트워크 통신을 테스트하려면 먼저 하나 �
 
 VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허용하고 거부합니다. 추가 트래픽 형식을 허용하거나 거부하여 나중에 Azure의 기본값을 재정의할 수 있습니다.
 
-1. 포털에서 **모든 서비스**를 선택합니다. **모든 서비스** *필터* 상자에 *Network Watcher*를 입력합니다. 검색 결과에 **Network Watcher**가 나타나면 이를 선택합니다.
+1. 포털에서 **모든 서비스**를 선택합니다. **모든 서비스** *필터* 상자에 *Network Watcher*를 입력합니다. 결과에 **Network Watcher**가 표시되면 이를 선택합니다.
 2. **네트워크 진단 도구**에서 **IP 흐름 확인**을 선택합니다.
 3. 다음에 나오는 그림에 표시된 대로 구독을 선택하고, 다음 값을 입력하거나 선택한 다음, **검사**를 선택합니다.
 
@@ -83,7 +82,7 @@ VM을 만들 때 Azure는 기본적으로 VM 간 네트워크 트래픽을 허�
     | 가상 머신   | myVm 선택                                                                                       |
     | Linux | myvm - VM을 만들 때 포털에서 만든 네트워크 인터페이스의 이름은 다릅니다. |
     | 프로토콜          | TCP                                                                                               |
-    | 방향         | 아웃바운드                                                                                          |
+    | Direction         | 아웃바운드                                                                                          |
     | 로컬 IP 주소  | 10.0.0.4                                                                                          |
     | 로컬 포트      | 60000                                                                                                |
     | 원격 IP 주소 | 13.107.21.200 - <www.bing.com>에 대한 주소 중 하나입니다.                                             |

@@ -13,16 +13,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: b3d5aa74705d858349eaca543a7fd86e315a63e6
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 15293f6cf5ceafda2dd5727ad85804b432bae54a
+ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703000"
+ms.lasthandoff: 01/26/2020
+ms.locfileid: "76758753"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -40,7 +40,20 @@ ms.locfileid: "76703000"
 
 ## <a name="upcoming-changes"></a>예정된 변경
 
-9 월 2019: URL 구문 분석 규칙에 따라 게시 의미 체계의 추가 적용-중복 매개 변수는 오류 및 [BOM](https://www.w3.org/International/questions/qa-byte-order-mark) 을 무시 합니다.
+지금은 예약이 없습니다.  또는 프로덕션에 적용 되는 변경 내용에 대해서는 아래를 참조 하세요. 
+
+## <a name="february-2020"></a>2 월 2020: 
+
+### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>로그인 끝점의 모든 HTTP 리디렉션에 빈 조각이 추가 됩니다. 
+
+**개시 날짜**: 2020 년 2 월 8 일
+
+**영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
+
+**영향을 받는 프로토콜**: response_type = 쿼리를 사용 하는 OAUTH 및 oidc 흐름-경우에 따라 [권한 부여 코드 흐름](v2-oauth2-auth-code-flow.md) 및 [암시적 흐름이](v2-oauth2-implicit-grant-flow.md)포함 됩니다. 
+
+HTTP 리디렉션을 통해 login.microsoftonline.com에서 응용 프로그램으로 인증 응답을 보내면 서비스는 회신 URL에 빈 조각을 추가 합니다.  이렇게 하면 브라우저가 인증 요청에서 기존 조각을 모두 초기화 하 여 공격에 대 한 클래스를 방지할 수 있습니다.  이 동작에 대 한 종속성이 있는 앱이 없습니다. 
+
 
 ## <a name="august-2019"></a>2019년 8월
 
@@ -65,7 +78,7 @@ ms.locfileid: "76703000"
 
 **개시 날짜**: 2019 년 7 월 26 일
 
-**영향을 받는 엔드포인트**: [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) 및 [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) 모두
+**영향을 받는 끝점**: [V1.0](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow) 및 [v2.0](https://docs.microsoft.com/azure/active-directory/develop/v2-oauth2-client-creds-grant-flow) 모두
 
 **영향을 받는 프로토콜**: [클라이언트 자격 증명 (앱 전용 토큰)](https://docs.microsoft.com/azure/active-directory/develop/v1-oauth2-client-creds-grant-flow)
 
@@ -85,7 +98,7 @@ ms.locfileid: "76703000"
 
 ### <a name="redirect-uris-can-now-contain-query-string-parameters"></a>이제 리디렉션 Uri는 쿼리 문자열 매개 변수를 포함할 수 있습니다.
 
-**개시 날짜**: 2019년 7월 22일
+**개시 날짜**: 2019 년 7 월 22 일
 
 **영향을 받는 엔드포인트**: v1.0 및 v2.0 모두
 

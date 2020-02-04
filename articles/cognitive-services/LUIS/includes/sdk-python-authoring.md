@@ -8,14 +8,14 @@ ms.service: cognitive-services
 ms.subservice: luis
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
+ms.date: 01/23/2020
 ms.author: diberry
-ms.openlocfilehash: bf09d8e9b2dd8cebcf3ef8414afcc8ac031f4cdf
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 69814c89c1c44a63febbcac04a4d161cd4c0921f
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170494"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774245"
 ---
 Python용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -187,3 +187,7 @@ quickstart 파일의 `python` 명령을 사용하여 애플리케이션을 실�
 ```console
 python quickstart-file.py
 ```
+
+## <a name="clean-up-resources"></a>리소스 정리
+
+예측을 완료했으면 파일과 해당 하위 디렉터리를 삭제하여 이 빠른 시작의 작업을 정리합니다.

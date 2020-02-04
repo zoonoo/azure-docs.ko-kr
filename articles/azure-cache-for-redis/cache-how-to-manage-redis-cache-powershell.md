@@ -77,7 +77,7 @@ Azure Government 클라우드를 연결하려면 다음 명령 중 하나를 사
 Azure Government 클라우드 내에 캐시를 만들려면 다음 위치 중 하나를 사용합니다.
 
 * USGov 버지니아
-* 미국 정부 아이오와
+* USGov 아이오와
 
 Azure Government 클라우드에 대한 자세한 내용은 [Microsoft Azure Government](https://azure.microsoft.com/features/gov/) 및 [Microsoft Azure Government 개발자 가이드](../azure-government-developer-guide.md)를 참조하세요.
 

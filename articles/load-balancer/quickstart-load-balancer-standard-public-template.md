@@ -1,28 +1,28 @@
 ---
-title: '빠른 시작: 표준 Load Balancer 만들기 - Azure 템플릿'
+title: '빠른 시작: Load Balancer 만들기 - Azure 템플릿'
 titleSuffix: Azure Load Balancer
-description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 표준 Load Balancer를 만드는 방법을 보여 줍니다.
+description: 이 빠른 시작에서는 Azure Resource Manager 템플릿을 사용하여 부하 분산 장치를 만드는 방법을 보여 줍니다.
 services: load-balancer
 documentationcenter: na
 author: asudbring
 manager: twooley
-Customer intent: I want to create a Standard load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
+Customer intent: I want to create a load balancer by using an Azure Resource Manager template so that I can load balance internet traffic to VMs.
 ms.service: load-balancer
 ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 09/20/2019
+ms.date: 01/27/2020
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 28c4ca59b20fcdd8ab0249392dc0f13cbabf1a97
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 69503968ece5e68b6e4777d72713565158009949
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970628"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76843857"
 ---
-# <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 표준 부하 분산 장치 만들기
+# <a name="quickstart-create-a-load-balancer-to-load-balance-vms-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 VM 부하를 분산하는 Load Balancer 만들기
 
 부하를 분산하면 들어오는 요청이 여러 VM(가상 머신)에 분산되어 가용성 및 확장성이 향상됩니다. 이 빠른 시작에서는 VM 부하를 분산하는 표준 Load Balancer를 만드는 Azure Resource Manager 템플릿을 배포하는 방법을 보여 줍니다. Resource Manager 템플릿을 사용하면 다른 배포 방법과 비교하여 단계가 줄어듭니다.
 
@@ -30,9 +30,9 @@ ms.locfileid: "75970628"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="create-a-standard-load-balancer"></a>표준 부하 분산 장치 만들기
+## <a name="create-a-load-balancer"></a>Load Balancer 만들기
 
-표준 Load Balancer는 표준 공용 IP 주소만 지원합니다. 표준 Load Balancer를 만들 때 표준 Load Balancer의 프런트 엔드로 구성된 새 표준 공용 IP 주소도 만들어야 합니다.
+Load Balancer와 공용 IP SKU는 일치해야 합니다. 표준 Load Balancer를 만들 때 표준 부하 분산 장치의 프런트 엔드로 구성된 새 표준 공용 IP 주소도 만들어야 합니다. 기본 Load Balancer를 만들려는 경우 [이 템플릿](https://azure.microsoft.com/resources/templates/201-2-vms-loadbalancer-natrules/)을 사용합니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 사용할 것을 권장합니다.
 
 이 빠른 시작에 사용되는 템플릿은 [빠른 시작 템플릿](https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-load-balancer-standard-create/azuredeploy.json)입니다.
 

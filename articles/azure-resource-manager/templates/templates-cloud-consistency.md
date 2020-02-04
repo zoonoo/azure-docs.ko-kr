@@ -493,7 +493,7 @@ az vm image list -all
 Get-AzureRmVMImagePublisher -Location "West Europe" | Get-AzureRmVMImageOffer | Get-AzureRmVMImageSku | Get-AzureRmVMImage
 ```
 
-이 명령은 몇 분 후에 전역 Azure 클라우드의 유럽 서부 지역에서 사용 가능한 모든 이미지를 반환합니다.
+이 명령은 몇 분 후에 전역 Azure 클라우드의 서유럽 지역에서 사용 가능한 모든 이미지를 반환합니다.
 
 Azure Stack이 이러한 VM 이미지를 사용할 수 있도록 설정하면 사용 가능한 모든 스토리지가 사용됩니다. 가장 작은 배율 단위까지 수용하기 위해, Azure Stack을 사용하여 환경에 추가할 이미지를 선택할 수 있습니다.
 

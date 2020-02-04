@@ -1,14 +1,14 @@
 ---
-title: Blueprint 샘플 인덱스
+title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 12/05/2019
+ms.date: 01/10/2020
 ms.topic: sample
-ms.openlocfilehash: a0be956037f6b1ee5229ecde7b1491f552113866
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa5f02af6a0e59359d6bc3c2d24515fea535a0fa
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436573"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938304"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -21,6 +21,7 @@ ms.locfileid: "75436573"
 | [캐나다 연방 PBMM](./canada-federal-pbmm/index.md) | Canada Federal Protected B, 중간 무결성, 중간 가용성(PBMM) 규정 준수를 위한 가드레일을 제공합니다. |
 | [CIS Microsoft Azure Foundations 벤치마크](./cis-azure-1.1.0/index.md)| CIS Microsoft Azure Foundations 벤치마크 권장 사항을 준수하는 데 도움이 되는 일련의 정책을 제공합니다. |
 | [FedRAMP Moderate](./fedramp-m/index.md) | FedRAMP Moderate를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
+| [FedRAMP High](./fedramp-h/index.md) | FedRAMP High를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [HIPAA HITRUST](./HIPAA-HITRUST/index.md) | HIPAA HITRUST를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [IRS 1075](./irs-1075/index.md) | IRS 1075 규정을 준수하기 위한 가드 레일을 제공합니다.|
 | [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
@@ -37,12 +38,12 @@ ms.locfileid: "75436573"
 
 ![청사진 샘플 전략](../media/blueprint-samples-strategy.png)
 
-CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레미스 자산/워크로드를 Azure로 마이그레이션하기 위해 기존의 완전한 단일 구독을 준비하는 것으로 가정합니다.
-(위 그림의 지역 A 및 B).  
+CAF Foundation 및 CAF Migrate 방문 영역 청사진은 고객이 온-프레미스 자산과 워크로드를 Azure로 마이그레이션하기 위해 기존의 완전한 단일 구독을 준비하는 것으로 가정합니다.
+(그림의 지역 A 및 B).  
 
 샘플 청사진을 반복하고 고객이 적용하는 사용자 지정의 패턴을 찾을 수 있습니다. 또한 금융 서비스 및 전자 상거래(지역 B의 위쪽 끝)와 같이 업계와 관련된 청사진을 사전에 해결할 수 있습니다. 마찬가지로, 여러 구독, 고가용성, 지역 간 리소스, 그리고 기존 구독 및 리소스(지역 C 및 D)에 대한 제어를 구현하는 고객과 같이 복잡한 아키텍처 고려 사항에 대한 청사진 작성을 계획하고 있습니다.
 
-규정 준수 요구사항이 높고 아키텍처 복잡성이 높은 고객 시나리오를 다루는 샘플 청사진이 있습니다(위 그림의 지역 E). 위의 지역 F는 샘플 청사진을 활용하여 고객 및 파트너의 고유한 요구에 맞게 맞춤화합니다.
+규정 준수 요구사항이 높고 아키텍처 복잡성이 높은 고객 시나리오를 다루는 샘플 청사진이 있습니다(그림의 지역 E). 그림의 지역 F는 샘플 청사진을 활용하여 고객 및 파트너의 고유한 요구에 맞게 맞춤화합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

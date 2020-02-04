@@ -2,14 +2,14 @@
 title: Azure Migrate를 사용하여 Hyper-V VM 평가 및 Azure로 마이그레이션 | Microsoft Docs
 description: Azure Migrate를 사용하여 Azure로 마이그레이션할 온-프레미스 Hyper-V VM을 평가하는 방법을 설명합니다.
 ms.topic: tutorial
-ms.date: 01/01/2020
+ms.date: 01/23/2020
 ms.custom: mvc
-ms.openlocfilehash: f36b0fbae01b25e604222c76d41ac21c0a7ae5a9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: e4c505d74ff3bebc21f696b1c4b894afcdaa9974
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029019"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845524"
 ---
 # <a name="assess-hyper-v-vms-with-azure-migrate-server-assessment"></a>Azure Migrate 서버 평가를 사용하여 Hyper-V VM 평가
 
@@ -138,7 +138,7 @@ Azure Migrate 서버 평가는 경량 Hyper-V VM 어플라이언스를 실행합
 2. **가져오기 유형 선택**에서 **가상 머신 복사(새로운 고유 ID 만들기)** 를 클릭합니다. 그런 후 **Next** 를 클릭합니다.
 3. **대상 선택**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
 4. **스토리지 폴더**에서 기본 설정을 그대로 둡니다. **다음**을 클릭합니다.
-5. **네트워크 선택**에서 VM에서 사용할 가상 스위치를 지정합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다.
+5. **네트워크 선택**에서 VM에서 사용할 가상 스위치를 지정합니다. 이 스위치에는 데이터를 Azure로 보내기 위한 인터넷 연결이 필요합니다. 가상 스위치를 만드는 방법에 대해 [알아봅니다](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-switch-for-hyper-v-virtual-machines).
 6. **요약** 에서 설정을 검토합니다. **마침**을 클릭합니다.
 7. Hyper-V 관리자 > **Virtual Machines**에서 VM을 시작합니다.
 

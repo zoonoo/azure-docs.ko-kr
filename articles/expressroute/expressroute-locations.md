@@ -326,7 +326,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 | **시스템 통합 업체** | **Continent** |
 | --- | --- |
 | **[Altogee](https://altogee.be/diensten/express-route/)** | 유럽 |
-| **[Avanade Inc.](https://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남미 |
+| **[Avanade Inc.](https://www.avanade.com/)** | 아시아, 유럽, 북아메리카, 남아메리카 |
 | **[Bright Skies GmbH](https://bskies.io/expressroute)** | 유럽
 | **[Ensyst](https://www.ensyst.com.au)** | 아시아
 | **[Equinix Professional Services](https://www.equinix.com/services/consulting/)** | 북아메리카 |

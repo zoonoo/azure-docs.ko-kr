@@ -13,33 +13,33 @@ ms.author: garye
 ms.reviewer: davidph
 manager: cgronlun
 ms.date: 04/11/2019
-ms.openlocfilehash: c1719064de53b79a127146d0ab034f461657cc64
-ms.sourcegitcommit: 44a85a2ed288f484cc3cdf71d9b51bc0be64cc33
+ms.openlocfilehash: a54d418f668d8c7292c8332c1b14c4df45e59308
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/28/2019
-ms.locfileid: "64714902"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768456"
 ---
-# <a name="create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습
+# <a name="quickstart-create-and-train-a-predictive-model-in-r-with-azure-sql-database-machine-learning-services-preview"></a>빠른 시작: Azure SQL Database Machine Learning Services(미리 보기)를 사용하여 R에서 예측 모델 만들기 및 학습
 
-이 빠른 시작에서는 R을 사용하여 예측 모델을 만들고 학습시키고, 모델을 SQL 데이터베이스의 테이블에 저장한 다음, 모델을 통해 [Azure SQL Database에서 Machine Learning Services(R 포함)](sql-database-machine-learning-services-overview.md)의 공개 미리 보기를 사용하여 새 데이터의 값을 예측합니다. 
-
-이 빠른 시작에서 사용할 모델은 속도에 따라 자동차의 정지 거리를 예측하는 간단한 회귀 모델입니다. 작고 이해하기 쉬우므로 R에 포함된 **cars** 데이터 세트를 사용합니다.
-
-> [!TIP]
-> R 런타임에는 크고 작은 여러 데이터 세트가 포함되어 있습니다. R과 함께 데이터 세트의 목록을 가져오려면 R 명령 프롬프트에서 `library(help="datasets")`를 입력하세요.
+이 빠른 시작에서는 R을 사용하여 예측 모델을 만들어 학습하고 모델을 데이터베이스의 테이블에 저장한 다음, 모델을 통해 Azure SQL Database의 Machine Learning Services(R 포함)를 사용하여 새 데이터의 값을 예측합니다.
 
 [!INCLUDE[ml-preview-note](../../includes/sql-database-ml-preview-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/).
+- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [서버 수준 방화벽 규칙](sql-database-single-database-get-started.md)이 있는 [Azure SQL 데이터베이스](sql-database-server-level-firewall-rule.md)
+- R이 활성화된 [Machine Learning Services](sql-database-machine-learning-services-overview.md). [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup)하세요.
+- [SSMS(SQL Server Management Studio)](/sql/ssms/sql-server-management-studio-ssms)
 
-- 이러한 연습에서 예제 코드를 실행하려면 먼저 Machine Learning Services(R 포함)를 사용하도록 설정된 Azure SQL 데이터베이스가 있어야 합니다. Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다. [미리 보기에 가입](sql-database-machine-learning-services-overview.md#signup) 단계를 수행하세요.
+> [!NOTE]
+> Microsoft는 공개 미리 보기 기간에는 사용자를 온보딩하고 기존 또는 새 데이터베이스에 기계 학습을 사용하도록 설정합니다.
 
-- 최신 [SSMS(SQL Server Management Studio)](https://docs.microsoft.com/sql/ssms/sql-server-management-studio-ssms)를 설치했는지 확인합니다. 다른 데이터베이스 관리 또는 쿼리 도구를 사용하여 R 스크립트를 실행할 수 있지만 이 빠른 시작에서는 SSMS를 사용합니다.
+이 예제에서는 간단한 회귀 모델을 통해 R에 포함된 **자동차** 데이터 세트를 사용하여 속도를 기준으로 자동차의 정지 거리를 예측합니다.
 
-- 이 빠른 시작을 수행하려면 서버 수준 방화벽 규칙을 구성해야 합니다. 이 작업을 수행하는 방법에 대한 자세한 내용은 [서버 수준 방화벽 규칙 만들기](sql-database-server-level-firewall-rule.md)를 참조하세요.
+> [!TIP]
+> R 런타임에는 여러 데이터 세트가 포함되어 있으며 설치된 데이터 세트의 목록을 가져오려면 R 명령 프롬프트에서 `library(help="datasets")`를 입력합니다.
 
 ## <a name="create-and-train-a-predictive-model"></a>예측 모델 만들기 및 학습
 
@@ -50,7 +50,7 @@ ms.locfileid: "64714902"
 - 모델을 교육하는 데 사용할 입력 데이터를 제공합니다.
 
 > [!TIP]
-> 선형 모델에 리프레셔가 필요하면 rxLinMod를 사용하여 모델을 적절하게 조정하는 프로세스를 설명하는 [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
+> 선형 모델에 리프레셔가 필요한 경우 rxLinMod를 사용하여 모델을 맞추는 프로세스를 설명하는 다음 자습서를 참조하세요. [선형 모델 맞춤](https://docs.microsoft.com/machine-learning-server/r/how-to-revoscaler-linear-model) 자습서를 권장합니다.
 
 다음 단계에서는 학습 데이터를 설정하고, 회귀 모델을 만들고, 학습 데이터를 사용하여 모델을 학습시킨 다음, 모델을 SQL 테이블에 저장합니다.
 
@@ -173,9 +173,9 @@ VALUES (
 
 ![추가 출력이 있는 학습된 모델](./media/sql-database-quickstart-r-train-score-model/r-train-model-with-additional-output.png)
 
-## <a name="score-new-data-using-the-trained-model"></a>학습된 모델을 사용하여 새 데이터 점수 매기기
+## <a name="score-new-data-using-the-trained-model"></a>학습된 모델을 사용하여 새 데이터 채점
 
-*채점*은 데이터 과학에서 학습된 모델에 제공되는 새 데이터를 기반으로 하여 예측, 확률 또는 다른 값을 생성한다는 의미로 사용되는 용어입니다. 이전 섹션에서 만든 모델을 사용하여 새 데이터에 대한 예측을 채점합니다.
+*채점*이란 데이터 과학에서 사용되는 용어로, 학습된 모델에 공급되는 새로운 데이터를 기반으로 예측, 확률 또는 기타 값을 생성하는 것을 의미합니다. 이전 섹션에서 만든 모델을 사용하여 새 데이터에 대 한 예측 점수를 계산합니다.
 
 원래 교육 데이터가 시속 25마일의 속도에서 정지하는 것을 보셨나요? 원래 데이터가 1920년의 실험을 기반으로 하기 때문입니다. 1920년대의 자동차가 60mph 속도로 달리거나 심지어 100mph 속도로 빠르게 달릴 수 있으면 정지 거리는 얼마나 될까요? 이 질문에 답하기 위해 새로운 몇 가지 속도 값을 모델에 제공할 수 있습니다.
 
@@ -244,7 +244,7 @@ VALUES (
 > [!NOTE]
 > 이 예제 스크립트에서는 R에서 반환되는 데이터의 스키마를 확인하기 위해 `str` 함수가 테스트 단계에서 추가됩니다. 이 명령문은 나중에 제거할 수 있습니다.
 >
-> R 스크립트에 사용되는 열 이름이 반드시 저장 프로시저 출력에 전달되는 것은 아닙니다. 여기서는 WITH RESULTS 절에서 새로운 몇 가지 열 이름을 정의합니다.
+> R 스크립트에 사용된 열 이름이 저장 프로시저 출력에 반드시 전달되는 것은 아닙니다. 여기서는 WITH RESULTS 절에서 새로운 몇 가지 열 이름을 정의합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

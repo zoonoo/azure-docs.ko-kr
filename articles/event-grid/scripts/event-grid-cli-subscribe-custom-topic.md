@@ -1,22 +1,22 @@
 ---
 title: Azure CLI 스크립트 샘플 - 사용자 지정 항목 구독 | Microsoft Docs
-description: Azure CLI 스크립트 샘플 - 사용자 지정 항목 구독
+description: 이 문서에서는 사용자 지정 항목에 대한 Event Grid 이벤트를 구독하는 방법을 보여주는 샘플 Azure CLI 스크립트를 제공합니다.
 services: event-grid
 documentationcenter: na
-author: tfitzmac
+author: spelluru
 ms.service: event-grid
 ms.devlang: azurecli
 ms.topic: sample
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/02/2018
-ms.author: tomfitz
-ms.openlocfilehash: a46c348533468ad037ac092037cb34def2b0405c
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.date: 01/23/2020
+ms.author: spelluru
+ms.openlocfilehash: 9d82a5c3d9723c26d5a98bb2f0c92a6739ffee25
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580361"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720132"
 ---
 # <a name="subscribe-to-events-for-a-custom-topic-with-azure-cli"></a>Azure CLI를 사용하여 사용자 지정 항목에 대한 이벤트 구독
 

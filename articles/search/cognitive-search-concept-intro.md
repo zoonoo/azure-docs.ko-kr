@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: 2ef7f273d6838b1bc051c70539ef7d9da59d7148
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754571"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76838006"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
 AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Cognitive Search 인덱싱 기능이며, 인덱스 또는 지식 저장소에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다.  서비스에서 기본 제공되는 인식 기술은 다음 범주로 구분됩니다. 
 
-+ **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 감지](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작 및 [감성 인식](cognitive-search-skill-sentiment.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
++ **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 검색](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작, [감정 검색](cognitive-search-skill-sentiment.md) 및 [PII 검색](cognitive-search-skill-pii-detection.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
 
 + **이미지 처리** 기술에는 [OCR(광학 인식)](cognitive-search-skill-ocr.md)을 비롯하여 얼굴 감지, 이미지 해석, 이미지 인식(유명한 사람 및 랜드마크) 또는 색상이나 이미지 방향과 같은 특성 등의 [시각적 특징](cognitive-search-skill-image-analysis.md) 식별이 포함됩니다. Azure Cognitive Search의 모든 쿼리 기능을 사용하여 검색 가능한 이미지 콘텐츠의 텍스트 표현을 만들 수 있습니다.
 
@@ -109,7 +109,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 | 인지 기술 | 보강 파이프라인의 원자성 변환입니다. 대개, 구조를 추출하거나 유추하는 구성 요소이므로 입력 데이터에 대한 이해를 높여줍니다. 거의 항상 출력은 텍스트 기반이며 처리는 자연어 처리이거나 이미지 입력으로부터 텍스트를 추출하거나 생성하는 이미지 처리입니다. 기술을 통한 출력은 인덱스의 필드로 매핑되거나 다운스트림 보강을 위한 입력으로 사용될 수 있습니다. 기술은 Microsoft가 미리 정의해서 제공하거나 사용자가 지정하여 생성하고 배포합니다. | [기본 제공 인지 기술](cognitive-search-predefined-skills.md) |
 | 데이터 추출 | 광범위한 처리를 다루지만, AI 보강과 관련하여 엔터티 인식 기술은 해당 정보를 기본적으로 제공하지 않는 원본에서 데이터(엔터티)를 추출하는 데 일반적으로 사용됩니다. | [엔터티 인식 기술](cognitive-search-skill-entity-recognition.md) 및 [문서 추출 기술(미리 보기)](cognitive-search-skill-document-extraction.md)을 참조하세요.| 
 | 이미지 처리 | 이정표를 인식하는 기능, 이미지에서 텍스트를 추출하는 기능처럼 이미지의 텍스트를 유추합니다. 일반적인 예에는 스캔한 문서(JPEG) 파일에서 문자를 인식하거나 도로 표지판이 포함된 사진에서 거리 이름을 인식하는 OCR이 있습니다. | [이미지 분석 기술](cognitive-search-skill-image-analysis.md) 또는 [OCR 기술](cognitive-search-skill-ocr.md)을 참조하세요.
-| 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [텍스트 번역 기술](cognitive-search-skill-text-translation.md), [감정 분석 기술](cognitive-search-skill-sentiment.md)을 참조하세요. |
+| 자연어 처리 | 입력 텍스트에 대한 정보 및 인사이트를 위한 텍스트 처리입니다. 언어 감지, 감정 분석 및 핵심 구 추출은 자연어 처리에 해당하는 기술입니다.  | [핵심 구 추출 기술](cognitive-search-skill-keyphrases.md), [언어 감지 기술](cognitive-search-skill-language-detection.md), [텍스트 번역 기술](cognitive-search-skill-text-translation.md), [감정 분석 기술](cognitive-search-skill-sentiment.md), [PII 검색 기술(미리 보기)](cognitive-search-skill-pii-detection.md)을 참조하세요. |
 | 문서 크래킹 | 인덱싱 중에 텍스트가 아닌 원본에서 텍스트 콘텐츠를 추출하거나 만드는 프로세스입니다. OCR(광학 문자 인식)은 하나의 예이며, 일반적으로 인덱서가 애플리케이션 파일에서 콘텐츠를 추출하는 핵심 인덱서 기능을 말합니다. 원본 파일 위치를 제공하는 데이터 원본과 필드 매핑을 제공하는 인덱서 정의는 문서 크래킹의 핵심 요소입니다. | [인덱서 개요](search-indexer-overview.md)를 참조하세요. |
 | 셰이핑 | 추가적인 다운스트림 처리를 위해 텍스트 조각을 더 큰 구조에 통합하거나 반대로 큰 텍스트 청크를 처리할 수 있는 크기로 분해합니다. | [쉐이퍼 기술](cognitive-search-skill-shaper.md), [텍스트 병합기 기술](cognitive-search-skill-textmerger.md), [텍스트 분할 기술](cognitive-search-skill-textsplit.md)을 참조하세요. |
 | 보강된 문서 | 검색 인덱스에 반영된 최종 출력을 사용하여 처리하는 동안 생성된 일시적인 내부 구조입니다. 기술 세트는 어떤 보강이 수행되는지 결정합니다. 필드 매핑은 인덱스에 추가할 데이터 요소를 결정합니다. 선택적으로, Storage Explorer, Power BI 또는 Azure Blob Storage에 연결되는 다른 도구를 사용하여 보강된 문서를 유지하고 살펴보기 위한 기술 저장소를 만들 수 있습니다. | [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)를 참조하세요. |

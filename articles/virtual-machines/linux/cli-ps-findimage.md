@@ -112,7 +112,7 @@ Debian             credativ     8                    credativ:Debian:8:8.0.20190
 
 `--location` 옵션을 사용하여 특정 위치를 지정하지 않으면 기본 위치 값이 반환됩니다. (`az configure --defaults location=<location>`을 실행하여 다른 기본 위치를 설정합니다.)
 
-예를 들어 다음 명령은 유럽 서부 지역의 모든 Debian 8 SKU를 나열합니다.
+예를 들어 다음 명령은 서유럽 지역의 모든 Debian 8 SKU를 나열합니다.
 
 ```azurecli
 az vm image list --location westeurope --offer Deb --publisher credativ --sku 8 --all --output table

@@ -160,7 +160,7 @@ Azure Cache for Redis 가격은 [여기](https://azure.microsoft.com/pricing/det
 | 클라우드   | Redis에 대한 Dns 접미사            |
 |---------|---------------------------------|
 | 공용  | *.redis.cache.windows.net       |
-| 미국 정부  | *.redis.cache.usgovcloudapi.net |
+| US Gov  | *.redis.cache.usgovcloudapi.net |
 | 독일 | *.redis.cache.cloudapi.de       |
 | 중국   | *.redis.cache.chinacloudapi.cn  |
 

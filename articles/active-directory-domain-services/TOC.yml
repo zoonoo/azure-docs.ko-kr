@@ -79,6 +79,8 @@
           href: delete-aadds.md
         - name: 클래식 배포에서 마이그레이션(미리 보기)
           href: migrate-from-classic-vnet.md
+        - name: SKU 변경
+          href: change-sku.md
     - name: Azure AD DS 보안
       items:
         - name: 관리되는 도메인 보호

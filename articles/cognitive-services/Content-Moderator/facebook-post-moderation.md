@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: content-moderator
 ms.topic: tutorial
-ms.date: 10/24/2019
+ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 5aa4cc24484a4ba1da608da9676ade492db35b6c
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 9f25c845302d62e3bc9e230b4a6f8f2669f4ac35
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72936001"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76774277"
 ---
 # <a name="tutorial-moderate-facebook-posts-and-commands-with-azure-content-moderator"></a>자습서: Azure Content Moderator를 사용하여 Facebook 게시물 및 의견 조정
 
@@ -35,9 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 !["FBListener"를 통해 Facebook에서 정보를 수신하고 "CMListener"를 통해 정보를 전송하는 Content Moderator 다이어그램](images/tutorial-facebook-moderation.png)
 
 > [!IMPORTANT]
-> 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사를 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
+> 2018년에 Facebook은 Facebook 앱에 대해 보다 엄격한 심사 정책을 구현했습니다. Facebook 검토 팀에서 앱을 검토하고 승인하지 않으면 이 자습서의 단계를 완료할 수 없습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Content Moderator 구독 키. [Cognitive Services 계정 만들기](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)의 지침에 따라 Content Moderator 서비스를 구독하고 키를 가져옵니다.
 - [Facebook 계정](https://www.facebook.com/)

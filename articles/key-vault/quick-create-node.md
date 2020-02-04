@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: e36e3ae9ce2e8ca116921de428b4dcc09b37afb6
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: a59ba62df546c60c4086829eec355d3e69b69363
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978580"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76773730"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-nodejs-v4"></a>빠른 시작: Node.js용 Azure Key Vault 클라이언트 라이브러리(v4)
 
@@ -22,12 +22,12 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - 키 및 암호에 대한 보안과 제어를 강화합니다.
 - 몇 분 안에 암호화 키를 만들고 가져옵니다.
 - 클라우드 규모와 글로벌 중복성을 통해 대기 시간을 줄입니다.
-- SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
+- TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
 [API 참조 설명서](/javascript/api/overview/azure/key-vault?view=azure-node-latest) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-js/tree/master/sdk/keyvault) | [패키지(npm)](https://www.npmjs.com/package/@azure/keyvault-secrets)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 - 현재 운영 체제의 [Node.js](https://nodejs.org)입니다.
@@ -198,7 +198,7 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 ```javascript
 const { DefaultAzureCredential } = require("@azure/identity");
@@ -259,7 +259,7 @@ main()
 
 이 빠른 시작에서는 키 자격 증명 모음을 만들고, 비밀을 저장하고, 해당 비밀을 검색했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault 개요](key-vault-overview.md) 읽기
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
 - [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
 - [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

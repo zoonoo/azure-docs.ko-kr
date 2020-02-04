@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: overview
-ms.date: 01/21/2020
+ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 318997e2ebd7a423d7793a75575617d06ab842ac
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514275"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772777"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -99,13 +99,15 @@ Windows Virtual Desktop용으로 생성한 Azure 가상 머신에는 다음 URL�
 |kms.core.windows.net|TCP 포트 1688|Windows 10 정품 인증|
 
 >[!IMPORTANT]
->이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure AD와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
+>이러한 URL을 여는 것은 신뢰할 수 있는 Windows Virtual Desktop 배포에 필수적입니다. 이러한 URL에 대한 액세스를 차단하는 것은 지원되지 않으며 서비스 기능에 영향을 줍니다. 이러한 URL은 Windows Virtual Desktop 사이트 및 리소스에만 해당하고 Azure Active Directory와 같은 다른 서비스에 대한 URL은 포함하지 않습니다.
 
 >[!NOTE]
+>Windows Virtual Desktop에는 현재 네트워크 트래픽을 허용하도록 허용 목록화할 수 있는 IP 주소 범위 목록이 없습니다. 현재 특정 URL의 허용 목록만 지원합니다.
+>
 >서비스 트래픽과 관련된 URL에는 와일드카드 문자(*)를 사용해야 합니다. 에이전트 관련 트래픽에 *를 사용하지 않으려는 경우 와일드 카드 없이 URL을 찾는 방법은 다음과 같습니다.
 >
 >1. Windows Virtual Desktop 호스트 풀에 가상 머신을 등록합니다.
->2. **이벤트 뷰어**를 열고 **Windows** > **애플리케이션 로그**로 이동하여 이벤트 ID 3702를 찾습니다.
+>2. **이벤트 뷰어**를 열고 **Windows 로그** > **애플리케이션** > **WVD-Agent**로 이동하여 이벤트 ID 3702를 찾습니다.
 >3. 이벤트 ID 3702 아래에 있는 URL을 허용 목록으로 지정합니다. 이벤트 ID 3702 아래의 URL은 지역별로 다릅니다. 가상 머신을 배포하려는 각 지역에 대한 관련 URL을 사용하여 허용 목록 프로세스를 반복해야 합니다.
 
 Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스크톱과 앱, 그리고 Microsoft가 Azure에 서비스로 호스팅하는 관리 솔루션으로 구성됩니다. 데스크톱과 앱을 모든 Azure 지역의 VM(가상 머신)에 배포할 수 있으며, 이러한 VM의 관리 솔루션과 데이터는 미국에 상주합니다. 따라서 미국으로 데이터가 전송될 수 있습니다.
@@ -137,7 +139,7 @@ Windows Virtual Desktop은 다음 x64 운영 체제 이미지를 지원합니다
 * Windows Server 2016
 * Windows Server 2012 R2
 
-Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다.
+Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows 10 Enterprise KN 운영 체제 이미지를 지원하지 않습니다. 또한 Windows 7은 섹터 크기 제한으로 인해 관리되는 Azure Storage에서 호스팅되는 VHD 또는 VHDX 기반 프로필 솔루션을 지원하지 않습니다.
 
 사용 가능한 자동화 및 배포 옵션은 다음 표에 나와 있는 것처럼 사용자가 선택한 OS 및 버전에 따라 달라집니다. 
 

@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 10/17/2019
+ms.date: 01/23/2020
 ms.author: juliako
-ms.openlocfilehash: 05a515d5f74569ff8d0fa8aec68eb681dc79d2fc
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 3984f33cd97ada9b3d5301e45fe3506966880848
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779606"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76719673"
 ---
 # <a name="dynamic-packaging-in-media-services-v3"></a>Media Services v3의 동적 패키징
 
@@ -29,18 +29,7 @@ Media Services에서 [스트리밍 엔드포인트](streaming-endpoint-concept.m
 
 ## <a name="a-iddelivery-protocolsto-prepare-your-source-files-for-delivery"></a><a id="delivery-protocols"/>전송할 원본 파일 준비
 
-동적 패키징을 활용하려면 mezzanine(원본) 파일을 여러 개의 비트 전송률 MP4(ISO 기본 미디어 14496-12) 파일 세트로 [인코딩](encoding-concept.md)해야 합니다. Media Services 동적 패키징에 필요한 인코딩된 MP4 및 스트리밍 구성 파일이 포함된 [자산](assets-concept.md)이 있어야 합니다. 이 MP4 파일 세트에서 동적 패키징을 사용하여 다음 스트리밍 미디어 프로토콜을 통해 동영상을 전송할 수 있습니다.
-
-|프로토콜|예제|
-|---|---|
-|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`|
-|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`|
-|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`|
-|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` |
-|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` |
-|부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`|
-
-Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경우 [스트리밍 프로토콜 및 암호화 유형](content-protection-overview.md#streaming-protocols-and-encryption-types)을 참조하세요.
+동적 패키징을 활용하려면 mezzanine(원본) 파일을 여러 개의 비트 전송률 MP4(ISO 기본 미디어 14496-12) 파일 세트로 [인코딩](encoding-concept.md)해야 합니다. Media Services 동적 패키징에 필요한 인코딩된 MP4 및 스트리밍 구성 파일이 포함된 [자산](assets-concept.md)이 있어야 합니다. 이 MP4 파일 세트에서 동적 패키징을 사용하여 아래에 설명된 스트리밍 미디어 프로토콜을 통해 비디오를 전송할 수 있습니다.
 
 > [!TIP]
 > MP4 및 스트리밍 구성 파일을 가져오는 한 가지 방법은 [Media Services를 사용하여 mezzanine 파일을 인코딩](#encode-to-adaptive-bitrate-mp4s)하는 것입니다. 
@@ -48,6 +37,36 @@ Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경
 인코딩된 자산의 비디오를 클라이언트에서 재생할 수 있게 하려면 [스트리밍 로케이터](streaming-locators-concept.md)를 만들고 스트리밍 URL을 작성해야 합니다. 그런 다음, 스트리밍 클라이언트 매니페스트에 지정된 형식에 따라(HLS, MPEG DASH 또는 부드러운 스트리밍) 선택한 프로토콜로 스트림을 받게 됩니다.
 
 따라서 사용자는 단일 스토리지 형식으로 파일을 저장하고 해당 파일에 대한 요금을 지불하기만 하면 되며, Media Services 서비스에서 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다.
+
+Media Services 동적 암호화를 사용하여 콘텐츠를 보호하려는 경우 [스트리밍 프로토콜 및 암호화 유형](content-protection-overview.md#streaming-protocols-and-encryption-types)을 참조하세요.
+
+### <a name="hls-protocol"></a>HLS 프로토콜
+
+스트리밍 클라이언트는 다음과 같은 HLS 형식을 지정할 수 있습니다.
+
+|프로토콜|예제|
+|---|---|
+|HLS V4 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl)`||
+|HLS V3 |`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-aapl-v3)`||
+|HLS CMAF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=m3u8-cmaf)`||
+
+### <a name="mpeg-dash-protocol"></a>MPEG-DASH 프로토콜
+
+스트리밍 클라이언트는 다음과 같은 MPEG-DASH 형식을 지정할 수 있습니다.
+
+|프로토콜|예제|
+|---|---|
+|MPEG-DASH CSF| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-csf)` ||
+|MPEG-DASH CMAF|`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=mpd-time-cmaf)` ||
+
+### <a name="smooth-streaming-protocol"></a>부드러운 스트리밍 프로토콜
+
+스트리밍 클라이언트는 다음과 같은 부드러운 스트리밍 형식을 지정할 수 있습니다.
+
+|프로토콜|참고/예제| 
+|---|---|
+|부드러운 스트리밍| `https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest`||
+|부드러운 스트리밍 2.0(레거시 매니페스트)|기본적으로 부드러운 스트리밍 매니페스트 형식에는 반복 태그(r 태그)가 포함됩니다. 그러나 일부 플레이어는 `r-tag`를 지원하지 않습니다. 이러한 플레이어를 사용하는 클라이언트는 r 태그를 사용하지 않도록 설정하는 형식을 사용할 수 있습니다.<br/><br/>`https://amsv3account-usw22.streaming.media.azure.net/21b17732-0112-4d76-b526-763dcd843449/ignite.ism/manifest(format=fmp4-v20)`|
 
 ## <a name="on-demand-streaming-workflow"></a>주문형 스트리밍 워크플로
 

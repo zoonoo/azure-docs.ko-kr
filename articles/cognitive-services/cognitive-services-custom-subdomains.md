@@ -84,7 +84,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 | | 한국 중부 | `https://koreacentral.api.cognitive.microsoft.com` |
 | | 미국 중북부 | `https://northcentralus.api.cognitive.microsoft.com` |
 | | 북유럽 | `https://northeurope.api.cognitive.microsoft.com` |
-| | 남아프리카 공화국 북부 | `https://southafricanorth.api.cognitive.microsoft.com` |
+| | 남아프리카 북부 | `https://southafricanorth.api.cognitive.microsoft.com` |
 | | 미국 중남부 | `https://southcentralus.api.cognitive.microsoft.com` |
 | | 동남아시아 | `https://southeastasia.api.cognitive.microsoft.com` |
 | | 영국 남부 | `https://uksouth.api.cognitive.microsoft.com` |
@@ -92,7 +92,7 @@ Azure Cognitive Services [Azure Portal](https://portal.azure.com), [Azure Cloud 
 | | 서유럽 | `https://westeurope.api.cognitive.microsoft.com` |
 | | 미국 서부 | `https://westus.api.cognitive.microsoft.com` |
 | | 미국 서부 2 | `https://westus2.api.cognitive.microsoft.com` |
-| 미국 정부 | 미국 정부 버지니아 | `https://virginia.api.cognitive.microsoft.us` |
+| US Gov | US Gov 버지니아 | `https://virginia.api.cognitive.microsoft.us` |
 | 중국 | 중국 동부 2 | `https://chinaeast2.api.cognitive.azure.cn` |
 | | 중국 북부 | `https://chinanorth.api.cognitive.azure.cn` |
 

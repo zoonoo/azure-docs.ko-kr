@@ -1,9 +1,9 @@
-- name: CloudSimple의 VMware 솔루션
+- name: VMware Solution by CloudSimple
   href: /azure/vmware-cloudsimple
   items:
     - name: 개요
       items:
-        - name: CloudSimple의 VMware 솔루션이란?
+        - name: VMware Solution by CloudSimple이란?
           href: cloudsimple-vmware-solutions-overview.md
         - name: 관리를 위한 주요 개념
           href: key-concepts.md
@@ -136,6 +136,8 @@
               href: on-premises-dns-setup.md
             - name: 고가용성 사이트 간 VPN 연결 구성
               href: high-availability-vpn-connection.md
+            - name: 온-프레미스에 대한 프라이빗 클라우드 DNS 구성
+              href: private-cloud-dns-forwarding.md
         - name: VMware 플랫폼
           items:
             - name: 프라이빗 클라우드 권한 모델 알아보기

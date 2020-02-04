@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 01/02/2019
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: fbda2f645308e30a6f408335b7a1b37095522921
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 5082ed06b4ce5baf3869fc035654be3c7a45f29f
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003309"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845296"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-net"></a>자습서: .NET에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -37,7 +37,7 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 
 Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
@@ -181,10 +181,11 @@ using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 ```
 
-다음 2단계 프로세스에 따라, 클래스 파일을 편집하여 코드를 포함합니다.
+다음 3단계 프로세스에 따라 클래스 파일을 편집하여 코드를 포함합니다.
 
 1. VM의 로컬 MSI 엔드포인트에서 토큰을 페치합니다. 이렇게 하면 Azure AD에서 토큰도 페치됩니다.
-1. 토큰을 Key Vault에 전달하고 비밀을 페치합니다. 
+2. 토큰을 Key Vault에 전달하고 비밀을 페치합니다. 
+3. 자격 증명 모음 이름 및 비밀 이름을 요청에 추가합니다.
 
 ```csharp
  class Program
@@ -205,9 +206,10 @@ using Newtonsoft.Json.Linq;
             WebResponse response = request.GetResponse();
             return ParseWebResponse(response, "access_token");
         }
-
+        
         static string FetchSecretValueFromKeyVault(string token)
         {
+            //Step 3: Add the vault name and secret name to the request.
             WebRequest kvRequest = WebRequest.Create("https://<YourVaultName>.vault.azure.net/secrets/<YourSecretName>?api-version=2016-10-01");
             kvRequest.Headers.Add("Authorization", "Bearer "+  token);
             WebResponse kvResponse = kvRequest.GetResponse();

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: quickstart
 ms.date: 11/04/2019
-ms.openlocfilehash: cf0332909e053a0875d41a00d15f196b193ba15e
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466721"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76837793"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -25,7 +25,7 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 + [Azure Cognitive Search의 AI 소개](cognitive-search-concept-intro.md)
 + [빠른 시작: Azure Portal에서 인지 기술 세트 만들기](cognitive-search-quickstart-blob.md)
 + [자습서: AI를 사용하는 보강 인덱싱](cognitive-search-tutorial-blob.md)
-+ [예제: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [예: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>방법 가이드
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)
@@ -36,13 +36,14 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 + [사용자 정의 기술 인터페이스를 정의하는 방법](cognitive-search-custom-skill-interface.md)
 + [문제 해결 팁](cognitive-search-concept-troubleshooting.md)
 
-## <a name="reference"></a>참고 자료
+## <a name="reference"></a>참조
 
 + [기본 제공 기술](cognitive-search-predefined-skills.md)
   + [Microsoft.Skills.Text.KeyPhraseExtractionSkill](cognitive-search-skill-keyphrases.md)
   + [Microsoft.Skills.Text.LanguageDetectionSkill](cognitive-search-skill-language-detection.md)
   + [Microsoft.Skills.Text.EntityRecognitionSkill](cognitive-search-skill-entity-recognition.md)
   + [Microsoft.Skills.Text.MergeSkill](cognitive-search-skill-textmerger.md)
+  + [Microsoft.Skills.Text.PIIDetectionSkill](cognitive-search-skill-pii-detection.md)
   + [Microsoft.Skills.Text.SplitSkill](cognitive-search-skill-textsplit.md)
   + [Microsoft.Skills.Text.SentimentSkill](cognitive-search-skill-sentiment.md)
   + [Microsoft.Skills.Text.TranslationSkill](cognitive-search-skill-text-translation.md)

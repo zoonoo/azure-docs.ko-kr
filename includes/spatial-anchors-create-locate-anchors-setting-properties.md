@@ -1,11 +1,11 @@
 ---
-ms.openlocfilehash: db88a166cd59e96b459f8d4dcaa6a6d2b8c4ff99
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 5835e4c29fde280bcd00422ff71d28526a7f0f95
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181915"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694519"
 ---
 ## <a name="set-properties"></a>속성 설정
 
-에 클라우드 앵커를 저장할 때 일부 속성을 추가할 수 있습니다. 개체의 형식 같은 상호 작용에 사용 되는지 여부 등의 속성으로 저장 또는 기본 되 고 있습니다. 이렇게 검색 시 유용할 수 있습니다: 예를 들어 그림 프레임 빈 콘텐츠를 사용 하 여 사용자에 대 한 개체를 즉시 렌더링할 수 있습니다. 그런 다음 백그라운드에서 서로 다른 다운로드 프레임에 표시할 그림 예를 들어 추가 상태 정보를 가져옵니다.
+클라우드 공간 앵커를 저장할 때 몇 가지 속성을 추가하도록 선택할 수 있습니다. 저장되는 개체의 형식이나 상호 작용에 대해 활성화해야 하는지 여부와 같은 기본 속성입니다. 이렇게 하면 검색 시 유용할 수 있습니다. 예를 들어 빈 콘텐츠가 있는 그림 프레임과 같이 사용자에 대한 개체를 즉시 렌더링할 수 있습니다. 그런 다음, 백그라운드에서 다른 다운로드를 하면 추가 상태 세부 정보(예: 프레임에 표시할 그림)가 표시됩니다.

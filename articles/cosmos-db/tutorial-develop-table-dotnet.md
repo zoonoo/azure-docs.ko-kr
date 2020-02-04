@@ -1,19 +1,19 @@
 ---
 title: .NET Standard SDK를 사용하는 Azure Cosmos DB Table API
 description: Azure Cosmos DB Table API 계정에서 구조화된 데이터를 저장하고 쿼리하는 방법 알아보기
-author: wmengmsft
-ms.author: wmeng
+author: sakash279
+ms.author: akshanka
 ms.service: cosmos-db
 ms.subservice: cosmosdb-table
 ms.devlang: dotnet
 ms.topic: sample
 ms.date: 12/03/2019
-ms.openlocfilehash: b3497df8acdb2e7d184dba54e93506146d842348
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: f4d6e1bb0d5db0dbfc30e14abc58321bce8d0baf
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314388"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76770717"
 ---
 # <a name="get-started-with-azure-cosmos-db-table-api-and-azure-table-storage-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB Table API 및 Azure Table Storage 시작
 
@@ -178,6 +178,12 @@ public static async Task<CloudTable> CreateTableAsync(string tableName)
     Console.WriteLine();
     return table;
 }
+```
+
+"503 서비스를 사용할 수 없는 예외" 오류가 발생하면 연결 모드에 필요한 포트가 방화벽에 의해 차단되었을 수 있습니다. 이 문제를 해결하려면 다음 코드와 같이 필요한 포트를 열거나 게이트웨이 모드 연결을 사용합니다.
+
+```csharp
+tableClient.TableClientConfiguration.UseRestExecutorForCosmosEndpoint = true;
 ```
 
 ## <a name="define-the-entity"></a>엔터티 정의 

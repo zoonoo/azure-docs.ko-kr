@@ -184,7 +184,7 @@ Azure Monitor에 대한 결과 메트릭 게시는 다음과 같습니다.
 |영국 남부 | https:\//uksouth.monitoring.azure.com
 |프랑스 중부 | https:\//francecentral.monitoring.azure.com |
 | **아프리카** | |
-|남아프리카 공화국 북부 | https:\//southafricanorth.monitoring.azure.com
+|남아프리카 북부 | https:\//southafricanorth.monitoring.azure.com
 | **아시아** | |
 |인도 중부 | https:\//centralindia.monitoring.azure.com
 |오스트레일리아 동부 | https:\//australiaeast.monitoring.azure.com

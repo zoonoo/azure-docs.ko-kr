@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: f45859370ae178fb186399fdd2648bf37f0985aa
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910915"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76844754"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
-Azure Maps는 기본적으로 Azure에 통합된 지리 공간적 서비스 API의 포트폴리오입니다. 이러한 API를 통해 개발자, 엔터프라이즈 및 ISV에서 위치 인식 앱 및 IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있습니다. 
+Azure Maps는 기본적으로 Azure에 통합된 지리 공간적 서비스 API의 포트폴리오입니다. 이러한 API를 통해 개발자, 엔터프라이즈 및 ISV는 위치 인식 앱, IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있습니다. 
 
 Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 공간적 데이터 분석 및 기계 학습 시나리오를 사용할 수 있습니다. Azure Maps는 사용자가 여러 데이터 포인트 간의 경로를 계산할 수 있는 강력한 [라우팅 API](https://docs.microsoft.com/rest/api/maps/route) 세트를 제공합니다. 계산은 차량 유형 또는 도달 가능한 영역과 같은 다양한 조건을 기반으로 합니다. 
 
-이 자습서에서는 전기 차량의 배터리 충전량이 부족한 운전자가 차량 위치에서의 주행 시간을 기준으로 가장 가까운 충전소를 찾는 데 도움이 되는 시나리오를 안내합니다.
+이 자습서에서는 전기 차량 배터리가 부족한 드라이버를 지원합니다. 드라이버는 차량 위치에서 가능한 가장 가까운 충전소를 찾아야 합니다.
 
 이 자습서에서는 다음을 수행합니다.
 
@@ -39,7 +39,7 @@ Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 �
 
 이 자습서를 완료하려면 먼저 Azure Maps 계정을 만들고 기본 키(구독 키)를 가져와야 합니다. 
 
-S1 가격 책정 계층에서 Azure Maps 계정 구독을 만들려면 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침에 따라 S1 가격 계층을 사용하여 Azure Maps 계정 구독을 만듭니다. 
+Azure Maps 계정 구독을 만들려면 [계정 만들기](quick-demo-map-app.md#create-an-account-with-azure-maps)의 지침을 따릅니다. S1 가격 책정 계층을 사용하는 Azure Maps 계정 구독이 필요합니다. 
 
 계정에 대한 기본 구독 키를 가져오려면 [기본 키 가져오기](quick-demo-map-app.md#get-the-primary-key-for-your-account)의 지침을 따릅니다.
 
@@ -47,7 +47,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 ## <a name="create-an-azure-notebook"></a>Azure Notebook 만들기
 
-이 자습서를 수행하려면 Azure Notebook 프로젝트를 만들고 Jupyter Notebook 파일을 다운로드하여 실행해야 합니다. Notebook 파일에는 이 자습서의 시나리오를 구현하는 Python 코드가 포함되어 있습니다. Azure Notebook 프로젝트를 만들고 Jupyter Notebook 문서를 이 프로젝트에 업로드하려면 다음을 수행합니다.
+이 자습서를 수행하려면 Azure Notebook 프로젝트를 만들고 Jupyter Notebook 파일을 다운로드하여 실행해야 합니다. Notebook 파일에는 이 자습서의 시나리오를 구현하는 Python 코드가 포함되어 있습니다. Azure Notebook 프로젝트를 만들고 Jupyter Notebook 문서를 이 프로젝트에 업로드하려면 다음 단계를 수행합니다.
 
 1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작: 로그인 및 사용자 ID 설정](https://docs.microsoft.com/azure/notebooks/quickstart-sign-in-azure-notebooks)을 참조하세요.
 1. 퍼블릭 프로필 페이지의 위쪽에서 **내 프로젝트**를 선택합니다.
@@ -64,7 +64,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 1. **만들기**를 선택합니다.
 
-1. 프로젝트가 만들어지면 [Azure Maps Jupyter Notebook 리포지토리](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)에서 [Jupyter Notebook 문서 파일](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb)을 다운로드합니다. 
+1. 프로젝트가 생성된 후 [Azure Maps Jupyter Notebook 리포지토리](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)에서 이 [Jupyter Notebook 문서 파일](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/EVrouting.ipynb)을 다운로드합니다.
 
 1. **내 프로젝트** 페이지의 프로젝트 목록에서 프로젝트를 선택한 다음, **업로드**를 선택하여 Jupyter Notebook 문서 파일을 업로드합니다. 
 
@@ -72,15 +72,15 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 1. 컴퓨터에서 파일을 업로드한 다음, **완료**를 선택합니다.
 
-1. 업로드가 성공적으로 완료되면, 프로젝트 페이지에 파일이 표시됩니다. 파일을 선택하여 Jupyter Notebook으로 엽니다.
+1. 업로드가 성공적으로 완료되면, 프로젝트 페이지에 파일이 표시됩니다. 파일을 두 번 클릭하여 Jupyter Notebook으로 엽니다.
 
-Notebook 파일에 구현된 기능을 더 잘 이해하려면 Notebook에서 코드를 한 번에 한 셀씩 실행하는 것이 좋습니다. Notebook 앱의 위쪽에서 **실행** 단추를 선택하여 각 셀의 코드를 실행할 수 있습니다.
+Notebook 파일에 구현된 기능을 더 잘 이해하려면 Notebook에서 한 번에 한 셀씩 코드를 실행합니다. Notebook 앱의 위쪽에서 **실행** 단추를 선택하여 각 셀의 코드를 실행할 수 있습니다.
 
   ![실행 단추](./media/tutorial-ev-routing/run.png)
 
 ## <a name="install-project-level-packages"></a>프로젝트 수준 패키지 설치
 
-Notebook에서 코드를 실행하려면 다음을 수행하여 프로젝트 수준에서 패키지를 설치해야 합니다.
+Notebook에서 코드를 실행하려면 다음 단계를 수행하여 프로젝트 수준에서 패키지를 설치해야 합니다.
 
 1. [Azure Maps Jupyter Notebook 리포지토리](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook)에서 [*requirements.txt*](https://github.com/Azure-Samples/Azure-Maps-Jupyter-Notebook/blob/master/AzureMapsJupyterSamples/Tutorials/EV%20Routing%20and%20Reachable%20Range/requirements.txt) 파일을 다운로드한 다음, 프로젝트에 업로드합니다.
 1. 프로젝트 대시보드에서 **프로젝트 설정**을 선택합니다. 
@@ -97,7 +97,7 @@ Notebook에서 코드를 실행하려면 다음을 수행하여 프로젝트 수
 
 필요한 모든 모듈과 프레임워크를 로드하려면 다음 스크립트를 실행합니다.
 
-```python
+```Python
 import time
 import aiohttp
 import urllib.parse
@@ -106,9 +106,9 @@ from IPython.display import Image, display
 
 ## <a name="request-the-reachable-range-boundary"></a>도달 가능한 범위 경계 요청
 
-이 시나리오에서 패키지 제공 회사의 차량 선단에는 몇 가지 전기 차량이 있습니다. 낮에는 창고로 돌아올 필요 없이 전기 차량을 재충전해야 합니다. 현재 잔여 충전량이 1시간 미만(즉, 배터리 충전량 부족)으로 떨어질 때마다 도달 가능한 범위 내에 있는 충전소 세트를 검색하여 해당 범위에 대한 경계 정보를 가져옵니다. 
+패키지 제공 회사의 차량 선단에는 몇 가지 전기 차량이 있습니다. 낮에는 창고로 돌아올 필요 없이 전기 차량을 재충전해야 합니다. 잔여 충전량이 1시간 미만으로 떨어질 때마다 도달 가능한 범위 내에 있는 충전소 세트를 검색합니다. 기본적으로 배터리가 부족하면 충전소를 검색합니다. 그리고 해당 청구소 범위에 대한 경계 정보를 얻을 수 있습니다. 
 
-회사에서는 경제와 속도의 균형이 필요한 경로를 사용하려고 하므로 요청되는 routeType은 *eco*입니다. 다음 스크립트는 차량의 소비 모델에 대한 매개 변수를 사용하여 Azure Maps 라우팅 서비스의 [경로 범위 가져오기 API](https://docs.microsoft.com/rest/api/maps/route/getrouterange)를 호출합니다. 그런 다음, 이 스크립트는 응답을 구문 분석하여 차량의 최대 도달 가능한 범위를 나타내는 geojson 형식의 다각형 개체를 만듭니다.
+회사에서는 경제와 속도의 균형이 필요한 경로를 사용하려고 하므로 요청되는 routeType은 *eco*입니다. 다음 스크립트는 Azure Maps 라우팅 서비스의 [경로 범위 가져오기 API](https://docs.microsoft.com/rest/api/maps/route/getrouterange)를 호출합니다. 차량의 소비 모델에 대한 매개 변수를 사용합니다. 그런 다음, 이 스크립트는 응답을 구문 분석하여 차량의 최대 도달 가능한 범위를 나타내는 geojson 형식의 다각형 개체를 만듭니다.
 
 전기 차량의 도달 가능한 범위에 대한 경계를 확인하려면 다음 셀의 스크립트를 실행합니다.
 
@@ -173,7 +173,7 @@ for loc in range(len(searchPolyResponse["results"])):
 
 ## <a name="upload-the-reachable-range-and-charging-points-to-azure-maps-data-service"></a>Azure Maps 데이터 서비스에 도달 가능한 범위 및 충전 지점 업로드
 
-전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 지도에서 시각화할 수 있습니다. 이렇게 하려면 [데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용하여 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps 데이터 서비스에 업로드합니다. 
+맵에서 전기 차량의 최대 도달 가능한 범위에 대한 충전소와 경계를 시각화할 수 있습니다. 이렇게 하려면 경계 데이터와 충전소 데이터를 geojson 개체로 Azure Maps Data Service에 업로드합니다. [데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용합니다. 
 
 경계 및 충전 지점 데이터를 Azure Maps 데이터 서비스에 업로드하려면 다음 두 셀을 실행합니다.
 
@@ -239,7 +239,7 @@ poiUdid = getPoiUdid["udid"]
 
 ## <a name="render-the-charging-stations-and-reachable-range-on-a-map"></a>지도에서 충전소 및 도달 가능한 범위 렌더링
 
-데이터가 데이터 서비스에 업로드되면 다음 스크립트를 실행함으로써 Azure Maps [지도 이미지 가져오기 서비스](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 호출하여 충전 지점과 최대 도달 가능한 경계를 정적 지도 이미지에 렌더링합니다.
+데이터 서비스에 데이터를 업로드한 후 Azure Maps [Map Image 가져오기 서비스](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 호출합니다. 이 서비스는 다음 스크립트를 실행하여 정적 지도 이미지에서 충전 지점과 최대 도달 가능한 경계를 렌더링하는 데 사용됩니다.
 
 ```python
 # Get boundaries for the bounding box.
@@ -281,9 +281,9 @@ display(Image(poiRangeMap))
 
 ## <a name="find-the-optimal-charging-station"></a>최적의 충전소 찾기
 
-도달 가능한 범위 내에서 모든 잠재적인 충전소가 결정되면 가장 짧은 시간 내에 도달할 수 있는 충전소를 알려고 합니다. 
+먼저 도달 가능한 범위 내의 모든 잠재적 충전소를 확인하려고 합니다. 그런 다음, 최소 시간 내에 도달할 수 있는 곳을 파악하려고 합니다. 
 
-다음 스크립트는 Azure Maps [경로 매트릭스 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)를 호출하여 지정된 차량 위치에 대해 각 충전소까지의 주행 시간과 거리를 반환합니다. 다음 셀의 스크립트는 응답을 구문 분석하여 시간을 기준으로 가장 가까운 도달 가능한 충전소를 찾습니다.
+다음 스크립트는 Azure Maps [Matrix 라우팅 API](https://docs.microsoft.com/rest/api/maps/route/postroutematrix)를 호출합니다. 지정된 차량 위치, 이동 시간 및 각 충전소까지의 거리를 반환합니다. 다음 셀의 스크립트는 응답을 구문 분석하여 시간을 기준으로 가장 가까운 도달 가능한 충전소를 찾습니다.
 
 가장 짧은 시간 내에 도달할 수 있는 가장 가까운 충전소를 찾으려면 다음 셀의 스크립트를 실행합니다.
 
@@ -336,7 +336,7 @@ routeData = {
 
 ## <a name="visualize-the-route"></a>경로 시각화
 
-경로를 시각화하려면 먼저 Azure Maps [데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용하여 경로 데이터를 geojson 개체로 Azure Maps 데이터 서비스에 업로드합니다. 그런 다음, 렌더링 서비스인 [지도 이미지 가져오기 API](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
+경로를 시각화하려면 먼저 경로 데이터를 geojson 개체로 Azure Maps 데이터 서비스에 업로드합니다. 이렇게 하려면 Azure Maps [데이터 업로드 API](https://docs.microsoft.com/rest/api/maps/data/uploadpreview)를 사용합니다. 그런 다음, 렌더링 서비스인 [Map Image 가져오기 API](https://docs.microsoft.com/rest/api/maps/render/getmapimage)를 호출하여 경로를 지도에 렌더링하고 시각화합니다.
 
 지도에서 렌더링된 경로 이미지를 가져오려면 다음 스크립트를 실행합니다.
 

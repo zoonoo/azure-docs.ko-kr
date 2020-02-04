@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: 1a9801fc0d8a2a013fa737c9d53138dc7d52b398
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
+ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768466"
+ms.lasthandoff: 01/29/2020
+ms.locfileid: "76845917"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
 
@@ -61,6 +61,7 @@ SSL 바인딩에서 사용자 지정 도메인을 보호하려면 인증서가 �
 - 와일드카드 인증서를 지원하지 않습니다.
 - 네이키드 도메인을 지원하지 않습니다.
 - 내보낼 수 없습니다.
+- DNS A 레코드를 지원하지 않습니다.
 
 > [!NOTE]
 > 무료 인증서는 DigiCert에서 발급됩니다. 일부 최상위 도메인의 경우 `0 issue digicert.com` 값으로 [CAA 도메인 레코드](https://wikipedia.org/wiki/DNS_Certification_Authority_Authorization)를 만들어 DigiCert를 인증서 발급자로 명시적으로 허용해야 합니다.

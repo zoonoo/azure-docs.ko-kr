@@ -9,19 +9,17 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 11/04/2019
-ms.openlocfilehash: 917ded03892f3a8a5812948bcbfe31f029fc5cf8
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 639a61cddde27b0d989e5a3dd4c599c353182a73
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314983"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76720182"
 ---
-# <a name="tutorial-predict-automobile-price-with-the-designer"></a>자습서: 디자이너를 사용하여 자동차 가격 예측
+# <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-2부로 구성된 이 자습서에서는 Azure Machine Learning 디자이너를 사용하여 자동차의 가격을 예측하는 예측 분석 솔루션을 개발하고 배포하는 방법을 알아봅니다. 
-
-1부에서는 환경을 설정하고, 모듈을 대화형 캔버스에 끌어오고, 서로 연결하여 Azure Machine Learning 파이프라인을 만듭니다.
+2부로 구성된 이 자습서에서는 Azure Machine Learning 디자이너를 사용하여 자동차의 가격을 예측하는 예측 분석 솔루션을 개발하고 배포하는 방법을 알아봅니다.
 
 이 자습서의 1부에서는 다음 방법에 대해 알아봅니다.
 
@@ -32,7 +30,7 @@ ms.locfileid: "76314983"
 > * 기계 학습 모델 학습
 > * 기계 학습 모델 평가
 
-이 자습서의 [2부](tutorial-designer-automobile-price-deploy.md)에서는 예측 모델을 실시간 유추 엔드포인트로 배포하여 보내는 기술 사양에 따라 자동차의 가격을 예측하는 방법에 대해 알아봅니다. 
+이 자습서의 [2부](tutorial-designer-automobile-price-deploy.md)에서는 모델을 실시간 추론 엔드포인트로 배포하여 보내는 기술 사양에 따라 자동차의 가격을 예측합니다. 
 
 > [!NOTE]
 >이 자습서의 전체 버전은 샘플 파이프라인으로 사용할 수 있습니다.
@@ -41,7 +39,9 @@ ms.locfileid: "76314983"
 
 ## <a name="create-a-new-pipeline"></a>새 파이프라인 만들기
 
-Azure Machine Learning 파이프라인은 종속적인 여러 기계 학습 및 데이터 처리 단계를 단일 리소스로 구성합니다. 파이프라인을 사용하면 프로젝트와 사용자 간에 복잡한 기계 학습 워크플로를 구성, 관리 및 재사용할 수 있습니다. Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning 작업 영역이 필요합니다. 이 섹션에서는 이러한 두 가지 리소스를 만드는 방법에 대해 알아봅니다.
+Azure Machine Learning 파이프라인은 여러 기계 학습 및 데이터 처리 단계를 단일 리소스로 구성합니다. 파이프라인을 사용하면 프로젝트와 사용자 간에 복잡한 기계 학습 워크플로를 구성, 관리 및 재사용할 수 있습니다.
+
+Azure Machine Learning 파이프라인을 만들려면 Azure Machine Learning 작업 영역이 필요합니다. 이 섹션에서는 이러한 두 가지 리소스를 만드는 방법에 대해 알아봅니다.
 
 ### <a name="create-a-new-workspace"></a>새 작업 영역 만들기
 
@@ -59,7 +59,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **사용하기 쉬운 미리 작성된 모듈**을 선택합니다.
 
-1. 캔버스 위쪽에서 기본 파이프라인 이름인 **Pipeline-Created-on**을 선택합니다. 이름을 의미 있는 이름으로 바꿉니다. 예를 들어 *자동차 가격 예측*으로 바꿉니다. 이름은 고유할 필요가 없습니다.
+1. 캔버스 위쪽에서 기본 파이프라인 이름인 **Pipeline-Created-on**을 선택합니다. 이름을 *자동차 가격 예측*으로 바꿉니다. 이름은 고유할 필요가 없습니다.
 
 ## <a name="import-data"></a>데이터 가져오기
 
@@ -109,7 +109,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다.
 
-1. 캔버스의 오른쪽에 있는 속성 창에서 **매개 변수** > **열 편집**을 차례로 선택합니다.
+1. 캔버스의 오른쪽에 있는 속성 창에서 **모든 열**을 선택합니다.
 
 1. **+** 를 선택하여 새 규칙을 추가합니다.
 
@@ -120,12 +120,12 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 1. 오른쪽 아래에서 **저장**을 선택하여 열 선택기를 닫습니다.
 
     ![열 제외](./media/tutorial-designer-automobile-price-train-score/exclude-column.png)
-        
-    속성 창에서 **normalized-losses** 열이 제외되었음이 표시됩니다.
 
 1. **데이터 세트에서 열 선택** 모듈을 선택합니다. 
 
-1. 속성 창에서 **매개 변수** > **설명**을 차례로 선택하고, *정규화된 손실 제외*를 입력합니다.
+1. 속성 창에서 **주석** 텍스트 상자를 선택하고 *정규화된 손실 제외*를 입력합니다.
+
+    파이프라인을 구성하는 데 도움이 되는 주석이 그래프에 표시됩니다.
 
 ### <a name="clean-missing-data"></a>누락 데이터 정리
 
@@ -148,31 +148,30 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 ## <a name="train-a-machine-learning-model"></a>기계 학습 모델 학습
 
-이제 데이터가 처리되었으므로 예측 모델을 학습시킬 수 있습니다.
-
-### <a name="select-an-algorithm"></a>알고리즘 선택
-
-*분류*와 *회귀*는 감독 기계 학습 알고리즘의 두 형식입니다. 분류는 색(빨강, 파랑 또는 녹색)과 같이 정의된 범주 세트로부터 답변을 예측합니다. 회귀는 숫자를 예측하는 데 사용됩니다.
+이제 데이터를 처리하기 위한 모듈이 준비되었으므로 학습 모듈을 설정할 수 있습니다.
 
 숫자인 가격을 예측하려고 하므로 회귀 알고리즘을 사용할 수 있습니다. 이 예제에서는 선형 회귀 모델을 사용합니다.
 
 ### <a name="split-the-data"></a>데이터 분할
 
-모델을 학습시키고 테스트하기 위해 데이터를 두 개의 개별 데이터 세트로 분할합니다.
+데이터 분할은 기계 학습에서 일반적인 작업입니다. 데이터를 두 개의 개별 데이터 세트로 분할합니다. 하나의 데이터 세트는 모델을 학습하고 다른 데이터 세트는 모델의 실행 정도를 테스트합니다.
 
-1. 검색 상자에 **데이터 분할**을 입력하여 **데이터 분할** 모듈을 찾습니다. **누락된 데이터 정리** 모듈의 왼쪽 포트에 연결합니다.
+1. 검색 상자에 **데이터 분할**을 입력하여 **데이터 분할** 모듈을 찾습니다. **누락된 데이터 정리** 모듈의 왼쪽 포트를 **데이터 분할** 모듈에 연결합니다.
+
+    > [!IMPORTANT]
+    > **누락된 데이터 정리**의 왼쪽 출력 포트가 **데이터 분할**에 연결되어 있는지 확인합니다. 왼쪽 포트는 정리된 데이터를 포함합니다. 오른쪽 포트는 분리된 데이터를 포함합니다.
 
 1. **데이터** 분할 모듈을 선택합니다.
 
 1. 속성 창에서 **첫 번째 출력 데이터 세트의 행 비율**을 0.7로 설정합니다.
 
-    그러면 모델의 학습을 위해 데이터의 70%를 분할하고, 테스트를 위해 30%를 분할합니다.
+    그러면 모델의 학습을 위해 데이터의 70%를 분할하고, 테스트를 위해 30%를 분할합니다. 70% 데이터 세트는 왼쪽 출력 포트를 통해 액세스할 수 있습니다. 나머지 데이터는 올바른 출력 포트를 통해 사용할 수 있습니다.
 
 1. 속성 창의 **설명** 상자에서 *데이터 세트를 학습 세트(0.7) 및 테스트 세트(0.3)로 분할*을 입력합니다.
 
 ### <a name="train-the-model"></a>모델 학습
 
-가격을 포함하는 데이터 세트를 부여하여 모델을 학습합니다. 모델에서 데이터를 검사하고, 모델을 구성하기 위해 자동차의 기능과 가격 사이의 상관 관계를 검색합니다.
+가격이 포함된 데이터 세트를 제공하여 모델을 학습합니다. 알고리즘은 학습 데이터에 표시된 대로 기능과 가격 간의 관계를 설명하는 모델을 생성합니다.
 
 1. 학습 알고리즘을 선택하려면 모듈 팔레트 검색 상자를 지웁니다.
 
@@ -187,6 +186,9 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 1. **선형 회귀** 모듈의 출력을 **모델 학습** 모듈의 왼쪽 입력에 연결합니다.
 
 1. **데이터 분할** 모듈의 학습 데이터 출력(왼쪽 포트)을 **모델 학습** 모듈의 오른쪽 입력에 연결합니다.
+    
+    > [!IMPORTANT]
+    > **데이터 분할**의 왼쪽 출력 포트가 **학습 모델**에 연결되어 있는지 확인합니다. 왼쪽 포트는 학습 집합을 포함합니다. 오른쪽 포트는 테스트 집합을 포함합니다.
 
     ![모델 학습 모듈의 올바른 구성을 보여주는 스크린샷 선형 회귀 모듈은 모델 학습 모듈의 왼쪽 포트에 연결되며 데이터 분할 모듈은 모델 학습의 오른쪽 포트에 연결됩니다.](./media/tutorial-designer-automobile-price-train-score/pipeline-train-model.png)
 
@@ -196,19 +198,23 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 1. **레이블 열** 대화 상자에서 드롭다운 메뉴를 확장하고, **열 이름**을 선택합니다. 
 
-1. 텍스트 상자에서 *가격*을 입력합니다. 가격은 모델에서 예측해야 하는 값입니다.
+1. 텍스트 상자에 *가격*을 입력하여 모델이 예측할 값을 지정합니다.
 
     파이프라인은 다음과 같습니다.
 
     ![모델 학습 모듈을 추가한 후에 파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-train-graph.png)
 
-## <a name="evaluate-a-machine-learning-model"></a>기계 학습 모델 평가
+## <a name="score-a-machine-learning-model"></a>기계 학습 모델 점수 매기기
 
 데이터의 70%를 사용하여 모델을 학습시킨 후 모델의 작동 방식을 확인하기 위해 나머지 30%의 점수를 매기는 데 이를 사용할 수 있습니다.
 
 1. 검색 상자에 *모델 점수 매기기*를 입력하여 **점수 매기기** 모듈을 찾습니다. 해당 모듈을 파이프라인 캔버스로 끌어서 놓습니다. 
 
 1. **모델 학습** 모듈의 출력을 **모델 점수 매기기**의 왼쪽 입력 포트에 연결합니다. **데이터 분할** 모듈의 테스트 데이터 출력(오른쪽 포트)을 **모델 점수 매기기**의 오른쪽 입력 포트에 연결합니다.
+
+## <a name="evaluate-a-machine-learning-model"></a>기계 학습 모델 평가
+
+**모델 평가** 모듈을 사용하여 모델이 테스트 데이터 세트의 점수를 얼마나 잘 얻었는지 평가합니다.
 
 1. 검색 상자에 *평가*를 입력하여 **모델 평가** 모듈을 찾습니다. 해당 모듈을 파이프라인 캔버스로 끌어서 놓습니다. 
 
@@ -218,25 +224,29 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
     ![파이프라인의 올바른 구성을 보여 주는 스크린샷](./media/tutorial-designer-automobile-price-train-score/pipeline-final-graph.png)
 
-### <a name="run-the-pipeline"></a>파이프라인 실행
+## <a name="run-the-pipeline"></a>파이프라인 실행
 
 [!INCLUDE [aml-ui-create-training-compute](../../includes/aml-ui-create-training-compute.md)]
 
-### <a name="view-results"></a>결과 보기
+### <a name="view-scored-labels"></a>채점된 레이블 보기
 
-실행이 완료되면 파이프라인 실행의 결과를 확인할 수 있습니다. 
+실행이 완료되면 파이프라인 실행의 결과를 확인할 수 있습니다. 먼저 회귀 모델에 의해 생성된 예측을 살펴봅니다.
 
 1. **모델 점수 매기기** 모듈을 선택하여 출력을 확인합니다.
 
-1. 속성 창에서 **출력** > **시각화**를 차례로 선택합니다.
+1. 속성 창에서 **출력** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 확인합니다.
 
     여기서는 테스트 데이터에서 예측된 가격과 실제 가격을 확인할 수 있습니다.
 
     ![점수를 매긴 레이블 열이 강조 표시된 출력 시각화의 스크린샷](./media/tutorial-designer-automobile-price-train-score/score-result.png)
 
+### <a name="evaluate-models"></a>모델 평가
+
+**모델 평가**를 사용하여 테스트 데이터 세트에서 학습된 모델이 얼마나 잘 수행되었는지 확인합니다.
+
 1. **모델 평가** 모듈을 선택하여 출력을 확인합니다.
 
-1. 속성 창에서 **출력** > **시각화**를 차례로 선택합니다.
+1. 속성 창에서 **출력** > 그래프 아이콘 ![시각화 아이콘](./media/tutorial-designer-automobile-price-train-score/visualize-icon.png)을 선택하여 결과를 확인합니다.
 
 모델에 대한 다음 통계가 표시됩니다.
 

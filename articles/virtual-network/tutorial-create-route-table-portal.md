@@ -5,25 +5,20 @@ description: 이 자습서에서는 Azure Portal을 사용하여 경로 테이�
 services: virtual-network
 documentationcenter: virtual-network
 author: KumudD
-manager: twooley
-editor: ''
-tags: azure-resource-manager
 Customer intent: I want to route traffic from one subnet, to a different subnet, through a network virtual appliance.
-ms.assetid: ''
 ms.service: virtual-network
 ms.devlang: azurecli
 ms.topic: tutorial
 ms.tgt_pltfrm: virtual-network
 ms.workload: infrastructure
-ms.date: 12/12/2018
+ms.date: 01/22/2019
 ms.author: kumud
-ms.custom: mvc
-ms.openlocfilehash: be4a47d26bcfc407734956a3d9bf8778c5afcfb4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 96b6788e48b845ef7f0add11767eb36b47cac36b
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75350285"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76775271"
 ---
 # <a name="tutorial-route-network-traffic-with-a-route-table-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 경로 테이블이 포함된 네트워크 트래픽 라우팅
 
@@ -48,19 +43,19 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="create-a-route-table"></a>경로 테이블 만들기
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **경로 테이블**을 차례로 선택합니다.
-
-1. **경로 테이블 만들기**에서 다음 정보를 입력하거나 선택합니다.
+1. Azure Portal 메뉴에서 **리소스 만들기**를 선택합니다.
+2. 검색 상자에 *경로 테이블*을 입력합니다. 검색 결과에 **경로 테이블**이 나타나면 이를 선택합니다.
+3. **경로 테이블** 페이지에서 **만들기**를 선택합니다.
+4. **경로 테이블 만들기**에서 다음 정보를 입력하거나 선택합니다.
 
     | 설정 | 값 |
     | ------- | ----- |
     | 속성 | *myRouteTablePublic*을 입력합니다. |
     | Subscription | 구독을 선택합니다. |
     | Resource group | **새로 만들기**를 선택하고, *myResourceGroup*을 입력하고, *확인*을 선택합니다. |
-    | 위치 | 기본값인 **미국 동부**를 그대로 둡니다.
+    | 위치 | **미국 동부**를 선택합니다.
     | Virtual Network Gateway 경로 전파 | 기본값인 **사용**을 그대로 둡니다. |
-
-1. **만들기**를 선택합니다.
+5. **만들기**를 선택합니다.
 
 ## <a name="create-a-route"></a>경로 만들기
 
@@ -167,7 +162,7 @@ NVA는 라우팅 및 방화벽 최적화와 같은 네트워크 기능을 지원
     | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
-    | 공용 인바운드 포트 | 기본값인 **없음**을 그대로 둡니다.
+    | 공용 인바운드 포트 | **없음**을 선택합니다.
     | **비용 절감** |  |
     | 이미 Windows 라이선스가 있나요? | 기본값인 **아니요**를 그대로 둡니다. |
 

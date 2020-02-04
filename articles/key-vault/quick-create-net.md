@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 05/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 3322a9f2a7e09ee76c0fff94a2747c791ecf4804
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: dfe5a9a8b5503bb078cfd633a1f29774613b42b6
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975383"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76769217"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-net-sdk-v4"></a>빠른 시작: .NET용 Azure Key Vault 클라이언트 라이브러리(SDK v4)
 
@@ -22,12 +22,12 @@ Azure Key Vault는 클라우드 애플리케이션 및 서비스에서 사용되
 - 키 및 암호에 대한 보안과 제어를 강화합니다.
 - 몇 분 안에 암호화 키를 만들고 가져옵니다.
 - 클라우드 규모와 글로벌 중복성을 통해 대기 시간을 줄입니다.
-- SSL/TLS 인증서 작업을 간소화하고 자동화합니다.
+- TLS/SSL 인증서 작업을 간소화하고 자동화합니다.
 - FIPS 140-2 수준 2 유효성이 검사된 HSM을 사용합니다.
 
 [API 참조 설명서](/dotnet/api/azure.security.keyvault.secrets?view=azure-dotnet) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/keyvault) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Security.KeyVault.Secrets/)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
 * [.NET Core 2.1 SDK 이상](https://dotnet.microsoft.com/download/dotnet-core/2.1)
@@ -205,7 +205,7 @@ az group delete -g "myResourceGroup"
 Remove-AzResourceGroup -Name "myResourceGroup"
 ```
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 ```csharp
 using System;

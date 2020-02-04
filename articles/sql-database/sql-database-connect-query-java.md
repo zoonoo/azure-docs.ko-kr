@@ -1,5 +1,5 @@
 ---
-title: Java를 사용하여 쿼리
+title: Java를 사용하여 데이터베이스 쿼리
 description: Java를 사용하여 Azure SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 쿼리하는 프로그램을 만드는 방법을 보여 줍니다.
 services: sql-database
 ms.service: sql-database
@@ -11,43 +11,46 @@ ms.author: andrela
 ms.reviewer: v-masebo
 ms.date: 03/25/2019
 ms.custom: seo-java-july2019. seo-java-august2019
-ms.openlocfilehash: 6d4d9353e29a29b0cd6db7575e49a00a213355d3
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 034f92ca3b7552373ae69148d09d58d3a5dd166a
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827036"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76768651"
 ---
-# <a name="quickstart-use-java-to-connect-to-and-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스에 연결 및 쿼리
+# <a name="quickstart-use-java-to-query-an-azure-sql-database"></a>빠른 시작: Java를 사용하여 Azure SQL 데이터베이스 쿼리
 
-이 문서에서는 [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server)를 사용하여 Azure SQL 데이터베이스에 연결하는 방법을 보여 줍니다. 그런 다음, 데이터를 쿼리하는 T-SQL 문을 사용할 수 있습니다.
+이 빠른 시작에서는 Java를 사용하여 Azure SQL 데이터베이스에 연결하고 T-SQL 문을 사용하여 데이터를 쿼리합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 샘플을 완료하려면 다음 필수 구성 요소가 있어야 합니다.
+- 활성 구독이 있는 Azure 계정. [평가판 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure SQL 데이터베이스](sql-database-single-database-get-started.md)
+- [Java](/sql/connect/jdbc/microsoft-jdbc-driver-for-sql-server) 관련 소프트웨어
 
-- Azure SQL 데이터베이스입니다. 다음 빠른 시작 중 하나를 사용하여 Azure SQL Database에서 데이터베이스를 만들고 구성할 수 있습니다.
+  # <a name="macostabmacos"></a>[macOS](#tab/macos)
 
-  || 단일 데이터베이스 | Managed Instance |
-  |:--- |:--- |:---|
-  | 생성| [포털](sql-database-single-database-get-started.md) | [포털](sql-database-managed-instance-get-started.md) |
-  || [CLI](scripts/sql-database-create-and-configure-database-cli.md) | [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44) |
-  || [PowerShell](scripts/sql-database-create-and-configure-database-powershell.md) | [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) |
-  | 구성 | [서버 수준 IP 방화벽 규칙](sql-database-server-level-firewall-rule.md)| [VM에서 연결](sql-database-managed-instance-configure-vm.md)|
-  |||[사이트에서 연결](sql-database-managed-instance-configure-p2s.md)
-  |데이터 로드|Adventure Works(빠른 시작마다 로드됨)|[Wide World Importers 복원](sql-database-managed-instance-get-started-restore.md)
-  |||[GitHub](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works)의 [BACPAC](sql-database-import.md) 파일에서 Adventure Works 복원 또는 가져오기|
-  
-  > [!IMPORTANT]
-  > 이 문서의 스크립트는 Adventure Works 데이터베이스를 사용하도록 작성되었습니다. 관리되는 인스턴스의 경우 Adventure Works 데이터베이스를 인스턴스 데이터베이스로 가져오거나 이 문서의 스크립트를 수정하여 Wide World Importors 데이터베이스를 사용해야 합니다.
+  Homebrew 및 Java를 설치한 다음, [macOS에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/mac/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
 
-- 운영 체제에 맞게 설치된 Java 관련 소프트웨어:
+  # <a name="ubuntutabubuntu"></a>[Ubuntu](#tab/ubuntu)
 
-  - **MacOS**: Homebrew와 Java를 설치한 다음, Maven을 설치합니다. [1.2 및 1.3 단계](https://www.microsoft.com/sql-server/developer-get-started/java/mac/) 참조
+  Java, Java Development Kit를 설치한 다음, [Ubuntu에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/)의 **1.2**, **1.3** 및 **1.4** 단계를 사용하여 Maven을 설치합니다.
 
-  - **Ubuntu**: Java Development Kit을 설치하고 Maven을 설치합니다. [1.2, 1.3 및 1.4 단계](https://www.microsoft.com/sql-server/developer-get-started/java/ubuntu/) 참조
+  # <a name="windowstabwindows"></a>[Windows](#tab/windows)
 
-  - **Windows**: Java를 설치한 다음, Maven을 설치합니다. [1.2 및 1.3 단계](https://www.microsoft.com/sql-server/developer-get-started/java/windows/) 참조
+  Java를 설치한 다음, [Windows에서 SQL Server를 사용하여 Java 앱 만들기](https://www.microsoft.com/sql-server/developer-get-started/java/windows/)의 **1.2** 및 **1.3** 단계를 사용하여 Maven을 설치합니다.
+
+  ---
+
+> [!IMPORTANT]
+> 이 문서의 스크립트는 **Adventure Works** 데이터베이스를 사용하도록 작성되었습니다.
+
+> [!NOTE]
+> 선택적으로 Azure SQL 관리형 인스턴스를 사용하도록 선택할 수 있습니다.
+>
+> 만들고 구성하려면 [Azure Portal](sql-database-managed-instance-get-started.md), [PowerShell](scripts/sql-database-create-configure-managed-instance-powershell.md) 또는 [CLI](https://medium.com/azure-sqldb-managed-instance/working-with-sql-managed-instance-using-azure-cli-611795fe0b44)를 사용한 다음, [온-사이트](sql-database-managed-instance-configure-p2s.md) 또는 [VM](sql-database-managed-instance-configure-vm.md) 연결을 설정합니다.
+>
+> 데이터를 로드하려면 [Adventure Works](https://github.com/Microsoft/sql-server-samples/tree/master/samples/databases/adventure-works) 파일을 사용하여 [BACPAC로 복원](sql-database-import.md) 또는 [Wide World Importers 데이터베이스 복원](sql-database-managed-instance-get-started-restore.md)을 참조하세요.
 
 ## <a name="get-sql-server-connection-information"></a>SQL Server 연결 정보 가져오기
 

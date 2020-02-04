@@ -8,12 +8,12 @@ ms.subservice: hyperscale-citus
 ms.custom: mvc
 ms.topic: tutorial
 ms.date: 05/14/2019
-ms.openlocfilehash: e38de89902c46c6a77060d0d1e2532ab5bb59bb7
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f4eeb646de8b68c2c8d30586d0c75cece5317e40
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978103"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76716320"
 ---
 # <a name="tutorial-design-a-real-time-analytics-dashboard-by-using-azure-database-for-postgresql--hyperscale-citus"></a>자습서: Azure Database for PostgreSQL - 하이퍼스케일(Citus)을 사용하여 실시간 분석 대시보드 설계
 
@@ -28,7 +28,7 @@ ms.locfileid: "74978103"
 > * 원시 및 집계 데이터 쿼리
 > * 데이터 만료
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [azure-postgresql-hyperscale-create-db](../../includes/azure-postgresql-hyperscale-create-db.md)]
 
@@ -222,7 +222,7 @@ DELETE FROM http_request_1min WHERE ingest_time < now() - interval '1 month';
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 데이터를 원시 형식으로 쿼리하는 방법과 데이터를 주기적으로 집계하고, 집계된 테이블을 쿼리하고, 오래된 데이터를 만료하는 방법을 알아보았습니다.
+이 자습서에서는 하이퍼스케일(Citus) 서버 그룹을 프로비저닝하는 방법을 배웠습니다. 그 후 psql을 사용하여 이 서버 그룹에 연결하고, 스키마를 만들고, 데이터를 분산했습니다. 데이터를 원시 형식으로 쿼리하고, 해당 데이터를 주기적으로 집계하고, 집계된 테이블을 쿼리하고, 오래된 데이터를 만료하는 방법을 알아보았습니다.
 
 다음으로, 하이퍼스케일의 개념을 알아보세요.
 > [!div class="nextstepaction"]

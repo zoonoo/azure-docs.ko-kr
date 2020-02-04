@@ -2,18 +2,17 @@
 title: 자습서 - Azure Stream Analytics 작업에서 Azure Functions 실행
 description: 이 자습서에서는 Stream Analytics 작업에 대한 출력 싱크로 Azure Functions를 구성하는 방법에 대해 알아봅니다.
 author: mamccrea
+ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 06/05/2019
-ms.author: mamccrea
-ms.reviewer: mamccrea
-ms.openlocfilehash: 84df3edcebb1ca9f14a68125ae9793f004e56c4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/27/2020
+ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369323"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772884"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -51,7 +50,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 ## <a name="create-a-function-in-azure-functions-that-can-write-data-to-azure-cache-for-redis"></a>Azure Functions에서 데이터를 Azure Cache for Redis에 쓸 수 있는 함수 만들기
 
-1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하세요. 이 연습에서는 C# 언어를 사용하여 함수 앱 및 [Azure Functions의 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 살펴봅니다.  
+1. Functions 설명서의 [함수 앱 만들기](../azure-functions/functions-create-first-azure-function.md#create-a-function-app) 섹션을 참조하세요. 이 섹션에서는 CSharp 언어를 사용하여 함수 앱 및 [Azure Functions의 HTTP 트리거 함수](../azure-functions/functions-create-first-azure-function.md#create-function)를 만드는 방법을 안내합니다.  
 
 2. **run.csx** 함수를 찾습니다. 다음 코드로 업데이트합니다. **"\<your Azure Cache for Redis connection string goes here\>"** 를 이전 섹션에서 검색한 Azure Cache for Redis 기본 연결 문자열로 바꿉니다. 
 
@@ -187,13 +186,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    이 명령은 지정된 키에 대해 값을 인쇄합니다.
 
    ![Azure Cache for Redis 출력의 스크린샷](./media/stream-analytics-with-azure-functions/image5.png)
-   
-## <a name="error-handling-and-retries"></a>오류 처리 및 재시도
-Azure Functions로 이벤트를 전송하는 동안 오류가 발생하면 Stream Analytics는 작업을 완료하기 위해 다시 시도합니다. 그러나 다시 시도하지 않는 몇 가지 오류가 있으며, 다음은 그 예입니다.
 
- 1. HttpRequestExceptions
- 2. 요청 엔터티가 너무 큼(Http 오류 코드 413)
- 3. ApplicationExceptions
+## <a name="error-handling-and-retries"></a>오류 처리 및 재시도
+
+이벤트를 Azure Functions에 전송하는 동안 오류가 발생하면 Stream Analytics는 대부분의 작업을 다시 시도합니다. 모든 http 예외는 http 오류 413(엔터티가 너무 큼) 예외를 제외하고 성공할 때까지 다시 시도됩니다. 엔터티가 너무 큰 오류는 [정책 다시 시도 또는 삭제](stream-analytics-output-error-policy.md)가 적용되는 데이터 오류로 처리됩니다.
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -210,7 +206,7 @@ Azure Functions에서 [Http 라우팅](https://docs.microsoft.com/sandbox/functi
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 Azure Function을 실행하는 간단한 Stream Analytics 작업을 만들었습니다. Stream Analytics 작업에 대해 자세히 알아보려면 다음 자습서를 계속합니다.
+이 자습서에서는 Azure 함수를 실행하는 간단한 Stream Analytics 작업을 만들었습니다. Stream Analytics 작업에 대해 자세히 알아보려면 그 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
 > [Stream Analytics 작업 내에서 JavaScript 사용자 정의 함수 실행](stream-analytics-javascript-user-defined-functions.md)

@@ -11,15 +11,15 @@ ms.service: azure-app-configuration
 ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
-ms.date: 10/07/2019
+ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 992cface653bf3fe52afc7efa3f17573fcf91399
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
+ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73469655"
+ms.lasthandoff: 01/24/2020
+ms.locfileid: "76714433"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -35,13 +35,13 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. 예를 들어 [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 운영 체제에서 사용할 수 있는 크로스 플랫폼 코드 편집기입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Key Vault에 저장된 값을 참조하는 App Configuration 키 만들기
 > * ASP.NET Core 웹 애플리케이션에서 이 키의 값에 액세스
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 [.NET Core SDK](https://dotnet.microsoft.com/download)를 설치해야 합니다.
 
@@ -75,7 +75,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 1. **생성/가져오기**를 선택합니다.
 1. **비밀 만들기** 창에서 다음 값을 입력합니다.
     - **업로드 옵션**: **수동**을 입력합니다.
-    - **이름**: **Message**를 입력합니다.
+    - **Name**: **Message**를 입력합니다.
     - **값**: **Hello from Key Vault**를 입력합니다.
 1. 다른 **비밀 만들기** 속성은 기본값 그대로 둡니다.
 1. **만들기**를 선택합니다.
@@ -119,30 +119,62 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
 
 1. 다음 명령을 실행하여 서비스 주체가 키 자격 증명 모음에 액세스하도록 허용합니다.
 
-    ```
+    ```cmd
     az keyvault set-policy -n <your-unique-keyvault-name> --spn <clientId-of-your-service-principal> --secret-permissions delete get list set --key-permissions create decrypt delete encrypt get list unwrapKey wrapKey
     ```
 
-1. *clientId* 및 *clientSecret*에 대한 비밀을 비밀 관리자에 추가합니다. 비밀 관리자는 [빠른 시작: App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)에서 *.csproj* 파일에 추가한 중요 데이터를 저장할 수 있는 도구입니다. 이 명령은 *.csproj* 파일과 동일한 디렉터리에서 실행해야 합니다.
+1. 환경 변수를 추가하여 *clientId*, *clientSecret* 및 *tenantId* 값을 저장합니다.
 
-    ```
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientId <clientId-of-your-service-principal>
-    dotnet user-secrets set ConnectionStrings:KeyVaultClientSecret <clientSecret-of-your-service-principal>
+    #### <a name="windows-command-prompttabcmd"></a>[Windows 명령 프롬프트](#tab/cmd)
+
+    ```cmd
+    setx AZURE_CLIENT_ID <clientId-of-your-service-principal>
+    setx AZURE_CLIENT_SECRET <clientSecret-of-your-service-principal>
+    setx AZURE_TENANT_ID <tenantId-of-your-service-principal>
     ```
 
-> [!NOTE]
-> Key Vault 자격 증명은 애플리케이션 내에서만 사용됩니다. 애플리케이션은 이러한 자격 증명을 사용하여 Key Vault에 직접 인증합니다. App Configuration 서비스로 절대 전달되지 않습니다.
+    #### <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+
+    ```PowerShell
+    $Env:AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    $Env:AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    $Env:AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    #### <a name="bashtabbash"></a>[Bash](#tab/bash)
+
+    ```bash
+    export AZURE_CLIENT_ID = <clientId-of-your-service-principal>
+    export AZURE_CLIENT_SECRET = <clientSecret-of-your-service-principal>
+    export AZURE_TENANT_ID = <tenantId-of-your-service-principal>
+    ```
+
+    ---
+
+    > [!NOTE]
+    > Key Vault 자격 증명은 애플리케이션 내에서만 사용됩니다. 애플리케이션은 이러한 자격 증명을 사용하여 Key Vault에 직접 인증합니다. App Configuration 서비스로 절대 전달되지 않습니다.
+
+1. 터미널을 다시 시작하여 이러한 새 환경 변수를 로드합니다.
 
 ## <a name="update-your-code-to-use-a-key-vault-reference"></a>Key Vault 참조를 사용하도록 코드 업데이트
+
+1. 다음 명령을 실행하여 필요한 NuGet 패키지에 대한 참조를 추가합니다.
+
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.KeyVault
+    dotnet add package Azure.Identity
+    ```
 
 1. *Program.cs*를 열고 다음과 같은 필요한 패키지에 대한 참조를 추가합니다.
 
     ```csharp
     using Microsoft.Azure.KeyVault;
-    using Microsoft.IdentityModel.Clients.ActiveDirectory;
+    using Azure.Identity;
     ```
 
 1. `config.AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다. `UseAzureKeyVault` 옵션을 포함시켜 새 `KeyVaultClient` 참조를 Key Vault에 전달합니다.
+
+    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -151,18 +183,38 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
             {
                 var settings = config.Build();
 
-                KeyVaultClient kvClient = new KeyVaultClient(async (authority, resource, scope) =>
+                config.AddAzureAppConfiguration(options =>
                 {
-                    var adCredential = new ClientCredential(settings["ConnectionStrings:KeyVaultClientId"], settings["ConnectionStrings:KeyVaultClientSecret"]);
-                    var authenticationContext = new AuthenticationContext(authority, null);
-                    return (await authenticationContext.AcquireTokenAsync(resource, adCredential)).AccessToken;
-                });
-
-                config.AddAzureAppConfiguration(options => {
                     options.Connect(settings["ConnectionStrings:AppConfig"])
-                            .UseAzureKeyVault(kvClient); });
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
             })
             .UseStartup<Startup>();
+    ```
+
+    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+
+    ```csharp
+        public static IHostBuilder CreateHostBuilder(string[] args) =>
+            Host.CreateDefaultBuilder(args)
+            .ConfigureWebHostDefaults(webBuilder =>
+            webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
+            {
+                var settings = config.Build();
+
+                config.AddAzureAppConfiguration(options =>
+                {
+                    options.Connect(settings["ConnectionStrings:AppConfig"])
+                            .ConfigureKeyVault(kv =>
+                            {
+                                kv.SetCredential(new DefaultAzureCredential());
+                            });
+                });
+            })
+            .UseStartup<Startup>());
     ```
 
 1. App Configuration에 대한 연결을 초기화할 때 `KeyVaultClient` 참조를 `UseAzureKeyVault` 메서드에 전달했습니다. 초기화한 후 일반적인 App Configuration 키 값에 액세스하는 것과 동일한 방식으로 Key Vault 참조의 값에 액세스할 수 있습니다.
@@ -179,7 +231,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
         }
         h1 {
             color: @Configuration["TestApp:Settings:FontColor"];
-            font-size: @Configuration["TestApp:Settings:FontSize"];
+            font-size: @Configuration["TestApp:Settings:FontSize"]px;
         }
     </style>
 

@@ -1,14 +1,14 @@
 ---
-ms.openlocfilehash: 685d982835042aa4a697d19a650e8dcb1476b400
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
-ms.translationtype: MT
+ms.openlocfilehash: 7b9954930c668e338cc289e948a5591c09ec2654
+ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67181901"
+ms.lasthandoff: 01/23/2020
+ms.locfileid: "76694515"
 ---
-## <a name="provide-feedback-to-the-user"></a>사용자에 게 피드백을 제공 합니다.
+## <a name="provide-feedback-to-the-user"></a>사용자에게 피드백 제공
 
-업데이트 하는 세션 이벤트를 처리 하는 코드를 작성할 수 있습니다. 이 이벤트는 세션에 운전자의 이해를 향상 될 때마다 발생 합니다. 이렇게 하면 수 있습니다.
+세션 업데이트 이벤트를 처리하는 코드를 작성할 수 있습니다. 이 이벤트는 세션에서 사용자 환경에 대한 이해가 향상될 때마다 발생합니다. 이렇게 하면 다음과 같은 작업을 수행할 수 있습니다.
 
-- 장치 이동 하 고 세션 업데이트 환경을 이해 하는 대로 사용자에 게 피드백을 제공 합니다.
-- 있습니다 어떤 시점에 충분 한 추적 공간 데이터를 확인 또는 공간 앵커 찾을-이후 단계에서 자세히 알아보겠습니다.
+- 디바이스가 이동하고 세션에서 해당 환경의 이해를 업데이트할 때 `UserFeedback` 클래스를 사용하여 사용자에게 피드백을 제공합니다. 이 작업을 수행하려면
+- 공간 앵커를 만들기에 충분한 추적 공간 데이터가 있는 지점을 확인합니다. `ReadyForCreateProgress` 또는 `RecommendedForCreateProgress`를 사용하여 이를 확인합니다. `ReadyForCreateProgress`가 1을 초과하면 클라우드 공간 앵커를 저장하기에 충분한 데이터가 있지만 이 작업을 수행하려면 `RecommendedForCreateProgress`가 1을 초과할 때까지 대기하는 것이 좋습니다.

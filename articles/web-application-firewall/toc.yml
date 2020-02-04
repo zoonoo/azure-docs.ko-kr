@@ -38,8 +38,12 @@
           href: ./ag/application-gateway-crs-rulegroups-rules.md
         - name: 사용자 지정 규칙 개요
           href: ./ag/custom-waf-rules-overview.md
+        - name: Geomatch 사용자 지정 규칙
+          href: ./ag/geomatch-custom-rules.md
         - name: 요청 크기 제한 및 제외 목록
           href: ./ag/application-gateway-waf-configuration.md
+        - name: WAF 정책 개요
+          href: ./ag/policy-overview.md
     - name: Front Door
       items:
         - name: 사용자 지정 규칙

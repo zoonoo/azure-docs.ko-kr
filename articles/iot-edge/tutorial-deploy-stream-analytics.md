@@ -7,18 +7,18 @@ ms.date: 11/11/2019
 ms.topic: tutorial
 ms.service: iot-edge
 ms.custom: mvc
-ms.openlocfilehash: bd1487d7922d8ea81c4b09773eed978e64cd9e8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 648eb6cdb1787e1cbdf82bd8e5c8499b0dbaf02c
+ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457246"
+ms.lasthandoff: 01/28/2020
+ms.locfileid: "76772267"
 ---
 # <a name="tutorial-deploy-azure-stream-analytics-as-an-iot-edge-module"></a>자습서: Azure Stream Analytics를 IoT Edge 모듈로 배포
 
 많은 IoT 솔루션에서 분석 서비스를 사용하여 IoT 디바이스에서 클라우드에 도착하는 대로 데이터에 대한 인사이트를 가져옵니다. Azure IoT Edge를 사용하면 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 논리를 가져와서 디바이스 자체로 이동할 수 있습니다. 에지 장치에서 원격 분석 스트림을 처리함으로써 업로드되는 데이터의 양을 줄이고 실행 가능한 인사이트에 대응하는 데 걸리는 시간을 단축할 수 있습니다.
 
-Azure IoT Edge와 Azure Stream Analytics가 통합되어 Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
+Azure IoT Edge 및 Azure Stream Analytics가 통합되어 워크로드 개발을 간소화합니다. Azure Portal에서 Azure Stream Analytics 작업을 만든 다음, 추가 코드 없이 IoT Edge 모듈로 배포할 수 있습니다.  
 
 Azure Stream Analytics는 클라우드와 IoT Edge 디바이스 모두에서 데이터 분석을 위한 다양한 정형 쿼리 구문을 제공합니다. 자세한 내용은 [Azure Stream Analytics 설명서](../stream-analytics/stream-analytics-edge.md)를 참조하세요.
 
@@ -33,7 +33,7 @@ Azure Stream Analytics는 클라우드와 IoT Edge 디바이스 모두에서 데
 
 <center>
 
-![다이어그램 - 자습서 아키텍처, ASA 작업 준비 및 배포](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
+![다이어그램 - 자습서 아키텍처: ASA 작업 준비 및 배포](./media/tutorial-deploy-stream-analytics/asa-architecture.png)
 </center>
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
@@ -46,7 +46,7 @@ Azure IoT Edge 디바이스:
 
 클라우드 리소스:
 
-* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md). 
+* Azure의 무료 또는 표준 계층 [IoT Hub](../iot-hub/iot-hub-create-through-portal.md).
 
 ## <a name="create-an-azure-stream-analytics-job"></a>Azure Stream Analytics 작업 만들기
 
@@ -54,20 +54,20 @@ Azure IoT Edge 디바이스:
 
 * IoT Edge 디바이스에서 데이터를 받습니다.
 * 설정된 범위를 벗어난 값에 대한 원격 분석 데이터를 쿼리합니다.
-* 쿼리 결과에 따라 IoT Edge 디바이스에 대한 작업을 수행합니다. 
+* 쿼리 결과에 따라 IoT Edge 디바이스에 대한 작업을 수행합니다.
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들 때 디바이스에서 호출할 수 있는 방식으로 작업을 저장해야 합니다. 기존 Azure Storage 계정을 사용해도 되고, 지금 새로 만들어도 됩니다. 
+IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들 때 디바이스에서 호출할 수 있는 방식으로 작업을 저장해야 합니다. 기존 Azure Storage 계정을 사용하거나 지금 새로 만들 수 있습니다.
 
-1. Azure Portal에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 차례로 클릭합니다. 
+1. Azure Portal에서 **리소스 만들기** > **스토리지** > **스토리지 계정**을 차례로 클릭합니다.
 
 1. 다음 값을 입력하여 스토리지 계정을 만듭니다.
 
    | 필드 | 값 |
    | ----- | ----- |
    | Subscription | IoT Hub와 동일한 구독을 선택합니다. |
-   | Resource group | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
+   | Resource group | IoT Edge 빠른 시작 및 자습서에 대한 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
    | 속성 | 스토리지 계정의 고유한 이름을 입력합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
 
@@ -88,7 +88,7 @@ IoT Edge 디바이스에서 실행되는 Azure Stream Analytics 작업을 만들
    | Resource group | IoT Edge 빠른 시작 및 자습서에서 만드는 모든 테스트 리소스에 동일한 리소스 그룹을 사용하는 것이 좋습니다. 예를 들어 **IoTEdgeResources**를 사용합니다. |
    | 위치 | 가까운 위치를 선택합니다. |
    | 호스팅 환경 | **Edge**를 선택합니다. |
- 
+
 1. **만들기**를 선택합니다.
 
 ### <a name="configure-your-job"></a>작업 구성
@@ -105,7 +105,7 @@ Azure Portal에서 Stream Analytics 작업을 만든 후에는 통과하는 데�
 
 1. 드롭다운 목록에서 **Edge Hub**를 선택합니다.
 
-1. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다. 
+1. **새 입력** 창에 입력 별칭으로 **온도**를 입력합니다.
 
 1. 다른 필드는 기본값을 유지하고 **저장**을 선택합니다.
 
@@ -152,7 +152,7 @@ IoT Edge 디바이스에 배포할 Stream Analytics 작업을 준비하려면 �
 
 ## <a name="deploy-the-job"></a>작업 배포
 
-이제 IoT Edge 디바이스에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다. 
+이제 IoT Edge 디바이스에 Azure Stream Analytics 작업을 배포할 준비가 되었습니다.
 
 이 섹션에서는 Azure Portal의 **모듈 설정** 마법사를 사용하여 *배포 매니페스트*를 만듭니다. 배포 매니페스트는 디바이스에 배포될 모든 모듈, 모듈 이미지를 저장하는 컨테이너 레지스트리, 모듈을 관리하는 방법, 모듈이 서로 통신하는 방법을 설명하는 JSON 파일입니다. IoT Edge 디바이스는 IoT Hub에서 배포 매니페스트를 수신한 다음, 그 안에 들어 있는 정보를 사용하여 할당된 모든 모듈을 배포하고 구성합니다.
 
