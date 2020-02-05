@@ -10,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: 65bc11282726d9e66dbed8fa1fbb75fc1b89c1d1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 3dfb2c201138a65379aa509ce1bf10894ab6819b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615503"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984713"
 ---
 # <a name="deep-learning-and-ai-frameworks-for-the-azure-data-science-vm"></a>Azure Data Science VM에 대 한 심층 학습 및 AI 프레임 워크
 DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
@@ -47,7 +47,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | 체 이너는 Python 3.5에 설치 됩니다. |
 | 실행 방법      | 터미널: Python 3.5 환경을 활성화 하 고 `python`를 실행 한 다음 `import chainer`합니다. <br/> * JupyterHub: [JupyterHub에 연결한](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)다음, 체 이너 디렉터리로 이동 하 여 샘플 노트북을 찾습니다.| 
 
-## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CuDNN, NVIDIA 드라이버](https://developer.nvidia.com/cuda-toolkit)
+## <a name="cuda-cudnn-nvidia-driverhttpsdevelopernvidiacomcuda-toolkit"></a>[CUDA, cuDNN, NVIDIA 드라이버](https://developer.nvidia.com/cuda-toolkit)
 
 |    |           |
 | ------------- | ------------- |
@@ -75,7 +75,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | Keras는 Windows의 Python 3.6 및 Linux의 Python 3.5에 설치 됩니다. |
 | 실행 방법      | 터미널에서 올바른 환경을 활성화 한 다음 Python을 실행 합니다. |
 
-## <a name="microsoft-cognitive-toolkit-cntkhttpsdocsmicrosoftcomcognitive-toolkit"></a>[Microsoft Cognitive Toolkit (CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
+## <a name="microsoft-cognitive-toolkit-cntkhttpsdocsmicrosoftcomcognitive-toolkit"></a>[Microsoft Cognitive Toolkit(CNTK)](https://docs.microsoft.com/cognitive-toolkit/)
 
 |    |           |
 | ------------- | ------------- |
@@ -92,7 +92,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | MXNet는 Windows의 `C:\dsvm\tools\mxnet` 및 Ubuntu의 `/dsvm/tools/mxnet`에 설치 됩니다. Python 바인딩은 [Windows 2016](dsvm-tools-languages.md#python-windows-server-2016-edition) 의 python 3.6 및 [Linux](./dsvm-tools-languages.md#python-linux-edition)의 python 3.5에 설치 됩니다. R 바인딩은 Ubuntu dsvm에도 포함 됩니다. |
 | 실행 방법      | 터미널: 올바른 conda 환경을 활성화 한 다음 `import mxnet`를 실행 합니다. <br/>Jupyter: [jupyter](provision-vm.md#access-the-dsvm) 또는 [Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)에 연결한 다음 샘플에 대 한 `mxnet` 디렉터리를 엽니다. |
 
-## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet Model 서버](https://github.com/awslabs/mxnet-model-server#quick-start)
+## <a name="mxnet-model-serverhttpsgithubcomawslabsmxnet-model-serverquick-start"></a>[MXNet Model Server](https://github.com/awslabs/mxnet-model-server#quick-start)
 
 |    |           |
 | ------------- | ------------- |
@@ -107,7 +107,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | ------------- | ------------- |
 | 지원 되는 버전 |  |
 | 지원 되는 DSVM 버전      | Windows 및 Linux   |
-| 이것이 무엇인가요? | GPU 작업을 쿼리하기 위한 NVIDIA 도구 |
+| 무엇 인가요? | GPU 작업을 쿼리하기 위한 NVIDIA 도구 |
 | DSVM에 구성/설치 방법  | `nvidia-smi` 시스템 경로에 있습니다. |
 | 실행 방법      | **GPU가 있는**가상 머신에서 명령 프롬프트 (Windows) 또는 터미널 (Linux)을 연 다음 `nvidia-smi`를 실행 합니다. |
 
@@ -115,7 +115,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 
 |    |           |
 | ------------- | ------------- |
-| 지원 되는 버전 | 1.2.0 |
+| 지원 되는 버전 | 1.2.0 (ubuntu 16.04, Windows 2016, Windows 2019), 1.4.0 (Ubuntu 18.04) |
 | 지원 되는 DSVM 버전      | Linux |
 | DSVM에 구성/설치 방법  | [Python 3.5](dsvm-tools-languages.md#python-linux-edition)에 설치 됩니다. 샘플 Jupyter 노트북이 포함 되어 있고 샘플이/dsvm/samples/pytorch.에 있습니다. |
 | 실행 방법      | 터미널: 올바른 환경을 활성화 한 다음 Python을 실행 합니다.<br/>[Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine): 연결을 * 하 고 샘플에 대 한 PyTorch 디렉터리를 엽니다.  |
@@ -129,7 +129,7 @@ DSVM의 심층 학습 프레임 워크는 아래에 나열 되어 있습니다.
 | DSVM에 구성/설치 방법  | [Linux](dsvm-tools-languages.md#python-linux-edition) 의 python 3.5에 설치 된 및 Windows의 python 3.6 [2016](dsvm-tools-languages.md#python-windows-server-2016-edition) |
 | 실행 방법      | 터미널: 올바른 환경을 활성화 한 다음 Python을 실행 합니다. <br/> * Jupyter: [jupyter](provision-vm.md) 또는 [Jupyterhub](dsvm-ubuntu-intro.md#how-to-access-the-ubuntu-data-science-virtual-machine)에 연결한 다음 샘플에 대 한 TensorFlow 디렉터리를 엽니다.   |
 
-## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[TensorFlow 서비스](https://www.tensorflow.org/serving/)
+## <a name="tensorflow-servinghttpswwwtensorfloworgserving"></a>[TensorFlow Serving](https://www.tensorflow.org/serving/)
 
 |    |           |
 | ------------- | ------------- |

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: shared-capabilities
 ms.date: 02/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8c832982a5525b0296155197d89684932cebaa95
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dfbf54c19aef00cbda886a4531797cda7ef3a191
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75418833"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986107"
 ---
 # <a name="az-module-support-in-azure-automation"></a>Azure Automation의 Az 모듈 지원
 
@@ -18,7 +18,7 @@ Azure Automation은 Runbook에서 [Azure Powershell Az 모듈](/powershell/azure
 
 ## <a name="considerations"></a>고려 사항
 
-Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모듈을 수정 하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 악영향을 미칠 수 있습니다. 솔루션을 포함하는 Automation 계정의 모듈 및 Runbook은 변경하지 않는 것이 좋습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
+Azure Automation에서 Az 모듈을 사용할 경우 여러 가지 사항을 고려해야 합니다. Runbook 및 모듈은 Automation 계정의 상위 솔루션에서 사용할 수 있습니다. Runbook을 편집하거나 모듈을 업그레이드하면 Runbook에 문제가 발생할 수 있습니다. 새 `Az` 모듈을 가져오기 전에 모든 Runbook 및 솔루션을 별도 Automation 계정에서 신중히 테스트해야 합니다. 모듈을 수정 하면 [시작/중지](automation-solution-vm-management.md) 솔루션에 부정적인 영향을 줄 수 있습니다. 솔루션을 포함 하는 Automation 계정에서 모듈 및 runbook을 변경 하지 않는 것이 좋습니다. 이 동작은 Az 모듈과 관련이 없습니다. Automation 계정을 변경할 때는 이 동작을 고려해야 합니다.
 
 Automation 계정으로 `Az` 모듈을 가져와도 Runbook이 사용하는 PowerShell 세션으로 모듈을 자동으로 가져오지 않습니다. 다음과 같은 상황에서 모듈을 PowerShell 세션으로 가져올 수 있습니다.
 

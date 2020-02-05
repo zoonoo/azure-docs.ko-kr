@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: apimpm
-ms.openlocfilehash: 11dae2b6d771138503643c402ba4525df1f04a88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4f311d2772a6a60798795b4f2e6237e8153b9547
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430756"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981221"
 ---
 # <a name="how-to-authorize-developer-accounts-by-using-azure-active-directory-b2c-in-azure-api-management"></a>Azure API Management에서 Azure Active Directory B2C를 사용하여 개발자 계정에 권한을 부여하는 방법
 
@@ -38,61 +38,65 @@ Azure Active Directory B2C는 소비자 지향 웹 및 모바일 애플리케이
    > [!NOTE]
    > API Management 서비스 인스턴스를 아직 만들지 않은 경우 [Azure API Management 시작 자습서][Get started with Azure API Management]에서 [API Management 서비스 인스턴스 만들기][Create an API Management service instance] 를 참조 하세요.
 
-2. **Id**아래에 있습니다. 위쪽에서 **+추가**를 클릭합니다.
+1. **Id**아래에 있습니다. 위쪽에서 **+추가**를 클릭합니다.
 
    **ID 공급자 추가** 창이 오른쪽에 나타납니다. **Azure Active Directory B2C**를 선택합니다.
     
    ![AAD B2C를 ID 공급자로 추가][api-management-howto-add-b2c-identity-provider]
 
-3. **리디렉션 URL**을 복사합니다.
+1. **리디렉션 URL**을 복사합니다.
 
    ![AAD B2C ID 공급자 리디렉션 URL][api-management-howto-copy-b2c-identity-provider-redirect-url]
 
-4. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **애플리케이션** 블레이드를 엽니다.
+1. 새 탭에서 Azure Portal의 Azure Active Directory B2C 테넌트에 액세스하고 **애플리케이션** 블레이드를 엽니다.
 
    ![새 애플리케이션 1 등록][api-management-howto-aad-b2c-portal-menu]
 
-5. **추가** 단추를 클릭하여 새 Azure Active Directory B2C 애플리케이션을 만듭니다.
+1. **추가** 단추를 클릭하여 새 Azure Active Directory B2C 애플리케이션을 만듭니다.
 
    ![새 애플리케이션 2 등록][api-management-howto-aad-b2c-add-button]
 
-6. **새 애플리케이션** 블레이드에서 애플리케이션의 이름을 입력합니다. **Web App/Web API**에서 **예**를 선택하고 **암시적 흐름 허용**에서 **예**를 선택합니다. 그런 다음, 3단계에서 복사한 **리디렉션 URL**을 **회신 URL** 텍스트 상자에 붙여 넣습니다.
+1. **새 애플리케이션** 블레이드에서 애플리케이션의 이름을 입력합니다. **Web App/Web API**에서 **예**를 선택하고 **암시적 흐름 허용**에서 **예**를 선택합니다. 그런 다음, 3단계에서 복사한 **리디렉션 URL**을 **회신 URL** 텍스트 상자에 붙여 넣습니다.
 
    ![새 애플리케이션 3 등록][api-management-howto-aad-b2c-app-details]
 
-7. **만들기** 단추를 클릭합니다. 애플리케이션이 만들어지면 **애플리케이션** 블레이드에 표시됩니다. 세부 정보를 보려면 애플리케이션 이름을 클릭합니다.
+1. 레거시 개발자 포털이 아닌 새 개발자 포털을 사용 하는 경우 응용 프로그램 클레임에 지정 된 **이름**, **성**및 **사용자의 개체 ID** 를 포함 합니다.
+
+    ![응용 프로그램 클레임](./media/api-management-howto-aad-b2c/api-management-application-claims.png)
+
+1. **만들기** 단추를 클릭합니다. 애플리케이션이 만들어지면 **애플리케이션** 블레이드에 표시됩니다. 세부 정보를 보려면 애플리케이션 이름을 클릭합니다.
 
    ![새 애플리케이션 4 등록][api-management-howto-aad-b2c-app-created]
 
-8. **속성** 블레이드에서 **애플리케이션 ID**를 클립보드에 복사합니다.
+1. **속성** 블레이드에서 **애플리케이션 ID**를 클립보드에 복사합니다.
 
    ![애플리케이션 ID 1][api-management-howto-aad-b2c-app-id]
 
-9. API Management **ID 공급자 추가** 창으로 다시 전환하고 ID를 **클라이언트 ID** 텍스트 상자에 붙여 넣습니다.
+1. API Management **ID 공급자 추가** 창으로 다시 전환하고 ID를 **클라이언트 ID** 텍스트 상자에 붙여 넣습니다.
     
-10. B2C 앱 등록으로 다시 전환하고 **키** 단추를 클릭한 다음, **키 생성**을 클릭합니다. **저장**을 클릭하여 구성을 저장하고 **앱 키**를 표시합니다. 키를 클립보드에 복사합니다.
+1.  B2C 앱 등록으로 다시 전환하고 **키** 단추를 클릭한 다음, **키 생성**을 클릭합니다. **저장**을 클릭하여 구성을 저장하고 **앱 키**를 표시합니다. 키를 클립보드에 복사합니다.
 
     ![앱 키 1][api-management-howto-aad-b2c-app-key]
 
-11. API Management **ID 공급자 추가** 창으로 다시 전환하고 키를 **클라이언트 비밀** 텍스트 상자에 붙여 넣습니다.
+1.  API Management **ID 공급자 추가** 창으로 다시 전환하고 키를 **클라이언트 비밀** 텍스트 상자에 붙여 넣습니다.
     
-12. **Signin 테 넌 트**에 Azure Active Directory B2C 테 넌 트의 도메인 이름을 지정 합니다.
+1.  **Signin 테 넌 트**에 Azure Active Directory B2C 테 넌 트의 도메인 이름을 지정 합니다.
 
-13. **권한** 필드를 사용 하 여 사용할 AZURE AD B2C 로그인 URL을 제어할 수 있습니다. 값을 **< your_b2c_tenant_name > b2clogin**로 설정 합니다.
+1.  **권한** 필드를 사용 하 여 사용할 AZURE AD B2C 로그인 URL을 제어할 수 있습니다. 값을 **< your_b2c_tenant_name > b2clogin**로 설정 합니다.
 
-14. B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
+1. B2C 테넌트 정책에서 **등록 정책** 및 **로그인 정책**을 지정합니다. 선택적으로 **프로필 편집 정책** 및 **암호 재설정 정책**을 제공할 수도 있습니다.
 
-15. 원하는 구성이 지정되면 **저장**을 클릭합니다.
+1. 원하는 구성이 지정되면 **저장**을 클릭합니다.
 
     변경 내용이 저장되면 개발자는 Azure Active Directory B2C를 사용하여 새 계정을 만들고 개발자 포털에 로그인할 수 있습니다.
 
 ## <a name="developer-portal---add-azure-ad-b2c-account-authentication"></a>개발자 포털-Azure AD B2C 계정 인증 추가
 
-개발자 포털에서 AAD B2C를 사용 하 여 로그인 할 수는 **OAuth 단추** 위젯입니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
-
-![AAD 단추 위젯](./media/api-management-howto-aad/portal-oauth-widget.png)
+개발자 포털에서 **로그인 단추: OAuth** 위젯을 사용 하 여 AAD B2C 로그인 할 수 있습니다. 위젯은 기본 개발자 포털 콘텐츠의 로그인 페이지에 이미 포함 되어 있습니다.
 
 새 사용자가 AAD B2C를 사용 하 여 로그인 할 때마다 새 계정이 자동으로 생성 되지만 동일한 위젯을 등록 페이지에 추가 하는 것이 좋습니다.
+
+**등록 양식: oauth** 위젯은 oauth로 등록 하는 데 사용 되는 양식을 나타냅니다.
 
 > [!IMPORTANT]
 > AAD 변경 내용을 적용 하려면 [포털을 다시 게시](api-management-howto-developer-portal-customize.md#publish) 해야 합니다.

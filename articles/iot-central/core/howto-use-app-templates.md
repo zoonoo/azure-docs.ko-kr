@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d682c49aa833b9e11dbbddc5e9f6afd52cbb6e84
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 3cc6f82676f426240fba4cc4910246073aa9a556
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72952876"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982463"
 ---
 # <a name="use-application-templates"></a>애플리케이션 템플릿 사용
 
@@ -27,7 +27,7 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 - 대시보드 레이아웃 및 정의한 모든 타일을 포함 하는 기본 응용 프로그램 대시보드
 - 측정, 설정, 속성, 명령 및 대시보드를 포함 한 장치 템플릿입니다.
-- 역할. 모든 규칙 정의가 포함 되어 있습니다. 그러나 전자 메일 작업을 제외한 작업은 포함 되지 않습니다.
+- 규칙. 모든 규칙 정의가 포함 되어 있습니다. 그러나 전자 메일 작업을 제외한 작업은 포함 되지 않습니다.
 - 장치 집합은 해당 조건 및 대시보드를 포함 합니다.
 
 > [!WARNING]
@@ -42,7 +42,7 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 응용 프로그램 템플릿에서 만든 모든 응용 프로그램에 이러한 항목을 수동으로 추가 합니다.
 
-## <a name="create-an-application-template"></a>응용 프로그램 템플릿 만들기
+## <a name="create-an-application-template"></a>애플리케이션 템플릿 만들기
 
 기존 IoT Central 응용 프로그램에서 응용 프로그램 템플릿을 만들려면 다음을 수행 합니다.
 
@@ -51,7 +51,7 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 1. **응용 프로그램 템플릿 내보내기** 페이지에서 템플릿의 이름 및 설명을 입력 합니다.
 1. 응용 프로그램 템플릿을 만들려면 **내보내기** 단추를 선택 합니다. 이제 다른 사용자가 템플릿에서 새 응용 프로그램을 만들 수 있도록 **공유 가능한 링크** 를 복사할 수 있습니다.
 
-![응용 프로그램 템플릿 만들기](media/howto-use-app-templates/create-template.png)
+![애플리케이션 템플릿 만들기](media/howto-use-app-templates/create-template.png)
 
 ## <a name="use-an-application-template"></a>응용 프로그램 템플릿 사용
 
@@ -59,7 +59,7 @@ Azure IoT Central 응용 프로그램을 만드는 경우 기본 제공 샘플 �
 
 ![템플릿에서 응용 프로그램 만들기](media/howto-use-app-templates/create-app.png)
 
-지불 계획을 선택 하 고 폼의 다른 필드를 작성 합니다. 그런 다음 **만들기** 를 선택 하 여 응용 프로그램 템플릿에서 새 IoT Central 응용 프로그램을 만듭니다.
+가격 책정 계획을 선택 하 고 폼의 다른 필드를 작성 합니다. 그런 다음 **만들기** 를 선택 하 여 응용 프로그램 템플릿에서 새 IoT Central 응용 프로그램을 만듭니다.
 
 ## <a name="manage-application-templates"></a>응용 프로그램 템플릿 관리
 

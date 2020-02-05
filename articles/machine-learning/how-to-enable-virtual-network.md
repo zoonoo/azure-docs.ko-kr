@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fafb40c8505b7178782ab15c14184c5bec052a1b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 3dfdbc56456ea67c830d0e1e9785b9d0032bf2cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937851"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988223"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -180,8 +180,8 @@ Azure Portal의 NSG 규칙 구성은 다음 이미지에 나와 있습니다.
 - NSG 규칙을 사용 하 여 아웃 바운드 인터넷 연결을 거부 합니다.
 
 - __계산 인스턴스__ 또는 __계산 클러스터__의 경우 다음 항목에 대 한 아웃 바운드 트래픽을 제한 합니다.
-   - __저장소__ 의 __서비스 태그__ 를 사용 하 여 Azure Storage
-   - __AzureContainerRegistry__ 의 __서비스 태그__ 를 사용 하 여 Azure Container Registry
+   - __저장소.__ 지역 이름의 __서비스 태그__ 를 사용 하 여 Azure Storage 합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
+   - __AzureContainerRegistry 이름__의 __서비스 태그__ 를 사용 하 여 Azure Container Registry 합니다. 여기서 `{RegionName}`은 Azure 지역의 이름입니다.
    - __AzureMachineLearning__ 의 __서비스 태그__ 를 사용 하 여 Azure Machine Learning
    
 - __계산 인스턴스의__경우 다음 항목도 추가 합니다.

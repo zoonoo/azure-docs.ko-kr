@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 11/04/2019
-ms.openlocfilehash: 15bf6533106fe826c56b38cfb345c509d6d67966
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3d6439424f2a39bf5b5477cebd5fadb23a6370b0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844095"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984815"
 ---
 #  <a name="what-are-compute-targets-in-azure-machine-learning"></a>Azure Machine Learning에서 계산 대상 이란? 
 
@@ -58,7 +58,7 @@ Azure Machine Learning에서 관리 되는 계산 리소스를 만들고 관리 
 이러한 계산 리소스는 생성 될 때 다른 종류의 계산 대상과 달리 자동으로 작업 영역에 포함 됩니다.
 
 > [!NOTE]
-> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, **미국 동부 2**, **북아메리카 유럽** 또는 **영국 남부**지역이 포함 된 작업 영역에만 사용할 수 있으며 곧 제공 되는 다른 지역에 대 한 지원을 제공 합니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다. 
 
 ### <a name="compute-clusters"></a>컴퓨팅 클러스터

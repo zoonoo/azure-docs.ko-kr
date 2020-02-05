@@ -9,20 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 742cb76f491e76db6dc9ec415c6718066b46f137
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 06fdb9733ad9c173c88936e5502214b58f5d10ee
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911073"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985920"
 ---
 # <a name="interact-with-the-map"></a>맵과 상호 작용
 
-이 문서에서는 map [class events](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events) 속성을 사용 하 여 지도의 이벤트와 지도의 여러 계층에 대 한 이벤트를 강조 표시 하는 방법을 보여 줍니다. 또한 map 클래스 events 속성을 사용하여 HTML 표식과 상호 작용할 때 발생하는 이벤트를 강조 표시하는 방법을 보여 줍니다.
+이 문서에서는 [map events 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?#events)를 사용 하는 방법을 보여 줍니다. 속성은 지도와 지도의 여러 계층에 대 한 이벤트를 강조 표시 합니다. HTML 표식과 상호 작용할 때 이벤트를 강조 표시할 수도 있습니다.
 
 ## <a name="interact-with-the-map"></a>맵과 상호 작용
 
-아래 맵을 사용 하 여 재생 하 고 오른쪽에 강조 표시 된 해당 마우스 이벤트를 확인 합니다. **JS 탭**을 클릭하면 JavaScript 코드를 보고 편집할 수 있습니다. **CodePen에서 편집** 단추를 클릭하고 CodePen에서 코드를 편집할 수도 있습니다.
+아래 맵을 사용 하 여 재생 하 고 오른쪽에 강조 표시 된 해당 마우스 이벤트를 확인 합니다. **JS 탭**을 클릭하면 JavaScript 코드를 보고 편집할 수 있습니다. **CodePen에서 편집** 을 클릭 하 여 CodePen의 코드를 수정할 수도 있습니다.
 
 <br/>
 
@@ -31,7 +31,7 @@ ms.locfileid: "75911073"
 
 ## <a name="interact-with-map-layers"></a>맵 계층과 상호 작용
 
-다음 코드는 기호 계층과 상호 작용할 때 발생 하는 이벤트의 이름을 강조 표시 합니다. 기호, 거품형, 선 및 다각형 계층은 모두 동일한 이벤트 집합을 지원 합니다. 열 지도 및 타일 계층은 이러한 이벤트를 지원 하지 않습니다.
+다음 코드는 기호 계층과 상호 작용할 때 발생 한 이벤트를 강조 표시 합니다. 기호, 거품형, 선 및 다각형 계층은 모두 동일한 이벤트 집합을 지원 합니다. 열 지도 및 타일 계층은 이러한 이벤트를 지원 하지 않습니다.
 
 <br/>
 

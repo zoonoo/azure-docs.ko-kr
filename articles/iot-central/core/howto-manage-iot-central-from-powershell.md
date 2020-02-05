@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: c731dae02e9013fc436d6f30d8c8b2ab384968a0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: df663861010177ba54c56ee4495458ea1b928359
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453986"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985716"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -57,7 +57,7 @@ New-AzResourceGroup -ResourceGroupName "MyIoTCentralResourceGroup" `
 # Create an IoT Central application
 New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -Name "myiotcentralapp" -Subdomain "mysubdomain" `
-  -Sku "S1" -Template "iotc-demo@1.0.0" `
+  -Sku "ST1" -Template "iotc-demo@1.0.0" `
   -DisplayName "My Custom Display Name"
 ```
 
@@ -69,7 +69,7 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 |위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽** 위치에서 IoT Central 응용 프로그램을 만들 수 있습니다.  |
 |이름              |Azure Portal의 애플리케이션 이름입니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com 입니다. |
-|SKU               |현재 유일한 값은 **S1**(표준 계층)입니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
+|SKU               |현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 |템플릿          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 |DisplayName       |UI에 표시되는 애플리케이션 이름입니다. |
 

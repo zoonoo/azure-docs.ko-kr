@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c50edb03fe849c70596c0bfb3cdc2dafa15f136f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dab35fbcd221af9f4eb587b8c98a8ff85aeef59f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480204"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982792"
 ---
 # <a name="define-a-one-time-password-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 일회성 암호 기술 프로필을 정의 합니다.
 
@@ -77,6 +77,7 @@ Web.TPEngine.Providers.OneTimePasswordProtocolProvider, Web.TPEngine, Version=1.
 | CodeLength | 아닙니다. | 코드의 길이입니다. 기본값은 `6`입니다. |
 | CharacterSet | 아닙니다. | 정규식에서 사용 하기 위해 형식이 지정 된 코드에 대 한 문자 집합입니다. `a-z0-9A-Z`)을 입력합니다. 기본값은 `0-9`입니다. 문자 집합은 지정 된 집합에 최소 10 개의 다른 문자를 포함 해야 합니다. |
 | NumRetryAttempts | 아닙니다. | 코드가 잘못 된 것으로 간주 되기 전의 확인 시도 횟수입니다. 기본값은 `5`입니다. |
+| 작업 | 예 | 수행할 작업입니다. 가능한 값은 `GenerateCode`또는 `VerifyCode`입니다. |
 | ReuseSameCode | 아닙니다. | 지정 된 코드가 만료 되지 않고 여전히 유효한 경우 새 코드를 생성 하는 대신 중복 코드를 지정 해야 하는지 여부입니다. 기본값은 `false`입니다. |
 
 ### <a name="returning-error-message"></a>오류 메시지 반환

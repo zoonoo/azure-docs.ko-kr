@@ -3,12 +3,12 @@ title: Azure Migrate 사용 하 여 물리적 서버 평가 지원
 description: Azure Migrate를 사용한 물리적 서버 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 489f95bbbbeb261b56f1a3a86da44f5fcce0adf5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f2698d0ff046147599a8c5c791a0980a54090932
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846581"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990337"
 ---
 # <a name="support-matrix-for-physical-server-assessment"></a>물리적 서버 평가를 위한 지원 매트릭스 
 
@@ -38,7 +38,7 @@ ms.locfileid: "76846581"
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
 | **물리적 서버 배포**       | 물리적 서버는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
-| **권한**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
+| **권한**           | **Windows:** 검색에 포함 하려는 모든 Windows 서버에서 로컬 또는 도메인 사용자 계정을 설정 합니다. 사용자 계정은 원격 데스크톱 사용자, 성능 모니터 사용자 및 성능 로그 사용자 그룹에 추가 해야 합니다. <br/> **Linux:** 검색 하려는 Linux 서버에 루트 계정이 필요 합니다. |
 | **운영 체제** | 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제는 다음을 제외 하 고 지원 됩니다.<br/> Windows Server 2003 <br/> SUSE, Linux|
 
 

@@ -8,13 +8,13 @@ ms.service: time-series-insights
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
-ms.date: 12/06/2019
-ms.openlocfilehash: 4d32980e825f12c76b5c8bf8df0673fa82065751
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 5be6e7937a6e1f710b8e2576a9058963413fb6c2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460408"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984592"
 ---
 1. [Azure portal](https://ms.portal.azure.com/)에서 **Azure Active Directory** > **앱 등록** > **새 등록**을 선택합니다.
 
@@ -34,18 +34,30 @@ ms.locfileid: "75460408"
 
 1. **인증** 블레이드에서는 중요한 인증 구성 설정을 지정합니다. 
 
+    1. **+ 플랫폼 추가**를 선택 하 여 **리디렉션 uri** 를 추가 하 고 **액세스 토큰** 을 구성 합니다.
+
+    1. **예** 또는 **아니요**를 선택 하 여 앱이 **공용 클라이언트** 인지 여부를 확인 합니다.
+
+    1. 지원 되는 계정 및 테 넌 트를 확인 합니다.
+
+    [암시적 권한 부여 ![구성](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+
+1. 적절 한 플랫폼을 선택한 후 사용자 인터페이스 오른쪽의 측면 패널에서 **리디렉션 uri** 및 **액세스 토큰** 을 구성 합니다.
+
     1. **리디렉션 URI**는 인증 요청에 의해 제공된 주소와 일치해야 합니다.
 
-        * 로컬 개발 환경에서 호스팅되는 앱의 경우 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다. **기본 클라이언트 형식**을 예로 설정해야 합니다.
-        * Azure App Service에서 호스팅되는 단일 페이지 앱의 경우 **웹**을 선택합니다.
+        * 로컬 개발 환경에서 호스팅되는 앱의 경우 **공용 클라이언트(모바일 및 데스크톱)** 를 선택합니다. **공용 클라이언트** 를 **예**로 설정 해야 합니다.
+        * Azure App Service에서 호스트 되는 단일 페이지 앱의 경우 **웹**을 선택 합니다.
+
+    1. **로그 아웃 URL** 이 적절 한지 여부를 확인 합니다.
 
     1. **액세스 토큰** 또는 **ID 토큰**을 확인 하 여 암시적 허용 흐름을 사용 하도록 설정 합니다.
 
-   [![리디렉션 Uri를 만들고 암시적 부여를 구성 합니다.](media/time-series-insights-aad-registration/active-directory-auth-blade.png)](media/time-series-insights-aad-registration/active-directory-auth-blade.png#lightbox)
+    [![리디렉션 Uri 만들기](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png)](media/time-series-insights-aad-registration/active-directory-auth-redirect-uri.png#lightbox)
 
-   **저장**을 클릭합니다.
+    **구성**을 클릭 한 다음 **저장**을 클릭 합니다.
 
-1. **인증서 및 비밀**을 선택한 다음, **새 클라이언트 비밀**을 선택하여 클라이언트에서 ID를 증명하는 데 사용할 수 있는 애플리케이션 암호를 만듭니다.
+1. **인증서 & 암호** 를 선택 하 고 **새 클라이언트 암호** 를 선택 하 여 클라이언트 앱에서 id를 증명 하는 데 사용할 수 있는 응용 프로그램 암호를 만듭니다.
 
    [![새 클라이언트 비밀 만들기](media/time-series-insights-aad-registration/active-directory-application-keys-save.png)](media/time-series-insights-aad-registration/active-directory-application-keys-save.png#lightbox)
 

@@ -8,12 +8,12 @@ ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: 3360209e9de54d6011a2a430cd2c1fb54a315c43
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327599"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990966"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -27,7 +27,7 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 > * 장치를 Microsoft에 다시 배송 합니다.
 > * 데이터를 Data Lake Storage Gen2로 이동 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
@@ -75,7 +75,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     이러한 파일이 있는지 확인 하려면 다음 명령을 사용 합니다. `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. `<hadoop_install_dir>` 자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
-    예를 들면 다음과 같습니다.
+    예시:
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
@@ -208,7 +208,7 @@ Azure Data Factory를 사용 하거나 Azure 기반 Hadoop 클러스터를 사�
 
 서비스 주체를 만들려면 [방법: 포털을 사용 하 여 리소스에 액세스할 수 있는 AZURE AD 응용 프로그램 및 서비스 주체 만들기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)를 참조 하세요.
 
-* 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **스토리지 Blob 데이터 기여자** 역할을 서비스 주체에 할당해야 합니다.
+* 문서의 [애플리케이션을 역할에 할당](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#assign-the-application-to-a-role) 섹션에 있는 단계를 수행할 때 **Storage Blob 데이터 참가자** 역할을 서비스 주체에 할당해야 합니다.
 
 * 문서의 [로그인에 사용할 값 가져오기](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#get-values-for-signing-in) 섹션의 단계를 수행 하는 경우 응용 프로그램 ID 및 클라이언트 암호 값을 텍스트 파일에 저장 합니다. 곧 이 값들이 필요합니다.
 
@@ -282,7 +282,7 @@ sudo -u hdfs ./copy-acls.sh -s /{hdfs_path} > ./filelist.json
    sudo apt-get install jq
    ```
 
-3. [요청](http://docs.python-requests.org/en/master/) python 패키지를 설치 합니다.
+3. [요청](https://2.python-requests.org/en/master/) python 패키지를 설치 합니다.
 
    ```bash
    

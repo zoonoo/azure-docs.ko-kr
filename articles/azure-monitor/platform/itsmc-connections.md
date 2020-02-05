@@ -4,15 +4,15 @@ description: 이 문서에서는 ITSM 제품/서비스를 Azure Monitor의 ITSMC
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 4dbc830ea106dee7ef21a28eb3aee63c94680be2
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664848"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990286"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.

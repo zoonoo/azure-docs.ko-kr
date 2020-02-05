@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9e9a3d13eeb0c8704e2faac1037d51e5bd322dc4
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 083f659f9392faff8f381e1552db23c291ffa8ca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945104"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988148"
 ---
 # <a name="azure-maps-traffic-coverage"></a>Azure Maps 교통 상황 검사
 
 Azure Maps는 교통 **흐름** 및 **인시던트** 형태로 풍부한 트래픽 정보를 제공합니다. 이 데이터는 지도에 시각화되거나, 실제 주행 상태를 고려하는 보다 효율적인 경로를 생성하는 데 사용될 수 있습니다.
 
-그러나 Maps는 모든 국가 또는 지역에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다. 다음 표에서는 각 국가 또는 지역에서 요청할 수 있는 트래픽 정보의 종류에 대 한 정보를 제공 합니다. 
+그러나 지도에는 모든 국가 또는 지역에 대해 동일한 수준의 정보 및 정확도가 없습니다. 다음 표에서는 각 국가 또는 지역에서 요청할 수 있는 트래픽 정보의 종류에 대 한 정보를 제공 합니다. 
 
 ## <a name="americas"></a>아메리카
 

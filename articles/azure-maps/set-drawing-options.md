@@ -3,21 +3,21 @@ title: 그리기 도구 모듈 | Microsoft Azure 맵
 description: 이 문서에서는 Microsoft Azure Maps 웹 SDK를 사용 하 여 그리기 옵션 데이터를 설정 하는 방법을 설명 합니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 09/04/2019
+ms.date: 01/29/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 2f23d4d7962fc4a01ac2f9d20dc834bcd2f08be5
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 6c64820cdfa03e833bfd2fbad3ba7489170b14e5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910580"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988926"
 ---
 # <a name="use-the-drawing-tools-module"></a>그리기 도구 모듈 사용
 
-Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈을 사용 하면 터치 화면과 같은 입력 장치를 사용 하 여 지도의 셰이프를 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) 이며 지도에 셰이프를 그리거나 편집 하는 데 필요한 모든 기능을 제공 합니다. 드로잉 관리자는 직접 사용 하 고 사용자 지정 도구 모음 UI와 통합 하거나 기본 제공 [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) 클래스를 사용할 수 있습니다. 
+Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈을 사용 하면 마우스 또는 터치 화면과 같은 입력 장치를 사용 하 여 지도의 셰이프를 쉽게 그리거나 편집할 수 있습니다. 이 모듈의 핵심 클래스는 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-)입니다. 드로잉 관리자는 맵에 셰이프를 그리거나 편집 하는 데 필요한 모든 기능을 제공 합니다. 직접 사용할 수 있으며 사용자 지정 도구 모음 UI와 통합 됩니다. 기본 제공 [그리기 도구 모음](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.control.drawingtoolbar?view=azure-node-latest) 클래스를 사용할 수도 있습니다. 
 
 ## <a name="loading-the-drawing-tools-module-in-a-webpage"></a>웹 페이지에서 그리기 도구 모듈 로드
 
@@ -30,7 +30,7 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈�
         <script src="https://atlas.microsoft.com/sdk/javascript/drawing/0.1/atlas-drawing.min.js"></script>
         ```
 
-    - 또는 [Azure Maps-](https://www.npmjs.com/package/azure-maps-drawing-tools) npm 패키지를 사용 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스팅합니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 이 명령 사용:
+    - 또는 [npm 패키지를 사용](https://www.npmjs.com/package/azure-maps-drawing-tools) 하 여 AZURE MAPS 웹 SDK 소스 코드의 그리기 도구 모듈을 로컬로 로드 한 다음 앱을 사용 하 여 호스트할 수 있습니다. 이 패키지에는 TypeScript 정의도 포함됩니다. 다음 명령을 사용 합니다.
     
         > **npm 설치-맵-그리기-도구**
     
@@ -43,7 +43,7 @@ Azure Maps 웹 SDK는 *그리기 도구 모듈*을 제공 합니다. 이 모듈�
 
 ## <a name="use-the-drawing-manager-directly"></a>드로잉 관리자 직접 사용
 
-이제 그리기 도구 모듈이 응용 프로그램에 로드 되었으므로 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-) 를 사용 하 여 맵 내에서 그리기 및 편집 기능을 사용 하도록 설정할 수 있습니다. 드로잉 관리자에 대 한 옵션을 인스턴스화하거나 또는 `drawingManager.setOptions()` 함수를 사용 하 여 지정할 수 있습니다.
+그리기 도구 모듈이 응용 프로그램에 로드 되 면 그리기 [관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#setoptions-drawingmanageroptions-)를 사용 하 여 그리기 및 편집 기능을 사용 하도록 설정할 수 있습니다. 드로잉 관리자에 대 한 옵션을 인스턴스화하거나 또는 `drawingManager.setOptions()` 함수를 사용 하 여 지정할 수 있습니다.
 
 ### <a name="set-the-drawing-mode"></a>그리기 모드 설정
 
@@ -83,7 +83,7 @@ drawingManager = new atlas.drawing.DrawingManager(map,{
 });
 ```
 
-왼쪽 마우스 단추를 누른 채 마우스로 끌어 지도에 다각형을 자유롭게 그릴 수 있도록 하는 기능을 구현 하는 코드 샘플은 다음과 같습니다. 
+ 이 코드 샘플은 지도에 다각형을 그리는 기능을 구현 합니다. 마우스 왼쪽 단추를 누른 상태에서 자유롭게 끌어 놓습니다.
 
 <br/>
 

@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2d12fa85fbc134ba2578795619db89f4a5058b26
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934753"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990592"
 ---
-# <a name="overview-of-azure-security-controls"></a>Azure 보안 제어 개요
+# <a name="overview-of-azure-security-controls"></a>Azure 보안 컨트롤 개요
 
 Azure 보안 벤치 마크에는 Azure에서 응용 프로그램 및 데이터의 보안을 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 
@@ -29,7 +29,7 @@ Azure 보안 벤치 마크에서 사용 되는 컨트롤은 다음과 같습니�
 - [데이터 보호](security-control-data-protection.md)
 - [취약성 관리](security-control-vulnerability-management.md)
 - [인벤토리 및 자산 관리](security-control-inventory-asset-management.md)
-- [구성 보안](security-control-secure-configuration.md)
+- [보안 구성](security-control-secure-configuration.md)
 - [맬웨어 방어](security-control-malware-defense.md)
 - [데이터 복구](security-control-data-recovery.md)
 - [인시던트 응답](security-control-incident-response.md)
@@ -51,4 +51,5 @@ Azure 보안 벤치 마크 활동에 대 한 자세한 피드백 및 활성 참�
 ## <a name="next-steps"></a>다음 단계
 
 - 첫 번째 보안 제어: [네트워크 보안](security-control-network-security.md) 을 참조 하세요.
+- [Azure 보안 벤치 마크 소개](introduction.md) 읽기
 - [Azure Security 벤치 마크 v1 excel 스프레드시트](https://github.com/MicrosoftDocs/SecurityBenchmarks/tree/master/spreadsheets) 다운로드

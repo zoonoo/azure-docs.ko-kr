@@ -1,17 +1,17 @@
 ---
 title: Azure Cosmos DB의 WHERE 절
 description: Azure Cosmos DB에 대 한 SQL WHERE 절 알아보기
-author: markjbrown
+author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 06/10/2019
-ms.author: mjbrown
-ms.openlocfilehash: cd5643d8be06afcd43c5bfe38d6f5e9caa6f906e
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.date: 02/03/2020
+ms.author: tisande
+ms.openlocfilehash: 31653b598f0f3a79bf7f9c09231b1d111f167a16
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326634"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982232"
 ---
 # <a name="where-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 WHERE 절
 
@@ -40,7 +40,7 @@ WHERE <filter_condition>
   
   문서를 반환하려면 필터 조건으로 지정된 식을 true로 평가해야 합니다. true 부울 값만 조건을 충족하고, 다른 값(undefined, null, false, 숫자, 배열 또는 개체)은 조건을 충족하지 않습니다. 
 
-## <a name="examples"></a>예
+## <a name="examples"></a>예시
 
 다음 쿼리는 값이 `AndersenFamily`되는 `id` 속성을 포함 하는 항목을 요청 합니다. `id` 속성이 없거나 해당 값이 `AndersenFamily`일치 하지 않는 항목은 제외 됩니다.
 
@@ -71,10 +71,10 @@ WHERE <filter_condition>
 |**연산자 유형**  | **값** |
 |---------|---------|
 |산술 | +,-,*,/,% |
-|비트    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
+|비트 단위    | \|, &, ^, <<, >>, >>>(0 채우기 오른쪽 시프트) |
 |논리    | AND, OR, NOT      |
 |비교 | =, !=, &lt;, &gt;, &lt;=, &gt;=, <> |
-|문자열     |  \|\|(연결) |
+|String     |  \|\|(연결) |
 
 다음 쿼리는 이항 연산자를 사용 합니다.
 
@@ -104,10 +104,10 @@ WHERE <filter_condition>
     WHERE (-c.grade = -5)  -- matching grades == 5
 ```
 
-쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`은 `true`와 같은 값을 가진 `isRegistered` 속성을 포함 하는 JSON 항목을 반환 합니다. `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`또는 `<array>`와 같은 다른 값은 결과에서 항목을 제외 합니다. 
+쿼리에서 속성 참조를 사용할 수도 있습니다. 예를 들어 `SELECT * FROM Families f WHERE f.isRegistered`은 `true`와 같은 값을 가진 `isRegistered` 속성을 포함 하는 JSON 항목을 반환 합니다. `false`, `null`, `Undefined`, `<number>`, `<string>`, `<object>`또는 `<array>`와 같은 다른 값은 결과에서 항목을 제외 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 - [시작](sql-query-getting-started.md)
-- [Azure Cosmos DB .NET 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3)
+- [IN 키워드](sql-query-keywords.md#in)
 - [FROM 절](sql-query-from.md)

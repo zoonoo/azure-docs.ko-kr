@@ -3,8 +3,8 @@ title: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver�
 description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 11/07/2019
-ms.author: sedusch
-ms.openlocfilehash: d08f17bd22188f3d969261d8626d47a9e0faf08e
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.date: 02/03/2020
+ms.author: radeltch
+ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839600"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985520"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -170,11 +170,11 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)를 사용합니다.  
+   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )를 사용합니다.  
    SAP Applications 12 SP1용 SLES 사용  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기  
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)를 사용합니다.  
+   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )를 사용합니다.  
    SAP Applications 12 SP1용 SLES 사용  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신 모두에 하나 이상의 데이터 디스크 추가  
@@ -277,7 +277,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
    </code></pre>
 
    > [!NOTE]
-   > 클러스터 노드의 호스트 이름에는 대시를 사용하지 마세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 이것은 알려진 제한 사항이며 SUSE는 수정 프로그램을 개발 중입니다. 수정 프로그램은 sap-suse-cloud-connector 패키지의 패치로 릴리스될 예정입니다.
+   > 호스트 이름에 대시를 사용 하 **는 경우 알려진**문제는 **3.1.1** 패키지의 버전을 사용 하 여 수정 됩니다. 호스트 이름에 대시를 사용 하 여 클러스터 노드를 사용 하는 경우 최소 버전의 3.1.1 패키지를 사용 하 고 있는지 확인 합니다. 대시를 사용하면 클러스터가 작동하지 않습니다. 
 
    SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector**라고 합니다.
 
@@ -808,7 +808,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    hdbuserstore SET DEFAULT <b>nw1-db:30313@HN1</b> <b>SAPABAP1</b> <b>&lt;password of ABAP schema&gt;</b>
    </code></pre>
 
-## <a name="test-the-cluster-setup"></a>클러스터 설치 테스트
+## <a name="test-the-cluster-setup"></a>클러스터 설정 테스트
 
 다음 테스트는 SUSE의 모범 사례 가이드에서 테스트 사례를 복사한 것입니다. 이 테스트는 작업자 편의를 위해 복사되었습니다. 또한 항상 모범 사례 가이드를 읽고 추가되었을 수 있는 모든 추가 테스트를 수행해야 합니다.
 
@@ -867,7 +867,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 수동으로 ASCS 인스턴스 마이그레이션
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -911,7 +911,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. HAFailoverToNode 테스트
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -955,7 +955,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 노드 작동 중단 시뮬레이트
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-0
     Resource Group: g-NW1_ASCS
@@ -1030,7 +1030,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. ASCS 인스턴스의 수동 다시 시작 테스트
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1077,7 +1077,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 메시지 서버 프로세스 종료
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1120,7 +1120,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 서버 프로세스 종료
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1163,7 +1163,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 복제 서버 프로세스 종료
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS
@@ -1205,7 +1205,7 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
 
 1. 큐에 넣기 sapstartsrv 프로세스 종료
 
-   테스트를 시작하기 전 리소스 상태:
+   테스트 시작 전 리소스 상태:
 
    <pre><code>stonith-sbd     (stonith:external/sbd): Started nw1-cl-1
     Resource Group: g-NW1_ASCS

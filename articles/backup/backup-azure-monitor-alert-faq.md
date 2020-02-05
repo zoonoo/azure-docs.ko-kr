@@ -4,50 +4,49 @@ description: 이 문서에서는 Azure Backup 모니터링 경고 및 Azure Back
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: 9cf7bf49d29b5faa9811a591b45179fe83c1d483
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: f5be97458ba658f315c31ae34e540842b64e3ec4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172920"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989572"
 ---
 # <a name="azure-backup-monitoring-alert---faq"></a>Azure Backup 모니터링 경고-FAQ
 
-이 문서에서는 Azure 모니터링 경고에 대 한 일반적인 질문에 답변 합니다.
+이 문서에서는 Azure Backup 모니터링 및 보고에 대 한 일반적인 질문에 답변 합니다.
 
 ## <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
-### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-storage-account"></a>보고 데이터가 스토리지 계정으로 전송되기 시작했는지 확인하려면 어떻게 할까요?
+### <a name="how-do-i-check-if-reporting-data-has-started-flowing-into-a-log-analytics-la-workspace"></a>보고 데이터가 LA (Log Analytics) 작업 영역으로 이동이 시작 되었는지 확인 어떻게 할까요??
 
-구성한 스토리지 계정으로 이동한 다음 컨테이너를 선택합니다. 컨테이너에 insights-logs-azurebackupreport에 대한 항목이 있으면 보고 데이터가 흐르기 시작한 것입니다.
+구성 된 LA 작업 영역으로 이동 하 여 **로그** 메뉴 항목으로 이동 하 고 CoreAzureBackup 쿼리를 실행 합니다. 1을 사용 합니다. 반환 되는 레코드가 표시 되는 경우 데이터가 작업 영역으로 이동 하기 시작 했음을 의미 합니다. 초기 데이터 푸시는 최대 24 시간이 걸릴 수 있습니다.
 
-### <a name="what-is-the-frequency-of-data-push-to-a-storage-account-and-the-azure-backup-content-pack-in-power-bi"></a>Power BI에서 Azure Backup 콘텐츠 팩 및 스토리지 계정으로 데이터 푸시가 수행되는 빈도는 어느 정도인가요?
+### <a name="what-is-the-frequency-of-data-push-to-an-la-workspace"></a>LA 작업 영역에 대 한 데이터 푸시의 빈도는 어떻게 되나요?
 
-  신규 사용자의 경우 스토리지 계정에 데이터를 푸시하는 데 약 24시간 정도 걸립니다. 이 초기 푸시가 완료된 후에는 아래 그림에 표시된 빈도로 데이터 새로 고침이 진행됩니다.
+자격 증명 모음의 진단 데이터는 일정 시간 동안 Log Analytics 작업 영역에 펌프 됩니다. 모든 이벤트는 Recovery Services 자격 증명 모음에서 푸시된 후 20 분에서 30 분 Log Analytics 작업 영역에 도착 합니다. 지연에 대 한 자세한 내용은 다음과 같습니다.
 
-* **작업**, **경고**, **백업 항목**, **자격 증명 모음**, **보호된 서버** 및 **정책**과 관련된 데이터는 기록 시 고객 스토리지 계정에 푸시됩니다.
+* 모든 솔루션에서 백업 서비스의 기본 제공 경고는 생성 되는 즉시 푸시됩니다. 따라서 일반적으로 20 분에서 30 분 후에 Log Analytics 작업 영역에 나타납니다.
+* 모든 솔루션에서 주문형 백업 작업 및 복원 작업은 완료 되는 즉시 푸시됩니다.
+* SQL 백업을 제외한 모든 솔루션에 대해 예약 된 백업 작업은 완료 되는 즉시 푸시됩니다.
+* SQL 백업의 경우 로그 백업이 15 분 마다 발생할 수 있으므로 로그를 포함 하 여 완료 된 모든 예약 된 백업 작업에 대 한 정보는 6 시간 마다 일괄 처리 되 고 푸시됩니다.
+* 모든 솔루션에서 백업 항목, 정책, 복구 지점, 저장소 등의 기타 정보는 하루에 한 번 이상 푸시됩니다.
+* 백업 구성 변경 (예: 정책 변경 또는 정책 편집)은 관련 된 모든 백업 정보의 푸시를 트리거합니다.
 
-* **스토리지**와 관련된 데이터는 24시간마다 고객 스토리지 계정에 푸시됩니다.
+### <a name="how-long-can-i-retain-reporting-data"></a>보고 데이터는 얼마나 오래 보관할 수 있나요?
 
-    ![Azure Backup 보고서 데이터 푸시 빈도](./media/backup-azure-configure-reports/reports-data-refresh-cycle.png)
+LA 작업 영역을 만든 후에는 데이터를 최대 2 년 동안 보존 하도록 선택할 수 있습니다. 기본적으로 LA 작업 영역에는 31 일간의 데이터가 보존 됩니다.
 
-* Power BI에는 [하루에 한 번 예약된 새로 고침](https://powerbi.microsoft.com/documentation/powerbi-refresh-data/#what-can-be-refreshed)이 있습니다. Power BI에서 콘텐츠 팩에 대한 데이터를 수동으로 새로 고칠 수 있습니다.
+### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-la-workspace"></a>LA 작업 영역을 구성한 후 보고서의 모든 데이터를 볼 수 있나요?
 
-### <a name="how-long-can-i-retain-reports"></a>보고서를 보존할 수 있는 기간은 어느 정도인가요?
-
-스토리지 계정을 구성할 때 스토리지 계정의 보고 데이터 보존 기간을 선택할 수 있습니다. [보고서용 스토리지 계정 구성](backup-azure-configure-reports.md#configure-storage-account-for-reports) 섹션의 6단계를 따르세요. [Excel에서 보고서를 분석](https://powerbi.microsoft.com/documentation/powerbi-service-analyze-in-excel/)하고 요구에 따라 더 오랜 보존 기간 동안 보고서를 저장할 수도 있습니다.
-
-### <a name="will-i-see-all-my-data-in-reports-after-i-configure-the-storage-account"></a>스토리지 계정을 구성하면 보고서에서 내 데이터를 모두 볼 수 있나요?
-
- 스토리지 계정을 구성한 후 생성된 모든 데이터는 스토리지 계정에 푸시되며 보고서에서 확인할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 완료되거나 실패하면 보고서로 전송됩니다.
-
-### <a name="if-i-already-configured-the-storage-account-to-view-reports-can-i-change-the-configuration-to-use-another-storage-account"></a>보고서를 보는 데 사용할 스토리지 계정을 이미 구성한 경우 다른 스토리지 계정을 사용하도록 구성을 변경할 수 있나요?
-
-예, 다른 스토리지 계정을 가리키도록 구성을 변경할 수 있습니다. Azure Backup 콘텐츠 팩에 연결하는 동안 새로 구성된 스토리지 계정을 사용하면 됩니다. 또한 다른 스토리지 계정이 구성된 후 새 데이터는 이 스토리지 계정으로 전송됩니다. 구성을 변경하기 전의 오래된 데이터는 계속해서 이전 스토리지 계정에 유지됩니다.
+ 진단 설정을 구성한 후 생성 된 모든 데이터는 LA 작업 영역으로 푸시되 고 보고서에서 사용할 수 있습니다. 진행 중인 작업은 보고를 위해 푸시되지 않으며, 작업이 완료 되거나 실패 하면 보고서로 전송 됩니다.
 
 ### <a name="can-i-view-reports-across-vaults-and-subscriptions"></a>여러 자격 증명 모음 및 구독의 보고서를 볼 수 있나요?
 
-예, 다양한 자격 증명 모음에 동일한 스토리지 계정을 구성하여 자격 증명 모음 간 보고서를 볼 수 있습니다. 여러 구독의 자격 증명 모음에 대해 동일한 스토리지 계정을 구성할 수도 있습니다. 그런 다음 Power BI에서 Azure Backup 콘텐츠 팩에 연결하는 동안 이 스토리지 계정을 사용하여 보고서를 볼 수 있습니다. 선택한 스토리지 계정은 Recovery Services 자격 증명 모음과 동일한 지역에 있어야 합니다.
+예, 자격 증명 모음 및 구독 및 지역에서 보고서를 볼 수 있습니다. 데이터는 단일 LA 작업 영역 또는 LA 작업 영역 그룹에 있을 수 있습니다.
+
+### <a name="can-i-view-reports-across-tenants"></a>테 넌 트 간에 보고서를 볼 수 있나요?
+
+고객의 구독 또는 LA 작업 영역에 대 한 위임 된 액세스 권한이 있는 [Azure Lighthouse](https://azure.microsoft.com/services/azure-lighthouse/) 사용자 인 경우 백업 보고서를 사용 하 여 모든 테 넌 트의 데이터를 볼 수 있습니다.
 
 ### <a name="how-long-does-it-take-for-the-azure-backup-agent-job-status-to-reflect-in-the-portal"></a>Azure 백업 에이전트 작업 상태가 포털에 반영되려면 얼마나 오래 걸리나요?
 

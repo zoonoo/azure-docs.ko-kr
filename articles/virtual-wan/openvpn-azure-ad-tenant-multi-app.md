@@ -7,12 +7,12 @@ ms.service: virtual-wan
 ms.topic: conceptual
 ms.date: 1/10/2020
 ms.author: alzam
-ms.openlocfilehash: b390b5f8b00f61994db820a3af7bce26a3e0a30d
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: 90244b9dcf30c2ef01d4e57c9d8e35fa1d71f434
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75934974"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985648"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
@@ -154,114 +154,116 @@ P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합
 
    ```powershell
    $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-> [!NOTE]
-> Do not use the Azure VPN client's application ID in the commands above as it will grant all users access to the VPN gateway. Use the ID of the application(s) you registered.
-
-## <a name="hub"></a>7. Edit hub assignment
-
-1. Navigate to the **Hubs** blade under the virtual WAN.
-2. Select the hub that you want to associate the vpn server configuration to and click the ellipsis (...).
-
-   ![new site](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
-3. Click **Edit virtual hub**.
-4. Check the **Include point-to-site gateway** check box and pick the **Gateway scale unit** that you want.
-
-   ![new site](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
-5. Enter the **Address pool** from which the VPN clients will be assigned IP addresses.
-6. Click **Confirm**.
-7. The operation will can take up to 30 minutes to complete.
-
-## <a name="device"></a>8. Download VPN profile
-
-Use the VPN profile to configure your clients.
-
-1. On the page for your virtual WAN, click **User VPN configurations**.
-2. At the top of the  page, click **Download user VPN config**.
-3. Once the file has finished creating, you can click the link to download it.
-4. Use the profile file to configure the VPN clients.
-
-4. Extract the downloaded zip file.
-
-5. Browse to the unzipped “AzureVPN” folder.
-
-6. Make a note of the location of the “azurevpnconfig.xml” file. The azurevpnconfig.xml contains the setting for the VPN connection and can be imported directly into the Azure VPN Client application. You can also distribute this file to all the users that need to connect via e-mail or other means. The user will need valid Azure AD credentials to connect successfully.
-## Configure user VPN clients
-
-To connect, you need to download the Azure VPN Client (Preview) and import the VPN client profile that was downloaded in the previous steps on every computer that wants to connect to the VNet.
+   ```
 
 > [!NOTE]
-> Azure AD authentication is supported only for OpenVPN® protocol connections.
+> 모든 사용자에 게 VPN gateway에 대 한 액세스 권한을 부여 하므로 위의 명령에서 Azure VPN 클라이언트의 응용 프로그램 ID를 사용 하지 마세요. 등록 한 응용 프로그램의 ID를 사용 합니다.
+
+## <a name="hub"></a>7. 허브 할당 편집
+
+1. 가상 WAN 아래의 **허브** 블레이드로 이동합니다.
+2. vpn 서버 구성을 연결할 허브를 선택하고, 줄임표(...)를 클릭합니다.
+
+   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/p2s4.jpg)
+3. **가상 허브 편집**을 클릭합니다.
+4. **지점 및 사이트 간 게이트웨이 포함** 확인란을 선택하고 원하는 **게이트웨이 배율 단위**를 선택합니다.
+
+   ![새 사이트](media/virtual-wan-point-to-site-azure-ad/p2s2.jpg)
+5. VPN 클라이언트에 IP 주소를 할당할 **주소 풀**를 입력합니다.
+6. **확인**을 클릭합니다.
+7. 작업이 완료될 때까지 최대 30분이 걸릴 수 있습니다.
+
+## <a name="device"></a>8. VPN 프로필 다운로드
+
+VPN 프로필을 사용하여 클라이언트를 구성합니다.
+
+1. 가상 WAN에 대한 페이지에서 **사용자 VPN 구성**을 클릭합니다.
+2. 페이지 맨 위에서 **사용자 VPN 구성 다운로드**를 클릭합니다.
+3. 파일 만들기가 끝나면 링크를 클릭하여 다운로드할 수 있습니다.
+4. 프로필 파일을 사용하여 VPN 클라이언트를 구성합니다.
+
+4. 다운로드 한 zip 파일을 추출 합니다.
+
+5. 압축을 푼 "AzureVPN" 폴더로 이동 합니다.
+
+6. "Azurevpnconfig" 파일의 위치를 적어둡니다. Azurevpnconfig에는 VPN 연결에 대 한 설정이 포함 되어 있으며, Azure VPN 클라이언트 응용 프로그램으로 직접 가져올 수 있습니다. 또한 전자 메일 또는 다른 방법을 통해 연결 해야 하는 모든 사용자에 게이 파일을 배포할 수 있습니다. 성공적으로 연결 하려면 사용자에 게 유효한 Azure AD 자격 증명이 필요 합니다.
+## <a name="configure-user-vpn-clients"></a>사용자 VPN 클라이언트 구성
+
+연결하려면 Azure VPN Client(미리 보기)를 다운로드하고, 이전 단계에서 VNet에 연결하려는 모든 컴퓨터에 다운로드한 VPN 클라이언트 프로필을 가져와야 합니다.
+
+> [!NOTE]
+> Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
 >
 
-#### To download the Azure VPN client
+#### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
 
-Use this [link](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab) to download the Azure VPN Client (Preview).
+이 [링크](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)를 사용하여 Azure VPN Client(미리 보기)를 다운로드합니다.
 
-#### <a name="import"></a>To import a client profile
+#### <a name="import"></a>클라이언트 프로필을 가져오려면,
 
-1. On the page, select **Import**.
+1. 페이지에서 **가져오기**를 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
+    ![수입](./media/virtual-wan-point-to-site-azure-ad/import/import1.jpg)
 
-2. Browse to the profile xml file and select it. With the file selected, select **Open**.
+2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
+    ![수입](./media/virtual-wan-point-to-site-azure-ad/import/import2.jpg)
 
-3. Specify the name of the profile and select **Save**.
+3. 프로필 이름을 지정하고, **저장**을 선택합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
+    ![수입](./media/virtual-wan-point-to-site-azure-ad/import/import3.jpg)
 
-4. Select **Connect** to connect to the VPN.
+4. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
+    ![수입](./media/virtual-wan-point-to-site-azure-ad/import/import4.jpg)
 
-5. Once connected, the icon will turn green and say **Connected**.
+5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
 
-    ![import](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
+    ![수입](./media/virtual-wan-point-to-site-azure-ad/import/import5.jpg)
 
-#### <a name="delete"></a>To delete a client profile
+#### <a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
-1. Select the ellipsis (...) next to the client profile that you want to delete. Then, select **Remove**.
+1. 삭제하려는 클라이언트 프로필 옆의 줄임표(...)를 선택합니다. 그런 다음, **제거**를 선택합니다.
 
     ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete1.jpg)
 
-2. Select **Remove** to delete.
+2. **제거**를 선택하여 삭제합니다.
 
     ![delete](./media/virtual-wan-point-to-site-azure-ad/delete/delete2.jpg)
 
-#### <a name="diagnose"></a>Diagnose connection issues
+#### <a name="diagnose"></a>연결 문제 진단
 
-1. To diagnose connection issues, you can use the **Diagnose** tool. Select the ellipsis (...) next to the VPN connection that you want to diagnose to reveal the menu. Then select **Diagnose**.
+1. 연결 문제를 진단하려면 **진단** 도구를 사용할 수 있습니다. 진단하려는 VPN 연결 옆에 있는 줄임표(...)를 선택하여 메뉴를 표시합니다. 그런 다음, **진단**을 선택합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
+    ![진단](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose1.jpg)
 
-2. On the **Connection Properties** page, select **Run Diagnosis**.
+2. **연결 속성** 페이지에서 **진단 실행**을 선택합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
+    ![진단](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose2.jpg)
 
-3. Sign in with your credentials.
+3. 자격 증명을 사용하여 로그인합니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
+    ![진단](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose3.jpg)
 
-4. View the diagnosis results.
+4. 진단 결과를 살펴봅니다.
 
-    ![diagnose](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
+    ![진단](./media/virtual-wan-point-to-site-azure-ad/diagnose/diagnose4.jpg)
 
-## <a name="viewwan"></a>View your virtual WAN
+## <a name="viewwan"></a>가상 WAN 보기
 
-1. Navigate to the virtual WAN.
-2. On the Overview page, each point on the map represents a hub. Hover over any point to view the hub health summary.
-3. In the Hubs and connections section, you can view hub status, site, region, VPN connection status, and bytes in and out.
+1. 가상 WAN 탭으로 이동합니다.
+2. 개요 페이지의 맵에 있는 각 점은 허브를 나타냅니다. 점 위로 마우스를 가져가면 허브 상태 요약을 볼 수 있습니다.
+3. 허브 및 연결 섹션에서 허브 상태, 사이트, 지역, VPN 연결 상태 및 입/출력 바이트를 볼 수 있습니다.
 
-## <a name="viewhealth"></a>View your resource health
+## <a name="viewhealth"></a>리소스 상태 보기
 
-1. Navigate to your WAN.
-2. On your WAN page, in the **SUPPORT + Troubleshooting** section, click **Health** and view your resource.
+1. WAN으로 이동합니다.
+2. WAN 페이지의 **지원 및 문제 해결** 섹션에서 **상태**를 클릭하고 리소스를 봅니다.
 
 
-## <a name="cleanup"></a>Clean up resources
+## <a name="cleanup"></a>리소스 정리
 
-When you no longer need these resources, you can use [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup) to remove the resource group and all of the resources it contains. Replace "myResourceGroup" with the name of your resource group and run the following PowerShell command:
+리소스가 더 이상 필요하지 않은 경우 [Remove-AzureRmResourceGroup](/powershell/module/azurerm.resources/remove-azurermresourcegroup)을 사용하여 리소스 그룹 및 여기에 포함된 모든 리소스를 제거할 수 있습니다. "myResourceGroup"을 리소스 그룹의 이름으로 바꾸고 다음 PowerShell 명령을 실행합니다.
 
 ```azurepowershell-interactive
 Remove-AzureRmResourceGroup -Name myResourceGroup -Force

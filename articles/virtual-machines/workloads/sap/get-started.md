@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 01/28/2020
+ms.date: 02/03/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3c609c659d99ce6eca0326a5a14cbbb67099e686
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 42df2d24aad1465a200203e648feb97d4e96fd18
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840471"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989827"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -121,6 +121,7 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 ## <a name="change-log"></a>변경 로그
 
+- 02/03/2020: sap 응용 프로그램용 [SLES의 Azure vm](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse) 에서 sap nw에 대 한 고가용성을 변경 하 고, [SLES의 anf를 사용 하는 AZURE VM의 sap nw 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files) 을 사용 하 여 SLES에서 클러스터 노드의 호스트 이름에 대시 사용에 대 한 경고를 제거 합니다.
 - 01/28/2020: RHEL의 [Azure vm에서 SAP HANA의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-high-availability-rhel) 을 변경 하 여 SAP HANA 클러스터 리소스 시간 제한을 Red Hat 시간 제한 권장 사항에 맞춥니다.
 - 01/17/2020: [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 Azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-proximity-placement-scenarios) 을 변경 하 여 기존 vm을 근접 배치 그룹으로 이동 하는 섹션을 변경 합니다.
 - 01/17/2020: Azure 가용성 영역을 [사용 하 여 SAP 워크 로드 구성을](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ha-availability-zones) 변경 하 여 가용성 영역 간의 대기 시간 측정을 자동화 하는 절차를 가리키도록 합니다.

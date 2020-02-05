@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: peterpr
-ms.openlocfilehash: 4c729d2502464df021df4d03e989d489b2d1ecea
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 89c4dd294cbbf0953545e1055e32adfc5f7cce28
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72954592"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990796"
 ---
 # <a name="manage-your-iot-central-application"></a>IoT Central 응용 프로그램 관리
 
@@ -40,9 +40,9 @@ ms.locfileid: "72954592"
 
 ## <a name="copy-an-application"></a>애플리케이션 복사
 
-모든 디바이스 인스턴스, 디바이스 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 이 복사본은 요금이 청구 되는 종 량 제 응용 프로그램입니다. 이 방식으로는 평가판 애플리케이션을 만들 수 없습니다.
+모든 디바이스 인스턴스, 디바이스 데이터 기록 및 사용자 데이터를 제외한 모든 애플리케이션의 복사본을 만들 수 있습니다. 이 복사본은 요금이 청구 될 표준 요금제를 사용 합니다. 이러한 방식으로 무료 가격 책정 계획을 사용 하는 응용 프로그램을 만들 수 없습니다.
 
-**복사**를 선택 합니다. 대화 상자에서 새 종량제 애플리케이션에 대한 세부 정보를 입력합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
+**복사**를 선택 합니다. 대화 상자에서 새 응용 프로그램에 대 한 세부 정보를 입력 합니다. 그런 다음 **복사** 를 선택 하 여 계속 하 시겠습니까를 확인 합니다. [애플리케이션 만들기](quick-deploy-iot-central.md) 빠른 시작에서 이 형식의 필드에 대해 자세히 알아보세요.
 
 ![애플리케이션 설정 페이지](media/howto-administer/appcopy2.png)
 
@@ -74,9 +74,9 @@ IoT Central Azure Resource Manager SDK 패키지는 Node, Python, C#, Ruby, Java
 | 언어 | 리포지토리 | 패키지 |
 | ---------| ---------- | ------- |
 | 노드 | [https://github.com/Azure/azure-sdk-for-node](https://github.com/Azure/azure-sdk-for-node) | [https://www.npmjs.com/package/azure-arm-iotcentral](https://www.npmjs.com/package/azure-arm-iotcentral)
-| 파이썬 |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
+| Python |[https://github.com/Azure/azure-sdk-for-python](https://github.com/Azure/azure-sdk-for-python) | [https://pypi.org/project/azure-mgmt-iotcentral](https://pypi.org/project/azure-mgmt-iotcentral)
 | C# | [https://github.com/Azure/azure-sdk-for-net](https://github.com/Azure/azure-sdk-for-net) | [https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral](https://www.nuget.org/packages/Microsoft.Azure.Management.IotCentral)
-| 루비 | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
+| Ruby | [https://github.com/Azure/azure-sdk-for-ruby](https://github.com/Azure/azure-sdk-for-ruby) | [https://rubygems.org/gems/azure_mgmt_iot_central](https://rubygems.org/gems/azure_mgmt_iot_central)
 | Java | [https://github.com/Azure/azure-sdk-for-java](https://github.com/Azure/azure-sdk-for-java) | [https://search.maven.org/search?q=a:azure-mgmt-iotcentral](https://search.maven.org/search?q=a:azure-mgmt-iotcentral)
 | Go | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go) | [https://github.com/Azure/azure-sdk-for-go](https://github.com/Azure/azure-sdk-for-go)
 

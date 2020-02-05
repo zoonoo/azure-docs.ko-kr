@@ -1,18 +1,18 @@
 ---
-title: Azure 방호 진단 로그 사용 및 사용 | Microsoft Docs
+title: Azure 방호 진단 로그 사용 및 사용
 description: 이 문서에서는 Azure 방호 진단 로그를 사용 하도록 설정 하 고 작업 하는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8ae421b48f3cfa8055f636052c990f99e0c775b4
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 2167a17d5d388c97ad357398c4ac2676e43be5a4
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73512406"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989453"
 ---
 # <a name="enable-and-work-with-bastion-diagnostic-logs"></a>요새 진단 로그 사용 및 사용
 

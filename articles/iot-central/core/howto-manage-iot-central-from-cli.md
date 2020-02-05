@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 1051ea91378cc2e2facec7e34f6d303297b91ce8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f7d31966241e352583ee4338faff8aae7e1a09c6
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454060"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990252"
 ---
 # <a name="manage-iot-central-from-azure-cli"></a>Azure CLI에서 IoT Central 관리
 
@@ -44,7 +44,7 @@ az group create --location "East US" \
 az iotcentral app create \
   --resource-group "MyIoTCentralResourceGroup" \
   --name "myiotcentralapp" --subdomain "mysubdomain" \
-  --sku S1 --template "iotc-demo@1.0.0" \
+  --sku ST1 --template "iotc-demo@1.0.0" \
   --display-name "My Custom Display Name"
 ```
 
@@ -56,7 +56,7 @@ az iotcentral app create \
 | 위치          | 기본적으로이 명령은 리소스 그룹의 위치를 사용 합니다. 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽** 위치에서 IoT Central 응용 프로그램을 만들 수 있습니다. |
 | name              | Azure Portal의 애플리케이션 이름입니다. |
 | 도메인이         | 애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com 입니다. |
-| sku               | 현재 유일한 값은 **S1**(표준 계층)입니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
+| sku               | 현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 | template          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 | display-name      | UI에 표시되는 애플리케이션 이름입니다. |
 

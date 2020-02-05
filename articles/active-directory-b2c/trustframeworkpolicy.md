@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 01/31/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5737a53d3eca0da440f178f9fd34adf5e968dd62
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b49c873112358db4fec2992ef3d2d61161e8b373
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840182"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982418"
 ---
 # <a name="trustframeworkpolicy"></a>TrustFrameworkPolicy
 
@@ -45,7 +45,7 @@ ms.locfileid: "76840182"
 | TenantId | 예 | 이 정책이 속한 테넌트의 고유 식별자입니다. |
 | PolicyId | 예 | 정책의 고유 식별자입니다. 이 식별자 앞에는 *B2C_1A_* 가 접두사로 추가되어야 합니다. |
 | PublicPolicyUri | 예 | 테넌트 ID와 정책 ID의 조합인 정책 URI입니다. |
-| DeploymentMode | 아닙니다. | 가능한 값은 `Production`, `Debugging` 또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요. |
+| DeploymentMode | 아닙니다. | 가능한 값은 `Production`또는 `Development`입니다. 기본값은 `Production`입니다. 정책을 디버그하려면 이 특성을 사용하세요. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요. |
 | UserJourneyRecorderEndpoint | 아닙니다. | **DeploymentMode**를 `Development`로 설정한 경우 사용되는 엔드포인트입니다. 값은 `urn:journeyrecorder:applicationinsights`여야 합니다. 자세한 내용은 [로그 수집](troubleshoot-with-application-insights.md)을 참조하세요. |
 
 

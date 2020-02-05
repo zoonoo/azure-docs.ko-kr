@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: 4da437fecf0529194d72b2d403302ff81055ec0f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 8b6d160f71bfe8b2e5c447296d511b54ce6542c8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892688"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989776"
 ---
 # <a name="tutorial-use-the-video-indexer-api"></a>자습서: Video Indexer API 사용
 
@@ -86,7 +86,7 @@ API와 통합을 시작할 준비가 되었습니다. [각 Video Indexer REST AP
 
 * **Video Indexer 개발자 포털**을 사용하여 계정 ID를 프로그래밍 방식으로 가져옵니다.
 
-    [계정 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Accounts?) API를 사용합니다.
+    [계정 가져오기](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Account?) API를 사용 합니다.
 
     > [!TIP]
     > `generateAccessTokens=true`를 정의하여 계정에 대한 액세스 토큰을 생성할 수 있습니다.
@@ -214,4 +214,6 @@ Debug.WriteLine(playerWidgetLink);
 
 ## <a name="next-steps"></a>다음 단계
 
-[출력 JSON에 대한 세부 정보 검사](video-indexer-output-json-v2.md)
+- [출력 JSON의 세부 정보를 검사 합니다.](video-indexer-output-json-v2.md)
+- 비디오 업로드 및 인덱싱의 중요 한 측면을 보여 주는 [샘플 코드](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/API) 를 확인 하세요. 코드 커밋되지를 따르면 기본 기능을 위해 API를 사용 하는 방법을 알 수 있습니다. 인라인 주석을 읽고 모범 사례 자세히 알려줍니다를 확인 하세요.
+

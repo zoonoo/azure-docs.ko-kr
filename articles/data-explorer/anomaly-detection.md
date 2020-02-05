@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 탐색기에서 시계열 변칙 검색 및 예측
+title: 시계열 변칙 검색 & 예측-Azure 데이터 탐색기
 description: Azure 데이터 탐색기를 사용 하 여 변칙 검색 및 예측에 대 한 시계열 데이터를 분석 하는 방법을 알아봅니다.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: adieldar
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 04/24/2019
-ms.openlocfilehash: 0e06569a3a6948836201b333501bf2de0416d4ca
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 4a7463d6149a921a4a29b43eaebb78a01543323a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766041"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985828"
 ---
 # <a name="anomaly-detection-and-forecasting-in-azure-data-explorer"></a>Azure 데이터 탐색기의 변칙 검색 및 예측
 
@@ -20,7 +20,7 @@ Azure 데이터 탐색기는 클라우드 서비스 또는 IoT 장치에서 원�
 
 이 문서에서는 Azure 데이터 탐색기 time series 변칙 검색 및 예측 기능을 자세히 설명 합니다. 적용 가능한 시계열 함수는 원래의 시계열이 계절, 추세 및 잔여 구성 요소로 분해 되는 강력한 잘 알려진 분해 모델을 기반으로 합니다. 이상 값은 잔여 구성 요소에서 이상 값으로 검색 되며, 예측은 계절 및 추세 구성 요소를 추정 하 여 수행 됩니다. Azure 데이터 탐색기 구현은 자동 계절성 검색, 강력한 이상 분석 및 벡터화 구현을 통해 기본 분해 모델을 크게 향상 시켜 몇 초만에 수천 개의 시계열을 처리할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 시계열 기능 개요는 [Azure 데이터 탐색기에서 시계열 분석](/azure/data-explorer/time-series-analysis) 을 참조 하세요.
 

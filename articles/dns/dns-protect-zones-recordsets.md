@@ -7,12 +7,12 @@ ms.service: dns
 ms.topic: article
 ms.date: 12/4/2018
 ms.author: rohink
-ms.openlocfilehash: 64c71047c60482ff198dbba833d4d0a35c80c60d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 549090f04f4969b00dc1c8ee8d5cc70a50523ca8
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932428"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983829"
 ---
 # <a name="how-to-protect-dns-zones-and-records"></a>DNS 영역 및 레코드를 보호하는 방법
 
@@ -205,7 +205,7 @@ Azure DNS에서 영역이 삭제되면 해당 영역의 모든 레코드 집합�
 
 ```azurepowershell
 # Protect against zone delete with CanNotDelete lock on the record set
-New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType" Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
+New-AzResourceLock -LockLevel CanNotDelete -LockName "<lock name>" -ResourceName "<zone name>/@" -ResourceType "Microsoft.Network/DNSZones/SOA" -ResourceGroupName "<resource group name>"
 ```
 
 실수로 영역을 삭제하지 못하게 하는 또 다른 방법으로 사용자 지정 역할을 사용하여 영역 관리에 사용되는 운영자 및 서비스 계정에 영역 삭제 권한이 없는지 확인합니다. 영역을 삭제해야 하는 경우 2단계 삭제 작업을 수행하는데, 먼저 영역 범위에서 잘못된 영역을 삭제하지 않도록 하는 영역 삭제 권한을 부여하고, 다음으로 영역을 삭제하면 됩니다.

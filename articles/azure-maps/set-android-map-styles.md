@@ -1,6 +1,6 @@
 ---
 title: Azure Maps Android SDK를 사용 하 여 지도 스타일 설정 Microsoft Azure 맵
-description: 이 문서에서는 Android SDK에 대 한 Microsoft Azure 맵 스타일 관련 기능에 대해 설명 합니다.
+description: 이 문서에서는 Android SDK에 대 한 스타일 관련 기능 Microsoft Azure 매핑하는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
 ms.date: 04/26/2019
@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: fe0aa662234166249433634ccb45d1931d176319
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 4adb38148acc0c18ac73709efbe7628ca9497897
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910478"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988960"
 ---
 # <a name="set-map-style-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도 스타일 설정
 
@@ -59,7 +59,7 @@ ms.locfileid: "75910478"
 
 ## <a name="set-map-style-in-the-activity-class"></a>활동 클래스에서 지도 스타일 설정
 
-작업 클래스에서 지도 스타일을 설정할 수 있습니다. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다. 그러면 지도 스타일이 **satellite_road_labels**로 설정 됩니다.
+작업 클래스에서 지도 스타일을 설정할 수 있습니다. `MainActivity.java` 클래스의 **onCreate ()** 메서드에 다음 코드 조각을 복사 합니다. 이 코드는 지도 스타일을 **satellite_road_labels**설정 합니다.
 
 ```Java
 mapControl.onReady(map -> {

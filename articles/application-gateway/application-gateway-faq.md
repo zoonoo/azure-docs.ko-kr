@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 08/31/2019
 ms.author: victorh
-ms.openlocfilehash: 14fe8780bb7919d942da186698275d5199f4586e
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 9d47986df9b9cbc6b8519aa0466b3434d6216e72
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770087"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986005"
 ---
 # <a name="frequently-asked-questions-about-application-gateway"></a>Application Gateway에 대 한 질문과 대답
 
@@ -68,7 +68,9 @@ Application Gateway는 가상 네트워크에서 전용 배포입니다.
 
 ### <a name="what-are-the-settings-for-keep-alive-timeout-and-tcp-idle-timeout"></a>Keep-alive 시간 제한 및 TCP 유휴 시간 제한에 대 한 설정은 무엇 인가요?
 
- Application Gateway v1 SKU에서는 Keep-alive 시간 제한이 120 초입니다. V2 SKU에 대 한 Keep-alive 제한 시간은 75 초입니다. TCP 유휴 시간 제한은 Application Gateway의 프런트 엔드 VIP (가상 IP)에 대 한 기본 4 분입니다.
+*Keep-alive 제한 시간은* 클라이언트가 영구적 연결을 다시 사용 하거나 닫기 전에 다른 HTTP 요청을 전송 하기 위해 대기 Application Gateway 하는 시간을 제어 합니다. *Tcp 유휴 시간 제한은* 작업이 없는 경우 tcp 연결이 열린 상태로 유지 되는 기간을 제어 합니다. 
+
+Application Gateway v1 SKU의 연결 *유지 제한 시간은* 120 초이 고, v2 sku에서는 75 초입니다. Application Gateway의 v1 및 v2 SKU 모두의 프런트 엔드 VIP (가상 IP)에 대 한 *TCP 유휴 시간 제한은* 4 분의 기본값입니다. 
 
 ### <a name="does-the-ip-or-dns-name-change-over-the-lifetime-of-the-application-gateway"></a>응용 프로그램 게이트웨이의 수명 동안 IP 또는 DNS 이름이 변경 되나요?
 

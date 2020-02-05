@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 07ef3858cc6a514ed60a9d25046dc4ff9566fa31
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 963572e19be71bf572357aadeee443696210a262
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546353"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984968"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -363,7 +363,7 @@ SDK의 주요 기능에는 다음이 포함 됩니다.
 + Azure Machine Learning 시각적 인터페이스 (미리 보기)는 [Azure Machine Learning 파이프라인](concept-ml-pipelines.md)에서 실행 점검 했습니다 되었습니다. 시각적 인터페이스에서 작성 된 파이프라인 (이전에는 실험 이라고 함)은 이제 핵심 Azure Machine Learning 환경과 완벽 하 게 통합 됩니다.
   + SDK 자산과 통합 된 관리 환경
   + 시각적 인터페이스 모델, 파이프라인 및 끝점에 대 한 버전 관리 및 추적
-  + 새롭게 디자인된 UI
+  + 다시 디자인 한 UI
   + 추가 된 일괄 처리 유추 배포
   + 유추 계산 대상에 대 한 AKS (Azure Kubernetes Service) 지원 추가
   + 새 Python-단계 파이프라인 제작 워크플로
@@ -1236,7 +1236,7 @@ Azure Machine Learning SDK for Python v 1.0.30가 릴리스 되었습니다.
 
 ### <a name="azure-machine-learning-data-prep-sdk-v112"></a>Azure Machine Learning 데이터 준비 SDK v 1.1.2
 
-참고: 데이터 준비 Python SDK는 더 이상 `numpy` 및 `pandas` 패키지를 설치 하지 않습니다. [업데이트 된 설치 지침](https://aka.ms/aml-data-prep-installation)을 참조 하세요.
+참고: 데이터 준비 Python SDK는 더 이상 `numpy` 및 `pandas` 패키지를 설치 하지 않습니다. [업데이트 된 설치 지침](https://github.com/Microsoft/AMLDataPrepDocs)을 참조 하세요.
 
 + **새로운 기능**
   + 이제 피벗 변환을 사용할 수 있습니다.

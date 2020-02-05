@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 98b5cc707ca8b5ebd1ee88f02082fd3f10fa73dc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75434995"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987597"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙으로 Azure IoT Central 확장
 
@@ -40,8 +40,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 설정 | 값 |
 | ------- | ----- |
-| 결제 계획 | 종량제 |
-| 애플리케이션 템플릿 | 기존 애플리케이션 |
+| 요금제 | Standard |
+| 애플리케이션 템플릿 | 레거시 응용 프로그램 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
@@ -67,7 +67,7 @@ Azure Portal를 사용 하 여 다음 설정으로 [Event Hubs 네임 스페이�
 | 위치 | 미국 동부 |
 | 처리량 단위 | 1 |
 
-### <a name="stream-analytics-job"></a>Stream Analytics 작업
+### <a name="stream-analytics-job"></a>작업 Stream Analytics
 
 Azure Portal를 사용 하 여 다음 설정으로 [Stream Analytics 작업을 만듭니다](https://portal.azure.com/#create/Microsoft.StreamAnalyticsJob) .
 

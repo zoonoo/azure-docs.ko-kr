@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: d06e75ec900faa17ed4441c20a52d8da60ee4d97
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289461"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989351"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -62,14 +62,14 @@ Azure Migrate는 Azure로의 평가 및 마이그레이션에 대 한 중앙 집
 - 각 도구에는 Azure Migrate에 연결할 수 있는 옵션이 있습니다. 도구 지침 및 설명서에 따라 도구를 Azure Migrate에 연결합니다.
 Azure Migrate 프로젝트 내에서 Azure 및 기타 도구를 통해 마이그레이션 진행 상황을 중앙에서 추적합니다.
 
-### <a name="how-do-i-delete-a-project"></a>프로젝트를 삭제 어떻게 할까요? 시겠습니까?
+## <a name="how-do-i-delete-a-project"></a>프로젝트를 삭제 어떻게 할까요? 시겠습니까?
 
 프로젝트를 삭제 하 [는 방법을 알아봅니다](how-to-delete-project.md) . 
 
 
+## <a name="do-machines-retain-domain-identity-after-migration"></a>마이그레이션 후 컴퓨터가 도메인 id를 유지 합니까?
 
-
-
+도메인 서비스가 [Azure에 통합](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/)되었다고 가정할 때 도메인 구성원 자격 및 도메인의 컴퓨터 id는 마이그레이션 후 보존 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Migrate 개요](migrate-services-overview.md)를 참조 하세요.

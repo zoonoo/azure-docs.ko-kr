@@ -4,18 +4,18 @@ description: Azure Portal를 사용 하 여 Azure HPC 캐시를 관리 하 고 �
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 1/08/2020
+ms.date: 1/29/2020
 ms.author: rohogue
-ms.openlocfilehash: a166a904b2e63419efd5803fd54be1d1b59836fb
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 9ad6348e15c8a25f721a89be7eab3e17c58ae17c
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867074"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988879"
 ---
 # <a name="manage-your-cache-from-the-azure-portal"></a>Azure Portal에서 캐시 관리
 
-Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세부 정보, 캐시 상태 및 기본 통계가 표시 됩니다. 또한 캐시를 삭제 하거나, 데이터를 장기 저장소로 플러시 하거나, 소프트웨어를 업데이트 하는 컨트롤도 있습니다.
+Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세부 정보, 캐시 상태 및 기본 통계가 표시 됩니다. 캐시를 중지 또는 시작 하 고, 캐시를 삭제 하 고, 장기 저장소로 데이터를 플러시하고, 소프트웨어를 업데이트 하는 컨트롤도 있습니다.
 
 개요 페이지를 열려면 Azure Portal에서 캐시 리소스를 선택 합니다. 예를 들어 **모든 리소스** 페이지를 로드 하 고 캐시 이름을 클릭 합니다.
 
@@ -23,12 +23,29 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 
 페이지 맨 위에 있는 단추를 통해 캐시를 관리할 수 있습니다.
 
+* **시작** 및 [**중지**](#stop-the-cache) -캐시 작업 일시 중단
 * [**플러시**](#flush-cached-data) -변경 된 데이터를 저장소 대상에 기록 합니다.
 * [**업그레이드**](#upgrade-cache-software) -캐시 소프트웨어를 업데이트 합니다.
 * **새로 고침** -개요 페이지를 다시 로드 합니다.
 * [**삭제**](#delete-the-cache) -캐시를 영구적으로 삭제 합니다.
 
 아래에서 이러한 옵션에 대해 자세히 알아보세요.
+
+## <a name="stop-the-cache"></a>캐시 중지
+
+비활성 기간 동안 캐시를 중지 하 여 비용을 줄일 수 있습니다. 캐시를 중지 하는 동안에는 작동 시간에 대 한 요금이 부과 되지 않지만 캐시의 할당 된 디스크 저장소에 대 한 요금이 청구 됩니다. 자세한 내용은 [가격 책정](https://aka.ms/hpc-cache-pricing) 페이지를 참조 하세요.
+
+중지 된 캐시는 클라이언트 요청에 응답 하지 않습니다. 캐시를 중지 하기 전에 클라이언트를 분리 해야 합니다.
+
+**중지** 단추를 클릭 하면 활성 캐시가 일시 중단 됩니다. **중지** 단추는 캐시의 상태가 **정상** 이거나 **저하**된 경우에 사용할 수 있습니다.
+
+![중지를 강조 표시 한 위쪽 단추의 스크린샷 및 중지 작업을 설명 하 고 ' 계속 하 시겠습니까? ' 라는 팝업 메시지 예 (기본값) 및 아니요 단추](media/stop-cache.png)
+
+예를 클릭 하 여 캐시 중지를 확인 한 후 캐시에서 해당 콘텐츠를 저장소 대상에 자동으로 플러시합니다. 이 프로세스는 다소 시간이 걸릴 수 있지만 데이터 일관성을 보장 합니다. 마지막으로 캐시 상태가 **중지 됨**으로 변경 됩니다.
+
+중지 된 캐시를 다시 활성화 하려면 **시작** 단추를 클릭 합니다. 확인은 필요 하지 않습니다.
+
+![시작이 강조 표시 된 위쪽 단추의 스크린샷](media/start-cache.png)
 
 ## <a name="flush-cached-data"></a>캐시 된 데이터 플러시
 
@@ -68,13 +85,14 @@ Azure Portal의 캐시 개요 페이지에는 캐시에 대 한 프로젝트 세
 > [!NOTE]
 > Azure HPC 캐시는 캐시를 삭제 하기 전에 캐시에서 자동으로 변경 된 데이터를 백 엔드 저장소 시스템에 기록 하지 않습니다.
 >
-> 캐시의 모든 데이터가 장기 저장소에 기록 되었는지 확인 하려면 다음 절차를 따르세요.
+> 캐시의 모든 데이터가 장기 저장소에 기록 되었는지 확인 하려면 삭제 하기 전에 [캐시를 중지](#stop-the-cache) 합니다. 삭제 단추를 클릭 하기 전에 상태가 **중지 됨** 으로 표시 되는지 확인 합니다.
+<!--... written to long-term storage, follow this procedure:
 >
-> 1. 저장소 대상 페이지에서 삭제 단추를 사용 하 여 Azure HPC 캐시에서 각 저장소 대상을 [제거](hpc-cache-edit-storage.md#remove-a-storage-target) 합니다. 시스템은 대상을 제거 하기 전에 캐시에서 자동으로 변경 된 데이터를 백 엔드 저장소 시스템에 기록 합니다.
-> 1. 저장소 대상이 완전히 제거 될 때까지 기다립니다. 캐시에서 쓸 데이터가 많은 경우 프로세스가 한 시간 이상 걸릴 수 있습니다. 완료 되 면 삭제 작업에 성공 했음을 알리는 포털 알림이 표시 되 고 저장소 대상이 목록에서 사라집니다.
-> 1. 영향을 받는 모든 저장소 대상을 삭제 한 후에는 캐시를 삭제 하는 것이 안전 합니다.
+> 1. [Remove](hpc-cache-edit-storage.md#remove-a-storage-target) each storage target from the Azure HPC Cache by using the delete button on the Storage targets page. The system automatically writes any changed data from the cache to the back-end storage system before removing the target.
+> 1. Wait for the storage target to be completely removed. The process can take an hour or longer if there is a lot of data to write from the cache. When it is done, a portal notification says that the delete operation was successful, and the storage target disappears from the list.
+> 1. After all affected storage targets have been deleted, it is safe to delete the cache.
 >
-> 또는 [flush](#flush-cached-data) 옵션을 사용 하 여 캐시 된 데이터를 저장할 수 있지만, 플러시가 완료 된 후 캐시 인스턴스가 제거 되기 전에 클라이언트에서 캐시에 변경 내용을 쓰는 경우에는 작업이 손실 될 위험이 적습니다.
+> Alternatively, you can use the [flush](#flush-cached-data) option to save cached data, but there is a small risk of losing work if a client writes a change to the cache after the flush completes but before the cache instance is destroyed.-->
 
 ## <a name="cache-metrics-and-monitoring"></a>캐시 메트릭 및 모니터링
 

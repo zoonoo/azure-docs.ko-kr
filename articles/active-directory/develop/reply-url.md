@@ -10,17 +10,22 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 7e289b83daa9c30703d94a7f4c0ff459f96256c0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702524"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983098"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>리디렉션 URI/회신 URL 제한 및 제한 사항
 
 리디렉션 URI 또는 회신 URL은 앱이 성공적으로 인증 되 고 인증 코드 또는 액세스 토큰이 부여 된 후 권한 부여 서버에서 사용자를 전송 하는 위치입니다. 코드 또는 토큰은 리디렉션 URI 또는 회신 토큰에 포함 되어 있으므로 앱 등록 프로세스의 일부로 올바른 위치를 등록 하는 것이 중요 합니다.
 
+ 회신 Url에는 다음과 같은 제한 사항이 적용 됩니다.
+
+    * 회신 URL은 `https`스키마로 시작 해야 합니다.
+    * 회신 URL은 대/소문자를 구분 합니다. 해당 사례는 실행 중인 응용 프로그램의 URL 경로에 대 한 대/소문자와 일치 해야 합니다. 예를 들어 응용 프로그램의 경로 `.../abc/response-oidc`일부로를 포함 하는 경우 회신 URL에 `.../ABC/response-oidc`를 지정 하지 마십시오. 웹 브라우저에서 경로를 대/소문자를 구분 하므로 `.../abc/response-oidc`와 연결 된 쿠키는 대/소문자가 일치 하지 않는 `.../ABC/response-oidc` URL로 리디렉션되는 경우 제외 될 수 있습니다.
+    
 ## <a name="maximum-number-of-redirect-uris"></a>최대 리디렉션 Uri 수
 
 다음 표에서는 앱을 등록할 때 추가할 수 있는 리디렉션 Uri의 최대 개수를 보여 줍니다.

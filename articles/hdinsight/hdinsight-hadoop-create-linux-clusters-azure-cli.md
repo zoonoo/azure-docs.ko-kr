@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/24/2019
-ms.openlocfilehash: 80a13e504b7cb075692256d5c813a95c51002ab6
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/03/2020
+ms.openlocfilehash: 0921caa19ee86ddf2766642211d8204059550b02
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495128"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990694"
 ---
 # <a name="create-hdinsight-clusters-using-the-azure-cli"></a>Azure CLI를 사용하여 HDInsight 클러스터 만들기
 
@@ -46,7 +46,7 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
 
     |매개 변수 | Description |
     |---|---|
-    |`--size`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 `clusterSizeInNodes` 변수를 `--size`에 전달 된 값으로 사용 합니다. |
+    |`--workernode-count`| 클러스터의 작업자 노드 수입니다. 이 문서에서는 `clusterSizeInNodes` 변수를 `--workernode-count`에 전달 된 값으로 사용 합니다. |
     |`--version`| HDInsight 클러스터 버전입니다. 이 문서에서는 `clusterVersion` 변수를 `--version`에 전달 된 값으로 사용 합니다. 참고 항목: [지원 되는 HDInsight 버전](./hdinsight-component-versioning.md#supported-hdinsight-versions)|
     |`--type`| HDInsight 클러스터 유형 (예: hadoop, interactivehive, hbase, kafka, 폭풍, spark, rserver, mlservices).  이 문서에서는 `clusterType` 변수를 `--type`에 전달 된 값으로 사용 합니다. 참고 항목: [클러스터 형식 및 구성](./hdinsight-hadoop-provision-linux-clusters.md#cluster-types)|
     |`--component-version`|' Component = version ' 형식의 공백으로 구분 된 버전에 있는 다양 한 Hadoop 구성 요소의 버전입니다. 이 문서에서는 `componentVersion` 변수를 `--component-version`에 전달 된 값으로 사용 합니다. 참고 항목: [Hadoop 구성 요소](./hdinsight-component-versioning.md#apache-hadoop-components-available-with-different-hdinsight-versions)|
@@ -120,12 +120,12 @@ Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://do
         --http-password $httpCredential \
         --http-user admin \
         --location $location \
-        --size $clusterSizeInNodes \
+        --workernode-count $clusterSizeInNodes \
         --ssh-password $sshCredentials \
         --ssh-user sshuser \
         --storage-account $AZURE_STORAGE_ACCOUNT \
         --storage-account-key $AZURE_STORAGE_KEY \
-        --storage-default-container $AZURE_STORAGE_CONTAINER \
+        --storage-container $AZURE_STORAGE_CONTAINER \
         --version $clusterVersion
     ```
 
@@ -172,7 +172,6 @@ Azure CLI를 사용 하 여 HDInsight 클러스터를 성공적으로 만들었�
 ### <a name="apache-hadoop-clusters"></a>Apache Hadoop 클러스터
 
 * [HDInsight에서 Apache Hive 사용](hadoop/hdinsight-use-hive.md)
-* [HDInsight에서 Apache Pig 사용](hadoop/hdinsight-use-pig.md)
 * [HDInsight와 함께 MapReduce 사용](hadoop/hdinsight-use-mapreduce.md)
 
 ### <a name="apache-hbase-clusters"></a>Apache HBase 클러스터

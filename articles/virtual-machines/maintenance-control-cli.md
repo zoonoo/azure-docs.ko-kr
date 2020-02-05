@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: e2eb77bfd000ecaa3bad5fd3c5792d1aa3a81964
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 13e4923bc5d49843710c9df4523992f541f1d343
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964875"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988025"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>미리 보기: 유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
@@ -183,7 +183,7 @@ az maintenance update list \
 
 ### <a name="dedicated-host"></a>전용 호스트
 
-전용 호스트 (ADH)에 대해 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
+전용 호스트의 보류 중인 업데이트를 확인 합니다. 이 예제에서 출력은 가독성을 위해 테이블 형식으로 지정 됩니다. 리소스의 값을 고유한 값으로 바꿉니다.
 
 ```azurecli-interactive
 az maintenance update list \

@@ -5,12 +5,12 @@ ms.assetid: c9da27b2-47d4-4c33-a3cb-1819955ee43b
 ms.topic: article
 ms.date: 09/17/2019
 ms.custom: seodec18
-ms.openlocfilehash: 777fa7caa80371592f93ee6f7458a7669fe6698f
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 433f8fa36f17f7cb145261273586a684658acda5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121361"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76985937"
 ---
 # <a name="enable-diagnostics-logging-for-apps-in-azure-app-service"></a>Azure App Service에서 앱에 대한 진단 로깅 사용
 ## <a name="overview"></a>개요
@@ -28,7 +28,7 @@ Azure는 [App Service 앱](overview.md)을 디버그하는 데 도움이 되는 
 | 애플리케이션 로깅 | Windows, Linux | App Service 파일 시스템 및/또는 Azure Storage blob | 응용 프로그램 코드에 의해 생성 된 메시지를 기록 합니다. 사용자가 선택한 웹 프레임 워크 또는 사용자 언어의 표준 로깅 패턴을 사용 하 여 직접 응용 프로그램 코드에서 메시지를 생성할 수 있습니다. 각 메시지에는 **중요**, **오류**, **경고**, **정보**, **디버그**및 **추적**범주 중 하나가 할당 됩니다. 응용 프로그램 로깅을 사용 하도록 설정할 때 심각도 수준을 설정 하 여 로깅을 원하는 세부 정보를 선택할 수 있습니다.|
 | 웹 서버 로깅| Windows | App Service 파일 시스템 또는 Azure Storage blob| [W3C 확장 로그 파일 형식의](/windows/desktop/Http/w3c-logging)원시 HTTP 요청 데이터입니다. 각 로그 메시지에는 HTTP 메서드, 리소스 URI, 클라이언트 IP, 클라이언트 포트, 사용자 에이전트, 응답 코드 등의 데이터가 포함 됩니다. |
 | 자세한 오류 메시지| Windows | App Service 파일 시스템 | 클라이언트 브라우저로 전송 된 *.htm* 오류 페이지의 복사본입니다. 보안상의 이유로, 자세한 오류 페이지는 프로덕션 환경에서 클라이언트로 전송 되어서는 안 되지만 응용 프로그램 오류가 발생할 때마다 HTTP 코드 400 이상이 포함 된 오류 페이지를 저장할 수 App Service. 이 페이지에는 서버에서 오류 코드를 반환 하는 이유를 확인 하는 데 도움이 되는 정보가 포함 될 수 있습니다. |
-| 실패한 요청 추적 | Windows | App Service 파일 시스템 | 요청을 처리 하는 데 사용 되는 IIS 구성 요소 추적 및 각 구성 요소에서 소요 된 시간을 비롯 하 여 실패 한 요청에 대 한 자세한 추적 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 실패 한 각 요청에 대해 XML 로그 파일이 포함 된 폴더와 로그 파일을 볼 XSL 스타일 시트가 하나씩 생성 됩니다. |
+| 실패 한 요청 추적 | Windows | App Service 파일 시스템 | 요청을 처리 하는 데 사용 되는 IIS 구성 요소 추적 및 각 구성 요소에서 소요 된 시간을 비롯 하 여 실패 한 요청에 대 한 자세한 추적 정보입니다. 사이트 성능을 향상시키거나 특정 HTTP 오류를 분리하려는 경우에 유용합니다. 실패 한 각 요청에 대해 XML 로그 파일이 포함 된 폴더와 로그 파일을 볼 XSL 스타일 시트가 하나씩 생성 됩니다. |
 | 배포 로깅 | Windows, Linux | App Service 파일 시스템 | 앱에 콘텐츠를 게시 하는 경우에 대 한 로그입니다. 배포 로깅은 자동으로 수행 되며 배포 로깅에 대 한 구성 가능한 설정이 없습니다. 배포가 실패 한 이유를 확인 하는 데 도움이 됩니다. 예를 들어 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 사용 하는 경우 배포 로깅을 사용 하 여 스크립트가 실패 하는 이유를 확인할 수 있습니다. |
 
 > [!NOTE]
@@ -188,7 +188,7 @@ Windows 앱의 경우 ZIP 파일에는 App Service 파일 시스템의 *D:\Home\
 | AppServiceHTTPLogs | 예 | 예 | 웹 서버 로그 |
 | AppServiceEnvironmentPlatformLogs | 예 | 예 | App Service Environment: 크기 조정, 구성 변경 및 상태 로그|
 | AppServiceAuditLogs | 예 | 예 | FTP 및 Kudu를 통한 로그인 활동 |
-| AppServiceFileAuditLogs | TBA | TBA | FTP 및 Kudu를 통해 파일 변경 |
+| AppServiceFileAuditLogs | TBA | 예 | FTP 및 Kudu를 통해 파일 변경 |
 | AppServiceAppLogs | TBA | Java SE & Tomcat | 애플리케이션 로그 전송 사용 |
 
 ## <a name="nextsteps"></a> 다음 단계
