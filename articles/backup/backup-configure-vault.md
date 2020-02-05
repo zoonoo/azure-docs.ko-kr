@@ -3,12 +3,12 @@ title: MARS 에이전트를 사용 하 여 Windows 컴퓨터 백업
 description: MARS (Azure Backup Microsoft Recovery Services) 에이전트를 사용 하 여 Windows 컴퓨터를 백업 합니다.
 ms.topic: conceptual
 ms.date: 06/04/2019
-ms.openlocfilehash: c6e5ea1ed1ec9dd922793dfc6834238c431ddc38
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 990929cc95d1c25117873ca39415d33370456b91
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "76290872"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025540"
 ---
 # <a name="back-up-windows-machines-with-the-azure-backup-mars-agent"></a>Azure Backup MARS 에이전트를 사용하여 Windows 머신 백업
 
@@ -215,10 +215,10 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
         -   월의 마지막 주에 수행 된 토요일 자정 및 오후 6:00 시의 백업은 12 개월 동안 유지 됩니다.
         -   3 월의 마지막 주 토요일에 수행 된 백업은 10 년 동안 유지 됩니다.
 
-    ![보존 예](./media/backup-configure-vault/retention-example.png)
+        ![보존 예](./media/backup-configure-vault/retention-example.png)
 
 
-11. **초기 백업 유형 선택** 에서 네트워크를 통해 초기 백업을 수행 하거나 오프 라인 백업을 사용할지 결정 합니다. 오프 라인 백업에 대 한 자세한 내용은이 [문서](backup-azure-backup-import-export.md)를 참조 하세요. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로** 를 선택 하 고 **다음**을 클릭 합니다.
+11. **초기 백업 유형 선택** 에서 네트워크를 통해 초기 백업을 수행 하거나 오프 라인 백업을 사용할지 결정 합니다. 오프 라인 백업에 대 한 자세한 내용은이 [문서](offline-backup-azure-data-box.md)를 참조 하세요. 네트워크를 통해 초기 백업을 수행 하려면 **네트워크를 통해 자동으로** 를 선택 하 고 **다음**을 클릭 합니다.
 
     ![초기 백업 유형](./media/backup-azure-manage-mars/choose-initial-backup-type.png)
 
@@ -245,7 +245,7 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 5. 데이터 센터에서 디스크 데이터는 Azure storage 계정에 복사 됩니다.
 6. Azure Backup 저장소 계정에서 자격 증명 모음으로 데이터를 복사 하 고 증분 백업이 예약 됩니다.
 
-오프 라인 시드에 대해 [자세히 알아보세요](backup-azure-backup-import-export.md) .
+오프 라인 시드에 대해 [자세히 알아보세요](offline-backup-azure-data-box.md) .
 
 ### <a name="enable-network-throttling"></a>네트워크 제한 사용
 

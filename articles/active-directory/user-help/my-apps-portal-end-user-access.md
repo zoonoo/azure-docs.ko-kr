@@ -2,31 +2,38 @@
 title: 내 앱 포털에서 앱을 찾을 & 사용-Azure AD
 description: 내 앱 포털을 찾은 다음 조직의 클라우드 기반 앱에 액세스 하는 방법을 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: c15580481c153a58122db593f678998be485b57d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a5dae30c8b8f43602581b39005389211da83cb9e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705006"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022308"
 ---
-# <a name="locate-and-use-your-organizations-cloud-based-apps-on-the-my-apps-portal"></a>내 앱 포털에서 조직의 클라우드 기반 앱 찾기 및 사용
+# <a name="sign-in-and-start-apps-from-the-my-apps-portal"></a>내 앱 포털에서 로그인 하 고 앱 시작
 
-웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
+웹 기반 **내 앱** 포털에서 회사 또는 학교 계정을 사용 하 여 다음을 수행할 수 있습니다.
+
+- 조직의 클라우드 기반 앱을 많이 보고 시작 합니다.
+- 프로필 및 계정 정보 업데이트
+- **그룹** 정보 보기
+- 앱 및 그룹에 대 한 **액세스 검토** 수행
+
+**My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의하세요.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
+> [!Important]
+> 이 콘텐츠는 내 앱 사용자를 대상으로 합니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="supported-browsers"></a>지원되는 브라우저
 
@@ -66,7 +73,8 @@ ms.locfileid: "76705006"
 
 사용자가 로그인 하 고 확장을 사용자 지정할 수 있도록 **주소** 표시줄의 오른쪽에 아이콘이 추가 됩니다.
 
-#### <a name="to-change-your-my-apps-portal-using-the-extension"></a>확장을 사용 하 여 내 앱 포털을 변경 하려면
+## <a name="to-change-your-my-apps-portal-using-the-extension"></a>확장을 사용 하 여 내 앱 포털을 변경 하려면
+
 **최근에 사용한** 섹션에서 볼 앱 수를 선택 하 고 조직의 내부 url을 리디렉션할 수 있도록 허용할지 여부를 결정할 수 있습니다.
 
 1. 새 **내 앱 보안 로그인 확장** 아이콘 ![확장 아이콘을 선택 하 고, **주소** 표시줄의 오른쪽에](media/my-apps-portal/my-apps-portal-extension-icon.png) 한 다음 **로그인을 선택 하 여 시작**합니다.
@@ -78,18 +86,20 @@ ms.locfileid: "76705006"
     ![사용 가능한 사용자 지정을 보여 주는 확장의 설정 페이지](media/my-apps-portal/my-apps-portal-extension-settings-page.png)
 
 ## <a name="access-and-use-the-my-apps-portal-by-device"></a>장치에서 내 앱 포털 액세스 및 사용
+
 컴퓨터, Intune에서 관리 되는 브라우저 또는 iOS 또는 Android 모바일 장치에서 내 앱 포털에 액세스 하 여 사용할 수 있습니다.
 
 ![내 앱 포털의 앱 페이지](media/my-apps-portal/my-apps-portal-apps-page.png)
 
 ### <a name="access-and-use-the-my-apps-portal-on-your-computer"></a>컴퓨터에서 My Apps 포털 액세스 및 사용
+
 조직의 클라우드 기반 앱에 액세스 하 여 사용할 수 있는 권한이 있는 경우 **내 앱** 포털을 통해 가져올 수 있습니다.
 
-1. 회사 또는 학교 계정에 로그인합니다.
+1. 컴퓨터의 회사 또는 학교 계정에 로그인 합니다.
 
-2. 웹 브라우저를 열고 https://myapps.microsoft.com 로 이동 하거나 조직에서 제공 하는 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. 지원 되는 웹 브라우저에서를 열고 https://myapps.microsoft.com 로 이동 하거나 `https://myapps.microsoft.com/contoso.com` 와 같이 사용자 지정 된 페이지로 이동 하는 경우 조직에서 제공 하는 링크를 사용 합니다.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    **앱** 페이지가 나타나고 사용자가 사용할 수 있는 조직에서 소유 하는 모든 클라우드 기반 앱이 표시 됩니다.
 
 3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
 
@@ -101,7 +111,7 @@ IOS 및 Android 장치의 Intune Managed Browser에서 조직의 앱을 보고 �
 
 1. 모바일 장치에서 [Apple 앱 스토어](https://itunes.apple.com/us/app/microsoft-intune-managed-browser/id943264951?mt=8) 및 [Google Play 스토어](https://play.google.com/store/apps/details?id=com.microsoft.intune.mam.managedbrowser)에서 Intune Managed Browser 앱을 다운로드 하 여 설치 합니다.
 
-2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com 으로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. Intune Managed Browser 앱을 열거나 https://myapps.microsoft.com 로 이동 하거나, https://myapps.microsoft.com/contoso.com 와 같이 사용자 지정 된 페이지로 이동 하는 경우 조직에서 제공 하는 링크를 사용 합니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -111,13 +121,13 @@ IOS 및 Android 장치의 Intune Managed Browser에서 조직의 앱을 보고 �
 
 ### <a name="access-and-use-the-my-apps-portal-on-an-ios-device"></a>IOS 장치에서 내 앱 포털 액세스 및 사용
 
-IOS 버전 7 이상을 실행 하는 iPhone 또는 iPad 장치에서 **내 앱** 포털을 보고 사용 합니다. IOS 장치에서 조직의 앱에 액세스 하기 위해 [My apps 모바일 앱](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) 을 설치할 수도 있습니다. 
+IOS 버전 7 이상을 실행 하는 iPhone 또는 iPad 장치에서 **내 앱** 포털을 보고 사용 합니다. IOS 장치에서 조직의 앱에 액세스 하기 위해 [My apps 모바일 앱](https://itunes.apple.com/us/app/my-apps-azure-active-directory/id824048653?mt=8) 을 설치할 수도 있습니다.
 
 1. 모바일 장치에서 Safari와 같은 웹 브라우저 앱을 시작 합니다.
 
-2. https://myapps.microsoft.com 로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. https://myapps.microsoft.com 로 이동 하거나 https://myapps.microsoft.com/contoso.com 와 같이 사용자 지정 된 페이지로 이동 하는 경우 조직에서 제공 하는 링크를 사용 합니다.
 
-    조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
+    **앱** 페이지가 나타나고 사용자가 사용할 수 있는 조직에서 소유 하는 모든 클라우드 기반 앱이 표시 됩니다.
 
 3. **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
 
@@ -129,7 +139,7 @@ Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
 
 1. 모바일 장치에서 Google Chrome 등의 웹 브라우저 앱을 시작 합니다.
 
-2. https://myapps.microsoft.com 로 이동 하거나 조직에서 제공한 링크를 사용 합니다. 예를 들어 https://myapps.microsoft.com/contoso.com 와 같은 조직에 대해 사용자 지정 된 페이지로 이동할 수 있습니다.
+2. https://myapps.microsoft.com 로 이동 하거나 https://myapps.microsoft.com/contoso.com 와 같이 사용자 지정 된 페이지로 이동 하는 경우 조직에서 제공 하는 링크를 사용 합니다.
 
     조직에서 소유 하 고 사용할 수 있는 모든 클라우드 기반 앱을 보여 주는 **앱** 페이지가 나타납니다.
 
@@ -141,17 +151,39 @@ Android 장치에서 **내 앱** 포털을 보고 사용 합니다.
 
 관리자가 사용자에 게 권한을 부여 하면 **앱** 페이지에 새 앱을 추가할 수 있습니다.
 
-1. **앱** 페이지에서 **앱 추가**를 선택 합니다.
+1. **앱** 페이지에서 다음 중 하나를 수행 합니다.
+    - 원래 내 앱 환경을 사용할 경우 표시 된 것 처럼 **앱 추가** 를 선택 합니다.
 
-    **앱 추가** 페이지가 나타납니다.
+      ![앱 추가 페이지, 내 앱 포털](media/my-apps-portal/my-apps-portal-add-apps-page.png)
 
-    ![앱 추가 페이지, 내 앱 포털](media/my-apps-portal/my-apps-portal-add-apps-page.png)
+    - 업데이트 된 내 앱 환경에 있는 경우 **셀프 서비스 앱 추가**를 선택 합니다.
+
+       ![앱 추가 페이지의 My Apps 포털 myapplications.microsoft.com](media/my-apps-portal/my-apps-portal-add-app-link.png)
 
 2. 제공 된 목록에서 추가 하려는 앱을 선택 하 고 **추가**를 선택 합니다.
 
 3. **앱이 앱 페이지의** 목록에 추가 됩니다.
 
     일부 앱은 추가 하기 전에 관리자 승인이 필요할 수 있습니다. 이 경우 관리자가 앱을 승인할 때까지 앱이 **앱 페이지에** 추가 되지 않습니다.
+
+## <a name="start-a-cloud-based-app"></a>클라우드 기반 앱 시작
+
+**내 앱** 포털에서 사용할 수 있는 클라우드 기반 앱을 시작할 수 있습니다. 사용 권한이 있는 앱만 볼 수 있습니다.
+
+- **앱** 페이지에서 사용 하 여 시작 하려는 앱을 선택 합니다.
+
+    앱에 대 한 새 페이지가 열립니다. 여기에서 로그인 하거나 (필요한 경우) 앱 사용을 시작할 수 있습니다.
+
+## <a name="activities-in-the-my-apps-portal"></a>내 앱 포털의 작업
+
+**내 앱** 포털을 가져온 후 다음을 수행할 수 있습니다.
+
+- 조직에서 만들고 제공하는 다양한 범주로 앱을 구성합니다. 자세한 내용은 [My Apps 포털에서 컬렉션 액세스 및 사용](my-applications-portal-workspaces.md)을 참조 하세요.
+
+- 애플리케이션에 부여된 권한을 검토, 업데이트 또는 취소 합니다. 자세한 내용은 [내 앱 포털에서 응용 프로그램 사용 권한 편집 또는 해지](my-applications-portal-permissions-saved-accounts.md)를 참조 하세요.
+
+>[!Note]
+>사용할 수 있는 컬렉션이 나 범주가 표시 되지 않으면 관리자가 모든 항목을 설정 또는 공유 하지 않았음을 의미 합니다. 공유 컬렉션을 보려면 조직의 기술 지원팀에 문의 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,6 +1,6 @@
 ---
-title: CloudSimple의 Azure VMware 솔루션-CloudSimple 사설 클라우드에 대 한 부하 분산 솔루션 선택
-description: 사설 클라우드에서 응용 프로그램을 배포 하는 부하 분산 옵션에 대해 설명 합니다.
+title: Azure VMware 솔루션 (AVS)-AVS 사설 클라우드에 대 한 부하 분산 솔루션 선택
+description: AVS 사설 클라우드에 응용 프로그램을 배포 하는 부하 분산 옵션에 대해 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/20/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 6c98b699b1d3aba15ce69c519d35d7ce3e90d123
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 405bc9d95b8d82e2181e2fb828d6bcc00c8c4639
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045739"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014881"
 ---
-# <a name="choose-a-load-balancing-solution-for-cloudsimple-private-clouds"></a>CloudSimple 사설 클라우드에 대 한 부하 분산 솔루션 선택
+# <a name="choose-a-load-balancing-solution-for-avs-private-clouds"></a>AVS 사설 클라우드에 대 한 부하 분산 솔루션 선택
 
-CloudSimple 사설 클라우드에서 응용 프로그램을 배포 하는 경우 부하 분산에 대 한 몇 가지 옵션을 선택할 수 있습니다.
+AVS 사설 클라우드에 응용 프로그램을 배포 하는 경우 부하 분산에 대 한 몇 가지 옵션을 선택할 수 있습니다.
 
-CloudSimple 사설 클라우드에서 가상 또는 소프트웨어 기반 부하 분산 장치를 선택 하거나 Azure 구독에서 실행 중인 Azure L7 부하 분산 장치를 사용 하 여 CloudSimple 사설 클라우드에서 실행 중인 웹 계층 Vm을 프런트 엔드 할 수도 있습니다. 몇 가지 옵션을 나열 합니다.
+AVS 사설 클라우드에서 가상 또는 소프트웨어 기반 부하 분산 장치를 선택 하거나 Azure 구독에서 실행 중인 Azure L7 부하 분산 장치를 사용 하 여 AVS 사설 클라우드에서 실행 중인 웹 계층 Vm을 프런트 엔드 할 수도 있습니다. 몇 가지 옵션을 나열 합니다.
 
 ## <a name="virtual-load-balancers"></a>가상 부하 분산 장치
 
@@ -29,13 +29,13 @@ VCenter 인터페이스를 통해 VMware 환경에 가상 부하 분산 장치 �
 
 ## <a name="azure-l7-load-balancer"></a>Azure L7 부하 분산 장치
 
-사설 클라우드에서 실행 중인 응용 프로그램에 대 한 L7 부하 분산 장치로 Azure 애플리케이션 게이트웨이를 사용 하는 경우 부하 분산 장치 소프트웨어를 관리할 필요가 없습니다. 부하 분산 장치 소프트웨어는 Azure에서 관리 됩니다. 사설 클라우드의 모든 웹 계층 Vm은 개인 IP 주소를 사용 하며 이름을 확인 하는 데 추가 NAT 규칙 또는 공용 Ip 주소가 필요 하지 않습니다. 웹 계층 Vm은 낮은 대기 시간, 낮은 대역폭의 전용 연결을 통해 Azure 애플리케이션 게이트웨이와 통신 합니다.
+Azure 애플리케이션 게이트웨이를 AVS 사설 클라우드에서 실행 중인 응용 프로그램에 대 한 L7 부하 분산 장치로 사용 하는 경우 부하 분산 장치 소프트웨어를 관리할 필요가 없습니다. 부하 분산 장치 소프트웨어는 Azure에서 관리 됩니다. AVS 사설 클라우드의 모든 웹 계층 Vm은 개인 IP 주소를 사용 하며 이름을 확인 하는 데 추가 NAT 규칙 또는 공용 Ip 주소가 필요 하지 않습니다. 웹 계층 Vm은 낮은 대기 시간, 낮은 대역폭의 전용 연결을 통해 Azure 애플리케이션 게이트웨이와 통신 합니다.
 
 이 솔루션을 구성 하는 방법에 대해 자세히 알아보려면 Azure 애플리케이션 Gateway를 L7 부하 분산 장치로 사용에 대 한 솔루션 가이드를 참조 하세요.
 
 ## <a name="azure-internal-load-balancer"></a>Azure 내부 부하 분산 장치
 
-웹 프런트 엔드 계층이 Azure 구독의 Azure vNet 내에서 실행 되 고 응용 프로그램의 DB 계층이 CloudSimple 사설 클라우드의 VMware Vm에서 실행 되는 하이브리드 배포에서 응용 프로그램을 실행 하도록 선택한 경우 Azure 내부 부하를 사용할 수 있습니다. 트래픽 관리를 위한 DB 계층 Vm 앞에 있는 부하 분산 장치 (L4 부하 분산 장치)
+웹 프런트 엔드 계층이 Azure 구독의 Azure vNet 내에서 실행 되 고 응용 프로그램의 DB 계층이 AVS 사설 클라우드의 VMware Vm에서 실행 되는 하이브리드 배포에서 응용 프로그램을 실행 하도록 선택한 경우 Azure 내부 부하 분산 장치 (L)를 사용할 수 있습니다. 4 부하 분산 장치) 트래픽 관리를 위한 DB 계층 Vm 앞에 있습니다.
 
 자세히 알아보려면 Azure [내부 Load Balancer](../load-balancer/concepts-limitations.md#internalloadbalancer) 설명서를 참조 하세요.
 

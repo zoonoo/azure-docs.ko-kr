@@ -1,17 +1,17 @@
 ---
 title: Azure Kubernetes Service & GitHub 작업
 services: azure-dev-spaces
-ms.date: 11/04/2019
+ms.date: 02/04/2020
 ms.topic: conceptual
 description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service에서 직접 끌어오기 요청에 대 한 변경 내용을 검토 하 고 테스트 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 7d96726e829154847744d9aec07a9cb0938f75de
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771124"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026101"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -58,14 +58,13 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 이후 단계에서 사용 되므로 JSON 출력을 저장 합니다.
 
-
-[Az aks show][az-aks-show] 를 사용 하 여 aks 클러스터의 *id* 를 표시 합니다.
+[Az aks show][az-aks-show] 를 사용 하 여 aks 클러스터의 *ID* 를 표시 합니다.
 
 ```cmd
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
-[Az acr show][az-acr-show] 를 사용 하 여 acr의 *id* 를 표시 합니다.
+[Az acr show][az-acr-show] 를 사용 하 여 Acr의 *ID* 를 표시 합니다.
 
 ```cmd
 az acr show --name <acrName> --query id
@@ -93,7 +92,6 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 1. *CLUSTER_NAME*: AKS 클러스터의 이름 (이 예에서는 *MyAKS*)입니다.
 1. *CONTAINER_REGISTRY*: ACR에 대 한 *loginServer* 입니다.
 1. *HOST*: < MASTER_SPACE >를 사용 하는 개발 공간에 대 한 호스트 *입니다. <* APP_NAME > < HOST_SUFFIX > 합니다 .이 예제에서는이 예에서는 *dev.bikesharingweb.fedcab0987.eus.azds.io*입니다.
-1. *HOST_SUFFIX*: Dev 공간에 대 한 호스트 접미사 (이 예제에서는 *fedcab0987.eus.azds.io*)입니다.
 1. *IMAGE_PULL_SECRET*: 사용 하려는 비밀의 이름 (예: *데모 암호)* 입니다.
 1. *MASTER_SPACE*: 부모 개발 공간의 이름으로,이 예제에서는 *dev*입니다.
 1. *REGISTRY_USERNAME*: 서비스 사용자가 만든 JSON 출력의 *clientId* 입니다.
@@ -101,6 +99,8 @@ az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 
 > [!NOTE]
 > 이러한 암호는 모두 GitHub 작업에서 사용 되며 [github/워크플로/자전거 .yml][github-action-yaml]에서 구성 됩니다.
+
+필요에 따라 PR을 병합 한 후 마스터 공간을 업데이트 하려는 경우 *GATEWAY_HOST* 암호를 추가 합니다 .이 예제에서는 *< MASTER_SPACE >* < HOST_SUFFIX *> 합니다.* 변경 내용을 포크의 마스터 분기에 병합 하면 다른 작업을 실행 하 여 마스터 개발 공간에서 전체 응용 프로그램을 다시 빌드하고 실행 합니다. 이 예제에서 마스터 공간은 *dev*입니다. 이 작업은 [github/워크플로/bikesharing.clients.core][github-action-bikesharing-yaml]에서 구성 됩니다.
 
 ## <a name="create-a-new-branch-for-code-changes"></a>코드 변경에 대 한 새 분기 만들기
 

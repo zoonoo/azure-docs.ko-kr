@@ -2,21 +2,21 @@
 title: Azure Batch 풀 삭제 완료 이벤트
 description: Batch 풀 삭제 완료 이벤트에 대한 참조입니다. 이 이벤트는 풀 삭제 작업이 완료되면 내보내집니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 56dc4c91566cc5c41de6c91618d09e7a0ebb7172
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: d317d7395a8246c109073a72338b55960cb50954
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929849"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023619"
 ---
 # <a name="pool-delete-complete-event"></a>풀 삭제 완료 이벤트
 

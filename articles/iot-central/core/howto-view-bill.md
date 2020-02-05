@@ -3,19 +3,19 @@ title: Azure IoT Central 응용 프로그램에서 청구서를 관리 하 고 �
 description: 관리자는 청구서를 관리 하 고 Azure IoT Central 응용 프로그램에서 무료 요금제를 표준 가격 책정 요금제로 이동 하는 방법에 대해 알아봅니다.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e45109842a081b437c20de81321bf70f909efa2a
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 58503784f28a3ba0a6290a2209ce9fdccc14b4e4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982363"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023772"
 ---
-# <a name="view-your-bill-in-iot-central-application"></a>IoT Central 응용 프로그램에서 청구서 보기
+# <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
 
 이 문서에서는 관리자가 관리 섹션에서 Azure IoT Central 응용 프로그램의 청구서를 관리할 수 있는 방법을 설명 합니다. 무료 가격 책정 요금제에서 표준 요금제로 응용 프로그램을 이동 하는 방법과 요금제를 업그레이드 하거나 다운 그레이드 하는 방법을 알아봅니다.
 
@@ -24,6 +24,9 @@ ms.locfileid: "76982363"
 ## <a name="move-from-free-to-standard-pricing-plan"></a>무료에서 표준 가격 책정 요금제로 이동
 
 - 무료 가격 책정 요금제를 사용 하는 응용 프로그램은 만료 되기 7 일 전에 무료입니다. 데이터가 손실 되지 않도록 하기 위해 언제 든 지 표준 가격 책정 계획으로 이동할 수 있습니다.
+- 표준 요금제를 사용 하는 응용 프로그램은 장치별로 청구 되며, 처음 두 장치는 응용 프로그램당 무료로 제공 됩니다.
+
+[Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
 
 가격 책정 섹션에서는 응용 프로그램을 무료에서 표준 가격 책정 계획으로 이동할 수 있습니다.
 
@@ -31,11 +34,11 @@ ms.locfileid: "76982363"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-administer/freetrialbilling.png)
+    ![평가판 상태](media/howto-view-bill/freetrialbilling.png)
 
 1. **유료 요금제로 변환을**선택 합니다.
 
-    ![평가판 변환](media/howto-administer/convert.png)
+    ![평가판 변환](media/howto-view-bill/convert.png)
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
@@ -46,23 +49,25 @@ ms.locfileid: "76982363"
 
 ## <a name="how-to-change-your-application-pricing-plan"></a>응용 프로그램 가격 책정 계획을 변경 하는 방법
 
-- 표준 요금제를 사용 하는 응용 프로그램은 장치별로 청구 되며, 처음 두 장치는 응용 프로그램당 무료로 제공 됩니다.
+표준 요금제를 사용 하는 응용 프로그램은 장치별로 청구 되며, 처음 두 장치는 응용 프로그램당 무료로 제공 됩니다.
 
 가격 책정 섹션에서는 언제 든 지 Azure IoT 가격 책정 계획을 업그레이드 하거나 다운 그레이드할 수 있습니다.
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-administer/pricing.png)
+    ![평가판 상태](media/howto-view-bill/pricing.png)
 
 1. **계획** 을 선택 하 고 **저장** 을 클릭 하 여 업그레이드 또는 다운 그레이드 합니다.
 
-[Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 가격 책정에 대해 자세히 알아보세요.
-
 ## <a name="view-your-bill"></a>청구서 보기
 
-청구서를 보려면 **관리** 섹션의 **가격 책정** 페이지로 이동 합니다. Azure 가격 책정 페이지가 새 탭에서 열리며, 여기서 각 Azure IoT Central 응용 프로그램에 대 한 청구서를 볼 수 있습니다.
+1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
+1. **변환**을 선택 하면 응용 프로그램에서 유료 요금제를 사용 하 고 청구를 시작 합니다.
+
+> [!Note]
+> 기본적으로 *표준 2* 가격 책정 요금제로 변환 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 청구서를 보는 방법에 대해 알아보았습니다. 다음 단계에서는 Azure IoT Central에서 [응용 프로그램 UI를 사용자 지정](howto-customize-ui.md) 하는 방법에 대해 알아봅니다.
+Azure IoT Central 응용 프로그램에서 청구서를 관리 하는 방법에 대해 알아보았습니다. 다음 단계에서는 Azure IoT Central에서 [응용 프로그램 UI 사용자 지정](howto-customize-ui.md) 에 대해 알아봅니다.

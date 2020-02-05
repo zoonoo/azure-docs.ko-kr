@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 11/04/2019
 ms.author: sasolank
-ms.openlocfilehash: 4e4d4c69eb51e0058d3b6b561b5167051079bf89
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 129f407dd66b32ea097daf4ed9110ffbba23660c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442700"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77017602"
 ---
 # <a name="integrate-api-management-in-an-internal-vnet-with-application-gateway"></a>내부 VNET에서 Application Gateway와 API Management 통합
 
@@ -185,6 +185,9 @@ $apimService = New-AzApiManagement -ResourceGroupName $resGroupName -Location $l
 위의 명령이 성공한 후에 액세스하려면 [내부 VNET API Management 서비스에 액세스하는 데 필요한 DNS 구성](api-management-using-with-internal-vnet.md#apim-dns-configuration)을 참조하세요. 이 단계는 30분 이상이 걸릴 수 있습니다.
 
 ## <a name="set-up-a-custom-domain-name-in-api-management"></a>API Management에서 사용자 지정 도메인 이름 설정
+
+> [!IMPORTANT]
+> [새 개발자 포털](api-management-howto-developer-portal.md) 을 사용 하려면 다음 단계 외에도 API Management의 관리 끝점에 대 한 연결을 설정 해야 합니다.
 
 ### <a name="step-1"></a>1단계
 

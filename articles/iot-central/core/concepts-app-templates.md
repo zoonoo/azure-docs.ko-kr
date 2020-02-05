@@ -7,12 +7,12 @@ ms.date: 10/25/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 12c624c6798ca48cad9312cafaf3425091a82a71
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: fde46ddfe85ca2cd1aa4ba65c8bd93d4db328410
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867450"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019046"
 ---
 # <a name="what-are-application-templates"></a>애플리케이션 템플릿이란?
 
@@ -26,33 +26,16 @@ Azure IoT Central의 응용 프로그램 템플릿은 솔루션 빌더가 IoT �
 - 미리 구성된 규칙 및 작업
 - 자습서 및 방법을 비롯 한 다양 한 설명서
 
-## <a name="preview-templates"></a>템플릿 미리 보기
+응용 프로그램을 만들 때 응용 프로그램 템플릿을 선택 합니다. 응용 프로그램을 만든 후에는 템플릿을 변경할 수 없습니다.
 
-응용 프로그램 템플릿을 선택 하면 응용 프로그램에서 장치에 대 한 플러그 앤 플레이 같은 IoT Central 미리 보기 기능을 사용 하는지 여부가 결정 됩니다.
+## <a name="custom-templates"></a>사용자 지정 템플릿
 
-현재 _일반적으로 사용할 수_ 있는 기능을 사용 하는 응용 프로그램 템플릿은 다음과 같습니다.
+응용 프로그램을 처음부터 만들려면 다음 두 가지 사용자 지정 응용 프로그램 템플릿 중 하나를 선택 합니다.
 
-- 사용자 지정 앱 > 레거시 응용 프로그램
+- 사용자 지정 애플리케이션
+- 사용자 지정 응용 프로그램 (레거시)
 
-
-현재, _공개 미리 보기_ 기능을 사용 하는 응용 프로그램 템플릿은 다음과 같습니다.
-
-- 사용자 지정 앱 > 미리 보기 응용 프로그램
-- 소매 > 연결 된 물류
-- 소매 > 디지털 배포 센터
-- 소매점 > 매장 분석-조건 모니터링
-- 소매점 > 매장 분석 – 체크 아웃
-- 소매 > 마이크로-배송 센터
-- 정품 > 스마트 재고 관리
-- 에너지 > 스마트 측정기 모니터링
-- 에너지 > 양력인 패널 모니터링
-- 정부 > 연결 된 폐기물 관리
-- 정부 > 물 사용량 모니터링
-- 정부 > 수상 품질 모니터링
-- 의료 > 연속 환자 모니터링
-
-> [!NOTE]
-> **레거시 응용 프로그램** 템플릿은 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽** 지역에서 사용할 수 있지만, 다른 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
+레거시 템플릿을 사용 해야 하는 특별 한 이유가 없는 경우 **사용자 지정 응용 프로그램** 템플릿을 선택 합니다.
 
 ## <a name="industry-focused-templates"></a>업계 중심 템플릿
 
@@ -61,9 +44,9 @@ Azure IoT Central은 업계와 무관 한 응용 프로그램 플랫폼입니다
 - [소매](../retail/overview-iot-central-retail-pnp.md)
   - 연결된 물류
   - 디지털 배포 센터
-  - 저장소 내 분석-조건 모니터링
-  - 저장소 내 분석-체크 아웃
-  - 스마트 재고 관리
+  - 스토어 내 분석 - 조건 모니터링
+  - 스토어 내 분석 - 체크 아웃
+  - 스마트 인벤토리 관리
 - [에너지](../energy/overview-iot-central-energy.md)
   - 스마트 미터 모니터링
   - 태양 전지판 모니터링

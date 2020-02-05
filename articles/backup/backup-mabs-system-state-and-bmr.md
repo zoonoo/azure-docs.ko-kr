@@ -3,12 +3,12 @@ title: 시스템 상태 및 완전 복구 보호
 description: Azure Backup Server를 사용하여 시스템 상태를 백업하고 BMR(완전 복구) 보호를 제공할 수 있습니다.
 ms.topic: conceptual
 ms.date: 05/15/2017
-ms.openlocfilehash: 2940ef5b8c0c2a7d751c46209253d4f4dbe6d13f
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 0e89b149fe8b06bdd70c72aa442f50125c5e3786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172257"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025506"
 ---
 # <a name="back-up-system-state-and-restore-to-bare-metal-with-azure-backup-server"></a>Azure Backup Server로 시스템 상태 백업 및 완전 복구로 복원
 
@@ -28,7 +28,7 @@ Azure Backup Server는 시스템 상태를 백업하고 BMR(완전 복구) 보�
 |**파일 데이터**<br /><br />정기적인 데이터 백업<br /><br />BMR/시스템 상태 백업|손실된 파일 데이터|Y|N|N|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 그대로 유지)|N|N|Y|
-|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아니오|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
+|**파일 데이터**<br /><br />파일 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 서버(데이터 볼륨 손실)|Y|아닙니다.|예(BMR, 이후 백업된 파일 데이터의 정기적인 복구 수행)|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실된 사이트, 목록, 목록 항목, 문서|Y|N|N|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|손실되거나 손상된 운영 체제|N|Y|Y|
 |**SharePoint 데이터**:<br /><br />팜 데이터의 Azure Backup Server 백업<br /><br />BMR/시스템 상태 백업|재해 복구|N|N|N|
@@ -90,7 +90,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-1. **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은
+1. **Azure Backup Server 배포**. Backup Server가 제대로 배포되어 있는지 확인합니다. 자세한 내용은 다음을 참조하세요.
     * [System requirements for Azure Backup Server](https://docs.microsoft.com/system-center/dpm/install-dpm#setup-prerequisites)(Azure Backup Server 시스템 요구 사항)
     * [Backup Server 보호 매트릭스](backup-mabs-protection-matrix.md)
 
@@ -140,7 +140,7 @@ Backup Server에서는 Windows Server 백업을 호출하고 해당 BMR 백업�
 
 12. **온라인 보존 정책 지정** 페이지에서 매일, 매주, 매월 및 매년 백업에서 만들어진 복구 지점을 Azure에 보존하는 방법을 선택합니다.
 
-13. **온라인 복제 선택** 페이지에서 데이터의 초기 전체 복제를 수행하는 방법을 선택합니다. 네트워크를 통해 복제하거나 오프라인 백업(오프라인 시딩)을 수행할 수 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](backup-azure-backup-import-export.md)를 참조하세요.
+13. **온라인 복제 선택** 페이지에서 데이터의 초기 전체 복제를 수행하는 방법을 선택합니다. 네트워크를 통해 복제하거나 오프라인 백업(오프라인 시딩)을 수행할 수 있습니다. 오프라인 백업에는 Azure Import 기능이 사용됩니다. 자세한 내용은 [Azure Backup의 오프라인 백업 워크플로](offline-backup-azure-data-box.md)를 참조하세요.
 
 14. **요약** 페이지에서 설정을 검토합니다. **그룹 만들기**를 선택한 후 데이터의 초기 복제가 수행됩니다. 데이터 복제가 완료되면 **상태** 페이지에서 보호 그룹 상태는 **정상**입니다. 이후 보호 그룹 설정에 따라 백업이 수행됩니다.
 

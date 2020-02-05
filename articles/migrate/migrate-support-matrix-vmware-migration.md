@@ -3,12 +3,12 @@ title: Azure Migrate에서 VMware 마이그레이션 지원
 description: Azure Migrate에서 VMware VM 마이그레이션에 대 한 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/07/2020
-ms.openlocfilehash: 6593d4de6823f15f570ab8922d76cbe84fb0e348
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e5a2f40611f6b358a8b5ff1dfb99cadebae4fab6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901548"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77013997"
 ---
 # <a name="support-matrix-for-vmware-migration"></a>VMware 마이그레이션을 위한 지원 매트릭스
 
@@ -123,7 +123,7 @@ Azure Migrate 허브에 제공 된 OVA 템플릿을 사용 하 여 복제 어플
 
 - VMware에 대 한 [복제 어플라이언스 요구 사항](migrate-replication-appliance.md#appliance-requirements) 에 대해 알아봅니다.
 - MySQL을 어플라이언스에 설치 해야 합니다. [설치 옵션](migrate-replication-appliance.md#mysql-installation)에 대해 알아봅니다.
-- 복제 어플라이언스에서 액세스 해야 하는 [url](migrate-replication-appliance.md#url-access) 및 [포트]() 에 대해 알아봅니다.
+- 복제 어플라이언스에서 액세스 해야 하는 [url](migrate-replication-appliance.md#url-access) 및 [포트](migrate-replication-appliance.md#port-access) 에 대해 알아봅니다.
 
 ## <a name="agent-based-ports"></a>에이전트 기반 포트
 

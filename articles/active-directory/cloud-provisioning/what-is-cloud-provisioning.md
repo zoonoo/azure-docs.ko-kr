@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef73abdd6bfdadd0078c30ad1b0145cdae41722
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 69b8cbdba018b9d03dca67573b1f4fe6efa546b6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767606"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024044"
 ---
 # <a name="what-is-azure-ad-connect-cloud-provisioning"></a>Azure AD Connect 클라우드 프로비저닝이란?
 Azure AD Connect 클라우드 프로 비전은 Azure AD에 대 한 사용자, 그룹 및 연락처의 동기화를 위해 하이브리드 id 목표를 충족 하 고 달성 하기 위해 설계 된 새로운 Microsoft 에이전트입니다.  Azure AD Connect sync와 함께 사용할 수 있으며 다음과 같은 이점을 제공 합니다.
@@ -46,6 +46,8 @@ Azure AD Connect 클라우드 프로 비전을 사용 하 여 AD에서 Azure AD�
 | 연락처 개체에 대 한 지원 |● |● |
 | 장치 개체에 대 한 지원 |● | |
 | 특성 흐름에 대 한 기본 사용자 지정 허용 |● |● |
+| 동기화 할 Exchange online 특성 |● |● |
+| 확장 특성 동기화 1-15 |● |● |
 | 고객 정의 AD 특성 동기화 (디렉터리 확장) |● | |
 | 암호 해시 동기화 지원 |●|●|
 | 통과 인증 지원 |●||
@@ -60,7 +62,7 @@ Azure AD Connect 클라우드 프로 비전을 사용 하 여 AD에서 Azure AD�
 | 특성 흐름에 대한 고급 사용자 지정 허용 |● | |
 | 쓰기 저장 지원 (암호, 장치, 그룹) |● | |
 | 지원 Azure AD Domain Services|● | |
-| Exchange 하이브리드 구성 |● | |
+| [Exchange 하이브리드 쓰기 저장](../hybrid/reference-connect-sync-attributes-synchronized.md#exchange-hybrid-writeback) |● | |
 | AD 도메인당 5만 개 이상의 개체에 대 한 지원 |● | |
 
 ## <a name="next-steps"></a>다음 단계 

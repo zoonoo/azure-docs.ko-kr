@@ -1,6 +1,6 @@
 ---
-title: CloudSimple-사설 클라우드 권한 모델인 Azure VMware 솔루션
-description: CloudSimple 사설 클라우드 권한 모델, 그룹 및 범주에 대해 설명 합니다.
+title: Azure VMware 솔루션 (AVS)-AVS 사설 클라우드 권한 모델
+description: AVS 사설 클라우드 권한 모델, 그룹 및 범주에 대해 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,39 +8,39 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 28c4dc7831f97d66eb4d47f08e640344d5cca0d1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9488c59ead23fb68633ccc56a0df905ebfeea079
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544313"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014949"
 ---
-# <a name="cloudsimple-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 CloudSimple 사설 클라우드 권한 모델
+# <a name="avs-private-cloud-permission-model-of-vmware-vcenter"></a>VMware vCenter의 AVS 사설 클라우드 권한 모델
 
-CloudSimple은 사설 클라우드 환경에 대 한 모든 관리 액세스를 유지 합니다. 각 CloudSimple 고객에 게는 환경에서 가상 컴퓨터를 배포 하 고 관리할 수 있는 충분 한 관리 권한이 부여 됩니다.  필요한 경우 관리 기능을 수행할 수 있는 권한을 일시적으로 전달할 수 있습니다.
+AVS는 AVS 사설 클라우드 환경에 대 한 모든 관리 권한을 보유 합니다. 각 AVS 고객에 게는 환경에서 가상 컴퓨터를 배포 하 고 관리할 수 있는 충분 한 관리 권한이 부여 됩니다. 필요한 경우 관리 기능을 수행할 수 있는 권한을 일시적으로 전달할 수 있습니다.
 
 ## <a name="cloud-owner"></a>클라우드 소유자
 
-사설 클라우드를 만들 때 사설 클라우드의 개체를 관리 하기 위해 **클라우드 소유자 역할** 액세스 권한을 사용 하 여 VCenter Single sign-on 도메인에 **CloudOwner** 사용자가 만들어집니다. 이 사용자는 또한 사설 클라우드 vCenter에 추가 [VCenter Id 원본](set-vcenter-identity.md)및 기타 사용자를 설정할 수 있습니다.
+AVS 사설 클라우드를 만들 때 **CloudOwner** 사용자가 VCenter Single sign-on 도메인에 만들어지고,이는 **클라우드 소유자 역할** 액세스를 사용 하 여 avs 사설 클라우드의 개체를 관리 합니다. 이 사용자는 또한 추가 [VCenter Id 원본](set-vcenter-identity.md)및 기타 사용자를 AVS 사설 클라우드 vCenter로 설정할 수 있습니다.
 
 > [!NOTE]
-> CloudSimple 사설 Cloud vCenter의 기본 사용자는 사설 클라우드를 만들 때 cloudowner@cloudsimple.local.
+> Avs 사설 클라우드 vCenter의 기본 사용자는 AVS 사설 클라우드를 만들 때 cloudowner@AVS.local.
 
 ## <a name="user-groups"></a>사용자 그룹
 
-**클라우드-소유자-그룹** 이라는 그룹은 사설 클라우드를 배포 하는 동안 만들어집니다. 이 그룹의 사용자는 사설 클라우드에서 vSphere 환경에서 다양 한 부분을 관리할 수 있습니다. 이 그룹에는 자동으로 **클라우드 소유자 역할** 권한이 부여 되며, **CloudOwner** 사용자는이 그룹의 멤버로 추가 됩니다.  CloudSimple은 관리 용이성을 위해 제한 된 권한으로 추가 그룹을 만듭니다.  이러한 미리 만든 그룹에 사용자를 추가할 수 있으며 아래에 정의 된 권한은 그룹의 사용자에 게 자동으로 할당 됩니다.
+**클라우드-소유자-그룹** 이라는 그룹은 AVS 사설 클라우드를 배포 하는 동안 만들어집니다. 이 그룹의 사용자는 AVS 사설 클라우드에서 vSphere 환경에서 다양 한 부분을 관리할 수 있습니다. 이 그룹에는 자동으로 **클라우드 소유자 역할** 권한이 부여 되며, **CloudOwner** 사용자는이 그룹의 멤버로 추가 됩니다. AVS는 관리 용이성을 위해 제한 된 권한으로 추가 그룹을 만듭니다. 이러한 미리 만든 그룹에 사용자를 추가할 수 있으며 아래에 정의 된 권한은 그룹의 사용자에 게 자동으로 할당 됩니다.
 
 ### <a name="pre-created-groups"></a>미리 만든 그룹
 
 | 그룹 이름 | 용도 | 역할 |
 | -------- | ------- | ------ |
-| 클라우드 소유자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter에 대 한 관리 권한을 가집니다. | [클라우드 소유자-역할](#cloud-owner-role) |
-| 클라우드-글로벌-클러스터 관리자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter 클러스터에 대 한 관리 권한을 가집니다. | [클라우드-클러스터-관리자-역할](#cloud-cluster-admin-role) |
-| 클라우드-전역-저장소-관리자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter의 저장소를 관리할 수 있습니다. | [클라우드-저장소-관리자-역할](#cloud-storage-admin-role) |
-| 클라우드-글로벌-네트워크-관리자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter의 네트워크 및 분산 포트 그룹을 관리할 수 있습니다. | [클라우드-네트워크-관리자-역할](#cloud-network-admin-role) |
-| 클라우드-VM-관리자-그룹 | 이 그룹의 구성원은 사설 클라우드 vCenter의 가상 컴퓨터를 관리할 수 있습니다. | [클라우드-VM-관리자-역할](#cloud-vm-admin-role) |
+| 클라우드 소유자-그룹 | 이 그룹의 구성원은 AVS 사설 클라우드 vCenter에 대 한 관리 권한을 가집니다. | [클라우드 소유자-역할](#cloud-owner-role) |
+| 클라우드-글로벌-클러스터 관리자-그룹 | 이 그룹의 구성원은 AVS 사설 클라우드 vCenter 클러스터에 대 한 관리 권한을 가집니다. | [클라우드-클러스터-관리자-역할](#cloud-cluster-admin-role) |
+| 클라우드-전역-저장소-관리자-그룹 | 이 그룹의 구성원은 AVS 사설 클라우드 vCenter의 저장소를 관리할 수 있습니다. | [클라우드-저장소-관리자-역할](#cloud-storage-admin-role) |
+| 클라우드-글로벌-네트워크-관리자-그룹 | 이 그룹의 구성원은 AVS 사설 클라우드 vCenter의 네트워크 및 분산 포트 그룹을 관리할 수 있습니다. | [클라우드-네트워크-관리자-역할](#cloud-network-admin-role) |
+| 클라우드-VM-관리자-그룹 | 이 그룹의 구성원은 AVS 사설 클라우드 vCenter에서 가상 컴퓨터를 관리할 수 있습니다. | [클라우드-VM-관리자-역할](#cloud-vm-admin-role) |
 
-개별 사용자에 게 사설 클라우드를 관리할 수 있는 권한을 부여 하려면 사용자 계정 만들기를 적절 한 그룹에 추가 합니다.
+개별 사용자에 게 AVS 사설 클라우드를 관리할 수 있는 권한을 부여 하려면 사용자 계정 만들기를 적절 한 그룹에 추가 합니다.
 
 > [!CAUTION]
 > 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.

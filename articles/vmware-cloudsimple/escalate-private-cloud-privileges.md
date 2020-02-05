@@ -1,7 +1,7 @@
 ---
-title: 사설 클라우드 권한 에스컬레이션
-titleSuffix: Azure VMware Solution by CloudSimple
-description: VCenter에서 관리 기능에 대 한 사설 클라우드의 권한을 에스컬레이션 하는 방법에 대해 설명 합니다.
+title: AVS 사설 클라우드 권한 에스컬레이션-Azure VMware 솔루션 (AVS)
+description: VCenter에서 관리 기능에 대 한 AVS 사설 클라우드의 권한을 에스컬레이션 하는 방법에 대해 설명 합니다.
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 06/05/2019
@@ -9,18 +9,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 3d06f3e8be449e7050c65c75339a0cff6efe19e4
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 211960af359e19f93afef58162c5b09ae1d9b23f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544449"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025319"
 ---
-# <a name="escalate-private-cloud-vcenter-privileges-from-the-cloudsimple-portal"></a>CloudSimple 포털에서 사설 클라우드 vCenter 권한 에스컬레이션
+# <a name="escalate-avs-private-cloud-vcenter-privileges-from-the-avs-portal"></a>AVS 포털에서 AVS 사설 클라우드 vCenter 권한 에스컬레이션
 
-사설 클라우드 vCenter에 대 한 관리 액세스를 위해 CloudSimple 권한을 일시적으로 에스컬레이션 할 수 있습니다.  상승 된 권한을 사용 하 여 VMware 솔루션을 설치 하 고, id 원본을 추가 하 고, 사용자를 관리할 수 있습니다.
+AVS 사설 클라우드 vCenter에 대 한 관리 액세스를 위해 AVS 권한을 일시적으로 확대할 수 있습니다. 상승 된 권한을 사용 하 여 VMware 솔루션을 설치 하 고, id 원본을 추가 하 고, 사용자를 관리할 수 있습니다.
 
-VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스 권한을 부여할 수 있습니다.  새 사용자를 만들 때는 vCenter 액세스를 위해 CloudSimple builtin 그룹에 추가 합니다.  자세한 내용은 [VMware vCenter의 Cloudsimple 사설 클라우드 권한 모델](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/)을 참조 하세요.
+VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스 권한을 부여할 수 있습니다. 새 사용자를 만드는 경우 vCenter 액세스를 위한 AVS builtin 그룹에 추가 합니다. 자세한 내용은 [VMware vCenter의 AVS 사설 클라우드 권한 모델](https://docs.azure.cloudsimple.com/learn-private-cloud-permissions/)을 참조 하세요.
 
 > [!CAUTION]
 > 관리 구성 요소에 대 한 구성을 변경 하지 마세요. 에스컬레이션 된 권한 있는 상태에서 수행 되는 작업은 시스템에 부정적인 영향을 주거나 시스템을 사용할 수 없게 될 수 있습니다.
@@ -31,15 +31,15 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 ## <a name="escalate-privileges"></a>권한 높이기
 
-1. [Cloudsimple 포털](access-cloudsimple-portal.md)에 액세스 합니다.
+1. [AVS 포털](access-cloudsimple-portal.md)에 액세스 합니다.
 
-2. **리소스** 페이지를 열고 권한을 에스컬레이션 하려는 사설 클라우드를 선택 합니다.
+2. **리소스** 페이지를 열고 권한을 에스컬레이션 하려는 AVS 사설 클라우드를 선택 합니다.
 
 3. 요약 페이지의 아래쪽에 있는 **vSphere 대 한 권한 변경**에서 **에스컬레이션**을 클릭 합니다.
 
     ![VSphere 대 한 권한 변경](media/escalate-private-cloud-privilege.png)
 
-4. VSphere 사용자 유형을 선택 합니다.  `CloudOwner@cloudsimple.local` 로컬 사용자만 전달할 수 있습니다.
+4. VSphere 사용자 유형을 선택 합니다. `CloudOwner@cloudsimple.local` 로컬 사용자만 전달할 수 있습니다.
 
 5. 드롭다운에서 에스컬레이션 시간 간격을 선택 합니다. 작업을 완료 하는 데 사용할 가장 짧은 기간을 선택 합니다.
 
@@ -51,19 +51,19 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 8. 에스컬레이션 프로세스는 몇 분 정도 걸릴 수 있습니다. 완료되면 **확인**을 클릭합니다.
 
-권한 에스컬레이션이 시작 되 고 선택 된 간격이 끝날 때까지 지속 됩니다.  사설 클라우드 vCenter에 로그인 하 여 관리 작업을 수행할 수 있습니다.
+권한 에스컬레이션이 시작 되 고 선택 된 간격이 끝날 때까지 지속 됩니다. AVS 사설 클라우드 vCenter에 로그인 하 여 관리 작업을 수행할 수 있습니다.
 
 > [!IMPORTANT]
-> 사용자 한 명에 게 에스컬레이션 된 권한이 있을 수 있습니다.  사용자의 권한을 에스컬레이션 해야 다른 사용자의 권한을 에스컬레이션 할 수 있습니다.
+> 사용자 한 명에 게 에스컬레이션 된 권한이 있을 수 있습니다. 사용자의 권한을 에스컬레이션 해야 다른 사용자의 권한을 에스컬레이션 할 수 있습니다.
 
 > [!CAUTION]
 > 새 사용자는 *클라우드-소유자-그룹*, *클라우드-글로벌-* 관리-그룹, 클라우드- *네트워크* -관리자- *그룹, 클라우드*-글로벌- *v m*i-관리 그룹에만 추가 해야 합니다.  *Administrators* 그룹에 추가 된 사용자는 자동으로 제거 됩니다.  서비스 계정만 *관리자* 그룹에 추가 해야 하며, 서비스 계정은 vsphere 웹 UI에 로그인 하는 데 사용 하면 안 됩니다.
 
 ## <a name="extend-privilege-escalation"></a>권한 상승 확장
 
-작업을 완료 하기 위해 추가 시간이 필요한 경우 권한 에스컬레이션 기간을 확장할 수 있습니다.  관리 작업을 완료 하는 데 사용할 수 있는 추가 에스컬레이션 시간 간격을 선택 합니다.
+작업을 완료 하기 위해 추가 시간이 필요한 경우 권한 에스컬레이션 기간을 확장할 수 있습니다. 관리 작업을 완료 하는 데 사용할 수 있는 추가 에스컬레이션 시간 간격을 선택 합니다.
 
-1. CloudSimple 포털에서 **사설** 클라우드 > **리소스** 에서 권한 에스컬레이션을 확장 하려는 사설 클라우드를 선택 합니다.
+1. Avs 포털에서 **Avs 사설** 클라우드를 > **리소스** 에서 권한 에스컬레이션을 확장 하려는 avs 사설 클라우드를 선택 합니다.
 
 2. 요약 탭의 아래쪽에 있는 **권한 에스컬레이션 확장**을 클릭 합니다.
 
@@ -75,9 +75,9 @@ VCenter SSO 도메인에 새 사용자를 만들고 vCenter에 대 한 액세스
 
 ## <a name="de-escalate-privileges"></a>권한 상승
 
-관리 작업이 완료 되 면 권한을 에스컬레이션 해야 합니다.  
+관리 작업이 완료 되 면 권한을 에스컬레이션 해야 합니다. 
 
-1. CloudSimple 포털의 **리소스** > **사설** 클라우드에서 권한을 에스컬레이션 하려는 사설 클라우드를 선택 합니다.
+1. Avs 포털에서 **Avs 사설** 클라우드를 > 하는 **리소스** 에서 권한을 에스컬레이션 하려는 AVS 사설 클라우드를 선택 합니다.
 
 2. **에스컬레이션**을 클릭 합니다.
 

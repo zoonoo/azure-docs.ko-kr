@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 04/11/2018
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 2d35c31e23da7addcf0b4c341c6925f258d5c232
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: c73fb55e485d0c92d27eac2ac197a81337b9d5e1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688256"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016802"
 ---
 # <a name="configure-php-in-azure-app-service"></a>Azure App Service에서 PHP 구성
 
@@ -34,20 +34,6 @@ PHP 7.0 및 PHP 7.2 버전도 사용할 수 있지만 기본적으로는 사용�
 2. **구성**에서 **일반 설정** 을 선택 하 고 새 PHP 버전을 선택 합니다.
 
 3. **일반 설정** 블레이드의 위쪽에 있는 **저장** 단추를 클릭 합니다.
-
-### <a name="azure-powershell-windows"></a>Azure PowerShell(Windows)
-
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
-
-1. Azure PowerShell을 열고 계정에 로그인합니다.
-
-        PS C:\> Connect-AzAccount
-2. 앱에 대한 PHP 버전을 설정합니다.
-
-        PS C:\> Set-AzureWebsite -PhpVersion {5.6 | 7.0 | 7.2} -Name {app-name}
-3. PHP 버전이 설정되었습니다. 이러한 설정을 확인할 수 있습니다.
-
-        PS C:\> Get-AzureWebsite -Name {app-name} | findstr PhpVersion
 
 ### <a name="azure-cli"></a>Azure CLI 
 

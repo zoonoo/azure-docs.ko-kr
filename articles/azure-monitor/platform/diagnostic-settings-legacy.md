@@ -6,13 +6,13 @@ ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 ms.author: bwren
-ms.date: 01/21/2020
-ms.openlocfilehash: dff4901f1488406ed1259d1411a6b05b949382cb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: fcdcef5d63163b24fe5de0f547dc2dde00cd674f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715850"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016258"
 ---
 # <a name="update-to-azure-activity-log-collection-and-export"></a>Azure 활동 로그 수집 및 내보내기에 대 한 업데이트
 [Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 [플랫폼 로그](platform-logs-overview.md) 입니다. 활동 로그 항목을 [이벤트 허브 또는 저장소 계정](activity-log-export.md) 또는 [Log Analytics 작업 영역](activity-log-collect.md) 으로 보내는 메서드가 [진단 설정을](diagnostic-settings.md)사용 하도록 변경 되었습니다. 이 문서에서는 메서드와 진단 설정 변경 준비에서 레거시 설정을 지우는 방법 간의 차이점을 설명 합니다.
@@ -53,6 +53,9 @@ ms.locfileid: "76715850"
 - Authorization_d
 - Claims_d
 - Properties_d
+
+> [!IMPORTANT]
+> 경우에 따라 이러한 열의 값은 모두 대문자 일 수 있습니다. 이러한 열을 포함 하는 쿼리가 있는 경우 [= ~ 연산자](https://docs.microsoft.com/azure/kusto/query/datatypes-string-operators) 를 사용 하 여 대/소문자를 구분 하지 않는 비교를 수행 해야 합니다.
 
 ## <a name="work-with-legacy-settings"></a>레거시 설정 작업
 진단 설정으로 대체 하도록 선택 하지 않으면 활동 로그를 수집 하기 위한 레거시 설정이 계속 작동 합니다. 다음 방법을 사용 하 여 구독에 대 한 로그 프로필을 관리 합니다.

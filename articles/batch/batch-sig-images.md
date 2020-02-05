@@ -2,18 +2,18 @@
 title: 공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기-Azure Batch | Microsoft Docs
 description: 응용 프로그램에 필요한 소프트웨어와 데이터를 포함 하는 계산 노드에 사용자 지정 이미지를 프로 비전 하기 위해 공유 이미지 갤러리를 사용 하 여 Batch 풀을 만듭니다. 사용자 지정 이미지는 Batch 워크로드를 실행하도록 컴퓨팅 노드를 구성하는 효율적인 방법입니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.service: batch
 ms.topic: article
 ms.date: 08/28/2019
-ms.author: jushiman
-ms.openlocfilehash: a933d0656bb4c22e848a663757f4e5e3fa276c61
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2cff6a0e48fc7bf58a642f509fcda6b114e002ef
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029656"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022939"
 ---
 # <a name="use-the-shared-image-gallery-to-create-a-custom-pool"></a>공유 이미지 갤러리를 사용 하 여 사용자 지정 풀 만들기
 

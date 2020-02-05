@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 11/08/2019
+ms.date: 02/04/2020
 ms.author: curtand
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: eef096322c8a8cfbf1618447529d46f6fbfd13b1
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b8c77b3454026aa309d979bd938674e7c3ae7b6a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74021861"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025999"
 ---
 # <a name="deploy-azure-ad-privileged-identity-management-pim"></a>Azure AD PIM(Privileged Identity Management) 배포
 
@@ -58,12 +58,12 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 ### <a name="key-terminology"></a>주요 용어
 
-| 용어 또는 개념 | 설명 |
+| 용어 또는 개념 | Description |
 | --- | --- |
 | 적격 | 사용자가 역할을 사용하기 위해 하나 이상의 작업을 수행해야 하는 역할 할당입니다. 사용자가 역할에 대한 자격을 얻은 경우 권한 있는 작업을 수행해야 할 때 해당 역할을 활성화할 수 있음을 의미합니다. 영구 및 적격 역할 할당을 비교했을 때 이 둘을 통해 다른 사람에게 주어진 액세스에는 차이가 없습니다. 유일한 차이는 사람들이 그 액세스를 항상 필요로 하지 않는다는 점입니다. |
 | 활성화 | 사용자가 자격이 있는 역할을 사용하기 위해 하나 이상의 작업을 수행하는 프로세스입니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다. |
 | JIT(Just In Time) 액세스 | 사용자가 권한 있는 작업을 수행하기 위해 임시 사용 권한을 받는 모델이며, 악의적 또는 권한이 없는 사용자가 권한이 만료된 후 액세스 권한을 획득하는 것을 방지합니다. 액세스 권한은 사용자에게 필요한 경우에만 부여됩니다. |
-| 최소 권한 액세스 원칙 | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 특정 관리자 역할을 사용합니다. |
+| 최소 권한 액세스 원칙 | 모든 사용자에게 수행할 권한이 있는 작업을 수행하는 데 필요한 최소 권한만 제공하는 권장 보안 방법입니다. 이 방법은 글로벌 관리자 수를 최소화하고, 그 대신 특정 시나리오에 대해 구체적 관리자 역할을 사용합니다. |
 
 자세한 내용은 [용어](pim-configure.md#terminology)를 참조하세요.
 
@@ -99,7 +99,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-ad-roles"></a>관련자: Azure AD 역할에 대 한 Privileged Identity Management
 
-| 이름 | 역할 | 작업 |
+| 이름 | 역할 | 실행력 |
 | --- | --- | --- |
 | 이름 및 이메일 | **설계자 또는 Azure 글로벌 관리자 식별**<br/>이 변경을 조직의 핵심 ID 관리 인프라와 일치시키는 방법을 정의할 책임이 있는 ID 관리 팀 출신 담당자입니다. | SO/R/I |
 | 이름 및 이메일 | **서비스 소유자 / 라인 관리자**<br/>서비스 또는 서비스 그룹의 IT 소유자 출신 담당자입니다. 이는 결정을 내리는 데 중요 하며 팀에 대 한 Privileged Identity Management를 롤아웃 하는 데 도움이 됩니다. | SO/R/I |
@@ -109,7 +109,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 #### <a name="stakeholders-privileged-identity-management-for-azure-resource-roles"></a>관련자: Azure 리소스 역할에 대 한 Privileged Identity Management
 
-| 이름 | 역할 | 작업 |
+| 이름 | 역할 | 실행력 |
 | --- | --- | --- |
 | 이름 및 이메일 | **구독 / 리소스 소유자**<br/>Privileged Identity Management 배포 하려는 각 구독 또는 리소스의 IT 소유자 담당자 | SO/R/I |
 | 이름 및 이메일 | **보안 소유자**<br/>계획이 조직의 보안 요구 사항을 만족하도록 로그오프할 수 있는 보안 팀 출신 담당자입니다. | SO/R |
@@ -120,7 +120,7 @@ Privileged Identity Management를 사용 하려면 디렉터리에 다음 유료
 
 계획 프로세스의 일부로 먼저 [Privileged Identity Management 사용 시작](pim-getting-started.md) 문서에 따라 Privileged Identity Management에 동의 하 고이를 사용 하도록 설정 해야 합니다. Privileged Identity Management를 사용 하면 배포에 도움이 되도록 특별히 설계 된 일부 기능에 액세스할 수 있습니다.
 
-Azure 리소스에 대 한 Privileged Identity Management를 배포 하는 것이 목표 인 경우 [Privileged Identity Management에서 관리할 azure 리소스 검색](pim-resource-roles-discover-resources.md) 문서를 따라야 합니다. 각 리소스, 리소스 그룹 및 구독의 소유자만 Privileged Identity Management 내에서 검색할 수 있습니다. 전역 관리자가 Azure 리소스에 대 한 Privileged Identity Management를 배포 하려는 경우 [모든 azure 구독을 관리 하기 위해 액세스 권한을 상승](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) 시켜 검색을 위해 디렉터리의 모든 azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 그러나 Privileged Identity Management를 사용 하 여 리소스를 관리 하기 전에 각 구독 소유자 로부터 승인을 받을 것을 권장 합니다.
+Azure 리소스에 대 한 Privileged Identity Management를 배포 하는 것이 목표 인 경우 [Privileged Identity Management에서 관리할 azure 리소스 검색](pim-resource-roles-discover-resources.md) 문서를 따라야 합니다. 구독 및 관리 그룹 소유자만 이러한 리소스를 검색 하 고 Privileged Identity Management로 등록할 수 있습니다. 등록 후에는 관리 그룹, 구독, 리소스 그룹 및 리소스를 비롯 한 모든 수준의 소유자에 게 PIM 기능을 사용할 수 있습니다. 전역 관리자가 Azure 리소스에 대 한 Privileged Identity Management를 배포 하려는 경우 [모든 azure 구독을 관리 하기 위해 액세스 권한을 상승](../../role-based-access-control/elevate-access-global-admin.md?toc=%2fazure%2factive-directory%2fprivileged-identity-management%2ftoc.json) 시켜 검색을 위해 디렉터리의 모든 azure 리소스에 대 한 액세스 권한을 부여할 수 있습니다. 그러나 Privileged Identity Management를 사용 하 여 리소스를 관리 하기 전에 각 구독 소유자 로부터 승인을 받을 것을 권장 합니다.
 
 ### <a name="enforce-principle-of-least-privilege"></a>최소 권한 원칙 적용
 
@@ -198,7 +198,7 @@ Privileged Identity Management로 보호할 역할을 선택 하는 것은 어�
 > [!TIP]
 > : heavy_check_mark: 손상 된 게스트 사용자 계정과 관련 된 위험을 줄이기 위해 Privileged Identity Management를 사용 하 여 게스트 사용자로 모든 역할을 관리 하는 것 **이 좋습니다** .
 
-디렉터리 독자, 메시지 센터 독자 및 보안 독자와 같은 독자 역할은 쓰기 사용 권한이 없기 때문에 간혹 다른 역할에 비해 덜 중요한 것으로 여겨지는 경우가 있습니다. 그러나 이러한 계정에 대한 액세스 권한을 획득한 공격자가 PII(개인 식별 정보)와 같은 중요 데이터를 읽을 수 있기 때문에 이러한 역할을 보호하는 고객도 있습니다. 조직의 독자 역할을 Privileged Identity Management를 사용 하 여 관리 해야 하는지 여부를 결정할 때이를 고려해 야 합니다.
+디렉터리 독자, 메시지 센터 독자 및 보안 독자와 같은 독자 역할은 쓰기 사용 권한이 없기 때문에 간혹 다른 역할에 비해 덜 중요한 것으로 여겨지는 경우가 있습니다. 그러나 이러한 계정에 대 한 액세스 권한을 얻은 공격자가 개인 데이터와 같은 중요 한 데이터를 읽을 수 있기 때문에 일부 고객은 이러한 역할을 보호 하기도 합니다. 조직의 독자 역할을 Privileged Identity Management를 사용 하 여 관리 해야 하는지 여부를 결정할 때이를 고려해 야 합니다.
 
 #### <a name="azure-resource-roles"></a>Azure 리소스 역할
 
@@ -250,13 +250,13 @@ Privileged Identity Management 솔루션을 구현 하기 전에 조직에서 �
 
 | 역할 | MFA 요구 | 알림 | 승인 필요 | 승인자 | 활성화 기간 | 활성 관리자 | 활성화 만료 | 자격 만료 |
 | --- | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | 해당 없음 | 3개월 |
-| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | 해당 없음 | 3개월 |
-| Virtual Machine 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | 해당 없음 | 6개월 |
+| 중요한 구독 소유자 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | 구독의 기타 소유자 | 1시간 | 없음 | n/a | 3개월 |
+| 덜 중요한 구독의 사용자 액세스 관리자 | :heavy_check_mark: | :heavy_check_mark: | :x: | 없음 | 1시간 | 없음 | n/a | 3개월 |
+| 가상 머신 참가자 | :x: | :heavy_check_mark: | :x: | 없음 | 3시간 | 없음 | n/a | 6개월 |
 
 다음 테이블에서 각 설정을 설명합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 | --- | --- |
 | 역할 | 설정을 정의하는 역할의 이름입니다. |
 | MFA 요구 | 자격이 있는 사용자가 역할을 활성화하기 전에 MFA를 수행해야 하는지 여부입니다.<br/><br/> : heavy_check_mark: 특히 역할에 게스트 사용자가 있는 경우 모든 관리자 역할에 대해 MFA를 적용 하는 것 **이 좋습니다** . |

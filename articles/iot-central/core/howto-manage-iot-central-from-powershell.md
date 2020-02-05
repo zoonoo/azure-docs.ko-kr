@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 07/11/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: df663861010177ba54c56ee4495458ea1b928359
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a95b59c6cc0d486c1d4b10f39d0d272dd4b34f54
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985716"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018995"
 ---
 # <a name="manage-iot-central-from-azure-powershell"></a>Azure PowerShell에서 IoT Central 관리
 
@@ -61,30 +61,24 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
   -DisplayName "My Custom Display Name"
 ```
 
-이 스크립트는 먼저 응용 프로그램의 미국 동부 위치에 리소스 그룹을 만듭니다. 다음 표에서는 **New-AzIotCentralApp** 명령에 사용되는 매개 변수를 설명합니다.
+스크립트는 먼저 애플리케이션의 미국 동부 지역에 리소스 그룹을 만듭니다. 다음 표에서는 **New-AzIotCentralApp** 명령에 사용되는 매개 변수를 설명합니다.
 
 |매개 변수         |Description |
 |------------------|------------|
 |ResourceGroupName |애플리케이션을 포함하는 리소스 그룹입니다. 리소스 그룹이 구독에 이미 있어야 합니다. |
-|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **미국**, **오스트레일리아**, **아시아 태평양**또는 **유럽** 위치에서 IoT Central 응용 프로그램을 만들 수 있습니다.  |
+|위치 |기본적으로 이 cmdlet은 리소스 그룹의 위치를 사용합니다. 현재 **미국 동부**, **미국 서 부**, **유럽**서 부, **유럽 서부** 지역 또는 **오스트레일리아** 또는 **아시아 태평양** 지역에서 IoT Central 응용 프로그램을 만들 수 있습니다.  |
 |이름              |Azure Portal의 애플리케이션 이름입니다. |
 |하위 도메인         |애플리케이션 URL의 하위 도메인입니다. 예제에서 애플리케이션 URL은 https://mysubdomain.azureiotcentral.com 입니다. |
 |SKU               |현재 **ST1** 또는 **ST2**중 하나를 사용할 수 있습니다. [Azure IoT Central 가격 책정](https://azure.microsoft.com/pricing/details/iot-central/)을 참조하세요. |
 |템플릿          | 사용할 애플리케이션 템플릿입니다. 자세한 내용은 다음 표를 참조하세요. |
 |DisplayName       |UI에 표시되는 애플리케이션 이름입니다. |
 
-**일반적으로 제공 되는 기능을 사용 하는 응용 프로그램 템플릿**
+**애플리케이션 템플릿**
 
 | 템플릿 이름            | Description |
 | ------------------------ | ----------- |
 | iotc-default@1.0.0       | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다.
-
-
-**공개 미리 보기 기능을 사용 하는 응용 프로그램 템플릿**
-
-| 템플릿 이름            | Description |
-| ------------------------ | ----------- |
-| iotc-pnp-preview@1.0.0   | 사용자 고유의 장치 템플릿 및 장치로 채울 빈 플러그 앤 플레이 미리 보기 응용 프로그램을 만듭니다. |
+| iotc-pnp-preview@1.0.0   | 사용자 고유의 장치 템플릿 및 장치로 채울 빈 플러그 앤 플레이 (미리 보기) 응용 프로그램을 만듭니다. |
 | iotc-condition@1.0.0     | 저장소 내 분석-조건 모니터링 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 저장소 환경을 연결 하 고 모니터링 합니다. |
 | iotc-consumption@1.0.0   | 워터 마크 사용 모니터링 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 급수 흐름을 모니터링 하 고 제어할 수 있습니다. |
 | iotc-distribution@1.0.0  | 디지털 배포 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 주요 자산 및 작업을 digitalizing 하 여 웨어하우스 출력 효율성을 향상 시킵니다. |
@@ -96,9 +90,6 @@ New-AzIotCentralApp -ResourceGroupName "MyIoTCentralResourceGroup" `
 | iotc-quality@1.0.0       | 급수 품질 모니터링 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 물 품질을 디지털 모니터링할 수 있습니다.|
 | iotc-store@1.0.0         | 저장소 내 분석 – 체크 아웃 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 스토어 내에서 체크 아웃 흐름을 모니터링 하 고 관리 합니다. |
 | iotc-waste@1.0.0         | 연결 된 폐기물 관리 템플릿을 사용 하 여 응용 프로그램을 만듭니다. 이 템플릿을 사용 하 여 폐기물을 모니터링 하 고 필드 연산자를 디스패치합니다. |
-
-> [!NOTE]
-> Preview 응용 프로그램 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
 ## <a name="view-your-iot-central-applications"></a>IoT Central 애플리케이션 보기
 

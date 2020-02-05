@@ -1,6 +1,6 @@
 ---
-title: CloudSimple의 Azure VMware 솔루션 온-프레미스 계층 2 네트워크를 사설 클라우드로 스트레치
-description: CloudSimple 사설 클라우드의 NSX과 온-프레미스 독립 실행형 NSX Edge 클라이언트 간의 계층 2 VPN을 설정 하는 방법을 설명 합니다.
+title: Azure VMware 솔루션 (AVS)-계층 2 네트워크 온-프레미스를 AVS 사설 클라우드로 스트레치
+description: AVS 사설 클라우드의 NSX과 온-프레미스 독립 실행형 NSX Edge 클라이언트 간의 계층 2 VPN을 설정 하는 방법을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/19/2019
@@ -8,29 +8,29 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 2ddfa9611143d5c3f823539e018c8afc885c6a46
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232374"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019828"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
-이 가이드에서는 계층 2 VPN (L2VPN)을 사용 하 여 온-프레미스 환경에서 CloudSimple 사설 클라우드로 계층 2 네트워크를 스트레치 하는 방법에 대해 설명 합니다. 이 솔루션을 사용 하면 워크 로드를 다시 IP 하지 않고도 온-프레미스 VMware 환경에서 실행 되는 워크 로드를 동일한 서브넷 주소 공간 내의 Azure 사설 클라우드로 마이그레이션할 수 있습니다.
+이 가이드에서는 계층 2 VPN (L2VPN)을 사용 하 여 온-프레미스 환경에서 계층 2 네트워크를 AVS 사설 클라우드로 스트레치 하는 방법에 대해 설명 합니다. 이 솔루션을 사용 하면 워크 로드를 다시 IP 하지 않고도 온-프레미스 VMware 환경에서 실행 되는 워크 로드를 동일한 서브넷 주소 공간 내의 Azure에서 AVS 사설 클라우드로 마이그레이션할 수 있습니다.
 
 계층 2 네트워크의 L2VPN 기반 확장은 온-프레미스 VMware 환경에서 NSX 기반 네트워크를 사용 하거나 사용 하지 않고 작동할 수 있습니다. 온-프레미스 워크 로드에 대 한 NSX 기반 네트워크가 없는 경우 독립 실행형 NSX Edge 서비스 게이트웨이를 사용할 수 있습니다.
 
 > [!NOTE]
-> 이 가이드에서는 온-프레미스 및 사설 클라우드 데이터 센터가 사이트 간 VPN을 통해 연결 되는 시나리오에 대해 설명 합니다.
+> 이 가이드에서는 온-프레미스 및 AVS 사설 클라우드 데이터 센터가 사이트 간 VPN을 통해 연결 되는 시나리오에 대해 설명 합니다.
 
 ## <a name="deployment-scenario"></a>배포 시나리오
 
-L2VPN를 사용 하 여 온-프레미스 네트워크를 확장 하려면 L2VPN 서버 (대상 NSX-T Tier0 라우터)와 L2VPN client (원본 독립 실행형 클라이언트)를 구성 해야 합니다.  
+L2VPN를 사용 하 여 온-프레미스 네트워크를 확장 하려면 L2VPN 서버 (대상 NSX-T Tier0 라우터)와 L2VPN client (원본 독립 실행형 클라이언트)를 구성 해야 합니다. 
 
-이 배포 시나리오에서 사설 클라우드는 사이트 간 VPN 터널을 통해 온-프레미스 환경에 연결 되며,이를 통해 온-프레미스 관리 및 vMotion 서브넷이 사설 클라우드 관리 및 vMotion 서브넷과 통신할 수 있습니다. 이 정렬은 Cross vCenter vMotion (xVC-vMotion)에 필요 합니다. NSX-T Tier0 라우터는 사설 클라우드에서 L2VPN 서버로 배포 됩니다.
+이 배포 시나리오에서 AVS 사설 클라우드는 온-프레미스 관리 및 vMotion 서브넷이 AVS 사설 클라우드 관리 및 vMotion 서브넷과 통신할 수 있도록 하는 사이트 간 VPN 터널을 통해 온-프레미스 환경에 연결 됩니다. 이 정렬은 Cross vCenter vMotion (xVC-vMotion)에 필요 합니다. NSX-T Tier0 라우터는 AVS 사설 클라우드에 L2VPN 서버로 배포 됩니다.
 
-독립 실행형 NSX Edge는 온-프레미스 환경에서 L2VPN 클라이언트로 배포 된 후 L2VPN 서버와 쌍으로 연결 됩니다. GRE 터널 끝점은 각 쪽에서 만들어지고 사설 클라우드로 온-프레미스 계층 2 네트워크를 ' 스트레치 '로 구성 됩니다. 이 구성은 다음 그림에 나와 있습니다.
+독립 실행형 NSX Edge는 온-프레미스 환경에서 L2VPN 클라이언트로 배포 된 후 L2VPN 서버와 쌍으로 연결 됩니다. GRE 터널 끝점은 각 쪽에 생성 되며, 온-프레미스 계층 2 네트워크를 AVS 사설 클라우드에 ' 스트레치 ' 하도록 구성 됩니다. 이 구성은 다음 그림에 나와 있습니다.
 
 ![배포 시나리오](media/l2vpn-deployment-scenario.png)
 
@@ -42,29 +42,29 @@ L2 VPN을 사용 하 여 마이그레이션하는 방법에 대 한 자세한 �
 
 * 온-프레미스 vSphere 버전은 6.7 U1 + 또는 6.5 P03 +입니다.
 * 온-프레미스 vSphere 라이선스는 엔터프라이즈급 (vSphere 분산 된 스위치의 경우) 수준에 있습니다.
-* 사설 클라우드로 확장할 워크 로드 계층 2 네트워크를 확인 합니다.
+* AVS 사설 클라우드에 확장 될 워크 로드 계층 2 네트워크를 확인 합니다.
 * L2VPN 클라이언트 어플라이언스를 배포 하기 위해 온-프레미스 환경에서 계층 2 네트워크를 식별 합니다.
-* [사설 클라우드가 이미 만들어졌습니다](create-private-cloud.md).
-* 독립 실행형 NSX-Edge 어플라이언스의 버전은 사설 클라우드 환경에서 사용 되는 NSX Manager 버전 (NSX-T 2.3.0)과 호환 됩니다.
+* [AVS 사설 클라우드가 이미 만들어졌습니다](create-private-cloud.md).
+* 독립 실행형 NSX-Edge 어플라이언스의 버전은 AVS 사설 클라우드 환경에서 사용 되는 NSX Manager 버전 (NSX-T 2.3.0)과 호환 됩니다.
 * 위조 된 전송 기능을 사용 하 여 온-프레미스 vCenter에서 트렁크 포트 그룹을 만들었습니다.
 * 공용 IP 주소는 NSX-T 독립 실행형 클라이언트 업링크 IP 주소에 사용 하도록 예약 되었으며, 1:1 NAT는 두 주소 간 변환을 위해 준비 되었습니다.
-* DNS 전달은 사설 클라우드 DNS 서버를 가리키도록 az.cloudsimple.io 도메인에 대 한 온-프레미스 DNS 서버에 설정 됩니다.
+* DNS 전달은 az에 대해 온-프레미스 DNS 서버에서 설정 됩니다. AVS.io 도메인은 AVS 사설 클라우드 DNS 서버를 가리킵니다.
 * VMotion가 두 사이트에서 작동 하는 데 필요한 경우 RTT 대기 시간은 150 밀리초 보다 작거나 같습니다.
 
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
-다음 표에는 지원 되는 vSphere 버전 및 네트워크 어댑터 유형이 나와 있습니다.  
+다음 표에는 지원 되는 vSphere 버전 및 네트워크 어댑터 유형이 나와 있습니다. 
 
 | vSphere 버전 | 원본 vSwitch 유형 | 가상 NIC 드라이버 | 대상 vSwitch 유형 | 되지? |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| 모두 | DVS | 모두 | DVS | 예 |
+| 전체 | DVS | 전체 | DVS | 예 |
 | vSphere 6.7 UI 이상, 6.5 P03 이상 | DVS | VMXNET3 | N-VDS | 예 |
 | vSphere 6.7 UI 이상, 6.5 P03 이상 | DVS | E1000 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7 UI 또는 6.5 P03, NSX 또는 NSX 아래에 있는 버전-T 2.2, 6.5 P03 이상 | 모두 | 모두 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7 UI 또는 6.5 P03, NSX 또는 NSX 아래에 있는 버전-T 2.2, 6.5 P03 이상 | 전체 | 전체 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
 
 VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 
-* L2VPN를 통해 온-프레미스로 확장 된 사설 클라우드의 논리 스위치를 동시에 라우팅할 수 없습니다. 스트레치 된 논리 스위치는 논리 라우터에 연결할 수 없습니다.
+* L2VPN를 통해 온-프레미스로 확장 된 AVS 사설 클라우드의 논리 스위치를 동시에 라우팅할 수 없습니다. 스트레치 된 논리 스위치는 논리 라우터에 연결할 수 없습니다.
 * L2VPN 및 경로 기반 IPSEC Vpn은 API 호출만 사용 하 여 구성할 수 있습니다.
 
 자세한 내용은 VMware 설명서의 [가상 개인 네트워크](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58.html#GUID-A8B113EC-3D53-41A5-919E-78F1A3705F58__section_44B4972B5F12453B90625D98F86D5704) 를 참조 하세요.
@@ -88,7 +88,7 @@ VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 | VLAN | 472 |
 | CIDR| 10.250.3.0/24 |
 
-### <a name="private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>NSX-T Tier0 Router 용 사설 클라우드 IP 스키마 (L2 VPN 서비스)
+### <a name="avs-private-cloud-ip-schema-for-nsx-t-tier0-router-l2-vpn-serve"></a>NSX-T Tier0 Router 용 AVS 사설 클라우드 IP 스키마 (L2 VPN 서비스)
 
 | **항목** | **값** |
 |------------|-----------------|
@@ -97,7 +97,7 @@ VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 | 논리 스위치 (스트레치) | Stretch_LS |
 | 루프백 인터페이스 (NAT IP 주소) | 104.40.21.81 |
 
-### <a name="private-cloud-network-to-be-mapped-to-the-stretched-network"></a>스트레치 된 네트워크에 매핑할 사설 클라우드 네트워크
+### <a name="avs-private-cloud-network-to-be-mapped-to-the-stretched-network"></a>스트레치 된 네트워크에 매핑할 AVS 사설 클라우드 네트워크
 
 | **항목** | **값** |
 |------------|-----------------|
@@ -116,7 +116,7 @@ VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 
     ![참고 관리 IP](media/l2vpn-fetch02.png)
 
-3. 에 지 VM의 관리 IP 주소에 대 한 SSH 세션을 엽니다. 사용자 이름 **관리자** 및 암호 **cloudsimple 123!** 를 사용 하 여 ```get logical-router``` 명령을 실행 합니다.
+3. 에 지 VM의 관리 IP 주소에 대 한 SSH 세션을 엽니다. 사용자 이름 **관리자** 및 암호 **AVS 123!** 를 사용 하 여 ```get logical-router``` 명령을 실행 합니다.
 
     ![논리 라우터 출력 가져오기](media/l2vpn-fetch03.png)
 
@@ -126,7 +126,7 @@ VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 
     ![논리 스위치 만들기](media/l2vpn-fetch04.png)
 
-6. 온-프레미스 또는 사설 클라우드의 링크 로컬 IP 주소 또는 겹치지 않는 서브넷을 사용 하 여 Tier1 라우터에 더미 스위치를 연결 합니다. VMware 설명서의 [계층 1 논리 라우터에서 다운 링크 포트 추가](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) 를 참조 하세요.
+6. 온-프레미스 또는 AVS 사설 클라우드의 링크 로컬 IP 주소 또는 겹치지 않는 서브넷을 사용 하 여 Tier1 라우터에 더미 스위치를 연결 합니다. VMware 설명서의 [계층 1 논리 라우터에서 다운 링크 포트 추가](https://docs.vmware.com/en/VMware-NSX-T-Data-Center/2.3/com.vmware.nsxt.admin.doc/GUID-E7EA867C-604C-4224-B61D-2A8EF41CB7A6.html) 를 참조 하세요.
 
     ![더미 스위치 연결](media/l2vpn-fetch05.png)
 
@@ -148,7 +148,7 @@ NSX-T Tier0 라우터와 독립 실행형 NSX Edge 클라이언트 간에 IPsec 
 
 ### <a name="allow-udp-5004500-for-ipsec"></a>IPsec에 UDP 500/4500 허용
 
-1. CloudSimple 포털에서 NSX-T Tier0 루프백 인터페이스에 대 한 [공용 IP 주소를 만듭니다](public-ips.md) .
+1. AVS 포털에서 NSX-T Tier0 루프백 인터페이스에 대 한 [공용 IP 주소를 만듭니다](public-ips.md) .
 
 2. UDP 500/4500 인바운드 트래픽을 허용 하 고 NSX-T HostTransport 서브넷에 방화벽 테이블을 연결 하는 상태 저장 규칙을 사용 하 여 [방화벽 테이블을 만듭니다](firewall.md) .
 
@@ -163,7 +163,7 @@ NSX-T Tier0 라우터와 독립 실행형 NSX Edge 클라이언트 간에 IPsec 
 
     ![IP 접두사 목록 만들기](media/l2vpn-routing-security02.png)
 
-4. NSX-T Manager에 로그인 하 고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **BGP** > **인접**을 선택 합니다. 첫 번째 인접 항목을 선택 합니다.  > **주소 패밀리** **편집** 을 클릭 합니다. IPv4 패밀리의 경우 **아웃 필터** 열을 편집 하 고 만든 IP 접두사 목록을 선택 합니다. **Save**를 클릭합니다. 두 번째 인접 항목에 대해이 단계를 반복 합니다.
+4. NSX-T Manager에 로그인 하 고 **네트워킹** > **라우팅** > **라우터** > **공급자-LR** > **라우팅** > **BGP** > **인접**을 선택 합니다. 첫 번째 인접 항목을 선택 합니다.  > **주소 패밀리** **편집** 을 클릭 합니다. IPv4 패밀리의 경우 **아웃 필터** 열을 편집 하 고 만든 IP 접두사 목록을 선택 합니다. **저장**을 클릭합니다. 두 번째 인접 항목에 대해이 단계를 반복 합니다.
 
     IP 접두사 목록 1](media/l2vpn-routing-security03.png) 연결 ![IP 접두사 목록 2 ![연결 합니다](media/l2vpn-routing-security04.png)
 
@@ -173,9 +173,9 @@ NSX-T Tier0 라우터와 독립 실행형 NSX Edge 클라이언트 간에 IPsec 
 
 ## <a name="configure-a-route-based-vpn-on-the-nsx-t-tier0-router"></a>NSX-T Tier0 라우터에서 경로 기반 VPN 구성
 
-다음 템플릿을 사용 하 여 NSX-T Tier0 라우터에서 경로 기반 VPN을 구성 하는 데 필요한 모든 세부 정보를 입력 합니다. 이후 POST 호출에는 각 POST 호출의 Uuid가 필요 합니다. L2VPN에 대 한 루프백 및 터널 인터페이스의 IP 주소는 고유 해야 하며 온-프레미스 또는 사설 클라우드 네트워크와 겹치지 않아야 합니다.
+다음 템플릿을 사용 하 여 NSX-T Tier0 라우터에서 경로 기반 VPN을 구성 하는 데 필요한 모든 세부 정보를 입력 합니다. 이후 POST 호출에는 각 POST 호출의 Uuid가 필요 합니다. L2VPN에 대 한 루프백 및 터널 인터페이스의 IP 주소는 고유 해야 하며 온-프레미스 또는 AVS 사설 클라우드 네트워크와 겹치지 않아야 합니다.
 
-L2VPN에 사용 되는 루프백 및 터널 인터페이스에 대해 선택 된 IP 주소는 고유 해야 하며 온-프레미스 또는 사설 클라우드 네트워크와 겹치지 않아야 합니다. 루프백 인터페이스 네트워크는 항상/32 이어야 합니다.
+L2VPN에 사용 되는 루프백 및 터널 인터페이스에 대해 선택 된 IP 주소는 고유 해야 하며 온-프레미스 또는 AVS 사설 클라우드 네트워크와 겹치지 않아야 합니다. 루프백 인터페이스 네트워크는 항상/32 이어야 합니다.
 
 ```
 Loopback interface ip : 192.168.254.254/32
@@ -422,13 +422,13 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
 ## <a name="deploy-the-nsx-t-standalone-client-on-premises"></a>NSX-T 독립 실행형 클라이언트 (온-프레미스) 배포
 
-배포 하기 전에 온-프레미스 방화벽 규칙이 NSX-T T0 라우터 루프백 인터페이스에 대해 이전에 예약 된 CloudSimple 공용 IP 주소에서 들어오고 나가는 인바운드 및 아웃 바운드 UDP 500/4500 트래픽을 허용 하는지 확인 합니다. 
+배포 하기 전에 온-프레미스 방화벽 규칙이 NSX-T T0 라우터 루프백 인터페이스에 대해 이전에 예약 된 AVS 공용 IP 주소에서 인바운드 및 아웃 바운드 UDP 500/4500 트래픽을 허용 하는지 확인 합니다. 
 
 1. [독립 실행형 NSX Edge 클라이언트를 다운로드 합니다](https://my.vmware.com/group/vmware/details?productId=673&rPId=33945&downloadGroup=NSX-T-230) . 을 (를) 다운로드 하 고 다운로드 한 번들에서 폴더로 파일을 추출 합니다.
 
     ![독립 실행형 NSX Edge 클라이언트 다운로드](media/l2vpn-deploy-client01.png)
 
-2. 압축을 푼 모든 파일이 포함 된 폴더로 이동 합니다. 모든 vmdk (큰 어플라이언스 크기의 경우 NSX 및 NSX-l2t-client-large를 선택 하 고, 매우 큰 크기 어플라이언스 크기의 경우 NSX-l2t-NSX-l2t-client-Xlarge-)를 선택 합니다. **다음**을 누릅니다.
+2. 압축을 푼 모든 파일이 포함 된 폴더로 이동 합니다. 모든 vmdk (큰 어플라이언스 크기의 경우 NSX 및 NSX-l2t-client-large를 선택 하 고, 매우 큰 크기 어플라이언스 크기의 경우 NSX-l2t-NSX-l2t-client-Xlarge-)를 선택 합니다. **다음**을 클릭합니다.
 
     템플릿](media/l2vpn-deploy-client02.png) ![선택 하 ![템플릿을 선택](media/l2vpn-deploy-client03.png)
 
@@ -440,7 +440,7 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
     ![데이터 저장소 선택](media/l2vpn-deploy-client06.png)
 
-5. NSX-T 독립 실행형 클라이언트의 트렁크 (트렁크 PG), 공용 (업링크 PG) 및 HA 인터페이스 (업링크 PG)에 대 한 올바른 포트 그룹을 선택 합니다. **다음**을 누릅니다.
+5. NSX-T 독립 실행형 클라이언트의 트렁크 (트렁크 PG), 공용 (업링크 PG) 및 HA 인터페이스 (업링크 PG)에 대 한 올바른 포트 그룹을 선택 합니다. **다음**을 클릭합니다.
 
     ![포트 그룹 선택](media/l2vpn-deploy-client07.png)
 
@@ -448,14 +448,14 @@ GET https://192.168.110.201/api/v1/vpn/l2vpn/sessions/<session-id>/peer-codes
 
     L2T를 확장 합니다.
 
-    * **피어 주소**입니다. NSX 용 Azure CloudSimple 포털-T Tier0 루프백 인터페이스에 예약 된 IP 주소를 입력 합니다.
+    * **피어 주소**입니다. NSX-T Tier0 루프백 인터페이스에 대해 Azure AVS 포털에서 예약 된 IP 주소를 입력 합니다.
     * **피어 코드**. L2VPN 서버 배포의 마지막 단계에서 얻은 피어 코드를 붙여넣습니다.
     * **하위 인터페이스 VLAN (터널 ID)** . 확장할 VLAN ID를 입력 합니다. 괄호 ()에 이전에 구성 된 터널 ID를 입력 합니다.
 
     업링크 인터페이스 확장:
 
     * **DNS IP 주소**입니다. 온-프레미스 DNS IP 주소를 입력 합니다.
-    * **기본 게이트웨이입니다**.  이 클라이언트에 대 한 기본 게이트웨이의 역할을 하는 VLAN의 기본 게이트웨이를 입력 합니다.
+    * **기본 게이트웨이입니다**. 이 클라이언트에 대 한 기본 게이트웨이의 역할을 하는 VLAN의 기본 게이트웨이를 입력 합니다.
     * **IP 주소**입니다. 독립 실행형 클라이언트의 업링크 IP 주소를 입력 합니다.
     * **접두사 길이**입니다. 업링크 VLAN/서브넷의 접두사 길이를 입력 합니다.
     * **CLI admin/enable/Root 사용자 암호**입니다. 관리자/enable/root 계정에 대 한 암호를 설정 합니다.

@@ -3,13 +3,13 @@ title: DPM 및 Azure Backup Server를 위한 오프라인 백업
 description: Azure Backup를 사용 하면 Azure Import/Export 서비스를 사용 하 여 네트워크에서 데이터를 보낼 수 있습니다. 이 문서에서는 DPM 및 MABS (Azure Backup Server의 오프 라인 백업 워크플로에 대해 설명 합니다.
 ms.reviewer: saurse
 ms.topic: conceptual
-ms.date: 05/08/2018
-ms.openlocfilehash: 259be99efdef29e3f7971632adf76c03175bba01
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.date: 1/28/2020
+ms.openlocfilehash: 6be75062ab0ce06784d8cd7c833e0070476acf60
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996326"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022582"
 ---
 # <a name="offline-backup-workflow-for-dpm-and-azure-backup-server"></a>DPM 및 Azure Backup Server에 대한 오프라인 백업 워크플로
 
@@ -43,7 +43,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 > * SC DPM(System Center Data Protection Manager)을 사용하여 모든 워크로드 및 파일의 백업
 > * Microsoft Azure Backup Server를 사용하여 모든 워크로드 및 파일의 백업
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 오프라인 백업 워크플로를 시작하기 전에 다음 필수 구성 요소를 충족하는지 확인합니다.
 
@@ -56,13 +56,74 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
     | 미국 | [링크](https://portal.azure.us#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
     | 중국 | [링크](https://portal.azure.cn/#blade/Microsoft_Azure_ClassicResources/PublishingProfileBlade) |
 
-* *클래식* 배포 모델이 있는 Azure Storage 계정이 아래와 같이 게시 설정 파일을 다운로드한 구독에 만들어졌습니다.
+* 아래와 같이 게시 설정 파일을 다운로드 한 구독에 *리소스 관리자* 배포 모델을 사용 하는 Azure Storage 계정이 생성 되었습니다.
 
-  ![클래식 스토리지 계정 만들기](./media/backup-azure-backup-import-export/storageaccountclassiccreate.png)
+  ![리소스 관리자 개발을 사용 하 여 저장소 계정 만들기](./media/backup-azure-backup-import-export/storage-account-resource-manager.png)
 
 * 네트워크 공유 또는 컴퓨터의 추가 드라이브에 있을 수 있는, 초기 복사본을 저장할 충분한 디스크 공간이 있는 내부 또는 외부의 스테이징 위치가 생성됩니다. 예를 들어 500GB 파일 서버를 백업하려는 경우 준비 영역이 500GB인지 확인합니다. (압축으로 인해 더 작은 양이 사용됩니다.)
 * Azure로 전송되는 디스크의 경우 2.5인치 SSD 또는, 2.5인치 또는 3.5인치 SATA II/III 내부 하드 드라이브가 사용되는지 확인합니다. 최대 10TB의 하드 드라이브를 사용할 수 있습니다. [Azure Import/Export 서비스 설명서](../storage/common/storage-import-export-requirements.md#supported-hardware)에서 서비스가 지원하는 최신 드라이브를 집합을 확인하세요.
 * SATA 드라이브는 *스테이징 위치*에서 SATA 드라이브로 백업 데이터의 복사가 수행되는 컴퓨터(*복사 컴퓨터*라고 함)에 연결되어야 합니다. BitLocker가 ‘복사 컴퓨터’에서 사용하도록 설정되었는지 확인합니다.
+
+## <a name="prepare-the-server-for-the-offline-backup-process"></a>오프 라인 백업 프로세스를 위한 서버 준비
+
+>[!NOTE]
+> MARS 에이전트를 설치 하는 동안 *Azureofflinebackupcertgen .exe* 와 같은 나열 된 유틸리티를 찾을 수 없는 경우 AskAzureBackupTeam@microsoft.com에 기록 하 여 액세스 권한을 얻습니다.
+
+* 서버에서 관리자 권한 명령 프롬프트를 열고 다음 명령을 실행 합니다.
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe CreateNewApplication SubscriptionId:<Subs ID>
+    ```
+
+    Azure 오프 라인 백업 AD 응용 프로그램이 없는 경우이 도구를 만듭니다.
+
+    응용 프로그램이 이미 있는 경우이 실행 파일은 테 넌 트에서 응용 프로그램에 인증서를 수동으로 업로드 하 라는 메시지를 표시 합니다. 응용 프로그램에 인증서를 수동으로 업로드 하려면 [이 섹션](#manually-upload-offline-backup-certificate) 의 다음 단계를 수행 합니다.
+
+* Azuregacutil.exe Backup .exe 도구는이 파일을 생성 합니다.  MABS 또는 DPM을 사용 하 여이 파일을 서버에 복사 합니다.
+* DPM/Azure Backup (MABS) 서버에 [최신 MARS 에이전트](https://aka.ms/azurebackup_agent) 를 설치 합니다.
+* Azure에 서버를 등록 합니다.
+* 다음 명령 실행:
+
+    ```cmd
+    AzureOfflineBackupCertGen.exe AddRegistryEntries SubscriptionId:<subscriptionid> xmlfilepath:<path of the OfflineApplicationParams.xml file>  storageaccountname:<storageaccountname configured with Azure Data Box>
+    ```
+
+* 위의 명령을 통해 파일을 만듭니다 `C:\Program Files\Microsoft Azure Recovery Services Agent\Scratch\MicrosoftBackupProvider\OfflineApplicationParams_<Storageaccountname>.xml`
+
+## <a name="manually-upload-offline-backup-certificate"></a>오프 라인 백업 인증서 수동 업로드
+
+오프 라인 백업에 대해 이전에 만든 Azure Active Directory 응용 프로그램에 오프 라인 백업 인증서를 수동으로 업로드 하려면 아래 단계를 따르세요.
+
+1. Azure Portal에 로그인합니다.
+2. **Azure Active Directory** > 으로 이동 **앱 등록**
+3. 소유 하는 **응용 프로그램** 탭으로 이동 하 여 아래와 같이 `AzureOfflineBackup _<Azure User Id` 표시 이름 형식의 응용 프로그램을 찾습니다.
+
+    ![소유 응용 프로그램 탭에서 응용 프로그램 찾기](./media/backup-azure-backup-import-export/owned-applications.png)
+
+4. 응용 프로그램을 클릭 합니다. 왼쪽 창의 **관리** 탭에서 **인증서 & 암호**로 이동 합니다.
+5. 기존 인증서 나 공개 키를 확인 합니다. 없는 경우 응용 프로그램의 **개요** 페이지에서 **삭제** 단추를 클릭 하 여 응용 프로그램을 안전 하 게 삭제할 수 있습니다. 다음 단계를 수행 하 여 [오프 라인 백업 프로세스를 위해 서버를 준비](#prepare-the-server-for-the-offline-backup-process) 하는 단계를 다시 시도 하 고 아래 단계를 건너뛸 수 있습니다. 그렇지 않으면 오프 라인 백업을 구성 하려는 MABS (DPM/Azure Backup Server) 서버에서 다음 단계를 실행 합니다.
+6. **컴퓨터 인증서 응용 프로그램 관리** > **개인** 탭을 열고 이름이 인 인증서를 찾습니다 `CB_AzureADCertforOfflineSeeding_<ResourceId>`
+7. 위의 인증서를 선택 하 고 **모든 작업** 을 마우스 오른쪽 단추로 클릭 한 다음 개인 키를 사용 하지 않고 .cer 형식으로 **내보내기를**클릭 합니다.
+8. Azure Portal에서 Azure Offline Backup 응용 프로그램으로 이동 합니다.
+9.  > 인증서 **관리** **& 암호** > **인증서 업로드**를 클릭 하 고 이전 단계에서 내보낸 인증서를 업로드 합니다.
+
+    ![인증서 업로드](./media/backup-azure-backup-import-export/upload-certificate.png)
+10. 서버에서 실행 창에 **regedit** 를 입력 하 여 레지스트리를 엽니다.
+11. 레지스트리 항목 *Computer \ HKEY_LOCAL_MACHINE \Software\microsoft\windows Azure Backup\Config\CloudBackupProvider*로 이동 합니다.
+12. **Cloudbackupprovider** 를 마우스 오른쪽 단추로 클릭 하 고 이름이 인 새 문자열 값을 추가 `AzureADAppCertThumbprint_<Azure User Id>`
+
+    >[!NOTE]
+    > 참고: Azure 사용자 Id를 찾으려면 다음 단계 중 하나를 수행 합니다.
+    >
+    >1. Azure 연결 된 PowerShell에서 `Get-AzureRmADUser -UserPrincipalName “Account Holder’s email as appears in the portal”` 명령을 실행 합니다.
+    >2. 레지스트리 경로: `Computer\HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\DbgSettings\OnlineBackup; Name: CurrentUserId;`로 이동 합니다.
+
+13. 이전 단계에서 추가 된 문자열을 마우스 오른쪽 단추로 클릭 하 고 **수정**을 선택 합니다. 값에서 7 단계에서 내보낸 인증서의 지문을 입력 하 고 **확인**을 클릭 합니다.
+14. 지문 값을 가져오려면 인증서를 두 번 클릭 한 다음 **세부 정보** 탭을 선택 하 고 지문 필드가 표시 될 때까지 아래로 스크롤합니다. **손 도장 (Thumbprint** )을 클릭 하 고 값을 복사 합니다.
+
+    ![지문 필드에서 값을 복사 합니다.](./media/backup-azure-backup-import-export/thumbprint-field.png)
+
+15. [워크플로](#workflow) 섹션을 계속 진행 하 여 오프 라인 백업 프로세스를 진행 합니다.
 
 ## <a name="workflow"></a>워크플로
 
@@ -104,7 +165,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터에 전송되는 SATA 드라이브를 준비하는 데 사용됩니다. 이 유틸리티는 다음 경로에서 Recovery Services 에이전트의 설치 디렉터리에서 사용할 수 있습니다.
 
-    *\\Microsoft Azure Recovery Services Agent\\Utils\\*
+`*\\Microsoft Azure Recovery Services Agent\Utils\*`
 
 1. 디렉터리로 이동하고 준비할 SATA 드라이브가 연결될 복사 컴퓨터에 **AzureOfflineBackupDiskPrep** 디렉터리를 복사합니다. 복사 컴퓨터를 기준으로 다음 사항을 확인합니다.
 
@@ -121,7 +182,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
     `*.\AzureOfflineBackupDiskPrep.exe*   s:<*Staging Location Path*>   [p:<*Path to AzurePublishSettingsFile*>]`
 
-    | 매개 변수를 포함해야 합니다. | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | s:&lt;*스테이징 위치 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 스테이징 위치에 대한 경로를 제공하는 데 사용되는 필수 입력입니다. |
     | p:&lt;*PublishSettingsFile에 대한 경로*&gt; |**오프라인 백업 시작** 워크플로에 입력한 **Azure 게시 설정** 파일에 대한 경로를 제공하는 데 사용되는 옵션 입력입니다. |
@@ -162,7 +223,7 @@ Azure Backup의 오프라인 시드 기능 및 Azure Import/Export를 사용하�
 
    `*.\AzureOfflineBackupDiskPrep.exe*  u:  s:<*Staging Location Path*>   p:<*Path to AzurePublishSettingsFile*>`
 
-    | 매개 변수를 포함해야 합니다. | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | u: | Azure 가져오기 작업에 대한 배송 세부 정보를 업데이트하는 데 사용되는 필수 입력 |
     | s:&lt;*스테이징 위치 경로*&gt; | 명령이 원본 컴퓨터에서 실행되지 않는 경우 필수 입력입니다. **오프라인 백업 시작** 워크플로에 입력한 스테이징 위치에 대한 경로를 제공하는 데 사용됩니다. |
@@ -218,4 +279,3 @@ Azure 가져오기 작업의 다양한 상태에 대한 자세한 내용은 [이
 ## <a name="next-steps"></a>다음 단계
 
 * Azure 가져오기/내보내기 워크플로에 대한 질문은 [Microsoft Azure Import/Export 서비스를 사용하여 Blob Storage에 데이터 전송](../storage/common/storage-import-export-service.md)을 참조하세요.
-
