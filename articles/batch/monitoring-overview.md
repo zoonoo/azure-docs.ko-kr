@@ -2,20 +2,20 @@
 title: Azure Batch 모니터링 | Microsoft Docs
 description: Azure Batch를 위한 Azure 모니터링 서비스, 메트릭, 진단 로그 및 기타 모니터링 기능에 대해 알아봅니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: jushiman
-ms.openlocfilehash: 05881dc5c2df9103a57af699cf807d6d66db27b9
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: d251229c522bd4d6daca894513eaae14d244d8a1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029526"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025863"
 ---
 # <a name="monitor-batch-solutions"></a>Batch 솔루션 모니터링
 

@@ -4,12 +4,12 @@ description: Azure Migrate 서비스에 대 한 지원 설정 및 제한 사항�
 ms.topic: conceptual
 ms.date: 01/28/2020
 ms.author: raynew
-ms.openlocfilehash: 81939292885e33ec6397eb4a437bef63b4ad0787
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5c3adecf62f9bd15c820baf116dbc01e5d3542fa
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990728"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014014"
 ---
 # <a name="azure-migrate-support-matrix"></a>Azure Migrate 지원 매트릭스
 
@@ -66,7 +66,7 @@ Azure에서 작업 하려면 컴퓨터 평가 및 마이그레이션을 시작 �
 **Task** | **권한** | **세부 정보**
 --- | --- | ---
 Azure Migrate 프로젝트 만들기 | Azure 계정에는 프로젝트를 만들 수 있는 권한이 필요합니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-create-project), [hyper-v](tutorial-prepare-hyper-v.md#assign-permissions-to-create-project)또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-create-project)에 대해 설정 합니다.
-Azure Migrate 어플라이언스 등록 | Azure Migrate 경량 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 하 여 Azure Migrate server 평가를 통해 vmware vm을 평가 하 고 Azure Migrate server migration을 사용 하 여 vmware vm의 [에이전트 없는 마이그레이션을](server-migrate-overview.md) 실행 합니다. 이 어플라이언스는 VM을 검색하고 VM 메타데이터 및 성능 데이터를 Azure Migrate로 보냅니다.<br/><br/> 등록하는 동안 Azure Migrate는 어플라이언스를 고유하게 식별하는 두 개의 Azure AD(Azure Active Directory) 앱을 만들며, 이러한 앱을 만들기 위한 권한이 필요합니다.<br/><br/> - 첫 번째 앱은 Azure Migrate 서비스 엔드포인트와 통신합니다.<br/><br/> - 두 번째 앱은 등록 중에 만든 Azure Key Vault에 액세스하여 Azure AD 앱 정보 및 어플라이언스 구성 설정을 저장합니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [hyper-v](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)에 대해 설정 합니다.
+Azure Migrate 어플라이언스 등록| Azure Migrate는 경량 [Azure Migrate 어플라이언스](migrate-appliance.md) 를 사용 하 여 Azure Migrate 서버 평가를 사용 하는 컴퓨터를 평가 하 고 Azure Migrate server migration을 사용 하 여 VMware vm의 [에이전트 없는 마이그레이션을](server-migrate-overview.md) 실행 합니다. 이 어플라이언스는 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate 보냅니다.<br/><br/> 등록 하는 동안 등록 공급자 (Microsoft. OffAzure, Microsoft. 마이그레이션 및 Microsoft. KeyVault)가 어플라이언스에서 선택한 구독에 등록 되므로 구독이 리소스 공급자와 함께 작동 합니다. 등록 하려면 구독에 대 한 참가자 또는 소유자 액세스 권한이 필요 합니다.<br/><br/> **VMware**-온 보 딩 중 Azure Migrate는 두 개의 Azure Active Directory (Azure AD) 앱을 만듭니다. 첫 번째 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신 합니다. 앱에는 Azure 리소스 관리 호출을 수행 하거나 리소스에 대 한 RBAC 액세스 권한이 있는 권한이 없습니다. 두 번째 앱은 에이전트 없는 VMware 마이그레이션의 경우에만 사용자 구독에서 만든 Azure Key Vault에 액세스 합니다. 에이전트 없는 마이그레이션에서 Azure Migrate은 구독의 복제 저장소 계정에 대 한 액세스 키를 관리 하는 Key Vault을 만듭니다. 어플라이언스에서 검색을 시작할 때 Azure Key Vault (고객 테 넌 트)에 대 한 RBAC 액세스 권한이 있습니다.<br/><br/> **Hyper-v**-온 보 딩 중 Azure Migrate는 하나의 Azure AD 앱을 만듭니다. 앱은 어플라이언스 에이전트와 Azure Migrate 서비스 간에 통신 합니다. 앱에는 Azure 리소스 관리 호출을 수행 하거나 리소스에 대 한 RBAC 액세스 권한이 있는 권한이 없습니다. | [VMware](tutorial-prepare-vmware.md#assign-permissions-to-register-the-appliance), [hyper-v](tutorial-prepare-hyper-v.md#assign-permissions-to-register-the-appliance)또는 [물리적 서버](tutorial-prepare-physical.md#assign-permissions-to-register-the-appliance)에 대해 설정 합니다.
 VMware 에이전트 없는 마이그레이션을 위한 주요 자격 증명 모음 만들기 | 에이전트 없는 Azure Migrate 서버 마이그레이션을 사용 하 여 VMware Vm을 마이그레이션하려면 Azure Migrate 구독에서 복제 저장소 계정에 대 한 액세스 키를 관리 하는 Key Vault를 만듭니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대 한 사용 권한 (소유자 또는 참가자 및 사용자 액세스 관리자)을 설정 합니다. | 사용 권한을 [설정](tutorial-prepare-vmware.md#assign-permissions-to-create-a-key-vault) 합니다.
 
 ## <a name="supported-geographies"></a>지원 되는 지역

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c40993df8033b9dbc49c81e8db2f9f01c6de37d9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0aca5019f4f7fca47195fb8fb821b1af1ae9ec77
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424912"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024248"
 ---
 # <a name="conditional-access-block-legacy-authentication"></a>조건부 액세스: 레거시 인증 차단
 
@@ -27,12 +27,12 @@ ms.locfileid: "75424912"
 다음 단계는 레거시 인증 요청을 차단 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
 
 1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정 합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당**아래에서 **사용자 및 그룹** 을 선택 합니다.
    1. **포함**아래에서 **모든 사용자**를 선택 합니다.
-   1. **제외**아래에서 **사용자 및 그룹** 을 선택 하 고 레거시 인증을 사용 하는 기능을 유지 해야 하는 계정을 선택 합니다. 
+   1. **제외**아래에서 **사용자 및 그룹** 을 선택 하 고 레거시 인증을 사용 하는 기능을 유지 해야 하는 계정을 선택 합니다. 계정이 잠기지 않도록 하려면 계정을 하나 이상 제외 해야 합니다. 계정을 제외 하지 않으면이 정책을 만들 수 없게 됩니다.
    1. **완료** 를 선택합니다.
 1. **클라우드 앱 또는 작업** 아래에서 **모든 클라우드 앱**을 선택 합니다.
    1. **완료** 를 선택합니다.

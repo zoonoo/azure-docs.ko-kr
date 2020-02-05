@@ -3,18 +3,18 @@ title: SQL Server를 DPM 작업으로 Azure에 백업
 description: Azure Backup 서비스를 사용하여 SQL Server 데이터베이스를 백업하는 방법 소개
 ms.topic: conceptual
 ms.date: 01/30/2019
-ms.openlocfilehash: b5709eb845d07e3638e0c100c857e5538e293317
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ea55081d6f3b58c6c64c16e64c7a9d0f673ec196
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173258"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025404"
 ---
 # <a name="back-up-sql-server-to-azure-as-a-dpm-workload"></a>SQL Server를 DPM 작업으로 Azure에 백업
 
 이 문서는 Azure Backup을 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
 
-SQL Server 데이터베이스를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 참조 하세요 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/)합니다.
+SQL Server 데이터베이스를 Azure에 백업하려면 Azure 계정이 필요합니다. 계정이 없는 경우 몇 분 만에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
 
 Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.
 
@@ -103,7 +103,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 14. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로** 또는 **오프라인 Backup**을 선택할 수 있습니다.
 
     * **네트워크를 통해 자동으로** 는 백업에 선택한 일정에 따라 Azure에 백업 데이터를 전송합니다.
-    * **오프 라인 Backup** 이 작동하는 방법을 [Azure Backup에서 오프라인 Backup 워크플로](backup-azure-backup-import-export.md)에서 설명합니다.
+    * 오프 라인 백업 [에 대 한 개요](offline-backup-overview.md)에서 **오프 라인 백업** 작동 방식을 설명 합니다.
 
     관련 전송 메커니즘을 선택하여 초기 백업 복사본을 Azure로 보내고 **다음**을 클릭합니다.
 15. **요약** 화면에서 정책 세부 정보를 검토하면 **그룹 만들기** 단추를 클릭하여 워크플로를 완료합니다. **닫기** 단추를 클릭하고 작업 영역 모니터링에서 작업 진행 상태를 모니터링합니다.

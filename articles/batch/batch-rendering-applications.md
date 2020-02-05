@@ -3,16 +3,16 @@ title: 렌더링 애플리케이션 - Azure Batch
 description: Azure Batch를 모든 렌더링 애플리케이션에 사용할 수 있습니다. 그러나 Azure Marketplace VM 이미지는 미리 설치된 일반적인 애플리케이션에 사용할 수 있습니다.
 services: batch
 ms.service: batch
-author: ju-shim
-ms.author: jushiman
+author: LauraBrenner
+ms.author: labrenne
 ms.date: 09/19/2019
 ms.topic: conceptual
-ms.openlocfilehash: e47d05594142de87fabd2d61faeb40d25fdc1873
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 77672534b2aad993a44e9b637fbed58df8610e97
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934585"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022990"
 ---
 # <a name="pre-installed-applications-on-rendering-vm-images"></a>렌더링 VM 이미지에 미리 설치된 애플리케이션
 

@@ -2,21 +2,21 @@
 title: Azure Batch 태스크 실패 이벤트
 description: Batch 태스크 실패 이벤트에 대한 참조입니다. 이 이벤트는 태스크 완료 이벤트 외에도 내보내집니다. 작업에 실패 한 경우를 검색 하는 데 사용할 수 있습니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 08/15/2019
-ms.author: jushiman
-ms.openlocfilehash: a3786eed56c22dcd2c756e935265faa763ca7072
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: 2bc958d6dca2b3caae665e6f9b080c651ace9ea0
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76026190"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022888"
 ---
 # <a name="task-fail-event"></a>태스크 실패 이벤트
 

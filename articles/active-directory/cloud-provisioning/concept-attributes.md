@@ -15,12 +15,12 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5fc68626959daaccb5ddc05ce6148c5948052d41
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549383"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022497"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Azure AD 스키마 이해
 모든 디렉터리와 같이 Azure Active Directory (Azure AD)의 개체는 사용자, 그룹 및 연락처와 같은 작업을 나타내는 프로그래밍 방식의 고급 데이터 구문입니다. Azure AD에서 새 사용자 또는 연락처를 만들 때 해당 개체의 새 인스턴스를 만듭니다. 이러한 인스턴스는 속성을 기반으로 구분할 수 있습니다.
@@ -72,7 +72,7 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
 1.  [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)로 이동 합니다.
 1.  전역 관리자 계정으로 로그인 합니다.
 1.  왼쪽에서 **권한 수정** 을 선택 하 고 **디렉터리. ReadWrite** 가 *동의한*인지 확인 합니다.
-1.  https://graph.microsoft.com/beta/serviceprincipals/ 쿼리를 실행 합니다. 이 쿼리는 서비스 사용자의 목록을 반환 합니다.
+1.  쿼리 https://graph.microsoft.com/beta/serviceprincipals/? $filter = startswith (Displayname, ' Active ')를 실행 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
 1.  `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"`를 찾고 `"id"`의 값을 확인 합니다.
     ```
     "value": [

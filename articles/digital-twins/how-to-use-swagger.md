@@ -7,14 +7,14 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 86b7a1b373d80f0e6bb7f40f57f71d20e396a6c1
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 27874e5731bd6fb9821e7aeda9333adbdbb79099
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934606"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023296"
 ---
 # <a name="azure-digital-twins-swagger-reference-documentation"></a>Azure Digital Twins Swagger 참조 설명서
 
@@ -93,11 +93,11 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
 ## <a name="swagger-oauth-20-authorization"></a>Swagger OAuth 2.0 권한 부여
 
 > [!NOTE]
-> * Azure Digital Twins 리소스를 만든 사용자 보안 주체는 공간 관리자 역할 할당을 포함 하 고 다른 사용자에 대 한 추가 역할 할당을 만들 수 있습니다. 이러한 사용자 및 해당 역할은 Api를 호출할 수 있는 권한이 부여 될 수 있습니다.
+> * Azure Digital Twins 리소스를 만든 사용자 보안 주체는 공간 관리자 역할 할당을 포함 하 고 다른 사용자에 대 한 추가 역할 할당을 만들 수 있습니다. 이러한 사용자와 해당 역할에는 Api를 호출할 수 있는 권한이 부여 될 수 있습니다.
 
-1. [이 빠른](https://docs.microsoft.com/azure/active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad) 시작의 단계에 따라 Azure AD 응용 프로그램을 만들고 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
+1. [빠른](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) 시작의 단계에 따라 Azure Active Directory 응용 프로그램을 만들고 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
 
-1. Azure AD 앱 등록에 다음 **리디렉션 url** 을 추가 합니다.
+1. Azure Active Directory 앱 등록에 다음 **리디렉션 URI** 를 추가 합니다.
 
     [AAD에서 Swagger 리디렉션 url ![등록](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png)](media/how-to-use-swagger/swagger-aad-redirect-url-registration.png#lightbox)
 
@@ -108,7 +108,9 @@ Swagger의 강력한 기능 중 하나는 문서 UI를 통해 직접 API 엔드�
     |---------|---------|---------|
     | YOUR_SWAGGER_URL | 포털에서 찾을 수 있는 관리 REST API 설명서 URL  | `https://yourDigitalTwinsName.yourLocation.azuresmartspaces.net/management/swagger` |
 
-1. Azure AD 앱의 **클라이언트 ID** 를 복사 합니다.
+1.  > **액세스 토큰** **암시적 부여** 확인란을 선택 하 여 OAuth 2.0 암시적 허용 흐름을 사용할 수 있습니다. **구성**을 선택한 다음 **저장**을 선택 합니다.
+
+1. Azure Active Directory 앱의 **클라이언트 ID** 를 복사 합니다.
 
 Azure Active Directory 등록을 완료 한 후:
 

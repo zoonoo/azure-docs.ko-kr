@@ -56,17 +56,13 @@
       href: ../bing-web-search/resize-and-crop-thumbnails.md
     - name: API v5에서 v7로 업그레이드
       href: bing-news-upgrade-guide-v5-to-v7.md
-    - name: Visual Studio 작업
-      items:
-        - name: Bing News Search 연결된 서비스 사용
-          href: vs-bing-news-search-connected-service.md
 - name: 개념
   items:
     - name: 검색 쿼리 보내기
       href: concepts/send-search-queries.md
     - name: 뉴스 검색
       href: concepts/search-for-news.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing News Search API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-news-api-v7-reference'
@@ -89,7 +85,7 @@
       maintainContext: true
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/news/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/911449-bing-news-search-api'

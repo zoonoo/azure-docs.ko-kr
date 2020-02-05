@@ -101,8 +101,6 @@
           href: ea-portal-vm-reservations.md
         - name: Azure EA Portal 액세스 문제 해결
           href: ea-portal-troubleshoot.md
-        - name: Microsoft 고객 계약의 EA 작업
-          href: mca-enterprise-operations.md
 - name: 문제 해결
   items:
     - name: 구독을 찾을 수 없음

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 565707b0e081a495f01f369125584038981b4ae8
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 39cd5b5d6e9d6007994ccc29732186ec6a8bdc2e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834657"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023891"
 ---
 # <a name="configure-tcp-idle-timeout-settings-for-azure-load-balancer"></a>Azure Load Balancer에 대한 TCP 유휴 시간 제한 설정 구성
 
@@ -65,6 +65,6 @@ $lb | Set-AzLoadBalancerRuleConfig -Name myLBrule -IdleTimeoutInMinutes 15
 
 [내부 부하 분산 장치 개요](load-balancer-internal-overview.md)
 
-[인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
+[인터넷 연결 부하 분산 장치 구성 시작](quickstart-create-standard-load-balancer-powershell.md)
 
 [부하 분산 장치 배포 모드 구성](load-balancer-distribution-mode.md)

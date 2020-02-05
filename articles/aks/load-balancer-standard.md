@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9633975f53b3e398537067b17a870f621d9a7435
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 03daafd383810a5e6cf086ca8e546981b06fa6eb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045055"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025710"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -26,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.74 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서에서는 Azure CLI 버전 2.0.81 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -162,9 +162,14 @@ az aks create \
     --load-balancer-outbound-ip-prefixes <publicIpPrefixId1>,<publicIpPrefixId2>
 ```
 
-## <a name="show-the-outbound-rule-for-your-load-balancer"></a>부하 분산 장치에 대 한 아웃 바운드 규칙 표시
+## <a name="configure-outbound-ports-and-idle-timeout"></a>아웃 바운드 포트 및 유휴 시간 제한 구성
 
-부하 분산 장치에서 만든 아웃 바운드 규칙을 표시 하려면 [az network lb 아웃 바운드 규칙 목록을][az-network-lb-outbound-rule-list] 사용 하 고 AKS 클러스터의 노드 리소스 그룹을 지정 합니다.
+> [!WARNING]
+> 다음 섹션에서는 더 큰 규모의 네트워킹 또는 기본 구성의 SNAT 소모 문제를 해결 하기 위한 고급 시나리오를 위한 것입니다. 정상 클러스터를 유지 하려면 기본값에서 *AllocatedOutboundPorts* 또는 *IdleTimeoutInMinutes* 를 변경 하기 전에 vm 및 IP 주소에 사용할 수 있는 할당량의 정확한 인벤토리가 있어야 합니다.
+> 
+> *AllocatedOutboundPorts* 및 *IdleTimeoutInMinutes* 에 대 한 값을 변경 하면 부하 분산 장치에 대 한 아웃 바운드 규칙의 동작이 크게 달라질 수 있습니다. 변경 내용의 영향을 완벽 하 게 이해 하기 위해 이러한 값을 업데이트 하기 전에 [Azure의][azure-lb-outbound-connections] [Load Balancer 아웃 바운드 규칙][azure-lb-outbound-rules-overview], [부하 분산 장치 아웃 바운드 규칙][azure-lb-outbound-rules]및 아웃 바운드 연결을 검토 합니다.
+
+아웃 바운드 할당 된 포트 및 해당 유휴 시간 제한이 [SNAT][azure-lb-outbound-connections]에 사용 됩니다. 기본적으로 *표준* SKU 부하 분산 장치는 백 엔드 풀 크기 및 각 포트의 30 분 유휴 시간 제한 [에 따라 아웃 바운드 포트 수에 자동 할당][azure-lb-outbound-preallocatedports] 을 사용 합니다. 이러한 값을 보려면 [az network lb 아웃 바운드 규칙 목록을][az-network-lb-outbound-rule-list] 사용 하 여 부하 분산 장치에 대 한 아웃 바운드 규칙을 표시 합니다.
 
 ```azurecli-interactive
 NODE_RG=$(az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv)
@@ -179,7 +184,46 @@ AllocatedOutboundPorts    EnableTcpReset    IdleTimeoutInMinutes    Name        
 0                         True              30                      aksOutboundRule  All         Succeeded            MC_myResourceGroup_myAKSCluster_eastus  
 ```
 
-예제 출력에서 *AllocatedOutboundPorts* 는 0입니다. *AllocatedOutboundPorts* 값은 SNAT 포트 할당이 백 엔드 풀 크기에 따라 자동 할당으로 되돌아갑니다. 자세한 내용은 [Azure에서][azure-lb-outbound-connections] [아웃 바운드 규칙][azure-lb-outbound-rules] 및 아웃 바운드 연결 Load Balancer을 참조 하세요.
+예제 출력에서는 *AllocatedOutboundPorts* 및 *IdleTimeoutInMinutes*의 기본값을 보여 줍니다. *AllocatedOutboundPorts* 에 대 한 값 0은 백 엔드 풀 크기에 따라 아웃 바운드 포트 수에 자동 할당을 사용 하는 아웃 바운드 포트의 수를 설정 합니다. 예를 들어 클러스터에 50 개 이하의 노드가 있는 경우 각 노드에 대 한 1024 포트가 할당 됩니다.
+
+위의 기본 구성에 따라 SNAT 고갈를 발생 시킬 것으로 생각 되는 경우 *allocatedOutboundPorts* 또는 *IdleTimeoutInMinutes* 의 설정을 변경 하는 것이 좋습니다. 각각의 추가 IP 주소는 할당을 위해 64000 추가 포트를 사용할 수 있지만, Azure 표준 Load Balancer는 추가 IP 주소가 추가 될 때 노드당 포트를 자동으로 증가 시 지 않습니다. *부하 분산 장치-아웃 바운드 포트* 및 *부하 분산 장치-유휴 시간 제한* 매개 변수를 설정 하 여 이러한 값을 변경할 수 있습니다. 예:
+
+```azurecli-interactive
+az aks update \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+> [!IMPORTANT]
+> 연결 또는 크기 조정 문제를 방지 하려면 *allocatedOutboundPorts* 을 사용자 지정 하기 전에 [필요한 할당량을 계산][calculate-required-quota] 해야 합니다. *AllocatedOutboundPorts* 에 대해 지정 하는 값도 8의 배수 여야 합니다.
+
+클러스터를 만들 때 *부하 분산 장치-아웃 바운드 포트* 및 *부하 분산 장치-유휴 시간 제한* 매개 변수를 사용할 수도 있지만, *부하 분산 장치-아웃 바운드-ip 수*, *부하 분산*장치-아웃 바운드- *ip 접두사* 도 지정 해야 합니다.  예:
+
+```azurecli-interactive
+az aks create \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --vm-set-type VirtualMachineScaleSets \
+    --node-count 1 \
+    --load-balancer-sku standard \
+    --generate-ssh-keys \
+    --load-balancer-managed-outbound-ip-count 2 \
+    --load-balancer-outbound-ports 0 \
+    --load-balancer-idle-timeout 30
+```
+
+*부하 분산 장치-아웃 바운드 포트* 및 *부하 분산 장치-유휴 시간 제한* 매개 변수를 기본값에서 변경 하는 경우 전체 클러스터에 영향을 주는 부하 분산 장치 프로필의 동작에 영향을 줍니다.
+
+### <a name="required-quota-for-customizing-allocatedoutboundports"></a>AllocatedOutboundPorts 사용자 지정에 필요한 할당량
+노드 Vm 수 및 원하는 할당 된 아웃 바운드 포트를 기반으로 하는 아웃 바운드 IP 용량이 충분 해야 합니다. 아웃 바운드 IP 용량이 충분 한지 확인 하려면 다음 수식을 사용 합니다. 
+ 
+*outboundIPs* \* 64000 \> *nodevms* \* *desiredAllocatedOutboundPorts*.
+ 
+예를 들어, 3 개의 *Nodevms*및 5만 *desiredAllocatedOutboundPorts*가 있는 경우 *outboundIPs*3 개 이상이 필요 합니다. 필요한 것 보다 더 많은 아웃 바운드 IP 용량을 통합 하는 것이 좋습니다. 또한 아웃 바운드 IP 용량을 계산할 때 클러스터 autoscaler 및 노드 풀 업그레이드 가능성을 고려해 야 합니다. 클러스터 autoscaler의 경우 현재 노드 수와 최대 노드 수를 검토 하 고 더 높은 값을 사용 합니다. 업그레이드 하는 경우 업그레이드를 허용 하는 모든 노드 풀의 추가 노드 VM을 고려 합니다.
+ 
+*IdleTimeoutInMinutes* 를 기본값 30 분이 아닌 다른 값으로 설정 하는 경우 작업에 아웃 바운드 연결이 필요한 기간을 고려 합니다. 또한 AKS 외부에서 사용 되는 *표준* SKU 부하 분산 장치에 대 한 기본 시간 제한 값은 4 분입니다. 특정 AKS 워크 로드를 보다 정확 하 게 반영 하는 *IdleTimeoutInMinutes* 값은 더 이상 사용 되지 않는 연결을 연결 하 여 SNAT 소모를 줄이는 데 도움이 될 수 있습니다.
 
 ## <a name="restrict-access-to-specific-ip-ranges"></a>특정 IP 범위에 대 한 액세스 제한
 
@@ -239,9 +283,12 @@ Kubernetes services에 대 한 자세한 내용은 [Kubernetes services 설명�
 [azure-lb-comparison]: ../load-balancer/concepts-limitations.md#skus
 [azure-lb-outbound-rules]: ../load-balancer/load-balancer-outbound-rules-overview.md#snatports
 [azure-lb-outbound-connections]: ../load-balancer/load-balancer-outbound-connections.md#snat
+[azure-lb-outbound-preallocatedports]: ../load-balancer/load-balancer-outbound-connections.md#preallocatedports
+[azure-lb-outbound-rules-overview]: ../load-balancer/load-balancer-outbound-rules-overview.md
 [install-azure-cli]: /cli/azure/install-azure-cli
 [internal-lb-yaml]: internal-lb.md#create-an-internal-load-balancer
 [kubernetes-concepts]: concepts-clusters-workloads.md
 [use-kubenet]: configure-kubenet.md
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
+[calculate-required-quota]: #required-quota-for-customizing-allocatedoutboundports

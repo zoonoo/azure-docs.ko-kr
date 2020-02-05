@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: normesta
 ms.reviewer: jamesbak
-ms.openlocfilehash: a35cf935d990dbb61f440d2592d59d21f33a2ae8
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6507c2a2d1100d480c879c73861c02e477d38416
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74037234"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026135"
 ---
 # <a name="access-control-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 액세스 제어
 
@@ -33,7 +33,7 @@ RBAC는 역할 할당을 사용 하 여 *보안 주체*에 대 한 권한 집합
 
 RBAC 역할 할당을 사용 하는 것은 액세스 권한을 제어 하는 강력한 메커니즘 이지만 Acl을 기준으로 하는 매우 coarsely 세분화 된 메커니즘입니다. RBAC에 대 한 가장 작은 세분성은 컨테이너 수준에서 이며 Acl 보다 높은 우선 순위로 평가 됩니다. 따라서 컨테이너 범위에서 보안 주체에 역할을 할당 하는 경우 해당 보안 주체는 ACL 할당에 관계 없이 해당 컨테이너의 모든 디렉터리 및 파일에 대해 해당 역할과 연결 된 권한 부여 수준을 갖습니다.
 
-보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 RBAC 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 RBAC 할당이 없거나 요청의 작업이 할당 된 권한과 일치 하지 않는 경우에는 ACL 검사를 수행 하 여 보안 주체가 요청 된 작업을 수행할 수 있는 권한을 부여 받았는지 확인 합니다.
+보안 주체에 [기본 제공 역할](https://docs.microsoft.com/azure/storage/common/storage-auth-aad?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#built-in-rbac-roles-for-blobs-and-queues)또는 사용자 지정 역할을 통해 RBAC 데이터 권한이 부여 된 경우 요청에 대 한 권한 부여 시 먼저 이러한 권한이 평가 됩니다. 요청 된 작업이 보안 주체의 RBAC 할당에 의해 권한이 부여 되 면 권한 부여가 즉시 해결 되며 추가 ACL 검사가 수행 되지 않습니다. 또는 보안 주체에 RBAC 할당이 없거나 요청한 작업이 할당된 사용 권한과 일치하지 않는 경우 ACL 검사를 통해 보안 주체가 요청된 작업을 수행할 수 있는 권한이 있는지 확인합니다.
 
 > [!NOTE]
 > 보안 주체가 저장소 Blob 데이터 소유자 기본 제공 역할 할당을 할당 한 경우에는 보안 주체가 *슈퍼 사용자* 로 간주 되 고 디렉터리 또는 파일의 소유자를 설정 하거나 소유자가 아닌 디렉터리와 파일에 대 한 acl을 설정 하는 등 모든 변경 작업에 대 한 모든 권한을 부여 받습니다. 슈퍼 사용자 액세스는 리소스 소유자를 변경할 수 있는 권한을 부여받는 유일한 방법입니다.
@@ -58,10 +58,15 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 파일 및 디렉터리 수준 권한을 설정 하려면 다음 문서 중 하나를 참조 하세요.
 
-|이 도구를 사용 하려면 다음을 수행 합니다.    |이 문서를 참조 하세요.    |
+|||
 |--------|-----------|
-|Azure Storage Explorer    |[Azure Data Lake Storage Gen2와 함께 Azure Storage Explorer를 사용하여 파일 및 디렉터리 수준 사용 권한 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-how-to-set-permissions-storage-explorer)|
-|REST API    |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
+|Azure Storage Explorer |[Azure Storage 탐색기를 사용 하 여의 디렉터리, 파일 및 Acl 관리 Azure Data Lake Storage Gen2](data-lake-storage-explorer.md#managing-access)|
+|.NET |[.NET을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-dotnet.md)|
+|Java|[Java를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-java.md)|
+|Python|[Python을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-python.md)|
+|PowerShell|[PowerShell을 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리](data-lake-storage-directory-file-acl-powershell.md)|
+|Azure CLI|[Azure CLI를 사용 하 여의 디렉터리, 파일 및 Acl 관리 Azure Data Lake Storage Gen2](data-lake-storage-directory-file-acl-cli.md)|
+|REST API |[경로-업데이트](https://docs.microsoft.com/rest/api/storageservices/datalakestoragegen2/path/update)|
 
 > [!IMPORTANT]
 > 보안 주체가 *서비스* 사용자 인 경우 관련 앱 등록의 개체 id가 아니라 서비스 주체의 개체 id를 사용 하는 것이 중요 합니다. 서비스 주체의 개체 ID를 가져오려면 Azure CLI를 연 후 다음 명령을 사용 합니다. `az ad sp show --id <Your App ID> --query objectId`. `<Your App ID>` 자리 표시자를 앱 등록의 앱 ID로 바꾸어야 합니다.
@@ -70,7 +75,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 액세스 제어 목록에는 *액세스 acl* 및 *기본 acl*의 두 종류가 있습니다.
 
-액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 둘 다에 액세스 ACL이 있습니다.
+액세스 ACL은 개체에 대한 액세스를 제어합니다. 파일과 디렉터리 모두에 액세스 ACL이 있습니다.
 
 기본 Acl은 해당 디렉터리 아래에 생성 된 모든 자식 항목의 액세스 Acl을 결정 하는 디렉터리와 연결 된 Acl의 템플릿입니다. 파일에는 기본 ACL이 없습니다.
 
@@ -83,7 +88,7 @@ SAS 토큰에는 토큰의 일부로 허용된 권한이 포함됩니다. SAS �
 
 컨테이너 개체에 대 한 사용 권한은 **읽기**, **쓰기**및 **실행**이며 다음 표에 나와 있는 것 처럼 파일 및 디렉터리에서 사용할 수 있습니다.
 
-|            |    파일     |   디렉터리 |
+|            |    File     |   디렉터리 |
 |------------|-------------|----------|
 | **읽기(R)** | 파일의 내용을 읽을 수 있습니다. | 디렉터리의 내용을 나열하려면 **읽기** 및 **실행**이 필요합니다. |
 | **쓰기(W)** | 쓰거나 파일에 추가할 수 있습니다. | 디렉터리에 자식 항목을 만들려면 **쓰기** 및 **실행**이 필요합니다. |
@@ -111,7 +116,7 @@ Data Lake Storage Gen2에서 사용하는 POSIX 스타일 모델에서 항목에
 
 다음 표에서는 저장소 계정에서 특정 작업을 수행 하는 데 필요한 사용 권한을 이해 하는 데 도움이 되는 몇 가지 일반적인 시나리오를 보여 줍니다.
 
-|    작업(Operation)             |    /    | Oregon/ | Portland/ | Data.txt     |
+|    작업             |    /    | Oregon/ | Portland/ | Data.txt     |
 |--------------------------|---------|----------|-----------|--------------|
 | Read Data.txt            |   `--X`   |   `--X`    |  `--X`      | `R--`          |
 | Append to Data.txt       |   `--X`   |   `--X`    |  `--X`      | `RW-`          |
@@ -269,7 +274,7 @@ def set_default_acls_for_new_child(parent, child):
 
 ### <a name="do-i-have-to-enable-support-for-acls"></a>ACL에 대한 지원을 사용하도록 설정해야 하나요?
 
-아니요. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
+아닙니다. 저장소 계정에 대 한 액세스 제어는 HNS (계층적 네임 스페이스) 기능이 설정 되어 있는 한 저장소 계정에 대해 사용 하도록 설정 됩니다.
 
 HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적용됩니다.
 
@@ -297,7 +302,7 @@ HNS가 해제된 경우에도 Azure RBAC 권한 부여 규칙이 여전히 적�
 
 소유 그룹은 새 파일 또는 디렉터리가 만들어지는 부모 디렉터리의 소유 그룹에서 복사됩니다.
 
-### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>파일의 소유 사용자이지만 필요한 RWX 사용 권한이 없습니다. 어떻게 해야 합니까?
+### <a name="i-am-the-owning-user-of-a-file-but-i-dont-have-the-rwx-permissions-i-need-what-do-i-do"></a>파일의 소유 사용자이지만 필요한 RWX 사용 권한이 없습니다. 어떻게 하나요?
 
 소유 사용자는 파일의 권한을 변경하여 필요한 RWX 권한을 부여할 수 있습니다.
 
@@ -335,6 +340,6 @@ ACL은 상속되지 않습니다. 그러나 기본 ACL을 사용하여 부모 �
 * [Ubuntu의 POSIX ACL](https://help.ubuntu.com/community/FilePermissionsACLs)
 * [ACL: Linux의 액세스 제어 목록 사용](https://bencane.com/2012/05/27/acl-using-access-control-lists-on-linux/)(영문)
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 
 * [Azure Data Lake Storage Gen2 개요](../blobs/data-lake-storage-introduction.md)

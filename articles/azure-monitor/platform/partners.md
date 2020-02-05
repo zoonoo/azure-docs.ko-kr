@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: rboucher
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: 61b43329fcc840bc68f454400a4b5e917f43110c
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894598"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023874"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -63,7 +63,7 @@ Circonus는 온-프레미스 또는 SaaS 배포용으로 빌드된 마이크로 
 
 시간과 비용을 절감하도록 빌드된 플랫폼을 사용하여 클라우드를 통합하고 자동화합니다. CloudHealth는 클라우드 관리를 위한 탁월한 가시성, 직관적인 최적화 및 견고한 관리 사례를 제공합니다. CloudHealth 플랫폼을 사용 하면 기업 및 MSPs에서 클라우드 투자 수익을 최대화할 수 있습니다. 비용, 사용량, 성능, 보안에 대해 자신 있게 결정할 수 있습니다.
 
-[자세한 정보][cloudhealth-doc]
+[자세히 알아보기][cloudhealth-doc]
 
 ## <a name="cloudmonix"></a>CloudMonix
 
@@ -136,7 +136,7 @@ NextGen SIEM의 선두 LogRhythm는 6 대륙의 조직이 신속 하 게 검색 
 
 마이크로 포커스 **Arcsight** 에는 Azure Monitor event hubs 용 스마트 커넥터가 있습니다.
 
-[자세한 정보](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서입니다.")
+[자세히 알아보기](https://community.softwaregrp.com/t5/Discussions/Announcing-General-Availability-of-ArcSight-Smart-Connectors-7/m-p/1671852 "ArcSight 설명서입니다.")
 
 마이크로 포커스 **작업 브리지** 는 모든 하이브리드 it 리소스 (모든 장치, 운영 체제, 데이터베이스, 응용 프로그램 또는 서비스)를 실행 하는 위치와 관계 없이 모든 데이터 형식 (이벤트, 메트릭, 로그 및 종속성)에 적용 합니다. 심층 응용 프로그램 상태 분석과 결합 된 서비스 품질 모니터링의 고유한 조합을 제공 하며, Microsoft Azure 서비스에 대 한 포괄적인 성능 및 가용성 모니터링을 포함 합니다. 작업 브리지를 사용 하면 비즈니스 및 IT 관련자 모두가 이해할 수 있는 모든 장치에서 브라우저를 통해 사용할 수 있는 단일 창을 제공할 수 있습니다.
 
@@ -272,7 +272,7 @@ Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최�
 [elastic-doc]: https://www.elastic.co/guide/en/logstash/master/azure-module.html "Elastic 설명서."
 [grafana-doc]: ./grafana-plugin.md "Azure Monitor Grafana 통합."
 [influxdata-doc]: ./../../azure-monitor/platform/collect-custom-metrics-linux-telegraf.md "Azure Monitor 유입 data Telegraf integration."
-[logicmonitor-doc]: https://www.logicmonitor.com/lmcloud-azure/ "Logic Monitor 설명서."
+[logicmonitor-doc]: https://www.logicmonitor.com/lp/azure-monitoring/ "Logic Monitor 설명서."
 [moogsoft-doc]: https://www.moogsoft.com/partners/microsoft-azure "Moogsoft 설명서."
 [newrelic-doc]: https://newrelic.com/azure "NewRelic 설명서."
 [opsgenie-doc]: https://www.opsgenie.com/docs/integrations/azure-integration "OpsGenie 설명서."

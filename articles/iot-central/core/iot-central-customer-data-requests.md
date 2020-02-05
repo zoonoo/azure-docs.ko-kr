@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: timlt
-ms.openlocfilehash: 27cd2e58eabcd96414391cac1a517ea242a65c21
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 3cf88b4d3c4c74493235d2997db4d464bb055b81
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73809800"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023755"
 ---
 # <a name="summary-of-customer-data-request-features"></a>고객 데이터 요청 기능 요약
 
@@ -36,8 +36,6 @@ Microsoft 엔터프라이즈 서비스를 사용하는 경우 Microsoft는 시�
 사용자 데이터를 삭제하는 기능은 IoT Central 관리 페이지를 통해서만 제공됩니다. 응용 프로그램 관리자는 삭제할 사용자를 선택 하 고 응용 프로그램의 오른쪽 위 모서리에서 **삭제** 를 선택 하 여 레코드를 삭제할 수 있습니다. 또한 애플리케이션 관리자는 해당 애플리케이션과 더 이상 연결되지 않는 개별 계정을 제거할 수 있습니다.
 
 사용자가 삭제된 후에는 해당 사용자의 전자 메일로 더 이상 경고가 전송되지 않습니다. 그러나 구성된 각 경고에서 이들의 전자 메일 주소를 개별적으로 제거해야 합니다.
-
-자세한 내용은 [디바이스에 대한 규칙 및 작업 구성](tutorial-configure-rules.md)을 참조하세요.
 
 ## <a name="exporting-customer-data"></a>고객 데이터 내보내기
 

@@ -16,12 +16,12 @@ ms.date: 11/12/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8bc4b518cd2400cf3826b31a590d499c1ad031e7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896520"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025557"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
@@ -37,54 +37,6 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
     ![Azure AD 역할 새 버전](./media/pim-how-to-add-role-to-user/pim-new-version.png)
 
 이 문서의 단계에 따라 Azure AD 역할에 대 한 요청을 승인 하거나 거부 합니다.
-
-# <a name="previous-versiontabprevious"></a>[이전 버전](#tab/previous)
-
-## <a name="view-pending-requests"></a>보류 중인 요청 보기
-
-위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-1. **Azure AD Privileged Identity Management**를 엽니다.
-
-1. **Azure AD 역할**을 클릭합니다.
-
-1. **요청 승인**을 클릭합니다.
-
-    ![Azure AD 역할-요청 승인](./media/azure-ad-pim-approval-workflow/approve-requests.png)
-
-    승인 보류 중인 요청 목록이 표시됩니다.
-
-## <a name="approve-requests"></a>요청 승인
-
-1. 승인할 요청을 클릭하고 **승인**을 클릭하여 선택한 요청 승인 창을 엽니다.
-
-    ![승인 옵션이 강조 표시 된 요청 승인 목록](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
-
-1. **승인 이유** 상자에 이유를 입력합니다.
-
-    ![승인 이유를 사용 하 여 선택한 요청 창 승인](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
-
-1. **승인**을 클릭합니다.
-
-    상태 기호가 승인으로 업데이트됩니다.
-
-    ![승인 단추를 클릭 한 후 선택한 요청 창 승인](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
-
-## <a name="deny-requests"></a>요청 거부
-
-1. 거부할 요청을 클릭하고 **거부**를 클릭하여 선택한 요청 거부 창을 엽니다.
-
-    ![거부 옵션이 강조 표시 된 요청 승인 목록](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
-
-1. **거부 이유** 상자에 이유를 입력합니다.
-
-    ![거부 이유를 사용 하 여 선택한 요청 창 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
-
-1. **거부**를 클릭합니다.
-
-    상태 기호가 거부로 업데이트됩니다.
 
 # <a name="new-versiontabnew"></a>[새 버전](#tab/new)
 
@@ -135,6 +87,54 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 >[!NOTE]
 >승인 된 사용자가 활성 상태가 아니어야 한다고 생각 하는 리소스 관리자는 Privileged Identity Management에서 활성 역할 할당을 제거할 수 있습니다. 리소스 관리자가 승인자가 아니면 보류 중인 요청에 대 한 알림이 표시 되지 않지만 Privileged Identity Management에서 보류 중인 요청을 확인 하 여 모든 사용자에 대해 보류 중인 요청을 확인 하 고 취소할 수 있습니다.
+
+# <a name="previous-versiontabprevious"></a>[이전 버전](#tab/previous)
+
+## <a name="view-pending-requests"></a>보류 중인 요청 보기
+
+위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
+
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+1. **Azure AD Privileged Identity Management**를 엽니다.
+
+1. **Azure AD 역할**을 클릭합니다.
+
+1. **요청 승인**을 클릭합니다.
+
+    ![Azure AD 역할-요청 승인](./media/azure-ad-pim-approval-workflow/approve-requests.png)
+
+    승인 보류 중인 요청 목록이 표시됩니다.
+
+## <a name="approve-requests"></a>요청 승인
+
+1. 승인할 요청을 클릭하고 **승인**을 클릭하여 선택한 요청 승인 창을 엽니다.
+
+    ![승인 옵션이 강조 표시 된 요청 승인 목록](./media/azure-ad-pim-approval-workflow/pim-approve-requests-list.png)
+
+1. **승인 이유** 상자에 이유를 입력합니다.
+
+    ![승인 이유를 사용 하 여 선택한 요청 창 승인](./media/azure-ad-pim-approval-workflow/pim-approve-selected-requests.png)
+
+1. **승인**을 클릭합니다.
+
+    상태 기호가 승인으로 업데이트됩니다.
+
+    ![승인 단추를 클릭 한 후 선택한 요청 창 승인](./media/azure-ad-pim-approval-workflow/pim-approve-status.png)
+
+## <a name="deny-requests"></a>요청 거부
+
+1. 거부할 요청을 클릭하고 **거부**를 클릭하여 선택한 요청 거부 창을 엽니다.
+
+    ![거부 옵션이 강조 표시 된 요청 승인 목록](./media/azure-ad-pim-approval-workflow/pim-deny-requests-list.png)
+
+1. **거부 이유** 상자에 이유를 입력합니다.
+
+    ![거부 이유를 사용 하 여 선택한 요청 창 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
+
+1. **거부**를 클릭합니다.
+
+    상태 기호가 거부로 업데이트됩니다.
 
 ---
 

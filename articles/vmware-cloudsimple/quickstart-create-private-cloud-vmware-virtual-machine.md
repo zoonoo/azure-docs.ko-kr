@@ -1,6 +1,6 @@
 ---
-title: 빠른 시작-사설 클라우드에서 VMware VM 만들기
-description: CloudSimple 사설 클라우드에서 및 VMware VM을 만드는 방법을 설명 합니다.
+title: 빠른 시작-AVS 사설 클라우드에서 VMware VM 만들기
+description: AVS 사설 클라우드에서 VMware VM을 만드는 방법을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/16/2019
@@ -8,42 +8,42 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 8d4712ca57801c15510ffcaf54852ce9287d343b
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: cbe88afc4f566bad4bacb408346d4dd25a2f6c96
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972395"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020066"
 ---
-# <a name="create-vmware-virtual-machines-on-your-private-cloud"></a>사설 클라우드에서 VMware 가상 머신 만들기
+# <a name="create-vmware-virtual-machines-on-your-avs-private-cloud"></a>AVS 사설 클라우드에서 VMware 가상 머신 만들기
 
-사설 클라우드에서 가상 컴퓨터를 만들려면 먼저 Azure Portal에서 CloudSimple 포털에 액세스 합니다.
+AVS 사설 클라우드에서 가상 머신을 만들려면 먼저 Azure Portal에서 AVS 포털에 액세스 합니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
-## <a name="access-the-cloudsimple-portal"></a>CloudSimple 포털 액세스
+## <a name="access-the-avs-portal"></a>AVS 포털 액세스
 
 1. **모든 서비스**를 선택합니다.
-2. **Cloudsimple 서비스**를 검색 합니다.
-3. 사설 클라우드를 만들려는 CloudSimple 서비스를 선택 합니다.
-4. **개요** 페이지에서 **Cloudsimple 포털로 이동** 을 클릭 하 여 cloudsimple 포털에 대 한 새 브라우저 탭을 엽니다.  메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다.  
+2. **AVS 서비스**를 검색 합니다.
+3. AVS 사설 클라우드를 만들려는 AVS 서비스를 선택 합니다.
+4. **개요** 페이지에서 **avs 포털로 이동** 을 클릭 하 여 avs 포털에 대 한 새 브라우저 탭을 엽니다. 메시지가 표시 되 면 Azure 로그인 자격 증명을 사용 하 여 로그인 합니다. 
 
-    ![CloudSimple 포털 시작](media/launch-cloudsimple-portal.png)
+    ![AVS 포털 시작](media/launch-cloudsimple-portal.png)
 
 ## <a name="launch-vcenter-web-ui"></a>VCenter 웹 ui 시작
 
 이제 vCenter를 실행 하 여 가상 컴퓨터 및 정책을 설정할 수 있습니다.
 
-VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 페이지의 **일반 작업**에서 **Vsphere 클라이언트 시작**을 클릭 합니다.  사설 클라우드를 선택 하 고 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
+VCenter에 액세스 하려면 AVS 포털에서 시작 합니다. 홈 페이지의 **일반 작업**에서 **Vsphere 클라이언트 시작**을 클릭 합니다. AVS 사설 클라우드를 선택 하 고 AVS 사설 클라우드에서 **vSphere 클라이언트 시작** 을 클릭 합니다.
 
    ![VSphere 클라이언트 시작](media/launch-vcenter-from-cloudsimple-portal.png)
 
 ## <a name="upload-an-iso-or-vsphere-template"></a>ISO 또는 vSphere 템플릿 업로드
 
   > [!WARNING]
-  > ISO 업로드의 경우 vSphere HTML5 클라이언트를 사용 합니다.  Flash 클라이언트를 사용 하면 오류가 발생할 수 있습니다.
+  > ISO 업로드의 경우 vSphere HTML5 클라이언트를 사용 합니다. Flash 클라이언트를 사용 하면 오류가 발생할 수 있습니다.
 
 1. VM을 만들고 로컬 시스템에서 사용할 수 있도록 vCenter에 업로드 하려는 ISO 또는 vSphere 템플릿을 가져옵니다.
 2. VCenter에서 **디스크** 아이콘을 클릭 하 고 **vsandatastore 저장소**를 선택 합니다. **파일** , **새 폴더**를 차례로 클릭 합니다.
@@ -58,51 +58,51 @@ VCenter에 액세스 하려면 CloudSimple 포털에서 시작 합니다. 홈 �
 1. VCenter에서 **호스트 및 클러스터** 아이콘을 클릭 합니다.
 
 2. **작업** 을 마우스 오른쪽 단추로 클릭 하 고 **새 가상 컴퓨터**를 선택 합니다.
-    ![새 VM](media/vcvm01.png)
+    새 VM ![](media/vcvm01.png)
 
 3. **새 가상 컴퓨터 만들기** 를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm02.png)
+    새 VM ![](media/vcvm02.png)
 
 4. 컴퓨터 이름을로, **작업 VM의** 위치를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm03.png)
+    새 VM ![](media/vcvm03.png)
 
 5. **작업** 계산 리소스를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm04.png)
+    새 VM ![](media/vcvm04.png)
 
 6. **Vsandatastore 저장소** 를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm05.png)
+    새 VM ![](media/vcvm05.png)
 
 7. 기본 ESXi 6.5 호환성 선택 항목을 유지 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm06.png)
+    새 VM ![](media/vcvm06.png)
 
 8. 만들려는 VM에 대 한 ISO의 게스트 OS를 선택 하 고 **다음**을 클릭 합니다.
-    ![새 VM](media/vcvm07.png)
+    새 VM ![](media/vcvm07.png)
 
-9. 하드 디스크 및 네트워크 옵션을 선택 합니다. 새 CD/DVD 드라이브의 경우 **데이터 저장소 ISO 파일**을 선택 합니다.  공용 IP 주소에서이 VM으로의 트래픽을 허용 하려면 **vm-1**로 네트워크를 선택 합니다.
-    ![새 VM](media/vcvm08.png)
+9. 하드 디스크 및 네트워크 옵션을 선택 합니다. 새 CD/DVD 드라이브의 경우 **데이터 저장소 ISO 파일**을 선택 합니다. 공용 IP 주소에서이 VM으로의 트래픽을 허용 하려면 **vm-1**로 네트워크를 선택 합니다.
+    새 VM ![](media/vcvm08.png)
 
 10. 선택 창이 열립니다. 이전에 Iso 및 Templates 폴더에 업로드 한 파일을 선택 하 고 **확인**을 클릭 합니다.
-    ![새 VM](media/vcvm10.png)
+    새 VM ![](media/vcvm10.png)
 
 11. 설정을 검토 하 고 **확인** 을 클릭 하 여 VM을 만듭니다.
-    ![새 VM](media/vcvm11.png)
+    새 VM ![](media/vcvm11.png)
 
 이제 VM이 워크 로드 계산 리소스에 추가 되 고 사용할 준비가 됩니다. 
-![새 VM](media/vcvm12.png)
+새 VM ![](media/vcvm12.png)
 
-이제 기본 설정이 완료 되었습니다. 온-프레미스 VM 인프라를 사용 하는 방법과 유사 하 게 사설 클라우드 사용을 시작할 수 있습니다.
+이제 기본 설정이 완료 되었습니다. 온-프레미스 VM 인프라를 사용 하는 방법과 유사 하 게 AVS 사설 클라우드를 사용 하 여 시작할 수 있습니다.
 
-다음 섹션에는 사설 클라우드 작업에 대 한 DNS 및 DHCP 서버를 설정 하 고 기본 네트워킹 구성을 수정 하는 방법에 대 한 선택적 정보가 포함 되어 있습니다.
+다음 섹션에는 DNS 및 DHCP 서버를 설정 하 고, AVS 사설 클라우드 작업을 수행 하 고, 기본 네트워킹 구성을 수정 하는 방법에 대 한 선택적 정보가 나와 있습니다
 
 ## <a name="add-users-and-identity-sources-to-vcenter-optional"></a>VCenter에 사용자 및 id 소스 추가 (선택 사항)
 
-CloudSimple은 사용자 이름 `cloudowner@cloudsimple.local`으로 기본 vCenter 사용자 계정을 할당 합니다. 시작 하려면 추가 계정 설정이 필요 하지 않습니다.  CloudSimple은 일반적으로 일반적인 작업을 수행 하는 데 필요한 권한을 관리자에 게 할당 합니다.  온-프레미스 active directory 또는 Azure AD를 사설 클라우드의 [추가 id 원본](set-vcenter-identity.md) 으로 설정 합니다.
+AVS는 `cloudowner@AVS.local`사용자 이름으로 기본 vCenter 사용자 계정을 할당 합니다. 시작 하려면 추가 계정 설정이 필요 하지 않습니다. 일반적으로 AVS는 일반 작업을 수행 하는 데 필요한 권한을 관리자에 게 할당 합니다. 온-프레미스 active directory 또는 Azure AD를 AVS 사설 클라우드의 [추가 id 원본](set-vcenter-identity.md) 으로 설정 합니다.
 
 ## <a name="create-a-dns-and-dhcp-server-optional"></a>DNS 및 DHCP 서버 만들기 (선택 사항)
 
-사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공 하려면 적절 한 DHCP 및 DNS 인프라가 필요 합니다. 사설 클라우드 환경에서 이러한 서비스를 제공 하도록 vCenter의 가상 머신을 구성할 수 있습니다.
+AVS 사설 클라우드 환경에서 실행 되는 응용 프로그램 및 작업에는 조회 및 IP 주소 할당을 위한 이름 확인 및 DHCP 서비스가 필요 합니다. 이러한 서비스를 제공 하려면 적절 한 DHCP 및 DNS 인프라가 필요 합니다. 가상 컴퓨터를 vCenter에서 구성 하 여 이러한 서비스를 AVS 사설 클라우드 환경에 제공할 수 있습니다.
 
-필수 구성 요소
+필수 조건
 
 * VLAN이 구성 된 분산 포트 그룹
 
@@ -114,7 +114,7 @@ CloudSimple은 사용자 이름 `cloudowner@cloudsimple.local`으로 기본 vCen
 
 #### <a name="linux-based-dns-server-setup"></a>Linux 기반 DNS 서버 설치
 
-Linux에서는 DNS 서버를 설정 하기 위한 다양 한 패키지를 제공 합니다.  다음은 오픈 소스 바인드 DNS 서버를 설정 하는 지침에 대 한 링크입니다.
+Linux에서는 DNS 서버를 설정 하기 위한 다양 한 패키지를 제공 합니다. 다음은 오픈 소스 바인드 DNS 서버를 설정 하는 지침에 대 한 링크입니다.
 
 [설정 예](https://www.digitalocean.com/community/tutorials/how-to-configure-bind-as-a-private-network-dns-server-on-centos-7)
 
@@ -128,18 +128,18 @@ Linux에서는 DNS 서버를 설정 하기 위한 다양 한 패키지를 제공
 
 ## <a name="customize-networking-configuration-optional"></a>네트워킹 구성 사용자 지정 (선택 사항)
 
-CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방화벽 테이블 및 공용 IP 주소에 대 한 구성을 지정할 수 있습니다.
+AVS 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방화벽 테이블 및 공용 IP 주소에 대 한 구성을 지정할 수 있습니다.
 
 ### <a name="allocate-public-ips"></a>공용 Ip 할당
 
-1. CloudSimple 포털에서 **네트워크 > 공용 IP** 로 이동 합니다.
+1. AVS 포털에서 **네트워크 > 공용 IP** 로 이동 합니다.
 2. **공용 IP 할당**을 클릭 합니다.
 3. IP 주소 항목을 식별 하는 이름을 입력 합니다.
 4. 기본 위치를 유지 합니다.
 5. 원하는 경우 슬라이더를 사용 하 여 유휴 시간 제한을 변경 합니다.
 6. 공용 IP 주소를 할당 하려는 로컬 IP 주소를 입력 합니다.
 7. 원하는 경우 연결 된 DNS 이름을 입력 합니다.
-8. **완료**를 클릭합니다.
+8. **Done**을 클릭합니다.
 
     ![공용 IP](media/quick-create-pc-public-ip.png)
 
@@ -147,7 +147,7 @@ CloudSimple 포털의 네트워크 페이지를 사용 하 여 Vm에 대 한 방
 
 이 IP 주소를 매핑해야 하는 VM은 위에 지정 된 로컬 주소를 사용 하 여 구성 해야 합니다. IP 주소를 구성 하는 절차는 VM 운영 체제에만 적용 됩니다. 올바른 절차는 VM 운영 체제에 대 한 설명서를 참조 하세요.
 
-#### <a name="example"></a>예제
+#### <a name="example"></a>예
 
 예를 들어 Ubuntu 16.04에 대 한 세부 정보는 다음과 같습니다.
 
@@ -200,17 +200,17 @@ netstat -an | grep 80
 python2.7 -m SimpleHTTPServer 80
 ```
 
-로 구분하거나 여러
+또는
 
 ```
 python3 -m http.server 80
 ```
 바탕 화면에서 브라우저를 시작 하 고 공용 IP 주소에 대 한 포트 80를 가리켜 VM의 파일을 찾아봅니다.
 
-### <a name="default-cloudsimple-firewall-rules-for-public-ip"></a>공용 IP에 대 한 기본 CloudSimple 방화벽 규칙
+### <a name="default-avs-firewall-rules-for-public-ip"></a>공용 IP에 대 한 기본 AVS 방화벽 규칙
 
-* VPN 트래픽: (From/to) VPN과 모든 워크 로드 네트워크 및 관리 네트워크 간의 모든 트래픽이 허용 됩니다.
-* 사설 클라우드 내부 트래픽: (From/to) 워크 로드 네트워크와 관리 네트워크 (위에 표시 됨) 사이에 있는 모든 동-서 트래픽이 허용 됩니다.
+* VPN 트래픽: VPN과 모든 워크 로드 네트워크 및 관리 네트워크 간의 (from/to) 간의 모든 트래픽이 허용 됩니다.
+* AVS 사설 클라우드 내부 트래픽: (from/to) 워크 로드 네트워크와 관리 네트워크 (위에 표시 됨) 사이에 있는 모든 동-서 트래픽이 허용 됩니다.
 * 인터넷 트래픽:
   * 인터넷에서 들어오는 모든 트래픽이 작업 네트워크 및 관리 네트워크에 대해 거부 됩니다.
   * 작업 네트워크 또는 관리 네트워크에서 인터넷으로 나가는 모든 트래픽이 허용 됩니다.
@@ -219,7 +219,7 @@ python3 -m http.server 80
 
 ## <a name="install-solutions-optional"></a>솔루션 설치 (선택 사항)
 
-사설 클라우드 vCenter 환경을 최대한 활용 하기 위해 CloudSimple 사설 클라우드에 솔루션을 설치할 수 있습니다. 백업, 재해 복구, 복제 및 기타 기능을 설정 하 여 가상 컴퓨터를 보호할 수 있습니다. 예를 들면 vmware SRM (VMware Site Recovery Manager) 및 Veeam 백업 & 복제가 포함 됩니다.
+Avs 사설 클라우드에 솔루션을 설치 하 여 AVS 사설 클라우드 vCenter 환경을 최대한 활용할 수 있습니다. 백업, 재해 복구, 복제 및 기타 기능을 설정 하 여 가상 컴퓨터를 보호할 수 있습니다. 예를 들면 vmware SRM (VMware Site Recovery Manager) 및 Veeam 백업 & 복제가 포함 됩니다.
 
 솔루션을 설치 하려면 제한 된 기간 동안 추가 권한을 요청 해야 합니다. [권한 승격](escalate-private-cloud-privileges.md)을 참조 하세요.
 
@@ -227,4 +227,4 @@ python3 -m http.server 80
 
 * [Azure에서 VMware Vm 사용](quickstart-create-vmware-virtual-machine.md)
 * [Azure Express 경로를 사용 하 여 온-프레미스 네트워크에 연결](on-premises-connection.md)
-* [CloudSimple 네트워크에서 VPN 게이트웨이 설정](vpn-gateway.md)
+* [AVS 네트워크에서 VPN 게이트웨이 설정](vpn-gateway.md)

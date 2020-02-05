@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 52bec8bba7bb3ddf545e3bd1866775f0964c6ad3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893148"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025812"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cosmos DB (SQL API)에서 데이터 복사 및 변환
 
@@ -24,7 +24,7 @@ ms.locfileid: "75893148"
 > * [버전 1](v1/data-factory-azure-documentdb-connector.md)
 > * [현재 버전](connector-azure-cosmos-db.md)
 
-이 문서에서는 Azure Data Factory의 복사 작업을 사용 하 여 Azure Cosmos DB (SQL API) 간에 데이터를 복사 하 고 데이터 흐름을 사용 하 여 Azure Cosmos DB (SQL API)에서 데이터를 변환 하는 방법을 설명 합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
+이 문서에서는 Azure Data Factory의 복사 작업을 사용하여 Azure Cosmos DB(SQL API) 간에 데이터를 복사하고 Data Flow를 사용하여 Azure Cosmos DB(SQL API)에서 데이터를 변환하는 방법을 설명합니다. Azure Data Factory에 대해 자세히 알아보려면 [소개 문서](introduction.md)를 참조하세요.
 
 >[!NOTE]
 >이 커넥터는 SQL API Cosmos DB 지원 합니다. MongoDB API의 경우 [Azure Cosmos DB의 API for MongoDB용 커넥터](connector-azure-cosmos-db-mongodb-api.md)를 참조하세요. 다른 API 형식은 이제 지원되지 않습니다.
@@ -268,6 +268,18 @@ Azure Cosmos DB 관련 된 설정은 원본 변환의 **원본 옵션** 탭에�
 **처리량:** 읽기 작업을 수행 하는 동안이 데이터 흐름을 실행할 때마다 CosmosDB collection에 적용할 RUs 수에 대 한 선택적 값을 설정 합니다. 최소값은 400입니다.
 
 **기본 설정 영역:** 이 프로세스에 대 한 기본 읽기 영역을 선택 합니다.
+
+#### <a name="json-settings"></a>JSON 설정
+
+**단일 문서:** ADF가 전체 파일을 단일 JSON doc로 처리 하려면이 옵션을 선택 합니다.
+
+**따옴표 붙지 않은 열 이름:** JSON의 열 이름이 따옴표로 묶여 있지 않은 경우이 옵션을 선택 합니다.
+
+**설명 포함:** JSON 문서에 데이터에 주석이 있는 경우이 선택을 사용 합니다.
+
+**따옴표 붙은 작은따옴표:** 문서의 열과 값이 작은따옴표로 묶여 있는 경우이 값을 선택 해야 합니다.
+
+**백슬래시가 이스케이프 되었습니다.** JSON에서 백슬래시를 사용 하 여 이스케이프 문자를 사용 하는 경우이 옵션을 선택 합니다.
 
 ### <a name="sink-transformation"></a>싱크 변환
 

@@ -3,8 +3,8 @@ title: Azure Active Directory를 사용 하 여 Batch Management 솔루션 인�
 description: Azure Active Directory를 사용 하 여 Batch 관리 .NET 라이브러리를 사용 하는 응용 프로그램에서 인증 하는 방법을 알아봅니다.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: azure-resource-manager
 ms.assetid: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/27/2017
-ms.author: jushiman
-ms.openlocfilehash: 1dce5118040e6164a468b0d5470d28e5cd06d8c5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: f1f47df841b61599b6aed8cd4d6715decd27a288
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938270"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025982"
 ---
 # <a name="authenticate-batch-management-solutions-with-active-directory"></a>Active Directory를 사용하여 Batch Management 솔루션 인증
 

@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 09/16/2019
+ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: 8efbf2107104f31bcfc5e4e5669dbed1835a034b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457404"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022395"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
@@ -29,7 +29,7 @@ Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액�
 
 ## <a name="set-up-advanced-threat-protection"></a>Advanced threat protection 설정
 
-고급 위협 방지는 저장소 계정에 대해 기본적으로 사용 하도록 설정 됩니다. 다음 섹션에서 설명 하는 여러 가지 방법으로 advanced threat protection을 구성할 수 있습니다.
+다음 섹션에서 설명 하는 여러 가지 방법으로 advanced threat protection을 구성할 수 있습니다.
 
 ### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 

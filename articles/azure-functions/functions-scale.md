@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 6a07d019893e69308b35b4a941fe50d2736efe01
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921905"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024656"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -26,7 +26,7 @@ Azure에서 함수 앱을 만들 때 앱에 대 한 호스팅 계획을 선택 �
 
 프리미엄 요금제는 프리미엄 계산 인스턴스, 인스턴스를 무기한으로 유지 하는 기능 및 VNet 연결 등의 추가 기능을 제공 합니다.
 
-App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 수 있습니다. 함수 앱은 이벤트를 기준으로 크기를 조정 하지 않습니다. 즉, 0으로 축소 되지 않습니다. [Always on](#always-on) 을 사용 하도록 설정 해야 합니다.
+App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 수 있습니다. 함수 앱은 이벤트를 기준으로 크기를 조정 하지 않습니다. 즉, 0으로 확장 되지 않습니다. [Always on](#always-on) 을 사용 하도록 설정 해야 합니다.
 
 ## <a name="hosting-plan-support"></a>호스팅 계획 지원
 
@@ -152,7 +152,7 @@ Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면
 
 크기 조정은 다양한 요인에 따라 다르고, 선택한 트리거 및 언어에 따라 달라질 수 있습니다. 유의 해야 할 몇 가지 확장 동작은 다음과 같습니다.
 
-* 단일 함수 앱은 최대 200개의 인스턴스로만 강화됩니다. 단일 인스턴스는 동시에 둘 이상의 메시지 또는 요청을 처리할 수 있지만 동시 실행 수를 제한하지 않습니다.
+* 단일 함수 앱은 최대 200 개의 인스턴스로 확장할 수 있습니다. 단일 인스턴스는 동시에 둘 이상의 메시지 또는 요청을 처리할 수 있지만 동시 실행 수를 제한하지 않습니다.
 * HTTP 트리거의 경우 새 인스턴스는 1 초 마다 한 번만 할당 됩니다.
 * HTTP가 아닌 트리거의 경우 새 인스턴스는 30 초 마다 한 번만 할당 됩니다.
 

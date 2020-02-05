@@ -3,7 +3,7 @@ title: 자습서 - Node.js용 Azure Batch 클라이언트 라이브러리 사용
 description: Azure Batch의 기본 개념을 알아보고 Node.js를 사용하여 간단한 솔루션을 빌드합니다.
 services: batch
 author: shwetams
-manager: gwallace
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.devlang: nodejs
@@ -11,18 +11,18 @@ ms.topic: conceptual
 ms.workload: big-compute
 ms.date: 05/22/2017
 ms.author: shg
-ms.openlocfilehash: a6895773e0109aa0fb643e4fadf8a31ac5b1a33a
-ms.sourcegitcommit: 4b431e86e47b6feb8ac6b61487f910c17a55d121
+ms.openlocfilehash: c112fb0b2d0eb3b8a66731948f48c8038a2296f8
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68323395"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023653"
 ---
 # <a name="get-started-with-batch-sdk-for-nodejs"></a>Node.js용 Batch SDK 시작
 
 [Azure Batch Node.js SDK](/javascript/api/overview/azure/batch)를 사용하여 Node.js로 Batch 클라이언트를 빌드하는 기본 사항을 알아봅니다. 일괄 처리 애플리케이션에 대한 시나리오를 단계별로 이해한 다음 Node.js 클라이언트를 사용하여 설정해 보겠습니다.  
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 이 문서에서는 사용자가 Node.js에 대한 작업 지식을 갖고 있으며 Linux에 익숙하다고 가정합니다. 또한 Batch 및 Storage 서비스를 만들 액세스 권한이 있는 Azure 계정을 갖고 있다고 가정합니다.
 
 이 문서에 설명된 단계를 진행하기 전에 [Azure Batch 기술 개요](batch-technical-overview.md)를 읽어 보시기 바랍니다.
@@ -67,7 +67,7 @@ npm install 명령을 사용하여 Node.js용 Azure Batch SDK를 설치할 수 �
 
 ### <a name="step-2-create-an-azure-batch-account"></a>2단계: Azure Batch 계정 만들기
 
-[Azure Portal](batch-account-create-portal.md) 또는 명령줄([Powershell](batch-powershell-cmdlets-get-started.md) /[Azure cli](/cli/azure))에서 만들 수 있습니다.
+[Azure Portal](batch-account-create-portal.md) 또는 명령줄 ([PowerShell](batch-powershell-cmdlets-get-started.md) /[Azure CLI](/cli/azure))에서 만들 수 있습니다.
 
 다음은 Azure CLI를 통해 계정을 만드는 명령입니다.
 

@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: yushwang
-ms.openlocfilehash: 50b751d8e4e1a69a34e6421884f8b99c3eeb5924
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: c556b71acf814203a67317039dafeede5f7b65a6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895975"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016751"
 ---
 # <a name="vpn-gateway-faq"></a>VPN Gateway FAQ
 
@@ -68,14 +68,15 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 경로 기반 게이트웨이는 경로 기반 VPN을 구현합니다. 경로 기반 VPN은 IP 전달 또는 라우팅 테이블에서 “경로"를 사용하여 패킷을 해당 터널 인터페이스에 전달합니다. 그런 다음 터널 인터페이스는 터널로 들어오는 터널에서 나가는 패킷을 암호화하거나 암호 해독합니다. 경로 기반 VPN에 대한 정책 또는 트래픽 선택기는 임의 또는 와일드카드로 구성됩니다.
 
-### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>정책 기반 VPN Gateway를 경로 기반으로 업데이트할 수 있나요?
+### <a name="can-i-update-my-policy-based-vpn-gateway-to-route-based"></a>내 정책 기반 VPN 게이트웨이를 경로 기반으로 업데이트할 수 있나요?
+
 아닙니다. Azure Vnet 게이트웨이 형식은 정책 기반에서 경로 기반으로 또는 다른 방식으로 변경할 수 없습니다. 게이트웨이를 삭제하고 다시 만들어야 합니다. 이 프로세스는 60분 정도가 걸립니다. 게이트웨이의 IP 주소가 유지되거나 PSK(미리 공유한 키)가 유지되지 않습니다.
 1. 삭제할 게이트웨이와 연결된 모든 연결을 삭제합니다.
 1. 게이트웨이를 삭제합니다.
-1. [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
-1. [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
-1. [Azure PowerShell - 클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
-1. [원하는 형식의 새 게이트웨이 만들기 및 VPN 설정 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)
+   - [Azure Portal](vpn-gateway-delete-vnet-gateway-portal.md)
+   - [Azure PowerShell](vpn-gateway-delete-vnet-gateway-powershell.md)
+   - [Azure PowerShell-클래식](vpn-gateway-delete-vnet-gateway-classic-powershell.md)
+1. [원하는 유형의 새 게이트웨이를 만들고 VPN 설치를 완료](vpn-gateway-howto-site-to-site-resource-manager-portal.md#VNetGateway)합니다.
 
 ### <a name="do-i-need-a-gatewaysubnet"></a>'GatewaySubnet'이 필요한가요?
 
@@ -89,11 +90,15 @@ VPN Gateway는 가상 네트워크 게이트웨이의 유형입니다. VPN Gatew
 
 ### <a name="can-i-get-my-vpn-gateway-ip-address-before-i-create-it"></a>VPN 게이트웨이 IP 주소를 만들기 전에 내 VPN 게이트웨이 IP 주소를 가져올 수 있나요?
 
-아닙니다. IP 주소를 가져오려면 게이트웨이를 먼저 만들어야 합니다. VPN 게이트웨이를 삭제하고 다시 만들면 IP 주소가 변경됩니다.
+영역 중복 및 영역 게이트웨이 (이름에 _AZ_ 가 있는 게이트웨이 sku)는 모두 _표준 SKU_ Azure 공용 IP 리소스를 사용 합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용 해야 합니다. 따라서 사용 하려는 표준 SKU 공용 IP 리소스를 만드는 즉시 VPN 게이트웨이의 공용 IP 주소를 갖게 됩니다.
+
+비 영역 중복 및 비 영역 게이트웨이 (이름에 _AZ_ _가 없는_ 게이트웨이 sku)의 경우 만들기 전에 VPN gateway IP 주소를 가져올 수 없습니다. IP 주소는 VPN gateway를 삭제 하 고 다시 만드는 경우에만 변경 됩니다.
 
 ### <a name="can-i-request-a-static-public-ip-address-for-my-vpn-gateway"></a>VPN Gateway에 고정 공용 IP 주소를 요청할 수 있나요?
 
-아닙니다. 동적 IP 주소 할당만 지원됩니다. 하지만 IP 주소가 VPN Gateway에 할당된 후 변경되는 것은 아닙니다. 게이트웨이가 삭제되고 다시 만들어지는 경우에만 VPN Gateway IP 주소가 변경됩니다. VPN Gateway 공용 IP 주소는 VPN Gateway의 크기 조정, 다시 설정 또는 기타 내부 유지 관리/업그레이드에서 변경되지 않습니다. 
+위에서 설명한 것 처럼 영역 중복 및 영역 게이트웨이 (이름에 _AZ_ 가 있는 게이트웨이 sku)는 모두 _표준 SKU_ Azure 공용 IP 리소스를 사용 합니다. Azure 표준 SKU 공용 IP 리소스는 정적 할당 방법을 사용 해야 합니다.
+
+비 영역 중복 및 비 영역 게이트웨이 (이름에 _AZ_ _가 없는_ 게이트웨이 sku)의 경우 동적 IP 주소 할당만 지원 됩니다. 그러나 VPN gateway에 할당 된 후에는 IP 주소가 변경 되는 것을 의미 하지 않습니다. 게이트웨이가 삭제 되 고 다시 생성 되는 경우에만 VPN 게이트웨이 IP 주소가 변경 됩니다. Vpn gateway 공용 IP 주소는 VPN 게이트웨이의 크기를 조정 하거나, 다시 설정 하거나, 다른 내부 유지 관리 및 업그레이드를 완료 하는 경우 변경 되지 않습니다.
 
 ### <a name="how-does-my-vpn-tunnel-get-authenticated"></a>내 VPN 터널을 어떻게 인증합니까?
 

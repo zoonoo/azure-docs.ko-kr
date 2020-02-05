@@ -3,8 +3,8 @@ title: 작업을 병렬로 실행 하 여 계산 리소스 최적화-Azure Batch
 description: Azure Batch 풀의 각 노드에서 동시 작업을 실행하고 더 적은 수의 컴퓨팅 노드를 사용하여 효율성은 높이고 비용은 낮춥니다.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: 538a067c-1f6e-44eb-a92b-8d51c33d3e1a
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/17/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1ee0db85818349938fcf5248e10e5eaac546bae5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5465771cb97ef9d8d5c451a6bafc61c4621d3c4b
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930446"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023636"
 ---
 # <a name="run-tasks-concurrently-to-maximize-usage-of-batch-compute-nodes"></a>동시에 태스크를 실행하여 Batch 컴퓨팅 노드의 사용량 극대화 
 

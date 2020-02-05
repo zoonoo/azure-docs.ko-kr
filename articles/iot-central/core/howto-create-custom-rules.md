@@ -3,20 +3,22 @@ title: 사용자 지정 규칙 및 알림을 사용 하 여 Azure IoT Central �
 description: 솔루션 개발자는 장치에서 원격 분석 전송을 중지할 때 전자 메일 알림을 보내도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Stream Analytics, Azure Functions 및 SendGrid를 사용 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 9042f3d34ee550af50e043167db6339f36b71bd0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 541cbc0c34a691f51c1a3a53f71920379c447f5d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987597"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022446"
 ---
 # <a name="extend-azure-iot-central-with-custom-rules-using-stream-analytics-azure-functions-and-sendgrid"></a>Stream Analytics, Azure Functions 및 SendGrid를 사용 하 여 사용자 지정 규칙으로 Azure IoT Central 확장
+
+
 
 이 방법 가이드에서는 솔루션 개발자 인 사용자 지정 규칙 및 알림을 사용 하 여 IoT Central 응용 프로그램을 확장 하는 방법을 보여 줍니다. 이 예에서는 장치가 원격 분석 전송을 중지할 때 운영자에 게 알림을 보내는 방법을 보여 줍니다. 솔루션은 [Azure Stream Analytics](https://docs.microsoft.com/azure/stream-analytics/) 쿼리를 사용 하 여 장치에서 원격 분석 보내기가 중지 된 시기를 검색 합니다. Stream Analytics 작업은 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/) 를 사용 하 여 [SendGrid](https://sendgrid.com/docs/for-developers/partners/microsoft-azure/)를 사용 하 여 알림 전자 메일을 보냅니다.
 
@@ -41,14 +43,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정 | 값 |
 | ------- | ----- |
 | 요금제 | Standard |
-| 애플리케이션 템플릿 | 레거시 응용 프로그램 |
+| 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
 | Azure 구독 | Azure 구독 |
-| 지역 | 미국 |
+| 지역 | 가장 가까운 지역 |
 
 이 문서의 예제 및 스크린샷은 **미국** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
+
+이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
 ### <a name="resource-group"></a>리소스 그룹
 
@@ -237,7 +241,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 이 솔루션은 Stream Analytics 쿼리를 사용 하 여 장치에서 120 초 넘게 원격 분석 전송을 중지할 때를 검색 합니다. 쿼리에서는 이벤트 허브의 원격 분석을 입력으로 사용 합니다. 작업은 함수 앱에 쿼리 결과를 보냅니다. 이 섹션에서는 Stream Analytics 작업을 구성 합니다.
 
-1. Azure Portal에서 Stream analytics 작업으로 이동 하 고, **작업 토폴로지** 에서 **입력**을 선택 하 고, **+ 스트림 입력 추가**를 선택 하 고, **이벤트 허브**를 선택 합니다.
+1. Azure Portal에서 Stream Analytics 작업으로 이동 하 여 **작업 토폴로지** 에서 **입력**을 선택 하 고 **+ 스트림 입력 추가**를 선택한 다음 **이벤트 허브**를 선택 합니다.
 1. 이전에 만든 이벤트 허브를 사용 하 여 입력을 구성 하려면 다음 표의 정보를 사용 하 고 **저장**을 선택 합니다.
 
     | 설정 | 값 |
@@ -307,7 +311,7 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
-1. **연속 데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
+1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
     | 설정 | 값 |
@@ -328,15 +332,15 @@ test-device-3   2019-05-02T14:24:28.919Z
 
 솔루션을 테스트 하려면 IoT Central에서 시뮬레이션 된 중지 된 장치로 연속 데이터 내보내기를 사용 하지 않도록 설정할 수 있습니다.
 
-1. IoT Central 응용 프로그램에서 **연속 데이터 내보내기** 페이지로 이동 하 고 **내보내기 Event Hubs 내보내기로 내보내기** 를 선택 합니다.
+1. IoT Central 응용 프로그램에서 **데이터 내보내기** 페이지로 이동 하 고 **내보내기를 선택 하 여 Event Hubs** 내보내기 구성으로 이동 합니다.
 1. **사용** 을 **Off** 로 설정 하 고 **저장**을 선택 합니다.
 1. 두 분 이상에서 받는 **사람 전자 메일 주소는 다음** 예제 콘텐츠와 같은 하나 이상의 메일을 받습니다.
 
     ```txt
     The following device(s) have stopped sending telemetry:
 
-    Device ID   Time
-    7b169aee-c843-4d41-9f25-7a02671ee659    2019-05-09T14:28:59.954Z
+    Device ID         Time
+    Thermostat-Zone1  2019-11-01T12:45:14.686Z
     ```
 
 ## <a name="tidy-up"></a>정리

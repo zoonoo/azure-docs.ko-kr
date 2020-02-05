@@ -6,12 +6,12 @@ ms.tgt_pltfrm: mobile-xamarin
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: fc05763046da365e7770a9b208100e0366062f25
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 69fe4b98c26ac2f67fc777b754f3bc391e3b71b5
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898880"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023058"
 ---
 # <a name="add-push-notifications-to-your-xamarinforms-app"></a>Xamarin.Forms 앱에 푸시 알림 추가
 
@@ -203,7 +203,7 @@ FCM를 사용하여 백 엔드를 구성한 경우 FCM에 등록할 클라이언
             intent.AddFlags(ActivityFlags.ClearTop);
             //Unique request code to avoid PendingIntent collision.
             var requestCode = new Random().Next();
-
+            var pendingIntent = PendingIntent.GetActivity(this, requestCode, intent, PendingIntentFlags.OneShot);
             var notificationBuilder = new NotificationCompat.Builder(this)
                 .SetSmallIcon(Resource.Drawable.ic_stat_ic_notification)
                 .SetContentTitle("New Todo Item")

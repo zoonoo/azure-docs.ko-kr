@@ -1,7 +1,7 @@
 ---
-title: CloudSimple 유지 관리 및 업데이트
-titleSuffix: Azure VMware Solution by CloudSimple
-description: 예약 된 유지 관리 및 업데이트에 대 한 CloudSimple 서비스 프로세스를 설명 합니다.
+title: Azure VMware 솔루션 (AVS)-AVS 유지 관리 및 업데이트
+description: 예약 된 유지 관리 및 업데이트를 위한 AVS 서비스 프로세스에 대해 설명 합니다.
+titleSuffix: Azure VMware Solutions (AVS)
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -9,16 +9,16 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 826fae1123b355a4143118b53ba649f0939acaf7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bf5937183fc20579ecd21aca8543a0a78d4b9ff3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75372826"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025030"
 ---
-# <a name="cloudsimple-maintenance-and-updates"></a>CloudSimple 유지 관리 및 업데이트
+# <a name="avs-maintenance-and-updates"></a>AVS 유지 관리 및 업데이트
 
-사설 클라우드 환경은 단일 실패 지점이 없도록 설계 되었습니다.
+AVS 사설 클라우드 환경은 단일 실패 지점이 없도록 설계 되었습니다.
 
 * ESXi 클러스터는 vSphere HA (고가용성)를 사용 하 여 구성 됩니다. 클러스터는 복원 력을 위해 하나 이상의 예비 노드를 갖도록 크기가 지정 됩니다.
 * 중복 된 기본 저장소는 단일 오류에 대 한 보호를 제공 하기 위해 3 개 이상의 노드가 필요한 vSAN에 의해 제공 됩니다. 대량 클러스터에 대해 더 높은 복원 력을 제공 하도록 vSAN을 구성할 수 있습니다.
@@ -26,14 +26,14 @@ ms.locfileid: "75372826"
 * ESXi 호스트에는 중복 팬 및 Nic가 있습니다.
 * 및 스파인 스위치는 HA 쌍으로 구성 되어 복원 력을 제공 합니다.
 
-CloudSimple은 작동 시간 및 가용성을 위해 다음 Vm을 지속적으로 모니터링 하 고 가용성 Sla를 제공 합니다.
+AVS는 다음 Vm에서 작동 시간 및 가용성을 지속적으로 모니터링 하 고 가용성 Sla를 제공 합니다.
 
 * ESXi 호스트
 * vCenter
 * PSC
 * NSX 관리자
 
-CloudSimple은 다음 오류를 지속적으로 모니터링 합니다.
+또한 AVS는 다음 오류를 지속적으로 모니터링 합니다.
 
 * 하드 디스크
 * 실제 NIC 포트
@@ -45,7 +45,7 @@ CloudSimple은 다음 오류를 지속적으로 모니터링 합니다.
 
 디스크 또는 노드에 오류가 발생 하면 영향을 받는 VMware 클러스터에 새 노드가 자동으로 추가 되어 상태를 즉시 다시 가져옵니다.
 
-CloudSimple은 사설 클라우드에서 이러한 VMware 요소를 백업, 유지 관리 및 업데이트 합니다.
+AVS는 AVS 사설 클라우드에서 이러한 VMware 요소를 백업, 유지 관리 및 업데이트 합니다.
 
 * ESXi
 * vCenter 플랫폼 서비스
@@ -55,7 +55,7 @@ CloudSimple은 사설 클라우드에서 이러한 VMware 요소를 백업, 유�
 
 ## <a name="back-up-and-restore"></a>백업 및 복원
 
-CloudSimple 백업에는 다음이 포함 됩니다.
+AVS 백업에는 다음이 포함 됩니다.
 
 * VCenter, PSC 및 DVS 규칙의 야간 증분 백업
 * 응용 프로그램 계층의 구성 요소를 백업 하기 위한 vCenter 네이티브 Api
@@ -66,15 +66,15 @@ CloudSimple 백업에는 다음이 포함 됩니다.
 
 ## <a name="maintenance"></a>유지 관리
 
-CloudSimple은 여러 유형의 계획 된 유지 관리를 수행 합니다.
+AVS는 여러 유형의 계획 된 유지 관리를 수행 합니다.
 
 ### <a name="backendinternal-maintenance"></a>백 엔드/내부 유지 관리
 
-이러한 유지 관리 작업에는 일반적으로 물리적 자산을 다시 구성 하거나 소프트웨어 패치를 설치 해야 합니다. 서비스 중인 자산의 일반적인 소비에는 영향을 주지 않습니다. 중복 Nic를 사용 하는 경우, 일반 네트워크 트래픽 및 사설 클라우드 작업이 영향을 받지 않습니다. 유지 관리 간격 동안 조직에서 전체 중복 대역폭을 사용 해야 하는 경우에만 성능에 영향을 줄 수 있습니다.
+이러한 유지 관리 작업에는 일반적으로 물리적 자산을 다시 구성 하거나 소프트웨어 패치를 설치 해야 합니다. 서비스 중인 자산의 일반적인 소비에는 영향을 주지 않습니다. 중복 Nic를 사용 하면 정상 네트워크 트래픽 및 AVS 사설 클라우드 작업이 영향을 받지 않습니다. 유지 관리 간격 동안 조직에서 전체 중복 대역폭을 사용 해야 하는 경우에만 성능에 영향을 줄 수 있습니다.
 
-### <a name="cloudsimple-portal-maintenance"></a>CloudSimple 포털 유지 관리
+### <a name="avs-portal-maintenance"></a>AVS 포털 유지 관리
 
-CloudSimple 제어 평면이 나 인프라를 업데이트 하는 경우 몇 가지 제한 된 서비스 가동 중지 시간이 필요 합니다. 현재는 유지 관리 간격을 한 달에 한 번만 자주 사용할 수 있습니다. 빈도는 시간이 지남에 따라 거부 될 것으로 예상 됩니다. CloudSimple은 포털 유지 관리에 대 한 알림을 제공 하 고 가능한 한 짧게 유지 합니다. 포털 유지 관리 간격 중에 다음 서비스는 영향 없이 계속 작동 합니다.
+AVS 제어 평면이 나 인프라를 업데이트 하는 경우 몇 가지 제한 된 서비스 가동 중지 시간이 필요 합니다. 현재는 유지 관리 간격을 한 달에 한 번만 자주 사용할 수 있습니다. 빈도는 시간이 지남에 따라 거부 될 것으로 예상 됩니다. AVS는 포털 유지 관리에 대 한 알림을 제공 하 고 가능한 한 짧게 유지 합니다. 포털 유지 관리 간격 중에 다음 서비스는 영향 없이 계속 작동 합니다.
 
 * VMware management 평면 및 응용 프로그램
 * vCenter 액세스
@@ -83,7 +83,7 @@ CloudSimple 제어 평면이 나 인프라를 업데이트 하는 경우 몇 가
 
 ### <a name="vmware-infrastructure-maintenance"></a>VMware 인프라 유지 관리
 
-VMware 인프라의 구성을 변경 해야 하는 경우가 있습니다.  현재는 1-2 개월 마다 이러한 간격이 발생할 수 있지만 시간이 지남에 따라 빈도가 저하 될 것으로 예상 됩니다. 이러한 유형의 유지 관리는 일반적으로 CloudSimple 서비스의 정상적인 사용을 중단 하지 않고 수행할 수 있습니다. VMware 유지 관리 간격 동안 다음 서비스는 영향 없이 계속 작동 합니다.
+VMware 인프라의 구성을 변경 해야 하는 경우가 있습니다. 현재는 1-2 개월 마다 이러한 간격이 발생할 수 있지만 시간이 지남에 따라 빈도가 저하 될 것으로 예상 됩니다. 이러한 유형의 유지 관리는 일반적으로 AVS 서비스의 정상적인 사용을 중단 하지 않고 수행할 수 있습니다. VMware 유지 관리 간격 동안 다음 서비스는 영향 없이 계속 작동 합니다.
 
 * VMware management 평면 및 응용 프로그램
 * vCenter 액세스
@@ -92,7 +92,7 @@ VMware 인프라의 구성을 변경 해야 하는 경우가 있습니다.  현�
 
 ## <a name="updates-and-upgrades"></a>업데이트 및 업그레이드
 
-CloudSimple은 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, PSC 및 NSX)의 수명 주기 관리를 담당 합니다.
+AVS는 AVS 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, PSC 및 NSX)의 수명 주기 관리를 담당 합니다.
 
 소프트웨어 업데이트는 다음과 같습니다.
 
@@ -100,9 +100,9 @@ CloudSimple은 사설 클라우드에서 VMware 소프트웨어 (ESXi, vCenter, 
 * **업데이트**. VMware stack 구성 요소의 부 버전 변경입니다.
 * **업그레이드**. VMware stack 구성 요소의 주 버전 변경
 
-CloudSimple은 VMware에서 사용할 수 있게 되는 즉시 중요 한 보안 패치를 테스트 합니다. SLA 당 CloudSimple은 1 주일 내 사설 클라우드 환경에 대 한 보안 패치를 롤업 합니다.
+AVS는 VMware에서 사용할 수 있게 되는 즉시 중요 한 보안 패치를 테스트 합니다. SLA 당 AVS는 1 주일 내에 AVS 사설 클라우드 환경에 대 한 보안 패치를 롤업 합니다.
 
-CloudSimple은 VMware 소프트웨어 구성 요소에 분기별 유지 관리 업데이트를 제공 합니다. 새 주 버전의 VMware 소프트웨어를 사용할 수 있는 경우 CloudSimple은 고객과 연동 하 여 업그레이드를 위한 적절 한 유지 관리 기간을 조정 합니다.
+AVS는 VMware 소프트웨어 구성 요소에 분기별 유지 관리 업데이트를 제공 합니다. 새 주 버전의 VMware 소프트웨어를 사용할 수 있는 경우 AVS는 고객과 연동 하 여 업그레이드를 위한 적절 한 유지 관리 기간을 조정 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

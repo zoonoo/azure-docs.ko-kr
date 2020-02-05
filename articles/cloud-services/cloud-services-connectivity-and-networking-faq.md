@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/23/2018
 ms.author: genli
-ms.openlocfilehash: 22f7c0ba98390b391a79a121f120b8ab6172cfb9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7caeba0e88f63106eae80f7142b5d65463f8d7a7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845357"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019403"
 ---
 # <a name="connectivity-and-networking-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 연결 및 네트워킹 문제: FAQ(질문과 대답)
 
@@ -101,8 +101,8 @@ IIS의 URL 다시 쓰기 모듈을 사용하여 클라우드 서비스의 기본
 
 클라우드 서비스의 공용 IP 주소(VIP로 알려짐)가 절대 바뀌지 않아 몇 가지 특정 클라이언트에 의해 관례적으로 허용 목록에 추가되도록 하려면 이에 연결된 예약 IP가 있어야 합니다. 또는 배포를 삭제하는 경우 Azure에서 제공되는 가상 IP가 사용자의 구독에서 할당이 취소됩니다. VIP 교환 작업에 성공하려면 프로덕션 및 스테이징 슬롯 모두에 대해 예약된 개별 IP가 필요합니다. 없는 경우 교환 작업이 실패합니다. IP 주소를 예약하고 클라우드 서비스에 연결하려면 다음 문서를 참조하세요.
 
-- [기존 클라우드 서비스의 IP 주소 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#reserve-the-ip-address-of-an-existing-cloud-service)
-- [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip.md#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
+- [기존 클라우드 서비스의 IP 주소 예약](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#reserve-the-ip-address-of-an-existing-cloud-service)
+- [서비스 구성 파일을 사용하여 클라우드 서비스에 예약된 IP 연결](/previous-versions/azure/virtual-network/virtual-networks-reserved-public-ip#associate-a-reserved-ip-to-a-cloud-service-by-using-a-service-configuration-file)
 
 역할에 대한 인스턴스가 둘 이상이면 클라우드 서비스와 RIP를 연결했을 때 가동 중지 시간이 발생하지 않아야 합니다. 또는 Azure 데이터 센터의 IP 범위를 허용 목록에 추가할 수 있습니다. 모든 Azure IP 범위는 [Microsoft 다운로드 센터](https://www.microsoft.com/en-us/download/details.aspx?id=41653)에서 찾을 수 있습니다.
 

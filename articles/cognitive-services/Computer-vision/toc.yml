@@ -135,11 +135,9 @@
         - name: 컨테이너 인스턴스 사용
           href: deploy-computer-vision-on-container-instances.md
           displayName: 'container instances, container, containers, images'
-    - name: Computer Vision 연결 서비스 사용
-      href: vs-computer-vision-connected-service.md
     - name: 실시간 비디오 분석
       href: Vision-API-How-to-Topics/HowtoAnalyzeVideo_Vision.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: 'https://docs.microsoft.com/cli/azure/cognitiveservices?view=azure-cli-latest#az_cognitiveservices_list'

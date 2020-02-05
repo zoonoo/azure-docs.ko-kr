@@ -1,6 +1,6 @@
 ---
-title: HPC-Azure Virtual Machines에 대 한 메시지 전달 인터페이스를 설정 합니다. | Microsoft Docs
-description: Azure에서 HPC에 대 한 MPI를 설정 하는 방법에 알아봅니다.
+title: HPC에 대 한 메시지 전달 인터페이스 설정-Azure Virtual Machines | Microsoft Docs
+description: Azure에서 HPC에 대 한 MPI를 설정 하는 방법에 대해 알아봅니다.
 services: virtual-machines
 documentationcenter: ''
 author: vermagit
@@ -12,22 +12,22 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 05/15/2019
 ms.author: amverma
-ms.openlocfilehash: 541e42a72ea604c4d71dc546b14dea2f0857bcc1
-ms.sourcegitcommit: 66237bcd9b08359a6cce8d671f846b0c93ee6a82
+ms.openlocfilehash: 469e926932ffa11ef9f2a262b78a587ba435549e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67797504"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023993"
 ---
-# <a name="set-up-message-passing-interface-for-hpc"></a>HPC 용 메시지 전달 인터페이스를 설정 합니다.
+# <a name="set-up-message-passing-interface-for-hpc"></a>HPC에 대 한 메시지 전달 인터페이스 설정
 
-메시지 전달 인터페이스 (MPI) 작업은 기존 HPC 워크 로드의 중요 한 부분입니다. SR-IOV 사용할 MPI의 거의 모든 버전을 허용 하는 Azure에서 VM 크기를 사용 하도록 설정된 합니다. 
+MPI (메시지 전달 인터페이스) 작업은 기존 HPC 워크 로드의 중요 한 부분입니다. Azure에서 SR-IOV 사용 VM 크기를 사용 하면 MPI의 거의 모든 버전을 사용할 수 있습니다. 
 
-Vm에서 MPI 작업을 실행는 테 넌 트 전체 파티션 키 (p-키) 설정을 해야 합니다. 단계를 수행 합니다 [파티션 키를 검색](#discover-partition-keys) p 키 값은 대 한 자세한 내용은 섹션입니다.
+Vm에서 MPI 작업을 실행 하려면 테 넌 트 전체에서 파티션 키 (p-키)를 설정 해야 합니다. P 키 값을 확인 하는 방법에 대 한 자세한 내용은 [파티션 키 검색](#discover-partition-keys) 섹션의 단계를 따르세요.
 
-## <a name="ucx"></a>UCX
+## <a name="ucx"></a>함께 x
 
-[UCX](https://github.com/openucx/ucx) IB MPICH OpenMPI와 작동에 최상의 성능을 제공 합니다.
+작업 [x](https://github.com/openucx/ucx) 는 IB에서 최상의 성능을 제공 하 고 MPICH 및 openmpi와 함께 작동 합니다.
 
 ```bash
 wget https://github.com/openucx/ucx/releases/download/v1.4.0/ucx-1.4.0.tar.gz
@@ -39,13 +39,13 @@ make -j 8 && make install
 
 ## <a name="openmpi"></a>OpenMPI
 
-앞에서 설명한 대로 UCX를 설치 합니다.
+앞에서 설명한 대로를 설치 합니다.
 
 ```bash
 sudo yum install –y openmpi
 ```
 
-OpenMPI를 빌드하십시오.
+OpenMPI를 빌드합니다.
 
 ```bash
 wget https://download.open-mpi.org/release/open-mpi/v4.0/openmpi-4.0.0.tar.gz
@@ -61,13 +61,13 @@ OpenMPI를 실행 합니다.
 <ompi-install-path>/bin/mpirun -np 2 --map-by node --hostfile ~/hostfile -mca pml ucx --mca btl ^vader,tcp,openib -x UCX_NET_DEVICES=mlx5_0:1  -x UCX_IB_PKEY=0x0003  ./osu_latency
 ```
 
-위에서 설명한 것 처럼 파티션 키를 확인 합니다.
+위에서 언급 한 대로 파티션 키를 확인 합니다.
 
 ## <a name="mpich"></a>MPICH
 
-앞에서 설명한 대로 UCX를 설치 합니다.
+앞에서 설명한 대로를 설치 합니다.
 
-MPICH를 빌드하십시오.
+MPICH를 빌드합니다.
 
 ```bash
 wget https://www.mpich.org/static/downloads/3.3/mpich-3.3.tar.gz
@@ -83,11 +83,11 @@ MPICH를 실행 합니다.
 <mpich-install-path>/bin/mpiexec -n 2 -hostfile ~/hostfile -env UCX_IB_PKEY=0x0003 -bind-to hwthread ./osu_latency
 ```
 
-위에서 설명한 것 처럼 파티션 키를 확인 합니다.
+위에서 언급 한 대로 파티션 키를 확인 합니다.
 
 ## <a name="mvapich2"></a>MVAPICH2
 
-MVAPICH2를 빌드하십시오.
+MVAPICH2를 빌드합니다.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/mv2/mvapich2-2.3.tar.gz
@@ -105,7 +105,7 @@ MVAPICH2를 실행 합니다.
 
 ## <a name="platform-mpi-community-edition"></a>플랫폼 MPI Community Edition
 
-플랫폼 MPI에 대 한 필요한 패키지를 설치 합니다.
+플랫폼 MPI에 필요한 패키지를 설치 합니다.
 
 ```bash
 sudo yum install libstdc++.i686
@@ -118,15 +118,15 @@ sudo ./platform_mpi-09.01.04.03r-ce.bin
 
 ## <a name="intel-mpi"></a>Intel MPI
 
-[Intel MPI를 다운로드](https://software.intel.com/mpi-library/choose-download)합니다.
+[INTEL MPI를 다운로드](https://software.intel.com/mpi-library/choose-download)합니다.
 
-버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018 년에 대 한 사용 `I_MPI_FABRICS=shm:ofa` 2019, 사용 및 `I_MPI_FABRICS=shm:ofi`합니다.
+버전에 따라 I_MPI_FABRICS 환경 변수를 변경 합니다. Intel MPI 2018의 경우 `I_MPI_FABRICS=shm:ofa`를 사용 하 고 2019의 경우 `I_MPI_FABRICS=shm:ofi`를 사용 합니다.
 
-프로세스 고정 작동 올바르게 15, 30 및 60 PPN 기본적으로 합니다.
+프로세스 고정은 기본적으로 15, 30 및 60 PPN에 대해 제대로 작동 합니다.
 
 ## <a name="osu-mpi-benchmarks"></a>OSU MPI 벤치 마크
 
-[MPI 벤치 마크 OSU 다운로드](http://mvapich.cse.ohio-state.edu/benchmarks/) 여 untar 및 합니다.
+[OSU MPI 벤치 마크](http://mvapich.cse.ohio-state.edu/benchmarks/) 및 Untar를 다운로드 합니다.
 
 ```bash
 wget http://mvapich.cse.ohio-state.edu/download/mvapich/osu-micro-benchmarks-5.5.tar.gz
@@ -134,26 +134,26 @@ tar –xvf osu-micro-benchmarks-5.5.tar.gz
 cd osu-micro-benchmarks-5.5
 ```
 
-특정 MPI 라이브러리를 사용 하 여 벤치 마크를 빌드하십시오.
+특정 MPI 라이브러리를 사용 하 여 벤치 마크 빌드:
 
 ```bash
 CC=<mpi-install-path/bin/mpicc>CXX=<mpi-install-path/bin/mpicxx> ./configure 
 make
 ```
 
-MPI 벤치 마크는 `mpi/` 폴더입니다.
+MPI 벤치 마크는 `mpi/` 폴더에 있습니다.
 
 
-## <a name="discover-partition-keys"></a>파티션 키를 검색 합니다.
+## <a name="discover-partition-keys"></a>파티션 키 검색
 
-동일한 테 넌 트 (가용성 집합 또는 VM 확장 집합) 내 다른 Vm과 통신에 대 한 파티션 키 (p-키)를 검색 합니다.
+동일한 테 넌 트 내의 다른 Vm (가용성 집합 또는 VM 확장 집합)과 통신 하기 위한 파티션 키 (p 키)를 검색 합니다.
 
 ```bash
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
 /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 ```
 
-MPI를 사용 하 여 사용 해야 하는 테 넌 트 키를 둘 중 더 큰 경우 예제: P 키를 다음 인 경우 0x800b MPI를 사용 하 여 사용 해야 합니다.
+둘 중 더 큰 값은 MPI에서 사용 해야 하는 테 넌 트 키입니다. 예: 다음은 p 키입니다. 0x800b는 MPI와 함께 사용 해야 합니다.
 
 ```bash
 cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/0
@@ -162,14 +162,14 @@ cat /sys/class/infiniband/mlx5_0/ports/1/pkeys/1
 0x7fff
 ```
 
-기본 (0x7fff) 파티션 키 이외의 파티션을 사용 합니다. UCX 지울 p 키의 MSB 필요 합니다. 예를 들어로 UCX_IB_PKEY 0x000b 0x800b에 대 한 합니다.
+기본 (0x7fff) 파티션 키가 아닌 다른 파티션을 사용 합니다. 키를 사용 하려면 MSB의 키를 지워야 합니다. 예를 들어 0x800b에 대해 UCX_IB_PKEY를 0x000b로 설정 합니다.
 
-(AVSet 또는 VMSS) 테 넌 트 존재는 PKEYs 동일 하 게 유지 note도 합니다. 노드 추가/삭제 된 경우에 마찬가지입니다. 새 테 넌 트에 다른 PKEYs를 가져옵니다.
+또한 테 넌 트 (AVSet 또는 VMSS)가 있는 한 PKEYs는 동일 하 게 유지 됩니다. 노드가 추가 되거나 삭제 되는 경우에도 마찬가지입니다. 새 테 넌 트가 서로 다른 PKEYs를 가져옵니다.
 
 
 ## <a name="set-up-user-limits-for-mpi"></a>MPI에 대 한 사용자 제한 설정
 
-MPI에 대 한 사용자의 한도 설정 합니다.
+MPI에 대 한 사용자 제한을 설정 합니다.
 
 ```bash
 cat << EOF | sudo tee -a /etc/security/limits.conf
@@ -181,9 +181,9 @@ EOF
 ```
 
 
-## <a name="set-up-ssh-keys-for-mpi"></a>MPI에 대 한 SSH 키를 설정 합니다.
+## <a name="set-up-ssh-keys-for-mpi"></a>MPI에 대 한 SSH 키 설정
 
-필요로 하는 MPI 형식에 대 한 SSH 키를 설정 합니다.
+필요한 MPI 유형에 대 한 SSH 키를 설정 합니다.
 
 ```bash
 ssh-keygen -f /home/$USER/.ssh/id_rsa -t rsa -N ''
@@ -192,11 +192,12 @@ Host *
     StrictHostKeyChecking no
 EOF
 cat /home/$USER/.ssh/id_rsa.pub >> /home/$USER/.ssh/authorized_keys
+chmod 600 /home/$USER/.ssh/authorized_keys
 chmod 644 /home/$USER/.ssh/config
 ```
 
-위의 구문 가정 공유 홈 디렉터리, 다른.ssh 디렉터리를 각 노드에 복사 해야 합니다.
+위의 구문은 공유 홈 디렉터리를 가정 합니다. ssh 디렉터리를 각 노드에 복사 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-에 대해 자세히 알아보세요 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) Azure에서.
+Azure의 [HPC](https://docs.microsoft.com/azure/architecture/topics/high-performance-computing/) 에 대해 자세히 알아보세요.

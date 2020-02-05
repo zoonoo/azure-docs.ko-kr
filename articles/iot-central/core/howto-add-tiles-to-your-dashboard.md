@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: b13349ae4293f6377429e9dc72b6c2cb43f92348
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35965f238ed5b7768dd174788453838c917adb32
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435120"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023228"
 ---
 # <a name="configure-the-application-dashboard"></a>응용 프로그램 대시보드 구성
 
@@ -47,7 +47,6 @@ ms.locfileid: "75435120"
 
 > [!div class="mx-imgBorder"]
 > 타일에 대 한 설정 및 속성이 표시 된 "대시보드" 탭을 ![](media/howto-add-tiles-to-your-dashboard/settings-and-properties.png)
-
 
 ## <a name="edit-tiles"></a>타일 편집
 
@@ -87,4 +86,4 @@ ms.locfileid: "75435120"
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 Azure IoT Central 기본 응용 프로그램 대시보드를 구성 하는 방법을 배웠으므로 이미지를 준비 하 [고 업로드 하는 방법을 배울](howto-prepare-images.md)수 있습니다.
+이제 Azure IoT Central 기본 응용 프로그램 대시보드를 구성 하는 방법을 배웠으므로 [개인 대시보드를 만드는 방법을 배울](howto-create-personal-dashboards.md)수 있습니다.

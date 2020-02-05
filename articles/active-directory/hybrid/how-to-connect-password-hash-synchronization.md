@@ -15,12 +15,12 @@ ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 165bd93f2d35425965df9358c8d85f79ce557d66
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: d3a76b06c08d670cfb3ab0757e8c46dac0988c5f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833367"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025183"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -124,7 +124,7 @@ Azure AD는 등록 된 도메인 마다 별도의 암호 만료 정책을 지원
 > [!NOTE]
 > 이 기능은 현재 공개 미리 보기 상태입니다.
 
-#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-reset-on-next-logon"></a>임시 암호 동기화 및 "다음 로그온 시 암호 재설정 강제"의 공개 미리 보기
+#### <a name="public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon"></a>임시 암호 동기화 및 "다음 로그온 시 암호 변경 적용"의 공개 미리 보기
 
 일반적으로 사용자가 처음 로그온 할 때 암호를 변경 하도록 하는 것이 일반적입니다. 특히 관리자 암호 재설정이 발생 한 후에는이 작업을 수행 해야 합니다.  일반적으로 "임시" 암호를 설정 하는 것으로 알려져 있으며, AD (Active Directory)의 사용자 개체에서 "다음 로그온 할 때 반드시 암호를 변경 해야 합니다." 플래그를 선택 하 여 완료 됩니다.
   

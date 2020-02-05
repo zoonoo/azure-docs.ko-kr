@@ -10,12 +10,12 @@ ms.subservice: personalizer
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: diberry
-ms.openlocfilehash: 5205b12a5f9f6acad8755b69d6da2216ffd4d83e
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 408501232891a7971d03c89acc647d9ed19609b3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760830"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026152"
 ---
 # <a name="features-are-information-about-actions-and-context"></a>기능은 작업 및 컨텍스트에 관한 정보입니다.
 
@@ -132,6 +132,8 @@ JSON 개체에는 중첩 된 JSON 개체와 단순 속성/값이 포함 될 수 
 기능 세트를 더 크고 더 정교하게 또는 덜 정교하게 만들도록 편집하여 개선할 수 있습니다.
 
 예를 들어 초 단위까지의 타임스탬프는 매우 대략적인 기능입니다. 시간을 "아침", "한낮", "오후" 등으로 분류하여 더 정교하게(효과적으로) 만들 수 있습니다.
+
+위치 정보는 일반적으로 더 광범위 한 분류를 만드는 경우에도 유용 합니다. 예를 들어, Lat: 47.67402 ° N, Long: 122.12154 ° W와 같은 위도-경도 좌표는 너무 정확 하 고 모델에서 위도 및 경도를 고유한 차원으로 학습 하도록 합니다. 위치 정보에 따라 개인 설정 하려는 경우 더 큰 섹터의 위치 정보를 그룹화 하는 것이 좋습니다. 이 작업을 수행 하는 쉬운 방법은 Lat 된 숫자에 대해 적절 한 반올림 전체 자릿수를 선택 하 고, 위도 및 경도를 한 문자열로 결합 하 여 "영역"으로 결합 하는 것입니다. 예를 들어 지역에서 47.67402 ° N, Long: 122.12154 ° W를 표시 하는 좋은 방법은 "location": "34.3, 12.1"입니다.
 
 
 #### <a name="expand-feature-sets-with-extrapolated-information"></a>추정한 정보를 사용하여 기능 세트 확장

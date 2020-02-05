@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: 27b430ca6e90eba933662bd35d8d97b08234c84e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989028"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018604"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -61,6 +61,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |**Azure Database for PostgreSQL-단일 서버** | Microsoft.DBforPostgreSQL/servers   | postgresqlServer |
 |**Azure Database for MySQL** | Microsoft.DBforMySQL/servers    | mysqlServer |
 |**Azure Database for MariaDB** | Microsoft.DBforMariaDB/servers    | mariadbServer |
+|**Azure Key Vault** | Microsoft.KeyVault/vaults    | 자격 증명 모음 |
  
 ## <a name="network-security-of-private-endpoints"></a>개인 끝점의 네트워크 보안 
 Azure 서비스에 대 한 개인 끝점을 사용 하는 경우 특정 개인 링크 리소스에 대 한 트래픽이 보호 됩니다. 플랫폼은 액세스 제어를 수행 하 여 지정 된 개인 링크 리소스에만 도달 하는 네트워크 연결의 유효성을 검사 합니다. 동일한 Azure 서비스 내에서 추가 리소스에 액세스 하려면 추가 개인 끝점이 필요 합니다. 
@@ -118,6 +119,7 @@ Azure 서비스의 경우 다음 표에 설명 된 대로 권장 된 영역 이�
 |Azure Database for PostgreSQL-단일 서버 (DBforPostgreSQL/servers)|postgresqlServer|privatelink.postgres.database.azure.com|
 |Azure Database for MySQL (Microsoft DBforMySQL/servers)|mysqlServer|privatelink.mysql.database.azure.com|
 |Azure Database for MariaDB (DBforMariaDB/servers)|mariadbServer|privatelink.mariadb.database.azure.com|
+|Azure Key Vault (Microsoft. KeyVault/자격 증명 모음)|자격 증명 모음|privatelink.vaultcore.azure.net|
  
 Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해결 방법을 제안 된 도메인 이름으로 리디렉션합니다. 개인 끝점의 개인 IP 주소를 사용 하 여 해상도를 재정의할 수 있습니다. 
  

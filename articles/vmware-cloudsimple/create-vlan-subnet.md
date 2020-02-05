@@ -1,6 +1,6 @@
 ---
 title: Vlan/서브넷 만들기
-description: CloudSimple의 Azure VMware 솔루션-사설 클라우드의 Vlan/서브넷을 만들고 관리 하는 방법을 설명 하 고 방화벽 규칙을 적용 합니다.
+description: Azure VMware 솔루션 (AVS)-AVS 사설 클라우드의 Vlan/서브넷을 만들고 관리 하는 방법을 설명 하 고 방화벽 규칙을 적용 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,30 +8,30 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 56e0f720221f8de531087e8b8d0476688feb2547
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 249c48500dbcd75f62f856b3345b3a2c02502d1a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73601492"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024775"
 ---
-# <a name="create-and-manage-vlanssubnets-for-your-private-clouds"></a>사설 클라우드에 대 한 Vlan/서브넷 만들기 및 관리
+# <a name="create-and-manage-vlanssubnets-for-your-avs-private-clouds"></a>AVS 사설 클라우드의 Vlan/서브넷 만들기 및 관리
 
-네트워크 페이지에서 v m/서브넷 탭을 열어 사설 클라우드의 Vlan/서브넷을 만들고 관리 합니다. VLAN/서브넷을 만든 후에는 방화벽 규칙을 적용할 수 있습니다.
+네트워크 페이지에서 v m/서브넷 탭을 열어 AVS 사설 클라우드의 Vlan/서브넷을 만들고 관리 합니다. VLAN/서브넷을 만든 후에는 방화벽 규칙을 적용할 수 있습니다.
 
 ## <a name="create-a-vlansubnet"></a>VLAN/서브넷 만들기
 
-1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
+1. [AVS 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
 2. **Vlan/서브넷**을 선택 합니다.
 3. **VLAN/서브넷 만들기**를 클릭 합니다.
 
     ![VLAN/서브넷 페이지](media/vlan-subnet-page.png)
 
-4. 새 VLAN/서브넷에 대 한 사설 클라우드를 선택 합니다.
+4. 새 VLAN/서브넷에 대해 AVS 사설 클라우드를 선택 합니다.
 5. VLAN ID를 입력 하십시오.
 6. 서브넷 이름을 입력 합니다.
 7. VLAN (서브넷)에서 라우팅을 사용 하도록 설정 하려면 서브넷 CIDR 범위를 지정 합니다. CIDR 범위가 온-프레미스 서브넷, Azure 서브넷 또는 게이트웨이 서브넷과 겹치지 않는지 확인 합니다.
-8. **Submit**를 클릭합니다.
+8. **제출**을 클릭합니다.
 
     ![VLAN/서브넷 만들기](media/create-new-vlan-subnet-details.png)
 
@@ -41,13 +41,13 @@ ms.locfileid: "73601492"
 
 ## <a name="use-vlan-information-to-set-up-a-distributed-port-group-in-vsphere"></a>VLAN 정보를 사용 하 여 vSphere 분산 포트 그룹 설정
 
-VSphere 분산 포트 그룹을 만들려면 <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">Vsphere 네트워킹 가이드</a>의 VMware 항목 ' 분산 포트 그룹 추가 '에 설명 된 지침을 따르세요. 분산 포트 그룹을 설정 하는 경우 CloudSimple 구성에서 VLAN 정보를 제공 합니다.
+VSphere 분산 포트 그룹을 만들려면 <a href="https://docs.vmware.com/en/VMware-vSphere/6.5/vsphere-esxi-vcenter-server-65-networking-guide.pdf" target="_blank">Vsphere 네트워킹 가이드</a>의 VMware 항목 ' 분산 포트 그룹 추가 '에 설명 된 지침을 따르세요. 분산 포트 그룹을 설정할 때 AVS 구성의 VLAN 정보를 제공 합니다.
 
 ![분산 포트 그룹](media/distributed-port-group.png)
 
 ## <a name="select-a-firewall-table"></a>방화벽 테이블 선택
 
-방화벽 테이블 및 관련 규칙은 **네트워크 > 방화벽 테이블** 페이지에 정의 되어 있습니다. 사설 클라우드의 v m/서브넷에 적용할 방화벽 테이블을 선택 **하려면 vlan/서브넷 페이지에서** **방화벽 테이블 첨부 파일** 을 클릭 합니다. 방화벽 테이블 설정 및 규칙 정의에 대 한 지침은 [방화벽 테이블](firewall.md) 을 참조 하세요.
+방화벽 테이블 및 관련 규칙은 **네트워크 > 방화벽 테이블** 페이지에 정의 되어 있습니다. AVS 사설 클라우드의 v m/서브넷에 적용할 방화벽 테이블을 선택 하려면 **vlan/서브넷 페이지에서** **방화벽 테이블 첨부 파일** 을 클릭 합니다. 방화벽 테이블 설정 및 규칙 정의에 대 한 지침은 [방화벽 테이블](firewall.md) 을 참조 하세요.
 
 ![방화벽 테이블 링크](media/vlan-subnet-firewall-link.png)
 

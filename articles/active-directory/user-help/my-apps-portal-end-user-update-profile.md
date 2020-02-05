@@ -2,31 +2,38 @@
 title: 내 앱 포털에서 프로필 & 계정 정보 업데이트-Azure AD
 description: 사용자의 프로필 및 회사 또는 학교 계정 정보를 업데이트 하는 방법에 대해 알아봅니다. 여기에는 암호 변경, 암호 재설정 설정, 보안 확인 방법 업데이트, 조직의 사용 약관 보기, 로그 아웃 등이 포함 됩니다. 회사 또는 학교 계정을 사용 하 여 로그인 한 모든 위치
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 787a0b38cecd76c58017e6dff3da1607ac283d23
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a6bcfa7fc58d47e64bff0838ff698bc59eda4e70
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704870"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022282"
 ---
-# <a name="update-your-profile-and-work-or-school-account-information-on-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 회사 또는 학교 계정 정보 업데이트
+# <a name="update-your-profile-and-account-information-on-the-my-apps-portal"></a>내 앱 포털에서 프로필 및 계정 정보 업데이트
 
-웹 기반 **My Apps** 포털을 통해 회사 또는 학교 계정을 사용하여 다양한 조직의 클라우드 기반 앱을 확인 및 시작하고, 일부 프로필 및 계정 정보를 업데이트하고, **그룹** 정보를 보고, 앱 및 그룹에 대한 **액세스 검토**를 수행할 수 있습니다. **My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
+웹 기반 **내 앱** 포털에서 회사 또는 학교 계정을 사용 하 여 
+
+- 조직의 클라우드 기반 앱을 많이 보고 시작 합니다.
+- 프로필 및 계정 정보 중 일부를 업데이트 합니다.
+- **그룹** 정보 보기
+- 앱 및 그룹에 대 한 **액세스 검토** 를 수행 합니다. 
+
+**My Apps** 포털에 액세스할 수 없는 경우 사용 권한에 대해 기술 지원팀에 문의해야 합니다.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-portal.md)]
 
->[!Important]
->이 콘텐츠는 사용자를 위한 것입니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
+> [!Important]
+> 이 콘텐츠는 **내 앱** 사용자를 대상으로 합니다. 관리자인 경우 [애플리케이션 관리 설명서](https://docs.microsoft.com/azure/active-directory/manage-apps)에서 클라우드 기반 앱을 설정 및 관리하는 방법에 대한 더 자세한 정보를 확인할 수 있습니다.
 
 ## <a name="view-your-organization-related-profile-information"></a>조직 관련 프로필 정보 보기
 

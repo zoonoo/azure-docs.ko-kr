@@ -1,6 +1,6 @@
 ---
-title: CloudSimple의 Azure VMware Solution-공용 IP 주소 할당
-description: 사설 클라우드 환경에서 가상 컴퓨터에 대 한 공용 IP 주소를 할당 하는 방법을 설명 합니다.
+title: Azure VMware 솔루션 (AVS)-공용 IP 주소 할당
+description: AVS 사설 클라우드 환경에서 가상 머신에 대 한 공용 IP 주소를 할당 하는 방법을 설명 합니다.
 author: sharaths-cs
 ms.author: b-shsury
 ms.date: 08/15/2019
@@ -8,18 +8,18 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 565c9ad0fbd37b026a1ba555d83b9032d2efcba4
-ms.sourcegitcommit: a4b5d31b113f520fcd43624dd57be677d10fc1c0
+ms.openlocfilehash: 87133f5efb9f096d3fdb0956aab1caac58b4bd94
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/06/2019
-ms.locfileid: "70773793"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024299"
 ---
-# <a name="allocate-public-ip-addresses-for-private-cloud-environment"></a>사설 클라우드 환경에 대 한 공용 IP 주소 할당
+# <a name="allocate-public-ip-addresses-for-avs-private-cloud-environment"></a>AVS 사설 클라우드 환경에 대 한 공용 IP 주소 할당
 
-네트워크 페이지에서 공용 IP 탭을 열어 사설 클라우드 환경의 가상 컴퓨터에 대 한 공용 IP 주소를 할당 합니다.
+네트워크 페이지에서 공용 IP 탭을 열어 AVS 사설 클라우드 환경의 가상 컴퓨터에 대 한 공용 IP 주소를 할당 합니다.
 
-1. [CloudSimple 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
+1. [AVS 포털에 액세스](access-cloudsimple-portal.md) 하 고 측면 메뉴에서 **네트워크** 를 선택 합니다.
 2. **공용 ip**를 선택 합니다.
 3. **새 공용 IP**를 클릭 합니다.
 

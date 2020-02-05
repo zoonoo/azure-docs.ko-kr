@@ -3,8 +3,8 @@ title: Batch용 Azure CLI 시작 | Microsoft Docs
 description: Azure CLI에서 Azure Batch 서비스 리소스를 관리하기 위한 Batch 명령에 대한 간단한 소개를 봅니다.
 services: batch
 documentationcenter: ''
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: fcd76587-1827-4bc8-a84d-bba1cd980d85
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: conceptual
 ms.tgt_pltfrm: multiple
 ms.workload: big-compute
 ms.date: 07/24/2018
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6d625e092618d1190c3dcdf9997b1ce35211d75
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 30f71432ca008b87bddfb253f23ae3cef0ac390d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027290"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020185"
 ---
 # <a name="manage-batch-resources-with-azure-cli"></a>Azure CLI를 사용하여 Batch 리소스 관리
 

@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 09003c26ead9108d07ae339fcf64235c246474a4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988654"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024146"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱 소개
 
@@ -26,7 +26,7 @@ ms.locfileid: "76988654"
 
 증분 보강는 보강 파이프라인에 캐시를 추가 합니다. 인덱서는 문서 크랙 및 모든 문서에 대 한 각 기술 출력의 결과를 캐시 합니다. 기술 세트가 업데이트되면 변경된 기술 또는 다운스트림 기술만 다시 실행됩니다. 업데이트 된 결과가 캐시에 기록 되 고 문서는 검색 인덱스나 기술 자료 저장소에서 업데이트 됩니다.
 
-실제로 캐시는 Azure Storage 계정의 blob 컨테이너에 저장 됩니다. 검색 서비스 내의 모든 인덱스는 인덱서 캐시에 대해 동일한 스토리지 계정을 공유할 수 있습니다. 각 인덱서에는 사용 중인 컨테이너에 대해 고유 하 고 변경할 수 없는 캐시 식별자가 할당 됩니다.
+실제로 캐시는 Azure Storage 계정의 blob 컨테이너에 저장 됩니다. 캐시는 처리 업데이트에 대 한 내부 기록에도 테이블 저장소를 사용 합니다. 검색 서비스 내의 모든 인덱스는 인덱서 캐시에 대해 동일한 스토리지 계정을 공유할 수 있습니다. 각 인덱서에는 사용 중인 컨테이너에 대해 고유 하 고 변경할 수 없는 캐시 식별자가 할당 됩니다.
 
 ## <a name="cache-configuration"></a>캐시 구성
 

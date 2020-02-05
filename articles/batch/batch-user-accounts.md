@@ -2,8 +2,8 @@
 title: 사용자 계정에서 작업 실행-Azure Batch
 description: 작업을 실행 하려는 사용자 계정을 구성할 수 있는 것이 유용 합니다. 사용자 계정 유형 및 구성 방법에 대해 알아봅니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 tags: ''
 ms.assetid: ''
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 11/18/2019
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 01342c8fcd0d2d3c603762b06350a9fcf7c12d03
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: fee3dc764d2052185160a4ba6b3d70854c54eeac
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937953"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022786"
 ---
 > [!NOTE] 
 > 이 문서에서 설명 하는 사용자 계정은 보안상의 이유로 RDP (원격 데스크톱 프로토콜) 또는 Secure Shell (SSH)에 사용 되는 사용자 계정과 다릅니다. 

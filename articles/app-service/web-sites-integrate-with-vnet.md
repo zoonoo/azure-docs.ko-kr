@@ -6,13 +6,13 @@ ms.assetid: 90bc6ec6-133d-4d87-a867-fcf77da75f5a
 ms.topic: article
 ms.date: 08/21/2019
 ms.author: ccompy
-ms.custom: seodec18
-ms.openlocfilehash: 71dc37fc000b2f195478e06f7e755fa8df926444
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 472fe621fc7a95317f143ef96a1d7f8b5adfe581
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688301"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77016972"
 ---
 # <a name="integrate-your-app-with-an-azure-virtual-network"></a>Azure Virtual Network에 앱 통합
 이 문서에서는 Azure App Service 가상 네트워크 통합 기능 및 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)에서 앱을 사용 하 여 설정 하는 방법을 설명 합니다. [Azure vnet (가상 네트워크][VNETOverview] )를 사용 하면 여러 azure 리소스를 인터넷을 통해 라우팅할 수 없는 네트워크에 저장할 수 있습니다.  
@@ -74,7 +74,7 @@ VNet 통합에서 지원하지 않는 다음 몇 가지 항목이 있습니다.
 * RFC 1918 범위에 있는 주소에만 도달할 수 있습니다. 10.0.0.0/8, 172.16.0.0/12, 192.168.0.0/16 주소 블록의 주소입니다.
 * 전역 피어 링 연결에서 리소스에 연결할 수 없습니다.
 * 앱에서 들어오는 트래픽에 대 한 경로를 VNet으로 설정할 수 없습니다.
-* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 App Service 배율 단위 에서만 사용할 수 있습니다.
+* 이 기능은 PremiumV2 App Service 계획을 지 원하는 최신 App Service 배율 단위 에서만 사용할 수 있습니다. 이는 앱이 PremiumV2 SKU에서 실행 되어야 한다는 의미는 아닙니다. PremiumV2 옵션을 사용할 수 있는 App Service 계획에서 실행 되어야 한다는 것을 의미 합니다 (이는 VNet 통합 기능을 사용할 수 있는 최신 배율 단위).
 * 통합 서브넷은 하나의 App Service 계획 에서만 사용할 수 있습니다.
 * 이 기능은 App Service Environment에 있는 격리 된 계획 앱에서 사용할 수 없습니다.
 * 이 기능을 사용 하려면 리소스 관리자 VNet에서 32 주소 이상인/27의 사용 하지 않는 서브넷이 필요 합니다.

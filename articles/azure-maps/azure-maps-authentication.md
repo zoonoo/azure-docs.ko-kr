@@ -1,49 +1,48 @@
 ---
 title: 인증 방법 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure Maps 서비스를 사용 하는 Azure Active Directory (Azure AD) 또는 공유 키 인증에 대해 알아봅니다. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
+description: 이 문서에서는 Azure Active Directory (Azure AD) 및 공유 키 인증에 대해 알아봅니다. 둘 다 Microsoft Azure Maps 서비스에 사용 됩니다. Azure Maps 구독 키를 가져오는 방법에 대해 알아봅니다.
 author: walsehgal
 ms.author: v-musehg
-ms.date: 12/30/2019
+ms.date: 01/28/2020
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 006adae99b2430f4c08ce5fc692598e48f45c239
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 2bcc2d4c92e903b723bffa8461a8a1a10534d3e4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911834"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025625"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
-Azure Maps는 공유 키와 Azure Active Directory (Azure AD) 라는 두 가지 요청 인증 방법을 지원 합니다. 이 문서에서는 구현에 도움을 주기 위해 이러한 인증 방법을 설명합니다.
+Azure Maps는 공유 키 인증과 Azure Active Directory 인증 이라는 두 가지 요청 인증 방법을 지원 합니다. 이 문서에서는 구현에 도움을 주기 위해 이러한 인증 방법을 설명합니다.
 
 ## <a name="shared-key-authentication"></a>공유 키 인증
 
-공유 키 인증은 Azure Maps에 대 한 각 요청과 함께 Azure Maps 계정에서 생성 된 키를 전달 합니다. Azure Maps 서비스에 대 한 각 요청에 대해 *구독 키* 를 URL에 매개 변수로 추가 해야 합니다. Azure Maps 계정이 만들어진 후 기본 및 보조 키가 생성 됩니다. 공유 키 인증을 사용 하 여 Azure Maps를 호출할 때에는 기본 키를 구독 키로 사용 하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용할 수 있습니다.  
+공유 키 인증은 Azure Maps에 대 한 각 요청과 함께 Azure Maps 계정에서 생성 된 키를 전달 합니다. Azure Maps 서비스에 대 한 각 요청에 대해 *구독 키* 를 URL에 매개 변수로 추가 해야 합니다. Azure Maps 계정이 만들어진 후 기본 및 보조 키가 생성 됩니다. 공유 키 인증을 사용 하 여 Azure Maps를 호출 하는 경우 기본 키를 구독 키로 사용 하는 것이 좋습니다. 키 롤링 변경 등의 시나리오에서 보조 키를 사용할 수 있습니다.  
 
 Azure Portal에서 키를 보는 방법에 대 한 자세한 내용은 [인증 관리](https://aka.ms/amauthdetails)를 참조 하세요.
 
 > [!Tip]
-> 키를 정기적으로 다시 생성하는 것이 좋습니다. 한 키를 다시 생성하는 동안 다른 키를 사용하여 연결을 유지할 수 있도록 두 개의 키가 제공됩니다. 키를 다시 생성하는 경우 이 계정에 액세스하는 모든 애플리케이션이 새 키를 사용하도록 업데이트해야 합니다.
+> 키를 정기적으로 다시 생성하는 것이 좋습니다. 다른 키를 다시 생성 하는 동안 한 키로 연결을 유지할 수 있도록 두 개의 키가 제공 됩니다. 키를 다시 생성 하면 새 키를 사용 하 여 계정에 액세스 하는 모든 응용 프로그램을 업데이트 해야 합니다.
 
 
 
 ## <a name="authentication-with-azure-active-directory-preview"></a>Azure Active Directory 인증(미리 보기)
 
-이제 Azure Maps는 [Azure AD(Azure Active Directory)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)와 통합되므로 Azure Maps 서비스 요청을 인증할 수 있습니다. Azure AD는 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 비롯 한 id 기반 인증을 제공 하 여 사용자 수준, 그룹 수준 및 응용 프로그램 수준에서 Azure Maps 리소스에 대 한 액세스 권한을 부여 합니다. 이어지는 섹션은 Azure AD와의 Azure Maps 통합 개념 및 구성 요소를 이해하는 데 도움이 될 수 있을 것입니다.
-
+이제 Azure Maps는 [Azure Active Directory (AZURE AD)](https://docs.microsoft.com/azure/active-directory/fundamentals/active-directory-whatis)를 사용 하 여 Azure Maps 서비스에 대 한 요청 인증을 제공 합니다. Azure AD는 [RBAC (역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/overview)를 비롯 한 id 기반 인증을 제공 합니다. RBAC는 Azure Maps 리소스에 대 한 사용자 수준, 그룹 수준 또는 응용 프로그램 수준 액세스 권한을 부여 하는 데 사용 됩니다. 다음 섹션에서는 Azure AD와 Azure Maps 통합의 개념 및 구성 요소를 이해 하는 데 도움이 될 수 있습니다.
 ## <a name="authentication-with-oauth-access-tokens"></a>OAuth 액세스 토큰 인증
 
 Azure Maps는 Azure Maps 계정을 포함하고 있는 Azure 구독과 연결된 Azure AD 테넌트에 대한 **OAuth 2.0** 액세스 토큰을 허용합니다. Azure Maps는 다음에 대한 토큰을 허용합니다.
 
-* Azure AD 사용자 
-* 사용자가 위임한 권한을 사용하는 파트너 애플리케이션
-* Azure 리소스에 대한 관리 ID입니다.
+* Azure AD 사용자
+* 사용자가 위임한 권한을 사용 하는 파트너 응용 프로그램
+* Azure 리소스에 대한 관리 ID
 
-Azure Maps는 각 Azure Maps 계정에 대해 *고유 식별자(클라이언트 ID)* 를 생성합니다. 이 클라이언트 ID를 추가 매개 변수와 함께 사용 하는 경우 Azure 환경에 따라 다음 표에 있는 값을 지정 하 여 Azure AD에서 토큰을 요청할 수 있습니다.
+Azure Maps는 각 Azure Maps 계정에 대해 *고유 식별자(클라이언트 ID)* 를 생성합니다. 이 클라이언트 ID를 추가 매개 변수와 함께 사용 하는 경우 Azure AD에서 토큰을 요청할 수 있습니다. 토큰을 요청 하려면 Azure 환경에 따라 다음 표에 있는 값을 지정 해야 합니다.
 
 | Azure 환경   | Azure AD 토큰 끝점 |
 | --------------------|-------------------------|
@@ -57,7 +56,7 @@ Azure AD에 토큰을 요청하는 방법에 대한 일반적인 정보를 보�
 
 ## <a name="request-azure-map-resources-with-oauth-tokens"></a>OAuth 토큰을 사용하여 Azure Map 리소스 요청
 
-Azure AD에서 토큰을 수신한 후에는 다음 두 가지 필수 요청 헤더 세트를 사용하여 Azure Maps로 요청을 보낼 수 있습니다.
+Azure AD에서 토큰을 받은 후 요청은 다음 필수 요청 헤더 집합과 함께 Azure Maps 전송 됩니다.
 
 | 요청 헤더    |    값    |
 |:------------------|:------------|
@@ -80,9 +79,7 @@ Authorization: Bearer eyJ0e….HNIVN
 
 ## <a name="control-access-with-rbac"></a>RBAC를 사용하여 액세스 제어
 
-Azure AD에서는 RBAC를 사용하여 보호된 리소스에 대한 액세스를 제어할 수 있습니다. Azure AD 테 넌 트 내에 Azure Maps 계정을 만들고 Azure Maps Azure AD 응용 프로그램을 등록 한 후에는 Azure Maps 계정 포털 페이지에서 사용자, 그룹, 응용 프로그램 또는 Azure 리소스에 대 한 RBAC를 설정할 수 있습니다.
-
-Azure Maps은 Azure 리소스에 대 한 관리 되는 id를 통해 개별 Azure AD 사용자, 그룹, 응용 프로그램 및 Azure 서비스에 대 한 읽기 액세스 제어를 지원 합니다.
+Azure AD에서 RBAC를 사용 하 여 보안 리소스에 대 한 액세스를 제어 합니다. Azure Maps 계정을 설정 하 고 Azure Maps Azure AD 테 넌 트를 등록 합니다. Azure Maps은 Azure 리소스에 대 한 관리 되는 id를 통해 개별 Azure AD 사용자, 그룹, 응용 프로그램, Azure 리소스 및 Azure 서비스에 대 한 읽기 액세스 제어를 지원 합니다. Azure Maps 포털 페이지에서 원하는 역할에 대 한 RBAC를 설정할 수 있습니다.
 
 ![Azure Maps 데이터 판독기(미리 보기)](./media/azure-maps-authentication/concept.png)
 
@@ -90,7 +87,7 @@ RBAC 설정을 보는 방법에 대한 내용은 [Azure Maps에 대한 RBAC 구�
 
 ## <a name="managed-identities-for-azure-resources-and-azure-maps"></a>Azure 리소스 및 Azure Maps에 대한 관리형 ID
 
-[Azure 리소스에 대한 관리형 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)는 Azure 서비스(Azure App Service, Azure Functions, Azure Virtual Machines 등)에 Azure Maps 서비스에 대한 액세스 권한을 부여할 수 있는 자동 관리형 ID를 제공합니다.  
+[Azure 리소스에 대 한 관리 되](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 는 id는 Azure Maps 서비스에 액세스할 수 있는 권한을 부여 받을 수 있는 자동으로 관리 되는 Id를 azure 서비스에 제공 합니다. 관리 id의 몇 가지 예에는 Azure App Service, Azure Functions 및 Azure Virtual Machines가 포함 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

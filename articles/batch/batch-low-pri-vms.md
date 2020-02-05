@@ -3,7 +3,7 @@ title: 경제적이며 우선 순위가 낮은 VM에서 워크로드 실행 - Az
 description: 우선 순위가 낮은 VM을 프로비전하여 Azure Batch 워크로드의 비용을 줄이는 방법을 알아봅니다.
 services: batch
 author: mscurrell
-manager: gwallace
+manager: evansma
 ms.assetid: dc6ba151-1718-468a-b455-2da549225ab2
 ms.service: batch
 ms.topic: article
@@ -11,12 +11,12 @@ ms.workload: na
 ms.date: 12/05/2019
 ms.author: markscu
 ms.custom: seodec18
-ms.openlocfilehash: 39d332a6d069a4e9fac8545f4d08a986c8984c9b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfd79bc9cfd8e897cdbb18127deaf8da4922ef3a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926283"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023721"
 ---
 # <a name="use-low-priority-vms-with-batch"></a>Batch에서 낮은 우선 순위 VM 사용
 

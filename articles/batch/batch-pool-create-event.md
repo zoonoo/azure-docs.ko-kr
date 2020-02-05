@@ -2,21 +2,21 @@
 title: Azure Batch 풀 만들기 이벤트
 description: 풀을 만든 후에 내보내는 Batch 풀 만들기 이벤트에 대 한 참조입니다. 로그의 내용은 풀에 대한 일반 정보를 노출합니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: cb109daee20300d4564ecd40c0a3c14de0f3de1c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: dea025b274278aa5fed2900c95b4a274541ffef9
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76929854"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022192"
 ---
 # <a name="pool-create-event"></a>풀 만들기 이벤트
 

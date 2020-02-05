@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 1c65a456270cdca345504c07b927a7ef7e1f725b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b631c068d1a444691345e054219208c4c8b0b8c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440290"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020049"
 ---
 # <a name="sink-transformation-in-mapping-data-flow"></a>데이터 흐름 매핑의 싱크 변환
 
@@ -52,6 +52,12 @@ Azure Data Factory는 [90 개의 기본 커넥터](connector-overview.md)에 액
 선택 변환과 마찬가지로 싱크의 **매핑** 탭에서 들어오는 열 중 어떤 열을 쓸지 결정할 수 있습니다. 기본적으로 데이터베이스가 드리프트 열을 포함 하 여 모든 입력 열이 매핑됩니다. 이를 **자동 매핑**이라고 합니다.
 
 자동 매핑을 해제할 때 고정 열 기반 매핑 또는 규칙 기반 매핑을 추가 하는 옵션이 제공 됩니다. 규칙 기반 매핑을 사용 하면 패턴 일치를 포함 하는 식을 작성할 수 있으며 고정 매핑은 논리적 및 물리적 열 이름을 매핑합니다. 규칙 기반 매핑에 대 한 자세한 내용은 [데이터 흐름 매핑의 열 패턴](concepts-data-flow-column-pattern.md#rule-based-mapping-in-select-and-sink)을 참조 하세요.
+
+## <a name="custom-sink-ordering"></a>사용자 지정 싱크 순서 지정
+
+기본적으로 데이터는 비결 정적 순서로 여러 싱크에 기록 됩니다. 변환 논리가 완료 되 고 싱크 순서가 각 실행 마다 다를 수 있으므로 실행 엔진은 데이터를 병렬로 작성 합니다. 싱크 순서를 정확 하 게 지정 하려면 데이터 흐름의 일반 탭에서 **사용자 지정 싱크 순서** 를 사용 하도록 설정 합니다. 사용 하도록 설정 하면 싱크는 오름차순으로 순차적으로 작성 됩니다.
+
+![사용자 지정 싱크 순서 지정](media/data-flow/custom-sink-ordering.png "사용자 지정 싱크 순서 지정")
 
 ## <a name="data-preview-in-sink"></a>싱크의 데이터 미리 보기
 

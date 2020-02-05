@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/17/2019
 ms.author: allensu
-ms.openlocfilehash: ffb9480508366b223e49f173df3dc76cb711116d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 5aa75de694d05ce31becc6996aca419dff256a3f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769181"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023551"
 ---
 # <a name="load-balancer-health-probes"></a>Load Balancer 상태 프로브
 
@@ -257,6 +257,6 @@ VM에 여러 인터페이스가 있는 경우 받은 인터페이스의 프로�
 ## <a name="next-steps"></a>다음 단계
 
 - [표준 Load Balancer](load-balancer-standard-overview.md)에 대해 자세히 알아봅니다.
-- [PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치 만들기 시작](load-balancer-get-started-internet-arm-ps.md)
+- [PowerShell을 사용하여 Resource Manager에서 공용 부하 분산 장치 만들기 시작](quickstart-create-standard-load-balancer-powershell.md)
 - [상태 프로브용 REST API](https://docs.microsoft.com/rest/api/load-balancer/loadbalancerprobes/)
 - [Load Balancer의 Uservoice](https://aka.ms/lbuservoice)를 사용하여 새 상태 프로브 기능 요청

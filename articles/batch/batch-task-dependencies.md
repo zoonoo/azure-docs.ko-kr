@@ -3,8 +3,8 @@ title: 작업을 실행할 태스크 종속성 만들기-Azure Batch
 description: Azure Batch에서 MapReduce 스타일과 비슷한 빅 데이터 워크로드를 처리하기 위해 다른 작업의 완료에 종속된 작업을 만듭니다.
 services: batch
 documentationcenter: .net
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 editor: ''
 ms.assetid: b8d12db5-ca30-4c7d-993a-a05af9257210
 ms.service: batch
@@ -12,14 +12,14 @@ ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 05/22/2017
-ms.author: jushiman
+ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 733c6e0fb178ed246ac77e0783225ddd642a5fed
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: ca771117e889afc8e143c4ca4626ab2d3bb4da2f
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76937778"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022905"
 ---
 # <a name="create-task-dependencies-to-run-tasks-that-depend-on-other-tasks"></a>작업 의존 관계를 만들어 다른 작업에 종속된 작업 실행
 

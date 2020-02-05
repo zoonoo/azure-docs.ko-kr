@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 12/09/2019
 ms.author: saudas
-ms.openlocfilehash: bba4196547bda3d3ddcf3344032de5b9286639a0
-ms.sourcegitcommit: d614a9fc1cc044ff8ba898297aad638858504efa
+ms.openlocfilehash: 8c144fb0c9818e21c2ca5bd61525067b485531bb
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74996751"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77026118"
 ---
 # <a name="supported-kubernetes-versions-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 지원되는 Kubernetes 버전
 
@@ -96,7 +96,7 @@ New Supported Version List
 * Kubernetes의 새 **부** 버전
   * 모든 사용자에 게는 새 버전을 공개적으로 알리고 제거 되는 버전이 표시 됩니다.
   * 새 패치 버전이 릴리스되면 가장 오래 된 패치 릴리스가 동시에 제거 됩니다.
-  * 고객은 공개 알림 날짜 로부터 **60 일 이내** 에 지원 되는 부 버전 릴리스로 업그레이드할 수 있습니다.
+  * 고객은 공개 알림 날짜 로부터 **30 일 이내** 에 지원 되는 부 버전 릴리스로 업그레이드할 수 있습니다.
 * Kubernetes의 새로운 **패치** 버전
   * 모든 사용자에 게 릴리스되는 새 패치 버전에 대 한 알림이 표시 되 고 최신 패치 릴리스로 업그레이드 됩니다.
   * 사용자는 **30 일 동안** 최신의 지원 되는 패치 릴리스로 업그레이드 합니다. 사용자는 **30 일** 후에 지원 되는 패치 릴리스로 업그레이드 한 후 가장 오래 된 것을 제거 합니다.
@@ -139,7 +139,7 @@ az aks get-versions --location eastus --output table
 
 **고객이 지원되지 않는 부 버전을 사용하여 Kubernetes 클러스터를 업그레이드하면 어떻게 되나요?**
 
-*N-3* 버전을 사용할 경우 지원 센터에 있지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-3에서 n-2로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 다음은 그 예입니다.
+*N-3* 버전을 사용할 경우 지원 센터에 있지 않으며 업그레이드 하 라는 메시지가 표시 됩니다. 버전 n-3에서 n-2로 업그레이드 하는 경우 이제 지원 정책에 포함 됩니다. 예:
 
 - 가장 오래 된 지원 되는 AKS 버전은 *1.13입니다. a* 와 사용자는 *1.12. b* 이상에서는 지원 되지 않습니다.
 - *1.12. b* 에서 *1.13.* 이상으로 업그레이드 하는 경우 지원 정책 내에서로 돌아갑니다.

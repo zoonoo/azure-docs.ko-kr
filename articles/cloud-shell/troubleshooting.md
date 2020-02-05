@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/24/2018
 ms.author: damaerte
-ms.openlocfilehash: 5af73e166f3caa4997851ae4b17d8377550bf40a
-ms.sourcegitcommit: 39da2d9675c3a2ac54ddc164da4568cf341ddecf
+ms.openlocfilehash: db1e2d09c1a75401a8ca24859e9b2d5da9f54b72
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73961545"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024282"
 ---
 # <a name="troubleshooting--limitations-of-azure-cloud-shell"></a>Azure Cloud Shell의 문제 해결 및 제한 사항
 
@@ -36,8 +36,8 @@ Azure Cloud Shell의 문제 해결에 대해 알려진 해결 방법은 다음�
 
 ### <a name="disabling-cloud-shell-in-a-locked-down-network-environment"></a>잠긴 네트워크 환경에서 Cloud Shell을 사용하지 않도록 설정
 
-- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 거부 될 수 있는 `ux.console.azure.com` 도메인에 대 한 액세스를 활용 하 고, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 비롯 한 Cloud Shell의 진입점에 대 한 액세스를 중지 합니다.
-- **해결 방법**: 사용자 환경에 대한 네트워크 설정을 통해 `ux.console.azure.com`에 대한 액세스를 제한합니다. Cloud Shell 아이콘은 portal.azure.com에 여전히 존재하지만 서비스에 성공적으로 연결되지 않습니다.
+- **세부 정보**: 관리자가 사용자를 위해 Cloud Shell에 대한 액세스를 사용하지 않도록 설정할 수 있습니다. Cloud Shell는 거부 될 수 있는 `ux.console.azure.com` 도메인에 대 한 액세스를 활용 하 고, portal.azure.com, shell.azure.com, Visual Studio Code Azure 계정 확장 및 docs.microsoft.com를 비롯 한 Cloud Shell의 진입점에 대 한 액세스를 중지 합니다. 미국 정부 클라우드에서는 entrypoint가 `ux.console.azure.us`됩니다. 해당 하는 shell.azure.us 없습니다.
+- **해결**방법: 네트워크 설정을 통해 사용자 환경으로 `ux.console.azure.com` 또는 `ux.console.azure.us`에 대 한 액세스를 제한 합니다. Cloud Shell 아이콘은 계속 Azure Portal에 있지만 서비스에 성공적으로 연결 되지 않습니다.
 
 ### <a name="storage-dialog---error-403-requestdisallowedbypolicy"></a>스토리지 대화 상자 - 오류: 403 RequestDisallowedByPolicy
 
@@ -99,7 +99,7 @@ Cloud Shell 세션을 제공하는 컴퓨터는 일시적이며 세션이 20분 
 
 - 탑재된 스토리지에서 `clouddrive` 디렉터리 내 수정 사항만 유지됩니다. Bash에서 `$HOME` 디렉터리도 유지됩니다.
 - Azure 파일 공유는 [할당된 지역](persisting-shell-storage.md#mount-a-new-clouddrive) 내에서만 탑재될 수 있습니다.
-  - Bash에서 `env`로 설정된 해당 지역을 찾으려면 `ACC_LOCATION`을 실행합니다.
+  - Bash에서 `ACC_LOCATION`로 설정된 해당 지역을 찾으려면 `env`을 실행합니다.
 - Azure 파일은 로컬 중복 스토리지 및 지역 중복 스토리지 계정만 지원합니다.
 
 ### <a name="browser-support"></a>브라우저 지원

@@ -13,16 +13,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 08/28/2019
+ms.date: 02/03/2020
 ms.author: twhitney
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: ecc55c0d41f552d2c29fe5c964a7c40ab9e382ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701385"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022633"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
 
@@ -71,7 +71,9 @@ Microsoft id 플랫폼에서 토큰을 공유할 수 있는 응용 프로그램�
 
 Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예:
 
-App1 리디렉션 uri: `msauth.com.contoso.mytestapp1://auth` App2 Redirect uri: `msauth.com.contoso.mytestapp2://auth` App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`
+App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`  
+App2 리디렉션 URI: `msauth.com.contoso.mytestapp2://auth`  
+App3 리디렉션 URI: `msauth.com.contoso.mytestapp3://auth`  
 
 > [!IMPORTANT]
 > 리디렉션 uri의 형식은 msal 지원 형식과 호환 되어야 합니다 .이 형식은 [Msal 리디렉션 URI 형식 요구 사항](redirect-uris-ios.md#msal-redirect-uri-format-requirements)에 설명 되어 있습니다.
@@ -96,6 +98,18 @@ App1 리디렉션 uri: `msauth.com.contoso.mytestapp1://auth` App2 Redirect uri:
 </plist>
 ```
 
+#### <a name="add-a-new-keychain-group"></a>새 키 집합 그룹 추가
+
+프로젝트 **기능**에 새 키 집합 그룹을 추가 합니다. 키 집합 그룹은 다음과 같아야 합니다.
+* iOS의 `com.microsoft.adalcache` 
+* macOS에서 `com.microsoft.identity.universalstorage` 합니다.
+
+![키 집합 예제](media/single-sign-on-macos-ios/keychain-example.png)
+
+자세한 내용은 키 [집합 그룹](howto-v2-keychain-objc.md)을 참조 하세요.
+
+## <a name="configure-the-application-object"></a>응용 프로그램 개체 구성
+
 각 응용 프로그램에서 키 집합 자격을 사용 하도록 설정 하 고 SSO를 사용할 준비가 되 면 다음 예제와 같이 키 집합 액세스 그룹을 사용 하 여 `MSALPublicClientApplication`를 구성 합니다.
 
 Objective-C:
@@ -113,16 +127,14 @@ Swift:
 ```swift
 let config = MSALPublicClientApplicationConfig(clientId: "<my-client-id>")
 config.cacheConfig.keychainSharingGroup = "my.keychain.group"
-        
+
 do {
-    let application = try MSALPublicClientApplication(configuration: config)
-  // continue on with application          
+   let application = try MSALPublicClientApplication(configuration: config)
+  // continue on with application
 } catch let error as NSError {
   // handle error here
-}       
+}
 ```
-
-
 
 > [!WARNING]
 > 응용 프로그램 전체에서 키 집합을 공유 하는 경우 모든 응용 프로그램은 사용자 또는 응용 프로그램 전체에서 모든 토큰을 삭제할 수 있습니다.
@@ -206,7 +218,7 @@ func scene(_ scene: UIScene, openURLContexts URLContexts: Set<UIOpenURLContext>)
         MSALPublicClientApplication.handleMSALResponse(url, sourceApplication: sourceApp)
     }
 ```
-    
+
 ## <a name="next-steps"></a>다음 단계
 
 [인증 흐름 및 애플리케이션 시나리오](authentication-flows-app-scenarios.md)에 대해 알아보기

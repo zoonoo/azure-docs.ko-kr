@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용 하 여 SQL Server 백업
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 SQL Server 데이터베이스를 백업 하기 위한 구성 단계를 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: d5e0c49e2cad77e42960fafec9311b31d4cf2601
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 461faa2c88b8db9c1e3b2f9af19783b7d6b7fa07
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172674"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024010"
 ---
 # <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
 
@@ -101,7 +101,7 @@ Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베�
 14. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로** 또는 **오프라인 Backup**을 선택할 수 있습니다.
 
     * **네트워크를 통해 자동으로** 는 백업에 선택한 일정에 따라 Azure에 백업 데이터를 전송합니다.
-    * **오프 라인 Backup** 이 작동하는 방법을 [Azure Backup에서 오프라인 Backup 워크플로](backup-azure-backup-import-export.md)에서 설명합니다.
+    * 오프 라인 백업 [에 대 한 개요](offline-backup-overview.md)에서 **오프 라인 백업** 작동 방식을 설명 합니다.
 
     관련 전송 메커니즘을 선택하여 초기 백업 복사본을 Azure로 보내고 **다음**을 클릭합니다.
 15. **요약** 화면에서 정책 세부 정보를 검토하면 **그룹 만들기** 단추를 클릭하여 워크플로를 완료합니다. **닫기** 단추를 클릭하고 작업 영역 모니터링에서 작업 진행 상태를 모니터링합니다.

@@ -9,12 +9,13 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: cd2e34be7ef55c4ee6d18c6db6010134a7d935d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.custom: fasttrack-edit
+ms.openlocfilehash: 1c2bac06f2526260fb290b63e5aa559a1e2337b4
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76895948"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77020627"
 ---
 # <a name="how-to-index-documents-in-azure-blob-storage-with-azure-cognitive-search"></a>Azure Cognitive Search를 사용 하 여 Azure Blob Storage에서 문서를 인덱싱하는 방법
 
@@ -136,7 +137,7 @@ Blob 컨테이너에 대한 자격 증명을 제공하는 방법은 다음 중 �
 > [!NOTE]
 > Azure Cognitive Search는 가격 책정 계층에 따라 추출 되는 텍스트의 양을 제한 합니다. 무료 계층의 경우 32000 자, 400만 Basic의 경우 64000, standard S2의 경우 800만, 표준 S3의 경우 1600만입니다. 잘린 문서의 인덱서 상태 응답에는 경고가 포함되어 있습니다.  
 
-* BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우).
+* BLOB에 있는 사용자 지정 메타데이터 속성은 그대로 추출됩니다(있는 경우). 이렇게 하려면 blob의 메타 데이터 키와 동일한 이름의 인덱스에 필드가 정의 되어 있어야 합니다. 예를 들어 blob의 메타 데이터 키가 값 `High`인 `Sensitivity` 경우 검색 인덱스에 `Sensitivity` 이라는 필드를 정의 해야 하며 `High`값으로 채워집니다.
 * 표준 BLOB 메타데이터 속성이 다음 필드로 추출됩니다.
 
   * **metadata\_storage\_name**(Edm.String) - BLOB의 파일 이름. 예를 들어 blob /my-container/my-folder/subfolder/resume.pdf를 포함하는 경우 이 필드의 값은 `resume.pdf`입니다.

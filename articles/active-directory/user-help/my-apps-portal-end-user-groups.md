@@ -2,22 +2,22 @@
 title: 내 앱 포털에서 그룹 정보 업데이트-Azure AD
 description: 소유 하 고 있는 그룹을 보고, 새 그룹을 만들고, 이미 구성원 인 그룹을 보고, 이미 속해 있지 않은 그룹을 조인 하는 등 그룹 관련 정보를 보고 업데이트 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 3/21/2019
-ms.author: lizross
+ms.date: 02/03/2020
+ms.author: curtand
 ms.reviewer: kasimpso
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: de7fa1952b2e23276a9f088f5840e54675b44d01
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 00639462fce4e67561b8e50609264d4423872c82
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704955"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022299"
 ---
 # <a name="update-your-groups-info-on-the-my-apps-portal"></a>내 앱 포털에서 그룹 정보 업데이트
 
@@ -98,8 +98,6 @@ ms.locfileid: "76704955"
 
 그룹을 만든 후에는 기존 정보를 업데이트 하는 등의 세부 정보를 편집할 수 있습니다.
 
-### <a name="to-edit-your-details"></a>세부 정보를 편집 하려면
-
 1. **그룹** 페이지에서 편집할 그룹을 선택한 다음 *&lt;group_name&gt;* 페이지에서 **세부 정보 편집** 을 선택 합니다.
 
     **세부 정보 편집** 상자가 나타나고 처음 그룹을 만들 때 추가한 정보를 업데이트할 수 있습니다.
@@ -108,9 +106,7 @@ ms.locfileid: "76704955"
 
 ## <a name="add-or-remove-a-member"></a>구성원 추가 또는 제거
 
-그룹에 대 한 구성원을 추가 하거나 제거할 수 있습니다.
-
-### <a name="to-add-or-remove-a-member"></a>멤버를 추가 하거나 제거 하려면
+소유 하 고 있는 그룹의 구성원을 추가 하거나 제거할 수 있습니다.
 
 1. 멤버를 추가 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서 **+** 를 선택 합니다.
 
@@ -130,8 +126,6 @@ ms.locfileid: "76704955"
 
 조직에서 허용 하는 경우 Office 365 그룹을 갱신 하 여 만료 날짜를 연장할 수 있습니다.
 
-### <a name="to-renew-a-group"></a>그룹을 갱신 하려면
-
 1. 갱신 하려는 Office 365 그룹을 선택 하 고 **그룹 갱신**을 선택 합니다.
 
     ![Office 365 그룹 갱신, 만료 날짜 연장](media/my-apps-portal/my-apps-portal-renew-group-link.png)
@@ -144,8 +138,6 @@ ms.locfileid: "76704955"
 
 언제 든 지 사용자 자신의 그룹을 삭제할 수 있습니다. 그러나 그룹을 실수로 삭제 하는 경우에는 그룹을 만들고 멤버를 다시 추가 해야 합니다.
 
-### <a name="to-delete-the-group"></a>그룹을 삭제 하려면
-
 1. 영구적으로 삭제 하려는 그룹을 선택 하 고 *&lt;group_name&gt;* 페이지에서 **그룹 삭제** 를 선택 합니다.
 
     ![그룹 삭제 링크가 강조 표시 된 Group_name > 페이지 <](media/my-apps-portal/my-apps-portal-delete-group-link.png)
@@ -156,9 +148,7 @@ ms.locfileid: "76704955"
 
 ## <a name="join-an-existing-group"></a>기존 그룹에 가입
 
-**그룹** 페이지에서 이미 존재 하는 그룹을 조인할 수 있습니다.
-
-### <a name="to-join-or-leave-a-group"></a>그룹에 참가 하거나 그룹을 탈퇴 하려면
+**그룹** 페이지에서 기존 그룹에 가입 하거나 기존 그룹을 벗어날 수 있습니다.
 
 1. **그룹** 페이지의 **내가 속한 그룹** 에서 **조인 그룹** 을 선택 합니다.
 
@@ -172,7 +162,7 @@ ms.locfileid: "76704955"
 
 3. 그룹을 실수로 조인 했거나 더 이상 포함 하지 않아도 되는 경우 그룹 **가입** 페이지에서 그룹 이름을 선택 하 고 **그룹 나가기**를 선택할 수 있습니다.
 
-    ![그룹 나가기 단추가 강조 표시 된 조인 그룹 페이지](media/my-apps-portal/my-apps-portal-leave-group-link.png)    
+    ![그룹 나가기 단추가 강조 표시 된 조인 그룹 페이지](media/my-apps-portal/my-apps-portal-leave-group-link.png)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/31/2020
-ms.openlocfilehash: 95892bba1b3152dda718a4af3c5f45072054fdae
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f7198aeff5e9ef6d37e29c2336dc38e4eec0dda1
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935498"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023976"
 ---
 # <a name="migrate-hdinsight-cluster-to-a-newer-version"></a>HDInsight 클러스터를 최신 버전으로 마이그레이션
 
@@ -45,9 +45,9 @@ HDInsight 클러스터를 업그레이드하는 워크플로는 다음과 같습
 
 다음 문서에서는 특정 워크 로드를 마이그레이션하는 방법에 대 한 지침을 제공 합니다.
 
-* [HBase 마이그레이션](/hbase/apache-hbase-migrate-new-version.md)
-* [Kafka 마이그레이션](/kafka/migrate-versions.md)
-* [Hive/대화형 쿼리 마이그레이션](/interactive-query/apache-hive-migrate-workloads.md)
+* [HBase 마이그레이션](./hbase/apache-hbase-migrate-new-version.md)
+* [Kafka 마이그레이션](./kafka/migrate-versions.md)
+* [Hive/대화형 쿼리 마이그레이션](./interactive-query/apache-hive-migrate-workloads.md)
 
 ## <a name="backup-and-restore"></a>Backup 및 복원
 

@@ -14,12 +14,12 @@ ms.author: mimart
 ms.reviewer: japere
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 18510bd7ace6ca87278b5bf68f79b372251ac0e1
-ms.sourcegitcommit: 47ce9ac1eb1561810b8e4242c45127f7b4a4aa1a
+ms.openlocfilehash: b0259a8d9fcb4c9c513ab2c31103c9a8488e90ae
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/11/2019
-ms.locfileid: "67807818"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025744"
 ---
 # <a name="password-vaulting-for-single-sign-on-with-application-proxy"></a>애플리케이션 프록시를 사용하여 Single Sign-On에 대한 암호 자격 증명 모음 설정
 
@@ -34,16 +34,29 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 1. 관리자로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Azure Active Directory** > **Enterprise 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 1. 목록에서 SSO로 설정할 앱을 선택합니다.  
+1. **애플리케이션 프록시**를 선택합니다. 
+1. **사전 인증 유형** 을 **통과** 로 변경 하 고 **저장**을 선택 합니다. 나중에 다시 **Azure Active Directory** 형식으로 다시 전환할 수 있습니다. 
 1. **Single Sign-On**을 선택합니다.
 
-   ![앱의 개요 페이지에서 Single sign-on 선택](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
+   ![앱의 개요 페이지에서 Single sign-on을 선택 합니다.](./media/application-proxy-configure-single-sign-on-password-vaulting/select-sso.png)
 
 1. SSO 모드에 대해 **암호 기반 로그온**을 선택합니다.
 1. 로그온 URL에 대해 사용자가 회사 네트워크 외부에서 앱에 로그인하기 위해 사용자 이름과 암호를 입력하는 페이지에 대한 URL을 입력합니다. 이 URL은 애플리케이션 프록시를 통해 앱을 게시할 때 만든 외부 URL일 수 있습니다.
 
    ![암호 기반 로그온 선택 및 URL 입력](./media/application-proxy-configure-single-sign-on-password-vaulting/password-sso.png)
 
-1.           **저장**을 선택합니다.
+1. **저장**을 선택합니다.
+1. **애플리케이션 프록시**를 선택합니다. 
+1. **사전 인증 유형** 을 **Azure Active Directory** 로 변경 하 고 **저장**을 선택 합니다. 
+1. **사용자 및 그룹**을 선택합니다.
+1. **사용자 추가**를 선택 하 여 응용 프로그램에 사용자를 할당 합니다. 
+1. 사용자에 대 한 자격 증명을 미리 정의 하려면 사용자 이름 앞의 확인란을 선택 하 고 **자격 증명 업데이트**를 선택 합니다.
+1. **모든 응용 프로그램** > **앱 등록** **Azure Active Directory** > 를 선택 합니다.
+1. 목록에서 암호 SSO로 구성한 앱을 선택 합니다.
+1. **브랜딩**을 선택합니다. 
+1. 암호 SSO 페이지에서 로그온 **url** 을 사용 하 여 **홈 페이지 url** 을 업데이트 하 고 **저장**을 선택 합니다.  
+
+
 
 <!-- Need to repro?
 7. The page should tell you that a sign-in form was successfully detected at the provided URL. If it doesn't, select **Configure [your app name] Password Single Sign-on Settings** and choose **Manually detect sign-in fields**. Follow the instructions to point out where the sign-in credentials go. 
@@ -51,7 +64,7 @@ Azure Active Directory 애플리케이션 프록시는 원격 직원들이 안�
 
 ## <a name="test-your-app"></a>앱 테스트
 
-애플리케이션에 원격으로 액세스하도록 구성된 외부 URL로 이동합니다. 해당 앱에 대한 자격 증명(또는 액세스 권한으로 설정한 테스트 계정에 대한 자격 증명)으로 로그인합니다. 로그인한 후에는 자격 증명을 다시 입력하지 않아도 앱에서 나갔다가 다시 돌아올 수 있습니다.
+내 앱 포털로 이동 합니다. 자격 증명 (또는 액세스 권한으로 설정한 테스트 계정에 대 한 자격 증명)으로 로그인 합니다. 성공적으로 로그인 하면 앱의 아이콘을 클릭 합니다. 이 경우 My Apps 보안 로그인 브라우저 확장의 설치가 트리거될 수 있습니다. 사용자가 자격 증명을 미리 정의 했다면 앱에 대 한 인증이 자동으로 수행 됩니다. 그렇지 않으면 사용자 이름 또는 암호를 처음으로 지정 해야 합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

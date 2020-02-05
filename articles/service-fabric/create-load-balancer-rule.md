@@ -3,12 +3,12 @@ title: 클러스터에 대한 Azure Load Balancer 규칙 만들기
 description: Azure Service Fabric 클러스터에 대한 포트를 열도록 Azure Load Balancer를 구성합니다.
 ms.topic: conceptual
 ms.date: 12/06/2017
-ms.openlocfilehash: 5cc392a74b8cf5ef92be8b5783b5b70289e602af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f4599b2e0174381ab7df04aeeb33db7e3ee60f26
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75351474"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025387"
 ---
 # <a name="open-ports-for-a-service-fabric-cluster"></a>Service Fabric 클러스터에 대한 포트 열기
 
@@ -60,7 +60,7 @@ Azure CLI 명령에는 다음 표에 설명되어 있는 몇 가지 매개 변�
 
 
 >[!NOTE]
->Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-cli.md)를 참조하세요.
+>Azure CLI를 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [Azure CLI를 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-cli.md)를 참조하세요.
 
 ## <a name="powershell"></a>PowerShell
 
@@ -96,7 +96,7 @@ $lb | Set-AzLoadBalancer
 `New-AzLoadBalancerRuleConfig` 명령과 관련해서 `-FrontendPort`는 부하 분산 장치가 외부 연결을 위해 노출하는 포트이고 `-BackendPort`는 Service Fabric 앱이 수신 대기하는 포트입니다.
 
 >[!NOTE]
->PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-internet-arm-ps.md)를 참조하세요.
+>PowerShell을 사용하여 부하 분산 장치를 만드는 방법에 대한 자세한 내용은 [PowerShell을 사용하여 부하 분산 장치 만들기](../load-balancer/load-balancer-get-started-ilb-arm-ps.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/19/2019
 ms.author: allensu
-ms.openlocfilehash: ddccd02e7157792d942309ae4f74933322f246f9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 5c50186692438be5d0922cd329c28e665310e5c2
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74225368"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023534"
 ---
 # <a name="configure-the-distribution-mode-for-azure-load-balancer"></a>Azure Load Balancer의 배포 모드 구성
 
@@ -59,14 +59,14 @@ Azure Load Balancer의 기본 배포 모드는 5 튜플 해시입니다.
 
 ## <a name="configure-source-ip-affinity-settings"></a>원본 IP 선호도 설정 구성
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure Portal
 
 포털에서 부하 분산 규칙을 수정 하 여 배포 모드의 구성을 변경할 수 있습니다.
 
 1. Azure Portal에 로그인 하 고 **리소스 그룹**을 클릭 하 여 변경 하려는 부하 분산 장치를 포함 하는 리소스 그룹을 찾습니다.
 2. 부하 분산 장치 개요 화면에서 **설정**아래의 **부하 분산 규칙** 을 클릭 합니다.
 3. 부하 분산 규칙 화면에서 배포 모드를 변경 하려는 부하 분산 규칙을 클릭 합니다.
-4. 규칙 아래에서 **세션 지 속성** 드롭다운 상자를 변경 하 여 배포 모드를 변경 합니다.  사용할 수 있는 옵션은 다음과 같습니다.
+4. 규칙 아래에서 **세션 지 속성** 드롭다운 상자를 변경 하 여 배포 모드를 변경 합니다.  다음 옵션을 사용할 수 있습니다.
     
     * **없음 (해시 기반)** -동일한 클라이언트의 후속 요청이 가상 머신에서 처리 될 수 있도록 지정 합니다.
     * **클라이언트 ip (원본 ip 선호도 2-튜플)** -동일한 클라이언트 ip 주소의 연속 요청을 동일한 가상 컴퓨터에서 처리 하도록 지정 합니다.
@@ -194,5 +194,5 @@ Azure 클래식 배포 모델을 사용하여 기존 배포 구성을 변경하�
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Internal Load Balancer 개요](load-balancer-internal-overview.md)
-* [인터넷 연결 부하 분산 장치 구성 시작](load-balancer-get-started-internet-arm-ps.md)
+* [인터넷 연결 부하 분산 장치 구성 시작](quickstart-create-standard-load-balancer-powershell.md)
 * [부하 분산 장치에 대한 유휴 TCP 시간 제한 설정 구성](load-balancer-tcp-idle-timeout.md)

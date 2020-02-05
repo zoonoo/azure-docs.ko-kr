@@ -2,21 +2,21 @@
 title: Azure Batch 작업 시작 이벤트
 description: Batch 태스크 시작 이벤트에 대 한 참조 정보입니다. 이 이벤트는 Scheduler가 컴퓨팅 노드에서 태스크를 시작하도록 예약하면 내보내집니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.topic: article
 ms.tgt_pltfrm: ''
 ms.workload: big-compute
 ms.date: 04/20/2017
-ms.author: jushiman
-ms.openlocfilehash: 517a5c58bc1de7dd6ffa4dfd39d09f4b6b4fac1a
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: labrenne
+ms.openlocfilehash: bed3749e29867298f3e8258a08448b7b094055ec
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939058"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022820"
 ---
 # <a name="task-start-event"></a>태스크 시작 이벤트
 

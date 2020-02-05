@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/29/2020
-ms.openlocfilehash: d43b580f60f5ae8d2782cf9762b02aa1360e5a40
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 57e560c52c9a8f10586c31231bcc9d6acc667558
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901211"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77019539"
 ---
 # <a name="collect-log-data-with-the-log-analytics-agent"></a>Log Analytics 에이전트를 사용 하 여 로그 데이터 수집
 
@@ -106,7 +106,6 @@ Azure Monitor 로그로 전송 중인 데이터의 보안을 보장 하려면 TL
 
 |에이전트 리소스|포트 |Direction |HTTPS 검사 무시|
 |------|---------|--------|--------|   
-|OMS *. azure .com |포트 443 |아웃바운드 |예 |
 |*.ods.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |*.oms.opinsights.azure.com |포트 443 |아웃바운드|예 |  
 |\*.blob.core.windows.net |포트 443 |아웃바운드|예 |  

@@ -8,14 +8,19 @@ author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: a9817205a419e2b61af66dba16d09620e2c1dec9
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 2bac317d6a3a5c6895a3cea4dae22694b603cabf
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310869"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024027"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
+
+## <a name="active-issues"></a>활성 문제
+
+* ASP.NET Core 3.x 응용 프로그램에 대 한 프로 파일링은 아직 지원 되지 않습니다.
+  * 에서 Profiler를 사용 해야 하는 경우에는 [ASP.NET Core에 대해 Application Insights Profiler](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore)를 사용 하는 것이 해결 방법입니다. 프로파일러는 Linux 용으로 레이블이 지정 되어 있지만 Windows의 .NET Core 3.0 + 응용 프로그램 에서도 작동 합니다. 자세한 내용은 [지원 되는 버전](https://github.com/microsoft/ApplicationInsights-Profiler-AspNetCore#supported-versions)을 참조 하세요.
 
 ## <a id="troubleshooting"></a>일반적인 문제 해결
 

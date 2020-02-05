@@ -2,21 +2,21 @@
 title: Azure Application Insights로 Batch 모니터링 | Microsoft Docs
 description: Azure Application Insights 라이브러리를 사용하여 Azure Batch .NET 애플리케이션을 계측하는 방법을 알아봅니다.
 services: batch
-author: ju-shim
-manager: gwallace
+author: LauraBrenner
+manager: evansma
 ms.assetid: ''
 ms.service: batch
 ms.devlang: .NET
 ms.topic: article
 ms.workload: na
 ms.date: 04/05/2018
-ms.author: jushiman
-ms.openlocfilehash: c69ef0bf20e2ade15d2278d0fc2fabd75f39153b
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.author: labrenne
+ms.openlocfilehash: b1f4fb0207d4f659861dbd3fdfd1b2d502409935
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029507"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022463"
 ---
 # <a name="monitor-and-debug-an-azure-batch-net-application-with-application-insights"></a>Application Insights를 사용하여 Azure Batch .NET 애플리케이션 모니터링 및 디버깅
 

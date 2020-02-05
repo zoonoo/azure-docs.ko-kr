@@ -8,12 +8,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/12/2019
-ms.openlocfilehash: 7a438a52ab69810ecf49319c148f817da974ea61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 128b15bd5b3ba3c3ac891719bf5c3ec8e5137cce
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75440211"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023517"
 ---
 # <a name="source-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 원본 변환 
 
@@ -44,6 +44,8 @@ Azure Data Factory는 [90 개의 기본 커넥터](connector-overview.md)에 액
 
 ![원본 설정 탭](media/data-flow/source1.png "원본 설정 탭")
 
+**연결 테스트:** 데이터 흐름의 spark 서비스가 원본 데이터 집합에 사용 된 연결 된 서비스에 성공적으로 연결 될 수 있는지 여부를 테스트 합니다. 이 기능을 사용 하려면 디버그 모드가 on 이어야 합니다.
+
 **스키마 드리프트:** [스키마 드리프트](concepts-data-flow-schema-drift.md) 는 열 변경 내용을 명시적으로 정의할 필요 없이 데이터 흐름에서 유연한 스키마를 고유 하 게 처리 하는 data factory의 기능입니다.
 
 * 원본 열이 자주 변경 되는 경우에는 **스키마 드리프트 허용** 확인란을 선택 합니다. 이 설정을 사용 하면 들어오는 모든 원본 필드가 싱크로 변환을 통과할 수 있습니다.
@@ -69,13 +71,17 @@ Azure Data Factory는 [90 개의 기본 커넥터](connector-overview.md)에 액
 
 ![투영 탭의 설정](media/data-flow/source3.png "도법")
 
-텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다. 
+텍스트 파일에 정의 된 스키마가 없는 경우 데이터 형식 **검색** 을 선택 하 여 Data Factory에서 데이터 형식을 샘플링 하 고 유추 하도록 합니다. 기본 데이터 형식을 자동으로 검색 하려면 **기본 형식 정의** 를 선택 합니다.
+
+**스키마 다시 설정** 은 투영을 참조 된 데이터 집합에 정의 된 것으로 다시 설정 합니다.
 
 하위 스트림 파생 열 변환에서 열 데이터 형식을 수정할 수 있습니다. 열 이름을 수정 하려면 선택 변환을 사용 합니다.
 
 ### <a name="import-schema"></a>스키마 가져오기
 
-복합 데이터 구조를 지 원하는 Avro 및 CosmosDB와 같은 데이터 집합은 스키마 정의가 데이터 집합에 존재 하지 않아도 됩니다. 따라서 이러한 형식의 원본에 대해 **프로젝션** 탭에서 **스키마 가져오기** 단추를 클릭할 수 있습니다.
+**투영** 탭의 **스키마 가져오기** 단추를 사용 하면 활성 디버그 클러스터를 사용 하 여 스키마 프로젝션을 만들 수 있습니다. 모든 원본 형식에서 사용할 수 있습니다. 여기에서 스키마를 가져오면 데이터 집합에 정의 된 프로젝션이 재정의 됩니다. Dataset 개체는 변경 되지 않습니다.
+
+이는 데이터 집합에 스키마 정의가 존재 하지 않아도 되는 Avro 및 CosmosDB와 같은 데이터 집합에 유용 합니다.
 
 ## <a name="optimize-the-source-transformation"></a>원본 변환 최적화
 

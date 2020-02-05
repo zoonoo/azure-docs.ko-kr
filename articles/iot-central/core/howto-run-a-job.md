@@ -8,12 +8,12 @@ ms.author: sahubbar
 ms.date: 07/08/2019
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 114946fa37ae161aeb2efd5b7cd50444c5df4c2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 68d4dbff364f8d3fda72fc2377722031e9cccc3d
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906717"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77018893"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -38,7 +38,9 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
     ![작업 구성](./media/howto-run-a-job/configurejob.png)
 
-6. 장치를 선택한 후 **실행** 또는 **저장**을 선택 합니다. 이제 작업이 기본 **작업** 페이지에 표시 됩니다. 이 보기에서 현재 실행 중인 작업과 이전에 실행 된 작업의 기록을 볼 수 있습니다. 실행 중인 작업은 항상 목록의 맨 위에 표시 됩니다. 언제 든 지 저장 된 작업을 열어 편집 또는 실행을 계속할 수 있습니다.
+6. 오른쪽에서 작업을 실행 하려는 장치를 선택 합니다. 위쪽 확인란을 선택 하면 모든 장치가 전체 장치 집합에서 선택 됩니다. **이름**옆에 있는 확인란을 선택 하 여 현재 페이지의 모든 장치를 선택 합니다.
+
+7. 장치를 선택한 후 **실행** 또는 **저장**을 선택 합니다. 이제 작업이 기본 **작업** 페이지에 표시 됩니다. 이 보기에서 현재 실행 중인 작업과 이전에 실행 된 작업의 기록을 볼 수 있습니다. 실행 중인 작업은 항상 목록의 맨 위에 표시 됩니다. 언제 든 지 저장 된 작업을 열어 편집 또는 실행을 계속할 수 있습니다.
 
     ![작업 보기](./media/howto-run-a-job/viewjob.png)
 
@@ -103,6 +105,5 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 Azure IoT Central 응용 프로그램에서 작업을 만드는 방법을 배웠으므로 이제 다음 단계를 수행 합니다.
 
-- [디바이스 설정 사용](howto-use-device-sets.md)
 - [디바이스 관리](howto-manage-devices.md)
 - [디바이스 템플릿 버전 관리](howto-version-device-template.md)

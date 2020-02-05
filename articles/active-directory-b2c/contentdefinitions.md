@@ -10,12 +10,12 @@ ms.topic: reference
 ms.date: 09/10/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1ce564767fe9664604687d8cbaced58507e6b8b3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 50e17fae88f16d7579997b3b356638777ec3163a
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76119655"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77014286"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -146,11 +146,11 @@ ms.locfileid: "76119655"
 | **api.error** | [exception.cshtml](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지** - 예외 또는 오류가 발생할 때 오류 페이지를 표시합니다. |
 | **api.idpselections** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **ID 공급자 선택 페이지** - 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |
 | **api.idpselections.signup** | [idpSelector.cshtml](https://login.microsoftonline.com/static/tenant/default/idpSelector.cshtml) | **등록에 대한 ID 공급자 선택 페이지** -등록 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다. 이러한 옵션은 일반적으로 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정입니다. |
-| **api.localaccountpasswordreset** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **암호를 잊으셨나요? 페이지** - 사용자가 암호 재설정을 시작하기 위해 완성해야 하는 양식을 표시합니다. |
-| **api.localaccountsignin** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **로컬 계정 로그인 페이지** - 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정으로 로그인하기 위한 양식을 표시합니다. 양식에는 텍스트 입력 상자 및 암호 입력란이 포함될 수 있습니다. |
-| **api.localaccountsignup** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **로컬 계정 회원가입 페이지** - 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정에 대한 등록 양식을 표시합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. |
+| **api.localaccountpasswordreset** | [selfasserted](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **암호를 잊으셨나요? 페이지** - 사용자가 암호 재설정을 시작하기 위해 완성해야 하는 양식을 표시합니다. |
+| **api.localaccountsignin** | [selfasserted](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **로컬 계정 로그인 페이지** - 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정으로 로그인하기 위한 양식을 표시합니다. 양식에는 텍스트 입력 상자 및 암호 입력란이 포함될 수 있습니다. |
+| **api.localaccountsignup** | [selfasserted](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **로컬 계정 회원가입 페이지** - 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정에 대한 등록 양식을 표시합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. |
 | **api.phonefactor** | [multifactor-1.0.0.cshtml](https://login.microsoftonline.com/static/tenant/default/multifactor-1.0.0.cshtml) | **다단계 인증 페이지** - 등록 또는 로그인 중에 텍스트 또는 음성을 사용하여 전화 번호를 확인합니다. |
-| **api.selfasserted** | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **소셜 계정 등록 페이지** - 사용자가 소셜 ID 공급자의 기존 계정을 사용하여 등록할 때 완성해야 하는 양식을 표시합니다. 암호 입력 필드를 제외하고는 위의 소셜 계정 등록 페이지와 비슷합니다. |
-| **api.selfasserted.profileupdate** | [updateprofile.html](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **프로필 업데이트 페이지** - 사용자가 자신의 프로필을 업데이트하기 위해 액세스할 수 있는 양식을 표시합니다. 암호 입력 필드를 제외하고는 소셜 계정 등록 페이지와 비슷합니다. |
-| **api.signuporsignin** | [unified.html](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **통합 등록 또는 로그인 페이지** - 사용자 등록 및 로그인 프로세스를 처리합니다. 사용자는 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정을 사용할 수 있습니다. |
+| **api.selfasserted** | [selfasserted](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) | **소셜 계정 등록 페이지** - 사용자가 소셜 ID 공급자의 기존 계정을 사용하여 등록할 때 완성해야 하는 양식을 표시합니다. 암호 입력 필드를 제외하고는 위의 소셜 계정 등록 페이지와 비슷합니다. |
+| **api.selfasserted.profileupdate** | [updateprofile. cshtml](https://login.microsoftonline.com/static/tenant/default/updateProfile.cshtml) | **프로필 업데이트 페이지** - 사용자가 자신의 프로필을 업데이트하기 위해 액세스할 수 있는 양식을 표시합니다. 암호 입력 필드를 제외하고는 소셜 계정 등록 페이지와 비슷합니다. |
+| **api.signuporsignin** | [통합. cshtml](https://login.microsoftonline.com/static/tenant/default/unified.cshtml) | **통합 등록 또는 로그인 페이지** - 사용자 등록 및 로그인 프로세스를 처리합니다. 사용자는 엔터프라이즈 ID 공급자, 소셜 ID 공급자(예: Facebook, Google+) 또는 로컬 계정을 사용할 수 있습니다. |
 

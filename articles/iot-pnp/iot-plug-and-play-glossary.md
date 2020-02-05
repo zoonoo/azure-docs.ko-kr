@@ -9,12 +9,12 @@ ms.custom: mvc
 ms.service: iot-pnp
 services: iot-pnp
 manager: philmea
-ms.openlocfilehash: b6516b07f24c40fcb95d47e05b22dd7672c10f2a
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ef5ce9cc1cda7f1ff6b1985771e20cb20123e264
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75531204"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025642"
 ---
 # <a name="glossary-of-terms-for-iot-plug-and-play-preview"></a>IoT 플러그 앤 플레이 미리 보기용 용어 설명
 
@@ -117,7 +117,7 @@ IoT 플러그 앤 플레이 장치 클라이언트 응용 프로그램을 빌드
 
 ## <a name="device-provisioning-service"></a>Device Provisioning Service
 
-[Azure IoT Central](#azure-iot-central) 는 장치 프로 비전 서비스를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다. 자세한 내용은 [Azure IoT Central에서 장치 연결](../iot-central/preview/overview-iot-central-get-connected.md)을 참조 하세요. 장치 프로 비전 서비스를 사용 하 여 IoT Hub 기반 IoT 솔루션에 대 한 장치 등록 및 연결을 관리할 수도 있습니다. 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 장치 프로 비전](../iot-dps/about-iot-dps.md)을 참조 하세요.
+[Azure IoT Central](#azure-iot-central) 는 장치 프로 비전 서비스를 사용 하 여 모든 장치 등록 및 연결을 관리 합니다. 자세한 내용은 [Azure IoT Central에서 장치 연결](../iot-central/core/concepts-get-connected.md)을 참조 하세요. 장치 프로 비전 서비스를 사용 하 여 IoT Hub 기반 IoT 솔루션에 대 한 장치 등록 및 연결을 관리할 수도 있습니다. 자세한 내용은 [Azure IoT Hub 장치 프로 비전 서비스를 사용 하 여 장치 프로 비전](../iot-dps/about-iot-dps.md)을 참조 하세요.
 
 ## <a name="device-registration"></a>디바이스 등록
 

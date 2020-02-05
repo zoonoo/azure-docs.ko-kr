@@ -1,6 +1,6 @@
 ---
-title: CloudSimple 사설 클라우드 별 Azure VMware 솔루션
-description: CloudSimple 사설 클라우드 및 개념에 대해 알아봅니다.
+title: Azure VMware 솔루션 (AVS)-AVS 사설 클라우드
+description: AVS 사설 클라우드 및 개념에 대해 알아봅니다.
 author: sharaths-cs
 ms.author: dikamath
 ms.date: 08/20/2019
@@ -8,26 +8,26 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 4fb930603455ed1a5df5d357fcab669f41a0c28c
-ms.sourcegitcommit: b3bad696c2b776d018d9f06b6e27bffaa3c0d9c3
+ms.openlocfilehash: 2688edf281a6d8bc3d61e8e294c920f115f0f3f6
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/21/2019
-ms.locfileid: "69877959"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024954"
 ---
-# <a name="cloudsimple-private-cloud-overview"></a>CloudSimple 사설 클라우드 개요
+# <a name="avs-private-cloud-overview"></a>AVS 사설 클라우드 개요
 
-CloudSimple 변환은 몇 분 안에 VMware 워크 로드를 공용 클라우드로 확장 합니다. CloudSimple 서비스를 사용 하 여 Azure 운영 체제 미 설치 인프라에 VMware를 기본적으로 배포할 수 있습니다. 배포는 Azure 위치에 상주 하며 Azure 클라우드의 나머지 부분과 완전히 통합 됩니다.
+AVS는 VMware 워크 로드를 몇 분 내에 공용 클라우드로 변환 하 고 확장 합니다. AVS 서비스를 사용 하 여 Azure 운영 체제 미 설치 인프라에 VMware를 기본적으로 배포할 수 있습니다. 배포는 Azure 위치에 상주 하며 Azure 클라우드의 나머지 부분과 완전히 통합 됩니다.
 
-CloudSimple 솔루션은 완전 한 VMware 운영 연속성을 제공 합니다. 이 솔루션은 다음의 공용 클라우드 혜택을 제공 합니다.
+AVS 솔루션은 완전 한 VMware 운영 연속성을 제공 합니다. 이 솔루션은 다음의 공용 클라우드 혜택을 제공 합니다.
 
 * 탄력성
 * 혁신
 * 효율성
 
-CloudSimple을 사용 하면 총 소유 비용을 줄일 수 있는 클라우드 소비 모델을 활용할 수 있습니다. 또한 주문형 프로 비전, 종 량 제 및 용량 최적화를 제공 합니다.
+AVS를 사용 하면 총 소유 비용을 절감 하는 클라우드 소비 모델을 활용할 수 있습니다. 또한 주문형 프로 비전, 종 량 제 및 용량 최적화를 제공 합니다.
 
-CloudSimple은와 완전히 호환 됩니다.
+AVS는와 완전히 호환 됩니다.
 
 * 기존 도구
 * 기술
@@ -40,7 +40,7 @@ CloudSimple은와 완전히 호환 됩니다.
 * 데이터 보호  
 * 감사
 
-CloudSimple은 인프라와 필요한 모든 네트워킹 및 관리 서비스를 관리 합니다. CloudSimple 서비스를 사용 하면 팀이 다음에 집중할 수 있습니다.
+AVS는 인프라와 필요한 모든 네트워킹 및 관리 서비스를 관리 합니다. AVS 서비스를 사용 하면 팀이 다음에 집중할 수 있습니다.
 
 * 비즈니스 가치
 * 응용 프로그램 프로 비전
@@ -48,16 +48,16 @@ CloudSimple은 인프라와 필요한 모든 네트워킹 및 관리 서비스�
 * 지원
 * 정책 적용
 
-## <a name="private-cloud-environment-overview"></a>사설 클라우드 환경 개요
+## <a name="avs-private-cloud-environment-overview"></a>AVS 사설 클라우드 환경 개요
 
-사설 클라우드는 다음을 지 원하는 격리 된 VMware 스택입니다.
+AVS 사설 클라우드는 다음을 지 원하는 격리 된 VMware 스택입니다.
 
 * ESXi 호스트
 * vCenter
 * vSAN
 * NSX
 
-사설 클라우드는 CloudSimple 포털을 통해 관리 됩니다. 자체 관리 도메인에 자체 vCenter 서버가 있습니다.
+Avs 사설 클라우드는 AVS 포털을 통해 관리 됩니다. 자체 관리 도메인에 자체 vCenter 서버가 있습니다.
 
 스택은 다음 위치에서 실행 됩니다.
 
@@ -69,25 +69,25 @@ CloudSimple은 인프라와 필요한 모든 네트워킹 및 관리 서비스�
 * vCenter
 * NSX 관리자
 
-Azure 위치에 전용 노드를 배포할 수 있습니다. 그런 다음 Azure 및 CloudSimple을 사용 하 여 관리할 수 있습니다. 사설 클라우드는 하나 이상의 vSphere 클러스터로 구성 되며 각 클러스터에는 3 ~ 16 개의 노드가 포함 됩니다.
+Azure 위치에 전용 노드를 배포할 수 있습니다. 그런 다음 Azure 및 AVS를 사용 하 여 관리할 수 있습니다. AVS 사설 클라우드는 하나 이상의 vSphere 클러스터로 구성 되며 각 클러스터에는 3 ~ 16 개의 노드가 포함 됩니다.
 
-구매한, 종 량 제 노드 또는 예약 된 전용 노드를 사용 하 여 사설 클라우드를 만들 수 있습니다.
+구매한, 종 량 제 노드 또는 예약 된 전용 노드를 사용 하 여 AVS 사설 클라우드를 만들 수 있습니다.
 
-다음 연결을 사용 하 여 사설 클라우드를 온-프레미스 환경 및 Azure 네트워크에 연결할 수 있습니다.
+다음 연결을 사용 하 여 온-프레미스 환경 및 Azure 네트워크에 AVS 사설 클라우드를 연결할 수 있습니다.
 
-* 보안
+* 안전하다
 * 개인 VPN
 * Azure ExpressRoute
 
-사설 클라우드 환경은 단일 실패 지점이 제거 되도록 설계 되었습니다.
+AVS 사설 클라우드 환경은 단일 실패 지점이 제거 되도록 설계 되었습니다.
 
 * ESXi 클러스터는 vSphere 고가용성으로 구성 되며 복원 력을 위한 예비 노드가 하나 이상 있도록 크기가 지정 됩니다.
 * vSAN은 중복 된 기본 저장소를 제공 합니다. vSan에는 단일 오류에 대 한 보호를 제공 하기 위해 3 개 이상의 노드가 필요 합니다. 대량 클러스터에 대해 더 높은 복원 력을 제공 하도록 vSAN을 구성할 수 있습니다.
 * 저장소 오류 로부터 보호 하기 위해 RAID 10 저장소 정책을 사용 하 여 vCenter, PSC 및 NSX Manager Vm을 구성할 수 있습니다. vSphere HA는 노드 및 네트워크 오류 로부터 보호 합니다.
 
-## <a name="scenarios-for-deploying-a-private-cloud"></a>사설 클라우드 배포 시나리오
+## <a name="scenarios-for-deploying-an-avs-private-cloud"></a>AVS 사설 클라우드 배포 시나리오
 
-사설 클라우드 배포에 대 한 몇 가지 예제 사용 사례는 다음과 같습니다.
+다음은 AVS 사설 클라우드 배포에 대 한 몇 가지 예제 사용 사례입니다.
 
 ### <a name="data-center-retirement-or-migration"></a>데이터 센터 사용 중지 또는 마이그레이션
 
@@ -106,11 +106,11 @@ Azure 위치에 전용 노드를 배포할 수 있습니다. 그런 다음 Azure
 
 * Azure 클라우드에서 데이터, 앱 및 데스크톱에 대 한 원격 액세스를 설정 합니다. 고대역폭 연결을 사용 하는 경우 데이터를 신속 하 게 업로드/다운로드 하 여 인시던트를 복구 합니다. 대기 시간이 짧은 네트워크는 사용자가 데스크톱 앱에서 요구 하는 빠른 응답 시간을 제공 합니다.
 
-* CloudSimple 포털 및 익숙한 VMware 도구를 사용 하 여 클라우드의 모든 정책과 네트워킹을 복제 합니다. 복제는 DR 및 VDI 구현을 만들고 관리 하는 작업 및 위험을 줄여 줍니다.
+* AVS 포털 및 익숙한 VMware 도구를 사용 하 여 클라우드의 모든 정책과 네트워킹을 복제 합니다. 복제는 DR 및 VDI 구현을 만들고 관리 하는 작업 및 위험을 줄여 줍니다.
 
 ### <a name="high-performance-applications-and-databases"></a>고성능 응용 프로그램 및 데이터베이스
 
-* CloudSimple로 제공 되는 하이퍼 수렴 형 아키텍처를 사용 하 여 가장 까다로운 워크 로드를 실행 합니다.
+* AVS에서 제공 하는 하이퍼 수렴 형 아키텍처를 사용 하 여 가장 까다로운 워크 로드를 실행 합니다.
 * Oracle, Microsoft SQL server, 미들웨어 시스템 및 고성능의 SQL 데이터베이스를 실행 합니다.
 * 고속 25gbps 네트워크 연결을 사용 하 여 클라우드를 고유한 데이터 센터로 경험해 보세요. 고속 연결을 사용 하면 성능을 저하 시 키 지 않고 온-프레미스, Azure의 VMware 및 Azure 개인 워크 로드에 걸쳐 있는 하이브리드 앱을 실행할 수 있습니다.
 
@@ -123,16 +123,16 @@ Azure 위치에 전용 노드를 배포할 수 있습니다. 그런 다음 Azure
 
 ## <a name="limits"></a>제한
 
-다음 표에서는 사설 클라우드의 리소스에 대 한 노드 제한을 나열 합니다.
+다음 표에서는 AVS 사설 클라우드의 리소스에 대 한 노드 제한을 나열 합니다.
 
 | 리소스 | 제한 |
 |----------|-------|
-| 사설 클라우드를 만들기 위한 최소 노드 수 | 3 |
-| 사설 클라우드의 클러스터에 있는 최대 노드 수 | 16 |
-| 사설 클라우드의 최대 노드 수 | 64 |
+| AVS 사설 클라우드를 만들기 위한 최소 노드 수 | 3 |
+| AVS 사설 클라우드의 클러스터에 있는 최대 노드 수 | 16 |
+| AVS 사설 클라우드의 최대 노드 수 | 64 |
 | 새 클러스터의 최소 노드 수 | 3 |
 
 ## <a name="next-steps"></a>다음 단계
 
-* [사설 클라우드를 만드는](create-private-cloud.md) 방법 알아보기
-* [사설 클라우드 환경을 구성](quickstart-create-private-cloud.md) 하는 방법 알아보기
+* [AVS 사설 클라우드를 만드는](create-private-cloud.md) 방법 알아보기
+* [AVS 사설 클라우드 환경을 구성](quickstart-create-private-cloud.md) 하는 방법 알아보기

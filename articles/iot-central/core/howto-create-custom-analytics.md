@@ -3,24 +3,24 @@ title: 사용자 지정 분석으로 Azure IoT Central 확장 | Microsoft Docs
 description: 솔루션 개발자는 사용자 지정 분석 및 시각화를 수행 하도록 IoT Central 응용 프로그램을 구성 합니다. 이 솔루션은 Azure Databricks를 사용 합니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 08/23/2019
+ms.date: 12/02/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: 39d99b8b6167411fc75677878b7f82a27deab958
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7e5e8331509e99a7e556105ff1ea8ca2d0b285e7
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987631"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023840"
 ---
 # <a name="extend-azure-iot-central-with-custom-analytics-using-azure-databricks"></a>Azure Databricks를 사용 하 여 사용자 지정 분석으로 Azure IoT Central 확장
 
 이 방법 가이드에서는 솔루션 개발자가 사용자 지정 분석 및 시각화를 사용 하 여 IoT Central 응용 프로그램을 확장 하는 방법을 보여 줍니다. 이 예제에서는 [Azure Databricks](https://docs.microsoft.com/azure/azure-databricks/) 작업 영역을 사용 하 여 IoT Central 원격 분석 스트림을 분석 하 고 [box 플롯](https://wikipedia.org/wiki/Box_plot)등의 시각화를 생성 합니다.
 
-이 방법 가이드에서는 [기본 제공 분석 도구](howto-create-analytics.md)를 사용 하 여 이미 수행할 수 있는 작업 이상의 IoT Central 확장 하는 방법을 보여 줍니다.
+이 방법 가이드에서는 [기본 제공 분석 도구](./howto-create-custom-analytics.md)를 사용 하 여 이미 수행할 수 있는 작업 이상의 IoT Central 확장 하는 방법을 보여 줍니다.
 
 이 방법 가이드에서는 다음 방법에 대해 알아봅니다.
 
@@ -40,14 +40,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 | 설정 | 값 |
 | ------- | ----- |
 | 요금제 | Standard |
-| 애플리케이션 템플릿 | 레거시 응용 프로그램 |
+| 애플리케이션 템플릿 | 저장소 내 분석-조건 모니터링 |
 | 애플리케이션 이름 | 기본값을 그대로 적용 하거나 고유한 이름을 선택 합니다. |
 | URL | 기본값을 그대로 적용 하거나 고유한 URL 접두사를 선택 합니다. |
 | 디렉터리 | Azure Active Directory 테 넌 트 |
 | Azure 구독 | Azure 구독 |
-| 지역 | 미국 |
+| 지역 | 가장 가까운 지역 |
 
 이 문서의 예제 및 스크린샷은 **미국** 지역을 사용 합니다. 가까운 위치를 선택 하 고 동일한 지역에 모든 리소스를 만들어 두어야 합니다.
+
+이 응용 프로그램 템플릿에는 원격 분석을 전송 하는 두 개의 시뮬레이션 된 자동 온도 조절기 장치가 포함 되어 있습니다.
 
 ### <a name="resource-group"></a>리소스 그룹
 
@@ -101,7 +103,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
 
 [Azure IoT Central application manager](https://aka.ms/iotcentral) 웹 사이트에서 Contoso 템플릿에서 만든 IoT Central 응용 프로그램으로 이동 합니다. 이 섹션에서는 시뮬레이션 된 장치에서 이벤트 허브로 원격 분석을 스트리밍하기 응용 프로그램을 구성 합니다. 내보내기를 구성 하려면:
 
-1. **연속 데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
+1. **데이터 내보내기** 페이지로 이동 하 고, **+ 새로 만들기**를 선택 하 고, **Azure Event Hubs**를 선택 합니다.
 1. 내보내기를 구성 하려면 다음 설정을 사용 하 고 **저장**을 선택 합니다.
 
     | 설정 | 값 |
@@ -114,7 +116,7 @@ Event Hubs 네임 스페이스는 다음 스크린샷 처럼 보입니다.
     | 디바이스 | 해제 |
     | 디바이스 템플릿 | 해제 |
 
-![연속 데이터 내보내기 구성](media/howto-create-custom-analytics/cde-configuration.png)
+![데이터 내보내기 구성](media/howto-create-custom-analytics/cde-configuration.png)
 
 계속 하기 전에 내보내기 상태가 **실행 중** 이 될 때까지 기다립니다.
 
@@ -132,7 +134,7 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 | ------- | ----- |
 | 클러스터 이름 | centralanalysis |
 | 클러스터 모드 | Standard |
-| Databricks Runtime 버전 | 5.3 (Scala 2.11, Spark 2.4.0) |
+| Databricks Runtime 버전 | 5.5 LTS (Scala 2.11, Spark 2.4.3) |
 | Python 버전 | 3 |
 | 자동 크기 조정 사용 | 아닙니다. |
 | 비활성 시간 (분) 후 종료 | 30 |
@@ -229,4 +231,4 @@ Azure Portal에서 Azure Databricks 서비스로 이동 하 고 **작업 영역 
 * *연속 데이터 내보내기를*사용 하 여 IoT Central 응용 프로그램에서 원격 분석을 스트리밍합니다.
 * 원격 분석 데이터를 분석 및 플롯 하는 Azure Databricks 환경을 만듭니다.
 
-이제 사용자 지정 분석을 만드는 방법을 배웠으므로 제안 된 다음 단계는 [Power BI 대시보드에서 Azure IoT Central 데이터를 시각화 하 고 분석](howto-connect-powerbi.md)하는 방법을 배우는 것입니다.
+이제 사용자 지정 분석을 만드는 방법을 배웠으므로 제안 된 다음 단계는 [응용 프로그램을 관리](howto-administer.md)하는 방법을 배우는 것입니다.

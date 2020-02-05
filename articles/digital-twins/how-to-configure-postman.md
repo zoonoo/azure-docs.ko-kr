@@ -7,13 +7,13 @@ manager: bertvanhoof
 ms.service: digital-twins
 services: digital-twins
 ms.topic: conceptual
-ms.date: 01/10/2020
-ms.openlocfilehash: 42b697babe2bc004663c80e6e2f71f90ba1e5e5b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/03/2020
+ms.openlocfilehash: 377639d7a88478308709743ab842db71028686ed
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765407"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023313"
 ---
 # <a name="how-to-configure-postman-for-azure-digital-twins"></a>Azure Digital Twins용 Postman을 구성하는 방법
 
@@ -33,45 +33,15 @@ Postman 클라이언트를 통해 솔루션 개발자는 HTTP 요청의 종류(*
 
 ## <a name="configure-azure-active-directory-to-use-the-oauth-20-implicit-grant-flow"></a>OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory를 구성합니다.
 
-OAuth 2.0 암시적 허용 흐름을 사용하도록 Azure Active Directory 앱을 구성합니다.
-
-1. 앱 등록을 위한 **API 사용 권한** 창을 엽니다. **사용 권한 추가** 단추를 선택합니다. **API 사용 권한 요청** 창에서 **내 조직이 사용하는 API** 탭을 선택한 후, 다음을 검색합니다.
-    
-    1. `Azure Digital Twins`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. **Azure Digital Twins** API를 선택합니다.
-
-        [![Search API 또는 Azure Digital Twins](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png)](../../includes/media/digital-twins-permissions/aad-aap-search-api-dt.png#lightbox)
-
-    1. 또는 `Azure Smart Spaces Service`를 검색합니다. **Azure 스마트 공간 서비스** API를 선택합니다.
-
-        [![Azure 스마트 공간용 Search API](../../includes/media/digital-twins-permissions/aad-app-search-api.png)](../../includes/media/digital-twins-permissions/aad-app-search-api.png#lightbox)
-
-    > [!IMPORTANT]
-    > 표시되는 Azure AD API 이름 및 ID는 테넌트에 따라 다릅니다.
-    > * 테스트 테넌트 및 고객 계정은 `Azure Digital Twins`를 검색해야 합니다.
-    > * 다른 Microsoft 계정은 `Azure Smart Spaces Service`를 검색해야 합니다.
-
-1. 동일한 **API 사용 권한 요청** 창에 선택한 API가 **Azure Digital Twins**로 표시됩니다. **읽기(1)** 드롭다운을 선택한 다음, **Read.Write** 확인란을 선택합니다. **사용 권한 추가** 단추를 선택합니다.
-
-    [Azure Digital Twins에 대 한 API 권한 추가 ![](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png)](../../includes/media/digital-twins-permissions/aad-app-req-permissions.png#lightbox)
-
-1. 조직의 설정에 따라 이 API에 대한 관리자 액세스 권한을 부여하려면 추가 단계를 수행해야 할 수도 있습니다. 자세한 내용은 관리자에게 문의하세요. 관리자 액세스가 승인되면 **API 사용 권한** 창의 **관리자 동의 필요** 열이 API에 대해 다음과 유사하게 표시됩니다.
-
-    [관리자 동의 승인 구성 ![](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png)](../../includes/media/digital-twins-permissions/aad-app-admin-consent.png#lightbox)
-
-1. `https://www.getpostman.com/oauth2/callback`에 대 한 두 번째 **리디렉션 URI** 를 구성 합니다.
+1. [빠른](quickstart-view-occupancy-dotnet.md#set-permissions-for-your-app) 시작의 단계에 따라 Azure Active Directory 응용 프로그램을 만들고 구성 합니다. 또는 기존 앱 등록을 다시 사용할 수 있습니다.
 
     [새 Postman 리디렉션 URI를 구성 ![](media/how-to-configure-postman/authentication-redirect-uri.png)](media/how-to-configure-postman/authentication-redirect-uri.png#lightbox)
 
-1. [앱이 **퍼블릭 클라이언트**로 등록되었는지](https://docs.microsoft.com/azure/active-directory/develop/scenario-desktop-app-registration) 확인하려면 앱 등록을 위한 **인증** 창을 열고 해당 창에서 아래로 스크롤합니다. **기본 클라이언트 유형** 섹션에서 **공용 클라이언트로 애플리케이션 처리**에 **예**를 선택하고 **저장**을 누릅니다.
+1. 이제 `https://www.getpostman.com/oauth2/callback`에 **리디렉션 URI** 를 추가 합니다.
 
-    **액세스 토큰**을 선택하여 Manifest.json에서 **oauth2AllowImplicitFlow** 설정을 사용하도록 설정합니다.
+1.  > **액세스 토큰** **암시적 부여** 확인란을 선택 하 여 OAuth 2.0 암시적 허용 흐름을 사용할 수 있습니다. **구성**을 선택한 다음 **저장**을 선택 합니다.
 
-    [![공용 클라이언트 구성 설정](../../includes/media/digital-twins-permissions/aad-configure-public-client.png)](../../includes/media/digital-twins-permissions/aad-configure-public-client.png#lightbox)
-
-1. Azure Active Directory 앱의 **애플리케이션 ID**를 복사하고 유지합니다. 이어지는 단계에서 사용됩니다.
-
-   [![Azure Active Directory 애플리케이션 ID](../../includes/media/digital-twins-permissions/aad-app-reg-app-id.png)](../../includes/media//digital-twins-permissions/aad-app-reg-app-id.png#lightbox)
-
+1. Azure Active Directory 앱의 **클라이언트 ID** 를 복사 합니다.
 
 ## <a name="obtain-an-oauth-20-token"></a>OAuth 2.0 토큰 가져오기
 
@@ -91,15 +61,13 @@ Azure Active Directory 토큰을 가져오기 위해 Postman을 설정 하 고 �
 
 1. [www.getpostman.com](https://www.getpostman.com/)으로 이동하여 앱을 다운로드합니다.
 
-1. Postman 앱을 열고, 새로 만들기 | 새로 만들기를 차례로 클릭하고, [요청]을 선택합니다. 요청 이름을 입력 합니다. 저장할 컬렉션 또는 폴더를 선택 하 고 저장을 클릭 합니다. 
-
 1. GET 요청을 수행 하려고 합니다. **권한 부여** 탭을 선택 하 고 OAuth 2.0을 선택한 다음 **새 액세스 토큰 가져오기**를 선택 합니다.
 
     | 필드  | 값 |
     |---------|---------|
     | 권한 부여 유형 | `Implicit` |
     | 콜백 URL | `https://www.getpostman.com/oauth2/callback` |
-    | 인증 URL | **2 단계의** **권한 부여 URL** 사용 |
+    | 인증 URL | **1 단계의** **권한 부여 URL** 사용 |
     | 클라이언트 ID | 이전 섹션에서 만들었거나 다시 사용한 Azure Active Directory 앱의 **응용 프로그램 ID** 를 사용 합니다. |
     | 범위 | 비워 둠 |
     | 상태 | 비워 둠 |
