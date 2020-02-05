@@ -90,7 +90,7 @@
           href: backup-azure-recovery-services-vault-overview.md
         - name: 생성
           href: backup-create-rs-vault.md
-        - name: DELETE
+        - name: 삭제
           href: backup-azure-delete-vault.md
         - name: 이동
           href: backup-azure-move-recovery-services-vault.md
@@ -100,7 +100,7 @@
       items:
         - name: 개요
           href: backup-azure-vms-introduction.md
-        - name: Backup
+        - name: 백업
           items:
             - name: Azure Backup Instant Restore를 사용하여 Azure VM 백업 및 복원
               href: backup-instant-restore-capability.md
@@ -132,7 +132,7 @@
       items:
         - name: 개요
           href: backup-azure-sql-database.md
-        - name: Backup
+        - name: 백업
           href: backup-sql-server-database-azure-vms.md
         - name: 복원
           href: restore-sql-database-azure-vm.md
@@ -142,7 +142,7 @@
       items:
         - name: 개요
           href: backup-azure-about-mars.md
-        - name: Backup
+        - name: 백업
           items:
             - name: Windows Server 파일 및 폴더 백업
               href: backup-configure-vault.md
@@ -160,7 +160,7 @@
       items:
         - name: Azure Portal에서
           items:
-            - name: Backup
+            - name: 백업
               href: backup-afs.md
             - name: 복원
               href: restore-afs.md
@@ -168,7 +168,7 @@
               href: manage-afs-backup.md
         - name: Azure CLI 사용
           items:
-            - name: Backup
+            - name: 백업
               href: backup-afs-cli.md
             - name: 복원
               href: restore-afs-cli.md
@@ -176,7 +176,7 @@
               href: manage-afs-backup-cli.md
         - name: PowerShell 사용
           items:
-            - name: Backup
+            - name: 백업
               href: backup-azure-afs-automation.md
             - name: 복원
               href: restore-afs-powershell.md
@@ -186,7 +186,7 @@
       items:
         - name: 개요
           href: sap-hana-db-about.md
-        - name: Backup
+        - name: 백업
           href: backup-azure-sap-hana-database.md
         - name: 복원
           href: sap-hana-db-restore.md
@@ -216,7 +216,7 @@
               href: backup-azure-backup-server-vmware.md
             - name: Exchange
               href: backup-azure-exchange-mabs.md
-            - name: Sharepoint 팜
+            - name: SharePoint 팜
               href: backup-azure-backup-sharepoint-mabs.md
             - name: SQL Server
               href: backup-azure-sql-mabs.md
@@ -258,6 +258,8 @@
           href: backup-azure-backup-server-import-export-.md
     - name: 모니터 및 경고
       items:
+        - name: 백업 탐색기 사용
+          href: monitor-azure-backup-with-backup-explorer.md
         - name: Azure Portal 사용
           href: backup-azure-monitoring-built-in-monitor.md
         - name: Azure Monitor 사용
@@ -278,7 +280,7 @@
               href: backup-azure-diagnostic-events.md
             - name: 리소스 관련 진단 이벤트에 대한 Log Analytics 데이터 모델
               href: backup-azure-log-analytics-new-data-model.md
-    - name: Automation
+    - name: 자동화
       items:
         - name: Azure Backup을 위한 기본 제공 Azure Policy
           items:
@@ -310,7 +312,7 @@
               href: backup-azure-arm-userestapi-restoreazurevms.md
             - name: Azure Backup 작업 관리
               href: backup-azure-arm-userestapi-managejobs.md
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: backup-rm-template-samples.md
     - name: 보안
       items:

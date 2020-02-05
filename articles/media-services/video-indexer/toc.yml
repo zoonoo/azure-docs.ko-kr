@@ -15,6 +15,10 @@
   items:
     - name: Video Indexer API 사용
       href: video-indexer-use-apis.md
+- name: 샘플
+  items:
+    - name: Video Indexer 샘플
+      href: 'https://github.com/Azure-Samples/media-services-video-indexer'
 - name: 개념
   items:
     - name: 개요
@@ -37,7 +41,7 @@
           href: customize-brands-model-overview.md
         - name: 언어
           href: customize-language-model-overview.md
-        - name: Person
+        - name: 사람
           href: customize-person-model-overview.md
 - name: 방법 가이드
   items:
@@ -67,7 +71,7 @@
       items:
         - name: 애니메이션 문자
           href: animated-characters-recognition.md
-        - name: Person
+        - name: 사람
           items:
             - name: Video Indexer 웹 사이트 사용
               href: customize-person-model-with-website.md

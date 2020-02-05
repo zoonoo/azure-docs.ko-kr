@@ -345,8 +345,8 @@
       items:
         - name: 검색 2019-05-06
           href: /rest/api/searchservice
-        - name: 기술 다시 설정(api-version=2019-05-06-Preview)
-          href: preview-api-resetskills.md
+        - name: 검색 2019-05-06-미리 보기
+          href: /rest/api/searchservice/index-2019-05-06-preview
         - name: 관리 2015-08-15
           href: /rest/api/searchmanagement
         - name: 관리 2019-10-01-미리 보기

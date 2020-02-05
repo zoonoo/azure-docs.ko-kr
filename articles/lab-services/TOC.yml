@@ -16,7 +16,7 @@
       href: tutorial-use-custom-lab.md
 - name: 샘플
   items:
-    - name: 리소스 관리자 템플릿
+    - name: Resource Manager 템플릿
       href: 'https://github.com/Azure/azure-devtestlab/tree/master/samples/DevTestLabs/QuickStartTemplates'
     - name: Azure PowerShell
       href: samples-powershell.md
@@ -152,6 +152,8 @@
           href: deploy-nested-template-environments.md
         - name: Azure 관리 ID를 사용하여 환경 배포
           href: use-managed-identities-environments.md
+        - name: 환경의 보안 경고
+          href: environment-security-alerts.md
     - name: 재사용 가능한 템플릿 관리
       items:
         - name: 사용자 지정 이미지와 수식 비교

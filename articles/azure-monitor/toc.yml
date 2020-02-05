@@ -14,11 +14,11 @@
       href: learn/quick-monitor-azure-resource.md
     - name: 가상 머신 모니터링
       items:
-        - name: 수집 - Azure VM
+        - name: Azure VM
           href: learn/quick-collect-azurevm.md
-        - name: 수집 - Linux 컴퓨터
+        - name: Linux 컴퓨터
           href: learn/quick-collect-linux-computer.md
-        - name: 수집 - Windows 컴퓨터
+        - name: Windows 컴퓨터
           href: learn/quick-collect-windows-computer.md
     - name: 애플리케이션 모니터링
       items:
@@ -218,7 +218,7 @@
               href: app/api-custom-events-metrics.md
             - name: ASP.NET 문제 해결
               href: app/asp-net-troubleshoot-no-data.md
-        - name: 코드 없는 모니터링
+        - name: 코드리스 모니터링
           items:
             - name: Azure VM 및 확장 집합
               href: app/azure-vm-vmss-apps.md
@@ -228,7 +228,7 @@
             - name: Azure Cloud Services
               displayname: 'cloud, cloud services, PaaS'
               href: app/cloudservices.md
-            - name: Azure 기능
+            - name: Azure Functions
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Kubernetes 애플리케이션
@@ -439,6 +439,8 @@
               href: app/configuration-with-applicationinsights-config.md
             - name: 사용자 지정 데이터 원본 상관 관계 만들기
               href: app/custom-data-correlation.md
+            - name: 연결 문자열
+              href: app/sdk-connection-string.md
             - name: 특수 항목
               items:
                 - name: 웹앱 및 서비스 심층 진단
@@ -492,7 +494,7 @@
                 - name: Log Analytics 작업 영역
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-collect-workspace.md
-                - name: Azure Storage
+                - name: Azure 스토리지
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-collect-storage.md
                 - name: Event Hubs
@@ -535,23 +537,18 @@
               href: 'faq.md#agents'
             - name: Azure Diagnostics 확장
               items:
-                - name: 개요
-                  href: platform/diagnostics-extension-overview.md
-                - name: 로그 수집
-                  href: platform/azure-storage-iis-table.md
                 - name: Windows
+                  displayname: diagnostics extension
                   items:
-                    - name: 버전 기록
-                      href: platform/diagnostics-extension-schema.md
-                    - name: 스키마
-                      href: platform/diagnostics-extension-schema-1dot3.md
-                    - name: Azure Storage에 보내기
-                      href: platform/diagnostics-extension-to-storage.md
-                    - name: Application Insights로 보내기
-                      href: platform/diagnostics-extension-to-application-insights.md
-                    - name: Event Hubs로 보내기
-                      href: platform/diagnostics-extension-stream-event-hubs.md
-                    - name: 사용자 지정 메트릭으로 Azure Monitor에 보내기
+                    - name: 개요
+                      href: platform/diagnostics-extension-overview.md
+                    - name: 설치 및 구성
+                      items:
+                        - name: PowerShell
+                          href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
+                        - name: Resource Manager 템플릿
+                          href: ../virtual-machines/extensions/diagnostics-template.md?toc=/azure/azure-monitor/toc.json
+                    - name: Azure Monitor 메트릭에 보내기
                       items:
                         - name: Virtual Machine
                           href: platform/collect-custom-metrics-guestos-resource-manager-vm.md
@@ -561,15 +558,26 @@
                           href: platform/collect-custom-metrics-guestos-vm-classic.md
                         - name: 클라우드 서비스
                           href: platform/collect-custom-metrics-guestos-vm-cloud-service-classic.md
+                    - name: Event Hubs로 보내기
+                      href: platform/diagnostics-extension-stream-event-hubs.md
+                    - name: 로그에 보내기
+                      href: platform/azure-storage-iis-table.md
+                    - name: Azure Storage에 보내기
+                      href: platform/diagnostics-extension-to-storage.md
+                    - name: Application Insights로 보내기
+                      href: platform/diagnostics-extension-to-application-insights.md
+                    - name: 버전 기록
+                      href: platform/diagnostics-extension-schema.md
                     - name: JSON 줄 리소스 로그 형식
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: 문제 해결
                       href: platform/diagnostics-extension-troubleshooting.md
                 - name: Linux
+                  displayname: diagnostics extension
                   items:
-                    - name: VM에서 사용
-                      href: ../virtual-machines/extensions/diagnostics-linux.md
-                    - name: Telegraf를 사용하는 사용자 지정 메트릭
+                    - name: 개요
+                      href: ../virtual-machines/extensions/diagnostics-linux.md?toc=/azure/azure-monitor/toc.json
+                    - name: Telegraf를 사용하여 메트릭 수집
                       href: platform/collect-custom-metrics-linux-telegraf.md
             - name: Log Analytics 에이전트
               items:
@@ -589,6 +597,28 @@
                   href: platform/agent-manage.md
                 - name: 에이전트 상태
                   href: insights/solution-agenthealth.md
+                - name: 데이터 원본
+                  items:
+                    - name: 개요
+                      href: platform/agent-data-sources.md
+                    - name: Windows 이벤트
+                      href: platform/data-sources-windows-events.md
+                    - name: 사용자 지정 JSON 데이터
+                      href: platform/data-sources-json.md
+                    - name: 수집된 성능 데이터
+                      href: platform/data-sources-collectd.md
+                    - name: syslog
+                      href: platform/data-sources-syslog.md
+                    - name: 성능 카운터
+                      href: platform/data-sources-performance-counters.md
+                    - name: Linux 애플리케이션 성능
+                      href: platform/data-sources-linux-applications.md
+                    - name: IIS 로그
+                      href: platform/data-sources-iis-logs.md
+                    - name: 사용자 지정 로그
+                      href: platform/data-sources-custom-logs.md
+                    - name: 사용자 지정 필드
+                      href: platform/custom-fields.md
             - name: 문제 해결
               items:
                 - name: Log Analytics VM 확장
@@ -600,28 +630,6 @@
                 - name: Log Analytics Linux 에이전트
                   displayname: 'troubleshoot, troubleshooting'
                   href: platform/agent-linux-troubleshoot.md
-        - name: 에이전트 데이터 원본
-          items:
-            - name: 개요
-              href: platform/agent-data-sources.md
-            - name: Windows 이벤트
-              href: platform/data-sources-windows-events.md
-            - name: 사용자 지정 JSON 데이터
-              href: platform/data-sources-json.md
-            - name: 수집된 성능 데이터
-              href: platform/data-sources-collectd.md
-            - name: syslog
-              href: platform/data-sources-syslog.md
-            - name: 성능 카운터
-              href: platform/data-sources-performance-counters.md
-            - name: Linux 애플리케이션 성능
-              href: platform/data-sources-linux-applications.md
-            - name: IIS 로그
-              href: platform/data-sources-iis-logs.md
-            - name: 사용자 지정 로그
-              href: platform/data-sources-custom-logs.md
-            - name: 사용자 지정 필드
-              href: platform/custom-fields.md
         - name: VM용 Azure Monitor
           items:
             - name: 개요
@@ -660,14 +668,16 @@
               href: insights/vminsights-dependency-agent-maintenance.md
             - name: 모니터링 사용 안 함
               href: insights/vminsights-optout.md
-        - name: 용량 및 성능 솔루션
-          href: insights/capacity-performance.md
-        - name: VMware Analytics 솔루션
-          href: insights/vmware.md
-        - name: 유선 데이터 솔루션
-          href: insights/wire-data.md
-        - name: 서비스 맵 솔루션
-          href: insights/service-map.md
+        - name: 솔루션
+          items:
+            - name: 용량 및 성능 솔루션
+              href: insights/capacity-performance.md
+            - name: VMware Analytics 솔루션
+              href: insights/vmware.md
+            - name: 유선 데이터 솔루션
+              href: insights/wire-data.md
+            - name: 서비스 맵 솔루션
+              href: insights/service-map.md
         - name: 컴퓨터 그룹
           href: platform/computer-groups.md
     - name: 모니터 컨테이너
@@ -971,7 +981,7 @@
               href: platform/alerts-log.md
             - name: 쿼리
               href: platform/alerts-log-query.md
-            - name: 웹후크 작업
+            - name: webhook 작업
               href: platform/alerts-log-webhook.md
             - name: 문제 해결
               href: platform/alert-log-troubleshoot.md
@@ -999,7 +1009,7 @@
               href: platform/alerts-common-schema-definitions.md
             - name: 일반 경고 스키마를 Logic Apps와 통합
               href: platform/alerts-common-schema-integrations.md
-            - name: 웹후크 스키마
+            - name: webhook 스키마
               href: platform/activity-log-alerts-webhook.md
             - name: SMS 경고 동작
               href: platform/alerts-sms-behavior.md
@@ -1039,7 +1049,7 @@
               href: platform/alerts-classic-portal.md
             - name: Resource Manager 템플릿을 사용한 클래식 메트릭 경고
               href: platform/alerts-enable-template.md
-            - name: 웹후크를 호출하는 클래식 메트릭 경고
+            - name: webhook를 호출하는 클래식 메트릭 경고
               href: platform/alerts-webhooks.md
         - name: 알림 API
           href: platform/api-alerts.md
@@ -1073,7 +1083,7 @@
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
             - name: Resource Manager 템플릿을 사용하여 VM 확장 집합 크기 조정
               href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: 웹후크 및 이메일 알림 사용
+            - name: webhook 및 이메일 알림 사용
               href: platform/autoscale-webhook-email.md
             - name: 문제 해결
               href: platform/autoscale-troubleshoot.md
@@ -1095,7 +1105,7 @@
                   href: app/powershell-azure-diagnostics.md
         - name: Azure CLI 샘플
           href: platform/cli-samples.md
-        - name: 리소스 관리자 템플릿
+        - name: Resource Manager 템플릿
           href: platform/template-workspace-configuration.md
     - name: Extend
       items:
@@ -1125,6 +1135,10 @@
   items:
     - name: 서비스 제한
       href: service-limits.md
+    - name: 진단 확장
+      items:
+        - name: 스키마
+          href: platform/diagnostics-extension-schema-1dot3.md
     - name: Application Insights
       items:
         - name: 종속성 자동 수집
@@ -1175,7 +1189,7 @@
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights(미리 보기)
       href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
-    - name: Azure 기능
+    - name: Azure Functions
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:
