@@ -6,12 +6,12 @@ ms.author: sngun
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/28/2019
-ms.openlocfilehash: 30083b4f2f5f9b69368a47ecaf5505c04ccd6df9
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 3e400f62ed4afcb40d5d68aeb357d47083445802
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530700"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988178"
 ---
 # <a name="azure-cosmos-db-nosql-migration-and-application-development-partners"></a>Azure Cosmos DB NoSQL 마이그레이션 및 애플리케이션 개발 파트너
 
@@ -21,7 +21,6 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 
 |**파트너**  |**기능 및 경험**  |**지원 되는 국가/지역**  |**연락처**  |
 |---------|---------|---------|---------|
-|![ImanisData][1]   | MongoDB에서 Azure Cosmos DB로 데이터 마이그레이션 <br/> Imanis Data를 사용하면 글로벌 기업이 온-프레미스 또는 클라우드 MongoDB 데이터베이스를 Azure Cosmos DB로 빠르고 쉽게 마이그레이션할 수 있습니다. Imanis Data는 MongoDB 데이터 저장소에 대해 에이전트 없는 영구 증분 방식의 클라우드 마이그레이션 방법을 제공하여 마이그레이션을 간소화하고 가동 중지 시간을 훨씬 단축합니다.|  USA  |   [웹 사이트](https://www.cohesity.com/products/imanis-data/)      |
 |![Striim][2]    |  광범위한 데이터 원본에서 [Azure Cosmos DB로 실시간 데이터를 이동](https://www.striim.com/striim-for-azure-cosmos-db/)합니다. <br/> Striim는 엔터프라이즈 문서, 관계형 데이터베이스, 센서 및 로그 파일을 포함 하 여 다양 한 온-프레미스 원본에서 데이터를 실시간으로 수집 하 고 이동 하는 것을 Azure Cosmos DB으로 간소화 합니다. |   USA   |  [웹 사이트](https://www.striim.com/)       |
 
 ## <a name="systems-integrator-partners"></a>시스템 통합자 파트너
@@ -59,7 +58,6 @@ NoSQL 마이그레이션에서 애플리케이션 개발에 이르기까지 다�
 Microsoft의 다른 파트너에 대해 자세히 알려면 [Microsoft 파트너 사이트](https://partner.microsoft.com/en-US/)를 참조합니다.
 
 <!--Image references-->
-[1]: ./media/partners-migration-cosmosdb/imanisdata_logo.png
 [2]: ./media/partners-migration-cosmosdb/striim_logo.png
 [3]: ./media/partners-migration-cosmosdb/altoros_logo.png
 [4]: ./media/partners-migration-cosmosdb/attunix_logo.png

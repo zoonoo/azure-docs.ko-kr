@@ -6,13 +6,13 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/30/2019
-ms.openlocfilehash: 59bb866d7a339608555f0bb802e1716eba5d3255
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 2/1/2020
+ms.openlocfilehash: aaff56ba1de69485d1c3b93bc7ed95ce1a3cbd88
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75431591"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76983552"
 ---
 # <a name="azure-stream-analytics-preview-features"></a>Azure Stream Analytics 미리 보기 기능
 
@@ -52,11 +52,6 @@ Azure에 작업을 제출 하기 전에 로컬 컴퓨터의 라이브 데이터�
 ### <a name="visual-studio-code-for-azure-stream-analytics"></a>Azure Stream Analytics용 Visual Studio Code
 
 Azure Stream Analytics 작업은 Visual Studio Code에서 작성할 수 있습니다. [VS Code 시작 자습서](https://docs.microsoft.com/azure/stream-analytics/quick-create-vs-code)를 참조 하세요.
-
-
-### <a name="anomaly-detection"></a>변칙 검색
-
-Azure Stream Analytics에는 양방향, 느린 긍정 및 느린 부정 추세 검색 외에도 *spike* 및 *dips* 검색을 지원하는 새로운 기계 학습 모델이 도입되었습니다. 자세한 내용은 [Azure Stream Analytics의 변칙 검색](stream-analytics-machine-learning-anomaly-detection.md)을 참조 하세요.
 
 
 ### <a name="integration-with-azure-machine-learning"></a>Azure Machine Learning과 통합

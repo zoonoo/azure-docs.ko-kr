@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/10/2020
+ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: c2d6e3e42c581c255f207af4a5008e2d09c50a7d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887124"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990944"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -341,7 +341,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
    </code></pre>
 
    > [!NOTE]
-   > 클러스터 노드의 호스트 이름에는 대시를 사용하지 마세요. 대시를 사용하면 클러스터가 작동하지 않습니다. 이것은 알려진 제한 사항이며 SUSE는 수정 프로그램을 개발 중입니다. 수정 프로그램은 sap-suse-cloud-connector 패키지의 패치로 릴리스될 예정입니다.
+   > 호스트 이름에 대시를 사용 하 **는 경우 알려진**문제는 **3.1.1** 패키지의 버전을 사용 하 여 수정 됩니다. 호스트 이름에 대시를 사용 하 여 클러스터 노드를 사용 하는 경우 최소 버전의 3.1.1 패키지를 사용 하 고 있는지 확인 합니다. 대시를 사용하면 클러스터가 작동하지 않습니다. 
 
    SAP SUSE 클러스터 커넥터의 새 버전을 설치했는지 확인합니다. 기존 버전은 sap_suse_cluster_connector라고 하며 새 버전은 **sap suse-cluster-connector**라고 합니다.
 

@@ -11,13 +11,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 05/31/2019
-ms.openlocfilehash: 40660c0397f8b7fd7c370e2e0f697cae26b9bb48
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 01/28/2020
+ms.openlocfilehash: 194bc7983019a616d534a4146f86fff59f9719dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927162"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990524"
 ---
 # <a name="integration-runtime-in-azure-data-factory"></a>Azure Data Factory의 통합 런타임
 IR(통합 런타임)은 서로 다른 네트워크 환경 간에 다음과 같은 데이터 통합 기능을 제공하기 위해 Azure Data Factory에서 사용하는 컴퓨팅 인프라입니다.
@@ -141,9 +141,9 @@ UI 또는 작업 모니터링 페이로드에 대한 파이프라인 작업 모�
 ### <a name="azure-ssis-ir-location"></a>Azure-SSIS IR 위치
 Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플로에서 고성능을 달성하기 위해 필수적입니다.
 
-- Azure SSIS IR의 위치가 데이터 팩터리의 위치와 같을 필요는 없지만, SSISDB를 호스트할 사용자 자신의 Azure SQL Database/Managed Instance 서버의 위치와 같아야 합니다. 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
-- SSISDB를 호스트할 기존 Azure SQL Database/Managed Instance 서버는 없지만 온-프레미스 데이터 소스/대상이 있는 경우 온-프레미스 네트워크에 연결된 가상 네트워크의 같은 위치에 새 Azure SQL Database/Managed Instance 서버를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database/Managed Instance 서버를 사용하여 모두 같은 위치에 있는 가상 네트워크가 서로 다른 위치 간에 데이터 이동을 효과적으로 최소화하도록 조인하여 Azure SSIS IR을 만들 수 있습니다.
-- SSISDB를 호스트하는 기존 Azure SQL Database/Managed Instance 서버의 위치가 온-프레미스 네트워크에 연결된 가상 네트워크의 위치와 같지 않은 경우 먼저 기존 Azure SQL Database/Managed Instance 서버를 사용하여 같은 위치에 다른 가상 네트워크를 조인하여 Azure-SSIS IR을 만든 다음, 서로 다른 위치 사이에 가상 네트워크 간 연결을 구성합니다.
+- Azure-SSIS IR 위치는 데이터 팩터리의 위치와 동일할 필요는 없지만 SSISDB를 호스팅할 Managed Instance 서버 또는 사용자 고유의 Azure SQL Database 위치와 동일 해야 하는 경우 이러한 방식으로 Azure SSIS 통합 런타임은 서로 다른 위치 간에 과도한 트래픽을 초래하지 않고 SSISDB에 쉽게 액세스할 수 있습니다.
+- SSISDB를 호스트 하는 기존 Azure SQL Database 또는 Managed Instance 서버가 없지만 온-프레미스 데이터 원본/대상이 있는 경우 온-프레미스 네트워크에 연결 된 가상 네트워크와 동일한 위치에 새 Azure SQL Database 또는 Managed Instance 서버를 만들어야 합니다.  이러한 방식으로 새 Azure SQL Database 또는 Managed Instance 서버를 사용 하 여 Azure-SSIS IR를 만들고 해당 가상 네트워크를 동일한 위치에 조인 하 여 여러 위치에서 데이터 이동을 효과적으로 최소화할 수 있습니다.
+- SSISDB가 호스팅되는 기존 Azure SQL Database 또는 Managed Instance 서버의 위치가 온-프레미스 네트워크에 연결 된 가상 네트워크의 위치와 동일 하지 않은 경우 먼저 기존 Azure SQL Database를 사용 하 여 Azure-SSIS IR를 만듭니다. 서버를 Managed Instance 하 고 같은 위치에 있는 다른 가상 네트워크를 조인한 다음 서로 다른 위치 간의 가상 네트워크 연결로 가상 네트워크를 구성 합니다.
 
 다음 다이어그램은 Data Factory 및 해당 통합 런타임의 위치를 보여 줍니다.
 
@@ -163,17 +163,17 @@ Azure SSIS IR에 적합한 위치 선택은 ETL(추출-변환-로드) 워크플�
 
 조회 및 GetMetadata 작업은 데이터 저장소 연결된 서비스와 연결된 통합 런타임에서 실행됩니다.
 
-### <a name="transformation-activity"></a>변환 작업
+### <a name="external-transformation-activity"></a>외부 변환 작업
 
-각 변환 작업에는 통합 런타임을 가리키는 대상 컴퓨팅 연결 서비스가 있습니다. 이 통합 런타임 인스턴스는 변환 작업이 디스패치되는 곳입니다.
+외부 계산 엔진을 활용 하는 각 외부 변환 작업에는 통합 런타임을 가리키는 대상 계산 연결 된 서비스가 있습니다. 이 통합 런타임 인스턴스는 외부 직접 코딩 된 변환 활동이 발송 되는 위치를 결정 합니다.
 
 ### <a name="data-flow-activity"></a>데이터 흐름 작업
 
-데이터 흐름 작업은 연결 된 통합 런타임에 대해 실행 됩니다. 
+데이터 흐름 작업은 연결 된 Azure integration runtime에서 실행 됩니다. 데이터 흐름에서 사용 되는 Spark 계산은 Azure Integration Runtime의 데이터 흐름 속성에 의해 결정 되며 ADF를 통해 완전히 관리 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
 - [Azure 통합 런타임 만들기](create-azure-integration-runtime.md)
-- [자체 호스팅된 통합 런타임](create-self-hosted-integration-runtime.md)
+- [자체 호스팅 통합 런타임 만들기](create-self-hosted-integration-runtime.md)
 - [Azure-SSIS 통합 런타임을 만듭니다](create-azure-ssis-integration-runtime.md). 자습서의 내용을 보충하는 이 문서에서는 Azure SQL Database Managed Instance를 사용하고 IR을 가상 네트워크에 조인하는 방법에 대한 지침을 제공합니다. 

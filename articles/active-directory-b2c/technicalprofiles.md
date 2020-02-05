@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 01/29/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2e2a3dbf0ce3be28a78f04eb5bb1c369aeff1441
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: ad6b84323ac49713506bc61bd0051421e0234a94
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773445"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982282"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -84,7 +84,7 @@ ms.locfileid: "76773445"
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
-| DisplayName | 0:1 | 사용자에게 표시할 수 있는 기술 프로필의 이름입니다. |
+| DisplayName | 1:1 | 사용자에게 표시할 수 있는 기술 프로필의 이름입니다. |
 | Description | 0:1 | 사용자에게 표시할 수 있는 기술 프로필에 대한 설명입니다. |
 | 프로토콜 | 0:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
 | 메타데이터 | 0:1 | 트랜잭션 과정에서 엔드포인트와 통신하기 위해 프로토콜에서 사용하는 키/값 쌍의 컬렉션입니다. |

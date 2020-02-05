@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: e37ff6e1bde594014510880492c2572ad1634400
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904420"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989878"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -251,8 +251,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **like** 및 **notLike** 조건을 사용하는 경우 값에 와일드카드 `*`를 제공합니다.
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
-**Match** 및 **notmatch** 조건을 사용 하는 경우 숫자와 일치 하는 `#`을 제공 하 고, 문자 `.`를 `?` 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다.
-**match** 및 **notMatch**는 대/소문자를 구분합니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
+**Match** 및 **notmatch** 조건을 사용 하는 경우 숫자와 일치 하는 `#`을 제공 하 고, 문자 `.`를 `?` 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다. **Match** 및 **notmatch** 는 대/소문자를 구분 하지만, _stringValue_ 을 평가 하는 다른 모든 조건은 대/소문자를 구분 하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
 
 ### <a name="fields"></a>필드
 
@@ -399,7 +398,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 ### <a name="count"></a>카운트
 
-**Count** 식을 사용 하 여 리소스 페이로드의 배열에서 조건 식을 충족 하는 배열 멤버 수를 계산 하는 조건입니다. 일반적인 시나리오는 ', ' 중 하나 이상이 정확히 하나 (', ' 모두 ' 또는 ' 없음 ')가 조건을 충족 하는지 여부를 확인 하는 것입니다. **count** 는 조건 식에 대 한 각 배열 멤버를 평가 하 고 식 연산자와 비교 되는 _true_ 결과의 합계를 구합니다.
+**Count** 식을 사용 하 여 리소스 페이로드의 배열에서 조건 식을 충족 하는 배열 멤버 수를 계산 하는 조건입니다. 일반적인 시나리오는 ', ' 중 하나 이상이 정확히 하나 (', ' 모두 ' 또는 ' 없음 ')가 조건을 충족 하는지 여부를 확인 하는 것입니다. **count** 는 조건 식에 대 한 각 [\[\*\] 별칭](#understanding-the--alias) 배열 멤버를 평가 하 고 _true_ 결과의 합계를 계산한 다음 식 연산자와 비교 합니다.
 
 **개수** 식의 구조는 다음과 같습니다.
 
@@ -763,10 +762,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
                 }
             }
         ]
-    },
-    "id": "/subscriptions/<subscription-id>/providers/Microsoft.Authorization/policySetDefinitions/billingTagsPolicy",
-    "type": "Microsoft.Authorization/policySetDefinitions",
-    "name": "billingTagsPolicy"
+    }
 }
 ```
 

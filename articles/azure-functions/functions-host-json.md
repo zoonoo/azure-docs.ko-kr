@@ -3,18 +3,18 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 782998e49b9af3bf4d2ae5a561faaca399c6809f
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 6c4cfbb40c0337a6141d3b1f9844a33227a4963f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978809"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988705"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 호스트 json 참조 
 
 > [!div class="op_single_selector" title1="사용 중인 Azure Functions 런타임 버전을 선택 합니다. "]
 > * [버전 1](functions-host-json-v1.md)
-> * [버전 2](functions-host-json.md)
+> * [버전 2 +](functions-host-json.md)
 
 *host.json* 메타데이터 파일에는 함수 앱의 모든 함수에 영향을 주는 전역 구성 옵션이 포함됩니다. 이 문서에서는 Azure Functions 런타임의 버전 2.x부터 사용 가능한 설정을 나열 합니다.  
 
@@ -27,7 +27,7 @@ ms.locfileid: "75978809"
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
-다음 샘플 *호스트 json* 파일에는 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
+버전 2.x +에 대 한 다음 샘플 *호스트 json* 파일에는 모든 가능한 옵션이 지정 되어 있습니다 (내부용 으로만 사용 되는 경우 제외).
 
 ```json
 {
@@ -377,7 +377,7 @@ Singleton 잠금 동작에 대한 구성 설정입니다. 자세한 내용은 [s
 
 ## <a name="version"></a>버전
 
-v2 런타임을 대상으로 하는 함수 앱에서는 버전 문자열 `"version": "2.0"`이 필수 항목입니다.
+이 값은 host-a의 스키마 버전을 나타냅니다. 버전 문자열 `"version": "2.0"` v2 runtime 또는 이후 버전을 대상으로 하는 함수 앱에 필요 합니다. V2와 v3 사이에는 호스트 json 스키마가 변경 되지 않습니다.
 
 ## <a name="watchdirectories"></a>watchDirectories
 

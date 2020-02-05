@@ -11,12 +11,12 @@ author: anumjs
 ms.author: anjangsh
 ms.reviewer: sstein
 ms.date: 01/25/2019
-ms.openlocfilehash: b5c323bf3d5ff55c2c30961003e8c456cbe39c82
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 4577f611287a27366b1168e07565861c16fe0e38
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823653"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987025"
 ---
 # <a name="get-started-with-elastic-database-tools"></a>Elastic Database 도구 시작하기
 
@@ -56,7 +56,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
     ![Progress-java][5]
     
-축하합니다. Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 SQL Database에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다. 
+축하합니다! Azure SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 SQL Database에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다. 
 
 클라이언트 라이브러리를 자신의 Maven 프로젝트에 추가하려면 POM 파일에 다음 종속성을 추가합니다.
 
@@ -81,7 +81,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
 
 샘플을 다운로드하고 실행하려면 다음 단계를 수행합니다. 
 
-1. MSDN에서 [Elastic DB Tools for Azure SQL - Getting Started sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-a80d8dc6)(Azure SQL용 탄력적 DB 도구 - 시작 샘플)을 다운로드합니다. 선택한 위치에 샘플의 압축을 풉니다.
+1. [AZURE SQL 용 탄력적 DB 도구-시작 샘플](https://github.com/Azure/elastic-db-tools)을 다운로드 합니다. 선택한 위치에 샘플의 압축을 풉니다.
 
 2. 프로젝트를 만들려면 *C#* 디렉터리에서 *ElasticScaleStarterKit.sln* 솔루션을 엽니다.
 
@@ -93,7 +93,7 @@ JAR 파일을 빌드하고 샘플 프로젝트를 시작하려면 다음을 수�
    
     ![진행][4]
 
-축하합니다. SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 SQL Database에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
+축하합니다! SQL Database에서 Elastic Database 도구를 사용하여 첫 번째 분할 애플리케이션을 빌드하고 실행했습니다. Visual Studio 또는 SQL Server Management Studio를 통해 SQL Database에 연결하여 샘플에서 작성된 분할을 확인해 보세요. 샘플에서 작성된 분할된 데이터베이스 맵 관리자 데이터베이스와 새 샘플 분할 데이터베이스를 확인할 수 있습니다.
 
 > [!IMPORTANT]
 > Azure 및 SQL Database에 대한 업데이트와 동기화된 상태를 유지하도록 항상 최신 버전의 Management Studio를 사용하는 것이 좋습니다. [SQL Server Management Studio를 업데이트합니다](https://msdn.microsoft.com/library/mt238290.aspx).
@@ -127,7 +127,7 @@ Elastic Database 도구 라이브러리는 무료로 제공됩니다. Elastic Da
 Elastic Database 도구에 대한 자세한 내용은 다음 페이지를 참조하세요.
 
 * 코드 샘플: 
-  * Elastic Database 도구([.NET](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-a80d8dc6?SRC=VSIDE), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
+  * Elastic Database 도구([.NET](https://github.com/Azure/elastic-db-tools), [Java](https://search.maven.org/#search%7Cga%7C1%7Ca%3A%22azure-elasticdb-tools%22))
   * [Azure SQL용 Elastic Database 도구 - Entity Framework 통합](https://code.msdn.microsoft.com/Elastic-Scale-with-Azure-bae904ba?SRC=VSIDE)
   * [스크립트 센터의 분할된 데이터베이스 탄력성](https://gallery.technet.microsoft.com/scriptcenter/Elastic-Scale-Shard-c9530cbe)
 * 블로그: [탄력적인 확장 발표](https://azure.microsoft.com/blog/20../../introducing-elastic-scale-preview-for-azure-sql-database/)

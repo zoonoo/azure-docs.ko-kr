@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 01/31/2020
+ms.date: 02/03/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 349932073394a967da58bf521449d22a48c1f91d
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931726"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982860"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -216,7 +216,8 @@ ID가 `api.phonefactor`인 콘텐츠 정의용 ID는 다음과 같습니다.
 |verification_control_but_send_new_code |새 코드 보내기 |
 |verification_control_but_verify_code |코드 확인 |
 
-### <a name="verification-display-control-error-messages"></a>확인 표시 컨트롤 오류 메시지
+## <a name="one-time-password-error-messages"></a>일회용 암호 오류 메시지
+다음은 [일회성 암호 기술 프로필](one-time-password-technical-profile.md) 오류 메시지의 id입니다.
 
 | ID | 기본값 |
 | -- | ------------- |

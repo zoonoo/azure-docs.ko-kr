@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 설정 변경
 description: 이 문서에서는 사용자 지정할 수 있는 패브릭 설정 및 패브릭 업그레이드 정책에 대해 설명합니다.
 ms.topic: reference
 ms.date: 08/30/2019
-ms.openlocfilehash: 284e8ad566192f027d466ad08d66c2fc5265381d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f42cfd1b41ab463c3c3042987b5d0a0b3b00f67e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905192"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986192"
 ---
 # <a name="customize-service-fabric-cluster-settings"></a>Service Fabric 클러스터 설정 사용자 지정
 이 문서에서는 사용자 지정할 수 있는 Service Fabric 클러스터의 다양한 패브릭 설정을 설명합니다. Azure에서 호스팅된 클러스터의 경우 [Azure Portal](https://portal.azure.com)을 통해 또는 Azure Resource Manager 템플릿을 사용하여 설정을 사용자 지정할 수 있습니다. 자세한 내용은 [Azure 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-azure.md)를 참조하세요. 독립 실행형 클러스터의 경우 *ClusterConfig.json* 파일을 업데이트하고 클러스터에서 구성 업그레이드를 수행하여 설정을 사용자 지정합니다. 자세한 내용은 [독립 실행형 클러스터의 구성 업그레이드](service-fabric-cluster-config-upgrade-windows-server.md)를 참조하세요.
@@ -831,7 +831,7 @@ ms.locfileid: "76905192"
 | **매개 변수** | **허용되는 값** | **업그레이드 정책** | **지침 또는 간단한 설명** |
 | --- | --- | --- | --- |
 |ContainerNetworkName|string, 기본값: ""| 정적 |컨테이너 네트워크를 설정할 때 사용할 네트워크 이름입니다.|
-|ContainerNetworkSetup|bool, 기본값: FALSE| 정적 |컨테이너 네트워크를 설정할지 여부입니다.|
+|ContainerNetworkSetup|bool, 기본값은 FALSE (Linux)이 고 기본값은 TRUE (Windows)입니다.| 정적 |컨테이너 네트워크를 설정할지 여부입니다.|
 |FabricDataRoot |String | 허용되지 않음 |Service Fabric 데이터 루트 디렉터리. Azure에 대한 기본값: d:\svcfab |
 |FabricLogRoot |String | 허용되지 않음 |Service Fabric 로그 루트 디렉터리. SF 로그 및 추적이 배치되는 위치입니다. |
 |NodesToBeRemoved|string, 기본값: ""| 동적 |구성 업그레이드의 일부로 제거해야 하는 노드입니다. (독립 실행형 배포에만 해당)|

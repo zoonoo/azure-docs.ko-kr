@@ -3,19 +3,21 @@ title: Azure IoT Central 응용 프로그램에서 청구서를 관리 하 고 �
 description: 관리자는 청구서를 관리 하 고 Azure IoT Central 응용 프로그램에서 무료 요금제를 표준 가격 책정 요금제로 이동 하는 방법에 대해 알아봅니다.
 author: v-krghan
 ms.author: v-krghan
-ms.date: 07/26/2019
+ms.date: 12/09/2019
 ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: e45109842a081b437c20de81321bf70f909efa2a
+ms.openlocfilehash: adc7b59eebf513042667c0c585c05307aeab07b2
 ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982363"
+ms.locfileid: "76990877"
 ---
-# <a name="view-your-bill-in-iot-central-application"></a>IoT Central 응용 프로그램에서 청구서 보기
+# <a name="manage-your-bill-in-an-iot-central-application"></a>IoT Central 응용 프로그램에서 청구 관리
+
+[!INCLUDE [iot-central-pnp-original](../../../includes/iot-central-pnp-original-note.md)]
 
 이 문서에서는 관리자가 관리 섹션에서 Azure IoT Central 응용 프로그램의 청구서를 관리할 수 있는 방법을 설명 합니다. 무료 가격 책정 요금제에서 표준 요금제로 응용 프로그램을 이동 하는 방법과 요금제를 업그레이드 하거나 다운 그레이드 하는 방법을 알아봅니다.
 
@@ -31,11 +33,11 @@ ms.locfileid: "76982363"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-administer/freetrialbilling.png)
+    ![평가판 상태](media/howto-view-bill/freetrialbilling.png)
 
 1. **유료 요금제로 변환을**선택 합니다.
 
-    ![평가판 변환](media/howto-administer/convert.png)
+    ![평가판 변환](media/howto-view-bill/convert.png)
 
 1. 적절 한 Azure Active Directory를 선택 하 고 유료 요금제를 사용 하는 응용 프로그램에 사용할 Azure 구독을 선택 합니다.
 
@@ -52,7 +54,7 @@ ms.locfileid: "76982363"
 
 1. **관리** 섹션의 **가격 책정** 페이지로 이동 합니다.
 
-    ![평가판 상태](media/howto-administer/pricing.png)
+    ![평가판 상태](media/howto-view-bill/pricing.png)
 
 1. **계획** 을 선택 하 고 **저장** 을 클릭 하 여 업그레이드 또는 다운 그레이드 합니다.
 
@@ -62,7 +64,6 @@ ms.locfileid: "76982363"
 
 청구서를 보려면 **관리** 섹션의 **가격 책정** 페이지로 이동 합니다. Azure 가격 책정 페이지가 새 탭에서 열리며, 여기서 각 Azure IoT Central 응용 프로그램에 대 한 청구서를 볼 수 있습니다.
 
-
 ## <a name="next-steps"></a>다음 단계
 
-Azure IoT Central 응용 프로그램에서 청구서를 보는 방법에 대해 알아보았습니다. 다음 단계에서는 Azure IoT Central에서 [응용 프로그램 UI를 사용자 지정](howto-customize-ui.md) 하는 방법에 대해 알아봅니다.
+Azure IoT Central 응용 프로그램에서 청구서를 관리 하는 방법에 대해 알아보았습니다. 다음 단계에서는 Azure IoT Central에서 [응용 프로그램 UI 사용자 지정](howto-customize-ui.md) 에 대해 알아봅니다.

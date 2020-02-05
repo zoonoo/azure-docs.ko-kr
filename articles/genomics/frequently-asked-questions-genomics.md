@@ -9,12 +9,12 @@ ms.author: grhuynh
 ms.service: genomics
 ms.topic: troubleshooting
 ms.date: 12/07/2017
-ms.openlocfilehash: 4a2b66f95467e7f6cb99f632548351f827e259c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e8806bc4f761214e6740a22093b7e18030fdf881
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73476430"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986039"
 ---
 # <a name="microsoft-genomics-common-questions"></a>Microsoft Genomics: 일반적인 질문
 
@@ -24,6 +24,8 @@ ms.locfileid: "73476430"
 ## <a name="how-do-i-run-gatk4-workflows-on-microsoft-genomics"></a>Microsoft Genomics에서 GATK4 워크플로를 실행할 어떻게 할까요? 있나요?
 Microsoft Genomics 서비스의 config.xml 파일에서 `gatk4`process_name를 지정 합니다. 정기적인 청구 요금으로 요금이 청구 됩니다.
 
+## <a name="how-do-i-enable-output-compression"></a>출력 압축을 사용 하도록 설정 어떻게 할까요??
+출력 압축에 대 한 선택적 인수를 사용 하 여 출력 .vcf 또는 gvcf를 압축할 수 있습니다. 이는 `.gz` (bgzip output) 및 `.tbi` (tabix output) 파일을 생성 하기 위해 `-tabix` `-bgzip`를 실행 하는 것과 동일 합니다. `bgzip`는 .vcf 또는 gvcf 파일을 압축 하 `tabix` 압축 된 파일에 대 한 인덱스를 만듭니다. 인수는 부울로, 기본적으로 `false`는 .vcf 출력에 대해 설정 되 고 gcvf 출력에 대해 기본적으로 `true` 됩니다. 명령줄에서를 사용 하려면 `-bz` 또는 `--bgzip-output`을 `true` (bgzip 및 tabix 실행) 또는 `false`로 지정 합니다. Config.xml 파일에서이 인수를 사용 하려면 파일에 `bgzip_output: true` 또는 `bgzip_output: false`를 추가 합니다.
 
 ## <a name="what-is-the-sla-for-microsoft-genomics"></a>Microsoft Genomics의 SLA는 무엇인가요?
 워크플로 API 요청을 수신하는 데 Microsoft Genomics 서비스의 99.9% 가용성을 보장합니다. 자세한 내용은 [SLA](https://azure.microsoft.com/support/legal/sla/genomics/v1_0/)를 참조하세요.

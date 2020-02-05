@@ -10,14 +10,14 @@ ms.reviewer: v-mamcge, jasonh, kfile
 ms.devlang: csharp
 ms.workload: big-data
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/03/2020
 ms.custom: seodec18
-ms.openlocfilehash: 960eb9b48a158358a076202db0d435feb918a6c8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: ff5f7a80e2dcedb1795bae14ee9140c2842303a5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863481"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984605"
 ---
 # <a name="authentication-and-authorization-for-azure-time-series-insights-api"></a>Azure Time Series Insights API에 대한 인증 및 권한 부여
 
@@ -93,9 +93,9 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 
    1. 애플리케이션이 Time Series Insights API를 호출할 때 `Authorization` 헤더에서 이 토큰을 전달할 수 있습니다.
 
-* 또는 개발자가 MSAL을 사용 하 여 인증 하도록 선택할 수 있습니다. 자세한 내용은 [MSAL으로 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) 을 참조 하세요. 
+* 또는 개발자가 MSAL을 사용 하 여 인증 하도록 선택할 수 있습니다. [Msal으로 마이그레이션](https://docs.microsoft.com/azure/active-directory/develop/msal-net-migration) 하는 방법에 대 한 자세한 내용을 확인 하 고 자세한 내용은 문서를 [사용 하 여 C# Azure Time Series Insights 환경의 GA 참조 데이터 관리](time-series-insights-manage-reference-data-csharp.md) 를 참조 하세요. 
 
-## <a name="common-headers-and-parameters"></a>일반 헤더 및 매개 변수
+## <a name="common-headers-and-parameters"></a>공용 헤더 및 매개 변수
 
 이 섹션에서는 Time Series Insights GA 및 Preview Api에 대 한 쿼리를 수행 하는 데 사용 되는 일반적인 HTTP 요청 헤더 및 매개 변수에 대해 설명 합니다. API 관련 요구 사항은 [Time Series Insights REST API 참조 설명서](https://docs.microsoft.com/rest/api/time-series-insights/)에 자세히 설명 되어 있습니다.
 
@@ -136,7 +136,7 @@ Azure Active Directory 앱 등록 흐름에는 세 가지 주요 단계가 포�
 | 응답 헤더 | Description |
 | --- | --- |
 | Content-type | `application/json`만 지원됩니다. |
-| x-ms-request-id | 서버에서 생성 된 요청 ID입니다. Microsoft에 문의 하 여 요청을 조사 하는 데 사용할 수 있습니다. |
+| x-y (요청 id) | 서버에서 생성 된 요청 ID입니다. Microsoft에 문의 하 여 요청을 조사 하는 데 사용할 수 있습니다. |
 | x-m 속성-찾을 수 없음-동작 | GA API 선택적 응답 헤더입니다. 가능한 값은 `ThrowError` (기본값) 또는 `UseNull`입니다. |
 
 ### <a name="http-parameters"></a>HTTP 매개 변수

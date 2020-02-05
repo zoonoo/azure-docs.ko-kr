@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 03/02/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 100f059f7c9f18ab6920f50c850b3b8d5a617908
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 69582291ca1da95003e26a6922899defd7d5e477
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840199"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982401"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -40,6 +40,7 @@ ms.locfileid: "76840199"
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
 - [세션 관리](custom-policy-reference-sso.md) - 여러 유형의 세션을 처리합니다.
 - **Application insights**
+- 일회용 [암호](one-time-password-technical-profile.md) -일회용 암호의 생성 및 유효성 검사를 관리 하는 기능을 제공 합니다. 
 
 ## <a name="technical-profile-flow"></a>기술 프로필 흐름
 

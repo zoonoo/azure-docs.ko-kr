@@ -6,12 +6,12 @@ ms.service: hpc-cache
 ms.topic: conceptual
 ms.date: 12/30/2019
 ms.author: rohogue
-ms.openlocfilehash: 75d657fd9f3ee13c331450b324fd3b99e9cb6ca5
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: a68bf06bad995f71bedf6a5bdedcb676737a8c61
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647227"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990609"
 ---
 # <a name="add-storage-targets"></a>스토리지 대상 추가
 
@@ -38,8 +38,6 @@ Azure Portal에서 캐시 인스턴스를 열고 왼쪽 세로 막대에서 **�
 Azure Blob 컨테이너를 정의 하려면이 정보를 입력 합니다.
 
 ![새 Azure Blob 저장소 대상에 대 한 정보로 채워진 저장소 대상 추가 페이지의 스크린샷](media/hpc-cache-add-blob.png)
-
-<!-- need to replace screenshot after note text is updated with both required RBAC roles and also with correct search term -->
 
 * **저장소 대상 이름** -Azure HPC 캐시에서이 저장소 대상을 식별 하는 이름을 설정 합니다.
 * **대상 유형** - **Blob**을 선택 합니다.

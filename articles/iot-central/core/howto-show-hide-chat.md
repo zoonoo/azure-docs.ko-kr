@@ -8,19 +8,19 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: d861a5d1da6ebc9cedbe2dff764cd5b6e7dd04e1
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: f858e0dd475361ff097f5a05ae01df2af00e4eca
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827396"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989997"
 ---
 # <a name="toggle-live-chat"></a>라이브 채팅 토글
 
 이 방법 문서에서는 IoT Central 응용 프로그램에서 라이브 채팅을 전환 하는 방법을 보여 줍니다. 라이브 채팅을 사용 하 여 기술 지원에 액세스할 수 있습니다.
 
 > [!NOTE]
-> 채팅 옵션은 평가판 구독에 대해서만 사용할 수 있습니다.
+> 채팅 옵션은 무료 요금제를 사용 하 여 만든 응용 프로그램에만 사용할 수 있습니다.
 
 ## <a name="chat-with-us"></a>채팅
 
