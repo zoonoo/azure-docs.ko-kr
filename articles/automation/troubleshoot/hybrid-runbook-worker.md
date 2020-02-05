@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: a5885df67464095061d9a95aa59010a1629fb8f8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5adc94061cd656b0654fba6609d36ecfd38c75d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76930342"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988042"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "76930342"
 
 ## <a name="general"></a>일반
 
-Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. Windows의 경우이 에이전트는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)입니다. Linux의 경우 Linux 용 Log Analytics 에이전트입니다.
+Hybrid Runbook Worker는 Automation 계정과 통신하여 작업자를 등록하고, Runbook 작업을 수신하고, 상태를 보고하는 에이전트를 사용합니다. Windows의 경우이 에이전트는 Microsoft Monitoring Agent (MMA) 라고도 하는 Windows 용 Log Analytics 에이전트입니다. Linux의 경우 Linux 용 Log Analytics 에이전트입니다.
 
 ### <a name="runbook-execution-fails"></a>시나리오: Runbook 실행 실패
 
@@ -34,7 +34,7 @@ Runbook 실행에 실패하고 다음 오류가 발생합니다.
 "The job action 'Activate' cannot be run, because the process stopped unexpectedly. The job action was attempted three times."
 ```
 
-Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 완료 되지 않도록 방해할 수 있는 조건이 있습니다. 관련 오류 메시지에 추가 정보가 포함 되지 않을 수 있습니다.
+Runbook이 3 회 실행을 시도한 직후에 일시 중단 됩니다. Runbook이 완료 되지 않도록 방해할 수 있는 조건이 있습니다. 관련 오류 메시지에 추가 정보가 포함 되지 않을 수 있습니다.
 
 #### <a name="cause"></a>원인
 
@@ -52,7 +52,7 @@ Runbook이 3회 실행 시도 직후 일시 중단됩니다. Runbook이 완료 �
 
 *.azure-automation.net에 대한 아웃바운드 액세스 권한이 컴퓨터의 443 포트에 있는지 확인합니다.
 
-Hybrid Runbook Worker를 실행 하는 컴퓨터는이 기능을 호스팅하도록 작업자를 구성 하기 전에 최소 하드웨어 요구 사항을 충족 해야 합니다. Runbook 및이를 사용 하는 백그라운드 프로세스에서 시스템을 과도 하 게 사용 하 여 runbook 작업 지연 또는 시간 초과를 일으킬 수 있습니다.
+Hybrid Runbook Worker를 실행 하는 컴퓨터는이 기능을 호스팅하도록 작업자를 구성 하기 전에 최소 하드웨어 요구 사항을 충족 해야 합니다. Runbook 및이를 사용 하는 백그라운드 프로세스는 시스템을 과도 하 게 사용 하 여 runbook 작업 지연 또는 시간 초과를 발생 시킬 수 있습니다.
 
 Hybrid Runbook Worker 기능을 실행할 컴퓨터가 최소 하드웨어 요구 사항을 충족하는지 확인합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 모든 메모리 또는 CPU 압력은 리소스를 업그레이드 해야 함을 나타낼 수 있습니다. 최소 요구 사항을 지원할 수 있는 다른 컴퓨팅 리소스를 선택하고 워크로드 수요가 증가의 필요성을 나타낼 경우 규모를 확장할 수도 있습니다.
 
@@ -72,7 +72,6 @@ At line:3 char:1
     + CategoryInfo          : CloseError: (:) [Connect-AzureRmAccount], ArgumentException
     + FullyQualifiedErrorId : Microsoft.Azure.Commands.Profile.ConnectAzureRmAccountCommand
 ```
-
 #### <a name="cause"></a>원인
 
 이 오류는 실행 계정 인증서가 없는 Hybrid Runbook Worker에서 실행되는 Runbook에서 [실행 계정](../manage-runas-account.md)을 사용하려고 시도할 때 발생합니다. Hybrid Runbook Worker의 경우 제대로 작동하기 위해 실행 계정에 필요한 인증서 자산이 기본적으로 로컬에 없습니다.
@@ -80,41 +79,6 @@ At line:3 char:1
 #### <a name="resolution"></a>해상도
 
 Hybrid Runbook Worker Azure VM 인 경우 [azure 리소스에 대 한 관리 되는 id](../automation-hrw-run-runbooks.md#managed-identities-for-azure-resources) 를 대신 사용할 수 있습니다. 이 시나리오는 실행 계정 대신 Azure VM의 관리 되는 id를 사용 하 여 Azure 리소스에 인증할 수 있도록 하 여 인증을 간소화 합니다. Hybrid Runbook Worker가 온-프레미스 머신인 경우 머신에 실행 계정 인증서를 설치해야 합니다. 인증서를 설치 하는 방법을 알아보려면 [Hybrid Runbook Worker에서 runbook을 실행](../automation-hrw-run-runbooks.md)하는 PowerShell runbook 내보내기-export-runascertificatetohybridworker을 실행 하는 단계를 참조 하세요.
-
-## <a name="linux"></a>Linux
-
-Linux Hybrid Runbook Worker는 자동화 계정과 통신 하 여 작업자를 등록 하 고, Runbook 작업을 수신 하 고, 상태를 보고 하는 [linux 용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 에 따라 달라 집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
-
-### <a name="oms-agent-not-running"></a>시나리오: Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않음
-
-#### <a name="issue"></a>문제
-
-Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않습니다.
-
-#### <a name="cause"></a>원인
-
-에이전트가 실행 되 고 있지 않으면 Linux Hybrid Runbook Worker Azure Automation와 통신할 수 없습니다. 다양한 이유로 에이전트를 실행하지 못할 수 있습니다.
-
-#### <a name="resolution"></a>해상도
-
- `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
-
-```bash
-nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
-nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
-```
-
-다음 목록은 Linux Hybrid Runbook Worker에 대해 시작된 프로세스를 보여줍니다. 모두 `/var/opt/microsoft/omsagent/state/automationworker/` 디렉터리에 있습니다.
-
-
-* **oms.conf** - 이 값은 작업자 관리자 프로세스입니다. DSC에서 직접 시작됩니다.
-
-* **worker.conf** - 이 프로세스는 자동 등록 Hybrid Worker 프로세스로, 작업자 관리자가 시작합니다. 이 프로세스는 업데이트 관리에서 사용되며 사용자에게 투명합니다. 컴퓨터에서 업데이트 관리 솔루션을 사용하도록 설정하지 않으면 이 프로세스가 없습니다.
-
-* **diy/worker.conf** - 이 프로세스는 DIY 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 자동 등록 된 하이브리드 작업자 프로세스는 다른 구성을 사용 한다는 핵심 정보에만 다릅니다. Azure Automation 솔루션을 사용 하지 않도록 설정 하 고 DIY Linux Hybrid Worker 등록 되지 않은 경우에는이 프로세스가 제공 되지 않습니다.
-
-에이전트가 실행 되 고 있지 않은 경우 다음 명령을 실행 하 여 서비스를 시작 합니다. `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="error-403-on-registration"></a>시나리오: Hybrid Runbook Worker 등록 중 오류 403
 
@@ -142,6 +106,41 @@ nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfi
 Log Analytics 작업 영역 및 Automation 계정은 연결 된 지역에 있어야 합니다. 지원 되는 지역 목록은 [Azure Automation 및 Log Analytics 작업 영역 매핑](../how-to/region-mappings.md)을 참조 하세요.
 
 컴퓨터의 날짜 및 표준 시간대를 업데이트 해야 할 수도 있습니다. 사용자 지정 시간 범위를 선택 하는 경우 범위가 UTC (현지 표준 시간대와 다를 수 있음) 인지 확인 합니다.
+
+## <a name="linux"></a>Linux
+
+Linux Hybrid Runbook Worker는 자동화 계정과 통신 하 여 작업자를 등록 하 고, Runbook 작업을 수신 하 고, 상태를 보고 하는 [linux 용 Log Analytics 에이전트](../../azure-monitor/platform/log-analytics-agent.md) 에 따라 달라 집니다. 작업자 등록이 실패하는 경우 다음과 같은 몇 가지 오류 원인이 있을 수 있습니다.
+
+### <a name="oms-agent-not-running"></a>시나리오: Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않음
+
+#### <a name="issue"></a>문제
+
+Linux 용 Log Analytics 에이전트가 실행 되 고 있지 않습니다.
+
+#### <a name="cause"></a>원인
+
+에이전트가 실행 되 고 있지 않으면 Linux Hybrid Runbook Worker Azure Automation와 통신할 수 없습니다. 여러 가지 이유로 에이전트가 실행 되 고 있지 않을 수 있습니다.
+
+#### <a name="resolution"></a>해상도
+
+ `ps -ef | grep python` 명령을 입력하여 에이전트가 실행 중인지 확인하세요. 다음과 비슷한 출력, 즉 **nxautomation** 사용자 계정을 사용하는 python 프로세스가 표시됩니다. 업데이트 관리 또는 Azure Automation 솔루션을 사용하도록 설정하지 않은 경우 다음 프로세스 중 어떤 것도 실행되지 않습니다.
+
+```bash
+nxautom+   8567      1  0 14:45 ?        00:00:00 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/main.py /var/opt/microsoft/omsagent/state/automationworker/oms.conf rworkspace:<workspaceId> <Linux hybrid worker version>
+nxautom+   8593      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/state/automationworker/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+nxautom+   8595      1  0 14:45 ?        00:00:02 python /opt/microsoft/omsconfig/modules/nxOMSAutomationWorker/DSCResources/MSFT_nxOMSAutomationWorkerResource/automationworker/worker/hybridworker.py /var/opt/microsoft/omsagent/<workspaceId>/state/automationworker/diy/worker.conf managed rworkspace:<workspaceId> rversion:<Linux hybrid worker version>
+```
+
+다음 목록은 Linux Hybrid Runbook Worker에 대해 시작된 프로세스를 보여줍니다. 모두 `/var/opt/microsoft/omsagent/state/automationworker/` 디렉터리에 있습니다.
+
+
+* **oms** -작업자 관리자 프로세스입니다. DSC에서 직접 시작됩니다.
+
+* **worker** -자동 등록 된 하이브리드 작업자 프로세스는 작업자 관리자에 의해 시작 됩니다. 이 프로세스는 업데이트 관리에서 사용되며 사용자에게 투명합니다. 컴퓨터에서 업데이트 관리 솔루션을 사용하도록 설정하지 않으면 이 프로세스가 없습니다.
+
+* **diy/** diy 하이브리드 작업자 프로세스입니다. DIY 하이브리드 작업자 프로세스는 Hybrid Runbook Worker에서 사용자 Runbook을 실행하는 데 사용됩니다. 자동 등록 된 하이브리드 작업자 프로세스는 다른 구성을 사용 한다는 핵심 정보에만 다릅니다. Azure Automation 솔루션을 사용 하지 않도록 설정 하 고 DIY Linux Hybrid Worker 등록 되지 않은 경우에는이 프로세스가 제공 되지 않습니다.
+
+에이전트가 실행 되 고 있지 않은 경우 다음 명령을 실행 하 여 서비스를 시작 합니다. `sudo /opt/microsoft/omsagent/bin/service_control restart`.
 
 ### <a name="class-does-not-exist"></a>시나리오: 지정 된 클래스가 존재 하지 않습니다.
 

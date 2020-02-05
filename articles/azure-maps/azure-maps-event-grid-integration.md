@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 9a946d189706c9c789ab884670d13b0b3e7fcb0c
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: a89983a9ae45f21deb7a823de049373b4ff9b935
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911803"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989062"
 ---
 # <a name="react-to-azure-maps-events-by-using-event-grid"></a>Event Grid를 사용하여 Azure Maps 이벤트에 대응 
 
-Azure Maps는 이벤트 알림을 다른 서비스에 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합됩니다. 이 문서는 안전하고 안정적이며 확장성 있는 방식으로 중요한 이벤트에 대응할 수 있도록 비즈니스 애플리케이션의 Azure Maps 이벤트 수신 대기를 구성하는 작업을 지원하기 위한 것입니다. 예를 들어 데이터베이스 업데이트, 티켓 만들기, 디바이스가 지오펜스 안으로 들어올 때마다 메일 알림 제공 등의 여러 작업을 수행하는 애플리케이션을 빌드합니다.
+Azure Maps는 사용자가 다른 서비스로 이벤트 알림을 보내고 다운스트림 프로세스를 트리거할 수 있도록 Azure Event Grid와 통합 됩니다. 이 문서의 목적은 Azure Maps 이벤트를 수신 하도록 비즈니스 응용 프로그램을 구성 하는 데 도움이 됩니다. 이 서비스를 사용 하면 안정적이 고, 확장 가능 하며, 안전한 방식으로 중요 한 이벤트에 대응할 수 있습니다. 예를 들어, 사용자가 응용 프로그램을 빌드하여 데이터베이스를 업데이트 하 고, 티켓을 만들고, 장치를 지 오로 가져갈 때마다 전자 메일 알림을 배달할 수 있습니다.
 
-Azure Event Grid는 게시-구독 모델을 사용하는 완전 관리형 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 및 [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)와 같은 Azure 서비스에 대한 기본 제공 지원이 있어 웹후크를 사용하여 외부 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
+Azure Event Grid는 게시-구독 모델을 사용 하는 완전히 관리 되는 이벤트 라우팅 서비스입니다. Event Grid에는 [Azure Functions](https://docs.microsoft.com/azure/azure-functions/functions-overview) 및 [Azure Logic Apps](https://docs.microsoft.com/azure/azure-functions/functions-overview)와 같은 Azure 서비스에 대 한 지원이 기본적으로 제공 됩니다. 웹 후크를 사용 하 여 비 Azure 서비스에 이벤트 경고를 제공할 수 있습니다. Azure Event Grid가 지원하는 이벤트 처리기의 전체 목록은 [Azure Event Grid 소개](https://docs.microsoft.com/azure/event-grid/overview)를 참조하세요.
 
 
 ![Azure Event Grid 기능 모델](./media/azure-maps-event-grid-integration/azure-event-grid-functional-model.png)
@@ -38,7 +38,7 @@ Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/con
 
 ## <a name="event-schema"></a>이벤트 스키마
 
-다음 예제에서는 GeofenceResult의 스키마를 보여 줍니다.
+다음 예제에서는 GeofenceResult에 대 한 스키마를 보여 줍니다.
 
 ```JSON
 {   
@@ -81,7 +81,7 @@ Event Grid는 [이벤트 구독](https://docs.microsoft.com/azure/event-grid/con
 Azure Maps 지오펜스 이벤트를 처리하는 애플리케이션은 다음과 같은 몇 가지 권장 지침을 따라야 합니다.
 
 * 이벤트를 동일한 이벤트 처리기로 라우팅하도록 여러 구독을 구성할 수 있습니다. 이벤트가 특정 원본에서 제공되었다고 가정하지 않는 것이 중요합니다. 항상 메시지 항목을 확인하여 예상한 원본에서 제공된 것인지 확인합니다.
-* 메시지는 지연 후 또는 잘못된 순서로 도착할 수 있습니다. 응답 헤더의 `X-Correlation-id` 필드를 사용하여 개체 정보가 최신 상태인지 파악합니다.
+* 메시지는 지연 후 또는 잘못된 순서로 도착할 수 있습니다. 응답 헤더의 `X-Correlation-id` 필드를 사용 하 여 개체에 대 한 정보가 최신 상태 인지 여부를 파악할 수 있습니다.
 * mode 매개 변수를 `EnterAndExit`로 설정하여 Get 및 POST 지오펜스 API를 호출하는 경우 상태가 이전 지오펜스 API 호출과 다르게 변경된 지오펜스의 각 기하 도형에 대해 Enter 또는 Exit 이벤트가 생성됩니다.
 
 ## <a name="next-steps"></a>다음 단계

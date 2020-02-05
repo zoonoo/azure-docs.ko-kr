@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b82001b8bceac620dec9f1fe6ef47f4aa81b1011
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b6c70e1a5c7e5b81157c09a794ff75e276a20d1f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425615"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982741"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -189,15 +189,16 @@ ms.locfileid: "75425615"
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| setting.showContinueButton | 아닙니다. | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.showCancelButton | 아닙니다. | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.operatingMode | 아닙니다. | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다. |
+| AllowGenerationOfClaimsWithNullValues| 아닙니다.| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
 | ContentDefinitionReferenceId | 예 | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
 | EnforceEmailVerification | 아닙니다. | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.showSignupLink | 아닙니다. | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.retryLimit | 아닙니다. | 사용자가 유효성 검사 기술 프로필과의 일치 여부를 확인하는 데이터의 입력을 시도할 수 있는 횟수를 제어합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
 | SignUpTarget | 아닙니다. | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
-
+| setting.showCancelButton | 아닙니다. | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.showContinueButton | 아닙니다. | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| setting.showSignupLink | 아닙니다. | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| forgotPasswordLinkLocation 설정| 아닙니다.| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.| 
 ## <a name="cryptographic-keys"></a>암호화 키
 
 **CryptographicKeys** 요소는 사용되지 않습니다.

@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: 3f3604205d4aedffdda128ec4a6b895786245e56
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772028"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990711"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -39,14 +39,7 @@ ms.locfileid: "76772028"
 이 문제는 어플라이언스 컴퓨터가 프록시 뒤에 있는 경우에 발생할 수 있습니다.
 
 - 프록시에 필요한 경우 권한 부여 자격 증명을 제공 해야 합니다.
-- URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 다음 Url을 허용 목록에 추가 합니다.
-
-    - [VMware 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [Hyper-v 평가를 위한 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-    - [VMware 에이전트 없는 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [VMware 에이전트 기반 마이그레이션의 URL](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware)
-    - [Hyper-v 마이그레이션의 Url](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)
-
+- URL 기반 방화벽 프록시를 사용 하 여 아웃 바운드 연결을 제어 하는 경우 [이러한 url](migrate-appliance.md#url-access) 을 허용 목록에 추가 합니다.
 - 가로채기 프록시를 사용 하 여 인터넷에 연결 하는 경우 [다음 단계](https://docs.microsoft.com/azure/migrate/concepts-collector)를 사용 하 여 프록시 인증서를 어플라이언스 VM으로 가져옵니다.
 
 ##  <a name="datetime-synchronization-error"></a>날짜/시간 동기화 오류

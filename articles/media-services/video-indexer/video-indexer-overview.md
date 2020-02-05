@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 09/23/2019
+ms.date: 02/02/2020
 ms.author: juliako
-ms.openlocfilehash: 6d03e66d125c4234a95e5a79f212bc81e7cea560
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: aee4390d9b892eddbd7dc59887f5268e4c35d3f7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933386"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989793"
 ---
 # <a name="what-is-video-indexer"></a>Video Indexer란?
 
@@ -29,7 +29,7 @@ Video Indexer로 정보 추출을 시작 하려면 계정을 만들고 비디오
 
 ## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
  
-중요 한 알림을 사용 하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수 해야 하며, 다른 Azure 서비스를 Video Indexer 사용 하거나 다른 Azure 서비스를 사용 하지 않을 수도 있습니다. 다른 Azure 서비스는 다른 사용자의 권리를 위반 하거나 다른 사용자에 게 해로울 수 있습니다. 모든 생체 인식 데이터를 포함 하 여 처리 및 저장소에 대 한 Video Indexer 서비스에 모든 비디오를 업로드 하기 전에 비디오의 개별에서 적절 한 모든 동의을 포함 하 여 적절 한 모든 권한을 보유 해야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 확인 하세요. Microsoft의 개인 정보 취급 방침 및 데이터 처리에 대 한 내용은 Microsoft의 [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관 ("OST")](https://www.microsoft.com/licensing/product-licensing/products) 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. 데이터 보존, 삭제/소멸 등을 비롯 한 추가 개인 정보 보호는 OST 및 [여기](faq.md)에서 사용할 수 있습니다. Video Indexer를 사용 하 여 Cognitive Services 용어, OST, DPA 및 개인정보 취급 방침에 따라 바인딩되는 것에 동의 합니다.
+중요 한 알림을 사용 하는 경우 Video Indexer 사용 시 적용 가능한 모든 법률을 준수 해야 하며, 다른 Azure 서비스를 Video Indexer 사용 하거나 다른 Azure 서비스를 사용 하지 않을 수도 있습니다. 다른 Azure 서비스는 다른 사용자의 권리를 위반 하거나 다른 사용자에 게 해로울 수 있습니다. 모든 생체 인식 데이터를 포함 하 여 처리 및 저장소에 대 한 Video Indexer 서비스에 모든 비디오를 업로드 하기 전에 비디오의 개별에서 적절 한 모든 동의을 포함 하 여 적절 한 모든 권한을 보유 해야 합니다. Video Indexer의 규정 준수, 개인 정보 보호 및 보안에 대해 알아보려면 Microsoft [Cognitive Services 사용 약관](https://azure.microsoft.com/support/legal/cognitive-services-compliance-and-privacy/)을 확인 하세요. Microsoft의 개인 정보 취급 방침 및 데이터 처리에 대 한 내용은 Microsoft의 [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products) ("OST") 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. 데이터 보존, 삭제/소멸 등을 비롯 한 추가 개인 정보 보호는 OST 및 [여기](faq.md)에서 사용할 수 있습니다. Video Indexer를 사용 하 여 Cognitive Services 용어, OST, DPA 및 개인정보 취급 방침에 따라 바인딩되는 것에 동의 합니다.
 
 ## <a name="what-can-i-do-with-video-indexer"></a>Video Indexer를 사용하여 무엇을 수행할 수 있나요?
 

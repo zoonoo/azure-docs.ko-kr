@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cd06d4cbf62078c2c7a5def4a0032ddce97d67f0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 27b430ca6e90eba933662bd35d8d97b08234c84e
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842455"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989028"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -130,9 +130,7 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 
 |제한 사항 |Description |완화 방법  |
 |---------|---------|---------|
-|NSG (네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 개인 끝점에 적용 되지 않습니다.    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다.  | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다. /32 접두사를 사용 하 여 개인 끝점 경로를 재정의 하는 개별 경로 배포        |
-|  전용 끝점만 있는 피어 링 Virtual Network는 지원 되지 않습니다.   |   다른 워크 로드 없이 피어 링 Virtual Network의 전용 끝점에 연결할 때 지원 되지 않는 경우       | 피어 링 Virtual Network에서 단일 VM을 배포 하 여 연결을 사용 하도록 설정 합니다. |
-|특수 워크 로드는 전용 끝점에 액세스할 수 없습니다.    |   가상 네트워크에 배포 된 다음 서비스는 개인 끝점을 사용 하 여 개인 링크 리소스에 액세스할 수 없습니다.<br>App Service 계획</br>Azure Container Instance</br>Azure NetApp Files</br>Azure 전용 HSM<br>       |   미리 보기 중에는 완화가 필요 하지 않습니다.       |
+|NSG (네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 개인 끝점에 적용 되지 않습니다.    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다.  | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다. /32 접두사를 사용 하 여 개별 경로를 배포 하 여 개인 끝점 경로를 재정의 합니다. 아웃 바운드 연결에 대 한 NSG 흐름 로그 및 모니터링 정보는 계속 지원 되며 사용할 수 있습니다.        |
 
 
 ## <a name="next-steps"></a>다음 단계

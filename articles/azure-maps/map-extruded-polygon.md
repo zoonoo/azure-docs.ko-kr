@@ -9,21 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 36914240caf3c1321dfa0102bd87cb29173f8b1d
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: f01e07ea2bbfd0f6b3b0cc19dd219d71984a0d45
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911062"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988569"
 ---
 # <a name="add-a-polygon-extrusion-layer-to-the-map"></a>지도에 다각형 입체 면 계층 추가
 
-이 문서에서는 다각형 입체 면 계층을 사용 하 여 `Polygon` 영역을 렌더링 하 고 기능 기 하 도형을 `MultiPolygon` 지도에서 입체 도형으로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 만들기도 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 됩니다. Atlas로 래핑된 경우 모든 기능 기 하 도형을 쉽게 업데이트할 수도 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스입니다.
-
+이 문서에서는 다각형 밀어내기 계층을 사용 하 여 `Polygon` 및 `MultiPolygon` 기능 형상의 영역을 입체 셰이프로 렌더링 하는 방법을 보여 줍니다. Azure Maps 웹 SDK는 [확장 된 GeoJSON 스키마](extend-geojson.md#circle)에 정의 된 원 기 하 도형 렌더링을 지원 합니다. 이러한 원은 지도에서 렌더링 될 때 다각형으로 변환 될 수 있습니다. 모든 기능 기 하 도형은 atlas로 래핑할 때 쉽게 업데이트할 수 있습니다 [. Shape](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.shape?view=azure-iot-typescript-latest) 클래스입니다.
 
 ## <a name="use-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용
 
-[다각형 입체 면 레이어가](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) 데이터 원본에 연결 되 고 지도에 로드 되 면 `Polygon` 영역 및 `MultiPolygon` 기능을 입체 도형으로 렌더링 합니다. 다각형 입체 면 계층의 `height` 및 `base` 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터**단위로 정의 합니다. 다음 코드에서는 다각형을 만들어 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
+[다각형 입체 면 계층](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.layer.polygonextrusionlayer?view=azure-maps-typescript-latest) 을 데이터 원본에 연결 합니다. 그런 다음 맵에 로드 합니다. 다각형 입체 면 계층은 `Polygon` 영역을 입체 도형으로 `MultiPolygon` 기능을 렌더링 합니다. 다각형 입체 면 계층의 `height` 및 `base` 속성은 입체 도형의 너비와 높이의 기본 거리를 **미터**단위로 정의 합니다. 다음 코드에서는 다각형을 만들고 데이터 소스에 추가 하 고 다각형 입체 면 계층 클래스를 사용 하 여 렌더링 하는 방법을 보여 줍니다.
 
 > [!Note]
 > 다각형 입체 면 계층에 정의 된 `base` 값은 `height`보다 작거나 같아야 합니다.
@@ -34,9 +33,9 @@ ms.locfileid: "75911062"
 <a href='https://codepen.io'>CodePen</a>에서 Azure Maps (<a href='https://codepen.io/azuremaps'>@azuremaps</a>) 펜 <a href='https://codepen.io/azuremaps/pen/wvvBpvE'>돌출 다각형</a> 을 참조 하세요.</iframe>
 
 
-## <a name="add-data-driven-multipolygons"></a>데이터 기반 multipolygons 추가
+## <a name="add-data-driven-polygons"></a>데이터 중심 다각형 추가
 
-다각형 밀어내기 계층을 사용 하 여 choropleth 지도를 렌더링 하려면 `Polygon` 및 `MultiPolygon` 기능 기 하 도형에서 통계 변수의 측정에 비례하여 `height` 및 `fillColor` 속성을 설정 합니다. 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 choropleth의 돌출 된 지도를 보여 줍니다.
+다각형 입체 면 레이어를 사용 하 여 choropleth 지도를 렌더링할 수 있습니다. 밀어내기 계층의 `height` 및 `fillColor` 속성을 `Polygon` 및 `MultiPolygon` 기능 기 하 도형에서 통계 변수의 측정으로 설정 합니다. 다음 코드 샘플은 상태별 모집단 밀도의 측정을 기반으로 하는 choropleth의 돌출 된 지도를 보여 줍니다.
 
 <br/>
 
@@ -62,7 +61,7 @@ Azure Maps에는 [여기](https://docs.microsoft.com/azure/azure-maps/extend-geo
 } 
 ```
 
-Azure Maps 웹 SDK는 다음 코드 샘플에 표시 된 것 처럼 이러한 `Point` 기능을 `Polygon` 기능으로 변환 하 고 다각형 입체 면 계층을 사용 하 여 지도에서 렌더링할 수 있습니다.
+Azure Maps 웹 SDK는 이러한 `Point` 기능을 내부적으로 `Polygon` 기능으로 변환 합니다. 다음 코드 샘플에 표시 된 것 처럼 다각형 밀어내기 계층을 사용 하 여 지도에서 이러한 `Point` 기능을 렌더링할 수 있습니다.
 
 <br/>
 
@@ -72,7 +71,7 @@ Azure Maps 웹 SDK는 다음 코드 샘플에 표시 된 것 처럼 이러한 `P
 
 ## <a name="customize-a-polygon-extrusion-layer"></a>다각형 입체 면 계층 사용자 지정
 
-다각형 입체 면 계층 몇 가지 스타일 옵션입니다. 사용할 도구는 다음과 같습니다.
+다각형 밀어내기 계층에는 여러 스타일 옵션이 있습니다. 사용할 도구는 다음과 같습니다.
 
 <br/>
 

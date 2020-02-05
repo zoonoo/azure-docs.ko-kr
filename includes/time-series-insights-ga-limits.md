@@ -4,17 +4,17 @@ description: 포함 파일
 services: digital-twins
 ms.service: digital-twins
 ms.topic: include
-ms.date: 12/06/2019
+ms.date: 02/03/2020
 author: deepakpalled
 ms.author: dpalled
 manager: cshankar
 ms.custom: include file
-ms.openlocfilehash: 54796f0c0810afd5559af836c566bf66b430223f
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f097479b67a7b48eca4a2710db3bd7eed6ddc982
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74980799"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013654"
 ---
 다음은 일반 공급의 키 제한을 요약 한 것입니다.
 

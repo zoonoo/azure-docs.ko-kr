@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: b5875d0672fc187920883abe208ad30c4d2b1051
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 77b95806c2040e7950e1133fcc4c7bc5e0e2ab53
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898544"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989606"
 ---
 # <a name="azure-maps-weather-coverage"></a>Azure Maps 날씨 범위
 
-이 문서에서는 [날씨 서비스](https://aka.ms/AzureMapsWeatherService)Azure Maps에 대 한 검사 정보를 제공 합니다. Azure Maps 날씨 데이터 서비스는 경로를 따라 레이더 타일, 현재 날씨 조건, 날씨 예측 및 날씨와 같은 세부 정보를 반환할 수 있습니다.
+이 문서에서는 [날씨 서비스](https://aka.ms/AzureMapsWeatherService)Azure Maps에 대 한 검사 정보를 제공 합니다. Azure Maps 날씨 데이터 서비스는 경로를 따라 레이더 타일, 현재 날씨 조건, 날씨 예측 및 날씨와 같은 세부 정보를 반환 합니다.
 
 Azure Maps은 모든 국가 및 지역에 대해 동일한 수준의 정보 및 정확도를 갖지 않습니다.
 

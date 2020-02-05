@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
-ms.date: 11/19/2019
-ms.openlocfilehash: 4f1fe1ea031cd7831ffb24ee4302d6834a8d9976
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 02/03/2019
+ms.openlocfilehash: 305af8e8acd7e7a54fae8c831d36bee0aad4ad6b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981896"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990983"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하는 Azure SQL 투명한 데이터 암호화
 
@@ -124,7 +124,7 @@ Key vault 관리자는 [키 자격 증명 모음 감사 이벤트에 대 한 로
 
 - 키 액세스를 8 시간 이내에 복원 하는 경우 데이터베이스는 다음 시간 내에 자동으로 치료 됩니다.
 
-- 키 액세스가 8 시간 넘게 복원 된 경우 자동 치료를 수행할 수 없으며 데이터베이스를 다시 가져오면 데이터베이스의 크기에 따라 상당한 시간이 걸릴 수 있으며 지원 티켓을 열어야 합니다. 데이터베이스가 다시 온라인 상태가 되 면 [장애 조치 (failover) 그룹](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) 구성, 지정 시간 복원 기록 및 태그와 같은 이전에 구성 된 서버 수준 설정이 손실 됩니다. 따라서 8 시간 이내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
+- 키 액세스가 8 시간 넘게 복원 된 경우 자동 치료를 수행할 수 없으며 데이터베이스를 다시 가져오면 포털에서 추가 단계가 필요 하며 데이터베이스 크기에 따라 상당한 시간이 걸릴 수 있습니다. 데이터베이스가 다시 온라인 상태가 되 면 [장애 조치 (failover) 그룹](https://docs.microsoft.com/azure/sql-database/sql-database-auto-failover-group) 구성, 지정 시간 복원 기록 및 태그와 같은 이전에 구성 된 서버 수준 설정이 **손실**됩니다. 따라서 8 시간 이내에 기본 키 액세스 문제를 식별 하 고 해결할 수 있는 알림 시스템을 구현 하는 것이 좋습니다.
 
 ### <a name="accidental-tde-protector-access-revocation"></a>우발적 TDE 보호기 액세스 해지
 

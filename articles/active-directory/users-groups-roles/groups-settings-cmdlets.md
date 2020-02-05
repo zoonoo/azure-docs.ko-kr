@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7547608e227ca6b8d57bc1d4384ccdee181d9970
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430849"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984951"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -178,9 +178,9 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```powershell
    $Setting = $template.CreateDirectorySetting()
    ```  
-4. 그런 다음 AllowAddGuests 설정을 업데이트 합니다.
+4. 그런 다음 AllowToAddGuests 설정을 업데이트 합니다.
    ```powershell
-   $Setting["AllowAddGuests"] = $False
+   $Setting["AllowToAddGuests"] = $False
    ```  
 5. 그런 다음 설정을 적용 합니다.
   
@@ -234,7 +234,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    AllowGuestsToAccessGroups     True
    GuestUsageGuidelinesUrl
    GroupCreationAllowedGroupId
-   AllowAddGuests              True
+   AllowToAddGuests              True
    UsageGuidelinesUrl            https://guideline.example.com
    ClassificationList
    EnableGroupCreation           True
@@ -271,7 +271,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
 
 4. 필요한 값의 설정을 지정합니다.
    ```powershell
-   $SettingCopy["AllowAddGuests"]=$False
+   $SettingCopy["AllowToAddGuests"]=$False
    ```
 5. 이 설정을 적용 하려는 그룹의 ID를 가져옵니다.
    ```powershell
@@ -297,7 +297,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```
 3. 필요한 경우 그룹의 설정을 업데이트 합니다. 예를 들어
    ```powershell
-   $Setting["AllowAddGuests"] = $True
+   $Setting["AllowToAddGuests"] = $True
    ```
 4. 그런 다음이 특정 그룹에 대 한 설정의 ID를 가져옵니다.
    ```powershell

@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: ''
-ms.openlocfilehash: f6e16ed6646340a5c623ecd027e8b0fe323bf7f9
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: b19c23c7adb8dce84530b8f3f8d994f4e32869cc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75910623"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988943"
 ---
 # <a name="azure-maps-routing-coverage"></a>Azure Maps 라우팅 적용 범위
 
-이 문서에서는 Azure Maps 라우팅에 대한 적용 범위 정보를 제공합니다. 위치 A에서 B로 최적의 경로를 검색 하는 경우 매우 정확한 이동 시간, live 업데이트 된 여행 정보 및 경로 지침을 제공할 수 Azure Maps. 이 경로는 현재 트래픽, 차량 유형 및 피할 수 있는 조건과 같은 추가 검색 용어를 고려 합니다. 경로를 최적화 하는 기능은 서로 다른 지역에 대 한 다양 한 수준의 정보 및 정확도를 Azure Maps 하는 영역에 따라 달라 집니다. 다음 표에서는 지역 및 해당 지역에 대해 요청할 수 있는 정보의 종류를 나열 합니다.
+이 문서에서는 Azure Maps 라우팅에 대한 적용 범위 정보를 제공합니다. 검색 쿼리를 수행할 때 Azure Maps 위치 A에서 위치 B로의 최적의 경로를 반환 합니다. 정확한 이동 시간, 여행 정보 라이브 업데이트 및 경로 지침이 제공 됩니다. 또한 현재 트래픽, 차량 유형 및 방지할 조건 등의 추가 검색 매개 변수를 추가할 수 있습니다. 경로 최적화는 지역에 따라 다릅니다. 이는 Azure Maps 다양 한 영역에 대 한 다양 한 수준의 정보 및 정확도가 있기 때문입니다. 다음 표에서는 지역 및 해당 지역에 대해 요청할 수 있는 정보의 종류를 나열 합니다.
  
 [**지오코딩**](geocoding-coverage.md)에 대한 검사를 확인해 보세요.       
 [**트래픽**](traffic-coverage.md)에 대한 검사를 확인해 보세요.  
@@ -115,7 +115,7 @@ ms.locfileid: "75910623"
 | 세인트 루시아                      |        ✓       |                      |             |
 | 세인트 빈센트 & 그레나딘       |        ✓       |                      |             |
 | 수리남                       |        ✓       |                      |             |
-| 트리니다드 토바고              |        ✓       |                      |             |
+| & 트리니다드 토바고              |        ✓       |                      |             |
 | 미국                  |        ✓       |         ✓            |     ✓      | 
 | \+ 아메리칸 사모아                |        ✓       |                      |             |
 | \+ 북마리아나 제도      |        ✓       |                      |             |

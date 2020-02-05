@@ -11,12 +11,12 @@ ms.reviewer: larryfr
 ms.topic: conceptual
 ms.date: 12/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: 0fef7d6f59b8893ff400914f491f421cddf436b7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56d6e8642ffd127f0982485902c466b76cbaaeed
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842923"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986515"
 ---
 # <a name="configure-a-development-environment-for-azure-machine-learning"></a>Azure Machine Learning용 개발 환경 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -59,7 +59,7 @@ Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machin
 Azure Machine Learning [계산 인스턴스 (미리 보기)](concept-compute-instance.md) 는 Jupyter 노트북 서버, JupyterLab 및 완전히 준비 된 ML 환경을 사용 하 여 데이터 과학자을 제공 하는 안전한 클라우드 기반 Azure 워크스테이션입니다.
 
 > [!NOTE]
-> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, **미국 동부 2**, **북아메리카 유럽** 또는 **영국 남부**지역이 포함 된 작업 영역에만 사용할 수 있으며 곧 제공 되는 다른 지역에 대 한 지원을 제공 합니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다.
 
 계산 인스턴스를 설치 하거나 구성할 수 없습니다.  Azure Machine Learning 작업 영역 내에서 언제 든 지 하나를 만듭니다. 이름을 입력 하 고 Azure VM 유형을 지정 합니다. [설정 환경 및 작업 영역](tutorial-1st-experiment-sdk-setup.md)을 사용 하 여 지금 사용해 보세요.

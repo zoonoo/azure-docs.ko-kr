@@ -6,14 +6,14 @@ ms.author: mamccrea
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 01/11/2019
+ms.date: 02/2/2020
 ms.custom: seodec18
-ms.openlocfilehash: cf6b94418516f681bf6c782fe02f3434faa5374e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e58e36b3caa5a5ecd137cb9cb61dad7ddb95ff3a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426272"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986991"
 ---
 # <a name="azure-stream-analytics-output-to-azure-cosmos-db"></a>Azure Cosmos DB에 Azure Stream Analytics 출력  
 JSON 출력에 대 한 [Azure Cosmos DB](https://azure.microsoft.com/services/documentdb/) 를 대상으로 할 수 AZURE STREAM ANALYTICS 비구조적 json 데이터에 대해 데이터 보관 및 짧은 대기 시간 쿼리를 사용할 수 있습니다. 이 문서에서는 이 구성을 구현하기 위한 몇 가지 모범 사례를 설명합니다.
@@ -97,7 +97,7 @@ Event Hubs 들어오는 이벤트 속도는 Azure Cosmos DB 컨테이너 (2만 R
 
 1\.2을 사용 하는 Stream Analytics 경우 Azure Cosmos DB에서 사용 가능한 처리량의 100%를 활용 하는 것이 더 지능적 이며 제한 또는 속도 제한을 resubmissions. 이는 동시에 컨테이너에서 실행 되는 쿼리와 같은 다른 워크 로드에 더 나은 환경을 제공 합니다. 초당 1000 ~ 1만 메시지의 싱크로 Azure Cosmos DB Stream Analytics 확장 하는 방법을 확인 하려면 [이 Azure 샘플 프로젝트](https://github.com/Azure-Samples/streaming-at-scale/tree/master/eventhubs-streamanalytics-cosmosdb)를 사용해 보세요.
 
-Azure Cosmos DB 출력의 처리량은 1.0 및 1.1와 동일 합니다. 1\.2는 현재 기본값이 아니기 때문에 포털을 사용 하거나 [Stream Analytics 작업 REST API 만들기](https://docs.microsoft.com/rest/api/streamanalytics/stream-analytics-job)를 사용 하 여 Stream Analytics 작업에 대 한 [호환성 수준을 설정할](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-compatibility-level) 수 있습니다. Azure Cosmos DB에서 Stream Analytics 호환성 수준 1.2을 사용 하는 것 *이* 좋습니다.
+Azure Cosmos DB 출력의 처리량은 1.0 및 1.1와 동일 합니다. Azure Cosmos DB에서 Stream Analytics 호환성 수준 1.2을 사용 하는 것 *이* 좋습니다.
 
 ## <a name="azure-cosmos-db-settings-for-json-output"></a>JSON 출력에 대 한 Azure Cosmos DB 설정
 

@@ -3,12 +3,12 @@ title: Azure 서비스의 리소스 공급자
 description: Azure Resource Manager에 대 한 모든 리소스 공급자 네임 스페이스를 나열 하 고 해당 네임 스페이스에 대 한 Azure 서비스를 표시 합니다.
 ms.topic: conceptual
 ms.date: 11/11/2019
-ms.openlocfilehash: cdf56c5c84f8837538c2f59b34c3bcf4265d78cb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d16c5fe148f8b6c907c897963e72cb84bc9ae2d5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644310"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984373"
 ---
 # <a name="resource-providers-for-azure-services"></a>Azure 서비스에 대 한 리소스 공급자
 
@@ -32,7 +32,7 @@ ms.locfileid: "75644310"
 | Microsoft.AzureActiveDirectory | [Azure Active Directory B2C](../../active-directory-b2c/index.yml) |
 | Microsoft.AzureStack | 코어 |
 | Microsoft.Batch | [Batch](../../batch/index.yml) |
-| Microsoft.Billing | [Billing](/azure/billing/) |
+| Microsoft.Billing | [Cost Management 및 청구](/azure/billing/) |
 | Microsoft.BingMaps | [Bing 지도](https://docs.microsoft.com/BingMaps/#pivot=main&panel=BingMapsAPI) |
 | Microsoft.Blockchain | [Azure Blockchain 서비스](/azure/blockchain/workbench/) |
 | Microsoft.Blueprint | [Azure 청사진](/azure/governance/blueprints/) |

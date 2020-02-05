@@ -7,16 +7,16 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: f78ef583a58b8a51276823a2a4730540b6735bb0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 96ac1becfed74141b3b1544646f5d82bd0985045
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896348"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988423"
 ---
 # <a name="azure-disk-encryption-for-linux-vms"></a>Linux Vm에 대 한 Azure Disk Encryption 
 
-Azure Disk Encryption은 조직의 보안 및 규정 준수 약정에 따라 데이터를 안전하게 보호하는 데 도움이 됩니다. Linux의 [DM](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용 하 여 Azure vm (가상 머신)의 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 하 고, 디스크 암호화 키 및 비밀을 제어 하 고 관리 하는 데 도움을 주는 [Azure Key Vault](../../key-vault/index.yml) 와 통합 됩니다. 
+Azure Disk Encryption는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. Linux의 [DM](https://en.wikipedia.org/wiki/Dm-crypt) 기능을 사용 하 여 Azure vm (가상 머신)의 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 하 고, 디스크 암호화 키 및 비밀을 제어 하 고 관리 하는 데 도움을 주는 [Azure Key Vault](../../key-vault/index.yml) 와 통합 됩니다. 
 
 [Azure Security Center](../../security-center/index.yml)사용 하는 경우 암호화 되지 않은 vm이 있는 경우 경고가 표시 됩니다. 이 경고는 심각도가 높다고 표시되며 이러한 VM을 암호화하도록 권장합니다.
 
@@ -78,7 +78,9 @@ Azure에서 보증 되지 않는 Linux 서버 배포는 Azure Disk Encryption을
 | SLES | 12-SP3 | 데이터 디스크 |
 
 > [!NOTE]
-> 새 ADE 구현은 RHEL OS 및 RHEL7 종 량 제 이미지에 대 한 데이터 디스크에 대해 지원 됩니다. ADE는 현재 RHEL BYOS(Bring-Your-Own-Subscription) 이미지에서 지원되지 않습니다. 
+> 새 Azure Disk Encryption 구현은 RHEL7 종 량 제 이미지에 대 한 RHEL OS 및 데이터 디스크에 대해 지원 됩니다.  
+>
+> 또한 ADE는 구독이 등록 된 **후** 에만 RHEL 골드 이미지에 대해 지원 됩니다. 자세한 내용은 [Azure에서 사용자 고유의 구독 골드 이미지 Red Hat Enterprise Linux](../workloads/redhat/byos.md##encrypt-red-hat-enterprise-linux-bring-your-own-subscription-gold-images) 를 참조 하세요.
 
 ## <a name="additional-vm-requirements"></a>추가 VM 요구 사항
 

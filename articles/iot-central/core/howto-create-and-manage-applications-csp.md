@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 08/23/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 0e49a5c8edd074c71d5972ee8d9c2e81f9c512ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 22ed36c3c55d55ab9a733c2a0552f0ac3dcce1f5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453966"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987671"
 ---
 # <a name="create-and-manage-an-azure-iot-central-application-from-the-csp-portal"></a>CSP 포털에서 Azure IoT Central 응용 프로그램 만들기 및 관리
 
@@ -39,9 +39,11 @@ Azure IoT Central 응용 프로그램을 만들려면 왼쪽 메뉴에서 **빌�
 
 ![CSP에 대한 애플리케이션 페이지 만들기](media/howto-create-application-csp/image4-1.png)
 
-## <a name="payment-plan"></a>결제 계획
+![Csp 청구 정보에 대 한 응용 프로그램 페이지 만들기](media/howto-create-application-csp/image4-2.png)
 
-CSP로서 종량제 애플리케이션만 만들 수 있습니다. 고객에게 Azure IoT Central을 소개하려면 평가판 애플리케이션을 별도로 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 평가판 및 종량제 애플리케이션에 대해 자세히 알아보세요.
+## <a name="pricing-plan"></a>요금제
+
+표준 요금제로 표준 가격 책정 요금제를 사용 하는 응용 프로그램을 만들 수 있습니다. 고객에 게 Azure IoT Central를 소개 하기 위해 무료 가격 책정 계획을 별도로 사용 하는 응용 프로그램을 만들 수 있습니다. [Azure IoT Central 가격 책정 페이지](https://azure.microsoft.com/pricing/details/iot-central/)에서 무료 및 표준 가격 책정 요금제에 대해 자세히 알아보세요.
 
 ## <a name="application-name"></a>애플리케이션 이름
 
@@ -89,7 +91,7 @@ Azure IoT Central을 사용할 수 있는 지역은 [지역별 사용 가능한 
 
 | 애플리케이션 템플릿 | Description |
 | -------------------- | ----------- |
-| 레거시 응용 프로그램   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
+| 레거시 애플리케이션   | 사용자 고유의 디바이스 템플릿 및 디바이스로 채울 빈 애플리케이션을 만듭니다. |
 
 
 ## <a name="next-steps"></a>다음 단계

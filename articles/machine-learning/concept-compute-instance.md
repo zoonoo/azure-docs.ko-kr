@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/13/2019
-ms.openlocfilehash: 7f7e0c3eef96970c1820783225a4ff59be8113b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: f6d2da49e2659cfa69d25e3fe71351547706fd42
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769109"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984849"
 ---
 # <a name="what-is-an-azure-machine-learning-compute-instance"></a>Azure Machine Learning 계산 인스턴스인 이란?
 
@@ -27,7 +27,7 @@ Azure Machine Learning 계산 인스턴스 (미리 보기)는 데이터 과학�
 계산 인스턴스는 일반적으로 개발 환경으로 사용 됩니다.  개발 및 테스트를 위한 학습 및 추론 계산 대상으로 사용할 수도 있습니다.  대량 작업의 경우 다중 노드 크기 조정 기능을 사용 하는 [Azure Machine Learning 계산 클러스터가](how-to-set-up-training-targets.md#amlcompute) 더 나은 계산 대상 선택입니다.
 
 > [!NOTE]
-> 계산 인스턴스는 현재 **미국 중 북부** 또는 **영국 남부**지역이 있는 작업 영역에 대해서만 사용할 수 있으며 곧 제공 되는 다른 지역에 대 한 지원을 제공 합니다.
+> 계산 인스턴스는 현재 미국 중 **북부**, **미국 동부 2**, **북아메리카 유럽** 또는 **영국 남부**지역이 있는 작업 영역에 대해서만 사용할 수 있으며 곧 다른 지역에 대 한 지원을 제공 합니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다. 
 
 ## <a name="why-use-a-compute-instance"></a>계산 인스턴스를 사용 하는 이유

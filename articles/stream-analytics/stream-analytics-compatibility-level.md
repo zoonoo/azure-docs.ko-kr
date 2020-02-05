@@ -5,13 +5,13 @@ author: mamccrea
 ms.author: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 05/02/2019
-ms.openlocfilehash: 888c1f0bb38a5317cc27790ea47917c182d49593
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.date: 02/03/2020
+ms.openlocfilehash: e1eb852b7cf7aea887dea429e19b0a3b1ac5805a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72925637"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989861"
 ---
 # <a name="compatibility-level-for-azure-stream-analytics-jobs"></a>Azure Stream Analytics 작업의 호환성 수준
 
@@ -27,7 +27,7 @@ ms.locfileid: "72925637"
 
 * 1.0-이전 동작
 * 1.1-기본 동작
-* 1.2 (미리 보기)-평가의 최신 개선 사항에 대 한 최신 동작
+* 1.2-최신 개선 사항에 대 한 최신 동작
 
 원래 1.0 호환성 수준은 몇 년 전 Azure Stream Analytics의 일반 공급 중에 도입 되었습니다.
 
@@ -47,9 +47,9 @@ Azure Portal에서 작업의 호환성 수준을 업데이트 하려면 다음�
 
 ![Azure Portal의 Stream Analytics 호환성 수준](media/stream-analytics-compatibility-level/stream-analytics-compatibility.png)
 
-호환성 수준을 업데이트하면 T-SQL 컴파일러는 선택된 호환성 수준에 해당하는 구문을 사용하여 작업의 유효성을 검사합니다.
+호환성 수준을 업데이트할 때 T-컴파일러는 선택한 호환성 수준에 해당 하는 구문을 사용 하 여 작업의 유효성을 검사 합니다.
 
-## <a name="compatibility-level-12-preview"></a>호환성 수준 1.2 (미리 보기)
+## <a name="compatibility-level-12"></a>호환성 수준 1.2
 
 호환성 수준 1.2에서 도입 된 주요 변경 내용은 다음과 같습니다.
 
@@ -119,7 +119,7 @@ Upsert 동작은 *insert 또는 replace*입니다.
 
 ### <a name="service-bus-xml-format"></a>Service Bus XML 형식
 
-**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 다음은 그 예입니다.
+**1.0 수준:** DataContractSerializer를 사용 Azure Stream Analytics 메시지 내용에 XML 태그가 포함 되었습니다. 예:
 
 `@\u0006string\b3http://schemas.microsoft.com/2003/10/Serialization/\u0001{ "SensorId":"1", "Temperature":64\}\u0001`
 

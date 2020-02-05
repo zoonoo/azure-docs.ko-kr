@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 9a6fa62384615f60da88bb41da8ad3538d34e62a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: b330b6176ba9cadc85fad81876caf2583021d503
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754100"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988637"
 ---
 # <a name="introduction-to-knowledge-stores-in-azure-cognitive-search"></a>Azure Cognitive Search의 지식 저장소 소개
 
@@ -133,147 +133,11 @@ AI 보강 파이프라인이 생성할 수 있는 작업을 확인 하는 것이
 
 ## <a name="api-reference"></a>API 참조
 
-이 섹션은 `knowledgeStore` 정의를 포함 하도록 수정 된 [Create 기술 (REST API)](https://docs.microsoft.com/rest/api/searchservice/create-skillset) 참조 문서의 버전입니다. 
+REST API 버전 `2019-05-06-Preview`에서는 기술력과에 대 한 추가 정의를 통해 기술 자료 저장소를 제공 합니다. Api를 호출 하는 방법에 대 한 자세한 내용은 참조 외에도 [Postman을 사용 하 여 기술 자료 저장소 만들기](knowledge-store-create-rest.md) 를 참조 하세요.
 
-### <a name="example---knowledgestore-embedded-in-a-skillset"></a>예제-기술에 포함 된 knowledgeStore
++ [기술 세트 만들기(api-version=2019-05-06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-skillset) 
++ [기술 업데이트 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) 
 
-다음 예에서는 기술 정의의 아래쪽에 `knowledgeStore`를 보여 줍니다. 
-
-* **POST** 또는 **PUT** 을 사용 하 여 요청을 공식화 합니다.
-* `api-version=2019-05-06-Preview` 버전의 REST API를 사용 하 여 기술 자료 저장소 기능에 액세스 합니다. 
-
-```http
-POST https://[servicename].search.windows.net/skillsets?api-version=2019-05-06-Preview
-api-key: [admin key]
-Content-Type: application/json
-```
-
-요청 본문은 `knowledgeStore`를 포함 하는 기술를 정의 하는 JSON 문서입니다.
-
-```json
-{
-  "name": "my-skillset-name",
-  "description": "Extract organization entities and generate a positive-negative sentiment score from each document.",
-  "skills":
-  [
-    {
-      "@odata.type": "#Microsoft.Skills.Text.EntityRecognitionSkill",
-      "categories": [ "Organization" ],
-      "defaultLanguageCode": "en",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "organizations",
-          "targetName": "organizations"
-        }
-      ]
-    },
-    {
-      "@odata.type": "#Microsoft.Skills.Text.SentimentSkill",
-      "inputs": [
-        {
-          "name": "text",
-          "source": "/document/content"
-        }
-      ],
-      "outputs": [
-        {
-          "name": "score",
-          "targetName": "mySentiment"
-        }
-      ]
-    },
-  ],
-  "cognitiveServices": 
-    {
-    "@odata.type": "#Microsoft.Azure.Search.CognitiveServicesByKey",
-    "description": "mycogsvcs resource in West US 2",
-    "key": "<YOUR-COGNITIVE-SERVICES-KEY>"
-    },
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [  
-                { "tableName": "Organizations", "generatedKeyName": "OrganizationId", "source": "/document/organizations*"}, 
-                { "tableName": "Sentiment", "generatedKeyName": "SentimentId", "source": "/document/mySentiment"}
-                ], 
-                "objects": [ ], 
-                "files": [  ]       
-            }    
-        ]     
-    } 
-}
-```
-
-### <a name="request-body-syntax"></a>요청 본문 구문  
-
-다음 JSON은 `indexer` (표시 되지 않음)에 의해 호출 되는 [`skillset`](https://docs.microsoft.com/rest/api/searchservice/create-skillset)의 일부인 `knowledgeStore`를 지정 합니다. AI 보강을 이미 잘 알고 있는 경우 기술는 보강 문서의 컴퍼지션을 결정 합니다. 데이터 구조를 조정하는 경우 기술 세트에는 하나 이상의 기술, 아마도 쉐이퍼 기술이 포함되어야 합니다.
-
-요청 페이로드 구조를 지정하는 구문은 다음과 같습니다.
-
-```json
-{   
-    "name" : "Required for POST, optional for PUT requests which sets the name on the URI",  
-    "description" : "Optional. Anything you want, or null",  
-    "skills" : "Required. An array of skills. Each skill has an odata.type, name, input and output parameters",
-    "cognitiveServices": "A key to Cognitive Services, used for billing.",
-    "knowledgeStore": { 
-        "storageConnectionString": "<YOUR-AZURE-STORAGE-ACCOUNT-CONNECTION-STRING>", 
-        "projections": [ 
-            { 
-                "tables": [ 
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    { "tableName": "<NAME>", "generatedKeyName": "<FIELD-NAME>", "source": "<DOCUMENT-PATH>" },
-                    . . .
-                ], 
-                "objects": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>", 
-                    "source": "<DOCUMENT-PATH>", 
-                    }
-                ], 
-                "files": [ 
-                    {
-                    "storageContainer": "<BLOB-CONTAINER-NAME>",
-                    "source": "/document/normalized_images/*"
-                    }
-                ]  
-            },
-            {
-                "tables": [ ],
-                "objects": [ ],
-                "files":  [ ]
-            }  
-        ]     
-    } 
-}
-```
-
-`knowledgeStore`에는 Azure Storage 계정에 대 한 `storageConnectionString`와 물리적 저장소를 정의 하는 `projections`의 두 속성이 있습니다. 모든 저장소 계정을 사용할 수 있지만 동일한 지역에서 서비스를 사용 하는 것은 비용 효율적입니다.
-
-`projections` 컬렉션은 프로젝션 개체를 포함 합니다. 각 프로젝션 개체에는 지정 되었거나 null 인 `tables`, `objects``files` (각각 하나씩)이 있어야 합니다. 위의 구문은 완전히 지정 된 개체와 완전히 null 인 두 개의 개체를 보여 줍니다. 프로젝션 개체 내에서 저장소로 표현 된 데이터는 검색 된 경우 데이터 간의 관계를 유지 합니다. 
-
-격리 및 특정 시나리오 (예: 탐색에 사용 되는 데이터 구조 및 데이터 과학 워크 로드에 필요한 데이터 구조)를 지 원하는 데 필요한 만큼 프로젝션 개체를 만듭니다. `source`를 설정 하 고 개체 내에서 다른 값을 `storageContainer` 하거나 `table` 하 여 특정 시나리오에 대 한 격리 및 사용자 지정을 가져올 수 있습니다. 자세한 내용 및 예제는 [기술 자료 저장소에서 프로젝션 작업](knowledge-store-projection-overview.md)을 참조 하세요.
-
-|속성      | 적용 대상 | Description|  
-|--------------|------------|------------|  
-|`storageConnectionString`| `knowledgeStore` | 필수 사항입니다. 형식: `DefaultEndpointsProtocol=https;AccountName=<ACCOUNT-NAME>;AccountKey=<ACCOUNT-KEY>;EndpointSuffix=core.windows.net`|  
-|`projections`| `knowledgeStore` | 필수 사항입니다. `tables`, `objects`, `files` 및 해당 속성으로 구성 된 속성 개체의 컬렉션입니다. 사용 하지 않는 프로젝션을 null로 설정할 수 있습니다.|  
-|`source`| 모든 프로젝션| 프로젝션의 루트인 보강 트리의 노드에 대 한 경로입니다. 이 노드는 기술의 기술에 대 한 출력입니다. 경로는 보강 문서를 나타내는 `/document/`로 시작 하지만, `/document/content/` 하거나 문서 트리 내의 노드로 확장할 수 있습니다. 예: `/document/countries/*` (모든 국가) 또는 `/document/countries/*/states/*` (모든 국가의 모든 주) 문서 경로에 대 한 자세한 내용은 [기술 개념 및 컴퍼지션](cognitive-search-working-with-skillsets.md)을 참조 하세요.|
-|`tableName`| `tables`| Azure Table storage에 만들 테이블입니다. |
-|`storageContainer`| `objects`, `files`| Azure Blob storage에서 만들 컨테이너의 이름입니다. |
-|`generatedKeyName`| `tables`| 문서를 고유 하 게 식별 하는 테이블에 생성 된 열입니다. 보강 파이프라인은이 열을 생성 된 값으로 채웁니다.|
-
-
-### <a name="response"></a>응답  
-
- 성공적인 요청의 경우, 상태 코드 “201 생성됨”이 표시되어야 합니다. 기본적으로 응답 본문에는 생성된 기능 정의에 대한 JSON이 포함됩니다. 이 기술를 참조 하는 인덱서를 호출할 때까지 기술 자료 저장소가 생성 되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

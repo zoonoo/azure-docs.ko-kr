@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: 246af99cfec5ca41347da70e80bfc6dfff448eb3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368038"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991034"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -31,13 +31,13 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 어떤 방법으로 이름을 확인할지는 사용하는 리소스가 서로 어떻게 통신해야 하는지에 따라 다릅니다. 다음 표에 각 시나리오 별로 해당하는 이름 확인 방법이 나와 있습니다.
 
 > [!NOTE]
-> 시나리오에 따라, 현재 공개 미리 보기 상태인 Azure DNS 프라이빗 영역 기능을 사용할 수도 있습니다. 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
+> 시나리오에 따라 Azure DNS 개인 영역을 사용 하는 것이 좋습니다. 자세한 내용은 [프라이빗 도메인에 Azure DNS 사용](../dns/private-dns-overview.md)을 참조하세요.
 >
 
 | **시나리오** | **해결 방법** | **접미사** |
 | --- | --- | --- |
-| 동일한 클라우드 서비스의 Azure Cloud Services 역할 인스턴스 또는 동일한 가상 네트워크에 위치한 VM 간 이름을 확인합니다. | [Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) |호스트 이름 또는 FQDN |
-| 다른 클라우드 서비스의 역할 인스턴스 또는 다른 가상 네트워크의 VM 간 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 머신 간에 쿼리를 전달하는 [Azure DNS 프라이빗 영역](../dns/private-dns-overview.md) 또는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
+| 동일한 클라우드 서비스의 Azure Cloud Services 역할 인스턴스 또는 동일한 가상 네트워크에 위치한 VM 간 이름을 확인합니다. | [Azure DNS 개인 영역](../dns/private-dns-overview.md) 또는 [Azure 제공 이름 확인](#azure-provided-name-resolution) |호스트 이름 또는 FQDN |
+| 다른 클라우드 서비스의 역할 인스턴스 또는 다른 가상 네트워크의 VM 간 이름을 확인합니다. |Azure (DNS 프록시)에서 확인을 위해 가상 네트워크 간에 쿼리를 전달 하는 [개인 영역](../dns/private-dns-overview.md) 또는 고객이 관리 하는 DNS 서버를 Azure DNS 합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 동일한 가상 네트워크에 있는 VM 또는 역할 인스턴스에 대한 가상 네트워크 통합을 사용하여 Azure App Service(웹앱, 함수, 봇)에서 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | App Service Web Apps로부터 동일한 가상 네트워크의 VM에 대한 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |

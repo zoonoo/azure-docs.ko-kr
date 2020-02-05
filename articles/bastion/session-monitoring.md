@@ -5,14 +5,14 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 11/04/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: a4a97ebd0e44bfd3b0ee167a2f3a7da435ac5087
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f56a724174b81966642b2870360014597436eade
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73513004"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76981092"
 ---
 # <a name="session-monitoring-and-management-for-azure-bastion"></a>Azure 방호의 세션 모니터링 및 관리
 
@@ -28,7 +28,7 @@ ms.locfileid: "73513004"
    ![세션 보기](./media/session-monitoring/view-session.png)
 3. **새로 고침** 을 선택 하 여 원격 세션의 업데이트 된 목록을 표시 합니다. 새로 고침을 선택 하면 Azure 방호에서 최신 모니터링 정보를 가져오고 포털에서 새로 고칩니다.
 
-   ![고치십시오](./media/session-monitoring/refresh.png)
+   ![refresh](./media/session-monitoring/refresh.png)
 
 >[!IMPORTANT]
 > 세션 모니터링이 작동 하려면 게이트웨이 관리자에서 인바운드 트래픽에 대해 포트 4443을 사용 하도록 설정 합니다.

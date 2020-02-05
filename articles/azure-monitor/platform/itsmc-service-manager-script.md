@@ -4,15 +4,15 @@ description: 자동화 스크립트를 사용하여 Azure의 IT Service Manageme
 ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
-author: JYOTHIRMAISURI
+author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: 443fe6aa7e97e666075a2fbb985a9b8b00baf81a
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932246"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990932"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "72932246"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
  Windows Management Framework 5.0 이상
 Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=50395)에서 이 Framework를 다운로드할 수도 있습니다.

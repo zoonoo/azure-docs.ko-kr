@@ -8,12 +8,12 @@ ms.author: vikurpad
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 285b3608bc57d88ca2e81ed14355923436ed9d8d
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: f0e7c3bbbdcd1edad24422163fde38e3fdce7e27
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028518"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988654"
 ---
 # <a name="introduction-to-incremental-enrichment-and-caching-in-azure-cognitive-search"></a>Azure Cognitive Search의 증분 보강 및 캐싱 소개
 
@@ -97,7 +97,7 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 
 캐시의 목적은 불필요 한 처리를 방지 하는 것 이지만 인덱서가 검색 하지 않는 기술 (예: 사용자 지정 기술 등의 외부 코드를 변경 하는 경우)을 변경 한다고 가정 합니다.
 
-이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](preview-api-resetskills.md) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
+이 경우 해당 기술 출력에 대 한 종속성이 있는 다운스트림 기술을 비롯 하 여 특정 기술에 대 한 다시 처리를 적용 하는 데 [다시 설정 기술을](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills) 사용할 수 있습니다. 이 API는 무효화 되 고 다시 처리 하도록 표시 되어야 하는 기술 목록과 함께 POST 요청을 수락 합니다. 스킬을 다시 설정한 후 인덱서를 실행 하 여 파이프라인을 호출 합니다.
 
 ## <a name="change-detection"></a>변경 내용 검색
 
@@ -136,39 +136,27 @@ PUT https://customerdemos.search.windows.net/datasources/callcenter-ds?api-versi
 * 지식 저장소 프로젝션이 변경되어 문서를 다시 프로젝션합니다.
 * 인덱서에서 출력 필드 매핑이 변경되어 문서를 인덱스로 다시 프로젝션합니다.
 
-## <a name="api-reference-content-for-incremental-enrichment"></a>증분 보강 대 한 API 참조 콘텐츠
+## <a name="api-reference"></a>API 참조
 
-REST `api-version=2019-05-06-Preview`는 인덱서, 기술력과 및 데이터 소스에 대 한 추가 기능을 제공 하는 증분 보강 Api를 제공 합니다. [공식 참조 설명서](https://docs.microsoft.com/rest/api/searchservice/) 는 일반적으로 사용할 수 있는 api에 대 한 것 이며 미리 보기 기능을 다루지 않습니다. 다음 섹션에서는 영향을 받는 Api에 대 한 참조 콘텐츠를 제공 합니다.
+REST API 버전 `2019-05-06-Preview`는 인덱서, 기술력과 및 데이터 소스에 대 한 추가 속성을 통해 증분 보강 제공 합니다. Api를 호출 하는 방법에 대 한 자세한 내용은 참조 설명서 외에도 [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md) 을 참조 하세요.
 
-사용 정보 및 예제는 [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md)에서 찾을 수 있습니다.
++ [Create 인덱서 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/create-indexer) 
 
-### <a name="indexers"></a>인덱서
++ [Update 인덱서 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-indexer) 
 
-[Create 인덱서](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 및 [Update 인덱서](https://docs.microsoft.com/rest/api/searchservice/update-indexer) 는 이제 캐시와 관련 된 새 속성을 노출 합니다.
++ [Update 기술 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/update-skillset) (요청의 새 URI 매개 변수)
 
-+ `StorageAccountConnectionString`: 중간 결과를 캐시 하는 데 사용 되는 저장소 계정에 대 한 연결 문자열입니다.
++ [기술 다시 설정 (api-version = 2019-05 -06-Preview)](https://docs.microsoft.com/rest/api/searchservice/2019-05-06-preview/reset-skills)
 
-+ `EnableReprocessing`: 기본적으로 `true`로 설정 하면 `false`로 설정 된 문서는 캐시에 계속 기록 되지만 캐시 데이터를 기반으로 하는 기존 문서는 다시 처리 되지 않습니다.
++ 데이터베이스 인덱서 (Azure SQL, Cosmos DB). 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본은](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 요청에 대 한 새 매개 변수를 지원 합니다 .이 **요구 사항은**업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우 `true` 설정 해야 합니다. 
 
-+ `ID` (읽기 전용): `ID`는 `annotationCache` 저장소 계정 내에서이 인덱서의 캐시로 사용 될 컨테이너의 식별자입니다. 이 캐시는 이 인덱서에서만 고유하며, 인덱서를 삭제하고 동일한 이름으로 다시 만들면 `ID`가 다시 생성됩니다. `ID`는 설정할 수 없으며, 항상 서비스에서 생성합니다.
-
-### <a name="skillsets"></a>기술 세트
-
-+ [Update 기술](https://docs.microsoft.com/rest/api/searchservice/update-skillset) 는 요청에 새 매개 변수를 지원 합니다. `disableCacheReprocessingChangeDetection`는 현재 작업을 기반으로 기존 문서를 업데이트 하지 않으려는 경우 `true`로 설정 해야 합니다.
-
-+ [스킬 다시 설정](preview-api-resetskills.md) 은 기술을 무효화 하는 데 사용 되는 새로운 작업입니다.
-
-### <a name="datasources"></a>Datasources
-
-+ 일부 인덱서는 쿼리를 통해 데이터를 검색 합니다. 데이터를 검색 하는 쿼리의 경우 [업데이트 데이터 원본](https://docs.microsoft.com/rest/api/searchservice/update-data-source) 에서 요청 `ignoreResetRequirement`에 대 한 새 매개 변수를 지원 합니다 .이 매개 변수는 업데이트 작업에서 캐시를 무효화 하지 않아야 하는 경우 `true`로 설정 되어야 합니다.
-
-쉽게 검색할 수 없는 데이터에서 의도 하지 않은 불일치를 일으킬 수 있으므로 `ignoreResetRequirement`을 사용 합니다.
+  더 이상 검색 되지 않는 데이터의 의도 하지 않은 불일치를 야기 하는 경우에만 **Ignoreresetrequirement 사항을** 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-증분 보강는 기술력과 및 AI 보강 변경 내용 추적을 확장 하는 강력한 기능입니다. 기술력과 발전 함에 따라 증분 보강는 문서를 최종 일관성으로 계속 구동 하면서 최소한의 작업을 수행할 수 있도록 합니다.
+증분 보강는 기술력과 및 AI 보강 변경 내용 추적을 확장 하는 강력한 기능입니다. AIncremental 보강는 기술 design을 반복 하면서 처리 된 기존 콘텐츠를 다시 사용할 수 있도록 합니다.
 
-새 인덱서를 정의할 때 기존 인덱서에 캐시를 추가 하거나 캐시를 추가 하 여 시작 합니다.
+다음 단계로, 기존 인덱서에 캐싱을 사용 하도록 설정 하거나 새 인덱서를 정의할 때 캐시를 추가 합니다.
 
 > [!div class="nextstepaction"]
 > [증분 보강에 대 한 캐싱 구성](search-howto-incremental-index.md)

@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 8475e90e247aa2a0c081d25486c4ada0854a9e89
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 990e97274d9e35201dfb7930167dc4f9da975d83
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705397"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988127"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -26,7 +26,7 @@ ms.locfileid: "76705397"
 
 **시나리오** | **Backup** | **에이전트** |**복원**
 --- | --- | --- | ---
-Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 에이전트가 필요하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
+Azure VM의 직접 백업  | 전체 VM을 백업 합니다.  | Azure VM에 추가 에이전트가 필요 하지 않습니다. Azure Backup는 VM에서 실행 되는 [AZURE vm 에이전트](https://docs.microsoft.com/azure/virtual-machines/extensions/agent-windows) 에 대 한 확장을 설치 하 고 사용 합니다. | 다음과 같이 복원합니다.<br/><br/> - **기본 VM 만들기**. VM에 여러 IP 주소와 같은 특수 구성이 없는 경우에 유용 합니다.<br/><br/> - **VM 디스크 복원**. 디스크를 복원합니다. 그런 다음 기존 VM에 연결 하거나 PowerShell을 사용 하 여 디스크에서 새 VM을 만듭니다.<br/><br/> - **VM 디스크 바꾸기**. VM이 있으며 Managed Disks(암호화되지 않음)를 사용하는 경우 디스크를 복원하고 VM에서 기존 디스크 대신 사용할 수 있습니다.<br/><br/> - **특정 파일/폴더 복원**. 전체 VM이 아닌 VM에서 파일/폴더를 복원할 수 있습니다.
 Azure Vm의 직접 백업 (Windows에만 해당)  | 특정 파일/폴더/볼륨을 백업 합니다. | [Azure Recovery Services 에이전트](backup-azure-file-folder-backup-faq.md)를 설치 합니다.<br/><br/> 파일/폴더 수준에서 VM을 백업하려면 Azure VM 에이전트에 대한 백업 확장과 함께 MARS 에이전트를 실행할 수 있습니다. | 특정 폴더/파일을 복원합니다.
 Backup server에 Azure VM 백업  | 파일/폴더/볼륨 백업 시스템 상태/운영 체제 미 설치 파일 응용 프로그램 데이터를 System Center DPM 또는 MABS (Microsoft Azure Backup 서버)에 연결할 수 있습니다.<br/><br/> 그런 다음 DPM/MABS는 백업 자격 증명 모음에 백업 합니다. | VM에 DPM/MABS 보호 에이전트를 설치 합니다. MARS 에이전트는 DPM/MABS에 설치됩니다.| 파일/폴더/볼륨, 시스템 상태/완전 파일 및 앱 데이터를 복원합니다.
 

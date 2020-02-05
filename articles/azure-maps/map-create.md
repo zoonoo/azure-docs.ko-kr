@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 49c86f3e6c654ecbfcd07809f42a1b038ca3f8ab
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 578abae5b206b31674b00b9d27ef34174b93759f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911117"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988586"
 ---
 # <a name="create-a-map"></a>맵 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "75911117"
 
 ## <a name="loading-a-map"></a>지도 로드
 
-지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 지도를 렌더링 하기 위한 DIV 요소 ID와 지도를 로드할 때 사용할 옵션 집합이 전달 됩니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 이와 같이 map 인스턴스를 만든 후 맵에 `ready` 또는 `load` 이벤트를 연결한 다음 해당 이벤트 처리기에서 맵과 상호 작용 하는 추가 코드를 추가 합니다. `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load` 이벤트는 초기 맵 뷰가 완전히 로드 된 후에 발생 합니다. 
+지도를 로드 하려면 [map 클래스](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest)의 새 인스턴스를 만듭니다. 맵을 초기화할 때 DIV 요소 ID를 전달 하 여 맵을 렌더링 하 고 지도를 로드할 때 사용할 옵션 집합을 전달 합니다. `atlas` 네임 스페이스에 기본 인증 정보가 지정 되지 않은 경우 지도를 로드할 때 맵 옵션에서이 정보를 지정 해야 합니다. 맵은 성능을 위해 여러 리소스를 비동기적으로 로드 합니다. 이와 같이 map 인스턴스를 만든 후 맵에 `ready` 또는 `load` 이벤트를 연결한 다음 맵과 상호 작용 하는 추가 코드를 이벤트 처리기에 추가 합니다. `ready` 이벤트는 map에서 프로그래밍 방식으로 상호 작용할 수 있는 충분 한 리소스를 로드 하는 즉시 발생 합니다. `load` 이벤트는 초기 맵 뷰가 완전히 로드 된 후에 발생 합니다. 
 
 <br/>
 
@@ -31,11 +31,11 @@ ms.locfileid: "75911117"
 </iframe>
 
 > [!TIP]
-> 여러 맵을 동일한 페이지에 로드할 수 있으며 각각 동일한 인증 및 언어 설정을 사용할 수 있습니다.
+> 여러 맵을 동일한 페이지에 로드할 수 있습니다. 동일한 페이지의 여러 지도에서 동일 하거나 다른 인증 및 언어 설정을 사용할 수 있습니다.
 
 ## <a name="show-a-single-copy-of-the-world"></a>전 세계의 단일 복사본 표시
 
-넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 방법은 대부분의 시나리오에서 유용 하지만 일부 응용 프로그램에서는 전 세계의 단일 복사본만 표시 하는 것이 바람직 할 수 있습니다. 이 작업을 수행 하려면 맵 `renderWorldCopies` 옵션을 `false`로 설정 합니다.
+넓은 화면에서 지도를 축소 하면 전 세계의 여러 복사본이 가로로 표시 됩니다. 이 옵션은 일부 시나리오에는 유용 하지만 다른 응용 프로그램의 경우에는 전 세계의 단일 복사본을 확인 하는 것이 좋습니다. 이 동작은 map `renderWorldCopies` 옵션을 `false`설정 하 여 구현 합니다.
 
 <br/>
 
@@ -45,7 +45,7 @@ ms.locfileid: "75911117"
 
 ## <a name="controlling-the-map-camera"></a>지도 카메라 제어
 
-카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 중심 및 확대/축소와 같은 카메라 옵션을 설정 하거나 지도를 로드 한 후에 언제 든 지 `setCamera` 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
+지도의 카메라를 사용 하 여 지도의 표시 된 영역을 설정 하는 방법에는 두 가지가 있습니다. 지도를 로드할 때 카메라 옵션을 설정할 수 있습니다. 또는 map이 로드 된 후 언제 든 지 `setCamera` 옵션을 호출 하 여 맵 뷰를 프로그래밍 방식으로 업데이트할 수 있습니다.  
 
 <a id="setCameraOptions"></a>
 
@@ -71,7 +71,7 @@ ms.locfileid: "75911117"
 
 ### <a name="animate-map-view"></a>맵 보기 애니메이션
 
-다음 코드에서 첫 번째 코드 블록은 지도를 만들고 지도 스타일, 가운데 및 확대/축소 값을 설정 합니다. 두 번째 코드 블록에서 애니메이션 효과에 대 한 click 이벤트 처리기가 만들어집니다. 이 단추를 클릭 하면 setCamera 함수가 [CameraOptions](/javascript/api/azure-maps-control/atlas.cameraoptions), [애니메이션 옵션](/javascript/api/azure-maps-control/atlas.animationoptions)에 대 한 임의 값을 사용 하 여 호출 됩니다.
+다음 코드에서 첫 번째 코드 블록은 지도를 만들고 입력 및 확대/축소 맵 스타일을 설정 합니다. 두 번째 코드 블록에서 애니메이션 효과에 대 한 click 이벤트 처리기가 만들어집니다. 이 단추를 클릭 하면 [CameraOptions 및](/javascript/api/azure-maps-control/atlas.cameraoptions) [옵션](/javascript/api/azure-maps-control/atlas.animationoptions)에 대 한 임의 값을 사용 하 여 `setCamera` 함수가 호출 됩니다.
 
 <br/>
 
@@ -80,7 +80,7 @@ ms.locfileid: "75911117"
 
 ## <a name="try-out-the-code"></a>코드 사용해 보기
 
-위의 샘플 코드를 살펴보세요. 왼쪽에 있는 **JS 탭**에서 JavaScript 코드를 편집하고 오른쪽에 있는 **결과 탭**에서 맵 보기 변경 내용을 확인할 수 있습니다. 또한 **CodePen에서 편집** 단추를 클릭하고 CodePen에서 코드를 편집할 수 있습니다.
+코드 샘플을 확인 합니다. **JS 탭** 내에서 JavaScript 코드를 편집 하 고 **결과 탭**에서 맵 보기 변경 내용을 볼 수 있습니다. 오른쪽 위 모서리에서 **CodePen에서 편집**을 클릭 하 고 CodePen에서 코드를 수정할 수도 있습니다.
 
 <a id="relatedReference"></a>
 

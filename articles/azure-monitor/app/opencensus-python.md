@@ -8,12 +8,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 87c0b62cec0b61bfc52ec31233ca7c1f947fdd98
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846122"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989521"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
@@ -336,9 +336,9 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
         main()
     ```
 
-6. 로그에 사용자 지정 차원을 추가할 수도 있습니다. 이러한 값은 Azure Monitor `customDimensions`에서 키-값 쌍으로 나타납니다.
+6. Custom_dimensions 필드를 사용 하 여 *추가* 키워드 인수에서 로그 메시지에 사용자 지정 속성을 추가할 수도 있습니다. 이러한 값은 Azure Monitor `customDimensions`에서 키-값 쌍으로 나타납니다.
 > [!NOTE]
-> 이 기능이 작동 하려면 사전을 로그에 인수로 전달 해야 합니다. 다른 모든 데이터 구조는 무시 됩니다. 문자열 형식을 유지 하려면 사전에 저장 하 고 인수로 전달 합니다.
+> 이 기능이 작동 하려면 custom_dimensions 필드에 사전을 전달 해야 합니다. 다른 형식의 인수를 전달 하면 로거가이를 무시 합니다.
 
     ```python
     import logging
@@ -350,7 +350,17 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     logger.addHandler(AzureLogHandler(
         connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000')
     )
-    logger.warning('action', {'key-1': 'value-1', 'key-2': 'value2'})
+
+    properties = {'custom_dimensions': {'key_1': 'value_1', 'key_2': 'value_2'}}
+
+    # Use properties in logging statements
+    logger.warning('action', extra=properties)
+
+    # Use properties in exception logs
+    try:
+        result = 1 / 0  # generate a ZeroDivisionError
+    except Exception:
+    logger.exception('Captured an exception.', extra=properties)
     ```
 
 7. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)을 참조 하세요.

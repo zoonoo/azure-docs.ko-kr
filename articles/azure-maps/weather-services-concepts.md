@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 4bf13477bfee39b5be39715374592811e8f8cc89
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: bcf100236d4a2a707a007a24e9e51105cc9ca0ac
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911020"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991394"
 ---
 # <a name="weather-services-in-azure-maps"></a>Azure Maps의 날씨 서비스
 
@@ -21,7 +21,7 @@ ms.locfileid: "75911020"
 
 ## <a name="unit-types"></a>단위 유형
 
-일부 날씨 서비스 Api를 통해 사용자는 데이터를 메트릭 또는 왕정 단위로 반환 하는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 숫자 값 인 (Unittype.pixel) 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
+일부 날씨 서비스 Api를 통해 사용자는 데이터를 메트릭 또는 왕정 단위로 반환 하는지 여부를 지정할 수 있습니다. 이러한 Api에 대해 반환 된 응답에는 단위 번역에 사용할 수 있는 (Unittype.pixel) 및 숫자 값이 포함 됩니다. 이러한 값을 해석 하려면 아래 표를 참조 하세요.
 
 |(Unittype.pixel)|Description         |
 |--------|--------------------|
@@ -45,14 +45,14 @@ ms.locfileid: "75911020"
 |17      |celsius             |
 |18      |fahrenheit          |
 |19      |kelvin              |
-|20      |percent             |
+|20      |수익률             |
 |21      |float               |
 |22      |integer             |
 
 
 ## <a name="weather-icons"></a>날씨 아이콘
 
-일부 날씨 서비스 Api는 응답에서 아이콘을 정의 하는 데 사용할 수 있는 숫자 값으로 아이콘 코드 (iconCode)를 반환 합니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 마세요. Url이 변경 될 수 있으며 변경 될 수 있습니다.
+일부 날씨 서비스 Api는 응답에 `iconCode`를 반환 합니다. `iconCode`은 아이콘을 정의 하는 데 사용 되는 숫자 값입니다. 응용 프로그램에서 이러한 이미지에 직접 연결 하지 않으면 Url이 변경 될 수 있으며 변경 될 수 있습니다.
 
 | 아이콘 번호 |아이콘| 일 | 모드 | 텍스트 |
 |-------------|:----:|-----|-------|------|
@@ -77,7 +77,7 @@ ms.locfileid: "75911020"
 | 21           |![](./media/weather-services-concepts/partly-sunny-flurries.png)       | 예 |  아닙니다.    | Flurries를 사용 하 여 부분적으로 Sunny|
 | 22           |![](./media/weather-services-concepts/snow-i.png)                      | 예 |  예   | 덮인|
 | 23           |![](./media/weather-services-concepts/mostly-cloudy-snow.png)          | 예 |  아닙니다.    | 주로 눈에 Cloudy|
-| 24           |![](./media/weather-services-concepts/ice-i.png)                       | 예 |  예   | Ice |
+| 24           |![](./media/weather-services-concepts/ice-i.png)                       | 예 |  예   | 아이스크림 |
 | 25           |![](./media/weather-services-concepts/sleet-i.png)                     | 예 |  예   | Sleet|
 | 26           |![](./media/weather-services-concepts/freezing-rain.png)              | 예 |  예   | 고정|
 | 29           |![](./media/weather-services-concepts/rain-snow.png)                  | 예 |  예   | 비 및 눈|

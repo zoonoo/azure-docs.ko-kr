@@ -1,18 +1,18 @@
 ---
-title: '가상 머신에서 복사 하 여 붙여넣기: Azure 방호 | Microsoft Docs'
+title: '가상 머신에서 복사 하 여 붙여넣기: Azure 방호'
 description: 이 문서에서는 요새를 사용 하 여 Azure VM에서 복사 하 여 붙여 넣는 방법에 대해 알아봅니다.
 services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: conceptual
-ms.date: 10/15/2019
+ms.date: 02/03/2020
 ms.author: cherylmc
-ms.openlocfilehash: ed8d52a4932271020dfb2a010392b312fa38703b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 0aaf816cdfe7d42fd345eb4f010cf47b1615f462
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73519362"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989538"
 ---
 # <a name="copy-and-paste-to-a-virtual-machine-azure-bastion"></a>가상 컴퓨터에 복사 하 여 붙여넣기: Azure 방호
 

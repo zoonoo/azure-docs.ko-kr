@@ -10,12 +10,12 @@ ms.subservice: video-indexer
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: juliako
-ms.openlocfilehash: 8cc097bc7083729a0e99c93376fe46b170760cf4
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.openlocfilehash: af608dcfbb5d98cf3116de4e14dc12bf6facb97b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74327477"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989912"
 ---
 # <a name="animated-character-detection-preview"></a>애니메이션 문자 검색 (미리 보기)
 
@@ -40,7 +40,7 @@ Video Indexer 계정의 유형에 따라 다양 한 기능 집합을 사용할 �
 
 ### <a name="trial-vs-paid"></a>평가판 및 유료
 
-|기능|평가판|유료|
+|기능|Trial|유료|
 |---|---|---|
 |Custom Vision 계정|Video Indexer 하 여 백그라운드에서 관리 됩니다. |Custom Vision 계정이 Video Indexer에 연결 되어 있습니다.|
 |애니메이션 모델 수|1|계정 당 최대 100 모델 (Custom Vision 제한).|
@@ -81,7 +81,7 @@ Custom Vision 계정을 Video Indexer에 연결 하거나 현재 Video Indexer�
 1. **연결 Custom Vision 계정 (미리 보기)** 을 선택 하 고 **사용해**보기를 클릭 합니다.
 1. 액세스 토큰 뿐만 아니라 필수 필드를 입력 하 고 **보내기**를 클릭 합니다. 
 
-    Video Indexer 액세스 토큰을 가져오는 방법에 대 한 자세한 내용은 [개발자 포털로](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Account-Access-Token?)이동 하 여 [관련 설명서](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api)를 참조 하세요.  
+    Video Indexer 액세스 토큰을 가져오는 방법에 대 한 자세한 내용은 [개발자 포털로](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Account-Access-Token?)이동 하 여 [관련 설명서](video-indexer-use-apis.md#obtain-access-token-using-the-authorization-api)를 참조 하세요.  
 1. 호출이 200 OK 응답을 반환 하면 계정이 연결 됩니다.
 1. [Video Indexer](https://vi.microsoft.com/)) 포털을 검색 하 여 연결을 확인 하려면 다음을 수행 합니다.
 1. 오른쪽 위 모서리에서 **콘텐츠 모델 사용자 지정** 단추를 클릭 합니다.

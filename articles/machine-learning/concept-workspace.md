@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: d013fc257bc03d7961a4f2d5ae52d0fde12c83bb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f3c2b1aa8f41b382bea96b33108d23bf09850c78
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844078"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984764"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -79,7 +79,7 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | 노트북 VM 만들기 |   | **&check;** | |     |
 
 > [!NOTE]
-> 계산 인스턴스는 **미국 중 북부**, * * 미국 동부 2 * *, **서유럽** 또는 **영국 남부**작업 영역에 대해서만 사용할 수 있습니다.
+> 계산 인스턴스는 **미국 중 북부**, **미국 동부 2**, **북아메리카 유럽** 또는 **영국 남부**지역이 포함 된 작업 영역에만 사용할 수 있으며 곧 제공 되는 다른 지역에 대 한 지원을 제공 합니다.
 >작업 영역이 다른 지역에 있으면 [Notebook VM](concept-compute-instance.md#notebookvm)을 계속 만들어 사용할 수 있습니다.
 
 ## <a name='create-workspace'></a>작업 영역 만들기
@@ -92,6 +92,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py#workspace) 를 사용 하 여 python 스크립트 또는 Jupiter 노트북에서 즉시 작업 영역 만들기
 * 회사 보안 표준을 사용 하 여 만들기를 자동화 하거나 사용자 지정 해야 하는 경우 [Azure Resource Manager 템플릿](how-to-create-workspace-template.md) 또는 [Azure Machine Learning CLI](reference-azure-machine-learning-cli.md) 를 사용 합니다.
 * Visual Studio Code에서 작업 하는 경우 [VS Code 확장](tutorial-setup-vscode-extension.md)을 사용 합니다.
+
+> [!NOTE]
+> 작업 영역 이름은 대/소문자를 구분 하지 않습니다.
 
 ## <a name="upgrade"></a>Enterprise edition으로 업그레이드
 

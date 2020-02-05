@@ -8,17 +8,17 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 207f5180db8a589ed4a68741ac18180370d21788
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75833882"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "77013673"
 ---
 ## <a name="limitations"></a>제한 사항
 
 - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-- 지원 되는 VM 시리즈: DSv3 및 ESv3. 
+- DSv3, ESv3 및 Fsv2 VM 시리즈는 다음과 같이 지원 됩니다. 
 
 ## <a name="benefits"></a>혜택 
 
@@ -73,7 +73,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 **유지 관리 제어** 는 고객에 게 전용 호스트에서 예약 된 일반 플랫폼 업데이트를 건너뛰고 35 일의 시작 기간 내에 선택할 때 적용할 수 있는 옵션을 제공 합니다.
 
 > [!NOTE]
->  유지 관리 제어는 현재 제한 된 미리 보기 단계로 제공 되며 온 보 딩 프로세스가 필요 합니다. [추천 설문 조사](https://forms.office.com/Pages/ResponsePage.aspx?id=v4j5cvGGr0GRqy180BHbR6lJf7DwiQxNmz51ksQvxV9UNUM3UllWUjBMTFZQUFhHUDI0VTBPQlJFNS4u)를 제출 하 여이 미리 보기에 적용 합니다.
+>  유지 관리 제어는 현재 공개 미리 보기로 제공 됩니다. 자세한 내용은  **[CLI](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-cli?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json) 또는 [PowerShell](https://docs.microsoft.com/azure/virtual-machines/maintenance-control-powershell?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json)을 사용 하 여 유지 관리 제어로 업데이트 제어**를 참조 하세요.
 
 ## <a name="capacity-considerations"></a>용량 고려 사항
 
@@ -89,7 +89,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 무료 평가판 및 MSDN 구독에는 Azure 전용 호스트에 대 한 할당량이 없습니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 배포 되는 Vm 수에 관계 없이 사용자는 전용 호스트 별로 요금이 청구 됩니다. 월간 명세서에는 새로운 청구 가능한 리소스 종류의 호스트가 표시 됩니다. 전용 호스트의 Vm은 여전히 문에 표시 되지만 가격은 0이 됩니다.
 

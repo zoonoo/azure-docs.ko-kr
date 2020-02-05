@@ -10,13 +10,13 @@ ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 12/13/2019
-ms.openlocfilehash: 1268dc0d78bf64e0a4b79592c28a9c1e70db7bf3
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 01/28/2020
+ms.openlocfilehash: def57dc125a148abd330643fc5848a35cd3b52bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75892915"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76991011"
 ---
 # <a name="copy-and-transform-data-in-azure-sql-database-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure SQL Database 데이터 복사 및 변환
 
@@ -140,7 +140,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
     CREATE USER [your application name] FROM EXTERNAL PROVIDER;
     ```
 
-4. SQL 사용자 또는 다른 사용자에 게 일반적으로 수행 하는 대로 서비스 주체에 게 필요한 권한을 부여 합니다. 다음 코드를 실행 합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조 하세요.
+4. SQL 사용자 또는 다른 사용자에 게 일반적으로 수행 하는 대로 서비스 주체에 게 필요한 권한을 부여 합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조하세요.
 
     ```sql
     EXEC sp_addrolemember [role name], [your application name];
@@ -187,7 +187,7 @@ Azure SQL Database 연결된 서비스에 대해 지원되는 속성은 다음�
     CREATE USER [your Data Factory name] FROM EXTERNAL PROVIDER;
     ```
 
-3. SQL 사용자 및 다른 사용자가 일반적으로 수행 하는 대로 Data Factory 관리 id에 필요한 권한을 부여 합니다. 다음 코드를 실행 합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조 하세요.
+3. SQL 사용자 및 다른 사용자가 일반적으로 수행 하는 대로 Data Factory 관리 id에 필요한 권한을 부여 합니다. 다음 코드를 실행합니다. 자세한 옵션은 [이 문서](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql?view=sql-server-2017)를 참조하세요.
 
     ```sql
     EXEC sp_addrolemember [role name], [your Data Factory name];
@@ -589,6 +589,10 @@ Azure SQL Database 관련 된 설정은 원본 변환의 **원본 옵션** 탭�
 Azure SQL Database 관련 된 설정은 싱크 변환의 **설정** 탭에서 사용할 수 있습니다.
 
 **업데이트 방법:** 데이터베이스 대상에서 허용 되는 작업을 결정 합니다. 기본값은 삽입만 허용 하는 것입니다. 행을 업데이트, upsert 또는 삭제 하려면 해당 작업에 대 한 행의 태그를 변경 하는 행을 변경 해야 합니다. 업데이트, upsert 및 삭제의 경우 변경할 행을 결정 하기 위해 키 열을 설정 해야 합니다.
+
+![키 열](media/data-flow/keycolumn.png "키 열")
+
+여기에서 키로 선택한 열 이름은 ADF에서 후속 업데이트, upsert, delete의 일부로 사용 됩니다. 따라서 싱크 매핑에 있는 열을 선택 해야 합니다. 이 키 열에 값을 쓰지 않으려면 "키 열 쓰기 생략"을 클릭 합니다.
 
 **테이블 작업:** 쓰기 전에 대상 테이블에서 모든 행을 다시 만들지 또는 제거할지를 결정 합니다.
 * 없음: 테이블에 대 한 작업이 수행 되지 않습니다.

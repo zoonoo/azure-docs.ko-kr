@@ -8,12 +8,12 @@ ms.author: dobett
 ms.date: 10/02/2019
 ms.topic: conceptual
 manager: philmea
-ms.openlocfilehash: 60c1109d0f540c8301cc536c2079537dca5115f4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e206d9a1b14fc8ff1b92e4eb7217824d81212cf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435018"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990180"
 ---
 # <a name="manage-iot-central-from-the-azure-portal"></a>Azure Portal에서 IoT Central 관리
 
@@ -50,7 +50,6 @@ ms.locfileid: "75435018"
 > [!NOTE]
 > Preview 응용 프로그램 템플릿은 현재 **유럽** 및 **미국** 지역 에서만 사용할 수 있습니다.
 
-![관리 포털: IoT Central 리소스 만들기](media/howto-manage-iot-central-from-portal/image1a.png)  
 
 모든 필드를 채운 후 **만들기**를 선택 합니다.
 
@@ -59,7 +58,7 @@ ms.locfileid: "75435018"
 Azure IoT Central 애플리케이션이 이미 있으면 삭제하거나 Azure Portal의 다른 구독 또는 리소스 그룹으로 이동할 수 있습니다.
 
 > [!NOTE]
-> 평가판 애플리케이션은 구독과 연결되어 있지 않으므로 Azure Portal에 표시되지 않습니다.
+> 무료 가격 책정 요금제에서 만든 응용 프로그램은 구독과 연결 되어 있지 않기 때문에 Azure Portal에서 볼 수 없습니다.
 
 시작 하려면 왼쪽의 주 창에서 **모든 리소스** 를 선택 합니다. 검색 상자에 애플리케이션 이름을 입력하여 리소스 목록에서 애플리케이션을 찾습니다. 그런 다음 관리 하려는 IoT Central 응용 프로그램을 선택 합니다.
 

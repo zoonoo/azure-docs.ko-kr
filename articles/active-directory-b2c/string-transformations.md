@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/04/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 72b3349e0ad4fd86b91a7a02f70b2bcf1efbc271
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 774d3325cff98ef01dc0b2e8d5c1db38e449d1b5
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712857"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76982760"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "76712857"
 | InputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임의 형식입니다. |
 | InputParameter | stringComparison | 문자열 | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
 
-**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](validation-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](self-asserted-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
+**AssertStringClaimsAreEqual** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md)을 통해 호출되는 [유효성 검사 기술 프로필](validation-technical-profile.md)에서 실행됩니다. **UserMessageIfClaimsTransformationStringsAreNotEqual** 자체 어설션된 기술 프로필 메타데이터는 사용자에게 표시되는 오류 메시지를 제어합니다.
 
 ![AssertStringClaimsAreEqual execution](./media/string-transformations/assert-execution.png)
 
@@ -76,7 +76,7 @@ ms.locfileid: "76712857"
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **inputClaim1**: someone@contoso.com
@@ -111,7 +111,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **email**: SomeOne@contoso.com
@@ -142,7 +142,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 매개 변수:
     - **value**: Contoso 서비스 약관...
@@ -157,7 +157,7 @@ ms.locfileid: "76712857"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | 문자열 | 비교할 첫 번째 클레임 형식입니다. |
 | InputClaim | inputClaim2 | 문자열 | 비교할 두 번째 클레임 형식입니다. |
-| InputParameter | 연산자 | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | boolean | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
@@ -179,7 +179,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **inputClaim1**: someone@contoso.com
@@ -197,7 +197,7 @@ ms.locfileid: "76712857"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | 문자열 | 비교할 클레임의 형식입니다. |
-| InputParameter | 연산자 | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
+| InputParameter | operator | 문자열 | 가능한 값은 `EQUAL` 또는 `NOT EQUAL`입니다. |
 | InputParameter | compareTo | 문자열 | Ordinal 또는 OrdinalIgnoreCase 값 중 하나로 문자열을 비교합니다. |
 | InputParameter | ignoreCase | boolean | 이 비교에서 비교할 문자열의 대/소문자를 무시해야 하는지 여부를 지정합니다. |
 | OutputClaim | outputClaim | boolean | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
@@ -220,7 +220,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 - 입력 클레임:
     - **inputClaim1**: v1
 - 입력 매개 변수:
@@ -255,7 +255,7 @@ ms.locfileid: "76712857"
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 매개 변수:
     - **randomGeneratorType**: GUID
@@ -278,7 +278,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 매개 변수:
     - **randomGeneratorType**: INTEGER
@@ -315,7 +315,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **inputClaim**: 5164db16-3eee-4629-bfda-dcc3326790e9
@@ -352,7 +352,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **inputClaim1**: Joe
@@ -398,7 +398,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **mapFromClaim**: B2C_V1_90001
@@ -435,7 +435,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **inputParameterId**: test.com
@@ -492,12 +492,53 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
   - **emailAddress**: joe@outlook.com
 - 출력 클레임:
     - **domain**: outlook.com
+
+## <a name="setclaimsifregexmatch"></a>SetClaimsIfRegexMatch
+
+문자열 클레임 `claimToMatch`와 `matchTo` 입력 매개 변수가 같은지 확인 하 고, 비교 결과에 따라 `true` 또는 `false`으로 설정 되는 비교 결과 출력 클레임과 함께 `outputClaimIfMatched` 입력 매개 변수에 있는 값으로 출력 클레임을 설정 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| inputClaim | claimToMatch | 문자열 | 비교할 클레임 형식입니다. |
+| InputParameter | matchTo | 문자열 | 일치 항목을 찾을 정규식입니다. |
+| InputParameter | outputClaimIfMatched | 문자열 | 문자열이 같으면 설정할 값입니다. |
+| OutputClaim | outputClaim | 문자열 | 정규식이 일치 하는 경우이 출력 클레임에 `outputClaimIfMatched` 입력 매개 변수의 값이 포함 됩니다. 일치 하는 항목이 없는 경우 null입니다. |
+| OutputClaim | regexCompareResultClaim | boolean | 일치 결과에 따라 `true` 또는 `false`으로 설정 되는 정규식 일치 결과 출력 클레임 형식입니다. |
+
+예를 들어는 전화 번호 정규식 패턴에 따라 제공 된 전화 번호가 유효한 지 여부를 확인 합니다.  
+
+```XML
+<ClaimsTransformation Id="SetIsPhoneRegex" TransformationMethod="setClaimsIfRegexMatch">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phone" TransformationClaimType="claimToMatch" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="matchTo" DataType="string" Value="^[0-9]{4,16}$" />
+    <InputParameter Id="outputClaimIfMatched" DataType="string" Value="isPhone" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="validationResult" TransformationClaimType="outputClaim" />
+    <OutputClaim ClaimTypeReferenceId="isPhoneBoolean" TransformationClaimType="regexCompareResultClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예
+
+- 입력 클레임:
+    - **Claimtomatch**: "64854114520"
+- 입력 매개 변수:
+    - **Matchto**: "^ [0-9]{4,16}$"
+    - **Outputclaimifmatched**: "isPhone"
+- 출력 클레임:
+    - **Outputclaim**: "isPhone"
+    - **regexCompareResultClaim**: true
 
 ## <a name="setclaimsifstringsareequal"></a>SetClaimsIfStringsAreEqual
 
@@ -534,7 +575,7 @@ ms.locfileid: "76712857"
   </OutputClaims>
 </ClaimsTransformation>
 ```
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **inputClaim**: v1
@@ -580,7 +621,7 @@ ms.locfileid: "76712857"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예제
+### <a name="example"></a>예
 
 - 입력 클레임:
     - **claimToMatch**: Minor
@@ -592,3 +633,188 @@ ms.locfileid: "76712857"
     - **isMinorResponseCode**: B2C_V1_90001
     - **isMinor**: true
 
+
+## <a name="stringcontains"></a>StringContains
+
+지정 된 부분 문자열이 입력 클레임 내에서 발생 하는지 여부를 확인 합니다. 결과는 값이 `true` 또는 `false`인 새 부울 ClaimType입니다. 값 매개 변수가이 문자열 내에서 발생 하면 `true`이 고, 그렇지 않으면 `false`입니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | 문자열 | 검색할 클레임 유형입니다. |
+|InputParameter|contains|문자열|검색할 값입니다.|
+|InputParameter|ignoreCase|문자열|비교할 문자열의 대/소문자를이 비교에서 무시 해야 하는지 여부를 지정 합니다.|
+| OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. 입력 클레임 내에서 부분 문자열이 발생 하는 경우의 부울 표시기입니다. |
+
+이 클레임 변환을 사용 하 여 문자열 클레임 형식에 부분 문자열이 포함 되어 있는지 확인 합니다. 다음 예에서는 `roles` 문자열 클레임 형식이 **admin**값을 포함 하는지 여부를 확인 합니다.
+
+```XML
+<ClaimsTransformation Id="CheckIsAdmin" TransformationMethod="StringContains"> 
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim"/>
+  </InputClaims>
+  <InputParameters>
+    <InputParameter  Id="contains" DataType="string" Value="admin"/>
+    <InputParameter  Id="ignoreCase" DataType="string" Value="true"/>
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isAdmin" TransformationClaimType="outputClaim"/>
+  </OutputClaims>         
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예
+
+- 입력 클레임:
+    - **Inputclaim**: "Admin, 승인자, Editor"
+- 입력 매개 변수:
+    - **포함**: "관리자"
+    - **ignoreCase**: true
+- 출력 클레임:
+    - **outputClaim**: true 
+
+## <a name="stringsubstring"></a>StringSubstring
+
+지정 된 위치의 문자에서 시작 하 여 문자열 클레임 형식의 일부를 추출 하 고 지정 된 문자 수를 반환 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | 문자열 | 문자열을 포함 하는 클레임 형식입니다. |
+| InputParameter | startIndex | int | 이 인스턴스의 부분 문자열에 있는 0부터 시작할 문자 위치입니다. |
+| InputParameter | length | int | 부분 문자열에 있는 문자의 수입니다. |
+| OutputClaim | outputClaim | boolean | 이 인스턴스의 startIndex에서 시작 하는 길이의 부분 문자열에 해당 하는 문자열 이거나, startIndex가이 인스턴스의 길이와 같고 길이가 0 인 경우 비어 있습니다. |
+
+예를 들어 전화 번호 국가 접두사를 가져옵니다.  
+
+
+```XML
+<ClaimsTransformation Id="GetPhonePrefix" TransformationMethod="StringSubstring">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="startIndex" DataType="int" Value="0" />
+  <InputParameter Id="length" DataType="int" Value="2" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phonePrefix" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>예
+
+- 입력 클레임:
+    - **Inputclaim**: "+ 1644114520"
+- 입력 매개 변수:
+    - **startIndex**: 0
+    - **길이**: 2
+- 출력 클레임:
+    - **Outputclaim**: "+ 1"
+
+## <a name="stringreplace"></a>StringReplace
+
+클레임 형식 문자열에서 지정 된 값을 검색 하 고 현재 문자열에 있는 지정 된 문자열이 지정 된 다른 문자열로 모두 바뀌는 새 클레임 형식 문자열을 반환 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | 문자열 | 문자열을 포함 하는 클레임 형식입니다. |
+| InputParameter | 되어야만 | 문자열 | 검색할 문자열입니다. |
+| InputParameter | newValue | 문자열 | 모든 `oldValue`를 바꿀 문자열입니다. |
+| OutputClaim | outputClaim | boolean | 현재 문자열에 해당 하는 문자열입니다. 단, oldValue의 모든 인스턴스가 newValue로 바뀝니다. 현재 인스턴스에 oldValue를 찾을 수 없는 경우 메서드는 변경 되지 않은 현재 인스턴스를 반환 합니다. |
+
+예를 들어 `-` 문자를 제거 하 여 전화 번호를 표준화 합니다.  
+
+
+```XML
+<ClaimsTransformation Id="NormalizePhoneNumber" TransformationMethod="StringReplace">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="inputClaim" />
+  </InputClaims>
+<InputParameters>
+  <InputParameter Id="oldValue" DataType="string" Value="-" />
+  <InputParameter Id="newValue" DataType="string" Value="" />
+</InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="phoneNumber" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+### <a name="example"></a>예
+
+- 입력 클레임:
+    - **Inputclaim**: "+ 164-411-452-054"
+- 입력 매개 변수:
+    - **oldValue**: "-"
+    - **길이**: ""
+- 출력 클레임:
+    - **Outputclaim**: "+ 164411452054"
+
+## <a name="stringjoin"></a>StringJoin
+
+각 요소 또는 멤버 사이에 지정 된 구분 기호를 사용 하 여 지정 된 문자열 컬렉션 클레임 형식의 요소를 연결 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | stringCollection | 연결할 문자열을 포함하는 컬렉션입니다. |
+| InputParameter | 구분 기호 | 문자열 | 구분 기호로 사용할 문자열 (예: 쉼표 `,`)입니다. |
+| OutputClaim | outputClaim | 문자열 | `delimiter` 입력 매개 변수로 구분 된 `inputClaim` 문자열 컬렉션의 멤버로 구성 된 문자열입니다. |
+  
+다음 예에서는 사용자 역할의 문자열 컬렉션을 사용 하 여 쉼표 구분 기호 문자열로 변환 합니다. 이 메서드를 사용자 하 여 Azure AD 사용자 계정에 문자열 컬렉션을 저장할 수 있습니다. 나중에 디렉터리에서 계정을 읽을 때 `StringSplit`를 사용 하 여 쉼표 구분 기호 문자열을 다시 문자열 컬렉션으로 변환 합니다.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesStringCollectionToCommaDelimiterString" TransformationMethod="StringJoin">
+  <InputClaims>
+   <InputClaim ClaimTypeReferenceId="roles" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter DataType="string" Id="delimiter" Value="," />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="rolesCommaDelimiterConverted" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예
+
+- 입력 클레임:
+  - **Inputclaim**: ["Admin", "Author", "Reader"]
+- 입력 매개 변수:
+  - **구분 기호**: ","
+- 출력 클레임:
+  - **Outputclaim**: "Admin, Author, Reader"
+
+
+## <a name="stringsplit"></a>StringSplit
+
+지정 된 문자열의 요소로 구분 되는이 인스턴스의 부분 문자열이 들어 있는 문자열 배열을 반환 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | inputClaim | 문자열 | 분할할 하위 문자열을 포함 하는 문자열 클레임 형식입니다. |
+| InputParameter | 구분 기호 | 문자열 | 구분 기호로 사용할 문자열 (예: 쉼표 `,`)입니다. |
+| OutputClaim | outputClaim | stringCollection | 해당 요소에 `delimiter` 입력 매개 변수로 구분 되는이 문자열의 부분 문자열이 포함 된 문자열 컬렉션입니다. |
+  
+다음 예에서는 사용자 역할의 쉼표 구분 기호 문자열을 사용 하 여 문자열 컬렉션으로 변환 합니다.
+
+```XML
+<ClaimsTransformation Id="ConvertRolesToStringCollection" TransformationMethod="StringSplit">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="rolesCommaDelimiter" TransformationClaimType="inputClaim" />
+  </InputClaims>
+  <InputParameters>
+  <InputParameter DataType="string" Id="delimiter" Value="," />
+    </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="roles" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예
+
+- 입력 클레임:
+  - **Inputclaim**: "Admin, Author, Reader"
+- 입력 매개 변수:
+  - **구분 기호**: ","
+- 출력 클레임:
+  - **Outputclaim**: ["Admin", "Author", "Reader"]

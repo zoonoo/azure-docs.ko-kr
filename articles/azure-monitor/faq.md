@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: b0ec82807857be60f30aa777ff5871334383acf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715924"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986821"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -36,7 +36,7 @@ Azure Monitor는 새 Azure 구독을 만들 때 사용 하도록 설정 되며 [
 Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데이터에 액세스 합니다. 서로 다른 Azure 서비스에 대 한 메뉴의 **모니터링** 섹션에서는 특정 리소스로 필터링 된 데이터를 사용 하 여 동일한 도구에 대 한 액세스를 제공 합니다. Azure Monitor 데이터는 CLI, PowerShell 및 REST API를 사용 하는 다양 한 시나리오에도 액세스할 수 있습니다.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Azure Monitor 온-프레미스 버전이 있나요?
-아니요. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
+아닙니다. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>온-프레미스 리소스를 Azure Monitor 모니터링할 수 있나요?
 예, Azure 리소스의 모니터링 데이터를 수집 하는 것 외에도 다른 클라우드 및 온-프레미스의 가상 컴퓨터 및 응용 프로그램에서 데이터를 수집할 수 Azure Monitor. [Azure Monitor에 대 한 모니터링 데이터 원본](platform/data-sources.md)을 참조 하세요.
@@ -90,7 +90,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 ### <a name="how-do-i-retrieve-log-data"></a>로그 데이터를 검색 어떻게 할까요??
 KQL (Kusto Query Language)를 사용 하 여 작성 된 로그 쿼리를 사용 하 여 Log Analytics 작업 영역에서 모든 데이터를 검색 합니다. 사용자 고유의 쿼리를 작성 하거나 특정 응용 프로그램 또는 서비스에 대 한 로그 쿼리를 포함 하는 솔루션 및 정보를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](log-query/log-query-overview.md)를 참조 하세요.
 
-### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역 이란 무엇 인가요?
+### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역이란 무엇인가요?
 Azure Monitor에 의해 수집 된 모든 로그 데이터는 Log Analytics 작업 영역에 저장 됩니다. 작업 영역은 기본적으로 다양 한 원본에서 로그 데이터를 수집 하는 컨테이너입니다. 모든 모니터링 데이터에 대 한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대 한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md)을 참조 하세요.
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>기존 Log Analytics 작업 영역을 다른 Azure 구독으로 이동할 수 있나요?
@@ -169,7 +169,7 @@ WireData
 ```
 
 ### <a name="how-much-network-bandwidth-is-used-by-the-microsoft-management-agent-mma-when-sending-data-to-azure-monitor"></a>Azure Monitor로 데이터를 보낼 때 Microsoft Management Agent (MMA)에서 사용 되는 네트워크 대역폭은 얼마나 되나요?
-대역폭은 전송된 데이터의 양에 대한 함수입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
+대역폭은 전송된 데이터 양에 대한 기능입니다. 네트워크를 통해 데이터가 전송되는 동안 데이터가 압축됩니다.
 
 
 ### <a name="how-can-i-be-notified-when-data-collection-from-the-log-analytics-agent-stops"></a>Log Analytics 에이전트의 데이터 수집을 중지 하면 어떻게 알 수 있나요?
@@ -240,7 +240,7 @@ WireData
 
 [가격 책정 계획을 참조하세요](https://azure.microsoft.com/pricing/details/application-insights/).
 
-### <a name="how-much-does-it-cost"></a>그거 얼마에요?
+### <a name="how-much-does-it-cost"></a>비용은 얼마인가요?
 
 * Application Insights 리소스에서 **사용량 및 예상 비용 페이지**를 엽니다. 최근 사용 현황에 대한 차트가 있습니다. 원하는 경우 데이터 볼륨 한도를 설정할 수 있습니다.
 * [Azure 청구 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)를 열어 모든 리소스에 대한 청구서를 확인합니다.
@@ -273,7 +273,7 @@ WireData
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세히 알아봅니다](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -319,13 +319,18 @@ WireData
 * IP 주소 및 지리적 위치 데이터를 수집 하는 방법에 대 한 자세한 내용은이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)를 참조 Application Insights.
 
 
-`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아봅니다](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 [Power BI를 사용](app/export-power-bi.md )하여 요청 원격 분석을 지도에 표시할 수 있습니다.
 
 
 ### <a name="data"></a>데이터가 포털에 얼마나 오래 보존되나요? 안전한가요?
 [데이터 보존 및 개인 정보][data]를 살펴보세요.
+
+### <a name="what-happens-to-application-insights-telemetry-when-a-server-or-device-loses-connection-with-azure"></a>서버 또는 장치가 Azure와의 연결을 잃을 때 응용 프로그램 정보는 어떻게 되나요?
+
+웹 SDK를 비롯 한 모든 Sdk에는 "신뢰할 수 있는 전송" 또는 "강력한 전송"이 포함 됩니다. 서버 또는 장치가 Azure와의 연결이 끊어지면 원격 분석은 파일 시스템 (서버 Sdk) 또는 HTML5 세션 저장소 (웹 SDK)에 [로컬로 저장](https://docs.microsoft.com/azure/azure-monitor/app/data-retention-privacy#does-the-sdk-create-temporary-local-storage) 됩니다. 수집 서비스에서 "오래 된" (로그의 경우 48 시간, 메트릭에는 30 분)를 고려할 때까지 SDK는 주기적으로이 원격 분석 전송을 다시 시도 합니다. 오래 된 원격 분석이 삭제 됩니다. 로컬 저장소가 꽉 찬 경우와 같은 일부 경우에는 다시 시도가 수행 되지 않습니다.
+
 
 ### <a name="could-personal-data-be-sent-in-the-telemetry"></a>개인 데이터를 원격 분석에 보낼 수 있나요?
 

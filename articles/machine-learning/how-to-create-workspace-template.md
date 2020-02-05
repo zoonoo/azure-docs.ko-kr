@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 6cd450ac18007e31d9d8144fdb0e8554dd31c363
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8584a77eaf9f8db13c948051c34b18236e2cc1a
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968658"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986379"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
@@ -55,6 +55,9 @@ ms.locfileid: "75968658"
     선택한 위치는 템플릿에서 대부분의 리소스에 사용됩니다. 단, 다른 서비스를 사용할 수 있는 일부 위치에서 사용할 수 없는 Application Insights 서비스는 예외입니다. 서비스를 사용할 수 없는 위치를 선택하면 미국 중남부 위치에 서비스가 생성됩니다.
 
 * **workspace name** - Azure Machine Learning 작업 영역의 이름입니다.
+
+    > [!NOTE]
+    > 작업 영역 이름은 대/소문자를 구분 하지 않습니다.
 
     다른 서비스의 이름은 임의로 생성됩니다.
 

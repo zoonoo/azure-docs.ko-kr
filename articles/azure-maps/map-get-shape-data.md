@@ -8,16 +8,16 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: ca1b9854b118d359167873313f1fcb11bfecee52
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: d74a7906157eed33487a5f88082701da1b2269dc
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75911002"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988552"
 ---
 # <a name="get-shape-data"></a>도형 데이터 가져오기
 
-이 문서에서는 [drawing manager](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--) **drawingManager ()** 함수를 사용 하 여 지도에 그려진 셰이프 데이터를 가져오는 방법을 보여 줍니다. 그려진 모양의 geojson 데이터를 추출 하 고 다른 곳에서 활용 하려는 다양 한 시나리오가 있을 수 있습니다.  
+이 문서에서는 지도에 그려진 모양의 데이터를 가져오는 방법을 보여 줍니다. **DrawingManager ()** 함수는 [드로잉 관리자](https://docs.microsoft.com/javascript/api/azure-maps-drawing-tools/atlas.drawing.drawingmanager?view=azure-node-latest#getsource--)내에서 사용 됩니다. 그려진 모양의 geojson 데이터를 추출 하 고 다른 곳에서 사용 하려는 경우에는 여러 가지 시나리오가 있습니다.  
 
 
 ## <a name="get-data-from-drawn-shape"></a>그려지는 도형에서 데이터 가져오기

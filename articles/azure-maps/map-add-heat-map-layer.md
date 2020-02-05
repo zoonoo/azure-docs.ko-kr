@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: ''
 ms.custom: codepen
-ms.openlocfilehash: 98c8db4e4b866879a437d1ffad6668cbae42fcdf
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d52d808813078c2aca7de59aa626e83f96221720
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76933599"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986243"
 ---
 # <a name="add-a-heat-map-layer"></a>열 지도 계층 추가
 
@@ -49,7 +49,7 @@ map.sources.add(datasource);
 //Load a dataset of points, in this case earthquake data from the USGS.
 datasource.importDataFromUrl('https://earthquake.usgs.gov/earthquakes/feed/v1.0/summary/all_week.geojson');
 
-//Create a heatmap and add it to the map.
+//Create a heat map and add it to the map.
 map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
   radius: 10,
   opacity: 0.8
@@ -108,14 +108,12 @@ map.layers.add(new atlas.layer.HeatMapLayer(datasource, null, {
 
 > [!TIP]
 > 데이터 원본에서 클러스터링을 사용 하도록 설정 하면 서로 가까운 점이 클러스터형 점으로 그룹화 됩니다. 각 클러스터의 점 개수를 열 지도의 가중치 식으로 사용할 수 있습니다. 이렇게 하면 렌더링 되는 지점의 수를 크게 줄일 수 있습니다. 클러스터의 점 개수는 point 기능의 `point_count` 속성에 저장 됩니다. 
-
 > ```JavaScript
 > var layer = new atlas.layer.HeatMapLayer(datasource, null, {
 >    weight: ['get', 'point_count']
 > });
 > ```
-
-> 클러스터링 반지름이 몇 픽셀만 있으면 렌더링에 약간의 시각적 차이가 있습니다. 더 큰 radius 그룹은 각 클러스터에 대 한 더 많은 요소를 추가 하 고 열 지도의 성능을 향상 시킵니다.
+> 클러스터링 반지름이 몇 픽셀만 이면 렌더링에 약간의 시각적 차이가 있습니다. 더 큰 radius 그룹은 각 클러스터에 대 한 더 많은 요소를 추가 하 고 열 지도의 성능을 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 

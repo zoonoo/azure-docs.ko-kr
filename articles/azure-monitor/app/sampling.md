@@ -9,12 +9,12 @@ ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: c851978ea1b5af3006f1835f022c30aa7e7128f7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899085"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76989980"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -347,12 +347,13 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 
 ### <a name="configuring-fixed-rate-sampling-for-opencensus-python-applications"></a>OpenCensus Python 응용 프로그램에 대 한 고정 요금 샘플링 구성
 
-1. 최신 [OpenCensus Azure Monitor 내보내기](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 응용 프로그램을 계측 합니다.
+최신 [OpenCensus Azure Monitor 내보내기](../../azure-monitor/app/opencensus-python.md)를 사용 하 여 응용 프로그램을 계측 합니다.
 
 > [!NOTE]
-> 고정 률 샘플링은 추적 내보내기를 사용 하는 경우에만 사용할 수 있습니다. 즉, 들어오고 나가는 요청은 샘플링을 구성할 수 있는 유일한 원격 분석 유형입니다.
+> 메트릭 내보내기에서 고정 률 샘플링을 사용할 수 없습니다. 즉, 사용자 지정 메트릭은 샘플링을 구성할 수 없는 유일한 원격 분석 유형입니다. 메트릭 내보내기는 추적 하는 모든 원격 분석을 보냅니다.
 
-2. `Tracer` 구성의 일부로 `sampler`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 `ProbabilitySampler` 사용 됩니다. `ProbabilitySampler`는 기본적으로 1/10000의 속도로 사용 됩니다. 즉, 1만 요청 중 하나가 Application Insights으로 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
+#### <a name="fixed-rate-sampling-for-tracing"></a>추적을 위한 고정 률 샘플링 ####
+`Tracer` 구성의 일부로 `sampler`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 `ProbabilitySampler` 사용 됩니다. `ProbabilitySampler`는 기본적으로 1/10000의 속도로 사용 됩니다. 즉, 1만 요청 중 하나가 Application Insights으로 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
 
 샘플링 비율을 지정 하려면 `Tracer`에서 샘플링 비율이 0.0과 1.0 사이인 샘플러를 지정 하는지 확인 합니다. 샘플링 률 1.0은 100%를 나타내므로 모든 요청은 Application Insights에 대 한 원격 분석으로 전송 됩니다.
 
@@ -362,6 +363,16 @@ tracer = Tracer(
         instrumentation_key='00000000-0000-0000-0000-000000000000',
     ),
     sampler=ProbabilitySampler(1.0),
+)
+```
+
+#### <a name="fixed-rate-sampling-for-logs"></a>로그에 대 한 고정 률 샘플링 ####
+`logging_sampling_rate` 선택적 인수를 수정 하 여 `AzureLogHandler`에 대 한 고정 요금 샘플링을 구성할 수 있습니다. 인수를 제공 하지 않으면 1.0의 샘플링 비율이 사용 됩니다. 샘플링 률 1.0은 100%를 나타내므로 모든 요청은 Application Insights에 대 한 원격 분석으로 전송 됩니다.
+
+```python
+exporter = metrics_exporter.new_metrics_exporter(
+    instrumentation_key='00000000-0000-0000-0000-000000000000',
+    logging_sampling_rate=0.5,
 )
 ```
 

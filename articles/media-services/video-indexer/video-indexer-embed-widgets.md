@@ -8,14 +8,14 @@ manager: femila
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 07/29/2019
+ms.date: 02/03/2020
 ms.author: juliako
-ms.openlocfilehash: b9fb15fc9f3dc51a0df40a4ccb738a97d4558dff
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: ed3e2cf9830e3776886e662fd27f43f76728d6b2
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545894"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988722"
 ---
 # <a name="embed-video-indexer-widgets-in-your-applications"></a>응용 프로그램에 Video Indexer 위젯 포함
 
@@ -86,9 +86,9 @@ ms.locfileid: "76545894"
     
 인지 Insights 위젯 콘텐츠를 가져오려면 다음 중 하나를 사용 합니다.<br/>
 - [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) API입니다.<br/>
-- [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. 앞에서 설명한 것 처럼이 URL을 iframe의 **src** 값으로 지정 합니다.
+- [비디오 액세스 토큰을 가져옵니다](https://api-portal.videoindexer.ai/docs/services/Operations/operations/Get-Video-Access-Token?). URL에 쿼리 매개 변수로 추가 합니다. 앞에서 설명한 것 처럼이 URL을 iframe의 **src** 값으로 지정 합니다.
 
-포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. `&allowEdit=true`에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/authorization/operations/Get-Video-Access-Token?) 를 사용 합니다. 
+포함 된 위젯에 편집 정보 기능을 제공 하려면 편집 권한을 포함 하는 액세스 토큰을 전달 해야 합니다. `&allowEdit=true`에서 [Insights 위젯 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Insights-Widget?&pattern=widget) 또는 [비디오 액세스 토큰 가져오기](https://api-portal.videoindexer.ai/docs/services/operations/operations/Get-Video-Access-Token?) 를 사용 합니다. 
 
 ## <a name="widgets-interaction"></a>위젯 상호 작용
 
@@ -262,8 +262,25 @@ Video Indexer 플레이어를 포함하는 경우 iframe의 크기를 지정하�
 
 캡션을 사용 하지 않도록 설정 하려면 `captions` 매개 변수 값을 `false`전달 하면 됩니다.
 
-#### <a name="autoplay"></a>자동 실행
+#### <a name="autoplay"></a>재생
 기본적으로 플레이어는 비디오 재생을 시작 합니다. 이전 embed URL에 `&autoplay=false` 전달 하 여 하지 않도록 선택할 수 있습니다.
+
+## <a name="code-samples"></a>코드 샘플
+
+Video Indexer API 및 위젯의 샘플이 포함 된 [코드 샘플](https://github.com/Azure-Samples/media-services-video-indexer/tree/master/Widgets) 리포지토리를 참조 하세요.
+
+| 파일/폴더                       | Description                                |
+|-----------------------------------|--------------------------------------------|
+| `azure-media-player`              | 사용자 지정 Azure Media Player 비디오 인덱서 비디오 로드                        |
+| `azure-media-player-vi-insights`  | 사용자 지정 Azure Media Player를 사용 하 여 VI 정보 포함                             |
+| `control-vi-embedded-player`      | VI 플레이어를 포함 하 고 외부에서 제어                                    |
+| `custom-index-location`           | 사용자 지정 외부 위치에서 VI 정보 포함 (고객 a blob 일 수 있음)     |
+| `embed-both-insights`             | 플레이어와 정보를 모두 사용 하는 VI Insights의 기본 사용                            |
+| `embed-insights-with-AMP`         | 사용자 지정 Azure Media Player를 사용 하 여 VI Insights 위젯 포함                      |
+| `customize-the-widgets`           | 사용자 지정 된 옵션을 사용 하 여 VI 위젯 포함                                     |
+| `embed-both-widgets`              | VI 플레이어와 정보를 포함 하 고 서로 통신                      |
+| `url-generator`                   | 사용자가 지정한 옵션에 따라 위젯 사용자 지정 embed url을 생성 합니다.             |
+| `html5-player`                    | 기본 HTML5 비디오 플레이어를 사용 하 여 VI 정보 포함                            |
 
 ## <a name="next-steps"></a>다음 단계
 

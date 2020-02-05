@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: efad1c48dd2c92c0fd5f268013b4a59f34b3a766
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6311f24a9c977b5f8b34384f0754f041a0c57ce7
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028812"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76990745"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -32,14 +32,14 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 링크** | https://aka.ms/migrate/appliance/vmware 
 **다운로드 크기** | 11.2 GB
 **라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
-**배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 GB RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/><br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
+**배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 GB RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **하드웨어** | VCenter의 리소스를 사용 하 여 32 GB RAM 8 vCPUs, 80 GB의 디스크 저장소, 외부 가상 스위치를 사용 하 여 VM을 할당 합니다. 
 **해시 값** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 **vCenter 서버/호스트** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 5\.5, 6.0, 6.5 또는 6.7을 실행 하는 vCenter Server.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
+**조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/> DRA: VM 복제를 오케스트레이션 하 고 컴퓨터/Azure 간의 통신을 조정 합니다.<br/> 게이트웨이: 복제 된 데이터를 Azure로 보냅니다.<br/> 자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
-**VDDK (에이전트 없는 마이그레이션)** | Azure Migrate Server Migration을 사용 하 여 에이전트 없는 마이그레이션을 실행 하는 경우 VMware vSphere VDDK을 어플라이언스 VM에 설치 해야 합니다.)
+**VDDK (에이전트 없는 마이그레이션)** | Azure Migrate Server Migration을 사용 하 여 에이전트 없는 마이그레이션을 실행 하는 경우 VMware vSphere VDDK을 어플라이언스 VM에 설치 해야 합니다.
 
 
 ## <a name="appliance---hyper-v"></a>어플라이언스-Hyper-v
@@ -55,7 +55,7 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **해시 값** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V 호스트** | Windows Server 2012 R2 이상 버전을 실행 하 고 있습니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**검색** | 어플라이언스는 vCenter Server에서 VMware Vm을 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+**조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 
 
@@ -66,14 +66,12 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 형식** | 압축 폴더 (PowerShell 설치 관리자 스크립트 사용)
 **다운로드 링크** | [다운로드 링크](https://go.microsoft.com/fwlink/?linkid=2105112)
 **다운로드 크기** | 59.7 M B
-**하드웨어** | 전용 물리적 컴퓨터 또는 VM. 어플라이언스를 실행 하는 컴퓨터는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 외부 스위치를 요구 합니다.<br/><br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
-**해시 값** | MD5:96fd99581072c400aa605ab036a0a7c0<br/><br/> SHA256: f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+**하드웨어** | 전용 물리적 컴퓨터 또는 VM. 어플라이언스를 실행 하는 컴퓨터는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 외부 스위치를 요구 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
+**해시 값** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
 **소프트웨어** | 어플라이언스 컴퓨터는 Windows Server 2016를 실행 해야 합니다. 
 **어플라이언스 배포**   |  어플라이언스 설치 관리자 스크립트는 포털 (zip 폴더)에서 다운로드 됩니다. <br/> 폴더의 압축을 풀고 PowerShell 스크립트 (AzureMigrateInstaller)를 실행 합니다.
-**검색** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
+**조사** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
-**포트 액세스** | 어플라이언스를 구성한 후에는 TCP 포트 3389에서 인바운드 연결을 사용 하 여 어플라이언스에 대 한 원격 데스크톱 연결을 허용 합니다.<br/><br/> URL을 사용 하 여 어플라이언스 관리 앱에 원격으로 액세스 하려면 포트 44368에서 인바운드 연결: ' https://< >: 44368.<br/><br/> Azure Migrate에 검색 및 성능 메타 데이터를 보내기 위한 포트 443, 5671 및 5672의 아웃 바운드 연결
-
 
 
 ## <a name="url-access"></a>URL 액세스
@@ -86,16 +84,16 @@ Azure Migrate 어플라이언스를 인터넷에 연결 해야 합니다.
 **URL** | **세부 정보**  
 --- | --- |
 *.portal.azure.com  | Azure Portal로 이동합니다.
-*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *.microsoft.com <br/> *.live.com | Azure 구독에 로그인합니다.
+*.windows.net <br/> *.msftauth.net <br/> *.msauth.net <br/> *. microsoft.com <br/> *. live.com | Azure 구독에 로그인합니다.
 *.microsoftonline.com <br/> *.microsoftonline-p.com | 기기가 Azure Migrate와 통신할 수 있도록 Active Directory 앱을 만듭니다.
 management.azure.com | 어플라이언스에 대 한 Active Directory 앱을 만들어 Azure Migrate 서비스와 통신 합니다.
 dc.services.visualstudio.com | 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.
 *.vault.azure.net | Azure Key Vault에서 비밀을 관리 합니다.
 aka.ms/* | 즉, 링크에 대 한 액세스를 허용 합니다. Azure Migrate 어플라이언스 업데이트에 사용 됩니다.
 download.microsoft.com/download | Microsoft 다운로드에서 다운로드할 수 있습니다.
-\*.servicebus.windows.net | VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/> 어플라이언스와 Azure Migrate 서비스 간의 통신.
-*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/> Azure Migrate 서비스 Url에 연결 합니다.
-\*.blob.core.windows.net |  VMware 에이전트 없는 마이그레이션에 사용 됩니다.<br/><br/>저장소에 데이터를 업로드 합니다.
+\*.servicebus.windows.net | **VMware 에이전트 없는 마이그레이션에 사용 됩니다.**<br/><br/> 어플라이언스와 Azure Migrate 서비스 간의 통신.
+*.discoverysrv.windowsazure.com <br/> *.migration.windowsazure.com <br/> \*.hypervrecoverymanager.windowsazure.com | **VMware 에이전트 없는 마이그레이션에 사용 됩니다.**<br/><br/> Azure Migrate 서비스 Url에 연결 합니다.
+\*.blob.core.windows.net |  **VMware 에이전트 없는 마이그레이션에 사용 됩니다.**<br/><br/>저장소에 데이터를 업로드 합니다.
 
 
 
@@ -136,7 +134,7 @@ VM 설명 | vm.Summary.Config.Annotation
 운영 체제 유형 | vm.SummaryConfig.GuestFullName
 부팅 유형 | vm.Config.Firmware
 코어 수 | vm.Config.Hardware.NumCPU
-메모리(MB) | vm.Config.Hardware.MemoryMB
+메모리 (MB) | vm.Config.Hardware.MemoryMB
 디스크 수 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk). count
 디스크 크기 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualDisk)
 네트워크 어댑터 목록 | vm. 구성 합니다. FindAll (x = >는 VirtualEthernet). count
@@ -185,8 +183,8 @@ Hyper-v 하이퍼바이저 가상 프로세서 | % 게스트 실행 시간 | 권
 Hyper-v 동적 메모리 VM | 현재 압력 (%)<br/> 게스트 표시 실제 메모리 (MB) | 권장 되는 VM 크기/비용
 Hyper-v 가상 저장 장치 | 읽은 바이트/초 | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
 Hyper-v 가상 저장 장치 | 쓰기 바이트/초 | 디스크 크기, 저장소 비용, VM 크기에 대 한 계산
-Hyper-V 가상 네트워크 어댑터 | 받은 바이트 수/초 | VM 크기에 대 한 계산
-Hyper-V 가상 네트워크 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 계산
+Hyper-v Virtual Network 어댑터 | 받은 바이트 수/초 | VM 크기에 대 한 계산
+Hyper-v Virtual Network 어댑터 | 보낸 바이트/초 | VM 크기에 대 한 계산
 
 - CPU 사용률은 VM에 연결 된 모든 가상 프로세서에 대 한 모든 사용량의 합계입니다.
 - 메모리 사용률은 (현재 압력 * 게스트 표시 실제 메모리)/100입니다.
