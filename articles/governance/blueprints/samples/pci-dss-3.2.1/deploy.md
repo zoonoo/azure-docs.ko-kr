@@ -1,14 +1,14 @@
 ---
 title: PCI-DSS v3.2.1 청사진 샘플 배포
 description: 청사진 아티팩트 매개 변수 세부 정보를 비롯한 Payment Card Industry Data Security Standard v3.2.1 청사진 샘플의 배포 단계를 설명합니다.
-ms.date: 06/24/2019
+ms.date: 01/29/2020
 ms.topic: sample
-ms.openlocfilehash: aa641b35f1a7533a13803e7984c83df2f3268de6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 9df9392430fd0496ffb5e635a6fc3e31ba708208
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74546562"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76905548"
 ---
 # <a name="deploy-the-pci-dss-v321-blueprint-sample"></a>PCI-DSS v3.2.1 청사진 샘플 배포
 
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. 청사진 정의 페이지 위쪽에서 **청사진 할당**을 선택합니다.
 
-1. 청사진 할당의 매개 변수 값을 지정합니다.
+1. 청사진 할당의 매개 변수 값을 다음과 같이 지정합니다.
 
    - 기본 사항
 
@@ -91,7 +91,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 다음 테이블은 청사진 아티팩트 매개 변수의 목록을 제공합니다.
 
-|아티팩트 이름|아티팩트 형식|매개 변수 이름|설명|
+|아티팩트 이름|아티팩트 형식|매개 변수 이름|Description|
 |-|-|-|-|
 |\[미리 보기\] PCI v3.2.1:2018 컨트롤을 감사하고 특정 VM 확장을 배포하여 감사 요구 사항 지원|정책 할당|리소스 종류 목록 | 선택한 리소스 종류에 대한 감사 진단 설정 기본적으로 모든 리소스가 선택됩니다.| 
 |허용되는 위치|정책 할당|허용되는 위치 목록|리소스를 배포할 수 있는 데이터 센터 위치 목록입니다. 이 목록을 원하는 Azure 위치에 맞게 전역적으로 사용자 지정할 수 있습니다. 허용할 위치를 선택합니다.| 

@@ -3,12 +3,12 @@ title: Azure Resource Graph 개요
 description: Azure Resource Graph 서비스를 통해 구독 및 테넌트에 걸쳐 대규모의 복잡한 리소스를 쿼리하는 방법을 이해합니다.
 ms.date: 10/21/2019
 ms.topic: overview
-ms.openlocfilehash: 301543075d587079af0f53b6200890a75bfbb768
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1e84de19d35f0c5f5d7975c8a94d5164100013e4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965966"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76936511"
 ---
 # <a name="what-is-azure-resource-graph"></a>Azure Resource Graph란?
 
@@ -25,7 +25,7 @@ Azure Resource Graph는 제공된 구독 세트에서 대규모로 쿼리를 수
 > Azure Resource Graph는 Azure Portal의 검색 창, 새로운 찾아보기 ‘모든 리소스’ 환경 및 Azure Policy의 [변경 내용](../policy/how-to/determine-non-compliance.md#change-history-preview)
 > _visual diff_에서 사용됩니다. 이 기능은 고객이 대규모 환경을 관리할 수 있도록 디자인되었습니다.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-does-resource-graph-complement-azure-resource-manager"></a>Resource Graph가 Azure Resource Manager를 보완하는 방법
 
