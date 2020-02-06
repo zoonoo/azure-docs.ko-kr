@@ -1,128 +1,128 @@
 ---
-title: '디자이너: 비행 지연 예측 예제'
+title: 'Designer: 비행 지연 예측 예제'
 titleSuffix: Azure Machine Learning
-description: 분류자를 빌드하고 사용자 지정 R 코드를 사용 하 여 Azure Machine Learning designer로 비행 지연을 예측 합니다.
+description: Azure Machine Learning 디자이너를 사용하여 분류자를 빌드하고 사용자 지정 R 코드를 통해 비행 지연을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
-ms.topic: conceptual
+ms.topic: sample
 author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 778673d724fd6774365c4f2427e2483856ec83a2
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
-ms.translationtype: MT
+ms.openlocfilehash: d459350572d68cc5dcbbfd56933483404b94f918
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311131"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963280"
 ---
-# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용 하 여 비행 지연을 예측 하는 데 R을 사용 하 & 분류자 빌드
+# <a name="build-a-classifier--use-r-to-predict-flight-delays-with-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 분류자 빌드 및 R을 통해 비행 지연 예측
 
-**디자이너 샘플 6**
+**디자이너(미리 보기) 샘플 6**
 
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
-이 파이프라인은 과거 비행 및 날씨 데이터를 사용 하 여 예약 된 승객 비행이 15 분 넘게 지연 될 지 여부를 예측 합니다. 이 문제는 분류 문제로 인해 지연 되거나 시간에 두 가지 클래스를 예측할 수 있습니다.
+이 파이프라인은 과거 비행과 날씨 데이터를 사용하여 예정된 승객 비행이 15분 넘게 지연될지 여부를 예측합니다. 이 문제는 분류 문제로 접근하여 지연 또는 정시의 두 가지 클래스를 예측할 수 있습니다.
 
-이 샘플에 대 한 최종 파이프라인 그래프는 다음과 같습니다.
+이 샘플에 대한 최종 파이프라인 그래프는 다음과 같습니다.
 
-[파이프라인의 ![그래프](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png#lightbox)
+[![파이프라인 그래프](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png)](media/how-to-designer-sample-classification-flight-delay/pipeline-graph.png#lightbox)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [aml-ui-prereq](../../includes/aml-ui-prereq.md)]
 
-4. 샘플 6을 클릭 하 여 엽니다.
+4. 샘플 6을 클릭하여 엽니다.
 
 ## <a name="get-the-data"></a>데이터 가져오기
 
-이 샘플에서는 **비행 지연 데이터** 데이터 집합을 사용 합니다. 미국 운송 부서에서의 수치 데이터 수집의 일부입니다. 데이터 집합은 4 월부터 10 월 2013 까지의 비행 지연 정보를 포함 합니다. 데이터 집합은 다음과 같이 미리 처리 되었습니다.
+이 샘플에서는 **비행 지연 데이터** 데이터 세트를 사용합니다. 이는 미국 교통부에서 제공하는 TranStats 데이터 수집의 일부입니다. 데이터 세트에는 2013년 4월부터 10월까지의 비행 지연 정보가 포함되어 있습니다. 이 데이터 세트는 다음과 같이 전처리되었습니다.
 
-* 본토 미국에서 70의 가장 많은 공항을 포함 하도록 필터링 되었습니다.
-* 레이블 재지정가 15 분 넘게 지연 되 면 항공편을 취소 했습니다.
-* 필터링 된 항공편.
-* 14 개의 열을 선택 했습니다.
+* 미국 대륙에서 가장 바쁜 70개의 공항을 포함하도록 필터링되었습니다.
+* 취소된 항공편을 15분 넘게 지연되면 취소된 항공편의 레이블이 다시 지정되었습니다.
+* 우회된 비행이 필터링되었습니다.
+* 14개의 열이 선택되었습니다.
 
-비행 데이터를 보완 하기 위해 **날씨 데이터 집합이** 사용 됩니다. 날씨 데이터에는 NOAA의 시간별, 육지 기반 날씨 관측값이 포함 되어 있으며, 항공편 데이터 집합과 동일한 기간을 포함 하는 공항 날씨 스테이션의 관찰을 나타냅니다. 다음과 같이 미리 처리 되었습니다.
+항공편 데이터를 보완하기 위해 **날씨 데이터 세트**가 사용됩니다. 날씨 데이터에는 NOAA의 시간별 육지 기반 날씨 관측값이 포함되며, 항공편 데이터 세트와 동일한 기간을 포함하는 공항 날씨 관측소의 관측값을 나타냅니다. 다음과 같이 전처리되었습니다.
 
-* 날씨 스테이션 Id는 해당 공항 Id에 매핑됩니다.
-* 70의 가장 많은 공항에 연결 되지 않은 날씨 스테이션이 제거 되었습니다.
-* 날짜 열은 연도, 월, 일의 개별 열로 분할 되었습니다.
-* 26 개의 열을 선택 했습니다.
+* 날씨 관측소 ID가 해당 공항 ID에 매핑되었습니다.
+* 가장 분주한 70개의 공항과 관련이 없는 날씨 관측소가 제거되었습니다.
+* 날짜 열은 별도의 연도, 월 및 일 열로 분할되었습니다.
+* 26개의 열이 선택되었습니다.
 
-## <a name="pre-process-the-data"></a>데이터를 미리 처리 합니다.
+## <a name="pre-process-the-data"></a>데이터 전처리
 
-일반적으로 데이터 집합을 분석 하려면 먼저 일부 전처리를 수행 해야 합니다.
+데이터 세트는 일반적으로 먼저 전처리를 거친 후에 분석해야 합니다.
 
-![데이터-프로세스](./media/how-to-designer-sample-classification-flight-delay/data-process.png)
+![데이터 프로세스](./media/how-to-designer-sample-classification-flight-delay/data-process.png)
 
-### <a name="flight-data"></a>비행 데이터
+### <a name="flight-data"></a>항공편 데이터
 
-**OriginAirportID**및 **DestAirportID** **열은**정수로 저장 됩니다. 그러나 범주 특성 이므로 **메타 데이터 편집** 모듈을 사용 하 여 범주를 범주로 변환 합니다.
+**Carrier**, **OriginAirportID** 및 **DestAirportID** 열은 정수로 저장됩니다. 그러나 이는 범주별 특성이므로 **메타데이터 편집** 모듈을 사용하여 범주별로 변환합니다.
 
-![편집-메타 데이터](./media/how-to-designer-sample-classification-flight-delay/edit-metadata.png)
+![메타데이터 편집](./media/how-to-designer-sample-classification-flight-delay/edit-metadata.png)
 
-그런 다음 데이터 집합에서 **열 선택** 모듈을 사용 하 여 가능한 대상 **leakers:** **DepDel15**, **arrdelay**, **Canceled**, **Year**데이터 집합 열에서 제외 합니다. 
+그런 다음, 데이터 세트 모듈에서 **열 선택**을 사용하여 데이터 세트 열에서 가능한 대상 누출자인 **DepDelay**, **DepDel15**, **ArrDelay**, **Canceled**, **Year** 열을 제외합니다. 
 
-비행 레코드를 시간별 날씨 레코드와 조인 하려면 예약 된 출발 시간을 조인 키 중 하나로 사용 합니다. 조인을 수행 하려면 CSRDepTime 열을 **R 스크립트 실행** 모듈에서 수행 하는 가장 가까운 시간으로 내림 해야 합니다. 
+항공편 레코드를 시간별 날씨 레코드와 조인하려면 예정된 출발 시간을 조인 키 중 하나로 사용합니다. 조인을 수행하려면 CSRDepTime 열을 가장 가까운 시간으로 내림해야 합니다. 이 작업은 **R 스크립트 실행** 모듈에서 수행됩니다. 
 
 ### <a name="weather-data"></a>날씨 데이터
 
-누락 값이 많은 열은 **프로젝트 열** 모듈을 사용 하 여 제외 됩니다. 이러한 열에는 모든 문자열 반환 열 ( **ValueForWindCharacter**, **WetBulbFarenheit**, **wetbulbcelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure**및 **StationPressure**)이 포함 됩니다.
+누락된 값의 비율이 큰 열은 **프로젝트 열** 모듈을 사용하여 제외됩니다. 모든 문자열 값 열이 포함되는 열은 **ValueForWindCharacter**, **WetBulbFarenheit**, **WetBulbCelsius**, **PressureTendency**, **PressureChange**, **SeaLevelPressure** 및 **StationPressure**입니다.
 
-그런 다음 **누락 된 데이터 정리** 모듈을 나머지 열에 적용 하 여 데이터가 누락 된 행을 제거 합니다.
+그런 다음, **누락된 데이터 정리** 모듈이 나머지 열에 적용되어 누락된 데이터가 있는 행을 제거합니다.
 
-날씨 관찰 시간은 가장 가까운 전체 시간으로 반올림 됩니다. 예정 된 비행 시간 및 날씨 관찰 시간은 모델이 비행 시간 이전에 날씨만 사용 하도록 반대 방향으로 반올림 됩니다. 
+날씨 관측 시간은 가장 가까운 전체 시간으로 반올림됩니다. 예정된 비행 시간과 날씨 관측 시간은 반대 방향으로 반올림하여 모델이 비행 시간 이전의 날씨만 사용할 수 있도록 합니다. 
 
-날씨 데이터는 현지 시간에 보고 되므로 예약 된 출발 시간 및 날씨 관찰 시간에서 표준 시간대 열을 빼서 표준 시간대 차이를 고려 합니다. 이러한 작업은 **R 스크립트 실행** 모듈을 사용 하 여 수행 됩니다.
+날씨 데이터는 현지 시간으로 보고되므로 표준 시간대 차이는 예정된 출발 시간 및 날씨 관측 시간에서 표준 시간대 열을 빼서 계산됩니다. 이러한 작업은 **R 스크립트 실행** 모듈을 사용하여 수행됩니다.
 
-### <a name="joining-datasets"></a>데이터 집합 조인
+### <a name="joining-datasets"></a>데이터 세트 조인
 
-비행 레코드는 **데이터 조인** 모듈을 사용 하 여 비행 (**OriginAirportID**)의 원본에서 날씨 데이터와 조인 됩니다.
+항공편 레코드는 **데이터 조인** 모듈을 사용하여 항공편 출발지(**OriginAirportID**)의 날씨 데이터와 조인됩니다.
 
- ![원본에의 한 비행 및 날씨 참여](./media/how-to-designer-sample-classification-flight-delay/join-origin.png)
+ ![출발지별 항공편 및 날씨 조인](./media/how-to-designer-sample-classification-flight-delay/join-origin.png)
 
 
-비행 레코드는 항공편 (**DestAirportID**)의 대상을 사용 하 여 날씨 데이터와 조인 됩니다.
+항공편 레코드는 항공편 도착지(**DestAirportID**)를 사용하여 날씨 데이터와 조인됩니다.
 
- ![목적지 별 비행 및 날씨 조인](./media/how-to-designer-sample-classification-flight-delay/join-destination.png)
+ ![도착지별 항공편 및 날씨 조인](./media/how-to-designer-sample-classification-flight-delay/join-destination.png)
 
 ### <a name="preparing-training-and-test-samples"></a>학습 및 테스트 샘플 준비
 
-**데이터 분할** 모듈은 교육을 위해 4 월부터 9 월 레코드, 테스트의 경우 10 월 레코드까지 데이터를 분할 합니다.
+**데이터 분할** 모듈은 데이터를 학습용으로 4월부터 9월까지의 레코드와 테스트용으로 10월 레코드로 분할합니다.
 
  ![학습 및 테스트 데이터 분할](./media/how-to-designer-sample-classification-flight-delay/split.png)
 
-Year, month 및 timezone 열은 열 선택 모듈을 사용 하 여 학습 데이터 집합에서 제거 됩니다.
+열 선택 모듈을 사용하여 학습 데이터 세트에서 연도, 월 및 표준 시간대 열이 제거됩니다.
 
 ## <a name="define-features"></a>기능 정의
 
-기계 학습에서 기능은 관심 있는 항목의 개별 측정 가능한 속성입니다. 강력한 기능 집합을 찾으려면 실험 및 도메인 지식이 필요 합니다. 일부 기능은 다른 기능에 비해 대상 예측에 더 유용합니다. 또한 일부 기능은 다른 기능과 강력한 상관 관계를 가질 수 있으며 모델에 새 정보를 추가 하지 않습니다. 이러한 기능은 제거할 수 있습니다.
+기계 학습에서 기능은 관심 있는 항목에 대한 측정 가능한 개별 속성입니다. 강력한 기능 세트를 찾으려면 실험 및 도메인 지식이 필요합니다. 일부 기능은 다른 기능에 비해 대상 예측에 더 유용합니다. 또한 일부 기능은 다른 기능과 강력한 상관 관계를 가질 수 있으며 새 정보를 모델에 추가하지 않습니다. 이러한 기능은 제거할 수 있습니다.
 
-모델을 작성 하려면 사용 가능한 모든 기능을 사용 하거나 기능 하위 집합을 선택할 수 있습니다.
+모델을 작성하기 위해 사용 가능한 모든 기능을 사용하거나 기능의 하위 세트를 선택할 수 있습니다.
 
 ## <a name="choose-and-apply-a-learning-algorithm"></a>학습 알고리즘 선택 및 적용
 
-**2 클래스 로지스틱 회귀** 모듈을 사용 하 여 모델을 만들고 학습 데이터 집합에 대해 학습 합니다. 
+**2클래스 로지스틱 회귀** 모듈을 사용하여 모델을 만들고 학습 데이터 세트에서 이를 학습시킵니다. 
 
-**모델 학습** 모듈의 결과는 새 샘플의 점수를 매기고 예측을 만드는 데 사용할 수 있는 학습 된 분류 모델입니다. 테스트 집합을 사용 하 여 학습 된 모델에서 점수를 생성 합니다. 그런 다음 **모델 평가** 모듈을 사용 하 여 모델의 품질을 분석 하 고 비교 합니다.
-파이프라인 파이프라인을 실행 한 후 출력 포트를 클릭 하 고 **시각화**를 선택 하 여 **모델 점수 매기기** 모듈의 출력을 볼 수 있습니다. 출력에는 점수가 매겨진 레이블과 레이블의 확률이 포함 됩니다.
+**모델 학습** 모듈의 결과는 예측을 위해 새 샘플을 채점하는 데 사용할 수 있는 학습된 분류 모델입니다. 테스트 세트를 사용하여 학습된 모델에서 점수를 생성합니다. 그런 다음, **모델 평가** 모듈을 사용하여 모델의 품질을 분석하고 비교합니다.
+파이프라인이 실행되면 출력 포트를 클릭하고 **시각화**를 선택하여 **모델 점수 매기기** 모듈의 출력을 볼 수 있습니다. 출력에는 점수가 매겨진 레이블과 해당 레이블의 확률이 포함됩니다.
 
-마지막으로 결과의 품질을 테스트 하려면 파이프라인 캔버스에 **모델 평가** 모듈을 추가 하 고 왼쪽 입력 포트를 모델 점수 매기기 모듈의 출력에 연결 합니다. 출력 포트를 클릭 하 고 **시각화**를 선택 하 여 파이프라인을 실행 하 고 **모델 평가** 모듈의 출력을 확인 합니다.
+마지막으로, 결과의 품질을 테스트하려면 **모델 평가** 모듈을 파이프라인 캔버스에 추가하고 왼쪽 입력 포트를 스코어 모델 점수 매기기 모듈의 출력에 연결합니다. 파이프라인을 실행하고, 출력 포트를 클릭하고 **시각화**를 선택하여 **모델 평가** 모듈의 출력을 확인합니다.
 
 ## <a name="evaluate"></a>평가
-로지스틱 회귀 모델의 테스트 집합에는 0.631의 요소가 있습니다.
+로지스틱 회귀 모델의 테스트 세트에서 AUC는 0.631입니다.
 
  ![평가](media/how-to-designer-sample-classification-flight-delay/sample6-evaluate-1225.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-디자이너에 사용할 수 있는 다른 샘플을 탐색 합니다.
+디자이너에 사용할 수 있는 다른 샘플을 살펴봅니다.
 
-- [샘플 1-회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
-- [샘플 2-회귀: 자동차 가격 예측에 대 한 알고리즘 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
-- [샘플 3-기능 선택이 포함 된 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
-- [샘플 4-분류: 신용 위험 예측 (비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
-- [샘플 5-분류: 변동 예측](how-to-designer-sample-classification-churn.md)
-- [샘플 7-텍스트 분류: 위키백과 SP 500 데이터 집합](how-to-designer-sample-text-classification.md)
+- [샘플 1 - 회귀: 자동차 가격 예측](how-to-designer-sample-regression-automobile-price-basic.md)
+- [샘플 2 - 회귀: 자동차 가격 예측 알고리즘에 대한 비교](how-to-designer-sample-regression-automobile-price-compare-algorithms.md)
+- [샘플 3 - 기능 선택을 사용하여 분류: 수입 예측](how-to-designer-sample-classification-predict-income.md)
+- [샘플 4 - 분류: 신용 위험 예측(비용 구분)](how-to-designer-sample-classification-credit-risk-cost-sensitive.md)
+- [샘플 5 - 분류: 이탈 예측](how-to-designer-sample-classification-churn.md)
+- [샘플 7 - 텍스트 분류: Wikipedia SP 500 데이터 세트](how-to-designer-sample-text-classification.md)

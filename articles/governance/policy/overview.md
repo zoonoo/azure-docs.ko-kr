@@ -4,12 +4,12 @@ description: Azure Policy는 Azure 환경에서 정책 정의를 만들고, 할�
 ms.date: 11/25/2019
 ms.topic: overview
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9babfd52071ed7d033761802f696c3b6021287af
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e886f37a8d7f1395b5c831e81e600ecc6e2dd20f
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846022"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937828"
 ---
 # <a name="what-is-azure-policy"></a>Azure Policy이란?
 
@@ -24,7 +24,7 @@ Azure Policy는 정책을 만들고, 할당하고, 관리하는 데 사용하는
 > [!IMPORTANT]
 > 이제 가격 책정 계층에 관계없이 모든 할당에 Azure Policy의 규정 준수 평가가 제공됩니다. 할당에 규정 준수 데이터가 표시되지 않는 경우 구독이 Microsoft.PolicyInsights 리소스 공급자에 등록되었는지 확인하세요.
 
-[!INCLUDE [service-provider-management-toolkit](../../../includes/azure-lighthouse-supported-service.md)]
+[!INCLUDE [azure-lighthouse-supported-service](../../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="how-is-it-different-from-rbac"></a>RBAC(역할 기반 액세스 제어)와 어떻게 다르나요?
 

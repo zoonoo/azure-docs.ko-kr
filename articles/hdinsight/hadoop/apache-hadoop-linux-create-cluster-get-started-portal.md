@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017,mvc,seodec18
 ms.topic: quickstart
 ms.date: 09/25/2019
-ms.openlocfilehash: cab46c4fe2ff0bd1f86c6d98a3b37efb3547a3ce
-ms.sourcegitcommit: 38251963cf3b8c9373929e071b50fd9049942b37
+ms.openlocfilehash: 35dc4938760ca83a6781d5791c746ee2f74310ab
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73044580"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031592"
 ---
 # <a name="quickstart-create-apache-hadoop-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Hadoop 클러스터 만들기
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **기본 사항**에서 다음 값을 입력하거나 선택합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |Subscription    |  Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -56,14 +56,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage**를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택**을 사용합니다.|
     |기본 스토리지 계정|드롭다운 목록을 사용하여 기존 스토리지 계정을 선택하거나 **새로 만들기**를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
     |컨테이너|자동으로 채워진 값을 사용합니다.|
 
-    ![HDInsight Linux 시작 - 클러스터 스토리지 값 제공](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage-blank.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
+    ![HDInsight Linux 시작 - 클러스터 스토리지 값 제공](./media/apache-hadoop-linux-create-cluster-get-started-portal/azure-portal-cluster-storage.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
 
     **검토 + 만들기** 탭을 선택합니다.
 

@@ -2,19 +2,19 @@
 title: '빠른 시작: 오디오 파일에서 음성 인식, Python - Speech Service'
 titleSuffix: Azure Cognitive Services
 services: cognitive-services
-author: chlandsi
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: include
-ms.date: 01/14/2020
-ms.author: chlandsi
-ms.openlocfilehash: 587a0e83eb6b8c96b44589f7f5701526c23e2aae
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 01/30/2020
+ms.author: dapine
+ms.openlocfilehash: bcf0679d83becfb3c4ae900769c0a42dc1359e5d
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76038143"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76909160"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -23,8 +23,8 @@ ms.locfileid: "76038143"
 > [!div class="checklist"]
 > * [Azure Speech 리소스 만들기](../../../../get-started.md)
 > * [LUIS 애플리케이션 만들기 및 엔드포인트 키 가져오기](../../../../quickstarts/create-luis.md)
-> * [개발 환경 설정](../../../../quickstarts/setup-platform.md)
-> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md)
+> * [개발 환경 설정](../../../../quickstarts/setup-platform.md?pivots=programming-language-python)
+> * [빈 샘플 프로젝트 만들기](../../../../quickstarts/create-project.md?pivots=programming-language-python)
 
 [!INCLUDE [Audio input format](~/articles/cognitive-services/speech-service/includes/audio-input-format-chart.md)]
 

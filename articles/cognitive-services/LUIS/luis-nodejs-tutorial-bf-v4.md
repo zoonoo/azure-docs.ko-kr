@@ -1,28 +1,18 @@
 ---
 title: '자습서: Language Understanding 봇 Node.js v4'
-titleSuffix: Azure Cognitive Services
 description: Node.js를 사용하여 이 자습서에서 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 챗봇은 인적 자원 앱을 사용하여 봇 솔루션을 빠르게 구현합니다. 봇은 Bot Framework 버전 4.x 및 Azure 웹앱 봇을 사용하여 빌드되었습니다.
-services: cognitive-services
-author: diberry
-ms.custom: seodec18
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
 ms.topic: tutorial
-ms.date: 10/14/2019
-ms.author: diberry
-ms.openlocfilehash: 754d9d74a5d2c74a873145eaaddaaced29aa2ca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/03/2020
+ms.openlocfilehash: 3ce12176957412a5599ced8b043f553969194efb
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448007"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987846"
 ---
-# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>자습서: Node.js에서 Language Understanding으로 구현된 웹앱 봇 사용 
+# <a name="tutorial-use-a-web-app-bot-enabled-with-language-understanding-in-nodejs"></a>자습서: Node.js에서 Language Understanding으로 구현된 웹앱 봇 사용
 
 Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌드합니다. 이 봇은 Azure [웹앱 봇](https://docs.microsoft.com/azure/bot-service/) 리소스 및 [Bot Framework 버전](https://github.com/Microsoft/botbuilder-dotnet) V4를 사용하여 빌드되었습니다.
-
-[!INCLUDE [Waiting for Bot refresh](./includes/wait-bot-upgrade.md)]
 
 **이 자습서에서 학습할 내용은 다음과 같습니다.**
 
@@ -67,16 +57,17 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
     |SDK 버전|봇 프레임워크 버전|**SDK v4**|
     |SDK 언어|봇의 프로그래밍 언어|**Node.JS**|
     |봇|봇의 유형|**기본 봇**|
-    
+
 1. **만들기**를 선택합니다. 이렇게 하면 봇 서비스가 만들어지고 Azure에 배포됩니다. 이 프로세스의 일환으로 `luis-nodejs-bot-XXXX`라는 LUIS 앱이 만들어집니다. 이 이름은 /Azure Bot Service 앱 이름을 기반으로 합니다.
 
-    [![웹앱 봇 만들기](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
+    > [!div class="mx-imgBorder"]
+    > [![웹앱 봇 만들기](./media/bfv4-nodejs/create-web-app-service.png)](./media/bfv4-nodejs/create-web-app-service.png#lightbox)
 
     봇 서비스가 만들어질 때까지 기다렸다가 계속 진행합니다.
 
 ## <a name="the-bot-has-a-language-understanding-model"></a>봇에 Language Understanding 모델이 있는 경우
 
-또한 봇 서비스 생성 프로세스는 의도와 발화 예제가 포함된 새 LUIS 앱을 만듭니다. 봇에서 제공하는 새 LUIS 앱에 대한 의도 매핑과 관련된 의도는 다음과 같습니다. 
+또한 봇 서비스 생성 프로세스는 의도와 발화 예제가 포함된 새 LUIS 앱을 만듭니다. 봇에서 제공하는 새 LUIS 앱에 대한 의도 매핑과 관련된 의도는 다음과 같습니다.
 
 |기본 봇 LUIS 의도|발화 예제|
 |--|--|
@@ -87,31 +78,31 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 ## <a name="test-the-bot-in-web-chat"></a>웹 채팅에서 봇 테스트
 
-1. 새 봇의 Azure Portal에서 계속 **웹 채팅에서 테스트**를 선택합니다. 
-1. **메시지 입력** 텍스트 상자에 텍스트 `Book a flight from Seattle to Berlin tomorrow`를 입력합니다. 봇은 항공편 예약 확인으로 응답합니다. 
+1. 새 봇의 Azure Portal에서 계속 **웹 채팅에서 테스트**를 선택합니다.
+1. **메시지 입력** 텍스트 상자에 텍스트 `Book a flight from Seattle to Berlin tomorrow`를 입력합니다. 봇은 항공편 예약 확인으로 응답합니다.
 
     ![Azure Portal의 스크린샷, 텍스트 `hello`를 입력합니다.](./media/bfv4-nodejs/ask-bot-question-in-portal-test-in-web-chat.png)
 
-    테스트 기능을 사용하여 봇을 빠르게 테스트할 수 있습니다. 디버깅을 포함한 자세한 테스트를 위해 봇 코드를 다운로드하고 Visual Studio를 사용합니다. 
+    테스트 기능을 사용하여 봇을 빠르게 테스트할 수 있습니다. 디버깅을 포함한 자세한 테스트를 위해 봇 코드를 다운로드하고 Visual Studio를 사용합니다.
 
 ## <a name="download-the-web-app-bot-source-code"></a>웹앱 봇 소스 코드 다운로드
-웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다. 
+웹앱 봇 코드를 개발하기 위해 코드를 다운로드하여 로컬 컴퓨터에서 사용합니다.
 
-1. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다. 
+1. Azure Portal의 **봇 관리** 섹션에서 **빌드**를 선택합니다.
 
-1. **봇 소스 코드 다운로드**를 선택합니다. 
+1. **봇 소스 코드 다운로드**를 선택합니다.
 
     [![기본 봇용 웹앱 봇 소스 코드 다운로드](../../../includes/media/cognitive-services-luis/bfv4/download-code.png)](../../../includes/media/cognitive-services-luis/bfv4/download-code.png#lightbox)
 
-1. **다운로드된 zip 파일에 앱 설정을 포함하시겠습니까?** 팝업 대화 상자에서 **예**를 선택합니다. LUIS 설정이 제공됩니다. 
+1. **다운로드된 zip 파일에 앱 설정을 포함하시겠습니까?** 팝업 대화 상자에서 **예**를 선택합니다. LUIS 설정이 제공됩니다.
 
-1. 소스 코드가 압축되어 있으면 메시지에서 해당 코드를 다운로드할 수 있는 링크가 제공됩니다. 이 링크를 선택합니다. 
+1. 소스 코드가 압축되어 있으면 메시지에서 해당 코드를 다운로드할 수 있는 링크가 제공됩니다. 이 링크를 선택합니다.
 
-1. Zip 파일을 로컬 컴퓨터에 저장하고 파일의 압축을 풉니다. Visual Studio로 프로젝트를 엽니다. 
+1. Zip 파일을 로컬 컴퓨터에 저장하고 파일의 압축을 풉니다. Visual Studio로 프로젝트를 엽니다.
 
 ## <a name="review-code-to-send-utterance-to-luis-and-get-response"></a>코드를 검토하여 발화를 LUIS로 보내고 응답 받기
 
-1. 사용자 발화를 LUIS 예측 엔드포인트로 보내려면 **대화 상자 -> flightBookingRecognizer.js** 파일을 엽니다. 이는 봇에 입력된 사용자 발화를 LUIS로 보내는 위치입니다. LUIS의 응답이 **executeLuisQuery** 메서드에서 반환됩니다.  
+1. 사용자 발화를 LUIS 예측 엔드포인트로 보내려면 **대화 상자 -> flightBookingRecognizer.js** 파일을 엽니다. 이는 봇에 입력된 사용자 발화를 LUIS로 보내는 위치입니다. LUIS의 응답이 **executeLuisQuery** 메서드에서 반환됩니다.
 
     ````javascript
     class FlightBookingRecognizer {
@@ -135,64 +126,72 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 
     ````javascript
-    class MainDialog extends ComponentDialog {
+    // Copyright (c) Microsoft Corporation. All rights reserved.
+    // Licensed under the MIT License.
 
-        constructor(luisRecognizer, bookingDialog) {
-            ...
-            this.luisRecognizer = luisRecognizer;
-            ...
+    const { LuisRecognizer } = require('botbuilder-ai');
+
+    class FlightBookingRecognizer {
+        constructor(config) {
+            const luisIsConfigured = config && config.applicationId && config.endpointKey && config.endpoint;
+            if (luisIsConfigured) {
+                this.recognizer = new LuisRecognizer(config, {}, true);
+            }
         }
 
-
-        ...
+        get isConfigured() {
+            return (this.recognizer !== undefined);
+        }
 
         /**
-         * Second step in the waterfall.  This will use LUIS to attempt to extract the origin, destination and travel dates.
-         * Then, it hands off to the bookingDialog child dialog to collect any remaining details.
+         * Returns an object with preformatted LUIS results for the bot's dialogs to consume.
+         * @param {TurnContext} context
          */
-        async actStep(stepContext) {
-
-            ...
-
-            const luisResult = await this.luisRecognizer.executeLuisQuery(stepContext.context);
-
-            switch (LuisRecognizer.topIntent(luisResult)) {
-                    case 'BookFlight':
-                        // Extract the values for the composite entities from the LUIS result.
-                        const fromEntities = this.luisRecognizer.getFromEntities(luisResult);
-                        const toEntities = this.luisRecognizer.getToEntities(luisResult);
-            
-                        // Show a warning for Origin and Destination if we can't resolve them.
-                        await this.showWarningForUnsupportedCities(stepContext.context, fromEntities, toEntities);
-            
-                        // Initialize BookingDetails with any entities we may have found in the response.
-                        bookingDetails.destination = toEntities.airport;
-                        bookingDetails.origin = fromEntities.airport;
-                        bookingDetails.travelDate = this.luisRecognizer.getTravelDate(luisResult);
-                        console.log('LUIS extracted these booking details:', JSON.stringify(bookingDetails));
-            
-                        // Run the BookingDialog passing in whatever details we have from the LUIS call, it will fill out the remainder.
-                        return await stepContext.beginDialog('bookingDialog', bookingDetails);
-            
-                    case 'GetWeather':
-                        // We haven't implemented the GetWeatherDialog so we just display a TODO message.
-                        const getWeatherMessageText = 'TODO: get weather flow here';
-                        await stepContext.context.sendActivity(getWeatherMessageText, getWeatherMessageText, InputHints.IgnoringInput);
-                        break;
-            
-                    default:
-                        // Catch all for unhandled intents
-                        const didntUnderstandMessageText = `Sorry, I didn't get that. Please try asking in a different way (intent was ${ LuisRecognizer.topIntent(luisResult) })`;
-                        await stepContext.context.sendActivity(didntUnderstandMessageText, didntUnderstandMessageText, InputHints.IgnoringInput);
-                    }
-            
-                    return await stepContext.next();
-
+        async executeLuisQuery(context) {
+            return await this.recognizer.recognize(context);
         }
 
-        ...
+        getFromEntities(result) {
+            let fromValue, fromAirportValue;
+            if (result.entities.$instance.From) {
+                fromValue = result.entities.$instance.From[0].text;
+            }
+            if (fromValue && result.entities.From[0].Airport) {
+                fromAirportValue = result.entities.From[0].Airport[0][0];
+            }
 
+            return { from: fromValue, airport: fromAirportValue };
+        }
+
+        getToEntities(result) {
+            let toValue, toAirportValue;
+            if (result.entities.$instance.To) {
+                toValue = result.entities.$instance.To[0].text;
+            }
+            if (toValue && result.entities.To[0].Airport) {
+                toAirportValue = result.entities.To[0].Airport[0][0];
+            }
+
+            return { to: toValue, airport: toAirportValue };
+        }
+
+        /**
+         * This value will be a TIMEX. And we are only interested in a Date so grab the first result and drop the Time part.
+         * TIMEX is a format that represents DateTime expressions that include some ambiguity. e.g. missing a Year.
+         */
+        getTravelDate(result) {
+            const datetimeEntity = result.entities.datetime;
+            if (!datetimeEntity || !datetimeEntity[0]) return undefined;
+
+            const timex = datetimeEntity[0].timex;
+            if (!timex || !timex[0]) return undefined;
+
+            const datetime = timex[0].split('T')[0];
+            return datetime;
+        }
     }
+
+    module.exports.FlightBookingRecognizer = FlightBookingRecognizer;
     ````
 <a name="ask-bot-a-question-for-the-book-flight-intent"></a>
 
@@ -208,7 +207,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png)](./media/bfv4-nodejs/ask-bot-emulator-a-question-and-get-response.png#lightbox)
 
-1. **예**를 선택합니다. 봇이 해당 작업의 요약으로 응답합니다. 
+1. **예**를 선택합니다. 봇이 해당 작업의 요약으로 응답합니다.
 1. 봇 에뮬레이터 로그에서 `Luis Trace`가 포함된 줄을 선택합니다. 여기에는 발화의 의도 및 엔터티에 대한 LUIS의 JSON 응답이 표시됩니다.
 
     [![에뮬레이터의 기본 봇 응답](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png)](./media/bfv4-nodejs/ask-luis-book-flight-question-get-json-response-in-bot-emulator.png#lightbox)
@@ -218,7 +217,7 @@ Node.js를 사용하여 LUIS(Language Understanding)와 통합된 챗봇을 빌�
 
 ## <a name="next-steps"></a>다음 단계
 
-대화형 봇을 사용하는 추가 [샘플](https://github.com/microsoft/botframework-solutions)을 참조하세요. 
+대화형 봇을 사용하는 추가 [샘플](https://github.com/microsoft/botframework-solutions)을 참조하세요.
 
 > [!div class="nextstepaction"]
 > [사용자 지정 주제 도메인을 사용하여 Language Understanding 앱 빌드](luis-quickstart-intents-only.md)

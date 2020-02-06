@@ -3,17 +3,17 @@ title: '빠른 시작: Azure DNS 영역 및 레코드 만들기 - Azure CLI'
 titleSuffix: Azure DNS
 description: 빠른 시작 - Azure DNS에 DNS 영역 및 레코드를 만드는 방법을 알아봅니다. Azure CLI를 사용하여 첫 번째 DNS 영역 및 레코드를 만들고 관리하는 단계별 가이드입니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: quickstart
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: 14d47a82ec6b5ec0ede626748216889a6943bfa6
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: e6904c013cf2ed897bdc7c8b32f04fe500fc31d9
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072156"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76937190"
 ---
 # <a name="quickstart-create-an-azure-dns-zone-and-record-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure DNS 영역 및 레코드 만들기
 
@@ -83,7 +83,7 @@ az network dns record-set list -g MyResourceGroup -z contoso.xyz
    nslookup www.contoso.xyz <name server name>
    ```
 
-   예:
+   다음은 그 예입니다.
 
    ```
    nslookup www.contoso.xyz ns1-08.azure-dns.com.

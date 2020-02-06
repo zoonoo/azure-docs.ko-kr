@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 6b6fa03337e857c6dda43f8c6ae41713d8c3dbe0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2b800cbc2f836d415afbb53a8415e9e400f40d0e
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774185"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76901961"
 ---
 # <a name="quickstart-extract-receipt-data-using-the-form-recognizer-rest-api-with-python"></a>빠른 시작: Python과 Form Recognizer REST API를 사용하여 영수증 데이터 추출
 
 이 빠른 시작에서는 Python과 Azure Form Recognizer REST API를 사용하여 USA 판매 영수증의 관련 정보를 추출하고 식별합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-> [!IMPORTANT]
-> 이 빠른 시작에서는 Form Recognizer v2.0 API를 사용합니다. 구독이 `West US 2` 또는 `West Europe` 지역에 없으면 v1.0 API를 사용해야 합니다. 대신 [v1.0 빠른 시작](./curl-train-extract-v1.md)을 따르세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

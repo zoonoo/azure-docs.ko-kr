@@ -2,17 +2,17 @@
 title: Azure 프라이빗 DNS란?
 description: 이 문서에서는 Microsoft Azure의 프라이빗 DNS 호스팅 서비스에 대한 개요를 시작합니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: overview
 ms.date: 6/12/2019
-ms.author: allensu
-ms.openlocfilehash: 2e457dcccfd89d2dcf94a0cc3728cfee9bb1a611
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 97b266398b3ea46d09b04524dad34922f21b1a95
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74210645"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939279"
 ---
 # <a name="what-is-azure-private-dns"></a>Azure 프라이빗 DNS란?
 
@@ -64,7 +64,7 @@ Azure DNS의 제한 사항은 다음과 같습니다.
 * 연결된 가상 네트워크의 개인 IP 주소에 대한 역방향 DNS는 가상 머신의 기본 접미사로 *internal.cloudapp.net*을 반환합니다. 자동 등록이 활성화된 프라이빗 영역에 연결된 가상 네트워크의 경우 개인 IP 주소의 역방향 DNS는 기본 접미사 *internal.cloudapp.net*과 프리이빗 영역 접미사인 두 개의 FQDN을 반환합니다.
 * 조건부 전달은 현재 기본적으로 지원되지 않습니다. Azure와 온-프레미스 네트워크 간에 확인을 사용하도록 설정하려면 [VM 및 역할 인스턴스에 대한 이름 확인](../virtual-network/virtual-networks-name-resolution-for-vms-and-role-instances.md)을 참조하세요.
  
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 가격 책정 정보는 [Azure DNS 가격 책정](https://azure.microsoft.com/pricing/details/dns/)을 참조하세요.
 

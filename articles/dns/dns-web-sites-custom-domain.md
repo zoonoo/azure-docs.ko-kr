@@ -2,17 +2,17 @@
 title: 자습서 - 웹앱에 대한 사용자 지정 Azure DNS 레코드 만들기
 description: 이 자습서에서는 Azure DNS를 사용하여 웹앱에 대한 사용자 지정 도메인 DNS 레코드를 만듭니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 3/11/2019
-ms.author: allensu
-ms.openlocfilehash: e0a0129f45e5e7612b6ecd79475a49822b42ba19
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.author: rohink
+ms.openlocfilehash: 8722a52a097f7f830287d125a4e56e9bbcb9f932
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211215"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939107"
 ---
 # <a name="tutorial-create-dns-records-in-a-custom-domain-for-a-web-app"></a>자습서: 사용자 지정 도메인에 웹앱에 대한 DNS 레코드 만들기 
 
@@ -29,7 +29,7 @@ ms.locfileid: "74211215"
 
 Azure에서 웹앱에 대한 A 레코드를 만드는 경우 웹앱의 기본 IP 주소가 변경되면 A 레코드를 수동으로 업데이트해야 합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 도메인에 대한 A 및 TXT 레코드 만들기
@@ -43,7 +43,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -175,7 +175,7 @@ set-AzWebApp `
 > [!NOTE]
 > `http://` 접두사가 포함되었는지 확인합니다. 포함되지 않으면 브라우저가 URL을 예측하려고 시도할 수 있습니다.
 
-두 URL이 동일한 페이지를 표시할 것입니다. 예:
+두 URL이 동일한 페이지를 표시할 것입니다. 다음은 그 예입니다.
 
 ![Contoso 앱 서비스](media/dns-web-sites-custom-domain/contoso-app-svc.png)
 

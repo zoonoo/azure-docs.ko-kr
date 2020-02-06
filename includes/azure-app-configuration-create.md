@@ -3,13 +3,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: include
-ms.date: 12/03/2019
-ms.openlocfilehash: 21811041a25c63bb7542b101812222a9430c20fe
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 1/31/2020
+ms.openlocfilehash: 017833403beca6fb8689bd6f90cc8f460d56c65e
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887754"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76961408"
 ---
 1. 새 App Configuration 저장소를 만들려면 [Azure Portal](https://portal.azure.com)에 로그인합니다. 홈 페이지의 왼쪽 위 모서리에서 **리소스 만들기**를 선택합니다. **Marketplace 검색** 상자에서 **App Configuration**을 입력하고 Enter를 선택합니다.
 

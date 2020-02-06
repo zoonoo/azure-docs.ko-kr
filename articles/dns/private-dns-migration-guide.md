@@ -3,17 +3,17 @@ title: 레거시 Azure DNS Private Zones를 새 리소스 모델로 마이그레
 titleSuffix: Azure DNS
 description: 이 가이드에서는 기존의 프라이빗 DNS 영역을 최신 리소스 모델로 마이그레이션하는 방법에 대한 단계별 지침을 제공합니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 06/18/2019
-ms.author: allensu
-ms.openlocfilehash: 3beac014ee69120df518e0358a5fdbef5818f7cf
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d29885104d6f39a17b5bdeb786cda8f56f58d987
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076723"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939358"
 ---
 # <a name="migrating-legacy-azure-dns-private-zones-to-new-resource-model"></a>기존 Azure DNS Private Zones를 새 리소스 모델로 마이그레이션
 
@@ -25,7 +25,7 @@ az account set --subscription <SubscriptionId>
 az network dns zone list --query "[?zoneType=='Private']"
 ```
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 최신 버전의 Azure PowerShell을 설치했는지 확인합니다. Azure PowerShell(Az)과 설치 방법에 대한 자세한 내용을 보려면 https://docs.microsoft.com/powershell/azure/new-azureps-module-az 를 방문하세요.
 

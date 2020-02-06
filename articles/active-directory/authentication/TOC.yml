@@ -4,16 +4,13 @@
   items:
     - name: 인증이란?
       href: overview-authentication.md
-- name: 빠른 시작
-  items:
-    - name: 암호 재설정 구성
-      href: quickstart-sspr.md
 - name: 자습서
+  expanded: true
   items:
-    - name: 1 애플리케이션에 MFA를 사용하도록 설정
+    - name: 셀프 서비스 암호 재설정 사용
+      href: tutorial-enable-sspr.md
+    - name: 애플리케이션에 MFA를 사용하도록 설정
       href: tutorial-mfa-applications.md
-    - name: 2 SSPR 파일럿을 사용하도록 설정
-      href: tutorial-sspr-pilot.md
     - name: SSPR 온-프레미스 통합 통합을 사용하도록 설정
       href: tutorial-enable-writeback.md
     - name: Azure ID 보호 통합
@@ -228,7 +225,7 @@
       href: 'https://feedback.azure.com/forums/169401-azure-active-directory'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/azure/en-US/home?forum=WindowsAzureAD'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/active-directory/'
     - name: 서비스 업데이트
       href: ../fundamentals/whats-new.md

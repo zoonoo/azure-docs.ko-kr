@@ -7,12 +7,12 @@ keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데
 ms.date: 10/18/2018
 ms.custom: mvc
 ms.topic: overview
-ms.openlocfilehash: 3037f96464b0902ca3923bdaea2bddff39c47733
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3359d99d7e20bbced8950171fa34592fd2612500
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75421939"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76930389"
 ---
 # <a name="an-introduction-to-azure-automation"></a>Azure Automation에 대한 소개
 
@@ -75,6 +75,8 @@ Azure Automation은 인프라와 애플리케이션의 수명 주기 전체를 �
 * **모니터** - 문제의 원인이 되는 컴퓨터의 변경 내용을 식별하고 관리 시스템으로 수정하거나 에스컬레이션합니다.
 * **보호** - 보안 경고가 발생하면 VM을 격리합니다. 게스트 내 요구 사항을 설정합니다.
 * **제어** - 팀에 대한 역할 기반 액세스 제어를 설정합니다. 사용되지 않는 리소스를 복구합니다.
+
+[!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
 ## <a name="pricing-for-automation"></a>Automation 가격
 

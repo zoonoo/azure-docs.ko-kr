@@ -94,21 +94,17 @@
       href: user-help-device-remediation.md
 - name: My Apps 포털 도움말
   items:
-    - name: My Apps 포털에 액세스 및 사용
+    - name: 로그인하여 내 앱 포털 사용
       href: my-apps-portal-end-user-access.md
     - name: 프로필 및 계정 정보 업데이트
       href: my-apps-portal-end-user-update-profile.md
     - name: 그룹 정보 업데이트
       href: my-apps-portal-end-user-groups.md
+    - name: 컬렉션을 사용하여 앱 구성
+      href: my-applications-portal-workspaces.md
+    - name: 앱 사용 권한 편집 또는 해지
+      href: my-applications-portal-permissions-saved-accounts.md
     - name: 내 액세스 검토 수행
       href: my-apps-portal-end-user-access-reviews.md
     - name: 문제 해결
       href: my-apps-portal-end-user-troubleshoot.md
-- name: 내 앱(미리 보기) 포털 도움말
-  items:
-    - name: My Apps 포털에 액세스 및 사용
-      href: my-applications-portal-access.md
-    - name: 작업 영역 액세스 및 사용
-      href: my-applications-portal-workspaces.md
-    - name: 앱 사용 권한 편집 또는 해지
-      href: my-applications-portal-permissions-saved-accounts.md

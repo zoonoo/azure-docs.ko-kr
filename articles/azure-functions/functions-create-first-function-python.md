@@ -4,18 +4,18 @@ description: Azure Functions를 사용하여 서버리스 Python 코드를 만�
 ms.date: 01/15/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: 452c5aeab5d2a1092cb7d338d37e26a82d92396e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845500"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76898570"
 ---
 # <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>빠른 시작: Azure에서 HTTP 트리거 Python 함수 만들기
 
 이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 Python 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다. 이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
-또한 이 문서의 [Visual Studio Code 기반 버전](/azure/python/tutorial-vs-code-serverless-python-01)도 있습니다.
+또한 이 문서의 [Visual Studio Code 기반 버전](/azure/azure-functions/functions-create-first-function-vs-code?pivots=programming-language-python)도 있습니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

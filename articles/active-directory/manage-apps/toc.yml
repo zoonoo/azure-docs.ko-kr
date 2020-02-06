@@ -331,6 +331,8 @@
                   href: application-proxy-configure-single-sign-on-on-premises-apps.md
             - name: 게시 연습
               items:
+                - name: NDES 서버에서 애플리케이션 프록시와 통합
+                  href: active-directory-app-proxy-protect-ndes.md
                 - name: Azure AD Domain Services와 통합
                   href: /azure/active-directory-domain-services/deploy-azure-app-proxy?context=azure/active-directory/manage-apps/context/manage-apps-context
                 - name: Power BI와 통합

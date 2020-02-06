@@ -3,7 +3,7 @@ title: 자습서 - Azure Traffic Manager를 사용하여 우선 순위 트래픽
 description: 이 자습서에서는 Traffic Manager에서 우선 순위 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: d5d58ec39841274b78ababf9f73f00a262cc37be
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: ca223a19ff7ddeae95878f941f3cf295664e62b4
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420293"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938720"
 ---
 # <a name="tutorial-configure-priority-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 우선 순위 트래픽 라우팅 방법 구성
 

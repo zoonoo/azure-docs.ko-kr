@@ -3,12 +3,12 @@ title: Azure Portal에서 Linux에 함수 앱 만들기
 description: Azure Portal를 사용하여 서버를 사용하지 않는 실행을 위해 첫 번째 Azure Function을 만드는 방법을 알아봅니다.
 ms.topic: quickstart
 ms.date: 02/28/2019
-ms.openlocfilehash: 7689b24a4f9bf17d495917bbf4078d6e5fe4fcff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 1492188f72eb4a691ddceb78aa269601f192e467
+ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971458"
+ms.lasthandoff: 02/02/2020
+ms.locfileid: "76963838"
 ---
 # <a name="create-a-function-app-on-linux-in-an-azure-app-service-plan"></a>Azure App Service 계획에서 Linux로 실행되는 함수 앱 만들기
 
@@ -44,7 +44,7 @@ Linux에서 함수 실행을 호스트하는 함수 앱이 있어야 합니다. 
     | **[호스팅 계획](functions-scale.md)** | App Service 계획 | 함수 앱에 리소스가 할당되는 방법을 정의하는 호스팅 계획입니다. App Service 계획에서 실행하는 경우 [함수 앱의 크기 조정](functions-scale.md)을 제어할 수 있습니다.  |
     | **App Service 계획/위치** | 계획 만들기 | **새로 만들기**를 선택하고 **App Service 계획** 이름을 지정합니다. 사용자 또는 함수가 액세스하는 기타 서비스에 가까운 [지역](https://azure.microsoft.com/regions/)의 **위치**를 선택합니다. 원하는 **[가격 책정 계층](https://azure.microsoft.com/pricing/details/app-service/linux/)** 을 선택합니다. <br/>동일한 App Service 계획에서 Linux 및 Windows 함수 앱을 둘 다 실행할 수는 없습니다. |
     | **런타임 스택** | 기본 설정 언어 | 즐겨찾는 함수 프로그래밍 언어를 지원하는 런타임을 선택합니다. C# 및 F# 함수의 경우 **.NET**을 선택합니다. |
-    | **[Storage](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](functions-scale.md#storage-account-requirements)을 충족해야 합니다. |
+    | **[Storage](../storage/common/storage-account-create.md)** |  전역적으로 고유한 이름 |  함수 앱에서 사용하는 스토리지 계정을 만듭니다. Storage 계정 이름은 3자에서 24자 사이여야 하고 숫자 및 소문자만 포함할 수 있습니다. 기존 계정을 사용할 수도 있습니다. 여기서는 [스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 충족해야 합니다. |
     | **[Application Insights](functions-monitoring.md)** | 사용 | Application Insights는 기본적으로 사용하지 않도록 설정됩니다. 이제 Application Insights 통합을 사용하도록 설정하고 App Service 계획 위치 가까이의 호스팅 위치를 선택하는 것이 좋습니다. 나중에 이 작업을 수행하려는 경우 [Azure Functions 모니터링](functions-monitoring.md)을 참조하세요.  |
 
 3. **만들기**를 선택하여 함수 앱을 프로비전하고 배포합니다.

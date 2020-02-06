@@ -9,44 +9,44 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: quickstart
-ms.date: 10/17/2019
+ms.date: 02/03/2020
 ms.author: diberry
-ms.openlocfilehash: 2ca0f9faf1623df9212072abbc960cba41a6414b
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: e06bb4c09b3ebab25c0c0ef8ac5c51f6842f34cd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76165754"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76987957"
 ---
 # <a name="quickstart-get-intent-with-a-browser"></a>빠른 시작: 브라우저로 의도 알기
 
-LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우저에서 예측 결과를 확인하세요. 
+LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우저에서 예측 결과를 확인하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
 공용 앱을 쿼리하려면 다음이 필요합니다.
 
-* [LUIS Portal(미리 보기)](https://preview.luis.ai/)에서 가져올 수 있는 사용자 고유의 LUIS(Language Understanding) 작성 또는 예측 키입니다. 아직 키를 만들 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다. 
-* 공용 앱 ID는 `df67dcdb-c37d-46af-88e1-8b97951ca1c2`입니다. 
+* [LUIS Portal(미리 보기)](https://preview.luis.ai/)에서 가져올 수 있는 사용자 고유의 LUIS(Language Understanding) 작성 또는 예측 키입니다. 아직 키를 만들 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free/)으로 등록할 수 있습니다.
+* 공용 앱 ID는 `df67dcdb-c37d-46af-88e1-8b97951ca1c2`입니다.
 
 ## <a name="use-the-browser-to-see-predictions"></a>브라우저를 사용하여 예측 보기
 
-1. 웹 브라우저를 엽니다. 
+1. 웹 브라우저를 엽니다.
 1. 아래 전체 URL을 사용하여 `YOUR-KEY`를 사용자 고유의 LUIS 작성 또는 예측 키로 바꿉니다. 요청은 GET 요청이며 LUIS 작성 또는 예측 키가 있는 권한 부여를 쿼리 문자열 매개 변수로 포함합니다.
 
     #### <a name="v3-prediction-requesttabv3-1-1"></a>[V3 예측 요청](#tab/V3-1-1)
-    
-    
+
+
     **GET** 엔드포인트(슬롯) 요청의 V3 URL 형식은 다음과 같습니다.
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/prediction/v3.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2/slots/production/predict?query=turn on all lights&subscription-key=YOUR-KEY
     `
 
     #### <a name="v2-prediction-requesttabv2-1-2"></a>[V2 예측 요청](#tab/V2-1-2)
-    
+
     **GET** 엔드포인트 요청의 V2 URL 형식은 다음과 같습니다.
-    
+
     `
     https://westus.api.cognitive.microsoft.com/luis/v2.0/apps/df67dcdb-c37d-46af-88e1-8b97951ca1c2?subscription-key=YOUR-KEY&q=turn on all lights
     `
@@ -97,7 +97,7 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
 
     * * *
 
-1. 모든 의도를 보려면 적절한 쿼리 문자열 매개 변수를 추가합니다. 
+1. 모든 의도를 보려면 적절한 쿼리 문자열 매개 변수를 추가합니다.
 
     #### <a name="v3-prediction-endpointtabv3-3-1"></a>[V3 예측 엔드포인트](#tab/V3-3-1)
 
@@ -174,7 +174,7 @@ LUIS 예측 엔드포인트가 반환하는 값을 이해하려면 웹 브라우
     ```
 
 
-<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->   
+<!-- FIX - is the public app getting updated for the new prebuilt domain with entities? -->
 
 ## <a name="next-steps"></a>다음 단계
 

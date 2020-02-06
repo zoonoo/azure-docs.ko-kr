@@ -9,21 +9,18 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 01/27/2020
 ms.author: pafarley
-ms.openlocfilehash: 961a5cc3d8c90007e314f40ba98693d978fe8888
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0cd7625a8e89365ccb966c0aa847e5b337f33acc
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76771941"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76900205"
 ---
 # <a name="quickstart-train-a-form-recognizer-model-and-extract-form-data-by-using-the-rest-api-with-curl"></a>빠른 시작: cURL에서 REST API를 사용하여 Form Recognizer 모델 학습 및 양식 데이터 추출
 
 이 빠른 시작에서는 cURL에서 Azure Form Recognizer REST API를 통해 양식을 학습시키고 채점하여 키-값 쌍 및 테이블을 추출합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-> [!IMPORTANT]
-> 이 빠른 시작에서는 Form Recognizer v2.0 API를 사용합니다. 구독이 `West US 2` 또는 `West Europe` 지역에 없으면 v1.0 API를 사용해야 합니다. 대신 [v1.0 빠른 시작](./curl-train-extract-v1.md)을 따르세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

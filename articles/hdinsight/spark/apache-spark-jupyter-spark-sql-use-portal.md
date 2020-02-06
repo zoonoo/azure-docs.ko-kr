@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 09/27/2019
 ms.custom: mvc
-ms.openlocfilehash: 214a88ad8b0f5dd0352004edc125705ad2f04fc7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c2751f30bdea46a30aa12bd458a12d7640cba404
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494138"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029551"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
@@ -34,7 +34,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **기본**에서 다음 값을 입력합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |Subscription  | 드롭다운에서 이 클러스터에 사용되는 Azure 구독을 선택합니다. 이 빠른 시작에 사용되는 구독은 **Azure**입니다. |
     |Resource group | 새 리소스 그룹을 만들지, 아니면 기존 그룹을 사용할지 여부를 지정합니다. 리소스 그룹은 Azure 솔루션에 관련된 리소스를 보유하는 컨테이너입니다. 이 빠른 시작에 사용되는 리소스 그룹 이름은 **myResourceGroup**입니다. |
@@ -52,14 +52,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 1. **스토리지**에서 다음 값을 입력합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage**를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택**을 사용합니다.|
     |기본 스토리지 계정|자동으로 채워진 값을 사용합니다.|
     |컨테이너|자동으로 채워진 값을 사용합니다.|
 
-    ![HDInsight Spark 클러스터 기본 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage-spark.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
+    ![HDInsight Spark 클러스터 기본 구성 만들기](./media/apache-spark-jupyter-spark-sql-use-portal/azure-portal-cluster-storage.png "HDInsight에서 Spark 클러스터 만들기 기본 구성")
 
     **검토 + 만들기**를 선택하여 계속 진행합니다.
 

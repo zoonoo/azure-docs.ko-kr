@@ -8,12 +8,12 @@ author: VanMSFT
 ms.author: vanto
 ms.reviewer: jroth
 ms.date: 01/27/2020
-ms.openlocfilehash: e48f41f1e13346f551f1d83f462de697631d1b9a
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3f5f51c944cab84c00e29b2f72433a726ed70d33
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775899"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77024350"
 ---
 # <a name="tutorial-configure-availability-groups-for-sql-server-on-rhel-virtual-machines-in-azure"></a>자습서: Azure에서 RHEL 가상 머신의 SQL Server에 대한 가용성 그룹 구성 
 
@@ -782,7 +782,7 @@ SELECT DB_NAME(database_id) AS 'database', synchronization_state_desc FROM sys.d
 
 ## <a name="create-availability-group-resources-in-the-pacemaker-cluster"></a>Pacemaker 클러스터에서 가용성 그룹 리소스 만들기
 
-[Pacemaker 클러스터에서 가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-create-availability-group]#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)의 지침을 따릅니다.
+[Pacemaker 클러스터에서 가용성 그룹 리소스 만들기](/sql/linux/sql-server-linux-create-availability-group#create-the-availability-group-resources-in-the-pacemaker-cluster-external-only)의 지침을 따릅니다.
 
 ### <a name="create-the-ag-cluster-resource"></a>AG 클러스터 리소스 만들기
 

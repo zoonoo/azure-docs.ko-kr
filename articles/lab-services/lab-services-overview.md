@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: overview
-ms.date: 11/26/2019
+ms.date: 02/03/2020
 ms.author: spelluru
-ms.openlocfilehash: 4258bec3ceacd52f9679f48d8357be558ee0e27f
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: ef296035ee8f0c80b4ee078303639d7aedf5a91d
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561623"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76986634"
 ---
 # <a name="an-introduction-to-azure-lab-services"></a>Azure Lab Services 소개
 Azure에는 클라우드에서 랩 환경을 설정할 수 있는 두 가지 서비스가 있습니다. 
@@ -35,9 +35,6 @@ Azure에는 클라우드에서 랩 환경을 설정할 수 있는 두 가지 서
 - **비용 최적화 및 분석**. 랩 소유자는 랩 일정을 설정하여 가상 머신를 자동으로 종료하고 시작할 수 있습니다. 랩 소유자는 랩의 가상 머신에 사용자가 액세스할 수 있는 시간대를 지정하고, 사용자 또는 랩별로 사용 정책을 설정하여 비용을 최적화하고, 랩에서 사용 및 활동 동향을 분석하기 위해 일정을 설정할 수 있습니다. 클래스룸 랩과 같은 관리되는 랩 형식의 경우, 현재 비용 최적화 및 분석 옵션 중 더 작은 하위 집합을 사용할 수 있습니다.
 - **내장된 보안**. 랩 소유자는 랩에 대한 프라이빗 가상 네트워크와 서브넷을 설정하고 공유되는 공용 IP 주소를 사용할 수 있습니다. 랩 사용자는 ExpressRoute 또는 사이트 간 VPN으로 구성된 가상 네트워크를 사용하여 안전하게 리소스에 액세스할 수 있습니다. (현재 DevTest Labs에서만 사용 가능)
 - **워크 플로와 도구에 통합**. Azure Lab Services를 사용하여 랩을 조직의 웹 사이트 및 관리 시스템에 통합할 수 있습니다. 지속적인 통합/지속적인 배포(CI/CD) 도구 내에서 환경을 자동으로 프로비전할 수 있습니다. (현재 DevTest Labs에서만 사용 가능)
-
-> [!NOTE]
-> 현재 Azure Lab Services는 Azure Marketplace 이미지로 만든 VM만 지원합니다. 사용자 지정 이미지를 사용하거나 랩 환경에서 다른 PaaS 리소스를 만들려면 DevTest Labs를 사용하십시오. 자세한 내용은 [DevTest Labs에서 사용자 지정 이미지 만들기](devtest-lab-create-custom-image-from-vm-using-portal.md)와 [Resource Manager 템플릿을 사용하여 랩 환경 만들기](devtest-lab-create-environment-from-arm.md)를 참조하세요.
 
 ## <a name="scenarios"></a>시나리오
 

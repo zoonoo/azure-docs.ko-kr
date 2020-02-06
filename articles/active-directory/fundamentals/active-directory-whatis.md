@@ -5,17 +5,18 @@ services: active-directory
 author: msaburnley
 manager: daveba
 ms.service: active-directory
+ms.subservice: fundamentals
 ms.topic: overview
 ms.date: 07/31/2019
 ms.author: ajburnle
 ms.custom: it-pro, seodec18, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8e0e028be6b4a507ba97f9126c791ee77c764c70
-ms.sourcegitcommit: 7efb2a638153c22c93a5053c3c6db8b15d072949
+ms.openlocfilehash: c4d32522ef88504b96d262c654dac7c08c292761
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72880505"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76897462"
 ---
 # <a name="what-is-azure-active-directory"></a>Azure Active Directory란?
 
@@ -62,10 +63,10 @@ Azure 구독을 Azure AD에 연결하는 방법에 대한 자세한 내용은 [�
 
 Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 검토하는 것이 좋습니다.
 
-|용어 또는 개념|설명|
+|용어 또는 개념|Description|
 |---------------|-----------|
 |ID| 인증을 받을 수 있는 대상입니다. ID는 사용자 이름과 암호를 사용하는 사용자일 수 있습니다. ID에는 비밀 키나 인증서를 통해 인증을 필요로 할 수 있는 다른 서버나 애플리케이션도 포함됩니다.|
-|계좌| 연결된 데이터가 있는 ID입니다. ID가 없는 계정은 있을 수 없습니다.|
+|계정| 연결된 데이터가 있는 ID입니다. ID가 없는 계정은 있을 수 없습니다.|
 |Azure AD 계정| Azure AD 또는 Office 365 같은 다른 Microsoft 클라우드 서비스를 통해 만들어진 ID입니다. ID는 Azure AD에 저장되고 조직의 클라우드 서비스 구독에 액세스할 수 있습니다. 이 계정을 회사 또는 학교 계정이라고도 합니다.|
 |Azure 구독| Azure 클라우드 서비스 요금을 지불하는 데 사용됩니다. 여러 구독을 한 신용 카드에 연결할 수 있습니다.|
 |Azure 테넌트| 조직이 Microsoft Azure, Microsoft Intune 또는 Office 365 같은 Microsoft 클라우드 서비스 구독에 등록할 때 자동으로 생성되는 Azure AD의 신뢰할 수 있는 전용 인스턴스입니다. 한 Azure 테넌트는 단일 조직을 나타냅니다.|
@@ -83,7 +84,7 @@ Azure AD 및 설명서를 보다 정확하게 이해하려면 다음 용어를 �
 
 Azure AD 라이선스를 선택하면 조직에서 사용 가능한 다음 기능 중 일부 또는 전부에 대한 액세스 권한을 얻게 됩니다.
 
-|Category|설명|
+|Category|Description|
 |-------|-----------|
 |애플리케이션 관리|애플리케이션 프록시, Single Sign-On, 내 앱 포털(액세스 패널이라고도 함) 및 SaaS(Software as a Service) 앱을 사용하여 클라우드 및 온-프레미스 앱을 관리합니다. 자세한 내용은 [온-프레미스 애플리케이션에 대한 보안 원격 액세스를 제공하는 방법](../manage-apps/application-proxy.md) 및 [애플리케이션 관리 설명서](../manage-apps/index.yml)를 참조하세요.|
 |인증|Azure Active Directory 셀프 서비스 암호 재설정, Multi-Factor Authentication, 사용자 지정 금지된 암호 목록 및 스마트 잠금을 관리합니다. 자세한 내용은 [Azure AD 인증 설명서](../authentication/index.yml)를 참조하세요.|

@@ -4,7 +4,7 @@ description: 대규모 병렬 및 HPC 워크로드의 경우 Azure Batch 서비�
 services: batch
 documentationcenter: ''
 author: mscurrell
-manager: gwallace
+manager: evansma
 editor: ''
 ms.assetid: ''
 ms.service: batch
@@ -14,12 +14,12 @@ ms.topic: overview
 ms.date: 01/19/2018
 ms.author: markscu
 ms.custom: mvc
-ms.openlocfilehash: ee61f0f550a09640469914d29bde175028b59142
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 7ca2a5e91a0ec0d765e106baca20f135996bc26e
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70094332"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77022803"
 ---
 # <a name="what-is-azure-batch"></a>Azure Batch란?
 
@@ -71,7 +71,7 @@ Batch의 일반적인 시나리오에는 본질적으로 컴퓨팅 노드 풀에
 ![Batch 솔루션 연습](./media/batch-technical-overview/tech_overview_03.png)
 
 
-|단계  |설명  |
+|단계  |Description  |
 |---------|---------|
 |1.  이러한 파일을 처리할 **입력 파일** 및 **애플리케이션**을 Azure Storage 계정에 업로드합니다.     |입력 파일은 애플리케이션이 처리할 모든 데이터가 될 수 있습니다(예: 금융 모델링 데이터 또는 트랜스코딩할 비디오 파일). 애플리케이션 파일에는 미디어 트랜스코더처럼 데이터를 처리하는 스크립트 또는 애플리케이션이 포함될 수 있습니다.|
 |2.  Batch 계정에 컴퓨팅 노드의 Batch **풀**을 만들고, 풀에 워크로드를 실행하는 **작업**을 만들고, 작업에 **태스크**를 만듭니다.     | 풀 노드는 태스크를 실행하는 VM입니다. 노드의 개수 및 크기와 같은 속성, Windows 또는 Linux VM 이미지, 그리고 노드가 풀에 조인할 때 설치할 애플리케이션을 지정할 수 있습니다. Manage the cost and size of the pool by using [우선 순위가 낮은 VM](batch-low-pri-vms.md)을 사용하거나 워크로드가 변경될 때 노드 수를 [자동으로 조정](batch-automatic-scaling.md)하여 풀의 비용과 크기를 관리할 수 있습니다. <br/><br/>작업에 태스크를 추가하는 경우 Batch 서비스는 풀의 컴퓨팅 노드에서 실행할 태스크를 자동으로 예약합니다. 각 태스크는 입력 파일을 처리하기 위해 업로드한 애플리케이션을 사용합니다. |

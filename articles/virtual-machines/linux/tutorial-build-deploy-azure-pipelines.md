@@ -11,12 +11,12 @@ ms.workload: infrastructure
 ms.date: 1/3/2020
 ms.author: ushan
 ms.custom: devops
-ms.openlocfilehash: 8fda8e3079084ad917ad5a7fcfc4f80a622e2d82
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: bb7c773d02c5da5c115af79cd9e90c78e71eb6bf
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277248"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988331"
 ---
 # <a name="tutorial-deploy-your-app-to-linux-virtual-machines-in-azure-using-azure-devops-services-and-azure-pipelines"></a>자습서: Azure에서 Azure DevOps Services 및 Azure Pipelines를 사용하여 Linux 가상 머신에 앱 배포
 
@@ -86,7 +86,7 @@ https://github.com/azure-devops/fabrikam-node
 
 - Java Spring Boot 및 Spring Cloud 기반 앱을 배포하려면 완전히 지원되는 OpenJDK 기반 런타임을 제공하는 [이 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Azure에서 Linux VM을 만듭니다.
 - Tomcat 서버에서 Java 서블릿을 배포하려면 [이 Azure 템플릿](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804)을 사용하여 Java 8이 포함된 Linux VM을 만들고 [Tomcat 9.x를 서비스로 구성](https://tomcat.apache.org/tomcat-9.0-doc/setup.html)합니다.
-- Java EE 기반 앱을 배포하려면 Azure 템플릿을 사용하여 [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/Oracle.OracleWebLogicServer12cEnterprise) 또는 [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14를 만듭니다. 
+- Java EE 기반 앱을 배포하려면 Azure 템플릿을 사용하여 [Linux VM + Java + WebSphere 9.x](https://azuremarketplace.microsoft.com/marketplace/apps/midvision.websphere-application-server-nde-90), [Linux VM + Java + WebLogic 12.x](https://azuremarketplace.microsoft.com/marketplace/apps/oracle.20191009-arm-oraclelinux-wls-admin) 또는 [Linux VM + Java](https://azuremarketplace.microsoft.com/marketplace/apps/azul.azul-zulu8-ubuntu-1804) + WildFly/JBoss 14를 만듭니다. 
 
 #### <a name="javascripttabjava-script"></a>[JavaScript](#tab/java-script)
 

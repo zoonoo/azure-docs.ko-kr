@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: mvc
 ms.topic: quickstart
 ms.date: 10/01/2019
-ms.openlocfilehash: e253d168fadd5aff46e70ba00a4021415c0ea6f7
-ms.sourcegitcommit: 3486e2d4eb02d06475f26fbdc321e8f5090a7fac
+ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/31/2019
-ms.locfileid: "73242045"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030029"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
@@ -27,7 +27,7 @@ Apache Kafka API는 동일한 가상 네트워크 내에서만 리소스에서 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
@@ -43,7 +43,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 1. **기본 사항**에서 다음 값을 입력하거나 선택합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |Subscription    |  Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
@@ -65,14 +65,14 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 1. **스토리지** 탭에서 다음 값을 입력합니다.
 
-    |자산  |설명  |
+    |속성  |Description  |
     |---------|---------|
     |기본 스토리지 유형|기본값 **Azure Storage**를 사용합니다.|
     |선택 방법|기본값 **목록에서 선택**을 사용합니다.|
     |기본 스토리지 계정|드롭다운 목록을 사용하여 기존 스토리지 계정을 선택하거나 **새로 만들기**를 선택합니다. 새 계정을 만드는 경우 이름의 길이가 3~24자여야 하고, 숫자 및 소문자만 포함할 수 있습니다.|
     |컨테이너|자동으로 채워진 값을 사용합니다.|
 
-    ![HDInsight Linux 시작 - 클러스터 스토리지 값 제공](./media/apache-kafka-get-started/azure-portal-cluster-storage-blank.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
+    ![HDInsight Linux 시작 - 클러스터 스토리지 값 제공](./media/apache-kafka-get-started/azure-portal-cluster-storage.png "HDInsight 클러스터를 만들기 위한 스토리지 값 제공")
 
     **보안 + 네트워킹** 탭을 선택합니다.
 
@@ -80,7 +80,7 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
    클러스터를 가상 네트워크에 연결하려는 경우에는 **가상 네트워크** 드롭다운에서 가상 네트워크를 선택합니다.
 
-   ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vn.png)
+   ![가상 네트워크에 클러스터 추가](./media/apache-kafka-get-started/azure-portal-cluster-security-networking-kafka-vnet.png)
 
     **구성 + 가격 책정** 탭을 선택합니다.
 

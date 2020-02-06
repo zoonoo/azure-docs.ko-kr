@@ -1,6 +1,6 @@
 ---
-title: CloudSimple의 Azure VMware 솔루션
-description: CloudSimple의 Azure VMware 솔루션에 대한 설명서 포털입니다.
+title: AVS(Azure VMware 솔루션)
+description: AVS(Azure VMware 솔루션)에 대한 설명서 포털입니다.
 author: sharaths-cs
 ms.author: b-mashar
 ms.date: 08/20/2019
@@ -8,23 +8,23 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 936a9eb4d9b33b45800fab213fc72a306a04146e
-ms.sourcegitcommit: 47b00a15ef112c8b513046c668a33e20fd3b3119
+ms.openlocfilehash: d81ea6778f3ba31d72c34334b1439994b076647c
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/22/2019
-ms.locfileid: "69972732"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025217"
 ---
-# <a name="azure-vmware-solution-by-cloudsimple"></a>CloudSimple의 Azure VMware 솔루션
+# <a name="azure-vmware-solution-by-avs"></a>AVS의 Azure VMware 솔루션
 
-CloudSimple의 Azure VMware 솔루션 관련 지원을 제공하는 원스톱 포털에 오신 것을 환영합니다.
+AVS의 Azure VMware 솔루션에 대한 지원을 제공하는 원스톱 포털에 오신 것을 환영합니다.
 설명서 사이트에서 다음 항목에 대해 알아볼 수 있습니다.
 
 ## <a name="overview"></a>개요
 
-CloudSimple의 Azure VMware 솔루션에 대한 자세한 정보
+AVS(Azure VMware 솔루션)에 대한 자세한 정보
 
-* [CloudSimple의 Azure VMware 솔루션이란?](cloudsimple-vmware-solutions-overview.md)에서 기능, 이점, 사용 시나리오에 대해 알아보기
+* [AVS의 Azure VMware 솔루션이란?](cloudsimple-vmware-solutions-overview.md)에서 기능, 이점 및 사용 시나리오에 대해 알아보기
 * [관리 주요 개념](key-concepts.md) 살펴보기
 
 ## <a name="quickstart"></a>빠른 시작
@@ -32,17 +32,17 @@ CloudSimple의 Azure VMware 솔루션에 대한 자세한 정보
 솔루션을 시작하는 방법 알아보기
 
 * [서비스를 초기화하고 용량을 구매](quickstart-create-cloudsimple-service.md)하는 방법 이해
-* [프라이빗 클라우드 환경 구성](quickstart-create-private-cloud.md)에서 새 VMware 환경을 만드는 방법 알아보기
+* [AVS 프라이빗 클라우드 환경 구성](quickstart-create-private-cloud.md)에서 새 VMware 환경을 만드는 방법 알아보기
 * [Azure에서 VMware VM 사용](quickstart-create-vmware-virtual-machine.md) 문서를 살펴보고 VMware 및 Azure에 대한 관리를 통합하는 방법 알아보기
 
 ## <a name="concepts"></a>개념
 
 다음 개념에 대해 알아보기
 
-* [Cloudsimple 서비스](cloudsimple-service.md)("CloudSimple의 Azure VMware 솔루션 - 서비스"라고도 함). 이 리소스는 지역마다 하나씩 만들어야 합니다.
-* [CloudSimple 노드](cloudsimple-node.md) 리소스를 여러 개 만들어 사용자 환경의 용량을 구매합니다. 이러한 리소스를 "CloudSimple의 Azure VMware 솔루션 - 노드"라고도 합니다.
-* [프라이빗 클라우드](cloudsimple-private-cloud.md)를 사용하여 VMware 환경을 초기화하고 구성합니다.
-* [CloudSimple Virtual Machines](cloudsimple-virtual-machines.md)("CloudSimple의 Azure VMware 솔루션 - 가상 머신"이라고도 함).
+* [AVS Service](cloudsimple-service.md)("AVS(Azure VMware 솔루션) - Service"라고도 함). 이 리소스는 지역마다 하나씩 만들어야 합니다.
+* 하나 이상의 [AVS 노드](cloudsimple-node.md) 리소스를 만들어 사용자 환경의 용량을 구매합니다. 이러한 리소스를 "AVS의 Azure VMware 솔루션 - 노드"라고도 합니다.
+* [AVS 프라이빗 클라우드](cloudsimple-private-cloud.md)를 사용하여 VMware 환경을 초기화하고 구성합니다.
+* [AVS Virtual Machines](cloudsimple-virtual-machines.md)("AVS(Azure VMware 솔루션) - 가상 머신"이라고도 함)를 사용하여 관리를 통합합니다.
 * [VLAN/서브넷](cloudsimple-vlans-subnets.md)을 사용하여 언더레이 네트워크를 설계합니다.
 * [방화벽 테이블](cloudsimple-firewall-tables.md) 리소스를 사용하여 언더레이 네트워크를 분할하고 보호합니다.
 * [VPN Gateway](cloudsimple-vpn-gateways.md)를 사용하여 WAN을 통해 VMware 환경에 안전하게 액세스합니다.
@@ -56,10 +56,10 @@ CloudSimple의 Azure VMware 솔루션에 대한 자세한 정보
 
 다음과 같은 일반적인 작업을 수행하는 방법을 알아봅니다.
 
-* VMware 환경을 배포하려는 지역마다 하나씩 [CloudSimple 서비스를 생성](create-cloudsimple-service.md)합니다.
-* [CloudSimple 포털](access-cloudsimple-portal.md)에서 핵심 서비스 기능을 관리합니다.
-* [CloudSimple 노드를 구매](create-nodes.md)하여 인프라 대금 청구를 최적화하고 용량을 사용하도록 설정합니다.
-* 프라이빗 클라우드를 사용하여 VMware 환경 구성을 관리합니다. 프라이빗 클라우드를 [생성](create-private-cloud.md), [관리](manage-private-cloud.md), [확장](expand-private-cloud.md) 또는 [축소](shrink-private-cloud.md)할 수 있습니다.
+* VMware 환경을 배포하려는 지역마다 하나씩 [AVS Service를 생성](create-cloudsimple-service.md)합니다.
+* [AVS 포털](access-cloudsimple-portal.md)에서 핵심 서비스 기능을 관리합니다.
+* [AVS 노드를 구매](create-nodes.md)하여 인프라 대금 청구를 최적화하고 용량을 사용하도록 설정합니다.
+* AVS 프라이빗 클라우드를 사용하여 VMware 환경 구성을 관리합니다. AVS 프라이빗 클라우드를 [생성](create-private-cloud.md), [관리](manage-private-cloud.md), [확장](expand-private-cloud.md) 또는 [축소](shrink-private-cloud.md)할 수 있습니다.
 * [Azure 구독을 매핑](azure-subscription-mapping.md)하여 통합 관리를 사용하도록 설정합니다.
 * [작업 페이지](monitor-activity.md)를 사용하여 사용자 및 시스템 작업을 모니터링합니다.
 * [서브넷을 만들고 관리](create-vlan-subnet.md)하여 환경의 네트워킹을 구성합니다.
@@ -68,7 +68,7 @@ CloudSimple의 Azure VMware 솔루션에 대한 자세한 정보
 * [VPN을 설정](vpn-gateway.md)하여 내부 네트워크 또는 클라이언트 워크스테이션에서 들어오는 연결을 사용하도록 설정합니다.
 * [온-프레미스 환경](on-premises-connection.md)에서 [Azure 가상 네트워크](virtual-network-connection.md)로의 통신을 사용하도록 설정합니다.
 * 경고 대상을 구성하고 [계정 요약](account.md)에서 구매한 총 용량을 확인합니다.
-* CloudSimple 포털에 액세스한 [사용자](users.md)를 확인합니다.
+* AVS 포털에 액세스한 [사용자](users.md)를 확인합니다.
 * Azure Portal에서 VMware 가상 머신 관리:
     * Azure Portal에서 [가상 머신을 생성](azure-create-vm.md)합니다.
     * 생성된 [가상 머신을 관리](azure-manage-vm.md)합니다.

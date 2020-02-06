@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: quickstart
 ms.date: 11/14/2019
 ms.author: pafarley
-ms.openlocfilehash: f00702326cf6fe2efd8d4abbfce7174815ea0b1d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 158faaba1525e162c40c44179f30f7c3cea83b38
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770291"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77025914"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -26,7 +26,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작을 완료하려면 다음 항목이 있어야 합니다.
 - Form Recognizer 제한된 액세스 미리 보기에 대한 액세스 권한. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청 양식](https://aka.ms/FormRecognizerRequestAccess)을 작성하여 제출하세요. Form Recognizer 리소스를 만들 수 있는 링크가 포함된 이메일을 받게 됩니다.
-- Form Recognizer 샘플 레이블 지정 도구에 액세스합니다. 액세스하려면 [Form Recognizer 레이블 도구 요청 양식](https://aka.ms/LabelToolRequestAccess)을 작성하여 제출하세요. 자격 증명을 가져오고 프라이빗 컨테이너 레지스트리에 액세스하는 방법에 대한 지침이 포함된 이메일을 받게 됩니다. 
 - 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
 
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
@@ -38,18 +37,13 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
     |:--|:--|:--|
     |샘플 레이블 지정 도구|2개 코어, 4GB 메모리|4개 코어, 8GB 메모리|
     
-1. 다음으로, [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)가 필요합니다. 아직 설치하지 않은 경우 머신에 설치합니다.
-1. 그런 다음, 명령 프롬프트에서 다음 명령을 입력합니다. `<username>` 및 `<password>`의 값은 Form Recognizer 시작 이메일에 있습니다.
-    ```
-    docker login containerpreview.azurecr.io -u <username> -p <password>
-    ```
 1. `docker pull` 명령을 사용하여 샘플 레이블 지정 도구 컨테이너를 가져옵니다.
     ```
-    docker pull containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool:latest
+    docker pull mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool
     ```
 1. 이제 `docker run`을 사용하여 컨테이너를 실행할 준비가 되었습니다.
     ```
-    docker run -it -p 3000:80 containerpreview.azurecr.io/microsoft/cognitive-services-form-recognizer-custom-supervised-labeltool eula=accept
+    docker run -it -p 3000:80 mcr.microsoft.com/azure-cognitive-services/custom-form/labeltool eula=accept
     ```
 
    이 명령을 사용하면 웹 브라우저를 통해 샘플 레이블 지정 도구를 사용할 수 있습니다. [http://localhost:3000](http://localhost:3000)로 이동합니다.

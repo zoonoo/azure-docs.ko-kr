@@ -3,7 +3,7 @@ title: 자습서 - Azure Traffic Manager를 사용하여 가중치가 적용된 
 description: 이 자습서에서는 Traffic Manager에서 라운드 로빈 방법을 사용하여 트래픽 부하를 분산하는 방법을 설명합니다
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 manager: twooley
 ms.service: traffic-manager
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/20/2017
-ms.author: allensu
-ms.openlocfilehash: 06bb86e635b7b3377e1f313ef3aa3487e1c215bc
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: 8bdc710b36cae70d29d32333f431b8a9dda154cc
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422760"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938702"
 ---
 # <a name="tutorial-configure-the-weighted-traffic-routing-method-in-traffic-manager"></a>자습서: Traffic Manager에서 가중치 적용 트래픽 라우팅 방법 구성
 

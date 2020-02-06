@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 09/05/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 52791719e518f6a6b1a4178d8b9a010f1db14fc4
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 4078f2a005dcd324fa9c1d31cdca4b1f8337eecd
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003861"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76988382"
 ---
 # <a name="tutorial-use-azure-key-vault-with-a-windows-virtual-machine-in-python"></a>자습서: Python에서 Windows 가상 머신에 Azure Key Vault 사용
 
@@ -36,7 +36,7 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 
 Azure 구독이 아직 없는 경우 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Windows, Mac 및 Linux:
   * [Git](https://git-scm.com/downloads)
@@ -136,7 +136,7 @@ az keyvault set-policy --name '<YourKeyVaultName>' --object-id <VMSystemAssigned
 
 ## <a name="create-and-run-a-sample-python-app"></a>샘플 Python 앱을 만들고 실행
 
-다음 섹션은 예제 파일 *Sample.py*입니다. 이 예제는 [requests](http://docs.python-requests.org/en/master/) 라이브러리를 사용하여 HTTP GET 호출을 수행합니다.
+다음 섹션은 예제 파일 *Sample.py*입니다. 이 예제는 [requests](https://2.python-requests.org/en/master/) 라이브러리를 사용하여 HTTP GET 호출을 수행합니다.
 
 ## <a name="edit-samplepy"></a>Sample.py 편집
 

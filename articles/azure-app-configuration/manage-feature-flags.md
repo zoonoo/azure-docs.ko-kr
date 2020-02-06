@@ -4,7 +4,7 @@ titleSuffix: Azure App Configuration
 description: 이 자습서에서는 Azure App Configuration을 사용하여 애플리케이션과 별도로 기능 플래그를 관리하는 방법을 알아봅니다.
 services: azure-app-configuration
 documentationcenter: ''
-author: yegu-ms
+author: lisaguthrie
 manager: maiye
 editor: ''
 ms.assetid: ''
@@ -13,14 +13,14 @@ ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 04/19/2019
-ms.author: yegu
+ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: 620cd6e1712a89e13bf876310c0d3248c4a4d1e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ccab8014000f9f684249bf2c1f800f74c92e7369
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75414000"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76899373"
 ---
 # <a name="tutorial-manage-feature-flags-in-azure-app-configuration"></a>자습서: Azure App Configuration에서 기능 플래그 관리
 

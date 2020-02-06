@@ -2,21 +2,21 @@
 title: '자습서: Azure 공용 IP 주소를 참조하는 Azure DNS 별칭 레코드 만들기'
 description: 이 자습서에서는 Azure 공용 IP 주소를 참조하도록 Azure DNS 별칭 레코드를 구성하는 방법을 보여줍니다.
 services: dns
-author: asudbring
+author: rohinkoul
 ms.service: dns
 ms.topic: tutorial
 ms.date: 9/25/2018
-ms.author: allensu
-ms.openlocfilehash: 81dfbe5f46116d263c4a04d6178437a2c8bc1185
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.author: rohink
+ms.openlocfilehash: d601d19a786613f674f7b941becc5e97d84e6fce
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072123"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939271"
 ---
 # <a name="tutorial-configure-an-alias-record-to-refer-to-an-azure-public-ip-address"></a>자습서: Azure 공용 IP 주소를 참조하도록 별칭 레코드 구성 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 네트워크 인프라 만들기.
@@ -27,7 +27,7 @@ ms.locfileid: "74072123"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 테스트할 Azure DNS에서 호스트할 수 있는 도메인 이름이 있어야 합니다. 이 도메인에 대한 전체 제어 권한이 있어야 합니다. 전체 제어 권한에는 도메인의 NS(이름 서버) 레코드를 설정하는 권한이 포함됩니다.
 
 Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습서: Azure DNS에서 도메인 호스트](dns-delegate-domain-azure-dns.md)를 참조하세요.
@@ -36,7 +36,7 @@ Azure DNS에서 도메인을 호스트하는 방법에 대한 지침은 [자습�
 
 ## <a name="create-the-network-infrastructure"></a>네트워크 인프라 만들기
 먼저 웹 서버를 배치할 가상 네트워크 및 서브넷을 만듭니다.
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 2. Azure Portal의 왼쪽 위에서 **리소스 만들기**를 선택합니다. 검색 상자에 *리소스 그룹*을 입력하고 **RG-DNS-Alias-pip**라는 리소스 그룹을 만듭니다.
 3. **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
 4. **VNet-Servers**라는 가상 네트워크를 만들고 **RG-DNS-Alias-pip** 리소스 그룹에 배치한 후 서브넷 이름을 **SN-Web**으로 지정합니다.

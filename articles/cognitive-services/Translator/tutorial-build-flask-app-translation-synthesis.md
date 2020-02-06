@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: tutorial
 ms.date: 12/09/2019
 ms.author: swmachan
-ms.openlocfilehash: 5e19e4247e58135c6a9bb7c6cc327cb566d294df
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0075862e198ce67cc7367efe94d624ad18e6eb3b
+ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74978461"
+ms.lasthandoff: 02/04/2020
+ms.locfileid: "76984170"
 ---
 # <a name="tutorial-build-a-flask-app-with-azure-cognitive-services"></a>자습서: Azure Cognitive Services를 사용하여 Flask 앱 만들기
 
@@ -44,7 +44,7 @@ Flask는 웹 애플리케이션을 만들기 위한 마이크로 프레임워크
 * [Flask 설명서](http://flask.pocoo.org/)
 * [Flask for Dummies - 초보자용 Flask 가이드](https://codeburst.io/flask-for-dummies-a-beginners-guide-to-flask-part-uno-53aec6afc5b1)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 위해 필요한 소프트웨어 및 구독 키를 살펴보겠습니다.
 
@@ -128,7 +128,7 @@ Requests는 HTTP 1.1 요청을 보내는 데 사용되는 인기 있는 모듈�
    ```
 
 > [!NOTE]
-> Requests에 대해 자세히 알아보려면 [Requests: 사용자를 위한 HTTP](http://docs.python-requests.org/en/master/)를 참조하세요.
+> Requests에 대해 자세히 알아보려면 [Requests: 사용자를 위한 HTTP](https://2.python-requests.org/en/master/)를 참조하세요.
 
 ### <a name="install-and-configure-flask"></a>Flask 설치 및 구성
 

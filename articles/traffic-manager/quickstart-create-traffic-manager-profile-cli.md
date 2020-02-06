@@ -2,7 +2,7 @@
 title: '빠른 시작: HA 애플리케이션용 프로필 만들기 - Azure CLI - Azure Traffic Manager'
 description: 이 빠른 시작 문서에서는 고가용성 웹 애플리케이션을 빌드하기 위한 Traffic Manager 프로필을 만드는 방법을 설명합니다.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 mnager: twooley
 Customer intent: As an IT admin, I want to direct user traffic to ensure high availability of web applications.
 ms.service: traffic-manager
@@ -11,13 +11,13 @@ ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/29/2019
-ms.author: allensu
-ms.openlocfilehash: b724a3e469c5dd8f7b4c4f30adef00c58c5c47c5
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.author: rohink
+ms.openlocfilehash: 36ad1c47e115f06aea2017a049cefe36304504bf
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483905"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76934832"
 ---
 # <a name="quickstart-create-a-traffic-manager-profile-for-a-highly-available-web-application-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 고가용성 웹 애플리케이션에 대한 Traffic Manager 프로필 만들기
 
@@ -66,7 +66,7 @@ az network traffic-manager profile create \
 
 ## <a name="create-web-apps"></a>웹앱 만들기
 
-이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *유럽 서부*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
+이 빠른 시작에는 두 개의 서로 다른 Azure 지역(*미국 동부* 및 *서유럽*)에 배포된 두 개의 웹 애플리케이션 인스턴스가 필요합니다. 각각은 Traffic Manager에 대한 기본 및 장애 조치 엔드포인트의 역할을 합니다.
 
 ### <a name="create-web-app-service-plans"></a>웹앱 서비스 계획 만들기
 [az appservice plan create](https://docs.microsoft.com/cli/azure/appservice/plan?view=azure-cli-latest#az-appservice-plan-create)를 사용하여 서로 다른 두 Azure 지역에 배포할 웹 애플리케이션의 두 인스턴스에 대한 웹앱 서비스 계획을 만듭니다.
