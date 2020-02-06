@@ -40,6 +40,12 @@
       href: disable-private-link-service-network-policy.md
     - name: 프라이빗 엔드포인트 관리
       href: manage-private-endpoint.md
+    - name: 문제 해결
+      items:
+        - name: 프라이빗 엔드포인트 연결 문제 해결
+          href: troubleshoot-private-endpoint-connectivity.md
+        - name: Private Link Service 연결 문제 해결
+          href: troubleshoot-private-link-connectivity.md
 - name: 참조
   items:
     - name: Azure CLI

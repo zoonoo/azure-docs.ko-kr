@@ -1048,6 +1048,9 @@
         - name: Spring Boot Starter 사용
           href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
           maintainContext: true
+        - name: Spring Data 개발자 가이드
+          href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
+          maintainContext: true
         - name: ODBC 드라이버
           href: odbc-driver.md
     - name: Cosmos DB로 데이터 마이그레이션

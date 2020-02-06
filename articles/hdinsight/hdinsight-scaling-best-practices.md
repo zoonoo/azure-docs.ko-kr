@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 2d26cbce3398b9a44530553fbff0413c631b7579
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744778"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030928"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -37,7 +37,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 |[Azure CLI](hdinsight-administer-use-command-line.md)|azure hdinsight 클러스터 크기 조정 \<clusterName > \<대상 인스턴스 수 > |
 |[Azure Portal](https://portal.azure.com)|HDInsight 클러스터 창을 열고 왼쪽 메뉴에서 **클러스터 크기** 를 선택한 다음 클러스터 크기 창에서 작업자 노드 수를 입력 하 고 저장을 선택 합니다.|  
 
-![Azure Portal 크기 조정 클러스터 옵션](./media/hdinsight-scaling-best-practices/scale-cluster-blade1.png)
+![Azure Portal 크기 조정 클러스터 옵션](./media/hdinsight-scaling-best-practices/azure-portal-settings-nodes.png)
 
 이러한 방법 중 하나를 사용하여 몇 분 만에 HDInsight 클러스터를 확장 또는 축소할 수 있습니다.
 
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-예:
+다음은 그 예입니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"

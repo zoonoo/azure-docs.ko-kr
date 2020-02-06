@@ -1,17 +1,17 @@
 ---
 title: Azure Functions의 배포 기술
 description: Azure Functions 코드를 배포할 수 있는 다양 한 방법을 알아봅니다.
-author: ColbyTresness
+author: georgewallace
 ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
-ms.author: cotresne
-ms.openlocfilehash: 39b3a96ddd3a9007600d1fa956c4e2d48f6adae9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.author: gwallace
+ms.openlocfilehash: 7b95fae3c7b713a9f97c31578a3bb24a9062fa2e
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714814"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029863"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 

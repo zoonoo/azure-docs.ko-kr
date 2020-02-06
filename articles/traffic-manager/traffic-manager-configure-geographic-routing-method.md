@@ -2,7 +2,7 @@
 title: 자습서 - Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 구성
 description: 이 자습서에서는 Azure Traffic Manager를 사용하여 지리적 트래픽 라우팅 방법을 구성하는 방법을 설명합니다.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 manager: kumudD
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,13 +10,13 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 03/22/2017
-ms.author: allensu
-ms.openlocfilehash: 9de1f0b0adc4d82b666adcd4bc9b26e31e7750d6
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: 3eb3f354d51833e55f405ed35679f1a5882c057a
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422803"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938800"
 ---
 # <a name="tutorial-configure-the-geographic-traffic-routing-method-using-traffic-manager"></a>자습서: Traffic Manager를 사용한 지리적 트래픽 라우팅 방법 구성
 

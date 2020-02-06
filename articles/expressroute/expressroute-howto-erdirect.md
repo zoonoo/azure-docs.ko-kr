@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: jaredro
-ms.openlocfilehash: c5cb8366465d5983823184c87eb54fad6aaffbd0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2722a852b1119ef619bc414bce5cb3a8ff6f8f00
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705924"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031615"
 ---
 # <a name="how-to-configure-expressroute-direct"></a>Express 경로 다이렉트를 구성 하는 방법
 
@@ -27,7 +27,13 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
 
    Select-AzSubscription -Subscription "<SubscriptionID or SubscriptionName>"
    ```
-2. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
+   
+2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft. 네트워크에 다시 등록 합니다.
+
+   ```powershell
+   Register-AzResourceProvider -ProviderNameSpace "Microsoft.Network"
+   ```   
+3. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
   
    ```powershell
    Get-AzExpressRoutePortsLocation
@@ -60,7 +66,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
    Contact             : support@equinix.com
    AvailableBandwidths : []
    ```
-3. 위에 나열된 위치에 사용 가능한 대역폭이 있는지 확인
+4. 위에 나열된 위치에 사용 가능한 대역폭이 있는지 확인
 
    ```powershell
    Get-AzExpressRoutePortsLocation -LocationName "Equinix-San-Jose-SV1"
@@ -82,7 +88,7 @@ ExpressRoute Direct는 전 세계에 전략적으로 분산된 피어링 위치�
                           }
                         ]
    ```
-4. 위에서 선택한 위치를 기준으로 ExpressRoute Direct 리소스 만들기
+5. 위에서 선택한 위치를 기준으로 ExpressRoute Direct 리소스 만들기
 
    ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 캡슐화를 둘 다 지원합니다. QinQ를 선택한 경우 ExpressRoute Direct 리소스 전체에서 고유하게 식별되는 S-Tag가 각 ExpressRoute 회로에 동적으로 할당됩니다. 회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 전체에서 고유할 필요는 없습니다.  
 

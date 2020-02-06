@@ -44,6 +44,8 @@
           href: ./ag/application-gateway-waf-configuration.md
         - name: WAF 정책 개요
           href: ./ag/policy-overview.md
+        - name: 봇 보호 개요
+          href: ./ag/bot-protection-overview.md
     - name: Front Door
       items:
         - name: 사용자 지정 규칙

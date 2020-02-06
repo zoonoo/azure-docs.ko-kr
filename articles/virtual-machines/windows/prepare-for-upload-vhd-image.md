@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 05/11/2019
 ms.author: genli
-ms.openlocfilehash: 6a9385a49e85806464e8f9ccf11d9232fae42435
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 933f0c52cf0d65c7dca480971589c0d0f2ebabf0
+ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461121"
+ms.lasthandoff: 01/31/2020
+ms.locfileid: "76906758"
 ---
 # <a name="prepare-a-windows-vhd-or-vhdx-to-upload-to-azure"></a>Azure에 업로드할 Windows VHD 또는 VHDX 준비
 
@@ -33,6 +33,22 @@ Azure Vm에 대 한 지원 정책에 대 한 자세한 내용은 [Azure vm에 �
 > 이 문서의 지침은 다음에 적용 됩니다.
 >1. 64 비트 버전의 Windows Server 2008 R2 이상 Windows Server 운영 체제 Azure에서 32 비트 운영 체제를 실행 하는 방법에 대 한 자세한 내용은 [Azure vm에서 32 비트 운영 체제 지원](https://support.microsoft.com/help/4021388/support-for-32-bit-operating-systems-in-azure-virtual-machines)을 참조 하세요.
 >2. Azure Site Recovery 또는 Azure Migrate와 같이 작업을 마이그레이션하는 데 재해 복구 도구를 사용 하는 경우 마이그레이션 전에 이미지를 준비 하려면이 프로세스를 수행 하 여 게스트 OS를 실행 해야 합니다.
+
+## <a name="system-file-checker-sfc-command"></a>SFC (시스템 파일 검사기) 명령
+
+### <a name="run-windows-system-file-checker-utility-run-sfc-scannow-on-os-prior-to-generalization-step-of-creating-customer-os-image"></a>고객 OS 이미지를 만드는 일반화 단계 전에 OS에서 Windows 시스템 파일 검사기 유틸리티 (sfc/scannow 실행)를 실행 합니다.
+
+SFC (시스템 파일 검사기) 명령은 Windows 시스템 파일을 확인 하 고 바꾸는 데 사용 됩니다.
+
+SFC 명령을 실행 하려면:
+
+1. 관리자 권한으로 명령 프롬프트를 엽니다.
+1. `sfc /scannow`를 입력 하 고 **Enter 키**를 선택 합니다.
+
+    ![시스템 파일 검사기](media/prepare-for-upload-vhd-image/system-file-checker.png)
+
+
+SFC 검사가 완료 된 후 Windows 업데이트를 설치 하 고 컴퓨터를 다시 시작 합니다.
 
 ## <a name="convert-the-virtual-disk-to-a-fixed-size-and-to-vhd"></a>가상 디스크를 고정 크기 및 VHD로 변환
 
@@ -156,7 +172,7 @@ Get-Service -Name RemoteRegistry | Where-Object { $_.StartType -ne 'Automatic' }
 원격 액세스에 대해 다음 설정이 올바르게 구성 되어 있는지 확인 합니다.
 
 >[!NOTE] 
->`Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`를 실행 하면 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
+>`Set-ItemProperty -Path 'HKLM:\SOFTWARE\Policies\Microsoft\Windows NT\Terminal Services -Name <object name> -Value <value>`를 실행 하면 오류 메시지가 표시 될 수 있습니다. 이 메시지는 무시 해도 됩니다. 도메인은 그룹 정책 개체를 통해 해당 구성을 푸시하는 것만을 의미 합니다.
 
 1. RDP(원격 데스크톱 프로토콜)이 활성화되어 있습니다.
    

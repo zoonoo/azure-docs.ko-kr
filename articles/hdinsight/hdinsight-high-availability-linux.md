@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 10/28/2019
-ms.openlocfilehash: 68f4eb4fbad2a571e078cb9aedcfd56c80ffe054
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8c3e377faef4e18bff01fd7001751d1f1e347b8d
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747867"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030876"
 ---
 # <a name="availability-and-reliability-of-apache-hadoop-clusters-in-hdinsight"></a>HDInsight에서 Apache Hadoop 클러스터의 가용성 및 안정성
 
@@ -64,7 +64,7 @@ Nimbus 노드는 Apache Storm 클러스터와 함께 사용할 수 있습니다.
 
 공용 게이트웨이를 통한 액세스는 포트 443 (HTTPS), 22, 23으로 제한 됩니다.
 
-|Port |Description |
+|포트 |Description |
 |---|---|
 |443|헤드 노드에서 호스트 되는 Ambari 및 기타 웹 UI 또는 REST Api에 액세스 하는 데 사용 됩니다.|
 |22|SSH를 사용 하 여 기본 헤드 노드 또는에 지 노드에 액세스 하는 데 사용 됩니다.|
@@ -248,7 +248,7 @@ SSH를 통해 헤드 노드에 연결된 동안에는 **/var/log**에서 로그 
     cd /var/log/hadoop/hdfs
     get *
 
-사용 가능한 명령 목록의 경우 `sftp>` 프롬프트에 `help`을 입력합니다.
+사용 가능한 명령 목록의 경우 `help` 프롬프트에 `sftp>`을 입력합니다.
 
 > [!NOTE]  
 > 또한 SFTP를 사용하여 연결하는 경우 파일 시스템을 시각화할 수 있는 그래픽 인터페이스가 있습니다. 예를 들어 [MobaXTerm](https://mobaxterm.mobatek.net/)을 사용하면 Windows 탐색기와 비슷한 인터페이스를 사용하는 파일 시스템을 찾아볼 수 있습니다.
@@ -270,7 +270,7 @@ Ambari 웹 UI에서 로그를 보려는 서비스(예: YARN)를 선택합니다.
 
 * **Azure Portal**: 클러스터를 만들 때 클러스터에서 사용하는 노드의 크기를 설정할 수 있습니다.
 
-    ![노드 크기 선택이 포함된 클러스터 만들기 마법사의 이미지](./media/hdinsight-high-availability-linux/hdinsight-headnodesize.png)
+    ![노드 크기 선택이 포함된 클러스터 만들기 마법사의 이미지](./media/hdinsight-high-availability-linux/azure-portal-cluster-configuration-pricing-hadoop.png)
 
 * **Azure CLI**: [`az hdinsight create`](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-create) 명령을 사용할 때 `--headnode-size`, `--workernode-size`및 `--zookeepernode-size` 매개 변수를 사용 하 여 헤드, 작업자 및 사육 아웃 노드의 크기를 설정할 수 있습니다.
 

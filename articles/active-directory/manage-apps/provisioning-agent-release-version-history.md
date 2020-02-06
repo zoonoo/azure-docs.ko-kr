@@ -1,5 +1,5 @@
 ---
-title: '프로 비전 에이전트 Azure AD Connect: 버전 릴리스 내역 | Microsoft Docs'
+title: 'Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록 | Microsoft Docs'
 description: 이 문서에서는 Azure AD Connect 프로 비전 에이전트의 모든 릴리스를 나열 하 고 새로운 기능 및 해결 된 문제에 대해 설명 합니다.
 services: active-directory
 documentationcenter: ''
@@ -12,21 +12,32 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 04/05/2019
+ms.date: 02/04/2020
 ms.subservice: app-mgmt
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2ce9549765f6a912b3e95f99d11da20347b82ad8
-ms.sourcegitcommit: e9936171586b8d04b67457789ae7d530ec8deebe
+ms.openlocfilehash: cac9eac2d17fa0a4f1db487d4c7f8beb67de24a9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/27/2019
-ms.locfileid: "71326456"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030683"
 ---
-# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>프로 비전 에이전트 Azure AD Connect: 버전 릴리스 내역
+# <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory Connect 프로 비전 에이전트의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 프로 비전 에이전트를 정기적으로 업데이트 합니다. 프로 비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
 최신 기능과 버그 수정이 있는지 확인 하기 위해 에이전트에 대해 자동 업데이트를 사용 하도록 설정 하는 것이 좋습니다. Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합니다.
+
+## <a name="11960"></a>1.1.96.0
+
+### <a name="release-status"></a>릴리스 상태
+
+2019 년 12 월 4 일: 다운로드를 위해 릴리스 됨
+
+### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
+
+* 사용자를 동기화 하 고 온-프레미스 Active Directory에서 Azure AD로 데이터를 연결 하는 [클라우드 프로 비전 Azure AD Connect](../cloud-provisioning/what-is-cloud-provisioning.md) 지원 합니다.
+
 
 ## <a name="11670"></a>1.1.67.0
 
@@ -49,7 +60,7 @@ ms.locfileid: "71326456"
 
 ### <a name="release-status"></a>릴리스 상태
 
-2019 년 1 월 23 일: 다운로드용으로 릴리스됨
+2019 년 1 월 23 일: 다운로드를 위해 릴리스
 
 ### <a name="new-features-and-improvements"></a>새로운 기능 및 향상 기능
 

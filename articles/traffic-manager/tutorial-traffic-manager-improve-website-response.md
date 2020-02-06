@@ -2,7 +2,7 @@
 title: 자습서 - Traffic Manager를 사용하여 웹 사이트 응답 향상
 description: 이 자습서에서는 Traffic Manager 프로필을 만들어서 응답 속도가 빠른 웹 사이트를 구축하는 방법을 설명합니다.
 services: traffic-manager
-author: asudbring
+author: rohinkoul
 Customer intent: As an IT Admin, I want to route traffic so I can improve website response by choosing the endpoint with lowest latency.
 ms.service: traffic-manager
 ms.devlang: na
@@ -10,19 +10,19 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 07/23/2018
-ms.author: allensu
-ms.openlocfilehash: 3686e9a7d82f8134b44cd40468c5e430eb2e72f3
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: 9027b1574144e2addbc84fceb16deba9014826fe
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74422851"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76938403"
 ---
 # <a name="tutorial-improve-website-response-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 웹 응답 개선
 
 이 자습서에서는 Traffic Manager를 사용하여 대기 시간이 가장 짧은 웹 사이트로 사용자 트래픽을 향하게 하여 반응 속도가 빠른 웹 사이트를 만드는 방법을 설명합니다. 일반적으로 대기 시간이 가장 짧은 데이터 센터는 지리적으로 가장 가까운 데이터 센터입니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * IIS에서 기본 웹 사이트를 실행하는 두 개의 VM 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "74422851"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음 항목을 배포해야 합니다.
 
@@ -43,13 +43,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
 두 개의 Azure 영역에서 Traffic Manager 프로필에 대한 두 개의 서비스 엔드포인트를 제공하는 두 개의 웹 사이트 인스턴스를 만듭니다. 두 개의 웹 사이트를 만드는 과정에는 다음 단계가 포함됩니다.
 
-1. 기본 웹 사이트를 실행하기 위한 두 개의 VM 만들기 - **미국 동부**에 하나와 **유럽 서부**에 다른 하나.
+1. 기본 웹 사이트를 실행하기 위한 두 개의 VM 만들기 - **미국 동부**에 하나와 **서유럽**에 다른 하나.
 2. 각 VM에 IIS 서버를 설치하고 웹 사이트를 방문할 때 사용자가 연결되는 VM 이름을 설명하는 기본 웹 사이트 페이지를 업데이트합니다.
 
 #### <a name="create-vms-for-running-websites"></a>웹 사이트 운영을 위한 VM 만들기
@@ -141,7 +141,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | 속성                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **성능** 라우팅 방법을 선택합니다.                                       |
     | Subscription            | 구독을 선택합니다.                          |
     | Resource group          | *myResourceGroupTM1* 리소스 그룹을 선택합니다. |
@@ -161,7 +161,7 @@ IIS 서버를 실행하는 *myIISVMEastUS* & *myIISVMWestEurope*의 두 VM을 �
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Type                    | Azure 엔드포인트                                   |
-    | Name           | myEastUSEndpoint                                        |
+    | 속성           | myEastUSEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | **공용 IP 주소를 선택**하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
     |        |           |

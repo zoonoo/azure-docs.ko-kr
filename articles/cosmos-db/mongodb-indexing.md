@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/26/2018
 author: sivethe
 ms.author: sivethe
-ms.openlocfilehash: e51e96c0c553bcf37284878cab11f3ec592ddd05
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: c8879884cf3d882e6a6b441244ed139072bedeeb
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72753386"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029472"
 ---
 # <a name="indexing-using-azure-cosmos-dbs-api-for-mongodb"></a>Azure Cosmos DB의 API for MongoDB를 사용하는 인덱싱
 
@@ -25,13 +25,96 @@ Azure Cosmos DB의 API for MongoDB는 Cosmos DB의 자동 인덱스 관리 기�
 
 ### <a name="dropping-the-default-indexes-36"></a>기본 인덱스 삭제 (3.6)
 
-유선 프로토콜 버전 3.6을 처리 하는 계정의 경우 유일한 기본 인덱스는 _id 이며 삭제할 수 없습니다.
+유선 프로토콜 버전 3.6을 처리 하는 계정의 경우 유일한 기본 인덱스는 _id 되며, 삭제할 수 없습니다.
 
 ### <a name="creating-a-compound-index-36"></a>복합 인덱스 만들기 (3.6)
 
 진정한 복합 인덱스는 3.6 유선 프로토콜을 사용 하는 계정에 대해 지원 됩니다. 다음 명령에서는 ' a ' 및 ' b ' 필드에 복합 인덱스를 만듭니다. `db.coll.createIndex({a:1,b:1})`
 
 복합 인덱스는 다음과 같이 한 번에 여러 필드를 효율적으로 정렬 하는 데 사용할 수 있습니다 `db.coll.find().sort({a:1,b:1})`
+
+### <a name="track-the-index-progress"></a>인덱스 진행률 추적
+
+MongoDB 계정에 대 한 Azure Cosmos DB의 API 3.6 버전은 데이터베이스 인스턴스의 인덱스 진행률을 추적 하는 `currentOp()` 명령을 지원 합니다. 이 명령은 데이터베이스 인스턴스의 진행 중인 작업에 대 한 정보가 포함 된 문서를 반환 합니다. `currentOp` 명령은 기본 MongoDB의 모든 진행 중인 작업을 추적 하는 데 사용 되는 반면, MongoDB에 대 한 Azure Cosmos DB의 API에서이 명령은 인덱스 작업 추적만 지원 합니다.
+
+`currentOp` 명령을 사용 하 여 인덱스 진행률을 추적 하는 방법을 보여 주는 몇 가지 예는 다음과 같습니다.
+
+• 컬렉션의 인덱스 진행률 가져오기:
+
+   ```shell
+   db.currentOp({"command.createIndexes": <collectionName>, "command.$db": <databaseName>})
+   ```
+
+• 데이터베이스의 모든 컬렉션에 대 한 인덱스 진행률을 가져옵니다.
+
+  ```shell
+  db.currentOp({"command.$db": <databaseName>})
+  ```
+
+• Azure Cosmos 계정에 있는 모든 데이터베이스 및 컬렉션에 대 한 인덱스 진행률을 가져옵니다.
+
+  ```shell
+  db.currentOp({"command.createIndexes": { $exists : true } })
+  ```
+
+인덱스 진행률 세부 정보에는 현재 인덱스 작업에 대 한 진행률 비율이 포함 됩니다. 다음 예에서는 다양 한 인덱스 진행률 단계에 대 한 출력 문서 형식을 보여 줍니다.
+
+1. 60% 인덱싱이 완료 된 ' foo ' 컬렉션과 ' bar ' 데이터베이스에 대 한 인덱스 작업이 다음 출력 문서를 포함 하는 경우 `Inprog[0].progress.total`는 대상 완료로 100를 표시 합니다.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 60 %",
+                "progress" : {
+                        "done" : 60,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+        "ok" : 1
+   }
+   ```
+
+2. ' Foo ' 컬렉션과 ' bar ' 데이터베이스에서 방금 시작한 인덱스 작업의 경우 측정 가능한 수준에 도달할 때까지 출력 문서에 0% 진행률이 표시 될 수 있습니다.
+
+   ```json
+   {
+        "inprog" : [
+        {
+                ………………...
+                "command" : {
+                        "createIndexes" : foo
+                        "indexes" :[ ],
+                        "$db" : bar
+                },
+                "msg" : "Index Build (background) Index Build (background): 0 %",
+                "progress" : {
+                        "done" : 0,
+                        "total" : 100
+                },
+                …………..…..
+        }
+        ],
+       "ok" : 1
+   }
+   ```
+
+3. 진행 중인 인덱스 작업이 완료 되 면 출력 문서에 빈 inprog 작업이 표시 됩니다.
+
+   ```json
+   {
+      "inprog" : [],
+      "ok" : 1
+   }
+   ```
 
 ## <a name="indexing-for-version-32"></a>버전 3.2에 대 한 인덱싱
 

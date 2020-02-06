@@ -10,18 +10,18 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: chlound
-ms.openlocfilehash: 837d62784a56ad0f17471cca5a660819d4a83e12
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ca2ea6a45bdf37f15f2ab4fd9c685f11f6d7f64
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926768"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031495"
 ---
 # <a name="use-azure-key-vault-secrets-in-pipeline-activities"></a>파이프라인 작업에서 Azure Key Vault 비밀 사용
 
 Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프라인 실행 중에 사용 하 여 작업에 전달할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 기능은 데이터 팩터리 관리 id에 의존 합니다.  [Data Factory에 대 한 관리 id](https://docs.microsoft.com/azure/data-factory/data-factory-service-identity) 에서 작동 하는 방식에 대해 알아보고 데이터 팩터리가 연결 된 것이 있는지 확인 합니다.
 
@@ -47,12 +47,12 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
 
 4. Data Factory 파이프라인에서 새 웹 활동을 추가 하 고 다음과 같이 구성 합니다.  
 
-    |자산  |Value  |
+    |속성  |값  |
     |---------|---------|
-    |보안 출력     |참         |
+    |보안 출력     |True         |
     |URL     |[사용자의 비밀 URI 값]? api-version = 7.0         |
     |방법     |GET         |
-    |Authentication     |MSI         |
+    |인증     |MSI         |
     |리소스        |https://vault.azure.net       |
 
     ![웹 활동](media/how-to-use-azure-key-vault-secrets-pipeline-activities/webactivity.png)
@@ -63,7 +63,7 @@ Azure Key Vault에 자격 증명 또는 암호 값을 저장 하 고 파이프�
     > [!CAUTION]
     > 보안 출력 옵션을 true로 설정 하 여 비밀 값이 일반 텍스트로 기록 되지 않도록 합니다.  이 값을 사용 하는 추가 활동의 경우 보안 입력 옵션을 true로 설정 해야 합니다.
 
-5. 다른 작업의 값을 사용 하려면 다음 코드 식을 사용 합니다 **("web").@activity)** .
+5. 다른 작업의 값을 사용 하려면 다음 코드 식을 사용 합니다. **("web").@activity**
 
     ![코드 식](media/how-to-use-azure-key-vault-secrets-pipeline-activities/usewebactivity.png)
 

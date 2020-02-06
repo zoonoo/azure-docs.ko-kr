@@ -7,114 +7,64 @@ author: kromerm
 manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
-ms.custom: seo-lt-2019
-ms.date: 12/19/2019
-ms.openlocfilehash: 06746cfc3b39a242c16a6b4f4c95b3c212a9abd5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/04/2020
+ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443943"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029523"
 ---
-# <a name="troubleshoot-azure-data-factory-data-flows"></a>데이터 흐름 Azure Data Factory 문제 해결
+# <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Azure Data Factory 데이터 흐름 문제 해결
 
 이 문서에서는 Azure Data Factory의 데이터 흐름에 대 한 일반적인 문제 해결 방법을 살펴봅니다.
 
 ## <a name="common-errors-and-messages"></a>일반적인 오류 및 메시지
 
-### <a name="error-message-df-sys-01-shadeddatabricksorgapachehadoopfsazureazureexception-commicrosoftazurestoragestorageexception-the-specified-container-does-not-exist"></a>오류 메시지: DF-SYS-01: databricks:. n a m e. n a m e. StorageException: 지정 된 컨테이너가 없습니다.
-
-- **증상**: 컨테이너가 없으므로 데이터 미리 보기, 디버그 및 파이프라인 데이터 흐름 실행이 실패 합니다.
-
+### <a name="error-code-df-executor-sourceinvalidpayload"></a>오류 코드: DF-실행자-SourceInvalidPayload
+- **메시지**: 컨테이너가 없으므로 데이터 미리 보기, 디버그 및 파이프라인 데이터 흐름을 실행 하지 못했습니다.
 - **원인**: 데이터 집합에 저장소에 없는 컨테이너가 포함 된 경우
+- **권장 사항**: 데이터 집합에서 참조 되는 컨테이너가 존재 하거나 액세스할 수 있는지 확인 합니다.
 
-- **해결**방법: 데이터 집합에서 참조 하는 컨테이너가 있는지 확인 합니다.
+### <a name="error-code-df-executor-systemimplicitcartesian"></a>오류 코드: DF-SystemImplicitCartesian
 
-### <a name="error-message-df-sys-01-javalangassertionerror-assertion-failed-conflicting-directory-structures-detected-suspicious-paths"></a>오류 메시지: DF-SYS-01: AssertionError: assertion failed: 충돌 하는 디렉터리 구조가 검색 되었습니다. 의심 스러운 경로
+- **메시지**: 내부 조인에 대 한 암시적 데카르트 제품은 지원 되지 않습니다. 대신 CROSS join을 사용 하십시오. 조인에 사용 되는 열은 행에 대 한 고유 키를 만들어야 합니다.
+- **원인**: 논리 요금제 간의 내부 조인에 대 한 암시적 직교 곱을 지원 하지 않습니다. 조인에 사용 된 열이 고유 키를 만드는 경우
+- **권장 사항**: 같지 않음 기반 조인의 경우 크로스 조인을 사용 하도록 선택 해야 합니다.
 
-- **증상**: Parquet 파일을 사용 하 여 소스 변환에서 와일드 카드를 사용 하는 경우
+### <a name="error-code-df-executor-systeminvalidjson"></a>오류 코드: DF-SystemInvalidJson
 
-- **원인**: 와일드 카드 구문이 잘못 되었거나 잘못 되었습니다.
+- **메시지**: JSON 구문 분석 오류, 지원 되지 않는 인코딩 또는 여러 줄
+- **원인**: json 파일의 가능한 문제: 지원 되지 않는 인코딩, 손상 된 바이트 또는 여러 중첩 된 줄에서 단일 문서로 json 원본 사용
+- **권장 사항**: JSON 파일의 인코딩이 지원 되는지 확인 합니다. JSON 데이터 집합을 사용 하는 원본 변환에서 ' JSON 설정 '을 확장 하 고 ' 단일 문서 '를 설정 합니다.
+ 
+### <a name="error-code-df-executor-broadcasttimeout"></a>오류 코드: DF-BroadcastTimeout
 
-- **해결**방법: 원본 변환 옵션에서 사용 중인 와일드 카드 구문을 확인 합니다.
+- **메시지**: 브로드캐스트 조인 시간 초과 오류, 브로드캐스트 스트림이 디버그 실행에서 60 초 내에 데이터를 생성 하 고 작업 실행에서 300 초 내에 데이터를 생성 하는지 확인 합니다.
+- **원인**: 브로드캐스트는 디버그 실행에서 기본 시간 제한이 60 초이 고 작업 실행에서 300 초입니다. 브로드캐스트에 대해 선택한 스트림은이 한도 내에 데이터를 생성 하는 데 너무 많은 것 같습니다.
+- **권장 사항**: 처리량이 60 초를 초과 하는 경우 대량 데이터 스트림을 브로드캐스트하는 것이 좋습니다. 대신 브로드캐스트할 더 작은 스트림을 선택 합니다. 일반적으로 규모가 많은 SQL/DW 테이블 및 소스 파일은 잘못 된 후보입니다.
 
-### <a name="error-message-df-src-002-container-container-name-is-required"></a>오류 메시지: DF-002: ' container ' (Container name)가 필요 합니다.
+### <a name="error-code-df-executor-conversion"></a>오류 코드: DF-변환
 
-- **증상**: 컨테이너가 없으므로 데이터 미리 보기, 디버그 및 파이프라인 데이터 흐름 실행이 실패 합니다.
+- **메시지**: 잘못 된 문자로 인해 날짜 또는 시간으로 변환 하지 못했습니다.
+- **원인**: 데이터가 예상 된 형식이 아닙니다.
+- **권장 사항**: 올바른 데이터 형식 사용
 
-- **원인**: 데이터 집합에 저장소에 없는 컨테이너가 포함 된 경우
+### <a name="error-code-df-executor-invalidcolumn"></a>오류 코드: DF-실행-InvalidColumn
 
-- **해결**방법: 데이터 집합에서 참조 하는 컨테이너가 있는지 확인 합니다.
-
-### <a name="error-message-df-uni-001-primarykeyvalue-has-incompatible-types-integertype-and-stringtype"></a>오류 메시지: DF-001: PrimaryKeyValue에 호환 되지 않는 형식 IntegerType 및 StringType이 있습니다.
-
-- **증상**: 컨테이너가 없으므로 데이터 미리 보기, 디버그 및 파이프라인 데이터 흐름 실행이 실패 합니다.
-
-- **원인**: 데이터베이스 싱크에 잘못 된 기본 키 유형을 삽입 하려고 할 때 발생 합니다.
-
-- **해결**방법: 파생 열을 사용 하 여 데이터 흐름의 기본 키에 사용 하는 열을 대상 데이터베이스의 데이터 형식과 일치 시킵니다.
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-the-tcpip-connection-to-the-host-xxxxxdatabasewindowsnet-port-1433-has-failed-error-xxxxdatabasewindowsnet-verify-the-connection-properties-make-sure-that-an-instance-of-sql-server-is-running-on-the-host-and-accepting-tcpip-connections-at-the-port-make-sure-that-tcp-connections-to-the-port-are-not-blocked-by-a-firewall"></a>오류 메시지: DF-SYS-01: SQLServerException: 호스트 xxxxx.database.windows.net 포트 1433에 대 한 TCP/IP 연결이 실패 했습니다. 오류: "xxxx.database.windows.net. 연결 속성을 확인 합니다. SQL Server 인스턴스가 호스트에서 실행 되 고 포트에서 TCP/IP 연결을 허용 하는지 확인 합니다. 포트에 대 한 TCP 연결이 방화벽에 의해 차단 되지 않는지 확인 하십시오. "
-
-- **증상**: 데이터베이스 원본 또는 싱크를 사용 하 여 데이터를 미리 보거나 파이프라인을 실행할 수 없습니다.
-
-- **원인**: 데이터베이스가 방화벽으로 보호 됩니다.
-
-- **해결**방법: 데이터베이스에 대 한 방화벽 액세스를 엽니다.
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-there-is-already-an-object-named-xxxxxx-in-the-database"></a>오류 메시지: DF-SYS-01: SQLServerException: 데이터베이스에 이름이 ' xxxxxx ' 인 개체가 이미 있습니다.
-
-- **증상**: 싱크가 테이블을 만들지 못함
-
-- **원인**: 대상 데이터베이스에 원본 또는 데이터 집합에 정의 된 동일한 이름의 기존 테이블 이름이 이미 있습니다.
-
-- **해결**방법: 만들려는 테이블의 이름을 변경 합니다.
-
-### <a name="error-message-df-sys-01-commicrosoftsqlserverjdbcsqlserverexception-string-or-binary-data-would-be-truncated"></a>오류 메시지: DF-SYS-01: SQLServerException: 문자열 또는 이진 데이터가 잘립니다. 
-
-- **증상**: SQL 싱크에 데이터를 작성할 때 잘림 오류가 발생할 수 있는 파이프라인 실행에서 데이터 흐름이 실패 합니다.
-
-- **원인**: 데이터 흐름의 필드가 sql database의 열에 매핑되는 값을 저장 하기에 충분 하지 않아 sql 드라이버에서이 오류를 throw 합니다.
-
-- **해결**방법: 파생 열에 ```left()```를 사용 하 여 문자열 열의 데이터 길이를 줄이거나 ["error row" 패턴](how-to-data-flow-error-rows.md) 을 구현할 수 있습니다.
-
-### <a name="error-message-since-spark-23-the-queries-from-raw-jsoncsv-files-are-disallowed-when-the-referenced-columns-only-include-the-internal-corrupt-record-column"></a>오류 메시지: Spark 2.3부터 참조 되는 열에만 내부 손상 된 레코드 열이 포함 된 경우 원시 JSON/CSV 파일의 쿼리를 사용할 수 없습니다. 
-
-- **증상**: JSON 원본에서 읽기 실패
-
-- **원인**: 여러 중첩 된 줄에서 단일 문서를 사용 하 여 JSON 소스에서 읽을 때, ADF를 통해 ADF는 새 문서가 시작 되는 위치를 확인할 수 없으며 이전 문서가 종료 됩니다.
-
-- **해결**방법: json 데이터 집합을 사용 하는 원본 변환에서 "json 설정"을 확장 하 고 "단일 문서"를 설정 합니다.
-
-### <a name="error-message-duplicate-columns-found-in-join"></a>오류 메시지: 조인에 중복 된 열이 있습니다.
-
-- **증상**: 조인 변환이 왼쪽 및 오른쪽 모두의 열에서 중복 된 열 이름을 포함 하 고 있습니다.
-
-- **원인**: 조인 중인 스트림에 일반적인 열 이름이 있습니다.
-
-- **해결**방법: 조인 뒤에 선택 변환을 추가 하 고 입력 및 출력 모두에 대해 "중복 열 제거"를 선택 합니다.
-
-### <a name="error-message-possible-cartesian-product"></a>오류 메시지: 가능한 카티션 곱
-
-- **증상**: 조인 또는 조회 변환에서 데이터 흐름 실행 시 가능한 카티션 곱을 검색 했습니다.
-
-- **원인**: 크로스 조인을 사용 하도록 ADF에 명시적으로 지시 하지 않은 경우 데이터 흐름이 실패할 수 있습니다.
-
-- **해결**방법: 사용자 지정 cross join을 사용 하 여 조회 또는 조인 변환을 조인으로 변경 하 고 식 편집기에서 조회 또는 조인 조건을 입력 합니다. 전체 카티션 곱을 명시적으로 생성 하려면 조인 앞에 있는 두 개의 독립 스트림에서 파생 열 변환을 사용 하 여 일치 시킬 가상 키를 만들어야 합니다. 예를 들어 ```SyntheticKey``` 이라는 각 스트림의 파생 열에 새 열을 만들고 ```1```같도록 설정 합니다. 그런 다음 사용자 지정 조인 식으로 ```a.SyntheticKey == b.SyntheticKey```를 사용 합니다.
-
-> [!NOTE]
-> 사용자 지정 크로스 조인에서 왼쪽 및 오른쪽 관계의 양쪽에 있는 하나 이상의 열을 포함 해야 합니다. 각 쪽의 열 대신 정적 값을 사용 하 여 크로스 조인을 실행 하면 전체 데이터 집합을 전체 검색 하 여 데이터 흐름이 제대로 수행 되지 않게 됩니다.
+- **메시지**: 쿼리에 열 이름을 지정 해야 합니다. SQL 함수를 사용 하는 경우 별칭을 설정 합니다.
+- **원인**: 열 이름이 지정 되지 않았습니다.
+- **권장 사항**: min ()/max () 등의 SQL 함수를 사용 하는 경우 별칭을 설정 합니다.
 
 ## <a name="general-troubleshooting-guidance"></a>일반 문제 해결 지침
 
 1. 데이터 집합 연결의 상태를 확인 합니다. 각 원본 및 싱크 변환에서 사용 중인 각 데이터 집합에 대 한 연결 된 서비스를 방문 하 고 연결을 테스트 합니다.
-2. 데이터 흐름 디자이너에서 파일 및 테이블 연결의 상태를 확인 합니다. 디버그를 전환 하 고 원본 변환에서 데이터 미리 보기를 클릭 하 여 데이터에 액세스할 수 있는지 확인 합니다.
-3. 모든 항목이 데이터 미리 보기에서 양호 하면 파이프라인 디자이너로 이동 하 여 파이프라인 활동에 데이터 흐름을 배치 합니다. 종단 간 테스트를 위한 파이프라인을 디버깅 합니다.
+1. 데이터 흐름 디자이너에서 파일 및 테이블 연결의 상태를 확인 합니다. 디버그를 전환 하 고 원본 변환에서 데이터 미리 보기를 클릭 하 여 데이터에 액세스할 수 있는지 확인 합니다.
+1. 모든 항목이 데이터 미리 보기에서 양호 하면 파이프라인 디자이너로 이동 하 여 파이프라인 활동에 데이터 흐름을 배치 합니다. 종단 간 테스트를 위한 파이프라인을 디버깅 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 문제 해결에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
-
 *  [Data Factory 블로그](https://azure.microsoft.com/blog/tag/azure-data-factory/)
 *  [Data Factory 기능 요청](https://feedback.azure.com/forums/270578-data-factory)
 *  [Azure 비디오](https://azure.microsoft.com/resources/videos/index/?sort=newest&services=data-factory)

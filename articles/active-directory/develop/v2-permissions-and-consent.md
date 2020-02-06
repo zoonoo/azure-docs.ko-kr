@@ -17,12 +17,12 @@ ms.date: 1/3/2020
 ms.author: ryanwi
 ms.reviewer: hirsin, jesakowi, jmprieur
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 567df85fa634570b0ac04fe6da906776a74c0550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e673c2dfd9b3bef6d443498fc96a8c71e0737851
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76833349"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030764"
 ---
 # <a name="permissions-and-consent-in-the-microsoft-identity-platform-endpoint"></a>Microsoft ID 플랫폼 엔드포인트의 권한 및 동의
 
@@ -59,7 +59,7 @@ OAuth 2.0에서는 이러한 유형의 사용 권한을 *범위*라고 합니다
 * `Calendars.ReadWrite`를 사용하여 사용자의 일정 쓰기
 * `Mail.Send`을 사용하여 사용자로 메일 보내기
 
-앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 자세히 알아보려면 계속 읽어보세요.
+앱은 가장 일반적으로 Microsoft id 플랫폼 권한 부여 끝점에 대 한 요청에 범위를 지정 하 여 이러한 사용 권한을 요청 합니다. 그러나 특정 권한이 높은 권한은 관리자 동의를 통해서만 부여할 수 있으며 [관리자 동의 끝점](v2-permissions-and-consent.md#admin-restricted-permissions)을 사용 하 여 요청/부여할 수 있습니다. 더 알아보려면 계속 읽어 보세요.
 
 ## <a name="permission-types"></a>사용 권한 유형
 
@@ -204,7 +204,7 @@ Microsoft 에코시스템에서 일부 높은 수준 사용 권한을 *관리 �
 
 | 매개 변수     | 조건     | Description                                                                               |
 |:--------------|:--------------|:-----------------------------------------------------------------------------------------|
-| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. GUID에서 제공한 이름이거나, 친근한 이름 형식이거나, 예제에서처럼 `common`으로 일반 참조될 수 있습니다. |
+| `tenant` | 필수 | 사용 권한을 요청하려는 디렉터리 테넌트입니다. 는 GUID 또는 친숙 한 이름 형식으로 제공 하거나 예에 표시 된 대로 조직에서 일반적으로 참조할 수 있습니다. 개인 계정에서는 테 넌 트의 컨텍스트를 제외 하 고 관리자 동의를 제공할 수 없으므로 ' 공통 '을 사용 하지 마세요. 테 넌 트를 관리 하는 개인 계정과 가장 잘 호환 되도록 하려면 가능 하면 테 넌 트 ID를 사용 합니다. |
 | `client_id` | 필수 | [Azure Portal – 앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 앱에 할당 한 **응용 프로그램 (클라이언트) ID** 입니다. |
 | `redirect_uri` | 필수 |리디렉션 URI는 처리할 앱에 응답을 전송하려는 위치입니다. 앱 등록 포털에 등록한 리디렉션 URI 중 하나와 정확히 일치해야 합니다. |
 | `state` | 권장 | 토큰 응답에도 반환되는 요청에 포함된 값입니다. 원하는 모든 콘텐츠의 문자열일 수 있습니다. 상태를 사용하여 인증 요청이 발생하기 전에 앱에서 사용자 상태에 대한 정보(예: 사용한 페이지 또는 보기)를 인코딩할 수 있습니다. |

@@ -11,12 +11,12 @@ ms.reviewer: ''
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 01/09/2019
-ms.openlocfilehash: fc38dce3deaa601c9ed36f60439a08bb89cc7630
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 1cc5932eca520b0bbc0c592b54d36ea8b5942b08
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75646900"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031632"
 ---
 # <a name="source-control-in-azure-data-factory"></a>Azure Data Factory의 소스 제어
 
@@ -157,7 +157,7 @@ Azure Data Factory UX 제작 캔버스에서 **Data Factory** 드롭다운 메�
 
 - Data Factory 비주얼 제작 도구와 GitHub 통합은 일반적으로 사용할 수 있는 Data Factory 버전 에서만 작동 합니다.
 
-- 단일 GitHub 분기에서 리소스 유형 (예: 파이프라인 및 데이터 집합) 당 최대 1000 개의 엔터티를 가져올 수 있습니다. 이 한도에 도달 하면 리소스를 별도의 팩터리에 분할 하는 것이 좋습니다.
+- 단일 GitHub 분기에서 리소스 유형 (예: 파이프라인 및 데이터 집합) 당 최대 1000 개의 엔터티를 가져올 수 있습니다. 이 한도에 도달 하면 리소스를 별도의 팩터리에 분할 하는 것이 좋습니다. Azure DevOps Git에는 이러한 제한이 없습니다.
 
 ## <a name="switch-to-a-different-git-repo"></a>다른 Git 리포지토리로 전환
 
@@ -187,7 +187,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ### <a name="configure-publishing-settings"></a>게시 설정 구성
 
-게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 예:
+게시 분기(Resource Manager 템플릿이 저장되는 분기)를 구성하려면 협업 분기의 루트 폴더에 `publish_config.json` 파일을 추가합니다. Data Factory는 이 파일을 읽고 `publishBranch` 필드를 찾은 다음 제공된 값을 사용하여 새 분기(없는 경우)를 만듭니다. 그런 다음 지정된 위치에 모든 Resource Manager 템플릿을 저장합니다. 다음은 그 예입니다.
 
 ```json
 {
@@ -226,7 +226,7 @@ _원본 제어_라고도 하는 버전 제어 시스템을 통해 개발자는 �
 
 ## <a name="best-practices-for-git-integration"></a>Git 통합에 대한 모범 사례
 
-### <a name="permissions"></a>권한
+### <a name="permissions"></a>사용 권한
 
 일반적으로 모든 팀 멤버에 게 팩터리를 업데이트할 수 있는 권한이 필요 하지 않습니다. 다음 사용 권한 설정을 사용 하는 것이 좋습니다.
 
@@ -249,13 +249,18 @@ Azure Key Vault를 사용 하 여 Data Factory 연결 된 서비스에 대 한 �
 
 1. 현재 Git 리포지토리 제거
 1. 동일한 설정으로 Git를 다시 구성 하지만 **기존 Data Factory 리소스를 리포지토리로 가져오기** 가 선택 되어 있는지 확인 하 고 **새 분기** 를 선택 합니다.
-1. 공동 작업 분기에서 모든 리소스 삭제
 1. 변경 내용을 공동 작업 분기에 병합 하는 끌어오기 요청 만들기 
 
-## <a name="provide-feedback"></a>피드백 제공하기
+다음은 오래 된 게시 분기를 발생 시킬 수 있는 상황에 대 한 몇 가지 예입니다.
+- 사용자에 게 분기가 여러 개 있습니다. 하나의 기능 분기에서는 AKV 연결 되지 않은 연결 된 서비스를 삭제 했습니다. (AKV 연결 된 서비스는 Git에 있는지 여부에 관계 없이 즉시 게시 되며) 기능 분기를 공동 작업 brnach으로 병합 하지 않습니다.
+- 사용자가 SDK 또는 PowerShell을 사용 하 여 데이터 팩터리를 수정 했습니다.
+- 사용자가 모든 리소스를 새 분기로 이동 하 고 처음으로 게시 하려고 했습니다. 리소스를 가져올 때 연결 된 서비스를 수동으로 만들어야 합니다.
+- 사용자가 AKV 연결 되지 않은 서비스 또는 Integration Runtime JSON을 수동으로 업로드 합니다. 데이터 집합, 연결 된 서비스 또는 파이프라인과 같은 다른 리소스에서 해당 리소스를 참조 합니다. UX를 통해 만든 AKV 연결 되지 않은 서비스는 자격 증명을 암호화 해야 하기 때문에 즉시 게시 됩니다. 연결 된 서비스를 참조 하는 데이터 집합을 업로드 하 고 게시 하려고 하면 UX는 git 환경에 존재 하므로이를 허용 합니다. 데이터 팩터리 서비스에 존재 하지 않기 때문에 게시 시간에 거부 됩니다.
+
+## <a name="provide-feedback"></a>피드백 제공
 기능에 대한 의견을 남기거나 Microsoft에 도구 관련 문제를 알리려면 **피드백**을 선택하세요.
 
-![피드백](media/author-visually/provide-feedback.png)
+![사용자 의견](media/author-visually/provide-feedback.png)
 
 ## <a name="next-steps"></a>다음 단계
 

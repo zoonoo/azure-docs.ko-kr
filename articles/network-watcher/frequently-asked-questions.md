@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/10/2019
 ms.author: damendo
-ms.openlocfilehash: 1cc3664ff8472a6b5a73fa89588611f59ac27e6a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: de644e49d998ad260532078de5c93c482cbc6fbc
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720272"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029494"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-network-watcher"></a>Azure Network Watcher에 대 한 FAQ (질문과 대답)
 [Azure Network Watcher](https://docs.microsoft.com/azure/network-watcher/network-watcher-monitoring-overview) 서비스는 azure 가상 네트워크에서 리소스에 대 한 로그를 모니터링 하 고, 진단 하 고, 보고, 사용 하거나 사용 하지 않도록 설정 하는 도구 모음을 제공 합니다. 이 문서에서는 서비스에 대 한 일반적인 질문에 답변 합니다.
@@ -54,17 +54,29 @@ Network Watcher 구성 요소 및 가격 책정에 대 한 [가격 책정 페이
 ### <a name="which-regions-is-network-watcher-supportedavailable-in"></a>Network Watcher 지원/사용할 수 있는 지역은 어디 인가요?
 [Azure 서비스 가용성 페이지](https://azure.microsoft.com/global-infrastructure/services/?products=network-watcher) 에서 최신 지역의 가용성을 확인할 수 있습니다.
 
-### <a name="what-are-resource-limits-on-network-watcher"></a>Network Watcher에 대 한 리소스 제한은 무엇 인가요?
-모든 제한에 대해서는 [서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) 페이지를 참조 하세요.  
+### <a name="which-permissions-are-needed-to-use-network-watcher"></a>Network Watcher를 사용 하는 데 필요한 권한은 무엇입니까?
+[Network Watcher를 사용 하는 데 필요한 RBAC 권한](https://docs.microsoft.com/azure/network-watcher/required-rbac-permissions)목록을 참조 하세요. 리소스를 배포 하는 경우 NetworkWatcherRG에 대 한 참가자 권한이 필요 합니다 (아래 참조).
 
-### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>지역별 Network Watcher 인스턴스는 하나만 허용 되는 이유는 무엇 인가요?
-Network Watcher 작동 하는 기능에 대 한 구독에 대해 한 번만 사용 하도록 설정 해야 하는 것은 서비스 제한이 아닙니다.
+### <a name="how-do-i-enable-network-watcher"></a>Network Watcher를 사용하도록 설정하려면 어떻게 해야 하나요?
+Network Watcher 서비스는 모든 구독에 대해 [자동으로 사용 하도록 설정](https://azure.microsoft.com/updates/azure-network-watcher-will-be-enabled-by-default-for-subscriptions-containing-virtual-networks/) 됩니다.
+
+### <a name="what-is-the-network-watcher-deployment-model"></a>Network Watcher 배포 모델은 무엇 인가요?
+Network Watcher 부모 리소스는 모든 지역에 고유한 인스턴스를 사용 하 여 배포 됩니다. 이름 지정 형식: NetworkWatcher_RegionName. 예: NetworkWatcher_centralus은 "미국 중부" 지역에 대 한 Network Watcher 리소스입니다.
+
+### <a name="what-is-the-networkwatcherrg"></a>NetworkWatcherRG 무엇 인가요?
+Network Watcher 리소스는 자동으로 생성 되는 hidden **NetworkWatcherRG** 리소스 그룹에 있습니다. 예를 들어 NSG 흐름 로그 리소스는 Network Watcher의 자식 리소스 이며 NetworkWatcherRG에서 사용 하도록 설정 됩니다.
 
 ### <a name="why-do-i-need-to-install-the-network-watcher-extension"></a>Network Watcher 확장을 설치 해야 하는 이유는 무엇 인가요? 
 Network Watcher 확장은 VM에서 트래픽을 생성 하거나 가로채는 데 필요한 모든 기능에 필요 합니다. 
 
 ### <a name="which-features-require-the-network-watcher-extension"></a>Network Watcher 확장이 필요한 기능은 무엇입니까?
-패킷 캡처, 연결 문제 해결 및 연결 모니터에만 Network Watcher 확장이 있어야 합니다.
+패킷 캡처, 연결 문제 해결 및 연결 모니터 기능을 설치 하려면 Network Watcher 확장이 필요 합니다.
+
+### <a name="what-are-resource-limits-on-network-watcher"></a>Network Watcher에 대 한 리소스 제한은 무엇 인가요?
+모든 제한에 대해서는 [서비스 제한](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits#network-watcher-limits) 페이지를 참조 하세요.  
+
+### <a name="why-is-only-one-instance-of-network-watcher-allowed-per-region"></a>지역별 Network Watcher 인스턴스는 하나만 허용 되는 이유는 무엇 인가요?
+Network Watcher 작동 하는 기능에 대 한 구독에 대해 한 번만 사용 하도록 설정 해야 하는 것은 서비스 제한이 아닙니다.
 
 ## <a name="nsg-flow-logs"></a>NSG 흐름 로그
 
@@ -85,7 +97,7 @@ Azure 네트워크 리소스는 [NSGs (네트워크 보안 그룹)](https://docs
 
 ### <a name="how-do-i-use-nsg-flow-logs-with-a-storage-account-behind-a-service-endpoint"></a>서비스 끝점 뒤의 저장소 계정으로 NSG 흐름 로그를 사용 어떻게 할까요??
 
-NSG 흐름 로그는 추가 구성을 요구 하지 않고 서비스 끝점에 대 한 것입니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) 를 참조 하세요.
+NSG 흐름 로그는 추가 구성이 필요 없이 서비스 끝점과 호환 됩니다. 가상 네트워크에서 [서비스 끝점을 사용 하도록 설정 하는 방법에 대 한 자습서](https://docs.microsoft.com/azure/virtual-network/tutorial-restrict-network-access-to-resources#enable-a-service-endpoint) 를 참조 하세요.
 
 
 ### <a name="what-is-the-difference-between-flow-logs-versions-1--2"></a>흐름 로그 버전 1 & 2의 차이점은 무엇 인가요?

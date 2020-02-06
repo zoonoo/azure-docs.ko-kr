@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 12/09/2019
-ms.openlocfilehash: 5ce8414376862b66314f754252aba3ab6afdaf25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 56c25b7c77809a5cb7f4e539cff8e1815cd9976f
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435313"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031711"
 ---
 # <a name="configure-storage-and-scalability-for-apache-kafka-on-hdinsight"></a>HDInsight에서 Apache Kafka에 대한 확장성 및 스토리지 구성
 
@@ -34,7 +34,7 @@ HDInsight의 Kafka는 HDInsight 클러스터에서 가상 머신의 로컬 디�
     > [!NOTE]  
     > 관리 디스크 유형은 __표준__ (HDD) 또는 __프리미엄__ (SSD)일 수 있습니다. 프리미엄 디스크는 DS 및 GS 시리즈 VM에 사용됩니다. 다른 모든 VM 유형은 표준을 사용합니다.
 
-    ![작업자 노드당 디스크가 강조 표시 된 클러스터 크기 섹션](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka.png)
+    ![작업자 노드당 디스크가 강조 표시 된 클러스터 크기 섹션](./media/apache-kafka-scalability/azure-portal-cluster-configuration-pricing-kafka-disks.png)
 
 ## <a name="configure-managed-disks-resource-manager-template"></a>관리 디스크 구성: Resource Manager 템플릿
 

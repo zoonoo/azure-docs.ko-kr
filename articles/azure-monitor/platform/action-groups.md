@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 8/19/2019
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: cc01145423d2961e32bf17313a2873633399d21a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901479"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030748"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -62,7 +62,7 @@ Azure 리소스 관리자 템플릿을 사용하여 작업 그룹을 구성하�
 
 ## <a name="manage-your-action-groups"></a>작업 그룹 관리
 
-작업 그룹을 만든 후에는 **모니터** 창의 **작업 그룹** 섹션에 표시 됩니다. 관리하려는 작업 그룹을 선택합니다.
+작업 그룹을 만든 후에는 **모니터** 창의 **경고** 방문 페이지에서 **작업 관리** 를 선택 하 여 **작업 그룹** 을 볼 수 있습니다. 관리하려는 작업 그룹을 선택합니다.
 
 * 작업을 추가, 편집 또는 제거합니다.
 * 작업 그룹을 삭제합니다.
@@ -80,7 +80,7 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-r
 ### <a name="azure-app-push-notifications"></a>Azure 앱 푸시 알림
 작업 그룹에 제한 된 수의 Azure 앱 작업이 있을 수 있습니다.
 
-### <a name="email"></a>이메일
+### <a name="email"></a>Email
 다음 이메일 주소에서 이메일이 전송됩니다. 이메일 필터링이 적절하게 구성되었는지 확인합니다.
 - azure-noreply@microsoft.com
 - azureemail-noreply@microsoft.com
@@ -111,7 +111,7 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
 
 작업 그룹 웹 후크 작업을 사용 하면 Azure Active Directory를 활용 하 여 작업 그룹과 보호 된 웹 API (웹 후크 끝점) 간의 연결을 보호할 수 있습니다. 이 기능을 활용 하는 전체 워크플로는 아래에 설명 되어 있습니다. Azure AD 응용 프로그램 및 서비스 주체에 대 한 개요는 v2.0 [(Microsoft identity platform) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조 하세요.
 
-1. 보호 된 web API에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview 를 참조하세요.
+1. 보호 된 web API에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview을 참조하세요.
     - 디먼 앱에서 호출 하도록 보호 된 API를 구성 합니다.
     
 1. Azure AD 응용 프로그램을 사용 하는 작업 그룹을 사용 하도록 설정 합니다.
@@ -197,7 +197,7 @@ Write-Host "My Azure AD Application's Roles"
 Write-Host $myApp.AppRoles
 ```
 
-### <a name="sms"></a>SMS
+### <a name="sms"></a>sms
 추가 중요 정보는 [요금 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 및 [SMS 경고 동작](../../azure-monitor/platform/alerts-sms-behavior.md) 을 참조 하세요.
 
 작업 그룹에서 제한 된 수의 SMS 작업이 있을 수 있습니다.  

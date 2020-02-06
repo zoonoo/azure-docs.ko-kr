@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/29/2019
-ms.openlocfilehash: b4550f55d160a77c2fb149dd509ca1cfad784f79
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: ba8a76cd4d3804bcb062ae0554e3fe7002804ed2
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513459"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031683"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -28,7 +28,7 @@ ms.locfileid: "76513459"
 
 이 문서의 나머지 부분에서는 이러한 대답에 대해 더 자세하게 설명합니다. 자체 포함되도록 설계되어 소속 팀에 속하지 않은 동료에게 표시할 수 있습니다.
 
-## <a name="what-is-application-insights"></a>Application Insights란 무엇인가요?
+## <a name="what-is-application-insights"></a>Application Insights란?
 [Azure 애플리케이션 Insights][start] 는 라이브 응용 프로그램의 성능과 유용성을 개선 하는 데 도움이 되는 Microsoft에서 제공 하는 서비스입니다. 테스트 중인 경우 및 게시하거나 배포한 후에 실행 중인 모든 시간 동안 애플리케이션을 모니터링합니다. 예를 들어 Application Insights는 많은 사용자를 가져오는 시간, 앱이 얼마나 반응하는지, 종속된 외부 서비스에서 얼마나 잘 제공되는지를 보여주는 차트 및 테이블을 만듭니다. 충돌, 오류 또는 성능 문제가 있는 경우 세부 정보에서 원격 분석 데이터를 통해 검색하여 원인을 진단할 수 있습니다. 그리고 앱의 성능과 가용성에 변경 사항이 있는 경우 서비스는 사용자에게 전자 메일을 보냅니다.
 
 이 기능을 가져오기 위해 애플리케이션에서 해당 코드의 일부가 되는 Application Insights SDK를 설치합니다. 앱이 실행 중일 때 SDK는 작업을 모니터링하고 Application Insights 서비스에 원격 분석을 보냅니다. [Microsoft Azure](https://azure.com)에서 호스팅하는 클라우드 서비스입니다. (하지만 Application Insights는 Azure에서 호스트 되는 응용 프로그램 뿐 아니라 모든 응용 프로그램에 대해 작동 합니다.)
@@ -52,7 +52,7 @@ Application Insights SDK는 사용자 고유의 Java EE 또는 ASP.NET 서버나
 ### <a name="what-kinds-of-data-are-collected"></a>어떤 종류의 데이터를 수집하나요?
 주요 범주는 다음과 같습니다.
 
-* [웹 서버 원격 분석](../../azure-monitor/app/asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. `Session id`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
+* [웹 서버 원격 분석](../../azure-monitor/app/asp-net.md) - HTTP가 요청합니다.  URI, 요청, 응답 코드, 클라이언트 IP 주소를 처리하는 데 걸린 시간입니다. `Session id`입니다.
 * [웹 페이지](../../azure-monitor/app/javascript.md) -페이지, 사용자 및 세션 수입니다. 페이지 로드 시간. 예외. Ajax 호출.
 * 성능 카운터 - 메모리, CPU, IO, 네트워크 선점입니다.
 * 클라이언트 및 서버 컨텍스트 - OS, 로캘, 디바이스 형식, 브라우저, 화면 해상도입니다.
@@ -98,7 +98,7 @@ Microsoft는 서비스를 제공하기 위한 목적으로만 데이터를 사�
 * 새 Application Insights 리소스를 만들 때 위치를 선택할 수 있습니다. 지역별 Application Insights 가용성에 대 한 자세한 내용은 [여기](https://azure.microsoft.com/global-infrastructure/services/?products=all)를 참조 하세요.
 
 #### <a name="does-that-mean-my-app-has-to-be-hosted-in-the-usa-europe-or-southeast-asia"></a>내 앱을 미국, 유럽 또는 동남 아시아에서 호스팅해야 함을 의미 하나요?
-* 아닙니다. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
+* 아니요. 애플리케이션은 자체 온-프레미스 호스트 또는 클라우드의 어디에서나 실행할 수 있습니다.
 
 ## <a name="how-secure-is-my-data"></a>내 데이터는 어느 정도 안전한가요?
 Application Insights는 Azure 서비스입니다. 보안 정책은 [Azure 보안, 개인 정보 보호 및 규정 준수 백서](https://go.microsoft.com/fwlink/?linkid=392408)에 설명되어 있습니다.
@@ -134,7 +134,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 `C:\Users\username\AppData\Local\Temp`는 데이터를 지속하는 데 사용됩니다. 이 위치는 구성 디렉터리에서 구성할 수 없으며 이 폴더에 대한 액세스 권한은 필수 자격 증명이 있는 특정 사용자로 제한됩니다. 자세한 내용은 [구현](https://github.com/Microsoft/ApplicationInsights-Java/blob/40809cb6857231e572309a5901e1227305c27c1a/core/src/main/java/com/microsoft/applicationinsights/internal/util/LocalFileSystemUtils.java#L48-L72)을 참조 하세요.
 
-###  <a name="net"></a>.NET
+###  <a name="net"></a>.Net
 
 기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 참조)
 
@@ -161,7 +161,7 @@ Microsoft 직원의 사용자 데이터에 대한 액세스는 제한되어 있�
 
 기본적으로 `ServerTelemetryChannel`은 현재 사용자의 로컬 앱 데이터 폴더 `%localAppData%\Microsoft\ApplicationInsights` 또는 임시 폴더`%TMP%`를 사용합니다. 여기에서 [구현](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/91e9c91fcea979b1eec4e31ba8e0fc683bf86802/src/ServerTelemetryChannel/Implementation/ApplicationFolderProvider.cs#L54-L84) 을 참조 하세요. Linux 환경에서는 저장소 폴더가 지정 되지 않은 경우 로컬 저장소를 사용할 수 없습니다.
 
-다음 코드 조각은 `Startup.cs` 클래스의 `ConfigureServices()` 메서드에서 `ServerTelemetryChannel.StorageFolder`를 설정하는 방법을 보여줍니다.
+다음 코드 조각은 `ServerTelemetryChannel.StorageFolder` 클래스의 `ConfigureServices()` 메서드에서 `Startup.cs`를 설정하는 방법을 보여줍니다.
 
 ```csharp
 services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {StorageFolder = "/tmp/myfolder"});
@@ -173,9 +173,20 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 
 기본적으로 `%TEMP%/appInsights-node{INSTRUMENTATION KEY}`이(가) 데이터를 지속하는 데 사용됩니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) 참조)
 
-[Sender.ts](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384)에 있는 정적 변수 `Sender.TEMPDIR_PREFIX`의 런타임 값을 변경하여 폴더 접두사 `appInsights-node`을(를) 재정의할 수 있습니다.
+`appInsights-node`Sender.ts`Sender.TEMPDIR_PREFIX`에 있는 정적 변수 [의 런타임 값을 변경하여 폴더 접두사 ](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384)을(를) 재정의할 수 있습니다.
 
+### <a name="opencensus-python"></a>OpenCensus Python
 
+기본적으로 OpenCensus Python SDK는 `%username%/.opencensus/.azure/`현재 사용자 폴더를 사용 합니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. 여기에서 [구현](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/storage.py) 을 참조 하세요. 지속형 데이터를 포함 하는 폴더는 원격 분석을 생성 한 Python 파일의 이름이 지정 됩니다.
+
+사용 중인 내보내기의 생성자에서 `storage_path` 매개 변수를 전달 하 여 저장소 파일의 위치를 변경할 수 있습니다.
+
+```python
+AzureLogHandler(
+  connection_string='InstrumentationKey=00000000-0000-0000-0000-000000000000',
+  storage_path='<your-path-here>',
+)
+```
 
 ## <a name="how-do-i-send-data-to-application-insights-using-tls-12"></a>TLS 1.2를 사용하여 데이터를 Application Insights에 보내려면 어떻게 할까요?
 
@@ -187,7 +198,7 @@ Application Insights 엔드포인트에 전송 중인 데이터를 보호하려�
 
 ### <a name="platformlanguage-specific-guidance"></a>플랫폼/언어 특정 지침
 
-|플랫폼/언어 | 지원 | 자세한 정보 |
+|플랫폼/언어 | 지원 | 추가 정보 |
 | --- | --- | --- |
 | Azure App Services  | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요.  |
 | Azure 함수 앱 | 지원됨, 구성이 필요할 수 있습니다. | 지원은 2018년 4월에 발표되었습니다. [구성 세부 정보](https://blogs.msdn.microsoft.com/appserviceteam/2018/04/17/app-service-and-functions-hosted-apps-can-now-update-tls-versions/)에 대한 공지를 참고하세요. |
@@ -200,7 +211,7 @@ Application Insights 엔드포인트에 전송 중인 데이터를 보호하려�
 | Windows Server 2012 - 2016 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면 |
 | Windows 7 SP1 및 Windows Server 2008 R2 SP1 | 지원됨, 하지만 기본적으로 활성화되지 않습니다. | 활성화하는 방법에 대한 자세한 내용은 [TLS(전송 계층 보안) 레지스트리 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings) 페이지를 참조하세요.  |
 | Windows Server 2008 SP2 | TLS 1.2에 대한 지원에는 업데이트가 필요합니다. | Windows Server 2008 SP2에서 [TLS 1.2에 대한 지원을 추가하는 업데이트](https://support.microsoft.com/help/4019276/update-to-add-support-for-tls-1-1-and-tls-1-2-in-windows-server-2008-s)를 참조하세요. |
-|Windows Vista | 지원되지 않습니다. | N/A
+|Windows Vista | 지원되지 않습니다. | 해당 없음
 
 ### <a name="check-what-version-of-openssl-your-linux-distribution-is-running"></a>Linux 배포에서 실행 중인 OpenSSL 버전을 확인합니다.
 
@@ -234,15 +245,15 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 
 | 사용자 작업 | 수집되는 데이터 클래스(다음 표 참조) |
 | --- | --- |
-| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>Session<br/>사용자 |
+| [.NET 웹 프로젝트에 Application Insights SDK 추가][greenbrown] |ServerContext<br/>유추<br/>성능 카운터<br/>요청<br/>**예외**<br/>세션<br/>users |
 | [IIS에 상태 모니터 설치][redfield] |종속성<br/>ServerContext<br/>유추<br/>성능 카운터 |
-| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>Session<br/>사용자 |
-| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>페이지<br/>ClientPerf<br/>Ajax |
+| [Java 웹 앱에 Application Insights SDK 추가][java] |ServerContext<br/>유추<br/>요청<br/>세션<br/>users |
+| [웹 페이지에 JavaScript SDK 추가][client] |ClientContext <br/>유추<br/>호출<br/>ClientPerf<br/>Ajax |
 | [기본 속성 정의][apiproperties] |**속성** |
 | [통화 통신 메트릭][api] |숫자 값<br/>**속성** |
 | [호출 추적 *][api] |이벤트 이름<br/>**속성** |
 | [호출 통신 예외][api] |**예외**<br/>스택 덤프<br/>**속성** |
-| SDK는 데이터를 수집할 수 없습니다. 예: <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
+| SDK는 데이터를 수집할 수 없습니다. 다음은 그 예입니다. <br/> - 성능 카운터에 액세스할 수 없음<br/> - 원격 분석 이니셜라이저 예외 |SDK 진단 |
 
 [다른 플랫폼용 sdk][platforms]는 해당 문서를 참조 하세요.
 
@@ -253,7 +264,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 | **속성** |**임의 데이터 - 코드에 의해 결정됨** |
 | DeviceContext |`Id`, IP, 로캘, 장치 모델, 네트워크, 네트워크 종류, OEM 이름, 화면 해상도, 역할 인스턴스, 역할 이름, 장치 유형 |
 | ClientContext |OS, 로캘, 언어, 네트워크, 창 해상도 |
-| Session |`session id` |
+| 세션 |`session id` |
 | ServerContext |컴퓨터 이름, 로캘, OS, 디바이스, 사용자 세션, 사용자 컨텍스트, 작업 |
 | 유추 |IP 주소, 타임스탬프, OS, 브라우저에서 지리적 위치 유추 |
 | 메트릭 |메트릭 이름 및 값 |
@@ -275,7 +286,7 @@ SDK는 플랫폼마다 다르며, 설치할 수 있는 여러 구성 요소가 �
 > [!NOTE]
 > 클라이언트 IP는 지리적 위치를 유추하는 데 사용되지만 기본적으로 IP 데이터는 더 이상 저장되지 않으며 모든 0은 연결된 필드에 기록됩니다. 개인 데이터 처리에 대한 자세한 내용은 이 [문서](../../azure-monitor/platform/personal-data-mgmt.md#application-data)를 권장합니다. IP 주소 데이터를 저장 해야 하는 경우 [ip 주소 컬렉션 문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection) 에서 사용자의 옵션을 안내 합니다.
 
-## <a name="credits"></a>인증
+## <a name="credits"></a>크레딧
 이 제품은 [https://www.maxmind.com](https://www.maxmind.com)에 있는 MaxMind에서 작성된 GeoLite2 데이터를 포함합니다.
 
 

@@ -15,12 +15,12 @@ ms.workload: iaas-sql-server
 ms.date: 03/23/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 6b2f9853c2699b69a0c9be13e6925a4b30f358f7
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: f5ea0ddff38532b119d8d984f2dabd6d898b44a5
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102023"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031359"
 ---
 # <a name="security-considerations-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines의 SQL Server에 대한 보안 고려 사항
 
@@ -56,6 +56,10 @@ SQL Server 가상 컴퓨터를 만들 때는 컴퓨터 및 SQL Server에 대한 
 클래식 배포 모델이 적용된 엔드포인트를 사용하는 경우 사용하지 않는 모든 엔드포인트를 가상 머신에서 제거합니다. 엔드포인트에서 ACL을 사용하는 방법에 대한 지침은 [엔드포인트에 대한 ACL 관리](/previous-versions/azure/virtual-machines/windows/classic/setup-endpoints#manage-the-acl-on-an-endpoint)를 참조하세요. Resource Manager를 사용하는 VM에는 이렇게 할 필요가 없습니다.
 
 마지막으로, Azure Virtual Machine에서 SQL Server 데이터베이스 엔진의 인스턴스에 대해 암호화된 연결 사용을 고려합니다. 서명된 인증서로 SQL server 인스턴스를 구성합니다. 자세한 내용은 [데이터베이스 엔진에 암호화된 연결 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-encrypted-connections-to-the-database-engine) 및 [연결 문자열 구문](https://msdn.microsoft.com/library/ms254500.aspx)을 참조하세요.
+
+## <a name="encryption"></a>암호화
+
+관리 디스크는 서버 쪽 암호화 및 Azure Disk Encryption을 제공 합니다. [서버 쪽 암호화](/azure/virtual-machines/windows/disk-encryption) 는 미사용 암호화를 제공 하 고 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 합니다. [Azure Disk Encryption](/azure/security/fundamentals/azure-disk-encryption-vms-vmss) 는 BITLOCKER 또는 DM-자리를 사용 하는 기술을 사용 하 고 Azure Key Vault와 통합 하 여 OS 및 데이터 디스크를 모두 암호화 합니다. 
 
 ## <a name="use-a-non-default-port"></a>기본 포트가 아닌 포트 사용
 
@@ -93,9 +97,14 @@ SQL Server가 기본 포트가 아닌 포트에서 수신 대기하는 경우 �
 
   - **SA** 로그인을 사용해야 하는 경우 프로비전한 후 로그인을 사용하도록 설정하고 새로운 강력한 암호를 할당합니다.
 
-## <a name="follow-on-premises-best-practices"></a>온-프레미스 모범 사례 따르기
+## <a name="additional-best-practices"></a>추가 모범 사례
 
-이 항목에서 설명하는 모범 사례 외에 해당하는 경우 기존의 온-프레미스 보안 방법을 검토하고 구현하는 것이 좋습니다. 자세한 내용은 [SQL Server 설치에 대한 보안 고려 사항](https://docs.microsoft.com/sql/sql-server/install/security-considerations-for-a-sql-server-installation)을 참조하세요.
+이 항목에서 설명 하는 방법 외에도 기존 온-프레미스 보안 방법 및 가상 컴퓨터 보안 모범 사례에서 보안 모범 사례를 검토 하 고 구현 하는 것이 좋습니다. 
+
+온-프레미스 보안 방법에 대 한 자세한 내용은 SQL Server 설치 및 [보안 센터](/sql/relational-databases/security/security-center-for-sql-server-database-engine-and-azure-sql-database) [의 보안 고려 사항](/sql/sql-server/install/security-considerations-for-a-sql-server-installation) 을 참조 하세요. 
+
+가상 컴퓨터 보안에 대 한 자세한 내용은 [virtual machines 보안 개요](/azure/security/fundamentals/virtual-machines-overview)를 참조 하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 

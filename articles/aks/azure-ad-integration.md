@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 04/26/2019
+ms.date: 02/02/2019
 ms.author: mlearned
-ms.openlocfilehash: 26f1544cab5cf5be2edd52f97c758d46eb835514
-ms.sourcegitcommit: 1c9858eef5557a864a769c0a386d3c36ffc93ce4
+ms.openlocfilehash: 9a82b51083a7d31bc39c4556712c1489bad8bca0
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/18/2019
-ms.locfileid: "71103783"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031478"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -20,7 +20,7 @@ Azure Kubernetes 서비스 (AKS)는 사용자 인증을 위해 Azure AD (Azure A
 
 클러스터 관리자는 사용자의 id 또는 디렉터리 그룹 멤버 자격을 기반으로 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수 있습니다.
 
-이 문서에서는 다음 작업을 수행하는 방법을 설명합니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 - AKS 및 Azure AD에 대 한 필수 구성 요소를 배포 합니다.
 - Azure AD 사용 클러스터를 배포 합니다.
@@ -50,13 +50,13 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
 첫 번째 Azure AD 응용 프로그램이 적용 되어 사용자의 Azure AD 그룹 멤버 자격을 가져옵니다. Azure Portal에서이 응용 프로그램을 만들려면 다음을 수행 합니다.
 
-1. **Azure Active Directory** > 앱 등록새 > **등록**을 선택 합니다.
+1. **새 등록** > **앱 등록** **Azure Active Directory** > 를 선택 합니다.
 
     a. 응용 프로그램에 이름을 지정 합니다 (예: *AKSAzureADServer*).
 
     b. **지원 되는 계정 유형**으로 **이 조직 디렉터리의 계정만**을 선택 합니다.
     
-    c. 리디렉션 URI 형식에 대해 **웹** 을 선택한 다음 uri 형식 값 (예: *https://aksazureadserver* )을 입력 합니다.
+    다. 리디렉션 URI 형식에 대해 **웹** 을 선택한 다음 *https://aksazureadserver* 와 같은 URI 형식 값을 입력 합니다.
 
     d. 완료 되 면 **등록** 을 선택 합니다.
 
@@ -70,7 +70,7 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
     b. *AKS AZURE AD server*와 같은 키 설명을 추가 합니다. 만료 시간을 선택한 후 **추가**를 선택 합니다.
 
-    c. 지금은 표시 되는 키 값을 적어둡니다. Azure AD 사용 AKS 클러스터를 배포 하는 경우이 값을 서버 응용 프로그램 비밀 이라고 합니다.
+    다. 지금은 표시 되는 키 값을 적어둡니다. Azure AD 사용 AKS 클러스터를 배포 하는 경우이 값을 서버 응용 프로그램 비밀 이라고 합니다.
 
 4. Azure AD 응용 프로그램의 왼쪽 창에서 **API 권한**을 선택 하 고 **+ 권한 추가**를 선택 합니다.
 
@@ -78,7 +78,7 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
     b. **위임 된 권한**을 선택 하 고 디렉터리 > 디렉터리 옆의 확인란을 선택 합니다. **모두 읽기 (디렉터리 데이터 읽기)** .
 
-    c. 사용자 >에 대 한 기본 위임 된 권한 **(로그인 및 사용자 프로필 읽기)** 이 존재 하지 않는 경우 옆의 확인란을 선택 합니다.
+    다. 사용자 >에 대 한 기본 위임 된 권한 **(로그인 및 사용자 프로필 읽기)** 이 존재 하지 않는 경우 옆의 확인란을 선택 합니다.
 
     d. **응용 프로그램 사용 권한**을 선택한 다음 디렉터리 > 디렉터리 옆의 확인란을 선택 합니다. **모두 읽기 (디렉터리 데이터 읽기)** .
 
@@ -100,7 +100,7 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
     ![다른 서비스와 함께 사용 하기 위해 서버 앱을 API로 노출](media/aad-integration/expose-api.png)
 
-    c. **범위 추가**를 선택 합니다.
+    다. **범위 추가**를 선택 합니다.
 
 6. 응용 프로그램 **개요** 페이지로 돌아가 **응용 프로그램 (클라이언트) ID**를 확인 합니다. Azure AD 사용 AKS 클러스터를 배포할 때이 값을 서버 응용 프로그램 ID 라고 합니다.
 
@@ -110,13 +110,20 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
 두 번째 Azure AD 응용 프로그램은 Kubernetes CLI (kubectl)를 사용 하 여 로그인 할 때 사용 됩니다.
 
-1. **Azure Active Directory** > 앱 등록새 > **등록**을 선택 합니다.
+1. **새 등록** > **앱 등록** **Azure Active Directory** > 를 선택 합니다.
 
     a. 응용 프로그램에 이름을 지정 합니다 (예: *AKSAzureADClient*).
 
     b. **지원 되는 계정 유형**으로 **이 조직 디렉터리의 계정만**을 선택 합니다.
 
-    c. 리디렉션 URI 형식으로 **웹** 을 선택 하 고와 *https://aksazureadclient* 같은 URI 형식 값을 입력 합니다.
+    다. 리디렉션 URI 형식으로 **웹** 을 선택 하 고 *https://aksazureadclient* 와 같은 URI 형식 값을 입력 합니다.
+
+    >[!NOTE]
+    >컨테이너에 대 한 Azure Monitor를 지원 하기 위해 새 RBAC 지원 클러스터를 만드는 경우 다음 두 개의 추가 리디렉션 Url을 **웹** 응용 프로그램 유형으로이 목록에 추가 합니다. 첫 번째 기준 URL 값을 `https://afd.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 하 고 두 번째 기준 URL 값을 `https://monitoring.hosting.portal.azure.net/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`해야 합니다.
+    >
+    >Azure 중국에서이 기능을 사용 하는 경우 첫 번째 기준 URL 값을 `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 하 고 두 번째 기준 URL 값을 `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`해야 합니다.
+    >
+    >자세한 내용은 컨테이너의 Azure Monitor에 대 한 [라이브 데이터 (미리 보기) 기능을 설정 하는 방법](../azure-monitor/insights/container-insights-livedata-setup.md) 및 [AD 통합 인증 구성](../azure-monitor/insights/container-insights-livedata-setup.md#configure-ad-integrated-authentication) 섹션에서 인증을 구성 하는 단계를 참조 하세요.
 
     d. 완료 되 면 **등록** 을 선택 합니다.
 
@@ -128,7 +135,7 @@ AKS 클러스터에 대 한 Azure AD 인증을 제공 하기 위해 두 개의 A
 
     ![애플리케이션 사용 권한 구성](media/aad-integration/select-api.png)
 
-    c. **권한 추가**를 선택 합니다.
+    다. **권한 추가**를 선택합니다.
 
     d. **동의 허용**에서 **관리자 동의 부여**를 선택 합니다. 현재 계정이 테 넌 트 관리자가 아닌 경우에는이 단추를 사용할 수 없습니다. 사용 권한이 부여 되 면 포털에 다음과 같은 알림이 표시 됩니다.
 
@@ -180,7 +187,7 @@ AKS 클러스터를 만드는 데 몇 분 정도 걸립니다.
 
 AKS 클러스터에 Azure Active Directory 계정을 사용 하기 전에 역할 바인딩 또는 클러스터 역할 바인딩을 만들어야 합니다. 역할은 부여할 사용 권한을 정의 하 고 바인딩은 원하는 사용자에 게 적용 합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조 하세요.
 
-먼저, `--admin` 인수를 사용 하 여 [az aks][az-aks-get-credentials] 명령을 사용 하 여 관리자 액세스 권한으로 클러스터에 로그인 합니다.
+먼저, `--admin` 인수와 함께 [az aks][az-aks-get-credentials] 명령을 사용 하 여 관리자 액세스 권한으로 클러스터에 로그인 합니다.
 
 ```azurecli
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
@@ -196,7 +203,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --ad
     az ad user show --upn-or-object-id user@contoso.com --query objectId -o tsv
     ```
 
-파일 (예: *rbac-aad)* 을 만들고 다음 내용을 붙여넣습니다. 마지막 줄에서 **userPrincipalName_or_objectId** 을 UPN 또는 개체 ID로 바꿉니다. 선택은 사용자가 동일한 Azure AD 테 넌 트 인지 여부에 따라 달라 집니다.
+파일 (예: *rbac-aad)* 을 만들고 다음 내용을 붙여넣습니다. 마지막 줄에서 **userPrincipalName_or_objectId** 를 UPN 또는 개체 ID로 바꿉니다. 선택은 사용자가 동일한 Azure AD 테 넌 트 인지 여부에 따라 달라 집니다.
 
 ```yaml
 apiVersion: rbac.authorization.k8s.io/v1
@@ -254,7 +261,7 @@ RBAC를 사용 하 여 Kubernetes 클러스터를 보호 하는 방법에 대 �
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 ```
 
-`kubectl` 명령을 실행 하면 Azure를 사용 하 여 인증 하 라는 메시지가 표시 됩니다. 다음 예제와 같이 화면의 지시에 따라 프로세스를 완료 합니다.
+`kubectl` 명령을 실행 한 후에는 Azure를 사용 하 여 인증 하 라는 메시지가 표시 됩니다. 다음 예제와 같이 화면의 지시에 따라 프로세스를 완료 합니다.
 
 ```console
 $ kubectl get nodes
@@ -278,7 +285,7 @@ error: You must be logged in to the server (Unauthorized)
 
 - 사용자 계정이 동일한 Azure AD 테 넌 트에 있는지 여부에 따라 적절 한 개체 ID 또는 UPN을 정의 했습니다.
 - 사용자가 200 보다 많은 그룹의 구성원이 아닙니다.
-- 서버에 대 한 응용 프로그램 등록에 정의 된 비밀은를 사용 하 `--aad-server-app-secret`여 구성 된 값과 일치 합니다.
+- 서버에 대 한 응용 프로그램 등록에 정의 된 비밀은 `--aad-server-app-secret`를 사용 하 여 구성 된 값과 일치 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,14 +10,14 @@ ms.service: api-management
 ms.workload: mobile
 ms.tgt_pltfrm: na
 ms.topic: article
-ms.date: 11/13/2019
+ms.date: 02/03/2020
 ms.author: apimpm
-ms.openlocfilehash: 26a353251bd85a30ab26c86f3d6b363b0a84e074
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 59839df1e67c5ea7f18df373ad0530a2ea740209
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889537"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030900"
 ---
 # <a name="how-to-use-azure-api-management-with-virtual-networks"></a>가상 네트워크에서 Azure API Management를 사용하는 방법
 Azure VNET(Virtual Network)을 사용하면 비인터넷 라우팅 가능 네트워크(액세스를 제어하는)에 다수의 Azure 리소스를 배치할 수 있습니다. 이러한 네트워크는 다양한 VPN 기술을 사용하여 온-프레미스 네트워크에 연결될 수 있습니다. Azure Virtual Network에 대해 자세히 알아보려면 [Azure Virtual Network 개요](../virtual-network/virtual-networks-overview.md)부터 참조하세요.
@@ -31,7 +31,7 @@ Azure API Management가 네트워크 내의 백 엔드 서비스에 액세스할
 
 [!INCLUDE [premium-dev.md](../../includes/api-management-availability-premium-dev.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -138,7 +138,7 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
     |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
     | Azure 공용      | <ul><li>prod.warmpath.msftcloudes.com</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li><li>prod3-black.prod3.metrics.nsatc.net</li><li>prod3-red.prod3.metrics.nsatc.net</li><li>prod.warm.ingestion.msftcloudes.com</li><li>`azure region`.warm.ingestion.msftcloudes.com(여기서 `East US 2`는 eastus2.warm.ingestion.msftcloudes.com임)</li></ul> |
     | Azure Government  | <ul><li>fairfax.warmpath.usgovcloudapi.net</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
-    | Azure China       | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
+    | Azure China 21Vianet     | <ul><li>mooncake.warmpath.chinacloudapi.cn</li><li>shoebox2.metrics.nsatc.net</li><li>prod3.metrics.nsatc.net</li></ul>                                                                                                                                                                                                                                                |
 
 + **Smtp 릴레이**: 호스트 `smtpi-co1.msn.com`, `smtpi-ch1.msn.com`, `smtpi-db3.msn.com`, `smtpi-sin.msn.com` 및 `ies.global.microsoft.com`에서 확인 되는 smtp 릴레이에 대 한 아웃 바운드 네트워크 연결
 
@@ -150,15 +150,9 @@ API Management 서비스가 VNET에 연결된 후에는 공용 서비스에 액�
 
   * API Management 서비스가 배포 된 서브넷에서 서비스 끝점을 사용 하도록 설정 합니다. Azure Sql, Azure Storage, Azure EventHub 및 Azure ServiceBus에 대해 [서비스 끝점][ServiceEndpoints] 을 사용 하도록 설정 해야 합니다. 이러한 서비스에 대 한 API Management 위임 된 서브넷에서 직접 끝점을 사용 하도록 설정 하면 서비스 트래픽에 대 한 최적의 라우팅을 제공 하는 Microsoft Azure 백본 네트워크를 사용할 수 있습니다. 강제 터널링 된 Api Management를 사용 하 여 서비스 끝점을 사용 하는 경우 위의 Azure 서비스 트래픽은 강제 터널링 되지 않습니다. 다른 API Management 서비스 종속성 트래픽은 강제 터널링 되어 손실 되거나 API Management 서비스가 제대로 작동 하지 않습니다.
     
-  * 인터넷의 모든 제어 평면 트래픽은 API Management 서비스의 관리 끝점으로 API Management에서 호스트 되는 특정 인바운드 Ip 집합을 통해 라우팅됩니다. 트래픽이 강제로 터널링 되 면 응답은 이러한 인바운드 원본 Ip에 대칭으로 다시 매핑되지 않습니다. 제한을 극복 하려면 다음[Udrs][UDRs](사용자 정의 경로)를 추가 하 여 이러한 호스트 경로의 대상을 "Internet"로 설정 하 여 트래픽을 Azure로 다시 전달 해야 합니다. 제어 평면 트래픽에 대 한 인바운드 Ip 집합은 다음과 같습니다.
-    
-     | Azure 환경 | 관리 IP 주소                                                                                                                                                                                                                                                                                                                                                              |
-    |-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-    | Azure 공용      | 13.84.189.17/32, 13.85.22.63/32, 23.96.224.175/32, 23.101.166.38/32, 52.162.110.80/32, 104.214.19.224/32, 52.159.16.255/32, 40.82.157.167/32, 51.137.136.0/32, 40.81.185.8/32, 40.81.47.216/32, 51.145.56.125/32, 40.81.89.24/32, 52.224.186.99/32, 51.145.179.78/32, 52.140.238.179/32, 40.66.60.111/32, 52.139.80.117/32, 20.46.144.85/32, 191.233.24.179/32, 40.90.185.46/32, 102.133.130.197/32, 52.139.20.34/32, 40.80.232.185/32 20.37.52.67/32, 20.44.33.246/32, 13.86.102.66/32, 20.40.125.155/32, 51.143.127.203/32, 52.253.225.124/32, 52.253.159.160/32, 20.188.77.119/32, 20.44.72.3/32, 52.142.95.35/32, 52.139.152.27/32, 20.39.80.2/32, 51.107.96.8/32, 20.39.99.81/32, 20.37.81.41/32, 51.107.0.91/32 |
-    | Azure Government  | 52.127.42.160/32, 52.127.34.192/32 |
-    | Azure China       | 139.217.51.16/32, 139.217.171.176/32 |
+  * 인터넷의 모든 제어 평면 트래픽은 API Management 서비스의 관리 끝점으로 API Management에서 호스트 되는 특정 인바운드 Ip 집합을 통해 라우팅됩니다. 트래픽이 강제로 터널링 되 면 응답은 이러한 인바운드 원본 Ip에 대칭으로 다시 매핑되지 않습니다. 제한을 극복 하려면 다음[Udrs][UDRs](사용자 정의 경로)를 추가 하 여 이러한 호스트 경로의 대상을 "Internet"로 설정 하 여 트래픽을 Azure로 다시 전달 해야 합니다. 제어 평면 트래픽에 대 한 인바운드 Ip 집합은 문서화 된 [제어 평면 IP 주소](#control-plane-ips) 입니다.
 
-  * 강제로 터널링 되는 다른 API Management 서비스 종속성의 경우 호스트 이름을 확인 하 고 끝점에 도달 하는 방법이 있어야 합니다. 이러한 요소는 다음과 같습니다.
+  * 강제로 터널링 되는 다른 API Management 서비스 종속성의 경우 호스트 이름을 확인 하 고 끝점에 도달 하는 방법이 있어야 합니다. 다음이 포함 됩니다.
       - 메트릭 및 상태 모니터링
       - Azure Portal 진단
       - SMTP 릴레이
@@ -182,7 +176,7 @@ Azure는 각 서브넷 내의 일부 IP 주소를 예약하며, 이러한 주소
 
 Azure VNET 인프라에 사용되는 IP 주소 외에도, 서브넷의 각 API Management 인스턴스는 프리미엄 SKU 단위당 두 개의 IP 주소를 사용하거나 개발자 SKU에 대해 하나의 IP 주소를 사용합니다. 각 인스턴스는 외부 부하 분산 장치에 대해 하나의 추가 IP 주소를 예약합니다. 내부 VNET에 배포할 때 내부 부하 분산 장치에 대해 추가 IP 주소가 필요합니다.
 
-API Management 배포할 수 있는 서브넷의 최소 크기를 초과 하는 계산은 3 개의 IP 주소를 제공 하는/29입니다.
+API Management 배포할 수 있는 서브넷의 최소 크기를 초과 하는 계산은 3 개의 사용 가능한 IP 주소를 제공 하는/29입니다.
 
 ## <a name="routing"></a> 라우팅
 + 모든 서비스 엔드포인트에 대한 액세스를 제공하기 위해 부하 분산된 VIP(공용 IP 주소)가 예약됩니다.
@@ -196,12 +190,76 @@ API Management 배포할 수 있는 서브넷의 최소 크기를 초과 하는 
 * 내부 가상 네트워크 모드에서 구성된 다중 지역 API Management 배포의 경우 사용자는 라우팅을 소유하는 여러 지역 사이에서 부하 분산을 관리할 책임이 있습니다.
 * 다른 지역에서 전역적으로 피어링된 VNET의 리소스에서 내부 모드의 API Management 서비스로 연결하는 기능은 플랫폼 제한 때문에 작동하지 않습니다. 자세한 내용은 [하나의 가상 네트워크의 리소스는 피어링된 가상 네트워크에 있는 Azure 내부 부하 분산 장치와 통신할 수 없음](../virtual-network/virtual-network-manage-peering.md#requirements-and-constraints)을 참조하세요.
 
+## <a name="control-plane-ips"></a> 제어 평면 IP 주소
+
+IP 주소는 **Azure 환경**으로 구분 됩니다. **Global** 로 표시 된 인바운드 요청 ip 주소를 허용 하는 경우 **지역** 특정 ip 주소와 함께 허용 목록 되어야 합니다.
+
+| **Azure 환경**|   **지역**|  **IP 주소**|
+|-----------------|-------------------------|---------------|
+| Azure 공용| 미국 중부 중부 (Global)| 104.214.19.224|
+| Azure 공용| 미국 중 북부 (Global)| 52.162.110.80|
+| Azure 공용| 미국 중서부| 52.253.135.58|
+| Azure 공용| 한국 중부| 40.82.157.167|
+| Azure 공용| 영국 서부| 51.137.136.0|
+| Azure 공용| 일본 서부| 40.81.185.8|
+| Azure 공용| 미국 중북부| 40.81.47.216|
+| Azure 공용| 영국 남부| 51.145.56.125|
+| Azure 공용| 인도 서부| 40.81.89.24|
+| Azure 공용| 미국 동부| 52.224.186.99|
+| Azure 공용| 서유럽| 51.145.179.78|
+| Azure 공용| 일본 동부| 52.140.238.179|
+| Azure 공용| 프랑스 중부| 40.66.60.111|
+| Azure 공용| 캐나다 동부| 52.139.80.117|
+| Azure 공용| 아랍에미리트 북부| 20.46.144.85|
+| Azure 공용| 브라질 남부| 191.233.24.179|
+| Azure 공용| 동남아시아| 40.90.185.46|
+| Azure 공용| 남아프리카 공화국 북부| 102.133.130.197|
+| Azure 공용| 캐나다 중부| 52.139.20.34|
+| Azure 공용| 한국 남부| 40.80.232.185|
+| Azure 공용| 인도 중부| 13.71.49.1|
+| Azure 공용| 미국 서부| 13.64.39.16|
+| Azure 공용| 오스트레일리아 남동부| 20.40.160.107|
+| Azure 공용| 오스트레일리아 중부| 20.37.52.67|
+| Azure 공용| 인도 남부| 20.44.33.246|
+| Azure 공용| 미국 중부| 13.86.102.66|
+| Azure 공용| 오스트레일리아 동부| 20.40.125.155|
+| Azure 공용| 미국 서부 2| 51.143.127.203|
+| Azure 공용| 미국 동부 2 EUAP| 52.253.229.253|
+| Azure 공용| 미국 중부 EUAP| 52.253.159.160|
+| Azure 공용| 미국 중남부| 20.188.77.119|
+| Azure 공용| 미국 동부 2| 20.44.72.3|
+| Azure 공용| 북유럽| 52.142.95.35|
+| Azure 공용| 동아시아| 52.139.152.27|
+| Azure 공용| 프랑스 남부| 20.39.80.2|
+| Azure 공용| 스위스 서부| 51.107.96.8|
+| Azure 공용| 오스트레일리아 중부 2| 20.39.99.81|
+| Azure 공용| 아랍에미리트 중부| 20.37.81.41|
+| Azure 공용| 스위스 북부| 51.107.0.91|
+| Azure 공용| 남아프리카 서부| 102.133.0.79|
+| Azure 공용| 독일 중서부| 51.116.96.0|
+| Azure 공용| 독일 북부| 51.116.0.0|
+| Azure 공용| 노르웨이 동부| 51.120.2.185|
+| Azure 공용| 노르웨이 서 부| 51.120.130.134|
+| Azure China 21Vianet| 중국 북부 (Global)| 139.217.51.16|
+| Azure China 21Vianet| 중국 동부 (Global)| 139.217.171.176|
+| Azure China 21Vianet| 중국 북부| 40.125.137.220|
+| Azure China 21Vianet| 중국 동부| 40.126.120.30|
+| Azure China 21Vianet| 중국 북부 2| 40.73.41.178|
+| Azure China 21Vianet| 중국 동부 2| 40.73.104.4|
+| Azure Government| 미국 정부 버지니아 (Global)| 52.127.42.160|
+| Azure Government| 미국 정부 텍사스 (Global)| 52.127.34.192|
+| Azure Government| USGov 버지니아| 52.227.222.92|
+| Azure Government| 미국 정부 아이오와| 13.73.72.21|
+| Azure Government| USGov 애리조나| 52.244.32.39|
+| Azure Government| USGov 텍사스| 52.243.154.118|
+| Azure Government| USDoD Central| 52.182.32.132|
+| Azure Government| USDoD 동부| 52.181.32.192|
 
 ## <a name="related-content"> </a>관련 내용
 * [VPN Gateway를 사용하여 Virtual Network를 백 엔드에 연결](../vpn-gateway/vpn-gateway-about-vpngateways.md#s2smulti)
 * [다양한 배포 모델에서 Virtual Network 연결](../vpn-gateway/vpn-gateway-connect-different-deployment-models-powershell.md)
 * [API 검사기를 사용하여 Azure API Management에서 호출을 추적하는 방법](api-management-howto-api-inspector.md)
-* [Virtual Network FAQ](../virtual-network/virtual-networks-faq.md)
+* [Virtual Network 질문과 대답](../virtual-network/virtual-networks-faq.md)
 * [서비스 태그](../virtual-network/security-overview.md#service-tags)
 
 [api-management-using-vnet-menu]: ./media/api-management-using-with-vnet/api-management-menu-vnet.png

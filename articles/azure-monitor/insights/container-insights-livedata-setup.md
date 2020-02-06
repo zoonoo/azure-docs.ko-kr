@@ -3,12 +3,12 @@ title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 설치 Azure 
 description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 5a3d020132e3c93eab7fec46d1ffe45d00b5ed43
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75404711"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77030689"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -101,7 +101,7 @@ Azure Portal에서 권한 부여 페이지를 신뢰할 수 있는 리디렉션 
 Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes 설명서](https://kubernetes.io/docs/reference/access-authn-authz/rbac/)를 참조 하세요. 
 
 >[!NOTE]
->새 RBAC 지원 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration.md) 을 참조 하 고 단계에 따라 azure AD 인증을 구성 합니다. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 컨테이너에 대 한 Azure Monitor 하기 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다. 
+>새 RBAC 지원 클러스터를 만드는 경우 [Azure Kubernetes Service와 Azure Active Directory 통합](../../aks/azure-ad-integration.md) 을 참조 하 고 단계에 따라 azure AD 인증을 구성 합니다. 클라이언트 응용 프로그램을 만드는 단계에서 해당 섹션의 참고 사항에는 아래 3 단계에서 지정 된 것과 일치 하는 컨테이너에 대 한 Azure Monitor 하기 위해 만들어야 하는 두 개의 리디렉션 Url이 강조 표시 되어 있습니다.
 
 ### <a name="client-registration-reconfiguration"></a>클라이언트 등록 재구성
 

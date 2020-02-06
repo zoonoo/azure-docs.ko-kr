@@ -3,20 +3,20 @@ title: 자습서 - Azure Traffic Manager를 사용하여 서브넷 트래픽 라
 description: 이 자습서에서는 사용자 서브넷에서 특정 엔드포인트로 트래픽을 라우팅하도록 Traffic Manager를 구성하는 방법을 설명합니다.
 services: traffic-manager
 documentationcenter: ''
-author: asudbring
+author: rohinkoul
 ms.service: traffic-manager
 ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/24/2018
-ms.author: allensu
-ms.openlocfilehash: 00bc453ebb0e467f48bd886fc7c6b6c422693864
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.author: rohink
+ms.openlocfilehash: b00bc1c95e2f593523c584c4abfe9381e5697f79
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420266"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76939468"
 ---
 # <a name="tutorial-direct-traffic-to-specific-endpoints-based-on-user-subnet-using-traffic-manager"></a>자습서: Traffic Manager를 사용하여 사용자 서브넷을 기반으로 특정 엔드포인트로 트래픽 전송
 
@@ -24,7 +24,7 @@ ms.locfileid: "74420266"
 
 이 자습서에서는 서브넷 라우팅을 사용하여 사용자 쿼리의 IP 주소에 따라 트래픽을 내부 웹 사이트 또는 프로덕션 웹 사이트로 라우팅합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * IIS에서 기본 웹 사이트를 실행하는 두 개의 VM 만들기
@@ -36,24 +36,24 @@ ms.locfileid: "74420266"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 실행 중인 Traffic Manager를 보려면 이 자습서에서 다음 항목을 배포해야 합니다.
 
-- 서로 다른 Azure 지역에서 실행되는 두 개의 기본 웹 사이트 - **미국 동부**(내부 웹 사이트로 사용) 및 **유럽 서부**(프로덕션 웹 사이트로 사용).
-- Traffic Manager를 테스트하기 위한 두 개의 테스트 VM - **미국 동부**에 VM 하나 및 **유럽 서부**에 두 번째 VM.
+- 서로 다른 Azure 지역에서 실행되는 두 개의 기본 웹 사이트 - **미국 동부**(내부 웹 사이트로 사용) 및 **서유럽**(프로덕션 웹 사이트로 사용).
+- Traffic Manager를 테스트하기 위한 두 개의 테스트 VM - **미국 동부**에 VM 하나 및 **서유럽**에 두 번째 VM.
 
 테스트 VM은 Traffic Manager가 사용자 쿼리가 발생한 서브넷을 기반으로 사용자 트래픽을 내부 웹 사이트 또는 프로덕션 웹 사이트로 라우팅하는 방법을 설명하는 데 사용됩니다.
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+https://portal.azure.com 에서 Azure Portal에 로그인합니다.
 
 ### <a name="create-websites"></a>웹 사이트 만들기
 
 두 개의 Azure 영역에서 Traffic Manager 프로필에 대한 두 개의 서비스 엔드포인트를 제공하는 두 개의 웹 사이트 인스턴스를 만듭니다. 두 개의 웹 사이트를 만드는 과정에는 다음 단계가 포함됩니다.
 
-1. 기본 웹 사이트를 실행하기 위한 두 개의 VM 만들기 - **미국 동부**에 하나와 **유럽 서부**에 다른 하나.
+1. 기본 웹 사이트를 실행하기 위한 두 개의 VM 만들기 - **미국 동부**에 하나와 **서유럽**에 다른 하나.
 2. 각 VM에 IIS 서버를 설치하고 웹 사이트를 방문할 때 사용자가 연결되는 VM 이름을 설명하는 기본 웹 사이트 페이지를 업데이트합니다.
 
 #### <a name="create-vms-for-running-websites"></a>웹 사이트 운영을 위한 VM 만들기
@@ -154,7 +154,7 @@ Traffic Manager는 서비스 엔드포인트의 DNS 이름을 기반으로 사�
 
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
-    | Name                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
+    | 속성                   | 이 이름은 trafficmanager.net 영역 내에서 고유해야 하며 DNS 이름, trafficmanager.net 형식으로 나타나고, Traffic Manager 프로필에 액세스하는 데 사용됩니다.                                   |
     | 라우팅 방법          | **서브넷** 라우팅 방법을 선택합니다.                                       |
     | Subscription            | 구독을 선택합니다.                          |
     | Resource group          | **기존**을 선택하고, *myResourceGroupTM1*을 입력합니다. |
@@ -174,7 +174,7 @@ IIS 서버를 실행하는 두 개의 VM *myIISVMEastUS* & *myIISVMWestEurope*�
     | 설정                 | 값                                              |
     | ---                     | ---                                                |
     | Type                    | Azure 엔드포인트                                   |
-    | Name           | myInternalWebSiteEndpoint                                        |
+    | 속성           | myInternalWebSiteEndpoint                                        |
     | 대상 리소스 종류           | 공용 IP 주소                          |
     | 대상 리소스          | **공용 IP 주소를 선택**하여 동일한 구독에 속하는 공용 IP 주소가 있는 리소스 목록을 표시합니다. **리소스**에서 *myIISVMEastUS-ip*라는 이름의 공용 IP 주소를 선택합니다. 이것은 미국 동부에 있는 IIS 서버 VM의 공용 IP 주소입니다.|
     |  서브넷 라우팅 설정    |   *myVMEastUS* 테스트 VM의 IP 주소를 추가합니다. 이 VM에서 시작된 사용자 쿼리는 *myInternalWebSiteEndpoint*로 전달됩니다.    |

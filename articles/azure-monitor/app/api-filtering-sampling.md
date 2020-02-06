@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 11/23/2016
-ms.openlocfilehash: 550ac9ff3b425e682fdda16501613aa41a80d765
-ms.sourcegitcommit: 16c5374d7bcb086e417802b72d9383f8e65b24a7
+ms.openlocfilehash: dcc71739d859fb9cf4e03e5d3540d3cdbc69ac49
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73847241"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77031546"
 ---
 # <a name="filtering-and-preprocessing-telemetry-in-the-application-insights-sdk"></a>Application Insights SDK에서 원격 분석 필터링 및 전처리
 
@@ -44,7 +44,7 @@ Application Insights SDK에 대 한 플러그 인을 작성 하 고 구성 하 �
 
 ### <a name="create-a-telemetry-processor-c"></a>원격 분석 프로세서 만들기(C#)
 
-1. 필터를 만들려면 `ITelemetryProcessor`을 구현 합니다.
+1. 필터를 만들려면 `ITelemetryProcessor`를 구현 합니다.
 
     원격 분석 프로세서는 일련의 프로세싱을 생성합니다. 원격 분석 프로세서를 인스턴스화하면 체인의 다음 프로세서에 대 한 참조가 제공 됩니다. 원격 분석 데이터 요소가 Process 메서드로 전달 되 면 해당 작업을 수행한 다음 체인에서 다음 원격 분석 프로세서를 호출 하거나 호출 하지 않습니다.
 
@@ -378,6 +378,107 @@ void initialize(Telemetry telemetry); }
 telemetryItem에서 사용할 수 있는 사용자 지정이 아닌 속성의 요약은 [Application Insights 데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조하세요.
 
 원하는 수 만큼 이니셜라이저를 추가할 수 있으며, 추가 된 순서 대로 호출 됩니다.
+
+### <a name="opencensus-python-telemetry-processors"></a>OpenCensus Python 원격 분석 프로세서
+
+OpenCensus Python의 원격 분석 프로세서는 단순히 원격 분석을 처리 하기 위해 호출 하는 콜백 함수입니다. 콜백 함수는 [봉투 (envelope](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py#L86) ) 데이터 형식을 매개 변수로 허용 해야 합니다. 원격 분석을 내보내지 않도록 필터링 하려면 콜백 함수에서 `False`를 반환 하는지 확인 합니다. [여기](https://github.com/census-instrumentation/opencensus-python/blob/master/contrib/opencensus-ext-azure/opencensus/ext/azure/common/protocol.py)에서 봉투 (envelope)의 Azure Monitor 데이터 형식에 대 한 스키마를 볼 수 있습니다.
+
+```python
+# Example for log exporter
+import logging
+
+from opencensus.ext.azure.log_exporter import AzureLogHandler
+
+logger = logging.getLogger(__name__)
+
+# Callback function to append '_hello' to each log message telemetry
+def callback_function(envelope):
+    envelope.data.baseData.message += '_hello'
+    return True
+
+handler = AzureLogHandler(connection_string='InstrumentationKey=<your-instrumentation_key-here>')
+handler.add_telemetry_processor(callback_function)
+logger.addHandler(handler)
+logger.warning('Hello, World!')
+```
+```python
+# Example for trace exporter
+import requests
+
+from opencensus.ext.azure.trace_exporter import AzureExporter
+from opencensus.trace import config_integration
+from opencensus.trace.samplers import ProbabilitySampler
+from opencensus.trace.tracer import Tracer
+
+config_integration.trace_integrations(['requests'])
+
+# Callback function to add os_type: linux to span properties
+def callback_function(envelope):
+    envelope.data.baseData.properties['os_type'] = 'linux'
+    return True
+
+exporter = AzureExporter(
+    connection_string='InstrumentationKey=<your-instrumentation-key-here>'
+)
+exporter.add_telemetry_processor(callback_function)
+tracer = Tracer(exporter=exporter, sampler=ProbabilitySampler(1.0))
+with tracer.span(name='parent'):
+response = requests.get(url='https://www.wikipedia.org/wiki/Rabbit')
+```
+
+```python
+# Example for metrics exporter
+import time
+
+from opencensus.ext.azure import metrics_exporter
+from opencensus.stats import aggregation as aggregation_module
+from opencensus.stats import measure as measure_module
+from opencensus.stats import stats as stats_module
+from opencensus.stats import view as view_module
+from opencensus.tags import tag_map as tag_map_module
+
+stats = stats_module.stats
+view_manager = stats.view_manager
+stats_recorder = stats.stats_recorder
+
+CARROTS_MEASURE = measure_module.MeasureInt("carrots",
+                                            "number of carrots",
+                                            "carrots")
+CARROTS_VIEW = view_module.View("carrots_view",
+                                "number of carrots",
+                                [],
+                                CARROTS_MEASURE,
+                                aggregation_module.CountAggregation())
+
+# Callback function to only export the metric if value is greater than 0
+def callback_function(envelope):
+    return envelope.data.baseData.metrics[0].value > 0
+
+def main():
+    # Enable metrics
+    # Set the interval in seconds in which you want to send metrics
+    exporter = metrics_exporter.new_metrics_exporter(connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    exporter.add_telemetry_processor(callback_function)
+    view_manager.register_exporter(exporter)
+
+    view_manager.register_view(CARROTS_VIEW)
+    mmap = stats_recorder.new_measurement_map()
+    tmap = tag_map_module.TagMap()
+
+    mmap.measure_int_put(CARROTS_MEASURE, 1000)
+    mmap.record(tmap)
+    # Default export interval is every 15.0s
+    # Your application should run for at least this amount
+    # of time so the exporter will meet this interval
+    # Sleep can fulfill this
+    time.sleep(60)
+
+    print("Done recording metrics")
+
+if __name__ == "__main__":
+    main()
+```
+원하는 수의 프로세서를 추가할 수 있으며, 추가 된 순서 대로 호출 됩니다. 한 프로세서가 예외를 throw 해야 하는 경우에는 다음 프로세서에 영향을 주지 않습니다.
 
 ### <a name="example-telemetryinitializers"></a>예 TelemetryInitializers
 
