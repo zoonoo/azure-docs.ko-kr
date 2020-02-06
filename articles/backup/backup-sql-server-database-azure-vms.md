@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Backup를 사용 하 여 Azure virtual ma
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 09/11/2019
-ms.openlocfilehash: 8125f6d98151f91faaccef512e4bcfd2946fcdd0
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 10f55bb4c5c488975f075aa0382296f808a9a5b1
+ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773125"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77029574"
 ---
 # <a name="back-up-sql-server-databases-in-azure-vms"></a>Azure VM의 SQL Server 데이터베이스 백업
 
@@ -29,7 +29,7 @@ SQL Server 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 �
 >Azure **vm의 SQL server에 대 한 일시 삭제 및 AZURE vm 워크 로드의 SAP HANA에 대 한 일시** 삭제는 이제 미리 보기로 제공 됩니다.<br>
 >미리 보기에 등록 하려면 AskAzureBackupTeam@microsoft.com에 씁니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Server 데이터베이스를 백업 하기 전에 다음 조건을 확인 합니다.
 
@@ -109,6 +109,9 @@ HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제
 * 슬래시 '/'
 
 별칭은 지원 되지 않는 문자에 사용할 수 있지만이를 방지 하는 것이 좋습니다. 자세한 내용은 [테이블 서비스 데이터 모델 이해](https://docs.microsoft.com/rest/api/storageservices/Understanding-the-Table-Service-Data-Model?redirectedfrom=MSDN)를 참조하세요.
+
+>[!NOTE]
+>이름에 "+" 또는 "&"와 같은 특수 문자가 포함 된 데이터베이스에 대 한 **보호 구성** 작업은 지원 되지 않습니다. 데이터베이스 이름을 변경 하거나 **자동 보호**를 사용 하도록 설정 하 여 이러한 데이터베이스를 성공적으로 보호할 수 있습니다.
 
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
@@ -281,7 +284,7 @@ VM에서 실행 되는 데이터베이스를 검색 하는 방법:
 
 ## <a name="next-steps"></a>다음 단계
 
-방법 알아보기
+방법 배우기:
 
 * [백업 SQL Server 데이터베이스 복원](restore-sql-database-azure-vm.md)
 * [백업 SQL Server 데이터베이스 관리](manage-monitor-sql-database-backup.md)
