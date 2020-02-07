@@ -8,6 +8,8 @@
       href: terminology.md
     - name: FAQ
       href: faq.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: Azure 리소스 모니터링
@@ -218,7 +220,7 @@
               href: app/api-custom-events-metrics.md
             - name: ASP.NET 문제 해결
               href: app/asp-net-troubleshoot-no-data.md
-        - name: 코드리스 모니터링
+        - name: 코드 없는 모니터링
           items:
             - name: Azure VM 및 확장 집합
               href: app/azure-vm-vmss-apps.md
@@ -228,7 +230,7 @@
             - name: Azure Cloud Services
               displayname: 'cloud, cloud services, PaaS'
               href: app/cloudservices.md
-            - name: Azure Functions
+            - name: Azure 기능
               displayname: 'functions, monitor functions, automation'
               href: ../azure-functions/functions-monitoring.md
             - name: Kubernetes 애플리케이션
@@ -494,7 +496,7 @@
                 - name: Log Analytics 작업 영역
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-collect-workspace.md
-                - name: Azure 스토리지
+                - name: Azure Storage
                   displayname: 'Resource logs, Activity log, Platform logs'
                   href: platform/resource-logs-collect-storage.md
                 - name: Event Hubs
@@ -981,7 +983,7 @@
               href: platform/alerts-log.md
             - name: 쿼리
               href: platform/alerts-log-query.md
-            - name: webhook 작업
+            - name: 웹후크 작업
               href: platform/alerts-log-webhook.md
             - name: 문제 해결
               href: platform/alert-log-troubleshoot.md
@@ -1009,7 +1011,7 @@
               href: platform/alerts-common-schema-definitions.md
             - name: 일반 경고 스키마를 Logic Apps와 통합
               href: platform/alerts-common-schema-integrations.md
-            - name: webhook 스키마
+            - name: 웹후크 스키마
               href: platform/activity-log-alerts-webhook.md
             - name: SMS 경고 동작
               href: platform/alerts-sms-behavior.md
@@ -1049,7 +1051,7 @@
               href: platform/alerts-classic-portal.md
             - name: Resource Manager 템플릿을 사용한 클래식 메트릭 경고
               href: platform/alerts-enable-template.md
-            - name: webhook를 호출하는 클래식 메트릭 경고
+            - name: 웹후크를 호출하는 클래식 메트릭 경고
               href: platform/alerts-webhooks.md
         - name: 알림 API
           href: platform/api-alerts.md
@@ -1083,7 +1085,7 @@
               href: ../virtual-machine-scale-sets/virtual-machine-scale-sets-windows-autoscale.md?toc=/azure/azure-monitor/toc.json
             - name: Resource Manager 템플릿을 사용하여 VM 확장 집합 크기 조정
               href: platform/autoscale-virtual-machine-scale-sets.md
-            - name: webhook 및 이메일 알림 사용
+            - name: 웹후크 및 이메일 알림 사용
               href: platform/autoscale-webhook-email.md
             - name: 문제 해결
               href: platform/autoscale-troubleshoot.md
@@ -1105,7 +1107,7 @@
                   href: app/powershell-azure-diagnostics.md
         - name: Azure CLI 샘플
           href: platform/cli-samples.md
-        - name: Resource Manager 템플릿
+        - name: 리소스 관리자 템플릿
           href: platform/template-workspace-configuration.md
     - name: Extend
       items:
@@ -1189,7 +1191,7 @@
       href: /cli/azure/monitor?view=azure-cli-latest
     - name: Azure CLI - Application Insights(미리 보기)
       href: 'https://docs.microsoft.com/cli/azure/ext/application-insights/monitor?view=azure-cli-latest'
-    - name: Azure Functions
+    - name: Azure 기능
       href: app/azure-functions-supported-features.md
     - name: Azure PowerShell
       items:

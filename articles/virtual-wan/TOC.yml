@@ -4,6 +4,12 @@
   items:
     - name: 가상 WAN 정보
       href: virtual-wan-about.md
+    - name: Architecture
+      items:
+        - name: Virtual WAN으로 마이그레이션
+          href: migrate-from-hub-spoke-topology.md
+        - name: 글로벌 전송 네트워크 아키텍처
+          href: virtual-wan-global-transit-network-architecture.md
 - name: 자습서
   items:
     - name: 사이트 간 연결 만들기
@@ -18,12 +24,6 @@
       href: virtual-wan-locations-partners.md
     - name: IPsec 정책
       href: virtual-wan-ipsec.md
-    - name: Architecture
-      items:
-        - name: Virtual WAN으로 마이그레이션
-          href: migrate-from-hub-spoke-topology.md
-        - name: 글로벌 전송 네트워크 아키텍처
-          href: virtual-wan-global-transit-network-architecture.md
 - name: 방법 가이드
   items:
     - name: 가상 네트워크 게이트웨이를 Virtual WAN에 연결
