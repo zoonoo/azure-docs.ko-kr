@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 02/26/2019
 ms.author: labrenne
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a0c6fab0c9e26630bd54830044da56dba20564b3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3723631609a04f6d12abcaac1f9d7733bf3caa01
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025899"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048650"
 ---
 # <a name="create-a-batch-account-with-the-azure-portal"></a>Azure Portal에서 Batch 계정 만들기
 
@@ -45,15 +45,15 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 
     b. **리소스 그룹**: 새 Batch 계정에 대한 기존 리소스 그룹을 선택하거나 필요에 따라 새 리소스 그룹을 만듭니다.
 
-    다. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
+    c. **계정 이름**: 선택한 이름은 계정을 만든 Azure 지역 내에서 고유해야 합니다(아래 **위치** 참조). 계정 이름은 소문자 또는 숫자만 포함할 수 있으며 길이는 3-24자여야 합니다.
 
-    d. **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
+    . **위치**: Batch 계정을 만들 Azure 지역입니다. 구독 및 리소스 그룹에서 지원하는 지역만 옵션으로 표시됩니다.
 
     e. **Storage 계정**: Batch 계정과 연결 하는 선택적 Azure Storage 계정입니다. 최상의 성능을 위해 범용 v2 스토리지 계정이 권장됩니다. Batch의 모든 스토리지 계정 옵션은 [Batch 기능 개요](batch-api-basics.md#azure-storage-account)를 참조하세요. 포털에서 기존 스토리지 계정을 선택하거나 새 스토리지 계정을 만듭니다.
 
       ![스토리지 계정 만들기][storage_account]
 
-    f. **풀 할당 모드**: **고급** 설정 탭에서 풀 할당 모드를 **Batch 서비스** 또는 **사용자 구독**으로 지정할 수 있습니다. 대부분의 시나리오에서는 기본 **Batch 서비스**를 적용 합니다.
+    f. **풀 할당 모드**: **고급** 설정 탭에서 풀 할당 모드를 **Batch 서비스** 또는 **사용자 구독**으로 지정할 수 있습니다. 대부분의 시나리오의 경우 기본 **Batch 서비스**를 수락합니다.
 
       ![Batch 풀 할당 모드][pool_allocation]
 
@@ -117,6 +117,14 @@ Batch 계정 및 시나리오에 대한 배경은 [기능 개요](batch-api-basi
 키 자격 증명 모음에 대 한 액세스 권한을 수동으로 부여 하려면 키 자격 증명 모음의 **액세스 정책** 섹션으로 이동 하 여 **액세스 정책 추가** 를 선택 하 고 **Microsoft Azure Batch**를 검색 합니다. 선택한 후에는 드롭다운 메뉴를 사용 하 여 **비밀 권한을** 구성 해야 합니다. Azure Batch에는 최소한 **Get**, **List**, **Set**및 **Delete** 권한이 제공 되어야 합니다.
 
 ![Azure Batch에 대 한 보안 권한](./media/batch-account-create-portal/secret-permissions.png)
+
+
+> [!NOTE]
+> 연결 된 **Key Vault** 리소스에 대 한 **액세스 정책** 아래에 Azure Resource Manager 배포 및 **템플릿 배포** 에 대 한 **Azure Virtual Machines** 확인란이 선택 되어 있는지 확인 합니다.
+> 
+> ![필수 Key Vault 액세스 정책](./media/batch-account-create-portal/key-vault-access-policy.png) Azure Portal에서 Batch 계정을 만들 때 반드시 필요한 것은 아닙니다. 옵션은 기본적으로 선택 되어 있습니다.
+
+
 
 ### <a name="configure-subscription-quotas"></a>구독 할당량 구성
 

@@ -3,23 +3,25 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: 7502c1c9a2e125052abf71e50273fbd9bab15cd1
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: ba974228d63c542027ea5191d2c5877e7288b331
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989878"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050028"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
-리소스 정책 정의는 Azure Policy에서 리소스에 대한 규칙을 설정하는 데 사용됩니다. 각 정의는 리소스 규정 준수 및 리소스가 규정을 준수하지 않을 때 적용되는 영향에 대해 설명합니다.
+Azure Policy는 리소스에 대 한 규칙을 설정 합니다. 정책 정의는 리소스 준수 [조건](#conditions) 및 조건이 충족 될 경우 수행할 영향을 설명 합니다. 조건은 리소스 속성 [필드](#fields) 를 필요한 값과 비교 합니다. [별칭](#aliases)을 사용 하 여 리소스 속성 필드에 액세스 합니다. 리소스 속성 필드는 단일 값 필드 또는 여러 값의 [배열](#understanding-the--alias) 입니다. 배열에서 조건 평가가 다릅니다.
+[조건](#conditions)에 대해 자세히 알아보세요.
+
 규칙을 정의하여 비용을 제어하고 리소스를 보다 쉽게 관리할 수 있습니다. 예를 들어, 특정 유형의 가상 머신만 허용되게 지정할 수 있습니다. 또는 모든 리소스가 특정 태그를 갖도록 요구할 수 있습니다. 정책은 모든 자식 리소스에 의해 상속됩니다. 리소스 그룹에 정책을 적용하면 해당 리소스 그룹의 모든 리소스에 해당 정책을 적용할 수 있습니다.
 
 정책 정의 스키마는 다음 위치에서 찾을 수 있습니다. [https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json](https://schema.management.azure.com/schemas/2019-06-01/policyDefinition.json)
 
 JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 요소가 포함됩니다.
 
-- mode
+- 모드
 - 매개 변수
 - 표시 이름
 - description
@@ -63,7 +65,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 모든 Azure Policy 샘플은 [Azure Policy 샘플](../samples/index.md)에 있습니다.
 
-## <a name="mode"></a>Mode
+## <a name="mode"></a>모드
 
 **모드** 는 정책이 Azure Resource Manager 속성을 대상으로 하는지 아니면 리소스 공급자 속성을 대상으로 하는지에 따라 구성 됩니다.
 
@@ -73,6 +75,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 - `all`: 리소스 그룹 및 모든 리소스 종류를 평가합니다.
 - `indexed`: 태그 및 위치를 지원하는 리소스 종류만 평가합니다.
+
+예를 들어 리소스 `Microsoft.Network/routeTables`은 태그와 위치를 지원 하 고 두 모드에서 모두 계산 됩니다. 그러나 리소스 `Microsoft.Network/routeTables/routes` 태그를 지정할 수 없습니다 `Indexed` 모드에서 평가 되지 않습니다.
 
 대부분 **mode**를 `all`로 설정하는 것이 좋습니다. 포털을 통해 생성된 모든 정책 정의는 `all` 모드를 사용합니다. PowerShell 또는 Azure CLI를 사용하는 경우 **mode** 매개 변수를 수동으로 지정할 수 있습니다. 정책 정의에 **mode** 값이 포함되지 않으면 기본적으로 Azure PowerShell에서는 `all`로 설정되고 Azure CLI에서는 `null`로 설정됩니다. `null` 모드는 이전 버전과의 호환성을 지원하기 위해 `indexed`를 사용하는 것과 같습니다.
 
@@ -145,7 +149,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 }
 ```
 
-이 샘플은 [매개 변수 속성](#parameter-properties)에 설명된 **allowedLocations** 매개 변수를 참조합니다.
+이 샘플은 **매개 변수 속성**에 설명된 [allowedLocations](#parameter-properties) 매개 변수를 참조합니다.
 
 ### <a name="strongtype"></a>strongType
 
@@ -224,7 +228,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 },
 ```
 
-### <a name="conditions"></a>조건
+### <a name="conditions"></a>상태
 
 조건은 **field** 또는 **value** 접근자가 특정 기준을 충족하는지 여부를 평가합니다. 지원되는 조건은 다음과 같습니다.
 
@@ -252,6 +256,8 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 값에 와일드카드 `*`를 두 개 이상 포함하면 안 됩니다.
 
 **Match** 및 **notmatch** 조건을 사용 하는 경우 숫자와 일치 하는 `#`을 제공 하 고, 문자 `.`를 `?` 하 고, 모든 문자를 일치 시키고, 다른 모든 문자를 해당 실제 문자와 일치 시킵니다. **Match** 및 **notmatch** 는 대/소문자를 구분 하지만, _stringValue_ 을 평가 하는 다른 모든 조건은 대/소문자를 구분 하지 않습니다. 대/소문자를 구분하지 않는 대안은 **matchInsensitively** 및 **notMatchInsensitively**에서 확인할 수 있습니다. 예를 들어 [여러 이름 패턴 허용](../samples/allow-multiple-name-patterns.md)을 참조하세요.
+
+**\[\*\] 별칭** 배열 필드 값에서 배열의 각 요소는 논리적 **and** between 요소를 사용 하 여 개별적으로 평가 됩니다. 자세한 내용은 [\[\*\] 별칭 평가](../how-to/author-policies-for-arrays.md#evaluating-the--alias)를 참조 하세요.
 
 ### <a name="fields"></a>필드
 
@@ -320,7 +326,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 #### <a name="value-examples"></a>값 예제
 
-이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 `*netrg`의 **like** 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 모든 리소스 그룹에서 `Microsoft.Network/*` **유형이** 아닌 리소스를 거부 합니다.
+이 정책 규칙 예제는 **value**를 사용하여 `resourceGroup()` 함수의 결과와 반환된 **name** 속성을 **의** like`*netrg` 조건과 비교합니다. 규칙은 이름이 `*netrg`로 끝나는 모든 리소스 그룹에서 `Microsoft.Network/*` **유형이** 아닌 리소스를 거부 합니다.
 
 ```json
 {
@@ -396,7 +402,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 수정 된 정책 규칙을 사용 하는 경우 `if()`은 3 자 미만의 값에 대 한 `substring()` 가져오기 전에 **이름** 길이를 확인 합니다. **Name** 이 너무 짧으면 "abc로 시작 하지 않음" 값이 반환 되 고 **abc**와 비교 됩니다. **Abc** 로 시작 하지 않는 짧은 이름의 리소스는 여전히 정책 규칙에 실패 하지만 평가 하는 동안 더 이상 오류가 발생 하지 않습니다.
 
-### <a name="count"></a>카운트
+### <a name="count"></a>개수
 
 **Count** 식을 사용 하 여 리소스 페이로드의 배열에서 조건 식을 충족 하는 배열 멤버 수를 계산 하는 조건입니다. 일반적인 시나리오는 ', ' 중 하나 이상이 정확히 하나 (', ' 모두 ' 또는 ' 없음 ')가 조건을 충족 하는지 여부를 확인 하는 것입니다. **count** 는 조건 식에 대 한 각 [\[\*\] 별칭](#understanding-the--alias) 배열 멤버를 평가 하 고 _true_ 결과의 합계를 계산한 다음 식 연산자와 비교 합니다.
 
@@ -578,7 +584,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 
-이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 `concat` 배열 및 개체 함수와 함께 사용하여 **name** 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
+이 정책 규칙 예제에서는 `resourceGroup` 리소스 함수를 **배열 및 개체 함수와 함께 사용하여**name`concat` 속성을 가져오고 리소스 이름을 리소스 그룹 이름으로 시작하도록 하는 `like` 조건을 작성합니다.
 
 ```json
 {
@@ -657,7 +663,7 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 ### <a name="understanding-the--alias"></a>[*] 별칭 이해
 
-사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 예:
+사용할 수 있는 여러 별칭에는 ' normal ' 이름으로 표시 되 고 다른 **\[\*\]** 연결 된 버전이 있습니다. 예를 들면 다음과 같습니다.
 
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules`
 - `Microsoft.Storage/storageAccounts/networkAcls.ipRules[*]`

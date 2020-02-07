@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 06/11/2019
 ms.author: tvoellm
 ms.reviewer: sngun
-ms.openlocfilehash: 9e9dd529edea23b27de2e3841079244558d6689a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: acdf268874b1dc1c24116ba36e2b4233a2702a5f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442112"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064498"
 ---
 # <a name="certificate-based-authentication-for-an-azure-ad-identity-to-access-keys-from-an-azure-cosmos-db-account"></a>Azure Cosmos DB 계정의 키에 액세스 하기 위해 Azure AD id에 대 한 인증서 기반 인증
 
-인증서 기반 인증을 사용 하면 클라이언트 인증서와 함께 Azure Active Directory (Azure AD)를 사용 하 여 클라이언트 응용 프로그램을 인증할 수 있습니다. 온-프레미스 컴퓨터 또는 Azure의 가상 머신과 같이 id가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 응용 프로그램은 응용 프로그램에 직접 키를 포함 하지 않고 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증에 대해 구성 하 고, 새 응용 프로그램 id를 사용 하 여 Azure에 로그인 하 고, Azure Cosmos 계정에서 키를 검색 하는 방법을 설명 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 id를 설정 하 C# 고, Azure Cosmos 계정에서 키를 인증 하 고 액세스 하는 샘플 앱을 제공 합니다.  
+인증서 기반 인증을 사용하면 클라이언트 인증서와 함께 Azure AD(Azure Active Directory)를 사용하여 클라이언트 애플리케이션을 인증할 수 있습니다. Azure의 온-프레미스 컴퓨터 또는 가상 머신과 같이 ID가 필요한 컴퓨터에서 인증서 기반 인증을 수행할 수 있습니다. 응용 프로그램은 응용 프로그램에 직접 키를 포함 하지 않고 Azure Cosmos DB 키를 읽을 수 있습니다. 이 문서에서는 샘플 Azure AD 응용 프로그램을 만들고, 인증서 기반 인증에 대해 구성 하 고, 새 응용 프로그램 id를 사용 하 여 Azure에 로그인 하 고, Azure Cosmos 계정에서 키를 검색 하는 방법을 설명 합니다. 이 문서에서는 Azure PowerShell를 사용 하 여 id를 설정 하 C# 고, Azure Cosmos 계정에서 키를 인증 하 고 액세스 하는 샘플 앱을 제공 합니다.  
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -55,7 +55,6 @@ ms.locfileid: "75442112"
 1. 관리자 권한으로 Windows PowerShell ISE를 엽니다. 아직 수행 하지 않은 경우 AZ PowerShell module을 설치 하 고 구독에 연결 합니다. 구독이 여러 개인 경우 다음 명령에 표시 된 것 처럼 현재 구독의 컨텍스트를 설정할 수 있습니다.
 
    ```powershell
-
    Install-Module -Name Az -AllowClobber
    Connect-AzAccount
 

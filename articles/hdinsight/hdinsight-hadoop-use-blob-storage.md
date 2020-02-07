@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 1e115c59cab4c340f927da516b5f937abf42e985
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839666"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061261"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -28,7 +28,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 | 저장소 계정 종류 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 |
 |----------------------|--------------------|-----------------------------|------------------------|
 | StorageV2(범용 v2)  | Blob     | Standard                    | 핫, 쿨, 보관\*   |
-| 저장소 (범용 v1)   | Blob     | Standard                    | 해당 없음                    |
+| 저장소 (범용 v1)   | Blob     | Standard                    | N/A                    |
 | BlobStorage                    | Blob     | Standard                    | 핫, 쿨, 보관\*   |
 
 기본 Blob 컨테이너는 비즈니스 데이터를 저장하는 데 사용하지 않는 것이 좋습니다. 스토리지 비용을 줄이기 위해 사용한 후에는 매번 기본 Blob 컨테이너를 삭제하는 것이 좋습니다. 기본 컨테이너에는 애플리케이션 및 시스템 로그가 포함되어 있습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
@@ -40,7 +40,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 
 ## <a name="access-files-from-the-cluster"></a>클러스터에서 파일 액세스
 
-HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs* 를 사용하는 것이 좋습니다.
+HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
 * **정규화된 이름 사용**. 이 방법의 경우 액세스할 파일에 대한 전체 경로를 제공합니다.
 
@@ -122,7 +122,7 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
-## <a name="identify-storage-path-from-abmari"></a>Abcai에서 저장소 경로 식별
+## <a name="identify-storage-path-from-ambari"></a>Ambari에서 저장소 경로를 식별 합니다.
 
 * 구성 된 기본 저장소의 전체 경로를 확인 하려면 다음으로 이동 합니다.
 
@@ -134,7 +134,7 @@ LOCATION '/example/data/';
 
 ## <a name="blob-containers"></a>Blob 컨테이너
 
-Blob을 사용 하려면 먼저 [Azure Storage 계정을](../storage/common/storage-create-storage-account.md)만듭니다. 이 작업의 일부로 스토리지 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 스토리지 계정은 동일한 지역에서 호스팅되어야 합니다. Hive Metastore SQL Server 데이터베이스 및 Apache Oozie Metastore SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
+Blob을 사용 하려면 먼저 [Azure Storage 계정을](../storage/common/storage-create-storage-account.md)만듭니다. 이 작업의 일부로 스토리지 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 스토리지 계정은 동일한 지역에서 호스트되어야 합니다. Hive 메타스토어 SQL Server 데이터베이스 및 Apache Oozie 메타스토어 SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
 
 어디에 있든, 만들어진 각 Blob은 Azure Storage 계정의 일부 컨테이너에 속합니다. 이 컨테이너는 HDInsight 외부에 생성된 기존 Blob일 수도 있고 HDInsight 클러스터용으로 생성된 컨테이너일 수도 있습니다.
 

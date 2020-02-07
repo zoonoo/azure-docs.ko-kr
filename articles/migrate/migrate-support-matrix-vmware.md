@@ -3,12 +3,12 @@ title: Azure Migrate의 VMware 평가 지원
 description: Azure Migrate의 VMware 평가 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 8ed20ecd37eacdcb771db7c166ff8fc22b96cb89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2fab94b66e09d3923e481326b3650f1beb621dc4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846184"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048761"
 ---
 # <a name="support-matrix-for-vmware-assessment"></a>VMware 평가를 위한 지원 매트릭스 
 
@@ -88,7 +88,7 @@ ESXi 호스트 | **[응용 프로그램 검색](https://docs.microsoft.com/azure
 
 ## <a name="agentless-dependency-visualization"></a>에이전트 없는 종속성 시각화
 
-이 옵션은 현재 미리 보기로 제공되고 있습니다. [자세히 알아보기](how-to-create-group-machine-dependencies-agentless.md). 요구 사항은 다음 표에 요약 되어 있습니다.
+이 옵션은 현재 미리 보기 상태입니다. [자세히 알아봅니다](how-to-create-group-machine-dependencies-agentless.md). 요구 사항은 다음 표에 요약 되어 있습니다.
 
 **요구 사항** | **세부 정보**
 --- | ---
@@ -96,7 +96,7 @@ ESXi 호스트 | **[응용 프로그램 검색](https://docs.microsoft.com/azure
 **VM 지원** | 현재 VMware Vm에 대해서만 지원 됩니다.
 **Windows VM** | Windows Server 2016<br/> Windows Server 2012 R2<br/> Windows Server 2012<br/> Windows Server 2008 R2(64비트)
 **Linux VM** | Red Hat Enterprise Linux 7, 6, 5<br/> Ubuntu Linux 14.04, 16.04<br/> Debian 7, 8<br/> Oracle Linux 6, 7<br/> CentOS 5, 6, 7.
-**Windows 계정** |  시각화에는 게스트 액세스 권한이 있는 사용자 계정이 필요 합니다.
+**Windows 계정** |  시각화에는 로컬 또는 도메인 관리자 계정이 필요 합니다.
 **Linux 계정** | 시각화에는 루트 권한이 있는 사용자 계정이 필요 합니다.<br/><br/> 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 다음 권한이 필요 합니다. CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE.
 **VM 에이전트** | Vm에 에이전트가 필요 하지 않습니다.
 **VMware 도구** | 분석 하려는 Vm에 VMware 도구를 설치 하 고 실행 해야 합니다.

@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 TheOrgWiki 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 TheOrgWiki 구성 | Microsoft Docs'
 description: 사용자 계정을 TheOrgWiki로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,23 +15,23 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: f691b3e80bdde546074b9f243add82ace00c6301
-ms.sourcegitcommit: 5ded08785546f4a687c2f76b2b871bbe802e7dae
+ms.openlocfilehash: 2b0b11ae89e1f0d150b84f49b04a8badcb44e82c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69576382"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063149"
 ---
 # <a name="tutorial-configure-theorgwiki-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 TheOrgWiki 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 TheOrgWiki로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 TheOrgWiki and Azure Active Directory (Azure AD)에서 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 >
-> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -69,7 +69,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위해 TheOrgWiki�
 
     ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/serviceaccount.png)
 
-4. **+ 서비스 계정**을 클릭 합니다. **서비스 계정 유형**에서 **토큰 기반**을 선택 합니다. **Save**을 클릭합니다.
+4. **+ 서비스 계정**을 클릭 합니다. **서비스 계정 유형**에서 **토큰 기반**을 선택 합니다. **저장**을 클릭합니다.
 
     ![TheOrgWiki SCIM 추가](media/theorgwiki-provisioning-tutorial/auth.png)
 
@@ -136,7 +136,7 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 TheOrgWiki를 구
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에 있는 `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/` **테 넌 트 URL**에 입력 합니다. 
+5. **관리자 자격 증명** 섹션 아래에 있는 **테 넌 트 URL**에 `https://<TheOrgWiki Subdomain        value>.theorgwiki.com/api/v2/scim/v2/`을 입력 합니다. 
 
     예: `https://test1.theorgwiki.com/api/v2/scim/v2/`
 
@@ -145,13 +145,13 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 TheOrgWiki를 구
  
 6. TheOrgWiki에서 이전에 검색 한 **비밀 토큰** 필드의 토큰 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 TheOrgWiki에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 TheOrgWiki 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
-    ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
+    ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
 7. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![알림 이메일](common/provisioning-notification-email.png)
 
-8. **Save**을 클릭합니다.
+8. **저장**을 클릭합니다.
 
 9. **매핑** 섹션 아래에서 **TheOrgWiki에 사용자 Azure Active Directory 동기화를**선택 합니다.
 
@@ -159,31 +159,31 @@ Azure AD를 사용한 자동 사용자 프로 비전을 위해 TheOrgWiki를 구
 
 10. **특성 매핑** 섹션에서 Azure AD에서 TheOrgWiki로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 TheOrgWiki의 사용자 계정을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-    ![TheOrgWiki 사용자 특성](media/theorgwiki-provisioning-tutorial/userattribute.png)을 선택합니다.
+    ![TheOrgWiki 사용자 특성](media/theorgwiki-provisioning-tutorial/userattribute.png).
 
-11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+11. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
 12. TheOrgWiki에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![프로 비전 상태 전환 설정](common/provisioning-toggle-on.png)
+    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
 13. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 OrgWiki에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 14. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-    ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
-이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요.
+이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 및/또는 그룹을 프로 비전 하는 데 소요 되는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하는 데 소요 되는 시간](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)을 참조 하세요.
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 TheOrgWiki의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 TheOrgWiki의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대 한 사용자 계정 프로 비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에서 로그를 검토하고 보고서를 확인하는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에서 로그를 검토하고 보고서를 확인하는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

@@ -12,12 +12,12 @@ ms.date: 07/19/2019
 ms.author: celested
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 709f8083e50391718d34587bd0ea1d847cc41923
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cf6c89e5f891c5f16551885fb40e8d5082fd6ba5
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841968"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063512"
 ---
 # <a name="configure-saml-based-single-sign-on-to-non-gallery-applications"></a>비 갤러리 응용 프로그램에 대 한 SAML 기반 Single Sign-On 구성
 
@@ -50,7 +50,7 @@ ms.locfileid: "76841968"
 
 1. 다음 설정을 입력합니다. 응용 프로그램 공급 업체에서 값을 가져와야 합니다. 필드 값을 추출하려면 수동으로 값을 입력하거나 메타데이터 파일을 업로드할 수 있습니다.
 
-    | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | Description |
+    | 기본 SAML 구성 설정 | SP 시작 | idP 시작 | 설명 |
     |:--|:--|:--|:--|
     | **식별자 (엔터티 ID)** | 일부 앱의 경우 필수 | 일부 앱의 경우 필수 | 응용 프로그램을 고유 하 게 식별 합니다. Azure AD는 SAML 토큰의 대상 매개 변수로 애플리케이션에 식별자를 보냅니다. 애플리케이션이 식별자의 유효성을 검사해야 합니다. 또한 이 값은 애플리케이션에서 제공하는 모든 SAML 메타데이터 내에서 엔터티 ID로 표시됩니다. ' Https://<subdomain>contoso.com ' 패턴을 사용 하는 URL을 입력 합니다. *이 값은 응용 프로그램에서 보낸 **AuthnRequest** (SAML 요청)의 **발급자** 요소로 찾을 수* 있습니다. |
     | **회신 URL** | 필수 | 필수 | 애플리케이션이 SAML 토큰을 수신해야 하는 위치를 지정합니다. 회신 URL은 ACS(Assertion Consumer Service) URL이라고도 합니다. 추가 회신 URL 필드를 사용 하 여 여러 회신 Url을 지정할 수 있습니다. 예를 들어 여러 하위 도메인에 대 한 추가 회신 Url이 필요할 수 있습니다. 또는 테스트를 위해 한 번에 여러 회신 Url (로컬 호스트 및 공용 Url)을 지정할 수 있습니다. |
@@ -102,7 +102,7 @@ Azure AD에서 활성 인증서를 사용 하는 기본 **Single Sign-on 설정 
    - *올바른 서명 옵션 및 알고리즘입니다.*
    - *올바른 알림 전자 메일 주소입니다.* 활성 인증서가 만료 날짜에 가까워지면 Azure AD는이 필드에 구성 된 전자 메일 주소로 알림을 보냅니다.
 
-2. 인증서를 다운로드 하려면 Base64 형식, 원시 형식 또는 페더레이션 메타 데이터 XML에 대 한 옵션 중 하나를 선택 합니다. 또한 Azure AD는 `https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>` 형식의 애플리케이션과 관련된 메타데이터에 액세스할 수 있는 **앱 페더레이션 메타데이터 URL**을 제공합니다.
+2. 인증서를 다운로드 하려면 Base64 형식, 원시 형식 또는 페더레이션 메타 데이터 XML에 대 한 옵션 중 하나를 선택 합니다. 또한 Azure AD는 **형식의 애플리케이션과 관련된 메타데이터에 액세스할 수 있는**앱 페더레이션 메타데이터 URL`https://login.microsoftonline.com/<Directory ID>/federationmetadata/2007-06/federationmetadata.xml?appid=<Application ID>`을 제공합니다.
 
 3. 인증서를 관리, 만들기 또는 가져오려면 **SAML 서명 인증서** 섹션의 오른쪽 위 모퉁이에 있는 **편집** 아이콘 (연필)을 선택 합니다.
 
@@ -122,7 +122,7 @@ Azure AD에서 활성 인증서를 사용 하는 기본 **Single Sign-on 설정 
 
 ## <a name="step-4-set-up-the-application-to-use-azure-ad"></a>4단계. Azure AD를 사용하도록 애플리케이션 설정
 
-**\<applicationName> 설정** 섹션에는 애플리케이션에서 구성해야 하는 값이 나열되어 있으므로 Azure AD를 SAML ID 공급자로 사용합니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 **응용 프로그램 이름 설정 \<** 제목으로 이동 하 고 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온 구성** 페이지에 표시 됩니다. 이 페이지에서는 **응용 프로그램 이름 \<설정 >** 제목의 **로그인 URL**, **Azure AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
+**\<applicationName> 설정** 섹션에는 애플리케이션에서 구성해야 하는 값이 나열되어 있으므로 Azure AD를 SAML ID 공급자로 사용합니다. 필요한 값은 애플리케이션에 따라 달라집니다. 자세한 내용은 애플리케이션의 SAML 설명서를 참조합니다. 설명서를 찾으려면 **응용 프로그램 이름 설정 \<>** 제목으로 이동 하 고 단계별 **지침 보기**를 선택 합니다. 설명서는 **로그온 구성** 페이지에 표시 됩니다. 이 페이지에서는 **응용 프로그램 이름 \<설정 >** 제목의 **로그인 URL**, **Azure AD 식별자**및 **로그 아웃 url** 값을 입력 하는 방법을 안내 합니다.
 
 1. **\<applicationName> 설정** 섹션까지 아래로 스크롤합니다. 
    
@@ -163,4 +163,4 @@ Azure AD를 SAML 기반 id 공급자로 사용 하도록 응용 프로그램을 
 ## <a name="next-steps"></a>다음 단계
 
 - [애플리케이션에 사용자 또는 그룹 할당](methods-for-assigning-users-and-groups.md)
-- [자동 사용자 계정 프로비저닝 구성](configure-automatic-user-provisioning-portal.md)
+- [자동 사용자 계정 프로비저닝 구성](../app-provisioning/configure-automatic-user-provisioning-portal.md)

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 07/17/2018
 ms.author: rezas
-ms.openlocfilehash: f4125aae954519beead99db45fc8a35264d5731e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: dcbc03257b8bfeacda700f60f2724f2d02ec147d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429277"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048277"
 ---
 # <a name="understand-and-invoke-direct-methods-from-iot-hub"></a>IoT Hub의 직접 메서드 호출 및 이해
 
@@ -73,9 +73,12 @@ desired 속성, 직접 메서드 또는 클라우드-디바이스 메시지 사�
     }
     ```
 
-시간 제한은 초 단위입니다. 시간 제한이 설정되지 않으면 기본값이 30초로 설정됩니다.
+요청에서 `responseTimeoutInSeconds`로 제공 되는 값은 IoT Hub 서비스가 장치에서 직접 메서드 실행이 완료 될 때까지 기다려야 하는 시간입니다. 이 시간 제한을 장치에서 직접 메서드를 실행 하는 데 예상 되는 시간 이상으로 설정 합니다. Timeout을 지정 하지 않으면 기본값인 30 초가 사용 됩니다. `responseTimeoutInSeconds`의 최소값과 최대값은 각각 5 ~ 300 초입니다.
 
-#### <a name="example"></a>예
+요청에서 `connectTimeoutInSeconds`로 제공 되는 값은 연결이 끊어진 장치가 온라인 상태가 될 때까지 IoT Hub 서비스에서 기다려야 하는 직접 메서드를 호출 하는 시간입니다. 기본값은 0입니다. 즉, 직접 메서드를 호출할 때 장치가 이미 온라인 상태 여야 합니다. `connectTimeoutInSeconds`의 최대값은 300 초입니다.
+
+
+#### <a name="example"></a>예제
 
 `curl`을 사용하는 기본 예제는 아래를 참조하세요. 
 
@@ -98,7 +101,10 @@ curl -X POST \
 
 백 엔드 앱은 다음 항목으로 구성된 응답을 받습니다.
 
-* *HTTP 상태 코드*는 현재 연결되지 않은 디바이스에 대한 404 오류를 비롯한 IoT Hub에서 오는 오류에 사용됩니다.
+* *HTTP 상태 코드*:
+  * 200는 직접 메서드를 성공적으로 실행 했음을 나타냅니다.
+  * 404는 장치 ID가 올바르지 않거나, 직접 메서드를 호출할 때 장치가 온라인 상태가 아니고, 그 이후에 `connectTimeoutInSeconds` (수반 되는 오류 메시지를 사용 하 여 근본 원인을 파악 함)을 나타냅니다.
+  * 504는 장치가 `responseTimeoutInSeconds`내에서 직접 메서드 호출에 응답 하지 않아 발생 한 게이트웨이 시간 초과를 나타냅니다.
 
 * *헤더*는 ETag, 요청 ID, 콘텐츠 형식, 콘텐츠 인코딩을 포함합니다.
 
@@ -160,7 +166,7 @@ IoT 디바이스에서 직접 메서드를 처리하는 방법을 살펴보겠�
 
 디바이스는 `amqps://{hostname}:5671/devices/{deviceId}/methods/deviceBound` 주소에서 수신 링크를 만들어 직접 메서드 요청을 수신합니다.
 
-AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며 여기에는 다음 섹션이 포함됩니다.
+AMQP 메시지는 메서드 요청을 나타내는 수신 링크에 도착하며 다음 섹션이 포함되어 있습니다.
 
 * 해당하는 메서드 응답과 함께 다시 전달해야 하는 요청 ID가 포함된 상관 관계 ID 속성
 

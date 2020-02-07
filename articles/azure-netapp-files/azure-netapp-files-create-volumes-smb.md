@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 6b1946cdaebd01a0742f9ce2b2efb5054ac9d2a8
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867443"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049879"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -40,7 +40,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 * 해당 하는 Windows Active Directory (AD) 서버에서 적절 한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
 
-    |     서비스           |     Port     |     프로토콜     |
+    |     Service           |     포트     |     프로토콜     |
     |-----------------------|--------------|------------------|
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
@@ -53,7 +53,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     |    LDAP               |    389       |    TCP           |
     |    LDAP               |    389       |    UDP           |
     |    LDAP               |    3268      |    TCP           |
-    |    NetBIOS이름       |    138       |    UDP           |
+    |    NetBIOS 이름       |    138       |    UDP           |
     |    SAM/LSA            |    445       |    TCP           |
     |    SAM/LSA            |    445       |    UDP           |
     |    w32time            |    123       |    UDP           |
@@ -73,6 +73,8 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
     Azure NetApp Files 위임 된 서브넷을 통해 연결할 수 없는 도메인 컨트롤러가 있는 경우 Azure 지원 요청을 제출 하 여 범위를 **전역** (기본값)에서 **사이트**로 변경할 수 있습니다.  Azure NetApp Files은 Azure NetApp Files 위임 된 서브넷 주소 공간이 있는 사이트의 도메인 컨트롤러와만 통신 해야 합니다.
 
     AD 사이트 및 서비스에 대 한 [사이트 토폴로지 디자인을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) 참조 하세요. 
+    
+추가 AD 정보에 대 한 Azure NetApp Files [SMB faq](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-faqs#smb-faqs) 를 참조 하세요. 
 
 ## <a name="create-an-active-directory-connection"></a>Active Directory 연결 만들기
 

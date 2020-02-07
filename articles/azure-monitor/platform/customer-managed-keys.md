@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 01/11/2020
-ms.openlocfilehash: e677b2e958d25181b972b2696584355f8a1a465b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/05/2020
+ms.openlocfilehash: eff751465c7b64429968b0305e6ad483943c374b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901289"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048178"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -95,7 +95,7 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-예:
+예를 들면 다음과 같습니다.
 
 ```rst
 GET
@@ -308,54 +308,31 @@ Content-type: application/json
 > [!NOTE]
 > 이 단계는 **ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전이** 충족 된 Microsoft 채널을 통해 제품 그룹에서 확인을 받은 후에 **만** 수행 해야 합니다. 이 **프로 비전**전에 작업 영역을 연결 하 고 데이터를 수집 하는 경우 데이터가 삭제 되며 복구할 수 없습니다.
 
-**작업 영역을 사용 하 여 작업 영역을 *클러스터* 리소스에 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/loganalytics/workspaces/createorupdate)**
-
 CMK를 구성 Application Insights이 단계에 대해서는 부록 콘텐츠를 따르세요.
 
 ```rst
-PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>?api-version=2015-11-01-preview 
+PUT https://management.azure.com/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>/linkedservices/cluster?api-version=2019-08-01-preview 
 Authorization: Bearer <token>
 Content-type: application/json
 
 {
   "properties": {
-    "source": "Azure",
-    "customerId": "<workspace-id>",
-    "features": {
-      "clusterDefinitionId": "<cluster-id>" 
+    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     }
-  },
-  "id": "/subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/workspaces/<workspace-name>",
-  "name": "<workspace-name>",
-  "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "<region-name>"
 }
 ```
-"clusterDefinitionId"은 이전 단계의 응답에서 제공 된 "clusterId" 값입니다.
+*ClusterDefinitionId* 은 이전 단계의 응답에서 제공 된 *clusterId* 값입니다.
 
 **응답**
 
 ```json
 {
   "properties": {
-    "source": "Azure",
-    "customerId": "workspace-id",
-    "retentionInDays": value,
-    "features": {
-      "legacy": value,
-      "searchVersion": value,
-      "clusterDefinitionId": "cluster-id"
+    "WriteAccessResourceId": "subscriptions/<subscription-id>/resourcegroups/<resource-group-name>/providers/microsoft.operationalinsights/clusters/<cluster-name>"
     },
-    "workspaceCapping": {
-      "dailyQuotaGb": value,
-      "quotaNextResetTime": "timeStamp",
-      "dataIngestionStatus": "RespectQuota"
-    }
-  },
-  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name",
-  "name": "workspace-name",
-  "type": "Microsoft.OperationalInsights/workspaces",
-  "location": "region-name"
+  "id": "/subscriptions/subscription-id/resourcegroups/resource-group-name/providers/microsoft.operationalinsights/workspaces/workspace-name/linkedservices/cluster",
+  "name": "workspace-name/cluster",
+  "type": "microsoft.operationalInsights/workspaces/linkedServices",
 }
 ```
 
@@ -510,7 +487,7 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
   **응답**
 
-  200 정상
+  200 OK
 
 
 ## <a name="appendix"></a>부록

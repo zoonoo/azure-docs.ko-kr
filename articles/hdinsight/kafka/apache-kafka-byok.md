@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/27/2020
-ms.openlocfilehash: 72fd23e4283925b91d749fef0afac4e87e93405c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cba8a4fd64b948d7a3e443426ca1f779af68a3fe
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841671"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049013"
 ---
 # <a name="bring-your-own-key-for-apache-kafka-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기
 
@@ -63,11 +63,11 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     ![Apache kafka는 키 이름을 생성 합니다.](./media/apache-kafka-byok/apache-kafka-create-key.png "키 이름 생성")
 
-    다. 키 목록에서 만든 키를 선택합니다.
+    c. 키 목록에서 만든 키를 선택합니다.
 
     ![Apache kafka 키 자격 증명 모음 키 목록](./media/apache-kafka-byok/kafka-key-vault-key-list.png)
 
-    d. Kafka 클러스터 암호화에 고유 키를 사용하는 경우 키 URI를 제공해야 합니다. **키 식별자**를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
+    . Kafka 클러스터 암호화에 고유 키를 사용하는 경우 키 URI를 제공해야 합니다. **키 식별자**를 복사하고 클러스터를 만들 준비가 될 때까지 어딘가에 저장합니다.
 
     ![Apache kafka 키 식별자 가져오기](./media/apache-kafka-byok/kafka-get-key-identifier.png)
 
@@ -81,11 +81,11 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
     ![Azure Key Vault 액세스 정책에 대한 주체 선택 설정](./media/apache-kafka-byok/azure-portal-add-access-policy.png)
 
-    다. **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
+    c. **키 권한**을 **가져오기**, **키 래핑 해제** 및 **키 래핑**으로 설정합니다.
 
     ![Azure Key Vault access policy1에 대 한 키 권한 설정](./media/apache-kafka-byok/add-key-vault-access-policy-keys.png "Azure Key Vault access policy1에 대 한 키 권한 설정")
 
-    d. **비밀 권한**을 **가져오기**, **설정** 및 **삭제**로 설정합니다.
+    . **비밀 권한**을 **가져오기**, **설정** 및 **삭제**로 설정합니다.
 
     ![Azure Key Vault access policy2에 대 한 키 권한 설정](./media/apache-kafka-byok/add-key-vault-access-policy-secrets.png "Azure Key Vault access policy2에 대 한 키 권한 설정")
 
@@ -95,9 +95,13 @@ HDInsight는 Azure Key Vault만 지원합니다. 고유한 Key Vault가 있는 �
 
 ## <a name="create-hdinsight-cluster"></a>HDInsight 클러스터 만들기
 
-이제 HDInsight 클러스터를 만들 준비가 되었습니다. BYOK는 클러스터를 만드는 동안 새 클러스터에만 적용할 수 있습니다. BYOK 클러스터에서 암호화를 제거할 수 없고, 기존 클러스터에 BYOK를 추가할 수 없습니다.
+이제 HDInsight 클러스터를 만들 준비가 되었습니다. **기본 사항** 탭에서 **클러스터 유형**으로 **kafka** 을 선택 합니다.
 
-![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka.png)
+![Azure Portal Kafka 유형 선택](./media/apache-kafka-byok/azure-portal-cluster-basics-type-kafka.png)
+
+BYOK는 클러스터를 만드는 동안 새 클러스터에만 적용할 수 있습니다. BYOK 클러스터에서 암호화를 제거할 수 없고, 기존 클러스터에 BYOK를 추가할 수 없습니다.
+
+![Azure Portal의 Kafka 디스크 암호화](./media/apache-kafka-byok/azure-portal-cluster-security-networking-kafka-byok.png)
 
 클러스터를 만드는 동안 키 버전을 포함한 전체 키 URL을 제공합니다. `https://contoso-kv.vault.azure.net/keys/kafkaClusterKey/46ab702136bc4b229f8b10e8c2997fa4`)을 입력합니다. 또한 클러스터에 관리 ID를 할당하고 키 URI를 제공해야 합니다. 전체 클러스터 만들기에 대 한 자세한 내용은 [를 사용 하 여 Apache Hadoop 클러스터 만들기](./apache-kafka-get-started.md) 를 참조 하세요 Azure Portal
 
@@ -139,7 +143,7 @@ BYOK 암호화는 Kafka 1.1 이상 클러스터에만 적용할 수 있습니다
 
 **OS 디스크/리소스 디스크도 암호화되나요?**
 
-아닙니다. OS 디스크 및 리소스 디스크는 암호화 되지 않습니다.
+No. OS 디스크 및 리소스 디스크는 암호화 되지 않습니다.
 
 **클러스터가 강화될 경우 새 broker가 BYOK를 원활하게 지원할까요?**
 

@@ -11,12 +11,12 @@ ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.custom: seodec18
-ms.openlocfilehash: b4396c82851969b39841ba77fb8aba9679363474
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 00ab3e9c7902e253d39a38eb0e98ee166244bca2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986498"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048574"
 ---
 # <a name="configure-automated-ml-experiments-in-python"></a>Python에서 자동화 된 ML 실험 구성
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -145,7 +145,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 자동화된 Machine Learning 실험을 구성하는 데 사용할 수 있는 옵션에 대해 알아봅니다. 이러한 매개 변수는 `AutoMLConfig` 개체를 인스턴스화하여 설정됩니다. 매개 변수의 전체 목록은 [AutoMLConfig 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)를 참조하세요.
 
-일부 사례:
+몇 가지 예를 들면 다음과 같습니다.
 
 1.  실험 시간 제한 시간 (분)이 30 분으로 설정 되 고 교차 유효성 검사를 2로 설정 하는 기본 메트릭으로 # 가중치를 사용 하는 분류 실험
 
@@ -179,7 +179,7 @@ automl_config = AutoMLConfig(task = "classification")
 
 |분류 | 회귀 | 시계열 예측
 |-- |-- |--
-|accuracy| spearman_correlation | spearman_correlation
+|정확도| spearman_correlation | spearman_correlation
 |AUC_weighted | normalized_root_mean_squared_error | normalized_root_mean_squared_error
 |average_precision_score_weighted | r2_score | r2_score
 |norm_macro_recall | normalized_mean_absolute_error | normalized_mean_absolute_error
@@ -189,12 +189,18 @@ automl_config = AutoMLConfig(task = "classification")
 
 ### <a name="data-featurization"></a>데이터 기능화
 
-자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess).
+자동화 된 모든 기계 학습 실험에서 데이터의 [크기를 자동으로 조정 하 고 표준화](concept-automated-ml.md#preprocess) 하 여 다양 한 규모의 기능에 영향을 주는 *특정* 알고리즘을 지원 합니다.  그러나 누락 값 대체, 인코딩 및 변환과 같은 추가 기능화를 사용 하도록 설정할 수도 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#featurization).
 
-이 기능화를 사용 하도록 설정 하려면 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에 대 한 `"featurization": 'auto'`를 지정 합니다.
+실험을 구성할 때 고급 설정 `featurization`을 사용 하도록 설정할 수 있습니다. 다음 표에서는 [`AutoMLConfig` 클래스](https://docs.microsoft.com/python/api/azureml-train-automl/azureml.train.automl.automlconfig?view=azure-ml-py)에서 기능화에 대해 허용 되는 설정을 보여 줍니다.
+
+|기능화 구성 | 설명 |
+| ------------- | ------------- |
+|`"featurization":`&nbsp;`'FeaturizationConfig'`| 사용자 지정 된 기능화 단계를 사용 해야 함을 나타냅니다. [기능화를 사용자 지정 하는 방법을 알아봅니다](how-to-configure-auto-train.md#customize-feature-engineering).|
+|`"featurization": 'off'`| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
+|`"featurization": 'auto'`| 전처리의 일부로 [데이터 guardrails 및 기능화 단계가](how-to-create-portal-experiments.md#advanced-featurization-options) 자동으로 수행 됨을 나타냅니다.|
 
 > [!NOTE]
-> 자동화된 기계 학습 사전 처리 단계(기능 정규화, 누락된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용하는 경우 학습 중에 적용되는 동일한 전처리 단계가 입력 데이터에 자동으로 적용됩니다.
+> 자동화 된 machine learning 기능화 단계 (기능 정규화, 누락 된 데이터 처리, 텍스트를 숫자로 변환 등)는 기본 모델의 일부가 됩니다. 예측에 모델을 사용 하는 경우 학습 중에 적용 되는 것과 동일한 기능화 단계가 입력 데이터에 자동으로 적용 됩니다.
 
 ### <a name="time-series-forecasting"></a>시계열 예측
 시계열 `forecasting` 태스크에는 구성 개체의 추가 매개 변수가 필요 합니다.
@@ -349,7 +355,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 1: `get_engineered_feature_names()`은 엔지니어링 된 기능 이름 목록을 반환 합니다.
 
-  Usage:
+  사용량:
   ```python
   fitted_model.named_steps['timeseriestransformer']. get_engineered_feature_names ()
   ```
@@ -365,7 +371,7 @@ best_run, fitted_model = automl_run.get_output()
 
 + API 2: `get_featurization_summary()` 모든 입력 기능에 대 한 기능화 요약을 반환 합니다.
 
-  Usage:
+  사용량:
   ```python
   fitted_model.named_steps['timeseriestransformer'].get_featurization_summary()
   ```
@@ -397,18 +403,18 @@ best_run, fitted_model = automl_run.get_output()
     'Tranformations': ['DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime','DateTime']}]
   ```
 
-   장소:
+   위치:
 
    |출력|정의|
    |----|--------|
    |RawFeatureName|제공 된 데이터 집합의 입력 기능/열 이름입니다.|
    |TypeDetected|입력 기능의 데이터 형식이 검색 되었습니다.|
-   |놓도록|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
+   |Dropped|입력 기능을 삭제 하거나 사용 했는지 여부를 나타냅니다.|
    |EngineeringFeatureCount|자동화 된 기능 엔지니어링 변환을 통해 생성 된 기능의 수입니다.|
    |변환|엔지니어링 된 기능을 생성 하기 위해 입력 기능에 적용 되는 변환 목록입니다.|
    
 ### <a name="customize-feature-engineering"></a>기능 엔지니어링 사용자 지정
-기능 엔지니어링을 사용자 지정 하려면 `"feauturization":FeaturizationConfig`를 지정 합니다.
+기능 엔지니어링을 사용자 지정 하려면 `"featurization": FeaturizationConfig`를 지정 합니다.
 
 지원 되는 사용자 지정은 다음과 같습니다.
 

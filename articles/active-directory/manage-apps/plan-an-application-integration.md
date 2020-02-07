@@ -15,12 +15,12 @@ ms.date: 07/16/2018
 ms.author: mimart
 ms.reviewer: asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1291db8cd895a1104183ae2b5388eb6a23305874
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 89b16a8479f8975d101b8a4e26dcb1885d9730bd
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72895928"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063383"
 ---
 # <a name="integrating-azure-active-directory-with-applications-getting-started-guide"></a>애플리케이션과 Azure Active Directory 통합 시작 가이드
 
@@ -45,7 +45,7 @@ ms.locfileid: "72895928"
   * Azure AD
   * 사용자가 소유한 별도 애플리케이션 데이터베이스 내에서
   * 허용되지 않은 애플리케이션에서
-  * 위의 모든 항목
+  * 위 항목 모두
 * 개별 사용자는 현재 어떤 사용 권한 및 역할 할당을 가지고 있습니까? 액세스를 검토해야 하거나 사용자 액세스 및 역할 할당이 적절하다고 생각합니까?
 * 그룹은 온-프레미스 Active Directory 내에 만들어 집니까?
   * 그룹을 어떻게 구성합니까?
@@ -70,7 +70,7 @@ ms.locfileid: "72895928"
 * [Azure 애플리케이션 갤러리에서 애플리케이션 사용](what-is-single-sign-on.md)
 * [SaaS 애플리케이션 통합 자습서 목록](../active-directory-saas-tutorial-list.md)
 
-### <a name="authentication-types"></a>인증 형식
+### <a name="authentication-types"></a>인증 유형
 애플리케이션에는 각자 다른 인증 요구 사항이 있을 수 있습니다. Azure AD과 함께 인증서 서명은 SAML 2.0, WS-페더레이션 또는 OpenID 연결 프로토콜 뿐만 아니라 암호 Single Sign-on을 사용하는 애플리케이션을 사용하는 애플리케이션과 사용될 수 있습니다. Azure AD와 함께 사용할 애플리케이션 인증 형식에 대한 자세한 내용은 [Azure Active Directory에서 페더레이션된 Single Sign-on에 대한 인증서 관리](manage-certificates-for-federated-single-sign-on.md) 및 [암호 기반 Single Sign On](what-is-single-sign-on.md)을 참조하세요.
 
 ### <a name="enabling-sso-with-azure-ad-app-proxy"></a>Azure AD 앱 프록시를 사용하는 SSO 사용
@@ -85,7 +85,7 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 다음 문서는 애플리케이션이 Azure AD와 통합되면 Azure AD 커넥터 및 Azure AD를 사용하여 애플리케이션에 대한 액세스를 관리할 수 있는 방법을 설명합니다.
 
 * [Azure AD를 사용하는 앱에 대한 액세스 관리](what-is-access-management.md)
-* [Azure AD 커넥터를 사용하여 자동화](user-provisioning.md)
+* [Azure AD 커넥터를 사용하여 자동화](../app-provisioning/user-provisioning.md)
 * [애플리케이션에 사용자 지정](../active-directory-applications-guiding-developers-assigning-users.md)
 * [애플리케이션에 그룹 지정](../active-directory-applications-guiding-developers-assigning-groups.md)
 * [계정 공유](../active-directory-sharing-accounts.md)
@@ -95,7 +95,7 @@ Azure 애플리케이션 갤러리에 사용자 지정 애플리케이션을 추
 
 Azure Portal에서 배포 계획을 다운로드하려면:
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **엔터프라이즈 애플리케이션** | **앱 선택** | **배포 계획**을 선택합니다.
 
 [배포 계획 조사](https://aka.ms/DeploymentPlanFeedback)를 수행하여 배포 계획에 대한 피드백을 제공하세요.

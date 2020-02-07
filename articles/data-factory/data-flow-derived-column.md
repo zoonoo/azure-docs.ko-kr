@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 10/15/2019
-ms.openlocfilehash: c2d4c9b089a6673a5cff716d2901cc2b9483ede1
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 66396de52b3709c1d9357f32a375a29a8dcdbd1d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74972254"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048746"
 ---
 # <a name="derived-column-transformation-in-mapping-data-flow"></a>매핑 데이터 흐름의 파생 열 변환
 
@@ -34,7 +34,7 @@ ms.locfileid: "74972254"
 
 ![하위 열 추가](media/data-flow/addsubcolumn.png "하위 열 추가")
 
-데이터 흐름의 복합 형식을 처리 하는 방법에 대 한 자세한 내용은 [데이터 흐름 매핑의 JSON 처리](concepts-data-flow-json.md) 를 참조 하세요.
+데이터 흐름의 복합 형식을 처리 하는 방법에 대 한 자세한 내용은 [데이터 흐름 매핑의 JSON 처리](format-json.md#mapping-data-flow-properties)를 참조 하세요.
 
 ![복합 열 추가](media/data-flow/complexcolumn.png "열 추가")
 

@@ -6,13 +6,13 @@ ms.author: ashish
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/22/2019
-ms.openlocfilehash: 0649908e4767e48d23306c72b8db92dea9f26284
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/05/2020
+ms.openlocfilehash: 035f819cfaad82373f7cb55a7bb2d14fc53bb49b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030928"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064634"
 ---
 # <a name="scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 크기 조정
 
@@ -29,7 +29,7 @@ HDInsight는 클러스터의 작업자 노드 수를 증가 및 감소하는 옵
 
 Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티를 제공 합니다.
 
-|유틸리티 | Description|
+|유틸리티 | 설명|
 |---|---|
 |[PowerShell Az](https://docs.microsoft.com/powershell/azure)|[AzHDInsightClusterSize](https://docs.microsoft.com/powershell/module/az.hdinsight/set-azhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
 |[PowerShell AzureRM](https://docs.microsoft.com/powershell/azure/azurerm) |[AzureRmHDInsightClusterSize](https://docs.microsoft.com/powershell/module/azurerm.hdinsight/set-azurermhdinsightclustersize) -ClusterName \<Cluster Name >-TargetInstanceCount \<NewSize >|
@@ -126,7 +126,7 @@ Microsoft는 클러스터 크기를 조정 하는 다음과 같은 유틸리티�
 yarn application -kill <application_id>
 ```
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```bash
 yarn application -kill "application_1499348398273_0003"
@@ -216,6 +216,10 @@ Hive가 임시 파일을 남겨 두면 안전 모드를 피하기 위해 축소 
 3 개 이상의 작업자 노드를 축소 하는 경우 클러스터가 안전 모드에서 중단 되 고 이전 단계가 작동 하지 않는 경우 세 개 이상의 작업자 노드를 유지 하 여 클러스터가 안전 모드로 전환 되는 것을 방지할 수 있습니다.
 
 3 개의 작업자 노드를 유지 하는 것은 작업자 노드를 하나만으로 축소 하는 것 보다 비용이 많이 들기 때문에 클러스터가 안전 모드에서 중단 되지 않습니다.
+
+### <a name="scale-hdinsight-down-to-one-worker-node"></a>HDInsight를 하나의 작업자 노드로 확장
+
+클러스터가 1 개 노드로 축소 되는 경우에도 작업자 노드 0은 계속 남아 있습니다. 작업자 노드 0은 서비스 해제할 수 없습니다.
 
 #### <a name="run-the-command-to-leave-safe-mode"></a>안전 모드를 종료하는 명령 실행
 

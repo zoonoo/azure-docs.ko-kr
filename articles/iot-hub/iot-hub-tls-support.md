@@ -7,12 +7,12 @@ ms.service: iot-fundamentals
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: rezas
-ms.openlocfilehash: ce8ef987adc0cec4fcd8acef4cc075d50c92d62a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 244a71d400493a2029e831b729c63bc0b0dfe559
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722890"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049642"
 ---
 # <a name="tls-support-in-iot-hub"></a>IoT Hub의 TLS 지원
 
@@ -78,13 +78,13 @@ TLS 1.2만 허용 하도록 구성 된 IoT Hub는 다음과 같은 권장 암호
 
 IoT Hub 클라이언트 Sdk에서 TLS 1.2 및 허용 되는 암호화를 구성 하려면 아래 링크를 사용 하세요.
 
-| 언어 | TLS 1.2 지원 됨 | 문서화 |
-|----------|-------------------|---------------|
-| C        | yes               | [링크](https://aka.ms/Tls_C_SDK_IoT) |
-| Python   | yes               | [링크](https://aka.ms/Tls_Python_SDK_IoT) |
-| C#       | yes               | [링크](https://aka.ms/Tls_CSharp_SDK_IoT) |
-| Java     | yes               | [링크](https://aka.ms/Tls_Java_SDK_IoT) |
-| NodeJS   | yes               | [링크](https://aka.ms/Tls_Node_SDK_IoT) |
+| 언어 | TLS 1.2을 지 원하는 버전 | 문서화 |
+|----------|------------------------------------|---------------|
+| C        | 태그 2019-12-11 이상            | [링크](https://aka.ms/Tls_C_SDK_IoT) |
+| Python   | 버전 2.0.0 이상             | [링크](https://aka.ms/Tls_Python_SDK_IoT) |
+| C#       | 버전 1.21.4 이상            | [링크](https://aka.ms/Tls_CSharp_SDK_IoT) |
+| Java     | 버전 1.19.0 이상            | [링크](https://aka.ms/Tls_Java_SDK_IoT) |
+| NodeJS   | 버전 1.12.2 이상            | [링크](https://aka.ms/Tls_Node_SDK_IoT) |
 
 
 ### <a name="use-tls-12-in-your-iot-edge-setup"></a>IoT Edge 설정에서 TLS 1.2 사용

@@ -7,12 +7,12 @@ manager: rochakm
 ms.topic: article
 ms.date: 1/10/2020
 ms.author: sutalasi
-ms.openlocfilehash: a46bca5c5c55338f8bea7e1ff370f92ce6a2d577
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: deef7bfdbc28d744cb81da59d3ffc13a1abee54d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841049"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048610"
 ---
 # <a name="set-up-disaster-recovery-of-hyper-v-vms-to-a-secondary-site-by-using-powershell-resource-manager"></a>PowerShell을 사용하여 Hyper-V VM과 보조 사이트 간 재해 복구 설정(Resource Manager)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76841049"
 - Virtual Machine Manager 서버 및 Hyper-V 호스트가 [지원 요구 사항](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 - 복제하려는 VM에서 [복제된 컴퓨터 지원](site-recovery-support-matrix-to-sec-site.md)을 준수하는지 확인합니다.
 
-## <a name="prepare-for-network-mapping"></a>네트워크 매핑 준비
+## <a name="prepare-for-network-mapping"></a>네트워크 매핑을 준비
 
 [네트워크 매핑](hyper-v-vmm-network-mapping.md)에서는 원본 및 대상 클라우드의 온-프레미스 Virtual Machine Manager VM 네트워크 사이를 매핑합니다. 매핑은 다음을 수행합니다.
 
@@ -219,9 +219,9 @@ Azure PowerShell을 사용할 준비가 되었는지 확인합니다.
 1. 이 명령을 실행하여 원본 Virtual Machine Manager 서버와 대상 Virtual Machine Manager 서버에 대한 네트워크를 검색합니다.
 
    ```azurepowershell
-   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[0]
+   $PrimaryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[0]
 
-   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Name $Servers[1]
+   $RecoveryNetworks = Get-AzRecoveryServicesAsrNetwork -Fabric $Servers[1]
    ```
 
    > [!NOTE]

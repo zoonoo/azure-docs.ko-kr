@@ -9,12 +9,12 @@ tags: azure-portal
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: c4b8b03394eee6dffb79b0e40a22dd49880dee88
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 7ef868f156ac537cb066f293872f69135c4df25f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72793495"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059654"
 ---
 # <a name="monitor-resource-consumption-and-query-activity-in-azure-cognitive-search"></a>Azure Cognitive Search에서 리소스 소비 및 쿼리 작업 모니터링
 
@@ -56,10 +56,10 @@ Azure Cognitive Search는 관리 하는 개체 이외의 데이터는 저장 하
 
 다음 표에서는 로그를 저장하고 Application Insights를 통해 서비스 작업 및 쿼리 워크로드에 대한 심층적인 모니터링을 추가하는 옵션을 비교합니다.
 
-| 리소스 | 용도 |
+| 리소스 | 사용 목적 |
 |----------|----------|
 | [Azure Monitor 로그](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Log Analytics 작업 영역에 기록 됩니다. 작업 영역에 대해 쿼리를 실행하여 로그에서 자세한 정보를 반환할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) 을 참조 하세요. |
-| [Blob storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
+| [Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. JSON 편집기를 사용하여 파일 내용을 봅니다.|
 | [이벤트 허브](https://docs.microsoft.com/azure/event-hubs/) | 기록된 이벤트 및 쿼리 메트릭은 이 문서에서 설명하는 스키마를 기반으로 합니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
 Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
@@ -76,19 +76,21 @@ Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되�
 
    저장소 계정은 Azure Cognitive Search와 동일한 지역에 있어야 합니다.
 
-2. 검색 서비스의 [개요] 페이지를 엽니다. 왼쪽 탐색 창에서 **모니터링**까지 아래로 스크롤하고 **모니터 사용**을 클릭합니다.
+2. 검색 서비스의 [개요] 페이지를 엽니다. 왼쪽 탐색 창에서 **모니터링** 으로 스크롤하고 **진단 설정**을 클릭 합니다.
 
-   ![모니터링 사용](./media/search-monitor-usage/enable-monitoring.png "모니터링 사용")
+   ![진단 설정](./media/search-monitor-usage/diagnostic-settings.png "진단 설정")
 
-3. 내보낼 데이터를 선택합니다(로그, 메트릭 또는 둘 다). 저장소 계정에 복사 하 고, 이벤트 허브로 전송 하거나 Azure Monitor 로그로 내보낼 수 있습니다.
+3. **진단 설정 추가** 를 선택 합니다.
+
+4. 내보낼 데이터를 선택합니다(로그, 메트릭 또는 둘 다). 저장소 계정에 복사 하 고, 이벤트 허브로 전송 하거나 Azure Monitor 로그로 내보낼 수 있습니다.
 
    Blob 스토리지에 보관하려면 스토리지 계정만 있어야 합니다. 컨테이너 및 blob은 로그 데이터를 내보낼 때 필요에 따라 만들어집니다.
 
    ![Blob storage 보관 파일 구성](./media/search-monitor-usage/configure-blob-storage-archive.png "Blob storage 보관 파일 구성")
 
-4. 프로필을 저장합니다.
+5. 프로필 저장
 
-5. 개체를 만들거나 삭제하고(로그 이벤트 만들기) 쿼리를 제출(메트릭 생성)하여 로깅을 테스트합니다. 
+6. 개체를 만들거나 삭제하고(로그 이벤트 만들기) 쿼리를 제출(메트릭 생성)하여 로깅을 테스트합니다. 
 
 프로필이 저장되면 로깅을 사용하도록 설정됩니다. 기록하거나 측정하는 활동이 있는 경우에만 컨테이너가 만들어집니다. 데이터가 스토리지 계정에 복사되면 해당 데이터가 JSON 형식으로 다음 두 컨테이너에 배치됩니다.
 
@@ -108,42 +110,42 @@ resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/pr
 ## <a name="log-schema"></a>로그 스키마
 검색 서비스 트래픽 로그가 포함된 Blob은 이 섹션에서 설명한 대로 구성됩니다. 각 Blob에는 로그 개체의 배열이 포함된 **records**라는 하나의 루트 개체가 있습니다. 각 Blob에는 동일한 시간 동안 발생한 모든 작업에 대한 레코드가 포함됩니다.
 
-| name | Type | 예제 | 참고 |
+| 이름 | 형식 | 예제 | 참고 |
 | --- | --- | --- | --- |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
-| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
-| operationName |문자열 |"Query.Search" |작업 이름 |
-| operationVersion |문자열 |"2019-05-06" |사용된 api-version |
-| category |문자열 |"OperationLogs" |constant |
-| resultType |문자열 |"Success" |가능한 값: Success 또는 Failure |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |작업 타임스탬프 |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/> MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |ResourceId |
+| operationName |string |"Query.Search" |작업 이름 |
+| operationVersion |string |"2019-05-06" |사용된 api-version |
+| 범주 |string |"OperationLogs" |상수 |
+| resultType |string |"Success" |가능한 값: Success 또는 Failure |
 | resultSignature |int |200 |HTTP 결과 코드 |
 | durationMS |int |50 |밀리초 단위의 작업 기간 |
-| properties |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
+| 속성 |object |다음 테이블 참조 |데이터별 작업을 포함하는 개체 |
 
 **속성 스키마**
 
-| name | Type | 예제 | 참고 |
+| 이름 | 형식 | 예제 | 참고 |
 | --- | --- | --- | --- |
-| 설명 |문자열 |"GET /indexes('content')/docs" |작업의 엔드포인트 |
-| 쿼리 |문자열 |"? search = AzureSearch & $count = true & api-version = 2019-05-06" |쿼리 매개 변수 |
+| 설명 |string |"GET /indexes('content')/docs" |작업의 엔드포인트 |
+| Query |string |"?search=AzureSearch&$count=true&api-version=2019-05-06" |쿼리 매개 변수 |
 | 문서 |int |42 |처리된 문서 수 |
-| IndexName |문자열 |"testindex" |작업과 연결된 인덱스의 이름 |
+| IndexName |string |"testindex" |작업과 연결된 인덱스의 이름 |
 
 ## <a name="metrics-schema"></a>메트릭 스키마
 
 쿼리 요청에 대한 메트릭이 캡처됩니다.
 
-| name | Type | 예제 | 참고 |
+| 이름 | 형식 | 예제 | 참고 |
 | --- | --- | --- | --- |
-| resourceId |문자열 |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
-| metricName |문자열 |"Latency" |메트릭 이름 |
-| time |Datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
+| resourceId |string |"/SUBSCRIPTIONS/11111111-1111-1111-1111-111111111111/<br/>RESOURCEGROUPS/DEFAULT/PROVIDERS/<br/>MICROSOFT.SEARCH/SEARCHSERVICES/SEARCHSERVICE" |사용자의 리소스 ID |
+| metricName |string |"Latency" |메트릭 이름 |
+| time |datetime |"2018-12-07T00:00:43.6872559Z" |작업의 타임스탬프 |
 | average |int |64 |메트릭 시간 간격에 원시 샘플의 평균 값 |
 | minimum |int |37 |메트릭 시간 간격에 원시 샘플의 최소 값 |
-| maximum |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
+| 최대 |int |78 |메트릭 시간 간격에 원시 샘플의 최대 값 |
 | total |int |258 |메트릭 시간 간격에 원시 샘플의 총 값 |
 | count |int |4 |메트릭을 생성하는 데 사용되는 원시 샘플 수 |
-| timegrain |문자열 |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
+| timegrain |string |"PT1M" |ISO 8601에서 메트릭의 시간 조직 |
 
 모든 메트릭은 1 분 간격으로 보고됩니다. 각 메트릭은 분당 최소, 최대 및 평균 값을 표시합니다.
 

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/20/2019
 ms.author: cherylmc
-ms.openlocfilehash: 6a17570a62728d5b4f9c99e3c4c939b5c77cb3df
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 47ee05113d46f66efd02978fed09cf72edc5ac1c
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74080223"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049934"
 ---
 # <a name="configure-expressroute-direct-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Express 경로 직접 구성
 
@@ -38,7 +38,12 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    az account set --subscription "<subscription ID>"
    ```
 
-2. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
+2. Expressrouteportslocation 및 expressrouteport Api에 액세스 하려면 구독을 Microsoft 네트워크에 다시 등록 합니다.
+
+   ```azurecli
+   az provider register --namespace Microsoft.Network
+   ```
+3. ExpressRoute Direct가 지원되는 모든 위치를 나열합니다.
     
    ```azurecli
    az network express-route port location list
@@ -105,7 +110,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    }
    ]
    ```
-3. 이전 단계에 나열된 위치 중 하나에 사용 가능한 대역폭이 있는지 여부를 결정합니다.
+4. 이전 단계에 나열된 위치 중 하나에 사용 가능한 대역폭이 있는지 여부를 결정합니다.
 
    ```azurecli
    az network express-route port location show -l "Equinix-Ashburn-DC2"
@@ -131,7 +136,7 @@ Azure ExpressRoute Direct를 사용하여 전 세계에 전략적으로 분산�
    "type": "Microsoft.Network/expressRoutePortsLocations"
    }
    ```
-4. 이전 단계에서 선택한 위치를 기준으로 하는 ExpressRoute Direct 리소스를 만듭니다.
+5. 이전 단계에서 선택한 위치를 기준으로 하는 ExpressRoute Direct 리소스를 만듭니다.
 
    ExpressRoute Direct는 QinQ 및 Dot1Q VLAN 캡슐화를 둘 다 지원합니다. QinQ를 선택한 경우 ExpressRoute Direct 리소스 전체에서 고유하게 식별되는 S-Tag가 각 ExpressRoute 회로에 동적으로 할당됩니다. 회로의 각 C-Tag는 회로에서 고유해야 하지만 ExpressRoute Direct 리소스 전체에서 고유할 필요는 없습니다.  
 

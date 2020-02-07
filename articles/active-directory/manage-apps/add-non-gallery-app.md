@@ -12,12 +12,12 @@ ms.date: 10/24/2019
 ms.author: mimart
 ms.reviewer: arvinh,luleon
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6656361fd4634c46cd5216b57eb8465536319f09
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: bd5a5f100dbe09c3b82f58183a118ee3bf455f70
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062802"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063614"
 ---
 # <a name="add-an-unlisted-non-gallery-application-to-your-azure-ad-organization"></a>나열 되지 않은 (비 갤러리) 응용 프로그램을 Azure AD 조직에 추가
 
@@ -25,7 +25,7 @@ ms.locfileid: "73062802"
 
 - [Security Assertion Markup Language (SAML) 2.0](https://wikipedia.org/wiki/SAML_2.0) id 공급자를 지 원하는 모든 응용 프로그램의 셀프 서비스 통합 (SP 시작 또는 IdP 시작)
 - [암호 기반 SSO](what-is-single-sign-on.md#password-based-sso)
-- [사용자 프로 비전을 위해 SCIM (도메인 간 Id 관리) 프로토콜에 시스템](use-scim-to-provision-users-and-groups.md) 을 사용 하는 응용 프로그램의 셀프 서비스 연결
+- [사용자 프로 비전을 위해 SCIM (도메인 간 Id 관리) 프로토콜에 시스템](../app-provisioning/use-scim-to-provision-users-and-groups.md) 을 사용 하는 응용 프로그램의 셀프 서비스 연결
 - [Office 365 앱 시작 관리자](https://www.microsoft.com/microsoft-365/blog/2014/10/16/organize-office-365-new-app-launcher-2/) 또는 [Azure AD 액세스 패널](what-is-single-sign-on.md#linked-sign-on)에서 애플리케이션에 대한 링크를 추가하는 기능
 
 이 문서에서는 코드를 작성 하지 않고 Azure Portal의 **엔터프라이즈 응용** 프로그램에 비 갤러리 응용 프로그램을 추가 하는 방법을 설명 합니다. 사용자 지정 앱을 Azure AD와 통합 하는 방법에 대 한 개발자 가이드를 찾고 있는 경우 [AZURE ad에 대 한 인증 시나리오](../develop/authentication-scenarios.md)를 참조 하세요. [Openid connect Connect/OAuth](../develop/active-directory-v2-protocols.md) 와 같은 최신 프로토콜을 사용 하 여 사용자를 인증 하는 앱을 개발 하는 경우 Azure Portal에서 [앱 등록](../develop/quickstart-register-app.md) 환경을 사용 하 여 Microsoft id 플랫폼에 등록할 수 있습니다.
@@ -40,7 +40,7 @@ ms.locfileid: "73062802"
 
 4. **사용자 고유의 응용 프로그램 만들기**를 선택 합니다. **사용자 고유의 응용 프로그램 만들기** 페이지가 나타납니다.
 
-   ![애플리케이션 추가](media/add-non-gallery-app/create-your-own-application.png)
+   ![응용 프로그램 추가](media/add-non-gallery-app/create-your-own-application.png)
 
 5. 새 응용 프로그램에 대 한 표시 이름 입력을 시작 합니다. 비슷한 이름의 갤러리 응용 프로그램이 있는 경우 검색 결과 목록에 표시 됩니다.
 

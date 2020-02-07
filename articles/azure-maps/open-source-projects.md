@@ -9,18 +9,20 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 7f9bd55054fca6b45a25ef737a1a00872e536ca8
-ms.sourcegitcommit: f9601bbccddfccddb6f577d6febf7b2b12988911
+ms.openlocfilehash: 5782f07167f72be2ea7b148ad1b0a61d8cb710e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/12/2020
-ms.locfileid: "75908934"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048906"
 ---
 # <a name="azure-maps-community---open-source-projects"></a>Azure Maps community 오픈 소스 프로젝트
 
-이는 Azure Maps 팀에서 만들고 유지 관리 하는 오픈 소스, 커뮤니티 중심 이니셔티브 이며 표준 제품 또는 서비스 제공의 일부가 아닙니다. 다음은 많이 사용 되는 Azure Maps 오픈 소스 프로젝트 및 샘플 중 일부의 목록입니다.
+이러한 오픈 소스 커뮤니티 기반 이니셔티브는 Azure Maps 팀에서 만들고 유지 관리 합니다. 표준 제품 또는 서비스 제공의 일부가 아닙니다.
 
-| 프로젝트 이름 | Description |
+다음 목록에는 가장 인기 있는 오픈 소스 프로젝트 및 샘플 Azure Maps 나와 있습니다.
+
+| 프로젝트 이름 | 설명 |
 |-|-|
 | [Azure Maps 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | 웹 기반 앱에서 Azure Maps를 사용 하기 위한 코드 샘플 모음입니다. |
 | [Azure Maps .Gov 클라우드 코드 샘플](https://github.com/Azure-Samples/AzureMapsCodeSamples) | Azure Government 클라우드를 통해 Azure Maps를 사용 하는 코드 샘플 모음입니다. |
@@ -40,7 +42,7 @@ ms.locfileid: "75908934"
 - 오픈 소스 프로젝트 및 샘플 Azure Maps 지원 되는 기술 및 권장 되는 기술을 사용 합니다.
 - Azure Maps 오픈 소스 프로젝트 및 샘플은 커뮤니티 이니셔티브로, 다른 사용자의 혜택에 대 한 이니셔티브를 담당 하 고 일상적인 업무를 수행 합니다.
 - Azure Maps 오픈 소스 프로젝트와 예제는 제품이 아니므로 프리미어 지원 또는 기타 공식 지원 채널에서 지원 되지 않습니다.
-- Azure Maps 오픈 소스 프로젝트 및 샘플은 커뮤니티의 커뮤니티 지원을 통해 Microsoft에서 수행 하는 다른 오픈 소스 프로젝트와 비슷한 방식으로 지원 됩니다.
+- Azure Maps 오픈 소스 프로젝트 및 샘플은 Microsoft에서 커뮤니티에서 지 원하는 다른 오픈 소스 프로젝트와 비슷한 방식으로 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

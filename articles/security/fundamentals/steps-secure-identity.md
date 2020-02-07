@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory에서 ID 인프라를 보호하기 위한 5단계
+title: Azure AD id 인프라 보호
+titleSuffix: Azure Active Directory
 description: 이 문서에서는 관리자가 Azure AD 기능을 사용하여 해당 조직을 보호하기 위해 수행해야 하는 중요한 작업 목록을 간략히 안내합니다.
 author: martincoetzer
 manager: manmeetb
@@ -10,12 +11,12 @@ ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/29/2020
 ms.author: martinco
-ms.openlocfilehash: 870bb9720500b6eda5e7b9eb258b6764a94f01b6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: d3afc784688a14e4d5d2fc6ae9dc5c1a9e45c4a0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76903579"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057212"
 ---
 # <a name="five-steps-to-securing-your-identity-infrastructure"></a>ID 인프라를 보호하기 위한 5단계
 

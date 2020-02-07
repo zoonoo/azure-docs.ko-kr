@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 01/09/2020
 ms.author: allensu
-ms.openlocfilehash: cbb5882950636e281d311bf0536acf5b92cf11ea
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: dd73f42aaa0d0bd1884892143d96446935a401a5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77018604"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048433"
 ---
 # <a name="what-is-azure-private-endpoint"></a>Azure 개인 끝점 이란?
 
@@ -22,7 +22,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
  개인 끝점은 다음 속성을 지정 합니다. 
 
 
-|속성  |Description |
+|속성  |설명 |
 |---------|---------|
 |이름    |    리소스 그룹 내의 고유한 이름입니다.      |
 |서브넷    |  가상 네트워크에서 개인 IP 주소를 배포 하 고 할당 하는 서브넷입니다. 서브넷 요구 사항은이 문서의 제한 사항 섹션을 참조 하세요.         |
@@ -54,7 +54,7 @@ Azure 프라이빗 엔드포인트는 Azure Private Link가 제공하는, 서비
 |---------|---------|---------|
 |**개인 링크 서비스** (사용자 고유의 서비스)   |  Microsoft. Network/privateLinkServices       | empty |
 |**Azure SQL Database** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
-|**Azure SQL 데이터 웨어하우스** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
+|**Azure Synapse 분석** | Microsoft.Sql/servers    |  Sql Server (sqlServer)        |
 |**Azure Storage**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> 테이블 (테이블, table_secondary)<BR> 큐 (큐, queue_secondary)<BR> 파일 (파일, file_secondary)<BR> 웹 (웹, web_secondary)        |
 |**Azure Data Lake Storage Gen2**  | Microsoft.Storage/storageAccounts    |  Blob (blob, blob_secondary)<BR> Data Lake 파일 시스템 Gen2 (dfs, dfs_secondary)       |
 |**Azure Cosmos DB** | Microsoft.azurecosmosdb/databaseAccounts | Sql, MongoDB, Cassandra, Gremlin, Table|
@@ -130,7 +130,7 @@ Azure는 공용 DNS에서 정식 이름 DNS 레코드 (CNAME)를 만들어 해�
 다음 표에서는 개인 끝점을 사용 하는 경우의 알려진 제한 사항 목록을 제공 합니다. 
 
 
-|제한 사항 |Description |완화 방법  |
+|제한 사항 |설명 |완화 방법  |
 |---------|---------|---------|
 |NSG (네트워크 보안 그룹) 규칙 및 사용자 정의 경로는 개인 끝점에 적용 되지 않습니다.    |NSG는 개인 끝점에서 지원 되지 않습니다. 개인 끝점을 포함 하는 서브넷에 NSG가 연결 되어 있을 수 있지만 규칙은 개인 끝점에서 처리 하는 트래픽에 적용 되지 않습니다. 서브넷에 개인 끝점을 배포 하려면 [네트워크 정책 적용을 사용 하지 않도록 설정](disable-private-endpoint-network-policy.md) 해야 합니다. NSG는 동일한 서브넷에서 호스트 되는 다른 워크 로드에도 적용 됩니다. 모든 클라이언트 서브넷의 경로는/32 접두사를 사용 하 고 기본 라우팅 동작을 변경 하려면 비슷한 UDR이 필요 합니다.  | 원본 클라이언트의 아웃 바운드 트래픽에 대 한 NSG 규칙을 사용 하 여 트래픽을 제어 합니다. /32 접두사를 사용 하 여 개별 경로를 배포 하 여 개인 끝점 경로를 재정의 합니다. 아웃 바운드 연결에 대 한 NSG 흐름 로그 및 모니터링 정보는 계속 지원 되며 사용할 수 있습니다.        |
 

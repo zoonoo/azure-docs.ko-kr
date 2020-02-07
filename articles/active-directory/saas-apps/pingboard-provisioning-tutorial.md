@@ -15,18 +15,18 @@ ms.topic: article
 ms.date: 03/27/2019
 ms.author: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81988f2643fd9acb911e6f70765cedbb4786f14c
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: c64c40d93f9b525ac6adeca276797df65f32ef3e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278252"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061278"
 ---
 # <a name="tutorial-configure-pingboard-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Pingboard 구성
 
 이 자습서의 목적은 Azure AD(Azure Active Directory)에서 Pingboard로 사용자 계정을 프로비전 및 프로비전 해제할 수 있도록 하기 위해 수행해야 하는 단계를 보여주는 것입니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 항목이 있다고 가정합니다.
 
@@ -70,13 +70,13 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. **관리자 자격 증명** 섹션에서 다음 단계를 수행합니다.
 
-    가. **테넌트 URL**에 `https://your_domain.pingboard.com/scim/v2`를 입력하고 your_domain을 실제 도메인으로 바꿉니다.
+    a. **테넌트 URL**에 `https://your_domain.pingboard.com/scim/v2`를 입력하고 your_domain을 실제 도메인으로 바꿉니다.
 
     b. 관리자 계정을 사용하여 [Pingboard](https://pingboard.com/)에 로그인합니다.
 
     c. **추가 기능** > **통합** > **Azure Active Directory**를 선택합니다.
 
-    d. **구성** 탭으로 가서 **Azure에서 사용자 프로비전 사용**을 선택합니다.
+    . **구성** 탭으로 가서 **Azure에서 사용자 프로비전 사용**을 선택합니다.
 
     e. **OAuth 전달자 토큰**에서 토큰을 복사하여 **암호 토큰**에 입력합니다.
 
@@ -88,7 +88,7 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 1. **매핑** 섹션에서 **Azure Active Directory 사용자를 Pingboard에 동기화**를 선택합니다.
 
-1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../manage-apps/customize-application-attributes.md)을 참조하세요.
+1. **특성 매핑** 섹션에서 Azure AD에서 Pingboard로 동기화할 사용자 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Pingboard의 사용자 계정을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다. 자세한 내용은 [사용자 프로비전 특성 매핑 사용자 지정](../app-provisioning/customize-application-attributes.md)을 참조하세요.
 
 1. Pingboard에 대한 Azure AD 프로비전 서비스를 사용하도록 설정하려면 **설정** 섹션에서 **프로비전 상태**를 **켜기**로 변경합니다.
 
@@ -96,10 +96,10 @@ Azure AD는 "할당"이라는 개념을 사용하여 어떤 사용자가 선택�
 
 초기 동기화는 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용하여 진행 상태를 모니터링하고 링크를 통해 프로비저닝 활동 로그를 확인합니다. 로그는 Pingboard 앱에서 프로비저닝 서비스가 수행하는 모든 작업을 설명합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 * [Single Sign-on 구성](pingboard-tutorial.md)

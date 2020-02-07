@@ -1,18 +1,17 @@
 ---
 title: 개념 - AKS(Azure Kubernetes Service)의 네트워킹
 description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
-services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.author: mlearned
-ms.openlocfilehash: 7c1a25c4d2df83c9bcfb33b658e3d3100d850b6e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547968"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047449"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -97,7 +96,7 @@ Kubenet와 Azure CNI 모두 AKS 클러스터에 대 한 네트워크 연결을 �
 
 Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 
-| 기능                                                                                   | Kubenet   | Azure CNI |
+| Capability                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | 기존 또는 새 가상 네트워크에 클러스터 배포                                            | 지원 됨-UDRs 수동 적용 됨 | 지원됨 |
 | Pod-pod 연결                                                                         | 지원됨 | 지원됨 |
@@ -115,7 +114,7 @@ Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 * Azure 플랫폼은 AKS 클러스터를 만들 때 가상 네트워크 리소스를 자동으로 만들고 구성할 수 있습니다.
 * AKS 클러스터를 만들 때 가상 네트워크 리소스를 수동으로 만들고 구성 하 고 해당 리소스에 연결할 수 있습니다.
 
-서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예:
+서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예를 들면 다음과 같습니다.
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만드는 경우 고유한 UDRs 또는 서비스 끝점을 구성할 때 지원 됩니다.
 * Azure 플랫폼에서 AKS 클러스터에 대 한 가상 네트워크 리소스를 자동으로 만드는 경우 해당 AKS 관리 리소스를 수동으로 변경 하 여 사용자 고유의 UDRs 또는 서비스 끝점을 구성할 수 없습니다.
@@ -130,9 +129,9 @@ LoadBalancer 유형 Service를 만들면 기본 Azure 부하 분산 장치 리�
 
 AKS에서는 NGINX와 같은 도구를 사용하여 수신 리소스를 만들거나 AKS HTTP 애플리케이션 라우팅 기능을 사용할 수 있습니다. AKS 클러스터에 대한 HTTP 애플리케이션 라우팅을 사용하도록 설정하면 Azure 플랫폼에서 수신 컨트롤러와 *External-DNS* 컨트롤러를 만듭니다. Kubernetes에서 새 수신 리소스가 만들어지면 필요한 DNS A 레코드가 클러스터별 DNS 영역에 만들어집니다. 자세한 내용은 [HTTP 응용 프로그램 라우팅 배포][aks-http-routing]를 참조 하세요.
 
-수신의 또 다른 일반적인 기능은 SSL/TLS 종료입니다. HTTPS를 통해 액세스되는 대규모 웹 애플리케이션에서 TLS 종료는 애플리케이션 자체 내에서가 아니라 수신 리소스에서 처리할 수 있습니다. 자동 TLS 인증 생성 및 구성을 제공하기 위해 Let's Encrypt와 같은 공급자를 사용하도록 수신 리소스를 구성할 수 있습니다. Let's Encrypt를 사용하여 NGINX 인그레스 컨트롤러를 구성하는 방법에 대한 자세한 내용은[인그레스 및 TLS][aks-ingress-tls]를 참조 하세요.
+수신의 또 다른 일반적인 기능은 SSL/TLS 종료입니다. HTTPS를 통해 액세스되는 대규모 웹 애플리케이션에서 TLS 종료는 애플리케이션 자체 내에서가 아니라 수신 리소스에서 처리할 수 있습니다. 자동 TLS 인증 생성 및 구성을 제공하기 위해 Let's Encrypt와 같은 공급자를 사용하도록 수신 리소스를 구성할 수 있습니다. 암호화를 사용 하 여 NGINX 수신 컨트롤러를 구성 하는 방법에 대 한 자세한 내용은 [수신 및 TLS][aks-ingress-tls]를 참조 하세요.
 
-AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 IP를 유지하기 위해 인그레스 컨트롤러를 구성할 수도 있습니다. 클라이언트의 요청이 수신 컨트롤러를 통해 AKS 클러스터의 컨테이너에 라우팅되는 경우 해당 요청의 원래 원본 IP를 대상 컨테이너에서 사용할 수 없게 됩니다. *클라이언트 원본 IP 유지*를 사용하도록 설정한 경우, 클라이언트에 대한 원본 IP는 *X-Forwarded-For* 아래에 있는 요청 헤더에서 사용할 수 있습니다. 인그레스 컨트롤러에서 클라이언트 원본 IP 유지를 사용하고 있는 경우, SSL pass-through 옵션을 사용할 수 없습니다. 클라이언트 원본 IP 유지 및 SSL pass-through는 *LoadBalancer* 유형과 같은 다른 서비스들과 함께 사용할 수 있습니다.
+AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 IP를 유지하기 위해 인그레스 컨트롤러를 구성할 수도 있습니다. 클라이언트의 요청이 수신 컨트롤러를 통해 AKS 클러스터의 컨테이너에 라우팅되는 경우 해당 요청의 원래 원본 IP를 대상 컨테이너에서 사용할 수 없습니다. *클라이언트 원본 ip 유지*를 사용 하도록 설정 하면 클라이언트에 대 한 원본 Ip가 *X로 전달 된의*요청 헤더에서 사용할 수 있습니다. 수신 컨트롤러에서 클라이언트 원본 IP 유지를 사용 하는 경우 SSL 통과를 사용할 수 없습니다. 클라이언트 원본 IP 유지 및 SSL 통과는 *LoadBalancer* 유형과 같은 다른 서비스와 함께 사용할 수 있습니다.
 
 ## <a name="network-security-groups"></a>네트워크 보안 그룹
 
@@ -150,7 +149,7 @@ AKS 클러스터에서 컨테이너에 대한 요청에 클라이언트 원본 I
 
 AKS 네트워킹을 시작 하려면 [kubenet][aks-configure-kubenet-networking] 또는 [Azure cni][aks-configure-advanced-networking]를 사용 하 여 고유한 IP 주소 범위를 사용 하 여 AKS 클러스터를 만들고 구성 합니다.
 
-관련된 모범 사례는 [AKS에서의 네트워크 연결 및 보안 모범 사례][operator-best-practices-network]를 참조하세요.
+관련 모범 사례는 [AKS의 네트워크 연결 및 보안에 대 한 모범 사례][operator-best-practices-network]를 참조 하세요.
 
 Kubernetes 및 AKS 핵심 개념에 대한 자세한 내용은 다음 문서를 참조하세요.
 

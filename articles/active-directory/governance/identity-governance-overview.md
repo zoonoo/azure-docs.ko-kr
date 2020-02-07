@@ -16,12 +16,12 @@ ms.date: 10/24/2019
 ms.author: ajburnle
 ms.reviewer: markwahl-msft
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c90052d1d75ba65a8e0b0e7a2cd26a279019a82d
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: bd319dd6a83a392f6df26d07a58be22a9c8bdb61
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73173163"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063682"
 ---
 # <a name="what-is-azure-ad-identity-governance"></a>Azure AD Identity Governance란?
 
@@ -29,7 +29,7 @@ Azure AD (Azure Active Directory) Id 거 버 넌 스를 사용 하면 적절 한
 
 Id 거 버 넌 스는 직원, 비즈니스 파트너 및 공급 업체 및 온-프레미스와 클라우드 모두에서 서비스와 응용 프로그램에 걸쳐 다음과 같은 작업을 수행할 수 있는 기능을 조직에 제공 합니다.
 
-- ID 수명 주기 관리
+- ID 수명 주기 거버넌스
 - 액세스 수명 주기 거버넌스
 - 관리를 위한 권한 있는 액세스 보안
 
@@ -58,7 +58,7 @@ Id 거 버 넌 스를 통해 조직은 *생산성* 간에 균형을 유지할 �
 
 IT 대리자는 일반적으로 비즈니스 의사 결정권자에 대한 승인 결정에 액세스합니다.  또한 IT에는 사용자가 스스로가 포함될 수 있습니다.  예를 들어 유럽에 있는 회사의 마케팅 애플리케이션에서 기밀 고객 데이터에 액세스하는 사용자는 회사의 정책을 알아야 합니다. 게스트 사용자는 초대된 조직의 데이터에 대해 처리 중인 요구 사항을 인식하지 못할 수 있습니다.
 
-조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../manage-apps/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.   [AZURE AD 자격 관리](entitlement-management-overview.md) 를 사용 하 여 사용자가 그룹 및 팀 멤버 자격, 응용 프로그램 역할 및 SharePoint Online 역할의 패키지에서 액세스를 요청 하는 방법을 정의할 수도 있습니다.
+조직은 [동적 그룹](../users-groups-roles/groups-dynamic-membership.md)과 같은 기술을 통해 액세스 수명 주기 프로세스를 자동화하여 [SaaS 앱](../saas-apps/tutorial-list.md) 또는 [SCIM과 통합된 앱](../app-provisioning/use-scim-to-provision-users-and-groups.md)에 프로비전한 사용자와 결합할 수 있습니다.  조직은 [온-프레미스 애플리케이션에 액세스할 수 있는 게스트 사용자](../b2b/hybrid-cloud-to-on-premises.md)를 제어할 수도 있습니다.  그런 다음, 정기 [Azure AD 액세스 검토](access-reviews-overview.md)를 사용하여 이러한 액세스 권한을 정기적으로 검토할 수 있습니다.   [AZURE AD 자격 관리](entitlement-management-overview.md) 를 사용 하 여 사용자가 그룹 및 팀 멤버 자격, 응용 프로그램 역할 및 SharePoint Online 역할의 패키지에서 액세스를 요청 하는 방법을 정의할 수도 있습니다.
 
 사용자가 응용 프로그램에 액세스 하려고 하면 Azure AD는 [조건부 액세스](/azure/active-directory/conditional-access/) 정책을 적용 합니다. 예를 들어 조건부 액세스 정책에는 [사용 약관](../conditional-access/terms-of-use.md) 을 표시 하 고 사용자가 응용 프로그램에 액세스 하기 전에 [해당 약관에 동의](../conditional-access/require-tou.md) 했는지 확인 하는 작업이 포함 될 수 있습니다.
 
@@ -93,7 +93,7 @@ Id 거 버 넌 스 기능에 대 한 의견이 있는 경우 피드백을 제출
 | 권한 관리 | 사용자 관리자 (전역 관리자가 필요한 카탈로그에 SharePoint Online 사이트를 추가 하는 것은 제외) |
 | 액세스 검토 | 사용자 관리자 (권한 있는 역할 관리자가 필요한 Azure 또는 Azure AD 역할의 액세스 검토를 제외 하 고) |
 |Privileged Identity Management | 권한 있는 역할 관리자 |
-| 사용 조건 | 보안 관리자 또는 조건부 액세스 관리자 |
+| 사용 약관 | 보안 관리자 또는 조건부 액세스 관리자 |
 
 ## <a name="next-steps"></a>다음 단계
 

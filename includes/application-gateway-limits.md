@@ -4,12 +4,12 @@ ms.service: application-gateway
 ms.topic: include
 ms.date: 6/5/2019
 ms.author: victorh
-ms.openlocfilehash: 0ba21fe3789fba03cd4814d19fb103c3a2559c13
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 6ab6c4c2051ccd2fbb22c383b9ca0af53ceb13d3
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75662936"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77054928"
 ---
 | 리소스 | 기본/최대 제한 | 참고 |
 | --- | --- | --- |
@@ -21,7 +21,7 @@ ms.locfileid: "75662936"
 | HTTP 수신기 |100<sup>1</sup> | |
 | HTTP 부하 분산 규칙 |100<sup>1</sup> | |
 | 백 엔드 HTTP 설정 |100<sup>1</sup> | |
-| 게이트웨이당 인스턴스 |32 | |
+| 게이트웨이당 인스턴스 |V1 SKU-32<br>V2 SKU-125 | |
 | SSL 인증서 |100<sup>1</sup> |HTTP 수신기 당 1 개 |
 | 최대 SSL 인증서 크기 |V1 SKU-10 KB<br>V2 SKU-16KB| |
 | 인증 인증서 |100 | |

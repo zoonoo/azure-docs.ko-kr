@@ -2,7 +2,7 @@
 title: 회사 또는 학교 계정으로 인증을 사용 하 여 로그인-Azure AD
 description: 다양 한 2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 하는 방법을 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: b310b762-471b-4b26-887a-a321c9e81d46
 ms.workload: identity
@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 04/02/2017
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: librown
 ms.custom: end-user, seo-update-azuread-jan
-ms.openlocfilehash: 648de7903a965d477343b974fdd615df45c3adc3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 33cf9e284d2206ea497af7a5da7c3cf4a890cc87
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705244"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064090"
 ---
 # <a name="sign-in-to-your-work-or-school-account-using-your-two-factor-verification-method"></a>2 단계 인증 방법을 사용 하 여 회사 또는 학교 계정에 로그인 합니다.
 
@@ -60,7 +60,7 @@ ms.locfileid: "76705244"
    ![Microsoft가 알림을 보냄](./media/multi-factor-authentication-end-user-signin/notify.png)
 
 3. 휴대폰에서 알림을 열고 **확인** 키를 선택합니다. 회사에서 PIN을 요구하는 경우 여기에 입력합니다.
-4. 사용자가 로그인됩니다.
+4. 이제 로그인됩니다.
 
 ### <a name="to-sign-in-using-a-verification-code-with-the-microsoft-authenticator-app"></a>확인 코드를 사용하여 Microsoft Authenticator 앱에 로그인하려면
 

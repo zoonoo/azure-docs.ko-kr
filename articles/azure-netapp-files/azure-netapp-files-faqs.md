@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/03/2020
+ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: 9559f1d52f87314670162482e10714dad13be5bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: aaa7e5e65ced2a9899bef5a811ee74be42a8548f
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046162"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048821"
 ---
 # <a name="faqs-about-azure-netapp-files"></a>Azure NetApp Files에 대 한 Faq
 
@@ -29,7 +29,7 @@ ms.locfileid: "76046162"
 
 ### <a name="does-the-nfs-data-path-go-over-the-internet"></a>NFS 데이터 경로는 인터넷을 통해 이동 하나요?  
 
-아닙니다. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
+No. NFS 데이터 경로는 인터넷을 통해 이동 하지 않습니다. Azure NetApp Files은 서비스를 사용할 수 있는 Azure Virtual Network (VNet)에 배포 되는 Azure native service입니다. Azure NetApp Files는 위임 된 서브넷을 사용 하 고 VNet에서 직접 네트워크 인터페이스를 프로 비전 합니다. 
 
 자세한 내용은 [Azure NetApp Files 네트워크 계획에 대 한 지침](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-network-topologies) 을 참조 하세요.  
 
@@ -131,7 +131,9 @@ Root squash 병합는 현재 지원 되지 않습니다.
 
 ### <a name="how-many-active-directory-connections-are-supported"></a>지원 되는 Active Directory 연결은 몇 개입니까?
 
-현재 Azure NetApp Files는 NetApp 계정, 구독 당 및 각 지역에서 하나의 Active Directory 연결만 지원 합니다. 연결은 NetApp 계정에서 공유 되지 않습니다.
+AD 연결이 다른 NetApp 계정에 있는 경우에도 Azure NetApp Files는 단일 *지역*에서 여러 ad (Active Directory) 연결을 지원 하지 않습니다. 그러나 AD 연결이 서로 다른 지역에 있는 한 단일 *구독*에서 여러 ad 연결을 사용할 수 있습니다. 단일 지역에 여러 AD 연결이 필요한 경우 별도의 구독을 사용 하 여이 작업을 수행할 수 있습니다. 
+
+AD 연결은 NetApp 계정에 따라 구성 됩니다. AD 연결은 생성 된 NetApp 계정을 통해서만 볼 수 있습니다.
 
 ### <a name="does-azure-netapp-files-support-azure-active-directory"></a>Azure Active Directory 지원 Azure NetApp Files? 
 
@@ -155,7 +157,7 @@ Azure NetApp Files는 용량 풀 및 볼륨 사용 메트릭을 제공 합니다
 
 ### <a name="can-i-manage-azure-netapp-files-through-azure-storage-explorer"></a>Azure Storage 탐색기를 통해 Azure NetApp Files를 관리할 수 있나요?
 
-아닙니다. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
+No. Azure Storage 탐색기에서 Azure NetApp Files 지원 되지 않습니다.
 
 ## <a name="data-migration-and-protection-faqs"></a>데이터 마이그레이션 및 보호 Faq
 
@@ -189,15 +191,15 @@ Azure NetApp Files 볼륨을 다른 Azure 지역으로 복제 하기 위한 요�
 
 ### <a name="is-migration-with-azure-data-box-supported"></a>마이그레이션이 Azure Data Box 지원 되나요?
 
-아닙니다. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
+No. Azure Data Box은 현재 Azure NetApp Files를 지원 하지 않습니다. 
 
 ### <a name="is-migration-with-azure-importexport-service-supported"></a>Azure Import/Export 서비스를 사용 하 여 마이그레이션이 지원 되나요?
 
-아닙니다. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
+No. Azure Import/Export 서비스는 현재 Azure NetApp Files을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계  
 
-- [Microsoft Azure ExpressRoute FAQs](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
+- [Microsoft Azure ExpressRoute Faq](https://docs.microsoft.com/azure/expressroute/expressroute-faqs)
 - [Microsoft Azure Virtual Network FAQ](https://docs.microsoft.com/azure/virtual-network/virtual-networks-faq)
 - [Azure 지원 요청을 만드는 방법](https://docs.microsoft.com/azure/azure-portal/supportability/how-to-create-azure-support-request)
 - [Azure Data Box](https://docs.microsoft.com/azure/databox-family/)

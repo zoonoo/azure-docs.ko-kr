@@ -8,14 +8,14 @@ manager: johndeu
 ms.service: media-services
 ms.subservice: video-indexer
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: anzaman
-ms.openlocfilehash: e8df7ffd285b0d49f5d4a87585e769b5b0bbafe9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 01ea4d9ef943183f09baa86b729ec69344d4309e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513153"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049040"
 ---
 # <a name="customize-a-language-model-with-the-video-indexer-apis"></a>Video Indexer API로 언어 모델 사용자 지정
 
@@ -105,9 +105,8 @@ Video Indexer를 사용하면 엔진을 적응시킬 어휘가 포함된 도메�
 }
 ```
 
-비디오를 [인덱스에 업로드할](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 때 **linguisticModelId** 매개 변수에 대해 언어 모델의 반환 된 **id** 값을 사용 하 고 [비디오](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?)를 인덱싱할 때 **languageModelId** 매개 변수를 사용 해야 합니다.
+반환 된 **id** 는 언어 모델을 구별 하는 데 사용 되는 고유 id 이며, **languageModelId** 는 [비디오 api를](https://api-portal.videoindexer.ai/docs/services/operations/operations/Re-index-video?) 인덱싱하는 비디오를 업로드 하는 데 사용 되는 반면, **linguisticModelId** 에서는 api 업로드/다시 인덱스를 사용 [하](https://api-portal.videoindexer.ai/docs/services/operations/operations/Upload-video?) 는 경우 Video Indexer에도 사용 됩니다.
 
- 
 ## <a name="delete-a-language-model"></a>언어 모델 삭제
 
 [언어 모델 삭제](https://api-portal.videoindexer.ai/docs/services/operations/operations/Delete-Language-Model?&pattern=delete) API는 지정 된 계정에서 사용자 지정 언어 모델을 삭제 합니다. 삭제된 언어 모델을 사용하던 모든 비디오는 비디오를 다시 인덱싱할 때까지 동일한 인덱스를 유지합니다. 비디오를 다시 인덱싱하는 경우 비디오에 새 언어 모델을 할당할 수 있습니다. 그렇지 않으면 Video Indexer는 기본 모델을 사용하여 비디오를 다시 인덱싱합니다.

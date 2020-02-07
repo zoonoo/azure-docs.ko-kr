@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 01/24/2020
-ms.openlocfilehash: 3877632565c1ca2c9a16681e03f8931a94af0599
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 01/31/2020
+ms.openlocfilehash: ea7c695ddb92d441018503839b974c1f4bb33473
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765759"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047852"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
 
@@ -37,7 +37,9 @@ Log Analytics 작업 영역에이 데이터를 저장 하는 새 위치와 함�
 
 
 ## <a name="how-do-i-upgrade"></a>업그레이드 어떻게 할까요??
-업그레이드가 필요한 각 VM은 Azure Portal VM용 Azure Monitor의 **시작** 탭에서 확인할 수 있습니다. 단일 VM을 업그레이드 하거나 여러 개를 선택 하 여 함께 업그레이드할 수 있습니다. 다음 명령을 사용 하 여 PowerShell을 사용 하 여 업그레이드 합니다.
+Log Analytics 작업 영역이 최신 버전의 Vm에 대 한 Azure Monitor 최신 버전으로 업그레이드 되 면 해당 작업 영역에 연결 된 각 Vm에서 종속성 에이전트가 업그레이드 됩니다. 업그레이드가 필요한 각 VM은 Azure Portal VM용 Azure Monitor의 **시작** 탭에서 확인할 수 있습니다. VM을 업그레이드 하도록 선택 하면 해당 vm에 대 한 작업 영역을 해당 작업 영역에 연결 된 다른 Vm과 함께 업그레이드 합니다. 단일 VM 또는 여러 Vm, 리소스 그룹 또는 구독을 선택할 수 있습니다. 
+
+다음 명령을 사용 하 여 PowerShell을 사용 하 여 작업 영역을 업그레이드 합니다.
 
 ```PowerShell
 Set-AzureRmOperationalInsightsIntelligencePack -ResourceGroupName <resource-group-name> -WorkspaceName <workspace-name> -IntelligencePackName "VMInsights" -Enabled $True
@@ -53,7 +55,7 @@ VM용 Azure Monitor 사용 하도록 설정 하는 현재 방법은 작업 영�
 >`Perf` 테이블에서 이러한 카운터를 참조 하는 경고 규칙이 있는 경우 `InsightsMetrics` 테이블에 저장 된 새 데이터를 참조 하도록 업데이트 해야 합니다. 이 테이블을 참조 하는 데 사용할 수 있는 예제 로그 쿼리는 설명서를 참조 하세요.
 >
 
-성능 카운터를 사용 하도록 설정 하는 경우 데이터 수집에 대 한 요금이 청구 되 고 [Log Analytics 가격 책정 [(https://azure.microsoft.com/pricing/details/monitor/) 에 따라 `Perf` 테이블에 저장 됩니다.
+성능 카운터를 사용 하도록 설정 하는 경우 데이터 수집에 대 한 요금이 청구 되 고 [Log Analytics 가격 책정 [(https://azure.microsoft.com/pricing/details/monitor/)에 따라 `Perf` 테이블에 저장 됩니다.
 
 ## <a name="how-will-this-change-affect-my-alert-rules"></a>이 변경 내용은 내 경고 규칙에 어떤 영향을 미칩니까?
 
@@ -79,7 +81,7 @@ VM용 Azure Monitor 사용 하도록 설정 하는 현재 방법은 작업 영�
 
 ## <a name="will-the-service-map-data-sets-also-be-stored-in-insightsmetrics"></a>서비스 맵 데이터 집합이 InsightsMetrics에도 저장 됩니까?
 
-두 솔루션을 모두 사용 하는 경우 데이터 집합이 중복 되지 않습니다. 두 제품은 모두 `VMComputer` (이전의 ServiceMapComputer_CL), `VMProcess` (이전의 ServiceMapProcess_CL), `VMConnection`테이블에 저장 되는 데이터 집합을 공유 하 여 수집 하는 맵 데이터 집합을 저장 합니다.  
+두 솔루션을 모두 사용 하는 경우 데이터 집합이 중복 되지 않습니다. 두 제품은 모두 `VMComputer` (이전의 ServiceMapComputer_CL), `VMProcess` (이전의 ServiceMapProcess_CL), `VMConnection`테이블에 저장 되는 데이터 집합을 공유 하 여 수집 하는 맵 데이터 집합을 저장 합니다.`VMBoundPort`  
 
 `InsightsMetrics` 테이블은 수집 하는 VM, 프로세스 및 서비스 데이터 집합을 저장 하 고 VM용 Azure Monitor 및 VM Insights 솔루션을 사용 하는 경우에만 채워집니다. 서비스 맵 솔루션은 `InsightsMetrics` 테이블에서 데이터를 수집 하거나 저장 하지 않습니다.
 
@@ -97,7 +99,7 @@ VM용 Azure Monitor 사용 하도록 설정 하는 현재 방법은 작업 영�
 
 ## <a name="health-feature-is-in-limited-public-preview"></a>상태 기능이 제한 된 공개 미리 보기 상태입니다.
 
-Microsoft는 VM 상태 기능 집합에 대 한 고객의 많은 유용한 피드백을 받았습니다. 이 기능에 관한 관심이 많았으며 이 기능의 모니터링 워크플로 지원 잠재성에 대한 기대도 컸습니다. Microsoft는 기능을 추가하고 받은 피드백을 처리하기 위해 일련의 변경을 계획하고 있습니다. 
+Microsoft는 VM 상태 기능 집합에 대 한 고객의 많은 유용한 피드백을 받았습니다. 이 기능에 대 한 많은 관심을 가지 며 모니터링 워크플로를 지원할 가능성이 있습니다. 기능을 추가 하 고 받은 피드백을 해결 하기 위해 일련의 변경을 수행할 계획입니다. 
 
 이러한 변경 사항이 새 고객에 미치는 영향을 최소화 하기 위해이 기능을 제한 된 **공개 미리 보기로**옮겼습니다. 이 업데이트는 10 월 2019 일에 발생 합니다.
 

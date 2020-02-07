@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 94fc50bf238a74b7d8b45625d88b2d23d7dd1a13
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: a7e5dc9c177dbddda8bf229ec7949f53b70e616c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75613768"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064309"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "75613768"
 
 ## <a name="overview"></a>개요
 
-[Azure Active Directory 사용자 프로비전 서비스](../manage-apps/user-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD는 이 연결을 사용하여 다음 사용자 프로비전 워크플로를 가능하게 합니다.
+[Azure Active Directory 사용자 프로비전 서비스](../app-provisioning/user-provisioning.md)는 사용자 계정을 프로비전하기 위해 [Workday 인적 자원 API](https://community.workday.com/sites/default/files/file-hosting/productionapi/Human_Resources/v21.1/Get_Workers.html)와 통합됩니다. Azure AD는 이 연결을 사용하여 다음 사용자 프로비전 워크플로를 가능하게 합니다.
 
 * **사용자를 Active Directory에 프로비전** - Workday에서 선택한 사용자 세트를 하나 이상의 Active Directory 도메인에 프로비전합니다.
 
@@ -40,13 +40,13 @@ ms.locfileid: "75613768"
 
 Azure AD 사용자 프로비전 서비스에서 지원되는 Workday 사용자 프로비전 워크플로는 다음과 같은 인적 자원 및 ID 수명 주기 관리 시나리오의 자동화를 지원합니다.
 
-* **신규 직원 고용** - 신규 직원이 Workday에 추가되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../manage-apps/user-provisioning.md)에서 사용자 계정이 자동으로 생성되며, Workday에 이메일 주소를 다시 씁니다.
+* **신규 직원 고용** - 신규 직원이 Workday에 추가되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 사용자 계정이 자동으로 생성되며, Workday에 이메일 주소를 다시 씁니다.
 
-* **직원 특성 및 프로필 업데이트** - Workday에서 이름, 직함, 관리자 등의 직원 레코드가 업데이트되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../manage-apps/user-provisioning.md)에서 해당 사용자 계정이 자동으로 업데이트됩니다.
+* **직원 특성 및 프로필 업데이트** - Workday에서 이름, 직함, 관리자 등의 직원 레코드가 업데이트되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 사용자 계정이 자동으로 업데이트됩니다.
 
-* **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../manage-apps/user-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
+* **직원 퇴사** - Workday에서 직원이 퇴사하면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 사용자 계정이 자동으로 비활성화됩니다.
 
-* **직원 다시 채용** - Workday에서 직원이 다시 채용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../manage-apps/user-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
+* **직원 다시 채용** - Workday에서 직원이 다시 채용되면 Active Directory, Azure Active Directory 그리고 선택적으로 Office 365 및 [Azure AD에서 지원하는 기타 SaaS 애플리케이션](../app-provisioning/user-provisioning.md)에서 해당 직원의 기존 계정이 자동으로 다시 활성화되거나 다시 프로비전됩니다(기본 설정에 따라).
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -153,8 +153,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아닙니다. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
+| No. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| No. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 1 |
 
   ![시나리오 1](./media/workday-inbound-tutorial/dep_scenario1.png)
 
@@ -164,8 +164,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아닙니다. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
-| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| No. 배포할 프로비전 에이전트 수 | 3(고가용성 및 장애 조치(failover)용) |
+| No. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 2](./media/workday-inbound-tutorial/dep_scenario2.png)
 
@@ -175,8 +175,8 @@ Active Directory 토폴로지에 따라 구성할 사용자 프로비저닝 커�
 
 |   |   |
 | - | - |
-| 아닙니다. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
-| 아닙니다. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
+| No. 배포할 프로비전 에이전트 수 | 분리된 AD 포리스트당 3개 |
+| No. 구성할 Workday-AD 사용자 프로비저닝 앱 수 | 자식 도메인당 앱 1개 |
 
   ![시나리오 3](./media/workday-inbound-tutorial/dep_scenario3.png)
 
@@ -300,15 +300,15 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 4. **도메인 보안 정책 권한 편집** 페이지에서 **통합 권한** 섹션까지 아래로 스크롤합니다. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
 
-    ![권한 편집](./media/workday-inbound-tutorial/wd_isu_10.png "편집 권한")  
+    ![권한 편집](./media/workday-inbound-tutorial/wd_isu_10.png "사용 권한 편집")  
 
 5. “+” 기호를 클릭하여 **Get** 및 **Put** 통합 권한이 있는 보안 그룹 목록에 통합 시스템 그룹을 추가합니다.
 
-    ![권한 편집](./media/workday-inbound-tutorial/wd_isu_11.png "편집 권한")  
+    ![권한 편집](./media/workday-inbound-tutorial/wd_isu_11.png "사용 권한 편집")  
 
 6. 이러한 나머지 보안 정책 각각에 대해 위의 3-5단계를 반복합니다.
 
-   | 작업 | 도메인 보안 정책 |
+   | 작업(Operation) | 도메인 보안 정책 |
    | ---------- | ---------- |
    | 가져오기 및 넣기 | 작업자 데이터: 공용 작업자 보고서 |
    | 가져오기 및 넣기 | 개인 데이터: 작업 연락처 정보 |
@@ -455,7 +455,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다.
 
    * **Active Directory 포리스트 -** 에이전트에 등록된 Active Directory 도메인의 “이름”입니다. 드롭다운에서 프로비전을 위한 대상 도메인을 선택합니다. 이 값은 일반적으로 *contoso.com* 형태의 문자열입니다.
 
@@ -472,7 +472,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **연결 테스트** 단추를 클릭합니다. 연결 테스트가 성공하면 맨 위에서 **저장** 단추를 클릭합니다. 실패한 경우 에이전트 설치 시 구성된 Workday 자격 증명과 AD 자격 증명이 유효한지 재차 확인하세요.
 
-     ![Azure Portal](./media/workday-inbound-tutorial/wd_1.png)
+     ![Azure 포털](./media/workday-inbound-tutorial/wd_1.png)
 
    * 자격 증명이 저장되면 **매핑** 섹션에 기본 매핑인 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화)가 표시됩니다.
 
@@ -502,7 +502,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
    > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. Workday의 몇몇 테스트 사용자로 매핑을 테스트하려면 **원본 개체 범위** 아래에 있는 범위 지정 필터를 사용하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
-   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. 이는 Workday에서 AD 통합에 적합 하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../manage-apps/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
+   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. 이는 Workday에서 AD 통합에 적합 하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
   
 1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
@@ -516,7 +516,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
          * **상수** - AD 특성에 고정적인 상수 문자열 값을 씁니다.
 
-         * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../manage-apps/functions-for-customizing-application-data.md).
+         * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **원본 특성** - Workday의 사용자 특성입니다. 원하는 특성이 없는 경우 [Workday 사용자 특성 목록 사용자 지정](#customizing-the-list-of-workday-user-attributes)을 참조하세요.
 
@@ -537,15 +537,15 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
 1. 매핑을 저장하려면 특성 매핑 섹션 맨 위에서 **저장**을 클릭합니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_2.png)
+   ![Azure 포털](./media/workday-inbound-tutorial/wd_2.png)
 
 #### <a name="below-are-some-example-attribute-mappings-between-workday-and-active-directory-with-some-common-expressions"></a>아래는 몇 가지 일반적인 식을 사용한 Workday와 Active Directory 간의 특성 매핑을 보여주는 예입니다.
 
 * *parentDistinguishedName* 특성에 매핑되는 식을 사용하여 하나 이상의 Workday 원본 특성에 따라 다른 OU에 사용자를 프로비전할 수 있습니다. 이 예제에서는 도시에 따라 사용자를 다른 OU에 배치합니다.
 
-* Active Directory의 *userPrincipalName* 특성은 대상 AD 도메인에 생성된 값이 있는지 확인하고 고유한 경우에만 해당 값을 설정하는 중복 제거 함수 [SelectUniqueValue](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue)를 사용하여 생성됩니다.  
+* Active Directory의 *userPrincipalName* 특성은 대상 AD 도메인에 생성된 값이 있는지 확인하고 고유한 경우에만 해당 값을 설정하는 중복 제거 함수 [SelectUniqueValue](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)를 사용하여 생성됩니다.  
 
-* [식 작성에 대한 설명서는 여기에 있습니다](../manage-apps/functions-for-customizing-application-data.md). 이 섹션에는 특수 문자를 제거하는 방법에 대한 예제가 포함되어 있습니다.
+* [식 작성에 대한 설명서는 여기에 있습니다](../app-provisioning/functions-for-customizing-application-data.md). 이 섹션에는 특수 문자를 제거하는 방법에 대한 예제가 포함되어 있습니다.
 
 | WORKDAY 특성 | ACTIVE DIRECTORY 특성 |  ID 일치 여부 | 만들기/업데이트 |
 | ---------- | ---------- | ---------- | ---------- |
@@ -611,7 +611,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다. 이 URL을 알 수 없는 경우 Workday 통합 파트너와 협력하거나 지원 담당자에게 문의하여 사용할 올바른 URL을 확인하세요.
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -653,7 +653,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
       * **상수** - AD 특성에 고정적인 상수 문자열 값을 씁니다.
 
-      * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../manage-apps/functions-for-customizing-application-data.md).
+      * **식** – 하나 이상의 Workday 특성에 따라 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../app-provisioning/functions-for-customizing-application-data.md).
 
    * **원본 특성** - Workday의 사용자 특성입니다. 원하는 특성이 없는 경우 [Workday 사용자 특성 목록 사용자 지정](#customizing-the-list-of-workday-user-attributes)을 참조하세요.
 
@@ -708,7 +708,7 @@ Active Directory 도메인으로 사용자 프로비전을 구성하기 전에 �
 
    * **관리자 암호 –** Workday 통합 시스템 계정의 암호를 입력합니다.
 
-   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources 와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
+   * **테넌트 URL –** 해당 테넌트의 Workday 웹 서비스 엔드포인트에 대한 URL을 입력합니다. 이 값은 https://wd3-impl-services1.workday.com/ccx/service/contoso4/Human_Resources와 같은 형태여야 하며, 여기서 *contoso4*를 올바른 테넌트 이름으로 바꾸고 *wd3-impl*을 올바른 환경 문자열로 바꾸면 됩니다(필요한 경우).
 
    * **알림 메일 –** 메일 주소를 입력하고 “오류가 발생하면 메일 보내기” 확인란을 선택합니다.
 
@@ -745,7 +745,7 @@ Workday 프로비전 앱 구성이 완료되면 Azure Portal에서 프로비전 
 
 5. 초기 동기화가 완료되면 아래와 같이 **프로비전** 탭에 감사 요약 보고서가 작성됩니다.
 
-   ![Azure Portal](./media/workday-inbound-tutorial/wd_3.png)
+   ![Azure 포털](./media/workday-inbound-tutorial/wd_3.png)
 
 ## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
 
@@ -848,7 +848,7 @@ Azure AD를 하이브리드 모드(클라우드 + 온-프레미스 사용자가 
 * **제어판** -> **프로그램 제거/변경** 메뉴로 이동
 * **Microsoft Azure AD Connect 프로비전 에이전트** 항목에 해당하는 버전 찾기
 
-  ![Azure Portal](./media/workday-inbound-tutorial/pa_version.png)
+  ![Azure 포털](./media/workday-inbound-tutorial/pa_version.png)
 
 #### <a name="does-microsoft-automatically-push-provisioning-agent-updates"></a>Microsoft에서 프로비전 에이전트 업데이트를 자동으로 푸시하나요?
 
@@ -960,7 +960,7 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
 * 특성 매핑을 클릭합니다. 
 * **매핑** 아래에서 **Synchronize Workday Workers to On Premises Active Directory**(온-프레미스 Active Directory에 Workday 작업자 동기화) 또는 **Synchronize Workday Workers to Azure AD**(Azure AD에 Workday 작업자 동기화)를 선택합니다.
 * 특성 매핑 페이지에서 아래로 스크롤하여 “고급 옵션 표시” 상자를 선택합니다.  **Workday의 특성 목록 편집**을 클릭합니다.
-* 열리는 블레이드에서 "Mobile" 특성을 찾고 해당 행을 클릭 하 여 ![Mobile GDPR **API 식을** 편집할 수 있습니다.
+* 열리는 블레이드에서 "Mobile" 특성을 찾고 해당 행을 클릭 하 여 ![Mobile GDPR **API 식을** 편집할 수 있습니다.](./media/workday-inbound-tutorial/mobile_gdpr.png)
 
 * **API 식**을 다음 새 식으로 바꿉니다. 이 식은 Workday에서 “공개 사용 플래그”가 “True”로 설정된 경우에만 회사 휴대폰 번호를 검색합니다.
 
@@ -1023,9 +1023,9 @@ Microsoft Graph API를 사용하여 Workday 사용자 프로비저닝 구성을 
     )
      ```
     참고 항목:
-  * [Switch 함수 구문](../manage-apps/functions-for-customizing-application-data.md#switch)
-  * [Join 함수 구문](../manage-apps/functions-for-customizing-application-data.md#join)
-  * [Append 함수 구문](../manage-apps/functions-for-customizing-application-data.md#append)
+  * [Switch 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#switch)
+  * [Join 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#join)
+  * [Append 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#append)
 
 #### <a name="how-can-i-use-selectuniquevalue-to-generate-unique-values-for-samaccountname-attribute"></a>SelectUniqueValue를 사용하여 samAccountName 특성의 고유 값을 생성하려면 어떻게 할까요?
 
@@ -1043,17 +1043,17 @@ SelectUniqueValue(
 
 참고 항목:
 
-* [Mid 함수 구문](../manage-apps/functions-for-customizing-application-data.md#mid)
-* [Replace 함수 구문](../manage-apps/functions-for-customizing-application-data.md#replace)
-* [SelectUniqueValue 함수 구문](../manage-apps/functions-for-customizing-application-data.md#selectuniquevalue)
+* [Mid 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#mid)
+* [Replace 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#replace)
+* [SelectUniqueValue 함수 구문](../app-provisioning/functions-for-customizing-application-data.md#selectuniquevalue)
 
 #### <a name="how-do-i-remove-characters-with-diacritics-and-convert-them-into-normal-english-alphabets"></a>분음 부호가 있는 문자를 제거하고 일반 영어 알파벳으로 변환하려면 어떻게 할까요?
 
-사용자의 메일 주소 또는 CN 값을 생성하는 동안 [NormalizeDiacritics](../manage-apps/functions-for-customizing-application-data.md#normalizediacritics) 함수를 사용하여 사용자의 이름 및 성에서 특수 문자를 제거합니다.
+사용자의 메일 주소 또는 CN 값을 생성하는 동안 [NormalizeDiacritics](../app-provisioning/functions-for-customizing-application-data.md#normalizediacritics) 함수를 사용하여 사용자의 이름 및 성에서 특수 문자를 제거합니다.
 
 ## <a name="troubleshooting-tips"></a>문제 해결 팁
 
-이 섹션에서는 Azure AD 감사 로그 및 Windows Server 이벤트 뷰어 로그를 사용하여 Workday 통합의 프로비전 문제를 해결하는 방법에 대한 구체적인 지침을 제공합니다. [자습서: 자동 사용자 계정 프로 비전에 대 한 보고](../manage-apps/check-status-user-account-provisioning.md) 에서 캡처한 일반적인 문제 해결 단계 및 개념을 기반으로 구축 되었습니다.
+이 섹션에서는 Azure AD 감사 로그 및 Windows Server 이벤트 뷰어 로그를 사용하여 Workday 통합의 프로비전 문제를 해결하는 방법에 대한 구체적인 지침을 제공합니다. [자습서: 자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md) 에서 캡처한 일반적인 문제 해결 단계 및 개념을 기반으로 구축 되었습니다.
 
 이 섹션에서는 문제 해결의 다음 측면을 다룹니다.
 
@@ -1209,7 +1209,7 @@ Workday의 신규 채용자가 검색되면(직원 ID가 *21023*이라고 가정
 |#|오류 시나리오 |가능한 원인|권장 해결 방법|
 |--|---|---|---|
 |1.| *오류: OperationsError-SvcErr: 작업 오류가 발생 하 여 감사 로그에서 작업 실패를 내보냅니다. 디렉터리 서비스에 대 한 상위 참조가 구성 되지 않았습니다. 따라서 디렉터리 서비스는이 포리스트 외부의 개체에 대 한 조회를 실행할 수 없습니다.* | 일반적으로 이 오류는 ‘Active Directory Container’ OU가 제대로 설정되지 않은 경우 또는 *parentDistinguishedName*에 사용되는 식 매핑 관련 문제가 있는 경우 나타납니다. | ‘Active Directory Container’ OU 매개 변수에 오타가 있는지 확인합니다. 특성 매핑에서 *parentDistinguishedName*을 사용하는 경우 항상 AD 도메인 내에서 알려진 컨테이너로 평가되는지 확인합니다. 감사 로그의 *내보내기* 이벤트에서 생성된 값을 확인합니다. |
-|2.| 감사 로그에서 작업 실패 내보내기 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 *오류: ConstraintViolation-at r: 요청의 값이 잘못 되었습니다. 특성 값이 허용 되는 값 범위에 없습니다. \N 세부 정보: CONSTRAINT_ATT_TYPE-회사*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 *내보내기* 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../manage-apps/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
+|2.| 감사 로그에서 작업 실패 내보내기 오류 코드: *SystemForCrossDomainIdentityManagementBadResponse* 및 메시지 *오류: ConstraintViolation-at r: 요청의 값이 잘못 되었습니다. 특성 값이 허용 되는 값 범위에 없습니다. \N 세부 정보: CONSTRAINT_ATT_TYPE-회사*. | 이 오류는 *company* 특성과 관련되지만, *CN*과 같은 다른 특성의 경우에도 이 오류가 표시될 수 있습니다. 이 오류는 AD 강제 적용 스키마 제약 조건으로 인해 발생합니다. 기본적으로 AD의 *company* 및 *CN* 같은 특성에는 최대 64자를 사용할 수 있습니다. Workday에서 가져오는 값이 64자를 초과하면 이 오류 메시지가 표시됩니다. | 감사 로그에서 *내보내기* 이벤트를 확인하여 오류 메시지에서 보고된 특성의 값을 확인합니다. [Mid](../app-provisioning/functions-for-customizing-application-data.md#mid) 함수를 사용하거나 유사한 길이 제약 조건이 없는 AD 특성으로 매핑을 변경하여 Workday에서 가져오는 값을 잘라 보세요.  |
 
 #### <a name="ad-user-account-update-errors"></a>AD 사용자 계정 업데이트 오류
 
@@ -1348,7 +1348,7 @@ Azure AD 프로비저닝 서비스는 인사 API의[Get_Workers](https://communi
 
 ### <a name="exporting-and-importing-your-configuration"></a>구성 내보내기 및 가져오기
 
-[프로 비전 구성 내보내기 및 가져오기](../manage-apps/export-import-provisioning-configuration.md) 문서를 참조 하세요.
+[프로 비전 구성 내보내기 및 가져오기](../app-provisioning/export-import-provisioning-configuration.md) 문서를 참조 하세요.
 
 ## <a name="managing-personal-data"></a>개인 데이터 관리
 
@@ -1362,7 +1362,7 @@ Azure AD 프로비전 서비스는 GDPR 분류의 **데이터 프로세서** 범
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [Workday와 Azure Active Directory 간에 Single Sign-On을 구성하는 방법에 대해 알아봅니다.](workday-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
 * [Microsoft Graph API를 사용하여 프로비전 구성을 관리하는 방법 알아보기](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-overview)

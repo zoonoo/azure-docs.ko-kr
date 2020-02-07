@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3d9316f42c8d0ac5b44cda2e484ca4c92110813d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75479151"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045948"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 전자 메일 확인
 
@@ -389,6 +389,36 @@ OTP 기술 프로필과 마찬가지로 다음 기술 프로필을 `<ClaimsProvi
     </TechnicalProfile>
   </TechnicalProfiles>
 </ClaimsProvider>
+```
+
+## <a name="optional-localize-your-email"></a>필드 전자 메일 지역화
+
+전자 메일을 지역화 하려면 지역화 된 문자열을 SendGrid 또는 전자 메일 공급자에 게 보내야 합니다. 예를 들어 전자 메일의 제목, 본문, 코드 메시지 또는 서명을 지역화 합니다. 이렇게 하려면 [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 사용 하 여 지역화 된 문자열을 클레임 형식으로 복사할 수 있습니다. JSON 페이로드를 생성 하는 `GenerateSendGridRequestBody` 클레임 변환에서는 지역화 된 문자열을 포함 하는 입력 클레임을 사용 합니다.
+
+1. 정책에서 다음 문자열 클레임을 정의 합니다. subject, message, Codecodeand signature
+1. [GetLocalizedStringsTransformation](string-transformations.md) 클레임 변환을 정의 하 여 1 단계의 클레임으로 지역화 된 문자열 값을 대체 합니다.
+1. 다음 XML 코드 조각과 함께 입력 클레임을 사용 하도록 `GenerateSendGridRequestBody` 클레임 변환을 변경 합니다.
+1. Azure AD B2C에서 지역화할 모든 문자열 대신 동적 매개 변수를 사용 하도록 SendGrind 템플릿을 업데이트 합니다.
+
+```XML
+<ClaimsTransformation Id="GenerateSendGridRequestBody" TransformationMethod="GenerateJson">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.to.0.email" />
+    <InputClaim ClaimTypeReferenceId="subject" TransformationClaimType="personalizations.0.dynamic_template_data.subject" />
+    <InputClaim ClaimTypeReferenceId="otp" TransformationClaimType="personalizations.0.dynamic_template_data.otp" />
+    <InputClaim ClaimTypeReferenceId="email" TransformationClaimType="personalizations.0.dynamic_template_data.email" />
+    <InputClaim ClaimTypeReferenceId="message" TransformationClaimType="personalizations.0.dynamic_template_data.message" />
+    <InputClaim ClaimTypeReferenceId="codeIntro" TransformationClaimType="personalizations.0.dynamic_template_data.codeIntro" />
+    <InputClaim ClaimTypeReferenceId="signature" TransformationClaimType="personalizations.0.dynamic_template_data.signature" />
+  </InputClaims>
+  <InputParameters>
+    <InputParameter Id="template_id" DataType="string" Value="d-1234567890" />
+    <InputParameter Id="from.email" DataType="string" Value="my_email@mydomain.com" />
+  </InputParameters>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="sendGridReqBody" TransformationClaimType="outputClaim" />
+  </OutputClaims>
+</ClaimsTransformation>
 ```
 
 ## <a name="next-steps"></a>다음 단계

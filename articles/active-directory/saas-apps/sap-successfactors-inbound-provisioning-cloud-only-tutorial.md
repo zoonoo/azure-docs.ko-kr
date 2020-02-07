@@ -14,32 +14,32 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 2ae951896e9c97826264990dc33b9a1930b0eec2
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 09501a80d6ddcbbc9fa6cc08e36f47beb13d1663
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530054"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063225"
 ---
 # <a name="tutorial-configure-sap-successfactors-to-azure-ad-user-provisioning-preview"></a>자습서: Azure AD 사용자 프로 비전 (미리 보기)에 대 한 SAP SuccessFactors 구성
-이 자습서에서는 SuccessFactors Employee Central에서 Azure Active Directory로 작업자 데이터를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있습니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../manage-apps/sap-successfactors-attribute-reference.md) 검색을 지원 합니다. 
+이 자습서에서는 SuccessFactors Employee Central에서 Azure Active Directory로 작업자 데이터를 프로 비전 하기 위해 수행 해야 하는 단계를 설명 하 고, 전자 메일 주소를 SuccessFactors에 선택적으로 쓸 수 있습니다. 이 통합은 공개 미리 보기 상태 이며 SuccessFactors Employee Central에서 70 개 이상의 [사용자 특성](../app-provisioning/sap-successfactors-attribute-reference.md) 검색을 지원 합니다. 
 
 >[!NOTE]
 >SuccessFactors에서 프로 비전 하려는 사용자가 온-프레미스 AD 계정이 필요 하지 않은 클라우드 전용 사용자 인 경우이 자습서를 사용 합니다. 사용자에 게 온-프레미스 AD 계정 또는 AD와 Azure AD 계정이 모두 필요한 경우 [SAP SuccessFactors 구성](sap-successfactors-inbound-provisioning-tutorial.md#overview) 에 대 한 자습서를 참조 하 여 사용자 프로 비전을 Active Directory 하세요. 
 
 ## <a name="overview"></a>개요
 
-[Azure Active Directory 사용자 프로 비전 서비스](../manage-apps/user-provisioning.md) 는 사용자의 id 수명 주기를 관리 하기 위해 [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) 과 통합 됩니다. 
+[Azure Active Directory 사용자 프로 비전 서비스](../app-provisioning/user-provisioning.md) 는 사용자의 id 수명 주기를 관리 하기 위해 [SuccessFactors Employee Central](https://www.successfactors.com/products-services/core-hr-payroll/employee-central.html) 과 통합 됩니다. 
 
 Azure AD 사용자 프로 비전 서비스에서 지 원하는 SuccessFactors 사용자 프로 비전 워크플로는 다음과 같은 인적 자원 및 id 수명 주기 관리 시나리오를 자동화할 수 있도록 합니다.
 
-* **신규 직원 고용** -SuccessFactors에 새 직원을 추가 하면 사용자 계정이 자동으로 Azure Active Directory 생성 되 고, 선택적으로 [Azure AD에서 지 원하는 Office 365 및 기타 SaaS 응용 프로그램이](../manage-apps/user-provisioning.md)SuccessFactors에 전자 메일 주소를 다시 쓸 수 있습니다.
+* **신규 직원 고용** -SuccessFactors에 새 직원을 추가 하면 사용자 계정이 자동으로 Azure Active Directory 생성 되 고, 선택적으로 [Azure AD에서 지 원하는 Office 365 및 기타 SaaS 응용 프로그램이](../app-provisioning/user-provisioning.md)SuccessFactors에 전자 메일 주소를 다시 쓸 수 있습니다.
 
-* **직원 특성 및 프로필 업데이트** -SuccessFactors에서 직원 레코드를 업데이트 하는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 자동으로 Azure Active Directory 업데이트 되 고, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램이](../manage-apps/user-provisioning.md)자동으로 업데이트 됩니다.
+* **직원 특성 및 프로필 업데이트** -SuccessFactors에서 직원 레코드를 업데이트 하는 경우 (예: 이름, 제목 또는 관리자) 해당 사용자 계정이 자동으로 Azure Active Directory 업데이트 되 고, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램이](../app-provisioning/user-provisioning.md)자동으로 업데이트 됩니다.
 
-* **직원 종료** -SuccessFactors에서 직원이 종료 되 면 해당 사용자 계정은 Azure Active Directory에서 자동으로 사용 하지 않도록 설정 되며, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)입니다.
+* **직원 종료** -SuccessFactors에서 직원이 종료 되 면 해당 사용자 계정은 Azure Active Directory에서 자동으로 사용 하지 않도록 설정 되며, 선택적으로 Office 365 및 [Azure AD에서 지 원하는 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)입니다.
 
-* **직원 재할당** -SuccessFactors에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라) Azure Active Directory 및 [Azure AD에서 지 원하는 기타 Office 365 및 기타 SaaS 응용 프로그램](../manage-apps/user-provisioning.md)입니다.
+* **직원 재할당** -SuccessFactors에서 직원이 다시 고용 될 때 이전 계정은 자동으로 다시 활성화 되거나 다시 프로 비전 될 수 있습니다 (기본 설정에 따라) Azure Active Directory 및 [Azure AD에서 지 원하는 기타 Office 365 및 기타 SaaS 응용 프로그램](../app-provisioning/user-provisioning.md)입니다.
 
 ### <a name="who-is-this-user-provisioning-solution-best-suited-for"></a>이 사용자 프로비전 솔루션에 가장 적합한 사용자
 
@@ -79,7 +79,7 @@ SuccessFactors에서 Azure AD로 클라우드 HR 구동 사용자 프로 비전�
 * 특성 변환 
 * 범위 지정 필터
 
-이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../manage-apps/plan-cloud-hr-provision.md) 을 참조 하세요. 
+이러한 항목에 대 한 포괄적인 지침은 [CLOUD HR 배포 계획](../app-provisioning/plan-cloud-hr-provision.md) 을 참조 하세요. 
 
 ## <a name="configuring-successfactors-for-the-integration"></a>통합을 위한 SuccessFactors 구성
 
@@ -153,7 +153,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 **Azure AD 프로 비전에 SuccessFactors를 구성 하려면:**
 
-1. <https://portal.azure.com>(으)로 이동
+1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 
 2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -211,14 +211,14 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
    > 프로비전 앱을 처음 구성하는 경우 특성 매핑 및 식을 테스트하고 확인하여 원하는 결과를 제공하는지 확인해야 합니다. **원본 개체 범위** 에서 범위 지정 필터를 사용 하 여 SuccessFactors에서 소수의 테스트 사용자로 매핑을 테스트 하는 것이 좋습니다. 매핑이 작동하는지 확인한 후에는 필터를 제거하거나 점진적으로 더 많은 사용자를 포함하도록 해당 필터를 점진적으로 확장할 수 있습니다.
 
    > [!CAUTION] 
-   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. SuccessFactors Azure AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../manage-apps/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
+   > 프로 비전 엔진의 기본 동작은 범위를 벗어나는 사용자를 사용 하지 않도록 설정/삭제 하는 것입니다. SuccessFactors Azure AD 통합에는 바람직하지 않을 수 있습니다. 이 기본 동작을 재정의 하려면 [범위를 벗어나는 사용자 계정 삭제 건너뛰기](../app-provisioning/skip-out-of-scope-deletions.md) 문서를 참조 하세요.
   
 1. **대상 개체 작업** 필드에서 Active Directory에서 수행할 작업을 전역적으로 필터링할 수 있습니다. **만들기** 및 **업데이트**가 가장 일반적입니다.
 
 1. **특성 매핑** 섹션에서 개별 SuccessFactors 특성을 Active Directory 특성에 매핑하는 방법을 정의할 수 있습니다.
 
   >[!NOTE]
-  >응용 프로그램에서 지 원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../manage-apps/sap-successfactors-attribute-reference.md) 를 참조 하세요.
+  >응용 프로그램에서 지 원하는 SuccessFactors 특성의 전체 목록은 [SuccessFactors 특성 참조](../app-provisioning/sap-successfactors-attribute-reference.md) 를 참조 하세요.
 
 
 1. 기존 특성 매핑을 클릭하여 업데이트하거나 화면 맨 아래에서 **새 매핑 추가**를 클릭하여 새 매핑을 추가합니다. 개별 특성 매핑은 다음 속성을 지원합니다.
@@ -229,7 +229,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
          * **상수** - AD 특성에 고정적인 상수 문자열 값을 씁니다.
 
-         * **식** – 하나 이상의 SuccessFactors 특성을 기반으로 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../manage-apps/functions-for-customizing-application-data.md).
+         * **식** – 하나 이상의 SuccessFactors 특성을 기반으로 AD 특성에 사용자 지정 값을 쓸 수 있습니다. [자세한 내용은 식에 대한 이 문서를 참조하세요](../app-provisioning/functions-for-customizing-application-data.md).
 
       * **원본 특성** -SuccessFactors의 사용자 특성
 
@@ -274,11 +274,11 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 ## <a name="next-steps"></a>다음 단계
 
-* [인바운드 프로 비전에 대해 지원 되는 SuccessFactors 특성에 대 한 자세한 정보](../manage-apps/sap-successfactors-attribute-reference.md)
+* [인바운드 프로 비전에 대해 지원 되는 SuccessFactors 특성에 대 한 자세한 정보](../app-provisioning/sap-successfactors-attribute-reference.md)
 * [SuccessFactors에 전자 메일 쓰기 저장을 구성 하는 방법 알아보기](sap-successfactors-writeback-tutorial.md)
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [SuccessFactors와 Azure Active Directory 간에 Single Sign-On를 구성 하는 방법에 대해 알아봅니다.](successfactors-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
-* [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../manage-apps/export-import-provisioning-configuration.md)
+* [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../app-provisioning/export-import-provisioning-configuration.md)
 
 

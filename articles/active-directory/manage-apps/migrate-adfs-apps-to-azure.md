@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 03/02/2018
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7c77b03c6e1f2240059d884b051e00b01836d714
-ms.sourcegitcommit: 0ebc62257be0ab52f524235f8d8ef3353fdaf89e
+ms.openlocfilehash: d3c3eb715c3e371d7e2985f233df584fb83a9870
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/10/2019
-ms.locfileid: "67724016"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063458"
 ---
 # <a name="move-applications-from-ad-fs-to-azure-ad"></a>AD FS에서 Azure AD로 애플리케이션 이동 
 
@@ -37,7 +37,7 @@ ms.locfileid: "67724016"
 > [!NOTE]
 > 이 가이드는 사용자 지정 LOB 응용 프로그램에 대한 고급 정보와 함께 SaaS 응용 프로그램 구성 및 마이그레이션에 대한 자세한 정보를 제공합니다. 사용자 지정 LOB 응용 프로그램에 대한 자세한 지침은 나중에 제공할 예정입니다.
 
-![연결 된 응용 프로그램 직접 온-프레미스](media/migrate-adfs-apps-to-azure/migrate1.png)
+![온-프레미스에 직접 연결 된 응용 프로그램](media/migrate-adfs-apps-to-azure/migrate1.png)
 
 ![Azure AD를 통해 페더레이션된 응용 프로그램](media/migrate-adfs-apps-to-azure/migrate2.png)
 
@@ -47,7 +47,7 @@ ms.locfileid: "67724016"
 
 - **더 안전한 액세스**
 
-  - 세부적인 응용 프로그램별 액세스 제어를 사용 하 여 Azure Multi-factor Authentication을 비롯 한 구성 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)합니다. 이 정책은 Office 365와 동일한 방식으로 SaaS 및 사용자 지정 앱에 적용할 수 있습니다.
+  - Azure [AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md)를 사용 하 여 azure Multi-Factor Authentication를 비롯 한 세부적인 응용 프로그램별 액세스 제어를 구성 합니다. 이 정책은 Office 365와 동일한 방식으로 SaaS 및 사용자 지정 앱에 적용할 수 있습니다.
   - 위험한 트래픽을 식별하는 기계 학습 및 추론에 따라 위협을 탐지하고 로그온을 보호하려면 [Azure AD Identity Protection](../active-directory-identityprotection.md)을 활용합니다.
 
 - **Azure AD B2B 협업**
@@ -59,7 +59,7 @@ ms.locfileid: "67724016"
   Azure AD는 SaaS 앱에 대한 ID 공급자로서 다음과 같은 추가 기능을 지원합니다.
   - 애플리케이션별 토큰 서명 인증서
   - [구성 가능한 인증서 만료 날짜](manage-certificates-for-federated-single-sign-on.md)
-  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](user-provisioning.md)(주요 Azure Marketplace 앱에서).
+  - Azure AD ID에 기반한 사용자 계정의 [자동 프로비전](../app-provisioning/user-provisioning.md)(주요 Azure Marketplace 앱에서).
 
 - **온-프레미스 ID 공급자의 혜택 유지**
   
@@ -138,7 +138,7 @@ AD FS와 Azure AD는 비슷하게 작동하므로 신뢰, 로그온 및 로그�
 |IdP </br>로그 아웃 </br>URL|앱의 관점에서 본 IdP의 로그아웃 URL(사용자가 앱에서 로그아웃할 때 리디렉션되는 위치)입니다.|AD FS의 경우 로그아웃 URL은 로그온 URL과 동일하거나 "wa = wsignout1.0"이 추가된 URL과 동일합니다. 예: https&#58;//fs.contoso.com/adfs/ls/?wa=wsignout1.0|Azure AD에 대한 해당 값은 앱에서 SAML 2.0 로그아웃을 지원하는지 여부에 따라 다릅니다.</br></br>앱에서 SAML 로그아웃을 지원하는 경우 {tenant-id} 값을 테넌트 ID로 바꾸는 값 패턴을 따릅니다. 이 테넌트 ID는 Azure Portal의 **Azure Active Directory** > **속성** 아래에서 **디렉터리 ID**(https&#58;//login.microsoftonline.com/{tenant-id}/saml2)로 있습니다.</br></br>앱에서 SAML 로그아웃을 지원하지 않는 경우: https&#58;//login.microsoftonline.com/common/wsfederation?wa=wsignout1.0|
 |토큰 </br>서명 </br>인증서(certificate)|IdP에서 발급한 토큰에 서명하는 데 사용하는 프라이빗 키가 있는 인증서입니다. 앱이 신뢰하도록 구성된 것과 동일한 IdP에서 토큰이 제공되었는지 확인합니다.|AD FS 토큰 서명 인증서는 AD FS 관리의 **인증서** 아래에 있습니다.|Azure AD에서 토큰 서명 인증서는 Azure Portal 내의 애플리케이션 **Single Sign-On** 속성에 있는 **SAML 서명 인증서** 헤더 아래에 있습니다. 여기서는 앱에 업로드할 인증서를 다운로드할 수 있습니다.</br></br> 애플리케이션에 둘 이상의 인증서가 있는 경우 모든 인증서는 페더레이션 메타데이터 XML 파일에 있습니다.|
 |식별자/</br>"발급자"|앱의 관점에서 본 IdP의 식별자(때로는 "발급자 ID"라고 함)입니다.</br></br>SAML 토큰에서 값은 **Issuer** 요소로 표시됩니다.|AD FS에 대한 식별자는 일반적으로 AD FS 관리의 **서비스** > **페더레이션 서비스 속성 편집** 아래에 있는 페더레이션 서비스 식별자입니다. 예: http&#58;//fs.contoso.com/adfs/services/trust|Azure AD에 대한 해당 값은 {tenant-id} 값을 테넌트 ID로 바꾸는 패턴을 따릅니다. 이 테넌트 ID는 Azure Portal의 **Azure Active Directory** > **속성** 아래에서 **디렉터리 ID**(https&#58;//sts.windows.net/{tenant-id}/)로 있습니다.|
-|IdP </br>페더레이션 </br>메타데이터|공개적으로 사용할 수 있는 IdP의 페더레이션 메타데이터에 대한 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)|AD FS 페더레이션 메타데이터 URL은 AD FS 관리의 **서비스** > **엔드포인트** > **메타데이터** > **형식: 페더레이션 메타데이터** 아래에 있습니다. 예: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD에 대한 해당 값은 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml 패턴을 따릅니다. 여기서 {TenantDomainName} 값은 "contoso.onmicrosoft.com" 형식의 테넌트 이름으로 바꿉니다. </br></br>자세한 내용은 [페더레이션 메타데이터](../develop/azure-ad-federation-metadata.md)를 참조하세요.
+|IdP </br>페더레이션 </br>metadata|공개적으로 사용할 수 있는 IdP의 페더레이션 메타데이터에 대한 위치입니다. (일부 앱은 URL, 식별자 및 토큰 서명 인증서를 개별적으로 구성하는 관리자 대신 연합 메타데이터를 사용합니다.)|AD FS 페더레이션 메타데이터 URL은 AD FS 관리의 **서비스** > **엔드포인트** > **메타데이터** > **형식: 페더레이션 메타데이터** 아래에 있습니다. 예: https&#58;//fs.contoso.com/FederationMetadata/2007-06/FederationMetadata.xml|Azure AD에 대한 해당 값은 https&#58;//login.microsoftonline.com/{TenantDomainName}/FederationMetadata/2007-06/FederationMetadata.xml 패턴을 따릅니다. 여기서 {TenantDomainName} 값은 "contoso.onmicrosoft.com" 형식의 테넌트 이름으로 바꿉니다. </br></br>자세한 내용은 [페더레이션 메타데이터](../develop/azure-ad-federation-metadata.md)를 참조하세요.
 
 ## <a name="moving-saas-apps"></a>SaaS 앱 이동
 
@@ -175,7 +175,7 @@ SAML 2.0 애플리케이션은 Marketplace의 Azure AD 애플리케이션을 통
 
 사용자 지정 클레임 및 **NameID** 요소 외에도, Azure AD에서 마이그레이션의 일부로 추가 구성 단계가 필요한 구성은 다음과 같습니다.
 
-- AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. 사용 하 여 구성 하는 [Azure AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능입니다.
+- AD FS에서 사용자 지정 권한 부여 또는 Multi-Factor Authentication 규칙을 사용자 지정합니다. [AZURE AD 조건부 액세스](../active-directory-conditional-access-azure-portal.md) 기능을 사용 하 여 구성 합니다.
 - 여러 SAML 엔드포인트가 있는 앱. PowerShell을 사용하여 Azure AD에서 구성합니다. (이 기능은 포털에서 사용할 수 없습니다.)
 - SAML 버전 1.1 토큰이 필요한 WS-Federation 앱(예: SharePoint 앱). PowerShell을 사용하여 수동으로 구성해야 합니다.
 
@@ -212,11 +212,11 @@ Azure AD에서 앱의 **Single Sign-On** 속성에 있는 **사용자 특성** �
 
 **기타 모든 사용자 특성 보기 및 편집**을 선택하여 보안 토큰의 클레임으로 보낼 특성을 봅니다.
 
-![특성을 클레임으로 보낼 수의 목록을 표시 합니다.](media/migrate-adfs-apps-to-azure/migrate4.png)
+![클레임으로 보낼 수 있는 특성의 목록을 표시 합니다.](media/migrate-adfs-apps-to-azure/migrate4.png)
 
 편집할 특정 특성 행을 선택하거나, **특성 추가**를 선택하여 새 특성을 추가합니다.
 
-!["특성 편집" 창 표시](media/migrate-adfs-apps-to-azure/migrate5.png)
+!["특성 편집" 창을 표시 합니다.](media/migrate-adfs-apps-to-azure/migrate5.png)
 
 #### <a name="assign-users-to-the-app"></a>앱에 사용자 할당
 
@@ -226,9 +226,9 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 !["사용자 및 그룹"의 "사용자 추가" 단추](media/migrate-adfs-apps-to-azure/migrate6.png)
 
-!["할당 추가" 창 표시](media/migrate-adfs-apps-to-azure/migrate7.png)
+!["할당 추가" 창을 표시 합니다.](media/migrate-adfs-apps-to-azure/migrate7.png)
 
-액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 https://myapps.microsoft.com 에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
+액세스를 확인하려면 사용자가 로그인할 때 [액세스 패널](../user-help/active-directory-saas-access-panel-introduction.md)에 SaaS 앱이 표시되어야 합니다. 액세스 패널은 https://myapps.microsoft.com에 있습니다. 이 예에서는 Salesforce 및 ServiceNow 모두에 대한 액세스 권한이 사용자에게 성공적으로 할당되었습니다.
 
 ![Salesforce 및 ServiceNow 앱이 있는 액세스 패널의 예](media/migrate-adfs-apps-to-azure/migrate8.png)
 
@@ -248,7 +248,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
    앱에서 여러 IdP를 지원하고 로그인에 대한 인증을 동시에 처리하기 위해 여러 IdP를 선택하는 경우, 사용자는 로그인 페이지에서 인증할 IdP를 선택할 수 있습니다.
 
-#### <a name="example-support-for-multiple-identity-providers"></a>예제: 여러 id 공급자에 대 한 지원
+#### <a name="example-support-for-multiple-identity-providers"></a>예: 여러 id 공급자에 대 한 지원
 
 예를 들어 Salesforce에서 IDP 구성은 **설정** > **회사 설정** > **내 도메인** > **인증 구성** 아래에 있습니다.
 
@@ -260,7 +260,7 @@ Azure AD 포털에서 사용자를 할당하려면 SaaS 앱의 페이지로 이�
 
 ### <a name="optional-configure-user-provisioning-in-azure-ad"></a>선택 사항: Azure AD에서 사용자 프로비저닝 구성
 
-Azure AD에서 SaaS 애플리케이션에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비전 및 프로비전 해제](user-provisioning.md)를 참조하세요.
+Azure AD에서 SaaS 애플리케이션에 대한 사용자 프로비저닝을 직접 처리하게 하려면 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비전 및 프로비전 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

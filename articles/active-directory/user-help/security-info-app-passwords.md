@@ -2,7 +2,7 @@
 title: 보안 정보 (미리 보기) 페이지에서 앱 암호 만들기-Azure AD
 description: 조직에서 브라우저가 아닌 앱 또는 2 단계 인증을 지원 하지 않는 앱에서 사용할 자동 생성 암호 (앱 암호)를 만듭니다. 이 앱 암호는 일반 암호와 별개이며 보안 정보 페이지에서 설정할 수 있습니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2018
-ms.author: lizross
-ms.openlocfilehash: d4076e379755518421ef79eca542ebdc99294a11
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 787fa67ee77997fd1f9967db3abdbfc83d4ffad2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704891"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064073"
 ---
 # <a name="create-app-passwords-from-the-security-info-preview-page"></a>보안 정보 (미리 보기) 페이지에서 앱 암호 만들기
 

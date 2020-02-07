@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: hamusa
-ms.openlocfilehash: ff267aabe2f9e4cec38c307fe4382a84ba6d62df
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: c8ddd343cd00b24506382521361ebad33ad112a7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76288961"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049775"
 ---
 # <a name="set-up-agentless-dependency-visualization-for-assessment"></a>평가에 대 한 에이전트 없는 종속성 시각화 설정
 
@@ -39,7 +39,7 @@ ms.locfileid: "76288961"
     - TCP 연결
     - 활성 연결이 있는 프로세스의 이름
     - 위의 프로세스를 실행 하는 설치 된 응용 프로그램의 이름
-    - 아닙니다. 모든 폴링 간격에서 감지 된 연결
+    - No. 모든 폴링 간격에서 감지 된 연결
 
 ## <a name="current-limitations"></a>현재 제한 사항
 
@@ -48,12 +48,12 @@ ms.locfileid: "76288961"
 - 서버 그룹에 대 한 종속성 맵을 현재 사용할 수 없습니다.
 - 현재 종속성 데이터를 테이블 형식으로 다운로드할 수 없습니다.
 
-## <a name="before-you-start"></a>시작하기 전에
+## <a name="before-you-start"></a>시작하기 전 확인 사항
 
 - Azure Migrate 프로젝트를 [만들었는지](how-to-add-tool-first-time.md) 확인 합니다.
 - 에이전트 없는 종속성 분석은 현재 VMware 컴퓨터에 대해서만 사용할 수 있습니다.
 - 프로젝트를 이미 만든 경우 Azure Migrate: 서버 평가 도구를 [추가](how-to-assess.md) 했는지 확인 합니다.
-- Azure Migrate에서 VMware 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아보기](migrate-appliance.md).
+- Azure Migrate에서 VMware 컴퓨터를 검색 했는지 확인 합니다. [VMware](how-to-set-up-appliance-vmware.md)에 대 한 Azure Migrate 어플라이언스를 설정 하 여이 작업을 수행할 수 있습니다. 어플라이언스는 온-프레미스 컴퓨터를 검색 하 고 메타 데이터 및 성능 데이터를 Azure Migrate: 서버 평가로 보냅니다. [자세히 알아봅니다](migrate-appliance.md).
 - 에이전트 없는 종속성 시각화를 설정 하기 위한 [요구 사항을 검토](migrate-support-matrix-vmware.md#agentless-dependency-visualization) 합니다.
 
 
@@ -62,7 +62,7 @@ ms.locfileid: "76288961"
 
 서버 평가가 검색을 위해 VM에 액세스할 수 있도록 필요한 권한이 있는 사용자 계정을 설정 합니다. 하나의 사용자 계정을 지정할 수 있습니다.
 
-- **Windows vm에 대 한 필수 권한**: 사용자 계정에 ' 게스트 ' 액세스 권한이 필요 합니다.
+- **Windows vm에 대 한 필수 권한**: 사용자 계정은 로컬 또는 도메인 관리자 여야 합니다.
 - **Linux vm에 대 한 필수 권한**: 계정에 루트 권한이 필요 합니다. 또는 사용자 계정에/bin/netstat 및/bin/ls 파일에 대 한 두 가지 기능 (CAP_DAC_READ_SEARCH 및 CAP_SYS_PTRACE이 필요 합니다.
 
 ## <a name="add-the-user-account-to-the-appliance"></a>사용자 계정을 어플라이언스에 추가 합니다.

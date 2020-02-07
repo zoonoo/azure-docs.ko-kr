@@ -2,7 +2,7 @@
 title: 보안 정보를 사용하여 암호 재설정 - Azure Active Directory | Microsoft Docs
 description: 암호를 잊어버린 경우 보안 정보 및 2단계 인증을 사용하여 암호를 재설정하는 방법을 설명합니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: ad4831cfb5b09083b4ee76b6badf3936b2256138
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 3ed79be318319009aabb1b1ef0c42c4021bbbabe
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263492"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062662"
 ---
 # <a name="reset-your-work-or-school-password-using-security-info"></a>보안 정보를 사용 하 여 회사 또는 학교 암호 재설정
 
@@ -155,7 +155,7 @@ Azure AD(Azure Active Directory) 계정에 액세스할 수 없는 경우 원인
 
 다음은 일반적인 오류 사례 및 해결 방법입니다.
 
-|문제|Description|솔루션|
+|문제|설명|솔루션|
 | --- | --- | --- |
 |암호를 변경하려고 하면 오류가 발생합니다. |암호에 쉽게 추측할 수 있는 단어, 구 또는 패턴이 포함되어 있습니다.| 더 강력한 암호를 사용하여 다시 시도하세요.|
 |사용자 ID를 입력하면 "관리자에 문의하세요"라는 페이지로 이동됩니다.|Microsoft는 해당 사용자 계정 암호가 온-프레미스 환경의 관리자를 통해 관리되는 것을 확인했습니다. 따라서 "계정에 액세스할 수 없음" 링크에서 암호를 재설정할 수 없습니다. |관리자에게 문의하여 도움을 받으세요.|

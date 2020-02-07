@@ -3,12 +3,12 @@ title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 설치 Azure 
 description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 10/16/2019
-ms.openlocfilehash: 1ca52384e5ce657e4fedeb42e3304449a2d6be11
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030689"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063767"
 ---
 # <a name="how-to-setup-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -114,7 +114,7 @@ Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes �
     >[!NOTE]
     >Azure 중국에서이 기능을 사용 하는 경우 첫 번째 기준 URL 값을 `https://afd.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html` 해야 하 고 두 번째 기준 URL 값을 `https://monitoring.hosting.azureportal.chinaloudapi.cn/monitoring/Content/iframe/infrainsights.app/web/base-libs/auth/auth.html`해야 합니다. 
     
-4. 리디렉션 Url을 등록 한 후 **고급 설정**에서 **액세스 토큰** 및 **ID 토큰** 에 대 한 옵션을 선택 하 고 변경 내용을 저장 합니다.
+4. 리디렉션 Url을 등록 한 후 **암시적 권한 부여**에서 **액세스 토큰** 및 **ID 토큰** 에 대 한 옵션을 선택 하 고 변경 내용을 저장 합니다.
 
 >[!NOTE]
 >Single sign-on에 대 한 Azure Active Directory를 사용 하 여 인증을 구성 하는 것은 새 AKS 클러스터의 초기 배포 중에만 수행할 수 있습니다. 이미 배포된 AKS 클러스터에는 Single Sign-On을 구성할 수 없습니다.

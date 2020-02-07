@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 719686cb123355359391c5cb1e517ff9cfd88371
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 9909c46015fffb3bea3eef094599312e28b935c5
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231736"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046190"
 ---
 # <a name="migrate-azure-application-gateway-and-web-application-firewall-from-v1-to-v2"></a>V1에서 v2로 Azure 애플리케이션 게이트웨이 및 웹 응용 프로그램 방화벽 마이그레이션
 
@@ -68,7 +68,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 일부 Azure Az 모듈이 설치 되어 있고 제거할 수 없는 경우 (또는 제거 하지 않으려는 경우) 스크립트 다운로드 링크의 **수동 다운로드** 탭을 사용 하 여 스크립트를 수동으로 다운로드할 수 있습니다. 이 스크립트는 원시 nupkg 파일로 다운로드 됩니다. 이 nupkg 파일에서 스크립트를 설치 하려면 [수동 패키지 다운로드](/powershell/scripting/gallery/how-to/working-with-packages/manual-download)를 참조 하세요.
 
-스크립트를 실행하려면
+스크립트를 실행하려면 다음과 같이 하십시오.
 
 1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
 
@@ -102,7 +102,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
    * **appgwName: [String]: 선택 사항**입니다. 새 Standard_v2 또는 WAF_v2 게이트웨이의 이름으로 사용 하도록 지정 하는 문자열입니다. 이 매개 변수를 지정 하지 않으면 기존 v1 게이트웨이의 이름이 접미사 *_v2* 추가 된 상태로 사용 됩니다.
    * **Sslcertificates: [PSApplicationGatewaySslCertificate]: 선택 사항**입니다.  V1 게이트웨이의 SSL 인증서를 나타내기 위해 만드는 쉼표로 구분 된 PSApplicationGatewaySslCertificate 개체 목록은 새 v2 게이트웨이에 업로드 해야 합니다. 표준 v1 또는 WAF v1 게이트웨이에 대해 구성 된 각 SSL 인증서에 대해 여기에 표시 된 `New-AzApplicationGatewaySslCertificate` 명령을 통해 새 PSApplicationGatewaySslCertificate 개체를 만들 수 있습니다. SSL 인증서 파일의 경로와 암호를 입력 해야 합니다.
 
-       이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성 된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기를 설정 하는 경우이 매개 변수를 지정 해야 합니다.
+     이 매개 변수는 v1 게이트웨이 또는 WAF에 대해 구성 된 HTTPS 수신기가 없는 경우에만 선택 사항입니다. 하나 이상의 HTTPS 수신기를 설정 하는 경우이 매개 변수를 지정 해야 합니다.
 
       ```azurepowershell  
       $password = ConvertTo-SecureString <cert-password> -AsPlainText -Force
@@ -114,12 +114,17 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
         -Password $password
       ```
 
-      이전 예제의 `$mySslCert1, $mySslCert2` (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
-   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항**입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.  
+     이전 예제의 `$mySslCert1, $mySslCert2` (쉼표로 구분)을 스크립트의이 매개 변수에 대 한 값으로 전달할 수 있습니다.
+   * 서브넷에 있는 **rootcertificate: [PSApplicationGatewayTrustedRootCertificate]: 선택 사항**입니다. V2 게이트웨이에서 백 엔드 인스턴스를 인증 하기 위해 [신뢰할 수 있는 루트 인증서](ssl-overview.md) 를 나타내기 위해 만드는 PSApplicationGatewayTrustedRootCertificate 개체의 쉼표로 구분 된 목록입니다.
+   
+      ```azurepowershell
+      $certFilePath = ".\rootCA.cer"
+      $trustedCert = New-AzApplicationGatewayTrustedRootCertificate -Name "trustedCert1" -CertificateFile $certFilePath
+      ```
 
       PSApplicationGatewayTrustedRootCertificate 개체 목록을 만들려면 [AzApplicationGatewayTrustedRootCertificate](https://docs.microsoft.com/powershell/module/Az.Network/New-AzApplicationGatewayTrustedRootCertificate?view=azps-2.1.0&viewFallbackFrom=azps-2.0.0)를 참조 하세요.
    * **privateIpAddress: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 연결할 특정 개인 IP 주소입니다.  새 v2 게이트웨이에 할당 하는 것과 동일한 VNet에서 가져와야 합니다. 이를 지정 하지 않으면 스크립트에서 v2 게이트웨이에 대 한 개인 IP 주소를 할당 합니다.
-    * **publicIpResourceId: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
+   * **publicIpResourceId: [String]: 선택 사항**입니다. 새 v2 게이트웨이에 할당 하려는 구독에 있는 기존 공용 IP 주소 (표준 SKU) 리소스의 resourceId입니다. 이를 지정 하지 않으면 스크립트는 동일한 리소스 그룹에 새 공용 IP를 할당 합니다. 이름은 *-IP* 가 추가 된 v2 게이트웨이의 이름입니다.
    * **validateMigration: [switch]: 선택 사항**입니다. 이 매개 변수를 사용 하 여 스크립트에서 v2 게이트웨이 만들기 및 구성 복사 후에 몇 가지 기본적인 구성 비교 유효성 검사를 수행 하도록 합니다. 기본적으로 유효성 검사는 수행 되지 않습니다.
    * **Enableautoscale 크기 조정: [스위치]: 선택 사항**입니다. 스크립트를 만든 후 새 v2 게이트웨이에서 자동 크기 조정을 사용 하도록 설정 하려면이 매개 변수를 사용 합니다. 기본적으로 자동 크기 조정을 사용 하지 않도록 설정 되어 있습니다. 새로 만든 v2 게이트웨이에서는 나중에 언제 든 지 수동으로 사용 하도록 설정할 수 있습니다.
 
@@ -132,10 +137,10 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
       -resourceId /subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/applicationGateways/myv1appgateway `
       -subnetAddressRange 10.0.0.0/24 `
       -appgwname "MynewV2gw" `
-      -sslCertificates $Certs `
+      -sslCertificates $mySslCert1,$mySslCert2 `
       -trustedRootCertificates $trustedCert `
       -privateIpAddress "10.0.0.1" `
-      -publicIpResourceId "MyPublicIP" `
+      -publicIpResourceId "/subscriptions/8b1d0fea-8d57-4975-adfb-308f1f4d12aa/resourceGroups/MyResourceGroup/providers/Microsoft.Network/publicIPAddresses/MyPublicIP" `
       -validateMigration -enableAutoScale
    ```
 
@@ -152,7 +157,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
     Standard_v2 application gateway와 연결 된 프런트 엔드 IP 또는 DNS 레이블을 가리키도록 DNS 레코드를 업데이트할 수 있습니다. DNS 레코드에 구성 된 TTL에 따라 모든 클라이언트 트래픽이 새 v2 게이트웨이로 마이그레이션될 때까지 시간이 걸릴 수 있습니다.
 * **V1 게이트웨이와 연결 된 dns 레이블 (예: CNAME 레코드를 사용 하는 *myappgw.eastus.cloudapp.azure.com* )을 가리키는 사용자 지정 dns 영역 (예: contoso.com)** 입니다.
 
-   다음과 같은 두 가지 옵션을 선택할 수 있습니다.
+   다음과 같은 두 가지 선택 옵션이 있습니다.
 
   * 응용 프로그램 게이트웨이에서 공용 IP 주소를 사용 하는 경우 Traffic Manager 프로필을 사용 하 여 제어 된 세부적인 마이그레이션을 수행 하 여 트래픽 (가중치가 적용 된 트래픽 라우팅 방법)을 새 v2 게이트웨이로 증분 라우팅할 수 있습니다.
 
@@ -174,7 +179,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-v1-gateway-to-the-newly-created-v2-gateway"></a>또한 Azure PowerShell 스크립트는 v1 게이트웨이의 트래픽을 새로 만든 v2 게이트웨이로 전환 하나요?
 
-아니요. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
+No. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
 
 ### <a name="is-the-new-v2-gateway-created-by-the-azure-powershell-script-sized-appropriately-to-handle-all-of-the-traffic-that-is-currently-served-by-my-v1-gateway"></a>Azure PowerShell 스크립트에서 만든 새 v2 게이트웨이가 현재 내 v1 게이트웨이에서 제공 되는 모든 트래픽을 처리 하기 위해 적절 하 게 크기를 조정 하나요?
 
@@ -182,11 +187,11 @@ Azure PowerShell 스크립트는 기존 v1 게이트웨이의 트래픽을 처�
 
 ### <a name="i-configured-my-v1-gateway--to-send-logs-to-azure-storage-does-the-script-replicate-this-configuration-for-v2-as-well"></a>Azure storage에 로그를 전송 하도록 v1 gateway를 구성 했습니다. 스크립트가 v2에 대해이 구성도 복제 하나요?
 
-아니요. 이 스크립트는 v2에 대해이 구성을 복제 하지 않습니다. 로그 구성은 마이그레이션된 v2 게이트웨이에 별도로 추가 해야 합니다.
+No. 이 스크립트는 v2에 대해이 구성을 복제 하지 않습니다. 로그 구성은 마이그레이션된 v2 게이트웨이에 별도로 추가 해야 합니다.
 
 ### <a name="does-this-script-support-certificates-uploaded-to-azure-keyvault-"></a>이 스크립트는 Azure KeyVault에 업로드 된 인증서를 지원 하나요?
 
-아니요. 현재 스크립트는 KeyVault의 인증서를 지원 하지 않습니다. 그러나이는 이후 버전에서 고려 됩니다.
+No. 현재 스크립트는 KeyVault의 인증서를 지원 하지 않습니다. 그러나이는 이후 버전에서 고려 됩니다.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   

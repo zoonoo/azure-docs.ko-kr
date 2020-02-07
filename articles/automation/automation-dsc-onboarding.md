@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.topic: conceptual
 ms.date: 12/10/2019
 manager: carmonm
-ms.openlocfilehash: c5876dd293a97414ff4f48dbb8645e64226a6ba8
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: 89e86a6702be7314b99975cac90818252eb07df7
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834116"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046225"
 ---
 # <a name="onboarding-machines-for-management-by-azure-automation-state-configuration"></a>Azure Automation 상태 구성을 통한 관리를 위한 머신 온보드
 
@@ -29,7 +29,7 @@ Azure Automation 상태 구성을 사용하는 이점에 대해 자세히 알려
 
 Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 있습니다.
 
-- Azure 가상 머신
+- Azure 가상 컴퓨터
 - Azure 가상 머신(기본)
 - 온-프레미스에 있는 실제/가상 Windows 컴퓨터 (AWS EC2 인스턴스 포함) 또는 Azure 이외의 클라우드
 - 온-프레미스, Azure 또는 Azure 이외의 클라우드에 있는 실제/가상 Linux 컴퓨터
@@ -48,12 +48,12 @@ Azure Automation 상태 구성을 다양한 머신의 관리에 사용할 수 �
 >`omsagent` 사용자에 게 쓰기 권한을 부여 하려면 다음 명령을 실행 합니다. `setfacl -m u:omsagent:rwx /tmp`
 >
 
-## <a name="azure-virtual-machines"></a>Azure 가상 머신
+## <a name="azure-virtual-machines"></a>Azure 가상 컴퓨터
 
 Azure Automation 상태 구성을 사용하면 Azure Portal, Azure Resource Manager 템플릿 또는 PowerShell을 사용하는 구성 관리를 위해 Azure 가상 머신을 간편하게 온보드할 수 있습니다. 내부적으로, VM에 대해 관리자가 원격으로 작업할 필요 없이 Azure VM 필요 상태 구성 확장은 VM을 Azure Automation 상태 구성에 등록합니다.
 Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되므로 진행 상황을 추적하거나 문제를 해결하는 단계는 뒤에 나오는 [**Azure 가상 머신 온보드 문제 해결**](#troubleshooting-azure-virtual-machine-onboarding) 섹션에서 제공됩니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 [Azure Portal](https://portal.azure.com/)에서 가상 머신을 온보드할 Azure Automation 계정으로 이동합니다. 상태 구성 페이지 및 **노드** 탭에서 **+ 추가**를 클릭합니다.
 
@@ -65,7 +65,7 @@ Azure VM DSC(Desired State Configuration) 확장은 비동기적으로 실행되
 
 ![온보딩](./media/automation-dsc-onboarding/DSC_Onboarding_6.png)
 
-### <a name="azure-resource-manager-templates"></a>Azure Resource Manager 템플릿
+### <a name="azure-resource-manager-templates"></a>Azure 리소스 관리자 템플릿
 
 Azure 가상 머신은 Azure Resource Manager 템플릿을 통해 Azure Automation 상태 구성에 배포 및 온보드할 수 있습니다. 기존 VM을 Azure Automation 상태 구성으로 전환 하는 예제 템플릿은 [필요한 상태에서 관리 되는 서버 구성 서비스](https://azure.microsoft.com/resources/templates/101-automation-configuration/) 를 참조 하세요.
 가상 머신 확장 집합을 관리 하는 경우 [Azure Automation에서 관리 하는 템플릿 가상 머신 확장 집합 구성](https://azure.microsoft.com/resources/templates/201-vmss-automation-dsc/)예제를 참조 하세요.

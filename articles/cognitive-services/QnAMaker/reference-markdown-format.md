@@ -3,12 +3,12 @@ title: Markdown 형식-QnA Maker
 description: 다음은 QnA Maker의 대답 텍스트에서 사용할 수 있는 markdown 형식 목록입니다.
 ms.topic: reference
 ms.date: 01/09/2020
-ms.openlocfilehash: f3c51052abeb48584df8fa1e831dc4605d471741
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 3fb7d73afdfd5ab7f1fb56a685b21538b97c8ea4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75898582"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045400"
 ---
 # <a name="markdown-format-supported-in-qna-maker-answer-text"></a>QnA Maker 대답 텍스트에서 지원 되는 Markdown 형식
 
@@ -20,22 +20,22 @@ QnA Maker 답변 텍스트를 markdown으로 저장 합니다. Markdown에는 �
 
 다음은 QnA Maker의 대답 텍스트에서 사용할 수 있는 markdown 형식 목록입니다.
 
-|용도|형식|예제 Markdown|렌더링<br>채팅 봇에 표시 된 대로|
+|목적|서식|예 markdown|렌더링<br>채팅 봇에 표시 된 대로|
 |--|--|--|--|
 두 문장 사이에 있는 새 줄입니다.|`\n\n`|`How can I create a bot with \n\n QnA Maker?`|![두 문장 사이에 새 줄 서식 지정](./media/qnamaker-concepts-datasources/format-newline.png)|
 |H1부터 h6 까지의 헤더, `#` 수는 헤더를 나타냅니다. 1 `#`는 h1입니다.|`\n# text \n## text \n### text \n####text \n#####text` |`## Creating a bot \n ...text.... \n### Important news\n ...text... \n### Related Information\n ....text...`<br><br>`\n# my h1 \n## my h2\n### my h3 \n#### my h4 \n##### my h5`|![markdown 헤더를 사용 하 여 형식 지정](./media/qnamaker-concepts-datasources/format-headers.png)<br>![markdown 헤더 H1을 H5로 서식 지정](./media/qnamaker-concepts-datasources/format-h1-h5.png)|
 |기울임꼴 |`*text*`|`How do I create a bot with *QnA Maker*?`|![기울임꼴로 서식 지정](./media/qnamaker-concepts-datasources/format-italics.png)|
-|문자열 (굵게)|`**text**`|`How do I create a bot with **QnA Maker**?`|![굵은 글꼴로 표시 된 서식](./media/qnamaker-concepts-datasources/format-strong.png)|
+|강함 (굵게)|`**text**`|`How do I create a bot with **QnA Maker**?`|![굵은 글꼴로 표시 된 서식](./media/qnamaker-concepts-datasources/format-strong.png)|
 |링크 URL|`[text](https://www.my.com)`|`How do I create a bot with [QnA Maker](https://www.qnamaker.ai)?`|![URL 형식 (하이퍼링크)](./media/qnamaker-concepts-datasources/format-url.png)|
 |\* 공용 이미지에 대 한 URL|`![text](https://www.my.com/image.png)`|`How can I create a bot with ![QnAMaker](https://review.docs.microsoft.com/azure/cognitive-services/qnamaker/media/qnamaker-how-to-key-management/qnamaker-resource-list.png)`|![공용 이미지 URL의 형식 ](./media/qnamaker-concepts-datasources/format-image-url.png)|
-|취소선|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
+|바뀝니다|`~~text~~`|`some ~~questoins~~ questions need to be asked`|![취소선 서식](./media/qnamaker-concepts-datasources/format-strikethrough.png)|
 |굵게 및 기울임꼴|`***text***`|`How can I create a ***QnA Maker*** bot?`|![굵게 및 기울임꼴 서식 지정](./media/qnamaker-concepts-datasources/format-bold-italics.png)|
 |링크의 굵은 URL|`[**text**](https://www.my.com)`|`How do I create a bot with [**QnA Maker**](https://www.qnamaker.ai)?`|![굵게 표시 되는 URL의 형식](./media/qnamaker-concepts-datasources/format-bold-url.png)|
 |링크에 대 한 기울임꼴 URL|`[*text*](https://www.my.com)`|`How do I create a bot with [*QnA Maker*](https://www.qnamaker.ai)?`|![기울임꼴 URL 형식](./media/qnamaker-concepts-datasources/format-url-italics.png)|
 |이스케이프 markdown 기호|`\*text\*`|`How do I create a bot with \*QnA Maker\*?`|![기울임꼴 URL 형식](./media/qnamaker-concepts-datasources/format-escape-markdown-symbols.png)|
-|정렬된 목록|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>앞의 예제에서는 markdown에 기본 제공 되는 자동 번호 매기기를 사용 합니다.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>앞의 예제에서는 명시적 번호 매기기를 사용 합니다.|![정렬 된 목록의 형식](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
-|정렬되지 않은 목록|`\n * item1 \n * item2`<br>또는<br>`\n - item1 \n - item2`|`This is an ordered list: \n * List item 1 \n * List item 2`|![순서가 지정 되지 않은 목록의 서식](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
-|중첩된 목록|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>정렬 된 목록과 순서가 지정 되지 않은 목록을 함께 중첩할 수 있습니다. `\t`탭은 자식 요소의 들여쓰기 수준을 나타냅니다.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![순서가 지정 되지 않은 중첩 된 목록의 형식](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![중첩 된 정렬 된 목록의 형식](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
+|정렬 된 목록|`\n 1. item1 \n 1. item2`|`This is an ordered list: \n 1. List item 1 \n 1. List item 2`<br>앞의 예제에서는 markdown에 기본 제공 되는 자동 번호 매기기를 사용 합니다.<br>`This is an ordered list: \n 1. List item 1 \n 2. List item 2`<br>앞의 예제에서는 명시적 번호 매기기를 사용 합니다.|![정렬 된 목록의 형식](./media/qnamaker-concepts-datasources/format-ordered-list.png)|
+|순서가 지정 되지 않은 목록|`\n * item1 \n * item2`<br>또는<br>`\n - item1 \n - item2`|`This is an unordered list: \n * List item 1 \n * List item 2`|![순서가 지정 되지 않은 목록의 서식](./media/qnamaker-concepts-datasources/format-unordered-list.png)|
+|중첩 된 목록|`\n * Parent1 \n\t * Child1 \n\t * Child2 \n * Parent2`<br><br>`\n * Parent1 \n\t 1. Child1 \n\t * Child2 \n 1. Parent2`<br><br>정렬 된 목록과 순서가 지정 되지 않은 목록을 함께 중첩할 수 있습니다. `\t`탭은 자식 요소의 들여쓰기 수준을 나타냅니다.|`This is an unordered list: \n * List item 1 \n\t * Child1 \n\t * Child2 \n * List item 2`<br><br>`This is an ordered nested list: \n 1. Parent1 \n\t 1. Child1 \n\t 1. Child2 \n 1. Parent2`|![순서가 지정 되지 않은 중첩 된 목록의 형식](./media/qnamaker-concepts-datasources/format-nested-unordered-list.png)<br>![중첩 된 정렬 된 목록의 형식](./media/qnamaker-concepts-datasources/format-nested-ordered-list.png)|
 
 \* QnA Maker는 어떤 방식으로든 이미지를 처리 하지 않습니다. 이미지를 렌더링 하는 클라이언트 응용 프로그램의 역할입니다.
 

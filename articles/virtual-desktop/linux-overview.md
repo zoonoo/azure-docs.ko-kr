@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: f7d62487605c26a68e7c71b6d95d7814da0a07c9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776392"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049660"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -22,7 +22,7 @@ Windows 가상 데스크톱에 대 한 Linux SDK를 사용 하 여 독립 실행
 
 SDK Api를 사용 하 여 리소스 피드를 검색 하 고, 데스크톱 또는 원격 응용 프로그램 세션에 연결 하 고, 자사 클라이언트에서 지 원하는 대부분의 리디렉션을 사용할 수 있습니다.
 
-### <a name="supported-linux-distributions"></a>지원되는 Linux 배포
+### <a name="supported-linux-distributions"></a>지원 되는 Linux 배포판
 
 SDK는 Ubuntu 18.04 이상을 기반으로 하는 대부분의 운영 체제와 호환 됩니다. 다른 Linux 배포를 사용 하는 경우 사용자와 협력 하 여 요구 사항을 가장 잘 지 원하는 방법을 알아낼 수 있습니다.
 
@@ -55,7 +55,7 @@ Windows 가상 데스크톱에 대 한 Linux 클라이언트를 개발 하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-[기술 커뮤니티 포럼](https://go.microsoft.com/fwlink/?linkid=2116541)에서 Linux SDK에 대 한 액세스를 요청할 수 있습니다.
+SDK는 현재 개발 중입니다. SDK를 사용할 수 있는 경우이 문서에 액세스 하는 지침이 포함 된이 문서를 업데이트 합니다.
 
 다음 클라이언트에 대 한 설명서를 확인 하세요.
 

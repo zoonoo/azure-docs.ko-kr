@@ -1,5 +1,5 @@
 ---
-title: PIM(Privileged Identity Management)에서 Azure AD 사용자 지정 역할 할당 업데이트 또는 제거 | Microsoft Docs
+title: Azure AD 사용자 지정 역할 업데이트 또는 제거-PIM (Privileged Identity Management)
 description: PIM(Privileged Identity Management)에서 Azure AD 사용자 지정 역할 할당을 업데이트 또는 제거하는 방법
 services: active-directory
 documentationcenter: ''
@@ -16,12 +16,12 @@ ms.date: 08/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ace189db569941371026b76c4438515f4c53e77b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33bd8554abc7566496cacaa943f0b1fdc15d8507
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896515"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048095"
 ---
 # <a name="update-or-remove-an-assigned-azure-ad-custom-role-in-privileged-identity-management"></a>Privileged Identity Management에서 할당된 Azure AD 사용자 지정 역할 업데이트 또는 제거
 

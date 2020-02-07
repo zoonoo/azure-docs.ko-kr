@@ -7,19 +7,19 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: ba21ec6ba82ac4984d3c51fc46f88de2cd56b2b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 83902ea5a3e73603311a0c469126ed603d0ebd16
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933685"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064872"
 ---
 # <a name="use-a-jupyter-notebook-and-kqlmagic-extension-to-analyze-data-in-azure-data-explorer"></a>Jupyter Notebook 및 Kqlmagic 확장을 사용 하 여 Azure에서 데이터 분석 데이터 탐색기
 
 Jupyter Notebook은 라이브 코드, 수식, 시각화 및 내레이션 텍스트를 포함하는 문서를 만들고 공유할 수 있는 오픈 소스 웹 애플리케이션입니다. 사용에는 데이터 정리 및 변환, 숫자 시뮬레이션, 통계 모델링, 데이터 시각화 및 기계 학습이 포함됩니다.
 [Jupyter Notebook](https://jupyter.org/)은 추가 명령을 지원하여 커널의 기능을 확장하는 매직 함수를 지원합니다. KQL 매직은 Jupyter Notebook에서 Python 커널의 기능을 확장하는 명령이므로 Kusto 언어 쿼리를 기본적으로 실행할 수 있습니다. Python 및 Kusto 쿼리 언어를 쉽게 결합하여 `render` 명령과 통합된 서식 있는 Plot.ly 라이브러리를 통해 데이터를 쿼리하고 시각화할 수 있습니다. 쿼리 실행을 위한 데이터 원본이 지원됩니다. 이러한 데이터 원본에는 로그 및 원격 분석 데이터에 대 한 빠르고 확장성이 뛰어난 데이터 탐색 서비스인 Azure 데이터 탐색기와 Azure Monitor 로그 및 Application Insights 포함 됩니다. KQL 매직은 Azure Notebooks, Jupyter Lab 및 Visual Studio Code Jupyter 확장에서도 작동합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 - AAD(Azure Active Directory)의 멤버인 조직 메일 계정
 - 로컬 머신에 설치된 Jupyter Notebook 또는 Azure Notebooks를 사용하고 샘플 [Azure Notebooks](https://kustomagicsamples-manojraheja.notebooks.azure.com/j/notebooks/Getting%20Started%20with%20kqlmagic%20on%20Azure%20Data%20Explorer.ipynb) 복제
@@ -79,7 +79,7 @@ StormEvents
 
 ### <a name="customize-the-chart-colors"></a>차트 색 사용자 지정
 
-기본 색상표를 사용하지 않으려면 팔레트 옵션을 사용하여 차트를 사용자 지정합니다. 사용 가능한 팔레트는 다음 위치에서 확인할 수 있습니다. [KQL 매직 쿼리 차트 결과에 대한 색상표 선택](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb)
+기본 색상표를 사용하지 않으려면 팔레트 옵션을 사용하여 차트를 사용자 지정합니다. 사용 가능한 색상표는 [KQL magic 쿼리 차트 결과에 대 한 색상표 선택](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FColorYourCharts.ipynb) 에서 찾을 수 있습니다.
 
 1. 팔레트 목록의 경우 다음을 수행합니다.
 
@@ -100,7 +100,7 @@ StormEvents
 
 ## <a name="parameterize-a-query-with-python"></a>Python을 사용하여 쿼리를 매개 변수화
 
-KQL 매직을 통해 Kusto 쿼리 언어와 Python을 간단하게 바꿔서 사용할 수 있습니다. 자세히 알아보려면: [Python을 사용하여 KQL 매직 쿼리 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
+KQL 매직을 통해 Kusto 쿼리 언어와 Python을 간단하게 바꿔서 사용할 수 있습니다. 자세한 정보: [Python으로 KQL magic 쿼리 매개 변수화](https://mybinder.org/v2/gh/Microsoft/jupyter-Kqlmagic/master?filepath=notebooks%2FParametrizeYourQuery.ipynb)
 
 ### <a name="use-a-python-variable-in-your-kql-query"></a>KQL 쿼리에 Python 변수 사용
 
@@ -168,7 +168,7 @@ df.head(10)
     ```
 
 > [!TIP]
-> 사용 가능한 모든 구성에 대 한 정보 `%config KQLmagic`를 받으려면를 사용 합니다. 연결 문제 및 잘못 된 쿼리와 같은 Kusto 오류 문제를 해결 하 고 캡처하려면 다음을 사용 합니다.`%config Kqlmagic.short_errors=False`
+> 사용 가능한 모든 구성에 대 한 정보를 받으려면 `%config Kqlmagic`를 사용 합니다. 연결 문제 및 잘못 된 쿼리와 같은 Kusto 오류 문제를 해결 하 고 캡처하려면 `%config Kqlmagic.short_errors=False`를 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

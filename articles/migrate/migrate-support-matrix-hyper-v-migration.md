@@ -3,12 +3,12 @@ title: Azure Migrate의 Hyper-v 마이그레이션 지원
 description: Azure Migrate를 사용 하 여 Hyper-v 마이그레이션 지원에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/08/2020
-ms.openlocfilehash: 4ca946597417ccde0e00c8bf09c70207bc4f85b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 1eab96df7ee58a8170f75b41c5a2a06f033ced19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031649"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064464"
 ---
 # <a name="support-matrix-for-hyper-v-migration"></a>Hyper-v 마이그레이션을 위한 지원 매트릭스
 
@@ -23,10 +23,10 @@ ms.locfileid: "77031649"
 
 | **지원**                | **세부 정보**               
 | :-------------------       | :------------------- |
-| **배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. |
+| **배포**       | Hyper-v 호스트는 독립 실행형 이거나 클러스터에 배포할 수 있습니다. <br/>Hyper-v 호스트에 Azure Migrate 복제 소프트웨어 (Hyper-v 복제 공급자)를 설치 해야 합니다.|
 | **사용 권한**           | Hyper-v 호스트에 대 한 관리자 권한이 필요 합니다. |
 | **호스트 운영 체제** | Windows Server 2019, Windows Server 2016 또는 Windows Server 2012 R2. |
-| **URL 액세스** | Hyper-v 호스트에서 다음 URL에 액세스 해야 합니다.<br/><br/> -login.microsoftonline.com: Active Directory을 사용 하 여 액세스 제어 및 id 관리<br/><br/> -*. backup.windowsazure.com: 복제 데이터 전송 및 조정 서비스 Url을 마이그레이션합니다.<br/><br/> -*. blob.core.windows.net: 저장소 계정에 데이터를 업로드 합니다.<br/><br/> -dc.services.visualstudio.com: 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.<br/><br/> - time.windows.com | 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 합니다.
+| **URL 액세스** | Hyper-v 호스트의 복제 공급자 소프트웨어는 다음 URL에 액세스할 수 있어야 합니다.<br/><br/> -login.microsoftonline.com: Active Directory을 사용 하 여 액세스 제어 및 id 관리<br/><br/> -*. backup.windowsazure.com: 복제 데이터 전송 및 조정 서비스 Url을 마이그레이션합니다.<br/><br/> -*. blob.core.windows.net: 저장소 계정에 데이터를 업로드 합니다.<br/><br/> -dc.services.visualstudio.com: 내부 모니터링에 사용 되는 앱 로그를 업로드 합니다.<br/><br/> -time.windows.com: 시스템 시간과 글로벌 시간 간의 시간 동기화를 확인 합니다.
 | **포트 액세스** |  VM 복제 데이터를 보내기 위한 HTTPS 포트 443의 아웃 바운드 연결
 
 ## <a name="hyper-v-vms"></a>Hyper-V VM
@@ -34,8 +34,6 @@ ms.locfileid: "77031649"
 | **지원**                  | **세부 정보**               
 | :----------------------------- | :------------------- |
 | **운영 체제** | Azure에서 지 원하는 모든 [Windows](https://support.microsoft.com/help/2721672/microsoft-server-software-support-for-microsoft-azure-virtual-machines) 및 [Linux](https://docs.microsoft.com/azure/virtual-machines/linux/endorsed-distros) 운영 체제입니다. |
-| **사용 권한**           | 평가 하려는 각 Hyper-v VM에 대 한 관리자 권한이 필요 합니다. |
-| **Integration Services**       | 운영 체제 정보를 캡처하기 위해 평가 하는 Vm에서 [hyper-v Integration Services](https://docs.microsoft.com/virtualization/hyper-v-on-windows/reference/integration-services) 실행 중 이어야 합니다. |
 | **Azure에 대 한 필수 변경 내용** | 일부 VM은 Azure에서 실행될 수 있도록 변경해야 할 수 있습니다. 마이그레이션을 수행 하기 전에 수동으로 조정 해야 합니다. 관련 문서에는이 작업을 수행 하는 방법에 대 한 지침이 포함 되어 있습니다. |
 | **Linux 부팅**                 | /Boot는 전용 파티션에 있는 경우 OS 디스크에 상주해 야 하며 여러 디스크에 분산 되 면 안 됩니다.<br/> /Boot가 루트 (/) 파티션의 일부인 경우 '/' 파티션은 OS 디스크에 있어야 하며 다른 디스크에 걸쳐 있지 않아야 합니다. |
 | **UEFI 부팅**                  | Azure에서 마이그레이션된 VM은 자동으로 BIOS 부팅 VM으로 변환 됩니다. VM은 Windows Server 2012 이상만 실행 해야 합니다. OS 디스크에는 최대 5 개의 파티션이 있어야 하 고 OS 디스크의 크기는 300 미만 이어야 합니다.
@@ -55,15 +53,13 @@ ms.locfileid: "77031649"
 
 ## <a name="azure-vm-requirements"></a>Azure VM 요구 사항
 
-Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다. Site Recovery에서 복제에 대 한 필수 구성 요소 확인을 실행 하면 일부 요구 사항이 충족 되지 않은 경우 검사가 실패 합니다.
+Azure로 복제 된 모든 온-프레미스 Vm은이 표에 요약 된 Azure VM 요구 사항을 충족 해야 합니다.
 
 **구성 요소** | **요구 사항** | **세부 정보**
 --- | --- | ---
-게스트 운영 체제 | 마이그레이션에 대해 지원 되는 VMware VM 운영 체제를 확인 합니다.<br/> 지원 되는 운영 체제에서 실행 되는 모든 워크 로드를 마이그레이션할 수 있습니다. | 지원되지 않는 경우 확인이 실패합니다.
-게스트 운영 체제 아키텍처 | 64비트. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 크기 | 최대 2,048GB. | 지원되지 않는 경우 확인이 실패합니다.
 운영 체제 디스크 수 | 1 | 지원되지 않는 경우 확인이 실패합니다.
-데이터 디스크 수 | 64개 이하. | 지원되지 않는 경우 확인이 실패합니다.
+데이터 디스크 수 | 16 개이 하 | 지원되지 않는 경우 확인이 실패합니다.
 데이터 디스크 크기 | 최대 4,095GB | 지원되지 않는 경우 확인이 실패합니다.
 네트워크 어댑터 | 여러 어댑터가 지원됩니다. |
 공유 VHD | 지원되지 않습니다. | 지원되지 않는 경우 확인이 실패합니다.

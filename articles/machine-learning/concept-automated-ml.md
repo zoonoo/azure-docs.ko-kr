@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: 778b369e08ff6b0c6e4075c5a8d3d2a234bde70e
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 012300c95fd1edd135b97f52ed3702ce3e7ef0bd
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894895"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048964"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -23,18 +23,18 @@ ms.locfileid: "75894895"
 
 기존의 기계 학습 모델 개발은 리소스를 많이 사용 하므로 수십 개의 모델을 생성 하 고 비교 하는 데 상당한 도메인 지식과 시간이 필요 합니다. 지정한 대상 메트릭을 사용 하 여 모델을 학습 하 고 조정 하려면 자동화 된 ML을 적용 Azure Machine Learning 합니다. 그런 다음 서비스는 기능 선택과 쌍을 이루는 ML 알고리즘을 반복 하 여 각 반복에서 학습 점수가 있는 모델을 생성 합니다. 점수가 높을수록 데이터를 "맞추기" 하는 것이 더 효율적입니다.
 
-자동화된 Machine Learning을 통해 아주 쉽고 효율적으로 프로덕션을 준비할 수 있는 ML 모델을 준비하는 데 걸리는 시간을 단축할 수 있습니다.
+자동화 된 기계 학습을 통해 프로덕션이 준비 된 ML 모델을 매우 쉽고 효율적으로 활용 하는 데 걸리는 시간을 단축할 수 있습니다.
 
-## <a name="when-to-use-automated-ml"></a>자동화된 ML을 사용하는 경우
+## <a name="when-to-use-automated-ml"></a>자동화 된 ML을 사용 하는 경우
 
-자동화된 ML은 기계 학습 모델 개발 프로세스를 보편화하고, 데이터 과학 전문 지식에 관계없이 사용자의 역량을 강화하여 모든 문제에 대해 엔드투엔드 기계 학습 파이프라인을 식별합니다.
+자동화 된 ML은 기계 학습 모델 개발 프로세스를 보편화 하 고, 문제에 대 한 종단 간 기계 학습 파이프라인을 식별 하기 위해 데이터 과학 전문 지식에 관계 없이 사용자의 역량을 강화 합니다.
 
 산업 전반에 걸친 데이터 과학자, 분석가 및 개발자는 자동화 된 ML을 사용 하 여 다음을 수행할 수 있습니다.
 
-+ 광범위한 프로그래밍 지식 없이 기계 학습 솔루션 구현
++ 광범위 한 프로그래밍 지식 없이 기계 학습 솔루션 구현
 + 시간 및 리소스 절약
 + 데이터 과학 모범 사례 활용
-+ Agile 문제 해결 제공
++ Agile 문제 제공-해결
 
 다음 표에서는 일반적인 자동화 된 ML 사용 사례를 보여 줍니다. 
 
@@ -44,7 +44,7 @@ ms.locfileid: "75894895"
 |[마케팅 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)|[수요 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-energy-demand/auto-ml-forecasting-energy-demand.ipynb)|
 |[뉴스 그룹 데이터 분류](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-text-dnn/auto-ml-classification-text-dnn.ipynb)|[음료 생산 예측](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb)|
 
-## <a name="how-automated-ml-works"></a>자동화된 ML 작동 방법
+## <a name="how-automated-ml-works"></a>자동화 된 ML 작동 방법
 
 **Azure Machine Learning**를 사용 하 여 다음 단계를 통해 자동화 된 ML 학습 실험을 디자인 하 고 실행할 수 있습니다.
 
@@ -83,7 +83,7 @@ ms.locfileid: "75894895"
 
 자동화 된 모든 기계 학습 실험에서 데이터는 알고리즘의 성능을 향상 시킬 수 있도록 자동으로 확장 되거나 정규화 됩니다.  모델 학습 중에는 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용 됩니다.
 
-|&nbsp;정규화&nbsp;&크기 조정| Description |
+|&nbsp;정규화&nbsp;&크기 조정| 설명 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 단위 분산의 평균 및 크기 조정을 제거 하 여 기능 표준화  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최소값과 최대값을 기준으로 각 기능의 크기를 조정 하 여 기능을 변환 합니다.  |
@@ -95,11 +95,11 @@ ms.locfileid: "75894895"
 
 ### <a name="advanced-preprocessing-optional-featurization"></a>고급 전처리: 선택적 기능화
 
-데이터 guardrails, 인코딩, 변환 등의 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#preprocess). 다음을 사용 하 여이 설정 사용:
+데이터 guardrails, 인코딩, 변환 등의 추가 고급 전처리 및 기능화도 사용할 수 있습니다. [기능화 포함 된 항목에 대해 자세히 알아보세요](how-to-create-portal-experiments.md#featurization). 다음을 사용 하 여이 설정 사용:
 
-+ Azure Machine Learning studio: [다음 단계를 사용 하 여](how-to-create-portal-experiments.md) **구성 실행** 섹션에서 **기능화 설정 보기** 를 선택 합니다.
++ Azure Machine Learning studio: **추가 구성 보기** 섹션에서 [다음 단계를 수행 하](how-to-create-portal-experiments.md#create-and-run-experiment)여 **자동 기능화** 를 사용 하도록 설정 합니다.
 
-+ Python SDK: [`AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대 한 `"feauturization": auto' / 'off' / FeaturizationConfig`를 지정 합니다.
++ Python SDK: [`AutoMLConfig` 클래스](/python/api/azureml-train-automl-client/azureml.train.automl.automlconfig.automlconfig)에 대 한 `"feauturization": 'auto' / 'off' / 'FeaturizationConfig'`를 지정 합니다. 
 
 ## <a name="prevent-over-fitting"></a>과도 맞춤 방지
 
@@ -193,7 +193,7 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 또한 자동화 된 ML 실행은 다음 차트를 자동으로 생성 하며,이를 통해 모델 분류의 정확성을 이해 하 고 불균형 데이터의 영향을 받을 수 있는 모델을 식별할 수 있습니다.
 
-차트| Description
+차트| 설명
 ---|---
 [혼동 행렬](how-to-understand-automated-ml.md#confusion-matrix)| 데이터의 실제 레이블에 대해 올바르게 분류 된 레이블을 평가 합니다. 
 [전체 자릿수-회수](how-to-understand-automated-ml.md#precision-recall-chart)| 데이터의 찾은 레이블 인스턴스 비율에 대해 올바른 레이블의 비율을 평가 합니다. 
@@ -207,15 +207,15 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 - 불균형 데이터에 대해 더 잘 처리 하는 성능 메트릭을 사용 합니다. 예를 들어 F1 점수는 전체 자릿수 및 회수의 가중치가 적용 된 평균입니다. 전체 자릿수는 분류자의 exactness을 측정 합니다. 낮은 정밀도는 분류자의 완전성을 측정 하는 동안 매우 많은 가양성--,를 나타냅니다. 낮은 회수는 매우 많은 가양성을 나타냅니다. 
 
-## <a name="use-with-onnx-in-c-apps"></a>C# 앱에서 ONNX와 함께 사용
+## <a name="use-with-onnx-in-c-apps"></a>앱에서 C# onnx와 함께 사용
 
 Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Python 모델을 작성 하 고이를 ONNX 형식으로 변환할 수 있습니다. ONNX 런타임은을 지원 C#하므로, 기록이 필요 하지 않거나 REST 끝점이 도입 하는 C# 네트워크 대기 시간을 제외 하 고 앱에서 자동으로 작성 된 모델을 사용할 수 있습니다. [이 Jupyter 노트북에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)이 흐름의 예를 사용해 보세요.
 
-## <a name="automated-ml-across-microsoft"></a>Microsoft에서 자동화된 ML
+## <a name="automated-ml-across-microsoft"></a>Microsoft에서 자동 ML
 
 자동화 된 ML은 다음과 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
 
-|통합|Description|
+|통합|설명|
 |------------|-----------|
 |[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio를 사용 하 여 .NET 앱에서 자동 모델 선택 및 학습 ML.NET 자동 ML (미리 보기)을 사용 하 여 Visual Studio Code 합니다.|
 |[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|HDInsight 클러스터의 Spark에서 자동화 된 ML 학습 작업을 병렬로 확장 하세요.|

@@ -3,12 +3,12 @@ title: 리소스의 배열 속성에 대 한 작성자 정책
 description: 배열 매개 변수 및 배열 언어 식에 대 한 작업을 수행 하 고, [*] 별칭을 평가 하 고 Azure Policy 정의 규칙을 사용 하 여 요소를 추가 하는 방법을 알아봅니다.
 ms.date: 11/26/2019
 ms.topic: how-to
-ms.openlocfilehash: 462d9acbda37bbbd007af6d6d1267e9b0e7d3e0a
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 991d159f6444133d902382bc9ca43bc2acd201e2
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023194"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050073"
 ---
 # <a name="author-policies-for-array-properties-on-azure-resources"></a>Azure 리소스의 배열 속성에 대 한 작성자 정책
 
@@ -140,8 +140,7 @@ Azure Portal를 통해이 정책 정의를 만들려고 하면 다음 오류 메
 
 ### <a name="evaluating-the--alias"></a>[*] 별칭 평가
 
-이름에 연결 된 **\[\*\]** 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **\[\*\]** 를 사용 하 여 배열의 각 요소를 논리적으로 계산 하 고 둘 사이에서 계산할 수 있습니다. 다음 세 가지 표준 시나리오가 있습니다. 이러한 시나리오는 항목 평가 별로 유용 합니다. _None_, _Any_또는 _All_ 요소와 일치 합니다.
-복잡 한 시나리오의 경우 [count](../concepts/definition-structure.md#count)를 사용 합니다.
+이름에 연결 된 **\[\*\]** 별칭은 **형식이** _배열_임을 의미 합니다. 전체 배열의 값을 계산 하는 대신 **\[\*\]** 를 사용 하 여 배열의 각 요소를 논리적으로 계산 하 고 둘 사이에서 계산할 수 있습니다. 다음 세 가지 표준 시나리오가 있습니다. 이러한 시나리오는 항목 평가 별로 유용 합니다. _None_, _Any_또는 _All_ 요소와 일치 합니다. 복잡 한 시나리오의 경우 [count](../concepts/definition-structure.md#count)를 사용 합니다.
 
 정책 엔진은 **if** 규칙이 true로 평가 되는 **경우에만** 의 **효과** 를 트리거합니다.
 이 사실은 배열의 개별 요소를 평가 하는 **\]\*\[** 하는 방식에 대 한 컨텍스트를 이해 하는 데 중요 합니다.

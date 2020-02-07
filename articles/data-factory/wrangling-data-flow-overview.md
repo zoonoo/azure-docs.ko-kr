@@ -7,12 +7,12 @@ ms.reviewer: gamal
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 11/01/2019
-ms.openlocfilehash: 56c2d96e6e4a5900770aaefcabb424eddb1cbde6
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 8f91ed926c733b211443805722b6817b1ce005b6
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74531385"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048355"
 ---
 # <a name="what-are-wrangling-data-flows"></a>랭 글 링 데이터 흐름은 무엇 인가요?
 
@@ -24,7 +24,7 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 
 랭 글 링 데이터 흐름은 데이터 엔지니어 또는 ' 시민 데이터 통합자 '에 게 특히 유용 합니다.
 
-## <a name="use-cases"></a>사례 사용
+## <a name="use-cases"></a>사용 사례
 
 ### <a name="fast-interactive-data-exploration-and-preparation"></a>신속한 대화형 데이터 탐색 및 준비
 
@@ -40,11 +40,11 @@ Azure Data Factory의 랭 글 링 데이터 흐름을 사용 하면 클라우드
 
 ## <a name="supported-sources"></a>지원 되는 원본
 
-| 커넥터 | 데이터 형식 | 인증 유형 |
+| 커넥터 | 데이터 형식 | 인증 형식 |
 | -- | -- | --|
-| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV | 계정 키 |
-| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV | 서비스 주체 |
-| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV | 계정 키, 서비스 주체 |
+| [Azure Blob Storage](connector-azure-blob-storage.md) | CSV, Parquet | 계정 키 |
+| [Azure Data Lake Storage Gen1](connector-azure-data-lake-store.md) | CSV 형식입니다. | 서비스 주체 |
+| [Azure Data Lake Storage Gen2](connector-azure-data-lake-storage.md) | CSV, Parquet | 계정 키, 서비스 주체 |
 | [Azure SQL Database](connector-azure-sql-database.md) | - | SQL 인증 |
 | [Azure Synapse 분석](connector-azure-sql-data-warehouse.md) | - | SQL 인증 |
 

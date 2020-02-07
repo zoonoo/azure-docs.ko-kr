@@ -10,21 +10,21 @@ ms.workload: identity
 ms.topic: conceptual
 ms.author: marsma
 ms.subservice: B2C
-ms.date: 02/03/2020
-ms.openlocfilehash: 108c9c1112327a3fcadeff4c4074f31f976a4e3d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.date: 02/05/2020
+ms.openlocfilehash: b701449e8cfb7a379522ee6ccb93f5569bd703d8
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026758"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77045974"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
-Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 사용 활동 이벤트를 다른 모니터링 솔루션으로 라우팅합니다. 장기 사용을 위해 로그를 유지 하거나 타사 SIEM (보안 정보 및 이벤트 관리) 도구와 통합 하 여 사용자 환경에 대 한 통찰력을 얻을 수 있습니다.
+Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그인 및 [감사](view-audit-logs.md) 로그를 다른 모니터링 솔루션으로 라우팅합니다. 장기 사용을 위해 로그를 유지 하거나 타사 SIEM (보안 정보 및 이벤트 관리) 도구와 통합 하 여 사용자 환경에 대 한 통찰력을 얻을 수 있습니다.
 
 다음과 같이 로그 이벤트를 라우팅할 수 있습니다.
 
-* Azure Storage 계정.
+* Azure 저장소 계정이 있어야 합니다.
 * Azure 이벤트 허브 (및 Splunk 및 Sumo 논리 인스턴스와 통합)
 * Azure Log Analytics 작업 영역 (데이터 분석, 대시보드 만들기 및 특정 이벤트에 대 한 경고)
 

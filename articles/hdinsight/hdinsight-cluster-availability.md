@@ -1,20 +1,19 @@
 ---
 title: '모니터링: Apache Ambari & Azure Monitor logs-Azure HDInsight'
 description: Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 상태 및 가용성을 모니터링 하는 방법에 대해 알아봅니다.
-keywords: 모니터링, ambari, 모니터, log analytics, 경고, 가용성, 상태
 author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 11/25/2019
-ms.openlocfilehash: a21610fefcfe1632dffbfd8e055497476f7e59c1
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.date: 02/06/2020
+ms.openlocfilehash: 383366fa3e436c79bed28a7c47f1e9daa5f0d9de
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687810"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060180"
 ---
 # <a name="how-to-monitor-cluster-availability-with-apache-ambari-and-azure-monitor-logs"></a>Apache Ambari 및 Azure Monitor 로그를 사용 하 여 클러스터 가용성을 모니터링 하는 방법
 
@@ -77,7 +76,7 @@ Ambari는 다음을 포함 하 여 가용성과 관련 된 미리 정의 된 많
 
 이 예에서는 두 비정상 DataNodes 트리거를 중요 한 경고로 설정 하 고, 1 비정상 DataNode 경고를 트리거할 수 있습니다. 편집이 완료 되 면 **저장** 을 선택 합니다.
 
-### <a name="email-notifications"></a>전자 메일 알림
+### <a name="email-notifications"></a>이메일 알림
 
 필요에 따라 Ambari 경고에 대 한 전자 메일 알림을 구성할 수도 있습니다. 이렇게 하려면 **경고** 탭에서 왼쪽 위에 있는 **작업** 단추를 클릭 한 다음 **알림 관리** 를 클릭 합니다.
 
@@ -96,9 +95,9 @@ Azure Monitor 로그를 사용 하면 HDInsight 클러스터와 같은 여러 �
 
 ### <a name="enable-hdinsight-azure-monitor-logs-integration"></a>HDInsight Azure Monitor 로그 통합 사용
 
-포털의 HDInsight 클러스터 리소스 페이지에서 **Operations Management Suite**를 선택 합니다. 그런 다음 **사용** 을 선택 하 고 드롭다운에서 Log Analytics 작업 영역을 선택 합니다.
+포털의 HDInsight 클러스터 리소스 페이지에서 **Azure Monitor**를 선택 합니다. 그런 다음 **사용** 을 선택 하 고 드롭다운에서 Log Analytics 작업 영역을 선택 합니다.
 
-![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/hdi-portal-oms-enable.png)
+![HDInsight Operations Management Suite](media/hdinsight-cluster-availability/azure-portal-monitoring.png)
 
 ### <a name="query-metrics-and-logs-tables"></a>메트릭 및 로그 테이블 쿼리
 

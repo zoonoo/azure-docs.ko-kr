@@ -13,12 +13,12 @@ ms.date: 04/24/2019
 ms.author: twhitney
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c916ac98774600c16eb26ed43b8ae4b273137865
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
-ms.translationtype: MT
+ms.openlocfilehash: 54df91d38541fbe17a28c9ae083ae0e7d0c9d88d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695010"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063665"
 ---
 # <a name="xamarin-android-specific-considerations-with-msalnet"></a>MSAL.NET를 사용 하 여 Xamarin Android 관련 고려 사항
 이 문서에서는 MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용할 때의 구체적인 고려 사항을 설명 합니다.
@@ -71,16 +71,19 @@ protected override void OnActivityResult(int requestCode,
 
 ## <a name="update-the-android-manifest"></a>Android 매니페스트 업데이트
 `AndroidManifest.xml`에는 다음 값이 포함 되어야 합니다.
-```csharp
+```xml
 <activity android:name="microsoft.identity.client.BrowserTabActivity">
     <intent-filter>
         <action android:name="android.intent.action.VIEW" />
         <category android:name="android.intent.category.DEFAULT" />
         <category android:name="android.intent.category.BROWSABLE" />
-        <data android:scheme="msal{client_id}" android:host="auth" />
+        <data android:scheme="msauth"
+              android:host="Enter_the_Package_Name"
+              android:path="/Enter_the_Signature_Hash"/>
          </intent-filter>
 </activity>
 ```
+`android:host=` 값을 Azure Portal에서 등록한 패키지 이름으로 바꿉니다. `android:path=` 값을 Azure Portal에서 등록한 키 해시로 바꿉니다. 서명 해시는 URL로 인코딩되면 **안 됩니다**. 서명 해시의 시작 부분에 선행 `/`가 있는지 확인합니다.
 
 또는 [코드에서 활동을 만들고](https://docs.microsoft.com/xamarin/android/platform/android-manifest#the-basics) `AndroidManifest.xml`를 수동으로 편집 하지 않을 수 있습니다. 이렇게 하려면 `Activity` 및 `IntentFilter` 특성이 있는 클래스를 만들어야 합니다. 위의 xml 값을 나타내는 클래스는 다음과 같습니다.
 
@@ -141,6 +144,6 @@ Visual Studio에서 Android .csproj * 파일을 올바르게 업데이트 하지
 
 다음 샘플의 readme.md 파일에 있는 [Android 관련 고려 사항](https://github.com/azure-samples/active-directory-xamarin-native-v2#android-specific-considerations) 단락에서 자세한 내용 및 샘플을 제공 합니다.
 
-| 샘플 | 플랫폼 | Description |
+| 샘플 | 플랫폼 | 설명 |
 | ------ | -------- | ----------- |
 |[https://github.com/Azure-Samples/active-directory-xamarin-native-v2](https://github.com/azure-samples/active-directory-xamarin-native-v2) | Xamarin iOS, Android, UWP | 간단한 Xamarin Forms 앱은 MSAL을 사용 하 여 AADD v2.0 끝점을 통해 MSA 및 Azure AD를 인증 하 고 결과 토큰을 사용 하 여 Microsoft Graph에 액세스 하는 방법을 보여주는 합니다. <br>![토폴로지](media/msal-net-xamarin-android-considerations/topology.png) |

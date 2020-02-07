@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/11/2019
-ms.openlocfilehash: 81b57191a02dd3214928ac90e2761f5f8dfb2cfc
-ms.sourcegitcommit: 9dec0358e5da3ceb0d0e9e234615456c850550f6
+ms.custom: hdinsightactive
+ms.date: 02/05/2020
+ms.openlocfilehash: d8cb8bfa32db958b6dfdda0df23429669ce2a439
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/14/2019
-ms.locfileid: "72311666"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063801"
 ---
 # <a name="manage-hdinsight-clusters-by-using-the-apache-ambari-web-ui"></a>Apache Ambari Web UI를 사용하여 HDInsight 클러스터 관리
 
@@ -32,7 +32,7 @@ Apache Ambari는 손쉬운 Web UI 및 REST API 사용을 제공하여 Apache Had
 Ambari 웹 UI는 `https://CLUSTERNAME.azurehdinsight.net`의 HDInsight 클러스터에서 사용할 수 있습니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
 > [!IMPORTANT]  
-> HTTPS를 요구하는 HDInsight에서 Ambari로 연결 인증에 대한 대화 상자가 나타나면 클러스터를 만들 때 제공한 관리자 계정 이름 및 암호를 사용합니다.
+> HTTPS를 요구하는 HDInsight에서 Ambari로 연결 인증에 대한 대화 상자가 나타나면 클러스터를 만들 때 제공한 관리자 계정 이름 및 암호를 사용합니다. 자격 증명을 입력 하 라는 메시지가 표시 되지 않으면 네트워크 설정에서 클라이언트와 Azure HDInsight 클러스터 간에 연결 문제가 없는지 확인 합니다.
 
 ## <a name="ssh-tunnel-proxy"></a>SSH 터널(프록시)
 
@@ -57,18 +57,18 @@ Ambari 웹 UI에 연결 하는 경우 페이지에 인증 하 라는 메시지�
 |대시보드|대시보드를 표시 합니다.|
 |서비스|클러스터의 서비스에 대 한 정보 및 구성 설정입니다.|
 |호스트|클러스터의 노드에 대 한 정보 및 구성 설정입니다.|
-|,|정보, 경고 및 중요 한 알림 로그입니다.|
+|경고|정보, 경고 및 중요 한 알림 로그입니다.|
 |Admin|클러스터에 설치 된 소프트웨어 스택/서비스, 서비스 계정 정보 및 Kerberos 보안.|
 |관리 단추|Ambari 관리, 사용자 설정 및 로그 아웃입니다.|
 
 ## <a name="monitoring"></a>모니터링
 
-### <a name="alerts"></a>,
+### <a name="alerts"></a>경고
 
 다음 목록은 Ambari에서 사용하는 일반적인 경고 상태를 포함합니다.
 
-* **OK**
-* **Warning**
+* **확인**
+* **경고**
 * **CRITICAL**
 * **UNKNOWN**
 
@@ -156,12 +156,12 @@ __알림 관리__를 선택 하 여 경고 메서드를 관리 하 고 **작업*
     |모든 구성 요소 시작|호스트에서 모든 구성 요소를 시작 합니다.|
     |모든 구성 요소 중지|호스트의 모든 구성 요소를 중지 합니다.|
     |모든 구성 요소 다시 시작|호스트에서 모든 구성 요소를 중지 하 고 시작 합니다.|
-    |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성하는 작업을 수행하는 경우 이 모드를 활성화해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
+    |유지 관리 모드 설정|호스트에 대 한 경고를 표시 하지 않습니다. 경고를 생성 하는 작업을 수행 하는 경우이 모드를 사용 하도록 설정 해야 합니다. 예를 들어 서비스를 중지하고 시작합니다.|
     |유지 관리 모드 해제|호스트를 정상 경고로 반환 합니다.|
-    |Stop|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
-    |Start|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
+    |중지|호스트에서 DataNode 또는 NodeManagers를 중지 합니다.|
+    |시작|호스트에서 DataNode 또는 NodeManagers를 시작 합니다.|
     |다시 시작|호스트에서 DataNode 또는 NodeManagers를 중지 하 고 시작 합니다.|
-    |만들고|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
+    |서비스 해제|클러스터에서 호스트를 제거 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
     |재승인|이전에 서비스 해제 된 호스트를 클러스터에 추가 합니다. **HDInsight 클러스터에는이 작업을 사용 하지 마십시오.**|
 
 ### <a id="service"></a>Services
@@ -193,7 +193,7 @@ __알림 관리__를 선택 하 여 경고 메서드를 관리 하 고 **작업*
 
 1. **대시보드** 또는 **서비스** 페이지에서 서비스를 선택합니다.
 
-2. **Configs** 탭을 선택합니다. 현재 구성이 표시됩니다. 이전 구성의 목록도 표시됩니다.
+2. **Configs** 탭을 선택 합니다. 현재 구성이 표시 됩니다. 이전 구성의 목록도 표시됩니다.
 
     ![Apache Ambari 서비스 구성](./media/hdinsight-hadoop-manage-ambari/ambari-service-configs.png)
 
@@ -203,9 +203,9 @@ __알림 관리__를 선택 하 여 경고 메서드를 관리 하 고 **작업*
 
 Ambari Views를 사용하면 개발자가 [Apache Ambari Views 프레임워크](https://cwiki.apache.org/confluence/display/AMBARI/Views)를 사용하여 Ambari 웹 UI에 UI 요소를 삽입할 수 있습니다. HDInsight은 Hadoop 클러스터 종류를 사용하여 다음 뷰를 제공합니다.
 
-* Hive 보기: Hive 보기를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 스토리지에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
+* Hive 뷰: Hive 뷰를 사용하면 웹 브라우저에서 직접 Hive 쿼리를 실행할 수 있습니다. 쿼리를 저장하고 결과 확인하며 클러스터 스토리지에 결과를 저장하거나 로컬 시스템에 다운로드할 수 있습니다. Hive 보기 사용에 대한 자세한 내용은 [HDInsight와 함께 Apache Hive 보기 사용](hadoop/apache-hadoop-use-hive-ambari-view.md)을 참조하세요.
 
-* Tez 보기: Tez 보기를 사용하면 작업을 더 잘 이해하고 최적화할 수 있습니다. Tez 작업 실행 방법 및 사용되는 리소스에 대한 정보를 볼 수 있습니다.
+* Tez 보기: Tez 뷰를 사용하면 작업을 더 잘 이해하고 최적화할 수 있습니다. Tez 작업 실행 방법 및 사용되는 리소스에 대한 정보를 볼 수 있습니다.
 
 ## <a name="unsupported-operations"></a>지원되지 않는 작업
 

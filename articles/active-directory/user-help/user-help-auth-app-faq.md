@@ -2,7 +2,7 @@
 title: Microsoft Authenticator 앱에 대 한 질문 & 답변-Azure AD
 description: Microsoft 인증 앱 및 2 단계 인증에 대 한 Faq (질문과 대답)입니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: f04d5bce-e99e-4f75-82d1-ef6369be3402
 ms.service: active-directory
@@ -10,14 +10,14 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/16/2020
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 70f4844a8c157ba7964ce1053c007db8e9301336
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704700"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063886"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 Faq (질문과 대답)
 
@@ -25,7 +25,7 @@ ms.locfileid: "76704700"
 
 Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Multi-factor Authentication을 사용하는 경우 권장됩니다. [Android](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.azure.authenticator) 및 [iOS](https://app.adjust.com/e3rxkc_7lfdtm?fallback=https%3A%2F%2Fitunes.apple.com%2Fus%2Fapp%2Fmicrosoft-authenticator%2Fid983156458) 디바이스의 경우 Microsoft Authenticator 앱을 사용할 수 있습니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 | 질문 | 솔루션 |
 | -------- | -------- |
@@ -51,7 +51,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 | 앱 잠금 기능이란 무엇이며 보안을 강화하는 데 어떤 도움이 되나요? | 일회용 암호, 앱 정보 및 앱 설정을 더욱 안전하게 유지하려는 경우 Microsoft Authenticator 앱에서 앱 잠금 기능을 설정하면 됩니다. Microsoft Authenticator 앱의 **설정** 화면에서 앱 잠금을 설정하면 Microsoft Authenticator 앱을 열 때마다 PIN이나 생체 인식 정보를 사용하여 인증하라는 메시지가 표시됩니다. 이 기능은 추가적인 보호를 제공하기 위한 것이며 Microsoft Authenticator 앱에서 알림을 승인하는 방식은 변경되지 않습니다.<br><br>**참고**<br>장치 등록은 회사 포털 앱 또는 Android 계정 설정에서와 같이 Microsoft Authenticator 앱 외부의 다른 위치에서 발생할 수 있기 때문에 앱 잠금으로 인해 사용자가 Microsoft에 액세스 하지 못하도록 할 수 있는 것은 아닙니다. Authenticator 앱. |
 | 내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요? | 개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경 하려면 계정에서 [중요 하지 않은 계정 경고로 연락할 수 있는 위치](https://account.live.com/SecurityNotifications/Update) 에 로그인 합니다. |
 | IOS와 함께 제공 되는 기본 메일 앱을 사용 하 여 회사 또는 학교 계정에 로그인 하는 동안 Microsoft Authenticator 앱에서 보안 확인 정보를 요청 하는 메시지가 표시 됩니다. 해당 정보를 입력 하 고 메일 앱으로 돌아가면 오류가 발생 합니다. 어떻게 해야 하나요? | 이는 로그인과 메일 앱이 서로 다른 두 앱에서 발생 하 여 초기 백그라운드 로그인 프로세스의 작동이 중지 되 고 실패 하는 경우에 발생할 수 있습니다. 이 문제를 해결 하려면 메일 앱에 로그인 하는 동안 화면 오른쪽 아래에 있는 **Safari** 아이콘을 선택 하는 것이 좋습니다. Safari로 이동 하면 전체 로그인 프로세스가 단일 앱에서 발생 하므로 앱에 성공적으로 로그인 할 수 있습니다. |
-| OTP (일회용 암호) 코드가 작동 하지 않습니다. 어떻게 해야 하나요? | 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못 되었거나 동기화 되지 않으면 코드가 작동 하지 않습니다. |
+| OTP (일회용 암호) 코드가 작동 하지 않습니다. 어떻게 할까요? | 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못 되었거나 동기화 되지 않으면 코드가 작동 하지 않습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

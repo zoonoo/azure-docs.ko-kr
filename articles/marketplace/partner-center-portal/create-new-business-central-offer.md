@@ -8,12 +8,12 @@ ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 22a5b86c8b3df4da5fe338a8ba1230d0247a5826
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 4c0467039cf4fefd7625f1146c4bade99b49304d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046011"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048738"
 ---
 # <a name="create-a-new-dynamics-365-business-central-offer"></a>새 Dynamics 365 비즈니스 센터 제품 만들기
 
@@ -108,19 +108,9 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 제품의 버전 번호를 입력 합니다. 이 버전은 제품의 세부 정보 페이지에 표시 됩니다.
 
-### <a name="standard-contract"></a>표준 계약
+### <a name="terms-and-conditions"></a>사용 약관
 
-고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft에서는 marketplace에서 트랜잭션을 용이 하 게 하기 위해 표준 계약 템플릿을 제공 합니다.
-
-사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며, 고객은 한 번만 심사 하 고 수락 하면 됩니다.
-
-표준 계약은 다음 위치에서 찾을 수 있습니다. https://go.microsoft.com/fwlink/?linkid=2041178
-
-표준 계약을 사용 하려면 **표준 계약 사용?** 상자를 선택 합니다.
-
-#### <a name="terms-of-use"></a>사용 조건
-
-**표준 계약 사용** 확인란을 선택 하지 않은 경우 **사용 약관** 필드에서 사용자의 법적 사용 약관을 제공 해야 합니다. 최대 1만 문자 텍스트를 입력 하거나 사용 약관에 더 긴 설명이 필요한 경우 추가 사용 조건을 찾을 수 있는 URL을 입력 합니다. 고객은 앱을 사용해 볼 수 있도록 이러한 약관에 동의 해야 합니다.
+사용 **약관** 필드에 고유한 약관을 제공 합니다. 사용 약관을 찾을 수 있는 URL을 제공할 수도 있습니다. 고객은 이러한 약관에 동의 해야 제품을 사용해 볼 수 있습니다.
 
 ## <a name="offer-listing"></a>제품 목록
 
@@ -139,7 +129,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 한 설명을 제공 합니다 (최대 100 자).
 
-### <a name="description"></a>Description
+### <a name="description"></a>설명
 
 제품에 대 한 더 긴 설명 (최대 3000 자)을 제공 합니다. 이 설명은 marketplace 목록 개요에서 고객에 게 표시 됩니다. 제품의 가치 제안, 주요 이점, 범주 및/또는 업계 연결, 앱 내 구매 기회 및 필요한 공개를 포함 합니다. 
 
@@ -192,7 +182,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 조직의 개인 정보 취급 방침에 대 한 URL을 입력 합니다. 사용자는 앱이 개인 정보 법률 및 규정을 준수 하는지 확인 하 고 유효한 개인 정보 취급 방침을 제공 하는 일을 담당 합니다.
 
-### <a name="contacts"></a>연락처
+### <a name="contacts"></a>Contacts
 
 이 섹션에서는 **지원 연락처** 와 **엔지니어링 연락처**에 대 한 이름, 전자 메일 및 전화 번호를 제공 해야 합니다. 이 정보는 고객에 게 표시 되지 않지만 Microsoft에서 사용할 수 있으며 CSP 파트너에 게 제공 될 수 있습니다.
 
@@ -206,7 +196,7 @@ Marketplace 검색 결과에서 사용할 수 있는 제품에 대 한 간략 �
 
 이 섹션에서는 고객에 게 제품을 표시할 때 사용 되는 로고 및 이미지를 제공할 수 있습니다. 모든 이미지는 .png 형식 이어야 합니다.
 
-#### <a name="store-logos"></a>Microsoft Store 로고
+#### <a name="store-logos"></a>매장 로고
 
 **소형 (48 x 48)** 및 **큼 (216 x 216)** 의 두 가지 크기로 제품 로고를 제공 합니다.
 
@@ -317,9 +307,9 @@ Microsoft는이 유형의 테스트 드라이브를 사용 하 여 서비스 프
 
 - **테스트 드라이브 기간** (필수): 시간 수를 정의 하 여 테스트 드라이브가 활성 상태로 유지 되는 시간을 입력 합니다. 이 시간이 지난 후에는 세션이 종료 되 고 더 이상 라이선스 중 하나를 사용 하지 않습니다. 제품의 복잡도에 따라 2-24 시간 값을 설정 하는 것이 좋습니다. 이 기간은 전체 시간에 의해서만 설정 될 수 있습니다 (예: "2" 시간, "1.5"은 유효 하지 않음).  사용자는 시간이 부족 하 고 테스트 드라이브에 다시 액세스 하려는 경우 새 세션을 요청할 수 있습니다.
 
-- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터 (예: https://testdrive.crm.dynamics.com) )가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL입니다.
+- **인스턴스 URL** (필수): 고객이 테스트 드라이브를 시작 하는 url입니다. 일반적으로 샘플 데이터 (예: https://testdrive.crm.dynamics.com))가 설치 된 앱을 실행 하는 Dynamics 365 인스턴스의 URL입니다.
 
-- **인스턴스 웹 API url** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 DYNAMICS 365 인스턴스의 Web API url을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 합니다 (예: https://testdrive.crm.dynamics.com/api/data/v9.0) ).
+- **인스턴스 웹 API url** (필수): Microsoft 365 계정에 로그인 하 고 **설정** \&gt;로 이동 하 여 DYNAMICS 365 인스턴스의 Web API url을 검색 합니다. **사용자 지정** \&gt; **개발자 리소스** \&gt; **인스턴스 웹 API (서비스 루트 URL)** 에서 여기에 있는 URL을 복사 합니다 (예: https://testdrive.crm.dynamics.com/api/data/v9.0)).
 
 - **역할 이름** (필수): 테스트 드라이브 (예: 테스트 드라이브-역할) 중에 사용자에 게 할당 되는 사용자 지정 Dynamics 365 테스트 드라이브에서 정의한 보안 역할 이름을 제공 합니다.
 

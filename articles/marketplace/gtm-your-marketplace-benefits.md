@@ -6,14 +6,14 @@ author: MaggiePucciEvans
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 09/10/2019
+ms.date: 02/08/2020
 ms.author: evansma
-ms.openlocfilehash: 21bbd34520283620626aff27439e89058a534f4e
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 1ecb48751715d32e1e67f09e0e3d4bf9577c8eab
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76121814"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064939"
 ---
 # <a name="your-commercial-marketplace-benefits"></a>상용 marketplace 혜택
 
@@ -45,7 +45,7 @@ Marketplace 보상은 첫 번째 고객을 가져오는 데 도움이 되는 인
 2. 팀에서 marketplace 제품에 대 한 "소유자" 또는 "기본 연락처"에 도달 합니다. 정기적으로 확인 하는 개인 또는 별칭을 입력 하는 것이 가장 좋습니다. info@company.com와 같이 별칭으로 전송 되는 메시지는 자주 손실 됩니다.
 
 >[!Note]
->제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport 에서 지원 티켓을 올릴 수 있습니다.
+>제품이 4 주 이상 지속 되 고 메시지를 받지 못한 경우 Cloud 파트너 포털 또는 파트너 센터에서 확인 하 여 해당 제품의 소유자 인 조직 내에서 확인 하세요. 통신 및 다음 단계를 수행 해야 합니다. <br> <br> 소유자를 확인할 수 없거나 소유자가 회사를 떠난 경우 https://aka.ms/marketplacepublishersupport에서 지원 티켓을 올릴 수 있습니다.
 
 마켓플레이스에서 제품을 확장함에 따라 사용 가능한 활동 범위도 확장됩니다. 모든 목록은 리소스 및 모범 사례에 대 한 셀프 서비스 전자 메일의 일부로 기본 수준의 최적화 권장 사항 및 판촉을 받습니다.
 

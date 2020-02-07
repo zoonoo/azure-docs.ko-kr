@@ -2,7 +2,7 @@
 title: 인증 정보를 등록 하 여 고유한 암호 재설정-Azure AD
 description: 관리자 도움 없이 자신의 암호를 재설정할 수 있도록 Azure AD 셀프 서비스 암호 재설정에 대 한 확인 방법 정보를 등록 합니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.assetid: ''
@@ -11,13 +11,13 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.author: lizross
-ms.openlocfilehash: d27b0b7aadf5cffc2a362843ab5373ee0dc5b170
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.author: curtand
+ms.openlocfilehash: 397e1fd7695fd7e74e1f22959d0f9f24af7d1ea3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261843"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062645"
 ---
 # <a name="register-your-verification-method-info-to-reset-your-own-password"></a>본인 확인 방법 정보를 등록 하 여 암호 다시 설정
 
@@ -57,7 +57,7 @@ ms.locfileid: "76261843"
 
 | 오류 메시지 |  가능한 해결 방법 |
 | --- | --- | --- |
-| 관리자에게 문의하세요.<br>Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다.<br>IT 직원에게 추가 지원을 요청하세요.| 사용자 ID를 입력 한 후이 오류 메시지가 표시 되 면 조직에서 내부적으로 암호를 관리 하 고 계정 링크에 **액세스할 수 없음** 에서 암호를 재설정 하지 않도록 합니다. 이 경우 암호를 재설정 하려면 조직의 기술 지원팀 또는 관리자에 게 도움을 요청 해야 합니다. |
+| 관리자에게 문의하십시오.<br>Microsoft에서 사용자 계정 암호가 관리되지 않는 것이 감지되었습니다. 결과적으로 자동으로 암호를 재설정할 수 없습니다.<br>IT 직원에게 추가 지원을 요청하세요.| 사용자 ID를 입력 한 후이 오류 메시지가 표시 되 면 조직에서 내부적으로 암호를 관리 하 고 계정 링크에 **액세스할 수 없음** 에서 암호를 재설정 하지 않도록 합니다. 이 경우 암호를 재설정 하려면 조직의 기술 지원팀 또는 관리자에 게 도움을 요청 해야 합니다. |
 | 암호 재설정을 위해 계정을 사용할 수 없습니다.<br>죄송하지만 IT 직원이 계정을 이 서비스와 함께 사용하도록 설정하지 않습니다.<br>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 사용자 ID를 입력 한 후이 오류 메시지가 표시 되 면 조직에서 암호 재설정 기능을 사용 하도록 설정 하지 않았거나 사용할 수 없는 것입니다. 이 경우 암호를 재설정 하려면 **관리자에 게 문의** 링크를 선택 해야 합니다. 링크를 클릭 하면 조직의 기술 지원팀 또는 관리자에 게 전자 메일을 전송 하 여 암호를 다시 설정 하는 것을 알립니다. |
 | 계정을 확인하지 못했습니다.<br>원하는 경우 사용자의 조직에서 관리자에게 연락하여 사용자용 암호를 재설정할 수 있습니다. | 사용자 ID를 입력 한 후이 오류 메시지가 표시 되 면 조직에서 암호 재설정을 사용 하도록 설정 하 고이를 사용할 수 있지만 서비스에 등록 하지 않았음을 의미 합니다. 이 경우 조직의 기술 지원팀 또는 관리자에 게 문의 하 여 암호를 재설정 해야 합니다. 장치를 다시 설정한 후 암호 재설정에 등록 하는 방법에 대 한 자세한 내용은이 문서의 위의 프로세스를 참조 하세요. |
 

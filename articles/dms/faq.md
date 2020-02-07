@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9fdbf3888b4302946fe20259a333842caa122836
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f27d398af723a54443f531c05a503a5f2fbe13f6
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717780"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064838"
 ---
 # <a name="faq-about-using-azure-database-migration-service"></a>Azure Database Migration Service 사용에 대 한 FAQ
 
@@ -46,7 +46,7 @@ Azure Database Migration Service를 사용 하 여 오프 라인 및 온라인 �
 > Azure Database Migration Service를 사용하여 온라인 마이그레이션을 수행하려면 프리미엄 가격 책정 계층에 따라 인스턴스를 만들어야 합니다. 자세한 내용은 Azure Database Migration Service [가격 책정](https://azure.microsoft.com/pricing/details/database-migration/) 페이지를 참조하세요.
 
 **Q. Azure Database Migration Service는 데이터베이스 Migration Assistant (DMA) 또는 SQL Server Migration Assistant (SSMA)와 같은 다른 Microsoft 데이터베이스 마이그레이션 도구와 어떻게 비교 되나요?**
-Azure Database Migration Service은 데이터베이스 마이그레이션이 대규모로 Microsoft Azure 되는 기본 방법입니다. Azure Database Migration Service 다른 Microsoft 데이터베이스 마이그레이션 도구와 비교 하는 방법 및 다양 한 시나리오에 서비스 사용에 대 한 권장 사항에 대 한 자세한 내용은 [Microsoft의 데이터베이스 마이그레이션 도구 및 서비스 차별화](https://blogs.msdn.microsoft.com/datamigration/2017/10/13/differentiating-microsofts-database-migration-tools-and-services/)의 블로그 게시물을 참조 하세요.
+Azure Database Migration Service은 데이터베이스 마이그레이션이 대규모로 Microsoft Azure 되는 기본 방법입니다. Azure Database Migration Service 다른 Microsoft 데이터베이스 마이그레이션 도구와 비교 하는 방법 및 다양 한 시나리오에 서비스 사용에 대 한 권장 사항에 대 한 자세한 내용은 [Microsoft의 데이터베이스 마이그레이션 도구 및 서비스 차별화](https://techcommunity.microsoft.com/t5/microsoft-data-migration/differentiating-microsoft-s-database-migration-tools-and/ba-p/368529)의 블로그 게시물을 참조 하세요.
 
 **Q. Azure Database Migration Service는 Azure Migrate 제품과 어떻게 비교 되나요?**
 Azure Migrate 온-프레미스 가상 머신을 Azure IaaS로 마이그레이션하는 데 도움이 됩니다. 이 서비스는 마이그레이션 적합성 및 성능 기반 크기 조정을 평가하며, Azure에서 온-프레미스 가성 머신을 실행할 때 드는 비용을 예측합니다. Azure Migrate는 온-프레미스 VM 기반 워크로드를 Azure IaaS VM으로 리프트 앤 시프트 마이그레이션하는 데 유용합니다. 그러나 Azure Database Migration Service와 달리 Azure Migrate는 Azure SQL Database 또는 Azure SQL Database Managed Instance 같은 Azure PaaS 관계형 데이터베이스 플랫폼에 대 한 특수화 된 database Migration Service 제품이 아닙니다.
@@ -88,7 +88,7 @@ SQL Server 오류 로그를 쿼리하여 SQL Server가 수신 대기하는 포�
 **Q. Microsoft Azure Virtual Network 어떻게 할까요? 설정 하 시겠습니까?**
 가상 네트워크를 설정 하는 과정을 안내 하는 여러 Microsoft 자습서는 있지만 [Azure Virtual Network](https://docs.microsoft.com/azure/virtual-network/virtual-networks-overview)문서에 공식 설명서가 나와 있습니다.
 
-## <a name="usage"></a>사용
+## <a name="usage"></a>사용법
 
 **Q. Azure Database Migration Service를 사용 하 여 데이터베이스 마이그레이션을 수행 하는 데 필요한 단계를 요약 한 것은 무엇 인가요?**
 일반적이고 간단한 데이터베이스 마이그레이션 단계:

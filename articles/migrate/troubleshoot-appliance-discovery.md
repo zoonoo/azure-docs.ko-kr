@@ -6,12 +6,12 @@ ms.manager: abhemraj
 ms.author: hamusa
 ms.topic: troubleshooting
 ms.date: 01/02/2020
-ms.openlocfilehash: e8d0f446442db6eeb0aec38efcc69bdf09c9b56f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 37da62a4eb0f934133d6486872ba319138299614
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990711"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048698"
 ---
 # <a name="troubleshoot-the-azure-migrate-appliance-and-discovery"></a>Azure Migrate 어플라이언스 및 검색 문제 해결
 
@@ -27,7 +27,7 @@ ms.locfileid: "76990711"
 
 "제공 된 매니페스트 파일이 잘못 되었습니다. 잘못 된 위치 매니페스트 항목입니다." 오류가 표시 되 면 다음을 수행 합니다.
 
-1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
+1. 해당 해시 값을 확인 하 여 Azure Migrate 어플라이언스 OVA 파일이 올바르게 다운로드 되었는지 확인 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/migrate/tutorial-assessment-vmware). 해시 값이 일치 하지 않으면 OVA 파일을 다시 다운로드 하 고 배포를 다시 시도 합니다.
 2. 그래도 배포가 실패 하 고 VMware vSphere 클라이언트를 사용 하 여 파일을 배포 하는 경우 vSphere 웹 클라이언트를 통해 배포 해 보세요. 그래도 배포가 실패 하면 다른 웹 브라우저를 사용해 보세요.
 3. VSphere 웹 클라이언트를 사용 하 고 vCenter Server 6.5 또는 6.7에 배포 하려는 경우 ESXi 호스트에 직접 OVA를 배포 해 보세요.
    - 웹 클라이언트 (https://<*호스트 IP 주소*>/uiu)와 함께 ESXi 호스트에 직접 연결 (vCenter Server 대신) 합니다.
@@ -78,7 +78,7 @@ ms.locfileid: "76990711"
 60030 또는 60031 오류 "Azure Key Vault 관리 작업에 실패 했습니다."가 표시 되 면 다음을 수행 합니다.
 - 어플라이언스를 등록 하는 데 사용 되는 Azure 사용자 계정에 구독에 대 한 참가자 이상의 권한이 있는지 확인 합니다.
 - 계정에 오류 메시지에 지정 된 키 자격 증명 모음에 대 한 액세스 권한이 있는지 확인 한 후 작업을 다시 시도 하십시오.
-- 문제가 지속되면 Microsoft 지원에 문의하세요.
+- 이 문제가 계속되면 Microsoft 지원에 문의하세요.
 - 필요한 Azure 역할 및 권한에 [대해 자세히 알아보세요](https://docs.microsoft.com/azure/migrate/migrate-appliance#appliance---vmware) .
 
 ## <a name="error-60028-discovery-couldnt-be-initiated"></a>오류 60028: 검색을 시작할 수 없습니다.
@@ -89,7 +89,7 @@ ms.locfileid: "76990711"
 - 유효성 검사 오류가 있는 경우 수정 지침을 검토 하 여 오류를 수정 하 고 **검색 저장 및 시작** 옵션을 다시 시도 합니다.
 
 ## <a name="error-60025-azure-ad-operation-failed"></a>오류 60025: Azure AD 작업이 실패 했습니다. 
-오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 중 하나를 수행합니다.
+오류 60025: "Azure AD 작업이 실패 했습니다. Azure AD 응용 프로그램을 만들거나 업데이트 하는 동안 발생 한 오류는 검색을 시작 하는 데 사용 되는 Azure 사용자 계정이 어플라이언스를 등록 하는 데 사용 된 계정과 다를 때 발생 합니다. 다음 작업 중 하나를 수행합니다.
 
 - 검색을 시작 하는 사용자 계정이 어플라이언스를 등록 하는 데 사용한 것과 동일한 지 확인 합니다.
 - 검색 작업이 실패 하는 사용자 계정에 Azure Active Directory 응용 프로그램 액세스 권한을 제공 합니다.
@@ -139,7 +139,7 @@ Vm을 삭제 하 고 포털에 계속 표시 되는 경우 30 분 동안 기다�
 
 Azure Migrate은 Azure Migrate: 서버 평가를 사용 하 여 응용 프로그램, 역할 및 기능의 검색을 지원 합니다. 앱 검색은 현재 VMware에만 지원 됩니다. 앱 검색을 설정 하는 데 필요한 요구 사항 및 단계에 대해 [자세히 알아보세요](how-to-discover-applications.md) .
 
-일반적인 앱 검색 오류는 표에 요약 되어 있습니다.
+일반적인 앱 검색 오류는 표에 요약 되어 있습니다. 
 
 **오류** | **원인** | **동작**
 --- | --- | --- | ---

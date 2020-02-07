@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 보상 게이트웨이 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 보상 게이트웨이 구성 Microsoft Docs'
 description: 사용자 계정을 보상 게이트웨이로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 07/26/2019
 ms.author: zhchia
-ms.openlocfilehash: 4d07fa66374908781fd1d637fd722fd60d1352b3
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 928d48907e43de5e65ca5604ff878bfb83d5e95b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68737876"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061002"
 ---
 # <a name="tutorial-configure-reward-gateway-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 보상 게이트웨이 구성
 
@@ -29,9 +29,9 @@ ms.locfileid: "68737876"
 > [!NOTE]
 > 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](https://docs.microsoft.com/azure/active-directory/manage-apps/user-provisioning)를 참조하세요.
 >
-> 이 커넥터는 현재 공개 미리 보기 상태입니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
+> 이 커넥터는 현재 공개 미리 보기 상태입니다. 미리 보기 기능의 Microsoft Azure 일반 사용 약관에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -94,7 +94,7 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 이 섹션에서는 azure ad의 사용자 및/또는 그룹 할당에 따라 보상 게이트웨이에서 사용자 및/또는 그룹을 만들고, 업데이트 하 고, 비활성화 하도록 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다.
 
 > [!TIP]
-> [보상 게이트웨이 single sign-on 자습서](reward-gateway-tutorial.md)에 제공 된 지침에 따라 보상 게이트웨이에 대해 SAML 기반 single sign-on을 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
+> [보상 게이트웨이 single sign-on 자습서](reward-gateway-tutorial.md)에 제공 된 지침에 따라 보상 게이트웨이에 대해 SAML 기반 Single Sign-On를 사용 하도록 선택할 수도 있습니다. Single Sign-On과 자동 사용자 프로비저닝은 서로 보완적이지만, 별개로 구성할 수 있습니다.
 
 ### <a name="to-configure-automatic-user-provisioning-for-reward-gateway-in-azure-ad"></a>Azure AD에서 보상 게이트웨이에 대 한 자동 사용자 프로 비전을 구성 하려면:
 
@@ -116,13 +116,13 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
 5. **관리자 자격 증명** 섹션 아래에서 먼저 **테 넌 트 Url** 및 **암호 토큰** 에서 검색 된 **Scim Url (v2)** 및 **OAuth 전달자 토큰** 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 보상 게이트웨이에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 보상 게이트웨이 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
-    ![테 넌 트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
+    ![테넌트 URL + 토큰](common/provisioning-testconnection-tenanturltoken.png)
 
 6. **알림 메일** 필드에 프로비저닝 오류 알림을 받을 개인 또는 그룹의 메일 주소를 입력하고, **오류가 발생할 경우, 메일 알림 보내기** 확인란을 선택합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![알림 이메일](common/provisioning-notification-email.png)
 
-7. **Save**을 클릭합니다.
+7. **저장**을 클릭합니다.
 
 8. **매핑** 섹션에서 **사용자 Azure Active Directory 보상 게이트웨이에 동기화를**선택 합니다.
 
@@ -132,33 +132,33 @@ Azure AD를 사용 하 여 자동 사용자 프로비저닝을 위한 보상 게
 
     ![보상 게이트웨이 관리 콘솔](media/reward-gateway-provisioning-tutorial/user-attributes.png)
 
-10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+10. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
 11. 보상 게이트웨이에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
-    ![프로 비전 상태 전환 설정](common/provisioning-toggle-on.png)
+    ![프로비전 상태 켜기로 전환](common/provisioning-toggle-on.png)
 
 12. **설정** 섹션의 **범위** 에서 원하는 값을 선택 하 여 보상 게이트웨이에 프로 비전 하려는 사용자 및/또는 그룹을 정의 합니다.
 
-    ![프로 비전 범위](common/provisioning-scope.png)
+    ![프로비전 범위](common/provisioning-scope.png)
 
 13. 프로비전할 준비가 되면 **저장**을 클릭합니다.
 
-    ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
+    ![프로비전 구성 저장](common/provisioning-configuration-save.png)
 
 이 작업은 **설정**의 **범위** 섹션에 정의된 모든 사용자 및/또는 그룹의 초기 동기화를 시작합니다. 초기 동기화는 Azure AD 프로비전 서비스가 실행되는 동안 약 40분마다 발생하는 후속 동기화보다 더 많은 시간이 걸립니다. **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 보상 게이트웨이에서 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
 보상 게이트웨이는 현재 그룹 프로 비전을 지원 하지 않습니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-[프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+[프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

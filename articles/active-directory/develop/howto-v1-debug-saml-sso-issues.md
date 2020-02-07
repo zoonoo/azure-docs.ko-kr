@@ -12,16 +12,16 @@ ms.date: 02/18/2019
 ms.author: ryanwi
 ms.custom: aaddev
 ms.reviewer: luleon, hirsin, paulgarn
-ms.openlocfilehash: 630d178a4f1a802d5c98b570544822e4f4013a5a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 648338f2ba57ad1c460c1c5b4a8d9a2ee91ebb1b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697016"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063716"
 ---
 # <a name="debug-saml-based-single-sign-on-to-applications-in-azure-active-directory"></a>Azure Active Directory에서 SAML 기반 Single Sign-On을 애플리케이션에 디버그
 
-[SAML(Security Assertion Markup Language) 2.0](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language)을 지원하는 Azure AD(Azure Active Directory)에서 애플리케이션에 대한 [단일 로그온](../manage-apps/what-is-single-sign-on.md) 문제를 찾고 수정하는 방법을 알아봅니다. 
+[SAML(Security Assertion Markup Language) 2.0](../manage-apps/what-is-single-sign-on.md)을 지원하는 Azure AD(Azure Active Directory)에서 애플리케이션에 대한 [단일 로그온](https://en.wikipedia.org/wiki/Security_Assertion_Markup_Language) 문제를 찾고 수정하는 방법을 알아봅니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -101,4 +101,4 @@ Azure AD와 대상 응용 프로그램 간에 SAML 기반 Single Sign-On를 테�
 
 ## <a name="next-steps"></a>다음 단계
 
-이제 응용 프로그램에 대 한 Single Sign-On 작업 중 이므로 [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../manage-apps/user-provisioning.md) 해제를 자동화 하거나 [조건부 액세스를 시작할](../conditional-access/app-based-conditional-access.md)수 있습니다.
+이제 응용 프로그램에 대 한 Single Sign-On 작업 중 이므로 [SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md) 해제를 자동화 하거나 [조건부 액세스를 시작할](../conditional-access/app-based-conditional-access.md)수 있습니다.

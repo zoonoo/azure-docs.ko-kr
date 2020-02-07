@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 4efa60a48a540efdd835b106afa5872057ae3d53
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 14aa1018aec2a9dc22c3b059b4aa46bff2bb554a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74046427"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77050054"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -26,7 +26,7 @@ Azure 애플리케이션 Gateway의 WAF (웹 응용 프로그램 방화벽) v2�
 
 ![WAF 사용][fig1]
 
-## <a name="example-1"></a>예제 1
+## <a name="example-1"></a>예 1
 
 웹 사이트 탐색에서 차단 하려는 *evilbot* 이라는 봇이 있음을 알고 있습니다. 이 경우 요청 헤더의 사용자 에이전트 *evilbot* 를 차단 합니다.
 
@@ -126,7 +126,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
 
@@ -161,10 +161,10 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
         "action": "Allow",
         "matchConditions": [
           {
-            "matchVariable": "RequestHeaders",
-            "operator": "User-Agent",
+            "matchVariable": "RemoteAddr",
+            "operator": "GeoMatch",
             "matchValues": [
-              "evilbot"
+              "US"
             ]
           }
         ]
@@ -386,7 +386,7 @@ $rule2 = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-## <a name="example-6"></a>예 6
+## <a name="example-6"></a>예제 6
 
 사용자 지정 SQLI를 차단 하려고 합니다. 여기서 사용 되는 논리는 **또는**이 고 모든 값이 *RequestUri*에 있으므로 *matchvalues* 는 모두 쉼표로 구분 된 목록에 있을 수 있습니다.
 

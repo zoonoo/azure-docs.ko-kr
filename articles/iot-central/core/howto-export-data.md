@@ -8,12 +8,12 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: 058fe9aea87879fe85dcbc6dcb864fd841fcb049
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026797"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049734"
 ---
 # <a name="export-your-azure-iot-central-data"></a>Azure IoT Central 데이터 내보내기
 
@@ -43,7 +43,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
 1. [Azure Portal에서 새 Event Hubs 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.EventHub)를 만듭니다. [Azure Event Hubs 문서](../../event-hubs/event-hubs-create.md)에서 자세히 알아볼 수 있습니다.
 
-2. 구독을 선택합니다. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
+2. 구독 선택. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
 
 3. Event Hubs 네임스페이스에서 이벤트 허브를 만듭니다. 네임스페이스로 이동한 다음, 맨 위에서 **+ 이벤트 허브**를 선택하여 이벤트 허브 인스턴스를 만듭니다.
 
@@ -52,7 +52,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 내보낼 기존 Service Bus 네임 스페이스가 없는 경우 다음 단계를 수행 합니다.
 
 1. [Azure Portal에 새 Service Bus 네임 스페이스](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)를 만듭니다. [Azure Service Bus 문서](../../service-bus-messaging/service-bus-create-namespace-portal.md)에서 자세히 알아볼 수 있습니다.
-2. 구독을 선택합니다. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
+2. 구독 선택. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
 
 3. Service Bus 네임스페이스로 이동한 다음, 맨 위에서 **+ 큐** 또는 **+ 토픽**을 선택하여 내보낼 큐 또는 토픽을 만듭니다.
 
@@ -62,10 +62,14 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
 로 내보낼 기존 Azure Storage 계정이 없는 경우 다음 단계를 수행 합니다.
 
-1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob Storage 계정](https://aka.ms/blobdocscreatestorageaccount) 만들기 또는 [v2 저장소 계정 Azure Data Lake Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md)에 대해 자세히 알아볼 수 있습니다.
+1. [Azure Portal에서 새 스토리지 계정](https://ms.portal.azure.com/#create/Microsoft.StorageAccount-ARM)을 만듭니다. 새 [Azure Blob Storage 계정](https://aka.ms/blobdocscreatestorageaccount) 만들기 또는 [v2 저장소 계정 Azure Data Lake Storage](../../storage/blobs/data-lake-storage-quickstart-create-account.md)에 대해 자세히 알아볼 수 있습니다. 데이터 내보내기는 블록 blob을 지 원하는 저장소 계정에만 데이터를 쓸 수 있습니다. 다음은 알려진 호환 유형 저장소 계정 목록입니다. 
 
-    - Azure Data Lake Storage v2 저장소 계정으로 데이터를 내보내도록 선택 하는 경우 **계정 종류**로 **blobstorage** 를 선택 해야 합니다.
-    - IoT Central 응용 프로그램에 대 한 것과 다른 구독에서 저장소 계정으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용하여 연결합니다.
+    |성능 계층|계정 유형|
+    |-|-|
+    |Standard|범용 V2|
+    |Standard|범용 V1|
+    |Standard|Blob Storage|
+    |프리미엄|블록 Blob Storage|
 
 2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
 
@@ -187,7 +191,7 @@ Blob 저장소로 내보낸 예제 레코드는 다음과 같습니다.
 }
 ```
 
-## <a name="devices"></a>디바이스
+## <a name="devices"></a>장치
 
 스냅숏의 각 메시지 또는 레코드는 마지막으로 내보낸 메시지 이후 장치 및 해당 장치 및 클라우드 속성에 대 한 변경 내용을 하나 이상 나타냅니다. 다음 내용이 포함됩니다.
 

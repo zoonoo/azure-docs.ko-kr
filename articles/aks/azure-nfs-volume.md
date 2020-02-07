@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 3ef584c48ab44fd3616b5c7897d589bddbe45dc0
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549260"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063818"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하 여 NFS (네트워크 파일 시스템) Linux 서버 볼륨을 수동으로 만들고 사용 합니다.
 컨테이너 간에 데이터를 공유 하는 것은 종종 컨테이너 기반 서비스 및 응용 프로그램의 필수 구성 요소입니다. 일반적으로 외부 영구 볼륨에서 동일한 정보에 액세스 해야 하는 다양 한 pod 있습니다.    
@@ -93,7 +93,8 @@ chmod +x ~/nfs-server-setup.sh
 ```
 
 ## <a name="connecting-aks-cluster-to-nfs-server"></a>NFS 서버에 AKS 클러스터 연결
-볼륨에 액세스 하는 방법을 지정 하는 영구 볼륨 및 영구적 볼륨 클레임을 프로 비전 하 여 NFS 서버를 클러스터에 연결할 수 있습니다.  
+볼륨에 액세스 하는 방법을 지정 하는 영구 볼륨 및 영구적 볼륨 클레임을 프로 비전 하 여 NFS 서버를 클러스터에 연결할 수 있습니다.
+
 동일한 가상 네트워크 또는 피어 링 가상 네트워크에서 두 서비스를 연결 해야 합니다. 동일한 VNET에서 클러스터를 설정 하는 방법에 대 한 지침은 [기존 vnet에서 AKS 클러스터 만들기][aks-virtual-network] 를 참조 하세요.
 
 동일한 가상 네트워크 (또는 피어 링)에 있으면 AKS 클러스터에서 영구적 볼륨 및 영구 볼륨 클레임을 프로 비전 해야 합니다. 그런 다음 컨테이너는 NFS 드라이브를 로컬 디렉터리에 탑재할 수 있습니다.

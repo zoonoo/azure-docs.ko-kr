@@ -10,13 +10,13 @@ ms.author: nibaccam
 author: tsikiksr
 manager: cgronlun
 ms.reviewer: nibaccam
-ms.date: 11/04/2019
-ms.openlocfilehash: 808d7ac7ded9b250e0835da51b6b547c05c622a9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.date: 02/04/2020
+ms.openlocfilehash: 620aab2d2104c9e08de6e7ea47511ff45a482ec4
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720404"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046107"
 ---
 # <a name="create-explore-and-deploy-automated-machine-learning-experiments-with-azure-machine-learning-studio"></a>Azure Machine Learning studio를 사용 하 여 자동화 된 기계 학습 실험 만들기, 탐색 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -25,13 +25,13 @@ ms.locfileid: "76720404"
 
  더 많은 코드 기반 환경을 선호 하는 경우 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py)를 사용 하 여 [Python에서 자동화 된 machine learning 실험을 구성할](how-to-configure-auto-train.md) 수도 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * **Enterprise edition**형식의 Azure Machine Learning 작업 영역입니다. [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조하세요.  기존 작업 영역을 Enterprise edition으로 업그레이드 하려면 [enterprise edition으로 업그레이드](how-to-manage-workspace.md#upgrade)를 참조 하세요.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 1. [Azure Machine Learning Studio](https://ml.azure.com)에 로그인합니다. 
 
@@ -47,7 +47,7 @@ ms.locfileid: "76720404"
 
 ## <a name="create-and-run-experiment"></a>실험 만들기 및 실행
 
-1. **+ 실험 만들기** 를 선택 하 고 폼을 채웁니다.
+1. **+ 새로 자동화 된 ML 실행** 을 선택 하 고 폼을 채웁니다.
 
 1. 저장소 컨테이너에서 데이터 집합을 선택 하거나 새 데이터 집합을 만듭니다. 로컬 파일, 웹 url, 데이터 저장소 또는 Azure open 데이터 집합에서 데이터 집합을 만들 수 있습니다. 
 
@@ -67,8 +67,8 @@ ms.locfileid: "76720404"
         필드| 설명
         ----|----
         파일 형식| 파일에 저장된 데이터의 레이아웃 및 유형을 정의합니다.
-        구분 기호| 일반 텍스트 또는 다른 데이터 스트림의 개별 독립 영역 간 경계를 지정 하는 하나 이상의 문자입니다.
-        Encoding| 데이터 세트를 읽는 데 사용할 문자 스키마 테이블을 식별합니다.
+        Delimiter| 일반 텍스트 또는 다른 데이터 스트림의 개별 독립 영역 간 경계를 지정 하는 하나 이상의 문자입니다.
+        인코딩| 데이터 세트를 읽는 데 사용할 문자 스키마 테이블을 식별합니다.
         열 머리글| 데이터 세트의 헤더(있는 경우)가 처리되는 방법을 나타냅니다.
         행 건너뛰기 | 데이터 세트에서 건너뛴 행(있는 경우)의 수를 나타냅니다.
     
@@ -113,16 +113,19 @@ ms.locfileid: "76720404"
 
         1. 예측 간격 선택: 모델에서 미래를 예측할 수 있는 시간 단위 (분/시간/일/주/월/년) 수를 표시 합니다. 나중에 예측 하는 데 더 많은 모델이 필요 하며,이는 더 정확 하지 않게 됩니다. [예측 및 예측 마감일에 대해 자세히 알아보세요](how-to-auto-train-forecast.md).
 
-1. 필드 추가 구성: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
+1. 필드 추가 구성 설정 보기: 학습 작업을 보다 효율적으로 제어 하는 데 사용할 수 있는 추가 설정입니다. 그렇지 않으면 실험 선택 및 데이터를 기반으로 기본값이 적용됩니다. 
 
     추가 구성|설명
     ------|------
     기본 메트릭| 모델의 점수를 매기는 데 사용 되는 기본 메트릭입니다. [모델 메트릭에 대해 자세히 알아보세요](how-to-configure-auto-train.md#explore-model-metrics).
-    자동 기능화| 자동화 된 machine learning에서 수행 하는 전처리를 사용 하거나 사용 하지 않도록 설정 하려면 선택 합니다. 전처리는 자동 데이터 정리, 준비 및 변환을 포함 하 여 가상 기능을 생성 합니다. [전처리에 대해 자세히 알아보세요](#preprocess).
+    자동 기능화| 자동화 된 machine learning에서 수행 하는 전처리를 사용 하거나 사용 하지 않도록 설정 하려면 선택 합니다. 전처리는 자동 데이터 정리, 준비 및 변환을 포함 하 여 가상 기능을 생성 합니다. 시계열 예측 작업 유형에 대해서는 지원 되지 않습니다. [전처리에 대해 자세히 알아보세요](#featurization). 
+    최상의 모델 설명 | 권장 되는 최상의 모델의 explainability 표시 하도록 설정 하거나 해제 하려면 선택 합니다.
     차단 된 알고리즘| 학습 작업에서 제외 하려는 알고리즘을 선택 합니다.
     종료 기준| 이러한 조건 중 하나라도 충족 되 면 학습 작업이 중지 됩니다. <br> *학습 작업 시간 (시간)* : 학습 작업을 실행할 수 있는 기간입니다. <br> *메트릭 점수 임계값*: 모든 파이프라인에 대 한 최소 메트릭 점수입니다. 이렇게 하면 정의 된 대상 메트릭이 있는 경우 필요한 것 보다 학습 작업에 더 많은 시간이 걸리지 않습니다.
     유효성 검사| 학습 작업에서 사용할 교차 유효성 검사 옵션 중 하나를 선택 합니다. [교차 유효성 검사에 대해 자세히 알아보세요](how-to-configure-auto-train.md).
-    동시성| *최대 동시 반복*횟수: 학습 작업에서 테스트할 파이프라인 (반복)의 최대 수입니다. 작업은 지정 된 반복 횟수를 초과 하 여 실행 되지 않습니다. <br> *반복 당 최대 코어*: 다중 코어 계산을 사용할 때 사용할 다중 코어 제한을 선택 합니다.
+    동시성| *최대 동시 반복*횟수: 학습 작업에서 테스트할 파이프라인 (반복)의 최대 수입니다. 작업은 지정 된 반복 횟수를 초과 하 여 실행 되지 않습니다.
+
+1. 필드 기능화 설정 보기: **추가 구성 설정** 양식에서 **자동 기능화** 를 사용 하도록 선택 하는 경우이 폼에서 해당 featurizations를 수행할 열을 지정 하 고 누락 값 imputations에 사용할 통계 값을 선택 합니다.
 
 <a name="profile"></a>
 
@@ -133,35 +136,31 @@ ms.locfileid: "76720404"
 >[!NOTE]
 > 관련이 없는 형식의 기능에 대해 빈 항목이 표시 됩니다.
 
-통계|설명
+Statistic|설명
 ------|------
 기능| 요약 되는 열의 이름입니다.
 프로필| 유추 된 형식을 기반으로 하는 인라인 시각화입니다. 예를 들어 문자열, 부울 및 날짜에는 값이 포함 되 고, decimals (숫자)에는 근사 히스토그램이 있습니다. 이를 통해 데이터 배포를 빠르게 파악할 수 있습니다.
 형식 분포| 열 내에 있는 형식 수의 인라인 값입니다. Null은 고유 형식 이므로이 시각화는 홀수 또는 누락 된 값을 검색 하는 데 유용 합니다.
-Type|열의 유추 유형입니다. 가능한 값에는 문자열, 부울, 날짜 및 소수 자릿수가 있습니다.
-최소값| 열의 최소값입니다. 형식에 고유 순서 (예: 부울)가 없는 기능에 대 한 빈 항목이 표시 됩니다.
-최대값| 열의 최대값입니다. 
+형식|열의 유추 유형입니다. 가능한 값에는 문자열, 부울, 날짜 및 소수 자릿수가 있습니다.
+Min| 열의 최소값입니다. 형식에 고유 순서 (예: 부울)가 없는 기능에 대 한 빈 항목이 표시 됩니다.
+Max| 열의 최대값입니다. 
 개수| 열에서 누락 되거나 누락 된 항목의 총 수입니다.
 누락되지 않은 수| 열에서 누락 된 항목의 수입니다. 빈 문자열 및 오류는 값으로 처리 되므로 "누락 된 개수"에 영향을 주지 않습니다.
 변위치| 각 변 위치의 근사 값을 통해 데이터의 분포를 파악할 수 있습니다.
-평균| 열의 산술 평균 또는 평균입니다.
+평균값| 열의 산술 평균 또는 평균입니다.
 표준 편차| 이 열의 데이터에 대 한 분산 또는 변형의 크기를 측정 합니다.
 Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값입니다. 
 왜곡도| 이 열의 데이터가 정규 분포에서 어떻게 다른 정도를 측정 합니다.
 첨도| 이 열의 데이터가 정규 분포와 비교 되는 정도를 측정 합니다.
 
 
-<a name="preprocess"></a>
+<a name="featurization"></a>
 
 ## <a name="advanced-featurization-options"></a>고급 기능화 옵션
 
-실험을 구성할 때 고급 설정 `feauturization`을 사용 하도록 설정할 수 있습니다. 
+자동화 된 machine learning은 데이터에 대 한 잠재적인 문제를 식별 하 고 관리할 수 있도록 자동으로 전처리 및 데이터 guardrails을 제공 합니다. 
 
-|기능화 구성 | 설명 |
-| ------------- | ------------- |
-|"feauturization" = ' FeaturizationConfig '| 사용자 지정 된 기능화 단계를 사용 해야 함을 나타냅니다. [기능화를 사용자 지정 하는 방법을 알아봅니다](how-to-configure-auto-train.md#customize-feature-engineering).|
-|"feauturization" = ' off '| 기능화 단계를 자동으로 수행 하지 않음을 나타냅니다.|
-|"feauturization" = ' auto '| 는 전처리의 일부로 다음 데이터 guardrails 및 기능화 단계가 자동으로 수행 됨을 나타냅니다.|
+### <a name="preprocessing"></a>전처리
 
 |전처리&nbsp;단계| 설명 |
 | ------------- | ------------- |
@@ -177,7 +176,7 @@ Variance| 이 열의 데이터에 대 한 분포의 평균 값을 측정 한 값
 
 ### <a name="data-guardrails"></a>데이터 guardrails
 
-자동화 된 machine learning은 데이터 guardrails을 제공 하 여 데이터에 대 한 잠재적인 문제 (예: 누락 된 값, 클래스 불균형)를 식별 하 고 향상 된 결과를 위해 정정 작업을 수행할 수 있도록 지원 합니다. 사용 가능한 모범 사례는 다양 하며, 신뢰할 수 있는 결과를 얻기 위해 적용할 수 있습니다. 
+데이터 guardrails는 데이터에 대 한 잠재적인 문제를 식별 하는 데 도움이 되는 자동으로 적용 됩니다 (예: 누락 값, 클래스 불균형). 향상 된 결과를 위해 정정 작업을 수행 하는 데 도움이 됩니다. 사용 가능한 모범 사례는 다양 하며, 신뢰할 수 있는 결과를 얻기 위해 적용할 수 있습니다. 
 
 다음 표에서는 현재 지원 되는 데이터 guardrails 및 사용자가 실험을 제출할 때 발생할 수 있는 연결 된 상태에 대해 설명 합니다.
 
@@ -191,14 +190,11 @@ Guardrail|상태|&nbsp;트리거의 조건&nbsp;
 
 ## <a name="run-experiment-and-view-results"></a>실험 실행 및 결과 보기
 
-**시작** 을 선택 하 여 실험을 실행 합니다. 실험 준비 프로세스는 10 분 정도 걸릴 수 있습니다. 학습 작업은 각 파이프라인의 실행이 완료 될 때까지 추가로 2-3 분 정도 걸릴 수 있습니다.
+**마침** 을 선택 하 여 실험을 실행 합니다. 실험 준비 프로세스는 10 분 정도 걸릴 수 있습니다. 학습 작업은 각 파이프라인의 실행이 완료 될 때까지 추가로 2-3 분 정도 걸릴 수 있습니다.
 
 ### <a name="view-experiment-details"></a>실험 세부 정보 보기
 
->[!NOTE]
-> 정기적으로 **새로 고침** 을 선택 하 여 실행 상태를 확인 합니다. 
-
-세부 **정보** 탭에 **실행 세부** 정보 화면이 열립니다. 이 화면에서는 **실행 상태**를 포함 하 여 실험 실행의 요약을 보여 줍니다. 
+세부 **정보** 탭에 **실행 세부** 정보 화면이 열립니다. 이 화면에서는 실행 번호 옆의 맨 위에 상태 표시줄을 포함 하 여 실험 실행의 요약을 보여 줍니다. 
 
 **모델** 탭에는 메트릭 점수를 기준으로 정렬 하 여 만든 모델 목록이 있습니다. 기본적으로 선택 된 메트릭을 기준으로 가장 높은 점수를 나타내는 모델은 목록의 맨 위에 있습니다. 학습 작업에서 더 많은 모델을 시도 하면 목록에 추가 됩니다. 지금까지 생성 된 모델에 대 한 메트릭을 신속 하 게 비교 하려면이를 사용 합니다.
 
@@ -218,18 +214,18 @@ Guardrail|상태|&nbsp;트리거의 조건&nbsp;
 
 1. 배포에 대 한 몇 가지 옵션이 있습니다. 
 
-    + 옵션 1: 사용자가 정의한 메트릭 기준에 따라 최상의 모델을 배포 하려면 자세히 탭에서 최적의 모델 배포를 선택 합니다.
+    + 옵션 1: 사용자가 정의한 메트릭 기준에 따라 최상의 모델을 배포 하려면 **세부 정보** 탭에서 **최적의 모델 배포** 단추를 선택 합니다.
 
-    + 옵션 2:이 실험에서 특정 모델 반복을 배포 하려면 모델에서 드릴 다운 하 여 모델 세부 정보 탭을 열고 모델 배포를 선택 합니다.
+    + 옵션 2:이 실험에서 특정 모델 반복을 배포 하려면 모델에서 드릴 다운 하 여 **모델 세부 정보** 탭을 열고 **모델 배포**를 선택 합니다.
 
 1. **모델 배포** 창을 채웁니다.
 
     필드| 값
     ----|----
-    속성| 배포에 대 한 고유한 이름을 입력 합니다.
+    이름| 배포에 대 한 고유한 이름을 입력 합니다.
     설명| 이 배포의 용도를 더 잘 파악 하기 위한 설명을 입력 합니다.
     컴퓨팅 형식| 배포할 끝점의 유형 ( *Azure Kubernetes Service)* 또는 *ACI (azure Container Instance)* 를 선택 합니다.
-    속성| *AKS에만 적용 됩니다.* 배포 하려는 AKS 클러스터의 이름을 선택 합니다.
+    컴퓨팅 이름| *AKS에만 적용 됩니다.* 배포 하려는 AKS 클러스터의 이름을 선택 합니다.
     인증 사용 | 토큰 기반 인증 또는 키 기반 인증을 허용 하려면 선택 합니다.
     사용자 지정 배포 자산 사용| 사용자 고유의 점수 매기기 스크립트 및 환경 파일을 업로드 하려는 경우이 기능을 사용 하도록 설정 합니다. [점수 매기기 스크립트에 대해 자세히 알아보세요](how-to-deploy-and-where.md#script).
 
@@ -244,7 +240,7 @@ Guardrail|상태|&nbsp;트리거의 조건&nbsp;
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure Machine Learning를 사용 하 여 첫 번째 자동화 된 ML 실험을 만드는 방법에 대 한](tutorial-first-experiment-automated-ml.md)종단 간 자습서를 사용해 보세요. 
+* [Azure Machine Learning studio를 사용 하 여 첫 번째 자동화 된 ML 실험을 만드는 방법에 대 한](tutorial-first-experiment-automated-ml.md)종단 간 자습서를 사용해 보세요. 
 * [자동화 된 machine learning 및 Azure Machine Learning에 대해 자세히 알아보세요](concept-automated-ml.md) .
 * [자동화 된 machine learning 결과를 이해](how-to-understand-automated-ml.md)합니다.
 * [웹 서비스를 사용 하는 방법을 알아봅니다](https://docs.microsoft.com/azure/machine-learning/how-to-consume-web-service).

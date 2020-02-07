@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 12/06/2019
 ms.author: chmutali
-ms.openlocfilehash: 84ab5da993541012fd2199a30d03f5c69e88bf2c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 2de0cdd32428884170f549afacdbd52c3a10c93f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530037"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77060051"
 ---
 # <a name="tutorial-configure-attribute-writeback-from-azure-ad-to-sap-successfactors-preview"></a>자습서: Azure AD에서 SAP SuccessFactors로 특성 쓰기 저장 구성 (미리 보기)
 이 자습서는 Azure AD에서 SuccessFactors Employee Central으로 쓰기 저장 특성을 수행 하는 데 필요한 단계를 보여 주기 위한 것입니다. 현재 쓰기 저장에 대해 지원 되는 유일한 특성은 전자 메일 특성입니다. 
@@ -106,7 +106,7 @@ SuccessFactors admin 팀 또는 구현 파트너와 협력 하 여 OData Api를 
 
 **SuccessFactors 쓰기 저장을 구성 하려면:**
 
-1. <https://portal.azure.com>(으)로 이동
+1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 
 2. 왼쪽 탐색 모음에서 **Azure Active Directory**를 선택합니다.
 
@@ -183,8 +183,8 @@ SuccessFactors 프로 비전 앱 구성이 완료 되 면 Azure Portal에서 프
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 * [SuccessFactors와 Azure Active Directory 간에 Single Sign-On를 구성 하는 방법에 대해 알아봅니다.](successfactors-tutorial.md)
 * [Azure Active Directory와 다른 SaaS 애플리케이션을 통합하는 방법을 알아봅니다.](tutorial-list.md)
-* [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../manage-apps/export-import-provisioning-configuration.md)
+* [프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.](../app-provisioning/export-import-provisioning-configuration.md)
 

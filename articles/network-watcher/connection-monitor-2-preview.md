@@ -16,14 +16,14 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: vinigam
 ms.custom: mvc
-ms.openlocfilehash: c993a08a4163d50a9632055da355e39b5bdde004
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 5dc705fbd17a12ee001e1e8de15b49e841f08b81
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026888"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049621"
 ---
-# <a name="overview"></a>개요
+# <a name="unified-connectivity-monitoring-with-connection-monitor-preview"></a>연결 모니터를 사용 하 여 통합 연결 모니터링 (미리 보기)
 
 연결 모니터 (미리 보기)는 하이브리드 및 Azure 클라우드 배포에 대 한 Azure Network Watcher의 통합 종단 간 연결 모니터링 기능을 제공 합니다. Azure Network Watcher는 Azure 배포에 대 한 연결 관련 메트릭을 모니터링 하 고, 진단 하 고, 볼 수 있는 도구를 제공 합니다.
 
@@ -78,8 +78,8 @@ _연결 모니터_ 는 일정 한 간격으로 통신을 모니터링 하 고 �
 
 ### <a name="accessing-connection-monitor-preview"></a>연결 모니터 액세스 (미리 보기)
 
-1. 다음 링크를 사용 하 여 Network Watcher 액세스:[https://ms.portal.azure.com/?Microsoft\_Azure\_Network\_connectionmonitorpreview=true#blade/Microsoft\_Azure\_Network/NetworkWatcherMenuBlade/connectionMonitorPreview](https://ms.portal.azure.com/?Microsoft_Azure_Network_connectionmonitorpreview=true#blade/Microsoft_Azure_Network/NetworkWatcherMenuBlade/connectionMonitorPreview)
-2. Network Watcher의 왼쪽 창에 있는 모니터링 섹션에서 "연결 모니터 (미리 보기)" 탭을 클릭 합니다. 이 탭은 1 단계에서 지정한 링크를 사용 하 여 Network Watcher에 액세스할 경우에만 표시 됩니다.
+1. Azure Portal 홈 페이지에서 Network Watcher을 방문 하세요.
+2. Network Watcher의 왼쪽 창에 있는 모니터링 섹션에서 "연결 모니터 (미리 보기)" 탭을 클릭 합니다.
 3. 연결 모니터 (미리 보기) 환경을 사용 하 여 만든 모든 연결 모니터를 볼 수 있습니다. 연결 모니터 탭의 클래식 환경을 사용 하 여 만든 모든 연결 모니터는 연결 모니터 탭에서 볼 수 있습니다.
 
     ![연결 모니터 만들기](./media/connection-monitor-2-preview/cm-resource-view.png)
@@ -423,7 +423,7 @@ armclient PUT $ARM/$SUB/$NW/connectionMonitors/$connectionMonitorName/?api-versi
 
       ![TG 추가](./media/connection-monitor-2-preview/add-test-config.png)
 
-지정 된 테스트 구성을 사용 하 여 테스트 그룹에 추가 된 모든 원본 및 대상은 개별 테스트로 분류 됩니다. 예:
+지정 된 테스트 구성을 사용 하 여 테스트 그룹에 추가 된 모든 원본 및 대상은 개별 테스트로 분류 됩니다. 예를 들면 다음과 같습니다.
 
 * 테스트 그룹: TG1
 * 원본: 3 (A, B, C)
@@ -497,7 +497,7 @@ Network Watcher 서비스에서 연결 모니터 (미리 보기)로 이동 하�
 
 ![테스트 필터링](./media/connection-monitor-2-preview/cm-view.png)
 
-예:
+예를 들면 다음과 같습니다.
 
 1. 모든 연결 모니터 (미리 보기)에서 원본 IP = 10.192.64.56에 대 한 모든 테스트를 보려면 다음을 수행 합니다.
    1. 뷰를 "테스트"로 변경 합니다.
@@ -514,7 +514,7 @@ Network Watcher 서비스에서 연결 모니터 (미리 보기)로 이동 하�
    3. 검색 필드 = outlook.office365.com
    4. 값 옆에 있는 드롭다운을 사용 하 여 "대상"을 선택 합니다.
 
-   ![실패 한 테스트](./media/connection-monitor-2-preview/tests-view.png)
+   ![실패한 테스트](./media/connection-monitor-2-preview/tests-view.png)
 
 실패 한 검사 추세를 보려면 다음을 수행 하십시오 .% 및 RTT:
 
@@ -554,7 +554,7 @@ Network Watcher 서비스에서 연결 모니터 (미리 보기)로 이동 하�
    1. 자세히 조사 하려는 원본 + 대상 + 테스트 구성을 클릭 합니다.
    2. 선택한 시간 간격 동안 검사 실패%에 대해 임계값 및 실제 값이 표시 됩니다. RTT 밀리초의 경우 임계값, 평균, 최소값 및 최대값을 확인할 수 있습니다. 또한 선택한 테스트와 관련 된 경고가 발생 한 것을 볼 수 있습니다.
 
-      ![Test1](./media/connection-monitor-2-preview/test-drill.png)
+      ![테스트 1](./media/connection-monitor-2-preview/test-drill.png)
 
    3. "토폴로지"를 클릭 하 여 언제 든 지 네트워크 토폴로지를 볼 수도 있습니다.
 
@@ -562,7 +562,7 @@ Network Watcher 서비스에서 연결 모니터 (미리 보기)로 이동 하�
 
    4. Azure 네트워크에 대 한 링크의 모든 홉을 클릭 하 여 연결 모니터에서 식별 한 문제를 볼 수 있습니다. 이 기능은 현재 온-프레미스 네트워크에서 사용할 수 없습니다.
 
-       ![Test3](./media/connection-monitor-2-preview/test-topo-hop.png)
+       ![테스트 3](./media/connection-monitor-2-preview/test-topo-hop.png)
 
 #### <a name="log-queries-in-azure-monitor-log-analytics"></a>Azure Monitor Log Analytics의 로그 쿼리
 
@@ -574,12 +574,12 @@ Log Analytics를 사용 하 여 모니터링 데이터의 사용자 지정 보�
 
 리소스 종류-Microsoft. Network/networkWatchers/connectionMonitors
 
-| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | Description | 차원 |
+| 메트릭 | 메트릭 표시 이름 | 단위 | 집계 형식 | 설명 | 차원 |
 | --- | --- | --- | --- | --- | --- |
-| ProbesFailedPercent | 실패한 프로브 % | 백분율 | 평균 | 실패한 연결 모니터링 프로브 % | 차원 없음 |
+| ProbesFailedPercent | 실패한 프로브 % | % | 평균 | 실패한 연결 모니터링 프로브 % | 차원 없음 |
 | AverageRoundtripMs | 평균 왕복 시간 (밀리초) | 밀리초 | 평균 | 원본과 대상 간에 전송된 연결 모니터링 프로브의 평균 네트워크 왕복 시간(ms) |             차원 없음 |
-| ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | 백분율 | 평균 | 테스트에 대 한% 확인 실패 |List:-ConnectionMonitorResourceId-SourceAddress-Sourceresourceid 여야-SourceType-DestinationType-DestinationAddress-Destinationaddress--Destinationaddress-TestGroupName-Testgroupname- 국가별 |
-| RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 왕복 시간 (ms)입니다. 이 값은 평균이 아닙니다. | List:-ConnectionMonitorResourceId-SourceAddress-Sourceresourceid 여야-SourceType-DestinationType-DestinationAddress-Destinationaddress--Destinationaddress-TestGroupName-Testgroupname- 국가별 |
+| ChecksFailedPercent (미리 보기) | % 검사 실패 (미리 보기) | % | 평균 | 테스트에 대 한% 확인 실패 | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * Sourceresourceid 여야 <br> * SourceType <br> * 프로토콜 <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * 지역 |
+| RoundTripTimeMs (미리 보기) | 왕복 시간 (ms) (미리 보기) | 밀리초 | 평균 | 원본 및 대상 간에 전송 되는 검사에 대 한 왕복 시간 (ms)입니다. 이 값은 평균이 아닙니다. | * ConnectionMonitorResourceId <br> * SourceAddress <br> * SourceName <br> * Sourceresourceid 여야 <br> * SourceType <br> * 프로토콜 <br> * DestinationAddress <br> * DestinationName <br> * DestinationResourceId <br> * DestinationType <br> * DestinationPort <br> * TestGroupName <br> * TestConfigurationName <br> * 지역 |
 
  ![메트릭 모니터링](./media/connection-monitor-2-preview/monitor-metrics.png)
 

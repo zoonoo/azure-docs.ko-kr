@@ -10,15 +10,15 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 09/17/2019
+ms.date: 01/05/2020
 ms.author: curtand
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e7cbb8c07b75509825795da45d8352140afd0864
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 3bec73ee7286ea831920fc20bd46cf43c2874081
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024231"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047094"
 ---
 # <a name="assign-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 할당
 
@@ -61,19 +61,9 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
 1. 할당하려는 역할을 클릭한 다음, **선택**을 클릭합니다.
 
-    **멤버 또는 그룹 선택** 페이지가 열립니다.
+1. 역할에 할당 하려는 멤버를 선택한 다음 **선택**을 선택 합니다.
 
-1. 역할에 할당 하려는 구성원 또는 그룹을 선택한 다음 **선택**을 선택 합니다.
-
-    ![멤버 또는 그룹 선택 창](./media/pim-resource-roles-assign-roles/resources-select-member-or-group.png)
-
-    멤버 자격 설정 창이 열립니다.
-
-1. **할당 유형** 목록에서 **적격** 또는 **활성**을 선택합니다.
-
-    ![멤버 자격 설정 창](./media/pim-resource-roles-assign-roles/resources-membership-settings-type.png)
-
-    Azure 리소스에 대 한 Privileged Identity Management는 다음과 같은 두 가지 고유한 할당 유형을 제공 합니다.
+1. **멤버 자격 설정** 창의 **할당 유형** 목록에서 **적격** 또는 **활성**을 선택 합니다.
 
     - **적격** 할당에는 역할을 사용하는 작업을 수행하기 위해 역할의 멤버가 필요합니다. 작업은 MFA(Multi-Factor Authentication) 검사를 수행하고, 비즈니스 근거를 제공하거나 지정된 승인자의 승인을 요청하는 과정을 포함할 수 있습니다.
 
@@ -83,13 +73,9 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     역할 설정에 따라 이 확인란이 나타나지 않거나 수정 가능하지 않을 수 있습니다.
 
-1. 특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다.
+1. 특정 할당 기간을 지정하려면 확인란의 선택을 취소하고 시작 및/또는 종료 날짜/시간 상자를 수정합니다. 완료 되 면 **완료**를 선택 합니다.
 
     ![멤버 자격 설정 - 날짜 및 시간](./media/pim-resource-roles-assign-roles/resources-membership-settings-date.png)
-
-1. 완료 되 면 **완료**를 선택 합니다.
-
-    ![새 할당 - 추가](./media/pim-resource-roles-assign-roles/resources-new-assignment-add.png)
 
 1. 새 역할 할당을 만들려면 **추가**를 선택 합니다. 상태 알림이 표시됩니다.
 
@@ -171,7 +157,7 @@ PIM (Azure AD Privileged Identity Management) 서비스를 사용 하면 권한 
 
     ![영구로 변경된 멤버 목록](./media/pim-how-to-add-role-to-user/pim-directory-role-list-members-permanent.png)
 
-## <a name="remove-a-user-from-a-role"></a>역할에서 사용자 제거
+## <a name="remove-a-user-from-a-role"></a>역할에서 사용자를 제거합니다.
 
 역할 할당에서 사용자를 제거할 수 있지만 항상 영구 전역 관리자 인 사용자가 하나 이상 있는지 확인 해야 합니다. 사용자에게 해당 역할 할당이 여전히 필요한지 확실하지 않은 경우에는 [역할에 대한 액세스 권한을 검토하기 시작](pim-how-to-start-security-review.md)할 수 있습니다.
 

@@ -14,19 +14,19 @@ ms.topic: article
 ms.date: 01/06/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f11258457e60ea3458b0ede1fe00f042041bcb1a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 969a2fb5444ae8ece2aa302c04a5bbb85dcca917
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76841253"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057722"
 ---
 # <a name="tutorial-configure-g-suite-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 G Suite 구성
 
 이 자습서에서는 사용자 및/또는 그룹을 G Suite로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 G Suite 및 Azure Active Directory (Azure AD)에서 수행 하는 단계를 설명 합니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
+> 이 자습서에서는 Azure AD 사용자 프로비저닝 서비스에 기반하여 구축된 커넥터에 대해 설명합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../app-provisioning/user-provisioning.md)를 참조하세요.
 
 > [!NOTE]
 > G Suite 커넥터는 최근 2019 년 10 월에 업데이트 되었습니다. G Suite 커넥터에 대 한 변경 내용은 다음과 같습니다.
@@ -85,11 +85,11 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
     ![새 도메인 추가][21]
 
-    다. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
+    c. **다른 도메인 추가**를 선택하고 추가하려는 도메인 이름을 입력합니다.
 
     ![사용자의 도메인 이름을 입력합니다.][22]
 
-    d. **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google을 사용 하 여 도메인을 확인 하는 방법에 대 한 포괄적인 지침은 [사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)을 참조 하세요.
+    . **Continue and verify domain ownership(계속해서 도메인 소유권 확인)** 을 선택합니다. 그런 다음 도메인 이름을 소유하고 있는지 확인하는 단계를 따릅니다. Google을 사용 하 여 도메인을 확인 하는 방법에 대 한 포괄적인 지침은 [사이트 소유권 확인](https://support.google.com/webmasters/answer/35179)을 참조 하세요.
 
     e. G Suite에 추가 하려는 추가 도메인에 대해 위의 단계를 반복 합니다.
 
@@ -181,7 +181,7 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 
     ![G Suite 그룹 특성](media/google-apps-provisioning-tutorial/groupattributes.png)
 
-1. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
+1. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 
 1. G Suite에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
@@ -200,20 +200,20 @@ Azure AD를 사용 하 여 자동 사용자 프로 비전을 위한 G Suite를 �
 > [!NOTE]
 > 사용자에 게 Azure AD 사용자의 메일 주소를 사용 하는 기존 개인/소비자 계정이 이미 있는 경우 디렉터리 동기화를 수행 하기 전에 Google Transfer Tool을 사용 하 여 해결할 수 있는 몇 가지 문제가 발생할 수 있습니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
-## <a name="common-issues"></a>일반 문제
+## <a name="common-issues"></a>일반적인 문제
 * 권한 부여 오류는 GSuite의 관리자에 대 한 연결을 설정 하는 데 사용 되는 계정이 아닌 경우에 발생할 수 있습니다. 액세스 권한을 부여 하는 데 사용 되는 계정에 사용자가 프로 비전 해야 하는 **모든 도메인** 에 대 한 관리자 권한이 있는지 확인 합니다. 
 * Azure AD는 응용 프로그램에 액세스할 수 없도록 GSuite의 사용자 비활성화를 지원 하지만 GSuite의 사용자는 삭제 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 
 <!--Image references-->
 

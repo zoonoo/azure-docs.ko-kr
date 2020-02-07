@@ -4,21 +4,21 @@ description: Azure Active Directory의 Azure 관리 센터에서 대량으로 �
 services: active-directory
 author: curtand
 ms.author: curtand
-manager: mtillman
-ms.date: 07/15/2019
+manager: daveba
+ms.date: 02/06/2020
 ms.topic: conceptual
 ms.service: active-directory
 ms.subservice: users-groups-roles
 ms.workload: identity
 ms.custom: it-pro
-ms.reviewer: jeffsta
+ms.reviewer: krbain
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d106e803fdef4f054b7e4717ba59a43359d1d68a
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: 4716ff9547f64dc6551b4d4adb0a8578da9fa83e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720295"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063835"
 ---
 # <a name="download-a-list-of-users-preview-in-azure-active-directory-portal"></a>Azure Active Directory 포털에서 사용자 목록 다운로드 (미리 보기)
 
@@ -39,18 +39,17 @@ Azure AD 관리 센터에서 사용자 목록을 다운로드 하려면 Azure AD
 
    다운로드 파일에는 필터링 된 사용자 목록이 포함 됩니다.
 
-   포함 되는 사용자 특성은 다음과 같습니다. 
+   포함 되는 사용자 특성은 다음과 같습니다.
 
    - userPrincipalName
    - displayName
    - surname
-   - mail
+   - 메일
    - givenName
    - objectId
    - userType
    - jobTitle
    - department
-   - manager
    - accountEnabled
    - usageLocation
    - streetAddress

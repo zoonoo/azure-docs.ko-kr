@@ -16,18 +16,18 @@ ms.date: 12/03/2018
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c6da171db6535100342342571a5c1f6468abd0fc
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cae5458a9b9456d26363802ee9b06aaa842e72
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712355"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063597"
 ---
 # <a name="known-issues-and-resolutions-with-scim-20-protocol-compliance-of-the-azure-ad-user-provisioning-service"></a>Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련하여 알려진 문제 및 해결 방법
 
 Azure AD(Active Directory)는 [SCIM(System for Cross-Domain Identity Management) 2.0 프로토콜 사양](https://tools.ietf.org/html/draft-ietf-scim-api-19)에 정의된 인터페이스를 가진 웹 서비스가 향하는 애플리케이션 또는 시스템에 사용자 및 그룹을 자동으로 프로비전할 수 있습니다. 
 
-Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](use-scim-to-provision-users-and-groups.md)(SCIM(System for Cross-Domain Identity Management)을 사용하여 Azure Active Directory에서 애플리케이션으로 사용자 및 그룹 자동 프로비전)에서 설명합니다. 여기서는 SCIM 2.0을 지원하는 애플리케이션으로 Azure AD에서 사용자 및 그룹을 자동 프로비전하기 위해 구현하는 프로토콜의 특정 부분을 나열합니다.
+Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Identity Management (SCIM) to automatically provision users and groups from Azure Active Directory to applications](../app-provisioning/use-scim-to-provision-users-and-groups.md)(SCIM(System for Cross-Domain Identity Management)을 사용하여 Azure Active Directory에서 애플리케이션으로 사용자 및 그룹 자동 프로비전)에서 설명합니다. 여기서는 SCIM 2.0을 지원하는 애플리케이션으로 Azure AD에서 사용자 및 그룹을 자동 프로비전하기 위해 구현하는 프로토콜의 특정 부분을 나열합니다.
 
 이 문서에서는 Azure AD 사용자 프로비저닝 서비스의 SCIM 2.0 프로토콜 준수와 관련한 현재와 과거의 문제 및 이러한 문제를 해결하는 방법을 설명합니다.
 
@@ -38,14 +38,14 @@ Azure AD의 SCIM 2.0 프로토콜 지원은 [Using System for Cross-Domain Ident
 
 | **SCIM 2.0 준수 문제** |  **수정?** | **수정 날짜**  |  
 |---|---|---|
-| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | yes  |  2018년 12월 18일 | 
-| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  yes  | 2018년 12월 18일  | 
-|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | yes  |  2018년 12월 18일  | 
-|  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | yes  |  2018년 12월 18일  |  
+| Azure AD가 애플리케이션의 SCIM 엔드포인트 URL의 루트에 위치하려면 “/scim”이 필요함  | 예  |  2018년 12월 18일 | 
+| 확장 특성은 특정 이름 앞에 콜론 “:” 대신 점 “.” 표기법을 사용함 |  예  | 2018년 12월 18일  | 
+|  다중 값 특성의 패치 요청에 있는 경로 필터 구문이 잘못됨 | 예  |  2018년 12월 18일  | 
+|  그룹 생성 요청에 있는 스키마 URI가 잘못됨 | 예  |  2018년 12월 18일  |  
 
 ## <a name="were-the-services-fixes-described-automatically-applied-to-my-pre-existing-scim-app"></a>설명한 서비스 수정이 내 기존 SCIM 앱에 자동으로 적용되었나요?
 
-아니요. 이전 동작에서 작동하도록 코딩된 SCIM 앱에 호환성이 손상되는 변경이 발생한 경우 변경 사항이 기존 앱에 자동으로 적용되지 않았습니다.
+No. 이전 동작에서 작동하도록 코딩된 SCIM 앱에 호환성이 손상되는 변경이 발생한 경우 변경 사항이 기존 앱에 자동으로 적용되지 않았습니다.
 
 Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-single-sign-on-non-gallery-applications.md)에 변경 사항이 수정 날짜 이후에 적용됩니다.
 
@@ -113,5 +113,5 @@ Azure Portal에서 구성된 모든 신규 [비갤러리 SCIM 앱](configure-sin
 
 
 ## <a name="next-steps"></a>다음 단계
-[SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 구성에 대해 자세히 알아보기](user-provisioning.md)
+[SaaS 애플리케이션에 대한 사용자 프로비전 및 프로비전 해제 구성에 대해 자세히 알아보기](../app-provisioning/user-provisioning.md)
 

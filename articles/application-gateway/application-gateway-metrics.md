@@ -5,14 +5,14 @@ services: application-gateway
 author: abshamsft
 ms.service: application-gateway
 ms.topic: article
-ms.date: 8/29/2019
+ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 695507b0d6997870dbea392e73e4f4470248d26c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985886"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046314"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -132,6 +132,9 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 - **비정상 호스트 수**
 
   상태 프로브에 의해 비정상으로 확인 된 백 엔드의 수입니다. 백 엔드 풀 기준으로 필터링 하 여 특정 백 엔드 풀의 비정상 호스트 수를 표시할 수 있습니다.
+  
+- **정상 호스트 당 분당 요청** 수 백 엔드 풀의 각 정상 멤버에서 받은 평균 요청 수 (1 분)입니다. *BackendPool httpsettings 별* 차원을 사용 하 여 백 엔드 풀을 지정 해야 합니다.  
+  
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Application Gateway V1 SKU에서 지원 되는 메트릭
 

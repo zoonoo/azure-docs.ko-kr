@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용 하 여 자동 사용자 프로 비전을 위한 Zscaler 하나 구성 Microsoft Docs'
+title: '자습서: Azure Active Directory을 사용 하 여 자동 사용자 프로 비전을 위한 Zscaler 하나 구성 Microsoft Docs'
 description: 사용자 계정을 Zscaler One으로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/27/2019
 ms.author: jeedes
-ms.openlocfilehash: de9dce04b6f27b6ae6f5c5caeed5728370359558
-ms.sourcegitcommit: f5cc71cbb9969c681a991aa4a39f1120571a6c2e
+ms.openlocfilehash: 87413932acee576934ee50b59546371b03ceaf7e
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "68515377"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064175"
 ---
 # <a name="tutorial-configure-zscaler-one-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전에 대해 Zscaler One 구성
 
@@ -30,7 +30,7 @@ ms.locfileid: "68515377"
 > 이 자습서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스의 역할, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 SaaS (software as a service) 응용 프로그램에 사용자 프로 비전 및 프로 비전](../active-directory-saas-app-provisioning.md)해제를 참조 하세요.
 
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명 된 시나리오에서는 다음과 같은 것으로 가정 합니다.
 
@@ -80,11 +80,11 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 이 섹션에서는 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다. Azure AD의 사용자 또는 그룹 할당을 기반으로 Zscaler One의 사용자 또는 그룹을 만들고, 업데이트 하 고, 사용 하지 않도록 설정 하는 데 사용 합니다.
 
 > [!TIP]
-> Zscaler One에 대해 SAML 기반 single sign-on을 사용 하도록 설정할 수도 있습니다. [Zscaler One single sign-on 자습서](zscaler-One-tutorial.md)의 지침을 따릅니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
+> Zscaler One에 대해 SAML 기반 Single Sign-On를 사용 하도록 설정할 수도 있습니다. [Zscaler One Single Sign-On 자습서](zscaler-One-tutorial.md)의 지침을 따르세요. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
 
 ### <a name="configure-automatic-user-provisioning-for-zscaler-one-in-azure-ad"></a>Azure AD에서 Zscaler One에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > **Zscaler 하나**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > **Zscaler One**을 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -102,7 +102,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 5. **관리자 자격 증명** 섹션 아래에서 6 단계에서 설명한 대로 **테 넌 트 URL** 및 **암호 토큰** 상자에 Zscaler 한 계정에 대 한 설정을 입력 합니다.
 
-6. 테 넌 트 URL 및 암호 토큰을 가져오려면 Zscaler One portal UI의 **관리** > **인증 설정** 으로 이동 합니다. **인증 형식**에서 **SAML**을 선택합니다.
+6. 테 넌 트 URL 및 암호 토큰을 가져오려면 Zscaler One portal UI에서 **관리** > **인증 설정** 으로 이동 합니다. **인증 형식**에서 **SAML**을 선택합니다.
 
     ![Zscaler One 인증 설정](./media/zscaler-one-provisioning-tutorial/secret-token-1.png)
 
@@ -120,7 +120,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
     ![Zscaler One 알림 전자 메일](./media/zscaler-one-provisioning-tutorial/notification.png)
 
-9.           **저장**을 선택합니다.
+9. **저장**을 선택합니다.
 
 10. **매핑** 섹션 아래에서 **Zscaler One Azure Active Directory 사용자 동기화를**선택 합니다.
 
@@ -158,9 +158,9 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../active-directory-saas-provisioning-reporting.md)를 참조하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계

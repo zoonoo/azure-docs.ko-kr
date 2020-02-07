@@ -15,19 +15,19 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/29/2019
 ms.author: Zhchia
-ms.openlocfilehash: 9d00024351c18789e26120cc2af006b9aac4232d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 518d86fff04a23f1c1e63c44c53485b99f30637d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767843"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057841"
 ---
 # <a name="tutorial-configure-harness-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 도구 구성
 
 이 문서에서는 사용자 또는 그룹을 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD (Azure Active Directory)를 구성 하는 방법에 대해 알아봅니다.
 
 > [!NOTE]
-> 이 문서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스에 대 한 중요 정보 및 질문과 대답은 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../manage-apps/user-provisioning.md)해제를 참조 하세요.
+> 이 문서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스에 대 한 중요 정보 및 질문과 대답은 [Azure Active Directory를 사용 하 여 SaaS 응용 프로그램에 대 한 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md)해제를 참조 하세요.
 >
 > 이 커넥터는 현재 미리 보기로 제공되고 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
 
@@ -132,7 +132,7 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
  
    a. **테 넌 트 URL** 상자에 **`https://app.harness.io/gateway/api/scim/account/XCPzWkCIQ46ypIu2DeT7yw`** 을 입력 합니다.  
    b. **비밀 토큰** 상자에 "프로 비전을 위한 도구 설정" 섹션의 6 단계에서 저장 한 Scim 인증 토큰 값을 입력 합니다.  
-   다. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
+   c. **연결 테스트** 를 선택 하 여 Azure AD가 하네스에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 사용자의 하네스 계정에 *관리자* 권한이 있는지 확인 한 후 다시 시도 하십시오.
 
 1. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 한 다음 **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 
@@ -156,7 +156,7 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
 
     ![도구 그룹 "특성 매핑" 창](media/harness-provisioning-tutorial/groupattributes.png)
 
-1. 범위 지정 필터를 구성 하려면 [범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로 비전](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)을 참조 하세요.
+1. 범위 지정 필터를 구성 하려면 [범위 지정 필터를 사용한 특성 기반 응용 프로그램 프로 비전](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)을 참조 하세요.
 
 1. **설정**아래에서 도구에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 설정 하려면 **프로 비전 상태** 스위치를 **켜기**로 전환 합니다.
 
@@ -172,13 +172,13 @@ Azure AD에서 도구에 대 한 자동 사용자 프로비저닝을 구성 하�
 
 이 작업을 수행 하면 프로 비전 하는 사용자 또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 나중에 수행 하는 데 더 많은 시간이 걸립니다. 동기화는 Azure AD 프로 비전 서비스가 실행 되는 동안 약 40 분 마다 발생 합니다. 진행률을 모니터링 하려면 **동기화 세부 정보** 섹션으로 이동 합니다. 프로 비전 활동 보고서에 대 한 링크를 팔 로우 하 여 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 제어할 수도 있습니다.
 
-Azure AD 프로 비전 로그를 읽는 방법에 대 한 자세한 내용은 [자동 사용자 계정 프로 비전에 대 한 보고서](../manage-apps/check-status-user-account-provisioning.md)를 참조 하세요.
+Azure AD 프로 비전 로그를 읽는 방법에 대 한 자세한 내용은 [자동 사용자 계정 프로 비전에 대 한 보고서](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

@@ -1,18 +1,19 @@
 ---
-title: Azure 가상 WAN 글로벌 전송 네트워크 아키텍처 | Microsoft Docs
+title: '아키텍처: 전역 전송 네트워크 아키텍처'
+titleSuffix: Azure Virtual WAN
 description: 가상 WAN의 글로벌 전송 네트워크 아키텍처에 대해 알아보기
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/18/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: 9b736e897278c4656df83c30388efc812ac6193d
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 17d0e678008c76da32f20562aa795e83e49c80e4
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607360"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064974"
 ---
 # <a name="global-transit-network-architecture-and-virtual-wan"></a>글로벌 전송 네트워크 아키텍처 및 가상 WAN
 

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: b77d6fe03a051c019519f195d55cdeb00fb9afb2
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5a9e5e014740302c439036bd3889761f4750344f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906274"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062866"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -129,7 +129,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 |10,240      | 10,240  | 최대 30720  | 675 | 450   |
 |33,792      | 33,792  | 최대 10만 | 2088 | 1,392   |
 |51,200      | 51,200  | 최대 10만 | 3,132 | 2088   |
-|102,400     | 100,000개의 | 최대 10만 | 6204 | 4136   |
+|102,400     | 100,000 | 최대 10만 | 6204 | 4136   |
 
 > [!NOTE]
 > 파일 공유 성능에는 컴퓨터 네트워크 제한, 사용 가능한 네트워크 대역폭, IO 크기, 병렬 처리 등 많은 요인이 적용 됩니다. 예를 들어, KiB 읽기/쓰기 IO 크기가 8 인 내부 테스트를 기반으로 SMB를 통한 프리미엄 파일 공유에 연결 된 단일 Windows 가상 머신, *표준 F16s_v2*는 20K 읽기 Iops 및 15K 쓰기 iops를 달성할 수 있습니다. 512 MiB 읽기/쓰기 IO 크기를 사용 하는 경우 동일한 VM이 1.1 GiB/s 송신 및 370 MiB/s 수신 처리량을 달성할 수 있습니다. 최대 성능 확장을 얻으려면 부하를 여러 Vm에 분산 합니다. 몇 가지 일반적인 성능 문제 및 해결 방법에 대해서는 [문제 해결 가이드](storage-troubleshooting-files-performance.md) 를 참조 하세요.
@@ -199,13 +199,12 @@ GRS를 사용 하는 저장소 계정의 경우 모든 데이터는 먼저 LRS (
 
 - LRS/ZRS to GRS/GZRS 계정 변환은 대량 파일 공유를 사용 하는 모든 저장소 계정에 사용할 수 없습니다.
 
-### <a name="regional-availability"></a>지역별 가용성
+### <a name="regional-availability"></a>국가별 가용성
 
 모든 Azure 지역에서 100 TiB 용량 제한을 사용 하는 표준 파일 공유를 전역적으로 사용할 수 있습니다.
 
 - LRS: 남부 아프리카 북부와 남아프리카 서 부를 제외한 모든 지역입니다.
-   - 국가별 클라우드 (정부, 독일, 중국)는 PowerShell 및 Azure CLI (명령줄 인터페이스)를 통해 지원 됩니다. 포털이 지원 되지 않습니다. 
-   - 미국 동부, 동부 미국, 유럽 서부: 모든 새 계정이 지원 됩니다. 적은 수의 기존 계정이 업그레이드 프로세스를 완료 하지 않았습니다. 기존 저장소 계정이 [대량 파일 공유를 사용 하도록 설정](storage-files-how-to-create-large-file-share.md)하 여 업그레이드 프로세스를 완료 했는지 여부를 확인할 수 있습니다.
+   - 미국 동부 및 유럽 서부: 모든 새 계정이 지원 됩니다. 적은 수의 기존 계정이 업그레이드 프로세스를 완료 하지 않았습니다. 기존 저장소 계정이 [대량 파일 공유를 사용 하도록 설정](storage-files-how-to-create-large-file-share.md)하 여 업그레이드 프로세스를 완료 했는지 여부를 확인할 수 있습니다.
 
 - ZRS: 일본 동부, 북부 유럽, 남아프리카 공화국 북부를 제외한 모든 지역입니다.
 - GRS/GZRS: 지원 되지 않습니다.
