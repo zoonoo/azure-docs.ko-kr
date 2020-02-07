@@ -159,6 +159,8 @@
           href: bambubysproutsocial-tutorial.md
         - name: BC in the Cloud
           href: bcinthecloud-tutorial.md
+        - name: Beekeeper Azure AD Data Connector
+          href: beekeeper-azure-ad-data-connector-tutorial.md
         - name: BeeLine
           href: beeline-tutorial.md
         - name: Benchling
@@ -351,7 +353,7 @@
           href: convercent-tutorial.md
         - name: Coralogix
           href: coralogix-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-tutorial.md
         - name: CorpTax
           href: corptax-tutorial.md
@@ -619,6 +621,8 @@
           href: hightail-tutorial.md
         - name: HireVue
           href: hirevue-tutorial.md
+        - name: Hive
+          href: hive-tutorial.md
         - name: Hootsuite
           href: hootsuite-tutorial.md
         - name: Hornbill
@@ -675,6 +679,8 @@
           href: impacriskmanager-tutorial.md
         - name: In Case of Crisis - 모바일
           href: in-case-of-crisis-mobile-tutorial.md
+        - name: In Case of Crisis - 온라인 포털
+          href: in-case-of-crisis-online-portal-tutorial.md
         - name: Infinite Campus
           href: infinitecampus-tutorial.md
         - name: Infogix Data3Sixty Govern
@@ -843,7 +849,7 @@
           href: litmos-tutorial.md
         - name: LockPath Keylight
           href: keylight-tutorial.md
-        - name: LogicMonitor
+        - name: logicmonitor
           href: logicmonitor-tutorial.md
         - name: LoginRadius
           href: lr-tutorial.md
@@ -1341,7 +1347,7 @@
           href: successfactors-tutorial.md
         - name: Sugar CRM
           href: sugarcrm-tutorial.md
-        - name: SumoLogic
+        - name: sumologic
           href: sumologic-tutorial.md
         - name: SumTotalCentral
           href: sumtotalcentral-tutorial.md
@@ -1355,6 +1361,8 @@
           href: syncplicity-tutorial.md
         - name: Synergi
           href: synergi-tutorial.md
+        - name: Syxsense
+          href: syxsense-tutorial.md
     - name: T - V
       items:
         - name: T&E Express
@@ -1393,7 +1401,7 @@
           href: textmagic-tutorial.md
         - name: The Funding Portal
           href: the-funding-portal-tutorial.md
-        - name: ThirdLight
+        - name: Thirdlight
           href: thirdlight-tutorial.md
         - name: ThirdPartyTrust
           href: thirdpartytrust-tutorial.md
@@ -1587,7 +1595,7 @@
           href: zscaler-zscloud-tutorial.md
         - name: Zwayam
           href: zwayam-tutorial.md
-- name: 사용자 프로비저닝 자습서
+- name: User provisioning tutorials
   expanded: true
   items:
     - name: 0 - 9
@@ -1606,6 +1614,8 @@
           href: asana-provisioning-tutorial.md
         - name: Atlassian Cloud
           href: atlassian-cloud-provisioning-tutorial.md
+        - name: Azure Databricks SCIM Connector
+          href: azure-databricks-scim-connector-provisioning-tutorial.md
         - name: BitaBIZ
           href: bitabiz-provisioning-tutorial.md
         - name: Blink
@@ -1626,7 +1636,7 @@
           href: comeet-recruiting-software-provisioning-tutorial.md
         - name: Concur
           href: concur-provisioning-tutorial.md
-        - name: Cornerstone OnDemand
+        - name: cornerstone ondemand
           href: cornerstone-ondemand-provisioning-tutorial.md
         - name: DocuSign
           href: docusign-provisioning-tutorial.md
@@ -1764,6 +1774,8 @@
           href: signagelive-provisioning-tutorial.md
         - name: Tableau Online
           href: tableau-online-provisioning-tutorial.md
+        - name: TeamViewer
+          href: teamviewer-provisioning-tutorial.md
         - name: ThousandEyes
           href: thousandeyes-provisioning-tutorial.md
         - name: Templafy
