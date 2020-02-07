@@ -6,12 +6,12 @@ ms.service: azure-migrate
 ms.topic: conceptual
 ms.date: 11/21/2019
 ms.author: snehaa
-ms.openlocfilehash: a9d008406e59c66a8b742194e2e2d388c778ac9e
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: baf01c0a0d5c6154305f7137c24deb0365b5e812
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989351"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062101"
 ---
 # <a name="azure-migrate-common-questions"></a>Azure Migrate: 일반적인 질문
 
@@ -23,7 +23,7 @@ ms.locfileid: "76989351"
 
 ## <a name="what-is-azure-migrate"></a>Azure Migrate란?
 
-Azure Migrate는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다. [자세히 알아보기](migrate-services-overview.md).
+Azure Migrate는 Azure에 대 한 온-프레미스 앱 및 워크 로드 및 사설/공용 클라우드 Vm의 검색, 평가 및 마이그레이션을 추적 하는 중앙 허브를 제공 합니다. 이 허브는 평가 및 마이그레이션에 사용되는 Azure Migrate 도구뿐만 아니라 타사 ISV(독립 소프트웨어 공급업체) 제품도 제공합니다. [자세히 알아봅니다](migrate-services-overview.md).
 
 
 ## <a name="what-can-i-do-with-azure-migrate"></a>Azure Migrate로 무엇을 할 수 있나요?
@@ -55,7 +55,7 @@ Azure Migrate는 Azure로의 평가 및 마이그레이션에 대 한 중앙 집
 
 [VMWARE vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-vmware) 및 [hyper-v vm](https://docs.microsoft.com/azure/migrate/migrate-support-matrix-hyper-v)에 대해 지원 되는 Azure Migrate 지역을 검토 합니다.
 
-## <a name="how-do-i-get-started"></a>시작하려면 어떻게 하나요?
+## <a name="how-do-i-get-started"></a>어떻게 시작하나요?
 
 필요한 도구를 식별하고 Azure Migrate 프로젝트에 추가합니다. ISV 도구 또는 Movere를 추가하는 경우 다음을 수행합니다.
 - 도구 정책에 따라 라이선스를 얻거나 평가판에 가입하여 시작할 수 있습니다. 도구 라이선스는 ISV 또는 도구 라이선스 모델을 따릅니다.
@@ -67,9 +67,7 @@ Azure Migrate 프로젝트 내에서 Azure 및 기타 도구를 통해 마이그
 프로젝트를 삭제 하 [는 방법을 알아봅니다](how-to-delete-project.md) . 
 
 
-## <a name="do-machines-retain-domain-identity-after-migration"></a>마이그레이션 후 컴퓨터가 도메인 id를 유지 합니까?
 
-도메인 서비스가 [Azure에 통합](https://docs.microsoft.com/azure/architecture/reference-architectures/identity/)되었다고 가정할 때 도메인 구성원 자격 및 도메인의 컴퓨터 id는 마이그레이션 후 보존 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 [Azure Migrate 개요](migrate-services-overview.md)를 참조 하세요.

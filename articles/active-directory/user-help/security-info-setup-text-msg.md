@@ -2,7 +2,7 @@
 title: 확인 방법으로 문자 메시지 설정-Azure AD
 description: 확인 방법으로 문자 메시지를 사용 하 여 id를 확인 하는 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: sahenry
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 02/13/2019
-ms.author: lizross
-ms.openlocfilehash: 1d21445d12ea8ae7040627c6f9bdae7c744953c3
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: 0525ee6d0ac5df61113e5a97c9812394323ffb3d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704819"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062356"
 ---
 # <a name="set-up-text-messaging-as-your-verification-method"></a>확인 방법으로 문자 메시지를 설정 합니다.
 
@@ -97,7 +97,7 @@ ms.locfileid: "76704819"
 
 ## <a name="additional-security-info-methods"></a>추가 보안 정보 메서드
 
-수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 옵션에는 다음이 포함됩니다.
+수행하려는 작업에 따라, 조직이 본인 여부를 확인하기 위해 사용자에게 연락하는 방식에 대한 추가 옵션이 제공됩니다. 이러한 옵션에는 다음이 포함됩니다.
 
 - **Authenticator 앱.** Authenticator 앱을 다운로드한 후 사용하여 2단계 인증 또는 암호 재설정을 위한 승인 알림 또는 임의로 생성된 승인 코드를 가져올 수 있습니다. Microsoft Authenticator 앱을 설치 및 사용하는 방법에 대한 단계별 지침은 [Authenticator 앱을 사용하도록 보안 정보 설정](security-info-setup-auth-app.md)을 참조하세요.
 

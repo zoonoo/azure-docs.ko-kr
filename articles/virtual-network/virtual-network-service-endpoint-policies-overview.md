@@ -11,20 +11,18 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 09/18/2018
 ms.author: sumi
-ms.openlocfilehash: 86726eefb53638036a4e9207c648bf5ffe6c866e
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 1aa4328a6d5367ef356ce33807289a873c93d90f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595377"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056702"
 ---
 # <a name="virtual-network-service-endpoint-policies-preview"></a>가상 네트웤 서비스 엔드포인트 정책(미리 보기)
 
 VNet(Virtual Network) 서비스 엔드포인트 정책을 통해 가상 네트워크 트래픽을 Azure 서비스로 필터링하여 특정 Azure 서비스 리소스만 서비스 엔드포인트에서 허용할 수 있습니다. 엔드포인트 정책은 Azure 서비스에 대한 가상 네트워크 트래픽의 상세 액세스 제어를 제공합니다.
 
-이 기능은 다음과 같은 Azure 서비스 및 지역에서 __미리 보기__ 상태로 제공됩니다.
-
-__Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, CentralUS, EastUS2 합니다.
+이 기능은 Azure STorage에 대 한 모든 공용 Azure 지역에서 __미리 보기로__ 제공 됩니다.
 
 미리 보기에 대한 최신 알림은 [Azure Virtual Network 업데이트](https://azure.microsoft.com/updates/?product=virtual-network) 페이지를 참조하세요.
 
@@ -45,7 +43,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
 
    엔드포인트 정책은 서비스 엔드포인트를 통한 가상 네트워크로부터의 Azure 서비스 트래픽을 필터링하기 위해 수평적으로 확장 가능하며 가용성이 높은 솔루션을 제공합니다. 추가 오버헤드 없이 가상 네트워크에서 이 트래픽에 대한 중앙 네트워크 어플라이언스를 유지 관리할 수 있습니다.
 
-## <a name="configuration"></a>Configuration
+## <a name="configuration"></a>구성
 
 - 가상 네트워크 트래픽을 특정 Azure 서비스 리소스로 제한하는 엔드포인트 정책을 구성할 수 있습니다. 미리 보기에서는 Azure Storage에 대 한 엔드포인트 정책을 지원합니다. 
 - 엔드포인트 정책은 가상 네트워크의 서브넷에 구성됩니다. 정책에 나열된 모든 Azure 서비스에 대해 정책을 적용하려면 서브넷에서 서비스 엔드포인트를 사용하도록 설정해야 합니다.
@@ -144,7 +142,7 @@ __Azure Storage__: WestCentralUS, WestUS2, NorthCentralUS, SouthCentralUS, Centr
 
 - **피어링, 연결 또는 다중 가상 네트워크**: 피어링된 가상 네트워크에서 트래픽을 필터링하려면 엔드포인트 정책을 개별적으로 해당 가상 네트워크에 적용해야 합니다.
 - **네트워크 어플라이언스 또는 Azure Firewall을 사용하여 인터넷 트래픽 필터링**: 엔드포인트에서 정책을 통해 Azure 서비스 트래픽을 필터링하고, 나머지 인터넷 또는 Azure 트래픽을 어플라이언스나 Azure Firewall을 통해 필터링합니다. 
-- **Virtual Network에 배포된 Azure 서비스에서 트래픽 필터링**: 미리 보기 중에는 가상 네트워크에 배포된 관리되는 Azure 서비스에 대해 서비스 엔드포인트 정책이 지원되지 않습니다. 
+- **가상 네트워크에 배포된 Azure 서비스에서 트래픽 필터링**: 미리 보기 중에는 가상 네트워크에 배포된 관리 Azure 서비스에 대해 서비스 엔드포인트 정책이 지원되지 않습니다. 
  특정 서비스는 [제한 사항](#limitations)을 참조하세요.
 - **온-프레미스에서 Azure 서비스로 트래픽 필터링**: 서비스 엔드포인트 정책은 정책과 연결된 서브넷으로부터의 트래픽에만 적용됩니다. 온-프레미스로부터의 특정 Azure 서비스 액세스를 허용하려면 트래픽을 네트워크 가상 어플라이언스나 방화벽을 통해 필터링해야 합니다.
 

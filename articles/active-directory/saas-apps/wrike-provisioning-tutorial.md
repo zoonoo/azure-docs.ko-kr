@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 08/26/2019
 ms.author: Zhchia
-ms.openlocfilehash: 46972209a8fa509ff2f17832ab8329aa3cef2548
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 5dd4f5ac6152c22b5e2a84ecc0774672bcd5590b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71840320"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064193"
 ---
 # <a name="tutorial-configure-wrike-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Wrike 구성
 
@@ -31,7 +31,7 @@ ms.locfileid: "71840320"
 >
 > 이 커넥터는 현재 공개 미리 보기로 있습니다. 미리 보기 기능에 대 한 일반 Microsoft Azure 사용 약관에 대 한 자세한 내용은 [Microsoft Azure 미리 보기에 대 한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -135,7 +135,7 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
 7. **알림 전자 메일** 상자에 프로 비전 오류 알림을 받을 개인 또는 그룹의 전자 메일 주소를 입력 합니다. **오류가 발생 하면 전자 메일 알림 보내기** 확인란을 선택 합니다.
 
-    ![알림 전자 메일](common/provisioning-notification-email.png)
+    ![전자 메일 알림](common/provisioning-notification-email.png)
 
 8. **저장**을 선택합니다.
 
@@ -147,7 +147,7 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![Wrike 사용자 특성](media/Wrike-provisioning-tutorial/Wrike-user-attributes.png)
 
-11. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 따르세요.
+11. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 따르세요.
 
 12. Wrike에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기** 로 변경 합니다.
 
@@ -161,15 +161,15 @@ Azure AD 응용 프로그램 갤러리에서 Wrike를 추가 하려면 다음 �
 
     ![프로 비전 구성 저장 중](common/provisioning-configuration-save.png)
 
-이 작업을 수행 하면 **설정** 섹션의 **범위** 에 정의 된 모든 사용자 또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
+이 작업을 수행 하면 **설정** 섹션의 **범위** 에 정의 된 모든 사용자 또는 그룹의 초기 동기화가 시작 됩니다. 초기 동기화는 후속 동기화 보다 수행 하는 데 더 많은 시간이 걸립니다. 사용자 또는 그룹이 프로 비전 하는 데 걸리는 시간에 대 한 자세한 내용은 [사용자를 프로 비전 하](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md#how-long-will-it-take-to-provision-users)는 데 얼마나 걸립니까?를 참조 하세요.
 
-**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Wrike의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../manage-apps/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조 하세요.
+**현재 상태** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라 Wrike의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다. 자세한 내용은 [사용자 프로 비전 상태 확인](../app-provisioning/application-provisioning-when-will-provisioning-finish-specific-user.md)을 참조 하세요. Azure AD 프로 비전 로그를 읽으려면 [자동 사용자 계정 프로 비전에 대 한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조 하세요.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).

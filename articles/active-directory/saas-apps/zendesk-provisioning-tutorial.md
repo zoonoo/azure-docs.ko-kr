@@ -1,5 +1,5 @@
 ---
-title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비저닝을 위한 Zendesk 구성 | Microsoft Docs'
+title: '자습서: Azure Active Directory를 사용한 자동 사용자 프로비전을 위한 Zendesk 구성 | Microsoft Docs'
 description: 사용자 계정을 Zendesk로 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure Active Directory를 구성 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
@@ -16,21 +16,21 @@ ms.topic: article
 ms.date: 08/06/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9f9d819533b97a126a324ab867b7185fd6415847
-ms.sourcegitcommit: 670c38d85ef97bf236b45850fd4750e3b98c8899
+ms.openlocfilehash: a480119ee88521b920be88669f6d80e3754d24d3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/08/2019
-ms.locfileid: "68851974"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062750"
 ---
-# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비저닝에 대한 Zendesk 구성
+# <a name="tutorial-configure-zendesk-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전에 대한 Zendesk 구성
 
 이 자습서에서는 zendesk 및 Azure Active Directory (Azure AD)에서 사용자 및 그룹을 Zendesk에 자동으로 프로 비전 및 프로 비전 해제 하도록 Azure AD를 구성 하기 위해 수행 하는 단계를 보여 줍니다.
 
 > [!NOTE]
-> 이 자습서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스의 역할, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 SaaS (software as a service) 응용 프로그램에 사용자 프로 비전 및 프로 비전](../manage-apps/user-provisioning.md)해제를 참조 하세요.
+> 이 자습서에서는 Azure AD 사용자 프로 비전 서비스 위에 구축 된 커넥터에 대해 설명 합니다. 이 서비스의 역할, 작동 방법 및 질문과 대답에 대 한 자세한 내용은 [Azure Active Directory를 사용 하 여 SaaS (software as a service) 응용 프로그램에 사용자 프로 비전 및 프로 비전](../app-provisioning/user-provisioning.md)해제를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 구성 요소
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명 된 시나리오에서는 다음과 같은 것으로 가정 합니다.
 
@@ -79,11 +79,11 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 이 섹션에서는 Azure AD 프로 비전 서비스를 구성 하는 단계를 안내 합니다. Azure AD의 사용자 또는 그룹 할당을 기반으로 Zendesk에서 사용자 또는 그룹을 만들고, 업데이트 하 고, 사용 하지 않도록 설정 하는 데 사용 합니다.
 
 > [!TIP]
-> Zendesk에 대해 SAML 기반 single sign-on을 사용 하도록 설정할 수도 있습니다. [Zendesk single sign-on 자습서](zendesk-tutorial.md)의 지침을 따릅니다. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
+> Zendesk에 SAML 기반 Single Sign-On를 사용 하도록 설정할 수도 있습니다. [Zendesk Single Sign-On 자습서](zendesk-tutorial.md)의 지침을 따르세요. Single sign-on은 자동 사용자 프로 비전과 독립적으로 구성할 수 있습니다. 하지만이 두 가지 기능은 서로 보완적입니다.
 
 ### <a name="configure-automatic-user-provisioning-for-zendesk-in-azure-ad"></a>Azure AD에서 Zendesk에 대 한 자동 사용자 프로 비전 구성
 
-1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **엔터프라이즈 응용 프로그램** > **모든 응용 프로그램** > **Zendesk**를 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **모든 응용** 프로그램 > **엔터프라이즈 응용 프로그램** > **Zendesk**를 선택 합니다.
 
     ![엔터프라이즈 애플리케이션 블레이드](common/enterprise-applications.png)
 
@@ -101,13 +101,13 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 5. **관리자 자격 증명** 섹션 아래에서 Zendesk 계정의 관리자 사용자 이름, 비밀 토큰 및 도메인을 입력 합니다. 이러한 값의 예는 다음과 같습니다.
 
-   * **관리자 사용자 이름** 상자에서 Zendesk 테 넌 트의 관리자 계정에 대 한 사용자 이름을 입력 합니다. 예제입니다. admin@contoso.com
+   * **관리자 사용자 이름** 상자에서 Zendesk 테 넌 트의 관리자 계정에 대 한 사용자 이름을 입력 합니다. 예제는 admin@contoso.com입니다.
 
    * **비밀 토큰** 상자에서 6 단계에 설명 된 대로 비밀 토큰을 입력 합니다.
 
-   * **도메인** 상자에서 Zendesk 테 넌 트의 하위 도메인을 입력 합니다. 예를 들어 테 넌 트 URL `https://my-tenant.zendesk.com`이 인 계정의 경우 하위 도메인은 **내 테 넌 트**입니다.
+   * **도메인** 상자에서 Zendesk 테 넌 트의 하위 도메인을 입력 합니다. 예를 들어 테 넌 트 URL이 `https://my-tenant.zendesk.com`계정의 경우 하위 **테 넌 트가 하위 테 넌 트**입니다.
 
-6. Zendesk 계정의 비밀 토큰은 **관리** > **API** > **설정**에 있습니다. **토큰 액세스가** **사용**으로 설정 되어 있는지 확인 합니다.
+6. Zendesk 계정에 대 한 비밀 토큰은 **관리** > **API** > **설정**에 있습니다. **토큰 액세스가** **사용**으로 설정 되어 있는지 확인 합니다.
 
     ![Zendesk 관리자 설정](./media/zendesk-provisioning-tutorial/ZenDesk4.png)
 
@@ -121,7 +121,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
     ![Zendesk 알림 전자 메일](./media/zendesk-provisioning-tutorial/ZenDesk9.png)
 
-9.           **저장**을 선택합니다.
+9. **저장**을 선택합니다.
 
 10. **매핑** 섹션에서 **Synchronize Azure Active Directory Users to Zendesk**(Azure Active Directory 사용자를 Zendesk에 동기화)를 선택합니다.
 
@@ -139,7 +139,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
     ![Zendesk 일치 그룹 특성](./media/zendesk-provisioning-tutorial/ZenDesk13.png)
 
-14. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 따르세요.
+14. 범위 지정 필터를 구성 하려면 [범위 지정 필터 자습서](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)의 지침을 따르세요.
 
 15. Zendesk에 대 한 Azure AD 프로 비전 서비스를 사용 하도록 **설정 하려면 설정** 섹션에서 **프로 비전 상태** 를 **켜기**로 변경 합니다.
 
@@ -157,7 +157,7 @@ Azure Active Directory는 *할당* 이라는 개념을 사용 하 여 선택한 
 
 **동기화 세부 정보** 섹션을 사용 하 여 진행률을 모니터링 하 고 프로 비전 활동 보고서에 대 한 링크를 따라갈 수 있습니다. 이 보고서는 Zendesk의 Azure AD 프로 비전 서비스에서 수행 하는 모든 작업을 설명 합니다.
 
-Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../manage-apps/check-status-user-account-provisioning.md)를 참조하세요.
+Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](../app-provisioning/check-status-user-account-provisioning.md)를 참조하세요.
 
 ## <a name="connector-limitations"></a>커넥터 제한 사항
 
@@ -165,14 +165,14 @@ Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [
 
 * 사용자 지정 역할이 사용자 또는 그룹에 할당 되 면 Azure AD 자동 사용자 프로 비전 서비스는 기본 역할 **에이전트도**할당 합니다. 에이전트에만 사용자 지정 역할을 할당할 수 있습니다. 자세한 내용은 [ZENDESK API 설명서](https://developer.zendesk.com/rest_api/docs/support/users#json-format-for-agent-or-admin-requests)를 참조 하세요. 
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
-* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../manage-apps/configure-automatic-user-provisioning-portal.md)
+* [엔터프라이즈 앱에 대한 사용자 계정 프로비전 관리](../app-provisioning/configure-automatic-user-provisioning-portal.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 
 ## <a name="next-steps"></a>다음 단계
 
-* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../manage-apps/check-status-user-account-provisioning.md).
+* [프로비저닝 작업에 대한 로그를 검토하고 보고서를 받아보는 방법을 알아봅니다](../app-provisioning/check-status-user-account-provisioning.md).
 
 <!--Image references-->
 [1]: ./media/zendesk-tutorial/tutorial_general_01.png

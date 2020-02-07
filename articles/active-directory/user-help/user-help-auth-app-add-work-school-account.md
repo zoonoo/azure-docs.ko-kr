@@ -2,21 +2,21 @@
 title: Microsoft Authenticator 앱에 회사 또는 학교 계정 추가-Azure AD
 description: Microsoft Authenticator 앱에 회사 또는 학교 계정을 추가 하 여 2 단계 인증을 사용 하는 동안 id를 확인 합니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 01/24/2019
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 834bae055fb9384a66b199f991522811787f58ae
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: f0cc14a53f7ead7f0a496728d477d7d30857a0fb
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704734"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77063920"
 ---
 # <a name="add-your-work-or-school-account-to-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 회사 또는 학교 계정 추가
 

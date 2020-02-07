@@ -6,13 +6,13 @@ ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 03/19/2017
-ms.openlocfilehash: cbeaa3e148d6fbe20d7ddb4d04cd00d6300f9818
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/06/2020
+ms.openlocfilehash: 9a7cb80b5510ff0ac4a2491d896aded866180c19
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402439"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062135"
 ---
 #  <a name="agent-health-solution-in-azure-monitor"></a>Azure Monitor의 에이전트 상태 솔루션
 Azure의 에이전트 상태 솔루션은 Azure Monitor의 Log Analytics 작업 영역에 직접 보고 하는 모든 에이전트 또는 Azure Monitor에 연결 된 System Center Operations Manager 관리 그룹 (응답 하지 않음)에 대해 이해 하는 데 도움이 됩니다. 운영 데이터를 제출 합니다.  또한 얼마나 많은 에이전트가 배포되었는지, 이들 에이전트가 지리적으로 어디에 분산되어 있는지 추적할 수 있으며, Azure, 기타 클라우드 환경 또는 온-프레미스에 배포된 에이전트의 분산 상태를 파악하기 위해 다른 쿼리를 수행할 수 있습니다.    
@@ -39,7 +39,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="supported-agents"></a>지원되는 에이전트
 다음 표는 이 솔루션이 지원하는 연결된 소스를 설명합니다.
 
-| 연결된 소스 | 지원됨 | Description |
+| 연결된 소스 | 지원됨 | 설명 |
 | --- | --- | --- |
 | Windows 에이전트 | 예 | 하트비트 이벤트는 Windows 에이전트에서 직접 수집됩니다.|
 | System Center Operations Manager 관리 그룹 | 예 | 하트 비트 이벤트는 관리 그룹에 보고 하는 에이전트에서 60 초 마다 수집 된 다음 Azure Monitor 전달 됩니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결 하는 것은 필요 하지 않습니다. 하트 비트 이벤트 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달 됩니다.|
@@ -49,7 +49,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 **에이전트 상태**타일을 클릭하여 **에이전트 상태** 대시보드를 엽니다.  대시보드는 다음 표의 열을 포함하고 있습니다. 각 열은 지정된 시간 범위에 대한 열의 기준과 일치하는 카운트별로 상위 열 개의 이벤트를 나열합니다. 각 열의 오른쪽 아래쪽에 있는 **모두 보기**를 선택하거나 열 제목을 클릭하여 전체 목록을 제공하는 로그 검색을 실행할 수 있습니다.
 
-| 열 | Description |
+| 열 | 설명 |
 |--------|-------------|
 | 시간에 따른 에이전트 수 | Linux 및 Windows 에이전트에 대해 7일 동안의 에이전트 수의 추세입니다.|
 | 응답하지 않는 에이전트 개수 | 지난 24시간 동안 하트비트를 보내지 않은 에이전트의 목록입니다.|
@@ -68,7 +68,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 ### <a name="heartbeat-records"></a>하트비트 레코드
 **하트비트** 형식이 포함된 레코드가 만들어집니다.  이러한 레코드는 다음 표의 속성을 가집니다.  
 
-| 속성 | Description |
+| 속성 | 설명 |
 | --- | --- |
 | `Type` | *하트비트*|
 | `Category` | 값은 *직접 에이전트*, *SCOM 에이전트* 또는 *SCOM 관리 서버*합니다.|
@@ -79,7 +79,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 | `Version` | Log Analytics 에이전트 또는 Operations Manager 에이전트 버전입니다.|
 | `SCAgentChannel` | 값은 *직접* 및/또는 *SCManagementServer*합니다.|
 | `IsGatewayInstalled` | Log Analytics 게이트웨이가 설치된 경우 값은 *true*이거나, 그렇지 않으면 *false*입니다.|
-| `ComputerIP` | 컴퓨터의 IP 주소입니다.|
+| `ComputerIP` | 컴퓨터의 공용 IP 주소입니다. Azure Vm에서 공용 IP가 있는 경우이를 표시 합니다. 개인 ip를 사용 하는 Vm의 경우에는 개인 IP 주소가 아닌 Azure SNAT 주소가 표시 됩니다. |
 | `RemoteIPCountry` | 컴퓨터가 배포된 지리적 위치입니다.|
 | `ManagementGroupName` | Operations Manager 관리 그룹의 이름입니다.|
 | `SourceComputerId` | 컴퓨터의 고유 ID입니다.|
@@ -91,7 +91,7 @@ Operations Manager management server에 보고 하는 각 에이전트는 두 �
 ## <a name="sample-log-searches"></a>샘플 로그 검색
 다음 테이블은 이 솔루션에 의해 수집된 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-| 쿼리 | Description |
+| Query | 설명 |
 |:---|:---|
 | Heartbeat &#124; distinct Computer |에이전트의 총수 |
 | Heartbeat &#124; summarize LastCall = max(TimeGenerated) by Computer &#124; where LastCall < ago(24h) |지난 24시간 동안 응답하지 않는 에이전트 개수 |

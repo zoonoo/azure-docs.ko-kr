@@ -2,7 +2,7 @@
 title: 보안 키를 확인 방법으로 설정-Azure AD
 description: FIDO2 (Fast Identity Online) 보안 키를 확인 방법으로 사용 하기 위해 id를 확인 하도록 보안 정보 (미리 보기) 페이지를 설정 하는 방법입니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: librown
 ms.service: active-directory
@@ -10,13 +10,13 @@ ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.author: lizross
-ms.openlocfilehash: 3e16602128a70077d0a7962522ad3898421c8997
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.author: curtand
+ms.openlocfilehash: ee868ded0dc3a46f2ec20d0141aa2576cbf71f45
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704921"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062339"
 ---
 # <a name="set-up-a-security-key-as-your-verification-method"></a>보안 키를 확인 방법으로 설정 합니다.
 
@@ -29,9 +29,9 @@ ms.locfileid: "76704921"
 
 ## <a name="security-verification-versus-password-reset-authentication"></a>보안 확인 및 암호 재설정 인증
 
-보안 정보 방법은 2 단계 보안 확인 및 암호 재설정에 모두 사용 됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
+보안 정보 방법은 2단계 보안 확인 및 암호 재설정에 모두 사용됩니다. 그러나 모든 보안 정보 방법을 둘 모두에 사용할 수 있는 것은 아닙니다.
 
-| 방법 | 사용 대상 |
+| 방법 | 사용 목적 |
 | ------ | -------- |
 | 인증자 앱 | 2단계 인증 및 암호 재설정 인증입니다. |
 | 문자 메시지 | 2단계 인증 및 암호 재설정 인증입니다. |
@@ -63,7 +63,7 @@ ms.locfileid: "76704921"
 
 키를 사용 하 여 회사 또는 학교 계정에 로그인 하려면 보안 키를 만들고 고유한 PIN을 지정 해야 합니다. 계정에 최대 10 개의 키가 등록 되어 있을 수 있습니다. 
 
-1. https://myprofile.microsoft.com 에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
+1. https://myprofile.microsoft.com에서 **내 프로필** 페이지로 이동 하 여 아직 로그인 하지 않았으면 로그인 합니다.
 
 2. **보안 정보**를 선택 하 **고 메서드 추가**를 선택한 다음 **방법 추가** 드롭다운 목록에서 **보안 키** 를 선택 합니다.
 

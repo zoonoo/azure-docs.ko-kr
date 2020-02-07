@@ -11,12 +11,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: aba613911328b1272ebb07eeae633932cb4a442f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5257d9f94f6304c2a8dbea3f1648a71d0ba65e94
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935364"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064753"
 ---
 # <a name="manage-access-to-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역에 대 한 액세스 관리
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -27,7 +27,7 @@ ms.locfileid: "76935364"
 
 Azure Machine Learning 작업 영역은 Azure 리소스입니다. 다른 Azure 리소스와 마찬가지로 새 Azure Machine Learning 작업 영역을 만들 때 세 가지 기본 역할이 제공 됩니다. 사용자를 작업 영역에 추가 하 고 이러한 기본 제공 역할 중 하나에 할당할 수 있습니다.
 
-| 역할 | 액세스 수준 |
+| Role | 액세스 수준 |
 | --- | --- |
 | **판독기** | 작업 영역의 읽기 전용 작업입니다. 독자는 작업 영역에서 자산을 나열 하 고 볼 수 있지만 이러한 자산을 만들거나 업데이트할 수 없습니다. |
 | **기여자** | 작업 영역에서 자산을 보거나, 만들거나, 편집 하거나, 삭제 합니다 (해당 하는 경우). 예를 들어 참가자는 실험을 만들고, 계산 클러스터를 만들고 연결 하 고, 실행을 제출 하 고, 웹 서비스를 배포할 수 있습니다. |
@@ -111,6 +111,62 @@ az ml workspace share -w my_workspace -g my_resource_group --role "Data Scientis
 사용자 지정 역할에 대 한 자세한 내용은 [Azure 리소스에 대 한 사용자 지정 역할](/azure/role-based-access-control/custom-roles)을 참조 하세요.
 
 사용자 지정 역할에서 사용할 수 있는 작업 (작업)에 대 한 자세한 내용은 [리소스 공급자 작업](/azure/role-based-access-control/resource-provider-operations#microsoftmachinelearningservices)을 참조 하세요.
+
+
+## <a name="frequently-asked-questions"></a>질문과 대답
+
+
+### <a name="q-what-are-the-permissions-needed-to-perform-various-actions-in-the-azure-machine-learning-service"></a>Q. Azure Machine Learning 서비스에서 다양 한 작업을 수행 하는 데 필요한 권한은 무엇 인가요?
+
+다음 표에는 Azure Machine Learning 작업에 대 한 요약과 최소 범위에서 작업을 수행 하는 데 필요한 사용 권한이 정리 되어 있습니다. 예를 들어 작업 영역 범위 (열 4)를 사용 하 여 작업을 수행할 수 있는 경우 해당 사용 권한을 가진 상위 범위가 모두 자동으로 적용 됩니다. 이 테이블의 모든 경로는 `Microsoft.MachineLearningServices/`에 대 한 **상대 경로** 입니다.
+
+| 작업 | 구독 수준 범위 | 리소스 그룹 수준 범위 | 작업 영역 수준 범위 |
+|---|---|---|---|
+| 새 작업 영역 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 해당 없음 (소유자가 되거나 생성 후 상위 범위 역할 상속) |
+| 새 계산 클러스터 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `workspaces/computes/write` |
+| 새 노트북 VM 만들기 | 필요하지 않음 | 소유자 또는 참가자 | 가능 하지 않음 |
+| 새 계산 인스턴스 만들기 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `workspaces/computes/write` |
+| 실행 제출, 데이터 액세스, 모델 배포 또는 파이프라인 게시와 같은 데이터 평면 활동 | 필요하지 않음 | 필요하지 않음 | 다음을 허용 하는 소유자, 참가자 또는 사용자 지정 역할: `workspaces/*/write` <br/> 또한 MSI에서 저장소 계정의 데이터에 액세스할 수 있도록 작업 영역에 등록 된 데이터 저장소가 필요 합니다. |
+
+
+### <a name="q-how-do-i-list-all-the-custom-roles-in-my-subscription"></a>Q. 내 구독의 모든 사용자 지정 역할을 나열 어떻게 할까요??
+
+Azure CLI에서 다음 명령을 실행 합니다.
+
+```azurecli-interactive
+az role definition list --subscription <sub-id> --custom-role-only true
+```
+
+### <a name="q-how-do-i-find-the-role-definition-for-a-role-in-my-subscription"></a>Q. 내 구독에서 역할에 대 한 역할 정의를 찾을 어떻게 할까요? 있나요?
+
+Azure CLI에서 다음 명령을 실행 합니다. `<role-name>`은 위의 명령에서 반환 된 것과 동일한 형식 이어야 합니다.
+
+```azurecli-interactive
+az role definition list -n <role-name> --subscription <sub-id>
+```
+
+### <a name="q-how-do-i-update-a-role-definition"></a>Q. 역할 정의를 업데이트 어떻게 할까요??
+
+Azure CLI에서 다음 명령을 실행 합니다.
+
+```azurecli-interactive
+az role definition update --role-definition update_def.json --subscription <sub-id>
+```
+
+새 역할 정의의 전체 범위에 대 한 사용 권한이 있어야 합니다. 예를 들어이 새 역할에 세 개의 구독에 대 한 범위가 있는 경우 세 구독 모두에 대 한 사용 권한이 있어야 합니다. 
+
+> [!NOTE]
+> 역할 업데이트는 해당 범위의 모든 역할 할당에 적용 되는 데 15 분에서 1 시간 정도 걸릴 수 있습니다.
+### <a name="q-can-i-define-a-role-that-prevents-updating-the-workspace-edition"></a>Q. 작업 영역 버전 업데이트를 방지 하는 역할을 정의할 수 있나요? 
+
+예, 작업 영역 버전 업데이트를 방지 하는 역할을 정의할 수 있습니다. 작업 영역 업데이트는 작업 영역 개체에 대 한 패치 호출 이므로 JSON 정의의 `"NotActions"` 배열에 다음 작업을 추가 하 여이 작업을 수행 합니다. 
+
+`"Microsoft.MachineLearningServices/workspaces/write"`
+
+### <a name="q-what-permissions-are-needed-to-perform-quota-operations-in-a-workspace"></a>Q. 작업 영역에서 할당량 작업을 수행 하는 데 필요한 권한은 무엇 인가요? 
+
+작업 영역에서 모든 할당량 관련 작업을 수행 하려면 구독 수준 권한이 있어야 합니다. 즉, 구독 범위에서 쓰기 권한이 있는 경우에만 관리 되는 계산 리소스에 대 한 구독 수준 할당량 또는 작업 영역 수준 할당량 설정이 발생할 수 있습니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 

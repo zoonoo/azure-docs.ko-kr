@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 2e14b1bcc991a009ed9b3267477933706e1ec474
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 7c9f4a5a4993057ef49eecf3852afa0929c49da3
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289954"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061576"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -116,9 +116,9 @@ Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리�
 
     b.  새 태스크를 만듭니다. **Azure 리소스 그룹 배포**를 검색 한 다음 **추가**를 선택 합니다.
 
-    다.  배포 작업에서 대상 데이터 팩터리에 대 한 구독, 리소스 그룹 및 위치를 선택 합니다. 필요한 경우 자격 증명을 제공 합니다.
+    c.  배포 작업에서 대상 데이터 팩터리에 대 한 구독, 리소스 그룹 및 위치를 선택 합니다. 필요한 경우 자격 증명을 제공 합니다.
 
-    d.  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
+    .  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
 
     e.  **템플릿** 상자 옆의 줄임표 단추 ( **...** )를 선택 합니다. 이 문서의 [각 환경에 대 한 리소스 관리자 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) 섹션에서 **ARM 템플릿 가져오기** 를 사용 하 여 만든 Azure Resource Manager 템플릿을 찾아봅니다. Adf_publish 분기의 <FactoryName> 폴더에서이 파일을 찾습니다.
 
@@ -218,12 +218,133 @@ param
     [parameter(Mandatory = $false)] [Bool] $deleteDeployment=$false
 )
 
+function getPipelineDependencies {
+    param([System.Object] $activity)
+    if ($activity.Pipeline) {
+        return @($activity.Pipeline.ReferenceName)
+    } elseif ($activity.Activities) {
+        $result = @()
+        return $activity.Activities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+    } elseif ($activity.ifFalseActivities -or $activity.ifTrueActivities) {
+        $result = @()
+        $activity.ifFalseActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        $activity.ifTrueActivities | Where-Object {$_ -ne $null} | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+    } elseif ($activity.defaultActivities) {
+        $result = @()
+        $activity.defaultActivities | ForEach-Object{ $result += getPipelineDependencies -activity $_ }
+        if ($activity.cases) {
+            $activity.cases | ForEach-Object{ $_.activities } | ForEach-Object{$result += getPipelineDependencies -activity $_ }
+        }
+        return $result
+    }
+}
+
+function pipelineSortUtil {
+    param([Microsoft.Azure.Commands.DataFactoryV2.Models.PSPipeline]$pipeline,
+    [Hashtable] $pipelineNameResourceDict,
+    [Hashtable] $visited,
+    [System.Collections.Stack] $sortedList)
+    if ($visited[$pipeline.Name] -eq $true) {
+        return;
+    }
+    $visited[$pipeline.Name] = $true;
+    $pipeline.Activities | ForEach-Object{ getPipelineDependencies -activity $_ -pipelineNameResourceDict $pipelineNameResourceDict}  | ForEach-Object{
+        pipelineSortUtil -pipeline $pipelineNameResourceDict[$_] -pipelineNameResourceDict $pipelineNameResourceDict -visited $visited -sortedList $sortedList
+    }
+    $sortedList.Push($pipeline)
+
+}
+
+function Get-SortedPipelines {
+    param(
+        [string] $DataFactoryName,
+        [string] $ResourceGroupName
+    )
+    $pipelines = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $ppDict = @{}
+    $visited = @{}
+    $stack = new-object System.Collections.Stack
+    $pipelines | ForEach-Object{ $ppDict[$_.Name] = $_ }
+    $pipelines | ForEach-Object{ pipelineSortUtil -pipeline $_ -pipelineNameResourceDict $ppDict -visited $visited -sortedList $stack }
+    $sortedList = new-object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSPipeline]
+    
+    while ($stack.Count -gt 0) {
+        $sortedList.Add($stack.Pop())
+    }
+    $sortedList
+}
+
+function triggerSortUtil {
+    param([Microsoft.Azure.Commands.DataFactoryV2.Models.PSTrigger]$trigger,
+    [Hashtable] $triggerNameResourceDict,
+    [Hashtable] $visited,
+    [System.Collections.Stack] $sortedList)
+    if ($visited[$trigger.Name] -eq $true) {
+        return;
+    }
+    $visited[$trigger.Name] = $true;
+    $trigger.Properties.DependsOn | Where-Object {$_ -and $_.ReferenceTrigger} | ForEach-Object{
+        triggerSortUtil -trigger $triggerNameResourceDict[$_.ReferenceTrigger.ReferenceName] -triggerNameResourceDict $triggerNameResourceDict -visited $visited -sortedList $sortedList
+    }
+    $sortedList.Push($trigger)
+}
+
+function Get-SortedTriggers {
+    param(
+        [string] $DataFactoryName,
+        [string] $ResourceGroupName
+    )
+    $triggers = Get-AzDataFactoryV2Trigger -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $triggerDict = @{}
+    $visited = @{}
+    $stack = new-object System.Collections.Stack
+    $triggers | ForEach-Object{ $triggerDict[$_.Name] = $_ }
+    $triggers | ForEach-Object{ triggerSortUtil -trigger $_ -triggerNameResourceDict $triggerDict -visited $visited -sortedList $stack }
+    $sortedList = new-object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSTrigger]
+    
+    while ($stack.Count -gt 0) {
+        $sortedList.Add($stack.Pop())
+    }
+    $sortedList
+}
+
+function Get-SortedLinkedServices {
+    param(
+        [string] $DataFactoryName,
+        [string] $ResourceGroupName
+    )
+    $linkedServices = Get-AzDataFactoryV2LinkedService -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $LinkedServiceHasDependencies = @('HDInsightLinkedService', 'HDInsightOnDemandLinkedService', 'AzureBatchLinkedService')
+    $Akv = 'AzureKeyVaultLinkedService'
+    $HighOrderList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
+    $RegularList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
+    $AkvList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
+
+    $linkedServices | ForEach-Object {
+        if ($_.Properties.GetType().Name -in $LinkedServiceHasDependencies) {
+            $HighOrderList.Add($_)
+        }
+        elseif ($_.Properties.GetType().Name -eq $Akv) {
+            $AkvList.Add($_)
+        }
+        else {
+            $RegularList.Add($_)
+        }
+    }
+
+    $SortedList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]($HighOrderList.Count + $RegularList.Count + $AkvList.Count)
+    $SortedList.AddRange($HighOrderList)
+    $SortedList.AddRange($RegularList)
+    $SortedList.AddRange($AkvList)
+    $SortedList
+}
+
 $templateJson = Get-Content $armTemplate | ConvertFrom-Json
 $resources = $templateJson.resources
 
 #Triggers 
 Write-Host "Getting triggers"
-$triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+$triggersADF = Get-SortedTriggers -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
 $triggersTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/triggers" }
 $triggerNames = $triggersTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
 $activeTriggerNames = $triggersTemplate | Where-Object { $_.properties.runtimeState -eq "Started" -and ($_.properties.pipelines.Count -gt 0 -or $_.properties.pipeline.pipelineReference -ne $null)} | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
@@ -242,10 +363,15 @@ else {
     #Deleted resources
     #pipelines
     Write-Host "Getting pipelines"
-    $pipelinesADF = Get-AzDataFactoryV2Pipeline -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $pipelinesADF = Get-SortedPipelines -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $pipelinesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/pipelines" }
     $pipelinesNames = $pipelinesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedpipelines = $pipelinesADF | Where-Object { $pipelinesNames -notcontains $_.Name }
+    #dataflows
+    $dataflowsADF = Get-AzDataFactoryV2DataFlow -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $dataflowsTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/dataflows" }
+    $dataflowsNames = $dataflowsTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40) }
+    $deleteddataflow = $dataflowsADF | Where-Object { $dataflowsNames -notcontains $_.Name }
     #datasets
     Write-Host "Getting datasets"
     $datasetsADF = Get-AzDataFactoryV2Dataset -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -254,7 +380,7 @@ else {
     $deleteddataset = $datasetsADF | Where-Object { $datasetsNames -notcontains $_.Name }
     #linkedservices
     Write-Host "Getting linked services"
-    $linkedservicesADF = Get-AzDataFactoryV2LinkedService -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
+    $linkedservicesADF = Get-SortedLinkedServices -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
     $linkedservicesTemplate = $resources | Where-Object { $_.type -eq "Microsoft.DataFactory/factories/linkedservices" }
     $linkedservicesNames = $linkedservicesTemplate | ForEach-Object {$_.name.Substring(37, $_.name.Length-40)}
     $deletedlinkedservices = $linkedservicesADF | Where-Object { $linkedservicesNames -notcontains $_.Name }
@@ -279,6 +405,11 @@ else {
     $deletedpipelines | ForEach-Object { 
         Write-Host "Deleting pipeline " $_.Name
         Remove-AzDataFactoryV2Pipeline -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
+    }
+    Write-Host "Deleting dataflows"
+    $deleteddataflow | ForEach-Object { 
+        Write-Host "Deleting dataflow " $_.Name
+        Remove-AzDataFactoryV2DataFlow -Name $_.Name -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Force 
     }
     Write-Host "Deleting datasets"
     $deleteddataset | ForEach-Object { 
@@ -433,7 +564,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 * `connectionString` 속성은 `securestring` 값으로 매개 변수화 됩니다. 기본값은 없습니다. `connectionString`접미사로 사용 되는 약식 매개 변수 이름이 포함 됩니다.
 * 속성 `secretAccessKey`는 Amazon S3 연결 된 서비스의 경우와 같이 `AzureKeyVaultSecret` 되는 경우입니다. 자동으로 Azure Key Vault 암호로 매개 변수화 되 고 구성 된 Key Vault에서 인출 됩니다. 키 자격 증명 모음을 매개 변수화 할 수도 있습니다.
 
-#### <a name="datasets"></a>데이터 세트
+#### <a name="datasets"></a>데이터 집합
 
 * 데이터 집합에 대해 유형별 사용자 지정을 사용할 수 있지만 명시적으로 \*수준 구성을 사용 하지 않고도 구성을 제공할 수 있습니다. 위의 예제에서 `typeProperties` 아래의 모든 데이터 집합 속성은 매개 변수화 됩니다.
 
@@ -444,6 +575,8 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 ```json
 {
     "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/dataflows": {
     },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
@@ -514,6 +647,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
+            "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",
@@ -551,6 +685,8 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 ```json
 {
     "Microsoft.DataFactory/factories/pipelines": {
+    },
+    "Microsoft.DataFactory/factories/dataflows": {
     },
     "Microsoft.DataFactory/factories/integrationRuntimes":{
         "properties": {
@@ -621,6 +757,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
                     "database": "=",
                     "serviceEndpoint": "=",
                     "batchUri": "=",
+            "poolName": "=",
                     "databaseName": "=",
                     "systemNumber": "=",
                     "server": "=",

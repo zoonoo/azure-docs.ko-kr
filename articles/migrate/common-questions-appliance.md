@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스에 대 한 일반적인 질문
 description: Azure Migrate 어플라이언스에 대 한 일반적인 질문에 대 한 답변 가져오기
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: c9727287160f996059e9c1fb2d1fb5aec5900ab5
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: de9583b7983dda904e06ea258ecb0d202644586b
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292335"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064702"
 ---
 # <a name="azure-migrate-appliance-common-questions"></a>Azure Migrate 어플라이언스: 일반적인 질문
 
@@ -16,6 +16,7 @@ ms.locfileid: "76292335"
 
 - Azure Migrate에 대 한 [일반적인 질문](resources-faq.md) 입니다.
 - 검색, 평가 및 종속성 시각화에 대 한 [질문](common-questions-discovery-assessment.md) 입니다.
+- 서버 마이그레이션에 대 한 [질문](common-questions-server-migration.md) 입니다.
 
 
 ## <a name="what-is-the-azure-migrate-appliance"></a>Azure Migrate 어플라이언스 란 무엇 인가요?
@@ -81,7 +82,7 @@ Azure Migrate로 전송 되는 데이터의 볼륨은 여러 매개 변수에 �
 
 ## <a name="can-i-connect-the-appliance-to-multiple-vcenter-servers"></a>어플라이언스를 여러 vCenter 서버에 연결할 수 있나요?
 
-아닙니다. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다.
+No. 어플라이언스와 vCenter Server 사이에 일대일 매핑이 있습니다. 여러 vCenter Server 인스턴스에서 Vm을 검색 하려면 여러 어플라이언스를 배포 해야 합니다.
 
 ### <a name="how-many-vms-or-servers-can-i-discover-with-an-appliance"></a>어플라이언스로 검색할 수 있는 Vm 또는 서버는 몇 개입니까?
 

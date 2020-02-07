@@ -5,17 +5,17 @@ services: active-directory
 author: eross-msft
 ms.service: active-directory
 ms.topic: include
-ms.date: 03/06/2019
+ms.date: 02/03/2020
 ms.author: lizross
 ms.custom: include file
-ms.openlocfilehash: c7f3fec478067a9b321d8c7bc5e371f5a6a330cb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: df529de23b5d964dd80dd9fa5dd17c460a2c4f28
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75468312"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77062383"
 ---
 | |
 |--|
-|관리자가 조직에 새로운 **내 앱** 미리 보기 환경을 설정한 경우 이제 **내 앱** 페이지 상단에 **업데이트된 내 애플리케이션 환경을 사용할 수 있음**이라는 배너가 표시됩니다. **사용해보기**를 선택하면 새 URL(myapplications.microsoft.com) 및 업데이트된 환경으로 바로 이동합니다. 그 후에는 **내 앱** 페이지로 돌아올 때마다 자동으로 새 환경으로 이동합니다.<br><br>새 환경 사용을 중지하려면 새 **내 앱** 페이지의 맨 위에 있는 **새 환경으로 이동** 배너에서 **예**를 선택합니다. 이전 URL(myapps.microsoft.com) 및 환경으로 즉시 돌아갑니다. 그 후에는 **내 앱** 페이지로 돌아올 때마다 자동으로 이전 환경으로 이동합니다.|
+|관리자가 조직에 대 한 새 **내 앱** 미리 보기 환경을 켠 경우 계정 아이콘을 선택 하 여 **내 앱** 페이지의 맨 위에서 계정 정보를 볼 때 링크가 표시 됩니다. **새 내 앱 환경 사용해 보기**를 선택 하면 즉시 새 URL (https://myapplications.microsoft.com) 및 업데이트 된 환경으로 이동 하 게 됩니다. 그런 다음 **내 앱** 페이지로 돌아가면 새 환경으로 자동으로 이동 합니다.<br><br>새 환경 사용을 중지 하려면 계정 아이콘을 선택 하 여 **내 앱** 페이지의 맨 위에서 계정 정보를 볼 때 **미리 보기 환경 유지** 를 선택할 수 있습니다. 이전 URL(myapps.microsoft.com) 및 환경으로 즉시 돌아갑니다. 그 후에는 **내 앱** 페이지로 돌아올 때마다 자동으로 이전 환경으로 이동합니다.|
 |

@@ -2,7 +2,7 @@
 title: "\"여기에서 가져올 수 없습니다\" 오류에 대 한 수정-Azure AD"
 description: "\"여기에서 가져올 수 없습니다\" 오류 메시지가 표시 되는 이유에 대 한 잠재적 수정 사항을 찾습니다."
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.assetid: 8ad0156c-0812-4855-8563-6fbff6194174
 ms.service: active-directory
@@ -10,15 +10,15 @@ ms.subservice: user-help
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/10/2018
-ms.author: lizross
+ms.author: curtand
 ms.reviewer: jairoc
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 55a6e9976706cb12a53dd5d540a2b6f2edb9e41b
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d29168f154c80eb2c66d0316f773375325ded67f
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704632"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062186"
 ---
 # <a name="possible-fixes-for-the-you-cant-get-there-from-here-error-message"></a>"여기에서 가져올 수 없습니다." 오류 메시지에 대 한 가능한 해결 방법
 

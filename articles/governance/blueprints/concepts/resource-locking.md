@@ -3,12 +3,12 @@ title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 청사진의 잠금 옵션에 대해 알아봅니다.
 ms.date: 04/24/2019
 ms.topic: conceptual
-ms.openlocfilehash: 50f506cc57f67ca2ae2b07e342750d6c5099e739
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406399"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057348"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -21,11 +21,11 @@ ms.locfileid: "74406399"
 
 청사진 할당에서 아티팩트에 의해 생성 된 리소스에는 **잠김 안 함**, **읽기 전용**, **편집/삭제**또는 **삭제할 수**없음의 네 가지 상태가 있습니다. 각 아티팩트 형식은 **잠겨있지 않음** 상태일 수 있습니다. 다음 표를 사용하여 리소스의 상태를 확인할 수 있습니다.
 
-|Mode|아티팩트 리소스 형식|State|설명|
+|모드|아티팩트 리소스 형식|상태|설명|
 |-|-|-|-|
 |잠그지 않음|*|잠겨있지 않음|리소스는 청사진에 의해 보호되지 않습니다. 이 상태는 또한 청사진 할당 외부에서 **읽기 전용** 또는 **삭제 안 함** 리소스 그룹 아티팩트에 추가된 리소스에 사용됩니다.|
-|읽기 전용|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
-|읽기 전용|리소스 그룹이 아님|읽기 전용|리소스를 어떤 방식으로도 변경할 수 없으며 삭제할 수도 없습니다.|
+|읽기 전용.|리소스 그룹|편집/삭제할 수 없음|리소스 그룹이 읽기 전용이며 리소스 그룹의 태그를 수정할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
+|읽기 전용.|리소스 그룹이 아님|읽기 전용.|리소스를 어떤 방식으로도 변경할 수 없으며 삭제할 수도 없습니다.|
 |삭제 안 함|*|삭제할 수 없음|리소스를 변경할 수 있지만 삭제할 수 없습니다. **잠겨 있지 않음** 리소스는 이 리소스 그룹에서 추가, 이동, 변경 또는 삭제할 수 있습니다.|
 
 ## <a name="overriding-locking-states"></a>잠금 상태 재정의
@@ -51,9 +51,9 @@ ms.locfileid: "74406399"
 
 각 모드의 [거부 할당 속성](../../../role-based-access-control/deny-assignments.md#deny-assignment-properties) 은 다음과 같습니다.
 
-|Mode |사용 권한. 작업 |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
+|모드 |사용 권한. 작업 |Permissions.NotActions |Principals[i].Type |ExcludePrincipals[i].Id | DoNotApplyToChildScopes |
 |-|-|-|-|-|-|
-|읽기 전용 |**\*** |**\*/읽기** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
+|읽기 전용. |**\*** |**\*/읽기** |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 |삭제 안 함 |**\*/delete** | |SystemDefined (Everyone) |**excludedPrincipals** 의 청사진 할당 및 사용자 정의 |리소스 그룹- _true_; 리소스- _false_ |
 
 > [!IMPORTANT]
@@ -102,6 +102,26 @@ ms.locfileid: "74406399"
   }
 }
 ```
+
+## <a name="exclude-an-action-from-a-deny-assignment"></a>거부 할당에서 작업 제외
+
+청사진 할당에서 [거부 할당](../../../role-based-access-control/deny-assignments.md) 에 대 한 [보안 주체를 제외](#exclude-a-principal-from-a-deny-assignment) 하는 것과 마찬가지로 특정 [RBAC 작업](../../../role-based-access-control/resource-provider-operations.md)을 제외할 수 있습니다. **ExcludedPrincipals** 가 있는 것과 동일한 위치에 있는 **속성. locks** 블록 내에서 **excludedActions** 를 추가할 수 있습니다.
+
+```json
+"locks": {
+    "mode": "AllResourcesDoNotDelete",
+    "excludedPrincipals": [
+        "7be2f100-3af5-4c15-bcb7-27ee43784a1f",
+        "38833b56-194d-420b-90ce-cff578296714"
+    ],
+    "excludedActions": [
+        "Microsoft.ContainerRegistry/registries/push/write",
+        "Microsoft.Authorization/*/read"
+    ]
+},
+```
+
+**ExcludedPrincipals** 는 명시적 이어야 하지만 **EXCLUDEDACTIONS** 항목은 RBAC 작업과 와일드 카드 일치를 위해 `*`를 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

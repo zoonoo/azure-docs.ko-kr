@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: f578840726543027a8c1b1db9bd88ea42f6e85fa
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: f6218b32fb9574adf62384d2a6ee5a62f3788de8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264070"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062152"
 ---
 # <a name="install-and-configure-an-on-premises-data-gateway"></a>온-프레미스 데이터 게이트웨이 설치 및 구성
 
@@ -43,8 +43,6 @@ Azure Analysis Services 게이트웨이에서 작동 하는 방법에 대해 자
 * 게이트웨이를 설치할 때 컴퓨터에 로그인한 사용자 계정에는 서비스로 로그온 권한이 있어야 합니다. 설치가 완료되면 온-프레미스 데이터 게이트웨이 서비스가 NT SERVICE\PBIEgwService 계정을 사용하여 서비스로 로그온합니다. 다른 계정은 설정하는 동안 지정하거나 설정 완료 후 서비스에서 지정할 수 있습니다. 그룹 정책 설정에서 설치할 때 로그인한 계정 및 사용자가 선택한 서비스로 로그온 권한이 있는 서비스 계정을 둘 다 허용하는지 확인합니다.
 * 게이트웨이를 등록한 구독과 동일한 [테넌트](/previous-versions/azure/azure-services/jj573650(v=azure.100)#what-is-an-azure-ad-tenant)의 Azure AD 계정으로 Azure에 로그인합니다. 게이트웨이를 설치 및 등록할 때 Azure B2B(게스트) 계정은 지원되지 않습니다.
 * 데이터 원본이 Azure VNet(Virtual Network)에 있는 경우 [AlwaysUseGateway](analysis-services-vnet-gateway.md) 서버 속성을 구성해야 합니다.
-* 여기에 설명된 (통합) 게이트웨이는 Azure Germany 지역에서 지원되지 않습니다. 대신, 포털에 있는 서버의 **빠른 시작**에서 설치된 **Azure Analysis Services에 대한 전용 온-프레미스 게이트웨이**를 사용합니다. 
-
 
 ## <a name="download"></a>다운로드
 
@@ -127,7 +125,7 @@ Azure에서 게이트웨이 리소스를 만들기 위해 게이트웨이 클라
 
     ![게이트웨이 리소스에 서버 연결 성공](media/analysis-services-gateway-install/aas-gateway-connect-success.png)
 
-그렇습니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
+이것으로 끝입니다. 포트를 열거나 문제 해결을 수행해야 하는 경우 [온-프레미스 데이터 게이트웨이](analysis-services-gateway.md)를 확인하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

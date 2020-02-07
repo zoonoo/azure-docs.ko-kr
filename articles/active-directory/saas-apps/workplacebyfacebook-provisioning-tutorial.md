@@ -15,19 +15,41 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 81c9d8582eb41d4a13799c42383ff22010c60577
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 11a5e92ccf1104f36b3f2b045f9922158b1f7330
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985176"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064146"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
 이 자습서에서는 자동 사용자 프로 비전을 구성 하기 위해 Facebook 및 Azure Active Directory (Azure AD)로 작업 공간에서 수행 해야 하는 단계를 설명 합니다. 구성 된 경우 azure AD는 Azure AD 프로 비전 서비스를 사용 하 여 사용자 및 그룹을 [Facebook에서 작업 공간](https://work.workplace.com/) 으로 자동으로 프로 비전 하 고 프로 비전 해제 합니다. 이 서비스의 기능, 작동 방법 및 질문과 대답에 대한 중요한 내용은 [Azure Active Directory를 사용하여 SaaS 애플리케이션의 사용자를 자동으로 프로비저닝 및 프로비저닝 해제](../manage-apps/user-provisioning.md)를 참조하세요.
 
-> [!NOTE]
-> Facebook의 작업 공간에 있는 Azure AD 타사 응용 프로그램이 승인 되었습니다. 고객은 12 월 16 일에 서비스를 중단 하지 않습니다. 새 응용 프로그램으로 전환 해야 하는 경우에는 2 2020 월 28 일의 최종 기한을 나타내는 Facebook 관리 콘솔용 작업 공간에 메모를 표시 합니다. Microsoft는이를 최대한 간단 하 게 유지 하기 위해 노력 하 고 있으며, 여기에서 매월 끝까지 전환에 대 한 업데이트를 제공 합니다.
+## <a name="migrating-to-the-new-workplace-by-facebook-application"></a>Facebook 응용 프로그램으로 새 작업 공간으로 마이그레이션
+Facebook을 사용 하 여 작업 공간에 기존에 통합 한 경우에는 아래에서 변경 된 내용에 대 한 섹션을 참조 하세요. Facebook에서 작업 공간을 처음 설정 하는 경우이 섹션을 건너뛰고 지원 되는 기능으로 이동할 수 있습니다. 
+
+#### <a name="whats-changing"></a>변경 내용은?
+* Azure AD 측의 변경: 작업 공간에서 사용자를 프로 비전 하는 권한 부여 방법이 오래 지속 된 비밀 토큰입니다. 곧 권한 부여 방법이 OAuth 권한 부여로 변경 된 것을 볼 수 있습니다. 
+* 작업 공간 측 변경: 이전에 Azure AD 앱은 Facebook의 작업 공간에서 사용자 지정 통합 이었습니다. 이제 회사 통합 디렉터리에서 타사 응용 프로그램으로 Azure AD가 표시 됩니다. 
+
+ 
+
+#### <a name="what-do-i-need-to-do-to-migrate-my-existing-custom-integration-to-the-new-application"></a>기존 사용자 지정 통합을 새 응용 프로그램으로 마이그레이션하려면 어떻게 해야 하나요?
+유효한 토큰과 함께 기존 작업 공간을 통합 하는 경우에 **는 아무 조치도 필요 하지**않습니다. 매주 새 응용 프로그램으로 고객을 자동으로 마이그레이션합니다. 이 작업은 백그라운드에서 완전히 수행 됩니다. 기다릴 수 없고 새 응용 프로그램으로 수동으로 이동 하려면 갤러리에서 작업 공간의 새 인스턴스를 추가 하 고 프로 비전을 다시 구성할 수 있습니다. 모든 새 작업 공간 인스턴스는 새 응용 프로그램 버전을 자동으로 사용 합니다. 
+
+ 
+작업 공간 통합이 격리에 있는 경우 사용자를 마이그레이션하기 위해 올바른 토큰을 다시 제공 해야 합니다. 관리자 자격 증명 섹션은 회색으로 표시 되지만 다음을 추가할 수 있습니다. **Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride = true**)를 URL에 다시 저장 하 여 자격 증명을 다시 저장 합니다. 
+
+https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOverride=true
+
+ 
+#### <a name="the-admin-credentials-section-is-greyed-out-on-my-application-and-i-cant-save-why"></a>응용 프로그램에서 관리자 자격 증명 섹션이 회색으로 표시 되 고 저장할 수 없습니다. 이유
+기존 작업 공간 고객에 대 한 관리자 자격 증명 섹션을 잠 궜 습니다. 새 작업 공간 응용 프로그램으로 테 넌 트가 마이그레이션된 경우에는 관리자 자격 증명 섹션을 다시 업데이트할 수 있습니다. 기다릴 수 없으면 위의 URL을 사용 하 여 응용 프로그램을 편집할 수 있습니다. 
+
+ 
+#### <a name="when-will-these-changes-happen"></a>이러한 변경 내용은 언제 발생 하나요?
+작업 공간의 모든 새 인스턴스는 이미 새 통합/권한 부여 방법을 사용 하 고 있습니다. 기존 통합은 2 월에 점차적으로 마이그레이션됩니다. 해당 월의 끝까지 모든 테 넌 트에 대해 마이그레이션이 완료 됩니다. 
 
 ## <a name="capabilities-supported"></a>지원 되는 기능
 > [!div class="checklist"]
@@ -109,7 +131,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
 9. **특성 매핑** 섹션에서 Azure AD에서 Facebook으로 작업 공간으로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 Workplace by Facebook의 사용자 계정을 일치시키는 데 사용됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 Facebook API의 작업 공간에서 해당 특성을 기반으로 하는 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |attribute|유형|
+   |특성|형식|
    |---|---|
    |userName|String|
    |displayName|String|

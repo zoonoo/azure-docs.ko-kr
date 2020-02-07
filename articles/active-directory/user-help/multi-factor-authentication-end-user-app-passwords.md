@@ -2,7 +2,7 @@
 title: 앱 암호를 관리 하는 방법-Azure Active Directory | Microsoft Docs
 description: 2 단계 인증과 관련 하 여 앱 암호 및 사용 되는 항목에 대해 알아봅니다.
 services: active-directory
-author: eross-msft
+author: curtand
 manager: daveba
 ms.reviewer: richagi
 ms.assetid: 345b757b-5a2b-48eb-953f-d363313be9e5
@@ -11,14 +11,14 @@ ms.service: active-directory
 ms.subservice: user-help
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: lizross
+ms.author: curtand
 ms.custom: user-help, seo-update-azuread-jan
-ms.openlocfilehash: 74d443cc87a71950a31732db48e94ea3b5ced7ba
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 5f81181ac3107307a352cdbcd0b5cc4a555deacb
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705312"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062628"
 ---
 # <a name="manage-app-passwords-for-two-step-verification"></a>2단계 인증을 위한 앱 암호 관리
 

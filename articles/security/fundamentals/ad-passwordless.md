@@ -1,5 +1,6 @@
 ---
-title: Azure Active Directory 사용 하 여 암호가 없는 전 세계 이해 | Microsoft Docs
+title: Azure AD로 passwordless 인증
+titleSuffix: Active Directory
 description: 이 가이드는 ceo, cio, cisos, 최고 id 설계자, 엔터프라이즈 설계자, 보안 및 IT 의사 결정권자가 Azure Active Directory 구현에 대해 암호 없는 인증 방법을 선택 하는 데 도움이 됩니다.
 keywords: passwordless, azuread
 author: martincoetzer
@@ -9,12 +10,12 @@ ms.topic: article
 ms.service: security
 ms.subservice: security-fundamentals
 ms.workload: identity
-ms.openlocfilehash: 39078e298093c2c2ab4835925a2ba8a70269f5f5
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 5fc6a4a23573995cf791a21ec7cf3a7d68d048e8
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945577"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064481"
 ---
 # <a name="a-world-without-passwords-with-azure-active-directory"></a>Azure Active Directory 암호가 없는 전 세계
 
@@ -24,7 +25,7 @@ ms.locfileid: "75945577"
 
 이 문서는 Microsoft의 암호 없는 솔루션을 이해 하 고 구현 하 고 다음 옵션 중 하나 이상을 선택 하는 데 도움이 되는 여행의 시작입니다.
 
-* **비즈니스용 Windows Hello**. Windows 10에서는 비즈니스용 Windows Hello가 PC 및 모바일 장치에서 암호를 강력한 2단계 인증으로 바꿉니다. 이 인증은 장치에 연결 되 고 생체 인식 또는 PIN을 사용 하는 새로운 유형의 사용자 자격 증명으로 구성 됩니다.
+* **비즈니스용 Windows Hello**. Windows 10에서 비즈니스용 Windows Hello는 Pc 및 모바일 장치에서 암호를 강력한 2 단계 인증으로 바꿉니다. 이 인증은 장치에 연결 되 고 생체 인식 또는 PIN을 사용 하는 새로운 유형의 사용자 자격 증명으로 구성 됩니다.
 
 * **Microsoft Authenticator를 사용 하 여 Passwordless 로그인**합니다. Microsoft Authenticator 앱은 암호를 사용 하지 않고 Azure AD 계정에 로그인 하는 데 사용할 수 있습니다. 비즈니스용 Windows Hello의 기술과 마찬가지로 Microsoft Authenticator는 키 기반 인증을 사용 하 여 장치에 연결 되 고 생체 인식 또는 PIN을 사용 하는 사용자 자격 증명을 사용 하도록 설정 합니다.
 
@@ -50,7 +51,7 @@ Windows 10에서 비즈니스용 Windows Hello는 Pc 및 장치에서 강력한 
 
 비즈니스용 Windows Hello는 여러 구성 요소를 사용 하 여 장치 등록, 프로 비전 및 인증을 수행 하는 분산 시스템입니다. 따라서 배포를 위해서는 조직 내의 여러 팀에서 적절 하 게 계획 해야 합니다. 비즈니스용 Windows Hello [계획 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) 를 사용 하 여 비즈니스용 windows hello 배포 유형과 고려해 야 할 옵션에 대 한 결정을 내리는 데 도움을 받을 수 있습니다.
 
-비즈니스용 Windows Hello를 배포할 때 선택할 수 있는 여러 가지 옵션이 있습니다. 여러 가지 옵션을 제공하여 거의 모든 조직이 비즈니스용 Windows Hello를 배포할 수 있습니다. 지원 되는 배포 유형은 다음과 같습니다.
+비즈니스용 Windows Hello를 배포할 때 선택할 수 있는 여러 옵션이 있습니다. 여러 옵션을 제공 하면 거의 모든 조직에서 비즈니스용 Windows Hello를 배포할 수 있습니다. 지원 되는 배포 유형은 다음과 같습니다.
 
 * [하이브리드 Azure AD 조인 키 신뢰 배포](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-hybrid-key-trust)
 
@@ -70,7 +71,7 @@ Windows 10에서 비즈니스용 Windows Hello는 Pc 및 장치에서 강력한 
 
 #### <a name="user-sets-up-windows-hello-for-business"></a>사용자가 비즈니스용 Windows Hello를 설정 합니다.
 
-등록 하는 동안 사용자에 대 한 초기 2 단계 인증 후에는 사용자의 장치에 Windows Hello가 설정 되며, 사용자에 게 사용자에 게 사용자에 게 사용자에 게 지문 또는 얼굴 인식과 같은 생체 인식 또는 PIN을 설정 하 라는 메시지가 표시 됩니다. 설정 되 면 사용자가 해당 id를 확인 하는 제스처를 제공 합니다. Windows는 Windows Hello를 사용하여 사용자를 인증합니다.
+등록 하는 동안 사용자에 대 한 초기 2 단계 인증 후에는 사용자의 장치에 Windows Hello가 설정 되며, 사용자에 게 사용자에 게 사용자에 게 사용자에 게 지문 또는 얼굴 인식과 같은 생체 인식 또는 PIN을 설정 하 라는 메시지가 표시 됩니다. 설정 되 면 사용자가 해당 id를 확인 하는 제스처를 제공 합니다. Windows에서는 Windows Hello를 사용 하 여 사용자를 인증 합니다.
 
 Windows 10 장치의 기능에 따라 TPM (하드웨어 신뢰할 수 있는 플랫폼 모듈) 또는 소프트웨어 TPM 이라고 하는 기본 제공 보안 enclave 제공 됩니다. TPM은 개인 키를 저장 합니다 .이 키는 잠금 해제를 위해 얼굴, 지문 또는 PIN이 필요 합니다. 생체 인식 데이터는 로밍되지 않으며 외부 장치나 서버로 전송 되지 않습니다. Windows Hello는 장치에 생체 인식 식별 데이터만 저장 하므로 생체 인식 데이터를 도용 하기 위해 공격자가 손상 시킬 수 있는 단일 컬렉션 지점이 없습니다.
 
@@ -109,7 +110,7 @@ Windows 10 장치의 기능에 따라 TPM (하드웨어 신뢰할 수 있는 플
 
 [MICROSOFT pin 재설정 서비스](/windows/security/identity-protection/hello-for-business/hello-feature-pin-reset) 는 사용자가 필요에 따라 PIN을 다시 설정할 수 있도록 하는 Azure AD의 기능입니다. 관리자는 그룹 정책, Microsoft Intune 또는 호환 되는 MDM을 사용 하 여 Microsoft PIN 재설정 서비스를 안전 하 게 사용 하도록 Windows 10 장치를 구성할 수 있습니다. 다시 등록 합니다.
 
-사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. SSPR ( [셀프 서비스 암호 재설정](../../active-directory/authentication/howto-sspr-deployment.md) )는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용하기 전에 셀프 서비스 암호 재설정에 등록하거나 등록되어 있어야 합니다. 등록하는 동안 사용자는 조직에서 사용하도록 설정한 하나 이상의 인증 방법을 선택합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
+사용자가 암호를 사용 하 여 대체 해야 하는 경우도 있습니다. SSPR ( [셀프 서비스 암호 재설정](../../active-directory/authentication/howto-sspr-deployment.md) )는 IT 직원에 게 연락 하지 않고도 사용자가 암호를 재설정할 수 있도록 하는 또 다른 Azure AD 기능입니다. 사용자는 서비스를 사용 하기 전에 셀프 서비스 암호 재설정을 위해 등록 하거나 등록 해야 합니다. 등록 하는 동안 사용자는 조직에서 사용 하도록 설정 된 하나 이상의 인증 방법을 선택 합니다. SSPR를 사용 하면 사용자가 신속 하 게 차단이 해제 되 고 시간이 나 시간에 관계 없이 작업을 계속할 수 있습니다. 사용자가 자신을 차단 해제할 수 있도록 하 여 조직에서는 일반적인 암호 관련 문제에 대 한 비 생산성 시간 및 지원 비용을 줄일 수 있습니다.
 
 ## <a name="passwordless-sign-in-with-microsoft-authenticator"></a>Microsoft Authenticator를 사용 하 여 passwordless 로그인
 
@@ -283,7 +284,7 @@ Microsoft 암호 없는 기술을 선택할 때 고려할 몇 가지 요소는 �
 
 ||**비즈니스용 Windows Hello**|**Microsoft Authenticator 앱을 사용 하 여 passwordless 로그인**|**FIDO2 보안 키**|
 |:-|:-|:-|:-|
-|**필수 구성 요소**| Windows 10, version 1809 이상<br>Azure Active Directory| Microsoft Authenticator 앱<br>휴대폰 (Android 6.0 이상을 실행 하는 iOS 및 Android 장치)|Windows 10, version 1809 이상<br>Azure Active Directory|
+|**필수 구성 요소**| Windows 10, 버전 1809 이상<br>Azure Active Directory| Microsoft Authenticator 앱<br>휴대폰 (Android 6.0 이상을 실행 하는 iOS 및 Android 장치)|Windows 10, 버전 1809 이상<br>Azure Active Directory|
 |**모드**|플랫폼|소프트웨어|하드웨어|
 |**시스템 및 장치**|기본 제공 신뢰할 수 있는 플랫폼 모듈 (TPM)를 사용 하는 PC<br>PIN 및 생체 인식 인식 |휴대폰에서 PIN 및 생체 인식 인식|Microsoft와 호환 되는 보안 장치 FIDO2|
 |**사용자 환경**|PIN 또는 생체 인식 인식 (얼굴, iri 또는 지문)을 사용 하 여 Windows 장치에 로그인 합니다.<br>Windows Hello 인증은 장치에 연결 됩니다. 회사 리소스에 액세스 하려면 사용자에 게 PIN 또는 생체 인식 요소와 같은 장치 및 로그인 구성 요소가 필요 합니다.|지문 검색, 얼굴 또는 조리개 인식 또는 PIN을 사용 하 여 휴대폰을 사용 하 여 로그인 합니다.<br>사용자는 PC 또는 휴대폰에서 회사 또는 개인 계정에 로그인 합니다.|FIDO2 security 장치 (생체 인식, 핀 및 NFC)를 사용 하 여 로그인<br>사용자는 장치에 액세스 하 고, PIN에 기반 하 여 장치에 액세스 하 고, USB 보안 키, NFC 지원 스마트 카드, 키 또는 착용 식 장치용와 같은 장치를 사용 하 여 생체 인식을 수행할 수 있습니다.|

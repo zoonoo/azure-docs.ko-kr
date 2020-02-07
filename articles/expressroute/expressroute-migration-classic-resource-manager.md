@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 06/13/2019
+ms.date: 02/06/2020
 ms.author: cherylmc
-ms.openlocfilehash: b24400b2a6a2050fa74b23f936253046f96a9028
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8033c80b72c19a9473ce7ecfaa8fe5a1da9f12ee
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75436901"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061322"
 ---
 # <a name="migrate-expressroute-associated-virtual-networks-from-classic-to-resource-manager"></a>ExpressRoute에 연결된 가상 네트워크를 클래식에서 Resource Manager로 마이그레이션
 

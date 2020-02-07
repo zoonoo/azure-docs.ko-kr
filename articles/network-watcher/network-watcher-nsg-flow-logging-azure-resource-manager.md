@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/26/2020
 ms.author: damendo
-ms.openlocfilehash: 2ae6314accf5ad9143e1e103239c2e7c884ec947
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6980518da00e6849c327ca712bbeadaa816ae479
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776639"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056668"
 ---
 # <a name="configure-nsg-flow-logs-from-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿에서 NSG 흐름 로그 구성
 
@@ -38,7 +38,7 @@ ms.locfileid: "76776639"
 
 ## <a name="nsg-flow-logs-object"></a>NSG 흐름 로그 개체
 
-모든 매개 변수가 포함 된 NSG 흐름 로그 개체는 아래에 표시 됩니다.
+모든 매개 변수를 포함 하는 NSG 흐름 로그 개체는 다음과 같습니다.
 속성의 전체 개요를 확인 하려면 [Nsg 흐름 로그 템플릿 참조](https://docs.microsoft.com/azure/templates/microsoft.network/2019-11-01/networkwatchers/flowlogs#RetentionPolicyParameters)를 읽어 보십시오.
 
 ```json

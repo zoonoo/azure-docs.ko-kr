@@ -8,12 +8,12 @@ author: nikmd23
 ms.author: nimolnar
 ms.date: 04/29/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 6fe43eb5963f2918f41ad15f1904f883b5e9c298
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e774690fae2314b8db6e14f19a67c7ae1ce3a203
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678296"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064277"
 ---
 # <a name="dependency-auto-collection"></a>종속성 자동 수집
 
@@ -69,25 +69,26 @@ ms.locfileid: "72678296"
 | [HTTP](https://nodejs.org/api/http.html), [HTTPS](https://nodejs.org/api/https.html) | 0.10+ |
 | <b>Storage 클라이언트</b> | |
 | [Redis](https://www.npmjs.com/package/redis) | 2.x |
-| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x-에서처럼 |
+| [MongoDb](https://www.npmjs.com/package/mongodb); [MongoDb Core](https://www.npmjs.com/package/mongodb-core) | 2.x - 3.x |
 | [MySQL](https://www.npmjs.com/package/mysql) | 2.0.0-2.16 |
-| [PostgreSql](https://www.npmjs.com/package/pg); | 6gb-7.x |
-| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x-2.x |
+| [PostgreSql](https://www.npmjs.com/package/pg); | 6.x - 7.x |
+| [pg-pool](https://www.npmjs.com/package/pg-pool) | 1.x - 2.x |
 | <b>로깅 라이브러리</b> | |
 | [콘솔](https://nodejs.org/api/console.html) | 0.10+ |
 | [Bunyan](https://www.npmjs.com/package/bunyan) | 1.x |
-| [윈스턴](https://www.npmjs.com/package/winston) | 2.x-에서처럼 |
+| [윈스턴](https://www.npmjs.com/package/winston) | 2.x - 3.x |
 
 ## <a name="javascript"></a>JavaScript
 
 | 통신 라이브러리 | 버전 |
 | ------------------------|----------|
-| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | 전체 |
+| [XMLHttpRequest](https://developer.mozilla.org/docs/Web/API/XMLHttpRequest) | 모두 |
 
 ## <a name="next-steps"></a>다음 단계
 
 - [.NET](../../azure-monitor/app/asp-net-dependencies.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
 - [Java](../../azure-monitor/app/java-agent.md)에 대한 사용자 지정 종속성 추적을 설정합니다.
+- [OpenCensus Python](../../azure-monitor/app/opencensus-python-dependency.md)에 대 한 사용자 지정 종속성 추적을 설정 합니다.
 - [사용자 지정 종속성 원격 분석을 작성합니다](../../azure-monitor/app/api-custom-events-metrics.md#trackdependency).
 - Application Insights 형식 및 데이터 모델에 대한 자세한 내용은 [데이터 모델](../../azure-monitor/app/data-model.md)을 참조하세요.
 - Application Insights에서 지원되는 [플랫폼](../../azure-monitor/app/platforms.md)을 확인합니다.
