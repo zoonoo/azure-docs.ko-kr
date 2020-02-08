@@ -5,13 +5,13 @@ author: markjbrown
 ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 08/26/2019
-ms.openlocfilehash: 4bdf842ae24d90850280a5a19038dbd00168ff2c
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/07/2020
+ms.openlocfilehash: c6c3e9462b26b44857eea6b53092baeeb5034364
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053356"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087073"
 ---
 # <a name="optimize-provisioned-throughput-cost-in-azure-cosmos-db"></a>Azure Cosmos DB에서 프로비전된 처리량 비용 최적화
 
@@ -57,9 +57,9 @@ Azure Cosmos DB는 프로비전된 처리량 모델을 제공하여 규모에 �
 |----|----|----|
 |SQL API|데이터베이스|컨테이너|
 |Azure Cosmos DB의 API for MongoDB|데이터베이스|컬렉션|
-|Cassandra API|Keyspace|Table|
+|Cassandra API|Keyspace|테이블|
 |Gremlin API|데이터베이스 계정|그래프|
-|Table API|데이터베이스 계정|Table|
+|테이블 API|데이터베이스 계정|테이블|
 
 다양한 수준에서 처리량을 프로비전하여 워크로드의 특징을 기준으로 비용을 최적화할 수 있습니다. 앞에서 설명한 것처럼 프로비전된 처리량을 개별 컨테이너에 대해 또는 컨테이너 세트에 대해 전체적으로 언제든지 프로그래밍 방식으로 늘리거나 줄일 수 있습니다. 워크로드가 변경되면서 처리량 규모를 탄력적으로 조정할 수 있으므로 구성한 처리량에 대해서만 비용을 지불하면 됩니다. 컨테이너 또는 컨테이너 세트가 여러 지역에 분산될 경우 컨테이너 또는 컨테이너 세트에 대해 구성한 처리량을 모든 지역에서 사용할 수 있도록 보장됩니다.
 
@@ -123,7 +123,7 @@ Azure Portal에서 사용한 RU의 수 뿐만 아니라 프로비전된 RU의 �
 
 ## <a name="scale-your-throughput-elastically-and-on-demand"></a>요청이 있을 때 처리량을 탄력적으로 확장 
 
-프로비전된 처리량에 대해 요금이 청구되므로, 요구 사항에 맞게 프로비전된 처리량을 조정하면 사용하지 않은 처리량에 대해 요금이 부과되지 않도록 할 수 있습니다. 언제든지 필요에 따라 프로비전된 처리량을 확장 또는 축소할 수 있습니다.  
+프로비전된 처리량에 대해 요금이 청구되므로, 요구 사항에 맞게 프로비전된 처리량을 조정하면 사용하지 않은 처리량에 대해 요금이 부과되지 않도록 할 수 있습니다. 언제든지 필요에 따라 프로비전된 처리량을 확장 또는 축소할 수 있습니다. 처리량 요구가 매우 예측 가능한 경우 Azure Functions를 사용 하 고 타이머 트리거를 사용 하 여 [일정에 따라 처리량을 늘리거나 줄일](scale-on-schedule.md)수 있습니다. 
 
 * RU 소비량 및 속도가 제한되는 요청의 비율을 모니터링하면 일 또는 주 동안 프로비전된 처리량을 일관되게 유지할 필요가 없습니다. 야간 또는 주말 동안에는 더 적은 트래픽 양을 수신할 수 있습니다. Azure Portal 또는 Azure Cosmos DB 기본 SDK 또는 REST API를 사용하여 언제든지 프로비전된 처리량 규모를 조정할 수 있습니다. Azure Cosmos DB의 REST API는 엔드포인트를 제공하여 컨테이너의 성능 수준을 프로그래밍 방식으로 업데이트함으로써 하루 중 시간 또는 주중 요일에 따라 코드에서 처리량을 편리하게 조정할 수 있도록 합니다. 작업은 가동 중지 시간 없이 수행되며, 일반적으로 1분 이내에 적용됩니다. 
 

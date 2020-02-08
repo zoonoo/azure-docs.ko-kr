@@ -8,18 +8,18 @@ ms.reviewer: jasonh
 ms.service: azure-databricks
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.openlocfilehash: 8d118170de01c7685ac9dba65c7e22cefb6d4829
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 046b2da7cdb966192e485ff9f5510eb63c9e0008
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76263158"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086556"
 ---
 # <a name="quickstart-create-an-azure-databricks-workspace-in-your-own-virtual-network"></a>빠른 시작: 자체 Virtual Network에서 Azure Databricks 작업 영역 만들기
 
 Azure Databricks의 기본 배포에서는 Databricks로 관리 되는 새 가상 네트워크를 만듭니다. 이 빠른 시작에서는 대신 사용자 고유의 가상 네트워크에서 Azure Databricks 작업 영역을 만드는 방법을 보여 줍니다. 또한 해당 작업 영역 내에서 Apache Spark 클러스터를 만듭니다. 
 
-사용자 고유의 가상 네트워크에서 Azure Databricks 작업 영역을 만들도록 선택할 수 있는 이유에 대 한 자세한 내용은 [Azure Virtual Network에서 Azure Databricks 배포 (VNet 주입)] (/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조 하세요.
+사용자 고유의 가상 네트워크에서 Azure Databricks 작업 영역을 만들도록 선택할 수 있는 이유에 대 한 자세한 내용은 [Azure Virtual Network (VNet 주입)에서 Azure Databricks 배포](https://docs.microsoft.com/azure/databricks/administration-guide/cloud-configurations/azure/vnet-inject)를 참조 하세요.
 
 Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/databricks/)을 만듭니다.
 
@@ -37,13 +37,13 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![Azure Portal에서 가상 네트워크 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-portal.png)
 
-2. **가상 네트워크 만들기** 아래에서, 다음 설정을 적용합니다. 
+2. **가상 네트워크 만들기**에서 다음 설정을 적용 합니다. 
 
     |설정|제안 값|Description|
     |-------|---------------|-----------|
     |Subscription|\<구독\>|사용할 Azure 구독을 선택합니다.|
-    |리소스 그룹|databricks-quickstart|**새로 만들기** 를 선택 하 고 계정에 대 한 새 리소스 그룹 이름을 입력 합니다.|
-    |이름|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
+    |Resource group|databricks-quickstart|**새로 만들기** 를 선택 하 고 계정에 대 한 새 리소스 그룹 이름을 입력 합니다.|
+    |속성|databricks-quickstart|가상 네트워크에 대한 이름을 선택합니다.|
     |지역|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크를 호스트할 수 있는 지리적 위치를 선택합니다. 사용자와 가장 가까운 위치를 사용합니다.|
 
     ![Azure Portal의 가상 네트워크에 대 한 기본 사항](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network.png)
@@ -58,7 +58,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![Azure Portal에서 가상 네트워크에 대 한 IP 구성 설정](./media/quickstart-create-databricks-workspace-vnet-injection/create-virtual-network-ip-config.png)
 
-4. **검토 + 만들기** 탭에서 **만들기** 를 선택 하 여 가상 네트워크를 배포 합니다. 배포가 완료되면 가상 네트워크로 이동하고 **설정** 아래에서 **주소 공간**을 선택합니다. *주소 범위 더 추가* 라고 표시된 상자에  `10.179.0.0/16`을 추가하고 **저장**을 선택합니다.
+4. **검토 + 만들기** 탭에서 **만들기** 를 선택 하 여 가상 네트워크를 배포 합니다. 배포가 완료 되 면 가상 네트워크로 이동 하 고 **설정**아래에서 **주소 공간** 을 선택 합니다. *추가 주소 범위 추가*상자에 `10.179.0.0/16` 삽입 하 고 **저장**을 선택 합니다.
 
     ![Azure 가상 네트워크 주소 공간](./media/quickstart-create-databricks-workspace-vnet-injection/add-address-space.png)
 
@@ -68,15 +68,15 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![Azure Portal에서 Azure Databricks 작업 영역 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace-portal.png)
 
-2. **Azure Databricks Service** 아래에서, 다음 설정을 적용합니다.
+2. **Azure Databricks 서비스**에서 다음 설정을 적용 합니다.
 
     |설정|제안 값|Description|
     |-------|---------------|-----------|
     |작업 영역 이름|databricks-quickstart|Azure Databricks 작업 영역에 대 한 이름을 선택 합니다.|
     |Subscription|\<구독\>|사용할 Azure 구독을 선택합니다.|
-    |리소스 그룹|databricks-quickstart|가상 네트워크에 사용한 것과 동일한 리소스 그룹을 선택 합니다.|
+    |Resource group|databricks-quickstart|가상 네트워크에 사용한 것과 동일한 리소스 그룹을 선택 합니다.|
     |위치|\<사용자와 가장 가까운 지역 선택\>|가상 네트워크와 동일한 위치를 선택합니다.|
-    |가격 책정 계층|표준 또는 프리미엄 중에서 선택.|가격 책정 계층에 대한 자세한 내용은 [Databricks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조합니다.|
+    |가격 책정 계층|표준 또는 프리미엄 중에서 선택.|가격 책정 계층에 대 한 자세한 내용은 [Databricks 가격 책정 페이지](https://azure.microsoft.com/pricing/details/databricks/)를 참조 하세요.|
 
     ![Azure Databricks 작업 영역 기본 사항 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-databricks-workspace.png)
 
@@ -84,7 +84,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     |설정|제안 값|Description|
     |-------|---------------|-----------|
-    |VNet (Virtual Network)에 Azure Databricks 작업 영역 배포|예|이 설정을 사용 하면 가상 네트워크에 Azure Databricks 작업 영역을 배포할 수 있습니다.|
+    |VNet (Virtual Network)에 Azure Databricks 작업 영역 배포|yes|이 설정을 사용 하면 가상 네트워크에 Azure Databricks 작업 영역을 배포할 수 있습니다.|
     |Virtual Network|databricks-quickstart|이전 섹션에서 만든 가상 네트워크를 선택 합니다.|
     |공용 서브넷 이름|public-subnet|기본 공용 서브넷 이름을 사용 합니다.|
     |공용 서브넷 CIDR 범위|10.179.64.0/18|/26을 포함 하 여 CIDR 범위를 사용 합니다.|
@@ -106,9 +106,9 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 > [!NOTE]
 > 무료 계정을 사용하여 Azure Databricks 클러스터를 만들려면 클러스터를 만들기 전에 프로필로 이동하고 구독을 **종량제**로 변경합니다. 자세한 내용은 [Azure 체험 계정](https://azure.microsoft.com/free/)을 참조하세요.
 
-1. Azure Databricks 서비스로 돌아와서 **개요** 페이지에서 **작업 영역 시작**을 선택합니다.
+1. Azure Databricks 서비스로 돌아가서 **개요** 페이지에서 **작업 영역 시작** 을 선택 합니다.
 
-2. **클러스터**  >  **+ 클러스터 만들기**를 선택합니다. 그런 다음 *databricks-quickstart-cluster* 같은 클러스터 이름을 생성하고, 나머지 기본 설정을 수락합니다. **클러스터 만들기**를 선택합니다.
+2. 클러스터 ** > ** **+ 클러스터 만들기**를 선택 합니다. 그런 다음 *databricks-cluster*와 같은 클러스터 이름을 만들고 나머지 기본 설정을 적용 합니다. **클러스터 만들기**를 선택합니다.
 
     ![Azure Databricks 클러스터 만들기](./media/quickstart-create-databricks-workspace-vnet-injection/create-cluster.png)
 
@@ -116,7 +116,7 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 
     ![클러스터를 만든 후 관리 되는 리소스 그룹 Azure Databricks](./media/quickstart-create-databricks-workspace-vnet-injection/managed-resource-group2.png)
 
-4. Azure Databricks 작업 영역으로 돌아가서 생성한 클러스터를 선택합니다. 그리고 **Spark UI** 페이지의 **Executors** 탭으로 이동합니다. 드라이버와 실행기에 대한 주소는 개인 서브넷 범위에 있음을 알 수 있습니다. 이 예제에서 드라이버는 10.179.0.6 이며 실행기는 10.179.0.4 및 10.179.0.5입니다. 사용자의 IP 주소는 다를 수 있습니다.
+4. Azure Databricks 작업 영역으로 돌아가서 생성한 클러스터를 선택합니다. 그런 다음 **SPARK UI** 페이지의 **실행자** 탭으로 이동 합니다. 드라이버와 실행기에 대한 주소는 개인 서브넷 범위에 있음을 알 수 있습니다. 이 예제에서 드라이버는 10.179.0.6 이며 실행기는 10.179.0.4 및 10.179.0.5입니다. 사용자의 IP 주소는 다를 수 있습니다.
 
     ![Azure Databricks Spark UI 실행자](./media/quickstart-create-databricks-workspace-vnet-injection/databricks-sparkui-executors.png)
 
@@ -133,4 +133,4 @@ Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com
 이 문서에서는 가상 네트워크에 배포된 Azure Databricks에서 Spark 클러스터를 만들었습니다. Azure Databricks notebook에서 JDBC를 사용하여 가상 네트워크의 SQL Server Linux Docker 컨테이너를 쿼리하는 방법을 알아보려면 다음 문서로 이동합니다.  
 
 > [!div class="nextstepaction"]
->[Azure Databricks notebook에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리](vnet-injection-sql-server.md)
+>[Azure Databricks 노트북에서 가상 네트워크의 SQL Server Linux Docker 컨테이너 쿼리](vnet-injection-sql-server.md)

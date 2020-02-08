@@ -10,12 +10,12 @@ ms.author: jordane
 author: jpe316
 ms.reviewer: larryfr
 ms.date: 08/22/2019
-ms.openlocfilehash: 5d828ab59f790bab1003f0ad73fc7be1b77410bb
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 05a466d52d89fa021235c10e7187900c350b5e50
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044877"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086923"
 ---
 # <a name="deploy-a-model-using-a-custom-docker-base-image"></a>사용자 지정 Docker 기본 이미지를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -41,14 +41,14 @@ Azure Machine Learning는 기본 Docker 기본 이미지를 제공 하므로 만
 * 사용자 지정 기본 이미지 만들기: 사용자 지정 이미지를 만들고 Azure CLI 및 Machine Learning CLI를 사용 하 여 Azure Container Registry에 대 한 인증을 구성 하는 데 관리자 및 DevOps에 정보를 제공 합니다.
 * 사용자 지정 기본 이미지를 사용 하 여 모델 배포: Python SDK 또는 ML CLI에서 학습 된 모델을 배포할 때 사용자 지정 이미지를 사용 하 여 데이터 과학자 및 DevOps/ML 엔지니어에 게 정보를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 그룹입니다. 자세한 내용은 [작업 영역 만들기](how-to-manage-workspace.md) 문서를 참조 하세요.
 * [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)입니다. 
 * [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
 * [Azure Machine Learning에 대 한 CLI 확장](reference-azure-machine-learning-cli.md)입니다.
 * 인터넷에서 액세스할 수 있는 [Azure Container Registry](/azure/container-registry) 또는 기타 Docker 레지스트리
-* 이 문서의 단계에서는 모델 배포의 일부로 __유추 구성__ 개체를 만들고 사용 하는 방법을 잘 알고 있다고 가정 합니다. 자세한 내용은 [배포할 위치 및 방법](how-to-deploy-and-where.md#prepare-to-deploy)의 "배포 준비" 섹션을 참조 하세요.
+* 이 문서의 단계에서는 모델 배포의 일부로 __유추 구성__ 개체를 만들고 사용 하는 방법을 잘 알고 있다고 가정 합니다. 자세한 내용은 [배포할 위치 및 방법](how-to-deploy-and-where.md#prepare-deployment-artifacts)의 "배포 준비" 섹션을 참조 하세요.
 
 ## <a name="create-a-custom-base-image"></a>사용자 지정 기본 이미지 만들기
 
@@ -239,7 +239,7 @@ conda_dep.add_pip_package("azureml-defaults")
 myenv.python.conda_dependencies=conda_dep
 ```
 
-Pip 종속성으로 version > = 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 웹 서비스로 모델을 호스트 하는 데 필요한 기능이 포함 되어 있습니다. 또한 환경의 inferencing_stack_version 속성을 "최신"으로 설정 해야 합니다. 이렇게 하면 웹 서비스에 필요한 특정 apt 패키지가 설치 됩니다. 
+Pip 종속성으로 version > = 1.0.45를 사용 하 여 azureml 기본값을 추가 해야 합니다. 이 패키지에는 모델을 웹 서비스로 호스팅하는 데 필요한 기능이 포함되어 있습니다. 또한 환경의 inferencing_stack_version 속성을 "최신"으로 설정 해야 합니다. 이렇게 하면 웹 서비스에 필요한 특정 apt 패키지가 설치 됩니다. 
 
 환경을 정의한 후 [InferenceConfig](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.inferenceconfig?view=azure-ml-py) 개체와 함께 사용 하 여 모델 및 웹 서비스가 실행 될 유추 환경을 정의 합니다.
 

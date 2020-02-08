@@ -3,22 +3,22 @@ title: 토큰 캐시 지우기 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 토큰 캐시를 지우는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 05/07/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 51407c4c157fa171bc5fd18e8db1f97f677ed973
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a10efb5ff0a2c6a3ced3631dfe82c86e3e8a72fc
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695588"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084774"
 ---
 # <a name="clear-the-token-cache-using-msalnet"></a>MSAL.NET를 사용 하 여 토큰 캐시 지우기
 

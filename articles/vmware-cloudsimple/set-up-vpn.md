@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: fbd2b227c9292593a7652044ef4c013bf0cfaf8e
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 8188fac270eadb6e09cc3561ddefb05aa59ba661
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77017006"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087137"
 ---
 # <a name="configure-a-vpn-connection-to-your-avs-private-cloud"></a>AVS 사설 클라우드에 대 한 VPN 연결 구성
 
@@ -97,7 +97,7 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
     ![VPN 연결 편집](media/viscosity-edit-connection.png)
 
-7. **네트워킹** 탭을 클릭 하 고 쉼표로 구분 된 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을 ```AVS.io```으로 입력 합니다. **VPN 서버에서 보낸 DNS 설정 무시**를 선택 합니다.
+7. **네트워킹** 탭을 클릭 하 고 쉼표로 구분 된 DNS 서버 IP 주소를 쉼표나 공백으로 구분 하 고 도메인을 ```az.cloudsimple.io```으로 입력 합니다. **VPN 서버에서 보낸 DNS 설정 무시**를 선택 합니다.
 
     ![VPN 네트워킹](media/viscosity-edit-connection-networking.png)
 
@@ -117,4 +117,4 @@ Viscosity OpenVPN 클라이언트를 사용 하 여 VPN에 연결 하려면 메�
 
 > [!IMPORTANT]
 >    1. VPN 장치에서 TCP MSS 고정 (1200)를 설정 합니다. 또는 VPN 장치에서 MSS 고정을 지원 하지 않는 경우 터널 인터페이스의 MTU를 1240 바이트로 설정할 수 있습니다.
-> 2. 사이트 간 VPN이 설정 되 면 *에 대 한 DNS 요청을 전달 합니다. AVS.io를 통해 AVS 사설 클라우드 DNS 서버에 연결할 수 있습니다. [온-프레미스 DNS 설정](on-premises-dns-setup.md)의 지침을 따릅니다.
+> 2. 사이트 간 VPN이 설정 되 면 *. cloudsimple.io에 대 한 DNS 요청을 AVS 사설 클라우드 DNS 서버로 전달 합니다. [온-프레미스 DNS 설정](on-premises-dns-setup.md)의 지침을 따릅니다.

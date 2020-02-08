@@ -3,22 +3,22 @@ title: MSAL (클라이언트 응용 프로그램 구성) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)을 사용 하는 공용 클라이언트 및 기밀 클라이언트 응용 프로그램에 대 한 구성 옵션에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 09/27/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 5388dc101dbc4e06ce26f12bfd40645455e8dae8
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 0262d22ae00456ce06cb8efbf995f1a093b20043
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696485"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085014"
 ---
 # <a name="application-configuration-options"></a>응용 프로그램 구성 옵션
 
@@ -112,7 +112,7 @@ MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
   ---------  | --------------
   데스크톱 앱 (.NET FW) | `https://login.microsoftonline.com/common/oauth2/nativeclient` 
   UWP | `WebAuthenticationBroker.GetCurrentApplicationCallbackUri()`값입니다. 이렇게 하면 등록 해야 하는 WebAuthenticationBroker. GetCurrentApplicationCallbackUri ()의 결과로 값을 설정 하 여 브라우저에서 SSO를 사용할 수 있습니다.
-  .NET Core | `https://localhost`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 이를 통해 .NET Core는 현재 포함 된 웹 보기에 대 한 UI를 포함 하지 않으므로 대화형 인증에 시스템 브라우저를 사용할 수 있습니다.
+  .NET Core | `https://localhost`입니다. 이를 통해 .NET Core는 현재 포함 된 웹 보기에 대 한 UI를 포함 하지 않으므로 대화형 인증에 시스템 브라우저를 사용할 수 있습니다.
 
 - Broker를 지원 하지 않는 Xamarin Android 및 iOS 응용 프로그램을 빌드하는 경우 리디렉션 URI를 추가할 필요가 없습니다. (리디렉션 URI는 Xamarin Android 및 iOS에 대 한 `msal{ClientId}://auth` 자동으로 설정 됩니다.
 
@@ -123,7 +123,7 @@ MSAL을 사용 하는 공용 클라이언트 앱 개발자 인 경우:
 `RedirectUri` 속성을 사용 하 여 리디렉션 URI를 재정의할 수 있습니다 (예: broker를 사용 하는 경우). 다음은 해당 시나리오에 대 한 리디렉션 Uri의 몇 가지 예입니다.
 
 - `RedirectUriOnAndroid` = "msauth-5a434691-ccb2-4fd1-b97b-b64bcfbc03fc://com.microsoft.identity.client.sample";
-- `RedirectUriOnIos` = $"msauth.{Bundle.ID}://auth";
+- `RedirectUriOnIos` = $ "msauth. {번들 ID}:/인증 ";
 
 IOS에 대 한 자세한 내용은 [Microsoft Authenticator를 사용 하는 ios 응용 프로그램을 ADAL.NET에서 MSAL.NET로 마이그레이션](msal-net-migration-ios-broker.md) 및 [Ios에서 broker 활용](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Leveraging-the-broker-on-iOS)을 참조 하세요.
 Android에 대 한 추가 정보는 [android에서](brokered-auth.md)조정 된 인증을 참조 하세요.

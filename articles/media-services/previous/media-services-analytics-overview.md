@@ -15,24 +15,20 @@ ms.topic: article
 ms.date: 11/13/2019
 ms.author: juliako
 ms.reviewer: milanga; johndeu
-ms.openlocfilehash: 4b0d360c11313e086f6ec26e5ee46b8d6f49869a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ab1eba3de474d9ff985e62f491c24fa63be0fa63
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844346"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069628"
 ---
 # <a name="media-analytics-on-the-media-services-platform"></a>Media Services 플랫폼에서 미디어 분석 
 
 ## <a name="retirement-plans"></a>사용 중지 계획
 
 > [!IMPORTANT]
-> 다음 레거시 미디어 프로세서는 2020에서 사용이 중지 될 예정입니다. 다음 표에서 세부 정보를 참조 하세요. 
+> 일부 미디어 프로세서를 사용 중지 하 고 있습니다. 사용 중지 날짜 및 자세한 내용은 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. 
 
-|미디어 프로세서 이름|사용 중지 날짜|추가적인 참고 사항|
-|---|---|
-|[Azure Media Indexer](media-services-index-content.md)|2020의 10 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer
- 
 ## <a name="overview"></a>개요
 
 직원을 교육하고, 고객을 참여시키고, 비즈니스 기능을 문서화하는 기본 미디어로 비디오를 사용하는 조직이 늘어나고 있습니다. 클라우드 컴퓨팅은 이러한 대용량 미디어 파일을 저장, 스트림, 액세스하는 방법을 제공합니다. 하지만 비디오 콘텐츠의 회사 라이브러리가 늘어남에 따라 콘텐츠에서 통찰력을 추출하는 효과적인 방법이 동일하게 필요합니다. 
@@ -105,7 +101,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
     }
 
 
-### <a name="rest"></a>REST
+### <a name="rest"></a>REST (영문)
 요청:
 
     GET https://media.windows.net/api/MediaProcessors()?$filter=Name%20eq%20'Azure%20Media%20OCR' HTTP/1.1
@@ -139,7 +135,7 @@ Azure Content Moderator를 통해 비디오에 대해 컴퓨터에서 지원하�
 ## <a name="demos"></a>데모
 [Azure Media 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)를 참조하세요.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
 ## <a name="related-articles"></a>관련 문서

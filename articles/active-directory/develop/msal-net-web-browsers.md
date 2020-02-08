@@ -3,22 +3,22 @@ title: 웹 브라우저 사용 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)에서 Xamarin Android를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: b0b0ac05e54619af0b1dd4a68918a89681f845bd
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: ed1f47ae99f6346a932d0fe94be7586dc25a672f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695078"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084604"
 ---
 # <a name="using-web-browsers-msalnet"></a>웹 브라우저 사용 (MSAL.NET)
 
@@ -43,17 +43,17 @@ MSAL.NET는 다중 프레임 워크 라이브러리 이며 UI 컨트롤에서 �
 
 일반적으로 플랫폼 기본값을 사용 하는 것이 좋으며,이는 일반적으로 시스템 브라우저입니다. 시스템 브라우저는 이전에 로그인 한 사용자를 기억 하는 것이 더 좋습니다. 이 동작을 변경 해야 하는 경우 `WithUseEmbeddedWebView(bool)` 사용
 
-### <a name="at-a-glance"></a>한눈에 보기
+### <a name="at-a-glance"></a>개요
 
 | 프레임워크        | 포함된 | 시스템 | 기본값 |
 | ------------- |-------------| -----| ----- |
-| .NET 클래식     | 예 | 예 ^ | 포함된 |
-| .NET Core     | 아닙니다. | 예 ^ | 시스템 |
-| .NET Standard | 아닙니다. | 예 ^ | 시스템 |
-| UWP | 예 | 아닙니다. | 포함된 |
-| Xamarin.Android | 예 | 예  | 시스템 |
-| Xamarin.iOS | 예 | 예  | 시스템 |
-| Xamarin.Mac| 예 | 아닙니다. | 포함된 |
+| .NET 클래식     | yes | 예 ^ | 포함된 |
+| .NET Core     | 예 | 예 ^ | 시스템 |
+| .NET Standard | 예 | 예 ^ | 시스템 |
+| UWP | yes | 예 | 포함된 |
+| Xamarin.Android | yes | yes  | 시스템 |
+| Xamarin.iOS | yes | yes  | 시스템 |
+| Xamarin.ios| yes | 예 | 포함된 |
 
 ^ "http://localhost" 리디렉션 URI가 필요 합니다.
 

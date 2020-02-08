@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/04/2019
-ms.openlocfilehash: 4198b3a9213ed535c6649c50a20f2ff957d60c94
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 1653a904875964d86864c59c718603a6dacdcbda
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823498"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087175"
 ---
 # <a name="elastic-database-client-library-with-entity-framework"></a>엔터티 프레임 작업과 함께 Elastic Database 클라이언트 라이브러리
 
@@ -27,7 +27,7 @@ ms.locfileid: "73823498"
 이 기사의 코드를 다운로드하려면:
 
 * Visual Studio 2012 이상이 필요합니다. 
-* MSDN에서 [Elastic DB Tools for Azure SQL - Entity Framework Integration sample](https://code.msdn.microsoft.com/windowsapps/Elastic-Scale-with-Azure-bae904ba)(Azure SQL의 탄력적 DB 도구 - Entity Framework 통합 샘플)을 다운로드합니다. 선택한 위치에 샘플의 압축을 풉니다.
+* [AZURE SQL 용 탄력적 DB 도구-Entity Framework 통합 샘플](https://github.com/Azure/elastic-db-tools/)을 다운로드 합니다. 선택한 위치에 샘플의 압축을 풉니다.
 * Visual Studio를 시작합니다. 
 * Visual Studio에서 [파일] -> [프로젝트/솔루션 열기]를 선택합니다. 
 * **프로젝트 열기** 대화 상자에서 다운로드한 샘플로 이동하고 **EntityFrameworkCodeFirst.sln**을 선택하여 샘플을 엽니다. 
@@ -45,7 +45,7 @@ ms.locfileid: "73823498"
 Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용하여 애플리케이션을 빌드하고 애플리케이션 개체의 지속성을 확인합니다.
 
 * **Code First (New Database)** : EF 개발자가 애플리케이션 코드에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 생성합니다. 
-* **Code First(Existing Database)** : EF가 기존 데이터베이스에서 모델에 대한 애플리케이션 코드를 생성하도록 지정합니다.
+* **Code First (Existing Database)** : EF가 기존 데이터베이스에서 모델에 대한 애플리케이션 코드를 생성하도록 지정합니다.
 * **Model First**: 개발자가 EF 디자이너에서 모델을 만들면 EF가 해당 모델에서 데이터베이스를 만듭니다.
 * **Database First**: 개발자가 EF 도구를 사용하여 기존 데이터베이스에서 모델을 유추합니다. 
 
@@ -63,7 +63,7 @@ Entity Framework 개발자는 다음 4개의 워크플로 중 하나를 사용�
 
 탄력적 데이터베이스 클라이언트 라이브러리와 엔터티 프레임 워크 API를 모두 사용할 때는 다음 속성을 유지해야 합니다. 
 
-* **Scale-out**: 애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 즉, 데이터베이스 작성 및 삭제를 제어하는 동시에 탄력적 데이터베이스가 분할된 데이터베이스 맵 관리자 API를 사용하여 데이터베이스와 shardlet 매핑을 관리합니다. 
+* **Scale-out**:애플리케이션의 용량 요구 사항에 따라 분할된 애플리케이션의 데이터 계층에서 데이터베이스를 필요한 만큼 추가하거나 제거합니다. 즉, 데이터베이스 작성 및 삭제를 제어하는 동시에 탄력적 데이터베이스가 분할된 데이터베이스 맵 관리자 API를 사용하여 데이터베이스와 shardlet 매핑을 관리합니다. 
 * **Consistency**: 애플리케이션은 분할을 사용하며 탄력적인 확장의 데이터 종속 라우팅 기능을 사용합니다. 손상되었거나 잘못된 쿼리 결과를 방지하기 위해 분할된 데이터베이스 맵 관리자를 통해 연결이 조정됩니다. 또한 유효성 검사 및 일관성도 유지됩니다.
 * **Code First**: EF의 Code First 패러다임의 편의성을 유지합니다. Code First에서 애플리케이션의 클래스는 기본 데이터베이스 구조에 매핑됩니다. 애플리케이션 코드는 기본 데이터베이스 처리와 관련된 대부분의 측면을 마스킹하는 DbSet와 상호 작용합니다.
 * **Schema**: Entity Framework는 초기 데이터베이스 스키마 생성과 마이그레이션을 통한 후속 스키마 전개를 처리합니다. 이러한 기능을 유지하면 데이터가 전개될 때 그에 맞춰 응용 프로그램을 쉽게 조정할 수 있습니다. 
@@ -190,7 +190,7 @@ SqlDatabaseUtils.SqlRetryPolicy.ExecuteAction(() =>
 
 위의 코드 예제는 애플리케이션에서 Entity Framework와 함께 데이터 종속 라우팅을 사용하는 데 필요한 기본 생성자 다시 작성 방법을 보여 줍니다. 다음 표에서는 다른 생성자에 대한 이 접근 방식을 일반화합니다. 
 
-| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 참고 사항 |
+| 현재 생성자 | 데이터에 맞게 다시 작성된 생성자 | 기본 생성자 | 메모 |
 | --- | --- | --- | --- |
 | MyContext() |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능이어야 합니다. EF를 통한 자동 연결 생성을 무시하고 분할된 데이터베이스 맵을 사용하여 연결을 조정해야 합니다. |
 | MyContext(string) |ElasticScaleContext(ShardMap, TKey) |DbContext(DbConnection, bool) |연결은 분할된 데이터베이스 맵 및 데이터 종속 라우팅 키의 한 기능입니다. 고정 데이터베이스 이름 또는 연결 문자열은 분할된 데이터베이스 맵에 의한 유효성 검사를 무시하므로 작동하지 않습니다. |

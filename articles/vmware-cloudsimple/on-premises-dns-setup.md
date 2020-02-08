@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: eadedcea7e6010cf93d118b3781630053609d29f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 12c4362ae1b075af132d5971f4fe0461c9d91733
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019607"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083088"
 ---
 # <a name="configure-dns-for-name-resolution-for-avs-private-cloud-vcenter-access-from-on-premises-workstations"></a>온-프레미스 워크스테이션에서 AVS 사설 클라우드 vCenter 액세스를 위한 이름 확인을 위한 DNS 구성
 
@@ -32,10 +32,10 @@ ms.locfileid: "77019607"
 
 DNS 구성에 대해 이러한 옵션 중 하나를 사용 합니다.
 
-* [*에 대 한 DNS 서버에서 영역을 만듭니다. AVS.io](#create-a-zone-on-a-microsoft-windows-dns-server)
-* [온-프레미스 DNS 서버에서 조건 전달자를 만들어 *를 확인 합니다. AVS.io](#create-a-conditional-forwarder)
+* [DNS 서버에서 *. cloudsimple.io에 대 한 영역을 만듭니다.](#create-a-zone-on-a-microsoft-windows-dns-server)
+* [온-프레미스 DNS 서버에서 조건 전달자를 만들어 *. cloudsimple.io를 확인 합니다.](#create-a-conditional-forwarder)
 
-## <a name="create-a-zone-on-the-dns-server-for-avsio"></a>*에 대 한 DNS 서버에서 영역을 만듭니다. AVS.io
+## <a name="create-a-zone-on-the-dns-server-for-cloudsimpleio"></a>DNS 서버에서 *. cloudsimple.io에 대 한 영역을 만듭니다.
 
 스텁 영역으로 영역을 설정 하 고 이름 확인을 위해 사설 클라우드의 DNS 서버를 가리킬 수 있습니다. 이 섹션에서는 BIND DNS 서버 또는 Microsoft Windows DNS 서버를 사용 하는 방법에 대 한 정보를 제공 합니다.
 
@@ -78,7 +78,7 @@ zone "az.cloudsimple.io"
 
 ## <a name="create-a-conditional-forwarder"></a>조건부 전달자 만들기
 
-조건부 전달자는 모든 DNS 이름 확인 요청을 지정 된 서버에 전달 합니다. 이 설정을 사용 하면 *에 대 한 모든 요청이 발생 합니다. AVS.io은 AVS 사설 클라우드에 있는 DNS 서버로 전달 됩니다. 다음 예에서는 여러 유형의 DNS 서버에서 전달자를 설정 하는 방법을 보여 줍니다.
+조건부 전달자는 모든 DNS 이름 확인 요청을 지정 된 서버에 전달 합니다. 이 설정을 사용 하는 경우 cloudsimple.io에 대 한 모든 요청은 AVS 사설 클라우드에 있는 DNS 서버로 전달 됩니다. 다음 예에서는 여러 유형의 DNS 서버에서 전달자를 설정 하는 방법을 보여 줍니다.
 
 ### <a name="create-a-conditional-forwarder-on-a-bind-dns-server"></a>바인드 DNS 서버에 조건부 전달자 만들기
 

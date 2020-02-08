@@ -3,22 +3,22 @@ title: 키 집합 구성
 titleSuffix: Microsoft identity platform
 description: 앱이 키 집합에서 토큰을 캐시할 수 있도록 키 집합을 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 52eb4eb5958357a90c1db773f45c9928e4652755
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d94bf7ffe955c9ec9ee2a2e7f7c4dbaaa28df270
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696880"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085854"
 ---
 # <a name="configure-keychain"></a>키 집합 구성
 

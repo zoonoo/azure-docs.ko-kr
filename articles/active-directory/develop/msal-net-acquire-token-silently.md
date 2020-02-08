@@ -3,22 +3,22 @@ title: 캐시에서 토큰 획득 (MSAL.NET)
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)을 사용 하 여 토큰 캐시에서 자동으로 액세스 토큰을 획득 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bb17ebf5afdc20eaa9db8b86a5643ad18a112eab
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 90189a1d7fd6421b7a24940e8c6ed615fa0df6d6
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695656"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084841"
 ---
 # <a name="get-a-token-from-the-token-cache-using-msalnet"></a>MSAL.NET를 사용 하 여 토큰 캐시에서 토큰 가져오기
 

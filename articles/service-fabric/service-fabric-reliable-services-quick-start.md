@@ -1,27 +1,26 @@
 ---
 title: 에서 첫 번째 Service Fabric 응용 프로그램 만들기C#
 description: 상태 비저장 및 상태 저장 서비스를 사용하여 Microsoft Azure Service Fabric 애플리케이션 만들기 소개
-author: vturecek
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.author: vturecek
-ms.openlocfilehash: e7c5c30dc7cbfa0a3f5a8dc76899c5c8bad6e6ea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.custom: sfrev
+ms.openlocfilehash: 15dd9bf6ac19bdac7bc8b50fc70e0b3b0a4e9a83
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462823"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083789"
 ---
-# <a name="get-started-with-reliable-services"></a>Reliable Service 시작하기
+# <a name="get-started-with-reliable-services"></a>Reliable Services로 시작하기
+
 > [!div class="op_single_selector"]
 > * [Windows에서 C#](service-fabric-reliable-services-quick-start.md)
 > * [Linux에서 Java](service-fabric-reliable-services-quick-start-java.md)
-> 
-> 
 
 Azure Service Fabric 애플리케이션에는 코드를 실행하는 하나 이상의 서비스가 포함되어 있습니다. 이 가이드에서는 [Reliable Services](service-fabric-reliable-services-introduction.md)를 사용하여 상태 비저장 및 상태 저장 Service Fabric 애플리케이션을 만드는 방법을 보여 줍니다.  
 
 ## <a name="basic-concepts"></a>기본 개념
+
 Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 됩니다.
 
 * **서비스 유형**: 서비스 구현입니다. 이름 및 버전 번호와 함께 `StatelessService` 및 기타 코드 또는 여기에 사용된 종속성을 확장하도록 사용자가 작성한 클래스에 의해 정의됩니다.
@@ -30,6 +29,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 * **서비스 등록**: 등록은 모든 항목을 함께 모읍니다. Service Fabric에서 실행할 인스턴스를 만들 수 있도록 서비스 호스트의 Service Fabric 런타임에 서비스 유형을 등록해야 합니다.  
 
 ## <a name="create-a-stateless-service"></a>상태 비저장 서비스 만들기
+
 상태 비저장 서비스는 현재 클라우드 애플리케이션에서 정상인 서비스 유형입니다. 서비스 자체가 안정적으로 저장되거나 항상 사용 가능해야 하는 데이터를 포함하기 때문에 상태 비저장으로 간주됩니다. 상태 비저장 서비스의 인스턴스가 종료되면 모든 내부 상태가 손실됩니다. 이러한 서비스 유형에서는 Azure 테이블 또는 SQL 데이터베이스와 같은 외부 저장소에 상태를 항상 유지하고 이를 위해 높은 가용성과 안정성을 유지해야 합니다.
 
 관리자 권한으로 Visual Studio 2017 또는 Visual Studio 2019를 시작 하 고 *HelloWorld*라는 새 Service Fabric 응용 프로그램 프로젝트를 만듭니다.
@@ -46,6 +46,7 @@ Reliable Services를 시작하려면 몇 가지 기본 개념만 이해하면 �
 * *HelloWorldStateless*. 서비스 프로젝트입니다. 상태 비저장 서비스 구현을 포함합니다.
 
 ## <a name="implement-the-service"></a>서비스 구현
+
 서비스 프로젝트에서 **HelloWorldStateless.cs** 파일을 엽니다. 서비스 패브릭에서 서비스는 모든 비즈니스 논리를 실행할 수 있습니다. 서비스 API는 코드에 대한 두 진입점을 제공합니다.
 
 * 장기 실행 컴퓨팅 워크로드 등 모든 워크로드의 실행을 시작할 수 있는 *RunAsync*라는 개방형 진입점 메서드.
@@ -70,11 +71,10 @@ protected override IEnumerable<ServiceInstanceListener> CreateServiceInstanceLis
 프로젝트 템플릿에는 롤링 횟수를 증분하는 `RunAsync()` 의 샘플 구현이 포함됩니다.
 
 > [!NOTE]
-> 통신 스택을 사용하는 방법에 대한 자세한 내용은 [OWIN 자체 호스팅으로 서비스 패브릭 Web API 서비스](service-fabric-reliable-services-communication-webapi.md)
-> 
-> 
+> 통신 스택으로 작업 하는 방법에 대 한 자세한 내용은 [서비스와의 통신 ASP.NET Core](service-fabric-reliable-services-communication-aspnetcore.md)
 
 ### <a name="runasync"></a>RunAsync
+
 ```csharp
 protected override async Task RunAsync(CancellationToken cancellationToken)
 {
@@ -103,13 +103,14 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 
 이러한 오케스트레이션은 서비스의 가용성을 높게 유지하고 제대로 균형을 유지하기 위해 시스템에 의해 관리됩니다.
 
-`RunAsync()`는 동기적으로 차단하지 않아야 합니다. RunAsync 구현은 런타임이 지속되도록 작업을 반환하거나 장기 실행 또는 차단 작업을 대기해야 합니다. 이전 예제의 `while(true)` 루프에는 작업 반환 `await Task.Delay()`가 사용됩니다. 워크로드가 동기적으로 차단해야 하는 경우 `RunAsync` 구현에서 `Task.Run()`을 사용하여 새 작업을 예약해야 합니다.
+`RunAsync()`는 동기적으로 차단하지 않아야 합니다. RunAsync 구현은 런타임이 지속되도록 작업을 반환하거나 장기 실행 또는 차단 작업을 대기해야 합니다. 이전 예제의 `while(true)` 루프에는 작업 반환 `await Task.Delay()`가 사용됩니다. 워크로드가 동기적으로 차단해야 하는 경우 `Task.Run()` 구현에서 `RunAsync`을 사용하여 새 작업을 예약해야 합니다.
 
 워크로드 취소는 제공된 취소 토큰에 의해 조정된 공동의 노력입니다. 시스템은 계속하기 전에 태스크가 종료(성공적인 완료, 취소 또는 오류에 의해)될 때까지 기다립니다. 시스템이 취소를 요청할 때 가능한 한 빨리 취소 토큰을 받아들이고 작업을 마치며 `RunAsync()` 를 종료하는 것이 중요합니다.
 
 이 상태 비저장 서비스 예에서는 개수가 로컬 변수에 저장됩니다. 하지만 이는 상태 비저장 서비스이므로 저장되는 값은 해당 서비스 인스턴스의 현재 주기에만 존재합니다. 서비스가 이동하거나 다시 시작되면 값이 손실됩니다.
 
 ## <a name="create-a-stateful-service"></a>상태 저장 서비스 만들기
+
 서비스 패브릭은 상태 저장하는 서비스의 새로운 종류를 도입합니다. 상태 저장 서비스는 서비스를 사용하는 코드와 함께 위치한 서비스 자체 내에서 안정적으로 상태를 유지할 수 있습니다. 외부 저장소에 상태를 유지하지 않고도 서비스 패브릭에서 상태는 높은 가용성을 가집니다.
 
 서비스가 이동하거나 다시 시작하는 경우에도 카운터 값을 상태 비저장에서 항상 사용 가능하고 지속되게 만들려면 상태 저장 서비스가 필요합니다.
@@ -159,9 +160,11 @@ protected override async Task RunAsync(CancellationToken cancellationToken)
 ```
 
 ### <a name="runasync"></a>RunAsync
+
 `RunAsync()` 은 상태 저장 및 상태 비저장 서비스에서 비슷하게 작동합니다. 그러나 상태 저장 서비스에서 플랫폼은 `RunAsync()`을 실행하기 전에 사용자 대신 추가 작업을 수행합니다. 이 작업은 신뢰할 수 있는 상태 관리자 및 신뢰할 수 있는 컬렉션을 사용할 준비가 되도록 포함할 수 있습니다.
 
 ### <a name="reliable-collections-and-the-reliable-state-manager"></a>신뢰할 수 있는 컬렉션 및 신뢰할 수 있는 상태 관리자
+
 ```csharp
 var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<string, long>>("myDictionary");
 ```
@@ -178,6 +181,7 @@ var myDictionary = await this.StateManager.GetOrAddAsync<IReliableDictionary<str
 신뢰할 수 있는 상태 관리자는 사용자에 대한 신뢰할 수 있는 컬렉션을 관리합니다. 언제든지 서비스의 어느 위치에서든 신뢰할 수 있는 컬렉션에 대한 신뢰할 수 있는 상태 관리자를 단순히 요청할 수 있습니다. 신뢰할 수 있는 상태 관리자는 참조를 다시 가져오도록 합니다. 클래스 멤버 변수 또는 속성에서 신뢰할 수 있는 컬렉션 인스턴스에 대한 참조를 저장하는 것이 좋습니다. 서비스 수명 주기에서 항상 참조가 인스턴스로 설정되어 있도록 특별히 주의해야 합니다. 신뢰할 수 있는 상태 관리자는 사용자를 위해 이 작업을 처리하고 반복 방문에 최적화됩니다.
 
 ### <a name="transactional-and-asynchronous-operations"></a>트랜잭션 및 비동기 작업
+
 ```csharp
 using (ITransaction tx = this.StateManager.CreateTransaction())
 {
@@ -189,7 +193,7 @@ using (ITransaction tx = this.StateManager.CreateTransaction())
 }
 ```
 
-신뢰할 수 있는 컬렉션에는 LINQ를 제외하고 해당 `System.Collections.Generic` 및 `System.Collections.Concurrent` 항목이 수행하는 동일한 작업이 많이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
+신뢰할 수 있는 컬렉션에는 LINQ (Language Integrated Query)를 제외 하 고 `System.Collections.Generic` 및 `System.Collections.Concurrent` 대응 작업을 수행 하는 것과 동일한 많은 작업이 있습니다. 신뢰할 수 있는 컬렉션의 작업은 비동기적입니다. 신뢰할 수 있는 컬렉션을 사용한 쓰기 작업에서는 I/O 작업을 수행하여 데이터를 복제하고 디스크에 보존하기 때문입니다.
 
 신뢰할 수 있는 컬렉션 작업은 *트랜잭션*이므로 여러 신뢰할 수 있는 컬렉션 및 작업에서 상태를 일관성 있게 유지할 수 있습니다. 예를 들어 신뢰할 수 있는 큐에서 작업 항목을 제거하고, 작업을 수행하고, 신뢰할 수 있는 사전의 결과를 모두 단일 트랜잭션 내에 저장할 수 있습니다. 이는 원자성 작업으로 처리되며, 전체 작업이 성공하거나 롤백되도록 보장합니다. 항목을 큐에서 제거한 다음이지만 결과를 저장하기 전에 오류가 발생하면 전체 트랜잭션이 롤백되고 항목이 처리를 위해 큐에 남아 있습니다.
 

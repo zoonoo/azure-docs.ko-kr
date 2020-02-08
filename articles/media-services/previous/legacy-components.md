@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/22/2019
 ms.author: juliako
-ms.openlocfilehash: bbf3ba17e7f91e88136f2dac50c908262100e77a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: HT
+ms.openlocfilehash: cfc9d944f7851f9b802e18c861fd16438171b8e7
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048788"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069584"
 ---
 # <a name="azure-media-services-legacy-components"></a>Azure Media Services 레거시 구성 요소
 
@@ -35,8 +35,8 @@ ms.locfileid: "77048788"
  
 |미디어 프로세서 이름|사용 중지 날짜|추가적인 참고 사항|
 |---|---|
-|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)| 2020의 10 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
-|[Azure Media Indexer](media-services-index-content.md)|2020의 10 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 교체 됩니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer
+|[Azure Media Indexer 2](media-services-process-content-with-indexer2.md)|2020 년 1 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.|
+|[Azure Media Indexer](media-services-index-content.md)|2023 년 3 월 1 일|이 미디어 프로세서는 [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/)으로 대체 되 고 있습니다. 자세한 내용은 [Azure Media Indexer에서 Azure Media Services로 마이그레이션](migrate-indexer-v1-v2.md) 을 참조 하세요 Video Indexer
 
 ## <a name="next-steps"></a>다음 단계
 

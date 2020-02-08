@@ -13,18 +13,18 @@ ms.date: 02/03/2020
 ms.author: ryanwi
 ms.reviewer: jmprieur, saeeda, sureshja, hirsin
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: 841ff610509c0d580ff8dca3a9fc14b816d56f1c
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 9760f09f2588f09263c96cf8c1be74129b117009
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983225"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085388"
 ---
 # <a name="authentication-basics"></a>인증 기본 사항
 
 ## <a name="what-is-authentication"></a>인증 이란?
 
-이 문서에서는 보호 된 웹 앱, web Api 또는 보호 된 웹 Api를 호출 하는 앱을 만들기 위해 이해 해야 하는 여러 가지 인증 개념을 설명 합니다. 익숙하지 않은 용어가 표시 되 면 (용어집) [developer-glossary.md]를 사용해 보세요.
+이 문서에서는 보호 된 웹 앱, web Api 또는 보호 된 웹 Api를 호출 하는 앱을 만들기 위해 이해 해야 하는 여러 가지 인증 개념을 설명 합니다. 익숙하지 않은 용어가 표시 되 면 [용어집](developer-glossary.md)을 사용해 보세요.
 
 **인증은** 사용자가 누구 인지를 증명 하는 과정입니다. Authentication(인증)은 종종 AuthN으로 축약됩니다.
 
@@ -38,7 +38,7 @@ Azure AD (Azure Active Directory)는 클라우드의 중앙 집중식 id 공급�
 
 Microsoft id 플랫폼을 사용 하면 id를 서비스로 제공 하 여 응용 프로그램 개발자에 대 한 인증을 간소화 하 고, [OAuth 2.0](https://oauth.net/2/) 및 [openid connect Connect](https://openid.net/connect/)와 같은 산업 표준 프로토콜을 지원 하 고, 코딩을 빠르게 시작 하는 데 도움이 되는 다양 한 플랫폼에 대 한 오픈 소스 라이브러리를 지원 합니다. 개발자는이를 통해 모든 Microsoft id를 로그인 하는 응용 프로그램을 작성 하 고, [Microsoft Graph](https://developer.microsoft.com/graph/), 호출할 토큰, 기타 microsoft api 또는 개발자가 빌드한 api를 가져올 수 있습니다. 자세한 내용은 [Microsoft id 플랫폼의 진화](about-microsoft-identity-platform.md)를 참조 하세요.
 
-### <a name="tenants"></a>테 넌 트
+### <a name="tenants"></a>테넌트
 
 클라우드 id 공급자는 많은 조직에 서비스를 제공 합니다. 서로 다른 조직의 사용자를 유지 하기 위해 Azure AD는 조직 마다 하나의 테 넌 트를 사용 하 여 테 넌 트로 분할 됩니다.
 
@@ -87,7 +87,7 @@ Id 공급자가 사용자에 게 특정 앱에 대 한 액세스 권한이 있�
 * 사용자가 조직에 속한 경우에만 로그인 할 수 있도록 할지 결정 합니다. 이 응용 프로그램은 단일 테 넌 트 응용 프로그램입니다. 또는 사용자가 회사 또는 학교 계정을 사용 하 여 로그인 하도록 허용 합니다. 다중 테 넌 트 응용 프로그램입니다. 개인 Microsoft 계정이 나 LinkedIn, Google 등의 소셜 계정도 허용할 수 있습니다.
 * 요청 범위 권한입니다. 예를 들어, 로그인 한 사용자의 프로필을 읽을 수 있는 권한을 부여 하는 "사용자 읽기" 범위를 요청할 수 있습니다.
 * 웹 API에 대 한 액세스를 정의 하는 범위를 정의 합니다. 일반적으로 앱이 API에 액세스 하려는 경우 사용자가 정의 하는 범위에 대 한 권한을 요청 해야 합니다.
-* azure ad에서 앱의 id를 증명 하는 Azure AD와 암호를 공유 합니다.  이는 앱이 기밀 클라이언트 응용 프로그램 인 경우와 관련이 있습니다. 기밀 클라이언트 응용 프로그램은 자격 증명을 안전 하 게 저장할 수 있는 응용 프로그램입니다. 자격 증명을 저장 하려면 신뢰할 수 있는 백엔드 서버가 필요 합니다.
+* Azure ad에서 앱의 id를 증명 하는 Azure AD와 암호를 공유 합니다.  이는 앱이 기밀 클라이언트 응용 프로그램 인 경우와 관련이 있습니다. 기밀 클라이언트 응용 프로그램은 자격 증명을 안전 하 게 저장할 수 있는 응용 프로그램입니다. 자격 증명을 저장 하려면 신뢰할 수 있는 백엔드 서버가 필요 합니다.
 
 등록 된 응용 프로그램에는 토큰을 요청할 때 앱이 Azure AD와 공유 하는 고유 식별자가 제공 됩니다. 앱이 [기밀 클라이언트 응용 프로그램](https://docs.microsoft.com/azure/active-directory/develop/developer-glossary#client-application)인 경우 인증서 또는 암호의 사용 여부에 따라 비밀 또는 공개 키 *도 공유 합니다.
 

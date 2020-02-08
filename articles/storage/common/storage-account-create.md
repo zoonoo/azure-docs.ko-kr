@@ -6,15 +6,15 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 01/17/2020
+ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 2ef90e1cb883a2d22b355ff4105ae0ce3c73ad6d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759855"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086955"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
@@ -24,17 +24,25 @@ Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 A
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
 # <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
 
-없음.
+없음
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 
-이 방법 문서에는 Azure PowerShell 모듈 Az version 0.7 이상이 필요 합니다. `Get-Module -ListAvailable Az`을 실행하여 현재 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조하세요.
+PowerShell을 사용 하 여 Azure storage 계정을 만들려면 Azure PowerShell module Az version 0.7 이상을 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
+
+현재 버전을 찾으려면 다음 명령을 실행 합니다.
+
+```powershell
+Get-InstalledModule -Name "Az"
+```
+
+Azure PowerShell을 설치 하거나 업그레이드 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
 # <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
 
@@ -59,7 +67,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-없음.
+없음
 
 ---
 
@@ -83,13 +91,13 @@ Azure Cloud Shell를 시작 하려면 [Azure Portal](https://portal.azure.com)�
 
 CLI의 로컬 설치에 로그인 하려면 [az login](/cli/azure/reference-index#az-login) 명령을 실행 합니다.
 
-```cli
+```azurecli-interactive
 az login
 ```
 
 # <a name="templatetabtemplate"></a>[템플릿](#tab/template)
 
-N/A
+해당 없음
 
 ---
 
@@ -113,6 +121,7 @@ N/A
 # put resource group in a variable so you can use the same group name going forward,
 # without hard-coding it repeatedly
 $resourceGroup = "storage-resource-group"
+$location = "westus"
 New-AzResourceGroup -Name $resourceGroup -Location $location
 ```
 
@@ -120,7 +129,6 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ```powershell
 Get-AzLocation | select Location
-$location = "westus"
 ```
 
 그런 다음 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령을 사용 하 여 읽기 액세스 지역 중복 저장소 (RA-GRS)를 사용 하는 범용 v2 저장소 계정을 만듭니다. 저장소 계정의 이름은 Azure에서 고유 해야 하므로 괄호 안의 자리 표시자 값을 고유한 값으로 바꿉니다.
@@ -134,7 +142,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 ```
 
 > [!IMPORTANT]
-> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 목록에 `-EnableHierarchicalNamespace $True`을 포함 합니다. 
+> [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우이 매개 변수 목록에 `-EnableHierarchicalNamespace $True`을 포함 합니다.
 
 다른 복제 옵션을 사용 하 여 범용 v2 저장소 계정을 만들려면 아래 테이블에서 해당 하는 값을 원하는 값으로 **대체 합니다.**
 

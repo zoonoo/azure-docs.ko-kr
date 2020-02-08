@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 975ffcd7142aac24363c2235db3742c155c1007b
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d4e25074203ddcc016f54842f25f52017c6137f0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019828"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083219"
 ---
 # <a name="migrate-workloads-using-layer-2-stretched-networks"></a>Layer 2 확장 네트워크로 워크로드 마이그레이션
 
@@ -48,19 +48,19 @@ L2 VPN을 사용 하 여 마이그레이션하는 방법에 대 한 자세한 �
 * 독립 실행형 NSX-Edge 어플라이언스의 버전은 AVS 사설 클라우드 환경에서 사용 되는 NSX Manager 버전 (NSX-T 2.3.0)과 호환 됩니다.
 * 위조 된 전송 기능을 사용 하 여 온-프레미스 vCenter에서 트렁크 포트 그룹을 만들었습니다.
 * 공용 IP 주소는 NSX-T 독립 실행형 클라이언트 업링크 IP 주소에 사용 하도록 예약 되었으며, 1:1 NAT는 두 주소 간 변환을 위해 준비 되었습니다.
-* DNS 전달은 az에 대해 온-프레미스 DNS 서버에서 설정 됩니다. AVS.io 도메인은 AVS 사설 클라우드 DNS 서버를 가리킵니다.
+* DNS 전달은 az.cloudsimple.io 도메인에 대 한 온-프레미스 DNS 서버에서 AVS 사설 클라우드 DNS 서버를 가리키도록 설정 됩니다.
 * VMotion가 두 사이트에서 작동 하는 데 필요한 경우 RTT 대기 시간은 150 밀리초 보다 작거나 같습니다.
 
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 다음 표에는 지원 되는 vSphere 버전 및 네트워크 어댑터 유형이 나와 있습니다. 
 
-| vSphere 버전 | 원본 vSwitch 유형 | 가상 NIC 드라이버 | 대상 vSwitch 유형 | 되지? |
+| vSphere 버전 | 원본 vSwitch 유형 | 가상 NIC 드라이버 | 대상 vSwitch 유형 | 지원 여부 |
 ------------ | ------------- | ------------ | ------------- | ------------- 
-| 전체 | DVS | 전체 | DVS | 예 |
-| vSphere 6.7 UI 이상, 6.5 P03 이상 | DVS | VMXNET3 | N-VDS | 예 |
+| 모두 | DVS | 모두 | DVS | yes |
+| vSphere 6.7 UI 이상, 6.5 P03 이상 | DVS | VMXNET3 | N-VDS | yes |
 | vSphere 6.7 UI 이상, 6.5 P03 이상 | DVS | E1000 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
-| vSphere 6.7 UI 또는 6.5 P03, NSX 또는 NSX 아래에 있는 버전-T 2.2, 6.5 P03 이상 | 전체 | 전체 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
+| vSphere 6.7 UI 또는 6.5 P03, NSX 또는 NSX 아래에 있는 버전-T 2.2, 6.5 P03 이상 | 모두 | 모두 | N-VDS | [VWware 당 지원 되지 않음](https://kb.vmware.com/s/article/56991) |
 
 VMware NSX-T 2.3 릴리스를 기반으로 합니다.
 

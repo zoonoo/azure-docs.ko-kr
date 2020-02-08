@@ -3,22 +3,22 @@ title: 인증 요청에서 사용자 지정 상태 전달 (MSAL .js) | Microsoft
 titleSuffix: Microsoft identity platform
 description: JavaScript 용 Microsoft 인증 라이브러리 (MSAL)를 사용 하 여 인증 요청에서 사용자 지정 상태 매개 변수 값을 전달 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/16/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: be2dd887358aa00c87a4b5668a99c425d83b59dc
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1c05956f83ad3a6491627be8916fac2c8be2b7ff
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696030"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084943"
 ---
 # <a name="pass-custom-state-in-authentication-requests-using-msaljs"></a>MSAL를 사용 하 여 인증 요청에서 사용자 지정 상태를 전달 합니다.
 
@@ -51,7 +51,7 @@ export type AuthenticationParameters = {
 > 캐시를 건너뛰는 것은 현재 캐시 된 데이터에 최신 정보가 없다는 것을 알고 있는 경우에만 사용 해야 합니다.
 > 업데이트 된 역할이 있는 새 토큰을 가져와야 하는 사용자에 게 역할을 추가 하는 관리 도구입니다.
 
-예:
+다음은 그 예입니다.
 
 ```javascript
 let loginRequest = {

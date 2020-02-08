@@ -11,18 +11,18 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: ''
 ms.date: 01/25/2019
-ms.openlocfilehash: e5212ba7ed349f3596047fc0c027829b8667ddc5
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: fbdf8e316368be02ebd0c4bfd320917c20d80777
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823676"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069458"
 ---
 # <a name="use-data-dependent-routing-to-route-a-query-to-appropriate-database"></a>데이터 의존 라우팅을 사용하여 적절한 데이터베이스로 쿼리 라우팅
 
 **데이터 종속 라우팅** 은 쿼리에서 데이터를 사용하여 적절한 데이터베이스로 요청을 라우트하는 기능입니다. 데이터 종속 라우팅은 분할된 데이터베이스를 사용할 때의 기본 패턴입니다. 요청 컨텍스트는 특히 분할 키가 쿼리의 일부가 아닌 경우 요청을 라우트하는 데 사용될 수도 있습니다. 데이터 종속 라우팅을 사용하는 애플리케이션의 각 특정 쿼리 또는 트랜잭션은 요청당 하나의 데이터베이스에 액세스하는 것으로 제한됩니다. Azure SQL Database 탄력적 도구의 경우 이 라우팅은 **ShardMapManager**([Java](/java/api/com.microsoft.azure.elasticdb.shard.mapmanager.shardmapmanager), [.NET](https://docs.microsoft.com/dotnet/api/microsoft.azure.sqldatabase.elasticscale.shardmanagement.shardmapmanager)) 클래스를 통해 수행됩니다.
 
-애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md) 에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다.
+애플리케이션에서는 다양한 연결 문자열 또는 분할된 환경의 여러 데이터 조각과 연결된 DB 위치를 추적하지 않아도 됩니다. 대신 [분할된 데이터베이스 맵 관리자](sql-database-elastic-scale-shard-map-management.md)에서 필요한 경우 분할된 데이터베이스 맵의 데이터 및 애플리케이션의 요청 대상인 분할 키의 값에 따라 올바른 데이터베이스에 연결을 엽니다. 이 키는 일반적으로 *customer_id*, *tenant_id*, *date_key* 또는 데이터베이스 요청의 기본 매개 변수인 별도의 특정 식별자입니다.
 
 자세한 내용은 [Scaling Out SQL Server with Data Dependent Routing](https://technet.microsoft.com/library/cc966448.aspx)(데이터 종속 라우팅을 사용하여 SQL Server 크기 조정)을 참조하세요.
 
@@ -147,8 +147,8 @@ try {
 int customerId = 12345;
 int newPersonId = 4321;
 
-Configuration.SqlRetryPolicy.ExecuteAction(() =&gt;
-{
+Configuration.SqlRetryPolicy.ExecuteAction(() -> {
+
     // Connect to the shard for a customer ID.
     using (SqlConnection conn = customerShardMap.OpenConnectionForKey(customerId, Configuration.GetCredentialsConnectionString(), ConnectionOptions.Validate))
     {

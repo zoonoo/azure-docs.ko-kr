@@ -11,19 +11,19 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2019
+ms.date: 2/7/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 55b31dec0531add8e8c3b40bd9cc3e031ef30000
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: b5a74e03a5b166af85c809725c2c8b9a13b7e4f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066383"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085453"
 ---
-# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
+# <a name="develop-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 개발 하 고 Azure Active Directory를 사용 하 여 사용자 프로 비전 구성 (Azure AD)
 
 응용 프로그램 개발자는 SCIM (도메인 간 Id 관리) 사용자 관리 API에 대 한 시스템을 사용 하 여 응용 프로그램과 Azure AD 간에 사용자 및 그룹의 자동 프로 비전을 사용 하도록 설정할 수 있습니다. 이 문서에서는 SCIM 끝점을 빌드하고 Azure AD 프로 비전 서비스와 통합 하는 방법을 설명 합니다. SCIM 사양은 프로 비전을 위한 공용 사용자 스키마를 제공 합니다. SAML 또는 Openid connect Connect와 같은 페더레이션 표준과 함께 사용 하는 경우 SCIM은 관리자에 게 액세스 관리를 위한 종단 간 표준 기반 솔루션을 제공 합니다.
 
@@ -722,6 +722,34 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 *HTTP/1.1 204 내용 없음*
 
+### <a name="security-requirements"></a>보안 요구 사항
+**TLS 프로토콜 버전**
+
+허용 되는 TLS 프로토콜 버전은 TLS 1.2 및 TLS 1.3 뿐입니다. 다른 버전의 TLS는 허용 되지 않습니다. SSL 버전이 허용 되지 않습니다. 
+- RSA 키는 2048 비트 이상 이어야 합니다.
+- ECC 키는 승인 된 타원 곡선을 사용 하 여 생성 된 256 비트 이상 이어야 합니다.
+
+
+**키 길이**
+
+모든 서비스는 충분 한 길이의 암호화 키를 사용 하 여 생성 된 x.509 인증서를 사용 해야 합니다. 의미는 다음과 같습니다.
+
+**암호 그룹**
+
+모든 서비스는 아래 지정 된 순서 대로 다음 암호 그룹을 사용 하도록 구성 되어야 합니다. RSA 인증서만 있는 경우에는 설치 된 ECDSA 암호 그룹에 영향을 주지 않습니다. </br>
+
+TLS 1.2 암호 그룹 최소 막대:
+
+- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
+- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
+- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
+- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+
+
 ## <a name="step-3-build-a-scim-endpoint"></a>3 단계: SCIM 끝점 빌드
 
 Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어 거의 모든 응용 프로그램 또는 id 저장소에 대해 자동 사용자 프로 비전을 사용 하도록 설정할 수 있습니다.
@@ -814,10 +842,6 @@ CLI 라이브러리를 사용 하는 개발자는 실행 가능한 CLI 어셈블
 ```csharp
  private static void Main(string[] arguments)
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -907,10 +931,6 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc
 ```csharp
  public class Startup
  {
- // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 

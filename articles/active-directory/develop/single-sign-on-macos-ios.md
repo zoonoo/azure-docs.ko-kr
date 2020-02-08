@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: MacOS 및 iOS에서 SSO (single sign on)를 구성 하는 방법에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 02/03/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: bfc656911abf3349e03543e6bb668db977422738
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 91a55520b37c549c8f1d94ba6cf08ecd24db85b5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022633"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085538"
 ---
 # <a name="how-to-configure-sso-on-macos-and-ios"></a>방법: macOS 및 iOS에서 SSO 구성
 
@@ -69,7 +69,7 @@ MSAL은 iOS 키 집합 액세스 그룹을 통해 SSO 공유를 지원 합니다
 
 Microsoft id 플랫폼에서 토큰을 공유할 수 있는 응용 프로그램을 확인 하려면 이러한 응용 프로그램이 동일한 클라이언트 ID 또는 응용 프로그램 ID를 공유 해야 합니다. 포털에 첫 번째 애플리케이션을 등록했던 경우에 제공된 고유 식별자입니다.
 
-Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 예:
+Microsoft id 플랫폼에서 동일한 응용 프로그램 ID를 사용 하는 앱을 **리디렉션 uri**로 알리는 방법이 있습니다. 각 애플리케이션에는 등록 포털에 등록한 여러 개의 리디렉션 URI가 있을 수 있습니다. 제품의 각 앱은 다른 리디렉션 URI를 갖습니다. 다음은 그 예입니다.
 
 App1 리디렉션 URI: `msauth.com.contoso.mytestapp1://auth`  
 App2 리디렉션 URI: `msauth.com.contoso.mytestapp2://auth`  
@@ -149,7 +149,7 @@ MSAL은 Microsoft Authenticator를 사용 하 여 조정 된 인증을 지원 �
 
 다음 단계는 앱에 대 한 인증 브로커를 사용 하 여 SSO를 사용 하도록 설정 하는 방법입니다.
 
-1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. ' < App. 번들 ID > ' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 예:
+1. 앱의 info.plist에서 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. ' < App. 번들 ID > ' '을 (를) 응용 프로그램의 번들 ID로 바꿉니다. 다음은 그 예입니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>

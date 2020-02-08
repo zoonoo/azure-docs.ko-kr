@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 11/19/2019
-ms.openlocfilehash: 109ac20d8a3d3dc87b4a83165c0e6c24808c1340
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 6342e6a75c8397712e028874b4d727bf3d6f5ff4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75529646"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087112"
 ---
 # <a name="safely-manage-python-environment-on-azure-hdinsight-using-script-action"></a>스크립트 작업을 사용하여 Azure HDInsight에서 Python 환경을 안전하게 관리
 
@@ -22,7 +22,7 @@ ms.locfileid: "75529646"
 
 HDInsight에는 Spark 클러스터에 두 가지 기본 제공 Python 설치 Anaconda Python 2.7 및 Python 3.5이 있습니다. 경우에 따라 고객은 외부 Python 패키지 또는 다른 Python 버전을 설치 하는 등 Python 환경을 사용자 지정 해야 합니다. 이 문서에서는 HDInsight에서 [Apache Spark](https://spark.apache.org/) 클러스터에 대 한 Python 환경을 안전 하 게 관리 하는 모범 사례를 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 [Azure 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
 
@@ -43,7 +43,7 @@ HDInsight 서비스에서 사용할 수 있는 오픈 소스 구성 요소에는
 > [!IMPORTANT]
 > HDInsight 클러스터에 제공되는 구성 요소는 완벽히 지원됩니다. Microsoft 지원은 이러한 구성 요소와 관련된 문제를 격리하고 해결하도록 도와줍니다.
 >
-> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. 또한 Apache 프로젝트에는 [https://apache.org](https://apache.org)에 대 한 프로젝트 사이트가 있습니다 (예: [Hadoop](https://hadoop.apache.org/)).
+> 사용자 지정 구성 요소는 문제 해결에 도움이 되는 합리적인 지원을 받습니다. Microsoft 지원을 통해 문제를 해결할 수 있습니다. 또는 해당 기술에 대한 전문 지식이 있는 오픈 소스 기술에 대해 사용 가능한 채널에 참여하도록 요청할 수 있습니다. 예를 들어 [HDInsight에 대한 MSDN 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=hdinsight), [https://stackoverflow.com](https://stackoverflow.com)과 같은 여러 커뮤니티 사이트를 사용할 수 있습니다. Apache 프로젝트는 [https://apache.org](https://apache.org)에 프로젝트 사이트가 있습니다(예: [Hadoop](https://hadoop.apache.org/)).
 
 ## <a name="understand-default-python-installation"></a>기본 Python 설치 이해
 
@@ -52,8 +52,8 @@ Anaconda 설치를 사용 하 여 HDInsight Spark 클러스터를 만듭니다. 
 | |Python 2.7|Python 3.5|
 |----|----|----|
 |경로|/usr/bin/anaconda/bin|/usr/bin/anaconda/envs/py35/bin|
-|Spark|2\.7로 기본 설정|N/A|
-|Livy|2\.7로 기본 설정|N/A|
+|Spark|2\.7로 기본 설정|해당 없음|
+|Livy|2\.7로 기본 설정|해당 없음|
 |Jupyter|PySpark 커널|PySpark3 커널|
 
 ## <a name="safely-install-external-python-packages"></a>외부 Python 패키지를 안전 하 게 설치
@@ -122,7 +122,7 @@ HDInsight 클러스터는 Python 2.7 및 Python 3.5의 기본 제공 Python 환�
 
 ## <a name="known-issue"></a>알려진 문제
 
-Anaconda version 4.7.11 및 4.7.12에 대 한 알려진 버그가 있습니다. 스크립트 작업이 `"Collecting package metadata (repodata.json): ...working..."`에서 중단 되 고 `"Python script has been killed due to timeout after waiting 3600 secs"`실패 하는 것을 볼 수 있습니다. [이 스크립트](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) 를 다운로드 하 여 모든 노드에서 스크립트 작업으로 실행 하 여 문제를 해결할 수 있습니다.
+Anaconda version 4.7.11, 4.7.12 및 4.8.0에 대 한 알려진 버그가 있습니다. 스크립트 작업이 `"Collecting package metadata (repodata.json): ...working..."`에서 중단 되 고 `"Python script has been killed due to timeout after waiting 3600 secs"`실패 하는 것을 볼 수 있습니다. [이 스크립트](https://gregorysfixes.blob.core.windows.net/public/fix-conda.sh) 를 다운로드 하 여 모든 노드에서 스크립트 작업으로 실행 하 여 문제를 해결할 수 있습니다.
 
 Anaconda 버전을 확인 하려면 클러스터 헤더 노드로 SSH를 실행 하 고 `/usr/bin/anaconda/bin/conda --v`를 실행 합니다.
 

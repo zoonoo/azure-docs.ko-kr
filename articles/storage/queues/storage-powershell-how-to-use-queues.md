@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: queues
 ms.topic: conceptual
 ms.reviewer: cbrooks
-ms.openlocfilehash: 94e28c59c3281dc6c1d65ce782568233d0e23f03
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: bd2f372bdcb949b64f748d186a9b060bb9cbec4a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313844"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087061"
 ---
 # <a name="perform-azure-queue-storage-operations-with-azure-powershell"></a>Azure PowerShell을 사용하여 Azure Queue Storage 작업 수행
 
@@ -78,7 +78,7 @@ $ctx = $storageAccount.Context
 
 ## <a name="create-a-queue"></a>큐 만들기
 
-다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음, [New-AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet을 호출하여 ‘queuename’이라는 큐를 만듭니다.
+다음 예제는 먼저 Storage 계정 이름 및 해당 액세스 키를 포함하는 Storage 계정 컨텍스트를 사용하여 Azure Storage에 대한 연결을 설정합니다. 그런 다음 [AzStorageQueue](/powershell/module/az.storage/New-AzStorageQueue) cmdlet을 호출 하 여 ' howtoqueue ' 라는 큐를 만듭니다.
 
 ```powershell
 $queueName = "howtoqueue"

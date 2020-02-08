@@ -5,13 +5,14 @@ author: mlearned
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
+ms.custom: fasttrack-edit
 ms.author: mlearned
-ms.openlocfilehash: 86fa59a3d1c07aae842404c465b908e550708071
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047449"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084270"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 
@@ -32,7 +33,7 @@ Kubernetes에서 *Services*는 IP 주소 또는 DNS 이름을 통해 특정 포�
 
 또한 Azure 플랫폼은 AKS 클러스터에 대한 가상 네트워킹을 간소화하는 데에도 도움이 됩니다. Kubernetes 부하 분산 장치를 만들면 기본 Azure 부하 분산 장치 리소스가 만들어지고 구성됩니다. Pod에서 네트워크 포트를 열면 해당 Azure 네트워크 보안 그룹 규칙이 구성됩니다. HTTP 애플리케이션 라우팅의 경우 새 수신 경로가 구성될 때 Azure에서 *외부 DNS*를 구성할 수도 있습니다.
 
-## <a name="services"></a>서비스
+## <a name="services"></a>Services
 
 애플리케이션 워크로드에 대한 네트워크 구성을 간소화하기 위해 Kubernetes는 *Service*를 사용하여 일단의 Pod를 논리적으로 그룹화하고 네트워크 연결을 제공합니다. 사용할 수 있는 Service 유형은 다음과 같습니다.
 
@@ -96,7 +97,7 @@ Kubenet와 Azure CNI 모두 AKS 클러스터에 대 한 네트워크 연결을 �
 
 Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 
-| Capability                                                                                   | Kubenet   | Azure CNI |
+| 기능                                                                                   | Kubenet   | Azure CNI |
 |----------------------------------------------------------------------------------------------|-----------|-----------|
 | 기존 또는 새 가상 네트워크에 클러스터 배포                                            | 지원 됨-UDRs 수동 적용 됨 | 지원됨 |
 | Pod-pod 연결                                                                         | 지원됨 | 지원됨 |
@@ -107,6 +108,8 @@ Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 | 부하 분산 장치 서비스, 앱 게이트웨이 또는 수신 컨트롤러를 사용 하 여 Kubernetes services 노출 | 지원됨 | 지원됨 |
 | 기본 Azure DNS 및 개인 영역                                                          | 지원됨 | 지원됨 |
 
+Kubenet 및 Azure CNI 플러그 인 dns를 모두 사용 하는 DNS와 관련 하 여 AKS에서 실행 되는 디먼 집합인 CoreDNS에서 제공 합니다. CoreDNS on Kubernetes에 대 한 자세한 내용은 [DNS 서비스 사용자 지정](https://kubernetes.io/docs/tasks/administer-cluster/dns-custom-nameservers/)을 참조 하세요. CoreDNS는 AKS 클러스터가 배포 되는 Azure Virtual Network의 DNS 기능에 대 한 알 수 없는 도메인을 노드 DNS 서버로 전달 하기 위해 기본적으로 구성 됩니다. 따라서 Azure DNS 및 개인 영역은 AKS에서 실행 되는 pod에 대해 작동 합니다.
+
 ### <a name="support-scope-between-network-models"></a>네트워크 모델 간의 범위 지원
 
 사용 하는 네트워크 모델에 관계 없이 kubenet와 Azure CNI는 다음 중 한 가지 방법으로 배포할 수 있습니다.
@@ -114,7 +117,7 @@ Kubenet와 Azure CNI 간에는 다음과 같은 동작 차이가 있습니다.
 * Azure 플랫폼은 AKS 클러스터를 만들 때 가상 네트워크 리소스를 자동으로 만들고 구성할 수 있습니다.
 * AKS 클러스터를 만들 때 가상 네트워크 리소스를 수동으로 만들고 구성 하 고 해당 리소스에 연결할 수 있습니다.
 
-서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 예를 들면 다음과 같습니다.
+서비스 엔드포인트 나 UDRs와 같은 기능이 kubenet 및 Azure CNI 모두에서 지원 되기는 하지만 [AKS에 대 한 지원 정책은][support-policies] 어떤 변경 작업을 수행할 수 있는지를 정의 합니다. 다음은 그 예입니다.
 
 * AKS 클러스터에 대 한 가상 네트워크 리소스를 수동으로 만드는 경우 고유한 UDRs 또는 서비스 끝점을 구성할 때 지원 됩니다.
 * Azure 플랫폼에서 AKS 클러스터에 대 한 가상 네트워크 리소스를 자동으로 만드는 경우 해당 AKS 관리 리소스를 수동으로 변경 하 여 사용자 고유의 UDRs 또는 서비스 끝점을 구성할 수 없습니다.

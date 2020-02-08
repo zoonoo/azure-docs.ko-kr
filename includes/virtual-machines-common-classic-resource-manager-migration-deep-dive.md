@@ -3,13 +3,13 @@ author: cynthn
 ms.service: virtual-machines
 ms.topic: include
 ms.date: 10/26/2018
-ms.author: cynthn
-ms.openlocfilehash: dc871b29cdafa57d337f9be6cf01e76212f31b67
-ms.sourcegitcommit: 3e98da33c41a7bbd724f644ce7dedee169eb5028
+ms.author: tanmaygore
+ms.openlocfilehash: 215057640dd08d9ea524d8f6b3bed8b03a8b5b8c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67182179"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77068444"
 ---
 ## <a name="migrate-iaas-resources-from-the-classic-deployment-model-to-azure-resource-manager"></a>IaaS 리소스를 클래식 배포 모델에서 Azure 리소스 관리자로 마이그레이션
 먼저 서비스(IaaS) 리소스로서 인프라의 데이터 평면과 관리 평면 간의 차이점을 이해해야 합니다.
@@ -117,11 +117,11 @@ ms.locfileid: "67182179"
 > 커밋 작업을 트리거한 후에는 이 작업을 수행할 수 없습니다.     
 >
 
-### <a name="commit"></a>커밋
+### <a name="commit"></a>Commit
 유효성 검사를 마친 후 마이그레이션을 커밋할 수 있습니다. 리소스는 더 이상 클래식 배포 모델에서 표시되지 않으며 리소스 관리자 배포 모델에서만 사용할 수 있습니다. 새 포털에서는 마이그레이션된 리소스만 관리할 수 있습니다.
 
 > [!NOTE]
-> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패하면 지원 티켓을 만들거나 [VM 포럼](https://social.msdn.microsoft.com/Forums/azure/home?forum=WAVirtualMachinesforWindows)에서 "ClassicIaaSMigration" 태그가 포함된 포럼 게시물을 만듭니다.
+> 이 작업은 멱등원 작업입니다. 실패하면 작업을 다시 시도합니다. 계속 실패 하는 경우 지원 티켓을 만들거나 [Microsoft Q &](https://docs.microsoft.com/answers/index.html) 에 포럼을 만듭니다.
 >
 >
 
@@ -151,7 +151,7 @@ ms.locfileid: "67182179"
 | 인바운드 NAT 규칙 |인바운드 NAT 규칙 |VM에 정의된 입력 엔드포인트는 마이그레이션 중에 부하 분산 장치의 인바운드 NAT(Network Address Translation) 규칙으로 변환됩니다. |
 | VIP 주소 |DNS 이름이 포함된 공용 IP 주소 |가상 IP 주소는 공용 IP 주소가 되며, 부하 분산 장치와 연결됩니다. 할당된 입력 엔드포인트가 있는 경우 가상 IP만 마이그레이션할 수 있습니다. |
 | 가상 네트워크 |가상 네트워크 |가상 네트워크는 모든 속성과 함께 Resource Manager 배포 모델로 마이그레이션됩니다. `-migrated`이름을 사용하여 새 리소스 그룹이 생성됩니다. |
-| 예약된 IP |정적 할당 방법의 공용 IP 주소 |부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 컴퓨터의 마이그레이션과 함께 마이그레이션됩니다. 연결되지 않고 예약된 IP 마이그레이션은 현재 지원되지 않습니다. |
+| 예약된 IP |정적 할당 방법의 공용 IP 주소 |부하 분산 장치와 연결되어 있고 예약된 IP는 클라우드 서비스 또는 가상 머신의 마이그레이션과 함께 마이그레이션됩니다. 연결되지 않고 예약된 IP 마이그레이션은 현재 지원되지 않습니다. |
 | VM당 공용 IP 주소 |동적 할당 방법의 공용 IP 주소 |VM에 연결된 공용 IP 주소는 할당 방법이 정적으로 설정된 공용 IP 주소 리소스로 변환됩니다. |
 | NSG |NSG |서브넷과 연결된 네트워크 보안 그룹은 마이그레이션 중 Resource Manager 배포 모델로 복제됩니다. 마이그레이션 중 클래식 배포 모델의 NSG는 제거되지 않습니다. 하지만 마이그레이션이 진행 중인 동안에는 NSG의 관리 평면 작업이 차단됩니다. |
 | DNS 서버 |DNS 서버 |가상 네트워크 또는 VM과 연결된 DNS 서버는 해당 리소스 마이그레이션 중 모든 속성과 함께 마이그레이션됩니다. |

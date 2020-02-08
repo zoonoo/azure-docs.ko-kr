@@ -3,18 +3,19 @@ title: Azure Kubernetes 서비스에서 가용성 영역 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)의 가용성 영역에 노드를 배포 하는 클러스터를 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: mlearned
+ms.custom: fasttrack-edit
 ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 3790511bf3f71cdeb01853e4051a013719502d9f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: b73cb09f95fa2b23fb23fb719fe57143e1731ceb
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605083"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086515"
 ---
-# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역를 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
+# <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 
 AKS (Azure Kubernetes Service) 클러스터는 기본 Azure 계산 인프라의 논리적 섹션에서 노드 및 저장소와 같은 리소스를 배포 합니다. 이 배포 모델은 노드가 단일 Azure 데이터 센터의 개별 업데이트 및 장애 도메인에서 실행 되는지 확인할 수 있습니다. 이 기본 동작을 사용 하 여 배포 된 AKS 클러스터는 하드웨어 오류 또는 계획 된 유지 관리 이벤트를 방지할 수 있는 높은 수준의 가용성을 제공 합니다.
 
@@ -32,10 +33,10 @@ AKS 클러스터는 현재 다음 지역에서 가용성 영역을 사용 하 �
 
 * 미국 중부
 * 미국 동부 2
-* East US
+* 미국 동부
 * 프랑스 중부
 * 일본 동부
-* 유럽 북부
+* 북유럽
 * 동남아시아
 * 영국 남부
 * 서유럽
@@ -60,9 +61,9 @@ Azure managed disks를 사용 하는 볼륨은 현재 영역 리소스가 아닙
 
 ## <a name="overview-of-availability-zones-for-aks-clusters"></a>AKS 클러스터에 대 한 가용성 영역 개요
 
-가용성 영역은 데이터 센터 오류에서 애플리케이션 및 데이터를 보호하는 고가용성 기능입니다. 영역은 Azure 지역 내에서 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 단일 지점 오류에서 보호하기 위해 가용성 영역에서 애플리케이션 및 데이터를 복제합니다.
+가용성 영역은 데이터 센터 오류 로부터 응용 프로그램 및 데이터를 보호 하는 고가용성 제품입니다. 영역은 Azure 지역 내에서 고유한 물리적 위치입니다. 각 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 한 지역 내에서 가용성 영역을 물리적으로 구분하면 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있습니다. 영역 중복 서비스는 가용성 영역에서 응용 프로그램 및 데이터를 복제 하 여 단일 오류 지점이 없도록 보호 합니다.
 
-자세한 내용은 [Azure에서 가용성 영역 하는 항목][az-overview]을 참조 하세요.
+자세한 내용은 [Azure의 가용성 영역 이란?][az-overview]을 참조 하세요.
 
 가용성 영역을 사용 하 여 배포 된 AKS 클러스터는 단일 지역 내의 여러 영역에 노드를 배포할 수 있습니다. 예를 들어 *미국 동부 2* 지역의 클러스터는 *미국 동부 2*의 모든 3 개 가용성 영역에 노드를 만들 수 있습니다. 이 AKS 클러스터 리소스 배포는 특정 영역의 오류에 대 한 복원 력을 제공 하므로 클러스터 가용성이 향상 됩니다.
 
@@ -122,6 +123,53 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 에이전트 풀에 노드를 더 추가 하면 Azure 플랫폼에서 기본 Vm을 지정 된 가용성 영역에 자동으로 배포 합니다.
 
+최신 Kubernetes 버전 (1.17.0 이상)에서 AKS는 더 이상 사용 되지 않는 `failure-domain.beta.kubernetes.io/zone`외에도 `topology.kubernetes.io/zone` 최신 레이블을 사용 합니다.
+
+## <a name="verify-pod-distribution-across-zones"></a>영역 간 pod 배포 확인
+
+[잘 알려진 레이블, 주석 및 Taints][kubectl-well_known_labels]에 설명 된 대로 Kubernetes는 `failure-domain.beta.kubernetes.io/zone` 레이블을 사용 하 여 사용 가능한 여러 영역에서 자동으로 복제 컨트롤러나 서비스에 pod를 배포 합니다. 이를 테스트 하기 위해 클러스터를 3 개에서 5 개 노드로 확장 하 여 올바른 pod 분산을 확인할 수 있습니다.
+
+```azurecli-interactive
+az aks scale \
+    --resource-group myResourceGroup \
+    --name myAKSCluster \
+    --node-count 5
+```
+
+몇 분 후에 크기 조정 작업이 완료 되 면 명령 `kubectl describe nodes | grep -e "Name:" -e "failure-domain.beta.kubernetes.io/zone"`이 샘플과 유사한 출력을 제공 해야 합니다.
+
+```console
+Name:       aks-nodepool1-28993262-vmss000000
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000001
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+Name:       aks-nodepool1-28993262-vmss000002
+            failure-domain.beta.kubernetes.io/zone=eastus2-3
+Name:       aks-nodepool1-28993262-vmss000003
+            failure-domain.beta.kubernetes.io/zone=eastus2-1
+Name:       aks-nodepool1-28993262-vmss000004
+            failure-domain.beta.kubernetes.io/zone=eastus2-2
+```
+
+여기서 볼 수 있듯이 영역 1과 2에는 두 개의 추가 노드가 있습니다. 3 개의 복제본으로 구성 된 응용 프로그램을 배포할 수 있습니다. NGINX를 예제로 사용 합니다.
+
+```console
+kubectl run nginx --image=nginx --replicas=3
+```
+
+Pod가 실행 되는 노드를 확인 하는 경우 세 개의 다른 가용성 영역에 해당 하는 pod에서 pod가 실행 되 고 있는 것을 볼 수 있습니다. 예를 들어 명령 `kubectl describe pod | grep -e "^Name:" -e "^Node:"`를 사용 하면 다음과 비슷한 출력을 얻을 수 있습니다.
+
+```console
+Name:         nginx-6db489d4b7-ktdwg
+Node:         aks-nodepool1-28993262-vmss000000/10.240.0.4
+Name:         nginx-6db489d4b7-v7zvj
+Node:         aks-nodepool1-28993262-vmss000002/10.240.0.6
+Name:         nginx-6db489d4b7-xz6wj
+Node:         aks-nodepool1-28993262-vmss000004/10.240.0.8
+```
+
+이전 출력에서 볼 수 있듯이 첫 번째 pod는 가용성 영역 `eastus2-1`에 있는 노드 0에서 실행 됩니다. 두 번째 pod는 `eastus2-3`에 해당 하는 노드 2에서 실행 되며, `eastus2-2`에서 노드 4의 세 번째 pod입니다. 추가 구성 없이 Kubernetes는 세 가지 가용성 영역에 걸쳐 pod를 올바르게 분산 합니다.
+
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 가용성 영역을 사용 하는 AKS 클러스터를 만드는 방법에 대해 자세히 설명 합니다. 항상 사용 가능한 클러스터에 대 한 자세한 고려 사항은 [AKS에서 비즈니스 연속성 및 재해 복구에 대 한 모범 사례][best-practices-bc-dr]를 참조 하세요.
@@ -144,3 +192,4 @@ Name:       aks-nodepool1-28993262-vmss000002
 
 <!-- LINKS - external -->
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
+[kubectl-well_known_labels]: https://kubernetes.io/docs/reference/kubernetes-api/labels-annotations-taints/

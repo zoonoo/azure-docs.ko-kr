@@ -9,12 +9,12 @@ ms.date: 10/29/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: e403d690470f3c4f1d0c8e565e90641d9c114a80
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ba82b1bea4753cd51e275a78b248247032d79a01
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844553"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086644"
 ---
 # <a name="tutorial-publish-subscribe-to-events-locally"></a>자습서: 로컬로 이벤트 게시, 구독
 
@@ -23,8 +23,8 @@ ms.locfileid: "76844553"
 > [!NOTE]
 > Azure Event Grid 토픽 및 구독에 대 한 자세한 내용은 [Event Grid 개념](concepts.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건 
-이 자습서를 완료 하려면 다음이 필요 합니다.
+## <a name="prerequisites"></a>사전 요구 사항 
+이 자습서를 완료하려면 다음과 같은 요건이 필요합니다.
 
 * **Azure 구독** -아직 없는 경우 [무료 계정](https://azure.microsoft.com/free) 을 만듭니다. 
 * **장치 Azure IoT Hub 및 IoT Edge** - [Linux](../../iot-edge/quickstart-linux.md) 또는 [Windows 장치](../../iot-edge/quickstart.md) 에 대 한 빠른 시작 (아직 없는 경우)의 단계를 따릅니다.
@@ -64,8 +64,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     ```json
         {
           "Env": [
-            "inbound__clientAuth__clientCert__enabled=false",
-            "outbound__webhook__httpsOnly=false"
+            "inbound__clientAuth__clientCert__enabled=false"
           ],
           "HostConfig": {
             "PortBindings": {
@@ -79,21 +78,17 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
         }
     ```    
  1. 페이지 맨 아래에 있는 **저장**
- 1. 다음 섹션을 계속 진행 하 여 배포 하기 전에 Azure Functions 모듈을 추가 합니다.
+ 1. 다음 섹션을 계속 진행 하 여 배포 하기 전에 Azure Event Grid 구독자 모듈을 추가 합니다.
 
     >[!IMPORTANT]
-    > 이 자습서에서는 클라이언트 인증을 사용 하지 않도록 설정 하 고 HTTP 구독자를 허용 하는 Event Grid 모듈을 배포 합니다. 프로덕션 워크 로드의 경우 클라이언트 인증을 사용 하도록 설정 하 고 HTTPs 구독자만 허용 하는 것이 좋습니다. Event Grid 모듈을 안전 하 게 구성 하는 방법에 대 한 자세한 내용은 [보안 및 인증](security-authentication.md)을 참조 하세요.
+    > 이 자습서에서는 클라이언트 인증을 사용 하지 않도록 설정 하 여 Event Grid 모듈을 배포 합니다. 프로덕션 워크 로드의 경우 클라이언트 인증을 사용 하도록 설정 하는 것이 좋습니다. Event Grid 모듈을 안전 하 게 구성 하는 방법에 대 한 자세한 내용은 [보안 및 인증](security-authentication.md)을 참조 하세요.
     > 
     > Azure VM을에 지 장치로 사용 하는 경우 포트 4438에서 인바운드 트래픽을 허용 하는 인바운드 포트 규칙을 추가 합니다. 규칙을 추가 하는 방법에 대 한 지침은 [VM에 포트를 여는 방법](../../virtual-machines/windows/nsg-quickstart-portal.md)을 참조 하세요.
     
 
-## <a name="deploy-azure-function-iot-edge-module"></a>Azure Function IoT Edge 모듈 배포
+## <a name="deploy-event-grid-subscriber-iot-edge-module"></a>Event Grid 구독자 IoT Edge 모듈 배포
 
-이 섹션에서는 이벤트를 전달할 수 있는 Event Grid 구독자 역할을 하는 Azure Functions IoT 모듈을 배포 하는 방법을 보여 줍니다.
-
->[!IMPORTANT]
->이 섹션에서는 샘플 Azure 함수 기반 구독 모듈을 배포 합니다. 물론 HTTP POST 요청을 수신할 수 있는 사용자 지정 IoT 모듈 일 수도 있습니다.
-
+이 섹션에서는 이벤트를 전달할 수 있는 이벤트 처리기 역할을 하는 다른 IoT 모듈을 배포 하는 방법을 보여 줍니다.
 
 ### <a name="add-modules"></a>모듈 추가
 
@@ -102,23 +97,8 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
 1. 컨테이너의 이름, 이미지 및 컨테이너 만들기 옵션을 제공 합니다.
 
    * **이름**: 구독자
-   * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber-azfunc:latest`
-   * **컨테이너 만들기 옵션**:
-
-       ```json
-            {
-              "HostConfig": {
-                "PortBindings": {
-                  "80/tcp": [
-                    {
-                      "HostPort": "8080"
-                    }
-                  ]
-                }
-              }
-            }
-       ```
-
+   * **이미지 URI**: `mcr.microsoft.com/azure-event-grid/iotedge-samplesubscriber:latest`
+   * **컨테이너 만들기 옵션**: 없음
 1. 페이지 맨 아래에 있는 **저장**
 1. **다음** 을 클릭 하 여 경로 섹션으로 이동 합니다.
 
@@ -191,7 +171,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -199,7 +179,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     ```
 
     >[!NOTE]
-    > **Endpointtype** 속성은 구독자가 **Webhook**임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure Function 샘플에 해당 합니다.
+    > **Endpointtype** 속성은 구독자가 **Webhook**임을 지정 합니다.  **Endpointurl** 은 구독자가 이벤트를 수신 대기 하는 url을 지정 합니다. 이 URL은 이전에 배포한 Azure 구독자 샘플에 해당 합니다.
 2. 항목에 대 한 구독을 만들려면 다음 명령을 실행 합니다. HTTP 상태 코드가 `200 OK`인지 확인 합니다.
 
     ```sh
@@ -223,7 +203,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
             "destination": {
               "endpointType": "WebHook",
               "properties": {
-                "endpointUrl": "http://subscriber:80/api/subscriber"
+                "endpointUrl": "https://subscriber:4430"
               }
             }
           }
@@ -275,7 +255,7 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
     샘플 출력:
 
     ```sh
-        Received event data [
+        Received Event:
             {
               "id": "eventId-func-0",
               "topic": "sampleTopic1",
@@ -289,7 +269,6 @@ IoT Edge 장치에 모듈을 배포 하는 방법에는 여러 가지가 있으�
                 "model": "Monster"
               }
             }
-          ]
     ```
 
 ## <a name="cleanup-resources"></a>리소스 정리

@@ -2,30 +2,30 @@
 title: V 1.0 앱 (MSAL)의 범위 | Microsoft
 description: MSAL(Microsoft 인증 라이브러리)을 사용하여 v1.0 애플리케이션에 대한 범위를 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 11/25/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c532eb658e882f11bb380dce4f7a604097693c0f
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: e0ef46d23ba267bbfc1ff539eb659fafe2b44f8e
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76704360"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085689"
 ---
 # <a name="scopes-for-a-web-api-accepting-v10-tokens"></a>v1.0 토큰을 허용하는 Web API에 대한 범위
 
-OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소스) 응용 프로그램이 클라이언트 응용 프로그램에 노출 하는 사용 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. [Azure Active Directory 애플리케이션 매니페스트 참조](reference-app-manifest.md#manifest-reference)에서 `oauth2Permissions` 관련 섹션을 참조하세요.
+OAuth2 권한은 개발자 용 Azure Active Directory (Azure AD) 웹 API (리소스) 응용 프로그램이 클라이언트 응용 프로그램에 노출 하는 사용 권한 범위입니다. 이러한 권한 범위를 동의를 통해 클라이언트 애플리케이션에 부여할 수 있습니다. `oauth2Permissions`Azure Active Directory 애플리케이션 매니페스트 참조[에서 ](reference-app-manifest.md#manifest-reference) 관련 섹션을 참조하세요.
 
 ## <a name="scopes-to-request-access-to-specific-oauth2-permissions-of-a-v10-application"></a>v1.0 애플리케이션의 특정 OAuth2 권한에 대한 액세스를 요청하는 범위
 
-V1.0 응용 프로그램의 특정 범위에 대 한 토큰을 획득 하려면 (예: https://graph.windows.net) 하는 Azure AD graph) 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 범위를 만듭니다.
+V1.0 응용 프로그램의 특정 범위에 대 한 토큰을 획득 하려면 (예: https://graph.windows.net)하는 Azure AD graph) 원하는 리소스 식별자를 해당 리소스에 대 한 원하는 OAuth2 사용 권한과 연결 하 여 범위를 만듭니다.
 
 예를 들어 앱 ID URI가 `ResourceId`인 v1.0 web API에 사용자를 대신하여 액세스하려면 다음과 같습니다.
 

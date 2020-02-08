@@ -4,17 +4,17 @@ description: Azure Storage은 데이터를 클라우드로 유지 하기 전에 
 services: storage
 author: tamram
 ms.service: storage
-ms.date: 01/10/2020
+ms.date: 02/05/2020
 ms.topic: conceptual
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: abb9325510b52672027338314e02466f2d28e701
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.openlocfilehash: 86d6a63601036abdde4ee7ae73114566d749feca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75942199"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082823"
 ---
 # <a name="azure-storage-encryption-for-data-at-rest"></a>휴지 상태의 데이터에 대 한 암호화 Azure Storage
 
@@ -43,10 +43,10 @@ Microsoft에서 관리 하는 키를 사용 하 여 저장소 계정의 암호�
 
 다음 표에서는 Azure Storage 암호화에 대 한 키 관리 옵션을 비교 합니다.
 
-|                                        |    Microsoft에서 관리 하는 키                             |    고객 관리 키                                                                                                                        |    고객이 제공한 키                                                          |
+|                                        |    Microsoft에서 관리 하는 키                             |    고객 관리형 키                                                                                                                        |    고객이 제공한 키                                                          |
 |----------------------------------------|-------------------------------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------|----------------------------------------------------------------------------------|
 |    암호화/암호 해독 작업    |    Azure                                              |    Azure                                                                                                                                        |    Azure                                                                         |
-|    지원 되는 Azure Storage 서비스    |    전체                                                |    Blob storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blob Storage                                                                  |
+|    지원 되는 Azure Storage 서비스    |    모두                                                |    Blob storage, Azure Files<sup>1, 2</sup>                                                                                                               |    Blob Storage                                                                  |
 |    키 저장소                         |    Microsoft 키 저장소    |    Azure Key Vault                                                                                                                              |    Azure Key Vault 또는 다른 키 저장소                                                                 |
 |    키 회전 책임         |    Microsoft                                          |    Customer                                                                                                                                     |    Customer                                                                      |
 |    키 사용                           |    Microsoft                                          |    Azure Portal, 저장소 리소스 공급자 REST API, Azure Storage 관리 라이브러리, PowerShell, CLI        |    Azure Storage REST API (Blob Storage), Azure Storage 클라이언트 라이브러리    |
@@ -166,7 +166,7 @@ REST 호출의 경우 클라이언트는 다음 헤더를 사용 하 여 요청�
 - [Blob 가져오기](/rest/api/storageservices/get-blob)
 - [Blob 속성 가져오기](/rest/api/storageservices/get-blob-properties)
 - [Blob 메타 데이터 가져오기](/rest/api/storageservices/get-blob-metadata)
-- [Blob 스냅샷](/rest/api/storageservices/snapshot-blob)
+- [스냅숏 Blob](/rest/api/storageservices/snapshot-blob)
 
 ### <a name="rotate-customer-provided-keys"></a>고객이 제공한 키 회전
 

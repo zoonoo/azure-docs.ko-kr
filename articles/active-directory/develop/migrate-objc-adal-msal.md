@@ -3,22 +3,22 @@ title: ADAL에서 MSAL 마이그레이션 가이드 (MSAL iOS/macOS) | Microsoft
 titleSuffix: Microsoft identity platform
 description: IOS/macOS에 대 한 MSAL과 ObjectiveC 용 Azure AD 인증 Library (ADAL)의 차이점에 대해 알아봅니다. ObjC) 및 iOS/macOS 용 MSAL으로 마이그레이션하는 방법을 설명 합니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: 311d6ed988777e94f5dd3fde8ac6e9aff1fb39fe
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6050bdc8c2600998b9804b04b62102e74612719f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696676"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085184"
 ---
 # <a name="migrate-applications-to-msal-for-ios-and-macos"></a>IOS 및 macOS 용 MSAL으로 응용 프로그램 마이그레이션
 
@@ -65,7 +65,7 @@ MSAL에서 단일 리소스 식별자 대신 앱은 요청당 범위 집합을 �
 
 MSAL에서 범위를 제공 하는 방법에는 두 가지가 있습니다.
 
-* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 예: 
+* 앱에 필요한 모든 사용 권한 목록을 제공 합니다. 다음은 그 예입니다. 
 
     `@[@"https://graph.microsoft.com/directory.read", @"https://graph.microsoft.com/directory.write"]`
 
@@ -146,7 +146,7 @@ V0.3.0 버전부터 MSAL은 Microsoft Authenticator 앱을 사용 하 여 조정
 
 1. 응용 프로그램에 대 한 broker 호환 리디렉션 URI 형식을 등록 합니다. Broker 호환 리디렉션 URI 형식이 `msauth.<app.bundle.id>://auth`. `<app.bundle.id>`를 응용 프로그램의 번들 ID로 바꿉니다. ADAL에서 마이그레이션하는 경우 응용 프로그램을 이미 broker를 사용할 수 있는 경우에는 추가 작업이 필요 하지 않습니다. 이전 리디렉션 URI는 MSAL과 완전히 호환 되므로 3 단계로 건너뛸 수 있습니다.
 
-2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 예:
+2. Info.plist 파일에 응용 프로그램의 리디렉션 URI 체계를 추가 합니다. 기본 MSAL 리디렉션 URI의 경우 형식은 `msauth.<app.bundle.id>`입니다. 다음은 그 예입니다.
 
     ```xml
     <key>CFBundleURLSchemes</key>

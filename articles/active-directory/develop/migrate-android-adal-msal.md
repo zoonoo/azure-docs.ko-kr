@@ -2,7 +2,7 @@
 title: Android 용 ADAL-MSAL 마이그레이션 가이드 | Microsoft
 description: ADAL (Azure Active Directory Authentication Library) Android 앱을 MSAL (Microsoft Authentication Library)로 마이그레이션하는 방법에 대해 알아봅니다.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -10,15 +10,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: Android
 ms.workload: identity
 ms.date: 09/6/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: shoatman
 ms.custom: aaddev
-ms.openlocfilehash: 0c7b059fd8d9b34ad6d1e565431d39ffc706cb45
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 21866bb7dab3d5a093ffc4655161b80853eadfc5
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76696710"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084062"
 ---
 # <a name="adal-to-msal-migration-guide-for-android"></a>Android 용 ADAL-MSAL 마이그레이션 가이드
 

@@ -4,7 +4,7 @@ titleSuffix: Microsoft identity platform
 description: 사용자 지정 클레임을 요청 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 editor: ''
 ms.service: active-directory
@@ -14,15 +14,15 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: ''
 ms.custom: aaddev
-ms.openlocfilehash: 0aa4648d3d5e76c2d0ebd7524ad8dfa52da3fb30
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 44158296faaf238fd72f2360149d3d93f68c5ba0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76702490"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085594"
 ---
 # <a name="how-to-request-custom-claims-using-msal-for-ios-and-macos"></a>방법: iOS 및 macOS 용 MSAL을 사용 하 여 사용자 지정 클레임 요청
 
@@ -30,7 +30,7 @@ Openid connect Connect를 사용 하면 필요에 따라 사용자 정보 끝점
 
 IOS 및 macOS 용 MSAL (Microsoft 인증 라이브러리)을 사용 하면 대화형 토큰 획득 시나리오와 자동 토큰 획득 시나리오에서 특정 클레임을 요청할 수 있습니다. `claimsRequest` 매개 변수를 통해이를 수행 합니다.
 
-이 경우 여러 가지 시나리오가 필요 합니다. 예:
+이 경우 여러 가지 시나리오가 필요 합니다. 다음은 그 예입니다.
 
 - 응용 프로그램의 표준 집합 외부에서 클레임을 요청 합니다.
 - 응용 프로그램에 대 한 범위를 사용 하 여 지정할 수 없는 표준 클레임의 특정 조합 요청 예를 들어 클레임 누락으로 인해 액세스 토큰이 거부 된 경우 응용 프로그램은 MSAL을 사용 하 여 누락 된 클레임을 요청할 수 있습니다.

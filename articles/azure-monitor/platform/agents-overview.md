@@ -8,12 +8,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2019
-ms.openlocfilehash: a01258799efa81c8d3ddba398facaa90c24c2513
-ms.sourcegitcommit: 5cfe977783f02cd045023a1645ac42b8d82223bd
+ms.openlocfilehash: ae799e9a852b8700399ef695c54b3348174b560c
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/17/2019
-ms.locfileid: "74150034"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069407"
 ---
 # <a name="overview-of-the-azure-monitor-agents"></a>Azure Monitor 에이전트 개요 
 가상 머신과 같은 계산 리소스는 [다른 클라우드 리소스](../insights/monitor-azure-resource.md)와 마찬가지로 성능 및 가용성을 모니터링 하는 데이터를 생성 합니다. 또한 계산 리소스에는 게스트 운영 체제와 모니터링 해야 하는 워크 로드가 있습니다. 리소스 내부에서이 모니터링 데이터를 수집 하려면 에이전트가 필요 합니다. 이 문서에서는 Azure Monitor에서 사용 하는 에이전트를 설명 하 고 특정 환경에 대 한 요구 사항을 충족 하는 데 필요한 사항을 결정 하는 데 도움을 줍니다.
@@ -35,9 +35,9 @@ Azure Monitor에는 각각 특정 기능을 제공 하는 3 개의 에이전트�
 |:---|:---|:---|:---|
 | 지원 되는 환경 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
 | 운영 체제 | Windows<br>Linux | Windows<br>Linux | Windows<br>Linux
-| 에이전트 종속성  | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
-| 수집되는 데이터 | 이벤트 로그<br>ETW 이벤트<br>Syslog<br>성능<br>IIS 로그<br>출력 로그를 추적하는 .NET 앱<br>크래시 덤프 | 이벤트 로그<br>Syslog<br>성능<br>IIS 로그<br>사용자 지정 로그<br>솔루션의 데이터 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
-| 데이터 전송 대상 | Azure Storage<br>Azure Monitor 메트릭<br>Event Hubs | Azure Monitor 로그 | Azure Monitor 로그 |
+| 에이전트 종속성  | None | None | Log Analytics 에이전트가 필요 합니다. |
+| 수집되는 데이터 | 이벤트 로그<br>ETW 이벤트<br>syslog<br>성능<br>IIS 로그<br>출력 로그를 추적하는 .NET 앱<br>크래시 덤프 | 이벤트 로그<br>syslog<br>성능<br>IIS 로그<br>사용자 지정 로그<br>솔루션의 데이터 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
+| 데이터 전송 대상 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그 |
 
 
 
@@ -63,7 +63,7 @@ Azure 진단 확장에서 지 원하는 시나리오는 다음과 같습니다.
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트
 [Log Analytics 에이전트](log-analytics-agent.md) 는 게스트 운영 체제의 모니터링 데이터와 Azure, 다른 클라우드 공급자 및 온-프레미스의 가상 컴퓨터 작업을 수집 합니다. Log Analytics 작업 영역으로 데이터를 수집 합니다.
 
-Log Analytics 에이전트는 System Center Operations Manager에서 사용 하는 것과 동일한 에이전트 이며, 에이전트 컴퓨터에서 관리 그룹과 통신 하 고 동시에 Azure Monitor 멀티홈 합니다. 이 에이전트는 Azure Monitor의 특정 솔루션에도 필요 합니다.
+Log Analytics 에이전트는 System Center Operations Manager에서 사용 하는 것과 동일한 에이전트 이며, 멀티홈 에이전트 컴퓨터에서 관리 그룹과 통신 하 고 동시에 Azure Monitor 합니다. 이 에이전트는 Azure Monitor의 특정 솔루션에도 필요 합니다.
 
 Windows 용 Log Analytics 에이전트를 종종 MMA (Microsoft Management Agent) 라고 합니다. Linux 용 Log Analytics 에이전트를 OMS 에이전트 라고 합니다.
 

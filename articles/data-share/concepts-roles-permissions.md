@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 0f836553c3c3bb324d76d022af189f154b5b1972
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 36a492f6a3e86cfb2fc9505550cc2d9f4746e070
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964467"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087164"
 ---
 # <a name="roles-and-requirements-for-azure-data-share"></a>Azure Data Share의 역할 및 요구 사항 
 
@@ -91,7 +91,7 @@ REST Api를 사용 하 여 데이터를 공유 하는 경우 이러한 역할 �
 
 ## <a name="resource-provider-registration"></a>리소스 공급자 등록 
 
-Azure 테 넌 트에서 처음으로 Azure 데이터 공유 초대를 보려면 DataShare 리소스 공급자를 Azure 구독에 수동으로 등록 해야 할 수 있습니다. Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계를 수행 합니다. 
+Azure 테 넌 트에서 처음으로 Azure 데이터 공유 초대를 보려면 DataShare 리소스 공급자를 Azure 구독에 수동으로 등록 해야 할 수 있습니다. Azure 구독에 DataShare 리소스 공급자를 등록 하려면 다음 단계를 수행 합니다. 리소스 공급자를 등록 하려면 Azure 구독에 대 한 *참가자* 액세스 권한이 필요 합니다.
 
 1. Azure Portal에서 **구독**으로 이동 합니다.
 1. Azure 데이터 공유에 사용 중인 구독을 선택 합니다.

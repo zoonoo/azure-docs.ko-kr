@@ -3,7 +3,7 @@ title: Android 장치에 대 한 공유 장치 모드 | Microsoft
 description: Firstline worker가 Android 장치를 공유할 수 있도록 하는 공유 장치 모드에 대해 알아봅니다.
 services: active-directory
 documentationcenter: dev-center-name
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 1/15/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviwer: hahamil
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 53fa82cf6eaaba09353ba21a12ae9677b9264b1a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9928b64d286cc5072f28f7cc17e4af3e95662cd0
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76701470"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085623"
 ---
 # <a name="shared-device-mode-for-android-devices"></a>Android 디바이스의 공유 디바이스 모드
 
@@ -86,8 +86,8 @@ private IPublicClientApplication mApplication;
 |  | 공유 모드 장치  | 개인 디바이스 |
 |---------|---------|---------|
 | **계정**     | 단일 계정 | 여러 계정 |
-| **로그인** | 글로벌 | 글로벌 |
-| **로그 아웃** | 글로벌 | 각 응용 프로그램은 로그 아웃이 앱 또는 응용 프로그램 제품군에 대해 로컬 인지 여부를 제어할 수 있습니다. |
+| **로그인** | Global | Global |
+| **로그 아웃** | Global | 각 응용 프로그램은 로그 아웃이 앱 또는 응용 프로그램 제품군에 대해 로컬 인지 여부를 제어할 수 있습니다. |
 | **지원 되는 계정 유형** | 회사 계정만 | 개인 및 회사 계정 지원  |
 
 ## <a name="why-you-may-want-to-only-support-single-account-mode"></a>단일 계정 모드만 지원 해야 하는 이유

@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 0702b302af1c964014a6649f5f3e86ce47b4600a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
-ms.translationtype: HT
+ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048396"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069288"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
 
@@ -71,13 +71,13 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
 ### <a name="verify-permissions"></a>권한 확인
 
-Azure FarmBeats를 설치 하려는 Azure 테 넌 트에서 다음 권한이 필요 합니다.
+Azure FarmBeats를 설치 하려면 Azure 테 넌 트에서 다음 권한이 필요 합니다.
 
 - 테 넌 트-AAD 앱 작성자
 - 구독-소유자
@@ -85,7 +85,7 @@ Azure FarmBeats를 설치 하려는 Azure 테 넌 트에서 다음 권한이 필
 
 [AAD 응용 프로그램](#create-an-aad-application) 단계를 만들려면 처음 두 가지 권한이 필요 합니다. 필요한 경우 적절 한 권한을 가진 사용자를 가져와 AAD 응용 프로그램을 만들 수 있습니다. FarmBeats를 설치 하는 사용자는 FarmBeats가 설치 되는 리소스 그룹의 소유자 여야 합니다.
 
-[역할 기반 액세스 제어](https://docs.microsoft.com/azure/role-based-access-control/check-access) 에 대 한 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
+[역할 기반 access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)에 대 한 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
 
 ### <a name="decide-subscription-and-region"></a>구독 및 지역 결정
 
@@ -120,7 +120,7 @@ PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계
         ./create_aad_script.ps1
     ```
 
-4. AAD 스크립트를 실행 하는 데 약 2 분이 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
+4. AAD 스크립트는 실행 하는 데 2 분 정도 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에서 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
 
 ### <a name="create-sentinel-account"></a>센티널 계정 만들기
 
@@ -130,15 +130,15 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 1. 공식 [등록](https://aka.ms/SentinelRegistration) 페이지로 이동 합니다.
 2. 필요한 세부 정보 (이름, 성, 사용자 이름, 암호 및 전자 메일 ID)를 입력 하 고 양식을 완성 합니다.
-3. 등록 된 전자 메일 ID로 확인 링크가 전송 됩니다. 전자 메일에 제공 된 링크를 선택 하 고 확인을 완료 합니다.
+3. 확인 링크는 등록 된 전자 메일 ID로 전송 됩니다. 전자 메일에 제공 된 링크를 선택 하 고 확인을 완료 합니다.
 
-확인을 완료 하면 등록 프로세스가 완료 됩니다. **센티널 사용자 이름** 및 **센티널 암호**를 기록해 둡니다.
+등록 프로세스가 완료 되었습니다. 확인이 완료 되 면 **센티널 사용자 이름** 및 **센티널 암호**를 기록해 둡니다.
 
-## <a name="install"></a>Install
+## <a name="install"></a>설치
 
 이제 FarmBeats을 설치할 준비가 되었습니다. 설치를 시작 하려면 다음 단계를 수행 합니다.
 
-1. Azure 포털에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
+1. Azure Portal에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
 
 2. 포털 내의 Azure Marketplace로 이동 하 고 Marketplace에서 **Azure FarmBeats** 를 검색 합니다.
 
@@ -146,13 +146,17 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 4. 새 창이 나타납니다. Azure FarmBeats를 설치 하려는 올바른 구독, 리소스 그룹 및 위치를 선택 하 여 등록 프로세스를 완료 합니다.
 
-5. **FarmBeats 서비스 경고** 섹션에서 Azure FarmBeats 관련 된 모든 서비스 경고를 받을 전자 메일 주소를 제공 합니다. 페이지 맨 아래에 있는 다음을 클릭 하 여 **종속성** 탭으로 이동 합니다. ![기본 사항 탭](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
+5. **FarmBeats 서비스 경고** 섹션에서 Azure FarmBeats 관련 된 모든 서비스 경고를 받을 전자 메일 주소를 제공 합니다. 페이지 아래쪽에서 **다음** 을 선택 하 여 **종속성** 탭으로 이동 합니다.
+
+    ![기본 탭](./media/install-azure-farmbeats/create-azure-farmbeats-basics.png)
 
 6. [Aad 스크립트](#create-an-aad-application) 의 출력에서 aad 응용 프로그램 섹션의 입력으로 개별 항목을 복사 합니다.
 
-7. 센티널 계정 섹션에서 [센티널 계정](#create-sentinel-account) 사용자 이름 및 암호를 입력 합니다. 다음을 클릭 하 여 **검토 + 만들기** 탭 ![종속성 탭으로 이동](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+7. 센티널 계정 섹션에서 [센티널 계정](#create-sentinel-account) 사용자 이름 및 암호를 입력 합니다. **다음** 을 선택 하 여 **검토 + 만들기** 탭으로 이동 합니다.
 
-8. 입력 한 세부 정보의 유효성이 검사 되 면 **확인**을 선택 합니다. 사용 약관 페이지가 나타납니다. 용어를 검토 하 고 **만들기** 를 선택 하 여 설치를 시작 합니다. 설치 진행 상황을 따를 수 있는 페이지로 자동으로 리디렉션됩니다.
+    ![종속성 탭](./media/install-azure-farmbeats/create-azure-farmbeats-dependencies.png)
+
+8. 입력 한 세부 정보의 유효성이 검사 되 면 **확인**을 선택 합니다. 사용 약관 페이지가 나타납니다. 용어를 검토 하 고 **만들기** 를 선택 하 여 설치를 시작 합니다. 설치 진행 상황을 따를 수 있는 페이지로 리디렉션됩니다.
 
 설치가 완료 되 면 설치를 확인 하 고 설치 중에 제공한 웹 사이트 이름으로 이동 하 여 FarmBeats 포털을 사용 하기 시작할 수 있습니다. https://\<FarmBeats-name >. 팜을 만들 수 있는 옵션이 포함 된 FarmBeats 사용자 인터페이스가 표시 되어야 합니다.
 
@@ -161,6 +165,7 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 ## <a name="upgrade"></a>업그레이드
 
 FarmBeats를 최신 버전으로 업그레이드 하려면 PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계를 실행 합니다. 사용자가 FarmBeats가 설치 된 구독의 소유자 여야 합니다.
+
 첫 번째 사용자에 게 구독을 선택 하 고 저장소 계정을 만들도록 요청 하는 메시지가 표시 됩니다. 지시에 따라 설치를 완료 합니다.
 
 1. [업그레이드 스크립트](https://aka.ms/FarmBeatsUpgradeScript) 다운로드

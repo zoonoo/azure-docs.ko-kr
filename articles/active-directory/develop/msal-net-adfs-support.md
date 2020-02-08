@@ -3,22 +3,22 @@ title: MSAL.NET의 AD FS 지원 | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL.NET (Microsoft Authentication Library for .NET)의 Active Directory Federation Services (AD FS) 지원에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 07/16/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 6e40a03e70fa04855037165462761c56f13acc58
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: a0dd9b339ca6372a34ff46222cad347eb1a673f9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695622"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084983"
 ---
 # <a name="active-directory-federation-services-support-in-msalnet"></a>MSAL.NET에서 지원 Active Directory Federation Services
 Windows Server의 Active Directory Federation Services (AD FS)를 사용 하면 개발 중인 응용 프로그램에 Openid connect Connect 및 OAuth 2.0 기반 인증 및 권한 부여를 추가할 수 있습니다. 이러한 응용 프로그램은 AD FS에 대해 직접 사용자를 인증할 수 있습니다. 자세한 내용은 [개발자를 위한 AD FS 시나리오](/windows-server/identity/ad-fs/overview/ad-fs-openid-connect-oauth-flows-scenarios)를 참조 하세요.

@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/24/2019
 ms.author: mlearned
-ms.openlocfilehash: 06d15d66df0b2ec0049d4b2fffae6a9909b05dca
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 35cded14977988c80455a9c28a0e01e7913d58f4
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549141"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069509"
 ---
 # <a name="best-practices-for-authentication-and-authorization-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 인증 및 권한 부여 모범 사례
 
@@ -122,7 +122,7 @@ Pod id를 사용 하려면 [Kubernetes 응용 프로그램에 대 한 id Azure A
 
 AKS의 클러스터 작업에 대한 자세한 내용은 다음 모범 사례를 참조하세요.
 
-* [다중 테 넌 트 및 클러스터 격리][aks-best-practices-scheduler]
+* [다중 테 넌 트 및 클러스터 격리][aks-best-practices-cluster-isolation]
 * [기본 Kubernetes scheduler 기능][aks-best-practices-scheduler]
 * [Advanced Kubernetes scheduler 기능][aks-best-practices-advanced-scheduler]
 

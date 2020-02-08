@@ -5,21 +5,18 @@ services: web-application-firewall
 ms.topic: conceptual
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 11/19/2019
+ms.date: 02/08/2020
 ms.author: victorh
-ms.openlocfilehash: 3f7d213aed82d1cb94bb96b9e212d3b255851afd
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 3e8cd2f1e594cd6a60296b2df135f275641df313
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74171215"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086971"
 ---
 # <a name="create-web-application-firewall-policies-for-application-gateway"></a>Application Gateway에 대 한 웹 응용 프로그램 방화벽 정책 만들기
 
 WAF 정책을 수신기와 연결 하면 단일 WAF 뒤에 여러 사이트가 다른 정책에 의해 보호 될 수 있습니다. 예를 들어 WAF 뒤에 5 개의 사이트가 있는 경우 다른 4 개의 주는 없이 한 사이트의 제외, 사용자 지정 규칙 및 관리 되는 규칙 집합을 사용자 지정 하기 위해 5 개의 별도의 WAF 정책 (각 수신기에 대해 하나)을 사용할 수 있습니다. 단일 정책을 모든 사이트에 적용 하려면 개별 수신기 대신 정책을 Application Gateway와 연결 하 여 전역적으로 적용 되도록 할 수 있습니다. 경로 기반 라우팅 규칙에도 정책을 적용할 수 있습니다. 
-
-   > [!NOTE]
-   > 사이트당 WAF 정책은 미국 중 북부와 유럽 서 면에서 사용할 수 있습니다. 포털에서이 항목에 액세스 하려면 모든 사용자에 게 라이브 상태가 될 때까지 [이 링크](https://aka.ms/AppgwwafWithAllFeatureFlags) 를 사용 하세요.  
 
 원하는 수 만큼 정책을 만들 수 있습니다. 정책을 만든 후에는 적용 되도록 Application Gateway 연결 되어야 하지만 응용 프로그램 게이트웨이 및 수신기의 조합에 연결할 수 있습니다. 
 
@@ -40,8 +37,8 @@ Application Gateway에 정책이 적용 된 경우 해당 Application Gateway의
    |설정  |값  |
    |---------|---------|
    |정책     |지역 WAF (Application Gateway)|
-   |구독     |구독 이름 선택|
-   |리소스 그룹     |리소스 그룹 선택|
+   |Subscription     |구독 이름 선택|
+   |Resource group     |리소스 그룹 선택|
    |정책 이름     |WAF 정책의 고유한 이름을 입력 합니다.|
 3. **연결** 탭에서 다음 설정 중 하나를 입력 한 다음 **추가**를 선택 합니다.
 

@@ -3,7 +3,7 @@ title: Azure AD B2C (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: Microsoft Authentication Library for .NET (MSAL.NET)과 함께 Azure AD B2C를 사용 하는 경우의 특정 고려 사항에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
@@ -13,12 +13,12 @@ ms.date: 10/29/2019
 ms.author: jeferrie
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: f28b7abc2b3a9ba753a2f7923c9cfed1897c8522
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 697b4bc8e3a25085ac6f7d600ea2227dd30a6624
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834198"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083981"
 ---
 # <a name="use-msalnet-to-sign-in-users-with-social-identities"></a>MSAL.NET를 사용 하 여 소셜 id로 사용자 로그인
 
@@ -78,7 +78,7 @@ AuthenticationResult ar = await application .AcquireTokenInteractive(scopes)
 
 - `policy` 이전 문자열 중 하나입니다 (예 `PolicySignUpSignIn`).
 - Android (작업)에는 `ParentActivityOrWindow` 필요 하 고, Windows의 windows 및 iOS의 UIViewController와 같이 부모 UI를 지 원하는 다른 플랫폼의 경우 선택 사항입니다. [UI 대화 상자에서](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/Acquiring-tokens-interactively#withparentactivityorwindow)자세한 내용을 참조 하세요.
-- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 방법입니다. 예:
+- `GetAccountByPolicy(IEnumerable<IAccount>, string)`는 지정 된 정책에 대 한 계정을 찾는 방법입니다. 다음은 그 예입니다.
 
   ```csharp
   private IAccount GetAccountByPolicy(IEnumerable<IAccount> accounts, string policy)
@@ -184,4 +184,4 @@ Azure AD B2C 응용 프로그램에 대 한 MSAL.NET를 대화형으로 토큰�
 
 | 샘플 | 플랫폼 | Description|
 |------ | -------- | -----------|
-|[active-directory-b2c-xamarin-native](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 Web API에 액세스 하는 방법을 보여주는.|
+|[b2c-xamarin-네이티브](https://github.com/Azure-Samples/active-directory-b2c-xamarin-native) | Xamarin iOS, Xamarin Android, UWP | 간단한 Xamarin Forms 앱은 MSAL.NET를 사용 하 여 Azure AD B2C를 통해 사용자를 인증 하 고 결과 토큰을 사용 하 여 Web API에 액세스 하는 방법을 보여주는.|

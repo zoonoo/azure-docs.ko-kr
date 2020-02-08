@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 0bbd8a12820432ce2f131dda29af6740a2f04e18
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024724"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083161"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 재해 복구 대상으로 AVS 사설 클라우드 설정
 
@@ -101,7 +101,7 @@ SRM 솔루션 네트워크에 대 한 VLAN을 만들고 서브넷 CIDR에 할당
 
 AVS 사설 클라우드에서 워크 로드에 대 한 IP 주소 조회, IP 주소 관리 및 이름 확인 서비스를 제공 하려면 [Avs 사설 클라우드에서 dns 및 dhcp 응용 프로그램 및 워크 로드 설정](dns-dhcp-setup.md)에 설명 된 대로 DHCP 및 dns 서버를 설정 합니다.
 
-*. Avs.io 도메인은 AVS 사설 클라우드의 관리 Vm 및 호스트에서 사용 됩니다. 이 도메인에 대 한 요청을 해결 하려면 [조건부 전달자 만들기](on-premises-dns-setup.md#create-a-conditional-forwarder)에 설명 된 대로 dns 서버에서 dns 전달을 구성 합니다.
+*. Cloudsimple.io 도메인은 AVS 사설 클라우드의 관리 Vm 및 호스트에서 사용 됩니다. 이 도메인에 대 한 요청을 해결 하려면 [조건부 전달자 만들기](on-premises-dns-setup.md#create-a-conditional-forwarder)에 설명 된 대로 dns 서버에서 dns 전달을 구성 합니다.
 
 ### <a name="install-vsphere-replication-appliance-in-your-on-premises-environment"></a>온-프레미스 환경에서 vSphere 복제 어플라이언스 설치
 
@@ -133,7 +133,7 @@ VRA 및 SRM을 설치 하기 전에 cloudowner 사용자의 vCenter 권한을 �
 설치는 다음과 같은 개략적인 단계로 구성 됩니다.
 
 1. [권한](escalate-private-cloud-privileges.md)상승
-2. VSphere 복제 및 SRM 설치를 위한 AVS 사설 클라우드에서 사용자를 만듭니다. [VCENTER UI: vRA & SRM 설치를 위한 AVS 사설 클라우드에서 사용자 만들기](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation)에 설명 되어 있습니다.
+2. VSphere 복제 및 SRM 설치를 위한 AVS 사설 클라우드에서 사용자를 만듭니다. [VCENTER UI: vRA &AMP; SRM 설치를 위한 AVS 사설 클라우드에서 사용자 만들기](#vcenter-ui-create-a-user-in-the-avs-private-cloud-for-vra-and-srm-installation)에 설명 되어 있습니다.
 3. VRA 설치를 위한 AVS 사설 클라우드 환경을 준비 합니다.
 4. Vmware.com에서 VR ISO의 node.js를 사용 하 여 AVS 사설 클라우드에 vRA를 배포 합니다. VRA 6.5의 경우 [이 VMware 블로그](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices) 는 관련 정보를 포함 합니다.
 5. VRA에 대 한 방화벽 규칙을 구성 합니다. [AVS portal: vRA에 대 한 방화벽 규칙 구성](#avs-portal-configure-firewall-rules-for-vra)에서 설명 합니다.

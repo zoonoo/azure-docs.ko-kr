@@ -8,12 +8,12 @@ ms.date: 01/09/2020
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 79b223de7a0a0cfdaf799b1f80e585a2a55f7e82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ce7c92f121fb458d528d63d0af0aad025b377386
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849735"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086665"
 ---
 # <a name="monitor-topics-and-event-subscriptions"></a>항목 및 이벤트 구독 모니터링
 
@@ -40,7 +40,7 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
         }
  ```    
 
-메트릭은 http에 대 한 모듈의 `5888/metrics` 및 https의 `4438/metrics`에서 사용할 수 있습니다. 예를 들어 http의 `http://<modulename>:4438/metrics?api-version=2019-01-01-preview` 합니다. 이 시점에서 메트릭 모듈은이 [예제 아키텍처](https://github.com/veyalla/ehm)와 같이 메트릭을 수집 하도록 끝점을 폴링할 수 있습니다.
+메트릭은 http에 대 한 모듈의 `5888/metrics` 및 https의 `4438/metrics`에서 사용할 수 있습니다. 예를 들어 http의 `http://<modulename>:5888/metrics?api-version=2019-01-01-preview` 합니다. 이 시점에서 메트릭 모듈은이 [예제 아키텍처](https://github.com/veyalla/ehm)와 같이 메트릭을 수집 하도록 끝점을 폴링할 수 있습니다.
 
 ## <a name="available-metrics"></a>사용 가능한 메트릭
 
@@ -63,9 +63,9 @@ Edge에서 Event Grid는 토픽 및 이벤트 구독에 대 한 여러 가지 �
 | 메트릭 | Description |
 | ------ | ----------- |
 | deliverySuccessCounts | 구성 된 끝점에 성공적으로 배달 된 이벤트 수
-| deliveryFailureCounts | 구성 된 끝점에 실패 한 이벤트 전달 시도 횟수
+| deliveryFailureCounts | 구성 된 끝점에 배달 하지 못한 이벤트의 수입니다.
 | deliverySuccessLatencyMs | 성공적으로 배달 된 이벤트의 대기 시간 (밀리초)
 | deliveryFailureLatencyMs | 이벤트 배달 실패의 대기 시간 (밀리초)
 | systemDelayForFirstAttemptMs | 첫 번째 배달 시도 전 이벤트의 시스템 지연 시간 (밀리초)
 | deliveryAttemptsCount | 이벤트 전달 시도 횟수-성공 및 실패
-| expiredCounts | 배달할 수 없는 이벤트의 수 
+| expiredCounts | 구성 된 끝점에 전달 되지 않은 만료 된 이벤트 수

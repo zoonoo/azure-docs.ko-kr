@@ -12,15 +12,15 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.date: 11/22/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 7f903ca541582dfa0f3980bb65a3fef3c4b774a7
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 75893a85f975d5d1454f1b93535a1df7a45e8731
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74916777"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084026"
 ---
 # <a name="handle-msal-exceptions-and-errors"></a>MSAL 예외 및 오류 처리
 
@@ -48,7 +48,7 @@ MSAL (Microsoft 인증 라이브러리)의 예외는 최종 사용자에 게 표
 
 다음은 throw 될 수 있는 일반적인 예외 및 가능한 완화 방법입니다.  
 
-| 예외 | 오류 코드 | 해결 방법|
+| 예외 | 오류 코드 | 완화 방법|
 | --- | --- | --- |
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS65001: 사용자 또는 관리자가 ID가 ' {appName} ' 인 ' {appName} ' (이) 라는 응용 프로그램을 사용 하도록 동의한 하지 않았습니다. 이 사용자 및 리소스에 대한 대화형 권한 부여 요청을 보냅니다.| 먼저 사용자 동의를 받아야 합니다. 웹 UI가 없는 .NET Core를 사용 하지 않는 경우 (한 번만)를 호출 `AcquireTokeninteractive`합니다. .NET core를 사용 하 고 있거나 `AcquireTokenInteractive`하지 않으려는 경우, 사용자는 URL로 이동 하 여 동의를 제공할 수 있습니다. https://login.microsoftonline.com/common/oauth2/v2.0/authorize?client_id={clientId}&response_type=code&scope=user.read. `AcquireTokenInteractive`를 호출 하려면: `app.AcquireTokenInteractive(scopes).WithAccount(account).WithClaims(ex.Claims).ExecuteAsync();`|
 | [MsalUiRequiredException](/dotnet/api/microsoft.identity.client.msaluirequiredexception?view=azure-dotnet) | AADSTS50079: 사용자는 MFA (multi-factor authentication)를 사용 해야 합니다.| 완화 방법은 없습니다. MFA에 대해 MFA를 구성 하 고 AAD (Azure Active Directory)에서 적용 하기로 결정 한 경우 `AcquireTokenInteractive` 또는 `AcquireTokenByDeviceCode`와 같은 대화형 흐름으로 대체 해야 합니다.|
@@ -78,7 +78,7 @@ MSAL은 `Classification` 필드를 노출 합니다. 예를 들어 사용자가 
 | UserPasswordExpired | 사용자의 암호가 만료 되었습니다. | 사용자가 암호를 재설정할 수 있도록 AcquireTokenInteractively ()를 호출 합니다. |
 | PromptNeverFailed| 대화형 인증은 매개 변수 프롬프트를 사용 하 여 호출 되었습니다. MSAL이 브라우저 쿠키를 사용 하 고 브라우저를 표시 하지는 않습니다. 이로 인해 오류가 발생 했습니다. | 프롬프트를 표시 하지 않고 AcquireTokenInteractively ()를 호출 합니다. 없음 |
 | AcquireTokenSilentFailed | MSAL SDK에는 캐시에서 토큰을 인출 하는 데 충분 한 정보가 없습니다. 이는 캐시에 토큰이 없거나 계정을 찾을 수 없기 때문일 수 있습니다. 오류 메시지에 자세한 내용이 있습니다.  | AcquireTokenInteractively ()를 호출 합니다. |
-| 없음    | 자세한 내용은 제공 되지 않습니다. 대화형 인증 흐름 중에 사용자 상호 작용을 통해 조건을 확인할 수 있습니다. | AcquireTokenInteractively ()를 호출 합니다. |
+| None    | 자세한 내용은 제공 되지 않습니다. 대화형 인증 흐름 중에 사용자 상호 작용을 통해 조건을 확인할 수 있습니다. | AcquireTokenInteractively ()를 호출 합니다. |
 
 ## <a name="net-code-example"></a>.NET 코드 예제
 
@@ -273,7 +273,7 @@ MSAL은 더 나은 사용자 환경을 제공 하는 데 사용할 수 있는 `r
 | `UserPasswordExpired` | 사용자의 암호가 만료 되었습니다. | 사용자가 암호를 재설정할 수 있도록 대화형 매개 변수를 사용 하 여 `acquireToken`를 호출 합니다. |
 | `None` |  자세한 내용이 제공 됩니다. 이 조건은 대화형 인증 흐름 중에 사용자 상호 작용을 통해 해결할 수 있습니다. | 대화형 매개 변수를 사용 하 여 `acquireToken` 호출 |
 
-### <a name="code-example"></a>코드 예제
+### <a name="code-example"></a>코드 예
 
 ```java
         IAuthenticationResult result;
@@ -514,7 +514,7 @@ IOS 및 macOS 오류에 대 한 MSAL의 전체 목록은 [Msalerror 열거형](h
 
 ### <a name="net"></a>.NET
 
-MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet)으로 표시됩니다.
+MSAL.NET에서 조건부 액세스가 필요한 API를 호출하는 경우 애플리케이션에서 클레임 챌린지 예외를 처리해야 합니다. 이 예외는 [Claims](/dotnet/api/microsoft.identity.client.msalserviceexception?view=azure-dotnet) 속성이 비어 있지 않은 [MsalServiceException](/dotnet/api/microsoft.identity.client.msalserviceexception.claims?view=azure-dotnet)으로 표시됩니다.
 
 클레임 챌린지를 처리 하려면 `PublicClientApplicationBuilder` 클래스의 `.WithClaim()` 메서드를 사용 해야 합니다.
 

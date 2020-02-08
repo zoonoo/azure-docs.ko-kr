@@ -13,14 +13,14 @@ ms.devlang: NA
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 10/28/2019
+ms.date: 02/07/2020
 ms.author: radeltch
-ms.openlocfilehash: 179df26eb0cc75899c9b509ebe00410ffa916dc8
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 52179f15829981d59ff060784a49eccef89bb186
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935189"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083732"
 ---
 # <a name="public-endpoint-connectivity-for-virtual-machines-using-azure-standard-load-balancer-in-sap-high-availability-scenarios"></a>SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결
 
@@ -106,7 +106,7 @@ SAP 배포에 공용 끝점에 대 한 아웃 바운드 연결이 필요 하지 
     az network lb outbound-rule create --address-pool MyBackendPoolOfPublicILB --frontend-ip-configs MyPublicILBFrondEndIP --idle-timeout 30 --lb-name MyPublicILB --name MyOutBoundRules  --outbound-ports 10000 --enable-tcp-reset true --protocol All --resource-group MyResourceGroup
    ```
 
-4. 특정 공용 끝점에 대 한 액세스를 제한 하는 네트워크 보안 그룹 규칙을 만듭니다. 기존 네트워크 보안 그룹이 있는 경우 조정할 수 있습니다. 아래 예제에서는 Azure 관리 API에만 액세스를 허용 하는 방법을 보여 줍니다. 
+4. 특정 공용 끝점에 대 한 액세스를 제한 하는 네트워크 보안 그룹 규칙을 만듭니다. 기존 네트워크 보안 그룹이 있는 경우 조정할 수 있습니다. 아래 예제에서는 Azure 관리 API에 대 한 액세스를 사용 하도록 설정 하는 방법을 보여 줍니다. 
    1. 네트워크 보안 그룹으로 이동 합니다.
    1. 아웃 바운드 보안 규칙을 클릭 합니다.
    1. **인터넷**에 대 한 모든 아웃 바운드 액세스를 **거부** 하는 규칙을 추가 합니다.
@@ -165,7 +165,7 @@ Azure 방화벽을 배포 하는 방법에 대 한 자세한 내용은 [Azure �
    방화벽 규칙은 Azure 방화벽과의 ![아웃 바운드 연결과 같습니다](./media/high-availability-guide-standard-load-balancer/high-availability-guide-standard-load-balancer-firewall-rule.png)
 
 6. Vm의 서브넷에서 **Myazurefirewall**의 개인 IP에 대 한 사용자 정의 경로를 만듭니다.
-   1. 경로 테이블에 배치 되 면 경로를 클릭 합니다. 추가를 선택 합니다. 
+   1. 경로 테이블에 배치 되 면 경로를 클릭 합니다. 추가를 선택합니다. 
    1. 경로 이름: ToMyAzureFirewall, 주소 접두사: **0.0.0.0/0**. 다음 홉 유형: 가상 어플라이언스를 선택 합니다. 다음 홉 주소: 구성 된 방화벽의 개인 IP 주소를 입력 합니다. **11.97.1.4**.  
    1. 저장
 

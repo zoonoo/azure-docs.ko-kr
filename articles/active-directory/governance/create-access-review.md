@@ -11,16 +11,16 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
 ms.subservice: compliance
-ms.date: 05/21/2019
+ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e65eb08873da71c7683fe3347484831dfff58793
-ms.sourcegitcommit: 014e916305e0225512f040543366711e466a9495
+ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75932633"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084452"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -28,7 +28,7 @@ ms.locfileid: "75932633"
 
 이 문서에서는 그룹 구성원 또는 응용 프로그램 액세스에 대 한 액세스 검토를 하나 이상 만드는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure AD Premium P2
 - 전역 관리자 또는 사용자 관리자
@@ -93,7 +93,7 @@ ms.locfileid: "75932633"
 
     ![액세스 검토 완료 설정 만들기](./media/create-access-review/upon-completion-settings.png)
 
-1. 거부된 사용자에 대한 액세스를 자동으로 제거하려면 **결과를 리소스에 자동 적용**을 **사용**으로 설정합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
+1. 거부 된 사용자에 대 한 액세스 권한을 자동으로 제거 하려면 **리소스에 결과 자동 적용** 을 **사용**으로 설정 합니다. 검토가 완료될 때 결과를 수동으로 적용하려면 스위치를 **사용 안 함**으로 설정합니다.
 
 1. **검토자가 응답하지 않는 경우** 목록을 사용하여 검토 기간 내에 검토자가 검토하지 않은 사용자를 어떻게 할 것인지 지정합니다. 이 설정은 검토자가 수동으로 검토한 사용자에게 영향을 주지 않습니다. 최종 검토자의 결정이 [거부]이면 사용자의 액세스 권한이 제거됩니다.
 
@@ -127,6 +127,20 @@ ms.locfileid: "75932633"
 검토가 시작되면 Azure AD에서 기본적으로 검토자에게 전자 메일을 보냅니다. Azure AD에서 전자 메일을 보내지 않도록 선택한 경우 검토자에게 완료할 때까지 대기 중인 액세스 검토가 있음을 알려야 합니다. [그룹 또는 응용 프로그램에](perform-access-review.md)대 한 액세스를 검토 하는 방법에 대 한 지침을 표시할 수 있습니다. 게스트가 자신의 액세스를 검토 하는 것으로 확인 되는 경우 [그룹 또는 응용 프로그램에 대 한 액세스를 검토](review-your-access.md)하는 방법에 대 한 지침을 표시 합니다.
 
 게스트를 검토자로 할당 하 고 초대를 수락 하지 않은 경우 검토 전에 초대를 먼저 수락 해야 하므로 액세스 검토에서 전자 메일을 받지 못합니다.
+
+## <a name="access-review-status-table"></a>액세스 검토 상태 테이블
+
+| 상태 | 정의 |
+|--------|------------|
+|NotStarted | 검토를 만들었습니다. 사용자 검색이 시작 되기를 기다리고 있습니다. |
+|초기화 중   | 사용자 검색은 검토의 일부인 모든 사용자를 식별 하기 위해 진행 중입니다. |
+|시작 중 | 검토를 시작 하는 중입니다. 전자 메일 알림을 사용 하도록 설정 하면 전자 메일이 검토자에 게 전송 됩니다. |
+|InProgress | 검토가 시작 되었습니다. 전자 메일 알림을 사용 하는 경우 전자 메일을 검토자에 게 보냅니다. 검토자는 기한 기한까지 결정을 제출할 수 있습니다. |
+|끝낸 | 검토가 완료 되 고 전자 메일이 검토 소유자에 게 전송 됩니다. |
+|AutoReviewing | 검토는 시스템 검토 단계에 있습니다. 시스템은 권장 사항 또는 미리 구성 된 결정에 따라 검토 되지 않은 사용자에 대 한 결정을 기록 합니다. |
+|AutoReviewed | 검토 하지 않은 모든 사용자에 대해 시스템에서 결정을 기록 했습니다. 자동 적용이 사용 하도록 설정 **된 경우 검토를 계속** 진행할 준비가 되었습니다. |
+|넣으려면 | 승인 된 사용자에 대 한 액세스는 변경 되지 않습니다. |
+|적용 | 거부 된 사용자 (있는 경우)가 리소스 또는 디렉터리에서 제거 되었습니다. |
 
 ## <a name="create-reviews-via-apis"></a>API를 통해 검토 만들기
 

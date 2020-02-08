@@ -3,22 +3,22 @@ title: IOS 용 MSAL & macOS 차이점 | Microsoft
 titleSuffix: Microsoft identity platform
 description: IOS와 macOS 간의 MSAL (Microsoft 인증 라이브러리) 사용 차이점에 대해 설명 합니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: cdc06ee2aceae4bf8c689d4ef6db0609b8d71c8f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 62b79ee7398286b8e6c8ed8612bd001595e1f6ea
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834215"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77084972"
 ---
 # <a name="microsoft-authentication-library-for-ios-and-macos-differences"></a>iOS 및 macOS용 Microsoft 인증 라이브러리 차이점
 

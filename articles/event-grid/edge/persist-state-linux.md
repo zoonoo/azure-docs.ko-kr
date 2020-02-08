@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 39b16c6cfd5b94d412827ed88197edbef2da1453
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 12655d2ceb4a1124376d9bddf82194472c98ebb9
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844635"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086661"
 ---
 # <a name="persist-state-in-linux"></a>Linux에서 상태 유지
 
@@ -49,17 +49,17 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
 ```json
  {
   "Env": [
-    "inbound:serverAuth:tlsPolicy=strict",
-    "inbound:serverAuth:serverCert:source=IoTEdge",
-    "inbound:clientAuth:sasKeys:enabled=false",
-    "inbound:clientAuth:clientCert:enabled=true",
-    "inbound:clientAuth:clientCert:source=IoTEdge",
-    "inbound:clientAuth:clientCert:allowUnknownCA=true",
-    "outbound:clientAuth:clientCert:enabled=true",
-    "outbound:clientAuth:clientCert:source=IoTEdge",
-    "outbound:webhook:httpsOnly=true",
-    "outbound:webhook:skipServerCertValidation=false",
-    "outbound:webhook:allowUnknownCA=true"
+    "inbound__serverAuth__tlsPolicy=strict",
+    "inbound__serverAuth__serverCert__source=IoTEdge",
+    "inbound__clientAuth__sasKeys__enabled=false",
+    "inbound__clientAuth__clientCert__enabled=true",
+    "inbound__clientAuth__clientCert__source=IoTEdge",
+    "inbound__clientAuth__clientCert__allowUnknownCA=true",
+    "outbound__clientAuth__clientCert__enabled=true",
+    "outbound__clientAuth__clientCert__source=IoTEdge",
+    "outbound__webhook__httpsOnly=true",
+    "outbound__webhook__skipServerCertValidation=false",
+    "outbound__webhook__allowUnknownCA=true"
   ],
   "HostConfig": {
     "Binds": [
@@ -116,7 +116,8 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     {
          "HostConfig": {
             "Binds": [
-                "<your-directory-name-here>:/app/metadataDb"
+                "<your-directory-name-here>:/app/metadataDb",
+                "<your-directory-name-here>:/app/eventsDb",
              ]
          }
     }
@@ -127,17 +128,17 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     ```json
     {
           "Env": [
-            "inbound:serverAuth:tlsPolicy=strict",
-            "inbound:serverAuth:serverCert:source=IoTEdge",
-            "inbound:clientAuth:sasKeys:enabled=false",
-            "inbound:clientAuth:clientCert:enabled=true",
-            "inbound:clientAuth:clientCert:source=IoTEdge",
-            "inbound:clientAuth:clientCert:allowUnknownCA=true",
-            "outbound:clientAuth:clientCert:enabled=true",
-            "outbound:clientAuth:clientCert:source=IoTEdge",
-            "outbound:webhook:httpsOnly=true",
-            "outbound:webhook:skipServerCertValidation=false",
-            "outbound:webhook:allowUnknownCA=true"
+            "inbound__serverAuth__tlsPolicy=strict",
+            "inbound__serverAuth__serverCert__source=IoTEdge",
+            "inbound__clientAuth__sasKeys__enabled=false",
+            "inbound__clientAuth__clientCert__enabled=true",
+            "inbound__clientAuth__clientCert__source=IoTEdge",
+            "inbound__clientAuth__clientCert__allowUnknownCA=true",
+            "outbound__clientAuth__clientCert__enabled=true",
+            "outbound__clientAuth__clientCert__source=IoTEdge",
+            "outbound__webhook__httpsOnly=true",
+            "outbound__webhook__skipServerCertValidation=false",
+            "outbound__webhook__allowUnknownCA=true"
           ],
           "HostConfig": {
                 "Binds": [
@@ -156,7 +157,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
     ```
 
     >[!IMPORTANT]
-    >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈 내의 특정 위치를 가리킵니다. Linux의 Event Grid 모듈은 **/app/metadata**이어야 합니다.
+    >Bind 값의 두 번째 부분을 변경 하지 마십시오. 모듈 내의 특정 위치를 가리킵니다. Linux의 Event Grid 모듈은 **/app/metadataDb** 및 **/App/eventsdb** 여야 합니다.
 
 
 ## <a name="persist-events"></a>이벤트 지속
@@ -167,7 +168,7 @@ Docker 볼륨 대신 호스트 폴더를 탑재 하는 옵션도 있습니다.
 
 * 유지 이벤트는 이벤트 구독 별로 사용 하도록 설정 되며 볼륨 또는 디렉터리가 탑재 되 면 옵트인 (opt in) 됩니다.
 * 이벤트 지 속성은 생성 시 이벤트 구독에서 구성 되며, 이벤트 구독을 만든 후에는 수정할 수 없습니다. 이벤트 지 속성을 설정/해제 하려면 이벤트 구독을 삭제 하 고 다시 만들어야 합니다.
-* 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 일반적으로 대규모 noticible 됩니다.
+* 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 일반적으로 대규모의 경우에만 크게 크게 드러납니다.
 
 이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 하려면 `persistencePolicy`를 `true`으로 설정 합니다.
 

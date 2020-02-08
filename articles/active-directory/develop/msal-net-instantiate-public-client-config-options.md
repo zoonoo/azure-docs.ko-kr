@@ -3,22 +3,22 @@ title: 공용 클라이언트 앱 인스턴스화 (MSAL.NET) | Microsoft
 titleSuffix: Microsoft identity platform
 description: .NET 용 Microsoft 인증 라이브러리 (MSAL.NET)를 사용 하 여 구성 옵션으로 공용 클라이언트 응용 프로그램을 인스턴스화하는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/30/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: c07ffb77a838a91bd7eed4b9e40b39050450981c
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 1dd06e139f931bbf8554f05f05c5d9b9ccf200e8
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695503"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083602"
 ---
 # <a name="instantiate-a-public-client-application-with-configuration-options-using-msalnet"></a>MSAL.NET를 사용 하 여 구성 옵션을 사용 하 여 공용 클라이언트 응용 프로그램 인스턴스화
 

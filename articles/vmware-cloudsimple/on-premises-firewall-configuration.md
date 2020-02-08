@@ -9,12 +9,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 09b25dbdc8fc13c40ccd89b2cfd78611cedaac9d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: a4a9760b5c7a70c58a1afe1b14b781a35f2b9b18
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024469"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082960"
 ---
 # <a name="accessing-your-avs-private-cloud-environment-and-applications-from-on-premises"></a>온-프레미스에서 AVS 사설 클라우드 환경 및 응용 프로그램에 액세스
 
@@ -24,9 +24,9 @@ Azure Express 경로 또는 사이트 간 VPN을 사용 하 여 온-프레미스
 
 AVS 사설 클라우드 vCenter 및 NSX manager에 액세스 하려면 아래 테이블에 정의 된 포트를 온-프레미스 방화벽에서 열어야 합니다. 
 
-| Port       | 원본                           | 대상                      | 용도                                                                                                                |
+| 포트       | 원본                           | 대상                      | 목적                                                                                                                |
 |------------|----------------------------------|----------------------------------|------------------------------------------------------------------------------------------------------------------------|
-| 53 (UDP)   | 온-프레미스 DNS 서버          | AVS 사설 클라우드 DNS 서버        | Az의 DNS 조회를 전달 하는 데 필요 *합니다.* 온-프레미스 네트워크에서 AVS 사설 클라우드 DNS 서버로 AVS.io.     |
+| 53 (UDP)   | 온-프레미스 DNS 서버          | AVS 사설 클라우드 DNS 서버        | 온-프레미스 네트워크에서 *az.cloudsimple.io* 의 dns 조회를 AVS 사설 클라우드 DNS 서버로 전달 하는 데 필요 합니다.     |
 | 53 (UDP)   | AVS 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버          | DNS 전달에는 온-프레미스 도메인 이름을 AVS 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로 조회 하는 데 필요 합니다. |
 | 80 (TCP)   | 온-프레미스 네트워크              | AVS 사설 클라우드 관리 네트워크 | VCenter URL을 *http* 에서 *https*로 리디렉션하는 데 필요 합니다.                                                         |
 | 443 (TCP)  | 온-프레미스 네트워크              | AVS 사설 클라우드 관리 네트워크 | 온-프레미스 네트워크에서 vCenter 및 NSX manager에 액세스 하는 데 필요 합니다.                                           |
@@ -37,7 +37,7 @@ AVS 사설 클라우드 vCenter 및 NSX manager에 액세스 하려면 아래 �
 
 온-프레미스 active directory를 AVS 사설 클라우드 vCenter의 id 원본으로 구성 하려면 테이블에 정의 된 포트를 열어야 합니다. 구성 단계는 [Azure AD를 Azure AD를 사용 하 여 avs의 vCenter에 대 한 id 공급자로 사용](https://docs.azure.cloudsimple.com/azure-ad/) 을 참조 하세요.
 
-| Port         | 원본                           | 대상                                         | 용도                                                                                                                                          |
+| 포트         | 원본                           | 대상                                         | 목적                                                                                                                                          |
 |--------------|----------------------------------|-----------------------------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------|
 | 53 (UDP)      | AVS 사설 클라우드 DNS 서버        | 온-프레미스 DNS 서버                             | 온-프레미스 active directory 도메인 이름을 AVS 사설 클라우드 vCenter에서 온-프레미스 DNS 서버로 전달 하는 데 필요 합니다.        |
 | 389(TCP/UDP) | AVS 사설 클라우드 관리 네트워크 | 온-프레미스 active directory 도메인 컨트롤러     | 사용자 인증을 위해 AVS 사설 클라우드 vCenter server에서 active directory 도메인 컨트롤러로의 LDAP 통신에 필요 합니다.              |
@@ -49,7 +49,7 @@ AVS 사설 클라우드 vCenter 및 NSX manager에 액세스 하려면 아래 �
 
 AVS 사설 클라우드에서 실행 되는 액세스 워크 로드 가상 머신에는 온-프레미스 방화벽에서 포트를 열어야 합니다. 아래 표에서는 필요한 공통 포트와 용도를 보여 줍니다. 응용 프로그램 관련 포트 요구 사항은 응용 프로그램 설명서를 참조 하세요.
 
-| Port         | 원본                         | 대상                          | 용도                                                                              |
+| 포트         | 원본                         | 대상                          | 목적                                                                              |
 |--------------|--------------------------------|--------------------------------------|--------------------------------------------------------------------------------------|
 | 22 (TCP)      | 온-프레미스 네트워크            | AVS 사설 클라우드 워크 로드 네트워크       | AVS 사설 클라우드에서 실행 되는 Linux 가상 머신에 대 한 보안 셸 액세스            |
 | 3389 (TCP)    | 온-프레미스 네트워크            | AVS 사설 클라우드 워크 로드 네트워크       | AVS (AVS Private Cloud)에서 실행 되는 windows 가상 머신에 대 한 원격 데스크톱               |

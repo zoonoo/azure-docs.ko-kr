@@ -4,14 +4,14 @@ description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제�
 tags: billing
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: c5714dd30be4d557086667a74fff2ff8117e2a2b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901400"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087435"
 ---
-# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 한도, 할당량 및 제약 조건
+# <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
 이 문서는 때때로 할당량이라고도 하는 가장 일반적인 Microsoft Azure 제한의 일부를 나열합니다. 현재 이 문서에서는 일부 Azure 서비스에 대해 다룹니다. 시간이 지남에 따라 목록이 확장 되 고 더 많은 서비스를 포함 하도록 업데이트 됩니다.
 
@@ -61,7 +61,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Azure Maps](#azure-maps-limits)
 * [Azure Monitor](#azure-monitor-limits)
 * [Azure Policy](#azure-policy-limits)
-* [Azure SignalR Service](#azure-signalr-service-limits)
+* [Azure SignalR 서비스](#azure-signalr-service-limits)
 * [Backup](#backup-limits)
 * [Batch](#batch-limits)
 * [BizTalk Services](#biztalk-services-limits)
@@ -71,6 +71,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 * [Data Factory](#data-factory-limits)
 * [Data Lake Analytics](#data-lake-analytics-limits)
 * [Data Lake Store](#data-lake-store-limits)
+* [데이터 공유](#data-share-limits)
 * [Database Migration Service](#database-migration-service-limits)
 * [Event Grid](#event-grid-limits)
 * [Event Hubs](#event-hubs-limits)
@@ -96,7 +97,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
   * [Private Link](#private-link-limits)
   * [Traffic Manager](#traffic-manager-limits)
   * [Virtual Network](#networking-limits)
-  * [Virtual WAN](#virtual-wan-limits)
+  * [가상 WAN](#virtual-wan-limits)
 * [Notification Hubs](#notification-hubs-limits)
 * [리소스 그룹](#resource-group-limits)
 * [역할 기반 액세스 제어](#role-based-access-control-limits)
@@ -193,7 +194,7 @@ Azure Machine Learning 계산 할당량의 최신 값은 [Azure Machine Learning
 
 [!INCLUDE [network-watcher-limits](../../../includes/network-watcher-limits.md)]
 
-#### <a name="private-link-limits"></a>개인 링크 제한
+#### <a name="private-link-limits"></a>Private Link 제한
 
 [!INCLUDE [private-link-limits](../../../includes/private-link-limits.md)]
 
@@ -404,6 +405,10 @@ Azure Database for PostgreSQL 제한은 [Azure Database for PostgreSQL의 제한
 ### <a name="data-lake-store-limits"></a>Data Lake Store 제한
 
 [!INCLUDE [azure-data-lake-store-limits](../../../includes/azure-data-lake-store-limits.md)]
+
+### <a name="data-share-limits"></a>데이터 공유 제한
+
+[!INCLUDE [azure-data-share-limits](../../../includes/azure-data-share-limits.md)]
 
 ### <a name="database-migration-service-limits"></a>Database Migration Service 제한
 

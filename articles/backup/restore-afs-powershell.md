@@ -3,18 +3,21 @@ title: PowerShell을 사용 하 여 Azure Files 복원
 description: 이 문서에서는 Azure Backup 서비스와 PowerShell을 사용 하 여 Azure Files를 복원 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 1/27/2020
-ms.openlocfilehash: c1c116033dbf44e6e1f332195a18c7dfdbcd6c71
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 99aeaa6173bb5336e6e1719a9fc0df0c668374e2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776340"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086833"
 ---
 # <a name="restore-azure-files-with-powershell"></a>PowerShell을 사용 하 여 Azure Files 복원
 
 이 문서에서는 Azure Powershell을 사용 하 여 [Azure Backup](backup-overview.md) 서비스에서 만든 복원 지점에서 전체 파일 공유 또는 특정 파일을 복원 하는 방법을 설명 합니다.
 
 공유에서 전체 파일 공유 또는 특정 파일을 복원할 수 있습니다. 원본 위치 또는 대체 위치에 복원할 수 있습니다.
+
+> [!WARNING]
+> AFS 백업의 경우 PS 버전이 ' Az. RecoveryServices 2.6.0 '의 최소 버전으로 업그레이드 되었는지 확인 합니다. 자세한 내용은이 변경에 대 한 요구 사항 개요 [섹션](backup-azure-afs-automation.md#important-notice---backup-item-identification-for-afs-backups) 을 참조 하세요.
 
 ## <a name="fetch-recovery-points"></a>복구 지점 가져오기
 

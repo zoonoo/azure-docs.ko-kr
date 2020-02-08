@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 01/22/2020
 ms.author: mlearned
-ms.openlocfilehash: 62be78df28d65c2ed16a9f45295edec8c5c360c4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e494a5141a96409fc6691df3a5f1194600ad0c32
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901532"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086490"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -565,7 +565,7 @@ az group deployment create \
 ## <a name="assign-a-public-ip-per-node-in-a-node-pool"></a>노드 풀에서 노드 당 공용 IP 할당
 
 > [!WARNING]
-> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
+> 노드 당 공용 IP를 할당 하는 미리 보기 중에 VM 프로 비전과 충돌 하는 가능한 부하 분산 장치 규칙으로 인해 *AKS의 표준 LOAD BALANCER SKU* 와 함께 사용할 수 없습니다. 이러한 제한으로 인해 Windows 에이전트 풀은이 미리 보기 기능에서 지원 되지 않습니다. 미리 보기 중에는 노드당 공용 IP를 할당 해야 하는 경우 *기본 LOAD BALANCER SKU* 를 사용 해야 합니다.
 
 AKS 노드에는 통신에 고유한 공용 IP 주소가 필요 하지 않습니다. 그러나 경우에 따라 노드 풀의 노드에 고유한 공용 IP 주소가 있어야 합니다. 예를 들어 콘솔에서 클라우드 가상 컴퓨터에 직접 연결 하 여 홉을 최소화 해야 하는 게임이 있습니다. 이는 별도의 미리 보기 기능인 노드 공용 IP (미리 보기)를 등록 하 여 수행할 수 있습니다.
 

@@ -3,22 +3,22 @@ title: MSAL 인증 흐름 | Microsoft
 titleSuffix: Microsoft identity platform
 description: MSAL (Microsoft 인증 라이브러리)에서 사용 하는 인증 흐름 및 부여에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 01/30/2020
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: bc906e1026dcc051ef152ff9fba94525ac700761
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: ace636152f6a0c9bf3896860eb17cc291bef2887
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962097"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085119"
 ---
 # <a name="authentication-flows"></a>인증 흐름
 
@@ -151,7 +151,7 @@ MSAL은 사용자가 스마트 TV, IoT 장치 또는 프린터와 같은 입력 
 
 위의 다이어그램에서:
 
-1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin) ). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
+1. 사용자 인증이 필요한 경우 앱은 코드를 제공 하 고, 다른 장치 (예: 인터넷에 연결 된 스마트폰)를 사용 하 여 URL로 이동 하도록 사용자에 게 요청 합니다 (예: https://microsoft.com/devicelogin)). 그런 다음 사용자에 게 코드를 입력 하 라는 메시지가 표시 되 고, 필요한 경우 승인 프롬프트 및 multi-factor authentication을 비롯 한 일반 인증 환경을 통해 진행 됩니다.
 
 2. 인증에 성공 하면 명령줄 앱은 백 채널을 통해 필요한 토큰을 수신 하 고이를 사용 하 여 필요한 웹 API 호출을 수행 합니다.
 

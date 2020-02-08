@@ -14,12 +14,12 @@ ms.topic: article
 ms.date: 09/12/2019
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: be19de19dab92bc40ca5529ad578e033a98929cd
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c18190ec5e5d079d51630a976681717a78a46e00
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023568"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087052"
 ---
 # <a name="choose-a-vm-size-for-compute-nodes-in-an-azure-batch-pool"></a>Azure Batch 풀의 컴퓨팅 노드에 대한 VM 크기 선택
 
@@ -36,38 +36,40 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 가상 컴퓨터 구성의 Batch 풀은 거의 모든 VM 크기 ([Linux](../virtual-machines/linux/sizes.md), [Windows](../virtual-machines/windows/sizes.md))를 지원 합니다. 지원 되는 크기 및 제한 사항에 대해 자세히 알아보려면 다음 표를 참조 하세요.
 
-나열 되지 않은 판촉 또는 미리 보기 VM 크기는 지원에 대해 보장 되지 않습니다.
+| VM 시리즈  | 지원되는 크기 |
+|------------|---------|
+| Basic A | Basic_A0 (A0)를 *제외한* 모든 크기 |
+| A | Standard_A0를 *제외한* 모든 크기 |
+| Av2 | 모든 크기 |
+| b | None |
+| DC | None |
+| Dv2, DSv2 | 모든 크기 |
+| Dv3, Dsv3 | 모든 크기 |
+| Dav4, Dasv4 | 없음-아직 사용할 수 없음 |
+| Ev3, Esv3 | E64is_v3 및 E64i_v3를 제외한 모든 크기 |
+| Eav4, Easv4 | 없음-아직 사용할 수 없음 |
+| F, Fs | 모든 크기 |
+| Fsv2 | 모든 크기 |
+| G, Gs | 모든 크기 |
+| H | 모든 크기 |
+| HB<sup>1</sup> | 모든 크기 |
+| HBv2<sup>1</sup> | 모든 크기 |
+| HC<sup>1</sup> | 모든 크기 |
+| Ls | 모든 크기 |
+| Lsv2 | 없음-아직 사용할 수 없음 |
+| M<sup>1</sup> | M64, M64m, M128, M128m를 제외한 모든 크기 |
+| Mv2 | 없음-아직 사용할 수 없음 |
+| NC | 모든 크기 |
+| NCv2<sup>1</sup> | 모든 크기 |
+| NCv3<sup>1</sup> | 모든 크기 |
+| ND<sup>1</sup> | 모든 크기 |
+| NDv2<sup>1</sup> | 없음-아직 사용할 수 없음 |
+| NV | 모든 크기 |
+| NVv3<sup>1</sup> | 모든 크기 |
+| NVv4 | None |
+| SAP HANA | None |
 
-| VM 시리즈  | 지원되는 크기 | Batch 계정 풀 할당 모드<sup>1</sup> |
-|------------|---------|-----------------|
-| 기본 A 시리즈 | Basic_A0 (A0)를 *제외한* 모든 크기 | 모두 |
-| A 시리즈 | Standard_A0를 *제외한* 모든 크기 | 모두 |
-| Av2 시리즈 | 모든 크기 | 모두 |
-| B 시리즈 | 없음 | 사용할 수 없음 |
-| DC 시리즈 | 없음 | 사용할 수 없음 |
-| Dv2, DSv2 시리즈 | 모든 크기 | 모두 |
-| Dv3, Dsv3 시리즈 | 모든 크기 | 모두 |
-| Ev3, Esv3 시리즈 | 모든 크기 | 모두 |
-| Fsv2 시리즈 | 모든 크기 | 모두 |
-| H 시리즈 | 모든 크기 | 모두 |
-| HB-시리즈<sup>2</sup> | 모든 크기 | 모두 |
-| HC 시리즈<sup>2</sup> | 모든 크기 | 모두 |
-| Ls 시리즈 | 모든 크기 | 모두 |
-| Lsv2 시리즈 | 없음 | 사용할 수 없음 |
-| M 시리즈 | Standard_M64ms (낮은 우선 순위에만 해당), Standard_M128s (낮은 우선 순위에만 해당) | 모두 |
-| Mv2 시리즈 | 없음 | 사용할 수 없음 |
-| NC 시리즈 | 모든 크기 | 모두 |
-| NCv2-series<sup>2</sup> | 모든 크기 | 모두 |
-| NCv3-series<sup>2</sup> | 모든 크기 | 모두 |
-| ND-series<sup>2</sup> | 모든 크기 | 모두 |
-| NDv2 시리즈 | 모든 크기 | 사용자 구독 모드 |
-| NV 시리즈 | 모든 크기 | 모두 |
-| NVv3 시리즈 | 없음 | 사용할 수 없음 |
-| SAP HANA | 없음 | 사용할 수 없음 |
-
-<sup>1</sup> 최신 VM 시리즈는 처음에 부분적으로 지원 됩니다. 이러한 VM 시리즈는 **풀 할당 모드가** **사용자 구독**으로 설정 된 Batch 계정에 의해 할당 될 수 있습니다. Batch 계정 구성에 대 한 자세한 내용은 [batch 계정 관리](batch-account-create-portal.md#additional-configuration-for-user-subscription-mode) 를 참조 하세요. **사용자 구독** 배치 계정에 대해 부분적으로 지원 되는 이러한 VM 시리즈에 대 한 할당량을 요청 하는 방법을 알아보려면 [할당량 및 제한](batch-quota-limit.md) 을 참조 하세요.  
-
-<sup>2</sup> 이러한 VM 크기는 가상 머신 구성의 Batch 풀에 할당할 수 있지만 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청 해야 합니다.
+<sup>1</sup> 가상 컴퓨터 구성에서 배치 풀에 이러한 VM 크기를 할당할 수 있지만 새 batch 계정을 만들고 특정 [할당량 증가](batch-quota-limit.md#increase-a-quota)를 요청 해야 합니다. VM 시리즈 당 vCPU 할당량이 Batch 계정에 대해 완전히 지원 되 면이 제한이 제거 됩니다.
 
 ### <a name="pools-in-cloud-service-configuration"></a>Cloud Service 구성의 풀
 
@@ -75,7 +77,7 @@ VM 크기를 선택하는 데는 몇 가지 예외 및 제한 사항이 있습�
 
 | VM 시리즈  | 지원되지 않는 크기 |
 |------------|-------------------|
-| A 시리즈   | 아주 작음       |
+| A 시리즈   | 매우 작음       |
 | Av2 시리즈 | Standard_A1_v2, Standard_A2_v2, Standard_A2m_v2 |
 
 ## <a name="size-considerations"></a>크기 고려 사항

@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: 1f34c4fb89d28a001a4af4d21879403a9ac5e860
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e5ee43af97e79f1e835787d61bd79cfb256ef445
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024707"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083141"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-site-for-on-premises-vmware-workloads"></a>온-프레미스 VMware 워크 로드에 대 한 재해 복구 사이트로 AVS 사설 클라우드 설정
 
@@ -35,7 +35,7 @@ AVS 솔루션:
 
 다음 그림은 Zerto 솔루션의 아키텍처를 보여 줍니다.
 
-![아키텍처](media/cloudsimple-zerto-architecture.png)
+![Architecture](media/cloudsimple-zerto-architecture.png)
 
 ## <a name="how-to-deploy-the-solution"></a>솔루션을 배포 하는 방법
 
@@ -46,12 +46,12 @@ AVS 솔루션:
 3. [AVS 사설 클라우드에서 ZVM 및 VRA 설정](#set-up-zvm-and-vra-on-your-avs-private-cloud)
 4. [Zerto 가상 보호 그룹 설정](#set-up-zerto-virtual-protection-group)
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 온-프레미스 환경에서 AVS 사설 클라우드로의 Zerto 가상 복제를 사용 하도록 설정 하려면 다음 필수 구성 요소를 완료 합니다.
 
 1. [온-프레미스 네트워크와 AVS 사설 클라우드 간에 사이트 간 VPN 연결을 설정](set-up-vpn.md)합니다.
-2. [DNS 조회를 설정 하 여 Avs 사설 클라우드 관리 구성 요소가 Avs 사설 클라우드 DNS 서버에 전달](on-premises-dns-setup.md)되도록 합니다. DNS 조회 전달을 사용 하도록 설정 하려면 온-프레미스 DNS 서버에서 `*.AVS.io`에 대 한 전달 영역 항목을 AVS DNS 서버에 만듭니다.
+2. [DNS 조회를 설정 하 여 Avs 사설 클라우드 관리 구성 요소가 Avs 사설 클라우드 DNS 서버에 전달](on-premises-dns-setup.md)되도록 합니다. DNS 조회 전달을 사용 하도록 설정 하려면 온-프레미스 DNS 서버에서 `*.cloudsimple.io`에 대 한 전달 영역 항목을 AVS DNS 서버에 만듭니다.
 3. 온-프레미스 vCenter 구성 요소가 온-프레미스 DNS 서버에 전달 되도록 DNS 조회를 설정 합니다. DNS 서버는 사이트 간 VPN을 통해 AVS 사설 클라우드에서 연결할 수 있어야 합니다. [지원 요청](https://portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest)을 제출 하 여 다음 정보를 제공 합니다. 
 
     * 온-프레미스 DNS 도메인 이름

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 12/27/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: 3b3b83719da4c1c19706845fa4cb1dc75712d145
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bbb0992eaeef7892e5940130131ac139a339b47d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932387"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083245"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -172,24 +172,24 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
 
 단일 컨테이너 화 된 끝점 뒤에 여러 모델을 사용 하는 방법을 보여 주는 E2E 예제는 [다음 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model) 를 참조 하세요.
 
-## <a name="prepare-to-deploy"></a>배포 준비
+## <a name="prepare-deployment-artifacts"></a>배포 아티팩트 준비
 
-모델을 배포 하려면 다음 항목이 필요 합니다.
+모델을 배포 하려면 다음이 필요 합니다.
 
-* **항목 스크립트**입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 받은 후 결과를 반환 합니다.
+* **소스 코드 종속성 & 항목 스크립트**입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 받은 후 결과를 반환 합니다.
 
     > [!IMPORTANT]
     > * 항목 스크립트는 모델에 따라 다릅니다. 들어오는 요청 데이터의 형식, 모델에 필요한 데이터의 형식 및 클라이언트에 반환 되는 데이터 형식을 이해 해야 합니다.
     >
     >   요청 데이터가 모델에서 사용할 수 없는 형식인 경우 스크립트는이를 허용 되는 형식으로 변환할 수 있습니다. 응답을 클라이언트에 반환 하기 전에 변환할 수도 있습니다.
     >
-    > * Azure Machine Learning SDK는 웹 서비스 또는 IoT Edge 배포에서 데이터 저장소 또는 데이터 집합에 액세스 하는 방법을 제공 하지 않습니다. 배포 된 모델에서 Azure storage 계정의 데이터와 같이 배포 외부에 저장 된 데이터에 액세스 해야 하는 경우 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
+    > * 웹 서비스 및 IoT Edge 배포는 작업 영역 데이터 저장소 또는 데이터 집합에 액세스할 수 없습니다. 배포 된 서비스에서 Azure storage 계정의 데이터와 같이 배포 외부에 저장 된 데이터에 액세스 해야 하는 경우 관련 SDK를 사용 하 여 사용자 지정 코드 솔루션을 개발 해야 합니다. 예를 들어 [Python 용 AZURE STORAGE SDK](https://github.com/Azure/azure-storage-python)가 있습니다.
     >
     >   시나리오에 사용할 수 있는 대안은 [일괄 처리 예측](how-to-use-parallel-run-step.md)으로, 점수 매기기 중 데이터 저장소에 대 한 액세스를 제공 합니다.
 
-* 항목 스크립트나 모델을 실행 하는 데 필요한 도우미 스크립트 또는 Python/Conda 패키지와 같은 **종속성**.
+* **유추 환경**. 모델을 실행 하는 데 필요한 설치 된 패키지 종속성이 있는 기본 이미지입니다.
 
-* 배포 된 모델을 호스팅하는 계산 대상의 **배포 구성** 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
+* 배포 된 모델을 호스팅하는 계산 대상에 대 한 **배포 구성** 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
 
 이러한 항목은 *유추 구성* 및 *배포 구성*에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다. SDK를 사용 하 여 배포를 수행 하는 경우 이러한 구성을 프로그래밍 방식으로 정의 합니다. CLI를 사용 하는 경우 JSON 파일에서 정의 합니다.
 
@@ -485,7 +485,7 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inferenceconfig"></a>2. InferenceConfig를 정의 합니다.
+### <a name="2-define-your-inference-environment"></a>2. 유추 환경 정의
 
 유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트의 일부가 아닙니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
 
@@ -538,7 +538,7 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 | 컴퓨팅 대상 | 배포 구성 예 |
 | ----- | ----- |
-| 지방 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
+| 로컬 | `deployment_config = LocalWebservice.deploy_configuration(port=8890)` |
 | Azure Container Instances | `deployment_config = AciWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 | Azure Kubernetes Service | `deployment_config = AksWebservice.deploy_configuration(cpu_cores = 1, memory_gb = 1)` |
 
@@ -547,41 +547,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-#### <a name="profiling"></a>프로파일링
-
-모델을 서비스로 배포 하기 전에이를 프로 파일링 하 여 최적의 CPU 및 메모리 요구 사항을 확인 하는 것이 좋습니다. SDK 또는 CLI를 사용 하 여 모델을 프로 파일링 할 수 있습니다. 다음 예에서는 SDK를 사용 하 여 모델을 프로 파일링 하는 방법을 보여 줍니다.
-
-> [!IMPORTANT]
-> 프로 파일링을 사용 하는 경우 사용자가 제공 하는 유추 구성은 Azure Machine Learning 환경을 참조할 수 없습니다. 대신 `InferenceConfig` 개체의 `conda_file` 매개 변수를 사용 하 여 소프트웨어 종속성을 정의 합니다.
-
-```python
-import json
-test_data = json.dumps({'data': [
-    [1,2,3,4,5,6,7,8,9,10]
-]})
-
-profile = Model.profile(ws, "profilemymodel", [model], inference_config, test_data)
-profile.wait_for_profiling(True)
-profiling_results = profile.get_results()
-print(profiling_results)
-```
-
-이 코드는 다음 출력과 유사한 결과를 표시 합니다.
-
-```python
-{'cpu': 1.0, 'memoryInGB': 0.5}
-```
-
-모델 프로 파일링 결과를 `Run` 개체로 내보냅니다.
-
-CLI에서 프로 파일링을 사용 하는 방법에 대 한 자세한 내용은 [az ml model profile](https://docs.microsoft.com/cli/azure/ext/azure-cli-ml/ml/model?view=azure-cli-latest#ext-azure-cli-ml-az-ml-model-profile)을 참조 하세요.
-
-자세한 내용은 다음 문서를 참조 하세요.
-
-* [ModelProfile](https://docs.microsoft.com/python/api/azureml-core/azureml.core.profile.modelprofile?view=azure-ml-py)
-* [profile ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.model.model?view=azure-ml-py#profile-workspace--profile-name--models--inference-config--input-data-)
-* [유추 구성 파일 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)
 
 ## <a name="deploy-to-target"></a>대상에 배포
 
@@ -977,9 +942,9 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예: 
+패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 다음은 그 예입니다. 
 
-`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 
+`Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`입니다. 
 
 모델을 다운로드 한 후 `docker images` 명령을 사용 하 여 로컬 이미지를 나열 합니다.
 

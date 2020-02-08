@@ -3,22 +3,22 @@ title: Id 공급자 구성 (MSAL iOS/macOS) | Microsoft
 titleSuffix: Microsoft identity platform
 description: IOS 및 macOS 용 MSAL에서 B2C, 소 버린 클라우드 및 게스트 사용자와 같은 다양 한 기관을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: tylermsft
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/28/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: oldalton
 ms.custom: aaddev
-ms.openlocfilehash: aaef7c4c0e2fa295e6e20976df5cce1523a70c43
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 4810de772e44be22ee5bd4a9fb6ef0ef756e62f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697781"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77085216"
 ---
 # <a name="how-to-configure-msal-for-ios-and-macos-to-use-different-identity-providers"></a>방법: 다른 id 공급자를 사용 하도록 iOS 및 macOS에 대 한 MSAL 구성
 
@@ -180,7 +180,7 @@ do{
 
 Authority URL이 `"login.microsoftonline.com/common"`로 설정 된 경우 사용자는 해당 홈 테 넌 트에 로그인 됩니다. 그러나 일부 앱은 사용자를 다른 테 넌 트에 서명 해야 할 수 있으며, 일부 앱은 단일 테 넌 트에서만 작동 합니다.
 
-사용자를 특정 테 넌 트에 서명 하려면 특정 권한으로 `MSALPublicClientApplication`를 구성 합니다. 예:
+사용자를 특정 테 넌 트에 서명 하려면 특정 권한으로 `MSALPublicClientApplication`를 구성 합니다. 다음은 그 예입니다.
 
 `https://login.microsoftonline.com/469fdeb4-d4fd-4fde-991e-308a78e4bea4`
 

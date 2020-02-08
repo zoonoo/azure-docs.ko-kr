@@ -3,12 +3,12 @@ title: 논리적 조직에 대 한 리소스 태그
 description: 태그를 적용하여 대금 청구 및 관리를 위해 Azure 리소스를 구성하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 01/03/2020
-ms.openlocfilehash: 0b2fff801b01afce0907bf86887fb110478377c1
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 5751f2d1bc123c5918ae0fabc5b908b5f4fec71d
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665144"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087318"
 ---
 # <a name="use-tags-to-organize-your-azure-resources"></a>태그를 사용하여 Azure 리소스 구성
 
@@ -394,7 +394,7 @@ IFS=$origIFS
 
 ### <a name="apply-tags-from-resource-group"></a>리소스 그룹에서 태그 적용
 
-리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 점 표기법에서 올바르게 구문 분석 되지 않으므로 `tags.tag-name` 구문 대신 `tags.[tag-name]` 구문을 사용 합니다.
+리소스 그룹의 태그를 리소스에 적용 하려면 [resourceGroup](../templates/template-functions-resource.md#resourcegroup) 함수를 사용 합니다. 태그 값을 가져올 때 일부 문자는 점 표기법에서 올바르게 구문 분석 되지 않으므로 `tags.tag-name` 구문 대신 `tags[tag-name]` 구문을 사용 합니다.
 
 ```json
 {

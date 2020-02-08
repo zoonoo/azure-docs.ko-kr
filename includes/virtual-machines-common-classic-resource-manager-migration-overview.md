@@ -2,18 +2,18 @@
 title: 포함 파일
 description: 포함 파일
 services: virtual-machines
-author: singhkays
+author: tanmaygore
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 04/25/2019
-ms.author: kasing
+ms.date: 02/06/2020
+ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: 0ffbbe5505c9316f362ebbc41d311f97408f1b17
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa03560160795e33a5d26a88d421894c6e20c61f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76887803"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77089018"
 ---
 이 문서에서는 IaaS(서비스 제공 인프라) 리소스를 클래식에서 Resource Manager 배포 모델로 마이그레이션하는 방법 및 가상 네트워크 사이트 간 게이트웨이를 사용하여 구독에 공존하는 두 배포 모델의 리소스를 연결하는 방법을 설명합니다. [Azure Resource Manager 기능 및 이점](../articles/azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다. 
 
@@ -25,10 +25,9 @@ Resource Manager는 템플릿을 사용하여 복잡한 애플리케이션을 �
 ## <a name="supported-resources-for-migration"></a>마이그레이션에 지원되는 리소스
 이들 클래식 IaaS 리소스는 마이그레이션 시 지원됩니다.
 
-* 가상 머신
+* Virtual Machines
 * 가용성 집합
-* Virtual Machines가 있는 Cloud Services
-* 스토리지 계정
+* Storage 계정
 * Virtual Network
 * VPN Gateway
 * ExpressRoute 게이트웨이 _(Virtual Network 전용으로 동일한 구독 내)_
@@ -114,7 +113,7 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 
 | 서비스 | 구성 | 권장 |
 | --- | --- | --- |
-| Resource Manager |클래식 리소스에 대 한 RBAC (역할 기반 Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
+| 리소스 관리자 |클래식 리소스에 대 한 RBAC (역할 기반 Access Control) |마이그레이션 후 리소스의 URI가 수정되므로 마이그레이션 후에 수행되어야 하는 RBAC 정책 업데이트를 계획하는 것이 좋습니다. |
 | 컴퓨팅 |VM과 연결된 여러 서브넷 |한 서브넷만 참조하도록 서브넷 구성을 업데이트합니다. 이를 위해 VM에서 보조 NIC(다른 서브넷 의미)를 제거하고 마이그레이션이 완료되면 다시 연결해야 할 수 있습니다. |
 | 컴퓨팅 |가상 네트워크에 속하지만 명시적 서브넷이 할당되지 않은 가상 머신 |VM을 삭제할 수 있습니다(선택 사항). |
 | 컴퓨팅 |경고, 자동 크기 조정 정책이 있는 가상 머신 |마이그레이션이 진행되고 이러한 설정은 삭제됩니다. 따라서 마이그레이션 전에 환경을 평가하는 것이 좋습니다. 또는 마이그레이션이 완료된 다음 경고 설정을 다시 구성할 수 있습니다. |
@@ -130,5 +129,5 @@ Virtual Machines 및 Virtual Network에 연결되지 않은 네트워크 보안 
 | Azure App Service |App Service 환경이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure HDInsight |HDInsight Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Microsoft Dynamics Lifecycle Services |Dynamics Lifecycle Services에서 관리하는 가상 머신이 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
-| Azure AD Domain Service |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
+| Azure AD Domain Services |Azure AD Domain Services가 포함된 가상 네트워크 |현재는 지원되지 않습니다. |
 | Azure API Management |Azure API Management 배포가 포함된 가상 네트워크 |현재는 지원되지 않습니다. IaaS VNET을 마이그레이션하려면 API Management 배포의 VNET을 변경합니다. 이 작업은 가동 중지 시간이 없습니다. |

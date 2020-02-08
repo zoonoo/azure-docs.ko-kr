@@ -9,12 +9,12 @@ ms.date: 10/06/2019
 ms.topic: article
 ms.service: event-grid
 services: event-grid
-ms.openlocfilehash: 42f7b5315cecd75e2aaf67145c57982872f43550
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2bae3bd268dba8efdf23ae314671b17a2c89420
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844618"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77086618"
 ---
 # <a name="persist-state-in-windows"></a>Windows에서 상태 유지
 
@@ -212,13 +212,13 @@ Event Grid 모듈에서 만든 토픽 및 구독은 기본적으로 컨테이너
     ```
 ## <a name="persist-events"></a>이벤트 지속
 
-이벤트 지 속성을 사용 하려면 먼저 위의 섹션을 사용 하 여 볼륨 탑재 또는 호스트 디렉터리 탑재를 통해 메타 데이터 지 속성을 사용 하도록 설정 해야 합니다.
+이벤트 지 속성을 사용 하려면 먼저 위의 섹션을 사용 하 여 볼륨 탑재 또는 호스트 디렉터리 탑재를 통해 이벤트 지 속성을 사용 하도록 설정 해야 합니다.
 
 이벤트 유지에 유의 해야 할 중요 한 사항은 다음과 같습니다.
 
 * 유지 이벤트는 이벤트 구독 별로 사용 하도록 설정 되며 볼륨 또는 디렉터리가 탑재 되 면 옵트인 (opt in) 됩니다.
 * 이벤트 지 속성은 생성 시 이벤트 구독에서 구성 되며, 이벤트 구독을 만든 후에는 수정할 수 없습니다. 이벤트 지 속성을 설정/해제 하려면 이벤트 구독을 삭제 하 고 다시 만들어야 합니다.
-* 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 대규모 noticible 됩니다.
+* 이벤트 지속은 메모리 작업 보다 거의 항상 느리지만 속도 차이는 드라이브의 특징에 따라 매우 다릅니다. 속도와 안정성 간의 균형은 모든 메시징 시스템에 고유 하지만 대규모에서 매우 두드러집니다.
 
 이벤트 구독에서 이벤트 지 속성을 사용 하도록 설정 하려면 `persistencePolicy`를 `true`으로 설정 합니다.
 

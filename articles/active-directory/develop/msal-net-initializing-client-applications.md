@@ -3,29 +3,29 @@ title: MSAL.NET client 응용 프로그램 초기화 | Microsoft
 titleSuffix: Microsoft identity platform
 description: .NET 용 Microsoft 인증 라이브러리 (MSAL.NET)를 사용 하 여 공용 클라이언트 및 기밀 클라이언트 응용 프로그램을 초기화 하는 방법에 대해 알아봅니다.
 services: active-directory
-author: TylerMSFT
+author: mmacy
 manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 04/12/2019
-ms.author: twhitney
+ms.author: marsma
 ms.reviewer: saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 31af3691e9f55eb4263b5976c2dc82c029cbc3a0
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 57ce6ab31421cd4016f7e204eeabce82f2f7e6a7
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76695554"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083999"
 ---
 # <a name="initialize-client-applications-using-msalnet"></a>MSAL.NET를 사용 하 여 클라이언트 응용 프로그램 초기화
 이 문서에서는 .NET 용 Microsoft Authentication Library (MSAL.NET)를 사용 하 여 공용 클라이언트 및 기밀 클라이언트 응용 프로그램을 초기화 하는 방법을 설명 합니다.  클라이언트 응용 프로그램 유형 및 응용 프로그램 구성 옵션에 대 한 자세한 내용은 [개요](msal-client-applications.md)를 참조 하세요.
 
 MSAL.NET 3.x를 사용 하는 경우 응용 프로그램 작성기를 사용 하 여 응용 프로그램을 인스턴스화하는 것이 좋습니다. `PublicClientApplicationBuilder` 및 `ConfidentialClientApplicationBuilder`. 코드 또는 구성 파일에서 응용 프로그램을 구성 하는 강력한 메커니즘을 제공 하거나 두 방법을 모두 혼합 하 여 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 응용 프로그램을 초기화 하려면 먼저 앱이 Microsoft id 플랫폼과 통합 될 수 있도록 해당 응용 프로그램을 [등록](quickstart-register-app.md) 해야 합니다.  등록 후에는 다음 정보가 필요할 수 있습니다 (Azure Portal 참조).
 
 - 클라이언트 ID (GUID를 나타내는 문자열)
@@ -103,10 +103,10 @@ IConfidentialClientApplication app = ConfidentialClientApplicationBuilder.Create
 |`.WithB2CAuthority(string)` | 응용 프로그램 기본 기관을 Azure AD B2C 기관으로 설정 합니다.|
 |`.WithClientId(string)` | 클라이언트 ID를 재정의 합니다.|
 |`.WithComponent(string)` | 원격 분석을 위해 MSAL.NET를 사용 하 여 라이브러리의 이름을 설정 합니다. |
-|`.WithDebugLoggingCallback()` | 호출 되는 경우 응용 프로그램은 단순히 디버깅 추적을 사용 하도록 설정 하 `Debug.Write`를 호출 합니다. 자세한 내용은 [로깅](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging)을 참조하세요.|
+|`.WithDebugLoggingCallback()` | 호출 되는 경우 응용 프로그램은 단순히 디버깅 추적을 사용 하도록 설정 하 `Debug.Write`를 호출 합니다. 자세한 내용은 [로깅](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) 을 참조 하세요.|
 |`.WithExtraQueryParameters(IDictionary<string,string> eqp)` | 모든 인증 요청에서 전송 될 응용 프로그램 수준 추가 쿼리 매개 변수를 설정 합니다. 이는 각 토큰 획득 방법 수준 (동일한 `.WithExtraQueryParameters pattern`)에서 재정의할 수 있습니다.|
 |`.WithHttpClientFactory(IMsalHttpClientFactory httpClientFactory)` | HTTP 프록시를 구성 하는 등의 고급 시나리오를 사용 하도록 설정 하거나 MSAL이 특정 HttpClient (ASP.NET Core web apps/Api)를 사용 하도록 강제 합니다.|
-|`.WithLogging()` | 호출 되는 경우 응용 프로그램은 디버깅 추적과 함께 콜백을 호출 합니다. 자세한 내용은 [로깅](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging)을 참조하세요.|
+|`.WithLogging()` | 호출 되는 경우 응용 프로그램은 디버깅 추적과 함께 콜백을 호출 합니다. 자세한 내용은 [로깅](https://github.com/AzureAD/microsoft-authentication-library-for-dotnet/wiki/logging) 을 참조 하세요.|
 |`.WithRedirectUri(string redirectUri)` | 기본 리디렉션 URI를 재정의 합니다. 공용 클라이언트 응용 프로그램의 경우 broker를 포함 하는 시나리오에 유용 합니다.|
 |`.WithTelemetry(TelemetryCallback telemetryCallback)` | 원격 분석을 보내는 데 사용 되는 대리자를 설정 합니다.|
 |`.WithTenantId(string tenantId)` | 테 넌 트 ID 또는 테 넌 트 설명을 재정의 합니다.|

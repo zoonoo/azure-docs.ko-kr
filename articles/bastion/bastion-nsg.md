@@ -2,23 +2,23 @@
 title: Azure 방호에서 Vm 및 NSGs 사용
 description: 이 문서에서는 Azure 방호에 NSG 액세스를 통합 하는 방법을 설명 합니다.
 services: bastion
-author: ashjain
+author: charwen
 ms.service: bastion
 ms.topic: conceptual
 ms.date: 02/03/2020
-ms.author: ashishj
-ms.openlocfilehash: 622333f58fb7ddf66fdf5be51e961a3005294afe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.author: charwen
+ms.openlocfilehash: 15abee4688a2f6aefa2b08ad2b8eee6622d56be2
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989470"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77087260"
 ---
 # <a name="working-with-nsg-access-and-azure-bastion"></a>NSG 액세스 및 Azure 방호 작업
 
 Azure 방호에서 작업 하는 경우 NSGs (네트워크 보안 그룹)를 사용할 수 있습니다. 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조 하세요. 
 
-![아키텍처](./media/bastion-nsg/nsg-architecture.png)
+![Architecture](./media/bastion-nsg/nsg-architecture.png)
 
 이 다이어그램에서
 

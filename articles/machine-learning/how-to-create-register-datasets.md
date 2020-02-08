@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 11/04/2019
-ms.openlocfilehash: b9060823c997391d02eae61911f8aa748f191657
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 99f4d8d854334b047caf36406f21890cde7eda16
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260857"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082948"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -32,7 +32,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -109,11 +109,11 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|Survived|Pclass|이름|성|연령|SibSp|Parch|티켓|요금|Cabin|Embarked
+| |PassengerId|남은|Pclass|속성|성|Age|SibSp|Parch|Ticket|택시|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
-0|1|거짓|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
-1|2|참|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
-2|3|참|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
+1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
+2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
 
 `TabularDatasetFactory` 클래스에 대 한 [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) 메서드를 사용 하 여 Azure SQL Database를 읽습니다.
 
@@ -163,12 +163,12 @@ mnist_ds = Dataset.File.from_files(path=web_paths)
 ```
 
 #### <a name="on-the-web"></a>웹에서 
-다음 단계와 애니메이션은 https://ml.azure.com Azure Machine Learning studio에서 데이터 집합을 만드는 방법을 보여 줍니다.
+다음 단계와 애니메이션은 https://ml.azure.comAzure Machine Learning studio에서 데이터 집합을 만드는 방법을 보여 줍니다.
 
 ![UI를 사용 하 여 데이터 집합 만들기](./media/how-to-create-register-datasets/create-dataset-ui.gif)
 
 Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
-1. https://ml.azure.com 에서 로그인 합니다.
+1. https://ml.azure.com에서 로그인 합니다.
 1. 왼쪽 창의 **자산** 섹션에서 **데이터 집합** 을 선택 합니다. 
 1. 데이터 집합 **만들기** 를 선택 하 여 데이터 집합의 원본을 선택 합니다. 이 원본은 로컬 파일, 데이터 저장소 또는 공용 Url 일 수 있습니다.
 1. 데이터 집합 형식으로 **테이블** 형식 또는 **파일** 을 선택 합니다.
@@ -177,7 +177,7 @@ Studio에서 데이터 집합을 만들려면 다음을 수행 합니다.
 
 ## <a name="register-datasets"></a>데이터 집합 등록
 
-만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다. [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.dataset.dataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--visible-true--exist-ok-false--update-if-exist-false-) 메서드를 사용 하 여 다른 사람과 공유 하 고 다양 한 실험에서 다시 사용 하기 위해 작업 영역에 데이터 집합을 등록 합니다.
+만들기 프로세스를 완료 하려면 작업 영역을 사용 하 여 데이터 집합을 등록 합니다. [`register()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.abstract_dataset.abstractdataset?view=azure-ml-py#register-workspace--name--description-none--tags-none--create-new-version-false-) 메서드를 사용 하 여 다른 사람과 공유 하 고 다양 한 실험에서 다시 사용 하기 위해 작업 영역에 데이터 집합을 등록 합니다.
 
 ```Python
 titanic_ds = titanic_ds.register(workspace=workspace,
