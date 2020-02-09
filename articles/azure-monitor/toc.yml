@@ -4,8 +4,6 @@
   items:
     - name: Azure Monitor란?
       href: overview.md
-    - name: 용어 변경
-      href: terminology.md
     - name: FAQ
       href: faq.md
     - name: 새로운 기능
@@ -1141,6 +1139,8 @@
       items:
         - name: 스키마
           href: platform/diagnostics-extension-schema-1dot3.md
+    - name: 용어 변경
+      href: terminology.md
     - name: Application Insights
       items:
         - name: 종속성 자동 수집
