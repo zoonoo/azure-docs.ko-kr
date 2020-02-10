@@ -39,6 +39,8 @@
           href: ./hdinsight-component-versioning.md
         - name: 고가용성 구성 요소
           href: ./hdinsight-high-availability-components.md
+        - name: Azure HDInsight의 Apache Ambari
+          href: ./apache-ambari-usage.md
         - name: HDInsight에서 기계 학습
           href: ./hdinsight-machine-learning-overview.md
         - name: HDInsight에서 대규모 스트리밍

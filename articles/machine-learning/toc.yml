@@ -25,6 +25,9 @@
         - name: 자동화된 ML 실험 만들기
           displayName: 'automl, automated, auto ml, portal, ui'
           href: tutorial-first-experiment-automated-ml.md
+        - name: 자동화된 ML로 수요 예측(자전거 공유 데이터)
+          displayName: 'automl, automated, auto ml, portal, ui'
+          href: tutorial-automated-ml-forecast.md
     - name: Python SDK
       items:
         - name: 첫 번째 ML 실험 만들기
