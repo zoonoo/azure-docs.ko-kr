@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 02/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 manager: boalcsva
-ms.openlocfilehash: 1379f4acb88020234aa3a8fa2d3289f0bff0f108
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
+ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769541"
+ms.lasthandoff: 02/05/2020
+ms.locfileid: "77023398"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -157,7 +157,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 
 ![가격표 정보를 보여주는 예제](./media/ea-portal-enrollment-invoices/ea-create-view-price-sheet-information.png)
 
-이전 가격 목록을 다운로드하려면,
+이전 가격 목록을 다운로드하려면 다음을 수행합니다.
 
 1. Azure Enterprise Portal에서 **보고서**를 선택한 다음, **사용량 다운로드**를 선택합니다.
 2. 가격표를 다운로드합니다.
@@ -196,7 +196,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 - 고급 보고서 다운로드
 - CSV 보고서 서식 지정
 
-### <a name="to-view-the-usage-summary-reports-and-graphs"></a>사용 요약 보고서 및 그래프를 보려면
+### <a name="to-view-the-usage-summary-reports-and-graphs"></a>사용 요약 보고서 및 그래프를 보려면 다음을 수행합니다.
 
 1. Azure Enterprise portal로 이동합니다.
 1. 왼쪽 창에서 **보고서**를 선택합니다.
@@ -216,7 +216,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 > [!NOTE]
 > 발생한 사용량 날짜와 해당 사용량이 이 보고서에 반영되는 날짜 사이에 최대 5일의 대기 시간이 있을 수 있습니다.
 
-### <a name="to-view-the-report"></a>보고서를 보려면
+### <a name="to-view-the-report"></a>보고서를 보려면 다음을 수행합니다.
 
 1. Azure Enterprise Portal에 로그인합니다.
 1. 왼쪽 탐색 영역에서 **보고서**를 선택합니다.
@@ -236,7 +236,7 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
 - Azure Marketplace 요금 보고서
 - 가격표
 
-### <a name="to-download-reports"></a>보고서를 다운로드하려면
+### <a name="to-download-reports"></a>보고서를 다운로드하려면 다음을 수행합니다.
 
 1. Azure Enterprise Portal에서 **보고서**를 선택합니다.
 1. 위쪽 리본에서 **사용량 다운로드**를 선택합니다.
@@ -258,9 +258,9 @@ Azure Enterprise Portal의 CSV 보고서를 유로 화폐 단위로 표시하는
 | --- | --- | --- | --- |
 | 시간 | 24 | 0,0535960591133005 | 1,2863054187192120000000 |
 
-이 서식 지정 문제는 Excel의 가져오기 기능의 기본 설정으로 인해 발생합니다. Excel에서는 모든 필드를 '일반' 텍스트로 가져오고, 수학적 표준에서 숫자가 구분되어 있다고 가정합니다. 예를 들어 "1,000.00"입니다.
+이 서식 지정 문제는 Excel의 가져오기 기능의 기본 설정으로 인해 발생합니다. Excel에서는 모든 필드를 '일반' 텍스트로 가져오고, 수학적 표준에서 숫자가 구분되어 있다고 가정합니다. 다음은 그 예입니다.  "1,000.00"에서 구분되는 것으로 가정합니다.
 
-유럽 통화에서 1000 단위 구분 기호로 마침표(.)를 사용하고 소수 자릿수 구분 기호로 쉼표(,)를 사용하는 경우 올바르게 표시되지 않습니다. 예를 들어 "1.000,00"입니다. 가져오기 결과는 지역별 언어 설정에 따라 달라질 수 있습니다.
+유럽 통화에서 1000 단위 구분 기호로 마침표(.)를 사용하고 소수 자릿수 구분 기호로 쉼표(,)를 사용하는 경우 올바르게 표시되지 않습니다. 다음은 그 예입니다.  "1.000,00"입니다. 가져오기 결과는 지역별 언어 설정에 따라 달라질 수 있습니다.
 
 ### <a name="to-import-the-csv-file-without-formatting-issues"></a>서식 지정 문제 없이 CSV 파일을 가져오려면 다음을 수행합니다.
 
@@ -334,7 +334,7 @@ Azure Enterprise Portal에서 다른 요금을 보려면,
 
 엔터프라이즈 관리자는 DA(부서 관리자)와 AO(계정 소유자)에게 등록에 대한 요금을 볼 수 있는 권한을 부여할 수 있습니다. 액세스 권한이 있는 계정 소유자는 자신의 계정 및 구독과 관련된 CSV 보고서를 다운로드할 수 있습니다. 또한 Azure Enterprise Portal의 보고 섹션에서 정보를 시각적으로 볼 수도 있습니다.
 
-### <a name="to-enable-access"></a>액세스를 설정하려면
+### <a name="to-enable-access"></a>액세스를 설정하려면 다음을 수행합니다.
 
  1. 엔터프라이즈 관리자 권한으로 Azure Enterprise Portal에 로그인합니다.
  1. 왼쪽 탐색 영역에서 **관리**를 선택합니다.
@@ -343,7 +343,7 @@ Azure Enterprise Portal에서 다른 요금을 보려면,
  1. **사용**을 선택합니다.
  1. **저장**을 선택합니다.
 
-### <a name="to-view-reports"></a>보고서를 보려면
+### <a name="to-view-reports"></a>보고서를 보려면 다음을 수행합니다.
 
 1. 부서 관리자 또는 계정 소유자 권한으로 Azure Enterprise Portal에 로그인합니다.
 1. 왼쪽 탐색 영역에서 **보고서**를 선택합니다.
