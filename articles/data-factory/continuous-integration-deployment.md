@@ -11,12 +11,12 @@ ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: 7c9f4a5a4993057ef49eecf3852afa0929c49da3
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061576"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110192"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -116,9 +116,9 @@ Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리�
 
     b.  새 태스크를 만듭니다. **Azure 리소스 그룹 배포**를 검색 한 다음 **추가**를 선택 합니다.
 
-    c.  배포 작업에서 대상 데이터 팩터리에 대 한 구독, 리소스 그룹 및 위치를 선택 합니다. 필요한 경우 자격 증명을 제공 합니다.
+    다.  배포 작업에서 대상 데이터 팩터리에 대 한 구독, 리소스 그룹 및 위치를 선택 합니다. 필요한 경우 자격 증명을 제공 합니다.
 
-    .  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
+    d.  **작업** 목록에서 **리소스 그룹 만들기 또는 업데이트**를 선택 합니다.
 
     e.  **템플릿** 상자 옆의 줄임표 단추 ( **...** )를 선택 합니다. 이 문서의 [각 환경에 대 한 리소스 관리자 템플릿 만들기](continuous-integration-deployment.md#create-a-resource-manager-template-for-each-environment) 섹션에서 **ARM 템플릿 가져오기** 를 사용 하 여 만든 Azure Resource Manager 템플릿을 찾아봅니다. Adf_publish 분기의 <FactoryName> 폴더에서이 파일을 찾습니다.
 
@@ -294,7 +294,7 @@ function Get-SortedTriggers {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $triggers = Get-AzDataFactoryV2Trigger -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $triggers = Get-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $triggerDict = @{}
     $visited = @{}
     $stack = new-object System.Collections.Stack
@@ -313,7 +313,7 @@ function Get-SortedLinkedServices {
         [string] $DataFactoryName,
         [string] $ResourceGroupName
     )
-    $linkedServices = Get-AzDataFactoryV2LinkedService -DataFactoryName miliutesteu04 -ResourceGroupName miliu
+    $linkedServices = Get-AzDataFactoryV2LinkedService -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName
     $LinkedServiceHasDependencies = @('HDInsightLinkedService', 'HDInsightOnDemandLinkedService', 'AzureBatchLinkedService')
     $Akv = 'AzureKeyVaultLinkedService'
     $HighOrderList = New-Object Collections.Generic.List[Microsoft.Azure.Commands.DataFactoryV2.Models.PSLinkedService]
@@ -564,7 +564,7 @@ GIT 모드의 경우 템플릿 및 하드 코드 된 속성에서 매개 변수�
 * `connectionString` 속성은 `securestring` 값으로 매개 변수화 됩니다. 기본값은 없습니다. `connectionString`접미사로 사용 되는 약식 매개 변수 이름이 포함 됩니다.
 * 속성 `secretAccessKey`는 Amazon S3 연결 된 서비스의 경우와 같이 `AzureKeyVaultSecret` 되는 경우입니다. 자동으로 Azure Key Vault 암호로 매개 변수화 되 고 구성 된 Key Vault에서 인출 됩니다. 키 자격 증명 모음을 매개 변수화 할 수도 있습니다.
 
-#### <a name="datasets"></a>데이터 집합
+#### <a name="datasets"></a>데이터 세트
 
 * 데이터 집합에 대해 유형별 사용자 지정을 사용할 수 있지만 명시적으로 \*수준 구성을 사용 하지 않고도 구성을 제공할 수 있습니다. 위의 예제에서 `typeProperties` 아래의 모든 데이터 집합 속성은 매개 변수화 됩니다.
 
