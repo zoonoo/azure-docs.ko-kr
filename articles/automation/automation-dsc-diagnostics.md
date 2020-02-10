@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/06/2018
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 9fa84b5e87581fad4a7ada5fda074429409d2f8f
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: bbc9048452c5361306dd05e712090543bb1066ce
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850349"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111505"
 ---
 # <a name="forward-azure-automation-state-configuration-reporting-data-to-azure-monitor-logs"></a>Azure Monitor 로그에 Azure Automation 상태 구성 보고 데이터 전달
 
@@ -31,7 +31,7 @@ Azure Monitor 로그를 사용 하 여 다음을 수행할 수 있습니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Monitor 로그에 Automation 상태 구성 보고서 보내기를 시작 하려면 다음이 필요 합니다.
 
@@ -74,21 +74,24 @@ Set-AzDiagnosticSetting -ResourceId <AutomationResourceId> -WorkspaceId <Workspa
 
 ## <a name="view-the-state-configuration-logs"></a>상태 구성 로그 보기
 
-Automation 상태 구성 데이터에 대 한 Azure Monitor 로그와의 통합을 설정한 후에는 automation 계정의 **DSC 노드** 블레이드에 **로그 검색** 단추가 표시 됩니다. **로그 검색** 단추를 클릭하여 DSC 노드 데이터에 대한 로그를 확인합니다.
+Automation 상태 구성 데이터에 대 한 Azure Monitor 로그와의 통합을 설정한 후에는 상태 구성 (DSC) 페이지의 왼쪽 창에 있는 **모니터링** 섹션에서 **로그** 를 선택 하 여 볼 수 있습니다.  
 
-![로그 검색 단추](media/automation-dsc-diagnostics/log-search-button.png)
+![로그](media/automation-dsc-diagnostics/automation-dsc-logs-toc-item.png)
 
-**로그 검색** 블레이드가 열리고 각 상태 구성 노드에 대한 **DscNodeStatusData** 작업과 해당 노드에 적용된 노드 구성에서 호출된 각 [DSC 리소스](/powershell/scripting/dsc/resources/resources)에 대한 **DscResourceStatusData** 작업이 표시됩니다.
+**로그 검색** 블레이드가 열리고 각 상태 구성 노드에 대한 **DscNodeStatusData** 작업과 해당 노드에 적용된 노드 구성에서 호출된 각 **DSC 리소스**에 대한 [DscResourceStatusData](/powershell/scripting/dsc/resources/resources) 작업이 표시됩니다.
 
 **DscResourceStatusData** 작업에는 실패한 모든 DSC 리소스에 대한 오류 정보가 포함됩니다.
 
 해당 작업에 대한 데이터를 보려면 목록에서 각 작업을 클릭합니다.
 
-Azure Monitor 로그에서 검색 하 여 로그를 볼 수도 있습니다.
-[로그 검색을 사용하여 데이터 찾기](../log-analytics/log-analytics-log-searches.md)를 참조하세요.
-다음 쿼리를 입력하여 상태 구성 로그를 찾습니다. `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus'`
+Azure Monitor 로그에서 검색 하 여 로그를 볼 수도 있습니다. [로그 검색을 사용하여 데이터 찾기](https://docs.microsoft.com/azure/azure-monitor/log-query/log-query-overview)를 참조하세요. 다음 쿼리를 입력 하 여 상태 구성 로그를 확인 합니다.
 
-또한 작업 이름으로 쿼리 범위를 좁힐 수도 있습니다. 예: `Type=AzureDiagnostics ResourceProvider='MICROSOFT.AUTOMATION' Category='DscNodeStatus' OperationName='DscNodeStatusData'`
+```
+AzureDiagnostics
+| where Category == 'DscNodeStatus' 
+| where OperationName contains 'DSCNodeStatusData'
+| where ResultType != 'Compliant'
+```
 
 ### <a name="send-an-email-when-a-state-configuration-compliance-check-fails"></a>상태 구성 준수 확인이 실패할 경우 이메일 보내기
 
@@ -126,7 +129,7 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 
 ### <a name="dscnodestatusdata"></a>DscNodeStatusData
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
 | OperationName |DscNodeStatusData |
@@ -134,10 +137,10 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 | NodeName_s |관리되는 노드의 이름입니다. |
 | NodeComplianceStatus_s |노드가 규정을 준수하는지 여부입니다. |
 | DscReportStatus |준수 검사가 성공적으로 실행되었는지 여부입니다. |
-| ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 사용 가능한 값은 __"ApplyOnly"__ , __"ApplyandMonitior"__ 및 __"ApplyandAutoCorrect"__ 입니다. <ul><li>__ApplyOnly__: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 __ApplyOnly__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li> __ApplyAndMonitor__: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 __ApplyAndMonitor__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>__ApplyAndAutoCorrect__: DSC는 모든 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
+| ConfigurationMode | 구성이 노드에 적용되는 방식입니다. 사용 가능한 값은 __"ApplyOnly"__ , __"ApplyandMonitior"__ 및 __"ApplyandAutoCorrect"__ 입니다. <ul><li>__ApplyOnly__: DSC는 구성을 적용하며, 새 구성이 대상 노드에 푸시되지 않거나 서버에서 새 구성을 가져올 때 아무 작업도 수행하지 않습니다. 새 구성의 애플리케이션이 초기에 적용된 후 DSC는 이전에 구성된 상태에서 달라졌는지 여부를 확인하지 않습니다. DSC는 __ApplyOnly__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다. </li><li> __ApplyAndMonitor__: 기본값입니다. LCM는 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고합니다. DSC는 __ApplyAndMonitor__가 적용되기 전에 성공할 때까지 구성을 적용하려고 합니다.</li><li>__ApplyAndAutoCorrect__: DSC에서 모든 새 구성을 적용합니다. 새 구성의 애플리케이션이 초기에 적용된 후 대상 노드가 원하는 상태에서 다른 상태로 바뀌면 DSC는 불일치 상황을 로그에 보고하고 현재 구성을 다시 적용합니다.</li></ul> |
 | HostName_s | 관리되는 노드의 이름입니다. |
 | IPAddress | 관리되는 노드의 IPv4 주소입니다. |
-| 범주 | DscNodeStatus |
+| Category | DscNodeStatus |
 | 리소스 | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
@@ -149,21 +152,21 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 | SourceSystem | Azure Monitor 로그가 데이터를 수집 하는 방법입니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResourceId |Azure Automation 계정을 지정합니다. |
 | ResultDescription | 이 작업에 대한 설명입니다. |
-| SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
+| SubscriptionId | Automation 계정에 대 한 Azure 구독 ID (GUID)입니다. |
 | ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |준수 보고서의 상관 관계 ID인 GUID입니다. |
+| CorrelationId |준수 보고서의 상관 관계 ID 인 GUID입니다. |
 
 ### <a name="dscresourcestatusdata"></a>DscResourceStatusData
 
-| 자산 | 설명 |
+| 속성 | Description |
 | --- | --- |
 | TimeGenerated |준수 확인이 실행된 날짜 및 시간입니다. |
 | OperationName |DscResourceStatusData|
 | ResultType |리소스가 규정을 준수하는지 여부입니다. |
 | NodeName_s |관리되는 노드의 이름입니다. |
-| 범주 | DscNodeStatus |
+| Category | DscNodeStatus |
 | 리소스 | Azure Automation 계정의 이름입니다. |
 | Tenant_g | 호출자에 대한 테넌트를 식별하는 GUID입니다. |
 | NodeId_g |관리되는 노드를 식별하는 GUID입니다. |
@@ -180,11 +183,11 @@ Azure Automation의 진단은 Azure Monitor 로그에 두 범주의 레코드를
 | SourceSystem | Azure Monitor 로그가 데이터를 수집 하는 방법입니다. Azure 진단의 경우 항상 *Azure*입니다. |
 | ResourceId |Azure Automation 계정을 지정합니다. |
 | ResultDescription | 이 작업에 대한 설명입니다. |
-| SubscriptionId | Automation 계정에 대한 Azure 구독 ID(GUID)입니다. |
+| SubscriptionId | Automation 계정에 대 한 Azure 구독 ID (GUID)입니다. |
 | ResourceGroup | Automation 계정에 대한 리소스 그룹의 이름입니다. |
 | ResourceProvider | MICROSOFT.AUTOMATION |
 | ResourceType | AUTOMATIONACCOUNTS |
-| CorrelationId |준수 보고서의 상관 관계 ID인 GUID입니다. |
+| CorrelationId |준수 보고서의 상관 관계 ID 인 GUID입니다. |
 
 ## <a name="summary"></a>요약
 

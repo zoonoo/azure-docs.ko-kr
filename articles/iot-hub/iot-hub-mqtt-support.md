@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: e1559dbab2503ded957b17c0cc6a61a06c53fffc
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
+ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110739"
+ms.lasthandoff: 02/10/2020
+ms.locfileid: "77111745"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -175,7 +175,7 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 • LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
 
-**Mosquito_pub:**
+**Mosquitto_pub:**
 
 •이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
 
