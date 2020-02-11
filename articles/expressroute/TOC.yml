@@ -70,6 +70,8 @@
       items:
         - name: 프라이빗 피어링
           href: designing-for-disaster-recovery-with-expressroute-privatepeering.md
+        - name: VPN을 백업으로 사용
+          href: use-s2s-vpn-as-backup-for-expressroute-privatepeering.md
 - name: 방법 가이드
   items:
     - name: 회로 만들기 및 수정
