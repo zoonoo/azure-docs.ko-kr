@@ -1,25 +1,18 @@
 ---
 title: 개발자 리소스-Language Understanding
-titleSuffix: Azure Cognitive Services
-description: 개발자는 Language Understanding에 대 한 REST Api와 Sdk를 모두 포함 합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: language-understanding
-ms.topic: conceptual
-ms.date: 01/22/2020
-ms.author: diberry
-ms.openlocfilehash: 2f351ac570080c83e78697bbca94340bb96cbcf7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+description: Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Understanding) 앱을 개발 하는 데 도움이 됩니다. Azure 리소스를 관리 하 고 예측을 LUIS.
+ms.topic: reference
+ms.date: 02/09/2020
+ms.openlocfilehash: ed869b7022e43b8ecf8c1f05bb3c6f0919076818
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76716140"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77119969"
 ---
-# <a name="developer-resources-for-language-understanding"></a>Language Understanding에 대 한 개발자 리소스
+# <a name="sdk-rest-and-cli-developer-resources-for-language-understanding-luis"></a>Language Understanding에 대 한 SDK, REST 및 CLI 개발자 리소스 (LUIS)
 
-개발자는 Language Understanding에 대 한 REST Api와 Sdk를 모두 사용할 수 있습니다.
+Sdk, REST Api, CLI는 프로그래밍 언어로 LUIS (Language Understanding) 앱을 개발 하는 데 도움이 됩니다. Azure 리소스를 관리 하 고 예측을 LUIS. 
 
 ## <a name="azure-resource-management"></a>Azure 리소스 관리
 
@@ -31,11 +24,17 @@ Azure Cognitive Services 관리 계층을 사용 하 여 Language Understanding 
 
 * [Azure RM PowerShell](https://docs.microsoft.com/powershell/module/azurerm.cognitiveservices/?view=azurermps-4.4.1#cognitive_services)
 
+
 ## <a name="language-understanding-authoring-and-prediction-requests"></a>Language Understanding 작성 및 예측 요청
 
-Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 액세스할 수 있습니다. 작성 및 예측 끝점 리소스 라는 두 가지 리소스가 있습니다. 이러한 리소스를 모두 사용 하 여 LUIS 리소스를 제어할 수 있습니다.
+Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 액세스할 수 있습니다. 두 가지 리소스가 있습니다.
+
+* 작성, 편집, 학습 및 게시에 대 한 학습을 위해 **제작** 리소스를 사용 합니다.
+* 런타임에 **예측** 을 사용 하 여 사용자의 텍스트를 보내고 예측을 받습니다.
 
 [V3 예측 끝점](luis-migration-api-v3.md)에 대해 알아봅니다.
+
+[Cognitive Services 샘플 코드](https://github.com/Azure-Samples/cognitive-services-quickstart-code) 를 사용 하 여 가장 일반적인 작업을 학습 하 고 사용 합니다.
 
 ### <a name="rest-apis"></a>REST API
 
@@ -43,7 +42,7 @@ Language Understanding 서비스는 만들어야 하는 Azure 리소스에서 �
 
 |Type|버전|
 |--|--|
-|제작|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
+|작성|[V2](https://go.microsoft.com/fwlink/?linkid=2092087)<br>[preview V3](https://westeurope.dev.cognitive.microsoft.com/docs/services/luis-programmatic-apis-v3-0-preview)|
 |예측|[V2](https://go.microsoft.com/fwlink/?linkid=2092356)<br>[V3](https://westcentralus.dev.cognitive.microsoft.com/docs/services/luis-endpoint-api-v3-0/)|
 
 ### <a name="language-based-sdks"></a>언어 기반 Sdk
@@ -77,7 +76,7 @@ Bot framework는 다음을 비롯 하 여 Language Understanding에 도움이 �
 * [LUIS CLI](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUIS) -LUIS.ai 응용 프로그램 만들기 및 관리
 * [디스패치](https://github.com/microsoft/botbuilder-tools/blob/master/packages/Dispatch)-부모 및 자식 앱 관리
 * [Luisgen](https://github.com/microsoft/botbuilder-tools/blob/master/packages/LUISGen) -LUIS 의도 및 C#엔터티에 대 한 백업/Typescript 클래스를 자동으로 생성 합니다.
-* [Bot emulator](https://github.com/Microsoft/BotFramework-Emulator/releases) -봇 개발자가 BOT Framework SDK를 사용 하 여 빌드한 봇을 테스트 하 고 디버그할 수 있도록 하는 데스크톱 응용 프로그램입니다.
+* [Bot framework 에뮬레이터](https://github.com/Microsoft/BotFramework-Emulator/releases) -봇 개발자가 BOT framework SDK를 사용 하 여 빌드한 봇을 테스트 하 고 디버그할 수 있도록 하는 데스크톱 응용 프로그램입니다.
 
 
 ## <a name="next-steps"></a>다음 단계

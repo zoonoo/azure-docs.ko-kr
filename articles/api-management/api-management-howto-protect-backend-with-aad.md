@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: 771257df12ee29c2bc8d32672c8e8b7d039a96ba
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120812"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121403"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -27,7 +27,7 @@ ms.locfileid: "76120812"
 > [!NOTE]
 > 이 기능은 API Management **개발자**, **표준** 및 **프리미엄** 계층에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서의 단계를 따르려면 다음이 있어야 합니다.
 * API Management 인스턴스
 * API Management 인스턴스를 사용하는 게시되고 있는 API
@@ -47,7 +47,7 @@ ms.locfileid: "76120812"
 
 Azure AD에서 API를 보호하려는 경우 첫 번째 단계는 API를 나타내는 애플리케이션을 Azure AD에서 등록하는 것입니다. 
 
-1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 응용 프로그램을 등록 합니다. **API 등록**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com) 로 이동 하 여 응용 프로그램을 등록 합니다. **앱 등록**을 검색 하 고 선택 합니다.
 
 1. **새 등록**을 선택합니다. 
 

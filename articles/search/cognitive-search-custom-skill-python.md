@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: 06a247c9e65ce386034a50650e46994bbbe9074a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76152173"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122416"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
 
@@ -21,7 +21,7 @@ ms.locfileid: "76152173"
 
 사용자 지정 기술은 Python의 사용자 지정 기술 개발에 사용 되는 도구와 기술에 집중할 수 있도록 디자인 (두 문자열 연결)에 따라 간단 합니다. 간단한 기술을 성공적으로 완료 한 후에는 더 복잡 한 시나리오로 분기할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + 사용자 지정 기술에서 구현 해야 하는 입력/출력 인터페이스에 대 한 소개를 보려면 [사용자 지정 기술 인터페이스](cognitive-search-custom-skill-interface.md) 를 검토 합니다.
 
@@ -57,7 +57,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 
 Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../azure-functions/functions-host-json.md) 및 [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 
 
-새 HTTP 트리거된 함수는 함수 앱 프로젝트의 **Concatenator** 폴더에도 만들어집니다. 여기에는 다음 내용이 포함 된 "\__init__. py" 라는 파일이 있습니다.
+새 HTTP 트리거된 함수는 함수 앱 프로젝트의 **Concatenator** 폴더에도 만들어집니다. 그 안에는 다음과 같은 내용이 포함 된 "\_\_init__. py" 라는 파일이 있습니다.
 
 ```py
 import logging

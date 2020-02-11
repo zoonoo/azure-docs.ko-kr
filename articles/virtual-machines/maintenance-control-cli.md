@@ -1,20 +1,18 @@
 ---
-title: Azure 가상 컴퓨터에 대 한 유지 관리 제어
-description: 유지 관리 제어를 사용 하 여 Azure Vm에 유지 관리가 적용 되는 시기를 제어 하는 방법을 알아봅니다.
-services: virtual-machines-linux
+title: 유지 관리 제어
+description: 유지 관리 제어를 사용 하 여 Azure Vm에 유지 관리를 적용 하는 시기를 제어 하는 방법을 알아봅니다.
 author: cynthn
 ms.service: virtual-machines
 ms.topic: article
-ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: 13e4923bc5d49843710c9df4523992f541f1d343
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: cf4c8c57121a06a607770470c5aef69c5edc0c5f
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988025"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77115643"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>미리 보기: 유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
