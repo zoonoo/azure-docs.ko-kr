@@ -11,12 +11,12 @@ ms.date: 12/05/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b83f634e9f5954e7a465761b117b6ee32f843aa2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 47806fe9c5c97c1f5a9c26d4ca38fb46bdf4057c
+ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75425090"
+ms.lasthandoff: 02/01/2020
+ms.locfileid: "76931396"
 ---
 # <a name="pilot-cloud-provisioning-for-an-existing-synced-ad-forest"></a>기존 동기화된 AD 포리스트에 파일럿 클라우드 프로비저닝 
 
@@ -68,6 +68,7 @@ Azure AD Connect 동기화는 스케줄러를 사용하여 온-프레미스 디�
 
     **이름:** 의미 있는 이름을 규칙에 지정합니다.<br>
     **설명:** 의미 있는 설명을 추가합니다.<br> 
+    
     **연결된 시스템:** 작성하는 사용자 지정 동기화 규칙의 대상이 되는 AD 커넥터를 선택합니다.<br>
     **연결된 시스템 개체 형식:** 사용자<br>
     **메타버스 개체 형식:** Person<br>

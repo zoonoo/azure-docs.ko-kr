@@ -346,6 +346,8 @@
               href: ./spark/apache-azure-spark-history-server.md
             - name: IO 캐시로 캐싱 사용
               href: ./spark/apache-spark-improve-performance-iocache.md
+            - name: Jar 종속성 관리
+              href: ./spark/manage-jar-dependency.md
             - name: Apache Spark와 함께 Notebook 사용
               items:
                 - name: 로컬 Jupyter Notebook 사용

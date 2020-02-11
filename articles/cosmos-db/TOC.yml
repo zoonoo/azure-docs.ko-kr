@@ -494,6 +494,8 @@
           href: javascript-query-api.md
     - name: Azure Cosmos DB 비용 최적화
       items:
+        - name: 비용 계획 및 관리
+          href: plan-manage-costs.md
         - name: 가격 책정 모델
           href: how-pricing-works.md
         - name: TCO(총 소유 비용)
