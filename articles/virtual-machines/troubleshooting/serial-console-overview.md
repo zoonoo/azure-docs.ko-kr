@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 779bb88d15ea6c52f4399f17223b89916e22653d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134060"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153862"
 ---
 # <a name="azure-serial-console"></a>Azure 직렬 콘솔
 
@@ -66,37 +66,6 @@ Vm 용 직렬 콘솔은 Azure Portal의 **지원 + 문제 해결** 섹션 내에
   1. **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택 합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
      ![Linux 가상 머신 확장 집합 직렬 콘솔](./media/virtual-machines-serial-console/vmss-start-console.gif)
-
-## <a name="serial-console-rbac-role"></a>직렬 콘솔 RBAC 역할
-위에서 언급 한 것 처럼 직렬 콘솔에는 vm 참가자 또는 VM 또는 가상 머신 확장 집합에 대 한 더 많은 액세스 권한이 필요 합니다. 사용자에 게 VM 참가자를 부여 하지 않고 사용자가 직렬 콘솔에 계속 액세스할 수 있도록 하려면 다음 역할을 사용 합니다.
-
-```
-{
-  "Name": "Serial Console Role",
-  "IsCustom": true,
-  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
-  "Actions": [
-      "Microsoft.Compute/virtualMachines/*/write",
-      "Microsoft.Compute/virtualMachines/*/read",
-      "Microsoft.Storage/storageAccounts/*"
-  ],
-  "NotActions": [],
-  "DataActions": [],
-  "NotDataActions": [],
-  "AssignableScopes": [
-    "/subscriptions/<subscriptionId>"
-  ]
-}
-```
-
-### <a name="to-create-and-use-the-role"></a>역할을 만들고 사용 하려면 다음을 수행 합니다.
-*   알려진 위치에 JSON을 저장 합니다 (예: `~/serialconsolerole.json`).
-*   다음 Az CLI 명령을 사용 하 여 역할 정의를 만듭니다. `az role definition create --role-definition serialconsolerole.json -o=json`
-*   역할을 업데이트 해야 하는 경우 다음 명령을 사용 합니다. `az role definition update --role-definition serialconsolerole.json -o=json`
-*   역할이 포털의 Access Control (IAM)에 표시 됩니다 (전파 하는 데 몇 분 정도 걸릴 수 있음).
-*   사용자 지정 역할 역할을 사용 하 여 VM 및 부트 진단 저장소 계정에 사용자를 추가할 수 있습니다.
-    *   사용자에 게 VM 및 부트 진단 저장소 계정에 대 *한* 사용자 지정 역할을 부여 해야 합니다.
-
 
 ## <a name="advanced-uses-for-serial-console"></a>직렬 콘솔에 대 한 고급 사용
 콘솔에서 VM에 액세스 하는 것 외에도 Azure 직렬 콘솔을 사용 하 여 다음을 수행할 수 있습니다.

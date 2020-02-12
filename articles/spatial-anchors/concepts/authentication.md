@@ -8,12 +8,12 @@ ms.author: pmorgan
 ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: 823ce8d523a231875705d7c4d3f46cfd8fd24994
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
-ms.translationtype: MT
+ms.openlocfilehash: 6149fa631633d05399568bd1ec797c5ee47d29a4
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74270593"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152604"
 ---
 # <a name="authentication-and-authorization-to-azure-spatial-anchors"></a>Azure 공간 앵커에 대 한 인증 및 권한 부여
 
@@ -96,6 +96,13 @@ Azure Active Directory 사용자를 대상으로 하는 응용 프로그램의 �
 
 1. Azure Portal 구성
     1.  응용 프로그램을 **네이티브 응용 프로그램**으로 Azure AD에 등록 합니다. 등록 하는 과정에서 응용 프로그램이 다중 테 넌 트 인지 여부를 확인 하 고 응용 프로그램에 허용 되는 리디렉션 Url을 제공 해야 합니다.
+        1.  **API 사용 권한** 탭으로 전환 합니다.
+        2.  **권한 추가를 선택 합니다** .
+            1.  내 조직에서 탭을 **사용 하 여** **혼합 현실 리소스 공급자** 를 선택 합니다.
+            2.  **위임 된 권한** 선택
+            3.  **Mixedreality** 의 mixedreality에 대 한 확인란을 선택 합니다 **.**
+            4.  **권한 추가** 를 선택 합니다.
+        3.  **관리자 동의 부여** 를 선택 합니다.
     2.  응용 프로그램 또는 사용자에 게 리소스에 대 한 액세스 권한을 부여 합니다.
         1.  Azure Portal의 공간 앵커 리소스로 이동 합니다.
         2.  **액세스 제어 (IAM)** 탭으로 전환 합니다.

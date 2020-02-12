@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 1b9a836491e989b676663d13b8eebb994c5145d8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454798"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153590"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
@@ -34,7 +34,7 @@ BES에 대한 입력은 RRS에서 사용하는 데이터 입력과 유사합니�
 
 * **[학습 실험 만들기]** -Studio (클래식)에서는 다양 한 기본 제공 기계 학습 알고리즘 집합을 사용 하 여 제공 하는 학습 데이터를 사용 하 여 예측 분석 모델을 학습 하 고 테스트할 수 있습니다.
 * **[예측 실험으로 변환]** - 기존 데이터로 모델을 학습시키고 새 데이터의 점수를 매기는 데 사용할 준비가 되면, 예측을 위해 실험을 준비하고 간소화합니다.
-* **[새 웹 서비스]** 또는 **[클래식 웹 서비스]** 로 **배포** - 예측 실험을 Azure 웹 서비스로 배포하는 경우 사용자는 데이터를 모델로 전송하고 모델의 예측을 수신할 수 있습니다.
+* 새 웹 서비스 **[ 또는 ]** 클래식 웹 서비스 **[로 ]배포** - 예측 실험을 Azure 웹 서비스로 배포하는 경우 사용자는 데이터를 모델로 전송하고 모델의 예측을 수신할 수 있습니다.
 
 ## <a name="create-a-training-experiment"></a>학습 실험 만들기
 
@@ -145,7 +145,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 
 1. Microsoft Azure Machine Learning 웹 서비스 페이지에서 **웹 서비스** 메뉴 옵션을 클릭합니다.
 2. 새 지역에 배포하는 웹 서비스를 선택합니다.
-3. **복사**를 클릭합니다.
+3. **복사**를
 4. **웹 서비스 이름**에 웹 서비스의 새 이름을 입력합니다.
 5. **웹 서비스 설명**에 웹 서비스에 대한 설명을 입력합니다.
 6. **구독** 드롭다운에서 새 웹 서비스가 상주할 구독을 선택합니다.
@@ -153,7 +153,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 8. **지역** 드롭다운에서 웹 서비스를 배포할 지역을 선택합니다.
 9. **Storage 계정** 드롭다운에서 웹 서비스에 저장할 Storage 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
-11. **복사**를 클릭합니다.
+11. **복사**를
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>기존 웹 서비스로 배포
 
@@ -222,8 +222,8 @@ Machine Learning Studio (클래식) 웹 서비스에 액세스 하는 방법에 
 <!-- internal links -->
 [학습 실험 만들기]: #create-a-training-experiment
 [예측 실험으로 변환]: #convert-the-training-experiment-to-a-predictive-experiment
-[새 웹 서비스]: #deploy-it-as-a-new-web-service
-[클래식 웹 서비스]: #deploy-it-as-a-classic-web-service
+[ 또는 ]: #deploy-it-as-a-new-web-service
+[로 ]: #deploy-it-as-a-classic-web-service
 [신규]: #deploy-it-as-a-new-web-service
 [classic]: #deploy-the-predictive-experiment-as-a-classic-web-service
 [Access]: #access-the-Web-service
