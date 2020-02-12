@@ -5,15 +5,15 @@ services: notification-hubs
 author: sethmanheim
 ms.service: notification-hubs
 ms.topic: include
-ms.date: 11/21/2019
+ms.date: 02/10/2020
 ms.author: sethm
 ms.custom: include file
-ms.openlocfilehash: b9f434f2d3c06d3db0bfda7c5853cc835ff64035
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bf2596f5a8e287799285f97f3d1be9f3fe10f644
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77047758"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77123183"
 ---
 ## <a name="generate-the-certificate-signing-request-file"></a>인증서 서명 요청 파일 생성
 
@@ -26,10 +26,9 @@ APNs(Apple Push Notification Service)는 인증서를 사용하여 푸시 알림
 1. **Keychain 액세스**를 선택하고, **인증서 도우미**를 확장한 다음, **인증 기관에서 인증서 요청**을 선택합니다.
 
     ![Keychain Access를 사용하여 새 인증서 요청](./media/notification-hubs-enable-apple-push-notifications/notification-hubs-request-cert-from-ca.png)
-    
-> [!NOTE]
-> OS X는 기본적으로 키체인 접근 도구에서 선택한 범주의 첫 번째 항목을 선택합니다. 이 항목은 **인증서** 섹션에 있고, **Apple Worldwide Developer Relations Certification Authority**가 목록의 첫 번째 항목이 *아닌* 경우 문제가 될 수 있습니다. 인증서를 요청하기 전에 **인증서** 섹션에 있는지 확인한 다음, **Apple Worldwide Developer Relations Certification Authority**를 선택합니다.
 
+   > [!NOTE]
+   > 기본적으로 Keychain Access는 목록의 첫 번째 항목을 선택합니다. 이는 사용자가 **인증서** 카테고리에 있고, **Apple Worldwide Developer Relations Certification Authority**가 목록의 첫 번째 항목이 아닌 경우 문제가 될 수 있습니다. CSR(인증서 서명 요청)을 생성하기 전에 키가 아닌 항목이 있거나 **Apple Worldwide Developer Relations Certification Authority** 키가 선택되어 있는지 확인합니다.
 
 1. **사용자 이메일 주소**를 선택하고, **일반 이름** 값을 입력하고, **디스크에 저장됨**을 지정했는지 확인한 다음, **계속**을 선택합니다. **CA 이메일 주소**는 필요하지 않으므로 비워둡니다.
 

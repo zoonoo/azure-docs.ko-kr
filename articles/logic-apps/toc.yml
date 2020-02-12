@@ -135,7 +135,7 @@
           href: logic-apps-enterprise-integration-certificates.md
         - name: 아티팩트 메타데이터
           href: logic-apps-enterprise-integration-metadata.md
-        - name: B2B 메시지 수신
+        - name: B2B 메시지 받기 및 보내기
           href: logic-apps-enterprise-integration-b2b.md
         - name: AS2 메시지 교환
           href: logic-apps-enterprise-integration-as2.md
