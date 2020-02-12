@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: e440d9d882d0459d04a15b8f39ea6877707ea096
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6976f0bb671b94f71b71287483c2ab88d0959899
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427457"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152774"
 ---
 # <a name="migrate-analytics-from-excel-to-azure-machine-learning-studio-classic"></a>Excel에서 Azure Machine Learning Studio로 분석 마이그레이션 (클래식)
 
@@ -53,7 +53,7 @@ Excel 회귀에서는 Excel 분석 도구에 있는 표준 선형 회귀 모델�
 
 |  | Excel | Studio(클래식) |
 | --- |:---:|:---:|
-| 성능 중심 | | |
+| 성능 | | |
 | <ul style="list-style-type: none;"><li>조정된 R 제곱</li></ul> |0.96 |N/A |
 | <ul style="list-style-type: none;"><li>결정 <br />계수</li></ul> |N/A |0.78<br />(낮은 정확도) |
 | 절대 평균 오차 |$9.5M |$19.4M |

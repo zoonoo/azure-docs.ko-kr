@@ -8,18 +8,18 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: 7cc74ca19d2194a7319ab1b88ab7847b04b0d895
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: fc35654403bbe1375d4188476b11fd0453f74345
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134558"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153148"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 강제 터널링 구성
 
 강제 터널링을 사용하면 검사 및 감사에 대한 사이트 간 VPN 터널을 통해 모든 인터넷 바인딩된 트래픽을 온-프레미스 위치에 다시 리디렉션하거나 "force"할 수 있습니다. 대부분의 엔터프라이즈 IT 정책에 있어서 중요한 보안 요구 사항입니다. 강제 터널링 없이 Azure의 VM에서 인터넷 바인딩된 트래픽은 항상 트래픽을 검사 또는 감사하도록 허용하는 옵션 없이 Azure 네트워크 인프라에서 직접 인터넷으로 트래버스합니다. 인증되지 않은 인터넷 액세스는 잠재적으로 정보 공개 또는 다른 유형의 보안 위반을 발생시킬 수 있습니다.
 
-[!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
+
 
 [!INCLUDE [vpn-gateway-classic-rm](../../includes/vpn-gateway-classic-rm-include.md)] 
 

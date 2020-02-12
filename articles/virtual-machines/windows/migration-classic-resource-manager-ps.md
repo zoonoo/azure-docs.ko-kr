@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 0c145c84f9dea3b6212bb6c608eb1a4eb586ff60
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 802d97e2c9b64fd9d8caeaf479af3f4aec356607
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77056821"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153131"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-powershell"></a>PowerShell을 사용 하 여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
 이러한 단계에서는 Azure PowerShell 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다.
@@ -125,7 +125,7 @@ Resource Manager 모델에 대한 계정으로 로그인합니다.
 <br>
 
 ## <a name="step-5-have-enough-resource-manager-vm-vcpus"></a>5 단계: VM vCPUs가 충분 리소스 관리자
-현재 배포 또는 가상 네트워크의 Azure 지역에 Azure Resource Manager 가상 머신 vCPUs가 충분 한지 확인 합니다. 다음 PowerShell 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. vCPU 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#limits-and-azure-resource-manager)를 참조하세요.
+현재 배포 또는 가상 네트워크의 Azure 지역에 Azure Resource Manager 가상 머신 vCPUs가 충분 한지 확인 합니다. 다음 PowerShell 명령을 사용하여 Azure Resource Manager에 있는 현재 vCPU 수를 확인할 수 있습니다. vCPU 할당량에 대한 자세한 내용은 [제한 및 Azure Resource Manager](../../azure-resource-manager/management/azure-subscription-service-limits.md#managing-limits)를 참조하세요.
 
 이 예제에서는 **미국 서부** 지역의 사용 가능 여부를 확인합니다. 예제 지역 이름을 사용자 고유의 이름으로 바꿉니다.
 

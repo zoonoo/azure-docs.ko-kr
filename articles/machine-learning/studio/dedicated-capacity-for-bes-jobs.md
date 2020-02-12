@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18, previous-title='Dedicated capacity for batch execution service jobs - Azure Machine Learning Studio (classic) | Microsoft Docs'
 ms.date: 04/19/2017
-ms.openlocfilehash: ad3ae99b04d5386172c9598f35cbe7d64fddcd36
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: c1a7f44539d07761814f5cb3d7074c9428423154
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837699"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153539"
 ---
 # <a name="azure-batch-service-for-azure-machine-learning-studio-classic-jobs"></a>Azure Machine Learning Studio (클래식) 작업에 대 한 Azure Batch 서비스
 
@@ -111,4 +111,4 @@ Batch 풀 처리는 항상 청구 가능한 서비스이며, 이를 Resource Man
 
 | **Batch 풀 처리를 사용하는 경우**    | **클래식 일괄 처리를 사용하는 경우**  |
 |---|---|
-|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>and<br/> 작업을 즉시 실행할 필요가 없습니다. |
+|많은 수의 작업을 실행해야 합니다.<br>또는<br/>자신의 작업이 즉시 실행된다는 것을 알아야 합니다.<br/>또는<br/>처리량을 보장해야 합니다. 예를 들어 지정된 시간 프레임 내에서 여러 작업을 실행해야 하며, 요구 사항에 맞게 컴퓨팅 리소스를 확장하려고 합니다.    | 몇 가지 작업만 실행하고 있습니다.<br/>및<br/> 작업을 즉시 실행할 필요가 없습니다. |

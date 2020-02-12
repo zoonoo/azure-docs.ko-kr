@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 02/05/2018
-ms.openlocfilehash: ff9c123c0fecd26aba6ecbbda4a915d928b99f2f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d7311dce938ea575a27cf006e7469670813b7f10
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75454728"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153505"
 ---
 # <a name="deploy-azure-machine-learning-studio-classic-workspace-using-azure-resource-manager"></a>Azure Resource Manager를 사용 하 여 Azure Machine Learning Studio (클래식) 작업 영역 배포
 

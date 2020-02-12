@@ -3,15 +3,16 @@ title: Azure Cosmos DB에 대 한 비용 계획 및 관리
 description: Azure Portal에서 비용 분석을 사용 하 여 Azure Cosmos DB에 대 한 비용을 계획 하 고 관리 하는 방법을 알아봅니다.
 author: SnehaGunda
 ms.author: sngun
+ms.custom: subject-cost-optimization
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 02/02/2020
-ms.openlocfilehash: 96cb22a0153b3506835df93b50785ad7870929ce
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: cf259dfa0b00393cf0fee259b199527569ba1792
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77135760"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152587"
 ---
 # <a name="plan-and-manage-costs-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 비용 계획 및 관리
 

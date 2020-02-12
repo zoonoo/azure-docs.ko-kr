@@ -7,14 +7,14 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.date: 04/25/2019
-ms.openlocfilehash: bc4eea53c026eef9dc8f390976442426e2ba1067
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d465c27621464d840555edb1a0f513fbc195e13
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427538"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148116"
 ---
 # <a name="powershell-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio 용 PowerShell 모듈 (클래식)
 
@@ -57,7 +57,7 @@ PowerShell 클래식은 Az 또는 AzureRM와 함께 설치 하 여 "새" 및 "�
 | 작업 영역 약정 계획 관리 | [New-AzMlCommitmentPlan](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlcommitmentplan) | |
 | 작업 영역 사용자 관리 |  | [Add-AmlWorkspaceUsers](https://github.com/hning86/azuremlps#add-amlworkspaceusers)|
 | 웹 서비스 관리 | [New-AzMlWebService](https://docs.microsoft.com/powershell/module/az.machinelearning/new-azmlwebservice) <br>("새" 웹 서비스)|| [New-AmlWebService](https://github.com/hning86/azuremlps#manage-classic-web-service) <br>("클래식" 웹 서비스) |
-| 웹 서비스 끝점/키 관리 |  [Get-AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
+| 웹 서비스 끝점/키 관리 |  [AzMlWebServiceKey](https://docs.microsoft.com/powershell/module/az.machinelearning/get-azmlwebservicekey)|  [Add-AmlWebServiceEndpoint](https://github.com/hning86/azuremlps#manage-classic-web-servcie-endpoint)|
 | 사용자 데이터 집합/학습 된 모델 관리| | [Get-AmlDataset](https://github.com/hning86/azuremlps#manage-user-assets-dataset-trained-model-transform) |
 | 사용자 실험 관리 |  | [Start-AmlExperiment](https://github.com/hning86/azuremlps#manage-experiment) |
 | 사용자 지정 모듈 관리 | | [New-AmlCustomModule](https://github.com/hning86/azuremlps#manage-custom-module) |

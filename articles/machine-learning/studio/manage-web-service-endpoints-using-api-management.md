@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 084f3a1ecc7e44dc404d63a75b4561f8d5cb57cb
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 9123e1d8e63382c6b89c86f99935dd288bb1bf16
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839820"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153420"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -35,7 +35,7 @@ Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모�
 
 API Management 인스턴스를 사용하여 Azure Machine Learning 웹 서비스를 관리할 수 있습니다.
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **+ 리소스 만들기**를 선택합니다.
 3. 검색 상자에 "API Management"를 입력한 다음 "API Management" 리소스를 선택합니다.
 4. **만들기**를 클릭합니다.
@@ -66,7 +66,7 @@ API를 만들려면:
 4. **Web API URL 접미사"를 입력합니다. 고객이 서비스 인스턴스에 요청을 보내는 데 사용할 URL의 마지막 부분이 됩니다(이 예제에서는 "azureml-demo" 사용).
 5. **Web API URL 구성표**에서 **HTTPS**를 선택합니다.
 6. **제품**에서 **시작**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 
 ## <a name="add-the-operations"></a>작업 추가
@@ -103,7 +103,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 제출" 사용).
 5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 ### <a name="start-a-batch-execution-job"></a>일괄 처리 실행 작업 시작
 
@@ -112,7 +112,7 @@ API를 만들려면:
 3. **HTTP 동사**에 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}/start?api-version={apiversion}`"을 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 시작" 사용).
 6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 ### <a name="get-the-status-or-result-of-a-batch-execution-job"></a>일괄 처리 실행 작업의 상태 또는 결과 가져오기
 
@@ -121,7 +121,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 상태" 사용).
 6. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-7. **Save**를 클릭합니다.
+7. **저장**을 클릭합니다.
 
 ### <a name="delete-a-batch-execution-job"></a>일괄 처리 실행 작업 삭제
 
@@ -130,7 +130,7 @@ API를 만들려면:
 3. **URL 템플릿**에서 "`/workspaces/{workspace}/services/{service}/jobs/{jobid}?api-version={apiversion}`"를 입력합니다.
 4. **표시 이름**을 입력합니다(이 예제에서는 "BES 삭제" 사용).
 5. 왼쪽의 **응답** > **추가**를 클릭하여 **200 확인**을 선택합니다.
-6. **Save**를 클릭합니다.
+6. **저장**을 클릭합니다.
 
 ## <a name="call-an-operation-from-the-developer-portal"></a>개발자 포털에서 작업 호출
 
@@ -158,7 +158,7 @@ API를 만들려면:
 
 5. **보내기**를 클릭합니다.
 
-   ![보내기](./media/manage-web-service-endpoints-using-api-management/send.png)
+   ![send](./media/manage-web-service-endpoints-using-api-management/send.png)
 
 작업 호출 후에는 개발자 포털에 백 엔드 서비스의 **요청된 URL** 및 **응답 상태**, **응답 헤더**, **응답 콘텐츠**가 표시됩니다.
 
@@ -166,9 +166,9 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예:
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예를 들면 다음과 같습니다.
 
-| 텍스트 | 해시된 텍스트 |
+| Text | 해시된 텍스트 |
 | --- | --- |
 | This is a good day |1 1 2 2 0 2 0 1 |
 
@@ -198,7 +198,7 @@ API를 만들려면:
 
 이때 **실행** 을 클릭하여 실험을 테스트할 수 있습니다.
 
-![실행](./media/manage-web-service-endpoints-using-api-management/run.png)
+![run](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>웹 서비스 만들기
 이제 웹 서비스를 만듭니다. **웹 서비스**를 확장하고 **입력**을 실험으로 끌어서 놓습니다. **입력**을 **기능 해싱**에 연결합니다. **출력** 을 실험으로 끌어서 놓습니다. **출력**을 **기능 해싱**에 연결합니다.
@@ -225,12 +225,12 @@ AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실�
 ![find-api-key](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
 #### <a name="test-rrs-endpoint"></a>RRS 엔드포인트 테스트
-##### <a name="test-button"></a>테스트 단추
+##### <a name="test-button"></a>[테스트] 단추
 RRS 엔드포인트를 테스트하는 간편한 방법은 웹 서비스 대시보드에서 **테스트** 를 클릭하는 것입니다.
 
-![test](./media/manage-web-service-endpoints-using-api-management/test.png)
+![테스트](./media/manage-web-service-endpoints-using-api-management/test.png)
 
-**col2**로 **This is a good day**를 입력합니다. 확인 표시를 클릭합니다.
+**col2**로 **This is a good day**를 입력합니다. 해당 확인 표시를 클릭합니다.
 
 ![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 

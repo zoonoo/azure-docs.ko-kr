@@ -7,25 +7,25 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: cc7ce8a8725e3cbc5c4f0d4db8bfcc3f1b1d657b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 903e3f3dcbcc72289fc82ec59dec0305b6adbc17
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427696"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150921"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공 합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
-### <a name="acknowledgements"></a>감사의 말
+### <a name="acknowledgements"></a>승인
 이 실험은 Serge Berger, Microsoft의 Principal Data 과학자, Microsoft의 Roger Barga, 이전에 Microsoft Azure Machine Learning Studio (클래식)에 대 한 제품 관리자에 의해 개발 되 고 테스트 되었습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]
-> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)을 참조하세요.
+> 이 실험에 사용된 데이터는 공개적으로 사용할 수 없습니다. 이탈 분석을 위한 Machine Learning 모델을 작성하는 방법의 예제를 보려면 [Azure AI 갤러리](https://gallery.azure.ai/Collection/Retail-Customer-Churn-Prediction-Template-1)의 [소매 변동 모델 템플릿](https://gallery.azure.ai/)을 참조하세요.
 > 
 > 
 
@@ -219,7 +219,7 @@ Azure Machine Learning Studio (클래식)에서 제공 하는 또 다른 흥미�
 
 [4] [Big Data Marketing: Engage Your Customers More Effectively and Drive Value](https://www.amazon.com/Big-Data-Marketing-Customers-Effectively/dp/1118733894/ref=sr_1_12?ie=UTF8&qid=1387541531&sr=8-12&keywords=customer+churn)
 
-[5] [Azure AI 갤러리](https://gallery.azure.ai/)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5) 
+[5] [Azure AI 갤러리](https://gallery.azure.ai/Experiment/Telco-Customer-Churn-5)의 [Telco 변동 모델 템플릿](https://gallery.azure.ai/) 
  
 
 ## <a name="appendix"></a>부록

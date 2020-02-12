@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 492f6ed2775004c6fb013c6a9ead602cb3d2cea0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5049bdfdc84df16c4b8070decf47fd2d726d7777
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427551"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153029"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
@@ -24,7 +24,7 @@ ms.locfileid: "75427551"
 
 ## <a name="what-can-i-find-in-the-gallery"></a>갤러리에는 어떤 응용 프로그램이 있습니까?
 
-Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 해당 지역은 다음과 같습니다.
+Azure AI Gallery는 Microsoft에서 참여한 다양한 리소스와 데이터 과학 커뮤니티의 멤버를 포함합니다. 이러한 개체는 다음과 같습니다.
 
 * **실험** -갤러리에는 Azure Machine Learning Studio (클래식)에서 개발 된 다양 한 실험이 포함 되어 있습니다. 이러한 실험은 특정한 기계 학습 기법을 보여주는 빠른 개념 증명 실험에서 복잡한 기계 학습 문제에 대한 완전히 개발된 솔루션에 이르기까지 다양합니다.
 * **자습서** - Machine Learning 기술 및 개념을 안내하거나 다양한 Machine Learning 문제를 해결하기 위한 고급 방법을 설명하는 다양한 자습서가 있습니다.
@@ -120,7 +120,7 @@ Studio (클래식) 내에서 리소스를 다운로드 하려면 다음을 수�
 
 * 실험 이름
 * 요약 또는 설명
-* 태그
+* 태그들
 * 이미지
 * 표시 여부 설정(**공개** 또는 **비공개**)
 
@@ -149,9 +149,9 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 1. **새 항목**을 선택합니다.
 
-1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 후 **Next** 를 클릭합니다.
+1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 다음 **다음**을 클릭합니다.
 
-1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 후 **Next** 를 클릭합니다.
+1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 다음 **다음**을 클릭합니다.
 
 1. **설정** 페이지의 **표시 유형**에 대해 컬렉션이 **공개**(누구나 볼 수 있음)인지 또는 **비공개**(직접 링크가 있는 사람만 볼 수 있음)인지를 선택합니다.
 
@@ -177,7 +177,7 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 * 컬렉션의 항목에 메모를 추가하려면 항목의 오른쪽 위 모서리를 선택하고 **메모 추가/편집**을 선택합니다.
 * 컬렉션에서 항목을 제거하려면 항목의 오른쪽 위 모서리를 선택하고 **제거**를 선택합니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **이미지 제출 또는 편집에 대한 요구 사항은 무엇인가요?**
 
@@ -195,10 +195,10 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 태그를 입력한 후 또 다른 태그를 입력하려면 Tab 키를 누릅니다.
 
-## <a name="we-want-to-hear-from-you"></a>많은 의견 부탁드립니다!
+## <a name="we-want-to-hear-from-you"></a>사용자의 의견을 듣고 싶습니다!
 
 사용자가 주도하는 사용자를 위한 갤러리를 원합니다. 오른쪽에 있는 웃는 얼굴을 사용하여 갤러리가 마음에 드는지 아니면 싫어하는지 알려주세요.  
 
-![피드백](./media/gallery-how-to-use-contribute-publish/feedback.png)
+![사용자 의견](./media/gallery-how-to-use-contribute-publish/feedback.png)
 
 **[갤러리로 이동 >>](https://gallery.azure.ai)**

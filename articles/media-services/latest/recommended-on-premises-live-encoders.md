@@ -6,21 +6,23 @@ keywords: 인코딩, 인코더, 미디어
 author: johndeu
 manager: johndeu
 ms.author: johndeu
-ms.date: 02/04/2020
+ms.date: 02/10/2020
 ms.topic: article
 ms.service: media-services
-ms.openlocfilehash: bccdb49c22bce983fe8cb2aba1387c4b1645b62c
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: c8cf8883c80dad7988793a898dcaf01dd8f860c3
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132717"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77152638"
 ---
 # <a name="recommended-live-streaming-encoders"></a>권장 라이브 스트리밍 인코더
 
 Azure Media Services에서 [라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)(채널)는 라이브 스트리밍 콘텐츠를 처리하기 위한 파이프라인을 나타냅니다. 라이브 이벤트는 다음 두 가지 방법 중 하나로 라이브 입력 스트림을 받습니다.
 
-* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각난 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 라이브 이벤트로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 라이브 이벤트를 통과합니다. 이 방법을 **통과**라고 합니다. 라이브 인코더는 클라이언트에 적응 비트 전송률 스트리밍을 허용 하기 위해 단일 비트 전송률 스트림 대신 다중 비트 전송률 스트림을 통과 라이브 이벤트로 보내는 것이 좋습니다.
+* 온-프레미스 라이브 인코더가 다중 비트 전송률 RTMP 또는 부드러운 스트리밍(조각난 MP4) 스트림을 Media Services에서 라이브 인코딩을 수행하도록 설정되지 않은 라이브 이벤트로 보냅니다. 수집된 스트림은 어떠한 추가적인 처리 없이 라이브 이벤트를 통과합니다. 이 방법을 **통과**라고 합니다. 라이브 인코더는 클라이언트에 적응 비트 전송률 스트리밍을 허용 하기 위해 단일 비트 전송률 스트림 대신 다중 비트 전송률 스트림을 통과 라이브 이벤트로 보내는 것이 좋습니다. 
+
+    통과 라이브 이벤트에 다중 비트 전송률 스트림을 사용 하는 경우 재생 측에서 예기치 않은 동작이 발생 하지 않도록 비디오 GOP 크기와 다양 한 비트 전송률의 비디오 조각을 동기화 해야 합니다.
 
   > [!NOTE]
   > 통과 방법은 라이브 스트리밍을 수행하는 가장 경제적인 방법입니다.

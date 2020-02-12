@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: reference
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/01/2018
-ms.openlocfilehash: 295cac883e7c84158fd9d2a2b7e9780dfe6c64d6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cf6e07e3bbad6b98fcce9cc0e39cdab97375a2a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75427679"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77148575"
 ---
 # <a name="guide-to-net-neural-network-specification-language-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에 대 한 Net # 신경망 사양 언어 가이드
 
@@ -56,7 +56,7 @@ Net#에서는 입력이 숨겨진 계층 및 출력에 매핑되는 방법을 �
 
 ## <a name="supported-customizations"></a>지원되는 사용자 지정
 
-Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음과 같은 기능이 가능합니다.
+Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아키텍처는 Net #을 사용 하 여 광범위 하 게 사용자 지정할 수 있습니다. 다음을 수행할 수 있습니다.
 
 + 숨겨진 계층을 만들고 각 계층의 노드 수를 제어합니다.
 + 계층이 서로 연결되는 방법을 지정합니다.
@@ -89,17 +89,17 @@ Azure Machine Learning Studio (클래식)에서 만든 신경망 모델의 아�
 
 `Const X = 28;`
 
-상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예:
+상수를 동시에 두 개 이상 정의하려면 식별자 이름과 값을 중괄호로 묶고 세미콜론으로 구분합니다. 예를 들면 다음과 같습니다.
 
 `Const { X = 28; Y = 4; }`
 
-각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예:
+각 대입 식의 오른쪽은 정수, 실수, 부울 값(True/False) 또는 수치 연산 식일 수 있습니다. 예를 들면 다음과 같습니다.
 
 `Const { X = 17 * 2; Y = true; }`
 
 ## <a name="layer-declaration"></a>계층 선언
 
-계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예:
+계층 선언은 필수 사항입니다. 연결 번들 및 특성을 포함하여 계층의 크기와 원본을 정의합니다. 선언문은 계층 이름(input, hidden 또는 output)으로 시작하고 계층 차원(양의 정수 튜플)이 뒤따릅니다. 예를 들면 다음과 같습니다.
 
 ```Net#
 input Data auto;
@@ -129,7 +129,7 @@ output Result auto from Hidden all;
 다음 출력 함수가 지원됩니다.
 
 + sigmoid
-+ linear
++ 선형
 + softmax
 + rlinear
 + square
@@ -175,7 +175,7 @@ hidden ByCol[5, 20] from Pixels where (s,d) => abs(s[1] - d[1]) <= 1;
 
 선택적으로 필터링된 번들의 가중치 집합을 지정할 수 있습니다. **Weights** 특성 값은 길이가 번들로 정의된 연결 수와 일치하는 부동 소수점 값의 튜플이어야 합니다. 기본적으로 가중치는 임의로 생성됩니다.
 
-가중치 값은 대상 노드 인덱스별로 그룹화됩니다. 즉, 첫 번째 대상 노드가 K 원본 노드에 연결되면 **Weights** 튜플의 첫 번째 `K` 요소는 원본 인덱스 순서에서 첫 번째 대상 노드의 가중치입니다. 나머지 대상 노드에서 같은 원리가 적용됩니다.
+가중치 값은 대상 노드 인덱스별로 그룹화됩니다. 즉, 첫 번째 대상 노드가 K 원본 노드에 연결되면 `K`Weights**튜플의 첫 번째** 요소는 원본 인덱스 순서에서 첫 번째 대상 노드의 가중치입니다. 나머지 대상 노드에서 같은 원리가 적용됩니다.
 
 가중치를 상수 값으로 직접 지정할 수 있습니다. 예를 들어 이전에 가중치를 알고 있었다면 이 구문을 사용하여 해당 가중치를 상수로 지정할 수 있습니다.
 
@@ -448,7 +448,7 @@ output Digit [10] from Hid3 all;
 
 + 구조에는 단일 입력 계층인 `Image`가 있습니다.
 + 키워드 `convolve`는 `Conv1` 및 `Conv2`라는 계층이 나선형 계층임을 나타냅니다. 이러한 각 계층 선언 뒤에는 나선 특성 목록이 나옵니다.
-+ 네트워크에는 두 번째 숨겨진 계층인 `Conv2`에 완전히 연결된 세 번째 숨겨진 계층인 `Hid3`이 있습니다.
++ 네트워크에는 두 번째 숨겨진 계층인 `Hid3`에 완전히 연결된 세 번째 숨겨진 계층인 `Conv2`이 있습니다.
 + `Digit` 출력 계층은 세 번째 계층인 `Hid3`에만 연결됩니다. 키워드 `all`은 출력 계층이 `Hid3`에 완전히 연결되었음을 나타냅니다.
 + 컨볼루션의 인자 수는 세 가지입니다. 튜플의 길이 `InputShape`, `KernelShape`, `Stride`및 `Sharing`입니다.
 + 커널당 가중치 수는 `1 + KernelShape\[0] * KernelShape\[1] * KernelShape\[2] = 1 + 1 * 5 * 5 = 26`입니다. 또는 `26 * 50 = 1300`입니다.
@@ -460,6 +460,6 @@ output Digit [10] from Hid3 all;
 + 총 노드 수는 계층의 선언된 차원인 [50, 5, 5]를 사용하여 `MapCount * NodeCount\[0] * NodeCount\[1] * NodeCount\[2] = 10 * 5 * 5 * 5`와 같이 계산할 수 있습니다.
 + `Sharing[d]`가 `d == 0`에 대해서만 False이므로 커널 수는 `MapCount * NodeCount\[0] = 10 * 5 = 50`입니다.
 
-## <a name="acknowledgements"></a>감사의 말
+## <a name="acknowledgements"></a>승인
 
 신경망 아키텍처를 사용자 지정하기 위한 Net# 언어는 Microsoft에서 Shon Katzenberger(설계자, Machine Learning) 및 Alexey Kamenev(소프트웨어 엔지니어, Microsoft Research)에 의해 개발되었습니다. 내부적으로 이미지 검색에서 텍스트 분석에 이르기까지 다양한 기계 학습 프로젝트 및 애플리케이션에 사용됩니다. 자세한 내용은 [Azure Machine Learning Studio의 신경망 - Net# 소개](https://blogs.technet.com/b/machinelearning/archive/2015/02/16/neural-nets-in-azure-ml-introduction-to-net.aspx)를 참조하세요.

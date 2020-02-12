@@ -7,15 +7,15 @@ ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
 author: xiaoharper
-ms.author: amlstudiodocs
+ms.author: zhanxia
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 03/20/2017
-ms.openlocfilehash: 13d385c69151891030ea0ee8f87ea8b55197a73f
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 6c5c09d0214b8ab0d427b15e5637adb5e7cbfdee
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73837597"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153046"
 ---
 # <a name="azure-machine-learning-studio-classic-extend-your-experiment-with-r"></a>Azure Machine Learning Studio (클래식): R을 사용 하 여 실험 확장 
 R [스크립트 실행][execute-r-script] 모듈을 사용 하 여 r 언어를 통해 Azure Machine Learning Studio (클래식)의 기능을 확장할 수 있습니다.
