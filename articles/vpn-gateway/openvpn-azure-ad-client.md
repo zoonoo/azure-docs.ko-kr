@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/10/2020
 ms.author: alzam
-ms.openlocfilehash: 3072fc3a82cfe85649cf080c9def69cc4869b7ec
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122510"
+ms.locfileid: "77134508"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증
 
@@ -50,43 +50,43 @@ ms.locfileid: "77122510"
 
 1. 내보내려는 VPN 클라이언트 프로필을 강조 표시 하 고 **...** 를 선택한 다음 **내보내기**를 선택 합니다.
 
-    ![내보내기](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. 이 프로필을 저장 하려는 위치를 선택 하 고 파일 이름을 그대로 두고 **저장** 을 선택 하 여 xml 파일을 저장 합니다.
 
-    ![내보내기](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>클라이언트 프로필을 가져오려면,
 
 1. 페이지에서 **가져오기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![가져오기](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![가져오기](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. 프로필 이름을 지정하고, **저장**을 선택합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![가져오기](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![가져오기](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
 
-    ![수입](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![가져오기](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>연결 만들기
 

@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: 7d3c70695000ae62f374bc558d4b408733968b83
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069288"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131872"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
 
@@ -71,7 +71,7 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
@@ -134,11 +134,11 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 등록 프로세스가 완료 되었습니다. 확인이 완료 되 면 **센티널 사용자 이름** 및 **센티널 암호**를 기록해 둡니다.
 
-## <a name="install"></a>설치
+## <a name="install"></a>Install
 
 이제 FarmBeats을 설치할 준비가 되었습니다. 설치를 시작 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
+1. Azure 포털에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
 
 2. 포털 내의 Azure Marketplace로 이동 하 고 Marketplace에서 **Azure FarmBeats** 를 검색 합니다.
 
@@ -171,7 +171,7 @@ FarmBeats를 최신 버전으로 업그레이드 하려면 PowerShell 환경을 
 1. [업그레이드 스크립트](https://aka.ms/FarmBeatsUpgradeScript) 다운로드
 
     ```azurepowershell-interactive
-        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./update-farmbeats.ps1
+        wget –q https://aka.ms/FarmBeatsUpgradeScript -O ./upgrade-farmbeats.ps1
     ```
 
 2. 기본적으로이 파일은 홈 디렉터리에 다운로드 됩니다. 디렉터리로 이동 합니다.

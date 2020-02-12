@@ -12,18 +12,18 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: vm
 ms.workload: infrastructure-services
-ms.date: 8/30/2019
+ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: 20bc22661f9faad1b289dbbe7200f4f83c097f0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: 8eea568217dc5f47c45433e5fdd755682e322b2f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451234"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134060"
 ---
 # <a name="azure-serial-console"></a>Azure 직렬 콘솔
 
-Azure Portal의 직렬 콘솔에서는 Linux 또는 Windows를 실행 하는 가상 머신 (Vm) 및 가상 머신 확장 집합 인스턴스의 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결은 VM 또는 가상 머신 확장 집합 인스턴스의 ttyS0 또는 COM1 직렬 포트에 연결되어 네트워크 또는 운영 체제 상태와 관계없이 액세스를 제공합니다. 직렬 콘솔은 Azure Portal를 사용 하 여 액세스할 수 있으며, 참가자 이상의 액세스 역할이 있는 사용자 (VM 또는 가상 머신 확장 집합)에 대해서만 허용 됩니다.
+Azure Portal의 직렬 콘솔에서는 Linux 또는 Windows를 실행 하는 가상 머신 (Vm) 및 가상 머신 확장 집합 인스턴스의 텍스트 기반 콘솔에 대 한 액세스를 제공 합니다. 이 직렬 연결은 VM 또는 가상 머신 확장 집합 인스턴스의 ttyS0 또는 COM1 직렬 포트에 연결 하 여 네트워크 또는 운영 체제 상태에 관계 없이 액세스를 제공 합니다. 직렬 콘솔은 Azure Portal를 사용 하 여 액세스할 수 있으며, 참가자 이상의 액세스 역할이 있는 사용자 (VM 또는 가상 머신 확장 집합)에 대해서만 허용 됩니다.
 
 직렬 콘솔은 Vm 및 가상 머신 확장 집합 인스턴스에 대해 동일한 방식으로 작동 합니다. 이 문서에서 Vm에 대 한 모든 멘 션은 별도로 명시 되지 않는 한 가상 머신 확장 집합 인스턴스를 암시적으로 포함 합니다.
 
@@ -38,7 +38,7 @@ VM 또는 가상 머신 확장 집합 인스턴스에서 직렬 콘솔에 액세
 - 직렬 콘솔에 액세스 하는 Azure 계정에 VM 및 [부트 진단](boot-diagnostics.md) 저장소 계정 모두에 대 한 [가상 머신 참가자 역할이](../../role-based-access-control/built-in-roles.md#virtual-machine-contributor) 있어야 합니다.
 
 > [!NOTE]
-> - 클래식 배포는 지원되지 않습니다. VM 또는 가상 머신 확장 집합 인스턴스는 Azure Resource Manager 배포 모델을 사용 해야 합니다.
+> 클래식 배포는 지원되지 않습니다. VM 또는 가상 머신 확장 집합 인스턴스는 Azure Resource Manager 배포 모델을 사용 해야 합니다.
 
 ## <a name="get-started-with-the-serial-console"></a>직렬 콘솔 시작
 Vm 및 가상 머신 확장 집합에 대 한 직렬 콘솔은 Azure Portal를 통해서만 액세스할 수 있습니다.
@@ -66,6 +66,37 @@ Vm 용 직렬 콘솔은 Azure Portal의 **지원 + 문제 해결** 섹션 내에
   1. **지원 + 문제 해결** 섹션에서 **직렬 콘솔**을 선택 합니다. 직렬 콘솔이 있는 새 창이 열리고 연결이 시작됩니다.
 
      ![Linux 가상 머신 확장 집합 직렬 콘솔](./media/virtual-machines-serial-console/vmss-start-console.gif)
+
+## <a name="serial-console-rbac-role"></a>직렬 콘솔 RBAC 역할
+위에서 언급 한 것 처럼 직렬 콘솔에는 vm 참가자 또는 VM 또는 가상 머신 확장 집합에 대 한 더 많은 액세스 권한이 필요 합니다. 사용자에 게 VM 참가자를 부여 하지 않고 사용자가 직렬 콘솔에 계속 액세스할 수 있도록 하려면 다음 역할을 사용 합니다.
+
+```
+{
+  "Name": "Serial Console Role",
+  "IsCustom": true,
+  "Description": "Role for Serial Console Users that provides significantly reduced access than VM Contributor",
+  "Actions": [
+      "Microsoft.Compute/virtualMachines/*/write",
+      "Microsoft.Compute/virtualMachines/*/read",
+      "Microsoft.Storage/storageAccounts/*"
+  ],
+  "NotActions": [],
+  "DataActions": [],
+  "NotDataActions": [],
+  "AssignableScopes": [
+    "/subscriptions/<subscriptionId>"
+  ]
+}
+```
+
+### <a name="to-create-and-use-the-role"></a>역할을 만들고 사용 하려면 다음을 수행 합니다.
+*   알려진 위치에 JSON을 저장 합니다 (예: `~/serialconsolerole.json`).
+*   다음 Az CLI 명령을 사용 하 여 역할 정의를 만듭니다. `az role definition create --role-definition serialconsolerole.json -o=json`
+*   역할을 업데이트 해야 하는 경우 다음 명령을 사용 합니다. `az role definition update --role-definition serialconsolerole.json -o=json`
+*   역할이 포털의 Access Control (IAM)에 표시 됩니다 (전파 하는 데 몇 분 정도 걸릴 수 있음).
+*   사용자 지정 역할 역할을 사용 하 여 VM 및 부트 진단 저장소 계정에 사용자를 추가할 수 있습니다.
+    *   사용자에 게 VM 및 부트 진단 저장소 계정에 대 *한* 사용자 지정 역할을 부여 해야 합니다.
+
 
 ## <a name="advanced-uses-for-serial-console"></a>직렬 콘솔에 대 한 고급 사용
 콘솔에서 VM에 액세스 하는 것 외에도 Azure 직렬 콘솔을 사용 하 여 다음을 수행할 수 있습니다.
