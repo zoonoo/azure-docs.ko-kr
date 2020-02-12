@@ -581,8 +581,6 @@
               href: disks-benchmarks.md
         - name: 연결되지 않은 디스크 찾기
           href: find-unattached-disks.md
-        - name: File Storage 사용
-          href: ../../storage/files/storage-files-quick-create-use-windows.md
         - name: 디스크 FAQ
           href: faq-for-disks.md
     - name: 네트워킹 관리

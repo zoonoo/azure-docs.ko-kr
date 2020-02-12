@@ -8,12 +8,12 @@ ms.service: vpn-gateway
 ms.topic: article
 ms.date: 02/01/2018
 ms.author: cherylmc
-ms.openlocfilehash: c0b32bfba61f1c6f3f00c5189f611d84069dd9da
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
-ms.translationtype: MT
+ms.openlocfilehash: 7cc74ca19d2194a7319ab1b88ab7847b04b0d895
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75779674"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134558"
 ---
 # <a name="configure-forced-tunneling-using-the-azure-resource-manager-deployment-model"></a>Azure Resource Manager 배포 모델을 사용하여 강제 터널링 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "75779674"
 
 다음 다이어그램에서는 강제 터널링 작동 방법을 보여 줍니다. 
 
-![터널링 적용](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
+![강제 터널링](./media/vpn-gateway-forced-tunneling-rm/forced-tunnel.png)
 
 위의 예에서 프런트 엔드 서브넷은 강제 터널링되지 않았습니다. 프런트 엔드 서브넷에서 작업은 계속해서 인터넷에서 직접 고객의 요청을 수락하고 응답할 수 있습니다. 중간 계층 및 백 엔드 서브넷은 강제 터널링됩니다. 이러한 두 서브넷에서 인터넷으로의 모든 아웃바운드 연결은 S2S VPN 터널 중 하나를 통해 온-프레미스 사이트로 다시 force되거나 리디렉션됩니다.
 
@@ -71,9 +71,9 @@ Azure에서 강제 터널링은 가상 네트워크 사용자 정의 경로를 �
 
 ### <a name="to-log-in"></a>로그인하려면
 
-[!INCLUDE [To log in](../../includes/vpn-gateway-ps-login-include.md)]
+[!INCLUDE [To log in](../../includes/vpn-gateway-cloud-shell-ps-login.md)]
 
-## <a name="configure-forced-tunneling"></a>터널링 적용 구성
+## <a name="configure-forced-tunneling"></a>강제 터널링 구성
 
 > [!NOTE]
 > “이 cmdlet의 출력 개체 형식은 이후 릴리스에서 수정될 예정입니다”라는 경고가 표시될 수 있습니다. 이는 정상적인 동작이며 사용자는 이러한 경고를 안전하게 무시할 수 있습니다.

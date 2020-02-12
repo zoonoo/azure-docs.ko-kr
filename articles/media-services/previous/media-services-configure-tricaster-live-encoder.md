@@ -15,19 +15,18 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: juliako
 ms.reviewer: anilmur
-ms.openlocfilehash: 0e793a5aa7d619b0bb7a1d3efcdf665ea400c555
-ms.sourcegitcommit: a8b638322d494739f7463db4f0ea465496c689c6
-ms.translationtype: MT
+ms.openlocfilehash: 11ee8f52a8fd4db2d052eeaeef1387b011d23050
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/17/2019
-ms.locfileid: "69016732"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77131562"
 ---
 # <a name="use-the-newtek-tricaster-encoder-to-send-a-single-bitrate-live-stream"></a>NewTek TriCaster 인코더를 사용하여 단일 비트 전송률 라이브 스트림 보내기  
 > [!div class="op_single_selector"]
 > * [Tricaster](media-services-configure-tricaster-live-encoder.md)
 > * [Elemental Live](media-services-configure-elemental-live-encoder.md)
 > * [Wirecast](media-services-configure-wirecast-live-encoder.md)
-> * [FMLE](media-services-configure-fmle-live-encoder.md)
 >
 >
 
@@ -40,7 +39,7 @@ ms.locfileid: "69016732"
 >
 >
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure Media Services 계정 만들기](media-services-portal-create-account.md)
 * 실행 중인 스트리밍 엔드포인트가 있는지 확인합니다. 자세한 내용은 [Media Services 계정에서 스트리밍 엔드포인트 관리](media-services-portal-manage-streaming-endpoints.md)
@@ -86,16 +85,16 @@ ms.locfileid: "69016732"
 **비디오**:
 
 * 코덱: H.264
-* 프로필 높음(수준 4.0)
-* Bitrate: 5000kbps
+* 프로필: 높음(수준 4.0)
+* 비트 전송률: 5,000kbps
 * 키 프레임: 2초(60초)
 * 프레임 속도: 30
 
 **오디오**:
 
 * 코덱: AAC(LC)
-* Bitrate: 192kbps
-* 샘플링 속도: 44.1kHz
+* 비트 전송률: 192kbps
+* 샘플 속도: 44.1khz
 
 ### <a name="configuration-steps"></a>구성 단계
 

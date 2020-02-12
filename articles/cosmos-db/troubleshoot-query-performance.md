@@ -1,19 +1,19 @@
 ---
 title: Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 description: Azure Cosmos DB SQL 쿼리 문제를 식별, 진단 및 해결 하는 방법에 대해 알아봅니다.
-author: ginamr
+author: timsander1
 ms.service: cosmos-db
 ms.topic: troubleshooting
-ms.date: 01/14/2020
-ms.author: girobins
+ms.date: 02/10/2020
+ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: f016902f6cf7e0238dadb97d816f4590caec112e
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77109335"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132057"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 
@@ -198,7 +198,7 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 쿼리:
 
 ```sql
-SELECT * FROM c WHERE c.foodGroup = “Soups, Sauces, and Gravies” ORDER BY c._ts ASC
+SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts ASC
 ```
 
 인덱싱 정책:
@@ -308,7 +308,7 @@ Azure Cosmos DB에서는 [분할](partitioning-overview.md) 을 사용 하 여 �
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup = “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup = "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 이러한 쿼리는 또한 쿼리에 파티션 키를 포함 하 여 최적화 됩니다.
@@ -327,7 +327,7 @@ WHERE c.description = "Mushroom, oyster, raw"
 
 ```sql
 SELECT * FROM c
-WHERE c.foodGroup > “Soups, Sauces, and Gravies” and c.description = "Mushroom, oyster, raw"
+WHERE c.foodGroup > "Soups, Sauces, and Gravies" and c.description = "Mushroom, oyster, raw"
 ```
 
 ## <a name="filters-on-multiple-properties"></a>여러 속성에 대 한 필터

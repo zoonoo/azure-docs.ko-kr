@@ -3,13 +3,13 @@ title: Azure 구독 제한 및 할당량
 description: 일반적인 Azure 구독 및 서비스 제한, 할당량 및 제약 조건 목록을 제공합니다. 이 문서에는 최대 값으로 제한을 늘리는 방법에 대 한 정보가 포함 되어 있습니다.
 tags: billing
 ms.topic: conceptual
-ms.date: 01/30/2020
-ms.openlocfilehash: b209bc3e60f50ac363d3426d6c87f206b016d711
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
-ms.translationtype: MT
+ms.date: 02/10/2020
+ms.openlocfilehash: 0891a18c782d4d60970ccba8efa7c9bfc98f19df
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087435"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133736"
 ---
 # <a name="azure-subscription-and-service-limits-quotas-and-constraints"></a>Azure 구독 및 서비스 제한, 할당량 및 제약 조건
 
@@ -28,8 +28,6 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 ## <a name="limits-and-azure-resource-manager"></a>제한 및 Azure Resource Manager
 
 여러 Azure 리소스를 단일 Azure 리소스 그룹으로 결합할 수 있습니다. 리소스 그룹을 사용 하는 경우에는 Azure Resource Manager를 사용 하 여 지역 수준에서 전역으로 한 번만 관리 됩니다. Azure 리소스 그룹에 대 한 자세한 내용은 [Azure Resource Manager 개요](overview.md)를 참조 하세요.
-
-다음 제한 사항 목록에서 새 테이블은 Azure Resource Manager를 사용할 때 제한의 차이를 반영 합니다. 예를 들어 **구독 제한** 테이블과 **구독 제한-Azure Resource Manager** 테이블이 있습니다. 두 시나리오에 모두 제한이 적용 되는 경우 첫 번째 테이블에만 표시 됩니다. 별도로 지정하지 않으면 제한은 모든 지역에 걸쳐 전역으로 적용됩니다.
 
 > [!NOTE]
 > Azure 리소스 그룹의 리소스에 대 한 할당량은 구독 별로 액세스할 수 있으며 서비스 관리 할당량은 구독 별로 액세스할 수 없습니다. vCPU 할당량을 한 예로 살펴보겠습니다. VCPUs를 지 원하는 할당량 증가를 요청 하려면 어떤 지역에서 사용 하려는 vCPUs 수를 결정 해야 합니다. 그런 다음 원하는 금액 및 지역에 대 한 Azure 리소스 그룹 vCPU 할당량에 대 한 특정 요청을 만듭니다. 유럽 서부에서 30 개의 vCPUs를 사용 하 여 응용 프로그램을 실행 해야 하는 경우 유럽 서부에서 30 개의 vCPUs를 구체적으로 요청 합니다. VCPU 할당량은 다른 지역에서 증가 되지 않습니다. 전용 유럽 서부 30 vCPU 할당량이 있습니다.
@@ -115,13 +113,7 @@ Azure 가격 책정에 대해 자세히 알아보려면 [azure 가격 책정 개
 
 ### <a name="subscription-limits"></a>구독 제한
 
-#### <a name="subscription-limits---azure-service-management-classic-deployment-model"></a>구독 제한-Azure 서비스 관리 (클래식 배포 모델)
-
-[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
-
-#### <a name="subscription-limits---azure-resource-manager"></a>구독 제한 - Azure Resource Manager
-
-Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음 제한이 적용 됩니다. Azure Resource Manager 변경 되지 않은 제한은 나열 되지 않습니다. 이러한 제한에 대해서는 이전 표를 참조 하세요.
+Azure Resource Manager 및 Azure 리소스 그룹을 사용 하는 경우 다음 제한이 적용 됩니다.
 
 Resource Manager API 읽기 및 쓰기 제한은 [Resource Manager 요청 제한](request-limits-and-throttling.md)을 참조하세요.
 
@@ -485,6 +477,12 @@ SQL Database 한도에 대해서는 [단일 데이터베이스에 대 한 리소
 ### <a name="sql-data-warehouse-limits"></a>SQL Data Warehouse 제한
 
 SQL Data Warehouse 한도는 [SQL Data Warehouse 리소스 제한](../../sql-data-warehouse/sql-data-warehouse-service-capacity-limits.md)을 참조 하세요.
+
+### <a name="classic-deployment-model-limits"></a>클래식 배포 모델 제한
+
+Azure Resource Manager 배포 모델 대신 클래식 배포 모델을 사용 하는 경우 다음과 같은 제한이 적용 됩니다.
+
+[!INCLUDE [azure-subscription-limits](../../../includes/azure-subscription-limits.md)]
 
 ## <a name="see-also"></a>참고 항목
 
