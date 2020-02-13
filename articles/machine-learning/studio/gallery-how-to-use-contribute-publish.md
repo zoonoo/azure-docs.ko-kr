@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/11/2019
-ms.openlocfilehash: 5049bdfdc84df16c4b8070decf47fd2d726d7777
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 6a82c4d6eecec3a3a9ef690536988c8402444ffc
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153029"
+ms.locfileid: "77168538"
 ---
 # <a name="share-and-discover-resources-in-the-azure-ai-gallery"></a>Azure AI 갤러리의 리소스 공유 및 검색
 
@@ -149,9 +149,9 @@ Gallery에서 기계 학습 개념을 설명하는 **자습서**를 작성하거
 
 1. **새 항목**을 선택합니다.
 
-1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 다음 **다음**을 클릭합니다.
+1. **설명** 페이지에서 **항목 형식**에 대해 **자습서** 또는 **컬렉션**을 선택합니다. 다른 사용자가 자습서를 찾는 데 도움이 되는 이름, 간략한 요약, 자세한 설명 및 태그를 입력합니다. 그런 후 **Next** 를 클릭합니다.
 
-1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 다음 **다음**을 클릭합니다.
+1. **이미지 선택** 페이지에서 기고 내용과 함께 표시되는 이미지를 선택합니다. 사용자 고유의 이미지 파일을 업로드하거나 스톡 이미지를 선택할 수 있습니다. 사용자가 기고 내용의 콘텐츠 및 목적을 식별하는 데 도움이 될 수 있는 이미지를 선택합니다. 그런 후 **Next** 를 클릭합니다.
 
 1. **설정** 페이지의 **표시 유형**에 대해 컬렉션이 **공개**(누구나 볼 수 있음)인지 또는 **비공개**(직접 링크가 있는 사람만 볼 수 있음)인지를 선택합니다.
 

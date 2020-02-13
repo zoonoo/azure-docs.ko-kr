@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 01/06/2017
-ms.openlocfilehash: 37968e968a0f9a1098dd5e90d463879bfa95ce1f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 482dc0ab549ec6b9f05bc9f74a3d31ac13646ce5
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153590"
+ms.locfileid: "77169201"
 ---
 # <a name="deploy-an-azure-machine-learning-studio-classic-web-service"></a>Azure Machine Learning Studio (클래식) 웹 서비스 배포
 
@@ -145,7 +145,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 
 1. Microsoft Azure Machine Learning 웹 서비스 페이지에서 **웹 서비스** 메뉴 옵션을 클릭합니다.
 2. 새 지역에 배포하는 웹 서비스를 선택합니다.
-3. **복사**를
+3. **복사**를 클릭합니다.
 4. **웹 서비스 이름**에 웹 서비스의 새 이름을 입력합니다.
 5. **웹 서비스 설명**에 웹 서비스에 대한 설명을 입력합니다.
 6. **구독** 드롭다운에서 새 웹 서비스가 상주할 구독을 선택합니다.
@@ -153,7 +153,7 @@ Machine Learning Studio (클래식) 웹 서비스 포털을 사용 하 여 새 �
 8. **지역** 드롭다운에서 웹 서비스를 배포할 지역을 선택합니다.
 9. **Storage 계정** 드롭다운에서 웹 서비스에 저장할 Storage 계정을 선택합니다.
 10. **가격 계획** 드롭다운에서 8단계에서 선택한 영역에서 계획을 선택합니다.
-11. **복사**를
+11. **복사**를 클릭합니다.
 
 ## <a name="deploy-it-as-a-classic-web-service"></a>기존 웹 서비스로 배포
 

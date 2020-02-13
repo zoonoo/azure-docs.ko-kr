@@ -7,12 +7,12 @@ ms.reviewer: gabilehner
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 11/07/2019
-ms.openlocfilehash: 20b667ae345e468bcd3db25d85b7c9de561af4bc
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 447e8a67cedbb8f78e4db9602f603fefd382693c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111484"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162942"
 ---
 # <a name="use-follower-database-to-attach-databases-in-azure-data-explorer"></a>종동체 데이터베이스를 사용 하 여 Azure 데이터 탐색기에 데이터베이스 연결
 
@@ -206,8 +206,8 @@ poller = kusto_management_client.attached_database_configurations.create_or_upda
 
 |**설정**  |**설명**  |
 |---------|---------|
-|종동체 클러스터 이름     |  종동체 클러스터의 이름입니다. 이 템플릿이 배포 되는 클러스터입니다.  |
-|연결 된 데이터베이스 구성 이름    |    연결 된 데이터베이스 구성 개체의 이름입니다. 이 이름은 클러스터 수준에서 고유 하기만 한다면 임의의 문자열일 수 있습니다.     |
+|종동체 클러스터 이름     |  종동체 클러스터의 이름입니다. 템플릿이 배포 되는 위치입니다.  |
+|연결 된 데이터베이스 구성 이름    |    연결 된 데이터베이스 구성 개체의 이름입니다. 이름은 클러스터 수준에서 고유한 임의의 문자열일 수 있습니다.     |
 |데이터베이스 이름     |      따를 데이터베이스의 이름입니다. 모든 리더의 데이터베이스를 팔 로우 하려면 ' * '를 사용 합니다.   |
 |리더 클러스터 리소스 ID    |   리더 클러스터의 리소스 ID입니다.      |
 |기본 보안 주체 수정 종류    |   기본 보안 주체 수정 종류입니다. `Union`, `Replace` 또는 `None`수 있습니다. 기본 보안 주체 수정 종류에 대 한 자세한 내용은 [principal 수정 kind 제어 명령](/azure/kusto/management/cluster-follower?branch=master#alter-follower-database-principals-modification-kind)을 참조 하세요.      |

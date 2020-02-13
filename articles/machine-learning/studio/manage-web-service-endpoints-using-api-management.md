@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/03/2017
-ms.openlocfilehash: 9123e1d8e63382c6b89c86f99935dd288bb1bf16
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: d0e9fff56949125c5fa797e0e4ef7e1183448dd0
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153420"
+ms.locfileid: "77168581"
 ---
 # <a name="manage-azure-machine-learning-studio-classic-web-services-using-api-management"></a>API Management를 사용 하 여 Azure Machine Learning Studio (클래식) 웹 서비스 관리
 ## <a name="overview"></a>개요
@@ -24,7 +24,7 @@ ms.locfileid: "77153420"
 ## <a name="what-is-azure-api-management"></a>Azure API Management란?
 Azure API Management는 사용자 액세스, 사용 제한 및 대시보드 모니터링을 정의하여 REST API 엔드포인트를 관리할 수 있는 Azure 서비스입니다. 자세한 내용은 [AZURE API management 사이트](https://azure.microsoft.com/services/api-management/) 를 참조 하세요. Azure API Management를 시작 하려면 [가져오기 및 게시 가이드](/azure/api-management/import-and-publish)를 참조 하세요. 이 가이드를 기반으로 하는 이 다른 가이드에서는 알림 구성, 가격 책정 계층, 응답 처리, 사용자 인증, 제품 생산, 개발자 구독 및 사용량 대시보딩을 포함하는 다양한 주제를 다룹니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 가이드를 완료하려면 다음이 필요합니다.
 
 * Azure 계정.
@@ -166,9 +166,9 @@ API를 만들려면:
 
 ## <a name="appendix-a---creating-and-testing-a-simple-azureml-web-service"></a>부록 A - 간단한 AzureML 웹 서비스 만들기 및 테스트
 ### <a name="creating-the-experiment"></a>실험 만들기
-간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 예를 들면 다음과 같습니다.
+간단한 AzureML 실험을 만들고 웹 서비스로 배포하는 단계는 다음과 같습니다. 웹 서비스에서는 임의 텍스트 열을 입력으로 사용하고 정수로 표시되는 기능 집합을 반환합니다. 다음은 그 예입니다.
 
-| Text | 해시된 텍스트 |
+| 텍스트 | 해시된 텍스트 |
 | --- | --- |
 | This is a good day |1 1 2 2 0 2 0 1 |
 
@@ -198,7 +198,7 @@ API를 만들려면:
 
 이때 **실행** 을 클릭하여 실험을 테스트할 수 있습니다.
 
-![run](./media/manage-web-service-endpoints-using-api-management/run.png)
+![실행](./media/manage-web-service-endpoints-using-api-management/run.png)
 
 ### <a name="create-a-web-service"></a>웹 서비스 만들기
 이제 웹 서비스를 만듭니다. **웹 서비스**를 확장하고 **입력**을 실험으로 끌어서 놓습니다. **입력**을 **기능 해싱**에 연결합니다. **출력** 을 실험으로 끌어서 놓습니다. **출력**을 **기능 해싱**에 연결합니다.
@@ -225,12 +225,12 @@ AzureML 웹 서비스는 RSS(요청/응답 서비스) 및 BES(일괄 처리 실�
 ![find-api-key](./media/manage-web-service-endpoints-using-api-management/find-api-key.png)
 
 #### <a name="test-rrs-endpoint"></a>RRS 엔드포인트 테스트
-##### <a name="test-button"></a>[테스트] 단추
+##### <a name="test-button"></a>테스트 단추
 RRS 엔드포인트를 테스트하는 간편한 방법은 웹 서비스 대시보드에서 **테스트** 를 클릭하는 것입니다.
 
-![테스트](./media/manage-web-service-endpoints-using-api-management/test.png)
+![test](./media/manage-web-service-endpoints-using-api-management/test.png)
 
-**col2**로 **This is a good day**를 입력합니다. 해당 확인 표시를 클릭합니다.
+**col2**로 **This is a good day**를 입력합니다. 확인 표시를 클릭합니다.
 
 ![enter-data](./media/manage-web-service-endpoints-using-api-management/enter-data.png)
 

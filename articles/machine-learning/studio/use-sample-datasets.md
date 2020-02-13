@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-author=heatherbshapiro, previous-ms.author=hshapiro
 ms.date: 01/19/2018
-ms.openlocfilehash: 211a2a83d2668c3240daca11e9063b31d42655ae
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: e3668718e27a3dcb545428637b34de51ec621c60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152757"
+ms.locfileid: "77169047"
 ---
 # <a name="use-the-sample-datasets-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)에서 샘플 데이터 집합 사용
 [top]: #machine-learning-sample-datasets
@@ -27,12 +27,12 @@ Azure Machine Learning Studio (클래식)에서 새 작업 영역을 만들 때 
 이러한 샘플 데이터 세트의 나머지는 작업 영역의 **저장된 데이터 세트** 아래에서 확인할 수 있습니다. Machine Learning Studio (클래식)의 실험 캔버스 왼쪽에 있는 모듈 팔레트에서이를 찾을 수 있습니다.
 실험 캔버스로 끌어와 이러한 데이터 세트를 실험에서 사용할 수 있습니다.
 
-## <a name="datasets"></a>데이터 집합
+## <a name="datasets"></a>데이터 세트
 
 <table>
 
 <tr>
-  <th>데이터 집합 이름</th>
+  <th>데이터 세트 이름</th>
   <th>데이터 세트 설명</th>
 </tr>
 
@@ -397,7 +397,7 @@ RCV1-V2 Reuters 뉴스 데이터 세트의 뉴스 기사에 대한 토픽 할당
 <tr>
   <td><a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a></td>
   <td>
-이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010). Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 세트. <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
+이 데이터는 KDD Cup 2010 학생 성취도 평가 챌린지(<a href="https://www.kdd.org/kdd-cup/view/kdd-cup-2010-student-performance-evaluation">학생 성취도 평가</a>)에서 가져옵니다. 사용된 데이터는 Algebra_2008_2009 학습 집합(Stamper, J., Niculescu-Mizil, A., Ritter, S., Gordon, G.J., & Koedinger, K.R. (2010)입니다. Algebra I 2008-2009. KDD Cup 2010 교육 데이터 마이닝 챌린지의 챌린지 데이터 세트. <a href="https://pslcdatashop.web.cmu.edu/KDDCup/downloads.jsp">downloads.jsp</a>에서 찾아보세요.
 <p></p>
 데이터 세트이 다운로드되어 Azure Blob Storage(<a href="https://azuremlsampleexperiments.blob.core.windows.net/datasets/student_performance.txt">student_performance.txt</a>)에 저장되었고 학생 교육 시스템의 로그 파일을 포함합니다. 제공된 기능에는 문제 ID 및 간략한 설명, 학생 ID, 타임스탬프, 올바른 방법으로 문제를 해결하기 전에 학생이 시도한 횟수가 포함됩니다. 원본 데이터 세트에는 8,900,000개 레코드가 있고 이 데이터 세트는 처음 100,000개 행으로 샘플을 줄였습니다. 데이터 세트에는 숫자, 범주, 타임스탬프 형식의 탭으로 구분된 23개 열이 있습니다.
   </td>

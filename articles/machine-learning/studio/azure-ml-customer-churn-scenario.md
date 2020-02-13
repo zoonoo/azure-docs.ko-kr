@@ -6,22 +6,22 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 12/18/2017
-ms.openlocfilehash: 903e3f3dcbcc72289fc82ec59dec0305b6adbc17
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 79a7b157d5daf8940aba454808c65ed433cfe29c
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150921"
+ms.locfileid: "77169003"
 ---
 # <a name="analyze-customer-churn-using-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio (클래식)를 사용 하 여 고객 이탈 분석
 ## <a name="overview"></a>개요
 이 문서에서는 Azure Machine Learning Studio (클래식)를 사용 하 여 빌드된 고객 이탈 분석 프로젝트의 참조 구현을 제공 합니다. 이 문서에서는 산업 고객 이탈 문제를 전체적으로 해결하기 위한 관련된 일반 모델을 알아봅니다. 또한 Machine Learning을 사용하여 빌드된 모델의 정확도를 측정하고 향후 배포를 위한 방향을 평가합니다.  
 
-### <a name="acknowledgements"></a>승인
+### <a name="acknowledgements"></a>감사의 말
 이 실험은 Serge Berger, Microsoft의 Principal Data 과학자, Microsoft의 Roger Barga, 이전에 Microsoft Azure Machine Learning Studio (클래식)에 대 한 제품 관리자에 의해 개발 되 고 테스트 되었습니다. Azure 설명서 팀은 담당자들의 전문 지식을 인정하고 이 백서를 공유한 것에 대해 감사해하고 있습니다.
 
 > [!NOTE]

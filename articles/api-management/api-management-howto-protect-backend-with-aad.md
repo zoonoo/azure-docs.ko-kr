@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 05/21/2019
 ms.author: apimpm
-ms.openlocfilehash: cbcd3d27da3aff66e1dc6758af8a573666c0bbbe
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
-ms.translationtype: MT
+ms.openlocfilehash: 213e5523c0c99309c3244e19a406a7b82297188f
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121403"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161803"
 ---
 # <a name="protect-an-api-by-using-oauth-20-with-azure-active-directory-and-api-management"></a>Azure Active Directory 및 API Management에서 OAuth 2.0을 사용하여 API 보호
 
@@ -212,7 +212,7 @@ API Management에서 [Validate JWT](api-management-access-restriction-policies.m
 
 ## <a name="build-an-application-to-call-the-api"></a>API를 호출하는 애플리케이션 빌드
 
-이 가이드에서는 OAuth 2.0으로 보호되는 `Echo API`를 호출하기 위해 API Management에서 개발자 콘솔을 샘플 클라이언트 애플리케이션으로 사용했습니다. OAuth 2.0을 구현하고 애플리케이션을 빌드하는 방법을 자세히 알려보려면 [Azure Active Directory 코드 샘플](../active-directory/develop/sample-v1-code.md)을 참조하세요.
+이 가이드에서는 OAuth 2.0으로 보호되는 `Echo API`를 호출하기 위해 API Management에서 개발자 콘솔을 샘플 클라이언트 애플리케이션으로 사용했습니다. OAuth 2.0을 구현하고 애플리케이션을 빌드하는 방법을 자세히 알려보려면 [Azure Active Directory 코드 샘플](../active-directory/develop/sample-v2-code.md)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * [Azure Active Directory 및 OAuth2.0](../active-directory/develop/authentication-scenarios.md)에 대해 자세히 알아봅니다.

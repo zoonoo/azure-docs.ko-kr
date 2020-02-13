@@ -8,17 +8,17 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 1073b9014c83ae5d52d0b1a740819c48c9622936
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152723"
+ms.locfileid: "77162857"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
 > [!Important]
-> 자동 크기 조정 기능은 2019 년 5 월 8 일에 생성 된 Apache Spark, ApacheHive, LLAP 및 Apache HBase 클러스터에 대해서만 작동 합니다.
+> 자동 크기 조정 기능은 2019 년 5 월 8 일에 생성 된 Apache Spark, ApacheHive, LLAP 및 Apache HBase 클러스터에 대해서만 작동 합니다. LLAP 및 HBase에 대 한 자동 크기 조정은 미리 보기 상태입니다.
 
 Azure HDInsight의 클러스터 자동 크기 조정 기능은 클러스터의 작업자 노드 수를 자동으로 확장 및 축소 합니다. 클러스터의 다른 노드 유형은 현재 확장할 수 없습니다.  새 HDInsight 클러스터를 만드는 동안 작업자 노드의 최소 및 최대 수를 설정할 수 있습니다. 자동 크기 조정은 분석 부하의 리소스 요구 사항을 모니터링 하 고 작업자 노드 수를 확장 하거나 축소 합니다. 이 기능에 대 한 추가 비용은 없습니다.
 
@@ -28,10 +28,10 @@ Azure HDInsight의 클러스터 자동 크기 조정 기능은 클러스터의 �
 
 | 버전 | Spark | Hive | LLAP | HBase | Kafka | Storm | ML |
 |---|---|---|---|---|---|---|---|
-| HDInsight 3.6 (ESP 제외) | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
-| HDInsight 4.0 (ESP 제외) | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
-| HDInsight 3.6 및 ESP | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
-| HDInsight 4.0 및 ESP | 예 | 예 | 예 | 예* | 아니요 | 아니요 | 아니요 |
+| HDInsight 3.6 (ESP 제외) | yes | yes | yes | 예* | 예 | 예 | 예 |
+| HDInsight 4.0 (ESP 제외) | yes | yes | yes | 예* | 예 | 예 | 예 |
+| HDInsight 3.6 및 ESP | yes | yes | yes | 예* | 예 | 예 | 예 |
+| HDInsight 4.0 및 ESP | yes | yes | yes | 예* | 예 | 예 | 예 |
 
 \* HBase 클러스터는 부하를 기반으로 하는 것이 아니라 일정 기반 크기 조정에 대해서만 구성할 수 있습니다.
 
@@ -45,7 +45,7 @@ HDInsight 클러스터에 대 한 부하 기반 크기 조정 또는 일정 기�
 
 자동 크기 조정은 지속적으로 클러스터를 모니터링하면서 다음 메트릭을 수집합니다.
 
-|메트릭|설명|
+|메트릭|Description|
 |---|---|
 |총 보류 중인 CPU|보류 중인 모든 컨테이너의 실행을 시작하는 데 필요한 총 코어 수입니다.|
 |총 보류 중인 메모리|보류 중인 모든 컨테이너의 실행을 시작하는 데 필요한 총 메모리(MB)입니다.|
@@ -74,7 +74,7 @@ HDInsight 서비스는 현재 CPU 및 메모리 요구 사항을 충족 하는 �
 
 노드당 AM 컨테이너 수와 현재 CPU 및 메모리 요구 사항에 따라 자동 크기 조정에서 특정 수의 노드를 제거 하는 요청을 실행 합니다. 또한 서비스는 현재 작업 실행을 기반으로 제거할 노드를 검색 합니다. Scale down 작업은 먼저 노드를 add-on 다음 클러스터에서 제거 합니다.
 
-## <a name="get-started"></a>시작
+## <a name="get-started"></a>시작하기
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>부하 기반 자동 크기 조정을 사용 하 여 클러스터 만들기
 
@@ -245,13 +245,13 @@ Azure Portal에 나열 된 클러스터 상태를 통해 자동 크기 조정 �
 
 표시 될 수 있는 모든 클러스터 상태 메시지는 아래 목록에 설명 되어 있습니다.
 
-| 클러스터 상태 | 설명 |
+| 클러스터 상태 | Description |
 |---|---|
 | 실행 중 | 클러스터가 정상적으로 작동 하 고 있습니다. 모든 이전 자동 크기 조정 작업이 성공적으로 완료 되었습니다. |
 | 업데이트  | 클러스터 자동 크기 조정 구성을 업데이트 하 고 있습니다.  |
 | HDInsight 구성  | 클러스터 확장 또는 축소 작업이 진행 중입니다.  |
 | 업데이트 오류  | HDInsight에서 자동 크기 조정 구성 업데이트 중에 문제가 발생 했습니다. 고객은 업데이트를 다시 시도 하거나 자동 크기 조정을 사용 하지 않도록 선택할 수 있습니다.  |
-| 오류  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
+| Error  | 클러스터에 문제가 있어 사용할 수 없습니다. 이 클러스터를 삭제 하 고 새 클러스터를 만듭니다.  |
 
 클러스터의 현재 노드 수를 보려면 클러스터의 **개요** 페이지에서 **클러스터 크기** 차트로 이동 하거나 **설정**아래에서 **클러스터 크기** 를 선택 합니다.
 

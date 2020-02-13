@@ -6,15 +6,15 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.date: 10/27/2016
-ms.openlocfilehash: 8dd120731ca7eeb98fafe230b79ac50668cdc4e8
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 1b76147ac48d0bfb7b7bb1302e33b21e5ababb77
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152740"
+ms.locfileid: "77169072"
 ---
 # <a name="application-lifecycle-management-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio의 애플리케이션 수명 주기 관리 (클래식)
 Azure Machine Learning Studio (클래식)은 Azure 클라우드 플랫폼에서 조작 가능한 기계 학습 실험을 개발 하기 위한 도구입니다. 단일 플랫폼으로 병합된 Visual Studio IDE 및 확장 가능한 서비스와 같습니다. 다양 한 자산 버전 관리에서 자동화 된 실행 및 배포에 이르는 표준 ALM (응용 프로그램 수명 주기 관리) 사례를 Azure Machine Learning Studio (클래식)에 통합할 수 있습니다. 이 문서는 몇 가지 옵션과 접근 방법에 대해 다룹니다.

@@ -17,12 +17,12 @@ ms.date: 07/15/2019
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 3c77b74eb97f03b1234cb2735b4a680b030d2073
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 0282336cb5df7d010571a15e9d1f9d93b82d461e
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77108205"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160325"
 ---
 # <a name="microsoft-identity-platform-code-samples-v20-endpoint"></a>Microsoft id 플랫폼 코드 샘플 (v2.0 끝점)
 
@@ -34,7 +34,7 @@ Microsoft ID 플랫폼을 사용하여 다음을 수행할 수 있습니다.
 이 문서에서는 Microsoft id 플랫폼 끝점에 대 한 샘플에 대 한 링크를 간략하게 설명 하 고 제공 합니다. 이러한 샘플은 작업을 수행 하는 방법을 보여 주고 응용 프로그램에서 사용할 수 있는 코드 조각도 제공 합니다. 코드 샘플 페이지에는 요구 사항, 설치 및 설정에 도움이 되는 자세한 추가 정보 항목을 찾을 수 있습니다. 코드 내의 주석은 중요 한 부분을 이해 하는 데 도움이 됩니다.
 
 > [!NOTE]
-> V1.0 샘플에 관심이 있는 경우 [AZURE AD 코드 샘플 (v1.0 끝점)](sample-v1-code.md)을 참조 하세요.
+> V1.0 샘플에 관심이 있는 경우 [AZURE AD 코드 샘플 (v1.0 끝점)](../azuread-dev/sample-v1-code.md)을 참조 하세요.
 
 각 샘플 형식에 대 한 기본 시나리오를 이해 하려면 [Microsoft id 플랫폼 끝점에 대 한 앱 유형](v2-app-types.md)을 참조 하세요.
 
@@ -132,6 +132,6 @@ Azure AD 인증을 포함하여 Microsoft Graph API에 대한 여러 사용 패�
 
 ## <a name="see-also"></a>참고 항목
 
-- [Azure Active Directory (v1.0) 개발자 가이드](v1-overview.md)
+- [Azure Active Directory (v1.0) 개발자 가이드](../azuread-dev/v1-overview.md)
 - [Azure AD Graph API 개념 및 참조](https://msdn.microsoft.com/library/azure/hh974476.aspx)
 - [Azure AD Graph API 도우미 라이브러리](https://www.nuget.org/packages/Microsoft.Azure.ActiveDirectory.GraphClient)

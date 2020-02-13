@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/14/2019
 ms.author: alkohli
-ms.openlocfilehash: 8759de162227e8504360e64673ca9295c12cd13a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 428c336d98e278910b229e9c0d877a9ae6268c96
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121896"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169717"
 ---
 # <a name="migrate-subscriptions-and-storage-accounts-associated-with-storsimple-device-manager-service"></a>StorSimple 디바이스 관리자 서비스와 연결된 구독 및 스토리지 계정 마이그레이션
 
@@ -35,7 +35,7 @@ ms.locfileid: "77121896"
 |Azure 구독의 소유권을 다른 디렉터리로 이전할 수 있나요? | yes       | 예       | 기존 구독을 Azure AD 디렉터리에 연결 | [Azure AD 디렉터리에 기존 구독을 연결하려면](../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md) 문서를 참조하세요. 모든 항목이 제대로 표시되는 데 최대 10분이 걸릴 수 있습니다.|
 | StorSimple 디바이스 관리자 서비스에서 다른 지역에 있는 다른 서비스로 StorSimple 디바이스 이동      | 예        | yes            | 없음, 수동 프로세스 |위와 동일합니다.|
 | 새 구독 또는 리소스 그룹의 스토리지 계정     | yes        | 예             |스토리지 계정을 다른 구독 또는 리소스 그룹으로 이동 |이동 후 스토리지 계정 액세스 키가 업데이트되면 사용자가 StorSimple 디바이스 관리자 서비스를 통해 마이그레이션된 스토리지 계정에 대해 수동으로 액세스 키를 구성해야 합니다.|
-| Azure Resource Manager 스토리지 계정에 대한 클래식 스토리지 계정      | yes        | 예             |클래식에서 Azure Resource Manager로 마이그레이션 |<li>클래식에서 Azure Resource Manager로 스토리지 계정을 마이그레이션하는 방법에 대한 자세한 지침은 [클래식 스토리지 계정 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-62-migrate-a-storage-account)을 참조하세요.</li><li> 마이그레이션 후 스토리지 계정 액세스 키가 업데이트된 경우 사용자는 StorSimple 디바이스 관리자 서비스를 통해 마이그레이션된 스토리지 계정에 대해 액세스 키를 동기화해야 합니다. 이것은 StorSimple 디바이스가 지속적으로 정상 작동하고 주/백업 데이터를 Azure로 계층화할 수 있게 하기 위한 것입니다. 액세스 키 동기화에 대한 자세한 지침은 [회전 워크플로](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)를 참조하세요.</li><li> StorSimple Cloud Appliance의 경우 클래식 스토리지 계정이 마이그레이션되었으나 기본 가상 머신이 여전히 클래식 상태를 유지하면 해당 어플라이언스가 올바르게 작동해야 합니다. 클라우드 어플라이언스에 대한 기본 가상 컴퓨터가 마이그레이션된 경우 비활성화 및 삭제 기능이 작동하지 않습니다.</li><li> Azure Portal에 새 StorSimple Cloud Appliances를 만든 다음 기존 클라우드 어플라이언스에서 장애 조치(failo ver)해야 합니다. 클래식 스토리지 계정을 사용하여 새 Azure Portal에서 StorSimple Cloud Appliance를 만들 수는 없습니다. Azure Resource Manager 스토리지 계정이 필요합니다. 자세한 내용을 보려면 [StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동하세요.</li>|
+| Azure Resource Manager 스토리지 계정에 대한 클래식 스토리지 계정      | yes        | 예             |클래식에서 Azure Resource Manager로 마이그레이션 |<li>클래식에서 Azure Resource Manager로 스토리지 계정을 마이그레이션하는 방법에 대한 자세한 지침은 [클래식 스토리지 계정 마이그레이션](../virtual-machines/windows/migration-classic-resource-manager-ps.md#step-52-migrate-a-storage-account)을 참조하세요.</li><li> 마이그레이션 후 스토리지 계정 액세스 키가 업데이트된 경우 사용자는 StorSimple 디바이스 관리자 서비스를 통해 마이그레이션된 스토리지 계정에 대해 액세스 키를 동기화해야 합니다. 이것은 StorSimple 디바이스가 지속적으로 정상 작동하고 주/백업 데이터를 Azure로 계층화할 수 있게 하기 위한 것입니다. 액세스 키 동기화에 대한 자세한 지침은 [회전 워크플로](storsimple-8000-manage-storage-accounts.md#key-rotation-of-storage-accounts)를 참조하세요.</li><li> StorSimple Cloud Appliance의 경우 클래식 스토리지 계정이 마이그레이션되었으나 기본 가상 머신이 여전히 클래식 상태를 유지하면 해당 어플라이언스가 올바르게 작동해야 합니다. 클라우드 어플라이언스에 대한 기본 가상 컴퓨터가 마이그레이션된 경우 비활성화 및 삭제 기능이 작동하지 않습니다.</li><li> Azure Portal에 새 StorSimple Cloud Appliances를 만든 다음 기존 클라우드 어플라이언스에서 장애 조치(failo ver)해야 합니다. 클래식 스토리지 계정을 사용하여 새 Azure Portal에서 StorSimple Cloud Appliance를 만들 수는 없습니다. Azure Resource Manager 스토리지 계정이 필요합니다. 자세한 내용을 보려면 [StorSimple Cloud Appliance 배포 및 관리](storsimple-8000-cloud-appliance-u2.md)로 이동하세요.</li>|
 
 ## <a name="datacenter-changes"></a>데이터 센터 변경
 

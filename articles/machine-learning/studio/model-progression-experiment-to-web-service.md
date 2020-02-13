@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: previous-ms.author=yahajiza, previous-author=YasinMSFT
 ms.date: 03/20/2017
-ms.openlocfilehash: f7f8989cd1a174ecd66f23324a7760fb5cbb665b
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b5640100067ec62a1a0813e5d5fc808f19f5a97d
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148074"
+ms.locfileid: "77169016"
 ---
 # <a name="how-a-machine-learning-studio-classic-model-progresses-from-an-experiment-to-a-web-service"></a>실험에서 웹 서비스로 Machine Learning Studio (클래식) 모델을 진행 하는 방법
 Azure Machine Learning Studio (클래식)은 예측 분석 모델을 나타내는 ***실험*** 을 개발, 실행, 테스트 및 반복 하는 데 사용할 수 있는 대화형 캔버스를 제공 합니다. 다음 작업에 사용할 수 있는 모듈을 매우 다양하게 갖추고 있습니다.

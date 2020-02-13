@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 11/29/2017
-ms.openlocfilehash: 76b2f2ae9774fe5951779912e679fa84350878c5
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: 35046d33a85eaed913454f188f2a4526715526a9
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153573"
+ms.locfileid: "77168774"
 ---
 # <a name="define-custom-r-modules-for-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에 대 한 사용자 지정 R 모듈 정의 (클래식)
 
@@ -293,7 +293,7 @@ defaultValue, minValue 및 maxValue와 같은 모듈의 선택적 속성을 **Pr
     * 모두
   * **default** -열 선택의 유효한 기본 선택 항목은 다음과 같습니다. 
     
-    * 없음
+    * None
     * NumericFeature
     * NumericLabel
     * NumericScore

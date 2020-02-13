@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: studio
 ms.topic: conceptual
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.custom: seodec18
 ms.date: 03/20/2017
-ms.openlocfilehash: 71a20f0de9907b04b9dcfd63c0003f2540a2e370
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
-ms.translationtype: HT
+ms.openlocfilehash: e2e13942b4ada2c6e90a056a0239bc620951638b
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153386"
+ms.locfileid: "77168489"
 ---
 # <a name="manage-experiment-iterations-in-azure-machine-learning-studio-classic"></a>Azure Machine Learning Studio에서 실험 반복 관리 (클래식)
 예측 분석 모델을 개발하는 과정은 반복 프로세스이며, 실험의 다양한 함수와 해당 매개 변수를 수정할 때 학습된 효과적인 모델을 마련했다고 만족할 때까지 결과가 수렴됩니다. 이 프로세스의 핵심은 다양하게 반복되는 실험 매개 변수와 구성을 추적하는 것입니다.

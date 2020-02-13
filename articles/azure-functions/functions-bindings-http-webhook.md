@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/21/2017
 ms.author: cshoe
-ms.openlocfilehash: 11f5c07305fa9192097dbcb1386c13707c0d46f7
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 25f3cb6f03e3a3c581d8977168e572554b5e0cc7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76711129"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168115"
 ---
 # <a name="azure-functions-http-triggers-and-bindings"></a>Azure Functions HTTP 트리거 및 바인딩
 
@@ -256,28 +256,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 * [경로에서 매개 변수 읽기](#read-parameter-from-a-route)
 * [POST 요청에서 POJO 본문 읽기](#read-pojo-body-from-a-post-request)
 
-다음 예제는 *function.json* 파일의 HTTP 트리거 바인딩과 이 바인딩을 사용하는 해당 [Java 함수](functions-reference-java.md)를 보여 줍니다. 
-
-*function.json* 파일은 다음과 같습니다.
-
-```json
-{
-    "disabled": false,    
-    "bindings": [
-        {
-            "authLevel": "anonymous",
-            "type": "httpTrigger",
-            "direction": "in",
-            "name": "req"
-        },
-        {
-            "type": "http",
-            "direction": "out",
-            "name": "res"
-        }
-    ]
-}
-```
+다음 예제에서는 HTTP 트리거 바인딩을 보여 줍니다.
 
 #### <a name="read-parameter-from-the-query-string"></a>쿼리 문자열에서 매개 변수를 읽습니다.
 
@@ -515,7 +494,7 @@ public HttpResponseMessage<String> HttpTrigger(
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |설명|
+|function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
 | **type** | 해당 없음| 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | 해당 없음| 필수 - `in`으로 설정해야 합니다. |
@@ -878,7 +857,7 @@ HTTP 요청 발신기(sender)에 응답하려면 HTTP 출력 바인딩을 사용
 
 다음 표에서는 *function.json* 파일에 설정된 바인딩 구성 속성을 설명합니다. C# 클래스 라이브러리의 경우 *function.json* 속성에 해당하는 attribute 속성이 없습니다.
 
-|속성  |설명  |
+|속성  |Description  |
 |---------|---------|
 | **type** |`http`로 설정해야 합니다. |
 | **direction** | `out`로 설정해야 합니다. |
@@ -917,11 +896,11 @@ HTTP 응답을 보내려면 언어 표준 응답 패턴을 사용합니다. C# �
 }
 ```
 
-|속성  |기본값 | 설명 |
+|속성  |기본값 | Description |
 |---------|---------|---------| 
 | customHeaders|none|HTTP 응답에서 사용자 지정 헤더를 설정할 수 있습니다. 이전 예제에서는 콘텐츠 형식 스니핑을 방지 하기 위해 `X-Content-Type-Options` 헤더를 응답에 추가 합니다. |
 |dynamicThrottlesEnabled|true<sup>\*</sup>|사용 설정되면, 이 설정은 요청 처리 파이프라인에서 주기적으로 시스템 성능 카운터(연결/스레드/프로세스/메모리/cpu/등)를 확인하고 해당 카운터 중 하나가 기본 제공 임계값(80%)을 초과하는 경우, 요청은 카운터가 일반 수준으로 반환될 때까지 429 "작업 초과" 응답을 표시하여 거부됩니다.<br/><sup>\*</sup> 소비 계획의 기본값은 `true`입니다. 전용 계획의 기본값은 `false`입니다.|
-|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>속성</th><th>설명</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>미리 로드</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
+|hsts|사용 안 함|`isEnabled`을 `true`로 설정 하면 [`HstsOptions` 클래스](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions?view=aspnetcore-3.0)에 정의 된 대로 [.NET CORE의 Hsts (HTTP Strict Transport Security) 동작이](/aspnet/core/security/enforcing-ssl?view=aspnetcore-3.0&tabs=visual-studio#hsts) 적용 됩니다. 또한 위의 예제에서는 [`maxAge`](/dotnet/api/microsoft.aspnetcore.httpspolicy.hstsoptions.maxage?view=aspnetcore-3.0#Microsoft_AspNetCore_HttpsPolicy_HstsOptions_MaxAge) 속성을 10 일로 설정 합니다. `hsts` 지원 되는 속성은 다음과 같습니다. <table><tr><th>속성</th><th>Description</th></tr><tr><td>excludedHosts</td><td>HSTS 헤더가 추가 되지 않은 호스트 이름의 문자열 배열입니다.</td></tr><tr><td>includeSubDomains</td><td>엄격한 전송 보안 헤더의 includeSubDomain 도메인 매개 변수를 사용할 수 있는지 여부를 나타내는 부울 값입니다.</td></tr><tr><td>maxAge</td><td>엄격한 전송 보안 헤더의 최대 보존 기간 매개 변수를 정의 하는 문자열입니다.</td></tr><tr><td>미리 로드</td><td>엄격한 전송 보안 헤더의 미리 로드 매개 변수를 사용할 수 있는지 여부를 나타내는 부울입니다.</td></tr></table>|
 |maxConcurrentRequests|100<sup>\*</sup>|병렬로 실행 되는 최대 HTTP 함수 수입니다. 그러면 리소스 사용률을 관리하는 데 도움이 되는 동시성을 제어할 수 있습니다. 예를 들어 많은 시스템 리소스 (메모리/c p u/소켓)를 사용 하는 HTTP 함수를 사용 하 여 동시성이 너무 높을 때 문제를 발생 시킬 수 있습니다. 또는 타사 서비스에 아웃바운드 요청을 하는 함수가 있는 경우 해당 호출의 속도가 제한되어야 합니다. 이러한 경우 여기에서 제한을 적용하는 것이 좋습니다. <br/><sup>*</sup> 소비 계획의 기본값은 100입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |maxOutstandingRequests|200<sup>\*</sup>|지정된 시간에 보유할 미해결 요청의 최대 수입니다. 이 제한에는 대기 중이지만 실행이 시작되지 않은 요청과 진행 중인 모든 실행이 포함됩니다. 이 한도를 초과하여 들어오는 요청이 있으면 429 "Too Busy" 응답으로 거부됩니다. 그러면 호출자가 시간 기반 다시 시도 전략을 사용할 수 있고 최대 요청 대기 시간을 제어할 수 있습니다. 이 옵션은 스크립트 호스트 실행 경로 내에서 발생하는 큐만을 제어합니다. ASP.NET 요청 큐와 같은 다른 큐는 여전히 적용되며 이 설정의 영향을 받지 않습니다. <br/><sup>\*</sup> 소비 계획의 기본값은 200입니다. 전용 계획의 기본값은 제한 없음 (`-1`)입니다.|
 |routePrefix|api|모든 경로에 적용되는 경로 접두사입니다. 기본 접두사를 제거하려면 빈 문자열을 사용하십시오. |

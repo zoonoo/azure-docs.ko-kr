@@ -7,12 +7,12 @@ ms.reviewer: hrasheed
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: b53fc3af71ce872c9ca9f513139c8179fd4165ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: bc6859d29a574cea0d97989977ba9a333b20f6c4
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031407"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157139"
 ---
 # <a name="interact-with-apache-kafka-clusters-in-azure-hdinsight-using-a-rest-proxy"></a>REST 프록시를 사용 하 여 Azure HDInsight에서 Apache Kafka 클러스터와 상호 작용
 
@@ -24,6 +24,8 @@ Kafka REST 프록시를 사용 하면 HTTP를 통해 REST API를 통해 Kafka �
 
 REST 프록시가 없으면 Kafka 클라이언트는 Kafka 클러스터 또는 피어 링 VNet과 동일한 VNet에 있어야 합니다. REST 프록시를 사용 하면 어디에 있든 데이터 생산자 나 소비자를 연결할 수 있습니다. REST 프록시를 배포 하면 클러스터에 대 한 새 공용 끝점이 생성 되어 포털 설정에서 찾을 수 있습니다.
 
+![Kafka REST 프록시 아키텍처](./media/rest-proxy/rest-proxy-architecture.png)
+
 API에서 지원 되는 작업의 전체 사양은 [APACHE KAFKA REST 프록시 API](https://docs.microsoft.com/rest/api/hdinsight-kafka-rest-proxy)를 참조 하세요.
 
 ### <a name="security"></a>보안
@@ -32,7 +34,7 @@ Kafka REST 프록시에 대 한 액세스는 Azure Active Directory 보안 그�
 
 REST 프록시를 사용 하도록 설정 하 고 Kafka 클러스터를 만들 때 REST 끝점에 대 한 액세스 권한이 있어야 하는 AAD 보안 그룹을 제공 합니다. REST 프록시에 액세스 해야 하는 Kafka 클라이언트 (응용 프로그램)는 그룹 소유자가이 그룹에 등록 해야 합니다. 그룹 소유자는 포털을 통해 또는 Powershell을 통해이 작업을 수행할 수 있습니다.
 
-REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로그램은 적절 한 보안 그룹의 멤버 자격을 확인 하기 위해 OAuth 토큰을 가져와야 합니다. OAuth 토큰의 작동 방식에 대 한 자세한 내용은 [oauth 2.0 코드 부여 흐름을 사용 하 여 Azure Active Directory 웹 응용 프로그램에 대 한 액세스 권한 부여](../../active-directory/develop/v1-protocols-oauth-code.md)를 참조 하세요. Python에서 OAuth 토큰을 가져오는 예제는 [클라이언트 응용 프로그램 샘플](#client-application-sample) 을 참조 하세요.
+REST 프록시 끝점에 요청을 하기 전에 클라이언트 응용 프로그램은 적절 한 보안 그룹의 멤버 자격을 확인 하기 위해 OAuth 토큰을 가져와야 합니다. OAuth 토큰의 작동 방식에 대 한 자세한 내용은 [oauth 2.0 코드 부여 흐름을 사용 하 여 Azure Active Directory 웹 응용 프로그램에 대 한 액세스 권한 부여](../../active-directory/azuread-dev/v1-protocols-oauth-code.md)를 참조 하세요. Python에서 OAuth 토큰을 가져오는 예제는 [클라이언트 응용 프로그램 샘플](#client-application-sample) 을 참조 하세요.
 
 클라이언트 응용 프로그램에 OAuth 토큰이 있으면 REST 프록시에 대 한 HTTP 요청에서 해당 토큰을 전달 해야 합니다.
 

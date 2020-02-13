@@ -7,18 +7,18 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 02/18/2019
-ms.openlocfilehash: 90387a033a43c627be4ce69a93ee37c5b959732d
-ms.sourcegitcommit: a170b69b592e6e7e5cc816dabc0246f97897cb0c
-ms.translationtype: MT
+ms.openlocfilehash: 54401d4fd8a911fc9cf5bc67d4324e84005fa752
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74091791"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157247"
 ---
 # <a name="azure-data-explorer-data-ingestion"></a>Azure 데이터 탐색기 데이터 수집
 
 데이터 수집은 하나 이상의 원본에서 데이터 레코드를 로드하여 Azure 데이터 탐색기에서 테이블을 만들거나 업데이트하는 데 사용되는 프로세스입니다. 수집한 후에는 데이터를 쿼리에 사용할 수 있게 됩니다. 아래 다이어그램은 데이터 수집을 포함하여 Azure 데이터 탐색기 작업에 대한 엔드투엔드 흐름을 보여줍니다.
 
-![데이터 흐름](media/ingest-data-overview/data-flow.png)
+![디자이너의](media/ingest-data-overview/data-flow.png)
 
 데이터 수집을 담당하는 Azure 데이터 탐색기 데이터 관리 서비스는 다음과 같은 기능을 제공합니다.
 
@@ -88,7 +88,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 
 **다양한 메서드의 대기 시간**:
 
-| 메서드 | 대기 시간 |
+| 방법 | 대기 시간 |
 | --- | --- |
 | **인라인 수집** | 즉시 |
 | **쿼리에서 수집** | 쿼리 시간 + 처리 시간 |
@@ -118,7 +118,7 @@ Kusto는 데이터를 수집하고 쿼리하는 데 사용할 수 있는 다음�
 ## <a name="supported-data-formats"></a>지원되는 데이터 형식
 
 쿼리에서 수집을 제외한 모든 수집 방법에 대해 Azure Data Explorer에서 구문 분석이 가능하도록 데이터 형식을 지정합니다. 
-* 지원 되는 데이터 형식은 TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (줄 구분, 여러 줄), Avro 및 Parquet입니다. 
+* 지원 되는 데이터 형식은 TXT, CSV, TSV, TSVE, PSV, SCSV, SOH, JSON (줄 구분, 여러 줄), Avro, Orc 및 Parquet입니다. 
 * ZIP 및 GZIP 압축을 지원 합니다.
 
 > [!NOTE]

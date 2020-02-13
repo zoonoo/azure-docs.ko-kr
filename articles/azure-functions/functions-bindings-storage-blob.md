@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 11/15/2018
 ms.author: cshoe
-ms.openlocfilehash: 593d596881d0ec53b0f18e8af5a71b55c619f7a5
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 5113b59f314a40feb02485b3fdc99fe4df406d88
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922111"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168102"
 ---
 # <a name="azure-blob-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Blob Storage 바인딩
 
@@ -71,7 +71,7 @@ Event Grid 외에 BLOB 처리를 위한 다른 방법은 Queue storage 트리거
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
-다음 예제에서는 `samples-workitems` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [ 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 기록하는 ](functions-dotnet-class-library.md)C# 함수`samples-workitems`를 보여줍니다.
 
 ```csharp
 [FunctionName("BlobTriggerCSharp")]        
@@ -81,7 +81,7 @@ public static void Run([BlobTrigger("samples-workitems/{name}")] Stream myBlob, 
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 `BlobTrigger` 특성에 대한 자세한 내용은 [트리거 - 특성](#trigger---attributes)을 참조하세요.
 
@@ -106,7 +106,7 @@ blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -153,7 +153,7 @@ public static void Run(CloudBlockBlob myBlob, string name, ILogger log)
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -188,7 +188,7 @@ module.exports = function(context) {
 }
 ```
 
-blob 트리거 경로 `samples-workitems/{name}`의 문자열 `{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
+blob 트리거 경로 `{name}`의 문자열 `samples-workitems/{name}`은 함수 코드에서 사용할 수 있는 [바인딩 식](./functions-bindings-expressions-patterns.md)을 만들어 트리거 blob의 파일 이름에 액세스합니다. 자세한 내용은 이 문서의 뒷부분에 나오는 [Blob 이름 패턴](#trigger---blob-name-patterns)을 참조하세요.
 
 *function.json* 파일 속성에 대한 자세한 내용은 이러한 속성을 설명하는 [구성](#trigger---configuration) 섹션을 참조하세요.
 
@@ -205,26 +205,7 @@ def main(myblob: func.InputStream):
 
 # <a name="javatabjava"></a>[Java](#tab/java)
 
-다음 예제에서는 바인딩을 사용하는 *function.json* 파일 및 [Java 코드](functions-reference-java.md)의 Blob 트리거 바인딩을 보여 줍니다. 함수는 `myblob` 컨테이너에서 Blob을 추가하거나 업데이트할 때 로그를 씁니다.
-
-*function.json* 파일은 다음과 같습니다.
-
-```json
-{
-    "disabled": false,
-    "bindings": [
-        {
-            "name": "file",
-            "type": "blobTrigger",
-            "direction": "in",
-            "path": "myblob/{name}",
-            "connection":"MyStorageAccountAppSetting"
-        }
-    ]
-}
-```
-
-Java 코드는 다음과 같습니다.
+이 함수는 `myblob` 컨테이너에서 blob을 추가 하거나 업데이트할 때 로그를 기록 합니다.
 
 ```java
 @FunctionName("blobprocessor")
@@ -295,7 +276,7 @@ public void run(
 사용할 스토리지 계정은 다음과 같은 순서로 결정됩니다.
 
 * `BlobTrigger` 특성의 `Connection` 속성
-* `BlobTrigger` 특성과 동일한 매개 변수에 적용된 `StorageAccount` 특성
+* `StorageAccount` 특성과 동일한 매개 변수에 적용된 `BlobTrigger` 특성
 * 함수에 적용된 `StorageAccount` 특성
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
@@ -324,9 +305,9 @@ Python에서 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | n/a | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
-|**direction** | n/a | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
-|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
+|**type** | 해당 없음 | `blobTrigger`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다.|
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 트리거를 만들 때 자동으로 설정됩니다. 예외는 [사용](#trigger---usage) 섹션에서 표시됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다. |
 |**path** | **BlobPath** |모니터링할 [컨테이너](../storage/blobs/storage-blobs-introduction.md#blob-storage-resources)입니다.  [Blob 이름 패턴](#trigger---blob-name-patterns)일 수 있습니다. |
 |**연결** | **연결** | 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob Storage 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
 
@@ -358,7 +339,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="trigger---blob-name-patterns"></a>트리거 - Blob 이름 패턴
 
-*function.json*의 `path` 속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
+`path`function.json*의*  속성 또는 `BlobTrigger` 특성 생성자에서 Blob 이름 패턴을 지정할 수 있습니다. 이름 패턴은 [필터 또는 바인딩 식](./functions-bindings-expressions-patterns.md)일 수 있습니다. 다음 섹션에서는 예제를 제공합니다.
 
 ### <a name="get-file-name-and-extension"></a>파일 이름 및 확장명 가져오기
 
@@ -431,7 +412,7 @@ Python에서는 메타 데이터를 사용할 수 없습니다.
 
 Azure Functions 런타임은 동일한 새 Blob 또는 업데이트된 Blob에 대해 Blob 트리거 함수가 두 번 이상 호출되지 않도록 합니다. 지정된 Blob 버전이 처리되었는지 확인하려면 *Blob 수신 확인*을 유지 관리합니다.
 
-Azure Functions는 사용자 함수 앱에서 사용하는(`AzureWebJobsStorage` 앱 설정에서 지정됨) Azure Storage 계정의 *azure-webjobs-hosts*라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
+Azure Functions는 사용자 함수 앱에서 사용하는(*앱 설정에서 지정됨) Azure Storage 계정의*azure-webjobs-hosts`AzureWebJobsStorage`라는 컨테이너에 Blob 수신 확인을 저장합니다. Blob 수신 확인에는 다음 정보가 포함됩니다.
 
 * 트리거된 함수(" *&lt;함수 앱 이름>* .Functions. *&lt;함수 이름>* ", 예: "MyFunctionApp.Functions.CopyBlob")
 * 컨테이너 이름
@@ -759,12 +740,12 @@ Python에서 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | n/a | `blob`로 설정해야 합니다. |
-|**direction** | n/a | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
-|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
+|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
+|**direction** | 해당 없음 | `in`로 설정해야 합니다. 예외는 [사용](#input---usage) 섹션에서 표시됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.|
 |**path** |**BlobPath** | Blob에 대한 경로입니다. |
 |**연결** |**연결**| 이 바인딩에 사용할 [스토리지 연결 문자열](../storage/common/storage-configure-connection-string.md)을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
-|n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
+|해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 
@@ -1129,12 +1110,12 @@ Python에서 특성을 지원 하지 않습니다.
 
 |function.json 속성 | 특성 속성 |Description|
 |---------|---------|----------------------|
-|**type** | n/a | `blob`로 설정해야 합니다. |
-|**direction** | n/a | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
-|**name** | n/a | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
+|**type** | 해당 없음 | `blob`로 설정해야 합니다. |
+|**direction** | 해당 없음 | 출력 바인딩에 대해 `out`로 설정해야 합니다. 예외는 [사용](#output---usage) 섹션에서 표시됩니다. |
+|**name** | 해당 없음 | 함수 코드에서 Blob을 나타내는 변수의 이름입니다.  `$return`으로 설정하여 함수 반환 값을 참조합니다.|
 |**path** |**BlobPath** | Blob 컨테이너에 대 한 경로입니다. |
 |**연결** |**연결**| 이 바인딩에 사용할 스토리지 연결 문자열을 포함하는 앱 설정의 이름입니다. 앱 설정 이름이 "AzureWebJobs"로 시작하는 경우 여기에서 이름의 나머지만을 지정할 수 있습니다. 예를 들어 `connection`를 "MyStorage"로 설정 하는 경우 함수 런타임은 "MyStorage" 라는 앱 설정을 찾습니다. `connection`을 비워 두면 함수 런타임 기능은 `AzureWebJobsStorage`라는 앱 설정에서 기본 스토리지 연결 문자열을 사용합니다.<br><br>연결 문자열은 [Blob 전용 스토리지 계정](../storage/common/storage-account-overview.md#types-of-storage-accounts)이 아닌 범용 스토리지 계정의 문자열이어야 합니다.|
-|n/a | **Access** | 읽기 또는 쓰기를 나타냅니다. |
+|해당 없음 | **Access** | 읽기 또는 쓰기를 나타냅니다. |
 
 [!INCLUDE [app settings to local.settings.json](../../includes/functions-app-settings-local.md)]
 

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/04/2018
 ms.author: cshoe
-ms.openlocfilehash: 8062428ae63a572b81a5432c8b29910fe8422e24
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 812875be47cabdd23e6307403bb95d8d6ff174ec
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547458"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167515"
 ---
 # <a name="event-grid-trigger-for-azure-functions"></a>Azure Functions의 Event Grid 트리거
 
@@ -36,7 +36,7 @@ Event Grid 트리거는 [Microsoft.Azure.WebJobs.Extensions.EventGrid](https://w
 
 [!INCLUDE [functions-package](../../includes/functions-package.md)]
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -44,7 +44,7 @@ HTTP 트리거 예제는 [http 끝점으로 이벤트 수신](../event-grid/rece
 
 ### <a name="c-2x-and-higher"></a>C#(2.x 이상)
 
-다음 예제에서는 `EventGridEvent`에 바인딩되는 [C# 함수](functions-dotnet-class-library.md)를 보여 줍니다.
+다음 예제에서는 [에 바인딩되는 ](functions-dotnet-class-library.md)C# 함수`EventGridEvent`를 보여 줍니다.
 
 ```cs
 using Microsoft.Azure.EventGrid.Models;
@@ -70,7 +70,7 @@ namespace Company.Function
 
 ### <a name="version-1x"></a>버전 1.x
 
-다음 예제에서는 `JObject`에 바인딩되는 Functions 1.x [C# 함수](functions-dotnet-class-library.md)를 보여줍니다.
+다음 예제에서는 [에 바인딩되는 Functions 1.x ](functions-dotnet-class-library.md)C# 함수`JObject`를 보여줍니다.
 
 ```cs
 using Microsoft.Azure.WebJobs;
@@ -224,19 +224,7 @@ def main(event: func.EventGridEvent):
 * [Event Grid 트리거, 문자열 매개 변수](#event-grid-trigger-string-parameter)
 * [Event Grid 트리거, POJO 매개 변수](#event-grid-trigger-pojo-parameter)
 
-다음 예제에서는 *function.json* 파일의 트리거 바인딩과 이 바인딩을 사용하고 이벤트를 출력한 후 처음에는 이 이벤트를 ```String```으로 수신하고, 두 번째로는 POJO로 수신하는 [Java 함수](functions-reference-java.md)를 보여 줍니다.
-
-```json
-{
-  "bindings": [
-    {
-      "type": "eventGridTrigger",
-      "name": "eventGridEvent",
-      "direction": "in"
-    }
-  ]
-}
-```
+다음 예에서는 바인딩을 사용 하 고 이벤트를 출력 하는 [Java](functions-reference-java.md) 의 트리거 바인딩을 보여 줍니다 .이 바인딩을 사용 하 여 먼저 이벤트를 `String`와 두 번째를 pojo로 받습니다.
 
 ### <a name="event-grid-trigger-string-parameter"></a>Event Grid trigger, String 매개 변수
 
@@ -342,7 +330,7 @@ Python에서 특성을 지원 하지 않습니다.
 | **direction** | 필수 - `in`으로 설정해야 합니다. |
 | **name** | 필수 - 이벤트 데이터를 수신하는 매개 변수에 대한 함수 코드에 사용되는 변수 이름입니다. |
 
-## <a name="usage"></a>사용량
+## <a name="usage"></a>사용
 
 # <a name="ctabcsharp"></a>[C#](#tab/csharp)
 
@@ -356,7 +344,7 @@ Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 �
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
-> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다.
+> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `EventGridEvent`를 접두사로 사용하여 `Microsoft.Azure.EventGrid.Models` 형식 이름을 정규화합니다.
 
 # <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
 
@@ -370,7 +358,7 @@ Azure Functions 2.x 이상에서 Event Grid 트리거에 대해 다음 매개 �
 * `Microsoft.Azure.EventGrid.Models.EventGridEvent` - 모든 이벤트 유형에 공통되는 필드의 속성을 정의합니다.
 
 > [!NOTE]
-> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `Microsoft.Azure.EventGrid.Models`를 접두사로 사용하여 `EventGridEvent` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
+> Functions v1에서 `Microsoft.Azure.WebJobs.Extensions.EventGrid.EventGridEvent`에 바인딩하려는 경우 컴파일러에서는 "사용되지 않음" 메시지를 표시하고 대신 `Microsoft.Azure.EventGrid.Models.EventGridEvent`를 사용하도록 권고합니다. 최신 형식을 사용하려면 [Microsoft.Azure.EventGrid](https://www.nuget.org/packages/Microsoft.Azure.EventGrid) NuGet 패키지를 참조하고, `EventGridEvent`를 접두사로 사용하여 `Microsoft.Azure.EventGrid.Models` 형식 이름을 정규화합니다. C# 스크립트 함수에서 NuGet 패키지를 참조하는 방법에 대한 정보는 [NuGet 패키지 사용](functions-reference-csharp.md#using-nuget-packages)을 참조하세요.
 
 # <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
 
@@ -428,7 +416,7 @@ Event Grid 이벤트의 데이터는 HTTP 요청 본문에 JSON 개체로 수신
 
 Event Grid HTTP 요청 수신을 시작하려면 함수를 호출하는 엔드포인트 URL을 지정하는 Event Grid 구독을 만듭니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 Event Grid 트리거를 사용하여 Azure Portal에서 개발하는 함수에 대해 **Event Grid 구독 추가**를 선택합니다.
 
