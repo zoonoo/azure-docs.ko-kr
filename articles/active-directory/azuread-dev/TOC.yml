@@ -176,6 +176,8 @@
   items:
     - name: 용어
       href: ../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json
+    - name: 동영상
+      href: videos.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=security-identity'
     - name: Azure AD 블로그
