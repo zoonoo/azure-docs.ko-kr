@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-central
 ms.subservice: iot-central-retail
 services: iot-central
-ms.openlocfilehash: 171f06ad238f862adbd7071ee10d81133d7a6855
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 808a17fcf303c6eb72f11f5379fa172302dc782a
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022140"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77059858"
 ---
 # <a name="building-retail-solutions-with-azure-iot-central"></a>Azure IoT Central을 사용하여 소매업 솔루션 빌드
 
@@ -160,7 +160,7 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 > [!div class="mx-imgBorder"]
 > ![마이크로 주문 처리 센터](./media/overview-iot-central-retail/MFC-Dashboard.png)
 
-자세한 내용은 [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-iot-central-smart-inventory-management-pnp.md) 자습서를 참조하세요.
+자세한 내용은 [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-micro-fulfillment-center-pnp.md) 자습서를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -170,5 +170,5 @@ IoT Central 마이크로 주문 처리 센터 애플리케이션 템플릿을 �
 * [연결된 물류 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-connected-logistics-pnp.md)
 * [디지털 배포 센터 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-digital-distribution-center-pnp.md)
 * [스마트 재고 관리 애플리케이션 템플릿 배포 및 살펴보기](./tutorial-iot-central-smart-inventory-management-pnp.md)
-* [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-iot-central-smart-inventory-management-pnp.md)
+* [마이크로 주문 처리 센터 애플리케이션 템플릿 배포 및 연습](./tutorial-micro-fulfillment-center-pnp.md)
 * [IoT Central 개요](../preview/overview-iot-central.md)에서 IoT Central에 대해 자세히 알아봅니다.

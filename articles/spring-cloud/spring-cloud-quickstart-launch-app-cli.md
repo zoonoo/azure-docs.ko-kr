@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: 44b2f39cb1467e3459ee326bf81381830510d6b6
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 85eb35e1634f1183a6a5f93242f9466778b24d22
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278937"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069611"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
 
@@ -59,7 +59,7 @@ az extension add --name spring-cloud
     ```azurecli
         az login
         az account list -o table
-        az account set --subscription
+        az account set --subscription <Name or ID of subscription from the last step>
     ```
 
 2. Azure Spring Cloud 서비스의 이름을 준비합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.

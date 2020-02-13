@@ -3,18 +3,18 @@ title: 빠른 시작 - Azure IoT Central에서 디바이스 모니터링
 description: 운영자로서 Azure IoT Central 애플리케이션을 사용하여 디바이스를 모니터링하는 방법을 알아봅니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: e5185d78b0ffc17e861f49d294af65ddcd200d07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e56b733a567c706c2a15f2c30ed93a47c244db11
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026166"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168714"
 ---
 # <a name="quickstart-use-azure-iot-central-to-monitor-your-devices"></a>빠른 시작: Azure IoT Central을 사용하여 디바이스 모니터링
 
@@ -41,8 +41,6 @@ Azure IoT Central은 디바이스에 대한 알림을 이메일 메시지로 보
 ## <a name="investigate-an-issue"></a>문제 조사
 
 운영자로서 **개요**, **정보** 및 **명령** 보기에서 디바이스에 대한 정보를 볼 수 있습니다. 빌더는 디바이스 정보를 편집하고 디바이스 속성을 설정할 수 있는 **디바이스** 보기를 만들었습니다.
-
-디바이스에 대한 정보를 보려면 **개요** 보기를 선택합니다.
 
 대시보드의 차트에는 디바이스 온도 플롯이 표시됩니다. 디바이스 온도가 너무 높다고 판단합니다.
 

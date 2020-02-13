@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.service: event-hubs
 ms.custom: seodec18
 ms.date: 01/15/2020
-ms.openlocfilehash: 8fa123772ae380cd000c414c63bdf3908d279751
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f71d8e9f88dad32818ed25d4a0719a1528656f96
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906392"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77163180"
 ---
 # <a name="tutorial-visualize-data-anomalies-in-real-time-events-sent-to-azure-event-hubs"></a>자습서: Azure Event Hubs에 보내는 실시간 이벤트에서 데이터 이상 시각화
 
@@ -384,6 +384,6 @@ Remove-AzResourceGroup -Name $resourceGroup
 Azure Event Hubs에 대해 자세히 알아보려면 다음 문서를 진행하세요.
 
 > [!div class="nextstepaction"]
-> [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](event-hubs-dotnet-standard-getstarted-send.md)
+> [.NET Standard를 사용하여 Azure Event Hubs로 메시지 전송 시작](get-started-dotnet-standard-send-v2.md)
 
 [계정을 만드세요]: https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio
