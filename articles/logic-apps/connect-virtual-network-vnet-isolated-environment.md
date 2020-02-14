@@ -5,17 +5,17 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: eb4b51c94a62ad9f700b7cd448ff0f53485a16bf
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/13/2020
+ms.openlocfilehash: 2fa43cb9ec526cfab2367431712e09406556a529
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110466"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191997"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
-논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 전용 저장소 및 공용, "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 유지 되는 기타 리소스를 사용 하는 격리 된 전용 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 사용자 고유의 고정 IP 주소를 제공 합니다. 이러한 IP 주소는 공용 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개입니다.
+논리 앱 및 통합 계정이 [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)에 액세스해야 하는 시나리오의 경우 [*ISE*(통합 서비스 환경)](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md)을 만듭니다. ISE는 전용 저장소 및 공용, "전역" 다중 테 넌 트 Logic Apps 서비스와 별도로 유지 되는 기타 리소스를 사용 하는 격리 된 환경입니다. 이러한 격리로 인해 다른 Azure 테넌트가 앱 성능에 줄 수 있는 영향이 감소됩니다. 또한 ISE는 사용자 고유의 고정 IP 주소를 제공 합니다. 이러한 IP 주소는 공용 다중 테 넌 트 서비스의 논리 앱에서 공유 하는 고정 IP 주소와는 별개입니다.
 
 ISE를 만들 때 Azure는이 ISE를 Azure 가상 네트워크에 *삽입* 하 여 가상 네트워크에 Logic Apps 서비스를 배포 합니다. 논리 앱 또는 통합 계정을 만들 때 ISE를 해당 위치로 선택 합니다. 그러면 논리 앱 및 통합 계정은 가상 네트워크에서 VM(가상 머신), 서버, 시스템 및 서비스와 같은 리소스에 직접 액세스할 수 있습니다.
 
@@ -49,7 +49,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
   * ISE가 제대로 작동 하 고 액세스할 수 있도록 가상 네트워크가 [ise에 대 한 액세스를 허용](#enable-access) 하는지 확인 합니다.
 
-  * Microsoft 클라우드 서비스에 대 한 개인 연결을 제공 하는 [express](../expressroute/expressroute-introduction.md)경로를 사용 하는 경우 다음 경로를 포함 하는 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) 해당 테이블을 ISE에서 사용 하는 각 서브넷에 연결 해야 합니다.
+  * 연결 공급자가 촉진 하는 Microsoft 클라우드 서비스에 대 한 개인 연결을 제공 하는 [express](../expressroute/expressroute-introduction.md)경로를 사용 하는 경우 다음 경로를 포함 하는 [경로 테이블을 만들고](../virtual-network/manage-route-table.md) 해당 테이블을 ISE에서 사용 하는 각 서브넷에 연결 해야 합니다.
 
     **이름**: <*경로 이름*><br>
     **주소 접두사**: 0.0.0.0/0<br>
@@ -75,9 +75,10 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 * 제약 조건 없이 새 Azure 가상 네트워크 및 서브넷을 만든 경우 서브넷 간 트래픽을 제어 하기 위해 가상 네트워크에서 [NSGs (네트워크 보안 그룹)](../virtual-network/security-overview.md#network-security-groups) 를 설정할 필요가 없습니다.
 
-* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로를 선택 하는 경우 NSGs를 설정 하려는 가상 네트워크에서 [이 테이블의 포트가 열려](#network-ports-for-ise)있는지 확인 합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+* 기존 가상 네트워크에서 *필요* 에 따라 [서브넷 간 네트워크 트래픽을 필터링](../virtual-network/tutorial-filter-network-traffic.md)하 여 nsgs를 설정할 수 있습니다. 이 경로로 이동 하거나 이미 NSGs를 사용 하 고 있는 경우 NSGs가 있거나 NSGs를 설정 하려는 가상 네트워크에서 [이 테이블의 포트를 열어야](#network-ports-for-ise) 합니다.
 
-* 이전에 기존 NSGs가 있는 경우 [이 테이블의 포트를 열어야](#network-ports-for-ise)합니다. [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜이 모두 필요 합니다.
+  > [!NOTE]
+  > [Nsg 보안 규칙](../virtual-network/security-overview.md#security-rules)을 사용 하는 경우 TCP 및 UDP 프로토콜을 *모두* 사용 해야 합니다. NSG 보안 규칙은 이러한 포트에 액세스 해야 하는 IP 주소에 대해 열어야 하는 포트를 설명 합니다. 이러한 끝점 사이에 존재 하는 방화벽, 라우터 또는 기타 항목 에서도 해당 IP 주소에 액세스할 수 있는 포트를 유지 해야 합니다.
 
 <a name="network-ports-for-ise"></a>
 
@@ -94,17 +95,17 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 | 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80, 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
 | Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80, 443 | VirtualNetwork | 인터넷 | 포트는 Logic Apps 서비스가 통신 하는 외부 서비스에 의존 합니다. |
 | Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage 종속성 | 아웃바운드 | 80, 443 | VirtualNetwork | 스토리지 | |
+| Azure Storage 종속성 | 아웃바운드 | 80, 443, 445 | VirtualNetwork | 스토리지 | |
 | Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스에 대 한 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
 | 논리 앱 실행 기록 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱의 실행 기록을 보려는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
 | 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | AppService | |
 | 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
 | Azure Traffic Manager에서 통신 | 인바운드 | 내부 ISE: 454 <p><p>외부 ISE: 443 | AzureTrafficManager | VirtualNetwork | |
-| Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 허용 되는 IP 주소는 참고 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 끝점 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) IP 주소 Logic Apps 액세스 합니다. |
-| 네트워크 상태 검사 | 인바운드 | 454 | 허용 되는 IP 주소는 참고 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
+| Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 허용 되는 IP 주소는 **참고** 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 끝점 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) IP 주소 Logic Apps 액세스 합니다. |
+| 네트워크 상태 검사 | 인바운드 | 454 | 허용 되는 IP 주소는 **참고** 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
 | App Service 관리 종속성 | 인바운드 | 454, 455 | AppServiceManagement | VirtualNetwork | |
 | 커넥터 배포 | 인바운드 | 454 | AzureConnectors | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
-| 커넥터 정책 배포 | 인바운드 | 3443 | 인터넷 | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
+| 커넥터 정책 배포 | 인바운드 | 3443 | APIManagement | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
 | Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL | |
 | Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | AzureMonitor | Resource Health에 상태를 게시 하는 경우 |
 | API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement | VirtualNetwork | |
@@ -117,31 +118,28 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 ## <a name="create-your-ise"></a>ISE 만들기
 
-ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
+1. [Azure Portal](https://portal.azure.com)의 기본 Azure search 상자에서 필터로 `integration service environments`를 입력 하 고 **Integration Service environment**를 선택 합니다.
 
-1. [Azure Portal](https://portal.azure.com)의 기본 Azure 메뉴에서 **리소스 만들기**를 선택합니다.
-검색 상자에서 필터로 "통합 서비스 환경"을 입력합니다.
+   !["Integration Service Environment"를 찾아 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
 
-   ![새 리소스 만들기](./media/connect-virtual-network-vnet-isolated-environment/find-integration-service-environment.png)
+1. **Integration Service environment** 창에서 **추가**를 선택 합니다.
 
-1. 통합 서비스 환경 만들기 창에서 **만들기**를 선택 합니다.
+   !["Integration Service Environment"를 찾아 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/add-integration-service-environment.png)
 
-   !["만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/create-integration-service-environment.png)
-
-1. 예를 들어 사용자 환경에 대한 이러한 세부 정보를 제공한 다음, **검토 + 만들기**를 선택합니다.
+1. 사용자 환경에 이러한 세부 정보를 제공 하 고 **검토 + 만들기**를 선택 합니다. 예를 들면 다음과 같습니다.
 
    ![환경 세부 정보 제공](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-details.png)
 
    | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
    | **구독** | yes | <*Azure-subscription-name*> | 환경에 사용할 Azure 구독 |
-   | **리소스 그룹** | yes | <*Azure-resource-group-name*> | 환경을 만들려는 Azure 리소스 그룹 |
+   | **리소스 그룹** | yes | <*Azure-resource-group-name*> | 환경을 만들려는 새 또는 기존 Azure 리소스 그룹 |
    | **Integration service environment 이름** | yes | <*environment-name*> | 문자, 숫자, 하이픈 (`-`), 밑줄 (`_`) 및 마침표 (`.`)만 포함할 수 있는 ISE 이름입니다. |
    | **위치** | yes | <*Azure-datacenter-region*> | 환경을 배포할 Azure 데이터 센터 지역 |
    | **SKU** | yes | **프리미엄** 또는 **개발자 (SLA 없음)** | 만들고 사용할 ISE SKU입니다. 이러한 Sku 간의 차이점은 [ISE sku](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#ise-level)를 참조 하세요. <p><p>**중요**:이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
    | **추가 용량** | Premium: <br>yes <p><p>개발자: <br>해당 없음 | Premium: <br>0 ~ 10 <p><p>개발자: <br>해당 없음 | 이 ISE 리소스에 사용할 추가 처리 단위의 수입니다. 만든 후 용량을 추가 하려면 [ISE 용량 추가](#add-capacity)를 참조 하세요. |
    | **액세스 끝점** | yes | **내부** 또는 **외부** | ISE에 사용할 액세스 끝점의 유형입니다. 이러한 끝점은 ISE의 논리 앱에 대 한 요청 또는 webhook 트리거가 가상 네트워크 외부에서 호출을 받을 수 있는지 여부를 결정 합니다. <p><p>선택 항목은 논리 앱 실행 기록에서 입력 및 출력을 보고 액세스할 수 있는 방법에도 영향을 줍니다. 자세한 내용은 [ISE 끝점 액세스](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md#endpoint-access)를 참조 하세요. <p><p>**중요**:이 옵션은 ISE를 만들 때만 사용할 수 있으며 나중에 변경할 수 없습니다. |
-   | **가상 네트워크** | yes | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure virtual network를 만듭니다](../virtual-network/quick-create-portal.md). <p>**중요**: ISE를 만들 때 *만* 이 삽입을 수행할 수 있습니다. |
+   | **가상 네트워크** | yes | <*Azure-virtual-network-name*> | 해당 환경의 논리 앱이 가상 네트워크에 액세스할 수 있도록 환경을 삽입하려는 Azure 가상 네트워크입니다. 네트워크가 없는 경우 [먼저 Azure virtual network를 만듭니다](../virtual-network/quick-create-portal.md). <p><p>**중요**: ISE를 만들 때 *만* 이 삽입을 수행할 수 있습니다. |
    | **서브넷** | yes | <*subnet-resource-list*> | ISE에는 사용자 환경에서 리소스를 만들고 배포 하기 위해 네 개의 *빈* 서브넷이 필요 합니다. 각 서브넷을 만들려면 [이 테이블 아래의 단계를 따릅니다](#create-subnet). |
    |||||
 
@@ -175,22 +173,22 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
      **주소 접두사**: 0.0.0.0/0<br>
      **다음 홉**: 인터넷
 
-   1. **서브넷** 목록에서 **서브넷 구성 관리**를 선택합니다.
+   1. **서브넷 목록에서** **서브넷 구성 관리**를 선택 합니다.
 
-      ![서브넷 구성 관리](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet.png)
+      ![서브넷 구성 관리](./media/connect-virtual-network-vnet-isolated-environment/manage-subnet-configuration.png)
 
-   1. **서브넷** 창에서 **서브넷**을 선택합니다.
+   1. **서브넷** 창에서 **서브넷**을 선택 합니다.
 
-      ![서브넷 추가](./media/connect-virtual-network-vnet-isolated-environment/add-subnet.png)
+      ![빈 서브넷 4 개 추가](./media/connect-virtual-network-vnet-isolated-environment/add-empty-subnets.png)
 
    1. **서브넷 추가** 창에서 이 정보를 제공합니다.
 
       * **이름**: 서브넷의 이름입니다.
       * **주소 범위 (cidr 블록)** : 가상 네트워크와 CIDR 형식의 서브넷 범위
 
-      ![서브넷 세부 정보 추가](./media/connect-virtual-network-vnet-isolated-environment/subnet-details.png)
+      ![서브넷 세부 정보 추가](./media/connect-virtual-network-vnet-isolated-environment/provide-subnet-details.png)
 
-   1. 작업을 완료하면 **확인**을 선택합니다.
+   1. 완료되면 **확인**을 선택합니다.
 
    1. 세 개 이상의 서브넷에 대해 이 단계를 반복합니다.
 
@@ -199,17 +197,17 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
    서브넷을 만드는 방법에 대 한 자세한 내용은 [가상 네트워크 서브넷 추가](../virtual-network/virtual-network-manage-subnet.md)를 참조 하세요.
 
-1. 예를 들어 Azure에서 성공적으로 ISE 정보의 유효성 검사를 완료하면 **만들기**를 선택합니다.
+1. Azure에서 ISE 정보를 성공적으로 확인 한 후 **만들기**를 선택 합니다. 예를 들면 다음과 같습니다.
 
-   ![유효성 검사에 성공하면 "만들기" 선택](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
+   ![유효성 검사가 완료 되 면 "만들기"를 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/ise-validation-success.png)
 
-   Azure는 일반적으로 2 시간 이내에 완료 되는 환경 배포를 시작 합니다. 경우에 따라 배포에 최대 4 시간이 걸릴 수 있습니다. 배포 상태를 확인하려면 Azure 도구 모음에서 알림 창을 여는 알림 아이콘을 선택합니다.
+   Azure는 일반적으로 2 시간 이내에 완료 되는 환경 배포를 시작 합니다. 경우에 따라 배포에 최대 4 시간이 걸릴 수 있습니다. 배포 상태를 확인 하려면 Azure 도구 모음에서 알림 아이콘을 선택 합니다. 그러면 알림 창이 열립니다.
 
    ![배포 상태 확인](./media/connect-virtual-network-vnet-isolated-environment/environment-deployment-status.png)
 
    배포가 성공적으로 완료되면 Azure에 이 알림이 표시됩니다.
 
-   ![배포 성공](./media/connect-virtual-network-vnet-isolated-environment/deployment-success.png)
+   ![배포 성공](./media/connect-virtual-network-vnet-isolated-environment/deployment-success-message.png)
 
    그렇지 않으면 배포 문제 해결에 대 한 Azure Portal 지침을 따르세요.
 
@@ -220,7 +218,7 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
    > 가상 네트워크를 삭제 하는 경우 아직 연결 된 리소스가 없는지 확인 합니다. 
    > [가상 네트워크 삭제](../virtual-network/manage-virtual-network.md#delete-a-virtual-network)를 참조 하세요.
 
-1. 배포가 완료된 후에 Azure가 환경으로 자동으로 이동하지 않는 경우 환경을 보려면 **리소스로 이동**을 선택합니다.
+1. 환경을 보려면 배포가 완료 된 후 Azure가 환경으로 자동으로 이동 하지 않는 경우 **리소스로 이동** 을 선택 합니다.
 
 1. ISE에 대 한 네트워크 상태를 확인 하려면 [통합 서비스 환경 관리](../logic-apps/ise-manage-integration-service-environment.md#check-network-health)를 참조 하세요.
 
@@ -233,23 +231,42 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
 ## <a name="add-ise-capacity"></a>ISE 용량 추가
 
-프리미엄 ISE 기본 단위는 고정 용량을 가지 므로 더 많은 처리량이 필요한 경우 생성 중 또는 나중에 확장 단위를 추가할 수 있습니다. 성능 메트릭 또는 다양 한 추가 처리 단위에 따라 자동으로 크기를 조정할 수 있습니다. 메트릭에 따라 자동 크기 조정을 선택 하는 경우 다양 한 조건에서 선택 하 고 해당 조건에 맞는 임계값 조건을 지정할 수 있습니다. 개발자 SKU에는 배율 단위를 추가 하는 기능이 포함 되어 있지 않습니다.
+프리미엄 ISE 기본 단위는 고정 용량을 가지 므로 더 많은 처리량이 필요한 경우 생성 중 또는 나중에 확장 단위를 추가할 수 있습니다. 개발자 SKU에는 배율 단위를 추가 하는 기능이 포함 되어 있지 않습니다.
 
 1. Azure Portal에서 ISE를 찾습니다.
 
-1. Ise의 주 메뉴에서 **개요**를 선택 하 여 ise에 대 한 사용 현황 및 성능 메트릭을 검토 합니다.
+1. Ise에 대 한 사용 현황 및 성능 메트릭을 검토 하려면 ISE 메뉴에서 **개요**를 선택 합니다.
 
    ![ISE에 대 한 사용 현황 보기](./media/connect-virtual-network-vnet-isolated-environment/integration-service-environment-usage.png)
 
-1. 자동 크기 조정을 설정 하려면 **설정**에서 **Scale out**을 선택 합니다. **구성** 탭에서 **자동 크기 조정 사용**을 선택 합니다.
+1. **설정**아래에서 **Scale out**을 선택 합니다. **구성** 창에서 다음 옵션을 선택 합니다.
 
-   ![자동 크기 조정 설정](./media/connect-virtual-network-vnet-isolated-environment/scale-out.png)
+   * [**수동 크기 조정**](#manual-scale): 사용 하려는 처리 단위 수를 기준으로 크기를 조정 합니다.
+   * [**사용자 지정 자동 크기 조정**](#custom-autoscale): 다양 한 조건에서 선택 하 고 해당 조건에 맞는 임계값 조건을 지정 하 여 성능 메트릭에 따라 크기를 조정 합니다.
 
-1. **자동 크기 조정 설정 이름**에 설정의 이름을 입력 합니다.
+   ![원하는 크기 조정 유형을 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/select-scale-out-options.png)
 
-1. **기본** 섹션에서 **메트릭 기반 크기 조정** 또는 **특정 인스턴스 수에 대 한 크기**조정 중 하나를 선택 합니다.
+<a name="manual-scale"></a>
 
-   * 인스턴스 기반을 선택 하는 경우 0부터 10 까지의 처리 단위 수를 입력 합니다.
+### <a name="manual-scale"></a>수동 크기 조정
+
+1. **수동 크기 조정**을 선택한 후 **용량을 추가**하려면 사용할 배율 단위 수를 선택 합니다.
+
+   ![원하는 크기 조정 유형을 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/select-manual-scale-out-units.png)
+
+1. 완료되면 **저장**을 선택합니다.
+
+<a name="custom-autoscale"></a>
+
+### <a name="custom-autoscale"></a>사용자 지정 자동 크기 조정
+
+1. **사용자 지정 자동 크기 조정**을 선택한 후 **자동 크기 조정 설정 이름**에 설정에 대 한 이름을 제공 하 고 필요에 따라 설정이 속한 Azure 리소스 그룹을 선택 합니다.
+
+   ![자동 크기 조정 설정에 대 한 이름을 제공 하 고 리소스 그룹을 선택 합니다.](./media/connect-virtual-network-vnet-isolated-environment/select-custom-autoscale.png)
+
+1. **기본** 조건의 경우 **메트릭 기반 크기 조정** 또는 **특정 인스턴스 수에**대 한 크기 조정 중 하나를 선택 합니다.
+
+   * 인스턴스 기반을 선택 하는 경우 처리 단위의 수를 0에서 10 사이의 값으로 입력 합니다.
 
    * 메트릭 기반을 선택 하는 경우 다음 단계를 수행 합니다.
 
@@ -257,7 +274,13 @@ ISE(통합 서비스 환경)를 만들려면 다음 단계를 수행합니다.
 
      1. 규칙 **크기 조정** 창에서 규칙을 트리거할 때 사용할 조건 및 작업을 설정 합니다.
 
-     1. 완료 되 면 **추가**를 선택 합니다.
+     1. **인스턴스 제한**의 경우 다음 값을 지정 합니다.
+
+        * **최소**: 사용할 최소 처리 단위 수
+        * **최대값**: 사용할 최대 처리 단위 수
+        * **기본값**: 리소스 메트릭을 읽는 동안 문제가 발생 하 고 현재 용량이 기본 용량 보다 낮은 경우 자동 크기 조정은 기본 처리 단위 수로 확장 됩니다. 그러나 현재 용량이 기본 용량을 초과 하는 경우 자동 크기 조정이 확장 되지 않습니다.
+
+1. 다른 조건을 추가 하려면 **크기 조정 조건 추가**를 선택 합니다.
 
 1. 자동 크기 조정 설정에 대 한 작업이 완료 되 면 변경 내용을 저장 합니다.
 

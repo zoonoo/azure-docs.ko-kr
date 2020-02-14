@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: 78c20c72d0e344d993878f6e06ccc94f42048606
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 1d399ffec2cd702dcfa39310803bc780b85bfde1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162330"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187453"
 ---
 # <a name="send-events-to-or-receive-events-from-azure-event-hubs-using-net-core-microsoftazureeventhubs"></a>.NET Core를 사용 하 여 Azure Event Hubs에서 이벤트 보내기 또는 받기 (EventHubs)
 이 빠른 시작에서는 **EventHubs** .net Core 라이브러리를 사용 하 여 이벤트 허브에서 이벤트를 보내고 받는 방법을 보여 줍니다.
@@ -371,6 +371,9 @@ Visual Studio를 시작합니다. **파일** 메뉴에서 **새로 만들기**�
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 읽어보세요.
 
+- [RBAC (역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
+    
+    이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)를 참조 하세요.
 - [EventProcessorHost](event-hubs-event-processor-host.md)
 - [Azure Event Hubs의 기능 및 용어](event-hubs-features.md)
 - [Event Hubs FAQ](event-hubs-faq.md)

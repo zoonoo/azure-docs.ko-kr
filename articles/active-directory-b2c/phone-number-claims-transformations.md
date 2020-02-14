@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c43e3386886456eed0c58fefd0fb1212795db66c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 38763f414b1e5373af79d2501850a44e8e813451
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480165"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185465"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Azure AD B2C에서 전화 번호 클레임 변환 정의
 
@@ -33,7 +33,7 @@ ms.locfileid: "75480165"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | 문자열 | 에서 변환 하는 문자열 형식의 클레임입니다. |
-| OutputClaim | outputClaim | 문자열 | 이 클레임 변환의 결과입니다. |
+| OutputClaim | outputClaim | phoneNumber | 이 클레임 변환의 결과입니다. |
 
 **ConvertStringToPhoneNumberClaim** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 또는 [디스플레이 컨트롤](display-controls.md)에 의해 호출 되는 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 실행 됩니다. **UserMessageIfClaimsTransformationInvalidPhoneNumber** 자체 어설션된 기술 프로필 메타 데이터는 사용자에 게 표시 되는 오류 메시지를 제어 합니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "75480165"
 </TechnicalProfile>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **Inputclaim**: + 1 (123) 456-7890

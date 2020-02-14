@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
 ms.date: 02/11/2020
-ms.openlocfilehash: 03b23d86bca10077ede43f3b4e5a6c5fa6f5dd28
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: 61e7cd8d37108b8f4eea88c4f6b6b2a8cdbfd605
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165463"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186792"
 ---
 # <a name="unable-to-create-jupyter-notebook-in-azure-hdinsight"></a>Azure HDInsight에서 Jupyter 노트북을 만들 수 없습니다.
 
@@ -52,9 +52,9 @@ Cannot convert notebook to v5 because that version doesn't exist
 
     **Ctrl + X**, **Y**, **Enter**를 입력 하 여 변경 내용을 저장 합니다.
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동 합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/JUPYTER`로 이동 합니다. 여기서 `CLUSTERNAME`은 클러스터의 이름입니다.
 
-1. **Jupyter** 를 선택 하 고 서비스를 다시 시작 합니다.
+1. Jupyter 서비스를 다시 시작 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

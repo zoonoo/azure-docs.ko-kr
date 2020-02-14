@@ -1,19 +1,19 @@
 ---
-title: Azure Virtual WAN 파트너 위치 | Microsoft Docs
+title: Azure 가상 WAN 파트너 및 위치 | Microsoft Docs
 description: 이 문서에는 Azure 가상 WAN 파트너 및 허브 위치 목록이 포함 되어 있습니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: conceptual
-ms.date: 11/11/2019
+ms.date: 02/12/2020
 ms.author: cherylmc
-Customer intent: As someone with a networking background, I want to connect find a Virtual WAN partner
-ms.openlocfilehash: afa808c95c88184fb531e858fbfe6d102a6f1f08
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+Customer intent: As someone with a networking background, I want to find a Virtual WAN partner
+ms.openlocfilehash: 68379fd2334e517df4011c05bb32543f7ce4a173
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157162"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190398"
 ---
 # <a name="virtual-wan-partners-and-virtual-hub-locations"></a>가상 WAN 파트너 및 가상 허브 위치
 
@@ -34,7 +34,7 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 * Azure 연결 정보 자동 다운로드
 * 온-프레미스 분기 디바이스 구성 
 
-일부 연결 파트너는 Azure Virtual Hub VNet과 VPN 게이트웨이 만들기를 포함하도록 자동화를 확장할 수 있습니다. 자동화에 대해 자세히 알려면 [자동화 구성 - WAN 파트너](virtual-wan-configure-automation-providers.md)를 참조하세요.
+일부 연결 파트너는 Azure Virtual Hub VNet과 VPN 게이트웨이 만들기를 포함하도록 자동화를 확장할 수 있습니다. Automation에 대해 자세히 알아보려면 [가상 WAN 파트너에 대 한 자동화 지침](virtual-wan-configure-automation-providers.md)을 참조 하세요.
 
 ## <a name="partners"></a>파트너를 통한 연결
 
@@ -50,4 +50,4 @@ Azure Virtual WAN에 연결하는 디바이스에는 연결 자동화가 기본�
 
 * 가상 WAN에 대한 자세한 내용은 [가상 WAN FAQ](virtual-wan-faq.md)를 참조하세요.
 
-* Azure Virtual WAN에 대한 연결을 자동화하는 방법에 대한 자세한 내용은 [가상 WAN 파트너 - 자동화 방법](virtual-wan-configure-automation-providers.md)을 참조하세요.
+* Azure 가상 WAN에 대 한 연결을 자동화 하는 방법에 대 한 자세한 내용은 [가상 wan 파트너를 위한 Automation 지침](virtual-wan-configure-automation-providers.md)을 참조 하세요.

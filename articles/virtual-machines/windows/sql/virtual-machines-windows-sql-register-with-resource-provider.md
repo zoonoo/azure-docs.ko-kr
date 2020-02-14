@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 11/13/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 148ded0eba61221a2bdf0b8a50392da47a4c5f20
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 01e683e31905281d25fdcf976bc58397c052a6c3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122479"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201631"
 ---
 # <a name="register-a-sql-server-virtual-machine-in-azure-with-the-sql-vm-resource-provider"></a>SQL VM 리소스 공급자를 사용 하 여 Azure에 SQL Server 가상 머신 등록
 
@@ -126,7 +126,9 @@ Register-AzResourceProvider -ProviderNamespace Microsoft.SqlVirtualMachine
 
 ### <a name="lightweight-management-mode"></a>경량 관리 모드
 
-[SQL Server IaaS 에이전트 확장이](virtual-machines-windows-sql-server-agent-extension.md) VM에 설치 되지 않은 경우 SQL vm 리소스 공급자를 사용 하 여 경량 모드로 등록 하는 것이 좋습니다. 이렇게 하면 SQL IaaS 확장을 [경량 모드로](#management-modes) 설치 하 고 SQL Server 서비스를 다시 시작 하지 않도록 합니다. 그런 다음 언제 든 지 전체 모드로 업그레이드할 수 있지만 이렇게 하면 SQL Server 서비스가 다시 시작 되므로 예약 된 유지 관리 기간이 될 때까지 대기 하는 것이 좋습니다. 사용량을 지불 하려면 SQL Server 라이선스의 유형을`PAYG`(종 량 제)로 제공 하거나 고유한 라이선스를 사용 하려면 Azure 하이브리드 혜택 (`AHUB`)를 제공 해야 합니다.
+[SQL Server IaaS 에이전트 확장이](virtual-machines-windows-sql-server-agent-extension.md) VM에 설치 되지 않은 경우 SQL vm 리소스 공급자를 사용 하 여 경량 모드로 등록 하는 것이 좋습니다. 이렇게 하면 SQL IaaS 확장을 [경량 모드로](#management-modes) 설치 하 고 SQL Server 서비스를 다시 시작 하지 않도록 합니다. 그런 다음 언제 든 지 전체 모드로 업그레이드할 수 있지만 이렇게 하면 SQL Server 서비스가 다시 시작 되므로 예약 된 유지 관리 기간이 될 때까지 대기 하는 것이 좋습니다. 
+
+사용 요금을 지불 하려면`PAYG`(종 량 제)로 SQL Server 라이선스 유형을 제공 하 고 Azure 하이브리드 혜택, 사용자 라이선스를 사용 하거나`DR``AHUB`(재해 복구)를 사용 하 여 [무료 DR 복제본 라이선스](virtual-machines-windows-sql-high-availability-dr.md#free-dr-replica-in-azure)를 활성화 합니다.
 
 장애 조치 (Failover) 클러스터 인스턴스 및 다중 인스턴스 배포는 경량 모드의 SQL VM 리소스 공급자에만 등록할 수 있습니다. 
 
@@ -176,7 +178,7 @@ SQL Server VM를 전체 모드로 직접 등록 하 고 SQL Server 서비스를 
 
 Windows Server 2008 (_R2 아님_)에 설치 된 SQL Server 2008 및 2008 R2는 [NOAGENT 모드](#management-modes)의 SQL VM 리소스 공급자에 등록할 수 있습니다. 이 옵션은 규정 준수를 보장 하 고 기능이 제한 된 Azure Portal에서 SQL Server VM를 모니터링할 수 있도록 합니다.
 
-`AHUB` 또는 `PAYG`을 **sqlLicenseType**으로 지정 하 고 `SQL2008-WS2008` 또는 `SQL2008R2-WS2008`를 **sqlImageOffer**로 지정 합니다. 
+`AHUB`, `PAYG`또는 `DR`을 **sqlLicenseType**로 지정 하 고 `SQL2008-WS2008` 또는 `SQL2008R2-WS2008`를 **sqlImageOffer**로 지정 합니다. 
 
 Windows Server 2008 인스턴스에 SQL Server 2008 또는 2008 R2 인스턴스를 등록 하려면 다음 Az CLI 또는 PowerShell 코드 조각을 사용 합니다. 
 

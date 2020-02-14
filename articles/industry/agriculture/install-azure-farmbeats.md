@@ -5,12 +5,12 @@ author: usha-rathnavel
 ms.topic: article
 ms.date: 1/17/2020
 ms.author: atinb
-ms.openlocfilehash: b7d99c3bf61de17f9cebba834234cc8ea52f30d6
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 701e42caba5325df34bdbb2381389708b9b5a03f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77131872"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198857"
 ---
 # <a name="install-azure-farmbeats"></a>Azure FarmBeats 설치
 
@@ -71,7 +71,7 @@ Azure FarmBeats의 비용은 기본 Azure 서비스 비용의 집계입니다. [
 
 준비 및 설치를 포함 하 여 Azure FarmBeats의 전체 설정은 한 시간 이내에 소요 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure FarmBeats의 실제 설치를 시작 하기 전에 다음 단계를 완료 해야 합니다.
 
@@ -83,7 +83,9 @@ Azure FarmBeats를 설치 하려면 Azure 테 넌 트에서 다음 권한이 필
 - 구독-소유자
 - FarmBeats가 설치 되는 리소스 그룹-소유자
 
-[AAD 응용 프로그램](#create-an-aad-application) 단계를 만들려면 처음 두 가지 권한이 필요 합니다. 필요한 경우 적절 한 권한을 가진 사용자를 가져와 AAD 응용 프로그램을 만들 수 있습니다. FarmBeats를 설치 하는 사용자는 FarmBeats가 설치 되는 리소스 그룹의 소유자 여야 합니다.
+[AAD 응용 프로그램](#create-an-aad-application) 단계를 만들려면 처음 두 가지 권한이 필요 합니다. 필요한 경우 적절 한 권한을 가진 사용자를 가져와 AAD 응용 프로그램을 만들 수 있습니다.
+
+Marketplace에서 FarmBeats install을 실행 하는 사람은 FarmBeats가 설치 되는 리소스 그룹의 소유자 여야 합니다. 구독 소유자의 경우이는 리소스 그룹을 만들 때 자동으로 발생 합니다. 다른 사용자의 경우 리소스 그룹을 미리 만들고 리소스 그룹의 소유자가 되도록 구독 소유자에 게 요청 하세요.
 
 [역할 기반 access control](https://docs.microsoft.com/azure/role-based-access-control/check-access)에 대 한 지침에 따라 Azure Portal에서 액세스 권한을 확인할 수 있습니다.
 
@@ -120,7 +122,15 @@ PowerShell 환경을 사용 하 여 Cloud Shell 인스턴스에서 다음 단계
         ./create_aad_script.ps1
     ```
 
-4. AAD 스크립트는 실행 하는 데 2 분 정도 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에서 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
+4. 스크립트는 다음 세 가지 입력을 요청 합니다.
+
+    - FarmBeats 웹 사이트 이름: FarmBeats 웹 응용 프로그램에 대 한 고유한 URL 접두사입니다. 접두사가 이미 사용 되는 경우 스크립트는 오류를 발생 합니다. FarmBeats 배포는 설치 되 면 https://\<FarmBeats에서 액세스할 수 있습니다.-웹 사이트-이름 >. n e t 및 swagger Api는 https://\<FarmBeats >-api.azurewebsites.net
+
+    - Azure 로그인 ID: FarmBeats의 관리자로 추가 하려는 사용자의 Azure 로그인 ID를 제공 합니다. 그러면이 사용자는 FarmBeats 웹 응용 프로그램에 액세스 하는 액세스 권한을 다른 사용자에 게 부여할 수 있습니다. 로그인 ID는 일반적으로 john.doe@domain.com형식입니다. Azure UPN도 지원 됩니다.
+
+    - 구독 ID: Azure FarmBeats을 설치 하려는 구독의 ID입니다.
+
+5. AAD 스크립트는 실행 하는 데 2 분 정도 걸리며 동일한 디렉터리의 json 파일 뿐만 아니라 화면에서 값을 출력 합니다. 다른 사용자가 스크립트를 실행 한 경우이 출력을 사용자와 공유 하도록 요청 하세요.
 
 ### <a name="create-sentinel-account"></a>센티널 계정 만들기
 
@@ -134,11 +144,11 @@ Azure FarmBeats 설치 프로그램을 사용 하 여 팜에 대 한 유럽 우�
 
 등록 프로세스가 완료 되었습니다. 확인이 완료 되 면 **센티널 사용자 이름** 및 **센티널 암호**를 기록해 둡니다.
 
-## <a name="install"></a>Install
+## <a name="install"></a>설치
 
 이제 FarmBeats을 설치할 준비가 되었습니다. 설치를 시작 하려면 다음 단계를 수행 합니다.
 
-1. Azure 포털에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
+1. Azure Portal에 로그인합니다. 오른쪽 위 모서리에서 계정을 선택 하 고 Azure FarmBeats를 설치 하려는 Azure AD 테 넌 트로 전환 합니다.
 
 2. 포털 내의 Azure Marketplace로 이동 하 고 Marketplace에서 **Azure FarmBeats** 를 검색 합니다.
 

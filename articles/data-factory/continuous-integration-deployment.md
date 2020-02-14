@@ -10,13 +10,13 @@ ms.author: daperlov
 ms.reviewer: maghan
 manager: jroth
 ms.topic: conceptual
-ms.date: 08/14/2019
-ms.openlocfilehash: f1b15688004d23e8a568695b565b5b34d7b466d6
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.date: 02/12/2020
+ms.openlocfilehash: 7c9f22d27351b0f57c5a0158821f347073ae60b4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110192"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187817"
 ---
 # <a name="continuous-integration-and-delivery-in-azure-data-factory"></a>Azure Data Factory에서 지속적인 통합 및 전달
 
@@ -139,6 +139,9 @@ Data Factory UX의 **ARM 템플릿** 드롭다운 메뉴에서 리소스 관리�
 
    ![릴리스 만들기 선택](media/continuous-integration-deployment/continuous-integration-image10.png)
 
+> [!IMPORTANT]
+> CI/CD 시나리오에서 서로 다른 환경의 IR (통합 런타임) 형식이 동일 해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 동일한 IR도 테스트 및 프로덕션과 같은 다른 환경에서 자체 호스트 되는 형식 이어야 합니다. 마찬가지로, 여러 단계에서 통합 런타임을 공유 하는 경우 개발, 테스트, 프로덕션 등의 모든 환경에서 통합 런타임을 연결 된 자체 호스트로 구성 해야 합니다.
+
 ### <a name="get-secrets-from-azure-key-vault"></a>Azure Key Vault에서 비밀 가져오기
 
 Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우 Azure Pipelines 릴리스와 Azure Key Vault를 사용 하는 것이 좋습니다.
@@ -184,11 +187,11 @@ Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우
 
 활성 트리거를 업데이트하려고 하면 배포에 실패할 수 있습니다. 활성 트리거를 업데이트 하려면 수동으로 중지 한 후 배포 후에 다시 시작 해야 합니다. Azure PowerShell 작업을 사용 하 여이 작업을 수행할 수 있습니다.
 
-1.  릴리스의 **작업** 탭에서 **Azure PowerShell** 작업을 추가 합니다.
+1.  릴리스의 **작업** 탭에서 **Azure PowerShell** 작업을 추가 합니다. 작업 버전 4. *를 선택 합니다. 
 
-1.  연결 형식으로 **Azure Resource Manager** 를 선택 하 고 구독을 선택 합니다.
+1.  팩터리가 있는 구독을 선택 합니다.
 
-1.  스크립트 형식으로 **인라인 스크립트** 를 선택 하 고 코드를 제공 합니다. 다음 코드는 트리거를 중지 합니다.
+1.  스크립트 **파일 경로** 를 스크립트 유형으로 선택 합니다. 이렇게 하려면 PowerShell 스크립트를 리포지토리에 저장 해야 합니다. 다음 PowerShell 스크립트를 사용 하 여 트리거를 중지할 수 있습니다.
 
     ```powershell
     $triggersADF = Get-AzDataFactoryV2Trigger -DataFactoryName $DataFactoryName -ResourceGroupName $ResourceGroupName
@@ -196,21 +199,28 @@ Azure Resource Manager 템플릿에 전달 해야 하는 암호가 있는 경우
     $triggersADF | ForEach-Object { Stop-AzDataFactoryV2Trigger -ResourceGroupName $ResourceGroupName -DataFactoryName $DataFactoryName -Name $_.name -Force }
     ```
 
-    ![작업 Azure PowerShell](media/continuous-integration-deployment/continuous-integration-image11.png)
-
 `Start-AzDataFactoryV2Trigger` 함수를 사용 하 여 비슷한 단계를 완료 하 여 배포 후에 트리거를 다시 시작할 수 있습니다.
 
-> [!IMPORTANT]
-> CI/CD 시나리오에서 서로 다른 환경의 IR (통합 런타임) 형식이 동일 해야 합니다. 예를 들어 개발 환경에 자체 호스팅 IR이 있는 경우 동일한 IR도 테스트 및 프로덕션과 같은 다른 환경에서 자체 호스트 되는 형식 이어야 합니다. 마찬가지로, 여러 단계에서 통합 런타임을 공유 하는 경우 개발, 테스트, 프로덕션 등의 모든 환경에서 통합 런타임을 연결 된 자체 호스트로 구성 해야 합니다.
+### <a name="sample-pre--and-post-deployment-script"></a>샘플 배포 전 및 배포 후 스크립트
 
-#### <a name="sample-pre--and-post-deployment-script"></a>샘플 배포 전 및 배포 후 스크립트
+다음 샘플 스크립트를 사용 하 여 배포 전에 트리거를 중지 하 고 나중에 다시 시작할 수 있습니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 스크립트를 Azure DevOps git 리포지토리에 저장 하 고 버전 4. *를 사용 하 여 Azure PowerShell 작업을 통해 참조 합니다.
 
-다음 샘플 스크립트에서는 배포 전에 트리거를 중지 하 고 나중에 다시 시작 하는 방법을 보여 줍니다. 스크립트에는 제거된 리소스를 삭제하는 코드도 포함됩니다. 최신 버전의 Azure PowerShell을 설치하려면 [PowerShellGet으로 Windows에 Azure PowerShell 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조하세요.
+배포 전 스크립트를 실행 하는 경우 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정 해야 합니다.
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $true -deleteDeployment $false`
+
+
+배포 후 스크립트를 실행 하는 경우 **스크립트 인수** 필드에서 다음 매개 변수의 변형을 지정 해야 합니다.
+
+`-armTemplate "$(System.DefaultWorkingDirectory)/<your-arm-template-location>" -ResourceGroupName <your-resource-group-name> -DataFactoryName <your-data-factory-name>  -predeployment $false -deleteDeployment $true`
+
+    ![Azure PowerShell task](media/continuous-integration-deployment/continuous-integration-image11.png)
+
+다음은 배포 전 및 후에 사용할 수 있는 스크립트입니다. 삭제 된 리소스 및 리소스 참조를 계정으로 합니다.
 
 ```powershell
 param
 (
-    [parameter(Mandatory = $false)] [String] $rootFolder,
     [parameter(Mandatory = $false)] [String] $armTemplate,
     [parameter(Mandatory = $false)] [String] $ResourceGroupName,
     [parameter(Mandatory = $false)] [String] $DataFactoryName,

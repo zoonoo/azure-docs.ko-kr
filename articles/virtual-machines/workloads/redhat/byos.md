@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: b0ef6030b1b460d118a255ede3c46719616fe3b0
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133830"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190510"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -175,7 +175,7 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
 
 [Azure Disk Encryption](../../linux/disk-encryption-overview.md)를 사용 하 여 사용자 고유의 구독 골드 이미지를 보호할 수 Red Hat Enterprise Linux. 그러나 암호화를 사용 하도록 설정 하기 전에 구독을 등록 **해야** 합니다.  RHEL BYOS 골드 이미지 등록에 대 한 세부 정보는 Red Hat 사이트에서 사용할 수 있습니다. [Red Hat 구독 관리자를 사용 하 여 Red Hat 고객 포털에 시스템을 등록 및 구독 하는 방법을](https://access.redhat.com/solutions/253273)참조 하세요. 활성 Red Hat 구독이 있는 경우 [Red Hat 고객 포털 활성화 키 만들기](https://access.redhat.com/articles/1378093)를 읽을 수도 있습니다.
 
-[Red Hat 사용자 지정 이미지](/linux/redhat-create-upload-vhd)에서는 Azure Disk Encryption 지원 되지 않습니다. 추가 ADE 요구 사항 및 필수 구성 요소는 [Linux vm에 대 한 Azure Disk Encryption](../../linux/disk-encryption-overview.md#additional-vm-requirements)에 설명 되어 있습니다.
+[Red Hat 사용자 지정 이미지](../../linux/redhat-create-upload-vhd.md)에서는 Azure Disk Encryption 지원 되지 않습니다. 추가 ADE 요구 사항 및 필수 구성 요소는 [Linux vm에 대 한 Azure Disk Encryption](../../linux/disk-encryption-overview.md#additional-vm-requirements)에 설명 되어 있습니다.
 
 Azure Disk Encryption를 적용 하는 단계는 [Linux vm 및 관련 문서에서 Azure Disk Encryption 시나리오](../../linux/disk-encryption-linux.md) 에서 사용할 수 있습니다.
 

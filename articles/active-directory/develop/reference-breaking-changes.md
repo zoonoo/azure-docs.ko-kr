@@ -17,12 +17,12 @@ ms.date: 1/24/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 9cb13ea56c39f365ddb888a5d4e94228b1881fc4
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: c6ed72e5c94191411572c6ab67533141e2fe47d6
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160363"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185812"
 ---
 # <a name="whats-new-for-authentication"></a>인증의 새로운 기능? 
 
@@ -42,7 +42,7 @@ ms.locfileid: "77160363"
 
 지금은 예약이 없습니다.  또는 프로덕션에 적용 되는 변경 내용에 대해서는 아래를 참조 하세요. 
 
-## <a name="february-2020"></a>2 월 2020: 
+## <a name="february-2020"></a>2020년 2월 
 
 ### <a name="empty-fragments-will-be-appended-to-every-http-redirect-from-the-login-endpoint"></a>로그인 끝점의 모든 HTTP 리디렉션에 빈 조각이 추가 됩니다. 
 

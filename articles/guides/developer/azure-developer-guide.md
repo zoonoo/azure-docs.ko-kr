@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: fa8013722376a4864ba955783dbde1f73c0d9e8a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
-ms.translationtype: HT
+ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163112"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186943"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -60,7 +60,7 @@ Azure는 필요한 애플리케이션 개발 및 호스팅 요구 사항을 지�
 
 App Service는 DevOps를 염두에 두고 설계되었습니다. 게시 및 연속 통합 배포를 위한 다양 한 도구를 지원 합니다. 이러한 도구에는 GitHub 웹 후크, Jenkins, Azure DevOps, TeamCity 등이 포함 됩니다.
 
-[온라인 마이그레이션 도구](https://www.migratetoazure.net/)를 사용하여 App Service에 기존 애플리케이션을 마이그레이션할 수 있습니다.
+[온라인 마이그레이션 도구](https://appmigration.microsoft.com/)를 사용하여 App Service에 기존 애플리케이션을 마이그레이션할 수 있습니다.
 
 > **사용 시기**: 기존 웹 응용 프로그램을 Azure로 마이그레이션하는 경우 및 웹 앱에 대해 완전히 관리 되는 호스팅 플랫폼이 필요한 경우에 App Service를 사용 합니다. 앱에서 모바일 클라이언트를 지원하거나 REST API를 노출해야 하는 경우에도 App Service를 사용할 수 있습니다.
 >

@@ -16,12 +16,12 @@ ms.date: 10/24/2018
 ms.author: ryanwi
 ms.reviewer: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: ed74e779ea87c4d6ddf58c7607c9a1e900021b48
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 638c265fda3c8b331415d54047180b3c0ee2174a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164020"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77197547"
 ---
 # <a name="azure-active-directory-for-developers-v10-overview"></a>개발자 용 Azure Active Directory (v1.0) 개요
 
@@ -57,5 +57,8 @@ Azure AD의 가장 일반적인 작업에 대한 자세한 내용 및 연습은 
 | [용어 설명](../develop/developer-glossary.md?toc=/azure/active-directory/azuread-dev/toc.json&bc=/azure/active-directory/azuread-dev/breadcrumb/toc.json)                                      | 이 설명서에 사용된 용어 및 단어에 대한 정의입니다. |
 |  |  |
 
+## <a name="videos"></a>동영상
+
+새 Microsoft id 플랫폼으로 마이그레이션하는 데 도움이 필요한 경우 [개발자 플랫폼 비디오 Azure Active Directory](videos.md) 를 참조 하세요.
 
 [!INCLUDE [Help and support](../../../includes/active-directory-develop-help-support-include.md)]
