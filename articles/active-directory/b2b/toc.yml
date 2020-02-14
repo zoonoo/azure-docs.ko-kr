@@ -23,8 +23,6 @@
           href: b2b-tutorial-require-mfa.md
     - name: 샘플
       items:
-        - name: 셀프 서비스 등록 포털 샘플
-          href: self-service-portal.md
         - name: 코드 및 Azure PowerShell 샘플
           href: code-samples.md
     - name: 개념
@@ -50,6 +48,8 @@
           href: conditional-access.md
         - name: 하이브리드 조직을 위한 B2B
           href: hybrid-organizations.md
+        - name: 셀프 서비스 가입
+          href: self-service-portal.md
         - name: 현재 제한 사항
           href: current-limitations.md
     - name: 방법 가이드
