@@ -7,6 +7,7 @@
     - name: Microsoft ID 플랫폼의 발전
       href: about-microsoft-identity-platform.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: 테넌트 설정
       href: quickstart-create-new-tenant.md
@@ -90,6 +91,7 @@
 - name: 샘플
   href: sample-v2-code.md
 - name: 개념
+  expanded: true
   items:
     - name: 인증 기본 사항
       href: authentication-scenarios.md
