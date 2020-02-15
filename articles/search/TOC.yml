@@ -105,9 +105,9 @@
           href: search-sku-tier.md
         - name: 서비스 제한
           href: search-limits-quotas-capacity.md
-        - name: 파티션 및 복제본 크기 조정
+        - name: 용량 조정
           href: search-capacity-planning.md
-        - name: 배포 전략 및 모범 사례
+        - name: 성능 확장
           href: search-performance-optimization.md
         - name: 다중 테넌트 아키텍처
           href: search-modeling-multitenant-saas-applications.md
