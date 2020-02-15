@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 11/21/2019
 ms.author: cynthn
-ms.openlocfilehash: cf4c8c57121a06a607770470c5aef69c5edc0c5f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 58c0964d170f49066802b955f09dab01eaf998a7
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115643"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252198"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-the-azure-cli"></a>미리 보기: 유지 관리 제어 및 Azure CLI를 사용 하 여 업데이트 제어
 
@@ -233,6 +233,18 @@ az maintenance applyupdate create \
 `az maintenance applyupdate get`를 사용 하 여 업데이트의 진행률을 확인할 수 있습니다. 
 
 `default`를 업데이트 이름으로 사용 하 여 마지막 업데이트에 대 한 결과를 확인 하거나 `myUpdateName` `az maintenance applyupdate create`를 실행할 때 반환 된 업데이트 이름으로 바꿀 수 있습니다.
+
+```text
+Status         : Completed
+ResourceId     : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso
+LastUpdateTime : 1/1/2020 12:00:00 AM
+Id             : /subscriptions/12ae7457-4a34-465c-94c1-17c058c2bd25/resourcegroups/TestShantS/providers/Microsoft.Comp
+ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates/default
+Name           : default
+Type           : Microsoft.Maintenance/applyUpdates
+```
+LastUpdateTime은 자동 유지 관리 기간을 사용 하지 않는 경우 사용자 또는 플랫폼에 의해 시작 된 업데이트가 완료 된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용 한 적이 없는 경우 기본값을 표시 합니다.
 
 ### <a name="isolated-vm"></a>격리 된 VM
 

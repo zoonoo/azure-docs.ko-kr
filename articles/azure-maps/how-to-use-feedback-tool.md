@@ -1,20 +1,20 @@
 ---
 title: Azure Maps에 대 한 데이터 피드백 제공 Microsoft Azure 맵
 description: Microsoft Azure Maps 피드백 도구를 사용 하 여 데이터 피드백을 제공 합니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 08/19/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: fda65e900b7faf0ff77d533e8dbfd2e7369ad602
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 4c4eb8932dda32ae6773e76dc7102f5afc6bc655
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198142"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209837"
 ---
 # <a name="provide-data-feedback-to-azure-maps"></a>Azure Maps에 대 한 데이터 피드백 제공
 

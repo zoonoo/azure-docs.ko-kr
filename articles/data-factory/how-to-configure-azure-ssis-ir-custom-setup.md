@@ -11,13 +11,13 @@ ms.author: sawinark
 manager: mflasko
 ms.reviewer: douglasl
 ms.custom: seo-lt-2019
-ms.date: 02/01/2020
-ms.openlocfilehash: c4502cc4a808b4a44f70c1f96fe38fd0ddeebdee
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/14/2020
+ms.openlocfilehash: 9c084564fec3faf59317fe9e05f3e850a38454d6
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77187721"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251977"
 ---
 # <a name="customize-the-setup-for-an-azure-ssis-integration-runtime"></a>Azure-SSIS Integration Runtime에 대 한 설정 사용자 지정
 
@@ -121,8 +121,12 @@ Azure-SSIS IR 사용자 지정 하려면 다음 항목이 필요 합니다.
 
      * Oh22's HEDDA를 선택 하는 경우  **IO** 구성 요소 HEDDA를 설치할 수 있습니다 [. ](https://hedda.io/ssis-component/)서비스를 구매한 후 Azure-SSIS IR에서 oh22의 IO 데이터 품질/정리 구성 요소 현재 통합 버전은 **1.0.13**입니다.
 
-      * **Oh22's SQLPhonetics.NET** 구성 요소를 선택 하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력 하 여 Azure-SSIS IR oh22에서 [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) 데이터 품질/일치 구성 요소를 설치할 수 있습니다. 현재 통합 버전은 **1.0.43**입니다.
-   
+     * **Oh22's SQLPhonetics.NET** 구성 요소를 선택 하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력 하 여 Azure-SSIS IR oh22에서 [SQLPhonetics.NET](https://sqlphonetics.oh22.is/sqlphonetics-net-for-microsoft-ssis/) 데이터 품질/일치 구성 요소를 설치할 수 있습니다. 현재 통합 버전은 **1.0.43**입니다.
+
+     * **KingswaySoft의 Ssis 통합 도구 키트** 구성 요소를 선택 하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력 하 여 Azure-SSIS IR KINGSWAYSOFT의 CRM/ERP/marketing/공동 작업 앱에 대 한 커넥터의 [ssis integration toolkit](https://www.kingswaysoft.com/products/ssis-integration-toolkit-for-microsoft-dynamics-365) 제품군을 설치할 수 있습니다 (예:). 현재 통합 버전은 **2019.2**입니다.
+
+     * **KingswaySoft의 Ssis 생산성 팩** 구성 요소를 선택 하는 경우 **라이선스 키** 상자에서 구매한 제품 라이선스 키를 입력 하 여 KingswaySoft의 구성 요소에 Azure-SSIS IR 대 한 [ssis 생산성 팩](https://www.kingswaysoft.com/products/ssis-productivity-pack) 제품군을 설치할 수 있습니다. 현재 통합 버전은 **10.0**입니다.
+
    추가 된 빠른 사용자 지정 설치가 **고급 설정** 섹션에 표시 됩니다. 제거 하려면 해당 확인란을 선택한 다음 **삭제**를 선택 합니다.
 
    ![사용자 지정 설정으로 고급 설정](./media/tutorial-create-azure-ssis-runtime-portal/advanced-settings-custom.png)

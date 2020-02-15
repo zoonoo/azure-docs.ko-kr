@@ -1,20 +1,20 @@
 ---
 title: 전송 데이터 요청 | Microsoft Azure 맵
-description: 이 문서에서는 Microsoft Azure 지도 모바일 서비스를 사용 하 여 공용 전송 데이터를 요청 하는 방법을 알아봅니다.
-author: walsehgal
-ms.author: v-musehg
+description: 이 문서에서는 Microsoft Azure 지도 모바일 서비스를 사용 하 여 공용 전송 데이터를 요청 하는 방법을 설명 합니다.
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 09/06/2019
 ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 08a35492a61d7e75680603308aa31bf7a184c036
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 17fbc78b34237c6f5e1e688a88c68bb0a321884f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198176"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209871"
 ---
 # <a name="request-public-transit-data-using-the-azure-maps-mobility-service"></a>Azure Maps 모바일 서비스를 사용 하 여 공용 전송 데이터 요청 
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 02/13/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 1bdb4e40d7e173dcb2368f2f0cf645581647f6ee
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 09e5a6c5eee21e5432c4cf96a63fd2337307954a
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202204"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77211442"
 ---
 Azure 공유 디스크 (미리 보기)는 azure 관리 디스크를 여러 Vm (가상 머신)에 동시에 연결할 수 있도록 하는 Azure managed disks에 대 한 새로운 기능입니다. 관리 디스크를 여러 Vm에 연결 하면 새 클러스터 된 응용 프로그램을 배포 하거나 기존 클러스터형 응용 프로그램을 Azure로 마이그레이션할 수 있습니다.
 
@@ -55,7 +55,7 @@ Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)�
 
 다음 다이어그램에서는 SCSI PR을 활용 하 여 한 노드에서 다른 노드로 장애 조치 (failover)를 수행할 수 있는 샘플 2 노드 클러스터 된 데이터베이스 응용 프로그램을 보여 줍니다.
 
-![shared-disk-updated-two-node-cluster-diagram](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
+![2 개 노드 클러스터 클러스터에서 실행 중인 응용 프로그램이 디스크에 대 한 액세스를 처리 하 고 있습니다.](media/virtual-machines-disks-shared-disks/shared-disk-updated-two-node-cluster-diagram.png)
 
 흐름은 다음과 같습니다.
 
@@ -68,7 +68,7 @@ Linux 클러스터는 [Pacemaker](https://wiki.clusterlabs.org/wiki/Pacemaker)�
 
 다음 다이어그램은 기계 학습 모델의 학습 등 병렬 프로세스를 실행 하기 위해 디스크에서 데이터를 읽는 여러 노드로 구성 된 다른 일반적인 클러스터 된 작업을 보여 줍니다.
 
-![shared-disk-updated-machine-learning-trainer-model](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
+![4 개의 노드 VM 클러스터, 각 노드는 쓰기를 위한 것입니다. 응용 프로그램은 쓰기 결과를 올바르게 처리 하기 위해 단독 예약을 사용 합니다.](media/virtual-machines-disks-shared-disks/shared-disk-updated-machine-learning-trainer-model.png)
 
 흐름은 다음과 같습니다.
 

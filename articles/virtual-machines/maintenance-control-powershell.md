@@ -7,12 +7,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 01/31/2020
 ms.author: cynthn
-ms.openlocfilehash: 58bdbdfcb82806dfa0b2779967bddf1242a8b702
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 7e4586a5fba91fbc7432aa352b9608be728e8654
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115705"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251943"
 ---
 # <a name="preview-control-updates-with-maintenance-control-and-azure-powershell"></a>미리 보기: 유지 관리 제어 및 Azure PowerShell를 사용 하 여 업데이트 제어
 
@@ -216,6 +216,7 @@ ute/virtualMachines/DXT-test-04-iso/providers/Microsoft.Maintenance/applyUpdates
 Name           : default
 Type           : Microsoft.Maintenance/applyUpdates
 ```
+LastUpdateTime은 자동 유지 관리 기간을 사용 하지 않는 경우 사용자 또는 플랫폼에 의해 시작 된 업데이트가 완료 된 시간입니다. 유지 관리 제어를 통해 업데이트를 적용 한 적이 없는 경우 기본값을 표시 합니다.
 
 ### <a name="isolated-vm"></a>격리 된 VM
 

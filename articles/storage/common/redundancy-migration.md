@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 78a7f3eb920d2f656b91cff187ca22b1e15973b7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 14ad6dbf139b34f501e0b0ea8c16d8570b2ace5b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77165411"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212563"
 ---
 # <a name="change-how-a-storage-account-is-replicated"></a>저장소 계정이 복제 되는 방식 변경
 
@@ -38,10 +38,10 @@ Azure Storage는 다음과 같은 유형의 복제를 제공 합니다.
 
 | 켜기 | ... LRS에 | ... to GRS/RA-GRS | ... ZRS에 | ... to GZRS/RA-GZRS |
 |--------------------|----------------------------------------------------|---------------------------------------------------------------------|----------------------------------------------------|---------------------------------------------------------------------|
-| <b>... LRS에서</b> | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 |
-| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 |
-| <b>... ZRS에서</b> | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. |
-| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 |
+| <b>... LRS에서</b> | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 | 수동 마이그레이션 수행 <br /><br />실시간 마이그레이션 요청 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> GRS/RA-GRS로 전환한 다음 실시간 마이그레이션<sup>1</sup> 을 요청 합니다. |
+| <b>... from GRS/RA-GRS</b> | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 | 수동 마이그레이션 수행 <br /><br /> 또는 <br /><br /> 먼저 LRS로 전환한 다음 실시간 마이그레이션을 요청 합니다. | 수동 마이그레이션 수행 <br /><br /> 실시간 마이그레이션 요청 |
+| <b>... ZRS에서</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | 해당 없음 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정<sup>1</sup> 변경 |
+| <b>... from GZRS/RA-GZRS</b> | 수동 마이그레이션 수행 | 수동 마이그레이션 수행 | Azure Portal, PowerShell 또는 CLI를 사용 하 여 복제 설정을 변경 합니다. | 해당 없음 |
 
 <sup>1</sup> 은 일회성 송신 요금을 발생 시킵니다.
 

@@ -9,12 +9,12 @@ author: DavidTrigano
 ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
-ms.openlocfilehash: 7011bf068a96fe9da035ec08a1f6ef7f80a0b240
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686e426ef0b7706eff168e42ffc67417b2c5c743
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161956"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212895"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -90,7 +90,7 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
 
    ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
-가상 네트워크 또는 방화벽에서 저장소 계정을 구성 하려면 서버의 [Active Directory 관리자](/sql-database-aad-authentication-configure.md?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-azure-sql-database-server) 가 필요 합니다. **신뢰할 수 있는 Microsoft 서비스에서 저장소 계정의이 저장소 계정에 액세스할 수 있도록 허용** 을 사용 하도록 설정 합니다. 또한 선택한 저장소 계정에 대 한 ' Microsoft. Authorization/roleAssignments/write ' 권한이 있어야 합니다.
+가상 네트워크 또는 방화벽에서 저장소 계정을 구성 하려면 서버의 [Active Directory 관리자](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) 가 필요 합니다. **신뢰할 수 있는 Microsoft 서비스에서 저장소 계정의이 저장소 계정에 액세스할 수 있도록 허용** 을 사용 하도록 설정 합니다. 또한 선택한 저장소 계정에 대 한 ' Microsoft. Authorization/roleAssignments/write ' 권한이 있어야 합니다.
 
 ' Storage blob data 참여자 ' 역할에 관리 되는 id에 권한을 부여 하려면 [사용자 액세스 관리자](../role-based-access-control/built-in-roles.md#user-access-administrator) 로 연결 하는 것이 좋습니다. 권한 및 역할 기반 액세스 제어에 대 한 자세한 내용은 [azure 리소스에 대 한 RBAC (역할 기반 액세스 제어) 란 무엇 인가요?](../role-based-access-control/overview.md) 및 [azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 추가 또는 제거](../role-based-access-control/role-assignments-portal.md) 를 참조 하세요.
 

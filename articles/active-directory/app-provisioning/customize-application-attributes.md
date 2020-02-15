@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cf1515bcf2223ae730a47f7105d51206ba638cd7
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161616"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207199"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -300,7 +300,7 @@ PhoneNumbers 및 전자 메일 등의 특정 특성은 다양 한 형식의 전�
 
 ## <a name="restoring-the-default-attributes-and-attribute-mappings"></a>기본 특성 및 특성 매핑 복원
 
-기존 매핑을 다시 시작 하 고 기본 상태로 다시 설정 해야 하는 경우 **기본 매핑 복원** 확인란을 선택 하 고 구성을 저장할 수 있습니다. 이렇게 하면 응용 프로그램이 응용 프로그램 갤러리에서 Azure AD 테 넌 트에 추가 된 것 처럼 모든 매핑을 설정 합니다.
+기존 매핑을 다시 시작 하 고 기본 상태로 다시 설정 해야 하는 경우 **기본 매핑 복원** 확인란을 선택 하 고 구성을 저장할 수 있습니다. 이렇게 하면 응용 프로그램이 응용 프로그램 갤러리에서 Azure AD 테 넌 트에 방금 추가 된 것 처럼 모든 매핑 및 범위 지정 필터가 설정 됩니다.
 
 이 옵션을 선택 하면 프로 비전 서비스가 실행 되는 동안 모든 사용자를 다시 동기화 하는 것이 효과적입니다.
 

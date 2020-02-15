@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/15/2020
-ms.openlocfilehash: e4f27e582e6b920e9de068fe2c3270af19ad8a17
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: fc69761a05ea381d39d58d5ebf0046e0d9874961
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122416"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210468"
 ---
 # <a name="example-create-a-custom-skill-using-python"></a>예: Python을 사용 하 여 사용자 지정 기술 만들기
 
@@ -52,7 +52,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 1. Python 버전을 선택 합니다 (버전 3.7.5는 Azure Functions에서 지원 됨).
 1. 프로젝트의 첫 번째 함수에 사용할 템플릿을 선택 합니다. **Http 트리거** 를 선택 하 여 새 함수 앱에서 http 트리거 함수를 만듭니다.
 1. 함수 이름을 제공 합니다. 이 경우 **Concatenator** 을 사용 하겠습니다. 
-1. 권한 수준으로 **기능** 을 선택 합니다. 즉, 함수의 HTTP 끝점을 호출 하는 [함수 키](../azure-functions/functions-bindings-http-webhook.md#authorization-keys) 를 제공 합니다. 
+1. 권한 수준으로 **기능** 을 선택 합니다. 즉, 함수의 HTTP 끝점을 호출 하는 [함수 키](../azure-functions/functions-bindings-http-webhook-trigger.md#authorization-keys) 를 제공 합니다. 
 1. 프로젝트를 열 방법을 선택 합니다. 이 단계에서는 **작업 영역에 추가** 를 선택 하 여 현재 작업 영역에서 함수 앱을 만듭니다.
 
 Visual Studio Code는 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../azure-functions/functions-host-json.md) 및 [local.settings.json](../azure-functions/functions-run-local.md#local-settings-file) 구성 파일과 언어별 프로젝트 파일이 포함됩니다. 

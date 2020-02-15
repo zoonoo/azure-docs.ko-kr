@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b142d3561e7d05b9afaeab9768b6b50a33ef28ce
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 7595ef1b8742c2ba18a262d5afc5eea1b4d7a15c
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158165"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251620"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -246,7 +246,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 > 이러한 기능은 현재 개발 중입니다.
 >
 
-### <a name="group-administratorgroup-administrator-permissions"></a>[그룹 관리자](#group-administrator-permissions)
+### <a name="groups-administratorgroups-administrator-permissions"></a>[그룹 관리자](#groups-administrator-permissions)
 
 이 역할의 사용자는 이름 및 만료 정책 같은 그룹 및 설정을 만들고 관리할 수 있습니다. 이 역할에 사용자를 할당 하면 팀, SharePoint, Yammer와 같은 다양 한 워크 로드에서 Outlook 외에도 테 넌 트의 모든 그룹을 관리 하는 기능을 이해 하는 것이 중요 합니다. 또한 사용자는 Microsoft 관리 센터, Azure Portal 등의 다양 한 관리 포털에서 다양 한 그룹 설정을 관리할 수 있을 뿐만 아니라 팀 및 SharePoint 관리 센터와 같은 워크 로드 관련 작업을 관리할 수도 있습니다.
 
@@ -1081,7 +1081,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.office365.usageReports/allEntities/read | Office 365 사용 보고서를 읽습니다. |
 | office365/allEntities/표준/읽기   | Office365 포털의 모든 리소스에 대 한 표준 속성을 읽습니다. |
 
-### <a name="group-administrator-permissions"></a>그룹 관리자 권한
+### <a name="groups-administrator-permissions"></a>그룹 관리자 권한
 는 그룹의 모든 측면을 관리 하 고 이름 및 만료 정책 같은 그룹 설정을 관리할 수 있습니다.
 
 | **actions** | **설명** |

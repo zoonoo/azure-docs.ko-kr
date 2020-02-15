@@ -3,12 +3,12 @@ title: 템플릿 함수-리소스
 description: Azure Resource Manager 템플릿에서 리소스에 대한 값을 검색하는 데 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cc8976b714549f7442e22b341b34e81d717c8742
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 10476f5a29c12d7437beb9a9f707feda815d7ba1
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120533"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207011"
 ---
 # <a name="resource-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿용 리소스 함수
 
@@ -124,7 +124,7 @@ list{Value}(resourceName or resourceIdentifier, apiVersion, functionValues)
 
 ### <a name="valid-uses"></a>유효한 용도
 
-목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](create-multiple-instances.md#property-iteration)에 사용 되는 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 개수를 결정 해야 하므로 `count`와 함께 사용할 수 없습니다.
+목록 함수는 템플릿 또는 배포의 리소스 정의 및 출력 섹션의 속성에만 사용할 수 있습니다. [속성 반복](copy-properties.md)에 사용 되는 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 목록 함수를 사용할 수 있습니다. 목록 함수가 확인 되기 전에 개수를 결정 해야 하므로 `count`와 함께 사용할 수 없습니다.
 
 ### <a name="implementations"></a>구현
 
@@ -496,7 +496,7 @@ reference(resourceName or resourceIdentifier, [apiVersion], ['Full'])
 
 ### <a name="valid-uses"></a>유효한 용도
 
-참조 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복](create-multiple-instances.md#property-iteration)에 사용 되는 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 참조 함수를 사용할 수 있습니다. 참조 함수가 확인 되기 전에 개수를 결정 해야 하므로 `count`와 함께 사용할 수 없습니다.
+참조 함수는 리소스 정의의 속성과 템플릿 또는 배포의 출력 섹션에서만 사용할 수 있습니다. [속성 반복](copy-properties.md)에 사용 되는 경우 식이 리소스 속성에 할당 되기 때문에 `input`에 대 한 참조 함수를 사용할 수 있습니다. 참조 함수가 확인 되기 전에 개수를 결정 해야 하므로 `count`와 함께 사용할 수 없습니다.
 
 중첩 된 템플릿의 출력에는 reference 함수를 [사용 하 여](linked-templates.md#nested-template) 중첩 된 템플릿에 배포한 리소스를 반환할 수 없습니다. 대신, [연결 된 템플릿을](linked-templates.md#linked-template)사용 합니다.
 
@@ -758,7 +758,7 @@ resourceId([subscriptionId], [resourceGroupName], resourceType, resourceName1, [
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. |
+| subscriptionId |예 |문자열(GUID 형식) |기본값은 현재 구독입니다. 다른 구독에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹 또는 구독의 범위에서 배포 하는 경우에만이 값을 제공 합니다. |
 | resourceGroupName |예 |문자열 |기본값은 현재 리소스 그룹입니다. 다른 리소스 그룹에서 리소스를 검색해야 하는 경우 이 값을 지정합니다. 리소스 그룹의 범위에 배포 하는 경우에만이 값을 제공 합니다. |
 | resourceType |yes |문자열 |리소스 공급자 네임스페이스를 포함하는 리소스 유형입니다. |
 | resourceName1 |yes |문자열 |리소스의 이름입니다. |
@@ -1064,6 +1064,6 @@ tenantResourceId(resourceType, resourceName1, [resourceName2], ...)
 
 * Azure Resource Manager 템플릿의 섹션에 대한 설명은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
 * 여러 템플릿을 병합하려면 [Azure Resource Manager에서 연결된 템플릿 사용](linked-templates.md)을 참조하세요.
-* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](create-multiple-instances.md)를 참조하세요.
+* 리소스 유형을 만들 때 지정된 횟수만큼 반복하려면 [Azure 리소스 관리자에서 리소스의 여러 인스턴스 만들기](copy-resources.md)를 참조하세요.
 * 만든 템플릿을 배포하는 방법을 보려면 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

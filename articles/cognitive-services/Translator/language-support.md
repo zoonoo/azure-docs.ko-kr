@@ -10,12 +10,12 @@ ms.subservice: translator-text
 ms.topic: reference
 ms.date: 02/10/2020
 ms.author: swmachan
-ms.openlocfilehash: ec5c1295f883bb37ad5f016bc3346c134863e6bd
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a4f9833e8dd14dc7c8ec5849cb809bf2089a5dae
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118820"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77206126"
 ---
 # <a name="language-and-region-support-for-the-translator-text-api"></a>Translator Text API에 대한 언어 및 지역 지원
 
@@ -141,7 +141,7 @@ Translator Text API는 다음 언어로 텍스트를 번역하도록 지원합�
 | 세르비아어(라틴 문자) | `sr-Latn` | 라틴어 `Latn` | --> | 키릴 자모 `Cyrl`|
 | 타밀어 | `ta` | 타밀어 `Taml` | --> | 라틴어 `Latn` |
 | 텔루구어 | `te` | 텔루구어 `Telu` | --> | 라틴어 `Latn` |
-| 태국어 | `th` | 태국어 `Thai` | <--> | 라틴어 `Latn` |
+| 태국어 | `th` | 태국어 `Thai` | --> | 라틴어 `Latn` |
 
 ## <a name="dictionary"></a>Dictionary
 

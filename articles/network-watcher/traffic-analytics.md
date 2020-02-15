@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: eaa95906e20072e2914d1486568d7a6ebeb64f2c
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: a2a65c6fcca4a037408c6b7e780708623aebed2b
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114401"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212241"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -182,7 +182,7 @@ New-AzStorageAccount `
 
 1. *상태*에 대해 **켜기**를 선택합니다.
 2. **흐름 로그 버전**에 대해 *버전 2* 를 선택 합니다. 버전 2에는 흐름 세션 통계(바이트 및 패킷)가 포함됩니다.
-3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 저장소에 "Data Lake Storage Gen2 계층 구조 네임 스페이스 사용"이 true로 설정 되어 있지 않은지 확인 합니다. 또한 NSG 흐름 로그는 방화벽이 포함 된 저장소 계정에 저장할 수 없습니다. 
+3. 흐름 로그를 저장할 기존 스토리지 계정을 선택합니다. 데이터를 무기한 저장하려면 값을 *0*으로 설정합니다. 스토리지 계정에 대한 Azure Storage 요금이 발생합니다. 저장소에 "Data Lake Storage Gen2 계층 구조 네임 스페이스 사용"이 true로 설정 되어 있지 않은지 확인 합니다.
 4. **보존**을 데이터를 저장하려는 일 수로 설정합니다.
 > [!IMPORTANT]
 > 현재는 Network Watcher에 대한 [NSG(네트워크 보안 그룹) 흐름 로그](network-watcher-nsg-flow-logging-overview.md)가 보존 정책 설정에 따라 Blob 스토리지에서 자동으로 삭제되지 않는 문제가 있습니다. 0이 아닌 기존 보존 정책이 있는 경우 요금이 발생하지 않도록 보존 기간이 지난 스토리지 blob을 주기적으로 삭제하는 것이 좋습니다. NSG 흐름 로그 스토리지 blob을 삭제하는 방법에 대한 자세한 내용은 [NSG 흐름 로그 스토리지 blob 삭제](network-watcher-delete-nsg-flow-log-blobs.md)를 참조하세요.

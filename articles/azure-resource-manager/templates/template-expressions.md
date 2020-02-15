@@ -2,13 +2,13 @@
 title: 템플릿 구문 및 식
 description: Azure Resource Manager 템플릿에 대 한 선언적 JSON 구문을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 42649d4b04b03de32b82335fce68401192de75a3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 02/13/2020
+ms.openlocfilehash: 7bca3125f80225d2180734f483194a63e39d9cf5
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77120606"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77207403"
 ---
 # <a name="syntax-and-expressions-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구문 및 식
 
@@ -16,11 +16,9 @@ ms.locfileid: "77120606"
 
 템플릿 식은 24576 자를 초과할 수 없습니다.
 
-식은 json (' null ')을 지원 하 고 속성은 null의 리터럴 값을 지원 합니다. 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
-
 ## <a name="use-functions"></a>함수 사용
 
-다음 예에서는 매개 변수의 기본값을 나타내는 식을 보여 줍니다.
+Azure Resource Manager에서는 템플릿에서 사용할 수 있는 [함수](template-functions.md) 를 제공 합니다. 다음 예에서는 매개 변수의 기본값에서 함수를 사용 하는 식을 보여 줍니다.
 
 ```json
 "parameters": {
@@ -40,6 +38,12 @@ ms.locfileid: "77120606"
 ```json
 "name": "[concat('storage', uniqueString(resourceGroup().id))]"
 ```
+
+대부분의 함수는 리소스 그룹, 구독, 관리 그룹 또는 테 넌 트에 배포 되었는지 여부와 동일 하 게 작동 합니다. 다음 함수는 범위에 따라 제한이 있습니다.
+
+* [resourceGroup](template-functions-resource.md#resourcegroup) -리소스 그룹에 대 한 배포에만 사용할 수 있습니다.
+* [resourceId](template-functions-resource.md#resourceid) -모든 범위에서 사용할 수 있지만 유효한 매개 변수는 범위에 따라 변경 됩니다.
+* [구독](template-functions-resource.md#subscription) -리소스 그룹 또는 구독에 대 한 배포에만 사용할 수 있습니다.
 
 ## <a name="escape-characters"></a>이스케이프 문자
 
@@ -65,6 +69,15 @@ ms.locfileid: "77120606"
 "tags": {
     "CostCenter": "{\"Dept\":\"Finance\",\"Environment\":\"Production\"}"
 },
+```
+
+## <a name="null-values"></a>Null 값
+
+속성을 null로 설정 하려면 **null** 또는 **[json (' null ')]** 을 사용할 수 있습니다. `null`를 매개 변수로 제공 하면 [json 함수](template-functions-array.md#json) 는 빈 개체를 반환 합니다. 두 경우 모두 리소스 관리자 템플릿에서는 속성이 없는 것 처럼 처리 합니다.
+
+```json
+"stringValue": null,
+"objectValue": "[json('null')]"
 ```
 
 ## <a name="next-steps"></a>다음 단계

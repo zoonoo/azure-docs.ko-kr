@@ -6,19 +6,19 @@ ms.author: manishku
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 01/13/2020
-ms.openlocfilehash: 1d4153ac5e02d28d054034f33859332158d5a555
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 552c6b5176babfc1a66f74f1bb6daa9370744b8f
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162364"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210434"
 ---
 # <a name="azure-database-for-mysql-data-encryption-with-a-customer-managed-key"></a>고객 관리 키를 사용 하 여 데이터 암호화 Azure Database for MySQL
 
 > [!NOTE]
 > 지금은이 기능을 사용 하기 위해 액세스를 요청 해야 합니다. 이렇게 하려면 AskAzureDBforMySQL@service.microsoft.com에 문의 하세요.
 
-Azure Database for MySQL에 대 한 고객 관리 키를 사용 하 여 데이터 암호화를 통해 미사용 데이터 보호에 대 한 BYOK (qwn key)를 가져올 수 있습니다. 또한 조직이 키 및 데이터 관리에서 의무 분리를 구현할 수 있습니다. 고객 관리 암호화를 사용 하 여 키의 수명 주기, 키 사용 권한 및 키에 대 한 작업 감사를 모든 사용자에 게 책임 집니다.
+Azure Database for MySQL에 대 한 고객 관리 키를 사용 하 여 데이터 암호화를 통해 미사용 데이터 보호에 대 한 사용자 고유의 키 (BYOK)를 가져올 수 있습니다. 또한 조직이 키 및 데이터 관리에서 의무 분리를 구현할 수 있습니다. 고객 관리 암호화를 사용 하 여 키의 수명 주기, 키 사용 권한 및 키에 대 한 작업 감사를 모든 사용자에 게 책임 집니다.
 
 고객 관리 키를 사용 하 여 Azure Database for MySQL에 대 한 데이터 암호화는 서버 수준에서 설정 됩니다. 지정 된 서버에 대해 KEK (키 암호화 키) 라고 하는 고객 관리 키를 사용 하 여 서비스에서 사용 하는 DEK (데이터 암호화 키)를 암호화 합니다. KEK는 고객이 소유 하 고 고객이 관리 하는 [Azure Key Vault](../key-vault/key-Vault-secure-your-key-Vault.md) 인스턴스에 저장 되는 비대칭 키입니다. KEK (키 암호화 키) 및 DEK (데이터 암호화 키)는이 문서의 뒷부분에서 자세히 설명 합니다.
 
