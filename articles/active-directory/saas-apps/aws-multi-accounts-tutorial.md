@@ -16,12 +16,12 @@ ms.topic: article
 ms.date: 01/07/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cb528d71b94449b282947a487e4fc79b343df778
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: edd54352b1328c95ae2c3e466003b64eaa0fcfde
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195899"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368005"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-multiple-amazon-web-services-aws-accounts"></a>자습서: AWS(Amazon Web Services)와 여러 Azure Active Directory 계정 통합
 
@@ -42,7 +42,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 **다음과 같은 이유로 이 방법을 사용하지 않는 것이 좋습니다.**
 
-* Graph 탐색기 접근 방식을 사용하여 모든 역할을 앱에 패치해야 합니다. 매니페스트 파일 방식은 권장되지 않습니다.
+* Microsoft Graph 탐색기를 사용 하 여 모든 역할을 앱에 패치 해야 합니다. 매니페스트 파일 방식은 권장되지 않습니다.
 
 * 단일 AWS 앱에 대해 1,200가지 이내의 앱 역할을 추가한 후에 앱에서 작업을 수행하면 크기와 관련된 오류가 발생한다는 것을 보고하는 고객이 확인되었습니다. 애플리케이션 개체의 경우 하드 크기 제한이 있습니다.
 
@@ -50,7 +50,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * 모든 AWS 계정은 동일한 페더레이션 메타데이터 XML 파일을 사용하며, 인증서 롤오버 시 이러한 방대한 작업을 진행하여 모든 AWS 계정에서 인증서를 동시에 업데이트해야 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -139,13 +139,13 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 이름  | 원본 특성  | 네임스페이스 |
+    | 속성  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
     | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  https://aws.amazon.com/SAML/Attributes |
 
-    가. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
+    a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
     ![이미지](common/new-save-attribute.png)
 
@@ -153,7 +153,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
-    c. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
+    다. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
 
     d. 원본을 **특성**으로 선택합니다.
 
@@ -161,7 +161,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     f. **확인**을 클릭합니다.
 
-    g. **Save**를 클릭합니다.
+    g. **저장**을 클릭합니다.
 
 7. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **다운로드**를 클릭하여 **페더레이션 메타데이터 XML**을 컴퓨터에 다운로드하고 저장합니다.
 
@@ -187,11 +187,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 대화 상자 구성][14]
 
-    가. **공급자 유형**으로 **SAML**을 선택합니다.
+    a. **공급자 유형**으로 **SAML**을 선택합니다.
 
     b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
 
-    c. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
+    다. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
 
     d. **다음 단계**를 클릭합니다.
 
@@ -207,11 +207,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 트러스트 구성][19]
 
-    가. **신뢰할 수 있는 엔터티 유형 선택**에서 **SAML 2.0 페더레이션**을 선택합니다.
+    a. **신뢰할 수 있는 엔터티 유형 선택**에서 **SAML 2.0 페더레이션**을 선택합니다.
 
     b. **SAML 2.0 공급자 선택**에서 이전에 만든 **SAML 공급자**를 선택합니다(예: *WAAD*).
 
-    c. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
+    다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
     d. **다음: 권한**을 클릭합니다.
 
@@ -223,11 +223,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Single Sign-On 검토 구성][34]
 
-    가. **역할 이름** 텍스트 상자에 역할 이름을 입력합니다.
+    a. **역할 이름** 텍스트 상자에 역할 이름을 입력합니다.
 
     b. **역할 설명** 텍스트 상자에 설명을 입력합니다.
 
-    c. **역할 만들기**를 클릭합니다.
+    다. **역할 만들기**를 클릭합니다.
 
     d. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 
@@ -247,15 +247,15 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 16. 모든 계정의 모든 역할에 대해 위의 단계를 수행하고 메모장에 모든 항목을 **역할 ARN, 신뢰할 수 있는 엔터티** 형식으로 저장합니다.
 
-17. 또 다른 창에서 [Azure AD Graph Explorer](https://developer.microsoft.com/graph/graph-explorer)를 엽니다.
+17. 다른 창에서 [Microsoft Graph 탐색기](https://developer.microsoft.com/graph/graph-explorer) 를 엽니다.
 
-    가. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
+    a. 테넌트의 전역 관리자/공동 관리자 자격 증명을 사용하여 Graph Explorer 사이트에 로그인합니다.
 
     b. 역할을 만들 수 있는 권한이 필요합니다. **권한 수정**을 클릭하여 필요한 권한을 얻을 수 있습니다.
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
+    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
@@ -271,7 +271,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     f. 가져온 서비스 사용자 목록에서 수정할 서비스 사용자를 가져옵니다. Ctrl+F를 사용하여 나열된 모든 ServicePrincipals에서 애플리케이션을 검색할 수도 있습니다. Azure AD 속성 페이지에서 복사한 **개체 ID**를 사용하여 다음 쿼리를 통해 해당하는 서비스 사용자로 이동할 수 있습니다.
 
-    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`.
+    `https://graph.microsoft.com/beta/servicePrincipals/<objectID>`입니다.
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new2.png)
 
@@ -281,7 +281,7 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     h. 이제 애플리케이션에 대한 새 역할을 생성해야 합니다. 
 
-    i 다음 JSON은 appRoles 개체의 예입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
+    i. 다음 JSON은 appRoles 개체의 예입니다. 애플리케이션에 역할을 추가할 유사한 개체를 만듭니다.
 
     ```
     {
@@ -325,9 +325,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
     > [!Note]
     > 패치 작업에 대한 **msiam_access** 다음에만 새 역할을 추가할 수 있습니다. 또한 조직 요구에 따라 원하는 만큼의 역할을 추가할 수 있습니다. Azure AD는 SAML 응답의 클레임 값으로 이 역할의 **값**을 보냅니다.
 
-    j. Graph Explorer로 돌아가 메서드를 **GET**에서 **PATCH**로 변경합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 애플리케이션에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
+    j. Microsoft Graph 탐색기로 돌아가서 메서드를 **GET** 에서 **PATCH**로 변경 합니다. 위 예제의 것과 유사하게 appRoles 속성을 업데이트하여 원하는 역할을 갖도록 서비스 사용자 개체를 패치합니다. **쿼리 실행**을 클릭하여 패치 작업을 실행합니다. Amazon Web Services 애플리케이션에 대한 역할이 만들어졌음을 확인하는 성공 메시지가 표시됩니다.
 
-    ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
+    ![Microsoft Graph 탐색기 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new11.png)
 
 18. 서비스 사용자에 더 많은 역할이 패치되면 각 역할에 사용자/그룹을 할당할 수 있습니다. 이 작업을 수행하려면 포털로 이동한 후 Amazon Web Services 애플리케이션으로 이동합니다. 맨 위에서 **사용자 및 그룹** 탭을 클릭합니다.
 
@@ -363,7 +363,7 @@ SAML 응답에서도 클레임으로 전달된 역할을 확인할 수 있습니
 
 ## <a name="additional-resources"></a>추가 리소스
 
-* [MS Graph Api를 사용 하 여 프로 비전을 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
+* [Microsoft Graph Api를 사용 하 여 프로 비전을 구성 하는 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/application-provisioning-configure-api)
 * [Azure Active Directory와 SaaS Apps를 통합하는 방법에 대한 자습서 목록](tutorial-list.md)
 * [Azure Active Directory로 애플리케이션 액세스 및 Single Sign-On을 구현하는 방법](../manage-apps/what-is-single-sign-on.md)
 

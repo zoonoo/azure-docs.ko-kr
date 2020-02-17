@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: helohr
-ms.openlocfilehash: c201df03bb156bac3f63d03cc4ca35215792f65c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f38fc45411c89351eb9a50a48f22d22905ee34e6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061524"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367255"
 ---
 # <a name="scale-session-hosts-using-azure-automation"></a>Azure Automation를 사용 하 여 세션 호스트 크기 조정
 
@@ -35,7 +35,7 @@ Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비�
 최대 사용 시간 동안 작업은 현재 세션 수와 각 호스트 풀에 대해 현재 실행 중인 세션 호스트의 VM 용량을 확인 합니다. 이 정보를 사용 하 여 실행 중인 세션 호스트 Vm이 **createazurelogicapp** 파일에 대해 정의 된 *SessionThresholdPerCPU* 매개 변수를 기반으로 기존 세션을 지원할 수 있는지 여부를 계산 합니다. 세션 호스트 Vm에서 기존 세션을 지원할 수 없는 경우 작업은 호스트 풀에서 추가 세션 호스트 Vm을 시작 합니다.
 
 >[!NOTE]
->*SessionThresholdPerCPU* 는 VM의 세션 수를 제한 하지 않습니다. 이 매개 변수는 연결의 부하를 분산 하기 위해 새 Vm을 시작 해야 하는 경우에만 결정 합니다. 세션 수를 제한 하려면 *MaxSessionLimit* 매개 변수를 적절 하 게 구성 하는 명령 [집합 RdsHostPool](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/set-rdshostpool) 을 따라야 합니다.
+>*SessionThresholdPerCPU* 는 VM의 세션 수를 제한 하지 않습니다. 이 매개 변수는 연결의 부하를 분산 하기 위해 새 Vm을 시작 해야 하는 경우에만 결정 합니다. 세션 수를 제한 하려면 *MaxSessionLimit* 매개 변수를 적절 하 게 구성 하는 명령 [집합 RdsHostPool](/powershell/module/windowsvirtualdesktop/set-rdshostpool/) 을 따라야 합니다.
 
 사용량이 많지 않은 사용 시간 동안 작업은 사용 시간을 결정 *하는 데* 사용 되는 세션 호스트 vm을 결정 합니다. 작업은 세션 호스트 Vm을 드레이닝 모드로 설정 하 여 호스트에 연결 하는 새 세션을 방지 합니다. *LimitSecondsToForceLogOffUser* 매개 변수를 0이 아닌 값으로 설정 하는 경우 스크립트는 현재 로그인 한 사용자에 게 작업을 저장 하 라고 알리고 구성 된 시간 동안 기다린 다음 사용자가 로그 아웃 하도록 합니다. 세션 호스트 VM의 모든 사용자 세션이 로그 아웃 되 면 스크립트는 VM을 종료 합니다.
 
@@ -51,7 +51,7 @@ Vm (가상 머신)을 확장 하 여 총 Windows 가상 데스크톱 배포 비�
 >[!NOTE]
 >크기 조정 도구는 크기를 조정 하는 호스트 풀의 부하 분산 모드를 제어 합니다. 이는 최고 및 사용률이 낮은 시간에 대해 너비 우선 부하 분산으로 설정 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 크기 조정 도구를 설정 하기 전에 다음 항목을 준비 해야 합니다.
 
@@ -126,7 +126,7 @@ Azure 계정에서 실행 계정을 만들려면 다음을 수행 합니다.
 
 다음으로 AzureRunAsConnection가 Windows 가상 데스크톱과 상호 작용할 수 있도록 역할 할당을 만들어야 합니다. PowerShell을 사용 하 여 역할 할당을 만들 수 있는 권한이 있는 계정으로 로그인 해야 합니다.
 
-먼저 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 을 다운로드 하 고 가져옵니다 (아직 없는 경우). 다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 테넌트를 표시합니다.
+먼저 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](/powershell/windows-virtual-desktop/overview/) 을 다운로드 하 고 가져옵니다 (아직 없는 경우). 다음 PowerShell cmdlet을 실행하여 Windows Virtual Desktop에 연결하고 테넌트를 표시합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

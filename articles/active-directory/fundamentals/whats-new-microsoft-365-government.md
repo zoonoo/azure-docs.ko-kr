@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 75e7c6809810a78c81348bd4bbeb808e103f453f
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73805276"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367953"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Microsoft 365 정부에서 Azure Active Directory의 새로운 기능
 
@@ -51,11 +51,10 @@ Microsoft 365 정부 온라인 서비스에 대 한 조직의 초기 등록 중�
 
 다음 표에서는 모든 고객에 대 한 끝점을 보여 줍니다.
 
-| 이름 | 끝점 세부 정보 |
+| 속성 | 끝점 세부 정보 |
 |------|------------------|
 | 포털 |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 정부 – GCC High: https://portal.office365.us<p>Microsoft 365 정부 – DoD: https://portal.apps.mil |
 | Azure Active Directory 기관 끝점 | https://login.microsoftonline.us |
-| Azure Active Directory Graph API | https://graph.windows.net |
 | Microsoft 365 정부에 대 한 Microsoft Graph API-GCC High | https://graph.microsoft.us |
 | Microsoft 365 정부용 Microsoft Graph API-DoD | https://dod-graph.microsoft.us |
 | Azure Government services 끝점 | 자세한 내용은 [Azure Government 개발자 가이드](https://docs.microsoft.com/azure/azure-government/documentation-government-developer-guide) 를 참조 하세요. |

@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: dd95bde74b77686c0971c41a8c3f262f73107b61
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: c5418f8c5e759ad0e5c388e0925fa724fe148797
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169218"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368518"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 Azure Event Hubs [는 azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 Azure Active Directory (azure AD) 인증을 지원 합니다. Azure 리소스에 대 한 관리 id는 azure Virtual Machines (Vm), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다 Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.
@@ -137,6 +137,9 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 ```
 ---
 
+## <a name="event-hubs-for-kafka"></a>Kafka용 Event Hubs
+Apache Kafka 응용 프로그램을 사용 하 여 관리 되는 id OAuth를 통해 Azure Event Hubs에서 메시지를 보내고 받을 수 있습니다. GitHub의 다음 샘플을 참조 하세요. [Kafka에 대 한 Event Hubs-관리 Id OAuth를 사용 하 여 메시지를 보내고 받습니다](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
+
 ## <a name="samples"></a>샘플
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
@@ -144,6 +147,7 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.
+- [Kafka에 대 한 Event Hubs-관리 id OAuth를 사용 하 여 메시지 보내기 및 받기](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 
 
 ## <a name="next-steps"></a>다음 단계

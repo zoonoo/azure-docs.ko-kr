@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: e9410ce93d9e11d3023f4f461f3ba90a7bf74507
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451323"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367193"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
@@ -24,21 +24,21 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 ## <a name="azure-platform-details"></a>Azure 플랫폼 세부 정보
 
-|기능|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
-|지역별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
-|중복성|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
-|계층 및 성능|Standard<br>프리미엄<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>프리미엄<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
-|용량 중심|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
+|국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
+|중복|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
+|계층 및 성능|Standard<br>Premium<br>약 3 밀리초 대기 시간에 공유 당 5gbps와 공유 당 최대 10만 IOPS|Standard<br>Premium<br>매우<br>최대 320k (16K) IOPS (볼륨 당 4.5 GBps, 약 1 밀리초 대기 시간)|표준 HDD: 최대 500 IOPS 디스크당 제한<br>표준 SSD: 디스크당 최대 4k IOPS 제한<br>프리미엄 SSD: 디스크당 최대 20k IOPS 제한<br>스토리지 공간 다이렉트 프리미엄 디스크를 권장 합니다.|
+|용량|100 공유 당 TiB|볼륨당 100 TiB, 구독 당 최대 12.5 PiB|디스크당 최대 32 TiB|
 |필수 인프라|최소 공유 크기 1 GiB|최소 용량 풀 4 TiB, 최소 볼륨 크기 100 GiB|Azure IaaS의 두 Vm (+ 클라우드 감시) 또는 디스크에 대 한 비용 없이 3 개 이상의 Vm|
 |프로토콜|SMB 2.1/3. 및 REST|NFSv3, NFSv 4.1 (preview), SMB 3.x/2.x|NFSv3, NFSv 4.1, SMB 3.1|
 
 ## <a name="azure-management-details"></a>Azure 관리 세부 정보
 
-|기능|Azure Files|Azure NetApp Files|Storage Spaces Direct|
+|기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
-|액세스|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
+|액세스 권한|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
 |Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
 |Azure Active Directory 통합|Azure Active Directory 및 Azure Active Directory Domain Services|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
@@ -53,6 +53,6 @@ FSLogix 프로필 컨테이너, 사용자 프로필 디스크 및 기타 사용�
 
 - [Windows 가상 데스크톱의 Azure Files에서 FSLogix 프로필 컨테이너 시작](https://techcommunity.microsoft.com/t5/Windows-IT-Pro-Blog/Getting-started-with-FSLogix-profile-containers-on-Azure-Files/ba-p/746477)
 - [Azure NetApp 파일을 사용 하 여 호스트 풀의 FSLogix 프로필 컨테이너 만들기](create-fslogix-profile-container.md)
-- [Azure에서 UPD 저장소에 대 한 2 노드 스토리지 공간 다이렉트 스케일 아웃 파일 서버 배포](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment) 의 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용 하는 경우에도 적용 됩니다.
+- [Azure에서 UPD 저장소에 대 한 2 노드 스토리지 공간 다이렉트 스케일 아웃 파일 서버 배포](/windows-server/remote/remote-desktop-services/rds-storage-spaces-direct-deployment/) 의 지침은 사용자 프로필 디스크 대신 FSLogix 프로필 컨테이너를 사용 하는 경우에도 적용 됩니다.
 
 [Windows 가상 데스크톱에서 테 넌 트 만들기](tenant-setup-azure-active-directory.md)에서 처음부터 시작 하 여 고유한 Windows 가상 데스크톱 솔루션을 설정할 수도 있습니다.

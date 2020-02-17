@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/14/2020
 ms.author: mlearned
-ms.openlocfilehash: bbfb65c31bf6fd46cc18c9eee66086afbbff1d5f
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 20cef402a81ef348d4492daf05e6b16a8d9f709f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157977"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365181"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 
@@ -453,6 +453,61 @@ Events:
 
 이 taint가 적용 된 pod만 *gpunodepool*의 노드에서 예약할 수 있습니다. 다른 pod는 *nodepool1* 노드 풀에서 예약 됩니다. 추가 노드 풀을 만드는 경우 추가 taints 및 tolerations를 사용 하 여 해당 노드 리소스에서 예약할 수 있는 pod를 제한할 수 있습니다.
 
+## <a name="specify-a-tag-for-a-node-pool"></a>노드 풀의 태그 지정
+
+AKS 클러스터의 노드 풀에 Azure 태그를 적용할 수 있습니다. 노드 풀에 적용 되는 태그는 노드 풀 내의 각 노드에 적용 되며 업그레이드를 통해 유지 됩니다. 또한 확장 작업 중에 노드 풀에 추가 된 새 노드에 태그가 적용 됩니다. 태그를 추가 하면 정책 추적 또는 비용 예측과 같은 작업에 도움이 될 수 있습니다.
+
+> [!IMPORTANT]
+> 노드 풀 태그를 사용 하려면 *aks-preview* CLI extension version 0.4.29 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+> 
+> ```azurecli-interactive
+> # Install the aks-preview extension
+> az extension add --name aks-preview
+> 
+> # Update the extension to make sure you have the latest version installed
+> az extension update --name aks-preview
+> ```
+
+[Az aks node pool add][az-aks-nodepool-add]를 사용 하 여 노드 풀을 만듭니다. *Tagnodepool* 이름을 지정 하 고 `--tag` 매개 변수를 사용 하 여 *부서 = IT* 및 *costcenter = 9999* 를 태그에 지정 합니다.
+
+```azurecli-interactive
+az aks nodepool add \
+    --resource-group myResourceGroup \
+    --cluster-name myAKSCluster \
+    --name tagnodepool \
+    --node-count 1 \
+    --tags dept=IT costcenter=9999 \
+    --no-wait
+```
+
+> [!NOTE]
+> [Az aks nodepool update][az-aks-nodepool-update] 명령을 사용 하는 경우와 클러스터를 만드는 동안에도 `--tags` 매개 변수를 사용할 수 있습니다. 클러스터를 만드는 동안 `--tags` 매개 변수는 클러스터를 사용 하 여 만든 초기 노드 풀에 태그를 적용 합니다. 모든 태그 이름은 [Azure 리소스를 구성 하는 데 사용 하는 태그][tag-limitation]의 제한 사항을 준수 해야 합니다. `--tags` 매개 변수를 사용 하 여 노드 풀을 업데이트 하면 기존 태그 값이 업데이트 되 고 새 태그가 추가 됩니다. 예를 들어 노드 풀에 태그에 대 한 *dept = IT* 및 *costcenter = 9999* 가 있고 태그에 대해 *team = dev* 및 *costcenter = 111* 로 업데이트 한 경우 nodepool에는 *dept = it*, *costcenter = 111*및 *team = dev* for tags가 있습니다.
+
+[Az aks nodepool list][az-aks-nodepool-list] 명령의 다음 예제 출력에서는 *taggednodepool* 가 지정 된 *태그*를 사용 하 여 노드를 *생성* 하 고 있음을 보여 줍니다.
+
+```console
+$ az aks nodepool list -g myResourceGroup --cluster-name myAKSCluster
+
+[
+  {
+    ...
+    "count": 1,
+    ...
+    "name": "tagnodepool",
+    "orchestratorVersion": "1.15.7",
+    ...
+    "provisioningState": "Creating",
+    ...
+    "tags": {
+      "dept": "IT",
+      "costcenter": "9999"
+    },
+    ...
+  },
+ ...
+]
+```
+
 ## <a name="manage-node-pools-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 노드 풀 관리
 
 Azure Resource Manager 템플릿을 사용 하 여 리소스를 만들고 관리 하는 경우 일반적으로 템플릿에서 설정을 업데이트 하 고 다시 배포 하 여 리소스를 업데이트할 수 있습니다. AKS의 노드 풀을 사용 하면 AKS 클러스터가 생성 된 후 초기 노드 풀 프로필을 업데이트할 수 없습니다. 이 동작은 기존 리소스 관리자 템플릿을 업데이트 하 고, 노드 풀을 변경 하 고, 다시 배포할 수 없음을 의미 합니다. 대신, 기존 AKS 클러스터에 대 한 노드 풀만 업데이트 하는 별도의 리소스 관리자 템플릿을 만들어야 합니다.
@@ -603,21 +658,25 @@ Windows Server 컨테이너 노드 풀을 만들고 사용 하려면 [AKS에서 
 [kubectl-describe]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#describe
 
 <!-- INTERNAL LINKS -->
-[quotas-skus-regions]: quotas-skus-regions.md
-[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
-[az-group-create]: /cli/azure/group#az-group-create
-[az-aks-create]: /cli/azure/aks#az-aks-create
-[az-aks-nodepool-add]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-add
-[az-aks-nodepool-list]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-list
-[az-aks-nodepool-upgrade]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-upgrade
-[az-aks-nodepool-scale]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-scale
-[az-aks-nodepool-delete]: /cli/azure/ext/aks-preview/aks/nodepool#ext-aks-preview-az-aks-nodepool-delete
-[vm-sizes]: ../virtual-machines/linux/sizes.md
-[taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
-[gpu-cluster]: gpu-cluster.md
-[az-group-delete]: /cli/azure/group#az-group-delete
-[install-azure-cli]: /cli/azure/install-azure-cli
-[supported-versions]: supported-kubernetes-versions.md
-[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
 [aks-windows]: windows-container-cli.md
+[az-aks-get-credentials]: /cli/azure/aks#az-aks-get-credentials
+[az-aks-create]: /cli/azure/aks#az-aks-create
+[az-aks-nodepool-add]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-add
+[az-aks-nodepool-list]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-list
+[az-aks-nodepool-update]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-update
+[az-aks-nodepool-upgrade]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-upgrade
+[az-aks-nodepool-scale]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-scale
+[az-aks-nodepool-delete]: /cli/azure/aks/nodepool?view=azure-cli-latest#az-aks-nodepool-delete
+[az-extension-add]: /cli/azure/extension#az-extension-add
+[az-extension-update]: /cli/azure/extension#az-extension-update
+[az-group-create]: /cli/azure/group#az-group-create
+[az-group-delete]: /cli/azure/group#az-group-delete
 [az-group-deployment-create]: /cli/azure/group/deployment#az-group-deployment-create
+[gpu-cluster]: gpu-cluster.md
+[install-azure-cli]: /cli/azure/install-azure-cli
+[operator-best-practices-advanced-scheduler]: operator-best-practices-advanced-scheduler.md
+[quotas-skus-regions]: quotas-skus-regions.md
+[supported-versions]: supported-kubernetes-versions.md
+[tag-limitation]: ../azure-resource-manager/resource-group-using-tags.md
+[taints-tolerations]: operator-best-practices-advanced-scheduler.md#provide-dedicated-nodes-using-taints-and-tolerations
+[vm-sizes]: ../virtual-machines/linux/sizes.md

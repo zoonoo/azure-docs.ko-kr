@@ -1,6 +1,6 @@
 ---
-title: MS Graph Api를 사용 하 여 프로 비전 구성-Azure Active Directory | Microsoft Docs
-description: 응용 프로그램의 여러 인스턴스에 대해 프로 비전을 설정 해야 하나요? 자동 프로 비전 구성을 자동화 하기 위해 MS Graph Api를 사용 하 여 시간을 절약 하는 방법을 알아봅니다.
+title: Microsoft Graph Api를 사용 하 여 프로 비전 구성-Azure Active Directory | Microsoft Docs
+description: 응용 프로그램의 여러 인스턴스에 대해 프로 비전을 설정 해야 하나요? 자동 프로 비전 구성을 자동화 하기 위해 Microsoft Graph Api를 사용 하 여 시간을 절약 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -16,12 +16,12 @@ ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5f19f6e4add9bd677b05e09c627532a7a48354ce
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f5780227274e8f9574fcdfcd388d75e333cc3d42
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77067189"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367832"
 ---
 # <a name="configure-provisioning-using-microsoft-graph-apis"></a>Microsoft Graph Api를 사용 하 여 프로 비전 구성
 

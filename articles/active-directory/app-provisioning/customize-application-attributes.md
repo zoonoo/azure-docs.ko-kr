@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 842e5c4771fcac0b8011dda1df11c646bf8f070c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bfc5c24b1ba3d623e148e0da5b38a869d056996a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207199"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367812"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -112,7 +112,7 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 - Salesforce
 - ServiceNow
 - Workday
-- Azure Active Directory([Azure AD Graph API 기본 특성](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#user-entity) 및 사용자 지정 디렉터리 확장이 지원됩니다.)
+- Azure Active Directory ([Microsoft Graph REST API v 1.0 참조](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) 및 사용자 지정 디렉터리 확장이 지원 됨)
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
 
 > [!NOTE]
@@ -133,7 +133,7 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 - **다중 값 여부** -특성에서 다중 값을 지원 하는지 여부입니다.
 - **대소문자 구분 여부** -특성 값이 대/소문자 구분 방식으로 평가 되는지 여부입니다.
 - **API 식** -특정 프로 비전 커넥터 (예: Workday)에 대 한 설명서에서 작업을 수행 하도록 지시 하지 않는 한를 사용 하지 마세요.
-- 참조 된 **개체 특성** -참조 형식 특성인 경우이 메뉴에서 특성에 연결 된 값을 포함 하는 대상 응용 프로그램의 테이블 및 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정 된 응용 프로그램에 대해 지원 되는 참조 테이블 및 기본 ID 필드는 미리 구성 되어 있으며 현재 Azure Portal를 사용 하 여 편집할 수 없지만 [Graph API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용 하 여 편집할 수 있습니다.
+- 참조 된 **개체 특성** -참조 형식 특성인 경우이 메뉴에서 특성에 연결 된 값을 포함 하는 대상 응용 프로그램의 테이블 및 특성을 선택할 수 있습니다. 예를 들어 "Department"라는 특성의 저장된 값이 별도의 "Departments" 테이블에 있는 개체를 참조하는 경우 "Departments.Name"을 선택합니다. 지정 된 응용 프로그램에 대해 지원 되는 참조 테이블 및 기본 ID 필드는 미리 구성 되어 있으며 현재 Azure Portal를 사용 하 여 편집할 수 없지만 [MICROSOFT GRAPH API](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/synchronization-configure-with-custom-target-attributes)를 사용 하 여 편집할 수 있습니다.
 
 #### <a name="provisioning-a-custom-extension-attribute-to-a-scim-compliant-application"></a>SCIM 규격 응용 프로그램에 사용자 지정 확장 특성 프로 비전
 SCIM RFC는 핵심 사용자 및 그룹 스키마를 정의 하는 동시에 스키마를 확장 하 여 응용 프로그램의 요구를 충족할 수 있도록 합니다. SCIM 응용 프로그램에 사용자 지정 특성을 추가 하려면 다음을 수행 합니다.

@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: 30895af3e973fd5c9ae0de559df440f18cec1563
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: 23763123ce8e92b6bb15b2b33a196ed1a1d75c9f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74013140"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368804"
 ---
 # <a name="prepare-and-customize-a-master-vhd-image"></a>마스터 VHD 이미지 준비 및 사용자 지정
 
@@ -22,13 +22,13 @@ ms.locfileid: "74013140"
 
 Windows 10 Enterprise 다중 세션은 Azure 이미지 갤러리에서 사용할 수 있습니다. 이 이미지를 사용자 지정 하는 두 가지 옵션이 있습니다.
 
-첫 번째 옵션은 [관리 되는 이미지에서 Vm 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)의 지침에 따라 AZURE에서 vm (가상 머신)을 프로 비전 한 다음 [소프트웨어 준비 및 설치](set-up-customize-master-image.md#software-preparation-and-installation)로 건너뜁니다.
+첫 번째 옵션은 [관리 되는 이미지에서 Vm 만들기](../virtual-machines/windows/create-vm-generalized-managed.md)의 지침에 따라 AZURE에서 vm (가상 머신)을 프로 비전 한 다음 [소프트웨어 준비 및 설치](set-up-customize-master-image.md#software-preparation-and-installation)로 건너뜁니다.
 
 두 번째 옵션은 이미지를 다운로드 하 고, Hyper-v VM을 프로 비전 하 고, 요구 사항에 맞게 사용자 지정 하 여 로컬로 이미지를 만드는 것입니다 .이에 대해서는 다음 섹션에서 설명 합니다.
 
 ### <a name="local-image-creation"></a>로컬 이미지 만들기
 
-로컬 위치에 이미지를 다운로드 한 후 **Hyper-v 관리자** 를 열어 복사한 VHD를 사용 하 여 VM을 만듭니다. 다음 지침은 간단한 버전 이지만 [hyper-v에서 가상 컴퓨터 만들기](https://docs.microsoft.com/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v)에서 더 자세한 지침을 찾을 수 있습니다.
+로컬 위치에 이미지를 다운로드 한 후 **Hyper-v 관리자** 를 열어 복사한 VHD를 사용 하 여 VM을 만듭니다. 다음 지침은 간단한 버전 이지만 [hyper-v에서 가상 컴퓨터 만들기](/windows-server/virtualization/hyper-v/get-started/create-a-virtual-machine-in-hyper-v/)에서 더 자세한 지침을 찾을 수 있습니다.
 
 복사 된 VHD를 사용 하 여 VM을 만들려면 다음을 수행 합니다.
 
@@ -50,7 +50,7 @@ Set-VM -Name <VMNAME> -CheckpointType Disabled
 
 ### <a name="fixed-disk"></a>고정 디스크
 
-기존 VHD에서 VM을 만드는 경우 기본적으로 동적 디스크를 만듭니다. 다음 그림에 표시 된 것 처럼 **디스크 편집 ...** 을 선택 하 여 고정 디스크로 변경할 수 있습니다. 자세한 지침은 [Azure에 업로드할 WINDOWS VHD 또는 VHDX 준비](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image)를 참조 하세요.
+기존 VHD에서 VM을 만드는 경우 기본적으로 동적 디스크를 만듭니다. 다음 그림에 표시 된 것 처럼 **디스크 편집 ...** 을 선택 하 여 고정 디스크로 변경할 수 있습니다. 자세한 지침은 [Azure에 업로드할 WINDOWS VHD 또는 VHDX 준비](../virtual-machines/windows/prepare-for-upload-vhd-image.md)를 참조 하세요.
 
 ![디스크 편집 옵션의 스크린샷](media/35772414b5a0f81f06f54065561d1414.png)
 
@@ -70,7 +70,7 @@ VM에 Office 365 ProPlus 및 OneDrive를 설치 하는 경우 [마스터 VHD 이
 
 ### <a name="set-up-user-profile-container-fslogix"></a>사용자 프로필 컨테이너 설정 (FSLogix)
 
-FSLogix 컨테이너를 이미지의 일부로 포함 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)의 지침을 따르세요. [이 빠른](https://docs.microsoft.com/fslogix/configure-cloud-cache-tutorial)시작을 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다.
+FSLogix 컨테이너를 이미지의 일부로 포함 하려면 [파일 공유를 사용 하 여 호스트 풀에 대 한 프로필 컨테이너 만들기](create-host-pools-user-profile.md#configure-the-fslogix-profile-container)의 지침을 따르세요. [이 빠른](/fslogix/configure-cloud-cache-tutorial/)시작을 사용 하 여 FSLogix 컨테이너의 기능을 테스트할 수 있습니다.
 
 ### <a name="configure-windows-defender"></a>Windows Defender 구성
 
@@ -78,9 +78,9 @@ Windows Defender가 VM에 구성 된 경우 첨부 파일 중에 VHD 및 VHDX �
 
 이 구성은 첨부 파일 중에 VHD 및 VHDX 파일의 검색만 제거 하 고 실시간 검색에는 영향을 주지 않습니다.
 
-Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [Windows server에서 Windows Defender 바이러스 백신 제외 구성](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus)을 참조 하세요.
+Windows Server에서 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [Windows server에서 Windows Defender 바이러스 백신 제외 구성](/windows/security/threat-protection/windows-defender-antivirus/configure-server-exclusions-windows-defender-antivirus/)을 참조 하세요.
 
-검색에서 특정 파일을 제외 하도록 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [파일 확장명 및 폴더 위치에 따라 제외 구성 및 유효성 검사](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus)를 참조 하세요.
+검색에서 특정 파일을 제외 하도록 Windows Defender를 구성 하는 방법에 대 한 자세한 내용은 [파일 확장명 및 폴더 위치에 따라 제외 구성 및 유효성 검사](/windows/security/threat-protection/windows-defender-antivirus/configure-extension-file-exclusions-windows-defender-antivirus/)를 참조 하세요.
 
 ### <a name="disable-automatic-updates"></a>자동 업데이트 사용 안 함
 
@@ -137,9 +137,9 @@ reg add "HKCU\Software\Microsoft\Windows\CurrentVersion\StorageSense\Parameters\
 
 이 문서에서는 언어 및 국가별 지원을 구성 하는 방법에 대해 다루지 않습니다. 자세한 내용은 다음 문서를 참조하세요.
 
-- [Windows 이미지에 언어 추가](https://docs.microsoft.com/windows-hardware/manufacture/desktop/add-language-packs-to-windows)
-- [주문형 기능](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities)
-- [언어 및 지역 기능 (주문형)](https://docs.microsoft.com/windows-hardware/manufacture/desktop/features-on-demand-language-fod)
+- [Windows 이미지에 언어 추가](/windows-hardware/manufacture/desktop/add-language-packs-to-windows/)
+- [주문형 기능](/windows-hardware/manufacture/desktop/features-on-demand-v2--capabilities/)
+- [언어 및 지역 기능 (주문형)](/windows-hardware/manufacture/desktop/features-on-demand-language-fod/)
 
 ### <a name="other-applications-and-registry-configuration"></a>기타 응용 프로그램 및 레지스트리 구성
 
@@ -174,7 +174,7 @@ reg add "HKLM\SYSTEM\CurrentControlSet\Control\Terminal Server\WinStations\rdp-s
 
 ## <a name="prepare-the-image-for-upload-to-azure"></a>Azure에 업로드할 이미지 준비
 
-구성을 완료 하 고 모든 응용 프로그램을 설치한 후에 [는 WINDOWS VHD 또는 VHDX 준비를 Azure에 업로드](https://docs.microsoft.com/azure/virtual-machines/windows/prepare-for-upload-vhd-image) 하 여 이미지를 준비 하는 지침을 따르세요.
+구성을 완료 하 고 모든 응용 프로그램을 설치한 후에 [는 WINDOWS VHD 또는 VHDX 준비를 Azure에 업로드](../virtual-machines/windows/prepare-for-upload-vhd-image.md) 하 여 이미지를 준비 하는 지침을 따르세요.
 
 업로드할 이미지를 준비한 후 VM이 꺼짐 또는 할당 취소 상태로 유지 되는지 확인 합니다.
 

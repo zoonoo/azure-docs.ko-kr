@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: akjosh
 ms.reviewer: cynthn
-ms.openlocfilehash: b60a00828cfed8ef5d47704de2b2d7ede309ed6d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 5f4eca88614a98f0caf87d04847029328042edd8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276307"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368726"
 ---
 # <a name="create-and-use-shared-images-for-virtual-machine-scale-sets-with-the-azure-powershell"></a>Azure PowerShell을 사용하여 가상 머신 확장 세트용 공유 이미지 만들기 및 사용
 
@@ -130,7 +130,7 @@ $vmssConfig = New-AzVmssConfig `
 # Reference the image version
 Set-AzVmssStorageProfile $vmssConfig `
   -OsDiskCreateOption "FromImage" `
-  -Id $imageVersion.Id
+  -ImageReferenceId $imageVersion.Id
 
 # Complete the configuration
 Set-AzVmssOsProfile $vmssConfig `

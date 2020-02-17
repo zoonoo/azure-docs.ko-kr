@@ -4,15 +4,15 @@ description: Azure Cosmos DB 예약 용량을 구매하여 컴퓨팅 비용을 �
 author: timsander1
 ms.service: cosmos-db
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: tisande
 ms.reviewer: sngun
-ms.openlocfilehash: 17f6787cddf2800663d37b153b3e1b8cf33390f8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 8e29683b994d66e769a24bb2d386a2120cf8eab9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201182"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367657"
 ---
 # <a name="optimize-cost-with-reserved-capacity-in-azure-cosmos-db"></a>Azure Cosmos DB에서 예약된 용량을 활용해 비용 최적화
 
@@ -52,7 +52,7 @@ Azure Cosmos DB 예약 용량은 [Azure Portal](https://portal.azure.com)에서 
 
 ![예약 된 용량 권장 사항](./media/cosmos-db-reserved-capacity/reserved-capacity-recommendation.png)
 
-300만 o s/s 예약을 구매 하는이 권장 사항은 3 년간의 예약에서 300만 r u/초의 예약 크기를 절감 하는 것을 의미 합니다. 이 경우 권장 사항은 최근 30 일의 Azure Cosmos DB 사용량을 기준으로 계산 됩니다. 이 고객의 최근 30 일의 Azure Cosmos DB 사용이 향후 사용을 나타내는 것으로 예상 되는 경우 300만 r u/s 예약을 구매 하 여 절감 액을 극대화 합니다.
+3만 o s/s 예약을 구매 하는이 권장 사항은 3 년간의 예약에서 3만 r u/초의 예약 크기를 절감 하는 것을 의미 합니다. 이 경우 권장 사항은 최근 30 일의 Azure Cosmos DB 사용량을 기준으로 계산 됩니다. 이 고객의 최근 30 일의 Azure Cosmos DB 사용이 향후 사용을 나타내는 것으로 예상 되는 경우 3만 r u/s 예약을 구매 하 여 절감 액을 극대화 합니다.
 
 ## <a name="buy-azure-cosmos-db-reserved-capacity"></a>Azure Cosmos DB 예약 용량 구매
 

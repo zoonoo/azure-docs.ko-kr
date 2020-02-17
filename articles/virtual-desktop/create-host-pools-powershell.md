@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: f510879e7df967944f5e7a3deac308a430d53d0c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f9baaf6c39f85f82b034bee42f01cf3c0dd2a610
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771311"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367461"
 ---
 # <a name="create-a-host-pool-with-powershell"></a>PowerShell을 사용한 호스트 풀 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "75771311"
 
 ## <a name="use-your-powershell-client-to-create-a-host-pool"></a>PowerShell 클라이언트를 사용 하 여 호스트 풀 만들기
 
-먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 다운로드하고 가져오지 않은 경우).
+먼저 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 다운로드하고 가져오지 않은 경우).
 
 다음 cmdlet을 실행 하 여 Windows 가상 데스크톱 환경에 로그인 합니다.
 
@@ -60,9 +60,9 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 여러 가지 방법으로 가상 컴퓨터를 만들 수 있습니다.
 
-- [Azure 갤러리 이미지에서 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [관리 되는 이미지에서 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
-- [관리 되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
+- [Azure 갤러리 이미지에서 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [관리 되는 이미지에서 가상 머신 만들기](../virtual-machines/windows/create-vm-generalized-managed.md)
+- [관리 되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image.md)
 
 >[!NOTE]
 >Windows 7을 사용 하 여 호스트 OS로 가상 컴퓨터를 배포 하는 경우 만들기 및 배포 프로세스는 약간 다릅니다. 자세한 내용은 [Windows 가상 데스크톱에 windows 7 가상 컴퓨터 배포](deploy-windows-7-virtual-machine.md)를 참조 하세요.
@@ -78,7 +78,7 @@ $token = (Export-RdsRegistrationInfo -TenantName <tenantname> -HostPoolName <hos
 
 성공적으로 도메인에 가입 하려면 각 가상 머신에서 다음 작업을 수행 합니다.
 
-1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
+1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) 합니다.
 2. 가상 컴퓨터에서 **제어판** 을 시작 하 고 **시스템**을 선택 합니다.
 3. **컴퓨터 이름**을 선택 하 고 **설정 변경**을 선택한 다음 **변경 ...** 을 선택 합니다.
 4. **도메인** 을 선택 하 고 가상 네트워크에 Active Directory 도메인을 입력 합니다.
@@ -93,7 +93,7 @@ Windows 가상 데스크톱 호스트 풀에 가상 컴퓨터를 등록 하는 �
 
 Windows 가상 데스크톱 에이전트를 등록 하려면 각 가상 컴퓨터에서 다음을 수행 합니다.
 
-1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
+1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) 합니다.
 2. Windows 가상 데스크톱 에이전트를 다운로드 하 여 설치 합니다.
    - [Windows 가상 데스크톱 에이전트](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RWrmXv)를 다운로드 합니다.
    - 다운로드 한 설치 관리자를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택한 다음 **차단 해제**를 선택 하 고 **확인**을 선택 합니다. 그러면 시스템에서 설치 관리자를 신뢰할 수 있습니다.
@@ -104,7 +104,7 @@ Windows 가상 데스크톱 에이전트를 등록 하려면 각 가상 컴퓨�
    - 설치 관리자를 실행합니다.
 
 >[!IMPORTANT]
->Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](https://docs.microsoft.com/azure/security-center/security-center-just-in-time)를 사용하는 것이 좋습니다.
+>Azure에서 Windows Virtual Desktop 환경의 보안을 유지하도록 돕기 위해 VM에서 인바운드 포트 3389를 열지 않는 것이 좋습니다. Windows Virtual Desktop에서는 사용자가 인바운드 포트 3389를 열지 않아도 호스트 풀의 VM에 액세스할 수 있습니다. 문제 해결을 위해 포트 3389를 열어야 하는 경우 [Just-In-Time VM 액세스](../security-center/security-center-just-in-time.md)를 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

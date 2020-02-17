@@ -1,23 +1,24 @@
 ---
-title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 설치 Azure Monitor | Microsoft Docs
+title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 Azure Monitor 설정 | Microsoft Docs
 description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 10/16/2019
-ms.openlocfilehash: cf42eea99e437a76bb437b23f6eaffae1f1f3bc6
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/14/2019
+ms.openlocfilehash: 91f035b98a57fd9a37203cc48b3cc5d685967a13
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063767"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77251790"
 ---
-# <a name="how-to-setup-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
+# <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
 AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Monitor를 사용 하 여 라이브 데이터 (미리 보기)를 보려면 Kubernetes 데이터에 대 한 액세스 권한을 부여 하도록 인증을 구성 해야 합니다. 이 보안 구성을 통해 Azure Portal에서 직접 Kubernetes API를 통해 데이터에 실시간으로 액세스할 수 있습니다.
 
-이 기능은 로그, 이벤트 및 메트릭에 대 한 액세스를 제어 하는 세 가지 방법을 지원 합니다.
+이 기능은 로그, 이벤트 및 메트릭에 대 한 액세스를 제어 하는 다음 메서드를 지원 합니다.
 
 - Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS
 - Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
+    - 클러스터 역할 바인딩 **[ClusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)** 를 사용 하 여 구성 된 AKS
 - AD (Azure Active Directory) SAML 기반 single sign-on을 사용 하는 AKS
 
 이러한 지침을 사용 하려면 Kubernetes 클러스터에 대 한 관리 권한이 필요 하 고, 사용자 인증에 AD (Azure Active Directory)를 사용 하도록 구성 하는 경우 Azure AD에 대 한 관리 액세스 권한이 필요 합니다.  
@@ -45,11 +46,19 @@ Azure Portal은 Azure Active Directory 클러스터에 대 한 로그인 자격 
 >[!IMPORTANT]
 >이 기능의 사용자는 `kubeconfig`를 다운로드 하 고이 기능을 사용 하기 위해 클러스터에 대 한 [Azure Kubernetes 클러스터 사용자 역할이](../../azure/role-based-access-control/built-in-roles.md#azure-kubernetes-service-cluster-user-role permissions) 필요 합니다. 사용자는이 기능을 활용 하기 위해 클러스터에 대 한 참가자 액세스 권한이 필요 **하지 않습니다** . 
 
+## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>RBAC 사용 클러스터에서 clusterMonitoringUser 사용
+
+Kubernetes 사용자 **규칙 바인딩을 허용** 하기 위해 추가 구성 변경 사항을 적용할 필요가 없도록 하려면 RBAC 권한 부여를 [사용 하도록](#configure-kubernetes-rbac-authorization) 설정한 후 AKS에서 **clusterMonitoringUser**라는 새 Kubernetes 클러스터 역할 바인딩을 추가 했습니다. 이 클러스터 역할 바인딩에는 Kubernetes API 및 라이브 데이터 (미리 보기) 기능을 활용 하기 위한 끝점에 액세스 하는 데 필요한 모든 권한이 있습니다. 
+
+이 새 사용자와 함께 라이브 데이터 (미리 보기) 기능을 사용 하려면 AKS 클러스터 리소스에 대 한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원 이어야 합니다. 컨테이너의 Azure Monitor 사용 하도록 설정 된 경우 기본적으로이 사용자를 사용 하 여 인증 하도록 구성 됩니다. ClusterMonitoringUser 역할 바인딩이 클러스터에 존재 하지 않는 경우 대신 **Clusteruser** 가 인증에 사용 됩니다.
+
+AKS는 1 월 2020 일에이 새 역할 바인딩을 릴리스 했으므로 1 월 2020 일 이전에 만든 클러스터에는 포함 되지 않습니다. 2020 년 1 월 이전에 만든 클러스터가 있는 경우 클러스터에서 PUT 작업을 수행 하 여 새 **clusterMonitoringUser** 를 기존 클러스터에 추가 하거나 클러스터에서 다른 작업을 수행 하 여 클러스터에서 클러스터 버전을 업데이트 하는 등의 작업을 수행할 수 있습니다.
+
 ## <a name="kubernetes-cluster-without-rbac-enabled"></a>RBAC를 사용하도록 설정되지 않은 Kubernets 클러스터
 
 Kubernetes RBAC 인증으로 구성되지 않았거나 Azure AD Single Sign-On과 통합된 Kubernetes 클러스터가 있는 경우 다음 단계를 수행할 필요가 없습니다. 이는 기본적으로 RBAC가 아닌 구성에서 관리 권한을 갖고 있기 때문입니다.
 
-## <a name="configure-kubernetes-rbac-authentication"></a>Kubernetes RBAC 인증 구성
+## <a name="configure-kubernetes-rbac-authorization"></a>Kubernetes RBAC 권한 부여 구성
 
 Kubernetes RBAC 권한 부여를 사용 하도록 설정 하면 두 명의 사용자 ( **Clusteruser** 및 **Clusteruser** )가 Kubernetes API에 액세스 하는 데 사용 됩니다. 이는 관리 옵션 없이 `az aks get-credentials -n {cluster_name} -g {rg_name}`를 실행 하는 것과 비슷합니다. 즉, **Clusteruser** 에 Kubernetes API의 끝점에 대 한 액세스 권한을 부여 해야 합니다.
 
@@ -124,7 +133,7 @@ Kubernetes의 고급 보안 설정에 대 한 자세한 내용은 [Kubernetes �
 
 ## <a name="grant-permission"></a>사용 권한 부여
 
-라이브 데이터 (미리 보기) 기능에 액세스 하려면 각 Azure AD 계정에 Kubernetes의 적절 한 Api에 대 한 권한을 부여 해야 합니다. Azure Active Directory 계정을 부여 하는 단계는 [KUBERNETES RBAC 인증](#configure-kubernetes-rbac-authentication) 섹션에 설명 된 단계와 유사 합니다. Yaml 구성 템플릿을 클러스터에 적용 하기 전에 **Clusterrolebinding** 의 **clusteruser** 를 원하는 사용자로 바꿉니다. 
+라이브 데이터 (미리 보기) 기능에 액세스 하려면 각 Azure AD 계정에 Kubernetes의 적절 한 Api에 대 한 권한을 부여 해야 합니다. Azure Active Directory 계정을 부여 하는 단계는 [KUBERNETES RBAC 인증](#configure-kubernetes-rbac-authorization) 섹션에 설명 된 단계와 유사 합니다. Yaml 구성 템플릿을 클러스터에 적용 하기 전에 **Clusterrolebinding** 의 **clusteruser** 를 원하는 사용자로 바꿉니다. 
 
 >[!IMPORTANT]
 >RBAC 바인딩을 부여한 사용자가 동일한 Azure AD 테 넌 트에 있는 경우 userPrincipalName에 따라 사용 권한을 할당 합니다. 사용자가 다른 Azure AD 테 넌 트에 있는 경우를 쿼리하고 objectId 속성을 사용 합니다.

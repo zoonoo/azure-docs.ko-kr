@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 2a7d10f41e343f21e16b10f4bf7c79670824ec2c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: e55641457e1ed27928e6bf380701b646b672cae8
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115911"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368837"
 ---
 # <a name="deploy-a-management-tool-with-powershell"></a>PowerShell을 사용 하 여 관리 도구 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "77115911"
 관리 도구를 배포하기 전에 앱 등록을 만들고 관리 UI를 배포하는 Azure AD(Azure Active Directory) 사용자가 필요합니다. 이 사용자가 다음 조건을 충족해야 합니다.
 
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
-- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
+- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
 관리 도구를 성공적으로 배포 하 고 구성 하려면 먼저 [RDS 템플릿 GitHub](https://github.com/Azure/RDS-Templates/tree/master/wvd-templates/wvd-management-ux/deploy/scripts) 리포지토리에서 다음 PowerShell 스크립트를 다운로드 하 여 로컬 컴퓨터의 동일한 폴더에 저장 해야 합니다.
 

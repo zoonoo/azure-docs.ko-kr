@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 05/23/2019
 ms.author: helohr
-ms.openlocfilehash: c41a433ee19969546e1db2aa583c72ed166b7ebf
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: eee8fdf515861b43b58d5af111930e2224c9a60a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607471"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367227"
 ---
 # <a name="diagnose-graphics-performance-issues-in-remote-desktop"></a>원격 데스크톱의 그래픽 성능 문제 진단
 
@@ -69,15 +69,15 @@ ms.locfileid: "73607471"
 
 출력 프레임/초 카운터가 입력 프레임/초 카운터와 일치 하는 경우에도 여전히 이상한 지연 또는 상태일을 발견할 수 있습니다. 평균 인코딩 시간이 원인일 수 있습니다. 인코딩은 단일 세션 (vGPU) 시나리오의 서버와 다중 세션 시나리오의 VM에서 발생 하는 동기 프로세스입니다. 평균 인코딩 시간은 33 밀리초 미만 이어야 합니다. 평균 인코딩 시간이 33 밀리초 미만 이지만 여전히 성능 문제가 있는 경우 사용 중인 앱 또는 운영 체제에 문제가 있을 수 있습니다.
 
-앱 관련 문제를 진단 하는 방법에 대 한 자세한 내용은 [사용자 입력 지연 성능 카운터](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters)를 참조 하세요.
+앱 관련 문제를 진단 하는 방법에 대 한 자세한 내용은 [사용자 입력 지연 성능 카운터](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/)를 참조 하세요.
 
-RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대 30 개의 프레임 속도로 입력 프레임 속도를 지원 합니다. 33 밀리초는 지원 되는 최대 프레임 률입니다. 대부분의 경우 사용자가 경험 하는 프레임 비율은 원본에서 RDP에 프레임을 제공 하는 빈도에 따라 낮아집니다. 예를 들어 비디오 감시와 같은 작업을 수행 하려면 전체 입력 프레임 속도가 30 프레임/초 여야 하지만 문서를 자주 편집 하지 않는 등의 계산 집약적인 작업을 수행 하는 경우에는 사용자의 성능이 저하 되지 않고 입력 프레임/초에 대해 훨씬 더 낮은 값이 발생 합니다. 경험 품질.
+RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대 30 개의 프레임 속도로 입력 프레임 속도를 지원 합니다. 33 밀리초는 지원 되는 최대 프레임 률입니다. 대부분의 경우 사용자가 경험 하는 프레임 비율은 원본에서 RDP에 프레임을 제공 하는 빈도에 따라 낮아집니다. 예를 들어 비디오 감시와 같은 작업을 수행 하려면 전체 입력 프레임 속도가 30 프레임/초 이상 이어야 하지만 문서를 자주 편집 하는 것과 같은 계산 집약적인 작업을 수행 하는 작업은 사용자의 경험 품질 저하 없이 입력 프레임/초에 대해 훨씬 더 낮은 값을 반환 합니다.
 
 ### <a name="addressing-poor-frame-quality"></a>프레임 품질 저하 해결
 
 프레임 품질 카운터를 사용 하 여 프레임 품질 문제를 진단 합니다. 이 카운터는 출력 프레임의 품질을 원본 프레임의 품질에 대 한 백분율로 나타냅니다. 품질 손실은 RemoteFX 때문 이거나 그래픽 원본에 내재 될 수도 있습니다. RemoteFX가 품질 손실을 야기 하는 경우이 문제는 더 높은 품질의 콘텐츠를 전송 하기 위해 네트워크 또는 서버 리소스가 부족할 수 있습니다.
 
-## <a name="mitigation"></a>해결 방법
+## <a name="mitigation"></a>완화 방법
 
 서버 리소스에서 병목 현상이 발생 하는 경우 다음 방법 중 하나를 수행 하 여 성능을 향상 시킵니다.
 
@@ -101,6 +101,6 @@ RDP는 33 밀리초의 평균 인코딩 시간을 지원 하므로 초당 최대
 
 ## <a name="next-steps"></a>다음 단계
 
-- GPU에 최적화 된 Azure 가상 머신을 만들려면 [Windows 가상 데스크톱 환경에 대 한 gpu (그래픽 처리 장치) 가속 구성](https://docs.microsoft.com/azure/virtual-desktop/configure-vm-gpu)을 참조 하세요.
-- 문제 해결 및 에스컬레이션 트랙의 개요는 [문제 해결 개요, 사용자 의견 및 지원](https://docs.microsoft.com/azure/virtual-desktop/troubleshoot-set-up-overview)을 참조 하세요.
-- 서비스에 대 한 자세한 내용은 [Windows 데스크톱 환경](https://docs.microsoft.com/azure/virtual-desktop/environment-setup)을 참조 하세요.
+- GPU에 최적화 된 Azure 가상 머신을 만들려면 [Windows 가상 데스크톱 환경에 대 한 gpu (그래픽 처리 장치) 가속 구성](configure-vm-gpu.md)을 참조 하세요.
+- 문제 해결 및 에스컬레이션 트랙의 개요는 [문제 해결 개요, 사용자 의견 및 지원](troubleshoot-set-up-overview.md)을 참조 하세요.
+- 서비스에 대 한 자세한 내용은 [Windows 데스크톱 환경](environment-setup.md)을 참조 하세요.

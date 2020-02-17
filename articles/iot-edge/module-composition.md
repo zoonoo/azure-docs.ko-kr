@@ -8,12 +8,12 @@ ms.date: 05/28/2019
 ms.topic: conceptual
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: f50b7a53d739073ced7ea590a9a6da2eceb8bda1
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 8eb24fe878638853cd8519c08045552a91f0c190
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548648"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368565"
 ---
 # <a name="learn-how-to-deploy-modules-and-establish-routes-in-iot-edge"></a>IoT Edge에서 모듈을 배포하고 경로를 설정하는 방법 알아보기
 
@@ -184,7 +184,7 @@ FROM /messages/* WHERE NOT IS_DEFINED($connectionModuleId) INTO $upstream
 
 IoT Edge는 최소 한 번의 보장을 제공합니다. IoT Edge 허브는 라우트가 메시지를 싱크로 전달할 수 없는 경우 메시지를 로컬에 저장합니다. 예를 들어, IoT Edge 허브가 IoT 허브에 연결할 수 없거나 대상 모듈이 연결되어 있지 않은 경우입니다.
 
-IoT Edge 허브는 [IoT Edge 허브 선호 속성](module-edgeagent-edgehub.md) 중 `storeAndForwardConfiguration.timeToLiveSecs` 속성에 지정된 기간 동안 메시지를 저장합니다.
+IoT Edge 허브는 [IoT Edge hub desired 속성](module-edgeagent-edgehub.md)의 `storeAndForwardConfiguration.timeToLiveSecs` 속성에 지정 된 시간까지 메시지를 저장 합니다.
 
 ## <a name="define-or-update-desired-properties"></a>원하는 속성 정의 또는 업데이트
 
@@ -232,7 +232,7 @@ IoT Edge 허브는 [IoT Edge 허브 선호 속성](module-edgeagent-edgehub.md) 
             "restartPolicy": "always",
             "settings": {
               "image": "mcr.microsoft.com/azureiotedge-hub:1.0",
-              "createOptions": ""
+              "createOptions": "{\"HostConfig\":{\"PortBindings\":{\"443/tcp\":[{\"HostPort\":\"443\"}],\"5671/tcp\":[{\"HostPort\":\"5671\"}],\"8883/tcp\":[{\"HostPort\":\"8883\"}]}}}"
             }
           }
         },

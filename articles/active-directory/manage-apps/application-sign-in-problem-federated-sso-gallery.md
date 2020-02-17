@@ -16,12 +16,12 @@ ms.date: 02/18/2019
 ms.author: mimart
 ms.reviewer: luleon, asteen
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 97954123b6fc31dce09282c08c702438cd64c476
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 874d273e26a728afc0a1dc1a16852016797067ca
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159253"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367889"
 ---
 # <a name="problems-signing-in-to-a-gallery-application-configured-for-federated-single-sign-on"></a>페더레이션된 Single Sign-On에 대해 구성된 갤러리 애플리케이션에 로그인하는 문제
 
@@ -162,7 +162,7 @@ Azure AD에서는 Single Sign-On의 애플리케이션에서 보낸 SAML 요청�
 
 ## <a name="misconfigured-application"></a>잘못 구성 되는 응용 프로그램
 
-*오류 AADSTS650056: 잘못 구성 되었습니다. 클라이언트의 응용 프로그램 등록에서 요청 된 사용 권한의 ' AAD Graph '에 대 한 사용 권한이 클라이언트에 나열 되지 않았기 때문일 수 있습니다. 또는 관리자가 테 넌 트에서 동의한 하지 않았습니다. 또는 요청에서 응용 프로그램 식별자가 구성 된 클라이언트 응용 프로그램 식별자와 일치 하는지 확인 합니다. 관리자에 게 문의 하 여 테 넌 트를 대신 하 여 구성을 수정 하거나 동의 하세요*.
+*오류 AADSTS650056: 잘못 구성 되었습니다. 클라이언트의 응용 프로그램 등록에서 요청 된 권한에 대 한 권한이 클라이언트에 나열 되지 않았기 때문일 수 있습니다. 또는 관리자가 테 넌 트에서 동의한 하지 않았습니다. 또는 요청에서 응용 프로그램 식별자가 구성 된 클라이언트 응용 프로그램 식별자와 일치 하는지 확인 합니다. 관리자에 게 문의 하 여 테 넌 트를 대신 하 여 구성을 수정 하거나 동의 하세요*.
 
 **가능한 원인**
 

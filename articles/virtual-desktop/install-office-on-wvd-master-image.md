@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 05/02/2019
 ms.author: helohr
-ms.openlocfilehash: 059748f6f08b1c73d56aa3a127aa785f55eb63ee
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1637cb7621d6071bbce2af66f3a106770139ad4e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74539130"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368807"
 ---
 # <a name="install-office-on-a-master-vhd-image"></a>마스터 VHD 이미지에 Office 설치
 
@@ -20,20 +20,20 @@ ms.locfileid: "74539130"
 
 이 문서에서는 VM (가상 머신)을 이미 만들었다고 가정 합니다. 그렇지 않은 경우에 [는 마스터 VHD 이미지 준비 및 사용자 지정](set-up-customize-master-image.md#create-a-vm) 을 참조 하세요.
 
-또한이 문서에서는 Azure 또는 Hyper-v 관리자에서 프로 비전 된 VM에 대 한 관리자 액세스 권한이 있다고 가정 합니다. 그렇지 않은 경우 [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](https://docs.microsoft.com/azure/role-based-access-control/elevate-access-global-admin)을 참조 하세요.
+또한이 문서에서는 Azure 또는 Hyper-v 관리자에서 프로 비전 된 VM에 대 한 관리자 액세스 권한이 있다고 가정 합니다. 그렇지 않은 경우 [모든 Azure 구독 및 관리 그룹을 관리 하기 위해 액세스 권한 상승](../role-based-access-control/elevate-access-global-admin.md)을 참조 하세요.
 
 >[!NOTE]
 >이러한 지침은 조직의 기존 프로세스에 사용할 수 있는 Windows Virtual Desktop 관련 구성에 대한 것입니다.
 
 ## <a name="install-office-in-shared-computer-activation-mode"></a>공유 컴퓨터 정품 인증 모드로 Office 설치
 
-공유 컴퓨터 활성화를 사용 하면 여러 사용자가 액세스 하는 조직의 컴퓨터에 Office 365 ProPlus를 배포할 수 있습니다. 공유 컴퓨터 정품 인증에 대 한 자세한 내용은 [Office 365 ProPlus의 공유 컴퓨터 정품 인증 개요](https://docs.microsoft.com/DeployOffice/overview-of-shared-computer-activation-for-office-365-proplus)를 참조 하세요.
+공유 컴퓨터 활성화를 사용 하면 여러 사용자가 액세스 하는 조직의 컴퓨터에 Office 365 ProPlus를 배포할 수 있습니다. 공유 컴퓨터 정품 인증에 대 한 자세한 내용은 [Office 365 ProPlus의 공유 컴퓨터 정품 인증 개요](/deployoffice/overview-of-shared-computer-activation-for-office-365-proplus/)를 참조 하세요.
 
 Office [배포 도구](https://www.microsoft.com/download/details.aspx?id=49117) 를 사용 하 여 office를 설치 합니다. Windows 10 Enterprise 다중 세션은 다음 버전의 Office만 지원 합니다.
 - Office 365 ProPlus
 - Microsoft 365 Business 구독과 함께 제공 되는 Office 365 비즈니스
 
-Office 배포 도구를 사용 하려면 구성 XML 파일이 필요 합니다. 다음 샘플을 사용자 지정 하려면 [Office 배포 도구에 대 한 구성 옵션](https://docs.microsoft.com/deployoffice/configuration-options-for-the-office-2016-deployment-tool)을 참조 하세요.
+Office 배포 도구를 사용 하려면 구성 XML 파일이 필요 합니다. 다음 샘플을 사용자 지정 하려면 [Office 배포 도구에 대 한 구성 옵션](/deployoffice/configuration-options-for-the-office-2016-deployment-tool/)을 참조 하세요.
 
 제공 된이 샘플 구성 XML은 다음 작업을 수행 합니다.
 

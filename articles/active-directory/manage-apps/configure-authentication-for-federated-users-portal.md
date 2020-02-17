@@ -15,12 +15,12 @@ ms.date: 04/08/2019
 ms.author: mimart
 ms.custom: seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1300ecff416962bda4da800c5eff134951658846
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 600cd3f3ad8826b52648b51beb8c66a382766b80
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159168"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367885"
 ---
 # <a name="configure-azure-active-directory-sign-in-behavior-for-an-application-by-using-a-home-realm-discovery-policy"></a>홈 영역 검색 정책을 사용하여 애플리케이션에 대한 Azure Active Directory 로그인 동작 구성
 
@@ -100,9 +100,7 @@ Azure Active Directory에서 지원하는 도메인 힌트를 사용한 자동 �
 
 한 번에 하나의 HRD 정책만 서비스 주체에서 활성화할 수 있습니다.  
 
-Microsoft Azure Active Directory Graph API 또는 Azure Active Directory PowerShell cmdlet을 사용하여 HRD 정책을 만들고 관리할 수 있습니다.
-
-정책을 조작하는 Graph API는 MSDN의 [정책에 대한 작업](https://msdn.microsoft.com/library/azure/ad/graph/api/policy-operations) 문서에 설명되어 있습니다.
+Azure Active Directory PowerShell cmdlet을 사용 하 여 HRD 정책을 만들고 관리할 수 있습니다.
 
 다음은 HRD 정책 정의의 예제입니다.
     
@@ -209,7 +207,7 @@ HRD 정책을 만든 후에 적용하려면 여러 애플리케이션 서비스 
 #### <a name="step-2-locate-the-service-principal-to-which-to-assign-the-policy"></a>2단계: 정책을 할당할 서비스 주체 찾기  
 정책을 할당할 서비스 주체의 **ObjectID**가 필요합니다. 여러 가지 방법으로 서비스 주체의 **ObjectID**를 찾을 수 있습니다.    
 
-포털을 사용하거나 [Microsoft Graph](https://msdn.microsoft.com/Library/Azure/Ad/Graph/api/entity-and-complex-type-reference#serviceprincipal-entity)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
+포털을 사용하거나 [Microsoft Graph](https://docs.microsoft.com/graph/api/resources/serviceprincipal?view=graph-rest-beta)를 쿼리할 수 있습니다. [Graph 탐색기 도구](https://developer.microsoft.com/graph/graph-explorer)로 이동하고 Azure AD 계정에 로그인하여 조직의 모든 서비스 주체를 확인할 수 있습니다. 
 
 PowerShell을 사용 하 고 있기 때문에 다음 cmdlet을 사용 하 여 서비스 주체 및 해당 Id를 나열할 수 있습니다.
 

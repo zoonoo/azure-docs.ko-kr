@@ -15,12 +15,12 @@ ms.date: 12/10/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1c3c0aea6ecaccc972702a8c87e4d127c71c75d6
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: a3b1b38063dcef1c61fbfb6fec529aeeed40a662
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121358"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367782"
 ---
 # <a name="how-provisioning-works"></a>프로비저닝 작동 방법
 
@@ -91,7 +91,7 @@ Azure AD 사용자 프로 비전 서비스를 사용 하 여 Azure AD의 B2B (�
 
 ## <a name="provisioning-cycles-initial-and-incremental"></a>프로 비전 주기: 초기 및 증분
 
-Azure AD가 소스 시스템인 경우 프로비저닝 서비스는 [Azure AD Graph API의 차등 쿼리 기능](https://msdn.microsoft.com/Library/Azure/Ad/Graph/howto/azure-ad-graph-api-differential-query)을 사용하여 사용자와 그룹을 모니터링합니다. 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대해 초기 주기를 실행 한 다음 주기적 증분 주기를 실행 합니다.
+Azure AD가 원본 시스템 인 경우 프로 비전 서비스는 델타 사용 쿼리를 사용 하 여 [Microsoft Graph 데이터의 변경 내용을 추적](https://docs.microsoft.com/graph/delta-query-overview) 하 여 사용자 및 그룹을 모니터링 합니다. 프로 비전 서비스는 원본 시스템 및 대상 시스템에 대해 초기 주기를 실행 한 다음 주기적 증분 주기를 실행 합니다.
 
 ### <a name="initial-cycle"></a>초기 주기
 
@@ -142,8 +142,8 @@ ServiceNow, G Suite 및 Box와 같은 일부 응용 프로그램은 사용자를
 
 프로 비전 서비스는 [각 응용 프로그램에 특정 한 자습서](../saas-apps/tutorial-list.md)에 정의 된 간격으로 다시 백 엔드 증분 주기를 계속 실행 합니다. 증분 주기는 다음 이벤트 중 하나가 발생할 때까지 계속 됩니다.
 
-- 서비스가 Azure Portal을 사용하여 수동으로 중지되거나 적절한 Graph API 명령을 사용하여 중지됩니다. 
-- Azure Portal에서 **Clear state 및 restart** 옵션을 사용 하거나 적절 한 Graph API 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다. 이 작업을 수행 하면 저장 된 워터 마크가 모두 지워지며 모든 소스 개체가 다시 평가 됩니다.
+- Azure Portal를 사용 하거나 적절 한 Microsoft Graph API 명령을 사용 하 여 서비스를 수동으로 중지 합니다.
+- Azure Portal에서 **Clear state 및 restart** 옵션을 사용 하거나 적절 한 Microsoft Graph API 명령을 사용 하 여 새로운 초기 순환이 트리거됩니다. 이 작업을 수행 하면 저장 된 워터 마크가 모두 지워지며 모든 소스 개체가 다시 평가 됩니다.
 - 특성 매핑 또는 범위 지정 필터의 변경으로 인해 새 초기 순환이 트리거됩니다. 이 작업을 수행 하면 저장 된 워터 마크가 모두 지워지므로 모든 원본 개체가 다시 평가 됩니다.
 - 높은 오류 비율로 인해 프로 비전 프로세스가 격리 (아래 참조) 되 고 4 주 넘게 격리 상태로 유지 됩니다. 이 이벤트가 발생하면 자동으로 서비스를 사용할 수 없게 됩니다.
 

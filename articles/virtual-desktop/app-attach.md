@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: 8e8eec8af81832992a27206efcd7b7e7051a83b8
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772553"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367621"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -38,7 +38,7 @@ ms.locfileid: "75772553"
 1. [Windows 참가자 포털](https://www.microsoft.com/software-download/windowsinsiderpreviewadvanced?wa=wsignin1.0) 을 열고 로그인 합니다.
 
      >[!NOTE]
-     >Windows Insider portal에 액세스 하려면 Windows Insider program의 구성원 이어야 합니다. Windows 참가자 프로그램에 대해 자세히 알아보려면 [Windows 참가자 설명서](https://docs.microsoft.com/windows-insider/at-home/)를 확인 하세요.
+     >Windows Insider portal에 액세스 하려면 Windows Insider program의 구성원 이어야 합니다. Windows 참가자 프로그램에 대해 자세히 알아보려면 [Windows 참가자 설명서](/windows-insider/at-home/)를 확인 하세요.
 
 2. **선택 버전** 섹션으로 스크롤하고 **Windows 10 Insider PREVIEW Enterprise (FAST) – Build 19035** 이상을 선택 합니다.
 
@@ -79,7 +79,7 @@ VHD를 Azure에 업로드 한 후에는 [Azure Marketplace 자습서를 사용 �
 
 ## <a name="prepare-the-application-for-msix-app-attach"></a>MSIX 앱 연결을 위한 응용 프로그램 준비 
 
-MSIX 패키지가 이미 있는 경우 [Windows 가상 데스크톱 인프라 구성](#configure-windows-virtual-desktop-infrastructure)으로 건너뜁니다. 레거시 응용 프로그램을 테스트 하려면 [VM의 데스크톱 설치 관리자에서 MSIX 패키지 만들기](https://docs.microsoft.com/windows/msix/packaging-tool/create-app-package-msi-vm) 의 지침에 따라 레거시 응용 프로그램을 msix 패키지로 변환 합니다.
+MSIX 패키지가 이미 있는 경우 [Windows 가상 데스크톱 인프라 구성](#configure-windows-virtual-desktop-infrastructure)으로 건너뜁니다. 레거시 응용 프로그램을 테스트 하려면 [VM의 데스크톱 설치 관리자에서 MSIX 패키지 만들기](/windows/msix/packaging-tool/create-app-package-msi-vm/) 의 지침에 따라 레거시 응용 프로그램을 msix 패키지로 변환 합니다.
 
 ## <a name="generate-a-vhd-or-vhdx-package-for-msix"></a>MSIX 용 VHD 또는 VHDX 패키지 생성
 
@@ -149,7 +149,7 @@ MSIX 용 VHD 또는 VHDX 패키지를 생성 하려면:
 
 3. 탑재 된 VHD로 이동 하 여 앱 폴더를 열고 패키지 콘텐츠가 있는지 확인 합니다.
 
-4. VHD를 분리합니다.
+4. VHD를 분리 합니다.
 
 ## <a name="configure-windows-virtual-desktop-infrastructure"></a>Windows 가상 데스크톱 인프라 구성
 
@@ -184,7 +184,7 @@ Windows 가상 데스크톱 환경에서 네트워크 공유를 만들고 해당
 
 MSIX 앱 연결에는 다음 순서 대로 수행 해야 하는 4 개의 고유한 단계가 있습니다.
 
-1. Stage
+1. 단계
 2. 등록
 3. 취소할
 4. 디
@@ -390,7 +390,7 @@ rmdir $packageName -Force -Verbose
 
 ## <a name="set-up-simulation-scripts-for-the-msix-app-attach-agent"></a>MSIX 앱 연결 에이전트에 대 한 시뮬레이션 스크립트 설정
 
-스크립트를 만든 후 사용자는 수동으로 실행 하거나 시작, 로그온, 로그 오프 및 종료 스크립트로 자동 실행 되도록 설정할 수 있습니다. 이러한 유형의 스크립트에 대 한 자세한 내용은 [그룹 정책 시작, 종료, 로그온 및 로그 오프 스크립트 사용](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11))을 참조 하세요.
+스크립트를 만든 후 사용자는 수동으로 실행 하거나 시작, 로그온, 로그 오프 및 종료 스크립트로 자동 실행 되도록 설정할 수 있습니다. 이러한 유형의 스크립트에 대 한 자세한 내용은 [그룹 정책 시작, 종료, 로그온 및 로그 오프 스크립트 사용](/previous-versions/windows/it-pro/windows-server-2012-R2-and-2012/dn789196(v=ws.11)/)을 참조 하세요.
 
 이러한 각 자동 스크립트는 앱 연결 스크립트의 한 단계를 실행 합니다.
 
@@ -407,7 +407,7 @@ rmdir $packageName -Force -Verbose
 
 오프 라인 사용을 위해 라이선스를 설정 하는 방법은 다음과 같습니다. 
 
-1. 비즈니스용 Microsoft Store에서 앱 패키지, 라이선스 및 필수 프레임 워크를 다운로드 합니다. 인코딩된 및 인코딩되지 않은 라이선스 파일이 모두 필요 합니다. 자세한 다운로드 지침은 [여기](https://docs.microsoft.com/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)에서 찾을 수 있습니다.
+1. 비즈니스용 Microsoft Store에서 앱 패키지, 라이선스 및 필수 프레임 워크를 다운로드 합니다. 인코딩된 및 인코딩되지 않은 라이선스 파일이 모두 필요 합니다. 자세한 다운로드 지침은 [여기](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/)에서 찾을 수 있습니다.
 2. 3 단계에 대 한 스크립트에서 다음 변수를 업데이트 합니다.
       1. `$contentID`은 인코딩되지 않은 라이선스 파일 (.xml)의 ContentID 값입니다. 선택한 텍스트 편집기에서 라이선스 파일을 열 수 있습니다.
       2. `$licenseBlob`은 인코딩된 라이선스 파일 (. bin)의 라이선스 blob에 대 한 전체 문자열입니다. 선택한 텍스트 편집기에서 인코딩된 라이선스 파일을 열 수 있습니다. 

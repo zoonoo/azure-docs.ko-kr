@@ -3,14 +3,15 @@ author: MashaMSFT
 ms.service: sql-database
 ms.subservice: single-database
 ms.topic: include
-ms.date: 11/04/2019
+ms.date: 02/14/2020
 ms.author: mathoma
-ms.openlocfilehash: 0fad326107fa101cbba869311724710bd3f5307b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.reviewer: vanto
+ms.openlocfilehash: 3e2c8a424c9a3744bfb91d03632965c15613a424
+ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73496153"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77252146"
 ---
 이 단계에서는 Azure SQL Database 단일 데이터베이스를 만듭니다. 
 
@@ -29,19 +30,19 @@ Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 �
 
    ![단일 데이터베이스 만들기](../media/sql-database-get-started-portal/create-single-database.png)
 
-3. **기본 사항** 탭의 **프로젝트 세부 정보** 섹션에서 다음 값을 입력하거나 선택합니다.
+4. **기본 사항** 탭의 **프로젝트 세부 정보** 섹션에서 다음 값을 입력하거나 선택합니다.
 
    - **구독**: 표시되지 않는 경우 올바른 구독을 드롭다운하고 선택합니다.
    - **리소스 그룹**: **새로 만들기**를 선택하고, `myResourceGroup`을 입력하고, **확인**을 선택합니다.
 
      ![새 SQL 데이터베이스 - 기본 탭](../media/sql-database-get-started-portal/new-sql-database-basics.png)
 
-4. **데이터베이스 세부 정보** 섹션에서 다음 값을 입력하거나 선택합니다.
+5. **데이터베이스 세부 정보** 섹션에서 다음 값을 입력하거나 선택합니다.
 
-   - **데이터베이스 이름**: `mySampleDatabase`을 입력합니다.
+   - **데이터베이스 이름**: `mySampleDatabase`를 입력합니다.
    - **서버**: **새로 만들기**를 선택하고 다음 값을 입력한 다음, **선택**을 클릭합니다.
        - **서버 이름**: `mysqlserver`에 숫자를 붙여서 고유한 이름을 입력합니다.
-       - **서버 관리자 로그인**: `azureuser`을 입력합니다.
+       - **서버 관리자 로그인**: `azureuser`.
        - **암호**: 암호 요구 사항을 충족하는 복잡한 암호를 입력합니다.
        - **위치**: 드롭다운 목록에서 위치를 선택합니다(예: `West US`).
 
@@ -63,18 +64,22 @@ Azure Portal를 사용하여 리소스 그룹 및 단일 데이터베이스를 �
      - 필요에 따라 **구성 변경**을 선택하여 하드웨어 생성을 변경할 수도 있습니다.
    - **적용**을 선택합니다.
 
-5. **추가 설정** 탭을 선택합니다. 
-6. **데이터 원본** 섹션의 **기존 데이터 사용** 아래에서 `Sample`을 선택합니다.
+6. **네트워킹** 탭을 선택하고 [**Azure 서비스 및 리소스가 이 서버에 액세스할 수 있도록 허용**](../sql-database-networkaccess-overview.md)하거나 [프라이빗 엔드포인트](../../private-link/private-endpoint-overview.md)를 추가할지 결정합니다.
+
+   ![네트워킹 탭](../media/sql-database-get-started-portal/create-database-networking.png)
+
+7. **추가 설정** 탭을 선택합니다. 
+8. **데이터 원본** 섹션의 **기존 데이터 사용** 아래에서 `Sample`을 선택합니다.
 
    ![추가 SQL DB 설정](../media/sql-database-get-started-portal/create-sql-database-additional-settings.png)
 
    > [!IMPORTANT]
    > 이 데이터를 사용하는 Azure SQL Database 빠른 시작을 쉽게 따라 할 수 있도록 **샘플(AdventureWorksLT)** 데이터를 선택해야 합니다.
 
-7. 나머지 값은 기본값으로 두고 양식 맨 아래에서 **검토 + 만들기**를 선택합니다.
-8. 최종 설정을 검토하고 **만들기**를 선택합니다.
+9. 나머지 값은 기본값으로 두고 양식 맨 아래에서 **검토 + 만들기**를 선택합니다.
+10. 최종 설정을 검토하고 **만들기**를 선택합니다.
 
-9. **SQL Database** 양식에서 **만들기**를 선택하여 리소스 그룹, 서버 및 데이터베이스를 배포하고 프로비전합니다.
+11. **SQL Database** 양식에서 **만들기**를 선택하여 리소스 그룹, 서버 및 데이터베이스를 배포하고 프로비전합니다.
 
 # <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
 

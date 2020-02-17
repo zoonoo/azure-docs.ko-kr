@@ -13,12 +13,12 @@ ms.author: mimart
 ms.reviewer: dhanyahk
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a4e2e25189b35f7d17ef42536aa7cd86ac92ec82
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5ff7cda6a593b1517ad711a56f73d29a14345baf
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185859"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368010"
 ---
 # <a name="archive-for-whats-new-in-azure-active-directory"></a>Azure Active Directory의 새로운 기능에 대 한 보관
 
@@ -1698,7 +1698,7 @@ Tableau에 대한 기본 지원에 대한 자세한 내용은 [Azure AD 애플�
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
-로그인 활동 로그에 **클라이언트 앱** 필드가 도입되어 레거시 인증을 사용하는 사용자를 고객이 볼 수 있습니다. 고객은 로그인 MS Graph API를 사용하거나 **클라이언트 앱** 컨트롤을 사용하여 레거시 인증을 필터링할 수 있는 Azure AD 포털에서 로그인 활동 로그를 통해 이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
+로그인 활동 로그에 **클라이언트 앱** 필드가 도입되어 레거시 인증을 사용하는 사용자를 고객이 볼 수 있습니다. 고객은 로그인 Microsoft Graph API를 사용 하 여이 정보에 액세스 하거나, **클라이언트 앱** 제어를 사용 하 여 레거시 인증을 필터링 할 수 있는 Azure AD Portal의 로그인 활동 로그를 통해이 정보에 액세스할 수 있습니다. 자세한 내용은 설명서를 참조하세요.
 
 ---
 
@@ -2092,7 +2092,7 @@ Azure AD 갤러리에서 사용자 프로비저닝을 지원하는 모든 응용
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
  
-이제 Azure AD 활동 로그(로그인 및 감사 로그 포함)를 MS Graph를 통해 사용할 수 있습니다. 이러한 로그에 액세스하도록 MS Graph를 통해 2개의 엔드포인트를 노출했습니다. Azure AD Reporting API에 프로그래밍 방식으로 액세스하여 시작하려면 [문서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)를 참조하세요. 
+로그인 및 감사 로그를 포함 하는 Azure AD 활동 로그는 이제 Microsoft Graph API를 통해 사용할 수 있습니다. 이러한 로그에 액세스 하기 위해 Microsoft Graph API를 통해 두 개의 끝점을 노출 했습니다. Azure AD Reporting API에 프로그래밍 방식으로 액세스하여 시작하려면 [문서](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-api-getting-started-azure-portal)를 참조하세요. 
 
 ---
  
@@ -2596,7 +2596,7 @@ Azure AD 활동 로그 보고서는 이제 21Vianet(Azure China 21Vianet) 인스
 **서비스 범주:** 보고  
 **제품 기능:** 모니터링 및 보고
 
-관리자가 아닌 역할을 통해 Azure AD 활동 로그에 액세스할 수 있도록 하는 고객 의견의 일환으로, "보고서 구독자" 역할에 속한 사용자가 Azure Portal 내에서 로그인 및 감사 활동에 액세스하고 Graph API를 사용할 수 있게 되었습니다. 
+관리자가 아닌 역할을 사용 하 여 Azure AD 활동 로그에 액세스할 수 있도록 하는 고객의 의견에 따라 "보고서 구독자" 역할에 속한 사용자가 Azure Portal 내에서 로그인 및 감사 작업에 액세스 하 고를 사용할 수 있습니다 Microsoft Graph API-VERSION. 
 
 이러한 보고서를 사용하는 방법에 대한 자세한 내용은 [Azure Active Directory 보고](https://docs.microsoft.com/azure/active-directory/active-directory-reporting-azure-portal)를 참조하세요. 
 

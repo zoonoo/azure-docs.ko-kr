@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 11/20/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: d94237d2cfeb814b2e15d43c9f8863a76c0bcd11
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 94a376c01229de20e6a1264da3f29532becefa8a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190667"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368666"
 ---
 # <a name="enable-and-create-large-file-shares"></a>대량 파일 공유 사용 및 만들기
 
@@ -43,7 +43,7 @@ ms.locfileid: "77190667"
     ![포털에서 리소스 그룹을 만드는 방법을 보여주는 스크린샷](media/storage-files-how-to-create-large-file-share/create-large-file-share.png)
 
 1. 그런 다음, 스토리지 계정의 이름을 입력합니다. 이름은 Azure에서 고유해야 합니다. 이름은 3 자에서 24 자 사이 여야 하며 숫자와 소문자만 사용할 수 있습니다.
-1. 저장소 계정에 대 한 위치를 선택 하 고, [용량이 대량 파일 공유에 대해 지원 되는 지역 중 하나](storage-files-planning.md#regional-availability)인지 확인 합니다.
+1. 저장소 계정에 대 한 위치를 선택 하 고, [용량이 대량 파일 공유에 대해 지원 되는 복제 중 하나](storage-files-planning.md#regional-availability)인지 확인 합니다.
 1. 복제를 **로컬 중복 저장소** 또는 **영역 중복 저장소**로 설정 합니다.
 1. 다음 필드를 기본값으로 둡니다.
 

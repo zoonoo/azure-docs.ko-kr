@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: 021d00b9fb02f2f5ea2560038741efec11b8cbc0
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 16d8faa1f20227241d1a582dd4d80e0123f7a31e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169198"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368499"
 ---
 # <a name="authorize-access-to-event-hubs-resources-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한 부여
 Azure Event Hubs는 Azure Active Directory (Azure AD)를 사용 하 여 Event Hubs 리소스에 대 한 요청에 권한을 부여 합니다. Azure AD를 사용 하면 RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 역할 및 역할 할당에 대해 자세히 알아보려면 [다른 역할 이해](../role-based-access-control/overview.md)를 참조 하세요.
@@ -54,9 +54,13 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 - **구독**: 역할 할당은 구독의 모든 리소스 그룹에 있는 모든 Event Hubs 리소스에 적용 됩니다.
 
 > [!NOTE]
-> RBAC 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요. 
+> - RBAC 역할 할당을 전파 하는 데 최대 5 분이 걸릴 수 있다는 점에 유의 하세요. 
+> - 이 콘텐츠는 Apache Kafka에 대 한 Event Hubs 및 Event Hubs에 모두 적용 됩니다. Kafka 지원 Event Hubs에 대 한 자세한 내용은 [Kafka에 대 한 Event Hubs 보안 및 인증](event-hubs-for-kafka-ecosystem-overview.md#security-and-authentication)을 참조 하세요.
+
 
 기본 제공 역할을 정의 하는 방법에 대 한 자세한 내용은 [역할 정의 이해](../role-based-access-control/role-definitions.md#management-and-data-operations)를 참조 하세요. 사용자 지정 RBAC 역할을 만드는 방법에 대 한 자세한 내용은 [Azure 역할 기반 Access Control에 대 한 사용자 지정 역할 만들기](../role-based-access-control/custom-roles.md)를 참조 하세요.
+
+
 
 ## <a name="samples"></a>샘플
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
@@ -65,6 +69,8 @@ Azure는 Azure AD 및 OAuth를 사용 하 여 Event Hubs 데이터에 대 한 �
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
 
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.
+- [Kafka-OAuth 샘플에 대 한 Event Hubs](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth)입니다. 
+
 
 ## <a name="next-steps"></a>다음 단계
 - 보안 주체에 대 한 기본 제공 RBAC 역할을 할당 하는 방법에 대해 알아봅니다. [Azure Active Directory를 사용 하 여 Event Hubs 리소스에 대 한 액세스 인증](authenticate-application.md)을 참조 하세요.

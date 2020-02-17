@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/10/2019
 ms.author: helohr
-ms.openlocfilehash: 0db1ffe46165d91148b6980abbf89d03340e646e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8065be841b18fa0f8706a3bea3739ee2cb013323
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75486691"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367592"
 ---
 # <a name="configure-the-personal-desktop-host-pool-assignment-type"></a>개인 데스크톱 호스트 풀 할당 유형 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "75486691"
 
 사용자를 자동으로 할당 하려면 먼저 사용자가 피드의 바탕 화면을 볼 수 있도록 개인 데스크톱 호스트 풀에 해당 사용자를 할당 합니다. 할당 된 사용자가 피드에서 바탕 화면을 시작 하면 호스트 풀에 아직 연결 되지 않은 경우 사용 가능한 세션 호스트를 클레임 하 게 됩니다. 그러면 할당 프로세스가 완료 됩니다.
 
-시작 하기 전에 [Windows 가상 데스크톱 PowerShell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우). 
+시작 하기 전에 [Windows 가상 데스크톱 PowerShell 모듈을 다운로드 하 고 가져옵니다](/powershell/windows-virtual-desktop/overview/) (아직 없는 경우). 
 
 > [!NOTE]
 > 이러한 지침을 수행 하기 전에 Windows 가상 데스크톱 PowerShell 모듈 버전 1.0.1534.2001 이상을 설치 했는지 확인 합니다.

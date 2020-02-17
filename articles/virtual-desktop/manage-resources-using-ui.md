@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/10/2020
 ms.author: helohr
-ms.openlocfilehash: 187c92f8e5b0148577f204f68077c58ea9ab9a3d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 032062dd200781b6d1f5abeb2391ae75c4c43e6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75887362"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367300"
 ---
 # <a name="deploy-a-management-tool-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 관리 도구 배포
 
@@ -36,7 +36,7 @@ ms.locfileid: "75887362"
 
 - Azure MFA(Multi-Factor Authentication)를 사 용하지 않도록 설정
 - Azure 구독에서 리소스를 만드는 데 필요한 권한 보유
-- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
+- Azure AD 애플리케이션을 만드는 데 필요한 권한 보유 [필요한 권한](../active-directory/develop/howto-create-service-principal-portal.md#required-permissions)의 지침에 따라 사용자에게 필요한 권한이 있는지 확인하려면 다음 단계를 수행합니다.
 
 관리 도구를 배포하고 구성한 후에는 사용자에게 관리 UI를 시작하여 모든 기능이 작동하는지 확인하도록 요청하는 것이 좋습니다. 관리 UI를 시작하는 사용자에게는 Windows Virtual Desktop 테넌트를 보거나 편집할 수 있는 역할 할당이 있어야 합니다.
 

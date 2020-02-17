@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 02/08/2020
 ms.author: helohr
-ms.openlocfilehash: 92e11edf3b28017ac73702e3f71dfc491d3986e3
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: aba2202f0d33609400588e379a4ed3bb9bb798d9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110635"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367515"
 ---
 # <a name="connect-with-the-ios-client"></a>iOS 클라이언트와 연결
 
@@ -47,4 +47,4 @@ ms.locfileid: "77110635"
 
 ## <a name="next-steps"></a>다음 단계
 
-IOS 클라이언트를 사용 하는 방법에 대 한 자세한 내용은 [ios 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios) 설명서를 참조 하세요.
+IOS 클라이언트를 사용 하는 방법에 대 한 자세한 내용은 [ios 클라이언트 시작](/windows-server/remote/remote-desktop-services/clients/remote-desktop-ios/) 설명서를 참조 하세요.

@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8be047caf8631cda4e48b7bf10987db616a9b86f
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: d51359896b7a0d03626ead6843d3666f3ad3ef57
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608611"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368105"
 ---
 # <a name="azure-active-directory-b2b-collaboration-faqs"></a>Azure Active Directory B2B 협업 FAQ
 
@@ -51,14 +51,14 @@ Azure Active Directory(Azure AD) 기업 간(B2B) 협업에 대한 이러한 질�
 예. 게스트 개체는 기본적으로 조직의 GAL (전체 주소 목록)에 표시 되지 않지만 Azure Active Directory PowerShell을 사용 하 여 표시 되도록 할 수 있습니다. [전체 주소 목록에 게스트 개체를 표시할 수 있나요?를 참조 하세요](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups#add-guests-to-the-global-address-list) .
 
 ### <a name="can-i-make-a-guest-user-a-limited-administrator"></a>게스트 사용자를 제한된 관리자로 지정할 수 있나요?
-당연히 그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
+그렇습니다. 자세한 내용은 [역할에 게스트 사용자 추가](add-guest-to-role.md)를 참조하세요.
 
 ### <a name="does-azure-ad-b2b-collaboration-allow-b2b-users-to-access-the-azure-portal"></a>Azure AD B2B 협업을 사용하면 B2B 사용자가 Azure Portal에 액세스할 수 있나요?
 사용자에 게 제한 된 관리자 역할이 할당 되지 않으면 B2B 공동 작업 사용자가 Azure Portal에 액세스할 필요가 없습니다. 그러나 제한 된 관리자의 역할이 할당 된 B2B 공동 작업 사용자는 포털에 액세스할 수 있습니다. 또한 이러한 관리자 역할 중 하나가 할당되지 않은 게스트 사용자가 포털에 액세스하는 경우 사용자는 특정 부분의 환경에 액세스할 수 있습니다. 게스트 사용자 역할에는 디렉터리에 대한 일부 사용 권한이 있습니다.
 
 ### <a name="can-i-block-access-to-the-azure-portal-for-guest-users"></a>게스트 사용자를 위해 Azure Portal에 대한 액세스를 차단할 수 있습니까?
 
-예. 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
+예! 모든 게스트 및 외부 사용자가 Azure Portal에 액세스 하지 못하도록 차단 하는 조건부 액세스 정책을 만들 수 있습니다. 이 정책을 구성할 경우 실수로 구성원과 관리자에 대한 액세스를 차단하지 않도록 주의하세요.
 
 1. [Azure Portal](https://portal.azure.com/)에 보안 관리자 또는 조건부 액세스 관리자 권한으로 로그인합니다.
 2. Azure Portal에서 **Azure Active Directory**를 선택합니다. 
@@ -97,7 +97,7 @@ Azure AD에는 모든 Azure AD 클라우드 사용자 계정에 동등하게 적
 페더레이션 계정의 경우 암호 정책은 온-프레미스 테넌트 및 사용자의 Microsoft 계정 설정에서 적용되는 정책에 따라 다릅니다.
 
 ### <a name="an-organization-might-want-to-have-different-experiences-in-their-applications-for-tenant-users-and-guest-users-is-there-standard-guidance-for-this-is-the-presence-of-the-identity-provider-claim-the-correct-model-to-use"></a>조직에서는 해당 애플리케이션에서 테넌트 사용자와 게스트 사용자에게 다른 환경을 제공할 수 있습니다. 이에 대한 표준 지침이 있습니까? ID 공급자 클레임의 현재 상태가 사용할 모델이 맞나요?
-게스트 사용자는 인증하는 데 ID 공급자를 사용할 수 있습니다. 자세한 내용은 [B2B 협업 사용자의 속성](user-properties.md)을 참조하세요. **UserType** 속성을 사용하여 사용자 환경을 결정합니다. **UserType** 클레임은 현재 토큰에 포함되지 않습니다. 애플리케이션은 Graph API를 사용하여 사용자에게 디렉터리를 쿼리하고 UserType을 가져와야 합니다.
+게스트 사용자는 인증하는 데 ID 공급자를 사용할 수 있습니다. 자세한 내용은 [B2B 협업 사용자의 속성](user-properties.md)을 참조하세요. **UserType** 속성을 사용하여 사용자 환경을 결정합니다. **UserType** 클레임은 현재 토큰에 포함되지 않습니다. 응용 프로그램은 Microsoft Graph API를 사용 하 여 사용자에 대 한 디렉터리를 쿼리하고 UserType을 가져와야 합니다.
 
 ### <a name="where-can-i-find-a-b2b-collaboration-community-to-share-solutions-and-to-submit-ideas"></a>솔루션을 공유하고 아이디어를 제출하는 B2B 협업 커뮤니티를 어디에서 찾을 수 있나요?
 B2B 협업을 개선하기 위해 사용자의 의견을 지속적으로 수렴하고 있습니다. Azure AD B2B 협업에 대한 사용자 시나리오, 모범 사례 및 원하는 기능을 공유해 주세요. [Microsoft 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-B2B/bd-p/AzureAD_B2b)에서 토론에 참여합니다.

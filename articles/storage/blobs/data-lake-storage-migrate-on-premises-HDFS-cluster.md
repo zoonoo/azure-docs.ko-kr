@@ -3,17 +3,17 @@ title: Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Az
 description: 온-프레미스 HDFS 저장소에서 Azure Storage로 데이터 마이그레이션
 author: normesta
 ms.service: storage
-ms.date: 11/19/2019
+ms.date: 02/14/2019
 ms.author: normesta
 ms.topic: conceptual
 ms.subservice: data-lake-storage-gen2
 ms.reviewer: jamesbak
-ms.openlocfilehash: e82c325ad5ad91e6b4503949e6534b054023f1f2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 990b4afa6bdb63e626be0272553aea408afb864f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990966"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368685"
 ---
 # <a name="migrate-from-on-prem-hdfs-store-to-azure-storage-with-azure-data-box"></a>Azure Data Box를 사용 하 여 온-프레미스 HDFS 저장소에서 Azure Storage로 마이그레이션
 
@@ -25,19 +25,19 @@ Data Box 장치를 사용 하 여 Hadoop 클러스터의 온-프레미스 HDFS �
 > * 데이터 마이그레이션을 준비 합니다.
 > * 데이터를 Data Box 또는 Data Box Heavy 장치로 복사 합니다.
 > * 장치를 Microsoft에 다시 배송 합니다.
-> * 데이터를 Data Lake Storage Gen2로 이동 합니다.
+> * 파일 및 디렉터리에 대 한 액세스 권한 적용 (Data Lake Storage Gen2에만 해당)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 마이그레이션을 완료 하려면 이러한 항목이 필요 합니다.
 
-* 저장소 계정 2 개 하나는 계층적 네임 스페이스를 사용 하도록 설정 하 고 다른 하나는 그렇지 않습니다.
+* Azure Storage 계정.
 
 * 원본 데이터를 포함 하는 온-프레미스 Hadoop 클러스터입니다.
 
 * [Azure Data Box 장치](https://azure.microsoft.com/services/storage/databox/)입니다.
 
-  * Data Box 또는 [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered) [를 주문](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) 합니다. 장치를 정렬 하는 동안 계층 구조 네임 스페이스를 사용 하도록 설정 **되지** 않은 저장소 계정을 선택 해야 합니다. Data Box 장치가 아직 Azure Data Lake Storage Gen2에 대 한 직접 수집을 지원 하지 않기 때문입니다. 저장소 계정에 복사한 다음 두 번째 복사 작업을 ADLS Gen2 계정으로 수행 해야 합니다. 이에 대 한 지침은 아래 단계에서 제공 됩니다.
+  * Data Box 또는 [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-ordered) [를 주문](https://docs.microsoft.com/azure/databox/data-box-deploy-ordered) 합니다. 
 
   * [Data Box](https://docs.microsoft.com/azure/databox/data-box-deploy-set-up) 또는 [Data Box Heavy](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-set-up) 를 온-프레미스 네트워크에 연결 합니다.
 
@@ -75,7 +75,7 @@ Blob/Object storage의 REST Api를 통해 데이터를 Data Box 장치에 복사
 
     이러한 파일이 있는지 확인 하려면 다음 명령을 사용 합니다. `ls -l $<hadoop_install_dir>/share/hadoop/tools/lib/ | grep azure`. `<hadoop_install_dir>` 자리 표시자를 Hadoop을 설치한 디렉터리의 경로로 바꿉니다. 정규화 된 경로를 사용 해야 합니다.
 
-    예시:
+    예제:
 
     `azjars=$hadoop_install_dir/share/hadoop/tools/lib/hadoop-azure-2.6.0-cdh5.14.0.jar` `azjars=$azjars,$hadoop_install_dir/share/hadoop/tools/lib/microsoft-windowsazure-storage-sdk-0.6.0.jar`
 
@@ -173,36 +173,14 @@ Data Box 장치를 준비 하 고 Microsoft에 제공 하려면 다음 단계를
 
     * Data Box Heavy 장치의 경우 [Data Box Heavy 제공](https://docs.microsoft.com/azure/databox/data-box-heavy-deploy-picked-up)을 참조 하세요.
 
-5. Microsoft에서 장치를 받은 후에는 데이터 센터 네트워크에 연결 되 고 장치 순서를 배치할 때 사용자가 지정한 저장소 계정 (계층적 네임 스페이스 사용 안 함)으로 데이터가 업로드 됩니다. 모든 데이터가 Azure에 업로드 되는 BOM 파일에 대해 확인 합니다. 이제이 데이터를 Data Lake Storage Gen2 Storage 계정으로 이동할 수 있습니다.
+5. Microsoft에서 장치를 받은 후에는 데이터 센터 네트워크에 연결 되 고 장치 순서를 배치할 때 지정한 저장소 계정에 데이터가 업로드 됩니다. 모든 데이터가 Azure에 업로드 되는 BOM 파일에 대해 확인 합니다. 
 
-## <a name="move-the-data-into-azure-data-lake-storage-gen2"></a>데이터를 Azure Data Lake Storage Gen2 이동
+## <a name="apply-access-permissions-to-files-and-directories-data-lake-storage-gen2-only"></a>파일 및 디렉터리에 대 한 액세스 권한 적용 (Data Lake Storage Gen2에만 해당)
 
-이미 Azure Storage 계정에 데이터가 있습니다. 이제 Azure Data Lake 저장소 계정에 데이터를 복사 하 고 파일 및 디렉터리에 대 한 액세스 권한을 적용 합니다.
+이미 Azure Storage 계정에 데이터가 있습니다. 이제 파일 및 디렉터리에 대 한 액세스 권한을 적용 합니다.
 
 > [!NOTE]
-> Azure Data Lake Storage Gen2를 데이터 저장소로 사용 하는 경우이 단계가 필요 합니다. 계층적 네임 스페이스가 없는 blob storage 계정만 데이터 저장소로 사용 하는 경우이 섹션을 건너뛸 수 있습니다.
-
-### <a name="copy-data-to-the-azure-data-lake-storage-gen-2-account"></a>Azure Data Lake Storage Gen 2 계정에 데이터 복사
-
-Azure Data Factory를 사용 하거나 Azure 기반 Hadoop 클러스터를 사용 하 여 데이터를 복사할 수 있습니다.
-
-* Azure Data Factory을 사용 하려면 [Azure Data Factory를 참조 하 여 데이터를 ADLS Gen2으로 이동](https://docs.microsoft.com/azure/data-factory/load-azure-data-lake-storage-gen2)합니다. **Azure Blob Storage** 를 원본으로 지정 해야 합니다.
-
-* Azure 기반 Hadoop 클러스터를 사용 하려면 다음 DistCp 명령을 실행 합니다.
-
-    ```bash
-    hadoop distcp -Dfs.azure.account.key.<source_account>.dfs.windows.net=<source_account_key> abfs://<source_container> @<source_account>.dfs.windows.net/<source_path> abfs://<dest_container>@<dest_account>.dfs.windows.net/<dest_path>
-    ```
-
-    * `<source_account>` 및 `<dest_account>` 자리 표시자를 원본 및 대상 저장소 계정의 이름으로 바꿉니다.
-
-    * `<source_container>` 및 `<dest_container>` 자리 표시자를 원본 및 대상 컨테이너의 이름으로 바꿉니다.
-
-    * `<source_path>` 및 `<dest_path>` 자리 표시자를 원본 및 대상 디렉터리 경로로 바꿉니다.
-
-    * `<source_account_key>` 자리 표시자를 데이터를 포함 하는 저장소 계정의 액세스 키로 바꿉니다.
-
-    이 명령은 저장소 계정에 있는 데이터와 메타 데이터를 모두 Data Lake Storage Gen2 저장소 계정에 복사 합니다.
+> 이 단계는 Azure Data Lake Storage Gen2를 데이터 저장소로 사용 하는 경우에만 필요 합니다. 계층적 네임 스페이스가 없는 blob storage 계정만 데이터 저장소로 사용 하는 경우이 섹션을 건너뛸 수 있습니다.
 
 ### <a name="create-a-service-principal-for-your-azure-data-lake-storage-gen2-account"></a>Azure Data Lake Storage Gen2 계정에 대 한 서비스 주체 만들기
 

@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 65006b8357db44c3e1b8f8d9e819615b5dd9db6e
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031751"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365217"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -188,7 +188,7 @@ Exception: A task was canceled.
 
 이 오류는 Azure 모듈을 최신 버전으로 업데이트하여 해결할 수 있습니다.
 
-Automation 계정에서 **모듈**을 클릭하고 **Azure 모듈 업데이트**를 클릭합니다. 업데이트하는 데 약 15분 정도 걸리며, 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
+Automation 계정에서 **모듈**을 클릭 하 고 **Azure 모듈 업데이트**를 클릭 합니다. 업데이트하는 데 약 15분 정도 걸리며, 완료되면 실패한 Runbook을 다시 실행합니다. 모듈 업데이트에 대해 자세히 알아 보려면 [Azure Automation에서 Azure 모듈 업데이트](../automation-update-azure-modules.md)를 참조하세요.
 
 ## <a name="runbook-auth-failure"></a>시나리오: 여러 구독을 처리할 때 Runbook이 실패 함
 
@@ -254,7 +254,7 @@ The term 'Connect-AzureRmAccount' is not recognized as the name of a cmdlet, fun
 
 모듈이 Azure 모듈인 경우 Automation 계정에서 모듈을 업데이트 하는 방법을 알아보려면 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법](../automation-update-azure-modules.md) 을 참조 하세요.
 
-별도의 모듈인 경우 Automation 계정에 모듈을 가져와야 합니다.
+별도의 모듈인 경우 Automation 계정에 모듈을 가져왔는지 확인 합니다.
 
 ## <a name="job-attempted-3-times"></a>시나리오: runbook 작업 시작을 세 번 시도 했지만 매번 시작 하지 못했습니다.
 
@@ -457,7 +457,7 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 다음 해결 방법 중 하나를 사용하여 문제를 해결합니다.
 
 * cmdlet 이름을 올바르게 입력했는지 확인합니다.
-* Automation 계정에 cmdlet이 있는지와 충돌이 없는지 확인 합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에서 cmdlet을 사용할 수 있는지와 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는지를 확인한 후, 캔버스에 해당 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
+* Automation 계정에 Cmdlet이 있고 충돌이 없는지 확인합니다. cmdlet이 있는지 확인하려면 Runbook을 편집 모드로 열고 라이브러리에서 원하는 cmdlet을 검색하거나 `Get-Command <CommandName>`를 실행합니다. 계정에서 cmdlet을 사용할 수 있는지와 다른 cmdlet 또는 Runbook과 이름이 충돌하지 않는지를 확인한 후, 캔버스에 해당 cmdlet을 추가하고 Runbook에 유효한 매개 변수 집합을 사용하고 있는지 확인합니다.
 * 이름이 충돌하고 서로 다른 두 모듈에서 cmdlet을 사용할 수 있는 경우 이 문제는 cmdlet에 대한 정규화된 이름을 사용하여 해결할 수 있습니다. 예를 들어 **ModuleName\CmdletName**을 사용할 수 있습니다.
 * 온-프레미스의 Hybrid Worker 그룹에서 Runbook을 실행하는 경우 Hybrid Worker를 호스트하는 머신에 모듈 및 cmdlet이 설치되어 있는지 확인합니다.
 
@@ -569,53 +569,77 @@ Linux 용 Log Analytics 에이전트에 대 한 nxautomationuser 계정이 sudoe
 
 * Sudoers 파일에서 nxautomationuser 계정의 구성을 확인 합니다. [Hybrid Runbook Worker에서 Runbook 실행을](../automation-hrw-run-runbooks.md) 참조 하세요.
 
+## <a name="scenario-cmdlet-failing-in-pnp-powershell-runbook-on-azure-automation"></a>시나리오: Azure Automation의 PnP PowerShell runbook에서 Cmdlet이 실패 했습니다.
+
+### <a name="issue"></a>문제
+
+Runbook이 PnP PowerShell 생성 개체를 Azure Automation 출력에 직접 기록 하는 경우 cmdlet 출력은 자동화로 다시 스트리밍할 수 없습니다.
+
+### <a name="cause"></a>원인
+
+이 문제는 반환 개체를 catch 하지 않고 **pnplistitem**와 같이 PnP PowerShell cmdlet을 호출 하는 runbook을 Azure Automation 처리할 때 가장 일반적으로 발생 합니다.
+
+### <a name="resolution"></a>해결 방법
+
+Cmdlet이 표준 출력에 전체 개체를 쓰려고 시도 하지 않도록 스크립트를 편집 하 여 모든 반환 값을 변수에 할당 합니다. 스크립트는 아래와 같이 출력 스트림을 cmdlet으로 리디렉션할 수 있습니다.
+
+```azurecli
+  $null = add-pnplistitem
+```
+스크립트에서 cmdlet 출력을 구문 분석 하는 경우에는 스크립트에서 출력을 변수에 저장 하 고 단순히 출력을 스트리밍하는 대신 변수를 조작 해야 합니다.
+
+```azurecli
+$SomeVariable = add-pnplistitem ....
+if ($SomeVariable.someproperty -eq ....
+```
+
 ## <a name="other"></a>내 문제가 위에 나열 되어 있지 않습니다.
 
 아래 섹션에는 문제를 해결 하는 데 도움이 되는 지원 설명서 외에도 다른 일반적인 오류가 나열 되어 있습니다.
 
-## <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker가 작업을 실행하지 않거나 응답하지 않음
+### <a name="hybrid-runbook-worker-doesnt-run-jobs-or-isnt-responding"></a>Hybrid Runbook Worker가 작업을 실행하지 않거나 응답하지 않음
 
 Azure Automation 대신 hybrid worker를 사용 하 여 작업을 실행 하는 경우 [hybrid worker 자체의 문제를 해결](https://docs.microsoft.com/azure/automation/troubleshoot/hybrid-runbook-worker)해야 할 수 있습니다.
 
-## <a name="runbook-fails-with-no-permission-or-some-variation"></a>"권한 없음" 또는 약간의 변형으로 인해 Runbook이 실패
+### <a name="runbook-fails-with-no-permission-or-some-variation"></a>"권한 없음" 또는 약간의 변형으로 인해 Runbook이 실패
 
 실행 계정에는 현재 계정으로 Azure 리소스에 대 한 사용 권한이 없을 수 있습니다. 실행 계정에 스크립트에서 사용 되는 [리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
 
 * Runbook이 이전에 실행 되었지만 중지 된 경우 [실행 계정이](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal) 만료 되지 않았는지 확인 합니다.
 * 웹 후크를 사용 하 여 runbook을 시작 하는 경우 [webhook](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook) 가 만료 되지 않았는지 확인 합니다.
 
-## <a name="issues-passing-parameters-into-webhooks"></a>웹 후크에 매개 변수를 전달 하는 문제
+### <a name="issues-passing-parameters-into-webhooks"></a>웹 후크에 매개 변수를 전달 하는 문제
 
 웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
 
-## <a name="issues-using-az-modules"></a>Az modules 사용 문제
+### <a name="issues-using-az-modules"></a>Az modules 사용 문제
 
-Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. 자세한 내용은 [runbook의 Az modules](https://docs.microsoft.com/azure/automation/az-modules) 항목을 참조 하세요.
+동일한 Automation 계정에서 Az modules 및 AzureRM 모듈을 사용 하는 것은 지원 되지 않습니다. 자세한 내용은 [runbook의 Az modules](https://docs.microsoft.com/azure/automation/az-modules) 항목을 참조 하세요.
 
-## <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
+### <a name="inconsistent-behavior-in-runbooks"></a>Runbook의 동작이 일관적이지 않음
 
 [Runbook 실행](https://docs.microsoft.com/azure/automation/automation-runbook-execution#runbook-behavior) 의 지침에 따라 동시 작업, 여러 번 생성 된 리소스 또는 runbook의 다른 타이밍 관련 논리와 관련 된 문제를 방지 합니다.
 
-## <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook이 권한 없음, 사용 권한 없음 (403) 또는 일부 변형 오류로 인해 실패 함
+### <a name="runbook-fails-with-the-error-no-permission-forbidden-403-or-some-variation"></a>Runbook이 권한 없음, 사용 권한 없음 (403) 또는 일부 변형 오류로 인해 실패 함
 
 실행 계정에는 현재 계정으로 Azure 리소스에 대 한 사용 권한이 없을 수 있습니다. 실행 계정에 스크립트에서 사용 되는 [리소스에 대 한 액세스 권한이](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal) 있는지 확인 합니다.
 
-## <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
+### <a name="runbooks-were-working-but-suddenly-stopped"></a>Runbook이 작동 중에 갑자기 중지됨
 
 * Runbook이 이전에 실행 되었지만 중지 된 경우 실행 계정이 만료 되지 않았는지 확인 합니다. [인증 갱신](https://docs.microsoft.com/azure/automation/manage-runas-account#cert-renewal)을 참조 하세요.
 * 웹 후크를 사용 하 여 runbook을 시작 하는 경우 webhook [가 만료 되지](https://docs.microsoft.com/azure/automation/automation-webhooks#renew-webhook)않았는지 확인 합니다.
 
-## <a name="passing-parameters-into-webhooks"></a>webhook에 매개 변수 전달
+### <a name="passing-parameters-into-webhooks"></a>webhook에 매개 변수 전달
 
 웹 후크에 매개 변수를 전달 하는 데 도움이 필요한 경우 [webhook에서 Runbook 시작](https://docs.microsoft.com/azure/automation/automation-webhooks#parameters)을 참조 하세요.
 
-## <a name="using-az-modules"></a>Az 모듈 사용
+### <a name="using-az-modules"></a>Az 모듈 사용
 
-Az 모듈 및 AzureRM 모듈을 같은 Automation 계정에 사용하는 것은 지원되지 않습니다. [Runbook의 Az modules을](https://docs.microsoft.com/azure/automation/az-modules)참조 하십시오.
+동일한 Automation 계정에서 Az modules 및 AzureRM 모듈을 사용 하는 것은 지원 되지 않습니다. [Runbook의 Az modules을](https://docs.microsoft.com/azure/automation/az-modules)참조 하십시오.
 
-## <a name="using-self-signed-certificates"></a>자체 서명 된 인증서 사용
+### <a name="using-self-signed-certificates"></a>자체 서명 된 인증서 사용
 
 자체 서명 된 인증서를 사용 하려면 [새 인증서 만들기](https://docs.microsoft.com/azure/automation/shared-resources/certificates#creating-a-new-certificate)를 참조 하세요.
 

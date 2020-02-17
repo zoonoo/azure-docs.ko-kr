@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: baa44481c4641f69ead5335298316c837062d2c0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 6842338bd27e4bea3436f0b249380ab773d60de6
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186043"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368076"
 ---
 # <a name="azure-active-directory-conditional-access-faqs"></a>조건부 액세스 Faq Azure Active Directory
 
@@ -40,7 +40,7 @@ B2B(Business-to-Business) 협업 사용자에 대한 정책이 적용됩니다. 
 
 조건부 액세스 정책은 모든 사용자 계정에 적용 됩니다. 여기에는 서비스 계정으로 사용되는 사용자 계정이 포함됩니다. 무인 모드로 실행 되는 서비스 계정은 조건부 액세스 정책의 요구 사항을 충족할 수 없는 경우가 많습니다. 예를 들어 다단계 인증이 필요할 수 있습니다. 조건부 액세스 정책 관리 설정을 사용 하 여 서비스 계정을 정책에서 제외할 수 있습니다. 
 
-## <a name="are-graph-apis-available-for-configuring-conditional-access-policies"></a>조건부 액세스 정책을 구성 하는 데 Graph Api를 사용할 수 있나요?
+## <a name="are-microsoft-graph-apis-available-for-configuring-conditional-access-policies"></a>조건부 액세스 정책을 구성 하는 데 사용할 수 있는 Microsoft Graph Api가 있나요?
 
 현재는 사용할 수 없습니다. 
 

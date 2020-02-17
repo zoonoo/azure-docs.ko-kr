@@ -1,6 +1,6 @@
 ---
-title: Azure AD에서 앱에 대 한 사용자 프로 비전을 위한 SCIM 끝점 개발
-description: SCIM (도메인 간 Id 관리)에 대 한 시스템에서 자동 사용자 프로 비전을 표준화 합니다. SCIM 끝점을 개발 하 고, Azure Active Directory SCIM API를 통합 하 고, 클라우드 응용 프로그램에 사용자 및 그룹을 프로 비전 하는 자동화를 시작 하는 방법을 알아봅니다.
+title: Azure AD에서 앱에 대 한 사용자 프로 비전을 위한 SCIM 끝점 빌드
+description: SCIM 끝점을 빌드하고, Azure Active Directory SCIM API를 통합 하 고, 클라우드 응용 프로그램에 사용자 및 그룹을 프로 비전 하는 자동화를 시작 하는 방법을 알아봅니다.
 services: active-directory
 documentationcenter: ''
 author: msmimart
@@ -11,25 +11,25 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 2/7/2020
+ms.date: 11/15/2019
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b5a74e03a5b166af85c809725c2c8b9a13b7e4f4
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: d3d891dfcc2a37489953724ce22e0e0422d512ff
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77085453"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368225"
 ---
-# <a name="develop-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 개발 하 고 Azure Active Directory를 사용 하 여 사용자 프로 비전 구성 (Azure AD)
+# <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
 응용 프로그램 개발자는 SCIM (도메인 간 Id 관리) 사용자 관리 API에 대 한 시스템을 사용 하 여 응용 프로그램과 Azure AD 간에 사용자 및 그룹의 자동 프로 비전을 사용 하도록 설정할 수 있습니다. 이 문서에서는 SCIM 끝점을 빌드하고 Azure AD 프로 비전 서비스와 통합 하는 방법을 설명 합니다. SCIM 사양은 프로 비전을 위한 공용 사용자 스키마를 제공 합니다. SAML 또는 Openid connect Connect와 같은 페더레이션 표준과 함께 사용 하는 경우 SCIM은 관리자에 게 액세스 관리를 위한 종단 간 표준 기반 솔루션을 제공 합니다.
 
 SCIM은 두 끝점의 표준화 된 정의입니다./사용자 끝점 및/Tgroups 끝점입니다. 일반적인 REST 동사를 사용 하 여 개체를 만들고, 업데이트 하 고, 삭제 하며 그룹 이름, 사용자 이름, 이름, 성, 전자 메일 등의 공통 특성에 대해 미리 정의 된 스키마를 사용 합니다. SCIM 2.0 REST API을 제공 하는 앱은 독점적인 사용자 관리 API를 사용 하 여 작업 하는 어려움을 줄이거나 없앨 수 있습니다. 예를 들어 모든 규격 SCIM 클라이언트는 JSON 개체의 HTTP POST를/사용자 끝점으로 만들어 새 사용자 항목을 만드는 방법을 알고 있습니다. 동일한 기본 작업에 대해 약간 다른 API를 필요로 하는 대신 SCIM 표준을 준수 하는 앱은 기존 클라이언트, 도구 및 코드를 즉시 활용할 수 있습니다. 
 
-![SCIM을 사용 하 여 Azure AD에서 앱으로 프로 비전](./media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
+![SCIM을 사용 하 여 Azure AD에서 앱으로 프로 비전](media/use-scim-to-provision-users-and-groups/scim-provisioning-overview.png)
 
 SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.ietf.org/html/rfc7643), [7644](https://tools.ietf.org/html/rfc7644))에 정의 된 관리용 표준 사용자 개체 스키마 및 rest api를 사용 하 여 id 공급자와 앱을 서로 쉽게 통합할 수 있습니다. SCIM 끝점을 빌드하는 응용 프로그램 개발자는 사용자 지정 작업을 수행 하지 않고도 SCIM 호환 클라이언트와 통합할 수 있습니다.
 
@@ -45,57 +45,19 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 
   * **[5 단계: Azure AD 응용 프로그램 갤러리에 응용 프로그램을 게시 합니다.](#step-5-publish-your-application-to-the-azure-ad-application-gallery)** 고객이 응용 프로그램을 쉽게 검색 하 고 프로 비전을 쉽게 구성할 수 있도록 합니다. 
 
-![SCIM 끝점을 Azure AD와 통합 하는 단계](./media/use-scim-to-provision-users-and-groups/process.png)
+![SCIM 끝점을 Azure AD와 통합 하는 단계](media/use-scim-to-provision-users-and-groups/process.png)
 
 ## <a name="step-1-design-your-user-and-group-schema"></a>1 단계: 사용자 및 그룹 스키마 디자인
 
-모든 응용 프로그램에는 사용자 또는 그룹을 만들기 위한 다른 특성이 필요 합니다. 응용 프로그램에 필요한 개체 (사용자, 그룹) 및 특성 (이름, 관리자, 직함 등)을 식별 하 여 통합을 시작 합니다. SCIM 표준은 사용자 및 그룹을 관리 하기 위한 스키마를 정의 합니다. 핵심 사용자 스키마에는 **id** (서비스 공급자 정의 식별자), **externalid** (클라이언트 정의 식별자) 및 **메타** (서비스 공급자가 유지 관리 하는 읽기 전용 메타 데이터)의 세 가지 특성만 필요 합니다. 다른 모든 특성은 선택 사항입니다. SCIM 표준은 핵심 사용자 스키마 외에도 응용 프로그램의 요구에 맞게 사용자 스키마를 확장 하는 모델 및 엔터프라이즈 사용자 확장을 정의 합니다. 예를 들어 응용 프로그램에 사용자의 관리자가 필요한 경우 엔터프라이즈 사용자 스키마를 사용 하 여 사용자의 관리자와 핵심 스키마를 수집 하 여 사용자의 메일을 수집할 수 있습니다. 스키마를 디자인 하려면 다음 단계를 수행 합니다.
-  1. 응용 프로그램에 필요한 특성을 나열 합니다. 요구 사항을 인증에 필요한 특성 (예: loginName 및 전자 메일), 사용자의 수명 주기를 관리 하는 데 필요한 특성 (예: 상태/활성) 및 특정 응용 프로그램이 작동 하는 데 필요한 기타 특성 (예: 관리자, 태그)으로 구분 하는 것이 유용할 수 있습니다.
-  2. 이러한 특성이 핵심 사용자 스키마 또는 엔터프라이즈 사용자 스키마에 이미 정의 되어 있는지 확인 합니다. 필요한 특성이 핵심 또는 엔터프라이즈 사용자 스키마에 포함 되어 있지 않은 경우 필요한 특성을 포함 하는 사용자 스키마에 대 한 확장을 정의 해야 합니다. 아래 예제에서는 사용자에 게 "태그"를 프로 비전 할 수 있도록 사용자에 대 한 확장을 추가 했습니다. 핵심 및 엔터프라이즈 사용자 스키마로 시작 하 고 나중에 추가 사용자 지정 스키마를 확장 하는 것이 가장 좋습니다.  
-  3. SCIM 특성을 Azure AD의 사용자 특성에 매핑합니다. SCIM 끝점에 정의 된 특성 중 하나에 Azure AD 사용자 스키마에 대 한 명확한 대응 항목이 없으면 대부분의 테 넌 트에 데이터를 사용자 개체에 저장 하지 않는 것이 좋습니다. 사용자를 만들기 위해이 특성을 선택적으로 사용할 수 있는지 여부를 고려 합니다. 응용 프로그램이 작동 하는 데 중요 한 특성이 면 테 넌 트 관리자에 게 해당 스키마를 확장 하거나 아래와 같이 "tags" 속성에 대 한 확장 특성을 사용 하도록 안내 합니다.
+모든 응용 프로그램에는 사용자 또는 그룹을 만들기 위한 다른 특성이 필요 합니다. 응용 프로그램에 필요한 개체 (사용자, 그룹) 및 특성 (이름, 관리자, 직함 등)을 식별 하 여 통합을 시작 합니다. 그런 다음 아래 표를 사용 하 여 응용 프로그램에 필요한 특성을 Azure AD의 특성과 SCIM RFC에 매핑할 수 있는 방법을 이해할 수 있습니다. Azure AD와 SCIM 끝점 간에 특성이 매핑되는 방식을 [사용자 지정할](customize-application-attributes.md) 수 있습니다. 
 
-### <a name="table-1-outline-the-attributes-that-you-need"></a>표 1: 필요한 특성 윤곽선 
-| 1 단계: 앱에 필요한 특성 결정| 2 단계: SCIM 표준에 앱 요구 사항 매핑| 3 단계: Azure AD 특성에 SCIM 특성 매핑|
-|--|--|--|
-|loginName|userName|userPrincipalName|
-|firstName|name.givenName|givenName|
-|lastName|이름. lastName|lastName|
-|회사 메일|전자 메일 [type eq "work"]. value|Mail|
-|manager|manager|manager|
-|tag|urn: ietf: params: scim: 스키마: 확장: 2.0: CustomExtension: tag|extensionAttribute1|
-|상태|활성|Is소프트 삭제 (사용자에 게 저장 되지 않은 계산 값)|
+사용자 리소스는이 프로토콜 사양에 포함 된 `urn:ietf:params:scim:schemas:extension:enterprise:2.0:User`스키마 식별자 (https://tools.ietf.org/html/rfc7643)로 식별 됩니다.  Azure AD에서 사용자 리소스의 특성에 대 한 기본 특성 매핑은 표 1에 제공 됩니다.  
 
-위에서 정의한 스키마는 아래 Json 페이로드를 사용 하 여 표시 됩니다. 응용 프로그램에 필요한 특성 외에도 JSON 표현에는 필수 "id", "externalId" 및 "meta" 특성이 포함 되어 있습니다.
+그룹 리소스는 스키마 식별자 `urn:ietf:params:scim:schemas:core:2.0:Group`으로 식별됩니다. 표 2에서는 Azure AD의 그룹 특성을 그룹 리소스의 특성에 대 한 기본 매핑을 보여 줍니다.
 
-```json
-{
-     "schemas": ["urn:ietf:params:scim:schemas:core:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User",
-      "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:User"],
-     "userName":"bjensen",
-     "externalId":"bjensen",
-     "name":{
-       "familyName":"Jensen",
-       "givenName":"Barbara"
-     },
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User": {
-     "Manager": "123456"
-   },
-     "urn:ietf:params:scim:schemas:extension:CustomExtensionName:2.0:CustomAttribute:User": {
-     "tag": "701984",
-   },
-   "meta": {
-     "resourceType": "User",
-     "created": "2010-01-23T04:56:22Z",
-     "lastModified": "2011-05-13T04:42:34Z",
-     "version": "W\/\"3694e05e9dff591\"",
-     "location":
- "https://example.com/v2/Users/2819c223-7f76-453a-919d-413861904646"
-   }
- ```
+사용자와 그룹 또는 아래에 표시 된 모든 특성을 모두 지원할 필요는 없습니다. Azure AD의 특성이 SCIM 프로토콜의 속성에 매핑되는 방식에 대 한 참조입니다.  
 
-### <a name="table-2-default-user-attribute-mapping"></a>표 2: 기본 사용자 특성 매핑
-그런 다음 아래 표를 사용 하 여 응용 프로그램에 필요한 특성을 Azure AD의 특성과 SCIM RFC에 매핑할 수 있는 방법을 이해할 수 있습니다. Azure AD와 SCIM 끝점 간에 특성이 매핑되는 방식을 [사용자 지정할](customize-application-attributes.md) 수 있습니다. 사용자와 그룹 또는 아래에 표시 된 모든 특성을 모두 지원할 필요는 없습니다. Azure AD의 특성이 SCIM 프로토콜의 속성에 매핑되는 방식에 대 한 참조입니다. 
+### <a name="table-1-default-user-attribute-mapping"></a>테이블 1: 기본 사용자 특성 매핑
 
 | Azure Active Directory 사용자 | "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User" |
 | --- | --- |
@@ -119,7 +81,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | user-PrincipalName |userName |
 
 
-### <a name="table-3-default-group-attribute-mapping"></a>표 3: 기본 그룹 특성 매핑
+### <a name="table-2-default-group-attribute-mapping"></a>테이블 2: 기본 그룹 특성 매핑
 
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
@@ -129,19 +91,6 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | members |members |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
-
-SCIM RFC에는 여러 끝점이 정의 되어 있습니다. /User 끝점을 시작 하 고 거기에서 확장할 수 있습니다. /Schemas 끝점은 사용자 지정 특성을 사용 하거나 스키마가 자주 변경 되는 경우에 유용 합니다. 이를 통해 클라이언트는 최신 스키마를 자동으로 검색할 수 있습니다. /대량 끝점은 그룹을 지원할 때 특히 유용 합니다. 다음 표에서는 SCIM 표준에 정의 된 다양 한 끝점에 대해 설명 합니다. /Schemas 끝점은 사용자 지정 특성을 사용 하거나 스키마가 자주 변경 되는 경우에 유용 합니다. 이를 통해 클라이언트는 최신 스키마를 자동으로 검색할 수 있습니다. /대량 끝점은 그룹을 지원할 때 특히 유용 합니다. 다음 표에서는 SCIM 표준에 정의 된 다양 한 끝점에 대해 설명 합니다. 
- 
-### <a name="table-4-determine-the-endpoints-that-you-would-like-to-develop"></a>표 4: 개발 하려는 끝점 결정
-|엔드포인트|설명|
-|--|--|
-|/User|사용자 개체에 대 한 CRUD 작업을 수행 합니다.|
-|/Group|그룹 개체에 대 한 CRUD 작업을 수행 합니다.|
-|/ServiceProviderConfig|지원 되는 리소스 및 인증 방법과 같이 지원 되는 SCIM 표준의 기능에 대 한 세부 정보를 제공 합니다.|
-|/ResourceTypes|각 리소스에 대 한 메타 데이터를 지정 합니다.|
-|/스키마|각 클라이언트 및 서비스 공급자가 지 원하는 특성 집합은 다를 수 있습니다. 한 서비스 공급자는 "name", "title" 및 "전자 메일"을 포함할 수 있지만 다른 서비스 공급자는 "name", "title" 및 "phoneNumbers"를 사용 합니다. 스키마 끝점은 지원 되는 특성의 검색을 허용 합니다.|
-|/대량|대량 작업을 사용 하면 대규모 그룹의 멤버 자격 업데이트와 같이 단일 작업으로 대규모 리소스 개체 컬렉션에 대 한 작업을 수행할 수 있습니다.|
-
 
 ## <a name="step-2-understand-the-azure-ad-scim-implementation"></a>2 단계: Azure AD SCIM 구현 이해
 > [!IMPORTANT]
@@ -176,7 +125,7 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 다음 그림에서는 응용 프로그램의 id 저장소에서 사용자의 수명 주기를 관리 하기 위해 SCIM 서비스로 보내는 Azure Active Directory 메시지를 보여 줍니다.  
 
-![은 사용자 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다](./media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
+![은 사용자 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다](media/use-scim-to-provision-users-and-groups/scim-figure-4.png)<br/>
 *사용자 프로 비전 및 프로 비전 해제 시퀀스*
 
 ### <a name="group-provisioning-and-deprovisioning"></a>그룹 프로 비전 및 프로 비전 해제
@@ -186,14 +135,14 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 * 그룹 검색 요청은 멤버 특성이 요청에 대 한 응답으로 제공 된 리소스에서 제외 되도록 지정 합니다.  
 * 참조 특성에 특정 값이 있는지를 확인하는 요청은 멤버 특성에 대한 요청입니다.  
 
-![그룹 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다](./media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
+![그룹 프로 비전 및 프로 비전 해제 시퀀스를 보여 줍니다](media/use-scim-to-provision-users-and-groups/scim-figure-5.png)<br/>
 *그룹 프로 비전 및 프로 비전 해제 시퀀스*
 
 ### <a name="scim-protocol-requests-and-responses"></a>SCIM 프로토콜 요청 및 응답
 이 섹션에서는 Azure AD SCIM 클라이언트에서 내보낸 예제 SCIM 요청 및 예상 응답 예제를 제공 합니다. 최상의 결과를 위해서는 이러한 요청을이 형식으로 처리 하 고 예상 된 응답을 내보내는 앱을 코딩 해야 합니다.
 
 > [!IMPORTANT]
-> Azure AD 사용자 프로 비전 서비스에서 아래에 설명 된 작업을 내보내는 방법과 시기를 이해 하려면 프로 비전 [주기: 초기 및 증분](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 프로 [비전 작동 방법](../app-provisioning/how-provisioning-works.md)섹션을 참조 하세요.
+> Azure AD 사용자 프로 비전 서비스에서 아래에 설명 된 작업을 내보내는 방법과 시기를 이해 하려면 프로 비전 [주기: 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 프로 [비전 작동 방법](how-provisioning-works.md)섹션을 참조 하세요.
 
 [사용자 작업](#user-operations)
   - [사용자 만들기](#create-user) ([요청](#request) / [응답](#response))
@@ -722,34 +671,6 @@ Azure AD와의 호환성을 보장 하기 위해 SCIM 끝점을 구현할 때 �
 
 *HTTP/1.1 204 내용 없음*
 
-### <a name="security-requirements"></a>보안 요구 사항
-**TLS 프로토콜 버전**
-
-허용 되는 TLS 프로토콜 버전은 TLS 1.2 및 TLS 1.3 뿐입니다. 다른 버전의 TLS는 허용 되지 않습니다. SSL 버전이 허용 되지 않습니다. 
-- RSA 키는 2048 비트 이상 이어야 합니다.
-- ECC 키는 승인 된 타원 곡선을 사용 하 여 생성 된 256 비트 이상 이어야 합니다.
-
-
-**키 길이**
-
-모든 서비스는 충분 한 길이의 암호화 키를 사용 하 여 생성 된 x.509 인증서를 사용 해야 합니다. 의미는 다음과 같습니다.
-
-**암호 그룹**
-
-모든 서비스는 아래 지정 된 순서 대로 다음 암호 그룹을 사용 하도록 구성 되어야 합니다. RSA 인증서만 있는 경우에는 설치 된 ECDSA 암호 그룹에 영향을 주지 않습니다. </br>
-
-TLS 1.2 암호 그룹 최소 막대:
-
-- TLS_ECDHE_ECDSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-- TLS_ECDHE_ECDSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_ECDSA_WITH_AES_256_CBC_SHA384
-- TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-- TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
-
-
 ## <a name="step-3-build-a-scim-endpoint"></a>3 단계: SCIM 끝점 빌드
 
 Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어 거의 모든 응용 프로그램 또는 id 저장소에 대해 자동 사용자 프로 비전을 사용 하도록 설정할 수 있습니다.
@@ -831,7 +752,7 @@ SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프�
 
 * CLI(공용 언어 인프라) 라이브러리는 C#과 같은 해당 인프라에 따라 언어와 함께 사용하기 위해 제공됩니다. 이러한 라이브러리 중 하나인 Microsoft.systemforcrossdomainidentitymanagement는 다음 그림에 표시 된 것 처럼 Microsoft.systemforcrossdomainidentitymanagement 인터페이스를 선언 합니다. 라이브러리를 사용하는 개발자는 일반적으로 공급자로 참조될 수 있는 클래스를 사용하여 해당 인터페이스를 구현합니다. 라이브러리를 통해 개발자는 SCIM 사양을 준수 하는 웹 서비스를 배포할 수 있습니다. 웹 서비스는 인터넷 정보 서비스 내에서 또는 실행 가능한 CLI 어셈블리에서 호스팅될 수 있습니다. 요청은 공급자의 메서드에 대한 호출로 변환되며, 개발자에 의해 일부 ID 저장소에서 작동하도록 프로그래밍됩니다.
   
-   ![분석: 공급자의 메서드에 대 한 호출로 변환 된 요청](./media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
+   ![분석: 공급자의 메서드에 대 한 호출로 변환 된 요청](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
   
 * [기본 경로 처리기](https://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.
 
@@ -842,6 +763,10 @@ CLI 라이브러리를 사용 하는 개발자는 실행 가능한 CLI 어셈블
 ```csharp
  private static void Main(string[] arguments)
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
    new DevelopersMonitor();
@@ -931,6 +856,10 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc
 ```csharp
  public class Startup
  {
+ // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
+ // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
+ // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
 
  Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
 
@@ -956,7 +885,7 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc
 
 ### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
 
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Azure Active Directory Graph 웹 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은 토큰이 발급 된 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
+Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다. 요청을 수신 하는 모든 서비스는 Microsoft Graph API 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다. 토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은 토큰이 발급 된 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
 
 SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 다음 단계에 따라 ActiveDirectory 패키지를 사용 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 
@@ -978,7 +907,7 @@ SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이�
   }
 ```
 
-그런 다음, 해당 메서드에 다음 코드를 추가 하 여 Azure AD Graph 웹 서비스에 대 한 액세스를 위해 지정 된 테 넌 트에 대해 Azure Active Directory에서 발급 한 토큰을 포함 하는 것으로 인증 된 서비스의 끝점에 대 한 요청을 수행 합니다. 
+그런 다음, 해당 메서드에 다음 코드를 추가 하 여 Microsoft Graph API 서비스에 대 한 액세스를 위해 지정 된 테 넌 트에 대해 Azure Active Directory에서 발급 한 토큰을 포함 하 여 인증 된 서비스의 끝점에 대 한 요청을 수행 합니다. 
 
 ```csharp
   private void OnServiceStartup(
@@ -1386,7 +1315,7 @@ ResourceIdentifier 인수의 값으로 제공 되는 개체에는 사용자 프�
 애플리케이션 공급자 또는 애플리케이션 공급자의 설명서를 통해 이러한 요구 사항과의 호환성을 확인합니다.
 
 > [!IMPORTANT]
-> Azure ad SCIM 구현은 azure ad와 대상 응용 프로그램 간에 지속적으로 사용자의 동기화를 유지 하도록 설계 된 Azure AD 사용자 프로 비전 서비스를 기반으로 하며, 매우 구체적인 표준 작업 집합을 구현 합니다. 이러한 동작을 이해 하 여 Azure AD SCIM 클라이언트의 동작을 이해 하는 것이 중요 합니다. 자세한 내용은 프로 비전 [주기: 초기 및 증분](../app-provisioning/how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 프로 [비전 작동 방법](../app-provisioning/how-provisioning-works.md)섹션을 참조 하세요.
+> Azure ad SCIM 구현은 azure ad와 대상 응용 프로그램 간에 지속적으로 사용자의 동기화를 유지 하도록 설계 된 Azure AD 사용자 프로 비전 서비스를 기반으로 하며, 매우 구체적인 표준 작업 집합을 구현 합니다. 이러한 동작을 이해 하 여 Azure AD SCIM 클라이언트의 동작을 이해 하는 것이 중요 합니다. 자세한 내용은 프로 비전 [주기: 초기 및 증분](how-provisioning-works.md#provisioning-cycles-initial-and-incremental) 프로 [비전 작동 방법](how-provisioning-works.md)섹션을 참조 하세요.
 
 ### <a name="getting-started"></a>시작
 
@@ -1399,13 +1328,13 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 3. **+ 새 응용 프로그램** > **모든** > **비 갤러리 응용 프로그램**을 선택 합니다.
 4. 응용 프로그램의 이름을 입력 하 고 **추가** 를 선택 하 여 앱 개체를 만듭니다. 새 앱이 엔터프라이즈 응용 프로그램 목록에 추가 되 고 앱 관리 화면으로 열립니다.
 
-   ![스크린샷은 Azure AD 응용 프로그램 갤러리를 보여 줍니다](./media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
+   ![스크린샷은 Azure AD 응용 프로그램 갤러리를 보여 줍니다](media/use-scim-to-provision-users-and-groups/scim-figure-2a.png)<br/>
    *Azure AD 응용 프로그램 갤러리*
 
 5. 앱 관리 화면의 왼쪽 패널에서 **프로 비전** 을 선택 합니다.
 6. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.
 
-   ![예: Azure Portal에 있는 앱의 프로 비전 페이지](./media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
+   ![예: Azure Portal에 있는 앱의 프로 비전 페이지](media/use-scim-to-provision-users-and-groups/scim-figure-2b.png)<br/>
    *Azure Portal에서 프로 비전 구성*
 
 7. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: https://api.contoso.com/scim/
@@ -1441,20 +1370,11 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>응용 프로그램 갤러리에서 커넥터 프로 비전에 대 한 권한 부여
 SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정의 되어 있지 않습니다. 기존 업계 표준의 사용을 기반으로 합니다. Azure AD 프로 비전 클라이언트는 갤러리의 응용 프로그램에 대 한 두 가지 권한 부여 방법을 지원 합니다. 
 
-|권한 부여 방법|장점|단점|지원|
-|--|--|--|--|
-|사용자 이름 및 암호 (Azure AD에서 권장 되지 않거나 지원 되지 않음)|손쉬운 구현|안전 [하지 않음-Pa $ $word 중요 하지 않습니다](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984) .|갤러리 앱에 대 한 대/소문자를 기준으로 지원 됩니다. 비 갤러리 앱에 대해서는 지원 되지 않습니다.|
-|수명이 긴 전달자 토큰 (현재 Azure AD에서 지원 됨)|수명이 긴 토큰에는 사용자가 없어도 됩니다. 프로 비전을 설정할 때 관리자가 쉽게 사용할 수 있습니다.|수명이 긴 토큰은 전자 메일과 같은 안전 하지 않은 방법을 사용 하지 않고 관리자와 공유 하기 어려울 수 있습니다. |갤러리 및 비 갤러리 앱에 대해 지원 됩니다. |
-|OAuth 인증 코드 권한 부여 (현재 Azure AD에서 지원 됨)|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다.  책임 수준을 추가 하는 초기 권한 부여 중에는 실제 사용자가 있어야 합니다. |사용자가 있어야 합니다. 사용자가 조직을 떠나면 토큰이 유효 하지 않으므로 권한 부여를 다시 완료 해야 합니다.|갤러리 앱에 대해 지원 됩니다. 비 갤러리 앱에 대 한 지원이 진행 중입니다.|
-|OAuth 클라이언트 자격 증명 부여 (지원 되지 않음, microsoft 로드맵)|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다. 권한 부여 코드 grant와 클라이언트 자격 증명 부여는 모두 동일한 형식의 액세스 토큰을 만들기 때문에 이러한 메서드 간에 이동 하는 것은 API에 투명 합니다.  프로 비전은 완전히 자동화 될 수 있으며, 사용자 개입 없이 새 토큰을 자동으로 요청할 수 있습니다. ||갤러리 및 비 갤러리 앱에 대해서는 지원 되지 않습니다. 지원은 백로그에 있습니다.|
-
 **OAuth 인증 코드 부여 흐름:** 프로 비전 서비스는 [인증 코드 부여](https://tools.ietf.org/html/rfc6749#page-24)를 지원 합니다. 갤러리에서 앱 게시 요청을 제출 하 고 나면 팀에서 다음 정보를 수집 하는 작업을 수행 합니다.
 *  권한 부여 URL: 사용자 에이전트 리디렉션을 통해 리소스 소유자 로부터 인증을 얻기 위해 클라이언트에서 사용 하는 URL입니다. 사용자는 액세스 권한을 부여 하기 위해이 URL로 리디렉션됩니다. 
 *  토큰 교환 URL: 일반적으로 클라이언트 인증을 사용 하 여 액세스 토큰에 대 한 권한 부여를 교환 하기 위해 클라이언트에서 사용 하는 URL입니다.
 *  클라이언트 ID: 권한 부여 서버는 클라이언트에서 제공 하는 등록 정보를 나타내는 고유한 문자열인 클라이언트 식별자 인 등록 된 클라이언트를 발급 합니다.  클라이언트 식별자가 비밀이 아닙니다. 리소스 소유자에 게 노출 되며 클라이언트 인증에 단독으로 사용 하면 **안** 됩니다.  
 *  클라이언트 암호: 클라이언트 암호는 권한 부여 서버에서 생성 하는 암호입니다. 권한 부여 서버에만 알려진 고유한 값 이어야 합니다. 
-
-OAuth v1은 클라이언트 암호의 노출 때문에 지원 되지 않습니다. OAuth v2가 지원 됩니다.  
 
 모범 사례 (권장 되지만 필수는 아님):
 * 여러 리디렉션 Url을 지원 합니다. 관리자는 "portal.azure.com" 및 "aad.portal.azure.com" 모두에서 프로 비전을 구성할 수 있습니다. 여러 리디렉션 Url을 지원 하기 때문에 사용자가 두 포털에서 액세스 권한을 부여할 수 있습니다.
@@ -1472,7 +1392,7 @@ OAuth v1은 클라이언트 암호의 노출 때문에 지원 되지 않습니�
 
 * [SaaS 앱에 대 한 사용자 프로 비전 및 프로 비전 해제 자동화](user-provisioning.md)
 * [사용자 프로비전을 위한 사용자 지정 특성 매핑](customize-application-attributes.md)
-* [특성 매핑에 대 한 식 작성](../app-provisioning/functions-for-customizing-application-data.md)
-* [사용자 프로 비전을 위한 범위 지정 필터](../app-provisioning/define-conditional-rules-for-provisioning-user-accounts.md)
+* [특성 매핑에 대 한 식 작성](functions-for-customizing-application-data.md)
+* [사용자 프로 비전을 위한 범위 지정 필터](define-conditional-rules-for-provisioning-user-accounts.md)
 * [계정 프로비전 알림](user-provisioning.md)
 * [SaaS App을 통합하는 방법에 대한 자습서 목록](../saas-apps/tutorial-list.md)

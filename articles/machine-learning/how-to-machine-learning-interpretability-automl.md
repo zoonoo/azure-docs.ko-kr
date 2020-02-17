@@ -10,12 +10,12 @@ ms.author: mesameki
 author: mesameki
 ms.reviewer: trbye
 ms.date: 10/25/2019
-ms.openlocfilehash: a0d805d6ae9b129443a2850e0741d5da87feac84
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 9cacc0a1faa66e5d265f7f80830e13c54a88a68c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75539607"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366285"
 ---
 # <a name="model-interpretability-in-automated-machine-learning"></a>자동화 된 machine learning에서 모델 interpretability
 
@@ -29,7 +29,7 @@ ms.locfileid: "75539607"
 - 시각화를 사용 하 여 데이터 및 설명의 패턴을 쉽게 확인할 수 있습니다.
 - 유추 또는 점수 매기기 중 interpretability을 구현 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Interpretability 기능. `pip install azureml-interpret azureml-contrib-interpret`를 실행 하 여 필요한 패키지를 가져옵니다.
 - 자동화 된 ML 실험 빌드에 대 한 지식. Azure Machine Learning SDK를 사용 하는 방법에 대 한 자세한 내용은이 [회귀 모델 자습서](tutorial-auto-train-models.md) 를 완료 하거나 [자동화 된 ML 실험을 구성](how-to-configure-auto-train.md)하는 방법을 참조 하세요.
@@ -71,7 +71,7 @@ automl_run, fitted_model = local_run.get_output(metric='r2_score')
 `automl_explainer_setup_obj`는 위의 목록에 있는 모든 구조를 포함 합니다.
 
 ```python
-from azureml.train.automl.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
+from azureml.train.automl.runtime.automl_explain_utilities import AutoMLExplainerSetupClass, automl_setup_model_explanations
 
 automl_explainer_setup_obj = automl_setup_model_explanations(fitted_model, X=X_train, 
                                                              X_test=X_test, y=y_train, 

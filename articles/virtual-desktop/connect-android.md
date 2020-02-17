@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 09/26/2019
 ms.author: helohr
-ms.openlocfilehash: 41b0c1ced9e66bd58d73683865b2c40afc16c5d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: de875ca9db9716e59c3c6efc0d7fb34e31f0c1d2
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73605861"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367534"
 ---
 # <a name="connect-with-the-android-client"></a>Android 클라이언트와 연결
 
@@ -49,4 +49,4 @@ ms.locfileid: "73605861"
 
 ## <a name="next-steps"></a>다음 단계
 
-Android 클라이언트를 사용 하는 방법에 대해 자세히 알아보려면 [android 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-android)을 참조 하세요.
+Android 클라이언트를 사용 하는 방법에 대해 자세히 알아보려면 [android 클라이언트 시작](/windows-server/remote/remote-desktop-services/clients/remote-desktop-android/)을 참조 하세요.

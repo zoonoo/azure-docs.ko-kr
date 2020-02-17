@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: f8400cbefc514fa01dedb1434a60989b1df0528d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: c15662409f9f5badf50765b78bce7dd71e9fb1bc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980225"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367170"
 ---
 # <a name="session-host-virtual-machine-configuration"></a>세션 호스트 가상 머신 구성
 
 이 문서를 사용 하 여 Windows 가상 데스크톱 세션 호스트 Vm (가상 컴퓨터)을 구성할 때 발생 하는 문제를 해결할 수 있습니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -26,7 +26,7 @@ ms.locfileid: "75980225"
 
 Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 따르세요.
 
-- [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](https://docs.microsoft.com/azure/active-directory-domain-services/Active-directory-ds-admin-guide-join-windows-vm-portal) 또는 [도메인 가입 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)사용의 프로세스를 사용 하 여 수동으로 VM에 연결 합니다.
+- [Windows Server 가상 컴퓨터를 관리 되는 도메인에 가입](../active-directory-domain-services/join-windows-vm.md) 또는 [도메인 가입 템플릿](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)사용의 프로세스를 사용 하 여 수동으로 VM에 연결 합니다.
 - VM의 명령줄에서 도메인 이름을 ping 해 봅니다.
 - 도메인 가입 오류 [메시지 문제 해결](https://social.technet.microsoft.com/wiki/contents/articles/1935.troubleshooting-domain-join-error-messages.aspx)에서 도메인 가입 오류 메시지의 목록을 검토 합니다.
 
@@ -37,7 +37,7 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 **해결 방법:** 다음 작업 중 하나를 수행 하 여 해결 합니다.
 
 - 수동으로 Vm을 도메인에 추가 합니다.
-- 자격 증명이 확인 되 면 템플릿을 다시 배포 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 참조 하세요.
+- 자격 증명이 확인 되 면 템플릿을 다시 배포 합니다. [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md)를 참조 하세요.
 - [기존 WINDOWS VM을 AD 도메인에 조인](https://azure.microsoft.com/resources/templates/201-vm-domain-join-existing/)하는 템플릿을 사용 하 여 vm을 도메인에 가입 시킵니다.
 
 ### <a name="error-timeout-waiting-for-user-input"></a>오류: 사용자 입력을 기다리는 동안 제한 시간이 초과 되었습니다.
@@ -62,17 +62,17 @@ Vm을 도메인에 가입 하는 데 문제가 있는 경우 다음 지침을 �
 
 **원인 1:** Vm은 도메인이 있는 가상 네트워크 (VNET)와 연결 되지 않은 가상 네트워크에 있습니다.
 
-**수정 1:** Vm이 프로 비전 된 VNET과 도메인 컨트롤러 (DC)가 실행 중인 VNET 간에 VNET 피어 링을 만듭니다. [가상 네트워크 피어 링 만들기-리소스 관리자, 다른 구독을](https://docs.microsoft.com/azure/virtual-network/create-peering-different-subscriptions)참조 하세요.
+**수정 1:** Vm이 프로 비전 된 VNET과 도메인 컨트롤러 (DC)가 실행 중인 VNET 간에 VNET 피어 링을 만듭니다. [가상 네트워크 피어 링 만들기-리소스 관리자, 다른 구독을](../virtual-network/create-peering-different-subscriptions.md)참조 하세요.
 
 **원인 2:** Azure Active Directory Domain Services (Azure AD DS)를 사용 하는 경우 관리 되는 도메인 컨트롤러를 가리키도록 가상 네트워크에 DNS 서버 설정이 업데이트 되지 않습니다.
 
-**수정 2:** Azure AD DS를 포함 하는 가상 네트워크에 대 한 DNS 설정을 업데이트 하려면 [azure virtual network에 대 한 dns 설정 업데이트](https://docs.microsoft.com/azure/active-directory-domain-services/tutorial-create-instance#update-dns-settings-for-the-azure-virtual-network)를 참조 하세요.
+**수정 2:** Azure AD DS를 포함 하는 가상 네트워크에 대 한 DNS 설정을 업데이트 하려면 [azure virtual network에 대 한 dns 설정 업데이트](../active-directory-domain-services/tutorial-create-instance.md#update-dns-settings-for-the-azure-virtual-network)를 참조 하세요.
 
 **원인 3:** 네트워크 인터페이스의 DNS 서버 설정이 가상 네트워크의 적절 한 DNS 서버를 가리키지 않습니다.
 
 **수정 3:** [DNS 서버 변경]의 단계에 따라 다음 작업 중 하나를 수행 하 여 해결 합니다.
-- [Dns 서버 변경](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers) 의 단계에 따라 네트워크 인터페이스의 dns 서버 설정을 **사용자 지정** 으로 변경 하 고 가상 네트워크에 있는 dns 서버의 개인 IP 주소를 지정 합니다.
-- [Dns 서버 변경](https://docs.microsoft.com/azure/virtual-network/virtual-network-network-interface#change-dns-servers)의 단계를 사용 하 여 **가상 네트워크에서 상속** 하도록 네트워크 인터페이스의 dns 서버 설정을 변경 하 고 dns 서버 [변경](https://docs.microsoft.com/azure/virtual-network/manage-virtual-network#change-dns-servers)의 단계를 수행 하 여 가상 네트워크의 dns 서버 설정을 변경 합니다.
+- [Dns 서버 변경](../virtual-network/virtual-network-network-interface.md#change-dns-servers) 의 단계에 따라 네트워크 인터페이스의 dns 서버 설정을 **사용자 지정** 으로 변경 하 고 가상 네트워크에 있는 dns 서버의 개인 IP 주소를 지정 합니다.
+- [Dns 서버 변경](../virtual-network/virtual-network-network-interface.md#change-dns-servers)의 단계를 사용 하 여 **가상 네트워크에서 상속** 하도록 네트워크 인터페이스의 dns 서버 설정을 변경 하 고 dns 서버 [변경](../virtual-network/manage-virtual-network.md#change-dns-servers)의 단계를 수행 하 여 가상 네트워크의 dns 서버 설정을 변경 합니다.
 
 ## <a name="windows-virtual-desktop-agent-and-windows-virtual-desktop-boot-loader-are-not-installed"></a>Windows 가상 데스크톱 에이전트 및 Windows 가상 데스크톱 부팅 로더가 설치 되어 있지 않습니다.
 
@@ -88,7 +88,7 @@ Vm을 프로 비전 하는 권장 방법은 **Windows 가상 데스크톱 호스
 
 **원인 1:** Azure Resource Manager 템플릿에 대 한 입력 중에 제공 된 자격 증명이 잘못 되었거나 사용 권한이 부족 합니다.
 
-**수정 1:** PowerShell을 사용 하 여 [호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 사용 하 여 누락 된 구성 요소를 vm에 수동으로 추가 합니다.
+**수정 1:** PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md)를 사용 하 여 누락 된 구성 요소를 vm에 수동으로 추가 합니다.
 
 **원인 2:** PowerShell DSC를 시작 하 고 실행할 수 있었지만 Windows 가상 데스크톱에 로그인 할 수 없어 필요한 정보를 가져올 수 없어 완료 하지 못했습니다.
 
@@ -147,7 +147,7 @@ Windows 가상 데스크톱 에이전트가 수동으로 또는 Azure Resource M
 
 **수정 2:** 다음 지침에 따라 포트 443를 엽니다.
 
-1. [Sysinternal 도구](https://docs.microsoft.com/sysinternals/downloads/psping)에서 PSPing 도구를 다운로드 하 여 포트 443가 열려 있는지 확인 합니다.
+1. [Sysinternal 도구](/sysinternals/downloads/psping/)에서 PSPing 도구를 다운로드 하 여 포트 443가 열려 있는지 확인 합니다.
 2. 에이전트가 실행 되 고 있는 세션 호스트 VM에 PSPing를 설치 합니다.
 3. 관리자 권한으로 명령 프롬프트를 열고 다음 명령을 실행 합니다.
 
@@ -189,7 +189,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 
 ![Qwinsta와 함께 설치 되거나 사용 하도록 설정 된 side-by-side 스택에는 출력에 rdp-sxs로 나열 됩니다.](media/23b8e5f525bb4e24494ab7f159fa6b62.png)
 
-아래에 나열 된 레지스트리 항목을 확인 하 고 해당 값이 일치 하는지 확인 합니다. 레지스트리 키가 없거나 값이 일치 하지 않으면 side-by-side 스택을 다시 설치 하는 방법에 대 한 [PowerShell을 사용 하 여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) 의 지침을 따르세요.
+아래에 나열 된 레지스트리 항목을 확인 하 고 해당 값이 일치 하는지 확인 합니다. 레지스트리 키가 없거나 값이 일치 하지 않으면 side-by-side 스택을 다시 설치 하는 방법에 대 한 [PowerShell을 사용 하 여 호스트 풀 만들기](create-host-pools-powershell.md) 의 지침을 따르세요.
 
 ```registry
     HKEY_LOCAL_MACHINE\SYSTEM\CurrentControlSet\Control\Terminal
@@ -208,13 +208,13 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 **해결 방법:** 세션 호스트 VM에 side-by-side 스택을 설치 하려면 다음 지침을 따르세요.
 
 1. RDP (원격 데스크톱 프로토콜)를 사용 하 여 로컬 관리자로 세션 호스트 VM에 직접 가져올 수 있습니다.
-2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) 을 다운로드 하 여 가져온 다음 (아직 없는 경우)이 cmdlet을 실행 하 여 계정에 로그인 합니다.
+2. PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈](/powershell/windows-virtual-desktop/overview/) 을 다운로드 하 여 가져온 다음 (아직 없는 경우)이 cmdlet을 실행 하 여 계정에 로그인 합니다.
 
     ```powershell
     Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
     ```
 
-3. PowerShell을 사용 하 여 [호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell)를 사용 하 여 side-by-side 스택을 설치 합니다.
+3. PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md)를 사용 하 여 side-by-side 스택을 설치 합니다.
 
 ## <a name="how-to-fix-a-windows-virtual-desktop-side-by-side-stack-that-malfunctions"></a>오작동 하는 Windows 가상 데스크톱 side-by-side 스택을 수정 하는 방법
 
@@ -226,14 +226,14 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 - Enablesxsstackrc을 여러 번 실행
 - 로컬 관리자 권한이 없는 계정에서 enablesxsstackrc를 실행 하 고 있습니다.
 
-이 섹션의 지침을 참조 하 여 Windows 가상 데스크톱 side-by-side 스택을 제거할 수 있습니다. Side-by-side 스택을 제거한 후 PowerShell을 사용 하 여 [호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-powershell) 의 "Windows 가상 데스크톱 호스트 풀을 사용 하 여 VM 등록"으로 이동 하 여 side-by-side 스택을 다시 설치 합니다.
+이 섹션의 지침을 참조 하 여 Windows 가상 데스크톱 side-by-side 스택을 제거할 수 있습니다. Side-by-side 스택을 제거한 후 PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md) 의 "Windows 가상 데스크톱 호스트 풀을 사용 하 여 VM 등록"으로 이동 하 여 side-by-side 스택을 다시 설치 합니다.
 
 관리를 실행 하는 데 사용 되는 VM은 병렬 스택이 제대로 작동 하지 않는 VM과 동일한 서브넷 및 도메인에 있어야 합니다.
 
 다음 지침에 따라 동일한 서브넷과 도메인에서 업데이트 관리를 실행 합니다.
 
 1. 수정이 적용 되는 VM에 RDP (standard 원격 데스크톱 프로토콜)를 연결 합니다.
-2. https://docs.microsoft.com/sysinternals/downloads/psexec 에서 PsExec를 다운로드 합니다.
+2. https://docs.microsoft.com/sysinternals/downloads/psexec에서 PsExec를 다운로드 합니다.
 3. 다운로드 한 파일의 압축을 풉니다.
 4. 로컬 관리자 권한으로 명령 프롬프트를 시작 합니다.
 5. PsExec 압축을 푼 폴더로 이동 합니다.
@@ -305,7 +305,7 @@ Side-by-side 스택을 설치 하 고 사용 하도록 설정 하는 경우 **qw
 이러한 메시지 중 하나가 표시 되 면 이미지에 최신 Windows 업데이트가 설치 되어 있지 않거나 그룹 정책을 통해 원격 데스크톱 라이선스 모드를 설정 하는 것입니다. 다음 섹션의 단계에 따라 그룹 정책 설정을 확인 하 고, Windows 10 Enterprise 다중 세션 버전을 확인 하 고, 해당 업데이트를 설치 합니다.  
 
 >[!NOTE]
->Windows 가상 데스크톱에는 호스트 풀에 Windows Server 세션 호스트가 포함 된 경우 RDS CAL (클라이언트 액세스 라이선스)만 필요 합니다. RDS CAL를 구성 하는 방법에 대 한 자세한 내용은 [클라이언트 액세스 라이선스를 사용 하 여 RDS 배포 라이선스](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-client-access-license)를 참조 하세요.
+>Windows 가상 데스크톱에는 호스트 풀에 Windows Server 세션 호스트가 포함 된 경우 RDS CAL (클라이언트 액세스 라이선스)만 필요 합니다. RDS CAL를 구성 하는 방법에 대 한 자세한 내용은 [클라이언트 액세스 라이선스를 사용 하 여 RDS 배포 라이선스](/windows-server/remote/remote-desktop-services/rds-client-access-license/)를 참조 하세요.
 
 ### <a name="disable-the-remote-desktop-licensing-mode-group-policy-setting"></a>원격 데스크톱 라이선싱 모드 그룹 정책 설정 사용 안 함
 

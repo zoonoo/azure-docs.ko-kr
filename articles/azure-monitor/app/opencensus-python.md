@@ -8,18 +8,18 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 091cf26a0c18aba0925ad23e61950f8622f6080b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: b9d2bda1d3f01d2bf4bb152c0f62ade87bb61b4c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989521"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368276"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
 Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분산 추적, 메트릭 수집 및 Python 응용 프로그램의 로깅을 지원 합니다. 이 문서에서는 Python 용 OpenCensus를 설정 하 고 모니터링 데이터를 Azure Monitor으로 전송 하는 과정을 안내 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - Python 설치. 이 문서에서는 [Python 3.7.0](https://www.python.org/downloads/)를 사용 하지만, 이전 버전은 사소한 변경 내용으로 작업할 가능성이 높습니다.
@@ -40,7 +40,7 @@ Azure Monitor는 [OpenCensus](https://opencensus.io)와의 통합을 통해 분�
 
    | 설정        | 값           | Description  |
    | ------------- |:-------------|:-----|
-   | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별 하는 이름입니다. |
+   | **이름**      | 전역적으로 고유한 값 | 모니터링 중인 앱을 식별하는 이름 |
    | **리소스 그룹**     | myResourceGroup      | Application Insights 데이터를 호스트할 새 리소스 그룹의 이름입니다. |
    | **위치** | 미국 동부 | 가까운 위치 또는 앱이 호스트 되는 위치 근처 |
 
@@ -107,7 +107,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     [SpanData(name='test', context=SpanContext(trace_id=8aa41bc469f1a705aed1bdb20c342603, span_id=None, trace_options=TraceOptions(enabled=True), tracestate=None), span_id='f3f9f9ee6db4740a', parent_span_id=None, attributes=BoundedDict({}, maxlen=32), start_time='2019-06-27T18:21:46.157732Z', end_time='2019-06-27T18:21:47.269583Z', child_span_count=0, stack_trace=None, annotations=BoundedList([], maxlen=32), message_events=BoundedList([], maxlen=128), links=BoundedList([], maxlen=32), status=None, same_process_as_parent_span=None, span_kind=0)]
     ```
 
-3. 값을 입력 하는 것은 데모용으로 유용 하지만 궁극적으로는 `SpanData`를 Azure Monitor로 내보내야 합니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
+3. 값을 입력 하는 것은 데모용으로 유용 하지만 궁극적으로는 `SpanData`를 Azure Monitor로 내보내야 합니다. 연결 문자열을 내보내기에 직접 전달 하거나 `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수에 지정할 수 있습니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
 
     ```python
     from opencensus.ext.azure.trace_exporter import AzureExporter
@@ -193,7 +193,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     Point(value=ValueLong(7), timestamp=2019-10-09 20:58:07.138614)
     ```
 
-3. 값 입력은 데모용으로 유용 하지만, 궁극적으로 메트릭 데이터를 Azure Monitor으로 내보내야 합니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
+3. 값 입력은 데모용으로 유용 하지만, 궁극적으로 메트릭 데이터를 Azure Monitor으로 내보내야 합니다. 연결 문자열을 내보내기에 직접 전달 하거나 `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수에 지정할 수 있습니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
 
     ```python
     from datetime import datetime
@@ -277,7 +277,7 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     90
     ```
 
-3. 값을 입력 하는 것은 데모용으로 유용 하지만 궁극적으로는 로그 데이터를 Azure Monitor으로 내보내야 합니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
+3. 값을 입력 하는 것은 데모용으로 유용 하지만 궁극적으로는 로그 데이터를 Azure Monitor으로 내보내야 합니다. 연결 문자열을 내보내기에 직접 전달 하거나 `APPLICATIONINSIGHTS_CONNECTION_STRING`환경 변수에 지정할 수 있습니다. 다음 코드 샘플을 기반으로 이전 단계에서 코드를 수정 합니다.
 
     ```python
     import logging

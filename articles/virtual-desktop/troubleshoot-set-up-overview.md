@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 02/07/2020
 ms.author: helohr
-ms.openlocfilehash: dc4e4e271ac7108f4c29c82646e9849b9a5cd929
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 730d12625b134f411096b4b49641b79efb1a0d26
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110775"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368750"
 ---
 # <a name="troubleshooting-overview-feedback-and-support"></a>문제 해결 개요, 피드백 및 지원
 
@@ -24,7 +24,7 @@ ms.locfileid: "77110775"
 
 ## <a name="escalation-tracks"></a>에스컬레이션 트랙
 
-다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정할 때 발생할 수 있는 문제를 식별 하 고 해결할 수 있습니다. 테 넌 트가 설정 되 면 새로운 [진단 서비스](https://docs.microsoft.com/azure/virtual-desktop/diagnostics-role-service) 를 사용 하 여 일반적인 시나리오에 대 한 문제를 식별할 수 있습니다.
+다음 표를 사용 하 여 원격 데스크톱 클라이언트를 사용 하 여 테 넌 트 환경을 설정할 때 발생할 수 있는 문제를 식별 하 고 해결할 수 있습니다. 테 넌 트가 설정 되 면 새로운 [진단 서비스](diagnostics-role-service.md) 를 사용 하 여 일반적인 시나리오에 대 한 문제를 식별할 수 있습니다.
 
 >[!NOTE]
 > 제품 팀 및 활성 커뮤니티 구성원의 문제를 논의 하기 위해 방문할 수 있는 기술 커뮤니티 포럼이 있습니다. [Windows 가상 데스크톱 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop) 를 방문 하 여 토론을 시작 합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "77110775"
 | Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿을 사용 하지 않는 경우 세션 호스트 풀 VM (가상 머신) 만들기 | [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/)서비스에 대해 **Windows를 실행 하는 가상 컴퓨터** 를 선택 합니다. <br> <br> Windows 가상 데스크톱과 함께 제공 되는 Azure Resource Manager 템플릿에 대 한 문제는 [테 넌 트 및 호스트 풀 만들기](troubleshoot-set-up-issues.md)의 Windows 가상 데스크톱 테 넌 트 만들기 섹션을 참조 하세요. |
 | Azure Portal에서 Windows 가상 데스크톱 세션 호스트 환경 관리    | [Azure 지원 요청을 엽니다](https://azure.microsoft.com/support/create-ticket/). <br> <br> 원격 데스크톱 서비스/Windows 가상 데스크톱 PowerShell을 사용 하는 경우 관리 문제에 대 한 자세한 내용은 [Windows 가상 데스크톱 powershell](troubleshoot-powershell.md) 또는 [Azure 지원 요청 열기](https://azure.microsoft.com/support/create-ticket/)를 참조 하 고, 서비스에 대해 **windows 가상 데스크톱** 을 선택 하 고, 문제 유형에 대 한 **구성 및 관리** 를 선택한 다음, 문제 하위 형식에 대해 **PowerShell을 사용 하 여 테 넌 트 구성** |
 | 호스트 풀 및 응용 프로그램 그룹에 연결 되는 Windows 가상 데스크톱 구성 관리 (앱 그룹)      | [Windows 가상 데스크톱 PowerShell](troubleshoot-powershell.md)을 참조 하거나, [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **windows 가상 데스크톱** 을 선택한 다음, 적절 한 문제 유형을 선택 합니다.|
-| FSLogix 프로필 컨테이너 배포 및 관리 | [Fslogix 제품에 대 한 문제 해결 가이드](https://docs.microsoft.com/fslogix/fslogix-trouble-shooting-ht) 를 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형으로 **fslogix** 를 선택한 다음, 적절 한 문제 하위 유형을 선택 합니다. |
+| FSLogix 프로필 컨테이너 배포 및 관리 | [Fslogix 제품에 대 한 문제 해결 가이드](/fslogix/fslogix-trouble-shooting-ht/) 를 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택 하 고, 문제 유형으로 **fslogix** 를 선택한 다음, 적절 한 문제 하위 유형을 선택 합니다. |
 | 시작 시 원격 데스크톱 클라이언트 오작동                                                 | [원격 데스크톱 클라이언트 문제 해결](troubleshoot-client.md) 을 참조 하 고, 문제가 해결 되지 않으면 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대 한 **Windows 가상 데스크톱** 을 선택한 다음, 문제 유형으로 **원격 데스크톱 클라이언트** 를 선택 합니다.  <br> <br> 네트워크 문제인 경우 사용자는 네트워크 관리자에 게 문의 해야 합니다. |
 | 연결 되었지만 피드 없음                                                                 | 사용자 연결을 사용 하 여 문제를 해결 합니다. 그러나 [Windows 가상 데스크톱 서비스 연결](troubleshoot-service-connection.md)의 경우 [아무 것도 표시 되지 않습니다 (피드 없음)](troubleshoot-service-connection.md#user-connects-but-nothing-is-displayed-no-feed) . <br> <br> 사용자가 앱 그룹에 할당 된 경우 [Azure 지원 요청을 열고](https://azure.microsoft.com/support/create-ticket/), 서비스에 대해 **Windows 가상 데스크톱** 을 선택한 다음, 문제 유형으로 **원격 데스크톱 클라이언트** 를 선택 합니다. |
 | 네트워크로 인 한 피드 검색 문제                                            | 사용자가 네트워크 관리자에 게 문의 해야 합니다. |

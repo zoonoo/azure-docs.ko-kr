@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: helohr
-ms.openlocfilehash: 28111e45d365069f80f10b88c38618dbb2b4651d
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f8aebee72105e4f3218e7ae5f867962d0ed8e23d
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75896213"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367374"
 ---
 # <a name="deploy-a-windows-7-virtual-machine-on-windows-virtual-desktop"></a>Windows Virtual Desktop에서 Windows 7 가상 머신 배포
 
 Windows 가상 데스크톱에 Windows 7 VM (가상 컴퓨터)을 배포 하는 프로세스는 이후 버전의 Windows를 실행 하는 Vm과 약간 다릅니다. 이 가이드에서는 Windows 7을 배포 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 PowerShell을 사용 하 여 [호스트 풀 만들기](create-host-pools-powershell.md) 의 지침에 따라 호스트 풀을 만듭니다. 그런 다음 [Azure Marketplace에서 호스트 풀 만들기](create-host-pools-azure-marketplace.md#optional-assign-additional-users-to-the-desktop-application-group) 의 지침에 따라 데스크톱 응용 프로그램 그룹에 하나 이상의 사용자를 할당 합니다.
 
@@ -44,7 +44,7 @@ Windows 가상 데스크톱에서 Windows 7 VM을 설정 하려면 다음을 수
      shutdown /r /t 0
      ```
     
-12. [여기](https://docs.microsoft.com/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo) 의 지침에 따라 등록 토큰을 가져옵니다.
+12. [여기](/powershell/module/windowsvirtualdesktop/export-rdsregistrationinfo/) 의 지침에 따라 등록 토큰을 가져옵니다.
 13. Windows [7 용 Windows 가상 데스크톱 에이전트를 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3JZCm)합니다.
 14. Windows [7 용 Windows 가상 데스크톱 에이전트 관리자을 다운로드](https://query.prod.cms.rt.microsoft.com/cms/api/am/binary/RE3K2e3)합니다.
 15. Windows 가상 데스크톱 에이전트 설치 관리자를 열고 지침을 따릅니다. 메시지가 표시 되 면 12 단계에서 만든 등록 키를 제공 합니다.

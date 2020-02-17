@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan, seoapril2019
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aa282afdf910c2449b5d5ea0bc5e38a396f3aa02
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 70156335d0d5617b4c1ccb2d11ce8e9f8dc9d036
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75608859"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368110"
 ---
 # <a name="properties-of-an-azure-active-directory-b2b-collaboration-user"></a>Azure Active Directory B2B 협업 사용자 속성
 
@@ -73,7 +73,7 @@ ms.locfileid: "75608859"
 
 - 초대된 사용자: 이 사용자는 초대되었지만 초대를 아직 상환하지 않았습니다.
 
-- 외부 Active Directory: 이 사용자는 외부 조직에 속하며 다른 조직에 속한 Azure AD 계정을 사용하여 인증합니다. 이 유형의 로그인은 상태 1에 해당합니다.
+- 외부 Azure Active Directory:이 사용자는 외부 조직에 속하며 다른 조직에 속한 Azure AD 계정을 사용 하 여 인증 합니다. 이 유형의 로그인은 상태 1에 해당합니다.
 
 - Microsoft 계정: 이 사용자는 Microsoft 계정에 속하며 Microsoft 계정을 사용하여 인증합니다. 이 유형의 로그인은 상태 2에 해당합니다.
 
@@ -101,7 +101,7 @@ PowerShell을 사용하여 UserType을 Member에서 Guest로 또는 그 반대�
 ![사용자 설정에서 외부 사용자 옵션을 보여 주는 스크린샷](media/user-properties/remove-guest-limitations.png)
 
 ## <a name="can-i-make-guest-users-visible-in-the-exchange-global-address-list"></a>게스트 사용자를 Exchange 전역 주소 목록에 표시할 수 있나요?
-예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 [Office 365 그룹의 게스트 액세스 관리](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list)에서 **게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?** 를 참조하세요. 
+예. 기본적으로 게스트 개체는 조직의 글로벌 주소 목록에 표시되지 않지만, Azure Active Directory PowerShell을 사용하여 표시할 수 있습니다. 자세한 내용은 **Office 365 그룹의 게스트 액세스 관리**에서 [게스트 개체를 글로벌 주소 목록에 표시할 수 있나요?](https://docs.microsoft.com/office365/admin/create-groups/manage-guest-access-in-groups?redirectSourcePath=%252fen-us%252farticle%252fmanage-guest-access-in-office-365-groups-9de497a9-2f5c-43d6-ae18-767f2e6fe6e0&view=o365-worldwide#add-guests-to-the-global-address-list)를 참조하세요. 
 
 ## <a name="next-steps"></a>다음 단계
 

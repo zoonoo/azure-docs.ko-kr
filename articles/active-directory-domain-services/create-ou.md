@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: e202eed8e3694245b5b4527578c02cfb518723f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705335"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367149"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 OU (조직 구성 단위) 만들기
 
@@ -37,7 +37,7 @@ Azure AD DS 관리 되는 도메인에는 두 개의 기본 제공 Ou 인 *Aaddc
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
@@ -54,7 +54,7 @@ Azure AD DS 관리 되는 도메인에서 사용자 지정 Ou를 만들 때 사�
 * Azure AD 테 넌 트에서 동기화 된 모든 사용자 계정을 포함 하는 *Aaddc 사용자* 에 대 한 기본 OU가 만들어집니다.
     * *Aaddc 사용자* ou에서 사용자가 만든 사용자 지정 ou로 사용자 또는 그룹을 이동할 수 없습니다. Azure AD DS 관리 되는 도메인에서 만든 사용자 계정 또는 리소스만 사용자 지정 Ou로 이동할 수 있습니다.
 * 사용자 지정 Ou에서 만든 사용자 계정, 그룹, 서비스 계정 및 컴퓨터 개체는 Azure AD 테 넌 트에서 사용할 수 없습니다.
-    * 이러한 개체는 azure AD Graph API 또는 Azure AD UI를 사용 하 여 표시 되지 않습니다. Azure AD DS 관리 되는 도메인 에서만 사용할 수 있습니다.
+    * 이러한 개체는 Microsoft Graph API 또는 Azure AD UI를 사용 하 여 표시 되지 않습니다. Azure AD DS 관리 되는 도메인 에서만 사용할 수 있습니다.
 
 ## <a name="create-a-custom-ou"></a>사용자 지정 OU 만들기
 

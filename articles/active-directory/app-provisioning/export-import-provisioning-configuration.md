@@ -1,6 +1,6 @@
 ---
-title: Graph API |를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기 Microsoft Docs
-description: Graph API를 사용 하 여 프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.
+title: Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기 Microsoft Docs
+description: Microsoft Graph API를 사용 하 여 프로 비전 구성을 내보내고 가져오는 방법에 대해 알아봅니다.
 services: active-directory
 author: cmmdesai
 documentationcenter: na
@@ -15,21 +15,21 @@ ms.workload: identity
 ms.date: 09/09/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: af699fa2201bce5627426dcdefc1b98c1d885ae5
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e2fa80726875c82cfa4b5d4cf6a14f4e0dae1871
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066617"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367787"
 ---
-# <a name="export-or-import-your-provisioning-configuration-by-using-graph-api"></a>Graph API를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기
+# <a name="export-or-import-your-provisioning-configuration-by-using-the-microsoft-graph-api"></a>Microsoft Graph API를 사용 하 여 프로 비전 구성 내보내기 또는 가져오기
 
-Microsoft Graph API 및 Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다. 여기에 캡처된 단계를 사용 하 여 프로 비전 구성의 백업을 만들 수도 있습니다. 
+Microsoft Graph API 및 Microsoft Graph 탐색기를 사용 하 여 사용자 프로 비전 특성 매핑 및 스키마를 JSON 파일로 내보내고 Azure AD로 다시 가져올 수 있습니다. 여기에 캡처된 단계를 사용 하 여 프로 비전 구성의 백업을 만들 수도 있습니다. 
 
 ## <a name="step-1-retrieve-your-provisioning-app-service-principal-id-object-id"></a>1 단계: 프로 비전 App Service 보안 주체 ID (개체 ID)를 검색 합니다.
 
 1. [Azure Portal](https://portal.azure.com)를 시작 하 고 프로 비전 응용 프로그램의 속성 섹션으로 이동 합니다. 예를 들어 *Workday를 AD 사용자 프로 비전 응용 프로그램* 매핑으로 내보내려는 경우 해당 앱의 속성 섹션으로 이동 합니다. 
-1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다. 이 값은 앱의 **ServicePrincipalId**라고도 하고 Graph Explorer 작업에서 사용됩니다.
+1. 프로비전 앱의 속성 섹션에서 ‘개체 ID’ 필드와 연결된 GUID 값을 복사합니다. 이 값은 앱의 **ServicePrincipalId** 라고도 하며 Microsoft Graph 탐색기 작업에 사용 됩니다.
 
    ![Workday 앱 서비스 주체 ID](./media/export-import-provisioning-configuration/wd_export_01.png)
 
@@ -38,7 +38,7 @@ Microsoft Graph API 및 Graph 탐색기를 사용 하 여 사용자 프로 비�
 1. [Microsoft Graph Explorer](https://developer.microsoft.com/graph/graph-explorer) 시작
 1. “Microsoft에 로그인” 단추를 클릭하고 Azure AD 전역 관리자 또는 앱 관리자 자격 증명을 사용하여 로그인합니다.
 
-    ![Graph 로그인](./media/export-import-provisioning-configuration/wd_export_02.png)
+    ![로그인 Microsoft Graph](./media/export-import-provisioning-configuration/wd_export_02.png)
 
 1. 로그인에 성공하면 왼쪽 창에 사용자 계정 세부 정보가 표시됩니다.
 

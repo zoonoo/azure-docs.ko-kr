@@ -15,12 +15,12 @@ ms.topic: conceptual
 ms.date: 10/03/2019
 ms.author: mimart
 ms.reviewer: japere
-ms.openlocfilehash: 47c1ce3391129525237566fb92cec2e9b33ca08f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: de2b40ea0339b564b97d17601415d1071bdc6a6e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75443407"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367921"
 ---
 # <a name="active-directory-azure-ad-application-proxy-frequently-asked-questions"></a>Active Directory (Azure AD) 응용 프로그램 프록시에 대 한 질문과 대답
 
@@ -139,13 +139,15 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Azure AD 응용 프로그램 프록시을 AD FS 프록시 (예: 웹 응용 프로그램 프록시)로 사용할 수 있나요?
 
-아닙니다. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
+아니요. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
 
 ## <a name="websocket"></a>서버당
 
 ### <a name="does-websocket-support-work-for-applications-other-than-qliksense"></a>WebSocket은 QlikSense 이외의 응용 프로그램에 대해 작업을 지원 하나요?
 
 현재 WebSocket 프로토콜 지원은 아직 공개 미리 보기 상태 이며 다른 응용 프로그램에서 작동 하지 않을 수 있습니다. 일부 고객의 경우 WebSocket 프로토콜을 사용 하 여 다른 응용 프로그램과의 성공을 혼합 했습니다. 이러한 시나리오를 테스트 하는 경우 결과를 듣고 싶습니다. aadapfeedback@microsoft.com에서 사용자 의견을 보내 주시기 바랍니다.
+
+Windows 관리 센터 (WAC) 또는 원격 데스크톱 웹 클라이언트의 기능 (Eventlogs, Powershell 및 원격 데스크톱 서비스)은 현재 Azure AD 응용 프로그램 프록시를 통해 작동 하지 않습니다.
 
 ## <a name="link-translation"></a>링크 변환
 

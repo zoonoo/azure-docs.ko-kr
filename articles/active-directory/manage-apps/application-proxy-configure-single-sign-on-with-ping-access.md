@@ -16,12 +16,12 @@ ms.author: celested
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ec115e0fa76e695809ba140202d5f13a319d33dd
-ms.sourcegitcommit: f7f70c9bd6c2253860e346245d6e2d8a85e8a91b
+ms.openlocfilehash: f3fb94629262519f8cfa5da72ee343726aa7d1c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73062731"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367987"
 ---
 # <a name="header-based-authentication-for-single-sign-on-with-application-proxy-and-pingaccess"></a>애플리케이션 프록시 및 PingAccess를 사용하여 Single Sign-On에 대한 헤더 기반 인증
 
@@ -37,7 +37,7 @@ Azure AD에 대 한 액세스를 통해 사용자에 게 인증에 헤더를 사
 
 이 시나리오는 Azure Active Directory 간의 파트너 관계에서 제공 되므로 두 서비스에 대 한 라이선스가 필요 합니다. 그러나 Azure Active Directory Premium 구독에는 최대 20개의 애플리케이션을 보장하는 기본 PingAccess 라이선스가 포함되어 있습니다. 헤더 기반 애플리케이션을 20개 이상 게시해야 하는 경우 PingAccess에서 라이선스를 추가로 구입할 수 있습니다.
 
-자세한 내용은 [Azure Active Directory Edition](../fundamentals/active-directory-whatis.md)을 참조하세요.
+자세한 내용은 [Azure Active Directory 버전](../fundamentals/active-directory-whatis.md)을 참조하세요.
 
 ## <a name="publish-your-application-in-azure"></a>Azure에 애플리케이션 게시
 
@@ -130,7 +130,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 1. **사용자** > 사용자 > **위임 된 권한** 을 선택 **합니다. 읽기**.
 1. **응용 프로그램 > 응용** 프로그램 > 응용 프로그램 **사용 권한** **을 선택**합니다.
-1. **권한 추가**를 선택 합니다.
+1. **권한 추가**를 선택합니다.
 1. **API 사용 권한** 페이지에서 **\<디렉터리 이름 >에 대 한 관리자 동의 부여**를 선택 합니다.
 
 #### <a name="collect-information-for-the-pingaccess-steps"></a>PingAccess 단계에 대한 정보 수집
@@ -161,21 +161,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 1. **추가**를 선택합니다. 클라이언트 암호의 테이블에는 **값** 필드에 autofills 임의의 문자열이 포함 된 액세스 키가 표시 됩니다.
 1. 키의 **값** 필드 옆에 **클립보드로 복사** 아이콘을 선택 하 고 복사 하 여 저장 합니다. 나중에이 값을 지정 합니다.
 
-### <a name="update-graphapi-to-send-custom-fields-optional"></a>사용자 지정 필드를 보내도록 GraphAPI 업데이트 (옵션)
-
-Access_token에서 사용 하는 다른 토큰을 전송 하는 사용자 지정 클레임이 필요한 경우 `acceptMappedClaims` 응용 프로그램 필드를 `True`으로 설정 합니다. 그래프 탐색기 또는 Azure AD 포털의 응용 프로그램 매니페스트를 사용 하 여 이러한 변경을 수행할 수 있습니다.
-
-**이 예제에서는 그래프 탐색기를 사용 합니다.**
-
-```
-PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_your_application>
-
-{
-  "acceptMappedClaims":true
-}
-```
-
-**이 예에서는 [Azure Active Directory 포털](https://aad.portal.azure.com/) 을 사용 하 여 `acceptMappedClaims` 필드를 업데이트 합니다.**
+**`acceptMappedClaims` 필드를 업데이트 합니다.**
 
 1. 응용 프로그램 관리자로 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다.
 1. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램 목록이 표시 됩니다.
@@ -188,7 +174,7 @@ PATCH https://graph.windows.net/myorganization/applications/<object_id_GUID_of_y
 
 선택적 클레임을 사용 하 여 모든 사용자와 테 넌 트에 포함 된 기본 제공 클레임을 추가할 수 있습니다. 응용 프로그램 매니페스트를 수정 하 여 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 응용 프로그램 매니페스트 이해 문서](https://docs.microsoft.com/azure/active-directory/develop/reference-app-manifest/) 를 참조 하세요.
 
-Access_token에 대 한 전자 메일 주소를 포함 하는 예는 다음과 같습니다.
+액세스를 지 원하는 access_token에 전자 메일 주소를 포함 하는 예는 다음과 같습니다.
 ```
     "optionalClaims": {
         "idToken": [],
@@ -213,7 +199,7 @@ AzureAD에 없는 특성에 대 한 [클레임 매핑 정책 (미리 보기)](ht
 > [!NOTE]
 > 사용자 지정 클레임을 사용하려면 사용자 지정 정책도 정의하고 애플리케이션에 할당해야 합니다. 이 정책은 필요한 모든 사용자 지정 특성을 포함해야 합니다.
 >
-> PowerShell, Azure AD Graph Explorer 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저 `New-AzureADPolicy`를 사용 하 고 `Add-AzureADServicePrincipalPolicy`를 사용 하 여 응용 프로그램에 할당 해야 할 수 있습니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
+> PowerShell 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저 `New-AzureADPolicy`를 사용 하 고 `Add-AzureADServicePrincipalPolicy`를 사용 하 여 응용 프로그램에 할당 해야 할 수 있습니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
 
 예제:
 ```powershell

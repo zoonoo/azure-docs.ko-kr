@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: 0e04b075259ed1d003df4a03686d46b1adf694d3
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 9c907052f10fa7d1cfd1ff79e981fdccef874ee5
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606853"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367328"
 ---
 # <a name="identify-and-diagnose-issues"></a>문제 식별 및 진단
 
@@ -24,7 +24,7 @@ Windows 가상 데스크톱은 관리자가 단일 인터페이스를 통해 문
   
 진단 역할 서비스 자체는 Windows 가상 데스크톱의 일부 이기 때문에 Windows 가상 데스크톱에 연결 되지 않은 연결은 진단 결과에 표시 되지 않습니다. Windows 가상 데스크톱 연결 문제는 최종 사용자에 게 네트워크 연결 문제가 발생 하는 경우에 발생할 수 있습니다.
 
-시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview) (아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+시작 하려면 PowerShell 세션에서 사용할 [Windows 가상 데스크톱 powershell 모듈을 다운로드 하 고 가져옵니다](/powershell/windows-virtual-desktop/overview/) (아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
@@ -149,7 +149,7 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 |2005|HostPoolCannotBeRemovedHasApplicationGroups|개체를 포함 하는 경우에는 호스트 풀을 삭제할 수 없습니다. 먼저 호스트 풀의 모든 앱 그룹을 제거 합니다.|
 |2004|HostPoolCannotBeRemovedHasSessionHosts|세션 호스트 풀을 삭제 하기 전에 먼저 모든 세션 호스트를 제거 하십시오.|
 |5001|SessionHostNotFound|쿼리 된 세션 호스트가 오프 라인 상태일 수 있습니다. 호스트 풀의 상태를 확인 합니다.|
-|5008|Sessionhostusersession는 |원하는 관리 작업을 실행 하기 전에 세션 호스트의 모든 사용자를 로그 아웃 해야 합니다.|
+|5008|SessionHostUserSessionsExist |원하는 관리 작업을 실행 하기 전에 세션 호스트의 모든 사용자를 로그 아웃 해야 합니다.|
 |6000|AppGroupNotFound|입력 한 앱 그룹 이름이 기존 앱 그룹과 일치 하지 않습니다. 오타가 있는지 앱 그룹 이름을 검토 하 고 다시 시도 하세요.|
 |6022|RemoteAppNotFound|입력 한 RemoteApp 이름이 어떤 Remoteapp 일치 하지 않습니다. 오타가 있는지 RemoteApp 이름을 검토 하 고 다시 시도 하세요.|
 |6010|PublishedItemsExist|게시 하려고 하는 리소스의 이름이 이미 있는 리소스와 같습니다. 리소스 이름을 변경 하 고 다시 시도 하세요.|
@@ -163,11 +163,11 @@ Get-RdsDiagnosticActivities -TenantName <tenantName> -Outcome Failure
 
 |숫자 코드|오류 코드|제안 된 솔루션|
 |---|---|---|
-|-2147467259|Connectionfailedad를 연결 하지 못했습니다.|세션 호스트가 Active Directory에 올바르게 조인 되어 있지 않습니다.|
-|-2146233088|Connectionfaileduserhas유효한 Sessionsrdshis비정상|세션 호스트를 사용할 수 없기 때문에 연결에 실패 했습니다. 세션 호스트의 상태를 확인 합니다.|
+|-2147467259|ConnectionFailedAdTrustedRelationshipFailure|세션 호스트가 Active Directory에 올바르게 조인 되어 있지 않습니다.|
+|-2146233088|ConnectionFailedUserHasValidSessionButRdshIsUnhealthy|세션 호스트를 사용할 수 없기 때문에 연결에 실패 했습니다. 세션 호스트의 상태를 확인 합니다.|
 |-2146233088|ConnectionFailedClientDisconnect|이 오류가 자주 발생 하면 사용자의 컴퓨터가 네트워크에 연결 되어 있는지 확인 하십시오.|
 |-2146233088|ConnectionFailedNoHealthyRdshAvailable|호스트 사용자가 연결 하려고 시도한 세션이 정상이 아닙니다. 가상 컴퓨터를 디버그 합니다.|
-|-2146233088|ConnectionFailedUserNotAuthorized 있음|사용자에 게 게시 된 앱 또는 데스크톱에 액세스할 수 있는 권한이 없습니다. 관리자가 게시 된 리소스를 제거한 후에이 오류가 나타날 수 있습니다. 사용자에 게 원격 데스크톱 응용 프로그램에서 피드를 새로 고치도록 요청 합니다.|
+|-2146233088|ConnectionFailedUserNotAuthorized|사용자에 게 게시 된 앱 또는 데스크톱에 액세스할 수 있는 권한이 없습니다. 관리자가 게시 된 리소스를 제거한 후에이 오류가 나타날 수 있습니다. 사용자에 게 원격 데스크톱 응용 프로그램에서 피드를 새로 고치도록 요청 합니다.|
 |2|FileNotFound|사용자가 액세스 하려고 시도한 응용 프로그램이 잘못 설치 되었거나 잘못 된 경로로 설정 되었습니다.|
 |3|InvalidCredentials|사용자가 입력 한 사용자 이름 또는 암호가 기존 사용자 이름 또는 암호와 일치 하지 않습니다. 오타가 있는지 확인 하 고 다시 시도 하세요.|
 |8|ConnectionBroken|클라이언트와 게이트웨이 또는 서버 간 연결이 끊어졌습니다. 예기치 않게 발생 하지 않는 한 작업이 필요 하지 않습니다.|

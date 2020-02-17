@@ -491,10 +491,10 @@
   items:
     - name: Azure PowerShell
       href: /powershell/module/az.recoveryservices
-    - name: Azure PowerShell 클래식
-      href: /powershell/module/azure/?view=azuresmps-3.7.0
+    - name: AzureRM PowerShell
+      href: /powershell/module/AzureRM.RecoveryServices
     - name: REST (영문)
-      href: 'https://msdn.microsoft.com/library/mt750497'
+      href: /rest/api/site-recovery
 - name: 관련 항목
   items:
     - name: Azure Automation

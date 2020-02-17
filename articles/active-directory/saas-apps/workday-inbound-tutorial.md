@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 05/16/2019
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: acc458c59858196ea110d0ff2030ccd7f7b6fc58
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: feedce112110b1c944e3cb0af79e76fe1bda4778
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121732"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365643"
 ---
 # <a name="tutorial-configure-workday-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로비전을 위한 Workday 구성
 
@@ -801,7 +801,7 @@ HR 팀은 채용 프로세스의 일부로 일반적으로 신원 조사를 실�
 
 #### <a name="does-the-solution-support-assigning-on-premises-ad-groups-to-the-user"></a>솔루션에서 온-프레미스 AD 그룹을 사용자에게 할당할 수 있나요?
 
-이 기능은 현재 지원되지 않습니다. 이를 해결하려면 감사 로그 데이터에 대한 Azure AD Graph API 엔드포인트를 쿼리하는 PowerShell 스크립트를 배포하고 이 스크립트를 사용하여 그룹 할당과 같은 시나리오를 트리거하는 것이 좋습니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
+이 기능은 현재 지원되지 않습니다. 권장 해결 방법은 [감사 로그 데이터](https://docs.microsoft.com/graph/api/resources/azure-ad-auditlog-overview?view=graph-rest-beta) 에 대 한 Microsoft Graph API 끝점을 쿼리 하는 PowerShell 스크립트를 배포 하 고이를 사용 하 여 그룹 할당과 같은 시나리오를 트리거하는 것입니다. 이 PowerShell 스크립트는 작업 스케줄러에 연결되고 프로비전 에이전트를 실행하는 동일한 상자에 배포될 수 있습니다.  
 
 #### <a name="which-workday-apis-does-the-solution-use-to-query-and-update-workday-worker-profiles"></a>솔루션에서 Workday 작업자 프로필을 쿼리 및 업데이트하는 데 사용하는 Workday API는 무엇인가요?
 

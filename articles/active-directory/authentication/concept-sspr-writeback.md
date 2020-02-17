@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c92048d2fce4a098da1e707ec8f7d75479d563f1
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: aa66299753ab11dcad280361cb5fb6f0c31ef242
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161582"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368165"
 ---
 # <a name="what-is-password-writeback"></a>비밀번호 쓰기 저장이란?
 
@@ -158,13 +158,13 @@ ms.locfileid: "77161582"
 암호는 다음과 같은 경우에 다시 기록되지 *않습니다*.
 
 * **지원되지 않는 최종 사용자 작업**
-   * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API를 사용하여 자신의 암호를 재설정하는 최종 사용자
+   * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API를 사용 하 여 자신의 암호를 다시 설정 하는 모든 최종 사용자
 * **지원되지 않는 관리자 작업**
-   * PowerShell 버전 1, 버전 2 또는 Azure AD Graph API에서 관리자 시작 최종 사용자 암호 재설정
+   * PowerShell 버전 1, 버전 2 또는 Microsoft Graph API에서 관리자 시작 최종 사용자 암호 재설정
    * [Microsoft 365 관리 센터](https://admin.microsoft.com) 에서 관리자가 시작한 최종 사용자 암호 재설정
 
 > [!WARNING]
-> 사용자 및 컴퓨터 Active Directory 같은 온-프레미스 Active Directory 관리 도구에서 "다음 로그온 할 때 암호를 변경 해야 합니다." 확인란을 사용 Active Directory 관리 센터 하거나 Azure AD Connect의 미리 보기 기능으로 지원 됩니다. 자세한 내용은 [Azure AD Connect sync를 사용 하 여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md#public-preview-of-synchronizing-temporary-passwords-and-force-password-change-on-next-logon)문서를 참조 하세요.
+> 사용자 및 컴퓨터 Active Directory 같은 온-프레미스 Active Directory 관리 도구에서 "다음 로그온 할 때 암호를 변경 해야 합니다." 확인란을 사용 Active Directory 관리 센터 하거나 Azure AD Connect의 미리 보기 기능으로 지원 됩니다. 자세한 내용은 [Azure AD Connect sync를 사용 하 여 암호 해시 동기화 구현](../hybrid/how-to-connect-password-hash-synchronization.md)문서를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

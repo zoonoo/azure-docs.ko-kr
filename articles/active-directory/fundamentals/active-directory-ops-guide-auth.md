@@ -11,12 +11,12 @@ ms.workload: identity
 ms.subservice: fundamentals
 ms.date: 10/31/2019
 ms.author: martinco
-ms.openlocfilehash: 934fe8271796ed6196c9e50a0eddd5d7de3d8432
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: bc5824fcb62477d4e6dc6c2b7390b1bfa916094f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511895"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368047"
 ---
 # <a name="azure-active-directory-authentication-management-operations-reference-guide"></a>Azure Active Directory 인증 관리 작업 참조 가이드
 
@@ -105,7 +105,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 ### <a name="programmatic-usage-of-credentials"></a>자격 증명의 프로그래밍 방식 사용
 
-PowerShell 또는 Graph API를 사용 하는 응용 프로그램을 사용 하는 Azure AD 스크립트는 보안 인증이 필요 합니다. 자격 증명 관리가 잘못 되 면 이러한 스크립트 및 도구를 실행 하면 자격 증명 도난 위험이 증가 합니다. 하드 코드 된 암호 또는 암호 프롬프트를 사용 하는 스크립트나 응용 프로그램을 사용 하는 경우 먼저 구성 파일 또는 소스 코드에서 암호를 검토 한 다음 해당 종속성을 바꾸고 가능한 경우 Azure 관리 되는 Id, Windows 통합 인증 또는 [인증서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) 를 사용 해야 합니다. 이전 솔루션을 사용할 수 없는 응용 프로그램의 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용 하는 것이 좋습니다.
+PowerShell 또는 Microsoft Graph API를 사용 하는 응용 프로그램을 사용 하는 Azure AD 스크립트에는 보안 인증이 필요 합니다. 자격 증명 관리가 잘못 되 면 이러한 스크립트 및 도구를 실행 하면 자격 증명 도난 위험이 증가 합니다. 하드 코드 된 암호 또는 암호 프롬프트를 사용 하는 스크립트나 응용 프로그램을 사용 하는 경우 먼저 구성 파일 또는 소스 코드에서 암호를 검토 한 다음 해당 종속성을 바꾸고 가능한 경우 Azure 관리 되는 Id, Windows 통합 인증 또는 [인증서](https://docs.microsoft.com/azure/active-directory/reports-monitoring/tutorial-access-api-with-certificates) 를 사용 해야 합니다. 이전 솔루션을 사용할 수 없는 응용 프로그램의 경우 [Azure Key Vault](https://azure.microsoft.com/services/key-vault/)를 사용 하는 것이 좋습니다.
 
 암호 자격 증명을 사용 하는 서비스 주체가 있고 이러한 암호 자격 증명이 스크립트나 응용 프로그램에 의해 보호 되는 방식을 잘 모르겠으면 응용 프로그램 소유자에 게 문의 하 여 사용 패턴을 보다 잘 이해할 수 있습니다.
 
@@ -305,23 +305,22 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | Office 365 Exchange Online | 그런. AccessAsUser. 모두 |
 | | EWS. AccessAsUser. 모두 |
 | | 메일. 읽기 |
-| Microsoft Graph | 메일. 읽기 |
+| Microsoft Graph API | 메일. 읽기 |
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예:
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |
-| Azure AD 그래프 | Directory.AccessAsUser.All |
-| Microsoft Graph | Directory.AccessAsUser.All |
+| Microsoft Graph API| 디렉터리. AccessAsUser. 모두 |
 | Azure REST API | user_impersonation |
 
 이 시나리오를 방지 하기 위해 [Office 365의 불법 승인 허용을 검색](https://docs.microsoft.com/office365/securitycompliance/detect-and-remediate-illicit-consent-grants) 하 고 수정 하 여 필요한 것 보다 더 많은 권한이 부여 된 응용 프로그램 또는 응용 프로그램을 식별 하 고 수정 하는 것을 참조 해야 합니다. 그런 다음 [셀프 서비스를 완전히 제거](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-user-consent) 하 고 [거 버 넌 스 절차를 설정](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-admin-consent-workflow)합니다. 마지막으로, 앱 사용 권한 정기 검토를 예약 하 고 필요 하지 않은 경우 제거 합니다.
 
 #### <a name="consent-grants-recommended-reading"></a>동의 부여 권장 읽기
 
-- [Microsoft Graph 사용 권한](https://docs.microsoft.com/graph/permissions-reference)
+- [Microsoft Graph API 사용 권한](https://docs.microsoft.com/graph/permissions-reference)
 
 ### <a name="user-and-group-settings"></a>사용자 및 그룹 설정
 

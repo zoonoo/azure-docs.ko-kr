@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: helohr
-ms.openlocfilehash: a46be5dea8286194ccd2558b2e6e301e2624a5f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c8995899a0bc6d8d023a7ad08d886fc879fab390
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460201"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367513"
 ---
 # <a name="connect-with-the-macos-client"></a>macOS 클라이언트와 연결
 
@@ -31,11 +31,11 @@ ms.locfileid: "75460201"
 피드를 구독 하려면 다음을 수행 합니다.
 
 1. 기본 페이지에서 **피드 추가** 를 선택 하 여 서비스에 연결 하 고 리소스를 검색 합니다.
-2. 피드 URL을 입력 합니다. 이는 URL 또는 이메일 주소일 수 있습니다.
+2. 피드 URL을 입력 합니다. URL 또는 전자 메일 주소일 수 있습니다.
    - URL을 사용 하는 경우 관리자가 제공한 URL을 사용 합니다. 일반적으로 URL은 <https://rdweb.wvd.microsoft.com>입니다.
    - 전자 메일을 사용 하려면 전자 메일 주소를 입력 하세요. 이렇게 하면 관리자가 서버를 구성한 경우 전자 메일 주소와 연결 된 URL을 검색 하도록 클라이언트에 지시 합니다.
 3. **구독**을 선택 합니다.
-4. 메시지가 표시되면 사용자 계정으로 로그인합니다.
+4. 메시지가 표시 되 면 사용자 계정으로 로그인 합니다.
 
 로그인 하면 사용 가능한 리소스 목록이 표시 됩니다.
 
@@ -43,4 +43,4 @@ ms.locfileid: "75460201"
 
 ## <a name="next-steps"></a>다음 단계
 
-MacOS 클라이언트에 대 한 자세한 내용은 [macos 클라이언트 시작](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac) 설명서를 확인 하세요.
+MacOS 클라이언트에 대 한 자세한 내용은 [macos 클라이언트 시작](/windows-server/remote/remote-desktop-services/clients/remote-desktop-mac/) 설명서를 확인 하세요.

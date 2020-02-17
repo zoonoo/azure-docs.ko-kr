@@ -5,15 +5,15 @@ author: robinsh
 ms.service: iot-hub
 services: iot-hub
 ms.topic: include
-ms.date: 08/07/2019
+ms.date: 02/13/2020
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: e93ce54262fe6dd38ef2ebc07d676608dae7cfff
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bbdafde85097d0052edd5984b594fd37066dc1e6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75968898"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77279434"
 ---
 이 섹션에서는 [Azure Portal](https://portal.azure.com)을 사용하여 IoT Hub를 만드는 방법에 대해 설명합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "75968898"
 
    [!INCLUDE [iot-hub-pii-note-naming-hub](iot-hub-pii-note-naming-hub.md)]
 
-   ![Azure Portal에서 허브 만들기](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics-vs2019.png)
+   ![Azure Portal에서 허브 만들기](./media/iot-hub-include-create-hub/iot-hub-create-screen-basics.png)
 
 1. 완료되면 **다음: 크기 및 규모**를 선택하여 허브를 계속 만듭니다.
 
@@ -48,10 +48,18 @@ ms.locfileid: "75968898"
     - **IoT Hub 단위**: 하루 단위당 허용되는 메시지의 수는 허브의 가격 책정 계층에 따라 다릅니다. 예를 들어 허브가 700,000개의 메시지 수신을 지원하려면 S1 계층 단위 2개를 선택합니다.
     다른 계층 옵션에 대한 자세한 내용은 [적절한 IoT Hub 계층 선택](../articles/iot-hub/iot-hub-scaling.md)을 참조하세요.
 
+    - **Azure Security Center**: IoT 및 디바이스에 추가 위협 방지 계층을 추가하려면 이 옵션을 설정합니다. 무료 계층의 허브에는 이 옵션을 사용할 수 없습니다. 이 기능에 대한 자세한 내용은 [IoT용 Azure Security Center](https://docs.microsoft.com/azure/asc-for-iot/)를 참조하세요.
+
     - **고급 설정** > **디바이스-클라우드 파티션**: 이 속성은 디바이스-클라우드 메시지를 메시지의 동시 판독기 수와 연결합니다. 대부분의 허브에는 4개의 파티션만 필요합니다.
 
-1. 이 문서에서는 기본 선택 항목을 적용한 다음, **검토 + 만들기**를 선택하여 선택 항목을 검토합니다. 다음 화면과 비슷하게 표시됩니다.
+1. 이 문서에서는 기본 선택 항목을 적용한 다음, **다음: 태그**를 선택하여 다음 화면으로 이동합니다.
 
-   ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-create-review-vs2019.png)
+    태그는 이름/값 쌍입니다. 동일한 태그를 여러 리소스 및 리소스 그룹에 할당하여 리소스를 범주화하고 청구를 통합할 수 있습니다.
+
+   ![Azure Portal을 사용하여 새 허브의 크기 및 배율 설정](./media/iot-hub-include-create-hub/iot-hub-create-tabs.png)
+
+    완료되면 **다음: 검토 + 만들기**를 선택하여 선택 사항을 검토합니다. 다음 화면과 비슷하게 표시됩니다.
+
+   ![새 허브를 만들기 위한 정보 검토](./media/iot-hub-include-create-hub/iot-hub-create-review.png)
 
 1. **만들기**를 선택하여 새 허브를 만듭니다. 허브를 만드는 데 몇 분이 걸립니다.

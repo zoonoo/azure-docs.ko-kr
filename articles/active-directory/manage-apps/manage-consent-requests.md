@@ -12,12 +12,12 @@ ms.date: 12/27/2019
 ms.author: mimart
 ms.reviewer: phsignor
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 528aff73b931776ef9a6542437db271bb214c7fb
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 0451fe18629a572c9b49f14924bfa50293f42a2b
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290702"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367841"
 ---
 # <a name="managing-consent-to-applications-and-evaluating-consent-requests"></a>응용 프로그램에 대 한 동의 관리 및 승인 요청 평가
 
@@ -100,7 +100,7 @@ Azure Portal에서 테 넌 트 전체 관리자 동의를 부여 하는 단계�
 
 ### <a name="granting-consent-on-behalf-of-a-specific-user"></a>특정 사용자를 대신 하 여 동의 부여
 
-관리자는 전체 조직에 대 한 동의를 부여 하는 대신 [AZURE AD Graph API](https://docs.microsoft.com/azure/active-directory/develop/active-directory-graph-api) 를 사용 하 여 단일 사용자를 대신 하 여 위임 된 권한에 대 한 동의를 부여할 수도 있습니다. 이렇게 하려면 `consentType` "Principal"으로 설정 된 [OAuth2PermissionGrant](https://docs.microsoft.com/previous-versions/azure/ad/graph/api/entity-and-complex-type-reference#oauth2permissiongrant-entity) 엔터티를 만들기 위해 `POST` 요청을 보내고, 동의를 부여 하는 사용자를 대신 하 여 사용자의 개체 ID로 `principalId`를 설정 합니다.
+전체 조직에 대 한 동의를 부여 하는 대신 관리자는 [마이크로 sft Graph API](https://docs.microsoft.com/graph/use-the-api) 를 사용 하 여 단일 사용자 대신 위임 된 권한에 대 한 동의를 부여할 수도 있습니다. 자세한 내용은 [사용자를 대신 하 여 액세스 권한 가져오기](https://docs.microsoft.com/graph/auth-v2-user)를 참조 하세요.
 
 ## <a name="limiting-user-access-to-applications"></a>응용 프로그램에 대 한 사용자 액세스 제한
 

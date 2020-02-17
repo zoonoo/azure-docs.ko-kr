@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
 ms.date: 11/04/2019
-ms.openlocfilehash: f7a2e78ed2b1de770f7a60f1312e069dc1757cb6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 2869384d4f4072e1e71ab0a69af81edc68e7a5b7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191200"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366256"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -211,22 +211,71 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Python 모델을 작성 하 고이를 ONNX 형식으로 변환할 수 있습니다. ONNX 런타임은을 지원 C#하므로, 기록이 필요 하지 않거나 REST 끝점이 도입 하는 C# 네트워크 대기 시간을 제외 하 고 앱에서 자동으로 작성 된 모델을 사용할 수 있습니다. [이 Jupyter 노트북에서](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/classification-bank-marketing-all-features/auto-ml-classification-bank-marketing-all-features.ipynb)이 흐름의 예를 사용해 보세요.
 
-## <a name="automated-ml-across-microsoft"></a>Microsoft에서 자동 ML
+## <a name="automated-ml-in-azure-machine-learning"></a>Azure Machine Learning의 자동화 된 ML
 
-자동화 된 ML은 다음과 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.
+Azure Machine Learning는 자동화 된 ML 작업을 위한 두 가지 환경을 제공 합니다.
 
-|통합|Description|
-|------------|-----------|
-|[ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview)|Visual Studio를 사용 하 여 .NET 앱에서 자동 모델 선택 및 학습 ML.NET 자동화 된 ML을 사용 하 여 Visual Studio Code 합니다.|
-|[HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md)|HDInsight 클러스터의 Spark에서 자동화 된 ML 학습 작업을 병렬로 확장 하세요.|
-|[Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated)|Power BI에서 직접 machine learning 모델을 호출 합니다.|
-|[SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/)|SQL Server 2019 빅 데이터 클러스터의 데이터에 대해 새 machine learning 모델을 만듭니다.|
+* 코드를 능숙 하 게 [Azure Machine Learning PYTHON SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py) 
+
+* 제한 된/없는 코드 환경 고객의 경우 Azure Machine Learning studio에서 [https://ml.azure.com](https://ml.azure.com/)  
+
+다음은 각 환경에서 지원 되는 높은 수준의 자동화 된 ML 기능을 요약 한 것입니다.
+
+<a name="parity"></a>
+
+### <a name="experiment-settings"></a>실험 설정 
+
+다음 설정을 사용 하 여 자동화 된 ML 실험을 구성할 수 있습니다. 
+
+| | Python SDK| net
+----|:----:|:----:
+학습/유효성 검사 집합으로 데이터 분할| ✓|✓
+ML 작업 지원: 분류, 회귀 및 예측| ✓| ✓
+기본 메트릭에 기반 하 여 최적화| ✓| ✓
+AML 계산을 계산 대상으로 지원 | ✓|✓
+예측 범위 구성, 대상 지연 & 롤링 창|✓|✓
+종료 조건 설정 |✓|✓ 
+동시 반복 설정| ✓|✓
+열 삭제| ✓|✓
+블록 알고리즘|✓|✓
+교차 유효성 검사 |✓|✓
+Azure Databricks 클러스터에 대 한 학습 지원| ✓|
+엔지니어링 된 기능 이름 보기|✓|
+기능화 요약| ✓|
+휴일 기능화|✓|
+로그 파일의 자세한 정도 수준| ✓|
+
+### <a name="model-settings"></a>모델 설정
+
+이러한 설정은 자동화 된 ML 실험의 결과로 최상의 모델에 적용할 수 있습니다.
+
+||Python SDK|net
+----|:----:|:----:
+최상의 모델 등록| ✓|✓
+최상의 모델 배포| ✓| ✓
+최상의 모델 explainability| ✓|✓
+투표 앙상블 & stack 앙상블 모델 사용| ✓|✓
+기본이 아닌 메트릭을 기반으로 최상의 모델 표시|✓|ONNX 모델 호환성 사용/사용 안 함|✓|
+모델 테스트 | ✓| |
+
+### <a name="run-control-settings"></a>컨트롤 설정 실행
+
+이러한 설정을 사용 하 여 실험 실행과 해당 자식 실행을 검토 하 고 제어할 수 있습니다. 
+
+||Python SDK| net
+----|:----:|:----:
+실행 요약 테이블| ✓|✓
+실행 취소| ✓|✓
+자식 실행 취소| ✓| ✓
+Guardrails 가져오기| ✓|✓
+실행 일시 중지| ✓| 
+실행 다시 시작| ✓| 
 
 ## <a name="next-steps"></a>다음 단계
 
 자동화 된 machine learning을 사용 하 여 모델을 작성 하는 방법 및 예제를 참조 하세요.
 
-+ [자습서: Azure 자동화 된 Machine Learning를 사용 하 여 자동으로 회귀 모델 학습](tutorial-auto-train-models.md) 을 수행 합니다.
++ [자습서: 자동으로 회귀 모델 학습 Azure Machine Learning](tutorial-auto-train-models.md)
 
 + 자동 학습 실험의 설정 구성:
   + Azure Machine Learning studio에서 [다음 단계를 사용](how-to-create-portal-experiments.md)합니다.
@@ -235,3 +284,5 @@ Azure Machine Learning를 사용 하면 자동화 된 ML을 사용 하 여 Pytho
 + 시계열 데이터를 사용 하 여 자동으로 학습 하는 방법에 대해 설명 하 고 [다음 단계를 사용](how-to-auto-train-forecast.md)합니다.
 
 + 자동화 된 [기계 학습에 대 한 Jupyter Notebook 샘플](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/) 사용해 보기
+
+* 자동화 된 ML은, [ML.NET](https://docs.microsoft.com/dotnet/machine-learning/automl-overview), [HDInsight](../hdinsight/spark/apache-spark-run-machine-learning-automl.md), [Power BI](https://docs.microsoft.com/power-bi/service-machine-learning-automated) 및 [SQL Server](https://cloudblogs.microsoft.com/sqlserver/2019/01/09/how-to-automate-machine-learning-on-sql-server-2019-big-data-clusters/) 같은 다른 Microsoft 솔루션 에서도 사용할 수 있습니다.

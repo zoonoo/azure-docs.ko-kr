@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: e4213e67d9d752f3fc6450236b41e8bbf61f9957
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169316"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368892"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -27,6 +27,10 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 
 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
 
+> [!IMPORTANT]
+> RHUI는 PAYGO (종 량 제) 이미지에만 사용할 수 있습니다. 사용자 지정 및 골든 이미지 (BYOS) 라고도 하는 경우 업데이트를 받으려면 시스템을 RHSM 또는 위성에 연결 해야 합니다. 자세한 내용은 [Red Hat 문서](https://access.redhat.com/solutions/253273) 를 참조 하세요.
+
+
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI에 대한 중요한 정보
 
 * Azure RHUI는 Azure에서 만든 모든 RHEL PAYG Vm을 지 원하는 업데이트 인프라입니다. PAYG RHEL Vm을 구독 관리자 또는 위성 이나 다른 업데이트 원본으로 등록 하는 것을 배제 하지는 않지만 PAYG VM을 사용 하 여이 작업을 수행 하면 간접 이중 청구가 발생 합니다. 자세한 내용은 다음을 참조 하세요.
@@ -35,6 +39,7 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 * Azure(RHEL for SAP HANA 및 RHEL for SAP Business Applications)에서 RHEL PAYG 이미지는 SAP 인증에 필요한 특정 RHEL 부 버전에 남아 있는 전용 RHUI 채널에 연결됩니다.
 
 * Azure 호스티드 RHUI에 대한 액세스는 [Azure 데이터 센터 IP 범위](https://www.microsoft.com/download/details.aspx?id=41653) 내의 VM에 제한됩니다. 온-프레미스 네트워크 인프라를 통해 모든 VM 트래픽을 프록시로 사용하는 경우 Azure RHUI에 액세스하도록 RHEL PAYG VM에 대한 사용자 정의 경로를 설정해야 할 수 있습니다. 이 경우 _모든_ RHUI IP 주소에 대해 사용자 정의 경로를 추가 해야 합니다.
+
 
 ## <a name="image-update-behavior"></a>이미지 업데이트 동작
 

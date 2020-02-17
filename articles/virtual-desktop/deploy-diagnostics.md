@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: helohr
-ms.openlocfilehash: b6b310bf1958671583aab873ab42a70845f93f9a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452418"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368843"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -25,7 +25,7 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 - 특정 세션 호스트의 활성 사용자에 게 메시지를 보냅니다.
 - 세션 호스트에서 사용자를 로그 아웃 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 도구의 Azure Resource Manager 템플릿을 배포 하려면 먼저 Azure Active Directory 앱 등록 및 Log Analytics 작업 영역을 만들어야 합니다. 이러한 작업을 수행 하려면 사용자 또는 관리자에 게 다음 권한이 필요 합니다.
 
@@ -36,8 +36,8 @@ Windows 가상 데스크톱에 대 한 진단 도구는 다음과 같은 작업�
 
 또한 시작 하기 전에 다음 두 PowerShell 모듈을 설치 해야 합니다.
 
-- [Azure PowerShell 모듈](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-2.4.0)
-- [Azure AD 모듈](https://docs.microsoft.com/powershell/azure/active-directory/install-adv2?view=azureadps-2.0)
+- [Azure PowerShell 모듈](/powershell/azure/install-az-ps?view=azps-2.4.0/)
+- [Azure AD 모듈](/powershell/azure/active-directory/install-adv2?view=azureadps-2.0/)
 
 로그인 할 때 구독 ID가 준비 되어 있는지 확인 합니다.
 
@@ -253,7 +253,7 @@ Vm의 상태를 볼 수 있으려면 Log Analytics 연결을 사용 하도록 �
 
     - 임계값: 80% 이상이 비정상으로 표시 되어 있습니다.
 
-- [초당 사용자 입력 지연 (\*)\\최대 입력 지연](https://docs.microsoft.com/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters):
+- [초당 사용자 입력 지연 (\*)\\최대 입력 지연](/windows-server/remote/remote-desktop-services/rds-rdsh-performance-counters/):
 
     - 임계값: 2000 밀리초 이상 비정상으로 표시 되어 있습니다.
 

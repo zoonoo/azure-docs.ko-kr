@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 6bdac3f06834ccb5454efa0d77bec5a5a6c5b5bf
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 543514683ff96449bfe0e5a21c525834f61f3027
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515108"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367137"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -28,7 +28,7 @@ Windows 10 Enterprise 다중 세션 (이전에는 가상 데스크톱 (EVD)에 �
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>응용 프로그램이 Windows 10 Enterprise 다중 세션을 서버 운영 체제로 보고 하는 이유는 무엇 인가요?
 
-Windows 10 Enterprise 다중 세션은 Windows 10 Enterprise의 가상 버전입니다. 차이점 중 하나는이 운영 체제 (OS)가 Windows Server와 동일한 값인 3 값을 갖는 [ProductType](https://docs.microsoft.com/windows/desktop/cimwin32prov/win32-operatingsystem) 를 보고 한다는 것입니다. 이 속성은 운영 체제를 기존 RDSH 관리 도구, RDSH 다중 세션 인식 응용 프로그램 및 대부분의 RDSH 환경에 대 한 낮은 수준의 시스템 성능 최적화와 호환 되도록 유지 합니다. 일부 응용 프로그램 설치 관리자는 ProductType가 Client로 설정 되었는지 여부에 따라 Windows 10 다중 세션의 설치를 차단할 수 있습니다. 앱이 설치 되지 않는 경우 응용 프로그램 공급 업체에 업데이트 된 버전을 문의 하세요. 
+Windows 10 Enterprise 다중 세션은 Windows 10 Enterprise의 가상 버전입니다. 차이점 중 하나는이 운영 체제 (OS)가 Windows Server와 동일한 값인 3 값을 갖는 [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) 를 보고 한다는 것입니다. 이 속성은 운영 체제를 기존 RDSH 관리 도구, RDSH 다중 세션 인식 응용 프로그램 및 대부분의 RDSH 환경에 대 한 낮은 수준의 시스템 성능 최적화와 호환 되도록 유지 합니다. 일부 응용 프로그램 설치 관리자는 ProductType가 Client로 설정 되었는지 여부에 따라 Windows 10 다중 세션의 설치를 차단할 수 있습니다. 앱이 설치 되지 않는 경우 응용 프로그램 공급 업체에 업데이트 된 버전을 문의 하세요. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Windows 10 Enterprise 다중 세션 온-프레미스를 실행할 수 있나요?
 
@@ -48,7 +48,7 @@ LOB 응용 프로그램을 설치 하 고 이미지를 sysprep 하 여 필요에
  
 ## <a name="can-windows-10-enterprise-multi-session-be-azure-active-directory-ad-joined"></a>Windows 10 Enterprise 다중 세션이 AD (Azure Active Directory)에 조인 될 수 있나요?
 
-Windows 10 Enterprise 다중 세션은 현재 하이브리드 Azure AD 조인으로 지원 됩니다. Windows 10 Enterprise 다중 세션이 도메인에 가입 된 후 기존 그룹 정책 개체를 사용 하 여 Azure AD 등록을 사용 하도록 설정 합니다. 자세한 내용은 [하이브리드 Azure Active Directory 조인 구현 계획](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan)을 참조 하세요.
+Windows 10 Enterprise 다중 세션은 현재 하이브리드 Azure AD 조인으로 지원 됩니다. Windows 10 Enterprise 다중 세션이 도메인에 가입 된 후 기존 그룹 정책 개체를 사용 하 여 Azure AD 등록을 사용 하도록 설정 합니다. 자세한 내용은 [하이브리드 Azure Active Directory 조인 구현 계획](../active-directory/devices/hybrid-azuread-join-plan.md)을 참조 하세요.
  
 ## <a name="where-can-i-find-the-windows-10-enterprise-multi-session-image"></a>Windows 10 Enterprise 다중 세션 이미지는 어디서 찾을 수 있나요?
 

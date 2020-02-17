@@ -1,5 +1,5 @@
 ---
-title: 디자이너에서 내게 필요한 옵션 기능 사용
+title: 디자이너에서 내게 필요한 옵션 기능 사용 (미리 보기)
 titleSuffix: Azure Machine Learning
 description: 디자이너에서 사용할 수 있는 바로 가기 키 및 화면 판독기 접근성 기능에 대해 알아봅니다.
 services: machine-learning
@@ -9,14 +9,14 @@ ms.topic: reference
 ms.author: peterlu
 author: peterclu
 ms.date: 01/09/2020
-ms.openlocfilehash: 7d5c8047fea8e9081de08b582c537711714ea463
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 59199291589a81d0a0d96b7867078b8196be086f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314235"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366203"
 ---
-# <a name="use-a-keyboard-to-use-azure-machine-learning-designer"></a>키보드를 사용 하 여 Azure Machine Learning 디자이너 사용
+# <a name="use-a-keyboard-to-use-azure-machine-learning-designer-preview"></a>키보드를 사용 하 여 Azure Machine Learning designer 사용 (미리 보기)
 
 키보드 및 화면 판독기를 사용 하 여 Azure Machine Learning 디자이너를 사용 하는 방법을 알아봅니다. Azure Portal의 모든 위치에서 작동 하는 바로 가기 키 목록은 [Azure Portal의 바로 가기 키](../azure-portal/azure-portal-keyboard-shortcuts.md) 를 참조 하세요.
 
@@ -24,7 +24,7 @@ ms.locfileid: "76314235"
 
 ## <a name="navigate-the-pipeline-graph"></a>파이프라인 그래프 탐색
 
-파이프라인 그래프가 목록 목록으로 구성 됩니다. 최상위 모듈 목록에는 파이프라인의 모든 모듈이 포함 되어 있습니다. 모듈 목록의 각 항목에는 모든 연결을 설명 하는 연결 목록이 포함 되어 있습니다. 
+파이프라인 그래프가 중첩 된 목록으로 구성 됩니다. 외부 목록은 파이프라인 그래프의 모든 모듈을 설명 하는 모듈 목록입니다. 내부 목록은 특정 모듈의 모든 연결을 설명 하는 연결 목록입니다.  
 
 1. 모듈 목록에서 화살표 키를 사용 하 여 모듈을 전환 합니다.
 1. Tab 키를 사용 하 여 대상 모듈의 연결 목록을 엽니다.
@@ -52,7 +52,7 @@ ms.locfileid: "76314235"
 
 ## <a name="navigation-shortcuts"></a>탐색 바로 가기
 
-| 키 입력 | Description |
+| 키 | Description |
 |-|-|
 | Ctrl + F6 | Canvas와 module 트리 사이에서 포커스 전환 |
 | Ctrl + F1   | 모듈 트리의 노드에 포커스를 둘 때 정보 카드 열기 |
@@ -62,11 +62,11 @@ ms.locfileid: "76314235"
 
 ## <a name="action-shortcuts"></a>작업 바로 가기
 
-액세스 키와 함께 다음 바로 가기를 사용 합니다. 액세스 키에 대 한 자세한 내용은 https://en.wikipedia.org/wiki/Access_key 를 참조 하세요.
+액세스 키와 함께 다음 바로 가기를 사용 합니다. 액세스 키에 대 한 자세한 내용은 https://en.wikipedia.org/wiki/Access_key를 참조 하세요.
 
-| 키 입력 | 실행력 |
+| 키 | 작업 |
 |-|-|
-| 액세스 키 + R | 실행 |
+| 액세스 키 + R | 다음을 실행합니다. |
 | 액세스 키 + P | 게시 |
 | 액세스 키 + C | 복제 |
 | 액세스 키 + D | 배포 |

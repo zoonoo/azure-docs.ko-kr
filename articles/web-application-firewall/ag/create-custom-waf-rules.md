@@ -8,12 +8,12 @@ author: vhorne
 ms.service: web-application-firewall
 ms.date: 11/14/2019
 ms.author: victorh
-ms.openlocfilehash: 14aa1018aec2a9dc22c3b059b4aa46bff2bb554a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: bfa6690c636e15fa933f50698cd81359600b5c05
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050054"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368312"
 ---
 # <a name="create-and-use-web-application-firewall-v2-custom-rules-on-application-gateway"></a>Application Gateway에서 웹 응용 프로그램 방화벽 v2 사용자 지정 규칙 만들기 및 사용
 
@@ -126,7 +126,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
   }
 ```
 
-### <a name="example-2"></a>예 2
+## <a name="example-2"></a>예제 2
 
 GeoMatch 연산자를 사용 하 여 미국에서 트래픽을 허용 하려고 합니다.
 
@@ -175,7 +175,7 @@ $rule = New-AzApplicationGatewayFirewallCustomRule `
 
 
 
-## <a name="example-3"></a>예 3
+## <a name="example-3"></a>예제 3
 
 198.168.5.0/24 범위의 IP 주소에 대 한 모든 요청을 차단 하려고 합니다.
 

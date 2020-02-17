@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/27/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0602757fad0eb4424e10fb0c1cf0272826ed0024
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: dc33cf9249a5b804ef46e75ff1822eaa5c6f9d6a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150700"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366443"
 ---
 # <a name="tutorial-configure-teamviewer-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 TeamViewer 구성
 
@@ -34,7 +34,7 @@ ms.locfileid: "77150700"
 > * Azure AD와 TeamViewer 간에 사용자 특성을 동기화 상태로 유지
 > * TeamViewer에 [Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/teamviewer-tutorial) (권장)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -101,7 +101,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 TeamViewer 관리자 자격 증명 및 사용자 이름을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 TeamViewer에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 TeamViewer 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에서 **Tentant URL** 필드에 `ttps://webapi.teamviewer.com/scim/v2`를 입력 하 고 이전에 **비밀 토큰**에서 만든 스크립트 토큰을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 TeamViewer에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 TeamViewer 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![프로비전](./media/teamViewer-provisioning-tutorial/provisioning.png)
 
@@ -115,7 +115,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
 9. **특성 매핑** 섹션에서 Azure AD에서 TeamViewer로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 TeamViewer의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 TeamViewer API가 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-   |특성|형식|
+   |attribute|Type|
    |---|---|
    |userName|String|
    |displayName|String|

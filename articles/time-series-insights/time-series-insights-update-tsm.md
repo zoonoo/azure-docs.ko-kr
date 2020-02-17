@@ -8,14 +8,14 @@ ms.workload: big-data
 ms.service: time-series-insights
 services: time-series-insights
 ms.topic: conceptual
-ms.date: 12/20/2019
+ms.date: 02/14/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1f560a7aa746ce7c6262dcaddf74c9d573332fa6
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 884244b245be06f1477d27a4828cad18e36eca24
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75861390"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368627"
 ---
 # <a name="time-series-model-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 시계열 모델
 
@@ -284,7 +284,7 @@ Time Series Insights 환경에 대해 이벤트 원본이 구성 된 후 인스�
 }
 ```
 
-### <a name="variables"></a>변수
+### <a name="variables"></a>variables
 
 Time Series Insights 형식에는 이벤트에 대 한 수식 및 계산 규칙을 지정 하는 많은 변수가 있을 수 있습니다.
 

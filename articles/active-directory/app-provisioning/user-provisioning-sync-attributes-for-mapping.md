@@ -15,18 +15,18 @@ ms.date: 05/13/2019
 ms.author: mimart
 ms.custom: ''
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f49fce985484e85bcba2883a66ec0b1e6d032a8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 12d8e60d3bfeb2e72d52b30dffcec4ad6e6c3f08
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066045"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368191"
 ---
 # <a name="sync-an-attribute-from-your-on-premises-active-directory-to-azure-ad-for-provisioning-to-an-application"></a>응용 프로그램에 프로 비전 하기 위해 온-프레미스 Active Directory에서 Azure AD로 특성 동기화
 
 사용자 프로 비전을 위해 특성 매핑을 사용자 지정할 때 매핑하려는 특성이 **원본 특성** 목록에 표시 되지 않을 수 있습니다. 이 문서에서는 온-프레미스 Active Directory (AD)에서 Azure Active Directory (Azure AD)로 동기화 하 여 누락 된 특성을 추가 하는 방법을 보여 줍니다.
 
-Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용자 프로필을 만드는 데 필요한 모든 데이터를 azure AD에 포함 해야 합니다. 데이터를 사용할 수 있도록 하기 위해 온-프레미스 AD에서 Azure AD로 특성을 동기화 해야 하는 경우도 있습니다. Azure AD Connect는 특정 특성을 Azure AD에 자동으로 동기화 하지만 모든 특성은 자동으로 동기화 하지 않습니다. 또한 기본적으로 동기화 되는 일부 특성 (예: SAMAccountName)은 Azure AD Graph API를 통해 노출 되지 않을 수 있습니다. 이러한 경우 Azure AD Connect directory 확장 기능을 사용 하 여 특성을 Azure AD와 동기화 할 수 있습니다. 이렇게 하면 특성이 Azure AD Graph API 및 Azure AD 프로 비전 서비스에 표시 됩니다.
+Azure ad에서 SaaS 앱으로 사용자 계정을 프로 비전 할 때 사용자 프로필을 만드는 데 필요한 모든 데이터를 azure AD에 포함 해야 합니다. 데이터를 사용할 수 있도록 하기 위해 온-프레미스 AD에서 Azure AD로 특성을 동기화 해야 하는 경우도 있습니다. Azure AD Connect는 특정 특성을 Azure AD에 자동으로 동기화 하지만 모든 특성은 자동으로 동기화 하지 않습니다. 또한 기본적으로 동기화 되는 일부 특성 (예: SAMAccountName)은 Microsoft Graph API를 사용 하 여 노출 되지 않을 수 있습니다. 이러한 경우 Azure AD Connect directory 확장 기능을 사용 하 여 특성을 Azure AD와 동기화 할 수 있습니다. 이렇게 하면 특성이 Microsoft Graph API 및 Azure AD 프로 비전 서비스에 표시 됩니다.
 
 프로 비전에 필요한 데이터가 Active Directory 있지만 위에 설명 된 이유 때문에 프로 비전에 사용할 수 없는 경우 다음 단계를 수행 합니다.
  

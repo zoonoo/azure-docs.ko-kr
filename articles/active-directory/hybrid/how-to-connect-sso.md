@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7791e7b50a963d2f92a2cbc460e36f9e83bb1b52
-ms.sourcegitcommit: 11265f4ff9f8e727a0cbf2af20a8057f5923ccda
+ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/08/2019
-ms.locfileid: "72025706"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367970"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -36,7 +36,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->Seamless SSO는 사용자 디바이스가 **도메인에 조인**되어야 하지만 [Azure AD에 조인](../active-directory-azureadjoin-overview.md)될 필요는 없습니다.
+>원활한 SSO는 사용자의 장치를 도메인에 **가입** 해야 하지만, [Azure ad 조인](../active-directory-azureadjoin-overview.md) 또는 [하이브리드 Azure ad 조인] (. /active-directory-azureadjoin-overview.md) 장치. SSO pn Azure AD 조인 및 하이브리드 Azure AD 조인은 [기본 새로 고침 토큰] (.. /active-directory/devices/concept-primary-refresh-token.md)
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -63,11 +63,11 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예\*|예|예|예\*\*\*|해당 없음
-|Windows 8.1|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows 8|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows 7|예\*|해당 없음|예|예\*\*\*|해당 없음
-|Windows Server 2012 R2 이상|예\*\*|해당 없음|예|예\*\*\*|해당 없음
+|윈도우 10|예\*|yes|yes|예\*\*\*|해당 없음
+|Windows 8.1|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows 8|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows 7|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows Server 2012 R2 이상|예\*\*|해당 없음|yes|예\*\*\*|해당 없음
 |Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
 

@@ -6,19 +6,25 @@ ms.service: event-hubs
 documentationcenter: ''
 author: spelluru
 ms.topic: conceptual
-ms.date: 08/22/2019
+ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: b5a037eaf310aa28c76d831dc9fe56eefaddbe56
-ms.sourcegitcommit: 5a8c65d7420daee9667660d560be9d77fa93e9c9
+ms.openlocfilehash: d4304abf0ca089fbbea86f12cd03dea836db612e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74123473"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368361"
 ---
 # <a name="authorize-access-to-azure-event-hubs"></a>Azure Event Hubs에 대한 액세스 권한 부여
 이벤트 허브에서 이벤트/데이터를 게시 하거나 사용할 때마다 클라이언트가 Event Hubs 리소스에 액세스 하려고 합니다. 보안 리소스에 대 한 모든 요청은 서비스에서 클라이언트에 데이터를 게시/사용 하는 데 필요한 권한이 있는지 확인할 수 있도록 권한을 부여 해야 합니다. 
 
 Azure Event Hubs는 보안 리소스에 대 한 액세스 권한을 부여 하는 다음과 같은 옵션을 제공 합니다.
+
+- Azure Active Directory
+- 공유 액세스 서명
+
+> [!NOTE]
+> 이 문서는 Event Hubs 및 [Apache Kafka](event-hubs-for-kafka-ecosystem-overview.md) 시나리오에 모두 적용 됩니다. 
 
 ## <a name="azure-active-directory"></a>Azure Active Directory
 Event Hubs 리소스에 대 한 Azure Active Directory (Azure AD) 통합은 클라이언트의 리소스 액세스를 세부적으로 제어 하기 위해 RBAC (역할 기반 액세스 제어)를 제공 합니다. RBAC (역할 기반 액세스 제어)를 사용 하 여 사용자, 그룹 또는 응용 프로그램 서비스 사용자 일 수 있는 보안 주체에 권한을 부여할 수 있습니다. 보안 주체는 OAuth 2.0 토큰을 반환 하기 위해 Azure AD에서 인증 됩니다. 토큰은 Event Hubs 리소스에 대 한 액세스 요청에 권한을 부여 하는 데 사용할 수 있습니다.

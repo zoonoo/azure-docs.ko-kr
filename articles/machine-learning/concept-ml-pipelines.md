@@ -9,18 +9,18 @@ ms.topic: conceptual
 ms.author: laobri
 author: lobrien
 ms.date: 11/06/2019
-ms.openlocfilehash: 840c5cf061658f3210fec963b82b490185b92a4b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: fd10a3e62bcbe438eb17edfc71a5285ad071e29a
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905722"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366208"
 ---
 # <a name="what-are-azure-machine-learning-pipelines"></a>Azure Machine Learning 파이프라인 이란?
 
 Azure Machine Learning 파이프라인을 사용 하 여 Machine Learning 프로젝트에서 워크플로를 만들 수 있습니다. 이러한 워크플로에는 다음과 같은 다양 한 이점이 있습니다. 
 
-+ 단순성
++ 간소화
 + 속도
 + 반복성
 + 유연성
@@ -40,11 +40,12 @@ Azure Machine Learning 파이프라인을 사용 하 여 Machine Learning 프로
 
 Azure 클라우드는 각각 다른 용도로 여러 다른 파이프라인을 제공 합니다. 다음 표에서는 다양 한 파이프라인 및 사용 되는 방법을 보여 줍니다.
 
-| 파이프라인 | 수행하는 작업 | 정식 파이프 |
-| ---- | ---- | ---- |
-| 파이프라인 Azure Machine Learning | 기계 학습 시나리오에 대 한 템플릿으로 사용할 수 있는 재사용 가능한 기계 학습 워크플로를 정의 합니다. | 데이터 > 모델 |
-| [Azure Data Factory 파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | 작업을 수행 하는 데 필요한 데이터 이동, 변환 및 제어 작업을 그룹화 합니다.  | 데이터 > 데이터 |
-| [Azure Pipelines](https://azure.microsoft.com/services/devops/pipelines/) | 모든 플랫폼/모든 클라우드에 응용 프로그램의 지속적인 통합 및 전달  | 코드 > 앱/서비스 |
+| 시나리오 | 주 가상 사용자 | Azure 제품 | OSS 제품 | 정식 파이프 | 강도가 | 
+| -------- | --------------- | -------------- | ------------ | -------------- | --------- | 
+| 모델 오케스트레이션 (기계 학습) | 데이터 과학자 | Azure Machine Learning 파이프라인 | Kubeflow 파이프라인 | 데이터 > 모델 | 배포, 캐싱, 코드 우선, 다시 사용 | 
+| 데이터 오케스트레이션 (데이터 준비) | 데이터 엔지니어 | [Azure Data Factory 파이프라인](https://docs.microsoft.com/azure/data-factory/concepts-pipelines-activities) | Apache 공기 흐름 | 데이터 > 데이터 | 강력한 형식의 이동. 데이터 중심 활동. |
+| 코드 & 앱 오케스트레이션 (CI/CD) | 앱 개발자/Ops | [Azure DevOps 파이프라인](https://azure.microsoft.com/services/devops/pipelines/) | Jenkins | 코드 + 모델-> App/Service | 대부분의 open 및 flexibile 활동 지원, 승인 큐, 게이팅 포함 단계 | 
+
 
 ## <a name="what-can-azure-ml-pipelines-do"></a>Azure ML 파이프라인에서 수행할 수 있는 작업은 무엇 인가요?
 
@@ -52,7 +53,7 @@ Azure Machine Learning 파이프라인은 전체 기계 학습 작업에 대해 
 
 + 데이터 준비(가져오기, 유효성 검사 및 정리, 마이닝/변환, 정규화 및 준비 포함)
 + 학습 구성(인수 매개 변수화, 파일 경로 및 구성 로깅/보고 포함)
-+ 효율적이 고 반복적으로 학습 및 유효성 검사, 특정 데이터 하위 집합 지정, 다양 한 하드웨어 계산 리소스, 분산 처리 및 진행률 모니터링이 포함 될 수 있습니다.
++ 효율적이 고 반복적으로 교육 하 고 유효성을 검사 합니다. 효율성은 특정 데이터 하위 집합, 다른 하드웨어 계산 리소스, 분산 처리 및 진행률 모니터링을 지정 하 여 가져올 수 있습니다.
 + 배포(버전 관리, 크기 조정, 프로비저닝 및 액세스 제어 포함) 
 
 독립적인 단계를 통해 여러 데이터 과학자가 과도 한 처리 시간이 소모 계산 리소스 없이 동시에 동일한 파이프라인에서 작업할 수 있습니다. 또한 별도의 단계를 통해 각 단계에 서로 다른 계산 형식/크기를 쉽게 사용할 수 있습니다.

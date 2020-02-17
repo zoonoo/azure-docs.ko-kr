@@ -7,18 +7,18 @@ ms.service: virtual-desktop
 ms.topic: troubleshooting
 ms.date: 01/08/2020
 ms.author: helohr
-ms.openlocfilehash: 12b5b6ce84ad36d14a393b54745e530779d4ca95
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 438c391febc28a716c681aa81b3f42c155b720eb
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965736"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367220"
 ---
 # <a name="tenant-and-host-pool-creation"></a>테넌트 및 호스트 풀 만들기
 
 이 문서에서는 Windows 가상 데스크톱 테 넌 트 및 관련 세션 호스트 풀 인프라의 초기 설정 중에 발생 하는 문제에 대해 설명 합니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 
 [Windows Virtual Desktop 기술 커뮤니티](https://techcommunity.microsoft.com/t5/Windows-Virtual-Desktop/bd-p/WindowsVirtualDesktop)를 방문하여 제품 팀 및 활발하게 활동하는 커뮤니티 멤버들과 Windows Virtual Desktop 서비스에 대해 토론해 보세요.
 
@@ -53,7 +53,7 @@ Windows 10 Enterprise 다중 세션 이미지를 사용 하려면 Azure Marketpl
 
 **원인:** 로그인 한 사용자에 게 Azure Active Directory에 TenantCreator 역할이 할당 되지 않았습니다.
 
-**해결 방법:** [Azure Active Directory 테 넌 트의 사용자에 게 TenantCreator 응용 프로그램 역할 할당](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory#assign-the-tenantcreator-application-role)의 지침을 따릅니다. 이 지침을 수행 하면 사용자가 TenantCreator 역할에 할당 됩니다.
+**해결 방법:** [Azure Active Directory 테 넌 트의 사용자에 게 TenantCreator 응용 프로그램 역할 할당](tenant-setup-azure-active-directory.md#assign-the-tenantcreator-application-role)의 지침을 따릅니다. 이 지침을 수행 하면 사용자가 TenantCreator 역할에 할당 됩니다.
 
 ![지정 된 TenantCreator 역할의 스크린샷](media/TenantCreatorRoleAssigned.png)
 
@@ -113,9 +113,9 @@ Windows 가상 데스크톱 – 호스트 풀 템플릿 프로 비전 Azure Mark
 
 다음 지침에 따라 Azure Resource Manager 템플릿 및 PowerShell DSC의 실패 한 배포 문제를 해결 합니다.
 
-1. [Azure Resource Manager에서 배포 작업 보기](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-deployment-operations)를 사용 하 여 배포 오류를 검토 합니다.
-2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-audit)합니다.
-3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-common-deployment-errors) 의 리소스를 사용 합니다.
+1. [Azure Resource Manager에서 배포 작업 보기](../azure-resource-manager/resource-manager-deployment-operations.md)를 사용 하 여 배포 오류를 검토 합니다.
+2. 배포에 오류가 없으면 활동 로그 보기를 사용 하 여 활동 로그의 오류를 검토 하 여 [리소스에 대 한 작업을 감사](../azure-resource-manager/resource-group-audit.md)합니다.
+3. 오류가 식별 되 면 오류 메시지 및 문제 해결을 위해 [Azure Resource Manager 일반적인 Azure 배포 오류 해결](../azure-resource-manager/resource-manager-common-deployment-errors.md) 의 리소스를 사용 합니다.
 4. 이전 배포 중에 만들어진 모든 리소스를 삭제 하 고 템플릿을 다시 배포 하는 작업을 다시 시도 합니다.
 
 ### <a name="error-your-deployment-failedhostnamejoindomain"></a>오류: 배포 하지 못했습니다.\<호스트 이름 >/joindomain

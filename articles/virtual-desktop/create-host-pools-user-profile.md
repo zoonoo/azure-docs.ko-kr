@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: helohr
-ms.openlocfilehash: 65d800cc6c1b6818369807ffeae9cd350a34066f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: a6bc8546a4047e921d62953e39eaddf546f38229
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73607000"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367430"
 ---
 # <a name="create-a-profile-container-for-a-host-pool-using-a-file-share"></a>파일 공유를 사용하여 호스트 풀에 대한 프로필 컨테이너 만들기
 
@@ -27,13 +27,13 @@ Windows 가상 데스크톱 서비스는 FSLogix 프로필 컨테이너를 권�
 
 가상 컴퓨터를 만들 때 호스트 풀 가상 컴퓨터와 동일한 가상 네트워크 또는 호스트 풀 가상 컴퓨터에 연결 된 가상 네트워크에 가상 컴퓨터를 넣어야 합니다. 여러 가지 방법으로 가상 컴퓨터를 만들 수 있습니다.
 
-- [Azure 갤러리 이미지에서 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#create-virtual-machine)
-- [관리 되는 이미지에서 가상 머신 만들기](https://docs.microsoft.com/azure/virtual-machines/windows/create-vm-generalized-managed)
+- [Azure 갤러리 이미지에서 가상 머신 만들기](../virtual-machines/windows/quick-create-portal.md#create-virtual-machine)
+- [관리 되는 이미지에서 가상 머신 만들기](../virtual-machines/windows/create-vm-generalized-managed.md)
 - [관리 되지 않는 이미지에서 가상 머신 만들기](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-from-user-image)
 
 가상 컴퓨터를 만든 후 다음 작업을 수행 하 여 도메인에 가입 합니다.
 
-1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
+1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) 합니다.
 2. 가상 컴퓨터에서 **제어판** 을 시작 하 고 **시스템**을 선택 합니다.
 3. **컴퓨터 이름**을 선택 하 고 **설정 변경**을 선택한 다음 **변경 ...** 을 선택 합니다.
 4. **도메인** 을 선택 하 고 가상 네트워크에 Active Directory 도메인을 입력 합니다.
@@ -43,29 +43,29 @@ Windows 가상 데스크톱 서비스는 FSLogix 프로필 컨테이너를 권�
 
 다음은 사용자 프로필의 파일 공유 역할을 하는 가상 컴퓨터를 준비 하는 방법에 대 한 일반적인 지침입니다.
 
-1. Windows 가상 데스크톱 Active Directory 사용자를 [Active Directory 보안 그룹](https://docs.microsoft.com/windows/security/identity-protection/access-control/active-directory-security-groups)에 추가 합니다. 이 보안 그룹은 방금 만든 파일 공유 가상 컴퓨터에 대 한 Windows 가상 데스크톱 사용자를 인증 하는 데 사용 됩니다.
-2. [파일 공유 가상 머신에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine)합니다.
+1. Windows 가상 데스크톱 Active Directory 사용자를 [Active Directory 보안 그룹](/windows/security/identity-protection/access-control/active-directory-security-groups/)에 추가 합니다. 이 보안 그룹은 방금 만든 파일 공유 가상 컴퓨터에 대 한 Windows 가상 데스크톱 사용자를 인증 하는 데 사용 됩니다.
+2. [파일 공유 가상 머신에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine)합니다.
 3. 파일 공유 가상 컴퓨터에서 프로필 공유로 사용할 **C 드라이브** 에 폴더를 만듭니다.
 4. 새 폴더를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택한 다음 **공유**를 선택 하 고 **고급 공유 ...** 를 선택 합니다.
 5. **이 폴더 공유**, **권한**선택 ...을 차례로 선택 하 고 **추가**...를 선택 합니다.
 6. Windows 가상 데스크톱 사용자를 추가한 보안 그룹을 검색 한 다음 그룹에 **모든 권한이**있는지 확인 합니다.
 7. 보안 그룹을 추가한 후 폴더를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택한 다음 **공유**를 선택 하 고 나중에 사용할 **네트워크 경로** 를 복사 합니다.
 
-사용 권한에 대 한 자세한 내용은 [Fslogix 설명서](https://docs.microsoft.com/fslogix/fslogix-storage-config-ht)를 참조 하세요.
+사용 권한에 대 한 자세한 내용은 [Fslogix 설명서](/fslogix/fslogix-storage-config-ht/)를 참조 하세요.
 
 ## <a name="configure-the-fslogix-profile-container"></a>FSLogix 프로필 컨테이너 구성
 
 FSLogix 소프트웨어를 사용 하 여 가상 머신을 구성 하려면 호스트 풀에 등록 된 각 컴퓨터에서 다음을 수행 합니다.
 
-1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](https://docs.microsoft.com/azure/virtual-machines/windows/quick-create-portal#connect-to-virtual-machine) 합니다.
+1. 가상 컴퓨터를 만들 때 제공한 자격 증명을 사용 하 여 [가상 컴퓨터에 연결](../virtual-machines/windows/quick-create-portal.md#connect-to-virtual-machine) 합니다.
 2. 인터넷 브라우저를 시작 하 고 [이 링크로](https://go.microsoft.com/fwlink/?linkid=2084562) 이동 하 여 FSLogix 에이전트를 다운로드 합니다.
-3. .Zip 파일에서 \\\\Win32\\릴리스 또는 \\\\X64\\릴리스로 이동 하 고 **FSLogixAppsSetup** 를 실행 하 여 FSLogix 에이전트를 설치 합니다.  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](https://docs.microsoft.com/fslogix/install-ht)를 참조 하세요.
+3. .Zip 파일에서 \\\\Win32\\릴리스 또는 \\\\X64\\릴리스로 이동 하 고 **FSLogixAppsSetup** 를 실행 하 여 FSLogix 에이전트를 설치 합니다.  FSLogix를 설치 하는 방법에 대해 자세히 알아보려면 [Fslogix 다운로드 및 설치](/fslogix/install-ht/)를 참조 하세요.
 4. **Fslogix** > **앱** > **프로그램 파일** 로 이동 하 여 에이전트를 설치 했는지 확인 합니다.
-5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **컴퓨터\\HKEY_LOCAL_MACHINE\\software\\FSLogix**로 이동 합니다.
+5. 시작 메뉴에서 관리자 권한으로 **RegEdit** 를 실행 합니다. **컴퓨터\\HKEY_LOCAL_MACHINE\\소프트웨어\\FSLogix**로 이동 합니다.
 6. **프로필**이라는 키를 만듭니다.
 7. 프로필 키에 대해 다음 값을 만듭니다.
 
-| Name                | 형식               | 데이터/값                        |
+| 속성                | Type               | 데이터/값                        |
 |---------------------|--------------------|-----------------------------------|
 | 사용             | DWORD              | 1                                 |
 | VHDLocations        | 다중 문자열 값 | "파일 공유의 네트워크 경로"     |
