@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/10/2020
-ms.openlocfilehash: 348c393a623f0059eec011faf823f9b5131508f3
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f0c38590b667894dd65d212124ef1d26c7918ff7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122138"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366412"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -89,7 +89,7 @@ ms.locfileid: "77122138"
 | Foreach 배열 항목 | 100,000 | 이 제한은 "for each" 루프가 처리할 수 있는 배열 항목의 최대 수를 나타냅니다. <p><p>더 큰 배열을 필터링하려면 [쿼리 작업](logic-apps-perform-data-operations.md#filter-array-action)을 사용하면 됩니다. |
 | Foreach 동시성 | 동시성 제어가 꺼지면 20이 기본 제한입니다. 기본값을 1~50 사이의 값으로 변경할 수 있습니다. | 이 제한은 동시에 또는 병렬로 실행할 수 있는 최대 "for each" 루프 반복 수를 나타냅니다. <p><p>기본 제한을 1에서 50 사이의 값으로 변경하려면 ["for each" 동시성 제한 변경](../logic-apps/logic-apps-workflow-actions-triggers.md#change-for-each-concurrency) 또는 [순차적으로 "for each" 루프 실행](../logic-apps/logic-apps-workflow-actions-triggers.md#sequential-for-each)을 참조하세요. |
 | SplitOn 항목 | -10만 트리거 동시성 없음 <p><p>-100 트리거 동시성 | 배열을 반환하는 트리거의 경우 "Foreach" 루프를 사용하는 대신 [배열 항목을 여러 워크플로 인스턴스로 분할 또는 분리](../logic-apps/logic-apps-workflow-actions-triggers.md#split-on-debatch)하여 처리하는 'SplitOn' 속성을 사용하는 식을 지정할 수 있습니다. 이 식은 각 배열 항목에 대한 워크플로 인스턴스를 만들고 실행하는 데 사용되는 배열을 참조합니다. <p><p>**참고**: 동시성이 켜져 있으면 SplitOn 한도가 100 항목으로 줄어듭니다. |
-| Until 반복 | 5,000 | |
+| Until 반복 | -기본값: 60 <p><p>-최대: 5000 | |
 ||||
 
 <a name="throughput-limits"></a>

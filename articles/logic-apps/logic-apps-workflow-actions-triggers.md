@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 01/19/2020
-ms.openlocfilehash: 336d2ef471e21e3157c7d8c81b3837bb6a962e2e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 18e9c9d330ffb8cc4e284fc649cff0840ec2c82c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191302"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77366239"
 ---
 # <a name="schema-reference-guide-for-trigger-and-action-types-in-azure-logic-apps"></a>Azure Logic Apps의 트리거 및 동작 유형에 대 한 스키마 참조 가이드
 
@@ -2304,7 +2304,7 @@ Logic Apps 엔진은 호출하려는 트리거에 대한 액세스 권한을 확
 | <*action-type*> | String | 실행하려는 작업 유형입니다. | 
 | <*action-inputs*> | 다양 | 실행할 작업에 대한 입력입니다. | 
 | <*condition*> | String | 루프의 모든 작업이 실행 완료된 후에 평가할 조건 또는 식입니다. | 
-| <*loop-count*> | 정수 | 작업이 실행할 수 있는 가장 많은 루프 수에 대한 제한입니다. 기본 `count` 값은 60입니다. | 
+| <*loop-count*> | 정수 | 작업이 실행할 수 있는 가장 많은 루프 수에 대한 제한입니다. 기본 제한 및 최대 한도에 대 한 자세한 내용은 [Azure Logic Apps에 대 한 제한 및 구성](../logic-apps/logic-apps-limits-and-config.md#looping-debatching-limits)을 참조 하세요. | 
 | <*loop-timeout*> | String | 루프가 실행될 수 있는 가장 긴 시간의 제한입니다. 기본 `timeout` 값은 필요한 `PT1H`ISO 8601 형식[에 해당하는 ](https://en.wikipedia.org/wiki/ISO_8601)입니다. |
 |||| 
 

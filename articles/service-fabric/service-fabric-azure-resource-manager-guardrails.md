@@ -5,14 +5,14 @@ services: service-fabric
 documentationcenter: .net
 author: peterpogorski
 ms.topic: conceptual
-ms.date: 10/30/2019
+ms.date: 02/13/2020
 ms.author: pepogors
-ms.openlocfilehash: fe5ff2a5eeb4b2c73165d1577702eb6af7079b61
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a61b0cf30ca46eb77837eb09d6a9a0b6f30e89a9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75426745"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368570"
 ---
 # <a name="service-fabric-guardrails"></a>Service Fabric guardrails 
 Service Fabric 클러스터를 배포 하는 경우 guardrails이 배치 되며,이는 잘못 된 클러스터 구성의 경우 Azure Resource Manager 배포에 실패 합니다. 다음 섹션에서는 일반적인 클러스터 구성 문제와 이러한 문제를 완화 하는 데 필요한 단계에 대 한 개요를 제공 합니다. 
@@ -60,11 +60,26 @@ Service Fabric 노드 형식에 대 한 내구성 값은 Azure Resource Manager 
 * 가상 머신 확장 집합 내구성이 대상 Service Fabric 노드 유형 내구성 수준과 일치 하지 않습니다.
 * 가상 머신 확장 집합 내구성은 현재 Service Fabric 내구성 수준 또는 대상 Service Fabric 노드 유형 내구성 수준과 일치 합니다. 
 
-
 ### <a name="mitigation"></a>완화 방법
 위의 오류 메시지에 표시 되는 내구성 불일치를 해결 하려면 다음을 수행 합니다.
 1. Azure Resource Manager 템플릿의 가상 머신 확장 집합 확장 또는 Service Fabric 노드 유형 섹션에서 내구성 수준을 업데이트 하 여 값이 일치 하는지 확인 합니다.
 2. 업데이트 된 값으로 Azure Resource Manager 템플릿을 다시 배포 합니다.
+
+
+## <a name="seed-node-deletion"></a>시드 노드 삭제 
+### <a name="overview"></a>개요
+Service Fabric 클러스터에는 클러스터의 주 노드 유형에 서 실행 되는 시스템 서비스의 복제본 수를 결정 하는 데 사용 되는 [안정성 계층](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-capacity#the-reliability-characteristics-of-the-cluster) 속성이 있습니다. 필요한 복제본 수는 클러스터의 주 노드 형식에서 유지 관리 해야 하는 최소 노드 수를 결정 합니다. 주 노드 형식의 노드 수가 안정성 계층에 필요한 최소 미만이 면 클러스터가 불안정 해지기 때문입니다.  
+
+### <a name="error-messages"></a>오류 메시지 
+Seed 노드 제거 작업이 검색 되었으며 거부 됩니다. 
+* 이 작업을 수행 하면 클러스터에 잠재적 시드 노드를 유지 하는 {0} {1} 최소한의 요구 사항이 발생 합니다.
+* {1}에서 {0} 시드 노드를 제거 하면 시드 노드 쿼럼 손실로 인해 클러스터가 중단 될 수 있습니다. 한 번에 제거할 수 있는 초기값 노드의 최대 수는 {2}입니다.
+ 
+### <a name="mitigation"></a>완화 방법 
+주 노드 형식에 클러스터에 지정 된 안정성에 대 한 충분 한 Virtual Machines 있는지 확인 합니다. 가상 컴퓨터 확장 집합을 지정 된 안정성 계층에 대 한 최소 노드 수 아래로 가져오는 경우 가상 컴퓨터를 제거할 수 없습니다.
+* 안정성 계층이 올바르게 지정 된 경우 안정성 계층에 필요한 대로 주 노드 형식에 충분 한 노드가 있는지 확인 합니다. 
+* 안정성 계층이 올바르지 않으면 가상 머신 확장 집합 작업을 시작 하기 전에 먼저 안정성 수준을 낮추고 Service Fabric 리소스의 변경을 시작 하 고 완료 될 때까지 기다립니다.
+* 안정성 계층이 청동 인 경우 다음 [단계](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-scale-up-down#manually-remove-vms-from-a-node-typevirtual-machine-scale-set) 를 수행 하 여 클러스터를 정상적으로 축소 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 * Windows Server를 실행하는 VM 또는 컴퓨터에서 클러스터 만들기: [Windows Server용 서비스 패브릭 클러스터 만들기](service-fabric-cluster-creation-for-windows-server.md)

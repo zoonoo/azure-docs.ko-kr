@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: dapine
-ms.openlocfilehash: ca7e7f7460db82a357ed8aa240467a6894254217
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5d30693eb13104504d1cf27ffdbfb8d098d4ef9e
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087002"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367767"
 ---
 # <a name="install-and-run-speech-service-containers-preview"></a>음성 서비스 컨테이너 설치 및 실행 (미리 보기)
 
@@ -261,7 +261,16 @@ ApiKey={API_KEY}
 
 # <a name="custom-speech-to-texttabcstt"></a>[Custom Speech 텍스트](#tab/cstt)
 
-*Custom Speech-텍스트* 컨테이너는 사용자 지정 음성 모델을 기반으로 합니다. 사용자 지정 모델은 [사용자 지정 음성 포털](https://speech.microsoft.com/customspeech)을 사용 하 여 [학습](how-to-custom-speech-train-model.md) 해야 합니다. 컨테이너를 실행 하려면 사용자 지정 음성 **모델 ID** 가 필요 합니다. 사용자 지정 음성 포털의 **학습** 페이지에서 찾을 수 있습니다. 사용자 지정 음성 포털에서 **학습** 페이지로 이동 하 여 모델을 선택 합니다.
+*Custom Speech-텍스트* 컨테이너는 사용자 지정 음성 모델을 기반으로 합니다. 사용자 지정 모델은 [사용자 지정 음성 포털](https://speech.microsoft.com/customspeech)을 사용 하 여 [학습](how-to-custom-speech-train-model.md) 해야 합니다.
+
+> [!IMPORTANT]
+> 다음 모델 버전 중 하나에서 Custom Speech 모델을 학습 해야 합니다.
+> * **20181201 (v 3.3 통합)**
+> * **20190520 (v 4.14 통합)**
+> * **20190701 (v 4.17 통합)**<br>
+> 컨테이너 모델 학습을 ![Custom Speech](media/custom-speech/custom-speech-train-model-container-scoped.png)
+
+컨테이너를 실행 하려면 사용자 지정 음성 **모델 ID** 가 필요 합니다. 사용자 지정 음성 포털의 **학습** 페이지에서 찾을 수 있습니다. 사용자 지정 음성 포털에서 **학습** 페이지로 이동 하 여 모델을 선택 합니다.
 <br>
 
 ![사용자 지정 음성 학습 페이지](media/custom-speech/custom-speech-model-training.png)
