@@ -22,13 +22,13 @@ ms.locfileid: "75894602"
 ---
 # <a name="what-is-azure-virtual-network"></a>Azure Virtual Network란?
 
-Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. VNet을 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. VNet은 자체 데이터 센터에서 운영하는 기존 네트워크와 유사하지만, 확장, 가용성 및 격리와 같은 Azure 인프라 이점을 추가로 활용할 수 있습니다.
+Azure Virtual Network(VNet)는 Azure의 프라이빗 네트워크의 기본 구성 요소입니다. VNet을 사용하면 Azure VM(Virtual Machines)과 같은 다양한 형식의 Azure 리소스가 서로, 또는 인터넷 및 특정 온-프레미스 네트워크와 안전하게 통신할 수 있습니다. VNet은 자체 데이터 센터에서 운영하는 기존 네트워크와 유사하지만, 확장, 가용성 및 격리와 같은 Azure 인프라 이점을 추가로 활용할 수 있습니다.
 
 ## <a name="vnet-concepts"></a>VNet 개념
 
-- **주소 공간:** VNet을 만들 때 공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 프라이빗 IP 주소 공간을 지정해야 합니다. Azure는 가상 네트워크의 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다. 예를 들어 주소 공간인 10.0.0.0/16이 있는 VNet에 VM을 배포하는 경우 VM에는 10.0.0.4 같은 프라이빗 IP가 할당됩니다.
-- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당합니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [보안 그룹](security-overview.md)을 참조하세요.
-- **지역**: VNet은 단일 지역/위치로 범위가 제한되지만 가상 네트워크 피어링을 사용하여 여러 지역의 여러 가상 네트워크를 연결할 수 있습니다.
+- **주소 공간:** VNet을 만들 때 공용 및 프라이빗(RFC 1918) 주소를 사용하여 사용자 지정 프라이빗 IP 주소 공간을 지정해야 합니다. Azure는 가상 네트워크의 리소스에 사용자가 할당한 주소 공간의 개인 IP 주소를 할당합니다. 예를 들어 10.0.0.0/16 주소 공간이 있는 VNet에 VM을 배포하는 경우 VM에는 10.0.0.4 같은 프라이빗 IP가 할당됩니다.
+- **서브넷:** 서브넷을 사용하면 가상 네트워크를 하나 이상의 하위 네트워크로 분할하고 가상 네트워크 주소 공간의 일부를 각 서브넷에 할당할 수 있습니다. 그런 다음, 특정 서브넷에 Azure 리소스를 배포할 수 있습니다. 기존 네트워크와 마찬가지로 서브넷을 사용하여 VNet 주소 공간을 조직의 내부 네트워크에 적합한 세그먼트로 분할할 수 있습니다. 주소 할당 효율성도 향상됩니다. 네트워크 보안 그룹을 사용하여 서브넷 내의 리소스에 보안을 지정할 수 있습니다. 자세한 내용은 [보안 그룹](security-overview.md)을 참조하세요.
+- **지역**: VNet은 1개의 지역/위치로 범위가 제한되지만 가상 네트워크 피어링을 사용하여 여러 지역의 서로 다른 가상 네트워크를 연결할 수 있습니다.
 - **구독:** VNet은 구독으로 범위가 제한됩니다. 각 Azure [구독](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#subscription) 및 Azure [지역](../azure-glossary-cloud-terminology.md?toc=%2fazure%2fvirtual-network%2ftoc.json#region) 내에서 여러 가상 네트워크를 구현할 수 있습니다.
 
 ## <a name="best-practices"></a>모범 사례
@@ -38,7 +38,7 @@ Azure에서 네트워크를 빌드할 때 다음 범용 디자인 원칙에 유�
 - 겹치지 않는 주소 공간을 확보합니다. VNet 주소 공간(CIDR 블록)이 조직의 다른 네트워크 범위와 겹치지 않는지 확인합니다.
 - 서브넷은 VNet의 전체 주소 공간을 사용하지 않아야 합니다. 미래를 위해 미리 계획하고 일부 주소 공간을 예약합니다.
 - 많은 수의 작은 VNet보다 적은 수의 큰 VNet을 사용하는 것이 좋습니다. 이렇게 하면 관리 오버헤드가 방지됩니다.
-- NSG(네트워크 보안 그룹)를 사용하여 VNet에 보안 지정
+- NSG(네트워크 보안 그룹)를 사용하여 VNet에 보안을 지정합니다.
 
 ## <a name="communicate-with-the-internet"></a>인터넷 통신
 
@@ -79,11 +79,11 @@ Azure 리소스는 다음 방법 중 하나를 사용하여 서로 안전하게 
 
 ## <a name="azure-vnet-limits"></a>Azure VNet 제한
 
-배포할 수 있는 Azure 리소스 수와 관련된 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-portal/supportability/networking-quota-requests.md) 수 있습니다. 
+배포할 수 있는 Azure 리소스 개수에 특정 제한이 있습니다. 대부분의 Azure 네트워킹 제한은 최댓값으로 설정됩니다. 그러나 [VNet 제한 페이지](../azure-resource-manager/management/azure-subscription-service-limits.md#networking-limits)에 지정된 대로 [특정 네트워킹 제한을 늘릴](../azure-portal/supportability/networking-quota-requests.md) 수 있습니다. 
 
 ## <a name="pricing"></a>가격 책정
 
-Azure VNet 사용에 해당하는 요금은 없습니다. 별도의 비용이 없습니다. VM(가상 머신) 및 기타 제품과 같은 리소스에는 표준 요금이 적용될 수 있습니다. 자세한 내용은 [VNet 가격](https://azure.microsoft.com/pricing/details/virtual-network/) 및 Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
+Azure VNet 사용은 무료입니다. 별도의 비용이 없습니다. VM(가상 머신) 및 기타 제품과 같은 리소스에는 표준 요금이 적용될 수 있습니다. 자세한 내용은 [VNet 가격](https://azure.microsoft.com/pricing/details/virtual-network/) 및 Azure [가격 계산기](https://azure.microsoft.com/pricing/calculator/)를 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

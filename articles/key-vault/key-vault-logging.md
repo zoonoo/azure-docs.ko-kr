@@ -47,7 +47,7 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 �
 
 ## <a id="connect"></a>키 자격 증명 모음 구독에 연결
 
-키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 가리키는 것입니다.
+키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 지정하는 것입니다.
 
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.  
 
@@ -75,7 +75,7 @@ PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결
 
 로그에 대해 기존 스토리지 계정을 사용할 수 있지만 Key Vault 로그 전용 스토리지 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 세부 정보를 **sa**라는 변수에 저장합니다.
 
-추가로 쉽게 관리하기 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹의 이름은 **ContosoResourceGroup** 이며, 동아시아 위치를 계속 사용합니다. 해당하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다.
+더 쉬운 관리를 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용할 수도 있습니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹의 이름은 **ContosoResourceGroup** 이며, 동아시아 위치를 계속 사용합니다. 해당하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다.
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
