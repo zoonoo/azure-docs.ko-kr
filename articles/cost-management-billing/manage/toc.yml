@@ -119,12 +119,22 @@
       href: ../../azure-portal/supportability/how-to-create-azure-support-request.md
 - name: 샘플
   items:
-    - name: 청구서 API 코드 샘플
-      href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
-    - name: 사용량 API 코드 샘플
-      href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
-    - name: RateCard API 코드 샘플
-      href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
+    - name: REST API
+      items:
+        - name: 엔터프라이즈 비용 검토
+          href: review-enterprise-billing.md
+        - name: 구독 용도 검토
+          href: review-subscription-billing.md
+        - name: 리소스 사용 검토
+          href: review-service-usage-api.md
+    - name: .NET 샘플
+      items:
+        - name: 청구서 API 코드 샘플
+          href: 'https://github.com/Azure-Samples/billing-dotnet-core-invoice-download'
+        - name: 사용량 API 코드 샘플
+          href: 'https://github.com/Azure-Samples/billing-dotnet-usage-api'
+        - name: RateCard API 코드 샘플
+          href: 'https://github.com/Azure-Samples/billing-dotnet-ratecard-api'
 - name: 참조
   items:
     - name: 청구 자동화 시나리오
