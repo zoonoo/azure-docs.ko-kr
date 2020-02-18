@@ -43,8 +43,6 @@
           href: tutorial-python-postgresql-app.md
         - name: Spring 데이터를 사용하는 Java
           href: tutorial-java-spring-cosmosdb.md
-        - name: Postgres를 사용하는 Java Enterprise
-          href: tutorial-java-enterprise-postgresql-app.md
     - name: 다중 컨테이너 앱
       href: tutorial-multi-container-app.md
     - name: ACR에서 컨테이너 실행
@@ -191,7 +189,7 @@
       href: app-service-linux-faq.md
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 할당량 정보
       href: '../../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'
