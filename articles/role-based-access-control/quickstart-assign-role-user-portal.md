@@ -1,5 +1,5 @@
 ---
-title: 자습서 - RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
+title: '자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여 '
 description: 이 자습서에서는 Azure Portal에서 RBAC(역할 기반 액세스 제어)를 사용하여 Azure 리소스에 대한 사용자 액세스 권한을 부여하는 방법을 알아봅니다.
 services: role-based-access-control
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/22/2019
 ms.author: rolyon
-ms.openlocfilehash: f4dd3995df2a068824c4aa6bccca5606d250a165
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 6281c9a1818a3b46ac4f7a62f8ae76668db56887
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419654"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138083"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-the-azure-portal"></a>자습서: RBAC 및 Azure Portal을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
 [RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 범위에 속한 사용자에게 액세스 권한 부여

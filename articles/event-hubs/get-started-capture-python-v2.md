@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: quickstart
 ms.date: 01/30/2020
 ms.author: spelluru
-ms.openlocfilehash: 788fcf15ebd68aae525c2895340f437594c9c58c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 34583ef49b2f919391af3fe5700a558b2dc40700
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906398"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187237"
 ---
 # <a name="capture-event-hubs-data-in-azure-storage-and-read-it-by-using-python-azure-eventhub-version-5"></a>Python(azure-eventhub 버전 5)을 사용하여 Azure Storage에서 Event Hubs 데이터 캡처
 
-이벤트 허브로 전송된 데이터가 Azure 스토리지 계정 또는 Azure Data Lake Storage에서 캡처되도록 이벤트 허브를 구성할 수 있습니다. 이 문서에서는 이벤트 허브로 데이터를 보내고 Azure Blob 스토리지에서 캡처한 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다. 이 기능에 대한 자세한 내용은 [Event Hubs 캡처 기능 개요](event-hubs-capture-overview.md)를 참조하세요.
+이벤트 허브로 전송된 데이터가 Azure 스토리지 계정 또는 Azure Data Lake Storage Gen 1 또는 Gen 2에서 캡처되도록 이벤트 허브를 구성할 수 있습니다. 이 문서에서는 이벤트 허브로 데이터를 보내고 **Azure Blob 스토리지**에서 캡처한 데이터를 읽는 Python 코드를 작성하는 방법을 보여줍니다. 이 기능에 대한 자세한 내용은 [Event Hubs 캡처 기능 개요](event-hubs-capture-overview.md)를 참조하세요.
 
 이 빠른 시작에서는 [Azure Python SDK](https://azure.microsoft.com/develop/python/)를 사용하여 캡처 기능을 보여줍니다. *sender.py* 앱은 JSON 형식으로 이벤트 허브에 시뮬레이션된 환경 원격 분석을 보냅니다. Event Hub는 캡처 기능을 사용하여 이 데이터를 Blob Storage에 일괄적으로 쓰도록 구성되어 있습니다. *capturereader.py* 앱은 이러한 BLOB을 읽고 각 디바이스에 대한 추가 파일을 만듭니다. 그런 다음, CSV 파일에 데이터를 씁니다.
 

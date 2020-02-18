@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 09/12/2019
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1aa2d58a40c623cc451ca30aaa9d75a4a6b3d4c0
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 7902112c1694bacfeb45b5f20db80d5136642169
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983880"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047943"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-azure-ad-saml-toolkit"></a>자습서: Azure AD SAML Toolkit와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -45,6 +45,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다.
 
 * **SP** 시작 SSO를 지원하는 Azure AD SAML Toolkit
+* Azure AD SAML Toolkit를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="adding-azure-ad-saml-toolkit-from-the-gallery"></a>갤러리에서 Azure AD SAML Toolkit 추가
 
@@ -76,17 +77,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. [Azure Portal](https://portal.azure.com/)의 **Azure AD SAML Toolkit** 애플리케이션 통합 페이지에서 **관리** 섹션을 찾고 **Single Sign-On**을 선택합니다.
 1. **Single Sign-On 방법 선택** 페이지에서 **SAML**을 선택합니다.
-1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다. SAML Toolkit SAML Configuration 페이지를 사용하여 설정을 검색할 수 있습니다. 
+1. **SAML로 Single Sign-On 설정** 페이지에서 **기본 SAML 구성**에 대한 편집(연필 모양) 아이콘을 클릭하여 설정을 편집합니다.
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
 1. **기본 SAML 구성** 페이지에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://samltoolkit.azurewebsites.net/SAML/Login/<3digitnumber>`
+    a. **로그온 URL** 텍스트 상자에 다음 URL을 입력합니다. `https://samltoolkit.azurewebsites.net/`
 
     b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://samltoolkit.azurewebsites.net` URL을 입력합니다.
 
-    다. **회신 URL** 텍스트 상자에서 `https://samltoolkit.azurewebsites.net/SAML/Consume/<3digitnumber>` URL을 입력합니다.
+    다. **회신 URL** 텍스트 상자에서 `https://samltoolkit.azurewebsites.net/SAML/Consume` URL을 입력합니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
 
@@ -173,3 +174,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD에서 Azure AD SAML Toolkit 사용해 보기](https://aad.portal.azure.com/)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+
+- [고급 표시 유형 및 컨트롤을 사용하여 Azure AD SAML Toolkit를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-azure)

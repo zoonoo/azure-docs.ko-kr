@@ -6,16 +6,16 @@ services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: sample
-author: xiaoharper
-ms.author: zhanxia
+author: likebupt
+ms.author: keli19
 ms.reviewer: peterlu
-ms.date: 11/04/2019
-ms.openlocfilehash: 4d22fd39eae5d5cf207d6d44819f0ce7ab2eceb5
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.date: 02/11/2020
+ms.openlocfilehash: f15f50e372d0bfe58018b16ebfa5d5d85644ae1a
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963244"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137780"
 ---
 # <a name="build-a-classifier-to-predict-company-category-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 회사 범주를 예측하는 분류자 빌드
 
@@ -79,7 +79,7 @@ ms.locfileid: "76963244"
 
 n-gram은 지정된 텍스트 시퀀스에서 n개 항이 연속적으로 시퀀스된 것입니다. 크기 1의 n-gram은 unigram, 크기 2의 n-gram은 bigram, 크기 3의 n-그램은 trigram이라고 합니다. 더 큰 크기의 n-gram은 "4-gram", "5-gram" 등과 같이 n 값으로 언급되기도 합니다.
 
-기능 엔지니어링의 또 다른 솔루션으로 [**텍스트에서 n-gram 기능 추출**](algorithm-module-reference/extract-n-gram-features-from-text.md) 모듈을 사용했습니다. 이 모듈은 먼저 n-gram 외에도 n-gram 세트를 추출하고, 텍스트에서 각 n-gram이 나타나는 문서의 수(DF)를 계산합니다. 이 샘플에서는 TF-IDF 메트릭을 사용하여 기능 값을 계산합니다. 그런 다음, 비정형 텍스트 데이터를 동일한 길이의 숫자 기능 벡터로 변환합니다. 여기서 각 기능은 텍스트 인스턴스에서 n-gram의 TF-IDF를 나타냅니다.
+기능 엔지니어링의 또 다른 솔루션으로 [**텍스트에서 N-Gram 기능 추출**](algorithm-module-reference/extract-n-gram-features-from-text.md) 모듈을 사용했습니다. 이 모듈은 먼저 n-gram 외에도 n-gram 세트를 추출하고, 텍스트에서 각 n-gram이 나타나는 문서의 수(DF)를 계산합니다. 이 샘플에서는 TF-IDF 메트릭을 사용하여 기능 값을 계산합니다. 그런 다음, 비정형 텍스트 데이터를 동일한 길이의 숫자 기능 벡터로 변환합니다. 여기서 각 기능은 텍스트 인스턴스에서 n-gram의 TF-IDF를 나타냅니다.
 
 텍스트 데이터가 숫자 기능 벡터로 변환되면 **열 선택** 모듈을 사용하여 데이터 세트에서 텍스트 데이터를 제거합니다. 
 

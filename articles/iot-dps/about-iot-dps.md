@@ -8,12 +8,12 @@ ms.topic: overview
 ms.service: iot-dps
 services: iot-dps
 manager: eliotgra
-ms.openlocfilehash: d097894c841d91d344b5958e7f5e1c10249f8b6e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e564660b502a950021ba4e4754ff5c210dfd477f
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904881"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77082873"
 ---
 # <a name="provisioning-devices-with-azure-iot-hub-device-provisioning-service"></a>Azure IoT Hub Device Provisioning Service로 디바이스 프로비전
 Microsoft Azure는 IoT 솔루션 요구를 위해 통합된 퍼블릭 클라우드 서비스의 다양한 집합을 제공합니다. IoT Hub DPS(Device Provisioning Service)는 IoT Hub용 도우미 서비스로, 사용자 개입 없이 적합한 IoT 허브에 자동 Just-In-Time 프로비저닝을 수행할 수 있습니다. DPS를 사용하면 수백만 대의 디바이스를 확장 가능한 방식으로 안전하게 프로비저닝할 수 있습니다.
@@ -80,8 +80,10 @@ DPS에는 디바이스 프로비저닝에 이상적인 기능이 많이 있습�
 * **등록 목록** 특정 시점에 등록된 디바이스/디바이스 그룹의 전체 레코드를 포함합니다. 등록 목록에는 디바이스를 등록한 후 디바이스의 원하는 구성에 대한 정보를 포함하며, 언제든지 업데이트할 수 있습니다.
 * **여러 할당 정책** 사용자 시나리오를 지원하기 위해 DPS가 IoT 허브에 디바이스를 할당하는 방식을 제어할 수 있습니다. 등록 목록을 통한 가장 짧은 대기 시간, 균등 가중치 배포(기본값) 및 정적 구성입니다. 대기 시간은 [Traffic Manager](https://docs.microsoft.com/azure/traffic-manager/traffic-manager-routing-methods#performance)와 동일한 방법을 사용하여 결정됩니다.
 * **모니터링 및 진단 로깅** 모든 과정이 제대로 작동되도록 보장합니다.
-* **다중 허브 지원** DPS가 런타임 시 디바이스를 IoT 허브에 늦게 바인딩할 수 있습니다. DPS는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
+* **다중 허브 지원**을 통해 DPS는 디바이스를 둘 이상의 IoT 허브에 할당할 수 있습니다. DPS는 여러 Azure 구독에서 허브와 통신할 수 있습니다.
 * **지역 간 지원** DPS가 다른 지역의 IoT 허브에 디바이스를 할당할 수 있습니다.
+* **미사용 데이터에 대한 암호화**를 통해 사용 가능한 가장 강력한 암호 중 하나인 256비트 AES 암호화를 사용하여 DPS의 데이터를 투명하게 암호화 및 암호 해독할 수 있으며 FIPS 140-2 규격입니다.
+
 
 [디바이스 개념](concepts-device.md), [서비스 개념](concepts-service.md) 및 [보안 개념](concepts-security.md)에서 디바이스 프로비저닝에 관련된 개념 및 디바이스에 대해 자세히 알아볼 수 있습니다.
 

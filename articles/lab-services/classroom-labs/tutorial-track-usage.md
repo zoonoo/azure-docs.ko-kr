@@ -12,14 +12,14 @@ ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
 ms.custom: mvc
-ms.date: 10/31/2019
+ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 315ebfa1460f9d9bc041925cec2451f63ac5be16
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73580280"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134858"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -32,18 +32,18 @@ ms.locfileid: "73580280"
 > * 학생 VM 관리 
 
 
-## <a name="view-users-registered-with-the-lab"></a>랩에 등록된 사용자 보기
+## <a name="view-registered-users"></a>등록된 사용자 보기
 
 1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 
 2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다.
 3. **내 랩** 페이지에서, 사용량을 추적하려는 랩을 선택합니다. 
-4. 왼쪽 메뉴에서 **사용자** 또는 **사용자** 타일을 선택합니다. 랩에 등록한 학생이 표시됩니다. **등록 링크**를 선택하고, 링크를 복사하여 아직 랩에 등록하지 않은 새로운 학생에게 보냅니다. 
+4. 왼쪽 메뉴에서 **사용자** 또는 **사용자** 타일을 선택합니다. 랩에 등록한 학생이 표시됩니다.  
 
     ![등록된 사용자](../media/tutorial-track-usage/registered-users.png)
 
     랩 사용자를 추가하고 관리하는 방법에 대한 자세한 내용은 [랩 사용자 추가 및 관리](how-to-configure-student-usage.md)를 참조하세요.
 
-## <a name="view-the-usage-of-vms-in-the-lab"></a>랩의 VM 사용량 보기 
+## <a name="view-the-usage-of-vms"></a>VM 사용량 보기
 
 1. 왼쪽 메뉴에서 **가상 머신**을 선택합니다. 
 2. VM 상태 및 VM 실행 시간이 보이는지 확인합니다. 학생 VM에서 랩 소유자가 소비한 시간은 마지막 열에 표시된 사용량 시간에 포함되지 않습니다. 

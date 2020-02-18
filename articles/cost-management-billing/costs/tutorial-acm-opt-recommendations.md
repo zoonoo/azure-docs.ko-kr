@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 manager: dougeby
 ms.custom: seodec18
-ms.openlocfilehash: 37253bb4c6001afe436e22597e75e2bc869fbbc8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 04b3802ae17440fe7cb96b424727600ab53aefce
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990295"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168759"
 ---
 # <a name="tutorial-optimize-costs-from-recommendations"></a>자습서: 권장 사항에서 비용 최적화
 
@@ -79,7 +79,7 @@ VM 세부 정보에서 가상 머신의 사용률을 확인하여 적합한 크�
 
 현재 가상 머신의 크기를 기록합니다. 해당 가상 머신을 크기 조정해야 하는지 확인한 후 VM 세부 정보를 닫으면 가상 머신 목록이 나타납니다.
 
-종료하거나 크기를 조정할 후보 목록에서 **Resize *&lt;FromVirtualMachineSKU&gt;* ~ *&lt;ToVirtualMachineSKU&gt;***를 선택합니다.
+종료하거나 크기를 조정할 후보 목록에서 **Resize _&lt;FromVirtualMachineSKU&gt;_ ~ _&lt;ToVirtualMachineSKU&gt;_** 를 선택합니다.
 ![가상 머신의 크기를 조정하는 옵션을 사용한 권장 사항 예제](./media/tutorial-acm-opt-recommendations/resize-vm.png)
 
 다음으로, 사용할 수 있는 크기 조정 옵션 목록이 표시됩니다. 사용자 시나리오에 가장 적합한 성능과 비용 효율성을 제공할 옵션을 선택합니다. 다음 예제에서 선택한 옵션은 **Standard_D8s_v3**에서 **Standard_D2s_v3**로 크기가 조정됩니다.

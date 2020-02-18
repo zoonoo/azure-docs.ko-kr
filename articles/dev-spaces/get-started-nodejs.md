@@ -5,12 +5,12 @@ ms.date: 09/26/2018
 ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Node.js 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 902489524206ac1d4f403f254ecda820c29545c2
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: de60a45126539cdd39b951eeb503fc349004797a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867311"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121352"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-nodejs-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Node.js
 
@@ -88,7 +88,7 @@ Kubernetes 디버깅과 같은 다양한 기능은 VS Code를 사용하는 .NET 
 이 섹션에서는 Node.js 웹앱을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-a-nodejs-web-app"></a>Node.js 웹앱 만들기
-https://github.com/Azure/dev-spaces 로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/nodejs/getting-started/webfrontend`에 있습니다.
+[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces)로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/nodejs/getting-started/webfrontend`에 있습니다.
 
 ## <a name="prepare-code-for-docker-and-kubernetes-development"></a>Docker 및 Kubernetes 개발을 위한 코드 준비
 지금까지 로컬로 실행할 수 있는 기본 웹앱이 있었습니다. 이제 앱의 컨테이너 및 Kubernetes에 배포되는 방법을 정의하는 자산을 만들어 컨테이너화합니다. 이 작업은 Azure Dev Spaces를 사용하여 쉽게 할 수 있습니다. 

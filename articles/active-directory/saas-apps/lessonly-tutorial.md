@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fa22b46dabcc5c8b2db5997ffc9b2f2480846d6f
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74074647"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77057445"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>자습서: Lesson.ly와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "74074647"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -83,15 +83,17 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.lessonly.com/signin` 패턴을 사용하는 URL을 입력합니다.
+     a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.lessonly.com/signin` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > **companyname** 을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우
+    
+     b. **회신 URL(Assertion Customer Service URL)** 텍스트 상자에 `https://<companyname>.lessonly.com/auth/saml/callback` 패턴을 사용하는 URL을 입력합니다.
 
-    b. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.lessonly.com/auth/saml/metadata` 패턴을 사용하는 URL을 입력합니다.
-
+     다. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.lessonly.com/auth/saml/metadata` 패턴을 사용하는 URL을 입력합니다.
+    
     > [!NOTE]
-    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:support@lessonly.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:support@lessonly.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. Lesson.ly 애플리케이션은 특정 서식에서 SAML 어설션을 예상하며, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
@@ -99,7 +101,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. 위에서 언급한 특성 외에도 Lesson.ly 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
-    | Name | 원본 특성|
+    | 속성 | 원본 특성|
     | ---------------  | ----------------|
     | urn:oid:2.5.4.42 | user.givenname |
     | urn:oid:2.5.4.4  | user.surname |
@@ -122,7 +124,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 

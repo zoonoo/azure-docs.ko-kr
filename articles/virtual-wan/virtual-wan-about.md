@@ -5,15 +5,15 @@ services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: overview
-ms.date: 11/13/2019
+ms.date: 02/05/2020
 ms.author: cherylmc
 Customer intent: As someone with a networking background, I want to understand what Virtual WAN is and if it is the right choice for my Azure network.
-ms.openlocfilehash: 3b33015b3a69372f6783d59b28a111ec279dd860
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.openlocfilehash: 9ac70252ce7c818ccbdecfd996b9970f011aa967
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74048484"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77056345"
 ---
 # <a name="about-azure-virtual-wan"></a>Azure Virtual WAN 정보
 
@@ -37,6 +37,13 @@ Azure Virtual WAN은 사이트 간 VPN, 사용 VPN(지점 및 사이트 간) 및
 
 가상 WAN을 업그레이드하는 단계는 [기본에서 표준으로 가상 WAN 업그레이드](upgrade-virtual-wan.md)를 참조하세요.
 
+## <a name="architecture"></a>아키텍처
+
+Virtual WAN 아키텍처 및 Virtual WAN으로 마이그레이션하는 방법에 대한 자세한 내용은 다음 문서를 참조하세요.
+
+* [Virtual WAN 아키텍처](migrate-from-hub-spoke-topology.md)
+* [글로벌 전송 네트워크 아키텍처](virtual-wan-global-transit-network-architecture.md)
+
 ## <a name="resources"></a>Virtual WAN 리소스
 
 엔드투엔드 가상 WAN을 구성하려면 다음 리소스를 만듭니다.
@@ -57,7 +64,7 @@ Azure Virtual WAN은 사이트 간 VPN, 사용 VPN(지점 및 사이트 간) 및
 
   * **사이트:** 이 리소스는 사이트 간 연결에만 사용됩니다. 사이트 리소스는 **vpnsite**입니다. 온-프레미스 VPN 디바이스와 해당 설정을 나타냅니다. Virtual WAN 파트너와 작업하여 이 정보를 Azure로 자동으로 내보내는 기본 제공 솔루션을 갖습니다.
 
-## <a name="connectivity"></a>연결
+## <a name="connectivity"></a>연결 유형
 
 Virtual WAN에서 허용하는 연결 유형은 사이트 간 VPN, 사용자 VPN(지점 및 사이트 간) 및 ExpressRoute입니다.
 

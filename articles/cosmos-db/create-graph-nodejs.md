@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 06/05/2019
 ms.author: lbosq
-ms.openlocfilehash: 966dfbf0280351c605e6dc20fc65178aee83d099
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 7ab259886409610fc89c35f4c96c9babb977b44d
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68735243"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061837"
 ---
 # <a name="quickstart-build-a-nodejs-application-by-using-azure-cosmos-db-gremlin-api-account"></a>빠른 시작: Azure Cosmos DB Gremlin API 계정을 사용하여 Node.js 애플리케이션 빌드
 
@@ -26,17 +26,12 @@ ms.locfileid: "68735243"
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Node.js 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-이 빠른 시작에서는 Azure Portal을 사용하여 Azure Cosmos DB [Gremlin API](graph-introduction.md) 계정, 데이터베이스 및 그래프를 만드는 방법을 보여줍니다. 그런 다음 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 오픈 소스 드라이버를 사용하여 콘솔 앱을 빌드하고 실행합니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
-* [Node.js](https://nodejs.org/en/) 버전 v0.10.29 이상
-* [Git](https://git-scm.com/)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+## <a name="prerequisites"></a>사전 요구 사항
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
+- [Node.js 0.10.29 이상](https://nodejs.org/).
+- [Git](https://git-scm.com/downloads)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -50,7 +45,7 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 이제 GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"
@@ -74,7 +69,9 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-다음 코드 조각은 모두 app.js 파일에서 가져옵니다.
+다음 코드 조각은 모두 *app.js* 파일에서 가져옵니다.
+
+이 콘솔 앱은 오픈 소스 [Gremlin Node.js](https://www.npmjs.com/package/gremlin) 드라이버를 사용합니다.
 
 * Gremlin 클라이언트가 만들어집니다.
 
@@ -97,7 +94,7 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
     ```
 
-  구성은 모두 `config.js`에 있으며 [다음 섹션](#update-your-connection-string)에서 편집할 내용입니다.
+  구성은 모두 *config.js*에 있으며 [다음 섹션](#update-your-connection-string)에서 편집합니다.
 
 * 다른 Gremlin 작업을 실행할 일련의 함수가 정의됩니다. 다음은 그 중 하나입니다.
 
@@ -151,15 +148,15 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
 
-1. config.js 파일을 엽니다. 
+1. *config.js* 파일을 엽니다. 
 
-2. config.js에서는 Azure Portal의 **개요** 페이지에 있는 **Gremlin URI** 값을 `config.endpoint` 키에 입력합니다. 
+2. *config.js*에서 Azure Portal에 있는 Cosmos DB 계정의 **개요** 페이지에서 **Gremlin Endpoint** 값으로 `config.endpoint` 키를 입력합니다. 
 
     `config.endpoint = "https://<your_Gremlin_account_name>.gremlin.cosmosdb.azure.com:443/";`
 
-    ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-graph-nodejs/gremlin-uri.png)
+    ![Azure Portal, 개요 페이지에서 액세스 키 보기 및 복사](./media/create-graph-nodejs/gremlin-uri.png)
 
-3. config.js에서는 Azure Portal의 **키** 페이지에 있는 **기본 키** 값을 config.primaryKey 값에 입력합니다. 
+3. *config.js*에서 Azure Portal에 있는 Cosmos DB 계정의 **키** 페이지에서 **기본 키** 값으로 config.primaryKey 값을 입력합니다. 
 
     `config.primaryKey = "PRIMARYKEY";`
 
@@ -167,7 +164,7 @@ Azure Cosmos DB는 Microsoft에서 제공하는 전 세계로 분산된 다중 �
 
 4. config.database 및 config.collection의 값에 데이터베이스 이름 및 그래프(컨테이너) 이름을 입력합니다. 
 
-완성된 config.js 파일은 다음과 같은 모양입니다.
+완성된 *config.js* 파일은 다음과 같은 모양입니다.
 
 ```javascript
 var config = {}
@@ -183,7 +180,7 @@ module.exports = config;
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
-1. 터미널 창을 열고 프로젝트에 포함된 package.json 파일의 설치 디렉터리로 변경합니다(`cd` 명령을 통해).
+1. 터미널 창을 열고 프로젝트에 포함된 *package.json* 파일의 설치 디렉터리로 변경합니다(`cd` 명령을 통해).
 
 2. `npm install`을 실행하여 필요한 npm 모듈(`gremlin` 포함)을 설치합니다.
 
@@ -209,7 +206,7 @@ module.exports = config;
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 그래프를 만들고, 앱을 실행하는 방법에 대해 알아보았습니다. 이제 Gremlin을 사용하여 더 복잡한 쿼리를 작성하고 강력한 그래프 순회 논리를 구현할 수 있습니다. 
+이 문서에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 그래프를 만들고, Node.js 앱을 실행하여 데이터를 그래프에 추가하는 방법에 대해 알아보았습니다. 이제 Gremlin을 사용하여 더 복잡한 쿼리를 작성하고 강력한 그래프 순회 논리를 구현할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Gremlin을 사용하여 쿼리](tutorial-query-graph.md)

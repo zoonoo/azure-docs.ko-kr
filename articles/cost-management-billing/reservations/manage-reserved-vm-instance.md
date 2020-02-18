@@ -3,19 +3,17 @@ title: Azure Reservations 관리
 description: Azure Reservations를 관리하는 방법을 알아봅니다.
 ms.service: cost-management-billing
 author: bandersmsft
-manager: yashesvi
+ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 08/06/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: cc24c176b5b61210d68d2dcb244d63f15402928b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994052"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188513"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -128,7 +126,7 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 
 ## <a name="optimize-reservation-use"></a>예약 사용 최적화
 
-Azure 예약 절감은 리소스를 지속적으로 사용하는 경우에만 발생합니다. 예약 구매 시, 1년 또는 3년 동안 기본적으로 100% 가능한 리소스 사용에 대해 선불 비용을 지불합니다. 최대로 사용하고 절감할 수 있도록 예약을 최대화해보세오. 다음 섹션에서는 예약을 모니터링하고 사용을 최적화하는 방법을 설명합니다.
+Azure 예약 절감은 리소스를 지속적으로 사용하는 경우에만 발생합니다. 예약 구매 시, 1년 또는 3년 동안 기본적으로 100% 가능한 리소스 사용에 대한 비용을 지불합니다. 최대로 사용하고 절감할 수 있도록 예약을 최대화해보세오. 다음 섹션에서는 예약을 모니터링하고 사용을 최적화하는 방법을 설명합니다.
 
 ### <a name="view-reservation-use-in-the-azure-portal"></a>Azure Portal에서 예약 사용 보기
 

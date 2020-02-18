@@ -245,6 +245,8 @@
           items:
             - name: 연결 오류 문제 해결
               href: howto-troubleshoot-common-connection-issues.md
+            - name: 데이터 암호화 문제 해결
+              href: howto-data-encryption-troubleshoot.md
         - name: 고급 위협 보호
           items:
             - name: Azure portal
@@ -311,7 +313,7 @@
       href: 'https://azure.microsoft.com/resources/templates/?resourceType=Microsoft.Dbforpostgresql'
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/postgresql/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/forums/azure/en-US/home?forum=AzureDatabaseforPostgreSQL'

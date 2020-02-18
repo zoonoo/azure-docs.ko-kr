@@ -11,16 +11,14 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 7534d425a9a7e00c4e57c0d9faea0750d311dcaf
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3e1369901e259af6722d9e5a14fababac80f1d02
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549944"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77160562"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
-
-[!INCLUDE [active-directory-develop-applies-v2](../../../includes/active-directory-develop-applies-v2.md)]
 
 이 자습서에서는 Java 웹 애플리케이션을 Microsoft ID 플랫폼에 통합하는 방법을 알아봅니다. 개발자의 앱은 사용자를 로그인하고, Microsoft Graph API를 호출하기 위한 액세스 토큰을 가져오고, Microsoft Graph API를 요청합니다.
 
@@ -61,7 +59,7 @@ ms.locfileid: "75549944"
 >    - 지금은 **Redirect URI**를 비워 두고 **등록**을 선택합니다.
 > 1. **개요** 페이지에서 애플리케이션의 **애플리케이션(클라이언트) ID**와 **디렉터리(테넌트) ID** 값을 찾습니다. 나중에 사용할 수 있도록 이러한 값을 복사합니다.
 > 1. 메뉴에서 **인증**을 선택한 후 다음 정보를 추가합니다.
->    - **리디렉션 URI**에 `http://localhost:8080/msal4jsample/secure/aad` 및 `http://localhost:8080/msal4jsample/graph/me`를 추가합니다.
+>    - **리디렉션 URI**에 `https://localhost:8080/msal4jsample/secure/aad` 및 `https://localhost:8080/msal4jsample/graph/me`를 추가합니다.
 >    - **저장**을 선택합니다.
 > 1. 메뉴에서 **인증서 및 암호**를 선택하고 **클라이언트 암호** 섹션에서 **새 클라이언트 암호**를 클릭합니다.
 >
@@ -75,7 +73,7 @@ ms.locfileid: "75549944"
 >
 > 빠른 시작용 코드 샘플이 작동하려면 다음을 수행해야 합니다.
 >
-> 1. 회신 URL을 `http://localhost:8080/msal4jsamples/secure/aad` 및 `http://localhost:8080/msal4jsamples/graph/me`로 추가합니다.
+> 1. 회신 URL을 `https://localhost:8080/msal4jsamples/secure/aad` 및 `https://localhost:8080/msal4jsamples/graph/me`로 추가합니다.
 > 1. 클라이언트 비밀을 만듭니다.
 > > [!div renderon="portal" id="makechanges" class="nextstepaction"]
 > > [이러한 변경 내용 적용]()
@@ -91,23 +89,36 @@ ms.locfileid: "75549944"
 
  1. zip 파일을 로컬 폴더에 추출합니다.
  1. 통합 개발 환경을 사용하는 경우 원하는 IDE에서 샘플을 엽니다(선택 사항).
-
  1. src/main/resources/ 폴더에 있는 application.properties 파일을 열고 *aad.clientId*, *aad.authority* 및 *aad.secretKey* 필드의 값을 다음과 같이 **애플리케이션 ID**, **테넌트 ID** 및 **클라이언트 암호**의 해당 값으로 바꿉니다.
 
     ```file
     aad.clientId=Enter_the_Application_Id_here
     aad.authority=https://login.microsoftonline.com/Enter_the_Tenant_Info_Here/
     aad.secretKey=Enter_the_Client_Secret_Here
-    aad.redirectUriSignin=http://localhost:8080/msal4jsample/secure/aad
-    aad.redirectUriGraph=http://localhost:8080/msal4jsample/graph/me
+    aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
+    aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
     ```
 
-> [!div renderon="docs"]
-> 위치:
->
-> - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
-> - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
-> - `Enter_the_Tenant_Info_Here` - 등록한 애플리케이션의 **디렉터리(테넌트 ) ID** 값입니다.
+    > [!div renderon="docs"]
+    > 위치:
+    >
+    > - `Enter_the_Application_Id_here` - 등록한 애플리케이션의 애플리케이션 ID입니다.
+    > - `Enter_the_Client_Secret_Here` - 등록한 애플리케이션의 **인증서 및 비밀**에서 만든 **클라이언트 비밀**입니다.
+    > - `Enter_the_Tenant_Info_Here` - 등록한 애플리케이션의 **디렉터리(테넌트 ) ID** 값입니다.
+
+ 1. Localhost와 함께 https를 사용하려면 server.ssl.key 속성을 입력합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
+
+   ```
+   Example: 
+   keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
+
+   server.ssl.key-store-type=PKCS12  
+   server.ssl.key-store=classpath:keystore.p12  
+   server.ssl.key-store-password=password  
+   server.ssl.key-alias=testCert 
+   ```
+
+   생성된 키 저장소 파일을 "resources" 폴더에 배치합니다.
 
 #### <a name="step-4-run-the-code-sample"></a>4단계: 코드 샘플 실행
 
@@ -117,11 +128,11 @@ ms.locfileid: "75549944"
 
 ##### <a name="running-from-ide"></a>IDE에서 실행
 
-IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL이 http://localhost:8080 입니다.
+IDE에서 웹 애플리케이션을 실행하는 경우 실행을 클릭한 다음, 프로젝트의 홈페이지로 이동합니다. 이 샘플의 경우 표준 홈 페이지 URL은 https://localhost:8080 입니다.
 
 1. 전면 페이지에서 **로그인** 단추를 선택하여 Azure Active Directory으로 리디렉션하고 사용자에게 자격 증명을 입력하라는 메시지를 표시합니다.
 
-1. 사용자가 인증된 후에는 *http://localhost:8080/msal4jsample/secure/aad* 로 리디렉션됩니다. 사용자는 이제 로그인되었으며, 페이지에는 로그인된 계정에 대한 정보가 표시됩니다. 샘플 UI에는 다음과 같은 단추가 있습니다.
+1. 사용자가 인증된 후에는 *https://localhost:8080/msal4jsample/secure/aad* 로 리디렉션됩니다. 사용자는 이제 로그인되었으며, 페이지에는 로그인된 계정에 대한 정보가 표시됩니다. 샘플 UI에는 다음과 같은 단추가 있습니다.
     - *로그아웃*: 애플리케이션에서 현재 사용자를 로그아웃하고 홈페이지로 리디렉션합니다.
     - *사용자 정보 표시*: Microsoft Graph에 대한 토큰을 획득하고, 로그인한 사용자에 대한 기본 정보를 반환하는 토큰을 포함하는 요청을 사용하여 Microsoft Graph를 호출합니다.
 

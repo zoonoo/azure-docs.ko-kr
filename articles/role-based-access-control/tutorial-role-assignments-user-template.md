@@ -1,5 +1,5 @@
 ---
-title: 자습서 - RBAC 및 Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여
+title: '자습서: RBAC 및 Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여'
 description: 이 자습서에서 Azure Resource Manager 템플릿을 사용하여 RBAC(역할 기반 액세스 제어)를 통해 사용자에게 Azure 리소스에 대한 액세스 권한을 부여하는 방법을 알아봅니다.
 services: role-based-access-control,azure-resource-manager
 documentationCenter: ''
@@ -13,19 +13,19 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 05/15/2019
 ms.author: rolyon
-ms.openlocfilehash: ed143f85b4372348baa1d74b4ec7a7447943a74f
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 96ca4f65d2def5f5004388c533410f09cc2a71fa
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418495"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138209"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-resource-manager-template"></a>자습서: RBAC 및 Resource Manager 템플릿을 사용하여 사용자에게 Azure 리소스에 대한 액세스 권한 부여
 
 [RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 리소스 그룹을 만들고 리소스 그룹에서 가상 머신을 만들고 관리할 수 있는 액세스 권한을 사용자에게 부여합니다. 이 자습서는 Resource Manager 템플릿을 배포하여 액세스 권한을 부여하는 프로세스를 중점적으로 다룹니다. Resource Manager 탬플릿 개발에 대한 자세한 내용은 [Resource Manager 설명서](/azure/azure-resource-manager/) 및 [템플릿 참조](/azure/templates/microsoft.authorization/allversions
 )를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 리소스 그룹 범위에 속한 사용자에게 액세스 권한 부여
@@ -34,7 +34,7 @@ ms.locfileid: "74418495"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가하거나 제거하려면 다음이 필요합니다.
 

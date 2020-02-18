@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 01/28/2020
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: c32d2fb45bbd4f4a9b4845bb4ef27a439d536677
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9bf33aae5de600d6e5b0ab836c99da1d56935db3
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905858"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169374"
 ---
 # <a name="integrate-azure-key-vault-with-azure-policy"></a>Azure Policy과 Key Vault 통합
 
@@ -152,5 +152,4 @@ RSA 인증서를 사용하는 경우 인증서에 포함해야 하는 최소 키
 ## <a name="next-steps"></a>다음 단계
 
 - [Azure Policy 서비스](../governance/policy/overview.md)에 대해 자세히 알아보기
-- 샘플: [가상 네트워크 엔드포인트가 없는 Key Vault 자격 증명 모음](../governance/policy/samples/keyvault-no-vnet-rules.md)을 참조하세요.
-
+- Key Vault 샘플을 참조하세요. [Key Vault 기본 제공 정책 정의](../governance/policy/samples/built-in-policies.md#key-vault)

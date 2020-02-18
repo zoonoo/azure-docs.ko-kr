@@ -1,5 +1,5 @@
 ---
-title: 자습서 - RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
+title: '자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여'
 description: 이 자습서에서 RBAC(역할 기반 액세스 제어) 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한을 부여하는 방법을 알아봅니다.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/02/2019
 ms.author: rolyon
-ms.openlocfilehash: c5570c6b1d2cdd168dbaeb0a91d80a61e171e5d1
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: f4ba56bf79d707200bf361ab4c717bb63d081953
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74418620"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138220"
 ---
 # <a name="tutorial-grant-a-user-access-to-azure-resources-using-rbac-and-azure-powershell"></a>자습서: RBAC 및 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 액세스 권한 부여
 
 [RBAC(역할 기반 액세스 제어)](overview.md)는 Azure 리소스에 대한 액세스를 관리하는 방법입니다. 이 자습서에서는 Azure PowerShell을 사용하여 사용자에게 구독의 모든 항목을 살펴보고 리소스 그룹의 모든 항목을 관리할 수 있는 액세스 권한을 부여합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 다양한 범위에서 사용자에게 액세스 권한 부여
@@ -35,9 +35,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - Azure Active Directory에서 사용자를 만드는(또는 기존 사용자를 사용하는) 권한
 - [Azure Cloud Shell](/azure/cloud-shell/quickstart-powershell)

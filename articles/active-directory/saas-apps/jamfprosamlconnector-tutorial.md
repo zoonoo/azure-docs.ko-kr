@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 08/28/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfe426a6b3d087683e615d3212e0693b185c40f0
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212371"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150313"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>자습서: Jamf Pro와 Azure Active Directory SSO 통합
 
@@ -33,7 +33,7 @@ ms.locfileid: "71212371"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -100,8 +100,8 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 1. Azure Portal의 왼쪽 창에서 **Azure Active Directory**, **사용자**, **모든 사용자**를 차례로 선택합니다.
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
-   1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 [name]@[companydomain].[extension]을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **이름** 필드에 `B.Simon`을 입력합니다.
+   1. **사용자 이름** 필드에서 [name]@[companydomain].[extension]을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 선택합니다.
 
@@ -123,7 +123,7 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 1. SAML 어설션에 역할 값이 필요한 경우 **역할 선택** 대화 상자에서 사용자에게 적합한 역할을 선택합니다. 그런 다음, 화면의 아래쪽에 있는 **선택** 단추를 선택합니다.
 1. **할당 추가** 대화 상자에서 **할당** 단추를 선택합니다.
 
-## <a name="configure-sso-in-jamf-pro"></a>Jamf Pro에서 SSO 구성 
+## <a name="configure-sso-in-jamf-pro"></a>Jamf Pro에서 SSO 구성
 
 1. Jamf Pro 내에서 구성을 자동화하려면 **확장 설치**를 선택하여 **내 앱 보안 로그인 브라우저 확장**을 설치합니다.
 
@@ -147,30 +147,32 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 
     ![Jamf Pro의 Single Sign-On 페이지](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-    a. **Enable Single Sign-On Authentication**(Single Sign-On 인증 사용) 확인란을 선택합니다.
+  a. **편집**을 선택합니다.
 
-    b. **IDENTITY PROVIDER**(ID 공급자) 드롭다운 메뉴에서 **Other**(기타)를 옵션으로 선택합니다.
+  b. **Enable Single Sign-On Authentication**(Single Sign-On 인증 사용) 확인란을 선택합니다.
 
-    다. **OTHER PROVIDER**(기타 공급자) 필드에서 **Azure AD**를 입력합니다.
+    다. **ID 공급자** 드롭다운 메뉴에서 **Azure**를 옵션으로 선택합니다.
 
     d. **ENTITY ID**(엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 필드에 붙여넣습니다.
 
     > [!NOTE]
     > `<SUBDOMAIN>` 필드의 값을 사용하여 Azure Portal의 **기본 SAML 구성** 섹션에서 로그온 URL 및 회신 URL을 완성합니다.
 
-    e. **IDENTITY PROVIDER METADATA SOURCE**(ID 공급자 메타데이터 원본) 드롭다운 메뉴에서 **Metadata URL**(메타데이터 URL)을 선택합니다. 표시되는 필드에서 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 붙여넣습니다.
+    e. **ID 공급자 메타데이터 원본** 드롭다운 메뉴에서 **메타데이터 URL**을 선택합니다. 표시되는 필드에서 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 붙여넣습니다.
 
-7. 동일한 페이지에서 **User Mapping**(사용자 매핑) 섹션까지 아래로 스크롤합니다. 그런 다음, 다음 단계를 수행합니다.   
+    f. (선택 사항) 토큰 만료 값을 편집하거나 "SAML 토큰 만료 사용 안 함"을 선택합니다.
 
-    ![Jamf Pro의 Single Sign-On 페이지에 대한 User Mapping 섹션](./media/jamfprosamlconnector-tutorial/tutorial_jamfprosamlconnector_single.png)
+7. 동일한 페이지에서 **User Mapping**(사용자 매핑) 섹션까지 아래로 스크롤합니다. 그런 다음, 다음 단계를 수행합니다.
 
-    a. **IDENTITY PROVIDER USER MAPPING**(ID 공급자 사용자 매핑)에 대해 **NameID** 옵션을 선택합니다. 기본적으로 이 옵션은 **NameID**로 설정되지만, 사용자 지정 특성을 정의할 수 있습니다.
+    ![Jamf Pro의 Single Sign-On 페이지에 대한 User Mapping 섹션](./media/jamfprosamlconnector-tutorial/tutorial-jamfprosamlconnector-single.png)
 
-    b. **JAMF PRO USER MAPPING**(JAMF PRO 사용자 매핑)에 대해 **Email**(이메일)을 선택합니다. Jamf Pro는 IdP에서 보낸 SAML 특성을 먼저 사용자별로, 다음으로 그룹별로 매핑합니다. 사용자가 Jamf Pro에 액세스하려고 하면 Jamf Pro는 ID 공급자로부터 사용자에 대한 정보를 가져와서 모든 Jamf Pro 사용자 계정과 대조하여 일치시킵니다. 들어오는 사용자 계정을 찾을 수 없는 경우 Jamf Pro는 해당 계정을 그룹 이름으로 일치시키려고 시도합니다.
+    a. **ID 공급자 사용자 매핑**에 대해 **NameID** 옵션을 선택합니다. 기본적으로 이 옵션은 **NameID**로 설정되지만, 사용자 지정 특성을 정의할 수 있습니다.
+
+    b. **Jamf Pro 사용자 매핑**에 대해 **이메일**을 선택합니다. Jamf Pro는 IdP에서 보낸 SAML 특성을 먼저 사용자별로, 다음으로 그룹별로 매핑합니다. 사용자가 Jamf Pro에 액세스하려고 하면 Jamf Pro는 ID 공급자로부터 사용자에 대한 정보를 가져와서 모든 Jamf Pro 사용자 계정과 대조하여 일치시킵니다. 들어오는 사용자 계정을 찾을 수 없는 경우 Jamf Pro는 해당 계정을 그룹 이름으로 일치시키려고 시도합니다.
 
     다. `http://schemas.microsoft.com/ws/2008/06/identity/claims/groups` 값을 **IDENTITY PROVIDER GROUP ATTRIBUTE NAME**(ID 공급자 그룹 특성 이름) 필드에 붙여넣습니다.
 
-    d. **Allow users to bypass the Single Sign-On authentication**(사용자가 Single Sign-On 인증을 무시하도록 허용)을 선택합니다. 따라서 사용자는 인증을 위해 ID 공급자 로그인 페이지로 리디렉션되지 않고, 대신 Jamf Pro에 직접 로그인할 수 있습니다. 사용자가 ID 공급자를 통해 Jamf Pro에 액세스하려고 시도하는 경우 IdP에서 시작한 SSO 인증 및 권한 부여가 발생합니다.
+    d. 동일한 페이지에서 **보안** 섹션까지 아래로 스크롤하고 **사용자가 Single Sign-on 인증을 무시할 수 있도록 허용**을 선택합니다. 따라서 사용자는 인증을 위해 ID 공급자 로그인 페이지로 리디렉션되지 않고, 대신 Jamf Pro에 직접 로그인할 수 있습니다. 사용자가 ID 공급자를 통해 Jamf Pro에 액세스하려고 시도하는 경우 IdP에서 시작한 SSO 인증 및 권한 부여가 발생합니다.
 
     e. **저장**을 선택합니다.
 
@@ -216,7 +218,7 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 해당 사용자를
 
     g. **저장**을 선택합니다.
 
-## <a name="test-the-sso-configuration"></a>SSO 구성 테스트 
+## <a name="test-the-sso-configuration"></a>SSO 구성 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 
@@ -231,4 +233,3 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 해당 사용자를
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD에서 Jamf Pro 사용해 보기](https://aad.portal.azure.com/)
-

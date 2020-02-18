@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 6ac102fa52977d3f9e07de1666dd98e8c2a31673
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 2c07bbb868f1b1afc19be8d1ce68ca28292affb9
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890541"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77109016"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-azure-iot-hub-with-java"></a>빠른 시작: Java를 사용하여 Azure IoT Hub에 연결된 디바이스 제어
 
@@ -33,7 +33,7 @@ IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Java를 사용하여 작성되었습니다. 개발 머신에 Java SE 8이 필요합니다.
 
@@ -60,6 +60,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 아직 수행하지 않은 경우 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip 에서 Java 프로젝트를 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

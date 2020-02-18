@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 12/12/2019
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: be4646631a63a82458a975683f949a2a00398aaf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 745d7335f70fb082ced16341742e3eb77a34f563
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76703238"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77120457"
 ---
 # <a name="quickstart-acquire-a-token-and-call-microsoft-graph-api-from-a-windows-desktop-app"></a>빠른 시작: Windows 데스크톱 앱에서 토큰 가져오기 및 Microsoft Graph API 호출
 
@@ -49,7 +49,7 @@ ms.locfileid: "76703238"
 >      - **지원되는 계정 유형** 섹션에서 **모든 조직 디렉터리의 계정 및 개인 Microsoft 계정(예: Skype, Xbox, Outlook.com)** 을 선택합니다.
 >      - **등록**을 선택하여 애플리케이션을 만듭니다.
 > 1. 앱의 페이지 목록에서 **인증**을 선택합니다.
-> 1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 확인합니다.
+> 1. **리디렉션 URI** | **퍼블릭 클라이언트(모바일, 데스크톱)에 대해 제안된 리디렉션 URI** 섹션에서 **https://login.microsoftonline.com/common/oauth2/nativeclient** 를 사용합니다.
 > 1. **저장**을 선택합니다.
 
 > [!div class="sxs-lookup" renderon="portal"]
@@ -113,6 +113,7 @@ using Microsoft.Identity.Client;
 ```csharp
 public static IPublicClientApplication PublicClientApp;
 PublicClientApplicationBuilder.Create(ClientId)
+                .WithRedirectUri("https://login.microsoftonline.com/common/oauth2/nativeclient")
                 .WithAuthority(AzureCloudInstance.AzurePublic, Tenant)
                 .Build();
 ```

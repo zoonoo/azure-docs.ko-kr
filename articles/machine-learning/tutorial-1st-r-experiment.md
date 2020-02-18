@@ -1,7 +1,7 @@
 ---
-title: '자습서: R을 사용하는 첫 번째 ML 모델'
+title: '자습서: R의 로지스틱 회귀 분석 모델'
 titleSuffix: Azure Machine Learning
-description: 이 자습서에서는 Azure Machine Learning의 기본 디자인 패턴을 알아보고 R 패키지 azuremlsdk 및 caret을 통해 로지스틱 회귀 모델을 학습하여 자동차 사고로 인한 사망 확률을 예측합니다.
+description: 이 자습서에서는 R 패키지 azuremlsdk 및 caret을 통해 로지스틱 회귀 모델을 만들어 자동차 사고로 인한 사망 확률을 예측합니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,27 +9,28 @@ ms.topic: tutorial
 ms.reviewer: sgilley
 author: revodavid
 ms.author: davidsmi
-ms.date: 11/04/2019
-ms.openlocfilehash: 7ea02fa4544b478e6b041e0b9c342bccdfe6c48c
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/07/2020
+ms.openlocfilehash: 37f2f98e594f558a9cd3c3e5994bf17a71ff1899
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532456"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191271"
 ---
-# <a name="tutorial-train-and-deploy-your-first-model-in-r-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 R로 첫 번째 모델 학습 및 배포
+# <a name="tutorial-create-a-logistic-regression-model-in-r-with-azure-machine-learning"></a>자습서: Azure Machine Learning을 사용하여 R에서 로지스틱 회귀 모델 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 자습서에서는 Azure Machine Learning의 기본적인 디자인 패턴에 대해 알아봅니다.  **caret** 모델을 학습 및 배포하여 자동차 사고로 인한 사망 확률을 예측합니다. 이 자습서를 마치면 R SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
+이 자습서에서는 R 및 Azure Machine Learning을 사용하여 자동차 사고로 인한 사망 확률을 예측하는 로지스틱 회귀 모델을 만듭니다. 이 자습서를 완료하면 Azure Machine Learning R SDK에 대한 실용적인 지식을 습득하여 더 복잡한 실험과 워크플로를 개발하도록 크기 조정할 수 있습니다.
 
-이 자습서에서는 다음 작업에 대해 알아봅니다.
-
+이 자습서에서는 다음 작업을 수행합니다.
 > [!div class="checklist"]
-> * 작업 영역 연결
+> * Azure Machine Learning 작업 영역 만들기
+> * 작업 영역에서 이 자습서를 실행하는 데 필요한 파일로 Notebook 폴더 복제
+> * 작업 영역에서 RStudio 열기
 > * 데이터 로드 및 학습 준비
-> * 원격 학습에 사용할 수 있도록 데이터 저장소에 데이터를 업로드합니다.
-> * 컴퓨팅 리소스 만들기
-> * 사망 확률을 예측하는 caret 모델 학습
+> * 원격 학습에 사용할 수 있도록 데이터 저장소에 데이터 업로드
+> * 원격으로 모델을 학습하는 컴퓨팅 리소스 만들기
+> * 사망 확률을 예측하는 `caret` 모델 학습
 > * 예측 엔드포인트 배포
 > * R에서 모델 테스트
 
@@ -66,13 +67,11 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 버전 번호가 있는 폴더를 엽니다.  이 번호는 R SDK의 현재 릴리스를 나타냅니다.
 
-1. **vignettes** 폴더를 엽니다.
-
-1. **train-and-deploy-to-aci** 폴더의 오른쪽에 있는 **"..."** 를 선택한 다음, **복제**를 선택합니다.
+1. **vignettes** 폴더의 오른쪽에 있는 **"..."** 를 선택한 다음, **복제**를 선택합니다.
 
     ![폴더 복제](media/tutorial-1st-r-experiment/clone-folder.png)
 
-1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **train-and-deploy-to-aci** 폴더를 복제할 폴더를 선택합니다.
+1. 작업 영역에 액세스하는 각 사용자를 표시하는 폴더 목록이 표시됩니다.  **vignettes** 폴더를 복제할 폴더를 선택합니다.
 
 ## <a name="a-nameopenopen-rstudio"></a><a name="open">RStudio 열기
 
@@ -84,10 +83,11 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 1. 컴퓨팅이 실행되면 **RStudio** 링크를 사용하여 RStudio를 엽니다.
 
-1. RStudio에서 **train-and--deploy-to-aci** 폴더는 오른쪽 아래에 있는 **파일** 섹션의 **사용자**에서 몇 개 수준 아래입니다.  **train-and-deploy-to-aci** 폴더를 선택하여 이 자습서에 필요한 파일을 찾습니다.
+1. RStudio에서 *vignettes* 폴더는 오른쪽 아래에 있는 **파일** 섹션의 *사용자*에서 몇 개 수준 아래입니다.  *vignettes* 아래에서 *train-and-deploy-to-aci* 폴더를 선택하여 이 자습서에 필요한 파일을 찾습니다.
 
 > [!Important]
-> 이 문서의 나머지 부분에는 **train-and-deploy-to-aci.Rmd** 파일에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다. RMarkdown 사용 경험이 있는 경우 해당 파일의 코드를 자유롭게 사용할 수 있습니다.  또는 해당 프로그램에서 또는 이 문서에서 R 스크립트나 명령줄로 코드 조각을 복사한 후 붙여 넣을 수 있습니다.  
+> 이 문서의 나머지 부분에는 *train-and-deploy-to-aci.Rmd* 파일에 표시되는 것과 동일한 콘텐츠가 포함되어 있습니다. RMarkdown 사용 경험이 있는 경우 해당 파일의 코드를 자유롭게 사용할 수 있습니다.  또는 해당 프로그램에서 또는 이 문서에서 R 스크립트나 명령줄로 코드 조각을 복사한 후 붙여 넣을 수 있습니다.  
+
 
 ## <a name="set-up-your-development-environment"></a>개발 환경 설정
 이 자습서의 개발 작업용 설정에는 다음 작업이 포함됩니다.
@@ -102,12 +102,6 @@ Azure 리소스를 관리하기 위한 웹 기반 콘솔인 Azure Portal을 통�
 
 ```R
 library(azuremlsdk)
-```
-
-이 자습서에서는 [**DAAG** 패키지](https://cran.r-project.org/package=DAAG)의 데이터를 사용합니다. 이 패키지가 없으면 설치합니다.
-
-```R
-install.packages("DAAG")
 ```
 
 학습 및 점수 매기기 스크립트(`accidents.R` 및 `accident_predict.R`)에는 몇 가지 추가 종속성이 있습니다. 이러한 스크립트를 로컬로 실행하려는 경우에는 필요한 패키지도 있는지 확인합니다.
@@ -147,15 +141,21 @@ wait_for_provisioning_completion(compute_target)
 ```
 
 ## <a name="prepare-data-for-training"></a>학습을 위한 데이터 준비
-이 자습서에서는 **DAAG** 패키지의 데이터를 사용합니다. 이 데이터 세트에는 사망 확률을 예측하는 데 사용할 수 있는 변수와 미국에서 발생한 25,000건 이상의 자동차 사고 데이터가 포함됩니다. 먼저 데이터를 R로 가져온 다음, 분석을 위해 새 데이터 프레임 `accidents`로 변환하고 `Rdata` 파일로 내보냅니다.
+이 자습서에서는 미국 [미국 도로교통안전국](https://cdan.nhtsa.gov/tsftables/tsfar.htm)의 데이터를 사용합니다. ([Mary C. Meyer 및 Tremika Finney](https://www.stat.colostate.edu/~meyer/airbags.htm)에게 감사드립니다.)
+이 데이터 세트에는 사망 확률을 예측하는 데 사용할 수 있는 변수와 미국에서 발생한 25,000건 이상의 자동차 사고 데이터가 포함됩니다. 먼저 데이터를 R로 가져온 다음, 분석을 위해 새 데이터 프레임 `accidents`로 변환하고 `Rdata` 파일로 내보냅니다.
 
 ```R
-library(DAAG)
-data(nassCDS)
-
+nassCDS <- read.csv("nassCDS.csv", 
+                     colClasses=c("factor","numeric","factor",
+                                  "factor","factor","numeric",
+                                  "factor","numeric","numeric",
+                                  "numeric","character","character",
+                                  "numeric","numeric","character"))
 accidents <- na.omit(nassCDS[,c("dead","dvcat","seatbelt","frontal","sex","ageOFocc","yearVeh","airbag","occRole")])
 accidents$frontal <- factor(accidents$frontal, labels=c("notfrontal","frontal"))
 accidents$occRole <- factor(accidents$occRole)
+accidents$dvcat <- ordered(accidents$dvcat, 
+                          levels=c("1-9km/h","10-24","25-39","40-54","55+"))
 
 saveRDS(accidents, file="accidents.Rd")
 ```
@@ -394,5 +394,6 @@ delete_compute(compute)
 
 ## <a name="next-steps"></a>다음 단계
 
-지금까지 R에서 첫 번째 Azure Machine Learning 실험을 완료했으므로 [R용 Azure Machine Learning SDK](https://azure.github.io/azureml-sdk-for-r/index.html)에 대해 자세히 알아보세요.
+* 지금까지 R에서 첫 번째 Azure Machine Learning 실험을 완료했으므로 [R용 Azure Machine Learning SDK](https://azure.github.io/azureml-sdk-for-r/index.html)에 대해 자세히 알아보세요.
 
+* 다른 *vignettes* 폴더의 예제에서 R을 사용한 Azure Machine Learning에 대해 자세히 알아봅니다.

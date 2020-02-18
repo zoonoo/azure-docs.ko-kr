@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 1734b063530f9e8a8f0429111c4c39d628bfad4e
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 4434c877f69391f5dc5926c6aed07049ba46b7b7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251773"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425649"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -104,6 +104,18 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | ----- | ----------------------- | --------|
 | {oauth2:access_token} | 액세스 토큰 | 해당 없음 |
 
+
+### <a name="saml"></a>SAML
+
+| 클레임 | Description | 예제 |
+| ----- | ----------- | --------|
+| {SAML: AuthnContextClassReferences} | SAML 요청의 `AuthnContextClassRef` 요소 값입니다. | urn: oasis: names: tc: SAML: 2.0: ac: 클래스: PasswordProtectedTransport |
+| {SAML: NameIdPolicyFormat} | SAML 요청의 `NameIDPolicy` 요소에서 `Format` 특성입니다. | urn:oasis:names:tc:SAML:1.1:nameid-format:emailAddress |
+| {SAML: 발급자} |  Saml 요청의 SAML `Issuer` 요소 값입니다.| https://contoso.com |
+| {SAML: AllowCreate} | SAML 요청의 `NameIDPolicy` 요소에서 `AllowCreate` 특성 값입니다. | True |
+| {SAML: ForceAuthn} | SAML 요청의 `AuthnRequest` 요소에서 `ForceAuthN` 특성 값입니다. | True |
+| {SAML: ProviderName} | SAML 요청의 `AuthnRequest` 요소에서 `ProviderName` 특성 값입니다.| Contoso.com |
+
 ## <a name="using-claim-resolvers"></a>클레임 해결 프로그램 사용 
 
 클레임 확인자는 다음 요소와 함께 사용할 수 있습니다. 
@@ -160,7 +172,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 
 ### <a name="dynamic-ui-customization"></a>동적 UI 사용자 지정
 
-Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 매개 변수를 전달 하 여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization-dynamic.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
+Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 매개 변수를 전달 하 여 페이지 콘텐츠를 동적으로 렌더링할 수 있습니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 사용자 지정 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 수정할 수 있습니다. 자세한 내용은 [Dynamically configure the UI by using custom policies in Azure Active Directory B2C](custom-policy-ui-customization.md)(Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 동적으로 UI 구성)를 참조하세요. 언어 매개 변수를 기반으로 HTML 페이지를 지역화하거나 클라이언트 ID를 기반으로 콘텐츠를 변경할 수도 있습니다.
 
 다음 예제에서는 **campaignId** 라는 쿼리 문자열 매개 변수를 `hawaii`값, `en-US`**언어** 코드 및 클라이언트 ID를 나타내는 **앱** 을 전달 합니다.
 

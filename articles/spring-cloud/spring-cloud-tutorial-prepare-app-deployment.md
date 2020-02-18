@@ -1,21 +1,21 @@
 ---
-title: 자습서 - Azure Spring Cloud에서 배포용 Spring 애플리케이션 준비
-description: 이 자습서에서는 배포용 Java Spring 애플리케이션을 준비합니다.
+title: 자습서 - Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
+description: 이 자습서에서는 Azure Spring Cloud에 배포할 Java Spring 애플리케이션을 준비합니다.
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: tutorial
-ms.date: 10/06/2019
+ms.date: 02/03/2020
 ms.author: brendm
-ms.openlocfilehash: 9918c7866b21cd2a9e021a355fb43977c91a89cf
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: af3611e4c4d1f5d8ca52b3ceb80d79dcfd7d2061
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277439"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190749"
 ---
 # <a name="prepare-a-java-spring-application-for-deployment-in-azure-spring-cloud"></a>Azure Spring Cloud에서 배포용 Java Spring 애플리케이션 준비
 
-이 빠른 시작에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring Cloud 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
+이 빠른 시작에서는 Azure Spring Cloud에 배포하기 위해 기존 Java Spring 애플리케이션을 준비하는 방법을 보여줍니다. 제대로 구성된 경우, Azure Spring Cloud는 Java Spring Cloud 애플리케이션을 모니터링하고, 크기를 조정하고, 업데이트할 수 있는 강력한 서비스를 제공합니다.
 
 ## <a name="java-runtime-version"></a>Java Runtime 버전
 
@@ -25,38 +25,14 @@ Azure Spring Cloud는 Java 8 및 Java 11을 모두 지원합니다. 호스팅 �
 
 ## <a name="spring-boot-and-spring-cloud-versions"></a>Spring Boot 및 Spring Cloud 버전
 
-Azure Spring Cloud는 Spring Boot 앱만 지원합니다. Spring Boot 버전 2.0과 버전 2.1을 모두 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
+Azure Spring Cloud는 Spring Boot 앱만 지원합니다. Spring Boot 버전 2.1과 버전 2.2를 모두 지원합니다. 아래 표에는 지원되는 Spring Boot 및 Spring Cloud 조합이 나와 있습니다.
 
 Spring Boot 버전 | Spring Cloud 버전
 ---|---
-2.0 | Finchley.RELEASE
 2.1 | Greenwich.RELEASE
+2.2 | Hoxton.RELEASE
 
 pom.xml 파일에 Spring Boot 버전에 따라 올바른 Spring Boot 및 Spring Cloud 종속성이 있는지 확인하세요.
-
-### <a name="dependencies-for-spring-boot-version-20"></a>Spring Boot 버전 2.0에 대한 종속성
-
-```xml
-    <!-- Spring Boot dependencies -->
-    <parent>
-        <groupId>org.springframework.boot</groupId>
-        <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.0.9.RELEASE</version>
-    </parent>
-
-    <!-- Spring Cloud dependencies -->
-    <dependencyManagement>
-        <dependencies>
-            <dependency>
-                <groupId>org.springframework.cloud</groupId>
-                <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Finchley.SR4</version>
-                <type>pom</type>
-                <scope>import</scope>
-            </dependency>
-        </dependencies>
-    </dependencyManagement>
-```
 
 ### <a name="dependencies-for-spring-boot-version-21"></a>Spring Boot 버전 2.1에 대한 종속성
 
@@ -65,7 +41,7 @@ pom.xml 파일에 Spring Boot 버전에 따라 올바른 Spring Boot 및 Spring 
     <parent>
         <groupId>org.springframework.boot</groupId>
         <artifactId>spring-boot-starter-parent</artifactId>
-        <version>2.1.8.RELEASE</version>
+        <version>2.1.12.RELEASE</version>
     </parent>
 
     <!-- Spring Cloud dependencies -->
@@ -74,7 +50,31 @@ pom.xml 파일에 Spring Boot 버전에 따라 올바른 Spring Boot 및 Spring 
             <dependency>
                 <groupId>org.springframework.cloud</groupId>
                 <artifactId>spring-cloud-dependencies</artifactId>
-                <version>Greenwich.SR3</version>
+                <version>Greenwich.SR4</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+        </dependencies>
+    </dependencyManagement>
+```
+
+### <a name="dependencies-for-spring-boot-version-22"></a>Spring Boot 버전 2.2에 대한 종속성
+
+```xml
+    <!-- Spring Boot dependencies -->
+    <parent>
+        <groupId>org.springframework.boot</groupId>
+        <artifactId>spring-boot-starter-parent</artifactId>
+        <version>2.2.4.RELEASE</version>
+    </parent>
+
+    <!-- Spring Cloud dependencies -->
+    <dependencyManagement>
+        <dependencies>
+            <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>Hoxton.SR1</version>
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
@@ -90,20 +90,10 @@ Azure Spring Cloud는 Spring Cloud 구성 요소를 호스팅하고 관리해 �
 
 Spring Boot 버전 | Spring Cloud 버전 | Azure Spring Cloud 버전
 ---|---|---
-2.0 | Finchley.RELEASE | 2.0
 2.1 | Greenwich.RELEASE | 2.1
+2.2 | Hoxton.RELEASE | 2.2
 
 pom.xml 파일에 다음 종속성 중 하나를 포함하세요. Azure Spring Cloud 버전이 사용하는 버전과 일치하는 종속성을 선택하세요.
-
-### <a name="dependency-for-azure-spring-cloud-version-20"></a>Azure Spring Cloud 버전 2.0에 대한 종속성
-
-```xml
-<dependency>
-        <groupId>com.microsoft.azure</groupId>
-        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.0.0</version>
-</dependency>
-```
 
 ### <a name="dependency-for-azure-spring-cloud-version-21"></a>Azure Spring Cloud 버전 2.1에 대한 종속성
 
@@ -111,7 +101,17 @@ pom.xml 파일에 다음 종속성 중 하나를 포함하세요. Azure Spring C
 <dependency>
         <groupId>com.microsoft.azure</groupId>
         <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
-        <version>2.1.0</version>
+        <version>2.1.1</version>
+</dependency>
+```
+
+### <a name="dependency-for-azure-spring-cloud-version-22"></a>Azure Spring Cloud 버전 2.2에 대한 종속성
+
+```xml
+<dependency>
+        <groupId>com.microsoft.azure</groupId>
+        <artifactId>spring-cloud-starter-azure-spring-cloud-client</artifactId>
+        <version>2.2.0</version>
 </dependency>
 ```
 
@@ -183,4 +183,4 @@ pom.xml 파일의 종속성 섹션에 다음 `spring-cloud-starter-sleuth` 및 `
 > [!div class="nextstepaction"]
 > [구성 서버 인스턴스를 설정하는 방법 알아보기](spring-cloud-tutorial-config-server.md)
 
-GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples/tree/master/service-binding-cosmosdb-sql).
+GitHub에서 더 많은 샘플을 사용할 수 있습니다. [Azure Spring Cloud 샘플](https://github.com/Azure-Samples/Azure-Spring-Cloud-Samples).

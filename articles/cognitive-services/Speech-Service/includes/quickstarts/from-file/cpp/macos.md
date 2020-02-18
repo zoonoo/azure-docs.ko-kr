@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 01/14/2020
 ms.author: erhopf
-ms.openlocfilehash: 92586667675823343eb1f44f054e939c59719379
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 67157126aa218a520bc59251a93d0e2f049a240a
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76748758"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156293"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -35,7 +35,7 @@ ms.locfileid: "76748758"
 
 1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
+1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 "Speech SDK 매개 변수"로 바꿉니다(예: 평가판 구독의 경우 `westus`).
 
 1. `whatstheweatherlike.wav` 문자열을 고유한 파일 이름으로 바꿉니다.
 

@@ -10,12 +10,12 @@ ms.devlang: python
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 01/09/2020
-ms.openlocfilehash: 11768a0d72549d917d93c0f6f7f4d0c7e8217da4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 23f9a88cd0accbf8716c706643e7b67f4ecaf05c
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75864416"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110533"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-python"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(Python)
 
@@ -44,6 +44,8 @@ az extension add --name azure-cli-iot-ext
 아직 수행하지 않은 경우 https://github.com/Azure-Samples/azure-iot-samples-python/archive/master.zip 에서 Python 프로젝트를 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
 
 개발 머신에 [Python 버전 3.7 이상](https://www.python.org/downloads/)을 설치합니다. 지원되는 다른 버전의 Python은 SDK 설명서의 [Azure IoT 디바이스 기능](https://github.com/Azure/azure-iot-sdk-python/tree/master/azure-iot-device#azure-iot-device-features)을 참조하세요.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

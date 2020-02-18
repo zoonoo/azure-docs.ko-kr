@@ -1,59 +1,53 @@
 ---
 title: '빠른 시작: 기술 자료 만들기, 교육 및 게시 - QnA Maker'
-titleSuffix: Azure Cognitive Services
-description: 이 빠른 시작은 FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker KB(기술 자료)를 만드는 방법을 보여 줍니다. 이 예제의 QnA Maker 기술 자료는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 작성되었습니다.
-author: diberry
-manager: nitinme
-services: cognitive-services
-ms.service: cognitive-services
-ms.subservice: qna-maker
+description: FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
 ms.topic: quickstart
-ms.date: 01/29/2020
-ms.author: diberry
-ms.openlocfilehash: a3bdc118be96630ebcf3bf63a2948976dc9b4261
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/08/2020
+ms.openlocfilehash: a4c4d9b2e8f4b816510fb35a75b3c9b8b2afa5e2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901684"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108720"
 ---
 # <a name="quickstart-create-train-and-publish-your-qna-maker-knowledge-base"></a>빠른 시작: QnA Maker 기술 자료 만들기, 학습 및 게시
 
-FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 BitLocker 키 복구에 대한 질문에 답변하기 위해 단순한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 작성하는 예가 포함되어 있습니다.
+FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker 기술 자료(KB)를 만들 수 있습니다. 이 문서에는 간단한 FAQ 웹 페이지에서 QnA Maker 기술 자료를 만들어 QnA Maker 질문에 답변하는 예가 포함되어 있습니다.
 
-기술 자료에 사용자가 더 많이 참여하도록 잡담 개성을 포함시킵니다.
-
-[!INCLUDE [Custom subdomains notice](../../../../includes/cognitive-services-custom-subdomains-note.md)]
-
-## <a name="prerequisite"></a>필수 요소
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+> * Azure Portal에서 만든 QnA Maker [리소스](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)입니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
 
-## <a name="create-a-new-qna-maker-knowledge-base"></a>새 QnA Maker 기술 자료 만들기
+## <a name="create-your-first-qna-maker-knowledge-base"></a>첫 번째 QnA Maker 기술 자료 만들기
 
 1. Azure 자격 증명으로 [QnAMaker.ai](https://QnAMaker.ai) 포털에 로그인합니다.
 
 1. QnA Maker 포털에서 **기술 자료 만들기**를 선택합니다.
 
-1. **만들기** 페이지에서 **QnA 서비스 만들기**를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다.
+1. **만들기** 페이지에서 QnA Maker 리소스가 이미 있는 경우 **1단계**를 건너뜁니다.
 
-1. Azure Portal에서 리소스를 만듭니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
-1. QnA Maker 포털로 돌아가서 포털에서 웹 페이지를 새로 고쳐 기술 자료를 계속 만들 수 있습니다. 기존 테넌트, 구독 및 새 리소스를 선택합니다. 언어를 선택합니다. 이는 이 QnA Maker 서비스의 모든 기술 자료에 사용되는 언어입니다.
+    리소스를 아직 만들지 않은 경우 **QnA 서비스 만들기**를 선택합니다. 그러면 구독에서 QnA Maker 서비스를 설정할 수 있는 [Azure Portal](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesQnAMaker)로 연결됩니다. 리소스를 만들 때 선택한 Azure Active Directory ID, 구독, QnA 리소스 이름을 기억하세요.
+
+    Azure Portal에서 리소스 만들기를 완료하면 QnA Maker 포털로 돌아가서 브라우저 페이지를 새로 고치고 **2단계**를 계속 진행합니다.
+
+1. **3단계**에서는 Active 디렉터리, 구독, 서비스(리소스) 및 서비스에서 만든 모든 기술 자료에 대한 언어를 선택합니다.
 
    ![QnA Maker 서비스 기술 자료를 선택하는 스크린샷](../media/qnamaker-quickstart-kb/qnaservice-selection.png)
 
-1. 기술 자료의 이름을 **내 샘플 QnA KB**로 지정합니다.
+1. **3단계**에서는 기술 자료의 이름을 **내 샘플 QnA KB**로 지정합니다.
 
-1. 샘플 단어 문서를 URL로 추가합니다.
+1. **4단계**에서는 다음 표를 사용하여 설정을 구성합니다.
 
-    `https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`
+    |설정|값|
+    |--|--|
+    |**URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정합니다.**|선택|
+    |**기본 답변 텍스트**| `Quickstart - default answer not found.`|
+    |**+ URL 추가**|`https://docs.microsoft.com/azure/cognitive-services/qnamaker/troubleshooting`|
+    |**잡담**|**Professional** 선택|
 
-1. `+ Add URL`를 선택합니다.
-
-1. **‘전문가용’ 잡담**을 KB에 추가합니다. 
-
-1. **KB 만들기**를 선택합니다.
+1. **5단계**에서는 **KB 만들기**를 선택합니다.
 
     추출 프로세스는 문서를 읽고 질문과 답변을 확인하는 데 몇 분 정도가 걸립니다.
 
@@ -78,7 +72,7 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 ## <a name="save-and-train"></a>저장 후 학습
 
-오른쪽 위에서 **저장 후 학습**을 선택하여 편집 내용을 저장하고 QnA Maker 모델을 학습합니다. 저장하지 않으면 편집 내용은 보관되지 않습니다.
+오른쪽 위에서 **저장 후 학습**을 선택하여 편집 내용을 저장하고 QnA Make를 학습합니다. 저장하지 않으면 편집 내용은 보관되지 않습니다.
 
 ## <a name="test-the-knowledge-base"></a>기술 자료 테스트
 
@@ -145,13 +139,16 @@ FAQ 또는 제품 설명서 등, 사용자 고유의 콘텐츠에서 QnA Maker �
 
 기술 자료를 게시한 후 봇을 만들고, 봇을 테스트했습니다.
 
-코드를 작성하고 콘텐츠를 정리하지 않고도 모두 몇 분 내에 완료되었습니다.
+이 작업은 코드를 작성하거나 콘텐츠를 정리하지 않고도 모두 몇 분 내에 완료되었습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-Azure Portal에서 QnA Maker 및 봇 프레임워크 리소스를 정리합니다.
+다음 빠른 시작을 계속 진행하지 않을 경우 Azure Portal에서 QnA Maker 및 Bot 프레임워크 리소스를 삭제합니다.
 
 ## <a name="next-steps"></a>다음 단계
+
+> [!div class="nextstepaction"]
+> [메타데이터를 사용하여 질문 추가](add-question-metadata-portal.md)
 
 자세한 내용은 다음을 참조하세요.
 
@@ -159,5 +156,4 @@ Azure Portal에서 QnA Maker 및 봇 프레임워크 리소스를 정리합니�
 * QnA Maker [ 데이터 원본](../concepts/knowledge-base.md).
 * [봇 리소스 구성 설정](../tutorials/create-qna-bot.md).
 
-> [!div class="nextstepaction"]
-> [메타데이터를 사용하여 질문 추가](add-question-metadata-portal.md)
+

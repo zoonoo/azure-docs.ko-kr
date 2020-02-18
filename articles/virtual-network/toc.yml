@@ -39,6 +39,12 @@
       href: virtual-network-disaster-recovery-guidance.md
     - name: 연결
       items:
+        - name: NAT
+          items:
+            - name: 개요
+              href: nat-overview.md
+            - name: 리소스
+              href: nat-gateway-resource.md
         - name: 백 엔드 연결 상호 운용성
           items:
             - name: 접두사 및 테스트 설정
@@ -111,6 +117,20 @@
           href: virtual-network-nsg-manage-log.md
     - name: 연결
       items:
+        - name: NAT
+          items:
+            - name: NAT 게이트웨이 만들기 - 포털
+              href: quickstart-create-nat-gateway-portal.md
+            - name: NAT 게이트웨이 만들기 - PowerShell
+              href: quickstart-create-nat-gateway-powershell.md
+            - name: NAT 게이트웨이 만들기 - CLI
+              href: quickstart-create-nat-gateway-cli.md
+            - name: NAT 게이트웨이 만들기 및 유효성 검사 - 포털
+              href: tutorial-create-validate-nat-gateway-portal.md
+            - name: NAT 게이트웨이 만들기 및 유효성 검사 - PowerShell
+              href: tutorial-create-validate-nat-gateway-powershell.md
+            - name: NAT 게이트웨이 만들기 및 유효성 검사 - CLI
+              href: tutorial-create-validate-nat-gateway-cli.md
         - name: NIC 관리
           href: virtual-network-network-interface.md
         - name: 가상 네트워크 관리

@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: tutorial
-ms.date: 9/19/2019
+ms.date: 2/11/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c78d2a8b4ccc51bc7afaef82a6c0dd609acdcab9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c429648adeb0c81799bff2dca1650de965395a60
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908839"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77166448"
 ---
 # <a name="tutorial-bulk-invite-azure-ad-b2b-collaboration-users-preview"></a>자습서: Azure AD B2B 협업 사용자 일괄 초대(미리 보기)
 
@@ -27,7 +27,7 @@ ms.locfileid: "76908839"
 
 > [!NOTE]
 > 2019년 12월 22일부터 사용자 대량 초대(미리 보기) 기능이 일시적으로 비활성화되었습니다.
-> 현재 이 기능을 다시 사용할 날짜가 아직 정해지지 않았습니다. 
+> 현재 이 기능을 Azure Porta에서 다시 사용할 날짜가 아직 정해지지 않았습니다. PowerShell을 사용하여 게스트 사용자를 일괄 초대하려면 [B2B 일괄 초대 자습서](bulk-invite-powershell.md) 또는 [B2B 코드 및 PowerShell 샘플](code-samples.md)을 참조하세요.
 
 Azure AD(Azure Active Directory) B2B 협업을 사용하여 외부 파트너와 함께 작업하는 경우 동시에 여러 게스트 사용자를 조직에 초대할 수 있습니다. 이 자습서에서는 Azure Portal을 사용하여 외부 사용자에게 일괄 초대를 보내는 방법을 알아봅니다. 특히 다음을 수행합니다.
 

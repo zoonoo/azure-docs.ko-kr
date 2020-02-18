@@ -6,73 +6,56 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c12cd53b55cac48aae3d69506204c9d107e34aa6
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: eb96989b4a2731e78471b848d690b48352408d1c
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464388"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121490"
 ---
 # <a name="quickstart-deploy-a-java-spring-boot-app-on-azure-service-fabric"></a>빠른 시작: Azure Service Fabric에 Java Spring Boot 앱 배포
 
-이 빠른 시작에서는 Azure Service Fabric에 Java Spring Boot 애플리케이션을 배포하는 방법을 보여 줍니다. Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
-
-이 빠른 시작에서는 Spring 웹 사이트의 [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 사용합니다. 이 빠른 시작에서는 친숙한 명령줄 도구를 사용하여 Spring Boot 샘플을 Service Fabric 애플리케이션으로 배포하는 방법을 안내합니다. 작업이 완료되면 Service Fabric에서 Spring Boot 시작 샘플을 사용합니다.
-
-![Spring Boot Service Fabric 샘플](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
-
-이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
-
-* Service Fabric에 Spring Boot 애플리케이션 배포
-* 로컬 클러스터에 애플리케이션 배포
-* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
-* 가용성에 아무런 영향을 주지 않고 서비스에 대한 장애 조치 수행
+이 빠른 시작에서는 Linux 또는 MacOS에서 익숙한 명령줄 도구를 사용하여 Java Spring Boot 애플리케이션을 Azure Service Fabric에 배포합니다. Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
+#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
 
-1. Service Fabric SDK 및 Service Fabric 명령줄 인터페이스(CLI) 설치
+- [Java 환경](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) 및 [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Service Fabric SDK 및 Service Fabric CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
-    
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+#### <a name="macostabmacos"></a>[MacOS](#tab/macos)
 
-1. [Git 설치](https://git-scm.com/)
-1. Yeoman 설치
+- [Java 환경 및 Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
+- [Service Fabric SDK 및 Service Fabric CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-cli#cli-mac)
+- [Git](https://git-scm.com/downloads)
 
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-
-    b. [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
-1. Java 환경 설정
-
-    a. [Mac](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-mac#create-your-application-on-your-mac-by-using-yeoman)
-    
-    b.  [Linux](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+--- 
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
-터미널 창에서 다음 명령을 실행하여 로컬 컴퓨터에 Spring Boot 시작 샘플 앱을 복제합니다.
+터미널 창에서 다음 명령을 실행하여 로컬 머신에 Spring Boot [시작](https://github.com/spring-guides/gs-spring-boot) 샘플 앱을 복제합니다.
 
 ```bash
 git clone https://github.com/spring-guides/gs-spring-boot.git
 ```
 
 ## <a name="build-the-spring-boot-application"></a>Spring Boot 애플리케이션 빌드 
-1. `gs-spring-boot/complete` 디렉터리 내에서 아래 명령을 실행하여 애플리케이션을 빌드합니다. 
+*gs-spring-boot/complete* 디렉터리 내에서 아래 명령을 실행하여 애플리케이션을 빌드합니다. 
 
-    ```bash
-    ./gradlew build
-    ``` 
+```bash
+./gradlew build
+``` 
 
 ## <a name="package-the-spring-boot-application"></a>Spring Boot 애플리케이션 패키지 
-1. 클론의 `gs-spring-boot` 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
+1. 클론의 *gs-spring-boot* 디렉터리 내에서 `yo azuresfguest` 명령을 실행합니다. 
 
 1. 각 프롬프트에 다음 세부 정보를 입력합니다.
 
     ![Spring Boot Yeoman 항목](./media/service-fabric-quickstart-java-spring-boot/yeoman-entries-spring-boot.png)
 
-1. `SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code` 폴더에 `entryPoint.sh`라는 파일을 만듭니다. `entryPoint.sh` 파일에 다음을 추가합니다. 
+1. *SpringServiceFabric/SpringServiceFabric/SpringGettingStartedPkg/code* 폴더에서 *entryPoint.sh*라는 파일을 만듭니다. *entryPoint.sh* 파일에 다음 코드를 추가합니다. 
 
     ```bash
     #!/bin/bash
@@ -91,7 +74,7 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
        </Resources>
     ```
 
-    이제 **ServiceManifest.xml**은 다음과 같습니다. 
+    이제 *ServiceManifest.xml*은 다음과 같습니다. 
 
     ```xml
     <?xml version="1.0" encoding="utf-8"?>
@@ -136,17 +119,17 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     docker run --name sftestcluster -d -p 19080:19080 -p 19000:19000 -p 25100-25200:25100-25200 -p 8080:8080 mysfcluster
     ```
 
-    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080** 에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
+    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 `http://localhost:19080`에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다. 
     
     ![정상 노드를 표시하는 Service Fabric Explorer](./media/service-fabric-quickstart-java-spring-boot/service-fabric-explorer-healthy-nodes.png)
 
-1. `gs-spring-boot/SpringServiceFabric` 폴더를 엽니다.
+1. *gs-spring-boot/SpringServiceFabric* 폴더를 엽니다.
 1. 다음 명령을 실행하여 로컬 클러스터에 연결합니다.
 
     ```bash
     sfctl cluster select --endpoint http://localhost:19080
     ```
-1. `install.sh` 스크립트를 실행합니다.
+1. *install.sh* 스크립트를 실행합니다.
 
     ```bash
     ./install.sh
@@ -157,6 +140,8 @@ git clone https://github.com/spring-guides/gs-spring-boot.git
     ![Spring Boot Service Fabric 샘플](./media/service-fabric-quickstart-java-spring-boot/spring-boot-service-fabric-sample.png)
 
 이제 Service Fabric 클러스터에 배포된 Spring Boot 애플리케이션에 액세스할 수 있습니다.
+
+자세한 내용은 Spring 웹 사이트의 Spring Boot [시작](https://spring.io/guides/gs/spring-boot/) 샘플을 참조하세요.
 
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 

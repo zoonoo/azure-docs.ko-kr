@@ -7,28 +7,27 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: quickstart
 ms.date: 02/03/2020
-ms.openlocfilehash: ac937519ca3fa9381fe4970f2e4336fe4a0a9227
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e4679d5a04be7b8c0145fd93818e4187170b4194
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989334"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049676"
 ---
 # <a name="quickstart-create-apache-spark-cluster-in-azure-hdinsight-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터 만들기
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 알아봅니다. Apache Spark를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. [Azure CLI(명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+이 빠른 시작에서는 Azure CLI(명령줄 인터페이스)를 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 알아봅니다. Azure HDInsight는 엔터프라이즈를 위한 관리형의 전체 스펙트럼 오픈 소스 분석 서비스입니다. HDInsight용 Apache Spark 프레임워크를 통해 메모리 내 처리 기능을 사용하여 데이터 분석 및 클러스터 컴퓨팅을 신속하게 처리합니다. Azure CLI는 Azure 리소스를 관리하기 위한 Microsoft의 플랫폼 간 명령줄 환경입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- Azure Cloud Shell을 사용하지 않으려는 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli)를 사용합니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 ## <a name="create-an-apache-spark-cluster"></a>Apache Spark 클러스터 만들기
 
-1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않은 경우 아래 명령을 입력합니다.
+1. Azure 구독에 로그인합니다. Azure Cloud Shell을 사용하려는 경우 다음 코드 블록의 오른쪽 위 모서리에 있는 **사용해보기**를 선택합니다. 그렇지 않으면 다음 명령을 입력합니다.
 
     ```azurecli-interactive
     az login
@@ -141,7 +140,7 @@ az group delete \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 알아보았습니다.  다음 자습서를 진행하여 샘플 데이터에서 대화형 쿼리를 실행하는 데 HDInsight Spark 클러스터를 사용하는 방법에 대해 알아보세요.
+이 빠른 시작에서는 Azure CLI를 사용하여 Azure HDInsight에서 Apache Spark 클러스터를 만드는 방법에 대해 알아보았습니다.  다음 자습서를 진행하여 샘플 데이터에서 대화형 쿼리를 실행하는 데 HDInsight 클러스터를 사용하는 방법에 대해 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Apache Spark에서 대화형 쿼리 실행](./apache-spark-load-data-run-query.md)

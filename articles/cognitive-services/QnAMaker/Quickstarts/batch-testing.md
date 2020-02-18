@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: quickstart
-ms.date: 12/19/2019
+ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: 9483db2187c05fe8e0f4fa2d41c17b8748ba3db7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e16166c741b99c1af5b36f2c7ccd25b01f7544ba
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462356"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108999"
 ---
 # <a name="quickstart-test-knowledge-base-with-batch-questions-and-expected-answers"></a>빠른 시작: 일괄 처리 질문 및 예상 대답을 사용하여 기술 자료 테스트
 
@@ -24,7 +24,7 @@ QnA Maker 일괄 처리 테스트 도구에서 QnA Maker 리소스의 기술 자
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)
-* 이 빠른 시작에서 사용되는 샘플 문서에 영어를 사용하는 [QnA Maker 서비스를 만들거나](create-publish-knowledge-base.md#create-a-new-qna-maker-knowledge-base) 기존 서비스를 사용합니다.
+* 영어를 사용하는 [QnA Maker 서비스를 만들거나](create-publish-knowledge-base.md) 기존 서비스를 사용합니다.
 * [다중 턴 샘플 `.docx` 파일](https://github.com/Azure-Samples/cognitive-services-sample-data-files/blob/master/qna-maker/data-source-formats/multi-turn.docx)을 다운로드합니다.
 * [일괄 처리 테스트 도구](https://aka.ms/qnamakerbatchtestingtool)를 다운로드하고, `.zip` 파일에서 실행 파일을 추출합니다.
 
@@ -41,9 +41,16 @@ QnA Maker 포털에 [로그인](https://www.qnamaker.ai/)합니다.
     * Azure QnA 서비스 이름
     * 언어 - 영어
 1. 기술 자료의 이름으로 `Multi-turn batch test quickstart` 이름을 입력합니다.
-1. **4단계**에서 **URL, .pdf 또는 .docx 파일에서 다중 턴 추출 사용**을 선택합니다.
-1. `Quickstart - can't find answer`라는 **기본 대답 텍스트**를 입력합니다. 프로덕션 기술 자료에서 이 정보는 사용자에게 더 유용하지만 이 빠른 시작에서는 간단한 응답이 작동합니다.
-1. 여전히 **4단계**에서 **+ 파일 추가**를 선택한 다음, 필수 조건에서 다운로드한 `.docx` 파일 목록을 선택합니다.
+
+1. **4단계**에서는 다음 표를 사용하여 설정을 구성합니다.
+
+    |설정|값|
+    |--|--|
+    |**URL, .pdf 또는 .docx 파일에서 다중 턴 추출을 사용하도록 설정합니다.**|선택|
+    |**기본 답변 텍스트**| `Batch test - default answer not found.`|
+    |**+ 파일 추가**|필수 구성 요소에서 다운로드한 `.docx` 파일 목록을 선택합니다.|
+    |**잡담**|**Professional** 선택|
+
 1. **5단계**에서 **KB 만들기**를 선택합니다.
 
     만들기 프로세스가 완료되면 포털에 편집 가능한 기술 자료가 표시됩니다.
@@ -160,7 +167,7 @@ batchtesting.exe batch-test-data-1.tsv https://YOUR-RESOURCE-NAME.azurewebsites.
 * **채팅 로그 파일 처리** - 이전에 확인되지 않은 질문에 대한 상위 항목의 대답을 결정합니다. 가장 일반적인 상황은 채팅 봇의 사용자 질문과 같은 쿼리의 로그 파일을 처리해야 하는 경우입니다. 필수 열만 사용하여 배치 파일 테스트를 만듭니다. 테스트는 각 질문에 대한 상위 항목의 대답을 반환합니다. 그렇다고 상위 항목의 대답이 정답이라는 의미는 아닙니다. 이 테스트가 완료되면 유효성 검사 테스트로 이동합니다.
 * **유효성 검사 테스트** - 예상 대답의 유효성을 검사합니다. 이 테스트를 수행하려면 일괄 처리 테스트에서 모든 질문과 일치하는 예상 대답의 유효성을 검사해야 합니다. 이렇게 하려면 몇 가지 수동 프로세스가 필요할 수 있습니다.
 
-다음 절차에서는 채팅 로그를 처리하는 시나리오를 가정합니다. 
+다음 절차에서는 채팅 로그를 처리하는 시나리오를 가정합니다.
 
 1. `batch-test-data-2.tsv`라는 선택적 데이터를 포함하는 새 일괄 처리 테스트 파일을 만듭니다. 원래의 일괄 처리 테스트 입력 파일에서 6개 행을 추가한 다음, 각 행에 대한 메타데이터, 상위 항목 대답 및 QnA 세트 ID를 추가합니다.
 

@@ -9,19 +9,19 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: overview
-ms.date: 02/03/2020
+ms.date: 02/06/2020
 ms.author: curtand
 ms.custom: user-help
-ms.openlocfilehash: 49c5566454a93307dedd150a3508b33dbd7506e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1abcd22621d427244f9b0533aaea46cbf1f356ad
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022361"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064039"
 ---
 # <a name="use-collections-in-the-my-apps-portal"></a>내 앱 포털에서 컬렉션 사용
 
-작업 영역은 **내 앱** 포털에 표시되는 다양한 앱 보기입니다. 예를 들어, 부서 기능 또는 사용자 역할을 사용하여 앱을 컬렉션으로 그룹화할 수 있습니다. 사용 가능한 컬렉션이나 범주가 표시되지 않으면 관리자가 설정하지 않았거나 사용자와 공유하지 않은 것입니다. 공유 작업 영역을 보기 위한 추가 지원이나 권한을 조직의 기술 지원 팀에 요청하세요.
+컬렉션은 **내 앱** 포털에 표시되는 다양한 앱 보기입니다. 예를 들어, 부서 기능 또는 사용자 역할을 사용하여 앱을 컬렉션으로 그룹화할 수 있습니다. 사용 가능한 컬렉션이나 범주가 표시되지 않으면 관리자가 설정하지 않았거나 사용자와 공유하지 않은 것입니다. 공유 작업 영역을 보기 위한 추가 지원이나 권한을 조직의 기술 지원 팀에 요청하세요.
 
 [!INCLUDE [preview-notice](../../../includes/active-directory-end-user-my-apps-and-workspaces.md)]
 

@@ -1,5 +1,5 @@
 ---
-title: Azure SignalR Service Serverless 빠른 시작 - JavaScript
+title: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 description: Azure SignalR Service와 Azure Functions를 사용하여 대화방을 만들기 위한 빠른 시작입니다.
 author: sffamily
 ms.service: signalr
@@ -7,28 +7,29 @@ ms.devlang: javascript
 ms.topic: quickstart
 ms.date: 12/14/2019
 ms.author: zhshang
-ms.openlocfilehash: eadeb0f0203868c2a1a37190fdd46e47bf26e8f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2726d5da2613be4ae2065246543d206cf814f353
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450255"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083181"
 ---
-# <a name="quickstart-create-a-chat-room-with-azure-functions-and-signalr-service-using-javascript"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
+# <a name="quickstart-use-javascript-to-create-a-chat-room-with-azure-functions-and-signalr-service"></a>빠른 시작: JavaScript를 사용하여 Azure Functions와 SignalR Service로 대화방 만들기
 
-Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있습니다. Azure Functions는 인프라를 관리하지 않고 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드하는 방법에 대해 알아봅니다.
+Azure SignalR Service를 사용하면 애플리케이션에 실시간 기능을 쉽게 추가할 수 있으며 Azure Functions는 인프라를 관리하지 않고도 코드를 실행할 수 있는 서버리스 플랫폼입니다. 이 빠른 시작에서는 JavaScript를 통해 SignalR Serivces와 Functions를 사용하여 서버리스, 실시간 대화 애플리케이션을 빌드합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
+- [Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+- [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing) 버전 2 이상. Azure 함수 앱을 로컬로 실행하는 데 사용됩니다.
+- [Node.js](https://nodejs.org/en/download/), 버전 10.x
 
-[Visual Studio Code](https://code.visualstudio.com/)와 같은 코드 편집기가 설치되어 있는지 확인합니다.
+   > [!NOTE]
+   > 이 예제는 다른 버전의 Node.js에서 작동해야 합니다. 자세한 내용은 [Azure Functions 런타임 버전 설명서](../azure-functions/functions-versions.md#languages)를 참조하세요.
 
-Azure 함수 앱을 로컬로 실행하려면 [Azure Functions Core Tools](https://github.com/Azure/azure-functions-core-tools#installing)(버전 2 이상)를 설치하세요.
-
-이 빠른 시작에서는 [Node.js](https://nodejs.org/en/download/) 10.x를 사용하지만 다른 버전과 함께 작동해야 합니다. 지원되는 Node.js 버전에 대한 자세한 내용은 [Azure Functions 런타임 버전 설명서](../azure-functions/functions-versions.md#languages)를 참조하세요.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+> [!NOTE]
+> 이 빠른 시작은 macOS, Windows 또는 Linux에서 실행할 수 있습니다.
 
 ## <a name="log-in-to-azure"></a>Azure에 로그인
 

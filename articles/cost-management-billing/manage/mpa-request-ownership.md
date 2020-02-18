@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/13/2019
 ms.author: banders
-ms.openlocfilehash: 65b56511a3b454b192b5adb2a98fb3bb3510bb7e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6a4b215b2b386754bae2c1bbec171ed4bc558a93
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988202"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048200"
 ---
 # <a name="get-billing-ownership-of-azure-subscriptions-to-your-mpa-account"></a>MPA 계정에 대한 Azure 구독의 청구 소유권 가져오기
 
@@ -120,7 +120,7 @@ ms.locfileid: "75988202"
 - [Enterprise 개발/테스트](https://azure.microsoft.com/offers/ms-azr-0148p/)\*
 - [Microsoft 기업계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
-\* Enterprise DevTest 구독은 전송 시 종량제 요금으로 청구됩니다. 고객 EA를 통해 Enterprise DevTest 제품을 통해 제공되는 할인은 CSP 파트너에게 제공되지 않습니다.
+\* 개발/테스트 구독은 먼저 지원 티켓을 통해 EA Enterprise 제품으로 변환해야 합니다. Enterprise 개발/테스트 구독은 전송된 후 종량제 요금으로 청구됩니다. 고객의 EA를 통한 Enterprise 개발/테스트 제품을 통해 제공되는 모든 할인은 CSP 파트너에게 제공되지 않습니다.
 
 ## <a name="additional-information"></a>추가 정보
 

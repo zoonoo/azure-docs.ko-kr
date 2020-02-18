@@ -10,12 +10,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.custom: mvc, seo-java-august2019, seo-java-september2019
 ms.date: 06/21/2019
-ms.openlocfilehash: 2c6226fea5235d45b7a3e99d56da6b007f171f98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 8be337bf2e244971b6b49c5e86f3635daa30bb71
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890521"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110215"
 ---
 # <a name="quickstart-send-telemetry-to-an-azure-iot-hub-and-read-it-with-a-java-application"></a>빠른 시작: Azure IoT 허브로 원격 분석을 전송하고 Java 애플리케이션으로 읽기
 
@@ -29,7 +29,7 @@ ms.locfileid: "73890521"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에서 실행하는 두 개의 샘플 애플리케이션은 Java를 사용하여 작성되었습니다. 개발 머신에 Java SE 8이 필요합니다.
 
@@ -49,13 +49,15 @@ java -version
 mvn --version
 ```
 
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
 https://github.com/Azure-Samples/azure-iot-samples-java/archive/master.zip 에서 Java 프로젝트 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: a8698bf74d8be4a57d5928b8be74bcf35cee008f
-ms.sourcegitcommit: 7723b13601429fe8ce101395b7e47831043b970b
+ms.openlocfilehash: 429b8845e49158c906c02773f654c9487ff98d1e
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2019
-ms.locfileid: "56586140"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134737"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -24,17 +24,13 @@ ms.locfileid: "56586140"
 > * [Python](create-cassandra-python.md)
 >  
 
-이 빠른 시작은 GitHub에서 예제를 복제하여 프로필 앱을 빌드하기 위해 Node.js와 Azure Cosmos DB [Cassandra API](cassandra-introduction.md)를 사용하는 방법을 보여줍니다. 또한 웹 기반 Azure Portal을 사용하여 Azure Cosmos DB 계정을 만드는 방법도 보여 줍니다.
+이 빠른 시작에서는 Azure Cosmos DB Cassandra API 계정을 만들고 GitHub에서 복제된 Cassandra Node.js 앱을 사용하여 Cassandra 데이터베이스 및 컨테이너를 만듭니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB의 핵심인 전역 배포 및 수평적 크기 조정 기능의 이점을 활용하여 문서, 테이블, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있습니다. 
+## <a name="prerequisites"></a>사전 요구 사항
 
-## <a name="prerequisites"></a>필수 조건
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
-
-또한 다음 항목도 필요합니다.
-* [Node.js](https://nodejs.org/en/) 버전 v0.10.29 이상
-* [Git](https://git-scm.com/)
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
+- [Node.js 0.10.29 이상](https://nodejs.org/).
+- [Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -117,7 +113,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     ...
        {
           query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum', '2017-10-3136']
+          params: [5, 'IvanaV', 'Belgaum']
         }
     ];
     client.batch(queries, { prepare: true}, next);
@@ -156,7 +152,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다. 연결 문자열을 통해 앱이 호스트된 데이터베이스와 통신할 수 있습니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **연결 문자열**을 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **연결 문자열**을 선택합니다. 
 
     화면 오른쪽에 있는 ![복사 단추](./media/create-cassandra-nodejs/copy.png) 화면 오른쪽에 있는 단추를 사용하여 상위 값인 CONTACT POINT 값을 복사합니다.
 
@@ -220,7 +216,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컨테이너를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Cassandra API를 사용하여 Azure Cosmos DB 계정을 만들고 Cassandra 데이터베이스 및 컨테이너를 만드는 Cassandra Node.js 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos DB 계정으로 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](cassandra-import-data.md)

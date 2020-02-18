@@ -1,14 +1,14 @@
 ---
-title: 샘플 - FedRAMP High 청사진 - 컨트롤 매핑
+title: FedRAMP High 청사진 샘플 컨트롤
 description: FedRAMP High 청사진 샘플의 컨트롤 매핑 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 ms.date: 01/31/2020
 ms.topic: sample
-ms.openlocfilehash: 4b4d644497eb98ed88f57803e99cf27a419523fe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: cceca23e4bdc749c553eaf41b5f9599be3c9bf7d
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76941351"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150615"
 ---
 # <a name="control-mapping-of-the-fedramp-high-blueprint-sample"></a>FedRAMP High 청사진 샘플의 컨트롤 매핑
 
@@ -261,7 +261,7 @@ Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층�
 
 - 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
-- IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.
+- 웹 포트는 VM과 연결된 네트워크 보안 그룹에서 제한되어야 합니다.
 - 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) 경계 보호 | 액세스 지점

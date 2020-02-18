@@ -1,18 +1,18 @@
 ---
 title: Azure IoT(사물 인터넷) 기술 및 솔루션
 description: Azure IoT 솔루션을 빌드하는 데 사용할 수 있는 기술 및 서비스 컬렉션을 설명합니다.
-author: robinsh
+author: dominicbetts
 ms.service: iot-fundamentals
 services: iot-fundamentals
 ms.topic: overview
-ms.date: 10/09/2018
-ms.author: robinsh
-ms.openlocfilehash: cf707a0ddc3d5b46c7be7944a911ee03f00fc064
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 01/15/2020
+ms.author: dobett
+ms.openlocfilehash: 0b04b5170c13f6f6c3fd74976461f03e4367060a
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75457185"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046053"
 ---
 # <a name="azure-technologies-and-services-for-creating-iot-solutions"></a>IoT 솔루션을 만들기 위한 Azure 기술 및 서비스
 
@@ -83,6 +83,8 @@ Iot Central은 디지털 쌍을 사용하여 실제 세계의 디바이스와 �
 ### <a name="data-and-analytics"></a>데이터 및 분석
 
 IoT 디바이스는 일반적으로 센서의 온도 판독값 같은 대량의 시계열 데이터를 생성합니다. [Azure Time Series Insights](../time-series-insights/time-series-insights-overview.md)는 IoT 허브에 연결하고, 디바이스에서 원격 분석 스트림을 읽고, 해당 데이터를 저장하고, 데이터를 쿼리하고 시각화할 수 있습니다.
+
+[Azure Maps](/azure/azure-maps)는 웹 및 모바일 애플리케이션에 정확한 지리적 컨텍스트를 제공하기 위해 최신 매핑 데이터를 사용하는 지리 공간적 서비스의 컬렉션입니다. REST API, 웹 기반 JavaScript 컨트롤 또는 Android SDK를 사용하여 애플리케이션을 빌드할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

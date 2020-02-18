@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcf72566a0aa2547de7b88cb838b2f6ff1828c6f
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 986aa000102cfed01666c8a95c00847ecc0cd651
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293099"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047273"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-amazon-web-services-aws"></a>자습서: AWS(Amazon Web Services)와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -375,9 +375,9 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure AD에서 AWS(Amazon Web Services) 사용해 보기](https://aad.portal.azure.com/)
 
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/protect-aws)
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 AWS(Amazon Web Services)를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [고급 표시 유형 및 컨트롤을 사용하여 AWS(Amazon Web Services)를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-aws)
 
 [11]: ./media/amazon-web-service-tutorial/ic795031.png
 [12]: ./media/amazon-web-service-tutorial/ic795032.png

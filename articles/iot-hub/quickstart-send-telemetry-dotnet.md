@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: 33d0e5c40e4c7d404558fe8fa7a5fb8f5967924e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 8ecd0ebbd242135f0d3b0c6e365d6e97586031cb
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773795"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121221"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-net"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(.NET)으로 읽습니다.
 
@@ -47,7 +47,9 @@ dotnet --version
 az extension add --name azure-cli-iot-ext
 ```
 
-https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+[https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

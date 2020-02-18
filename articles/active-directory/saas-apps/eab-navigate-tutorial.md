@@ -15,12 +15,12 @@ ms.topic: tutorial
 ms.date: 01/29/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 03de10f9ea3bc3bf13a0fffaf22805412456a6f9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8e185f4065fee0399104feadc27f038dd9c4a612
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991905"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046685"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate"></a>자습서: EAB Navigate와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -45,7 +45,8 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * EAB Navigate는 **SP** 시작 SSO를 지원합니다.
 
-* EAB Navigate를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
+> [!NOTE]
+> 이 애플리케이션의 식별자는 고정 문자열 값이므로 하나의 테넌트에서 하나의 인스턴스만 구성할 수 있습니다.
 
 ## <a name="adding-eab-navigate-from-the-gallery"></a>갤러리에서 EAB Navigate 추가
 
@@ -57,7 +58,6 @@ EAB Navigate가 Azure AD에 통합되도록 구성하려면 갤러리의 EAB Nav
 1. 새 애플리케이션을 추가하려면 **새 애플리케이션**을 선택합니다.
 1. **갤러리에서 추가** 섹션의 검색 상자에 **EAB Navigate**를 입력합니다.
 1. 결과 패널에서 **EAB Navigate**를 선택한 다음, 앱을 추가합니다. 앱이 테넌트에 추가될 때까지 잠시 동안 기다려 주세요.
-
 
 ## <a name="configure-and-test-azure-ad-single-sign-on-for-eab-navigate"></a>EAB Navigate에 대한 Azure AD Single Sign-On 구성 및 테스트
 
@@ -82,32 +82,21 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **서비스 공급자 메타데이터 파일**이 있으면 **기본 SAML 구성** 섹션에서 다음 단계를 수행합니다.
+1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
+    
+    **식별자(엔터티 ID)** 텍스트 상자에 정확히 다음(`https://bouncer.eab.com`) 값을 입력합니다.
+    
+    **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 다음(`https://bouncer.eab.com/sso/saml2/acs`) 값을 모두 별도의 행으로 입력합니다.
+    `https://bouncer.eab.com/sso/saml2/acs/`
+    
+    **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.navigate.eab.com/` 패턴을 사용하여 URL을 입력합니다.
 
-    a. **메타데이터 파일 업로드**를 클릭합니다.
+    > [!NOTE]
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이 값을 가져오려면 [EAB Navigate 클라이언트 지원 팀](mailto:EABTechSupport@eab.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-    ![메타데이터 파일 업로드](common/upload-metadata.png)
+1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
-    b. **폴더 로고**를 클릭하여 메타데이터 파일을 선택하고 **업로드**를 클릭합니다.
-
-    ![메타데이터 파일 선택](common/browse-upload-metadata.png)
-
-    다. 메타데이터 파일이 성공적으로 업로드되면 **식별자** 값이 [기본 SAML 구성] 섹션에 자동으로 채워집니다.
-
-    ![EAB Navigate 도메인 및 URL Single Sign-On 정보](common/sp-identifier.png)
-
-    **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.navigate.eab.com` 패턴을 사용하여 URL을 입력합니다.
-
-    > [!Note]
-    > **식별자** 값이 자동으로 입력되지 않으면 요구 사항에 따라 수동으로 값을 입력합니다. 로그온 URL 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [EAB Navigate 클라이언트 지원 팀](mailto:jmahoney@eab.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
-
-1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 **인증서(원시)** 를 찾고, **다운로드**를 선택하여 인증서를 다운로드하고 컴퓨터에 저장합니다.
-
-    ![인증서 다운로드 링크](common/certificateraw.png)
-
-1. **EAB Navigate 설정** 섹션에서 요구 사항에 따라 적절한 URL을 복사합니다.
-
-    ![구성 URL 복사](common/copy-configuration-urls.png)
+    ![인증서 다운로드 링크](common/copy-metadataurl.png)
 
 ### <a name="create-an-azure-ad-test-user"></a>Azure AD 테스트 사용자 만들기
 
@@ -141,13 +130,13 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-eab-navigate-sso"></a>EAB Navigate SSO 구성
 
-**EAB Navigate** 쪽에서 Single Sign-On을 구성하려면 Azure Portal에서 다운로드한 **인증서(원시)** 및 적절히 복사한 URL을 [EAB Navigate 지원 팀](mailto:jmahoney@eab.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**EAB Navigate** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [EAB Navigate 지원 팀](mailto:EABTechSupport@eab.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-eab-navigate-test-user"></a>EAB Navigate 테스트 사용자 만들기
 
-이 섹션에서는 EAB Navigate에서 B.Simon이라는 사용자를 만듭니다. EAB Navigate 플랫폼에서 사용자를 추가하려면 [EAB Navigate 지원 팀](mailto:jmahoney@eab.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 EAB Navigate에서 B.Simon이라는 사용자를 만듭니다. EAB Navigate 플랫폼에서 사용자를 추가하려면 [EAB Navigate 지원 팀](mailto:EABTechSupport@eab.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
-## <a name="test-sso"></a>SSO 테스트 
+## <a name="test-sso"></a>SSO 테스트
 
 이 섹션에서는 액세스 패널을 사용하여 Azure AD Single Sign-On 구성을 테스트합니다.
 

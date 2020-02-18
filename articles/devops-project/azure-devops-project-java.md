@@ -16,30 +16,31 @@ ms.date: 07/09/2018
 ms.author: mlearned
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
 monikerRange: vsts
-ms.openlocfilehash: 49514022dc00afcd07002c7a3278c18a606e5ad5
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 1a276770887bee39972ba8630fb13f52bcbe802d
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203748"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77049967"
 ---
 # <a name="quickstart-set-up-a-cicd-pipeline-for-a-java-app-with-azure-devops-projects"></a>빠른 시작: Azure DevOps Projects를 사용하여 Java 앱에 대한 CI/CD 파이프라인 설정
 
-이 빠른 시작 문서에서는 Azure DevOps Projects의 간소화된 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 설정합니다. Azure DevOps Projects를 사용하여 다른 Azure 리소스를 만들 수도 있습니다.  
+이 빠른 시작에서는 간소화된 Azure DevOps Projects 환경을 사용하여 Azure Pipelines에서 Java 앱용 CI(연속 통합) 및 CD(연속 업데이트) 파이프라인을 설정합니다. Azure DevOps Projects를 사용하여 앱을 개발, 배포 및 모니터링하는 데 필요한 모든 항목을 설정할 수 있습니다. 
 
-Azure 구독이 없으면 [Visual Studio Dev Essentials](https://visualstudio.microsoft.com/dev-essentials/)을 통해 무료로 구독을 구할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+
+- 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio). 
+- [Azure DevOps](https://azure.microsoft.com/services/devops/) 계정 및 조직입니다.
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
-  DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 Azure 리소스를 만듭니다.
+DevOps Projects는 Azure Pipelines에 CI/CD 파이프라인을 만듭니다. 새 Azure DevOps 조직을 만들거나 기존 조직을 사용할 수 있습니다. 또한 DevOps Projects는 선택한 Azure 구독에서 Azure 리소스를 만듭니다.
 
-1. [Microsoft Azure 포털](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 왼쪽 창에서 **리소스 만들기**를 선택합니다. 
 
-1. 왼쪽 창에서 **리소스 만들기**를 선택하고 **DevOps Projects**를 검색합니다.  
+   ![Azure Portal에서 Azure 리소스 만들기](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
 
-2. **만들기**를 선택합니다.
-
-    ![DevOps Projects에서 Azure 리소스 만들기](_img/azure-devops-project-java/continuous-delivery-configuration-full-browser.png)
+1. **DevOps Projects**를 검색하여 선택한 다음, **만들기**를 선택합니다.
 
 ## <a name="select-a-sample-application-and-azure-service"></a>샘플 애플리케이션 및 Azure 서비스 선택
 
@@ -53,18 +54,17 @@ Java 샘플에는 여러 애플리케이션 프레임워크 선택이 포함됩�
 ## <a name="configure-azure-devops-and-an-azure-subscription"></a>Azure DevOps 및 Azure 구독 구성 
 
 1. 새 Azure DevOps 조직을 만들거나 기존 조직을 선택합니다. 
-
-    a. 프로젝트의 이름을 선택합니다. 
-
-    b. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 선택한 후 **완료**를 선택합니다.  
-    잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
-    
-
+   
+   1. 프로젝트의 이름을 선택합니다. 
+   
+   1. Azure 구독 및 위치를 선택하고 애플리케이션의 이름을 선택한 후 **완료**를 선택합니다.  
+   잠시 후에 DevOps Projects 대시보드가 Azure Portal에 표시됩니다. 샘플 애플리케이션이 Azure DevOps 조직의 리포지토리에서 설정되고, 빌드가 실행되고, 애플리케이션이 Azure에 배포됩니다. 이 대시보드에서는 코드 리포지토리, CI/CD 파이프라인 및 Azure의 애플리케이션에 가시성을 제공합니다.
+   
 2. **찾아보기**를 선택하여 실행 중인 애플리케이션을 볼 수 있습니다.
+   
+   ![Azure Portal에서 애플리케이션 대시보드 보기](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
 
-    ![Azure Portal에서 애플리케이션 대시보드 보기](_img/azure-devops-project-java/azure-devops-application-dashboard.png) 
-    
-   DevOps Projects에서 CI 빌드 및 릴리스 트리거가 자동으로 구성되었을 것입니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
+DevOps Projects에서 CI 빌드 및 릴리스 트리거가 자동으로 구성되었을 것입니다.  이제 웹 사이트에 최신 작업을 자동으로 배포하는 CI/CD 프로세스를 사용하여 Java 앱에서 팀과 협업할 준비가 되었습니다.
 
 ## <a name="commit-code-changes-and-execute-cicd"></a>코드 변경 내용 커밋 및 CI/CD 실행
 

@@ -6,12 +6,12 @@ ms.author: mbaldwin
 ms.date: 10/20/2019
 ms.service: key-vault
 ms.topic: quickstart
-ms.openlocfilehash: 0cde8b48e7bd1d1daa8f14dcded87001fb898fa7
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: b5748824590f40e30af8f462d4c8ff25521cfd94
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769229"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77136084"
 ---
 # <a name="quickstart-azure-key-vault-client-library-for-java"></a>빠른 시작: Java용 Azure Key Vault 클라이언트 라이브러리
 
@@ -168,7 +168,7 @@ export KEY_VAULT_NAME=<your-key-vault-name>
 
 Java용 Azure Key Vault 클라이언트 라이브러리를 사용하면 키 및 관련 자산(예: 인증서 및 비밀)을 관리할 수 있습니다. 아래의 코드 샘플에서는 클라이언트를 만들고, 비밀을 설정, 검색 및 삭제하는 방법을 보여 줍니다.
 
-전체 콘솔 앱은 https://github.com/Azure-Samples/key-vault-dotnet-core-quickstart/tree/master/key-vault-console-app 에서 사용할 수 있습니다.
+전체 콘솔 앱은 [아래에](#sample-code) 있습니다.
 
 ## <a name="code-examples"></a>코드 예제
 

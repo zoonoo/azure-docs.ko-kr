@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: sample
-ms.date: 12/17/2019
+ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 214c071e0d01908e2d46c932fcf87906de834102
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75644684"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77137953"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -50,14 +50,7 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 | 감정 레이블 지정                        |                       | X                     |
 | 모델 버전 관리                   |                       | X                     |
 
-#### <a name="version-2tabversion-2"></a>[버전 2](#tab/version-2)
-
-### <a name="sentiment-scoring"></a>감정 채점
-
-감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하며, 0에서 1 사이의 점수를 할당합니다. 0\.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0\.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
-
-
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>감정 채점
 
@@ -85,6 +78,13 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 
 이 버전의 감정 분석을 호출하는 C# 애플리케이션 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs)에서 찾을 수 있습니다.
 
+
+#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+
+### <a name="sentiment-scoring"></a>감정 채점
+
+감정 분석기에서는 텍스트를 주로 긍정 또는 부정으로 분류하며, 0에서 1 사이의 점수를 할당합니다. 0\.5에 가까운 값은 중립적이거나 불확정인 상태이며, 0\.5점은 중립성을 나타냅니다. 문자열에서 감정을 분석할 수 없거나 감정이 없는 경우 점수는 항상 정확히 0.5입니다. 예를 들어 영어 언어 코드가 있는 스페인어 문자열을 전달하면 점수는 0.5점이 됩니다.
+
 ---
 
 ## <a name="sending-a-rest-api-request"></a>REST API 요청 보내기 
@@ -101,27 +101,28 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔**을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-2tabversion-2"></a>[버전 2](#tab/version-2)
-
-[감정 분석 v2 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
-
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 [감정 분석 v3 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
+
+#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+
+[감정 분석 v2 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
 ---
 
 Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨테이너](text-analytics-how-to-install-containers.md)를 사용하여 감정 분석을 위한 HTTPS 엔드포인트를 설정합니다. 사용하려는 버전의 올바른 URL을 포함해야 합니다. 다음은 그 예입니다.
-    
-[!INCLUDE [text-analytics-find-resource-information](../includes/find-azure-resource-info.md)]
 
-#### <a name="version-2tabversion-2"></a>[버전 2](#tab/version-2)
+> [!NOTE]
+> Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
-
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
+
+#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+
+`https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
 ---
 
@@ -161,26 +162,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다.
 
-#### <a name="version-2tabversion-2"></a>[버전 2](#tab/version-2)
-
-### <a name="sentiment-analysis-v2-example-response"></a>감정 분석 v2 응답 예제
-
-감정 분석 v2의 응답에는 보낸 각 문서의 감정 점수가 포함됩니다.
-
-```json
-{
-  "documents": [{
-    "id": "1",
-    "score": 0.98690706491470337
-  }, {
-    "id": "2",
-    "score": 0.95202046632766724
-  }],
-  "errors": []
-}
-```
-
-#### <a name="version-3-public-previewtabversion-3"></a>[버전 3(공개 미리 보기)](#tab/version-3)
+#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>감정 분석 v3 응답 예제
 
@@ -255,6 +237,26 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
     "errors": []
 }
 ```
+
+#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+
+### <a name="sentiment-analysis-v2-example-response"></a>감정 분석 v2 응답 예제
+
+감정 분석 v2의 응답에는 보낸 각 문서의 감정 점수가 포함됩니다.
+
+```json
+{
+  "documents": [{
+    "id": "1",
+    "score": 0.98690706491470337
+  }, {
+    "id": "2",
+    "score": 0.95202046632766724
+  }],
+  "errors": []
+}
+```
+
 ---
 
 ## <a name="summary"></a>요약

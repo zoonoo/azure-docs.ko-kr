@@ -4,12 +4,12 @@ description: 관리 그룹, 사용 권한 작동 방식 및 사용 방법에 대
 ms.assetid: 482191ac-147e-4eb6-9655-c40c13846672
 ms.date: 12/18/2019
 ms.topic: overview
-ms.openlocfilehash: 507f4575e6d8daa16a1ed7db3d429d2810a63a7c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 319f48d4d0f8ce8501fecb74282760340b597188
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750241"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186977"
 ---
 # <a name="organize-your-resources-with-azure-management-groups"></a>Azure 관리 그룹으로 리소스 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "75750241"
 
 ![관리 그룹 계층 구조 트리 예제](./media/tree.png)
 
-예를 들어 "Production"(생산)이라는 그룹에서 VM 위치를 미국 서부 지역으로 제한하는 정책을 적용하는 계층을 만들 수 있습니다. 이 정책은 해당 관리 그룹의 하위 항목인 모든 EA 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
+예를 들어 "Production"(생산)이라는 그룹에서 VM 위치를 미국 서부 지역으로 제한하는 정책을 적용하는 계층을 만들 수 있습니다. 이 정책은 해당 관리 그룹의 하위 항목인 모든 EA(기업계약) 구독으로 상속되어 해당 구독의 모든 VM에 적용됩니다. 거버넌스 향상을 위해 리소스 또는 구독 소유자가 이 보안 정책을 변경할 수 없습니다.
 
 관리 그룹을 사용할 만한 또 다른 시나리오는 여러 구독에 대한 사용자 액세스 제공입니다. 해당 관리 그룹에서 여러 구독을 이동하면 관리 그룹에 하나의 RBAC([역할 기반 액세스 제어](../../role-based-access-control/overview.md)) 할당을 만들 수 있습니다. 그러면 모든 구독에 대한 액세스를 상속하게 됩니다.
 관리 그룹에 하나만 할당하면 여러 구독에 RBAC를 스크립팅하지 않고 사용자가 필요한 모든 항목에 액세스할 수 있습니다.
@@ -102,7 +102,7 @@ Azure 관리 그룹은 모든 리소스 액세스 및 역할 정의를 위한 [A
 
 ## <a name="custom-rbac-role-definition-and-assignment"></a>사용자 지정 RBAC 역할 정의 및 할당
 
-관리 그룹에 대한 사용자 지정 RBAC 역할 지원은 현재 몇 가지 [제한 사항](#limitations)이 있습니다.  역할 정의의 할당 가능한 범위에서 관리 그룹 범위를 정의할 수 있습니다.  그 후 해당 관리 그룹 및 다른 관리 그룹, 구독, 리소스 그룹 또는 리소스 그룹의 리소스에 사용자 지정 RBAC 역할을 할당할 수 있습니다. 이 사용자 지정 역할은 기본 제공 역할과 마찬가지로 계층 구조를 상속합니다.    
+관리 그룹에 대한 사용자 지정 RBAC 역할 지원은 현재 몇 가지 [제한 사항](#limitations)과 함께 미리 보기에서 제공됩니다.  역할 정의의 할당 가능한 범위에서 관리 그룹 범위를 정의할 수 있습니다.  그 후 해당 관리 그룹 및 다른 관리 그룹, 구독, 리소스 그룹 또는 리소스 그룹의 리소스에 사용자 지정 RBAC 역할을 할당할 수 있습니다. 이 사용자 지정 역할은 기본 제공 역할과 마찬가지로 계층 구조를 상속합니다.    
 
 ### <a name="example-definition"></a>정의 예제
 [사용자 지정 역할 정의 및 만들기](../../role-based-access-control/custom-roles.md)는 관리 그룹을 포함해도 변경되지 않습니다. 전체 경로를 사용하여 **/providers/Microsoft.Management/managementgroups/{groupId}** 관리 그룹을 정의합니다. 

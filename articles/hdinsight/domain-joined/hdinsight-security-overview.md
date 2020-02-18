@@ -7,12 +7,12 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.topic: overview
 ms.date: 09/23/2019
-ms.openlocfilehash: 7fadb17476c2a071de767573994bb1120b476cdf
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 0e7b2db188ef6ee7d6b80ba5da4010112008ad70
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053729"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122116"
 ---
 # <a name="overview-of-enterprise-security-in-azure-hdinsight"></a>Azure HDInsight의 엔터프라이즈 보안 개요
 
@@ -74,20 +74,20 @@ Azure 규정 준수 제안은 Microsoft에서 생성한 계약 수정, 자체 �
 
 | 보안 영역 | 사용 가능한 솔루션 | 책임 당사자 |
 |---|---|---|
-| 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | 고객 |
-|  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | 고객 |
-|  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | 고객 |
-|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | 고객 |
-|  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | 고객 |
-|  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | 고객 |
-| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | 고객 |
-|  | Apache [Ranger 권한 부여](apache-domain-joined-run-hive.md) 정책 구성 | 고객 |
-|  | [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 사용 | 고객 |
-| 운영 체제 보안 | 최신의 보안 기본 이미지를 사용하여 클러스터 만들기 | 고객 |
-|  | 정기적인 간격에 따른 [OS 패치](../hdinsight-os-patching.md) 보장 | 고객 |
+| 데이터 액세스 보안 | Azure Data Lake Storage Gen1 및 Gen2에 대한 [ACL(액세스 제어 목록)](../../storage/blobs/data-lake-storage-access-control.md) 구성  | Customer |
+|  | 스토리지 계정에서 ["보안 전송 필요"](../../storage/common/storage-require-secure-transfer.md) 속성을 사용하도록 설정 | Customer |
+|  | [Azure Storage 방화벽](../../storage/common/storage-network-security.md) 및 가상 네트워크 구성 | Customer |
+|  | Cosmos DB 및 [Azure SQL DB](https://docs.microsoft.com/azure/sql-database/sql-database-vnet-service-endpoint-rule-overview)에 대해 [Azure 가상 네트워크 서비스 엔드포인트](https://docs.microsoft.com/azure/virtual-network/virtual-network-service-endpoints-overview) 구성 | Customer |
+|  | 전송 중인 데이터에 [TLS 암호화](../../storage/common/storage-security-tls.md)를 사용하도록 설정 | Customer |
+|  | Azure Storage 암호화용 [고객 관리형 키](../../storage/common/storage-encryption-keys-portal.md) 구성 | Customer |
+| 애플리케이션 및 미들웨어 보안 | AAD-DS와 통합 및 [인증 구성](apache-domain-joined-configure-using-azure-adds.md) | Customer |
+|  | Apache [Ranger 권한 부여](apache-domain-joined-run-hive.md) 정책 구성 | Customer |
+|  | [Azure Monitor 로그](../hdinsight-hadoop-oms-log-analytics-tutorial.md) 사용 | Customer |
+| 운영 체제 보안 | 최신의 보안 기본 이미지를 사용하여 클러스터 만들기 | Customer |
+|  | 정기적인 간격에 따른 [OS 패치](../hdinsight-os-patching.md) 보장 | Customer |
 | 네트워크 보안 | [가상 네트워크](../hdinsight-plan-virtual-network-deployment.md) 구성 |
-|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../hdinsight-plan-virtual-network-deployment.md#networktraffic) 구성 | 고객 |
-|  | 방화벽을 사용하여 [아웃바운드 트래픽 제한](../hdinsight-restrict-outbound-traffic.md) 구성(미리 보기) | 고객 |
+|  | [인바운드 NSG(네트워크 보안 그룹) 규칙](../hdinsight-plan-virtual-network-deployment.md#networktraffic) 구성 | Customer |
+|  | 방화벽을 사용하여 [아웃바운드 트래픽 제한](../hdinsight-restrict-outbound-traffic.md) 구성 | Customer |
 | 가상화된 인프라 | 해당 없음 | HDInsight(클라우드 공급자) |
 | 물리적 인프라 보안 | 해당 없음 | HDInsight(클라우드 공급자) |
 

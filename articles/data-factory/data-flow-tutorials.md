@@ -5,13 +5,13 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 01/14/2020
-ms.openlocfilehash: dee8c919b815c6f22b171f58be9fc6a38167056a
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.date: 02/06/2020
+ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
+ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030022"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77069592"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -42,6 +42,8 @@ ms.locfileid: "76030022"
 [파생 열 변환](https://www.youtube.com/watch?v=FFCbU4ujCiY)
 
 [조인 변환](https://www.youtube.com/watch?v=zukwayEXRtg)
+
+[자체 조인 패턴](https://www.youtube.com/watch?v=Dx1kANfnvmk&feature=youtu.be&hd=1)
 
 [조회 변환](https://www.youtube.com/watch?v=9U-0VPU2ZPU)
 
@@ -130,3 +132,7 @@ ms.locfileid: "76030022"
 [논리적 모델 및 물리적 모델](http://youtu.be/K5tgzLjEE9Q)
 
 [원본 데이터 변경 내용 검색](http://youtu.be/CaxIlI7oXfI?hd=1)
+
+## <a name="data-flow-expressions"></a>데이터 흐름 식
+
+[날짜/시간 식](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)

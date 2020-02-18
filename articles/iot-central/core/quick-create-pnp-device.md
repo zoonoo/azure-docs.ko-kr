@@ -3,17 +3,17 @@ title: 빠른 시작 - Azure IoT Central에 시뮬레이션된 디바이스 추�
 description: 이 빠른 시작에서는 디바이스 템플릿을 만들고 IoT Central 애플리케이션에 시뮬레이션된 디바이스를 추가하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/10/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: cb8f0c806435a6c623d14e50263844db7aac61bb
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 489bf81388c1bb889756d54957e791282054f0f7
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026186"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169558"
 ---
 # <a name="quickstart-add-a-simulated-device-to-your-iot-central-application"></a>빠른 시작: IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가
 

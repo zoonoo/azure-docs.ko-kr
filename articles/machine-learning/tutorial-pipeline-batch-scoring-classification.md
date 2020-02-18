@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: 4850a58ae96b9fc5e8293efbac0de447915289ca
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.date: 02/10/2020
+ms.openlocfilehash: 3dc0af3f0d1236e902f6fa845fae95e3f2a500d1
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75763354"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116475"
 ---
 # <a name="tutorial-build-an-azure-machine-learning-pipeline-for-batch-scoring"></a>자습서: 일괄 처리 채점용 Azure Machine Learning 파이프라인 빌드
 
@@ -40,7 +40,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
 ## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 또는 Notebook 가상 머신이 아직 없는 경우 [설정 자습서의 1부](tutorial-1st-experiment-sdk-setup.md)를 완료합니다.
-* 설정 자습서가 완료되면 동일한 Notebook 서버를 사용하여 *tutorials/tutorial-pipeline-batch-scoring-classification.ipynb* Notebook을 엽니다.
+* 설정 자습서가 완료되면 동일한 Notebook 서버를 사용하여 *tutorials/machine-learning-pipelines-advanced/tutorial-pipeline-batch-scoring-classification.ipynb* Notebook을 엽니다.
 
 사용자 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 설정 자습서를 실행하려면 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서 해당 자습서에 액세스할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-pipeline-core azureml-pipeline-steps pandas requests`을 실행하여 필요한 패키지를 가져옵니다.
 

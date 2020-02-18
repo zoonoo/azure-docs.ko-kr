@@ -10,12 +10,12 @@ ms.topic: overview
 ms.custom: seodec18
 ms.date: 12/06/2018
 ms.author: shvija
-ms.openlocfilehash: 242f2fa9885f3f85439caddd061f650baafb8df4
-ms.sourcegitcommit: da0a8676b3c5283fddcd94cdd9044c3b99815046
+ms.openlocfilehash: e8a91647d7532a9904901c247bb0b4096ffa0a1c
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/18/2019
-ms.locfileid: "68314407"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77161701"
 ---
 # <a name="azure-event-hubs--a-big-data-streaming-platform-and-event-ingestion-service"></a>Azure Event Hubs - 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스
 Azure Event Hubs는 빅 데이터 스트리밍 플랫폼 및 이벤트 수집 서비스입니다. 초당 수백만 개의 이벤트를 수신하고 처리할 수 있습니다. 이벤트 허브로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다.
@@ -61,7 +61,7 @@ Event Hubs를 사용하여 메가바이트 단위로 데이터 스트림을 시�
 
 [Apache Kafka 에코시스템을 위한 Event Hubs](event-hubs-for-kafka-ecosystem-overview.md)를 사용하면 [Apache Kafka(1.0 이상)](https://kafka.apache.org/) 클라이언트 및 애플리케이션이 Event Hubs와 통신합니다. 사용자 고유의 Kafka 클러스터를 설정, 구성 및 관리할 필요가 없습니다.
 
-방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, Node.js)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다. 또한 에코시스템은 Azure Stream Analytics 및 Azure Functions와 같은 Azure 서비스와 중단 없이 통합되어 서버리스 아키텍처를 빌드할 수 있습니다.
+방대한 에코시스템이 다양한 [언어(.NET, Java, Python, Go, JavaScript)](https://github.com/Azure/azure-event-hubs)로 제공되므로 Event Hubs에서 간편하게 스트림 처리를 시작할 수 있습니다. 지원되는 모든 클라이언트 언어는 하위 수준 통합을 제공합니다. 또한 에코시스템은 Azure Stream Analytics 및 Azure Functions와 같은 Azure 서비스와 중단 없이 통합되어 서버리스 아키텍처를 빌드할 수 있습니다.
 
 ## <a name="key-architecture-components"></a>주요 아키텍처 구성 요소
 Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)가 포함되어 있습니다.
@@ -81,11 +81,10 @@ Event Hubs에는 다음과 같은 [주요 구성 요소](event-hubs-features.md)
 
 Event Hubs 사용을 시작하려면 **이벤트 보내기 및 받기** 자습서를 참조하세요.
 
-- [.NET Core](event-hubs-dotnet-standard-getstarted-send.md)
-- [.NET Framework](event-hubs-dotnet-framework-getstarted-send.md)
-- [Java](event-hubs-java-get-started-send.md)
-- [Python](event-hubs-python-get-started-send.md)
-- [Node.JS](event-hubs-node-get-started-send.md)
+- [.NET Core](get-started-dotnet-standard-send-v2.md)
+- [Java](get-started-java-send-v2.md)
+- [Python](get-started-python-send-v2.md)
+- [JavaScript](get-started-java-send-v2.md)
 - [Go](event-hubs-go-get-started-send.md)
 - [C(보내기 전용)](event-hubs-c-getstarted-send.md)
 - [Apache Storm(받기 전용)](event-hubs-storm-getstarted-receive.md)

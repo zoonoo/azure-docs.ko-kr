@@ -2,21 +2,21 @@
 title: Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 description: 이 문서에서는 일부 Azure 구매에 다단계 인증이 필요한 이유와 인증을 완료하는 방법을 설명합니다.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 09/10/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: aff5e1e707980c9a63988c22653fa5fba0fc236b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75996041"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133555"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 
@@ -53,14 +53,13 @@ ms.locfileid: "75996041"
 
 ### <a name="settle-outstanding-charges-for-marketplace-and-reservation-purchases"></a>Marketplace 및 예약 구매의 미결제 요금 정산
 
-Marketplace 및 예약 구매 요금은 Azure 서비스와 별도로 청구됩니다. 은행에서 Marketplace 또는 예약 요금을 거부하는 경우 Azure Portal의 청구서 상태가 **기한 경과**로 표시됩니다. 다음 단계에 따라 Marketplace 및 예약 청구서의 상태를 확인할 수 있습니다.
+Marketplace 및 예약 구매 요금은 Azure 서비스와 별도로 청구됩니다. 은행에서 Marketplace 또는 예약 요금을 거부하는 경우 청구서는 기한이 경과한 것이며, Azure Portal에서 **지금 지불** 옵션이 표시됩니다. 지난 Marketplace 및 예약 청구서는 다음 단계에 따라 결제할 수 있습니다.
 
 1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2. **Cost Management + 청구**를 검색합니다.
 3. '청구' 아래에서 **청구서**를 선택합니다.
-4. 오른쪽에서 **Azure Marketplace 및 예약** 탭을 클릭합니다.
-5. 해당하는 구독을 선택합니다.
-6. 청구서 그리드에서 상태 열을 검토합니다. 청구서 상태가 **기한** 또는 **기한 초과**인 경우 **지금 결제**를 클릭합니다. 이 과정에서 다단계 인증을 완료하라는 메시지가 표시됩니다.
+5. 구독 드롭다운 필터에서 Marketplace 또는 예약 구매와 관련된 구독을 선택합니다.
+6. 청구서 그리드에서 유형 열을 검토합니다. 형식이 **Azure Marketplace 및 예약**인 경우 청구서가 만료되었거나 기한이 경과하면 **지금 지불** 링크가 표시됩니다. **지금 지불**이 표시되지 않으면 청구서가 이미 지불되었음을 의미합니다. 지금 지불 중에 다단계 인증을 완료하라는 메시지가 표시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 - Azure 청구서를 결제해야 하는 경우 [Azure 구독의 미지불금액 해결](resolve-past-due-balance.md)을 참조하세요.

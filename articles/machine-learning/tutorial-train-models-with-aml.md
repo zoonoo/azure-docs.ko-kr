@@ -8,14 +8,14 @@ ms.subservice: core
 ms.topic: tutorial
 author: sdgilley
 ms.author: sgilley
-ms.date: 11/04/2019
+ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 95e5754c440cc591444df8960fde34de6fc384f0
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 5a2ff4d78c1e0e67b390f607da69cc299e2dce4a
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261367"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116482"
 ---
 # <a name="tutorial-train-image-classification-models-with-mnist-data-and-scikit-learn-using-azure-machine-learning"></a>자습서: Azure Machine Learning에서 MNIST 데이터와 scikit-learn을 사용하여 이미지 분류 모델 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -46,7 +46,7 @@ Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다.
     * 자습서 Notebook을 작업 영역의 사용자 폴더로 복제합니다.
     * 클라우드 기반 컴퓨팅 인스턴스를 만듭니다.
 
-* 복제된 **tutorials** 폴더에서 **img-classification-part1-training.ipynb** Notebook을 엽니다. 
+* 복제된 *tutorials/image-classification-mnist-data* 폴더에서 *img-classification-part1-training.ipynb* Notebook을 엽니다. 
 
 
 자습서 및 함께 제공되는 **utils.py** 파일은 고유의 [로컬 환경](how-to-configure-environment.md#local)에서 사용하려는 경우 [GitHub](https://github.com/Azure/MachineLearningNotebooks/tree/master/tutorials)에서도 사용할 수 있습니다. `pip install azureml-sdk[notebooks] azureml-opendatasets matplotlib`를 실행하여 이 자습서에 대한 종속성을 설치합니다.

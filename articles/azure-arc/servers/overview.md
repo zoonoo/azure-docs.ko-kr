@@ -7,15 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 01/29/2020
-ms.custom: mvc
+ms.date: 02/12/2020
 ms.topic: overview
-ms.openlocfilehash: b0f1d235391c4c4e3804a6dccc8174e946035b6a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899190"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77190316"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -42,6 +41,8 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 - WestEurope
 - WestAsia
 
+대부분의 경우 설치 스크립트를 만들 때 선택한 위치는 머신의 위치와 지리적으로 가장 가까운 Azure 지역이어야 합니다. 미사용 데이터는 사용자가 지정한 지역을 포함하는 Azure 지리 내에 저장되며, 데이터 상주 요구 사항이 있는 경우 선택한 지역에 영향을 줄 수도 있습니다. 머신이 연결된 Azure 지역이 작동 중단의 영향을 받는 경우 연결된 머신에는 영향을 주지 않지만 Azure를 사용하는 관리 작업은 완료하지 못할 수 있습니다. 지역 가동 중단 시 복원력을 위해 지리적으로 중복된 서비스를 제공하는 여러 위치가 있는 경우 각 위치의 머신을 다른 Azure 지역에 연결하는 것이 가장 좋습니다.
+
 ## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="supported-operating-systems"></a>지원되는 운영 체제
@@ -55,9 +56,15 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 >이 Windows용 Connected Machine 에이전트의 미리 보기 릴리스는 영어를 사용하도록 구성된 Windows Server만 지원합니다.
 >
 
+### <a name="required-permissions"></a>필요한 사용 권한
+
+- 머신을 등록하려면 **Azure Connected Machine Onboarding** 역할의 멤버여야 합니다.
+
+- 머신을 읽고, 수정하고, 다시 등록하고, 삭제하려면 **Azure Connected Machine Resource Administrator** 역할의 멤버여야 합니다. 
+
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
-서버용 Azure Arc(미리 보기)를 사용하여 머신을 구성하기 전에, Azure Resource Manager [구독 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits---azure-resource-manager) 및 [리소스 그룹 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)를 검토하여 연결할 머신 수를 계획합니다.
+서버용 Azure Arc(미리 보기)를 사용하여 머신을 구성하기 전에, Azure Resource Manager [구독 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) 및 [리소스 그룹 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)를 검토하여 연결할 머신 수를 계획합니다.
 
 ### <a name="networking-configuration"></a>네트워킹 구성
 
@@ -129,10 +136,10 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 | 방법 | Description |
 |--------|-------------|
-| 대화형 | [Azure Portal에서 머신 연결](quickstart-onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
-| 대규모 | [서비스 주체를 사용하여 머신 연결](quickstart-onboard-powershell.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
+| 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
+| 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
 
-- 서버용 Azure Arc(미리 보기)를 평가하려면 [Azure Portal에서 Azure에 하이브리드 머신 연결](quickstart-onboard-portal.md) 문서를 따릅니다. 
+- 서버용 Azure Arc(미리 보기)를 평가하려면 [Azure Portal에서 Azure에 하이브리드 머신 연결](onboard-portal.md) 문서를 따릅니다. 

@@ -3,15 +3,15 @@ title: 관리 컨테이너 레지스트리
 description: 클라우드 기반의 관리되는 프라이빗 Docker 레지스트리를 제공하는 Azure Container Registry 서비스에 대한 소개입니다.
 author: stevelas
 ms.topic: overview
-ms.date: 12/03/2019
+ms.date: 02/10/2020
 ms.author: stevelas
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 863b93497505443b79f41f580150a4dbf790a6f2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1992a2a63d16a955d136459f5dbaece7df815c71
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445725"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77132024"
 ---
 # <a name="introduction-to-private-docker-container-registries-in-azure"></a>Azure의 프라이빗 Docker 컨테이너 레지스트리 소개
 
@@ -41,7 +41,7 @@ Azure에는 Azure 컨테이너 레지스트리를 관리하는 Azure 명령줄 �
 * **보안 및 액세스** - Azure CLI 또는 표준 `docker login` 명령을 사용하여 레지스트리에 로그인합니다. Azure Container Registry는 HTTPS를 통해 컨테이너 이미지를 전송하고, 클라이언트 연결을 보호하기 위해 TLS를 지원합니다. 
 
   > [!IMPORTANT]
-  > 2020년 1월 13일부터 Azure Container Registry는 TLS 1.2를 사용하기 위해 서버 및 애플리케이션의 모든 보안 연결이 필요합니다. TLS 1.0 및 1.1에 대한 지원이 중단됩니다.
+  > 2020년 1월 13일부터 Azure Container Registry는 TLS 1.2를 사용하기 위해 서버 및 애플리케이션의 모든 보안 연결이 필요합니다. 최신 docker 클라이언트(버전 18.03.0 이상)를 사용하여 TLS 1.2를 사용하도록 설정합니다. TLS 1.0 및 1.1에 대한 지원이 중단됩니다. 
 
   컨테이너 레지스트리에 대한 [액세스 제어](container-registry-authentication.md)는 Azure ID, Azure Active Directory에서 지원하는 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 또는 제공된 관리자 계정을 사용하여 수행합니다. RBAC(역할 기반 액세스 제어)를 사용하여 사용자 또는 시스템에 레지스트리에 대한 세분화된 사용 권한을 할당합니다.
 

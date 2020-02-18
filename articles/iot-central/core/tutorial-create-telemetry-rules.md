@@ -3,29 +3,27 @@ title: 자습서 - Azure IoT Central 애플리케이션에서 규칙 만들기 �
 description: 이 자습서에서는 Azure IoT Central 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 규칙이 트리거될 때 이메일 보내기와 같은 작업을 자동으로 호출하는 방법을 보여줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 manager: philmea
-ms.openlocfilehash: 96514a224960240f2187164aac7c79c1659880e6
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f61a41fa89c7006341db928472f6b20d272bc550
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026356"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77167475"
 ---
 # <a name="tutorial-create-a-rule-and-set-up-notifications-in-your-azure-iot-central-application"></a>자습서: Azure IoT Central 애플리케이션에서 규칙 생성 및 알림 설정
 
 *이 문서는 운영자, 빌더 및 관리자에게 적용됩니다.*
 
-
-
 Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니터링할 수 있습니다. Azure IoT Central 규칙을 사용하여 디바이스를 거의 실시간으로 모니터링하고, 이메일 보내기 등의 작업을 자동으로 호출할 수 있습니다. 클릭 몇 번으로 디바이스에서 원격 분석 데이터를 모니터링하는 조건을 정의하고 해당 작업을 구성할 수 있습니다. 이 문서에서는 디바이스에서 보낸 원격 분석을 모니터링하는 규칙을 만드는 방법을 설명합니다.
 
 디바이스에서는 원격 분석을 사용하여 디바이스의 숫자 데이터를 보냅니다. 선택한 디바이스 원격 분석 데이터가 지정된 임계값을 초과하면 규칙이 트리거됩니다.
 
-이 자습서에서는 환경 센서 디바이스의 온도가 70&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
+이 자습서에서는 시뮬레이션된 환경 센서 디바이스의 온도가 70&deg; F를 초과하는 경우 이메일을 보내는 규칙을 만듭니다.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -36,7 +34,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md) 빠른 시작을 완료하여 작업할 **환경 센서** 디바이스 템플릿을 만들어야 합니다.
+시작하기 전에 [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 및 [IoT Central 애플리케이션에 시뮬레이션된 디바이스 추가](./quick-create-pnp-device.md) 빠른 시작을 완료하여 작업할 **MXChip IoT DevKit** 디바이스 템플릿을 만들어야 합니다.
 
 ## <a name="create-a-rule"></a>규칙 만들기
 
@@ -52,7 +50,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 1. 규칙 식별 이름으로 _온도 모니터링_을 입력하고 Enter 키를 누릅니다.
 
-1. **환경 센서** 디바이스 템플릿을 선택합니다. 기본적으로 규칙은 디바이스 템플릿과 연결된 모든 디바이스에 자동으로 적용됩니다. 디바이스 하위 세트를 필터링하려면 **+ 필터**를 선택하고, 디바이스 속성을 사용하여 디바이스를 식별합니다. 규칙을 사용하지 않도록 설정하려면 규칙 헤더에서 **사용/사용 안 함** 단추를 누릅니다.
+1. **MXChip IoT DevKit** 디바이스 템플릿을 선택합니다. 기본적으로 규칙은 디바이스 템플릿과 연결된 모든 디바이스에 자동으로 적용됩니다. 디바이스 하위 세트를 필터링하려면 **+ 필터**를 선택하고, 디바이스 속성을 사용하여 디바이스를 식별합니다. 규칙을 사용하지 않도록 설정하려면 규칙 헤더에서 **사용/사용 안 함** 단추를 누릅니다.
 
     ![필터 및 사용](media/tutorial-create-telemetry-rules/device-filters.png)
 
@@ -77,7 +75,7 @@ Azure IoT Central을 사용하여 원격으로 연결된 디바이스를 모니�
 
 ### <a name="configure-actions"></a>작업 구성
 
-조건을 정의한 후에는 규칙이 실행될 때 수행할 작업을 설정합니다. 규칙에 지정된 모든 조건이 true로 평가될 때 작업이 호출됩니다. 현재 사용할 수 있는 유일한 작업은 이메일입니다.
+조건을 정의한 후에는 규칙이 실행될 때 수행할 작업을 설정합니다. 규칙에 지정된 모든 조건이 true로 평가될 때 작업이 호출됩니다.
 
 1. **작업** 섹션에서 **+ 이메일**를 선택합니다.
 

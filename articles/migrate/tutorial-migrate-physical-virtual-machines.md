@@ -4,12 +4,12 @@ description: 이 문서에서는 Azure Migrate를 사용하여 물리적 머신�
 ms.topic: tutorial
 ms.date: 02/03/2020
 ms.custom: MVC
-ms.openlocfilehash: 6cdd107cb761aab3a85b73067fd646a36fe97d63
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 908a5915cbb7f5aeb9f641da18024d5dbf497707
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989759"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134932"
 ---
 # <a name="migrate-machines-as-physical-servers-to-azure"></a>물리적 서버로 머신을 Azure에 마이그레이션
 
@@ -61,9 +61,6 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려면 먼저 Azure 권한을 설정합니다.
 
 - **프로젝트 만들기**: Azure 계정에는 Azure Migrate 프로젝트를 만들 수 있는 권한이 있어야 합니다. 
-- **Azure Migrate 복제 어플라이언스 등록**: 복제 어플라이언스는 Azure 계정에 Azure Active Directory 앱을 만들고 등록합니다. 이에 대한 권한을 위임합니다.
-- **Key Vault 만들기**: 머신을 마이그레이션하기 위해 Azure Migrate는 Key Vault를 리소스 그룹에 만들어 구독의 복제 스토리지 계정에 대한 액세스 키를 관리합니다. 자격 증명 모음을 만들려면 Azure Migrate 프로젝트가 있는 리소스 그룹에 대한 역할 할당 권한이 필요합니다. 
-
 
 ### <a name="assign-permissions-to-create-project"></a>프로젝트를 만들 수 있는 권한 할당
 
@@ -73,43 +70,6 @@ Azure Migrate 서버 마이그레이션을 사용하여 마이그레이션하려
     - Azure 체험 계정을 방금 만든 경우 자신이 구독에 대한 소유자입니다.
     - 구독 소유자가 아닌 경우 해당 역할을 할당해 주도록 소유자에게 문의합니다.
 
-### <a name="assign-permissions-to-register-the-replication-appliance"></a>복제 어플라이언스를 등록할 수 있는 권한 할당
-
-에이전트 기반 마이그레이션의 경우 Azure Migrate 서버 마이그레이션에 대한 권한을 위임하여 Azure AD 앱을 계정에 만들고 등록합니다. 다음 방법 중 하나를 사용하여 권한을 할당할 수 있습니다.
-
-- 테넌트/글로벌 관리자는 Azure AD 앱을 만들고 등록할 수 있는 권한을 테넌트의 사용자에게 부여할 수 있습니다.
-- 테넌트/글로벌 관리자는 권한이 있는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다.
-
-주의해야 할 사항은 다음과 같습니다.
-
-- 앱에는 위에서 설명한 구독에 대한 액세스 권한 이외의 다른 권한이 없습니다.
-- 이러한 권한은 새 어플라이언스를 등록할 때만 필요합니다. 복제 어플라이언스가 설정되면 해당 권한을 제거할 수 있습니다. 
-
-
-#### <a name="grant-account-permissions"></a>계정 권한 부여
-
-테넌트/글로벌 관리자는 다음과 같이 권한을 부여할 수 있습니다.
-
-1. Azure AD에서 테넌트/글로벌 관리자는 **Azure Active Directory** > **사용자** > **사용자 설정**으로 이동해야 합니다.
-2. 관리자는 **앱 등록**을 **예**로 설정해야 합니다.
-
-    ![Azure AD 권한](./media/tutorial-migrate-physical-virtual-machines/aad.png)
-
-> [!NOTE]
-> 이것이 중요한 내용이 포함되지 않는 기본 설정입니다. [자세히 알아보기](https://docs.microsoft.com/azure/active-directory/develop/active-directory-how-applications-are-added#who-has-permission-to-add-applications-to-my-azure-ad-instance).
-
-#### <a name="assign-application-developer-role"></a>애플리케이션 개발자 역할 할당 
-
-테넌트/글로벌 관리자는 애플리케이션 개발자 역할을 계정에 할당할 수 있습니다. [자세히 알아보기](../active-directory/fundamentals/active-directory-users-assign-role-azure-portal.md).
-
-## <a name="assign-permissions-to-create-key-vault"></a>Key Vault를 만들 수 있는 권한 할당
-
-Azure Migrate 프로젝트가 있는 리소스 그룹에 대해 다음과 같이 역할 할당 권한을 할당합니다.
-
-1. Azure Portal의 리소스 그룹에서 **액세스 제어(IAM)** 를 선택합니다.
-2. **액세스 권한 확인**에서 관련 계정을 찾아 클릭하여 권한을 확인합니다. **소유자**(또는 **기여자** 및 **사용자 액세스 관리자**) 권한이 필요합니다.
-3. 필요한 권한이 없으면 리소스 그룹 소유자에게 요청합니다. 
-
 ## <a name="prepare-for-migration"></a>마이그레이션 준비
 
 ### <a name="check-machine-requirements-for-migration"></a>마이그레이션에 대한 머신 요구 사항 확인
@@ -117,7 +77,7 @@ Azure Migrate 프로젝트가 있는 리소스 그룹에 대해 다음과 같이
 머신에서 Azure로 마이그레이션하기 위한 요구 사항을 준수하는지 확인합니다. 
 
 > [!NOTE]
-> Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recover 서비스의 기능을 기반으로 합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
+> Azure Migrate 서버 마이그레이션을 사용하는 에이전트 기반 마이그레이션은 Azure Site Recovery 서비스의 에이전트 기반 재해 복구 기능과 동일한 복제 아키텍처가 있으며, 사용되는 구성 요소 중 일부는 동일한 코드 베이스를 공유합니다. 일부 요구 사항은 Site Recovery 설명서에 연결될 수 있습니다.
 
 1. 물리적 서버 요구 사항을 [확인](migrate-support-matrix-physical-migration.md#physical-server-requirements)합니다.
 2. VM 설정을 확인합니다. Azure에 복제하는 온-프레미스 머신은 [Azure VM 요구 사항](migrate-support-matrix-physical-migration.md#azure-vm-requirements)을 준수해야 합니다.
@@ -194,7 +154,7 @@ Azure Migrate 프로젝트를 설정한 다음, Azure Migrate 서버 마이그�
 
     ![등록 완료](./media/tutorial-migrate-physical-virtual-machines/finalize-registration.png)
 
-등록을 완료한 후 검색된 머신이 Azure Migrate 서버 마이그레이션에 표시될 때까지 최대 15분이 걸릴 수 있습니다. VM이 검색됨에 따라 **검색된 서버** 수가 증가합니다.
+등록을 완료한 후 검색된 머신이 Azure Migrate 서버 마이그레이션에 표시될 때까지 약간의 시간이 걸릴 수 있습니다. VM이 검색됨에 따라 **검색된 서버** 수가 증가합니다.
 
 ![검색된 서버](./media/tutorial-migrate-physical-virtual-machines/discovered-servers.png)
 

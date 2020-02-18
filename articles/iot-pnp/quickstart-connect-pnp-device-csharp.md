@@ -8,12 +8,12 @@ ms.topic: quickstart
 ms.service: iot-pnp
 services: iot-pnp
 ms.custom: mvc
-ms.openlocfilehash: b86f58a1b6b9e3a952861dbe7dbeef4dfe06a644
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 90d39635ac6302f816f39ca19cc00a39cfbbf850
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964838"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121021"
 ---
 # <a name="quickstart-connect-a-sample-iot-plug-and-play-preview-device-application-to-iot-hub-c"></a>빠른 시작: 샘플 IoT 플러그 앤 플레이 미리 보기 디바이스 애플리케이션을 IoT Hub(C#)에 연결
 
@@ -25,7 +25,7 @@ ms.locfileid: "76964838"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작을 완료하려면 개발 머신에 .NET Core 2.2를 설치해야 합니다. [.NET Core 2.2 다운로드](https://dotnet.microsoft.com/download/dotnet-core/2.2)에서 여러 플랫폼에 대한 .NET Core SDK의 이 버전을 다운로드할 수 있습니다.
+이 빠른 시작을 완료하려면 개발 머신에 .NET Core 3.0을 설치해야 합니다. [.NET Core 3.0 다운로드](https://dotnet.microsoft.com/download/dotnet-core/3.0)에서 여러 플랫폼에 대한 .NET Core SDK의 이 버전을 다운로드할 수 있습니다.
 
 로컬 터미널 창에서 다음 명령을 실행하여 개발 머신에 있는 .NET 버전을 확인할 수 있습니다. 
 
@@ -72,7 +72,7 @@ git clone https://github.com/Azure-Samples/azure-iot-samples-csharp
 1. 샘플 애플리케이션을 실행하여 IoT 허브에 원격 분석을 전송하는 IoT 플러그 앤 플레이 디바이스를 시뮬레이트합니다. 동일한 터미널 창에서 필요한 패키지를 빌드하고 샘플 애플리케이션을 실행하려면 다음 명령을 사용합니다.
 
     ```cmd\sh
-        dotnet run
+    dotnet run --framework=netcoreapp3.0
     ```
 
 디바이스가 성공적으로 등록되고 클라우드에서 업데이트를 기다린다는 메시지가 표시됩니다. 이제 디바이스가 명령 및 속성 업데이트를 받을 준비가 되었고, 원격 분석 데이터를 허브로 보내기 시작했다는 것을 나타냅니다. 다음 단계를 완료하는 동안 샘플을 계속 실행하세요.

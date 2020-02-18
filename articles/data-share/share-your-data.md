@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: 64c5d80b5a2660164b21e71f06e847d5b11e40da
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a8265680f74b2d5679d1ebfbb2873dd096f498a3
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964427"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083054"
 ---
 # <a name="tutorial-share-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 공유  
 
@@ -29,6 +29,7 @@ ms.locfileid: "76964427"
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 수신자 Azure 로그인 이메일 주소(이메일 별칭을 사용하면 작동하지 않음).
+* 원본 Azure 데이터 저장소가 데이터 공유 리소스를 만드는 데 사용하는 것과 다른 Azure 구독에 있는 경우 Azure 데이터 저장소가 있는 구독에 [Microsoft.DataShare 리소스 공급자](concepts-roles-permissions.md#resource-provider-registration)를 등록합니다. 
 
 ### <a name="share-from-a-storage-account"></a>스토리지 계정에서 공유:
 
@@ -50,14 +51,14 @@ ms.locfileid: "76964427"
         create user "<share_acct_name>" from external provider;     
         exec sp_addrolemember db_datareader, "<share_acct_name>"; 
         ```                   
-       *<share_acc_name>* 은 Data Share 계정의 이름입니다. 아직 Data Share 리소스를 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
+       *<share_acc_name>* 은 Data Share 리소스의 이름입니다. 아직 Data Share 리소스를 만들지 않은 경우 나중에 이 필수 조건으로 돌아갈 수 있습니다.  
 
 * 공유하려는 테이블 및/또는 보기를 탐색하고 선택할 수 있는 ‘db_datareader’가 포함된 Azure SQL Database 사용자입니다. 
 
 * 클라이언트 IP SQL Server 방화벽 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. **켜짐** 토글을 클릭하여 Azure 서비스에 대한 액세스를 허용합니다.
-    1. **+ 클라이언트 IP 추가**를 클릭하고 **저장**을 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. IP 범위를 추가할 수도 있습니다. 
+    1. **+클라이언트 IP 추가**를 클릭하고 **저장**을 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다. 
 
 ### <a name="share-from-azure-data-explorer"></a>Azure Data Explorer에서 공유
 * 공유하려는 데이터베이스가 있는 Azure Data Explorer 클러스터.

@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.date: 01/21/2020
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: b35c23e6dd88af01391bf7f01a7e736a1a744fff
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4e896c5fa6f8656be29eed7eb8d4e8854a94ecfa
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714433"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116609"
 ---
 # <a name="tutorial-use-key-vault-references-in-an-aspnet-core-app"></a>자습서: ASP.NET Core 앱에서 Key Vault 참조 사용
 
@@ -172,7 +172,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
     using Azure.Identity;
     ```
 
-1. `config.AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다. `UseAzureKeyVault` 옵션을 포함시켜 새 `KeyVaultClient` 참조를 Key Vault에 전달합니다.
+1. `config.AddAzureAppConfiguration` 메서드를 호출하여 App Configuration을 사용하도록 `CreateWebHostBuilder` 메서드를 업데이트합니다. `ConfigureKeyVault` 옵션을 포함하고 올바른 자격 증명을 Key Vault에 전달합니다.
 
     #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
 
@@ -217,7 +217,7 @@ App Configuration을 사용하면 Key Vault에 저장된 값을 참조하는 키
             .UseStartup<Startup>());
     ```
 
-1. App Configuration에 대한 연결을 초기화할 때 `KeyVaultClient` 참조를 `UseAzureKeyVault` 메서드에 전달했습니다. 초기화한 후 일반적인 App Configuration 키 값에 액세스하는 것과 동일한 방식으로 Key Vault 참조의 값에 액세스할 수 있습니다.
+1. 앱 구성에 대한 연결을 초기화하는 경우 `ConfigureKeyVault` 메서드를 호출하여 Key Vault에 대한 연결을 설정합니다. 초기화한 후 일반적인 App Configuration 키 값에 액세스하는 것과 동일한 방식으로 Key Vault 참조의 값에 액세스할 수 있습니다.
 
     이 프로세스가 실행되는 것을 보려면 **보기** > **홈** 폴더에서 *Index.cshtml*을 엽니다. 해당 내용을 다음 코드로 바꿉니다.
 

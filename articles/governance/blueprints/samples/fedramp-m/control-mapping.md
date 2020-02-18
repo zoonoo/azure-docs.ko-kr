@@ -3,12 +3,12 @@ title: FedRAMP Moderate 청사진 샘플 컨트롤
 description: FedRAMP Moderate 청사진 샘플의 컨트롤 매핑. 각 컨트롤은 평가를 지원하는 하나 이상의 Azure 정책에 매핑됩니다.
 ms.date: 10/31/2019
 ms.topic: sample
-ms.openlocfilehash: 0ecf5430f643ee795f81759f3d07a062e433f5b6
-ms.sourcegitcommit: a678f00c020f50efa9178392cd0f1ac34a86b767
+ms.openlocfilehash: 3fd6762f4f0a76b560a37dd1ed4f727aa76385fd
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74544564"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77150481"
 ---
 # <a name="control-mapping-of-the-fedramp-moderate-blueprint-sample"></a>FedRAMP Moderate 청사진 샘플의 컨트롤 매핑
 
@@ -190,7 +190,7 @@ Azure의 DDoS(분산 서비스 거부) 표준 계층은 기본 서비스 계층�
 
 - 인터넷 연결 가상 머신에 대한 네트워크 보안 그룹 규칙을 강화해야 합니다.
 - 인터넷 연결 엔드포인트를 통한 액세스를 제한해야 합니다.
-- IaaS에서 웹 애플리케이션에 대한 NSG 규칙을 강화해야 합니다.
+- 웹 포트는 VM과 연결된 네트워크 보안 그룹에서 제한되어야 합니다.
 - 스토리지 계정에 대한 무제한 네트워크 액세스 감사
 
 ## <a name="sc-7-3-boundary-protection--access-points"></a>SC-7 (3) 경계 보호 | 액세스 지점

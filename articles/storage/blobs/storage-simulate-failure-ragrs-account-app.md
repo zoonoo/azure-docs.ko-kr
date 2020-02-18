@@ -9,18 +9,18 @@ ms.topic: tutorial
 ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: artek
-ms.openlocfilehash: 44c5d037797d845aa9c68af2d7b8e5e45bf418fb
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 522ed13681a98535c35552128fc8432782ec1ca2
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892450"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77162704"
 ---
 # <a name="tutorial-simulate-a-failure-in-reading-data-from-the-primary-region"></a>자습서: 주 지역에서 데이터를 읽는 동안 발생하는 오류 시뮬레이션
 
-이 자습서는 시리즈의 2부입니다. 여기서는 오류를 시뮬레이션하여 [RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage)의 이점에 대해 알아봅니다.
+이 자습서는 시리즈의 2부입니다. 여기서는 오류를 시뮬레이션하여 [RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy.md)의 이점에 대해 알아봅니다.
 
-오류를 시뮬레이션하려면 [정적 라우팅](#simulate-a-failure-with-an-invalid-static-route) 또는 [Fiddler](#simulate-a-failure-with-fiddler)를 사용하면 됩니다. 두 방법으로 [RA-GRS(읽기 액세스 지역 중복)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 스토리지 계정의 기본 엔드포인트에 대한 요청 실패를 시뮬레이션할 수 있고, 애플리케이션이 대신 보조 엔드포인트에서 읽도록 합니다.
+오류를 시뮬레이션하려면 [정적 라우팅](#simulate-a-failure-with-an-invalid-static-route) 또는 [Fiddler](#simulate-a-failure-with-fiddler)를 사용하면 됩니다. 두 방법으로 [RA-GRS(읽기 액세스 지역 중복)](../common/storage-redundancy.md) 스토리지 계정의 기본 엔드포인트에 대한 요청 실패를 시뮬레이션할 수 있고, 애플리케이션이 대신 보조 엔드포인트에서 읽도록 합니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
@@ -31,7 +31,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > * [잘못된 고정 경로](#simulate-a-failure-with-an-invalid-static-route) 또는 [Fiddler](#simulate-a-failure-with-fiddler)를 사용하는 실패 시뮬레이션
 > * 기본 엔드포인트 복원 시뮬레이션
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 시작하기 전에 이전 자습서: [Azure Storage를 통해 애플리케이션 데이터의 고가용성 지원][previous-tutorial]을 완료하세요.
 
@@ -41,7 +41,7 @@ Fiddler를 사용하여 실패를 시뮬레이트하려면 [Fiddler를 다운로
 
 ## <a name="simulate-a-failure-with-an-invalid-static-route"></a>잘못된 고정 경로를 사용하여 실패 시뮬레이션
 
-[RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy-grs.md#read-access-geo-redundant-storage) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 스토리지 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 스토리지 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다.
+[RA-GRS(읽기 액세스 지역 중복 스토리지)](../common/storage-redundancy.md) 계정의 기본 엔드포인트에 대한 모든 요청에 대해 잘못된 고정 경로를 만들 수 있습니다. 이 자습서에서는 로컬 호스트가 스토리지 계정에 대한 요청을 라우팅하기 위한 게이트웨이로 사용됩니다. 로컬 호스트를 게이트웨이로 사용하면 스토리지 계정의 기본 엔드포인트에 대한 모든 요청이 호스트 내부로 루프 백되어 실패가 발생하게 됩니다. 다음 단계에 따라 실패를 시뮬레이션하고 잘못된 고정 경로를 사용하여 기본 엔드포인트를 복원합니다.
 
 ### <a name="start-and-pause-the-application"></a>애플리케이션 시작 및 일시 중지
 

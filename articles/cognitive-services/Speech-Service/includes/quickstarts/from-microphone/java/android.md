@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 11/05/2019
 ms.author: wolfma
-ms.openlocfilehash: 9a260577906ec94ecba87bb1be02fe35d8c763b3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 882904ec09014df821c648bb4823d7a0930abba5
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75469647"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156237"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -58,7 +58,7 @@ ms.locfileid: "75469647"
 
 1. 동일한 파일에서 `YourSubscriptionKey` 문자열을 구독 키로 바꿉니다.
 
-1. `YourServiceRegion` 문자열을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
+1. 또한 `YourServiceRegion` 문자열을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 "Speech SDK 매개 변수"로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
 
 ## <a name="build-and-run-the-app"></a>앱 빌드 및 실행
 

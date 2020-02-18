@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: c9175f1f592c72e047b02a06a174d3013b0c7ef6
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 8035cce1482c3c441cc956272a7300f0d0ea8194
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815317"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189072"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-linux"></a>빠른 시작: Linux에서 Speech Devices SDK 샘플 앱 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "74815317"
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -38,11 +38,11 @@ ms.locfileid: "74815317"
 * Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
-   > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 /home/wcaltest/JRE-Sample-Release에 추출되었다고 가정합니다.
+   > 이 빠른 시작에서는 앱이 /home/wcaltest/JRE-Sample-Release로 추출되었다고 가정합니다.
 
 Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지 확인합니다.
 
-* Ubuntu에서:
+* Ubuntu:
 
   ```sh
   sudo apt-get update
@@ -96,7 +96,7 @@ Eclipse를 시작하기 전에 이러한 종속 요소가 설치되어 있는지
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```

@@ -1,5 +1,5 @@
 ---
-title: 자습서 - Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
+title: '자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기'
 description: 이 자습서에서 Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기를 시작합니다.
 services: active-directory
 documentationCenter: ''
@@ -13,18 +13,18 @@ ms.tgt_pltfrm: ''
 ms.workload: identity
 ms.date: 02/20/2019
 ms.author: rolyon
-ms.openlocfilehash: 176e465163d92156308eda64c4187467cc10ee15
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: d337e31f554c0aabbb94771aa7bfca4afb19a431
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74419756"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138271"
 ---
 # <a name="tutorial-create-a-custom-role-for-azure-resources-using-azure-powershell"></a>자습서: Azure PowerShell을 사용하여 Azure 리소스에 대한 사용자 지정 역할 만들기
 
 [Azure 리소스에 대한 기본 제공 역할](built-in-roles.md)이 조직의 특정 요구 사항을 충족하지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 이 자습서에서는 Azure PowerShell을 사용하여 Reader 지원 티켓이라는 사용자 지정 역할을 만듭니다. 사용자 지정 역할을 통해 사용자는 구독의 관리 평면에서 모든 것을 살펴보고 지원 티켓을 열 수도 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 사용자 지정 역할 만들기
@@ -36,9 +36,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 [!INCLUDE [az-powershell-update](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 - 사용자 지정 역할을 만들 수 있는 권한(예: [소유자](built-in-roles.md#owner) 또는 [사용자 액세스 관리자](built-in-roles.md#user-access-administrator))
 - [Azure Cloud Shell](../cloud-shell/overview.md) 또는 [Azure PowerShell](/powershell/azure/install-az-ps)

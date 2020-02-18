@@ -95,8 +95,6 @@
           href: concepts-data-access-security-private-link.md
         - name: 데이터 암호화
           href: concepts-data-encryption-mysql.md
-        - name: 데이터 암호화
-          href: concepts-data-encryption-mysql.md
         - name: Azure AD 인증
           href: concepts-azure-ad-authentication.md
     - name: 비즈니스 연속성
@@ -222,6 +220,8 @@
           href: howto-troubleshoot-query-performance.md
         - name: sys 스키마에서 보기를 사용하는 방법
           href: howto-troubleshoot-sys-schema.md
+        - name: 데이터 암호화 문제 해결
+          href: howto-data-encryption-troubleshoot.md
     - name: 고급 위협 보호
       items:
         - name: Azure portal

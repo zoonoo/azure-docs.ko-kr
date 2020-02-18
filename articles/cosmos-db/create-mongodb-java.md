@@ -9,12 +9,12 @@ ms.devlang: java
 ms.topic: quickstart
 ms.date: 12/26/2018
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 05a796e5bf197bf9ea4f8f47adfbf30851b300ca
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 35c6944ddcfac1553ffb2c1cc28472f2a56d4515
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445498"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061717"
 ---
 # <a name="quickstart-create-a-console-app-with-java-and-the-mongodb-api-in-azure-cosmos-db"></a>빠른 시작: Azure Cosmos DB에서 Java 및 MongoDB API를 사용하여 콘솔 앱 만들기
 
@@ -27,18 +27,13 @@ ms.locfileid: "75445498"
 > * [Golang](create-mongodb-golang.md)
 >  
 
-이 빠른 시작에서는 Mongo DB 및 Java SDK용 Azure Cosmos DB API를 사용하여 콘솔 웹앱을 만듭니다. Azure Cosmos DB를 사용하면 문서, 키/값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있으며, 이 모든 기능은 Cosmos DB의 핵심에 있는 글로벌 배포 및 수평 확장 기능을 활용할 수 있습니다.
-
-이 빠른 시작에서는 [Azure Cosmos DB의 API for MongoDB](mongodb-introduction.md)를 사용하여 Cosmos 계정을 만드는 방법을 보여줍니다. 그런 다음, [MongoDB Java 드라이버](https://docs.mongodb.com/ecosystem/drivers/java/)를 사용하여 콘솔 앱을 빌드 및 배포합니다. 
+이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB for MongoDB API 계정을 생성 및 관리하고 GitHub에서 복제된 Java SDK 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
-
-이 샘플을 실행하기 전에 다음 필수 조건이 있어야 합니다.
-* [Azure 및 Azure Stack JDK 8 버전용 JDK 설치](https://aka.ms/azure-jdks)
-* Maven(Maven이 없는 경우 `apt-get install maven` 실행)
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-[!INCLUDE [cosmos-db-emulator-mongodb](../../includes/cosmos-db-emulator-mongodb.md)]
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. 연결 문자열 `.mongodb://localhost:C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==@localhost:10255/admin?ssl=true`와 함께 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
+- [JDK(Java Development Kit) 버전 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). 
+- [Maven](https://maven.apache.org/download.cgi) 또는 `apt-get install maven`을 실행하여 Maven을 설치합니다.
+- [Git](https://git-scm.com/downloads) 
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -78,7 +73,9 @@ ms.locfileid: "75445498"
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-다음 코드 조각은 모두 Program.java 파일에서 가져옵니다.
+다음 코드 조각은 모두 *Program.java* 파일에서 가져옵니다.
+
+이 콘솔 앱은 [MongoDB Java 드라이버](https://docs.mongodb.com/ecosystem/drivers/java/)를 사용합니다. 
 
 * DocumentClient가 초기화됩니다.
 
@@ -114,9 +111,9 @@ ms.locfileid: "75445498"
 
 이제 Azure Portal로 다시 이동하여 연결 문자열 정보를 가져와서 앱에 복사합니다.
 
-1. 계정에서 **빠른 시작**을 선택하고 **Java**를 선택한 다음, 연결 문자열을 클립보드에 복사합니다.
+1. Azure Cosmos DB 계정에서 **빠른 시작**을 선택하고 **Java**를 선택한 다음, 연결 문자열을 클립보드에 복사합니다.
 
-2. `Program.java` 파일을 열고 MongoClientURI 생성자에 대한 인수를 연결 문자열로 바꿉니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+2. *Program.java* 파일을 열고 MongoClientURI 생성자에 대한 인수를 연결 문자열로 바꿉니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
     
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
@@ -136,7 +133,7 @@ ms.locfileid: "75445498"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Cosmos 계정을 만들고, 컬렉션을 만들고, 콘솔 앱을 실행하는 방법을 알아보았습니다. 이제 Cosmos 데이터베이스에 추가 데이터를 가져올 수 있습니다.
+이 빠른 시작에서는 Azure Cosmos DB API for Mongo DB 계정을 만들고, Data Explorer를 사용하여 데이터베이스 및 컨테이너를 추가하고, Java 콘솔 앱을 사용하여 데이터를 추가하는 방법을 알아보았습니다. 이제 Cosmos 데이터베이스에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 MongoDB 데이터 가져오기](mongodb-migrate.md)

@@ -7,12 +7,12 @@ ms.subservice: cosmosdb-graph
 ms.topic: quickstart
 ms.date: 07/23/2019
 ms.author: lbosq
-ms.openlocfilehash: b873cdc65ed483836dc4c3cf9904a8fab1d2f09f
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 78dfbabdcddaafefe77711e8f7b0ea1028f15c58
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665172"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117918"
 ---
 # <a name="quickstart-create-query-and-traverse-an-azure-cosmos-db-graph-database-using-the-gremlin-console"></a>빠른 시작: Gremlin 콘솔을 사용하여 Azure Cosmos DB 그래프 데이터베이스 만들기, 쿼리 및 트래버스
 
@@ -49,7 +49,7 @@ Gremlin 콘솔은 Groovy/Java 기반이며 Linux, Mac 및 Windows에서 실행�
 
 [!INCLUDE [cosmos-db-create-graph](../../includes/cosmos-db-create-graph.md)]
 
-## <a id="ConnectAppService"></a>앱 서비스에 연결
+## <a id="ConnectAppService"></a>앱 서비스/Graph에 연결
 1. Gremlin 콘솔을 시작하기 전에 `apache-tinkerpop-gremlin-console-3.2.5/conf` 디렉터리에서 remote-secure.yaml 구성 파일을 만들거나 수정합니다.
 2. 다음 테이블에 정의된 대로 *호스트*, *포트*, *사용자 이름*, *암호*, *connectionPool* 및 *serializer* 구성을 입력합니다.
 

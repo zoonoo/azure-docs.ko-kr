@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 3/13/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: e0094add11755ecb0c303adf874abe5a4a8f5811
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 7ce56237631b858347a99c310751d4f2c1506e10
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746208"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108226"
 ---
 # <a name="tutorial-set-up-and-use-metrics-and-diagnostic-logs-with-an-iot-hub"></a>자습서: IoT Hub를 사용하여 메트릭 및 진단 로그 설정 및 사용
 
@@ -41,6 +41,9 @@ ms.locfileid: "75746208"
 - [Visual Studio](https://www.visualstudio.com/)를 설치합니다. 
 
 - 이메일을 받을 수 있는 이메일 계정입니다.
+
+- 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
+
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 

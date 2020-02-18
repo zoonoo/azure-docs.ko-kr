@@ -10,12 +10,12 @@ ms.devlang: csharp
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
-ms.openlocfilehash: bffba0ce5481250a696cdf4ec0aed6b59620bfe9
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 3e01f02026bfd788c398e580a78812d1a69f8f1d
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773839"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108939"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-net"></a>빠른 시작: IoT Hub에 연결된 디바이스 제어(.NET)
 
@@ -52,6 +52,8 @@ az extension add --name azure-cli-iot-ext
 ```
 
 아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip 에서 Azure IoT C# 샘플을 다운로드하고 ZIP 보관 파일을 추출합니다.
+
+방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

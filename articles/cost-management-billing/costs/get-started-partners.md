@@ -1,25 +1,28 @@
 ---
 title: 파트너용 Azure Cost Management 시작
 description: 이 문서에서는 파트너가 Azure Cost Management 기능을 사용하는 방법과 파트너가 자사의 고객을 위해 Cost Management 액세스를 사용하도록 설정하는 방법을 설명합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/28/2020
+ms.date: 02/10/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: aparnag
 ms.custom: secdec18
-ms.openlocfilehash: fc0401ac200ac55de5d812ddc5162d970b8e6d2a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9f35f0ae2b310fba462a3f45038496854077da27
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76842421"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77117596"
 ---
 # <a name="get-started-with-azure-cost-management-for-partners"></a>파트너용 Azure Cost Management 시작
 
-Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [Azure 플랜을 구매](/partner-center/purchase-azure-plan)한 파트너에게 기본적으로 제공됩니다. 이 문서에서는 파트너가 [Azure Cost Management](../index.yml) 기능을 사용하여 Azure 플랜의 구독에 대한 비용을 보는 방법을 설명합니다. 파트너가 고객의 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다. 고객은 CSP 파트너가 사용하도록 설정한 경우 Cost Management 기능을 사용할 수 있습니다.
+Azure Cost Management는 고객을 Microsoft 고객 계약에 온보딩하고 [Azure 플랜을 구매](/partner-center/purchase-azure-plan)한 직접 파트너에게 기본적으로 제공됩니다. 이 문서에서는 파트너가 [Azure Cost Management](../index.yml) 기능을 사용하여 Azure 플랜의 구독에 대한 비용을 보는 방법을 설명합니다. 파트너가 고객의 Cost Management 액세스가 가능하도록 설정하는 방법에 대해서도 설명합니다.
+
+직접 파트너 및 간접 공급자의 경우 간접 공급자의 글로벌 관리자 및 관리자 에이전트는 파트너 테넌트의 Cost Management에 액세스할 수 있습니다. 재판매인 및 고객은 고객 테넌트의 Cost Management에 액세스하여 비용을 계산하고 소매 요금으로 표시하는 구독 비용을 볼 수 있습니다. 그러나 비용을 보려면 고객 테넌트의 구독에 대한 RBAC 액세스 권한이 있어야 합니다. 비용 표시 정책은 고객 테넌트에 대해 공급자가 사용하도록 설정해야 합니다.
+
+고객은 CSP 파트너가 사용하도록 설정한 경우 Cost Management 기능을 사용할 수 있습니다.
 
 CSP 파트너는 Cost Management를 사용하여:
 

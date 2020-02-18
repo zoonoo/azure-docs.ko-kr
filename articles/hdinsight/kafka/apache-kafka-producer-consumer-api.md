@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: tutorial
 ms.date: 10/08/2019
-ms.openlocfilehash: 65fc3259b0bc5fce61ccd1ceb8df30f1bba49b19
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 102523316aaa59803fb9a6957457fc7bd4f6ce4f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161718"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77186806"
 ---
 # <a name="tutorial-use-the-apache-kafka-producer-and-consumer-apis"></a>자습서: Apache Kafka 생산자 및 소비자 API 사용
 
@@ -33,21 +33,20 @@ API에 대한 자세한 내용은 [생산자 API](https://kafka.apache.org/docum
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight 3.6의 Apache Kafka HDInsight 클러스터에 Kafka를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
-
+* HDInsight 클러스터의 Apache Kafka. 클러스터를 만드는 방법을 알아보려면 [HDInsight에서 Apache Kafka 시작](apache-kafka-get-started.md)을 참조하세요.
 * OpenJDK 같은 [JDK(Java 개발자 키트) 버전 8](https://aka.ms/azure-jdks) 또는 그와 동등한 프로그램
-
 * Apache에 따라 올바르게 [설치된](https://maven.apache.org/install.html)[Apache Maven](https://maven.apache.org/download.cgi)  Maven은 Java 프로젝트용 프로젝트 빌드 시스템입니다.
-
-* SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
+* Putty와 같은 SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](../hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
 ## <a name="understand-the-code"></a>코드 이해
 
-예제 애플리케이션은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. 애플리케이션은 주로 4개의 파일로 구성됩니다.
+예제 애플리케이션은 `Producer-Consumer` 하위 디렉터리의 [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에 있습니다. **ESP(Enterprise Security Package)** 지원 Kafka 클러스터를 사용하는 경우 `DomainJoined-Producer-Consumer` 하위 디렉터리에 있는 애플리케이션 버전을 사용해야 합니다.
 
+애플리케이션은 주로 4개의 파일로 구성됩니다.
 * `pom.xml`: 이 파일은 프로젝트 종속성, Java 버전 및 패키징 메서드를 정의합니다.
 * `Producer.java`: 이 파일은 생산자 API를 사용하여 Kafka에 임의의 문장을 보냅니다.
 * `Consumer.java`: 이 파일은 소비자 API를 사용하여 Kafka에서 데이터를 읽고 STDOUT에 내보냅니다.
+* `AdminClientWrapper.java`: 이 파일은 관리 API를 사용하여 Kafka 항목을 생성, 설명 및 삭제합니다.
 * `Run.java`: 생산자 및 소비자 코드를 실행하는 데 사용되는 명령줄 인터페이스입니다.
 
 ### <a name="pomxml"></a>Pom.xml
@@ -116,9 +115,11 @@ consumer = new KafkaConsumer<>(properties);
 
 ## <a name="build-and-deploy-the-example"></a>예제 빌드 및 배포
 
+이 단계를 건너뛰려면 `Prebuilt-Jars` 하위 디렉터리에서 미리 작성된 jar을 다운로드할 수 있습니다. kafka-producer-consumer.jar을 다운로드합니다. 클러스터가 **ESP(Enterprise Security Package)** 를 사용하도록 설정된 경우 kafka-producer-consumer-esp.jar을 사용합니다. 3단계를 실행하여 jar을 HDInsight 클러스터에 복사합니다.
+
 1. [https://github.com/Azure-Samples/hdinsight-kafka-java-get-started](https://github.com/Azure-Samples/hdinsight-kafka-java-get-started)에서 예제를 다운로드하여 압축을 풉니다.
 
-2. 현재 디렉터리를 `hdinsight-kafka-java-get-started\Producer-Consumer` 디렉터리 위치로 설정하고 다음 명령을 사용합니다.
+2. 현재 디렉터리를 `hdinsight-kafka-java-get-started\Producer-Consumer` 디렉터리의 위치로 설정합니다. **ESP(Enterprise Security Package)** 지원 Kafka 클러스터를 사용하는 경우 위치를 `DomainJoined-Producer-Consumer` 하위 디렉터리로 설정해야 합니다. 다음 명령을 사용하여 애플리케이션을 빌드합니다.
 
     ```cmd
     mvn clean package
@@ -140,29 +141,12 @@ consumer = new KafkaConsumer<>(properties);
     ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-1. 간단한 명령줄 JSON 프로세서인 [jq](https://stedolan.github.io/jq/)를 설치합니다. 열린 SSH 연결에서 다음 명령을 실행하여 `jq`를 설치합니다.
+1. Kafka broker 호스트를 가져오려면 다음 명령에서 `<clustername>` 및 `<password>`에 대한 값을 대체하고 실행합니다. Azure Portal에 표시된 것처럼 `<clustername>`에 동일한 대/소문자를 사용합니다. `<password>`를 클러스터 로그인 암호로 바꾼 후, 다음을 실행합니다.
 
     ```bash
     sudo apt -y install jq
-    ```
-
-1. 암호 변수를 설정합니다. `PASSWORD`를 클러스터 로그인 암호로 바꾼 다음, 다음 명령을 입력합니다.
-
-    ```bash
-    export password='PASSWORD'
-    ```
-
-1. 대/소문자가 올바르게 입력된 클러스터 이름을 추출합니다. 클러스터 생성 방법에 따라 클러스터 이름의 실제 대/소문자가 예상과 다를 수 있습니다. 이 명령은 실제 대/소문자를 가져온 다음, 변수에 저장합니다. 다음 명령을 입력합니다.
-
-    ```bash
-    export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
-    ```
-    > [!Note]  
-    > 클러스터 외부에서 이 프로세스를 수행하는 경우 클러스터 이름을 저장하는 다른 절차가 있습니다. Azure Portal에서 소문자로 클러스터 이름을 가져옵니다. 그런 다음, 다음 명령에서 `<clustername>`에 대한 클러스터 이름을 대체하고 `export clusterName='<clustername>'`을 실행합니다.  
-
-1. Kafka broker 호스트를 가져오려면 다음 명령을 사용합니다.
-
-    ```bash
+    export clusterName='<clustername>'
+    export password='<password>'
     export KAFKABROKERS=$(curl -sS -u admin:$password -G https://$clusterName.azurehdinsight.net/api/v1/clusters/$clusterName/services/KAFKA/components/KAFKA_BROKER | jq -r '["\(.host_components[].HostRoles.host_name):9092"] | join(",")' | cut -d',' -f1,2);
     ```
 

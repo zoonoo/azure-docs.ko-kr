@@ -8,12 +8,12 @@ ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 11/19/2019
 ms.author: dech
-ms.openlocfilehash: 8df78df27ffb7e8bb8fc88567bd0b3d37be20488
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: d8b17472bb531ec799be227706261962d7914d68
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719503"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134476"
 ---
 # <a name="quickstart-use-nodejs-to-connect-and-query-data-from-azure-cosmos-db-sql-api-account"></a>빠른 시작: Node.js를 사용하여 Azure Cosmos DB SQL API 계정에 연결하고 데이터 쿼리
 
@@ -25,16 +25,13 @@ ms.locfileid: "76719503"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-이 빠른 시작에서는 Node.js 앱을 사용하여 Azure Cosmos DB에서 [SQL API](sql-api-introduction.md) 계정에 연결하는 방법을 보여줍니다. 그런 다음, Azure Cosmos DB SQL 쿼리를 사용하여 데이터를 쿼리하고 관리할 수 있습니다. 이 문서에서 빌드하는 Node.js 앱은 [SQL JavaScript SDK](sql-api-sdk-node.md)를 사용합니다. 이 빠른 시작은 [JavaScript SDK](https://www.npmjs.com/package/@azure/cosmos) 버전 2.0을 사용합니다.
+이 빠른 시작에서는 Azure Portal 및 GitHub에서 복제된 Node.js 앱을 사용하여 Azure Cosmos DB SQL API 계정을 만들고 관리합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-* 또한,
-    * [Node.js](https://nodejs.org/en/) 버전 v6.0.0 이상
-    * [Git](https://git-scm.com/)
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. URI가 `https://localhost:8081`이고 키가 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`인 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
+- [Node.js 6.0.0 이상](https://nodejs.org/).
+- [Git](https://www.git-scm.com/downloads)
 
 ## <a name="create-a-database"></a>데이터베이스 만들기 
 
@@ -78,9 +75,9 @@ ms.locfileid: "76719503"
 
 이 단계는 선택 사항입니다. Azure Cosmos 데이터베이스 리소스를 코드로 만드는 방법을 알아보려면 다음 코드 조각을 검토하면 됩니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-string)로 건너뛸 수 있습니다. 
 
-이전 버전의 JavaScript SDK에 익숙한 경우 '컬렉션' 및 '문서'라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](https://docs.microsoft.com/azure/cosmos-db/introduction)을 지원하므로 JavaScript SDK 버전 2.0 이상에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 '컨테이너'와 컨테이너의 콘텐츠를 설명하는 '항목'이라는 용어를 사용합니다.
+이전 버전의 SQL JavaScript SDK에 익숙한 경우 *컬렉션* 및 *문서*라는 용어를 자주 들어 보셨을 것입니다. Azure Cosmos DB가 [여러 API 모델](introduction.md)을 지원하므로 [JavaScript SDK 버전 2.0 이상](https://www.npmjs.com/package/@azure/cosmos)에서는 컬렉션, 그래프 또는 테이블을 가리키는 일반적인 용어인 *컨테이너*와 컨테이너의 콘텐츠를 설명하는 *항목*이라는 용어를 사용합니다.
 
-다음 코드 조각은 모두 **app.js** 파일에서 가져옵니다.
+다음 코드 조각은 모두 *app.js* 파일에서 가져옵니다.
 
 * `CosmosClient` 개체가 초기화되었습니다.
 
@@ -134,17 +131,17 @@ ms.locfileid: "76719503"
 
 Azure Portal로 돌아가서 Azure Cosmos 계정의 연결 문자열 세부 정보를 가져옵니다. 앱이 데이터베이스에 연결할 수 있도록 연결 문자열을 앱에 복사합니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 Azure Cosmos 계정의 왼쪽 탐색 영역에 있는 **키**를 클릭한 다음, **읽기-쓰기 키**를 클릭합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 `config.js` 파일에 복사하게 됩니다.
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 왼쪽 탐색 영역의 **키**를 선택한 다음, **읽기-쓰기 키**를 선택합니다. 다음 단계에서 화면 오른쪽의 복사 단추를 사용하여 URI 및 기본 키를 *config.js* 파일에 복사합니다.
 
     ![Azure Portal에서 선택 키 보기 및 복사, 키 블레이드](./media/create-sql-api-dotnet/keys.png)
 
-2. `config.js` 파일을 엽니다. 
+2. *config.js* 파일을 엽니다. 
 
-3. 포털에서 URI 값을 복사(복사 단추 사용)한 후 이 값을 `config.js`의 엔드포인트 키 값으로 만듭니다. 
+3. 포털에서 URI 값을 복사(복사 단추 사용)하고 이 값을 *config.js*에서 엔드포인트 키 값으로 만듭니다. 
 
     `config.endpoint = "<Your Azure Cosmos account URI>"`
 
-4. 그 다음, 포털에서 사용자의 기본 키 값을 복사한 후 `config.js`의 `config.key` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
+4. 그런 다음, 포털에서 사용자의 기본 키 값을 복사하고 *config.js*의 `config.key` 값으로 만듭니다. 이제 Azure Cosmos DB와 통신하는 데 필요한 모든 정보로 앱이 업데이트되었습니다. 
 
     `config.key = "<Your Azure Cosmos account key>"`
     
@@ -166,7 +163,7 @@ Data Explorer로 돌아가서 이 새 데이터를 수정하고 작업에 사용
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Azure Cosmos 계정을 만들고, 데이터 탐색기를 사용하여 컨테이너를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos 데이터베이스로 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 컨테이너를 만들고, Node.js 앱을 실행하는 방법을 알아보았습니다. 이제 사용자의 Azure Cosmos DB 계정에 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)

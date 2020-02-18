@@ -9,12 +9,12 @@ services: iot-hub
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/03/2019
-ms.openlocfilehash: a23518cd016a1711e47734df0f7179770aa92a87
-ms.sourcegitcommit: aef6040b1321881a7eb21348b4fd5cd6a5a1e8d8
+ms.openlocfilehash: 73f42384af8b9f0147f3855ad5003598a0cd3c53
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/09/2019
-ms.locfileid: "72166975"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110502"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-ios"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석 데이터 보내기(iOS)
 
@@ -28,16 +28,18 @@ IoT Hub는 스토리지 또는 처리를 위해 IoT 디바이스에서 클라우
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure 샘플](https://github.com/Azure-Samples/azure-iot-samples-ios/archive/master.zip)에서 코드 샘플 다운로드
 - 최신 버전의 iOS SDK를 실행 중인 최신 버전의 [XCode](https://developer.apple.com/xcode/). 이 빠른 시작은 XCode 10.2 및 iOS 12.2에서 테스트되었습니다.
 - 최신 버전의 [CocoaPods](https://guides.cocoapods.org/using/getting-started.html).
-- 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+- 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
+
+- 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
@@ -75,7 +77,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 샘플 애플리케이션은 iOS 디바이스에서 실행되며, 이는 IoT Hub의 디바이스 관련 엔드포인트에 연결하고 시뮬레이션된 온도 및 습도 원격 분석을 전송합니다. 
 
-### <a name="install-cocoapods"></a>CocoaPod 설치
+### <a name="install-cocoapods"></a>CocoaPods 설치
 
 CocoaPods는 타사 라이브러리를 사용하는 iOS 프로젝트의 종속성을 관리합니다.
 

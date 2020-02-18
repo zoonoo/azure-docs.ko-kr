@@ -112,6 +112,14 @@
           href: managed-identity.md
         - name: 액세스 제어 정책 사용
           href: key-vault-group-permissions-for-apps.md
+        - name: HSM 보호 키 가져오기
+          items:
+            - name: 개요
+              href: key-vault-hsm-protected-keys.md
+            - name: Key Vault로 HSM 보호 키 가져오기(미리 보기)
+              href: hsm-protected-keys-vendor-agnostic-byok.md
+            - name: Key Vault로 HSM 보호 키 가져오기(레거시)
+              href: hsm-protected-keys-legacy.md
     - name: Event Grid를 사용하여 키 자격 증명 모음 알림 라우팅
       href: event-grid-tutorial.md
     - name: Event Grid 및 Logic Apps를 통해 알림 받기
@@ -170,8 +178,6 @@
       items:
         - name: 개발자 가이드
           href: key-vault-developers-guide.md
-        - name: HSM 보호 키
-          href: key-vault-hsm-protected-keys.md
         - name: .NET 2.0으로 마이그레이션
           href: key-vault-dotnet2api-release-notes.md
         - name: 웹앱 비밀 저장

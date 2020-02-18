@@ -9,13 +9,13 @@ ms.topic: tutorial
 author: trevorbye
 ms.author: trbye
 ms.reviewer: trbye
-ms.date: 11/04/2019
-ms.openlocfilehash: c38347a03ddc0ef5f6c1bd3118696062db9a8254
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/10/2020
+ms.openlocfilehash: aa90655ecb14abe38ec8fdfc6c18e7d292abbef3
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75532426"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77116529"
 ---
 # <a name="tutorial-train-your-first-ml-model"></a>자습서: 첫 번째 ML 모델 학습
 
@@ -35,7 +35,7 @@ ms.locfileid: "75532426"
 
 유일한 필수 조건은 이 자습서 중 하나인 [환경 및 작업 영역 설정](tutorial-1st-experiment-sdk-setup.md)을 실행하는 것입니다.
 
-자습서의 이 부분에서는 1부의 마지막에 열린 샘플 Jupyter Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`에서 코드를 실행합니다. 이 문서에서는 Notebook에 있는 동일한 코드를 안내합니다.
+자습서의 이 부분에서는 1부 끝에서 열린 샘플 Jupyter Notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb*에서 코드를 실행합니다. 이 문서에서는 Notebook에 있는 동일한 코드를 안내합니다.
 
 ## <a name="open-the-notebook"></a>Notebook 열기
 
@@ -45,7 +45,7 @@ ms.locfileid: "75532426"
 
 
 > [!Warning]
-> Jupyter 인터페이스에서 *새로운* Notebook을 만들지 **마세요**. Notebook `tutorials/tutorial-1st-experiment-sdk-train.ipynb`에는 이 자습서에 **필요한 모든 코드 및 데이터**가 포함되어 있습니다.
+> Jupyter 인터페이스에서 *새로운* Notebook을 만들지 **마세요**. Notebook *tutorials/create-first-ml-experiment/tutorial-1st-experiment-sdk-train.ipynb*에는 이 자습서에 **필요한 모든 코드와 데이터**가 포함되어 있습니다.
 
 ## <a name="connect-workspace-and-create-experiment"></a>작업 영역 연결 및 실험 만들기
 

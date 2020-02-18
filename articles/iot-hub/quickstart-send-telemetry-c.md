@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 04/10/2019
 ms.author: wesmc
-ms.openlocfilehash: 769cb77f297fb30d619623c4a635ef6793825421
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ec4b80971a27553fb4967a85e5f47cf11e40c3b2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429082"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110351"
 ---
 # <a name="quickstart-send-telemetry-from-a-device-to-an-iot-hub-and-read-it-with-a-back-end-application-c"></a>빠른 시작: 디바이스에서 IoT Hub로 원격 분석을 보내고 백 엔드 애플리케이션(C#)으로 읽습니다.
 
@@ -40,6 +40,8 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
+
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="prepare-the-development-environment"></a>개발 환경 준비
 

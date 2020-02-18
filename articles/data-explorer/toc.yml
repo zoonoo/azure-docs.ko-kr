@@ -32,6 +32,10 @@
         - name: 데이터 수집 개요
           displayName: 'pipelines, connectors, plugins, Python, .NET, Java, Node, REST'
           href: ingest-data-overview.md
+    - name: Kusto 쿼리 언어
+      items:
+        - name: 빠른 참조 가이드
+          href: kql-quick-reference.md
     - name: 데이터 시각화 개요
       href: viz-overview.md
     - name: 보안 개요

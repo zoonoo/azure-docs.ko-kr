@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5eb5cedf14af9a013a5b6a1eba5df40d665cbad5
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ad6b7150a43a286a4bec39a0482e08f50d95c06
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74181360"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77048072"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-f5"></a>자습서: F5와 Azure Active Directory SSO(Single Sign-On) 통합
 
@@ -31,9 +31,9 @@ ms.locfileid: "74181360"
 * 사용자가 해당 Azure AD 계정으로 F5에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD의 Single Sign-On과 SaaS 앱 통합에 대해 자세히 알아보려면 [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -154,7 +154,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     b. **회신 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
-1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**을 클릭하고 다음 단계를 수행합니다.
+1. **SP** 시작 모드에서 애플리케이션을 구성하려면 **추가 URL 설정**를 클릭하고 다음 단계를 수행합니다.
 
     **로그인 URL** 텍스트 상자에서 `https://<YourCustomFQDN>.f5.com/` 패턴을 사용하여 URL을 입력합니다.
 
@@ -177,7 +177,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -364,7 +364,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
     h. **Update**(업데이트)를 클릭합니다.
 
-    i. **확인**
+    i. **확인**을 클릭합니다.
 
     j. **SAML IDP 설정이 완료되었습니다.**
     
@@ -466,7 +466,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
-- [Azure AD에서 F5 사용해 보기](https://aad.portal.azure.com/)
+- [Azure AD로 F5 사용해 보기](https://aad.portal.azure.com/)
 
 - [Kerberos 애플리케이션에 대한 F5 Single Sign-On 구성](kerbf5-tutorial.md)
 

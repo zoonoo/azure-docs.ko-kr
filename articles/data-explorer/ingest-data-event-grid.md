@@ -1,23 +1,23 @@
 ---
 title: Azure Data Explorer에 Azure Blob 수집
 description: 이 문서에서는 Event Grid 구독을 사용 하 여 Azure 데이터 탐색기에 저장소 계정 데이터를 보내는 방법에 대해 알아봅니다.
-author: radennis
-ms.author: radennis
-ms.reviewer: orspodek
+author: orspod
+ms.author: orspodek
+ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: da701dc91781ef72c29e6454e79523073810dbe4
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: a07a5a5956d8ea295d269d81ed264177bc8805f2
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667491"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424986"
 ---
 # <a name="ingest-blobs-into-azure-data-explorer-by-subscribing-to-event-grid-notifications"></a>Event Grid 알림을 구독하여 Azure Data Explorer에 Blob 수집
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-grid.md)
+> * [포털](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-event-grid-resource-manager.md)
@@ -26,9 +26,9 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
 이 문서에서는 [Azure Event Grid](/azure/event-grid/overview) 구독을 설정 하 고 이벤트 허브를 통해 Azure 데이터 탐색기에 이벤트를 라우팅하는 방법에 대해 알아봅니다. 시작하려면 Azure Event Hubs로 알림을 전송하는 이벤트 구독이 있는 스토리지 계정이 있어야 합니다. 그런 다음, Event Grid 데이터 연결을 만들어서 시스템 전반의 데이터 흐름을 볼 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [평가판 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
+* Azure 구독 [평가판 Azure 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [클러스터 및 데이터베이스](create-cluster-database-portal.md)
 * [스토리지 계정](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?tabs=azure-portal)
 * [이벤트 허브](https://docs.microsoft.com/azure/event-hubs/event-hubs-create)
@@ -44,9 +44,9 @@ Azure Data Explorer는 로그 및 원격 분석 데이터에 사용 가능한 �
 
     **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | name | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
+    | 속성 | *test-grid-connection* | 만들려는 Event Grid의 이름입니다.|
     | 이벤트 스키마 | *Event Grid 스키마* | Event Grid에 사용해야 하는 스키마입니다. |
-    | 항목 종류 | *Storage 계정* | Event Grid 항목의 종류입니다. |
+    | 항목 종류 | *스토리지 계정* | Event Grid 항목의 종류입니다. |
     | 항목 리소스 | *gridteststorage* | 사용자 스토리지 계정의 이름입니다. |
     | 모든 이벤트 형식 구독 | *clear* | 모든 이벤트에 대한 알림을 받지 않습니다. |
     | 정의된 이벤트 유형 | *만든 Blob* | 알림을 받을 특정 이벤트 |
@@ -107,7 +107,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
     |---|---|---|
     | 데이터 연결 이름 | *test-hub-connection* | Azure Data Explorer에서 만들 연결의 이름입니다.|
     | 스토리지 계정 구독 | 구독 ID | 스토리지 계정이 있는 구독 ID입니다.|
-    | Storage 계정 | *gridteststorage* | 이전에 만든 스토리지 계정의 이름입니다.|
+    | 스토리지 계정 | *gridteststorage* | 이전에 만든 스토리지 계정의 이름입니다.|
     | Event Grid | *test-grid-connection* | 만든 Event Grid의 이름입니다. |
     | 이벤트 허브 이름 | *test-hub* | 만든 이벤트 허브입니다. 이 필드는 Event Grid를 선택하며 자동으로 채워집니다. |
     | 소비자 그룹 | *test-group* | 만든 이벤트 허브에 정의된 소비자 그룹입니다. |
@@ -117,7 +117,7 @@ Azure Data Explorer에서 Event Hubs가 데이터를 보낼 테이블을 만듭�
 
      **설정** | **제안 값** | **필드 설명**
     |---|---|---|
-    | Table | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
+    | 테이블 | *TestTable* | **TestDatabase**에 만든 테이블입니다. |
     | 데이터 형식 | *JSON* | 지원되는 형식은 Avro, CSV, JSON, MULTILINE JSON, PSV, SOH, SCSV, TSV 및 TXT입니다. 지원 되는 압축 옵션: Zip 및 GZip |
     | 열 매핑 | *TestMapping* | **TestDatabase**에서 생성된 것으로, 들어오는 JSON 데이터를 **TestTable**의 열 이름 및 데이터 형식에 매핑.|
     | | |
@@ -157,6 +157,11 @@ Azure Storage 리소스와 상호 작용하는 몇 가지 기본 Azure CLI 명�
 
     echo "Done"
 ```
+
+> [!NOTE]
+> Azure 데이터 탐색기는 blob 사후 수집을 삭제 하지 않습니다.
+> Thrre에 대 한 blob을 5 일 동안 유지 합니다.
+> Blob 삭제를 관리 하려면 [Azure blob 저장소 수명 주기](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) 를 사용 합니다. 
 
 ## <a name="review-the-data-flow"></a>데이터 흐름 검토
 

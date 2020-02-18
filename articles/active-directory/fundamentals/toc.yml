@@ -39,8 +39,8 @@
       href: active-directory-deployment-checklist-p2.md
     - name: EU에 대한 ID 데이터 스토리지
       href: active-directory-data-storage-eu.md
-    - name: 오스트레일리아에 대한 ID 데이터 스토리지
-      href: active-directory-data-storage-australia.md
+    - name: 오스트레일리아 및 뉴질랜드의 ID 데이터 스토리지
+      href: active-directory-data-storage-australia-newzealand.md
     - name: Microsoft 365 Government의 새로운 기능
       href: whats-new-microsoft-365-government.md
     - name: Azure AD 작업 참조

@@ -8,16 +8,16 @@ ms.author: divswa
 ms.reviewer: jonfan, logicappspm
 ms.topic: overview
 ms.date: 08/01/2019
-ms.openlocfilehash: 141f1a7fc8f966132cb3570fd9d9cfa911127eed
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 9356cecb22672ae15505d14b5ac73d5baeef09e0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792460"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191363"
 ---
 # <a name="b2b-enterprise-integration-solutions-with-azure-logic-apps-and-enterprise-integration-pack"></a>Azure Logic Apps 및 엔터프라이즈 통합 팩이 포함된 B2B 엔터프라이즈 통합 솔루션
 
-B2B(기업 간) 솔루션 및 조직 간의 원활한 통신을 위해 EIP(엔터프라이즈 통합 팩)를 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 함께 사용하여 자동화된 확장형 엔터프라이즈 통합 워크플로를 빌드할 수 있습니다. 조직에서 서로 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. EIP는 여러 형식을 조직의 시스템에서 처리할 수 있는 형식으로 변환하며, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 지원합니다. 암호화 및 디지털 서명 둘 다를 사용하여 메시지를 보호할 수 있습니다. EIP는 이러한 [엔터프라이즈 통합 커넥터](../connectors/apis-list.md#integration-account-connectors) 및 산업 표준을 지원합니다.
+B2B(기업 간) 솔루션 및 조직 간의 원활한 통신을 위해 EIP(엔터프라이즈 통합 팩)를 [Azure Logic Apps](../logic-apps/logic-apps-overview.md)와 함께 사용하여 자동화된 확장형 엔터프라이즈 통합 워크플로를 빌드할 수 있습니다. 조직에서 서로 다른 프로토콜 및 형식을 사용하더라도 전자 방식으로 메시지를 교환할 수 있습니다. EIP는 여러 형식을 조직의 시스템에서 처리할 수 있는 형식으로 변환하며, [AS2](../logic-apps/logic-apps-enterprise-integration-as2.md), [X12](logic-apps-enterprise-integration-x12.md) 및 [EDIFACT](../logic-apps/logic-apps-enterprise-integration-edifact.md)를 비롯한 업계 표준 프로토콜을 지원합니다. 암호화와 디지털 서명을 모두 사용하여 메시지의 보안을 향상시킬 수도 있습니다. EIP는 이러한 [엔터프라이즈 통합 커넥터](../connectors/apis-list.md#integration-account-connectors) 및 산업 표준을 지원합니다.
 
 * EDI(전자 데이터 교환)
 * EAI(Enterprise Application Integration)
@@ -36,7 +36,7 @@ Microsoft BizTalk Server 또는 Azure BizTalk Services에 대해 잘 알고 있�
 
 EIP를 사용하여 B2B 논리 앱 워크플로를 빌드하려면 다음 항목이 필요합니다.
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 사용하려는 아티팩트가 포함된 [통합 계정](../logic-apps/logic-apps-enterprise-integration-create-integration-account.md)
 

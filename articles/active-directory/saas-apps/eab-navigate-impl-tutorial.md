@@ -16,12 +16,12 @@ ms.topic: tutorial
 ms.date: 10/22/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 9d02a9dbc5b89c4156b7ff8b6a49adb7f00fef83
-ms.sourcegitcommit: b1c94635078a53eb558d0eb276a5faca1020f835
+ms.openlocfilehash: 465b41aaf3c3b16dcba489d1ea9ba951a3108c8e
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/27/2019
-ms.locfileid: "72969745"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046595"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-eab-navigate-impl"></a>자습서: EAB Navigate IMPL과 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -33,7 +33,7 @@ ms.locfileid: "72969745"
 
 Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하려면 다음 항목이 필요합니다.
 
@@ -83,12 +83,15 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
    ![기본 SAML 구성 편집](common/edit-urls.png)
 
-1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
-
+1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.  **식별자(엔터티 ID)** 텍스트 상자에 정확히 다음(`https://impl.bouncer.eab.com`) 값을 입력합니다.
+    
+    **회신 URL(Assertion Consumer Service URL)** 텍스트 상자에 다음(`https://impl.bouncer.eab.com/sso/saml2/acs`) 값을 모두 별도의 행으로 입력합니다.
+    `https://impl.bouncer.eab.com/sso/saml2/acs/`
+    
     **로그인 URL** 텍스트 상자에서 `https://<SUBDOMAIN>.navigate.impl.eab.com/` 패턴을 사용하여 URL을 입력합니다.
 
     > [!NOTE]
-    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [EAB Navigate IMPL 클라이언트 지원 팀](mailto:jmahoney@eab.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
+    > 이 값은 실제 값이 아닙니다. 이 값을 실제 로그온 URL로 업데이트합니다. 이러한 값을 얻으려면 [EAB Navigate IMPL 클라이언트 지원 팀](mailto:EABTechSupport@eab.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
 1. **SAML로 Single Sign-On 설정** 페이지의 **SAML 서명 인증서** 섹션에서 복사 단추를 클릭하여 **앱 페더레이션 메타데이터 URL**을 복사한 후 컴퓨터에 저장합니다.
 
@@ -102,7 +105,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 1. 화면 위쪽에서 **새 사용자**를 선택합니다.
 1. **사용자** 속성에서 다음 단계를 수행합니다.
    1. **이름** 필드에 `B.Simon`을 입력합니다.  
-   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. 예: `B.Simon@contoso.com`
+   1. **사용자 이름** 필드에서 username@companydomain.extension을 입력합니다. `B.Simon@contoso.com`)을 입력합니다.
    1. **암호 표시** 확인란을 선택한 다음, **암호** 상자에 표시된 값을 적어둡니다.
    1. **만들기**를 클릭합니다.
 
@@ -126,11 +129,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 ## <a name="configure-eab-navigate-impl-sso"></a>EAB Navigate IMPL SSO 구성
 
-**EAB Navigate IMPL** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [EAB Navigate IMPL 지원 팀](mailto:jmahoney@eab.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
+**EAB Navigate IMPL** 쪽에서 Single Sign-On을 구성하려면 **앱 페더레이션 메타데이터 URL**을 [EAB Navigate IMPL 지원 팀](mailto:EABTechSupport@eab.com)으로 보내야 합니다. 이렇게 설정하면 SAML SSO 연결이 양쪽에서 제대로 설정됩니다.
 
 ### <a name="create-eab-navigate-impl-test-user"></a>EAB Navigate IMPL 테스트 사용자 만들기
 
-이 섹션에서는 EAB Navigate IMPL에서 B.Simon이라는 사용자를 만듭니다. EAB Navigate IMPL 플랫폼에서 사용자를 추가하려면  [EAB Navigate IMPL 지원 팀](mailto:jmahoney@eab.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
+이 섹션에서는 EAB Navigate IMPL에서 B.Simon이라는 사용자를 만듭니다. EAB Navigate IMPL 플랫폼에서 사용자를 추가하려면  [EAB Navigate IMPL 지원 팀](mailto:EABTechSupport@eab.com)에 문의하세요. Single Sign-On을 사용하려면 먼저 사용자를 만들고 활성화해야 합니다.
 
 ## <a name="test-sso"></a>SSO 테스트
 

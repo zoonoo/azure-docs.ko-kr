@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: tutorial
 ms.date: 07/10/2019
-ms.openlocfilehash: f2acb89597ef877543a2c4cc46f395aede41034b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 5b7d9cd7e7d438cf2beac76d5d8bcc78d377a8f4
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964501"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083095"
 ---
 # <a name="tutorial-accept-and-receive-data-using-azure-data-share"></a>자습서: Azure Data Share를 사용하여 데이터 수락 및 받기  
 
@@ -30,7 +30,7 @@ ms.locfileid: "76964501"
 
 * Azure 구독: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * 데이터 공유 초대: " **<yourdataprovider@domain.com>** 이(가) 보낸 Azure Data Share 초대"라는 제목이 있는 Microsoft Azure의 초대입니다.
-* Microsoft.DataShare 리소스 공급자를 등록합니다. [Azure Data Share의 문제 해결](data-share-troubleshoot.md)에 설명된 지침에 따라 데이터 공유 리소스 공급자를 등록합니다.
+* 데이터 공유 리소스를 만들 Azure 구독과 대상 Azure 데이터 저장소가 있는 Azure 구독에 [Microsoft.DataShare 리소스 공급자](concepts-roles-permissions.md#resource-provider-registration)를 등록합니다.
 
 ### <a name="receive-data-into-a-storage-account"></a>스토리지 계정으로 데이터를 받습니다. 
 
@@ -57,7 +57,7 @@ ms.locfileid: "76964501"
 * 클라이언트 IP SQL Server 방화벽 액세스. 이 작업은 다음 단계를 통해 수행할 수 있습니다. 
     1. Azure Portal의 SQL 서버에서 *방화벽 및 가상 네트워크*로 이동합니다.
     1. **켜짐** 토글을 클릭하여 Azure 서비스에 대한 액세스를 허용합니다.
-    1. **+클라이언트 IP 추가**를 클릭하고 **저장**을 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 이 프로세스는 다음에 Azure Portal에서 SQL 데이터를 공유할 때 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다. 
+    1. **+클라이언트 IP 추가**를 클릭하고 **저장**을 클릭합니다. 클라이언트 IP 주소는 변경될 수 있습니다. 다음에 Azure Portal에서 SQL 대상으로 데이터를 수신할 때 이 프로세스를 반복해야 할 수도 있습니다. IP 범위를 추가할 수도 있습니다. 
 
 
 ### <a name="receive-data-into-an-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터로 데이터를 받습니다. 

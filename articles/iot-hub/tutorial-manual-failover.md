@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 07/24/2019
 ms.author: robinsh
 ms.custom: mvc
-ms.openlocfilehash: 42785e3ee636f24ca185f57a11d4ee1091db3e98
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: bf37f7b27e3f8923a229cc0617365d912d47aec2
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73890405"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77110667"
 ---
 # <a name="tutorial-perform-manual-failover-for-an-iot-hub"></a>자습서: IoT Hub에 대해 수동 장애 조치(failover) 수행
 
@@ -29,9 +29,11 @@ ms.locfileid: "73890405"
 > * 장애 복구를 수행하여 기본 위치에 IoT Hub의 작업을 반환합니다. 
 > * 허브가 올바른 위치에서 올바르게 실행 중인지 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

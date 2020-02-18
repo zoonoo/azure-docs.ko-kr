@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: tutorial
-ms.date: 10/26/2019
+ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 4fec6b93ad206ae3052df5f7763f3c146b7aa680
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446797"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189012"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>자습서: 테넌트 모델 만들기(미리 보기)
 
@@ -39,11 +39,11 @@ ms.locfileid: "75446797"
 
 1. [Microsoft 365 관리 센터](https://admin.microsoft.com)에 로그인합니다.
 
-1. 왼쪽 창에서 **설정**를 선택하고 **앱**을 선택한 다음, **Azure Speech Services**를 선택합니다.
+1. 왼쪽 창에서 **설정**을 선택하고 중첩된 메뉴에서 **설정**을 선택한 다음, 기본 창에서 **Azure Speech Services**를 선택합니다.
 
    !["서비스 및 추가 기능" 창](media/tenant-language-model/tenant-language-model-enrollment.png)
 
-1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택하고 **변경 내용 저장**을 선택합니다. 
+1. **조직 전체의 언어 모델 사용 허용** 확인란을 선택하고 **변경 내용 저장**을 선택합니다.
 
    ![Azure Speech Services 창](media/tenant-language-model/tenant-language-model-enrollment-2.png)
 
@@ -79,11 +79,11 @@ ms.locfileid: "75446797"
 
    > [!NOTE]
    > 북아메리카의 Office 365 엔터프라이즈 고객은 테넌트 모델(영어)을 만들 자격이 있습니다. 고객 Lockbox, 고객 키 또는 Office 365 Government 고객인 경우 이 기능을 사용할 수 없습니다. 본인이 고객 Lockbox 또는 고객 키 고객인지 확인하려면 다음 문서를 참조하세요.
-   > * [고객 Lockbox](https://docs.microsoft.com/office365/securitycompliance/controlling-your-data-using-customer-key#FastTrack)
-   > * [고객 키](https://docs.microsoft.com/microsoft-365/compliance/customer-lockbox-requests)
-   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
+   > * [고객 Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
+   > * [고객 키](/microsoft-365/compliance/customer-key-overview)
+   > * [Office 365 Government](/microsoft-365/government)
 
-1. **옵트인**을 선택합니다. 
+1. **옵트인**을 선택합니다.
 
    테넌트 모델이 준비되면 추가 지침이 포함된 확인 이메일 메시지를 받게 됩니다.
 

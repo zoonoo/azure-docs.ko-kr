@@ -4,14 +4,14 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 08/06/2019
 ms.author: erhopf
-ms.openlocfilehash: ebabeccc43998c229bcd28063b6cbabae4b046ea
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: cd00fb2df0063bd8bc753f9078194648f6745f1b
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74795664"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156435"
 ---
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에:
 
@@ -35,7 +35,7 @@ ms.locfileid: "74795664"
 
 1. 문자열 `YourSubscriptionKey`를 구독 키로 바꿉니다.
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
+1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 "Speech SDK 매개 변수"로 바꿉니다(예: 평가판 구독의 경우 `westus`).
 
 1. 프로젝트에 대한 변경 내용을 저장합니다.
 

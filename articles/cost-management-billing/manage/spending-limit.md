@@ -2,21 +2,21 @@
 title: Azure 지출 한도 | Microsoft Docs
 description: 이 문서에서는 Azure 지출 한도의 작동 방식 및 제거 방법을 설명합니다.
 author: bandersmsft
-manager: amberb
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5dbf885848d9866a184caee1da6b9000a26f83a9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76314138"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188318"
 ---
 # <a name="azure-spending-limit"></a>Azure 지출 한도
 
@@ -36,30 +36,48 @@ Azure 체험 계정에 가입하고 지출 한도에 도달하는 경우 지출 
 
 ## <a name="remove-the-spending-limit-in-azure-portal"></a>Azure Portal에서 지출 한도 제거
 
+유효한 결제 방법이 Azure 구독과 연결되어 있는 경우 언제든지 지출 한도를 제거할 수 있습니다. Visual Studio Enterprise 및 Visual Studio Professional과 같이 여러 달에 걸쳐 크레딧이 있는 구독 유형의 경우 지출 한도를 무기한 또는 현재 청구 기간 동안만 제거하도록 선택할 수 있습니다. 현재 청구 기간만 선택하면 다음 청구 기간이 시작될 때 지출 한도가 자동으로 활성화됩니다.
+
+Azure 체험 계정이 있는 경우 [Azure 구독 업그레이드](upgrade-azure-subscription.md)를 참조하여 지출 한도를 제거합니다. 그렇지 않으면 다음 단계에 따라 지출 한도를 제거합니다.
+
 <a id="remove"></a>
 
-유효한 결제 방법이 Azure 구독과 연결되어 있는 경우 언제든지 지출 한도를 제거할 수 있습니다. Visual Studio Enterprise 및 Visual Studio Professional과 같이 여러 달에 대한 크레딧이 있는 구독 유형의 경우 다음 청구 기간이 시작될 때 지출 한도를 사용하도록 설정할 수 있습니다.
+1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Cost Management + 청구**를 검색합니다.
 
-지출 한도를 제거하려면 다음 단계를 수행합니다.
+    ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/spending-limit/search-bar.png)
 
-1. [Azure Portal](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)에 로그인합니다.
-1. **구독**으로 이동합니다.
-1. 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다.
-1. 페이지 맨 위에서 **관리**를 선택합니다. https://account.azure.com/ 으로 리디렉션되었습니다. 페이지 오른쪽에서 **지출 한도 제거**를 선택합니다.  
-  ![지출 한도 제거를 보여주는 예제](./media/spending-limit/account-azure-com-spending-limit.png)
-1. Azure Portal로 다시 리디렉션됩니다. 적절한 옵션을 선택한 다음, 결제 방법을 선택합니다. **마침**을 선택합니다.  
-  ![지출 한도 제거를 위한 옵션 선택](./media/spending-limit/remove-spending-limit.png)
+1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다. 
 
-| 옵션 | 영향 |
-| --- | --- |
-| 지출 한도 무기한 제거 | 다음 청구 기간 시작 시 자동으로 설정되지 않도록 지출 한도를 제거합니다. |
-| 현재 청구 기간에 대한 지출 한도 제거 | 다음 청구 기간 시작 시 자동으로 다시 설정되도록 지출 한도를 제거합니다. |
+   ![개요의 내 구독 그리드를 보여주는 스크린샷](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > 여기에 Visual Studio 구독 중 일부가 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 이러한 구독의 경우 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
+    
+1. 구독 개요에서 주황색 배너를 클릭하여 지출 한도를 제거합니다.
+    
+    ![지출 한도 제거 배너를 보여주는 스크린샷](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
+
+1. 지출 한도를 무기한으로 제거할지 또는 현재 청구 기간에 대해서만 제거할지를 선택합니다.
+    
+      ![지출 한도 제거 블레이드를 보여주는 스크린샷](./media/spending-limit/remove-spending-limit-blade-x.png)
+    
+      | 옵션 | 영향 |
+      | --- | --- |
+      | 지출 한도 무기한 제거 | 다음 청구 기간이 시작될 때 지출 한도가 자동으로 다시 설정되지 않습니다. 그러나 언제든지 다시 설정할 수 있습니다. |
+      | 현재 청구 기간에 대한 지출 한도 제거 | 다음 청구 기간이 시작되면 지출 한도가 자동으로 다시 설정됩니다. |
+
+
+1. **결제 방법 선택**을 클릭하여 구독에 대한 지불 방법을 선택합니다. 이는 구독에 대한 활성 지불 방법이 됩니다.
+
+1. **Finish**를 클릭합니다.
+
 
 ## <a name="why-you-might-want-to-remove-the-spending-limit"></a>지출 한도를 제거하려는 이유는 무엇입니까?
 
 지출 한도에 도달하면 특정 타사 및 Microsoft 서비스를 배포 또는 사용할 수 없게 됩니다. 다음은 구독에서 지출 한도를 제거해야 하는 상황입니다.
 
--  Oracle 등의 자사 이미지 또는 Azure DevOps Services 등의 서비스를 배포하려는 경우. 이 경우 지출 한도가 거의 순식간에 도달하게 되어 구독이 비활성화됩니다.
+-  Oracle과 같은 타사 이미지 또는 Azure DevOps Services 등의 서비스를 배포하려고 합니다. 이 경우 지출 한도가 거의 순식간에 도달하게 되어 구독이 비활성화됩니다.
 - 중단하면 안되는 서비스가 있습니다. 지출 한도에 도달하면 배포한 Azure 리소스가 프로덕션에서 제거되고 Azure 가상 머신이 중지되고 할당 최소됩니다. 중단하지 않으려는 서비스가 있는 경우 지출 한도를 제거해야 합니다.
 - 손실되지 않아야 하는 가상 IP 주소와 같은 설정을 사용하는 서비스 및 리소스가 있는 경우. 지출 한도에 도달하고 서비스 및 리소스의 할당이 취소되면 이러한 설정이 손실됩니다.
 
@@ -67,9 +85,20 @@ Azure 체험 계정에 가입하고 지출 한도에 도달하는 경우 지출 
 
 이 기능은 여러 달의 크레딧을 포함하는 구독 유형에 대해 지출 한도가 무기한으로 제거된 경우에만 사용할 수 있습니다. 이 기능을 사용하여 다음 청구 기간이 시작될 때 자동으로 지출 한도를 설정할 수 있습니다.
 
-1. [계정 센터](https://account.windowsazure.com/Subscriptions)에 로그인합니다.
-1. 지출 한도 옵션을 변경하려면 노란색 배너를 선택합니다.
-1. **다음 청구 기간에서 지출 한도 설정\<청구 기간의 시작 날짜\>** 선택
+
+1. 계정 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Cost Management + 청구**를 검색합니다.
+
+    ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/spending-limit/search-bar.png)
+
+1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다. 
+
+   ![개요의 내 구독 그리드를 보여주는 스크린샷](./media/spending-limit/cost-management-overview-msdn-x.png)
+
+    > [!NOTE]
+    > 여기에 Visual Studio 구독 중 일부가 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 이러한 구독의 경우 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
+    
+1. 구독 개요에서 페이지 맨 위에 있는 배너를 클릭하여 지출 한도를 다시 설정합니다.
 
 ## <a name="custom-spending-limit"></a>사용자 지정 지출 한도
 

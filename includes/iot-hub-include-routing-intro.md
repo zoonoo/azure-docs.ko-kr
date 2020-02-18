@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 03/05/2019
 ms.author: robinsh
 ms.custom: include file
-ms.openlocfilehash: 863989f8e2cb90fe5ec0921ea6e080b61fc1b4ae
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 9a20dca71727e83db98c4c97567949bd127fc7fb
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72808856"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77111229"
 ---
 [메시지 라우팅](../articles/iot-hub/iot-hub-devguide-messages-d2c.md)을 사용하면 원격 분석 데이터를 IoT 디바이스에서 기본 제공된 Event Hub 호환 엔드포인트 또는 Blob Storage, Service Bus 큐, Service Bus 항목 및 Event Hubs와 같은 사용자 지정 엔드포인트에 전송할 수 있습니다. 사용자 지정 메시지 라우팅을 구성하려면 특정 조건에 일치하는 경로를 사용자 지정하는 [라우팅 쿼리](../articles/iot-hub/iot-hub-devguide-routing-query-syntax.md)를 만듭니다. 한 번 설정하면 들어오는 데이터가 자동으로 IoT Hub에 의해 엔드포인트로 라우팅됩니다. 메시지는 정의된 모든 라우팅 쿼리와 일치하지 않으면 기본 엔드포인트로 라우팅됩니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "72808856"
 > * ...스토리지 계정에서
 > * ...Power BI 시각화에서
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이 자습서의 1부:
   - Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
@@ -46,5 +46,6 @@ ms.locfileid: "72808856"
   - [Visual Studio](https://www.visualstudio.com/)를 설치합니다.
   - Power BI 계정에 액세스하여 기본 엔드포인트의 스트림 분석을 분석합니다. ([Power BI를 무료로 사용해 보세요](https://app.powerbi.com/signupredirect?pbi_source=web).)
   - 알림 이메일을 보낼 수 있는 Office 365 계정이 있어야 합니다.
+  - 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 자습서의 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](../articles/iot-hub/iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](cloud-shell-try-it.md)]

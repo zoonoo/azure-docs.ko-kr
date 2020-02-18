@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 10/25/2019
 ms.reviewer: yutlin
 ms.custom: seodec18
-ms.openlocfilehash: acf7fd91eff6a868074c61d557effa076033e799
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5df8ae89c16a453b008afed9ee9f8881a0ac4750
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845917"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046426"
 ---
 # <a name="add-an-ssl-certificate-in-azure-app-service"></a>Azure App Service에서 SSL 인증서 추가
 
@@ -37,6 +37,9 @@ ms.locfileid: "76845917"
 - 무료 인증서만 해당: [CNAME 레코드](app-service-web-tutorial-custom-domain.md#map-a-cname-record)를 사용하여 하위 도메인(예: `www.contoso.com`)을 App Service에 매핑합니다.
 
 ## <a name="private-certificate-requirements"></a>프라이빗 인증서 요구 사항
+
+> [!NOTE]
+> Azure Web Apps는 AES256을 지원하지 **않으며** 모든 pfx 파일은 TrippleDES로 암호화해야 합니다.
 
 [무료 App Service Managed Certificate](#create-a-free-certificate-preview) 또는 [App Service 인증서](#import-an-app-service-certificate)가 이미 App Service 요구 사항을 충족합니다. 프라이빗 인증서를 App Service에 업로드하거나 가져오기로 선택하는 경우 인증서가 다음 요구 사항을 충족해야 합니다.
 

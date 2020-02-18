@@ -12,15 +12,15 @@ ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.topic: tutorial
-ms.date: 01/16/2020
+ms.date: 01/31/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a8a1736092578634680da5d56b5ec02f70cdde38
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cf148ec64ceed28577224741033258bad0e62372
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76289852"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77047968"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-g-suite"></a>자습서: G Suite와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -252,9 +252,9 @@ G Suite는 자동 사용자 프로비저닝도 지원합니다. 자동 사용자
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 - [사용자 프로비저닝 구성](https://docs.microsoft.com/azure/active-directory/saas-apps/google-apps-provisioning-tutorial)
 - [Azure AD로 G Suite 사용해보기](https://aad.portal.azure.com/)
-- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 
-- [고급 표시 유형 및 컨트롤을 사용하여 G Suite를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
+- [고급 표시 유형 및 컨트롤을 사용하여 G Suite를 보호하는 방법](https://docs.microsoft.com/cloud-app-security/protect-gsuite)
 <!--Image references-->
 
 [10]: ./media/google-apps-tutorial/gapps-security.png

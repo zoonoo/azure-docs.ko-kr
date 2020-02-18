@@ -1,17 +1,17 @@
 ---
-title: Azure에서 HTTP 트리거 Python 함수 만들기
+title: Azure Functions에서 HTTP 요청에 대한 서버리스 Python 함수 만들기
 description: Azure Functions를 사용하여 서버리스 Python 코드를 만들어 클라우드에 배포합니다.
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: c665f807d78c699423db457bf57dca2f16109913
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898570"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77157893"
 ---
-# <a name="quickstart-create-an-http-triggered-python-function-in-azure"></a>빠른 시작: Azure에서 HTTP 트리거 Python 함수 만들기
+# <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 Python 함수 만들기
 
 이 문서에서는 명령줄 도구를 사용하여 HTTP 요청에 응답하는 Python 함수를 만듭니다. 코드를 로컬로 테스트한 후 서버리스 Azure Functions 환경에 배포합니다. 이 빠른 시작을 완료하면 Azure 계정에서 약간의 비용(몇 USD 센트)이 발생합니다.
 
@@ -107,7 +107,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
 
 원하는 경우 [로컬에서 함수 실행](#run-the-function-locally)으로 건너뛰고, 나중에 파일 내용을 검사할 수 있습니다.
 
-### <a name="__init__py"></a>\_\_init\_\_.py
+#### <a name="__init__py"></a>\_\_init\_\_.py
 
 *\_\_init\_\_.py*에는 *function.json*의 구성에 따라 트리거되는 `main()` Python 함수가 포함되어 있습니다.
 
@@ -140,7 +140,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 HTTP 트리거의 경우 함수는 *function.json*에서 정의한 대로 `req` 변수의 요청 데이터를 받습니다. `req`는 [azure.functions.HttpRequest 클래스](/python/api/azure-functions/azure.functions.httprequest)의 인스턴스입니다. *function.json*에 `$return`으로 정의되는 반환 개체는 [azure.functions.HttpResponse 클래스](/python/api/azure-functions/azure.functions.httpresponse)의 인스턴스입니다. 자세한 내용은 [Azure Functions HTTP 트리거 및 바인딩](functions-bindings-http-webhook.md)을 참조하세요.
 
-### <a name="functionjson"></a>function.json
+#### <a name="functionjson"></a>function.json
 
 *function.json*은 트리거 형식을 포함하여 함수의 입력 및 출력 `bindings`를 정의하는 구성 파일입니다. 원하는 경우 다른 Python 파일을 호출하도록 `scriptFile`을 변경할 수 있습니다.
 
@@ -199,7 +199,7 @@ Http Functions:
 
 ## <a name="create-supporting-azure-resources-for-your-function"></a>함수를 지원하는 Azure 리소스 만들기
 
-함수 코드를 Azure에 배포하려면 다음 세 가지 리소스를 만들어야 합니다.
+함수 코드를 Azure에 배포하기 전에 다음 세 가지 리소스를 만들어야 합니다.
 
 - 리소스 그룹 - 관련 리소스에 대한 논리 컨테이너입니다.
 - Azure Storage 계정 - 프로젝트에 대한 상태 및 기타 정보를 유지 관리합니다.

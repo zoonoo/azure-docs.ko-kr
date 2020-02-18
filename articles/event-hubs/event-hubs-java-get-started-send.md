@@ -6,38 +6,38 @@ author: spelluru
 ms.service: event-hubs
 ms.workload: core
 ms.topic: quickstart
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: a2cce90b5aa28dac6ff945ac48f70bfd319683b9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2c9baa4c0e048419ece09b954cee1af21b1f0cc1
+ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029897"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77158012"
 ---
 # <a name="use-java-to-send-events-to-or-receive-events-from-azure-event-hubs-azure-eventhubs"></a>Java를 사용하여 Azure Event Hubs에서 이벤트 보내기 또는 받기(azure-eventhubs)
 
-이 자습서에서는 Azure Event Hubs와 이벤트를 주고 받는 Java 애플리케이션을 만드는 방법을 보여줍니다.
-
-Azure Event Hubs는 초당 수백만 개의 이벤트를 수신하여 처리할 수 있는 빅 데이터 스트리밍 플랫폼이자 이벤트 수집 서비스입니다. Event Hubs는 분산된 소프트웨어와 디바이스에서 생성된 이벤트, 데이터 또는 원격 분석을 처리하고 저장할 수 있습니다. Event Hub로 전송된 데이터는 실시간 분석 공급자 또는 일괄 처리/스토리지 어댑터를 사용하여 변환하고 저장할 수 있습니다. Event Hubs에 대한 자세한 개요는 Event Hubs 개요 및 Event Hubs 기능을 참조하세요.
+이 빠른 시작에서는 **azure-eventhubs** Java 패키지를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다.
 
 > [!WARNING]
-> 이 빠른 시작은 이전 **azure-eventhubs** 및 **azure-eventhubs-eph** 패키지를 사용합니다. 최신 [azure-messaging-eventhubs](get-started-java-send-v2.md) 패키지를 사용하도록 코드를 [마이그레이션](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)하는 것이 좋습니다. 
+> 이 빠른 시작은 이전 **azure-eventhubs** 및 **azure-eventhubs-eph** 패키지를 사용합니다. 최신 **azure-messaging-eventhubs** 패키지를 사용하는 빠른 시작은 [azure-messaging-eventhubs를 사용하여 이벤트 보내기 및 받기](get-started-java-send-v2.md)를 참조하세요. 이전 패키지를 사용하던 애플리케이션을 새 패키지로 이동하려면 [azure-eventhubs에서 azure-messaging-eventhubs로 마이그레이션하기 위한 가이드](https://github.com/Azure/azure-sdk-for-java/blob/master/sdk/eventhubs/azure-messaging-eventhubs/migration-guide.md)를 참조하세요. 
 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음 필수 구성 요소가 필요합니다.
+Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
 
-- 활성 Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
-- Java 개발 환경. 이 자습서에서는 [Eclipse](https://www.eclipse.org/)를 사용합니다.
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음, 다음 문서의 지침에 따라 이벤트 허브에 대한 액세스 키의 값을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 액세스 키는 이 자습서의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
+이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
+
+- **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
+- Java 개발 환경. 이 빠른 시작에서는 [Eclipse](https://www.eclipse.org/)를 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그런 다음, 다음 문서의 지침에 따라 이벤트 허브에 대한 액세스 키의 값을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 액세스 키는 이 빠른 시작의 뒷부분에서 작성하는 코드에 사용합니다. 기본 키 이름은 **RootManageSharedAccessKey**입니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 Java 애플리케이션을 만드는 방법을 보여줍니다. 
 
 > [!NOTE]
-> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 자습서의 단계를 수행하여 직접 만들 수 있습니다.
+> [GitHub](https://github.com/Azure/azure-event-hubs/tree/master/samples/Java/Basic/SimpleSend)에서 샘플로 이 빠른 시작을 다운로드하여 `EventHubConnectionString` 및 `EventHubName` 문자열을 이벤트 허브 값으로 대체하고, 실행합니다. 또는 이 빠른 시작의 단계를 수행하여 직접 만들 수 있습니다.
 
 ### <a name="add-reference-to-azure-event-hubs-library"></a>Azure Event Hubs 라이브러리에 대한 참조 추가
 

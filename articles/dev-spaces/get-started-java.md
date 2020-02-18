@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Java 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: f4f265b522c62e36d338157b6ddc56f72f623dc4
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 47948b0ce4ac0cb9a78552891e42d7634335839e
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867128"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121753"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Java
 
@@ -93,7 +93,7 @@ Azure Dev Spaces를 사용하여 Java 애플리케이션을 디버그하려면 V
 이 섹션에서는 Java 웹 애플리케이션을 만들어 Kubernetes의 컨테이너에서 실행합니다.
 
 ### <a name="create-a-java-web-app"></a>Java 웹앱 만들기
-https://github.com/Azure/dev-spaces 로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**을 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/java/getting-started/webfrontend`에 있습니다.
+[https://github.com/Azure/dev-spaces](https://github.com/Azure/dev-spaces)로 이동하여 GitHub에서 코드를 다운로드하고 **복제 또는 다운로드**를 선택하여 GitHub 리포지토리를 로컬 환경으로 다운로드합니다. 이 가이드의 코드는 `samples/java/getting-started/webfrontend`에 있습니다.
 
 ## <a name="preparing-code-for-docker-and-kubernetes-development"></a>Docker 및 Kubernetes 개발을 위한 코드 준비
 지금까지 로컬로 실행할 수 있는 기본 웹앱이 있었습니다. 이제 앱의 컨테이너 및 Kubernetes에 배포되는 방법을 정의하는 자산을 만들어 컨테이너화합니다. 이 작업은 Azure Dev Spaces를 사용하여 쉽게 할 수 있습니다. 

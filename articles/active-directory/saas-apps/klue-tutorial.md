@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 12/13/2019
+ms.date: 02/13/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 082c167c883b655276c213a48d4d56283074531d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: da6ce8c25bdb8a051bb346868b900053ef231816
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430926"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77185649"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-klue"></a>자습서: Klue와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -31,7 +30,7 @@ ms.locfileid: "75430926"
 * 사용자가 자신의 Azure AD 계정으로 Klue에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -46,6 +45,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Klue에서 **SP 및 IDP** 시작 SSO를 지원합니다.
 * Klue에서 **Just-In-Time** 사용자 프로비전을 지원합니다.
+* Klue를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-klue-from-the-gallery"></a>갤러리에서 Klue 추가
 
@@ -94,11 +94,11 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 식별자, 회신 URL 및 로그온 URL을 사용하여 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Klue 클라이언트 지원 팀](mailto:support@klue.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
 
-1. PureCloud by Genesys 애플리케이션에는 특정 형식의 SAML 어설션이 필요하기 때문에 SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
+1. Klue 애플리케이션에는 특정 형식의 SAML 어설션이 필요하므로, SAML 토큰 특성 구성에 사용자 지정 특성 매핑을 추가해야 합니다. 다음 스크린샷에서는 기본 특성의 목록을 보여 줍니다.
 
     ![이미지](common/default-attributes.png)
 
-1. 위에서 언급한 특성 외에도, 다음과 같이 PureCloud by Genesys 애플리케이션에는 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
+1. 위에서 언급한 특성 외에도 Klue 애플리케이션에는 아래에 표시된 SAML 응답에서 다시 전달되어야 하는 몇 가지 특성이 추가로 필요합니다. 이러한 특성도 미리 채워져 있지만 요구 사항에 따라 검토할 수 있습니다.
 
     | 속성 | 원본 특성|
     | ---------- | ----------- |
@@ -162,8 +162,10 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 
 - [Azure AD로 Klue 사용해 보기](https://aad.portal.azure.com/)
+
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)

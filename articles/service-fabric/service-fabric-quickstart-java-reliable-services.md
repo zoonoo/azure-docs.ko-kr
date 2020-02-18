@@ -6,41 +6,31 @@ ms.topic: quickstart
 ms.date: 01/29/2019
 ms.author: suhuruli
 ms.custom: mvc, devcenter, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 257fd02c2f7ec2aff9d55b91b2cbd54b6eb55431
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc615149b092aebfdde767fb3b716fb897bfd551
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75464392"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77121499"
 ---
 # <a name="quickstart--deploy-a-java-app-to-azure-service-fabric-on-linux"></a>빠른 시작:  Linux에서 Azure Service Fabric에 Java 앱 배포
 
-이 빠른 시작에서는 Linux 개발자 머신에서 Eclipse IDE를 사용하여 Azure Service Fabric에 첫 번째 Java 애플리케이션을 배포하는 방법을 보여 줍니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
+이 빠른 시작에서는 Linux 개발자 머신에서 Eclipse IDE를 사용하여 Azure Service Fabric에 Java 애플리케이션을 배포합니다. 완료하면 투표 결과를 클러스터의 상태 저장 백 엔드 서비스에 저장하는 Java 웹 프런트 엔드가 있는 투표 애플리케이션이 생깁니다.
 
 Azure Service Fabric은 마이크로 서비스 및 컨테이너를 배포 및 관리하기 위한 분산 시스템 플랫폼입니다.
 
-![Azure Service Fabric 투표 샘플](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
-
-이 빠른 시작에서 다음을 수행하는 방법을 알아봅니다.
-
-* Eclipse를 Service Fabric Java 애플리케이션을 위한 도구로 사용
-* 로컬 클러스터에 애플리케이션 배포
-* 애플리케이션을 여러 노드에 걸쳐 스케일 아웃
-
 ## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작을 완료하려면 다음이 필요합니다.
-
-1. [Service Fabric SDK 및 Service Fabric 명령줄 인터페이스 (CLI) 설치](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
-2. [Git 설치](https://git-scm.com/)
-3. [Eclipse 설치](https://www.eclipse.org/downloads/)
-4. Eclipse 플러그 인을 설치하기 위한 선택적 단계를 수행하여 [Java 환경 설정](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development)
+- [Java 환경](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-java-development) 및 [Yeoman](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#set-up-yeoman-generators-for-containers-and-guest-executables)
+- [Eclipse Neon(4.6)+](https://www.eclipse.org/downloads/packages/) 및 [Service Fabric용 Eclipse 플러그 인](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#install-the-eclipse-plug-in-optional)
+- [Service Fabric SDK 및 CLI(명령줄 인터페이스)](https://docs.microsoft.com/azure/service-fabric/service-fabric-get-started-linux#installation-methods)
+- [Git](https://git-scm.com/downloads)
 
 ## <a name="download-the-sample"></a>샘플 다운로드
 
 명령 창에서 다음 명령을 실행하여 로컬 컴퓨터에 샘플 앱 리포지토리를 복제합니다.
 
-```git
+```bash
 git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 ```
 
@@ -51,13 +41,13 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
     ```bash
     sudo /opt/microsoft/sdk/servicefabric/common/clustersetup/devclustersetup.sh
     ```
-    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 **http://localhost:19080** 에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다.
+    로컬 클러스터를 시작하는 데 몇 시간이 걸립니다. 클러스터가 완전히 작동 중인지 확인하려면 `http://localhost:19080`에서 Service Fabric Explorer에 액세스합니다. 5개의 정상 노드는 로컬 클러스터가 작동되어 실행 중임을 나타냅니다.
 
     ![정상 노드를 표시하는 Azure Service Fabric Explorer](./media/service-fabric-quickstart-java/service-fabric-explorer-healthy-nodes.png)
 
 2. Eclipse를 엽니다.
 3. **파일** > **가져오기** > **Gradle** > **기존 Gradle 프로젝트**를 선택하고 마법사를 따릅니다.
-4. **디렉터리**를 선택하고 GitHub에서 복제한 `service-fabric-java-quickstart` 폴더에서 `Voting` 디렉터리를 선택합니다. **마침**을 선택합니다.
+4. **디렉터리**를 선택하고 GitHub에서 복제한 **service-fabric-java-quickstart** 폴더에서 **Voting** 디렉터리를 선택합니다. **마침**을 선택합니다.
 
     ![Eclipse로 Gradle 프로젝트 가져오기](./media/service-fabric-quickstart-java/eclipse-import-gradle-project.png)
 
@@ -72,15 +62,17 @@ git clone https://github.com/Azure-Samples/service-fabric-java-quickstart.git
 
 이제 투표 옵션 집합을 추가하고 투표 하기를 시작할 수 있습니다. 애플리케이션이 실행되고 모든 데이터가 Service Fabric 클러스터에 저장되며 별도의 데이터베이스가 필요하지 않습니다.
 
+![Azure Service Fabric 투표 샘플](./media/service-fabric-quickstart-java/service-fabric-voting-sample.png)
+
 ## <a name="scale-applications-and-services-in-a-cluster"></a>클러스터에서 애플리케이션 및 서비스 크기 조정
 
-서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스의 크기를 조정하는 여러 가지 방법이 있으며 예를 들어, Service Fabric CLI(sfctl)의 스크립트 또는 명령을 사용할 수 있습니다. 다음 단계에서는 Service Fabric Explorer를 사용합니다.
+서비스는 해당 서비스에 대한 로드 변동량을 수용하도록 클러스터 간에 쉽게 크기를 조정할 수 있습니다. 클러스터에서 실행되는 인스턴스 수를 변경하여 서비스 크기를 조정합니다. 서비스를 확장하는 방법에는 여러 가지가 있습니다. 예를 들어 Service Fabric CLI(`sfctl`)에서 스크립트나 명령을 사용할 수 있습니다. 다음 단계에서는 Service Fabric Explorer를 사용합니다.
 
-Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다(예: `http://localhost:19080`).
+Service Fabric Explorer는 모든 Service Fabric 클러스터에서 실행되고 클러스터의 HTTP 관리 포트(19080)로 이동하여 브라우저에서 액세스할 수 있습니다. `http://localhost:19080`)을 입력합니다.
 
 웹 프런트 엔드 서비스의 크기를 조정하려면 다음을 수행합니다.
 
-1. 클러스터에서 Service Fabric Explorer를 엽니다. 예: `https://localhost:19080`
+1. 클러스터에서 Service Fabric Explorer를 엽니다. `https://localhost:19080`)을 입력합니다.
 2. 트리 뷰에서 **fabric:/Voting/VotingWeb** 노드 옆에 있는 줄임표( **...** )를 선택하고 **서비스 크기 조정**을 선택합니다.
 
     ![Azure Service Fabric에서 서비스 크기 조정](./media/service-fabric-quickstart-java/service-fabric-scale-service.png)

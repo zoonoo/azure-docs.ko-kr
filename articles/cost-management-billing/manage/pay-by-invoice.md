@@ -2,28 +2,28 @@
 title: 청구서로 Azure 구독 비용 지불
 description: 청구서로 Azure 구독 비용을 지불하는 방법을 설명합니다.
 author: bandersmsft
-manager: jureid
+manager: judupont
 tags: billing
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 08/23/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: a0f012145788d2d1d4935e10691859e5aaf71255
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a471e859261dc735e92bfff743eb3a8e13dd9a35
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75994338"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133635"
 ---
 # <a name="pay-for-your-azure-subscription-by-invoice"></a>청구서로 Azure 구독 비용 지불
 
 지불 방법을 청구서로 전환하는 경우 청구서 날짜 30일 이내에 수표/전신 송금을 사용하여 결제해야 합니다. 청구서로 Azure 구독에 대한 요금을 지불하려면 Azure 지원에 요청을 제출합니다. 요청이 승인되면 [Azure Portal](https://portal.azure.com)에서 구독을 청구서 지불(수표/전신 송금)로 전환할 수 있습니다.
 
 > [!IMPORTANT]
-> * 청구서 지불(수표/전신 송금)은 비즈니스 계정에만 사용할 수 있습니다.
+> * 청구서 지불(수표/전신 송금)은 회사를 대신하여 Azure를 사용하는 고객에게만 제공됩니다.
 > * 청구서 지불로 전환하기 전에 미지불된 모든 요금을 결제합니다.
 > * 현재, 청구서 결제는 중국의 글로벌 Azure를 지원하지 않습니다.
 

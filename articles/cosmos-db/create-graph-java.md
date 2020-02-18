@@ -9,14 +9,14 @@ ms.topic: quickstart
 ms.date: 03/26/2019
 ms.author: lbosq
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: 1b37475cfa8df38a00ea6017d47e90677ed457d2
-ms.sourcegitcommit: 7df70220062f1f09738f113f860fad7ab5736e88
+ms.openlocfilehash: 9f9b6614c586d9c7c721dfc59da9c4a9c342b57c
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71212631"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77062063"
 ---
-# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-table-api"></a>빠른 시작: Java SDK 및 Azure Cosmos DB Table API를 사용하여 그래프 데이터베이스 빌드
+# <a name="quickstart-build-a-graph-database-with-the-java-sdk-and-the-azure-cosmos-db-gremlin-api"></a>빠른 시작: Java SDK 및 Azure Cosmos DB Gremlin API를 사용하여 그래프 데이터베이스 빌드
 
 > [!div class="op_single_selector"]
 > * [Gremlin 콘솔](create-graph-gremlin-console.md)
@@ -27,21 +27,13 @@ ms.locfileid: "71212631"
 > * [PHP](create-graph-php.md)
 >  
 
-Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터베이스 서비스입니다. Azure Cosmos DB를 사용하여 관리되는 문서, 테이블 및 그래프 데이터베이스를 신속하게 만들고 쿼리할 수 있습니다. 
+이 빠른 시작에서는 Azure Portal에서 Azure Cosmos DB Gremlin(그래프) API 계정을 생성 및 관리하고 GitHub에서 복제된 Java 앱을 사용하여 데이터를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-이 빠른 시작은 Azure Cosmos DB용 Azure Portal 도구를 사용하여 간단한 그래프 데이터베이스를 만듭니다. 또한 이 빠른 시작은 OSS [Apache TinkerPop](https://tinkerpop.apache.org/) 드라이버를 사용하는 [Gremlin API](graph-introduction.md) 데이터베이스를 사용하여 Java 콘솔 앱을 빠르게 만드는 방법도 보여줍니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 통해 원하는 것이 무엇이든지 UI 또는 프로그래밍 방식으로 그래프를 만들고 수정하는 작업을 알아봅니다. 
-
-## <a name="prerequisites"></a>필수 조건
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
-
-또한,
-
-* [JDK(Java Development Kit) 버전 8](https://aka.ms/azure-jdks)
-    * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
-    * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
-* [Git](https://www.git-scm.com/)
-    * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
+## <a name="prerequisites"></a>사전 요구 사항
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 
+- [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
+- [Maven 이진 보관 파일](https://maven.apache.org/download.cgi). 
+- [Git](https://www.git-scm.com/downloads) 
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -57,7 +49,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 Gremlin API 앱을 복제하고, 연결 문자열을 설정하고, 실행해 보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다.  
 
-1. 명령 프롬프트를 git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
+1. 명령 프롬프트를 열고, git-samples라는 새 폴더를 만든 다음 명령 프롬프트를 닫습니다.
 
     ```bash
     md "C:\git-samples"
@@ -79,9 +71,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이 단계는 선택 사항입니다. 데이터베이스 리소스를 코드로 만드는 방법을 알아보려는 경우 다음 코드 조각을 검토할 수 있습니다. 그렇지 않으면 [연결 문자열 업데이트](#update-your-connection-information)로 건너뛸 수 있습니다.
 
-다음 코드 조각은 모두 C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java 파일에서 가져온 것입니다.
+다음 코드 조각은 모두 *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\GetStarted\Program.java* 파일에서 가져온 것입니다.
 
-* Gremlin `Client`는 C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml 파일의 구성에서 초기화됩니다.
+이 Java 콘솔 앱은 OSS [Apache TinkerPop](https://tinkerpop.apache.org/) 드라이버와 함께 [Gremlin API](graph-introduction.md) 데이터베이스를 사용합니다. 
+
+- Gremlin `Client`는 *C:\git-samples\azure-cosmos-db-graph-java-getting-started\src\remote.yaml* 파일의 구성에서 초기화됩니다.
 
     ```java
     cluster = Cluster.build(new File("src/remote.yaml")).create();
@@ -89,7 +83,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
     client = cluster.connect();
     ```
 
-* `client.submit` 메서드를 사용하여 일련의 Gremlin 단계를 실행합니다.
+- `client.submit` 메서드를 사용하여 일련의 Gremlin 단계를 실행합니다.
 
     ```java
     ResultSet results = client.submit(gremlin);
@@ -106,14 +100,14 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 Azure Portal로 다시 이동하여 연결 정보를 가져와서 앱에 복사합니다. 이러한 설정을 사용하면 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
 
-1. [Azure Portal](https://portal.azure.com/)에서 **키**를 선택합니다. 
+1. [Azure Portal](https://portal.azure.com/)의 Azure Cosmos DB 계정에서 **키**를 선택합니다. 
 
     URI 값의 첫 번째 부분을 복사합니다.
 
     ![Azure Portal에서 선택키 보기 및 복사, 키 페이지](./media/create-graph-java/copy-access-key-azure-portal.png)
-2. src/remote.yaml 파일을 열고 `hosts: [$name$.graphs.azure.com]`의 `$name$`에 고유한 ID 값을 붙여넣습니다.
+2. *src/remote.yaml* 파일을 열고 `hosts: [$name$.graphs.azure.com]`의 `$name$`에 고유한 ID 값을 붙여넣습니다.
 
-    이제 remote.yaml의 1줄이 다음과 비슷하게 표시됩니다. 
+    이제 *remote.yaml*의 1줄은 다음과 비슷하게 표시됩니다. 
 
     `hosts: [test-graph.graphs.azure.com]`
 
@@ -125,11 +119,11 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 4. Azure Portal에서 복사 단추를 사용하여 기본 키를 복사하고 `password: $masterKey$`의 `$masterKey$`에 붙여넣습니다.
 
-    이제 remote.yaml의 4줄이 다음과 비슷하게 표시됩니다. 
+    *이제 remote.yaml*의 4줄은 다음과 비슷하게 표시됩니다. 
 
     `password: 2Ggkr662ifxz2Mg==`
 
-5. 다음에서 remote.yaml의 3줄을 변경합니다.
+5. 다음에서 *remote.yaml*의 3줄을 변경합니다.
 
     `username: /dbs/$database$/colls/$collection$`
 
@@ -139,7 +133,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     샘플 데이터베이스 또는 그래프에 고유한 이름을 사용한 경우 값을 적절하게 업데이트합니다.
 
-6. remote.yaml 파일을 저장합니다.
+6. *remote.yaml* 파일을 저장합니다.
 
 ## <a name="run-the-console-app"></a>콘솔 앱 실행
 
@@ -172,7 +166,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 이제 데이터 탐색기로 다시 돌아가서 그래프에 추가된 꼭짓점을 확인하고 추가 데이터 지점을 추가할 수 있습니다.
 
-1. **데이터 탐색기**를 선택하고, **sample-graph**를 확장하고, **그래프**를 선택한 다음, **필터 적용**을 선택합니다. 
+1. Azure portal의 Azure Cosmos DB 계정에서 **데이터 탐색기**를 선택하고, **sample-graph**를 확장하고, **그래프**를 선택한 다음, **필터 적용**을 선택합니다. 
 
    ![Azure Portal의 데이터 탐색기에서 새 문서 만들기](./media/create-graph-java/azure-cosmosdb-data-explorer-expanded.png)
 
@@ -229,7 +223,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
     ![데이터 탐색기에서 연결된 두 꼭짓점 - Azure CosmosDB](./media/create-graph-java/azure-cosmosdb-graph-explorer.png)
 
-    이것으로 이 자습서의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
+이것으로 이 자습서의 리소스 만들기 단계를 마칩니다. 계속해서 그래프에 꼭짓점을 추가하거나, 기존 꼭짓점을 수정하거나, 쿼리를 변경할 수 있습니다. 이제 Azure Cosmos DB에서 제공하는 메트릭을 검토하고 리소스를 정리하겠습니다. 
 
 ## <a name="review-slas-in-the-azure-portal"></a>Azure Portal에서 SLA 검토
 
@@ -241,7 +235,7 @@ Azure Cosmos DB는 전 세계에 배포된 Microsoft의 다중 모델 데이터�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서, Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 그래프를 만들고, 앱을 실행하는 방법을 알아보았습니다. 이제 Gremlin을 사용하여 더 복잡한 쿼리를 작성하고 강력한 그래프 순회 논리를 구현할 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos DB 계정을 만들고, 데이터 탐색기를 사용하여 그래프를 만들고, 그래프에 데이터를 추가하는 Python 앱을 실행하는 방법을 알아보았습니다. 이제 Gremlin을 사용하여 더 복잡한 쿼리를 작성하고 강력한 그래프 순회 논리를 구현할 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Gremlin을 사용하여 쿼리](tutorial-query-graph.md)

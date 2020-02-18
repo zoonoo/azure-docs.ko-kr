@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 10/20/2019
-ms.openlocfilehash: 6fd9166168a5b21900aa49d42a1dd5b81039dbcd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c2a26f2f40e0312fbfa0962e69ddfd0cfdabad5f
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428755"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77191291"
 ---
 # <a name="quickstart-create-your-first-workflow-by-using-azure-logic-apps---azure-portal"></a>빠른 시작: Azure Logic Apps를 사용하여 첫 번째 워크플로 만들기 - Azure Portal
 
@@ -116,7 +116,7 @@ Azure 계정 자격 증명을 사용하여 [Azure Portal](https://portal.azure.c
 1. 선택한 메일 커넥터에서 ID를 인증하라는 메시지를 표시하는 경우 해당 단계를 완료하여 논리 앱과 메일 서비스 간에 연결을 만듭니다.
 
    > [!NOTE]
-   > 이 특정 예제에서는 ID를 수동으로 인증합니다. 그러나 인증을 요구하는 커넥터는 지원하는 인증 유형에 따라 달라집니다. 또한 인증을 처리하는 방법을 설정하는 옵션도 제공됩니다. 예를 들어, 배포에 Azure Resource Manager 템플릿을 사용하는 경우 연결 정보와 같이 자주 또는 쉽게 변경하려는 입력을 매개 변수화하고 보호할 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
+   > 이 특정 예제에서는 ID를 수동으로 인증합니다. 그러나 인증을 요구하는 커넥터는 지원하는 인증 유형에 따라 달라집니다. 또한 인증을 처리하는 방법을 설정하는 옵션도 제공됩니다. 예를 들어, 배포에 Azure Resource Manager 템플릿을 사용하는 경우 연결 정보와 같이 자주 또는 쉽게 변경하려는 입력에 대한 매개 변수를 지정하고 보안을 향상시킬 수 있습니다. 자세한 내용은 다음 항목을 참조하세요.
    >
    > * [배포용 템플릿 매개 변수](../logic-apps/logic-apps-azure-resource-manager-templates-overview.md#template-parameters)
    > * [OAuth 연결 권한 부여](../logic-apps/logic-apps-deploy-azure-resource-manager-templates.md#authorize-oauth-connections)

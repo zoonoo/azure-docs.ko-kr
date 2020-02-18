@@ -3,24 +3,29 @@ title: Azure Notebooks 미리 보기를 사용하여 GitHub에서 Jupyter Notebo
 description: GitHub 리포지토리에서 Jupyter 노트를 신속하게 복제하고 Azure Notebooks 계정에서 실행합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 8aa88008ece170a5eed7ab491e3318aed5168923
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d0f3a12ff04e115074c3821c5e29652484710bca
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647104"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064600"
 ---
 # <a name="quickstart-clone-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 복제
 
-많은 데이터 과학자와 개발자는 여러 다른 프로젝트 형식에 대한 스토리지 및 버전 제어를 제공하는 무료 서비스인 [GitHub 리포지토리](https://github.com)에 노트를 저장합니다. GitHub는 로컬로 실행되는 Jupyter 노트에 대해 공동 작업을 수행하는 수단으로 자주 사용됩니다. 이러한 경우 모든 협력자는 리포지토리의 로컬 복사본을 유지 관리하고 해당 복사본에서 노트를 실행합니다.
+이 빠른 시작에서는 GitHub에 저장된 Jupyter Notebook을 Azure Notebooks 계정에 복사합니다. 
 
-복제를 수행하면 대신, Azure Notebooks 계정에 GitHub 노트 복사본이 만들어집니다. 이 클론은 원본 리포지토리와는 별개이며, 변경 내용은 Azure Notebooks 계정에만 저장되고 원본에는 영향을 주지 않습니다. 클론이 클라우드에 있으므로 로컬 복사본을 만들 필요가 없거나 자신의 컴퓨터에 Jupyter를 설치하지 않은 다른 공동 작업자와 프로젝트를 공유할 수 있습니다. 또한 노트를 단순히 나만의 프로젝트 시작점으로 사용하거나 데이터 파일을 획득하기 위해 복제할 수도 있습니다.
+GitHub 리포지토리는 Jupyter Notebooks에 대한 스토리지 및 버전 제어를 제공합니다. 협력자는 리포지토리의 로컬 복사본을 유지 관리하고 해당 복사본에서 Notebooks를 실행합니다. GitHub에서 Jupyter Notebook을 Azure Notebooks 계정으로 복제하면 Notebook의 독립적인 복사본이 생성됩니다. 변경 내용은 Azure Notebooks 계정에만 저장되고 원래 GitHub 리포지토리에는 영향을 주지 않습니다. 
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+Azure Notebooks 클론이 클라우드에 있으므로 로컬 복사본을 만들거나 컴퓨터에 Jupyter를 설치하지 않아도 되는 협력자와 공유할 수 있습니다. 또한 단순히 나만의 프로젝트 시작점으로 사용하거나 데이터 파일을 획득하기 위해 Notebook을 복제할 수도 있습니다. 
+
+## <a name="prerequisites"></a>사전 요구 사항
+없음
 
 ## <a name="clone-azure-cognitive-services-notebooks"></a>Azure Cognitive Services 노트 복제
 
-1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. [Azure Notebooks](https://notebooks.azure.com)로 가서 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
@@ -69,4 +74,4 @@ ms.locfileid: "75647104"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀 분석을 실행할 Jupyter Notebook 생성 및 실행](tutorial-create-run-jupyter-notebook.md)

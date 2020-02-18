@@ -5,14 +5,14 @@ services: virtual-wan
 author: anzaman
 ms.service: virtual-wan
 ms.topic: tutorial
-ms.date: 12/02/2019
+ms.date: 02/07/2019
 ms.author: alzam
-ms.openlocfilehash: 19aa029311584b5a9762691d24ed10c1666a032c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: b3508c4c8da5b4987fb5f38cf3bf701f2dda1097
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74781730"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122021"
 ---
 # <a name="tutorial-create-a-user-vpn-connection-by-using-azure-virtual-wan"></a>자습서: Azure Virtual WAN을 사용하여 사용자 VPN 연결 만들기
 
@@ -20,7 +20,7 @@ ms.locfileid: "74781730"
 
 이 연결 유형은 클라이언트 컴퓨터에서 클라이언트를 구성해야 합니다. Virtual WAN에 대한 자세한 내용은 [Virtual WAN 개요](virtual-wan-about.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * WAN 만들기
@@ -86,19 +86,17 @@ ms.locfileid: "74781730"
 
 P2S 구성은 원격 클라이언트 연결에 대한 매개 변수를 정의합니다.
 
-1. 환경에 필요한 대로 값을 대체하여 다음 변수를 설정합니다.
+1. 가상 WAN 아래에서 **사용자 VPN 구성**을 선택합니다.
 
-   ```powershell
-   $aadAudience = "00000000-abcd-abcd-abcd-999999999999"
-   $aadIssuer = "https://sts.windows.net/00000000-abcd-abcd-abcd-999999999999/"
-   $aadTenant = "https://login.microsoftonline.com/00000000-abcd-abcd-abcd-999999999999"    
-   ```
+   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal1.jpg)
 
-2. 다음 명령을 실행하여 구성을 만듭니다.
+2. **+사용자 VPN 구성 만들기**를 클릭합니다.
 
-   ```powershell
-   $aadConfig = New-AzVpnServerConfiguration -ResourceGroupName <ResourceGroup> -Name newAADConfig -VpnProtocol OpenVPN -VpnAuthenticationType AAD -AadTenant $aadTenant -AadIssuer $aadIssuer -AadAudience $aadAudience -Location westcentralus
-   ```
+   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal2.jpg)
+
+3. 정보를 입력하고 **만들기**를 클릭합니다.
+
+   ![새로운 구성](media/virtual-wan-point-to-site-azure-ad/aadportal3.jpg)
 
 ## <a name="hub"></a>허브 할당 편집
 
@@ -125,7 +123,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 ## <a name="configure-user-vpn-clients"></a>사용자 VPN 클라이언트 구성
 
-연결하려면 Azure VPN Client(미리 보기)를 다운로드하고, 이전 단계에서 VNet에 연결하려는 모든 컴퓨터에 다운로드한 VPN 클라이언트 프로필을 가져와야 합니다.
+연결하려면 Azure VPN Client를 다운로드하고, 이전 단계에서 VNet에 연결하려는 모든 컴퓨터에 다운로드한 VPN 클라이언트 프로필을 가져와야 합니다.
 
 > [!NOTE]
 > Azure AD 인증은 OpenVPN® 프로토콜 연결에만 지원됩니다.
@@ -133,7 +131,7 @@ VPN 프로필을 사용하여 클라이언트를 구성합니다.
 
 #### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
 
-이 [링크](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)를 사용하여 Azure VPN Client(미리 보기)를 다운로드합니다.
+이 [링크](https://www.microsoft.com/p/azure-vpn-client-preview/9np355qt2sqb?rtc=1&activetab=pivot:overviewtab)를 사용하여 Azure VPN Client를 다운로드합니다.
 
 #### <a name="import"></a>클라이언트 프로필을 가져오려면,
 

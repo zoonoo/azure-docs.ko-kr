@@ -2,22 +2,22 @@
 title: Microsoft Azure에 대한 청구서 지불 | Microsoft Docs
 description: Azure Portal에서 청구서를 지불하는 방법을 설명합니다.
 keywords: 청구, 기한 초과, 잔액, 지금 지불
-author: jureid
-manager: jureid
+author: banders
+manager: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: d486fe72a43465832ca13ac1a62a7f0a9aeaa65e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 214382693d942152d82b7ae5e487969b8ebaeaff
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989710"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188130"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 
@@ -35,21 +35,12 @@ ms.locfileid: "75989710"
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **Cost Management + 청구**에서 검색합니다.
-1. **개요** 블레이드에서 *요약* 탭을 클릭합니다.
-
-    ![요약 탭을 보여 주는 스크린샷](./media/pay-bill/billing-account-overview.png)
-
-1. 기한이거나 기한이 초과된 청구서인 경우 총 지불액이 표시됩니다.
-1. 파란색 **지금 지불** 단추를 클릭합니다.
-
-    ![지금 지불 단추를 보여 주는 스크린샷](./media/pay-bill/paynow-button-overview.png)
-
-1. 새 블레이드에서 **결제 방법 선택**을 클릭하여 기존 신용 카드를 선택하거나 새 신용 카드를 추가합니다.<!-- screenshot of select payment method link -->
+1. 왼쪽 메뉴에서 'Billing' 아래에서 **청구서**를 선택합니다.
+1. 청구서의 기한이 지났거나 만료된 경우 해당 청구서에 파란색 **지금 지불** 링크가 표시됩니다. **지금 지불**을 선택합니다.
+1. 새 블레이드에서 **결제 방법 선택**을 클릭하여 기존 신용 카드를 선택하거나 새 신용 카드를 추가합니다.
 1. 결제 방법을 선택했으면 **지금 지불**을 클릭합니다.
 
 청구서의 상태는 청구서 블레이드에서 지불로 업데이트됩니다.
-
-<!-- pay now from invoice blade -->
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

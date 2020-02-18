@@ -3,18 +3,18 @@ title: 빠른 시작 - Azure IoT Central에서 규칙 및 작업 구성
 description: 이 빠른 시작에서는 Azure IoT Central 애플리케이션에서 원격 분석 기반 규칙 및 작업을 구성하는 방법을 보여 줍니다.
 author: dominicbetts
 ms.author: dobett
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.topic: quickstart
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: philmea
-ms.openlocfilehash: a63e77fb3c50d4387c27912336d65f9f84d2d5c9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4bbf571d6b73a6f43c1c3b1ce261da6963a74183
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026246"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77169509"
 ---
 # <a name="quickstart-configure-rules-and-actions-for-your-device-in-azure-iot-central"></a>빠른 시작: Azure IoT Central에서 디바이스에 대한 규칙 및 작업 구성
 

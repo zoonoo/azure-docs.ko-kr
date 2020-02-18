@@ -7,13 +7,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
-ms.date: 06/12/2019
-ms.openlocfilehash: b04cc3a5e3a5680f7a16e890c39a4a7d83002bd7
-ms.sourcegitcommit: b77e97709663c0c9f84d95c1f0578fcfcb3b2a6c
+ms.date: 02/10/2020
+ms.openlocfilehash: a77771880da962298f6e80782e5f3e251f5f4641
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74321669"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77122360"
 ---
 # <a name="what-is-ml-services-in-azure-hdinsight"></a>Azure HDInsight에서 ML Services란
 
@@ -51,11 +51,14 @@ HDInsight의 ML Services는 다음과 같은 이점을 제공합니다.
   Individuals embarking on the journey of making their applications intelligent or simply wanting to learn the new world of AI and machine learning, need the right resources to help them get started. In addition to this documentation, Microsoft provides several learning resources and has engaged several training partners to help you ramp up and become productive quickly.
 --->
 
+> [!NOTE]  
+> HDInsight의 ML 서비스 클러스터 유형은 HDInsight 3.6에서만 지원됩니다. HDInsight 3.6은 2020년 12월 31일에 사용 중지될 예정입니다.
+
 ## <a name="key-features-of-ml-services-on-hdinsight"></a>HDInsight의 ML Services 주요 기능
 
 HDInsight의 ML Services에는 다음 기능이 포함됩니다.
 
-| 기능 범주 | 설명 |
+| 기능 범주 | Description |
 |------------------|-------------|
 | R 지원 | R로 작성된 솔루션용 [R 패키지](https://docs.microsoft.com/machine-learning-server/r-reference/introducing-r-server-r-package-reference)(R의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함) |
 | Python 지원 | Python으로 작성된 솔루션용 [Python 모듈](https://docs.microsoft.com/machine-learning-server/python-reference/introducing-python-package-reference)(Python의 오픈 소스 배포와 스크립트 실행을 위한 런타임 인프라 포함)
@@ -134,7 +137,7 @@ HDInsight 클러스터의 Linux 에지 노드는 R 기반 분석의 연결 영�
 
 또한 SSH 또는 PuTTY를 통해 연결한 후 Linux 명령 프롬프트에서 **R**을 입력하면 에지 노드의 R 콘솔에 액세스할 수 있습니다. 콘솔 인터페이스 사용 시 R 스크립트 개발용 텍스트 편집기를 다른 창에서 실행하고 필요에 따라 스크립트의 섹션을 복사하여 R 콘솔에 붙여 넣으면 편리합니다.
 
-## <a name="pricing"></a>가격
+## <a name="pricing"></a>가격 책정
 
 ML Services HDInsight 클러스터와 연관된 요금은 다른 HDInsight 클러스터형식의 가격과 유사한 방식으로 구성됩니다. 이름, 데이터 및 에지 노드에서 기본 VM의 크기 조정을 기반으로 하며 향상된 코어 시간 기능이 추가되었습니다. 자세한 내용은 [HDInsight 가격](https://azure.microsoft.com/pricing/details/hdinsight/)을 참조하세요.
 

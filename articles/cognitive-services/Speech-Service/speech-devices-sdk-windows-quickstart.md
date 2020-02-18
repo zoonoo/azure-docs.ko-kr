@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 11/13/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: e3764dbfa7de52bf210a1e6cc8bd240d64d64aeb
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 78d9dc8c2302de6a9bdbfef62d47d10d252cf0c5
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815546"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189024"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-windows"></a>빠른 시작: Windows에서 Speech Devices SDK 샘플 앱 실행
 
@@ -27,7 +27,7 @@ ms.locfileid: "74815546"
 
 [샘플 애플리케이션](https://aka.ms/sdsdk-download-JRE)의 소스 코드는 Speech Devices SDK에 포함되어 있으며, [GitHub에서도 사용할 수 있습니다](https://github.com/Azure-Samples/Cognitive-Services-Speech-Devices-SDK).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작에는 다음이 필요합니다.
 
@@ -39,9 +39,9 @@ ms.locfileid: "74815546"
 * Speech Service에 대한 Azure 구독 키입니다. [무료로 가져올 수 있습니다](get-started.md).
 * Java용 [Speech Devices SDK](https://aka.ms/sdsdk-download-JRE)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
    > [!NOTE]
-   > JRE-Sample-Release.zip 파일에는 JRE 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\JRE-Sample-Release에 추출되었다고 가정합니다.
+   > 이 빠른 시작에서는 앱이 C:\SDSDK\JRE-Sample-Release로 추출되었다고 가정합니다.
 
-현재 대화 전사는 “미국 중부” 및 “동아시아” 지역의 “en-US” 및 “zh-CN”에 대해서만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
+현재 대화 전사는 “미국 중부” 및 “동아시아” 지역에서 “en-US” 및 “zh-CN”에 대해서만 사용할 수 있습니다. 대화 전사를 사용하려면 이 지역 중 한 곳에 음성 키가 있어야 합니다.
 
 의도를 사용하려는 경우 [LUIS(Language Understanding Service)](https://docs.microsoft.com/azure/cognitive-services/luis/azureibizasubscription) 구독이 필요합니다. LUIS와 의도 인식에 대해 자세히 알아보려면 [LUIS, C#을 통해 음성 의도 인식](https://docs.microsoft.com/azure/cognitive-services/speech-service/how-to-recognize-intents-from-speech-csharp)을 참조하세요. [샘플 LUIS 모델](https://aka.ms/sdsdk-luis)은 이 앱에서 사용할 수 있습니다.
 
@@ -81,7 +81,7 @@ ms.locfileid: "74815546"
         <dependency>
              <groupId>com.microsoft.cognitiveservices.speech</groupId>
              <artifactId>client-sdk</artifactId>
-             <version>1.7.0</version>
+             <version>1.9.0</version>
         </dependency>
     </dependencies>
    ```

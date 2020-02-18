@@ -6,12 +6,12 @@ ms.topic: tutorial
 author: milismsft
 ms.author: adrianmi
 ms.date: 06/20/2019
-ms.openlocfilehash: 3878f6d01a2adfff2adc6a22aad20a5f83992b8d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4dffe169908d0dd3effa4e46140b5f6696805a3e
+ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76719690"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77168639"
 ---
 # <a name="azure-cosmos-emulator---release-notes-and-download-information"></a>Azure Cosmos Emulator - 릴리스 정보 및 다운로드 정보
 
@@ -25,6 +25,10 @@ ms.locfileid: "76719690"
 |**시작**|[Azure Cosmos 에뮬레이터로 로컬에서 개발](local-emulator.md)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="291"></a>2.9.1
+
+- 이 릴리스는 쿼리 API 지원의 몇 가지 문제를 해결하고 Windows Server 2012와 같은 이전 OS와의 호환성을 복원합니다.
 
 ### <a name="290"></a>2.9.0
 

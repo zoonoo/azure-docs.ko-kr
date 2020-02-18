@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: quickstart
-ms.date: 12/17/2019
+ms.date: 02/12/2020
 ms.author: erhopf
-ms.openlocfilehash: 2def0eaa2e1ee22498202228cf62257605d940e5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 657cf0a0648cd53e5692a2cf5333ba29951b77a4
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75380323"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77189133"
 ---
 # <a name="quickstart-run-the-speech-devices-sdk-sample-app-on-android"></a>빠른 시작: Android에서 Speech Devices SDK 샘플 앱 실행
 
@@ -34,7 +34,7 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 - [Speech Devices SDK](https://aka.ms/sdsdk-download)의 최신 버전을 다운로드하고 작업 디렉터리에 .zip을 추출합니다.
 
   > [!NOTE]
-  > Android-Sample-Release.zip 파일에는 Android 샘플 앱이 포함되어 있으며 이 빠른 시작에서는 이 앱이 C:\SDSDK\Android-Sample-Release에 추출되었다고 가정합니다.
+  > 이 빠른 시작에서는 앱이 C:\SDSDK\Android-Sample-Release로 추출되었다고 가정합니다.
 
 - [Speech Service에 대한 Azure 구독 키](get-started.md)를 가져옵니다.
 
@@ -83,6 +83,29 @@ Speech Devices SDK 사용을 시작하려면 다음 사항이 필요합니다.
 
 1. C:\SDSDK\Android-Sample-Release\example로 이동합니다. **확인**을 선택하여 예제 프로젝트를 엽니다.
 
+1. Speech SDK를 참조하도록 gradle을 구성합니다. 다음 파일은 Android Studio의 **Gradle Scripts**에서 찾을 수 있습니다.
+
+    **build.gradle(Project:example)** 을 업데이트합니다. maven 줄을 추가하여 allprojects 블록이 아래와 일치해야 합니다.
+
+    ```xml
+    allprojects {
+        repositories {
+            google()
+            jcenter()
+            mavenCentral()
+            maven {
+                url 'https://csspeechstorage.blob.core.windows.net/maven/'
+            }
+        }
+    }
+    ```
+
+    종속성 섹션에 이 줄을 추가하여 **build.gradle(Module:app)** 을 업데이트합니다. 
+    
+    ```xml
+    implementation'com.microsoft.cognitiveservices.speech:client-sdk:1.9.0'
+    ```
+    
 1. 소스 코드에 음성 구독 키를 추가합니다. 의도 인식을 사용해 보려면 [Language Understanding 서비스](https://azure.microsoft.com/services/cognitive-services/language-understanding-intelligent-service/) 구독 키 및 애플리케이션 ID를 추가합니다.
 
    음성과 LUIS의 경우 MainActivity.java에 정보가 들어갑니다.

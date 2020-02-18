@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/30/2019
 ms.author: helohr
-ms.openlocfilehash: 25dd4810cf8cccab8bcbf211da4f6abbcd147056
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40659414848adb9be86b6163cf456809e9cb750f
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77020032"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134605"
 ---
 # <a name="tutorial-create-a-host-pool-by-using-the-azure-marketplace"></a>자습서: Azure Marketplace를 사용하여 호스트 풀 만들기
 
@@ -65,6 +65,10 @@ Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"
 **가상 머신 구성** 블레이드의 경우:
 
 1. 기본값을 그대로 적용하거나 VM의 수 및 크기를 사용자 지정합니다.
+    
+    >[!NOTE]
+    >찾고 있는 특정 VM 크기가 VM 크기 선택기에 표시되지 않는 경우, 이는 Azure Marketplace 도구에 아직 등록되지 않았기 때문입니다. VM 크기를 요청하려면 [Windows Virtual Desktop UserVoice 포럼](https://windowsvirtualdesktop.uservoice.com/forums/921118-general)에서 요청을 만들거나 기존 요청에 찬성합니다.
+    
 2. 가상 머신의 이름에 사용할 접두사를 입력합니다. 예를 들어, “prefix”라는 이름을 입력하는 경우 가상 머신은 “prefix-0”, “prefix-1” 등으로 불립니다.
 3. **다음: 가상 머신 설정**을 선택합니다.
 

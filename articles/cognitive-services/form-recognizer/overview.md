@@ -9,12 +9,12 @@ ms.subservice: forms-recognizer
 ms.topic: overview
 ms.date: 12/05/2019
 ms.author: pafarley
-ms.openlocfilehash: 91ea2b68828ac54d4128a90550e9c60e065b719d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0d78f3cc4f2b12b2d9f45878a0c1b91263112689
+ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75379442"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77118547"
 ---
 # <a name="what-is-form-recognizer"></a>Form Recognizer란?
 
@@ -51,17 +51,9 @@ Form Recognizer는 [레이아웃 API](#layout-api)를 사용하여 인쇄 및 �
 
 또한 Form Recognizer는 고화질 OCR(광학 문자 인식)을 사용하여 텍스트 및 테이블 구조(텍스트와 연결된 행 및 열 번호)를 추출할 수 있습니다. 
 
-## <a name="where-do-i-start"></a>시작 단계
+## <a name="get-started"></a>시작하기
 
-**1단계:** 액세스 요청:
-
-Form Recognizer는 제한된 액세스 미리 보기에서 사용할 수 있습니다. 미리 보기에 액세스하려면 [Form Recognizer 액세스 요청](https://aka.ms/FormRecognizerRequestAccess) 양식을 작성하여 제출하세요. 이 양식은 사용자, 사용자의 회사 및 Form Recognizer를 사용할 시나리오에 대한 정보를 요청합니다.
-
-**2단계:** Azure Portal에서 Form Recognizer 리소스 만들기:
-
-Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가지 링크와 리소스가 포함된 환영 이메일을 받을 수 있습니다. 해당 메시지의 “Azure Portal” 링크를 사용하여 Azure Portal을 열고 Form Recognizer 리소스를 만듭니다.
-
-**3단계:** 양식에서 데이터 추출:
+빠른 시작에 따라 양식에서 데이터 추출을 시작합니다. 기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
 
 * 사용자 지정 - 양식에 모델 학습
   * 레이블 없이 학습
@@ -76,9 +68,7 @@ Form Recognizer를 사용할 수 있는 액세스 권한이 부여되면 몇 가
 * 레이아웃 - 양식에서 텍스트 및 테이블 구조 추출
   * [빠른 시작: Python을 사용하여 레이아웃 데이터 추출](quickstarts/python-layout.md)
 
-기술을 학습할 때 체험판 서비스를 이용하는 것이 좋습니다. 체험판 페이지는 한 달에 500페이지로 제한됩니다.
-
-**4단계:** REST API 검토:
+### <a name="review-the-rest-apis"></a>REST API 검토
 
 다음 API를 사용하여 모델을 학습시키고 양식에서 정형 데이터를 추출합니다.
 

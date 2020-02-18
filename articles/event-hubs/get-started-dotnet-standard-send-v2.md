@@ -11,28 +11,31 @@ ms.devlang: na
 ms.topic: quickstart
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 01/15/2020
+ms.date: 02/11/2020
 ms.author: spelluru
-ms.openlocfilehash: c8c6e2741eeeadf2afc0c027da8f9cf957c29c95
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 022af5ce0774ff106a29a2ef0bcf3fe11acfda15
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023245"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77187207"
 ---
-# <a name="send-events-to-or-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 또는 받기 - .NET Core(Azure.Messaging.EventHubs) 
-Event Hubs는 연결된 디바이스 및 애플리케이션에서 많은 양의 이벤트 데이터(원격 분석)를 처리하는 서비스입니다. Event Hubs에 데이터를 수집한 후에는 스토리지 클러스터 또는 프로세스 이벤트를 사용하여 데이터를 저장할 수 있습니다. 예를 들어 실시간 분석 공급자를 사용하여 이벤트 데이터를 변환할 수 있습니다. 이 대규모 이벤트 수집 및 처리 기능은 IoT(사물 인터넷)를 포함하여 최신 애플리케이션 아키텍처의 핵심 구성 요소입니다. Event Hubs에 대한 자세한 개요는 [Event Hubs 개요](event-hubs-about.md) 및 [Event Hubs 기능](event-hubs-features.md)을 참조하세요.
-
-이 자습서에서는 Event Hubs .NET Core SDK를 사용하여 이벤트 허브에서 이벤트를 보내거나 받는 방법을 보여줍니다. 
+# <a name="send-events-to-and-receive-events-from-azure-event-hubs---net-core-azuremessagingeventhubs"></a>Azure Event Hubs에서 이벤트 보내기 및 받기 - .NET Core(Azure.Messaging.EventHubs) 
+이 빠른 시작에서는 **Azure.Messaging.EventHubs** .NET Core 라이브러리를 사용하여 이벤트 허브와 이벤트를 주고 받는 방법을 보여줍니다. 
 
 > [!IMPORTANT]
-> 이 빠른 시작에서는 새 **Azure.Messaging.EventHubs** 라이브러리를 사용합니다. 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하는 빠른 시작은 [이 문서](event-hubs-dotnet-standard-getstarted-send.md)를 참조하세요. 
+> 이 빠른 시작에서는 새 **Azure.Messaging.EventHubs** 라이브러리를 사용합니다. 이전 **Microsoft.Azure.EventHubs** 라이브러리를 사용하는 빠른 시작은 [Microsoft.Azure.EventHubs 라이브러리를 사용하여 이벤트 보내기 및 받기](event-hubs-dotnet-standard-getstarted-send.md)를 참조하세요. 
+
+
 
 ## <a name="prerequisites"></a>사전 요구 사항
+Azure Event Hubs를 처음 사용하는 경우 이 빠른 시작을 수행하기 전에 [Event Hubs 개요](event-hubs-about.md)를 참조하세요. 
+
+이 빠른 시작을 완료하려면 다음 필수 구성 요소가 필요합니다.
 
 - **Microsoft Azure 구독**. Azure Event Hubs를 비롯한 Azure 서비스를 사용하려면 구독이 필요합니다.  기존 Azure 계정이 없는 경우 [평가판](https://azure.microsoft.com/free/)에 가입하거나 [계정을 만들 때](https://azure.microsoft.com) MSDN 구독자 혜택을 사용할 수 있습니다.
 - **Microsoft Visual Studio 2019** Azure Event Hubs 클라이언트 라이브러리는 C# 8.0에 도입된 새 기능을 사용합니다.  이 라이브러리를 이전 버전의 C#에서 계속 사용해도 되지만, 일부 기능을 사용할 수 없습니다.  이러한 기능을 사용하려면 [.NET Core 3.0을 대상으로 지정](/dotnet/standard/frameworks#how-to-specify-target-frameworks)하거나 사용하려는 [언어 버전을 지정](/dotnet/csharp/language-reference/configure-language-version#override-a-default)해야 합니다(8.0 이상). Visual Studio를 사용하는 경우 Visual Studio 2019 이전 버전은 C# 8.0 프로젝트를 빌드하는 데 필요한 도구와 호환되지 않습니다. 무료 Community 버전을 비롯한 Visual Studio 2019는 [여기](https://visualstudio.microsoft.com/vs/)서 다운로드할 수 있습니다.
-- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 해당 연결 문자열은 이 자습서의 뒷부분에서 사용합니다.
+- **Event Hubs 네임스페이스 및 이벤트 허브 만들기** 첫 번째 단계에서는 [Azure Portal](https://portal.azure.com)을 사용하여 Event Hubs 형식의 네임스페이스를 만들고 애플리케이션에서 Event Hub와 통신하는 데 필요한 관리 자격 증명을 얻습니다. 네임스페이스 및 이벤트 허브를 만들려면 [이 문서](event-hubs-create.md)의 절차를 따릅니다. 그리고 다음 문서의 지침에 따라 **Event Hubs 네임스페이스에 대한 연결 문자열**을 가져옵니다. [연결 문자열 가져오기](event-hubs-get-connection-string.md#get-connection-string-from-the-portal) 이 빠른 시작의 뒷부분에서 연결 문자열을 사용합니다.
 
 ## <a name="send-events"></a>이벤트 보내기 
 이 섹션에서는 이벤트 허브로 이벤트를 전송하는 .NET Core 콘솔 애플리케이션을 만드는 방법을 보여줍니다. 
@@ -228,3 +231,4 @@ GitHub에서 다음 샘플을 확인합니다.
 
 - [GitHub에 대한 Event Hubs 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs/samples)
 - [GitHub의 이벤트 처리기 샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Azure.Messaging.EventHubs.Processor/samples)
+- [RBAC(역할 기반 액세스 제어) 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)

@@ -14,12 +14,12 @@ ms.workload: identity
 services: active-directory
 ms.custom: it-pro;seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3a647f4a5f051ec89bb82b6e7f89dcb677c95371
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a3cc2de5a2f297e8133011905ff2961b44476d6b
+ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74027731"
+ms.lasthandoff: 02/06/2020
+ms.locfileid: "77046333"
 ---
 # <a name="users-groups-licensing-and-roles-for-large-organizations"></a>사용자, 그룹, 라이선싱 및 대규모 조직에 대한 역할
 
@@ -31,7 +31,7 @@ ms.locfileid: "74027731"
 
 ## <a name="assign-users-to-groups"></a>그룹에 사용자 할당
 
-Azure AD의 그룹을 사용하여 다수의 사용자에게 라이선스를 할당하거나 배포된 엔터프라이즈 앱에 대한 사용자 액세스를 할당합니다. 그룹을 사용하여 Azure AD의 관리자 역할을 할당하거나 SaaS 애플리케이션 또는 SharePoint 사이트와 같은 외부 리소스에 액세스를 부여할 수 있습니다.
+Azure AD의 그룹을 사용하여 다수의 사용자에게 라이선스를 할당하거나 배포된 엔터프라이즈 앱에 대한 사용자 액세스를 할당합니다. 그룹을 사용하여 Azure AD의 글로벌 관리자를 제외한 모든 관리자 역할을 할당하거나 SaaS 애플리케이션 또는 SharePoint 사이트와 같은 외부 리소스에 대한 액세스 권한을 부여할 수 있습니다.
 
 유연성을 높이고 그룹 멤버 자격 관리 작업을 줄이기 위해 Azure AD의 [동적 그룹](groups-create-rule.md)을 사용하여 그룹 멤버 자격을 자동으로 확장 및 축소할 수 있습니다. 하나 이상의 동적 그룹의 멤버인 고유한 각 사용자에 대해 Azure AD Premium P1 라이선스가 필요합니다.
 

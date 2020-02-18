@@ -1,5 +1,5 @@
 ---
-title: 클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할 | Microsoft Docs
+title: 클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 역할
 description: Azure의 다양한 역할 설명 - 클래식 구독 관리자 역할, Azure RBAC(역할 기반 액세스 제어) 역할 및 Azure AD(Active Directory) 관리자 역할
 services: active-directory
 documentationcenter: ''
@@ -15,12 +15,12 @@ ms.date: 10/01/2019
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro;
-ms.openlocfilehash: 1d0966737964c44fc4a6778cdb811a4ecc732ffc
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 08c14135ba17df4de446de5625352c8cffdc60a1
+ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979303"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77138067"
 ---
 # <a name="classic-subscription-administrator-roles-azure-rbac-roles-and-azure-ad-administrator-roles"></a>클래식 구독 관리자 역할, Azure RBAC 역할 및 Azure AD 관리자 역할
 

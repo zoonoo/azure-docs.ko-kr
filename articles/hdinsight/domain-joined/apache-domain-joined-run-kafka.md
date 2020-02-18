@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: tutorial
 ms.date: 09/04/2019
-ms.openlocfilehash: a0205d57fa68585b1a91b99b19e008eb92e73c0d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a0ffa6e20b42ed8ac145b50c062f5c0a8998add0
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435846"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77061644"
 ---
 # <a name="tutorial-configure-apache-kafka-policies-in-hdinsight-with-enterprise-security-package-preview"></a>자습서: Enterprise Security Package를 사용하여 HDInsight에서 Apache Kafka 정책 구성(미리 보기)
 
@@ -147,6 +147,8 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 
 4. 을 sales_user가 사용할 수 있는지 확인하려면 **예제 빌드 및 배포** 아래의 3단계를 수행합니다([자습서: Apache Kafka 생산자 및 소비자 API](../kafka/apache-kafka-producer-consumer-api.md#build-and-deploy-the-example)를 사용하여 **sales_user**가 `kafka-producer-consumer.jar`도 사용할 수 있도록 합니다.
 
+**참고:  이 자습서의 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).**
+
 5. 다음 명령을 실행하여 **sales_user1**이 `salesevents` 토픽을 생성할 수 있는지 확인합니다.
 
    ```bash
@@ -194,6 +196,9 @@ ESP(Enterprise Security Package) Apache Kafka 클러스터용 Apache Ranger 정�
 1. **서비스**에서 **HDInsight 클러스터**를 선택합니다.
 1. 표시되는 HDInsight 클러스터 목록에서 이 자습서용으로 만든 클러스터 옆에 있는 **...** 를 클릭합니다. 
 1. **삭제**를 클릭합니다. **예**를 클릭합니다.
+
+## <a name="troubleshooting"></a>문제 해결
+kafka-producer-consumer.jar이 도메인 조인 클러스터에서 작동하지 않은 경우 "DomainJoined-Producer-Consumer" 프로젝트 아래의 kafka-producer-consumer.jar을 사용하고 있는지 확인하세요(도메인에 조인되지 않은 시나리오를 위한 Producer-Consumer 프로젝트에서 제외).
 
 ## <a name="next-steps"></a>다음 단계
 

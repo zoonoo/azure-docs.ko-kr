@@ -10,12 +10,12 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 06/21/2019
 ms.author: wesmc
-ms.openlocfilehash: d607608167e1287c7df35157ccb9870f40f22943
-ms.sourcegitcommit: 12de9c927bc63868168056c39ccaa16d44cdc646
+ms.openlocfilehash: 4b31b1ee77e6bcafc4981c85f0118d02de00a964
+ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72516720"
+ms.lasthandoff: 02/09/2020
+ms.locfileid: "77108932"
 ---
 # <a name="quickstart-control-a-device-connected-to-an-iot-hub-android"></a>빠른 시작: IoT 허브(Android)에 연결된 디바이스 제어
 
@@ -33,19 +33,21 @@ IoT Hub는 클라우드에서 IoT 디바이스를 관리하고, 스토리지 또
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [https://developer.android.com/studio/](https://developer.android.com/studio/ )의 Android Studio. Android Studio 설치에 대한 자세한 내용은 [android-installation](https://developer.android.com/studio/install)을 참조하세요.
 
 * 이 문서의 샘플에서는 Android SDK 27을 사용합니다.
 
-* 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service)별 명령을 추가합니다.
+* 다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 고유의 명령을 추가합니다.
 
    ```azurecli-interactive
    az extension add --name azure-cli-iot-ext
    ```
 
 * 이 빠른 시작에서 필요한 두 가지 샘플 애플리케이션은 [디바이스 SDK 샘플 Android 애플리케이션](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/device/AndroidSample) 및 [서비스 SDK 샘플 Android 애플리케이션](https://github.com/Azure-Samples/azure-iot-samples-java/tree/master/iot-hub/Samples/service/AndroidSample)입니다. 이 두 샘플은 GitHub에 있는 azure-iot-samples-java 리포지토리의 일부입니다. [azure-iot-samples-java](https://github.com/Azure-Samples/azure-iot-samples-java) 리포지토리를 다운로드하거나 복제합니다.
+
+* 방화벽에서 포트 8883이 열려 있는지 확인합니다. 이 빠른 시작의 디바이스 샘플은 포트 8883을 통해 통신하는 MQTT 프로토콜을 사용합니다. 이 포트는 일부 회사 및 교육용 네트워크 환경에서 차단될 수 있습니다. 이 문제를 해결하는 자세한 내용과 방법은 [IoT Hub에 연결(MQTT)](iot-hub-mqtt-support.md#connecting-to-iot-hub)을 참조하세요.
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 

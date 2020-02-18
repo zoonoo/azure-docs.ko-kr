@@ -3,28 +3,31 @@ title: Azure Notebooks 미리 보기에서 Jupyter Notebook 만들기 및 공유
 description: Azure Notebooks 미리 보기에서 Jupyter Notebook을 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다.
 ms.topic: quickstart
 ms.date: 12/04/2018
-ms.openlocfilehash: 7b983d927bfd789cddb8d00675294cefc9f55e08
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d3310444fa28240b8fb1344199514a9601a2c615
+ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647087"
+ms.lasthandoff: 02/07/2020
+ms.locfileid: "77064447"
 ---
 # <a name="quickstart-create-and-share-a-notebook-in-azure-notebooks-preview"></a>빠른 시작: Azure Notebooks 미리 보기에서 Notebook 만들기 및 공유
 
-이 빠른 시작에서는 Azure Notebooks에서 Jupyter Notebook을 빠르게 만들고 실행한 다음, 해당 Notebook을 다른 사용자와 공유하는 방법에 대해 알아봅니다.
+이 빠른 시작에서는 Azure Notebooks에서 Jupyter Notebook을 만들어 실행한 다음, 해당 Notebook을 다른 사용자와 공유합니다. Jupyter를 사용하면 Markdown 텍스트, 실행 코드, 영구 데이터, 그래픽 및 시각화를 공유 가능한 하나의 캔버스인 Notebook에 쉽게 결합할 수 있습니다. Azure Notebooks는 무료 호스트 서비스이며 설치 없이 클라우드에서 Jupyter Notebook을 개발하고 실행합니다.
 
-[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+## <a name="prerequisites"></a>사전 요구 사항
+없음
 
 ## <a name="create-a-new-project-and-notebook"></a>새 프로젝트 및 Notebook 만들기
 
-1. [Azure Notebooks 사이트(https://notebooks.azure.com)](https://notebooks.azure.com)로 이동하여 로그인합니다. (자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.)
+[!INCLUDE [notebooks-status](../../includes/notebooks-status.md)]
+
+1. [Azure Notebooks 사이트(https://notebooks.azure.com)](https://notebooks.azure.com)로 이동하여 로그인합니다. 자세한 내용은 [빠른 시작 - Azure Notebooks에 로그인](quickstart-sign-in-azure-notebooks.md)을 참조하세요.
 
 1. 공개 프로필 페이지 맨 위에 있는 **내 프로젝트**를 선택합니다.
 
     ![브라우저 창 맨 위에 있는 내 프로젝트 링크](media/quickstarts/my-projects-link.png)
 
-1. **내 프로젝트** 페이지에서 **+ 새 프로젝트**(바로 가기 키: n)를 선택합니다. 브라우저 창이 좁은 경우 이 단추가 **+** 기호로만 표시될 수 있습니다.
+1. **내 프로젝트** 페이지에서 **+ 새 프로젝트**(바로 가기 키: n)를 선택합니다. 이 단추는 브라우저 창이 좁은 경우에만 **+** 로 표시될 수 있습니다.
 
     ![내 프로젝트 페이지의 새 프로젝트 명령](media/quickstarts/new-project-command.png)
 
@@ -102,4 +105,4 @@ Notebook을 공유하려면 필요한 경우 프로젝트 페이지로 다시 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [자습서: 선형 회귀를 위해 Jupyter 노트 실행 만들기](tutorial-create-run-jupyter-notebook.md)
+> [자습서: 선형 회귀 분석을 실행할 Jupyter Notebook 생성 및 실행](tutorial-create-run-jupyter-notebook.md)

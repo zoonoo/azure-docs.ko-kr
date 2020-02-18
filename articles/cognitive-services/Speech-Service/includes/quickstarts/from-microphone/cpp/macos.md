@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: wolfma
-ms.openlocfilehash: 08459238173b379280cb513ccb3242e4f15ef0bc
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 85f2d671e53592fbe2a543fade43c0bc3e6f47e1
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75927787"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77156386"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -34,7 +34,7 @@ ms.locfileid: "75927787"
 
 1. 이 새 파일에서 `YourSubscriptionKey` 문자열을 음성 서비스 구독 키로 바꿉니다.
 
-1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](~/articles/cognitive-services/Speech-Service/regions.md)으로 바꿉니다(예를 들어 평가판 구독에 대해 `westus`).
+1. 문자열 `YourServiceRegion`을 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 "Speech SDK 매개 변수"로 바꿉니다(예: 평가판 구독의 경우 `westus`).
 
 > [!NOTE]
 > Speech SDK는 기본적으로 언어에 en-us를 사용하여 인식합니다. 원본 언어 선택에 대한 자세한 내용은 [음성 텍스트 변환에 대한 원본 언어 지정](../../../../how-to-specify-source-language.md)을 참조하세요.

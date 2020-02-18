@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a4a8990b3da534acb39ff87c9f7665fb3b08ef06
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8c2ae82bae8457a1c715f160994c7a0da94193ff
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74708173"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77134503"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
 
@@ -27,21 +27,14 @@ ms.locfileid: "74708173"
 > * [Python](create-sql-api-python.md)
 > * [Xamarin](create-sql-api-xamarin-dotnet.md)
 
-이 빠른 시작에서는 Java 애플리케이션을 사용하여 Azure Cosmos DB SQL API 계정에서 문서 데이터베이스를 만들고 관리하는 방법을 보여 줍니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, SQL Java SDK를 사용하여 Java 앱을 만든 다음, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. 이 빠른 시작의 지침은 Java를 실행할 수 있는 모든 운영 체제에 적용될 수 있습니다. 이 빠른 시작을 완료하면 UI를 사용하여 또는 프로그래밍 방식으로 Cosmos DB 데이터베이스 컨테이너를 만들고 수정하는 방법을 익힐 수 있습니다.
+이 빠른 시작에서는 Azure Portal 및 GitHub에서 복제된 Java 앱을 사용하여 Azure Cosmos DB SQL API 계정을 만들고 관리합니다. 먼저 Azure Portal을 사용하여 Azure Cosmos DB SQL API 계정을 만들고, SQL Java SDK를 사용하여 Java 앱을 만든 다음, Java 애플리케이션을 사용하여 Cosmos DB 계정에 리소스를 추가합니다. Azure Cosmos DB는 글로벌 배포 및 수평적 크기 조정 기능을 사용하여 문서, 테이블, 키 값 및 그래프 데이터베이스를 빠르게 만들고 쿼리할 수 있는 다중 모델 데이터베이스 서비스입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 
-[!INCLUDE [cosmos-db-emulator-docdb-api](../../includes/cosmos-db-emulator-docdb-api.md)]
-
-또한, 
-
-* [JDK(Java Development Kit) 버전 8](https://aka.ms/azure-jdks)
-    * JAVA_HOME 환경 변수가 반드시 JDK가 설치된 폴더를 지정하도록 설정합니다.
-* [Maven](https://maven.apache.org/) 이진 아카이브 [다운로드](https://maven.apache.org/download.cgi) 및 [설치](https://maven.apache.org/install.html)
-    * Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 실행할 수 있습니다.
-* [Git](https://www.git-scm.com/)
-    * Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 실행할 수 있습니다.
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다. URI가 `https://localhost:8081`이고 키가 `C2y6yDjf5/R+ob0N8A7Cgv30VRDJIWEHLM+4QDU5DE2nQ9nDuVTqobD4b8mGGyPMbIZnqyMsEcaGQy67XIw/Jw==`인 [Azure Cosmos DB 에뮬레이터](https://aka.ms/cosmosdb-emulator)를 사용할 수도 있습니다.
+- [JDK(Java Development Kit) 8](https://www.azul.com/downloads/azure-only/zulu/?&version=java-8-lts&architecture=x86-64-bit&package=jdk). `JAVA_HOME` 환경 변수를 JDK가 설치된 폴더로 지정합니다.
+- [Maven 이진 보관 파일](https://maven.apache.org/download.cgi). Ubuntu에서 `apt-get install maven`을 실행하여 Maven을 설치합니다.
+- [Git](https://www.git-scm.com/downloads) Ubuntu에서 `sudo apt-get install git`를 실행하여 Git를 설치합니다.
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -66,11 +59,11 @@ ms.locfileid: "74708173"
 
 이제 코드 사용으로 전환해 보겠습니다. GitHub에서 SQL API 앱을 복제하고 연결 문자열을 설정한 다음 실행해보겠습니다. 프로그래밍 방식으로 데이터를 사용하여 얼마나 쉽게 작업할 수 있는지 알게 될 것입니다. 
 
-1. 다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
+다음 명령을 실행하여 샘플 리포지토리를 복제합니다. 이 명령은 컴퓨터에서 샘플 앱의 복사본을 만듭니다.
 
-    ```bash
-    git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
-    ```
+```bash
+git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
+```
 
 ## <a name="review-the-code"></a>코드 검토
 
@@ -103,7 +96,6 @@ ms.locfileid: "74708173"
 ## <a name="run-the-app"></a>앱 실행
 
 이제 Azure Portal로 돌아가서 연결 문자열 정보를 가져오고 엔드포인트 정보를 사용하여 앱을 시작합니다. 이를 통해 앱이 호스팅된 데이터베이스와 통신할 수 있게 됩니다.
-
 
 1. git 터미널 창에서 샘플 코드 폴더로 `cd`합니다.
 
@@ -143,7 +135,7 @@ ms.locfileid: "74708173"
 
 ## <a name="next-steps"></a>다음 단계
 
-이 빠른 시작에서는 Data Explorer를 사용하여 Azure Cosmos 계정, 문서 데이터베이스, 컬렉션을 만들고 프로그래밍 방식으로 같은 작업을 수행하도록 앱을 실행하는 방법을 알아보았습니다. 이제 Azure Cosmos 컨테이너에 추가 데이터를 가져올 수 있습니다. 
+이 빠른 시작에서는 Azure Cosmos DB SQL API 계정을 만들고, Data Explorer를 사용하여 문서 데이터베이스 및 컨테이너를 만들고, Java 앱을 실행하여 프로그래밍 방식으로 동일한 작업을 수행하는 방법을 알아보았습니다. 이제 Azure Cosmos DB 계정으로 추가 데이터를 가져올 수 있습니다. 
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 데이터 가져오기](import-data.md)

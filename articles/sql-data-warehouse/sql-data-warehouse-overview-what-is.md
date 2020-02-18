@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 40f779fa5545e0e9c8fd1aa2cc2689b29dffdb82
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 68d39b4f363794d50fd05c2067502fc55d5d0170
+ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760762"
+ms.lasthandoff: 02/12/2020
+ms.locfileid: "77153250"
 ---
 # <a name="what-is-azure-synapse-analytics-formerly-sql-dw"></a>Azure Synapse Analytics(이전의 SQL DW)란?
 
@@ -34,7 +34,7 @@ Azure Synapse에는 다음 네 가지 구성 요소가 있습니다.
 
 ## <a name="sql-analytics-and-sql-pool-in-azure-synapse"></a>Azure Synapse의 SQL Analytics 및 SQL 풀
 
-SQL Analytics는 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 가리킵니다. 
+SQL Analytics는 Azure Synapse에서 일반적으로 사용할 수 있는 엔터프라이즈 데이터 웨어하우징 기능을 나타냅니다. 
 
 SQL 풀은 SQL Analytics를 사용할 때 프로비저닝되는 분석 리소스의 컬렉션을 나타냅니다. SQL 풀의 크기는 DWU(Data Warehousing Unit)로 결정됩니다.
 
