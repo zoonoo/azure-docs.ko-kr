@@ -176,6 +176,9 @@
         - name: 키워드
           displayName: 'keywords, distinct, between, in, top'
           href: sql-query-keywords.md
+        - name: 상수
+          displayName: 'object, number,array'
+          href: sql-query-constants.md
         - name: 연산자
           displayName: 'operators, operator, logical operators, equality, comparison'
           href: sql-query-operators.md
@@ -582,8 +585,7 @@
             - name: 변경 피드
               href: cassandra-change-feed.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-apache-cassandra-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: Cassandra 및 Spark
               items:
                 - name: 소개
@@ -658,8 +660,7 @@
                   href: tutorial-develop-mongodb-react.md
             - name: 2 - 데이터 마이그레이션
               displayName: import
-              href: /azure/dms/tutorial-mongodb-cosmos-db
-              maintainContext: true
+              href: ../dms/tutorial-mongodb-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
             - name: 3 - 데이터 쿼리
               href: tutorial-query-mongodb.md
             - name: 4 - 전세계로 데이터 배포
@@ -690,8 +691,7 @@
             - name: 데이터 인덱싱 관리
               href: mongodb-indexing.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-mongodb-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-mongodb-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: MongoDB 확장 명령
               href: mongodb-custom-commands.md
               displayName: custom commands
@@ -755,8 +755,7 @@
             - name: 그래프 데이터 시각화
               href: graph-visualization.md
             - name: Spring 데이터 저장 및 관리
-              href: /java/azure/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db
-              maintainContext: true
+              href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-data-gremlin-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
             - name: Resource Manager 템플릿을 사용하여 관리
               href: manage-gremlin-with-resource-manager.md
             - name: Powershell을 사용하여 관리
@@ -951,8 +950,7 @@
         - name: Azure Databricks Spark 커넥터
           href: spark-connector.md
         - name: Apache Kafka 및 Cosmos DB를 사용하는 스트리밍
-          href: /azure/hdinsight/apache-kafka-spark-structured-streaming-cosmosdb
-          maintainContext: true
+          href: ../hdinsight/apache-kafka-spark-structured-streaming-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
     - name: 기본 제공 Jupyter Notebook
       items:
         - name: Notebook 사용
@@ -976,8 +974,7 @@
         - name: 프라이빗 엔드포인트에서 액세스 구성
           href: how-to-configure-private-endpoints.md
         - name: Cosmos DB 계정에 비공개로 연결
-          href: /azure/private-link/create-private-endpoint-cosmosdb-portal
-          maintainContext: true
+          href: ../private-link/create-private-endpoint-cosmosdb-portal.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: CORS(원본 간 리소스 공유) 구성
           href: how-to-configure-cross-origin-resource-sharing.md
         - name: Key Vault를 사용하여 Azure Cosmos 키 보호
@@ -999,12 +996,11 @@
         - name: 진단 로그 모니터링
           href: cosmosdb-monitor-resource-logs.md
         - name: Cosmos용 Azure Monitor(미리 보기)
-          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json
+          href: ../azure-monitor/insights/cosmosdb-insights-overview.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Cosmos DB 계정에서 메트릭 보기
           href: use-metrics.md
         - name: Logic Apps를 통한 애플리케이션 로깅
-          href: /azure/logic-apps/logic-apps-scenario-error-and-exception-handling
-          maintainContext: true
+          href: ../logic-apps/logic-apps-scenario-error-and-exception-handling.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: 데이터 참조 모니터링
           href: monitor-cosmos-db-reference.md
     - name: 로컬에서 개발
@@ -1032,29 +1028,23 @@
         - name: Azure App Service
           href: create-website.md
         - name: Azure Cognitive Search 인덱서
-          href: /azure/search/search-howto-index-cosmosdb
-          maintainContext: true
+          href: ../search/search-howto-index-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure 기능
           items:
             - name: 서버리스 컴퓨팅
               href: serverless-computing-database.md
             - name: Azure 함수 바인딩
-              href: /azure/azure-functions/functions-bindings-cosmosdb
-              maintainContext: true
+              href: ../azure-functions/functions-bindings-cosmosdb.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure 데이터 팩터리
-          href: /azure/data-factory/connector-azure-cosmos-db
-          maintainContext: true
+          href: ../data-factory/connector-azure-cosmos-db.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Stream Analytics
-          href: '/azure/stream-analytics/stream-analytics-define-outputs#azure-cosmos-db'
-          maintainContext: true
+          href: ../stream-analytics/stream-analytics-documentdb-output.md?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json
         - name: Azure Event Hubs 및 Azure Storage
           href: 'https://github.com/hdinsight/hdinsight-storm-examples/blob/master/IotExample/README.md'
         - name: Spring Boot Starter 사용
-          href: /java/azure/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db
-          maintainContext: true
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/configure-spring-boot-starter-java-app-with-cosmos-db?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
         - name: Spring Data 개발자 가이드
-          href: /java/azure/spring-framework/how-to-guides-spring-data-cosmosdb
-          maintainContext: true
+          href: 'https://docs.microsoft.com/azure/java/spring-framework/how-to-guides-spring-data-cosmosdb?toc=/azure/cosmos-db/toc.json&bc=/azure/cosmos-db/breadcrumb/toc.json'
         - name: ODBC 드라이버
           href: odbc-driver.md
     - name: Cosmos DB로 데이터 마이그레이션

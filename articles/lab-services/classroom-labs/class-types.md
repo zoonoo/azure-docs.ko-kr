@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: overview
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: e1c5504b30c2784e8657ccc0dc4ec18689fe2a68
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
+ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806816"
+ms.lasthandoff: 02/11/2020
+ms.locfileid: "77133660"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
@@ -45,6 +45,22 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 [Metasploitable3](https://github.com/rapid7/metasploitable3) 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적으로 사용됩니다.  Kali Linux 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스를 제공합니다.
 
 이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [윤리적 해킹 클래스를 가르치기 위한 랩 설정](class-type-ethical-hacking.md)을 참조하세요.
+
+## <a name="database-management"></a>데이터베이스 관리
+데이터베이스 개념은 대학의 대부분의 컴퓨터 과학 부서에서 학습하는 소개 과정 중 하나입니다. Azure Lab Services에서 기본 데이터베이스 관리 클래스에 대한 랩을 설정할 수 있습니다. 예를 들어 [MySQL](https://www.mysql.com/) Database Server 또는 [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) 서버를 사용하여 랩에서 가상 머신 템플릿을 설정할 수 있습니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [관계형 데이터베이스에 대한 데이터베이스 관리를 가르치기 위한 랩 설정](class-type-database-management.md)을 참조하세요.
+
+## <a name="python-and-jupyter-notebooks"></a>Python 및 Jupyter Notebook
+학생들에게 [Jupyter Notebook](http://jupyter-notebook.readthedocs.io)을 사용하는 방법을 가르치는 데 필요한 도구를 사용하여 Azure Lab Services에서 템플릿 머신을 설정할 수 있습니다. Jupyter Notebook은 서식 있는 텍스트와 실행 가능한 [Python](https://www.python.org/) 원본 코드를 노트북이라는 단일 캔버스에 쉽게 결합할 수 있는 오픈 소스 프로젝트입니다. 노트북을 실행하면 입력 및 출력의 선형 레코드가 생성됩니다.  이러한 출력에는 텍스트, 정보 테이블, 분산형 플롯 등이 포함될 수 있습니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Python 및 Jupyter Notebook을 사용하여 데이터 과학을 가르치기 위한 랩 설정](class-type-jupyter-notebook.md)을 참조하세요.
+
+## <a name="mobile-app-development-with-android-studio"></a>Android Studio를 사용한 모바일 앱 개발
+Azure Lab Services에서 랩을 설정하여 소개 모바일 애플리케이션 개발 클래스에 대해 배울 수 있습니다. 이 클래스는 [Google Play 스토어](https://play.google.com/store/apps)에 게시할 수 있는 Android 모바일 애플리케이션을 중심으로 설명합니다.  학생들은 [Android Studio](https://developer.android.com/studio)를 사용하여 애플리케이션을 빌드하는 방법을 알아봅니다.  [Android용 Visual Studio 에뮬레이터](https://visualstudio.microsoft.com/vs/msft-android-emulator/)는 애플리케이션을 로컬로 테스트하는 데 사용됩니다.
+
+이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Android Studio를 사용하여 모바일 애플리케이션 개발을 가르치기 위한 랩 설정](class-type-mobile-dev-android-studio.md)을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 
