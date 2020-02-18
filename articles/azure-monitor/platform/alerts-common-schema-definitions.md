@@ -4,15 +4,15 @@ description: Azure Monitor에 대 한 일반적인 경고 스키마 정의 이�
 ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
+author: ofirmanor
 ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: fb8c2c7e25f94c66c8cc8f7768071d508da8d3b5
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: efa6a8807b3db14649a2b4ad38c575cf98aba113
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765668"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425173"
 ---
 # <a name="common-alert-schema-definitions"></a>일반 경고 스키마 정의
 
@@ -71,7 +71,7 @@ ms.locfileid: "76765668"
 }
 ```
 
-## <a name="essentials"></a>Essentials
+## <a name="essentials"></a>기본 정보
 
 | 필드 | Description|
 |:---|:---|
@@ -151,7 +151,7 @@ ms.locfileid: "76765668"
 ### <a name="log-alerts"></a>로그 경고
 
 > [!NOTE]
-> 사용자 지정 전자 메일 제목 및/또는 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 전자 메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. `IncludedSearchResults`플래그를 선택 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
+> 사용자 지정 전자 메일 제목 및/또는 JSON 페이로드가 정의 된 로그 경고의 경우 공통 스키마를 사용 하도록 설정 하면 전자 메일 제목 및/또는 페이로드 스키마가 다음과 같이 설정 된 것으로 되돌아갑니다. 공통 스키마를 사용 하는 경고는 경고 당 256 KB로 제한 됩니다. 검색 결과는 경고 크기가이 임계값을 초과 하는 경우 로그 경고 페이로드에 포함 되지 않습니다. `IncludeSearchResults`플래그를 선택 하 여이를 확인할 수 있습니다. 검색 결과가 포함 되지 않은 경우 [LOG ANALYTICS API](https://docs.microsoft.com/rest/api/loganalytics/query/get)와 함께 검색 쿼리를 사용 해야 합니다. 
 
 #### <a name="monitoringservice--log-analytics"></a>`monitoringService` = `Log Analytics`
 
@@ -214,7 +214,7 @@ ms.locfileid: "76765668"
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }
@@ -277,7 +277,7 @@ ms.locfileid: "76765668"
         }
       ]
     },
-    "IncludedSearchResults": "True",
+    "IncludeSearchResults": "True",
     "AlertType": "Number of results"
   }
 }

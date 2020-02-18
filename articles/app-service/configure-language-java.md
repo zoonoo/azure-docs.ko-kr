@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: 9ee989a079366a470d086a8b931685a6c1dbc757
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a088a90642a0394b0ede3c163590f64112799d1a
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75889345"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425292"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Windows Java 앱 구성
 
@@ -24,7 +24,7 @@ Azure App Service를 통해 Java 개발자는 완전히 관리 되는 Windows �
 
 ## <a name="deploying-your-app"></a>앱 배포
 
-[Azure App Service에 대해 Maven 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 을 사용 하 여 war 파일을 배포할 수 있습니다. [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) 또는 [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse)에서도 인기 있는 ide를 사용 하 여 배포할 수 있습니다.
+[Maven 용 Azure 웹 앱 플러그 인](/java/api/overview/azure/maven/azure-webapp-maven-plugin/readme) 을 사용 하 여 war 파일을 배포할 수 있습니다. [Azure Toolkit for IntelliJ](/java/azure/intellij/azure-toolkit-for-intellij) 또는 [Azure Toolkit for Eclipse](/java/azure/eclipse/azure-toolkit-for-eclipse)에서도 인기 있는 ide를 사용 하 여 배포할 수 있습니다.
 
 그렇지 않으면 배포 방법이 보관 유형에 따라 달라 집니다.
 
@@ -44,7 +44,7 @@ Azure Portal을 통해 각 앱에 대한 성능 보고서, 트래픽 시각화 �
 
 ### <a name="app-logging"></a>앱 로깅
 
-Azure Portal 또는 [Azure CLI](/cli/azure/webapp/log#az-webapp-log-config)를 통해 [애플리케이션 로깅](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
+Azure Portal 또는 [Azure CLI](troubleshoot-diagnostic-logs.md#enable-application-logging-windows)를 통해 [애플리케이션 로깅](/cli/azure/webapp/log#az-webapp-log-config)을 사용하도록 설정하여 애플리케이션의 표준 콘솔 출력 및 표준 콘솔 오류 스트림을 로컬 파일 시스템 또는 Azure Blob Storage에 쓰도록 App Service를 구성할 수 있습니다. 로컬 App Service 파일 시스템 인스턴스에 로깅하는 동작은 구성된 지 12시간 후에 비활성화 됩니다. 더 긴 시간 동안 보존하기를 원하는 경우 Blob Storage 컨테이너에 출력을 쓰도록 애플리케이션을 구성합니다. Java 및 Tomcat 앱 로그는 */LogFiles/Application/* 디렉터리에서 찾을 수 있습니다.
 
 애플리케이션에서 [Logback](https://logback.qos.ch/) 또는 [Log4j](https://logging.apache.org/log4j)를 추적에 사용하는 경우 [Application Insights에서 Java 추적 로그 탐색](/azure/application-insights/app-insights-java-trace-logs)의 로깅 프레임워크 구성 지침에 따라 이러한 추적 로그를 Azure Application Insights로 전송하여 검토할 수 있습니다.
 
@@ -63,7 +63,7 @@ Azure App Service은 Azure Portal 및 CLI를 통해 기본 튜닝 및 사용자 
 
 할당 된 메모리 또는 기타 JVM 런타임 옵션을 설정 하려면 옵션과 함께 `JAVA_OPTS` 이라는 [앱 설정을](configure-common.md#configure-app-settings) 만듭니다. App Service는이 설정을 시작 시 Java 런타임으로이를 환경 변수로 전달 합니다.
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `-Xms512m -Xmx1204m`처럼 추가 설정을 포함하는 `JAVA_OPTS`라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에서 `JAVA_OPTS`처럼 추가 설정을 포함하는 `-Xms512m -Xmx1204m`라고 하는 새 앱 설정을 만듭니다.
 
 Maven 플러그 인에서 앱 설정을 구성 하려면 Azure 플러그 인 섹션에서 설정/값 태그를 추가 합니다. 다음 예에서는 특정 최소 및 최대 Java 힙 크기를 설정 합니다.
 
@@ -103,7 +103,7 @@ az webapp start --name <app-name> --resource-group <resource-group-name>
 
 ### <a name="set-default-character-encoding"></a>기본 문자 인코딩 설정
 
-Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `-Dfile.encoding=UTF-8` 값을 사용하여 `JAVA_OPTS`이라고 하는 새 앱 설정을 만듭니다.
+Azure Portal에서, 웹앱의 **애플리케이션 설정** 아래에 `JAVA_OPTS` 값을 사용하여 `-Dfile.encoding=UTF-8`이라고 하는 새 앱 설정을 만듭니다.
 
 또는 App Service Maven 플러그 인을 사용하여 앱 설정을 구성할 수 있습니다. 플러그 인 구성에서 설정 이름 및 값 태그를 추가합니다.
 
@@ -188,8 +188,8 @@ public int getServerPort()
 5. 압축을 푼 새 유물 Java 에이전트 파일을 */home/site/wwwroot/apm*아래의 디렉터리에 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/newrelic*에 있어야 합니다.
 6. */Home/site/wwwroot/apm/newrelic/newrelic.yml* 에서 yaml 파일을 수정 하 고 자리 표시자 라이선스 값을 자신의 라이선스 키로 바꿉니다.
 7. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - 앱이 **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `JAVA_OPTS`라는 환경 변수를 만듭니다.
-    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다.
+    - 앱이 **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
+    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/newrelic/newrelic.jar`라는 환경 변수를 만듭니다.
 
 ### <a name="configure-appdynamics"></a>AppDynamics 구성
 
@@ -198,8 +198,8 @@ public int getServerPort()
 3. [Kudu 콘솔](https://github.com/projectkudu/kudu/wiki/Kudu-console) 을 사용 하 여 */home/site/wwwroot/apm*새 디렉터리를 만듭니다.
 4. */Home/site/wwwroot/apm*아래의 디렉터리에 Java 에이전트 파일을 업로드 합니다. 에이전트의 파일은 */home/site/wwwroot/apm/appdynamics*에 있어야 합니다.
 5. Azure Portal의 App Service에서 사용자 애플리케이션을 찾아 새 애플리케이션 설정을 만듭니다.
-    - **Java SE**를 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `JAVA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
-    - **Tomcat**을 사용하는 경우 값이 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`인 `CATALINA_OPTS`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Java SE**를 사용하는 경우 값이 `JAVA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
+    - **Tomcat**을 사용하는 경우 값이 `CATALINA_OPTS`인 `-javaagent:/home/site/wwwroot/apm/appdynamics/javaagent.jar -Dappdynamics.agent.applicationName=<app-name>`라는 환경 변수를 만듭니다. 여기서 `<app-name>`은 App Service 이름입니다.
 
 >  `JAVA_OPTS` 또는 `CATALINA_OPTS`에 대한 환경 변수가 이미 있는 경우 현재 값의 끝에 `-javaagent:/...` 옵션을 추가합니다.
 
@@ -291,7 +291,7 @@ Tomcat의 `server.xml` 또는 기타 구성 파일을 편집 하려면 먼저 �
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 버전 및 유지 관리
 
-Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/)를 통해 제공하는 [Zulu](https://www.azul.com/downloads/azure-only/zulu/)입니다.
+Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www.azul.com/downloads/azure-only/zulu/)를 통해 제공하는 [Zulu](https://www.azul.com/)입니다.
 
 주 버전 업데이트는 Windows 용 Azure App Service의 새로운 런타임 옵션을 통해 제공 됩니다. 고객은 App Service 배포를 구성하여 최신 버전의 Java로 업데이트해야 하며, 주 업데이트를 테스트하고 요구 사항을 충족하도록 관리할 책임이 있습니다.
 
@@ -315,7 +315,7 @@ Azure [지원 Azul 줄루어 JDK](https://www.azul.com/downloads/azure-only/zulu
 
 ### <a name="runtime-support"></a>런타임 지원
 
-개발자는 [정규화된 지원 계획](https://azure.microsoft.com/support/plans/)이 있는 경우 Azure 지원을 통해 Azul Zulu JDK 관련 [문제를 제기](/azure/azure-portal/supportability/how-to-create-azure-support-request)할 수 있습니다.
+개발자는 [정규화된 지원 계획](/azure/azure-portal/supportability/how-to-create-azure-support-request)이 있는 경우 Azure 지원을 통해 Azul Zulu JDK 관련 [문제를 제기](https://azure.microsoft.com/support/plans/)할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

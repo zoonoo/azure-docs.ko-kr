@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 2d39afcea056c76b6c9672e1963d7529fbfce549
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 19613ab917d303863a8d90133bcce2e1353289c1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280937"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426210"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-cli"></a>CLI를 사용 하 여 Azure Database for MariaDB (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "76280937"
 > [!NOTE]
 > 이 기능은 Azure Database for MariaDB 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -49,7 +49,7 @@ az network vnet create \
 ```
 
 ## <a name="disable-subnet-private-endpoint-policies"></a>서브넷 프라이빗 엔드포인트 정책 사용 안 함 
-Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. [az network vnet subnet update](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)를 사용하여 *mySubnet*이라는 서브넷 구성을 업데이트합니다.
+Azure는 리소스를 가상 네트워크 내의 서브넷에 배포하므로 프라이빗 엔드포인트 네트워크 정책을 사용하지 않도록 서브넷을 만들거나 업데이트해야 합니다. *az network vnet subnet update*를 사용하여 [mySubnet](https://docs.microsoft.com/cli/azure/network/vnet/subnet?view=azure-cli-latest#az-network-vnet-subnet-update)이라는 서브넷 구성을 업데이트합니다.
 
 ```azurecli-interactive
 az network vnet subnet update \
@@ -131,7 +131,7 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
 
 1. **RDP 파일 다운로드**를 선택합니다. Azure에서 원격 데스크톱 프로토콜( *.rdp*) 파일을 만들고, 컴퓨터에 다운로드합니다.
 
-1. 다운로드 한 .rdp* 파일을 엽니다.
+1. *downloaded.rdp* 파일을 엽니다.
 
     1. 메시지가 표시되면 **연결**을 선택합니다.
 
@@ -159,27 +159,28 @@ az network private-dns record-set a add-record --record-set-name mydemoserver --
     Non-authoritative answer:
     Name:    mydemoserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 MariaDB 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [MySQL 워크 벤치](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 를 사용 하 여 작업을 수행 했습니다.
 
-4. In **New connection**, enter or select this information:
+4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | Value |
+    | 설정 | 값 |
     | ------- | ----- |
-    | Connection Name| Select the connection name of your choice.|
-    | Hostname | Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | Username | Enter username as *username@servername* which is provided during the MariaDB server creation. |
-    | Password | Enter a password provided during the MariaDB server creation. |
+    | 연결 이름| 원하는 연결 이름을 선택 합니다.|
+    | Hostname | *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
+    | 사용자 이름 | MariaDB 서버 생성 중에 제공 되는 *username@servername* 으로 사용자 이름을 입력 합니다. |
+    | 암호 | MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     ||
 
-5. Select **Test Connection** or **OK**.
+5. **연결 테스트** 또는 **확인을**선택 합니다.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. 생략할 왼쪽 메뉴에서 데이터베이스 찾아보기 및 MariaDB 데이터베이스에서 정보 만들기 또는 쿼리
 
-8. Close the remote desktop connection to myVm.
+8. MyVm에 대 한 원격 데스크톱 연결을 닫습니다.
 
-## Clean up resources 
-When no longer needed, you can use az group delete to remove the resource group and all the resources it has: 
+## <a name="clean-up-resources"></a>리소스 정리 
+더 이상 필요하지 않은 경우 az group delete를 사용하여 리소스 그룹 및 해당 그룹에 포함된 모든 리소스를 제거할 수 있습니다. 
 
 ```azurecli-interactive
 az group delete --name myResourceGroup --yes 

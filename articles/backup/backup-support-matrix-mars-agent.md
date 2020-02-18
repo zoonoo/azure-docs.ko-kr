@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: a87d778bff5a52f4251d83e401028c9949713e33
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988076"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425020"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -88,15 +88,15 @@ MARS 에이전트를 사용 하 여에서 실행 되는 아래 나열 된 운영
 
 **운영 체제** | **파일/폴더** | **시스템 상태** | **소프트웨어/모듈 요구 사항**
 --- | --- | --- | ---
-Windows 10(Enterprise, Pro, Home) | 예 | 아닙니다. |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8.1(Enterprise, Pro)| 예 |아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 8(Enterprise, Pro) | 예 | 아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | 예 | 아닙니다. | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
-Windows Server 2016(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2012(Standard, Datacenter, Foundation) | 예 | 예 |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
-Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | 예 | 아닙니다. | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
-Windows Server 2019(Standard, Datacenter, Essentials) | 예 | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows 10(Enterprise, Pro, Home) | yes | 예 |  소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8.1(Enterprise, Pro)| yes |예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 8(Enterprise, Pro) | yes | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows 7(Ultimate, Enterprise, Pro, Home Premium/Basic, Starter) | yes | 예 | 소프트웨어/모듈 요구 사항에 해당 하는 서버 버전 확인
+Windows Server 2016(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012 R2(Standard, Datacenter, Foundation, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2012(Standard, Datacenter, Foundation) | yes | yes |-.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0 <br> -배포 이미지 서비스 및 관리 (DISM.EXE)
+Windows Storage Server 2016/2012 R2/2012 (표준, 작업 그룹) | yes | 예 | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
+Windows Server 2019(Standard, Datacenter, Essentials) | yes | yes | -.NET 4.5 <br> -Windows PowerShell <br> -최신 호환 Microsoft VC + + 재배포 가능 패키지 <br> -MMC (Microsoft Management Console) 3.0
 
 자세한 내용은 [지원 되는 MABS 및 DPM 운영 체제](backup-support-matrix-mabs-dpm.md#supported-mabs-and-dpm-operating-systems)를 참조 하세요.
 
@@ -122,7 +122,7 @@ Windows 7| 1700 GB
 
 **형식** | **지원**
 --- | ---
-암호화됨| 지원됩니다.
+암호화| 지원됩니다.
 Compressed | 지원됩니다.
 스파스 | 지원됩니다.
 압축 및 스파스 |지원됩니다.
@@ -132,17 +132,18 @@ Compressed | 지원됩니다.
 압축된 스트림| 지원되지 않습니다. 건너뜁니다.
 스파스 스트림| 지원되지 않습니다. 건너뜁니다.
 OneDrive (동기화 된 파일이 스파스 스트림)| 지원되지 않습니다.
+DFS 복제 사용 하도록 설정 된 폴더 | 지원되지 않습니다.
 
 ## <a name="supported-drives-or-volumes-for-backup"></a>백업에 지원 되는 드라이브 또는 볼륨
 
 **드라이브/볼륨** | **지원** | **세부 정보**
 --- | --- | ---
-읽기 전용 볼륨| 지원하지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
-오프라인 볼륨| 지원하지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
-네트워크 공유| 지원하지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
-BitLocker 잠김 볼륨| 지원하지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
-파일 시스템 id| 지원하지 않음 |NTFS만 지원 됩니다.
-이동식 미디어| 지원하지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
+읽기 전용 볼륨| 지원되지 않음 | VSS (볼륨 복사 섀도 서비스)는 볼륨에 쓸 수 있는 경우에만 작동 합니다.
+오프라인 볼륨| 지원되지 않음 |VSS는 볼륨이 온라인 상태인 경우에만 작동 합니다.
+네트워크 공유| 지원되지 않음 |볼륨은 서버에서 로컬 이어야 합니다.
+BitLocker 잠김 볼륨| 지원되지 않음 |백업을 시작 하기 전에 볼륨을 잠금 해제 해야 합니다.
+파일 시스템 id| 지원되지 않음 |NTFS만 지원 됩니다.
+이동식 미디어| 지원되지 않음 |모든 백업 항목 원본의 상태는 *고정* 이어야 합니다.
 중복 제거된 드라이브 | 지원됨 | Azure Backup에서 중복 제거된 데이터를 일반 데이터로 변환합니다. 이는 데이터를 최적화, 암호화, 저장 및 자격 증명 모음으로 전송 합니다.
 
 ## <a name="support-for-initial-offline-backup"></a>오프라인 초기 백업 지원

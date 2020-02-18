@@ -3,16 +3,16 @@ title: 파일 및 폴더 백업-일반적인 질문
 description: Azure Backup를 사용 하 여 파일과 폴더를 백업 하는 방법에 대 한 일반적인 질문을 해결 합니다.
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.openlocfilehash: 45c01a08151060b60b0f3e3b27b2fcc16ec8e60b
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: 7b80932d49038bb42fa93f71b3ac0194c2869489
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75720364"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425071"
 ---
 # <a name="common-questions-about-backing-up-files-and-folders"></a>파일 및 폴더 백업에 대 한 일반적인 질문
 
-이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 파일 및 폴더를 백업 하는 일반적인 질문에 대 한 답변을 abound.
+이 문서에서는 [Azure Backup](backup-overview.md) 서비스에서 MARS (Microsoft Azure Recovery Services) 에이전트로 파일 및 폴더를 백업 하는 일반적인 질문에 대답 abound.
 
 ## <a name="configure-backups"></a>백업 구성
 
@@ -66,7 +66,7 @@ Windows 컴퓨터의 이름을 바꾸면 현재 구성 된 모든 백업이 중�
 
 * 백업 자격 증명 모음에 새 컴퓨터 이름을 등록 해야 합니다.
 * 자격 증명 모음에 새 이름을 등록 하는 경우 첫 번째 작업은 *전체* 백업입니다.
-* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아보기](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
+* 이전 서버 이름을 사용 하 여 자격 증명 모음에 백업 된 데이터를 복구 해야 하는 경우 데이터 복구 마법사에서 대체 위치로 복원 하는 옵션을 사용 합니다. [자세히 알아봅니다](backup-azure-restore-windows-server.md#use-instant-restore-to-restore-data-to-an-alternate-machine).
 
 ### <a name="what-is-the-maximum-file-path-length-for-backup"></a>백업의 최대 파일 경로 길이는 얼마 인가요?
 
@@ -90,7 +90,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 캐시 폴더의 크기는 백업하는 데이터의 양에 따라 결정됩니다.
 
 * 캐시 폴더 볼륨에는 백업 데이터의 총 크기 중 5-10% 이상에 해당 하는 여유 공간이 있어야 합니다.
-* 볼륨의 사용 가능한 공간이 5% 미만인 경우 볼륨 크기를 늘리거나 캐시 폴더를 공간이 충분 한 볼륨으로 이동 하십시오.
+* 볼륨의 사용 가능한 공간이 5% 미만이 면 볼륨 크기를 늘리거나 캐시 폴더를 공간이 충분 한 볼륨으로 이동 합니다. [이 단계](#how-do-i-change-the-cache-location-for-the-mars-agent)를 수행 합니다.
 * Windows 시스템 상태를 백업 하는 경우 캐시 폴더를 포함 하는 볼륨에 추가 30-35 GB의 사용 가능한 공간이 필요 합니다.
 
 ### <a name="how-to-check-if-scratch-folder-is-valid-and-accessible"></a>스크래치 폴더가 유효 하 고 액세스할 수 있는지 확인 하는 방법
@@ -98,35 +98,35 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 1. 기본적으로 스크래치 폴더는 `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`에 있습니다.
 2. 스크래치 폴더 위치의 경로가 아래에 표시 된 레지스트리 키 항목의 값과 일치 하는지 확인 합니다.
 
-  | 레지스트리 경로 | 레지스트리 키 | 값 |
-  | --- | --- | --- |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
-  | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
+    | 레지스트리 경로 | 레지스트리 키 | 값 |
+    | --- | --- | --- |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
 
 ### <a name="how-do-i-change-the-cache-location-for-the-mars-agent"></a>MARS 에이전트의 캐시 위치를 변경 어떻게 할까요??
 
 1. 관리자 권한 명령 프롬프트에서이 명령을 실행 하 여 백업 엔진을 중지 합니다.
 
     ```Net stop obengine```
-
 2. 시스템 상태 백업을 구성한 경우 디스크 관리를 열고 이름을 `"CBSSBVol_<ID>"`형식으로 지정 하 여 디스크를 분리 합니다.
-3. 파일을 이동 하지 않습니다. 대신 캐시 공간 폴더를 공간이 충분 한 다른 드라이브로 복사 합니다.
-4. 새 캐시 폴더의 경로를 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.
+3. 기본적으로 스크래치 폴더는에 있습니다 `\Program Files\Microsoft Azure Recovery Services Agent\Scratch`
+4. 공간이 충분 한 다른 드라이브에 전체 `\Scratch` 폴더를 복사 합니다. 콘텐츠가 복사 되었는지 확인 하 고 이동 하지 않습니다.
+5. 새로 이동한 스크래치 폴더의 경로를 사용 하 여 다음 레지스트리 항목을 업데이트 합니다.
 
     | 레지스트리 경로 | 레지스트리 키 | 값 |
     | --- | --- | --- |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 캐시 폴더 위치* |
-    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 캐시 폴더 위치* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config` |ScratchLocation |*새 스크래치 폴더 위치* |
+    | `HKEY_LOCAL_MACHINE\SOFTWARE\Microsoft\Windows Azure Backup\Config\CloudBackupProvider` |ScratchLocation |*새 스크래치 폴더 위치* |
 
-5. 관리자 권한 명령 프롬프트에서 백업 엔진을 다시 시작 합니다.
+6. 관리자 권한 명령 프롬프트에서 백업 엔진을 다시 시작 합니다.
 
-  ```command
-  Net stop obengine
+    ```command
+    Net stop obengine
 
-  Net start obengine
-  ```
+    Net start obengine
+    ```
 
-6. 주문형 백업을 실행합니다. 새 위치를 사용 하 여 백업이 성공적으로 완료 되 면 원래 캐시 폴더를 제거할 수 있습니다.
+7. 주문형 백업을 실행합니다. 새 위치를 사용 하 여 백업이 성공적으로 완료 되 면 원래 캐시 폴더를 제거할 수 있습니다.
 
 ### <a name="where-should-the-cache-folder-be-located"></a>캐시 폴더를 어디에 배치 해야 하나요?
 
@@ -139,7 +139,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 다음과 같은 특성 또는 해당 조합은 캐시 폴더에 지원되지 않습니다.
 
-* 암호화됨
+* 암호화
 * 중복 제거
 * Compressed
 * 스파스
@@ -149,7 +149,7 @@ MARS 에이전트는 NTFS를 사용 하며 파일 이름/경로에서 [지원 �
 
 ### <a name="is-there-a-way-to-adjust-the-amount-of-bandwidth-used-for-backup"></a>백업에 사용 되는 대역폭의 양을 조정 하는 방법이 있나요?
 
-예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아보기](backup-configure-vault.md#enable-network-throttling).
+예, MARS 에이전트의 **속성 변경** 옵션을 사용 하 여 대역폭과 타이밍을 조정할 수 있습니다. [자세히 알아봅니다](backup-configure-vault.md#enable-network-throttling).
 
 ## <a name="restore"></a>복원
 
@@ -160,10 +160,10 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 
 | 원본 컴퓨터 <br> *(백업이 수행 된 원본 컴퓨터)* | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 사용할 수 있음 |실패 |원래 컴퓨터 (백업이 수행 된 위치)를 사용할 수 있고 동일한 Recovery Services 자격 증명 모음에 등록 되어 있는 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)를 수행 하 여 암호를 다시 생성할 수 있습니다.  |
-| 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
+| 사용 가능 |손실 |원래 컴퓨터 (백업이 수행 된 위치)를 사용할 수 있고 동일한 Recovery Services 자격 증명 모음에 등록 되어 있는 경우 다음 [단계](https://docs.microsoft.com/azure/backup/backup-azure-manage-mars#re-generate-passphrase)를 수행 하 여 암호를 다시 생성할 수 있습니다.  |
+| 손실 |손실 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
 
-다음 조건을 확인합니다.
+다음 조건을 고려 합니다.
 
 * 동일한 원래 컴퓨터에서 에이전트를 제거 하 고 다시 등록 하는 경우
   * 그러면 백업 *데이터를 복원할*수 있습니다.
@@ -179,8 +179,8 @@ Azure Backup 에이전트에는 복원 중에 백업 된 데이터의 암호를 
 
 | 원본 컴퓨터 | 암호 | 사용 가능한 옵션 |
 | --- | --- | --- |
-| 실패 |사용할 수 있음 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. 복원을 수행할 **다른 위치** > **복구 옵션** 을 선택 합니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
-| 실패 |실패 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
+| 손실 |사용 가능 |원래 컴퓨터를 등록할 때 제공한 것과 동일한 암호를 사용 하 여 다른 컴퓨터에 MARS 에이전트를 설치 하 고 등록할 수 있습니다. 복원을 수행할 **다른 위치** > **복구 옵션** 을 선택 합니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-restore-windows-server#use-instant-restore-to-restore-data-to-an-alternate-machine)를 참조하세요.
+| 손실 |손실 |데이터를 복구할 수 없거나 데이터를 사용할 수 없습니다. |
 
 
 ### <a name="what-happens-if-i-cancel-an-ongoing-restore-job"></a>진행 중인 복원 작업을 취소하면 어떻게 되나요?

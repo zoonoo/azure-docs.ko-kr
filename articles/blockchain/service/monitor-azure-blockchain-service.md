@@ -89,7 +89,7 @@ Azure 로그에서 사용 가능한 시간 필터를 사용 하 여 특정 시�
 | NodeLocation  | Blockchain 멤버가 배포 되는 Azure 지역입니다.  |
 | BlockchainNodeName  | 작업이 수행 되는 Azure Blockchain 서비스 멤버의 노드 이름입니다.   |
 | EthMethod  | 쿼럼에서 기본 blockchain 프로토콜에 의해 호출 되는 메서드는 eth_sendTransactions, eth_getBlockByNumber 등이 될 수 있습니다.  |
-| 에이전트  | 사용자를 대신 하 여 웹 브라우저 Mozilla, Edge 등의 동작을 수행 하는 사용자 에이전트입니다. 값의 예는 "Mozilla/5.0 (Linux x64) node.js/8.16.0 v8/6.2.414.77"입니다.  |
+| 에이전트  | 사용자를 대신 하 여 웹 브라우저 Mozilla, Microsoft Edge 등의 동작을 수행 하는 사용자 에이전트입니다. 값의 예는 "Mozilla/5.0 (Linux x64) node.js/8.16.0 v8/6.2.414.77"입니다.  |
 | 코드   | HTTP 오류 코드입니다. 일반적으로 4XX 및 5XX는 오류 조건입니다.  |
 | NodeHost  | 노드의 DNS 이름입니다.   |
 | RequestMethodName | HTTP 메서드가 호출 되 고, 여기에서 사용할 수 있는 값은 멤버 만들기, 기존 멤버의 세부 정보 가져오기, 삭제 멤버에 대 한 삭제, 멤버 업데이트에 대 한 패치에 포함 됩니다.   |

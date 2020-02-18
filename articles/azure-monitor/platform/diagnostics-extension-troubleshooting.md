@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/08/2019
-ms.openlocfilehash: facd52ea1fdaa2ad30d6b1544cb1f2d6d5833bfa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3dd1fa4b70fcdbec7e62c84bbfc1df14d3502e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450566"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425088"
 ---
 # <a name="azure-diagnostics-troubleshooting"></a>Azure Diagnostics 문제 해결
 이 문서에서는 Azure Diagnostics 사용과 관련된 문제 해결 정보를 설명합니다. Azure 진단에 대한 자세한 내용은 [Azure Diagnostics 개요](diagnostics-extension-overview.md)를 참조하세요.
@@ -38,7 +38,7 @@ ms.locfileid: "75450566"
 | **로그 컬렉션 유틸리티 경로** | %SystemDrive%\Packages\GuestAgent\ |
 | **MonAgentHost 로그 파일** | C:\Resources\Directory\<CloudServiceDeploymentID>.\<RoleName>.DiagnosticStore\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
-### <a name="virtual-machines"></a>Virtual Machines
+### <a name="virtual-machines"></a>가상 머신
 | 아티팩트 | 경로 |
 | --- | --- |
 | **Azure Diagnostics 구성 파일** | C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<version>\RuntimeSettings |
@@ -51,7 +51,7 @@ ms.locfileid: "75450566"
 | **MonAgentHost 로그 파일** | C:\WindowsAzure\Logs\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\<DiagnosticsVersion>\WAD0107\Configuration\MonAgentHost.<seq_num>.log |
 
 ## <a name="metric-data-doesnt-appear-in-the-azure-portal"></a>Azure Portal에 메트릭 데이터가 나타나지 않음
-Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 보는 데 문제가 있는 경우 Azure Diagnostics 스토리지 계정의 WADMetrics\* 테이블을 확인하여 해당 메트릭 레코드가 있는지 확인합니다.
+Azure Diagnostics는 Azure Portal에 표시할 수 있는 메트릭 데이터를 제공합니다. 포털에서 데이터를 표시 하는 데 문제가 있는 경우 Azure 진단 저장소 계정의 WADMetrics\* 테이블을 확인 하 여 해당 메트릭 레코드가 있는지 확인 하 고 [리소스 공급자](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-supported-services) Microsoft 인 사이트를 등록 했는지 확인 합니다.
 
 여기서 테이블의 **PartitionKey**는 리소스 ID, 가상 머신 또는 가상 머신 확장 집합입니다. **RowKey**는 메트릭 이름(일명 성능 카운터 이름)입니다.
 
@@ -90,7 +90,7 @@ Azure Diagnostics가 시작하지 못한 이유에 대한 자세한 내용은 �
 ```
 DiagnosticsPluginLauncher.exe Information: 0 : [4/16/2016 6:24:15 AM] DiagnosticPlugin exited with code 0
 ```
-**음수** 종료 코드가 있으면 [참조 섹션](#references)의 [종료 코드 테이블](#azure-diagnostics-plugin-exit-codes)을 참조하세요.
+**음수** 종료 코드가 있으면 [참조 섹션](#azure-diagnostics-plugin-exit-codes)의 [종료 코드 테이블](#references)을 참조하세요.
 
 ## <a name="diagnostics-data-is-not-logged-to-azure-storage"></a>진단 데이터가 Azure Storage에 기록되지 않음
 나타나는 데이터가 없는지 아니면 일부 데이터가 나타나는지 결정합니다.
@@ -206,7 +206,7 @@ ETW 이벤트를 보유하는 Azure Storage의 테이블 이름은 다음 코드
 ```
 이 코드는 테이블 네 개를 생성합니다.
 
-| 이벤트 | 테이블 이름 |
+| 행사 | 테이블 이름 |
 | --- | --- |
 | provider = "prov1" &lt;이벤트 id = "1"/&gt; |WADEvent + MD5 ("prov1") + "1" |
 | provider = "prov1" &lt;이벤트 id = "2" eventDestination = "dest1"/&gt; |WADdest1 |

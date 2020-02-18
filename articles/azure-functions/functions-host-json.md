@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: cc982d3f810c944a5273cbf0cf9778076d119692
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208827"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425207"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 호스트 json 참조 
 
@@ -21,9 +21,9 @@ ms.locfileid: "77208827"
 > [!NOTE]
 > 이 문서는 Azure Functions 2.x 이상 버전에 대 한 것입니다.  Functions 1.x에서 host.json의 참조는 [Azure Functions 1.x에 대한 host.json 참조](functions-host-json-v1.md)를 참조하세요.
 
-기타 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md)에서 관리합니다.
+다른 함수 앱 구성 옵션은 [앱 설정](functions-app-settings.md) (배포 된 앱의 경우) 또는 [로컬. 설정](functions-run-local.md#local-settings-file) (로컬 개발용)에서 관리 됩니다.
 
-일부 host.json 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 파일에서 로컬로 실행할 때만 사용됩니다.
+바인딩과 관련 된 호스트 json의 구성은 함수 앱의 각 함수에 동일 하 게 적용 됩니다. 
 
 ## <a name="sample-hostjson-file"></a>샘플 host.json 파일
 
@@ -69,11 +69,11 @@ ms.locfileid: "77208827"
               "isEnabled": true,
               "maxTelemetryItemsPerSecond" : 20,
               "evaluationInterval": "01:00:00",
-              "initialSamplingPercentage": 1.0, 
+              "initialSamplingPercentage": 100.0, 
               "samplingPercentageIncreaseTimeout" : "00:00:01",
               "samplingPercentageDecreaseTimeout" : "00:00:01",
               "minSamplingPercentage": 0.1,
-              "maxSamplingPercentage": 0.1,
+              "maxSamplingPercentage": 100.0,
               "movingAverageRatio": 1.0,
               "excludedTypes" : "Dependency;Event",
               "includedTypes" : "PageView;Trace"

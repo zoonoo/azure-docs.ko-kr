@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: 34f5de01df72b48d275448e028ab0f8cb71e51f8
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132057"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424935"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 
@@ -302,7 +302,7 @@ JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 
 Azure Cosmos DB에서는 [분할](partitioning-overview.md) 을 사용 하 여 개별 컨테이너를 요청 단위로 확장 하 고 데이터 저장소를 증가 시켜야 합니다. 각 실제 파티션에는 별도의 독립 된 인덱스가 있습니다. 쿼리에 컨테이너의 파티션 키와 일치 하는 같음 필터가 있는 경우 관련 파티션의 인덱스만 확인 하면 됩니다. 이러한 최적화를 통해 쿼리에 필요한 전체 수를 줄일 수 있습니다.
 
-프로 비전 된 r u의 많은 수 (3만 이상) 또는 저장 된 데이터 양이 많은 경우 (100 GB 초과) 쿼리를 크게 줄일 수 있는 충분 한 컨테이너가 있을 수 있습니다.
+프로 비전 된 r u의 많은 수 (3만 이상) 또는 대용량의 데이터가 저장 되어 있는 경우 (약 100 GB 이상) 쿼리를 크게 줄일 수 있는 충분 한 컨테이너가 있을 가능성이 높습니다.
 
 예를 들어 파티션 키가 foodGroup 인 컨테이너를 만들 경우 다음 쿼리는 단일 실제 파티션만 확인 하면 됩니다.
 

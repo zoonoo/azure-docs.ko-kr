@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/15/2020
+ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 6edd8f89ed2db2927cce14ea86b589090bdc35ed
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 15d15ce2d4dfc55a51bf21ba005512606cc4997a
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371278"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424969"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 
@@ -65,7 +65,7 @@ Azure 계정과 음성 서비스 구독을 만든 후에는 사용자 지정 음
 첫 번째 프로젝트를 만들려면 **텍스트 음성 변환/사용자 지정 음성** 탭을 선택한 다음 **새 프로젝트**를 클릭 합니다. 프로젝트를 만들려면 마법사에서 제공하는 지침을 따릅니다. 프로젝트를 만든 후에는 **데이터**, **학습**, **테스트**및 **배포**의 네 가지 탭이 표시 됩니다. [다음 단계](#next-steps) 에서 제공 된 링크를 사용 하 여 각 탭을 사용 하는 방법을 알아보세요.
 
 > [!IMPORTANT]
-> [사용자 지정 음성 포털이](https://aka.ms/custom-voice) 최근에 업데이트 되었습니다. CRIS 포털 또는 Api에서 데이터, 모델, 테스트 및 게시 된 끝점이 포함 된 이전 프로젝트를 만든 경우 새 포털에서 새 프로젝트를 만들어 이러한 이전 엔터티에 연결 해야 합니다.
+> [사용자 지정 음성 포털이](https://aka.ms/custom-voice) 최근에 업데이트 되었습니다. CRIS.ai 포털에서 또는 Api를 사용 하 여 이전 데이터, 모델, 테스트 및 게시 된 끝점을 만든 경우 새 포털에서 새 프로젝트를 만들어 이러한 이전 엔터티에 연결 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

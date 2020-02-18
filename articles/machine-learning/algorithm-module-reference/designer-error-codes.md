@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 12/03/2019
-ms.openlocfilehash: cf343773695275bc5600ab59e1cd719374d65700
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ea132578a08b9f0002084374838c615a01fa820f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152366"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425802"
 ---
 # <a name="exceptions-and-error-codes-for-the-designer-preview"></a>디자이너에 대 한 예외 및 오류 코드 (미리 보기)
 
@@ -74,7 +74,7 @@ ms.locfileid: "77152366"
 |예외 메시지|
 |------------------------|
 |하나 이상의 입력이 null 이거나 비어 있습니다.|
-|입력 "{0}"이 (가) null 이거나 비어 있습니다.|
+|입력 "{name}"이 (가) null 이거나 비어 있습니다.|
 
 
 ## <a name="error-0004"></a>오류 0004  
@@ -87,8 +87,8 @@ ms.locfileid: "77152366"
 |예외 메시지|
 |------------------------|
 |매개 변수는 경계 값보다 커야 합니다.|
-|"{0}" 매개 변수 값은 {1}보다 커야 합니다.|
-|"{0}" 매개 변수의 값이 "{1}" ({2}보다 커야 함)입니다.|
+|"{Arg_name}" 매개 변수 값은 {lower_boundary} 보다 커야 합니다.|
+|"{Arg_name}" 매개 변수의 값은 {lower_boundary} 보다 커야 하는 "{actual_value}"입니다.|
 
 
 ## <a name="error-0005"></a>오류 0005  
@@ -101,8 +101,8 @@ ms.locfileid: "77152366"
 |예외 메시지|
 |------------------------|
 |매개 변수는 경계 값 이상이어야 합니다.|
-|"{Arg_name}" 매개 변수 값은 {target_val} 보다 크거나 같아야 합니다.|
-|"{Arg_name}" 매개 변수의 "{true_val}" 값이 {target_val} 보다 크거나 같아야 합니다.|
+|"{Arg_name}" 매개 변수 값은 {lower_boundary} 보다 크거나 같아야 합니다.|
+|"{Arg_name}" 매개 변수의 값이 "{value}" (으)로 {lower_boundary} 보다 크거나 같아야 합니다.|
 
 
 ## <a name="error-0006"></a>오류 0006  
@@ -115,8 +115,8 @@ ms.locfileid: "77152366"
 |예외 메시지|
 |------------------------|
 |매개 변수가 일치하지 않습니다. 매개 변수 중 하나는 다른 매개 변수보다 작아야 합니다.|
-|매개 변수 "{0}" 값은 매개 변수 "{1}" 값 보다 작아야 합니다.|
-|"{0}" 매개 변수의 값이 "{1}" 이며 {2}보다 작아야 합니다.|
+|"{Arg_name}" 매개 변수 값은 "{upper_boundary_parameter_name}" 매개 변수 값 보다 작아야 합니다.|
+|"{Arg_name}" 매개 변수의 "{value}" 값이 {upper_boundary_parameter_name} 보다 작아야 합니다.|
 
 
 ## <a name="error-0007"></a>오류 0007  
@@ -137,8 +137,9 @@ ms.locfileid: "77152366"
 |예외 메시지|
 |------------------------|
 |매개 변수가 일치하지 않습니다. 매개 변수 중 하나는 다른 매개 변수 이하여야 합니다.|
-|매개 변수 "{0}" 값은 매개 변수 "{1}" 값 보다 작거나 같아야 합니다.|
-|"{0}" 매개 변수의 값이 "{1}" 이며 {2}보다 작거나 같아야 합니다.|
+|"{Arg_name}" 매개 변수 값은 "{upper_boundary_parameter_name}" 매개 변수 값 보다 작거나 같아야 합니다.|
+|"{Arg_name}" 매개 변수의 "{actual_value}" 값이 {upper_boundary} 보다 작거나 같아야 합니다.|
+|매개 변수 "{arg_name}" 값 {actual_value}은 (는) 매개 변수 "{upper_boundary_parameter_name}" 값 {upper_boundary} 보다 작거나 같아야 합니다.|
 
 
 ## <a name="error-0008"></a>오류 0008  
@@ -154,7 +155,7 @@ ms.locfileid: "77152366"
 |------------------------|
 |매개 변수 값이 지정된 범위에 없습니다.|
 |"{Arg_name}" 매개 변수 값이 범위에 없습니다.|
-|"{Arg_name}" 매개 변수 값은 [{a}, {b}]의 범위 내에 있어야 합니다.|
+|"{Arg_name}" 매개 변수 값은 [{lower_boundary}, {upper_boundary}]의 범위 내에 있어야 합니다.|
 |"{Arg_name}" 매개 변수 값이 범위에 없습니다. 문서화|
 
 
@@ -187,7 +188,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |Azure 저장소 계정 이름 또는 컨테이너 이름이 올바르지 않습니다.|
-|Azure 저장소 계정 이름 "{0}" 또는 컨테이너 이름 "{1}"이 (가) 잘못 되었습니다. 컨테이너/b a s 형식의 컨테이너 이름이 필요 합니다.|
+|Azure 저장소 계정 이름 "{account_name}" 또는 컨테이너 이름 "{container_name}"이 (가) 잘못 되었습니다. 컨테이너/b a s 형식의 컨테이너 이름이 필요 합니다.|
 
 
 ## <a name="error-0010"></a>오류 0010  
@@ -200,7 +201,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |입력 데이터 집합에서 해당하는 인덱스의 열 이름이 다릅니다.|
-|열 이름은 입력 데이터 집합의 열 {0} (0부터 시작)에 대해 동일 하지 않습니다 (각각{1} 및 {2}).|
+|열 이름은 입력 데이터 집합 {col_index} (0부터 시작) ({dataset1} 및 {dataset2})의 열 과 (와) 동일 하지 않습니다.|
 
 
 ## <a name="error-0011"></a>오류 0011  
@@ -219,7 +220,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |지정한 열 집합이 데이터 집합 열에 적용되지 않습니다.|
-|지정 된 열 집합 "{0}"는 데이터 집합 열에 적용 되지 않습니다.|
+|지정 된 열 집합 "{column_set}"은 (는) 데이터 집합 열에 적용 되지 않습니다.|
 
 
 ## <a name="error-0012"></a>오류 0012  
@@ -301,7 +302,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |데이터베이스에 연결하는 중에 오류가 발생했습니다.|
-|데이터베이스 연결을 만드는 동안 오류가 발생 했습니다. {0}.|
+|데이터베이스 연결을 만드는 동안 오류가 발생 했습니다. {connection_str}.|
 
 
 ## <a name="error-0016"></a>오류 0016  
@@ -348,7 +349,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 ## <a name="error-0018"></a>오류 0018  
  입력 데이터 집합이 올바르지 않으면 예외가 발생합니다.  
 
-**해결 방법:** Azure Machine Learning에서이 오류는 여러 컨텍스트에 나타날 수 있으므로 단일 해결 방법이 없습니다. 일반적으로이 오류는 모듈에 대 한 입력으로 제공 된 데이터의 열 수가 잘못 되었거나 데이터 형식이 모듈의 요구 사항과 일치 하지 않음을 나타냅니다. 예를 들면 다음과 같습니다.  
+**해결 방법:** Azure Machine Learning에서이 오류는 여러 컨텍스트에 나타날 수 있으므로 단일 해결 방법이 없습니다. 일반적으로이 오류는 모듈에 대 한 입력으로 제공 된 데이터의 열 수가 잘못 되었거나 데이터 형식이 모듈의 요구 사항과 일치 하지 않음을 나타냅니다. 다음은 그 예입니다.  
 
 -   모듈에 레이블 열이 필요 하지만 레이블로 표시 된 열이 없거나 레이블 열을 아직 선택 하지 않았습니다.  
   
@@ -384,8 +385,8 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |열의 값이 정렬되어 있지 않습니다.|
-|열 "{0}"의 값이 정렬 되어 있지 않습니다.|
-|"{1}" 데이터 집합의 "{0}" 열에 있는 값이 정렬 되어 있지 않습니다.|
+|열 "{col_index}"의 값이 정렬 되어 있지 않습니다.|
+|데이터 집합 "{dataset}"의 열 "{col_index}"에 있는 값이 정렬 되어 있지 않습니다.|
 
 
 ## <a name="error-0020"></a>오류 0020  
@@ -398,6 +399,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |입력 데이터 집합의 열 수가 허용되는 최소값보다 작습니다.|
+|입력 데이터 집합 "{arg_name}"의 열 수가 허용 되는 최소값 보다 낮습니다.|
 |입력 데이터 집합의 열 수가 허용 되는 최소 {required_columns_count} 개 열 보다 낮습니다.|
 |입력 데이터 집합 "{arg_name}"의 열 수가 허용 되는 최소 {required_columns_count} 개 열 보다 낮습니다.|
 
@@ -427,7 +429,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 ## <a name="error-0022"></a>오류 0022  
  입력 데이터 집합에서 선택한 열의 수가 필요한 수와 같지 않으면 예외가 발생합니다.  
 
- 이 오류는 다운스트림 모듈이 나 작업에 특정 개수의 열 또는 입력이 필요한 경우 Azure Machine Learning에 발생할 수 있으며 너무 적거나 너무 많은 열 이나 입력을 제공한 경우에 발생할 수 있습니다. 예를 들면 다음과 같습니다.  
+ 이 오류는 다운스트림 모듈이 나 작업에 특정 개수의 열 또는 입력이 필요한 경우 Azure Machine Learning에 발생할 수 있으며 너무 적거나 너무 많은 열 이나 입력을 제공한 경우에 발생할 수 있습니다. 다음은 그 예입니다.  
 
 -   단일 레이블 열 또는 키 열을 지정 하 고 여러 열을 실수로 선택 했습니다.  
   
@@ -450,9 +452,9 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |입력 데이터 집합에서 선택한 열의 수가 필요한 수와 같지 않습니다.|
-|입력 데이터 집합에서 선택한 열의 수가 {0}와 같지 않습니다.|
-|열 선택 패턴 "{0}"은 입력 데이터 집합에서 {1}와 같지 않은 선택 된 열 수를 제공 합니다.|
-|열 선택 패턴 "{0}"은 입력 데이터 집합에서 선택한 {1} 열을 제공할 것으로 예상 되지만 실제로는 {2} 열이 제공 됩니다.|
+|입력 데이터 집합에서 선택한 열의 수가 {expected_col_count}과 (와) 같지 않습니다.|
+|열 선택 패턴 "{selection_pattern_friendly_name}"이 (가) {expected_col_count}과 (와) 같지 않은 입력 데이터 집합의 선택 된 열 수를 제공 합니다.|
+|열 선택 패턴 "{selection_pattern_friendly_name}"이 (가) 입력 데이터 집합에서 선택한 {expected_col_count} 개의 열을 제공 해야 하는데 실제로 {selected_col_count} 개 열이 제공 됩니다.|
 
 
 ## <a name="error-0023"></a>오류 0023  
@@ -466,8 +468,8 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |입력 데이터 집합에 지원되지 않는 대상 열이 있습니다.|
-|입력 데이터 집합에 지원 되지 않는 대상 열 "{0}"이 (가) 있습니다.|
-|입력 데이터 집합에 {1}유형의 학습자에 대해 지원 되지 않는 대상 열 "{0}"이 (가) 있습니다.|
+|입력 데이터 집합에 지원 되지 않는 대상 열 "{column_index}"이 (가) 있습니다.|
+|입력 데이터 집합에 {learner_type} 형식의 학습자에 대해 지원 되지 않는 대상 열 "{column_index}"이 (가) 있습니다.|
 
 
 ## <a name="error-0024"></a>오류 0024  
@@ -500,8 +502,8 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |데이터 집합에 점수 열이 없습니다.|
-|"{0}"에 점수 열이 없습니다.|
-|"{1}"에 의해 생성 되는 "{0}"에 점수 열이 없습니다. 올바른 학습자 유형을 사용하여 데이터 집합의 점수를 매기세요.|
+|"{Dataset_name}"에 점수 열이 없습니다.|
+|"{Learner_type}"에 의해 생성 된 "{dataset_name}"에 점수 열이 없습니다. 올바른 학습자 유형을 사용하여 데이터 집합의 점수를 매기세요.|
 
 
 ## <a name="error-0026"></a>오류 0026  
@@ -514,7 +516,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |인수에 같은 열 이름이 지정되어 있습니다. 같은 열 이름은 모듈에서 허용되지 않습니다.|
-|"{0}" 및 "{1}" 인수의 동일한 열 이름은 사용할 수 없습니다. 다른 이름을 지정하세요.|
+|"{Arg_name_1}" 및 "{arg_name_2}" 인수에는 같은 열 이름을 사용할 수 없습니다. 다른 이름을 지정하세요.|
 
 
 ## <a name="error-0027"></a>오류 0027  
@@ -533,7 +535,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |전달된 개체의 크기가 일치하지 않습니다.|
-|"{0}"의 크기가 "{1}"의 크기와 일치 하지 않습니다.|
+|"{Friendly_name1}"의 크기가 "{friendly_name2}"의 크기와 일치 하지 않습니다.|
 
 
 ## <a name="error-0028"></a>오류 0028  
@@ -571,7 +573,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |잘못된 URI가 전달되었습니다.|
-|Uri "{0}"이 (가) 잘못 되었습니다.|
+|Uri "{invalid_url}"이 (가) 잘못 되었습니다.|
 
 
 ## <a name="error-0030"></a>오류 0030  
@@ -584,7 +586,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |파일을 다운로드할 수 없습니다.|
-|{0}파일을 다운로드 하는 동안 오류가 발생 했습니다.|
+|{File_url} 파일을 다운로드 하는 동안 오류가 발생 했습니다.|
 
 
 ## <a name="error-0031"></a>오류 0031  
@@ -597,7 +599,8 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |열 집합의 열 수가 필요한 수보다 적습니다.|
-|적어도 {0} 열을 지정 해야 합니다. 실제로 지정된 열 수는 {1}개입니다.|
+|입력 인수 "{arg_name}"에 대해 {required_columns_count} 개 이상의 열을 지정 해야 합니다.|
+|입력 인수 "{arg_name}"에 대해 {required_columns_count} 개 이상의 열을 지정 해야 합니다. 지정 된 열의 실제 수가 {input_columns_count}입니다.|
 
 
 ## <a name="error-0032"></a>오류 0032  
@@ -610,7 +613,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |인수가 숫자가 아닙니다.|
-|"{0}"는 숫자가 아닙니다.|
+|"{arg_name}"은 (는) 숫자가 아닙니다.|
 
 
 ## <a name="error-0033"></a>오류 0033  
@@ -623,7 +626,7 @@ Blob에 대 한 전체 경로가 지정 된 경우 경로는 **컨테이너/blob
 |예외 메시지|
 |------------------------|
 |인수는 유한 해야 합니다.|
-|"{0}"는 유한 하지 않습니다.|
+|"{arg_name}"은 (는) 유한 하지 않습니다.|
 
 
 ## <a name="error-0034"></a>오류 0034  
@@ -663,7 +666,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |필요한 사용자 또는 항목에 대해 기능을 제공하지 않았습니다.|
-|{0} 기능이 필요 하지만 제공 되지 않았습니다.|
+|{Required_feature_name}의 기능이 필요한 데 제공 되지 않았습니다.|
 
 
 ## <a name="error-0036"></a>오류 0036  
@@ -676,7 +679,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |사용자 또는 항목에 대한 기능 정의가 중복됩니다.|
-|{0}에 대 한 기능 정의가 중복 되었습니다.|
 
 
 ## <a name="error-0037"></a>오류 0037  
@@ -742,9 +744,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |허용되지 않는 변환입니다.|
-|{0} 형식의 열을 {1}형식의 열로 변환할 수 없습니다.|
-|{0} 유형의 열 "{2}"을 (를) {1}유형의 열로 변환할 수 없습니다.|
-|{0} 유형의 열 "{2}"을 (를) {1}유형의 열 "{3}" (으)로 변환할 수 없습니다.|
+|{Type1} 형식의 열을 {type2} 형식의 열로 변환할 수 없습니다.|
+|{Type1} 유형의 열 "{col_name1}"을 (를) {type2} 유형의 열로 변환할 수 없습니다.|
+|{Type1} 유형의 열 "{col_name1}"을 (를) {type2} 유형의 열 "{col_name2}" (으)로 변환할 수 없습니다.|
 
 
 ## <a name="error-0044"></a>오류 0044  
@@ -757,8 +759,8 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |열의 요소 형식을 파생할 수 없습니다.|
-|열 "{0}"에 대해 요소 형식을 파생할 수 없습니다. 모든 요소가 null 참조입니다.|
-|데이터 집합 "{1}"의 열 "{0}"에 대 한 요소 형식을 파생할 수 없습니다. 모든 요소가 null 참조입니다.|
+|열 "{column_name}"에 대해 요소 형식을 파생할 수 없습니다. 모든 요소가 null 참조입니다.|
+|데이터 집합 "{dataset_name}"의 열 "{column_name}"에 대 한 요소 형식을 파생할 수 없습니다. 모든 요소가 null 참조입니다.|
 
 
 ## <a name="error-0045"></a>오류 0045  
@@ -771,8 +773,8 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |혼합 요소 형식으로 열을 만들 수 없습니다.|
-|혼합 요소 형식의 id가 "{column_id}" 인 열을 만들 수 없습니다. \ n \T 데이터 형식 [{row_1}, {column_id}]은 "{type_1}"입니다. 데이터 유형 [{row_2}, {column_id}]은 "{type_2}"입니다.|
-|혼합 요소 형식의 id가 "{column_id}" 인 열을 만들 수 없습니다. ' {chunk_id_1}의 청크 {}은 (는) "{type_1}"입니다. 청크 {chunk_id_2}의 형식은 청크 크기가 {chunk_size} 인 "{type_2}"입니다.|
+|혼합 요소 유형의 id가 "{column_id}" 인 열을 만들 수 없습니다.<br />데이터 유형 [{row_1}, {column_id}]은 "{type_1}"입니다. <br />데이터 유형 [{row_2}, {column_id}]은 "{type_2}"입니다.|
+|혼합 요소 유형의 id가 "{column_id}" 인 열을 만들 수 없습니다.<br />청크 {chunk_id_1}의 형식은 "{type_1}"입니다. <br />청크 {chunk_id_2}의 형식은 청크 크기가 {chunk_size} 인 "{type_2}"입니다.|
 
 
 ## <a name="error-0046"></a>오류 0046  
@@ -785,7 +787,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |올바른 출력 디렉터리를 지정하세요.|
-|디렉터리: {0}을 만들 수 없습니다. 올바른 경로를 지정하세요.|
+|디렉터리: {path}을 (를) 만들 수 없습니다. 올바른 경로를 지정하세요.|
 
 
 ## <a name="error-0047"></a>오류 0047  
@@ -824,8 +826,8 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |파일을 열 수 없습니다.|
-|파일을 여는 동안 오류 발생: {0}.|
-|파일을 여는 동안 오류 발생: {0}. 저장소 예외 메시지: {1}.|
+|{File_name} 파일을 여는 동안 오류가 발생 했습니다.|
+|{File_name} 파일을 여는 동안 오류가 발생 했습니다. 저장소 예외 메시지: {exception}.|
 
 
 ## <a name="error-0049"></a>오류 0049  
@@ -910,7 +912,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |파일 또는 Blob가 이미 있습니다.|
-|파일 또는 Blob "{0}"이 (가) 이미 있습니다.|
+|파일 또는 Blob "{file_path}"이 (가) 이미 있습니다.|
 
 
 ## <a name="error-0058"></a>오류 0058  
@@ -945,7 +947,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |하나 이상의 지정된 열 인덱스 또는 인덱스 범위를 구문 분석할 수 없습니다.|
-|열 인덱스 또는 범위 "{0}"을 (를) 구문 분석할 수 없습니다.|
+|열 인덱스 또는 범위 "{column_index_or_range}"을 (를) 구문 분석할 수 없습니다.|
 
 
 ## <a name="error-0060"></a>오류 0060  
@@ -958,7 +960,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |잘못되었거나 범위를 벗어난 열 인덱스 범위를 지정했습니다.|
-|열 범위 "{0}"이 (가) 잘못 되었거나 범위를 벗어났습니다.|
+|열 범위 "{column_range}"이 (가) 잘못 되었거나 범위를 벗어났습니다.|
 
 
 ## <a name="error-0061"></a>오류 0061  
@@ -1035,7 +1037,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |Azure 저장소에 리소스를 업로드할 수 없습니다.|
-|"{0}" 파일을 "{1}" (으)로 Azure 저장소에 업로드할 수 없습니다.|
+|"{Source_path}" 파일을 Azure storage에 "{dest_path}" (으)로 업로드할 수 없습니다.|
 
 
 ## <a name="error-0067"></a>오류 0067  
@@ -1079,7 +1081,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |Hive 스크립트가 잘못되었습니다.|
-|Hive 스크립트 {0} 잘못 되었습니다.|
 
 
 ## <a name="error-0069"></a>오류 0069  
@@ -1101,8 +1102,8 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |SQL 스크립트가 잘못되었습니다.|
-|SQL 쿼리 "{0}"이 (가) 올바르지 않습니다.|
-|SQL 쿼리 "{0}"이 (가) 올바르지 않습니다{1}.|
+|SQL 쿼리 "{sql_query}"이 (가) 올바르지 않습니다.|
+|SQL 쿼리 "{sql_query}"이 (가) 올바르지 않습니다. 예외 메시지: {exception}.|
 
 
 ## <a name="error-0070"></a>오류 0070  
@@ -1115,7 +1116,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |Azure 테이블이 없습니다.|
-|Azure 테이블 "{0}"이 (가) 없습니다.|
+|Azure 테이블 "{table_name}"이 (가) 없습니다.|
 
 
 ## <a name="error-0072"></a>오류 0072  
@@ -1140,7 +1141,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |열을 변환하지 못했습니다.|
-|열을 {0}로 변환 하지 못했습니다.|
+|열을 {target_type} (으)로 변환 하지 못했습니다.|
 
 
 ## <a name="error-0075"></a>오류 0075  
@@ -1169,7 +1170,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |지원되지 않는 Blob 쓰기 모드입니다.|
-|지원 되지 않는 blob 쓰기 모드: {0}.|
+|지원 되지 않는 blob 쓰기 모드: {blob_write_mode}.|
 
 
 ## <a name="error-0078"></a>오류 0078  
@@ -1194,7 +1195,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |Azure 저장소 컨테이너 이름이 잘못되었습니다.|
-|Azure 저장소 컨테이너 이름 "{0}"이 (가) 잘못 되었습니다. 컨테이너/b a s 형식의 컨테이너 이름이 필요 합니다.|
+|Azure 저장소 컨테이너 이름 "{container_name}"이 (가) 잘못 되었습니다. 컨테이너/b a s 형식의 컨테이너 이름이 필요 합니다.|
 
 
 ## <a name="error-0080"></a>오류 0080  
@@ -1207,7 +1208,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |모든 값이 누락된 열은 허용되지 않습니다.|
-|열 {0}에 모든 값이 없습니다.|
+|열 {col_index_or_name}에 누락 된 값이 모두 있습니다.|
 
 
 ## <a name="error-0081"></a>오류 0081  
@@ -1244,9 +1245,9 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |학습에 사용되는 데이터 집합이 잘못되었습니다.|
-|{0}에 학습을 위한 잘못 된 데이터가 포함 되어 있습니다.|
-|{0}에 학습을 위한 잘못 된 데이터가 포함 되어 있습니다. 학습자 type: {1}.|
-|{0}에 학습을 위한 잘못 된 데이터가 포함 되어 있습니다. 학습자 type: {1}. 이유: {2}.|
+|{data_name}에 잘못 된 학습 데이터가 포함 되어 있습니다.|
+|{data_name}에 잘못 된 학습 데이터가 포함 되어 있습니다. 학습자 type: {learner_type}.|
+|{data_name}에 잘못 된 학습 데이터가 포함 되어 있습니다. 학습자 type: {learner_type}. 이유: {reason}.|
 
 
 ## <a name="error-0084"></a>오류 0084  
@@ -1271,7 +1272,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |스크립트 평가 중에 오류가 발생했습니다.|
-|스크립트를 평가 하는 동안 다음 오류가 발생 했습니다. 자세한 내용은 출력 로그를 참조 하십시오. {script_language} 인터프리터----------{message----------}의 오류 메시지 시작----------{script_language}의 오류 메시지 끝  인터프리터----------|
+|스크립트를 평가하는 동안 다음 오류가 발생했습니다. 자세한 내용은 출력 로그를 참조하십시오.<br />{Script_language} 인터프리터의 오류 메시지----------시작----------<br />메시지나<br />{Script_language} 인터프리터의 오류 메시지 끝을--------------------|
 
 
 ## <a name="error-0090"></a>오류 0090  
@@ -1284,8 +1285,8 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |Hive 테이블을 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결 된 Azure storage 계정 이름이 module 매개 변수를 통해 전달 되는 것과 동일한 지 확인 하세요.|
-|Hive 테이블 "{0}"을 (를) 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결 된 Azure storage 계정 이름이 module 매개 변수를 통해 전달 되는 것과 동일한 지 확인 하세요.|
-|Hive 테이블 "{0}"을 (를) 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결 된 Azure storage 계정 이름이 "{1}" 인지 확인 하세요.|
+|Hive 테이블 "{table_name}"을 (를) 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결 된 Azure storage 계정 이름이 module 매개 변수를 통해 전달 되는 것과 동일한 지 확인 하세요.|
+|Hive 테이블 "{table_name}"을 (를) 만들 수 없습니다. HDInsight 클러스터의 경우 클러스터와 연결 된 Azure storage 계정 이름이 "{cluster_name}" 인지 확인 하세요.|
 
 
 ## <a name="error-0102"></a>오류 0102  
@@ -1317,6 +1318,19 @@ For general information about how the Matchbox recommendation algorithm works, a
 |지원 되지 않는 매개 변수 형식 '{0}'이 (가) 지정 되었습니다.|  
 
 
+## <a name="error-0107"></a>오류 0107  
+ 모듈 정의 파일에서 지원 되지 않는 출력 형식을 정의 하는 경우 throw 됩니다.  
+  
+ Azure Machine Learning에서이 오류는 사용자 지정 모듈 xml 정의의 출력 포트 형식이 지원 되는 형식과 일치 하지 않는 경우에 생성 됩니다.  
+  
+**해결 방법:** 사용자 지정 모듈 xml 정의 파일에 있는 Output 요소의 type 속성이 지원 되는 형식 인지 확인 합니다.  
+  
+|예외 메시지|  
+|------------------------|  
+|지원되지 않는 출력 유형입니다.|  
+|지원 되지 않는 출력 형식 ' {output_type} '이 (가) 지정 되었습니다.|  
+
+
 ## <a name="error-0125"></a>오류 0125  
  여러 데이터 집합에 대 한 스키마가 일치 하지 않는 경우 throw 됩니다.  
 
@@ -1342,7 +1356,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |이미지 픽셀 크기가 허용되는 제한을 초과합니다.|
-|'{0}' 파일의 이미지 픽셀 크기가 허용 된 제한 '{1}'을 (를) 초과 합니다.|
+|' {File_path} ' 파일의 이미지 픽셀 크기가 허용 된 제한 ' {size_limit} '을 (를) 초과 합니다.|
 
 
 ## <a name="error-0128"></a>오류 0128  
@@ -1353,7 +1367,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |범주 열에 대 한 조건부 확률 수가 제한을 초과 합니다.|
-|범주 열에 대 한 조건부 확률 수가 제한을 초과 합니다. '{0}' 열과 '{1}' 열이 문제가 있는 쌍입니다.|
+|범주 열에 대 한 조건부 확률 수가 제한을 초과 합니다. 열 ' {column_name_or_index_1} ' 및 ' {column_name_or_index_2} '은 (는) 문제가 있는 쌍입니다.|
 
 
 ## <a name="error-0129"></a>오류 0129  
@@ -1424,7 +1438,7 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |범주 및 문자열 열에서 선택한 숫자 열 및 고유 값의 수가 너무 작습니다.|
-|범주 및 문자열 열에서 선택 된 숫자 열 및 고유 값의 총 개수 (현재 {0})는 {1}이상 이어야 합니다.|
+|범주 및 문자열 열에서 선택 된 숫자 열 및 고유 값의 총 개수 (현재 {actual_num})는 {lower_boundary} 이상 이어야 합니다.|
 
 
 ## <a name="error-0154"></a>오류 0154  
@@ -1473,6 +1487,6 @@ For general information about how the Matchbox recommendation algorithm works, a
 |예외 메시지|
 |------------------------|
 |라이브러리 예외입니다.|
-|라이브러리 예외: {0}.|
-|알 수 없는 라이브러리 예외: {0}. {1}입니다.|
+|라이브러리 예외: {exception}.|
+|알 수 없는 라이브러리 예외: {exception}. {customer_support_guidance}.|
 

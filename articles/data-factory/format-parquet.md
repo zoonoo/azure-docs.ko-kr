@@ -9,12 +9,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.date: 04/29/2019
 ms.author: jingwang
-ms.openlocfilehash: 72b001ada98ecd768cd39fea012a20f2ada466d2
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 340f91fc926c155f95449f7cc49c214f46d1ff35
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931281"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423660"
 ---
 # <a name="parquet-format-in-azure-data-factory"></a>Azure Data Factory Parquet 형식
 
@@ -26,11 +26,11 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 데이터 세트 정의에 사용할 수 있는 섹션 및 속성의 전체 목록은 [데이터 세트](concepts-datasets-linked-services.md) 문서를 참조하세요. 이 섹션에서는 Parquet 데이터 집합에서 지 원하는 속성의 목록을 제공 합니다.
 
-| 자산         | 설명                                                  | 필수 |
+| 속성         | Description                                                  | 필수 |
 | ---------------- | ------------------------------------------------------------ | -------- |
 | type             | 데이터 집합의 type 속성은 **Parquet**로 설정 해야 합니다. | yes      |
-| location         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
-| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 LZO를 지원 하지 않습니다. | 아닙니다.       |
+| 위치         | 파일의 위치 설정입니다. 각 파일 기반 커넥터에는 `location`에서 고유한 위치 유형 및 지원 되는 속성이 있습니다. **커넥터 문서-> 데이터 집합 속성 섹션에서 세부 정보를 참조 하세요**. | yes      |
+| compressionCodec | Parquet 파일에 쓸 때 사용할 압축 코덱입니다. Parquet 파일에서 읽을 때 파일 메타 데이터를 기반으로 압축 코덱을 자동으로 결정 Data Factory.<br>지원 되는 형식은 "**none**", "**gzip**", "**snappy**" (기본값) 및 "**lzo**"입니다. 참고 현재 복사 작업은 읽기/쓰기 Parquet 파일을 사용할 때 LZO을 지원 하지 않습니다. | 예       |
 
 > [!NOTE]
 > Parquet 파일에는 열 이름에 공백이 지원 되지 않습니다.
@@ -67,19 +67,19 @@ Parquet 형식은 다음 커넥터에 대해 지원 됩니다. [Amazon S3](conne
 
 복사 작업 ***\*원본\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSource**로 설정 해야 합니다. | yes      |
-| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| storeSettings | 데이터 저장소에서 데이터를 읽는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터에는 `storeSettings`에서 고유한 지원 읽기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 예       |
 
 ### <a name="parquet-as-sink"></a>Parquet
 
 복사 작업 ***\*싱크\**** 섹션에서 지원 되는 속성은 다음과 같습니다.
 
-| 자산      | 설명                                                  | 필수 |
+| 속성      | Description                                                  | 필수 |
 | ------------- | ------------------------------------------------------------ | -------- |
 | type          | 복사 작업 원본의 type 속성은 **ParquetSink**로 설정 해야 합니다. | yes      |
-| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 아닙니다.       |
+| storeSettings | 데이터 저장소에 데이터를 쓰는 방법에 대 한 속성 그룹입니다. 각 파일 기반 커넥터의 `storeSettings`에는 자체 지원 되는 쓰기 설정이 있습니다. **커넥터 문서-> 복사 작업 속성 섹션에서 세부 정보를 참조 하세요**. | 예       |
 
 ## <a name="mapping-data-flow-properties"></a>데이터 흐름 속성 매핑
 

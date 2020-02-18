@@ -3,19 +3,19 @@ title: 테이프 인프라를 교체 하는 방법
 description: Azure에서 데이터를 백업 및 복원할 수 있는 테이프와 유사한 의미 체계 Azure Backup 제공 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 04/30/2017
-ms.openlocfilehash: 4659a4d6fcc7213f8323e23d59411680276fcb28
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: aeda1cefc84d425855c40b793f8334936541e63f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173304"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425105"
 ---
 # <a name="move-your-long-term-storage-from-tape-to-the-azure-cloud"></a>장기 스토리지를 테이프에서 Azure 클라우드로 이동
 
 Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수행할 수 있습니다.
 
 * 해당 조직의 요구에 가장 적합한 일정으로 데이터를 백업합니다.
-* 백업 데이터를 더 오랜 기간 동안 보존
+* 더 긴 기간 동안 백업 데이터를 보존 합니다.
 * 장기 보존 시 (테이프 대신) Azure를 사용해 보세요.
 
 이 문서에서는 고객이 백업 및 보존 정책을 사용 하도록 설정하는 방법을 설명합니다. 테이프를 사용하여 장기 보존 요구 사항을 해결하는 고객들은 이제 이 기능을 사용하여 강력하고 실행 가능한 대안을 마련할 수 있습니다. 이 기능은 Azure Backup의 최신 릴리스( [여기](https://aka.ms/azurebackup_agent)에서 사용 가능)에서 사용할 수 있습니다. System Center DPM 고객은 DPM을 Azure Backup 서비스에 사용하려면 먼저 DPM 2012 R2 UR5 이상으로 업데이트해야 합니다.
@@ -43,9 +43,9 @@ Azure Backup 및 System Center Data Protection Manager 고객은 다음을 수�
 ![샘플 화면](./media/backup-azure-backup-cloud-as-tape/samplescreen.png)
 
 1. **일 단위 보존 정책**: 매일 수행된 백업이 7일 동안 저장됩니다.
-2. **주 단위 보존 정책**: 매주 토요일 자정과 오후 6시에 수행된 백업이 4주 동안 유지됩니다
-3. **월 단위 보존 정책**: 매달 마지막 주 토요일 자정과 오후 6시에 수행된 백업이 12개월 동안 유지됩니다.
-4. **연 단위 보존 정책**: 매년 3월 마지막 주 토요일 자정에 수행된 백업이 10년 동안 유지됩니다.
+2. **주간 보존 정책**: 자정 및 오후 6 시에 수행 되는 백업은 4 주 동안 보존 됩니다.
+3. **월별 보존 정책**: 각 월의 마지막 토요일 자정 및 오후 6 시에 수행 된 백업은 12 개월 동안 유지 됩니다.
+4. **연도별 보존 정책**: 3 월의 마지막 토요일 자정에 수행 된 백업은 10 년 동안 보존 됩니다.
 
 앞의 도표에서 "보존 지점"(데이터를 복원할 수 있는 지점)의 총 수는 다음과 같이 계산됩니다.
 

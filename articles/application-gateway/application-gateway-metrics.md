@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 1fa9c72f7ca305a03cdc90ea02cefe973932792b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77046314"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425259"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -95,10 +95,20 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 - **현재 연결**
 
    클라이언트에서 Application Gateway 활성 상태의 총 동시 연결 수입니다.
+   
+- **예상 청구 용량 단위**
+
+  청구 금액을 사용 하는 용량 단위 수입니다. 이는 *현재 용량 단위* 와 *고정 청구 가능 용량 단위*사이의 큰 값으로 계산 됩니다.  
 
 - **실패한 요청**
 
    Application Gateway에서 처리 한 실패 한 요청의 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
+   
+- **청구 가능한 용량 단위 고정** Application Gateway 구성의 *최소 배율 단위* 설정에 따라 프로 비전 유지 된 최소 용량 단위 수입니다.
+   
+ - **초당 새 연결 수**
+
+   클라이언트에서 Application Gateway로 설정 되 고 Application Gateway에서 백 엔드 멤버로 설정 된 초당 평균 새 TCP 연결 수입니다.
 
 
 - **응답 상태**

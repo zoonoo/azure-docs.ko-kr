@@ -9,14 +9,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 04/29/2019
+ms.date: 02/13/2020
 ms.author: jingwang
-ms.openlocfilehash: 2c637346aae72a238963607f6f5d23910684265c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 9ae07e2a471cc417b467092a2616a5a0cdafb1fe
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74921988"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77423638"
 ---
 # <a name="schema-mapping-in-copy-activity"></a>복사 작업의 스키마 매핑
 
@@ -87,20 +87,20 @@ ms.locfileid: "74921988"
 
 다음 속성은 `source` 및 `sink`를 사용 하는 `translator` -> `mappings` > 개체에서 지원 됩니다.
 
-| 자산 | 설명                                                  | 필수 |
+| 속성 | Description                                                  | 필수 |
 | -------- | ------------------------------------------------------------ | -------- |
-| 이름     | 원본 또는 싱크 열의 이름입니다.                           | yes      |
-| ordinal  | 열 인덱스입니다. 1로 시작 합니다. <br>머리글 줄 없이 분리 된 텍스트를 사용 하는 경우 적용 하 고 필요 합니다. | 아닙니다.       |
-| 경로     | 추출 하거나 매핑할 각 필드에 대 한 JSON 경로 식입니다. 계층 구조 데이터 (예: MongoDB/REST)에 적용 됩니다.<br>루트 개체 아래에 있는 필드의 경우 JSON 경로는 root $로 시작 합니다. `collectionReference` 속성에서 선택한 배열 내의 필드에 대해 JSON 경로는 배열 요소에서 시작 합니다. | 아닙니다.       |
-| type     | 원본 또는 싱크 열의 중간 데이터 형식을 Data Factory 합니다. | 아닙니다.       |
-| culture  | 원본 또는 싱크 열의 문화권입니다. <br>형식이 `Datetime` 또는 `Datetimeoffset`경우 적용 됩니다. 기본값은 `en-us`입니다. | 아닙니다.       |
-| format   | 형식이 `Datetime` 또는 `Datetimeoffset`때 사용할 서식 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 아닙니다.       |
+| name     | 원본 또는 싱크 열의 이름입니다.                           | yes      |
+| ordinal  | 열 인덱스입니다. 1로 시작 합니다. <br>머리글 줄 없이 분리 된 텍스트를 사용 하는 경우 적용 하 고 필요 합니다. | 예       |
+| 경로     | 추출 하거나 매핑할 각 필드에 대 한 JSON 경로 식입니다. 계층 구조 데이터 (예: MongoDB/REST)에 적용 됩니다.<br>루트 개체 아래에 있는 필드의 경우 JSON 경로는 root $로 시작 합니다. `collectionReference` 속성에서 선택한 배열 내의 필드에 대해 JSON 경로는 배열 요소에서 시작 합니다. | 예       |
+| type     | 원본 또는 싱크 열의 중간 데이터 형식을 Data Factory 합니다. | 예       |
+| culture  | 원본 또는 싱크 열의 문화권입니다. <br>형식이 `Datetime` 또는 `Datetimeoffset`경우 적용 됩니다. 기본값은 `en-us`입니다. | 예       |
+| format   | 형식이 `Datetime` 또는 `Datetimeoffset`때 사용할 서식 문자열입니다. 날짜/시간 형식을 지정하는 방법은 [사용자 지정 날짜 및 시간 형식 문자열](https://docs.microsoft.com/dotnet/standard/base-types/custom-date-and-time-format-strings)을 참조하세요. | 예       |
 
 다음 속성은 `source` 및 `sink`있는 개체 외에도 `translator` -> `mappings`에서 지원 됩니다.
 
-| 자산            | 설명                                                  | 필수 |
+| 속성            | Description                                                  | 필수 |
 | ------------------- | ------------------------------------------------------------ | -------- |
-| collectionReference | 계층 구조 데이터 (예: MongoDB/REST가 원본) 인 경우에만 지원 됩니다.<br>동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 아닙니다.       |
+| collectionReference | 계층 구조 데이터 (예: MongoDB/REST가 원본) 인 경우에만 지원 됩니다.<br>동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. | 예       |
 
 ### <a name="alternative-column-mapping"></a>대체 열 매핑
 
@@ -200,11 +200,11 @@ ms.locfileid: "74921988"
 
 복사 작업-> `translator` -> `schemaMapping`를 지정 하 여 계층적 데이터 및 테이블 형식 데이터 사이에 매핑할 수 있습니다. 예를 들어 MongoDB/REST에서 텍스트 파일로 복사 하 고 Oracle에서 Azure Cosmos DB의 MongoDB API로 복사 합니다. 다음 속성은 복사 작업 `translator` 섹션에서 지원됩니다.
 
-| 자산 | 설명 | 필수 |
+| 속성 | Description | 필수 |
 |:--- |:--- |:--- |
 | type | 복사 작업 변환기의 type 속성은 **TabularTranslator** 로 설정 해야 합니다. | yes |
-| schemaMapping | **소스 쪽에서 싱크 쪽으로의**매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **Key:** 원본을 나타냅니다. **테이블 형식 원본의**경우 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층 구조 원본**에서 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다.<br>- **Value:** 싱크를 나타냅니다. **테이블 형식 싱크에**대해 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층적 싱크에**대해 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다. <br>계층적 데이터의 경우 루트 개체 아래의 필드에 대해 JSON 경로는 root $로 시작 합니다. `collectionReference` 속성에서 선택한 배열 내의 필드에 대해 JSON 경로는 배열 요소에서 시작 합니다.  | yes |
-| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 아닙니다. |
+| schemaMapping | **소스 쪽에서 싱크 쪽으로의**매핑 관계를 나타내는 키-값 쌍의 컬렉션입니다.<br/>- **키:** 원본을 나타냅니다. **테이블 형식 원본의**경우 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층 구조 원본**에서 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다.<br>- **값:** 싱크를 나타냅니다. **테이블 형식 싱크에**대해 데이터 집합 구조에 정의 된 열 이름을 지정 합니다. **계층적 싱크에**대해 추출 및 매핑할 각 필드에 대 한 JSON 경로 식을 지정 합니다. <br>계층적 데이터의 경우 루트 개체 아래의 필드에 대해 JSON 경로는 root $로 시작 합니다. `collectionReference` 속성에서 선택한 배열 내의 필드에 대해 JSON 경로는 배열 요소에서 시작 합니다.  | yes |
+| collectionReference | 동일한 패턴으로 **배열 필드 내부**의 개체에서 데이터를 반복 및 추출하고 행별 개체별로 변환하려면 교차 적용하도록 해당 배열의 JSON 경로를 지정합니다. 이 속성은 계층적 데이터가 원본인 경우에만 지원됩니다. | 예 |
 
 **예: MongoDB에서 Oracle로 복사 합니다.**
 
@@ -239,9 +239,9 @@ ms.locfileid: "74921988"
 
 | orderNumber | orderDate | order_pd | order_price | city |
 | --- | --- | --- | --- | --- |
-| 01 | 20170122 | P1 | 23 | 시애틀 |
-| 01 | 20170122 | P2 | 13 | 시애틀 |
-| 01 | 20170122 | P3 | 231 | 시애틀 |
+| 01 | 20170122 | P1 | 23 | Seattle |
+| 01 | 20170122 | P2 | 13 | Seattle |
+| 01 | 20170122 | P3 | 231 | Seattle |
 
 다음 복사 작업 JSON 샘플처럼 스키마-매핑 규칙을 구성합니다.
 
@@ -259,11 +259,11 @@ ms.locfileid: "74921988"
         "translator": {
             "type": "TabularTranslator",
             "schemaMapping": {
-                "orderNumber": "$.number",
-                "orderDate": "$.date",
-                "order_pd": "prod",
-                "order_price": "price",
-                "city": " $.city[0].name"
+                "$.number": "orderNumber",
+                "$.date": "orderDate",
+                "prod": "order_pd",
+                "price": "order_price",
+                "$.city[0].name": "city"
             },
             "collectionReference":  "$.orders"
         }
@@ -280,22 +280,22 @@ ms.locfileid: "74921988"
 
 각 커넥터 항목의 "데이터 형식 매핑" 섹션에서 원시 형식과 중간 형식 간의 매핑을 확인할 수 있습니다.
 
-### <a name="supported-data-types"></a>지원되는 데이터 원본
+### <a name="supported-data-types"></a>지원되는 데이터 형식
 
 Data Factory는 다음과 같은 중간 데이터 형식을 지원 합니다. [데이터 집합 구조](concepts-datasets-linked-services.md#dataset-structure-or-schema) 구성에서 형식 정보를 구성할 때 아래 값을 지정할 수 있습니다.
 
 * Byte[]
-* Boolean
+* 부울
 * DateTime
 * Datetimeoffset
-* 10진수
-* DOUBLE
-* GUID
+* Decimal
+* Double
+* Guid
 * Int16
 * Int32
 * Int64
-* 단일
-* string
+* Single
+* String
 * Timespan
 
 ## <a name="next-steps"></a>다음 단계

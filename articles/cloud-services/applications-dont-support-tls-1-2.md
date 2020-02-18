@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: c4cbe2a99de97b2938d494e80d410a44c4143629
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026836"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425037"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>TLS 1.2을 지원 하지 않는 응용 프로그램 문제 해결
 이 문서에서는 이전 TLS 프로토콜 (TLS 1.0 및 1.1)을 사용 하도록 설정 하 고 Windows Server 2019 클라우드 서비스 웹 및 작업자 역할에서 추가 프로토콜을 지 원하는 레거시 암호 그룹을 적용 하는 방법을 설명 합니다. 
@@ -27,7 +27,7 @@ ms.locfileid: "77026836"
 사용 중단 TLS 1.0 및 TLS 1.1 단계를 수행 하는 동안 고객은 사용 중단을 계획할 때까지 이전 프로토콜 및 암호 그룹을 지원 해야 할 수 있습니다.  이러한 레거시 값을 다시 사용 하지 않는 것이 좋지만 고객에 게 도움이 되는 지침을 제공 하 고 있습니다. 이 문서에서 설명 하는 변경 내용을 구현 하기 전에 고객이 회귀 위험을 평가 하는 것이 좋습니다. 
 
 > [!NOTE]
-> 게스트 OS 제품군 6 릴리스는 1.0/1.0 암호화를 사용 하지 않도록 설정 하 여 TLS 1.2을 적용 합니다. 
+> 게스트 OS 제품군 6 릴리스는 1.0/1.1 암호를 사용 하지 않도록 설정 하 여 TLS 1.2을 적용 합니다. 
 
   
 ## <a name="dropping-support-for-tls-10-tls-11-and-older-cipher-suites"></a>TLS 1.0, TLS 1.1 및 이전 암호 그룹에 대 한 지원 삭제 

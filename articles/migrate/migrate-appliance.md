@@ -2,13 +2,13 @@
 title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
-ms.date: 11/19/2019
-ms.openlocfilehash: 652fe9d379d6e2ba50e9e282f384905e154368d8
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.date: 02/17/2020
+ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031666"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425462"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -55,7 +55,7 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **해시 값** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 **Hyper-V 호스트** | Windows Server 2012 R2 이상 버전을 실행 하 고 있습니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
-**조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
+**조사** | 어플라이언스는 Hyper-v Vm을 최대 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
 **어플라이언스 구성 요소** | 관리 앱: 배포 중 사용자 입력에 대 한 어플라이언스의 웹 앱입니다.<br/> 검색 에이전트: 컴퓨터 구성 데이터를 수집 합니다.<br/> 평가 에이전트: 성능 데이터를 수집 합니다.<br/>  자동 업데이트 서비스: 구성 요소를 업데이트 합니다 (24 시간 마다 실행).
 
 

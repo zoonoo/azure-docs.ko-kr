@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 76e9526ab39cbccd45a48d2cd24e05867c953774
-ms.sourcegitcommit: d9ec6e731e7508d02850c9e05d98d26c4b6f13e6
+ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/20/2020
-ms.locfileid: "76280835"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425921"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -37,17 +37,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력합니다. |
+    | 속성 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **유럽 서부**를 선택합니다.|
+    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 위치 | **서유럽**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
 3. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
-### <a name="create-virtual-machine"></a>가상 머신 만들기
+### <a name="create-virtual-machine"></a>Virtual Machine 만들기
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **가상 머신**을 선택합니다.
 
@@ -57,10 +57,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
-    | 지역 | **유럽 서부**를 선택합니다. |
+    | 지역 | **서유럽**를 선택합니다. |
     | 가용성 옵션 | 기본값인 **인프라 중복이 필요하지 않습니다**를 그대로 둡니다. |
     | 이미지 | **Windows Server 2019 Datacenter**를 선택합니다. |
     | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
@@ -107,7 +107,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **서버 정보** |  |
     |서버 이름  | *myserver*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 관리자 사용자 이름| 원하는 관리자 이름을 입력합니다. |
@@ -137,10 +137,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 이름 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
-    |지역|**유럽 서부**를 선택합니다.|
+    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    |지역|**서유럽**를 선택합니다.|
     |||
 5. **다음: 리소스**를 선택 합니다.
 6. **프라이빗 엔드포인트 만들기 - 리소스**에서 다음 정보를 입력하거나 선택합니다.
@@ -210,34 +210,35 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     Non-authoritative answer:
     Name:    mydemoMariaDBserver.privatelink.mariadb.database.azure.com
     Address:  10.1.3.4
+    ```
 
-3. Test the private link connection for the MariaDB server using any available client. In the example below I have used [MySQL Workbench](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) to do the operation.
+3. 사용 가능한 모든 클라이언트를 사용 하 여 MariaDB 서버에 대 한 개인 링크 연결을 테스트 합니다. 아래 예제에서는 [MySQL 워크 벤치](https://dev.mysql.com/doc/workbench/en/wb-installing-windows.html) 를 사용 하 여 작업을 수행 했습니다.
 
 
-4. In **New connection**, enter or select this information:
+4. **새 연결**에서 다음 정보를 입력 하거나 선택 합니다.
 
-    | Setting | Value |
+    | 설정 | 값 |
     | ------- | ----- |
-    | Server type| Select **MariaDB**.|
-    | Server name| Select *mydemoserver.privatelink.mariadb.database.azure.com* |
-    | User name | Enter username as username@servername which is provided during the MariaDB server creation. |
-    |Password |Enter a password provided during the MariaDB server creation. |
-    |SSL|Select **Required**.|
+    | 서버 유형| **Mariadb**를 선택 합니다.|
+    | 서버 이름| *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
+    | 사용자 이름 | MariaDB 서버 생성 중에 제공 되는 username@servername으로 사용자 이름을 입력 합니다. |
+    |암호 |MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+    |SSL|**필수**를 선택 합니다.|
     ||
 
-5. Select **Test Connection** or **OK**.
+5. **연결 테스트** 또는 **확인을**선택 합니다.
 
-6. (Optionally) Browse databases from left menu and Create or query information from the MariaDB database
+6. 생략할 왼쪽 메뉴에서 데이터베이스 찾아보기 및 MariaDB 데이터베이스에서 정보 만들기 또는 쿼리
 
-7. Close the remote desktop connection to myVm.
+7. MyVm에 대 한 원격 데스크톱 연결을 닫습니다.
 
-## Clean up resources
-When you're done using the private endpoint, MariaDB server, and the VM, delete the resource group and all of the resources it contains:
+## <a name="clean-up-resources"></a>리소스 정리
+개인 끝점, MariaDB 서버 및 VM을 사용 하 여 작업을 완료 한 후에는 리소스 그룹과 해당 리소스 그룹에 포함 된 모든 리소스를 삭제 합니다.
 
-1. Enter *myResourceGroup* in the **Search** box at the top of the portal and select *myResourceGroup* from the search results.
-2. Select **Delete resource group**.
-3. Enter myResourceGroup for **TYPE THE RESOURCE GROUP NAME** and select **Delete**.
+1. 포털 맨 위에 있는  *검색* 상자에  myResourceGroup을 입력하고 검색 결과에서  *myResourceGroup* 을 선택합니다.
+2. **리소스 그룹 삭제**를 선택합니다.
+3. **리소스 그룹 이름 입력**에 대해 myResourceGroup을 입력하고 **삭제**를 선택합니다.
 
-## Next steps
+## <a name="next-steps"></a>다음 단계
 
-In this how-to, you created a VM on a virtual network, an Azure Database for MariaDB, and a private endpoint for private access. You connected to one VM from the internet and securely communicated to the MariaDB server using Private Link. To learn more about private endpoints, see [What is Azure private endpoint](https://docs.microsoft.com/azure/private-link/private-endpoint-overview).
+이 방법에서는 가상 네트워크, Azure Database for MariaDB 및 개인 액세스를 위한 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 MariaDB 서버에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](https://docs.microsoft.com/azure/private-link/private-endpoint-overview)을 참조 하세요.
