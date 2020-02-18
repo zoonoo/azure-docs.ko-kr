@@ -56,10 +56,6 @@
           href: create-cluster-database-resource-manager.md
     - name: 데이터 수집
       items:
-        - name: 한 번 클릭으로 수집
-          href: ingest-data-one-click.md
-        - name: 스트리밍 수집
-          href: ingest-data-streaming.md
         - name: 이벤트 허브
           items:
             - name: Azure portal
@@ -90,6 +86,10 @@
               href: data-connection-iot-hub-python.md
             - name: Azure Resource Manager 템플릿
               href: data-connection-iot-hub-resource-manager.md
+        - name: 한 번 클릭으로 수집
+          href: ingest-data-one-click.md
+        - name: 스트리밍 수집
+          href: ingest-data-streaming.md
         - name: SDK 사용
           items:
             - name: Python
