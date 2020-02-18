@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/15/2020
 ms.author: Zhchia
-ms.openlocfilehash: de60b4ea1b09998e84bab4d204e3c8c3bc8779a4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: fe1260982edc877c049716bd74f1bb3e90d33b0f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77050448"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370526"
 ---
 # <a name="tutorial-configure-azure-databricks-scim-connector-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Azure Databricks SCIM 커넥터 구성
 
@@ -96,7 +96,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Azure Databricks Scim 커넥터 관리자 자격 증명 및 사용자 이름을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Azure Databricks Scim 커넥터에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Azure Databricks SCIM 커넥터 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에서 **테 넌 트 URL**에 scim 끝점 값을 입력 합니다. 테 넌 트 URL은 Azure Databricks 홈 페이지 URL에서 **지역을** 찾을 수 있는 `https://<region>.azuredatabricks.net/api/2.0/preview/scim` 형식 이어야 합니다. 예를 들어 **westus** region에 대 한 scim 끝점은 `https://westus.azuredatabricks.net/api/2.0/preview/scim`됩니다. **비밀 토큰**에서 이전에 검색 된 토큰 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Azure Databricks Scim 커넥터에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Azure Databricks SCIM 커넥터 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![프로비전](./media/azure-databricks-scim-provisioning-connector-provisioning-tutorial/provisioning.png)
 

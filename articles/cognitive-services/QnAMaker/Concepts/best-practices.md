@@ -1,22 +1,14 @@
 ---
 title: 모범 사례 - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: 모범 사례를 사용하여 기술 자료를 개선하고 애플리케이션/챗봇 최종 사용자에게 보다 나은 결과를 제공할 수 있습니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: 2fd85e43fb2aa53299b4e37eca5163b7da8fc6ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/15/2020
+ms.openlocfilehash: fb935aeed7b492a3a0c213d6d7166bd5d80144c1
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843806"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370106"
 ---
 # <a name="best-practices-of-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료의 모범 사례
 
@@ -31,8 +23,6 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 ### <a name="configuring-multi-turn"></a>다중 전환 구성
 
 다중 전환 추출을 사용 하는 [기술 자료를 만듭니다](../how-to/multiturn-conversation.md#create-a-multi-turn-conversation-from-a-documents-structure) . 기술 자료가 질문 계층 구조를 지원 하거나 지원 해야 하는 경우 문서에서이 계층을 추출 하거나 문서를 추출한 후에 만들 수 있습니다.
-
-<!--is this a global setting that can only be configured at kb creation time? -->
 
 ## <a name="creating-good-questions-and-answers"></a>좋은 질문 및 답변 만들기
 
@@ -49,9 +39,9 @@ QnA Maker 서비스는 콘텐츠에서 QnA를 추출하고 지원되는 파일 �
 
 ### <a name="good-answers"></a>좋은 답변
 
-가장 좋은 답은 간단한 대답 이지만 너무 간단 하지 않습니다. `yes` 및 `no`와 같은 대답은 사용 하지 마십시오. 답변이 다른 소스에 연결 되거나 미디어 및 링크를 사용 하 여 풍부한 환경을 제공 해야 하는 경우에는 [메타 데이터 태그](../how-to/edit-knowledge-base.md#add-metadata) 지정을 사용하여 답변을 구분 하고 `strictFilters` 속성에서 메타 데이터 태그로 [쿼리를 제출](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration)하여 올바른 버전의 답을 가져옵니다.
+가장 좋은 답은 간단한 대답 이지만 너무 간단 하지 않습니다. `yes` 및 `no`와 같은 대답은 사용 하지 마십시오. 답변이 다른 소스에 연결 되거나 미디어 및 링크를 사용 하 여 풍부한 환경을 제공 해야 하는 경우 [메타 데이터 태깅](../how-to/edit-knowledge-base.md#add-metadata) 을 사용 하 여 답변을 구분 하 고 `strictFilters` 속성에서 메타 데이터 태그로 [쿼리를 제출](../how-to/metadata-generateanswer-usage.md#generateanswer-request-configuration) 하 여 올바른 응답 버전을 가져옵니다.
 
-|답변|Follup 프롬프트|
+|대답|Follup 프롬프트|
 |--|--|
 |키보드의 전원 단추를 사용 하 여 Surface 노트북의 전원을 켭니다.|* 중지, 종료 및 다시 시작에 대 한 키 조합입니다.<br>* Surface 노트북을 하드 부팅 하는 방법<br>* Surface 노트북에 대 한 BIOS를 변경 하는 방법<br>* 절전 모드, 종료 및 다시 시작 간의 차이점|
 |고객 서비스는 하루 24 시간 동안 전화, Skype 및 문자 메시지를 통해 사용할 수 있습니다.|* 판매에 대 한 연락처 정보입니다.<br> * 사용자가 방문 하는 사무실 및 스토어 위치 및 시간입니다.<br> * Surface 노트북의 액세서리|
@@ -66,11 +56,11 @@ Chit-채팅은 몇 가지 미리 정의 된 개성에 대해 지원 됩니다.
 
 |성격 |데이터 집합 파일 QnA Maker |
 |---------|-----|
-|전문가 |[qna_chitchat_professional.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
-|친숙한 |[qna_chitchat_friendly.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
-|Witty |[qna_chitchat_witty.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
-|신경쓰지 |[qna_chitchat_caring.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
-|열정적 |[qna_chitchat_enthusiastic.tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
+|Professional |[qna_chitchat_professional tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_professional.tsv) |
+|친숙한 |[qna_chitchat_friendly tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_friendly.tsv) |
+|Witty |[qna_chitchat_witty tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_witty.tsv) |
+|신경쓰지 |[qna_chitchat_caring tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_caring.tsv) |
+|열정적 |[qna_chitchat_enthusiastic tsv](https://qnamakerstore.blob.core.windows.net/qnamakerdata/editorial/qna_chitchat_enthusiastic.tsv) |
 
 응답은 격식체에서 비격식체의 범위까지 지정됩니다. 봇에 원하는 어조와 가장 가깝게 맞춰진 개성을 선택해야 합니다. 데이터 집합을 보고 봇의 기준으로 사용 되는 [데이터 집합](https://github.com/Microsoft/BotBuilder-PersonalityChat/tree/master/CSharp/Datasets)을 선택한 다음 응답을 사용자 지정할 수 있습니다.
 
@@ -79,11 +69,11 @@ Chit-채팅은 몇 가지 미리 정의 된 개성에 대해 지원 됩니다.
 
 잡담 QnA를 구체적으로 만드는 것이 좋습니다.
 
-* 귀하는 누구인가요?
-* 무엇을 할 수 있나요?
+* 귀하는 누구입니까?
+* 무엇을 할 수 있습니까?
 * 나이가 어떻게 되세요?
 * 만든 사람은 누구인가요?
-* 안녕하세요.
+* Hello
 
 ### <a name="adding-custom-chit-chat-with-a-metadata-tag"></a>메타 데이터 태그를 사용 하 여 사용자 지정 chit-채팅 추가
 
@@ -104,7 +94,7 @@ QnA Maker가 지원하는 순위 기능을 최대로 활용하시기 바랍니�
 
 ### <a name="choosing-a-threshold"></a>임계값 선택
 
-임계값으로 사용 되는 기본 [신뢰도 점수](confidence-score.md) 는 50 이지만 요구 사항에 따라 KB의 [임계값을 변경할](confidence-score.md#set-threshold) 수 있습니다. 모든 KB가 다르므로 KB에 가장 적합한 임계값을 에 테스트하고 선택해야 합니다.
+임계값으로 사용 되는 기본 [신뢰도 점수](confidence-score.md) 는 0 이지만 사용자의 요구에 따라 KB의 [임계값을 변경할](confidence-score.md#set-threshold) 수 있습니다. 모든 KB가 다르므로 KB에 가장 적합한 임계값을 에 테스트하고 선택해야 합니다.
 
 ### <a name="choosing-ranker-type"></a>Ranker 유형 선택
 기본적으로 QnA Maker는 질문과 대답을 검색 합니다. 질문을 통해서만 검색 하려면 답변을 생성 하려면 GenerateAnswer 요청의 게시 본문에 `RankerType=QuestionOnly`를 사용 합니다.
@@ -147,7 +137,7 @@ QnA Maker를 통해 사용자들이 기술 자료를 [공동으로 작업](../Ho
 
 
 
-## <a name="active-learning"></a>활성 학습
+## <a name="active-learning"></a>능동적 학습
 
 [활성 학습](../How-to/improve-knowledge-base.md)은 품질의 범위가 넓은 사용자 기반 쿼리의 수가 많을 때 가장 적절한 대체 질문을 제안합니다. 그러므로 클라이언트 애플리케이션의 사용자 쿼리가 검열되지 않고 활성 학습 피드백 루프에 참여할 수 있도록 해야 합니다. QnA Maker 포털에서 질문이 제안 되 면 **[제안을 기준으로 필터링](../How-To/improve-knowledge-base.md#accept-an-active-learning-suggestion-in-the-knowledge-base)** 한 다음 해당 제안 사항을 검토 하 고 수락 하거나 거부할 수 있습니다.
 

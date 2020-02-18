@@ -54,7 +54,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 ### <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해
 
 특성 매핑으로 타사 SaaS 애플리케이션에서 특성이 채워지는 법을 제어합니다.
-4 가지의 다른 매핑 형식이 지원됩니다.
+네 가지 서로 다른 매핑 형식이 지원됩니다.
 
 - **직접** – 대상 특성이 Azure AD에서 연결된 개체의 특성 값으로 채워집니다.
 - **상수** – 대상 특성이 지정 된 특정 문자열로 채워집니다.
@@ -111,7 +111,7 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 
 - Salesforce
 - ServiceNow
-- Workday
+- 작업일
 - Azure Active Directory ([Microsoft Graph REST API v 1.0 참조](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) 및 사용자 지정 디렉터리 확장이 지원 됨)
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
 

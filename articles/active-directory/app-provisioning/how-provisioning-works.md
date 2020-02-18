@@ -62,7 +62,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 
 SaaS 애플리케이션에 프로비전을 구성하면 식 매핑은 지정할 수 있는 특성 매핑의 유형 중 하나입니다. 이러한 매핑의 경우 사용자 데이터를 SaaS 응용 프로그램에 보다 적합 한 형식으로 변환할 수 있는 스크립트와 유사한 식을 작성 해야 합니다. 자세한 내용은 [특성 매핑에 대 한 식 작성](functions-for-customizing-application-data.md)을 참조 하세요.
 
-## <a name="scoping"></a>범위 지정 
+## <a name="scoping"></a>범위 
 ### <a name="assignment-based-scoping"></a>할당 기반 범위 지정
 
 Azure AD에서 SaaS 응용 프로그램으로 아웃 바운드 프로 비전을 위해 [사용자 또는 그룹 할당](../manage-apps/assign-user-or-group-access-portal.md) 을 사용 하는 것은 프로 비전 범위에 있는 사용자를 결정 하는 가장 일반적인 방법입니다. 사용자 할당은 Single Sign-On를 사용 하도록 설정 하는 데도 사용 되므로 액세스 및 프로 비전을 관리 하는 데 동일한 방법을 사용할 수 있습니다. 할당 기반 범위 지정은 Workday 및 Successfactors와 같은 인바운드 프로 비전 시나리오에 적용 되지 않습니다.

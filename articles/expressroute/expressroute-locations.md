@@ -6,14 +6,14 @@ author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
 ms.workload: infrastructure-services
-ms.date: 02/11/2020
+ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 8fc58c1bcf594bf7d5660399be42b55b09bc7e3d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5eb837ac6aa336a6a3f889a8bb5279be413ec31f
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186899"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371225"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -47,7 +47,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **북아메리카** |미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City, |
 | **아시아** | 동아시아, 동남 아시아 | 방콕, 홍콩, 홍콩 Kong2, 자카르타, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
 | **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
-| **일본** | 일본 서부, 일본 동부 |오사카, 도쿄 |
+| **일본** | 일본 서부, 일본 동부 |오사카, 도쿄, Tokyo2 |
 | **오세아니아** | 오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니, Sydney2 |
 | **대한민국** | 한국 중부, 한국 남부 |부산, 서울|
 | **아랍에미리트** | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
@@ -82,6 +82,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Aryaka Networks](https://www.aryaka.com/)** |지원됨 |지원됨 |암스테르담, 시카고, 달라스, 홍콩 특별 행정구, 상 파울로, 시애틀, 실리콘 계곡, 싱가포르, 도쿄, 워싱턴 DC |
 | **[Ascenty Data Cente](https://www.ascenty.com/en/cloud/microsoft-express-route)** |지원됨 |지원됨 |상파울루 |
 | **[AT&T NetBond](https://www.synaptic.att.com/clouduser/html/productdetail/ATT_NetBond.htm)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 실리콘밸리, 싱가포르, 시드니, 도쿄, 토론토, 워싱턴 DC |
+| **[BBIX](https://www.bbix.net/en/service/ix/)** | 지원됨 | 지원됨 | 도쿄 |
 | **[BCX](https://www.bcx.co.za/solutions)** |지원됨 |지원됨 |카보베르데|
 | **[Bell Canada](https://business.bell.ca/shop/enterprise/cloud-connect-access-to-cloud-partner-services)** |지원됨 |지원됨 |몬트리올, 토론토, 퀘벡 시티 |
 | **[British Telecom](https://www.globalservices.bt.com/en/solutions/products/cloud-connect-azure)** |지원됨 |지원됨 |암스테르담, 홍콩 특별 행정구, 요하네스버그, 런던, Newport (Wales), 상 파울로, 실리콘 계곡, 싱가포르, 시드니, 도쿄, 워싱턴 DC |
@@ -123,7 +124,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **[Level 3 Communications](http://your.level3.com/LP=882?WT.tsrc=02192014LP882AzureVanityAzureText)** |지원됨 |지원됨 |암스테르담, 시카고, 댈러스, 런던, 뉴포트(웨일스), 상파울루, 시애틀, 실리콘밸리, 싱가포르, 워싱턴 DC |
 | **LG CNS** |지원됨 |지원됨 |부산, 서울 |
 | **[Liquid Telecom](https://www.liquidtelecom.com/products-and-services/cloud.html)** |지원됨 |지원됨 |케이프타운, 요하네스버그 |
-| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, Dubai2, 더블린, 프랑크푸르트, Geneva, 홍콩 특별 행정구, Las Vegas, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, Oslo, 퍼스, 퀘벡 City, San Antonio, 시애틀, 실리콘 계곡, 싱가포르, 싱가포르 2, 시드니, 도쿄, 전, 워싱턴 DC, 취리히 |
+| **[Megaport](https://www.megaport.com/services/microsoft-expressroute/)** |지원됨 |지원됨 |암스테르담, 애틀랜타, 오클랜드, 시카고, 달라스, 덴버, Dubai2, 더블린, 프랑크푸르트, Geneva, 홍콩 특별 행정구, Las Vegas, 런던, London2, 로스앤젤레스, 멜버른, 마이애미, 몬트리올, 뉴욕, Oslo, 퍼스, 퀘벡 City, San Antonio, 시애틀, 실리콘 계곡, 싱가포르, 싱가포르 2, 시드니, Sydney2, 도쿄,, 워싱턴 DC, 취리히 |
 | **[MTN](https://www.mtnbusiness.com/en/enterprise/Pages/microsoft-express-route.aspx)** |지원됨 |지원됨 |London |
 | **[Neutrona Networks](https://www.neutrona.com/index.php/azure-expressroute/)** |지원됨 |지원됨 |달라스, 로스앤젤레스, 마이애미, 상 파울로, 워싱턴 DC |
 | **[Next Generation Data](https://www.nextgenerationdata.co.uk/ngd-cloud-gateway/)** |지원됨 |지원됨 |뉴포트(웨일스) |

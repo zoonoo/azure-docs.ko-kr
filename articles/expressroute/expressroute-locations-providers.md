@@ -5,14 +5,14 @@ services: expressroute
 author: cherylmc
 ms.service: expressroute
 ms.topic: conceptual
-ms.date: 02/11/2020
+ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 6eaa2c038c75243c2b2ad4361c173fe527ebf3b4
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 51ede9e264bd92721aca0ca0b75baf73c089e8fb
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212323"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371234"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -46,7 +46,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **북아메리카** | 미국 동부, 미국 서부, 미국 동부 2, 미국 서부 2, 미국 중부, 미국 중남부, 미국 중북부, 미국 중서부, 캐나다 중부, 캐나다 동부 |애틀랜타, 시카고, 달라스, 덴버, Las Vegas, 로스앤젤레스, 마이애미, 뉴욕, San Antonio, 시애틀, 실리콘 계곡, 실리콘 Valley2, 워싱턴 DC, 워싱턴 DC2, 몬트리올, 퀘벡 City, |
 | **아시아** | 동아시아, 동남 아시아 | 방콕, 홍콩, 홍콩 Kong2, 자카르타, 콸라룸푸르, 싱가포르, 싱가포르 2, 타이베이 |
 | **인도** | 인도 서부, 인도 중부, 인도 남부 |첸나이, 첸나이2, 뭄바이, 뭄바이2 |
-| **일본** | 일본 서부, 일본 동부 |오사카, 도쿄 |
+| **일본** | 일본 서부, 일본 동부 |오사카, 도쿄, Tokyo2 |
 | **오세아니아** | 오스트레일리아 남동부, 오스트레일리아 동부 |오클랜드, 멜버른, 퍼스, 시드니, Sydney2 | 
 | **대한민국** | 한국 중부, 한국 남부 |부산, 서울|
 | **아랍에미리트** | 아랍에미리트 중부, 아랍에미리트 북부 | Dubai, Dubai2 |
@@ -132,9 +132,10 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 | **Stavanger** | [녹색 산지 DC1](https://greenmountain.no/dc1-stavanger/) | 1 | 노르웨이 서 부 | 10G, 100G | |
 | **스톡홀름** | [서-ix SK1](https://www.equinix.com/locations/europe-colocation/sweden-colocation/stockholm-data-centers/sk1/) | 1 | 해당 없음 | 10G | 서-ix, Telia 캐리어 |
 | **시드니** | [서-ix SY2](https://www.equinix.com/locations/asia-colocation/australia-colocation/sydney-data-centers/sy2/) | 2 | 오스트레일리아 동부 | 10G, 100G | AARNet, & T NetBond, 영국령 텔레콤, Devoli, Kordia, Megaport, NEXTDC, NTT Communications, Optus, 주황, Spark NZ, Telstra Corporation, TPG 텔레콤, Verizon, Vocus Group NZ |
-| **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | 오스트레일리아 동부 | 10G, 100G | NextDC |
+| **Sydney2** | [NextDC S1](https://www.nextdc.com/data-centres/s1-sydney-data-centre) | 2 | 오스트레일리아 동부 | 10G, 100G | Megaport, NextDC |
 | **타이베이** | Chief Telecom | 2 | 해당 없음 | 10G | 최고 통신, FarEasTone |
-| **도쿄** | [서-ix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 일본 동부 | 10G, 100G | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Colt, Equinix, 인터넷 이니셔티브 일본 Inc.-IIJ, Megaport, NTT 통신, NTT 동부, 주황, 소프트 뱅크, Verizon |
+| **도쿄** | [서-ix TY4](https://www.equinix.com/locations/asia-colocation/japan-colocation/tokyo-data-centers/ty4/) | 2 | 일본 동부 | 10G, 100G | Aryaka Networks, & T NetBond, BBIX, 영국 텔레콤, CenturyLink Cloud Connect, Colt, Equinix, Internet 이니셔티브 일본 Inc.-IIJ, Megaport, NTT Communications, NTT 동부, 주황, 소프트 Bank, Verizon |
+| **Tokyo2** | [도쿄](https://www.attokyo.com/) | 2 | 일본 동부 | 10G, 100G | |
 | **토론토** | [Cologix TOR1](https://www.cologix.com/data-centers/toronto/tor1/) | 1 | 캐나다 중부 | 10G, 100G | & T NetBond, 종 캐나다, CenturyLink Cloud Connect, Cologix, Megaport, Telus, Verizon, Zayo |
 | **워싱턴 DC** | [서-ix DC2](https://www.equinix.com/locations/americas-colocation/united-states-colocation/washington-dc-data-centers/dc2/) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | Aryaka Networks, & T NetBond, 영국령 텔레콤, CenturyLink Cloud Connect, Cologix, Colt, Comcast, Coresite, Cologix, Internet2, InterCloud, IX Reach, 수준 3 통신, Megaport, Neutrona Networks, NTT 통신, 주황색, PacketFabric, SES , 스 프린트, Tata 통신, Telia 캐리어, Verizon, Zayo |
 | **워싱턴 DC2** | [Coresite Reston](https://www.coresite.com/data-centers/locations/northern-virginia-washington-dc/reston-campus) | 1 | 미국 동부, 미국 동부 2 | 10G, 100G | CenturyLink Cloud Connect, Coresite, Intelsat, Viasat, Zayo | 

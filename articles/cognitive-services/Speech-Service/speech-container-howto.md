@@ -35,7 +35,7 @@ ms.locfileid: "77367767"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 음성 컨테이너를 사용 하기 전에 다음 필수 구성 요소:
 
@@ -282,7 +282,7 @@ ApiKey={API_KEY}
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |
@@ -344,7 +344,7 @@ Docker run 명령의 `ModelId` 매개 변수에 대 한 인수로 사용할 **�
 
 다음 표에서는 다양 한 `docker run` 매개 변수 및 해당 설명을 나타냅니다.
 
-| 매개 변수 | Description |
+| 매개 변수 | 설명 |
 |---------|---------|
 | `{VOLUME_MOUNT}` | Docker에서 사용자 지정 모델을 유지 하는 데 사용 하는 호스트 컴퓨터 [볼륨 탑재](https://docs.docker.com/storage/volumes/)입니다. 예를 들어 *C 드라이브가* 호스트 컴퓨터에 있는 *c:\customspeech* 가 여기에 해당 합니다. |
 | `{MODEL_ID}` | 사용자 지정 음성 포털의 **학습** 페이지에서 CUSTOM SPEECH **모델 ID** 입니다. |

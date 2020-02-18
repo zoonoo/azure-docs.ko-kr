@@ -6,16 +6,16 @@ author: diberry
 manager: nitinme
 ms.custom: include file
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
-ms.date: 10/23/2019
 ms.author: diberry
-ms.openlocfilehash: 5e7feac35ddd607d36cb0ddd3bae10cf1b9bc7a7
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 155c88ec4766391f70701b17038b915c399d8b0c
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74278590"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77371649"
 ---
 ## <a name="sign-in-to-luis-portal"></a>LUIS 포털에 로그인
 
@@ -31,12 +31,12 @@ LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
     ![제작 리소스 만들기](../media/migrate-authoring-key/choose-authoring-resource-form.png)
 
-    **새 제작 리소스를 만들** 때 다음 정보를 제공합니다. 
+    **새 제작 리소스를 만들** 때 다음 정보를 제공합니다.
 
     * **리소스 이름** - 사용자가 선택한 사용자 지정 이름으로, 작성 및 예측 엔드포인트 쿼리의 URL 중 일부로 사용됩니다.
-    * **테넌트** - Azure 구독이 연결된 테넌트입니다. 
+    * **테넌트** - Azure 구독이 연결된 테넌트입니다.
     * **구독 이름** - 리소스에 대해 청구되는 구독입니다.
-    * **리소스 그룹** - 사용자가 선택하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용하면 액세스 및 관리를 위해 Azure 리소스를 그룹화할 수 있습니다. 
+    * **리소스 그룹** - 사용자가 선택하거나 만드는 사용자 지정 리소스 그룹 이름입니다. 리소스 그룹을 사용하면 액세스 및 관리를 위해 Azure 리소스를 그룹화할 수 있습니다.
     * **위치** - 선택한 위치는 **리소스 그룹** 선택에 따라 결정됩니다.
     * **가격 책정 계층** - 가격 책정 계층은 초 및 월별 최대 트랜잭션 수를 결정합니다.
 
@@ -44,6 +44,6 @@ LUIS에 대한 새 사용자는 다음 절차를 수행해야 합니다.
 
     ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-key-selection.png)
 
-1. **계속**을 선택하여 확인합니다. 
+1. **계속**을 선택하여 확인합니다.
 
     ![제작 리소스 만들기](../media/sign-in/sign-in-confirm-continue.png)

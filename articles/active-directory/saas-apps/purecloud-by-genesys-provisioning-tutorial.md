@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/05/2020
 ms.author: Zhchia
-ms.openlocfilehash: b0b5147faf82fedb6dc3c2eea54dcff1b9343f7a
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 119690b9046821ab538d879e1209c6ef77277370
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087480"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370674"
 ---
 # <a name="tutorial-configure-purecloud-by-genesys-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위해 PureCloud를 사용 하 여 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "77087480"
 > * PureCloud에서 그룹 및 그룹 멤버 자격 프로 비전
 > * PureCloud에 대 [한 Single sign-on](https://docs.microsoft.com/azure/active-directory/saas-apps/purecloud-by-genesys-tutorial) (권장)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -90,7 +90,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 PureCloud by를 입력 하 여 **테 넌 트 Url** 및 **비밀 토큰** 필드에 Oauth 토큰을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 PureCloud에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Genesys 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
+5. **관리자 자격 증명** 섹션 아래에서 PureCloud by를 입력 하 여 **테 넌 트 Url** 및 **비밀 토큰** 필드에 Oauth 토큰을 입력 합니다. API URL은 [PureCloud 개발자 센터](https://developer.mypurecloud.com/api/rest/index.html)에서 PureCloud 지역에 대 한 api url을 사용 하 여 `{{API Url}}/api/v2/scim/v2`으로 구성 됩니다. **연결 테스트** 를 클릭 하 여 Azure AD가 PureCloud에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Genesys 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 하세요.
 
     ![프로비전](./media/purecloud-by-genesys-provisioning-tutorial/provisioning.png)
 
@@ -104,7 +104,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
 9. **특성 매핑** 섹션에서 Azure AD에서 PureCloud로 동기화 되는 사용자 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 PureCloud의 사용자 계정을 일치 시키는 데 사용 됩니다. 일치 하는 [대상 특성](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes)을 변경 하도록 선택 하는 경우 PureCloud API에서 해당 특성에 따라 사용자 필터링을 지원 하는지 확인 해야 합니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다.
 
-     |attribute|Type|
+     |특성|형식|
      |---|---|
      |userName|String|
      |활성|부울|
@@ -120,11 +120,11 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
 11. **특성 매핑** 섹션에서 Azure AD에서 PureCloud로 동기화 되는 그룹 특성을 검토 합니다. **일치** 속성으로 선택한 특성은 업데이트 작업을 위해 PureCloud의 그룹을 일치 시키는 데 사용 됩니다. **저장** 단추를 선택하여 변경 내용을 커밋합니다. PureCloud by Genesys는 그룹 만들기 또는 삭제를 지원 하지 않으며 그룹 업데이트만 지원 합니다.
 
-      |attribute|Type|
+      |특성|형식|
       |---|---|
       |displayName|String|
       |externalId|String|
-      |members|참조|
+      |멤버|참조|
 
 12. 범위 지정 필터를 구성하려면 [범위 지정 필터 자습서](../manage-apps/define-conditional-rules-for-provisioning-user-accounts.md)에서 제공하는 다음 지침을 참조합니다.
 

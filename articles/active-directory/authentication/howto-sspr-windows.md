@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: sahenry
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: be1c0e93a51064870635d4f06bd5b365bbfe517a
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: a1f0e5242d87bc68efd92a52619e8d48cff9ac87
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74847289"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370062"
 ---
 # <a name="how-to-enable-password-reset-from-the-windows-login-screen"></a>방법: Windows 로그인 화면에서 암호 재설정 사용
 
@@ -27,7 +27,9 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 ## <a name="general-limitations"></a>일반적인 제한 사항
 
 - 현재 원격 데스크톱 또는 Hyper-v 고급 세션에서 암호 재설정이 지원 되지 않습니다.
-- 이 기능은 802.1x 네트워크 인증이 배포된 네트워크에 및 “사용자가 로그온하기 직전에 수행” 옵션에는 작동하지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
+- 일부 타사 자격 증명 공급자는이 기능에 대 한 문제를 일으키는 것으로 알려져 있습니다.
+- [Enablelua 레지스트리 키](https://docs.microsoft.com/openspecs/windows_protocols/ms-gpsb/958053ae-5397-4f96-977f-b7700ee461ec) 수정을 통해 UAC를 사용 하지 않도록 설정 하면 문제가 발생 합니다.
+- 이 기능은 802.1 x 네트워크 인증을 배포한 네트워크 및 "사용자 로그온 직전에 수행" 옵션에는 적용 되지 않습니다. 802.1x 네트워크 인증이 배포된 네트워크의 경우 머신 인증을 사용하여 이 기능을 사용하는 것이 좋습니다.
 - 새 암호를 사용 하 고 캐시 된 자격 증명을 업데이트 하려면 하이브리드 Azure AD 조인 컴퓨터에 도메인 컨트롤러에 대 한 네트워크 연결 회선이 있어야 합니다.
 - 이미지를 사용 하는 경우 sysprep를 실행 하기 전에 CopyProfile 단계를 수행 하기 전에 기본 제공 관리자에 대 한 웹 캐시가 지워지지 않았는지 확인 합니다. 이 단계에 대 한 자세한 내용은 [사용자 지정 기본 사용자 프로필을 사용할 때 지원 문서 성능 저하](https://support.microsoft.com/help/4056823/performance-issue-with-custom-default-user-profile)에서 찾을 수 있습니다.
 - 다음 설정은 Windows 10 장치에서 암호를 사용 하 고 다시 설정 하는 기능을 방해 하는 것으로 알려져 있습니다.
@@ -45,12 +47,12 @@ Windows 7, 8, 8.1 및 10을 실행 하는 컴퓨터의 경우 사용자가 Windo
 
 ## <a name="windows-10-password-reset"></a>Windows 10 암호 재설정
 
-### <a name="windows-10-prerequisites"></a>Windows 10 필수 조건
+### <a name="windows-10-prerequisites"></a>Windows 10 필수 구성 요소
 
 - 관리자는 Azure Portal에서 Azure AD 셀프 서비스 암호 재설정을 사용 하도록 설정 해야 합니다.
 - **사용자는이 기능을 사용 하기 전에 SSPR에 등록 해야 합니다.**
 - 네트워크 프록시 요구 사항
-   - Windows 10 디바이스 
+   - Windows 10 장치 
        - `passwordreset.microsoftonline.com` 및 `ajax.aspnetcdn.com`에 대 한 포트 443
        - Windows 10 장치는 컴퓨터 수준 프록시 구성만 지원 합니다.
 - Windows 10, 버전 4 월 2018 업데이트 (v1803) 이상을 실행 하 고 장치는 다음 중 하나 여야 합니다.
@@ -76,8 +78,8 @@ Intune을 사용하여 로그인 화면에서 암호 재설정을 사용하도�
       - **OMA URI**을 `./Vendor/MSFT/Policy/Config/Authentication/AllowAadPasswordReset`으로 설정
       - **데이터 형식**을 **정수**로 설정
       - **값**을 **1**로 설정
-      - **확인**
-   - **확인**
+      - **확인**을 클릭합니다.
+   - **확인**을 클릭합니다.
 1. **만들기**
 1. 이 정책은 특정 사용자, 장치 또는 그룹에 할당할 수 있습니다. 자세한 내용은 [Microsoft Intune에서 사용자 및 장치 프로필 할당](https://docs.microsoft.com/intune/device-profile-assign)문서에서 찾을 수 있습니다.
 

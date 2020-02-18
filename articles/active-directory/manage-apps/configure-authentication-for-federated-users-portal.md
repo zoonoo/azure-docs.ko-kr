@@ -150,7 +150,7 @@ Azure AD PowerShell cmdlet을 사용하여 다음을 포함한 몇 가지 시나
 - 정책이 구성된 애플리케이션 나열
 
 
-### <a name="prerequisites"></a>사전 요구 사항
+### <a name="prerequisites"></a>필수 조건
 다음 예제에서는 Azure AD에서 애플리케이션 서비스 주체에 대해 정책을 생성, 업데이트, 연결 및 삭제합니다.
 
 1.  시작하려면 최신 Azure AD PowerShell cmdlet 미리 보기를 다운로드합니다. 

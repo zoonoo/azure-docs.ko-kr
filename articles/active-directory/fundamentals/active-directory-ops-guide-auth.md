@@ -31,7 +31,7 @@ ms.locfileid: "77368047"
 
 Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되지 않을 수 있는 주요 운영 작업 및 프로세스를 지속적으로 실행 해야 합니다. 환경 최적화를 위해 이러한 작업을 설정 하는 것도 중요 합니다. 핵심 작업과 권장 소유자는 다음과 같습니다.
 
-| Task | 소유자 |
+| 작업 | 소유자 |
 | :- | :- |
 | Azure AD에서 SSO (Single Sign-On) 구성의 수명 주기 관리 | IAM 운영 팀 |
 | Azure AD 응용 프로그램에 대 한 조건부 액세스 정책 디자인 | InfoSec 아키텍처 팀 |
@@ -59,7 +59,7 @@ Azure Active Directory를 관리 하려면 롤아웃 프로젝트에 포함 되�
 
 아래 표를 사용 하 여 해결 해야 하는 문제를 완화 하기 위한 권장 솔루션을 찾을 수 있습니다.
 
-| 문제 | 권장 |
+| 문제 | 권장 구성 |
 | :- | :- |
 | 약한 암호 로부터 보호 하는 메커니즘이 없습니다. | Azure AD [SSPR (셀프 서비스 암호 재설정)](https://docs.microsoft.com/azure/active-directory/authentication/concept-sspr-howitworks) 및 [암호 보호](https://docs.microsoft.com/azure/active-directory/authentication/concept-password-ban-bad-on-premises) 를 사용 하도록 설정 |
 | 누출 암호를 검색 하는 메커니즘이 없습니다. | 정보를 얻기 위해 phs ( [암호 해시 동기화](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-password-hash-synchronization) ) 사용 |
@@ -281,7 +281,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
    
    b. 아래 단계에 따라 잠글 일정을 계획 합니다.
    
-   다. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
+   c. 레거시 인증에 대 한 하드 종속성이 있는 레거시 응용 프로그램을 식별 합니다. 아래 3 단계를 참조 하세요.
 
 2. 레거시 인증을 사용 하지 않는 사용자가 더 많은 노출을 방지 하기 위해 원본 (예: Exchange 사서함)에서 레거시 프로토콜을 사용 하지 않도록 설정 합니다.
 3. 나머지 계정 (서비스 계정 등의 비 사용자 id)의 경우 조건부 액세스를 사용 하 여 인증 후 [레거시 프로토콜을 제한](https://techcommunity.microsoft.com/t5/Azure-Active-Directory-Identity/Azure-AD-Conditional-Access-support-for-blocking-legacy-auth-is/ba-p/245417) 합니다.
@@ -309,7 +309,7 @@ MFA와 같은 강력한 자격 증명은 레거시 인증 프로토콜을 사용
 | | Mail. 읽기. 공유 |
 | | Mail. ReadWrite |
 
-- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 다음은 그 예입니다.
+- 앱은 로그인 한 사용자의 전체 사용자 가장을 부여 합니다. 예를 들면 다음과 같습니다.
 
 |리소스 | 사용 권한 |
 | :- | :- |

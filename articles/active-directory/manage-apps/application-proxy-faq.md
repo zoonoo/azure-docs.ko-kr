@@ -139,7 +139,7 @@ Azure AD에서 성공적으로 미리 인증 된 사용자에 대해서만 조�
 
 ### <a name="can-i-use-azure-ad-application-proxy-as-ad-fs-proxy-like-web-application-proxy"></a>Azure AD 응용 프로그램 프록시을 AD FS 프록시 (예: 웹 응용 프로그램 프록시)로 사용할 수 있나요?
 
-아니요. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
+No. Azure AD 응용 프로그램 프록시는 Azure AD와 함께 사용할 수 있도록 설계 되었으며 AD FS 프록시 역할을 하는 요구 사항을 충족 하지 않습니다.
 
 ## <a name="websocket"></a>서버당
 

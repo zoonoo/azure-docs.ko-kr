@@ -81,24 +81,24 @@ NER
 > [!NOTE]
 > NER (명명 된 엔터티 인식) 버전 2는 다음 엔터티만 지원 합니다. NER v3은 공개 미리 보기 상태 이며 텍스트에서 인식 되는 엔터티의 수와 깊이를 크게 확장 합니다.   
 
-| Type  | 하위 유형 | 예제 |
+| 형식  | 하위 유형 | 예제 |
 |:-----------   |:------------- |:---------|
-| Person        | 해당 없음\*         | "Jeff", "Bill Gates"     |
+| 사용자        | 해당 없음\*         | "Jeff", "Bill Gates"     |
 | 위치      | 해당 없음\*         | "Redmond, Washington", "Paris"  |
 | 조직  | 해당 없음\*         | "Microsoft"   |
 | 수량      | Number        | "6", "six"     |
 | 수량      | 백분율    | "50%", "fifty percent"|
 | 수량      | Ordinal       | "2nd", "second"     |
-| 수량      | Age           | "90 day old", "30 years old"    |
+| 수량      | 처리 기간           | "90 day old", "30 years old"    |
 | 수량      | 통화      | "$10.99"     |
-| 수량      | 차원     | "10 miles", "40 cm"     |
+| 수량      | Dimension     | "10 miles", "40 cm"     |
 | 수량      | 온도   | "32 degrees"    |
 | DateTime      | 해당 없음\*         | "6:30PM February 4, 2012"      |
-| DateTime      | Date          | "May 2nd, 2017", "05/02/2017"   |
-| DateTime      | Time          | "8am", "8:00"  |
+| DateTime      | 날짜          | "May 2nd, 2017", "05/02/2017"   |
+| DateTime      | 시간          | "8am", "8:00"  |
 | DateTime      | DateRange     | "May 2nd to May 5th"    |
 | DateTime      | TimeRange     | "6pm to 7pm"     |
-| DateTime      | Duration      | "1 minute and 45 seconds"   |
+| DateTime      | 지속 시간      | "1 minute and 45 seconds"   |
 | DateTime      | 설정           | "every Tuesday"     |
 | URL           | 해당 없음\*         | "https:\//www.bing.com"    |
 | Email         | 해당 없음\*         | "support@contoso.com" |

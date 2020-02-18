@@ -1,5 +1,5 @@
 ---
-title: 서비스를 다시 시작 하거나 종료 하거나 서비스를 중지 하는 경우 Azure Virtual Machines 다시 시작이 중지 됩니다. | Microsoft Docs
+title: 서비스를 다시 시작 하거나 종료 하거나 서비스를 중지 하는 경우 Azure Virtual Machines 종료가 중단 됩니다. | Microsoft Docs
 description: 이 문서는 Azure Windows Virtual Machines의 서비스 오류 문제를 해결 하는 데 도움이 됩니다.
 services: virtual-machines-windows
 documentationCenter: ''
@@ -12,14 +12,14 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 12/19/2019
 ms.author: tibasham
-ms.openlocfilehash: db7b26402170236843891799738088b9229e4693
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 5d6396efc9ab25baa0d32e7c33c7715863516249
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75477409"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371363"
 ---
-# <a name="azure-windows-vm-restart-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM 다시 시작이 "다시 시작", "종료 중" 또는 "서비스 중지"에 걸려 있습니다.
+# <a name="azure-windows-vm-shutdown-is-stuck-on-restarting-shutting-down-or-stopping-services"></a>Azure Windows VM 종료가 "다시 시작 중", "종료 중" 또는 "서비스 중지"에 걸려 있습니다.
 
 이 문서에서는 Microsoft Azure에서 Windows VM (가상 머신)을 다시 부팅할 때 발생할 수 있는 "다시 시작", "종료" 또는 "서비스 중지" 메시지의 문제를 해결 하는 단계를 제공 합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "75477409"
 
 Windows에서는 시스템 유지 관리 작업을 수행 하 고 업데이트, 역할 및 기능과 같은 변경 내용을 처리 하기 위해 종료 프로세스를 사용 합니다. 이 중요 한 프로세스는 완료 될 때까지 중단 하지 않는 것이 좋습니다. 업데이트/변경 및 VM 크기의 수에 따라 프로세스에 시간이 오래 걸릴 수 있습니다. 프로세스가 중지 되 면 OS가 손상 될 수 있습니다. 과도 하 게 시간이 오래 걸리는 경우에만 프로세스를 중단 합니다.
 
-## <a name="solution"></a>솔루션
+## <a name="solution"></a>해결 방법
 
 ### <a name="collect-a-process-memory-dump"></a>프로세스 메모리 덤프 수집
 

@@ -50,7 +50,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * 모든 AWS 계정은 동일한 페더레이션 메타데이터 XML 파일을 사용하며, 인증서 롤오버 시 이러한 방대한 작업을 진행하여 모든 AWS 계정에서 인증서를 동시에 업데이트해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 AWS(Amazon Web Services)와 Azure AD를 통합하도록 구성하려면 다음 항목이 필요합니다.
 
@@ -131,31 +131,31 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
 4. 앱이 Azure와 이미 사전 통합되었으므로 사용자는 **기본 SAML 구성** 섹션에서 아무 단계도 수행할 필요가 없습니다.
 
-    ![이미지](common/preintegrated.png)
+    ![image](common/preintegrated.png)
 
 5. AWS(Amazon Web Services) 애플리케이션은 특정 형식의 SAML 어설션이 필요합니다. 이 애플리케이션에 대해 다음 클레임을 구성합니다. 애플리케이션 통합 페이지의 **사용자 특성 및 클레임** 섹션에서 이러한 특성의 값을 관리할 수 있습니다. **SAML로 Single Sign-On 설정** 페이지에서 **편집** 단추를 클릭하여 **사용자 특성 및 클레임** 대화 상자를 엽니다.
 
-    ![이미지](common/edit-attribute.png)
+    ![image](common/edit-attribute.png)
 
 6. **사용자 특성** 대화 상자의 **사용자 클레임** 섹션에서 위의 이미지에 표시된 것과 같이 SAML 토큰 특성을 구성하고 다음 단계를 수행합니다.
 
-    | 속성  | 원본 특성  | 네임스페이스 |
+    | 이름  | 원본 특성  | 네임스페이스 |
     | --------------- | --------------- | --------------- |
     | RoleSessionName | user.userprincipalname | https://aws.amazon.com/SAML/Attributes |
-    | 역할            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
+    | Role            | user.assignedroles |  https://aws.amazon.com/SAML/Attributes |
     | SessionDuration             | “900초(15분)에서 43200초(12시간) 사이의 값을 제공합니다.” |  https://aws.amazon.com/SAML/Attributes |
 
     a. **새 클레임 추가**를 클릭하여 **사용자 클레임 관리** 대화 상자를 엽니다.
 
-    ![이미지](common/new-save-attribute.png)
+    ![image](common/new-save-attribute.png)
 
-    ![이미지](common/new-attribute-details.png)
+    ![image](common/new-attribute-details.png)
 
     b. **이름** 텍스트 상자에서 해당 행에 표시된 특성 이름을 입력합니다.
 
-    다. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
+    c. **네임스페이스** 텍스트 상자에 해당 행에 대해 표시되는 네임스페이스 값을 입력합니다.
 
-    d. 원본을 **특성**으로 선택합니다.
+    . 원본을 **특성**으로 선택합니다.
 
     e. **원본 특성** 목록에서 해당 행에 표시된 특성 값을 입력합니다.
 
@@ -191,9 +191,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **공급자 이름** 텍스트 상자에 공급자 이름(예: *WAAD*)을 입력합니다.
 
-    다. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
+    c. Azure Portal에서 다운로드한 **메타데이터 파일**을 업로드하려면 **파일 선택**을 클릭합니다.
 
-    d. **다음 단계**를 클릭합니다.
+    . **다음 단계**를 클릭합니다.
 
 6. **공급자 정보 확인** 대화 상자 페이지에서 **만들기**를 클릭합니다.
 
@@ -211,9 +211,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **SAML 2.0 공급자 선택**에서 이전에 만든 **SAML 공급자**를 선택합니다(예: *WAAD*).
 
-    다. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
+    c. **프로그래밍 및 AWS 관리 콘솔 액세스 허용**을 선택합니다.
   
-    d. **다음: 권한**을 클릭합니다.
+    . **다음: 권한**을 클릭합니다.
 
 9. **권한 정책 연결** 대화 상자에서 조직에 따라 적절한 정책을 연결하세요. **다음: 검토**를 클릭합니다.  
 
@@ -227,9 +227,9 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     b. **역할 설명** 텍스트 상자에 설명을 입력합니다.
 
-    다. **역할 만들기**를 클릭합니다.
+    c. **역할 만들기**를 클릭합니다.
 
-    d. 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
+    . 필요한 만큼 역할을 만들어서 ID 공급자에 매핑합니다.
 
 11. 현재 AWS 계정에서 로그아웃하고 Azure AD에 Single Sign-On을 구성할 다른 계정으로 로그인합니다.
 
@@ -255,11 +255,11 @@ AWS(Amazon Web Services)에서 Azure AD Single Sign-On을 구성하고 테스트
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new9.png)
 
-    다. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
+    c. 목록에서 다음 권한을 선택하고(아직 선택하지 않은 경우) "권한 수정"을 클릭합니다. 
 
     ![Graph Explorer 대화 상자](./media/aws-multi-accounts-tutorial/graph-explorer-new10.png)
 
-    d. 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의 후에는 Graph Explorer에 다시 로그인됩니다.
+    . 여기서는 다시 로그인하고 동의할 것을 요청합니다. 동의 후에는 Graph Explorer에 다시 로그인됩니다.
 
     e. 버전 드롭다운을 **베타**로 변경합니다. 테넌트로부터 모든 서비스 사용자를 가져오려면 다음 쿼리를 사용합니다.
 

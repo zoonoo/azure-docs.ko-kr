@@ -3,12 +3,12 @@ title: 가상 컴퓨터의 콘텐츠를 감사 하는 방법 알아보기
 description: Azure Policy 게스트 구성 에이전트를 사용 하 여 가상 컴퓨터 내에서 설정을 감사 하는 방법을 알아봅니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 128baa0df1d3e555fe9629005529710202e1bbf6
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 73f986774fc13ac8c69cd800c977c909b591a74c
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169536"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77369747"
 ---
 # <a name="understand-azure-policys-guest-configuration"></a>Azure Policy 게스트 구성 이해
 
@@ -59,7 +59,7 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 지원되는 각 운영 체제에서 사용되는 로컬 도구 목록이 나와 있습니다.
 
-|운영 체제|유효성 검사 도구|메모|
+|운영 체제|유효성 검사 도구|참고|
 |-|-|-|
 |Windows|[Windows PowerShell 필요한 상태 구성](/powershell/scripting/dsc/overview/overview) v2| |
 |Linux|[Chef InSpec](https://www.chef.io/inspec/)| 게스트 구성 확장을 통해 Ruby 및 Python이 설치됩니다. |
@@ -72,12 +72,12 @@ Register-AzResourceProvider -ProviderNamespace 'Microsoft.GuestConfiguration'
 
 다음 표에는 Azure 이미지에서 지원되는 운영 체제 목록이 나와 있습니다.
 
-|게시자|속성|버전|
+|게시자|이름|버전|
 |-|-|-|
 |Canonical|Ubuntu Server|14.04, 16.04, 18.04|
 |Credativ|Debian|8, 9|
 |Microsoft|Windows Server|2012 datacenter, 2012 R2 Datacenter, 2016 Datacenter, 2019 Datacenter|
-|Microsoft|Windows 클라이언트|윈도우 10|
+|Microsoft|Windows 클라이언트|Windows 10|
 |OpenLogic|CentOS|7.3, 7.4, 7.5|
 |Red Hat|Red Hat Enterprise Linux|7.4, 7.5|
 |Suse|SLES|12 SP3|
@@ -185,8 +185,9 @@ egrep -B $linesToIncludeBeforeMatch -A $linesToIncludeAfterMatch 'DSCEngine|DSCM
 
 정책 게스트 구성의 원본 기본 제공 이니셔티브는 다음 위치에서 제공 됩니다.
 
+- [기본 제공 정책 정의-게스트 구성](../samples/built-in-policies.md#guest-configuration)
 - [기본 제공 이니셔티브-게스트 구성](../samples/built-in-initiatives.md#guest-configuration)
-- [Azure Policy 샘플 GitHub 리포지토리](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest Configuration)
+- [Azure Policy 샘플 GitHub 리포지토리](https://github.com/Azure/azure-policy/tree/master/built-in-policies/policySetDefinitions/Guest%20Configuration)
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6867862c130bf6f0b7cc34098064f6ce6eec282b
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76543498"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370475"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -134,7 +134,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage 2 세대
 
-ADLS Gen 2 (Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 서비스 사용자 권한으로 Azure DataLake Gen 2 저장소에 연결 된 자격 증명 데이터 저장소를 등록 합니다. [ADLS Gen 2에 대 한 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대 한 자세한 정보. 
+ADLS Gen 2 (Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 [서비스 사용자 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)으로 Azure DataLake Gen 2 저장소에 연결 된 자격 증명 데이터 저장소를 등록 합니다. [ADLS Gen 2에 대 한 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대 한 자세한 정보. 
 
 다음 코드는 `adlsgen2_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록 합니다. 이 데이터 저장소는 제공 된 서비스 주체 자격 증명을 사용 하 여 `account_name` 저장소 계정의 파일 시스템 `test`에 액세스 합니다.
 
@@ -259,7 +259,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 datastores에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
 
-| 방법 | 데이터 저장소 액세스 | Description |
+| 방법 | 데이터 저장소 액세스 | 설명 |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |

@@ -63,12 +63,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|윈도우 10|예\*|yes|yes|예\*\*\*|해당 없음
-|Windows 8.1|예\*|해당 없음|yes|예\*\*\*|해당 없음
-|Windows 8|예\*|해당 없음|yes|예\*\*\*|해당 없음
-|Windows 7|예\*|해당 없음|yes|예\*\*\*|해당 없음
-|Windows Server 2012 R2 이상|예\*\*|해당 없음|yes|예\*\*\*|해당 없음
-|Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
+|Windows 10|예\*|예|예|예\*\*\*|N/A
+|Windows 8.1|예\*|N/A|예|예\*\*\*|N/A
+|Windows 8|예\*|N/A|예|예\*\*\*|N/A
+|Windows 7|예\*|N/A|예|예\*\*\*|N/A
+|Windows Server 2012 R2 이상|예\*\*|N/A|예|예\*\*\*|N/A
+|Mac OS X|N/A|N/A|예\*\*\*|예\*\*\*|예\*\*\*
 
 
 \*Internet Explorer 버전 10 이상 필요

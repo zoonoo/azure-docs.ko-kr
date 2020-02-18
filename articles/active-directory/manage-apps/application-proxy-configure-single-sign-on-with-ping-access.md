@@ -118,7 +118,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 그런 다음 리디렉션 URL이 외부 URL로 설정 되었는지 확인 합니다.
 
 1. **Azure Active Directory 관리 센터** 사이드바에서 **Azure Active Directory** > **앱 등록**를 선택 합니다. 응용 프로그램 목록이 표시 됩니다.
-1. 애플리케이션을 선택합니다.
+1. 응용 프로그램을 선택합니다.
 1. 웹 및 공용 클라이언트에 대해 설정 된 리디렉션 Uri 수를 표시 하는 **리디렉션 uri**옆의 링크를 선택 합니다. **\<응용 프로그램 이름 > 인증** 페이지가 표시 됩니다.
 1. 이전에 응용 프로그램에 할당 한 외부 URL이 **리디렉션 uri** 목록에 있는지 확인 합니다. 그렇지 않은 경우에는 **웹**의 리디렉션 URI 형식을 사용 하 여 외부 URL을 지금 추가 하 고 **저장**을 선택 합니다.
 
@@ -146,7 +146,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 이 정보를 수집 하려면:
 
 1. **Azure Active Directory 관리 센터** 사이드바에서 **Azure Active Directory** > **앱 등록**를 선택 합니다. 응용 프로그램 목록이 표시 됩니다.
-1. 애플리케이션을 선택합니다. 응용 프로그램에 대 한 **앱 등록** 페이지가 나타납니다.
+1. 응용 프로그램을 선택합니다. 응용 프로그램에 대 한 **앱 등록** 페이지가 나타납니다.
 
    ![응용 프로그램에 대 한 등록 개요](./media/application-proxy-configure-single-sign-on-with-ping-access/registration-overview-for-an-application.png)
 
@@ -165,7 +165,7 @@ Azure Portal에서 수행해야 하는 두 가지 작업이 있습니다. 먼저
 
 1. 응용 프로그램 관리자로 [Azure Active Directory 포털](https://aad.portal.azure.com/) 에 로그인 합니다.
 1. **Azure Active Directory** > **앱 등록**을 선택합니다. 응용 프로그램 목록이 표시 됩니다.
-1. 애플리케이션을 선택합니다.
+1. 응용 프로그램을 선택합니다.
 1. 응용 프로그램에 대 한 **앱 등록** 페이지의 사이드바에서 **매니페스트**를 선택 합니다. 응용 프로그램의 등록에 대 한 매니페스트 JSON 코드가 표시 됩니다.
 1. `acceptMappedClaims` 필드를 검색 하 고 값을 `True`로 변경 합니다.
 1. **저장**을 선택합니다.
@@ -201,7 +201,7 @@ AzureAD에 없는 특성에 대 한 [클레임 매핑 정책 (미리 보기)](ht
 >
 > PowerShell 또는 Microsoft Graph를 통해 정책 정의 및 할당을 수행할 수 있습니다. PowerShell에서이 작업을 수행 하는 경우 먼저 `New-AzureADPolicy`를 사용 하 고 `Add-AzureADServicePrincipalPolicy`를 사용 하 여 응용 프로그램에 할당 해야 할 수 있습니다. 자세한 내용은 [클레임 매핑 정책 할당](../develop/active-directory-claims-mapping.md#claims-mapping-policy-assignment)을 참조 하세요.
 
-예제:
+예:
 ```powershell
 $pol = New-AzureADPolicy -Definition @('{"ClaimsMappingPolicy":{"Version":1,"IncludeBasicClaimSet":"true", "ClaimsSchema": [{"Source":"user","ID":"employeeid","JwtClaimType":"employeeid"}]}}') -DisplayName "AdditionalClaims" -Type "ClaimsMappingPolicy"
 
@@ -222,7 +222,7 @@ Add-AzureADServicePrincipalPolicy -Id "<<The object Id of the Enterprise Applica
 
 이러한 단계를 통해 액세스를 설치 하 고, 연결 액세스 계정 (아직 없는 경우)을 설정할 수 있습니다. 그런 다음 Azure AD Openid connect Connect (OIDC) 연결을 만들려면 Azure AD 포털에서 복사한 **디렉터리 (테 넌 트) ID** 값을 사용 하 여 토큰 공급자를 설정 합니다. 그런 다음, **응용 프로그램 (클라이언트) ID** 및 `PingAccess key` 값을 사용 하 여 웹 세션을 만듭니다. 그런 다음 ID 매핑을 설정하고 가상 호스트, 사이트 및 애플리케이션을 만들 수 있습니다.
 
-### <a name="test-your-application"></a>애플리케이션 테스트
+### <a name="test-your-application"></a>응용 프로그램 테스트
 
 이러한 모든 단계를 완료 하면 응용 프로그램이 실행 중 이어야 합니다. 테스트 하려면 브라우저를 열고 Azure에서 응용 프로그램을 게시할 때 만든 외부 URL로 이동 합니다. 응용 프로그램에 할당 한 테스트 계정으로 로그인 합니다.
 
