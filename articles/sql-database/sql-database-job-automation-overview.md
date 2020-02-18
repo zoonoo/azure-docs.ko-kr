@@ -9,13 +9,13 @@ ms.topic: overview
 author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: carlr
-ms.date: 01/25/2019
-ms.openlocfilehash: c2548bb4537d17a3dab94d5476c743e2a70faad0
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/07/2020
+ms.openlocfilehash: 1ffa17bd0e35e3753cde3e915c0ee70d8000147a
+ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810101"
+ms.lasthandoff: 02/08/2020
+ms.locfileid: "77083124"
 ---
 # <a name="automate-management-tasks-using-database-jobs"></a>데이터베이스 작업을 사용하여 관리 작업 자동화
 
@@ -72,7 +72,7 @@ SQL 에이전트를 사용하면 데이터베이스에 대해 단일 Transact-SQ
 
 - 트랜잭션 로그 판독기
 - 스냅샷.
-- 배포자
+- 배포자입니다.
 
 다음을 포함한 다른 유형의 작업 단계는 현재 지원되지 않습니다.
 
@@ -158,7 +158,7 @@ EXEC msdb.dbo.sp_update_job @job_name=N'Load data using SSIS',
 
 SQL Server에서 사용할 수 있는 SQL 에이전트 기능 중 일부는 Managed Instance에서 지원되지 않습니다.
 - SQL 에이전트 설정은 읽기 전용입니다. `sp_set_agent_properties` 프로시저는 Managed Instance에서 지원되지 않습니다.
-- SQL 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행되고 있습니다.
+- SQL 에이전트 사용 설정/해제는 현재 Managed Instance에서 지원되지 않습니다. SQL 에이전트는 항상 실행됩니다.
 - 알림은 부분적으로 지원됩니다.
   - 호출기는 지원되지 않습니다.
   - NetSend는 지원되지 않습니다.
@@ -202,7 +202,9 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 현재 미리 보기의 경우 탄력적 작업 에이전트를 만드는 데 기존 Azure SQL 데이터베이스(S0 이상)가 필요합니다.
 
-*작업 데이터베이스*는 문자 그대로 새 것일 필요는 없지만 깨끗하고 비어있고 S0 이상의 서비스 계층이어야 합니다. 권장된 서비스 계층의 *작업 데이터베이스*는 S1 이상이지만 작업 단계 수, 작업 실행 횟수 및 작업 실행 빈도 같은 사용자 작업의 성능 요구에 따라 달라집니다. 예를 들어 S0 데이터베이스는 한 시간에 거의 작업을 실행하지 않는 작업 에이전트에는 충분할 수 있지만 1분마다 작업을 실행하면 성능이 못 미칠 수 있어 서비스 계층이 더 높을 수록 효과는 더 좋을 수 있습니다.
+*작업 데이터베이스*는 문자 그대로 새 것일 필요는 없지만 깨끗하고 비어있고 S0 이상의 서비스 개체여야 합니다. *작업 데이터베이스*의 권장되는 서비스 개체는 S1 이상이지만 작업 단계 수, 작업 대상 수 및 작업 실행 빈도 같은 사용자 작업의 성능 요구에 따라 달라집니다. 예를 들어 S0 데이터베이스는 10개 미만의 데이터베이스를 대상으로 한 시간에 거의 작업을 실행하지 않는 작업 에이전트에는 충분할 수 있지만, 1분마다 실행하는 작업에 S0 데이터베이스를 사용하면 빠르지 않을 수 있으며, 서비스 계층이 높을 수록 효과는 더 좋을 수 있습니다. 
+
+작업 데이터베이스에 대한 작업이 예상보다 느린 경우 Azure Portal 또는 [sys.dm_db_resource_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-resource-stats-azure-sql-database) DMV를 사용하여 속도 저하 기간 동안 작업 데이터베이스에서 데이터베이스 성능 및 리소스 사용률을 [모니터링](sql-database-monitor-tune-overview.md#monitor-database-performance)할 수 있습니다. CPU, 데이터 IO 또는 로그 쓰기와 같은 리소스의 사용률이 100%에 도달하고 속도 저하 기간과 상관 관계에 있는 경우, 작업 데이터베이스 성능이 충분히 향상될 때까지 데이터베이스를 더 높은 서비스 개체([DTU 모델](sql-database-service-tiers-dtu.md) 또는 [vCore 모델](sql-database-service-tiers-vcore.md)에서)로 증분 확장하는 것이 좋습니다.
 
 
 ##### <a name="job-database-permissions"></a>작업 데이터베이스 사용 권한
@@ -212,7 +214,7 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 |역할 이름  |'작업' 스키마 사용 권한  |'jobs_internal' 스키마 사용 권한  |
 |---------|---------|---------|
-|**jobs_reader**     |    SELECT     |    없음     |
+|**jobs_reader**     |    SELECT     |    None     |
 
 > [!IMPORTANT]
 > 데이터베이스 관리자로 *작업 데이터베이스*에 대해 액세스 권한을 부여하기 전에 보안 관련 문제를 고려합니다. 작업을 만들거나 편집할 사용 권한이 있는 악의적인 사용자는 해당 악의적인 사용자의 제어 아래 저장된 자격 증명을 사용하는 작업을 만들거나 편집할 수 있으며, 이는 악의적인 사용자가 자격 증명의 암호를 확인하도록 허용할 수 있습니다.
@@ -250,6 +252,10 @@ SQL Server 에이전트에 대한 자세한 내용은 [SQL Server 에이전트](
 
 **예제 5** 및 **예제 6**은 포함 및 제외 규칙을 사용하여 Azure SQL Server, 탄력적 풀, 데이터베이스를 결합할 수 있는 고급 시나리오를 보여줍니다.<br>
 **예제 7**은 분할된 데이터베이스 맵의 분할된 데이터베이스를 런타임에도 평가할 수 있음을 보여줍니다.
+
+> [!NOTE]
+> 작업 데이터베이스 자체는 작업의 대상일 수 있습니다. 이 시나리오에서 작업 데이터베이스는 다른 대상 데이터베이스와 동일하게 처리됩니다. 작업 데이터베이스에서 작업 사용자를 만들고 충분한 권한을 부여해야 하며, 작업 사용자에 대한 데이터베이스 범위 자격 증명은 다른 대상 데이터베이스의 경우와 마찬가지로 작업 데이터베이스에도 있어야 합니다.
+>
 
 #### <a name="job"></a>작업
 

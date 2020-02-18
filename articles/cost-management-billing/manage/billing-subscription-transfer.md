@@ -3,30 +3,27 @@ title: Azure 구독의 청구 소유권 양도
 description: Azure 구독의 청구 소유권을 다른 계정으로 양도하는 방법을 설명하고 그 프로세스에 대한 몇 가지 질문과 대답(FAQ)을 제공합니다.
 keywords: azure 구독 양도, 구독 양도 azure, azure 구독을 다른 계정에 양도, azure 구독 소유자 변경, azure 구독을 다른 계정으로 양도, azure 청구 양도
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing,top-support-issue
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 01/17/2020
+ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d2bbfd7f4ddc5fc34c0bec3612783dfef5074d83
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76270865"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188400"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
-곧 퇴사하거나 구독 요금이 청구되는 계정을 다른 계정으로 변경하려는 경우 Azure 구독의 청구 소유권을 양도해야 합니다. 청구 소유권을 다른 계정에 양도하면 새 계정의 관리자에게 결제 방법 변경, 요금 보기, 구독 취소 등의 작업을 수행할 수 있는 권한이 부여됩니다.
+곧 퇴사하거나 구독 요금이 청구되는 계정을 다른 계정으로 변경하려는 경우 Azure 구독의 청구 소유권을 양도해야 합니다. 청구 소유권을 다른 계정으로 양도하면 청구 작업에 대한 새 계정 권한이 관리자에게 제공됩니다. 관리자는 지불 방법을 변경하고 요금을 보고 구독을 취소할 수 있습니다.
 
 청구 소유권을 유지하면서 구독 유형만 변경하려면 [Azure 구독을 다른 제안으로 전환](switch-azure-offer.md)을 참조하세요. 구독의 리소스를 관리할 수 있는 사용자를 제어하려면 [Azure 리소스에 대한 기본 제공 역할](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles)을 참조하세요.
 
-EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [EA(기업계약) 구독의 청구 소유권 양도](#transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions)를 참조하세요.
+EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 구독의 청구 소유권을 양도할 수 있습니다. 자세한 내용은 [EA(기업계약) 구독의 청구 소유권 양도](#EA)를 참조하세요.
 
 ## <a name="transfer-billing-ownership-of-an-azure-subscription"></a>Azure 구독의 청구 소유권 양도
 
@@ -44,7 +41,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
 1. 구독의 새 소유자가 될 계정의 청구 관리자인 사용자의 이메일 주소를 입력합니다.
 
-1. 구독을 다른 Azure AD 테넌트의 계정으로 양도하는 경우 구독을 새 계정의 테넌트로 이전할지 여부를 선택합니다. 자세한 내용은 [다른 Azure AD 테넌트의 계정으로 구독 양도](#transferring-subscription-to-an-account-in-another-azure-ad-tenant)를 참조하세요.
+1. 구독을 다른 Azure AD 테넌트의 계정으로 양도하는 경우 구독을 새 계정의 테넌트로 이전할지 여부를 선택합니다. 자세한 내용은 [다른 Azure AD 테넌트의 계정으로 구독 양도](#transfer-a-subscription-to-another-azure-ad-tenant-account)를 참조하세요.
 
     > [!IMPORTANT]
     >
@@ -58,7 +55,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
    ![받는 사람에게 전송된 구독 양도 이메일](./media/billing-subscription-transfer/billing-receiver-email.png)
 
-1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다. 사용자는 구독 요금을 결제하는 데 사용할 결제 방법을 선택해야 합니다. 또한 사용자는 Azure 계정이 없는 경우 새 계정에 가입해야 합니다.
+1. 전송 요청을 승인하려면 사용자는 이메일의 링크를 선택하고 지침을 따릅니다. 그런 다음, 사용자는 구독 요금을 결제하는 데 사용할 결제 방법을 선택합니다. 사용자는 Azure 계정이 없는 경우 새 계정에 가입해야 합니다.
 
    ![첫 번째 구독 양도 웹 페이지](./media/billing-subscription-transfer/billing-accept-ownership-step1.png)
 
@@ -68,23 +65,23 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
 1. 성공! 구독이 이제 양도됩니다.
 
-## <a name="transferring-subscription-to-an-account-in-another-azure-ad-tenant"></a>다른 Azure AD 테넌트의 계정에 구독 양도
+## <a name="transfer-a-subscription-to-another-azure-ad-tenant-account"></a>다른 Azure AD 테넌트 계정으로 구독 양도
 
 Azure에 가입하면 Azure AD(Active Directory) 테넌트가 자동으로 만들어집니다. 테넌트는 계정을 나타냅니다. 테넌트를 사용하여 구독 및 리소스에 대한 액세스를 관리합니다.
 
-새 구독을 만들면 계정의 Azure AD 테넌트에 호스팅됩니다. 다른 사람에게 구독 또는 구독의 리소스에 대한 액세스 권한을 제공하려면 테넌트에 가입하도록 초대해야 합니다. 이렇게 하면 구독과 리소스에 대한 액세스를 제어하는 데 도움이 됩니다.
+새 구독을 만들면 계정의 Azure AD 테넌트에 호스팅됩니다. 다른 사람에게 구독 또는 해당 리소스에 대한 액세스 권한을 제공하려면 테넌트에 가입하도록 초대해야 합니다. 이렇게 하면 구독과 리소스에 대한 액세스를 제어하는 데 도움이 됩니다.
 
-구독의 청구 소유권을 다른 Azure AD 테넌트의 계정에 양도할 때 구독을 새 계정의 테넌트에 양도할 수 있습니다. 이렇게 하면 구독 및 구독의 리소스를 관리하는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 가진 모든 사용자, 그룹 또는 서비스 사용자의 액세스 권한이 사라집니다. 양도 요청을 수락하는 새 계정의 사용자에게만 리소스를 관리할 수 있는 액세스 권한이 제공됩니다. 원래 액세스 권한을 갖고 있던 사용자에게 액세스 권한을 제공하려면 새 소유자가 [수동으로 사용자를 구독에 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)해야 합니다.
+구독의 청구 소유권을 다른 Azure AD 테넌트의 계정에 양도할 때 구독을 새 계정의 테넌트에 양도할 수 있습니다. 이렇게 하면 구독 및 구독의 리소스를 관리하는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 가진 모든 사용자, 그룹 또는 서비스 사용자의 액세스 권한이 사라집니다. 양도 요청을 수락하는 새 계정의 사용자에게만 리소스를 관리할 수 있는 액세스 권한이 제공됩니다. 권한을 상실한 사용에 대한 액세스를 제공하도록 새 소유자는 [이러한 사용자를 구독에 수동으로 추가](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)해야 합니다.
 
 
-## <a name="transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions"></a>Visual Studio, MPN 및 종량제 개발/테스트 구독 양도
+## <a name="transfer-visual-studio-and-partner-network-subscriptions"></a>Visual Studio 및 파트너 네트워크 구독 양도
 
-Visual Studio 및 Microsoft 파트너 네트워크 구독에는 월간 반복 Azure 크레딧이 연결되어 있습니다. 이러한 구독을 양도하면 대상 청구 계정에서 크레딧을 사용할 수 없습니다. 구독에서는 대상 청구 계정의 크레딧을 사용합니다. 예를 들어 Bob이 9월 9일에 Visual Studio Enterprise 구독을 Jane의 계정에 양도하고 Jane이 양도를 수락한다고 가정하겠습니다. 양도가 완료되면 구독에서는 Jane 계정의 크레딧을 사용하여 구독을 시작합니다. 크레딧은 매월 9일에 초기화됩니다.
+Visual Studio 및 Microsoft 파트너 네트워크 구독에는 월간 반복 Azure 크레딧이 연결되어 있습니다. 이러한 구독을 양도하면 대상 청구 계정에서 크레딧을 사용할 수 없습니다. 구독에서는 대상 청구 계정의 크레딧을 사용합니다. 예를 들어 Bob이 9월 9일에 Visual Studio Enterprise 구독을 Jane의 계정으로 양도하고 Jane이 양도를 수락한다고 가정하겠습니다. 양도가 완료되면 구독에서는 Jane 계정의 크레딧을 사용하여 구독을 시작합니다. 크레딧은 매월 9일에 다시 설정됩니다.
 
 
 <a id="EA"></a>
 
-## <a name="transfer-billing-ownership-of-enterprise-agreement-ea-subscriptions"></a>EA(기업계약) 구독의 청구 소유권 양도
+## <a name="transfer-ea-subscription-billing-ownership"></a>EA 구독 청구 소유권 양도
 
 엔터프라이즈 관리자는 등록 내 계정 간에 구독 소유권을 양도할 수 있습니다. 자세한 내용은 EA 포털에서 [계정 소유자 변경](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-get-started#change-account-owner)을 참조하세요.
 
@@ -129,7 +126,7 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 ### <a name="whoisaa"></a> 계정의 청구 관리자는 누구인가요?
 
-청구 관리자는 계정의 청구를 관리하는 권한을 가진 사용자입니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트 등의 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
+청구 관리자는 계정의 청구를 관리하는 권한을 가진 사용자입니다. 이들에게는 [Azure Portal](https://portal.azure.com)에서 청구 정보에 액세스하고, 구독 만들기, 청구서 보기 및 결제, 결제 방법 업데이트와 같은 다양한 청구 작업을 수행할 수 있는 권한이 부여됩니다.
 
 본인이 청구 관리자인 계정을 확인하려면 다음 단계를 수행합니다.
 
@@ -145,19 +142,19 @@ Azure Portal의 구독 양도 기능은 아래에 나열된 유형의 구독에�
 
 ### <a name="does-everything-transfer-including-resource-groups-vms-disks-and-other-running-services"></a>모든 것이 양도되나요? 양도 항목에 리소스 그룹, VM, 디스크 및 기타 실행 중인 서비스가 포함되나요?
 
-VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩니다. 그러나 구독을 다른 Azure AD 테넌트의 계정에 양도하면 구독에 대한 [관리자 역할](add-change-subscription-administrator.md) 및 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당은 [양도되지 않습니다](#transferring-subscription-to-an-account-in-another-azure-ad-tenant). 또한 [앱 등록](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 구독과 함께 양도되지 않습니다.
+VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩니다. 그러나 구독을 다른 Azure AD 테넌트의 계정에 양도하는 경우 구독에 대한 [관리자 역할](add-change-subscription-administrator.md) 및 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당은 [양도되지 않습니다](#transfer-a-subscription-to-another-azure-ad-tenant-account). 또한 [앱 등록](../../active-directory/develop/quickstart-v1-integrate-apps-with-azure-ad.md) 및 다른 테넌트 관련 서비스는 구독과 함께 양도되지 않습니다.
 
 ### <a name="can-i-transfer-ownership-to-an-account-in-another-country"></a>소유권을 다른 국가의 계정에 양도할 수 있나요?
-국가 간 양도는 Azure Portal에서 수행할 수 없습니다. 국가 간에 구독을 양도하려면 [고객 지원팀에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
+안타깝지만 국가 간 양도는 Azure Portal에서 수행할 수 없습니다. 국가 간에 구독을 양도하려면 [고객 지원팀에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하세요.
 
 ### <a name="i-am-an-administrator-on-two-accounts-can-i-transfer-a-subscription-from-one-of-my-accounts-to-another"></a>저는 두 계정의 관리자입니다. 한 계정에서 다른 계정으로 구독을 양도할 수 있나요?
 예, 계정 간에 구독을 양도할 수 있습니다. 두 계정은 개념적으로 서로 다른 두 사용자의 계정으로 간주되므로 위의 단계에 따라 계정 간에 구독을 양도할 수 있습니다.
 
 ### <a name="does-a-subscription-transfer-result-in-any-service-downtime"></a>구독 양도로 인해 서비스 가동 중지 시간이 발생합니까?
 
-구독을 동일한 Azure AD 테넌트의 계정으로 양도하는 경우 구독에서 실행 중인 리소스에 영향을 주지 않습니다. 그러나 구독을 다른 테넌트의 계정에 양도하고 구독을 해당 테넌트로 이전하기로 선택하는 경우 구독의 리소스를 관리하기 위한 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 사라집니다. 이렇게 되면 서비스가 중단될 수 있습니다.
+구독을 동일한 Azure AD 테넌트의 계정으로 양도하는 경우 구독에서 실행 중인 리소스에 영향을 주지 않습니다. 그러나 PowerShell에 저장된 컨텍스트 정보는 업데이트되지 않으므로 제거하거나 설정을 변경해야 할 수 있습니다. 구독을 다른 테넌트의 계정에 양도하고 구독을 해당 테넌트로 이전하기로 결정한 경우 구독의 리소스를 관리하기 위한 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md)가 있는 모든 사용자, 그룹 및 서비스 사용자의 액세스 권한이 사라집니다. 서비스 가동 중지 시간이 발생할 수 있습니다.
 
-### <a name="do-users-in-new-account-have-access-to-usage-and-billing-history"></a>새 계정의 사용자가 사용량 및 청구 내역에 액세스할 수 있나요?
+### <a name="can-users-in-new-account-access-usage-and-billing-history"></a>새 계정의 사용자가 사용량 및 청구 내역에 액세스할 수 있나요?
 
 새 계정의 사용자에게 제공되는 유일한 정보는 구독에 대한 마지막 월의 비용입니다. 나머지 사용량 및 청구 내역은 구독과 함께 양도되지 않습니다.
 
@@ -167,7 +164,7 @@ VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩�
 
 ### <a name="if-i-transfer-a-visual-studio-or-microsoft-partner-network-subscription-does-my-credit-carry-forward-with-the-subscription-in-the-new-account"></a>Visual Studio 또는 Microsoft 파트너 네트워크 구독을 양도하는 경우 크레딧이 구독과 함께 새 계정에 양도되나요?
 
-아니요, 새 계정에서 크레딧을 사용할 수 없습니다. 양도 요청을 수락하려는 사용자는 Visual Studio 라이선스가 있어야만 양도 요청을 수락할 수 있습니다. 구독에서는 사용자 계정에 제공되는 Visual Studio 크레딧을 사용합니다. 자세한 내용은 [Visual Studio, MPN(Microsoft 파트너 네트워크) 및 종량제 개발/테스트 구독 양도](#transferring-visual-studio-mpn-and-pay-as-you-go-devtest-subscriptions)를 참조하세요.
+아니요, 새 계정에서 크레딧을 사용할 수 없습니다. 양도 요청을 수락하려는 사용자는 Visual Studio 라이선스가 있어야만 양도 요청을 수락할 수 있습니다. 구독에서는 사용자 계정에 제공되는 Visual Studio 크레딧을 사용합니다. 자세한 내용은 [Visual Studio 및 파트너 네트워크 구독 양도](#transfer-visual-studio-and-partner-network-subscriptions)를 참조하세요.
 
 
 ## <a name="frequently-asked-questions-faq-for-recipients"></a>수신자에 대한 FAQ(질문과 대답)
@@ -176,13 +173,13 @@ VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩�
 
 ### <a name="if-i-take-over-billing-ownership-of-a-subscription-from-another-account-do-users-in-that-account-continue-to-have-access-to-my-resources"></a>다른 계정의 구독 청구 소유권을 양도받으면 해당 계정의 사용자가 내 리소스에 계속 액세스할 수 있나요?
 
-예. 그러나 내 계정이 구독의 테넌트와 다른 Azure AD 테넌트에 있고 양도 요청을 보낸 사용자가 구독을 내 계정의 테넌트로 이전하면 모든 [관리자 역할](add-change-subscription-administrator.md) 및 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당이 제거됩니다. 구독의 리소스를 관리할 수 있는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 액세스 권한이 있는 사용자를 보려면 다음 단계를 수행합니다.
+예. 그러나 [관리자 역할](add-change-subscription-administrator.md) 및 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당이 제거될 수 있습니다. 계정이 구독의 테넌트가 아닌 Azure AD 테넌트에 있고 양도 요청을 보낸 사용자가 구독을 사용자 계정의 테넌트로 이동하는 경우 액세스가 손실됩니다. 구독의 리소스를 관리할 수 있는 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 액세스 권한이 있는 사용자를 보려면 다음 단계를 수행합니다.
 
 1. [Azure Portal의 구독 페이지](https://portal.azure.com/#blade/Microsoft_Azure_Billing/SubscriptionsBlade)로 이동합니다.
 1. 확인하려는 구독을 선택한 다음, 왼쪽 창에서 **액세스 제어(IAM)** 를 선택합니다.
 1. 페이지 맨 위에서 **역할 할당**을 선택합니다. 역할 할당 페이지에는 구독에 대한 RBAC 액세스 권한이 있는 모든 사용자가 나열됩니다.
 
-양도 과정에서 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당이 제거되더라도 원래 소유자 계정의 사용자가 다음을 비롯한 몇 가지 보안 메커니즘을 통해 구독에 계속 액세스할 수 있는 경우도 있습니다.
+양도 과정에서 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md) 할당이 제거되더라도 원래 소유자 계정의 사용자는 다음을 비롯한 몇 가지 보안 메커니즘을 통해 구독에 계속 액세스할 수도 있습니다.
 
 * 구독 리소스에 대한 관리자 권한을 사용자에게 부여하는 관리 인증서. 자세한 내용은 [Azure 용 관리 인증서 만들기 및 업로드](../../cloud-services/cloud-services-certs-create.md)를 참조하세요.
 * 스토리지와 같은 서비스에 대한 액세스 키. 자세한 내용은 [Azure Storage 계정 정보](../../storage/common/storage-create-storage-account.md)를 참조하세요.
@@ -193,7 +190,7 @@ VM, 디스크, 웹 사이트 등의 모든 리소스가 새 계정에 양도됩�
   1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
   2. 허브 메뉴에서 **모든 리소스**를 선택합니다.
   3. 리소스를 선택합니다.
-  4. 리소스 페이지에서 **설정**을 클릭합니다. 여기서 기존 암호를 보고 업데이트할 수 있습니다.
+  4. 리소스 페이지에서 **설정**을 선택합니다. 여기서 기존 암호를 보고 업데이트할 수 있습니다.
 
 ### <a name="if-i-take-over-the-billing-ownership-of-a-subscription-in-the-middle-of-the-billing-cycle-do-i-have-to-pay-for-the-entire-billing-cycle"></a>청구 주기 도중에 구독의 청구 소유권을 양도받으면 전체 청구 주기의 요금을 결제해야 하나요?
 

@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 3b96ded52aa2148df9e96d6f1e878d50b821abab
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 00617fc09f471eaf3dc13a5aa691c4aab2e1e2ec
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170500"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77424918"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>소 버린 클라우드를 사용 하는 음성 서비스
 
@@ -54,7 +54,7 @@ ms.locfileid: "76170500"
 - 지역: 중국 동부 2 (상하이)
 - SpeechSDK의 SR: *config FromHost ("wss://chinaeast2.stt.speech.azure.cn", "\<키\>");*
 - SpeechSDK의 TTS: *config FromHost ("https[]()://chinaeast2.tts.speech.azure.cn", "\<키\>");*
-- 인증 토큰: https[]()://chinaeast2.api.cognitive.microsoft.cn/sts/v1.0/issueToken
+- 인증 토큰: https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Azure Portal: https://portal.azure.cn
 - Custom Speech 포털: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
 - 사용 가능한 Sku: S0

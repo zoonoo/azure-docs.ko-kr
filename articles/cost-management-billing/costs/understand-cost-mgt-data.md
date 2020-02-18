@@ -5,17 +5,17 @@ services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/29/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 156684676758d777231d3b159ba7bc4749b8582a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: a514dc07da3e4fd5928614099eb86ecef311bbb1
+ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901767"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77188525"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -85,8 +85,6 @@ _<sup>**4**</sup> 크레딧 기반 및 사전 지불 구독에 대한 기록 데
 
 다음 표에는 Cost Management에 포함된 데이터와 포함되지 않은 데이터가 나와 있습니다. 모든 비용은 청구서가 생성될 때까지 예상됩니다. 표시된 비용은 무료 및 선불 크레딧을 포함하지 않습니다.
 
-**비용 및 사용량 데이터**
-
 | **포함됨** | **포함되지 않음** |
 | --- | --- |
 | Azure 서비스 사용량<sup>5</sup>        | 지원 요금 - 자세한 내용은 [청구서 용어 설명](../understand/understand-invoice.md)을 참조하세요. |
@@ -101,13 +99,42 @@ _<sup>**6**</sup> Marketplace 구매는 현재 종량제, MSDN 및 Visual Studio
 
 _<sup>**7**</sup> 예약 구매는 현재 EA(기업계약) 계정에만 사용할 수 있습니다._
 
-**메타데이터**
+## <a name="how-tags-are-used-in-cost-and-usage-data"></a>비용 및 사용량 데이터에서 태그를 사용하는 방법
 
-| **포함됨** | **포함되지 않음** |
-| --- | --- |
-| 리소스 태그<sup>8</sup> | 리소스 그룹 태그 |
+Azure Cost Management는 개별 서비스에서 제출한 각 사용량 레코드의 일부로 태그를 수신합니다. 이러한 태그에 다음과 같은 제한 사항이 적용됩니다.
 
-_<sup>**8**</sup> 리소스 태그는 각 서비스에서 사용량을 내보낼 때 적용되며, 과거 사용량에 소급 적용되지 않습니다._
+- 태그는 리소스에 직접 적용해야 하며 부모 리소스 그룹에서 암시적으로 상속되지 않습니다.
+- 리소스 태그는 리소스 그룹에 배포된 리소스에 대해서만 지원됩니다.
+- 일부 배포된 리소스는 태그를 지원하지 않거나 사용량 데이터에 태그를 포함하지 않을 수 있습니다. [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
+- 태그를 적용하는 동안에는 사용량 데이터에만 리소스 태그가 포함됩니다. 태그는 기록 데이터에 적용되지 않습니다.
+- 리소스 태그는 데이터를 새로 고친 후 Cost Management에서만 사용할 수 있습니다. [사용량 데이터 업데이트 빈도 변동](#usage-data-update-frequency-varies)을 참조하세요.
+- 리소스 태그는 리소스가 활성/실행 중이고 사용량 레코드를 생성하는 경우(예제: VM이 할당 취소되지 않은 경우)에만 Cost Management에서 사용할 수 있습니다.
+- 태그를 관리하려면 각 리소스에 대한 기여자 액세스 권한이 필요합니다.
+- 태그 정책을 관리하려면 소유자 또는 정책 기여자에게 관리 그룹, 구독 또는 리소스 그룹에 대한 액세스 권한이 있어야 합니다.
+    
+Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 고려하세요.
+
+- 태그가 리소스에 직접 적용되었습니까?
+- 태그가 24시간 전에 적용되었습니까? [사용량 데이터 업데이트 빈도 변동](#usage-data-update-frequency-varies)을 참조하세요.
+- 리소스 종류가 태그를 지원하나요? 다음 리소스 종류는 2019년 12월 1일 현재 사용량 데이터의 태그를 지원하지 않습니다. 지원되는 항목의 전체 목록은 [Azure 리소스에 대한 태그 지원](../../azure-resource-manager/tag-support.md)을 참조하세요.
+    - Azure Active Directory B2C 디렉터리
+    - Azure Firewall
+    - Azure NetApp Files
+    - Data Factory
+    - Databricks
+    - 부하 분산 장치
+    - Network Watcher
+    - Notification Hubs
+    - Service Bus
+    - Time Series Insights
+    - VPN 게이트웨이
+    
+태그 사용에 대한 몇 가지 팁은 다음과 같습니다.
+
+- 조직, 애플리케이션, 환경 등을 기준으로 비용을 줄일 수 있는 태깅 전략을 미리 계획하고 정의합니다.
+- Azure Policy를 사용하여 리소스 그룹 태그를 개별 리소스로 복사하고 태그 지정 전략을 적용합니다.
+- 태그 API를 Query 또는 UsageDetails와 함께 사용하여 현재 태그를 기준으로 모든 비용을 가져옵니다.
+
 
 **평가판을 종량제로 업그레이드**
 
