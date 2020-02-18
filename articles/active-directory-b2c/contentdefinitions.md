@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/11/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 3e5fb1ebb763cc5ecd7dfe8724347c03a487bc13
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: c759b7f0467ddb961f44f27c2d2f18ed24d2cfca
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157876"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372804"
 ---
 # <a name="contentdefinitions"></a>ContentDefinitions
 
@@ -82,7 +82,7 @@ ms.locfileid: "77157876"
 | 페이지 식별자 | Description |
 | ----- | ----------- |
 | `globalexception` | 예외 또는 오류가 발생할 때 오류 페이지를 표시합니다. |
-| `providerselection` | 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다. |
+| `providerselection`, `idpselection` | 로그인 중에 사용자가 선택할 수 있는 ID 공급자를 나열합니다.  |
 | `unifiedssp` | 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정으로 로그인하기 위한 양식을 표시합니다. 이 값은 “로그인 상태 유지 기능” 및 “암호를 잊으셨나요?”도 제공합니다. 링크를 클릭하도록 요청합니다. |
 | `unifiedssd` | 메일 주소 또는 사용자 이름을 기반으로 하는 로컬 계정으로 로그인하기 위한 양식을 표시합니다. |
 | `multifactor` | 등록 또는 로그인 중에 텍스트 또는 음성을 사용하여 전화 번호를 확인합니다. |

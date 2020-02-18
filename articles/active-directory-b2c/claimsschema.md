@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/12/2020
+ms.date: 02/17/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 76e2b1c221475a90dc63498d13d4ede7a78e0779
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185596"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372980"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -51,13 +51,31 @@ ms.locfileid: "77185596"
 | 요소 | 발생 수 | Description |
 | ------- | ----------- | ----------- |
 | DisplayName | 1:1 | 다양한 화면에서 사용자에게 표시되는 제목입니다. 값을 [지역화](localization.md)할 수 있습니다. |
-| DataType | 1:1 | 클레임의 형식입니다. 부울, date, dateTime, int, long, string, stringCollection 및 phoneNumber의 데이터 형식을 사용할 수 있습니다. 기본 데이터 형식은 변수 데이터 형식에 C# 해당 하는 값을 나타냅니다. stringCollection는 문자열의 컬렉션을 나타냅니다. 자세한 내용은 [ C# 형식 및 변수](https://docs.microsoft.com/dotnet/csharp/tour-of-csharp/types-and-variables)를 참조 하세요. 날짜는 ISO 8601 규칙을 따릅니다. |
+| DataType | 1:1 | 클레임의 형식입니다. |
 | DefaultPartnerClaimTypes | 0:1 | 지정된 프로토콜에 사용할 파트너 기본 클레임 형식입니다. **InputClaim** 또는 **OutputClaim** 요소에 지정된 **PartnerClaimType**에서 값을 덮어쓸 수 있습니다. 이 요소를 사용하여 프로토콜의 기본 이름을 지정합니다.  |
 | Mask | 0:1 | 클레임을 표시할 때 적용할 수 있는 마스킹 문자로 구성된 선택적 문자열입니다. 예를 들어 전화 번호 324-232-4343은 XXX-XXX-4343으로 마스킹할 수 있습니다. |
 | UserHelpText | 0:1 | 사용자가 클레임의 용도를 파악하는 데 도움이 될 수 있는 클레임 형식의 설명입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 | UserInputType | 0:1 | 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용자에게 제공해야 하는 입력 컨트롤 유형입니다. 이 페이지 아래쪽에 정의되어 있는 사용자 입력 형식을 참조하세요. |
 | 제한 | 0:1 | 정규식(Regex) 또는 허용되는 값 목록과 같은 이 클레임의 값 제한입니다. 값을 [지역화](localization.md)할 수 있습니다. |
 PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대한 참조입니다. **PredicateValidationReference** 요소를 사용하면 적절한 형식의 데이터만 입력하도록 유효성 검사 프로세스를 수행할 수 있습니다. 자세한 내용은 [Predicates](predicates.md)를 참조하세요. |
+
+### <a name="datatype"></a>DataType
+
+**DataType** 요소는 다음 값을 지원 합니다.
+
+| Type | Description |
+| ------- | ----------- | 
+|boolean|부울 (`true` 또는 `false`) 값을 나타냅니다.|
+|date| 일반적으로 날짜로 표시 되는 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
+|dateTime|일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. 날짜 값은 ISO 8601 규칙을 따릅니다.|
+|duration|년, 월, 일, 시, 분, 초의 시간 간격을 나타냅니다. 의 형식은 `PnYnMnDTnHnMnS`입니다. 여기서 `P`는 양수 또는 음수 값에 대 한 `N`를 나타냅니다. `nY`는 연도 수와 그 뒤에 리터럴 `Y`를 표시 합니다. `nMo`는 다음에 리터럴 `Mo`뒤에 오는 월 수입니다. `nD`는 다음에 리터럴 `D`뒤에 오는 일 수입니다. 예: `P21Y`은 21 년을 나타냅니다. 1 년 및 2 개월을 나타내는 `P1Y2Mo`입니다. 1 년, 2 개월 및 5 일을 나타내는 `P1Y2Mo5D`입니다.  `P1Y2M5DT8H5M620S`는 1 년, 2 개월, 5 일, 8 시간, 5 분, 20 초를 나타냅니다.  |
+|phoneNumber|전화 번호를 나타냅니다. |
+|int| -2147483648과 2147483647 사이의 숫자를 나타냅니다.|
+|long| -9223372036854775808에서 9223372036854775807 사이의 숫자를 나타냅니다. |
+|문자열| 텍스트를 UTF-16 코드 단위의 시퀀스로 나타냅니다.|
+|stringCollection|`string`의 컬렉션을 나타냅니다.|
+|userIdentity| 사용자 id를 나타냅니다.|
+|userIdentityCollection|`userIdentity`의 컬렉션을 나타냅니다.|
 
 ### <a name="defaultpartnerclaimtypes"></a>DefaultPartnerClaimTypes
 
@@ -155,7 +173,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | 열거형 | 1:n | 사용자가 클레임을 선택하는 데 사용할 수 있는 사용자 인터페이스의 옵션(예: 드롭다운의 값)입니다. |
 | 패턴 | 1:1 | 사용할 정규식입니다. |
 
-### <a name="enumeration"></a>열거형
+#### <a name="enumeration"></a>열거형
 
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
@@ -214,11 +232,26 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 ![Regex 제한으로 트리거되는 오류 메시지를 표시 하는 텍스트 상자](./media/claimsschema/pattern.png)
 
-## <a name="userinputtype"></a>UserInputType
+### <a name="userinputtype"></a>UserInputType
 
-Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용할 수 있는 텍스트 상자, 암호, 드롭다운 목록 등의 다양한 사용자 입력 유형을 지원합니다. **자체 어설션된 기술 프로필**을 통해 사용자로부터 정보를 수집할 때는 [UserInputType](self-asserted-technical-profile.md)을 지정해야 합니다.
+Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력할 때 사용할 수 있는 텍스트 상자, 암호, 드롭다운 목록 등의 다양한 사용자 입력 유형을 지원합니다. 사용자가 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 을 사용 하 고 [컨트롤을 표시](display-controls.md)하 여 사용자 로부터 정보를 수집할 때 **userinputtype** 을 지정 해야 합니다.
 
-### <a name="textbox"></a>TextBox
+**Userinputtype** 요소 사용 가능한 사용자 입력 형식:
+
+| UserInputType | 지원 되는 ClaimType | Description |
+| --------- | -------- | ----------- |
+|CheckboxMultiSelect| `string` |다중 선택 드롭다운 상자입니다. 클레임 값은 선택한 값의 쉼표 구분 기호 문자열로 표시 됩니다. |
+|DateTimeDropdown | `date`, `dateTime` |일, 월 및 연도를 선택 하는 드롭다운입니다. |
+|DropdownSingleSelect |`string` |단일 선택 드롭다운 상자입니다. 클레임 값은 선택 된 값입니다.|
+|EmailBox | `string` |전자 메일 입력 필드입니다. |
+|Paragraph | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`|단락 태그에만 텍스트를 표시 하는 필드입니다. |
+|암호 | `string` |암호 텍스트 상자.|
+|RadioSingleSelect |`string` | 라디오 단추 컬렉션입니다. 클레임 값은 선택 된 값입니다.|
+|Readonly | `boolean`, `date`, `dateTime`, `duration`, `int`, `long`, `string`| 읽기 전용 입력란입니다. |
+|TextBox |`boolean`, `int`, `string` |한 줄 텍스트 상자입니다. |
+
+
+#### <a name="textbox"></a>TextBox
 
 **TextBox** 사용자 입력 유형은 한 줄 텍스트 상자를 제공하는 데 사용됩니다.
 
@@ -233,7 +266,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="emailbox"></a>EmailBox
+#### <a name="emailbox"></a>EmailBox
 
 **EmailBox** 사용자 입력 유형은 기본적인 전자 메일 입력 필드를 제공하는 데 사용됩니다.
 
@@ -251,7 +284,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="password"></a>암호
+#### <a name="password"></a>암호
 
 **Password** 사용자 입력 유형은 사용자가 입력하는 암호를 기록하는 데 사용됩니다.
 
@@ -266,7 +299,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="datetimedropdown"></a>DateTimeDropdown
+#### <a name="datetimedropdown"></a>DateTimeDropdown
 
 **DateTimeDropdown** 사용자 입력 유형은 년/월/일을 선택하는 드롭다운 집합을 제공하는 데 사용됩니다. Predicates 및 PredicateValidations 요소를 사용하여 최소 및 최대 날짜 값을 제어할 수 있습니다. 자세한 내용은 **Predicates 및 PredicateValidations**의 [날짜 범위 구성](predicates.md) 섹션을 참조하세요.
 
@@ -281,7 +314,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="radiosingleselect"></a>RadioSingleSelect
+#### <a name="radiosingleselect"></a>RadioSingleSelect
 
 **RadioSingleSelect** 사용자 입력 유형은 사용자가 옵션 하나를 선택할 수 있는 라디오 단추 모음을 제공하는 데 사용됩니다.
 
@@ -300,7 +333,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="dropdownsingleselect"></a>DropdownSingleSelect
+#### <a name="dropdownsingleselect"></a>DropdownSingleSelect
 
 **DropdownSingleSelect** 사용자 입력 유형은 사용자가 옵션 하나를 선택할 수 있는 드롭다운 상자를 제공하는 데 사용됩니다.
 
@@ -319,7 +352,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
+#### <a name="checkboxmultiselect"></a>CheckboxMultiSelect
 
 **CheckboxMultiSelect** 사용자 입력 유형은 사용자가 여러 옵션을 선택할 수 있는 확인란 모음을 제공하는 데 사용됩니다.
 
@@ -338,7 +371,7 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 </ClaimType>
 ```
 
-### <a name="readonly"></a>Readonly
+#### <a name="readonly"></a>Readonly
 
 **Readonly** 사용자 입력 유형은 클레임과 값을 표시할 읽기 전용 필드를 제공하는 데 사용됩니다.
 
@@ -354,9 +387,9 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
 ```
 
 
-### <a name="paragraph"></a>Paragraph
+#### <a name="paragraph"></a>Paragraph
 
-**Paragraph** 사용자 입력 유형은 단락 태그에 텍스트만 표시하는 필드를 제공하는 데 사용됩니다. 예를 들어 &lt;p&gt;text&lt;/p&gt;를 사용할 수 있습니다.
+**Paragraph** 사용자 입력 유형은 단락 태그에 텍스트만 표시하는 필드를 제공하는 데 사용됩니다.  예를 들어 &lt;p&gt;text&lt;/p&gt;를 사용할 수 있습니다. 자체 어설션된 기술 프로필의 **단락** 사용자 입력 형식 `OutputClaim` `Required` 특성 `false` (기본값)를 설정 해야 합니다.
 
 ![paragraph가 포함된 클레임 형식 사용](./media/claimsschema/paragraph.png)
 

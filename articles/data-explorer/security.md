@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 5f3bceb8398f9837f6f8eaa390def41456daf08d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 786950011f10e25d6bcb72061212c1878e79d45a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271602"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373359"
 ---
 # <a name="secure-azure-data-explorer-clusters-in-azure"></a>Azure에서 Azure 데이터 탐색기 클러스터 보호
 
@@ -24,9 +24,9 @@ ms.locfileid: "76271602"
 
 Azure 리소스의 Azure Active Directory (Azure AD) 관리 되는 id 기능은이 문제를 해결 합니다. 이 기능은 Azure AD에서 자동으로 관리되는 ID를 Azure 서비스에 제공합니다. 이 ID를 사용하면 Key Vault를 비롯하여 Azure AD 인증을 지원하는 모든 서비스에 인증할 수 있으므로 코드에 자격 증명이 필요 없습니다. 이 서비스에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](/azure/active-directory/managed-identities-azure-resources/overview) 개요 페이지를 참조 하세요.
 
-## <a name="data-encryption"></a>데이터 암호화
+## <a name="data-encryption"></a>데이터 암호화.
 
-### <a name="azure-disk-encryption"></a>Azure Disk Encryption
+### <a name="azure-disk-encryption"></a>Azure 디스크 암호화
 
 [Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview) 는 조직의 보안 및 규정 준수 약정에 맞게 데이터를 보호 하 고 보호 합니다. 클러스터의 가상 컴퓨터에 대 한 OS 및 데이터 디스크에 대 한 볼륨 암호화를 제공 합니다. 또한 Azure Disk Encryption은 디스크 암호화 키와 암호를 제어 하 고 관리할 수 있도록 하 고 VM 디스크의 모든 데이터가 암호화 되도록 하는 [Azure Key Vault](/azure/key-vault/)와 통합 됩니다. 
 
@@ -34,10 +34,10 @@ Azure 리소스의 Azure Active Directory (Azure AD) 관리 되는 id 기능은�
 
 기본적으로 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 암호화 키에 대 한 추가 제어를 위해 고객 관리 키를 제공 하 여 데이터 암호화에 사용할 수 있습니다. 사용자 고유의 키를 사용 하 여 저장소 수준에서 데이터의 암호화를 관리할 수 있습니다. 고객 관리 키는 모든 데이터를 암호화 하 고 해독 하는 데 사용 되는 루트 암호화 키에 대 한 액세스를 보호 하 고 제어 하는 데 사용 됩니다. 고객 관리 키를 통해 액세스 제어를 보다 유연 하 게 만들고, 회전 하 고, 사용 하지 않도록 설정 하 고, 취소할 수 있습니다. 데이터를 보호 하는 데 사용 되는 암호화 키를 감사할 수도 있습니다.
 
-Azure Key Vault를 사용 하 여 고객 관리 키를 저장 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault API를 사용 하 여 키를 생성할 수 있습니다. Azure 데이터 탐색기 클러스터와 Azure Key Vault는 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](/azure/key-vault/key-vault-overview)를 참조 하세요. 고객 관리 키에 대 한 자세한 내용은 [Azure Key Vault를 사용 하 여 고객 관리 키](/azure/storage/common/storage-service-encryption) 를 참조 하세요.
+Azure Key Vault를 사용 하 여 고객 관리 키를 저장 합니다. 사용자 고유의 키를 만들어 키 자격 증명 모음에 저장 하거나 Azure Key Vault API를 사용 하 여 키를 생성할 수 있습니다. Azure 데이터 탐색기 클러스터와 Azure Key Vault는 동일한 지역에 있어야 하지만 다른 구독에 있을 수 있습니다. Azure Key Vault에 대 한 자세한 내용은 [Azure Key Vault 무엇입니까?](/azure/key-vault/key-vault-overview)를 참조 하세요. 고객 관리 키에 대 한 자세한 설명은 [Azure Key Vault를 사용 하 여 고객 관리 키](/azure/storage/common/storage-service-encryption)를 참조 하세요. 또는 [C#](/azure/data-explorer/customer-managed-keys-csharp) [Azure Resource Manager 템플릿을](/azure/data-explorer/customer-managed-keys-resource-manager) 사용 하 여 Azure 데이터 탐색기 클러스터에서 고객 관리 키 구성
 
 > [!Note]
-> 고객 관리 키는 azure AD (Azure Active Directory 기능) 인 Azure 리소스에 대 한 관리 되는 id를 사용 합니다. Azure Portal에서 고객이 관리 하는 키를 구성 하려면 클러스터에 대 한 **Systemassigned** 관리 id를 구성 해야 합니다.
+> 고객 관리 키는 azure AD (Azure Active Directory 기능) 인 Azure 리소스에 대 한 관리 되는 id를 사용 합니다. Azure Portal에서 고객이 관리 하는 키를 구성 하려면 [Azure 데이터 탐색기 클러스터에 대 한 관리 되는 Id 구성](/azure/data-explorer/managed-identities)에 설명 된 대로 **systemassigned** 관리 id를 클러스터에 구성 해야 합니다.
 
 #### <a name="store-customer-managed-keys-in-azure-key-vault"></a>Azure Key Vault에서 고객이 관리 하는 키 저장
 
@@ -60,8 +60,8 @@ Azure Key Vault를 사용 하 여 고객 관리 키를 저장 합니다. 사용�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure 데이터 탐색기 클러스터에 대 한 관리 id 구성](managed-identities.md)
 * 미사용 암호화를 사용 하도록 설정 하 여 [Azure 데이터 탐색기-포털에서 클러스터를 보호](manage-cluster-security.md) 합니다.
+* [Azure 데이터 탐색기 클러스터에 대 한 관리 id 구성](managed-identities.md)
 * [Azure Resource Manager 템플릿을 사용 하 여 고객 관리 키 구성](customer-managed-keys-resource-manager.md)
 * [을 사용 하 여 고객이 관리 하는 키 구성C#](customer-managed-keys-csharp.md)
 

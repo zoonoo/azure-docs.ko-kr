@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: f171d9d71d3e6f8fa57671578502675442293793
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 2dcdc67f884d1f566c794ab9e996a74984ab61a4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76908945"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373146"
 ---
 # <a name="customize-the-user-interface-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 인터페이스 사용자 지정
 
@@ -39,7 +39,7 @@ ms.locfileid: "76908945"
 
 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 응용 프로그램에서 등록 또는 로그인, 암호 재설정 또는 프로필 편집 기능을 제공 하 [는 경우 정책 파일을 사용 하 여 UI를 사용자 지정](custom-policy-ui-customization.md)합니다.
 
-고객의 결정에 따라 동적 콘텐츠를 제공 해야 하는 경우 쿼리 문자열에 전송 된 매개 변수에 따라 [페이지 콘텐츠를 동적으로 변경할](custom-policy-ui-customization-dynamic.md) 수 있는 사용자 지정 정책을 사용 합니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
+고객의 결정에 따라 동적 콘텐츠를 제공 해야 하는 경우 쿼리 문자열에 전송 된 매개 변수에 따라 [페이지 콘텐츠를 동적으로 변경할](custom-policy-ui-customization.md#configure-dynamic-custom-page-content-uri) 수 있는 사용자 지정 정책을 사용 합니다. 예를 들어 웹 또는 모바일 응용 프로그램에서 전달 하는 매개 변수를 기반으로 Azure AD B2C 등록 또는 로그인 페이지에서 배경 이미지를 변경할 수 있습니다.
 
 ### <a name="javascript"></a>JavaScript
 
@@ -96,7 +96,7 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 
 사용자 환경 페이지에서 다음 지침에 따라 고유한 HTML 및 CSS를 사용 하 여 시작 하세요.
 
-- `<body>` 어딘가에 있는 빈 `<div id="api"></div>` 요소를 사용하여 잘 구성된 HTML 콘텐츠를 만듭니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 표시합니다. 다음 예제에서는 최소 페이지를 보여줍니다.
+- `<div id="api"></div>` 어딘가에 있는 빈 `<body>` 요소를 사용하여 잘 구성된 HTML 콘텐츠를 만듭니다. 이 요소는 Azure AD B2C 콘텐츠가 삽입되는 위치를 표시합니다. 다음 예제에서는 최소 페이지를 보여줍니다.
 
     ```html
     <!DOCTYPE html>
@@ -150,8 +150,8 @@ Azure AD B2C [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/)�
 | 로컬 계정 등록 | 이메일 주소 또는 사용자 이름을 기준으로 하는 로컬 계정 등록 양식을 포함합니다. 양식은 텍스트 입력 상자, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같은 다른 입력 제어를 포함할 수 있습니다. |
 | 소셜 계정 등록 | Facebook 또는 Google과 같은 소셜 ID 공급자의 기존 계정을 사용하여 등록하는 경우 나타날 수 있습니다. 등록 양식을 사용 하 여 고객 으로부터 추가 정보를 수집 해야 하는 경우에 사용 됩니다. |
 | 통합 등록 또는 로그인 | Facebook, Google 또는 로컬 계정과 같은 소셜 ID 공급자를 사용할 수 있는 고객의 등록과 로그인을 모두 다룹니다. |
-| Multi-factor authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
-| 오류 | 고객에게 오류 정보를 제공합니다. |
+| Multi-Factor Authentication | 고객은 등록 또는 로그인 중에 전화 번호(텍스트 또는 음성 사용)를 확인할 수 있습니다. |
+| Error | 고객에게 오류 정보를 제공합니다. |
 
 ## <a name="company-branding-preview"></a>회사 브랜딩 (미리 보기)
 
@@ -225,7 +225,7 @@ https://contoso.blob.core.windows.net/{Culture:RFC5646}/myHTML/unified.html
 https://contoso.blob.core.windows.net/fr/myHTML/unified.html
 ```
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 GitHub의 [B2C](https://github.com/azureadquickstarts/b2c-azureblobstorage-client) 저장소에서 여러 샘플 템플릿 파일을 찾을 수 있습니다.
 

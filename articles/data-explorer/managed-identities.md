@@ -7,16 +7,16 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 3b0bb62de4a96a45d607e05b32a87feec692e4d4
-ms.sourcegitcommit: 02160a2c64a5b8cb2fb661a087db5c2b4815ec04
+ms.openlocfilehash: e76ae2e072bb780ac9788902e9157db871e4f09d
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75725976"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373380"
 ---
 # <a name="configure-managed-identities-for-your-azure-data-explorer-cluster"></a>Azure 데이터 탐색기 클러스터에 대 한 관리 id 구성
 
-[Azure Active Directory에서 관리 되는 id](/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하면 클러스터에서 AZURE KEY VAULT 같은 AAD로 보호 되는 다른 리소스에 쉽게 액세스할 수 있습니다. Id는 Azure 플랫폼에서 관리 하며, 암호를 프로 비전 하거나 회전할 필요가 없습니다. 이 문서에서는 Azure 데이터 탐색기 클러스터에 대 한 관리 id를 만드는 방법을 보여 줍니다. 
+[Azure Active Directory에서 관리 되는 id](/azure/active-directory/managed-identities-azure-resources/overview) 를 사용 하면 클러스터에서 AZURE KEY VAULT 같은 AAD로 보호 되는 다른 리소스에 쉽게 액세스할 수 있습니다. Id는 Azure 플랫폼에서 관리 하며, 암호를 프로 비전 하거나 회전할 필요가 없습니다. 이 문서에서는 Azure 데이터 탐색기 클러스터에 대 한 관리 id를 만드는 방법을 보여 줍니다. 관리 id 구성은 현재 [클러스터에 대해 고객이 관리](/azure/data-explorer/security#customer-managed-keys-with-azure-key-vault)하는 키를 사용 하도록 설정 하는 경우에만 지원 됩니다.
 
 > [!Note]
 > 앱이 구독 또는 테 넌 트 간에 마이그레이션되는 경우 Azure 데이터 탐색기에 대 한 관리 id가 예상 대로 작동 하지 않습니다. 앱은 [id 제거](#remove-an-identity)를 사용 하 여 기능을 사용 하지 않도록 설정 하 고 다시 사용 하도록 설정 하 여 수행할 수 있는 새 id를 얻어야 합니다. 또한 새 id를 사용 하도록 다운스트림 리소스의 액세스 정책을 업데이트 해야 합니다.
@@ -92,7 +92,7 @@ Azure Resource Manager 템플릿을 사용하여 Azure 리소스 배포를 자�
 }    
 ```
 
-예:
+다음은 그 예입니다.
 
 ```json
 {

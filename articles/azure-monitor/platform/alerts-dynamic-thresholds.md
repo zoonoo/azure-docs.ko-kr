@@ -5,15 +5,15 @@ author: yanivlavi
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 04/26/2019
+ms.date: 02/16/2020
 ms.author: yalavi
 ms.reviewer: mbullwin
-ms.openlocfilehash: 750aded128804468ae557d7c016a50c5378d9217
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: f67dcf7f1f4f39a11eb995995a8d0acc278b5d4a
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74762518"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373402"
 ---
 # <a name="metric-alerts-with-dynamic-thresholds-in-azure-monitor"></a>Azure Monitor에서 동적 임계값을 사용 하는 메트릭 경고
 
@@ -92,11 +92,11 @@ ms.locfileid: "74762518"
 
 ## <a name="how-much-data-is-used-to-preview-and-then-calculate-thresholds"></a>임계값을 미리 본 다음, 계산하는 데 사용하는 데이터 양은 얼마나 되나요?
 
-및 경고가 처음으로 생성 되 면 차트에 나타나는 임계값은 시간 또는 일별 계절 패턴 (10 일)을 계산 하는 데 충분 한 기록 데이터를 기반으로 계산 됩니다. 경고 규칙이 만들어지면 동적 임계값은 사용 가능한 모든 기록 데이터를 사용 하며, 임계값을 보다 정확 하 게 만들기 위해 새 데이터를 기반으로 지속적으로 학습 하 고 조정 합니다. 이는이 계산 후 차트에 주간 패턴도 표시 됨을 의미 합니다.
+경고 규칙을 처음 만들 때 차트에 나타나는 임계값은 시간 또는 일별 계절 패턴 (10 일)을 계산 하는 데 충분 한 기록 데이터를 기반으로 계산 됩니다. 경고 규칙이 만들어지면 동적 임계값은 사용 가능한 모든 기록 데이터를 사용 하며, 임계값을 보다 정확 하 게 만들기 위해 새 데이터를 기반으로 지속적으로 학습 하 고 조정 합니다. 이는이 계산 후 차트에 주간 패턴도 표시 됨을 의미 합니다.
 
 ## <a name="how-much-data-is-needed-to-trigger-an-alert"></a>경고를 트리거하는 데 필요한 데이터는 얼마 인가요?
 
-새 리소스 또는 누락 된 메트릭 데이터가 있는 경우에는 임계값을 정확 하 게 유지 하기 위해 3 일간의 데이터를 사용할 수 있도록 동적 임계값이 경고를 트리거하지 않습니다.
+새 리소스 또는 누락 된 메트릭 데이터가 있는 경우 동적 임계값은 3 일 전에 경고를 트리거하지 않으며 메트릭 데이터의 30 개 샘플을 사용 하 여 정확한 임계값을 보장 합니다.
 
 ## <a name="dynamic-thresholds-best-practices"></a>동적 임계값 모범 사례
 

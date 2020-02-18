@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 12/04/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5c9054daea76675ed621caf1630c509b16743f4e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: aa1e6d8705cf4aed975ed0940087f243a06a9019
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836345"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372688"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -46,7 +46,7 @@ Login.microsoftonline.com의 사용 중단은 테 넌 트 Azure Active Directory
 
 * *B2clogin.com*를 참조 하도록 id 공급자의 응용 프로그램에서 리디렉션 URL을 변경 합니다.
 * 사용자 흐름 및 토큰 끝점 참조에서 *b2clogin.com* 를 사용 하도록 Azure AD B2C 응용 프로그램을 업데이트 합니다.
-* CORS 설정에서 [사용자 인터페이스 사용자 지정](custom-policy-ui-customization-dynamic.md)에 대해 정의한 모든 **허용 된 원본을** 업데이트 합니다.
+* CORS 설정에서 [사용자 인터페이스 사용자 지정](custom-policy-ui-customization.md)에 대해 정의한 모든 **허용 된 원본을** 업데이트 합니다.
 
 ## <a name="change-identity-provider-redirect-urls"></a>Id 공급자 리디렉션 Url 변경
 
@@ -58,7 +58,7 @@ B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있�
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 예:
+두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 다음은 그 예입니다.
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

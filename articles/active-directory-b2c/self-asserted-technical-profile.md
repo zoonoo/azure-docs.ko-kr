@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/16/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: a16fb1184de5b545b3ef527b1a66ffb7b68d1ef4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 37d895e2514d01bdbe73f42e1ba5ea5e4c46bfa1
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197921"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77372870"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -189,17 +189,21 @@ ms.locfileid: "77197921"
 
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
-| setting.operatingMode | 예 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다. |
+| operatingMode <sup>1</sup>| 예 | 로그인 페이지의 경우 이 속성은 입력 유효성 검사, 오류 메시지 등 username 필드의 동작을 제어합니다. 필요한 값은 `Username` 또는 `Email`입니다.  |
 | AllowGenerationOfClaimsWithNullValues| 예| Null 값이 포함 된 클레임을 생성 하도록 허용 합니다. 예를 들어 사용자가 확인란을 선택 하지 않은 경우입니다.|
 | ContentDefinitionReferenceId | yes | 이 기술 프로필과 연결된 [콘텐츠 정의](contentdefinitions.md)의 식별자입니다. |
 | EnforceEmailVerification | 예 | 등록 또는 프로필 편집의 경우 전자 메일 확인을 적용합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.retryLimit | 예 | 사용자가 유효성 검사 기술 프로필과의 일치 여부를 확인하는 데이터의 입력을 시도할 수 있는 횟수를 제어합니다. 사용자가 이미 있는 계정으로 등록을 계속 시도할 수 있는 제한 횟수를 예로 들 수 있습니다.
-| SignUpTarget | 예 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
+| SignUpTarget <sup>1</sup>| 예 | 등록 대상 교환 식별자입니다. 사용자가 등록 단추를 클릭하면 Azure AD B2C는 지정된 교환 식별자를 실행합니다. |
 | setting.showCancelButton | 예 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.showContinueButton | 예 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| setting.showSignupLink | 예 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| forgotPasswordLinkLocation 설정| 예| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.| 
+| 설정. showSignupLink <sup>2</sup>| 예 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
+| forgotPasswordLinkLocation <sup>2</sup>| 예| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.| 
 | IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |
+
+참고:
+1. `unifiedssp`또는 `unifiedssd`의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다.
+1. `unifiedssp`또는 `unifiedssd`의 콘텐츠 정의 [Datauri](contentdefinitions.md#datauri) 형식에 사용할 수 있습니다. [페이지 레이아웃 버전](page-layout.md) 1.1.0 이상
 
 ## <a name="cryptographic-keys"></a>암호화 키
 
