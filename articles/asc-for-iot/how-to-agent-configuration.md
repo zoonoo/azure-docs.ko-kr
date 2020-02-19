@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 07/25/2019
+ms.date: 02/18/2020
 ms.author: mlottner
-ms.openlocfilehash: 6adb918bbc6d4718be8518019394582a6a843fb8
-ms.sourcegitcommit: 57eb9acf6507d746289efa317a1a5210bd32ca2c
+ms.openlocfilehash: 70396cdcaf8b6e2ac66619290eea35a7b260cd9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/01/2019
-ms.locfileid: "74664850"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461252"
 ---
 # <a name="tutorial-configure-security-agents"></a>자습서: 보안 에이전트 구성
 
@@ -108,7 +108,7 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 **azureiotsecurity**
     }
     ```
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+1. **저장**을 클릭합니다.
 
 ### <a name="using-a-default-value"></a>기본값 사용
 
@@ -120,33 +120,32 @@ IoT 보안 에이전트에 대 한 Azure Security Center는 **azureiotsecurity**
 
 [GitHub](https\://aka.ms/iot-security-module-default)의 적절 한 스키마에서 기본값을 사용할 수 있습니다.
 
-| name| 상태 | 유효한 값| 기본값| 설명 |
+| 속성| 상태 | 유효한 값| 기본값| Description |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
 |highPriorityMessageFrequency|필수: false |유효한 값: ISO 8601 형식의 기간 |기본값: PT7M |우선 순위가 높은 메시지가 전송 되기 전의 최대 시간 간격입니다.|
 |lowPriorityMessageFrequency |필수: false|유효한 값: ISO 8601 형식의 기간 |기본값: PT5H |낮은 우선 순위의 메시지가 전송 되기 전의 최대 시간입니다.| 
 |snapshotFrequency |필요: false|유효한 값: ISO 8601 형식의 기간 |기본값 PT13H |장치 상태 스냅숏을 만드는 시간 간격입니다.| 
-|maxLocalCacheSizeInBytes |필수: false |유효한 값: |기본값: 256만, 8192 보다 큼 | 에이전트의 메시지 캐시에 허용 되는 최대 저장소 (바이트)입니다. 메시지를 보내기 전에 장치에 메시지를 저장 하는 데 사용할 수 있는 공간의 최대 크기입니다.| 
+|maxLocalCacheSizeInBytes |필수: false |유효한 값은 |기본값: 256만, 8192 보다 큼 | 에이전트의 메시지 캐시에 허용 되는 최대 저장소 (바이트)입니다. 메시지를 보내기 전에 장치에 메시지를 저장 하는 데 사용할 수 있는 공간의 최대 크기입니다.| 
 |maxMessageSizeInBytes |필수: false |유효한 값: 8192 보다 큰 양수입니다. 262144 보다 작음 |기본값: 204800 |클라우드 메시지에 대 한 에이전트의 최대 허용 크기입니다. 이 설정은 각 메시지에서 전송 되는 최대 데이터의 양을 제어 합니다. |
-|eventPriority $ {EventName} |필수: false |유효한 값: 높음, 낮음, 꺼짐 |기본값: |에이전트에서 생성 한 모든 이벤트의 우선 순위 | 
+|eventPriority${EventName} |필수: false |유효한 값: 높음, 낮음, 꺼짐 |기본값: |에이전트에서 생성 한 모든 이벤트의 우선 순위 | 
 
 ### <a name="supported-security-events"></a>지원 되는 보안 이벤트
 
 |이벤트 이름| PropertyName | 기본값| 스냅숏 이벤트| 세부 정보 상태  |
 |----------|------------------------------------------------------------------------------|----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|---------------|---------------|
-|진단 이벤트|eventPriorityDiagnostic| 해제| 거짓| 에이전트 관련 진단 이벤트입니다. 자세한 정보 로깅에이 이벤트를 사용 합니다.| 
-|구성 오류 |eventPriorityConfigurationError |낮음 |거짓 |에이전트가 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
-|삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |참|에이전트 관련 이벤트 통계입니다. |
-|메시지 통계|eventPriorityMessageStatistics |낮음 |참 |에이전트 관련 메시지 통계입니다. |
-|연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |참 |장치에 연결 된 모든 하드웨어의 스냅숏입니다.|
-|수신 대기 포트|eventPriorityListeningPorts |높음 |참 |장치에서 열려 있는 모든 수신 포트의 스냅숏입니다.|
-|프로세스 만들기 |eventPriorityProcessCreate |낮음 |거짓 |장치에서 프로세스 생성을 감사 합니다.|
-|프로세스 종료|eventPriorityProcessTerminate |낮음 |거짓 |장치에서 프로세스 종료를 감사 합니다.| 
-|시스템 정보 |eventPrioritySystemInformation |낮음 |참 |시스템 정보의 스냅숏 (예: OS 또는 CPU)입니다.| 
-|로컬 사용자| eventPriorityLocalUsers |높음 |참|시스템 내에서 등록 된 로컬 사용자의 스냅숏입니다. |
-|로그인|  eventPriorityLogin |높음|거짓|로그인 이벤트를 장치 (로컬 및 원격 로그인)로 감사 합니다.|
-|연결 만들기 |eventPriorityConnectionCreate|낮음|거짓|장치에서 생성 된 TCP 연결을 감사 합니다. |
-|방화벽 구성| eventPriorityFirewallConfiguration|낮음|참|장치 방화벽 구성의 스냅숏 (방화벽 규칙). |
-|OS 기준| eventPriorityOSBaseline| 낮음|참|장치 OS 기준 검사의 스냅숏입니다.|
+|진단 이벤트|eventPriorityDiagnostic| 꺼짐| False| 에이전트 관련 진단 이벤트입니다. 자세한 정보 로깅에이 이벤트를 사용 합니다.| 
+|구성 오류 |eventPriorityConfigurationError |낮음 |False |에이전트가 구성을 구문 분석 하지 못했습니다. 스키마에 대 한 구성을 확인 합니다.| 
+|삭제 된 이벤트 통계 |eventPriorityDroppedEventsStatistics |낮음 |True|에이전트 관련 이벤트 통계입니다. |
+|연결 된 하드웨어|eventPriorityConnectedHardware |낮음 |True |장치에 연결 된 모든 하드웨어의 스냅숏입니다.|
+|수신 대기 포트|eventPriorityListeningPorts |높음 |True |장치에서 열려 있는 모든 수신 포트의 스냅숏입니다.|
+|프로세스 만들기 |eventPriorityProcessCreate |낮음 |False |장치에서 프로세스 생성을 감사 합니다.|
+|프로세스 종료|eventPriorityProcessTerminate |낮음 |False |장치에서 프로세스 종료를 감사 합니다.| 
+|시스템 정보 |eventPrioritySystemInformation |낮음 |True |시스템 정보의 스냅숏 (예: OS 또는 CPU)입니다.| 
+|로컬 사용자| eventPriorityLocalUsers |높음 |True|시스템 내에서 등록 된 로컬 사용자의 스냅숏입니다. |
+|로그인|  eventPriorityLogin |높음|False|로그인 이벤트를 장치 (로컬 및 원격 로그인)로 감사 합니다.|
+|연결 만들기 |eventPriorityConnectionCreate|낮음|False|장치에서 생성 된 TCP 연결을 감사 합니다. |
+|방화벽 구성| eventPriorityFirewallConfiguration|낮음|True|장치 방화벽 구성의 스냅숏 (방화벽 규칙). |
+|OS 기준| eventPriorityOSBaseline| 낮음|True|장치 OS 기준 검사의 스냅숏입니다.|
 |
  
 

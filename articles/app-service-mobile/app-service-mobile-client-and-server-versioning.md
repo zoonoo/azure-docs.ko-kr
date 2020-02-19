@@ -6,18 +6,14 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 4d0b301dee363c2338cb13a9fc09ee17549467eb
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: f24ae0a48b835785a2e000210f3609b82d42d0f6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668852"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461558"
 ---
 # <a name="client-and-server-versioning-in-mobile-apps-and-mobile-services"></a>Mobile Apps 및 Mobile Services에서 클라이언트 및 서버 버전 관리
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 Azure Mobile Services의 최신 버전은 Azure App Service의 **Mobile Apps** 기능입니다.
 
@@ -56,7 +52,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="mobile-apps-server-sdks"></a>Mobile *Apps* 서버 SDK
 버전 검사는 다음 서버 SDK 버전에 포함됩니다.
 
-| 서버 플랫폼 | SDK | 수락된 버전 헤더 |
+| 서버 플랫폼 | SDK) | 수락된 버전 헤더 |
 | --- | --- | --- |
 | .NET |[Microsoft.Azure.Mobile.Server](https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/) |2.0.0 |
 | Node.js |[azure-mobile-apps)](https://www.npmjs.com/package/azure-mobile-apps) |2.0.0 |
@@ -64,7 +60,7 @@ POST https://service.azurewebsites.net/tables/TodoItem?ZUMO-API-VERSION=2.0.0
 ### <a name="behavior-of-mobile-apps-backends"></a>Mobile Apps 백 엔드의 동작
 | ZUMO-API-VERSION | MS_SkipVersionCheck의 값 | 응답 |
 | --- | --- | --- |
-| x.y.z 또는 Null |참 |200 - 확인 |
+| x.y.z 또는 Null |True |200 - 확인 |
 | Null |False/지정되지 않음 |400 - 잘못된 요청 |
 | 1.x.y |False/지정되지 않음 |400 - 잘못된 요청 |
 | 2.0.0-2.x.y |False/지정되지 않음 |200 - 확인 |

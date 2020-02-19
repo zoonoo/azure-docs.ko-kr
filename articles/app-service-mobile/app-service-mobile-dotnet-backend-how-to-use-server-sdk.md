@@ -8,20 +8,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 019979307f6dff1dba2ef5f661a971f330b8a9cd
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: cafb0a7e2bf0fbce82448236a2da98079144121e
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668869"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461541"
 ---
-# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK로 작업
+# <a name="work-with-the-net-backend-server-sdk-for-azure-mobile-apps"></a>Azure Mobile Apps용 .NET 백 엔드 서버 SDK 사용
 [!INCLUDE [app-service-mobile-selector-server-sdk](../../includes/app-service-mobile-selector-server-sdk.md)]
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 이 항목은 주요 Azure App Service Mobile Apps 시나리오에서 .NET 백 엔드 서버 SDK를 사용하는 방법을 보여줍니다. Azure Mobile Apps SDK를 사용하면 ASP.NET 애플리케이션에서 모바일 클라이언트를 사용하여 작업할 수 있습니다.
 
@@ -34,7 +29,7 @@ ms.locfileid: "74668869"
 서버 SDK에 대 한 참조 설명서는 [Azure Mobile Apps .Net 참조][1]에서 찾을 수 있습니다.
 
 ## <a name="create-app"></a>방법: .NET 모바일 앱 백 엔드 만들기
-새 프로젝트를 시작하는 경우 [Azure 포털] 과 Visual Studio 중 하나를 사용하여 App Service 애플리케이션을 만들 수 있습니다. App Service 애플리케이션을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
+새 프로젝트를 시작하는 경우 [Azure Portal] 과 Visual Studio 중 하나를 사용하여 App Service 애플리케이션을 만들 수 있습니다. App Service 애플리케이션을 로컬로 실행하거나 클라우드 기반 앱 서비스 모바일 앱에 프로젝트를 게시할 수 있습니다.
 
 기존 프로젝트에 모바일 기능을 추가하는 경우 [SDK 다운로드 및 초기화](#install-sdk) 섹션을 참조하세요.
 
@@ -66,7 +61,7 @@ Visual Studio에서 Azure Mobile Apps 프로젝트를 만들기 위해 [.net 용
 2. **템플릿** > **Visual C#** 를 확장하고 **웹**을 선택합니다.
 3. **ASP.NET 웹 애플리케이션**을 선택합니다.
 4. 프로젝트 이름을 입력합니다. 그런 후 **OK**를 클릭합니다.
-5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure 모바일 앱**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
+5. *ASP.NET 4.5.2 템플릿*아래에서 **Azure Mobile App**을 선택합니다. **클라우드에 호스트** 를 선택하여 클라우드에 이 프로젝트를 게시할 수 있는 모바일 백 엔드를 만듭니다.
 6. **확인**을 클릭합니다.
 
 ## <a name="install-sdk"></a>방법: SDK 다운로드 및 설치
@@ -201,7 +196,7 @@ Azure SDK가 설치되어 있으면 이제 다음과 같이 템플릿 테이블 
    * **모델 클래스** 드롭다운에서 새 DTO를 선택합니다.
    * **DbContext** 드롭다운에서 모바일 서비스 DbContext 클래스를 선택합니다.
    * 컨트롤러 이름이 생성됩니다.
-4. **추가**으로 로그온합니다.
+4. **추가**를 클릭합니다.
 
 빠른 시작 서버 프로젝트는 간단한 **TodoItemController**에 대한 예제를 포함합니다.
 
@@ -213,10 +208,10 @@ Azure SDK가 설치되어 있으면 이제 다음과 같이 템플릿 테이블 
 PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니다.  클라이언트 페이지 크기 변경에 대한 내용은 특정 클라이언트 방법 설명서를 참조하세요.
 
 ## <a name="how-to-define-a-custom-api-controller"></a>방법: 사용자 지정 API 컨트롤러 정의
-사용자 지정 API 컨트롤러는 엔드포인트를 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. `MobileAppController`특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
+사용자 지정 API 컨트롤러는 엔드포인트를 노출하여 모바일 앱 백 엔드에서 가장 기본적인 기능을 제공합니다. [MobileAppController] 특성을 사용하여 모바일 전용 API 컨트롤러를 등록할 수 있습니다. `MobileAppController` 특성은 경로를 등록하고 Mobile Apps JSON 직렬 변환기를 설정한 후 [클라이언트 버전 검사](app-service-mobile-client-and-server-versioning.md)를 켭니다.
 
 1. Visual Studio에서 컨트롤러 폴더를 마우스 오른쪽 단추로 클릭한 다음 **추가** > **컨트롤러**를 클릭하고 **웹 API 2 컨트롤러&mdash;비어 있음**을 선택한 후 **추가**를 클릭합니다.
-2. `CustomController`와 같은 **컨트롤러 이름**을 제공하고 **추가**를 클릭합니다.
+2. **와 같은** 컨트롤러 이름`CustomController`을 제공하고 **추가**를 클릭합니다.
 3. 새로운 컨트롤러 클래스 파일에서 다음 using 문을 추가합니다.
 
         using Microsoft.Azure.Mobile.Server.Config;
@@ -233,7 +228,7 @@ PageSize은 클라이언트에서 요청하는 크기보다 크거나 같습니�
             .MapApiControllers()
             .ApplyTo(config);
 
-`MapApiControllers()` 대신 `UseDefaultConfiguration()` 확장 메서드를 사용할 수도 있습니다. **MobileAppControllerAttribute** 가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않을 수 있습니다.
+`UseDefaultConfiguration()` 대신 `MapApiControllers()` 확장 메서드를 사용할 수도 있습니다. **MobileAppControllerAttribute** 가 적용되지 않는 모든 컨트롤러는 클라이언트에서 여전히 액세스할 수 있지만 모든 모바일 앱 클라이언트 SDK로 올바르게 사용되지 않을 수 있습니다.
 
 ## <a name="how-to-work-with-authentication"></a>방법: 인증으로 작업
 Azure Mobile Apps는 App Service 인증/권한 부여를 사용하여 모바일 백 엔드를 보호합니다.  이 섹션에서는 .NET 백 엔드 서버 프로젝트에서 다음과 같은 인증 관련 작업을 수행하는 방법을 보여줍니다.
@@ -263,7 +258,7 @@ Mobile Apps 백 엔드에 클라이언트를 인증하는 방법에 대해 알�
 > 
 > App Service 인증/권한 부여 공급자 중 하나를 사용하지 않으려면 본인의 고유한 로그인 시스템을 구현할 수 있습니다. 인증 토큰 생성을 위한 [Microsoft.Azure.Mobile.Server.Login] 패키지를 설치합니다.  사용자 자격 증명의 유효성 검사를 위한 고유 코드를 제공합니다. 예를 들어 데이터베이스의 솔트되고 해시된 암호를 기준으로 검사할 수 있습니다. 다음 예제에서 `isValidAssertion()` 메서드(다른 곳에 정의됨)는 이러한 검사를 담당합니다.
 
-사용자 지정 인증은 ApiController 만들기 및 `register` 및 `login` 작업 노출로 노출됩니다. 클라이언트는 사용자로부터 정보를 수집하는 데 사용자 지정 UI를 사용해야 합니다.  그러면 정보는 표준 HTTP POST 호출을 사용하여 API에 제출됩니다. 서버가 어설션의 유효성을 검사하면 `AppServiceLoginHandler.CreateToken()` 메서드를 사용하여 토큰이 발급됩니다.  ApiController는 `[MobileAppController]` 특성을 사용하면 **안 됩니다**.
+사용자 지정 인증은 ApiController 만들기 및 `register` 및 `login` 작업 노출로 노출됩니다. 클라이언트는 사용자로부터 정보를 수집하는 데 사용자 지정 UI를 사용해야 합니다.  그러면 정보는 표준 HTTP POST 호출을 사용하여 API에 제출됩니다. 서버가 어설션의 유효성을 검사하면 `AppServiceLoginHandler.CreateToken()` 메서드를 사용하여 토큰이 발급됩니다.  ApiController는 **특성을 사용하면**안 됩니다`[MobileAppController]`.
 
 예제 `login` 작업:
 
@@ -345,7 +340,7 @@ SID는 공급자 특정 사용자 ID에서 파생되고 지정된 사용자 및 
         var fbInfo = await resp.Content.ReadAsStringAsync();
     }
 
-**GetAppServiceIdentityAsync** 확장 메서드를 제공하는 `System.Security.Principal`에 문을 사용하여 추가합니다.
+`System.Security.Principal`GetAppServiceIdentityAsync**확장 메서드를 제공하는**에 문을 사용하여 추가합니다.
 
 ### <a name="authorize"></a>방법: 인증된 사용자에 대한 데이터 액세스 제한
 이전 섹션에서는 인증된 사용자의 사용자 ID를 검색하는 방법을 살펴보았습니다. 이 값에 따라 데이터 및 다른 리소스에 대한 액세스를 제한할 수 있습니다. 예를 들어 테이블에 userId 열을 추가하고 사용자 ID를 기준으로 쿼리 결과를 필터링하면 반환된 데이터를 허가된 사용자만 액세스하도록 할 수 있습니다. 다음 코드는 SID가 TodoItem 테이블의 UserId 열 값과 일치할 때만 데이터 행을 반환합니다.
@@ -464,10 +459,10 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
             TokenHandler = config.GetAppServiceTokenHandler()
         });
 
-앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 애플리케이션 설정을 애플리케이션 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey* 를 애플리케이션의 서명 키의 값으로 설정해야 합니다.
+앞의 예제에서는 HTTPS 체계를 사용하여 Web.config 파일 내에서 *authAudience* 및 *authIssuer* 애플리케이션 설정을 애플리케이션 루트의 URL로 구성해야 합니다. 마찬가지로 *authSigningKey*를 애플리케이션의 서명 키의 값으로 설정해야 합니다.
 서명 키를 가져오려면:
 
-1. [Azure 포털]
+1. [Azure Portal]
 2. **도구**, **Kudu**, **이동**을 클릭합니다.
 3. Kudu 관리 사이트에서 **환경**을 클릭합니다.
 4. *WEBSITE\_AUTH\_SIGNING\_KEY*에 대한 값을 찾습니다.
@@ -480,7 +475,7 @@ Azure App Service는 ASP.NET 애플리케이션에 대한 여러 디버깅 및 �
 [4]: https://azure.microsoft.com/downloads/
 [5]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#client-added-push-notification-tags
 [6]: https://github.com/Azure-Samples/app-service-mobile-dotnet-backend-quickstart/blob/master/README.md#push-to-users
-[Azure 포털]: https://portal.azure.com
+[Azure Portal]: https://portal.azure.com
 [NuGet.org]: https://www.nuget.org/
 [Microsoft.Azure.Mobile.Server]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server/
 [Microsoft.Azure.Mobile.Server.Quickstart]: https://www.nuget.org/packages/Microsoft.Azure.Mobile.Server.Quickstart/

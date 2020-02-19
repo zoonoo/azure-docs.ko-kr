@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 353e00f902a7314e5e5b7c8ee03e8b925a510b26
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443604"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462329"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Azure Cognitive Search의 작업 및 활동 모니터링
 
@@ -52,7 +52,7 @@ Azure Cognitive Search을 비롯 한 많은 서비스는 경고, 메트릭 및 �
 
 [프로덕션 워크로드에 사용할 계층](search-sku-tier.md) 또는 [활성 복제본 및 파티션의 수를 조정할지 여부](search-capacity-planning.md)를 최종적으로 결정하는 경우 이러한 메트릭은 리소스 사용 속도 및 현재 구성의 기존 부하 처리에 대한 효율성을 보여줌으로써 이러한 결정을 내리는 데 도움이 됩니다.
 
-현재 저장소와 관련 된 경고를 사용할 수 없습니다. 저장소 소비는 집계 되지 않으며 Azure Monitor의 **Azuremetrics** 테이블에 기록 되지 않습니다. 코드에서 저장소 크기를 확인 하 고 응답을 처리 하는 리소스 관련 알림을 내보내는 사용자 지정 솔루션을 만들어야 합니다. 저장소 메트릭에 대 한 자세한 내용은 [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response)를 참조 하세요.
+현재 저장소와 관련 된 경고를 사용할 수 없습니다. 저장소 소비는 집계 되지 않으며 Azure Monitor의 **Azuremetrics** 테이블에 기록 되지 않습니다. 코드에서 저장소 크기를 확인 하 고 응답을 처리 하는 리소스 관련 알림을 내보내는 [사용자 지정 솔루션](https://docs.microsoft.com/azure/azure-monitor/insights/solutions-creating) 을 만들어야 합니다. 저장소 메트릭에 대 한 자세한 내용은 [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response)를 참조 하세요.
 
 포털의 시각적 모니터링을 위해 **사용** 탭에는 서비스 계층에 의해 적용 되는 현재 한 [도](search-limits-quotas-capacity.md) 를 기준으로 리소스 가용성이 표시 됩니다. 
 

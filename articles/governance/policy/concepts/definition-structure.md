@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: b98702161753a996cd8a6751670308a78dc36b7c
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169760"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462005"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -111,6 +111,12 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 - `metadata`: 사용자에 게 친숙 한 정보를 표시 하기 위해 Azure Portal에서 주로 사용 하는 하위 속성을 정의 합니다.
   - `description`: 매개 변수가 사용 되는 내용에 대 한 설명입니다. 허용 가능한 값의 예를 제공하는 데 사용할 수 있습니다.
   - `displayName`: 포털에서 매개 변수에 대해 표시 되는 이름입니다.
+  - `version`: (선택 사항) 정책 정의의 콘텐츠 버전에 대 한 세부 정보를 추적 합니다.
+
+    > [!NOTE]
+    > Azure Policy 서비스는 `version`, `preview`및 `deprecated` 속성을 사용 하 여 기본 제공 정책 정의 나 이니셔티브 및 상태에 대 한 변경 수준을 전달 합니다. `version` 형식은 `{Major}.{Minor}.{Patch}`입니다. _사용 되지 않음_ 또는 _미리 보기_와 같은 특정 상태는 `version` 속성 또는 다른 속성에 **부울**로 추가 됩니다.
+
+  - `category`: (선택 사항) Azure Portal 정책 정의가 표시 되는 범주를 결정 합니다.
   - `strongType`: (선택 사항) 포털을 통해 정책 정의를 할당할 때 사용 됩니다. 컨텍스트 인식 목록을 제공합니다. 자세한 내용은 [strongType](#strongtype)을 참조하세요.
   - `assignPermissions`: (선택 사항) 정책 할당 중 Azure Portal 역할 할당을 만들려면 _true_ 로 설정 합니다. 이 속성은 할당 범위 외부에서 사용 권한을 할당 하려는 경우에 유용 합니다. 정책에는 역할 정의 당 하나의 역할 할당이 있습니다 (또는 이니셔티브의 모든 정책에서 역할 정의 당). 매개 변수 값은 올바른 리소스 또는 범위 여야 합니다.
 - `defaultValue`: (선택 사항) 값이 지정 되지 않은 경우 할당에서 매개 변수의 값을 설정 합니다.

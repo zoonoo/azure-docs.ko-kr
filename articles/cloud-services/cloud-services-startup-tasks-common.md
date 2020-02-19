@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 07/18/2017
 ms.author: tagore
-ms.openlocfilehash: 5c6173971ac5272c2c2d769551fc9caf3dfa2573
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4fe1ee3ccf2849943959889838ba0f22fb64bb9a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385799"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462244"
 ---
 # <a name="common-cloud-service-startup-tasks"></a>일반적인 클라우드 서비스 시작 작업
 이 문서에서는 클라우드 서비스에서 수행하려는 경우 일반적인 시작 작업의 몇 가지 예를 제공합니다. 시작 작업을 사용하여 역할이 시작되기 전에 작업을 수행할 수 있습니다. 수행하려는 작업은 구성 요소 설치, COM 구성 요소 등록, 레지스트리 키 설정 또는 장기 실행 프로세스를 시작을 포함합니다. 
@@ -25,7 +25,7 @@ ms.locfileid: "75385799"
 > 
 
 ## <a name="define-environment-variables-before-a-role-starts"></a>역할이 시작되기 전에 환경 변수를 정의합니다.
-특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [Task] 요소 내부의 [환경] 요소를 사용합니다.
+특정 태스크에 대해 정의된 환경 변수가 필요한 경우 [태스크] 요소 내부의 [Task] 요소를 사용합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -60,14 +60,14 @@ ms.locfileid: "75385799"
 * *AppCmd.exe* 작업이 두 번 이상 수행되는 경우 오류를 생성할 수 있습니다. 예를 들어 *Web.config*에 섹션을 두 번 추가하려는 경우 오류가 생성될 수 있습니다.
 * 0이 아닌 종료 코드 또는 **errorlevel**을 반환하는 경우 시작 작업이 실패합니다. 예를 들어 *AppCmd.exe* 가 오류를 생성하는 경우입니다.
 
-*AppCmd.exe*를 호출한 후 **errorlevel**을 확인하는 것이 좋습니다. *.cmd* 파일로 *AppCmd.exe*에 호출을 래핑하는 경우 수행하기 쉽습니다. 알려진 **errorlevel** 응답을 발견하는 경우 무시하거나 다시 전송할 수 있습니다.
+**AppCmd.exe**를 호출한 후 *errorlevel*을 확인하는 것이 좋습니다. *.cmd* 파일로 *AppCmd.exe*에 호출을 래핑하는 경우 수행하기 쉽습니다. 알려진 **errorlevel** 응답을 발견하는 경우 무시하거나 다시 전송할 수 있습니다.
 
 *AppCmd.exe*로 반환되는 errorlevel은 winerror.h 파일에 나열되어 있으며 [MSDN](/windows/desktop/Debug/system-error-codes--0-499-)에서 볼 수도 있습니다.
 
 ### <a name="example-of-managing-the-error-level"></a>오류 수준 관리 예제
 이 예에서는 오류 처리 및 로깅으로 JSON에 대한 압축 섹션 및 압축 항목을 *Web.config* 파일에 추가합니다.
 
-[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 *AppCmd.exe*에 *Web.config* 파일에서 설정을 변경할 충분한 권한을 부여하도록 [executionContext](/previous-versions/azure/reference/gg557552(v=azure.100)#task) 특성을 `elevated`에 설정하는 것을 포함합니다.
+[ServiceDefinition.csdef] 파일의 관련 섹션은 여기에 표시되어 있으며 [AppCmd.exe](/previous-versions/azure/reference/gg557552(v=azure.100)#task)에 `elevated`Web.config*파일에서 설정을 변경할 충분한 권한을 부여하도록*executionContext*특성을*에 설정하는 것을 포함합니다.
 
 ```xml
 <ServiceDefinition name="MyService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition">
@@ -90,7 +90,7 @@ REM   ERRORLEVEL 183 occurs when trying to add a section that already exists. Th
 REM   batch file were executed twice. This can occur and must be accounted for in an Azure startup
 REM   task. To handle this situation, set the ERRORLEVEL to zero by using the Verify command. The Verify
 REM   command will safely set the ERRORLEVEL to zero.
-IF %ERRORLEVEL% EQU 183 DO VERIFY > NUL
+IF %ERRORLEVEL% EQU 183 VERIFY > NUL
 
 REM   If the ERRORLEVEL is not zero at this point, some other error occurred.
 IF %ERRORLEVEL% NEQ 0 (
@@ -119,7 +119,7 @@ EXIT %ERRORLEVEL%
 ```
 
 ## <a name="add-firewall-rules"></a>방화벽 규칙 추가
-Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 머신과 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [엔드포인트] 요소에 의해 제어됩니다.
+Azure에는 사실상 두 개의 방화벽이 있습니다. 첫 번째 방화벽은 가상 머신과 외부 세계 간의 연결을 제어합니다. 이 방화벽은 [ServiceDefinition.csdef] 파일의 [ServiceDefinition.csdef] 요소에 의해 제어됩니다.
 
 두 번째 방화벽은 가상 머신과 해당 가상 머신 내의 프로세스 간의 연결을 제어합니다. 이 방화벽은 `netsh advfirewall firewall` 명령줄 도구를 통해 제어할 수 있습니다.
 
@@ -504,11 +504,11 @@ EXIT %ERRORLEVEL%
 [Task]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Task
 [Startup]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Startup
 [Runtime]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Runtime
-[환경]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
+[태스크]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Environment
 [변수]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Variable
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue
 [RoleEnvironment]: https://msdn.microsoft.com/library/azure/microsoft.windowsazure.serviceruntime.roleenvironment.aspx
-[엔드포인트]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
+[ServiceDefinition.csdef]: https://msdn.microsoft.com/library/azure/gg557552.aspx#Endpoints
 [LocalStorage]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalStorage
 [LocalResources]: https://msdn.microsoft.com/library/azure/gg557552.aspx#LocalResources
 [RoleInstanceValue]: https://msdn.microsoft.com/library/azure/gg557552.aspx#RoleInstanceValue

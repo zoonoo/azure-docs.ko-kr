@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: 58882f7569e26ebcba237158db2eb23e76bcd015
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 18c53a53a57b3ddca1168fc1075ae09bcd86f000
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74765089"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462499"
 ---
 # <a name="replicate-data-into-azure-database-for-mysql"></a>Azure Database for MySQL에 데이터를 복제합니다.
 
@@ -28,7 +28,7 @@ ms.locfileid: "74765089"
 ## <a name="limitations-and-considerations"></a>제한 사항 및 고려 사항
 
 ### <a name="data-not-replicated"></a>데이터가 복제되지 않음
-마스터 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-database.html)를 참조합니다.
+마스터 서버의 [*mysql 시스템 데이터베이스*](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)는 복제되지 않습니다. 마스터 서버에서 계정 및 사용 권한에 대한 변경 내용은 복제되지 않습니다. 마스터 서버에서 계정을 만들고 이 계정으로 복제 서버에 액세스해야 하는 경우 복제 서버 쪽에서 동일한 계정을 수동으로 만듭니다. 시스템 데이터베이스에 포함된 테이블을 이해하려면 [MySQL 설명서](https://dev.mysql.com/doc/refman/5.7/en/system-schema.html)를 참조합니다.
 
 ### <a name="requirements"></a>요구 사항
 - 마스터 서버 버전은 MySQL 버전 5.6 이상이어야 합니다. 
@@ -41,7 +41,7 @@ ms.locfileid: "74765089"
 - 마스터 서버를 호스트하는 컴퓨터에서 포트 3306에 대한 인바운드 및 아웃바운드 트래픽을 둘 다 허용하는지 확인합니다.
 - 마스터 서버에 **공용 IP 주소가**있거나, DNS에 공개적으로 액세스할 수 있거나, FQDN (정규화 된 도메인 이름)이 있는지 확인 합니다.
 
-### <a name="other"></a>다른
+### <a name="other"></a>기타
 - 입력 데이터 복제는 범용 및 메모리 최적화 가격 책정 계층에서만 지원됩니다.
 - GTID(전역 트랜잭션 식별자)는 지원되지 않습니다.
 

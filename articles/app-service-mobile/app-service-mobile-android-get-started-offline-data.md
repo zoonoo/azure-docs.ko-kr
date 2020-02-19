@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 8449b4f92636a7b73d07c34515f33dc9dc6816ab
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: c215105af5fe1ef8056b0d816cf2c2a6b96f2038
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668928"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461626"
 ---
 # <a name="enable-offline-sync-for-your-android-mobile-app"></a>Android 모바일 앱에 대해 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 자습서에서는 Android용 Azure Mobile Apps의 오프라인 동기화 기능을 설명합니다. 오프라인 동기화를 사용하면 최종 사용자는 네트워크에 연결되어 있지 않을 때도 모바일 앱&mdash;데이터 보기, 추가 또는 수정&mdash;과 같은 상호 작용을 수행할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 이러한 변경 내용이 원격 백 엔드와 동기화됩니다.
@@ -29,7 +24,7 @@ Azure Mobile Apps를 처음 사용하는 경우, 먼저 [Android 앱 만들기]�
 오프라인 동기화 기능에 대한 자세한 내용은 [Azure Mobile Apps에서 오프라인 데이터 동기화]항목을 참조하세요.
 
 ## <a name="update-the-app-to-support-offline-sync"></a>오프라인 동기화를 지원하도록 앱 업데이트
-오프라인 동기화를 통해 *IMobileServiceSyncTable* 인터페이스를 사용하여 디바이스의 **SQLite** 데이터베이스 일부인 *동기화 테이블*에서 읽고 씁니다.
+오프라인 동기화를 통해 *IMobileServiceSyncTable* 인터페이스를 사용하여 디바이스의 *SQLite* 데이터베이스 일부인 **동기화 테이블**에서 읽고 씁니다.
 
 디바이스와 Azure Mobile Services 간에 변경 내용을 푸시하거나 끌어오려면 데이터를 로컬로 저장하는 데 사용할 로컬 데이터베이스와 함께 초기화하는 *동기화 컨텍스트*(*MobileServiceClient.SyncContext*)를 사용합니다.
 
@@ -91,7 +86,7 @@ Azure Mobile Apps를 처음 사용하는 경우, 먼저 [Android 앱 만들기]�
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Azure Mobile Apps에서 오프라인 데이터 동기화]
-* [Cloud Cover: Azure Mobile Services에서 오프라인 동기화] \(참고: 비디오는 Mobile Services에 있지만 Azure Mobile Apps에서 비슷한 방식으로 오프라인 동기화가 작동합니다.\)
+* [클라우드 표지: Azure Mobile Services에서 오프라인 동기화] \(참고: 비디오는 Mobile Services에 있지만, 오프 라인 동기화는 Azure Mobile Apps와 유사한 방식으로 작동\)
 
 <!-- URLs. -->
 
@@ -99,6 +94,6 @@ Azure Mobile Apps를 처음 사용하는 경우, 먼저 [Android 앱 만들기]�
 
 [Android 앱 만들기]: app-service-mobile-android-get-started.md
 
-[Cloud Cover: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[클라우드 표지: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
 

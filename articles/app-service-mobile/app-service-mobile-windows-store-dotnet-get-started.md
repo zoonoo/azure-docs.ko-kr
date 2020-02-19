@@ -6,21 +6,16 @@ ms.tgt_pltfrm: mobile-windows
 ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.openlocfilehash: a0f78239406567513c1eb94b48bf1090165d9185
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 9188db19adab9bd46d65fc97f1c62b39141cee90
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668694"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461388"
 ---
 # <a name="create-a-windows-app-with-an-azure-backend"></a>Azure 백 엔드를 사용하여 Windows 앱 만들기
 
 [!INCLUDE [app-service-mobile-selector-get-started](../../includes/app-service-mobile-selector-get-started.md)]
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 
@@ -30,12 +25,12 @@ ms.locfileid: "74668694"
 
 먼저 이 자습서를 완료해야만 UWP 앱용 다른 모든 모바일 앱 자습서를 학습할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * 활성 Azure 계정. 계정이 없는 경우 Azure 평가판을 등록하고 최대 10개의 무료 모바일 앱을 가져올 수 있습니다. 이러한 앱은 평가판 사용 기간이 끝난 후에도 계속 사용할 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
-* Windows 10
+* Windows 10.
 * Visual Studio Community 2017.
 * UWP 앱 개발 경험. [UWP 자습서](https://docs.microsoft.com/windows/uwp/)를 방문하여 UWP 앱을 빌드하기 위한 [설정](https://docs.microsoft.com/windows/uwp/get-started/get-set-up) 방법을 알아보세요.
 
@@ -52,7 +47,7 @@ ms.locfileid: "74668694"
 
 1. UWP 프로젝트를 엽니다.
 
-2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net 됩니다.
+2. [Azure Portal](https://portal.azure.com/) 로 이동 하 여 만든 모바일 앱으로 이동 합니다. `Overview` 블레이드에서 모바일 앱에 대 한 공용 끝점 인 URL을 찾습니다. 예-내 앱 이름 "test123"에 대 한 sitename이 https://test123.azurewebsites.net됩니다.
 
 3. 이 폴더에서 파일 `App.xaml.cs`를 엽니다.-windows-uwp-cs/ZUMOAPPNAME/. 응용 프로그램 이름이 `ZUMOAPPNAME`입니다.
 
@@ -60,13 +55,13 @@ ms.locfileid: "74668694"
 
     `public static MobileServiceClient MobileService = new MobileServiceClient("ZUMOAPPURL");`
 
-    않게
+    --&gt;
     
     `public static MobileServiceClient MobileService = new MobileServiceClient("https://test123.azurewebsites.net");`
 
 5. F5 키를 눌러 응용 프로그램을 배포 하 고 실행 합니다.
 
-6. 앱에서 **할 일 항목 삽입** 텍스트 상자에 *자습서 완료*와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
+6. 앱에서 *할 일 항목 삽입* 텍스트 상자에 **자습서 완료**와 같은 의미 있는 텍스트를 입력하고 **저장**을 클릭합니다.
 
     ![Windows 빠른 시작 완료 데스크톱](./media/app-service-mobile-windows-store-dotnet-get-started/mobile-quickstart-startup.png)
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: sngun
-ms.openlocfilehash: 4ae2cc33275702a0d549f4e994a597614191b3e3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 70545020899b69508a4cedb0fd7cf5495c847104
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444869"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462448"
 ---
 # <a name="serverless-database-computing-using-azure-cosmos-db-and-azure-functions"></a>Azure Cosmos DB 및 Azure Functions를 사용하는 서버리스 데이터베이스 컴퓨팅
 
@@ -41,7 +41,7 @@ Azure Cosmos DB에 대 한 Azure Functions 트리거, 입력 바인딩 및 출�
 * Azure Cosmos DB에 대한 입력 바인딩 및 출력 바인딩을 동일한 Azure Functions에 사용할 수 있습니다. 이 기능은 입력 바인딩을 사용하여 특정 데이터를 찾고 Azure Functions에서 수정한 다음 수정 후 동일한 컨테이너 또는 다른 컨테이너에 저장하려는 경우에 효과적입니다.
 * Azure Cosmos 컨테이너에 대 한 입력 바인딩은 Cosmos DB에 대 한 Azure Functions 트리거와 동일한 함수에서 사용 될 수 있으며, 출력 바인딩과 함께 또는 없이도 사용할 수 있습니다. 이 조합을 사용하여 입력 바인딩과 함께 환율 컨테이너로 가져온 최신 통화 환율 정보를 쇼핑 카트 서비스의 새 주문 변경 피드에 적용할 수 있습니다. 출력 바인딩을 사용하여 현재 통화 변환이 적용된 업데이트된 쇼핑 카트 합계를 세 번째 컨테이너에 쓸 수 있습니다.
 
-## <a name="use-cases"></a>사례 사용
+## <a name="use-cases"></a>사용 사례
 
 다음 사용 사례는 데이터를 이벤트 구동 Azure Functions에 연결하여 Azure Cosmos DB 데이터를 최대한 활용할 수 있는 몇 가지 방법을 보여 줍니다.
 
@@ -148,10 +148,4 @@ Flow, Logic Apps, Azure Functions 또는 WebJobs가 구현에 가장 적합한�
 
 * [Azure Portal에서 Cosmos DB에 대 한 Azure Functions 트리거를 만듭니다.](https://aka.ms/cosmosdbtriggerportalfunc)
 * [Azure Cosmos DB 입력 바인딩을 사용하여 Azure Functions HTTP 트리거 만들기](https://aka.ms/cosmosdbinputbind)
-* [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-cosmosdb.md)
-
-
- 
-
-
-
+* [Azure Cosmos DB 바인딩 및 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md)

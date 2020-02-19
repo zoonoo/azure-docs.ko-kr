@@ -7,17 +7,17 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/11/2020
-ms.openlocfilehash: 2849dc94f1c45dda3da09120adebba6e004eb96b
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: 86e869bc08552ea11728c508486a4784eccf4042
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211179"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462367"
 ---
 # <a name="collect-and-analyze-log-data-for-azure-cognitive-search"></a>Azure Cognitive Search에 대 한 로그 데이터 수집 및 분석
 
-진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대 한 통찰력을 제공 하 고 서비스 및 작업 프로세스를 모니터링 하는 데 유용 합니다. 내부적으로 로그는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안 백 엔드에 있습니다. 그러나 운영 데이터에 대 한 자체 방향이 필요한 경우 로깅 정보를 수집할 위치를 지정 하는 진단 설정을 구성 해야 합니다. 
+진단 또는 운영 로그는 Azure Cognitive Search의 자세한 작업에 대 한 통찰력을 제공 하 고 서비스 및 작업 프로세스를 모니터링 하는 데 유용 합니다. 내부적으로 로그는 지원 티켓을 제출하는 경우 조사 및 분석에 충분한 정도의 짧은 시간 동안 백 엔드에 있습니다. 그러나 운영 데이터에 대 한 자체 방향이 필요한 경우 로깅 정보를 수집할 위치를 지정 하는 진단 설정을 구성 해야 합니다.
 
 로그 설정은 진단 및 운영 기록을 유지 하는 데 유용 합니다. 로깅을 사용 하도록 설정한 후에는 쿼리를 실행 하거나 구조화 된 분석을 위해 보고서를 작성할 수 있습니다.
 
@@ -25,9 +25,9 @@ ms.locfileid: "77211179"
 
 | 리소스 | 사용 대상 |
 |----------|----------|
-| [Log Analytics 작업 영역으로 보내기](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Log Analytics 작업 영역에 기록 됩니다. Log Analytics를 사용 하 여 쿼리를 실행 하 여 자세한 정보를 반환할 수 있습니다. 자세한 내용은 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) 을 참조 하세요. |
-| [Blob storage를 사용 하 여 보관](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 아래 스키마에 따라 기록 된 이벤트 및 쿼리 메트릭입니다. 이벤트는 Blob 컨테이너에 기록되고 JSON 파일로 저장됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 파일을 볼 수 있습니다.|
-| [이벤트 허브로 스트림](https://docs.microsoft.com/azure/event-hubs/) | 기록된 이벤트 및 쿼리 메트릭은 이 문서에서 설명하는 스키마를 기반으로 합니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
+| [Log Analytics 작업 영역으로 보내기](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-resource-logs) | 이벤트 및 메트릭은 자세한 정보를 반환 하기 위해 포털에서 쿼리할 수 있는 Log Analytics 작업 영역으로 전송 됩니다. 소개는 [Azure Monitor 로그 시작](https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-viewdata) 을 참조 하세요. |
+| [Blob storage를 사용 하 여 보관](https://docs.microsoft.com/azure/storage/blobs/storage-blobs-overview) | 이벤트 및 메트릭은 Blob 컨테이너에 보관 되어 JSON 파일에 저장 됩니다. 로그는 특정 인시던트를 조사 하는 데 유용 하지만 열기 종료 조사에는 유용 하지 않을 수 있습니다 (시간/분). JSON 편집기를 사용 하 여 로그 데이터를 집계 하 고 시각화 하는 원시 로그 파일 또는 Power BI을 볼 수 있습니다.|
+| [이벤트 허브로 스트림](https://docs.microsoft.com/azure/event-hubs/) | 이벤트 및 메트릭은 Azure Event Hubs 서비스로 스트리밍됩니다. 이 서비스는 매우 큰 로그에 대한 대체 데이터 수집 서비스로 선택합니다. |
 
 Azure Monitor 로그와 Blob 저장소는 모두 무료 서비스로 제공 되므로 Azure 구독의 수명 동안 무료로 사용해 볼 수 있습니다. 애플리케이션 데이터 크기가 특정 제한을 초과하지 않으면 Application Insights 평가판을 등록하여 사용할 수 있습니다(자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/monitor/) 참조).
 
@@ -37,11 +37,11 @@ Log Analytics 또는 Azure Storage를 사용 하는 경우 리소스를 미리 �
 
 + [Log analytics 작업 영역 만들기](https://docs.microsoft.com/azure/azure-monitor/learn/quick-create-workspace)
 
-+ 로그 보관이 필요한 경우 [저장소 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
++ [스토리지 계정을 만드는](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
 
-## <a name="create-a-log"></a>로그 만들기
+## <a name="enable-data-collection"></a>데이터 컬렉션 활성화
 
-진단 설정에서 데이터 컬렉션을 정의 합니다. 설정은 및 수집 되는 방법을 지정 합니다. 
+진단 설정은 기록 된 이벤트 및 메트릭을 수집 하는 방법을 지정 합니다.
 
 1. **모니터링** 아래에서 **진단 설정**을 선택합니다.
 
@@ -49,26 +49,47 @@ Log Analytics 또는 Azure Storage를 사용 하는 경우 리소스를 미리 �
 
 1. **+ 진단 설정 추가** 를 선택 합니다.
 
-1. 내보낼 데이터를 선택합니다(로그, 메트릭 또는 둘 다). 저장소 계정 또는 log analytics 작업 영역에서 데이터를 수집 하거나 이벤트 허브로 스트리밍할 수 있습니다.
-
-   포털에서 작업 영역을 쿼리할 수 있으므로 Log analytics를 권장 합니다.
-
-   또한 Blob storage를 사용 하는 경우 로그 데이터를 내보낼 때 필요에 따라 컨테이너와 blob이 만들어집니다.
+1. **Log Analytics**를 확인 하 고 작업 영역을 선택한 후 **Operationlogs** 및 **allmetrics**을 선택 합니다.
 
    ![데이터 컬렉션 구성](./media/search-monitor-usage/configure-storage.png "데이터 수집 구성")
 
 1. 설정을 저장 합니다.
 
-1. 개체를 만들거나 삭제 (로그 이벤트 생성) 하 고 쿼리를 전송 하 여 (메트릭 생성) 테스트 합니다. 
+1. 로깅을 사용 하도록 설정한 후에는 검색 서비스를 사용 하 여 로그 및 메트릭 생성을 시작 합니다. 기록 이벤트 및 메트릭을 사용할 수 있게 되기 전에 시간이 소요 됩니다.
 
-Blob 저장소에서 컨테이너는 로그 또는 측정할 활동이 있는 경우에만 생성 됩니다. 데이터가 스토리지 계정에 복사되면 해당 데이터가 JSON 형식으로 다음 두 컨테이너에 배치됩니다.
+Log Analytics의 경우 데이터를 사용할 수 있을 때까지 몇 분 정도 걸리며, 그 후에 Kusto 쿼리를 실행 하 여 데이터를 반환할 수 있습니다. 자세한 내용은 [쿼리 요청 모니터링](search-monitor-logs.md)을 참조 하세요.
 
-* insights-logs-operationlogs: 검색 트래픽 로그인 경우
-* insights-metrics-pt1m: 메트릭인 경우
+Blob storage의 경우 컨테이너를 Blob storage에 표시 하기 전에 1 시간이 걸립니다. 시간 및 컨테이너당 하나의 Blob가 있습니다. 기록하거나 측정하는 활동이 있는 경우에만 컨테이너가 만들어집니다. 데이터가 스토리지 계정에 복사되면 해당 데이터가 JSON 형식으로 다음 두 컨테이너에 배치됩니다.
 
-**컨테이너가 Blob 저장소에 표시 되기 전에 1 시간이 걸립니다. 컨테이너 마다 시간당 하나의 blob이 있습니다.**
++ insights-logs-operationlogs: 검색 트래픽 로그인 경우
++ insights-metrics-pt1m: 메트릭인 경우
 
-작업을 수행 하는 매시간 로그를 보관 합니다. 다음 경로는 오전 9:00에 12 2020 년 1 월에 생성 된 로그 파일 하나에 대 한 예입니다. 각 `/` 폴더: `resourceId=/subscriptions/<subscriptionID>/resourcegroups/<resourceGroupName>/providers/microsoft.search/searchservices/<searchServiceName>/y=2020/m=01/d=12/h=09/m=00/name=PT1H.json`
+## <a name="query-log-information"></a>로그 정보 쿼리
+
+진단 로그에는 Azure Cognitive Search에 대 한 로그 및 메트릭과 **Azurediagnostics** 및 **azurediagnostics**대 한 두 개의 테이블이 포함 됩니다.
+
+1. **모니터링**아래에서 **로그**를 선택 합니다.
+
+1. 쿼리 창에서 **Azuremetrics** 을 입력 합니다. 이 간단한 쿼리를 실행 하 여이 테이블에 수집 된 데이터를 숙지 합니다. 메트릭 및 값을 보려면 테이블을 스크롤합니다. 위쪽의 레코드 수를 확인 하 고, 서비스에서 잠시 메트릭을 수집 하 고 있는 경우 관리 가능한 데이터 집합을 가져오기 위해 시간 간격을 조정 하는 것이 좋습니다.
+
+   ![AzureMetrics 테이블](./media/search-monitor-usage/azuremetrics-table.png "AzureMetrics 테이블")
+
+1. 다음 쿼리를 입력 하 여 테이블 형식 결과 집합을 반환 합니다.
+
+   ```
+   AzureMetrics
+    | project MetricName, Total, Count, Maximum, Minimum, Average
+   ```
+
+1. 이전 단계를 반복 하 여 **Azurediagnostics** 로 시작 하 여 정보를 제공 하기 위해 모든 열을 반환 하 고 그 다음에 더 흥미로운 정보를 추출 하는 더 많은 선택적 쿼리를 반환 합니다.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search" 
+   ```
+
+   ![AzureDiagnostics 테이블](./media/search-monitor-usage/azurediagnostics-table.png "AzureDiagnostics 테이블")
 
 ## <a name="log-schema"></a>로그 스키마
 
@@ -123,7 +144,7 @@ Blob 저장소의 경우 각 blob에는 로그 개체의 배열을 포함 하는
 
 **제한 된 검색 쿼리 백분율**, 최소, 최대, 평균 및 합계의 경우 1 분 동안 검색 쿼리의 총 수에서 제한 된 검색 쿼리의 비율입니다.
 
-## <a name="view-log-files"></a>로그 파일 보기
+## <a name="view-raw-log-files"></a>원시 로그 파일 보기
 
 Blob 저장소는 로그 파일을 보관 하는 데 사용 됩니다. JSON 편집기를 사용하여 로그 파일을 볼 수 있습니다. 없는 경우 [Visual Studio Code](https://code.visualstudio.com/download)를 사용하는 것이 좋습니다.
 

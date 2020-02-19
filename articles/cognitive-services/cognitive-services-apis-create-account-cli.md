@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: conceptual
 ms.date: 10/04/2019
 ms.author: aahi
-ms.openlocfilehash: 5d3aba2f6010ba16656be96433c521d2adae4c58
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 3e5fd2315a5d352ed5abee9253b5c84eea3b73a9
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169171"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462278"
 ---
 # <a name="create-a-cognitive-services-resource-using-the-azure-command-line-interfacecli"></a>Azure 명령줄 인터페이스 (CLI)를 사용 하 여 Cognitive Services 리소스 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "76169171"
 
 [!INCLUDE [cognitive-services-subscription-types](../../includes/cognitive-services-subscription-types.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 유효한 Azure 구독-무료로 [하나를 만듭니다](https://azure.microsoft.com/free/) .
 * [AZURE CLI (명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)
@@ -88,7 +88,7 @@ az group create \
 
 | 서비스                    | 종류                      |
 |----------------------------|---------------------------|
-| Computer Vision API            | `ComputerVision`          |
+| Computer Vision            | `ComputerVision`          |
 | Custom Vision-예측 | `CustomVision.Prediction` |
 | Custom Vision 교육   | `CustomVision.Training`   |
 | Face                       | `Face`                    |
@@ -100,16 +100,16 @@ az group create \
 | 서비스            | 종류                  |
 |--------------------|-----------------------|
 | Bing Autosuggest   | `Bing.Autosuggest.v7` |
-| Bing Custom Search | `Bing.CustomSearch`   |
+| Bing 사용자 지정 검색 | `Bing.CustomSearch`   |
 | Bing Entity Search | `Bing.EntitySearch`   |
 | Bing Search        | `Bing.Search.v7`      |
-| Bing Spell Check   | `Bing.SpellCheck.v7`  |
+| Bing 맞춤법 검사   | `Bing.SpellCheck.v7`  |
 
-### <a name="speech"></a>음성
+### <a name="speech"></a>Speech
 
 | 서비스            | 종류                 |
 |--------------------|----------------------|
-| 음성 서비스    | `SpeechServices`     |
+| Speech Services    | `SpeechServices`     |
 | 음성 인식 | `SpeakerRecognition` |
 
 ### <a name="language"></a>언어
@@ -119,10 +119,10 @@ az group create \
 | 양식 이해 | `FormUnderstanding` |
 | LUIS               | `LUIS`              |
 | QnA Maker          | `QnAMaker`          |
-| Text Analytics     | `TextAnalytics`     |
+| 텍스트 분석     | `TextAnalytics`     |
 | 텍스트 번역   | `TextTranslation`   |
 
-### <a name="decision"></a>결정
+### <a name="decision"></a>의사 결정
 
 | 서비스           | 종류               |
 |-------------------|--------------------|
@@ -195,7 +195,7 @@ Cognitive Services 리소스를 정리 하 고 제거 하려면 해당 리소스
 리소스 그룹 및 연결 된 리소스를 제거 하려면 az group delete 명령을 사용 합니다.
 
 ```azurecli-interactive
-az group delete --name storage-resource-group
+az group delete --name cognitive-services-resource-group
 ```
 
 ## <a name="see-also"></a>참고 항목

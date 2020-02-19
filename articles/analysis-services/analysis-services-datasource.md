@@ -4,15 +4,15 @@ description: Azure Analysis Services에서 테이블 형식 1200 이상 데이�
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/20/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 4a99bfe8d8235400f9122423aa4592fc6898abc1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: f65d8fa2c2e522c718c637e32defc4c56fca8364
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922280"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461660"
 ---
 # <a name="data-sources-supported-in-azure-analysis-services"></a>Azure Analysis Services에서 지원되는 데이터 원본
 
@@ -22,15 +22,15 @@ Analysis Services 프로젝트를 사용 하 여 Visual Studio에서 데이터 �
 
 |데이터 원본  |메모리 내  |DirectQuery  |메모 |
 |---------|---------|---------|---------|
-|Azure SQL Database      |   예      |    예      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
-|Azure SQL Data Warehouse      |   예      |   예       |<sup>[2](#azprovider)</sup>|
-|Azure Blob Storage      |   예       |    아닙니다.      | <sup>[1](#tab1400a)</sup> |
-|Azure Table Storage     |   예       |    아닙니다.      | <sup>[1](#tab1400a)</sup>|
-|Azure Cosmos DB     |  예        |  아닙니다.        |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen1      |   예       |    아닙니다.      |<sup>[1](#tab1400a)</sup> |
-|Azure Data Lake Store Gen2       |   예       |    아닙니다.      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
-|Azure HDInsight HDFS    |     예     |   아닙니다.       |<sup>[1](#tab1400a)</sup> |
-|Azure HDInsight Spark     |   예       |   아닙니다.       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
+|Azure SQL Database      |   yes      |    yes      |<sup>[2](#azprovider)</sup>, <sup> [3](#azsqlmanaged)</sup>|
+|Azure Synapse Analytics (SQL Data Warehouse)      |   yes      |   yes       |<sup>[2](#azprovider)</sup>|
+|Azure Blob Storage      |   yes       |    예      | <sup>[1](#tab1400a)</sup> |
+|Azure Table Storage     |   yes       |    예      | <sup>[1](#tab1400a)</sup>|
+|Azure Cosmos DB     |  yes        |  예        |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen1      |   yes       |    예      |<sup>[1](#tab1400a)</sup> |
+|Azure Data Lake Store Gen2       |   yes       |    예      |<sup>[1](#tab1400a)</sup>, <sup> [5](#gen2)</sup>|
+|Azure HDInsight HDFS    |     yes     |   예       |<sup>[1](#tab1400a)</sup> |
+|Azure HDInsight Spark     |   yes       |   예       |<sup>[1](#tab1400a)</sup>, <sup> [4](#databricks)</sup>|
 ||||
 
 **참고:**    
@@ -44,35 +44,35 @@ Analysis Services 프로젝트를 사용 하 여 Visual Studio에서 데이터 �
 
 |데이터 원본 | 메모리 내 | DirectQuery |메모   |
 |  --- | --- | --- | --- |
-|Access 데이터베이스     |  예 | 아닙니다. |  |
-|Active Directory     |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup>  |
-|Analysis Services     |  예 | 아닙니다. |  |
-|분석 플랫폼 시스템     |  예 | 아닙니다. |  |
-|CSV 파일  |예 | 아닙니다. |  |
-|PowerApps     |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|Excel 통합 문서     |  예 | 아닙니다. |  |
-|교환      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|폴더      |예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|IBM Informix  |예 | 아닙니다. |  |
-|JSON 문서      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|이진의 줄      | 예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|MySQL Database     | 예 | 아닙니다. |  |
-|OData 피드      |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|ODBC 쿼리     | 예 | 아닙니다. |  |
-|OLE DB     |   예 | 아닙니다. |  |
-|Oracle  | 예  |예  | <sup>[9](#oracle)</sup> |
-|PostgreSQL 데이터베이스   | 예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|Salesforce 개체|  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|Salesforce 보고서 |예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|SAP HANA     |  예 | 아닙니다. |  |
-|SAP Business Warehouse    |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
-|SharePoint 목록      |   예 | 아닙니다. | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
-|SQL Server |예   | 예  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
-|SQL Server 데이터 웨어하우스 |예   | 예  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
-|Sybase 데이터베이스     |  예 | 아닙니다. |  |
-|Teradata | 예  | 예  | <sup>[10](#teradata)</sup> |
-|TXT 파일  |예 | 아닙니다. |  |
-|XML 테이블    |  예 | 아닙니다. | <sup>[6](#tab1400b)</sup> |
+|Access 데이터베이스     |  yes | 예 |  |
+|Active Directory     |  yes | 예 | <sup>[6@@](#tab1400b)</sup>  |
+|Analysis Services     |  yes | 예 |  |
+|분석 플랫폼 시스템     |  yes | 예 |  |
+|CSV 파일  |yes | 예 |  |
+|Dynamics 365     |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|Excel 통합 문서     |  yes | 예 |  |
+|Exchange      |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|폴더      |yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|IBM Informix  |yes | 예 |  |
+|JSON 문서      |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|이진의 줄      | yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|MySQL 데이터베이스     | yes | 예 |  |
+|OData 피드      |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|ODBC 쿼리     | yes | 예 |  |
+|OLE DB     |   yes | 예 |  |
+|Oracle  | yes  |yes  | <sup>[되었는지](#oracle)</sup> |
+|PostgreSQL 데이터베이스   | yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|Salesforce 개체|  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|Salesforce 보고서 |yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|SAP HANA     |  yes | 예 |  |
+|SAP Business Warehouse    |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
+|SharePoint 목록      |   yes | 예 | <sup>[6](#tab1400b)</sup>, <sup> [11](#filesSP)</sup> |
+|SQL Server |yes   | yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> | 
+|SQL Server 데이터 웨어하우스 |yes   | yes  | <sup>[7](#sqlim)</sup>, <sup> [8](#instgw)</sup> |
+|Sybase 데이터베이스     |  yes | 예 |  |
+|Teradata | yes  | yes  | <sup>[5-10](#teradata)</sup> |
+|TXT 파일  |yes | 예 |  |
+|XML 테이블    |  yes | 예 | <sup>[6@@](#tab1400b)</sup> |
 | | | |
 
 **참고:**    
@@ -120,7 +120,7 @@ Visual Studio에서 테이블 가져오기 마법사를 사용 하는 경우 데
 
 ## <a name="oauth-credentials"></a>OAuth 자격 증명
 
-메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure SQL Data Warehouse, Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대 한 시간 제한을 방지 하기 위해 OAuth 데이터 원본에 대 한 토큰 새로 고침을 관리 합니다. 유효한 토큰을 생성 하려면 SSMS를 사용 하 여 자격 증명을 설정 합니다.
+메모리 내 모드를 사용 하는 1400 이상 호환성 수준에서 테이블 형식 모델의 경우 Azure SQL Database, Azure Synapse Analytics (SQL Data Warehouse), Dynamics 365 및 SharePoint 목록에서 OAuth 자격 증명을 지원 합니다. Azure Analysis Services는 장기 실행 새로 고침 작업에 대 한 시간 제한을 방지 하기 위해 OAuth 데이터 원본에 대 한 토큰 새로 고침을 관리 합니다. 유효한 토큰을 생성 하려면 SSMS를 사용 하 여 자격 증명을 설정 합니다.
 
 직접 쿼리 모드는 OAuth 자격 증명을 사용 하 여 지원 되지 않습니다.
 

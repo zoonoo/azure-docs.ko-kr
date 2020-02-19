@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 09/01/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: ac93d1f4f0f148e1f0ce3d0f21ac9a694f2e896d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 322d1c9ead1e7591c359c35c445fa32529db22ef
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310019"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462482"
 ---
 # <a name="frequently-asked-questions-about-different-apis-in-azure-cosmos-db"></a>Azure Cosmos DB의 다양한 API에 대한 질문과 대답
 
@@ -79,17 +79,18 @@ Azure를 처음 사용하는 경우 [Azure 체험 계정](https://azure.microsof
 
 ## <a id="try-cosmos-db"></a>Azure Cosmos DB 구독 사용해 보기
 
-이제 구독이나 요금, 약정 없이 시간이 제한된 Cosmos DB를 경험할 수 있습니다. Azure Cosmos DB 구독에 등록하려면 [무료로 Azure Cosmos DB 사용](https://azure.microsoft.com/try/cosmosdb/)로 이동합니다. 이 구독은 [Azure 평가판](https://azure.microsoft.com/free/)과 별도이며 Azure 평가판 또는 Azure 유료 구독과 함께 사용할 수 있습니다.
+이제 구독이나 요금, 약정 없이 시간이 제한된 Cosmos DB를 경험할 수 있습니다. Try Azure Cosmos DB 구독에 등록 하려면 [무료로 Azure Cosmos DB 체험](https://azure.microsoft.com/try/cosmosdb/) 으로 이동 하 여 모든 개인 MICROSOFT 계정 (MSA)를 사용 하세요. 이 구독은 [Azure 평가판](https://azure.microsoft.com/free/)과 별도이며 Azure 평가판 또는 Azure 유료 구독과 함께 사용할 수 있습니다.
 
 Azure Cosmos DB 구독 사용이 사용자 ID와 연결된 다른 구독의 옆에 있는 Azure Portal에 표시됩니다.
 
 다음 조건은 Azure Cosmos DB 구독 사용에 적용됩니다.
 
+* 계정 액세스는 개인 Microsoft 계정 (MSA)에 부여할 수 있습니다. AAD (Active Directory) 계정 또는 회사 AAD 테 넌 트에 속하는 계정을 사용 하지 않는 것이 좋습니다. 여기에는 액세스 권한을 차단할 수 있는 제한 사항이 있을 수 있습니다.
 * SQL, Gremlin API 및 테이블 계정의 구독 당 하나의 [처리량으로 프로 비전 된 컨테이너](./set-throughput.md#set-throughput-on-a-container)
 * MongoDB 계정에 대 한 구독 당 최대 3 개의 [처리량 프로 비전 된 컬렉션](./set-throughput.md#set-throughput-on-a-container) .
 * 구독 당 하나의 [처리량 프로 비전 된 데이터베이스](./set-throughput.md#set-throughput-on-a-database) . 프로 비전 된 처리량 데이터베이스에는 내부에 있는 컨테이너 수에 제한이 없습니다.
 * 10GB 스토리지 용량
-* 전역 복제는 미국 중부, 유럽 북부 및 동남 아시아와 같은 [Azure 지역](https://azure.microsoft.com/regions/)에서 사용할 수 있습니다.
+* 전역 복제는 미국 중부, 북유럽 및 동남 아시아와 같은 [Azure 지역](https://azure.microsoft.com/regions/)에서 사용할 수 있습니다.
 * 컨테이너 수준에서 프로 비전 되는 경우 5 K r u/초의 최대 처리량입니다.
 * 데이터베이스 수준에서 프로 비전 될 때 20 K r u/초의 최대 처리량입니다.
 * 구독은 30 일 후에 만료 되 고 최대 31 일의 합계로 확장할 수 있습니다.
@@ -226,7 +227,7 @@ Azure Cosmos DB에는 엄격한 보안 요구 사항과 표준이 적용됩니�
 
 Azure Cosmos DB의 API for MongoDB는 일반적인 MongoDB 오류 코드 외에도 자체적인 특정 오류 코드를 갖고 있습니다.
 
-| 오류               | 코드  | Description  | 솔루션  |
+| Error               | 코드  | Description  | 해결 방법  |
 |---------------------|-------|--------------|-----------|
 | TooManyRequests     | 16500 | 사용 된 총 요청 단위 수가 컨테이너에 대 한 프로 비전 된 요청 단위 요금 보다 더 많이 제한 되어 있습니다. | Azure Portal에서 컨테이너 또는 컨테이너 집합에 할당된 처리량을 크기 조정하거나 다시 시도하는 것이 좋습니다. |
 | ExceededMemoryLimit | 16501 | 다중 테넌트 서비스로써 작업이 클라이언트의 메모리 할당량을 초과했습니다. | [Azure Portal](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)에서 보다 제한적인 쿼리 조건을 통해 작업 범위를 줄이거나 고객 지원에 문의하세요. <br><br>예: <em>&nbsp;&nbsp;&nbsp;&nbsp;db. getCollection (' users '). aggregate ([<br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$match: {name: "Andy"}}, <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;{$sort: {age:-1}}<br>&nbsp;&nbsp;&nbsp;&nbsp;])</em>) |
@@ -266,7 +267,7 @@ REST API를 기준으로 Azure Cosmos DB Table API에서 지원하지 않는 많
 | Rest 메서드 | Rest 엔드포인트/쿼리 옵션 | 문서 URL | 설명 |
 | ------------| ------------- | ---------- | ----------- |
 | GET, PUT | /?restype=service@comp=properties| [테이블 서비스 속성 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-service-properties) 및 [테이블 서비스 속성 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-properties) | 이 엔드포인트는 CORS 규칙, 스토리지 분석 구성 및 로깅 설정을 설정하는 데 사용됩니다. CORS는 현재 지원되지 않습니다. 또한 분석 및 로깅은 Azure Storage 테이블과 다르게 Azure Cosmos DB에서 처리됩니다. |
-| OPTIONS | /\<table-resource-name> | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
+| OPTIONS | /\<테이블-이름 > | [사전 CORS 테이블 요청](https://docs.microsoft.com/rest/api/storageservices/preflight-table-request) | Azure Cosmos DB에서 현재 지원하지 않는 CORS의 일부입니다. |
 | GET | /?restype=service@comp=stats | [테이블 서비스 통계 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-service-stats) | 주 데이터베이스와 보조 데이터베이스 간에 데이터를 신속하게 복제하는 방법을 제공합니다. 복제가 쓰기의 일부이기 때문에 Cosmos DB에서 필요하지 않습니다. |
 | GET, PUT | /mytable?comp=acl | [테이블 ACL 가져오기](https://docs.microsoft.com/rest/api/storageservices/get-table-acl) 및 [테이블 ACL 설정](https://docs.microsoft.com/rest/api/storageservices/set-table-acl) | SAS(공유 액세스 서명)을 관리하는 데 사용되는 저장 액세스 정책을 가져오고 설정합니다. SAS가 지원되지만 다른 방법으로 설정되고 관리됩니다. |
 
@@ -311,7 +312,7 @@ Azure Portal의 연결 문자열 페이지에서 연결 문자열을 가져올 �
 
 ### <a name="are-there-any-changes-for-customers-who-are-using-the-existing-azure-table-storage-sdks"></a>기존 Azure Table Storage SDK를 사용하는 고객에 대한 변동 사항이 있나요?
 
-없음. 기존 Azure Table Storage SDK를 사용하는 기존 고객 또는 신규 고객에 대한 변동 사항은 없습니다.
+없음 기존 Azure Table Storage SDK를 사용하는 기존 고객 또는 신규 고객에 대한 변동 사항은 없습니다.
 
 ### <a name="how-do-i-view-table-data-thats-stored-in-azure-cosmos-db-for-use-with-the-table-api"></a>Table API와 함께 사용하기 위해 Azure Cosmos DB에 저장된 테이블 데이터를 보려면 어떻게 해야 하나요?
 
@@ -353,7 +354,7 @@ Table API **메트릭** 창에서 요청 및 스토리지 사용량을 모니터
 
 ### <a name="can-i-use-the-table-api-sdk-locally-with-the-emulator"></a>Table API SDK를 에뮬레이터에서 로컬로 사용할 수 있나요?
 
-현재는 사용할 수 없습니다.
+지금은 없습니다.
 
 ### <a name="can-my-existing-application-work-with-the-table-api"></a>기존 애플리케이션을 Table API에서 사용할 수 있나요?
 
@@ -472,7 +473,7 @@ Table API는 Azure Table Storage와 동일한 쿼리 기능을 제공합니다. 
 
 ### <a name="is-there-any-change-of-pricing-for-existing-customers-of-the-azure-table-storage-service"></a>Azure Table Storage 서비스의 기존 고객에 대한 가격 책정에 변동 사항이 있나요?
 
-없음. 기존 Azure Table Storage 고객을 위한 가격에는 변동 사항이 없습니다.
+없음 기존 Azure Table Storage 고객을 위한 가격에는 변동 사항이 없습니다.
 
 ### <a name="how-is-the-price-calculated-for-the-table-api"></a>Table API의 가격은 어떻게 계산하나요?
 

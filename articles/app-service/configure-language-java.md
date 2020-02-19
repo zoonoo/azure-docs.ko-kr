@@ -9,12 +9,12 @@ ms.date: 04/12/2019
 ms.author: jafreebe
 ms.reviewer: cephalin
 ms.custom: seodec18
-ms.openlocfilehash: f6f334ed6b84d4688849b6dfd8cb1f79f8db57bf
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: e5beb60107b3632da336a20f167e1c2f5b53140a
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443897"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461269"
 ---
 # <a name="configure-a-windows-java-app-for-azure-app-service"></a>Azure App Service에 대 한 Windows Java 앱 구성
 
@@ -29,6 +29,7 @@ Azure App Service를 통해 Java 개발자는 완전히 관리 되는 Windows �
 그렇지 않으면 배포 방법이 보관 유형에 따라 달라 집니다.
 
 - .war 파일을 Tomcat에 배포하려면 `/api/wardeploy/` 엔드포인트를 사용하여 보관 파일을 게시합니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#deploy-war-file)를 참조하세요.
+- Kudu 사이트의 `/api/zipdeploy/` 끝점을 사용 하 여 jar 파일을 Java SE에 배포할 수 있습니다. 이 API에 대한 자세한 내용은 [이 설명서](https://docs.microsoft.com/azure/app-service/deploy-zip#rest)를 참조하세요.
 
 FTP를 사용 하 여 war을 배포 하지 마십시오. FTP 도구는 시작 스크립트, 종속성 또는 기타 런타임 파일을 업로드하기 위해 설계되었습니다. 웹앱을 배포하기 위한 최적의 선택은 아닙니다.
 
@@ -287,6 +288,10 @@ Tomcat의 `server.xml` 또는 기타 구성 파일을 편집 하려면 먼저 �
 
 마지막으로, App Service를 다시 시작합니다. 배포는 이전과 마찬가지로 `D:\home\site\wwwroot\webapps`로 이동 해야 합니다.
 
+## <a name="configure-java-se"></a>Java SE 구성
+
+을 실행 하는 경우 Windows의 Java SE에 대 한 JAR 응용 프로그램 `server.port` 응용 프로그램이 시작 될 때 명령줄 옵션으로 전달 됩니다. `HTTP_PLATFORM_PORT`환경 변수에서 HTTP 포트를 수동으로 확인할 수 있습니다. 이 환경 변수의 값은 응용 프로그램이 수신 하는 HTTP 포트가 됩니다. 
+
 ## <a name="java-runtime-statement-of-support"></a>Java 런타임 문 지원
 
 ### <a name="jdk-versions-and-maintenance"></a>JDK 버전 및 유지 관리
@@ -300,6 +305,8 @@ Azure에서 지원되는 JDK(Java Development Kit)는 [Azul Systems](https://www
 ### <a name="security-updates"></a>보안 업데이트
 
 Azul Systems에서 주요 보안 취약점에 대한 패치 및 수정 사항을 출시하는 즉시 고객에게 제공됩니다. [NIST Common Vulnerability Scoring System 버전 2](https://nvd.nist.gov/cvss.cfm)에서 기본 점수 9.0 이상을 받으면 "주요" 취약점으로 정의됩니다.
+
+Tomcat 8.0이 [2018 년 9 월 30 일까 지 종료 (EOL)](https://tomcat.apache.org/tomcat-80-eol.html)에 도달 했습니다. 런타임이 아직 Azure App Service 사용할 수는 동안 Azure는 Tomcat 8.0에 보안 업데이트를 적용 하지 않습니다. 가능 하면 응용 프로그램을 Tomcat 8.5 또는 9.0로 마이그레이션합니다. Tomcat 8.5 및 9.0은 모두 Azure App Service에서 사용할 수 있습니다. 자세한 내용은 [공식 Tomcat 사이트](https://tomcat.apache.org/whichversion.html) 를 참조 하세요. 
 
 ### <a name="deprecation-and-retirement"></a>사용 중단 및 사용 중지
 

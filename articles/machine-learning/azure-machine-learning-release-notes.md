@@ -10,12 +10,12 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 33b3f9292a2fd185ea5487c0111dc294a6f163cf
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030815"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462176"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
@@ -23,10 +23,53 @@ ms.locfileid: "77030815"
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
 
+## <a name="2020-02-18"></a>2020-02-18
+
+### <a name="azure-machine-learning-sdk-for-python-v111rc0"></a>Azure Machine Learning SDK for Python v 1.1.1 rc0
+
++ **버그 수정 및 향상 된 기능**
+  + **azure-cli-ml**
+    + 단일 인스턴스 프로 파일링이 권장 사항을 생성 하기 위해 수정 되었으며 핵심 sdk에서 제공 되었습니다.
+  + **azureml-automl-core**
+    + 오류 로깅이 개선 되었습니다.
+  + **azureml-automl-runtime**
+    + 데이터 집합에 긴 시간 간격이 있는 short 조직 포함 된 경우 예측 관련 문제를 해결 했습니다.
+    + Auto max 구간이 on으로 설정 되 고 date 열에 문자열 형식의 날짜가 포함 된 경우이 문제가 해결 됩니다. 날짜로 변환할 수 없는 경우 적절 한 변환과 적절 한 오류를 추가 했습니다.
+    + 기본 NumPy 및 SciPy를 사용 하 여 FileCacheStore에 대 한 중간 데이터 직렬화 및 역직렬화 (로컬 AutoML 실행에 사용 됨)
+    + 실패 한 자식 실행 상태가 중단 될 수 있는 버그를 수정 했습니다.
+  + **azureml-cli-일반**
+    + 단일 인스턴스 프로 파일링이 권장 사항을 생성 하기 위해 수정 되었으며 핵심 sdk에서 제공 되었습니다.
+  + **azureml-코어**
+    + VNet 뒤에 있는 Blob 컨테이너를 등록 하는 데 사용할 수 있는 Azure Blob 컨테이너를 등록 하기 위한 데이터 저장소 CLI의 추가 매개 변수로 `--grant-workspace-msi-access` 추가 되었습니다.
+    + 단일 인스턴스 프로 파일링이 권장 사항을 생성 하기 위해 수정 되었으며 핵심 sdk에서 제공 되었습니다.
+    + Aks.py _deploy에서 문제를 해결 했습니다.
+    + 자동 저장소 오류를 방지 하기 위해 업로드할 모델의 무결성을 검사 합니다.
+  + **azureml-해석**
+    + azureml-해석에 azureml 스타일 예외를 추가 했습니다.
+    + keras 모델에 대 한 DeepScoringExplainer serialization 수정
+  + **azureml 파이프라인-코어**
+    + 이제 파이프라인 일괄 처리 점수 매기기 노트북에서 ParallelRunStep 사용
+  + **azureml 파이프라인-단계**
+    + `azureml-pipeline-steps` 패키지의 `AutoMLStep`을 이동 했습니다. `azureml-train-automl-runtime`내에서 `AutoMLStep` 사용 되지 않습니다.
+  + **azureml-파이프라인-단계**
+    + 선택적 매개 변수 side_inputs ParallelRunStep에 추가 됩니다. 이 매개 변수는 컨테이너에 폴더를 탑재 하는 데 사용할 수 있습니다. 현재 지원 되는 형식은 DataReference 및 PipelineData입니다.
+  + **azureml-tensorboard**
+    + tensorflow 2.0를 지원 하도록 azureml tensorboard 업데이트
+  + **azureml-학습-자동 ml-클라이언트**
+    + 사용자 지정 기능화 config를 필터링 하는 FeaturizationConfig 재정의 문제를 수정 했습니다.
+  + **azureml-학습-자동 ml-런타임**
+    + `azureml-pipeline-steps` 패키지의 `AutoMLStep`을 이동 했습니다. `azureml-train-automl-runtime`내에서 `AutoMLStep` 사용 되지 않습니다.
+  + **azureml-교육-코어**
+    + PyTorch 평가기에서 PyTorch 버전 1.4 지원
+  
 ## <a name="2020-02-04"></a>2020-02-04
 
 ### <a name="azure-machine-learning-sdk-for-python-v110rc0"></a>Azure Machine Learning SDK for Python v 1.1.0 rc0
 
++ **주요 변경 내용**
+  + **의미 체계 버전 관리 2.0.0**
+    + 버전 1.1부터 Azure ML Python SDK는 의미 체계 버전 관리 2.0.0를 도입 합니다. [여기에서 자세히 알아보세요](https://semver.org/). 모든 후속 버전은 새 번호 매기기 체계 및 의미 체계 버전 관리 계약을 따릅니다. 
+  
 + **버그 수정 및 향상 된 기능**
   + **azureml-automl-runtime**
     + 기능화의 속도가 향상 되었습니다.
@@ -118,8 +161,7 @@ ms.locfileid: "77030815"
     + 모델 및 서비스 개체에 CreatedBy 정보를 추가 했습니다. <var>를 통해 액세스할 수 있습니다. created_by
     + Docker 컨테이너의 HTTP 포트를 올바르게 설정 하지 않은 Get-containerimage ()를 수정 했습니다.
     + `az ml dataset register` cli 명령에 대 한 `azureml-dataprep` 옵션으로 설정
-  + **azureml-dataprep**
-    + TabularDataset이 대체 판독기로 잘못 대체 되 고 경고를 출력 하는 버그를 수정 했습니다 to_pandas_dataframe.
+    + `TabularDataset.to_pandas_dataframe` 대체 판독기로 잘못 대체 되 고 경고를 출력 하는 버그를 수정 했습니다.
   + **azureml-설명-모델**
     + shap 종속성을 해석 하 여 azureml의 community-해석
   + **azureml 파이프라인-코어**

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/14/2020
 ms.author: cshoe
-ms.openlocfilehash: ebf0728184a5fc104e3e1e7d8a199fec328dbdc0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 29b5e9c7673b4a730a41bf7cf2b1c4a2a86209ed
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210177"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462108"
 ---
 # <a name="azure-functions-http-triggers-and-bindings-overview"></a>Azure Functions HTTP 트리거 및 바인딩 개요
 
@@ -27,7 +27,7 @@ ms.locfileid: "77210177"
 
 ### <a name="functions-2x-and-higher"></a>함수 2.x 이상
 
-트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되며 확장은 다른 모든 응용 프로그램 형식을 묶습니다.
+트리거와 바인딩을 사용 하려면 적절 한 패키지를 참조 해야 합니다. NuGet 패키지는 .NET 클래스 라이브러리에 사용 되는 반면 확장 번들은 다른 모든 응용 프로그램 형식에 사용 됩니다.
 
 | 언어                                        | 추가 방법 ...                                   | 설명 
 |-------------------------------------------------|---------------------------------------------|-------------|

@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: bd70cfb58c9d89f1d454537721e22f36b1fd3d3e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: 2f5269587d222be9a1628b72c1f3f0dc1b105f3c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429294"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461746"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Key Vault (미리 보기)에 대 한 HSM 보호 된 키 가져오기
 
@@ -52,13 +52,13 @@ Azure Key Vault에 대해 BYOK(Bring Your Own Key)를 위한 필수 조건 목�
 | Azure 구독 |Azure Key Vault를 만들려면 Azure 구독이 필요합니다([무료 평가판 가입](https://azure.microsoft.com/pricing/free-trial/)). |
 | HSM 보호 키를 가져오기 위한 주요 자격 증명 모음 (프리미엄 SKU) |Azure Key Vault에 대한 서비스 계층 및 기능에 대한 자세한 내용은 [Azure Key Vault 가격 책정](https://azure.microsoft.com/pricing/details/key-vault/) 웹 사이트를 참조하세요. |
 | BYOK 도구 및 HSM 공급 업체에서 제공 하는 지침과 함께 지원 되는 Hsm 목록의 HSM | 하드웨어 보안 모듈에 대 한 액세스 권한 및 Hsm의 기본적인 작동 지식이 있어야 합니다. [지원 되는 hsm](#supported-hsms)을 참조 하세요. |
-| Azure CLI 버전 2.0.82 이상 | 자세한 내용은 [Azure CLI 설치를](/cli/azure/install-azure-cli?view=azure-cli-latest) 참조 하세요.|
+| Azure CLI 버전 2.1.0 이상 | 자세한 내용은 [Azure CLI 설치를](/cli/azure/install-azure-cli?view=azure-cli-latest) 참조 하세요.|
 
 ## <a name="supported-hsms"></a>지원 되는 Hsm
 
 |HSM 공급 업체 이름|지원 되는 HSM 모델|추가 정보|
 |---|---|---|
-|Thales|펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군| [Luna BYOK BYOK 도구 및 설명서](https://safenet.gemalto.com/blah-blah)|
+|Thales|펌웨어 버전 7.3 이상을 사용 하는 Luna HSM 7 제품군| [Luna BYOK BYOK 도구 및 설명서](https://supportportal.thalesgroup.com/csm?id=kb_article_view&sys_kb_id=3892db6ddb8fc45005c9143b0b961987&sysparm_article=KB0021016)|
 
 
 > [!NOTE]

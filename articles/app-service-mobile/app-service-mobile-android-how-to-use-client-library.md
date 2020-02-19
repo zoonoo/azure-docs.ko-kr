@@ -6,19 +6,14 @@ ms.tgt_pltfrm: mobile-android
 ms.devlang: java
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 32e0584478031226ed52d6ed5f6849f7ad6d3cfe
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 52e91d900ce0f22862904695ba8adf463219c469
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668902"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461592"
 ---
 # <a name="how-to-use-the-azure-mobile-apps-sdk-for-android"></a>Android용 Azure Mobile Apps SDK를 사용하는 방법
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/signup?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 이 가이드에서는 Mobile Apps용 Android 클라이언트 SDK를 사용하여 다음과 같은 일반적인 시나리오를 구현하는 방법을 보여줍니다.
 
@@ -69,7 +64,7 @@ Android용 Azure Mobile Apps SDK는 휴대폰 및 태블릿 폼 팩터용 API �
     }
     ```
 
-2. *dependencies* 태그 내의 *모듈 앱* 수준 **build.gradle** 파일에 이 코드를 추가합니다.
+2. *dependencies* 태그 내의 **모듈 앱** 수준 *build.gradle* 파일에 이 코드를 추가합니다.
 
     ```gradle
     implementation 'com.microsoft.azure:azure-mobile-android:3.4.0@aar'
@@ -104,7 +99,7 @@ MobileServiceClient mClient = new MobileServiceClient(
 
 `<MobileAppUrl>`은 모바일 백 엔드를 가리키는 문자열 또는 URL 개체입니다.  Azure App Service를 사용하여 모바일 백 엔드를 호스트하는 경우 보안 `https://` 버전의 URL을 사용해야 합니다.
 
-클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `AndroidManifest.xml` 파일에 언급된 활동의 `onCreate()` 메서드 내에서 수행되어야 합니다.
+클라이언트는 활동 또는 컨텍스트(예제의 `this` 매개 변수)에 대한 액세스도 필요합니다.  MobileServiceClient 생성은 `onCreate()` 파일에 언급된 활동의 `AndroidManifest.xml` 메서드 내에서 수행되어야 합니다.
 
 가장 좋은 방법은 서버 통신을 자체(singleton 패턴) 클래스로 추상화하는 것입니다.  이런 경우 서비스를 적절히 구성하려면 활동을 생성자 내에서 전달해야 합니다.  다음은 그 예입니다.
 
@@ -148,7 +143,7 @@ public class AzureServiceAdapter {
 }
 ```
 
-이제 기본 활동의 `onCreate()` 메서드에서 `AzureServiceAdapter.Initialize(this);`를 호출할 수 있습니다.  클라이언트에 대한 액세스가 필요한 다른 모든 메서드는 `AzureServiceAdapter.getInstance();`를 사용하여 서비스 어댑터에 대한 참조를 확보합니다.
+이제 기본 활동의 `AzureServiceAdapter.Initialize(this);` 메서드에서 `onCreate()`를 호출할 수 있습니다.  클라이언트에 대한 액세스가 필요한 다른 모든 메서드는 `AzureServiceAdapter.getInstance();`를 사용하여 서비스 어댑터에 대한 참조를 확보합니다.
 
 ## <a name="data-operations"></a>데이터 작업
 
@@ -290,10 +285,10 @@ MobileServiceTable<ToDoItem> mToDoTable = mClient.getTable("ToDoItemBackup", ToD
 
 먼저 테이블 참조를 가져옵니다.  그런 다음 테이블 참조에 쿼리를 실행합니다.  쿼리는 다음의 조합입니다.
 
-* `.where()` [필터 절](#filtering).
-* `.orderBy()` [ordering 절](#sorting).
-* `.select()` [필드 선택 절](#selection).
-* [페이징 결과](#paging)에 대한 `.skip()` 및 `.top()`.
+* `.where()` [필터 절입니다](#filtering).
+* `.orderBy()` [순서 절입니다](#sorting).
+* `.select()` [필드 선택 절입니다](#selection).
+* `.skip()`페이징 결과`.top()`에 대한 [ 및 ](#paging).
 
 절은 선행 순으로 제공해야 합니다.
 
@@ -911,7 +906,7 @@ App Service는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 * App Service 백 엔드에서 테이블 사용 권한을 인증된 사용자로 제한합니다.
 * 앱에 인증 코드 추가
 
-테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 SID를 사용하여 요청을 수정할 수도 있습니다.  자세한 내용은 [Get started with authentication] 및 서버 SDK 사용 방법 문서를 참조하세요.
+테이블에 대해 사용 권한을 설정하여 특정 작업을 위한 액세스를 인증된 사용자로만 제한할 수 있습니다. 인증된 사용자의 SID를 사용하여 요청을 수정할 수도 있습니다.  자세한 내용은 [인증 시작] 및 서버 SDK 사용 방법 문서를 참조하세요.
 
 ### <a name="caching"></a>인증: 서버 흐름
 
@@ -994,7 +989,7 @@ dependencies {
 }
 ```
 
-**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져옵니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [Get started with authentication]을 참조하세요.
+**getUserId** 메서드를 사용하여 **MobileServiceUser**에서 로그인한 사용자의 ID를 가져옵니다. 미래를 사용하여 비동기 로그인 API를 호출하는 방법의 예제는 [인증 시작]을 참조하세요.
 
 > [!WARNING]
 > 언급한 URL 구성표는 대/소문자를 구분합니다.  `{url_scheme_of_you_app}`의 모든 경우가 대/소문자가 일치해야 합니다.
@@ -1107,7 +1102,7 @@ Azure Active Directory를 사용하여 애플리케이션에 사용자가 로그
 
 3. 애플리케이션에 아래 코드를 추가하여 다음과 같이 대체합니다.
 
-    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다.
+    * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다.
     * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
     * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
     * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
@@ -1298,7 +1293,7 @@ client.setGsonBuilder(
 [ASCII control codes C0 and C1]: https://en.wikipedia.org/wiki/Data_link_escape_character#C1_set
 [Mobile Services SDK for Android]: https://go.microsoft.com/fwlink/p/?LinkID=717033
 [Azure portal]: https://portal.azure.com
-[Get started with authentication]: app-service-mobile-android-get-started-users.md
+[인증 시작]: app-service-mobile-android-get-started-users.md
 [1]: https://static.javadoc.io/com.google.code.gson/gson/2.8.5/com/google/gson/JsonObject.html
 [2]: https://hashtagfail.com/post/44606137082/mobile-services-android-serialization-gson
 [3]: https://www.javadoc.io/doc/com.google.code.gson/gson/2.8.5

@@ -12,12 +12,12 @@ ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 manager: craigg
 ms.date: 12/13/2019
-ms.openlocfilehash: f460bc3e4809b8a1cbabe1161c888255a7a484db
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16ee8c1e271f0aa3e6565322f9a4a422dd90b8b8
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157519"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461778"
 ---
 # <a name="automated-backups"></a>자동화된 백업
 
@@ -81,10 +81,14 @@ PITR와 마찬가지로 LTR 백업은 지역 중복 저장소를 사용 하 여 
 
 Azure SQL Database는 전체 보존 기간 백업 저장소를 누적 값으로 계산 합니다. 1 시간 마다이 값이 시간당 사용량을 집계 하 여 각 월의 끝에 소비를 계산 하는 것을 담당 하는 Azure 청구 파이프라인에 보고 됩니다. 데이터베이스를 삭제 한 후 소비는 백업 기간으로 줄어듭니다. 백업이 보존 기간 보다 오래 되 면 청구는 중지 됩니다. 
 
+   > [!IMPORTANT]
+   > 데이터베이스가 삭제 된 경우에도 데이터베이스의 백업은 지정 된 보존 기간 동안 유지 됩니다. 데이터베이스를 삭제 하 고 다시 만드는 것이 저장소 및 계산 비용을 줄일 수 있지만, 삭제 될 때마다 삭제 된 각 데이터베이스에 대해 지정 된 보존 기간 (최소 7 일) 동안 백업을 유지 하면 백업 저장소 비용이 늘어날 수 있습니다. 
 
-### <a name="monitoring-consumption"></a>사용량 모니터링
 
-각 백업 유형 (전체, 차등 및 로그)은 데이터베이스 모니터링 블레이드에서 별도의 메트릭으로 보고 됩니다. 다음 다이어그램에서는 백업 저장소 사용량을 모니터링 하는 방법을 보여 줍니다.  
+
+### <a name="monitor-consumption"></a>사용량 모니터링
+
+각 백업 유형 (전체, 차등 및 로그)은 데이터베이스 모니터링 블레이드에서 별도의 메트릭으로 보고 됩니다. 다음 다이어그램에서는 단일 데이터베이스에 대 한 백업 저장소 사용량을 모니터링 하는 방법을 보여 줍니다. 이 기능은 현재 관리 되는 인스턴스에 사용할 수 없습니다.
 
 ![Azure Portal의 데이터베이스 모니터링 블레이드에서 데이터베이스 백업 사용량 모니터링](media/sql-database-automated-backup/backup-metrics.png)
 
@@ -105,6 +109,7 @@ Azure SQL Database는 전체 보존 기간 백업 저장소를 누적 값으로 
 
 ## <a name="storage-costs"></a>스토리지 비용
 
+저장소 가격은 DTU 모델 또는 vCore 모델을 사용 하는 경우에 따라 다릅니다. 
 
 ### <a name="dtu-model"></a>DTU 모델
 
@@ -120,11 +125,14 @@ Azure SQL DB는 총 보존 기간 백업 저장소를 누적 값으로 계산 �
 
 이제 더 복잡 한 예제입니다. 데이터베이스의 보존이 월 중간에 14 일로 증가 하 고이 (가상으로)로 인해 총 백업 저장소가 1488 GB로 증가 하는 경우를 가정 합니다. SQL DB는 시간 1-372에 대 한 1gb의 사용량을 보고 하 고 시간 373-744에 대해 2gb로 사용량을 보고 합니다. 이는 1116 g b/mo 최종 청구로 집계 됩니다. 
 
-Azure 구독 비용 분석을 사용 하 여 백업 저장소에 대 한 현재 비용을 확인할 수 있습니다.
+### <a name="monitor-costs"></a>비용 모니터링
+
+백업 저장소 비용을 이해 하려면 Azure Portal에서 **cost management + 청구** 로 이동 하 여 **Cost Management**을 선택한 다음 **비용 분석**을 선택 합니다. 원하는 구독을 **범위로**선택 하 고 원하는 기간 및 서비스를 필터링 합니다. 
+
+**서비스 이름**에 대 한 필터를 추가한 다음 드롭다운에서 **sql database** 를 선택 합니다. **측정기 하위 범주** 필터를 사용 하 여 서비스에 대 한 청구 카운터를 선택 합니다. 단일 데이터베이스 또는 탄력적 풀의 경우 **단일/탄력적 풀 pitr 백업 저장소**를 선택 합니다. 관리 되는 인스턴스의 경우 **mi pitr backup storage**를 선택 합니다. **저장소** 및 **계산** 하위 범주는 백업 저장소 비용과 연결 되지 않은 경우에도 관심을 가질 수 있습니다. 
 
 ![백업 저장소 비용 분석](./media/sql-database-automated-backup/check-backup-storage-cost-sql-mi.png)
 
-예를 들어 관리 되는 인스턴스의 백업 저장소 비용을 이해 하려면 Azure Portal 구독으로 이동 하 여 비용 분석 블레이드를 엽니다. 측정기 하위 범주 **mi pitr backup 저장소** 를 선택 하 여 현재 백업 비용 및 요금 예측을 표시 합니다. 또한 **관리 되는 인스턴스 범용 저장소** 또는 **관리 되는 인스턴스 범용-compute gen5** 와 같은 다른 미터 하위 범주를 포함 하 여 백업 저장소 비용을 다른 비용 범주와 비교할 수 있습니다.
 
 ## <a name="backup-retention"></a>Backup 보존
 
@@ -169,13 +177,13 @@ Azure Portal, PowerShell 또는 REST API를 사용 하 여 기본 PITR 백업 �
 
 Azure Portal를 사용 하 여 PITR 백업 보존 기간을 변경 하려면 포털 내에서 보존 기간을 변경 하려는 서버 개체로 이동한 후 수정 하려는 서버 개체에 따라 적절 한 옵션을 선택 합니다.
 
-#### <a name="single-database--elastic-poolstabsingle-database"></a>[단일 데이터베이스 및 탄력적 풀](#tab/single-database)
+#### <a name="single-database--elastic-pools"></a>[단일 데이터베이스 및 탄력적 풀](#tab/single-database)
 
 단일 Azure SQL Database에 대 한 PITR 백업 보존 변경은 서버 수준에서 수행 됩니다. 서버 수준에서 변경한 내용은 해당 서버의 데이터베이스에 적용 됩니다. Azure Portal에서 Azure SQL Database server에 대 한 PITR를 변경 하려면 서버 개요 블레이드로 이동 하 여 탐색 메뉴에서 백업 관리를 클릭 한 다음 탐색 모음에서 보존 구성을 클릭 합니다.
 
 ![PITR 변경 Azure Portal](./media/sql-database-automated-backup/configure-backup-retention-sqldb.png)
 
-#### <a name="managed-instancetabmanaged-instance"></a>[Managed Instance](#tab/managed-instance)
+#### <a name="managed-instance"></a>[Managed Instance](#tab/managed-instance)
 
 SQL Database 관리 되는 인스턴스에 대 한 PITR 백업 보존 변경은 개별 데이터베이스 수준에서 수행 됩니다. Azure Portal에서 인스턴스 데이터베이스의 PITR 백업 보존 기간을 변경 하려면 개별 데이터베이스 개요 블레이드로 이동한 다음 탐색 모음에서 백업 보존 구성을 클릭 합니다.
 
