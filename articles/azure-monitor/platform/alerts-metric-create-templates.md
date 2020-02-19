@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 2/17/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 305ad1da28de899f801b9b8af58628c6c067a5d7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
-ms.translationtype: HT
+ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425139"
+ms.locfileid: "77444012"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -1510,15 +1510,15 @@ az group deployment create \
 
 ## <a name="template-for-a-metric-alert-that-monitors-multiple-resources"></a>여러 리소스를 모니터링 하는 메트릭 경고의 템플릿
 
-이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수 있습니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며, 가상 컴퓨터, SQL 데이터베이스, SQL 탄력적 풀 및 Databox Edge 장치에 대해서만 지원 됩니다.
+이전 섹션에서는 단일 리소스를 모니터링하는 메트릭 경고를 만드는 Azure Resource Manager 템플릿 샘플에 대해 설명했습니다. 이제 Azure Monitor는 동일한 Azure 지역에 있는 리소스에 대해 단일 메트릭 경고 규칙을 사용 하 여 동일한 유형의 여러 리소스를 모니터링 하도록 지원 합니다. 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며 가상 머신, SQL server 데이터베이스, SQL server 탄력적 풀 및 Databox edge 장치에 대해서만 지원 됩니다. 또한이 기능은 플랫폼 메트릭에 대해서만 사용할 수 있으며 사용자 지정 메트릭에는 지원 되지 않습니다.
 
 동적 임계값 경고 규칙은 수백 가지 메트릭 시리즈에 대한 맞춤형 임계값(심지어 다양한 형식의)을 한 번에 만드는 데 유용할 수 있습니다. 그러면 관리할 경고 규칙이 더 적어집니다.
 
 이 섹션에서는 단일 규칙으로 여러 리소스를 모니터링하는 다음 세 가지 시나리오를 위한 Azure Resource Manager 템플릿을 설명합니다.
 
 - 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는) 모니터링
-- 구독의 모든 가상 머신(한 Azure 지역에 있는) 모니터링
-- 구독의 모든 가상 머신(한 Azure 지역에 있는) 목록 모니터링
+- 구독에서 단일 Azure 지역에 있는 모든 가상 컴퓨터를 모니터링 합니다.
+- 구독에서 한 Azure 지역에 있는 가상 머신 목록 모니터링
 
 ### <a name="static-threshold-alert-on-all-virtual-machines-in-one-or-more-resource-groups"></a>하나 이상의 리소스 그룹에 있는 모든 가상 머신에 대한 정적 임계값 경고
 

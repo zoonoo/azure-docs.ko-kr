@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/07/2019
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: d3f6acef7491a07f94eec0b2c3b2f3bcd9c01a33
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 5e013011f81542aa279ba9276a6a1aac01eb9e41
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74701678"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443199"
 ---
 # <a name="connect-your-labs-network-with-a-peer-virtual-network-in-azure-lab-services"></a>랩의 네트워크를 피어 가상 네트워크와 연결 Azure Lab Services 
 이 문서에서는 랩 네트워크를 다른 네트워크로 피어 링 하는 방법에 대 한 정보를 제공 합니다. 
@@ -34,7 +34,7 @@ ms.locfileid: "74701678"
 특정 온-프레미스 네트워크는 [express](../../expressroute/expressroute-introduction.md) 경로 또는 [Virtual Network 게이트웨이](../../vpn-gateway/vpn-gateway-about-vpngateways.md)를 통해 Azure Virtual Network에 연결 됩니다. 이러한 서비스는 Azure Lab Services 외부에서 설정 해야 합니다. Express 경로를 사용 하 여 온-프레미스 네트워크를 Azure에 연결 하는 방법에 대해 자세히 알아보려면 [express 경로 개요](../../expressroute/expressroute-introduction.md)를 참조 하세요. Virtual Network 게이트웨이를 사용 하는 온-프레미스 연결의 경우 게이트웨이, 지정 된 가상 네트워크 및 랩 계정이 모두 동일한 지역에 있어야 합니다.
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성
-새 랩 계정을 만드는 동안 **피어 가상 네트워크** 드롭다운 목록에 표시 되는 기존 가상 네트워크를 선택할 수 있습니다. 선택한 가상 네트워크는 랩 계정으로 만든 labs에 연결 (피어 링) 됩니다. 이 변경 작업을 수행한 후 생성 된 랩에서 모든 가상 머신은 피어 링 가상 네트워크의 리소스에 액세스할 수 있습니다. 
+새 랩 계정을 만드는 동안 **고급** 탭의 **피어 가상 네트워크** 드롭다운 목록에 표시 되는 기존 가상 네트워크를 선택할 수 있습니다. 선택한 가상 네트워크는 랩 계정으로 만든 labs에 연결 (피어 링) 됩니다. 이 변경 작업을 수행한 후 생성 된 랩에서 모든 가상 머신은 피어 링 가상 네트워크의 리소스에 액세스할 수 있습니다. 
 
 ![VNet에서 피어를 선택 합니다.](../media/how-to-connect-peer-virtual-network/select-vnet-to-peer.png)
 
@@ -56,8 +56,8 @@ ms.locfileid: "74701678"
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
-- [관리자 권한으로 랩 계정 만들기 및 관리](how-to-manage-lab-accounts.md)
-- [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
-- [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
-- [랩 사용자 권한으로 클래스룸 랩 액세스](how-to-use-classroom-lab.md)
-
+- [랩 작성자가 랩 위치를 선택 하도록 허용](allow-lab-creator-pick-lab-location.md)
+- [공유 이미지 갤러리를 랩에 연결](how-to-attach-detach-shared-image-gallery.md)
+- [사용자를 랩 소유자로 추가](how-to-add-user-lab-owner.md)
+- [랩에 대 한 방화벽 설정 보기](how-to-configure-firewall-settings.md)
+- [랩에 대 한 기타 설정 구성](how-to-configure-lab-accounts.md)

@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/29/2019
 ms.topic: conceptual
-ms.openlocfilehash: ac31783f0eb270823b71c86cc8d7f0975d3a586a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 29b8a32989b5a1d60792fb5678f7ba8a9f12daba
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75452273"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443808"
 ---
 # <a name="running-runbooks-on-a-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 Runbook 실행
 
@@ -52,7 +52,7 @@ $Computer = Get-AutomationVariable -Name "ComputerName"
 Restart-Computer -ComputerName $Computer -Credential $Cred
 ```
 
-[PSCredential 일반 매개 변수](/powershell/module/psworkflow/about/about_workflowcommonparameters)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](automation-powershell-workflow.md#inlinescript)를 사용할 수도 있습니다.
+[PSCredential 일반 매개 변수](automation-powershell-workflow.md#inlinescript)에 지정된 자격 증명을 사용하여 다른 컴퓨터에서 코드 블록을 실행할 수 있는 [InlineScript](/powershell/module/psworkflow/about/about_workflowcommonparameters)를 사용할 수도 있습니다.
 
 ### <a name="runas-account"></a>실행 계정
 
@@ -86,7 +86,7 @@ Hybrid Runbook Worker에서 Azure 리소스에 대한 관리 ID를 사용하려�
 1. Azure VM 만들기
 2. [VM에서 Azure 리소스에 대한 관리 ID 구성](../active-directory/managed-identities-azure-resources/qs-configure-portal-windows-vm.md#enable-system-assigned-managed-identity-on-an-existing-vm)
 3. [리소스 관리자에서 리소스 그룹에 대 한 VM 액세스 권한 부여](../active-directory/managed-identities-azure-resources/tutorial-windows-vm-access-arm.md#grant-your-vm-access-to-a-resource-group-in-resource-manager) -windows-vm-액세스-사용---------------------------------------------
-4. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker)합니다.
+4. 가상 머신에 [Windows Hybrid Runbook Worker를 설치](automation-windows-hrw-install.md)합니다.
 
 이전 단계가 완료되면 Runbook에서 `Connect-AzureRmAccount -Identity`를 사용하여 Azure 리소스를 인증할 수 있습니다. 이 구성을 사용하면 실행 계정을 사용하고 실행 계정의 인증서를 관리해야 하는 필요성이 감소합니다.
 
@@ -279,7 +279,7 @@ sudo chown -R nxautomation ~/.gnupg
 
 #### <a name="make-the-keyring-available-the-hybrid-runbook-worker"></a>Hybrid Runbook Worker에서 사용할 수 있도록 인증 키 설정
 
-인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `[worker-optional]` 섹션에서 다음 예제를 포함하도록 설정 파일(`/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf`)을 수정합니다.
+인증 키가 만들어지면 Hybrid Runbook Worker에서 인증 키를 사용할 수 있도록 만들어야 합니다. `/var/opt/microsoft/omsagent/state/automationworker/diy/worker.conf` 섹션에서 다음 예제를 포함하도록 설정 파일(`[worker-optional]`)을 수정합니다.
 
 ```bash
 gpg_public_keyring_path = /var/opt/microsoft/omsagent/run/.gnupg/pubring.kbx

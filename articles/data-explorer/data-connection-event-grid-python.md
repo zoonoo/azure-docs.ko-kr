@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 9cf65edc3bdd5f675ba1972501139b9ecebcfafd
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1439383598517f57bc77e718d4ded7f53941d3bb
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964399"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444199"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-python"></a>Python을 사용 하 여 Azure 데이터 탐색기에 대 한 Event Grid 데이터 연결 만들기
 
@@ -22,15 +22,21 @@ ms.locfileid: "76964399"
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-event-grid-resource-manager.md)
 
-Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 blob 컨테이너에 기록 된 Event Hubs, IoT Hub 및 blob에서 수집 (데이터 로드)을 제공 합니다. 이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에 대 한 Event Grid 데이터 연결을 만듭니다.
+이 문서에서는 Python을 사용 하 여 Azure 데이터 탐색기에 대 한 Event Grid 데이터 연결을 만듭니다. Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 Event Hubs, IoT Hub 및 blob 컨테이너에 기록 된 blob에서 수집 또는 데이터 로드를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
-* [클러스터 및 데이터베이스](create-cluster-database-python.md) 만들기
-* [테이블 및 열 매핑](python-ingest-data.md#create-a-table-on-your-cluster) 만들기
-* [데이터베이스 및 테이블 정책](database-table-policies-python.md) 설정 (선택 사항)
-* [Event Grid 구독을 사용 하 여 저장소 계정을](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account)만듭니다.
+* 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+
+* [Python 3.4 이상](https://www.python.org/downloads/).
+
+* [클러스터 및 데이터베이스](create-cluster-database-python.md)
+
+* [테이블 및 열 매핑](net-standard-ingest-data.md#create-a-table-on-your-test-cluster).
+
+* [데이터베이스 및 테이블 정책](database-table-policies-csharp.md) (옵션).
+
+* [Event Grid 구독이 있는 저장소 계정](ingest-data-event-grid.md#create-an-event-grid-subscription-in-your-storage-account)입니다.
 
 [!INCLUDE [data-explorer-data-connection-install-package-python](../../includes/data-explorer-data-connection-install-package-python.md)]
 

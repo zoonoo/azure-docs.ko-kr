@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 21a11863bd2bc9882d4336f5c5d2bf1d7b7f49da
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 49ef78ac5a7d58d86583d91bf072f0f3131796fe
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133758"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444097"
 ---
 # <a name="set-up-a-lab-focused-on-deep-learning-in-natural-language-processing-using-azure-lab-services"></a>Azure Lab Services를 사용 하 여 자연어 처리의 심층 학습에 초점을 맞춘 랩 설정
 이 문서에서는 Azure Lab Services를 사용 하 여 NLP (자연어 처리)의 심층 학습에 초점을 맞춘 랩을 설정 하는 방법을 보여 줍니다. NLP(자연어 처리)는 번역, 음성 인식 및 기타 언어 이해 기능을 갖춘 컴퓨터를 가능케하는 AI(인공 지능) 형태입니다.  
@@ -32,7 +32,7 @@ NLP 클래스를 수강하는 학생은 Linux VM(가상 머신)을 통해 작성
 
 | 랩 계정 설정 | Instructions |
 | ----------- | ------------ |  
-| Marketplace 이미지 | 랩 계정 내에서 사용할 Ubuntu (Linux 용 Data Science Virtual Machine) 이미지를 사용 하도록 설정 합니다.  지침: [랩 작성자에 게 제공 되는 마켓플레이스 이미지 지정](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators)문서를 참조 하세요. | 
+| Marketplace 이미지 | 랩 계정 내에서 사용할 Ubuntu (Linux 용 Data Science Virtual Machine) 이미지를 사용 하도록 설정 합니다.  지침: [랩 작성자에 게 제공 되는 마켓플레이스 이미지 지정](specify-marketplace-images.md)문서를 참조 하세요. | 
 
 [이 자습서](tutorial-setup-classroom-lab.md) 에 따라 새 랩을 만들고 다음 설정을 적용 합니다.
 

@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: a0361203f4a8a2e57d179b39ba6da2fb62f68720
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 8d1ed128181d036af0026ae273c2c5bf1d3a066e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252062"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443502"
 ---
 # <a name="classroom-labs-in-azure-lab-services--frequently-asked-questions-faq"></a>Azure Lab Services의 교실 랩-질문과 대답 (FAQ)
 Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 일부에 대 한 답변을 받으세요. 
@@ -27,6 +27,9 @@ Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 �
 
 ### <a name="is-the-quota-per-user-or-per-week-or-per-entire-duration-of-the-lab"></a>사용자 당 또는 주당 할당량 또는 랩의 전체 기간에 대 한 할당량 입니까? 
 랩에 대해 설정 하는 할당량은 랩의 전체 기간에 대 한 각 학생에 대해 설정 됩니다. 그리고 [vm의 예약 된 실행 시간은](how-to-create-schedules.md) 사용자에 게 할당 된 할당량에 계산 되지 않습니다. 할당량은 학생이 VM을 사용하는 일정 시간 이외의 시간을 반영합니다.  할당량에 대 한 자세한 내용은 [사용자에 대 한 할당량 설정](how-to-configure-student-usage.md#set-quotas-for-users)을 참조 하세요.
+
+### <a name="if-professor-turns-on-a-student-vm-does-that-affect-the-student-quota"></a>교수 학생 VM을 켜면 학생 할당량에 영향을 미칩니까? 
+아니요. 그렇지 않습니다. 교수는 학생 VM을 켜면 학생에 할당 된 할당량에 영향을 주지 않습니다. 
 
 ## <a name="schedules"></a>일정
 
@@ -42,7 +45,9 @@ Azure Lab Services에서 교실 labs에 대해 가장 일반적인 질문 중 �
 
 ### <a name="what-port-ranges-should-i-open-on-my-organizations-firewall-setting-to-connect-to-lab-virtual-machines-via-rdpssh"></a>RDP/SSH를 통해 랩 가상 컴퓨터에 연결 하려면 조직의 방화벽 설정에서 어떤 포트 범위를 열어야 하나요?
 
-포트는 49152 – 65535입니다. 교실 랩은 부하 분산 장치 뒤에 있으므로 랩의 모든 가상 컴퓨터에는 단일 IP 주소가 있으며 랩의 각 가상 컴퓨터에는 고유한 포트가 있습니다. 포트 번호와 공용 IP 주소는 랩이 다시 게시 될 때마다 변경 될 수 있습니다.
+포트는 49152 – 65535입니다. 교실 랩을 부하 분산 장치 뒤에 둡니다. 각 랩에서는 단일 공용 IP 주소가 있으며 랩의 각 가상 컴퓨터에는 고유한 포트가 있습니다. 
+
+Azure Portal의 랩 홈 페이지에 있는 **가상 컴퓨터 풀** 탭에서 각 가상 컴퓨터의 개인 IP 주소를 볼 수도 있습니다. 랩을 다시 게시 하는 경우 랩의 공용 IP 주소는 변경 되지 않지만 랩에서 각 가상 머신의 개인 IP 및 포트 번호는 변경 될 수 있습니다. [Azure Lab Services에 대 한 방화벽 설정](how-to-configure-firewall-settings.md)문서에서 자세히 알아볼 수 있습니다.
 
 ### <a name="what-public-ip-address-range-should-i-open-on-my-organizations-firewall-settings-to-connect-to-lab-virtual-machines-via-rdpssh"></a>RDP/SSH를 통해 랩 가상 컴퓨터에 연결 하기 위해 내 조직의 방화벽 설정에서 어떤 공용 IP 주소 범위를 열어야 하나요?
 Azure의 데이터 센터에 대 한 공용 IP 주소 범위를 제공 하는 [AZURE Ip 범위 및 서비스 태그 (공용 클라우드)](https://www.microsoft.com/download/details.aspx?id=56519)를 참조 하세요. 랩 계정이 있는 지역에 대 한 IP 주소를 열 수 있습니다.

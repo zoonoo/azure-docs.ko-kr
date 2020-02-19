@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: reference
 ms.date: 07/05/2019
 ms.author: erhopf
-ms.openlocfilehash: dd9ac9654f916653af974e816485630423466ae5
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: fcc43caf895dadfaf832a47c3254f9b828bcb71a
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815435"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430808"
 ---
 # <a name="swagger-documentation"></a>Swagger 설명서
 
@@ -28,9 +28,9 @@ ms.locfileid: "74815435"
 
 [Swagger 사양](https://cris.ai/swagger/ui/index)에는 다양한 경로를 신속하게 테스트할 수 있는 옵션이 포함되어 있습니다. 그러나 때로는 모든 경로에 대한 코드를 생성하고, 향후 솔루션 기반으로 사용할 수 있는 호출의 단일 라이브러리를 만드는 것이 바람직한 경우가 있습니다. Python 라이브러리를 생성하는 프로세스를 살펴보겠습니다.
 
-Swagger를 음성 서비스 구독과 동일한 지역으로 설정 해야 합니다. 음성 서비스 리소스의 Azure Portal에서 영역을 확인할 수 있습니다. 지원되는 지역의 전체 목록은 [Azure 지역](regions.md)을 참조하세요.
+Swagger를 음성 서비스 구독과 동일한 지역으로 설정 해야 합니다. 음성 서비스 리소스의 Azure Portal에서 영역을 확인할 수 있습니다. 지원 되는 지역에 대 한 전체 목록은 [지역](regions.md)을 참조 하세요.
 
-1. https://editor.swagger.io (으)로 이동
+1. [https://editor.swagger.io](https://editor.swagger.io) 으로 이동합니다.
 2. **파일**을 클릭한 다음, **가져오기**를 클릭합니다.
 3. Speech service 구독의 지역을 포함 하는 swagger URL을 입력 `https://<your-region>.cris.ai/docs/v2.0/swagger`
 4. **클라이언트 생성**을 클릭하고 Python을 선택합니다.

@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.author: rogarana
 ms.service: virtual-machines-windows
 ms.subservice: disks
-ms.openlocfilehash: 73a505ce68ed046eba011d3b36991616f441506e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc15ee42fd7ef8e41b332104b28af808c336789f
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206307"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77430411"
 ---
 # <a name="server-side-encryption-of-azure-managed-disks"></a>Azure managed disks의 서버 쪽 암호화
 
@@ -58,7 +58,7 @@ Azure managed disks는 클라우드로 데이터를 유지할 때 기본적으�
 
 현재 다음 지역만 지원 됩니다.
 
-- 미국 동부, 미국 서 부 2 및 미국 서 부 지역에서 GA 제품으로 제공 됩니다.
+- 미국 동부, 미국 서 부 2, 미국 중부, 영국 남부 지역에서 GA 제품으로 제공 됩니다.
 - 미국 서 부, 미국 동부 2, 캐나다 중부 및 북아메리카 유럽 지역에서 공개 미리 보기로 제공 됩니다.
 
 ### <a name="restrictions"></a>제한

@@ -10,12 +10,12 @@ ms.reviewer: larryfr
 ms.author: aashishb
 author: aashishb
 ms.date: 01/13/2020
-ms.openlocfilehash: fd358801b5fe84aac754b5a975234688a707e544
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 6e5571604e6154408f2005ab4804b4270041e4cf
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169958"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444352"
 ---
 # <a name="secure-azure-ml-experimentation-and-inference-jobs-within-an-azure-virtual-network"></a>Azure Virtual Network 내에서 Azure ML 실험 및 유추 작업 보호
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -134,13 +134,14 @@ Azure Machine Learning 작업 영역의 가상 네트워크 내에서 Data Lake 
 > * 단일 가상 네트워크에 여러 계산 인스턴스 또는 클러스터를 배치 하려는 경우 하나 이상의 리소스에 대해 할당량 증가를 요청 해야 할 수 있습니다.
 > * 작업 영역에 대 한 Azure Storage 계정도 가상 네트워크에서 보호 되는 경우 Azure Machine Learning 계산 인스턴스 또는 클러스터와 동일한 가상 네트워크에 있어야 합니다. 
 
-Machine Learning 계산 인스턴스 또는 클러스터는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
-
-* 네트워크 보안 그룹 1개
-* 공용 IP 주소 1개
-* 부하 분산 장치 1개
-
-이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)으로 제한됩니다.
+> [!TIP]
+> Machine Learning 계산 인스턴스 또는 클러스터는 가상 네트워크를 포함 하는 리소스 그룹에 추가 네트워킹 리소스를 자동으로 할당 합니다. 각 계산 인스턴스 또는 클러스터에 대해 서비스는 다음 리소스를 할당 합니다.
+> 
+> * 네트워크 보안 그룹 1개
+> * 공용 IP 주소 1개
+> * 부하 분산 장치 1개
+> 
+> 이러한 리소스는 구독의 [리소스 할당량](https://docs.microsoft.com/azure/azure-resource-manager/management/azure-subscription-service-limits)으로 제한됩니다.
 
 
 ### <a id="mlcports"></a> 필수 포트
@@ -500,6 +501,10 @@ Azure 방화벽을 사용 하는 경우 다음 주소와의 트래픽을 허용 
 규칙을 추가 하는 경우 __프로토콜__ 을 any로 설정 하 고 포트를 `*`설정 합니다.
 
 네트워크 규칙을 구성 하는 방법에 대 한 자세한 내용은 [Azure 방화벽 배포 및 구성](/azure/firewall/tutorial-firewall-deploy-portal#configure-a-network-rule)을 참조 하세요.
+
+## <a name="use-azure-container-registry"></a>Azure Container Registry 사용
+
+Azure Machine Learning에서 가상 네트워크를 사용 하는 경우 가상 네트워크에 작업 영역에 대 한 Azure Container Registry를 두지 __마십시오__ . 이 구성은 지원되지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

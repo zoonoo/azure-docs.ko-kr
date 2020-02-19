@@ -13,14 +13,14 @@ ms.devlang: na
 ms.topic: article
 ms.date: 10/31/2019
 ms.author: spelluru
-ms.openlocfilehash: d89d506d8912706bbdb802801b16d01036ecb8e2
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 99c6ee5d58655350d14add61530fae647a675508
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73583594"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443230"
 ---
-# <a name="set-up-and-manage-virtual-machine-pool"></a>가상 컴퓨터 풀 설정 및 관리 
+# <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
 
 - 랩에서 Vm (가상 머신)의 수를 늘립니다.
@@ -96,6 +96,9 @@ ms.locfileid: "73583594"
  학생 VM에 연결 하려면 목록에서 VM을 마우스로 가리키고 컴퓨터 단추를 선택 합니다.  
 
 ![학생 VM에 연결 단추](../media/how-to-set-virtual-machine-passwords/connect-student-vm.png)
+
+> [!NOTE]
+> 교수에서 VM을 시작 하 고 연결할 때 학생 할당량은 영향을 받지 않습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 랩 소유자가 구성할 수 있는 다른 학생 사용 옵션에 대해 알아보려면 [학생 사용 구성](how-to-configure-student-usage.md)문서를 참조 하세요.

@@ -10,15 +10,15 @@ ms.service: lab-services
 ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
-ms.topic: overview
+ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: ef5cc0fb561d385a1b1d7b4c14db8c10343508cf
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
-ms.translationtype: HT
+ms.openlocfilehash: 80204b6f156981ab3ecb8f348f3ce7ea077a6836
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133660"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443536"
 ---
 # <a name="class-types-overview---azure-lab-services"></a>클래스 유형 개요 - Azure Lab Services
 
@@ -28,7 +28,7 @@ Azure Lab Services를 사용하면 클라우드에서 클래스룸 랩 환경을
 
 Azure Lab Services를 사용하여 NLP(자연어 처리)의 딥 러닝에 초점을 맞춘 랩을 설정할 수 있습니다. NLP(자연어 처리)는 번역, 음성 인식 및 기타 언어 이해 기능을 갖춘 컴퓨터를 가능케하는 AI(인공 지능) 형태입니다. NLP 클래스를 수강하는 학생은 Linux VM(가상 머신)을 통해 작성된 인간 언어 분석에 사용되는 딥 러닝 모델을 개발하는 신경망 알고리즘을 적용하는 방법을 알아봅니다.
 
-이러한 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Azure Lab Services를 사용한 자연어 처리의 딥 러닝에 초점을 맞춘 랩 설정](class-type-deep-learning-natural-processing.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 Azure Lab Services를 [사용 하 여 자연어 처리의 심층 학습에 초점을 맞춘 랩 설정](class-type-deep-learning-natural-processing.md)을 참조 하세요.
 
 ## <a name="shell-scripting-on-linux"></a>Linux에서 셸 스크립팅
 
@@ -36,7 +36,7 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 
 이러한 스크립팅 클래스를 수강하는 학생은 Linux 가상 머신을 통해 Linux의 기본 사항을 알아보고 bash 셸 스크립팅에 익숙해질 수 있습니다. Linux 가상 머신은 원격 데스크톱 액세스를 사용하도록 설정되어 있고 [gedit](https://help.gnome.org/users/gedit/stable/) 및 [Visual Studio Code](https://code.visualstudio.com/) 텍스트 편집기가 설치 되어 있습니다.
 
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Linux에서 셸 스크립팅](class-type-shell-scripting-linux.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [Linux에서 셸 스크립팅](class-type-shell-scripting-linux.md)을 참조 하세요.
 
 ## <a name="ethical-hacking"></a>윤리적 해킹
 
@@ -44,22 +44,22 @@ Linux에서 셸 스크립팅을 학습하도록 랩을 설정할 수 있습니�
 
 윤리적 해킹 클래스에서 학생은 취약점을 방어하기 위한 최신 기술을 배울 수 있습니다. 각 학생에게는 두 개의 중첩된 가상 머신이 있는 Windows Server 호스트 가상 머신이 있습니다. 즉 [Metasploitable3](https://github.com/rapid7/metasploitable3) 이미지가 있는 가상 머신과 [Kali Linux](https://www.kali.org/) 이미지가 있는 가상 머신이 있습니다. Metasploitable 가상 머신은 악용 목적으로 사용됩니다.  Kali Linux 가상 머신은 법정 작업을 실행하는 데 필요한 도구에 대한 액세스를 제공합니다.
 
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [윤리적 해킹 클래스를 가르치기 위한 랩 설정](class-type-ethical-hacking.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 랩에서 [윤리적 해킹 클래스를 학습 하도록 설정](class-type-ethical-hacking.md)을 참조 하세요.
 
 ## <a name="database-management"></a>데이터베이스 관리
-데이터베이스 개념은 대학의 대부분의 컴퓨터 과학 부서에서 학습하는 소개 과정 중 하나입니다. Azure Lab Services에서 기본 데이터베이스 관리 클래스에 대한 랩을 설정할 수 있습니다. 예를 들어 [MySQL](https://www.mysql.com/) Database Server 또는 [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) 서버를 사용하여 랩에서 가상 머신 템플릿을 설정할 수 있습니다.
+데이터베이스 개념은 대학에서 대부분의 컴퓨터 과학 부서를 학습 하는 소개 과정 중 하나입니다. Azure Lab Services에서 기본 데이터베이스 관리 클래스에 대 한 랩을 설정할 수 있습니다. 예를 들어 [MySQL](https://www.mysql.com/) 데이터베이스 서버 또는 [SQL Server 2019](https://www.microsoft.com/sql-server/sql-server-2019) 서버를 사용 하 여 랩에서 가상 머신 템플릿을 설정할 수 있습니다.
 
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [관계형 데이터베이스에 대한 데이터베이스 관리를 가르치기 위한 랩 설정](class-type-database-management.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [관계형 데이터베이스에 대 한 데이터베이스 관리를 학습 하도록 랩 설정](class-type-database-management.md)을 참조 하세요.
 
-## <a name="python-and-jupyter-notebooks"></a>Python 및 Jupyter Notebook
-학생들에게 [Jupyter Notebook](http://jupyter-notebook.readthedocs.io)을 사용하는 방법을 가르치는 데 필요한 도구를 사용하여 Azure Lab Services에서 템플릿 머신을 설정할 수 있습니다. Jupyter Notebook은 서식 있는 텍스트와 실행 가능한 [Python](https://www.python.org/) 원본 코드를 노트북이라는 단일 캔버스에 쉽게 결합할 수 있는 오픈 소스 프로젝트입니다. 노트북을 실행하면 입력 및 출력의 선형 레코드가 생성됩니다.  이러한 출력에는 텍스트, 정보 테이블, 분산형 플롯 등이 포함될 수 있습니다.
+## <a name="python-and-jupyter-notebooks"></a>Python 및 Jupyter 노트북
+학생 들에 게 [Jupyter 노트북](http://jupyter-notebook.readthedocs.io)을 사용 하는 방법을 학습 하는 데 필요한 도구를 사용 하 여 Azure Lab Services에서 템플릿 컴퓨터를 설정할 수 있습니다. Jupyter 노트북은 노트북 이라는 단일 캔버스에서 서식 있는 텍스트 및 실행 가능한 [Python](https://www.python.org/) 소스 코드를 쉽게 결합할 수 있는 오픈 소스 프로젝트입니다. 노트북을 실행 하면 입력 및 출력의 선형 레코드가 생성 됩니다.  이러한 출력에는 텍스트, 정보 테이블, 산 점도 등이 포함 될 수 있습니다.
 
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Python 및 Jupyter Notebook을 사용하여 데이터 과학을 가르치기 위한 랩 설정](class-type-jupyter-notebook.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [Python 및 Jupyter 노트북을 사용 하 여 데이터 과학을 교육 하기 위한 랩 설정](class-type-jupyter-notebook.md)을 참조 하세요.
 
 ## <a name="mobile-app-development-with-android-studio"></a>Android Studio를 사용한 모바일 앱 개발
-Azure Lab Services에서 랩을 설정하여 소개 모바일 애플리케이션 개발 클래스에 대해 배울 수 있습니다. 이 클래스는 [Google Play 스토어](https://play.google.com/store/apps)에 게시할 수 있는 Android 모바일 애플리케이션을 중심으로 설명합니다.  학생들은 [Android Studio](https://developer.android.com/studio)를 사용하여 애플리케이션을 빌드하는 방법을 알아봅니다.  [Android용 Visual Studio 에뮬레이터](https://visualstudio.microsoft.com/vs/msft-android-emulator/)는 애플리케이션을 로컬로 테스트하는 데 사용됩니다.
+Azure Lab Services에서 랩을 설정 하 여 소개 모바일 응용 프로그램 개발 클래스에 대해 배울 수 있습니다. 이 클래스는 [Google Play 스토어](https://play.google.com/store/apps)에 게시할 수 있는 Android 모바일 응용 프로그램에 중점을 둘 수 있습니다.  학생 들이 [Android Studio](https://developer.android.com/studio) 사용 하 여 응용 프로그램을 빌드하는 방법을 알아봅니다.  [Android 용 Visual Studio 에뮬레이터](https://visualstudio.microsoft.com/vs/msft-android-emulator/) 는 응용 프로그램을 로컬로 테스트 하는 데 사용 됩니다.
 
-이 유형의 랩을 설정하는 방법에 대한 자세한 내용은 [Android Studio를 사용하여 모바일 애플리케이션 개발을 가르치기 위한 랩 설정](class-type-mobile-dev-android-studio.md)을 참조하세요.
+이러한 유형의 랩을 설정 하는 방법에 대 한 자세한 내용은 [Android Studio를 사용 하 여 모바일 응용 프로그램 개발을 학습 하도록 랩 설정](class-type-mobile-dev-android-studio.md)을 참조 하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

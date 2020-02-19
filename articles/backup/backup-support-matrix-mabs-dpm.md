@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 211a7e39dc9cda9e4bd96e3a66924b2195524be7
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111455"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444029"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -70,9 +70,9 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 **시나리오** | **DPM/MABS**
 --- | ---
-**Azure VM의 MABS** | Windows Server 2012 R2입니다.<br/><br/> Windows 2016 데이터 센터.<br/><br/> Windows 2019 데이터 센터.<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 2 개와 3.5 GB의 RAM이 있는 최소 A2 표준입니다.
-**Azure VM의 DPM** | System Center 2012 R2 업데이트 3 이상<br/><br/> [System Center에 필요한](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) Windows 운영 체제<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 2 개와 3.5 GB의 RAM이 있는 최소 A2 표준입니다.
-**MABS 온-프레미스** | 지원되는 64비트 운영 체제:<br/><br/> MABS v3 이상: Windows Server 2019 (Standard, Datacenter, Essentials). <br/><br/> MABS v2 이상: Windows Server 2016 (Standard, Datacenter, Essentials).<br/><br/> 모든 MABS 버전: Windows Server 2012 R2.<br/><br/>모든 MABS 버전: Windows Storage Server 2012 R2.
+**Azure VM의 MABS** |  Windows 2016 데이터 센터.<br/><br/> Windows 2019 데이터 센터.<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 4 개와 8gb RAM이 있는 최소 Standard_A4_v2입니다.
+**Azure VM의 DPM** | System Center 2012 R2 업데이트 3 이상<br/><br/> [System Center에 필요한](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-1807#dpm-server) Windows 운영 체제<br/><br/> Marketplace에서 이미지를 시작 하는 것이 좋습니다.<br/><br/> 코어 4 개와 8gb RAM이 있는 최소 Standard_A4_v2입니다.
+**MABS 온-프레미스** |  MABS v3 이상: Windows Server 2016 또는 Windows Server 2019
 **DPM 온-프레미스** | 물리적 서버/Hyper-v VM: System Center 2012 SP1 이상<br/><br/> VMware VM: System Center 2012 R2 업데이트 5 이상
 
 >[!NOTE]

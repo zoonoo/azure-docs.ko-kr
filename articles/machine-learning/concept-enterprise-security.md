@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: bc083a95ebf6c7ecfabfef87e606f99053ba58bb
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76312416"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444148"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -45,7 +45,7 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 
 |인증 방법|Description|Azure Container Instances|AKS|
 |---|---|---|---|
-|키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용하도록 설정됨|
+|키|키는 정적 이므로 새로 고칠 필요가 없습니다. 키를 수동으로 다시 생성할 수 있습니다.|기본적으로 사용할 수 없게 설정되어 있습니다.| 기본적으로 사용|
 |토큰|지정 된 기간이 지나면 토큰이 만료 되 고 새로 고쳐야 합니다.| 사용할 수 없음| 기본적으로 사용할 수 없게 설정되어 있습니다. |
 
 코드 예제는 [웹 서비스 인증 섹션](how-to-setup-authentication.md#web-service-authentication)을 참조 하세요.
@@ -86,11 +86,11 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 
 관리 id에 대 한 자세한 내용은 [Azure 리소스에 대 한 관리 되는 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 참조 하세요.
 
-| 리소스 | 권한 |
+| 리소스 | 사용 권한 |
 | ----- | ----- |
 | 작업 영역 | 참가자 |
-| Storage 계정 | Storage Blob 데이터 Contributor |
-| Key Vault | 모든 키, 암호, 인증서에 대 한 액세스 |
+| 스토리지 계정 | Storage Blob 데이터 Contributor |
+| 주요 자격 증명 모음 | 모든 키, 암호, 인증서에 대 한 액세스 |
 | Azure Container Registry | 참가자 |
 | 작업 영역을 포함 하는 리소스 그룹 | 참가자 |
 | 키 자격 증명 모음을 포함 하는 리소스 그룹 (작업 영역을 포함 하는 자격 증명 모음과 다른 경우) | 참가자 |
@@ -105,7 +105,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 
 자세한 내용은 [가상 네트워크에서 실험 및 유추를 실행 하는 방법](how-to-enable-virtual-network.md)을 참조 하세요.
 
-## <a name="data-encryption"></a>데이터 암호화
+## <a name="data-encryption"></a>데이터 암호화.
 
 ### <a name="encryption-at-rest"></a>휴지 상태의 암호화
 
@@ -113,7 +113,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 > 작업 영역에 중요 한 데이터가 포함 된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 를 설정 하는 것이 좋습니다. Microsoft에서 진단 목적으로 수집 하 고 Microsoft 관리 환경에서 추가 암호화를 사용 하도록 설정 하는 데이터의 양을 제어 합니다.
 
 
-#### <a name="azure-blob-storage"></a>Azure Blob Storage
+#### <a name="azure-blob-storage"></a>Azure BLOB 스토리지
 
 Azure Machine Learning은 Azure Machine Learning 작업 영역 및 구독과 연결 된 Azure Blob storage 계정에 스냅숏, 출력 및 로그를 저장 합니다. Azure Blob storage에 저장 된 모든 데이터는 Microsoft에서 관리 하는 키를 사용 하 여 미사용에 암호화 됩니다.
 
@@ -215,7 +215,7 @@ Azure HDInsight 및 Vm과 같은 대상을 계산 하기 위한 SSH 암호 및 �
 
 Microsoft는 리소스 이름 (예: 데이터 집합 이름 또는 machine learning 실험 이름) 또는 작업 환경 변수 (예: 진단 목적)와 같은 사용자가 아닌 식별 정보를 수집할 수 있습니다. 이러한 모든 데이터는 microsoft 소유의 구독에서 호스트 되는 저장소의 Microsoft 관리 키를 사용 하 여 저장 되며 [microsoft의 표준 개인 정보 취급 방침 및 데이터 처리 표준을](https://privacy.microsoft.com/privacystatement)따릅니다.
 
-또한 Microsoft는 중요 한 정보 (예: 계정 키 암호)를 환경 변수에 저장 하지 않는 것이 좋습니다. 환경 변수는 microsoft에서 기록, 암호화 및 저장 됩니다.
+또한 Microsoft는 중요 한 정보 (예: 계정 키 암호)를 환경 변수에 저장 하지 않는 것이 좋습니다. 환경 변수는 microsoft에서 기록, 암호화 및 저장 됩니다. 마찬가지로 [runid](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run%28class%29?view=azure-ml-py)이름을 지정할 때 사용자 이름 또는 암호 프로젝트 이름과 같은 중요 한 정보를 포함 하지 않도록 합니다. 이 정보는 Microsoft 지원 엔지니어가 액세스할 수 있는 원격 분석 로그에 표시 될 수 있습니다.
 
 작업 영역을 프로 비전 하는 동안 `hbi_workspace` 매개 변수를 `TRUE` 설정 하 여 수집 되는 진단 데이터를 옵트아웃 (opt out) 할 수 있습니다. 이 기능은 AzureML Python SDK, CLI, REST Api 또는 Azure Resource Manager 템플릿을 사용할 때 지원 됩니다.
 
@@ -253,7 +253,7 @@ Azure Monitor 메트릭을 사용 하 여 Azure Machine Learning 작업 영역�
 * RequestUrl
 * StatusCode
 * RequestId
-* 기간
+* Duration
 
 > [!IMPORTANT]
 > Azure Machine Learning 작업 영역의 일부 작업은 작업 로그에 정보를 기록 하지 않습니다. 예를 들어 학습 실행의 시작과 모델 등록은 기록 되지 않습니다.
@@ -289,7 +289,7 @@ Azure Machine Learning 작업 영역과 연결 된 디렉터리 (실험)는 소�
 
 [![코드 스냅숏 워크플로](media/concept-enterprise-security/code-snapshot.png)](media/concept-enterprise-security/code-snapshot-expanded.png#lightbox)
 
-### <a name="training"></a>교육
+### <a name="training"></a>학습
 
 다음 다이어그램에서는 학습 워크플로를 보여 줍니다.
 

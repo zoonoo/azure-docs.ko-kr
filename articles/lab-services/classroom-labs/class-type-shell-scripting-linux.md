@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: spelluru
-ms.openlocfilehash: 226c9ae1c42c85db57dab3fd1911943e167a6288
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 100a485588c77f6977001dae984b30ebcb1de557
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133674"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443553"
 ---
 # <a name="set-up-a-lab-to-teach-shell-scripting-on-linux"></a>Linux에서 셸 스크립팅을 학습할 랩 설정
 이 문서에서는 Linux에서 셸 스크립팅을 학습 하도록 랩을 설정 하는 방법을 보여 줍니다. 스크립팅은 관리자가 반복적인 작업을 방지할 수 있도록 하는 시스템 관리의 유용한 부분입니다. 이 샘플 시나리오에서 클래스는 기존 bash 스크립트와 향상된 스크립트를 포함합니다. 향상된 스크립트는 bash 명령과 Ruby를 결합하는 스크립트입니다. 이 접근 방식을 사용하면 Ruby에서 데이터를 전달하고, bash 명령이 셸과 상호 작용할 수 있습니다. 
@@ -32,13 +32,13 @@ ms.locfileid: "77133674"
 
 | 랩 계정 설정 | Instructions |
 | ----------- | ------------ |  
-| Marketplace 이미지 | 랩 계정 내에서 사용할 [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) 이미지를 사용 하도록 설정 합니다. 자세한 내용은 [랩 작성자에 게 제공 되는 Marketplace 이미지 지정](how-to-configure-lab-accounts.md#specify-marketplace-images-available-to-lab-creators) 을 참조 하세요. | 
+| Marketplace 이미지 | 랩 계정 내에서 사용할 [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) 이미지를 사용 하도록 설정 합니다. 자세한 내용은 [랩 작성자에 게 제공 되는 Marketplace 이미지 지정](specify-marketplace-images.md)을 참조 하세요. | 
 
 [이 자습서](tutorial-setup-classroom-lab.md) 에 따라 새 랩을 만들고 다음 설정을 적용 합니다.
 
 | 랩 설정 | 값/지침 | 
 | ------------ | ------------------ |
-| VM (가상 머신) 크기 | Small  |
+| VM (가상 머신) 크기 | 작음  |
 | VM 이미지 | [Ubuntu Server 18.04 LTS](https://azuremarketplace.microsoft.com/marketplace/apps/canonical.0001-com-ubuntu-server-bionic) |
 | 원격 데스크톱 연결 사용 | 사용. <p>이 설정을 사용 하면 교사와 학생이 RDP (원격 데스크톱)를 사용 하 여 해당 Vm에 연결할 수 있습니다. 자세한 내용은 [Azure Lab Services에서 랩에서 원격 데스크톱을 사용 하도록 설정](how-to-enable-remote-desktop-linux.md#connect-to-the-template-vm)을 참조 하세요. </p>|
 

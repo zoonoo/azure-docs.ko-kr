@@ -4,12 +4,12 @@ description: Azure Site Recovery를 사용 하 여 보조 지역에 대 한 Azur
 ms.topic: article
 ms.date: 01/10/2020
 ms.author: raynew
-ms.openlocfilehash: 1e30170f521fa21cb69fb1879ea4335025d8d959
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: d278f96acf8d8efc57a9ae7fb57f9a758339162a
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863930"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444080"
 ---
 # <a name="support-matrix-for-azure-vm-disaster-recovery-between-azure-regions"></a>Azure 지역 간 Azure VM 재해 복구를 위한 지원 매트릭스
 
@@ -30,7 +30,7 @@ ms.locfileid: "75863930"
 
 **리소스 작업** | **세부 정보**
 --- | --- 
-**리소스 그룹 간 자격 증명 모음 이동** | 지원하지 않음
+**리소스 그룹 간 자격 증명 모음 이동** | 지원되지 않음
 **리소스 그룹 간에 계산/스토리지/네트워크 리소스 이동** | 지원되지 않습니다.<br/><br/> VM 복제 후 VM 또는 스토리지/네트워크와 같은 관련 구성 요소를 이동하는 경우 VM에 대한 복제를 사용하지 않도록 설정했다가 다시 사용하도록 설정해야 합니다.
 **재해 복구를 위해 한 구독에서 다른 구독으로 Azure VM 복제** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
 **지원되는 지역별 클러스터 내의 여러 지역 간에 VM 마이그레이션(구독 내/구독 간)** | 동일한 Azure Active Directory 테넌트 내에서 지원됩니다.
@@ -69,7 +69,7 @@ Azure Government    | US Gov 버지니아, US Gov 아이오와, US Gov 애리조
 **설정** | **지원** | **세부 정보**
 --- | --- | ---
 범용 V2 스토리지 계정(핫 및 쿨 계층) | 지원됨 | V 2에 대 한 트랜잭션 비용은 V1 저장소 계정 보다 훨씬 더 GPv2 사용 하지 않는 것이 좋습니다.
-프리미엄 스토리지 | 지원하지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
+Premium Storage | 지원되지 않음 | 표준 저장소 계정은 캐시 저장소에 사용 되며 비용을 최적화 하는 데 도움이 됩니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 방화벽 지원 캐시 스토리지 계정 또는 대상 스토리지 계정을 사용하는 경우 ['신뢰할 수 있는 Microsoft 서비스 허용'](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 선택해야 합니다.<br></br>또한 원본 Vnet의 하나 이상의 서브넷에 대한 액세스를 허용해야 합니다.
 
 
@@ -89,7 +89,7 @@ Windows Server 2012 | 지원됩니다.
 Windows Server 2008 R2 SP1/SP2 | 지원됩니다.<br/><br/> Azure Vm에 대 한 모바일 서비스 확장 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 windows Server 2008 R2 SP1/s p 2를 실행 하는 컴퓨터에 windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 Windows 10(x64) | 지원됩니다.
 Windows 8.1 (x64) | 지원됩니다.
-Windows 8(x64) | 지원됩니다.
+Windows 8 (x64) | 지원됩니다.
 Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장 버전 [9.30](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) 부터 Windows 7 s p 1을 실행 하는 컴퓨터에 windows [서비스 스택 업데이트 (SSU)](https://support.microsoft.com/help/4490628) 및 [SHA-2 업데이트](https://support.microsoft.com/help/4474419) 를 설치 해야 합니다.  S h a-1은 9 월 2019에서 지원 되지 않으며, SHA-2 코드 서명을 사용 하도록 설정 하지 않으면 에이전트 확장이 예상 대로 설치/업그레이드 되지 않습니다. [SHA-2 업그레이드 및 요구 사항](https://aka.ms/SHA-2KB)에 대해 자세히 알아보세요.
 
 
@@ -98,14 +98,15 @@ Windows 7 (x64) SP1 이상 | Azure Vm에 대 한 모바일 서비스 확장 버�
 
 **운영 체제** | **세부 정보**
 --- | ---
-Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery)
-CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0
+Red Hat Enterprise Linux | 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6,[7.7](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery), [8.0](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery), 8.1
+CentOS | 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, 7.7, 8.0, 8.1
 Ubuntu 14.04 LTS Server | [지원되는 커널 버전](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Ubuntu 16.04 LTS Server | [지원되는 커널 버전](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)<br/><br/> 암호 기반 인증 및 로그인을 사용 하는 Ubuntu 서버와 클라우드 Vm을 구성 하는 클라우드 초기화 패키지는 cloudinit 구성에 따라 장애 조치 (failover) 시 암호 기반 로그인을 사용 하지 않도록 설정할 수 있습니다. Azure Portal에서 장애 조치 (failover) 된 VM의 지원 > 문제 해결 > 설정 메뉴에서 암호를 다시 설정 하 여 가상 머신에서 암호 기반 로그인을 다시 사용 하도록 설정할 수 있습니다.
 Ubuntu 18.04 LTS 서버 | [지원되는 커널 버전](#supported-ubuntu-kernel-versions-for-azure-virtual-machines)
 Debian 7 | [지원되는 커널 버전](#supported-debian-kernel-versions-for-azure-virtual-machines)
 Debian 8 | [지원되는 커널 버전](#supported-debian-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 12 | SP1, SP2, SP3, SP4. [(지원되는 커널 버전)](#supported-suse-linux-enterprise-server-12-kernel-versions-for-azure-virtual-machines)
+SUSE Linux Enterprise Server 15 | 15 및 15 SP1 [(지원되는 커널 버전)](#supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines)
 SUSE Linux Enterprise Server 11 | SP3<br/><br/> 복제 컴퓨터를 SP3에서 SP4로 업그레이드하는 것은 지원되지 않습니다. 복제된 컴퓨터를 업그레이드한 경우 복제를 사용하지 않도록 설정하고 업그레이드 후에 다시 사용하도록 설정해야 합니다.
 SUSE Linux Enterprise Server 11 | SP4
 Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5, 7.6, [7.7](https://support.microsoft.com/en-us/help/4531426/update-rollup-42-for-azure-site-recovery) <br/><br/> Red Hat 호환 커널 또는 Unbreakable Enterprise 커널 릴리스 3, 4 & 5 (UNBREAKABLE, UEK4, UEK5) 실행 
@@ -115,16 +116,17 @@ Oracle Linux | 6.4, 6.5, 6.6, 6.7, 6.8, 6.9, 6.10, 7.0, 7.1, 7.2, 7.3, 7.4, 7.5,
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
+14.04 LTS | 9.32| 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 14.04 LTS | 9.31 | 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 14.04 LTS | 9.30 | 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 14.04 LTS | 9.29 | 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
-14.04 LTS | 9.28 | 3.13.0-24-3.13.0-170-제네릭,<br/>3.16.0-25-generic에서 3.16.0-77-generic<br/>3.19.0-18-generic에서 3.19.0-80-generic<br/>4.2.0-18-generic에서 4.2.0-42-generic<br/>4.4.0-21-4.4.0-148-제네릭,<br/>4.15.0-4.15.0-1045-azure |
 |||
+16.04 LTS | 9.32 | 4.4.0-21-generic to 4.4.0-171-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-generic to 4.15.0-74-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-azure-4.15.0|
 16.04 LTS | 9.31 | 4.4.0-21-generic to 4.4.0-170-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1063-azure|
 16.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.4.0-21-generic to 4.4.0-0.166-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-66-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1061-azure|
 16.04 LTS | 9.29 | 4.4.0-21-4.4.0-164-제네릭,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-64-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1059-azure|
-16.04 LTS | 9.28 | 4.4.0-21-generic to 4.4.0-159-generic,<br/>4.8.0-34-generic에서 4.8.0-58-generic<br/>4.10.0-14-generic에서 4.10.0-42-generic<br/>4.11.0-13-generic에서 4.11.0-14-generic<br/>4.13.0-16-generic에서 4.13.0-45-generic<br/>4.15.0-13-4.15.0-58-generic<br/>4.11.0-1009-azure에서 4.11.0-1016-azure<br/>4.13.0-1005-azure에서 4.13.0-1018-azure <br/>4.15.0-1012-4.15.0-1055-azure|
 |||
+18.04 LTS | 9.32| 4.15.0-20-generic to 4.15.0-74-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-5.0.0-37-generic </br> 5.3.0-19-5.3.0-24-제네릭 </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-azure에서 5.0.0로 </br> 5.3.0-1007-5.3.0-1009-azure|
 18.04 LTS | 9.31| 4.15.0-20-4.15.0-72-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-5.0.0-37-generic </br> 5.3.0-19-5.3.0-24-제네릭 </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1025-azure </br> 5.3.0-1007-azure|
 18.04 LTS | [9.30](https://support.microsoft.com/help/4531426/update-rollup-42-for-azure-site-recovery) | 4.15.0-20-4.15.0-66-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-generic to 5.0.0-32-generic </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1023-azure|
 18.04 LTS | [9.29](https://support.microsoft.com/help/4528026/update-rollup-41-for-azure-site-recovery) | 4.15.0-20-4.15.0-64-generic </br> 4.18.0-13-4.18.0-25-generic </br> 5.0.0-15-5.0.0-29-제네릭 </br> 4.15.0-1009-4.15.0-1037-azure </br> 4.18.0-1006-4.18.0-1025-azure </br> 5.0.0-1012-5.0.0-1020-azure|
@@ -143,10 +145,16 @@ Debian 8 | 9.28 | 3.16.0-amd64 to 3.16.0-10-amd64, 4.9.0 64,-amd64 to 4.9.0 64,.
 
 **릴리스** | **모바일 서비스 버전** | **커널 버전** |
 --- | --- | --- |
+SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.32 | 모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.34  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.31 | 모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.29  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.30 | 모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.29  |
 SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.29 | 모든 [STOCK SUSE 12 SP1, SP2, SP3, SP4 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_12) 지원 합니다.</br></br> 4.4.138-azure-4.4.180-4.31,</br>4.12.14-6.3-azure-4.12.14-6.23  |
-SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.28 | SP1 3.12.49-11-default에서 3.12.74-60.64.40-default</br></br> SP1 (LTSS) 3.12.74-60.64.45-default를 3.12.74-60.64.118-default로</br></br> SP2 4.4.21-69-default에서 4.4.120-92.70-default</br></br>SP2 (LTSS) 4.4.121-92.73-default to 4.4.121-92.117-default</br></br>SP3 4.4.73-기본값-4.4.180-94.100-default</br></br>SP3 4.4.138-4.4.180-4.31-azure</br></br>SP4 4.12.14-94.41-default to 4.12.14-95.29-default</br>SP4 4.12.14-4.12.14-6.23-azure |
+
+#### <a name="supported-suse-linux-enterprise-server-15-kernel-versions-for-azure-virtual-machines"></a>Azure virtual machines에 대해 지원 되는 SUSE Linux Enterprise Server 15 커널 버전
+
+**릴리스** | **모바일 서비스 버전** | **커널 버전** |
+--- | --- | --- |
+SUSE Linux Enterprise Server 15 및 15 SP1 | 9.32 | 모든 [STOCK SUSE 15 및 15 커널을](https://wiki.microfocus.com/index.php/SUSE/SLES/Kernel_versions#SUSE_Linux_Enterprise_Server_15) 지원 합니다.</br></br> 4.12.14-4.12.14-8.22-azure |
 
 ## <a name="replicated-machines---linux-file-systemguest-storage"></a>복제된 컴퓨터 - Linux 파일 시스템/게스트 스토리지
 
@@ -163,13 +171,13 @@ SUSE Linux Enterprise Server 12 (SP1, SP2, SP3, SP4) | 9.28 | SP1 3.12.49-11-def
 가용성 집합 | 지원됨 | 기본 옵션을 사용 하 여 Azure VM에 대 한 복제를 사용 하도록 설정 하면 원본 지역 설정에 따라 가용성 집합이 자동으로 만들어집니다. 이러한 설정을 수정할 수 있습니다.
 가용성 영역 | 지원됨 |
 HUB(하이브리드 사용 혜택) | 지원됨 | 원본 VM에 활성 HUB 라이선스가 있는 경우 테스트 장애 조치(failover) 또는 장애 조치(failover)된 VM에서도 HUB 라이선스를 사용합니다.
-가상 머신 확장 집합 | 지원하지 않음 |
+가상 머신 크기 집합 | 지원되지 않음 |
 Azure 갤러리 이미지 - Microsoft 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Azure 갤러리 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 사용자 지정 이미지 - 타사 게시 | 지원됨 | VM이 지원되는 운영 체제에서 실행되는 경우에 지원됨
 Site Recovery를 사용하여 마이그레이션된 VM | 지원됨 | VMware VM 또는 물리적 컴퓨터가 Site Recovery를 사용하여 Azure에 마이그레이션되면 컴퓨터에서 실행되는 이전 버전의 모바일 서비스를 제거하고 컴퓨터를 다시 시작한 후 다른 Azure 지역에 복제해야 합니다.
-RBAC 정책 | 지원하지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
-확장 | 지원하지 않음 | 확장은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다. 장애 조치 (failover) 후 수동으로 설치 해야 합니다.
+RBAC 정책 | 지원되지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 정책은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다.
+확장 | 지원되지 않음 | 확장은 대상 지역의 장애 조치 (failover) VM에 복제 되지 않습니다. 장애 조치 (failover) 후 수동으로 설치 해야 합니다.
 
 ## <a name="replicated-machines---disk-actions"></a>복제된 컴퓨터 - 디스크 작업
 
@@ -189,7 +197,7 @@ RBAC 정책 | 지원하지 않음 | Vm의 RBAC (역할 기반 액세스 제어) 
 **구성 요소** | **지원** | **세부 정보**
 --- | --- | ---
 OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
-임시 디스크 | 지원하지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아보기](../virtual-machines/windows/managed-disks-overview.md).
+임시 디스크 | 지원되지 않음 | 임시 디스크는 항상 복제에서 제외됩니다.<br/><br/> 임시 디스크에는 영구 데이터를 저장하지 마세요. [자세히 알아봅니다](../virtual-machines/windows/managed-disks-overview.md).
 데이터 디스크 최대 크기 | 관리 디스크의 8192 GB<br></br>관리 되지 않는 디스크의 4095 GB|
 데이터 디스크 최소 크기 | 관리 되지 않는 디스크에 대 한 제한은 없습니다. 관리 디스크의 경우 2gb | 
 데이터 디스크 최대 수 | 특정 Azure VM 크기에 대한 지원에 따라 최대 64개 | VM 크기에 대해 [자세히 알아봅니다](../virtual-machines/windows/sizes.md).
@@ -199,23 +207,23 @@ OS 디스크 최대 크기 | 2048GB | VM 디스크에 대해 [자세히 알아�
 Managed Disk - Standard | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 Managed Disk - Premium | Azure Site Recovery가 지원되는 Azure 지역에서 지원됩니다. |
 표준 SSD | 지원됨 |
-중복성 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
-콜드 및 핫 스토리지 | 지원하지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
+중복 | LRS 및 GRS가 지원됩니다.<br/><br/> ZRS는 지원되지 않습니다.
+콜드 및 핫 스토리지 | 지원되지 않음 | VM 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 스토리지 공간 | 지원됨 |
 미사용 암호화(SSE) | 지원됨 | SSE은 스토리지 계정의 기본 설정입니다.   
 미사용 암호화 (CMK) | 지원됨 | 관리 디스크에는 소프트웨어 및 HSM 키가 모두 지원 됩니다.    
 Windows OS용 ADE(Azure Disk Encryption) | 관리 디스크가 있는 Vm에 대해 지원 됩니다. 관리 되지 않는 디스크를 사용 하는 Vm은 지원 되지 않습니다. |
 Linux OS용 ADE(Azure Disk Encryption) | 지원됨 |
 핫 추가 | 지원됨 | 복제 된 Azure VM에 추가 하는 데이터 디스크에 대 한 복제를 사용 하도록 설정 하는 것은 managed disks를 사용 하는 Vm에 대해 지원 됩니다.
-디스크 핫 제거 | 지원하지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
+디스크 핫 제거 | 지원되지 않음 | VM에서 데이터 디스크를 제거 하는 경우 복제를 사용 하지 않도록 설정 하 고 VM에 대해 복제를 다시 사용 하도록 설정 해야 합니다.
 디스크 제외 | 지지도. [Powershell](azure-to-azure-exclude-disks.md) 을 사용 하 여를 구성 해야 합니다. |  임시 디스크는 기본적으로 제외 됩니다.
-Storage Spaces Direct  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
+직접 스토리지 공간  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 스케일 아웃 파일 서버  | 크래시 일관성이 있는 복구 지점을 지원합니다. 애플리케이션 일관성이 있는 복구 지점은 지원되지 않습니다. |
 LRS | 지원됨 |
 GRS | 지원됨 |
 RA-GRS | 지원됨 |
-ZRS | 지원하지 않음 |
-콜드 및 핫 스토리지 | 지원하지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
+ZRS | 지원되지 않음 |
+콜드 및 핫 스토리지 | 지원되지 않음 | 가상 머신 디스크는 콜드 및 핫 스토리지에서 지원되지 않습니다.
 가상 네트워크의 Azure Storage 방화벽  | 지원됨 | 저장소 계정에 대 한 가상 네트워크 액세스를 제한 하는 경우 [트러스트 된 Microsoft 서비스 허용](https://docs.microsoft.com/azure/storage/common/storage-network-security#exceptions)을 사용 하도록 설정 합니다.
 범용 V2 스토리지 계정(핫 및 쿨 계층 모두) | 지원됨 | 범용 V1 Storage 계정에 비해 상당한 트랜잭션 비용 증가
 2 세대 (UEFI 부팅) | 지원됨
@@ -251,16 +259,16 @@ NIC의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 �
 서브넷의 NSG | 지원됨 | 복구 계획에서 Azure Automation 스크립트를 사용하여 NSG를 서브넷에 연결합니다.
 예약된(고정) IP 주소 | 지원됨 | 원본 VM의 NIC에 고정 IP 주소가 있고 대상 서브넷에서 동일한 IP 주소를 사용할 수 있는 경우 해당 IP가 장애 조치(Failover)된 VM에 할당됩니다.<br/><br/> 대상 서브넷에서 동일한 IP 주소를 사용할 수 없는 경우 서브넷의 사용 가능한 IP 주소 중 하나가 이 VM용으로 예약됩니다.<br/><br/> **복제된 항목** > **설정** > **계산 및 네트워크** > **네트워크 인터페이스**에서 고정 IP 주소 및 서브넷을 지정할 수도 있습니다.
 동적 IP 주소 | 지원됨 | 원본의 NIC에 동적 IP 주소가 있는 경우 장애 조치(failover)된 VM의 NIC도 기본적으로 동적으로 설정됩니다.<br/><br/> 필요한 경우 이 주소를 고정 IP 주소로 수정할 수 있습니다.
-여러 IP 주소 | 지원하지 않음 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치 (failover) 하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지 됩니다. 여러 IP 주소를 할당 하려면 [복구 계획](recovery-plan-overview.md) 에 vm을 추가 하 고 스크립트를 연결 하 여 추가 ip 주소를 계획에 할당 하거나, 장애 조치 (failover) 후 수동으로 또는 스크립트를 사용 하 여 변경할 수 있습니다. 
+여러 IP 주소 | 지원되지 않음 | 여러 IP 주소가 있는 NIC가 있는 VM을 장애 조치 (failover) 하는 경우 원본 지역의 NIC의 기본 IP 주소만 유지 됩니다. 여러 IP 주소를 할당 하려면 [복구 계획](recovery-plan-overview.md) 에 vm을 추가 하 고 스크립트를 연결 하 여 추가 ip 주소를 계획에 할당 하거나, 장애 조치 (failover) 후 수동으로 또는 스크립트를 사용 하 여 변경할 수 있습니다. 
 Traffic Manager     | 지원됨 | 트래픽이 평소에는 원본 지역의 엔드포인트로 라우팅되고 장애 조치(Failover) 시에는 대상 지역의 엔드포인트로 라우팅되도록 Traffic Manager를 미리 구성할 수 있습니다.
 Azure DNS | 지원됨 |
 사용자 지정 DNS  | 지원됨 |
 인증되지 않은 프록시 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
-인증된 프록시 | 지원하지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
+인증된 프록시 | 지원되지 않음 | VM에서 아웃바운드 연결에 인증된 프록시를 사용하는 경우 Azure Site Recovery를 사용하여 VM을 복제할 수 없습니다.    
 온-프레미스에 대 한 VPN 사이트 간 연결<br/><br/>(Express 경로 유무에 관계 없음)| 지원됨 | Site Recovery 트래픽이 온-프레미스로 라우팅되지 않도록 UDRs와 NSGs가 구성 되어 있는지 확인 합니다. [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)    
 VNet 간 연결 | 지원됨 | [자세히 알아보기](site-recovery-azure-to-azure-networking-guidance.md)  
 Virtual Network 서비스 엔드포인트 | 지원됨 | 스토리지 계정에 대한 가상 네트워크 액세스를 제한하는 경우 신뢰할 수 있는 Microsoft 서비스가 스토리지 계정에 액세스할 수 있는지 확인합니다.
-가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아보기](azure-vm-disaster-recovery-with-accelerated-networking.md).
+가속된 네트워킹 | 지원됨 | 원본 VM에서 가속 네트워킹을 사용하도록 설정해야 합니다. [자세히 알아봅니다](azure-vm-disaster-recovery-with-accelerated-networking.md).
 
 
 

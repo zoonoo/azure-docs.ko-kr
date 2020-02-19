@@ -7,12 +7,12 @@ ms.date: 12/5/2019
 ms.topic: conceptual
 ms.service: azure-monitor
 ms.subservice: alerts
-ms.openlocfilehash: 8f84b5641b79514ffed493302f246ecc51a20a87
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: abcf7d100a1c195d4a49c3061bf22710285c2a9f
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74850060"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444165"
 ---
 # <a name="understand-how-metric-alerts-work-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고가 작동하는 방식 이해
 
@@ -125,15 +125,15 @@ Azure Monitor의 메트릭 경고는 하나의 규칙을 사용하여 여러 차
 
 ## <a name="monitoring-at-scale-using-metric-alerts-in-azure-monitor"></a>Azure Monitor에서 메트릭 경고를 사용한 모니터링 축소
 
-지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. Azure Monitor는 하나의 경고 규칙으로 여러 리소스를 모니터링할 수도 있습니다. 이 기능은 현재 virtual machines, SQL server 데이터베이스, SQL server 탄력적 풀 및 데이터 상자에 지 장치 에서만 지원 됩니다. 또한 단일 메트릭 경고가 한 Azure 지역의 리소스를 모니터링할 수 있습니다.
+지금까지 단일 메트릭 경고를 사용하여 단일 Azure 리소스와 관련된 하나 이상의 메트릭 시계열을 모니터링하는 방법을 확인했습니다. 많은 리소스에 동일한 경고 규칙을 적용하려는 경우가 많습니다. 또한 동일한 Azure 지역에 있는 리소스에 대해 하나의 메트릭 경고 규칙을 사용 하 여 동일한 유형의 여러 리소스를 모니터링 하는 것을 지원 합니다. Azure Monitor 이 기능은 현재 Azure 공용 클라우드에서만 지원 되며, 가상 컴퓨터, SQL server 데이터베이스, SQL server 탄력적 풀 및 데이터 상자에 지 장치에 대해서만 지원 됩니다. 또한이 기능은 플랫폼 메트릭에 대해서만 사용할 수 있으며 사용자 지정 메트릭에는 지원 되지 않습니다.
 
-다음 세 가지 방법 중 하나로 단일 메트릭 경고를 통해 모니터링 범위를 지정할 수 있습니다.
+다음 세 가지 방법 중 하나로 단일 메트릭 경고 규칙에 따라 모니터링 범위를 지정할 수 있습니다.
 
 - 구독 내 한 Azure 지역에 있는 가상 머신 목록으로
 - 구독 내 하나 이상의 리소스 그룹에 있는 모든 가상 머신(한 Azure 지역에 있는)
 - 구독의 모든 가상 머신(한 Azure 지역에 있는)
 
-여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 각 가상 머신에 대한 개별 알림을 받게 됩니다.
+여러 리소스를 모니터링하는 메트릭 경고 규칙을 만드는 작업은 단일 리소스를 모니터링하는 [다른 메트릭 경고를 만드는](alerts-metric.md) 것과 같습니다. 차이점은 모니터링하려는 모든 리소스를 사용자가 선택한다는 것입니다. [Azure Resource Manager 템플릿](../../azure-monitor/platform/alerts-metric-create-templates.md#template-for-a-metric-alert-that-monitors-multiple-resources)을 통해 이러한 규칙을 만들 수도 있습니다. 모니터링 되는 각 리소스에 대 한 개별 알림을 받게 됩니다.
 
 ## <a name="typical-latency"></a>일반적인 대기 시간
 

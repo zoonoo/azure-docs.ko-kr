@@ -8,18 +8,18 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/15/2020
-ms.openlocfilehash: c4a787362089dabf9c4eda9681358e7a70d8e78a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 5846e9516548032595c1ce072d1dae8dcce9d39e
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210547"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443604"
 ---
 # <a name="monitor-operations-and-activity-of-azure-cognitive-search"></a>Azure Cognitive Search의 작업 및 활동 모니터링
 
 이 문서에서는 작업 수준 (쿼리 및 인덱싱)에서 서비스 (리소스) 수준 모니터링을 소개 하 고 사용자 액세스를 모니터링 하기 위한 프레임 워크를 제안 합니다.
 
-스펙트럼에서 기본 제공 인프라와 Azure Monitor 같은 기본 서비스와 통계, 개수 및 상태를 반환 하는 서비스 Api의 조합을 사용 합니다. 기능 범위를 이해 하면 문제에 대 한 사전 대응 응답을 위한 효과적인 통신 시스템을 구성 하거나 만드는 데 도움이 됩니다.
+스펙트럼에서 기본 제공 인프라와 Azure Monitor 같은 기본 서비스와 통계, 개수 및 상태를 반환 하는 서비스 Api의 조합을 사용 합니다. 기능 범위를 이해 하면 문제를 해결할 수 있도록 피드백 루프를 구성 하는 데 도움이 될 수 있습니다.
 
 ## <a name="use-azure-monitor"></a>Azure Monitor 사용
 
@@ -52,9 +52,9 @@ Azure Cognitive Search을 비롯 한 많은 서비스는 경고, 메트릭 및 �
 
 [프로덕션 워크로드에 사용할 계층](search-sku-tier.md) 또는 [활성 복제본 및 파티션의 수를 조정할지 여부](search-capacity-planning.md)를 최종적으로 결정하는 경우 이러한 메트릭은 리소스 사용 속도 및 현재 구성의 기존 부하 처리에 대한 효율성을 보여줌으로써 이러한 결정을 내리는 데 도움이 됩니다.
 
-현재 저장소와 관련 된 경고를 사용할 수 없습니다. 저장소 소비는 집계 되거나 **Azuremetrics**기록 되지 않습니다. 리소스 관련 알림을 받으려면 사용자 지정 솔루션을 만들어야 합니다.
+현재 저장소와 관련 된 경고를 사용할 수 없습니다. 저장소 소비는 집계 되지 않으며 Azure Monitor의 **Azuremetrics** 테이블에 기록 되지 않습니다. 코드에서 저장소 크기를 확인 하 고 응답을 처리 하는 리소스 관련 알림을 내보내는 사용자 지정 솔루션을 만들어야 합니다. 저장소 메트릭에 대 한 자세한 내용은 [서비스 통계 가져오기](https://docs.microsoft.com/rest/api/searchservice/get-service-statistics#response)를 참조 하세요.
 
-포털에서 **사용량** 탭은 서비스 계층에 의해 적용 되는 현재 한 [도](search-limits-quotas-capacity.md) 를 기준으로 리소스 가용성을 보여 줍니다. 
+포털의 시각적 모니터링을 위해 **사용** 탭에는 서비스 계층에 의해 적용 되는 현재 한 [도](search-limits-quotas-capacity.md) 를 기준으로 리소스 가용성이 표시 됩니다. 
 
 다음 그림에서는 각 형식의 3개 개체와 50MB의 스토리지로 제한된 체험 서비스를 보여 줍니다. 기본 또는 표준 서비스의 제한이 더 높으며, 파티션 수를 늘리면 최대 스토리지 크기도 비례하여 증가합니다.
 
@@ -63,7 +63,7 @@ Azure Cognitive Search을 비롯 한 많은 서비스는 경고, 메트릭 및 �
 
 ## <a name="monitor-workloads"></a>워크 로드 모니터링
 
-기록 된 이벤트에는 인덱싱 및 쿼리와 관련 된 이벤트가 포함 됩니다. Log Analytics의 **Azure 진단** 테이블은 쿼리 및 인덱싱과 관련 된 작업 데이터를 수집 합니다.
+기록 된 이벤트에는 인덱싱 및 쿼리와 관련 된 이벤트가 포함 됩니다. Log Analytics의 **Azurediagnostics** 테이블은 쿼리 및 인덱싱과 관련 된 운영 데이터를 수집 합니다.
 
 기록 된 대부분의 데이터는 읽기 전용 작업에 대 한 것입니다. 로그에 캡처되지 않은 기타 만들기-업데이트-삭제 작업의 경우 검색 서비스에서 시스템 정보를 쿼리할 수 있습니다.
 
@@ -115,9 +115,9 @@ Azure Cognitive Search REST API 및 .NET SDK는 서비스 메트릭, 인덱스 �
 
 ## <a name="monitor-user-access"></a>사용자 액세스 모니터링
 
-검색 인덱스는 더 큰 클라이언트 응용 프로그램의 구성 요소 이므로 인덱스에 대 한 액세스를 제어 하는 기본 제공 사용자 단위 방법론은 없습니다. 요청은 관리자 또는 쿼리 요청에 대해 클라이언트 응용 프로그램에서 가져온 것으로 간주 됩니다. 관리자 읽기/쓰기 작업에는 전체 서비스에서 개체를 만들고, 업데이트 하 고, 삭제 하는 작업이 포함 됩니다. 읽기 전용 작업은 단일 인덱스로 범위가 지정 된 documents 컬렉션에 대 한 쿼리입니다. 
+검색 인덱스는 대규모 클라이언트 응용 프로그램의 구성 요소 이므로 인덱스에 대 한 사용자별 액세스를 제어 하거나 모니터링 하는 기본 제공 방법이 없습니다. 요청은 관리자 또는 쿼리 요청에 대해 클라이언트 응용 프로그램에서 가져온 것으로 간주 됩니다. 관리자 읽기/쓰기 작업에는 전체 서비스에서 개체를 만들고, 업데이트 하 고, 삭제 하는 작업이 포함 됩니다. 읽기 전용 작업은 단일 인덱스로 범위가 지정 된 documents 컬렉션에 대 한 쿼리입니다. 
 
-따라서 로그에 표시 되는 항목은 관리 키 또는 쿼리 키를 사용 하는 호출에 대 한 참조입니다. 적절 한 키는 클라이언트 코드에서 시작 되는 요청에 포함 됩니다. 서비스는 id 토큰 또는 가장을 처리할 수 없습니다.
+따라서 활동 로그에 표시 되는 항목은 관리 키 또는 쿼리 키를 사용 하는 호출에 대 한 참조입니다. 적절 한 키는 클라이언트 코드에서 시작 되는 요청에 포함 됩니다. 서비스는 id 토큰 또는 가장을 처리할 수 없습니다.
 
 사용자 단위 권한 부여에 대 한 비즈니스 요구 사항이 있는 경우 권장 사항은 Azure Active Directory와 통합 됩니다. $Filter 및 사용자 id를 사용 하 여 사용자가 볼 수 없는 문서의 [검색 결과를 지울](search-security-trimming-for-azure-search-with-aad.md) 수 있습니다. 
 

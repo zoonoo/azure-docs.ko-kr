@@ -13,12 +13,12 @@ ms.topic: conceptual
 ms.date: 05/07/2019
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bc6a478bebef0733847ef4744b722ed9e61a6c7f
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
-ms.translationtype: HT
+ms.openlocfilehash: 48a7e5e810e509a97b6010218532f6e7dff0b73f
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367953"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425547"
 ---
 # <a name="whats-new-for-azure-active-directory-in-microsoft-365-government"></a>Microsoft 365 정부에서 Azure Active Directory의 새로운 기능
 
@@ -51,7 +51,7 @@ Microsoft 365 정부 온라인 서비스에 대 한 조직의 초기 등록 중�
 
 다음 표에서는 모든 고객에 대 한 끝점을 보여 줍니다.
 
-| 이름 | 끝점 세부 정보 |
+| 속성 | 끝점 세부 정보 |
 |------|------------------|
 | 포털 |Microsoft Azure Government: https://portal.azure.us<p>Microsoft 365 정부 – GCC High: https://portal.office365.us<p>Microsoft 365 정부 – DoD: https://portal.apps.mil |
 | Azure Active Directory 기관 끝점 | https://login.microsoftonline.us |

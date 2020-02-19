@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: 9e03ba960ab6542198372d75de7e0d34bf8d9e1b
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513323"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443842"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -67,12 +67,12 @@ Azure Automation의 runbook에서 업데이트가 설치됩니다. 이러한 run
 
 ### <a name="supported-client-types"></a>지원되는 클라이언트 유형
 
-다음 표에는 업데이트 평가에 대해 지원 되는 운영 체제가 나와 있습니다. 패치를 적용 하려면 Hybrid Runbook Worker 필요 합니다. Hybrid Runbook Worker 요구 사항에 대 한 자세한 내용은 [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 및 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치를 위한 설치 가이드를 참조 하세요.
+다음 표에는 업데이트 평가에 대해 지원 되는 운영 체제가 나와 있습니다. 패치를 적용 하려면 Hybrid Runbook Worker 필요 합니다. Hybrid Runbook Worker 요구 사항에 대 한 자세한 내용은 [Windows Hybrid Runbook Worker](automation-windows-hrw-install.md) 및 [Linux Hybrid Runbook Worker](automation-linux-hrw-install.md#installing-a-linux-hybrid-runbook-worker)설치를 위한 설치 가이드를 참조 하세요.
 
 |운영 체제  |메모  |
 |---------|---------|
 |Windows Server 2019 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2016 (Datacenter/Datacenter Core/Standard)<br><br>Windows Server 2012 R2 (Datacenter/Standard)<br><br>Windows Server 2012 || 
-|Windows Server 2008 R2 (RTM 및 SP1 표준)| 이 운영 체제에 대 한 평가를 수행 하도록 지원 업데이트 관리 Windows Server 2008 r 2에서 [Hybrid Runbook Worker](automation-windows-hrw-install.md#installing-the-windows-hybrid-runbook-worker) 지원 되지 않으므로 패치가 지원 되지 않습니다. |
+|Windows Server 2008 R2 (RTM 및 SP1 표준)| 이 운영 체제에 대 한 평가를 수행 하도록 지원 업데이트 관리 Windows Server 2008 r 2에서 [Hybrid Runbook Worker](automation-windows-hrw-install.md) 지원 되지 않으므로 패치가 지원 되지 않습니다. |
 |CentOS 6(x86/x64) 및 7(x64)      | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다. 분류 기반 패치를 적용 하려면 CentOS가 RTM 릴리스에 없는 보안 데이터를 반환 `yum` 해야 합니다. CentOS의 분류 기반 패치에 대 한 자세한 내용은 [Linux의 업데이트 분류](automation-view-update-assessments.md#linux-2)를 참조 하세요.          |
 |Red Hat Enterprise 6(x86/x64) 및 7(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
 |SUSE Linux Enterprise Server 11(x86/x64) 및 12(x64)     | Linux 에이전트에는 업데이트 리포지토리에 대한 액세스 권한이 있어야 합니다.        |
@@ -117,7 +117,7 @@ Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운�
 
 Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) 에 액세스 하도록 등록 됩니다. 배포의 지원 되는 메서드를 사용 하 여 배포의 온라인 파일 리포지토리에서 다른 모든 Linux 배포를 업데이트 해야 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 업데이트 배포를 만들고 관리하려면 특정 권한이 필요합니다. 이러한 사용 권한에 대 한 자세한 내용은 [역할 기반 액세스 – 업데이트 관리](automation-role-based-access-control.md#update-management)를 참조 하세요.
 
@@ -157,9 +157,9 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 | 연결된 원본 | 지원됨 | Description |
 | --- | --- | --- |
-| Windows 에이전트 |예 |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
-| Linux 에이전트 |예 |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
-| Operations Manager 관리 그룹 |예 |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| Windows 에이전트 |yes |솔루션은 Windows 에이전트에서 시스템 업데이트에 대한 정보를 수집한 후 필수 업데이트를 설치하기 시작합니다. |
+| Linux 에이전트 |yes |이 솔루션은 Linux 에이전트에서 시스템 업데이트에 대한 정보를 수집하고 지원되는 배포판에서 필수 업데이트 설치를 시작합니다. |
+| Operations Manager 관리 그룹 |yes |솔루션은 연결된 관리 그룹의 에이전트에서 시스템 업데이트에 대한 정보를 수집합니다.<br/><br/>Operations Manager 에이전트에서 Azure Monitor 로그로 직접 연결 하는 것은 필요 하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
 
 ### <a name="collection-frequency"></a>수집 빈도
 
@@ -206,7 +206,7 @@ Automation 계정에서 **업데이트 관리**를 선택하여 컴퓨터 상태
 
 **누락 업데이트**를 선택하여 컴퓨터에서 누락된 업데이트 목록을 표시합니다. 각 업데이트가 나열되며 선택 가능합니다. 업데이트가 필요한 컴퓨터 수, 운영 체제 및 세부 정보에 대한 링크와 관련된 정보가 표시됩니다. **로그 검색** 창에 업데이트에 대한 자세한 정보가 표시됩니다.
 
-![누락 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
+![누락 된 업데이트](./media/automation-view-update-assessments/automation-view-update-assessments-missing-updates.png)
 
 ## <a name="update-classifications"></a>업데이트 분류
 

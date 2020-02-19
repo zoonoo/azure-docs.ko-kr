@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/12/2020
+ms.date: 02/14/2020
 ms.author: spelluru
-ms.openlocfilehash: ea9df341fcc76a38364e590f8541e6a85d7ec466
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 52d5628698d1f945a7f672595ee7ce4739b6d13c
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211010"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77444369"
 ---
 # <a name="allow-lab-creator-to-pick-location-for-the-lab-in-azure-lab-services"></a>랩 작성자가 Azure Lab Services에서 랩의 위치를 선택 하도록 허용
 Azure Lab Services 랩 계정 소유자는 랩 작성자 (교육자)가 만든 랩의 위치를 선택할 수 있습니다. 이 위치는 랩 계정의 위치와 다를 수 있습니다. 위치는 Azure 지역 그룹입니다. 예를 들어 미국 위치는 미국 동부, 미국 서 부 등의 지역 그룹입니다. 
@@ -73,6 +73,8 @@ Azure Lab Services 랩 계정 소유자는 랩 작성자 (교육자)가 만든 �
 ## <a name="next-steps"></a>다음 단계
 다음 문서를 참조하세요.
 
-- [랩 소유자 권한으로 랩 만들기 및 관리](how-to-manage-classroom-labs.md)
-- [랩 소유자 권한으로 템플릿 설정 및 게시](how-to-create-manage-template.md)
-- [랩 소유자 권한으로 랩 사용 구성 및 제어](how-to-configure-student-usage.md)
+- [랩의 네트워크를 피어 가상 네트워크에 연결](how-to-connect-peer-virtual-network.md)
+- [공유 이미지 갤러리를 랩에 연결](how-to-attach-detach-shared-image-gallery.md)
+- [사용자를 랩 소유자로 추가](how-to-add-user-lab-owner.md)
+- [랩에 대 한 방화벽 설정 보기](how-to-configure-firewall-settings.md)
+- [랩에 대 한 기타 설정 구성](how-to-configure-lab-accounts.md)

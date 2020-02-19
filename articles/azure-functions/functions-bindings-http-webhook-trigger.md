@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: 5d2ee6c530e2154373508be00edcf1bcdbb59861
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 8dbb4ff0c9f8df6609d8447e84dcfe878a954fff
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210893"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443961"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -29,7 +29,7 @@ HTTP 바인딩에 대 한 자세한 내용은 [개요](./functions-bindings-http
 
 ## <a name="example"></a>예제
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제는 쿼리 문자열이나 HTTP 요청의 본문에서 [ 매개 변수를 찾는 ](functions-dotnet-class-library.md)C# 함수`name`를 보여 줍니다. 반환 값은 출력 바인딩에 사용되지만, 반환 값 특성은 필요 없습니다.
 
@@ -53,7 +53,7 @@ public static async Task<IActionResult> Run(
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [C# 스크립트 함수](functions-reference-csharp.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -129,7 +129,7 @@ public class Person {
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩과 바인딩을 사용하는 [JavaScript 함수](functions-reference-node.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -178,7 +178,7 @@ module.exports = function(context, req) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제는 *function.json* 파일의 트리거 바인딩 및 바인딩을 사용하는 [Python 함수](functions-reference-python.md)를 보여줍니다. 함수는 쿼리 문자열이나 HTTP 요청의 본문에서 `name` 매개 변수를 찾습니다.
 
@@ -234,7 +234,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
         )
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 * [쿼리 문자열에서 매개 변수 읽기](#read-parameter-from-the-query-string)
 * [POST 요청에서 본문 읽기](#read-body-from-a-post-request)
@@ -428,7 +428,7 @@ public HttpResponseMessage run(
 
 특성 생성자 매개 변수, webhook 형식 및 경로 템플릿에서 권한 부여 수준 및 허용 되는 HTTP 메서드를 설정할 수 있습니다. 이러한 설정에 대 한 자세한 내용은 [구성](#configuration)을 참조 하세요.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 이 예제에서는 [Httptrigger](https://github.com/Azure/azure-webjobs-sdk-extensions/blob/dev/src/WebJobs.Extensions.Http/HttpTriggerAttribute.cs) 특성을 사용 하는 방법을 보여 줍니다.
 
@@ -443,19 +443,19 @@ public static Task<IActionResult> Run(
 
 전체 예제는 [트리거 예](#example)를 참조 하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 이 예제에서는 [Httptrigger](https://github.com/Azure/azure-functions-java-library/blob/dev/src/main/java/com/microsoft/azure/functions/annotation/HttpTrigger.java) 특성을 사용 하는 방법을 보여 줍니다.
 
@@ -489,11 +489,11 @@ public HttpResponseMessage<String> HttpTrigger(
 | **route** | **Route** | 경로 템플릿을 정의하여 함수에서 응답할 요청 URL을 제어합니다. 값을 제공하지 않을 경우 기본값은 `<functionname>`입니다. 자세한 내용은 [HTTP 엔드포인트 사용자 지정](#customize-the-http-endpoint)을 참조 하세요. |
 | **webHookType** | **WebHookType** | _버전 1.x 런타임에서만 지원됩니다._<br/><br/>HTTP 트리거가 지정된 공급자의 [웹후크](https://en.wikipedia.org/wiki/Webhook) 수신기(receiver)로 작동하도록 구성합니다. 이 속성을 설정하면 `methods` 속성을 설정하지 마십시오. 웹후크 형식은 다음 값 중 하나일 수 있습니다.<ul><li><code>genericJson</code>&mdash;특정 공급자를 위한 논리가 없는 범용 webhook 엔드포인트입니다. 이 설정은 HTTP POST 및 `application/json` 콘텐츠 형식을 사용하는 요청으로만 제한됩니다.</li><li><code>github</code>&mdash;이 함수는 [GitHub 웹후크](https://developer.github.com/webhooks/)에 응답합니다. GitHub 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 GitHub 웹후크 섹션을 참조하세요.</li><li><code>slack</code>&mdash;이 함수는 [Slack 웹후크](https://api.slack.com/outgoing-webhooks)에 응답합니다. Slack 웹후크에는 _authLevel_ 속성을 사용하지 마십시오. 자세한 내용은 이 문서의 뒷부분에서 Slack 웹후크 섹션을 참조하세요.</li></ul>|
 
-## <a name="usage"></a>사용
+## <a name="payload"></a>페이로드
 
 트리거 입력 형식은 `HttpRequest` 또는 사용자 지정 형식으로 선언 됩니다. `HttpRequest`를 선택하면 요청 개체에 대한 모든 권한을 갖게 됩니다. 사용자 지정 형식의 경우 런타임은 JSON 요청 본문의 구문을 분석하여 개체 속성을 설정하려고 합니다.
 
-### <a name="customize-the-http-endpoint"></a>HTTP 엔드포인트 사용자 지정
+## <a name="customize-the-http-endpoint"></a>HTTP 엔드포인트 사용자 지정
 
 기본적으로 HTTP 트리거용 함수를 만드는 경우 폼의 경로를 사용하여 이 함수의 주소를 지정할 수 있습니다.
 
@@ -528,7 +528,7 @@ http://<APP_NAME>.azurewebsites.net/api/products/electronics/357
 
 이 구성을 통해 함수 코드는 주소, _범주_ 및 _id_의 두 매개 변수를 지원할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
 
@@ -544,7 +544,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 매개 변수에서 [웹 API 경로 제약 조건](https://www.asp.net/web-api/overview/web-api-routing-and-actions/attribute-routing-in-web-api-2#constraints)을 사용할 수 있습니다. 다음 C# 함수 코드는 두 매개 변수를 모두 사용합니다.
 
@@ -562,7 +562,7 @@ public static IActionResult Run(HttpRequest req, string category, int? id, ILogg
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 노드에서 함수 런타임은 `context` 개체의 요청 본문을 제공 합니다. 자세한 내용은 [JavaScript 트리거 예제](#example)를 참조하세요.
 
@@ -583,7 +583,7 @@ module.exports = function (context, req) {
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 함수 실행 컨텍스트는 `func.HttpRequest`로 선언 된 매개 변수를 통해 노출 됩니다. 이 인스턴스를 사용 하면 함수에서 데이터 경로 매개 변수, 쿼리 문자열 값 및 HTTP 응답을 반환할 수 있는 메서드를 액세스할 수 있습니다.
 
@@ -603,7 +603,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
     return func.HttpResponse(message)
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 함수 실행 컨텍스트는 `HttpTrigger` 특성에 선언 된 속성입니다. 특성을 사용 하 여 경로 매개 변수, 권한 부여 수준, HTTP 동사 및 들어오는 요청 인스턴스를 정의할 수 있습니다.
 
@@ -644,7 +644,7 @@ public class HttpTriggerJava {
 }
 ```
 
-### <a name="using-route-parameters"></a>경로 매개 변수 사용
+## <a name="using-route-parameters"></a>경로 매개 변수 사용
 
 함수의 `route` 패턴을 정의 하는 경로 매개 변수는 각 바인딩에 사용할 수 있습니다. 예를 들어 `"route": "products/{id}"`으로 정의 된 경로가 있는 경우 테이블 저장소 바인딩은 바인딩 구성에서 `{id}` 매개 변수의 값을 사용할 수 있습니다.
 
@@ -661,13 +661,13 @@ public class HttpTriggerJava {
 }
 ```
 
-### <a name="working-with-client-identities"></a>클라이언트 ID 사용
+## <a name="working-with-client-identities"></a>클라이언트 ID 사용
 
 함수 앱이 [App Service 인증 / 권한 부여](../app-service/overview-authentication-authorization.md)를 사용하는 경우 코드에서 인증된 클라이언트에 대한 정보를 볼 수 있습니다. 이 정보는 [플랫폼에 의해 삽입된 요청 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)로서 사용할 수 있습니다. 
 
 데이터 바인딩에서 이 정보를 읽을 수도 있습니다. 이 기능은 2.x 이상의 함수 런타임에만 사용할 수 있습니다. 또한 이 기능은 현재 .NET 언어에 대해서만 사용할 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
@@ -699,7 +699,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 인증 된 클라이언트에 대 한 정보는 [ClaimsPrincipal](https://docs.microsoft.com/dotnet/api/system.security.claims.claimsprincipal)으로 제공 됩니다. 다음 예제에 표시된 대로 ClaimsPrincipal을 요청 컨텍스트의 일부로 사용할 수 있습니다.
 
@@ -733,21 +733,21 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 }
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [HTTP 헤더](../app-service/app-service-authentication-how-to.md#access-user-claims)를 통해 인증 된 사용자를 사용할 수 있습니다.
 
 ---
 
-### <a name="authorization-keys"></a>권한 부여 키
+## <a name="authorization-keys"></a>권한 부여 키
 
 함수에서는 키를 사용해 개발 중에 HTTP 함수 엔드포인트 액세스를 더 어렵게 만들 수 있습니다.  표준 HTTP 트리거의 경우 요청에 이러한 API 키가 있어야 할 수 있습니다. 
 
@@ -769,7 +769,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 > [!CAUTION]  
 > 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 네이티브 클라이언트 애플리케이션에 배포해서는 안 됩니다. 따라서 관리자 권한 부여 수준을 선택할 때는 주의해야 합니다.
 
-### <a name="obtaining-keys"></a>키 확보
+## <a name="obtaining-keys"></a>키 확보
 
 키는 Azure에 함수 앱의 일부로 저장되며 나머지는 암호화되어 있습니다. 키를 보거나 새 키를 만들거나 키를 새 값으로 전환하려면 [Azure Portal](https://portal.azure.com)에서 HTTP 트리거 함수 중 하나로 이동한 다음 **관리**를 선택합니다.
 
@@ -777,7 +777,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 [키 관리 api](https://github.com/Azure/azure-functions-host/wiki/Key-management-API)를 사용 하 여 프로그래밍 방식으로 함수 키를 가져올 수 있습니다.
 
-### <a name="api-key-authorization"></a>API 키 권한 부여
+## <a name="api-key-authorization"></a>API 키 권한 부여
 
 대다수 HTTP 트리거 템플릿을 사용할 때는 요청에 API 키가 필요합니다. 따라서 HTTP 요청은 일반적으로 다음 URL과 같습니다.
 
@@ -791,7 +791,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 > 함수를 로컬로 실행 하는 경우 지정 된 권한 부여 수준 설정에 관계 없이 권한 부여가 비활성화 됩니다. Azure에 게시하고 나면 트리거의 `authLevel` 설정이 적용됩니다. [컨테이너에서 로컬로 실행 하](functions-create-function-linux-custom-image.md#build-the-container-image-and-test-locally)는 경우에도 키가 필요 합니다.
 
 
-### <a name="secure-an-http-endpoint-in-production"></a>프로덕션 환경에서 HTTP 엔드포인트 보호
+## <a name="secure-an-http-endpoint-in-production"></a>프로덕션 환경에서 HTTP 엔드포인트 보호
 
 프로덕션 환경에서 함수 엔드포인트를 완벽하게 보호하려면 다음의 함수 앱 수준 보안 옵션 중 하나를 구현해야 합니다.
 
@@ -803,24 +803,24 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 이러한 함수 앱 수준 보안 방법 중 하나를 사용 하는 경우 HTTP로 트리거되는 함수 권한 부여 수준을 `anonymous`설정 해야 합니다.
 
-### <a name="webhooks"></a>Webhook
+## <a name="webhooks"></a>Webhook
 
 > [!NOTE]
 > 웹후크 모드는 Functions 런타임의 버전 1.x에서만 사용 가능합니다. 이 변경은 버전 2.x 이상에서 HTTP 트리거의 성능을 향상 시키기 위해 이루어졌습니다.
 
 버전 1.x에서 웹후크 템플릿은 웹후크 페이로드용으로 추가 유효성 검사를 제공합니다. 버전 2.x 이상에서 기본 HTTP 트리거는 계속 작동 하며 웹 후크에 권장 되는 방법입니다. 
 
-#### <a name="github-webhooks"></a>GitHub 웹후크
+### <a name="github-webhooks"></a>GitHub 웹후크
 
 GitHub 웹후크에 응답하려면 먼저 HTTP 트리거를 사용하여 함수를 만들고 **webHookType** 속성을 `github`로 설정합니다. 그런 다음 URL 및 API 키를 GitHub 리포지토리의 **웹후크 추가** 페이지에 복사합니다. 
 
 ![](./media/functions-bindings-http-webhook/github-add-webhook.png)
 
-#### <a name="slack-webhooks"></a>Slack 웹후크
+### <a name="slack-webhooks"></a>Slack 웹후크
 
 Slack webhook은 함수 전용 키를 지정하는 대신 사용자를 위한 토큰을 생성하므로 Slack의 토큰을 사용하여 함수 전용 키를 구성해야 합니다. [권한 부여 키](#authorization-keys)를 참조하세요.
 
-### <a name="webhooks-and-keys"></a>웹후크 및 키
+## <a name="webhooks-and-keys"></a>웹후크 및 키
 
 웹후크 인증은 HTTP 트리거의 일부로 웹후크 수신기 구성 요소에서 처리하며 메커니즘은 웹후크 유형에 따라 다릅니다. 각 메커니즘은 키를 사용합니다. 기본적으로 "default"라는 함수 키가 사용됩니다. 다른 키를 사용하려면 다음 중 한 가지 방법으로 요청과 함께 키 이름을 보내도록 웹후크 공급자를 구성합니다.
 

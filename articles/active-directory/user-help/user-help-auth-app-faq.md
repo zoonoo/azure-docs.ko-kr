@@ -9,15 +9,15 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: user-help
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 02/18/2020
 ms.author: curtand
 ms.reviewer: olhaun
-ms.openlocfilehash: 3df7e772ea88a7a58780f08ff20f44d50f01c336
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: f15e92f5e98c047fc5ed481968674370cf222a16
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063886"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443621"
 ---
 # <a name="frequently-asked-questions-faqs-about-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 Faq (질문과 대답)
 
@@ -27,7 +27,7 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-| 질문 | 솔루션 |
+| 질문 | 해결 방법 |
 | -------- | -------- |
 | Authenticator는 내 대신 어떤 데이터를 저장하며, 이러한 데이터는 어떻게 삭제할 수 있나요? | Microsoft Authenticator 앱은 세 가지 유형의 정보를 수집합니다.<ul><li>사용자 계정을 추가할 때 제공하는 계정 정보 계정을 제거하여 이 데이터를 제거할 수 있습니다.</li><li>앱의 **도움말** 메뉴를 통해 Microsoft에 **로그를 보내도록** 선택할 때까지 앱에만 상주하는 진단 로그 데이터 이러한 로그 파일은 앱 문제를 해결하는 데 필요한 정보로 제한된 개인 데이터가 있는 이메일 주소(예: alain@contoso.com)와 같은 개인 데이터, 서버/IP 주소 및 디바이스 데이터(예: 디바이스 이름 및 운영 체제 버전)를 포함합니다. 수집된 정보를 확인하려면 언제든지 앱에서 이러한 로그 파일을 볼 수 있습니다. 로그 파일을 보내는 경우 인증 앱 엔지니어는 이를 사용하여 고객이 보고한 문제를 해결할 수 있습니다.</li><li>"계정 흐름 추가 시작됨/성공적으로 계정을 추가함" 또는 "알림 승인됨"과 같은 비-개인 식별이 가능한 사용량 데이터 이 데이터는 당사의 엔지니어링 의사 결정의 핵심이며 사용자에게 중요한 기능 및 앱에 대한 업데이트의 양식에서 만들어야 하는 개선 사항의 위치를 확인할 수 있도록 도와줍니다. 앱 사용자로서 앱의 첫 번째 실행 시 이 데이터 컬렉션의 알림을 확인하고, 앱의 **설정** 페이지에서 해제할 수 있음을 알 수 있습니다. 언제든지 이 설정을 활성화 또는 비활성화할 수 있습니다.</li></ul> |
 | 앱에서 코드란 무엇인가요? | Microsoft Authenticator 앱을 열면 추가한 계정이 타일로 표시되고 각각 6자리 또는 8자리 숫자가 붙어 있습니다.<br><br>이러한 코드는 사용자 신원을 확인하는 용도로 사용됩니다. 사용자 이름 및 암호를 사용하여 로그인한 후 계정과 같은 타일에 있는 확인 코드를 입력합니다. 예를 들어 Alain이 Contoso 계정에 로그인하는 하는 경우 확인 코드 427303을 사용합니다.<br><br>![앱의 계정 화면](./media/user-help-auth-app-faq/auth-app-accounts.png) |
@@ -51,7 +51,8 @@ Microsoft Authenticator 앱은 Azure Authenticator 앱을 대신하며, Azure Mu
 | 앱 잠금 기능이란 무엇이며 보안을 강화하는 데 어떤 도움이 되나요? | 일회용 암호, 앱 정보 및 앱 설정을 더욱 안전하게 유지하려는 경우 Microsoft Authenticator 앱에서 앱 잠금 기능을 설정하면 됩니다. Microsoft Authenticator 앱의 **설정** 화면에서 앱 잠금을 설정하면 Microsoft Authenticator 앱을 열 때마다 PIN이나 생체 인식 정보를 사용하여 인증하라는 메시지가 표시됩니다. 이 기능은 추가적인 보호를 제공하기 위한 것이며 Microsoft Authenticator 앱에서 알림을 승인하는 방식은 변경되지 않습니다.<br><br>**참고**<br>장치 등록은 회사 포털 앱 또는 Android 계정 설정에서와 같이 Microsoft Authenticator 앱 외부의 다른 위치에서 발생할 수 있기 때문에 앱 잠금으로 인해 사용자가 Microsoft에 액세스 하지 못하도록 할 수 있는 것은 아닙니다. Authenticator 앱. |
 | 내 계정 작업에 대한 알림이 수신되는 이유는 무엇인가요? | 개인 Microsoft 계정에서 발생하는 일을 정확하게 파악할 수 있도록 Microsoft Authenticator 앱으로 작업 알림을 보내드리고 있습니다. 무언가가 변경되는 즉시 이러한 알림이 표시되므로 보안 강화에 도움이 됩니다. 이전에는 이메일 및 SMS를 통해 이러한 알림을 전송했으며, 이제는 앱을 포함하도록 확장되었습니다. 이러한 작업 알림에 대한 자세한 내용은 [비정상적인 계정 로그인이 있는 경우 어떻게 되나요?](https://support.microsoft.com/help/13967/microsoft-account-unusual-sign-in)를 참조하세요. 알림을 받는 위치를 변경 하려면 계정에서 [중요 하지 않은 계정 경고로 연락할 수 있는 위치](https://account.live.com/SecurityNotifications/Update) 에 로그인 합니다. |
 | IOS와 함께 제공 되는 기본 메일 앱을 사용 하 여 회사 또는 학교 계정에 로그인 하는 동안 Microsoft Authenticator 앱에서 보안 확인 정보를 요청 하는 메시지가 표시 됩니다. 해당 정보를 입력 하 고 메일 앱으로 돌아가면 오류가 발생 합니다. 어떻게 해야 하나요? | 이는 로그인과 메일 앱이 서로 다른 두 앱에서 발생 하 여 초기 백그라운드 로그인 프로세스의 작동이 중지 되 고 실패 하는 경우에 발생할 수 있습니다. 이 문제를 해결 하려면 메일 앱에 로그인 하는 동안 화면 오른쪽 아래에 있는 **Safari** 아이콘을 선택 하는 것이 좋습니다. Safari로 이동 하면 전체 로그인 프로세스가 단일 앱에서 발생 하므로 앱에 성공적으로 로그인 할 수 있습니다. |
-| OTP (일회용 암호) 코드가 작동 하지 않습니다. 어떻게 할까요? | 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못 되었거나 동기화 되지 않으면 코드가 작동 하지 않습니다. |
+| OTP (일회용 암호) 코드가 작동 하지 않습니다. 어떻게 해야 하나요? | 장치의 날짜와 시간이 올바르고 자동으로 동기화 되 고 있는지 확인 합니다. 날짜 및 시간이 잘못 되었거나 동기화 되지 않으면 코드가 작동 하지 않습니다. |
+| Windows 10 Mobile 운영 체제는 12 월 2019 일에 사용 되지 않습니다. Windows Mobile 운영 체제의 Microsoft Authenticator는 더 이상 사용 되지 않습니다. | 2020 년 2 월 28 일 이후 모든 Windows Mobile 운영 체제의 Microsoft Authenticator 앱은 지원 되지 않습니다. 사용자는 앞서 언급 한 앱에 대 한 새 업데이트를 받을 자격이 없습니다. 2020 년 2 월 28 일 이후 모든 Windows Mobile 운영 체제에서 현재 Microsoft Authenticator를 사용 하 여 인증을 지 원하는 Microsoft 서비스는 지원 사용을 중지 하기 시작 합니다. Microsoft 서비스에 인증 하려면 모든 사용자가이 날짜 이전에 대체 인증 메커니즘으로 전환 하도록 권장 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 
