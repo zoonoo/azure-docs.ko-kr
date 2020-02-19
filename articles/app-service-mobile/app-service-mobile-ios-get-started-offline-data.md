@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-ios
 ms.devlang: objective-c
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 66897263ff9c7d71c64d04fcc6860b96bf59588c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: d943213814b999f101a541abb0195a9fdd5a7423
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668492"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459177"
 ---
 # <a name="enable-offline-syncing-with-ios-mobile-apps"></a>iOS 모바일 앱으로 오프라인 동기화 사용
 [!INCLUDE [app-service-mobile-selector-offline](../../includes/app-service-mobile-selector-offline.md)]
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 자습서는 iOS용 Azure App Service의 Mobile Apps 기능을 사용한 오프라인 동기화를 설명합니다. 오프라인 동기화를 사용하면 네트워크에 연결되지 않은 경우에도 최종 사용자가 모바일 앱을 사용하여 데이터를 보거나, 추가하거나 수정할 수 있습니다. 변경 내용은 로컬 데이터베이스에 저장됩니다. 디바이스가 다시 온라인 상태가 되면 변경 내용이 원격 백 엔드와 동기화됩니다.
@@ -35,7 +30,7 @@ Mobile Apps의 오프라인 데이터 동기화 기능을 사용하면 네트워
 
 **QSTodoService.m**(Objective-C) 또는 **ToDoTableViewController.swift**(Swift)에서 **syncTable** 멤버 형식은 **MSSyncTable**입니다. 오프라인 동기화에는 **MSTable** 대신 이 동기화 테이블 인터페이스가 사용됩니다. 동기화 테이블이 사용되면 모든 작업이 로컬 저장소로 이동되고 명시적 밀어넣기 및 끌어오기 작업이 있는 원격 백 엔드와만 동기화됩니다.
 
- 동기화 테이블에 대한 참조를 얻으려면 `MSClient`에서 **syncTableWithName** 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
+ 동기화 테이블에 대한 참조를 얻으려면 **에서** syncTableWithName`MSClient` 메서드를 사용합니다. 오프라인 동기화 기능을 제거하려면 대신 **tableWithName**을 사용합니다.
 
 모든 테이블 작업을 수행하려면 먼저 로컬 저장소를 초기화해야 합니다. 관련 코드는 다음과 같습니다.
 
@@ -156,12 +151,12 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
 ![MS_TableOperations 테이블 특성][defining-core-data-tableoperations-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
 | id | 정수 64 |
-| itemId | string |
-| properties | 이진 데이터 |
-| 테이블 | string |
+| itemId | String |
+| 속성 | 이진 데이터 |
+| 테이블 | String |
 | tableKind | 정수 16 |
 
 
@@ -169,37 +164,37 @@ Swift 앱은 사용자가 새로 고침 제스처를 수행할 때 및 시작 �
 
  ![MS_TableOperationErrors 테이블 특성][defining-core-data-tableoperationerrors-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
-| id |string |
+| id |String |
 | operationId |정수 64 |
-| properties |이진 데이터 |
+| 속성 |이진 데이터 |
 | tableKind |정수 16 |
 
  **MS_TableConfig**
 
  ![][defining-core-data-tableconfig-entity]
 
-| 특성 | Type |
+| 특성 | 형식 |
 | --- | --- |
-| id |string |
-| key |string |
+| id |String |
+| key |String |
 | keyType |정수 64 |
-| 테이블 |string |
-| 값 |string |
+| 테이블 |String |
+| 값 |String |
 
 ### <a name="data-table"></a>데이터 테이블
 
 **TodoItem**
 
-| 특성 | Type | 참고 |
+| 특성 | 형식 | 참고 |
 | --- | --- | --- |
 | id | 문자열, 필수로 표시 |원격 저장소의 기본 키 |
-| complete | Boolean | 할 일 항목 필드 |
-| text |string |할 일 항목 필드 |
+| complete | 부울 | 할 일 항목 필드 |
+| 텍스트 |String |할 일 항목 필드 |
 | createdAt | 날짜 | (옵션) **createdAt** 시스템 속성에 매핑됩니다. |
 | updatedAt | 날짜 | (옵션) **updatedAt** 시스템 속성에 매핑됩니다. |
-| 버전 | string | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
+| version | String | (옵션) 충돌을 검색하는 데 사용되며 version에 매핑됩니다. |
 
 ## <a name="setup-sync"></a>앱의 동기화 동작 변경
 이 섹션에서는 앱 시작 시 또는 항목을 삽입하거나 업데이트할 때 동기화하지 않도록 앱을 수정합니다. 새로 고침 제스처 단추를 누를 때만 동기화됩니다.
@@ -269,7 +264,7 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 
 ## <a name="additional-resources"></a>추가 리소스
 * [Mobile Apps에서 오프라인 데이터 동기화]
-* [Cloud Cover: Azure Mobile Services에서 오프라인 동기화] \(비디오는 Mobile Services에 대한 내용이지만 Mobile Apps 오프라인 동기화도 유사한 방식으로 작동합니다.\)
+* [클라우드 표지: Azure Mobile Services에서 오프라인 동기화] \(는 Mobile Services에 대 한 것 이지만 오프 라인 동기화 Mobile Apps 비슷한 방식으로 작동 합니다.\)
 
 <!-- URLs. -->
 
@@ -282,5 +277,5 @@ Mobile Apps에 대한 정상적인 만들기, 읽기, 업데이트 및 삭제(CR
 [defining-core-data-tableconfig-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-tableconfig-entity.png
 [defining-core-data-todoitem-entity]: ./media/app-service-mobile-ios-get-started-offline-data/defining-core-data-todoitem-entity.png
 
-[Cloud Cover: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
+[클라우드 표지: Azure Mobile Services에서 오프라인 동기화]: https://channel9.msdn.com/Shows/Cloud+Cover/Episode-155-Offline-Storage-with-Donna-Malayeri
 [Azure Friday: Offline-enabled apps in Azure Mobile Services]: https://azure.microsoft.com/documentation/videos/azure-mobile-services-offline-enabled-apps-with-donna-malayeri/
