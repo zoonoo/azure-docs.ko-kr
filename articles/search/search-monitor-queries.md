@@ -7,40 +7,40 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/12/2020
-ms.openlocfilehash: 346a44f02667976d95125b72371b6e33715ee4b1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/18/2020
+ms.openlocfilehash: a3a313ef9cd74ba901f5a6a2d82a18e3c21145dc
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211153"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462527"
 ---
 # <a name="monitor-query-requests-in-azure-cognitive-search"></a>Azure Cognitive Search에서 쿼리 요청 모니터링
 
-이 문서에서는 메트릭을 사용 하 여 쿼리 성능 및 볼륨을 측정 하는 방법을 설명 합니다. 또한 검색 모음의 유틸리티 및 효율성을 평가 해야 하는 경우 쿼리 관련 정보에 사용 되는 입력 용어를 수집 하는 방법을 설명 합니다.
+이 문서에서는 메트릭 및 진단 로깅을 사용 하 여 쿼리 성능 및 볼륨을 측정 하는 방법을 설명 합니다. 또한 검색 모음의 유틸리티 및 효율성을 평가 해야 하는 경우 쿼리 관련 정보에 사용 되는 입력 용어를 수집 하는 방법을 설명 합니다.
 
-메트릭에 대 한 기록 데이터는 30 일 동안 보존 됩니다. 더 긴 보존을 위해 또는 운영 데이터 및 쿼리 문자열을 보고 하려면 저장소 옵션을 지정 하는 [진단 설정을](search-monitor-logs.md) 사용 하도록 설정 해야 합니다.
+메트릭에 대 한 기록 데이터는 30 일 동안 보존 됩니다. 더 긴 보존을 위해 또는 운영 데이터 및 쿼리 문자열을 보고 하려면 기록 된 이벤트 및 메트릭을 유지 하기 위한 저장소 옵션을 지정 하는 [진단 설정을](search-monitor-logs.md) 사용 하도록 설정 해야 합니다.
 
 데이터 측정의 무결성을 최대화 하는 조건은 다음과 같습니다.
 
 + 청구 가능 서비스 (기본 또는 표준 계층에서 만든 서비스)를 사용 합니다. 무료 서비스는 여러 구독자가 공유 하므로 특정 양의 변동성을 로드 하는 것으로 제공 됩니다.
 
-+ 가능한 경우 단일 복제본을 사용 하 여 한 컴퓨터에 대 한 계산을 제한 합니다. 여러 복제본을 사용 하는 경우 쿼리 메트릭은 여러 노드에 걸쳐 평균을 가지 며, 그 중 일부는 더 빠를 수 있습니다. 쿼리 성능을 조정 하는 경우 단일 노드를 사용 하 여 더 안정적인 테스트 환경을 제공할 수 있습니다.
++ 가능 하면 단일 복제본 및 파티션을 사용 하 여 포함 된 격리 된 환경을 만듭니다. 여러 복제본을 사용 하는 경우 쿼리 메트릭은 여러 노드에 걸쳐 평균을 계산 하 여 결과의 전체 자릿수를 낮출 수 있습니다. 마찬가지로, 여러 파티션은 데이터가 분할 되는 것을 의미 하며, 인덱싱이 진행 중인 경우 일부 파티션에는 데이터가 다를 수 있습니다. 쿼리 성능을 조정할 때 단일 노드와 파티션은 더 안정적인 테스트 환경을 제공 합니다.
 
 > [!Tip]
 > 추가 클라이언트 쪽 코드와 Application Insights를 사용 하 여 클릭 광고 데이터를 캡처하여 응용 프로그램 사용자의 관심을 attracts에 대 한 심층적인 통찰력을 얻을 수도 있습니다. 자세한 내용은 [트래픽 분석 검색](search-traffic-analytics.md)을 참조하세요.
 
 ## <a name="query-volume-qps"></a>쿼리 볼륨 (QPS)
 
-볼륨은 1 분 내에 실행 되는 쿼리를 평균, 개수, 최소값 또는 최대값으로 보고할 수 있는 기본 제공 메트릭으로 **초당 검색 쿼리** (QPS)로 측정 됩니다. 메트릭에 대 한 1 분 간격 (TimeGrain = "PT1M")은 시스템 내에서 수정 됩니다.
+볼륨은 1 분 기간 내에 실행 되는 쿼리의 평균, 개수, 최소값 또는 최대값으로 보고할 수 있는 기본 제공 메트릭으로 **초당 검색 쿼리** (QPS)로 측정 됩니다. 메트릭에 대 한 1 분 간격 (TimeGrain = "PT1M")은 시스템 내에서 수정 됩니다.
 
 쿼리가 실행 되는 데 일반적으로 밀리초 단위로 계산 되므로 시간 (초)으로 측정 되는 쿼리만 메트릭에 표시 됩니다.
 
-| 집계 형식 | Description |
+| 집계 형식 | 설명 |
 |------------------|-------------|
 | 평균 | 쿼리가 실행 된 후 1 분 내에 발생 한 평균 시간 (초)입니다.|
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
-| 최대 | 1 분 동안 등록 된 초당 최대 검색 쿼리 수입니다. |
+| 최대값 | 1 분 동안 등록 된 초당 최대 검색 쿼리 수입니다. |
 | 최소 | 1 분 동안 등록 된 초당 검색 쿼리 수입니다.  |
 | 합계 | 1 분 이내에 실행 된 모든 쿼리의 합계입니다.  |
 
@@ -58,7 +58,7 @@ ms.locfileid: "77211153"
 |------------------|---------|
 | 평균 | 평균 쿼리 기간 (밀리초)입니다. | 
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
-| 최대 | 샘플에서 가장 오래 실행 되는 쿼리입니다. | 
+| 최대값 | 샘플에서 가장 오래 실행 되는 쿼리입니다. | 
 | 최소 | 샘플에서 가장 짧은 실행 쿼리입니다.  | 
 | 합계 | 이 샘플에 있는 모든 쿼리의 총 실행 시간 (1 분) 내에 실행 됩니다.  |
 
@@ -86,7 +86,7 @@ ms.locfileid: "77211153"
 |------------------|-----------|
 | 평균 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 | 개수 | 1 분 간격 내에 로그에 내보내는 메트릭 수입니다. |
-| 최대 | 간격 내에 삭제 된 쿼리의 비율입니다.|
+| 최대값 | 간격 내에 삭제 된 쿼리의 비율입니다.|
 | 최소 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 | 합계 | 간격 내에 삭제 된 쿼리의 비율입니다. |
 
@@ -116,6 +116,45 @@ ms.locfileid: "77211153"
 
 1. 꺾은선형 차트에서 관심 영역을 확대 합니다. 영역의 시작 부분에 마우스 포인터를 놓고 마우스 왼쪽 단추를 누른 채 영역의 반대쪽으로 끈 후 단추를 놓습니다. 그러면 해당 시간 범위에서 차트가 확대됩니다.
 
+## <a name="identify-strings-used-in-queries"></a>쿼리에서 사용 되는 문자열 식별
+
+진단 로깅을 사용 하도록 설정 하면 시스템이 **Azurediagnostics** 테이블에서 쿼리 요청을 캡처합니다. 필수 구성 요소로, log analytics 작업 영역 또는 다른 저장소 옵션을 지정 하 여 [진단 로깅을](search-monitor-logs.md)이미 사용 하도록 설정 해야 합니다.
+
+1. 모니터링 섹션에서 **로그** 를 선택 하 여 Log Analytics에서 빈 쿼리 창을 엽니다.
+
+1. 다음 식을 실행 하 여 쿼리를 검색 하 고 작업 이름, 쿼리 문자열, 쿼리 된 인덱스 및 찾은 문서 수로 구성 된 테이블 형식 결과 집합을 반환 합니다. 마지막 두 문은 샘플 인덱스에 대해 비어 있거나 지정 되지 않은 검색으로 구성 된 쿼리 문자열을 제외 하며,이는 결과의 노이즈를 잘라냅니다.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, Query_s, IndexName_s, Documents_d
+   | where OperationName == "Query.Search"
+   | where Query_s != "?api-version=2019-05-06&search=*"
+   | where IndexName_s != "realestate-us-sample-index"
+   ```
+
+1. 필요에 따라 특정 구문이 나 문자열을 검색 하도록 *Query_s* 열 필터를 설정 합니다. 예를 들어를 필터링 할 수 있는 *것은 `?api-version=2019-05-06&search=*&%24filter=HotelName`)와 같습니다* .
+
+   ![기록 쿼리 문자열](./media/search-monitor-usage/log-query-strings.png "기록 쿼리 문자열")
+
+이 기법은 임시 조사를 수행 하는 동안에는 보고서를 작성 하 여 분석에 더 취약 레이아웃으로 쿼리 문자열을 통합 하 고 표시할 수 있습니다.
+
+## <a name="identify-long-running-queries"></a>장기 실행 쿼리 확인
+
+기간 열을 추가 하 여 메트릭으로 선택 된 쿼리 뿐만 아니라 모든 쿼리에 대 한 숫자를 가져옵니다. 이 데이터를 정렬 하면 완료 하는 데 가장 오래 걸리는 쿼리를 볼 수 있습니다.
+
+1. 모니터링 섹션 **에서 로그를 선택 하** 여 로그 정보를 쿼리 합니다.
+
+1. 다음 쿼리를 실행 하 여 기간 (밀리초)을 기준으로 쿼리를 반환 합니다. 가장 오래 실행 되는 쿼리는 맨 위에 있습니다.
+
+   ```
+   AzureDiagnostics
+   | project OperationName, resultSignature_d, DurationMs, Query_s, Documents_d, IndexName_s
+   | where OperationName == "Query.Search"
+   | sort by DurationMs
+   ```
+
+   ![시간별 쿼리 정렬](./media/search-monitor-usage/azurediagnostics-table-sortby-duration.png "시간별 쿼리 정렬")
+
 ## <a name="create-a-metric-alert"></a>메트릭 경고 만들기
 
 메트릭 경고는 알림을 받거나 미리 정의한 정정 작업을 트리거하는 임계값을 설정 합니다. 
@@ -140,35 +179,13 @@ ms.locfileid: "77211153"
 
 1. 마지막으로, 경고 세부 정보를 지정 합니다. 경고의 이름을 지정 하 고 설명 하 고, 심각도 값을 할당 하 고, 규칙을 사용 또는 사용 안 함 상태로 만들지 여부를 지정 합니다.
 
-   ![경고 세부 정보](./media/search-monitor-usage/alert-details.png "경고 세부 정보")
+   ![경고 세부 정보](./media/search-monitor-usage/alert-details.png "경고 정보")
 
 전자 메일 알림을 지정한 경우 "Azure: 활성화 된 심각도: 3 `<your rule name>`"의 제목 줄이 포함 된 "Microsoft Azure"에서 전자 메일을 받게 됩니다.
 
-## <a name="query-strings-used-in-queries"></a>쿼리에 사용 되는 쿼리 문자열
+<!-- ## Report query data
 
-진단 로깅을 사용 하도록 설정 하면 시스템이 **Azurediagnostics** 테이블에서 쿼리 요청을 캡처합니다. 필수 구성 요소로, log analytics 작업 영역 또는 다른 저장소 옵션을 지정 하 여 [진단 로깅을](search-monitor-logs.md)이미 사용 하도록 설정 해야 합니다.
-
-1. 모니터링 섹션에서 **로그** 를 선택 하 여 Log Analytics에서 빈 쿼리 창을 엽니다.
-
-1. 다음 식을 실행 하 여 쿼리를 검색 하 고 작업 이름, 쿼리 문자열, 쿼리 된 인덱스 및 찾은 문서 수로 구성 된 테이블 형식 결과 집합을 반환 합니다. 마지막 두 문은 샘플 인덱스에 대해 비어 있거나 지정 되지 않은 검색으로 구성 된 쿼리 문자열을 제외 하며,이는 결과의 노이즈를 잘라냅니다.
-
-   ```
-    AzureDiagnostics 
-     | project OperationName, Query_s, IndexName_s, Documents_d 
-     | where OperationName == "Query.Search"
-     | where Query_s != "?api-version=2019-05-06&search=*"
-     | where IndexName_s != "realestate-us-sample-index"
-   ```
-
-1. 필요에 따라 특정 구문이 나 문자열을 검색 하도록 *Query_s* 열 필터를 설정 합니다. 예를 들어를 필터링 할 수 있는 *것은 `?api-version=2019-05-06&search=*&%24filter=HotelName`)와 같습니다* .
-
-   ![기록 쿼리 문자열](./media/search-monitor-usage/log-query-strings.png "기록 쿼리 문자열")
-
-이 기법은 임시 조사를 수행 하는 동안에는 보고서를 작성 하 여 분석에 더 취약 레이아웃으로 쿼리 문자열을 통합 하 고 표시할 수 있습니다.
-
-## <a name="report-query-data"></a>쿼리 데이터 보고
-
-Power BI는 Blob storage 또는 Log Analytics 작업 영역에 저장 된 로그 데이터에 대해 사용할 수 있는 분석 보고 도구입니다.
+Power BI is an analytical reporting tool useful for visualizing data, including log information. If you are collecting data in Blob storage, a Power BI template makes it easy to spot anomalies or trends. Use this link to download the template. -->
 
 ## <a name="next-steps"></a>다음 단계
 

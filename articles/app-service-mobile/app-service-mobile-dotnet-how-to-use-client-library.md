@@ -6,20 +6,15 @@ ms.tgt_pltfrm: mobile-multiple
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 06/25/2019
-ms.openlocfilehash: 741d286126bedb8b92828486927283fa9887658e
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 1c9fba3c13cc6e5476377d59130a95a2edaa324d
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668475"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459194"
 ---
 # <a name="how-to-use-the-managed-client-for-azure-mobile-apps"></a>Azure Mobile Apps에 관리되는 클라이언트를 사용하는 방법
 [!INCLUDE [app-service-mobile-selector-client-library](../../includes/app-service-mobile-selector-client-library.md)]
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 ## <a name="overview"></a>개요
 이 가이드에서는 Windows 및 Xamarin 앱용 Azure App Service Mobile Apps에 관리되는 클라이언트 라이브러리를 사용하는 일반적인 시나리오를 수행하는 방법을 보여 줍니다. Mobile Apps를 처음 접하는 경우 먼저 [Azure Mobile Apps 빠른 시작][1] 자습서를 완료하는 것이 좋습니다. 이 가이드에서는 클라이언트 쪽 관리되는 SDK에 초점을 둡니다. Mobile Apps에 대 한 서버 쪽 Sdk에 대해 자세히 알아보려면 [.Net 서버 sdk][2] 또는 [node.js 서버 sdk][3]에 대 한 설명서를 참조 하세요.
@@ -59,7 +54,7 @@ public class TodoItem
 
 [JsonPropertyAttribute][6] 는 클라이언트 필드와 테이블 필드 간의 *PropertyName* 매핑을 정의 하는 데 사용 됩니다.
 
-Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.Net 서버 sdk 토픽][7] 또는 [node.js 서버 sdk 항목][8]을 참조 하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 [Azure 포털] 에서 **쉬운 테이블**설정을 사용할 수도 있습니다.
+Mobile Apps 백 엔드에서 테이블을 만드는 방법을 알아보려면 [.Net 서버 sdk 토픽][7] 또는 [node.js 서버 sdk 항목][8]을 참조 하세요. 빠른 시작을 사용하여 Azure Portal에서 Mobile App 백 엔드를 만든 경우 **Azure Portal** 에서 [Azure Portal]설정을 사용할 수도 있습니다.
 
 ### <a name="how-to-install-the-managed-client-sdk-package"></a>방법: 관리되는 클라이언트 SDK 패키지 설치
 다음 메서드 중 하나를 사용하여 [NuGet][9]에서 Mobile Apps용 관리되는 클라이언트 SDK 패키지를 설치합니다.
@@ -86,10 +81,10 @@ Microsoft.Azure.Mobile 네임스페이스의 기호는 [SymbolSource][10]에 있
 var client = new MobileServiceClient("MOBILE_APP_URL");
 ```
 
-위의 코드에서 `MOBILE_APP_URL` 을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure 포털]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. MobileServiceClient 개체는 단일 항목이어야 합니다.
+위의 코드에서 `MOBILE_APP_URL` 을 모바일 앱 백 엔드의 URL로 대체하며 이는 [Azure Portal]의 모바일 앱 백 엔드에 대한 블레이드에서 찾을 수 있습니다. MobileServiceClient 개체는 단일 항목이어야 합니다.
 
 ## <a name="work-with-tables"></a>테이블 작업
-다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  다음 항목이 다루어집니다.
+다음 섹션에는 레코드를 검색하고 테이블 내에서 데이터를 수정하는 방법을 자세히 설명합니다.  이 섹션에서 다루는 항목은 다음과 같습니다.
 
 * [테이블 참조 만들기](#instantiating)
 * [쿼리 데이터](#querying)
@@ -132,7 +127,7 @@ IMobileServiceTable untypedTodoTable = client.GetTable("TodoItem");
 * [ID를 기준으로 데이터 조회](#lookingup)
 
 > [!NOTE]
-> 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다.  페이징은 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않게 방지합니다.  50개가 넘는 행을 반환하려면 [페이지에서 데이터 반환](#paging)에서 설명하는 대로 `Skip` 및 `Take` 메서드를 사용하세요.
+> 모든 행이 반환되는 것을 방지하기 위해 서버 기반 페이지 크기가 적용됩니다.  페이징은 대규모 데이터 집합에 대한 기본 요청이 서비스에 부정적인 영향을 미치지 않게 방지합니다.  50개가 넘는 행을 반환하려면 `Skip`페이지에서 데이터 반환`Take`에서 설명하는 대로 [ 및 ](#paging) 메서드를 사용하세요.
 
 ### <a name="filtering"></a>방법: 반환된 데이터 필터링
 다음 코드는 쿼리에 `Where` 절을 포함하여 데이터를 필터링하는 방법을 보여줍니다. 이 코드에서는 `todoTable`에서 해당 `Complete` 속성이 `false`인 모든 항목을 반환합니다. [Where] 함수는 테이블에 대한 쿼리에 행 필터링 조건자를 적용합니다.
@@ -351,10 +346,10 @@ jo.Add("Complete", false);
 var inserted = await table.UpdateAsync(jo);
 ```
 
-업데이트할 때 `id` 필드를 지정해야 합니다. 백 엔드는 `id` 필드를 사용하여 업데이트할 행을 식별합니다. `id` 필드는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 값을 제공하지 않고 항목을 업데이트하려고 할 때 `ArgumentException`이(가) 발생합니다.
+업데이트할 때 `id` 필드를 지정해야 합니다. 백 엔드는 `id` 필드를 사용하여 업데이트할 행을 식별합니다. `id` 필드는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `ArgumentException` 값을 제공하지 않고 항목을 업데이트하려고 할 때 `id`이(가) 발생합니다.
 
 ### <a name="deleting"></a>방법: 모바일 앱 백 엔드의 데이터 삭제
-다음 코드는 [DeleteAsync] 메서드를 사용하여 기존 인스턴스를 삭제하는 방법을 보여 줍니다. 인스턴스는 `todoItem`에 설정된 `id` 필드로 식별됩니다.
+다음 코드는 [DeleteAsync] 메서드를 사용하여 기존 인스턴스를 삭제하는 방법을 보여 줍니다. 인스턴스는 `id`에 설정된 `todoItem` 필드로 식별됩니다.
 
 ```csharp
 await todoTable.DeleteAsync(todoItem);
@@ -368,14 +363,14 @@ jo.Add("id", "37BBF396-11F0-4B39-85C8-B319C729AF6D");
 await table.DeleteAsync(jo);
 ```
 
-삭제를 요청할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `id` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `MobileServiceInvalidOperationException`이(가) 발생합니다.
+삭제를 요청할 때 ID를 지정해야 합니다. 다른 속성은 서비스에 전달되지 않거나 서비스에서 무시됩니다. `DeleteAsync` 호출의 결과는 일반적으로 `null`입니다. 전달할 ID는 `InsertAsync` 호출의 결과에서 가져올 수 있습니다. `MobileServiceInvalidOperationException` 필드를 지정하지 않고 항목을 삭제하려고 할 때 `id`이(가) 발생합니다.
 
 ### <a name="optimisticconcurrency"></a>방법: 충돌 해결에 낙관적 동시성 사용
 두 개 이상의 클라이언트가 동시에 동일 항목의 변경 내용을 작성할 수 있습니다. 충돌 검색 없이, 마지막으로 쓴 내용이 이전 업데이트를 덮어씁니다. **낙관적 동시성 제어** 에서는 각 트랜잭션이 커밋할 수 있으므로 리소스 잠금을 사용하지 않는다고 가정합니다.  트랜잭션을 커밋하기 전에 낙관적 동시성 제어는 다른 트랜잭션에서 데이터를 수정하지 않았음을 확인합니다. 데이터가 수정된 경우에는 커밋 중인 트랜잭션이 롤백됩니다.
 
 Mobile Apps는 Mobile App 백 엔드의 각 테이블에 대해 정의된 `version` 시스템 속성 열을 사용하는 각 항목의 변경 내용을 추적하여 낙관적 동시성 제어를 지원합니다. 레코드가 업데이트될 때마다 Mobile Apps는 해당 레코드의 `version` 속성을 새 값으로 설정합니다. 각 업데이트 요청 중에 요청에 포함된 레코드의 `version` 속성이 서버에 있는 레코드의 동일 속성과 비교됩니다. 요청과 함께 전달된 버전이 백 엔드와 일치하지 않는 경우 클라이언트 라이브러리는 `MobileServicePreconditionFailedException<T>` 예외를 발생시킵니다. 예외에 포함된 형식은 백 엔드의 레코드이며 서버 버전의 레코드를 포함하고 있습니다. 그러면 애플리케이션은 이 정보를 사용하여 변경을 커밋하기 위해 백 엔드의 올바른 `version` 값으로 업데이트 요청을 다시 실행할지 여부를 결정할 수 있습니다.
 
-낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 다음은 그 예입니다.
+낙관적 동시성을 사용하기 위해 `version` 시스템 속성의 테이블 클래스에 대해 열을 정의합니다. 예를 들면 다음과 같습니다.
 
 ```csharp
 public class TodoItem
@@ -394,14 +389,14 @@ public class TodoItem
 }
 ```
 
-형식화되지 않은 테이블을 사용하는 애플리케이션은 다음과 같이 테이블의 `SystemProperties`에 대해 `Version` 플래그를 설정하여 낙관적 동시성을 사용합니다.
+형식화되지 않은 테이블을 사용하는 애플리케이션은 다음과 같이 테이블의 `Version`에 대해 `SystemProperties` 플래그를 설정하여 낙관적 동시성을 사용합니다.
 
 ```csharp
 //Enable optimistic concurrency by retrieving version
 todoTable.SystemProperties |= MobileServiceSystemProperties.Version;
 ```
 
-낙관적 동시성을 사용하는 것 외에도 [UpdateAsync]를 호출할 때 코드에서 `MobileServicePreconditionFailedException<T>` 예외를 검색해야 합니다.  업데이트된 레코드에 올바른 `version` 을(를) 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync] 를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
+낙관적 동시성을 사용하는 것 외에도 `MobileServicePreconditionFailedException<T>`UpdateAsync[UpdateAsync] 예외를 검색해야 합니다.  업데이트된 레코드에 올바른 `version` 을(를) 적용하여 충돌을 해결하고 해결된 레코드로 [UpdateAsync] 를 호출합니다. 다음 코드는 감지된 쓰기 충돌을 해결하는 방법을 보여 줍니다.
 
 ```csharp
 private async void UpdateToDoItem(TodoItem item)
@@ -488,19 +483,19 @@ ListBox lb = new ListBox();
 lb.ItemsSource = items;
 ```
 
-Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `IMobileServiceTableQuery<T>` 및 `IMobileServiceTable<T>`에서 `ToCollection` 확장 메서드를 사용합니다. 데이터를 로드하려면 `LoadMoreItemsAsync()`를 호출합니다.
+Windows Phone 8 및 "Silverlight" 앱에서 새 컬렉션을 사용하려면 `ToCollection` 및 `IMobileServiceTableQuery<T>`에서 `IMobileServiceTable<T>` 확장 메서드를 사용합니다. 데이터를 로드하려면 `LoadMoreItemsAsync()`를 호출합니다.
 
 ```csharp
 MobileServiceCollection<TodoItem, TodoItem> items = todoTable.Where(todoItem => todoItem.Complete==false).ToCollection();
 await items.LoadMoreItemsAsync();
 ```
 
-`ToCollectionAsync` 또는 `ToCollection`을 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다.  이 컬렉션은 페이징을 인식합니다.  이 컬렉션은 네트워크에서 데이터를 로드하므로 가끔 로드가 실패합니다. 이 오류를 처리하려면 `LoadMoreItemsAsync` 호출의 결과로 발생한 예외를 처리하도록 `MobileServiceIncrementalLoadingCollection`에 대한 `OnException` 메서드를 재정의합니다.
+`ToCollectionAsync` 또는 `ToCollection`을 호출하여 만들어진 컬렉션을 사용하는 경우 UI 컨트롤에 바인딩할 수 있는 컬렉션을 얻게 됩니다.  이 컬렉션은 페이징을 인식합니다.  이 컬렉션은 네트워크에서 데이터를 로드하므로 가끔 로드가 실패합니다. 이 오류를 처리하려면 `OnException` 호출의 결과로 발생한 예외를 처리하도록 `MobileServiceIncrementalLoadingCollection`에 대한 `LoadMoreItemsAsync` 메서드를 재정의합니다.
 
 테이블에 여러 필드가 있지만 그 중 일부만 컨트롤에 표시하려는 경우를 가정하겠습니다. 앞에서 나온 “[특정 열 선택](#selecting)” 섹션의 지침에 따라 UI에 표시할 특정 열을 선택할 수 있습니다.
 
 ### <a name="pagesize"></a>페이지 크기 변경
-Azure Mobile Apps는 기본적으로 요청당 최대 50개의 항목을 반환합니다.  클라이언트와 서버 모두에서 최대 페이지 크기를 늘려 페이징 크기를 변경할 수 있습니다.  요청된 페이지 크기를 늘리려면 `PullAsync()`를 사용하는 경우 `PullOptions`를 지정합니다.
+Azure Mobile Apps는 기본적으로 요청당 최대 50개의 항목을 반환합니다.  클라이언트와 서버 모두에서 최대 페이지 크기를 늘려 페이징 크기를 변경할 수 있습니다.  요청된 페이지 크기를 늘리려면 `PullOptions`를 사용하는 경우 `PullAsync()`를 지정합니다.
 
 ```csharp
 PullOptions pullOptions = new PullOptions
@@ -613,7 +608,7 @@ var result = await client.InvokeApiAsync<MarkAllResult>("completeAll", System.Ne
 이 양식은 형식화된 메서드 호출이며 **MarkAllResult** 반환 형식을 정의해야 합니다. 형식화된 메서드와 형식화되지 않은 메서드가 모두 지원됩니다.
 
 InvokeApiAsync() 메소드는 API가 '/'로 시작하는 경우를 제외하고 호출하려는 API 앞에 '/api/'를 추가합니다.
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 * `InvokeApiAsync("completeAll",...)` - 백 엔드에서 /api/completeAll 호출
 * `InvokeApiAsync("/.auth/me",...)` - 백 엔드에서 /.auth/me 호출
@@ -630,7 +625,7 @@ Mobile Apps는 Facebook, Google, Microsoft 계정, Twitter 및 Azure Active Dire
 
 인증을 설정하려면 하나 이상의 ID 공급자로 앱을 등록해야 합니다.  ID 공급자는 앱의 클라이언트 ID 및 클라이언트 암호를 생성합니다.  그러면 Azure App Service 인증/권한 부여를 사용할 수 있도록 백 엔드에서 이러한 값이 설정됩니다.  자세한 내용은 [앱에 인증 추가]자습서의 자세한 지침을 따르세요.
 
-이 섹션에서 다루는 토픽은 다음과 같습니다.
+이 섹션에서 다루는 항목은 다음과 같습니다.
 
 * [클라이언트 관리 인증](#clientflow)
 * [서버 관리 인증](#serverflow)
@@ -651,7 +646,7 @@ Azure Active Directory 인증을 사용하여 클라이언트에서 사용자 �
 2. Visual Studio 또는 Xamarin Studio에서 프로젝트를 열고 `Microsoft.IdentityModel.Clients.ActiveDirectory` NuGet 패키지에 참조를 추가합니다. 검색할 때 시험판 버전을 포함합니다.
 3. 사용하는 플랫폼에 따라 애플리케이션에 다음 코드를 추가합니다. 각각에서 다음과 같이 대체합니다.
 
-   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com 이어야 합니다. 이 값은 [Azure 포털]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
+   * **INSERT-AUTHORITY-HERE**를 애플리케이션이 프로비전된 테넌트의 이름으로 바꿉니다. 형식은 https://login.microsoftonline.com/contoso.onmicrosoft.com이어야 합니다. 이 값은 [Azure Portal]의 Azure Active Directory에 있는 도메인 탭에서 복사할 수 있습니다.
    * **INSERT-RESOURCE-ID-HERE** 를 모바일 앱 백 엔드에 대한 클라이언트 ID로 바꿉니다. 포털의 Azure **Active Directory 설정**에 있는 **고급** 탭에서 클라이언트 ID를 가져올 수 있습니다.
    * **INSERT-CLIENT-ID-HERE**를 네이티브 클라이언트 애플리케이션에서 복사한 클라이언트 ID로 바꿉니다.
    * HTTPS 체계를 사용하여 **INSERT-REDIRECT-URI-HERE** 를 사이트의 */.auth/login/done* 엔드포인트로 바꿉니다. 이 값은 *https://contoso.azurewebsites.net/.auth/login/done* 과 비슷해야 합니다.
@@ -794,7 +789,7 @@ private async Task AuthenticateAsync()
 ```
 
 ### <a name="serverflow"></a>서버 관리 인증
-ID 공급자를 등록하고 나면, 공급자의 [MobileServiceAuthenticationProvider] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
+ID 공급자를 등록하고 나면, 공급자의 [LoginAsync] 값을 사용하여 MobileServiceClient의 [LoginAsync] 메서드를 호출합니다. 예를 들어 다음 코드는 Facebook을 사용한 서버 흐름 로그인을 시작합니다.
 
 ```csharp
 private MobileServiceUser user;
@@ -822,7 +817,7 @@ private async System.Threading.Tasks.Task Authenticate()
 }
 ```
 
-Facebook 이외의 ID 공급자를 사용하는 경우, [MobileServiceAuthenticationProvider] 값을 공급자에 대한 값으로 변경합니다.
+Facebook 이외의 ID 공급자를 사용하는 경우, [LoginAsync] 값을 공급자에 대한 값으로 변경합니다.
 
 서버 흐름에서 Azure App Service는 선택한 공급자의 로그인 페이지를 표시하여 OAuth 인증 흐름을 관리합니다.  ID 공급자가 결과를 반환하면 Azure App Service가 App Service 인증 토큰을 생성합니다. [LoginAsync] 메서드는 [MobileServiceUser]를 반환하며, 여기서 인증된 사용자의 [UserId] 및 [MobileServiceAuthenticationToken]이 JWT(JSON web token)로 제공됩니다. 이 토큰은 캐시했다가 만료될 때까지 다시 사용할 수 있습니다. 자세한 내용은 [인증 토큰 캐시](#caching)를 참조하십시오.
 
@@ -862,7 +857,7 @@ client.Logout();
 vault.Remove(vault.Retrieve("Facebook", client.currentUser.UserId));
 ```
 
-Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 증명을 안전하게 저장합니다. 이러한 API 사용의 예제는 [ContosoMoments 사진 공유 샘플](https://github.com/azure-appservice-samples/ContosoMoments)에서 [AuthStore.cs] 코드 파일을 참조하세요.
+Xamarin 앱은 [Xamarin.Auth] API를 사용하여 **Account** 개체에 자격 증명을 안전하게 저장합니다. 이러한 API 사용의 예제는 [AuthStore.cs]에서 [AuthStore.cs](https://github.com/azure-appservice-samples/ContosoMoments) 코드 파일을 참조하세요.
 
 클라이언트 관리 인증을 사용하는 경우 Facebook 또는 Twitter와 같은 공급자로부터 얻은 액세스 토큰을 캐시할 수도 있습니다. 다음과 같이 백 엔드에서 새 인증 토큰을 요청하기 위해 이 토큰을 제공할 수 있습니다.
 
@@ -1045,7 +1040,7 @@ public class MyHandler : DelegatingHandler
 <!-- Microsoft URLs. -->
 [MobileServiceCollection]: https://msdn.microsoft.com/library/azure/dn250636(v=azure.10).aspx
 [MobileServiceIncrementalLoadingCollection]: https://msdn.microsoft.com/library/azure/dn268408(v=azure.10).aspx
-[MobileServiceAuthenticationProvider]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
+[LoginAsync]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceauthenticationprovider(v=azure.10).aspx
 [MobileServiceUser]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser(v=azure.10).aspx
 [MobileServiceAuthenticationToken]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.mobileserviceauthenticationtoken(v=azure.10).aspx
 [GetTable]: https://msdn.microsoft.com/library/azure/jj554275(v=azure.10).aspx
@@ -1065,7 +1060,7 @@ public class MyHandler : DelegatingHandler
 [UpdateAsync]: https://msdn.microsoft.com/library/azure/dn250536.(v=azure.10)aspx
 [UserID]: https://msdn.microsoft.com/library/windowsazure/microsoft.windowsazure.mobileservices.mobileserviceuser.userid(v=azure.10).aspx
 [Where]: https://msdn.microsoft.com/library/azure/dn250579(v=azure.10).aspx
-[Azure 포털]: https://portal.azure.com/
+[Azure Portal]: https://portal.azure.com/
 [EnableQueryAttribute]: https://msdn.microsoft.com/library/system.web.http.odata.enablequeryattribute.aspx
 [Guid.NewGuid]: https://msdn.microsoft.com/library/system.guid.newguid(v=vs.110).aspx
 [ISupportIncrementalLoading]: https://msdn.microsoft.com/library/windows/apps/Hh701916.aspx

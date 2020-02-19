@@ -323,10 +323,10 @@
       items:
         - name: 기본 사항
           href: search-monitor-usage.md
-        - name: 쿼리 작업 모니터링
-          href: search-monitor-queries.md
         - name: 진단 로깅
           href: search-monitor-logs.md
+        - name: 쿼리 작업 모니터링
+          href: search-monitor-queries.md
         - name: 트래픽 분석 검색
           href: search-traffic-analytics.md
     - name: 문제 해결

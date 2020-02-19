@@ -11,12 +11,12 @@ author: oslake
 ms.author: moslake
 ms.reviewer: carlrab
 ms.date: 3/14/2019
-ms.openlocfilehash: ed67a21107f6a7d90341ae40feeb817671785778
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: daca108cfc8bb2e5b2a068170a4a0244c72c9592
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73823808"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462601"
 ---
 # <a name="scale-elastic-pool-resources-in-azure-sql-database"></a>Azure SQL Database에서 탄력적 풀 리소스 크기 조정
 
@@ -62,7 +62,7 @@ VCores 또는 Edtu의 수를 처음 선택 하 고 나면 [Azure Portal](sql-dat
 ### <a name="additional-considerations-when-changing-service-tier-or-rescaling-compute-size"></a>서비스 계층 또는 크기 조정 계산 크기 변경 시 추가 고려 사항
 
 - 탄력적 풀에 대 한 vCores 또는 Edtu의 크기를 다운 하는 경우 풀 사용 공간은 대상 서비스 계층 및 풀 Edtu의 최대 허용 크기 보다 작아야 합니다.
-- 탄력적 풀에 대해 vCores 또는 Edtu을 크기 조정 때 (1) 풀의 저장소 최대 크기가 대상 풀에서 지원 되 고 (2) 저장소 최대 크기가 대상 풀의 포함 된 저장소 용량을 초과 하는 경우 추가 저장소 비용이 적용 됩니다. 예를 들어 최대 크기가 100GB인 100 eDTU 표준 풀 크기를 50 eDTU 표준 풀로 줄이는 경우 대상 풀이 100GB의 최대 크기를 지원하고 포함된 스토리지 용량은 50GB에 불과하므로 추가 스토리지 비용이 적용됩니다. 따라서 추가 스토리지 용량은 100GB – 50GB = 50GB입니다. 추가 스토리지 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 실제 사용된 공간의 크기가 포함된 스토리지 용량보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다.
+- 탄력적 풀에 대한 eDTU 크기를 다시 조정하는 경우 (1) 풀의 최대 스토리지 크기가 대상 풀에 지원되고, (2) 최대 스토리지 크기가 대상 풀에 포함된 스토리지 용량을 초과하면 추가 스토리지 비용이 적용됩니다. 예를 들어 최대 크기가 100GB인 100 eDTU 표준 풀 크기를 50 eDTU 표준 풀로 줄이는 경우 대상 풀이 100GB의 최대 크기를 지원하고 포함된 스토리지 용량은 50GB에 불과하므로 추가 스토리지 비용이 적용됩니다. 따라서 추가 스토리지 용량은 100GB – 50GB = 50GB입니다. 추가 스토리지 가격 책정에 대한 자세한 내용은 [SQL Database 가격 책정](https://azure.microsoft.com/pricing/details/sql-database/)을 참조하세요. 실제 사용된 공간의 크기가 포함된 스토리지 용량보다 작은 경우 데이터베이스 최대 크기를 포함된 크기로 줄여 이러한 추가 비용을 방지할 수 있습니다.
 
 ### <a name="billing-during-rescaling"></a>크기 조정 중 청구
 

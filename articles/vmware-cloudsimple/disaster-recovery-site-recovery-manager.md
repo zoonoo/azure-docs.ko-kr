@@ -8,12 +8,12 @@ ms.topic: article
 ms.service: azure-vmware-cloudsimple
 ms.reviewer: cynthn
 manager: dikamath
-ms.openlocfilehash: ccdf385d2581923e1fad4fa5c42f351c4f0947ca
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 209eb6ed93ed12f97b116b648a36d14e09b822f7
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77083161"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461184"
 ---
 # <a name="set-up-avs-private-cloud-as-a-disaster-recovery-target-with-vmware-site-recovery-manager"></a>VMware Site Recovery Manager를 사용 하 여 재해 복구 대상으로 AVS 사설 클라우드 설정
 
@@ -223,7 +223,7 @@ AVS 사설 클라우드 환경에서 vSphere 복제 및 SRM 소프트웨어를 �
 
 * [VMware Site Recovery Manager 설명서](https://docs.vmware.com/en/Site-Recovery-Manager/index.html)
 * [Site Recovery Manager 6.5에 대 한 운영 제한](https://kb.vmware.com/s/article/2147110)
-* [VSphere 복제에 대 한 대역폭 요구 사항 계산](https://kb.vmware.com/s/article/2037268)
+* [VSphere 복제에 대 한 대역폭 요구 사항 계산](https://docs.vmware.com/en/vSphere-Replication/6.5/com.vmware.vsphere.replication-admin.doc/GUID-4A34D0C9-8CC1-46C4-96FF-3BF7583D3C4F.html)
 * [VSphere 복제 6.5을 배포할 때의을 선택 합니다.](https://blogs.vmware.com/virtualblocks/2017/01/20/vr-65-ovf-choices/)
 * [VMware vSphere 복제 6.5 설치 및 구성](https://docs.vmware.com/en/vSphere-Replication/6.5/vsphere-replication-65-install.pdf)
 * [SRM 6.5에 대 한 사전 요구 사항 및 모범 사례](https://docs.vmware.com/en/Site-Recovery-Manager/6.5/com.vmware.srm.install_config.doc/GUID-BB0C03E4-72BE-4C74-96C3-97AC6911B6B8.html)

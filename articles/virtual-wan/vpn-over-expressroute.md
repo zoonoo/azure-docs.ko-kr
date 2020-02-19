@@ -1,21 +1,20 @@
 ---
-title: Azure 가상 WAN에서 Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결 만들기 | Microsoft Docs
+title: 'Express 경로 암호화 구성: Azure 가상 WAN에 대 한 Express 경로를 통한 IPsec'
 description: 이 자습서에서는 Azure 가상 WAN을 사용 하 여 Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결을 만드는 방법에 대해 알아봅니다.
 services: virtual-wan
 author: cherylmc
 ms.service: virtual-wan
 ms.topic: article
-ms.date: 10/11/2019
+ms.date: 02/18/2020
 ms.author: cherylmc
-Customer intent: I want to connect my on-premises networks to my virtual networks by using an S2S VPN connection over my ExpressRoute private peering through Azure Virtual WAN.
-ms.openlocfilehash: ae971bad47d84b6928ebea64e416d21af25528ad
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: c74f703927999bf35dd2d8292b8fa0a6d3c55065
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896615"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459789"
 ---
-# <a name="create-a-site-to-site-vpn-connection-over-expressroute-private-peering-by-using-azure-virtual-wan"></a>Azure 가상 WAN을 사용 하 여 Express 경로 개인 피어 링을 통해 사이트 간 VPN 연결 만들기
+# <a name="expressroute-encryption-ipsec-over-expressroute-for-virtual-wan"></a>Express 경로 암호화: 가상 WAN을 위한 Express 경로를 통한 IPsec
 
 이 문서에서는 azure 가상 WAN을 사용 하 여 Azure Express 경로 회로의 개인 피어 링을 통해 온-프레미스 네트워크에서 Azure로 IPsec/IKE VPN 연결을 설정 하는 방법을 보여 줍니다. 이 기술은 공용 인터넷을 사용 하거나 공용 IP 주소를 사용 하지 않고도 Express 경로를 통해 온-프레미스 네트워크와 Azure 가상 네트워크 간에 암호화 된 전송을 제공할 수 있습니다.
 
@@ -133,15 +132,15 @@ VPN 장치 구성을 다운로드 하 여 허브 VPN 게이트웨이의 개인 I
 * **vpnSiteConfiguration**:이 섹션에서는 가상 WAN에 연결 하는 사이트로 설정 된 장치 세부 정보를 나타냅니다. 여기에는 분기 장치의 이름 및 공용 IP 주소가 포함 됩니다.
 * **vpnSiteConnections**:이 섹션에서는 다음 설정에 대 한 정보를 제공 합니다.
 
-    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예제:
+    * 가상 허브의 가상 네트워크에 대 한 주소 공간입니다.<br/>예:
            ```
            "AddressSpace":"10.51.230.0/24"
            ```
-    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예제:
+    * 허브에 연결 된 가상 네트워크의 주소 공간입니다.<br>예:
            ```
            "ConnectedSubnets":["10.51.231.0/24"]
             ```
-    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 각 사이트에 대 한 `Instance0` 및 `Instance1`를 볼 수 있으며, 공용 IP 주소 대신 개인 IP 주소입니다.<br>예제:
+    * 가상 허브의 VPN 게이트웨이의 IP 주소입니다. VPN 게이트웨이의 각 연결은 활성-활성 구성에서 두 개의 터널로 구성 되므로이 파일에 나열 된 두 IP 주소가 모두 표시 됩니다. 이 예제에서는 각 사이트에 대 한 `Instance0` 및 `Instance1`를 볼 수 있으며, 공용 IP 주소 대신 개인 IP 주소입니다.<br>예:
            ``` 
            "Instance0":"10.51.230.4"
            "Instance1":"10.51.230.5"

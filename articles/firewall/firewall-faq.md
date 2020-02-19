@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 01/29/2020
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: 78269461bf01d61bffeed504b0168b4913c6e131
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442992"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460470"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```azurepowershell
 # Stop an existing firewall
@@ -129,7 +129,9 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>강제 터널링/네트워크 가상 어플라이언스에 대 한 연결이 지원 되나요?
 
-강제 터널링은 현재 지원 되지 않습니다. Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
+강제 터널링이 지원 됩니다. 자세한 내용은 [Azure 방화벽 강제 터널링 (미리 보기)](forced-tunneling.md)을 참조 하세요. 
+
+Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 
 구성에 온-프레미스 네트워크에 대한 강제 터널링이 필요하고 인터넷 대상의 대상 IP 접두사를 확인할 수 있는 경우, AzureFirewallSubnet의 사용자 정의 경로를 통해 온-프레미스 네트워크를 사용하여 이러한 범위를 다음 홉으로 구성할 수 있습니다. 또는 BGP를 사용하여 이러한 경로를 정의할 수 있습니다.
 
@@ -139,7 +141,7 @@ Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/ht
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
 
-아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+No. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>응용 프로그램 규칙 대상 FQDN에서 와일드 카드를 사용 하는 방법
 
@@ -162,11 +164,11 @@ Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
 
-아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+No. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>방화벽 처리량을 늘리려면 어떻게 해야 하나요?
 
-Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale out은 CPU 사용량만을 기준으로 합니다. 네트워크 규칙을 사용 하는 방화벽은 CPU 사용에 심각한 영향을 주지 않으므로 처리량을 높이도록 확장할 수 없는 경우도 있습니다. 방화벽에 더 높은 처리량이 필요한 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
+Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale out은 CPU 사용량과 처리량을 기반으로 합니다. 네트워크 규칙을 사용 하는 방화벽은 CPU 사용에 심각한 영향을 주지 않으므로 처리량을 높이도록 확장할 수 없는 경우도 있습니다. 방화벽에 더 높은 처리량이 필요한 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure 방화벽을 확장 하는 데 얼마나 걸립니까?
 
@@ -174,4 +176,4 @@ Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale o
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
 
-아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.
+No. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.

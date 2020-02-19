@@ -87,6 +87,8 @@
           href: built-in-vulnerability-assessment.md
         - name: 외부 검사기 사용
           href: partner-vulnerability-assessment.md
+    - name: 컨테이너 모니터링
+      href: monitor-container-security.md
     - name: Microsoft Defender ATP를 사용하여 서버 보호
       href: security-center-wdatp.md
     - name: Azure VM의 SQL에 대한 Advanced Data Security 사용

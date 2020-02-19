@@ -11,12 +11,12 @@ ms.topic: reference
 ms.date: 02/05/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 69091fbcc2b6789abc7825632a56197427d34e4c
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 06323ba8f623bc80a355be69ed9571ee32dd69e6
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045359"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461218"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -523,9 +523,9 @@ GetLocalizedStringsTransformation 클레임 변환을 사용 하려면 다음을
 
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| OutputClaim | claim_to_null | string | 값을 NULL로 설정할 클레임입니다. |
+| OutputClaim | claim_to_null | string | 클레임의 값이 NULL로 설정 됩니다. |
 
-클레임 속성 모음에서 불필요한 데이터를 제거하려면 이 클레임 변환을 사용합니다. 그러면 세션 쿠키의 크기가 작아집니다. 다음 예제에서는 `TermsOfService` 클레임 형식의 값을 제거합니다.
+이 클레임 변환을 사용 하 여 클레임 속성 모음에서 불필요 한 데이터를 제거 하면 세션 쿠키가 더 작아집니다. 다음 예제에서는 `TermsOfService` 클레임 형식의 값을 제거합니다.
 
 ```XML
 <ClaimsTransformation Id="SetTOSToNull" TransformationMethod="NullClaim">

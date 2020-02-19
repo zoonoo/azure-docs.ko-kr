@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 30f8111e1d8c9bd76e7b55dd958256f8892b9058
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
-ms.translationtype: HT
+ms.openlocfilehash: d7c8bdb7236ed0a3a12bae5050e564afe0b68cde
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442023"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77461235"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -60,7 +60,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|이름. lastName|lastName|
-|회사 메일|전자 메일 [type eq "work"]. value|Mail|
+|회사 메일|전자 메일 [type eq "work"]. value|메일|
 |manager|manager|manager|
 |tag|urn: ietf: params: scim: 스키마: 확장: 2.0: CustomExtension: tag|extensionAttribute1|
 |상태|활성|Is소프트 삭제 (사용자에 게 저장 되지 않은 계산 값)|
@@ -106,7 +106,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
-| members |members |
+| 멤버 |멤버 |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -1445,6 +1445,16 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 
 둘 이상의 테 넌 트에서 사용 되는 응용 프로그램을 빌드하는 경우 Azure AD 응용 프로그램 갤러리에서 사용할 수 있도록 설정할 수 있습니다. 이렇게 하면 조직이 응용 프로그램을 쉽게 검색 하 고 프로 비전을 구성할 수 있습니다. Azure AD 갤러리에 앱을 게시 하 고 다른 사용자가 프로 비전을 사용할 수 있도록 하는 것이 쉽습니다. [여기](../develop/howto-app-gallery-listing.md)서 단계를 확인하세요. Microsoft는 사용자와 협력 하 여 응용 프로그램을 갤러리에 통합 하 고, 끝점을 테스트 하 고, 고객이 사용할 수 있도록 온 보 딩 [설명서](../saas-apps/tutorial-list.md) 를 출시 합니다. 
 
+### <a name="gallery-onboarding-checklist"></a>갤러리 등록 검사 목록
+아래의 검사 목록에 따라 응용 프로그램이 등록 quicky 이며 고객에 게 원활한 배포 환경이 있는지 확인 하세요. 갤러리에 등록 하면 해당 정보가 수집 됩니다. 
+> [!div class="checklist"]
+> * [SCIM 2.0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (필수) 지원
+> * 테 넌 트 당 최소 25 개의 요청을 지원 합니다 (필수).
+> * 지원 스키마 검색 (권장)
+> * 아래 설명 된 대로 OAuth 인증 코드 부여 또는 수명이 긴 토큰을 지원 합니다 (필수).
+> * 고객 사후 갤러리 온 보 딩 지원에 대 한 엔지니어링 및 지원 연락 지점 설정 (필수)
+> * SCIM 끝점을 공개적으로 문서화 (권장) 
+
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>응용 프로그램 갤러리에서 커넥터 프로 비전에 대 한 권한 부여
 SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정의 되어 있지 않습니다. 기존 업계 표준의 사용을 기반으로 합니다. Azure AD 프로 비전 클라이언트는 갤러리의 응용 프로그램에 대 한 두 가지 권한 부여 방법을 지원 합니다. 
@@ -1471,6 +1481,17 @@ OAuth v1은 클라이언트 암호의 노출 때문에 지원 되지 않습니�
 **수명이 긴 OAuth 전달자 토큰:** 응용 프로그램에서 OAuth 인증 코드 부여 흐름을 지원 하지 않는 경우 관리자가 프로 비전 통합을 설정 하는 데 사용할 수 있는 수명이 긴 OAuth 전달자 토큰을 생성할 수도 있습니다. 토큰은 영구적 이거나 토큰이 만료 될 때 프로 비전 작업이 [격리](application-provisioning-quarantine-status.md) 됩니다. 이 토큰의 크기는 1KB 미만 이어야 합니다.  
 
 추가 인증 및 권한 부여 방법에 대 한 자세한 내용은 [UserVoice](https://aka.ms/appprovisioningfeaturerequest)에서 알려주세요.
+
+### <a name="gallery-go-to-market-launch-check-list"></a>갤러리 출시 전 시작 검사 목록
+공동 통합의 인식과 수요를 파악 하는 데 도움이 되도록 기존 문서를 업데이트 하 고 마케팅 채널에서 통합을 강화 하는 것이 좋습니다.  다음은 시작을 지 원하는 데 도움이 되는 검사 목록 작업의 집합입니다.
+
+* **판매 및 고객 지원 준비.** 판매 및 지원 팀이 인식 되 고 통합 기능을 사용할 수 있는지 확인 합니다. 영업 및 지원 팀에 대해 간략하게 설명 하 고 Faq를 제공 하며 판매 자료에 통합을 포함 합니다. 
+* **블로그 게시물 및/또는 릴리스를 누릅니다.** 공동 통합, 이점 및 시작 하는 방법을 설명 하는 블로그 게시물을 만들거나 릴리스를 누릅니다. [예: Imprivata 및 Azure Active Directory 보도 릴리스](https://www.imprivata.com/company/press/imprivata-introduces-iam-cloud-platform-healthcare-supported-microsoft) 
+* **소셜 미디어.** Twitter, Facebook 또는 LinkedIn 같은 소셜 미디어를 활용 하 여 고객에 대 한 통합을 홍보 하세요. 게시물을 제거할 수 있도록 @AzureAD를 포함 해야 합니다. [예: Imprivata Twitter Post](https://twitter.com/azuread/status/1123964502909779968)
+* **마케팅 웹 사이트.** 공동 통합의 가용성을 포함 하도록 마케팅 페이지 (예: 통합 페이지, 파트너 페이지, 가격 페이지 등)를 만들거나 업데이트 합니다. [예: Monday.com 보드 통합 페이지](https://pingboard.com/org-chart-for), [smartsheet 통합 페이지](https://www.smartsheet.com/marketplace/apps/microsoft-azure-ad), [가격 책정 페이지](https://monday.com/pricing/) 
+* **기술 문서.** 고객이 시작할 수 있는 방법에 대 한 도움말 센터 문서 또는 기술 설명서를 만듭니다. [예: 엔보이 + Microsoft Azure Active Directory 통합.](https://envoy.help/en/articles/3453335-microsoft-azure-active-directory-integration/
+) 
+* **고객 통신.** 고객의 의견 (월간 뉴스레터, 전자 메일 캠페인, 제품 릴리스 정보)을 통해 새로운 통합을 고객에 게 알립니다. 
 
 ### <a name="allow-ip-addresses-used-by-the-azure-ad-provisioning-service-to-make-scim-requests"></a>Azure AD 프로 비전 서비스에서 사용 하는 IP 주소를 사용 하 여 SCIM 요청 만들기
 

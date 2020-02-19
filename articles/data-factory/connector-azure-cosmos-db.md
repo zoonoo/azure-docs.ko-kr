@@ -11,12 +11,12 @@ ms.workload: data-services
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 12/11/2019
-ms.openlocfilehash: 6e9e1d54599ab88092638762ccd7974e44c82cbf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7096b429145a54b5a09fe38eb8099c4ff24ac452
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025812"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460963"
 ---
 # <a name="copy-and-transform-data-in-azure-cosmos-db-sql-api-by-using-azure-data-factory"></a>Azure Data Factory를 사용 하 여 Azure Cosmos DB (SQL API)에서 데이터 복사 및 변환
 
@@ -48,7 +48,7 @@ Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위�
 > [!TIP]
 > [데이터 마이그레이션 동영상](https://youtu.be/5-SRNiC_qOU)에서는 Azure Blob Storage에서 Azure Cosmos DB로 데이터를 복사하는 단계를 안내합니다. 이 동영상에서는 또한 일반적으로 Azure Cosmos DB에 데이터를 수집하기 위한 성능 조정 고려 사항도 설명합니다.
 
-## <a name="get-started"></a>시작하기
+## <a name="get-started"></a>시작
 
 [!INCLUDE [data-factory-v2-connector-get-started](../../includes/data-factory-v2-connector-get-started.md)]
 
@@ -58,11 +58,11 @@ Data Factory는 Azure Cosmos DB에 쓸 때 최상의 성능을 제공하기 위�
 
 Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | **type** 속성은 **CosmosDb**로 설정해야 합니다. | 예 |
+| 형식 | **type** 속성은 **CosmosDb**로 설정해야 합니다. | 예 |
 | connectionString |Azure Cosmos DB 데이터베이스에 연결하는 데 필요한 정보를 지정합니다.<br />**참고**: 다음 예제에 표시된 대로 연결 문자열에 데이터베이스 정보를 지정해야 합니다. <br/> Azure Key Vault에 계정 키를 넣고, 연결 문자열에서 `accountKey` 구성을 끌어올 수도 있습니다. 자세한 내용은 다음 샘플 및 [Azure Key Vault에 자격 증명 저장](store-credentials-in-key-vault.md) 문서를 참조하세요. |예 |
-| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아닙니다. |
+| connectVia | 데이터 저장소에 연결하는 데 사용할 [통합 런타임](concepts-integration-runtime.md)입니다. Azure Integration Runtime 또는 데이터 저장소가 프라이빗 네트워크에 있는 경우, 자체 호스팅 통합 런타임을 사용할 수 있습니다. 이 속성을 지정하지 않으면 기본 Azure Integration Runtime이 사용됩니다. |아니요 |
 
 **예제**
 
@@ -114,9 +114,9 @@ Azure Cosmos DB(SQL API) 연결된 서비스에 다음 속성이 지원됩니다
 
 Azure Cosmos DB (SQL API) 데이터 집합에 대해 지원 되는 속성은 다음과 같습니다. 
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 데이터 집합의 **type** 속성은 **CosmosDbSqlApiCollection**로 설정 해야 합니다. |예 |
+| 형식 | 데이터 집합의 **type** 속성은 **CosmosDbSqlApiCollection**로 설정 해야 합니다. |예 |
 | collectionName |Azure Cosmos DB 문서 컬렉션의 이름입니다. |예 |
 
 "DocumentDbCollection" 형식 데이터 집합을 사용 하는 경우 복사 및 조회 작업에 대해 이전 버전과의 호환성을 위해 계속 지원 되지만 데이터 흐름에는 지원 되지 않습니다. 앞으로 새 모델을 사용 하는 것이 좋습니다.
@@ -150,12 +150,12 @@ Azure Cosmos DB(SQL API)에서 데이터를 복사하려면 복사 작업의 **s
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 원본의 **type** 속성은 **CosmosDbSqlApiSource**로 설정 해야 합니다. |예 |
-| Query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아닙니다. <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
-| preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 기본 영역 목록입니다. | 아닙니다. |
-| pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 "-1" 이며,이는 서비스 쪽 동적 페이지 크기를 최대 1000까지 사용 함을 의미 합니다. | 아닙니다. |
+| 형식 | 복사 작업 원본의 **type** 속성은 **CosmosDbSqlApiSource**로 설정 해야 합니다. |예 |
+| query |데이터를 읽는 Azure Cosmos DB 쿼리를 지정합니다.<br/><br/>예:<br /> `SELECT c.BusinessEntityID, c.Name.First AS FirstName, c.Name.Middle AS MiddleName, c.Name.Last AS LastName, c.Suffix, c.EmailPromotion FROM c WHERE c.ModifiedDate > \"2009-01-01T00:00:00\"` |아니요 <br/><br/>지정하지 않는 경우 실행되는 SQL 문: `select <columns defined in structure> from mycollection` |
+| preferredRegions | Cosmos DB에서 데이터를 검색할 때 연결할 기본 영역 목록입니다. | 아니요 |
+| pageSize | 쿼리 결과의 페이지당 문서 수입니다. 기본값은 "-1" 이며,이는 서비스 쪽 동적 페이지 크기를 최대 1000까지 사용 함을 의미 합니다. | 아니요 |
 
 "DocumentDbCollectionSource" 형식 원본을 사용 하는 경우 이전 버전과의 호환성을 위해 그대로 계속 지원 됩니다. Cosmos DB에서 데이터를 복사 하는 다양 한 기능을 제공 하는 새 모델을 사용 하는 것이 좋습니다.
 
@@ -202,11 +202,11 @@ Azure Cosmos DB(SQL API)로 데이터를 복사하려면 복사 작업의 **sink
 
 복사 작업 **source** 섹션에서 지원되는 속성은 다음과 같습니다.
 
-| 속성 | Description | 필수 |
+| 속성 | 설명 | 필수 |
 |:--- |:--- |:--- |
-| type | 복사 작업 싱크의 **type** 속성은 **CosmosDbSqlApiSink**로 설정 해야 합니다. |예 |
-| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아닙니다.<br />(기본값: **insert**) |
-| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **Writebatchsize** 속성은 ADF가 라이브러리에 제공 하는 문서 크기를 제어 합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아닙니다.<br />(기본값: **10,000**) |
+| 형식 | 복사 작업 싱크의 **type** 속성은 **CosmosDbSqlApiSink**로 설정 해야 합니다. |예 |
+| writeBehavior |Azure Cosmos DB에 데이터를 쓰는 방법을 설명합니다. 허용되는 값은 **insert** 및 **upsert**입니다.<br/><br/>**upsert**의 동작은 동일한 ID의 문서가 이미 존재하는 경우 문서를 바꾸는 것이며, 존재하지 않는 경우 문서를 삽입하는 것입니다.<br /><br />**참고**: ID가 원래 문서 또는 열 매핑에 지정되지 않은 경우 Data Factory는 문서에 대한 ID를 자동으로 생성합니다. 즉, **upsert**가 예상대로 작동하려면 문서에 ID가 있는지 확인해야 합니다. |아니요<br />(기본값: **insert**) |
+| writeBatchSize | Data Factory는 [Azure Cosmos DB 대량 실행기 라이브러리](https://github.com/Azure/azure-cosmosdb-bulkexecutor-dotnet-getting-started)를 사용하여 Azure Cosmos DB에 데이터를 씁니다. **Writebatchsize** 속성은 ADF가 라이브러리에 제공 하는 문서 크기를 제어 합니다. 성능을 개선하기 위해 **writeBatchSize**에 대한 값을 늘리고 문서 크기가 커지는 경우 값을 줄이도록 시도할 수 있습니다. 아래 팁을 참조하세요. |아니요<br />(기본값: **10,000**) |
 | disableMetricsCollection | Data Factory 복사 성능 최적화 및 권장 사항에 대 한 Cosmos DB RUs와 같은 메트릭을 수집 합니다. 이 동작에 관심이 있는 경우 `true` 지정 하 여 해제 합니다. | 아니요(기본값: `false`) |
 
 >[!TIP]
@@ -318,7 +318,7 @@ Azure Cosmos DB 관련 된 설정은 싱크 변환의 **설정** 탭에서 사�
 
 ## <a name="migrate-from-relational-database-to-cosmos-db"></a>관계형 데이터베이스에서 Cosmos DB로 마이그레이션
 
-관계형 데이터베이스 (예: SQL Server Azure Cosmos DB에서 마이그레이션할 때 복사 작업은 원본에서 테이블 형식 데이터를 Cosmos DB의 플랫 JSON 문서에 쉽게 매핑할 수 있습니다. 경우에 따라 [Azure Cosmos DB에서 데이터 모델링](../cosmos-db/modeling-data.md)에 따라 nosql 사용 사례에 최적화 하도록 데이터 모델을 다시 디자인 하는 것이 좋습니다. 예를 들어 하나의 JSON 문서에 모든 관련 하위 항목을 포함 하 여 데이터를 비 정규화 수 있습니다. 이러한 경우 Azure Data Factory 복사 작업을 사용 하 여이 작업을 수행 하는 방법에 대 한 연습은 [이 블로그 게시물](https://medium.com/@ArsenVlad/denormalizing-via-embedding-when-copying-data-from-sql-to-cosmos-db-649a649ae0fb) 을 참조 하세요.
+관계형 데이터베이스 (예: SQL Server Azure Cosmos DB에서 마이그레이션할 때 복사 작업은 원본에서 테이블 형식 데이터를 Cosmos DB의 플랫 JSON 문서에 쉽게 매핑할 수 있습니다. 경우에 따라 [Azure Cosmos DB에서 데이터 모델링](../cosmos-db/modeling-data.md)에 따라 nosql 사용 사례에 최적화 하도록 데이터 모델을 다시 디자인 하는 것이 좋습니다. 예를 들어 하나의 JSON 문서에 모든 관련 하위 항목을 포함 하 여 데이터를 비 정규화 수 있습니다. 이러한 경우 Azure Data Factory 복사 작업을 사용 하 여이 작업을 수행 하는 방법에 대 한 연습은 [이 문서](../cosmos-db/migrate-relational-to-cosmos-db-sql-api.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

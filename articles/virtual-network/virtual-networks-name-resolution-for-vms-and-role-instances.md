@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 3/25/2019
 ms.author: rohink
-ms.openlocfilehash: f17b4ee0e4ce79cd12a6fda6f056b4e63b4161c9
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fac6c29d5371c536c20eca58d90ee5d54d7e90d1
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76991034"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462669"
 ---
 # <a name="name-resolution-for-resources-in-azure-virtual-networks"></a>Azure 가상 네트워크에서 리소스에 대한 이름 확인
 
@@ -43,8 +43,8 @@ IaaS, PaaS, 하이브리드 솔루션 호스팅에 Azure를 어떻게 사용할�
 | 한 가상 네트워크의 App Service Web Apps로부터 다른 가상 네트워크의 VM까지 이름을 확인합니다. |Azure(DNS 프록시)에서 이름을 확인할 수 있도록 가상 네트워크 간에 쿼리를 전달하는 고객이 관리하는 DNS 서버. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | Azure의 VM 또는 역할 인스턴스에서 온-프레미스 컴퓨터와 서비스 이름을 확인합니다. |고객이 관리하는 DNS 서버(예: 온-프레미스 도메인 컨트롤러, 로컬 읽기 전용 도메인 컨트롤러 또는 영역 전송을 사용하여 동기화된 DNS 보조). [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
 | 온-프레미스 컴퓨터에서 Azure 호스트 이름 확인. |해당 가상 네트워크에서 고객이 관리하는 DNS 프록시 서버에 쿼리를 전달하면 프록시 서버는 이름 확인을 위해 Azure에 쿼리를 전달합니다. [자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server). |FQDN만 |
-| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server) |적용되지 않음 |
-| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |해당 사항 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |적용되지 않음|
+| 내부 IP에 대한 역방향 DNS |[자체 DNS 서버를 이용한 이름 확인](#name-resolution-that-uses-your-own-dns-server) |해당 없음 |
+| 서로 다른 클라우드 서비스에 위치하며 가상 네트워크에 존재하지 않는 VM 또는 역할 인스턴스 간 이름 확인 |적용할 수 없음 가상 네트워크 외부에 있는 VM과 역할 인스턴스가 서로 다른 클라우드 서비스에 위치한 경우에는 연결을 지원하지 않습니다. |해당 없음|
 
 ## <a name="azure-provided-name-resolution"></a>Azure에서 제공하는 이름 확인
 
@@ -105,8 +105,7 @@ Azure 제공 이름 확인을 사용할 때 고려해야 할 사항입니다.
 
 > [!NOTE]
 > dnsmasq 패키지는 여러 DNS 캐시 중에 Linux에 사용할 수 있는 유일한 캐시입니다. 사용하기 전에 특정 요구 사항에 대한 적합성을 확인하고 다른 캐시가 설치되어 있지 않은지 확인합니다.
->
->
+
     
 ### <a name="client-side-retries"></a>클라이언트 쪽 재시도
 
@@ -169,11 +168,10 @@ Azure에 전달하는 쿼리가 사용자 요구에 적합하지 않은 경우 �
 * 외부 에이전트로 인해 나타나는 위험을 완화하기 위해 인터넷의 액세스로부터 보호되어야 합니다.
 
 > [!NOTE]
-> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. Windows Server를 DNS 서버로 사용할 때의 추가 성능 분석 및 최적화는 [재귀적 Windows DNS Server 2012 R2의 이름 확인 성능](https://blogs.technet.com/b/networking/archive/2015/08/19/name-resolution-performance-of-a-recursive-windows-dns-server-2012-r2.aspx)을 참조하세요.
-> 
+> 최상의 성능을 위해 Azure VM을 DNS 서버로 사용할 경우 IPv6를 사용하지 않도록 설정해야 합니다. [공용 IP](virtual-network-public-ip-address.md)를 각 DNS 서버 VM에 할당해야 합니다. 
 > 
 
-### <a name="web-apps"></a>웹앱
+### <a name="web-apps"></a>웹 앱
 가상 네트워크 또는 동일한 가상 네트워크의 VM에 연결된 App Service를 사용하여 빌드된 웹앱에서 이름 확인을 수행해야 한다고 가정합니다. Azure(가상 IP 168.63.129.16)로 쿼리를 전달하는 DNS 전달자가 있는 사용자 지정 DNS 서버를 설정하는 것 외에 다음 단계를 수행합니다.
 1. [가상 네트워크와 앱 통합](../app-service/web-sites-integrate-with-vnet.md?toc=%2fazure%2fvirtual-network%2ftoc.json)에서 설명한 대로 웹앱에 대해 가상 네트워크 통합을 사용하도록 설정합니다(아직 수행하지 않은 경우).
 2. Azure Portal에서 웹앱을 호스트하는 AppService 계획에 대해 **네트워킹**의 **가상 네트워크 통합**에서 **네트워크 동기화**를 선택합니다.
