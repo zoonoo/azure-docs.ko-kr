@@ -34,7 +34,7 @@
       href: connect-virtual-network-gateway-vwan.md
     - name: 글로벌 VNet 피어링 구성
       href: global-peering-vnet.md
-    - name: ExpressRoute를 통해 VPN 연결 만들기
+    - name: ExpressRoute 암호화 구성
       href: vpn-over-expressroute.md
     - name: 가상 WAN SKU 업그레이드
       href: upgrade-virtual-wan.md

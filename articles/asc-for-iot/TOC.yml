@@ -77,6 +77,8 @@
       href: how-to-security-data-access.md
     - name: 디바이스 조사
       href: how-to-investigate-device.md
+    - name: Azure Sentinel에 연결
+      href: how-to-configure-with-sentinel.md
     - name: 솔루션 사용자 지정
       href: how-to-customize-solution.md
 - name: 리소스

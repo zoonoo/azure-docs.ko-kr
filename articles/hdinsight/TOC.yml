@@ -852,6 +852,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: 개념
       items:
+        - name: 엔터프라이즈 보안 일반 지침
+          href: ./domain-joined/general-guidelines.md
         - name: ESP 클러스터 플랜
           href: ./domain-joined/apache-domain-joined-architecture.md
         - name: HDInsight 가상 네트워크 아키텍처
@@ -864,6 +866,8 @@
           href: ./hdinsight-service-tags.md
         - name: 고객 관리형 키 디스크 암호화
           href: ./disk-encryption.md
+        - name: Ranger 및 Apache Ambari의 LDAP 동기화
+          href: ./domain-joined/ldap-sync.md
     - name: 방법
       items:
         - name: 자격 증명 관리에 ID 브로커 사용

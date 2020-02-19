@@ -81,7 +81,7 @@
           href: container-instances-managed-identity.md
         - name: GPU 리소스 사용(미리 보기)
           href: container-instances-gpu.md
-        - name: SSL 엔드포인트 사용
+        - name: 사이드카에서 SSL 엔드포인트 사용
           href: container-instances-container-group-ssl.md
     - name: 데이터 볼륨 탑재
       items:

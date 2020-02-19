@@ -7,10 +7,14 @@
 - name: 자습서
   expanded: true
   items:
-    - name: 클라우드 네트워크 보안 - 포털
+    - name: 가상 WAN 보안 - 포털
       href: secure-cloud-network.md
+    - name: 허브 가상 네트워크 보안 - 포털
+      href: secure-hybrid-network.md
 - name: 개념
   items:
+    - name: 정책 개요
+      href: policy-overview.md
     - name: 보안 가상 허브란?
       href: secured-virtual-hub.md
     - name: 일반 배포 프로세스
@@ -19,11 +23,13 @@
       href: trusted-security-partners.md
     - name: 규칙 처리 논리
       href: rule-processing.md
+    - name: 아키텍처 옵션
+      href: vhubs-and-vnets.md
 - name: 방법 가이드
   items:
     - name: 신뢰할 수 있는 보안 파트너 배포
       href: deploy-trusted-security-partner.md
-    - name: 방화벽 정책으로 마이그레이션
+    - name: 방화벽 정책으로 마이그레이션 - PowerShell
       href: migrate-to-policy.md
 - name: 참조
   items:
@@ -51,7 +57,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: 커뮤니티 템플릿
       href: 'https://azure.microsoft.com/documentation/templates'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/azure-firewall/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'

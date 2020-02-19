@@ -351,6 +351,12 @@
           href: view-usage-reports.md
         - name: 계정 관리
           href: manage-user-accounts-graph-api.md
+        - name: Azure Pipelines를 사용하여 배포
+          href: deploy-custom-policies-devops.md
+          displayName: 'azure devops, ci/cd, cicd, custom policy, policies'
+        - name: PowerShell을 사용하여 정책 관리
+          href: manage-custom-policies-powershell.md
+          displayName: 'scripting, scripts, psh, custom policy'
     - name: 감사 로그
       href: view-audit-logs.md
     - name: 사용자 관리-Azure Portal

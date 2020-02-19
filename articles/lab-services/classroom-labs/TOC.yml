@@ -52,16 +52,20 @@
           href: how-to-manage-lab-accounts.md
         - name: 랩 계정 구성
           href: how-to-configure-lab-accounts.md
+        - name: 랩 작성자 추가
+          href: add-lab-creator.md
         - name: 랩 작성자가 랩 위치를 선택하도록 허용
           href: allow-lab-creator-pick-lab-location.md
-        - name: 피어 가상 네트워크에 랩 연결
+        - name: 피어 가상 네트워크에 연결
           href: how-to-connect-peer-virtual-network.md
         - name: 공유 이미지 갤러리 연결 또는 분리
           href: how-to-attach-detach-shared-image-gallery.md
-        - name: 사용자를 클래스룸 랩에 소유자로 추가
+        - name: 추가 소유자를 클래스룸 랩에 추가
           href: how-to-add-user-lab-owner.md
-        - name: Azure Lab Services에 대한 방화벽 설정
+        - name: 방화벽 설정 구성하기
           href: how-to-configure-firewall-settings.md
+        - name: 랩용 Marketplace 이미지 지정
+          href: specify-marketplace-images.md
     - name: 클래스룸 랩 만들기 및 구성(교사)
       items:
         - name: 클래스룸 랩 만들기 및 관리
