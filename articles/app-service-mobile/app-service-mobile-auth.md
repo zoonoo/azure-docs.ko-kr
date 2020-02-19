@@ -3,19 +3,14 @@ title: 인증 및 권한 부여
 description: Azure App Service에 대 한 인증/권한 부여 기능의 개념 참조 및 개요 (특히 mobile apps 용)
 ms.topic: article
 ms.date: 10/01/2016
-ms.openlocfilehash: 2c3bc1f9563a5657d7574020fc908f23a711391c
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 4a9ef62178b9a58fa8703413a09114a617d1d239
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74668525"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459466"
 ---
 # <a name="authentication-and-authorization-in-azure-app-service-for-mobile-apps"></a>Azure App Service에서 모바일 앱에 대한 인증 및 권한 부여
-
-> [!NOTE]
-> Visual Studio App Center는 모바일 앱 개발의 중심인 엔드투엔드 통합 서비스를 지원합니다. 개발자는 **빌드**, **테스트** 및 **배포** 서비스를 사용하여 지속적인 통합 및 업데이트 파이프라인을 설정할 수 있습니다. 앱이 배포되면 개발자는 **분석** 및 **진단** 서비스를 사용하여 앱의 상태와 사용 현황을 모니터링하고, **푸시** 서비스를 사용하여 사용자와 소통할 수 있습니다. 또한 개발자는 **인증** 서비스를 사용하여 사용자를 인증하고, **데이터** 서비스를 사용하여 클라우드에서 애플리케이션 데이터를 유지하고 동기화할 수도 있습니다.
->
-> 모바일 애플리케이션에서 클라우드 서비스를 통합하려면 지금 [App Center](https://appcenter.ms/?utm_source=zumo&utm_medium=Azure&utm_campaign=zumo%20doc)에 등록하세요.
 
 이 문서에서는 App Service 백 엔드를 사용하여 네이티브 모바일 앱을 개발할 때 인증 및 권한 부여가 작동하는 방법에 대해 설명합니다. App Service에서 통합된 인증 및 권한 부여를 제공하므로 모바일 앱은 App Service의 코드를 변경하지 않고 사용자를 로그인할 수 있습니다. 애플리케이션을 보호하고 사용자 단위당 데이터로 작업하는 쉬운 방법을 제공합니다. 
 

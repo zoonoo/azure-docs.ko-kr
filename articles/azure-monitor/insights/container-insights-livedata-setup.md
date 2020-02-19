@@ -3,12 +3,12 @@ title: 컨테이너 라이브 데이터 (미리 보기)에 대 한 Azure Monitor
 description: 이 문서에서는 컨테이너에 대해 Azure Monitor와 함께 kubectl를 사용 하지 않고 컨테이너 로그 (stdout/stderr) 및 이벤트에 대 한 실시간 보기를 설정 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 02/14/2019
-ms.openlocfilehash: 91f035b98a57fd9a37203cc48b3cc5d685967a13
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: f19071ca642cd229cbd7d49b4eab90c970672eee
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251790"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77459925"
 ---
 # <a name="how-to-set-up-the-live-data-preview-feature"></a>라이브 데이터 (미리 보기) 기능을 설정 하는 방법
 
@@ -18,7 +18,7 @@ AKS (Azure Kubernetes Service) 클러스터의 컨테이너에 대 한 Azure Mon
 
 - Kubernetes RBAC 권한 부여를 사용하도록 설정되지 않은 AKS
 - Kubernetes RBAC 권한 부여를 사용하도록 설정된 AKS
-    - 클러스터 역할 바인딩 **[ClusterMonitoringUser](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)** 를 사용 하 여 구성 된 AKS
+    - 클러스터 역할 바인딩 ClusterMonitoringUser를 사용 하 여 구성 된 AKS  **[](https://docs.microsoft.com/rest/api/aks/managedclusters/listclustermonitoringusercredentials?view=azurermps-5.2.0)**
 - AD (Azure Active Directory) SAML 기반 single sign-on을 사용 하는 AKS
 
 이러한 지침을 사용 하려면 Kubernetes 클러스터에 대 한 관리 권한이 필요 하 고, 사용자 인증에 AD (Azure Active Directory)를 사용 하도록 구성 하는 경우 Azure AD에 대 한 관리 액세스 권한이 필요 합니다.  
@@ -48,7 +48,7 @@ Azure Portal은 Azure Active Directory 클러스터에 대 한 로그인 자격 
 
 ## <a name="using-clustermonitoringuser-with-rbac-enabled-clusters"></a>RBAC 사용 클러스터에서 clusterMonitoringUser 사용
 
-Kubernetes 사용자 **규칙 바인딩을 허용** 하기 위해 추가 구성 변경 사항을 적용할 필요가 없도록 하려면 RBAC 권한 부여를 [사용 하도록](#configure-kubernetes-rbac-authorization) 설정한 후 AKS에서 **clusterMonitoringUser**라는 새 Kubernetes 클러스터 역할 바인딩을 추가 했습니다. 이 클러스터 역할 바인딩에는 Kubernetes API 및 라이브 데이터 (미리 보기) 기능을 활용 하기 위한 끝점에 액세스 하는 데 필요한 모든 권한이 있습니다. 
+Kubernetes 사용자 역할을 허용 하기 위해 추가 구성 변경 내용을 적용할 필요가 없도록 하려면 RBAC 권한 부여를 [사용 하도록](#configure-kubernetes-rbac-authorization) 설정한 후 AKS에서 **ClusterMonitoringUser**라는 새 Kubernetes 클러스터 **역할 바인딩을 추가** 했습니다. 이 클러스터 역할 바인딩에는 Kubernetes API 및 라이브 데이터 (미리 보기) 기능을 활용 하기 위한 끝점에 액세스 하는 데 필요한 모든 권한이 있습니다.
 
 이 새 사용자와 함께 라이브 데이터 (미리 보기) 기능을 사용 하려면 AKS 클러스터 리소스에 대 한 [참가자](../../role-based-access-control/built-in-roles.md#contributor) 역할의 구성원 이어야 합니다. 컨테이너의 Azure Monitor 사용 하도록 설정 된 경우 기본적으로이 사용자를 사용 하 여 인증 하도록 구성 됩니다. ClusterMonitoringUser 역할 바인딩이 클러스터에 존재 하지 않는 경우 대신 **Clusteruser** 가 인증에 사용 됩니다.
 
