@@ -10,12 +10,12 @@ ms.subservice: bing-visual-search
 ms.topic: quickstart
 ms.date: 12/17/2019
 ms.author: aahi
-ms.openlocfilehash: 676427ca2985de51767939891b41f413446d4bb1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d99aa2d2827716b2b04d059e47d9768eef8cd690
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75446576"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485100"
 ---
 # <a name="quickstart-get-image-insights-using-the-bing-visual-search-sdk-for-nodejs"></a>빠른 시작: Bing Visual Search SDK for Node.js를 사용하여 이미지 인사이트 가져오기
 
@@ -26,7 +26,7 @@ ms.locfileid: "75446576"
 * Bing Visual Search SDK for Node.js
     * Bing Visual Search SDK를 사용하여 콘솔 애플리케이션을 설치하려면 다음 명령을 실행합니다.
         1. `npm install ms-rest-azure`
-        2. `npm install azure-cognitiveservices-search-visualSearch`입니다.
+        2. `npm install azure-cognitiveservices-visualsearch`입니다.
 
 
 [!INCLUDE [cognitive-services-bing-visual-search-signup-requirements](../../../includes/cognitive-services-bing-visual-search-signup-requirements.md)]

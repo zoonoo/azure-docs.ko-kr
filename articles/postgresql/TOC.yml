@@ -281,6 +281,8 @@
               href: howto-read-replicas-cli.md
     - name: 하이퍼스케일(Citus)
       items:
+        - name: 사용자 만들기
+          href: howto-hyperscale-create-users.md
         - name: 확장
           href: howto-hyperscale-scaling.md
         - name: 방화벽 관리

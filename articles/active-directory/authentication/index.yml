@@ -12,12 +12,12 @@ metadata:
   ms.author: iainfou
   ms.date: 02/11/2020
   ms.collection: M365-identity-device-management
-  ms.openlocfilehash: 3c431b81c0da54045e9b9b020de5275912b394c6
-  ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+  ms.openlocfilehash: d06cc6f3c2d0d5033777a2f988d12ba7edb7be9c
+  ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/12/2020
-  ms.locfileid: "77166425"
+  ms.lasthandoff: 02/20/2020
+  ms.locfileid: "77484097"
 landingContent:
 - title: 인증 정보
   linkLists:
@@ -37,14 +37,14 @@ landingContent:
     links:
     - text: SSPR(셀프 서비스 암호 재설정) 작동 방식
       url: concept-sspr-howitworks.md
-    - text: 비밀번호 쓰기 저장
+    - text: 암호 쓰기 저장의 작동 원리
       url: concept-sspr-writeback.md
   - linkListType: tutorial
     links:
     - text: 셀프 서비스 암호 재설정 사용
       url: tutorial-enable-sspr.md
     - text: 온-프레미스에 암호 쓰기 저장 사용
-      url: tutorial-enable-writeback.md
+      url: tutorial-enable-sspr-writeback.md
   - linkListType: deploy
     links:
     - text: 셀프 서비스 암호 재설정을 위한 배포 가이드

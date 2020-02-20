@@ -3,12 +3,12 @@ title: Python 함수에 Azure Storage 큐 바인딩 추가
 description: 출력 바인딩을 사용하여 Python 함수와 Azure Storage 큐를 통합합니다.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6cea44dca666bbf002de6e2b7dd283f49ac7bd5a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198482"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485168"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -100,7 +100,7 @@ ms.locfileid: "77198482"
 
 이 경우 `msg`가 출력 인수로 함수에 제공됩니다. `queue` 형식의 경우 `queueName`에는 큐 이름을 지정하고, `connection`에는 *local.settings.json*에 있는 Azure Storage 연결의 *name*을 제공해야 합니다.
 
-바인딩 세부 정보에 대한 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md) 및 [큐 출력 구성](functions-bindings-storage-queue.md#output---configuration)을 참조하세요.
+바인딩 세부 정보에 대한 자세한 내용은 [Azure Functions 트리거 및 바인딩 개념](functions-triggers-bindings.md) 및 [큐 출력 구성](functions-bindings-storage-queue-output.md#configuration)을 참조하세요.
 
 ## <a name="add-code-to-use-the-output-binding"></a>출력 바인딩을 사용하는 코드 추가
 
@@ -219,7 +219,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
     ---
 
 
-1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
+1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue-trigger.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
 
     # <a name="bash"></a>[bash](#tab/bash)
     

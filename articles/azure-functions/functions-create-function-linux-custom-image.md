@@ -5,12 +5,12 @@ ms.date: 01/15/2020
 ms.topic: tutorial
 ms.custom: mvc
 zone_pivot_groups: programming-languages-set-functions01
-ms.openlocfilehash: 9c97606b21a6e98494fffb689567aaab6e2f0621
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b714806c163a94bbae7069c357e603b82ba797ba
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210194"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482363"
 ---
 # <a name="create-a-function-on-linux-using-a-custom-container"></a>사용자 지정 컨테이너를 사용하여 Linux에서 함수 만들기
 
@@ -919,7 +919,7 @@ export default httpTrigger;
     
     ---
 
-1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
+1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue-trigger.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
 
     # <a name="bash"></a>[bash](#tab/bash)
     

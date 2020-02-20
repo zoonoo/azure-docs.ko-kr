@@ -11,8 +11,8 @@
       href: tutorial-enable-sspr.md
     - name: Azure Multi-Factor Authentication 사용
       href: tutorial-enable-azure-mfa.md
-    - name: SSPR 온-프레미스 통합 통합을 사용하도록 설정
-      href: tutorial-enable-writeback.md
+    - name: 온-프레미스에 암호 쓰기 저장 사용
+      href: tutorial-enable-sspr-writeback.md
     - name: Azure ID 보호 통합
       href: tutorial-risk-based-sspr-mfa.md
 - name: 개념
@@ -68,8 +68,6 @@
           href: howto-sspr-deployment.md
         - name: 인증 데이터 미리 등록
           href: howto-sspr-authenticationdata.md
-        - name: 비밀번호 쓰기 저장을 사용하도록 설정
-          href: howto-sspr-writeback.md
         - name: Windows 클라이언트에 대한 SSPR
           href: howto-sspr-windows.md
     - name: 클라우드 기반 MFA
