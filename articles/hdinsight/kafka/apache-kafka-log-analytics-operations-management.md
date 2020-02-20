@@ -7,19 +7,31 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 12/04/2019
-ms.openlocfilehash: d4263b8b338f057893c9dfcda1541fc338c2577f
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.date: 02/17/2020
+ms.openlocfilehash: 3f8ff3cbc24f6e3a7e0eccf1b18e01941c9584b9
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894271"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471183"
 ---
 # <a name="analyze-logs-for-apache-kafka-on-hdinsight"></a>HDInsight의 Apache Kafka에 대한 로그 분석
 
 Azure Monitor 로그를 사용 하 여 HDInsight에서 Apache Kafka 생성 된 로그를 분석 하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+## <a name="logs-location"></a>로그 위치
+
+클러스터의 Apache Kafka 로그는 `/var/log/kafka`에 있습니다. 관리 디스크를 사용 하는지 여부에 관계 없이 kafka 로그가 클러스터 수명 주기 간에 저장 되거나 지속 되지 않습니다. 다음 표에서는 사용 가능한 로그를 보여 줍니다.
+
+|로그 |Description |
+|---|---|
+|kafka.|Kafka 프로세스의 stdout 및 stderr 이 파일에서 Kafka 시작 및 종료 로그를 찾을 수 있습니다.|
+|server .log|주 Kafka 서버 로그입니다. 모든 Kaf\broker 로그는 여기에서 종료 됩니다.|
+|controller. 로그|Broker가 컨트롤러 역할을 하는 경우 컨트롤러 로그|
+|statechange|Broker로의 모든 상태 변경 이벤트는이 파일에 기록 됩니다.|
+|kafka-gc|Kafka 가비지 수집 통계입니다.|
 
 ## <a name="enable-azure-monitor-logs-for-apache-kafka"></a>Apache Kafka에 대 한 Azure Monitor 로그 사용
 
@@ -82,7 +94,7 @@ HDInsight에 대 한 Azure Monitor 로그를 사용 하도록 설정 하는 단�
 
     `*`를 입력하여 기록된 모든 종류를 검색할 수도 있습니다. 현재 다음 로그를 쿼리에 사용할 수 있습니다.
 
-    | 로그 형식 | 설명 |
+    | 로그 형식 | Description |
     | ---- | ---- |
     | log\_kafkaserver\_CL | Kafka broker server.log |
     | log\_kafkacontroller\_CL | Kafka broker controller.log |

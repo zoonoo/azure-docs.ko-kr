@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: e12fc5d92cfc850e1d049bc11286c0c863e718b0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bad3be86bd85f7e5cebcf9445d14d836c73a87ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75459193"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470798"
 ---
 # <a name="export-security-alerts-and-recommendations-preview"></a>보안 경고 및 권장 사항 내보내기 (미리 보기)
 
@@ -105,7 +105,7 @@ Azure Monitor에서 Security Center의 경고 및 권장 사항을 보려면 Log
 
 ## <a name="manual-one-time-export-of-security-alerts"></a>보안 경고의 수동 일회성 내보내기
 
-경고 또는 권장 사항에 대 한 CSV 보고서를 다운로드 하려면 **보안 경고** 또는 **권장 사항** 페이지를 열고 **Csv 보고서 다운로드 (미리 보기)** 단추를 클릭 합니다.
+경고 또는 권장 사항에 대 한 CSV 보고서를 다운로드 하려면 **보안 경고** 또는 **권장 사항** 페이지를 열고 **csv 보고서 다운로드** 단추를 클릭 합니다.
 
 [경고 데이터를 CSV 파일로 다운로드 ![](media/continuous-export/download-alerts-csv.png)](media/continuous-export/download-alerts-csv.png#lightbox)
 

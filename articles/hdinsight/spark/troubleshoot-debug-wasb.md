@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: troubleshooting
-ms.date: 02/07/2020
-ms.openlocfilehash: 1256575eea7ee80b41a875c6bcd9b281b98aa360
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.date: 02/18/2020
+ms.openlocfilehash: f1707c7f8d6324678c8bf5a470bbded1e58c719e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163851"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470720"
 ---
 # <a name="debug-wasb-file-operations-in-azure-hdinsight"></a>Azure HDInsight의 WASB 파일 작업 디버그
 
@@ -26,19 +26,17 @@ WASB 드라이버가 Azure Storage 시작 하는 작업을 이해 하려는 경�
 
 ## <a name="turn-on-wasb-debug-log-for-file-operations"></a>파일 작업에 대 한 WASB 디버그 로그 설정
 
-1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net`로 이동 합니다. 여기서 `CLUSTERNAME`은 Spark 클러스터의 이름입니다.
+1. 웹 브라우저에서 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/SPARK2/configs`로 이동 합니다. 여기서 `CLUSTERNAME`은 Spark 클러스터의 이름입니다.
 
-1. **Spark2** > **Configs** > **advanced Spark2-log4j**로 이동 합니다.
+1. **Advanced spark2-log4j**로 이동 합니다.
 
-1. `log4j.appender.console.Threshold=DEBUG``log4j.appender.console.Threshold=INFO`을 수정 합니다.
+    1. `log4j.appender.console.Threshold=DEBUG``log4j.appender.console.Threshold=INFO`을 수정 합니다.
+
+    1. `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`를 추가합니다.
 
 1. **Advanced livy2-log4j**로 이동 합니다.
 
-1. 다음 속성을 추가 합니다.
-
-    ```
-    log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG
-    ```
+    `log4j.logger.org.apache.hadoop.fs.azure.NativeAzureFileSystem=DEBUG`를 추가합니다.
 
 1. 변경 내용을 저장합니다.
 

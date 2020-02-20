@@ -14,18 +14,18 @@ ms.workload: identity
 ms.date: 11/25/2019
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 0351721283df68fde910ae16b16d567954c3e6fb
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: b32df50715d5e7276861e0696df1bd6ceb3f684e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707906"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471995"
 ---
 # <a name="add-or-remove-role-assignments-using-azure-rbac-and-azure-cli"></a>Azure RBAC 및 Azure CLI를 사용 하 여 역할 할당 추가 또는 제거
 
 이 문서 [!INCLUDE [Azure RBAC definition grant access](../../includes/role-based-access-control-definition-grant.md)] Azure CLI를 사용 하 여 역할을 할당 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 역할 할당을 추가 하거나 제거 하려면 다음을 수행 해야 합니다.
 
@@ -157,7 +157,7 @@ az role assignment create --role "Reader" --assignee annm@example.com --subscrip
 
 ### <a name="user-at-a-management-group-scope"></a>관리 그룹 범위에 있는 사용자
 
-관리 그룹 범위에서 사용자에 대 한 역할 할당을 추가 하려면 [az role 할당 create](/cli/azure/role/assignment#az-role-assignment-create)를 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list)를 사용할 수 있습니다.
+관리 그룹 범위에서 사용자에 대 한 역할 할당을 추가 하려면 [az role 할당 create](/cli/azure/role/assignment#az-role-assignment-create)를 사용 합니다. 관리 그룹 ID를 가져오려면 Azure Portal의 **관리 그룹** 블레이드에서 찾거나 [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment create --role <role_name_or_id> --assignee <assignee> --scope /providers/Microsoft.Management/managementGroups/<group_id>
@@ -205,7 +205,7 @@ az role assignment delete --assignee patlong@contoso.com --role "Virtual Machine
 az role assignment delete --assignee 22222222-2222-2222-2222-222222222222 --role "Reader" --subscription 00000000-0000-0000-0000-000000000000
 ```
 
-다음 예에서는 관리 그룹 범위에 있는 *alain\@example.com* 사용자에서 *청구 읽기 권한자* 역할을 제거 합니다. 관리 그룹의 ID를 가져오려면 [az account management-group list](/cli/azure/ext/managementgroups/account/management-group#ext-managementgroups-az-account-management-group-list)를 사용할 수 있습니다.
+다음 예에서는 관리 그룹 범위에 있는 *alain\@example.com* 사용자에서 *청구 읽기 권한자* 역할을 제거 합니다. 관리 그룹의 ID를 가져오려면 [az account management-group list](/cli/azure/account/management-group#az-account-management-group-list)를 사용할 수 있습니다.
 
 ```azurecli
 az role assignment delete --assignee alain@example.com --role "Billing Reader" --scope /providers/Microsoft.Management/managementGroups/marketing-group

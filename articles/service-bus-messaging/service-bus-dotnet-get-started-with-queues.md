@@ -14,18 +14,18 @@ ms.tgt_pltfrm: dotnet
 ms.workload: na
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 60428e3c5be4ac994f83f44c4492ebd80ee65da7
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5718106aee0e60d111398efdb839945c2c7a8a06
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76760984"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471740"
 ---
 # <a name="get-started-with-service-bus-queues"></a>Service Bus 큐 시작
 [!INCLUDE [service-bus-selector-queues](../../includes/service-bus-selector-queues.md)]
 이 자습서에서는 Service Bus 큐에 메시지를 보내고 메시지를 수신 하는 .NET Core 콘솔 응용 프로그램을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Visual Studio 2019](https://www.visualstudio.com/vs).
 - [NET Core SDK](https://www.microsoft.com/net/download/windows) 버전 2.0 이상
@@ -204,6 +204,7 @@ Queue **Essentials**를 표시 하려면 네임 스페이스 **개요** 창에�
 1. *Program.cs*에서 네임 스페이스 정의의 맨 위에 클래스 선언 앞에 다음 `using` 문을 추가 합니다.
 
     ```csharp
+    using System;
     using System.Text;
     using System.Threading;
     using System.Threading.Tasks;
@@ -220,18 +221,23 @@ Queue **Essentials**를 표시 하려면 네임 스페이스 **개요** 창에�
 
     네임 스페이스에 대 한 연결 문자열을 `ServiceBusConnectionString` 변수로 입력 합니다. 큐 이름을 입력 합니다.
 
-1. `Main()`이라는 기본 내용을 다음 코드줄로 바꿉니다.
+1. `Main()` 메서드를 다음 코드로 바꿉니다.
 
     ```csharp
-    public static async Task Main(string[] args)
-    {    
+    static void Main(string[] args)
+    {
+        MainAsync().GetAwaiter().GetResult();
+    }
+
+    static async Task MainAsync()
+    {
         queueClient = new QueueClient(ServiceBusConnectionString, QueueName);
 
         Console.WriteLine("======================================================");
         Console.WriteLine("Press ENTER key to exit after receiving all the messages.");
         Console.WriteLine("======================================================");
 
-        // Register the queue message handler and receive messages in a loop
+        // Register QueueClient's MessageHandler and receive messages in a loop
         RegisterOnMessageHandlerAndReceiveMessages();
 
         Console.ReadKey();

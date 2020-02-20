@@ -15,12 +15,12 @@ ms.workload: azure-app-configuration
 ms.date: 02/24/2019
 ms.author: lcozzens
 ms.custom: mvc
-ms.openlocfilehash: bb661e6d4497a85cf2ef445fc39774e93a04cc99
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b0704c6262451cef615355e871ce7f26005b3132
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899425"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467675"
 ---
 # <a name="import-to-an-azure-app-configuration-store"></a>Azure App Configuration 저장소로 가져오기
 
@@ -31,10 +31,6 @@ ms.locfileid: "76899425"
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
 Azure CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치하거나 업그레이드하려면 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
-
-다음 명령을 실행하여 먼저 Azure App Configuration CLI 확장을 설치해야 합니다.
-
-        az extension add -n appconfig
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -53,7 +49,7 @@ az appconfig kv import --name myTestAppConfigStore --source file --path ~/Import
 
 | 명령 | 메모 |
 |---|---|
-| [az appconfig kv import](/cli/azure/ext/appconfig/appconfig/kv#ext-appconfig-az-appconfig-kv-import) | App Configuration 저장소 리소스로 가져옵니다. |
+| [az appconfig kv import](/cli/azure/appconfig/kv#az-appconfig-kv-import) | App Configuration 저장소 리소스로 가져옵니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 05/06/2019
 ms.author: akjosh
 ms.custom: include file
-ms.openlocfilehash: ef0eed330dd7a5b338cdbf36a159d1f046d3939d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a028a0b5d79b2c79f1da336f033d3e8cac21a2e2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021170"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474257"
 ---
 공유 이미지 갤러리는 관리 되는 이미지에 대 한 구조와 조직을 구축 하는 데 도움이 되는 서비스입니다. 공유 이미지 갤러리는 다음을 제공 합니다.
 
 - 이미지의 관리 되는 전역 복제
 - 보다 쉽게 관리할 수 있도록 이미지의 버전 관리 및 그룹화
-- 가용성 영역를 지 원하는 지역에서 ZRS (영역 중복 저장소) 계정을 포함 하는 항상 사용 가능한 이미지 ZRS는 영역 오류에 대해 향상된 복원력을 제공합니다.
+- 가용성 영역를 지 원하는 지역에서 ZRS (영역 중복 저장소) 계정을 포함 하는 항상 사용 가능한 이미지 ZRS는 영역 오류에 대 한 더 나은 복원 력을 제공 합니다.
 - RBAC를 사용 하 여 구독 간 및 AD (Active Directory) 테 넌 트 간에 공유
 - 각 지역에서 이미지 복제본으로 배포를 확장 합니다.
 
@@ -49,11 +49,11 @@ ms.locfileid: "76021170"
 
 조합- **게시자**, **제품** 및 **SKU**에 사용 되는 각 이미지 정의에 대해 3 개의 매개 변수가 있습니다. 특정 이미지 정의를 찾는 데 사용 됩니다. 3개 값을 모두 공유하지는 않으면서 1개 또는 2개의 값을 공유하는 이미지 버전을 사용할 수 있습니다.  예를 들어 다음은 3개의 이미지 정의와 해당 값입니다.
 
-|이미지 정의|게시자|제품|SKU|
+|이미지 정의|게시자|제안|SKU|
 |---|---|---|---|
-|myImage1|Contoso|금융|백 엔드|
-|myImage2|Contoso|금융|프런트 엔드|
-|myImage3|테스트|금융|프런트 엔드|
+|myImage1|Contoso|재무|백 엔드|
+|myImage2|Contoso|재무|프런트 엔드|
+|myImage3|테스트|재무|프런트 엔드|
 
 이러한 세 가지 정의는 모두 고유한 값 세트를 갖습니다. 형식은 최신 버전의 Marketplace 이미지를 가져오기 위해 현재 Azure PowerShell의 [Azure Marketplace 이미지](../articles/virtual-machines/windows/cli-ps-findimage.md) 에 대 한 게시자, 제품 및 SKU를 지정 하는 방법과 비슷합니다. 각 이미지 정의에는 이러한 값의 고유한 집합이 있어야 합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "76021170"
 
 ## <a name="regional-support"></a>국가별 지원
 
-원본 지역은 아래 표에 나와 있습니다. 모든 공용 지역은 대상 지역이 될 수 있지만 오스트레일리아 중부 및 오스트레일리아 중부 2로 복제 하려면 구독 허용 목록 있어야 합니다. 허용 목록 포함을 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/ 로 이동합니다.
+원본 지역은 아래 표에 나와 있습니다. 모든 공용 지역은 대상 지역이 될 수 있지만 오스트레일리아 중부 및 오스트레일리아 중부 2로 복제 하려면 구독 허용 목록 있어야 합니다. 허용 목록 포함을 요청하려면 https://azure.microsoft.com/global-infrastructure/australia/contact/로 이동합니다.
 
 
 | 원본 영역        |                   |                    |                    |
@@ -117,7 +117,7 @@ ms.locfileid: "76021170"
 
 자세한 내용은 현재 사용량을 확인 하는 방법에 대 한 예제는 [제한에 대 한 리소스 사용 확인](https://docs.microsoft.com/azure/networking/check-usage-against-limits) 을 참조 하세요.
  
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>확장
 공유 이미지 갤러리를 사용하면 Azure에서 이미지를 보관하도록 하려는 복제본 수를 지정할 수 있습니다. 이렇게 하면 VM 배포를 여러 복제본으로 확대함으로써 단일 복제본 과부하로 인해 인스턴스 생성 처리가 제한될 가능성을 줄일 수 있으므로 다중 VM 배포 시나리오에 도움이 됩니다.
 
 이제 공유 이미지 갤러리를 사용 하 여 가상 머신 확장 집합에 1000 VM 인스턴스를 배포할 수 있습니다 (관리 되는 이미지가 있는 600부터). 이미지 복제본은 더 나은 배포 성능, 안정성 및 일관성을 제공 합니다.  영역에 대 한 크기 조정 요구 사항에 따라 각 대상 지역에서 다른 복제본 수를 설정할 수 있습니다. 각 복제본은 이미지의 전체 복사본이 기 때문에 각 추가 복제본으로 배포를 선형으로 확장 하는 데 도움이 됩니다. 두 개의 이미지나 지역이 동일 하지는 않지만, 지역에서 복제본을 사용 하는 방법에 대 한 일반적인 지침은 다음과 같습니다.
@@ -144,22 +144,22 @@ ms.locfileid: "76021170"
 
 ![이미지를 복제하는 방법을 보여 주는 그래픽](./media/shared-image-galleries/replication.png)
 
-## <a name="access"></a>액세스
+## <a name="access"></a>액세스 권한
 
 공유 이미지 갤러리, 이미지 정의 및 이미지 버전은 모든 리소스 이므로 기본 제공 되는 네이티브 Azure RBAC 컨트롤을 사용 하 여 공유할 수 있습니다. RBAC를 사용 하 여 이러한 리소스를 다른 사용자, 서비스 사용자 및 그룹과 공유할 수 있습니다. 내에서 만든 테 넌 트 외부의 개별 사용자에 대 한 액세스를 공유할 수도 있습니다. 사용자가 공유 이미지 버전에 액세스할 수 있게 되 면 VM 또는 가상 머신 확장 집합을 배포할 수 있습니다.  사용자가 액세스할 수 있는 항목을 이해하는 데 도움이 되는 공유 행렬은 다음과 같습니다.
 
 | 공유한 항목     | 공유 이미지 갤러리 | 이미지 정의 | 이미지 버전 |
 |----------------------|----------------------|--------------|----------------------|
-| 공유 이미지 갤러리 | 예                  | 예          | 예                  |
-| 이미지 정의     | 아닙니다.                   | 예          | 예                  |
+| 공유 이미지 갤러리 | yes                  | yes          | yes                  |
+| 이미지 정의     | 예                   | yes          | yes                  |
 
 최상의 환경을 위해 갤러리 수준에서 공유 하는 것이 좋습니다. 개별 이미지 버전을 공유 하지 않는 것이 좋습니다. RBAC에 대 한 자세한 내용은 [rbac를 사용 하 여 Azure 리소스에 대 한 액세스 관리](../articles/role-based-access-control/role-assignments-portal.md)를 참조 하세요.
 
 다중 테 넌 트 앱 등록을 사용 하 여 테 넌 트 간에도 이미지를 대규모로 공유할 수 있습니다. 테 넌 트 간에 이미지를 공유 하는 방법에 대 한 자세한 내용은 [Azure 테 넌 트 간에 갤러리 VM 이미지 공유](../articles/virtual-machines/linux/share-images-across-tenants.md)를 참조 하세요.
 
-## <a name="billing"></a>청구
-추가 비용 없이 공유 이미지 갤러리 서비스를 이용할 수 있습니다. 다음 리소스에 대한 비용이 청구됩니다.
-- 공유 이미지 버전 저장 시 스토리지 비용. 비용은 이미지 버전의 복제본 수와 버전이 복제 된 지역 수에 따라 달라 집니다. 예를 들어 2 개 이미지가 있고 두 개의 지역에 복제 되는 경우 크기에 따라 관리 디스크 6 개에 대해 변경 됩니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
+## <a name="billing"></a>결제
+공유 이미지 갤러리 서비스 사용에 대한 추가 비용은 없습니다. 다음 리소스에 대한 비용이 청구됩니다.
+- 공유 이미지 버전 저장 시 스토리지 비용. 비용은 이미지 버전의 복제본 수와 버전이 복제 된 지역 수에 따라 달라 집니다. 예를 들어 2 개 이미지가 있고 두 개의 지역에 복제 되는 경우 크기에 따라 관리 디스크 6 개에 대 한 요금이 청구 됩니다. 자세한 내용은 [Managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 - 원본 지역에서 복제 된 지역으로의 첫 번째 이미지 버전 복제에 대 한 네트워크 송신 요금입니다. 후속 복제본은 지역 내에서 처리 되므로 추가 비용이 없습니다. 
 
 ## <a name="updating-resources"></a>리소스 업데이트
@@ -200,7 +200,7 @@ ms.locfileid: "76021170"
 - [공유 이미지 갤러리에서 이미지 버전 만들기](https://azure.microsoft.com/resources/templates/101-sig-image-version-create/)
 - [이미지 버전에서 VM 만들기](https://azure.microsoft.com/resources/templates/101-vm-from-sig/)
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답) 
+## <a name="frequently-asked-questions"></a>질문과 대답 
 
 * [구독 간에 공유 이미지 갤러리 리소스를 모두 나열 하려면 어떻게 해야 하나요?](#how-can-i-list-all-the-shared-image-gallery-resources-across-subscriptions) 
 * [기존 이미지를 공유 이미지 갤러리로 이동할 수 있나요?](#can-i-move-my-existing-image-to-the-shared-image-gallery)
@@ -291,7 +291,7 @@ Azure Portal에 대 한 액세스 권한이 있는 모든 구독에서 공유 �
 
 각 위치에 지역당 복제본 수가 지정되지 않은 경우 기본 복제본 수가 일반적인 복제본 수로 지정됩니다. 
 
-CLI에서 일반적인 복제본 수를 지정하려면 `az sig image-version create` 명령에 **--replica-count** 인수를 사용합니다.
+CLI에서 일반적인 복제본 수를 지정하려면 **명령에**--replica-count`az sig image-version create` 인수를 사용합니다.
 
 ### <a name="can-i-create-the-shared-image-gallery-in-a-different-location-than-the-one-for-the-image-definition-and-image-version"></a>이미지 정의와 이미지 버전에 대 한 것과 다른 위치에서 공유 이미지 갤러리를 만들 수 있나요?
 

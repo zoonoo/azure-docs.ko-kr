@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 056b2d2b1951b6630b61bbd6fd8a8c38b272900a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: bbb2ae0b10af795d71f0a78c045bec0c216ee378
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966758"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368434"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -30,8 +30,6 @@ ms.locfileid: "76966758"
 
 
 ## <a name="change-model-programmatically"></a>프로그래밍 방식으로 모델 변경
-
-Go를 사용하여 기계 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-authoring)를 애플리케이션에 추가합니다.
 
 1. 이름이 `model.js`인 새 파일을 만듭니다. 다음 코드를 추가합니다.
 

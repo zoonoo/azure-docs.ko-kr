@@ -3,12 +3,12 @@ title: 자습서 - 모듈 레지스트리를 사용하여 Terraform으로 Azure 
 description: Terraform 모듈을 사용하여 Azure에서 Windows 가상 머신 클러스터를 만드는 방법 알아보기
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 3ddc80e8f5a81e89e4574ff6524055f12a4a618a
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: d17a0d7c26cc1a16ab73350fe6e8c28ba4af6ff2
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185556"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472209"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-using-the-module-registry"></a>자습서: 모듈 레지스트리를 사용하여 Terraform으로 Azure VM 클러스터 만들기
 
@@ -25,9 +25,9 @@ Terraform에 대한 자세한 내용은 [Terraform 설명서](https://www.terraf
 ## <a name="set-up-authentication-with-azure"></a>Azure로 인증 설정
 
 > [!TIP]
-> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure)하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)에서 자습서를 실행하는 경우 이 단계를 건너뜁니다.
+> [Terraform 환경 변수를 사용](terraform-install-configure.md)하거나 [Azure Cloud Shell](/azure/cloud-shell/overview)에서 자습서를 실행하는 경우 이 단계를 건너뜁니다.
 
- Azure 서비스 주체를 만들려면 [Terraform을 설치하고 Azure에 대한 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure)을 검토하세요. 이 서비스 주체를 사용하여 빈 디렉터리에 있는 새 파일 `azureProviderAndCreds.tf`를 다음 코드로 채웁니다.
+ Azure 서비스 주체를 만들려면 [Terraform을 설치하고 Azure에 대한 액세스 구성](terraform-install-configure.md)을 검토하세요. 이 서비스 주체를 사용하여 빈 디렉터리에 있는 새 파일 `azureProviderAndCreds.tf`를 다음 코드로 채웁니다.
 
 ```hcl
 variable subscription_id {}

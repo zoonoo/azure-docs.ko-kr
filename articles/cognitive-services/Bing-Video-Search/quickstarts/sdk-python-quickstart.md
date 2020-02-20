@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-video-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/11/2020
 ms.author: aahi
-ms.openlocfilehash: c1afea4e6cacc1f6e9ac84ca20e638836540396e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9d7b2a8950134e530e042e862a1c19abe89fd78d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75448399"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201223"
 ---
 # <a name="quickstart-perform-a-video-search-with-the-bing-video-search-sdk-for-python"></a>빠른 시작: Python용 Bing Video Search SDK를 사용하여 비디오 검색 수행
 
@@ -46,7 +46,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 1. 선호하는 IDE 또는 편집기에서 새 Python 파일을 만들고, 다음 import 문을 추가합니다. 
 
     ```python
-    from azure.cognitiveservices.search.videosearch import VideoSearchAPI
+    from azure.cognitiveservices.search.videosearch import VideoSearchClient
     from azure.cognitiveservices.search.videosearch.models import VideoPricing, VideoLength, VideoResolution, VideoInsightModule
     from msrest.authentication import CognitiveServicesCredentials
     ```
@@ -55,6 +55,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 
     ```python
     subscription_key = "YOUR-SUBSCRIPTION-KEY"
+    endpoint = "YOUR-ENDPOINT"
     ```
 
 ## <a name="create-the-search-client"></a>검색 클라이언트 만들기
@@ -62,7 +63,7 @@ python -m pip install azure-cognitiveservices-search-videosearch
 `CognitiveServicesCredentials`의 인스턴스를 만들고 클라이언트를 인스턴스화합니다.
 
 ```python
-client = VideoSearchAPI(CognitiveServicesCredentials(subscription_key))
+client = VideoSearchAPI(endpoint, CognitiveServicesCredentials(subscription_key))
 ```
 
 ## <a name="send-a-search-request-and-get-a-response"></a>검색 요청 보내기 및 응답 받기

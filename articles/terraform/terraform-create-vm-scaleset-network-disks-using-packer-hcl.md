@@ -3,18 +3,18 @@ title: 자습서 - Terraform을 사용하여 Packer 사용자 지정 이미지�
 description: Terraform을 사용하여 Packer에서 생성한 사용자 지정 이미지에서 Azure 가상 머신 확장 집합을 구성하고 버전을 지정합니다(가상 네트워크 및 관리되는 연결 디스크로 완성).
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 9d149a28f82100715035f435de56ff134ca685f5
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92a8221d625f8b6b73343f74b85fdfcf5e578b23
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159278"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472210"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-from-a-packer-custom-image-by-using-terraform"></a>자습서: Terraform을 사용하여 Packer 사용자 지정 이미지에서 Azure 가상 머신 확장 집합 만들기
 
 이 자습서에서는 HCL([HashiCorp Configuration Language](https://www.terraform.io/docs/configuration/syntax.html))을 사용하는 관리 디스크에서 [Packer](https://www.packer.io/intro/index.html)를 사용하여 생성된 사용자 지정 이미지로 만든 [Azure 가상 머신 확장 집합](/azure/virtual-machine-scale-sets/virtual-machine-scale-sets-overview)을 만들고 배포하는 데 [Terraform](https://www.terraform.io/)을 사용합니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Terraform 배포 설정
@@ -26,9 +26,9 @@ ms.locfileid: "74159278"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Terraform**: [Terraform을 설치하고 Azure에 대한 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure)
+- **Terraform**: [Terraform을 설치하고 Azure에 대한 액세스 구성](terraform-install-configure.md)
 - **SSH 키 쌍**: [SSH 키 쌍 만들기](/azure/virtual-machines/linux/mac-create-ssh-keys)
 - **Packer**:  [Packer 설치](https://www.packer.io/docs/install/index.html)
 

@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: martincoetzer
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 266fa2403ef96e808a0c1f1eb46b4f7065c06252
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 3c8c5e3c2552101437bfed17906f94861e676568
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185897"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468440"
 ---
 # <a name="how-to-plan-your-conditional-access-deployment-in-azure-active-directory"></a>방법: Azure Active Directory에서 조건부 액세스 배포 계획
 
@@ -31,6 +31,9 @@ ms.locfileid: "77185897"
 조건부 액세스 정책에는 기준선과 표준 이라는 두 가지 유형이 있습니다. [기준 정책은](baseline-protection.md) 미리 정의 된 조건부 액세스 정책입니다. 기준 수준 이상의 보안을 유지하는 것이 이 정책의 목표입니다. 기준 정책. 기준 정책은 모든 Azure AD 버전에서 사용할 수 있으며 제한된 사용자 지정 옵션만 제공합니다. 시나리오에 유연성이 더 필요한 경우 기준 정책을 사용하지 않도록 설정하고 사용자 지정 표준 정책에서 요구 사항을 구현합니다.
 
 표준 조건부 액세스 정책에서 모든 설정을 사용자 지정 하 여 비즈니스 요구 사항에 대 한 정책을 조정할 수 있습니다. 표준 정책에는 Azure AD Premium P1 라이선스가 필요합니다.
+
+>[!NOTE]
+> 초기 장치 인증 후 최상의 적용을 얻으려면 Azure AD 장치 기반 조건부 액세스 정책을 사용 하는 것이 좋습니다. 여기에는 장치가 규정 준수 및 장치 코드 흐름을 벗어난 경우 닫기 세션이 포함 됩니다.
 
 ## <a name="draft-policies"></a>초안 정책
 

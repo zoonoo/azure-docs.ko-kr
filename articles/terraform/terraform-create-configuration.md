@@ -3,12 +3,12 @@ title: 빠른 시작 - Azure에 대한 Terraform 구성 만들기
 description: Azure Cosmos DB 및 Azure Container Instances를 배포하여 Azure에서 Terraform을 시작하세요.
 ms.topic: quickstart
 ms.date: 10/26/2019
-ms.openlocfilehash: 47eec1f238d3fdff99b75953bc6d7e92137cca2d
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 92f66fcfeac69b66eb8cdb0dc58b7a3171d45e10
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159321"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470024"
 ---
 # <a name="quickstart-create-a-terraform-configuration-for-azure"></a>빠른 시작: Azure에 대한 Terraform 구성 파일 만들기
 
@@ -173,4 +173,4 @@ terraform destroy -auto-approve
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [Terraform을 설치하고 구성하여 Azure 리소스를 프로비저닝합니다](../virtual-machines/linux/terraform-install-configure.md).
+> [Terraform을 설치하고 구성하여 Azure 리소스를 프로비저닝합니다](terraform-install-configure.md).

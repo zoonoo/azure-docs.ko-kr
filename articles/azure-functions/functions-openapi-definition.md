@@ -5,12 +5,12 @@ ms.topic: tutorial
 ms.date: 05/08/2019
 ms.reviewer: sunayv
 ms.custom: mvc, cc996988-fb4f-47
-ms.openlocfilehash: 56e2182b408b4e8b1f89eee7458a27c5dd54bb55
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 9465209467c83f7de075d16e724459c307d55bd3
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75562016"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210211"
 ---
 # <a name="create-an-openapi-definition-for-a-serverless-api-using-azure-api-management"></a>Azure API Management를 사용하여 서버리스 API에 대한 OpenAPI 정의 만들기
 
@@ -45,7 +45,7 @@ REST API는 종종 OpenAPI 정의를 사용하여 설명됩니다. 이 정의에
 
 1. **추가 템플릿...** 을 선택한 다음, **템플릿 마침 및 보기**를 선택합니다.
 
-1. HTTP 트리거를 선택하고, 함수 **이름**에 `TurbineRepair`를 입력하고, **[인증 수준](functions-bindings-http-webhook.md#http-auth)** 에 대해 `Function`을 선택한 다음, **만들기**를 선택합니다.  
+1. HTTP 트리거를 선택하고, 함수 **이름**에 `TurbineRepair`를 입력하고, **[인증 수준](functions-bindings-http-webhook-trigger.md#http-auth)** 에 대해 `Function`을 선택한 다음, **만들기**를 선택합니다.  
 
     ![OpenAPI에 대한 HTTP 함수 만들기](media/functions-openapi-definition/select-http-trigger-openapi.png)
 

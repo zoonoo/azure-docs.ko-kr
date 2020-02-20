@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/14/2019
 ms.author: helohr
-ms.openlocfilehash: f6a8e4b9129018686aa5833a2ac260075e5627f9
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 5db60160540fc59465e13bd2e68680f49ee0aa2b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367621"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470890"
 ---
 # <a name="set-up-msix-app-attach"></a>MSIX 앱 연결 설정
 
@@ -407,7 +407,7 @@ rmdir $packageName -Force -Verbose
 
 오프 라인 사용을 위해 라이선스를 설정 하는 방법은 다음과 같습니다. 
 
-1. 비즈니스용 Microsoft Store에서 앱 패키지, 라이선스 및 필수 프레임 워크를 다운로드 합니다. 인코딩된 및 인코딩되지 않은 라이선스 파일이 모두 필요 합니다. 자세한 다운로드 지침은 [여기](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app/)에서 찾을 수 있습니다.
+1. 비즈니스용 Microsoft Store에서 앱 패키지, 라이선스 및 필수 프레임 워크를 다운로드 합니다. 인코딩된 및 인코딩되지 않은 라이선스 파일이 모두 필요 합니다. 자세한 다운로드 지침은 [여기](/microsoft-store/distribute-offline-apps#download-an-offline-licensed-app)에서 찾을 수 있습니다.
 2. 3 단계에 대 한 스크립트에서 다음 변수를 업데이트 합니다.
       1. `$contentID`은 인코딩되지 않은 라이선스 파일 (.xml)의 ContentID 값입니다. 선택한 텍스트 편집기에서 라이선스 파일을 열 수 있습니다.
       2. `$licenseBlob`은 인코딩된 라이선스 파일 (. bin)의 라이선스 blob에 대 한 전체 문자열입니다. 선택한 텍스트 편집기에서 인코딩된 라이선스 파일을 열 수 있습니다. 

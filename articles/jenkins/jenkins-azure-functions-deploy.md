@@ -4,20 +4,20 @@ description: Jenkins Azure Functions 플러그 인을 사용하여 Azure Functio
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: af3e8dfd6e2bfc676e659a03d92658af66b5bcde
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158781"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470669"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Jenkins Azure Functions 플러그 인을 사용하여 Azure Functions에 배포
 
 [Azure Functions](/azure/azure-functions/)는 서버리스 컴퓨팅 서비스입니다. Azure Functions를 사용하여 프로비저닝하거나 인프라를 관리하지 않고 요청 시 코드를 실행할 수 있습니다. 이 자습서에서는 Azure Functions 플러그 인을 사용하여 Azure Functions에 Java 함수를 배포하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 - **Jenkins 서버**: Jenkins 서버가 설치되어 있지 않다면 [Azure에서 Jenkins 서버 만들기](./install-jenkins-solution-template.md) 문서를 참조하세요.
 
   > [!TIP]
@@ -131,7 +131,7 @@ Java 런타임 스택을 사용하여 Java 함수를 만들려면 [Azure Portal]
 
 이제 Jenkins 작업을 실행할 시간입니다.
 
-1. 먼저 [Azure Functions HTTP 트리거 및 바인딩](/azure/azure-functions/functions-bindings-http-webhook#authorization-keys) 문서의 지침을 통해 권한 부여 키를 가져옵니다.
+1. 먼저 [Azure Functions HTTP 트리거 및 바인딩](/azure/azure-functions/functions-bindings-http-webhook-trigger#authorization-keys) 문서의 지침을 통해 권한 부여 키를 가져옵니다.
 
 1. 브라우저에서 앱의 URL을 입력합니다. 자리 표시자를 적절한 값으로 바꾸고 **&lt;input_number>** 에 대한 숫자 값을 Java 함수에 대한 입력으로 지정합니다.
 

@@ -1,5 +1,5 @@
 ---
-title: Linux 용 가상 머신 확장 Azure Monitor
+title: Linux용 Log Analytics 가상 머신 확장
 description: 가상 머신 확장을 사용하여 Linux 가상 머신에 Log Analytics 에이전트를 배포합니다.
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,38 +12,38 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 08/06/2019
+ms.date: 02/18/2020
 ms.author: akjosh
-ms.openlocfilehash: a431ae8130e258664328fa32a364eb76c28ea811
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 9ddac229fc38a91a8b97b24dc2807080b2295758
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76544738"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468782"
 ---
-# <a name="azure-monitor-virtual-machine-extension-for-linux"></a>Linux 용 가상 머신 확장 Azure Monitor
+# <a name="log-analytics-virtual-machine-extension-for-linux"></a>Linux용 Log Analytics 가상 머신 확장
 
 ## <a name="overview"></a>개요
 
-Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux용 Log Analytics 에이전트 가상 머신 확장은 Microsoft에서 게시 및 지원합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 Linux 용 Azure Monitor 가상 머신 확장에 대해 지원 되는 플랫폼, 구성 및 배포 옵션에 대해 자세히 설명 합니다.
+Azure Monitor 로그는 클라우드 및 온-프레미스 자산에서 모니터링, 경고 및 경고 수정 기능을 제공 합니다. Linux 용 Log Analytics 가상 머신 확장은 Microsoft에서 게시 및 지원 합니다. 확장 버전은 Azure 가상 머신에 Log Analytics 에이전트를 설치하고 기존 Log Analytics 작업 영역에 가상 머신을 등록합니다. 이 문서에서는 지원되는 플랫폼, 구성 및 Linux용 Log Analytics 가상 머신 확장에 대한 배포 옵션을 설명합니다.
 
 >[!NOTE]
 >Microsoft OMS(Operations Management Suite)에서 Azure Monitor로 진행 중인 전환의 일부로 Windows 또는 Linux용 OMS 에이전트는 Windows용 Log Analytics 에이전트 및 Linux용 Log Analytics 에이전트로 참조됩니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../../includes/azure-monitor-log-analytics-rebrand.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="operating-system"></a>운영 체제
 
 지원 되는 Linux 배포에 대 한 자세한 내용은 [Log Analytics 에이전트 개요](../../azure-monitor/platform/log-analytics-agent.md#supported-linux-operating-systems) 문서를 참조 하세요.
 
 ### <a name="agent-and-vm-extension-version"></a>에이전트 및 VM 확장 버전
-다음 표에서는 Azure Monitor VM 확장 버전과 각 릴리스에 대 한 Log Analytics 에이전트 번들의 매핑을 제공 합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
+다음 표에서는 각 릴리스에서 Log Analytics VM 확장의 각 버전과 Log Analytics 에이전트 번들에 대한 매핑을 제공합니다. Log Analytics 에이전트 번들 버전에 대한 릴리스 노트 링크가 포함되어 있습니다. 릴리스 정보는 버그 수정에 대한 세부 정보 및 지정된 에이전트 릴리스에 사용 가능한 새로운 기능을 포함합니다.  
 
-| Azure Monitor Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
+| Log Analytics Linux VM 확장 버전 | Log Analytics 에이전트 번들 버전 | 
 |--------------------------------|--------------------------|
-| 1.12.15 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
+| 1.12.25 | [1.12.15-0](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.12.15-0) |
 | 1.11.15 | [1.11.0-9](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.11.0-9) |
 | 1.10.0 | [1.10.0-1](https://github.com/microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.10.0-1) |
 | 1.9.1 | [1.9.0-0](https://github.com/Microsoft/OMS-Agent-for-Linux/releases/tag/OMSAgent_v1.9.0-0) |
@@ -99,12 +99,11 @@ Linux용 Log Analytics 에이전트 확장은 대상 가상 머신이 인터넷�
 ```
 
 >[!NOTE]
->위의 스키마는 템플릿의 루트 수준에 배치된다고 가정합니다. 템플릿의 가상 머신 리소스 내에 배치하는 경우 [아래 쪽](#template-deployment)에 설명된 대로 `type` 및 `name` 속성이 변경됩니다.
->
+>위의 스키마는 템플릿의 루트 수준에 배치된다고 가정합니다. 템플릿의 가상 머신 리소스 내에 배치하는 경우 `type`아래 쪽`name`에 설명된 대로 [ 및 ](#template-deployment) 속성이 변경됩니다.
 
 ### <a name="property-values"></a>속성 값
 
-| 이름 | 값/예제 |
+| 속성 | 값/예제 |
 | ---- | ---- |
 | apiVersion | 2018-06-01 |
 | publisher | Microsoft.EnterpriseCloud.Monitoring |

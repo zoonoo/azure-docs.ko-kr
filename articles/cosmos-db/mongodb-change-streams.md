@@ -7,16 +7,19 @@ ms.subservice: cosmosdb-mongo
 ms.topic: conceptual
 ms.date: 11/16/2019
 ms.author: srchi
-ms.openlocfilehash: fbfce1c107fcf4b6f7d0b5f590a8ddfa64e69190
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: ec1ec1a8a80953f8988355341ee7128bd29b982d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74184734"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467780"
 ---
 # <a name="change-streams-in-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에 대 한 Azure Cosmos DB의 API에서 스트림 변경
 
 변경 스트림 API를 사용 하 여 Azure Cosmos DB의 MongoDB API에서 [변경 피드](change-feed.md) 지원을 사용할 수 있습니다. 응용 프로그램은 변경 스트림 API를 사용 하 여 컬렉션 또는 단일 분할 된 항목의 항목에 대 한 변경 내용을 가져올 수 있습니다. 나중에 결과에 따라 추가 작업을 수행할 수 있습니다. 컬렉션의 항목에 대 한 변경 내용은 수정 시간 순서 대로 캡처되고 분할 키 당 정렬 순서가 보장 됩니다.
+
+> [!NOTE]
+> 변경 스트림을 사용 하려면 MongoDB 용 Azure Cosmos DB의 API 버전 3.6 이상 버전을 사용 하 여 계정을 만듭니다. 이전 버전에 대해 변경 스트림 예를 실행 하는 경우 `Unrecognized pipeline stage name: $changeStream` 오류가 표시 될 수 있습니다. 
 
 다음 예제에서는 컬렉션의 모든 항목에 대 한 변경 스트림을 가져오는 방법을 보여 줍니다. 이 예제에서는 삽입, 업데이트 또는 교체 될 때 항목을 감시 하는 커서를 만듭니다. 변경 스트림을 가져오려면 $match 단계, $project 단계 및 fullDocument 옵션이 필요 합니다. 변경 스트림을 사용 하 여 삭제 작업을 감시 하는 작업은 현재 지원 되지 않습니다. 이 문제를 해결 하려면 삭제할 항목에 소프트 마커를 추가 하면 됩니다. 예를 들어 "deleted" 라는 항목에 특성을 추가 하 고이를 "true"로 설정 하 고 항목에 대 한 TTL을 설정 하 여 자동으로 삭제 하 고 추적할 수 있습니다.
 

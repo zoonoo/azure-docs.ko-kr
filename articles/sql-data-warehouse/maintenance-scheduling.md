@@ -7,15 +7,15 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: design
-ms.date: 11/07/2019
+ms.date: 02/02/2019
 ms.author: anvang
 ms.reviewer: jrasnick
-ms.openlocfilehash: e9d5a137247c072516c0b25d7f6147ef48fec248
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 1cf4cc9cf4d98dfca59e01cc264549af3a4d5cb4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839802"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471791"
 ---
 # <a name="use-maintenance-schedules-to-manage-service-updates-and-maintenance"></a>유지 관리 일정을 사용하여 서비스 유지 관리 및 업데이트 관리
 
@@ -55,7 +55,7 @@ ms.locfileid: "73839802"
 
 데이터 웨어하우스에 적용된 유지 관리 일정을 확인하려면 다음 단계를 완료합니다.
 
-1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  확인하려는 데이터 웨어하우스를 선택합니다. 
 3.  개요 블레이드에서 선택한 데이터 웨어하우스가 열립니다. 데이터 웨어하우스에 적용 되는 유지 관리 일정은 **유지 관리 일정**아래에 나타납니다.
 
@@ -71,9 +71,9 @@ ms.locfileid: "73839802"
 기본 및 보조 기간은 개별적인 날짜 범위여야 합니다. 예를 들어 기본 기간을 화요일 - 목요일로, 보조 기간을 토요일 - 일요일로 할 수 있습니다.
 
 데이터 웨어하우스에 대한 유지 관리 일정을 변경하려면 다음 단계를 완료합니다.
-1.  [Azure 포털](https://portal.azure.com/)에 로그인합니다.
+1.  [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 2.  업데이트하려는 데이터 웨어하우스를 선택합니다. 개요 블레이드에서 페이지가 열립니다. 
-3.  개요 블레이드에서 **유지 관리 일정(미리 보기) 요약** 링크를 선택하여 유지 관리 일정 설정에 대한 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다.  
+3.  개요 블레이드에서 **유지 관리 일정 요약** 링크를 선택 하 여 유지 관리 일정 설정 페이지를 엽니다. 또는 왼쪽 리소스 메뉴에서 **유지 관리 일정** 옵션을 선택합니다.  
 
     ![개요 블레이드 옵션](media/sql-data-warehouse-maintenance-scheduling/maintenance-change-option.png)
 

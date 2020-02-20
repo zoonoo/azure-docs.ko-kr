@@ -8,12 +8,12 @@ manager: anandsub
 ms.service: data-factory
 ms.topic: troubleshooting
 ms.date: 02/04/2020
-ms.openlocfilehash: 901868da8ed859a846a507557d383db760f297c9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: e2e1ddd031041f49107545cd0b3d3de4eaebcd6d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77029523"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472131"
 ---
 # <a name="troubleshoot-data-flows-in-azure-data-factory"></a>Azure Data Factory 데이터 흐름 문제 해결
 
@@ -29,8 +29,8 @@ ms.locfileid: "77029523"
 ### <a name="error-code-df-executor-systemimplicitcartesian"></a>오류 코드: DF-SystemImplicitCartesian
 
 - **메시지**: 내부 조인에 대 한 암시적 데카르트 제품은 지원 되지 않습니다. 대신 CROSS join을 사용 하십시오. 조인에 사용 되는 열은 행에 대 한 고유 키를 만들어야 합니다.
-- **원인**: 논리 요금제 간의 내부 조인에 대 한 암시적 직교 곱을 지원 하지 않습니다. 조인에 사용 된 열이 고유 키를 만드는 경우
-- **권장 사항**: 같지 않음 기반 조인의 경우 크로스 조인을 사용 하도록 선택 해야 합니다.
+- **원인**: 논리 요금제 간의 내부 조인에 대 한 암시적 직교 곱을 지원 하지 않습니다. 조인에 사용 된 열이 고유 키를 만드는 경우 관계의 양쪽에 있는 하나 이상의 열이 필요 합니다.
+- **권장 사항**: 같지 않음 기반 조인의 경우 사용자 지정 크로스 조인을 옵트인 해야 합니다.
 
 ### <a name="error-code-df-executor-systeminvalidjson"></a>오류 코드: DF-SystemInvalidJson
 

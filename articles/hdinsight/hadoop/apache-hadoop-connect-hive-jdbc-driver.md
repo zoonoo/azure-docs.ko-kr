@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.openlocfilehash: 2250e41bffc26bd9ae59dfc652a06d08016d227a
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.date: 02/17/2020
+ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73053803"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466929"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -23,9 +23,9 @@ Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight�
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* HDInsight Hadoop 클러스터. 만들려면 [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
+* HDInsight Hadoop 클러스터. 만들려면 [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요. 서비스 HiveServer2 실행 중인지 확인 합니다.
 * [JDK (Java Developer Kit) 버전 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 이상
 * [SQuirreL SQL](http://squirrel-sql.sourceforge.net/). SQuirreL은 JDBC 클라이언트 애플리케이션입니다.
 
@@ -37,7 +37,7 @@ Azure의 HDInsight 클러스터에 대 한 JDBC 연결은 포트 443을 통해 �
 
 `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
 
-## <a name="authentication"></a>Authentication
+## <a name="authentication"></a>인증
 
 연결을 설정할 때 HDInsight 클러스터 관리자 이름 및 암호를 사용하여 클러스터 게이트웨이에 대해 인증해야 합니다. SQuirreL SQL 등의 JDBC 클라이언트에서 연결할 때 클라이언트 설정에 관리자 이름 및 암호를 입력해야 합니다.
 
@@ -71,9 +71,9 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 5. 드라이버 추가 대화 상자에 다음 정보를 추가합니다.
 
-    |자산 | Value |
+    |속성 | 값 |
     |---|---|
-    |name|Hive|
+    |속성|Hive|
     |URL 예|jdbc: hive2:/localhost: 443/default; Mode = http; ssl = true, httpPath =/hive2|
     |추가 클래스 경로|**추가** 단추를 사용 하 여 앞에서 다운로드 한 모든 jar 파일을 추가 합니다.|
     |클래스 이름|HiveDriver입니다.|
@@ -88,9 +88,9 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
 7. **별칭 추가** 대화 상자에 다음 값을 사용 합니다.
 
-    |자산 |Value |
+    |속성 |값 |
     |---|---|
-    |name|HDInsight의 Hive|
+    |속성|HDInsight의 Hive|
     |드라이버|드롭다운을 사용 하 여 **Hive** 드라이버를 선택 합니다.|
     |URL|jdbc: hive2://CLUSTERNAME.azurehdinsight.net: 443/default; Mode = http; ssl = true; httpPath =/hive2. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
     |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **admin**입니다.|

@@ -1,5 +1,5 @@
 ---
-title: StorSimple Cloud Appliance로 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+title: StorSimple Cloud Appliance 장애 조치 (Failover) 및 재해 복구
 description: 클라우드 어플라이언스로 StorSimple 8000 시리즈 물리적 디바이스를 장애 조치(failover)하는 방법에 대해 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/03/2017
 ms.author: alkohli
-ms.openlocfilehash: 45c521fd044fa258b8052a3f0de48784cf4160e8
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 347b899608d4322a7873b9f80f38ca1c767194d7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60584390"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468748"
 ---
 # <a name="fail-over-to-your-storsimple-cloud-appliance"></a>StorSimple Cloud Appliance로 장애 조치(failover)
 
@@ -31,7 +31,7 @@ ms.locfileid: "60584390"
 
 StorSimple 물리적 디바이스를 다른 물리적 디바이스로 장애 조치(failover)하려면 [StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)로 이동하세요. 디바이스를 자체 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-same-device.md)로 이동하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 
@@ -63,7 +63,7 @@ StorSimple 물리적 디바이스를 다른 물리적 디바이스로 장애 조
     ![장애 조치(failover) 클릭](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev8.png)
 8. **장애 조치(failover)** 블레이드에서 다음 단계를 수행합니다.
    
-    1. **원본**을 클릭합니다. 장애 조치(failover)할 볼륨 컨테이너를 선택합니다. **클라우드 스냅숏과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
+    1. **원본**을 클릭합니다. 장애 조치(failover)할 볼륨 컨테이너를 선택합니다. **클라우드 스냅샷과 연결된 볼륨 컨테이너와 오프라인 볼륨만 표시됩니다.**
         ![원본 선택](./media/storsimple-8000-device-failover-disaster-recovery/failover-cloud-dev11.png)
     2. **대상**을 클릭합니다. 사용 가능한 디바이스 드롭다운 목록에서 대상 클라우드 어플라이언스를 선택합니다. **원본 볼륨 컨테이너를 수용할 용량이 충분한 디바이스만 목록에 표시됩니다.**
 

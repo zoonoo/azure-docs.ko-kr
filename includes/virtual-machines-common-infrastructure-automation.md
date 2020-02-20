@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 4259868ff3b3c9ca9f9818532acd7e865e0300d7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77205717"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474153"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
@@ -48,7 +48,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 
 방법 배우기:
 
-- [Azure Marketplace에서 Puppet 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/puppet.puppet-enterprise-2017-2?tab=Overview)
+- [Azure Marketplace에서 Puppet 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/Puppet.puppet-agent-windows-asm?tab=Overview)
 
 
 ## <a name="cloud-init"></a>Cloud-init
@@ -99,8 +99,8 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Azure를 사용하여 Terraform 설치 및 구성](../articles/virtual-machines/linux/terraform-install-configure.md)
-- [Terraform을 사용하여 Azure 인프라 만들기](../articles/virtual-machines/linux/terraform-create-complete-vm.md)
+- [Azure를 사용하여 Terraform 설치 및 구성](../articles/terraform/terraform-install-configure.md)
+- [Terraform을 사용하여 Azure 인프라 만들기](../articles/terraform/terraform-create-complete-vm.md)
 
 
 ## <a name="azure-automation"></a>Azure Automation

@@ -8,12 +8,12 @@ ms.service: web-application-firewall
 ms.topic: article
 ms.date: 11/16/2019
 ms.author: victorh
-ms.openlocfilehash: 1641b74e3b9e59253b2674b22dfd8cd1b6ca2c2c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 4c50c4ce344a51a70f6849beb7c5d9d18a2b401d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133050"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471638"
 ---
 # <a name="configure-web-application-firewall-v2-on-application-gateway-with-a-custom-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 사용자 지정 규칙을 사용 하 여 Application Gateway에서 웹 응용 프로그램 방화벽 v2 구성
 
@@ -27,13 +27,13 @@ ms.locfileid: "74133050"
 
 복사, 붙여넣기 및 실행할 수 있는 하나의 연속 스크립트에서이 문서의 Azure PowerShell를 실행 하려면 [Azure 애플리케이션 Gateway PowerShell 샘플](powershell-samples.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="azure-powershell-module"></a>Azure PowerShell 모듈
 
 Azure PowerShell을 로컬로 설치하고 사용하도록 선택하는 경우 이 스크립트를 실행하려면 Azure PowerShell 모듈 버전 2.1.0 이상이 필요합니다.
 
-1. 버전을 찾으려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
+1. 버전을 확인하려면 `Get-Module -ListAvailable Az`을 실행합니다. 업그레이드해야 하는 경우 [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요.
 2. `Connect-AzAccount`를 실행하여 Azure와 연결합니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
@@ -109,6 +109,8 @@ $sku = New-AzApplicationGatewaySku -Name WAF_v2 -Tier WAF_v2
 ### <a name="create-two-custom-rules-and-apply-it-to-waf-policy"></a>두 개의 사용자 지정 규칙을 만들어 WAF 정책에 적용
 
 ```azurepowershell
+# Create WAF config
+$wafConfig = New-AzApplicationGatewayWebApplicationFirewallConfiguration -Enabled $true -FirewallMode "Prevention" -RuleSetType "OWASP" -RuleSetVersion "3.0"
 # Create a User-Agent header custom rule 
 $variable = New-AzApplicationGatewayFirewallMatchVariable -VariableName RequestHeaders -Selector User-Agent
 $condition = New-AzApplicationGatewayFirewallCondition -MatchVariable $variable -Operator Contains -MatchValue "evilbot" -Transform Lowercase -NegationCondition $False  

@@ -1,7 +1,6 @@
 ---
 title: Azure에서 Cloudyn 예산 관리
 description: 이 문서는 신속하게 예산을 만들고 Cloudyn에서 관리를 시작하는 데 유용합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
@@ -10,12 +9,12 @@ ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: vitavor
 ms.custom: seodec18
-ms.openlocfilehash: 91a1027add615c71784b6be1261fab97aadd9f3a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 1436c9b3b612a231760b6cdb04b5166fb45d7962
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76769998"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201138"
 ---
 # <a name="manage-azure-budgets-with-cloudyn"></a>Cloudyn을 사용하여 Azure 예산 관리
 

@@ -7,12 +7,12 @@ ms.author: brysmith
 ms.service: machine-learning
 ms.topic: tutorial
 ms.date: 02/10/2020
-ms.openlocfilehash: 1be97f9754733561111cedcf95fe237b7788583e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b929dd8979ecf587872092af2fa44e5ae03626d1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122558"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472488"
 ---
 # <a name="tutorial-convert-ml-experimental-code-to-production-code"></a>자습서: ML 실험 코드를 프로덕션 코드로 변환
 
@@ -409,4 +409,4 @@ MLOpsPython 템플릿은 evaluate_model 스크립트를 사용하여 평균 제�
 
 > [!div class="nextstepaction"]
 > [Azure ML 실험 실행 및 메트릭 모니터링](https://docs.microsoft.com/azure/machine-learning/how-to-track-experiments)
-> [ML 웹 서비스 엔드포인트의 데이터 모니터링 및 수집](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insight)
+> [ML 웹 서비스 엔드포인트의 데이터 모니터링 및 수집](https://docs.microsoft.com/azure/machine-learning/how-to-enable-app-insights)

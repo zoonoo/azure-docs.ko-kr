@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: a153416a247ec3a38ec29e95b83fa919e765942b
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8d180eeffdbc41db6fa0e636daf7702faad47fcc
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966740"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368401"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,8 +29,6 @@ ms.locfileid: "76966740"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>프로그래밍 방식으로 모델 변경
-
-Go를 사용하여 기계 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-authoring)를 애플리케이션에 추가합니다.
 
 1. 이름이 `predict.go`인 새 파일을 만듭니다. 다음 코드를 추가합니다.
 

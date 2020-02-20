@@ -3,12 +3,12 @@ title: 자습서 - Terraform 및 HCL로 Azure VM 클러스터 만들기
 description: Terraform 및 HCL을 사용하여 Azure에서 부하 분산 장치가 있는 Linux 가상 머신 클러스터 만들기
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 1ff13f05a5be463ed7477b4bbbc3e1f977a04a75
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 39e9857ad0119c08e949bbe5f6accb07432f3469
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665364"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470873"
 ---
 # <a name="tutorial-create-an-azure-vm-cluster-with-terraform-and-hcl"></a>자습서: Terraform 및 HCL로 Azure VM 클러스터 만들기
 
@@ -28,11 +28,11 @@ ms.locfileid: "75665364"
 ## <a name="1-set-up-azure-authentication"></a>1. 인증 설정
 
 > [!NOTE]
-> [Terraform 환경 변수를 사용](/azure/virtual-machines/linux/terraform-install-configure)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
+> [Terraform 환경 변수를 사용](terraform-install-configure.md)하거나 [Azure Cloud Shell](terraform-cloud-shell.md)에서 자습서를 실행하는 경우 이 섹션을 건너뜁니다.
 
 이 섹션에서는 Azure 서비스 보안 주체와, 보안 주체의 자격 증명을 포함하는 Terraform 구성 파일을 두 개를 생성합니다.
 
-1. Terraform에서 Azure로 리소스를 프로비전하도록 [Azure AD 서비스 사용자를 설정합니다](/azure/virtual-machines/linux/terraform-install-configure#set-up-terraform-access-to-azure). 보안 주체를 만드는 동안 구독 ID, 테넌트, 앱 ID, 암호의 값을 기록해 둡니다.
+1. Terraform에서 Azure로 리소스를 프로비전하도록 [Azure AD 서비스 사용자를 설정합니다](terraform-install-configure.md#set-up-terraform-access-to-azure). 보안 주체를 만드는 동안 구독 ID, 테넌트, 앱 ID, 암호의 값을 기록해 둡니다.
 
 2. 명령 프롬프트를 엽니다.
 

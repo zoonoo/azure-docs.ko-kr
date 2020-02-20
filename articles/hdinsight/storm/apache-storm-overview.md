@@ -9,12 +9,12 @@ ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: overview
 ms.date: 06/12/2019
 ms.author: hrasheed
-ms.openlocfilehash: 9c7e49fe522859f97f00f760822d5eef60db5f69
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b291d5babb0680f5f1a742efcf624a82c804de68
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228852"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460010"
 ---
 # <a name="what-is-apache-storm-on-azure-hdinsight"></a>Azure HDInsight의 Apache Storm이란?
 
@@ -42,7 +42,7 @@ HDInsight의 Storm은 다음과 같은 기능을 제공합니다.
 
     Azure 서비스와 통합되는 예제 솔루션은 [HDInsight의 Apache Storm으로 Event Hubs의 이벤트 처리](https://github.com/Azure-Samples/hdinsight-java-storm-eventhub)를 참조하세요.
 
-실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/documentation/Powered-By.html)(영문)를 참조하세요.
+실시간 분석 솔루션에 Apache Storm을 사용하는 회사 목록은 [Apache Storm을 사용하는 회사](https://storm.apache.org/Powered-By.html)(영문)를 참조하세요.
 
 Storm 사용을 시작하려면 [Azure HDInsight에서 Apache Storm 토폴로지 만들기 및 모니터링](apache-storm-quickstart.md)을 참조하세요.
 

@@ -1,5 +1,5 @@
 ---
-title: 8000 시리즈 디바이스에 대한 StorSimple 장애 조치(failover), 재해 복구 | Microsoft Docs
+title: 동일한 StorSimple 8000 장치에 대 한 장애 조치 (Failover) 및 재해 복구
 description: StorSimple 디바이스를 동일한 디바이스로 장애 조치(failover)하는 방법을 알아봅니다.
 services: storsimple
 documentationcenter: ''
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/23/2017
 ms.author: alkohli
-ms.openlocfilehash: dd207eaad1a3e821724d51a890d0882bfffda131
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: c8fe2d7ec7649f47f6cb9c8ae2c83f19c15691b6
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60577382"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471808"
 ---
 # <a name="fail-over-your-storsimple-physical-device-to-same-device"></a>StorSimple 물리적 디바이스를 동일한 디바이스로 장애 조치(failover)
 
@@ -32,7 +32,7 @@ ms.locfileid: "60577382"
 물리적 디바이스를 다른 물리적 디바이스로 장애 조치(failover)하려면 [동일한 StorSimple 물리적 디바이스로 장애 조치(failover)](storsimple-8000-device-failover-physical-device.md)로 이동하세요. StorSimple 물리적 디바이스를 StorSimple Cloud Appliance로 장애 조치(failover)하려면 [StorSimple Cloud Appliance로 장애 조치(failover)](storsimple-8000-device-failover-cloud-appliance.md)로 이동하세요.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 디바이스 장애 조치(failover)에 대한 고려 사항을 검토했는지 확인하세요. 자세한 내용을 보려면 [디바이스 장애 조치(failover)에 대한 일반적인 고려 사항](storsimple-8000-device-failover-disaster-recovery.md)으로 이동하세요.
 
@@ -50,7 +50,7 @@ ms.locfileid: "60577382"
 4. 디바이스를 구성하고 StorSimple 디바이스 관리자 서비스에 다시 등록합니다. 새로 등록된 디바이스는 **Ready to set up**(설정 준비 완료)으로 표시되어야 합니다. 새 디바이스의 디바이스 이름이 이전 디바이스와 동일하지만 디바이스가 공장 기본값으로 다시 설정되어 다시 등록되었음을 나타내는 숫자가 추가되어 있습니다.
 
     ![설정 준비 완료 상태의 새로 등록된 디바이스](./media/storsimple-8000-device-failover-disaster-recovery/failover-single-dev3.png)
-5. 새 디바이스의 경우 디바이스 설정을 완료합니다. 자세한 내용은 [4단계: 최소 디바이스 설정 완료](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)를 참조하세요. **디바이스** 블레이드에서 디바이스의 상태가 **온라인**으로 변경됩니다.
+5. 새 디바이스의 경우 디바이스 설정을 완료합니다. 자세한 내용을 보려면 [4단계: 최소 디바이스 설정 완료](storsimple-8000-deployment-walkthrough-u2.md#step-4-complete-minimum-device-setup)로 이동하세요. **디바이스** 블레이드에서 디바이스의 상태가 **온라인**으로 변경됩니다.
 
    > [!IMPORTANT]
    > **최소 구성을 먼저 완료하지 않으면 DR이 실패할 수 있습니다.**

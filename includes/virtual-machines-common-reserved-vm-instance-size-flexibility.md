@@ -3,14 +3,16 @@ author: yashar
 ms.author: banders
 ms.service: virtual-machines-windows
 ms.topic: include
-ms.date: 11-20-2018
-ms.openlocfilehash: 9a7de2b41c8016bdb7849cdef428d6f54a8ccf64
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.date: 02-18-2020
+ms.openlocfilehash: aebe8f05bd1a3607da6d1153c87490891fc6b299
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74005436"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471461"
 ---
+예약 VM 인스턴스를 구입할 때 인스턴스 크기의 유연성 또는 용량 우선 순위를 최적화 하도록 선택할 수 있습니다. 예약 VM 인스턴스에 대 한 최적화 설정을 설정 하거나 변경 하는 방법에 대 한 자세한 내용은 [예약 된 vm 인스턴스에 대 한 최적화 설정 변경](../articles/cost-management-billing/reservations/manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances)을 참조 하세요.
+
 인스턴스 크기 유연성을 위해 최적화 된 예약 된 가상 머신 인스턴스를 사용 하 여 구입한 예약은 동일한 instance size 유연성 그룹의 Vm (가상 머신) 크기에 적용 될 수 있습니다. 예를 들어 Standard_DS5_v2 같이 DSv2 시리즈에 나열 된 VM 크기에 대 한 예약을 구매 하는 경우 예약 할인은 동일한 인스턴스 크기의 유연성 그룹에 나열 된 다른 4 개 크기에 적용 될 수 있습니다.
 
 - Standard_DS1_v2

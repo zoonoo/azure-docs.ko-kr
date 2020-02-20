@@ -10,12 +10,12 @@ ms.date: 02/10/2020
 ms.author: tamram
 ms.reviewer: artek
 ms.subservice: common
-ms.openlocfilehash: 076708cdc32b0547fe34f714798b4a7a963296fe
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 038e53251bd81552fd3379f2d7645570fbcda4ef
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462635"
+ms.locfileid: "77471349"
 ---
 # <a name="azure-storage-redundancy"></a>Azure Storage 중복성
 
@@ -66,7 +66,7 @@ ZRS를 사용 하는 저장소 계정에 대 한 쓰기 요청은 동기적으�
 |    FileStorage    | 서유럽<br /> 미국 동부    |    Azure Files만    |
 
 <sup>1</sup> 보관 계층은 현재 ZRS 계정에 대해 지원 되지 않습니다.<br />
-<sup>2</sup> 관리 되는 디스크와 관리 되지 않는 디스크를 포함 하 여 가상 컴퓨터에 대 한 Azure 디스크는 LRS만 지원 합니다. ZRS 또는 GZRS를 지원 하지 않습니다. 관리 디스크에 대 한 자세한 내용은 [Azure managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks)을 참조 하세요.
+<sup>2</sup> 관리 되는 디스크와 관리 되지 않는 디스크를 포함 하 여 가상 컴퓨터에 대 한 Azure 디스크는 LRS만 지원 합니다. ZRS 또는 GZRS를 지원 하지 않습니다. 관리 디스크에 대 한 자세한 내용은 [Azure managed Disks 가격 책정](https://azure.microsoft.com/pricing/details/managed-disks/)을 참조 하세요.
 
 ZRS를 지 원하는 지역에 대 한 자세한 내용은 [Azure 가용성 영역](../../availability-zones/az-overview.md)의 **지역별 서비스 지원** 을 참조 하세요.
 
@@ -145,10 +145,10 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 
 | 시나리오                                                                                                 | LRS                             | ZRS                              | GRS/RA-GRS                                  | GZRS/RA-GZRS (미리 보기)                              |
 | :------------------------------------------------------------------------------------------------------- | :------------------------------ | :------------------------------- | :----------------------------------- | :----------------------------------- |
-| 데이터 센터 내의 노드를 사용할 수 없게 됩니다.                                                                 | 예                             | 예                              | 예                                  | 예                                  |
-| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 아니요                              | 예                              | 예                                  | 예                                  |
-| 지역 전체 중단이 발생 합니다.                                                                                     | 아니요                              | 아니요                               | 예                                  | 예                                  |
-| 주 지역을 사용할 수 없게 되 면 보조 지역의 데이터에 대 한 읽기 액세스 | 아니요                              | 아니요                               | 예 (RA-GRS 사용)                                   | 예 (RA-GZRS 사용)                                 |
+| 데이터 센터 내의 노드를 사용할 수 없게 됩니다.                                                                 | yes                             | yes                              | yes                                  | yes                                  |
+| 전체 데이터 센터(영역 또는 비영역)를 사용할 수 없게 됨                                           | 예                              | yes                              | yes                                  | yes                                  |
+| 지역 전체 중단이 발생 합니다.                                                                                     | 예                              | 예                               | yes                                  | yes                                  |
+| 주 지역을 사용할 수 없게 되 면 보조 지역의 데이터에 대 한 읽기 액세스 | 예                              | 예                               | 예 (RA-GRS 사용)                                   | 예 (RA-GZRS 사용)                                 |
 | 지정 된 연도에 대 한 개체의 내구성 비율<sup>1</sup>                                          | 최소 99.999999999% | 최소 99.9999999999% | 최소 99.99999999999999% | 최소 99.99999999999999% |
 | 지원 되는 저장소 계정 유형<sup>2</sup>                                                                   | GPv2, GPv1, BlockBlobStorage, BlobStorage, FileStorage                | GPv2, BlockBlobStorage, FileStorage                             | GPv2, GPv1, BlobStorage                     | GPv2                     |
 | 읽기 요청에 대 한 가용성 SLA<sup>1</sup>  | 최소 99.9%(쿨 액세스 계층에 대해 99%) | 최소 99.9%(쿨 액세스 계층에 대해 99%) | GRS에 대 한 최소 99.9% (쿨 액세스 계층의 경우 99%)<br /><br />RA-GRS에 대 한 최소 99.99% (쿨 액세스 계층의 경우 99.9%) | GZRS에 대 한 최소 99.9% (쿨 액세스 계층의 경우 99%)<br /><br />RA-GZRS에 대 한 최소 99.99% (쿨 액세스 계층의 경우 99.9%) |
@@ -165,7 +165,7 @@ Azure PowerShell, Azure CLI 또는 Azure Storage 클라이언트 라이브러리
 > [!NOTE]
 > Azure Premium 디스크 저장소는 현재 LRS (로컬 중복 저장소)만 지원 합니다. 블록 blob storage 계정은 특정 지역의 LRS (로컬 중복 저장소) 및 ZRS (영역 중복 저장소)를 지원 합니다.
 
-## <a name="data-integrity"></a>데이터 무결성(data integrity)
+## <a name="data-integrity"></a>데이터 무결성
 
 Azure Storage는 CRCs (순환 중복 검사)를 사용 하 여 저장 된 데이터의 무결성을 정기적으로 확인 합니다. 데이터 손상이 감지 되 면 중복 데이터를 사용 하 여 복구 됩니다. 또한 Azure Storage는 데이터를 저장 하거나 검색할 때 데이터 패킷의 손상을 검색 하기 위해 모든 네트워크 트래픽에 대 한 체크섬을 계산 합니다.
 

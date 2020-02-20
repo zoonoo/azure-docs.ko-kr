@@ -3,12 +3,12 @@ title: 자습서 - Terraform을 사용하여 Azure에서 허브 및 스포크 �
 description: Terraform을 사용하여 Azure에서 전체 하이브리드 네트워크 참조 아키텍처를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: 90a60fc4fe98397c903e3e8a460806d6a2edb908
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 6f156dd90b83ceaf5749c8c2acebae35bcb54a92
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159026"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472182"
 ---
 # <a name="tutorial-create-a-hub-and-spoke-hybrid-network-topology-in-azure-using-terraform"></a>자습서: Terraform을 사용하여 Azure에서 허브 및 스포크 하이브리드 네트워크 토폴로지 만들기
 
@@ -26,11 +26,11 @@ ms.locfileid: "74159026"
 > * Terraform을 사용하여 온-프레미스와 Azure 네트워크 간의 게이트웨이 및 연결 설정
 > * Terraform을 사용하여 스포크 네트워크에 대한 VNet 피어링 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Terraform 설치 및 구성**: Azure에 VM 및 기타 인프라를 프로비저닝하려면 [Terraform을 설치 및 구성](/azure/virtual-machines/linux/terraform-install-configure)합니다.
+- **Terraform 설치 및 구성**: Azure에 VM 및 기타 인프라를 프로비저닝하려면 [Terraform을 설치 및 구성](terraform-install-configure.md)합니다.
 
 ## <a name="hub-and-spoke-topology-architecture"></a>허브 및 스포크 토폴로지 아키텍처
 

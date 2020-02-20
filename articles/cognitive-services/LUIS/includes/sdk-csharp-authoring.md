@@ -5,17 +5,17 @@ services: cognitive-services
 author: diberry
 manager: nitinme
 ms.service: cognitive-services
-ms.subservice: luis
+ms.subservice: language-understanding
+ms.date: 02/14/2020
 ms.topic: include
 ms.custom: include file
-ms.date: 01/14/2020
 ms.author: diberry
-ms.openlocfilehash: 1b4d878fdac473660999a965296a317441d6b00a
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 53e6382cf8d046b2c9818b906890bc64642fd2ed
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76170492"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77372275"
 ---
 .NET용 LUIS(Language Understanding) 작성 클라이언트 라이브러리를 사용하여 다음을 수행합니다.
 
@@ -47,7 +47,7 @@ LUIS 작성 리소스를 만들어 [스타터 키](../luis-how-to-azure-subscrip
 
 운영 체제에 대한 지침을 사용합니다.
 
-#### <a name="windowstabwindows"></a>[Windows](#tab/windows)
+#### <a name="windows"></a>[Windows](#tab/windows)
 
 ```console
 setx COGNITIVESERVICE_AUTHORING_KEY <replace-with-your-authoring-key>
@@ -56,7 +56,7 @@ setx COGNITIVESERVICE_REGION <replace-with-your-authoring-region>
 
 환경 변수를 추가한 후 콘솔 창을 다시 시작합니다.
 
-#### <a name="linuxtablinux"></a>[Linux](#tab/linux)
+#### <a name="linux"></a>[Linux](#tab/linux)
 
 ```bash
 export COGNITIVESERVICE_AUTHORING_KEY=<replace-with-your-authoring-key>
@@ -65,7 +65,7 @@ export COGNITIVESERVICE_REGION=<replace-with-your-authoring-region>
 
 환경 변수를 추가한 후에는 콘솔 창에서 `source ~/.bashrc` 명령을 실행하여 변경 내용을 적용합니다.
 
-#### <a name="macostabunix"></a>[macOS](#tab/unix)
+#### <a name="macos"></a>[macOS](#tab/unix)
 
 `.bash_profile`을 편집하고, 환경 변수를 추가합니다.
 
