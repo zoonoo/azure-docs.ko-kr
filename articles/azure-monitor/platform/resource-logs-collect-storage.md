@@ -8,17 +8,17 @@ ms.topic: conceptual
 ms.date: 12/15/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: e99a0e8e42bcfb5c7967a9cb1c91631bacbea53a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f4109359adaaeae0a1ba027ac04439ff60b5a939
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980068"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467184"
 ---
 # <a name="archive-azure-resource-logs-to-storage-account"></a>저장소 계정에 Azure 리소스 로그 보관
 Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다.  이 문서에서는 보관할 데이터를 유지 하기 위해 Azure storage 계정에 플랫폼 로그를 수집 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 아직 없는 경우 [Azure storage 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다. 설정을 구성 하는 사용자가 두 구독에 대 한 적절 한 RBAC 액세스를 가진 경우 저장소 계정은 로그를 보내는 리소스와 동일한 구독을가지고 있지 않아도 됩니다.
 
 
@@ -33,7 +33,7 @@ Azure 리소스에 대 한 진단 설정을 만들어 플랫폼 로그를 저장
 
 
 ## <a name="collect-data-from-compute-resources"></a>계산 리소스에서 데이터 수집
-진단 설정은 다른 리소스와 마찬가지로 Azure 계산 리소스에 대 한 리소스 로그를 수집 하지만 게스트 운영 체제 또는 워크 로드는 수집 하지 않습니다. 이 데이터를 수집 하려면 [Windows Azure 진단 에이전트](diagnostics-extension-overview.md)를 설치 합니다. 자세한 내용은 [Azure Storage에서 진단 데이터 저장 및 보기](diagnostics-extension-to-storage.md) 를 참조 하세요.
+진단 설정은 다른 리소스와 마찬가지로 Azure 계산 리소스에 대 한 리소스 로그를 수집 하지만 게스트 운영 체제 또는 워크 로드는 수집 하지 않습니다. 이 데이터를 수집 하려면 [Windows Azure 진단 에이전트](diagnostics-extension-overview.md)를 설치 합니다. 
 
 
 ## <a name="schema-of-platform-logs-in-storage-account"></a>저장소 계정의 플랫폼 로그 스키마

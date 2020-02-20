@@ -3,12 +3,12 @@ title: 자습서 - Yeoman을 사용하여 Azure에서 Terraform 기본 템플릿
 description: Yeoman을 사용하여 Azure에서 Terraform 기본 템플릿을 만드는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/26/2019
-ms.openlocfilehash: ba81d0ee797fd879fdadc3a6b25ca8f310383f61
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 82c3f5e640789547abb716b55959e1821a61e6d0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159157"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472148"
 ---
 # <a name="tutorial-create-a-terraform-base-template-in-azure-using-yeoman"></a>자습서: Yeoman을 사용하여 Azure에 Terraform 기본 템플릿 만들기
 
@@ -21,11 +21,11 @@ ms.locfileid: "74159157"
 > * Docker 파일을 사용하여 Terraform 모듈을 실행합니다.
 > * Azure Cloud Shell에서 기본적으로 Terraform 모듈을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/) 을 만듭니다.
+- **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 - **Visual Studio Code**: 플랫폼에 [Visual Studio Code를 다운로드](https://code.visualstudio.com/download)합니다.
-- **Terraform**: Yeoman에서 만든 모듈을 실행하기 위해 [Terraform을 설치](/azure/virtual-machines/linux/terraform-install-configure )합니다.
+- **Terraform**: Yeoman에서 만든 모듈을 실행하기 위해 [Terraform을 설치](terraform-install-configure.md)합니다.
 - **Docker**: Yeoman 생성기에서 만든 모듈을 실행하기 위해 [Docker를 설치](https://www.docker.com/get-started)합니다.
 - **Go 프로그래밍 언어**: Yeoman에서 생성된 테스트 사례는 Go 언어를 사용하므로 [Go를 설치](https://golang.org/)합니다.
 
@@ -164,7 +164,7 @@ Yeoman 템플릿은 현재 디렉터리에서 파일을 생성합니다. 이러�
 
 1. 명령 프롬프트에서 다음을 입력합니다.
 
-    `docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID= --build-arg BUILD_ARM_CLIENT_ID= --build-arg BUILD_ARM_CLIENT_SECRET= --build-arg BUILD_ARM_TENANT_ID= -t terra-mod-example .`.
+    `docker build --build-arg BUILD_ARM_SUBSCRIPTION_ID= --build-arg BUILD_ARM_CLIENT_ID= --build-arg BUILD_ARM_CLIENT_SECRET= --build-arg BUILD_ARM_TENANT_ID= -t terra-mod-example .`입니다.
 
     **성공적으로 빌드됨** 메시지가 표시됩니다.
 
@@ -174,7 +174,7 @@ Yeoman 템플릿은 현재 디렉터리에서 파일을 생성합니다. 이러�
 
     ![새 모듈을 포함하는 목록](media/terraform-vscode-module-generator/ymg-repository-results.png)
 
-1. `docker run -it terra-mod-example /bin/sh`을 입력합니다. `docker run` 명령을 실행하면 Docker 환경으로 들어갑니다. 이때 `ls` 명령을 사용하여 파일을 검색할 수 있습니다.
+1. `docker run -it terra-mod-example /bin/sh`를 입력합니다. `docker run` 명령을 실행하면 Docker 환경으로 들어갑니다. 이때 `ls` 명령을 사용하여 파일을 검색할 수 있습니다.
 
     ![Docker의 파일 목록](media/terraform-vscode-module-generator/ymg-list-docker-file.png)
 
@@ -204,7 +204,7 @@ Yeoman 템플릿은 현재 디렉터리에서 파일을 생성합니다. 이러�
 
 1. 잠시 후에 **통과** 메시지가 표시됩니다.
 
-    ![통과](media/terraform-vscode-module-generator/ymg-pass.png)
+    ![PASS](media/terraform-vscode-module-generator/ymg-pass.png)
 
 1. `exit`를 입력하여 테스트를 완료하고 Docker 환경을 종료합니다.
 
@@ -236,7 +236,7 @@ Yeoman 템플릿은 현재 디렉터리에서 파일을 생성합니다. 이러�
 
 1. 이 시점에서 Cloud Shell은 이미 환경 변수에서 GOPATH를 구성했습니다. 경로를 확인하려면 `go env`를 입력합니다.
 
-1. 아직 없는 경우 $GOPATH 디렉터리를 만듭니다. `mkdir ~/go`을 입력합니다.
+1. 아직 없는 경우 $GOPATH 디렉터리를 만듭니다. `mkdir ~/go`를 입력합니다.
 
 1. $GOPATH 디렉터리 내에 디렉터리를 만듭니다. 이 디렉터리는 이 예제에서 만든 다른 프로젝트 디렉터리를 저장하는 데 사용됩니다. 
 

@@ -1,5 +1,5 @@
 ---
-title: StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 평가 | Microsoft Docs
+title: StorSimple 5000-7000 시리즈 장치에서 데이터 마이그레이션 옵션
 description: StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션에 대해 간략히 설명합니다.
 services: storsimple
 documentationcenter: NA
@@ -13,12 +13,12 @@ ms.tgt_pltfrm: NA
 ms.workload: NA
 ms.date: 04/15/2019
 ms.author: alkohli
-ms.openlocfilehash: d51891c076f1784fbddb88bfaed28ac1d889afdc
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 44a05ecb273bdf7582300c3b6a9110e2ada0994c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227776"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471825"
 ---
 # <a name="options-to-migrate-data-from-storsimple-5000-7000-series"></a>StorSimple 5000-7000 시리즈에서 데이터를 마이그레이션하는 옵션 
 
@@ -74,24 +74,24 @@ https://www.talonstorage.com/alliances/microsoft-storsimple에서 클라우드 �
 
 ## <a name="migration---frequently-asked-questions"></a>마이그레이션 - 질문과 대답
 
-### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>Q. StorSimple 5000 및 7000 시리즈 디바이스에 대한 서비스는 언제 종료되나요? 
+### <a name="q-when-do-the-storsimple-5000-and-7000-series-devices-reach-end-of-service"></a>17. StorSimple 5000 및 7000 시리즈 디바이스에 대한 서비스는 언제 종료되나요? 
 
 A. StorSimple 5000-7000 시리즈에 대한 서비스는 2019년 7월에 [종료](https://support.microsoft.com/lifecycle/search?alpha=StorSimple%205000%2F7000%20Series)될 예정입니다. 2019년 7월 이후 서비스가 종료되면 Microsoft는 더 이상 이러한 디바이스의 하드웨어 및 소프트웨어 모두를 지원할 수 없게 됩니다. 이제는 디바이스에서 데이터를 마이그레이션하도록 계획하는 것이 좋습니다.
 
-### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>Q. Azure에 저장된 데이터는 어떻게 되나요?  
+### <a name="q-what-happens-to-the-data-i-have-stored-in-azure"></a>17. Azure에 저장된 데이터는 어떻게 되나요?  
 
 A. 새 서비스로 마이그레이션한 후에도 Azure에서 데이터를 계속 사용할 수 있습니다. 
 
 
-### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>Q. StorSimple 디바이스에 로컬로 저장된 데이터는 어떻게 되나요? 
+### <a name="q-what-happens-to-the-data-i-have-stored-locally-on-my-storsimple-device"></a>17. StorSimple 디바이스에 로컬로 저장된 데이터는 어떻게 되나요? 
 
 A. 마이그레이션 문서에서 설명한 대로 로컬 디바이스에 있는 데이터는 새 서비스에 복사할 수 있습니다.
 
-### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>Q. StorSimple 5000/7000 시리즈 어플라이언스를 유지하려면 어떻게 되나요? 
+### <a name="q-what-happens-if-i-want-to-keep-my-storsimple-50007000-series-appliance"></a>17. StorSimple 5000/7000 시리즈 어플라이언스를 유지하려면 어떻게 되나요? 
 
 A. 서비스는 계속 작동하지만 Microsoft는 더 이상 하드웨어 및 소프트웨어 지원을 제공하지 않습니다. 비즈니스 연속성을 위해 마이그레이션을 사용하는 것이 좋습니다.
 
-### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-5000-7000-series-devices"></a>Q. StorSimple 5000-7000 시리즈 디바이스에서 데이터를 마이그레이션하는 데 사용할 수 있는 옵션은 무엇인가요? 
+### <a name="q-what-options-are-available-to-migrate-data-from-storsimple-5000-7000-series-devices"></a>17. StorSimple 5000-7000 시리즈 디바이스에서 데이터를 마이그레이션하는 데 사용할 수 있는 옵션은 무엇인가요? 
 
 A. StorSimple 5000-7000 시리즈 사용자는 시나리오에 따라 다음과 같은 마이그레이션 옵션을 사용할 수 있습니다. 
 
@@ -100,15 +100,15 @@ A. StorSimple 5000-7000 시리즈 사용자는 시나리오에 따라 다음과 
 
 Microsoft 지원에 문의하여 여기서 설명하지 않은 마이그레이션 옵션에 대해 논의할 수 있습니다.
 
-### <a name="q-is-migration-to-other-storage-solutions-supported"></a>Q. 다른 스토리지 솔루션으로 마이그레이션할 수 있나요?
+### <a name="q-is-migration-to-other-storage-solutions-supported"></a>17. 다른 스토리지 솔루션으로 마이그레이션할 수 있나요?
 
 A. 예. 데이터의 호스트 복사본을 사용하여 다른 스토리지 솔루션으로 마이그레이션할 수 있습니다.
 
-### <a name="q-is-migration-supported-by-microsoft"></a>Q. Microsoft에서 마이그레이션을 지원하나요? 
+### <a name="q-is-migration-supported-by-microsoft"></a>17. Microsoft에서 마이그레이션을 지원하나요? 
 
 A. 5000 또는 7000 시리즈에서 마이그레이션하는 작업은 완벽하게 지원됩니다. 실제로는 먼저 고객 지원팀에 문의한 후에 마이그레이션을 시작하는 것이 좋습니다. 마이그레이션은 현재 지원형 작업입니다. StorSimple 5000-7000 시리즈 디바이스에서 데이터를 마이그레이션하려면 [지원 티켓을 여세요](storsimple-8000-contact-microsoft-support.md).
 
-### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>Q. 두 가지 마이그레이션 옵션 모두에 대한 가격 책정 모델은 무엇인가요?
+### <a name="q-what-is-the-pricing-model-for-both-the-migration-options"></a>17. 두 가지 마이그레이션 옵션 모두에 대한 가격 책정 모델은 무엇인가요?
 
 A. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이그레이션 자체에는 추가 비용이 들지 않지만, StorSimple 8000 시리즈로 업그레이드하려는 경우 하드웨어 디바이스 비용이 발생하게 됩니다. 
 
@@ -116,11 +116,11 @@ A. 마이그레이션 비용은 선택한 옵션에 따라 다릅니다. 마이�
 - [StorSimple 가격 책정](https://azure.microsoft.com/pricing/details/storsimple/)  
 - [AFS 가격 책정]( https://azure.microsoft.com/pricing/details/storage/files/)
 
-### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>Q.  마이그레이션을 완료하는 데 얼마나 오래 걸리나요?
+### <a name="q--how-long-does-it-take-to-complete-a-migration"></a>17.  마이그레이션을 완료하는 데 얼마나 오래 걸리나요?
 
 A. 데이터 마이그레이션을 완료하는 데 걸리는 시간은 선택한 데이터의 양과 선택한 업그레이드 옵션에 따라 다릅니다. 
 
-### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>Q. StorSimple 8000 시리즈의 지원 종료 날짜는 언제인가요?
+### <a name="q-what-is-the-end-of-support-date-for-storsimple-8000-series"></a>17. StorSimple 8000 시리즈의 지원 종료 날짜는 언제인가요?
 
 A. StorSimple 8000 시리즈의 지원 종료 날짜는 [여기](https://support.microsoft.com/lifecycle/search?alpha=Azure%20StorSimple%208000%20Series)에 게시됩니다.
 

@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 01/14/2020
 ms.author: anavin
 ms.custom: include file
-ms.openlocfilehash: 17558b44c91425ce1a06625f8fd5c1806a762ba2
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 28724f85ada989cbe3ce754418fb781bb0468de4
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76021222"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466079"
 ---
 <a name="azure-resource-manager-virtual-networking-limits"></a>네트워킹 제한-Azure Resource Manager 다음 제한은 구독 당 지역 별로 **Azure Resource Manager** 를 통해 관리 되는 네트워킹 리소스에 대해서만 적용 됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
 
@@ -51,10 +51,13 @@ ms.locfileid: "76021222"
 #### <a name="publicip-address"></a>공용 IP 주소 구분
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| 공용 IP 주소 - 동적 | 기본의 경우 1000입니다. |지원에 문의 |
-| 공용 IP 주소 - 고정 | 기본의 경우 1000입니다. |지원에 문의 |
-| 공용 IP 주소 - 고정 | 표준의 경우 1000입니다.|지원에 문의 |
+| 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
+| 고정 공용 IP 주소<sup>1</sup> | Basic의 경우 10입니다. | 지원에 문의 |
+| 표준 공용 IP 주소<sup>1</sup> | 10 | 지원에 문의 |
+| 공용 IP 접두사 | 구독에서 표준 공용 Ip 수로 제한 됨 | 지원에 문의 |
 | 공용 IP 접두사 길이 | /28 | 지원에 문의 |
+
+<sup>1</sup> 공용 IP 주소의 기본 제한은 무료 평가판, 종 량 제, CSP와 같은 제품 범주 유형에 따라 달라 집니다. 예를 들어 기업계약 구독의 기본값은 1000입니다.
 
 #### <a name="load-balancer"></a>부하 분산 장치 제한
 다음 제한은 구독당 지역별로 Azure Resource Manager를 통해 관리되는 네트워킹 리소스에 대해서만 적용됩니다. [구독 제한을 기준으로 현재 리소스 사용량을 보는](../articles/networking/check-usage-against-limits.md) 방법을 알아봅니다.
@@ -98,6 +101,6 @@ ms.locfileid: "76021222"
 | 경로 테이블당 사용자 정의 경로 |400 |400 |
 | 공용 IP 주소(동적) |500 |500 |
 | 예약된 공용 IP 주소 |500 |500 |
-| 배포당 공용 VIP |5 |고객 지원 |
+| 배포당 공용 VIP |5 |지원에 문의 |
 | 배포 당 개인 VIP (내부 부하 분산) |1 |1 |
 | 끝점 액세스 제어 목록 (Acl) |50 |50 |

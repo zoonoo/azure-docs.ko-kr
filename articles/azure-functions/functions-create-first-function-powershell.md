@@ -6,12 +6,12 @@ ms.author: jaiello
 ms.reviewer: glenga
 ms.date: 04/25/2019
 ms.topic: quickstart
-ms.openlocfilehash: b1a1caf985e9693e261684c1edb21184071ebfc8
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e9aeb7234f5b840d790f6358bab2426462cc7986
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845910"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210228"
 ---
 # <a name="create-your-first-powershell-function-in-azure"></a>Azure에서 첫 번째 PowerShell 함수 만들기
 
@@ -61,7 +61,7 @@ Visual Studio Code의 Azure Functions 프로젝트 템플릿은 Azure에서 함�
 1. **HTTP 트리거**를 첫 번째 함수의 템플릿으로 선택하고 `HTTPTrigger`를 함수 이름으로 지정한 후 권한 부여 수준으로 **함수**를 선택합니다.
 
     > [!NOTE]
-    > **함수** 권한 부여 수준에는 Azure에서 함수 엔드포인트를 호출할 때 [함수 키](functions-bindings-http-webhook.md#authorization-keys) 값이 필요합니다. 따라서 누구든지 쉽게 사용자 함수를 호출하지는 못하게 됩니다.
+    > **함수** 권한 부여 수준에는 Azure에서 함수 엔드포인트를 호출할 때 [함수 키](functions-bindings-http-webhook-trigger.md#authorization-keys) 값이 필요합니다. 따라서 누구든지 쉽게 사용자 함수를 호출하지는 못하게 됩니다.
 
 1. 메시지가 표시되면 **작업 영역에 추가**를 선택합니다.
 

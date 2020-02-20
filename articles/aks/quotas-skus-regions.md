@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
 ms.author: mlearned
-ms.openlocfilehash: a8b561780e2e81499d211252648aeef86561cb9b
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1bb928f8e7a1f56c4b6b437f260d875662bff60f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658511"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469837"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 
@@ -33,7 +33,7 @@ ms.locfileid: "75658511"
 
 ## <a name="restricted-vm-sizes"></a>제한 된 VM 크기
 
-AKS 클러스터의 각 노드에는 vCPU 및 메모리와 같은 고정 된 양의 계산 리소스가 포함 되어 있습니다. AKS 노드에 계산 리소스가 부족 한 경우 pod이 올바르게 실행 되지 않을 수 있습니다. 필수 *kube 시스템* pod 및 응용 프로그램을 안정적으로 예약할 수 있도록 하려면 AKS에서 다음 VM sku를 사용 하지 마세요.
+AKS 클러스터의 각 노드에는 vCPU 및 메모리와 같은 고정 된 양의 계산 리소스가 포함 되어 있습니다. AKS 노드에 계산 리소스가 부족 한 경우 pod이 올바르게 실행 되지 않을 수 있습니다. 필수 *kube 시스템* pod 및 응용 프로그램을 안정적으로 예약할 수 있도록 하려면 **AKS에서 다음 VM sku를 사용 하지 마세요**.
 
 - Standard_A0
 - Standard_A1
@@ -45,7 +45,7 @@ AKS 클러스터의 각 노드에는 vCPU 및 메모리와 같은 고정 된 양
 
 VM 유형 및 해당 계산 리소스에 대 한 자세한 내용은 [Azure의 가상 머신 크기][vm-skus]를 참조 하세요.
 
-## <a name="region-availability"></a>리전 가용성
+## <a name="region-availability"></a>지역 가용성
 
 클러스터를 배포 하 고 실행할 수 있는 최신 목록은 [AKS 지역 가용성][region-availability]을 참조 하세요.
 

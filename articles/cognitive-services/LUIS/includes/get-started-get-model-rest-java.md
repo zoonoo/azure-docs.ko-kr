@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 5214395aa583bfa344f2c8e84066db84edb3939a
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 92552a9870f037555a6cde9daa67d3af112ccee7
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966681"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368394"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,8 +29,6 @@ ms.locfileid: "76966681"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>프로그래밍 방식으로 모델 변경
-
-Go를 사용하여 기계 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-authoring)를 애플리케이션에 추가합니다.
 
 1. `lib`라는 하위 디렉터리를 만들고 다음 java 라이브러리에 복사합니다.
 

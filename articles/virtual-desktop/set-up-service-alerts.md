@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 06/11/2019
 ms.author: helohr
-ms.openlocfilehash: b5fa5fc13c8ce0c98c04d2451f3a50e89b986c16
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8c062c1ce8e938ac426a10c41161eb7e28f3dcba
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71676439"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368756"
 ---
 # <a name="tutorial-set-up-service-alerts"></a>자습서: 서비스 경고 설정
 
@@ -25,11 +25,11 @@ Azure Service Health를 사용하여 Windows Virtual Desktop에 대한 서비스
 
 Azure Service Health에 대한 자세한 내용은 [Azure Health 설명서](https://docs.microsoft.com/azure/service-health/)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-- [자습서: Windows Virtual Desktop에서 테넌트 만들기](https://docs.microsoft.com/azure/virtual-desktop/tenant-setup-azure-active-directory)
-- [자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당](https://docs.microsoft.com/azure/virtual-desktop/create-service-principal-role-powershell)
-- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](https://docs.microsoft.com/azure/virtual-desktop/create-host-pools-azure-marketplace)
+- [자습서: Windows Virtual Desktop에서 테넌트 만들기](tenant-setup-azure-active-directory.md)
+- [자습서: PowerShell을 사용하여 서비스 주체 만들기 및 역할 할당](create-service-principal-role-powershell.md)
+- [자습서: Azure Marketplace를 사용하여 호스트 풀 만들기](create-host-pools-azure-marketplace.md)
 
 ## <a name="create-service-alerts"></a>서비스 경고 만들기
 

@@ -3,21 +3,18 @@ title: Microsoft Azure에 대한 청구서 지불 | Microsoft Docs
 description: Azure Portal에서 청구서를 지불하는 방법을 설명합니다.
 keywords: 청구, 기한 초과, 잔액, 지금 지불
 author: banders
-manager: judupont
+ms.reviewer: judupont
 tags: billing, past due, pay now, bill, invoice, pay
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 214382693d942152d82b7ae5e487969b8ebaeaff
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 8db50a25d98f5e4dc2ae96c708a5da49709f9ed5
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188130"
+ms.locfileid: "77200149"
 ---
 # <a name="how-to-pay-your-bill-for-microsoft-azure"></a>Microsoft Azure에 대한 청구서를 지불하는 방법
 

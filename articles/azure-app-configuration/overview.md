@@ -6,18 +6,16 @@ ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: overview
 ms.date: 02/24/2019
-ms.openlocfilehash: 22ebfc53405149358b0a2a03cd256a78db5d1910
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 67a76d3b347ef750b639225a009cc6968cb84c6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899338"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467558"
 ---
 # <a name="what-is-azure-app-configuration"></a>Azure App Configuration이란?
 
 Azure App Configuration은 애플리케이션 설정 및 기능 플래그를 중앙에서 관리할 수 있는 서비스를 제공합니다. 일반적으로 최신 프로그램, 특히 클라우드에서 실행되는 프로그램에는 사실상 많은 구성 요소가 분산되어 있습니다. 이러한 구성 요소에 구성 설정이 분산되어 있으면 애플리케이션을 배포하는 동안 오류를 쉽게 해결할 수 없습니다. App Configuration을 사용하여 애플리케이션에 대한 모든 설정을 한 곳에서 저장하고 액세스를 보호합니다.
-
-Azure Configuration은 현재 공개 미리 보기로 제공됩니다. 미리 보기 기간에는 무료로 사용할 수 있습니다. [Azure Portal](https://portal.azure.com)에서 미리 보기에 가입할 수 있습니다.
 
 ## <a name="why-use-app-configuration"></a>App Configuration을 사용하는 이유
 

@@ -1,24 +1,17 @@
 ---
 title: REST API를 사용하여 Azure 서비스 리소스 사용 검토 | Microsoft Docs
 description: Azure REST API를 사용하여 Azure 서비스 리소스 사용을 검토하는 방법을 알아봅니다.
-services: billing
-documentationcenter: na
 author: lleonard-msft
-manager: ''
-editor: ''
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: article
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: eb444f090c1b2047e3d71c1b2ec52699a61bd880
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: f421ddc7cd509527053b099c7e4e538ab84b814e
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75989307"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200574"
 ---
 # <a name="review-azure-resource-usage-using-the-rest-api"></a>REST API를 사용하여 Azure 리소스 사용 검토
 
@@ -41,7 +34,7 @@ Authorization: Bearer
 
 `{subscriptionGuid}` 매개 변수는 필수 항목이며 API 토큰에서 제공된 자격 증명을 사용하여 읽을 수 있는 구독 ID를 포함해야 합니다. `{reportName}`
 
-다음과 같은 헤더가 필요합니다. 
+다음과 같은 헤더가 필요합니다.
 
 |요청 헤더|Description|  
 |--------------------|-----------------|  
@@ -93,7 +86,7 @@ HTTP 요청 본문에서 보고서의 매개 변수를 구성합니다. 아래 �
 
 ## <a name="filtering-reports"></a>보고서 필터링
 
-보고서를 만들 때 요청 본문의 `filter` 및 `dimensions` 섹션을 통해 특정 리소스 형식에 대한 비용에 집중할 수 있습니다. 이전 요청 본문에서는 지역의 모든 리소스별로 필터링하는 방법을 보여줍니다. 
+보고서를 만들 때 요청 본문의 `filter` 및 `dimensions` 섹션을 통해 특정 리소스 형식에 대한 비용에 집중할 수 있습니다. 이전 요청 본문에서는 지역의 모든 리소스별로 필터링하는 방법을 보여줍니다.
 
 ### <a name="get-all-compute-usage"></a>모든 컴퓨팅 사용량 가져오기
 
@@ -105,9 +98,9 @@ HTTP 요청 본문에서 보고서의 매개 변수를 구성합니다. 아래 �
         "name": "ResourceType",
         "operator": "In",
         "values": [
-                "Microsoft.ClassicCompute/virtualMachines", 
+                "Microsoft.ClassicCompute/virtualMachines",
                 "Microsoft.Compute/virtualMachines"
-        ] 
+        ]
     }
 }
 ```
@@ -123,7 +116,7 @@ HTTP 요청 본문에서 보고서의 매개 변수를 구성합니다. 아래 �
         "operator": "In",
         "values": [
                 "Microsoft.Sql/servers"
-        ] 
+        ]
     }
 }
 ```

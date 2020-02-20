@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/13/2020
 ms.author: thvankra
-ms.openlocfilehash: 668e9ddadf151a86be0d8c09fc91b4c70db12f3a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e2967a6d12fba2d81dad9de31e7476a027a39d1c
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210789"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468833"
 ---
 # <a name="elastically-scale-an-azure-cosmos-db-cassandra-api-account"></a>Azure Cosmos DB Cassandra API 계정 크기 조정 탄력적으로
 
@@ -23,7 +23,7 @@ Cassandra에 대 한 Azure Cosmos DB API의 탄력적 특성을 탐색 하는 �
 
 클라이언트에서 프로 비전 한 용량 보다 많은 리소스 (r u/초)를 사용 하는 경우 Azure Cosmos DB에서 요금 제한 (429) 오류가 반환 됩니다. Azure Cosmos DB의 Cassandra API는 Cassandra 네이티브 프로토콜에서 이러한 예외를 오버로드된 오류로 변환합니다. 
 
-시스템이 대기 시간을 인식 하지 못하는 경우 재시도를 사용 하 여 처리량 속도 제한을 처리 하는 것이 충분할 수 있습니다. Java의 [Cassandra 재시도 정책](https://docs.datastax.com/drivers/java/2.0/com/datastax/driver/core/policies/RetryPolicy.html) 에 대 한 [Azure Cosmos DB 확장](https://github.com/Azure/azure-cosmos-cassandra-extensions) 을 사용 하 여 투명 하 게 rate 제한을 처리 하는 방법에 대해서는 [java 코드 샘플](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) 을 참조 하세요. 또한 [Spark 확장](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 을 사용 하 여 요율 제한을 처리할 수 있습니다.
+시스템이 대기 시간을 인식 하지 못하는 경우 재시도를 사용 하 여 처리량 속도 제한을 처리 하는 것이 충분할 수 있습니다. Java의 [Cassandra 재시도 정책](https://docs.datastax.com/en/developer/java-driver/4.4/manual/core/retries/) 에 대 한 [Azure Cosmos DB 확장](https://github.com/Azure/azure-cosmos-cassandra-extensions) 을 사용 하 여 투명 하 게 rate 제한을 처리 하는 방법에 대해서는 [java 코드 샘플](https://github.com/Azure-Samples/azure-cosmos-cassandra-java-retry-sample) 을 참조 하세요. 또한 [Spark 확장](https://mvnrepository.com/artifact/com.microsoft.azure.cosmosdb/azure-cosmos-cassandra-spark-helper) 을 사용 하 여 요율 제한을 처리할 수 있습니다.
 
 ## <a name="manage-scaling"></a>크기 조정 관리
 

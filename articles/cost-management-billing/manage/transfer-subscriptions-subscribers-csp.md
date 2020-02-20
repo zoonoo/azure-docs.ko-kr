@@ -1,19 +1,18 @@
 ---
 title: 구독자와 CSP 간에 Azure 구독 전송
 description: 구독자와 CSP 간에 Azure 구독을 전송하는 방법을 알아봅니다.
-services: billing
 author: bandersmsft
 ms.reviewer: dhgandhi
 ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 01/27/2020
 ms.author: banders
-ms.openlocfilehash: 08aeac9a8cd21e6f13bab0ee10ba4d212d96c5b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4e7e9ea61d74eb38f3c225d66a39906bc18fe6d2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76775417"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200523"
 ---
 # <a name="transfer-azure-subscriptions-between-subscribers-and-csps"></a>구독자와 CSP 간에 Azure 구독 전송
 
@@ -33,7 +32,7 @@ ms.locfileid: "76775417"
 1. 원본 및 대상 CSP 구독이 동일한 Azure AD(Azure Active Directory) 테넌트에 있는지 확인합니다.  
     Azure CSP 구독에 대한 Azure AD 테넌트는 변경할 수 없습니다. 대신 원본 구독을 CSP Azure AD 테넌트에 추가하거나 연결해야 합니다. 더 자세한 내용은 [Azure Active Directory 테넌트에 Azure 구독 연결 또는 추가](../../active-directory/fundamentals/active-directory-how-subscriptions-associated-directory.md)를 참조합니다.
     > [!IMPORTANT]
-    > - 구독을 다른 Azure AD 디렉터리에 연결하는 경우 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다. 
+    > - 구독을 다른 Azure AD 디렉터리에 연결하는 경우 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/role-assignments-portal.md)를 사용하여 역할이 할당된 사용자는 액세스 권한을 잃게 됩니다. 서비스 관리자 및 공동 관리자를 비롯한 클래식 구독 관리자도 액세스 권한을 잃게 됩니다.
     > - 구독을 다른 디렉터리와 연결하는 경우에도 구독에서 정책 할당이 제거됩니다.
 1. 전송하는 데 사용하는 사용자 계정에는 두 구독 모두에 대한 [RBAC](add-change-subscription-administrator.md) 소유자 액세스 권한이 있어야 합니다.
 1. 시작하기 전에 모든 Azure 리소스를 원본 구독에서 대상 구독으로 이동할 수 있는지 [유효성을 검사](/rest/api/resources/resources/validatemoveresources)합니다.  

@@ -5,12 +5,12 @@ author: ColbyTresness
 ms.topic: quickstart
 ms.date: 11/07/2018
 ms.reviewer: azfuncdf, cotresne
-ms.openlocfilehash: b0a1d1a9305f6de2a072ee1ded310d8de174436b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 431bd45763cbe24e44d47342b32c5c452a27b0f6
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845716"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210296"
 ---
 # <a name="create-your-first-durable-function-in-javascript"></a>JavaScript로 첫 번째 지속성 함수 만들기
 
@@ -57,7 +57,7 @@ ms.locfileid: "76845716"
     | 버전 선택 | Azure Functions v2 | 핵심 도구가 아직 설치되지 않은 경우에만 이 옵션이 표시됩니다. 이 경우 앱을 처음 실행할 때 핵심 도구가 설치됩니다. |
     | 프로젝트의 첫 번째 함수에 대한 템플릿 선택 | HTTP 트리거 | 새 함수 앱에서 HTTP 트리거 함수를 만듭니다. |
     | 함수 이름 제공 | HttpTrigger | Enter 키를 눌러 기본 이름을 사용합니다. |
-    | 권한 부여 수준 | 함수 | `function` 권한 부여 수준에서는 함수의 HTTP 엔드포인트를 호출할 때 액세스 키를 제공해야 합니다. 이렇게 하면 보안되지 않은 엔드포인트에 액세스하기가 더 어려워집니다. 자세한 내용은 [권한 부여 키](../functions-bindings-http-webhook.md#authorization-keys)를 참조하세요.  |
+    | 권한 부여 수준 | 함수 | `function` 권한 부여 수준에서는 함수의 HTTP 엔드포인트를 호출할 때 액세스 키를 제공해야 합니다. 이렇게 하면 보안되지 않은 엔드포인트에 액세스하기가 더 어려워집니다. 자세한 내용은 [권한 부여 키](../functions-bindings-http-webhook-trigger.md#authorization-keys)를 참조하세요.  |
     | 프로젝트를 여는 방법을 선택합니다. | 작업 영역에 추가 | 현재 작업 영역에 함수 앱을 만듭니다. |
 
 필요한 경우 Visual Studio Code가 Azure Functions Core Tools를 설치합니다. 또한 새 작업 영역에서 함수 앱 프로젝트를 만듭니다. 이 프로젝트에는 [host.json](../functions-host-json.md) 및 [local.settings.json](../functions-run-local.md#local-settings-file) 구성 파일이 포함되어 있습니다. 또한 [function.json 정의 파일](../functions-reference-node.md#folder-structure) 및 함수 코드가 포함된 Node.js 파일인 [index.js 파일](../functions-reference-node.md#exporting-a-function)을 포함하는 HttpExample 폴더를 만듭니다.

@@ -7,16 +7,16 @@ ms.subservice: development
 ms.custom: ''
 ms.devlang: ''
 ms.topic: conceptual
-author: allenwux
-ms.author: xiwu
+author: denzilribeiro
+ms.author: denzilr
 ms.reviewer: carlrab
 ms.date: 09/25/2018
-ms.openlocfilehash: 03150ef3a8799cd0f84fb1bc03f2fd712cddd541
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: b22ec475c0281a54d65921bc450b35723aa23219
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73889805"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471655"
 ---
 # <a name="accelerate-real-time-big-data-analytics-with-spark-connector-for-azure-sql-database-and-sql-server"></a>Azure SQL Database 및 SQL Server용 Spark 커넥터를 통해 실시간 빅 데이터 분석 가속화
 
@@ -27,13 +27,13 @@ Azure SQL Database 및 SQL Server용 Spark 커넥터를 사용하면 Azure SQL D
 
 ## <a name="official-supported-versions"></a>공식 지원되는 버전
 
-| 구성 요소                            |버전                  |
-| :----------------------------------- | :---------------------- |
-| Apache Spark                         |2.0.2 이상           |
-| 스칼라                                |2.10 이상            |
-| SQL Server용 Microsoft JDBC Driver |6.2 이상             |
-| Microsoft SQL Server                 |SQL Server 2008 이상 |
-| Azure SQL Database                   |지원됨                |
+| 구성 요소                            | 버전                  |
+| :----------------------------------- | :----------------------- |
+| Apache Spark                         | 2.0.2 이상           |
+| 스칼라                                | 2.10 이상            |
+| SQL Server용 Microsoft JDBC Driver | 6.2 이상             |
+| Microsoft SQL Server                 | SQL Server 2008 이상 |
+| Azure SQL Database                   | 지원됨                |
 
 Azure SQL Database 및 SQL Server용 Spark 커넥터는 SQL Server용 Microsoft JDBC Driver를 사용하여 Spark 작업자 노드와 SQL 데이터베이스 간에 데이터를 이동합니다.
  
@@ -89,7 +89,7 @@ val config = Config(Map(
 ))
 
 //Read all data in table dbo.Clients
-val collection = sqlContext.read.sqlDb(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -118,7 +118,7 @@ import com.microsoft.azure.sqldb.spark.config.Config
 import com.microsoft.azure.sqldb.spark.query._
 val query = """
               |UPDATE Customers
-              |SET ContactName = 'Alfred Schmidt', City= 'Frankfurt'
+              |SET ContactName = 'Alfred Schmidt', City = 'Frankfurt'
               |WHERE CustomerID = 1;
             """.stripMargin
 
@@ -134,7 +134,7 @@ sqlContext.sqlDBQuery(config)
 ```
 
 ## <a name="connect-spark-to-azure-sql-database-using-aad-authentication"></a>AAD 인증을 사용하여 Azure SQL Database에 Spark 연결
-AAD(Azure Active Directory) 인증을 사용하여 Azure SQL Database에 연결할 수 있습니다. AAD 인증을 사용하여 데이터베이스 사용자의 ID를 중앙에서 관리하고 SQL Server 인증 대신 사용할 수 있습니다.
+AAD(Azure Active Directory) 인증을 사용하여 Azure SQL Database에 연결할 수 있습니다. 중앙에서 데이터베이스 사용자의 ID를 관리할 수 있는 AAD 인증은 SQL Server 인증 대신으로도 사용할 수 있습니다.
 ### <a name="connecting-using-activedirectorypassword-authentication-mode"></a>ActiveDirectoryPassword 인증 모드를 사용하여 연결
 #### <a name="setup-requirement"></a>설치 요구 사항
 ActiveDirectoryPassword 인증 모드를 사용하는 경우 [azure-activedirectory-library-for-java](https://github.com/AzureAD/azure-activedirectory-library-for-java) 및 해당 종속성을 다운로드하여 Java 빌드 경로에 포함시켜야 합니다.
@@ -146,13 +146,13 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"            -> "mysqlserver.database.windows.net",
   "databaseName"   -> "MyDatabase",
-  "user"           -> "username ",
+  "user"           -> "username",
   "password"       -> "*********",
   "authentication" -> "ActiveDirectoryPassword",
   "encrypt"        -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -169,12 +169,12 @@ import com.microsoft.azure.sqldb.spark.connect._
 val config = Config(Map(
   "url"                   -> "mysqlserver.database.windows.net",
   "databaseName"          -> "MyDatabase",
-  "accessToken"           -> "access_token ",
+  "accessToken"           -> "access_token",
   "hostNameInCertificate" -> "*.database.windows.net",
   "encrypt"               -> "true"
 ))
 
-val collection = sqlContext.read.SqlDB(config)
+val collection = sqlContext.read.sqlDB(config)
 collection.show()
 ```
 
@@ -214,7 +214,7 @@ df.bulkCopyToSqlDB(bulkCopyConfig, bulkCopyMetadata)
 ## <a name="next-steps"></a>다음 단계
 아직 다운로드하지 않았으면 [azure-sqldb-spark GitHub 리포지토리](https://github.com/Azure/azure-sqldb-spark)에서 Azure SQL Database 및 SQL Server용 Spark 커넥터를 다운로드하고 리포지토리에서 추가 리소스를 탐색합니다.
 
--   [Azure Databricks Notebooks 샘플](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
+- [Azure Databricks Notebooks 샘플](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/notebooks)
 - [샘플 스크립트(Scala)](https://github.com/Azure/azure-sqldb-spark/tree/master/samples/scripts)
 
 또한 [Apache Spark SQL, DataFrames 및 Datasets 가이드](https://spark.apache.org/docs/latest/sql-programming-guide.html) 및 [Azure Databricks 설명서](https://docs.microsoft.com/azure/azure-databricks/)를 검토할 수도 있습니다.

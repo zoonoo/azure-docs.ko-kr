@@ -1,21 +1,20 @@
 ---
 title: Azure Cost Management로 클라우드 투자 최적화 | Microsoft Docs
 description: 이 문서는 클라우드 투자의 가치를 극대화하고, 비용을 줄이고, 비용이 어디에 지출되는지 평가하는 데 도움이 됩니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 05/21/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: vitavor
+ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 47a53136a8f299e5c8654d122d8e319be4ae29db
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6d13bf4b2a3abd3a1552ac656a6a15fed8c7cb60
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988384"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201070"
 ---
 # <a name="how-to-optimize-your-cloud-investment-with-azure-cost-management"></a>Azure Cost Management로 클라우드 투자를 최적화하는 방법
 
@@ -85,20 +84,20 @@ Cost Management 내에서 경험 극대화를 위한 첫 번째 단계 가장 �
 
 다양한 옵션에 대해 알아보려면 [Azure 구입 방법](https://azure.microsoft.com/pricing/purchase-options/)을 참조하세요. 가장 일반적인 결제 모델 중 몇 가지가 아래에 나열되어 있습니다.
 
-#### <a name="freehttpsazuremicrosoftcomfree"></a>[Free](https://azure.microsoft.com/free/)
+#### <a name="free"></a>[Free](https://azure.microsoft.com/free/)
 
 - 12개월 동안 평가판 서비스
 - $200 크레딧으로 30일 간 서비스 체험하기
 - 25개 이상의 서비스 항상 무료
 
-#### <a name="pay-as-you-gohttpsazuremicrosoftcomoffersms-azr-0003p"></a>[종량제](https://azure.microsoft.com/offers/ms-azr-0003p)
+#### <a name="pay-as-you-go"></a>[종량제](https://azure.microsoft.com/offers/ms-azr-0003p)
 
 - 최소 요금이나 약정 없음
 - 경쟁력 있는 가격
 - 사용한 만큼만 요금 지불
 - 언제든지 취소 가능
 
-#### <a name="enterprise-agreementhttpsazuremicrosoftcompricingenterprise-agreement"></a>[기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
+#### <a name="enterprise-agreement"></a>[기업 계약](https://azure.microsoft.com/pricing/enterprise-agreement/)
 
 - 선불 요금 약정 옵션
 - 축소된 Azure 가격에 액세스

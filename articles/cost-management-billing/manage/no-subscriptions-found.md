@@ -1,27 +1,20 @@
 ---
 title: 구독을 찾을 수 없음 오류 - Azure Portal 로그인 | Microsoft Docs
 description: Azure Portal 또는 Azure 계정 센터에 로그인할 때 구독을 찾을 수 없음 오류가 발생하는 문제에 대한 해결 방법을 제공합니다.
-services: ''
-documentationcenter: ''
 author: genlin
-manager: dcscontentpm
-editor: ''
+ms.reviewer: dcscontentpm
 tags: billing
-ms.assetid: d1545298-99db-4941-8e97-f24a06bb7cb6
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: troubleshooting
-ms.date: 05/11/2018
+ms.date: 02/12/2020
 ms.author: banders
 ms.custom: seodec18
-ms.openlocfilehash: 1573a5d5d9b537b208b2f6d6aea29b9738ddad3e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5011f0a09e33221650cf050578db5ab1d6b0a033
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988111"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200625"
 ---
 # <a name="no-subscriptions-found-sign-in-error-for-azure-portal-or-azure-account-center"></a>Azure Portal 또는 Azure 계정 센터에 대한 구독을 찾을 수 없음 로그인 오류
 
@@ -33,11 +26,11 @@ ms.locfileid: "75988111"
 
 ## <a name="cause"></a>원인
 
-잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다. 
+잘못된 디렉터리에서 선택했거나 사용자 계정에 충분한 권한이 없는 경우 이 문제가 발생합니다.
 
 ## <a name="solution"></a>해결 방법
 
-### <a name="scenario-1-error-message-is-received-in-the-azure-portalhttpsportalazurecom"></a>시나리오 1: [Azure Portal](https://portal.azure.com)에서 오류 메시지가 표시됨
+### <a name="scenario-1-error-message-is-received-in-the-azure-portal"></a>시나리오 1: [Azure Portal](https://portal.azure.com)에서 오류 메시지가 표시됨
 
 이 문제를 해결하려면
 
@@ -46,7 +39,7 @@ ms.locfileid: "75988111"
   ![Azure Portal 오른쪽 위에 있는 디렉터리를 선택합니다.](./media/no-subscriptions-found/directory-switch.png)
 * 올바른 Azure 디렉터리를 선택했으나 여전히 오류 메시지가 표시되면 [계정에 소유자 역할을 할당](../../role-based-access-control/role-assignments-portal.md)합니다.
 
-### <a name="scenario-2-error-message-is-received-in-the-azure-account-centerhttpsaccountwindowsazurecomsubscriptions"></a>시나리오 2: [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지가 표시됨
+### <a name="scenario-2-error-message-is-received-in-the-azure-account-center"></a>시나리오 2: [Azure 계정 센터](https://account.windowsazure.com/Subscriptions)에서 오류 메시지가 표시됨
 
 사용한 계정이 계정 관리자인지 확인합니다. 계정 관리자가 누구인지 확인하려면 다음 단계를 따르세요.
 

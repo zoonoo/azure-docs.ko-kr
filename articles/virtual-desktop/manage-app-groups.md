@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: e158c0a6090493bec0169c144f030300de921516
-ms.sourcegitcommit: 5f0f1accf4b03629fcb5a371d9355a99d54c5a7e
+ms.openlocfilehash: 8469b54afe01d9ee42dda8cf99f2f0125a4a1982
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/30/2019
-ms.locfileid: "71679445"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367324"
 ---
 # <a name="tutorial-manage-app-groups-for-windows-virtual-desktop"></a>자습서: Windows Virtual Desktop에 대한 앱 그룹 관리
 
@@ -24,7 +24,7 @@ ms.locfileid: "71679445"
 > * RemoteApp 그룹 만들기
 > * RemoteApp 프로그램에 액세스 권한을 부여합니다.
 
-시작하기 전에 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+시작하기 전에 PowerShell 세션에서 사용할 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

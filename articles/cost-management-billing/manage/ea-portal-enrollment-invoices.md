@@ -1,19 +1,18 @@
 ---
 title: Azure 엔터프라이즈 등록 청구서
 description: 이 문서에서는 Azure 엔터프라이즈 청구서를 관리하고 작업하는 방법을 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 2a75972d00733d23df7f4a59b2d5010404df8dc3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: 37af492ae156aa880c55034550d4165ec046e74f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023398"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199758"
 ---
 # <a name="azure-enterprise-enrollment-invoices"></a>Azure 엔터프라이즈 등록 청구서
 
@@ -71,11 +70,11 @@ Microsoft는 Microsoft Azure 서비스의 모든 약정 구매에 대한 요금�
   - 약정 금액에 포함되지 않는 모든 요금은 초과분 지불로 인한 것입니다.  
 
 - **2018년 5월 1일 이전에 시작된 등록을 사용하여 간접 등록**:
-  
+
   시작 날짜가 2018년 5월 1일 이전인 간접 EA(기업계약) 고객인 경우 분기별 청구 기간으로 설정됩니다. CP(채널 파트너)는 청구서를 직접 발부합니다.  
 
 - **시작 날짜가 2018년 5월 1일 이후인 간접 등록**:
-  
+
   월간 청구 기간이 적용됩니다.  
 
 ### <a name="increase-your-monetary-commitment"></a>약정 금액 증가
@@ -617,7 +616,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 - **Exclusions**:
   - Users already participating in the Extended Power BI Pro trial will continue to qualify under the pre-existing offer and can't enter into the Azure EA Power BI Pro trial offer.
   - Users participating in the Offer can only use Power BI Pro with the Microsoft Azure Enterprise content pack. Any other use of Power BI Pro is prohibited.
-  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer. 
+  - Term: The Offer began on June 1, 2017 and ended on May 31, 2018.  Acceptance can occur at any time during the 12-month period, though the offer will terminate on May 31, 2018 for all users regardless of when they accepted the Offer.
   -->
 
 ### <a name="to-access-microsoft-azure-consumption-insights"></a>Microsoft Azure Consumption Insights에 액세스하려면
@@ -630,7 +629,7 @@ See [Power BI self-service sign up](https://powerbi.microsoft.com/documentation/
 1. 프로세스가 완료되면 탐색 창에 새 대시보드, 보고서 및 모델이 표시됩니다. 대시보드를 선택하여 가져온 데이터를 확인합니다.
 
 > [!TIP]
-> 
+>
 > - 등록에 대한 API 키를 생성하는 방법에 대한 자세한 내용은 [Enterprise Portal](https://ea.azure.com/?WT.mc_id=azurebg_email_Trans_33675_1378_Service_Notice_EA_Customer_Power_BI_EA_Content_Pack_Apr26)에서 API 보고서 도움말 파일을 참조하세요.
 > - Power BI를 Azure 사용량에 연결하는 방법에 대한 자세한 내용은 [Microsoft Azure Consumption Insights](/power-bi/desktop-connect-azure-cost-management)를 참조하세요.
 

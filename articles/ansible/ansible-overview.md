@@ -4,12 +4,12 @@ description: Ansible을 사용하여 클라우드 프로비전, 구성 관리 �
 keywords: Ansible, Azure, DevOps, 개요, 클라우드 프로비전, 구성 관리, 애플리케이션 배포, Ansible 모듈, Ansible 플레이북
 ms.topic: overview
 ms.date: 04/30/2019
-ms.openlocfilehash: eab2a44257c6769106124c4c9ab6711ba3be531e
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: e9d5b8858f052083b157c7d4809fe21018518bcd
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155784"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193568"
 ---
 # <a name="using-ansible-with-azure"></a>Azure에서 Ansible 사용
 
@@ -57,4 +57,4 @@ Ansible에는 Azure 리소스 프로비저닝 및 구성에 사용할 모듈 모
 ## <a name="next-steps"></a>다음 단계
 
 - [빠른 시작: CentOS에 Azure용 Ansible 솔루션 템플릿 배포](./ansible-deploy-solution-template.md)
-- [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](/azure/virtual-machines/linux/ansible-install-configure?toc=%2Fazure%2Fansible%2Ftoc.json&bc=%2Fazure%2Fbread%2Ftoc.json)
+- [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](./ansible-install-configure.md)

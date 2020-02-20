@@ -2,21 +2,17 @@
 title: Azure 체험 계정으로 요금 청구 방지
 description: Azure 무료 계정에 요금이 표시되는 이유를 이해합니다. 이러한 요금을 방지하는 방법을 알아봅니다.
 author: amberbhargava
-manager: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 632d8ef84fc30ee7e97b8961d74fbb95ced42234
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 557e099b4250d5514920aa6c22399ce225f35d92
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75990061"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200951"
 ---
 # <a name="avoid-charges-with-your-azure-free-account"></a>Azure 체험 계정으로 요금 청구 방지
 

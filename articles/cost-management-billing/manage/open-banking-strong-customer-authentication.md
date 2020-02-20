@@ -2,21 +2,18 @@
 title: Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 description: 이 문서에서는 일부 Azure 구매에 다단계 인증이 필요한 이유와 인증을 완료하는 방법을 설명합니다.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: banders
-ms.openlocfilehash: 5f9c5f861e238bf38451863fb2d39cbb8af93225
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 1c4522bed191ef4142cc603bf0e1d22f086111ee
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133555"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200591"
 ---
 # <a name="open-banking-psd2-and-strong-customer-authentication-sca-for-azure-customers"></a>Azure 고객을 위한 PSD2(오픈 뱅킹) 및 SCA(강력한 고객 인증)
 

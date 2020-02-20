@@ -3,12 +3,12 @@ title: 자습서 - Terraform을 사용하여 Azure 가상 머신 확장 집합 �
 description: Terraform을 사용하여 Azure 가상 머신 확장 집합을 구성하고 버전을 지정하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 11/07/2019
-ms.openlocfilehash: 6dcdad21eef003fe773a2c6ea3cb8a69b9175ecb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4e445d5e6ae4b7fc4528c6d61ee2bc86870827b1
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75369476"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472233"
 ---
 # <a name="tutorial-create-an-azure-virtual-machine-scale-set-using-terraform"></a>자습서: Terraform을 사용하여 Azure 가상 머신 확장 집합 만들기
 
@@ -30,7 +30,7 @@ ms.locfileid: "75369476"
 
 - **Azure 구독**: Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)을 만듭니다.
 
-- **Terraform 설치**: [Terraform 및 Azure에 액세스 구성](/azure/virtual-machines/linux/terraform-install-configure) 문서의 지침을 따릅니다.
+- **Terraform 설치**: [Terraform 및 Azure에 액세스 구성](terraform-install-configure.md) 문서의 지침을 따릅니다.
 
 - **SSH 키 쌍 만들기**: 자세한 내용은 [Azure에서 Linux VM용 SSH 공개 및 프라이빗 키 쌍을 만들고 사용하는 방법](/azure/virtual-machines/linux/mac-create-ssh-keys)을 참조하세요.
 

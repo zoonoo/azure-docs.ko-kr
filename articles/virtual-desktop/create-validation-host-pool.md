@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: tutorial
 ms.date: 08/29/2019
 ms.author: helohr
-ms.openlocfilehash: fd8be170f0f4388ee711881dde16923b9547f21f
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 98d1a9c3dd86972990ae896d156be6c6aedfff77
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606927"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367411"
 ---
 # <a name="tutorial-create-a-host-pool-to-validate-service-updates"></a>자습서: 서비스 업데이트의 유효성을 검사하기 위한 호스트 풀 만들기
 
@@ -20,12 +20,12 @@ ms.locfileid: "73606927"
 
 앱에서 최신 업데이트가 문제 없이 작동되려면 유효성 검사 호스트 풀이 프로덕션 환경의 호스트 풀과 최대한 유사해야 합니다. 사용자는 프로덕션 호스트 풀과 마찬가지로, 유효성 검사 호스트 풀에도 자주 연결해야 합니다. 호스트 풀에 대한 테스트를 자동화한 경우 유효성 검사 호스트 풀에 자동화된 테스트를 포함해야 합니다.
 
-[진단 기능](diagnostics-role-service.md) 또는 [Windows Virtual Desktop 문제 해결 문서](https://docs.microsoft.com/Azure/virtual-desktop/troubleshoot-set-up-overview) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
+[진단 기능](diagnostics-role-service.md) 또는 [Windows Virtual Desktop 문제 해결 문서](troubleshoot-set-up-overview.md) 중 하나를 사용하여 유효성 검사 호스트 풀의 문제를 디버그할 수 있습니다.
 
 >[!NOTE]
 > 모든 후속 업데이트를 테스트하기 위해 유효성 검사 호스트 풀을 그대로 두는 것이 좋습니다.
 
-시작하기 전에 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](https://docs.microsoft.com/powershell/windows-virtual-desktop/overview)(아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
+시작하기 전에 [Windows Virtual Desktop PowerShell 모듈을 다운로드하고 가져옵니다](/powershell/windows-virtual-desktop/overview/)(아직 없는 경우). 그런 후, 다음 cmdlet을 실행하여 계정에 로그인합니다.
 
 ```powershell
 Add-RdsAccount -DeploymentUrl "https://rdbroker.wvd.microsoft.com"

@@ -5,15 +5,15 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 4c150d874d56e3de495b0682bee979d13304a01d
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77fc6070010791bf96c944114929eba95842c9d4
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77202217"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471704"
 ---
 미리 보기 중에 공유 디스크가 설정 된 managed disks에는 다음과 같은 제한 사항이 적용 됩니다.
 
@@ -26,4 +26,4 @@ ms.locfileid: "77202217"
 - 가용성 집합 및 가상 머신 확장 집합은 `FaultDomainCount` 1로 설정 된 경우에만 사용할 수 있습니다.
 - Azure Backup 및 Azure Site Recovery 지원 기능을 아직 사용할 수 없습니다.
 
-공유 디스크를 사용해 보려는 경우 [미리 보기에 등록](https://aka.ms/shareddisksignup)하세요.
+공유 디스크를 사용해 보려는 경우 [미리 보기에 등록](https://aka.ms/AzureSharedDiskPreviewSignUp)하세요.

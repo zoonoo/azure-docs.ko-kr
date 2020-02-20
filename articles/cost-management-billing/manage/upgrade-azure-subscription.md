@@ -3,22 +3,19 @@ title: Azure 계정 업데이트
 description: Azure 계정을 업그레이드하는 방법을 설명합니다.
 keywords: 종량제 업그레이드
 author: bandersmsft
-manager: sasrin
+ms.reviewer: sasrin
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/10/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: aa9e4c60222f5dd0f2991f2b0085c00a34d1dd7a
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 29454bc5edb02ff571e06be3e9f203792d473aed
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134542"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199452"
 ---
 # <a name="upgrade-your-azure-free-account-or-azure-for-students-starter-account"></a>Azure 체험 계정 또는 Azure for Students Starter 계정 업그레이드
 

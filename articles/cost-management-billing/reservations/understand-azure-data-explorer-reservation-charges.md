@@ -1,19 +1,18 @@
 ---
 title: Azure Data Explorer에 예약 할인이 적용되는 방식 이해
 description: Azure Data Explorer 태그 요금제에 예약 할인이 적용되는 방식을 알아봅니다.
-services: data-explorer
 author: avneraa
 ms.author: avnera
 ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
-ms.date: 11/03/2019
-ms.openlocfilehash: 88ab9c475d417bc935cf5d2d67f1678794fb74d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/12/2020
+ms.openlocfilehash: ab107a0afe8be1d95de8dafb21f239e6da733271
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995625"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199333"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-data-explorer"></a>Azure Data Explorer에 예약 할인이 적용되는 방식 이해
 
@@ -36,23 +35,23 @@ Azure Data Explorer 예약된 용량을 구입한 후 예약의 특성 및 수�
 ## <a name="examples"></a>예
 
 다음 예제에서는 구입한 태그 단위 수 및 실행되는 시기에 따라 Azure Data Explorer 예약된 용량 할인이 적용되는 방법을 보여줍니다.
-예를 들어 엔진 클러스터 크기가 **2 D11_v2 VM**이면 총 주문형 요금은 시간당 Azure Data Explorer 태그 요금제의 4개 단위에 해당합니다. 
+예를 들어 엔진 클러스터 크기가 **2 D11_v2 VM**이면 총 주문형 요금은 시간당 Azure Data Explorer 태그 요금제의 4개 단위에 해당합니다.
 
-**시나리오 1** 
+**시나리오 1**
 
 Azure Data Explorer 태그 단위 8개에 대해 Azure Data Explorer 예약된 용량을 구입합니다. 총 16코어를 사용하는 두 개의 D13_v2 VM의 엔진 클러스터를 실행합니다. 이로 인해 시간당 Azure Data Explorer 태그 단위의 16개 단위에 대한 요금이 청구되고 예약의 나머지 특성과 일치합니다. 8코어 Azure Data Explorer 컴퓨팅 사용량에 대한 종량제 가격이 청구되고, 8코어 Azure Data Explorer 태그 단위의 1시간 사용에 대해서는 예약 할인이 제공됩니다.
 
 이러한 예제의 나머지 부분에서는 구매한 Azure Data Explorer 예약된 용량이 16코어 Azure Data Explorer 클러스터에 대한 것이며, 나머지 예약 특성은 실행 중인 Azure Data Explorer 클러스터와 일치하는 것으로 가정합니다.
 
-**시나리오 2** 
+**시나리오 2**
 
 서로 다른 두 지역에서 1시간 동안 8코어를 사용하여 두 개의 Azure Data Explorer 엔진 클러스터를 실행합니다. 사용되는 Azure Data Explorer 태그 단위의 16개 단위와 클러스터 모두에 16코어 예약 할인이 적용됩니다.
 
-**시나리오 3** 
+**시나리오 3**
 
 오후 1시부터 오후 1시 30분까지 하나의 16코어 Azure Data Explorer 엔진 클러스터를 실행합니다. 오후 1시 30분부터 오후 2시까지는 다른 16코어 Azure Data Explorer 엔진 클러스터를 실행합니다. 둘 다 예약 할인에 포함됩니다.
 
-**시나리오 4** 
+**시나리오 4**
 
 오후 1시부터 오후 1시 45분까지 하나의 16코어 Azure Data Explorer 엔진 클러스터를 실행합니다. 오후 1시 30분부터 오후 2시까지는 다른 16코어 Azure Data Explorer 엔진 클러스터를 실행합니다. 중복되는 15분에 대해서는 종량제 가격으로 요금이 청구됩니다. 나머지 시간에 대한 Azure Data Explorer 태그 사용량에는 예약 할인이 적용됩니다.
 

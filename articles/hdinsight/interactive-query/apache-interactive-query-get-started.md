@@ -8,16 +8,16 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: overview
 ms.date: 09/17/2019
-ms.openlocfilehash: 3e0fddc03ad880d36876276827198b0ac180a00d
-ms.sourcegitcommit: 8ef0a2ddaece5e7b2ac678a73b605b2073b76e88
+ms.openlocfilehash: f03797a8c7df1609a32f934bc090c7adc899aa9a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71076368"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198925"
 ---
 # <a name="what-is-interactive-query-in-azure-hdinsight"></a>Azure HDInsight의 대화형 쿼리란?
 
-대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-types)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Apache Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 고객은 대화형 쿼리를 사용하여 Azure Storage 및 Azure Data Lake Storage에 저장된 데이터를 초고속 방식으로 쿼리합니다. 개발자 및 데이터 과학자는 대화형 쿼리를 사용하여 가장 선호하는 BI 도구를 사용하여 쉽게 빅 데이터 작업을 수행할 수 있습니다. HDInsight 대화형 쿼리는 빅 데이터에 쉽게 액세스할 수 있도록 몇 가지 도구를 지원합니다.
+대화형 쿼리(Apache Hive LLAP 또는 [짧은 대기 시간 분석 처리](https://cwiki.apache.org/confluence/display/Hive/LLAP)라고도 함)는 Azure HDInsight [클러스터 유형](../hdinsight-hadoop-provision-linux-clusters.md#cluster-type)입니다. Interactive Query에서는 메모리 내 캐싱을 지원하여 Apache Hive 쿼리를 더 강화된 대화형 방식으로 더 빠르게 수행할 수 있습니다. 고객은 대화형 쿼리를 사용하여 Azure Storage 및 Azure Data Lake Storage에 저장된 데이터를 초고속 방식으로 쿼리합니다. 개발자 및 데이터 과학자는 대화형 쿼리를 사용하여 가장 선호하는 BI 도구를 사용하여 쉽게 빅 데이터 작업을 수행할 수 있습니다. HDInsight 대화형 쿼리는 빅 데이터에 쉽게 액세스할 수 있도록 몇 가지 도구를 지원합니다.
 
 [!INCLUDE [hdinsight-price-change](../../../includes/hdinsight-enhancements.md)]
 

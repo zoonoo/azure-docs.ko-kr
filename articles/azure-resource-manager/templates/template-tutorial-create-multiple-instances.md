@@ -5,12 +5,12 @@ author: mumian
 ms.date: 03/04/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 94a7218933935aa1a9d38a9fc420bb8d3f669492
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a37178f8dc8ecc3c61ca16f193e2e52c309d46
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471368"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209480"
 ---
 # <a name="tutorial-create-multiple-resource-instances-with-resource-manager-templates"></a>자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기
 
@@ -108,7 +108,7 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 }
 ```
 
-여러 인스턴스 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포](./create-multiple-instances.md)를 참조하세요.
+여러 인스턴스 만들기에 대한 자세한 내용은 [Azure Resource Manager 템플릿에서 리소스 또는 속성의 여러 인스턴스 배포](./copy-resources.md)를 참조하세요.
 
 ## <a name="deploy-the-template"></a>템플릿 배포
 
@@ -118,14 +118,14 @@ Visual Studio Code에서 다음 4개의 변경 내용을 만듭니다.
 
 세 개의 모든 스토리지 계정을 나열하려면 --name 매개 변수를 생략합니다.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 ```azurecli
 echo "Enter the Resource Group name:" &&
 read resourceGroupName &&
 az storage account list --resource-group $resourceGroupName
 ```
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name"

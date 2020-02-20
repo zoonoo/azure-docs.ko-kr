@@ -7,12 +7,12 @@ ms.service: vpn-gateway
 ms.topic: conceptual
 ms.date: 01/03/2020
 ms.author: alzam
-ms.openlocfilehash: 6b0b6707f6851ef674d0045c7cf1686af13ea856
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: b9627862002a70dc84b0e268128c53a97df0ebe8
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137831"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472301"
 ---
 # <a name="create-an-azure-active-directory-tenant-for-p2s-openvpn-protocol-connections"></a>P2S OpenVPN 프로토콜 연결에 대 한 Azure Active Directory 테 넌 트 만들기
 
@@ -29,7 +29,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 * 조직 이름
 * 초기 도메인 이름
 
-예:
+예제:
 
    ![새 Azure AD 테 넌 트](./media/openvpn-create-azure-ad-tenant/newtenant.png)
 
@@ -84,7 +84,7 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
 
 6. 메시지가 표시 되 면 **동의** 를 선택 합니다.
 
-    ![Accept](./media/openvpn-create-azure-ad-tenant/accept.jpg)
+    ![수락](./media/openvpn-create-azure-ad-tenant/accept.jpg)
 
 7. Azure AD의 **엔터프라이즈 응용 프로그램**에는 나열 된 **azure VPN** 이 표시 됩니다.
 
@@ -102,6 +102,9 @@ VNet에 연결 하는 경우 인증서 기반 인증 또는 RADIUS 인증을 사
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -VpnClientRootCertificates @()
     Set-AzVirtualNetworkGateway -VirtualNetworkGateway $gw -AadTenantUri "https://login.microsoftonline.com/<your Directory ID>" -AadAudienceId "41b23e61-6c1e-4545-b367-cd054e0ed4b4" -AadIssuerUri "https://sts.windows.net/<your Directory ID>/" -VpnClientAddressPool 192.168.0.0/24 -VpnClientProtocol OpenVPN
     ```
+
+   > [!NOTE]
+   > `AadIssuerUri` 값의 끝에 후행 슬래시를 포함 해야 합니다. 그러지 않으면 명령이 실패 합니다.
 
 10. 다음 명령을 실행 하 여 프로필을 만들고 다운로드 합니다. -ResourceGroupName 및-Name 값을 고유 하 게 일치 하도록 변경 합니다.
 

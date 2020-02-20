@@ -2,21 +2,18 @@
 title: Azure 지출 한도 | Microsoft Docs
 description: 이 문서에서는 Azure 지출 한도의 작동 방식 및 제거 방법을 설명합니다.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: bde3c142fa0f4f69948a9ff1df61d77f06d2b430
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: ef1ed399f2ed3401612543b3dcaf94dfbafb6715
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188318"
+ms.locfileid: "77200557"
 ---
 # <a name="azure-spending-limit"></a>Azure 지출 한도
 
@@ -47,21 +44,21 @@ Azure 체험 계정이 있는 경우 [Azure 구독 업그레이드](upgrade-azur
 
     ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/spending-limit/search-bar.png)
 
-1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다. 
+1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다.
 
    ![개요의 내 구독 그리드를 보여주는 스크린샷](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > 여기에 Visual Studio 구독 중 일부가 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 이러한 구독의 경우 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
-    
+
 1. 구독 개요에서 주황색 배너를 클릭하여 지출 한도를 제거합니다.
-    
+
     ![지출 한도 제거 배너를 보여주는 스크린샷](./media/spending-limit/msdn-remove-spending-limit-banner-x.png)
 
 1. 지출 한도를 무기한으로 제거할지 또는 현재 청구 기간에 대해서만 제거할지를 선택합니다.
-    
+
       ![지출 한도 제거 블레이드를 보여주는 스크린샷](./media/spending-limit/remove-spending-limit-blade-x.png)
-    
+
       | 옵션 | 영향 |
       | --- | --- |
       | 지출 한도 무기한 제거 | 다음 청구 기간이 시작될 때 지출 한도가 자동으로 다시 설정되지 않습니다. 그러나 언제든지 다시 설정할 수 있습니다. |
@@ -91,13 +88,13 @@ Azure 체험 계정이 있는 경우 [Azure 구독 업그레이드](upgrade-azur
 
     ![비용 관리 + 청구 검색을 보여주는 스크린샷 ](./media/spending-limit/search-bar.png)
 
-1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다. 
+1. **내 구독** 목록에서 구독을 선택합니다. 예를 들어 *Visual Studio Enterprise*입니다.
 
    ![개요의 내 구독 그리드를 보여주는 스크린샷](./media/spending-limit/cost-management-overview-msdn-x.png)
 
     > [!NOTE]
     > 여기에 Visual Studio 구독 중 일부가 표시되지 않으면 특정 시점에 구독 디렉터리를 변경했기 때문일 수 있습니다. 이러한 구독의 경우 디렉터리를 원래 디렉터리(처음 등록한 디렉터리)로 전환해야 합니다. 그런 다음, 2단계를 반복합니다.
-    
+
 1. 구독 개요에서 페이지 맨 위에 있는 배너를 클릭하여 지출 한도를 다시 설정합니다.
 
 ## <a name="custom-spending-limit"></a>사용자 지정 지출 한도

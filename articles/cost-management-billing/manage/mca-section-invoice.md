@@ -2,24 +2,21 @@
 title: 필요에 따른 청구서 구성 - Azure
 description: 청구서의 비용을 구성하는 방법을 알아봅니다.
 author: amberbhargava
-manager: amberb
-editor: banders
 tags: billing
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 7f3a5232f8c5bfbf3f2e81ba52607406f8a038b4
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c9cb1d7d1dcc6e7872b22d8c58fe44b9bce25f13
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76843891"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200747"
 ---
 # <a name="organize-costs-by-customizing-your-billing-account"></a>청구 계정을 사용자 지정하여 비용 구성
 
-Microsoft 고객 계약의 청구 계정은 부서, 프로젝트 또는 개발 환경에 대한 요구 사항에 따라 비용을 유연하게 구성할 수 있는 유연성을 제공합니다. 
+Microsoft 고객 계약의 청구 계정은 부서, 프로젝트 또는 개발 환경에 대한 요구 사항에 따라 비용을 유연하게 구성할 수 있는 유연성을 제공합니다.
 
 이 문서에서는 Azure Portal을 사용하여 비용을 구성하는 방법에 대해 설명합니다. 이 문서는 Microsoft 고객 계약에 대한 청구 계정에 적용됩니다. [Microsoft 고객 계약에 액세스할 수 있는지 확인하세요](#check-access-to-a-microsoft-customer-agreement).
 
@@ -33,7 +30,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 청구 프로필은 청구서 및 관련 청구 정보(예: 지불 방법 및 청구 주소)를 나타냅니다. 월초에 사용자 계정에서 각 청구 프로필의 월별 청구서가 생성됩니다. 청구서에는 이전 달의 Azure 사용량 및 기타 구매에 해당하는 요금이 포함됩니다.
 
-청구 프로필은 Azure에 가입할 때 청구 계정과 함께 자동으로 생성됩니다. 추가 청구 프로필을 만들어 여러 월별 청구서의 비용을 구성할 수 있습니다. 
+청구 프로필은 Azure에 가입할 때 청구 계정과 함께 자동으로 생성됩니다. 추가 청구 프로필을 만들어 여러 월별 청구서의 비용을 구성할 수 있습니다.
 
 > [!IMPORTANT]
 >
@@ -41,9 +38,9 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 ### <a name="invoice-section"></a>청구서 섹션
 
-청구서 섹션은 청구서의 비용 그룹을 나타냅니다. 청구서 섹션은 계정의 각 청구 프로필에 대해 자동으로 생성됩니다. 필요에 따라 비용을 구성하기 위해 추가 섹션을 만들 수도 있습니다. 각 청구서 섹션은 해당 월에 발생한 요금과 함께 청구서에 표시됩니다. 
+청구서 섹션은 청구서의 비용 그룹을 나타냅니다. 청구서 섹션은 계정의 각 청구 프로필에 대해 자동으로 생성됩니다. 필요에 따라 비용을 구성하기 위해 추가 섹션을 만들 수도 있습니다. 각 청구서 섹션은 해당 월에 발생한 요금과 함께 청구서에 표시됩니다.
 
-아래 이미지는 두 개의 청구서 섹션인 엔지니어링 및 마케팅을 포함하는 청구서를 보여줍니다. 각 섹션에 대한 요약 및 세부 요금이 청구서에 표시됩니다. 이미지에 표시된 가격은 예제 목적으로만 사용되며 Azure 서비스의 실제 가격을 표시하지 않습니다. 
+아래 이미지는 두 개의 청구서 섹션인 엔지니어링 및 마케팅을 포함하는 청구서를 보여줍니다. 각 섹션에 대한 요약 및 세부 요금이 청구서에 표시됩니다. 이미지에 표시된 가격은 예제 목적으로만 사용되며 Azure 서비스의 실제 가격을 표시하지 않습니다.
 
 ![섹션이 있는 청구서를 보여주는 이미지](./media/mca-section-invoice/mca-invoice-with-sections.png)
 
@@ -79,7 +76,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
    ![Cost Management + 청구에 대한 포털 내 검색을 보여주는 스크린샷](./media/mca-section-invoice/search-cmb.png)
 
-3. 왼쪽 창에서 **청구 프로필**을 선택합니다. 목록에서 청구 프로필을 선택합니다. 새 섹션이 선택한 청구 프로필의 청구서에 표시됩니다. 
+3. 왼쪽 창에서 **청구 프로필**을 선택합니다. 목록에서 청구 프로필을 선택합니다. 새 섹션이 선택한 청구 프로필의 청구서에 표시됩니다.
 
    [![청구 프로필 목록을 보여주는 스크린샷](./media/mca-section-invoice/mca-select-profile.png)](./media/mca-section-invoice/mca-select-profile-zoomed-in.png#lightbox)
 
@@ -87,7 +84,7 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
    [![청구서 추가를 보여주는 스크린샷](./media/mca-section-invoice/mca-list-invoice-sections.png)](./media/mca-section-invoice/mca-list-invoice-sections-zoomed-in.png#lightbox)
 
-5. 청구서 섹션에 사용할 이름을 입력합니다. 
+5. 청구서 섹션에 사용할 이름을 입력합니다.
 
    [![청구서 섹션 만들기 페이지를 보여주는 스크린샷](./media/mca-section-invoice/mca-create-invoice-section.png)](./media/mca-section-invoice/mca-create-invoice-section-zoomed-in.png#lightbox)
 
@@ -152,13 +149,13 @@ Microsoft 고객 계약의 청구 계정에서는 청구 프로필 및 청구서
 
 6. 청구서 섹션을 선택하여 구독의 요금을 연결합니다. 요금은 청구 프로필 청구서에서 이 섹션 아래에 표시됩니다.
 
-7. Azure 플랜을 선택하고 구독에 사용할 친숙한 이름을 입력합니다. 
+7. Azure 플랜을 선택하고 구독에 사용할 친숙한 이름을 입력합니다.
 
 9. **만들기**를 클릭합니다.  
 
 ### <a name="link-existing-subscriptions-and-products"></a>기존 구독 및 제품 연결
 
-기존 Azure 구독 또는 기타 제품(예: Azure Marketplace 및 앱 원본 리소스)이 있는 경우 기존 청구서 섹션에서 다른 청구서 섹션으로 이동하여 비용을 재구성할 수 있습니다. 
+기존 Azure 구독 또는 기타 제품(예: Azure Marketplace 및 앱 원본 리소스)이 있는 경우 기존 청구서 섹션에서 다른 청구서 섹션으로 이동하여 비용을 재구성할 수 있습니다.
 
 > [!IMPORTANT]
 >
@@ -212,7 +209,7 @@ Azure 블록 Blob 스토리지를 사용하고 있다고 가정합니다. 이 �
 |---------|---------|---------|
 |첫 50TB/월에 대해 TB당 1.84    | 50TB        | 92.0  |
 |다음 450TB/월에 대해 TB당 1.77    |  0TB         | 0.0  |
-|합계     |     50TB  | 92.0 
+|합계     |     50TB  | 92.0
 
 `Charges for the second billing profile`
 
@@ -220,17 +217,17 @@ Azure 블록 Blob 스토리지를 사용하고 있다고 가정합니다. 이 �
 |---------|---------|---------|
 |첫 50TB/월에 대해 TB당 1.84    | 50TB        | 92.0  |
 |다음 450TB/월에 대해 TB당 1.77    |  0TB         | 0.0  |
-|합계     |     50TB  | 92.0 
+|합계     |     50TB  | 92.0
 
 이 시나리오에서 100TB의 데이터를 사용하는 데 대한 총 요금은 **184.0**(92.0 * 2)입니다.
 
 ### <a name="azure-reservation-benefits-might-not-apply-to-all-subscriptions"></a>Azure 예약 혜택은 모든 구독에 적용되지 않을 수 있습니다.
 
-공유 범위를 포함하는 Azure 예약은 단일 청구 프로필의 구독에 적용되며, 청구 프로필 간에 공유되지 않습니다. 
+공유 범위를 포함하는 Azure 예약은 단일 청구 프로필의 구독에 적용되며, 청구 프로필 간에 공유되지 않습니다.
 
 ![다른 청구 계정 구조의 예약 애플리케이션에 대한 정보 그래픽](./media/mca-section-invoice/mca-reservations-benefits-by-bg.png)
 
-위의 이미지를 보면 Contoso에는 두 개의 구독이 있습니다. Azure 예약 혜택은 청구 계정의 구성 방법에 따라 다르게 적용됩니다. 왼쪽의 시나리오에서 예약 혜택은 엔지니어링 청구 프로필에 청구되는 두 구독 모두에 적용됩니다. 오른쪽의 시나리오에서 예약 혜택은 엔지니어링 청구 프로필에 청구되는 하나의 구독에만 적용됩니다. 
+위의 이미지를 보면 Contoso에는 두 개의 구독이 있습니다. Azure 예약 혜택은 청구 계정의 구성 방법에 따라 다르게 적용됩니다. 왼쪽의 시나리오에서 예약 혜택은 엔지니어링 청구 프로필에 청구되는 두 구독 모두에 적용됩니다. 오른쪽의 시나리오에서 예약 혜택은 엔지니어링 청구 프로필에 청구되는 하나의 구독에만 적용됩니다.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 [!INCLUDE [billing-check-mca](../../../includes/billing-check-mca.md)]

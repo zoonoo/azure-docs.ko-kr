@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: erhopf
-ms.openlocfilehash: 02ae140568150b0db8ebdea065ee683e4f4eec9c
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a83ed5c9cec994c1bc4cadd5cf6208c159823658
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189012"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469020"
 ---
 # <a name="tutorial-create-a-tenant-model-preview"></a>자습서: 테넌트 모델 만들기(미리 보기)
 
@@ -81,7 +81,7 @@ ms.locfileid: "77189012"
    > 북아메리카의 Office 365 엔터프라이즈 고객은 테넌트 모델(영어)을 만들 자격이 있습니다. 고객 Lockbox, 고객 키 또는 Office 365 Government 고객인 경우 이 기능을 사용할 수 없습니다. 본인이 고객 Lockbox 또는 고객 키 고객인지 확인하려면 다음 문서를 참조하세요.
    > * [고객 Lockbox](/microsoft-365/compliance/customer-lockbox-requests)
    > * [고객 키](/microsoft-365/compliance/customer-key-overview)
-   > * [Office 365 Government](/microsoft-365/government)
+   > * [Office 365 Government](https://www.microsoft.com/microsoft-365/government)
 
 1. **옵트인**을 선택합니다.
 

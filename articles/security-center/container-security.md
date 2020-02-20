@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: ef87d8d02e6d7800435cab207a88197ef7c94b7c
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77430995"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470771"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -41,7 +41,7 @@ Qualys 또는 Security Center에서 문제가 발견 되 면 Security Center 대
 ## <a name="environment-hardening"></a>환경 강화
 
 ### <a name="continuous-monitoring-of-your-docker-configuration"></a>Docker 구성의 지속적인 모니터링
-Azure Security Center IaaS Linux Vm 또는 Docker 컨테이너를 실행 하는 다른 Linux 컴퓨터에서 호스트 되는 관리 되지 않는 컨테이너를 식별 합니다. Security Center은 이러한 컨테이너의 구성을 지속적으로 평가 합니다. 그런 다음 이러한 항목을 [CIS (Internet Security) Docker 벤치 마크의 중앙](https://www.cisecurity.org/benchmark/docker/)과 비교 합니다.
+Azure Security Center IaaS Linux Vm 또는 Docker 컨테이너를 실행 하는 다른 Linux 컴퓨터에서 호스트 되는 관리 되지 않는 컨테이너를 식별 합니다. Security Center은 이러한 컨테이너의 구성을 지속적으로 평가 합니다. 그런 다음 이러한 항목을 [CIS (Internet Security) Docker 벤치 마크](https://www.cisecurity.org/benchmark/docker/)와 비교 합니다.
 
 Security Center에는 CIS Docker 벤치 마크의 전체 규칙 집합이 포함 되며 컨테이너가 컨트롤을 충족 하지 않는 경우 경고를 표시 합니다. 구성이 잘못 되 면 Security Center에서 보안 권장 사항을 생성 합니다. 권장 사항 **페이지** 를 사용 하 여 권장 사항을 확인 하 고 문제를 해결 합니다. 또한 Docker를 사용 하 여 배포 된 모든 가상 머신을 표시 하는 **컨테이너** 탭에서 권장 사항을 확인할 수 있습니다. 
 
@@ -71,9 +71,9 @@ Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감�
 ## <a name="container-security-faq"></a>컨테이너 보안 FAQ
 
 ### <a name="what-types-of-images-can-azure-security-center-scan"></a>스캔할 수 있는 이미지 종류는 무엇 Azure Security Center?
-Security Center Linux OS 기반 이미지를 검색 합니다. 
+Security Center 셸 액세스를 제공 하는 Linux OS 기반 이미지를 검색 합니다. 
 
-Qualys 스캐너는 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "distroless" 이미지를 지원 하지 않습니다.
+Qualys 스캐너는 [Docker 스크래치](https://hub.docker.com/_/scratch/) 이미지와 같은 슈퍼 전적 이미지 또는 응용 프로그램 및 해당 런타임 종속성만 포함 하는 "Distroless" 이미지 (패키지 관리자, 셸 또는 OS 없음)를 지원 하지 않습니다.
 
 ### <a name="how-does-we-scan-azure-security-center-scan-an-image"></a>이미지를 검색 Azure Security Center 검색 하는 방법
 레지스트리에서 이미지를 추출 합니다. 그런 다음 알려진 취약점 목록을 추출 하는 Qualys 스캐너가 포함 된 격리 된 샌드박스에서 실행 됩니다.

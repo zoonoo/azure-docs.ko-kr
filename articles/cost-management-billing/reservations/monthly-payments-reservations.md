@@ -1,19 +1,18 @@
 ---
 title: 선불 또는 월별 결제로 Azure 예약 구매
 description: 선불 또는 월별 결제로 Azure 예약을 구매하는 방법을 알아봅니다.
-services: billing
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 89ae15bb82db1e9e06ac2cb52146137161dac47d
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031342"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200404"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
 

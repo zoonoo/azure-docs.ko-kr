@@ -8,12 +8,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 01/31/2020
 ms.author: diberry
-ms.openlocfilehash: 7800edafca46a2210b9552299605d54c9db07f1f
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: e4f995e888d261e1a1a7cb1e63d0d222c165060f
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76966718"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368422"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -29,8 +29,6 @@ ms.locfileid: "76966718"
 [!INCLUDE [Quickstart explanation of example utterance JSON file](get-started-get-model-json-example-utterances.md)]
 
 ## <a name="change-model-programmatically"></a>프로그래밍 방식으로 모델 변경
-
-C#을 사용하여 머신 학습된 엔터티 [API](https://aka.ms/luis-apim-v3-authoring)를 애플리케이션에 추가합니다.
 
 1. `model-with-rest`의 프로젝트 및 폴더 이름을 사용하여 C# 언어를 대상으로 하는 새 콘솔 애플리케이션을 만듭니다.
 

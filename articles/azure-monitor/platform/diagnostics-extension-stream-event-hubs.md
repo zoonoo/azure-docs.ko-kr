@@ -1,94 +1,102 @@
 ---
-title: Event Hubs에 Azure Diagnostics 데이터 스트리밍
-description: 일반적인 시나리오에 대한 지침을 포함하여 Event Hubs로 Azure Diagnostics를 완벽하게 구성.
+title: Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
+description: Azure 이벤트 허브로 데이터를 전송 하는 Azure Monitor에서 진단 확장을 구성 하 여 Azure 외부의 위치로 전달 합니다.
 ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 07/13/2017
-ms.openlocfilehash: 111fab880887b54b2415d433bda2368c951381bd
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/18/2020
+ms.openlocfilehash: 573a56c537e48687e310acff8639c50d0d0c6e3d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901223"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467966"
 ---
-# <a name="streaming-azure-diagnostics-data-in-the-hot-path-by-using-event-hubs"></a>Event Hubs를 사용하여 실행 부하 과다 경로에서 Azure Diagnostics 데이터 스트리밍
-Azure Diagnostics에서는 클라우드 서비스 VM(가상 머신)에서 메트릭 및 로그를 수집하고 결과를 Azure Storage로 전송하는 유연한 방법을 제공합니다. 2016년 3월(SDK 2.9)부터 [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)를 사용하여 데이터 원본을 사용자 지정하고 몇 초 만에 실행 부하 과다 경로 데이터를 전송할 수 있는 진단을 보낼 수 있습니다.
+# <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
+Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure virtual machines 및 기타 계산 리소스의 작업 부하를 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Azure WAD (Microsoft Azure 진단 확장)에서 azure [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 로 데이터를 전송 하 여 azure 외부의 위치로 전달 하는 방법을 설명 합니다.
 
-지원되는 데이터 유형은 다음과 같습니다.
+## <a name="supported-data"></a>지원 되는 데이터
+
+Event Hubs로 전송할 수 있는 게스트 운영 체제에서 수집 된 데이터는 다음과 같습니다. IIS 로그 및 크래시 덤프를 비롯 하 여 WAD에 의해 수집 된 다른 데이터 원본은 Event Hubs로 보낼 수 없습니다.
 
 * Windows (ETW) 이벤트에 대한 이벤트 추적
 * 성능 카운터
 * Windows 이벤트 로그 (Windows 이벤트 로그의 응용 프로그램 로그 포함)
 * Azure Diagnostics 인프라 로그
 
-이 문서에서는 Event Hubs에 Azure Diagnostics를 구성하는 방법을 완벽하게 보여줍니다. 다음과 같은 일반적인 시나리오에 대한 지침도 제공됩니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Event Hubs에 전송된 로그 및 메트릭을 사용자 지정하는 방법
-* 각 환경에서 구성을 변경하는 방법
-* Event Hubs 스트림 데이터를 보는 방법
-* 연결 문제를 해결하는 방법  
+* Windows 진단 확장 1.6 이상. 지원 되는 리소스에 대 한 [Azure 진단 확장 구성 스키마 버전 및 기록](diagnostics-extension-versions.md) 에 대 한 자세한 내용 및 [Azure 진단 확장 개요](diagnostics-extension-overview.md) 를 참조 하세요.
+* Event Hubs 네임 스페이스는 항상 프로 비전 되어야 합니다. 자세한 내용은 [Event Hubs 시작을](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
-Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 및 해당 Visual Studio용 Azure 도구에서 시작하는 Cloud Services, VM, Virtual Machine Scale Sets 및 Service Fabric에서 지원됩니다.
 
-* Azure Diagnostics 확장 1.6(기본적으로[Azure SDK for .NET 2.9 이상](https://azure.microsoft.com/downloads/) 대상)
-* [Visual Studio 2013 이상](https://www.visualstudio.com/downloads/download-visual-studio-vs.aspx)
-* *.wadcfgx* 파일과 다음 방법 중 하나를 사용하는 애플리케이션에서 Azure Diagnostics의 기존 구성은 다음과 같습니다.
-  * Visual Studio: [Azure Cloud Services 및 Virtual Machines에서 진단 구성](/visualstudio/azure/vs-azure-tools-diagnostics-for-cloud-services-and-virtual-machines)
-  * Windows PowerShell: [PowerShell을 사용하여 Azure Cloud Services에서 진단 사용](../../cloud-services/cloud-services-diagnostics-powershell.md)
-* [Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md)
+## <a name="configuration-schema"></a>구성 스키마
+진단 확장을 사용 하도록 설정 하 고 구성 하는 다른 옵션에 대해서는 [Windows Azure 진단 확장 설치 및 구성 (WAD)](diagnostics-extension-windows-install.md) Azure 진단과 구성 스키마 참조에 대 한 [구성 스키마](diagnostics-extension-schema-windows.md) 를 참조 하세요. 이 문서의 나머지 부분에서는이 구성을 사용 하 여 이벤트 허브로 데이터를 전송 하는 방법을 설명 합니다. 
 
-## <a name="connect-azure-diagnostics-to-event-hubs-sink"></a>Event Hubs 싱크에 Azure Diagnostics 연결
-기본적으로 Azure Diagnostics는 항상 Azure Storage 계정에 로그 및 메트릭을 전송합니다. 애플리케이션은 *.wadcfgx* 파일의 **PublicConfig** / **WadCfg** 요소에 새로운 **Sinks** 섹션을 추가하여 Event Hubs에 데이터를 전송할 수도 있습니다. Visual Studio에서 *.wadcfgx* 파일은 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx** 파일이라는 경로에 저장됩니다.
+Azure 진단는 항상 로그 및 메트릭을 Azure Storage 계정으로 보냅니다. 데이터를 추가 위치로 전송 하는 *데이터 싱크* 를 하나 이상 구성할 수 있습니다. 각 싱크는 개인 구성에서 중요 한 정보를 사용 하 여 공용 구성의 [SinksConfig 요소](diagnostics-extension-schema-windows.md#sinksconfig-element) 에 정의 됩니다. Event hubs에 대 한이 구성은 다음 표의 값을 사용 합니다.
 
-```xml
-<SinksConfig>
-  <Sink name="HotPath">
-    <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" />
-  </Sink>
-</SinksConfig>
-```
+| 속성 | Description |
+|:---|:---|
+| 속성 | 싱크에 대 한 설명이 포함 된 이름입니다. 구성에서 싱크로 보낼 데이터 원본을 지정 하는 데 사용 됩니다. |
+| Url  | Servicebus.windows.net/\<이벤트 허브\>\<형식으로 된 이벤트 허브의 Url\>입니다.          |
+| SharedAccessKeyName | 적어도 **전송** 권한이 있는 이벤트 허브에 대 한 공유 액세스 정책의 이름입니다. |
+| SharedAccessKey     | 이벤트 허브에 대 한 공유 액세스 정책의 기본 또는 보조 키입니다. |
+
+공용 및 개인 구성 예제는 다음과 같습니다. 이는 이벤트 허브 데이터 싱크를 구성 하 고 사용 하는 방법을 보여 주기 위해 단일 성능 카운터 및 이벤트 로그를 포함 하는 최소 구성입니다. 더 복잡 한 예는 [Azure 진단 구성 스키마](diagnostics-extension-schema-windows.md) 를 참조 하세요.
+
+### <a name="public-configuration"></a>공용 구성
+
 ```JSON
-"SinksConfig": {
-    "Sink": [
-        {
-            "name": "HotPath",
-            "EventHub": {
-                "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
-                "SharedAccessKeyName": "SendRule"
-            }
+{
+    "WadCfg": {
+        "DiagnosticMonitorConfiguration": {
+            "overallQuotaInMB": 5120
+        },
+        "PerformanceCounters": {
+            "scheduledTransferPeriod": "PT1M",
+            "sinks": "myEventHub",
+            "PerformanceCounterConfiguration": [
+                {
+                    "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
+                    "sampleRate": "PT3M"
+                }
+            ]
+        },
+        "WindowsEventLog": {
+            "scheduledTransferPeriod": "PT1M",
+            "sinks": "myEventHub",
+                "DataSource": [
+                {
+                    "name": "Application!*[System[(Level=1 or Level=2 or Level=3)]]"
+                }
+            ]
+        },
+        "SinksConfig": {
+            "Sink": [
+                {
+                    "name": "myEventHub",
+                    "EventHub": {
+                        "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
+                        "SharedAccessKeyName": "SendRule"
+                    }
+                }
+            ]
         }
-    ]
+    },
+    "StorageAccount": "mystorageaccount",
 }
 ```
 
-이 예제에서 이벤트 허브 URL은 이벤트 허브의 정규화된 네임스페이스(Event Hubs 네임스페이스 + “/” + 이벤트 허브 이름)로 설정됩니다.  
 
-이벤트 허브 URL은 Event Hubs 대시보드의 [Azure Portal](https://go.microsoft.com/fwlink/?LinkID=213885)에 표시됩니다.  
+### <a name="private-configuration"></a>프라이빗 구성
 
-**싱크** 이름의 경우 같은 값이 구성 파일 전체에서 일관되게 사용되고 있다면 유효한 문자열로 설정할 수 있습니다.
-
-> [!NOTE]
-> 이 섹션에서 구성된 *applicationInsights* 와 같은 추가 싱크가 있을 수 있습니다. 각 싱크가 **PrivateConfig** 섹션에서도 선언되어 있는 경우 Azure Diagnostics를 통해 하나 이상의 싱크를 정의할 수 있습니다.  
->
->
-
-또한, Event Hubs 싱크도 **.wadcfgx** 구성 파일의 *PrivateConfig* 섹션에서 선언되고 정의되어야 합니다.
-
-```XML
-<PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <StorageAccount name="{account name}" key="{account key}" endpoint="{optional storage endpoint}" />
-  <EventHub Url="https://diags-mycompany-ns.servicebus.windows.net/diageventhub" SharedAccessKeyName="SendRule" SharedAccessKey="{base64 encoded key}" />
-</PrivateConfig>
-```
 ```JSON
 {
-    "storageAccountName": "{account name}",
-    "storageAccountKey": "{account key}",
-    "storageAccountEndPoint": "{optional storage endpoint}",
+    "storageAccountName": "mystorageaccount",
+    "storageAccountKey": "{base64 encoded key}",
+    "storageAccountEndPoint": "https://core.windows.net",
     "EventHub": {
         "Url": "https://diags-mycompany-ns.servicebus.windows.net/diageventhub",
         "SharedAccessKeyName": "SendRule",
@@ -97,31 +105,15 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 }
 ```
 
-`SharedAccessKeyName` 값은 **Event Hubs** 네임스페이스에 정의된 SAS(공유 액세스 서명) 키 및 정책과 일치해야 합니다. [Azure Portal](https://portal.azure.com)에서 Event Hubs 대시보드로 이동하여 **구성** 탭을 클릭하고 *보내기* 권한이 있는 명명된 정책(예: "SendRule")을 설정합니다. 또한 **StorageAccount**도 **PrivateConfig**에서 선언되어 있습니다. 값이 작동 중인 경우 변경할 필요가 없습니다. 이 예제에서는 값을 비워 둡니다. 이는 다운스트림 자산이 값을 설정한다는 의미입니다. 예를 들어 *ServiceConfiguration.Cloud.cscfg* 환경 구성 파일은 환경에 적절한 이름 및 키를 설정합니다.  
 
-> [!WARNING]
-> Event Hubs SAS 키는 *.wadcfgx* 파일에 일반 텍스트로 저장되어 있습니다. 이 키는 때로 소스 코드 제어에서 발견되거나 빌드 서버에서 자산으로 사용할 수 있는 경우가 있으므로 적절하게 보호해야 합니다. 악의적인 사용자가 SAS 키를 이벤트 허브에 작성하기만 하고 수신하거나 관리하지 않을 수 있으므로 여기서 *보내기 전용* 권한으로 사용하는 것이 좋습니다.
->
->
 
-## <a name="configure-azure-diagnostics-to-send-logs-and-metrics-to-event-hubs"></a>Azure Diagnostics를 구성하여 Event Hubs에 로그 및 메트릭 전송
-이전에 설명한 대로 모든 기본 및 사용자 지정 진단 데이터(예: 메트릭 및 로그)는 구성된 간격으로 Azure Storage로 자동 전송됩니다. Event Hubs 및 추가 싱크를 사용하여 이벤트 허브로 전송될 계층 구조에서 루트 또는 리프 노드를 지정할 수 있습니다. 여기에는 ETW 이벤트, 성능 카운터, Windows 이벤트 로그 및 애플리케이션 로그가 포함되어 있습니다.   
+## <a name="configuration-options"></a>구성 옵션
+데이터 싱크에 데이터를 보내려면 데이터 원본의 노드에 **싱크** 특성을 지정 합니다. **싱크** 특성을 놓으면 할당 범위가 결정 됩니다. 다음 예에서는 **싱크** 특성이 **PerformanceCounters** 노드에 정의 되어 모든 자식 성능 카운터가 이벤트 허브로 전송 됩니다.
 
-얼마나 많은 데이터 요소를 실제로 Event Hubs로 전송해야 하는지 고려하는 것이 중요합니다. 일반적으로 개발자는 신속하게 사용하고 해석해야 하는 대기 시간이 짧은 실행 부하 과다 경로 데이터를 전송합니다. 예는 경고를 모니터링하고 규칙을 자동 크기 조정하는 시스템입니다. 개발자는 대체 분석 또는 검색 저장소(예: Azure Stream Analytics, ElasticSearch, 사용자 지정 모니터링 시스템 또는 즐겨찾는 타사 모니터링 시스템)를 구성할 수도 있습니다.
-
-다음은 몇 가지 구성 예입니다.
-
-```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
-  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-</PerformanceCounters>
-```
 ```JSON
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
-    "sinks": "HotPath",
+    "sinks": "MyEventHub",
     "PerformanceCounterConfiguration": [
         {
             "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
@@ -139,17 +131,9 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
 }
 ```
 
-위의 예제에서는 싱크가 계층 구조에서 부모 **PerformanceCounters** 노드에 적용됩니다. 즉 모든 자식 **PerformanceCounters**를 Event Hubs로 보냅니다.  
 
-```xml
-<PerformanceCounters scheduledTransferPeriod="PT1M">
-  <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" sinks="HotPath" />
-  <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" sinks="HotPath"/>
-  <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" sinks="HotPath"/>
-</PerformanceCounters>
-```
+다음 예제에서 **싱크** 특성은 3 개의 카운터에 직접 적용 되어 해당 성능 카운터만 이벤트 허브로 전송 됩니다. 
+
 ```JSON
 "PerformanceCounters": {
     "scheduledTransferPeriod": "PT1M",
@@ -157,7 +141,7 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
         {
             "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
             "sampleRate": "PT3M",
-            "sinks": "HotPath"
+            "sinks": "MyEventHub"
         },
         {
             "counterSpecifier": "\\Memory\\Available MBytes",
@@ -170,400 +154,28 @@ Azure Diagnostics에서 데이터를 수신하는 Event Hubs는 Azure SDK 2.9 �
         {
             "counterSpecifier": "\\ASP.NET\\Requests Rejected",
             "sampleRate": "PT3M",
-            "sinks": "HotPath"
+            "sinks": "MyEventHub"
         },
         {
             "counterSpecifier": "\\ASP.NET\\Requests Queued",
             "sampleRate": "PT3M",
-            "sinks": "HotPath"
+            "sinks": "MyEventHub"
         }
     ]
 }
 ```
 
-이전 예제에서 싱크는 단 세 개의 카운터(**대기 중인 요청**, **거부된 요청** 및 **% 프로세서 시간**)에만 적용되었습니다.  
+## <a name="validating-configuration"></a>구성 유효성 검사
+다양 한 메서드를 사용 하 여 데이터가 이벤트 허브로 전송 되는지 유효성을 검사할 수 있습니다. [Azure Blob Storage 또는 Azure Data Lake Storage에서 Azure Event Hubs를 통해 이벤트 캡처](../../event-hubs/event-hubs-capture-overview.md)에서 설명한 대로 Event Hubs 캡처를 사용 하는 것이 가장 간단 합니다. 
 
-다음 예제에서는 개발자가 전송될 데이터 양을 이 서비스의 상태에 사용되는 중요 메트릭으로 제한하는 방법을 보여 줍니다.  
-
-```XML
-<Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
-```
-```JSON
-"Logs": {
-    "scheduledTransferPeriod": "PT1M",
-    "scheduledTransferLogLevelFilter": "Error",
-    "sinks": "HotPath"
-}
-```
-
-이 예제에서 싱크는 로그에 적용되며 오류 수준 추적으로만 필터링됩니다.
-
-## <a name="deploy-and-update-a-cloud-services-application-and-diagnostics-config"></a>Cloud Services 애플리케이션과 진단 구성 배포 및 업데이트
-Visual Studio에서는 애플리케이션 및 Event Hubs 싱크 구성을 배포하는 가장 쉬운 방법을 제공합니다. 파일을 보고 편집하려면 Visual Studio에서 *.wadcfgx* 파일을 열고 편집하고 저장합니다. 경로는 **클라우드 서비스 프로젝트** > **역할** >  **(RoleName)**  > **diagnostics.wadcfgx**입니다.  
-
-이 시점에서 Visual Studio, Visual Studio Team System 및 MSBuild를 기반으로 하 고 `/t:publish` 대상을 사용 하는 모든 명령 또는 스크립트의 모든 배포 및 배포 업데이트 작업에는 패키징 프로세스의 *diagnostics.wadcfgx* 가 포함 됩니다. 또한 배포 및 업데이트는 VM에서 적절한 Azure Diagnostics 에이전트 확장을 사용하여 파일을 Azure에 배포합니다.
-
-애플리케이션 및 Azure Diagnostics 구성을 배포한 후에 이벤트 허브의 대시보드에서 즉시 작업을 확인하게 됩니다. 이것은 사용자가 선택한 분석 도구 또는 수신기 클라이언트에서 실행 부하 과다 경로 데이터를 볼 준비가 되었다는 것을 나타냅니다.  
-
-다음 그림에서 Event Hubs 대시보드는 오후 11시 이후에 시작하는 이벤트 허브에 진단 데이터를 정상적으로 보내는 작업을 보여 줍니다. 이 때 애플리케이션이 업데이트된 *.wadcfgx* 파일과 함께 배포되고 싱크가 올바르게 구성됩니다.
-
-![][0]  
-
-> [!NOTE]
-> Azure Diagnostics 구성 파일(.wadcfgx)을 업데이트할 경우 Visual Studio 게시 또는 Windows PowerShell 스크립트를 사용하여 구성 뿐만 아니라 전체 애플리케이션에 대한 업데이트를 푸시하는 것이 좋습니다.  
->
->
-
-## <a name="view-hot-path-data"></a>실행 부하 과다 경로 데이터 보기
-이전에 설명한 대로 Event Hubs 데이터를 수신하고 처리하는 많은 사용 사례가 있습니다. 한 가지 간단한 접근 방법은 이벤트 허브를 수신하고 출력 스트림을 인쇄하기 위한 작은 테스트 콘솔 애플리케이션을 만드는 것입니다. 
-
-#### <a name="net-sdk-latest-500-or-latertablatest"></a>[.NET SDK 최신 버전 (5.0.0 이상)](#tab/latest)
-[Event Hubs 시작](../../event-hubs/get-started-dotnet-standard-send-v2.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다.
-
-```csharp
-using System;
-using System.Text;
-using System.Threading.Tasks;
-using Azure.Storage.Blobs;
-using Azure.Messaging.EventHubs;
-using Azure.Messaging.EventHubs.Processor;
-namespace Receiver1204
-{
-    class Program
-    {
-        private static readonly string ehubNamespaceConnectionString = "EVENT HUBS NAMESPACE CONNECTION STRING";
-        private static readonly string eventHubName = "EVENT HUB NAME";
-        private static readonly string blobStorageConnectionString = "AZURE STORAGE CONNECTION STRING";
-        private static readonly string blobContainerName = "BLOB CONTAINER NAME";
-
-        static async Task Main()
-        {
-            // Read from the default consumer group: $Default
-            string consumerGroup = EventHubConsumerClient.DefaultConsumerGroupName;
-
-            // Create a blob container client that the event processor will use 
-            BlobContainerClient storageClient = new BlobContainerClient(blobStorageConnectionString, blobContainerName);
-
-            // Create an event processor client to process events in the event hub
-            EventProcessorClientOptions options = new EventProcessorClientOptions { }
-            EventProcessorClient processor = new EventProcessorClient(storageClient, consumerGroup, ehubNamespaceConnectionString, eventHubName);
-
-            // Register handlers for processing events and handling errors
-            processor.ProcessEventAsync += ProcessEventHandler;
-            processor.ProcessErrorAsync += ProcessErrorHandler;
-
-            // Start the processing
-            await processor.StartProcessingAsync();
-
-            // Wait for 10 seconds for the events to be processed
-            await Task.Delay(TimeSpan.FromSeconds(10));
-
-            // Stop the processing
-            await processor.StopProcessingAsync();
-        }
-
-        static Task ProcessEventHandler(ProcessEventArgs eventArgs)
-        {
-            Console.WriteLine("\tRecevied event: {0}", Encoding.UTF8.GetString(eventArgs.Data.Body.ToArray()));
-            return Task.CompletedTask;
-        }
-
-        static Task ProcessErrorHandler(ProcessErrorEventArgs eventArgs)
-        {
-            Console.WriteLine($"\tPartition '{ eventArgs.PartitionId}': an unhandled exception was encountered. This was not expected to happen.");
-            Console.WriteLine(eventArgs.Exception.Message);
-            return Task.CompletedTask;
-        }
-    }
-}
-```
-
-#### <a name="net-sdk-legacy-410-or-earliertablegacy"></a>[.NET SDK 레거시 (4.1.0 또는 이전 버전)](#tab/legacy)
-
-[Event Hubs 시작](../../event-hubs/event-hubs-dotnet-standard-getstarted-send.md) 문서에서 자세히 설명하는 다음 코드를 콘솔 애플리케이션에 배치할 수 있습니다. 콘솔 애플리케이션에는 [이벤트 프로세서 호스트 Nuget 패키지](https://www.nuget.org/packages/Microsoft.Azure.ServiceBus.EventProcessorHost/)가 포함되어 있어야 합니다. **기본** 함수에서 꺾쇠 괄호로 묶인 값을 리소스에 사용할 값으로 바꾸십시오.   
-
-```csharp
-//Console application code for EventHub test client
-using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.ServiceBus.Messaging;
-
-namespace EventHubListener
-{
-    class SimpleEventProcessor : IEventProcessor
-    {
-        Stopwatch checkpointStopWatch;
-
-        async Task IEventProcessor.CloseAsync(PartitionContext context, CloseReason reason)
-        {
-            Console.WriteLine("Processor Shutting Down. Partition '{0}', Reason: '{1}'.", context.Lease.PartitionId, reason);
-            if (reason == CloseReason.Shutdown)
-            {
-                await context.CheckpointAsync();
-            }
-        }
-
-        Task IEventProcessor.OpenAsync(PartitionContext context)
-        {
-            Console.WriteLine("SimpleEventProcessor initialized.  Partition: '{0}', Offset: '{1}'", context.Lease.PartitionId, context.Lease.Offset);
-            this.checkpointStopWatch = new Stopwatch();
-            this.checkpointStopWatch.Start();
-            return Task.FromResult<object>(null);
-        }
-
-        async Task IEventProcessor.ProcessEventsAsync(PartitionContext context, IEnumerable<EventData> messages)
-        {
-            foreach (EventData eventData in messages)
-            {
-                string data = Encoding.UTF8.GetString(eventData.GetBytes());
-                    Console.WriteLine(string.Format("Message received.  Partition: '{0}', Data: '{1}'",
-                        context.Lease.PartitionId, data));
-
-                foreach (var x in eventData.Properties)
-                {
-                    Console.WriteLine(string.Format("    {0} = {1}", x.Key, x.Value));
-                }
-            }
-
-            //Call checkpoint every 5 minutes, so that worker can resume processing from 5 minutes back if it restarts.
-            if (this.checkpointStopWatch.Elapsed > TimeSpan.FromMinutes(5))
-            {
-                await context.CheckpointAsync();
-                this.checkpointStopWatch.Restart();
-            }
-        }
-    }
-
-    class Program
-    {
-        static void Main(string[] args)
-        {
-            string eventHubConnectionString = "Endpoint= <your connection string>";
-            string eventHubName = "<Event hub name>";
-            string storageAccountName = "<Storage account name>";
-            string storageAccountKey = "<Storage account key>";
-            string storageConnectionString = string.Format("DefaultEndpointsProtocol=https;AccountName={0};AccountKey={1}", storageAccountName, storageAccountKey);
-
-            string eventProcessorHostName = Guid.NewGuid().ToString();
-            EventProcessorHost eventProcessorHost = new EventProcessorHost(eventProcessorHostName, eventHubName, EventHubConsumerGroup.DefaultGroupName, eventHubConnectionString, storageConnectionString);
-            Console.WriteLine("Registering EventProcessor...");
-            var options = new EventProcessorOptions();
-            options.ExceptionReceived += (sender, e) => { Console.WriteLine(e.Exception); };
-            eventProcessorHost.RegisterEventProcessorAsync<SimpleEventProcessor>(options).Wait();
-
-            Console.WriteLine("Receiving. Press enter key to stop worker.");
-            Console.ReadLine();
-            eventProcessorHost.UnregisterEventProcessorAsync().Wait();
-        }
-    }
-}
-```
----
 
 ## <a name="troubleshoot-event-hubs-sinks"></a>Event Hubs 싱크 문제 해결
-* 이벤트 허브가 들어오거나 나가는 이벤트 활동을 예상대로 표시하지 않습니다.
 
-    이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. **.wadcfgx**의 *PrivateConfig* 섹션에 있는 모든 연결 정보는 포털에서 보이는 리소스의 값과 일치해야 합니다. 포털에 정의된 SAS 정책(예에서는 "SendRule")이 있고 *보내기* 권한이 부여되도록 해야 합니다.  
-* 업데이트 이후에 이벤트 허브는 들어오거나 나가는 이벤트 작업을 더 이상 표시하지 않습니다.
+- Azure 진단 자체에 대 한 로그 및 오류가 포함 된 Azure Storage 테이블 **WADDiagnosticInfrastructureLogsTable** 를 확인 합니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
 
-    먼저 앞에서 설명한 대로 이벤트 허브 및 구성 정보가 올바른지 확인 합니다. 때로는 배포 업데이트에서 **PrivateConfig**가 다시 설정됩니다. 권장되는 해결 방법은 프로젝트에서 *.wadcfgx* 에 모든 변경 사항을 적용한 다음 전체 애플리케이션 업데이트를 푸시하는 것입니다. 불가능한 경우 진단 업데이트가 SAS 키를 포함하여 전체 **PrivateConfig** 를 푸시하도록 해야 합니다.  
-* 제안된 방법을 시도했지만 이벤트 허브가 여전히 작동하지 않습니다.
-
-    Azure Diagnostics 자체에 대한 로그 및 오류가 포함된 Azure Storage 테이블(**WADDiagnosticInfrastructureLogsTable**)을 살펴봅니다. 한 가지 옵션은 [Azure Storage Explorer](https://www.storageexplorer.com) 등의 도구를 사용하여 이 Storage 계정에 연결하고 이 테이블을 본 후 지난 24시간 동안의 타임스탬프에 대한 쿼리를 추가하는 것입니다. 이 도구를 사용하여 .csv 파일을 내보내고 Microsoft Excel과 같은 애플리케이션에서 열 수 있습니다. Excel를 통해 어떤 오류가 보고되는지 확인하는 **EventHubs**와 같은 전화 카드 문자열을 쉽게 검색할 수 있습니다.  
+- 이벤트 허브가 성공적으로 프로비저닝되었는지 확인합니다. 구성의 **privateconfig.json** 섹션에 있는 모든 연결 정보는 포털에 표시 된 리소스의 값과 일치 해야 합니다. 포털에서 SAS 정책 (예제에서는*Sendrule* )을 정의 하 고 *Send* 권한이 부여 되어 있는지 확인 합니다.  
 
 ## <a name="next-steps"></a>다음 단계
-• [Event Hubs에 대해 자세히 알아보기](https://azure.microsoft.com/services/event-hubs/)
-
-## <a name="appendix-complete-azure-diagnostics-configuration-file-wadcfgx-example"></a>부록: Azure Diagnostics 구성 파일(.wadcfgx) 예제 완료
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<DiagnosticsConfiguration xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-  <PublicConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <WadCfg>
-      <DiagnosticMonitorConfiguration overallQuotaInMB="4096" sinks="applicationInsights.errors">
-        <DiagnosticInfrastructureLogs scheduledTransferLogLevelFilter="Error" />
-        <Directories scheduledTransferPeriod="PT1M">
-          <IISLogs containerName="wad-iis-logfiles" />
-          <FailedRequestLogs containerName="wad-failedrequestlogs" />
-        </Directories>
-        <PerformanceCounters scheduledTransferPeriod="PT1M" sinks="HotPath">
-          <PerformanceCounterConfiguration counterSpecifier="\Memory\Available MBytes" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\ISAPI Extension Requests/sec" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\Web Service(_Total)\Bytes Total/Sec" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Requests/Sec" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET Applications(__Total__)\Errors Total/Sec" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Queued" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\ASP.NET\Requests Rejected" sampleRate="PT3M" />
-          <PerformanceCounterConfiguration counterSpecifier="\Processor(_Total)\% Processor Time" sampleRate="PT3M" />
-        </PerformanceCounters>
-        <WindowsEventLog scheduledTransferPeriod="PT1M">
-          <DataSource name="Application!*" />
-        </WindowsEventLog>
-        <CrashDumps>
-          <CrashDumpConfiguration processName="WaIISHost.exe" />
-          <CrashDumpConfiguration processName="WaWorkerHost.exe" />
-          <CrashDumpConfiguration processName="w3wp.exe" />
-        </CrashDumps>
-        <Logs scheduledTransferPeriod="PT1M" sinks="HotPath" scheduledTransferLogLevelFilter="Error" />
-      </DiagnosticMonitorConfiguration>
-      <SinksConfig>
-        <Sink name="HotPath">
-          <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" />
-        </Sink>
-        <Sink name="applicationInsights">
-          <ApplicationInsights />
-          <Channels>
-            <Channel logLevel="Error" name="errors" />
-          </Channels>
-        </Sink>
-      </SinksConfig>
-    </WadCfg>
-    <StorageAccount>ACCOUNT_NAME</StorageAccount>
-  </PublicConfig>
-  <PrivateConfig xmlns="http://schemas.microsoft.com/ServiceHosting/2010/10/DiagnosticsConfiguration">
-    <StorageAccount name="{account name}" key="{account key}" endpoint="{storage endpoint}" />
-    <EventHub Url="https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py" SharedAccessKeyName="SendRule" SharedAccessKey="YOUR_KEY_HERE" />
-  </PrivateConfig>
-  <IsEnabled>true</IsEnabled>
-</DiagnosticsConfiguration>
-```
-
-이 예제에 대한 보조 *ServiceConfiguration.Cloud.cscfg* 는 다음과 같습니다.
-
-```xml
-<?xml version="1.0" encoding="utf-8"?>
-<ServiceConfiguration serviceName="MyFixItCloudService" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceConfiguration" osFamily="3" osVersion="*" schemaVersion="2015-04.2.6">
-  <Role name="MyFixIt.WorkerRole">
-    <Instances count="1" />
-    <ConfigurationSettings>
-      <Setting name="Microsoft.WindowsAzure.Plugins.Diagnostics.ConnectionString" value="YOUR_CONNECTION_STRING" />
-    </ConfigurationSettings>
-  </Role>
-</ServiceConfiguration>
-```
-
-가상 컴퓨터에 대 한 동일한 JSON 설정은 다음과 같습니다.
-
-공용 설정
-```JSON
-{
-    "WadCfg": {
-        "DiagnosticMonitorConfiguration": {
-            "overallQuotaInMB": 4096,
-            "sinks": "applicationInsights.errors",
-            "DiagnosticInfrastructureLogs": {
-                "scheduledTransferLogLevelFilter": "Error"
-            },
-            "Directories": {
-                "scheduledTransferPeriod": "PT1M",
-                "IISLogs": {
-                    "containerName": "wad-iis-logfiles"
-                },
-                "FailedRequestLogs": {
-                    "containerName": "wad-failedrequestlogs"
-                }
-            },
-            "PerformanceCounters": {
-                "scheduledTransferPeriod": "PT1M",
-                "sinks": "HotPath",
-                "PerformanceCounterConfiguration": [
-                    {
-                        "counterSpecifier": "\\Memory\\Available MBytes",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\Web Service(_Total)\\ISAPI Extension Requests/sec",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\Web Service(_Total)\\Bytes Total/Sec",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Requests/Sec",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\ASP.NET Applications(__Total__)\\Errors Total/Sec",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\ASP.NET\\Requests Queued",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\ASP.NET\\Requests Rejected",
-                        "sampleRate": "PT3M"
-                    },
-                    {
-                        "counterSpecifier": "\\Processor(_Total)\\% Processor Time",
-                        "sampleRate": "PT3M"
-                    }
-                ]
-            },
-            "WindowsEventLog": {
-                "scheduledTransferPeriod": "PT1M",
-                "DataSource": [
-                    {
-                        "name": "Application!*"
-                    }
-                ]
-            },
-            "Logs": {
-                "scheduledTransferPeriod": "PT1M",
-                "scheduledTransferLogLevelFilter": "Error",
-                "sinks": "HotPath"
-            }
-        },
-        "SinksConfig": {
-            "Sink": [
-                {
-                    "name": "HotPath",
-                    "EventHub": {
-                        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
-                        "SharedAccessKeyName": "SendRule"
-                    }
-                },
-                {
-                    "name": "applicationInsights",
-                    "ApplicationInsights": "",
-                    "Channels": {
-                        "Channel": [
-                            {
-                                "logLevel": "Error",
-                                "name": "errors"
-                            }
-                        ]
-                    }
-                }
-            ]
-        }
-    },
-    "StorageAccount": "{account name}"
-}
-
-```
-
-보호 설정
-```JSON
-{
-    "storageAccountName": "{account name}",
-    "storageAccountKey": "{account key}",
-    "storageAccountEndPoint": "{storage endpoint}",
-    "EventHub": {
-        "Url": "https://diageventhub-py-ns.servicebus.windows.net/diageventhub-py",
-        "SharedAccessKeyName": "SendRule",
-        "SharedAccessKey": "YOUR_KEY_HERE"
-    }
-}
-```
-
-## <a name="next-steps"></a>다음 단계
-Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 * [Event Hubs 개요](../../event-hubs/event-hubs-about.md)
 * [이벤트 허브 만들기](../../event-hubs/event-hubs-create.md)
@@ -571,4 +183,6 @@ Event Hubs에 대한 자세한 내용은 다음 링크를 참조하세요.
 
 <!-- Images. -->
 [0]: ../../event-hubs/media/event-hubs-streaming-azure-diags-data/dashboard.png
+
+
 

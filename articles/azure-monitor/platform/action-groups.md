@@ -3,15 +3,15 @@ title: Azure Portal에서 작업 그룹 만들기 및 관리
 description: Azure Portal에서 작업 그룹을 만들고 관리하는 방법에 대해 알아봅니다.
 author: dkamstra
 ms.topic: conceptual
-ms.date: 8/19/2019
+ms.date: 2/18/2020
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 01d3edb3de9e57fa7fa8db2ede863c2aa3e100ed
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 6ba48f3c40e45afa02e03a7589e968cca723118e
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030748"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467337"
 ---
 # <a name="create-and-manage-action-groups-in-the-azure-portal"></a>Azure Portal에서 작업 그룹 만들기 및 관리
 작업 그룹은 Azure 구독 소유자가 정의한 알림 기본 설정 컬렉션입니다. Azure Monitor 및 Service Health 경고는 작업 그룹을 사용하여 경고가 트리거되었음을 사용자에게 알립니다. 사용자의 요구 사항에 따라 다양한 경고가 동일한 작업 그룹을 사용할 수도 있고 서로 다른 작업 그룹을 사용할 수도 있습니다. 구독에서는 작업 그룹을 2,000개까지 구성할 수 있습니다.
@@ -89,7 +89,7 @@ Runbook 페이로드에 대 한 제한은 [Azure 구독 서비스](../../azure-r
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
 ### <a name="email-azure-resource-manager-role"></a>전자 메일 Azure Resource Manager 역할
-구독 역할의 멤버에 게 전자 메일을 보냅니다.
+구독 역할의 멤버에 게 전자 메일을 보냅니다. 전자 메일은 역할의 **AZURE AD 사용자** 멤버로만 전송 됩니다. Azure AD 그룹 또는 서비스 주체에 게 전자 메일이 전송 되지 않습니다.
 
 작업 그룹에 제한 된 수의 전자 메일 작업이 있을 수 있습니다. [Rate 제한 정보](./../../azure-monitor/platform/alerts-rate-limiting.md) 문서를 참조 하세요.
 
@@ -107,8 +107,6 @@ ITSM 작업에는 ITSM 연결이 필요합니다. [ITSM 연결](../../azure-moni
 작업 그룹에는 제한 된 수의 논리 앱 작업이 있을 수 있습니다.
 
 ### <a name="secure-webhook"></a>보안 Webhook
-**보안 Webhook 기능은 현재 미리 보기 상태입니다.**
-
 작업 그룹 웹 후크 작업을 사용 하면 Azure Active Directory를 활용 하 여 작업 그룹과 보호 된 웹 API (웹 후크 끝점) 간의 연결을 보호할 수 있습니다. 이 기능을 활용 하는 전체 워크플로는 아래에 설명 되어 있습니다. Azure AD 응용 프로그램 및 서비스 주체에 대 한 개요는 v2.0 [(Microsoft identity platform) 개요](https://docs.microsoft.com/azure/active-directory/develop/v2-overview)를 참조 하세요.
 
 1. 보호 된 web API에 대 한 Azure AD 응용 프로그램을 만듭니다. https://docs.microsoft.com/azure/active-directory/develop/scenario-protected-web-api-overview을 참조하세요.

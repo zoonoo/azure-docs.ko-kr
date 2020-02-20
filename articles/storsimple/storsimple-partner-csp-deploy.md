@@ -1,5 +1,5 @@
 ---
-title: Microsoft Azure StorSimple 및 클라우드 솔루션 공급자 프로그램 개요 | Microsoft Docs
+title: 클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 description: StorSimple 파트너용 StorSimple 및 CSP에 대한 개요입니다.
 services: storsimple
 documentationcenter: NA
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: NA
 ms.workload: TBD
 ms.date: 02/08/2017
 ms.author: alkohli
-ms.openlocfilehash: 0dac86a696599a391cb243ad11e16931e00b8921
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 7f1927a67127766c72be463c283225135b2a2aad
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60629991"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466912"
 ---
 # <a name="deploy-storsimple-virtual-array-for-cloud-solution-provider-program"></a>클라우드 솔루션 공급자 프로그램용 StorSimple 가상 배열 배포
 
@@ -29,7 +29,7 @@ ms.locfileid: "60629991"
 
 이 문서에서는 CSP 파트너가 고객을 추가하거나 기존 고객에 새 구독을 추가한 다음 CSP에서 StorSimple 가상 배열을 배포하는 서비스를 만들 수 있는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -40,11 +40,11 @@ ms.locfileid: "60629991"
 
 고객을 추가하는 경우 구독이 자동으로 만들어집니다. 고객을 추가하려면(및 구독을 자동으로 만들려면) 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **Dashboard**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
-2. 왼쪽 창에서 **고객**을 클릭합니다. 오른쪽 창에서 **고객 추가**를 클릭합니다. 고객의 세부 정보를 입력합니다. **다음: 구독** 고객 구독을 만듭니다.
+2. 왼쪽 창에서 **고객**을 클릭합니다. 오른쪽 창에서 **고객 추가**를 클릭합니다. 고객의 세부 정보를 입력합니다. **다음: 구독**을 클릭하여 고객 구독을 만듭니다.
 
     ![고객 추가](./media/storsimple-partner-csp-deploy/image2.png)
 
@@ -77,7 +77,7 @@ ms.locfileid: "60629991"
 
 일부 경우에는 기존 고객이 있을 수 있으며 구독을 추가해야 합니다. 기존 고객에 구독을 추가하려면 파트너 포털에서 다음 단계를 수행합니다.
 
-1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **대시보드**를 클릭합니다.
+1. [파트너 센터](https://partnercenter.microsoft.com/)로 이동하고 CSP 자격 증명을 사용하여 로그인합니다. **Dashboard**를 클릭합니다.
 
      ![파트너 센터의 대시보드](./media/storsimple-partner-csp-deploy/image1.png)
                               
@@ -103,5 +103,5 @@ ms.locfileid: "60629991"
 
 ## <a name="next-steps"></a>다음 단계
 
-- CSP에서 StorSimple에 대 한 추가 질문을 해야 하는 경우 이동 [CSP의 StorSimple. 질문과 대답](storsimple-partner-csp-faq.md)을 참조하세요.
+- CSP의 StorSimple에 대한 추가 질문이 있으면 [CSP의 StorSimple: 질문과 대답](storsimple-partner-csp-faq.md)으로 이동합니다.
 - StorSimple을 배포할 준비가 되면 [CSP에서 StorSimple 배포](storsimple-partner-csp-deploy.md)로 이동합니다.

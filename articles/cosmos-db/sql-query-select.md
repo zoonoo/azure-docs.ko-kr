@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/10/2019
 ms.author: girobins
-ms.openlocfilehash: b90fc6f1f50ec2ea75619188cca36f78061f28df
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 013ebdcdbac41825c10a1362f73ab4c94052400d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72326800"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469938"
 ---
 # <a name="select-clause-in-azure-cosmos-db"></a>Azure Cosmos DB에서 절 선택
 
@@ -168,6 +168,50 @@ SELECT <select_specification>
         "name": "AndersenFamily"
       }
     }]
+```
+## <a name="reserved-keywords-and-special-characters"></a>예약 된 키워드 및 특수 문자
+
+데이터에 "order" 또는 "Group"과 같은 예약 키워드와 이름이 같은 속성이 포함 된 경우 이러한 문서에 대 한 쿼리를 수행 하면 구문 오류가 발생 합니다. 쿼리를 성공적으로 실행 하려면 `[]` 문자에 속성을 명시적으로 포함 해야 합니다.
+
+예를 들어 `order` 라는 속성이 있는 문서와 특수 문자를 포함 하는 속성 `price($)` 있습니다.
+
+```json
+{
+  "id": "AndersenFamily",
+  "order": [
+     {
+         "orderId": "12345",
+         "productId": "A17849",
+         "price($)": 59.33
+     }
+  ],
+  "creationDate": 1431620472,
+  "isRegistered": true
+}
+```
+
+`order` 속성이 나 `price($)` 속성을 포함 하는 쿼리를 실행 하면 구문 오류가 발생 합니다.
+
+```sql
+SELECT * FROM c where c.order.orderid = "12345"
+```
+```sql
+SELECT * FROM c where c.order.price($) > 50
+```
+결과는 다음과 같습니다.
+
+`
+Syntax error, incorrect syntax near 'order'
+`
+
+다음과 같이 동일한 쿼리를 다시 작성 해야 합니다.
+
+```sql
+SELECT * FROM c WHERE c["order"].orderId = "12345"
+```
+
+```sql
+SELECT * FROM c WHERE c["order"]["price($)"] > 50
 ```
 
 ## <a name="next-steps"></a>다음 단계

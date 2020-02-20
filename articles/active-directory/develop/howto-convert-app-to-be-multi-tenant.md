@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 12/10/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
-ms.reviewer: jmprieur, lenalepa, sureshja
+ms.reviewer: jmprieur, lenalepa, sureshja, kkrishna
 ms.custom: aaddev
-ms.openlocfilehash: 197379b5edd3f59c83c557590445fc5dac8fc43a
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: b3338edf644aee8409cfca05d4ac801594cbf66b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212238"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77467762"
 ---
 # <a name="how-to-sign-in-any-azure-active-directory-user-using-the-multi-tenant-application-pattern"></a>방법: 다중 테넌트 애플리케이션 패턴을 사용하여 Azure Active Directory 사용자 로그인
 
@@ -37,7 +37,7 @@ ms.locfileid: "77212238"
 3. [여러 발급자 값을 처리하도록 코드 업데이트](#update-your-code-to-handle-multiple-issuer-values)
 4. [사용자 및 관리자 동의를 이해하고 적절하게 코드 변경](#understand-user-and-admin-consent)
 
-각 단계를 자세히 살펴보겠습니다. [이 다중 테 넌 트 샘플 목록](https://docs.microsoft.com/samples/browse/?products=azure-active-directory)으로 바로 이동할 수도 있습니다.
+각 단계를 자세히 살펴보겠습니다. [AZURE AD 및 Openid connect Connect를 사용 하 여 Microsoft Graph를 호출 하는 다중 테 넌 트 SaaS 웹 응용 프로그램](https://github.com/Azure-Samples/active-directory-aspnetcore-webapp-openidconnect-v2/blob/master/2-WebApp-graph-user/2-3-Multi-Tenant/README.md)을 직접 샘플로 바로 이동할 수도 있습니다.
 
 ## <a name="update-registration-to-be-multi-tenant"></a>등록을 다중 테넌트로 업데이트합니다.
 

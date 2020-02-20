@@ -9,19 +9,19 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: cadee1b72c15ded7c29d1eea341c1ea21b346a37
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: df18e721a7400a1e45b7f1fcd74fdafdbfdf026c
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976828"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462261"
 ---
 # <a name="quickstart-enroll-tpm-device-to-iot-hub-device-provisioning-service-using-java-service-sdk"></a>빠른 시작: Java 서비스 SDK를 사용하여 IoT Hub Device Provisioning Service에 TPM 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-tpm](../../includes/iot-dps-selector-quick-enroll-device-tpm.md)]
 
 
-다음 단계에서는 샘플 Java 애플리케이션을 통해 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 Azure IoT Hub Device Provisioning Service에서 시뮬레이션된 TPM 디바이스에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여 줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
+다음 단계에서는 샘플 Java 애플리케이션을 통해 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 Azure IoT Hub Device Provisioning Service에서 시뮬레이션된 TPM 장치에 대한 개별 등록을 프로그래밍 방식으로 만드는 방법을 보여줍니다. Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
 
 계속 진행하기 전에 [Azure Portal에서 IoT Hub Device Provisioning Service를 설정](./quick-setup-auto-provision.md)하고 [TPM 디바이스를 시뮬레이션](quick-create-simulated-device.md#simulatetpm)해야 합니다.
 
@@ -124,7 +124,7 @@ ms.locfileid: "74976828"
     mvn install -DskipTests
     ```
 
-   이 명령은 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://www.mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven 패키지를 컴퓨터에 다운로드합니다. 이 패키지에는 샘플 코드에서 빌드해야 하는 Java 서비스 SDK에 대한 이진 파일이 포함되어 있습니다. 
+   이 명령은 [`com.microsoft.azure.sdk.iot.provisioning.service`](https://mvnrepository.com/artifact/com.microsoft.azure.sdk.iot.provisioning/provisioning-service-client) Maven 패키지를 컴퓨터에 다운로드합니다. 이 패키지에는 샘플 코드에서 빌드해야 하는 Java 서비스 SDK에 대한 이진 파일이 포함되어 있습니다. 
 
 3. 명령 창에서 다음 명령을 사용하여 샘플을 실행합니다.
 

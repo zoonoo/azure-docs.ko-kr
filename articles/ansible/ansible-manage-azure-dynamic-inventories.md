@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure 동적 인벤토리를 관리하는 �
 keywords: Ansible, Azure, DevOps, Bash, Cloud Shell, 동적 인벤토리
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: f159322a19cc79758de33904bbad9dfce32ff7cc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d2ebf202cfc9f94b28fc7a512e1fea452401aec6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442778"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193602"
 ---
 # <a name="tutorial-configure-dynamic-inventories-of-your-azure-resources-using-ansible"></a>자습서: Ansible을 사용하여 Azure 리소스의 동적 인벤토리 구성
 
@@ -47,7 +47,7 @@ Ansible은 다양한 원본(Azure와 같은 클라우드 원본 포함)에서 *�
 
 1. 다음 방법 중 하나를 사용하여 Azure에 두 개의 Linux 가상 머신을 만듭니다.
 
-    - **Ansible 플레이북** - [Azure에서 Ansible을 사용하여 기본 가상 머신 만들기](/azure/virtual-machines/linux/ansible-create-vm) 문서에서 Ansible 플레이북으로부터 가상 머신을 만드는 방법을 보여 줍니다. 플레이북을 사용하여 두 개의 가상 머신 중 하나 또는 둘 다를 정의하는 경우 암호 대신 SSH 연결이 사용되는지 확인합니다.
+    - **Ansible 플레이북** - [Azure에서 Ansible을 사용하여 기본 가상 머신 만들기](./ansible-create-vm.md) 문서에서 Ansible 플레이북으로부터 가상 머신을 만드는 방법을 보여 줍니다. 플레이북을 사용하여 두 개의 가상 머신 중 하나 또는 둘 다를 정의하는 경우 암호 대신 SSH 연결이 사용되는지 확인합니다.
 
     - **Azure CLI** - Cloud Shell에서 다음 명령을 각각 실행하여 두 가상 머신을 만듭니다.
 
@@ -316,4 +316,4 @@ Ansible 2.8부터 Ansible은 [Azure 동적 인벤토리 플러그 인](https://g
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"] 
-> [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](/azure/virtual-machines/linux/ansible-create-vm)
+> [빠른 시작: Ansible을 사용하여 Azure에서 Linux 가상 머신 구성](./ansible-create-vm.md)

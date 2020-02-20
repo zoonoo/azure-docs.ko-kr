@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 9c2da82034a3742f789c736d8c0410f005f20edb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 774a0354c6262598c7d5e1f51e2e475fd17fe2d7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422306"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468283"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 인증서 회전
 
@@ -42,7 +42,7 @@ AKS은 다음 인증서, 인증 기관 및 서비스 계정을 생성 하 고 �
 > 
 > 또한 클러스터 인증서의 만료 날짜를 확인할 수 있습니다. 예를 들어 다음 명령은 *myAKSCluster* 클러스터에 대 한 인증서 세부 정보를 표시 합니다.
 > ```console
-> kubectl config view --raw -o jsonpath='{.clusters[?(@.name == "myAKSCluster")].cluster.certificate-authority-data}' | base64 -d > my-cert.crt
+> kubectl config view --raw -o jsonpath="{.clusters[?(@.name == 'myAKSCluster')].cluster.certificate-authority-data}" | base64 -d > my-cert.crt
 > openssl x509 -in my-cert.crt -text
 > ```
 
@@ -66,7 +66,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > `az aks rotate-certs`를 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다. 완료 하기 전에 명령이 실패 하는 경우 `az aks show`를 사용 하 여 클러스터의 상태가 *인증서 회전*인지 확인 합니다. 클러스터가 실패 상태인 경우 `az aks rotate-certs`를 다시 실행 하 여 인증서를 다시 회전 합니다.
 
-`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  예:
+`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  다음은 그 예입니다.
 
 ```console
 $ kubectl get no
@@ -79,7 +79,7 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 예:
+`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 다음은 그 예입니다.
 
 ```console
 kubectl get no

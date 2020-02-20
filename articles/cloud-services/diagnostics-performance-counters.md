@@ -8,12 +8,12 @@ ms.service: cloud-services
 ms.topic: article
 ms.date: 02/02/2018
 ms.author: tagore
-ms.openlocfilehash: 16b0727a78ad8ad582535fa1f5b0e57079cc4c05
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b4028a09f69acd5d7a6579b4610785ed32e227d
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385589"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77469530"
 ---
 # <a name="collect-performance-counters-for-your-azure-cloud-service"></a>Azure Cloud Service에 대한 성능 카운터 수집
 
@@ -99,7 +99,7 @@ Cloud Services용 Azure Application Insights를 사용하면 수집할 성능 �
 <!-- ... cut to save space ... -->
 ```
 
-각 성능 카운터는 `<Counters>` 아래에 `<Add>` 요소로 표시됩니다. `PerformanceCounter` 특성은 수집할 성능 카운터를 정의합니다. `ReportAs` 특성은 성능 카운터에 대해 Azure Portal에 표시할 제목입니다. 수집한 성능 카운터는 포털의 **사용자 지정** 범주에 배치됩니다. Azure Diagnostics와 달리 이러한 성능 카운터를 수집하여 Azure에 전송하는 간격은 설정할 수 없습니다. Application Insights를 사용하면 성능 카운터가 1분마다 수집되어 전송됩니다. 
+각 성능 카운터는 `<Add>` 아래에 `<Counters>` 요소로 표시됩니다. `PerformanceCounter` 특성은 수집할 성능 카운터를 정의합니다. `ReportAs` 특성은 성능 카운터에 대해 Azure Portal에 표시할 제목입니다. 수집한 성능 카운터는 포털의 **사용자 지정** 범주에 배치됩니다. Azure Diagnostics와 달리 이러한 성능 카운터를 수집하여 Azure에 전송하는 간격은 설정할 수 없습니다. Application Insights를 사용하면 성능 카운터가 1분마다 수집되어 전송됩니다. 
 
 Application Insights는 다음 성능 카운터를 자동으로 수집합니다.
 
@@ -121,11 +121,11 @@ Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카�
 
 수집하려는 성능 카운터는 **diagnostics.wadcfgx** 파일에 정의됩니다. **DiagnosticsConfiguration** > **PublicConfig** > **WadCfg** > **DiagnosticMonitorConfiguration** > **PerformanceCounters**를 찾습니다. 새 **PerformanceCounterConfiguration** 요소를 자식으로 추가합니다. 이 요소에는 두 가지 특성(`counterSpecifier` 및 `sampleRate`)이 있습니다. `counterSpecifier` 특성은 수집할 시스템 성능 카운터 세트(이전 섹션에 요약되어 있음)를 정의합니다. `sampleRate` 값은 해당 값이 폴링되는 빈도를 나타냅니다. 전반적으로 모든 성능 카운터는 부모 `PerformanceCounters` 요소의 `scheduledTransferPeriod` 특성 값에 따라 Azure에 전송됩니다.
 
-`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)를 참조하세요.
+`PerformanceCounters` 스키마 요소에 대한 자세한 내용은 [Azure Diagnostics 스키마](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)를 참조하세요.
 
 `sampleRate` 특성으로 정의된 기간은 XML 기간 데이터 형식을 사용하여 성능 카운터가 폴링되는 빈도를 나타냅니다. 아래 예제에서는 속도가 `PT3M`(`[P]eriod[T]ime[3][M]inutes`: 3분마다)으로 설정됩니다.
 
-`sampleRate` 및 `scheduledTransferPeriod` 정의 방법에 대한 자세한 내용은 [W3 XML 날짜 및 시간 날짜 형식](https://www.w3schools.com/XML/schema_dtypes_date.asp) 자습서의 **기간 데이터 형식** 섹션을 참조하세요.
+`sampleRate` 및 `scheduledTransferPeriod` 정의 방법에 대한 자세한 내용은 **W3 XML 날짜 및 시간 날짜 형식** 자습서의 [기간 데이터 형식](https://www.w3schools.com/XML/schema_dtypes_date.asp) 섹션을 참조하세요.
 
 ```xml
 <?xml version="1.0" encoding="utf-8"?>
@@ -163,7 +163,7 @@ Cloud Services용 Azure Diagnostics 확장을 사용하면 수집할 성능 카�
 
 코드에서 새 성능 카운터를 만들고 사용할 수 있습니다. 새 성능 카운터를 만드는 코드는 관리자 권한으로 실행해야 합니다. 그러지 않으면 실패합니다. 클라우드 서비스 `OnStart` 시작 코드는 성능 카운터를 만들 수 있으므로 관리자 권한 컨텍스트에서 역할을 실행해야 합니다. 또는 관리자 권한으로 실행되고 성능 카운터를 만드는 시작 작업을 만들 수 있습니다. 시작 작업에 대한 자세한 내용은 [클라우드 서비스에 대한 시작 작업을 구성 및 실행하는 방법](cloud-services-startup-tasks.md)을 참조하세요.
 
-관리자 권한으로 실행되도록 역할을 구성하려면 [.csdef](cloud-services-model-and-package.md#servicedefinitioncsdef) 파일에 `<Runtime>` 요소를 추가합니다.
+관리자 권한으로 실행되도록 역할을 구성하려면 `<Runtime>`.csdef[ 파일에 ](cloud-services-model-and-package.md#servicedefinitioncsdef) 요소를 추가합니다.
 
 ```xml
 <ServiceDefinition name="CloudServiceLoadTesting" xmlns="http://schemas.microsoft.com/ServiceHosting/2008/10/ServiceDefinition" schemaVersion="2015-04.2.6">
@@ -291,7 +291,7 @@ counterServiceUsed.Increment();
 - [Azure Cloud Services용 Application Insights](../azure-monitor/app/cloudservices.md#performance-counters)
 - [Application Insights의 시스템 성능 카운터](../azure-monitor/app/performance-counters.md)
 - [카운터 경로 지정](https://msdn.microsoft.com/library/windows/desktop/aa373193(v=vs.85))
-- [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-1dot3.md#performancecounters-element)
+- [Azure Diagnostics 스키마 - 성능 카운터](../azure-monitor/platform/diagnostics-extension-schema-windows.md#performancecounters-element)
 
 
 

@@ -1,22 +1,18 @@
 ---
 title: 파트너 ID에 Azure 계정 연결 | Microsoft Docs
 description: 고객의 리소스를 관리하기 위해 사용하는 사용자 계정에 파트너 ID를 연결하여 Azure 고객 관리를 추적합니다.
-services: billing
 author: dhirajgandhi
-manager: dhgandhi
+ms.reviewer: dhgandhi
 ms.author: banders
-ms.date: 10/01/2019
+ms.date: 02/13/2020
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.openlocfilehash: a67f2985e2db8c48d7e50a91d20c76b88c1c55e6
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 4e4b039b6ad6fad8a414fc9703309fa76853ef09
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991920"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199673"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 

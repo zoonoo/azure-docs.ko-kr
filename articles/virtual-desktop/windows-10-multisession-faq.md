@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/28/2019
 ms.author: helohr
-ms.openlocfilehash: 543514683ff96449bfe0e5a21c525834f61f3027
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367137"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470575"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
@@ -28,7 +28,7 @@ Windows 10 Enterprise 다중 세션 (이전에는 가상 데스크톱 (EVD)에 �
  
 ## <a name="why-does-my-application-report-windows-10-enterprise-multi-session-as-a-server-operating-system"></a>응용 프로그램이 Windows 10 Enterprise 다중 세션을 서버 운영 체제로 보고 하는 이유는 무엇 인가요?
 
-Windows 10 Enterprise 다중 세션은 Windows 10 Enterprise의 가상 버전입니다. 차이점 중 하나는이 운영 체제 (OS)가 Windows Server와 동일한 값인 3 값을 갖는 [ProductType](/windows/desktop/cimwin32prov/win32-operatingsystem/) 를 보고 한다는 것입니다. 이 속성은 운영 체제를 기존 RDSH 관리 도구, RDSH 다중 세션 인식 응용 프로그램 및 대부분의 RDSH 환경에 대 한 낮은 수준의 시스템 성능 최적화와 호환 되도록 유지 합니다. 일부 응용 프로그램 설치 관리자는 ProductType가 Client로 설정 되었는지 여부에 따라 Windows 10 다중 세션의 설치를 차단할 수 있습니다. 앱이 설치 되지 않는 경우 응용 프로그램 공급 업체에 업데이트 된 버전을 문의 하세요. 
+Windows 10 Enterprise 다중 세션은 Windows 10 Enterprise의 가상 버전입니다. 차이점 중 하나는이 운영 체제 (OS)가 Windows Server와 동일한 값인 3 값을 갖는 [ProductType](/windows/win32/cimwin32prov/win32-operatingsystem) 를 보고 한다는 것입니다. 이 속성은 운영 체제를 기존 RDSH 관리 도구, RDSH 다중 세션 인식 응용 프로그램 및 대부분의 RDSH 환경에 대 한 낮은 수준의 시스템 성능 최적화와 호환 되도록 유지 합니다. 일부 응용 프로그램 설치 관리자는 ProductType가 Client로 설정 되었는지 여부에 따라 Windows 10 다중 세션의 설치를 차단할 수 있습니다. 앱이 설치 되지 않는 경우 응용 프로그램 공급 업체에 업데이트 된 버전을 문의 하세요. 
  
 ## <a name="can-i-run-windows-10-enterprise-multi-session-on-premises"></a>Windows 10 Enterprise 다중 세션 온-프레미스를 실행할 수 있나요?
 
