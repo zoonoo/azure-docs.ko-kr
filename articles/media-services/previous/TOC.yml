@@ -1,5 +1,5 @@
 - name: Media Services 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   href: media-services-overview.md
   items:
