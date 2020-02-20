@@ -4,12 +4,12 @@ description: 이 빠른 시작에서는 Azure에 호스트되는 CentOS 가상 �
 keywords: ansible, azure, 개발, 솔루션 템플릿, 가상 머신, azure 리소스에 대한 관리 ID, centos, red hat
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: ebd01411ff27b0e95be21ef147098a90b6f62742
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: cc3a6c1f0ef36b51b62e6aa58f317aee13149589
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156321"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193789"
 ---
 # <a name="quickstart-deploy-the-ansible-solution-template-for-azure-to-centos"></a>빠른 시작: CentOS에 Azure용 Ansible 솔루션 템플릿 배포
 
@@ -19,7 +19,7 @@ Azure용 Ansible 솔루션 템플릿은 Azure와 함께 작동하도록 구성�
 - **Azure CLI(명령줄 인터페이스) 2.0** - [Azure CLI 2.0](/cli/azure/?view=azure-cli-latest)은 Azure 리소스를 관리하기 위한 플랫폼 간 명령줄 환경입니다. 
 - **Azure 리소스에 대한 관리 ID** - [Azure 리소스에 대한 관리 ID](/azure/active-directory/managed-identities-azure-resources/overview) 기능은 클라우드 애플리케이션 자격 증명을 안전하게 보호하는 과제를 해결합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 
@@ -85,4 +85,4 @@ Azure용 Ansible 솔루션 템플릿은 Azure와 함께 작동하도록 구성�
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"] 
-> [빠른 시작: Azure에서 Ansible을 사용하여 Linux 가상 머신 구성](/azure/virtual-machines/linux/ansible-create-vm)
+> [빠른 시작: Azure에서 Ansible을 사용하여 Linux 가상 머신 구성](./ansible-create-vm.md)

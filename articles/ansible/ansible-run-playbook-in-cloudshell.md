@@ -4,18 +4,18 @@ description: 이 빠른 시작에서는 Azure Cloud Shell에서 Bash를 사용�
 keywords: Ansible, Azure, DevOps, Bash, cloudshell, 플레이북, Bash
 ms.topic: quickstart
 ms.date: 04/30/2019
-ms.openlocfilehash: d04708be82a704c2ce20a928380fca1d325493da
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 0eb89bcacae1629bdb1f6dcda8f9a25efdb6eedf
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74155967"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77193653"
 ---
 # <a name="quickstart-run-ansible-playbooks-via-bash-in-azure-cloud-shell"></a>빠른 시작: Azure Cloud Shell에서 Bash를 통해 Ansible 플레이북 실행
 
 Azure Cloud Shell은 Azure 리소스를 관리하기 위한 브라우저에서 액세스할 수 있는 대화형 셸입니다. Cloud Shell은 Bash 또는 Powershell 명령줄을 사용할 수 있습니다. 이 문서에서는 Azure Cloud Shell 내에서 Bash를 사용하여 Ansible 플레이북을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 - **Azure Cloud Shell 구성** - Azure Cloud Shell을 처음 접하는 경우 [Azure Cloud Shell의 Bash에 대한 빠른 시작](https://docs.microsoft.com/azure/cloud-shell/quickstart)을 참조하세요.
@@ -47,4 +47,4 @@ export AZURE_SUBSCRIPTION_ID=<your-subscription-id>
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"] 
-> [빠른 시작: Azure에서 Ansible을 사용하여 가상 머신 구성](/azure/virtual-machines/linux/ansible-create-vm)
+> [빠른 시작: Azure에서 Ansible을 사용하여 가상 머신 구성](./ansible-create-vm.md)

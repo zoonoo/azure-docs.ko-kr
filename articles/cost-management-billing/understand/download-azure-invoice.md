@@ -3,21 +3,18 @@ title: Microsoft Azure 청구서 보기 및 다운로드
 description: Microsoft Azure 청구서를 보고 다운로드하는 방법을 설명합니다.
 keywords: 청구서, 청구서 다운로드, azure 청구서, azure 사용 현황
 author: bandersmsft
-manager: jureid
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: 0f413d38565202d379c81570b5cb169c2ed8effe
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 691d27acebf238e84265870e8c01976bfc2412b2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75987825"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200268"
 ---
 # <a name="view-and-download-your-microsoft-azure-invoice"></a>Microsoft Azure 청구서 보기 및 다운로드
 
@@ -87,7 +84,7 @@ Azure 청구서를 전자 메일로 받을 추가 수취인을 옵트인하고 �
 <!-- Does following section apply to MPA too? -->
 ## <a name="get-your-microsoft-customer-agreement-invoices-in-email"></a>이메일로 Microsoft 고객 계약 청구서 받기
 
-Microsoft 고객 계약에 대한 청구 계정이 있으면 이메일로 청구서 받기로 옵트인할 수 있습니다. 청구 프로필에 대한 소유자, 기여자, reader 또는 송장 관리자 역할이 있는 모든 사용자는 이메일로 청구서를 받게 됩니다. 
+Microsoft 고객 계약에 대한 청구 계정이 있으면 이메일로 청구서 받기로 옵트인할 수 있습니다. 청구 프로필에 대한 소유자, 기여자, reader 또는 송장 관리자 역할이 있는 모든 사용자는 이메일로 청구서를 받게 됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -109,11 +106,11 @@ Microsoft 고객 계약에 대한 청구 계정이 있으면 이메일로 청구
 
 ## <a name="opt-out-of-getting-your-microsoft-customer-agreement-invoices-in-email"></a>이메일에서 Microsoft 고객 계약 청구서 받기 옵트아웃
 
-이메일로 청구서를 받을 수 있도록 옵트아웃하려면 이전 단계를 수행하고 **옵트아웃**을 클릭합니다. 소유자, 기여자, reader 또는 송장 관리자 역할이 있는 모든 사용자는 이메일로 청구서를 받을 수 없습니다. 
+이메일로 청구서를 받을 수 있도록 옵트아웃하려면 이전 단계를 수행하고 **옵트아웃**을 클릭합니다. 소유자, 기여자, reader 또는 송장 관리자 역할이 있는 모든 사용자는 이메일로 청구서를 받을 수 없습니다.
 
 ## <a name="give-others-access-to-your-microsoft-customer-agreement-invoices"></a>다른 사용자에게 Microsoft 고객 계약 청구서에 대한 액세스 권한 부여
 
-청구 프로필에 대한 송장 관리자 역할을 할당하여 다른 사용자에게 청구서를 보고, 다운로드하고, 요금을 지불할 수 있는 액세스 권한을 부여할 수 있습니다. 청구서를 이메일로 받기 위해 옵트인한 경우 이러한 사용자는 이메일로 청구서를 받게 됩니다. 
+청구 프로필에 대한 송장 관리자 역할을 할당하여 다른 사용자에게 청구서를 보고, 다운로드하고, 요금을 지불할 수 있는 액세스 권한을 부여할 수 있습니다. 청구서를 이메일로 받기 위해 옵트인한 경우 이러한 사용자는 이메일로 청구서를 받게 됩니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 

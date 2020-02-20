@@ -1,22 +1,19 @@
 ---
 title: Azure 기업계약 청구서 검토
 description: Azure 기업계약에 대한 사용량 및 청구서를 읽고 이해하는 방법을 알아봅니다.
-author: banders
-manager: dougeby
+author: bandersmsft
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: tutorial
-ms.tgt_pltfrm: na
-ms.workload: na
 ms.date: 02/04/2020
 ms.author: banders
-ms.openlocfilehash: 8e674ec1c2d4c47d3b4e56bd788c963c81ea23e9
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016207"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199112"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 

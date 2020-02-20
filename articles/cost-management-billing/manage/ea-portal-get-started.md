@@ -1,19 +1,18 @@
 ---
 title: Azure Enterprise Portal 시작
 description: 이 문서에서는 Azure EA(Azure 기업계약) 고객이 Azure Enterprise Portal을 사용하는 방법을 설명합니다.
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/04/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: boalcsva
-ms.openlocfilehash: 516b3704daee885541cec49b0ee374e050dd4b22
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.reviewer: boalcsva
+ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023347"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200832"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -235,7 +234,7 @@ Azure Enterprise Portal 계층 구조는 다음과 같이 구성됩니다.
   - 회사 또는 학교 계정에서 다른 회사 또는 학교 계정으로 양도
   - Microsoft 계정에서 다른 회사 또는 학교 계정으로 양도
   - Microsoft 계정에서 다른 Microsoft 계정으로 양도
-  
+
     대상 계정은 전송 대상으로 유효한 Azure 상거래 계정이어야 합니다. 새 계정의 경우 Azure Enterprise Portal에 로그인할 때 Azure 상거래 계정을 만들라는 메시지가 표시됩니다. 기존 계정의 경우 새 Azure 구독을 만들어야만 적격 계정이 됩니다.
 
 - 회사 또는 학교 계정에서 Microsoft 계정으로 양도할 수 없습니다.
@@ -285,7 +284,7 @@ Azure Enterprise Portal 계층 구조는 다음과 같이 구성됩니다.
 
 각 애플리케이션 환경에 대해 여러 구독을 만들 때 각 환경의 보안을 유지하는 데 도움이 됩니다.
 
-- 또한 각 구독에 서로 다른 서비스 관리자 계정을 할당할 수 있습니다. 
+- 또한 각 구독에 서로 다른 서비스 관리자 계정을 할당할 수 있습니다.
 - 원하는 만큼 구독을 서비스에 연결할 수 있습니다.
 - 계정 소유자는 구독을 만들고 계정의 각 구독에 서비스 관리자 계정을 할당합니다.
 
@@ -309,7 +308,7 @@ _Microsoft Azure 엔터프라이즈_는 구독을 만들 때의 기본 이름입
 1. **구독**을 선택한 다음, 앞에서 만든 구독을 선택합니다.
 1. **구독 세부 사항 편집**을 선택합니다.
 1. **구독 이름** 및 **서비스 관리자**를 편집한 다음, 확인 표시를 선택합니다.
-  
+
    구독 이름이 보고서에 표시됩니다. 이 이름은 개발 포털의 구독과 연결된 프로젝트 이름입니다.
 
 새 구독이 구독 목록에 표시될 때까지 최대 24시간이 걸릴 수 있습니다. 구독을 만든 후에는 다음을 수행할 수 있습니다.
@@ -509,14 +508,14 @@ Azure Enterprise Portal은 기업 고객을 위한 다음 두 가지 유형의 �
 - Microsoft Azure 엔터프라이즈 - 적합한 용도:
   - 모든 프로덕션 사용
   - 인프라 지출을 기준으로 하는 최상의 가격
-  
+
   자세한 내용은 [Azure 영업 팀에 문의](https://azure.microsoft.com/pricing/enterprise-agreement/)하세요.
 
 - Enterprise 개발/테스트 - 적합한 용도:
   - 모든 팀 개발/테스트 워크로드
   - 중간 수준 이상의 개별 개발/테스트 워크로드
   - 특수 MSDN 이미지 및 우선 서비스 요금에 액세스
-  
+
   자세한 내용은 [Enterprise 개발/테스트 제품](https://azure.microsoft.com/offers/ms-azr-0148p/)을 참조하세요.
 
 ### <a name="is-it-possible-to-transfer-subscription-ownership-to-another-account"></a>구독 소유권을 다른 계정으로 양도할 수 있나요?

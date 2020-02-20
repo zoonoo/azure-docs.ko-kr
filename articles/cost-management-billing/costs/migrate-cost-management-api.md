@@ -1,21 +1,18 @@
 ---
 title: Microsoft 고객 계약 API로 EA 마이그레이션 - Azure
 description: 이 문서는 Microsoft EA(기업계약)를 Microsoft 고객 계약으로 마이그레이션하면 어떻게 되는지 이해하는 데 도움이 됩니다.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 01/21/2020
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: micflan
-ms.custom: ''
-ms.openlocfilehash: b0c30cd35efd598767d21dbdafc5100d8896380c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.reviewer: micflan
+ms.openlocfilehash: 397e0a21b1ba11b3bdd74c2030ff358c1ce159d8
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76514717"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201036"
 ---
 # <a name="migrate-from-enterprise-agreement-to-microsoft-customer-agreement-apis"></a>기업계약에서 Microsoft 고객 계약 API로 마이그레이션
 

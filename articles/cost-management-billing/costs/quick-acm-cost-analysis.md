@@ -1,21 +1,19 @@
 ---
 title: 빠른 시작 - 비용 분석을 사용하여 Azure 비용 살펴보기 | Microsoft Docs
 description: 이 빠른 시작에서는 비용 분석을 사용하여 Azure 조직 비용을 탐색하고 분석하는 데 도움이 되는 정보를 제공합니다.
-services: cost-management
-keywords: ''
 author: bandersmsft
 ms.author: banders
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.service: cost-management-billing
-manager: micflan
+ms.reviewer: micflan
 ms.custom: seodec18
-ms.openlocfilehash: e77f6ca587a6dcd001b06fac22d974b22d6fee4e
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: bc19c6358ff116b3d7299673783e8fbd6e8cd4f5
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188658"
+ms.locfileid: "77201053"
 ---
 # <a name="quickstart-explore-and-analyze-costs-with-cost-analysis"></a>빠른 시작: 비용 분석을 사용하여 비용 탐색 및 분석
 
@@ -64,9 +62,9 @@ Azure Cost Management 데이터에 액세스하는 방법에 대한 정보는 [�
 
 ### <a name="understand-forecast"></a>예측 이해
 
-비용 예측에는 선택한 기간에 대한 예상 비용의 예측이 표시됩니다. 모델은 시계열 회귀 모델을 기반으로 합니다. 비용을 정확하게 예측하려면 10일 이상의 최근 비용 및 사용 현황 데이터가 필요합니다. 지정된 기간 동안 예측 모델에는 예측 기간 동안 동일한 학습 데이터 부분이 필요합니다. 예를 들어, 3개월 프로젝션에는 최소 3개월 동안의 최근 비용 및 사용 현황 데이터가 필요합니다. 
+비용 예측에는 선택한 기간에 대한 예상 비용의 예측이 표시됩니다. 모델은 시계열 회귀 모델을 기반으로 합니다. 비용을 정확하게 예측하려면 10일 이상의 최근 비용 및 사용 현황 데이터가 필요합니다. 지정된 기간 동안 예측 모델에는 예측 기간 동안 동일한 학습 데이터 부분이 필요합니다. 예를 들어, 3개월 프로젝션에는 최소 3개월 동안의 최근 비용 및 사용 현황 데이터가 필요합니다.
 
-이 모델은 1년 동안 비용을 프로젝션하는 데 최대 6개월 분량의 학습 데이터를 사용합니다. 최소한의 예측을 변경하려면 7일 간의 학습 데이터가 필요합니다. 예측은 비용 및 사용 패턴에서 급증 및 급감과 같은 극적인 변화를 기반으로 합니다. 예측은 **그룹별** 속성의 각 항목에 대한 개별 프로젝션을 생성하지 않습니다. 누적된 총 비용에 대한 예측만 제공합니다. 여러 통화를 사용하는 경우 모델은 USD로만 비용 예측을 제공합니다. 
+이 모델은 1년 동안 비용을 프로젝션하는 데 최대 6개월 분량의 학습 데이터를 사용합니다. 최소한의 예측을 변경하려면 7일 간의 학습 데이터가 필요합니다. 예측은 비용 및 사용 패턴에서 급증 및 급감과 같은 극적인 변화를 기반으로 합니다. 예측은 **그룹별** 속성의 각 항목에 대한 개별 프로젝션을 생성하지 않습니다. 누적된 총 비용에 대한 예측만 제공합니다. 여러 통화를 사용하는 경우 모델은 USD로만 비용 예측을 제공합니다.
 
 
 ## <a name="customize-cost-views"></a>비용 보기 사용자 지정

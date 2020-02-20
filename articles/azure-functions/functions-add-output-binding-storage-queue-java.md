@@ -3,12 +3,12 @@ title: Java 함수를 Azure Storage에 연결
 description: Queue storage 출력 바인딩을 사용하여 Azure Storage에 HTTP 트리거 Java 함수를 연결하는 방법에 대해 알아봅니다.
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 98f49338f0df935347a26798aceccb80f9f43f50
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926893"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198550"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 
@@ -18,7 +18,7 @@ ms.locfileid: "74926893"
 
 대부분의 바인딩은 Functions에서 바인딩된 서비스에 액세스할 때 사용할 저장된 연결 문자열이 필요합니다. 이 연결을 더 쉽게 만들려면 함수 앱에서 만든 Storage 계정을 사용합니다. 이 계정에 대한 연결은 이미 `AzureWebJobsStorage` 앱 설정에 저장되어 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기에 앞서 [Java 빠른 시작의 1부](functions-create-first-java-maven.md) 단계를 먼저 완료합니다.
 
@@ -118,7 +118,7 @@ mvn azure-functions:run
 ```
 
 > [!NOTE]  
-> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x-and-higher)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
+> host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#add-to-your-functions-app)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
 
 이전과 마찬가지로 새 터미널 창에서 cURL을 사용하여 명령줄에서 함수를 트리거합니다.
 

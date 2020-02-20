@@ -1,21 +1,19 @@
 ---
 title: Azure Cost Management에서의 일반적인 비용 분석 사용
 description: 이 문서에서는 Azure Cost Management에서 일반적인 비용 분석 작업에 대한 결과를 가져오는 방법을 설명합니다.
-services: cost-management
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 12/04/2019
+ms.date: 02/12/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
-manager: adwise
-ms.custom: ''
-ms.openlocfilehash: 756e2f275a92a31a99604aaf7ef880bfdce8149b
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.reviewer: adwise
+ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75988514"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199979"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 

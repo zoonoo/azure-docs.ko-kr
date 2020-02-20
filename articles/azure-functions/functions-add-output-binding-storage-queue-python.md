@@ -3,12 +3,12 @@ title: Python 함수에 Azure Storage 큐 바인딩 추가
 description: 출력 바인딩을 사용하여 Python 함수와 Azure Storage 큐를 통합합니다.
 ms.date: 01/15/2020
 ms.topic: quickstart
-ms.openlocfilehash: 14a381d13da052fd67679ed17bbb6b6711f7a0e6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: f5527e0e636c3f8c9ee3723570ed9811f0df3641
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715376"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198482"
 ---
 # <a name="add-an-azure-storage-queue-binding-to-your-python-function"></a>Python 함수에 Azure Storage 큐 바인딩 추가
 
@@ -156,7 +156,7 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
 1. 완료되면 **Ctrl**+**C**를 사용하여 호스트를 중지합니다.
 
 > [!TIP]
-> 시작하는 동안 호스트는 [Storage 바인딩 확장](functions-bindings-storage-blob.md#packages---functions-2x-and-higher) 및 기타 Microsoft 바인딩 확장을 다운로드하여 설치합니다. 이 설치는 *host.json* 파일에서 기본적으로 다음 속성을 사용하여 바인딩 확장을 사용하도록 설정되어 있기 때문에 발생합니다.
+> 시작하는 동안 호스트는 [Storage 바인딩 확장](functions-bindings-storage-blob.md#add-to-your-functions-app) 및 기타 Microsoft 바인딩 확장을 다운로드하여 설치합니다. 이 설치는 *host.json* 파일에서 기본적으로 다음 속성을 사용하여 바인딩 확장을 사용하도록 설정되어 있기 때문에 발생합니다.
 >
 > ```json
 > {
@@ -176,19 +176,19 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
 
 1. 함수 프로젝트의 *local.setting.json* 파일을 열고, 연결 문자열 값을 복사합니다. 터미널 또는 명령 창에서 다음 명령을 실행하여 `AZURE_STORAGE_CONNECTION_STRING`이라는 환경 변수를 만들고, `<connection_string>` 대신 특정 연결 문자열을 붙여넣습니다. (이 환경 변수는 `--connection-string` 인수를 사용하여 연결 문자열을 각 후속 명령에 제공할 필요가 없음을 의미합니다.)
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     $env:AZURE_STORAGE_CONNECTION_STRING = "<connection_string>"
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     set AZURE_STORAGE_CONNECTION_STRING="<connection_string>"
@@ -198,19 +198,19 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
     
 1. (선택 사항) [`az storage queue list`](/cli/azure/storage/queue#az-storage-queue-list) 명령을 사용하여 계정의 Storage 큐를 봅니다. 이 명령의 출력에는 함수에서 첫 번째 메시지를 해당 큐에 쓸 때 만들어진 `outqueue`라는 이름의 큐가 포함되어야 합니다.
     
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     az storage queue list --output tsv
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     az storage queue list --output tsv
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     ```cmd
     az storage queue list --output tsv
@@ -221,19 +221,19 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
 
 1. [`az storage message peek`](/cli/azure/storage/message#az-storage-message-peek) 명령을 사용하여 이 큐의 메시지를 봅니다. 이 메시지는 이전에 함수를 테스트할 때 사용한 이름이어야 합니다. 명령은 [base64 인코딩](functions-bindings-storage-queue.md#encoding)의 큐에서 첫 번째 메시지를 검색하므로 메시지를 텍스트로 보려면 해당 메시지도 디코딩해야 합니다.
 
-    # <a name="bashtabbash"></a>[bash](#tab/bash)
+    # <a name="bash"></a>[bash](#tab/bash)
     
     ```bash
     echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}') | base64 --decode`
     ```
     
-    # <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+    # <a name="powershell"></a>[PowerShell](#tab/powershell)
     
     ```powershell
     [System.Text.Encoding]::UTF8.GetString([System.Convert]::FromBase64String($(az storage message peek --queue-name outqueue -o tsv --query '[].{Message:content}')))
     ```
     
-    # <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+    # <a name="cmd"></a>[Cmd](#tab/cmd)
     
     메시지 컬렉션을 역참조하고 base64에서 디코딩해야 하므로 PowerShell을 실행하고 PowerShell 명령을 사용합니다.
 
@@ -251,13 +251,13 @@ def main(req: func.HttpRequest, msg: func.Out[func.QueueMessage]) -> str:
     
 1. 이전 빠른 시작에서와 같이 브라우저 또는 CURL을 사용하여 다시 배포된 함수를 테스트합니다.
 
-    # <a name="browsertabbrowser"></a>[브라우저](#tab/browser)
+    # <a name="browser"></a>[브라우저](#tab/browser)
     
     publish 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사하여 `&name=Azure` 쿼리 매개 변수를 추가합니다. 브라우저에서 함수를 로컬로 실행했을 때와 비슷한 출력이 표시됩니다.
 
     ![브라우저에서 보여 주는 Azure에서 실행되는 함수의 출력](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
-    # <a name="curltabcurl"></a>[curl](#tab/curl)
+    # <a name="curl"></a>[curl](#tab/curl)
     
     **호출 URL**을 사용하고 `&name=Azure` 매개 변수를 추가하여 [curl](https://curl.haxx.se/)을 실행합니다. 이 명령의 출력은 "Hello Azure" 텍스트입니다.
     

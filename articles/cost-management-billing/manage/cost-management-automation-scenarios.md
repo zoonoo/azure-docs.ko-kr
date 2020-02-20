@@ -1,24 +1,20 @@
 ---
 title: Azure 청구 및 비용 관리 자동화 시나리오 | Microsoft Docs
 description: 일반적인 청구 및 비용 관리 시나리오가 다양한 API에 어떻게 매핑되는지 알아봅니다.
-services: billing
-documentationcenter: ''
 author: bandersmsft
-manager: dougeby
+ms.reviewer: adwise
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
-ms.workload: billing
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: c9de7d5f7661e4083d3a2f5b53368616d0e6655a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e5e3f36888a4bbf18ec601f5c361ed7ca2563aa6
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75992817"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199792"
 ---
 # <a name="automation-scenarios-for-billing-and-cost-management"></a>청구 및 비용 관리 자동화 시나리오
 

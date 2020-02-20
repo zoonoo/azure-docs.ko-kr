@@ -4,14 +4,14 @@ description: 블록 Blob 및 Azure Data Lake Storage Gen2 리소스에 Azure Sto
 author: tamram
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/05/2019
+ms.date: 02/13/2020
 ms.author: tamram
-ms.openlocfilehash: 40fba61b173979fb9362de73a87d6192aac9941d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b6360619b7666ab7836a751491e05e379df32d93
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995313"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199197"
 ---
 # <a name="understand-how-the-reservation-discount-is-applied-to-azure-storage"></a>Azure Storage에 예약 할인이 적용되는 방식 이해
 

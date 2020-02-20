@@ -8,17 +8,17 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 10/17/2019
-ms.openlocfilehash: 7be3a7913559947be1291db35ac3531f152dfae9
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/13/2020
+ms.openlocfilehash: ed067e4bbde737cb08afe7c9429854e54e2ef3d9
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995547"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199316"
 ---
 # <a name="how-a-reservation-discount-is-applied-to-azure-database-for-mysql"></a>Azure Database for MySQL에 예약 할인이 적용되는 방법
 
-Azure Database for MySQL 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 MySQL 서버에 자동으로 적용됩니다. 예약은 Azure Database for MySQL에 대한 계산 비용만 포함합니다. 정상 요금으로 스토리지 및 네트워킹에 대한 요금이 청구됩니다. 
+Azure Database for MySQL 예약된 용량을 구입한 후 예약 할인이 예약의 특성 및 수량과 일치하는 MySQL 서버에 자동으로 적용됩니다. 예약은 Azure Database for MySQL에 대한 계산 비용만 포함합니다. 정상 요금으로 스토리지 및 네트워킹에 대한 요금이 청구됩니다.
 
 ## <a name="how-reservation-discount-is-applied"></a>예약 할인이 적용되는 방법
 

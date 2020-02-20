@@ -1,23 +1,18 @@
 ---
 title: 소프트웨어 요금제 할인 - Azure | Microsoft Docs
 description: 가상 머신의 소프트웨어에 소프트웨어 요금제 할인이 적용되는 방법을 알아봅니다.
-documentationcenter: ''
 author: yashesvi
-manager: yashar
-editor: ''
+ms.reviewer: yashar
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 09/30/2019
+ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: f3d0c123fcbd16f3a4125ad74f0502863b6ce6d1
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 9979ced6d5bd71dd1a42d19c222111a76ed18428
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995261"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200234"
 ---
 # <a name="azure-software-plan-discount"></a>Azure 소프트웨어 요금제 할인
 

@@ -2,21 +2,18 @@
 title: Azure에 대한 신용 카드 변경
 description: Azure 구독 지불에 사용하는 신용 카드를 변경하는 방법에 대해 설명합니다.
 author: bandersmsft
-manager: judupont
+ms.reviewer: judupont
 tags: billing
 ms.service: cost-management-billing
-ms.workload: na
-ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 10d475b9c0c33dfd17c3d87beed00154511e1ab6
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 0cf0911193cd379da60edb3064d3c6f195cf0190
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188441"
+ms.locfileid: "77199860"
 ---
 # <a name="add-update-or-remove-a-credit-card-for-azure"></a>Azure에 대한 신용 카드 추가, 업데이트 또는 제거
 
@@ -118,7 +115,7 @@ Azure 구독의 기본 신용 카드를 새 신용 카드 또는 Azure Portal에
 
 다음 섹션은 Microsoft 고객 계약을 보유하고 있고 신용 카드로 Azure 온라인에 가입한 고객에게 적용됩니다. [Microsoft 고객 계약을 보유하고 있는지 확인하는 방법을 알아보세요](#check-the-type-of-your-account).
 
-### <a name="change-default-credit-card"></a>기본 신용 카드 변경 
+### <a name="change-default-credit-card"></a>기본 신용 카드 변경
 Microsoft 고객 계약의 경우 신용 카드가 청구 프로필과 연결됩니다. 청구 프로필의 결제 방법을 변경하려면 Azure에 가입하고 청구 계정을 만든 사람이어야 합니다.
 
 청구 프로필의 기본 결제 방법을 수표/전신 송금으로 변경하려는 경우 [청구서로 Azure 구독 비용 지불](pay-by-invoice.md)을 참조하세요.

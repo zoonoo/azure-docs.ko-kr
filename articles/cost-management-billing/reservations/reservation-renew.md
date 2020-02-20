@@ -1,19 +1,18 @@
 ---
 title: Azure 예약 자동 갱신
 description: 예약 할인을 계속 받기 위해 Azure 예약을 자동으로 갱신하는 방법을 알아봅니다.
-services: billing
 author: bandersmsft
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 10/01/2019
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: dfff02c554c94daf1dd7fd844cea461fd76589d8
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: fc82fe0f63b244adb74d2242d25270528669380a
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75995716"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199401"
 ---
 # <a name="automatically-renew-reservations"></a>예약 자동 갱신
 

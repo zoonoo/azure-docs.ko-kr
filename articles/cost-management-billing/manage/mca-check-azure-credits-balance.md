@@ -2,21 +2,18 @@
 title: Microsoft 고객 계약에 대한 Azure 크레딧 잔액 추적
 description: Microsoft 고객 계약에 대한 Azure 크레딧 잔액을 확인하는 방법을 알아봅니다.
 author: bandersmsft
-manager: amberb
+ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 10/01/2019
+ms.date: 02/13/2019
 ms.author: banders
-ms.openlocfilehash: c8ea083e216331904c9d5741b97f69b7f5a8249a
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e65637f20d14b93c212b1af2f20695ff5dfeb350
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "75991335"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77199690"
 ---
 # <a name="track-microsoft-customer-agreement-azure-credit-balance"></a>Microsoft 고객 계약 Azure 크레딧 잔액 추적
 
@@ -28,7 +25,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
 ## <a name="check-your-credit-balance"></a>크레딧 잔액 확인
 
-### <a name="azure-portaltabportal"></a>[Azure Portal](#tab/portal)
+### <a name="azure-portal"></a>[Azure Portal](#tab/portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
@@ -99,7 +96,7 @@ Microsoft 고객 계약에 대한 청구 계정에서 크레딧이 청구 프로
 
     ![청구 계정에 대한 크레딧 목록 스크린샷](./media/mca-check-azure-credits-balance/mca-account-credit-list.png)
 
-### <a name="rest-apitabrest"></a>[REST API](#tab/rest)
+### <a name="rest-api"></a>[REST API](#tab/rest)
 
 [Azure 청구](https://docs.microsoft.com/rest/api/billing/) 및 [사용량](https://docs.microsoft.com/rest/api/consumption/) API를 사용하여 청구 계정의 크레딧 잔액을 프로그래밍 방식으로 가져올 수 있습니다.
 
