@@ -1,20 +1,20 @@
 ---
 title: 개요 | Microsoft Azure Maps
 description: Microsoft Azure Maps의 서비스 및 기능으로 무엇이 있으며 애플리케이션에서 어떻게 사용할 수 있는지 알아봅니다.
-author: walsehgal
-ms.author: v-musehg
-ms.date: 02/11/2020
+author: farah-alyasari
+ms.author: v-faalya
+ms.date: 01/15/2020
 ms.topic: overview
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: e01bfec9edbe1e868a3e3244e3cb6d1e1a46561d
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: b375ea8fdebd876bdc7ecf157a4cebd5e614dfd0
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190345"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443732"
 ---
 # <a name="what-is-azure-maps"></a>Azure Maps란?
 
@@ -45,13 +45,13 @@ Azure Maps는 웹 및 모바일 애플리케이션에 지리적 컨텍스트를 
 
 Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하여 대화형 맵을 사용자 지정할 수 있습니다. 웹 또는 모바일 애플리케이션 모두에 대해 이 대화형 맵을 사용할 수 있습니다. 맵 컨트롤을 통해 WebGL을 사용하여 고성능의 큰 데이터 세트를 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 SDK에서 개발합니다.
 
-![채우기 변경의 맵 예제](media/about-azure-maps/Introduction_WebMapControl.png)
+![채우기 변경의 맵 예제](media/about-azure-maps/intro_web_map_control.png)
 
 ### <a name="android-sdk"></a>Android SDK
 
 Azure Maps Android SDK를 사용하여 모바일 매핑 애플리케이션을 만듭니다. 
 
-![모바일 디바이스의 맵 예제](media/about-azure-maps/AndroidSDK.png)
+![모바일 디바이스의 맵 예제](media/about-azure-maps/android_sdk.png)
 
 ## <a name="services-in-azure-maps"></a>Azure Maps의 서비스
 
@@ -73,7 +73,7 @@ Azure Maps Mobility Service를 사용하면 실시간 여행 계획이 가능합
 
 Render Service는 개발자가 매핑 기능을 사용하여 웹 및 모바일 애플리케이션을 만드는 데 도움을 줍니다. 이 서비스는 19단계 확대/축소 수준에서 사용할 수 있는 고품질 래스터 그래픽 이미지 또는 모든 것을 사용자 지정할 수 있는 벡터 형식 맵 이미지를 사용합니다.
 
-![Render Service의 맵 예제](media/about-azure-maps/Introduction_Map.png)
+![Render Service의 맵 예제](media/about-azure-maps/intro_map.png)
 
 Render Service는 현재 개발자가 위성 이미지를 사용하여 작업할 수 있도록 미리 보기 API를 제공합니다. 자세한 내용은 [Render API 설명서](https://docs.microsoft.com/rest/api/maps/render)를 읽어보세요.
 
@@ -81,7 +81,7 @@ Render Service는 현재 개발자가 위성 이미지를 사용하여 작업할
 
 Route Service는 여러 운송 모드의 실제 인프라 및 방향에 대한 강력한 기하 도형 계산을 포함합니다. 이 서비스는 개발자가 다양한 이동 모드(예제: 자동차, 트럭, 자전거 또는 도보)에서 방향을 계산할 수 있도록 합니다. 또한 서비스는 교통 상황, 무게 제한 또는 위해 물질 운송 등의 입력도 고려합니다.
 
-![Route Service의 맵 예제](media/about-azure-maps/Introduction_Route.png)
+![Route Service의 맵 예제](media/about-azure-maps/intro_route.png)
 
 Route Service는 다음과 같은 고급 기능의 미리 보기를 제공합니다. 
 
@@ -95,7 +95,7 @@ Route Service는 다음과 같은 고급 기능의 미리 보기를 제공합니
 
 Search Service는 개발자가 주소, 장소, 비즈니스 목록을 이름이나 범주 및 기타 지리 정보 기준으로 검색하는 데 유용합니다. Search Service는 위도 및 경도를 기반으로 주소 및 교차로를 [역방향으로 지오코딩](https://en.wikipedia.org/wiki/Reverse_geocoding)할 수 있습니다.
 
-![맵에서 검색 예제](media/about-azure-maps/Introduction_Search.png)
+![맵에서 검색 예제](media/about-azure-maps/intro_search.png)
 
 또한 Search Service는 다음과 같은 고급 기능을 제공합니다.
 
@@ -149,7 +149,7 @@ Traffic Service는 교통 정보가 필요한 웹 및 모바일 애플리케이�
 * 교통 흐름: 네트워크의 모든 주요 도로에 대해 실시간으로 관찰된 속도와 여행 시간.
 * 교통 사고: 도로 네트워크와 관련된 교통 혼잡 및 사고에 대한 최신 보기.
 
-![교통 정보를 사용한 맵의 예제](media/about-azure-maps/Introduction_Traffic.png)
+![교통 정보를 사용한 맵의 예제](media/about-azure-maps/intro_traffic.png)
 
 자세한 내용은 [Traffic API 설명서](https://docs.microsoft.com/rest/api/maps/traffic)를 참조하세요.
 

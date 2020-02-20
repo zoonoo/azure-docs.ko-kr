@@ -3,12 +3,12 @@ title: Azure에서 Terraform 사용
 description: Terraform을 사용하여 Azure 인프라를 프로비저닝하고 배포하는 방법을 소개합니다.
 ms.topic: overview
 ms.date: 10/26/2019
-ms.openlocfilehash: d1754594c651206a0d4d15e659e2926557f9e912
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 05b92fdf8c0a0f84d2f29b4aa7479850b2721441
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158998"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472165"
 ---
 # <a name="terraform-with-azure"></a>Azure의 Terraform
 
@@ -40,6 +40,6 @@ Terraform은 여러 클라우드 공급자에 걸쳐 인프라를 배포하는 �
 
 Terraform에 대한 개요와 이점에 대해 간략히 살펴본 후 권장되는 다음 단계는 아래와 같습니다.
 
-- [Terraform을 설치하고 Azure를 사용하도록 구성](/azure/virtual-machines/linux/terraform-install-configure)하여 시작
-- [Terraform을 사용하여 Azure 가상 머신 만들기](/azure/virtual-machines/linux/terraform-create-complete-vm)
+- [Terraform을 설치하고 Azure를 사용하도록 구성](terraform-install-configure.md)하여 시작
+- [Terraform을 사용하여 Azure 가상 머신 만들기](terraform-create-complete-vm.md)
 - [Terraform용 Azure Resource Manager 모듈](https://www.terraform.io/docs/providers/azurerm/) 탐색 

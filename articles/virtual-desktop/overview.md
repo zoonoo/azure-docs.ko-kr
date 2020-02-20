@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: overview
 ms.date: 01/27/2020
 ms.author: helohr
-ms.openlocfilehash: 168a345427be47dc1c33f43be1af47daa8f638ef
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 6cb8362b2de1f8345f693b00df021afe84f2d5a5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772777"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471774"
 ---
 # <a name="what-is-windows-virtual-desktop"></a>Windows Virtual Desktop이란? 
 
@@ -72,7 +72,7 @@ Windows Virtual Desktop을 설정하고 Windows 데스크톱 및 애플리케이
 
 Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들이 필요합니다.
 
-* [Azure Active Directory](https://docs.microsoft.com/azure/active-directory/)
+* [Azure Active Directory](/azure/active-directory/)
 * Azure Active Directory와 동기화되는 Windows Server Active Directory입니다. 다음 중 하나를 사용하여 구성할 수 있습니다.
   * Azure AD Connect(하이브리드 조직용)
   * Azure AD Domain Services(하이브리드 또는 클라우드 조직용)
@@ -80,7 +80,7 @@ Windows Virtual Desktop을 지원하려면 인프라에 다음과 같은 것들�
   
 Windows Virtual Desktop에 대해 만드는 Azure 가상 머신은 다음과 같아야 합니다.
 
-* [표준 도메인에 조인](https://docs.microsoft.com/azure/active-directory-domain-services/active-directory-ds-comparison) 또는 [하이브리드 AD에 조인](https://docs.microsoft.com/azure/active-directory/devices/hybrid-azuread-join-plan). 가상 머신이 Azure AD에 조인되면 안 됩니다.
+* [표준 도메인에 조인](../active-directory-domain-services/active-directory-ds-comparison.md) 또는 [하이브리드 AD에 조인](../active-directory/devices/hybrid-azuread-join-plan.md). 가상 머신이 Azure AD에 조인되면 안 됩니다.
 * 다음 [지원되는 OS 이미지](#supported-virtual-machine-os-images) 중 하나를 실행합니다.
 
 >[!NOTE]

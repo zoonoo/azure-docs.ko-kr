@@ -4,12 +4,12 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: ca576290ea511dc54b89ecebef72ca2a42e9169f
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4fe159660421113e0f0ac0586ae7e4a22d5bcda7
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329584"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77474125"
 ---
 ### <a name="query-the-storage-queue"></a>Storage 큐 쿼리
 
@@ -30,4 +30,4 @@ echo `echo $(az storage message peek --queue-name outqueue -o tsv --query '[].{M
 반환된 문자열은 함수를 테스트하기 위해 보낸 메시지와 동일해야 합니다.
 
 > [!NOTE]  
-> 이전 예제는 base64에서 반환된 문자열을 디코딩합니다. Queue 스토리지 바인딩이 Azure Storage에 [base64 문자열](../articles/azure-functions/functions-bindings-storage-queue.md#encoding)로 쓰고 읽기 때문입니다.
+> 이전 예제는 base64에서 반환된 문자열을 디코딩합니다. Queue 스토리지 바인딩이 Azure Storage에 [base64 문자열](../articles/azure-functions/functions-bindings-storage-queue-trigger.md#encoding)로 쓰고 읽기 때문입니다.
