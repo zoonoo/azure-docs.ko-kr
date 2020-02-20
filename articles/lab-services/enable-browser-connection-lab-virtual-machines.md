@@ -23,12 +23,12 @@ ms.locfileid: "74970787"
 # <a name="enable-browser-connection-on-lab-virtual-machines"></a>랩 가상 컴퓨터에서 브라우저 연결 사용 
 DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도록 하는 [Azure 방호](https://docs.microsoft.com/azure/bastion/)와 통합 됩니다. 먼저 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 해야 합니다.
 
-랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스 하도록 설정할 수 있습니다. 추가 클라이언트, 에이전트 또는 소프트웨어 부분이 필요 하지 않습니다. Az Azure Bastion biztonságos és zökkenőmentes RDP-/SSH-kapcsolatokat biztosít a virtuális gépeihez közvetlenül az Azure Portalon SSL használatával. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.
+랩의 소유자는 브라우저를 통해 모든 랩 가상 컴퓨터에 액세스 하도록 설정할 수 있습니다. 다른 클라이언트, 에이전트 또는 소프트웨어가 필요하지 않습니다. Azure 방호는 SSL을 통해 Azure Portal에서 직접 가상 머신에 안전 하 고 원활한 RDP/SSH 연결을 제공 합니다. Azure 방호를 통해 연결 하는 경우 가상 머신에 공용 IP 주소가 필요 하지 않습니다. 자세한 내용은 [Azure 방호 이란?](../bastion/bastion-overview.md) 을 참조 하세요.
 
 
 이 문서에서는 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>Előfeltételek 
+## <a name="prerequisites"></a>사전 요구 사항 
 기존 랩의 가상 네트워크에 요새 호스트를 배포 **하거나,** 가상 네트워크로 랩을 연결 합니다. 
 
 가상 네트워크에 요새 호스트를 배포 하는 방법을 알아보려면 [Azure 방호 호스트 만들기](../bastion/bastion-create-host-portal.md)를 참조 하세요. 요새 호스트를 만들 때 랩의 가상 네트워크를 선택 합니다. 
@@ -43,9 +43,9 @@ Azure 방호 서브넷에서 랩 Vm을 만들 수 없습니다. 다음 그림에
 ## <a name="enable-vm-creation-in-the-subnet"></a>서브넷에서 VM 만들기를 사용 하도록 설정
 이제 다음 단계를 수행 하 여이 서브넷에서 Vm을 만들 수 있습니다. 
 
-1. Jelentkezzen be az [Azure portálra](https://portal.azure.com).
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 왼쪽 탐색 메뉴에서 **모든 서비스** 를 선택 합니다. 
-1. Válassza a **DevTest Labs** elemet a listából. 
+1. 목록에서 **DevTest Labs** 를 선택 합니다. 
 1. 랩 목록에서 *랩을*선택 합니다. 
 
     > [!NOTE]
@@ -59,7 +59,7 @@ Azure 방호 서브넷에서 랩 Vm을 만들 수 없습니다. 다음 그림에
 
     ![서브넷에서 VM 만들기를 사용 하도록 설정](./media/connect-virtual-machine-through-browser/enable-vm-creation-subnet.png)
 1. **가상 컴퓨터 만들기 옵션에서 사용을** 선택 합니다. 
-1. Válassza az eszköztár **Save** (Mentés) elemét. 
+1. 도구 모음에서 **저장**을 선택합니다. 
 1. 랩에 대 한 이전 가상 네트워크가 있는 경우 * *...* 를 선택 하 여 제거 합니다.  **제거**합니다. 
 
 ## <a name="enable-browser-connection"></a>브라우저 연결 사용 
@@ -69,10 +69,10 @@ Azure 방호 서브넷에서 랩 Vm을 만들 수 없습니다. 다음 그림에
 랩 가상 컴퓨터에서 브라우저 연결을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure Portal에서 *랩*으로 이동 합니다.
-1. **구성 및 정책을**선택 합니다.
+1. **구성 및 정책**을 선택합니다.
 1. **설정**에서 **브라우저 연결**을 선택 합니다. 이 옵션이 표시 되지 않으면 **구성 정책** 페이지를 닫고 다시 엽니다. 
 
     ![브라우저 연결 사용](./media/enable-browser-connection-lab-virtual-machines/browser-connect.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 브라우저를 사용 하 여 Vm에 연결 하는 방법을 알아보려면 브라우저를 [통해 가상 머신에](connect-virtual-machine-through-browser.md) 연결 하는 방법을 알아보려면 다음 문서를 참조 하세요.

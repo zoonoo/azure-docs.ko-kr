@@ -1,6 +1,6 @@
 ---
-title: Microsoft PlayReady 또는 Apple FairPlay를 사용 하 여 HLS 콘텐츠 보호-Azure | Microsoft Docs
-description: 이 항목에서는 Azure Media Services 사용 하 여 Apple FairPlay에서 HLS (HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화 하는 방법을 간략하게 설명 합니다. 또한 Media Services 라이선스 배달 서비스를 사용 하 여 클라이언트에 FairPlay 라이선스를 제공 하는 방법을 보여 줍니다.
+title: Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호 - Azure | Microsoft Docs
+description: 이 항목에서는 Azure Media Services를 사용하여 Apple FairPlay에서 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화하는 방법과 개요를 설명합니다. 또한 Media Services 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: Juliako
@@ -20,153 +20,153 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74968768"
 ---
-# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Apple FairPlay 또는 Microsoft PlayReady로 HLS 콘텐츠 보호
+# <a name="protect-your-hls-content-with-apple-fairplay-or-microsoft-playready"></a>Microsoft PlayReady 또는 Apple FairPlay로 HLS 콘텐츠 보호
 
 > [!NOTE]
-> Az oktatóanyag elvégzéséhez egy Azure-fiókra lesz szüksége. További információkért lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/pricing/free-trial/).   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>Próbálja ki a legújabb verziót, ami a [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >
 
-Azure Media Services를 사용 하면 다음 형식을 사용 하 여 HLS (HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
+Azure Media Services를 사용하면 다음 형식을 사용하여 HLS(HTTP 라이브 스트리밍) 콘텐츠를 동적으로 암호화할 수 있습니다.  
 
-* **AES-128 봉투 암호화 되지 않은 키**
+* **AES-128 비트 봉투 암호화되지 않은 키**
 
-    전체 청크는 **AES-128 CBC** 모드를 사용 하 여 암호화 됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 기본적으로 지원 됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조 하세요.
+    전체 청크는 **AES-128 CBC** 모드를 사용하여 암호화됩니다. 스트림의 암호 해독은 iOS 및 OS X 플레이어에서 고유하게 지원됩니다. 자세한 내용은 [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)을 참조하세요.
 * **Apple FairPlay**
 
-    개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용 하 여 암호화 됩니다. Fp ( **FairPlay Streaming** )는 IOS 및 Apple TV를 기본적으로 지 원하는 장치 운영 체제에 통합 되어 있습니다. OS X에서 Safari를 사용 하면 EME (암호화 된 미디어 확장) 인터페이스 지원을 통해 FPS를 사용할 수 있습니다.
+    개별 비디오 및 오디오 샘플은 **AES-128 CBC** 모드를 사용하여 암호화됩니다. **FairPlay 스트리밍** (FPS)은 디바이스 운영 체제에 통합되며, iOS 및 Apple TV에서 고유하게 지원됩니다. OS X의 Safari는 EME(Encrypted Media Extensions) 인터페이스 지원을 사용하여 FPS를 지원합니다.
 * **Microsoft PlayReady**
 
-다음 이미지는 **HLS + FairPlay 또는 PlayReady 동적 암호화** 워크플로를 보여 줍니다.
+다음 이미지에서는 **HLS + FairPlay 또는 PlayReady 동적 암호화** 워크플로를 보여 줍니다.
 
 ![동적 암호화 워크플로 다이어그램](./media/media-services-content-protection-overview/media-services-content-protection-with-FairPlay.png)
 
-이 문서에서는 Media Services를 사용 하 여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화 하는 방법을 보여 줍니다. 또한 Media Services 라이선스 배달 서비스를 사용 하 여 클라이언트에 FairPlay 라이선스를 제공 하는 방법을 보여 줍니다.
+이 문서에서는 Media Services를 사용하여 Apple FairPlay에서 HLS 콘텐츠를 동적으로 암호화하는 방법을 보여 줍니다. 또한 Media Services 라이선스 배달 서비스를 사용하여 클라이언트에 FairPlay 라이선스를 제공하는 방법을 보여 줍니다.
 
 > [!NOTE]
-> PlayReady로 HLS 콘텐츠를 암호화 하려는 경우 공통 콘텐츠 키를 만들고 자산에 연결 해야 합니다. 또한 [PlayReady 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에 설명 된 대로 콘텐츠 키의 권한 부여 정책을 구성 해야 합니다.
+> PlayReady로 HLS 콘텐츠를 암호화하려면 공통 콘텐츠 키를 만들고 자산에 연결해야 합니다. [PlayReady 동적 일반 암호화 사용](media-services-protect-with-playready-widevine.md)에서 설명한 대로 콘텐츠 키의 권한 부여 정책을 구성해야 합니다.
 >
 >
 
 ## <a name="requirements-and-considerations"></a>요구 사항 및 고려 사항
 
-다음은 Media Services를 사용 하 여 FairPlay로 암호화 된 HLS를 전달 하 고 FairPlay 라이선스를 제공 하는 경우에 필요 합니다.
+Media Services를 사용하여 FairPlay로 암호화된 HLS를 배달하고 FairPlay 라이선스를 배달할 때 다음이 필요합니다.
 
-  * Egy Azure-fiók. További részletek: [Ingyenes Azure-próbafiók](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F).
-  * Egy Media Services-fiók. 하나를 만들려면 Azure Portal를 [사용 하 여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조 하세요.
-  * [Apple 개발 프로그램](https://developer.apple.com/)을 사용 하 여 등록 합니다.
-  * Apple에서는 콘텐츠 소유자가 [배포 패키지](https://developer.apple.com/contact/fps/)를 가져와야 합니다. Media Services를 사용 하 여 이미 KSM (키 보안 모듈)을 구현 했으며 최종 FPS 패키지를 요청 하 고 있음을 명시 합니다. 최종 FPS 패키지에는 인증을 생성 하 고 ASK (응용 프로그램 비밀 키)를 얻는 지침이 있습니다. ASK를 사용 하 여 FairPlay를 구성 합니다.
-  * Azure Media Services .NET SDK 버전 **3.6.0** 이상
+  * Azure 계정. 자세한 내용은 [Azure 무료 평가판](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)을 참조하세요.
+  * Media Services 계정. 계정을 만들려면 [Azure Portal을 사용하여 Azure Media Services 계정 만들기](media-services-portal-create-account.md)를 참조하세요.
+  * [Apple Development Program](https://developer.apple.com/)에 등록합니다.
+  * Apple에서는 [배포 패키지](https://developer.apple.com/contact/fps/)를 얻으려면 콘텐츠 소유자를 요구합니다. 이미 Media Services로 KSM(키 보안 모듈)을 구현했고 최종 FPS 패키지를 요청하고 있음을 명시합니다. 최종 FPS 패키지에는 인증을 생성하고 ASK(애플리케이션 비밀 키)를 얻기 위한 지침이 있습니다. ASK를 사용하여 FairPlay를 구성합니다.
+  * Azure Media Services .NET SDK 버전 **3.6.0** 이상.
 
-Media Services 키 배달 쪽에서 다음 항목을 설정 해야 합니다.
+Media Services 키 배달 쪽에서 다음 항목을 설정해야 합니다.
 
-  * **AC (앱 인증서)** : 개인 키가 포함 된 .pfx 파일입니다. 이 파일을 만들고 암호를 사용 하 여 암호화 합니다.
+  * **AC(앱 인증서)** : 프라이빗 키가 포함된 .pfx 파일입니다. 이 파일을 만들고 암호로 암호화합니다.
 
-       키 배달 정책을 구성 하는 경우 해당 암호와 .pfx 파일을 Base64 형식으로 제공 해야 합니다.
+       키 배달 정책을 구성할 때 해당 암호와 Base64 형식의 .pfx 파일을 제공해야 합니다.
 
-      다음 단계에서는 FairPlay에 대 한 .pfx 인증서 파일을 생성 하는 방법을 설명 합니다.
+      다음 단계에서는 FairPlay에 대한 .pfx 인증서 파일을 생성하는 방법을 설명합니다.
 
-    1. [https://slproweb.com/products/Win32OpenSSL.html](https://slproweb.com/products/Win32OpenSSL.html )에서 OpenSSL을 설치합니다.
+    1. https://slproweb.com/products/Win32OpenSSL.html에서 OpenSSL을 설치합니다.
 
-        Apple에서 제공 하는 FairPlay 인증서 및 기타 파일이 있는 폴더로 이동 합니다.
-    2. Futtassa az alábbi parancsot a parancssorból. 이렇게 하면 .cer 파일이 pem 파일로 변환 됩니다.
+        FairPlay 인증서 및 Apple에서 전달하는 다른 파일이 있는 폴더로 이동합니다.
+    2. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .cer 파일이 .pem 파일로 변환됩니다.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" x509-FairPlay-out Fairplay-out.pfx에 알립니다.
-    3. Futtassa az alábbi parancsot a parancssorból. 이렇게 하면 pem 파일이 개인 키를 사용 하 여 .pfx 파일로 변환 됩니다. 그런 다음 .pfx 파일의 암호는 OpenSSL에 의해 요청 됩니다.
+        "C:\OpenSSL-Win32\bin\openssl.exe" x509 -inform der -in FairPlay.cer -out FairPlay-out.pem
+    3. 명령줄에서 다음 명령을 실행합니다. 이렇게 하면 .pem 파일이 프라이빗 키가 있는 .pfx 파일로 변환됩니다. OpenSSL에서 .pfx 파일에 대한 암호를 묻습니다.
 
-        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12-Fairplay-out.pfx-passin file: privatekey-pem-pass.txt: file:입니다.
+        "C:\OpenSSL-Win32\bin\openssl.exe" pkcs12 -export -out FairPlay-out.pfx -inkey privatekey.pem -in FairPlay-out.pem -passin file:privatekey-pem-pass.txt
   * **앱 인증서 암호**: .pfx 파일을 만들기 위한 암호입니다.
-  * **앱 인증서 암호 ID**: 다른 Media Services 키를 업로드 하는 것과 비슷한 방식으로 암호를 업로드 해야 합니다. Media Services ID를 가져오려면 **Contentkeytype** 열거형 값을 사용 합니다. 키 배달 정책 옵션 내에서 사용 해야 합니다.
-  * **iv**: 임의의 값 16 바이트입니다. 자산 배달 정책의 iv와 일치 해야 합니다. Iv를 생성 하 고 두 위치 (자산 배달 정책 및 키 배달 정책 옵션)에 배치 합니다.
-  * **ASK**: Apple 개발자 포털을 사용 하 여 인증을 생성할 때이 키가 수신 됩니다. 각 개발 팀은 고유한 ASK를 받습니다. ASK의 복사본을 저장 하 고 안전한 장소에 저장 합니다. FairPlayAsk로 ASK를 나중에 Media Services 구성 해야 합니다.
-  * **ASK id**:이 id는 MEDIA SERVICES에 ask를 업로드할 때 가져옵니다. **Contentkeytype. FairPlayAsk** 열거형 값을 사용 하 여 ASK를 업로드 해야 합니다. 결과적으로 Media Services ID가 반환 되 고 키 배달 정책 옵션을 설정할 때 사용 해야 합니다.
+  * **앱 인증서 암호 ID**: 다른 Media Services 키를 업로드하는 방법과 비슷하게 암호를 업로드해야 합니다. **ContentKeyType.FairPlayPfxPassword** 열거형 값을 사용하여 Media Services ID를 가져옵니다. 이 ID는 키 배달 정책 옵션 내에서 사용해야 합니다.
+  * **iv**: 16바이트의 임의 값입니다. 자산 배달 정책의 iv와 일치해야 합니다. iv를 생성하여 두 위치, 즉 자산 배달 정책과 키 배달 정책 옵션에 배치합니다.
+  * **ASK**: 이 키는 Apple 개발자 포털을 사용하여 인증을 생성할 때 받습니다. 각 개발 팀에 고유한 ASK가 제공됩니다. ASK 복사본을 저장하고 안전한 장소에 보관합니다. 나중에 Media Services에 ASK를 FairPlayAsk로 구성해야 합니다.
+  * **ASK ID**: 이 ID는 Media Services에 ASK를 업로드할 때 얻습니다. **ContentKeyType.FairPlayAsk** 열거형 값을 사용하여 ASK를 업로드해야 합니다. 결과적으로 Media Services ID가 반환되고, 이 ID는 키 배달 정책 옵션을 설정할 때 사용해야 합니다.
 
-다음 작업은 FPS 클라이언트 쪽에서 설정 해야 합니다.
+FPS 클라이언트 쪽에서 다음을 설정해야 합니다.
 
-  * **AC (앱 인증서)** : 운영 체제에서 일부 페이로드를 암호화 하는 데 사용 하는 공개 키를 포함 하는 .cer/. m s d 파일입니다. 플레이어에 게 필요한 Media Services에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 개인 키를 사용 하 여 암호를 해독 합니다.
+  * **AC(앱 인증서)** : 운영 체제에서 일부 페이로드를 암호화하는 데 사용하는 공개 키가 포함된 .cer/.der 파일입니다. 플레이어에 필요하기 때문에 Media Services에서 이에 대해 알고 있어야 합니다. 키 배달 서비스는 해당 프라이빗 키를 사용하여 암호를 해독합니다.
 
-FairPlay 암호화 된 스트림을 재생 하려면 먼저 실제 ASK를 가져온 다음 실제 인증서를 생성 합니다. 이 프로세스에서는 세 부분으로 구성 됩니다.
+FairPlay 암호화된 스트림을 재생하려면 먼저 실제 ASK를 받은 다음 실제 인증서를 생성합니다. 이 프로세스에서는 다음 세 가지 요소를 모두 만듭니다.
 
-  * der 파일
+  * .der 파일
   * .pfx 파일
-  * .pfx에 대 한 암호
+  * .pfx에 대한 암호
 
-다음 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원 합니다. OS X, Apple TV, IOS의 Safari.
+OS X, Apple TV, iOS의 Safari 클라이언트는 **AES-128 CBC** 암호화로 HLS를 지원합니다.
 
 ## <a name="configure-fairplay-dynamic-encryption-and-license-delivery-services"></a>FairPlay 동적 암호화 및 라이선스 배달 서비스 구성
-다음은 Media Services 라이선스 배달 서비스를 사용 하 고 동적 암호화를 사용 하 여 FairPlay으로 자산을 보호 하는 일반적인 단계입니다.
+다음은 Media Services 라이선스 배달 서비스를 사용하고 동적 암호화도 사용하여 FairPlay로 자산을 보호하는 일반적인 단계입니다.
 
-1. Hozzon létre egy objektumot, és töltse fel bele a fájlokat.
-2. Kódolja a fájlt tartalmazó objektumot az adaptív sávszélességű MP4 típusú beállításkészlettel.
-3. Hozzon létre egy tartalomkulcsot, és társítsa a kódolt objektumhoz.  
-4. Konfigurálja a tartalomkulcs hitelesítési szabályzatát. 다음을 지정합니다.
+1. 자산을 만들고 이 자산에 파일을 업로드합니다.
+2. 파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
+3. 콘텐츠 키를 만들고 인코딩된 자산과 연결합니다.  
+4. 콘텐츠 키의 권한 부여 정책을 구성합니다. 다음을 지정합니다.
 
-   * 배달 방법 (이 경우 FairPlay)입니다.
-   * FairPlay 정책 옵션 구성 FairPlay를 구성 하는 방법에 대 한 자세한 내용은 아래 샘플의 **ConfigureFairPlayPolicyOptions ()** 메서드를 참조 하세요.
-
-     > [!NOTE]
-     > 일반적으로 FairPlay 정책 옵션은 한 번만 구성 하면 됩니다. 한 가지 인증 집합과 ASK가 있기 때문입니다.
-     >
-     >
-   * 제한 (개방형 또는 토큰).
-   * 키를 클라이언트에 배달 하는 방법을 정의 하는 키 배달 유형과 관련 된 정보입니다.
-5. 자산 배달 정책을 구성 합니다. 배달 정책 구성에는 다음이 포함 됩니다.
-
-   * 배달 프로토콜 (HLS)입니다.
-   * 동적 암호화 유형 (일반적인 CBC 암호화)입니다.
-   * 라이선스 취득 URL입니다.
+   * 배달 방법(이 경우 FairPlay)
+   * FairPlay 정책 옵션 구성 - FairPlay를 구성하는 방법에 대한 자세한 내용은 아래 샘플의 **ConfigureFairPlayPolicyOptions()** 메서드를 참조하세요.
 
      > [!NOTE]
-     > FairPlay 및 다른 DRM (Digital Rights Management) 시스템으로 암호화 된 스트림을 배달 하려면 별도의 배달 정책을 구성 해야 합니다.
-     >
-     > * IAssetDeliveryPolicy (CENC)를 사용 하 Common Encryption 여 HTTP (대시)를 통해 동적 적응 스트리밍을 구성 하는 한 가지 (CENC) (PlayReady + Widevto) 및 PlayReady로 부드러운 설정
-     > * HLS에 대 한 FairPlay를 구성 하는 다른 IAssetDeliveryPolicy
+     > 일반적으로 인증과 ASK 집합 하나만 있기 때문에 FairPlay 정책 옵션은 한 번만 구성하면 됩니다.
      >
      >
-6. Hozzon létre egy OnDemand-lokátort a streamelési URL-cím lekéréséhez.
+   * 제한(열기 또는 토큰).
+   * 키를 클라이언트에 배달하는 방법을 정의하는 키 배달 유형과 관련된 정보
+5. 자산 배달 정책을 구성합니다. 배달 정책 구성에는 다음이 포함됩니다.
 
-## <a name="use-fairplay-key-delivery-by-player-apps"></a>플레이어 앱에서 FairPlay 키 배달 사용
-IOS SDK를 사용 하 여 플레이어 앱을 개발할 수 있습니다. FairPlay 콘텐츠를 재생 하려면 라이선스 교환 프로토콜을 구현 해야 합니다. 이 프로토콜은 Apple에서 지정 되지 않았습니다. 키 배달 요청을 보내는 방법에는 각 앱이 있습니다. Media Services FairPlay 키 배달 서비스는 다음과 같은 형식으로 SPC를 www 형식 url 인코딩된 게시 메시지로 제공 합니다.
+   * 배달 프로토콜(HLS)
+   * 동적 암호화 형식(일반 CBC 암호화)
+   * 라이선스 획득 URL
+
+     > [!NOTE]
+     > FairPlay와 다른 DRM(디지털 권한 관리) 시스템으로 암호화되는 스트림을 배달하려면 다음과 같은 별도의 배달 정책을 구성해야 합니다.
+     >
+     > * 일반 암호화 (CENC) (PlayReady + Widevine)를 사용하여 DASH(Dynamic Adaptive Streaming over HTTP)를 구성하고, PlayReady를 사용하여 부드러운 스트리밍을 구성하는 하나의 IAssetDeliveryPolicy
+     > * HLS에 대한 FairPlay를 구성하기 위한 또 다른 IAssetDeliveryPolicy
+     >
+     >
+6. 스트리밍 URL을 얻기 위해 주문형 로케이터를 만듭니다.
+
+## <a name="use-fairplay-key-delivery-by-player-apps"></a>플레이어 앱별 FairPlay 키 배달 사용
+iOS SDK를 사용하여 플레이어 앱을 개발할 수 있습니다. FairPlay 콘텐츠를 재생하려면 라이선스 교환 프로토콜을 구현해야 합니다. Apple에서는 이 프로토콜을 지정하지 않습니다. 키 배달 요청을 전송하는 방법은 앱마다 다릅니다. Media Services FairPlay 키 배달 서비스에서는 SPC가 다음 형식의 www-form-url 인코딩된 게시 메시지로 도착해야 합니다.
 
     spc=<Base64 encoded SPC>
 
 > [!NOTE]
-> Azure Media Player FairPlay 재생을 지원 합니다. 자세한 내용은 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html) 를 참조 하세요.
+> Azure Media Player는 FairPlay 재생을 지원합니다. 자세한 정보는 [Azure Media Player 설명서](https://amp.azure.net/libs/amp/latest/docs/index.html)를 참조하세요.
 >
 >
 
-## <a name="streaming-urls"></a>스트리밍 Url
-자산이 둘 이상의 DRM으로 암호화 된 경우 스트리밍 URL에서 암호화 태그를 사용 해야 합니다. (format = l3u8-aapl ', encryption = ' xxx ').
+## <a name="streaming-urls"></a>스트리밍 URL
+자산이 하나 이상의 DRM으로 암호화되어 있는 경우 스트리밍 URL에서 암호화 태그를 사용해야 합니다(형식='m3u8-aapl', 암호화='xxx').
 
-A következő szempontokat kell figyelembe venni:
+고려 사항은 다음과 같습니다.
 
-* 0 또는 1 개의 암호화 유형만 지정할 수 있습니다.
-* 자산에 암호화를 하나만 적용 한 경우 URL에 암호화 유형을 지정할 필요가 없습니다.
-* 암호화 유형은 대/소문자를 구분 하지 않습니다.
-* 다음 암호화 유형을 지정할 수 있습니다.  
-  * **cenc**: 일반 암호화 (PlayReady 또는 widevto)
+* 1개 이하의 암호화 형식만 지정할 수 있습니다.
+* 하나의 암호화만 자산에 적용되었으면 URL에 암호화 형식을 지정할 필요가 없습니다.
+* 암호화 형식은 대/소문자를 구분하지 않습니다.
+* 다음과 같은 암호화 형식을 지정할 수 있습니다.  
+  * **cenc**: 일반 암호화(PlayReady 또는 Widevine)
   * **cbcs-aapl**: FairPlay
   * **cbc**: AES 봉투 암호화
 
-## <a name="create-and-configure-a-visual-studio-project"></a>Egy Visual Studio-projekt létrehozása és konfigurálása
+## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. Állítsa be a fejlesztési környezetet, és töltse fel az app.config fájlt a kapcsolatadatokkal a [.NET-keretrendszerrel történő Media Services-fejlesztést](media-services-dotnet-how-to-use.md) ismertető dokumentumban leírtak szerint. 
-2. Adja hozzá a következő elemeket az app.config fájlban megadott **appSettings** szakaszhoz:
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
+2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>Példa
+## <a name="example"></a>예제
 
-다음 샘플에서는 Media Services를 사용 하 여 FairPlay로 암호화 된 콘텐츠를 배달 하는 기능을 보여 줍니다. 이 기능은 .NET 용 Azure Media Services SDK 버전 3.6.0에서 도입 되었습니다. 
+다음 샘플에서는 Media Services를 사용하여 FairPlay로 암호화된 콘텐츠를 배달하는 기능을 보여 줍니다. 이 기능은 .NET 버전 3.6.0용 Azure Media Services SDK에서 도입되었습니다. 
 
-Írja felül a Program.cs fájlban található kódot az itt látható kóddal.
+Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
 
 >[!NOTE]
->A különböző AMS-szabályzatok (például a Locator vagy a ContentKeyAuthorizationPolicy) esetében a korlát 1 000 000 szabályzat. Ha mindig ugyanazokat a napokat/hozzáférési engedélyeket használja (például olyan keresők szabályzatait, amelyek hosszú ideig érvényben maradnak, vagyis nem feltöltött szabályzatokat), a szabályzatazonosítónak is ugyanannak kell lennie. További információkért tekintse meg [ezt](media-services-dotnet-manage-entities.md#limit-access-policies) a cikket.
+>다른 AMS 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)은 1,000,000개의 정책으로 제한됩니다. 항상 같은 날짜/액세스 권한을 사용하는 경우(예: 비 업로드 정책처럼 오랫동안 배치되는 로케이터에 대한 정책) 동일한 정책 ID를 사용해야 합니다. 자세한 내용은 [이](media-services-dotnet-manage-entities.md#limit-access-policies) 문서를 참조하세요.
 
-Módosítsa úgy a változókat, hogy a bemeneti fájlok tárolásához Ön által használt mappákra mutassanak.
+입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
 ```csharp
 using System;
@@ -555,12 +555,12 @@ namespace DynamicEncryptionWithFairPlay
 }
 ```
 
-## <a name="additional-notes"></a>További megjegyzések
+## <a name="additional-notes"></a>추가적인 참고 사항
 
-* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="next-steps-media-services-learning-paths"></a>Következő lépések: Media Services képzési tervek
+## <a name="next-steps-media-services-learning-paths"></a>다음 단계: Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Visszajelzés küldése
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]

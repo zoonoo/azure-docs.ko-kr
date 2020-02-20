@@ -30,7 +30,7 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 먼저,이 가상 네트워크에는 요새가 구성 된 가상 네트워크 내에서 랩 가상 머신을 만들어야 합니다. AzureBastionSubnet가 아닌, 만든 두 번째 **서브넷** 을 선택 합니다. **고급 설정** 탭으로 이동 하 여 가상 컴퓨터를 만드는 동안 가상 네트워크를 선택할 수 있습니다.
 
-![Virtuális gép létrehozása](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
+![가상 머신 만들기](./media/connect-virtual-machine-through-browser/create-virtual-machine.png)
 
 ## <a name="launch-virtual-machine-in-a-browser"></a>브라우저에서 가상 컴퓨터 시작
 
@@ -38,6 +38,6 @@ DevTest Labs는 브라우저를 통해 가상 컴퓨터에 연결할 수 있도�
 
 ![브라우저에서 시작](./media/connect-virtual-machine-through-browser/browser-connect.png)
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 [Azure DevTest Labs에서 랩에 VM 추가](devtest-lab-add-vm.md)

@@ -24,5 +24,5 @@ Citus (Hyperscale) 호스팅 형식을 사용 하면 Azure Database for PostgreS
 
 각 쿼리에 대해 코디네이터는 필요한 데이터가 단일 노드 또는 여러 노드에 있는지 여부에 따라 단일 작업자 노드로 라우팅하거나 여러 노드에 걸쳐 병렬화합니다. 코디네이터는 메타 데이터 테이블을 참조하여 어떻게 처리할지 결정합니다. 이러한 테이블은 DNS 이름 및 작업자 노드 상태, 노드 간의 데이터 분포를 추적합니다.
 
-## <a name="next-steps"></a>Következő lépések
-- 노드가 [분산 데이터](concepts-hyperscale-distributed-data.md)를 저장하는 방법에 대해 알아봅니다.
+## <a name="next-steps"></a>다음 단계
+- 노드가 [분산 데이터](concepts-hyperscale-distributed-data.md) 를 저장 하는 방법 알아보기

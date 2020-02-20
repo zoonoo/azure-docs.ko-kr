@@ -1,6 +1,6 @@
 ---
-title: PlayReady és/vagy Widevine Dynamic Common Encryption használata | Microsoft Docs
-description: Az Azure Media Services segítségével MPEG-DASH, Smooth Streaming vagy HTTP Live Streaming (HLS) típusú streamjeit Microsoft PlayReady DRM-védelemmel láthatja el. A rendszert Widevine DRM-védelemmel ellátott DASH-továbbításra is használhatja. Ez a témakör bemutatja, hogyan állíthat be dinamikus titkosítást a PlayReady vagy a Widevine DRM segítségével.
+title: PlayReady 및/또는 Widevine 동적 일반 암호화 사용 | Microsoft Docs
+description: Azure Media Services를 사용하여 Microsoft PlayReady DRM으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 HLS(HTTP-Live-Streaming) 스트림을 배달할 수 있습니다. 또한 이를 사용하여 Widevine DRM으로 암호화된 DASH를 배달할 수도 있습니다. 이 항목에서는 PlayReady 및 Widevine DRM으로 동적으로 암호화하는 방법을 보여 줍니다.
 services: media-services
 documentationcenter: ''
 author: juliako
@@ -21,114 +21,114 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74968632"
 ---
-# <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady és/vagy Widevine Dynamic Common Encryption használata
+# <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady 및/또는 Widevine 동적 일반 암호화 사용
 
 > [!NOTE]
-> Az oktatóanyag elvégzéséhez egy Azure-fiókra lesz szüksége. További információkért lásd: [Ingyenes Azure-fiók létrehozása](https://azure.microsoft.com/pricing/free-trial/).   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>Próbálja ki a legújabb verziót, ami a [Media Services v3](https://docs.microsoft.com/azure/media-services/latest/). 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> 이 자습서를 완료하려면 Azure 계정이 필요합니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.   > 새 기능이 나 기능이 Media Services v2에 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 >   
 
-## <a name="overview"></a>Áttekintés
+## <a name="overview"></a>개요
 
- A Media Services segítségével MPEG-DASH, Smooth Streaming vagy HTTP Live Streaming (HLS) típusú streamjeit [PlayReady DRM- (digitális jogkezelési)](https://www.microsoft.com/playready/overview/) védelemmel láthatja el. Ezenfelül titkosított DASH-streameket is továbbíthat Widevine DRM-licencek segítségével. Mind a PlayReady, mind a Widevine titkosítása a Common Encryption (ISO/IEC 23001-7 CENC) szabvány specifikációi szerint történik. Az AssetDeliveryConfiguration Widevine használatára történő beállításához használja a [Media Services .NET SDK-t](https://www.nuget.org/packages/windowsazure.mediaservices/) (a 3.5.1-es vagy egy újabb verziót), vagy a REST API-t.
+ Media Services를 사용하여 [PlayReady DRM(디지털 권한 관리)](https://www.microsoft.com/playready/overview/)으로 보호되는 MPEG-DASH, 부드러운 스트리밍 및 HLS(HTTP Live Streaming) 스트림을 배달할 수 있습니다. 또한 Widevine DRM 라이선스로 암호화된 DASH 스트림을 배달할 수도 있습니다. PlayReady와 Widevine은 모두 일반 암호화(ISO/IEC 23001-7 CENC) 사양에 따라 암호화됩니다. [Media Services .NET SDK](https://www.nuget.org/packages/windowsazure.mediaservices/)(버전 3.5.1 이상) 또는 REST API를 통해 Widevine을 사용하도록 AssetDeliveryConfiguration을 구성할 수 있습니다.
 
-A Media Services része egy szolgáltatás, amelynek segítségével PlayReady vagy Widevine DRM-licenceket továbbíthat. A Media Services ezenfelül API-kat is tartalmaz, amelyek segítségével beállíthatja azokat a jogokat és korlátozásokat, amelyeket szeretne betartatni a PlayReady vagy a Widevine DRM-futtatókörnyezettel, amikor egy felhasználó védett tartalmakat játszik le. Amikor a felhasználók DRM-védelemmel rendelkező tartalmat kérnek, a lejátszóalkalmazás licencet kér a Media Services licencelési szolgáltatástól. Ha a lejátszóalkalmazás hitelesítve van, a Media Services licencelési szolgáltatás kiadja a licencet. A PlayReady- vagy Widevine-licencek tartalmazzák a feloldási kulcsot, amelynek segítségével az ügyféllejátszó képes feloldani a titkosítást, majd streamelni a kért tartalmakat.
+Media Services는 PlayReady와 Widevine DRM 라이선스를 제공하는 서비스를 제공합니다. 또한 Media Services는 사용자가 보호된 콘텐츠를 재생할 때 PlayReady 또는 Widevine DRM 런타임에서 적용할 권한 및 제한을 구성하는 데 사용할 수 있는 API를 제공합니다. 사용자가 DRM으로 보호된 콘텐츠를 요청하면 플레이어 애플리케이션이 Media Services 라이선스 서비스에서 라이선스를 요청합니다. 플레이어 애플리케이션에 권한이 있으면 Media Services 라이선스 서비스에서 플레이어에 라이선스를 발급합니다. PlayReady 또는 Widevine 라이선스에는 클라이언트 플레이어가 콘텐츠를 해독하고 스트림하는 데 사용할 수 있는 해독 키가 들어 있습니다.
 
-A Widevine-licencek biztosításához a következő AMS-partnereket is használhatja: 
+또한 다음 Media Services 파트너를 사용하여 Widevine 라이선스를 제공할 수 있습니다. 
 
 * [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
-További információkért lásd az integrációt az [Axinom](media-services-axinom-integration.md) és a [castLabs](media-services-castlabs-integration.md) rendszerrel.
+자세한 내용은 [Axinom](media-services-axinom-integration.md) 및 [castLabs](media-services-castlabs-integration.md)와의 통합을 참조하세요.
 
-A Media Services szolgáltatásban több különböző módot is beállíthat, amelyek segítségével a rendszer hitelesítheti a kulcskérelmet küldő felhasználókat. A tartalomkulcs-hitelesítési szabályzat egy vagy több hitelesítési korlátozást tartalmazhat: ezek lehetnek nyitott vagy jogkivonat-korlátozások is. A jogkivonattal korlátozott szabályzatokat a biztonsági jogkivonatokkal kapcsolatos szolgáltatás (STS) által kiadott jogkivonatnak kell kísérnie. A Media Services a [Simple Web Tokens](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) (SWT) és a [JSON Web Token](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) (JWT) formátumú jogkivonatokat támogatja. 
+Media Services는 키를 요청 하는 사용자에 권한을 부여하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책에는 하나 이상의 권한 부여 제한(열기 또는 토큰 제한)이 있을 수 있습니다. 토큰 제한 정책에는 STS(보안 토큰 서비스)에서 발급한 토큰이 수반되어야 합니다. Media Services는 [SWT(단순 웹 토큰)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_2) 형식 및 [JWT(JSON Web Token)](https://msdn.microsoft.com/library/gg185950.aspx#BKMK_3) 형식의 토큰을 지원합니다. 
 
-További információkért tekintse át [a tartalomkulcs hitelesítési szabályzatának konfigurálásával](media-services-protect-with-aes128.md#configure_key_auth_policy) foglalkozó témakört.
+자세한 내용은 [콘텐츠 키의 권한 부여 정책 구성](media-services-protect-with-aes128.md#configure_key_auth_policy)을 참조하세요.
 
-A dinamikus titkosítás által nyújtott előnyök kihasználásához többszörös sávszélességű MP4-fájlokat vagy Smooth Streaming-forrásfájlokat tartalmazó objektumra van szükség. Ezenfelül be kell állítania az objektumhoz tartozó továbbítási szabályzatokat is (ennek módját a témakör későbbi részében írjuk le). Ezt követően az igényalapú streamelési kiszolgáló a streamelési URL-címben megadott formátumnak megfelelően gondoskodik arról, hogy a rendszer a kiválasztott protokollal továbbítsa a streamet. Ennek eredményeképpen csak egyetlen tárolási formátumban tárolja a fájlokat és fizet a tárolásukért. A Media Services elkészíti és kiszolgálja az ügyféltől érkező kéréseknek megfelelő HTTP-választ.
+동적 암호화를 이용하려면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산이 필요합니다. 또한 자산의 배달 정책을 구성해야 합니다(이 항목의 뒷부분에서 설명). 그런 다음 스트리밍 URL에 지정된 형식에 따라 주문형 스트리밍 서버는 사용자가 선택한 프로토콜로 스트림이 배달되도록 합니다. 따라서 단일 스토리지 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 각 요청에 따라 적절한 HTTP 응답을 작성하고 제공합니다.
 
-Ez a cikk azon fejlesztők számára lehet hasznos, akik többféle DRM-mel (például PlayReadyvel és Widevine-nal) védett médiafájlok továbbításával foglalkoznak. A cikk ismerteti, hogyan konfigurálhatja a PlayReady-licenctovábbítási szolgáltatásra vonatkozó szabályzatokat úgy, hogy csak az arra jogosult ügyfelek kaphassák meg a PlayReady- és Widevine-licenceket. Ezenfelül azt is bemutatja, hogyan használja a dinamikus titkosítás funkciót a PlayReady vagy a Widevine DRM-mel a DASH-en keresztül.
+이 문서는 PlayReady 및 Widevine과 같이 여러 DRM으로 보호된 미디어를 제공하는 애플리케이션에서 작업하는 개발자에게 유용합니다. 이 문서에서는 권한이 있는 클라이언트만 PlayReady 또는 Widevine 라이선스를 받을 수 있도록 권한 부여 정책을 사용하여 PlayReady 라이선스 배달 서비스를 구성하는 방법을 보여 줍니다. 또한 DASH에 대해 PlayReady 또는 Widevine DRM으로 동적 암호화를 사용하는 방법을 보여줍니다.
 
 >[!NOTE]
->A Media Services-fiók létrehozásakor a rendszer hozzáad egy alapértelmezett streamvégpontot a fiókhoz Leállítva állapotban. A tartalom streamelésének megkezdéséhez, valamint a dinamikus csomagolás és a dinamikus titkosítás kihasználásához a tartalomstreameléshez használt streamvégpontnak Fut állapotban kell lennie. 
+>Azure Media Services 계정이 만들어지면 기본 스트리밍 엔드포인트가 “중지됨” 상태에 있는 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면, 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 "실행 중" 상태에 있어야 합니다. 
 
-## <a name="download-the-sample"></a>A minta letöltése
-A cikkben leírt mintát a [GitHub Azure-mintái](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm) közül töltheti le.
+## <a name="download-the-sample"></a>샘플 다운로드
+이 문서에서 설명하는 샘플은 [GitHub의 Azure 샘플](https://github.com/Azure-Samples/media-services-dotnet-dynamic-encryption-with-drm)에서 다운로드할 수 있습니다.
 
-## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>A Dynamic Common Encryption és a DRM-licenctovábbítási szolgáltatások konfigurálása
+## <a name="configure-dynamic-common-encryption-and-drm-license-delivery-services"></a>동적 일반 암호화 및 DRM 라이선스 배달 서비스 구성
 
-Hajtsa végre az alábbi általános lépéseket, amikor PlayReady-védelemmel látja el az objektumait a Media Services licenctovábbítási szolgáltatása, valamint a dinamikus titkosítás használata mellett:
+Media Services 라이선스 배달 서비스를 사용하거나 동적 암호화도 사용하여 PlayReady로 자산을 보호하는 경우 다음 일반 단계를 수행합니다.
 
-1. Hozzon létre egy objektumot, és töltse fel bele a fájlokat.
+1. 자산을 만들고 이 자산에 파일을 업로드합니다.
 
-2. Kódolja a fájlt tartalmazó objektumot az adaptív sávszélességű MP4 típusú beállításkészlettel.
+2. 파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
 
-3. Hozzon létre egy tartalomkulcsot, és társítsa a kódolt objektumhoz. A Media Services szolgáltatásban a tartalomkulcs tartalmazza az objektum titkosítási kulcsát.
+3. 콘텐츠 키를 만들고 인코딩된 자산과 연결합니다. Media Services에서 콘텐츠 키에는 자산의 암호화 키가 들어 있습니다.
 
-4. Konfigurálja a tartalomkulcs engedélyezési házirendjét. Konfigurálnia kell a tartalomkulcs hitelesítési szabályzatát. Az ügyfélnek meg kell felelnie a szabályzatnak, mielőtt megkapná a tartalomkulcsot.
+4. 콘텐츠 키의 인증 정책을 구성합니다. 콘텐츠 키 인증 정책을 구성해야 합니다. 콘텐츠 키가 클라이언트에 배달되려면 먼저 클라이언트에서 정책을 충족해야 합니다.
 
-    A tartalomkulcs hitelesítési szabályzatának létrehozásához be kell állítania a továbbítási módszert (PlayReady vagy Widevine) és a korlátozásokat (nyitott vagy jogkivonat). Meg kell adnia azokat az információkat is, amelyek azt határozzák meg, hogy a rendszer hogyan továbbítja a kulcsot az ügyfélnek ([PlayReady-](media-services-playready-license-template-overview.md) vagy [Widevine-](media-services-widevine-license-template-overview.md)licencsablon).
+    콘텐츠 키 인증 정책을 만드는 경우 배달 방법(PlayReady 또는 Widevine) 및 제한(열기 또는 토큰)을 지정해야 합니다. 또한 키가 클라이언트에 배달되는 방식([PlayReady](media-services-playready-license-template-overview.md) 또는 [Widevine](media-services-widevine-license-template-overview.md) 라이선스 템플릿)을 정의하는 키 배달 유형과 관련된 정보를 지정해야 합니다.
 
-5. Konfigurálja az objektum továbbítási szabályzatát. A továbbítási szabályzat konfigurációjának részét képezi a továbbítási protokoll (például MPEG-DASH, HLS, Smooth Streaming vagy ezek mindegyike). A konfigurációnak a dinamikus titkosítás típusa (pl. Common Encryption) és a PlayReady- vagy Widevine-licenckérési URL-cím is a részét képezi.
+5. 자산에 대한 배달 정책을 구성합니다. 배달 정책 구성에는 배달 프로토콜(예: MPEG-DASH, HLS, 부드러운 스트리밍 또는 모두)이 포함됩니다. 또한 구성에는 동적 암호화 종류(예: 일반 암호화)과 PlayReady 또는 Widevine 라이선스 취득 URL도 포함됩니다.
 
-    Egy adott objektum különböző protokolljaira eltérő szabályzatokat is alkalmazhat. Beállíthatja például, hogy a PlayReady-titkosítás csak a Smooth/DASH-re vonatkozzon, az AES Envelope pedig csak a HLS-re. A továbbítási szabályzatban meg nem határozott protokollok streameléshez való használatát a rendszer nem engedélyezi (ilyen eset lehet például, ha csupán egyetlen szabályzatot állít be, amely kizárólag a HLS-protokoll használatát tartalmazza). Kivételt jelent, ha egyáltalán nem állít be objektumtovábbítási szabályzatot. Ebben az esetben a rendszer az összes protokollt engedélyezi.
+    동일한 자산의 각 프로토콜에 다른 정책을 적용할 수 있습니다. 예를 들어 PlayReady 암호화는 Smooth/DASH에 적용하고, AES 봉투(envelope)는 HLS에 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정한 단일 정책을 추가하는 경우)은 스트리밍에서 차단됩니다. 자산 배달 정책이 전혀 정의되어 있지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
-6. Hozzon létre egy OnDemand-lokátort a streamelési URL-cím lekéréséhez.
+6. 스트리밍 URL을 얻기 위해 주문형 로케이터를 만듭니다.
 
-A cikk végén egy teljes .NET-példát talál.
+이 문서의 끝부분에서 전체 .NET 예제가 나와 있습니다.
 
-Az alábbi képen az előzőekben leírt munkafolyamatot láthatja. Itt jogkivonatos hitelesítést használtuk.
+다음 이미지에서는 앞에서 설명한 워크플로를 보여 줍니다. 여기서는 인증에 토큰을 사용합니다.
 
-![Védelem biztosítása a PlayReadyvel](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
+![PlayReady로 보호](media/media-services-content-protection-overview/media-services-content-protection-with-drm.png)
 
-A cikk további részében részletes magyarázatokat, kódmintákat és olyan témakörökre mutató hivatkozásokat talál, amelyek segítenek elérni az előzőekben ismertetett célokat.
+이 문서의 나머지 부분에서는 앞에서 설명한 작업을 수행하는 방법을 보여 주는 자세한 설명, 코드 예제 및 항목에 대한 링크를 제공합니다.
 
-## <a name="current-limitations"></a>Aktuális korlátozások
-Objektumtovábbítási szabályzat hozzáadásakor vagy módosításakor törölnie kell minden ahhoz tartozó lokátort, majd létre kell hoznia egy új lokátort.
+## <a name="current-limitations"></a>현재 제한 사항
+자산 배달 정책을 추가하거나 업데이트하는 경우 연결된 모든 로케이터를 삭제하고 새 로케이터를 만들어야 합니다.
 
-Jelenleg több tartalomkulcs nem támogatott, ha Widevine-nal és a Media Services segítségével végzi a titkosítást. 
+현재 Media Services에서 Widevine을 사용하여 암호화하는 경우 여러 콘텐츠 키가 지원되지 않습니다. 
 
-## <a name="create-an-asset-and-upload-files-into-the-asset"></a>Objektum létrehozása, majd fájlok feltöltése az objektumba
-A videók kezeléséhez, kódolásához és streameléséhez először fel kell töltenie tartalmait a Media Services szolgáltatásba. A feltöltést követően tartalmai a biztonságos felhőtárhelyre kerülnek további feldolgozás és streamelés céljából.
+## <a name="create-an-asset-and-upload-files-into-the-asset"></a>자산 만들기 및 파일을 자산에 업로드
+비디오를 관리, 인코딩 및 스트리밍하려면 먼저 콘텐츠를 Media Services에 업로드해야 합니다. 업로드되면 이후의 처리 및 스트리밍을 위해 콘텐츠가 클라우드에 안전하게 저장됩니다.
 
-További információkért tekintse át a [fájlok Media Services-fiókba történő feltöltésével](media-services-dotnet-upload-files.md) foglalkozó témakört.
+자세한 내용은 [Media Services 계정에 파일 업로드](media-services-dotnet-upload-files.md)를 참조하세요.
 
-## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a>A fájlt tartalmazó objektum kódolása az adaptív sávszélességű, MP4 típusú beállításkészlettel
-A dinamikus titkosítás segítségével egy többszörös sávszélességű MP4-fájlokat vagy Smooth Streaming-forrásfájlokat tartalmazó objektumot hoz létre. Ezt követően az igényalapú streamelési kiszolgáló a jegyzékfájlban és a töredékkérésben megadott formátumnak megfelelően gondoskodik arról, hogy a rendszer a kiválasztott protokollal biztosítsa Önnek a streamet. Ennek eredményeképpen csak egyetlen tárolási formátumban tárolja a fájlokat és fizet a tárolásukért. A Media Services összeállítja és kiszolgálja az ügyféltől érkező kéréseknek megfelelő választ. További információkért olvassa át [a dinamikus becsomagolást áttekintő](media-services-dynamic-packaging-overview.md) témakört.
+## <a name="encode-the-asset-that-contains-the-file-to-the-adaptive-bitrate-mp4-set"></a>파일이 포함된 자산을 적응 비트 전송률 MP4 집합으로 인코딩합니다.
+동적 암호화를 사용하면 다중 비트 전송률 MP4 파일 또는 다중 비트 전송률 부드러운 스트리밍 원본 파일의 집합이 포함된 자산을 만들 수 있습니다. 다음으로 매니페스트 또는 조각 요청의 지정된 형식에 따라 주문형 스트리밍 서버는 선택한 프로토콜에서 스트림을 받을 수 있도록 합니다. 그런 다음 단일 스토리지 형식으로만 파일을 저장하고 이에 대한 비용을 지불합니다. Media Services는 클라이언트의 요청에 따라 적절한 응답을 작성하고 제공합니다. 자세한 내용은 [동적 패키징 개요](media-services-dynamic-packaging-overview.md)를 참조하세요.
 
-A kódolással kapcsolatos utasításokért lásd: [Objektum kódolása a Media Encoder Standard használatával](media-services-dotnet-encode-with-media-encoder-standard.md).
+인코딩하는 방법에 관한 지침은 [Media Encoder Standard으로 자산 인코딩](media-services-dotnet-encode-with-media-encoder-standard.md)을 참조하세요.
 
-## <a id="create_contentkey"></a>Tartalomkulcs létrehozása és társítása a kódolt objektumhoz
-A Media Services szolgáltatásban a tartalomkulcs tartalmazza az objektum titkosítására használható kulcsot.
+## <a id="create_contentkey"></a>콘텐츠 키를 만들어 인코딩된 자산에 연결
+Media Services에서 콘텐츠 키에는 자산을 암호화할 키가 들어 있습니다.
 
-További információkat a [tartalomkulcs létrehozásával](media-services-dotnet-create-contentkey.md) foglalkozó témakör tartalmaz.
+자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md)를 참조하세요.
 
-## <a id="configure_key_auth_policy"></a>A tartalomkulcs hitelesítési szabályzatának konfigurálása
-A Media Services szolgáltatásban több különböző módot is beállíthat, amelynek segítségével a rendszer hitelesítheti a kulcskérelmet küldő felhasználókat. Konfigurálnia kell a tartalomkulcs hitelesítési szabályzatát. Az ügyfélnek (lejátszó) meg kell felelnie a szabályzatnak, mielőtt megkapná a kulcsot. A tartalomkulcs-hitelesítési szabályzat egy vagy több hitelesítési korlátozást tartalmazhat: ezek lehetnek nyitott vagy jogkivonat-korlátozások is.
+## <a id="configure_key_auth_policy"></a>콘텐츠 키의 인증 정책 구성
+Media Services는 키를 요청 하는 사용자를 인증 하는 여러 방법을 지원합니다. 콘텐츠 키 인증 정책을 구성해야 합니다. 키가 클라이언트에 배달되려면 먼저 클라이언트(플레이어)에서 정책을 충족해야 합니다. 콘텐츠 키 인증 정책에는 하나 이상의 권한 부여 제한(열기 또는 토큰 제한)이 있을 수 있습니다.
 
-További információkért lásd a [tartalomkulcs-hitelesítési szabályzat konfigurálásával](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption) foglalkozó témakört.
+자세한 내용은 [콘텐츠 키 인증 정책 구성](media-services-dotnet-configure-content-key-auth-policy.md#playready-dynamic-encryption)을 참조하세요.
 
-## <a id="configure_asset_delivery_policy"></a>Objektumtovábbítási szabályzat konfigurálása
-Konfigurálja az objektum továbbítási szabályzatát. Az objektumtovábbítási szabályzat konfigurálásához többek között az alábbiak tartoznak:
+## <a id="configure_asset_delivery_policy"></a>자산 배달 정책 구성
+자산에 대한 배달 정책을 구성합니다. 자산 배달 정책 구성에 포함되는 몇 가지 항목은 다음과 같습니다.
 
-* A DRM-licenckérési URL-cím.
-* Az objektumtovábbítási protokoll (például MPEG-DASH, HLS, Smooth Streaming vagy ezek mindegyike).
-* A dinamikus titkosítás típusa (ebben az esetben Common Encrpytion).
+* DRM 라이선스 획득 URL.
+* 자산 배달 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)
+* 동적 암호화 형식(이 경우 일반 암호화)
 
-További információkat lásd az [objektumtovábbítási szabályzat konfigurálását](media-services-dotnet-configure-asset-delivery-policy.md) ismertető témakörben.
+자세한 내용은 [자산 배달 정책 구성](media-services-dotnet-configure-asset-delivery-policy.md)을 참조하세요.
 
-## <a id="create_locator"></a>OnDemand-lokátor létrehozása a streamelési URL-cím lekéréséhez
-A felhasználók rendelkezésére kell bocsátania a Smooth Streaming, a DASH vagy a HLS streamelési URL-címét.
+## <a id="create_locator"></a>스트리밍 URL을 얻기 위해 주문형 스트리밍 로케이터 만들기
+사용자에게 부드러운 스트리밍, DASH 또는 HLS에 대한 스트리밍 URL을 제공해야 합니다.
 
 > [!NOTE]
-> Az objektumhoz tartozó továbbítási szabályzat hozzáadásakor vagy módosításakor törölnie kell minden meglévő lokátort, majd létre kell hoznia egy újat.
+> 자산 배달 정책을 추가하거나 업데이트하는 경우, 기존 로케이터를 삭제하고 새 로케이터를 만들어야 합니다.
 >
 >
 
-További információk az objektumok közzétételéről és a streamelési URL-cím létrehozásáról: [Build a streaming URL](media-services-deliver-streaming-content.md) (Streamelési URL-cím létrehozása).
+자산을 게시하고 스트리밍 URL을 작성하는 방법은 [스트리밍 URL 작성](media-services-deliver-streaming-content.md)을 참조하세요.
 
-## <a name="get-a-test-token"></a>Tesztjogkivonat lekérése
-Kérje le a kulcshitelesítési szabályzatban használt jogkivonat-korlátozásoknak megfelelő tesztjogkivonatot.
+## <a name="get-a-test-token"></a>테스트 토큰 가져오기
+키 권한 부여 정책에 사용된 토큰 제한에 따라 테스트 토큰을 가져옵니다.
 
 ```csharp
 // Deserializes a string containing an XML representation of a TokenRestrictionTemplate
@@ -143,31 +143,31 @@ string testToken = TokenRestrictionTemplateSerializer.GenerateTestToken(tokenTem
 Console.WriteLine("The authorization token is:\nBearer {0}", testToken);
 ```
 
-A stream kipróbálásához használja az [Azure Media Services-lejátszót](https://aka.ms/azuremediaplayer).
+[Azure Media Services 플레이어](https://aka.ms/azuremediaplayer)를 사용하여 스트림을 테스트할 수 있습니다.
 
-## <a name="create-and-configure-a-visual-studio-project"></a>Egy Visual Studio-projekt létrehozása és konfigurálása
+## <a name="create-and-configure-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기 및 구성
 
-1. Állítsa be a fejlesztési környezetet, és töltse fel az app.config fájlt a kapcsolatadatokkal a [.NET-keretrendszerrel történő Media Services-fejlesztést](media-services-dotnet-how-to-use.md) ismertető dokumentumban leírtak szerint.
+1. 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다.
 
-2. Adja hozzá a következő elemeket az app.config fájlban megadott **appSettings** szakaszhoz:
+2. 다음 요소를 app.config 파일에 정의된 **appSettings**에 추가합니다.
 
     ```xml
     <add key="Issuer" value="http://testissuer.com"/>
     <add key="Audience" value="urn:test"/>
     ```
 
-## <a name="example"></a>Példa
+## <a name="example"></a>예제
 
-Az alábbi mintában azokat a funkciókat mutatjuk be, amelyek a Media Services SDK for .NET 3.5.2-es verziójában kerültek bevezetésre. (Kifejezetten azt a funkciót, amellyel meghatározható egy Widevine-licencsablon, majd a Widevine-licenc lekérhető a Media Services szolgáltatásból.)
+다음 샘플에서는 .NET용 Media Services SDK 버전 3.5.2에 도입된 기능을 보여 줍니다. (특히 Widevine 라이선스 템플릿을 정의하고 Media Services에서 Widevine 라이선스를 요청할 수 있는 기능이 포함되어 있습니다.)
 
-Írja felül a Program.cs fájlban található kódot az itt látható kóddal.
+Program.cs 파일에 있는 코드를 이 섹션에 나와 있는 코드로 덮어씁니다.
 
 >[!NOTE]
->A különböző Media Services-szabályzatok (például a Locator vagy a ContentKeyAuthorizationPolicy) esetében a korlát 1 millió szabályzat. Ha mindig ugyanazokat a napokat/hozzáférési engedélyeket használja, a szabályzatazonosítónak is ugyanannak kell lennie. Például szolgálnak erre az olyan keresők szabályzatai, amelyek hosszú ideig érvényben maradnak (nem feltöltött szabályzatok). 
+>다양한 Media Services 정책(예: 로케이터 정책 또는 ContentKeyAuthorizationPolicy의 경우)에 대해 1백만 개 정책으로 제한됩니다. 항상 동일한 요일/액세스 권한을 사용하는 경우 동일한 정책 ID를 사용합니다. 예를 들어 오랜 시간 동안 유지하려는 로케이터에 대한 정책(비업로드 정책)이 있습니다. 
 
-További információ: [Objektumok és kapcsolódó entitások felügyelete a Media Services .NET SDK-val](media-services-dotnet-manage-entities.md#limit-access-policies).
+자세한 내용은 [Media Services .NET SDK를 사용하여 자산 및 관련 엔터티 관리](media-services-dotnet-manage-entities.md#limit-access-policies)를 참조하세요.
 
-Módosítsa úgy a változókat, hogy a bemeneti fájlok tárolásához Ön által használt mappákra mutassanak.
+입력 파일이 있는 폴더를 가리키도록 변수를 업데이트해야 합니다.
 
 ```csharp
 using System;
@@ -605,21 +605,21 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="additional-notes"></a>További megjegyzések
+## <a name="additional-notes"></a>추가적인 참고 사항
 
-* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Visszajelzés küldése
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>Lásd még:
+## <a name="see-also"></a>참고 항목
 
-* [CENC használata többszörös DRM-mel és hozzáférés-vezérléssel](media-services-cenc-with-multidrm-access-control.md)
-* [Widevine-csomagolás konfigurálása a Media Services segítségével](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
+* [다중 DRM 및 Access Control이 포함된 CENC 사용](media-services-cenc-with-multidrm-access-control.md)
+* [Media Services를 사용하여 Widevine 패키징 구성](https://mingfeiy.com/how-to-configure-widevine-packaging-with-azure-media-services)
 * [Azure Media Services 용 Java 클라이언트 SDK 시작](https://docs.microsoft.com/azure/media-services/media-services-java-how-to-use)
-* A legfrissebb Media Services PHP SDK letöltéséhez keresse meg a Microsoft/WindowsAzure-csomag 0.5.7-es verzióját a [Packagist-adattárban](https://packagist.org/packages/microsoft/windowsazure#v0.5.7). 
+* Media Services용 최신 PHP SDK를 다운로드하려면 [Packagist 리포지토리](https://packagist.org/packages/microsoft/windowsazure#v0.5.7)에서 Microsoft/WindowAzure 패키지 버전 0.5.7을 찾습니다. 
 

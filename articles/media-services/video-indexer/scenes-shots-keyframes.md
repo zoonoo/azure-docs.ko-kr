@@ -17,11 +17,11 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74976607"
 ---
-# <a name="scenes-shots-and-keyframes"></a>Jelenetek, felvételek és kulcsképkockák
+# <a name="scenes-shots-and-keyframes"></a>장면, 샷 및 키 프레임
 
 Video Indexer는 구조적 및 의미 체계 속성에 따라 임시 단위로 비디오를 조각화 하는 것을 지원 합니다. 이 기능을 통해 고객은 다양 한 세분성을 기준으로 비디오 콘텐츠를 쉽게 탐색, 관리 및 편집할 수 있습니다. 예를 들어이 항목에서 설명 하는 장면, 샷 및 키프레임을 기반으로 합니다.   
 
-![Jelenetek, felvételek és kulcsképkockák](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
+![장면, 샷 및 키 프레임](./media/scenes-shots-keyframes/scenes-shots-keyframes.png)
  
 ## <a name="scene-detection"></a>장면 검색  
  
@@ -127,6 +127,6 @@ Insights JSON의 개별 샷에 연결 된 샷 유형은 해당 편집 유형을 
 * 여러 얼굴: 세 명 이상이 있습니다.
 
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 [API에 의해 생성 된 Video Indexer 출력을 검사 합니다.](video-indexer-output-json-v2.md#scenes)

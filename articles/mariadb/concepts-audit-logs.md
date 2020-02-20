@@ -32,10 +32,10 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 > `audit_log_include_users` `audit_log_exclude_users`보다 우선 순위가 높습니다. 예를 들어 `audit_log_include_users` = `demouser` 및 `audit_log_exclude_users` = `demouser`의 경우 `audit_log_include_users`의 우선 순위가 더 높기 때문에 사용자는 감사 로그에 포함 됩니다.
 - `audit_log_exclude_users`: MariaDB 사용자가 로깅에서 제외 됩니다. 최대 4 명의 사용자를 허용 합니다. 매개 변수의 최대 길이는 256 자입니다.
 
-| **Esemény** | **Leírás** |
+| **이벤트** | **설명** |
 |---|---|
 | `CONNECTION` | -연결 시작 (성공 또는 실패) <br> -세션 중에 다른 사용자/암호를 사용 하 여 사용자 재인증 <br> -연결 종료 |
-| `DML_SELECT`| 쿼리 선택 |
+| `DML_SELECT`| SELECT 쿼리 |
 | `DML_NONSELECT` | 쿼리 삽입/삭제/업데이트 |
 | `DML` | DML = DML_SELECT + DML_NONSELECT |
 | `DDL` | "데이터베이스 삭제"와 같은 쿼리 |
@@ -43,64 +43,64 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 | `ADMIN` | "SHOW STATUS"와 같은 쿼리 |
 | `GENERAL` | DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 관리자의 모든 |
 
-## <a name="access-audit-logs"></a>Hozzáférés az auditnaplókhoz
+## <a name="access-audit-logs"></a>감사 로그 액세스
 
 감사 로그는 Azure Monitor 진단 로그와 통합 됩니다. MariaDB 서버에서 감사 로그를 사용 하도록 설정 하면 로그, Event Hubs 또는 Azure Storage Azure Monitor으로 내보낼 수 있습니다. Azure Portal에서 진단 로그를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [감사 로그 포털 문서](howto-configure-audit-logs-portal.md#set-up-diagnostic-logs)를 참조 하세요.
 
 ## <a name="diagnostic-logs-schemas"></a>진단 로그 스키마
 
-다음 섹션에서는 이벤트 유형을 기반으로 하는 확인 로그에 의해 출력 되는 결과에 대해 설명 합니다. 출력 방법에 따라 포함 된 필드와 표시 되는 순서가 다를 수 있습니다.
+다음 섹션에서는 이벤트 유형을 기반으로 하는 확인 로그에 의해 출력 되는 결과에 대해 설명 합니다. 포함되는 필드와 이러한 필드가 표시되는 순서는 출력 방법에 따라 달라질 수 있습니다.
 
-### <a name="connection"></a>Kapcsolat
+### <a name="connection"></a>연결
 
-| **Tulajdonság** | **Leírás** |
+| **속성** | **설명** |
 |---|---|
-| `TenantId` | 사용자의 테 넌 트 ID |
+| `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated [UTC]` | 로그가 UTC로 기록 된 타임 스탬프 |
-| `Type` | 로그의 유형입니다. 항상 `AzureDiagnostics` |
-| `SubscriptionId` | 서버가 속한 구독의 GUID입니다. |
-| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름입니다. |
-| `ResourceProvider` | 리소스 공급자의 이름입니다. 항상 `MICROSOFT.DBFORMARIADB` |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `SubscriptionId` | 서버가 속한 구독의 GUID |
+| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
-| `Resource` | 서버 이름 |
+| `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
 | `event_class_s` | `connection_log` |
 | `event_subclass_s` | `CONNECT`, `DISCONNECT` |
 | `connection_id_d` | MariaDB에서 생성 된 고유 연결 ID |
-| `host_s` | Üres |
+| `host_s` | 비어 있음 |
 | `ip_s` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
 | `user_s` | 쿼리를 실행 하는 사용자의 이름입니다. |
 | `db_s` | 연결 된 데이터베이스의 이름 |
 | `\_ResourceId` | 리소스 URI |
 
-### <a name="general"></a>Általános
+### <a name="general"></a>일반
 
 아래 스키마는 GENERAL, DML_SELECT, DML_NONSELECT, DML, DDL, DCL 및 ADMIN 이벤트 유형에 적용 됩니다.
 
-| **Tulajdonság** | **Leírás** |
+| **속성** | **설명** |
 |---|---|
-| `TenantId` | 사용자의 테 넌 트 ID |
+| `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated [UTC]` | 로그가 UTC로 기록 된 타임 스탬프 |
-| `Type` | 로그의 유형입니다. 항상 `AzureDiagnostics` |
-| `SubscriptionId` | 서버가 속한 구독의 GUID입니다. |
-| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름입니다. |
-| `ResourceProvider` | 리소스 공급자의 이름입니다. 항상 `MICROSOFT.DBFORMARIADB` |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `SubscriptionId` | 서버가 속한 구독의 GUID |
+| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
-| `Resource` | 서버 이름 |
+| `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `LogicalServerName_s` | 서버 이름 |
+| `LogicalServerName_s` | 서버의 이름 |
 | `event_class_s` | `general_log` |
 | `event_subclass_s` | `LOG`, `ERROR`, `RESULT` |
 | `event_time` | UNIX 타임 스탬프의 쿼리 시작 시간 (초) |
 | `error_code_d` | 쿼리가 실패 한 경우 오류 코드입니다. `0`는 오류가 없음을 의미 합니다. |
 | `thread_id_d` | 쿼리를 실행 한 스레드의 ID |
-| `host_s` | Üres |
+| `host_s` | 비어 있음 |
 | `ip_s` | MariaDB에 연결 하는 클라이언트의 IP 주소 |
 | `user_s` | 쿼리를 실행 하는 사용자의 이름입니다. |
 | `sql_text_s` | 전체 쿼리 텍스트 |
@@ -108,29 +108,29 @@ Azure Database for MariaDB에서 감사 로그는 사용자에 게 제공 됩니
 
 ### <a name="table-access"></a>테이블 액세스
 
-| **Tulajdonság** | **Leírás** |
+| **속성** | **설명** |
 |---|---|
-| `TenantId` | 사용자의 테 넌 트 ID |
+| `TenantId` | 테넌트 ID |
 | `SourceSystem` | `Azure` |
-| `TimeGenerated [UTC]` | 로그가 UTC로 기록 된 타임 스탬프 |
-| `Type` | 로그의 유형입니다. 항상 `AzureDiagnostics` |
-| `SubscriptionId` | 서버가 속한 구독의 GUID입니다. |
-| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름입니다. |
-| `ResourceProvider` | 리소스 공급자의 이름입니다. 항상 `MICROSOFT.DBFORMARIADB` |
+| `TimeGenerated [UTC]` | UTC에 로그가 기록된 때의 타임스탬프 |
+| `Type` | 로그의 형식 항상 `AzureDiagnostics` |
+| `SubscriptionId` | 서버가 속한 구독의 GUID |
+| `ResourceGroup` | 서버가 속한 리소스 그룹의 이름 |
+| `ResourceProvider` | 리소스 공급자의 이름. 항상 `MICROSOFT.DBFORMARIADB` |
 | `ResourceType` | `Servers` |
 | `ResourceId` | 리소스 URI |
-| `Resource` | 서버 이름 |
+| `Resource` | 서버의 이름 |
 | `Category` | `MySqlAuditLogs` |
 | `OperationName` | `LogEvent` |
-| `LogicalServerName_s` | 서버 이름 |
+| `LogicalServerName_s` | 서버의 이름 |
 | `event_class_s` | `table_access_log` |
-| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` vagy `DELETE` |
+| `event_subclass_s` | `READ`, `INSERT`, `UPDATE` 또는 `DELETE` |
 | `connection_id_d` | MariaDB에서 생성 된 고유 연결 ID |
 | `db_s` | 액세스 한 데이터베이스 이름 |
 | `table_s` | 액세스 한 테이블 이름 |
 | `sql_text_s` | 전체 쿼리 텍스트 |
 | `\_ResourceId` | 리소스 URI |
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 - [Azure Portal에서 감사 로그를 구성 하는 방법](howto-configure-audit-logs-portal.md)

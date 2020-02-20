@@ -30,6 +30,6 @@ HA를 사용 하도록 설정 하는 작업은 서버 그룹을 만들 때 또�
 
 ![서버 그룹 개요의 ha 열](./media/howto-hyperscale-high-availability/02-ha-column.png)
 
-### <a name="next-steps"></a>Következő lépések
+### <a name="next-steps"></a>다음 단계
 
 [고가용성](concepts-hyperscale-high-availability.md)에 대해 자세히 알아보세요.

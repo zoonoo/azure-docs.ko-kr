@@ -31,7 +31,7 @@ App Service (다중 테 넌 트)에는 공용 인터넷 연결 끝점이 있습�
 
 App Service 및 Application Gateway를 만드는 것 외에도이 구성에는 두 가지 부분이 있습니다. 첫 번째 부분은 Application Gateway 배포 된 Virtual Network의 서브넷에서 서비스 끝점을 사용 하도록 설정 하는 것입니다. 서비스 끝점은 서브넷을 나가는 모든 네트워크 트래픽이 특정 서브넷 ID로 태그를 지정 하 여 App Service 합니다. 두 번째 부분은 특정 서브넷 ID로 태그가 지정 된 트래픽만 허용 되도록 특정 웹 앱의 액세스 제한을 설정 하는 것입니다. 기본 설정에 따라 다른 도구를 사용 하 여 구성할 수 있습니다.
 
-## <a name="using-azure-portal"></a>Az Azure Portal használata
+## <a name="using-azure-portal"></a>Azure Portal 사용
 Azure Portal를 사용 하 여 설치를 프로 비전 하 고 구성 하는 네 가지 단계를 수행 합니다. 기존 리소스가 있는 경우 첫 번째 단계를 건너뛸 수 있습니다.
 1. App Service 설명서의 빠른 시작 중 하나를 사용 하 여 App Service를 만듭니다. 예를 들어 [.NET Core 빠른](../../app-service/app-service-web-get-started-dotnet.md) 시작
 2. [포털 빠른](../../application-gateway/quick-create-portal.md)시작을 사용 하 여 Application Gateway를 만들지만 백 엔드 대상 추가 섹션을 건너뜁니다.
@@ -42,7 +42,7 @@ Azure Portal를 사용 하 여 설치를 프로 비전 하 고 구성 하는 네
 
 ![App Service와 Application Gateway 통합](./media/app-gateway-with-service-endpoints/web-site-stopped.png)
 
-## <a name="using-azure-resource-manager-template"></a>Az Azure Resource Manager-sablonok használata
+## <a name="using-azure-resource-manager-template"></a>Azure Resource Manager 템플릿 사용
 [리소스 관리자 배포 템플릿에서][template-app-gateway-app-service-complete] 는 전체 시나리오를 프로 비전 합니다. 시나리오는 Application Gateway에서 트래픽을 수신 하기 위한 서비스 끝점 및 액세스 제한으로 잠긴 App Service 인스턴스로 구성 됩니다. 템플릿에는 간단 하 게 하기 위해 리소스 이름에 많은 스마트 기본값과 고유한 postfixes가 추가 되어 있습니다. 이를 재정의 하려면 리포지토리를 복제 하거나 템플릿을 다운로드 하 고 편집 해야 합니다. 
 
 템플릿을 적용 하려면 템플릿 설명에 있는 Azure에 배포 단추를 사용 하거나 적절 한 PowerShell/CLI를 사용할 수 있습니다.
@@ -83,7 +83,7 @@ Scm 사이트에 대 한 개별 액세스 제한을 설정 하려면 아래와 �
 az webapp config access-restriction add --resource-group myRG --name myWebApp --scm-site --rule-name KudoAccess --priority 200 --ip-address 208.130.0.0/16
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 App Service Environment에 대 한 자세한 내용은 [App Service Environment 설명서](https://docs.microsoft.com/azure/app-service/environment)를 참조 하세요.
 
 웹 앱을 더욱 안전 하 게 보호 하기 위해 Application Gateway의 웹 응용 프로그램 방화벽에 대 한 정보는 [Azure 웹 응용 프로그램 방화벽 설명서](../../web-application-firewall/ag/ag-overview.md)에서 찾을 수 있습니다.

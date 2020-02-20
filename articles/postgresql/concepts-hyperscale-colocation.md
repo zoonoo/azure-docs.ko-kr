@@ -138,6 +138,6 @@ Tenant_id에 대 한 필터 및 조인 때문에 Citus (Hyperscale)는 특정 �
 
 경우에 따라 테 넌 트 ID를 고유한 제약 조건 및 조인 조건에 포함 하도록 쿼리와 테이블 스키마를 변경 해야 합니다. 이 변경은 일반적으로 간단 합니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 - [다중 테 넌 트 자습서](tutorial-design-database-hyperscale-multi-tenant.md)에서 테 넌 트 데이터를 공동 배치 하는 방법을 참조 하세요.

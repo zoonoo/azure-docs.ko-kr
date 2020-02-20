@@ -16,20 +16,20 @@ ms.locfileid: "74973648"
 
 ## <a name="add-the-azblueprint-module"></a>Az. 청사진 모듈을 추가 합니다.
 
-Azure PowerShell를 사용 하 여 청사진 할당을 관리 하려면 모듈을 추가 해야 합니다. 이 모듈은 로컬에 설치 된 PowerShell, [Azure Cloud Shell](https://shell.azure.com)또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 사용할 수 있습니다.
+Azure PowerShell를 사용 하 여 청사진 할당을 관리 하려면 모듈을 추가 해야 합니다. [Azure Cloud Shell](https://shell.azure.com) 또는 [Azure PowerShell Docker 이미지](https://hub.docker.com/r/azuresdk/azure-powershell/)와 함께 로컬로 설치된 PowerShell로 이 모듈을 사용할 수 있습니다.
 
-### <a name="base-requirements"></a>Alapszintű követelmények
+### <a name="base-requirements"></a>기본 요구 사항
 
 Azure 청사진 모듈에는 다음 소프트웨어가 필요 합니다.
 
-- Azure PowerShell 1.5.0 이상입니다. Ha még nincs telepítve, kövesse [ezeket az utasításokat](/powershell/azure/install-az-ps).
-- PowerShellGet 2.0.1-es vagy újabb verzió. Ha nincs telepítve vagy frissítve, kövesse [ezeket az utasításokat](/powershell/scripting/gallery/installing-psget).
+- Azure PowerShell 1.5.0 이상입니다. 아직 설치되지 않은 경우 [다음 지침](/powershell/azure/install-az-ps)을 따릅니다.
+- PowerShellGet 2.0.1 이상 설치되거나 업데이트되지 않은 경우 [다음 지침](/powershell/scripting/gallery/installing-psget)을 따릅니다.
 
 ### <a name="install-the-module"></a>모듈 설치
 
 PowerShell에 대 한 청사진 모듈은 **Az. 청사진**입니다.
 
-1. **관리** PowerShell 프롬프트에서 다음 명령을 실행 합니다.
+1. **관리자** PowerShell 프롬프트에서 다음 명령을 실행합니다.
 
    ```azurepowershell-interactive
    # Install the Blueprints module from PowerShell Gallery
@@ -377,10 +377,10 @@ Remove-AzBlueprintAssignment -InputObject $bpAssignment -SubscriptionId '{subId}
 #endregion
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
-- Tudnivalók a [tervek életciklusáról](../concepts/lifecycle.md).
-- A [statikus és dinamikus paraméterek](../concepts/parameters.md) használatának elsajátítása.
-- A [tervekkel kapcsolatos műveleti sorrend](../concepts/sequencing-order.md) testreszabásának elsajátítása.
-- A [tervek erőforrás-zárolásának](../concepts/resource-locking.md) alkalmazásával kapcsolatos részletek.
-- A tervek hozzárendelése során felmerülő problémák megoldása [általános hibaelhárítással](../troubleshoot/general.md).
+- [청사진 수명 주기](../concepts/lifecycle.md)에 대해 알아봅니다.
+- [정적 및 동적 매개 변수](../concepts/parameters.md) 사용 방법 이해
+- [청사진 시퀀싱 순서](../concepts/sequencing-order.md)를 사용자 지정하는 방법 알아보기
+- [청사진 리소스 잠금](../concepts/resource-locking.md)을 활용하는 방법 알아보기
+- [일반 문제 해결 방법](../troubleshoot/general.md)을 통해 청사진 할당 중에 발생하는 문제 해결

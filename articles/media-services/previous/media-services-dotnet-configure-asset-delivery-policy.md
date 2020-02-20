@@ -1,6 +1,6 @@
 ---
-title: .NET SDK를 사용 하 여 자산 배달 정책 구성 | Microsoft Docs
-description: 이 항목에서는 Azure Media Services .NET SDK를 사용 하 여 다양 한 자산 배달 정책을 구성 하는 방법을 보여 줍니다.
+title: .NET SDK를 사용하여 자산 배달 정책 구성 | Microsoft 문서
+description: 이 항목에서는 Azure Media Services.NET SDK를 사용하여 여러 자산 배달 정책을 구성하는 방법을 설명합니다.
 services: media-services
 documentationcenter: ''
 author: Mingfeiy
@@ -21,50 +21,50 @@ ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74974515"
 ---
-# <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK를 사용 하 여 자산 배달 정책 구성
+# <a name="configure-asset-delivery-policies-with-net-sdk"></a>.NET SDK를 사용하여 자산 배포 정책 구성
 [!INCLUDE [media-services-selector-asset-delivery-policy](../../../includes/media-services-selector-asset-delivery-policy.md)]
 
-## <a name="overview"></a>Áttekintés
-암호화 된 자산을 배달 하려는 경우 Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 자산에 대 한 배달 정책을 구성 하는 것입니다. 자산 배달 정책은 사용자의 자산 배달 방법 (예: MPEG 대시, HLS, 부드러운 스트리밍 또는 모두)을 동적으로 암호화할지 여부를 지정 하 여 자산 배달 방법을 Media Services에 알려 줍니다. 자산 및 방법 (봉투 (envelope) 또는 일반 암호화).
+## <a name="overview"></a>개요
+암호화된 자산을 배달하려는 경우 Media Services 콘텐츠 배달 워크플로의 단계 중 하나는 자산에 대한 배달 정책을 구성하는 것입니다. 자산 배달 정책은 어떤 스트리밍 프로토콜(예: MPEG DASH, HLS, 부드러운 스트리밍 또는 모두)로 사용자의 자산을 동적으로 패키지할 지와 같은 사용자가 원하는 자산 배달 방법과 사용자의 자산을 동적으로 암호화할 지 여부 및 방법(봉투 또는 일반 암호화)를 Media Services에 알려줍니다.
 
-이 문서에서는 자산 배달 정책을 만들고 구성 하는 이유와 방법을 설명 합니다.
+이 문서에서는 자산 배달 정책을 만들고 구성하는 이유와 방법을 설명합니다.
 
 >[!NOTE]
->Az AMS-fiók létrehozásakor a rendszer hozzáad egy **alapértelmezett**, **Leállítva** állapotú streamvégpontot a fiókhoz. A tartalom streamelésének megkezdéséhez, valamint a dinamikus csomagolás és a dinamikus titkosítás kihasználásához a tartalomstreameléshez használt streamvégpontnak **Fut** állapotban kell lennie. 
+>AMS 계정이 만들어질 때 **기본** 스트리밍 엔드포인트는 **중지됨** 상태에서 계정에 추가됩니다. 콘텐츠 스트리밍을 시작하고 동적 패키징 및 동적 암호화를 활용하려면 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트는 **실행** 상태에 있어야 합니다. 
 >
->또한 동적 패키징 및 동적 암호화를 사용 하려면 자산이 적응 비트 전송률 Mp4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함 해야 합니다.
+>또한 동적 패키징 및 동적 암호화를 사용하려면 자산이 적응 비트 전송률 MP4 또는 적응 비트 전송률 부드러운 스트리밍 파일 집합을 포함해야 합니다.
 
-동일한 자산에 다른 정책을 적용할 수 있습니다. 예를 들어 부드러운 스트리밍 및 AES 봉투 (Envelope) 암호화에 PlayReady 암호화를 적용 하 여 MPEG 대시와 HLS를 사용할 수 있습니다. A továbbítási szabályzatban meg nem határozott protokollok streameléshez való használatát a rendszer nem engedélyezi (ilyen lehet például, ha csupán egyetlen szabályzatot állít be, amely kizárólag a HLS-protokoll használatát tartalmazza). Kivételt jelent, ha egyáltalán nem állít be objektumtovábbítási szabályzatot. Ebben az esetben a rendszer az összes protokollt engedélyezi.
+동일한 자산에 다른 정책을 적용할 수 있습니다. 예를 들어, 부드러운 스트리밍에 PlayReady 암호화, MPEG DASH 및 HLS에 AES 봉투(envelope) 암호화를 적용할 수 있습니다. 배달 정책에 정의되지 않은 모든 프로토콜(예: HLS만 프로토콜로 지정하는 단일 정책)은 스트리밍에서 차단됩니다. 자산 배달 정책이 전혀 정의되어 있지 않은 경우는 예외입니다. 이렇게 하면 모든 프로토콜이 허용됩니다.
 
-저장소 암호화 된 자산을 배달 하려면 자산의 배달 정책을 구성 해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버에서 저장소 암호화를 제거 하 고 지정 된 배달 정책을 사용 하 여 콘텐츠를 스트리밍합니다. 예를 들어 AES(Advanced Encryption Standard) (AES) 봉투 (envelope) 암호화 키로 암호화 된 자산을 배달 하려면 정책 유형을 **DynamicEnvelopeEncryption**로 설정 합니다. Clear에서 저장소 암호화를 제거 하 고 자산을 스트리밍하려면 정책 유형을 **Nodynamicencryption**으로 설정 합니다. 이러한 정책 유형을 구성 하는 방법을 보여 주는 예제는 다음과 같습니다.
+스토리지에서 암호화된 자산을 배달하려는 경우 자산의 배달 정책을 구성해야 합니다. 자산을 스트리밍하기 전에 스트리밍 서버가 스토리지 암호화를 제거하고 지정된 배달 정책을 사용하여 콘텐츠를 스트리밍합니다. 예를 들어 표준 AES 봉투 암호화 키로 암호화된 자산을 배달하려면 정책 유형을 **DynamicEnvelopeEncryption**으로 설정해야 합니다. 스토리지 암호화를 제거하고 암호화되지 않은 자산을 스트리밍하려면 정책 유형을 **NoDynamicEncryption**으로 설정하세요. 이러한 정책 유형을 구성 하는 방법을 보여주는 예제입니다.
 
-자산 배달 정책을 구성 하는 방법에 따라 부드러운 스트리밍, HLS 및 MPEG 대시 등의 스트리밍 프로토콜을 동적으로 패키지 하 고, 암호화 하 고 스트리밍할 수 있습니다.
+사용자가 자산 배달 정책을 구성하는 방법에 따라 다음 스트리밍 프로토콜을 동적으로 패키지하고, 암호화하고 스트림할 수 있습니다(부드러운 스트리밍, HLS 및 MPEG DASH).
 
-다음 목록에서는 부드러운, HLS 및 대시를 스트리밍하는 데 사용 하는 형식을 보여 줍니다.
+다음 목록에서는 부드러운 스트리밍, HLS 및 DASH 등의 프로토콜을 스트리밍할 때 사용하는 형식을 보여 줍니다.
 
 부드러운 스트리밍:
 
-{stream végpontjának neve-Media Services fiók neve}.streaming.mediaservices.windows.net/{kereső azonosítója}/{fájlnév}.ism/Manifest
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest
 
-HLS
+HLS:
 
-{스트리밍 끝점 이름-media services 계정 이름}. windowsazure.mediaservices/{locator ID}/{filename}.ism/Manifest (format = m3u8-aapl-v3-aapl)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=m3u8-aapl)
 
 MPEG DASH
 
-{스트리밍 끝점 이름-media services 계정 이름}. windowsazure.mediaservices/{locator ID}/{filename}.ism/Manifest (format = mpd)
+{streaming endpoint name-media services account name}.streaming.mediaservices.windows.net/{locator ID}/{filename}.ism/Manifest(format=mpd-time-csf)
 
-## <a name="considerations"></a>Megfontolandó szempontok
-* Asset배달 Ypolicy를 삭제 하기 전에 해당 자산과 연결 된 모든 스트리밍 로케이터를 삭제 해야 합니다. 새 Asset배달 Ypolicy를 사용 하 여 나중에 원하는 경우 새 스트리밍 로케이터를 만들 수 있습니다.
-* 자산 배달 정책이 설정 되지 않은 경우 저장소 암호화 된 자산에 스트리밍 로케이터를 만들 수 없습니다.  자산이 저장소로 암호화 되지 않은 경우 시스템에서 로케이터를 만들고 자산 배달 정책 없이 clear에서 자산을 스트리밍할 수 있습니다.
-* 단일 자산과 연결 된 자산 배달 정책이 여러 개 있을 수 있지만, 지정 된 AssetDeliveryProtocol를 처리 하는 한 가지 방법만 지정할 수 있습니다.  AssetDeliveryProtocol. SmoothStreaming 프로토콜을 지정 하는 두 배달 정책을 연결 하려고 하면 클라이언트에서 부드러운 스트리밍 요청을 만들 때 시스템에서 적용 하려는 항목을 알지 못하기 때문에 오류가 발생할 수 있습니다.
-* 기존 스트리밍 로케이터를 사용 하는 자산이 있는 경우 자산에 새 정책을 연결할 수 없습니다. 자산에서 기존 정책의 연결을 해제 하거나 자산과 연결 된 배달 정책을 업데이트할 수 있습니다.  먼저 스트리밍 로케이터를 제거 하 고 정책을 조정한 다음 스트리밍 로케이터를 다시 만들어야 합니다.  스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN에서 콘텐츠를 캐시할 수 있으므로에서 클라이언트에 문제가 발생 하지 않도록 해야 합니다.
+## <a name="considerations"></a>고려 사항
+* AssetDeliveryPolicy를 삭제하기 전에 자산과 연결된 모든 스트리밍 로케이터를 삭제해야 합니다. 나중에 원하는 경우 새 AssetDeliveryPolicy를 사용하여 스트리밍 로케이터를 새로 만들 수 있습니다.
+* 자산 배달 정책이 설정되지 않은 경우 암호화된 스토리지 자산에 스트리밍 로케이터를 만들 수 없습니다.  자산이 암호화된 스토리지가 아닌 경우 시스템에서 로케이터를 만들고 자산 배달 정책 없이 일반 텍스트인 자산을 스트리밍할 수 있습니다.
+* 단일 자산과 여러 자산 배달 정책을 연결하여 사용할 수 있지만 지정된 AssetDeliveryProtocol을 처리하는 방법은 하나만 지정할 수 있습니다.  즉, AssetDeliveryProtocol.SmoothStreaming 프로토콜을 지정하는 두 가지 배달 정책을 연결하려는 경우 클라이언트가 부드러운 스트리밍을 요청할 때 시스템이 어떤 정책을 적용할지 모르기 때문에 오류가 발생합니다.
+* 기존 스트리밍 로케이터를 사용하는 자산이 있는 경우 해당 자산에 새 정책을 연결할 수 없습니다. 자산에서 기존 정책의 연결을 해제하거나 자산과 연결된 배달 정책을 업데이트할 수 있습니다.  먼저 스트리밍 로케이터를 제거하고, 정책을 조정한 다음, 스트리밍 로케이터를 다시 만들어야 합니다.  스트리밍 로케이터를 다시 만들 때 동일한 locatorId를 사용할 수 있지만 원본 또는 다운스트림 CDN이 콘텐츠를 캐시할 수 있으므로 클라이언트에 문제가 발생하지 않는지 확인해야 합니다.
 
 ## <a name="clear-asset-delivery-policy"></a>자산 배달 정책 지우기
 
-다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용 하지 않고 MPEG 대시, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달 하도록 지정 합니다. 저장소 암호화 된 자산에이 정책을 적용 하는 것이 좋습니다.
+다음 **ConfigureClearAssetDeliveryPolicy** 메서드는 동적 암호화를 적용하지 않고 MPEG DASH, HLS 및 부드러운 스트리밍 프로토콜 중 하나에서 스트림을 배달하도록 지정합니다. 이 정책을 스토리지에서 암호화된 자산에 적용할 수 있습니다.
 
-Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 내용은 [Asset배달 ypolicy를 정의할 때 사용 되는 형식](#types) 섹션을 참조 하세요.
+AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
 ```csharp
     static public void ConfigureClearAssetDeliveryPolicy(IAsset asset)
@@ -79,9 +79,9 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
 ```
 ## <a name="dynamiccommonencryption-asset-delivery-policy"></a>DynamicCommonEncryption 자산 배달 정책
 
-다음 **CreateassetDynamicCommonEncryption ypolicy** 메서드는 부드러운 스트리밍 프로토콜에 동적 일반 암호화 ()를 적용 하도록 구성 된 **asset배달 ypolicy** 를 만듭니다 (다른 프로토콜은 스트리밍에서 차단 됨). 메서드는 두 개의 매개 변수, 즉 **asset** (배달 정책을 적용 하려는 자산) 및 **IContentKey** ( **CommonEncryption** 형식의 콘텐츠 키)를 사용 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey)를 참조 하세요.
+다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍 프로토콜에 동적 일반 암호화(**DynamicCommonEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(스트리밍에서 다른 프로토콜은 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**CommonEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#common_contentkey) 참조)를 사용합니다.
 
-Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 내용은 [Asset배달 ypolicy를 정의할 때 사용 되는 형식](#types) 섹션을 참조 하세요.
+AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.
 
 ```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -109,7 +109,7 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
      }
 ```
 
-Azure Media Services를 사용 하 여 Widevine 암호화를 추가할 수도 있습니다. 다음 예제에서는 PlayReady 및 Widevine를 자산 배달 정책에 추가 하는 방법을 보여 줍니다.
+Azure Media Services를 사용하면 Widevine 암호화를 추가할 수 있습니다. 다음 예제에서는 PlayReady 및 Widevine이 자산 배달 정책에 추가되는 과정을 보여 줍니다.
 
 ```csharp
     static public void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -151,14 +151,14 @@ Azure Media Services를 사용 하 여 Widevine 암호화를 추가할 수도 �
     }
 ```
 > [!NOTE]
-> Widevine 사용 하 여 암호화 하는 경우 대시로만 제공할 수 있습니다. 자산 배달 프로토콜에서 대시를 지정 해야 합니다.
+> Widevine을 사용하여 암호화하는 경우 DASH를 통해서만 배달할 수 있습니다. 자산 배달 프로토콜에서 DASH를 지정해야 합니다.
 > 
 > 
 
 ## <a name="dynamicenvelopeencryption-asset-delivery-policy"></a>DynamicEnvelopeEncryption 자산 배달 정책
-다음 **CreateassetDynamicEnvelopeEncryption ypolicy** 메서드는 부드러운 스트리밍, HLS 및 대시 프로토콜에 대해 동적 봉투 (envelope) 암호화 ()를 적용 하도록 구성 된 **asset배달 ypolicy** 를 만듭니다 (일부 프로토콜을 지정 하지 않기로 결정 한 경우 스트리밍에서 차단 됨). 메서드는 두 개의 매개 변수, 즉 **asset** (배달 정책을 적용 하려는 자산) 및 **IContentKey** ( **EnvelopeEncryption** 형식의 콘텐츠 키)를 사용 합니다. 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#envelope_contentkey)를 참조 하세요.
+다음 **CreateAssetDeliveryPolicy** 메서드는 부드러운 스트리밍, HLS 및 DASH 프로토콜에 동적 봉투 암호화(**DynamicEnvelopeEncryption**)를 적용하도록 구성된 **AssetDeliveryPolicy**를 만듭니다(일부 프로토콜은 지정되지 않으면 스트리밍에서 차단됨). 이 메서드는 두 매개 변수, 즉 **Asset**(배달 정책을 적용하려는 자산) 및 **IContentKey**(**EnvelopeEncryption** 유형의 콘텐츠 키, 자세한 내용은 [콘텐츠 키 만들기](media-services-dotnet-create-contentkey.md#envelope_contentkey) 참조)를 사용합니다.
 
-Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 내용은 [Asset배달 ypolicy를 정의할 때 사용 되는 형식](#types) 섹션을 참조 하세요.   
+AssetDeliveryPolicy을 만들 때 사용자가 지정하는 값에 대한 자세한 정보는 [AssetDeliveryPolicy를 정의할 때 사용되는 형식](#types) 섹션을 참조하세요.   
 
 ```csharp
     private static void CreateAssetDeliveryPolicy(IAsset asset, IContentKey key)
@@ -199,11 +199,11 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
     }
 ```
 
-## <a id="types"></a>Asset배달 Ypolicy를 정의할 때 사용 되는 형식
+## <a id="types"></a>AssetDeliveryPolicy를 정의할 때 사용되는 형식
 
 ### <a id="AssetDeliveryProtocol"></a>AssetDeliveryProtocol
 
-다음 열거형은 자산 배달 프로토콜에 대해 설정할 수 있는 값을 설명 합니다.
+다음 열거형은 자산 배달 프로토콜에 대해 설정할 수 있는 값을 설명합니다.
 
 ```csharp
     [Flags]
@@ -239,7 +239,7 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
 ```
 ### <a id="AssetDeliveryPolicyType"></a>AssetDeliveryPolicyType
 
-다음 열거형은 자산 배달 정책 유형에 대해 설정할 수 있는 값을 설명 합니다.  
+다음 열거형은 자산 배달 정책 유형에 대해 설정할 수 있는 값을 설명합니다.  
 ```csharp
     public enum AssetDeliveryPolicyType
     {
@@ -272,7 +272,7 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
 ```
 ### <a id="ContentKeyDeliveryType"></a>ContentKeyDeliveryType
 
-다음 열거형은 클라이언트에 대 한 콘텐츠 키의 배달 방법을 구성 하는 데 사용할 수 있는 값을 설명 합니다.
+다음 열거형은 클라이언트로의 콘텐츠 키 배달 방법을 구성하는 데 사용할 수 있는 값을 설명합니다.
   ```csharp  
     public enum ContentKeyDeliveryType
     {
@@ -302,9 +302,9 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
 
     }
 ```
-### <a id="AssetDeliveryPolicyConfigurationKey"></a>Dictionary<assetdeliverypolicyconfigurationkey
+### <a id="AssetDeliveryPolicyConfigurationKey"></a>AssetDeliveryPolicyConfigurationKey
 
-다음 열거형은 자산 배달 정책에 대 한 특정 구성을 가져오는 데 사용 되는 키를 구성 하기 위해 설정할 수 있는 값을 설명 합니다.
+다음 열거형은 자산 배달 정책에 대한 특정 구성을 가져오는 데 사용되는 키를 구성하기 위해 설정할 수 있는 값을 설명합니다.
 ```csharp
     public enum AssetDeliveryPolicyConfigurationKey
     {
@@ -350,13 +350,13 @@ Asset배달 Ypolicy를 만들 때 지정할 수 있는 값에 대 한 자세한 
     }
 ```
 
-## <a name="additional-notes"></a>További megjegyzések
+## <a name="additional-notes"></a>추가적인 참고 사항
 
-* Widevine는 Google i n c .에서 제공 하는 서비스로, Google, i n c .의 서비스 약관 및 개인 정보 취급 방침을 따릅니다.
+* Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 
-## <a name="media-services-learning-paths"></a>Media Services képzési tervek
+## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>Visszajelzés küldése
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

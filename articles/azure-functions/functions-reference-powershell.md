@@ -6,7 +6,7 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
 ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74974243"
@@ -19,11 +19,11 @@ PowerShell Azure 함수 (함수)는 트리거될 때 실행 되는 PowerShell �
 
 다른 종류의 함수와 마찬가지로 PowerShell 스크립트 함수는 `function.json` 파일에 정의 된 모든 입력 바인딩의 이름과 일치 하는 매개 변수를 사용 합니다. 함수를 시작한 트리거에 대 한 추가 정보를 포함 하는 `TriggerMetadata` 매개 변수도 전달 됩니다.
 
-이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽은 것으로 가정 합니다. 또한 [powershell에 대 한 빠른 시작 함수](functions-create-first-function-powershell.md) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
+이 문서에서는 [Azure Functions 개발자 참조](functions-reference.md)를 이미 읽었다고 가정합니다. 또한 [powershell에 대 한 빠른 시작 함수](functions-create-first-function-powershell.md) 를 완료 하 여 첫 번째 powershell 함수를 만들었습니다.
 
 ## <a name="folder-structure"></a>폴더 구조
 
-PowerShell 프로젝트에 필요한 폴더 구조는 다음과 같습니다. 이 기본값은 변경할 수 있습니다. 자세한 내용은 아래의 [scriptFile](#configure-function-scriptfile) 섹션을 참조 하세요.
+PowerShell 프로젝트에 필요한 폴더 구조는 다음과 같습니다. 이 기본값은 변경 가능합니다. 자세한 내용은 아래의 [scriptFile](#configure-function-scriptfile) 섹션을 참조하세요.
 
 ```
 PSFunctionApp
@@ -50,13 +50,13 @@ PSFunctionApp
 
 프로젝트의 루트에는 함수 앱을 구성 하는 데 사용할 수 있는 공유 [`host.json`](functions-host-json.md) 파일이 있습니다. 각 함수에는 고유한 코드 파일 (ps1) 및 바인딩 구성 파일 (`function.json`)이 있는 폴더가 있습니다. 함수의 이름입니다. json 파일의 부모 디렉터리는 항상 함수의 이름입니다.
 
-특정 바인딩에는 `extensions.csproj` 파일이 있어야 합니다. [버전 2.x 및 이후 버전](functions-versions.md) 의 함수 런타임에 필요한 바인딩 확장은 `bin` 폴더의 실제 라이브러리 파일과 함께 `extensions.csproj` 파일에 정의 되어 있습니다. 로컬로 개발 하는 경우 [바인딩 확장을 등록](functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발 하는 경우이 등록이 수행 됩니다.
+특정 바인딩에는 `extensions.csproj` 파일이 있어야 합니다. [버전 2.x 및 이후 버전](functions-versions.md) 의 함수 런타임에 필요한 바인딩 확장은 `bin` 폴더의 실제 라이브러리 파일과 함께 `extensions.csproj` 파일에 정의 되어 있습니다. 로컬에서 개발할 때는 [바인딩 확장을 등록](functions-bindings-register.md#extension-bundles)해야 합니다. Azure Portal에서 함수를 개발할 때 이 등록이 자동으로 수행됩니다.
 
 PowerShell 함수 앱에는 함수 앱이 실행 *[되기 시작할 때](#cold-start)* 실행 되는 `profile.ps1` (선택 사항)가 있을 수 있습니다. 자세한 내용은 [PowerShell 프로필](#powershell-profile)을 참조 하세요.
 
 ## <a name="defining-a-powershell-script-as-a-function"></a>PowerShell 스크립트를 함수로 정의
 
-기본적으로 함수 런타임은 `run.ps1`에서 함수를 검색 합니다. 여기서 `run.ps1`는 해당 `function.json`와 동일한 부모 디렉터리를 공유 합니다.
+기본적으로 Functions 런타임은 `run.ps1`에서 함수를 찾습니다. 여기서 `run.ps1`는 해당하는 `function.json`과 동일한 부모 디렉터리를 공유합니다.
 
 스크립트에 실행 시 많은 인수가 전달 되었습니다. 이러한 매개 변수를 처리 하려면 다음 예제와 같이 스크립트의 맨 위에 `param` 블록을 추가 합니다.
 
@@ -73,19 +73,19 @@ param($MyFirstInputBinding, $MySecondInputBinding, $TriggerMetadata)
 $TriggerMetadata.sys
 ```
 
-| Tulajdonság   | Leírás                                     | Type (Típus)     |
+| 속성   | Description                                     | Type     |
 |------------|-------------------------------------------------|----------|
-| UtcNow     | UTC에서 함수가 트리거된 경우        | Dátum és idő |
-| MethodName | 트리거된 함수의 이름     | sztring   |
-| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | sztring   |
+| UtcNow     | UTC에서 함수가 트리거된 경우        | DateTime |
+| MethodName | 트리거된 함수의 이름     | 문자열   |
+| RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | 문자열   |
 
 모든 트리거 형식에는 서로 다른 메타 데이터 집합이 있습니다. 예를 들어 `QueueTrigger`에 대 한 `$TriggerMetadata`에는 `InsertionTime`, `Id`, `DequeueCount`등이 포함 됩니다. 큐 트리거의 메타 데이터에 대 한 자세한 내용은 [큐 트리거의 공식 설명서](functions-bindings-storage-queue.md#trigger---message-metadata)로 이동 하세요. 작업 중인 [트리거에](functions-triggers-bindings.md) 대 한 설명서를 확인 하 여 트리거 메타 데이터 내에 있는 항목을 확인 합니다.
 
-## <a name="bindings"></a>Kötések
+## <a name="bindings"></a>바인딩
 
-PowerShell에서 [바인딩은](functions-triggers-bindings.md) 함수의 함수 json에서 구성 및 정의 됩니다. 함수는 여러 가지 방법으로 바인딩과 상호 작용 합니다.
+PowerShell에서 [바인딩은](functions-triggers-bindings.md) 함수의 함수 json에서 구성 및 정의 됩니다. Functions는 다양한 방법으로 바인딩과 상호 작용합니다.
 
-### <a name="reading-trigger-and-input-data"></a>트리거 및 입력 데이터 읽기
+### <a name="reading-trigger-and-input-data"></a>읽기 트리거 및 입력 데이터
 
 트리거 및 입력 바인딩은 함수로 전달 되는 매개 변수로 읽혀집니다. 입력 바인딩의 `direction`는 json에서 `in`로 설정 됩니다. `function.json`에 정의 된 `name` 속성은 `param` 블록에서 매개 변수의 이름입니다. PowerShell에서 바인딩에 명명 된 매개 변수를 사용 하므로 매개 변수의 순서가 중요 하지 않습니다. 그러나 `function.json`에 정의 된 바인딩의 순서를 따르는 것이 가장 좋습니다.
 
@@ -125,11 +125,11 @@ Produce-MyOutputValue | Push-OutputBinding -Name myQueue
 
 다음은 `Push-OutputBinding`를 호출 하기 위한 유효한 매개 변수입니다.
 
-| Név | Type (Típus) | 위치 | Leírás |
+| 속성 | Type | 위치 | Description |
 | ---- | ---- |  -------- | ----------- |
-| **`-Name`** | Sztring | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
-| **`-Value`** | Objektum | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
-| **`-Clobber`** | SwitchParameter | 명명 된 | 필드 지정 된 경우 지정 된 출력 바인딩에 대해 값이 설정 되도록 합니다. | 
+| **`-Name`** | String | 1 | 설정 하려는 출력 바인딩의 이름입니다. |
+| **`-Value`** | Object | 2 | 파이프라인 ByValue에서 허용 되는 설정 하려는 출력 바인딩의 값입니다. |
+| **`-Clobber`** | SwitchParameter | named | 필드 지정 된 경우 지정 된 출력 바인딩에 대해 값이 설정 되도록 합니다. | 
 
 또한 다음과 같은 일반 매개 변수가 지원 됩니다. 
 * `Verbose`
@@ -226,17 +226,17 @@ MyQueue                        myData
 
 와일드 카드 (*)는 `Get-OutputBinding`에서 지원 됩니다.
 
-## <a name="logging"></a>Naplózás
+## <a name="logging"></a>로깅
 
 PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식으로 작동 합니다. 로깅 cmdlet을 사용 하 여 각 출력 스트림에 쓸 수 있습니다. 각 cmdlet은 함수에서 사용 하는 로그 수준에 매핑됩니다.
 
 | 함수 로깅 수준 | 로깅 cmdlet |
 | ------------- | -------------- |
-| Hiba | **`Write-Error`** |
-| Figyelmeztetés | **`Write-Warning`**  | 
-| Információ | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | Információ | _정보_ 수준 로깅에 씁니다. |
-| Hibakeresés | **`Write-Debug`** |
-| Nyomkövetés | **`Write-Progress`** <br /> **`Write-Verbose`** |
+| Error | **`Write-Error`** |
+| Warning | **`Write-Warning`**  | 
+| 정보 | **`Write-Information`** <br/> **`Write-Host`** <br /> **`Write-Output`**      | 정보 | _정보_ 수준 로깅에 씁니다. |
+| 디버그 | **`Write-Debug`** |
+| 추적 | **`Write-Progress`** <br /> **`Write-Verbose`** |
 
 이러한 cmdlet 외에도 파이프라인에 쓰여진 모든 항목은 `Information` 로그 수준으로 리디렉션되고 기본 PowerShell 서식으로 표시 됩니다.
 
@@ -245,7 +245,7 @@ PowerShell 함수의 로깅은 일반적인 PowerShell 로깅과 같은 방식�
 
 ### <a name="configure-the-function-app-log-level"></a>함수 앱 로그 수준 구성
 
-Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 제어할 수 있도록 임계값 수준을 정의할 수 있습니다. 콘솔에 기록 된 모든 추적에 대 한 임계값을 설정 하려면 [`host.json` 파일][호스트 json 참조]의 `logging.logLevel.default` 속성을 사용 합니다. 이 설정은 함수 앱의 모든 함수에 적용 됩니다.
+Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 제어할 수 있도록 임계값 수준을 정의할 수 있습니다. 콘솔에 기록 된 모든 추적에 대 한 임계값을 설정 하려면 [`host.json` 파일][host.json 참조]의 `logging.logLevel.default` 속성을 사용 합니다. 이 설정은 함수 앱의 모든 함수에 적용됩니다.
 
 다음 예에서는 임계값을 설정 하 여 모든 함수에 대해 자세한 정보 로깅을 사용 하도록 설정 하지만 `MyFunction`라는 함수에 대해 디버그 로깅을 사용 하도록 임계값을 설정 합니다.
 
@@ -260,11 +260,11 @@ Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 
 }  
 ```
 
-자세한 내용은 [호스트 json 참조]를 참조 하세요.
+자세한 내용은 [host.json 참조]를 참조하세요.
 
 ### <a name="viewing-the-logs"></a>로그 보기
 
-함수 앱 Azure에서 실행 중인 경우 Application Insights를 사용 하 여 모니터링할 수 있습니다. 함수 로그를 보고 쿼리 하는 방법에 대 한 자세한 내용은 [모니터링 Azure Functions](functions-monitoring.md) 를 참조 하세요.
+함수 앱 Azure에서 실행 중인 경우 Application Insights를 사용 하 여 모니터링할 수 있습니다. 함수 로그 보기 및 쿼리에 대해 자세히 알아보려면 [Azure Functions 모니터링](functions-monitoring.md)을 읽어보세요.
 
 개발을 위해 함수 앱를 로컬로 실행 하는 경우 로그는 기본적으로 파일 시스템에 기록 됩니다. 콘솔에서 로그를 보려면 함수 앱을 시작 하기 전에 `AZURE_FUNCTIONS_ENVIRONMENT` 환경 변수를 `Development`로 설정 합니다.
 
@@ -274,8 +274,8 @@ Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 
 
 모든 트리거와 바인딩은 코드에서 몇 가지 실제 데이터 형식으로 표현 됩니다.
 
-* 테이블
-* sztring
+* Hashtable
+* 문자열
 * byte[]
 * int
 * double
@@ -288,32 +288,32 @@ Azure Functions를 사용 하면 함수에서 로그에 쓰는 방식을 쉽게 
 
 ### <a name="http-triggers-and-bindings"></a>HTTP 트리거 및 바인딩
 
-Http 및 webhook 트리거와 HTTP 출력 바인딩은 요청 및 응답 개체를 사용 하 여 HTTP 메시징을 나타냅니다.
+HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체를 사용하여 HTTP 메시지를 나타냅니다.
 
 #### <a name="request-object"></a>요청 개체
 
 스크립트에 전달 되는 request 개체는 다음 속성을 포함 하는 `HttpRequestContext`유형입니다.
 
-| Tulajdonság  | Leírás                                                    | Type (Típus)                      |
+| 속성  | Description                                                    | Type                      |
 |-----------|----------------------------------------------------------------|---------------------------|
-| **`Body`**    | 요청의 본문을 포함 하는 개체입니다. `Body`는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | objektum |
+| **`Body`**    | 요청의 본문을 포함하는 개체입니다. `Body`는 데이터에 따라 가장 적합 한 형식으로 직렬화 됩니다. 예를 들어 데이터가 JSON 인 경우 hashtable로 전달 됩니다. 데이터가 문자열 인 경우 문자열로 전달 됩니다. | object |
 | **`Headers`** | 요청 헤더를 포함 하는 사전입니다.                | 사전 < 문자열, 문자열 ><sup>*</sup> |
-| **`Method`** | 요청의 HTTP 메서드입니다.                                | sztring                    |
-| **`Params`**  | 요청의 라우팅 매개 변수를 포함 하는 개체입니다. | 사전 < 문자열, 문자열 ><sup>*</sup> |
-| **`Query`** | 쿼리 매개 변수를 포함 하는 개체입니다.                  | 사전 < 문자열, 문자열 ><sup>*</sup> |
-| **`Url`** | 요청의 URL입니다.                                        | sztring                    |
+| **`Method`** | 요청의 HTTP 메서드입니다.                                | 문자열                    |
+| **`Params`**  | 요청의 라우팅 매개 변수를 포함하는 개체입니다. | 사전 < 문자열, 문자열 ><sup>*</sup> |
+| **`Query`** | 쿼리 매개 변수를 포함하는 개체입니다.                  | 사전 < 문자열, 문자열 ><sup>*</sup> |
+| **`Url`** | 요청의 URL입니다.                                        | 문자열                    |
 
 <sup>*</sup> 모든 `Dictionary<string,string>` 키는 대/소문자를 구분 하지 않습니다.
 
-#### <a name="response-object"></a>Válaszobjektum
+#### <a name="response-object"></a>응답 개체
 
 다시 전송 해야 하는 응답 개체는 다음 속성을 포함 하는 `HttpResponseContext`유형입니다.
 
-| Tulajdonság      | Leírás                                                 | Type (Típus)                      |
+| 속성      | Description                                                 | Type                      |
 |---------------|-------------------------------------------------------------|---------------------------|
-| **`Body`**  | 응답의 본문을 포함 하는 개체입니다.           | objektum                    |
-| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | sztring                    |
-| **`Headers`** | 응답 헤더를 포함 하는 개체입니다.               | 사전 또는 해시 테이블   |
+| **`Body`**  | 응답의 본문을 포함하는 개체입니다.           | object                    |
+| **`ContentType`** | 응답의 콘텐츠 형식을 설정 하는 데 사용할 짧은 손입니다. | 문자열                    |
+| **`Headers`** | 응답 헤더를 포함하는 개체입니다.               | 사전 또는 해시 테이블   |
 | **`StatusCode`**  | 응답의 HTTP 상태 코드입니다.                       | 문자열 또는 int             |
 
 #### <a name="accessing-the-request-and-response"></a>요청 및 응답 액세스
@@ -385,14 +385,14 @@ Visual Studio Code 및 Azure Functions Core Tools와 같은 도구를 사용 하
 
 다음 표에서는 함수 런타임의 각 주 버전에서 사용 하는 PowerShell 버전을 보여 줍니다.
 
-| 함수 버전 | PowerShell 버전                             |
+| Functions 버전 | PowerShell 버전                             |
 |-------------------|------------------------------------------------|
 | 1.x               | Windows PowerShell 5.1 (런타임에 의해 잠김) |
 | 2.x               | PowerShell Core 6                              |
 
 함수에서 `$PSVersionTable`를 인쇄 하 여 현재 버전을 확인할 수 있습니다.
 
-## <a name="dependency-management"></a>Függőségkezelés
+## <a name="dependency-management"></a>종속성 관리
 
 함수를 사용 하 여 종속성 관리를 위한 [PowerShell 갤러리](https://www.powershellgallery.com) 를 활용할 수 있습니다. 종속성 관리를 사용 하도록 설정 하면 psd1 파일이 필요한 모듈을 자동으로 다운로드 하는 데 사용 됩니다. 다음 예제와 같이 `managedDependency` 속성을 [호스트 json 파일](functions-host-json.md)의 루트에 있는 `true`으로 설정 하 여이 동작을 사용 하도록 설정 합니다.
 
@@ -420,7 +420,7 @@ Psd1 파일을 업데이트 하는 경우 다시 시작한 후 업데이트 된 
 
 다음 응용 프로그램 설정을 사용 하 여 관리 되는 종속성을 다운로드 하 고 설치 하는 방법을 변경할 수 있습니다. 앱 업그레이드는 `MDMaxBackgroundUpgradePeriod`내에서 시작 되 고, 업그레이드 프로세스는 약 `MDNewSnapshotCheckPeriod`이내에 완료 됩니다.
 
-| 함수 앱 설정              | Alapértelmezett érték             | Leírás                                         |
+| 함수 앱 설정              | 기본값             | Description                                         |
 |   -----------------------------   |   -------------------     |  -----------------------------------------------    |
 | **`MDMaxBackgroundUpgradePeriod`**      | `7.00:00:00` (7 일)     | 각 PowerShell 작업자 프로세스는 프로세스 시작 시와 그 이후의 모든 `MDMaxBackgroundUpgradePeriod`에서 PowerShell 갤러리에 대 한 모듈 업그레이드 검사를 시작 합니다. PowerShell 갤러리에서 새 모듈 버전을 사용할 수 있는 경우이 버전은 파일 시스템에 설치 되며 PowerShell 작업자에 게 제공 됩니다. 이 값을 줄이면 함수 앱에서 최신 모듈 버전을 보다 빨리 가져올 수 있지만, 앱 리소스 사용량 (네트워크 i/o, CPU, 저장소)도 늘어납니다. 이 값을 늘려도 앱의 리소스 사용량이 줄어들지만 앱에 새 모듈 버전을 전달 하는 작업이 지연 될 수도 있습니다. | 
 | **`MDNewSnapshotCheckPeriod`**         | `01:00:00` (1 시간)       | 새 모듈 버전이 파일 시스템에 설치 된 후에는 모든 PowerShell 작업자 프로세스를 다시 시작 해야 합니다. PowerShell 작업자를 다시 시작 하면 현재 함수 실행을 중단할 수 있으므로 앱 사용 가능성에 영향을 줍니다. 모든 PowerShell 작업자 프로세스가 다시 시작 될 때까지 함수 호출은 이전 또는 새 모듈 버전을 사용할 수 있습니다. `MDNewSnapshotCheckPeriod`내에서 전체 PowerShell 작업자를 다시 시작 합니다. 이 값을 늘리면 중단 빈도가 줄어들지만 함수 호출로 인해 이전 또는 새 모듈 버전이 명확 하지 않은 경우에도 시간이 길어질 수 있습니다. |
@@ -478,9 +478,9 @@ PSFunctionApp
 
 기본적으로 함수는 이러한 모듈의 최신 버전을 사용 합니다. 특정 모듈 버전을 사용 하려면 함수 앱의 `Modules` 폴더에 특정 버전을 배치 합니다.
 
-## <a name="environment-variables"></a>Környezeti változók
+## <a name="environment-variables"></a>환경 변수
 
-함수에서 서비스 연결 문자열과 같은 [앱 설정은](functions-app-settings.md)실행 중에 환경 변수로 노출 됩니다. 다음 예제와 같이 `$env:NAME_OF_ENV_VAR`를 사용 하 여 이러한 설정에 액세스할 수 있습니다.
+Functions에서 [앱 설정](functions-app-settings.md)(예: 서비스 연결 문자열)은 실행 중에 환경 변수로 노출됩니다. 다음 예제와 같이 `$env:NAME_OF_ENV_VAR`를 사용 하 여 이러한 설정에 액세스할 수 있습니다.
 
 ```powershell
 param($myTimer)
@@ -492,9 +492,9 @@ Write-Host $env:WEBSITE_SITE_NAME
 
 [!INCLUDE [Function app settings](../../includes/functions-app-settings.md)]
 
-로컬로 실행 하는 경우 응용 프로그램 설정은 [로컬. 설정 json](functions-run-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
+로컬로 실행하는 경우 앱 설정은 [local.settings.json](functions-run-local.md#local-settings-file) 프로젝트 파일에서 읽습니다.
 
-## <a name="concurrency"></a>Párhuzamosság
+## <a name="concurrency"></a>동시성
 
 기본적으로 함수 PowerShell 런타임은 한 번에 하나의 함수 호출만 처리할 수 있습니다. 그러나 다음과 같은 경우에는이 동시성 수준으로 충분 하지 않을 수 있습니다.
 
@@ -591,7 +591,7 @@ Export-ModuleMember -Function "Invoke-PSTestFunc"
 
 PowerShell 함수를 사용 하는 경우 다음 섹션의 고려 사항에 유의 하세요.
 
-### <a name="cold-start"></a>콜드 시작
+### <a name="cold-start"></a>콜드 부팅
 
 서버를 사용 하지 않는 [호스팅 모델](functions-scale.md#consumption-plan)에서 Azure Functions를 개발 하는 경우 콜드 시작은 현실입니다. *콜드 시작* 은 함수 앱이 요청을 처리 하기 위해 실행 되기 시작 하는 데 걸리는 시간을 나타냅니다. 비활성 기간 동안 함수 앱이 종료 되기 때문에 소비 계획에서 콜드 시작이 더 자주 발생 합니다.
 
@@ -599,12 +599,12 @@ PowerShell 함수를 사용 하는 경우 다음 섹션의 고려 사항에 유�
 
 모든 호출에서 스크립트가 실행 됩니다. 스크립트에서 `Install-Module` 사용 하지 마십시오. 대신 함수에서 모듈 다운로드 시간을 낭비 하지 않아도 되도록 게시 하기 전에 `Save-Module`을 사용 합니다. 콜드 시작이 함수에 영향을 주는 경우에는 *always on* 또는 [프리미엄 계획](functions-scale.md#premium-plan)으로 설정 된 [App Service 계획](functions-scale.md#app-service-plan) 에 함수 앱을 배포 하는 것이 좋습니다.
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
-További információkért lásd a következőket:
+자세한 내용은 다음 리소스를 참조하세요.
 
-* [Azure Functions – ajánlott eljárások](functions-best-practices.md)
-* [Az Azure Functions fejlesztői segédanyagai](functions-reference.md)
-* [트리거 및 바인딩 Azure Functions](functions-triggers-bindings.md)
+* [Azure Functions에 대한 모범 사례](functions-best-practices.md)
+* [Azure Functions 개발자 참조](functions-reference.md)
+* [Azure Functions 트리거 및 바인딩](functions-triggers-bindings.md)
 
-[호스트 json 참조]: functions-host-json.md
+[host.json 참조]: functions-host-json.md

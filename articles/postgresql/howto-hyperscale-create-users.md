@@ -8,7 +8,7 @@ ms.topic: conceptual
 ms.date: 11/04/2019
 ms.openlocfilehash: d093d4c23fcc44e7e9f3461f875607926f4b612d
 ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: MT
+ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 12/10/2019
 ms.locfileid: "74977576"
@@ -17,7 +17,7 @@ ms.locfileid: "74977576"
 
 이 문서에서는 Citus (Hyperscale) 서버 그룹 내에서 사용자를 만드는 방법을 설명 합니다. Azure 구독 사용자 및 해당 권한에 대 한 자세한 내용은 [AZURE RBAC (역할 기반 액세스 제어) 문서](../role-based-access-control/built-in-roles.md) 를 참조 하거나 [역할을 사용자 지정 하는 방법을](../role-based-access-control/custom-roles.md)검토 하세요.
 
-## <a name="the-server-admin-account"></a>A kiszolgálói rendszergazdai fiók
+## <a name="the-server-admin-account"></a>서버 관리자 계정
 
 새로 만든 Citus (Hyperscale) 서버 그룹에는 다음과 같은 몇 가지 역할이 미리 정의 되어 있습니다.
 
@@ -26,7 +26,7 @@ ms.locfileid: "74977576"
 * *postgres*
 * *citus*
 
-PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)에 설명 된 대로 권한을 사용 하 여 데이터베이스 개체에 대 한 액세스를 제어 합니다.
+PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/docs/current/static/sql-createrole.html)의 설명대로 권한을 사용하여 데이터베이스 개체에 대한 액세스를 제어합니다.
 서버 관리자 사용자 *citus*는 *azure_pg_admin* 역할의 멤버입니다.
 그러나 *postgres* (슈퍼 사용자) 역할의 일부가 아닙니다.  Hyperscale은 관리 되는 PaaS 서비스 이므로 Microsoft만 슈퍼 사용자 역할의 일부입니다. *Citus* 사용자는 제한 된 권한을 가지 며, 예를 들어 새 데이터베이스를 만들 수 없습니다.
 
@@ -38,7 +38,7 @@ PostgreSQL 엔진은 [PostgreSQL 제품 설명서](https://www.postgresql.org/do
 
    ![역할 페이지](media/howto-hyperscale-create-users/1-role-page.png)
 
-2. 역할 이름 및 암호를 입력 합니다. Kattintson a **Save** (Mentés) gombra.
+2. 역할 이름 및 암호를 입력 합니다. **저장**을 클릭합니다.
 
    ![역할 추가](media/howto-hyperscale-create-users/2-add-user-fields.png)
 
@@ -74,7 +74,7 @@ SELECT run_command_on_workers(
 );
 ```
 
-## <a name="next-steps"></a>Következő lépések
+## <a name="next-steps"></a>다음 단계
 
 새 사용자 컴퓨터의 IP 주소에 대 한 방화벽을 열어 연결 하도록 설정 합니다. [Azure Portal를 사용 하 여 Citus (Hyperscale) 방화벽 규칙을 만들고 관리](howto-hyperscale-manage-firewall-using-portal.md)합니다.
 
@@ -82,4 +82,4 @@ SELECT run_command_on_workers(
 
 * [데이터베이스 역할 및 권한](https://www.postgresql.org/docs/current/static/user-manag.html)
 * [GRANT 구문](https://www.postgresql.org/docs/current/static/sql-grant.html)
-* [Jogosultságok](https://www.postgresql.org/docs/current/static/ddl-priv.html)
+* [부여](https://www.postgresql.org/docs/current/static/ddl-priv.html)
