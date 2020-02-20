@@ -113,11 +113,15 @@
           href: dns-sdk.md
         - name: Azure 리소스에 대한 사용자 지정 도메인
           href: dns-custom-domain.md
+    - name: 프라이빗 DNS
+      items:
+        - name: 프라이빗 DNS 영역 및 레코드 보호
+          href: dns-protect-private-zones-recordsets.md
     - name: 문제 해결
       items:
         - name: 문제 해결 가이드
           href: dns-troubleshoot.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 공용 DNS
       items:
@@ -163,7 +167,7 @@
       href: /azure/virtual-network/
     - name: Virtual Machine
       href: /azure/virtual-machines/
-    - name: 부하 분산 장치
+    - name: Load Balancer
       href: /azure/load-balancer/
     - name: Traffic Manager
       href: /azure/traffic-manager/
@@ -179,7 +183,7 @@
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=WAVirtualMachinesVirtualNetwork'
     - name: 네트워킹 블로그
       href: 'https://azure.microsoft.com/blog/topics/networking'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/dns/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

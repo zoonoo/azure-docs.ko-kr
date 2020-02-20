@@ -26,15 +26,17 @@
       href: tutorial-mysql-azure-mysql-online.md
     - name: RDS MySQL을 Azure DB for MySQL로 온라인 마이그레이션
       href: tutorial-rds-mysql-server-azure-db-for-mysql-online.md
-    - name: PostgreSQL을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - name: 포털을 통해 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
+      href: tutorial-postgresql-azure-postgresql-online-portal.md
+    - name: CLI를 통해 PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
       href: tutorial-postgresql-azure-postgresql-online.md
-    - name: RDS PostgreSQL을 Azure DB for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - name: RDS PostgreSQL을 Azure DB for PostgreSQL로 온라인 마이그레이션
       href: tutorial-rds-postgresql-server-azure-db-for-postgresql-online.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 오프라인 마이그레이션
       href: tutorial-mongodb-cosmos-db.md
     - name: MongoDB를 Azure Cosmos DB Mongo API로 온라인 마이그레이션
       href: tutorial-mongodb-cosmos-db-online.md
-    - name: Oracle을 Azure Database for PostgreSQL 단일 서버로 온라인 마이그레이션
+    - name: Oracle을 Azure DB for PostgreSQL로 마이그레이션 - 단일 서버 온라인
       href: tutorial-oracle-azure-postgresql-online.md
 - name: 방법 가이드
   items:
@@ -44,9 +46,9 @@
       href: howto-sql-server-to-azure-sql-mi-powershell.md
     - name: 마이그레이션 작업 모니터링
       href: how-to-monitor-migration-activity.md
-    - name: Azure SQL Database 단일 데이터베이스에 SSIS 패키지 다시 배포
+    - name: Azure SQL DB 단일 데이터베이스에 SSIS 패키지 다시 배포
       href: how-to-migrate-ssis-packages.md
-    - name: Azure SQL Database 관리형 인스턴스에 SSIS 패키지 다시 배포
+    - name: Azure SQL DB 관리형 인스턴스에 SSIS 패키지 다시 배포
       href: how-to-migrate-ssis-packages-managed-instance.md
 - name: 리소스
   expanded: true
@@ -85,13 +87,13 @@
           href: 'https://azure.microsoft.com/resources/videos/overview-of-migration-and-recommended-tools-services/'
         - name: 필수 구성 요소 해결 및 DMS 인스턴스 만들기
           href: 'https://azure.microsoft.com/resources/videos/how-to-address-prerequisites-and-create-a-dms-instance/'
-        - name: SQL Server 2008을 Azure SQL Database Managed Instance로 마이그레이션
+        - name: SQL Server 2008을 Azure SQL DB 관리형 인스턴스로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-sql-server-2008-or-r2-to-azure-sqldbmi/'
-        - name: PostgreSQL을 Azure Database for PostgreSQL로 마이그레이션
+        - name: PostgreSQL을 Azure DB for PostgreSQL로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-postgresql-to-azure-postgresql-online-dms-and-cli/'
         - name: 온라인 마이그레이션 모니터링 및 중단 수행
           href: 'https://azure.microsoft.com/resources/videos/how-to-monitor-online-migration-and-perform-cutover/'
-        - name: Oracle을 Azure SQL Database로 마이그레이션
+        - name: Oracle을 Azure SQL DB로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-oracle-to-sqldb-online/'
         - name: MongoDB를 Azure Cosmos DB로 마이그레이션
           href: 'https://azure.microsoft.com/resources/videos/how-to-migrate-mongodb-to-cosmos-db/'
@@ -113,7 +115,7 @@
       href: faq.md
     - name: 사용자 의견 피드백
       href: 'https://feedback.azure.com/forums/906100-azure-database-migration-service'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://aka.ms/dms-pricing'
     - name: 서비스 업데이트
       href: 'https://azure.microsoft.com/updates/?product=database-migration'

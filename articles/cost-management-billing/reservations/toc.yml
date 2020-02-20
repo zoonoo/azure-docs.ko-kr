@@ -36,6 +36,8 @@
           href: exchange-and-refund-azure-reservations.md
         - name: 예약 관리
           href: manage-reserved-vm-instance.md
+        - name: 최적화 설정 변경
+          href: 'manage-reserved-vm-instance.md#change-optimize-setting-for-reserved-vm-instances'
         - name: 예약 보기
           href: view-reservations.md
     - name: 개념

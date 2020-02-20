@@ -529,6 +529,8 @@
               href: ./hadoop/troubleshoot-lost-key-vault-access.md
             - name: WASBS 스토리지 예외
               href: ./hadoop/troubleshoot-wasbs-storage-exception.md
+            - name: 디스크 공간 관리
+              href: ./hadoop/troubleshoot-disk-space.md
 - name: Apache Kafka
   items:
     - name: 개요
@@ -884,6 +886,8 @@
           href: ./hdinsight-sync-aad-users-to-cluster.md
         - name: 엔터프라이즈 보안을 사용하여 클러스터 관리
           href: ./domain-joined/apache-domain-joined-manage.md
+        - name: SSH 액세스 관리
+          href: ./domain-joined/ssh-domain-accounts.md
         - name: 데이터 보안
           href: ./hdinsight-hadoop-create-linux-clusters-with-secure-transfer-storage.md
         - name: 문제 해결

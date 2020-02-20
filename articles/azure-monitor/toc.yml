@@ -527,7 +527,7 @@
               href: platform/resource-logs-blob-format.md
         - name: Event Hubs로 데이터 스트리밍
           href: platform/stream-monitoring-data-event-hubs.md
-    - name: VM 모니터링 및 컴퓨팅
+    - name: VM 및 게스트 OS 모니터링
       items:
         - name: 에이전트
           items:
@@ -537,13 +537,15 @@
               href: 'faq.md#agents'
             - name: Azure Diagnostics 확장
               items:
+                - name: 개요
+                  href: platform/diagnostics-extension-overview.md
                 - name: Windows
                   displayname: diagnostics extension
                   items:
-                    - name: 개요
-                      href: platform/diagnostics-extension-overview.md
                     - name: 설치 및 구성
                       items:
+                        - name: 설치 옵션
+                          href: platform/diagnostics-extension-windows-install.md
                         - name: PowerShell
                           href: ../virtual-machines/extensions/diagnostics-windows.md?toc=/azure/azure-monitor/toc.json
                         - name: Resource Manager 템플릿
@@ -561,13 +563,11 @@
                     - name: Event Hubs로 보내기
                       href: platform/diagnostics-extension-stream-event-hubs.md
                     - name: 로그에 보내기
-                      href: platform/azure-storage-iis-table.md
-                    - name: Azure Storage에 보내기
-                      href: platform/diagnostics-extension-to-storage.md
+                      href: platform/diagnostics-extension-logs.md
                     - name: Application Insights로 보내기
                       href: platform/diagnostics-extension-to-application-insights.md
                     - name: 버전 기록
-                      href: platform/diagnostics-extension-schema.md
+                      href: platform/diagnostics-extension-versions.md
                     - name: JSON 줄 리소스 로그 형식
                       href: platform/diagnostic-logs-append-blobs.md
                     - name: 문제 해결
@@ -588,9 +588,9 @@
                 - name: Linux 에이전트
                   href: platform/agent-linux.md
                 - name: Windows용 VM 확장
-                  href: ../virtual-machines/windows/extensions-oms.md
+                  href: ../virtual-machines/windows/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: Linux용 VM 확장
-                  href: ../virtual-machines/linux/extensions-oms.md
+                  href: ../virtual-machines/linux/extensions-oms.md?toc=/azure/azure-monitor/toc.json
                 - name: Log Analytics 게이트웨이
                   href: platform/gateway.md
                 - name: 에이전트 관리
@@ -1151,8 +1151,8 @@
       href: service-limits.md
     - name: 진단 확장
       items:
-        - name: 스키마
-          href: platform/diagnostics-extension-schema-1dot3.md
+        - name: Windows 구성 스키마
+          href: platform/diagnostics-extension-schema-windows.md
     - name: 용어 변경
       href: terminology.md
     - name: Application Insights
