@@ -4,16 +4,16 @@ description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: 4ff51080d675c53e53397a070c1f6f1766aa9e85
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500679"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
-Azure Backup은 Recovery Services 자격 증명 모음에 [기본 제공 모니터링 및 경고 기능](backup-azure-monitoring-built-in-monitor.md) 을 제공 합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 그러나이 기본 제공 서비스는 다음과 같은 시나리오에서 제한 됩니다.
+Azure Backup은 [기본 제공 모니터링 및 경고 기능](backup-azure-monitoring-built-in-monitor.md)을 Recovery Services 자격 증명 모음에 제공합니다. 이러한 기능은 추가 관리 인프라 없이 사용할 수 있습니다. 그러나이 기본 제공 서비스는 다음과 같은 시나리오에서 제한 됩니다.
 
 - 여러 구독에서 여러 Recovery Services 자격 증명 모음의 데이터를 모니터링 하는 경우
 - 기본 알림 채널이 전자 메일이 *아닌* 경우
@@ -63,64 +63,64 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
     ````
 
 - 실패 한 모든 백업 작업
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Failed"
+    | where JobOperation=="Backup"
+    | where JobStatus=="Failed"
     ````
 
 - 모든 성공한 Azure VM 백업 작업
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="VM" and BackupManagementType=="IaaSVM"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - 모든 성공한 SQL 로그 백업 작업
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup" and JobOperationSubType=="Log"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup" and JobOperationSubType=="Log"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="SQLDataBase" and BackupManagementType=="AzureWorkload"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 - 성공한 모든 Azure Backup 에이전트 작업
 
     ````Kusto
     AddonAzureBackupJobs
-| where JobOperation=="Backup"
-| where JobStatus=="Completed"
-| join kind=inner
-(
-    CoreAzureBackup
-    | where OperationName == "BackupItem"
-    | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
-    | distinct BackupItemUniqueId, BackupItemFriendlyName
-)
-on BackupItemUniqueId
+    | where JobOperation=="Backup"
+    | where JobStatus=="Completed"
+    | join kind=inner
+    (
+        CoreAzureBackup
+        | where OperationName == "BackupItem"
+        | where BackupItemType=="FileFolder" and BackupManagementType=="MAB"
+        | distinct BackupItemUniqueId, BackupItemFriendlyName
+    )
+    on BackupItemUniqueId
     ````
 
 ### <a name="diagnostic-data-update-frequency"></a>진단 데이터 업데이트 빈도
@@ -173,4 +173,4 @@ Log Analytics 작업 영역을 사용 하 여 Azure Backup으로 보호 되는 �
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 쿼리를 만들려면 [Log Analytics 데이터 모델](backup-azure-log-analytics-data-model.md)을 참조 하세요.
+사용자 지정 쿼리를 만들려면 [Log Analytics 데이터 모델](backup-azure-reports-data-model.md)을 참조 하세요.

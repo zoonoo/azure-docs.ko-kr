@@ -10,16 +10,16 @@ ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.subservice: pim
-ms.date: 02/05/2020
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a409d71ff3eae3bc62527a0669a74696246a50cd
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 77132ae9a10eda7170ac56f2b7c65a3ebcde8d6d
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048081"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499014"
 ---
 # <a name="configure-azure-ad-role-settings-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할 설정 구성
 
@@ -32,11 +32,11 @@ ms.locfileid: "77048081"
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
-    ![Azure AD 역할 새 버전](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 이 문서의 단계에 따라 Azure AD 역할에 대 한 요청을 승인 하거나 거부 합니다.
 
-# <a name="new-versiontabnew"></a>[새 버전](#tab/new)
+# <a name="new-version"></a>[새 버전](#tab/new)
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
@@ -46,15 +46,15 @@ ms.locfileid: "77048081"
 gt
 1. **역할 설정**&gt; **Azure AD 역할** &gt; **Azure AD Privileged Identity Management** 을 엽니다.
 
-    ![Azure 리소스 역할을 나열 하는 역할 설정 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-settings.png)
+    ![Azure AD 역할을 나열 하는 역할 설정 페이지](./media/pim-how-to-change-default-settings/role-settings.png)
 
 1. 설정을 구성 하려는 역할을 선택 합니다.
 
-    ![몇 가지 할당 및 활성화 설정을 나열 하는 역할 설정 세부 정보 페이지](./media/pim-resource-roles-configure-role-settings/resources-role-setting-details.png)
+    ![몇 가지 할당 및 활성화 설정을 나열 하는 역할 설정 세부 정보 페이지](./media/pim-how-to-change-default-settings/role-settings-page.png)
 
 1. **편집** 을 선택 하 여 역할 설정 페이지를 엽니다.
 
-    ![할당 및 활성화 설정 업데이트 옵션을 사용 하 여 역할 설정 페이지 편집](./media/pim-resource-roles-configure-role-settings/resources-role-settings-edit.png)
+    ![할당 및 활성화 설정 업데이트 옵션을 사용 하 여 역할 설정 페이지 편집](./media/pim-how-to-change-default-settings/role-settings-edit.png)
 
     각 역할에 대한 역할 설정 페이지에서 몇 가지 설정을 구성할 수 있습니다.
 
@@ -66,18 +66,18 @@ gt
 
 | | |
 | --- | --- |
-| **영구 적격 할당 허용** | 리소스 관리자가 영구 적격 할당을 할당할 수 있습니다. |
-| **적격 할당 만료 기준 시간** | 리소스 관리자는 모든 적격 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
+| **영구 적격 할당 허용** | 전역 관리자 및 권한 있는 역할 관리자는 영구 적격 할당을 할당할 수 있습니다. |
+| **적격 할당 만료 기준 시간** | 전역 관리자 및 권한 있는 역할 관리자가 모든 적격 할당에 지정 된 시작 및 종료 날짜를 요구할 수 있습니다. |
 
 또한 다음 **활성** 할당 기간 옵션 중 하나를 선택할 수 있습니다.
 
 | | |
 | --- | --- |
-| **영구 활성 할당 허용** | 리소스 관리자는 영구 활성 할당을 할당할 수 있습니다. |
-| **활성 할당 만료 기준 시간** | 리소스 관리자는 모든 활성 할당에 시작 및 종료 날짜가 지정되도록 요구할 수 있습니다. |
+| **영구 활성 할당 허용** | 전역 관리자 및 권한 있는 역할 관리자는 영구 활성 할당을 할당할 수 있습니다. |
+| **활성 할당 만료 기준 시간** | 전역 관리자 및 권한 있는 역할 관리자는 모든 활성 할당에 지정 된 시작 및 종료 날짜가 포함 되도록 요구할 수 있습니다. |
 
 > [!NOTE]
-> 리소스 관리자는 지정된 종료 날짜가 있는 모든 할당을 갱신할 수 있습니다. 또한 사용자는 [역할 할당을 확장 하거나 갱신](pim-resource-roles-renew-extend.md)하는 셀프 서비스 요청을 시작할 수 있습니다.
+> 지정 된 종료 날짜가 있는 모든 할당은 전역 관리자 및 권한 있는 역할 관리자가 갱신할 수 있습니다. 또한 사용자는 [역할 할당을 확장 하거나 갱신](pim-resource-roles-renew-extend.md)하는 셀프 서비스 요청을 시작할 수 있습니다.
 
 ## <a name="require-multi-factor-authentication"></a>Multi-Factor Authentication 필요
 
@@ -87,13 +87,13 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 경우에 따라 잠시 동안 사용자를 역할에 할당할 수 있습니다 (예: 1 일). 이 경우 할당 된 사용자가 활성화를 요청할 필요가 없습니다. 이 시나리오에서는 사용자가 역할 할당을 사용 하는 경우 사용자가 역할 할당을 사용 하는 경우 multi-factor authentication Privileged Identity Management을 적용할 수 없습니다 .이는 역할이 할당 된 시간부터 이미 활성화 되어 있기 때문입니다.
 
-할당을 수행 하는 리소스 관리자가 사용자의 신원을 확인 하려면 활성 **할당에 대 한 Multi-Factor Authentication 필요** 상자를 선택 하 여 활성 할당에 대해 multi-factor authentication을 적용할 수 있습니다.
+할당을 수행 하는 관리자가 자신에 게 표시 되는 사용자 인지 확인 하려면 **활성 할당에 대 한 Multi-Factor Authentication 필요** 상자를 선택 하 여 활성 할당에 대해 multi-factor authentication을 적용할 수 있습니다.
 
 ### <a name="require-multi-factor-authentication-on-activation"></a>활성화 시 Multi-Factor Authentication 필요
 
 역할에 대 한 자격이 있는 사용자가 Azure Multi-Factor Authentication를 사용 하 여 인증을 받을 수 있도록 요구할 수 있습니다. Multi-factor authentication을 사용 하면 사용자에 게 적절 한 확신을 갖고 있다고 사용자에 게 표시 됩니다. 이 옵션을 적용하면 사용자의 계정이 손상되었을 수 있는 상황에서 중요한 리소스를 보호할 수 있습니다.
 
-활성화 하기 전에 multi-factor authentication을 요구 하려면 **활성화 시 Multi-Factor Authentication 필요** 확인란을 선택 합니다.
+활성화 하기 전에 multi-factor authentication을 요구 하려면 **역할 편집 설정**의 할당 탭에서 **활성화에 대 한 Multi-Factor Authentication 필요** 확인란을 선택 합니다.
 
 자세한 내용은 [Multi-Factor Authentication 및 Privileged Identity Management](pim-how-to-require-mfa.md)를 참조하세요.
 
@@ -121,7 +121,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 1. 모든 역할 설정을 지정 했으면 **업데이트** 를 선택 하 여 변경 내용을 저장 합니다.
 
-# <a name="previous-versiontabprevious"></a>[이전 버전](#tab/previous)
+# <a name="previous-version"></a>[이전 버전](#tab/previous)
 
 ## <a name="open-role-settings"></a>역할 설정 열기
 
@@ -147,7 +147,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **활성화** 슬라이더를 사용하여 역할이 만료되기 전에 활성 상태로 지속되는 최대 시간(시간 단위)을 설정합니다. 이 값은 1 ~ 72시간 사이가 될 수 있습니다.
 
-## <a name="notifications"></a>알림
+## <a name="notifications"></a>공지
 
 **알림** 스위치를 사용하여 역할이 활성화될 때 관리자가 이메일 알림을 받을지 여부를 지정합니다. 이 알림은 무단 또는 불법 활성화를 검색 하는 데 유용할 수 있습니다.
 
@@ -163,7 +163,7 @@ Privileged Identity Management는 서로 다른 두 가지 시나리오에 대�
 
 **인시던트/요청 티켓** 스위치를 사용 하 여 적격 관리자가 자신의 역할을 활성화할 때 티켓 번호를 포함 하도록 요구할 수 있습니다. 이 방법을 사용 하면 역할 액세스 감사를 보다 효과적으로 수행할 수 있습니다.
 
-## <a name="multi-factor-authentication"></a>다단계 인증
+## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
 **Multi-Factor Authentication** 스위치를 사용하여 사용자가 자신의 역할을 활성화하기 전에 MFA로 신원을 확인하도록 요구할지 여부를 지정할 수 있습니다. 세션 마다 한 번만 id를 확인 하면 되므로 역할을 활성화할 때마다 해당 id를 확인 해야 합니다. MFA를 사용할 때 염두에 두어야 할 두 가지가 있습니다.
 

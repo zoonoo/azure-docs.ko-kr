@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 12/17/2019
 ms.author: panosper
-ms.openlocfilehash: dc473c814cdd69204cddd976bc77f19b5db567b1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 6d5ec5f798617d03072ec5931b0d1d3623df3d42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200081"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500008"
 ---
 # <a name="how-to-use-batch-transcription"></a>일괄 처리 기록을 사용 하는 방법
 
@@ -87,14 +87,55 @@ Batch Transcription API에서 지원하는 형식은 다음과 같습니다.
 
 이러한 선택적 속성을 사용 하 여 기록을 구성 합니다.
 
-| 매개 변수 | Description |
-|-----------|-------------|
-| `ProfanityFilterMode` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용되는 값은 욕설 필터링을 비활성화하는 `None`, 욕설을 별표로 바꾸는 `Masked`, 결과에서 모든 욕설을 제거하는 `Removed`, 또는 “profanity” 태그를 추가하는 `Tags`입니다. 기본 설정은 `Masked`입니다. |
-| `PunctuationMode` | 인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용되는 값은 문장 부호를 비활성화하는 `None`, 명시적인 문장 부호를 의미하는 `Dictated`, 디코더가 문장 부호를 처리하도록 하는 `Automatic`, 지정된 문장 부호 또는 자동을 의미하는 `DictatedAndAutomatic`입니다. |
-| `AddWordLevelTimestamps` | 단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용되는 값은 단어 수준 타임스탬프를 사용하는 `true`와 사용하지 않는 `false`(기본값)입니다. |
-| `AddSentiment` | 발언에 감정을 추가할 것인지 지정합니다. 허용 되는 값은 감정 utterance 및 `false` (기본값)를 사용 하지 않도록 설정 하는 `true`입니다. |
-| `AddDiarization` | 두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하는 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.|
-|`TranscriptionResultsContainerUrl`|Azure의 쓰기 가능한 컨테이너에 [서비스 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다.
+:::row:::
+   :::column span="1":::
+      **매개 변수**
+   :::column-end:::
+   :::column span="2":::
+      **설명**
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `ProfanityFilterMode`
+   :::column-end:::
+   :::column span="2":::
+      인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 비속어 필터링 `Masked`을 사용 하지 않도록 설정 하거나, 사용 금지를 별표로 바꾸거나, 결과에서 모든 사용 금지를 제거 하거나 `Removed`, `Tags` "비속어" 태그를 추가 하는 `None`입니다. 기본 설정은 `Masked`입니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `PunctuationMode`
+   :::column-end:::
+   :::column span="2":::
+      인식 결과에서 문장 부호의 처리 방법을 지정합니다. 허용 되는 값은 문장 부호를 사용 하지 않도록 설정 `DictatedAndAutomatic` 하거나, 명시적 (음성) 문장 `Automatic` 부호를 의미 하는 `Dictated`, 디코더가 문장 부호를 처리 하는 데 사용할 수 있도록 하는 `None`, 지시한 및 자동 문장 부호를 사용 기본 설정은 `DictatedAndAutomatic`입니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddWordLevelTimestamps`
+   :::column-end:::
+   :::column span="2":::
+      단어 수준 타임스탬프를 출력에 추가할지 여부를 지정합니다. 허용 되는 값은 word 수준 타임 스탬프를 사용 하도록 설정 하 고 기본값을 `false` (기본값) 사용 하지 않도록 설정 하 `true`입니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddSentiment`
+   :::column-end:::
+   :::column span="2":::
+      발언에 감정을 추가할 것인지 지정합니다. 허용 되는 값은 utterance 감정를 사용 하도록 설정 하 `false` 고 기본값을 사용 하지 않도록 설정 하는 `true`입니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `AddDiarization`
+   :::column-end:::
+   :::column span="2":::
+      두 개의 음성을 포함 하는 mono 채널이 될 것으로 예상 되는 입력에 대해 diarization 분석을 수행 하도록 지정 합니다. 허용 되는 값은 diarization 및 `false` (기본값)을 사용 하지 않도록 설정 하 `true`입니다. 또한 `AddWordLevelTimestamps`를 true로 설정 해야 합니다.
+:::row-end:::
+:::row:::
+   :::column span="1":::
+      `TranscriptionResultsContainerUrl`
+   :::column-end:::
+   :::column span="2":::
+      Azure의 쓰기 가능한 컨테이너에 [서비스 SAS](../../storage/common/storage-sas-overview.md) 를 사용 하는 선택적 URL입니다. 결과는이 컨테이너에 저장 됩니다.
+:::row-end:::
 
 ### <a name="storage"></a>스토리지
 

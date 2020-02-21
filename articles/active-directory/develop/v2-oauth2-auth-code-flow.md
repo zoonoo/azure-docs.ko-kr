@@ -17,12 +17,12 @@ ms.date: 01/31/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8a847afa2253223ebe9450d350cd18f5f659e0e3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 686a9681394a2d23dafbc03cb533d80ca0f8723b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77159780"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484471"
 ---
 # <a name="microsoft-identity-platform-and-oauth-20-authorization-code-flow"></a>Microsoft id 플랫폼 및 OAuth 2.0 인증 코드 흐름
 
@@ -142,7 +142,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &code=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq3n8b2JRLk4OxVXr...
 &redirect_uri=http%3A%2F%2Flocalhost%2Fmyapp%2F
 &grant_type=authorization_code
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh    // NOTE: Only required for web apps. This secret needs to be URL-Encoded.
 ```
 
 > [!TIP]
@@ -156,7 +156,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `scope`      | required   | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 첫 번째 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 모든 범위는 단일 리소스에서 비롯 된 OIDC 범위 (`profile`, `openid`, `email`)와 함께 사용 해야 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `code`          | required  | 흐름의 첫 번째 레그에서 얻은 authorization_code입니다. |
 | `redirect_uri`  | required  | authorization_code를 획득하는 데 사용된 값과 동일한 redirect_uri 값입니다. |
-| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. Client_secrets 장치에 안정적으로 저장할 수 없기 때문에 네이티브 앱에서 응용 프로그램 암호를 사용 하면 안 됩니다. 서버 쪽에 안전 하 게 client_secret를 저장할 수 있는 웹 앱과 web Api에 필요 합니다.  클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다.  |
+| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. Client_secrets 장치에 안정적으로 저장할 수 없기 때문에 네이티브 앱에서 응용 프로그램 암호를 사용 하면 안 됩니다. 서버 쪽에 안전 하 게 client_secret를 저장할 수 있는 웹 앱과 web Api에 필요 합니다.  클라이언트 암호는 전송되기 전에 URL로 인코딩되어야 합니다. 자세한 내용을 보려면 [여기](https://tools.ietf.org/html/rfc3986#page-12)를 클릭 하세요. |
 | `code_verifier` | 선택 사항  | authorization_code를 얻는 데 사용된 동일한 code_verifier입니다. 인증 코드 부여 요청에 PKCE가 사용된 경우에는 필수입니다. 자세한 내용은 [PKCE RFC](https://tools.ietf.org/html/rfc7636)를 참조하세요. |
 
 ### <a name="successful-response"></a>성공적인 응답
@@ -254,7 +254,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 &scope=https%3A%2F%2Fgraph.microsoft.com%2Fmail.read
 &refresh_token=OAAABAAAAiL9Kn2Z27UubvWFPbm0gLWQJVzCTE9UkP3pSx1aXxUjq...
 &grant_type=refresh_token
-&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps
+&client_secret=JqQX2PNo9bpM0uEihUPzyrh      // NOTE: Only required for web apps. This secret needs to be URL-Encoded
 ```
 
 > [!TIP]
@@ -268,7 +268,7 @@ client_id=6731de76-14a6-49ae-97bc-6eba6914391e
 | `grant_type`    | required    | 이 인증 코드 흐름 범례에 대한 `refresh_token` 이어야 합니다. |
 | `scope`         | required    | 공백으로 구분된 범위 목록입니다. 이 레그에서 요청된 범위가 원래 authorization_code 요청 레그에서 요청된 범위와 동일하거나 하위 집합이어야 합니다. 이 요청에 지정 된 범위가 여러 리소스 서버에 걸쳐 있는 경우 Microsoft id 플랫폼 끝점은 첫 번째 범위에 지정 된 리소스에 대 한 토큰을 반환 합니다. 범위에 대한 자세한 설명은 [사용 권한, 동의 및 범위](v2-permissions-and-consent.md)를 참조하세요. |
 | `refresh_token` | required    | 흐름의 두 번째 레그에서 얻은 refresh_token입니다. |
-| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. Client_secrets 장치에 안정적으로 저장할 수 없기 때문에 네이티브 앱에서 사용 하면 안 됩니다. 서버 쪽에 안전 하 게 client_secret를 저장할 수 있는 웹 앱과 web Api에 필요 합니다. |
+| `client_secret` | 웹앱에 필요 | 앱에 대한 앱 등록 포털에서 만든 애플리케이션 암호입니다. Client_secrets 장치에 안정적으로 저장할 수 없기 때문에 네이티브 앱에서 사용 하면 안 됩니다. 서버 쪽에 안전 하 게 client_secret를 저장할 수 있는 웹 앱과 web Api에 필요 합니다. 이 암호는 URL로 인코딩해야 합니다. 자세한 내용을 [보려면 여기](https://tools.ietf.org/html/rfc3986#page-12)를 클릭 하세요. |
 
 #### <a name="successful-response"></a>성공적인 응답
 

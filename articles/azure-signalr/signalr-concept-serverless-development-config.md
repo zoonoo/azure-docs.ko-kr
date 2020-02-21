@@ -6,12 +6,12 @@ ms.service: signalr
 ms.topic: conceptual
 ms.date: 03/01/2019
 ms.author: antchu
-ms.openlocfilehash: f86a63315798d982f7e78fd1ff293061daf50132
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: e1157a695d34c75b237391427b37365421366ef8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786778"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523173"
 ---
 # <a name="azure-functions-development-and-configuration-with-azure-signalr-service"></a>Azure SignalR Service를 사용 하 여 개발 및 구성 Azure Functions
 
@@ -29,10 +29,10 @@ Azure Portal에서 SignalR Service 리소스의 *설정* 페이지를 찾습니�
 
 ## <a name="azure-functions-development"></a>Azure Functions 개발
 
-Azure Functions 및 Azure SignalR 서비스를 사용 하 여 빌드한 서버 리스 실시간 응용 프로그램은 일반적으로 다음 두 가지 Azure Functions 필요 합니다.
+Azure SignalR Service 및 Azure Functions로 구축된 서버리스 실시간 애플리케이션에는 일반적으로 다음과 같은 두 가지 Azure Functions가 필요합니다.
 
-* 클라이언트에서 유효한 SignalR 서비스 액세스 토큰 및 서비스 끝점 URL을 얻기 위해 호출 하는 "negotiate" 함수
-* 메시지를 보내거나 그룹 멤버 자격을 관리 하는 하나 이상의 함수
+* 클라이언트가 유효한 SignalR Service 액세스 토큰 및 서비스 엔드포인트 URL을 얻기 위해 호출하는 "협상" 함수
+* 메시지를 보내거나 그룹 멤버 자격을 관리하는 하나 이상의 함수
 
 ### <a name="negotiate-function"></a>negotiate 함수
 
@@ -40,7 +40,7 @@ Azure Functions 및 Azure SignalR 서비스를 사용 하 여 빌드한 서버 �
 
 HTTP로 트리거된 Azure 함수 및 *SignalRConnectionInfo* 입력 바인딩을 사용 하 여 연결 정보 개체를 생성 합니다. 함수는 `/negotiate`로 끝나는 HTTP 경로를 포함 해야 합니다.
 
-Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRConnectionInfo* 입력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#input)를 참조 하세요.
+Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRConnectionInfo* 입력 바인딩 참조](../azure-functions/functions-bindings-signalr-service-input.md)를 참조 하세요.
 
 인증 된 토큰을 만드는 방법에 대 한 자세한 내용은 [App Service 인증 사용](#using-app-service-authentication)을 참조 하세요.
 
@@ -50,7 +50,7 @@ Negotiate 함수를 만드는 방법에 대 한 자세한 내용은 [ *SignalRCo
 
 하나 이상의 그룹에 사용자를 추가할 수 있습니다. *SignalR* 출력 바인딩을 사용 하 여 그룹에 사용자를 추가 하거나 그룹에서 사용자를 제거할 수도 있습니다.
 
-자세한 내용은 [ *SignalR* 출력 바인딩 참조](../azure-functions/functions-bindings-signalr-service.md#output)를 참조 하세요.
+자세한 내용은 [ *SignalR* 출력 바인딩 참조](../azure-functions/functions-bindings-signalr-service-output.md)를 참조 하세요.
 
 ### <a name="signalr-hubs"></a>SignalR 허브
 
@@ -100,7 +100,7 @@ Azure SignalR Service와 통합 하는 azure 함수 앱은 [지속적으로 배�
 
 JavaScript/TypeScript 클라이언트는 협상 함수에 대해 HTTP 요청을 수행 하 여 연결 협상을 시작 합니다. 클라이언트 응용 프로그램이 Azure 함수 앱과 다른 도메인에서 호스트 되는 경우 함수 앱에서 CORS (크로스-원본 자원 공유)를 사용 하도록 설정 해야 합니다. 그렇지 않으면 브라우저에서 요청을 차단 합니다.
 
-#### <a name="localhost"></a>호스트
+#### <a name="localhost"></a>Localhost
 
 로컬 컴퓨터에서 함수 앱을 실행 하는 경우 CORS에 `Host` 섹션을 추가 하 *여 CORS* 를 사용 하도록 설정할 수 있습니다. `Host` 섹션에서 다음 두 가지 속성을 추가 합니다.
 

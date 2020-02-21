@@ -6,7 +6,7 @@ documentationcenter: ''
 author: msmimart
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 04/03/2019
 ms.author: mimart
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: bfc5c24b1ba3d623e148e0da5b38a869d056996a
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7003899b59e409a785c3a50e89aae6674e377b4d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367812"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522598"
 ---
 # <a name="customizing-user-provisioning-attribute-mappings-for-saas-applications-in-azure-active-directory"></a>사용자 프로 비전 특성 사용자 지정-Azure Active Directory에서 SaaS 응용 프로그램에 대 한 매핑
 
@@ -54,7 +54,7 @@ Azure AD 사용자 개체와 각 SaaS 앱의 사용자 개체 사이에는 미�
 ### <a name="understanding-attribute-mapping-types"></a>특성 매핑 유형 이해
 
 특성 매핑으로 타사 SaaS 애플리케이션에서 특성이 채워지는 법을 제어합니다.
-네 가지 서로 다른 매핑 형식이 지원됩니다.
+4 가지의 다른 매핑 형식이 지원됩니다.
 
 - **직접** – 대상 특성이 Azure AD에서 연결된 개체의 특성 값으로 채워집니다.
 - **상수** – 대상 특성이 지정 된 특정 문자열로 채워집니다.
@@ -111,7 +111,7 @@ ServiceNow, Box 및 G Suite와 같은 선택한 수의 응용 프로그램은 �
 
 - Salesforce
 - ServiceNow
-- 작업일
+- Workday
 - Azure Active Directory ([Microsoft Graph REST API v 1.0 참조](https://docs.microsoft.com/graph/api/overview?view=graph-rest-1.0) 및 사용자 지정 디렉터리 확장이 지원 됨)
 - [SCIM 2.0](https://tools.ietf.org/html/rfc7643)을 지원하는 앱([코어 스키마](https://tools.ietf.org/html/rfc7643)에 정의된 특성을 추가해야 함)
 

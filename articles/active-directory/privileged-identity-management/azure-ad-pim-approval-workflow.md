@@ -12,16 +12,16 @@ ms.devlang: na
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 11/12/2019
+ms.date: 02/07/2020
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3261e30d024cedba5885019a62cba1e296c1c00d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0b39336591e9939d0e5200304cbeced2d9831979
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025557"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498762"
 ---
 # <a name="approve-or-deny-requests-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 요청 승인 또는 거부
 
@@ -29,20 +29,20 @@ Azure Active Directory (Azure AD) Privileged Identity Management (PIM)를 사용
 
 ## <a name="determine-your-version-of-pim"></a>PIM 버전 확인
 
-11 월 2019부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 리소스 역할의 환경과 일치 하는 새 버전으로 업데이트 됩니다. 그러면 [기존 API에 대 한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성 됩니다. 새 버전이 롤아웃 되는 동안이 문서에서 수행 하는 절차는 현재 보유 하 고 있는 Privileged Identity Management 버전에 따라 달라 집니다. 이 섹션의 단계에 따라 Privileged Identity Management 버전을 확인 합니다. Privileged Identity Management 버전을 확인 한 후에는이 문서에서 해당 버전과 일치 하는 절차를 선택할 수 있습니다.
+11 월 2019부터 Privileged Identity Management의 Azure AD 역할 부분은 Azure 역할의 환경과 일치 하는 새 버전으로 업데이트 됩니다. 그러면 [기존 API에 대 한 변경](azure-ad-roles-features.md#api-changes)뿐만 아니라 추가 기능이 생성 됩니다. 새 버전이 롤아웃 되는 동안이 문서에서 수행 하는 절차는 현재 보유 하 고 있는 Privileged Identity Management 버전에 따라 달라 집니다. 이 섹션의 단계에 따라 Privileged Identity Management 버전을 확인 합니다. Privileged Identity Management 버전을 확인 한 후에는이 문서에서 해당 버전과 일치 하는 절차를 선택할 수 있습니다.
 
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
-    ![Azure AD 역할 새 버전](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+    [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 이 문서의 단계에 따라 Azure AD 역할에 대 한 요청을 승인 하거나 거부 합니다.
 
-# <a name="new-versiontabnew"></a>[새 버전](#tab/new)
+# <a name="new-version"></a>[새 버전](#tab/new)
 
 ## <a name="view-pending-requests"></a>보류 중인 요청 보기
 
-Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자가 이메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
+위임 승인자는 Azure AD 역할 요청이 승인 보류 중인 경우 전자 메일 알림을 받게 됩니다. Privileged Identity Management에서 이러한 보류 중인 요청을 볼 수 있습니다.
 
 1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
@@ -50,7 +50,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. **요청 승인**을 선택 합니다.
 
-    ![요청 승인-검토 요청을 표시 하는 Azure 리소스 페이지](./media/pim-resource-roles-approval-workflow/resources-approve-requests.png)
+    ![요청 승인-Azure AD 역할 검토 요청을 표시 하는 페이지](./media/azure-ad-pim-approval-workflow/resources-approve-pane.png)
 
     **역할 활성화 요청** 섹션에서는 사용자의 승인이 보류 중인 요청 목록이 표시됩니다.
 
@@ -64,7 +64,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
 1. **승인**을 선택 합니다. 승인에 대 한 Azure 알림을 받게 됩니다.
 
-    ![요청이 승인 되었음을 보여 주는 승인 알림](./media/pim-resource-roles-approval-workflow/resources-approve-notification.png)
+    ![요청이 승인 되었음을 보여 주는 승인 알림](./media/pim-resource-roles-approval-workflow/resources-approve-pane.png))
 
 ## <a name="deny-requests"></a>요청 거부
 
@@ -83,12 +83,12 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 - 승인자는 역할에 대 한 요청이 검토를 보류 중인 경우 전자 메일로 알립니다. 메일 알림에는 승인자가 승인 또는 거부할 수 있는 요청에 대한 직접 링크가 포함되어 있습니다.
 - 요청은 승인 또는 거부 하는 첫 번째 승인자에 의해 확인 됩니다.
 - 승인자가 요청에 응답 하면 모든 승인자에 게 해당 작업에 대 한 알림이 표시 됩니다.
-- 승인 된 사용자가 해당 역할에서 활성화 되 면 리소스 관리자에 게 알림이 제공 됩니다.
+- 승인 된 사용자가 해당 역할에서 활성화 되 면 전역 관리자 및 권한 있는 역할 관리자에 게 알림이 제공 됩니다.
 
 >[!NOTE]
->승인 된 사용자가 활성 상태가 아니어야 한다고 생각 하는 리소스 관리자는 Privileged Identity Management에서 활성 역할 할당을 제거할 수 있습니다. 리소스 관리자가 승인자가 아니면 보류 중인 요청에 대 한 알림이 표시 되지 않지만 Privileged Identity Management에서 보류 중인 요청을 확인 하 여 모든 사용자에 대해 보류 중인 요청을 확인 하 고 취소할 수 있습니다.
+>승인 된 사용자가 활성 상태가 아니어야 한다고 생각 하는 전역 관리자 또는 권한 있는 역할 관리자는 Privileged Identity Management에서 활성 역할 할당을 제거할 수 있습니다. 관리자는 승인자가 아니면 보류 중인 요청에 대 한 알림이 제공 되지 않지만 Privileged Identity Management에서 보류 중인 요청을 확인 하 여 모든 사용자에 대 한 보류 중인 요청을 확인 하 고 취소할 수 있습니다.
 
-# <a name="previous-versiontabprevious"></a>[이전 버전](#tab/previous)
+# <a name="previous-version"></a>[이전 버전](#tab/previous)
 
 ## <a name="view-pending-requests"></a>보류 중인 요청 보기
 
@@ -132,7 +132,7 @@ Azure 리소스 역할 요청이 승인 보류 중일 때는 위임된 승인자
 
     ![거부 이유를 사용 하 여 선택한 요청 창 거부](./media/azure-ad-pim-approval-workflow/pim-deny-selected-requests.png)
 
-1. **거부**를 클릭합니다.
+1. **거부**를 선택 합니다.
 
     상태 기호가 거부로 업데이트됩니다.
 

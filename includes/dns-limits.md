@@ -2,14 +2,14 @@
 author: rothja
 ms.service: cost-management-billing
 ms.topic: include
-ms.date: 6/15/2019
-ms.author: victorh
-ms.openlocfilehash: 2e6fa48894339b993410435f982d0948715de4e0
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.date: 2/14/2020
+ms.author: rohink
+ms.openlocfilehash: b674f8e31eb61328f60bb24866f73d02653b655f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74211011"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495533"
 ---
 **공용 DNS 영역**
 
@@ -26,5 +26,9 @@ ms.locfileid: "74211011"
 | 자동 등록을 사용 하는 개인 DNS 영역 당 가상 네트워크 링크 |100|
 | 자동 등록을 사용 하도록 설정한 상태에서 가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수 |1|
 | 가상 네트워크가 연결 될 수 있는 개인 DNS 영역 수 |1000|
+| 가상 머신이 Azure DNS 해결 프로그램으로 보낼 수 있는 초당 DNS 쿼리 수입니다 (초당). |500 <sup>2</sup> |
+| 가상 컴퓨터당 최대 DNS 쿼리 수 (응답 보류 중) |200 <sup>2</sup> |
 
 <sup>1</sup> 이러한 제한을 늘려야 하는 경우 Azure 지원에 문의 하세요.
+
+<sup>2</sup> 이러한 제한은 가상 네트워크 수준이 아닌 모든 개별 가상 컴퓨터에 적용 됩니다. 이러한 제한을 초과 하는 DNS 쿼리는 삭제 됩니다.

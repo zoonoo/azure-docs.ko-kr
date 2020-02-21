@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab
 ms.date: 05/18/2019
-ms.openlocfilehash: 9c5534f2df4a375daf355d74f788b7f610f92919
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 15a2d58d2fc14c370c41d5454d62c74a5b66ad42
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162160"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499972"
 ---
 # <a name="store-azure-sql-database-backups-for-up-to-10-years"></a>최대 10년 동안 Azure SQL Database 백업 저장
 
@@ -28,7 +28,13 @@ ms.locfileid: "77162160"
 
 ## <a name="how-sql-database-long-term-retention-works"></a>SQL Database의 장기 보존 작동 방법
 
-LTR(장기 백업 보존)은 [자동 생성](sql-database-automated-backups.md)되는 전체 데이터베이스 백업을 활용하여 PITR(지정 시간 복원)을 지원합니다. LTR 정책이 구성 된 경우 이러한 백업은 장기 저장을 위해 다른 blob에 복사 됩니다. 복사 작업은 데이터베이스 워크 로드에 대 한 성능에 영향을 주지 않는 백그라운드 작업입니다. Ltr 백업은 LTR 정책에 설정 된 기간 동안 보존 됩니다. 각 SQL database에 대 한 LTR 정책은 LTR 백업 생성 빈도를 지정할 수도 있습니다. 이러한 유연성을 사용 하도록 설정 하려면 네 가지 매개 변수, 즉 주간 백업 보존 (W), 월별 백업 보존 (M), 연도별 백업 보존 (Y) 및 연간 주 (WeekOfYear)의 조합을 사용 하 여 정책을 정의할 수 있습니다. W를 지정하는 경우 매주 하나의 백업이 장기 스토리지에 복사됩니다. M을 지정하는 경우 각 월의 첫 주 동안 하나의 백업이 장기 스토리지에 복사됩니다. Y를 지정하는 경우 WeekOfYear로 지정된 주 동안 하나의 백업이 장기 스토리지에 복사됩니다. 각 백업은 이러한 매개 변수에 의해 지정된 기간 동안 장기 스토리지에 유지됩니다. LTR 정책의 변경 내용은 이후 백업에 적용 됩니다. 예를 들어, 지정 된 WeekOfYear 정책이 구성 될 때 과거에 있는 경우 첫 번째 LTR 백업은 다음 연도에 생성 됩니다. 
+LTR(장기 백업 보존)은 [자동 생성](sql-database-automated-backups.md)되는 전체 데이터베이스 백업을 활용하여 PITR(지정 시간 복원)을 지원합니다. LTR 정책이 구성 된 경우 이러한 백업은 장기 저장을 위해 다른 blob에 복사 됩니다. 복사본은 데이터베이스 워크 로드에 대 한 성능에 영향을 주지 않는 백그라운드 작업입니다. 각 SQL database에 대 한 LTR 정책은 LTR 백업 생성 빈도를 지정할 수도 있습니다.
+
+LTR을 사용 하려면 네 개의 매개 변수 (주간 백업 보존 (W), 월별 백업 보존 (M), 매년 백업 보존 (Y) 및 연간 주 (WeekOfYear))의 조합을 사용 하 여 정책을 정의할 수 있습니다. W를 지정하는 경우 매주 하나의 백업이 장기 스토리지에 복사됩니다. M을 지정 하면 각 월의 첫 번째 백업이 장기 저장소로 복사 됩니다. Y를 지정하는 경우 WeekOfYear로 지정된 주 동안 하나의 백업이 장기 스토리지에 복사됩니다. 정책이 구성 될 때 지정 된 WeekOfYear 이전에 있는 경우 첫 번째 LTR 백업은 다음 연도에 생성 됩니다. 각 백업은 LTR 백업을 만들 때 구성 된 정책 매개 변수에 따라 장기 저장소에 보관 됩니다.
+
+> [!NOTE]
+> LTR 정책에 대 한 변경 내용은 이후 백업에만 적용 됩니다. 예를 들어 주별 백업 보존 (W), 월별 백업 보존 (M) 또는 매년 백업 보존 (Y)이 수정 된 경우 새 보존 설정은 새 백업에만 적용 됩니다. 기존 백업 보존은 수정 되지 않습니다. 보존 기간이 만료 되기 전에 이전 LTR 백업을 삭제 하려면 [백업을 수동으로 삭제](https://docs.microsoft.com/azure/sql-database/sql-database-long-term-backup-retention-configure#delete-ltr-backups)해야 합니다.
+> 
 
 LTR 정책의 예:
 

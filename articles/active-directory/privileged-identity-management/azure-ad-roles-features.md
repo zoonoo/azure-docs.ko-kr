@@ -16,18 +16,19 @@ ms.date: 12/06/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 69c633dd3e28047d542e16a58211f997669188f0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 3f7bc881cee362103fc611cbf8a094e07ad50699
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896420"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499035"
 ---
 # <a name="management-capabilities-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 관리 기능
 
 Privileged Identity Management에서 Azure AD 역할에 대 한 관리 환경은 Azure AD 역할 및 Azure 리소스 역할을 관리 하는 방법을 통합 하도록 업데이트 되었습니다. 이전에는 Azure 리소스 역할에 대 한 Privileged Identity Management Azure AD 역할에 사용할 수 없는 몇 가지 주요 기능을가지고 있습니다.
 
 현재 출시 되는 업데이트의 경우 두 가지를 단일 관리 환경으로 병합 하 고 azure 리소스 역할과 마찬가지로 Azure AD 역할에 대해 동일한 기능을 제공 합니다. 이 문서에서는 업데이트 된 기능 및 요구 사항을 알려 줍니다.
+
 
 ## <a name="time-bound-assignments"></a>시간 범위 할당
 

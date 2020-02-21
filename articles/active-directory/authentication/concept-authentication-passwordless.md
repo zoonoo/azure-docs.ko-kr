@@ -5,20 +5,20 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a0d426fb743e6b1ce5d279544f12bcb490d529f9
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756796"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505758"
 ---
-# <a name="passwordless-authentication-options"></a>Passwordless 인증 옵션
+# <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
 MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 이지만 사용자가 암호를 기억할 필요 없이 추가 보안 계층이 발생 하지 않는 경우가 많습니다. 암호를 제거 하 고 사용자가 보유 한 항목 및 사용자가 알고 있는 항목으로 대체 하기 때문에 암호 없는 인증 방법이 더 편리 합니다.
 
@@ -36,7 +36,7 @@ MFA (multi-factor authentication)는 조직을 보호 하는 훌륭한 방법 �
 
 ## <a name="windows-hello-for-business"></a>비즈니스용 Windows Hello
 
-비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 PIN은 사용자 PC와 직접 연결 되어 소유자가 아닌 사용자의 액세스를 차단 합니다. 비즈니스용 Windows Hello는 PKI (공개 키 인프라) 통합 및 기본 제공 되는 SSO (Single Sign-On)를 사용 하 여 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 편리한 방법을 제공 합니다.
+비즈니스용 windows Hello는 고유의 지정 된 Windows PC가 있는 정보 근로자에 게 적합 합니다. 생체 인식 및 PIN은 사용자 PC와 직접 연결 되어 소유자 이외의 사용자가 액세스할 수 없도록 합니다. 비즈니스용 Windows Hello는 PKI (공개 키 인프라) 통합 및 기본 제공 되는 SSO (Single Sign-On)를 사용 하 여 온-프레미스 및 클라우드에서 회사 리소스에 원활 하 게 액세스할 수 있는 편리한 방법을 제공 합니다.
 
 비즈니스용 Windows Hello [계획 가이드](https://docs.microsoft.com/windows/security/identity-protection/hello-for-business/hello-planning-guide) 를 사용 하 여 비즈니스용 windows hello 배포 유형과 고려해 야 할 옵션에 대 한 결정을 내리는 데 도움을 받을 수 있습니다.
 
@@ -52,7 +52,7 @@ Authenticator 앱은 모든 iOS 또는 Android 휴대폰을 강력 하 고 암�
 
 FIDO2 보안 키는 모든 폼 팩터에서 제공 될 수 있는 unphishable 표준 기반 암호 없는 인증 방법입니다. Fast Identity Online (FIDO)은 암호 없는 인증을 위한 개방형 표준입니다. FIDO를 사용 하면 사용자와 조직이 외부 보안 키 또는 장치에 기본 제공 되는 플랫폼 키를 사용 하 여 사용자 이름 또는 암호 없이 해당 리소스에 로그인 할 수 있습니다.
 
-공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 해당 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 받을 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
+공개 미리 보기의 경우 직원은 보안 키를 사용 하 여 Azure AD 또는 하이브리드 Azure AD에 가입 된 Windows 10 장치에 로그인 하 고 클라우드 및 온-프레미스 리소스에 대 한 single sign-on을 사용할 수 있습니다. 사용자는 지원 되는 브라우저에 로그인 할 수도 있습니다. FIDO2 보안 키는 매우 보안이 중요 하거나, 전화를 두 번째 요소로 사용 하지 않거나 사용할 수 없는 시나리오 또는 직원이 있는 기업에 게 유용한 옵션입니다.
 
 ![보안 키를 사용 하 여 Microsoft Edge에 로그인](./media/concept-authentication-passwordless/concept-web-sign-in-security-key.png)
 
@@ -69,7 +69,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 
 다음 공급자는 암호 없는 환경과 호환 되는 것으로 알려진 다양 한 폼 팩터를 FIDO2 보안 키를 제공 합니다. FIDO 동맹 뿐만 아니라 공급 업체에 문의 하 여 이러한 키의 보안 속성을 평가 하는 것이 좋습니다.
 
-| 공급자 | 지원 문의 |
+| 공급자 | 연락처 |
 | --- | --- |
 | Yubico | [https://www.yubico.com/support/contact/](https://www.yubico.com/support/contact/) |
 | Feitian | [https://www.ftsafe.com/about/Contact_Us](https://www.ftsafe.com/about/Contact_Us) |

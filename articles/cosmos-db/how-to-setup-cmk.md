@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: thweiss
 ROBOTS: noindex, nofollow
-ms.openlocfilehash: 56cbae7ae56c4b482ac6de201c7a2c8aacb81e59
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 44bbd7eab80ecb1cbfef9738e42b4070dff31180
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048587"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506049"
 ---
 # <a name="configure-customer-managed-keys-for-your-azure-cosmos-account-with-azure-key-vault"></a>Azure Key Vault를 사용 하 여 Azure Cosmos 계정에 대 한 고객 관리 키 구성
 
@@ -61,7 +61,7 @@ Azure Cosmos DB에서 고객이 관리 하는 키를 사용 하려면 암호화 
 
    ![적절 한 사용 권한 선택](./media/how-to-setup-cmk/portal-akv-add-ap-perm2.png)
 
-1. **보안 주체 선택**에서 선택 **안 함**을 선택 합니다. 그런 다음 **Azure Cosmos DB** 보안 주체를 검색 하 고 선택 합니다. 마지막으로 하단에서 **선택** 을 선택 합니다. **Azure Cosmos DB** 보안 주체가 목록에 없는 경우이 문서의 [리소스 공급자 등록](#register-resource-provider) 섹션에 설명 된 대로 **Microsoft DocumentDB** 리소스 공급자를 다시 등록 해야 할 수 있습니다.
+1. **보안 주체 선택**에서 선택 **안 함**을 선택 합니다. 그런 다음 **Azure Cosmos DB** 보안 주체를 검색 하 고 선택 합니다. 쉽게 찾을 수 있도록 보안 주체 id를 `57506a73-e302-42a9-b869-6f12d9ec29e9`하는 Azure Government 지역을 제외 하 고 모든 Azure 지역에 대해 보안 주체 id로 검색할 수도 있습니다 (`a232010e-820c-4083-83bb-3ace5fc29d0b`). 마지막으로 하단에서 **선택** 을 선택 합니다. **Azure Cosmos DB** 보안 주체가 목록에 없는 경우이 문서의 [리소스 공급자 등록](#register-resource-provider) 섹션에 설명 된 대로 **Microsoft DocumentDB** 리소스 공급자를 다시 등록 해야 할 수 있습니다.
 
    ![Azure Cosmos DB 보안 주체를 선택 합니다.](./media/how-to-setup-cmk/portal-akv-add-ap.png)
 

@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.openlocfilehash: 8cebe02ebc638ba62fceec80dff2c6724ccf92c8
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 58b60a0eee8ab407709f33911d3c6b13ffbf301a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212293"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498372"
 ---
 # <a name="how-to-rebuild-an-index-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱스를 다시 작성 하는 방법
 
@@ -33,7 +33,7 @@ ms.locfileid: "77212293"
 | 필드에 분석기 할당 | [분석기](search-analyzers.md)는 인덱스에 정의된 후 필드에 할당됩니다. 언제든지 새 분석기 정의를 인덱스에 추가할 수 있지만, 분석기 *할당*은 필드를 만들 때만 가능합니다. **분석기**와 **indexAnalyzer** 둘 다 그렇습니다. **searchAnalyzer** 속성은 예외입니다(이 속성을 기존 필드에 할당 가능). |
 | 인덱스의 분석기 정의 업데이트 또는 삭제 | 전체 인덱스를 다시 작성하지 않는 한 인덱스의 기존 분석기 구성(분석기, 토크나이저, 토큰 필터 또는 char 필터)을 삭제 또는 변경할 수 없습니다. |
 | 제안기에 필드 추가 | 필드가 이미 있고 필드에 [Suggesters](index-add-suggesters.md) 구문을 추가하려면 인덱스를 다시 작성해야 합니다. |
-| 필드 삭제 | 필드의 모든 추적을 실제로 제거하려면 인덱스를 다시 작성해야 합니다. 즉시 다시 작성이 가능하지 않은 경우 "삭제된" 필드에 액세스하지 못하도록 애플리케이션 코드를 수정하면 됩니다. 실제로 필드 정의와 콘텐츠는 다음 번에 의심스러운 필드를 생략하는 스키마를 적용할 때 다시 작성이 수행될 때까지 인덱스에 남아 있습니다. |
+| 필드 삭제 | 필드의 모든 추적을 실제로 제거하려면 인덱스를 다시 작성해야 합니다. 즉시 다시 빌드를 수행할 수 없는 경우 "deleted" 필드에 대 한 액세스를 사용 하지 않도록 응용 프로그램 코드를 수정 하거나 [$select 쿼리 매개 변수](search-query-odata-select.md) 를 사용 하 여 결과 집합에 표시할 필드를 선택할 수 있습니다. 실제로 필드 정의와 콘텐츠는 다음 번에 의심스러운 필드를 생략하는 스키마를 적용할 때 다시 작성이 수행될 때까지 인덱스에 남아 있습니다. |
 | 계층 전환 | 용량이 더 필요 하면 Azure Portal에 전체 업그레이드가 없습니다. 새 서비스에서 새 서비스를 만들고 인덱스를 처음부터 새로 빌드해야 합니다. 이 프로세스를 자동화 하는 데 도움이 되도록이 [Azure Cognitive Search .net 샘플 리포지토리의](https://github.com/Azure-Samples/azure-search-dotnet-samples) **인덱스 백업 복원** 샘플 코드를 사용할 수 있습니다. 이 앱은 일련의 JSON 파일에 인덱스를 백업한 다음 지정 하는 검색 서비스에서 인덱스를 다시 만듭니다.|
 
 ## <a name="update-conditions"></a>업데이트 조건
@@ -52,9 +52,11 @@ ms.locfileid: "77212293"
 
 ## <a name="how-to-rebuild-an-index"></a>인덱스를 다시 작성하는 방법
 
-개발 하는 동안 인덱스 스키마는 자주 변경 됩니다. 작은 대표 데이터 집합으로 신속 하 게 삭제, 다시 작성 및 다시 로드 될 수 있는 인덱스를 만들어 계획할 수 있습니다. 
+개발 하는 동안 인덱스 스키마는 자주 변경 됩니다. 작은 대표 데이터 집합으로 신속 하 게 삭제, 다시 작성 및 다시 로드 될 수 있는 인덱스를 만들어 계획할 수 있습니다.
 
 이미 프로덕션 환경에서 사용되는 애플리케이션의 경우 기존 인덱스와 나란히 실행되는 새 인덱스를 만들어 쿼리 가동 중지 시간을 피하는 것이 좋습니다. 응용 프로그램 코드는 새 인덱스에 대 한 리디렉션을 제공 합니다.
+
+인덱싱은 백그라운드에서 실행 되지 않으며 서비스는 진행 중인 쿼리에 대 한 추가 인덱싱의 균형을 유지 합니다. 인덱싱 중에 포털에서 [쿼리 요청을 모니터링](search-monitor-queries.md) 하 여 쿼리가 적시에 완료 되도록 할 수 있습니다.
 
 1. 다시 빌드가 필요한 지 여부를 확인 합니다. 필드를 추가 하거나 필드와 관련이 없는 인덱스의 일부를 변경 하는 경우 삭제, 다시 만들기 및 완전히 다시 로드 하지 않고도 [정의를 업데이트할](https://docs.microsoft.com/rest/api/searchservice/update-index) 수 있습니다.
 
@@ -78,6 +80,10 @@ ms.locfileid: "77212293"
 ## <a name="check-for-updates"></a>업데이트 확인
 
 첫 번째 문서를 로드하는 즉시 인덱스 쿼리를 시작할 수 있습니다. 문서 ID를 알고 있는 경우 [문서 조회 REST API](https://docs.microsoft.com/rest/api/searchservice/lookup-document)가 특정 문서를 반환합니다. 보다 광범위한 테스트를 위해서는 인덱스가 완전히 로드될 때까지 기다린 다음, 쿼리를 사용하여 보려는 컨텍스트를 확인합니다.
+
+[검색 탐색기](search-explorer.md) 또는 [postman](search-get-started-postman.md) 과 같은 웹 테스트 도구를 사용 하 여 업데이트 된 콘텐츠를 확인할 수 있습니다.
+
+필드를 추가 하거나 이름을 바꾼 경우 [$select](search-query-odata-select.md) 를 사용 하 여 해당 필드를 반환 합니다. `search=*&$select=document-id,my-new-field,some-old-field&$count=true`
 
 ## <a name="see-also"></a>참고 항목
 

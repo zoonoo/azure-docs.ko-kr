@@ -1,5 +1,6 @@
 ---
-title: '참조: Ubuntu DSVM'
+title: '참조: Ubuntu Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: Ubuntu에 포함 된 도구에 대 한 세부 정보 Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 97072f1a17f2b0adbe96afae3263dc84aff0f30f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 5c184e7f1dc828c3f9ff8d449d29ab3aaa4d1cf6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73497626"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525824"
 ---
 # <a name="reference-ubuntu-linux-data-science-virtual-machine"></a>참조: Ubuntu (Linux) Data Science Virtual Machine
 
@@ -65,7 +66,7 @@ MXNet은 효율성과 유연성을 위해 디자인된 심층 학습 프레임�
 
 DIGITS라고 하는 NVIDIA Deep Learning GPU 학습 시스템은 일반적인 딥 러닝 작업을 간소화하는 시스템입니다. 이러한 작업에는 데이터 관리, GPU 시스템의 신경망 설계 및 학습, 고급 시각화를 통한 실시간 성능 모니터링이 포함됩니다.
 
-DIGITS는 *digits*라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000으로 이동하여 시작합니다.
+DIGITS는 *digits*라는 서비스로 사용할 수 있습니다. 이 서비스를 시작하고 http://localhost:5000 으로 이동하여 시작합니다.
 
 DIGITS는 Conda 루트 환경에서 Python 모듈로도 설치됩니다.
 
@@ -253,7 +254,7 @@ R 및 Python의 모델을 Azure Machine Learning에 배포하는 방법에 대�
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
+VM에는 로컬로 미리 컴파일되고 미리 설치된 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 개체는 다음과 같습니다.
 
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
 * **xgboost**: 최적화되고 향상된 트리 알고리즘을 제공하는 도구입니다.
@@ -280,7 +281,7 @@ vw house_dataset
 
 해당 디렉터리에는 더 큰 다른 데모도 있습니다. Vowpal Wabbit에 대한 자세한 내용은 [이 GitHub 섹션](https://github.com/JohnLangford/vowpal_wabbit) 및 [Vowpal Wabbit wiki](https://github.com/JohnLangford/vowpal_wabbit/wiki)를 참조하세요.
 
-### <a name="xgboost"></a>XGBoost
+### <a name="xgboost"></a>xgboost
 
 xgboost 라이브러리는 향상된(트리) 알고리즘에 맞게 설계 및 최적화되었습니다. 이 라이브러리는 확장, 이동성 및 정확도가 높은 대규모 트리 향상 기능을 제공하는 데 필요한 최대 한계까지 기계의 계산 제한을 높이는 데 사용되며
 
@@ -314,7 +315,7 @@ xgboost에 대한 자세한 내용은 [xgboost 설명서 페이지](https://xgbo
 
 ### <a name="rattle"></a>Rattle
 
-Rattle(**R** **A**nalytical **T**ool **T**o **L**earn **E**asily)은 GUI 기반 데이터 탐색 및 모델링 기능을 사용합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
+Rattle ( **R** **A**nalytical **T**ool **t**o **L**획득 **E**asily)는 GUI 기반 데이터 탐색 및 모델링을 사용 합니다. Rattle은 통계 및 시각적 데이터 요약을 표시하고, 즉시 모델링할 수 있도록 데이터를 변환하고, 해당 데이터에서 감독되거나 감독되지 않는 모델을 빌드하고, 모델의 성능을 그래픽으로 표시하고, 새 데이터 집합의 점수를 매깁니다. 또한 UI에서 작업을 복제하여 R에서 직접 실행하거나 추가 분석을 위한 시작점으로 사용할 수 있는 R 코드를 생성할 수도 있습니다.
 
 Rattle을 실행하려면 그래픽 데스크톱 로그인 세션을 사용 중이어야 합니다. 터미널에서 **R**을 입력하여 R 환경을 엽니다. R 프롬프트에서 다음 명령을 입력합니다.
 

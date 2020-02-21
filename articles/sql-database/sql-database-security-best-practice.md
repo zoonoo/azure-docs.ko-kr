@@ -1,23 +1,27 @@
 ---
-title: Azure SQL Database에 대 한 보안 모범 사례 플레이 북 | Microsoft Docs
-description: 이 문서에서는 Azure SQL Database의 보안 모범 사례에 대 한 일반적인 지침을 제공 합니다.
+title: 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북 | Microsoft Docs
+titleSuffix: Azure SQL Database
+description: 이 문서에서는 Azure SQL Database의 일반적인 보안 요구 사항 및 모범 사례를 제공 합니다.
 ms.service: sql-database
 ms.subservice: security
 author: VanMSFT
 ms.author: vanto
 ms.topic: article
-ms.date: 01/22/2020
+ms.date: 02/20/2020
 ms.reviewer: ''
-ms.openlocfilehash: 095d435b9a595c420821da0813fdfc0893d70d89
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c18e1b1a1feba5c528a692b7d63287b3751b62cf
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845875"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506217"
 ---
-# <a name="azure-sql-database-security-best-practices-playbook"></a>Azure SQL Database 보안 모범 사례 플레이 북
+# <a name="playbook-for-addressing-common-security-requirements-with-azure-sql-database"></a>Azure SQL Database를 사용 하 여 일반적인 보안 요구 사항을 해결 하기 위한 플레이 북
 
-## <a name="overview"></a>개요
+> [!NOTE]
+> 이 문서에서는 일반적인 보안 요구 사항을 해결 하는 방법에 대 한 모범 사례를 제공 합니다. 모든 요구 사항이 모든 환경에 적용 되는 것은 아니므로 구현할 기능에 대해 데이터베이스와 보안 팀에 문의 해야 합니다.
+
+## <a name="solving-common-security-requirements"></a>일반적인 보안 요구 사항 해결
 
 이 문서에서는 Azure SQL Database를 사용 하 여 신규 또는 기존 응용 프로그램에 대 한 일반적인 보안 요구 사항을 해결 하는 방법을 안내 합니다. 이는 높은 수준의 보안 영역을 기준으로 구성 됩니다. 특정 위협에 대 한 해결 방법에 대 한 자세한 내용은 [일반적인 보안 위협 및 잠재적 완화](#common-security-threats-and-potential-mitigations) 섹션을 참조 하세요. 응용 프로그램을 온-프레미스에서 Azure로 마이그레이션할 때 제시 된 권장 사항 중 일부를 사용할 수 있지만 마이그레이션 시나리오는이 문서에 중점을 두지 않습니다.
 
@@ -32,7 +36,7 @@ ms.locfileid: "76845875"
 - Azure SQL Vm (IaaS)
 - SQL Server 온-프레미스
 
-### <a name="audience"></a>대상
+### <a name="audience"></a>사용자
 
 이 가이드의 대상 사용자는 Azure SQL Database를 보호 하는 방법에 대 한 질문을 하는 고객입니다. 이 모범 사례 문서에 관심이 있는 역할에는 다음이 포함 되지만이에 국한 되지 않습니다.
 
@@ -55,7 +59,7 @@ ms.locfileid: "76845875"
 - [NIST 특별 게시 800-53 보안 제어](https://nvd.nist.gov/800-53): ac-5, ac-6
 - [PCI DSS](https://www.pcisecuritystandards.org/document_library): 6.3.2, 6.4.2
 
-### <a name="feedback"></a>피드백
+### <a name="feedback"></a>사용자 의견
 
 여기에 나열 된 권장 사항 및 모범 사례를 계속 업데이트할 예정입니다. 이 문서 맨 아래에 있는 **피드백** 링크를 사용 하 여이 문서에 대 한 입력 또는 수정 사항을 제공 합니다.
 
@@ -65,6 +69,9 @@ ms.locfileid: "76845875"
 
 - SQL 인증
 - Azure Active Directory 인증
+
+> [!NOTE]
+> 모든 도구 및 타사 응용 프로그램에 대해 Azure Active Directory 인증이 지원 되지 않을 수 있습니다.
 
 ### <a name="central-management-for-identities"></a>Id에 대 한 중앙 관리
 
@@ -82,7 +89,7 @@ ms.locfileid: "76845875"
 
 - Azure AD 테 넌 트를 만들고 [사용자를 만들어 사용자](../active-directory/fundamentals/add-users-azure-active-directory.md) 에 게 앱, 서비스 및 자동화 도구를 나타내는 [서비스 주체](../active-directory/develop/app-objects-and-service-principals.md) 를 만듭니다. 서비스 주체는 Windows 및 Linux의 서비스 계정에 해당 합니다. 
 
-- 그룹 할당을 통해 Azure AD 사용자에 게 리소스에 대 한 액세스 권한 할당: Azure AD 그룹을 만들고, 그룹에 액세스 권한을 부여 하 고, 그룹에 개별 멤버를 추가 합니다. 데이터베이스에서 Azure AD 그룹을 매핑하는 포함 된 데이터베이스 사용자를 만듭니다. 
+- 그룹 할당을 통해 Azure AD 사용자에 게 리소스에 대 한 액세스 권한 할당: Azure AD 그룹을 만들고, 그룹에 액세스 권한을 부여 하 고, 그룹에 개별 멤버를 추가 합니다. 데이터베이스에서 Azure AD 그룹을 매핑하는 포함 된 데이터베이스 사용자를 만듭니다. 데이터베이스 내에서 사용 권한을 할당 하려면 데이터베이스 역할의 사용자에 게 적절 한 사용 권한을 부여 합니다.
   - Sql을 사용한 인증에는 SQL을 사용 하 [여 Azure Active Directory 인증 구성 및 관리](sql-database-aad-authentication-configure.md) 및 [sql 인증을 위해 Azure AD 사용](sql-database-aad-authentication.md)문서를 참조 하세요.
   > [!NOTE]
   > 관리 되는 인스턴스에서 master 데이터베이스의 Azure AD 보안 주체에 매핑되는 로그인을 만들 수도 있습니다. [CREATE LOGIN (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-login-transact-sql?view=azuresqldb-mi-current)을 참조 하세요.
@@ -204,11 +211,6 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 - 서버 관리자로 서 로그인 및 사용자를 만듭니다. 포함 된 데이터베이스 사용자에 게 암호를 사용 하지 않는 한 모든 암호는 master 데이터베이스에 저장 됩니다.
   - [SQL Database 및 SQL Data Warehouse에 대 한 데이터베이스 액세스 제어 및 권한 부여](sql-database-manage-logins.md)문서를 참조 하세요.
 
-- 암호 관리 모범 사례를 따릅니다.
-  - 라틴어 상한 및 소문자, 숫자 (0-9) 및 영숫자가 아닌 문자 (예: $,!, # 또는%)로 구성 된 복잡 한 암호를 제공 합니다.
-  - 임의로 선택 된 문자 대신 긴 암호를 사용 합니다.
-  - 최소 90 일 마다 수동 암호 변경을 적용 합니다.
-
 ## <a name="access-management"></a>액세스 관리
 
 액세스 관리는 Azure SQL Database에 대 한 권한 있는 사용자의 액세스 및 권한을 제어 하 고 관리 하는 프로세스입니다.
@@ -250,24 +252,25 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 - 개별 사용자에 게 사용 권한을 할당 하지 마십시오. 대신 역할 (데이터베이스 또는 서버 역할)을 일관 되 게 사용 합니다. 역할은 보고 및 문제 해결 권한에 매우 유용 합니다. Azure RBAC는 역할을 통한 권한 할당만 지원 합니다. 
 
-- 역할의 권한이 사용자에 대해 필요한 권한과 정확히 일치 하는 경우 기본 제공 역할을 사용 합니다. 여러 역할에 사용자를 할당할 수 있습니다. 
-
-- 기본 제공 역할이 너무 많거나 사용 권한을 부여 하지 않는 경우 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다. 
+- 필요한 정확한 권한을 사용 하 여 사용자 지정 역할을 만들고 사용 합니다. 실제로 사용 되는 일반적인 역할은 다음과 같습니다. 
   - 보안 배포 
   - 관리자 
-  - 개발자 
+  - Developer 
   - 지원 담당자 
   - 감사자 
   - 자동화 된 프로세스 
   - 최종 사용자 
+  
+- 역할의 권한이 사용자에 대해 필요한 권한과 정확히 일치 하는 경우에만 기본 제공 역할을 사용 합니다. 여러 역할에 사용자를 할당할 수 있습니다. 
 
 - SQL Server 데이터베이스 엔진의 권한은 다음 범위에 적용 될 수 있습니다. 범위가 작을수록 부여 된 권한의 영향이 작아집니다. 
   - Azure SQL Database server (master 데이터베이스의 특수 역할) 
   - 데이터베이스 
-  - 스키마 (참고 항목: [스키마 디자인 for SQL Server: 보안을 고려 하 여 스키마 디자인에 대 한 권장 사항](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/))
+  - 스키마
+      - 스키마를 사용 하 여 데이터베이스 내에서 사용 권한을 부여 하는 것이 좋습니다. 참고 항목: [SQL Server에 대 한 스키마 디자인: 보안이 고려 된 스키마 디자인에 대 한 권장 사항](http://andreas-wolter.com/en/schema-design-for-sql-server-recommendations-for-schema-design-with-security-in-mind/)
   - 개체 (테이블, 뷰, 프로시저 등) 
   > [!NOTE]
-  > 이 수준에서는 전체 구현에 불필요 한 복잡성이 추가 되기 때문에 개체 수준에 대 한 사용 권한을 적용 하지 않는 것이 좋습니다. 개체 수준 사용 권한을 사용 하기로 결정 한 경우이를 명확 하 게 문서화 해야 합니다. 열 수준 사용 권한에도 동일 하 게 적용 됩니다. 즉, 동일한 이유로 인해 것이 좋습니다 훨씬 줄어듭니다. [거부](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) 에 대 한 표준 규칙은 열에 적용 되지 않습니다.
+  > 이 수준에서는 전체 구현에 불필요 한 복잡성이 추가 되기 때문에 개체 수준에 대 한 사용 권한을 적용 하지 않는 것이 좋습니다. 개체 수준 사용 권한을 사용 하기로 결정 한 경우이를 명확 하 게 문서화 해야 합니다. 열 수준 사용 권한에도 동일 하 게 적용 됩니다. 즉, 동일한 이유로 인해 것이 좋습니다 훨씬 줄어듭니다. 또한 기본적으로 테이블 수준 [DENY](https://docs.microsoft.com/sql/t-sql/statements/deny-object-permissions-transact-sql) 는 열 수준 GRANT를 재정의 하지 않습니다. 이렇게 하려면 [common criteria 호환성 서버 구성을](https://docs.microsoft.com/sql/database-engine/configure-windows/common-criteria-compliance-enabled-server-configuration-option) 활성화 해야 합니다.
 
 - [VA (취약성 평가)](https://docs.microsoft.com/sql/relational-databases/security/sql-vulnerability-assessment) 를 사용 하 여 정기적으로 검사를 수행 하 여 너무 많은 사용 권한을 테스트 합니다.
 
@@ -279,7 +282,7 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 **구현 방법**:
 
-- 필요한 의무의 분리 수준을 식별 합니다. 예시: 
+- 필요한 의무의 분리 수준을 식별 합니다. 예제: 
   - 개발/테스트 및 프로덕션 환경 간 
   - 보안에 중요 한 작업은 DBA (데이터베이스 관리자) 관리 수준 작업과 개발자 작업을 비교 합니다. 
     - 예: 감사자, RLS (역할 수준 보안)에 대 한 보안 정책 만들기, DDL 권한으로 개체 SQL Database 구현
@@ -320,7 +323,7 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 - 보안 관련 작업에 대 한 감사 내역이 항상 있는지 확인 합니다. 
 
-- 기본 제공 RBAC 역할의 정의를 검색 하 여 사용 되는 사용 권한을 확인 하 고, Powershell을 통해 이러한 항목의 발췌 및 cumulations을 기반으로 사용자 지정 역할을 만들 수 있습니다. 
+- 기본 제공 RBAC 역할의 정의를 검색 하 여 사용 된 사용 권한을 확인 하 고 PowerShell을 통해 이러한 항목의 발췌 및 cumulations을 기반으로 사용자 지정 역할을 만들 수 있습니다.
 
 - Db_owner 데이터베이스 역할의 멤버는 TDE (투명한 데이터 암호화)와 같은 보안 설정을 변경 하거나 SLO를 변경할 수 있으므로이 멤버 자격은 신중 하 게 부여 되어야 합니다. 그러나 db_owner 권한이 필요한 많은 태스크가 있습니다. DB 옵션 변경 등의 데이터베이스 설정을 변경 하는 것과 같은 작업입니다. 감사는 모든 솔루션에서 주요 역할을 수행 합니다.
 
@@ -409,6 +412,8 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 
 사용 중인 데이터는 SQL 쿼리를 실행 하는 동안 데이터베이스 시스템의 메모리에 저장 되는 데이터입니다. 데이터베이스에서 중요 한 데이터를 저장 하는 경우 조직에서는 권한이 높은 사용자가 데이터베이스에서 중요 한 데이터를 볼 수 없도록 해야 할 수 있습니다. 조직의 Microsoft operators 또는 Dba와 같은 높은 권한 사용자는 데이터베이스를 관리할 수 있지만 SQL Server 프로세스의 메모리 또는 데이터베이스를 쿼리하여 중요 한 데이터를 보고 잠재적으로 빼내기 위해 공공 수 없습니다.
 
+중요 한 데이터를 결정 하는 정책 및 중요 한 데이터를 메모리에서 암호화 해야 하 고 일반 텍스트의 관리자가 액세스할 수 없는지 여부는 준수 해야 하는 조직 및 규정 준수 규정에 따라 결정 됩니다. 관련 요구 사항: [중요 한 데이터 식별 및 태그](#identify-and-tag-sensitive-data)지정을 참조 하세요.
+
 **구현 방법**:
 
 - [Always Encrypted](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine) 를 사용 하 여 메모리/사용 시에도 중요 한 데이터가 Azure SQL Database 일반 텍스트로 노출 되지 않도록 합니다. Always Encrypted는 Dba (데이터베이스 관리자) 및 클라우드 관리자 (또는 권한이 없지만 권한이 없는 사용자를 가장할 수 있는 잘못 된 행위자)의 데이터를 보호 하 고 데이터에 액세스할 수 있는 사용자를 보다 강력 하 게 제어할 수 있도록 합니다.
@@ -416,6 +421,8 @@ SQL 인증은 사용자 이름과 암호를 사용 하 여 Azure SQL Database에
 **모범 사례**:
 
 - Always Encrypted은 미사용 데이터 (TDE) 또는 전송 중 (SSL/TLS)을 대체 하지 않습니다. 성능 및 기능 영향을 최소화 하기 위해 중요 하지 않은 데이터에는 Always Encrypted를 사용할 수 없습니다. TDE 및 TLS (전송 계층 보안)와 함께 Always Encrypted를 사용 하는 것은 미사용 데이터, 전송 중 및 사용 중인 데이터의 포괄적인 보호에 사용 하는 것이 좋습니다. 
+
+- 프로덕션 데이터베이스에 Always Encrypted를 배포 하기 전에 식별 된 중요 한 데이터 열을 암호화할 때의 영향을 평가 합니다. 일반적으로 Always Encrypted는 암호화 된 열에 대 한 쿼리 기능을 줄이고 [Always Encrypted 기능 정보](https://docs.microsoft.com/sql/relational-databases/security/encryption/always-encrypted-database-engine#feature-details)에 나열 된 다른 제한 사항이 있습니다. 따라서 응용 프로그램을 다시 구현 하 여 클라이언트에서 지원 하지 않는 기능을 다시 구현 하 고 저장 프로시저, 함수, 뷰 및 트리거의 정의를 포함 하 여 데이터베이스 스키마를 리팩터링 해야 할 수 있습니다. 기존 응용 프로그램은 Always Encrypted의 제한 및 제한 사항을 준수 하지 않는 경우 암호화 된 열에서 작동 하지 않을 수 있습니다. Always Encrypted를 지 원하는 Microsoft 도구, 제품 및 서비스의 에코 시스템은 증가 하지만 암호화 된 열에는 여러 가지 작업이 적용 되지 않습니다. 열을 암호화 하는 작업의 특징에 따라 쿼리 성능에 영향을 줄 수도 있습니다. 
 
 - Always Encrypted를 사용 하 여 악의적인 Dba 로부터 데이터를 보호 하는 경우 역할 구분을 사용 하 여 Always Encrypted 키를 관리 합니다. 역할 분리를 사용 하면 보안 관리자가 물리적 키를 만듭니다. DBA는 데이터베이스의 물리적 키를 설명 하는 열 마스터 키 및 열 암호화 키 메타 데이터 개체를 만듭니다. 이 과정에서 보안 관리자는 데이터베이스에 대 한 액세스가 필요 하지 않으며 DBA는 일반 텍스트의 물리적 키에 액세스할 필요가 없습니다. 
   - 자세한 내용은 [역할 구분을 사용 하 여 키 관리](https://docs.microsoft.com/sql/relational-databases/security/encryption/overview-of-key-management-for-always-encrypted#managing-keys-with-role-separation) 문서를 참조 하세요. 
@@ -655,7 +662,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 
 > [!NOTE]
-> Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/), 사용 시 관련된 비용에 주의하세요.또는 Azure Storage 계정에 로그인 감사를 저장하는 것을 고려해 보세요. 
+> Log Analytics에 감사를 사용하면 수집 속도에 따른 요금이 부과됩니다. 이 [옵션](https://azure.microsoft.com/pricing/details/monitor/)을 사용 하 여 관련 비용을 파악 하거나 Azure storage 계정에 감사 로그를 저장 하는 것이 좋습니다. 
 
 **추가 리소스**:
 
@@ -705,7 +712,7 @@ DDoS 보호는 Azure 플랫폼의 일부로 자동으로 사용 하도록 설정
 
 ### <a name="identify-and-tag-sensitive-data"></a>중요 한 데이터 식별 및 태그 지정 
 
-잠재적으로 중요 한 데이터가 포함 된 열을 검색 합니다. 고급 민감도 기반 감사 및 보호 시나리오를 사용 하도록 열을 분류 합니다. 
+잠재적으로 중요 한 데이터가 포함 된 열을 검색 합니다. 중요 한 데이터로 간주 되는 것은 고객, 규정 준수 규정 등에 따라 달라 지 며, 해당 데이터를 담당 하는 사용자가 평가 해야 합니다. 고급 민감도 기반 감사 및 보호 시나리오를 사용 하도록 열을 분류 합니다. 
 
 **구현 방법**:
 

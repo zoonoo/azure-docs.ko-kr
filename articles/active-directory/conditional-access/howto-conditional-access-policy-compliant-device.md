@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 02/20/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8a18f0b1f83ae02b06344c332cfdd1cc093f37fc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75424888"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521917"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 준수 장치 필요
 
@@ -27,14 +27,14 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 * 최소 또는 최대 운영 체제 버전 필요
 * 무단 해제 또는 루 팅 되지 않은 장치 요구
 
-이 정책 준수 정보는 Azure AD에 전달 되며, 조건부 액세스에서 리소스에 대 한 액세스를 부여 하거나 차단 하는 결정을 내릴 수 있습니다.
+이 정책 준수 정보는 Azure AD에 전달 되며, 조건부 액세스에서 리소스에 대 한 액세스를 부여 하거나 차단 하는 결정을 내릴 수 있습니다. 장치 준수 정책에 대 한 자세한 내용은 [Intune을 사용 하 여 조직의 리소스에 대 한 액세스를 허용 하는 장치에 대 한 규칙 설정](/intune/protect/device-compliance-get-started) 문서에서 찾을 수 있습니다.
 
 ## <a name="create-a-conditional-access-policy"></a>조건부 액세스 정책 만들기
 
 다음 단계는 리소스에 액세스 하는 장치가 조직의 Intune 준수 정책을 준수 하는 것으로 표시 되도록 요구 하는 조건부 액세스 정책을 만드는 데 도움이 됩니다.
 
 1. 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자 권한으로 **Azure Portal** 에 로그인 합니다.
-1. **조건부 액세스** >  > **보안** **Azure Active Directory** 로 이동 합니다.
+1. **Azure Active Directory** > **Security** > **조건부 액세스**로 이동합니다.
 1. **새 정책**을 선택합니다.
 1. 정책에 이름을 지정 합니다. 조직에서 정책 이름에 대해 의미 있는 표준을 만드는 것이 좋습니다.
 1. **할당**아래에서 **사용자 및 그룹** 을 선택 합니다.
@@ -61,4 +61,4 @@ Windows 7, iOS, Android, macOS 및 일부 타사 웹 브라우저에서 Azure AD
 
 [조건부 액세스 What If 도구를 사용 하 여 로그인 동작 시뮬레이션](troubleshoot-conditional-access-what-if.md)
 
-[Azure AD에서 장치 준수 정책 사용](https://docs.microsoft.com/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)
+[Azure AD에서 장치 준수 정책 사용](/intune/device-compliance-get-started#device-compliance-policies-work-with-azure-ad)

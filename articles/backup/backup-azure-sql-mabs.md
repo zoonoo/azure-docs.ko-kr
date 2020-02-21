@@ -1,154 +1,156 @@
 ---
 title: Azure Backup Server를 사용 하 여 SQL Server 백업
-description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 SQL Server 데이터베이스를 백업 하기 위한 구성 단계를 알아봅니다.
+description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 SQL Server 데이터베이스를 백업 하는 구성에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 461faa2c88b8db9c1e3b2f9af19783b7d6b7fa07
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 4a4d4b7e70e2df0e014ea4b4d23027aa7c48f2fe
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024010"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505953"
 ---
-# <a name="back-up-sql-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 SQL Server 백업
+# <a name="back-up-sql-server-to-azure-by-using-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Azure에 SQL Server 백업
 
-이 문서는 Microsoft Azure Backup Server(MABS)를 사용한 SQL Server 데이터베이스 백업의 구성 단계를 안내합니다.
+이 문서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 SQL Server 데이터베이스의 백업을 설정 하는 데 도움이 됩니다.
 
-Azure에 SQL Server 데이터베이스를 백업하고 Azure에서 데이터베이스를 복구하는 것을 관리하는 작업에는 세 가지 단계가 포함됩니다.
+SQL Server 데이터베이스를 백업 하 고 Azure에서 복구 하려면 다음을 수행 합니다.
 
-1. Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
-2. Azure에 주문형 백업 복사본을 만듭니다.
-3. Azure에서 데이터베이스를 복구합니다.
+1. Azure에서 SQL Server 데이터베이스를 보호 하기 위한 백업 정책을 만듭니다.
+1. Azure에서 주문형 백업 복사본을 만듭니다.
+1. Azure에서 데이터베이스를 복구 합니다.
 
 ## <a name="before-you-start"></a>시작하기 전에
 
-시작하기 전에, [Azure Backup Server를 설치 및 준비](backup-azure-microsoft-azure-backup.md)해야 합니다.
+시작 하기 전에 [Azure Backup Server를 설치 하 고 준비](backup-azure-microsoft-azure-backup.md)했는지 확인 합니다.
 
-## <a name="create-a-backup-policy-to-protect-sql-server-databases-to-azure"></a>Azure에 대해 SQL server 데이터베이스를 보호하기 위한 백업 정책을 만듭니다.
+## <a name="create-a-backup-policy"></a>백업 정책 만들기 
 
-1. Azure Backup Server UI에서 **보호** 작업 영역을 클릭합니다.
-2. 도구 리본에서 **새로 만들기**를 클릭하여 새 보호 그룹을 만듭니다.
+Azure에서 SQL Server 데이터베이스를 보호 하려면 먼저 백업 정책을 만듭니다.
 
-    ![보호 그룹 만들기](./media/backup-azure-backup-sql/protection-group.png)
-3. MABS는 **보호 그룹**을 만드는 지침으로 시작 화면을 표시합니다. **다음**을 클릭합니다.
-4. **서버**를 선택합니다.
+1. Azure Backup Server에서 **보호** 작업 영역을 선택 합니다.
+1. 보호 그룹을 만들려면 **새로** 만들기를 선택 합니다.
 
-    ![선택하는 보호 그룹 종류 - '서버'](./media/backup-azure-backup-sql/pg-servers.png)
-5. 백업할 데이터베이스가 있는 SQL Server 컴퓨터를 확장합니다. MABS는 해당 서버에서 백업할 수 있는 다양한 데이터 원본을 표시합니다. **모든 SQL 공유**를 확장하고 백업할 데이터베이스를 선택합니다(이 경우 ReportServer$ MSDPM2012 및 ReportServer$ MSDPM2012TempDB를 선택함). **다음**을 클릭합니다.
+    ![Azure Backup Server에서 보호 그룹 만들기](./media/backup-azure-backup-sql/protection-group.png)
+1. 시작 페이지에서 보호 그룹 만들기에 대 한 지침을 검토 합니다. 그런 후 **다음**을 선택합니다.
+1. 보호 그룹 종류에 대해 **서버**를 선택 합니다.
 
-    ![SQL DB를 선택합니다.](./media/backup-azure-backup-sql/pg-databases.png)
-6. 보호 그룹의 이름을 입력하고 **온라인 보호** 확인란을 선택합니다.
+    ![서버 보호 그룹 유형 선택](./media/backup-azure-backup-sql/pg-servers.png)
+1. 백업 하려는 데이터베이스가 있는 SQL Server 컴퓨터를 확장 합니다. 해당 서버에서 백업할 수 있는 데이터 원본이 표시 됩니다. **모든 SQL 공유** 를 확장 하 고 백업 하려는 데이터베이스를 선택 합니다. 이 예에서는 ReportServer $ MSDPM2012 및 ReportServer $ MSDPM2012TempDB를 선택 합니다. **다음**을 선택합니다.
 
-    ![데이터 보호 방법 - 단기 디스크 및 온라인 Azure](./media/backup-azure-backup-sql/pg-name.png)
-7. **단기 목표 지정** 화면에서 필요한 입력을 포함하여 디스크에 백업 지점을 만듭니다.
+    ![SQL Server 데이터베이스 선택](./media/backup-azure-backup-sql/pg-databases.png)
+1. 보호 그룹의 이름을 지정한 다음 **온라인 보호**를 선택 합니다.
 
-    여기서는 **보존 범위가** *5 일로*설정 된 것을 확인할 수 있으며, **동기화 빈도** 는 *15 분*마다 한 번씩 (백업이 수행 되는 빈도)로 설정 됩니다. **빠른 전체 Backup** 을 *오후 8시*로 설정합니다.
+    ![데이터 보호 방법 선택-단기 디스크 보호 또는 온라인 Azure 보호](./media/backup-azure-backup-sql/pg-name.png)
+1. **단기 목표 지정** 페이지에서 디스크에 대 한 백업 위치를 만드는 데 필요한 입력을 포함 합니다.
 
-    ![단기 목표](./media/backup-azure-backup-sql/pg-shortterm.png)
+    이 예에서는 **보존 범위** 를 *5 일로*설정 합니다. 백업 **동기화 빈도** 는 *15 분*마다 한 번으로 설정 됩니다. **빠른 전체 백업** 은 *오후 8:00*시로 설정 됩니다.
+
+    ![백업 보호의 단기 목표 설정](./media/backup-azure-backup-sql/pg-shortterm.png)
 
    > [!NOTE]
-   > 백업 시점은 전날의 오후 8시 백업 시점에서 수정된 데이터를 전송하여 오후 8시에(화면 입력에 따라) 매일 만들어집니다. 이 프로세스를 **빠른 전체 Backup**이라고 합니다. 트랜잭션 로그를 15분마다 동기화하는 반면 오후 9시에 데이터베이스를 복구해야 할 경우 마지막 빠른 전체 백업 지점에서 로그를 재생하여 지점을 만듭니다(이 경우에 오후 8시).
+   > 이 예에서 백업 지점은 매일 8:00 PM에 생성 됩니다. 이전 날의 8:00 PM 백업 지점 이후 수정 된 데이터는 전송 됩니다. 이 프로세스를 **빠른 전체 Backup**이라고 합니다. 트랜잭션 로그는 15 분 마다 동기화 되지만 오후 9:00 시에 데이터베이스를 복구 해야 하는 경우 마지막 빠른 전체 백업 지점에서 로그를 재생 하 여 (이 예제에서는 8:00 PM) 지점을 만듭니다.
    >
    >
 
-8. **다음**을 클릭합니다.
+1. **다음**을 선택합니다. MABS는 사용 가능한 전체 저장소 공간을 보여 줍니다. 또한 잠재적인 디스크 공간 사용률을 보여 줍니다.
 
-    MABS에서는 사용 가능한 전체 스토리지 공간 및 잠재적인 디스크 공간 사용률을 보여줍니다.
+    ![MABS에서 디스크 할당 설정](./media/backup-azure-backup-sql/pg-storage.png)
 
-    ![디스크 할당](./media/backup-azure-backup-sql/pg-storage.png)
+    기본적으로 MABS는 데이터 원본 (SQL Server 데이터베이스) 당 하나의 볼륨을 만듭니다. 볼륨은 초기 백업 복사본에 사용 됩니다. 이 구성에서 LDM (논리 디스크 관리자)은 MABS 보호를 300 데이터 원본 (SQL Server 데이터베이스)으로 제한 합니다. 이 제한을 해결하려면 **DPM 스토리지 풀에 데이터 공동 배치**를 선택합니다. 이 옵션을 사용 하는 경우 MABS는 여러 데이터 원본에 단일 볼륨을 사용 합니다. 이렇게 설정 하면 MABS에서 최대 2000 SQL Server 데이터베이스를 보호할 수 있습니다.
 
-    기본적으로 MABS에서는 초기 백업 복사본에 사용되는 데이터 원본(SQL Server 데이터베이스)당 하나의 볼륨을 만듭니다. 이 방법을 사용하여 논리 디스크 관리자(LDM)는 MABS 보호를 300개 데이터 원본(SQL Server 데이터베이스)으로 제한합니다. 이 제한을 해결하려면 **DPM 스토리지 풀에 데이터 배치**옵션을 선택합니다. 이 옵션을 사용하면 MABS에서 여러 데이터 원본에 단일 볼륨을 사용하므로 MABS가 최대 2000개의 SQL 데이터베이스를 보호할 수 있습니다.
+    **볼륨 자동 증가**를 선택 하는 경우 프로덕션 데이터가 증가 함에 따라 mabs가 증가 된 백업 볼륨을 고려해 야 할 수 있습니다. **볼륨 자동 증가**를 선택 하지 않으면 mabs는 백업 저장소를 보호 그룹의 데이터 원본으로 제한 합니다.
+1. 관리자는이 초기 백업을 **네트워크를 통해 자동으로** 전송 하 고 전송 시간을 선택 하도록 선택할 수 있습니다. 또는 백업을 **수동으로** 전송 하도록 선택 합니다. 그런 후 **다음**을 선택합니다.
 
-    **볼륨 자동 증가** 옵션을 선택할 경우 프로덕션 데이터가 증가함에 따라 MABS는 백업 볼륨 증가를 처리할 수 있습니다. **볼륨 자동 증가** 옵션을 선택하지 않으면 MABS는 백업 스토리지 사용을 보호 그룹의 데이터 원본으로 제한합니다.
-9. 관리자는 해당 초기 백업을 수동으로 전송하도록 선택하여(오프 네트워크) 네트워크를 통한 대역폭 정체를 방지합니다. 또한 초기 전송이 발생할 수 있는 시간을 구성할 수 있습니다. **다음**을 클릭합니다.
+    ![MABS에서 복제본 만들기 방법 선택](./media/backup-azure-backup-sql/pg-manual.png)
 
-    ![초기 복제 방법](./media/backup-azure-backup-sql/pg-manual.png)
+    초기 백업 복사본을 사용 하려면 전체 데이터 원본 (SQL Server 데이터베이스)을 전송 해야 합니다. 백업 데이터는 프로덕션 서버 (SQL Server 컴퓨터)에서 MABS로 이동 합니다. 이 백업이 크면 네트워크를 통해 데이터를 전송 하면 대역폭이 정체 될 수 있습니다. 이러한 이유로 관리자는 이동식 미디어를 사용 하 여 초기 백업을 **수동으로**전송 하도록 선택할 수 있습니다. 또는 지정 된 시간에 **네트워크를 통해 데이터를 자동으로** 전송할 수 있습니다.
 
-    초기 백업 복사본은 프로덕션 서버(SQL Server 컴퓨터)에서 MABS로 전체 데이터 원본(SQL Server 데이터베이스)을 전송해야 합니다. 이 데이터는 규모가 클 수 있으며 네트워크를 통한 데이터 전송이 대역폭을 초과할 수 있습니다. 이 때문에 관리자는 최초 백업을 **수동**(이동식 미디어 사용)으로 전송하여 대역폭 혼잡을 방지하거나, **네트워크를 통해 자동으로 전송**(지정된 시간에)하도록 선택할 수 있습니다.
+    초기 백업이 완료 되 면 백업은 초기 백업 복사본에 대해 증분 방식으로 계속 됩니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
+1. 일관성 확인을 실행할 시간을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
-    초기 백업을 완료하면 백업의 나머지 부분은 초기 백업 복사본의 증분 백업입니다. 증분 백업은 크기가 작으며 네트워크를 통해 간편하게 전송될 수 있습니다.
-10. 일관성 확인을 실행하려는 경우 선택하고 **다음**을 클릭합니다.
+    ![일관성 확인을 실행할 시기를 선택 하십시오.](./media/backup-azure-backup-sql/pg-consistent.png)
 
-    ![일관성 확인](./media/backup-azure-backup-sql/pg-consistent.png)
+    MABS는 백업 지점의 무결성에 대 한 일관성 확인을 실행할 수 있습니다. 프로덕션 서버 (이 예제에서는 SQL Server 컴퓨터)에서 백업 파일의 체크섬과 MABS의 해당 파일에 대 한 백업 된 데이터를 계산 합니다. 검사가 충돌을 발견 하면 MABS의 백업 된 파일이 손상 된 것으로 간주 됩니다. MABS는 체크섬 불일치에 해당 하는 블록을 전송 하 여 백업 된 데이터를 수정 합니다. 일관성 확인은 성능 집약적인 작업 이므로 관리자는 일관성 확인을 예약 하거나 자동으로 실행 하도록 선택할 수 있습니다.
+1. Azure에서 보호할 데이터 원본을 선택 합니다. 그런 후 **다음**을 선택합니다.
 
-    MABS는 일관성 확인을 수행하여 백업 시점의 무결성을 확인합니다. 프로덕션 서버(이 시나리오에서 SQL Server 컴퓨터)에서 백업 파일의 체크섬 및 MABS에서 해당 파일에 대한 백업 데이터를 계산합니다. 충돌이 있을 경우 MABS에서 백업된 파일이 손상되었음을 가정합니다. MABS는 체크섬 불일치에 해당하는 블록을 전송하여 백업된 데이터를 균형있게 조정합니다. 일관성 확인은 성능 집약적인 작업이므로 관리자는 일관성 확인을 예약하거나 자동으로 실행하도록 선택할 수 있습니다.
-11. 데이터 원본에 온라인 보호를 지정하려면 데이터베이스를 Azure에 보호되도록 선택하고 **다음**을 클릭합니다.
+    ![Azure에서 보호할 데이터 원본 선택](./media/backup-azure-backup-sql/pg-sqldatabases.png)
+1. 관리자 인 경우 조직의 정책에 맞는 백업 일정 및 보존 정책을 선택할 수 있습니다.
 
-    ![데이터 원본 선택](./media/backup-azure-backup-sql/pg-sqldatabases.png)
-12. 관리자는 자신의 조직 정책에 맞게 백업 일정 및 보존 정책을 선택할 수 있습니다.
+    ![일정 및 보존 정책 선택](./media/backup-azure-backup-sql/pg-schedule.png)
 
-    ![일정 및 보존](./media/backup-azure-backup-sql/pg-schedule.png)
+    이 예제에서 백업은 매일 오후 12:00 시와 오후 8:00에 수행 됩니다.
 
-    이 예에서 백업은 매일 한 번 오후 12시 및 오후 8시에 수행됩니다.(화면의 아래쪽 부분)
-
-    > [!NOTE]
-    > 신속한 복구를 위해 디스크에 몇 가지 단기 복구 지점이 있는 것이 좋습니다. 이러한 복구 지점은 “운영 복구"에 사용됩니다. Azure는 높은 SLA 및 보장된 가용성이 있는 좋은 오프사이트 위치를 제공합니다.
+    > [!TIP]
+    > 빠른 복구를 위해 디스크에 몇 가지 단기 복구 지점이 유지 됩니다. 이러한 복구 지점은 운영 복구에 사용됩니다. Azure는 좋은 오프 사이트 위치 역할을 하며 높은 Sla 및 보장 된 가용성을 제공 합니다.
     >
+    > Data Protection Manager (DPM)을 사용 하 여 로컬 디스크 백업이 완료 된 후에 Azure 백업을 예약할 수 있습니다. 이 연습을 수행 하면 최신 디스크 백업이 Azure에 복사 됩니다.
     >
 
-    **모범 사례**: DPM을 사용하여 로컬 디스크 백업이 완료된 후에 Azure Backup을 예약합니다. 이를 통해 최신 디스크 백업이 Azure에 복사될 수 있습니다.
 
-13. 보존 정책 일정을 선택합니다. 보존 정책이 작동하는 방법에 대한 자세한 내용은 [Azure Backup을 사용하여 테이프 인프라 대체 문서](backup-azure-backup-cloud-as-tape.md)에서 제공됩니다.
+1. 보존 정책 일정을 선택합니다. 보존 정책의 작동 방법에 대 한 자세한 내용은 [Azure Backup를 사용 하 여 테이프 인프라 교체](backup-azure-backup-cloud-as-tape.md)를 참조 하세요.
 
-    ![보존 정책](./media/backup-azure-backup-sql/pg-retentionschedule.png)
+    ![MABS에서 보존 정책 선택](./media/backup-azure-backup-sql/pg-retentionschedule.png)
 
     이 예제에서:
 
-    * Backup은 매일 한 번 오후 12시 및 오후 8시에 수행되며(화면의 아래쪽 부분) 180일 동안 유지됩니다.
-    * 토요일 오후 12시에 수행되는 백업은 104주 동안 유지됩니다.
-    * 마지막 주 토요일 오후 12시에 수행되는 백업은 60개월 동안 유지됩니다.
-    * 3월 마지막 주 토요일 오후 12시에 수행되는 백업은 10년 동안 유지됩니다.
-14. **다음** 을 클릭하고 초기 백업 복사본을 Azure에 전송하기 위한 적절한 옵션을 선택합니다. **네트워크를 통해 자동으로** 또는 **오프라인 Backup**을 선택할 수 있습니다.
+    * 백업은 매일 오후 12:00 시와 오후 8:00에 수행 됩니다. 180 일 동안 유지 됩니다.
+    * 토요일 12:00 PM의 백업은 104 주 동안 보관 됩니다.
+    * 매월 마지막 토요일 12:00 PM의 백업은 60 개월 동안 유지 됩니다.
+    * 3 월의 마지막 토요일 12:00 PM에서의 백업은 10 년 동안 유지 됩니다.
 
-    * **네트워크를 통해 자동으로** 는 백업에 선택한 일정에 따라 Azure에 백업 데이터를 전송합니다.
-    * 오프 라인 백업 [에 대 한 개요](offline-backup-overview.md)에서 **오프 라인 백업** 작동 방식을 설명 합니다.
+    보존 정책을 선택한 후 **다음**을 선택 합니다.
+1. 초기 백업 복사본을 Azure에 전송 하는 방법을 선택 합니다.
 
-    관련 전송 메커니즘을 선택하여 초기 백업 복사본을 Azure로 보내고 **다음**을 클릭합니다.
-15. **요약** 화면에서 정책 세부 정보를 검토하면 **그룹 만들기** 단추를 클릭하여 워크플로를 완료합니다. **닫기** 단추를 클릭하고 작업 영역 모니터링에서 작업 진행 상태를 모니터링합니다.
+    * **네트워크를 통해 자동으로** 옵션은 백업 일정에 따라 데이터를 Azure로 전송 합니다.
+    * **오프 라인 백업**에 대 한 자세한 내용은 [오프 라인 백업 개요](offline-backup-overview.md)를 참조 하세요.
 
-    ![진행 중인 보호 그룹 만들기](./media/backup-azure-backup-sql/pg-summary.png)
+    전송 메커니즘을 선택한 후 **다음**을 선택 합니다.
+1. **요약** 페이지에서 정책 세부 정보를 검토 합니다. 그런 다음 **그룹 만들기**를 선택 합니다. **닫기** 를 선택 하 고 **모니터링** 작업 영역에서 작업 진행률을 볼 수 있습니다.
 
-## <a name="on-demand-backup-of-a-sql-server-database"></a>SQL Server 데이터베이스의 주문형 백업
+    ![보호 그룹 만들기 진행률](./media/backup-azure-backup-sql/pg-summary.png)
 
-이전 단계가 백업 정책을 만드는 동안 첫 번째 백업이 발생하면 "복구 지점"을 만듭니다. 스케줄러가 시작되기를 기다리는 대신 다음 단계는 수동으로 복구 지점의 생성을 트리거합니다.
+## <a name="create-on-demand-backup-copies-of-a-sql-server-database"></a>SQL Server 데이터베이스의 주문형 백업 복사본 만들기
 
-1. 복구 지점을 만들기 전에 보호 그룹 상태가 데이터베이스를 **확인**으로 표시될 때까지 대기합니다.
+첫 번째 백업이 발생 하면 복구 지점이 생성 됩니다. 예약 실행을 대기 하는 대신 복구 지점 만들기를 수동으로 트리거할 수 있습니다.
 
-    ![보호 그룹 멤버](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
-2. 데이터베이스를 마우스 오른쪽 단추로 클릭하고 **복구 지점 만들기**를 선택합니다.
+1. 보호 그룹에서 데이터베이스 상태가 **양호**인지 확인 합니다.
 
-    ![온라인 복구 지점 만들기](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
-3. 드롭다운 메뉴에서 **온라인 보호**를 선택하고 **확인**을 클릭합니다. 그러면 Azure에서 복구 지점 만들기가 시작됩니다.
+    ![데이터베이스 상태를 표시 하는 보호 그룹](./media/backup-azure-backup-sql/sqlbackup-recoverypoint.png)
+1. 데이터베이스를 마우스 오른쪽 단추로 클릭 한 다음 **복구 지점 만들기**를 선택 합니다.
 
-    ![복구 지점 만들기](./media/backup-azure-backup-sql/sqlbackup-azure.png)
-4. 다음 그림에서처럼 **모니터링** 작업 영역에서 진행 중인 작업의 진행 상황을 확인할 수 있습니다.
+    ![온라인 복구 지점 만들기를 선택 합니다.](./media/backup-azure-backup-sql/sqlbackup-createrp.png)
+1. 드롭다운 메뉴에서 **온라인 보호**를 선택 합니다. 그런 다음 **확인** 을 선택 하 여 Azure에서 복구 지점 만들기를 시작 합니다.
 
-    ![콘솔 모니터링](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
+    ![Azure에서 복구 지점 만들기 시작](./media/backup-azure-backup-sql/sqlbackup-azure.png)
+1. **모니터링** 작업 영역에서 작업 진행률을 볼 수 있습니다. 
+
+    ![모니터링 콘솔에서 작업 진행률 보기](./media/backup-azure-backup-sql/sqlbackup-monitoring.png)
 
 ## <a name="recover-a-sql-server-database-from-azure"></a>Azure에서 SQL Server 데이터베이스 복구
 
-Azure에서 보호되는 엔터티(SQL Server 데이터베이스)를 복구하려면 다음 단계가 필요합니다.
+Azure에서 SQL Server 데이터베이스와 같은 보호 된 엔터티를 복구 하려면 다음을 수행 합니다.
 
-1. DPM 서버 관리 콘솔을 엽니다. DPM에서 백업된 서버를 확인할 수 있는 **복구** 작업 영역으로 이동합니다. 필요한 데이터베이스로 이동합니다.(이 경우 ReportServer$ MSDPM2012) **온라인**으로 끝나는 시간 **에서 복구** 를 선택 합니다.
+1. DPM 서버 관리 콘솔을 엽니다. **복구** 작업 영역으로 이동 하 여 DPM에서 백업 하는 서버를 확인 합니다. 데이터베이스 (이 예에서는 ReportServer $ MSDPM2012)를 선택 합니다. **온라인**으로 끝나는 **복구 시간** 을 선택 합니다.
 
     ![복구 지점 선택](./media/backup-azure-backup-sql/sqlbackup-restorepoint.png)
-2. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭하고 **복구**를 클릭합니다.
+1. 데이터베이스 이름을 마우스 오른쪽 단추로 클릭 하 고 **복구**를 선택 합니다.
 
-    ![Azure에서 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
-3. DPM에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 클릭합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. **다음**을 클릭합니다.
+    ![Azure에서 데이터베이스 복구](./media/backup-azure-backup-sql/sqlbackup-recover.png)
+1. DPM에서는 복구 지점에 대한 세부 정보를 보여줍니다. **다음**을 선택합니다. 데이터베이스를 덮어쓰려면 복구 형식 **SQL Server의 원본 인스턴스에 복구**를 선택합니다. 그런 후 **다음**을 선택합니다.
 
-    ![원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
+    ![데이터베이스를 원래 위치로 복구](./media/backup-azure-backup-sql/sqlbackup-recoveroriginal.png)
 
-    이 예제에서 DPM를 사용하면 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더에 데이터베이스를 복구합니다.
-4. **복구 옵션 지정** 화면에서 네트워크 대역폭 사용량 제한을 같은 복구 옵션을 선택하여 복구에서 사용되는 대역폭을 제한할 수 있습니다. **다음**을 클릭합니다.
-5. **요약** 화면에서는 지금까지 제공하는 모든 복구 구성을 표시합니다. **복구**를 클릭합니다.
+    이 예에서는 DPM을 사용 하 여 다른 SQL Server 인스턴스 또는 독립 실행형 네트워크 폴더에 데이터베이스를 복구할 수 있습니다.
+1. **복구 옵션 지정** 페이지에서 복구 옵션을 선택할 수 있습니다. 예를 들어, **네트워크 대역폭 사용 제한을** 선택 하 여 복구에 사용 되는 대역폭을 제한할 수 있습니다. 그런 후 **다음**을 선택합니다.
+1. **요약** 페이지에 현재 복구 구성이 표시 됩니다. **복구**를 선택 합니다.
 
-    복구 상태는 복구 중인 데이터베이스를 표시합니다. **닫기**를 클릭하여 마법사를 닫고 **모니터링** 작업 영역에서 진행률을 봅니다.
+    복구 상태에는 복구 중인 데이터베이스가 표시 됩니다. **닫기** 를 선택 하 여 마법사를 닫고 **모니터링** 작업 영역에서 진행률을 확인할 수 있습니다.
 
-    ![복구 프로세스 시작](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
+    ![복구 프로세스를 시작 합니다.](./media/backup-azure-backup-sql/sqlbackup-recoverying.png)
 
-    복구가 완료되면 복원된 데이터베이스는 애플리케이션과 일치합니다.
+    복구가 완료 되 면 복원 된 데이터베이스는 응용 프로그램과 일치 합니다.
 
 ### <a name="next-steps"></a>다음 단계
 
-* [Azure Backup - FAQ](backup-azure-backup-faq.md)
+자세한 내용은 [AZURE BACKUP FAQ](backup-azure-backup-faq.md)를 참조 하세요.

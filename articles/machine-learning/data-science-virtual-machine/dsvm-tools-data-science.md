@@ -1,5 +1,6 @@
 ---
 title: 기계 학습 및 데이터 과학 도구
+titleSuffix: Azure Data Science Virtual Machine
 description: Data Science Virtual Machine에 사전 설치 된 기계 학습 도구 및 프레임 워크에 대해 알아봅니다.
 keywords: 데이터 과학 도구, 데이터 과학 가상 머신, 데이터 과학용 도구, linux 데이터 과학
 services: machine-learning
@@ -9,12 +10,12 @@ author: lobrien
 ms.author: laobri
 ms.topic: conceptual
 ms.date: 12/12/2019
-ms.openlocfilehash: c77e1834804dba0d2e5fd6eaec574ffce19d1d45
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: c6b7e3da6cb6fd87e3b43d6f310e3b76f8fc4d30
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771209"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526096"
 ---
 # <a name="machine-learning-and-data-science-tools-on-azure-data-science-virtual-machines"></a>Azure 데이터 과학 Virtual Machines의 기계 학습 및 데이터 과학 도구
 Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 인기 있는 언어로 제공 되는 기계 학습을 위한 다양 한 도구 및 라이브러리 집합이 있습니다.
@@ -31,7 +32,7 @@ Azure DSVMs (데이터 과학 Virtual Machines)에는 Python, R, 줄리아 등 �
 | 지원되는 버전     | Windows(Conda 환경: AzureML), Linux(Conda 환경: py36)    |
 | 일반적인 사용 용도      | 일반 기계 학습 플랫폼      |
 | 구성/설치 방법      |  GPU 지원과 함께 설치됨   |
-| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 `py36`으로 활성화합니다.      |
+| 사용/실행 방법      | Python SDK와 Azure CLI에 있습니다. Windows 버전에서 conda 환경 `AzureML`로 ‘또는’ Linux 버전에서 *으로 활성화합니다.* `py36`      |
 | 샘플에 대한 링크      | 샘플 Jupyter 노트북은 노트북 아래의 `AzureML` 디렉터리에 포함되어 있습니다.  |
 | 관련 도구      | Visual Studio Code, Jupyter   |
 

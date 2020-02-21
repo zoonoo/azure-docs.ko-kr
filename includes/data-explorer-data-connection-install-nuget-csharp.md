@@ -4,15 +4,13 @@ ms.service: data-explorer
 ms.topic: include
 ms.date: 10/07/2019
 ms.author: orspodek
-ms.openlocfilehash: c39fd5bdf272117a9b4935d518a862fab4bac4a7
-ms.sourcegitcommit: ec2b75b1fc667c4e893686dbd8e119e7c757333a
+ms.openlocfilehash: 8abd8756850cb9e4250016e6d35310e1f6ce580c
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72822008"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505999"
 ---
-## <a name="install-c-nuget"></a>C# nuget 설치
+## <a name="install-c-nuget"></a>NuGet C# 설치
 
-* [Azure 데이터 탐색기 (Kusto) NuGet 패키지](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)를 설치 합니다.
-
-* 인증을 위해 [system.identitymodel. ActiveDirectory NuGet 패키지](https://www.nuget.org/packages/Microsoft.IdentityModel.Clients.ActiveDirectory/) 를 설치 합니다.
+* Microsoft. n a m a [NuGet 패키지를](https://www.nuget.org/packages/Microsoft.Azure.Management.Kusto/)설치 합니다.

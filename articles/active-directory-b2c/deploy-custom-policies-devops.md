@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 21fde69f404ee535bfe0019a91843297b1752a92
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463142"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498547"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
 
@@ -31,10 +31,11 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 > [!IMPORTANT]
 > Azure 파이프라인을 사용 하 여 사용자 지정 정책 Azure AD B2C 관리는 현재 Microsoft Graph API `/beta` 끝점에서 사용할 수 있는 **미리 보기** 작업을 사용 합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API beta 끝점 참조](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
+* Microsoft Graph API 권한 정책을 사용 하 여 테 넌 트에 등록 된 [관리 앱](microsoft-graph-get-started.md) *입니다. ReadWrite. trustframework*
 * [Azure 파이프라인](https://azure.microsoft.com/services/devops/pipelines/)및 [Azure DevOps Services 프로젝트][devops-create-project] 에 대 한 액세스
 
 ## <a name="client-credentials-grant-flow"></a>클라이언트 자격 증명 부여 흐름
@@ -43,47 +44,11 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 
 ## <a name="register-an-application-for-management-tasks"></a>관리 작업용 응용 프로그램 등록
 
-먼저 Azure Pipelines에서 실행 되는 PowerShell 스크립트에서 Azure AD B2C와 통신 하는 데 사용 하는 응용 프로그램 등록을 만듭니다. 자동화 작업에 사용 하는 응용 프로그램 등록이 이미 있는 경우 [권한 부여](#grant-permissions) 섹션으로 건너뛸 수 있습니다.
+[필수 구성 요소](#prerequisites)에 설명 된 대로, Azure Pipelines에서 실행 되는 PowerShell 스크립트가 테 넌 트의 리소스에 액세스 하는 데 사용할 수 있는 응용 프로그램 등록이 필요 합니다.
 
-### <a name="register-application"></a>애플리케이션 등록
+자동화 작업에 사용 하는 응용 프로그램 등록이 이미 있는 경우 응용 프로그램 등록의 **API 권한** 내에서 **Microsoft Graph** > **정책** > 권한이 부여 되었는지 **확인 합니다.**
 
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="grant-permissions"></a>권한 부여
-
-다음으로 Microsoft Graph API를 사용 하 여 Azure AD B2C 테 넌 트에서 사용자 지정 정책을 읽고 쓸 수 있는 권한을 응용 프로그램에 부여 합니다.
-
-#### <a name="applications"></a>[애플리케이션](#tab/applications/)
-
-1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
-1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
-1. **추가**를 선택한 다음 **API를 선택**합니다.
-1. **Microsoft Graph**선택한 다음를 **선택**합니다.
-1. **응용 프로그램 사용 권한**에서 **조직의 신뢰 프레임 워크 정책 읽기 및 쓰기**를 선택 합니다.
-1. **선택**, **완료**를 차례로 선택 합니다.
-1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
-
-#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
-
-1. **앱 등록 (미리 보기)** 를 선택 하 고 Microsoft Graph API에 대 한 액세스 권한이 있어야 하는 웹 응용 프로그램을 선택 합니다. 예를 들면 *managementapp1*입니다.
-1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
-1. **Microsoft api** 탭을 선택 하 고 **Microsoft Graph**를 선택 합니다.
-1. **애플리케이션 권한**을 선택합니다.
-1. **정책** 을 확장 하 고, **정책. ReadWrite. trustframework**를 선택 합니다.
-1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
-1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
-1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
-1. **수락**을 선택합니다.
-1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. **상태**아래에 나타납니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
-
-* * *
-
-### <a name="create-client-secret"></a>클라이언트 암호 만들기
-
-Azure AD B2C를 사용 하 여 인증 하려면 PowerShell 스크립트에서 응용 프로그램에 대해 만든 클라이언트 암호를 지정 해야 합니다.
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
+관리 응용 프로그램을 등록 하는 방법에 대 한 지침은 [Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md)를 참조 하세요.
 
 ## <a name="configure-an-azure-repo"></a>Azure 리포지토리 구성
 
@@ -166,7 +131,7 @@ Azure AD B2C를 사용 하 여 인증 하려면 PowerShell 스크립트에서 �
 1. **변수** 탭을 선택 합니다.
 1. **파이프라인 변수** 아래에 다음 변수를 추가 하 고 지정 된 대로 값을 설정 합니다.
 
-    | 이름 | 값 |
+    | 속성 | 값 |
     | ---- | ----- |
     | `clientId` | 이전에 등록 한 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다. |
     | `clientSecret` | 이전에 만든 **클라이언트 암호** 의 값입니다. <br /> 변수 유형을 **secret** (잠금 아이콘 선택)로 변경 합니다. |
@@ -200,7 +165,7 @@ Azure AD B2C를 사용 하 여 인증 하려면 PowerShell 스크립트에서 �
 
         ```PowerShell
         # After
-        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/contosob2cpolicies/B2CAssets/TrustFrameworkBase.xml
+        -ClientID $(clientId) -ClientSecret $(clientSecret) -TenantId $(tenantId) -PolicyId B2C_1A_TrustFrameworkBase -PathToFile $(System.DefaultWorkingDirectory)/policyRepo/B2CAssets/TrustFrameworkBase.xml
         ```
 
 1. **저장** 을 선택 하 여 에이전트 작업을 저장 합니다.

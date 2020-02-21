@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 01/28/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 5c25f591d1011d2efd66851cafd67ceef8b56637
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a4427c05d16a42879d37fdbd2e8b8be9095fcc9b
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766821"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505901"
 ---
 # <a name="application-gateway-health-monitoring-overview"></a>Application Gateway 상태 모니터링 개요
 
@@ -49,7 +49,7 @@ Azure Application Gateway는 기본적으로 백 엔드 풀의 모든 리소스 
 
 `New-AzApplicationGatewayProbeHealthResponseMatch` cmdlet을 사용하여 일치 조건을 지정할 수 있습니다.
 
-예:
+다음은 그 예입니다.
 
 ```azurepowershell
 $match = New-AzApplicationGatewayProbeHealthResponseMatch -StatusCode 200-399
@@ -87,7 +87,7 @@ Application Gateway의 모든 인스턴스는 서로 독립적으로 백 엔드�
 
 | 프로브 속성 | Description |
 | --- | --- |
-| 이름 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
+| 속성 |프로브 이름입니다. 이 이름은 백 엔드 HTTP 설정에서 프로브를 참조하는 데 사용됩니다. |
 | 프로토콜 |프로브를 보내는 데 사용하는 프로토콜입니다. 프로브는 백 엔드 HTTP 설정에 정의된 프로토콜을 사용합니다. |
 | 호스트 |프로브에 보낼 호스트 이름입니다. 다중 사이트를 Application Gateway에 구성하는 경우에만 적용할 수 있습니다. 그렇지 않으면 '127.0.0.1'을 사용합니다. 이 값은 VM 호스트 이름과 다릅니다. |
 | 경로 |프로브의 상대 경로입니다. 올바른 경로는 '/'부터 시작합니다. |
@@ -101,9 +101,11 @@ Application Gateway의 모든 인스턴스는 서로 독립적으로 백 엔드�
 
 ## <a name="nsg-considerations"></a>NSG 고려 사항
 
-Application gateway 서브넷에 NSG (네트워크 보안 그룹)가 있는 경우 인바운드 트래픽에 대 한 응용 프로그램 게이트웨이 서브넷에서 포트 범위 65503-65534를 열어야 합니다. 이러한 포트는 백 엔드 상태 API가 제대로 작동하기 위해 필요합니다.
+Application Gateway v1 SKU에 대 한 TCP 포트 65503-65534에서 들어오는 인터넷 트래픽을 허용 하 고, 대상 서브넷 **이 있는 V2** sku에 대 한 tcp 포트 65200-65535 및 원본을 **gmanager** 서비스 태그로 허용 해야 합니다. 이 포트 범위는 Azure 인프라 통신에 필요합니다.
 
-또한 아웃바운드 인터넷 연결은 차단될 수 없으며, AzureLoadBalancer 태그에서 오는 인바운드 트래픽은 허용되어야 합니다.
+또한 아웃 바운드 인터넷 연결을 차단할 수 없으며 **Azureloadbalancer** 태그에서 들어오는 인바운드 트래픽이 허용 되어야 합니다.
+
+자세한 내용은 [Application Gateway 구성 개요](configuration-overview.md#network-security-groups-on-the-application-gateway-subnet)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 Application Gateway 상태 모니터링에 대해 알아본 후에 PowerShell 및 Azure Resource Manager 배포 모델을 사용하여 Azure Portal의 [사용자 지정 상태 프로브](application-gateway-create-probe-portal.md) 또는 [사용자 지정 상태 프로브](application-gateway-create-probe-ps.md)를 구성할 수 있습니다.

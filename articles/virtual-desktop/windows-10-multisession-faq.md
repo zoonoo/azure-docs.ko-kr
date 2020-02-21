@@ -5,22 +5,22 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 08/28/2019
+ms.date: 02/19/2020
 ms.author: helohr
-ms.openlocfilehash: e2fa30772082f4d2f7c02add61412432233e3f04
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 426ca10893e6858722b58422400582e4940287e2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470575"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484607"
 ---
 # <a name="windows-10-enterprise-multi-session-faq"></a>Windows 10 Enterprise 다중 세션 FAQ
 
 이 문서에서는 자주 묻는 질문과 대답을 소개 하 고 Windows 10 Enterprise 다중 세션의 모범 사례에 대해 설명 합니다.
  
-## <a name="what-is-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션 이란? 
+## <a name="what-is-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션 이란?
 
-Windows 10 Enterprise 다중 세션 (이전에는 가상 데스크톱 (EVD)에 대 한 Windows 10 Enterprise)은 이전에는 Windows Server만 수행할 수 있는 여러 동시 대화형 세션을 허용 하는 새로운 원격 데스크톱 세션 호스트입니다. 이 기능은 사용자에 게 친숙 한 Windows 10 환경을 제공 하며,이를 통해 다중 세션의 비용 이점을 활용 하 고 RDS Cal (클라이언트 액세스 라이선스) 대신 기존 사용자별 Windows 라이선스를 사용할 수 있습니다. 라이선스 및 가격 책정에 대 한 자세한 내용은 [Windows 가상 데스크톱 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조 하세요. 
+이전에는 windows 10 enterprise 다중 세션 (예를 들어, EVD (가상 데스크톱)의 경우 Windows 10 Enterprise)은 여러 동시 대화형 세션을 허용 하는 새로운 원격 데스크톱 세션 호스트입니다. 이전에는 Windows Server 에서만이 작업을 수행할 수 있었습니다. 이 기능은 사용자에 게 친숙 한 Windows 10 환경을 제공 하며,이를 통해 다중 세션의 비용 이점을 활용 하 고 RDS Cal (클라이언트 액세스 라이선스) 대신 기존 사용자별 Windows 라이선스를 사용할 수 있습니다. 라이선스 및 가격 책정에 대 한 자세한 내용은 [Windows 가상 데스크톱 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조 하세요. 
  
 ## <a name="how-many-users-can-simultaneously-have-an-interactive-session-on-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션에서 동시에 대화형 세션을 사용할 수 있는 사용자는 몇 개입니까?
 
@@ -40,7 +40,7 @@ Windows 10 Windows 10 Enterprise 다중 세션을 사용 하 여 Azure에서 VM 
  
 시작 하려면 Windows 10 Windows 10 Enterprise 다중 세션을 사용 하 여 Azure에서 VM을 만듭니다. Azure에서 VM을 시작 하는 대신 VHD를 직접 다운로드할 수 있습니다. 그런 다음 다운로드 한 VHD를 사용 하 여 Hyper-v를 사용 하는 Windows 10 PC에서 새 1 세대 VM을 만들 수 있습니다.
 
-LOB 응용 프로그램을 설치 하 고 이미지를 sysprep 하 여 필요에 맞게 이미지를 사용자 지정 합니다. 사용자 지정이 완료 되 면 내에서 VHD를 사용 하 여 Azure에 이미지를 업로드 합니다. 그런 다음 Azure Marketplace에서 Windows 가상 데스크톱을 가져오고이를에 사용 하 여 사용자 지정 이미지를 사용 하 여 새 호스트 풀을 배포 합니다.
+LOB 응용 프로그램을 설치 하 고 이미지를 sysprep 하 여 필요에 맞게 이미지를 사용자 지정 합니다. 사용자 지정이 완료 되 면 내에서 VHD를 사용 하 여 Azure에 이미지를 업로드 합니다. 그런 다음 Azure Marketplace에서 Windows 가상 데스크톱을 가져오고이를 사용 하 여 사용자 지정 이미지를 사용 하 여 새 호스트 풀을 배포 합니다.
  
 ## <a name="how-do-i-manage-windows-10-enterprise-multi-session-after-deployment"></a>배포 후 Windows 10 Enterprise 다중 세션을 관리 어떻게 할까요?
 
@@ -71,6 +71,31 @@ FSLogix 프로필 컨테이너를 구성 하는 방법에 대 한 자세한 내�
 ## <a name="which-license-do-i-need-to-access-windows-10-enterprise-multi-session"></a>Windows 10 Enterprise 다중 세션에 액세스 하는 데 필요한 라이선스는 무엇입니까?
 
 해당 라이선스의 전체 목록은 [Windows 가상 데스크톱 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/)을 참조 하세요.
+
+## <a name="why-do-my-apps-disappear-after-i-sign-out"></a>로그 아웃 한 후에도 앱이 사라지는 이유는 무엇 인가요?
+
+이는 FSLogix와 같은 프로필 관리 솔루션에 Windows 10 Enterprise 다중 세션을 사용 하 고 있기 때문에 발생 합니다. 관리자 또는 프로필 솔루션은 사용자가 로그 아웃할 때 사용자 프로필을 삭제 하도록 시스템을 구성 했습니다. 이 구성은 로그 아웃 한 후 시스템이 사용자 프로필을 삭제 하는 경우 세션 중에 설치한 앱도 모두 제거 함을 의미 합니다. 설치한 앱을 유지 하려면 Windows 가상 데스크톱 환경에서 모든 사용자에 대해 이러한 앱을 프로 비전 하도록 관리자에 게 요청 해야 합니다.
+
+## <a name="how-do-i-make-sure-apps-dont-disappear-when-users-sign-out"></a>사용자가 로그 아웃할 때 앱이 사라지지 않도록 어떻게 할까요?
+
+사용자가 프로필에 추가 앱을 설치 하는 것을 방지 하기 위해 기본적으로 가장 가상화 된 환경이 구성 됩니다. 사용자가 Windows 가상 데스크톱에서 로그 아웃할 때 앱이 사라지지 않도록 하려면 사용자 환경에서 모든 사용자 프로필에 대해 해당 앱을 프로 비전 해야 합니다. 앱을 프로 비전 하는 방법에 대 한 자세한 내용은 다음 리소스를 확인 하세요.
+
+- [Windows 가상 데스크톱에서 기본 제공 앱 게시](publish-apps.md)
+- [DISM 앱 패키지 서비스 명령줄 옵션](https://docs.microsoft.com/windows-hardware/manufacture/desktop/dism-app-package--appx-or-appxbundle--servicing-command-line-options)
+- [AppxProvisionedPackage](https://docs.microsoft.com/powershell/module/dism/add-appxprovisionedpackage?view=win10-ps)
+
+## <a name="how-do-i-make-sure-users-dont-download-and-install-apps-from-the-microsoft-store"></a>사용자가 Microsoft Store에서 앱을 다운로드 하 여 설치 하지 않도록 어떻게 할까요?
+
+Microsoft Store 앱을 사용 하지 않도록 설정 하 여 사용자가 이미 프로 비전 한 앱 이외에 추가 앱을 다운로드 하지 않도록 할 수 있습니다.
+
+스토어 앱을 사용 하지 않도록 설정 하려면:
+
+1. 새 그룹 정책을 만듭니다.
+2. **컴퓨터 구성** > **관리 템플릿** > **Windows 구성 요소**를 선택 합니다.
+3. **Store**를 선택합니다.
+4. **응용 프로그램 스토어**를 선택 합니다.
+5. **사용 안 함**을 선택한 다음, **확인**을 선택 합니다.
+6. **적용**을 선택합니다.
  
 ## <a name="next-steps"></a>다음 단계
 

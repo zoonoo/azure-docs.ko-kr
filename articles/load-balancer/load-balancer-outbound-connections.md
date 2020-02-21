@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: d3e4a794a948dd6bd9860c9b7e6f06ac981f86b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 56c48e9a64ec1fd000f98a20d5005305f522ff41
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162500"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500662"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -42,8 +42,8 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 
 | SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
 | --- | --- | --- | --- | --- |
-| 표준, 기본 | [1. 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 명시적으로 정의하려면 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 사용해야 합니다. |
-| 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer 사용 하는 경우 공용 IP가 가상 컴퓨터에 할당 된 경우 [아웃 바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원 되지 않습니다. |
+| 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer 사용 하는 경우 공용 IP가 가상 컴퓨터에 할당 되 면 [아웃 바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원 되지 않습니다. |
+| 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. 아웃 바운드 연결을 명시적으로 정의 하려면 [아웃 바운드 규칙](load-balancer-outbound-rules-overview.md) 을 사용 해야 합니다. |
 | 없음 또는 기본 | [3. 독립 실행형 VM (Load Balancer 안 함, 공용 IP 주소 없음)](#defaultsnat) | 포트를 가장하는(PAT) SNAT | TCP, UDP | Azure는 자동으로 SNAT에 대한 공용 IP 주소를 지정하고, 이 공용 IP 주소를 가용성 집합의 여러 개인 IP 주소와 공유하고, 이 공용 IP 주소의 삭제 포트를 사용합니다. 이 시나리오는 이전 시나리오의 대체 시나리오입니다. 가시성 및 제어 기능이 필요한 경우에는 권장되지 않습니다. |
 
 VM이 공용 IP 주소 공간에 있는 Azure 외부에서 엔드포인트와 통신하지 않게 하려면 NSG(네트워크 보안 그룹)를 사용하여 필요에 따라 액세스를 차단할 수 있습니다. NSG 사용에 대한 자세한 내용은 [아웃바운드 연결 방지](#preventoutbound)에서 다룹니다. 아웃바운드 액세스 없이 가상 네트워크를 설계, 구현 및 관리하는 방법은 이 문서의 범위를 벗어납니다.

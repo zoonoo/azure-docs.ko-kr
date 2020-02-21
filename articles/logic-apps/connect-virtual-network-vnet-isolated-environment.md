@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 2fa43cb9ec526cfab2367431712e09406556a529
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 63174e1d4950b9f18fd3693511c507ed2dd018b3
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191997"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500362"
 ---
 # <a name="connect-to-azure-virtual-networks-from-azure-logic-apps-by-using-an-integration-service-environment-ise"></a>ISE(통합 서비스 환경)를 사용하여 Azure Logic Apps에서 Azure 가상 네트워크에 연결
 
@@ -41,7 +41,7 @@ ISE는 실행 지속 시간, 저장소 보존, 처리량, HTTP 요청 및 응답
 
 * [Azure 가상 네트워크](../virtual-network/virtual-networks-overview.md)입니다. 가상 네트워크가 없는 경우 [Azure 가상 네트워크를 만드는](../virtual-network/quick-create-portal.md) 방법을 알아봅니다.
 
-  * 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위한 4 개의 *빈* 서브넷이 있어야 합니다. 각 서브넷은 ISE에 대해 다른 Logic Apps 구성 요소를 지원 합니다. 이러한 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
+  * 가상 네트워크에는 ISE에서 리소스를 만들고 배포 하기 위한 4 개의 *빈* 서브넷이 있어야 합니다. 각 서브넷은 ISE에서 사용 되는 다른 Logic Apps 구성 요소를 지원 합니다. 이러한 서브넷을 미리 만들 수도 있고, 한 번에 서브넷을 만들 수 있는 ISE를 만들 때까지 기다릴 수도 있습니다. [서브넷 요구 사항](#create-subnet)에 대해 자세히 알아보세요.
 
   * 서브넷 이름은 알파벳 문자 또는 밑줄로 시작 해야 하 고, `<`, `>`, `%`, `&`, `\\`, `?`, `/`문자를 사용할 수 없습니다. 
   
@@ -91,27 +91,25 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
 | 목적 | Direction | 대상 포트 | 원본 서비스 태그 | 대상 서비스 태그 | 메모 |
 |---------|-----------|-------------------|--------------------|-------------------------|-------|
-| Intrasubnet 통신 | 인바운드 및 아웃바운드 | * | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | ISE 서브넷을 사용 하는 가상 네트워크의 주소 공간 | 각 서브넷 내에서 트래픽이 흐를 수 있도록 해야 합니다. <p><p>**중요**: 서브넷 내의 구성 요소 간 통신의 경우 해당 서브넷 내의 모든 포트를 열어야 합니다. |
-| 상호 서브넷 통신 | 인바운드 및 아웃바운드 | 80, 443 | VirtualNetwork | VirtualNetwork | 서브넷 간 통신 |
-| Azure Logic Apps에서 받는 통신 | 아웃바운드 | 80, 443 | VirtualNetwork | 인터넷 | 포트는 Logic Apps 서비스가 통신 하는 외부 서비스에 의존 합니다. |
-| Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
-| Azure Storage 종속성 | 아웃바운드 | 80, 443, 445 | VirtualNetwork | 스토리지 | |
-| Azure Logic Apps로 보내는 통신 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스에 대 한 IP 주소입니다. 이 포트를 닫거나 차단 하면 요청 트리거를 사용 하 여 논리 앱에 대 한 HTTP 호출을 수행할 수 없습니다. |
-| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱의 실행 기록을 보려는 컴퓨터의 IP 주소입니다. 이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
-| 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | AppService | |
-| 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
-| Azure Traffic Manager에서 통신 | 인바운드 | 내부 ISE: 454 <p><p>외부 ISE: 443 | AzureTrafficManager | VirtualNetwork | |
+| 가상 네트워크 내에서 서브넷 통신 | 인바운드 및 아웃바운드 | * | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | ISE의 서브넷을 포함 하는 가상 네트워크의 주소 공간 | 가상 네트워크의 서브넷 *간에* 트래픽을 전송 하는 데 필요 합니다. <p><p>**중요**: 각 서브넷의 *구성 요소* 간 트래픽을 전송 하려면 각 서브넷 내의 모든 포트를 열어야 합니다. |
+| 논리 앱에 대 한 통신 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱에서 요청 트리거 또는 웹 후크를 호출 하는 컴퓨터 또는 서비스의 원본 IP 주소입니다. <p><p>**중요**:이 포트를 닫거나 차단 하면 요청 트리거가 있는 논리 앱에 대 한 HTTP 호출이 차단 됩니다. |
+| 논리 앱 실행 기록 | 인바운드 | 443 | 내부 ISE: <br>VirtualNetwork <p><p>외부 ISE: <br>인터넷 | VirtualNetwork | 논리 앱의 실행 기록을 보려는 컴퓨터 또는 서비스의 원본 IP 주소입니다. <p><p>**중요**:이 포트를 닫거나 차단 해도 실행 기록이 표시 되지 않지만 해당 실행 기록의 각 단계에 대 한 입력 및 출력은 볼 수 없습니다. |
 | Logic Apps 디자이너 - 동적 속성 | 인바운드 | 454 | 허용 되는 IP 주소는 **참고** 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 끝점 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) IP 주소 Logic Apps 액세스 합니다. |
+| 커넥터 배포 | 인바운드 | 454 | AzureConnectors | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
 | 네트워크 상태 검사 | 인바운드 | 454 | 허용 되는 IP 주소는 **참고** 열을 참조 하세요. | VirtualNetwork | 요청은 해당 지역에 대 한 [인바운드](../logic-apps/logic-apps-limits-and-config.md#inbound) 및 [아웃 바운드](../logic-apps/logic-apps-limits-and-config.md#outbound) IP 주소에 대 한 Logic Apps 액세스 끝점에서 제공 됩니다. |
 | App Service 관리 종속성 | 인바운드 | 454, 455 | AppServiceManagement | VirtualNetwork | |
-| 커넥터 배포 | 인바운드 | 454 | AzureConnectors | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
-| 커넥터 정책 배포 | 인바운드 | 3443 | APIManagement | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
-| Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL | |
-| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | AzureMonitor | Resource Health에 상태를 게시 하는 경우 |
+| Azure Traffic Manager에서 통신 | 인바운드 | 내부 ISE: 454 <p><p>외부 ISE: 443 | AzureTrafficManager | VirtualNetwork | |
 | API Management - 관리 엔드포인트 | 인바운드 | 3443 | APIManagement | VirtualNetwork | |
+| 커넥터 정책 배포 | 인바운드 | 3443 | APIManagement | VirtualNetwork | 커넥터를 배포 및 업데이트 하는 데 필요 합니다. 이 포트를 닫거나 차단 하면 ISE 배포가 실패 하 고 커넥터 업데이트 또는 수정이 방지 됩니다. |
+| 논리 앱에서 통신 | 아웃바운드 | 80, 443 | VirtualNetwork | 대상에 따라 다름 | 논리 앱에서 통신 해야 하는 외부 서비스에 대 한 끝점입니다. |
+| Azure Active Directory | 아웃바운드 | 80, 443 | VirtualNetwork | AzureActiveDirectory | |
+| 연결 관리 | 아웃바운드 | 443 | VirtualNetwork  | AppService | |
+| 진단 로그 및 메트릭 게시 | 아웃바운드 | 443 | VirtualNetwork  | AzureMonitor | |
+| Azure Storage 종속성 | 아웃바운드 | 80, 443, 445 | VirtualNetwork | 스토리지 | |
+| Azure SQL 종속성 | 아웃바운드 | 1433 | VirtualNetwork | SQL | |
+| Azure Resource Health | 아웃바운드 | 1886 | VirtualNetwork | AzureMonitor | Resource Health에 상태를 게시 하는 데 필요 합니다. |
 | 이벤트 허브에 로그 정책 및 모니터링 에이전트의 종속성 | 아웃바운드 | 5672 | VirtualNetwork | EventHub | |
 | 역할 인스턴스 간의 Azure Cache for Redis 인스턴스 액세스 | 인바운드 <br>아웃바운드 | 6379-6383 | VirtualNetwork | VirtualNetwork | 또한 ISE가 Redis 용 Azure Cache를 사용 하도록 하려면 [Azure cache For REDIS FAQ에 설명 된 이러한 아웃 바운드 및 인바운드 포트](../azure-cache-for-redis/cache-how-to-premium-vnet.md#outbound-port-requirements)를 열어야 합니다. |
-| Azure Load Balancer | 인바운드 | * | AzureLoadBalancer | VirtualNetwork | |
 ||||||
 
 <a name="create-environment"></a>
@@ -147,23 +145,19 @@ ISE에 액세스할 수 있고 ISE의 논리 앱이 가상 네트워크의 각 �
 
    **서브넷 만들기**
 
-   사용자 환경에서 리소스를 만들고 배포 하기 위해 ISE에는 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 필요 합니다. 환경을 만든 후에는 이러한 서브넷 주소를 변경할 *수 없습니다* .
+   사용자 환경에서 리소스를 만들고 배포 하기 위해 ISE에는 어떤 서비스에도 위임 되지 않은 *빈* 서브넷 4 개가 필요 합니다. 각 서브넷은 ISE에서 사용 되는 다른 Logic Apps 구성 요소를 지원 합니다. 환경을 만든 후에는 이러한 서브넷 주소를 변경할 *수 없습니다* . 각 서브넷은 다음 요구 사항을 충족 해야 합니다.
 
-   > [!IMPORTANT]
-   > 
-   > 서브넷 이름은 알파벳 문자 또는 밑줄 (숫자 없음)로 시작 해야 하며, `<`, `>`, `%`, `&`, `\\`, `?`, `/`문자를 사용 하지 않습니다.
-
-   또한 각 서브넷은 다음 요구 사항을 충족 해야 합니다.
+   * 에는 알파벳 문자 또는 밑줄 (숫자 없음)으로 시작 하는 이름, `<`, `>`, `%`, `&`, `\\`, `?`, `/`문자를 사용 하지 않습니다.
 
    * 는 클래스 없는 [CIDR (도메인 간 라우팅) 형식](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing) 및 클래스 B 주소 공간을 사용 합니다.
 
-   * 각 서브넷 *에 최소한 32* *이상의* 주소가 필요 하기 때문에 주소 공간에 적어도 `/27`를 사용 합니다. 다음은 그 예입니다.
+   * 각 서브넷에 32 주소가 *최소한*필요 하기 때문에 주소 공간에 적어도 `/27`를 사용 합니다. 다음은 그 예입니다.
+
+     * `10.0.0.0/28` 4 개의 주소만 포함 하 고 2<sup>(32-28)</sup> 가 2<sup>4</sup> 또는 16 이므로 너무 작습니다.
 
      * 2<sup>(32-27)</sup> 가 2<sup>5</sup> 또는 32 이기 때문에 `10.0.0.0/27`에 32 주소가 있습니다.
 
-     * 2<sup>(32-24)</sup> 가 2<sup>8</sup> 또는 256 256 주소를 `10.0.0.0/24` 합니다.
-
-     * `10.0.0.0/28` 4 개의 주소만 포함 하 고 2<sup>(32-28)</sup> 가 2<sup>4</sup> 또는 16 이므로 너무 작습니다.
+     * 2<sup>(32-24)</sup> 가 2<sup>8</sup> 또는 256 256 주소를 `10.0.0.0/24` 합니다. 그러나 더 많은 주소는 추가 이점을 제공 하지 않습니다.
 
      주소 계산에 대해 자세히 알아보려면 [IPV4 CIDR 블록](https://en.wikipedia.org/wiki/Classless_Inter-Domain_Routing#IPv4_CIDR_blocks)을 참조 하세요.
 

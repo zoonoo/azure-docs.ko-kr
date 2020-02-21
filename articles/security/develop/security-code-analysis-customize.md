@@ -1,5 +1,6 @@
 ---
-title: Microsoft Azure 보안 코드 분석 작업 사용자 지정 가이드
+title: Microsoft 보안 코드 분석 작업 사용자 지정
+titleSuffix: Azure
 description: 이 문서에서는 Microsoft 보안 코드 분석 확장에서 작업을 사용자 지정 하는 방법을 설명 합니다.
 author: vharindra
 manager: sukhans
@@ -12,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 6c88fec4e6bea34dd3cf2e45300ae2c1ac15a1c6
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6cdf892651407defc21f359a8e3b326b4af63b62
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851539"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77499994"
 ---
 # <a name="configure-and-customize-the-build-tasks"></a>빌드 작업 구성 및 사용자 지정
 
@@ -61,7 +62,7 @@ Windows 업데이트 오류 및 해당 문제 해결에 대 한 자세한 내용
     - 지정 된 여러 대상을 세미콜론 (;)으로 구분 해야 합니다.
     - 지정자는 단일 파일 이거나 와일드 카드를 포함할 수 있습니다.
     - 디렉터리 사양은 항상 \\*로 끝나야 합니다.
-    - 예시:
+    - 예제:
 
            *.dll;*.exe
            $(BUILD_STAGINGDIRECTORY)\*

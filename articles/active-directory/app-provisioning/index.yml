@@ -5,19 +5,19 @@ metadata:
   title: 애플리케이션 프로비저닝 설명서
   description: Azure Active Directory 앱 프로비저닝을 사용하면 클라우드(SaaS) 앱에서 사용자 ID를 자동으로 만들고 관리할 수 있습니다. Azure AD는 클라우드 기반 HR(인적 자원) 애플리케이션을 사용하는 프로비저닝도 제공합니다. 빠른 시작, 자습서 및 지침을 통해 클라우드 앱 및 HR 프로비저닝을 관리하고 배포하는 방법을 알아봅니다.
   ms.service: active-directory
-  ms.subservice: app-mgmt
+  ms.subservice: app-provisioning
   ms.workload: identity
   ms.topic: landing-page
   ms.date: 02/06/2020
   author: msmimart
   ms.author: mimart
   manager: celested
-  ms.openlocfilehash: 02d9ee235de798e0c6095e0cbf60c08eabec53cd
-  ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+  ms.openlocfilehash: 0b6b3829f4111c57e20f495be962357832a5bfcd
+  ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/07/2020
-  ms.locfileid: "77065504"
+  ms.lasthandoff: 02/21/2020
+  ms.locfileid: "77522469"
 landingContent:
 - title: 클라우드 앱에 사용자 및 그룹 프로비저닝
   linkLists:

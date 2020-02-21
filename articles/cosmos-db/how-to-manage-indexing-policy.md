@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: thweiss
-ms.openlocfilehash: 58e8767de786ed2ae92d19c01287aa05c8b63fbb
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 171542c89b900eb8bf282156c79303a1deb5a5f7
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767984"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506243"
 ---
 # <a name="manage-indexing-policies-in-azure-cosmos-db"></a>Azure Cosmos DB의 인덱싱 정책 관리
 
@@ -389,7 +389,7 @@ containerResponse.Resource.IndexingPolicy.CompositeIndexes.Add(new Collection<Co
 await client.ReplaceDocumentCollectionAsync(containerResponse.Resource);
 ```
 
-인덱스 변환 진행률을 추적하려면 `PopulateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달합니다.
+인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `PopulateQuotaInfo`로 설정하는 `true` 개체를 전달합니다.
 
 ```csharp
 // retrieve the container's details
@@ -457,7 +457,7 @@ await client.GetDatabase("database").DefineContainer(name: "container", partitio
 
 ## <a name="use-the-java-sdk"></a>Java SDK 사용
 
-[Java SDK](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-java.md) 참조)의 `DocumentCollection` 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
+`DocumentCollection`Java SDK[(해당 사용법에 관한 ](https://mvnrepository.com/artifact/com.microsoft.azure/azure-cosmosdb)이 빠른 시작[ 참조)의 ](create-sql-api-java.md) 개체는 `getIndexingPolicy()` 및 `setIndexingPolicy()` 메서드를 표시합니다. 해당 메서드가 조작하는 `IndexingPolicy` 개체를 사용하여 인덱싱 모드를 변경하고 포함된 경로 및 제외된 경로를 추가 또는 제거할 수 있습니다.
 
 ```java
 // Retrieve the container's details
@@ -472,7 +472,7 @@ indexingPolicy.setIndexingMode(IndexingMode.Consistent);
 // Add an included path
 
 Collection<IncludedPath> includedPaths = new ArrayList<>();
-ExcludedPath includedPath = new IncludedPath();
+IncludedPath includedPath = new IncludedPath();
 includedPath.setPath("/*");
 includedPaths.add(includedPath);
 indexingPolicy.setIncludedPaths(includedPaths);
@@ -539,7 +539,7 @@ containerResponse.subscribe(result -> {
 
 ## <a name="use-the-nodejs-sdk"></a>Node.js SDK 사용
 
-[Node.js SDK](https://www.npmjs.com/package/@azure/cosmos)(해당 사용법에 관한 [이 빠른 시작](create-sql-api-nodejs.md) 참조)의 `ContainerDefinition` 인터페이스는 `indexingMode`를 변경하고 `includedPaths` 및 `excludedPaths`를 제거할 수 있는 `indexingPolicy` 개체를 표시합니다.
+`ContainerDefinition`Node.js SDK[(해당 사용법에 관한 ](https://www.npmjs.com/package/@azure/cosmos)이 빠른 시작[ 참조)의 ](create-sql-api-nodejs.md) 인터페이스는 `indexingPolicy`를 변경하고 `indexingMode` 및 `includedPaths`를 제거할 수 있는 `excludedPaths` 개체를 표시합니다.
 
 컨테이너의 세부 정보를 검색 합니다.
 
@@ -596,7 +596,7 @@ containerResponse.body.indexingPolicy.excludedPaths.push({ path: '/name/*' });
 const replaceResponse = await client.database('database').container('container').replace(containerResponse.body);
 ```
 
-컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `populateQuotaInfo` 속성을 `true`로 설정하는 `RequestOptions` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
+컨테이너에 대한 인덱스 변환 진행률을 추적하려면 `RequestOptions` 속성을 `populateQuotaInfo`로 설정하는 `true` 개체를 전달한 다음, `x-ms-documentdb-collection-index-transformation-progress` 응답 헤더에서 값을 검색합니다.
 
 ```javascript
 // retrieve the container's details

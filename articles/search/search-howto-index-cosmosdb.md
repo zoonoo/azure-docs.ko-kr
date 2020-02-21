@@ -9,12 +9,12 @@ ms.devlang: rest-api
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/02/2020
-ms.openlocfilehash: ef136345c7c41c720efd3c79923b6ce646de41e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d1723b6c5d56554fbff576f6a07e37455845bda4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75642168"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498640"
 ---
 # <a name="how-to-index-cosmos-db-data-using-an-indexer-in-azure-cognitive-search"></a>Azure Cognitive Search에서 인덱서를 사용 하 여 Cosmos DB 데이터를 인덱싱하는 방법 
 
@@ -29,13 +29,13 @@ ms.locfileid: "75642168"
 
 용어는 혼동 될 수 있기 때문에 각 서비스에 고유한 [Azure Cosmos DB 인덱싱](https://docs.microsoft.com/azure/cosmos-db/index-overview) 및 [Azure Cognitive Search 인덱싱이](search-what-is-an-index.md) 고유한 작업 이라고 주목 해야 합니다. Azure Cognitive Search 인덱싱을 시작 하기 전에 Azure Cosmos DB 데이터베이스가 이미 존재 하 고 데이터를 포함 해야 합니다.
 
-Azure Cognitive Search의 Cosmos DB 인덱서는 다른 프로토콜을 통해 액세스 되는 [Azure Cosmos DB 항목](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) 을 탐색할 수 있습니다.
+Azure Cognitive Search의 Cosmos DB 인덱서는 다른 프로토콜을 통해 액세스 되는 [Azure Cosmos DB 항목](https://docs.microsoft.com/azure/cosmos-db/databases-containers-items#azure-cosmos-items) 을 탐색할 수 있습니다. 
 
-+ 일반적으로 사용할 수 있는 [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference)의 경우 [포털](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)또는 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet)를 사용할 수 있습니다.
++ 일반적으로 사용할 수 있는 [SQL API](https://docs.microsoft.com/azure/cosmos-db/sql-api-query-reference)의 경우 [포털](#cosmos-indexer-portal), [REST API](https://docs.microsoft.com/rest/api/searchservice/indexer-operations)또는 [.net SDK](https://docs.microsoft.com/dotnet/api/microsoft.azure.search.models.indexer?view=azure-dotnet) 를 사용 하 여 데이터 원본 및 인덱서를 만들 수 있습니다.
 
-+ [MONGODB api (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction) 및 [Gremlin api (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)의 경우 [인덱서 만들기 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 호출에서 [포털](#cosmos-indexer-portal) 또는 [REST API 버전 2019-05-06-preview](search-api-preview.md) 를 사용 하 여 인덱서를 만들 수 있습니다.
++ [MONGODB API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/mongodb-introduction)의 경우 [포털](#cosmos-indexer-portal) 또는 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 중 하나를 사용 하 여 데이터 원본 및 인덱서를 만들 수 있습니다.
 
-+ [Cassandra API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction)의 경우 [인덱서 만들기 (REST)](https://docs.microsoft.com/rest/api/searchservice/create-indexer) 호출에 대해서만 [REST API 버전 2019-05-06-preview](search-api-preview.md) 를 사용할 수 있습니다.
++ [Cassandra API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/cassandra-introduction) 및 [Gremlin API (미리 보기)](https://docs.microsoft.com/azure/cosmos-db/graph-introduction)의 경우 [REST API 버전 2019-05-06-미리 보기](search-api-preview.md) 를 사용 하 여 데이터 원본 및 인덱서를 만들 수 있습니다.
 
 
 > [!Note]
@@ -261,7 +261,7 @@ REST API를 사용 하 여 Cognitive Search Azure의 모든 인덱서에 공통 
 | 기본 형식의 배열, 예: ["a", "b", "c"] |Collection(Edm.String) |
 | 날짜처럼 보이는 문자열 |Edm.DateTimeOffset, Edm.String |
 | GeoJSON 개체, 예: { "type": "Point", "coordinates": [long, lat] } |Edm.GeographyPoint |
-| 기타 JSON 개체 |N/A |
+| 기타 JSON 개체 |해당 없음 |
 
 ### <a name="4---configure-and-run-the-indexer"></a>4-인덱서 구성 및 실행
 

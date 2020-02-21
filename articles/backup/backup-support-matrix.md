@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 37347e6febdfc3500c218238606fc96463da631c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76936243"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505855"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -78,8 +78,9 @@ Linux 컴퓨터를 백업 하려는 경우 다음 같습니다 지원 됩니다.
 --- | ---
 **Linux를 실행 하는 온-프레미스 컴퓨터의 직접 백업** | 지원되지 않습니다. MARS 에이전트는 Windows 컴퓨터에만 설치할 수 있습니다.
 **에이전트 확장을 사용 하 여 Linux를 실행 하는 Azure VM 백업** | [사용자 지정 스크립트](backup-azure-linux-app-consistent.md)를 사용 하 여 앱 일치 백업<br/><br/> 파일 수준 복구입니다.<br/><br/> 복구 지점 또는 디스크에서 VM을 만들어 복원합니다.
-**DPM을 사용 하 여 Linux를 실행 하는 온-프레미스 또는 Azure VM 백업** | Hyper-v 및 VMWare에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMWare Linux 게스트 Vm의 VM 복원<br/><br/> Azure VM에는 파일 일치 백업을 사용할 수 없습니다.
-**MABS를 사용 하 여 Linux를 실행 하는 온-프레미스 컴퓨터 또는 Azure VM 백업** | Hyper-v 및 VMWare에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMWare Linux 게스트 Vm의 VM 복원<br/><br/> Azure VM에서 파일 일치 백업을 사용할 수 없습니다.
+**DPM을 사용 하 여 Linux를 실행 하는 온-프레미스 컴퓨터 백업** | Hyper-v 및 VMWare에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMWare Linux 게스트 Vm의 VM 복원
+**MABS를 사용 하 여 Linux를 실행 하는 온-프레미스 컴퓨터 백업** | Hyper-v 및 VMWare에서 Linux 게스트 Vm의 파일 일치 백업<br/><br/> Hyper-v 및 VMWare Linux 게스트 Vm의 VM 복원
+**MABS 또는 DPM을 사용 하 여 Linux Azure Vm 백업** | 지원되지 않습니다.
 
 ## <a name="daylight-saving-time-support"></a>일광 절약 시간 지원
 
@@ -114,10 +115,10 @@ Azure Backup은 전송 중 및 미사용 데이터에 대 한 암호화를 지�
 
 **머신** | **전송 중** | **저장**
 --- | --- | ---
-**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![예][green] | ![예][green]
-**Azure VM** | ![예][green] | ![예][green]
-**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
-**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![예][green] | ![예][green]
+**DPM/MABS를 사용 하지 않는 온-프레미스 Windows 컴퓨터** | ![yes][green] | ![yes][green]
+**Azure VM** | ![yes][green] | ![yes][green]
+**DPM을 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
+**MABS를 사용 하는 온-프레미스 Windows 컴퓨터 또는 Azure Vm** | ![yes][green] | ![yes][green]
 
 ## <a name="compression-support"></a>압축 지원
 
@@ -128,16 +129,16 @@ Backup은 다음 표에 요약 된 것 처럼 백업 트래픽의 압축을 지�
 
 **머신** | **MABS/DPM에 압축(TCP)** | **자격 증명 모음으로 압축 (HTTPS)**
 --- | --- | ---
-**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![예][green]
+**온-프레미스 Windows 머신 직접 백업** | 해당 없음 | ![yes][green]
 **VM 확장을 사용 하 여 Azure Vm 백업** | 해당 없음 | 해당 없음
-**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![예][green] | ![예][green]
+**MABS/DPM을 사용 하 여 온-프레미스/Azure 컴퓨터에서 백업** | ![yes][green] | ![yes][green]
 
 ## <a name="retention-limits"></a>보존 제한
 
 **설정** | **제한**
 --- | ---
 **보호 된 인스턴스당 최대 복구 위치 (컴퓨터 또는 작업)** | 9999
-**복구 지점에 대 한 최대 만료 시간** | 무제한
+**복구 지점에 대 한 최대 만료 시간** | 제한 없음
 **DPM/MABS에 대 한 최대 백업 빈도** | SQL Server에 대해 15분마다<br/><br/> 다른 작업에 대해 한 시간에 한 번
 **자격 증명 모음에 대 한 최대 백업 빈도** | **MARS를 실행 하는 온-프레미스 Windows 컴퓨터 또는 Azure vm:** 하루 3 개<br/><br/> **DPM/MABS:** 하루에 2 개<br/><br/> **AZURE VM 백업:** 하루에 하나씩
 **복구 지점 보존** | 매일, 매주, 매월, 매년
@@ -151,9 +152,9 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하는 지�
 | 백업 관리 유형 | 지원됨                                                    | 지원되는 지역 |
 | ---------------------- | ------------------------------------------------------------ | ----------------- |
 | Azure VM               | 예. 1TB 미만의 디스크를 사용 하 여 암호화 된 Vm 및 Vm에 대해 지원 되는 공개 제한 된 미리 보기 | 미국 중서부   |
-| MARS 에이전트/온-프레미스 | 아닙니다.                                                           | N/A               |
-| SQL/SAP HANA          | 아닙니다.                                                           | N/A               |
-| AFS                    | 아닙니다.                                                           | N/A               |
+| MARS 에이전트/온-프레미스 | 예                                                           | 해당 없음               |
+| SQL/SAP HANA          | 예                                                           | 해당 없음               |
+| AFS                    | 예                                                           | 해당 없음               |
 
 
 

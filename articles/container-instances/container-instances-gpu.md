@@ -2,13 +2,13 @@
 title: GPU 사용 컨테이너 인스턴스 배포
 description: GPU 리소스를 사용 하 여 계산 집약적인 컨테이너 앱을 실행 하기 위해 Azure container instances를 배포 하는 방법을 알아봅니다.
 ms.topic: article
-ms.date: 04/17/2019
-ms.openlocfilehash: c3b202d1f35194d59090c3cc310226d6cfc4dfea
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
-ms.translationtype: HT
+ms.date: 02/19/2020
+ms.openlocfilehash: 0f1d21c62be5d7ae099faa2c6fcc440829bb451f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482958"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525290"
 ---
 # <a name="deploy-container-instances-that-use-gpu-resources"></a>GPU 리소스를 사용하는 컨테이너 인스턴스 배포
 
@@ -32,6 +32,9 @@ Azure Container Instances에서 컴퓨팅 작업이 많은 특정한 워크로�
 **추가 제한 사항**: 컨테이너 그룹을 [가상 네트워크](container-instances-vnet.md)에 배포 하는 경우 GPU 리소스를 사용할 수 없습니다.
 
 ## <a name="about-gpu-resources"></a>GPU 리소스 정보
+
+> [!IMPORTANT]
+> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대 한 액세스를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
 
 ### <a name="count-and-sku"></a>수 및 SKU
 
@@ -230,6 +233,7 @@ az container delete --resource-group myResourceGroup --name gpucontainergrouprm 
 
 <!-- LINKS - External -->
 [terms-of-use]: https://azure.microsoft.com/support/legal/preview-supplemental-terms/
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest
 
 <!-- LINKS - Internal -->
 [az-container-create]: /cli/azure/container#az-container-create

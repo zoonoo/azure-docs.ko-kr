@@ -6,7 +6,7 @@ documentationcenter: azure
 author: BarbaraSelden
 manager: CelesteDG
 ms.service: active-directory
-ms.subservice: app-mgmt
+ms.subservice: app-provisioning
 ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
@@ -15,12 +15,12 @@ ms.date: 07/23/2019
 ms.author: baselden
 ms.reviewer: zhchia
 ms.collection: active-directory
-ms.openlocfilehash: 963cec069052484362e4eb31eb2479f4a915cae8
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 93e1d879f69a95fe7472ce530e0e9f38f3480f39
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77066448"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522396"
 ---
 # <a name="enable-automatic-user-provisioning-for-your-multi-tenant-application"></a>다중 테 넌 트 응용 프로그램에 대 한 자동 사용자 프로 비전 사용
 

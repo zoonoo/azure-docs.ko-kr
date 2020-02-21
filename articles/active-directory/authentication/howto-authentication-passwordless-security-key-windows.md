@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fd3ebb40ff101f4d2e3fecd05afed834a9ddc688
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
-ms.translationtype: HT
+ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505698"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77522036"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
@@ -107,7 +107,7 @@ Intune을 사용 하 여 보안 키를 사용 하도록 설정 하려면 다음 
 
 ### <a name="enable-with-a-provisioning-package"></a>프로 비전 패키지를 사용 하 여 사용
 
-Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 프로 비전 패키지를 설치할 수 있습니다. [Microsoft Store](https://www.microsoft.com/en-us/p/windows-configuration-designer/9nblggh4tx22)에서 Windows 구성 디자이너 앱을 설치할 수 있습니다. 프로 비전 패키지를 만들려면 다음 단계를 완료 합니다.
+Intune에서 관리 되지 않는 장치의 경우 기능을 사용 하도록 프로 비전 패키지를 설치할 수 있습니다. [Microsoft Store](https://www.microsoft.com/p/windows-configuration-designer/9nblggh4tx22)에서 Windows 구성 디자이너 앱을 설치할 수 있습니다. 프로 비전 패키지를 만들려면 다음 단계를 완료 합니다.
 
 1. Windows 구성 디자이너를 시작 합니다.
 1. **파일** > **새 프로젝트**를 선택 합니다.

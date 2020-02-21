@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 9b71c4a5c0f245d9da97dc8f096d15c5386bf919
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 98965a50037558f512401e09915021234790840d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368605"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526481"
 ---
 # <a name="planning-for-an-azure-files-deployment"></a>Azure Files 배포에 대한 계획
 
@@ -176,7 +176,7 @@ Azure Backup는 프리미엄 파일 공유에 사용할 수 있으며 Azure Kube
 
 모든 Azure 지역에서 100 TiB 용량 제한을 사용 하는 표준 파일 공유를 전역적으로 사용할 수 있습니다.
 
-- LRS: 남부 아프리카 북부와 남아프리카 서 부를 제외한 모든 지역입니다.
+- LRS: 남부 아프리카 북부, 남아프리카 서 부, 독일 중서부 및 독일 북부를 제외한 모든 지역입니다.
 - ZRS: 일본 동부, 북부 유럽, 남아프리카 공화국 북부를 제외한 모든 지역입니다.
 - GRS/GZRS: 지원 되지 않습니다.
 

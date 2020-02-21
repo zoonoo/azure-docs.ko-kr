@@ -8,16 +8,14 @@ ms.date: 01/30/2019
 ms.topic: conceptual
 ms.service: iot-central
 manager: corywink
-ms.openlocfilehash: a3d60bf38c4a9dad13dacf8ba9798c4078c1df1a
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 0386897b6cecc27781626cfecd6f1f5f8a3752e4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049734"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524386"
 ---
-# <a name="export-your-azure-iot-central-data"></a>Azure IoT Central 데이터 내보내기
-
-
+# <a name="export-iot-data-to-destinations-in-azure"></a>Azure에서 IoT 데이터를 대상으로 내보내기
 
 *이 항목의 내용은 관리자에게 적용됩니다.*
 
@@ -29,7 +27,7 @@ ms.locfileid: "77049734"
 > [!Note]
 > 연속 데이터 내보내기를 켜면 그 시점 이후의 데이터만 얻게 됩니다. 현재는 연속 데이터 내보내기가 꺼져 있는 시간의 데이터를 검색할 수 없습니다. 더 많은 기록 데이터를 유지하려면 연속 데이터 내보내기를 일찍 켜세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 권한이 있어야 합니다.
 
@@ -43,7 +41,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 
 1. [Azure Portal에서 새 Event Hubs 네임스페이스](https://ms.portal.azure.com/#create/Microsoft.EventHub)를 만듭니다. [Azure Event Hubs 문서](../../event-hubs/event-hubs-create.md)에서 자세히 알아볼 수 있습니다.
 
-2. 구독 선택. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
+2. 구독을 선택합니다. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
 
 3. Event Hubs 네임스페이스에서 이벤트 허브를 만듭니다. 네임스페이스로 이동한 다음, 맨 위에서 **+ 이벤트 허브**를 선택하여 이벤트 허브 인스턴스를 만듭니다.
 
@@ -52,7 +50,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
 내보낼 기존 Service Bus 네임 스페이스가 없는 경우 다음 단계를 수행 합니다.
 
 1. [Azure Portal에 새 Service Bus 네임 스페이스](https://ms.portal.azure.com/#create/Microsoft.ServiceBus.1.0.5)를 만듭니다. [Azure Service Bus 문서](../../service-bus-messaging/service-bus-create-namespace-portal.md)에서 자세히 알아볼 수 있습니다.
-2. 구독 선택. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
+2. 구독을 선택합니다. IoT Central 응용 프로그램과 동일한 구독에 있지 않은 다른 구독으로 데이터를 내보낼 수 있습니다. 이 경우 연결 문자열을 사용 하 여 연결 합니다.
 
 3. Service Bus 네임스페이스로 이동한 다음, 맨 위에서 **+ 큐** 또는 **+ 토픽**을 선택하여 내보낼 큐 또는 토픽을 만듭니다.
 
@@ -69,7 +67,7 @@ IoT Central 응용 프로그램의 관리자 이거나 데이터 내보내기 �
     |Standard|범용 V2|
     |Standard|범용 V1|
     |Standard|Blob Storage|
-    |프리미엄|블록 Blob Storage|
+    |Premium|블록 Blob Storage|
 
 2. 스토리지 계정에 컨테이너를 만듭니다. 스토리지 계정으로 이동합니다. **Blob 서비스**에서 **Blob 찾아보기**를 선택합니다. 맨 위에서 **+ 컨테이너**를 선택하여 새 컨테이너를 만듭니다.
 
@@ -191,7 +189,7 @@ Blob 저장소로 내보낸 예제 레코드는 다음과 같습니다.
 }
 ```
 
-## <a name="devices"></a>장치
+## <a name="devices"></a>디바이스
 
 스냅숏의 각 메시지 또는 레코드는 마지막으로 내보낸 메시지 이후 장치 및 해당 장치 및 클라우드 속성에 대 한 변경 내용을 하나 이상 나타냅니다. 다음 내용이 포함됩니다.
 

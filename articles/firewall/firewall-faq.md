@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/20/2020
 ms.author: victorh
-ms.openlocfilehash: 39c08a568a60c905394eec23dd27d5dd32ff0112
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
-ms.translationtype: MT
+ms.openlocfilehash: 41cc058d09c3bca114ba5a469f23a27ff88fed19
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460470"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505801"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -88,7 +88,7 @@ PaaS 서비스에 안전하게 액세스하려면 서비스 엔드포인트를 �
 
 Azure PowerShell *할 당 취소* 및 *할당* 메서드를 사용할 수 있습니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```azurepowershell
 # Stop an existing firewall
@@ -117,7 +117,7 @@ Azure 방화벽 서비스 제한의 경우 [azure 구독 및 서비스 제한, �
 
 ## <a name="can-azure-firewall-in-a-hub-virtual-network-forward-and-filter-network-traffic-between-two-spoke-virtual-networks"></a>허브 가상 네트워크의 Azure Firewall이 두 스포크 가상 네트워크 간의 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
-예. 허브 가상 네트워크의 Azure Firewall을 사용하여 두 스포크 가상 네트워크 간의 트래픽을 라우팅하고 필터링할 수 있습니다. 이 시나리오가 적절하게 작동하려면 각각의 스포크 가상 네트워크 서브넷에 Azure Firewall을 기본 게이트웨이로 가리키는 UDR이 포함되어 있어야 합니다.
+예. 허브 가상 네트워크의 Azure Firewall을 사용하여 두 스포크 가상 네트워크 간의 트래픽을 라우팅하고 필터링할 수 있습니다. 이 시나리오가 제대로 작동 하려면 각 스포크 가상 네트워크의 서브넷에 Azure 방화벽을 기본 게이트웨이로 가리키는 UDR이 있어야 합니다.
 
 ## <a name="can-azure-firewall-forward-and-filter-network-traffic-between-subnets-in-the-same-virtual-network-or-peered-virtual-networks"></a>Azure Firewall이 동일한 가상 네트워크 또는 피어링된 가상 네트워크에 있는 서브넷 간에 네트워크 트래픽을 전달하고 필터링할 수 있나요?
 
@@ -141,7 +141,7 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 
 ## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
 
-No. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
 ## <a name="how-do-wildcards-work-in-an-application-rule-target-fqdn"></a>응용 프로그램 규칙 대상 FQDN에서 와일드 카드를 사용 하는 방법
 
@@ -164,16 +164,16 @@ Azure 방화벽은 규모에 따라 더 많은 가상 머신 인스턴스를 프
 
 ## <a name="does-the-firewall-subnet-size-need-to-change-as-the-service-scales"></a>서비스가 확장 됨에 따라 방화벽 서브넷 크기를 변경 해야 하나요?
 
-No. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
+아니요. Azure 방화벽에는/26 보다 큰 서브넷이 필요 하지 않습니다.
 
 ## <a name="how-can-i-increase-my-firewall-throughput"></a>방화벽 처리량을 늘리려면 어떻게 해야 하나요?
 
-Azure 방화벽의 초기 처리량 용량은 2.5-3gbps입니다. 현재 scale out은 CPU 사용량과 처리량을 기반으로 합니다. 네트워크 규칙을 사용 하는 방화벽은 CPU 사용에 심각한 영향을 주지 않으므로 처리량을 높이도록 확장할 수 없는 경우도 있습니다. 방화벽에 더 높은 처리량이 필요한 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
+Azure 방화벽의 초기 처리량 용량은 2.5-3gbps 이며 30gbps까지 확장 됩니다. CPU 사용량 및 처리량을 기준으로 규모를 확장 합니다. 사용자의 요구 사항에 맞게 방화벽이 확장 되지 않고 더 높은 처리량 용량이 필요 하면 지원 담당자에 게 문의 하 여 방화벽의 처리량 용량을 늘리세요.
 
 ## <a name="how-long-does-it-take-for-azure-firewall-to-scale-out"></a>Azure 방화벽을 확장 하는 데 얼마나 걸립니까?
 
-현재 Azure 방화벽을 확장 하는 데 5 ~ 7 분이 걸립니다. 더 빠른 자동 크기 조정을 필요로 하는 버스트가 있는 경우 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
+Azure 방화벽을 확장 하는 데 5 ~ 7 분이 걸립니다. 더 빠른 자동 크기 조정을 필요로 하는 버스트가 있는 경우 고객 지원에 문의 하 여 방화벽의 초기 처리량 용량을 늘리세요.
 
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
 
-No. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.
+아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.

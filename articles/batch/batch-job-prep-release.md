@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 02/27/2017
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 5163c0cd5584848058620f76f77d9efbb6cef9c1
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 7103daa4a943edfd8d05333f413245cebaf8f4af
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025149"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524259"
 ---
 # <a name="run-job-preparation-and-job-release-tasks-on-batch-compute-nodes"></a>Batch 컴퓨팅 노드에서 작업 준비 및 작업 릴리스 태스크 실행
 
@@ -58,7 +58,7 @@ Batch 작업은 종종 작업의 태스크에 대한 입력으로 데이터의 �
 > 
 
 ## <a name="job-preparation-task"></a>작업 준비 태스크
-작업의 태스크를 실행하기 전에 Batch에서는 작업을 실행하도록 예약된 각 컴퓨팅 노드에서 작업 준비 태스크가 실행됩니다. 기본적으로 Batch 서비스는 노드에서 실행하도록 예약된 태스크를 실행하기 전에 작업 준비 태스크가 완료되기를 대기합니다. 그러나 서비스를 대기하지 않도록 구성할 수 있습니다. 노드가 다시 시작되면 작업 준비 태스크도 다시 실행되지만, 이 동작을 사용하지 않도록 설정할 수도 있습니다.
+작업의 태스크를 실행하기 전에 Batch에서는 작업을 실행하도록 예약된 각 컴퓨팅 노드에서 작업 준비 태스크가 실행됩니다. 기본적으로 Batch 서비스는 노드에서 실행하도록 예약된 태스크를 실행하기 전에 작업 준비 태스크가 완료되기를 대기합니다. 그러나 서비스를 대기하지 않도록 구성할 수 있습니다. 노드가 다시 시작되면 작업 준비 태스크도 다시 실행되지만, 이 동작을 사용하지 않도록 설정할 수도 있습니다. 작업 준비 태스크 및 작업 관리자 태스크가 구성 된 작업을 수행 하는 경우 작업 준비 태스크는 다른 모든 작업과 마찬가지로 작업 관리자 태스크 보다 먼저 실행 됩니다. 작업 준비 태스크는 항상 먼저 실행 됩니다.
 
 작업 준비 태스크는 태스크를 실행하도록 예약된 노드에서만 실행됩니다. 노드에 태스크를 할당하지 않은 경우 준비 태스크가 불필요하게 실행되지 않도록 방지합니다. 이는 작업에 대한 태스크 수가 풀의 노드 수보다 작은 경우에 발생할 수 있습니다. 이 방식은 [동시 태스크 실행](batch-parallel-node-tasks.md) 을 활성화할 때도 적용되며, 이는 태스크 개수가 가능한 총 동시 태스크 개수보다 작으면 노드 일부를 유휴 상태로 남겨둡니다. 유휴 노드에서 작업 준비 태스크를 실행하지 않으면 데이터 전송 요금에 적은 비용을 투자할 수 있습니다.
 

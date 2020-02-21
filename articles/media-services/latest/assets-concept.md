@@ -13,12 +13,12 @@ ms.topic: article
 ms.date: 08/29/2019
 ms.author: juliako
 ms.custom: seodec18
-ms.openlocfilehash: ab4eebf56abd2d328ccf86929a043d4354ca157c
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 3860823787b860f2504d6fb13b9479d1feec9d28
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186322"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505805"
 ---
 # <a name="assets-in-azure-media-services"></a>Azure Media Services 자산
 
@@ -28,7 +28,13 @@ Azure Media Services [자산](https://docs.microsoft.com/rest/api/media/assets) 
 
 **보관** 스토리지 계층은 이미 인코딩되었고 인코딩 작업 출력이 출력 Blob 컨테이너에 배치된 대용량 원본 파일에만 사용할 것을 권장합니다. 자산에 연결 하 여 콘텐츠를 스트리밍 또는 분석 하는 데 사용 하려는 출력 컨테이너의 blob은 **핫** 또는 **쿨** 저장소 계층에 있어야 합니다.
 
-### <a name="naming-blobs"></a>Blob 이름 지정
+### <a name="naming"></a>이름 지정 
+
+#### <a name="assets"></a>자산
+
+자산의 이름은 고유 해야 합니다. Media Services v3 리소스 이름 (예: 자산, 작업, 변환)에는 Azure Resource Manager 명명 제약 조건이 적용 됩니다. 자세한 내용은 [명명 규칙](media-services-apis-overview.md#naming-conventions)을 참조 하세요.
+
+#### <a name="blobs"></a>Blob
 
 자산 내의 파일/b a s 이름은 [blob 이름 요구 사항](https://docs.microsoft.com/rest/api/storageservices/Naming-and-Referencing-Containers--Blobs--and-Metadata) 및 [NTFS 이름 요구 사항을](https://docs.microsoft.com/windows/win32/fileio/naming-a-file)따라야 합니다. 이러한 요구 사항에 대 한 이유는 파일을 blob 저장소에서 로컬 NTFS 디스크로 복사 하 여 처리할 수 있다는 것입니다.
 
@@ -62,7 +68,7 @@ Azure Media Services [자산](https://docs.microsoft.com/rest/api/media/assets) 
 > [!NOTE]
 > Datetime 형식의 자산 속성은 항상 UTC 형식입니다.
 
-#### <a name="rest"></a>REST
+#### <a name="rest"></a>REST (영문)
 
 ```
 PUT https://management.azure.com/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/providers/Microsoft.Media/mediaServices/{amsAccountName}/assets/{assetName}?api-version=2018-07-01
@@ -115,7 +121,7 @@ curl -X PUT \
 
 미사용 자산을 보호하려면 스토리지 쪽 암호화를 사용하여 자산을 암호화해야 합니다. 다음 표는 Media Services에서 스토리지 쪽 암호화가 작동하는 원리를 보여줍니다.
 
-|암호화 옵션|설명|Media Services v2|Media Services v3|
+|암호화 옵션|Description|Media Services v2|Media Services v3|
 |---|---|---|---|
 |Media Services 스토리지 암호화|AES-256 암호화, Media Services에서 관리 하는 키입니다.|지원<sup>(1)</sup>|지원되지 않음<sup>(2)</sup>|
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage에서 제공 하는 서버 쪽 암호화, Azure 또는 고객이 관리 하는 키입니다.|지원됨|지원됨|

@@ -1,28 +1,26 @@
 ---
 title: Azure AD를 사용 하 여 암호 없는 인증 배포 완료
-description: Azure Active Directory 암호 없는 인증 배포 완료
+description: Azure Active Directory 암호 없는 인증 구현을 계획 하 고 배포 하는 방법을 알아봅니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 10/08/2019
+ms.date: 01/30/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: baselden, librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 8323333f378f95f0a640313524f198bdd00dc340
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 4566c8ec58677589c044d79560bffa7616294d70
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512575"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505611"
 ---
-# <a name="complete-a-passwordless-authentication-deployment"></a>암호 없는 인증 배포 완료
+# <a name="complete-a-passwordless-authentication-deployment-in-azure-active-directory"></a>Azure Active Directory에서 암호 없는 인증 배포 완료
 
-대다수의 사이버 공격는 조직의 누군가가 도난당 한 사용자 이름 및 암호를 사용 하 여 시작 합니다. 
-
-조직에서는 사용자에 게 다음을 사용 하도록 요구 하 여 위협에 대처 하려고 합니다.
+대다수의 사이버 공격는 조직의 누군가가 도난당 한 사용자 이름 및 암호를 사용 하 여 시작 합니다. 조직에서는 사용자에 게 다음 방법 중 하나를 사용 하도록 요구 하 여 위협에 대처 하려고 합니다.
 
 - 긴 암호
 - 복잡 한 암호
@@ -34,20 +32,20 @@ Microsoft research는 이러한 노력으로 사용자를 annoy 하 고 지원 �
 암호 없는 인증을 배포 하면 다음과 같은 이점이 있습니다.
 
 - 보안이 강화 되었습니다. 공격 노출 영역으로 암호를 제거 하 여 피싱 및 암호 스프레이 공격의 위험을 줄입니다.
-- 사용자 환경을 개선 합니다. 사용자에 게 어디서 나 데이터에 액세스 하 고 Outlook, OneDrive, office 등에 쉽게 액세스할 수 있는 방법을 제공 합니다.
+- 사용자 환경을 개선 합니다. 사용자에 게 어디서 나 데이터에 액세스 하는 편리한 방법을 제공 하 고, 모바일을 통해 Outlook, OneDrive 또는 Office와 같은 응용 프로그램 및 서비스에 쉽게 액세스할 수 있습니다.
 - 강력한 통찰력. 강력한 로깅 및 감사를 사용 하 여 암호 없는 작업을 사용자에 게 통찰력을 얻으세요.
 
-암호는 사용자가 알고 있는 것과 다른 항목으로 대체 됩니다. 예를 들어 비즈니스용 Windows Hello에서 얼굴 또는 지문과 같은 생체 인식 제스처 또는 네트워크를 통해 전송 되지 않는 장치 관련 PIN입니다.
+Passwordless를 사용 하는 경우 암호는 사용자가 알고 있는 것과 다른 항목으로 대체 됩니다. 예를 들어 비즈니스용 Windows Hello에서 얼굴 또는 지문과 같은 생체 인식 제스처 또는 네트워크를 통해 전송 되지 않는 장치 관련 PIN입니다.
 
-Microsoft는 다양 한 시나리오를 포함 하는 세 가지 암호 없는 인증 옵션을 제공 합니다. 이러한 메서드는 함께 사용할 수 있습니다. 
+Microsoft는 다양 한 시나리오를 포함 하는 세 가지 암호 없는 인증 옵션을 제공 합니다. 이러한 메서드는 함께 사용할 수 있습니다.
 
 - [비즈니스용 Windows Hello](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) 는 전용 windows 컴퓨터의 사용자에 게 가장 적합 합니다.
-- [FIDO2 보안 키](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) 를 사용 하 여 보안 키 로그인은 키오스크와 같은 공유 컴퓨터에 로그인 하는 사용자, 전화를 사용 하는 경우 및 높은 권한의 id에 대해 특히 유용 합니다.
-- 휴대폰 [Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) 로그인은 모바일 장치를 사용 하는 사용자에 게 암호 없는 옵션을 제공 하는 데 유용 합니다. 사용자가 모든 플랫폼 또는 브라우저에 로그인 할 수 있도록 허용 하 여 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 바꿉니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 것과 일치 시킨 다음, 생체 인식 데이터 또는 PIN을 사용 하 여 확인 하 여 로그인 합니다.
+- [FIDO2 보안 키](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) 를 사용 하는 보안 키 로그인은 휴대폰 사용이 제한 되는 경우 및 높은 권한의 id에 대해 키오스크와 같은 공유 컴퓨터에 로그인 하는 사용자에 게 특히 유용 합니다.
+- 휴대폰 [Microsoft Authenticator](https://docs.microsoft.com/azure/security/fundamentals/ad-passwordless) 로그인은 모바일 장치를 사용 하는 사용자에 게 암호 없는 옵션을 제공 하는 데 유용 합니다. Authenticator 앱은 사용자가 모든 플랫폼 또는 브라우저에 로그인 할 수 있도록 허용 하 여 모든 iOS 또는 Android 휴대폰을 강력 하 고 암호 없는 자격 증명으로 전환 합니다. 사용자는 휴대폰에 대 한 알림을 받고, 화면에 표시 되는 숫자를 휴대폰에 있는 숫자와 일치 시킨 다음, 생체 인식 데이터 또는 PIN을 사용 하 여 확인 하 여 로그인 합니다.
 
 ## <a name="compare-passwordless-authentication-methods"></a>암호 없는 인증 방법 비교
 
-Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용할 수 있습니다. 사용자의 조직 요구 사항, 필수 구성 요소 및 각 인증 방법의 기능을 고려 하 여 암호 없는 인증 전략을 선택 합니다. Windows 10 장치를 사용 하는 모든 조직에서 비즈니스용 Windows Hello를 사용 하는 것이 좋습니다. 그런 다음 추가 시나리오에 대 한 휴대폰 로그인 (Microsoft Authenticator 앱 포함) 또는 보안 키를 추가 합니다.
+Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용할 수 있습니다. 사용자의 조직 요구 사항, 필수 구성 요소 및 각 인증 방법의 기능을 고려 하 여 암호 없는 인증 전략을 선택 합니다. Windows 10 장치를 사용 하는 모든 조직에서 비즈니스용 Windows Hello를 사용 하는 것이 좋습니다. 그런 다음 추가 시나리오에 대 한 휴대폰 로그인 (Microsoft Authenticator 앱 사용) 또는 보안 키를 추가 합니다.
 
 ### <a name="passwordless-authentication-scenarios"></a>Passwordless 인증 시나리오
 
@@ -61,17 +59,17 @@ Microsoft의 암호 없는 인증 방법으로 다양 한 시나리오를 사용
 
 ### <a name="technical-considerations-for-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱에 대 한 기술 고려 사항
 
-**AD FS 통합** -사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용 하도록 설정 하면 해당 사용자에 대 한 인증에서 승인을 위한 알림을 보내도록 설정 됩니다. 하이브리드 테 넌 트의 사용자는 "대신 암호 사용"을 선택 하지 않는 한 로그인을 위해 ADFS로 전달 되지 않습니다. 이 프로세스는 또한 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시 합니다. 그러나 login_hint 지정 된 경우 사용자가 ADFS에 전달 되 고 옵션을 무시 하 여 암호 없는 자격 증명을 사용 합니다.
+**AD FS 통합** -사용자가 Microsoft Authenticator 암호 없는 자격 증명을 사용 하도록 설정 하면 해당 사용자에 대 한 인증에서 승인을 위한 알림을 보내도록 설정 됩니다. 하이브리드 테 넌 트의 사용자는 "대신 암호 사용"을 선택 하지 않는 한 로그인을 위해 ADFS로 전달 되지 않습니다. 이 프로세스는 또한 온-프레미스 조건부 액세스 정책 및 통과 인증 흐름을 무시 합니다. 그러나 *login_hint* 지정 된 경우 사용자가 ADFS에 전달 되 고 옵션을 무시 하 여 암호 없는 자격 증명을 사용 합니다.
 
-**Azure mfa 서버** -조직의 온-프레미스 Azure mfa 서버를 통해 mfa에 대해 사용 하도록 설정 된 최종 사용자는 여전히 단일 암호 없는 전화 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명으로 Microsoft Authenticator의 여러 설치(5개 이상)를 업그레이드하려고 시도하면 이 변경으로 인해 오류가 발생할 수 있습니다.
+**Azure mfa 서버** -조직의 온-프레미스 azure mfa 서버를 통해 mfa에 대해 사용 하도록 설정 된 최종 사용자는 단일 암호 없는 휴대폰 로그인 자격 증명을 만들고 사용할 수 있습니다. 사용자가 자격 증명을 사용 하 여 Microsoft Authenticator의 여러 설치 (5 개 이상)를 업그레이드 하려는 경우이 변경으로 인해 오류가 발생할 수 있습니다.
 
-**장치 등록** -암호 없는 인증을 위해 인증자 앱을 사용 하려면 장치가 Azure AD 테 넌 트에 등록 되어 있어야 하 고 공유 장치 일 수 없습니다. 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Authenticator 앱을 사용 하 여 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 지원 됨을 의미 합니다.
+**장치 등록** -암호 없는 인증을 위해 인증자 앱을 사용 하려면 장치가 Azure AD 테 넌 트에 등록 되어 있어야 하 고 공유 장치 일 수 없습니다. 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 인증 앱을 사용한 휴대폰 로그인에 회사 또는 학교 계정이 하나만 지원 됨을 의미 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 조직에서 암호 없는 배포를 시작 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-| 필수 조건 | 인증자 앱 | FIDO2 보안 키 |
+| 필수 요소 | 인증자 앱 | FIDO2 보안 키 |
 | --- | --- | --- |
 | [AZURE MFA에 대 한 결합 된 등록과 SSPR (셀프 서비스 암호 재설정)](howto-registration-mfa-sspr-combined.md) 사용 (미리 보기 기능) | √ | √ |
 | [사용자가 Azure MFA를 수행할 수 있습니다.](howto-mfa-getstarted.md) | √ | √ |
@@ -102,7 +100,7 @@ Windows Hello에 대 한 필수 구성 요소는 온-프레미스, 하이브리�
 
 ### <a name="enable-windows-10-support"></a>Windows 10 지원 사용
 
-FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설정 하려면 Windows 10에서 자격 증명 공급자 기능을 사용 하도록 설정 해야 합니다. 다음 두 가지 방법 중 하나로 사용 합니다.
+FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설정 하려면 다음 방법 중 하나를 사용 하 여 Windows 10에서 자격 증명 공급자 기능을 사용 하도록 설정 해야 합니다.
 
 - [Intune에서 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-intune)
    - Intune 배포를 권장 하는 옵션입니다.
@@ -110,6 +108,15 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
    - Intune 배포를 수행할 수 없는 경우 관리자는 자격 증명 공급자 기능을 사용 하려면 각 컴퓨터에 패키지를 배포 해야 합니다. 다음 옵션 중 하나를 수행 하 여 패키지를 설치할 수 있습니다.
       - 그룹 정책 또는 Configuration Manager
       - Windows 10 컴퓨터에 로컬 설치
+- [그룹 정책 자격 증명 공급자 사용](howto-authentication-passwordless-security-key-windows.md#enable-with-group-policy)
+   - 하이브리드 Azure AD 조인 장치에 대해서만 지원 됩니다.
+
+#### <a name="enable-on-premises-integration"></a>온-프레미스 통합 사용
+
+온-프레미스 리소스에 대 한 액세스를 사용 하려면 [온-프레미스 리소스에 대 한 암호 없는 보안 키 로그인을 사용 하도록 설정](howto-authentication-passwordless-security-key-on-premises.md)하는 단계를 수행 합니다 (미리 보기).
+
+> [!IMPORTANT]
+> Windows 10 로그인에 대 한 FIDO2 보안 키를 활용 하려면 하이브리드 Azure AD 조인 장치에 대해서도 이러한 단계를 완료 해야 합니다.
 
 ### <a name="register-security-keys"></a>보안 키 등록
 
@@ -125,7 +132,7 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 
 비즈니스 요구 사항과 각 인증 방법에 대 한 사용 사례를 고려 합니다. 그런 다음 사용자의 요구에 가장 적합 한 방법을 선택 합니다.
 
-### <a name="use-cases"></a>사례 사용
+### <a name="use-cases"></a>사용 사례
 
 다음 표에서는이 프로젝트 중에 구현 되는 사용 사례를 간략하게 설명 합니다.
 
@@ -133,10 +140,10 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 | --- | --- |
 | **Access** | Passwordless 로그인은 회사 네트워크 내부 또는 외부의 회사 또는 개인 장치에서 사용할 수 있습니다. |
 | **감사** | 사용 현황 데이터는 관리자가 거의 실시간으로 감사 하는 데 사용할 수 있습니다. <br> 사용 현황 데이터는 최소 29 일 마다 회사 시스템에 다운로드 되거나 SIEM 도구가 사용 됩니다. |
-| **관리** | 적절 한 인증 방법 및 관련 그룹에 대 한 사용자 할당의 수명 주기를 정의 하 고 모니터링 합니다. |
+| **관리가** | 적절 한 인증 방법 및 관련 그룹에 대 한 사용자 할당의 수명 주기를 정의 하 고 모니터링 합니다. |
 | **보안** | 적절 한 인증 방법에 대 한 액세스는 사용자 및 그룹 할당을 통해 제어 됩니다. <br> 권한 있는 사용자만 암호 없는 로그인을 사용할 수 있습니다. |
 | **성능** | 액세스 할당 전파 타임 라인은 문서화 및 모니터링 됩니다. <br> 사용 편의성을 위해 로그인 시간이 측정 됩니다. |
-| **사용자 환경** | 사용자는 모바일 호환성을 인식 합니다. <br> 사용자는 인증 앱 암호 없는 로그인을 구성할 수 있습니다. |
+| **사용자 환경** | 사용자는 모바일 호환성을 인식 합니다. <br> 사용자는 인증자 앱 암호 없는 로그인을 구성할 수 있습니다. |
 | **지원** | 사용자는 암호 없는 로그인 문제에 대 한 지원을 찾는 방법을 알고 있습니다. |
 
 ### <a name="engage-the-right-stakeholders"></a>올바른 관련자 참여
@@ -147,18 +154,18 @@ FIDO2 보안 키를 사용 하 여 Windows 10 로그인을 사용 하도록 설�
 
 통신은 모든 새 서비스의 성공에 중요 합니다. 사용자의 경험을 사전에 전달 하 고, 변경 될 때 그리고 문제가 발생 한 경우 지원을 얻는 방법을 사전에 전달 합니다.
 
-최종 사용자에 대 한 통신에는 다음이 포함 되어야 합니다.
+최종 사용자에 대 한 통신은 다음 정보를 포함 해야 합니다.
 
 - [결합 된 보안 등록 환경 사용](howto-authentication-passwordless-phone.md)
 - [Microsoft Authenticator 앱 다운로드](../user-help/user-help-auth-app-download-install.md)
 - [Microsoft Authenticator 앱에 등록](howto-authentication-passwordless-phone.md)
 - [휴대폰으로 로그인](../user-help/user-help-auth-app-sign-in.md)
 
-Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. 해당 페이지에서 보안 정보 링크를 선택 하 여 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) 사용자에 게 직접 등록할 수 있습니다.
+Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플릿](https://aka.ms/mfatemplates), 셀프 서비스 암호 재설정 (SSPR) [통신 템플릿](https://www.microsoft.com/download/details.aspx?id=56768)및 [최종 사용자 설명서](../user-help/security-info-setup-signin.md) 를 제공 합니다. 해당 페이지에서 **보안 정보** 링크를 선택 하 여 [https://myprofile.microsoft.com](https://myprofile.microsoft.com/) 사용자에 게 직접 등록할 수 있습니다.
 
 ### <a name="testing-passwordless"></a>암호 없는 테스트
 
-배포의 각 단계에서 결과가 예상 대로 테스트 되는지 확인 합니다.
+시나리오 및 채택을 테스트 하는 경우 배포의 각 단계에서 결과가 예상 대로 작동 하는지 확인 합니다.
 
 #### <a name="testing-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱 테스트
 
@@ -168,15 +175,15 @@ Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플�
 | --- | --- |
 | 사용자가 앱 Microsoft Authenticator 등록 가능 | 사용자가 aka.ms/mysecurityinfo에서 앱을 등록할 수 있습니다. |
 | 사용자가 휴대폰 로그인을 사용 하도록 설정할 수 있음 | 회사 계정에 대해 구성 된 휴대폰 로그인 |
-| 사용자가 휴대폰 로그인을 사용 하 여 앱에 액세스할 수 있습니다. | 사용자가 전화를 통해 이동 하 고 지정 된 응용 프로그램에 도달 합니다. |
-| Azure Active Directory 포털의 인증 방법 화면에서 암호 없는 로그인 Microsoft Authenticator 해제 하 여 전화 로그인 등록을 테스트 합니다. | 이전에 사용 하도록 설정 된 사용자는 Microsoft Authenticator에서 암호 없는 로그인을 사용할 수 없습니다. |
+| 사용자가 휴대폰 로그인을 사용 하 여 앱에 액세스할 수 있음 | 사용자가 휴대폰 로그인 흐름을 진행 하 고 지정 된 응용 프로그램에 도달 합니다. |
+| Azure Active Directory 포털의 인증 방법 화면에서 암호 없는 로그인 Microsoft Authenticator 해제 하 여 휴대폰 로그인 등록을 테스트 합니다. | 이전에 사용 하도록 설정 된 사용자는 Microsoft Authenticator에서 암호 없는 로그인을 사용할 수 없습니다. |
 | Microsoft Authenticator 앱에서 휴대폰 로그인을 제거 하는 중 | Microsoft Authenticator에서 더 이상 사용할 수 없는 회사 계정 |
 
 #### <a name="testing-security-keys"></a>보안 키 테스트
 
 다음은 보안 키를 사용 하 여 암호 없는 인증에 대 한 샘플 테스트 사례입니다.
 
-**Passwordless FIDO Azure Active Directory 가입 된 Windows 10 장치에 로그인**
+**Azure Active Directory 연결 된 Windows 10 장치에 대 한 passwordless FIDO 로그인**
 
 | 시나리오 | 예상 결과 |
 | --- | --- |
@@ -187,7 +194,7 @@ Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플�
 | 사용자가 FIDO2 장치 (1903)를 다시 설정할 수 있습니다. | 사용자는 설정 > 계정 > 로그인 옵션 > 보안 키에서 FIDO2 장치를 다시 설정할 수 있습니다. |
 | 사용자가 FIDO2 장치 (1903)를 사용 하 여 로그인 할 수 있습니다. | 사용자는 로그인 창에서 보안 키를 선택 하 고 성공적으로 로그인 할 수 있습니다. |
 
-**Passwordless FIDO Azure AD 웹 앱에 로그인**
+**Azure AD 웹 앱에 대 한 passwordless FIDO 로그인**
 
 | 시나리오 | 예상 결과 |
 | --- | --- |
@@ -201,7 +208,7 @@ Microsoft는 사용자의 통신을 쉽게 할 수 있도록 MFA [통신 템플�
 
 Azure AD에는 기술 및 비즈니스 정보를 제공 하는 보고서가 있습니다. 비즈니스 및 기술 응용 프로그램 소유자에 게 조직의 요구 사항에 따라 이러한 보고서를 소유 하 고 사용 하도록 합니다.
 
-Azure Active Directory 포털의 인증 방법 섹션에서는 관리자가 암호 없는 자격 증명에 대 한 설정을 사용 하도록 설정 하 고 관리할 수 있습니다.
+Azure Active Directory 포털의 **인증** 방법 섹션에서는 관리자가 암호 없는 자격 증명에 대 한 설정을 사용 하도록 설정 하 고 관리할 수 있습니다.
 
 Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
@@ -215,19 +222,19 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 | **보고서 유형** | 인증 방법-결합 된 보안 등록을 위해 등록 된 사용자 | 인증 방법 – 앱 알림에 등록 된 사용자 | 로그인: 테 넌 트에 액세스 하는 사용자 및 방법 검토 |
 | **잠재적 작업** | 대상 사용자가 아직 등록 되지 않음 | Microsoft Authenticator 앱 또는 보안 키를 도입 하는 드라이브 | 관리자에 대 한 액세스를 취소 하거나 추가 보안 정책을 적용 합니다. |
 
-**AZURE AD는 30 일 동안 대부분의 감사 데이터를 보존** 하 고 Azure 관리 포털 또는 API를 통해 데이터를 사용할 수 있도록 하 여 분석 시스템으로 다운로드 합니다. 조직에 더 긴 보존이 필요한 경우 로그를 내보내고 [Azure 센티널](../../sentinel/connect-azure-active-directory.md), Splunk 또는 Sumo 논리와 같은 siem 도구로 사용 해야 합니다. [액세스 및 사용 보고서를 보는 방법에 대해 자세히 알아보세요](../reports-monitoring/overview-reports.md).
+**AZURE AD는 30 일 동안 대부분의 감사 데이터를 보존** 하 고 azure 관리 포털 또는 API를 통해 데이터를 사용할 수 있도록 하 여 분석 시스템으로 다운로드 합니다. 조직에 더 긴 보존이 필요한 경우 로그를 내보내고 [Azure 센티널](../../sentinel/connect-azure-active-directory.md), Splunk 또는 Sumo 논리와 같은 siem 도구로 사용 해야 합니다. [액세스 및 사용 보고서를 보는 방법에 대해 자세히 알아보세요](../reports-monitoring/overview-reports.md).
 
 사용자는 [https://aka.ms/mysecurityinfo](https://aka.ms/mysecurityinfo)로 이동 하 여 자격 증명을 등록 하 고 관리할 수 있습니다. 이 링크는 결합 된 SSPR/MFA 등록 환경을 통해 사용 하도록 설정 된 최종 사용자 자격 증명 관리 환경으로 사용자를 안내 합니다. FIDO2 보안 장치를 등록 하거나 사용자의 인증 방법에 대 한 변경 내용은 감사 로그 Azure Active Directory에 기록 됩니다.
 
-사용자가 보안 키에서 계정을 사용 하거나 사용 하지 않도록 설정 하거나 Windows 10 컴퓨터의 보안 키에 대 한 두 번째 단계를 다시 설정 하면 항목이 보안 로그에 추가 되 고 다음 이벤트 Id (4670, 5382) 아래에 있습니다.
+사용자가 보안 키에서 계정을 사용 하거나 사용 하지 않도록 설정 하거나 Windows 10 컴퓨터의 보안 키에 대 한 두 번째 단계를 다시 설정 하면 항목이 보안 로그에 추가 되 고 다음 이벤트 Id ( *4670* 및 *5382*) 아래에 있습니다.
 
 ### <a name="plan-for-rollback"></a>롤백 계획
 
 암호 없는은 최종 사용자에 게 미치는 영향을 최소화 하면서 간단한 기능 이지만 롤백해야 할 수 있습니다.
 
-롤백하려면 관리자가 Azure Active Directory 포털에 로그인 하 고 원하는 강력한 인증 방법을 선택한 다음 사용 옵션을 ' 아니요 '로 변경 해야 합니다. 이 프로세스는 모든 사용자에 대해 암호 없는 기능을 해제 합니다.
+롤백하려면 관리자가 Azure Active Directory 포털에 로그인 하 고 원하는 강력한 인증 방법을 선택한 다음 사용 옵션을 **아니요**로 변경 해야 합니다. 이 프로세스는 모든 사용자에 대해 암호 없는 기능을 해제 합니다.
 
-이미 FIDO2 보안 장치를 등록 한 사용자에 게는 다음에 로그인 할 때 보안 장치를 사용 하 라는 메시지가 표시 되 고 다음 오류가 표시 됩니다.
+FIDO2 보안 장치를 이미 등록 한 사용자에 게 다음 로그인 시 보안 장치를 사용 하 라는 메시지가 표시 되 면 다음 오류가 표시 됩니다.
 
 ![다른 로그인 방법 선택](./media/howto-authentication-passwordless-deployment/passwordless-choose-sign-in.png)
 
@@ -247,7 +254,7 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 | Azure AD 역할 | Description |
 | --- | --- |
-| 인증 관리자 | 인증 방법을 구현 및 관리할 수 있는 최소 권한 역할 |
+| 인증 관리자 | 인증 방법을 구현 하 고 관리할 수 있는 최소 권한 있는 역할입니다. |
 | 사용자 | 장치에서 Authenticator 앱을 구성 하거나 웹 또는 Windows 10 로그인에 대 한 보안 키 장치를 등록 하기 위한 최소 권한 있는 역할입니다. |
 
 ### <a name="deploy-phone-sign-in-with-the-microsoft-authenticator-app"></a>Microsoft Authenticator 앱을 사용 하 여 휴대폰 로그인 배포
@@ -260,23 +267,23 @@ Azure AD는 다음과 같은 경우 감사 로그에 항목을 추가 합니다.
 
 ### <a name="troubleshoot-phone-sign-in"></a>휴대폰 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
-| 사용자가 휴대폰 로그인 인증 앱을 사용 하도록 설정할 수 없음 | 사용자가 배포 범위 내에 있는지 확인 |
-| 사용자가 암호 없는 인증에 대 한 범위에 없지만 암호 없는 로그인 옵션으로 제공 되며,이 옵션은 완료할 수 없습니다. | 이 시나리오는 사용자가 정책 만들기 전에 응용 프로그램에서 휴대폰 로그인을 사용 하도록 설정한 경우에 발생 합니다. <br> 로그인을 사용 하도록 설정 하려면: 암호 없는 로그인에 사용 하도록 설정 된 사용자 범위에 사용자를 추가 합니다. <br> 로그인을 차단 하려면: 사용자가 해당 응용 프로그램에 대 한 자격 증명 형식을 제거 하도록 합니다. |
+| 사용자가 휴대폰 로그인 인증자 앱을 사용 하도록 설정할 수 없습니다. | 사용자가 배포 범위에 있는지 확인 하세요. |
+| 사용자가 암호 없는 인증에 대 한 범위 내에 있지 않지만, 암호 없는 로그인 옵션으로 제공 되며,이 옵션은 완료할 수 없습니다. | 이 시나리오는 사용자가 정책 만들기 전에 응용 프로그램에서 휴대폰 로그인을 사용 하도록 설정한 경우에 발생 합니다. <br> 로그인을 사용 하도록 설정 하려면: 암호 없는 로그인에 사용 하도록 설정 된 사용자 범위에 사용자를 추가 합니다. <br> 로그인을 차단 하려면: 사용자가 해당 응용 프로그램에 대 한 자격 증명 형식을 제거 하도록 합니다. |
 
 ### <a name="troubleshoot-security-key-sign-in"></a>보안 키 로그인 문제 해결
 
-| 시나리오 | 솔루션 |
+| 시나리오 | 해결 방법 |
 | --- | --- |
 | 사용자는 결합 된 등록을 수행할 수 없습니다. | [결합 된 등록이](concept-registration-mfa-sspr-combined.md) 활성화 되어 있는지 확인 합니다. |
-| 사용자가 [보안 설정](https://aka.ms/mysecurityinfo) 에서 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |
-| 사용자가 Windows 10 로그인 옵션에서 보안 키를 추가할 수 없음 | [Windows 로그인에 대 한 보안 키를 확인 합니다.](howto-authentication-passwordless-enable.md) |
+| 사용자가 [보안 설정](https://aka.ms/mysecurityinfo)에 보안 키를 추가할 수 없습니다. | [보안 키](howto-authentication-passwordless-security-key.md) 를 사용할 수 있는지 확인 합니다. |
+| 사용자가 Windows 10 로그인 옵션에서 보안 키를 추가할 수 없습니다. | [Windows 로그인에 대 한 보안 키를 확인 합니다.](howto-authentication-passwordless-enable.md) |
 | **오류 메시지**:이 브라우저나 OS는 FIDO2 보안 키를 지원 하지 않습니다. | Passwordless FIDO2 보안 장치는 Windows 10 버전 1809 이상에서 지원 되는 브라우저 (Microsoft Edge, Firefox 버전 67)에만 등록할 수 있습니다. |
 | **오류 메시지**: 회사 정책에서 다른 방법을 사용 하 여 로그인 해야 합니다. | 테 넌 트에서 확실 하지 않은 보안 키를 사용할 수 있습니다. |
 | 사용자가 Windows 10 버전 1809에서 내 보안 키를 관리할 수 없음 | 버전 1809에서는 FIDO2 key 공급 업체에서 제공 하는 보안 키 관리 소프트웨어를 사용 해야 합니다. 공급 업체에 지원을 문의 하세요. |
-| FIDO2 보안 키가 손상 될 수 있다고 생각 합니다. 어떻게 테스트할 수 있나요? | [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)로 이동 하 고, 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 보안 키를 연결 하 고, 화면 오른쪽 위에 있는 "+" 단추를 클릭 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
+| FIDO2 보안 키에 결함이 있을 수 있습니다. | [https://webauthntest.azurewebsites.net/](https://webauthntest.azurewebsites.net/)로 이동 하 고, 테스트 계정에 대 한 자격 증명을 입력 하 고, 의심 스러운 보안 키를 연결 하 고, 화면 오른쪽 위에 있는 **+** 단추를 선택 하 고, 만들기를 클릭 하 고, 만들기 프로세스를 진행 합니다. 이 시나리오에서 오류가 발생 하면 장치에 결함이 있을 수 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

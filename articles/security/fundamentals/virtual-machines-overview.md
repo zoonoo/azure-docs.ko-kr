@@ -1,5 +1,6 @@
 ---
-title: Azure virtual machines에서 사용 되는 보안 기능-Azure 보안 | Microsoft Docs
+title: Azure Vm에 사용 되는 보안 기능
+titleSuffix: Azure security
 description: 이 문서에서는 Azure Virtual Machines에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공합니다.
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/2/2019
 ms.author: terrylan
-ms.openlocfilehash: 6c01df071f263f7080f6c89b539d9a40aeff282f
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: 3cbe7788ca7486022513fabdca682cbb78615281
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72792629"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500376"
 ---
 # <a name="azure-virtual-machines-security-overview"></a>Azure Virtual Machines 보안 개요
 이 문서에서는 가상 컴퓨터에서 사용할 수 있는 핵심 Azure 보안 기능의 개요를 제공 합니다.
@@ -65,7 +66,7 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 * [관리 및 API](/windows/security/threat-protection/windows-defender-atp/management-apis)
 * [Microsoft Threat Protection](/windows/security/threat-protection/windows-defender-atp/threat-protection-integration)
 
-자세히 보기:
+자세한 정보:
 
 * [WDATP 시작](/windows/security/threat-protection/microsoft-defender-atp/microsoft-defender-advanced-threat-protection)  
 * [WDATP 기능의 개요](/windows/security/threat-protection/windows-defender-atp/overview)  
@@ -74,9 +75,9 @@ Azure용 Microsoft 맬웨어 방지 프로그램은 애플리케이션 및 테�
 
 키 보안을 개선하여 암호화 및 인증 보호를 강화할 수 있습니다. 중요한 키와 암호 정보를 Azure Key Vault에 보관함으로써 관리와 보안을 단순화할 수 있습니다.
 
-Key Vault는 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
+주요 자격 증명 모음은 FIPS 140-2 Level 2 기준에 따라 인증된 HSM(하드웨어 보안 모듈)에 키를 보관할 수 있는 옵션을 제공합니다. 백업 또는 [투명한 데이터 암호화](https://msdn.microsoft.com/library/bb934049.aspx)를 위한 SQL Server 암호화 키는 애플리케이션의 키 또는 암호와 함께 주요 자격 증명 모음에 저장됩니다. 이러한 보호된 항목에 대한 사용 권한 및 액세스는 [Azure Active Directory](https://azure.microsoft.com/documentation/services/active-directory/)를 통해 관리됩니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Key Vault란?](/azure/key-vault/key-vault-overview)
 * [Azure Key Vault 블로그](https://blogs.technet.microsoft.com/kv/)
@@ -87,7 +88,7 @@ Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화�
 
 또한 이 솔루션은 고객이 Key Vault 구독에서 디스크 암호화 키 및 암호를 관리 및 제어할 수 있도록 Azure Key Vault와 통합됩니다. 가상 머신 디스크에 있는 모든 데이터가 미사용 시 Azure Storage에 암호화되도록 합니다.
 
-자세히 보기:
+자세한 정보:
 
 * [IaaS VM용 Azure Disk Encryption](/azure/security/azure-security-disk-encryption-overview)
 * [빠른 시작: Azure PowerShell을 사용하여 Windows IaaS VM 암호화](../../virtual-machines/linux/disk-encryption-powershell-quickstart.md)
@@ -96,7 +97,7 @@ Azure Disk Encryption은 Windows 및 Linux 가상 머신 디스크를 암호화�
 
 Azure Backup은 자본 투자 없이 최소의 비용으로 애플리케이션 데이터를 보호하는 확장형 솔루션입니다. 애플리케이션 오류로 인해 데이터가 손상되고 사용자 오류로 인해 애플리케이션에 버그가 발생할 수 있습니다. Azure Backup은 Windows 및 Linux를 실행하는 가상 머신의 보호에 도움이 됩니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Backup이란?](/azure/backup/backup-introduction-to-azure-backup)
 * [Azure Backup 서비스 FAQ](/azure/backup/backup-azure-backup-faq)
@@ -113,7 +114,7 @@ Site Recovery:
 * **보조 데이터 센터 제거**: 보조 온-프레미스 사이트 또는 Azure에 복제할 수 있습니다. 재해 복구에 대한 대상으로 Azure를 사용하면 보조 사이트를 유지 관리하는 비용 및 복잡성이 제거됩니다. 복제된 데이터는 Azure Storage에 저장됩니다.
 * **기존 BCDR 기술과 통합**: Site Recovery는 다른 애플리케이션 BCDR 기능과 협력합니다. 예를 들어 Site Recovery를 사용하여 회사 워크로드의 SQL Server 백 엔드를 보호할 수 있습니다. 여기에는 가용성 그룹의 장애 조치를 관리하는 SQL Server Always On의 기본 지원이 포함됩니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Site Recovery란?](/azure/site-recovery/site-recovery-overview)
 * [Azure Site Recovery 작동 방식](/azure/site-recovery/site-recovery-components)
@@ -125,7 +126,7 @@ Site Recovery:
 
 Azure 가상 네트워크는 물리적 Azure 네트워크 패브릭 위에 구축되는 논리적 구조체입니다. 각 논리적 Azure 가상 네트워크는 다른 모든 Azure 가상 네트워크와 격리됩니다. 이 격리를 통해 사용자 배포의 네트워크 트래픽이 다른 Microsoft Azure 고객에게 액세스되지 않게 해줍니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure 네트워크 보안 개요](network-overview.md)
 * [Virtual Network 개요](/azure/virtual-network/virtual-networks-overview)
@@ -140,7 +141,7 @@ Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 
 * 가상 머신에 대한 [보안 권장 사항](/azure/security-center/security-center-recommendations) 제공. 예: 시스템 업데이트 적용, ACL 엔드포인트 구성, 맬웨어 방지 프로그램 활성화, 네트워크 보안 그룹 활성화 및 디스크 암호화 적용.
 * 가상 머신의 상태 모니터링.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure Security Center 소개](/azure/security-center/security-center-intro)
 * [Azure Security Center 질문과 대답](/azure/security-center/security-center-faq)
@@ -150,7 +151,7 @@ Security Center는 다음과 같은 방법을 통해 가상 머신의 보안을 
 
 Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주요 규정 준수 프로그램 인증을 받았습니다. 이러한 인증을 통해 여러분이 직접 만드는 Azure 애플리케이션도 규정 준수 요구 사항을 충족하기 쉽고 비즈니스가 다양한 국내 및 국제 규정 요구 사항을 충족하기도 쉽습니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Microsoft 보안 센터: 규정 준수](https://www.microsoft.com/en-us/trustcenter/compliance)
 * [신뢰할 수 있는 클라우드: Microsoft Azure 보안, 개인 정보 보호 정책 및 규정 준수](https://download.microsoft.com/download/1/6/0/160216AA-8445-480B-B60F-5C8EC8067FCA/WindowsAzure-SecurityPrivacyCompliance.pdf)
@@ -163,7 +164,7 @@ Azure Virtual Machines는 FISMA, FedRAMP, HIPAA, PCI DSS Level 1 및 기타 주�
 
 TEE는 디버거를 사용해도 외부에서 내부의 데이터 또는 작업을 볼 수 있는 방법이 없도록 합니다. 권한 있는 코드만 데이터에 액세스할 수 있도록 합니다. 코드가 변경되거나 변조되는 경우 작업이 거부되고 환경이 비활성화됩니다. TEE는 코드를 실행하는 동안 이러한 보호를 적용합니다.
 
-자세히 보기:
+자세한 정보:
 
 * [Azure 기밀 컴퓨팅 소개](https://azure.microsoft.com/blog/introducing-azure-confidential-computing/)  
 * [Azure 기밀 컴퓨팅](https://azure.microsoft.com/blog/azure-confidential-computing/)  

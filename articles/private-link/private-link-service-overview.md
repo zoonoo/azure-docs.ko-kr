@@ -7,16 +7,16 @@ ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: d2313bfc47026ed9655d0ca25f0a0fdf3f86d8a5
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 5db86c09cd104b2a68431ccbe24128a24ebd2ad4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191076"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500417"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
-Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 서비스에 대 한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
+Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서비스에 대한 참조입니다. [Azure 표준 Load Balancer](../load-balancer/load-balancer-standard-overview.md) 뒤에 실행 되는 서비스를 개인 링크 액세스에 사용 하도록 설정 하 여 서비스의 소비자가 자신의 vnet에서 개인용으로 액세스할 수 있습니다. 고객은 자신의 VNet 내에서 개인 끝점을 만들고이 서비스에 매핑할 수 있습니다. 이 문서에서는 서비스 공급자 쪽과 관련 된 개념을 설명 합니다. 
 
 ## <a name="workflow"></a>워크플로
 
@@ -98,7 +98,7 @@ Azure 개인 링크 서비스는 Azure 개인 링크에서 제공 하는 자체 
 
 ## <a name="getting-connection-information-using-tcp-proxy-v2"></a>TCP 프록시 v2를 사용 하 여 연결 정보 가져오기
 
-개인 링크 서비스를 사용 하는 경우 개인 끝점에서 들어오는 패킷의 원본 IP 주소는 공급자의 가상 네트워크에서 할당 된 NAT IP를 사용 하 여 서비스 공급자 측의 NAT (network address 번역본)입니다. 따라서 응용 프로그램은 서비스 소비자의 실제 원본 IP 주소 대신 할당 된 NAT IP 주소를 수신 합니다. 응용 프로그램에 소비자 측의 실제 원본 IP 주소가 필요한 경우 서비스에서 프록시 프로토콜을 사용 하도록 설정 하 고 프록시 프로토콜 헤더에서 정보를 검색할 수 있습니다. 원본 IP 주소 외에도 프록시 프로토콜 헤더는 개인 끝점의 LinkID을 전달 합니다. 원본 IP 주소와 LinkID를 조합 하면 서비스 공급자가 소비자를 고유 하 게 식별 하는 데 도움이 될 수 있습니다. 프록시 프로토콜에 대 한 자세한 내용은 여기를 참조 하세요. 
+개인 링크 서비스를 사용 하는 경우 개인 끝점에서 들어오는 패킷의 원본 IP 주소는 공급자의 가상 네트워크에서 할당 된 NAT IP를 사용 하 여 서비스 공급자 측의 NAT (network address 번역본)입니다. 따라서 응용 프로그램은 서비스 소비자의 실제 원본 IP 주소 대신 할당 된 NAT IP 주소를 수신 합니다. 응용 프로그램에 소비자 측의 실제 원본 IP 주소가 필요한 경우 서비스에서 프록시 프로토콜을 사용 하도록 설정 하 고 프록시 프로토콜 헤더에서 정보를 검색할 수 있습니다. 원본 IP 주소 외에도 프록시 프로토콜 헤더는 개인 끝점의 LinkID을 전달 합니다. 원본 IP 주소와 LinkID를 조합 하면 서비스 공급자가 소비자를 고유 하 게 식별 하는 데 도움이 될 수 있습니다. 프록시 프로토콜에 대 한 자세한 내용은 [여기](https://www.haproxy.org/download/1.8/doc/proxy-protocol.txt)를 참조 하세요. 
 
 이 정보는 다음과 같이 사용자 지정 TLV (형식 길이 값) 벡터를 사용 하 여 인코딩됩니다.
 

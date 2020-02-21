@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 5a16d28f31887c8bedcc95424382e674e037450e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 66e94393bef942d7bfad41a7dccc8b651696d4af
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468408"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484522"
 ---
 # <a name="how-to-require-managed-devices-for-cloud-app-access-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 클라우드 앱 액세스를 위한 관리 되는 장치 요구
 
@@ -31,7 +31,7 @@ ms.locfileid: "77468408"
 - **[Azure Active Directory의 조건부 액세스](../active-directory-conditional-access-azure-portal.md)** -이 문서에서는 조건부 액세스 및 관련 용어에 대 한 개념적인 개요를 제공 합니다.
 - **[Azure Active Directory의 디바이스 관리 소개](../devices/overview.md)** - 이 문서에서는 디바이스를 조직에서 제어해야 하는 다양한 옵션에 대해 간략히 설명합니다. 
 
->[!IMPORTANT] 
+>[!NOTE] 
 > 초기 장치 인증 후 최상의 적용을 얻으려면 Azure AD 장치 기반 조건부 액세스 정책을 사용 하는 것이 좋습니다. 여기에는 장치가 규정 준수 및 장치 코드 흐름을 벗어난 경우 닫기 세션이 포함 됩니다.
 
 

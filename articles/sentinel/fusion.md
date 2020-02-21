@@ -10,16 +10,23 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.author: rkarlin
-ms.openlocfilehash: ada2ad67bc3634d8e6a31d3c8a69fc0c8b08a93a
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 5ab5d3c0fc1c37feaac2cc6b4b6837627c5a82df
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369696"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500632"
 ---
 # <a name="advanced-multistage-attack-detection-in-azure-sentinel"></a>Azure 센티널의 Advanced 다단계 공격 감지
+
+
+> [!IMPORTANT]
+> Azure 센티널의 일부 Fusion 기능은 현재 공개 미리 보기로 제공 됩니다.
+> 이러한 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
+
+
 
 기계 학습을 기반으로 하는 Fusion 기술을 사용 하 여 Azure 센티널은 kill 체인의 다양 한 단계에서 관찰 되는 비정상 동작 및 의심 스러운 활동을 결합 하 여 다단계 공격을 자동으로 감지할 수 있습니다. 그런 다음 Azure 센티널은 catch 하기가 매우 어려운 인시던트를 생성 합니다. 이러한 인시던트는 둘 이상의 경고 또는 활동을 나타냅니다. 이러한 인시던트는 낮은 볼륨, 높은 충실도 및 높은 심각도로 설계 되었습니다.
 
@@ -41,13 +48,32 @@ ms.locfileid: "77369696"
 
 규칙 템플릿은 advanced 다단계 공격 감지에는 적용 되지 않습니다.
 
+> [!NOTE]
+> Azure 센티널은 현재 30 일간의 기록 데이터를 사용 하 여 기계 학습 시스템을 학습 합니다. 이 데이터는 machine learning 파이프라인을 통과할 때 Microsoft의 키를 사용 하 여 항상 암호화 됩니다. 그러나 Azure 센티널 작업 영역에서 CMK를 사용 하도록 설정한 경우에는 Azure [CMK (고객 관리 키)](customer-managed-keys.md) 를 사용 하 여 학습 데이터를 암호화 하지 않습니다. Fusion에서 옵트아웃 (opt out) 하려면 **Azure 센티널** \> **구성** \> **분석 \> Active Rules \> 고급 다단계 공격 감지** 로 이동 하 고 **상태** 열에서 **사용 안 함을 선택 합니다.**
+
 ## <a name="fusion-using-palo-alto-networks-and-microsoft-defender-atp"></a>Palo Alto Networks 및 Microsoft Defender ATP를 사용 하 여 Fusion
 
-- Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 뒤에 익명화 서비스에 대 한 네트워크 요청
+이러한 시나리오는 보안 분석가에서 사용 하는 두 가지 기본 로그 (Palo Alto Networks의 방화벽 로그 및 Microsoft Defender ATP의 끝점 검색 로그)를 결합 합니다. 아래 나열 된 모든 시나리오에서 외부 IP 주소와 관련 된 의심 스러운 활동이 끝점에서 검색 된 후 외부 IP 주소에서 방화벽으로 다시의 비정상 트래픽이 발생 합니다. Palo Alto 로그에서 Azure 센티널은 [위협 로그](https://docs.paloaltonetworks.com/pan-os/8-1/pan-os-admin/monitoring/view-and-manage-logs/log-types-and-severity-levels/threat-logs)를 집중적으로 다루며, 위협이 허용 되는 경우 (의심 스러운 데이터, 파일, 홍수, 패킷, 검색, 스파이웨어, url, 바이러스, 취약점, 산, wildfires) 트래픽이 의심 스러운 것으로 간주 됩니다.
 
-- PowerShell에서 의심 스러운 네트워크 연결을 수행한 후 Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상적인 트래픽
+### <a name="network-request-to-tor-anonymization-service-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 뒤에 익명화 서비스에 대 한 네트워크 요청입니다.
 
-- Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 다음에 무단 액세스 시도 기록을 사용 하 여 IP에 대 한 아웃 바운드 연결
+이 시나리오에서 Azure 센티널은 먼저 Microsoft Defender Advanced Threat Protection이 비정상 활동을 야기 하는 익명화 서비스에 대 한 네트워크 요청을 검색 한 경고를 검색 합니다. 계정 {account name}에서 SID ID {sid} {time} (으)로 시작 되었습니다. 연결에 대 한 나가는 IP 주소는 {IndividualIp}입니다.
+그런 다음 Palo Alto Networks 방화벽에서 비정상적인 활동을 {TimeGenerated}에 검색 했습니다. 이는 네트워크에서 악의적인 트래픽이 네트워크 트래픽에 대 한 대상 IP 주소를 {DestinationIP}로 입력 했음을 나타냅니다.
+
+이 시나리오는 현재 공개 미리 보기로 제공 됩니다.
+
+
+### <a name="powershell-made-a-suspicious-network-connection-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>PowerShell에서 의심 스러운 네트워크 연결을 수행한 후 Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상적인 트래픽이 발생 했습니다.
+
+이 시나리오에서 Azure 센티널은 먼저 Microsoft Defender Advanced Threat Protection이 Palo Alto 네트워크 방화벽에서 감지한 비정상적인 활동을 위해 PowerShell에서 의심 스러운 네트워크 연결을 검색 했음을 감지한 경고를 검색 합니다. {Account name} 계정에 SID ID {sid} ({time})로 시작 되었습니다. 연결에 대 한 나가는 IP 주소는 {IndividualIp}입니다. 그런 다음 Palo Alto Networks 방화벽에서 비정상적인 활동을 {TimeGenerated}에 검색 했습니다. 이는 악의적인 트래픽이 네트워크에 들어간 것을 나타냅니다. 네트워크 트래픽에 대 한 대상 IP 주소가 {DestinationIP}입니다.
+
+이 시나리오는 현재 공개 미리 보기로 제공 됩니다.
+
+### <a name="outbound-connection-to-ip-with-a-history-of-unauthorized-access-attempts-followed-by-anomalous-traffic-flagged-by-palo-alto-networks-firewall"></a>Palo Alto Networks 방화벽으로 플래그가 지정 된 비정상 트래픽 다음에 무단 액세스 시도 기록을 사용 하 여 IP에 대 한 아웃 바운드 연결
+
+이 시나리오에서 Azure 센티널은 Microsoft Defender Advanced Threat Protection이 Palo Alto에서 비정상적인 활동을 감지 하는 무단 액세스 시도 기록을 사용 하 여 IP 주소에 대 한 아웃 바운드 연결을 검색 한 경고를 검색 합니다. 네트워크 방화벽. {Account name} 계정에 SID ID {sid} ({time})로 시작 되었습니다. 연결에 대 한 나가는 IP 주소는 {IndividualIp}입니다. 그러면 Palo Alto Networks 방화벽에서 비정상적인 활동이 {TimeGenerated}에 검색 되었습니다. 이는 악의적인 트래픽이 네트워크에 들어간 것을 나타냅니다. 네트워크 트래픽에 대 한 대상 IP 주소가 {DestinationIP}입니다.
+
+이 시나리오는 현재 공개 미리 보기로 제공 됩니다.
 
 
 

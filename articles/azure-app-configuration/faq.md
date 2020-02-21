@@ -1,31 +1,26 @@
 ---
-title: Azure 앱 구성 FAQ | Microsoft Docs
+title: Azure 앱 구성 FAQ
 description: Azure 앱 구성에 대 한 질문과 대답
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/02/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 4bcd8f042563fa381832fd629061a822f71e844a
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 60ba0a7723861d6e642a23418dda6a1daa57f14e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467592"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523495"
 ---
 # <a name="azure-app-configuration-faq"></a>Azure 앱 구성 FAQ
 
-이 문서에서는 Azure 앱 구성에 대해 자주 묻는 질문을 해결 합니다.
+이 문서에서는 Azure 앱 구성에 대해 자주 묻는 질문과 대답을 설명 합니다.
 
 ## <a name="how-is-app-configuration-different-from-azure-key-vault"></a>앱 구성이 Azure Key Vault와 어떻게 다른가?
 
-앱 구성은 고유한 사용 사례 집합을 위해 설계 되었습니다 .이를 통해 개발자는 응용 프로그램 설정을 관리 하 고 기능 가용성을 제어할 수 있습니다. 복잡 한 구성 데이터로 작업 하는 많은 작업을 간소화 하는 것을 목표로 합니다.
+앱 구성은 개발자가 응용 프로그램 설정을 관리 하 고 기능 가용성을 제어 하는 데 도움이 됩니다. 복잡 한 구성 데이터로 작업 하는 많은 작업을 간소화 하는 것을 목표로 합니다.
 
 앱 구성에서 다음을 지원 합니다.
 
@@ -36,7 +31,7 @@ ms.locfileid: "77467592"
 - 특수 관리 작업
 - 기능 관리 사용자 인터페이스
 
-앱 구성은 Key Vault의 보완 이며, 대부분의 응용 프로그램 배포에서 둘을 함께 사용 해야 합니다.
+앱 구성은 Key Vault를 보완 하며, 대부분의 응용 프로그램 배포에서 둘을 함께 사용 해야 합니다.
 
 ## <a name="should-i-store-secrets-in-app-configuration"></a>앱 구성에 비밀을 저장 해야 하나요?
 
@@ -62,7 +57,7 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 ## <a name="how-should-i-store-configurations-for-multiple-environments-test-staging-production-and-so-on"></a>여러 환경 (테스트, 스테이징, 프로덕션 등)에 대 한 구성을 저장 하려면 어떻게 해야 하나요?
 
-현재는 저장소 수준별로 앱 구성에 액세스할 수 있는 사용자를 제어 합니다. 다른 사용 권한이 필요한 각 환경에 대해 별도의 저장소를 사용 합니다. 이 방법은 최상의 보안 격리를 제공 합니다.
+매장 별 앱 구성에 액세스할 수 있는 사용자를 제어 합니다. 다른 사용 권한이 필요한 각 환경에 대해 별도의 저장소를 사용 합니다. 이 방법은 최상의 보안 격리를 제공 합니다.
 
 ## <a name="what-are-the-recommended-ways-to-use-app-configuration"></a>앱 구성을 사용 하기 위해 권장 되는 방법은 무엇 인가요?
 
@@ -70,9 +65,14 @@ App Service와 앱 구성 간에 설정을 가져오거나 내보낼 수도 있�
 
 ## <a name="how-much-does-app-configuration-cost"></a>앱 구성의 비용은 얼마 인가요?
 
-가격 책정 계층 1) 무료 계층 및 2) 표준 계층이 있습니다.
+가격 책정 계층에는 두 가지가 있습니다. 
 
-표준 계층을 도입 하기 전에 저장소를 만든 경우 일반 공급 시 무료 계층으로 자동으로 이동 됩니다. 표준 계층으로 업그레이드 하거나 사용자 요구를 충족 하는 경우 무료 계층에 유지 하도록 선택할 수 있습니다.
+- 무료 계층
+- 표준 계층.
+
+표준 계층을 도입 하기 전에 저장소를 만든 경우 일반 공급 시 무료 계층으로 자동으로 이동 됩니다. 표준 계층으로 업그레이드 하거나 무료 계층에 유지 하도록 선택할 수 있습니다.
+
+표준 계층에서 무료 계층으로 저장소를 다운 그레이드할 수 없습니다. 무료 계층에 새 저장소를 만든 다음 해당 저장소로 구성 데이터를 가져올 수 있습니다.
 
 ## <a name="which-app-configuration-tier-should-i-use"></a>어떤 앱 구성 계층을 사용 해야 하나요?
 

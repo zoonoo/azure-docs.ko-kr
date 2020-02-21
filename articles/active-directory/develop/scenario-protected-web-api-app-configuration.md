@@ -16,12 +16,12 @@ ms.workload: identity
 ms.date: 05/07/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 975117ad5c58bed77002a33f0dc5370d0f1c17e2
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: b05eefb2a0e516772390f898c22e723b08973338
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931474"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484454"
 ---
 # <a name="protected-web-api-code-configuration"></a>보호 된 웹 API: 코드 구성
 
@@ -108,7 +108,8 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 미들웨어는 다음 명령으로 web API에 추가 됩니다.
 
 ```csharp
- services.AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
+ services.AddAuthentication(AzureADDefaults.JwtBearerAuthenticationScheme)
+         .AddAzureAdBearer(options => Configuration.Bind("AzureAd", options));
 ```
 
  현재 ASP.NET Core 템플릿은 조직 또는 조직 내에서 사용자를 로그인 하는 Azure Active Directory (Azure AD) 웹 Api를 만듭니다. 개인 계정으로 사용자를 로그인 하지 않습니다. 그러나 다음 코드를 Startup.cs에 추가 하 여 Microsoft id 플랫폼 끝점을 사용 하도록 템플릿을 변경할 수 있습니다.
@@ -153,7 +154,7 @@ services.Configure<JwtBearerOptions>(AzureADDefaults.JwtBearerAuthenticationSche
 
 다음 표에서는 유효성 검사기에 대해 설명 합니다.
 
-| 유효성 검사기 | Description |
+| Validator | Description |
 |---------|---------|
 | **ValidateAudience** | 토큰의 유효성을 검사 하는 응용 프로그램에 대 한 토큰을 확인 합니다. |
 | **ValidateIssuer** | 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. 즉, 신뢰할 수 있는 STS에서 토큰을 발급 했는지 확인 합니다. |

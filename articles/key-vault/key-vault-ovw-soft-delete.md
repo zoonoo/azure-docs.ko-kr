@@ -6,12 +6,12 @@ author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 03/19/2019
-ms.openlocfilehash: 26bd6c8b31bd16c058c5cb35cab086117b9f8cc5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 8559dc357d34d505d45cd0a6491183345ae5cf61
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845802"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526589"
 ---
 # <a name="azure-key-vault-soft-delete-overview"></a>Azure Key Vault 일시 삭제 개요
 
@@ -34,15 +34,13 @@ Azure Key Vault는 Azure Resource Manager에서 관리하는 추적된 리소스
 
 ### <a name="soft-delete-behavior"></a>일시 삭제 동작
 
-이 기능을 사용할 경우 Key Vault 또는 Key Vault 개체에 대한 DELETE 작업은 일시 삭제로 수행됩니다. 즉, 지정된 보존 기간(90일) 동안 리소스가 유지되며 개체는 삭제된 것으로 표시됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다. 
+일시 삭제를 사용 하도록 설정 하면 삭제 된 리소스로 표시 된 리소스는 지정 된 기간 (기본적으로 90 일) 동안 보존 됩니다. 또한 서비스는 삭제된 개체를 복구하고 기본적으로 삭제를 취소하는 메커니즘을 제공합니다.
 
-일시 삭제는 이제 새로 만든 키 자격 증명 모음에 대해 기본적으로 설정 되어 있습니다. [Azure CLI](key-vault-soft-delete-cli.md) 또는 [Azure Powershell](key-vault-soft-delete-powershell.md)을 통해 사용 하지 않도록 설정할 수 있습니다.
+새 키 자격 증명 모음을 만들 때 일시 삭제는 기본적으로 설정 되어 있습니다. [Azure CLI](key-vault-soft-delete-cli.md) 또는 [Azure Powershell](key-vault-soft-delete-powershell.md)을 통해 소프트 삭제 없이 키 자격 증명 모음을 만들 수 있습니다. 키 자격 증명 모음에 대해 일시 삭제를 사용 하도록 설정한 후에는 사용 하지 않도록 설정할 수 없습니다.
 
-기본 보존 기간은 90 일 이지만 보존 정책 간격은 Azure Portal 7 일에서 90 일 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용 합니다. 
+기본 보존 기간은 90 일 이지만 key vault를 만드는 동안 보존 정책 간격을 7 일에서 90 일 Azure Portal 사이의 값으로 설정할 수 있습니다. 제거 보호 보존 정책은 동일한 간격을 사용 합니다. 설정 되 면 보존 정책 간격을 변경할 수 없습니다.
 
-키 자격 증명 모음에 대해 일시 삭제가 설정 된 후에는 사용 하지 않도록 설정할 수 없으며 보존 정책 간격은 변경할 수 없습니다. 
-
-보존 기간이 경과 될 때까지 일시 삭제 된 key vault의 이름을 다시 사용할 수 없습니다. 
+보존 기간이 경과 될 때까지 일시 삭제 된 key vault의 이름을 다시 사용할 수 없습니다.
 
 ### <a name="purge-protection"></a>보호 제거 
 

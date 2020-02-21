@@ -15,12 +15,12 @@ ms.tgt_pltfrm: multiple
 ms.workload: media
 ms.date: 10/02/2019
 ms.author: juliako
-ms.openlocfilehash: 3520b7d6b0fd67fdbff3e1dd78d038f36ad5f0af
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133429"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505779"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -79,7 +79,7 @@ ms.locfileid: "77133429"
 * V2에서 XML [입력](../previous/media-services-input-metadata-schema.md) 및 [출력](../previous/media-services-output-metadata-schema.md) 메타 데이터 파일은 인코딩 작업의 결과로 생성 됩니다. V3에서 메타 데이터 형식이 XML에서 JSON으로 변경 되었습니다. 
 
 > [!NOTE]
-> [Media Services v3 리소스](media-services-apis-overview.md#naming-conventions)에 적용 되는 명명 규칙을 검토 합니다. [Blob 명명](assets-concept.md#naming-blobs)도 검토 합니다.
+> [Media Services v3 리소스](media-services-apis-overview.md#naming-conventions)에 적용 되는 명명 규칙을 검토 합니다. [Blob 명명](assets-concept.md#naming)도 검토 합니다.
 
 ## <a name="feature-gaps-with-respect-to-v2-apis"></a>v2 API와 관련된 기능 격차
 

@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.author: sgilley
 author: sdgilley
 ms.date: 12/27/2019
-ms.openlocfilehash: 82ae0cab2d3dd7c65371e7a5bfec506e484fcdd2
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 03bc49c24e3c2d32e97f3e5e03bd39da63428a6e
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77169784"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505568"
 ---
 # <a name="what-is-an-azure-machine-learning-workspace"></a>Azure Machine Learning 작업 영역 이란 무엇 인가요?
 
@@ -77,6 +77,9 @@ Machine learning 작업은 작업 영역에 대 한 아티팩트를 읽고 씁�
 | Enterprise edition으로 업그레이드    | **&check;** | **&check;**  | |     |
 | 계산 리소스 만들기 및 관리    | **&check;**   | **&check;** | **&check;** |  **&check;**   |
 | 노트북 VM 만들기 |   | **&check;** | |     |
+
+> [!WARNING]
+> Azure Machine Learning 작업 영역을 다른 구독으로 이동 하거나 소유 하는 구독을 새 테 넌 트로 이동 하는 것은 지원 되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
 
 ## <a name='create-workspace'></a>작업 영역 만들기
 

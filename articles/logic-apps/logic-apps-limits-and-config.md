@@ -5,13 +5,13 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
-ms.date: 02/10/2020
-ms.openlocfilehash: f0c38590b667894dd65d212124ef1d26c7918ff7
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.date: 02/20/2020
+ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77366412"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485049"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -155,7 +155,7 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 
 |------|--------------------|---------------------------------------|-------|
 | 메시지 크기 | 100MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
 | 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. <p>통합 서비스 환경의 경우 Logic Apps 엔진은이 제한을 지원 하지만 커넥터에는 엔진 제한까지 자체 청크 제한이 있습니다. 예를 들어 [Azure Blob Storage 커넥터의 API 참조](https://docs.microsoft.com/connectors/azureblob/)를 참조 하세요. 청크에 대 한 자세한 내용은 [청크를 사용 하 여 큼 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조 하세요. |
-|||||   
+|||||
 
 #### <a name="character-limits"></a>문자 제한
 
@@ -248,12 +248,16 @@ ISE에 포함 된 통합 계정 외에 추가 하는 통합 계정에 추가 비
 | 스키마 | 8MB | 2MB보다 큰 파일을 업로드하려면 [Azure 스토리지 계정 및 Blob 컨테이너](../logic-apps/logic-apps-enterprise-integration-schemas.md)를 사용합니다. |
 ||||
 
-| 런타임 엔드포인트 | 제한 | 메모 |
-|------------------|-------|-------|
-| 5분당 읽기 호출 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
-| 5분당 Invoke 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
-| 5분당 추적 호출 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
-| 동시 차단 호출 | ~1,000 | 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
+<a name="integration-account-throughput-limits"></a>
+
+### <a name="throughput-limits"></a>처리량 한도
+
+| 런타임 엔드포인트 | 무료 | Basic | Standard | 메모 |
+|------------------|------|-------|----------|-------|
+| 5분당 읽기 호출 | 3,000 | 30,000 | 60,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
+| 5분당 Invoke 호출 | 3,000 | 30,000 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
+| 5분당 추적 호출 | 3,000 | 30,000 | 45,000 | 필요에 따라 둘 이상의 계정에 워크로드를 배포할 수 있습니다. |
+| 동시 차단 호출 | ~1,000 | ~1,000 | ~1,000 | 모든 Sku에 대해 동일 합니다. 필요에 따라 동시 요청 수를 줄이거나 기간을 단축할 수 있습니다. |
 ||||
 
 <a name="b2b-protocol-limits"></a>

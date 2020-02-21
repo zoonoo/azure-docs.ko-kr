@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid 이벤트 원본
-description: 이 문서에서는 Azure Event Grid에 대해 지원 되는 이벤트 원본을 설명 합니다. 이벤트 원본은 이벤트가 발생하는 위치입니다.
+description: Azure 구독, Container Registry, 사용자 지정 토픽, Event Hubs, IoT Hub, Key Vault, Media Services, 리소스 그룹, Service Bus, 저장소, 맵, 앱 구성, 신호 R, Machine Learning.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 02/12/2019
 ms.author: spelluru
-ms.openlocfilehash: 3a52d906d958fdfd1d7e09c6229b12af3204bc52
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 31923e1cb69eb6681367ed6ea71c10564ae6d489
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846388"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526385"
 ---
 # <a name="event-sources-in-azure-event-grid"></a>Azure Event Grid의 이벤트 원본
 
@@ -129,12 +129,12 @@ Service Bus 이벤트를 구독하여 활성 수신기 없이 메시지에 응�
 | [개요: Azure Service Bus-Event Grid 통합](../service-bus-messaging/service-bus-to-event-grid-integration-concept.md) | Event Grid와 Service Bus 통합의 개요입니다. |
 | [이벤트 스키마](event-schema-service-bus.md) | Service Bus 이벤트의 필드를 표시합니다. |
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 Blob Storage 이벤트를 구독하여 만든 blob 및 삭제된 이벤트에 대해 응답합니다.
 
 >[!NOTE]
-> Kind **StorageV2 (범용 v2)** 및 **blobstorage** 의 저장소 계정만 이벤트 통합을 지원 합니다. **저장소 (genral 용도의 v1)** 는 Event Grid와의 통합을 지원 *하지* 않습니다.
+> **StorageV2(범용 v2)** 및 **BlobStorage** 종류의 스토리지 계정만 이벤트 통합을 지원합니다. **스토리지(범용 v1)** 는 Event Grid와의 통합을 지원하지 *않습니다*.
 
 |제목  |Description  |
 |---------|---------|
@@ -156,7 +156,7 @@ Azure Maps 이벤트를 구독하여 지오펜스 이벤트에 응답합니다. 
 | [자습서: 지 오를 설정 합니다.](../azure-maps/tutorial-geofence.md?toc=%2fazure%2fevent-grid%2ftoc.json) | 이 자습서에서는 Azure Maps를 사용하여 지오펜스를 설정하는 기본 단계를 안내합니다. Azure Event Grid를 사용하여 지오펜스 결과를 스트림하고, 지오펜스 결과를 기반으로 하는 알림을 설정합니다. |
 | [이벤트 스키마](event-schema-azure-maps.md) | Azure Maps 이벤트의 필드를 표시합니다. |
 
-## <a name="app-configuration"></a>App Configuration
+## <a name="app-configuration"></a>앱 구성
 Azure 앱 구성 이벤트를 구독 하 여 키-값 수정 이벤트에 응답 합니다.
 
 |제목 | Description |

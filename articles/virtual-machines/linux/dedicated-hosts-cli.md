@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: b301012425e0a2590fa5ac22985abe9c96fbd419
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ab9d7128748e99b75b7e1a7187a7958e18300759
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834931"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483485"
 ---
 # <a name="deploy-vms-to-dedicated-hosts-using-the-azure-cli"></a>Azure CLI를 사용 하 여 전용 호스트에 Vm 배포
  
@@ -27,7 +27,7 @@ Azure CLI 버전 2.0.70 이상을 설치 하 고 `az login`를 사용 하 여 Az
 ## <a name="limitations"></a>제한 사항
 
 - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
-- 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3 및 ESv3 
+- 초기 릴리스는 다음 VM 시리즈를 지원 합니다. DSv3, ESv3, FSv2, LSv2 및 MSv2. 
  
 
 ## <a name="create-resource-group"></a>리소스 그룹 만들기 
@@ -232,7 +232,7 @@ az vm host get-instance-view \
 az group export --name myDHResourceGroup > myDHResourceGroup.json 
 ```
 
-이 명령을 실행하면 `myDHResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `az group export` 명령에 `--include-parameter-default-value` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집 하 여 리소스 이름을 지정 하거나 리소스 이름을 지정 하는 매개 변수. json 파일을 만듭니다.
+이 명령을 실행하면 `myDHResourceGroup.json` 파일이 현재 작업 디렉터리에 만들어집니다. 이 템플릿에서 환경을 만들면 모든 리소스 이름을 입력하라는 메시지가 표시됩니다. `--include-parameter-default-value` 명령에 `az group export` 매개 변수를 추가하여 템플릿 파일에 이러한 이름을 입력할 수 있습니다. JSON 템플릿을 편집 하 여 리소스 이름을 지정 하거나 리소스 이름을 지정 하는 매개 변수. json 파일을 만듭니다.
  
 템플릿에서 환경을 만들려면 [az group deployment create](/cli/azure/group/deployment#az-group-deployment-create)를 사용 합니다.
 

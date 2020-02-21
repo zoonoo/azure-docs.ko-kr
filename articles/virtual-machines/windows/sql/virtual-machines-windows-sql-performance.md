@@ -16,12 +16,12 @@ ms.workload: iaas-sql-server
 ms.date: 10/18/2019
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: 7f0218ee701f60caa7df75bfe749a41d69ff3dba
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 409e73f05366065f1c4159e9f1cd7e5bf8bb5ceb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73500038"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486246"
 ---
 # <a name="performance-guidelines-for-sql-server-in-azure-virtual-machines"></a>Azure Virtual Machines에서 SQL Server의 성능 지침
 
@@ -40,7 +40,7 @@ ms.locfileid: "73500038"
 
 | 영역 | 최적화 |
 | --- | --- |
-| [VM 크기](#vm-size-guidance) | - [E4S_v3](../sizes-general.md) 이상 또는 [DS12_v2](../sizes-memory.md#dsv2-series-11-15) 이상으로 4 개 이상의 vcpu가 포함 된 VM 크기를 사용 합니다.<br/><br/> - [Es, Eas, Ds 및 Das 시리즈](../sizes-general.md) 는 OLTP 워크 로드 성능에 필요한 최적의 메모리를 vcpu 비율로 제공 합니다. <br/><br/> - [M 시리즈](../sizes-general.md) 는 업무상 중요 한 성능에 필요한 최고 메모리와 vcpu 비율을 제공 하며 데이터 웨어하우스 워크 로드에 적합 합니다. <br/><br/> - [응용 프로그램 성능 요구 사항 검사 목록](../premium-storage-performance.md#application-performance-requirements-checklist) 에 따라 최대 사용 시간에 대상 워크 로드의 [IOPS](../premium-storage-performance.md#iops), [처리량](../premium-storage-performance.md#throughput) 및 [대기 시간](../premium-storage-performance.md#latency) 요구 사항을 수집 하 고 다음으로 확장할 수 있는 [VM 크기](../sizes-general.md) 를 선택 합니다. 워크 로드의 성능 요구 사항|
+| [VM 크기](#vm-size-guidance) | - [E4S_v3](../../ev3-esv3-series.md) 이상의 vcpu와 같은 4 개 이상의 vcpu가 포함 된 VM 크기 또는 [DS12_v2](../../dv2-dsv2-series-memory.md) 이상을 사용 합니다.<br/><br/> - [Es, Eas, Ds 및 Das 시리즈](../../sizes-general.md) 는 OLTP 워크 로드 성능에 필요한 최적의 메모리를 vcpu 비율로 제공 합니다. <br/><br/> - [M 시리즈](../../m-series.md) 는 업무상 중요 한 성능에 필요한 최고 메모리와 vcpu 비율을 제공 하며 데이터 웨어하우스 워크 로드에 적합 합니다. <br/><br/> - [응용 프로그램 성능 요구 사항 검사 목록](../premium-storage-performance.md#application-performance-requirements-checklist) 에 따라 최대 사용 시간에 대상 워크 로드의 [IOPS](../premium-storage-performance.md#iops), [처리량](../premium-storage-performance.md#throughput) 및 [대기 시간](../premium-storage-performance.md#latency) 요구 사항을 수집 하 고 워크 로드의 성능 요구 사항에 맞게 확장할 수 있는 [VM 크기](../sizes-general.md) 를 선택 합니다.|
 | [스토리지](#storage-guidance) | -TPC 및 TPC_C 벤치 마크를 사용 하 여 Azure Vm의 SQL Server 성능에 대 한 자세한 테스트는 [OLTP 성능 최적화](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794)블로그를 참조 하세요. <br/><br/> -최상의 가격/성능 이점에 대해 [Premium ssd](https://techcommunity.microsoft.com/t5/SQL-Server/Optimize-OLTP-Performance-with-SQL-Server-on-Azure-VM/ba-p/916794) 를 사용 합니다. 데이터 파일에 대해 [읽기 전용 캐시](../premium-storage-performance.md#disk-caching) 를 구성 하 고 로그 파일에는 캐시 하지 않습니다. <br/><br/> -작업에 1 밀리초 미만의 저장소 대기 시간이 필요한 경우에는 [Ultra Disks](../disks-types.md#ultra-disk) 를 사용 합니다. <br/><br/> -디스크 유형을 선택 하기 전에 [응용 프로그램을 모니터링](../premium-storage-performance.md#application-performance-requirements-checklist) 하 여 데이터, 로그 및 임시 DB 파일 SQL Server 대 한 저장소 대기 시간 요구 사항을 수집 합니다. < 1ms 저장소 대기 시간이 필요한 경우에는 Ultra Disks를 사용 하 고 그렇지 않으면 premium SSD를 사용 합니다. 짧은 대기 시간이 데이터 파일이 아닌 로그 파일에만 필요한 경우에는 로그 파일에 대해서만 필요한 IOPS 및 처리량 수준에서 [Ultra Disk를 프로 비전](../disks-enable-ultra-ssd.md) 합니다. <br/><br/> -  [프리미엄 파일 공유](virtual-machines-windows-portal-sql-create-failover-cluster-premium-file-share.md) 는 SQL Server 장애 조치 (failover) 클러스터 인스턴스에 대 한 공유 저장소로 권장 됩니다. 프리미엄 파일 공유는 캐싱을 지원 하지 않으며 프리미엄 SSD 디스크에 비해 제한 된 성능을 제공 합니다. 독립 실행형 SQL 인스턴스의 프리미엄 파일 공유에서 프리미엄 SSD 관리 디스크를 선택 합니다. 하지만 유지 관리 및 유연한 확장성을 위해 장애 조치 (failover) 클러스터 인스턴스 공유 저장소에 프리미엄 파일 공유를 활용 합니다. <br/><br/> -Standard storage는 개발 및 테스트 목적 또는 백업 파일에만 권장 되며 프로덕션 워크 로드에는 사용 하지 않아야 합니다. <br/><br/> - [스토리지 계정](../../../storage/common/storage-create-storage-account.md)과 SQL Server VM을 동일한 Azure 지역에 유지합니다.<br/><br/> -저장소 계정에서 Azure [지역 중복 저장소](../../../storage/common/storage-redundancy.md) (지역에서 복제)를 사용 하지 않도록 설정 합니다.  |
 | [디스크](#disks-guidance) | -최소 2 개의 [PREMIUM SSD 디스크](../disks-types.md#premium-ssd) 를 사용 합니다 (로그 파일용 1 개 및 데이터 파일용 1 개). <br/><br/> -< 1 ms IO 대기 시간을 요구 하는 워크 로드의 경우 M 시리즈에 대해 write accelerator를 사용 하도록 설정 하 고 Es 및 DS 시리즈에 울트라 SSD 디스크를 사용 하는 것 <br/><br/> -데이터 파일을 호스트 하는 디스크에서 [읽기 전용 캐싱을](../premium-storage-performance.md#disk-caching) 사용 하도록 설정 합니다.<br/><br/> - [SQL Server 데이터, 로그 및 TempDB 파일에 대 한 저장소를 구성할](virtual-machines-windows-sql-server-storage-configuration.md) 때 워크 로드에 필요한 것 보다 20% 프리미엄 IOPS/처리량 용량을 더 추가 합니다. <br/><br/> - 운영 체제 또는 임시 디스크를 데이터베이스 저장 또는 로깅에 사용하지 마세요.<br/><br/> - 로그 파일을 호스팅하는 디스크에서 캐싱을 사용하지 마세요.  **중요**: Azure VM 디스크에 대 한 캐시 설정을 변경 하는 경우 SQL Server 서비스를 중지 합니다.<br/><br/> -저장소 처리량을 늘리기 위해 여러 Azure 데이터 디스크를 스트라이프 합니다.<br/><br/> - 문서화된 할당 크기로 포맷합니다. <br/><br/> -중요 한 SQL Server 작업 (올바른 VM 크기를 선택한 후)에 대해 로컬 SSD `D:\` 드라이브에 TempDB를 넣습니다. Azure Portal 또는 Azure 빠른 시작 템플릿에서 VM을 만들고 [임시 DB를 로컬 디스크에 저장](https://techcommunity.microsoft.com/t5/SQL-Server/Announcing-Performance-Optimized-Storage-Configuration-for-SQL/ba-p/891583) 하는 경우 추가 작업이 필요 하지 않습니다. 다른 모든 경우에는를 다시 시작한 후 오류를 방지 하기 위해 [ssd를 사용 하 여 TempDB를 저장](https://cloudblogs.microsoft.com/sqlserver/2014/09/25/using-ssds-in-azure-vms-to-store-sql-server-tempdb-and-buffer-pool-extensions/) 하기 위한 블로그의 단계를 따르세요. 로컬 드라이브의 용량이 임시 DB 크기에 충분 하지 않은 경우 [읽기 전용 캐싱을](../premium-storage-performance.md#disk-caching)사용 하 여 premium SSD 디스크에서 [제거](../premium-storage-performance.md) 된 저장소 풀에 임시 DB를 추가 합니다. |
 | [I/O](#io-guidance) |- 데이터베이스 페이지 압축을 사용하도록 설정합니다.<br/><br/> - 데이터 파일에 즉시 파일 초기화를 사용하도록 설정합니다.<br/><br/> - 데이터베이스의 자동 확장을 제한합니다.<br/><br/> - 데이터베이스의 자동 축소를 해제합니다.<br/><br/> - 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다.<br/><br/> - SQL Server 오류 로그 및 추적 파일 디렉터리를 데이터 디스크로 이동합니다.<br/><br/> -기본 백업 및 데이터베이스 파일 위치를 구성 합니다.<br/><br/> [메모리에서 잠긴 페이지를 사용 하도록 설정](/sql/database-engine/configure-windows/enable-the-lock-pages-in-memory-option-windows?view=sql-server-2017)- 합니다.<br/><br/> - SQL Server 성능 픽스를 적용합니다. |
@@ -50,7 +50,7 @@ ms.locfileid: "73500038"
 
 ## <a name="vm-size-guidance"></a>VM 크기 지침
 
-가장 많은 시간에 워크 로드의 cpu, 메모리 및 저장소 처리량 요구 사항을 수집 하 여 시작 합니다. \LogicalDisk\Disk Reads/Sec 및 \LogicalDisk\Disk Writes/Sec 성능 카운터를 사용 하 여 읽기 및 쓰기 IOPS 요구 사항을 수집 하 고 \LogicalDisk\Disk Bytes/Sec 카운터를 사용 하 여 데이터, 로그에 대 한 [저장소 처리량 요구 사항을](../premium-storage-performance.md#disk-caching) 수집할 수 있습니다. 및 임시 DB 파일. IOPS 및 처리량 요구 사항이 최고 수준으로 정의 되 면 VM 크기 평가에서 해당 용량을 제공 합니다. 예를 들어 워크 로드에서 최대 20 K 읽기 IOPS와 10K 쓰기 IOPS를 사용 해야 하는 경우 2 개의 P30 디스크를 사용 하 여 E16s_v3 (최대 32 K 및 25600 캐시 되지 않은 IOPS 포함) 또는 M16_s (최대 20 K 캐시 및 10K 캐시 되지 않은 IOPS 포함)를 선택할 수 있습니다. Vm이 IOPS 및 처리량에 대해 서로 다른 확장 제한이 있으므로 워크 로드의 처리량 및 IOPS 요구 사항을 모두 이해 해야 합니다.<br/><br/>[DSv_3 및 Es_v3 시리즈](../sizes-general.md#dsv2-series) 는 Intel Haswell 또는 Broadwell 프로세서를 사용 하는 범용 하드웨어에서 호스팅됩니다. [M 시리즈](../sizes-memory.md#m-series) 는 Skylake 프로세서 제품군을 사용 하 여 메모리 액세스에 최적화 된 하드웨어에서 가장 큰 SQL Server 워크 로드에 대해 가장 높은 vcpu 수와 메모리를 제공 합니다. 이러한 VM 시리즈는 프리미엄 저장소를 지원 하며,이는 호스트 수준 읽기 캐시를 사용 하는 최상의 성능을 위해 권장 됩니다. Es_v3 및 M 시리즈는 모두 [제한 된 코어 크기](../../windows/constrained-vcpu.md)에서 사용할 수 있으며,이를 통해 계산 및 고용량 저장소 용량 요구가 낮은 워크 로드에 대 한 비용을 절감할 수 있습니다. 
+가장 많은 시간에 워크 로드의 cpu, 메모리 및 저장소 처리량 요구 사항을 수집 하 여 시작 합니다. \LogicalDisk\Disk Reads/Sec 및 \LogicalDisk\Disk Writes/Sec 성능 카운터를 사용 하 여 읽기 및 쓰기 IOPS 요구 사항을 수집 하 고 \LogicalDisk\Disk Bytes/Sec 카운터를 사용 하 여 데이터, 로그 및 임시 DB 파일의 [저장소 처리량 요구 사항을](../premium-storage-performance.md#disk-caching) 수집할 수 있습니다. IOPS 및 처리량 요구 사항이 최고 수준으로 정의 되 면 VM 크기 평가에서 해당 용량을 제공 합니다. 예를 들어 워크 로드에서 최대 20 K 읽기 IOPS와 10K 쓰기 IOPS를 사용 해야 하는 경우 2 개의 P30 디스크를 사용 하 여 E16s_v3 (최대 32 K 및 25600 캐시 되지 않은 IOPS 사용) 또는 M16_s (최대 20 개 캐시 및 10K 캐시 되지 않은 IOPS 포함)를 선택할 수 있습니다. Vm이 IOPS 및 처리량에 대해 서로 다른 확장 제한이 있으므로 워크 로드의 처리량 및 IOPS 요구 사항을 모두 이해 해야 합니다.<br/><br/>[DSv_3](../../dv3-dsv3-series.md) 및 [Es_v3 시리즈](../../ev3-esv3-series.md) 는 Intel haswell 또는 Broadwell 프로세서를 사용 하는 범용 하드웨어에서 호스팅됩니다. [M 시리즈](../../m-series.md) 는 Skylake 프로세서 제품군을 사용 하 여 메모리 액세스에 최적화 된 하드웨어에서 가장 큰 SQL Server 워크 로드에 대해 가장 높은 vcpu 수와 메모리를 제공 합니다. 이러한 VM 시리즈는 프리미엄 저장소를 지원 하며,이는 호스트 수준 읽기 캐시를 사용 하는 최상의 성능을 위해 권장 됩니다. Es_v3 및 M 시리즈는 모두 [제한 된 코어 크기](../../windows/constrained-vcpu.md)에서 사용할 수 있으며,이를 통해 계산 및 고용량 저장소 용량 요구가 낮은 워크 로드에 대 한 비용을 절감할 수 있습니다. 
 
 ## <a name="storage-guidance"></a>스토리지 지침
 
@@ -61,7 +61,7 @@ Premium Ssd를 사용 하는 Azure blob cache는 모든 프로덕션 워크 로�
 > [!WARNING]
 > 표준 HDD 및 SSD는 대기 시간 및 대역폭이 다양하므로 개발/테스트 워크로드에만 권장됩니다. 프로덕션 워크로드에는 프리미엄 SSD를 사용해야 합니다.
 
-또한 전송 지연을 줄이기 위해 SQL Server 가상 머신과 동일한 데이터 센터에서 Azure Storage 계정을 만드는 것이 좋습니다. 스토리지 계정을 만들 때 여러 디스크 간에 일관된 쓰기 순서가 보장되지 않기 때문에 지역에서 복제를 사용하지 않도록 설정합니다. 대신 두 Azure 데이터 센터 간에 SQL Server 재해 복구 기술을 구성하는 것이 좋습니다. 자세한 내용은 [Azure Virtual Machines의 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
+또한 전송 지연을 줄이기 위해 SQL Server 가상 머신과 동일한 데이터 센터에서 Azure Storage 계정을 만드는 것이 좋습니다. 스토리지 계정을 만들 때 여러 디스크 간에 일관된 쓰기 순서가 보장되지 않기 때문에 지역에서 복제를 사용하지 않도록 설정합니다. 대신 두 Azure 데이터 센터 간에 SQL Server 재해 복구 기술을 구성하는 것이 좋습니다. 자세한 내용은 [Azure Virtual Machines에서 SQL Server에 대한 고가용성 및 재해 복구](virtual-machines-windows-sql-high-availability-dr.md)를 참조하세요.
 
 ## <a name="disks-guidance"></a>디스크 지침
 
@@ -154,7 +154,7 @@ Premium Ssd를 지 원하는 Vm의 경우 읽기 캐싱을 사용 하도록 설�
 
 * **자동 증가**는 예기치 않은 증가에 대한 대책으로만 고려합니다. 일상적으로 자동 증가를 사용하여 사용자 데이터 및 로그 증가를 관리하지 마세요. 자동 증가를 사용하면 Size 스위치를 사용하여 파일을 사전에 증가시킵니다.
 
-* **자동 축소** 를 사용하지 않도록 설정하여 성능에 부정적인 영향을 미칠 수 있는 불필요한 오버헤드를 방지합니다.
+* **자동 축소**를 사용하지 않도록 설정하여 성능에 부정적인 영향을 미칠 수 있는 불필요한 오버헤드를 방지합니다.
 
 * 시스템 데이터베이스를 포함하여 모든 데이터베이스를 데이터 디스크로 이동합니다. 자세한 내용은 [시스템 데이터베이스 이동](https://msdn.microsoft.com/library/ms345408.aspx)을 참조하세요.
 

@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 10/16/2019
+ms.date: 02/20/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 5695968973c7446220d8d77b84dfebb4a23ae8c7
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847759"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77505633"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -53,7 +53,7 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 |섹션|필드|Description|
 |-------|-----|-----------|
-| 작업 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 작업 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |
@@ -88,51 +88,15 @@ Azure Portal Azure AD B2C 테 넌 트의 감사 로그 이벤트에 대 한 액�
 
 ### <a name="enable-reporting-api-access"></a>보고 API 액세스 사용
 
-Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 액세스를 허용 하려면 다음 API 권한을 사용 하 여 Azure AD B2C 테 넌 트에 등록 된 Azure Active Directory 응용 프로그램이 필요 합니다.
+Azure AD 보고 API에 대 한 스크립트 또는 응용 프로그램 기반 액세스를 허용 하려면 다음 API 권한을 사용 하 여 Azure AD B2C 테 넌 트에 등록 된 응용 프로그램이 필요 합니다. B2C 테 넌 트 내의 기존 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
 
-* 감사 로그 > 응용 프로그램 사용 권한을 Microsoft Graph >
+* 감사 로그 > 감사 로그 > > Microsoft Graph 응용 프로그램 사용 권한을 참조 하십시오.
 
-B2C 테 넌 트 내의 기존 Azure Active Directory 응용 프로그램 등록에 대해 이러한 권한을 사용 하도록 설정 하거나 감사 로그 자동화에 사용 하기 위해 특별히 새 응용 프로그램을 만들 수 있습니다.
+다음 문서의 단계를 수행 하 여 필요한 권한으로 응용 프로그램을 등록 합니다.
 
-다음 단계를 수행 하 여 응용 프로그램을 등록 하 고 필요한 Microsoft Graph API 권한을 부여한 다음 클라이언트 암호를 만듭니다.
+[Microsoft Graph를 사용 하 여 Azure AD B2C 관리](microsoft-graph-get-started.md)
 
-### <a name="register-application-in-azure-active-directory"></a>Azure Active Directory에 응용 프로그램 등록
-
-[!INCLUDE [active-directory-b2c-appreg-mgmt](../../includes/active-directory-b2c-appreg-mgmt.md)]
-
-### <a name="assign-api-access-permissions"></a>API 액세스 권한 할당
-
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
-
-1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
-1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
-1. **추가**를 선택한 다음, **API를 선택**합니다.
-1. **Microsoft Graph**를 선택 하 고를 **선택**합니다.
-1. **응용 프로그램 사용 권한**아래에서 **모든 감사 로그 데이터 읽기**를 선택 합니다.
-1. **선택** 단추를 선택한 다음 **완료**를 선택 합니다.
-1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다.
-
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
-
-1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
-1. **Microsoft api** 탭을 선택 합니다.
-1. **Microsoft Graph**를 선택합니다.
-1. **애플리케이션 권한**을 선택합니다.
-1. **감사 로그** 를 확장 한 다음 **감사 로그** 확인란을 선택 합니다.
-1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
-1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
-1. *전역 관리자* 역할이 할당 된 경우 현재 로그인 된 계정을 선택 하거나 *전역 관리자* 역할이 할당 된 Azure AD B2C 테 넌 트의 계정으로 로그인 합니다.
-1. **수락**을 선택합니다.
-1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. *감사 로그* 사용 권한에 대 한 **상태** 아래에 나타납니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.
-
-* * *
-
-### <a name="create-client-secret"></a>클라이언트 암호 만들기
-
-[!INCLUDE [active-directory-b2c-client-secret](../../includes/active-directory-b2c-client-secret.md)]
-
-이제 응용 프로그램에 필요한 API 액세스, 응용 프로그램 ID 및 자동화 스크립트에서 사용할 수 있는 키가 있습니다. 스크립트를 사용 하 여 작업 이벤트를 가져오는 방법에 대 한 예제는이 문서의 뒷부분에 있는 PowerShell 스크립트 섹션을 참조 하세요.
+적절 한 권한으로 응용 프로그램을 등록 한 후 스크립트를 사용 하 여 작업 이벤트를 가져오는 방법에 대 한 예제는이 문서의 뒷부분에 있는 PowerShell 스크립트 섹션을 참조 하세요.
 
 ### <a name="access-the-api"></a>API 액세스
 
@@ -149,13 +113,14 @@ https://graph.microsoft.com/v1.0/auditLogs/directoryAudits?$filter=loggedByServi
 [Azure Cloud Shell](overview.md)에서이 스크립트를 사용해 볼 수 있습니다. 응용 프로그램 ID, 클라이언트 암호 및 Azure AD B2C 테 넌 트의 이름으로 업데이트 해야 합니다.
 
 ```powershell
-# This script requires the registration of a Web Application in Azure Active Directory:
-# https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-reporting-api
+# This script requires an application registration that's granted Microsoft Graph API permission
+# https://docs.microsoft.com/azure/active-directory-b2c/microsoft-graph-get-started
 
 # Constants
-$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID (registered by Global Admin)
+$ClientID       = "your-client-application-id-here"       # Insert your application's client ID, a GUID
 $ClientSecret   = "your-client-application-secret-here"   # Insert your application's client secret
-$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant; for example, contoso.onmicrosoft.com
+$tenantdomain   = "your-b2c-tenant.onmicrosoft.com"       # Insert your Azure AD B2C tenant domain name
+
 $loginURL       = "https://login.microsoftonline.com"
 $resource       = "https://graph.microsoft.com"           # Microsoft Graph API resource URI
 $7daysago       = "{0:s}" -f (get-date).AddDays(-7) + "Z" # Use 'AddMinutes(-5)' to decrement minutes, for example
@@ -258,4 +223,4 @@ if ($oauth.access_token -ne $null) {
 
 ## <a name="next-steps"></a>다음 단계
 
-다른 관리 작업 (예: [.net을 사용 하 여 사용자 관리](manage-user-accounts-graph-api.md))을 자동화할 수 있습니다.
+다른 관리 작업 (예: [Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리](manage-user-accounts-graph-api.md))을 자동화할 수 있습니다.

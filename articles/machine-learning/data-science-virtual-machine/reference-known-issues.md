@@ -1,5 +1,5 @@
 ---
-title: 알려진 문제 및 문제 해결
+title: '참조: 알려진 문제 & 문제 해결'
 titleSuffix: Azure Data Science Virtual  Machine
 description: Azure Data Science Virtual Machine에 대 한 알려진 문제, 해결 방법 및 문제 해결 목록 가져오기
 services: machine-learning
@@ -9,12 +9,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: reference
 ms.date: 10/10/2019
-ms.openlocfilehash: a0b22326a429edfa2f2b8741453215b42910891c
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: d022b1124146a1e506401e6cee257805e3a38fd3
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301920"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526553"
 ---
 # <a name="known-issues-and-troubleshooting-the-azure-data-science-virtual-machine"></a>알려진 문제 및 Azure Data Science Virtual Machine 문제 해결
 
@@ -24,7 +24,7 @@ ms.locfileid: "72301920"
 
 ### <a name="installing-packages-with-pip-breaks-dependencies-on-linux"></a>Linux에서 pip 중단 종속성이 있는 패키지 설치
 
-패키지를 설치 하는 경우에는 `pip install` 대신 `sudo pip install`을 사용 합니다.
+패키지를 설치할 때 `pip install` 대신 `sudo pip install`를 사용 합니다.
 
 ## <a name="disk-encryption-issues"></a>디스크 암호화 문제
 

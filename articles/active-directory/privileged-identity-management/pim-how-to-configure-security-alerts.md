@@ -14,12 +14,12 @@ ms.date: 11/13/2019
 ms.author: curtand
 ms.custom: pim
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a28a4ccbaa256133b785d2238657093ba40ea11f
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 530eebea19d9e53f85a0079d6fba91c615ee6dd1
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024197"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498884"
 ---
 # <a name="configure-security-alerts-for-azure-ad-roles-in-privileged-identity-management"></a>Privileged Identity Management에서 Azure AD 역할에 대 한 보안 경고 구성
 
@@ -32,11 +32,11 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 1. [권한 있는 역할 관리자](../users-groups-roles/directory-assign-admin-roles.md#privileged-role-administrator) 역할에 있는 사용자로 [Azure Portal](https://portal.azure.com/) 에 로그인 합니다.
 1. **Azure AD Privileged Identity Management**를 엽니다. 개요 페이지의 맨 위에 배너가 있는 경우이 문서의 **새 버전** 탭에 있는 지침을 따르세요. 그렇지 않으면 **이전 버전** 탭의 지침을 따릅니다.
 
-    ![Azure AD 역할 새 버전](./media/pim-how-to-add-role-to-user/pim-new-version.png)
+  [![](media/pim-how-to-add-role-to-user/pim-new-version.png "Select Azure AD > Privileged Identity Management")](media/pim-how-to-add-role-to-user/pim-new-version.png#lightbox)
 
 이 문서의 단계에 따라 Azure AD 역할에 대 한 보안 경고를 조사 합니다.
 
-# <a name="new-versiontabnew"></a>[새 버전](#tab/new)
+# <a name="new-version"></a>[새 버전](#tab/new)
 
 ![Azure AD 역할-경고 및 심각도를 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/view-alerts.png)
 
@@ -120,7 +120,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |
@@ -135,7 +135,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 
 ![설정을 사용 하도록 설정 하 고 구성 하는 경고에 대 한 페이지 설정](media/pim-resource-roles-configure-alerts/rbac-alert-settings.png)
 
-# <a name="previous-versiontabprevious"></a>[이전 버전](#tab/previous)
+# <a name="previous-version"></a>[이전 버전](#tab/previous)
 
 ![Azure AD 역할-경고 및 심각도를 나열 하는 경고 창](./media/pim-how-to-configure-security-alerts/pim-directory-alerts.png)
 
@@ -219,7 +219,7 @@ PIM (Privileged Identity Management)은 Azure Active Directory (Azure AD) 조직
 | **이 경고가 표시된 이유는 무엇인가요?** | 동일한 사용자를 통해 같은 권한 있는 역할에 대해 여러 번 활성화하는 것은 공격의 징후입니다. |
 | **해결 방법** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다. |
 | **방지** | 해당 권한 있는 역할에 대한 [활성화 기간](pim-how-to-change-default-settings.md)이 작업을 수행할 만큼 충분히 길게 설정되어 있는지 확인합니다.</br>여러 관리자가 공유한 계정이 있는 권한 있는 역할에 대해 [multi-factor authentication을 요구](pim-how-to-change-default-settings.md) 합니다. |
-| **포털 내 완화 작업** | N/A |
+| **포털 내 완화 작업** | 해당 없음 |
 | **트리거** | 사용자가 지정된 기간 내에 동일한 권한 있는 역할을 여러 번 활성화한다면 트리거됩니다. 기간 및 활성화 횟수를 모두 구성할 수 있습니다. |
 | **활성화 갱신 기간** | 이 설정은 의심스러운 갱신을 추적하는 데 사용할 기간을 일, 시, 분, 초로 지정합니다. |
 | **활성화 갱신 수** | 이 설정은 사용자가 선택한 기간 내에 통지를 받으려는 2에서 100 까지의 정품 인증 수를 지정 합니다. 슬라이더를 이동하거나 텍스트 상자에 숫자를 입력하여 이 설정을 변경할 수 있습니다. |

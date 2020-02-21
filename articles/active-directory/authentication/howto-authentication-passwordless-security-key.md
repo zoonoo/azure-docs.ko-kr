@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: authentication
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/12/2020
 ms.author: iainfou
 author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 826b8e923575db3d6c6aee7ead230f87f1efb50e
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 8d5ff722d4a035113af8528ed8adb396b01c81eb
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848445"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77504952"
 ---
 # <a name="enable-passwordless-security-key-sign-in-preview"></a>암호 없는 보안 키 로그인 사용 (미리 보기)
 
@@ -26,7 +26,7 @@ ms.locfileid: "74848445"
 
 |     |
 | --- |
-| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 조건](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
+| FIDO2 보안 키는 Azure Active Directory의 공개 미리 보기 기능입니다. 미리 보기에 대한 자세한 내용은 [Microsoft Azure 미리 보기에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.|
 |     |
 
 ## <a name="requirements"></a>요구 사항
@@ -40,7 +40,9 @@ ms.locfileid: "74848445"
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 
-파일럿을 적용할 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+를 사용 하 여 파일럿 할 Azure AD 조인 장치는 Windows 10 버전 1809 이상을 실행 해야 합니다. 최상의 환경은 Windows 10 버전 1903 이상에 있습니다.
+
+하이브리드 Azure AD 조인 장치는 Windows 10 Insider Build 18945 이상을 실행 해야 합니다.
 
 ## <a name="enable-passwordless-authentication-method"></a>암호 없는 인증 방법 사용
 
@@ -50,7 +52,7 @@ ms.locfileid: "74848445"
 
 ### <a name="enable-fido2-security-key-method"></a>FIDO2 보안 키 사용 방법
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. **인증 방법 정책 (미리 보기)**  > **Azure Active Directory** > **보안** > **인증 방법** 으로 이동 합니다.
 1. Method **FIDO2 Security 키**아래에서 다음 옵션을 선택 합니다.
    1. **사용** -예 또는 아니요
@@ -68,7 +70,7 @@ ms.locfileid: "74848445"
 1. **USB 장치** 또는 **NFC 장치**를 선택 합니다.
 1. 키를 준비 하 고 **다음**을 선택 합니다.
 1. 상자가 표시 되 고 사용자에 게 보안 키에 대 한 PIN을 만들어 입력 하 라는 메시지가 표시 되 면 생체 인식 또는 터치를 사용 하 여 키에 대 한 필수 제스처를 수행 합니다.
-1. 사용자는 결합 된 등록 환경으로 반환 되 고 키에 대 한 의미 있는 이름을 입력 하 라는 메시지가 표시 되므로 사용자가 여러 항목을 식별할 수 있습니다. **다음**을 누릅니다.
+1. 사용자는 결합 된 등록 환경으로 반환 되 고 키에 대 한 의미 있는 이름을 입력 하 라는 메시지가 표시 되므로 사용자가 여러 항목을 식별할 수 있습니다. **다음**을 클릭합니다.
 1. **완료** 를 클릭 하 여 프로세스를 완료 합니다.
 
 ## <a name="sign-in-with-passwordless-credential"></a>암호 없는 자격 증명을 사용 하 여 로그인
@@ -79,13 +81,13 @@ ms.locfileid: "74848445"
 
 ## <a name="troubleshooting-and-feedback"></a>문제 해결 및 피드백
 
-이 기능을 미리 보는 동안 피드백을 공유 하거나 문제를 발생 시키려면 Windows 피드백 허브 앱을 통해 공유 하세요.
+이 기능을 미리 보는 동안 피드백을 공유 하거나 문제를 해결 하려는 경우 다음 단계를 사용 하 여 Windows 피드백 허브 앱을 통해 공유 하세요.
 
 1. **피드백 허브** 를 시작 하 고 로그인 했는지 확인 합니다.
 1. 다음 분류에 따라 사용자 의견을 제출 합니다.
-   1. 범주: 보안 및 개인 정보
-   1. 하위 범주: FIDO
-1. 로그를 캡처하려면 **문제 다시 만들기** 옵션을 사용 합니다.
+   - 범주: 보안 및 개인 정보
+   - 하위 범주: FIDO
+1. 로그를 캡처하려면이 옵션을 사용 하 여 **문제를 다시 만드십시오** .
 
 ## <a name="known-issues"></a>알려진 문제
 
@@ -95,7 +97,7 @@ ms.locfileid: "74848445"
 
 ### <a name="upn-changes"></a>UPN 변경
 
-사용자의 UPN이 변경 되 면 더 이상 FIDO2 보안 키를 수정 하 여 변경 내용을 고려 하지 않을 수 있습니다. 해결 방법은 장치를 다시 설정 하는 것으로, 사용자가 FIDO2 보안 키를 다시 등록 해야 합니다.
+하이브리드 Azure AD 조인 및 Azure AD 조인 장치에서 UPN 변경을 허용 하는 기능을 지원 하기 위해 노력 하 고 있습니다. 사용자의 UPN이 변경 되 면 더 이상 FIDO2 보안 키를 수정 하 여 변경 내용을 고려 하지 않을 수 있습니다. 해결 방법은 장치를 다시 설정 하는 것으로, 사용자가 다시 등록 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -1,5 +1,6 @@
 ---
-title: Azure App Service를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안 | Microsoft Docs
+title: PaaS 웹 & 모바일 응용 프로그램 보안
+titleSuffix: Azure App Service
 description: 'PaaS 웹 및 모바일 애플리케이션 보안을 위한 Azure App Service 보안 모범 사례에 대해 알아봅니다. '
 services: security
 documentationcenter: na
@@ -15,12 +16,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 07/18/2019
 ms.author: terrylan
-ms.openlocfilehash: 4967f6f7831f1f09a502b935342fcd752af72fce
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: c3f3c7fbaa043a03b70ab770c06e493716c70daf
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999157"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500273"
 ---
 # <a name="best-practices-for-securing-paas-web-and-mobile-applications-using-azure-app-service"></a>Azure App Service를 사용하여 PaaS 웹 및 모바일 애플리케이션 보안을 유지하는 모범 사례
 

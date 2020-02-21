@@ -1,18 +1,18 @@
 ---
-title: Azure 지점 및 사이트 간 VPN 연결 정보 | Microsoft Docs
+title: Azure 지점 및 사이트 간 VPN 연결 정보 | VPN Gateway
 description: 이 문서에서는 지점 및 사이트 간 연결을 이해하고 P2S VPN 게이트웨이 인증 유형을 결정합니다.
 services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/07/2020
+ms.date: 02/19/2020
 ms.author: cherylmc
-ms.openlocfilehash: 3db5cf0ddfec231a313df58e551061cbd5f9bef5
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: 78ed07560fdb15efb2de13c194549f5b433b775a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77110435"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500611"
 ---
 # <a name="about-point-to-site-vpn"></a>지점 및 사이트 간 VPN 연결 정보
 
@@ -53,16 +53,16 @@ Azure AD 인증을 사용 하면 사용자가 Azure Active Directory 자격 증�
 
 1. [Azure AD 테 넌 트 구성](openvpn-azure-ad-tenant.md)
 
-2. [게이트웨이에서 Azure AD 인증을 사용 하도록 설정](https://docs.microsoft.com/azure/vpn-gateway/openvpn-azure-ad-tenant#enable-authentication)
+2. [게이트웨이에서 Azure AD 인증을 사용 하도록 설정](openvpn-azure-ad-tenant.md#enable-authentication)
 
 3. [Azure VPN 클라이언트 다운로드 및 구성](https://go.microsoft.com/fwlink/?linkid=2117554)
 
 
 ### <a name="authenticate-using-active-directory-ad-domain-server"></a>Azure AD(Active Directory) 도메인 서버를 사용하여 인증
 
-AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자격 증명을 사용하여 Azure에 연결할 수 있습니다. AD 서버와 통합되는 RADIUS 서버가 필요합니다. 또한 조직에서 기존 RADIUS 배포를 활용할 수도 있습니다.   
+AD 도메인 인증을 사용하면 사용자가 자신의 조직 도메인 자격 증명을 사용하여 Azure에 연결할 수 있습니다. AD 서버와 통합되는 RADIUS 서버가 필요합니다. 또한 조직에서 기존 RADIUS 배포를 활용할 수도 있습니다.
   
-RADIUS 서버를 온-프레미스 또는 Azure VNET에 배포할 수 있습니다. 인증하는 동안 Azure VPN Gateway에서 통과 역할을 수행하여 RADIUS 서버와 연결된 디바이스 간에 인증 메시지를 전달합니다. 따라서 RADIUS 서버에 대한 게이트웨이 연결 가능성이 중요합니다. RADIUS 서버가 온-프레미스에 있는 경우 연결 가능성을 위해 Azure에서 온-프레미스 사이트로의 VPN S2S 연결이 필요합니다.  
+RADIUS 서버는 온-프레미스 또는 Azure VNet에 배포할 수 있습니다. 인증하는 동안 Azure VPN Gateway에서 통과 역할을 수행하여 RADIUS 서버와 연결된 디바이스 간에 인증 메시지를 전달합니다. 따라서 RADIUS 서버에 대한 게이트웨이 연결 가능성이 중요합니다. RADIUS 서버가 온-프레미스에 있는 경우 연결 가능성을 위해 Azure에서 온-프레미스 사이트로의 VPN S2S 연결이 필요합니다.  
   
 RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇게 하면 Azure 인증서 인증 대신 P2S 인증서 인증용 RADIUS 서버 및 엔터프라이즈 인증서 배포를 사용할 수 있습니다. 장점은 루트 인증서와 해지된 인증서를 Azure에 업로드할 필요가 없다는 것입니다.
 
@@ -156,9 +156,6 @@ RADIUS 서버는 AD 인증서 서비스와 통합할 수도 있습니다. 이렇
 |TLS_RSA_WITH_AES_128_CBC_SHA256 |
 |TLS_RSA_WITH_AES_256_CBC_SHA256 |
 
-
-
-
 ## <a name="configure"></a>P2S 연결은 어떻게 구성하나요?
 
 P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서에는 P2S 구성을 수행하는 단계와 VPN 클라이언트 디바이스를 구성하기 위한 링크가 포함되어 있습니다.
@@ -169,11 +166,9 @@ P2S 구성에는 몇 가지 특정한 단계가 필요합니다. 다음 문서�
 
 * [OpenVPN 구성](vpn-gateway-howto-openvpn.md)
 
-## <a name="how-do-i-remove-the-configuration-of-a-p2s-connection"></a>P2S 연결의 구성 어떻게 할까요? 제거 하 시겠습니까?
+### <a name="to-remove-the-configuration-of-a-p2s-connection"></a>P2S 연결의 구성을 제거 하려면
 
-P2S 구성은 az cli 및 다음 명령을 사용 하 여 제거할 수 있습니다. 
-
-`az network vnet-gateway update --name <gateway-name> --resource-group <resource-group name> --remove "vpnClientConfiguration"`
+단계는 아래의 [FAQ](#removeconfig)를 참조 하세요.
  
 ## <a name="faqcert"></a>네이티브 Azure 인증서 인증에 대한 FAQ
 

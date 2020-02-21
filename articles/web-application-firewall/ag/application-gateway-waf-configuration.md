@@ -4,15 +4,15 @@ description: 이 문서에서는 Azure Portal와 Application Gateway의 웹 응�
 services: web-application-firewall
 author: vhorne
 ms.service: web-application-firewall
-ms.date: 10/17/2019
+ms.date: 02/20/2020
 ms.author: victorh
 ms.topic: conceptual
-ms.openlocfilehash: cfde1355ef5e5a2f9033456ac4089ce3ca3f9d72
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 7244788bbc7431c7f26363b2852babb72d5697e9
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839965"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526793"
 ---
 # <a name="web-application-firewall-request-size-limits-and-exclusion-lists"></a>웹 응용 프로그램 방화벽 요청 크기 제한 및 제외 목록
 
@@ -50,7 +50,7 @@ WAF 제외 목록을 통해 WAF 평가에서 특정 요청 특성을 생략할 �
 > [!NOTE]
 > 자세한 내용 및 문제 해결 도움말은 [Waf 문제 해결](web-application-firewall-troubleshoot.md)을 참조 하세요.
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -70,7 +70,7 @@ $exclusion1 = New-AzApplicationGatewayFirewallExclusionConfig `
    -SelectorMatchOperator "Equals" `
    -Selector "User-Agent"
 ```
-#### <a name="example-2"></a>예 2
+#### <a name="example-2"></a>예제 2
 
 이 예에서는 URL을 통해 요청에 전달 되는 *user* 매개 변수에서 값을 제외 합니다. 예를 들어 사용자의 사용자 필드에는 WAF가 악의적인 콘텐츠로 보고 하는 문자열을 포함 하는 것이 일반적 이라고 가정 합니다.  이 경우 WAF가 필드에서 아무것도 계산 하지 않도록 사용자 매개 변수를 제외할 수 있습니다.
 
@@ -91,7 +91,13 @@ $exclusion2 = New-AzApplicationGatewayFirewallExclusionConfig `
 웹 애플리케이션 방화벽을 통해 상한과 하한 사이의 범위에서 요청 크기 제한을 구성할 수 있습니다. 사용 가능한 크기 제한 구성은 다음의 두 가지입니다.
 
 - 최대 요청 본문 크기 필드는 킬로바이트 단위로 지정 되며 파일 업로드를 제외한 전체 요청 크기 제한을 제어 합니다. 이 필드에는 1KB~128KB 사이의 값을 지정할 수 있습니다. 요청 본문 크기의 기본값은 128KB입니다.
-- MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 중간 SKU의 최대값이 100MB일 때 이 필드에는 대규모 SKU 인스턴스의 최소값으로 1MB를, 최대값으로 500MB를 지정할 수 있습니다. 파일 업로드 제한의 기본값은 100MB입니다.
+- MB 단위로 지정되는 파일 업로드 제한 필드는 허용되는 최대 파일 업로드 크기를 제어합니다. 이 필드의 최소값은 1mb이 고 최대값은 다음과 같습니다.
+
+   - v1 Medium WAF 게이트웨이의 100 MB
+   - v1 Large WAF 게이트웨이의 경우 500 MB
+   - v2 WAF 게이트웨이의 750 MB 
+
+ 파일 업로드 제한의 기본값은 100MB입니다.
 
 WAF는 요청 본문 검사를 설정하거나 해제할 수 있는 구성 가능한 노브도 제공합니다. 요청 본문 검사는 기본적으로 사용됩니다. 요청 본문 검사가 꺼져 있으면 WAF는 HTTP 메시지 본문의 내용을 평가 하지 않습니다. 이러한 경우에도 헤더, 쿠키 및 URI에는 WAF 규칙이 계속 적용됩니다. 요청 본문 검사를 해제하는 경우에는 최대 요청 본문 크기 필드가 적용되지 않으며 설정할 수 없습니다. 요청 본문 검사를 해제하면 128KB보다 큰 메시지를 WAF로 전송할 수 있지만 메시지 본문에서 취약성을 검사하지는 않습니다.
 

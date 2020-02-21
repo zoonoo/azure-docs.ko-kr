@@ -7,13 +7,13 @@ author: luiscabrer
 ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: c8f6e36997939be90d74eabad9a4145d2e503521
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.date: 02/20/2020
+ms.openlocfilehash: 78f5f6eda28bed164668445b5671dad92f8dedd7
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045031"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500263"
 ---
 # <a name="how-to-add-a-custom-skill-to-an-azure-cognitive-search-enrichment-pipeline"></a>Azure Cognitive Search 보강 파이프라인에 사용자 지정 기술 추가 방법
 
@@ -33,6 +33,8 @@ Azure Cognitive Search의 [보강 파이프라인](cognitive-search-concept-intr
         "uri": "https://[your custom skill uri goes here]",
         "timeout": "PT230S",
 ```
+
+URI가 안전한 지 확인 합니다 (HTTPS).
 
 현재, 사용자 지정 기술을 조작하는 유일한 메커니즘은 Web API 인터페이스를 사용하는 것입니다. Web API는 이 섹션에 설명된 요구 사항을 충족해야 합니다.
 
