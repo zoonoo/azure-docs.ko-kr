@@ -15,12 +15,12 @@ ms.date: 02/06/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fcb2198ea3f01e923022c205e478167240a01894
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 3e769df186597a88247601f4fc70c48263edc88b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084452"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483910"
 ---
 # <a name="create-an-access-review-of-groups-and-applications-in-azure-ad-access-reviews"></a>Azure AD 액세스 검토에서 그룹 및 응용 프로그램에 대 한 액세스 검토 만들기
 
@@ -53,7 +53,7 @@ ms.locfileid: "77084452"
 
     ![액세스 검토 만들기 - 시작 및 종료 날짜](./media/create-access-review/start-end-dates.png)
 
-1. 액세스 검토를 반복 하려면 **빈도** 설정을 **한 시간** 에서 **매주**, **매월**, **분기별** 또는 **매년**으로 변경 합니다. **기간** 슬라이더 또는 텍스트 상자를 사용 하 여 검토자의 입력을 위해 되풀이 계열의 각 검토가 열리는 일 수를 정의 합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
+1. 액세스 검토를 반복 하려면 **빈도** 설정을 **한 시간** 에서 **매주**, **매월**, **분기별**, **반기**또는 **매년**으로 변경 합니다. **기간** 슬라이더 또는 텍스트 상자를 사용 하 여 검토자의 입력을 위해 되풀이 계열의 각 검토가 열리는 일 수를 정의 합니다. 예를 들어 검토가 겹치는 상황을 방지하기 위해 월별 검토에 대해 설정할 수 있는 최대 기간은 27일입니다.
 
 1. **종료** 설정을 사용하여 되풀이 액세스 검토 시리즈를 종료하는 방법을 지정합니다. 이 시리즈는 세 가지 방법으로 종료할 수 있습니다. 무기한으로, 특정 날짜까지, 또는 정의된 되풀이 횟수가 완료된 이후에 검토를 시작하도록 연속적으로 실행됩니다. 사용자는 다른 사용자 관리자 또는 다른 전역 관리자가 **설정**의 날짜를 변경 하 여 만든 후 해당 날짜에 끝나도록 계열을 중지할 수 있습니다.
 

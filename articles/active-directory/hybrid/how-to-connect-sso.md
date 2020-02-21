@@ -16,12 +16,12 @@ ms.date: 08/13/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4ef8f1ef381c86b6eec62c96ff6dcf87522de040
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: f1b7e4716e731e6b73e3ac60b64baa71043906fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367970"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483757"
 ---
 # <a name="azure-active-directory-seamless-single-sign-on"></a>Azure Active Directory Seamless Single Sign-On
 
@@ -36,7 +36,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 ![Seamless Single Sign-On](./media/how-to-connect-sso/sso1.png)
 
 >[!IMPORTANT]
->원활한 SSO는 사용자의 장치를 도메인에 **가입** 해야 하지만, [Azure ad 조인](../active-directory-azureadjoin-overview.md) 또는 [하이브리드 Azure ad 조인] (. /active-directory-azureadjoin-overview.md) 장치. SSO pn Azure AD 조인 및 하이브리드 Azure AD 조인은 [기본 새로 고침 토큰] (.. /active-directory/devices/concept-primary-refresh-token.md)
+>원활한 SSO는 **도메인에 가입** 된 경우에만 사용자의 장치를 요구 하지만, [azure Ad 조인](../devices/concept-azure-ad-join.md) 또는 [하이브리드 azure ad 조인](../devices/concept-azure-ad-join-hybrid.md) 장치에서는 사용 되지 않습니다. Azure AD 조인 및 하이브리드 Azure AD에 대 한 SSO는 [주 새로 고침 토큰](../devices/concept-primary-refresh-token.md)을 기반으로 작동 합니다.
 
 ## <a name="key-benefits"></a>주요 이점
 
@@ -63,12 +63,12 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 
 | OS\Browser |Internet Explorer|Microsoft Edge|Google Chrome|Mozilla Firefox|Safari|
 | --- | --- |--- | --- | --- | -- 
-|Windows 10|예\*|예|예|예\*\*\*|N/A
-|Windows 8.1|예\*|N/A|예|예\*\*\*|N/A
-|Windows 8|예\*|N/A|예|예\*\*\*|N/A
-|Windows 7|예\*|N/A|예|예\*\*\*|N/A
-|Windows Server 2012 R2 이상|예\*\*|N/A|예|예\*\*\*|N/A
-|Mac OS X|N/A|N/A|예\*\*\*|예\*\*\*|예\*\*\*
+|윈도우 10|예\*|yes|yes|예\*\*\*|해당 없음
+|Windows 8.1|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows 8|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows 7|예\*|해당 없음|yes|예\*\*\*|해당 없음
+|Windows Server 2012 R2 이상|예\*\*|해당 없음|yes|예\*\*\*|해당 없음
+|Mac OS X|해당 없음|해당 없음|예\*\*\*|예\*\*\*|예\*\*\*
 
 
 \*Internet Explorer 버전 10 이상 필요
@@ -78,7 +78,7 @@ Seamless SSO는 [암호 해시 동기화](how-to-connect-password-hash-synchroni
 \*\*\*[추가 구성](how-to-connect-sso-quick-start.md#browser-considerations)이 필요합니다.
 
 >[!NOTE]
->Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../active-directory-azureadjoin-overview.md)을 사용하는 것이 좋습니다.
+>Windows 10의 경우 Azure AD를 통한 최적의 Single Sign-On 환경을 위해 [Azure AD 조인](../devices/concept-azure-ad-join.md)을 사용하는 것이 좋습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

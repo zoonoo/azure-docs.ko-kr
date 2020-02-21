@@ -4,12 +4,12 @@ description: PowerShell을 사용 하 여 함수를 개발 하는 방법을 이�
 author: eamonoreilly
 ms.topic: conceptual
 ms.date: 04/22/2019
-ms.openlocfilehash: 2fa510e447d4d9b054a37f7665d010382a5db819
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
-ms.translationtype: HT
+ms.openlocfilehash: 41f977e7e7c23c2f49fd656461b7a3920802997e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974243"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485134"
 ---
 # <a name="azure-functions-powershell-developer-guide"></a>Azure Functions PowerShell 개발자 가이드
 
@@ -79,7 +79,7 @@ $TriggerMetadata.sys
 | MethodName | 트리거된 함수의 이름     | 문자열   |
 | RandGuid   | 이 함수 실행에 대 한 고유 guid입니다. | 문자열   |
 
-모든 트리거 형식에는 서로 다른 메타 데이터 집합이 있습니다. 예를 들어 `QueueTrigger`에 대 한 `$TriggerMetadata`에는 `InsertionTime`, `Id`, `DequeueCount`등이 포함 됩니다. 큐 트리거의 메타 데이터에 대 한 자세한 내용은 [큐 트리거의 공식 설명서](functions-bindings-storage-queue.md#trigger---message-metadata)로 이동 하세요. 작업 중인 [트리거에](functions-triggers-bindings.md) 대 한 설명서를 확인 하 여 트리거 메타 데이터 내에 있는 항목을 확인 합니다.
+모든 트리거 형식에는 서로 다른 메타 데이터 집합이 있습니다. 예를 들어 `QueueTrigger`에 대 한 `$TriggerMetadata`에는 `InsertionTime`, `Id`, `DequeueCount`등이 포함 됩니다. 큐 트리거의 메타 데이터에 대 한 자세한 내용은 [큐 트리거의 공식 설명서](functions-bindings-storage-queue-trigger.md#message-metadata)로 이동 하세요. 작업 중인 [트리거에](functions-triggers-bindings.md) 대 한 설명서를 확인 하 여 트리거 메타 데이터 내에 있는 항목을 확인 합니다.
 
 ## <a name="bindings"></a>바인딩
 
@@ -175,7 +175,7 @@ PS >Push-OutputBinding -Name response -Value ([HttpResponseContext]@{
 
 #### <a name="push-outputbinding-example-queue-output-binding"></a>푸시 OutputBinding 예: 큐 출력 바인딩
 
-`Push-OutputBinding`는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue.md#output)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
+`Push-OutputBinding`는 [Azure Queue storage 출력 바인딩과](functions-bindings-storage-queue-output.md)같은 출력 바인딩에 데이터를 전송 하는 데 사용 됩니다. 다음 예제에서는 큐에 기록 된 메시지의 값이 "output #1"입니다.
 
 ```powershell
 PS >Push-OutputBinding -Name outQueue -Value "output #1"

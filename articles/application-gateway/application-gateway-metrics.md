@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 2/5/2019
 ms.author: absha
-ms.openlocfilehash: 838d215cb49e526251aff9267dbeb0feb6d5f8df
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 2d1e6e484fd704669951bd37b17356fd3689cc91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425259"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485185"
 ---
 # <a name="metrics-for-application-gateway"></a>Application Gateway에 대 한 메트릭
 
@@ -86,7 +86,7 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
 - **현재 용량 단위**
 
-   소비 된 용량 단위 개수입니다. 용량 단위는 고정 비용 외에도 요금이 부과 되는 소비 기반 비용을 측정 합니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 1 개의 compute 단위 또는 2500 영구 연결 또는 2.22 Mbps 처리량으로 구성 됩니다.
+   트래픽 부하를 분산 하는 데 사용 되는 용량 단위 수입니다. 용량 단위 계산 단위, 영구 연결 및 처리량의 세 가지 택배 있습니다. 각 용량 단위는 1 개의 compute 단위 또는 2500 영구 연결 또는 2.22 Mbps 처리량으로 구성 됩니다.
 
 - **현재 계산 단위**
 
@@ -98,13 +98,15 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
    
 - **예상 청구 용량 단위**
 
-  청구 금액을 사용 하는 용량 단위 수입니다. 이는 *현재 용량 단위* 와 *고정 청구 가능 용량 단위*사이의 큰 값으로 계산 됩니다.  
+  V2 SKU를 사용 하 여 가격 책정 모델은 사용량에 따라 결정 됩니다. 용량 단위는 고정 비용 외에도 요금이 부과 되는 소비 기반 비용을 측정 합니다. 청구 된 *예상 용량 단위* 는 청구를 예상 하는 데 사용 하는 용량 단위 수를 나타냅니다. 이 값은 *현재 용량 단위* (트래픽 부하를 분산 하는 데 필요한 용량 단위)와 *고정 청구 가능 용량 단위* (프로 비전 된 최소 용량 단위) 사이에서 더 큰 값으로 계산 됩니다.
 
 - **실패한 요청**
 
-   Application Gateway에서 처리 한 실패 한 요청의 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
+  Application Gateway에서 처리 한 실패 한 요청의 수입니다. 각/특정 백 엔드 풀-http 설정 조합의 수를 표시 하도록 요청 수를 추가로 필터링 할 수 있습니다.
    
-- **청구 가능한 용량 단위 고정** Application Gateway 구성의 *최소 배율 단위* 설정에 따라 프로 비전 유지 된 최소 용량 단위 수입니다.
+- **청구 가능한 용량 단위 고정**
+
+  Application Gateway 구성에서 *최소 배율 단위* 설정 (한 인스턴스는 10 개의 용량 단위로 변환 됨)에 따라 프로 비전 유지 된 최소 용량 단위 수입니다.
    
  - **초당 새 연결 수**
 
@@ -143,7 +145,9 @@ Application Gateway에는 다음 메트릭이 지원됩니다.
 
   상태 프로브에 의해 비정상으로 확인 된 백 엔드의 수입니다. 백 엔드 풀 기준으로 필터링 하 여 특정 백 엔드 풀의 비정상 호스트 수를 표시할 수 있습니다.
   
-- **정상 호스트 당 분당 요청** 수 백 엔드 풀의 각 정상 멤버에서 받은 평균 요청 수 (1 분)입니다. *BackendPool httpsettings 별* 차원을 사용 하 여 백 엔드 풀을 지정 해야 합니다.  
+- **정상 호스트 당 분당 요청 수**
+
+  백 엔드 풀의 각 정상 멤버에서 받은 평균 요청 수 (1 분)입니다. *BackendPool httpsettings 별* 차원을 사용 하 여 백 엔드 풀을 지정 해야 합니다.  
   
 
 ## <a name="metrics-supported-by-application-gateway-v1-sku"></a>Application Gateway V1 SKU에서 지원 되는 메트릭

@@ -11,16 +11,16 @@ ms.devlang: na
 ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 12/02/2019
+ms.date: 02/18/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: cd013b44454cc0283ef84d6a978b15400eca8786
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 0d6d621646aaa5c8c44a20cf327cd10fa31990b0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022497"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484539"
 ---
 # <a name="understand-the-azure-ad-schema"></a>Azure AD 스키마 이해
 모든 디렉터리와 같이 Azure Active Directory (Azure AD)의 개체는 사용자, 그룹 및 연락처와 같은 작업을 나타내는 프로그래밍 방식의 고급 데이터 구문입니다. Azure AD에서 새 사용자 또는 연락처를 만들 때 해당 개체의 새 인스턴스를 만듭니다. 이러한 인스턴스는 속성을 기반으로 구분할 수 있습니다.
@@ -58,21 +58,24 @@ Azure AD에는 다음과 같은 두 가지 유형의 속성이 있습니다.
 
 |온-프레미스 Active Directory|매핑 유형|Azure AD|
 |-----|-----|-----|
-|cn|Direct|commonName
-|countryCode|Direct|countryCode|
-|displayName|Direct|displayName|
-|givenName|Expression|givenName|
-|objectGUID|Direct|sourceAnchorBinary|  
-|userprincipalName|Direct|userPrincipalName|
-|ProxyAdress|Direct|ProxyAddress|
+|cn|직접|commonName
+|countryCode|직접|countryCode|
+|displayName|직접|displayName|
+|givenName|식|givenName|
+|objectGUID|직접|sourceAnchorBinary|  
+|userprincipalName|직접|userPrincipalName|
+|ProxyAdress|직접|ProxyAddress|
 
 ## <a name="view-the-schema"></a>스키마 보기
+> [!WARNING]
+> 클라우드 프로 비전 구성에서는 서비스 주체를 만듭니다. 서비스 사용자는 Azure Portal에서 볼 수 있습니다. Azure Portal의 서비스 사용자 환경을 사용 하 여 특성 매핑을 수정 하면 안 됩니다.  이는 지원되지 않습니다.
+
 스키마를 확인 하 고 확인 하려면 다음 단계를 수행 합니다.
 
 1.  [그래프 탐색기](https://developer.microsoft.com/graph/graph-explorer)로 이동 합니다.
 1.  전역 관리자 계정으로 로그인 합니다.
 1.  왼쪽에서 **권한 수정** 을 선택 하 고 **디렉터리. ReadWrite** 가 *동의한*인지 확인 합니다.
-1.  쿼리 https://graph.microsoft.com/beta/serviceprincipals/? $filter = startswith (Displayname, ' Active ')를 실행 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
+1.  쿼리 https://graph.microsoft.com/beta/serviceprincipals/?$filter = startswith (Displayname, ' Active ')를 실행 합니다. 이 쿼리는 서비스 사용자의 필터링 된 목록을 반환 합니다.
 1.  `"appDisplayName": "Active Directory to Azure Active Directory Provisioning"`를 찾고 `"id"`의 값을 확인 합니다.
     ```
     "value": [

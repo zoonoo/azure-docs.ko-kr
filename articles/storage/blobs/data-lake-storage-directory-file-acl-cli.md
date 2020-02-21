@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 11/24/2019
 ms.author: normesta
 ms.reviewer: prishet
-ms.openlocfilehash: e833ca92004c678808ec5e294de2df7c90121be7
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ce2b4200496938e6cffb935207df8c7027eaf37a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75835122"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486137"
 ---
 # <a name="use-azure-cli-to-manage-directories-files-and-acls-in-azure-data-lake-storage-gen2-preview"></a>Azure CLI를 사용 하 여 Azure Data Lake Storage Gen2에서 디렉터리, 파일 및 Acl 관리 (미리 보기)
 
@@ -24,7 +24,7 @@ ms.locfileid: "75835122"
 > 이 문서에서 설명 하는 `storage-preview` 확장은 현재 공개 미리 보기로 제공 됩니다.
 
 Gen1 [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#adls-gen2-support) | [Gen2 매핑](https://github.com/Azure/azure-cli-extensions/tree/master/src/storage-preview#mapping-from-adls-gen1-to-adls-gen2) | [피드백 제공](https://github.com/Azure/azure-cli-extensions/issues)
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 > [!div class="checklist"]
 > * Azure 구독 [Azure 평가판](https://azure.microsoft.com/pricing/free-trial/)을 참조하세요.
@@ -42,7 +42,7 @@ Gen1 [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/stor
    ```
    Azure CLI 버전이 `2.0.67`보다 낮은 경우 최신 버전을 설치 합니다. [Azure CLI 설치를](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)참조 하세요.
 
-3. `storage-preview` 확장을 설치합니다.
+3. `storage-preview` 확장을 설치 합니다.
 
    ```azurecli
    az extension add -n storage-preview
@@ -77,7 +77,7 @@ Gen1 [샘플](https://github.com/Azure/azure-cli-extensions/tree/master/src/stor
 이 예에서는 `my-file-system`이라는 파일 시스템을 만듭니다.
 
 ```azurecli
-az storage container create --name my-file-system
+az storage container create --name my-file-system --account-name mystorageaccount
 ```
 
 ## <a name="create-a-directory"></a>디렉터리 만들기
@@ -237,6 +237,12 @@ az storage blob access show -b my-directory/upload.txt -c my-file-system --accou
 
 ```azurecli
 az storage blob directory access set -a "user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
+```
+
+이 예에서는 소유 사용자, 소유 그룹 또는 기타 사용자에 대 한 디렉터리의 *기본* acl을 설정 하 고 콘솔에 acl을 인쇄 합니다.
+
+```azurecli
+az storage blob directory access set -a "default:user::rw-,group::rw-,other::-wx" -d my-directory -c my-file-system --account-name mystorageaccount
 ```
 
 `az storage blob access set` 명령을 사용 하 여 **파일**의 acl을 설정 합니다. 

@@ -6,17 +6,17 @@ ms.topic: article
 ms.date: 12/03/2018
 ms.reviewer: dariac
 ms.custom: seodec18
-ms.openlocfilehash: c55894bff9501d3ffb9aa843a9eaa240a213180e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9f18eef607a5f655aecc0b6ebe1c85a239b34192
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671745"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482975"
 ---
 # <a name="sync-content-from-a-cloud-folder-to-azure-app-service"></a>클라우드 폴더에서 Azure App Service로 콘텐츠 동기화
 이 문서에서는 Dropbox 및 OneDrive에서 [Azure App Service](https://go.microsoft.com/fwlink/?LinkId=529714)로 사용자 콘텐츠를 동기화하는 방법을 보여 줍니다. 
 
-주문형 콘텐츠 동기화 배포는 App Service [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)에서 제공됩니다. 지정된 클라우드 폴더의 콘텐츠 및 사용자 앱 코드로 작업할 수 있습니다. 그런 다음, 단추를 클릭하여 App Service로 동기화할 수 있습니다. 콘텐츠 동기화는 Kudu 빌드 서버를 사용합니다. 
+주문형 콘텐츠 동기화 배포는 App Service [Kudu 배포 엔진](https://github.com/projectkudu/kudu/wiki)에서 제공됩니다. 지정 된 클라우드 폴더에서 앱 코드 및 콘텐츠 작업을 수행한 다음 단추를 클릭 하 여 App Service와 동기화 할 수 있습니다. 콘텐츠 동기화는 Kudu 빌드 서버를 사용합니다. 
 
 ## <a name="enable-content-sync-deployment"></a>콘텐츠 동기화 배포를 사용하도록 설정
 

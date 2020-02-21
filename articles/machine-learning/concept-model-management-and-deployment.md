@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 11/22/2019
 ms.custom: seodec18
-ms.openlocfilehash: f6819ddce777a5740ef1f5f9ab887a0646c4e464
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76122341"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486379"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -89,7 +89,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 이미지를 만들 때 Azure Machine Learning에 필요한 구성 요소도 추가 됩니다. 예를 들어, 웹 서비스를 실행 하 고 IoT Edge와 상호 작용 하는 데 필요한 자산이 있습니다.
 
-#### <a name="batch-scoring"></a>Batch 평가
+#### <a name="batch-scoring"></a>일괄 처리 채점
 일괄 처리 점수 매기기는 ML 파이프라인을 통해 지원 됩니다. 자세한 내용은 [빅 데이터의 일괄 처리 예측](how-to-use-parallel-run-step.md)을 참조 하세요.
 
 #### <a name="real-time-web-services"></a>실시간 웹 서비스
@@ -114,13 +114,13 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md)를 참조 하세요.
 
-### <a name="analytics"></a>분석기능
+### <a name="analytics"></a>분석
 
 Microsoft Power BI는 데이터 분석을 위해 기계 학습 모델을 사용할 수 있도록 지원 합니다. 자세한 내용은 [Power BI (미리 보기)의 Azure Machine Learning 통합](https://docs.microsoft.com/power-bi/service-machine-learning-integration)을 참조 하세요.
 
 ## <a name="capture-the-governance-data-required-for-capturing-the-end-to-end-ml-lifecycle"></a>종단 간 ML 수명 주기 캡처에 필요한 거 버 넌 스 데이터 캡처
 
-Azure ML은 모든 ML 자산의 종단간 감사 내역을 추적 하는 기능을 제공 합니다. 특히 다음과 같은 혜택이 있습니다.
+Azure ML은 모든 ML 자산의 종단간 감사 내역을 추적 하는 기능을 제공 합니다. 특히 다음에 대한 내용을 설명합니다.
 
 - Azure ML [은 Git와 통합 되어](how-to-set-up-training-targets.md#gitintegration) 코드를 가져온 리포지토리/분기/커밋에 대 한 정보를 추적 합니다.
 - [AZURE ML 데이터 집합](how-to-create-register-datasets.md) 을 통해 데이터를 추적, 프로 파일링 및 버전 데이터를 관리할 수 있습니다. 
@@ -138,6 +138,19 @@ Azure ML은 ML 수명 주기의 이벤트를 알리고 자동화 하는 데 사�
 이 정보는 모델을 사용 하는 방법을 이해 하는 데 도움이 됩니다. 수집 된 입력 데이터는 모델의 이후 버전을 학습 하는 데 유용할 수도 있습니다.
 
 자세한 내용은 [모델 데이터 컬렉션을 사용하도록 설정하는 방법](how-to-enable-data-collection.md)을 참조하세요.
+
+## <a name="retrain-your-model-on-new-data"></a>새 데이터에 대 한 모델 다시 학습
+
+모델을 업데이트 하거나 새 정보를 수신 하는 경우에는 모델을 처음부터 새로 다시 학습 할 수도 있습니다. 경우에 따라 새 데이터를 받는 것이 도메인의 예상 부분입니다. 다른 경우에는 [데이터 집합의 데이터 드리프트 (미리 보기) 검색](how-to-monitor-datasets.md)에 설명 된 대로 특정 센서에 대 한 변경, 계절 효과와 같은 자연 스러운 데이터 변경, 다른 기능과의 관계에서 변화 하는 기능 등의 측면에서 모델 성능이 저하 될 수 있습니다. 
+
+"다시 학습 해야 하는 경우 어떻게 할까요? 알 수 있나요?"에 대 한 국제 답변이 없습니다. 그러나 앞에서 설명한 Azure ML 이벤트 및 모니터링 도구는 자동화를 위한 좋은 출발점입니다. 다시 학습를 결정 한 후에는 다음을 수행 해야 합니다. 
+
+- 반복 가능한 자동화 된 프로세스를 사용 하 여 데이터를 전처리 합니다.
+- 새 모델 학습
+- 새 모델의 출력을 이전 모델의 출력과 비교 합니다.
+- 미리 정의 된 조건을 사용 하 여 이전 모델을 바꿀지 여부를 선택 합니다. 
+
+위의 단계를 수행 하는 것은 임시가 아닌 재 학습을 자동화 해야 한다는 것입니다. [Azure Machine Learning 파이프라인](concept-ml-pipelines.md) 은 데이터 준비, 학습, 유효성 검사 및 배포와 관련 된 워크플로를 만들 때 좋은 답입니다. [Azure Machine Learning designer (미리 보기)를 사용 하 여 다시 학습 모델](how-to-retrain-designer.md) 을 읽어 파이프라인과 Azure Machine Learning 디자이너가 재 학습 시나리오에 어떻게 부합 하는지 알아보세요. 
 
 ## <a name="automate-the-ml-lifecycle"></a>ML 수명 주기 자동화 
 

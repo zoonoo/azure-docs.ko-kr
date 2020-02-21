@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/11/2020
-ms.openlocfilehash: 172753f6bbcc47ed8ae9061b71ca3291e95b7a33
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: a093eea8b1961482722211017174018a649e2c4f
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162857"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484845"
 ---
 # <a name="automatically-scale-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터 자동 크기 조정
 
@@ -78,7 +78,7 @@ HDInsight 서비스는 현재 CPU 및 메모리 요구 사항을 충족 하는 �
 
 ### <a name="create-a-cluster-with-load-based-autoscaling"></a>부하 기반 자동 크기 조정을 사용 하 여 클러스터 만들기
 
-클러스터에서 자동 크기 조정을 사용 하려면 클러스터를 만들 때 **자동 크기 조정 사용** 옵션을 사용 하도록 설정 해야 합니다. 부하 기반 크기 조정으로 자동 크기 조정 기능을 사용 하도록 설정 하려면 일반 클러스터 만들기 프로세스의 일부로 다음 단계를 완료 합니다.
+부하 기반 크기 조정으로 자동 크기 조정 기능을 사용 하도록 설정 하려면 일반 클러스터 만들기 프로세스의 일부로 다음 단계를 완료 합니다.
 
 1. **구성 + 가격 책정** 탭에서 **자동 크기 조정 사용** 확인란을 선택 합니다.
 1. **자동 크기 조정 유형**아래에서 **부하 기반** 을 선택 합니다.

@@ -16,12 +16,12 @@ ms.date: 01/22/2020
 ms.author: ajburnle
 ms.reviewer: mwahl
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0c1b6f5ebffa39d3b735e85df794e37329e3aa2e
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1ecf3a8819518c674a3d8bd7af55d1a3c6393c42
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548903"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483859"
 ---
 # <a name="add-a-connected-organization-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 연결 된 조직 추가
 
@@ -96,6 +96,23 @@ Azure AD 디렉터리 또는 도메인의 사용자가 인증 하는 방법은 �
 1. **검토 + 만들기** 탭에서 조직 설정을 검토 한 후 **만들기**를 클릭 합니다.
 
     ![액세스 패키지-정책-연결 된 조직 추가-검토 + 만들기 탭](./media/entitlement-management-organization/organization-review-create.png)
+
+## <a name="update-a-connected-organization"></a>연결 된 조직 업데이트 
+
+연결 된 조직이 다른 도메인으로 변경 되거나 해당 조직의 새 이름이 있거나 스폰서를 변경 하려는 경우 연결 된 조직을 업데이트할 수 있습니다.
+
+**필수 역할:** 전역 관리자, 사용자 관리자 또는 게스트 초대자
+
+1. Azure Portal에서 **Azure Active Directory**를 클릭한 다음, **Identity Governance**를 클릭합니다.
+
+1. 왼쪽 메뉴에서 **연결 된** 조직을 클릭 한 다음 연결 된 조직을 클릭 하 여 엽니다.
+
+1. 개요 페이지에서 **편집** 을 클릭 하 여 조직 이름 또는 설명을 변경 합니다.  
+
+1. 디렉터리 + 도메인 페이지에서 **디렉터리 업데이트 + 도메인** 을 클릭 하 여 다른 디렉터리나 도메인으로 변경 합니다.
+
+1. 스폰서 페이지에서 **내부 스폰서 추가** 또는 **외부 스폰서 추가** 를 클릭 하 여 사용자를 스폰서로 추가 합니다.  스폰서를 제거 하려면 스폰서를 클릭 하 고 오른쪽의 메뉴에서 **삭제**를 클릭 합니다.
+
 
 ## <a name="delete-a-connected-organization"></a>연결 된 조직 삭제
 

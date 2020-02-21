@@ -1,6 +1,6 @@
 ---
 title: Azure MFA 작동 방식-Azure Active Directory
-description: Azure Multi-Factor Authentication은 간편한 로그인 프로세스를 원하는 사용자의 요구를 충족시키는 동시에 데이터와 애플리케이션에 대한 액세스 보호를 지원합니다.
+description: 간단한 로그인 프로세스에 대한 사용자 요구를 충족하는 동안 Azure Multi-Factor Authentication을 사용하면 데이터와 애플리케이션에 대한 액세스를 보호합니다.
 services: multi-factor-authentication
 ms.service: active-directory
 ms.subservice: authentication
@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 0982f6fb70cd6866af48feab640d5dc36bcb6b28
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 39948214f5bd080be417ed515bea6bff87d3b303
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848683"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484063"
 ---
 # <a name="how-it-works-azure-multi-factor-authentication"></a>작동 방법: Azure Multi-Factor Authentication
 
@@ -38,7 +38,7 @@ Multi-Factor Authentication은 다음과 같은 제품의 일부로 제공됩니
 
 * **Azure Active Directory Premium** 또는 **Microsoft 365 Business** -조건부 액세스 정책을 사용 하 여 다단계 인증을 요구 하는 Azure Multi-Factor Authentication의 전체 기능 사용.
 
-* **Azure AD Free** 또는 독립 실행형 **Office 365** 라이선스-미리 만든 [조건부 액세스 기준 보호 정책을](../conditional-access/concept-baseline-protection.md) 사용 하 여 사용자 및 관리자에 게 multi-factor authentication을 요구 합니다.
+* **Azure AD Free** 또는 독립 실행형 **Office 365** 라이선스- [보안 기본값](../fundamentals/concept-fundamentals-security-defaults.md) 을 사용 하 여 사용자 및 관리자에 대 한 다단계 인증을 요구 합니다.
 
 * **Azure Active Directory 전역 관리자** - Azure Multi-factor Authentication 기능의 하위 집합을 전역 관리자 계정을 보호하는 수단으로 사용할 수 있습니다.
 

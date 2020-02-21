@@ -11,12 +11,12 @@ ms.topic: conceptual
 ms.date: 08/04/2017
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 04cc45956fc5aedc4c14dfb138be5db02ddec500
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c2361192a612cfd92003b1e3c36e85dbbd9090bb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847057"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482771"
 ---
 # <a name="azure-active-directory-b2c-use-custom-attributes-in-a-custom-profile-edit-policy"></a>Azure Active Directory B2C: 사용자 지정 프로필 편집 정책에서 특성 사용
 
@@ -24,7 +24,7 @@ ms.locfileid: "76847057"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C) 디렉터리에 사용자 지정 특성을 만듭니다. 이 새로운 특성을 프로필 편집 사용자 경험에서 사용자 지정 클레임으로 사용합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [Azure Active Directory B2C: 사용자 지정 정책 시작](custom-policy-get-started.md) 문서의 단계를 따릅니다.
 
@@ -34,7 +34,7 @@ Azure AD B2C 디렉터리에는 기본 제공 특성 집합이 함께 제공됩�
 * ID 공급자는 **uniqueUserGUID**와 같이 저장해야 하는 고유한 사용자 ID를 포함합니다.
 * 사용자 지정 사용자 경험은 **migrationStatus**와 같은 사용자 상태를 위해 유지해야 합니다.
 
-Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니다. 또한 [Azure AD Graph API](manage-user-accounts-graph-api.md)를 사용하여 이러한 특성을 읽고 쓸 수 있습니다.
+Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니다. [MICROSOFT GRAPH API](manage-user-accounts-graph-api.md)를 사용 하 여 이러한 특성을 읽고 쓸 수도 있습니다.
 
 확장 속성은 디렉터리에서 사용자 개체의 스키마를 확장합니다. ‘확장 속성’, ‘사용자 지정 특성’ 및 ‘사용자 지정 클레임’은 이 문서의 컨텍스트에서 동일한 항목을 참조합니다. 이름은 컨텍스트(예: 애플리케이션, 개체 또는 정책)에 따라 달라집니다.
 
@@ -68,7 +68,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
 ## <a name="modify-your-custom-policy-to-add-the-applicationobjectid"></a>사용자 지정 정책을 수정하여 **ApplicationObjectId** 추가
 
-[Azure Active Directory B2C: 사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 수행했을 때 **TrustFrameworkBase.xml**, **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** 및 **PasswordReset.xml**이라는 [샘플 파일](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip)을 다운로드하고 수정했습니다. 이 단계에서는 해당 파일을 추가로 수정합니다.
+[Azure Active Directory B2C: 사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 수행했을 때 [TrustFrameworkBase.xml](https://github.com/Azure-Samples/active-directory-b2c-custom-policy-starterpack/archive/master.zip), **TrustFrameworkExtensions.xml**, **SignUpOrSignin.xml**, **ProfileEdit.xml** 및 **PasswordReset.xml**이라는 **샘플 파일**을 다운로드하고 수정했습니다. 이 단계에서는 해당 파일을 추가로 수정합니다.
 
 * **TrustFrameworkBase.xml** 파일을 열고 다음 예제에서 표시된 대로 `Metadata` 섹션을 추가합니다. `ApplicationObjectId` 값에 이전에 기록한 개체 ID 및 `ClientId` 값에 기록한 애플리케이션 ID를 삽입합니다.
 
@@ -139,7 +139,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
     </BuildingBlocks>
     ```
 
-4. 동일한 `ClaimType` 정의를 **TrustFrameworkBase.xml**에 추가합니다. 기본 및 확장 파일에 둘 다 `ClaimType` 정의를 추가할 필요는 없습니다. 그러나 다음 단계에서는 기본 파일의 **TechnicalProfile**에 `extension_loyaltyId`를 추가합니다. 기본 파일이 없으면 정책 유효성 검사기가 기본 파일의 업로드를 거부합니다. **TrustFrameworkBase.xml** 파일에서 **ProfileEdit**라는 사용자 경험의 실행을 추적하는 데 유용할 수 있습니다. 편집기에서 동일한 이름의 사용자 경험을 검색합니다. 오케스트레이션 5단계에서 **TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate**를 호출하는 것을 확인합니다. 이 **TechnicalProfile**을 검색 및 검사하여 흐름에 익숙해지도록 합니다.
+4. 동일한 `ClaimType` 정의를 **TrustFrameworkBase.xml**에 추가합니다. 기본 및 확장 파일에 둘 다 `ClaimType` 정의를 추가할 필요는 없습니다. 그러나 다음 단계에서는 기본 파일의 `extension_loyaltyId`TechnicalProfile**에** 를 추가합니다. 기본 파일이 없으면 정책 유효성 검사기가 기본 파일의 업로드를 거부합니다. **TrustFrameworkBase.xml** 파일에서 **ProfileEdit**라는 사용자 경험의 실행을 추적하는 데 유용할 수 있습니다. 편집기에서 동일한 이름의 사용자 경험을 검색합니다. 오케스트레이션 5단계에서 **TechnicalProfileReferenceID="SelfAsserted-ProfileUpdate**를 호출하는 것을 확인합니다. 이 **TechnicalProfile**을 검색 및 검사하여 흐름에 익숙해지도록 합니다.
 
 5. **TrustFrameworkBase.xml** 파일을 열고 `loyaltyId`를 **TechnicalProfile SelfAsserted-ProfileUpdate**에서 입력 및 출력 클레임으로 추가합니다.
 
@@ -297,7 +297,7 @@ Azure AD B2C는 각 사용자 계정에 저장된 특성 집합을 확장합니�
 
 ## <a name="reference"></a>참조
 
-확장 속성에 대한 자세한 내용은 [디렉터리 스키마 확장 | Graph API 개념](/previous-versions/azure/ad/graph/howto/azure-ad-graph-api-directory-schema-extensions) 문서를 참조하세요.
+확장 속성에 대 한 자세한 내용은 [확장을 사용 하 여 리소스에 사용자 지정 데이터 추가](https://docs.microsoft.com/graph/extensibility-overview)문서를 참조 하세요.
 
 > [!NOTE]
 > * **TechnicalProfile**은 엔드포인트의 이름, 메타데이터 및 프로토콜을 정의하는 요소 형식 또는 함수입니다. **TechnicalProfile**은 ID 경험 프레임워크가 수행하는 클레임의 교환을 설명합니다. 오케스트레이션 단계 또는 다른 **TechnicalProfile**에서 이 함수를 호출하면 **InputClaims** 및 **OutputClaims**가 호출자의 매개 변수로 제공됩니다.

@@ -17,12 +17,12 @@ ms.date: 05/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin, nacanuma
 ms.custom: aaddev
-ms.openlocfilehash: fbef4d84e86c3d35e35a8bbeb04a399ad87a1b89
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 084c15c7ac3ec782dc48a55e65bf4d7aa43b58a1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164085"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484182"
 ---
 # <a name="service-to-service-calls-that-use-delegated-user-identity-in-the-on-behalf-of-flow"></a>On-Behalf-Of 흐름에서 위임된 사용자 ID를 사용하는 서비스 간 호출
 
@@ -267,7 +267,7 @@ SAML 어설션에 대한 서비스 간 요청에는 다음 매개 변수가 포�
 - **OBO 호출에서 소싱된 SAML 어설션에 대한 SubjectConfirmationData**: 대상 애플리케이션에 **SubjectConfirmationData**의 받는 사람 값이 필요한 경우 값은 리소스 애플리케이션 구성에서 비와일드카드 회신 URL이어야 합니다.
 - **SubjectConfirmationData 노드**: 이 노드는 SAML 응답에 속하지 않으므로 **InResponseTo** 특성을 포함할 수 없습니다. SAML 토큰을 수신하는 애플리케이션은 **InResponseTo** 특성이 없는 SAML 어설션을 수락할 수 있어야 합니다.
 
-- **동의**: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/develop/v1-permissions-and-consent)를 참조하세요.
+- **동의**: OAuth 흐름에서 사용자 데이터를 포함하는 SAML 토큰을 수락하려면 동의가 부여되어야 합니다. 사용 권한 및 관리자 동의를 가져오는 방법에 대한 내용은 [Azure Active Directory v1.0 엔드포인트의 사용 권한 및 동의](https://docs.microsoft.com/azure/active-directory/azuread-dev/v1-permissions-consent)를 참조하세요.
 
 ### <a name="response-with-saml-assertion"></a>SAML 어설션을 사용하여 응답
 

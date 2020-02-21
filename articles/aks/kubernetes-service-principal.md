@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: mlearned
-ms.openlocfilehash: 1b0d3dec3925518922c5f668560889edd6f5de0b
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 62fc95ed7179dc4188c0c40e4c15aa9940bf2eb5
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867173"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524242"
 ---
 # <a name="service-principals-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 사용하는 서비스 주체
 
@@ -70,7 +70,10 @@ az aks create \
     --client-secret <password>
 ```
 
-Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 **Kubernetes 클러스터 만들기** 대화 상자의 *인증* 페이지에서 **서비스 주체를 구성**하도록 선택합니다. **기존 항목 사용**을 선택하고, 다음 값을 지정합니다.
+> [!NOTE]
+> 사용자 지정 된 암호를 사용 하 여 기존 서비스 주체를 사용 하는 경우 암호는 190 바이트 보다 길지 않은지 확인 합니다.
+
+Azure Portal을 사용하여 AKS 클러스터를 배포하는 경우 *Kubernetes 클러스터 만들기* 대화 상자의 **인증** 페이지에서 **서비스 주체를 구성**하도록 선택합니다. **기존 항목 사용**을 선택하고, 다음 값을 지정합니다.
 
 - **서비스 주체 클라이언트 ID**는 사용자의 *appId*입니다.
 - **서비스 주체 클라이언트 비밀**은 *암호* 값입니다.
@@ -102,13 +105,13 @@ az role assignment create --assignee <appId> --scope <resourceScope> --role Cont
 - [사용자 지정 역할][rbac-custom-role] 을 만들고 다음 역할 권한을 정의 합니다.
   - *Microsoft.Network/virtualNetworks/subnets/join/action*
   - *Microsoft.Network/virtualNetworks/subnets/read*
-  - *Microsoft.Network/virtualNetworks/subnets/write*
+  - *Microsoft. Network/virtualNetworks/서브넷/쓰기*
   - *Microsoft.Network/publicIPAddresses/join/action*
   - *Microsoft.Network/publicIPAddresses/read*
   - *Microsoft.Network/publicIPAddresses/write*
 - 또는 가상 네트워크 내의 서브넷에서 [네트워크 기여자][rbac-network-contributor] 기본 제공 역할을 할당 합니다.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 다른 리소스 그룹에 있는 기존 디스크 리소스에 액세스해야 할 수 있습니다. 다음 역할 권한 집합 중 하나를 할당합니다.
 

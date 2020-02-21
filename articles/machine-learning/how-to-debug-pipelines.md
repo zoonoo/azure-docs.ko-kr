@@ -1,7 +1,7 @@
 ---
 title: Machine learning 파이프라인 디버그 및 문제 해결
 titleSuffix: Azure Machine Learning
-description: Python 용 Azure Machine Learning SDK에서 기계 학습 파이프라인을 디버그 하 고 문제를 해결 합니다. 파이프라인 개발에 대 한 일반적인 문제 및 원격 실행 전후에 스크립트를 디버그 하는 데 도움이 되는 팁에 대해 알아봅니다.
+description: Python 용 Azure Machine Learning SDK에서 기계 학습 파이프라인을 디버그 하 고 문제를 해결 합니다. 파이프라인 개발에 대 한 일반적인 문제 및 원격 실행 전후에 스크립트를 디버그 하는 데 도움이 되는 팁에 대해 알아봅니다. Visual Studio Code를 사용 하 여 기계 학습 파이프라인을 대화형으로 디버깅 하는 방법을 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
@@ -9,17 +9,22 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 5ba26584f08e705b24749a76d6f607aa84b48fab
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769118"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485372"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Machine learning 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
-이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다.
+이 문서에서는 [AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 및 [Azure Machine Learning designer (미리 보기)](https://docs.microsoft.com/azure/machine-learning/concept-designer)에서 [machine learning 파이프라인](concept-ml-pipelines.md) 을 디버그 하 고 문제를 해결 하는 방법에 대해 알아봅니다. 다음 방법에 대 한 정보가 제공 됩니다.
+
+* Azure Machine Learning SDK를 사용 하 여 디버그
+* Azure Machine Learning 디자이너를 사용 하 여 디버그
+* Application Insights를 사용 하 여 디버그
+* Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 대화형으로 디버그
 
 ## <a name="debug-and-troubleshoot-in-the-azure-machine-learning-sdk"></a>Azure Machine Learning SDK의 디버그 및 문제 해결
 다음 섹션에서는 파이프라인을 빌드할 때 발생 하는 일반적인 문제에 대 한 개요와 파이프라인에서 실행 되는 코드를 디버깅 하기 위한 다른 전략을 제공 합니다. 예상 대로 실행 되는 파이프라인을 가져오는 데 문제가 있는 경우 다음 팁을 사용 하세요.
@@ -83,7 +88,7 @@ ms.locfileid: "76769118"
 
 다음 표에서는 파이프라인에 대 한 다양 한 디버그 옵션에 대 한 정보를 제공 합니다. 여기에 표시 된 Azure Machine Learning, Python 및 OpenCensus 뿐 아니라 다른 옵션도 존재 하므로 완전 한 목록은 아닙니다.
 
-| 라이브러리                    | 유형   | 예                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
+| 라이브러리                    | Type   | 예제                                                          | 대상                                  | 리소스                                                                                                                                                                                                                                                                                                                    |
 |----------------------------|--------|------------------------------------------------------------------|----------------------------------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | Azure Machine Learning SDK | 메트릭 | `run.log(name, val)`                                             | Azure Machine Learning 포털 UI             | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br>[azureml 클래스](https://docs.microsoft.com/python/api/azureml-core/azureml.core.run(class)?view=experimental)                                                                                                                                                 |
 | Python 인쇄/로깅    | 로그    | `print(val)`<br>`logging.info(message)`                          | 드라이버 로그, Azure Machine Learning 디자이너 | [실험을 추적 하는 방법](how-to-track-experiments.md#available-metrics-to-track)<br><br>[Python 로깅](https://docs.python.org/2/library/logging.html)                                                                                                                                                                       |
@@ -148,6 +153,239 @@ logger.error("I am an OpenCensus error statement with custom dimensions", {'step
 
 ## <a name="debug-and-troubleshoot-in-application-insights"></a>Application Insights 디버그 및 문제 해결
 이러한 방식으로 OpenCensus Python 라이브러리를 사용 하는 방법에 대 한 자세한 내용은이 가이드: [Application Insights machine learning 파이프라인 디버그 및 문제 해결](how-to-debug-pipelines-application-insights.md) 을 참조 하세요.
+
+## <a name="debug-and-troubleshoot-in-visual-studio-code"></a>Visual Studio Code 디버그 및 문제 해결
+
+ML 파이프라인에서 사용 되는 Python 코드를 대화형으로 디버깅 해야 하는 경우도 있습니다. Visual Studio Code (VS Code) 및 Visual Studio용 Python 도구 (PTVSD)를 사용 하 여 학습 환경에서 실행 되는 코드에 연결할 수 있습니다.
+
+### <a name="prerequisites"></a>사전 요구 사항
+
+* __Azure Virtual Network__를 사용 하도록 구성 된 __Azure Machine Learning 작업 영역__ 입니다.
+* 파이프라인 단계의 일부로 Python 스크립트를 사용 하는 __Azure Machine Learning 파이프라인__ 입니다. 예를 들면 PythonScriptStep입니다.
+* __가상 네트워크에__ 있고 __파이프라인에서 학습에 사용__하는 Azure Machine Learning 계산 클러스터
+* __가상 네트워크에__있는 __개발 환경__ 개발 환경은 다음 중 하나일 수 있습니다.
+
+    * 가상 네트워크에 있는 Azure 가상 머신
+    * 가상 네트워크에 있는 노트북 VM의 계산 인스턴스
+    * VPN (가상 사설망)을 통해 가상 네트워크에 연결 된 클라이언트 컴퓨터입니다.
+
+Azure Machine Learning에서 Azure Virtual Network를 사용 하는 방법에 대 한 자세한 내용은 azure [Virtual Network 내에서 AZURE ML 실험 및 유추 작업 보호](how-to-enable-virtual-network.md)를 참조 하세요.
+
+### <a name="how-it-works"></a>작동 방법
+
+ML 파이프라인 단계는 Python 스크립트를 실행 합니다. 이러한 스크립트는 다음 작업을 수행 하도록 수정 됩니다.
+    
+1. 실행 중인 호스트의 IP 주소를 기록 합니다. IP 주소를 사용 하 여 디버거를 스크립트에 연결 합니다.
+
+2. PTVSD 디버그 구성 요소를 시작 하 고 디버거가 연결 될 때까지 기다립니다.
+
+3. 개발 환경에서 학습 프로세스에 의해 생성 된 로그를 모니터링 하 여 스크립트가 실행 되는 IP 주소를 찾을 수 있습니다.
+
+4. `launch.json` 파일을 사용 하 여 디버거를 연결 하 VS Code IP 주소를 알려 줍니다.
+
+5. 디버거를 연결 하 고 스크립트를 통해 대화형으로 프로시저를 실행 합니다.
+
+### <a name="configure-python-scripts"></a>Python 스크립트 구성
+
+디버깅을 사용 하도록 설정 하려면 ML 파이프라인의 단계에서 사용 하는 Python 스크립트를 다음과 같이 변경 합니다.
+
+1. 다음 import 문을 추가 합니다.
+
+    ```python
+    import ptvsd
+    import socket
+    from azureml.core import Run
+    ```
+
+1. 다음 인수를 추가 합니다. 이러한 인수를 사용 하면 필요에 따라 디버거를 사용 하도록 설정 하 고 디버거 연결에 대 한 제한 시간을 설정할 수 있습니다.
+
+    ```python
+    parser.add_argument('--remote_debug', action='store_true')
+    parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the Azure ML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+    ```
+
+1. 다음 문을 추가 합니다. 이러한 문은 현재 실행 컨텍스트를 로드 하 여 코드가 실행 되 고 있는 노드의 IP 주소를 기록할 수 있도록 합니다.
+
+    ```python
+    global run
+    run = Run.get_context()
+    ```
+
+1. PTVSD를 시작 하 고 디버거가 연결 될 때까지 대기 하는 `if` 문을 추가 합니다. 제한 시간 이전에 디버거가 연결 되지 않은 경우 스크립트는 정상적으로 계속 됩니다.
+
+    ```python
+    if args.remote_debug:
+        print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+        # Log the IP and port
+        ip = socket.gethostbyname(socket.gethostname())
+        print(f'ip_address: {ip}')
+        ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                            redirect_output=True)
+        # Wait for the timeout for debugger to attach
+        ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+        print(f'Debugger attached = {ptvsd.is_attached()}')
+    ```
+
+다음 Python 예제에서는 디버깅을 사용 하도록 설정 하는 기본 `train.py` 파일을 보여 줍니다.
+
+```python
+# Copyright (c) Microsoft. All rights reserved.
+# Licensed under the MIT license.
+
+import argparse
+import os
+import ptvsd
+import socket
+from azureml.core import Run
+
+print("In train.py")
+print("As a data scientist, this is where I use my training code.")
+
+parser = argparse.ArgumentParser("train")
+
+parser.add_argument("--input_data", type=str, help="input data")
+parser.add_argument("--output_train", type=str, help="output_train directory")
+
+# Argument check for remote debugging
+parser.add_argument('--remote_debug', action='store_true')
+parser.add_argument('--remote_debug_connection_timeout', type=int,
+                    default=300,
+                    help=f'Defines how much time the AML compute target '
+                    f'will await a connection from a debugger client (VSCODE).')
+# Get run object, so we can find and log the IP of the host instance
+global run
+run = Run.get_context()
+
+args = parser.parse_args()
+
+# Start debugger if remote_debug is enabled
+if args.remote_debug:
+    print(f'Timeout for debug connection: {args.remote_debug_connection_timeout}')
+    # Log the IP and port
+    ip = socket.gethostbyname(socket.gethostname())
+    print(f'ip_address: {ip}')
+    ptvsd.enable_attach(address=('0.0.0.0', 5678),
+                        redirect_output=True)
+    # Wait for the timeout for debugger to attach
+    ptvsd.wait_for_attach(timeout=args.remote_debug_connection_timeout)
+    print(f'Debugger attached = {ptvsd.is_attached()}')
+
+print("Argument 1: %s" % args.input_data)
+print("Argument 2: %s" % args.output_train)
+
+if not (args.output_train is None):
+    os.makedirs(args.output_train, exist_ok=True)
+    print("%s created" % args.output_train)
+```
+
+### <a name="configure-ml-pipeline"></a>ML 파이프라인 구성
+
+PTVSD를 시작 하는 데 필요한 Python 패키지를 제공 하 고 실행 컨텍스트를 가져오려면 [환경을]() 만들고 `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`를 설정 합니다. SDK 버전을 사용 하는 것과 일치 하도록 변경 합니다. 다음 코드 조각에서는 환경을 만드는 방법을 보여 줍니다.
+
+```python
+# Use a RunConfiguration to specify some additional requirements for this step.
+from azureml.core.runconfig import RunConfiguration
+from azureml.core.conda_dependencies import CondaDependencies
+from azureml.core.runconfig import DEFAULT_CPU_IMAGE
+
+# create a new runconfig object
+run_config = RunConfiguration()
+
+# enable Docker 
+run_config.environment.docker.enabled = True
+
+# set Docker base image to the default CPU-based image
+run_config.environment.docker.base_image = DEFAULT_CPU_IMAGE
+
+# use conda_dependencies.yml to create a conda environment in the Docker image for execution
+run_config.environment.python.user_managed_dependencies = False
+
+# specify CondaDependencies obj
+run_config.environment.python.conda_dependencies = CondaDependencies.create(conda_packages=['scikit-learn'],
+                                                                           pip_packages=['ptvsd', 'azureml-sdk==1.0.83'])
+```
+
+[Python 스크립트 구성](#configure-python-scripts) 섹션에는 ML 파이프라인 단계에서 사용 하는 스크립트에 두 개의 새 인수가 추가 되었습니다. 다음 코드 조각에서는 이러한 인수를 사용 하 여 구성 요소에 대 한 디버깅을 사용 하도록 설정 하 고 시간 제한을 설정 하는 방법을 보여 줍니다. 또한 `runconfig=run_config`설정 하 여 이전에 만든 환경을 사용 하는 방법을 보여 줍니다.
+
+```python
+# Use RunConfig from a pipeline step
+step1 = PythonScriptStep(name="train_step",
+                         script_name="train.py",
+                         arguments=['--remote_debug', '--remote_debug_connection_timeout', 300],
+                         compute_target=aml_compute, 
+                         source_directory=source_directory,
+                         runconfig=run_config,
+                         allow_reuse=False)
+```
+
+파이프라인이 실행 되 면 각 단계에서 자식 실행을 만듭니다. 디버깅을 사용 하도록 설정 하면 수정 된 스크립트는 자식 실행에 대 한 `70_driver_log.txt`의 다음 텍스트와 유사한 정보를 기록 합니다.
+
+```text
+Timeout for debug connection: 300
+ip_address: 10.3.0.5
+```
+
+`ip_address` 값을 저장 합니다. 해당 정보는 다음 섹션에서 사용됩니다.
+
+> [!TIP]
+> 이 파이프라인에 대 한 자식 실행에 대 한 로그 실행 단계에서 IP 주소를 찾을 수도 있습니다. 이 정보를 보는 방법에 대 한 자세한 내용은 [AZURE ML 실험 실행 및 메트릭 모니터링](how-to-track-experiments.md)을 참조 하세요.
+
+### <a name="configure-development-environment"></a>개발 환경 구성
+
+1. VS Code 개발 환경에 Visual Studio용 Python 도구 (PTVSD)를 설치 하려면 다음 명령을 사용 합니다.
+
+    ```
+    python -m pip install --upgrade ptvsd
+    ```
+
+    VS Code에서 PTVSD를 사용 하는 방법에 대 한 자세한 내용은 [원격 디버깅](https://code.visualstudio.com/docs/python/debugging#_remote-debugging)을 참조 하세요.
+
+1. 디버거를 실행 하는 Azure Machine Learning 계산과 통신 하도록 VS Code를 구성 하려면 새 디버그 구성을 만듭니다.
+
+    1. VS Code에서 __디버그__ 메뉴를 선택 하 고 __구성 열기__를 선택 합니다. __시작__ 파일 이름이 열립니다.
+
+    1. __시작. json__ 파일에서 `"configurations": [`포함 된 줄을 찾은 후 다음 텍스트를 삽입 합니다. `"host": "10.3.0.5"` 항목을 이전 섹션의 로그에서 반환 된 IP 주소로 변경 합니다. `"localRoot": "${workspaceFolder}/code/step"` 항목을 디버그 중인 스크립트의 복사본을 포함 하는 로컬 디렉터리로 변경 합니다.
+
+        ```json
+        {
+            "name": "Azure Machine Learning Compute: remote debug",
+            "type": "python",
+            "request": "attach",
+            "port": 5678,
+            "host": "10.3.0.5",
+            "redirectOutput": true,
+            "pathMappings": [
+                {
+                    "localRoot": "${workspaceFolder}/code/step1",
+                    "remoteRoot": "."
+                }
+            ]
+        }
+        ```
+
+        > [!IMPORTANT]
+        > 구성 섹션에 다른 항목이 이미 있는 경우 삽입 한 코드 뒤에 쉼표 (,)를 추가 합니다.
+
+        > [!TIP]
+        > 스크립트에 대 한 리소스를 별도의 디렉터리에 보관 하는 것이 가장 좋습니다. 따라서 `localRoot` 예제 값이 `/code/step1`을 참조 합니다.
+        >
+        > 여러 스크립트를 디버그 하는 경우 다른 디렉터리에서 각 스크립트에 대 한 별도의 구성 섹션을 만듭니다.
+
+    1. __시작 json__ 파일을 저장 합니다.
+
+### <a name="connect-the-debugger"></a>디버거 연결
+
+1. VS Code를 열고 스크립트의 로컬 복사본을 엽니다.
+2. 연결 된 후 스크립트를 중지 하려는 중단점을 설정 합니다.
+3. 자식 프로세스가 스크립트를 실행 하 고 `Timeout for debug connection` 로그에 표시 되는 동안 F5 키를 사용 하거나 __디버그__를 선택 합니다. 메시지가 표시 되 면 __Azure Machine Learning Compute: 원격 디버그__ 구성을 선택 합니다. 디버그 드롭다운 메뉴의 오른쪽 __Azure Machine Learning: 원격 디버그__ 항목에서 디버그 아이콘을 선택 하 고 녹색 화살표를 사용 하 여 디버거를 연결할 수도 있습니다.
+
+    이 시점에서 VS Code 계산 노드의 PTVSD에 연결 하 고 이전에 설정한 중단점에서 중지 합니다. 이제 실행 되는 코드를 단계별로 실행 하 고 변수를 볼 수 있습니다.
+
+    > [!NOTE]
+    > 로그에 `Debugger attached = False`를 나타내는 항목이 표시 되 면 제한 시간이 만료 되 고 스크립트가 디버거 없이 계속 됩니다. 파이프라인을 다시 제출 하 고, `Timeout for debug connection` 메시지 뒤에 디버거를 연결 하 고, 제한 시간이 만료 되기 전에 디버거를 연결 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

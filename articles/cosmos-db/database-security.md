@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 05/23/2019
 ms.author: mjbrown
-ms.openlocfilehash: 4f9f801ccf4c2236bfb2ccec8061adc893237256
-ms.sourcegitcommit: e42c778d38fd623f2ff8850bb6b1718cdb37309f
+ms.openlocfilehash: 145473dfce3d9036b2262ccf3f65f570a2939ef3
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/19/2019
-ms.locfileid: "69615465"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524583"
 ---
 # <a name="security-in-azure-cosmos-db---overview"></a>Azure Cosmos DB의 보안 - 개요
 
@@ -60,7 +60,7 @@ ms.locfileid: "69615465"
 |보안 요구 사항|Azure Cosmos DB의 보안 접근 방식|
 |---|---|
 |네트워크 보안|IP 방화벽을 사용하는 것이 데이터베이스를 보호하기 위한 첫 번째 보호 계층입니다. Azure Cosmos DB는 인바운드 방화벽 지원을 위해 정책 중심 IP 기반 액세스 제어를 지원합니다. IP 기반 액세스 제어는 기존 데이터베이스 시스템에서 사용 하는 방화벽 규칙과 유사 하지만, Azure Cosmos 데이터베이스 계정을 승인 된 컴퓨터 또는 클라우드 서비스 집합 에서만 액세스할 수 있도록 확장 됩니다. <br><br>Azure Cosmos DB를 통해 특정 IP 주소(168.61.48.0), IP 범위(168.61.48.0/8), IP와 범위 조합을 사용하도록 할 수 있습니다. <br><br>이 허용된 목록 이외의 컴퓨터에서 보내는 모든 요청은 Azure Cosmos DB에서 차단됩니다. 승인된 컴퓨터 및 클라우드 서비스에서 보내는 요청은 리소스에 대한 액세스 제어를 부여 받기 위해 인증 과정을 완료해야 합니다.<br><br>자세한 내용은 [Azure Cosmos DB 방화벽 지원](firewall-support.md)을 참조하세요.|
-|Authorization|Azure Cosmos DB는 권한 부여를 위해 HMAC(해시 기반 메시지 인증 코드)를 사용합니다. <br><br>각 요청은 비밀 계정 키를 사용하여 해시되고, Azure Cosmos DB를 호출할 때마다 base-64로 인코드된 후속 해시가 전송됩니다. 요청의 유효성을 검사하기 위해 Azure Cosmos DB 서비스는 올바른 비밀 키와 속성을 사용하여 해시를 생성한 후 요청에 있는 값과 비교합니다. 두 값이 일치하면 작업이 성공적으로 인증되어 요청이 처리되고 그렇지 않은 경우 권한 부여 오류로 요청이 거부됩니다.<br><br>문서와 같은 리소스에 세분화된 액세스를 허용하는 [마스터 키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens)을 사용할 수 있습니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
+|권한 부여|Azure Cosmos DB는 권한 부여를 위해 HMAC(해시 기반 메시지 인증 코드)를 사용합니다. <br><br>각 요청은 비밀 계정 키를 사용하여 해시되고, Azure Cosmos DB를 호출할 때마다 base-64로 인코드된 후속 해시가 전송됩니다. 요청의 유효성을 검사하기 위해 Azure Cosmos DB 서비스는 올바른 비밀 키와 속성을 사용하여 해시를 생성한 후 요청에 있는 값과 비교합니다. 두 값이 일치하면 작업이 성공적으로 인증되어 요청이 처리되고 그렇지 않은 경우 권한 부여 오류로 요청이 거부됩니다.<br><br>문서와 같은 리소스에 세분화된 액세스를 허용하는 [마스터 키](secure-access-to-data.md#master-keys) 또는 [리소스 토큰](secure-access-to-data.md#resource-tokens)을 사용할 수 있습니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |사용자 및 사용 권한|계정에 마스터 키를 사용하여 데이터베이스당 사용자 리소스 및 권한 리소스를 만들 수 있습니다. 리소스 토큰은 데이터베이스에 있는 권한과 연결되며 사용자가 데이터베이스에 있는 애플리케이션 리소스에 대한 액세스 권한(읽기-쓰기, 읽기 전용 또는 액세스 권한 없음)을 보유하는지 확인합니다. 애플리케이션 리소스에는 컨테이너, 문서, 첨부 파일, 저장 프로시저, 트리거 및 UDF가 포함됩니다. 그리고 인증 중에는 리소스 토큰이 사용되어 리소스에 대한 액세스를 제공 또는 거부합니다.<br><br>자세한 내용은 [Azure Cosmos DB 리소스에 대한 액세스 보호](secure-access-to-data.md)를 참조하세요.|
 |Active Directory 통합(RBAC)| Azure Portal에서 액세스 제어 (IAM)를 사용 하 여 Cosmos 계정, 데이터베이스, 컨테이너 및 제안 (처리량)에 대 한 액세스를 제공 하거나 제한할 수도 있습니다. IAM은 역할 기반 액세스 제어를 제공하며 Active Directory와 통합됩니다. 개인 및 그룹에 기본 제공 역할 또는 사용자 지정 역할을 사용할 수 있습니다. 자세한 내용은 [Active Directory 통합](role-based-access-control.md) 문서를 참조 하세요.|
 |글로벌 복제|Azure Cosmos DB는 단추 클릭만으로 Azure 전 세계 데이터 센터 중 어디로나 데이터를 복제할 수 있는 턴키 글로벌 배포 기능을 제공합니다. 글로벌 복제를 통해 전역적으로 크기를 조정하고 전 세계 데이터에 짧은 대기 시간으로 액세스할 수 있습니다.<br><br>보안 컨텍스트에서 글로벌 복제는 지역별 오류에 대해 데이터 보호를 보장해줍니다.<br><br>[데이터를 글로벌 배포](distribute-data-globally.md)에 대한 자세한 정보|
@@ -73,13 +73,13 @@ ms.locfileid: "69615465"
 |공격에 대응|잠재적인 공격을 보고하기 위해 Azure 지원에 연락한 경우 5단계 인시던트 대응 프로세스가 시작됩니다. 5단계 프로세스의 목표는 문제가 검색되어 조사가 시작된 후 정상적인 서비스 보안 및 작업을 가능한 신속히 복원하는 것입니다.<br><br>[클라우드에서 Microsoft Azure의 보안 대응](https://aka.ms/securityresponsepaper)에 대한 자세한 정보|
 |지오-펜싱|Azure Cosmos DB는 독립적인 지역(예: 독일, 중국, US Gov)에 대해 데이터 거버넌스를 보장합니다.|
 |보호된 기능|Azure Cosmos DB의 데이터는 SSD의 Azure 보호된 데이터 센터에 저장됩니다.<br><br>[Microsoft 글로벌 데이터 센터](https://www.microsoft.com/en-us/cloud-platform/global-datacenters)에 대한 자세한 정보|
-|HTTPS/SSL/TLS 암호화|모든 클라이언트-서비스 Azure Cosmos DB 상호 작용에는 SSL/TLS 1.2가 지원됩니다. 또한 모든 데이터 센터 및 데이터 센터 간 복제는 SSL/TLS 1.2이 적용 됩니다.|
+|HTTPS/SSL/TLS 암호화|Azure Cosmos DB에 대 한 모든 연결은 HTTPS를 지원 합니다. Azure Cosmos DB는 TLS 1.2도 지원 합니다.<br>최소 TLS 버전 서버 쪽을 적용할 수 있습니다. 이렇게 하려면 [azurecosmosdbtls@service.microsoft.com](mailto:azurecosmosdbtls@service.microsoft.com)에 문의 하세요.|
 |휴지 상태의 암호화|Azure Cosmos DB에 저장된 모든 데이터는 미사용 암호화됩니다. 자세한 내용은 [Azure Cosmos DB 미사용 암호화](./database-encryption-at-rest.md)를 참조하세요.|
 |패치된 서버|관리되는 데이터베이스인 Azure Cosmos DB를 사용하면 직접 서버를 관리하고 패치를 적용하지 않아도 자동으로 처리됩니다.|
 |강력한 암호를 사용하는 관리 계정|이 요구 사항은 당연하게 여겨질 수 있지만, 일부 경쟁업체와 달리 Azure Cosmos DB에서는 관리 계정에 반드시 암호가 있어야 합니다.<br><br> SSL 및 HMAC 비밀 기반 인증을 통한 보안이 기본적으로 반영됩니다.|
-|보안 및 데이터 보호 인증서| 최신 인증 목록은 전체 [Azure 규정 준수 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) 뿐만 아니라 모든 인증을 사용 하는 최신 [Azure 규정 준수 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Cosmos 검색)를 참조 하세요. 좀 더 집중 된 읽기에 대 한 자세한 내용은 2018 4 월 25 일 게시 [Azure #CosmosDB: SOC 1/2 Type 2, HITRUST, PCI DSS Level 1, ISO 27001, HIPAA, FedRAMP High 및 기타 여러 가지를 포함 하는 안전 하 고 개인 규정 준수입니다.
+|보안 및 데이터 보호 인증서| 최신 인증 목록은 전체 [Azure 규정 준수 사이트](https://www.microsoft.com/en-us/trustcenter/compliance/complianceofferings) 뿐만 아니라 모든 인증을 사용 하는 최신 [Azure 규정 준수 문서](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942) (Cosmos 검색)를 참조 하세요. 보다 초점을 맞춘 읽기의 경우 2018 post [Azure #CosmosDB: 보안, 개인, 준수에 SOC 1/2 유형 2, HITRUST, PCI DSS 수준 1, ISO 27001, HIPAA, FedRAMP High 및 기타 여러 항목이 포함 되어 있습니다.
 
-다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여줍니다. ![Azure Cosmos DB에 대한 활동 로그](./media/database-security/nosql-database-security-application-logging.png)
+다음 스크린샷은 감사 로깅 및 활동 로그를 사용하여 계정을 어떻게 모니터링할 수 있는지 보여 줍니다. ![Azure Cosmos DB에 대한 활동 로그](./media/database-security/nosql-database-security-application-logging.png)
 
 ## <a name="next-steps"></a>다음 단계
 

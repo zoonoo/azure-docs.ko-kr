@@ -2,14 +2,14 @@
 title: 지역별 리소스 가용성
 description: 여러 다른 Azure 지역의 Azure Container Instances 서비스에 대한 컴퓨팅 및 메모리 리소스 가용성입니다.
 ms.topic: article
-ms.date: 01/31/2020
+ms.date: 02/19/2020
 ms.author: danlep
-ms.openlocfilehash: 3f64a13331658c1360c9d54f6f57a68c2c91fc6f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: f429a165fe26cc9fc7aa973231f5a77163feef4a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117847"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525306"
 ---
 # <a name="resource-availability-for-azure-container-instances-in-azure-regions"></a>Azure 지역의 Azure Container Instances에 대한 리소스 가용성
 
@@ -24,7 +24,7 @@ ms.locfileid: "77117847"
 
 ## <a name="availability---general"></a>가용성 - 일반
 
-다음 지역 및 리소스는 Linux 및 [지원되는](container-instances-faq.md#what-windows-base-os-images-are-supported) Windows Server 2016 기반 컨테이너가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
+Linux와 [지원 되](container-instances-faq.md#what-windows-base-os-images-are-supported) 는 Windows Server 2016 기반 컨테이너를 포함 하는 컨테이너 그룹에는 다음 지역과 최대 리소스를 사용할 수 있습니다.
 
 | 영역 | OS | 최대 CPU | 최대 메모리 (GB) | 스토리지(GB) |
 | -------- | -- | :---: | :-----------: | :---: |
@@ -37,7 +37,7 @@ ms.locfileid: "77117847"
 
 ## <a name="availability---windows-server-2019-ltsc-1809-deployments-preview"></a>가용성 - Windows Server 2019 LTSC, 1809 배포(미리 보기)
 
-다음 지역 및 리소스는 Windows Server 2019 기반 컨테이너(미리 보기)가 포함된 컨테이너 그룹에서 사용할 수 있습니다.
+Windows Server 2019 기반 컨테이너 (미리 보기)를 사용 하 여 컨테이너 그룹에 사용할 수 있는 지역 및 최대 리소스는 다음과 같습니다.
 
 | 영역 | OS | 최대 CPU | 최대 메모리 (GB) | 스토리지(GB) |
 | -------- | -- | :---: | :-----------: | :---: |
@@ -47,13 +47,16 @@ ms.locfileid: "77117847"
 
 ## <a name="availability---virtual-network-deployment"></a>가용성-가상 네트워크 배포
 
-[Azure 가상 네트워크](container-instances-vnet.md)에 배포 된 컨테이너 그룹에서 사용할 수 있는 지역 및 리소스는 다음과 같습니다.
+[Azure 가상 네트워크](container-instances-vnet.md)에 배포 된 컨테이너 그룹에서 사용할 수 있는 지역 및 최대 리소스는 다음과 같습니다.
 
 [!INCLUDE [container-instances-vnet-limits](../../includes/container-instances-vnet-limits.md)]
 
 ## <a name="availability---gpu-resources-preview"></a>가용성 - GPU 리소스(미리 보기)
 
-다음 지역 및 리소스는 [GPU 리소스](container-instances-gpu.md)(미리 보기)와 함께 배포된 컨테이너 그룹에서 사용할 수 있습니다.
+[GPU 리소스](container-instances-gpu.md) (미리 보기)를 사용 하 여 배포 된 컨테이너 그룹에서 사용할 수 있는 지역 및 최대 리소스는 다음과 같습니다.
+
+> [!IMPORTANT]
+> GPU 리소스는 요청 시에만 사용할 수 있습니다. GPU 리소스에 대 한 액세스를 요청 하려면 [Azure 지원 요청][azure-support]을 제출 하세요.
 
 [!INCLUDE [container-instances-gpu-regions](../../includes/container-instances-gpu-regions.md)]
 [!INCLUDE [container-instances-gpu-limits](../../includes/container-instances-gpu-limits.md)]
@@ -63,3 +66,6 @@ ms.locfileid: "77117847"
 추가 지역 또는 증가된 리소스 가용성을 확인하고 싶은 경우 [aka.ms/aci/feedback](https://aka.ms/aci/feedback)을 통해 팀에 알려주세요.
 
 컨테이너 인스턴스 배포 문제 해결 방법에 대한 내용은 [Azure Container Instances로의 배포 문제 해결](container-instances-troubleshooting.md)을 참조하세요.
+
+
+[azure-support]: https://ms.portal.azure.com/#blade/Microsoft_Azure_Support/HelpAndSupportBlade/newsupportrequest

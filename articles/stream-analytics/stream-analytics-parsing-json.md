@@ -6,12 +6,12 @@ author: mamccrea
 ms.author: mamccrea
 ms.topic: conceptual
 ms.date: 01/29/2020
-ms.openlocfilehash: ac06521df38bdc91ca717d888c73cd541576014d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 73905483850a47a9d036bef1b9e1ee60d3484555
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905459"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484590"
 ---
 # <a name="parse-json-and-avro-data-in-azure-stream-analytics"></a>Azure Stream Analytics에서 JSON 및 Avro 데이터 구문 분석
 
@@ -63,7 +63,7 @@ FROM input
 
 결과는 다음과 같습니다.
 
-|DeviceID|Lat|장기|온도|버전|
+|DeviceID|Lat|long|온도|버전|
 |-|-|-|-|-|
 |12345|47|122|80|1.2.45|
 
@@ -80,7 +80,7 @@ FROM input
 
 결과는 다음과 같습니다.
 
-|DeviceID|Lat|장기|
+|DeviceID|Lat|long|
 |-|-|-|
 |12345|47|122|
 
@@ -167,6 +167,38 @@ WITH Stage0 AS
 
 SELECT DeviceID, PropertyValue AS Temperature INTO TemperatureOutput FROM Stage0 WHERE PropertyName = 'Temperature'
 SELECT DeviceID, PropertyValue AS Humidity INTO HumidityOutput FROM Stage0 WHERE PropertyName = 'Humidity'
+```
+
+### <a name="parse-json-record-in-sql-reference-data"></a>SQL 참조 데이터의 JSON 레코드 구문 분석
+작업에서 Azure SQL Database 참조 데이터로 사용 하는 경우 JSON 형식의 데이터가 있는 열이 있을 수 있습니다. 아래에 예제가 나와 있습니다.
+
+|DeviceID|data|
+|-|-|
+|12345|{"key": "value1"}|
+|54321|{"key": "value2"}|
+
+간단한 JavaScript 사용자 정의 함수를 작성 하 여 *데이터* 열의 JSON 레코드를 구문 분석할 수 있습니다.
+
+```javascript
+function parseJson(string) {
+return JSON.parse(string);
+}
+```
+
+그런 다음, 아래와 같이 JSON 레코드의 필드에 액세스 하는 Stream Analytics 쿼리에 단계를 만들 수 있습니다.
+
+ ```SQL
+ WITH parseJson as
+ (
+ SELECT DeviceID, udf.parseJson(sqlRefInput.Data) as metadata,
+ FROM sqlRefInput
+ )
+ 
+ SELECT metadata.key
+ INTO output
+ FROM streamInput
+ JOIN parseJson 
+ ON streamInput.DeviceID = parseJson.DeviceID
 ```
 
 ## <a name="array-data-types"></a>배열 데이터 형식
@@ -291,7 +323,7 @@ LEFT JOIN DynamicCTE M ON M.smKey = 'Manufacturer' and M.DeviceId = i.DeviceId A
 
 결과는 다음과 같습니다.
 
-|deviceId|Lat|장기|smVersion|smManufacturer|
+|deviceId|Lat|long|smVersion|smManufacturer|
 |-|-|-|-|-|
 |12345|47|122|1.2.45|ABC|
 

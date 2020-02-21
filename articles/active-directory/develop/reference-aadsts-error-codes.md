@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: reference
-ms.date: 12/18/2019
+ms.date: 02/19/2020
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev
-ms.openlocfilehash: 7798cb86606c206f027a1014802770a74aba909a
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: ba5af060a02e8525320f005b5d1c80534c5ca4ea
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160380"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483927"
 ---
 # <a name="azure-ad-authentication-and-authorization-error-codes"></a>Azure AD 인증 및 권한 부여 오류 코드
 
@@ -133,7 +133,7 @@ Azure AD STS(보안 토큰 서비스)에서 반환된 AADSTS 오류 코드에 �
 | AADSTS50180 | WindowsIntegratedAuthMissing - 통합된 Windows 인증이 필요합니다. Seamless SSO에 대한 테넌트를 사용하도록 설정합니다. |
 | AADSTS50187 | DeviceInformationNotProvided - 서비스에서 디바이스 인증을 수행하지 못했습니다. |
 | AADSTS50196 | LoopDetected-클라이언트 루프가 검색 되었습니다. 응용 프로그램의 논리를 확인 하 여 토큰 캐싱이 구현 되 고 오류 조건이 올바르게 처리 되었는지 확인 합니다.  앱이 너무 짧은 기간 내에 너무 많은 요청을 수행 하 여 잘못 된 상태에 있거나 토큰을 abusively를 나타냅니다. |
-| AADSTS50199 | CmsiInterrupt-이 인증에는 사용자 조작이 필요 합니다.  이 오류는 "interaction_required" 오류 이기 때문에 클라이언트는 대화형 인증을 수행 해야 합니다.  이는 시스템 웹 보기를 사용 하 여 네이티브 응용 프로그램에 대 한 토큰을 요청 했기 때문에 발생 합니다. 사용자에 게 실제로 로그인 하려는 앱 인지 여부를 묻는 메시지를 표시 해야 합니다.|
+| AADSTS50199 | CmsiInterrupt-보안상의 이유로이 요청에는 사용자 확인이 필요 합니다.  이 오류는 "interaction_required" 오류 이기 때문에 클라이언트는 대화형 인증을 수행 해야 합니다.  이는 시스템 웹 보기를 사용 하 여 네이티브 응용 프로그램에 대 한 토큰을 요청 했기 때문에 발생 합니다. 사용자에 게 실제로 로그인 하려는 앱 인지 여부를 묻는 메시지를 표시 해야 합니다.|
 | AADSTS51000 | RequiredFeatureNotEnabled - 기능을 사용할 수 없습니다. |
 | AADSTS51001 | DomainHintMustbePresent - 도메인 힌트에 온-프레미스 보안 식별자와 온-프레미스 UPN이 있어야 합니다. |
 | AADSTS51004 | UserAccountNotInDirectory - 사용자 계정이 디렉터리에 존재하지 않습니다. |

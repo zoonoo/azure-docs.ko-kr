@@ -1,18 +1,19 @@
 ---
-title: '참조: DSVM 이미지 사용 중단'
-description: Azure Data Science Virtual Machine에 영향을 주는 결함 (DSVM)에 대 한 세부 정보
+title: '참조: Data Science Virtual Machine 이미지 사용 중단'
+titleSuffix: Azure Data Science Virtual Machine
+description: Azure Data Science Virtual Machine에 영향을 주는 결함에 대 한 세부 정보
 author: gvashishtha
 ms.service: machine-learning
 ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 10/14/2019
 ms.topic: reference
-ms.openlocfilehash: 252f9c66034dbadaf7a2e9e6f78665c26d414deb
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 71ce8519dca6fa71340b1c34fe3a6891ccf5753f
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75456278"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525790"
 ---
 # <a name="reference-deprecation-of-dsvm-images"></a>참조: DSVM 이미지 사용 중단
 

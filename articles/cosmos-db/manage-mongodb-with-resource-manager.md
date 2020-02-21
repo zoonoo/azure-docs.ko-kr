@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: 408f29322af2199259f59be1f2c7e891a80a6b35
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 65838c36cadba580c578677185683e27b57b1e27
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980586"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525501"
 ---
 # <a name="manage-azure-cosmos-db-mongodb-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB MongoDB API 리소스 관리
 
@@ -24,6 +24,8 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 
 > [!NOTE]
 > 계정 이름은 소문자와 44 자이 하 여야 합니다.
 > R u/s를 업데이트 하려면 업데이트 된 처리량 속성 값으로 템플릿을 다시 전송 합니다.
+>
+> 현재 PowerShell, CLI 및 리소스 관리자 템플릿을 사용 하 여 MongoDB 계정에 대 한 Azure Cosmos DB API의 3.2 버전 (`*.documents.azure.com`형식의 끝점을 사용 하는 계정)만 만들 수 있습니다. 3\.6 버전의 계정을 만들려면 Azure Portal를 대신 사용 합니다.
 
 [!code-json[create-cosmos-mongo](~/quickstart-templates/101-cosmosdb-mongodb/azuredeploy.json)]
 

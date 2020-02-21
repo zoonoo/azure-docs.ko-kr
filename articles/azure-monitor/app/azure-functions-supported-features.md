@@ -8,24 +8,25 @@ author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: ce8fcc827afdf0102a459f2c6b58db45eff72fa0
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 807dde08d6ae88054524cb9e397d36db41324482
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467390"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484573"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 
 Azure Functions는 ILogger 인터페이스를 통해 사용할 수 있는 Application Insights와의 [기본 제공 통합](../../azure-functions/functions-monitoring.md)을 제공합니다. 다음은 현재 지원되는 기능 목록입니다. Azure Functions 가이드에서 [시작](../../azure-functions/functions-monitoring.md#enable-application-insights-integration) 방법을 검토하세요.
 
-런타임 버전에 대 한 자세한 내용은 [여기](../../azure-functions/functions-versions.md)를 참조 하세요.
+함수 런타임 버전에 대 한 자세한 내용은 [여기](../../azure-functions/functions-versions.md)를 참조 하세요.
+
+호환 되는 버전의 Application Insights에 대 한 자세한 내용은 [종속성](https://www.nuget.org/packages/Microsoft.Azure.WebJobs.Logging.ApplicationInsights/)을 참조 하세요.
 
 ## <a name="supported-features"></a>지원되는 기능
 
 | Azure 기능                       | V1                | V2 & V3   | 
 |-----------------------------------    |---------------    |------------------ |
-| **Application Insights .NET SDK**   | **2.5.0**       | **2.9.1**         |
 | | | | 
 | **자동 컬렉션**        |                 |                   |               
 | &bull; 요청                     | yes             | yes               | 

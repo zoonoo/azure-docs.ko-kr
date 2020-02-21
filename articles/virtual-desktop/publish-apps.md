@@ -1,18 +1,18 @@
 ---
 title: Windows 가상 데스크톱에서 기본 제공 앱 게시-Azure
-description: Windows 가상 데스크톱에서 최신 앱을 게시 하는 방법을 설명 합니다.
+description: Windows 가상 데스크톱에서 기본 제공 앱을 게시 하는 방법입니다.
 services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.author: helohr
-ms.openlocfilehash: 37fc089ab68bfb3cd26e1656ba84610fe8a47bc6
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e8e8512fa9f6a64fb0db688b7badcb699f6ccaa5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367274"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484624"
 ---
 # <a name="publish-built-in-apps-in-windows-virtual-desktop"></a>Windows 가상 데스크톱에서 기본 제공 앱 게시
 

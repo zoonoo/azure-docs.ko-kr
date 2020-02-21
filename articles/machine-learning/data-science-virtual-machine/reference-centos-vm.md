@@ -1,5 +1,6 @@
 ---
-title: '참조: CentOS DSVM'
+title: '참조: CentOS Data Science Virtual Machine'
+titleSuffix: Azure Data Science Virtual Machine
 description: CentOS에 포함 된 도구에 대 한 세부 정보 Data Science Virtual Machine
 author: gvashishtha
 ms.service: machine-learning
@@ -7,12 +8,12 @@ ms.subservice: data-science-vm
 ms.author: gopalv
 ms.date: 09/11/2019
 ms.topic: reference
-ms.openlocfilehash: 0f71a8af2f7d2cfbfe43c0cfcc84cc7c08109c32
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: db49a9f5e0e6675d93cb58d6af9c92fac21e8b74
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73493705"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525841"
 ---
 # <a name="reference-centos-linux-data-science-virtual-machine"></a>참조: CentOS (Linux) Data Science Virtual Machine
 
@@ -235,7 +236,7 @@ R 및 Python의 모델을 Azure Machine Learning에 배포하는 방법에 대�
 
 ## <a name="machine-learning-tools"></a>기계 학습 도구
 
-DSVM에는 로컬로 미리 컴파일되고 미리 설치된 몇 가지 기계 학습 도구 및 알고리즘이 제공됩니다. 내용은 다음과 같습니다.
+DSVM에는 로컬로 미리 컴파일되고 미리 설치된 몇 가지 기계 학습 도구 및 알고리즘이 제공됩니다. 이러한 개체는 다음과 같습니다.
 
 * **Microsoft Cognitive Toolkit**: 심층 학습 도구 키트입니다.
 * **Vowpal Wabbit**: 속성 온라인 학습 알고리즘입니다.
@@ -308,7 +309,7 @@ XGBoost에 대한 자세한 내용은 [XGBoost 설명서](https://xgboost.readth
 
 ### <a name="rattle"></a>Rattle
 
-Rattle(*R* *A*nalytical *T*ool *T*o *L*earn *E*asily)은 GUI 기반 데이터 검색 및 모델링을 사용합니다. Rattle에서 수행하는 작업은 다음과 같습니다.
+Rattle (*R* *A*nalytical *T*ool *t*o *L*획득 *E*asily)는 GUI 기반 데이터 탐색 및 모델링을 사용 합니다. Rattle에서 수행하는 작업은 다음과 같습니다.
 - 데이터의 통계 및 시각적 요약을 표시합니다.
 - 쉽게 모델링할 수 있는 데이터를 변환합니다.
 - 데이터에서 감독되지 않는 모델 및 감독되는 모델을 모두 빌드합니다.

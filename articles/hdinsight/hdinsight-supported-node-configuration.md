@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 08/26/2019
-ms.openlocfilehash: 278639b27d821e8d6440248a1add43bcd9de22c6
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e75146266568001d8fee7be26898ac8bdfffb7fc
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74775228"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484789"
 ---
 # <a name="what-are-the-default-and-recommended-node-configurations-for-azure-hdinsight"></a>Azure HDInsight에 대 한 기본 및 권장 노드 구성은 무엇 인가요?
 
@@ -44,16 +44,16 @@ ms.locfileid: "74775228"
 
 각 VM 유형의 사양에 대 한 자세한 내용은 다음 문서를 참조 하세요.
 
-* [범용 가상 머신 크기: Dv2 시리즈 1-5](../virtual-machines/linux/sizes-general.md#dv2-series)
-* [메모리 액세스에 최적화 된 가상 머신 크기: Dv2 시리즈 11-15](../virtual-machines/linux/sizes-memory.md#dv2-series-11-15)
-* [범용 가상 머신 크기: Av2 시리즈 1-8](../virtual-machines/linux/sizes-general.md#av2-series)
+* [범용 가상 머신 크기: Dv2 시리즈 1-5](../virtual-machines/dv2-dsv2-series.md)
+* [메모리 액세스에 최적화 된 가상 머신 크기: Dv2 시리즈 11-15](../virtual-machines/dv2-dsv2-series-memory.md)
+* [범용 가상 머신 크기: Av2 시리즈 1-8](../virtual-machines/av2-series.md)
 
 ### <a name="all-supported-regions-except-brazil-south-and-japan-west"></a>브라질 남부 및 일본 서 부를 제외한 모든 지원 되는 지역
 
 > [!Note]
 > Powershell 및 기타 스크립트에서 사용할 SKU 식별자를 가져오려면 아래 표에 있는 모든 VM Sku의 시작 부분에 `Standard_`을 추가 합니다. 예를 들어 `D12_v2` `Standard_D12_v2`됩니다.
 
-| 클러스터 유형 | Hadoop | HBase | 대화형 쿼리 | Storm | Spark | ML Server | Kafka |
+| 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML Server | Kafka |
 |---|---|---|---|---|---|---|---|
 | 헤드: 기본 VM 크기 | D12_v2 | D12_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
 | Head: 권장 되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2, <br/>D13_v2 * | D12_v2 | D3_v2 |
@@ -68,7 +68,7 @@ ms.locfileid: "74775228"
 
 ### <a name="brazil-south-and-japan-west-only"></a>브라질 남부 및 일본 서 부만
 
-| 클러스터 유형 | Hadoop | HBase | 대화형 쿼리 | Storm | Spark | ML 서비스 |
+| 클러스터 유형 | Hadoop은 | HBase | 대화형 쿼리 | Storm | Spark | ML 서비스 |
 |---|---|---|---|---|---|---|
 | 헤드: 기본 VM 크기 | D12 | D12 | D13 | A4_v2 | D12 | D12 |
 | Head: 권장 되는 최소 VM 크기 | D5_v2 | D3_v2 | D13_v2 | A4_v2 | D12_v2 | D12_v2 |

@@ -7,12 +7,12 @@ author: mscurrell
 ms.author: markscu
 ms.date: 08/23/2019
 ms.topic: conceptual
-ms.openlocfilehash: dea45cec29101c3b085ab8098c3b05906e1049cd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 88382a5b6e0364145d8504b5e25ef1a9bfd0111a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75449781"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484131"
 ---
 # <a name="check-for-pool-and-node-errors"></a>풀 및 노드 오류 확인
 
@@ -56,7 +56,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 [풀 크기 조정 완료 이벤트](https://docs.microsoft.com/azure/batch/batch-pool-resize-complete-event)는 모든 평가 정보를 캡처합니다.
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 노드를 포함하는 풀을 삭제하면 Batch는 먼저 노드를 삭제합니다. 그런 다음, 풀 개체 자체를 삭제합니다. 풀 노드가 삭제되려면 몇 분 정도 걸릴 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure Batch 풀을 만들고 관리할 때 일부 작업은 즉시 수행됩니�
 
 시작 작업이 성공적으로 완료될 때까지 대기하도록 노드를 구성했으나 시작 작업이 실패하면 어떻게 될까요? 이 경우 노드는 사용할 수 없지만 요금은 계속 청구 됩니다.
 
-최상위 [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) 노드 속성의 [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) 및 [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) 속성을 사용하여 시작 작업 실패를 감지할 수 있습니다.
+최상위 [startTaskInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskexecutionresult) 노드 속성의 [result](https://docs.microsoft.com/rest/api/batchservice/computenode/get#taskfailureinformation) 및 [failureInfo](https://docs.microsoft.com/rest/api/batchservice/computenode/get#starttaskinformation) 속성을 사용하여 시작 작업 실패를 감지할 수 있습니다.
 
 또한 실패 한 시작 태스크는 **Waitforsuccess** 가 **true**로 설정 된 경우 일괄 처리에서 노드 [상태](https://docs.microsoft.com/rest/api/batchservice/computenode/get#computenodestate) 를 **starttaskfailed** 로 설정 합니다.
 
@@ -104,7 +104,7 @@ Batch가 원인을 확인할 수 있으면 노드 [errors](https://docs.microsof
 
 - VM이 인프라 오류 또는 하위 수준 업그레이드로 인해 이동됩니다. Batch가 노드를 복구합니다.
 
-- VM 이미지가 지원 하지 않는 하드웨어에 배포 되었습니다. 예를 들어 [Standard_D1_v2](../virtual-machines/linux/sizes-general.md#dv2-series) VM에서 CentOS HPC 이미지를 실행 하려고 합니다.
+- VM 이미지가 지원 하지 않는 하드웨어에 배포 되었습니다. 예를 들어 [Standard_D1_v2](../virtual-machines/dv2-dsv2-series.md) VM에서 CentOS HPC 이미지를 실행 하려고 합니다.
 
 - Vm이 [Azure virtual network](batch-virtual-network.md)에 있고 트래픽이 키 포트로 차단 되었습니다.
 

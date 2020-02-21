@@ -1,36 +1,35 @@
 ---
-title: Azure Scheduler를 사용하여 예약된 작업 만들기 - Azure Portal | Microsoft Docs
-description: Azure Portal에서 Azure Scheduler를 사용하여 첫 번째 자동화 작업을 만들고, 예약하고, 실행하는 방법을 알아봅니다.
+title: 예약 된 작업 만들기-Azure Portal
+description: Azure Scheduler를 사용 하 여 Azure Portal에서 첫 번째 자동화 된 작업을 만들고 예약 하 고 실행 합니다.
 services: scheduler
 ms.service: scheduler
 ms.suite: infrastructure-services
 author: derek1ee
-ms.author: deli
-ms.reviewer: klam
-ms.assetid: e69542ec-d10f-4f17-9b7a-2ee441ee7d68
+ms.author: estfan
+ms.reviewer: klam, estfan, logicappspm
 ms.topic: conceptual
-ms.date: 09/17/2018
-ms.openlocfilehash: 48e03f41fa0a39642330288fc05ef709179b4c62
-ms.sourcegitcommit: 29880cf2e4ba9e441f7334c67c7e6a994df21cfe
+ms.date: 02/29/2020
+ms.openlocfilehash: a9f7169f4b54dfc08612b1d53bfde48154ee2d1d
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/26/2019
-ms.locfileid: "71300985"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524804"
 ---
-# <a name="create-and-schedule-your-first-job-with-azure-scheduler---azure-portal"></a>Azure Scheduler를 사용하여 첫 번째 작업을 만들고 예약 - Azure Portal
+# <a name="create-and-schedule-your-first-job-by-using-azure-scheduler---azure-portal"></a>Azure Scheduler-Azure Portal를 사용 하 여 첫 번째 작업 만들기 및 예약
 
 > [!IMPORTANT]
 > 사용이 [중지](../scheduler/migrate-from-scheduler-to-logic-apps.md#retire-date)되는 Azure Scheduler를 교체 하는 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) . 스케줄러에 설정 된 작업을 계속 하려면 가능한 한 빨리 [Azure Logic Apps로 마이그레이션](../scheduler/migrate-from-scheduler-to-logic-apps.md) 하세요.
 
-이 자습서에서는 얼마나 쉽게 작업을 만들고 예약한 다음, 해당 작업을 모니터링하고 관리할 수 있는지를 보여줍니다. 
+이 자습서에서는 얼마나 쉽게 작업을 만들고 예약한 다음, 해당 작업을 모니터링하고 관리할 수 있는지를 보여줍니다.
 
-Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target="_blank">체험 Azure 계정에 등록</a>합니다.
+Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 ## <a name="create-job"></a>작업 만들기
 
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.  
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
 
-1. Azure 기본 메뉴에서 **리소스 만들기**를 선택합니다. 검색 상자에 "scheduler"를 입력합니다. 결과 목록에서 **Scheduler**를 선택하고 **만들기**를 선택합니다.
+1. Azure search 상자에 필터로 `scheduler`를 입력 합니다. 결과 목록에서 **Scheduler 작업 컬렉션**을 선택 하 고 **만들기**를 선택 합니다.
 
    ![Scheduler 리소스 만들기](./media/scheduler-get-started-portal/scheduler-v2-portal-marketplace-create.png)
 
@@ -38,7 +37,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 1. **Scheduler 작업** 아래에서 다음 정보를 입력합니다.
 
-   | 속성 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | Description |
    |----------|---------------|-------------| 
    | **이름** | getMicrosoft | 작업의 이름 | 
    | **작업 컬렉션** | <*job-collection-name*> | 작업 컬렉션을 만들거나 기존 컬렉션을 선택합니다. | 
@@ -47,9 +46,9 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 1. **작업 설정 - 구성**을 선택하고, 다음 정보를 입력하고, 모두 마쳤으면 **확인**을 선택합니다.
 
-   | 속성 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | Description |
    |----------|---------------|-------------| 
-   | **작업** | **Http** | 실행할 작업 유형 | 
+   | **동작** | **Http** | 실행할 작업 유형 | 
    | **메서드** | **Get** | 호출할 메서드 | 
    | **URL** | **https://www.microsoft.com** | 대상 URL | 
    |||| 
@@ -60,7 +59,7 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
    일회성 작업을 만들 수도 있지만, 이 예제에서는 되풀이 일정을 설정합니다.
 
-   | 속성 | 예제 값 | 설명 |
+   | 속성 | 예제 값 | Description |
    |----------|---------------|-------------| 
    | **되풀이** | **정기** | 일회성 작업 또는 되풀이 작업 | 
    | **시작 시간** | <*오늘 날짜*> | 작업의 시작 날짜 | 
@@ -107,11 +106,11 @@ Azure 구독이 없는 경우 <a href="https://azure.microsoft.com/free/" target
 
 ![작업 설정 검토](./media/scheduler-get-started-portal/scheduler-v2-portal-job-action-settings.png)
 
-| 작업 유형 | 설명 | 
+| 동작 유형 | Description | 
 |-------------|-------------| 
 | 모든 형식 | **재시도 정책** 및 **오류 동작**을 변경할 수 있습니다. | 
 | HTTP 및 HTTPS | **메서드**를 허용되는 아무 메서드로 변경할 수 있습니다. 헤더와 기본 인증 정보를 추가, 삭제 또는 변경할 수도 있습니다. | 
-| 저장소 큐| 스토리지 계정, 큐 이름, SAS 토큰 및 본문을 변경할 수 있습니다. | 
+| Storage 큐| 스토리지 계정, 큐 이름, SAS 토큰 및 본문을 변경할 수 있습니다. | 
 | Service Bus | 네임스페이스, 토픽 또는 큐 경로, 인증 설정, 전송 유형, 메시지 속성, 메시지 본문을 변경할 수 있습니다. | 
 ||| 
 

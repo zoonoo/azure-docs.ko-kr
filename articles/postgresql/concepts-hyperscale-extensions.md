@@ -6,21 +6,21 @@ ms.author: raagyema
 ms.service: postgresql
 ms.subservice: hyperscale-citus
 ms.topic: conceptual
-ms.date: 05/06/2019
-ms.openlocfilehash: 4f7a961b04290bd17657949877c0b81bc281da50
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.date: 02/18/2020
+ms.openlocfilehash: 84b28096904db49f98c16601c5927928ad38743b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74975553"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485406"
 ---
 # <a name="postgresql-extensions-in-azure-database-for-postgresql--hyperscale-citus"></a>Azure Database for PostgreSQL-Hyperscale (Citus)의 PostgreSQL 확장
 
-PostgreSQL는 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 제공 합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드 된 확장은 기본 제공 기능 처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/9.6/static/extend-extensions.html)합니다 .를 참조 하세요.
+PostgreSQL는 확장을 사용 하 여 데이터베이스의 기능을 확장 하는 기능을 제공 합니다. 확장을 통해 관련된 여러 SQL 개체를 단일 패키지에 번들로 묶을 수 있으며 단일 명령을 사용해서 데이터베이스에서 로드하거나 제거할 수 있습니다. 데이터베이스에 로드 된 확장은 기본 제공 기능 처럼 작동할 수 있습니다. PostgreSQL 확장에 대 한 자세한 내용은 [패키지 관련 개체를 확장](https://www.postgresql.org/docs/current/static/extend-extensions.html)합니다 .를 참조 하세요.
 
 ## <a name="use-postgresql-extensions"></a>PostgreSQL 확장 사용
 
-PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 psql 도구에서 [확장 만들기](https://www.postgresql.org/docs/9.6/static/sql-createextension.html) 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
+PostgreSQL 확장을 사용하려면 먼저 데이터베이스에 설치해야 합니다. 특정 확장을 설치 하려면 psql 도구에서 [확장 만들기](https://www.postgresql.org/docs/current/static/sql-createextension.html) 명령을 실행 하 여 패키지 된 개체를 데이터베이스에 로드 합니다.
 
 Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 대로 키 확장의 하위 집합을 지원 합니다. 나열 된 확장 이외의 확장은 지원 되지 않습니다. Azure Database for PostgreSQL를 사용 하 여 사용자 고유의 확장을 만들 수 없습니다.
 
@@ -31,93 +31,94 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="data-types-extensions"></a>데이터 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
-> | [citext](https://www.postgresql.org/docs/9.6/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
-> | [cube](https://www.postgresql.org/docs/9.6/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
-> | [hstore](https://www.postgresql.org/docs/9.6/static/hstore.html) | 키-값 쌍 집합을 저장 하기 위한 데이터 형식을 제공 합니다. |
-> | [isn](https://www.postgresql.org/docs/9.6/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. |
-> | [lo](https://www.postgresql.org/docs/current/lo.html) | 대량 개체 유지 관리. |
-> | [ltree](https://www.postgresql.org/docs/9.6/static/ltree.html) | 계층적 트리 구조에 대한 데이터 형식을 제공합니다. |
+> | [citext](https://www.postgresql.org/docs/current/static/citext.html) | 대/소문자 구분 문자 문자열 형식을 제공합니다. |
+> | [cube](https://www.postgresql.org/docs/current/static/cube.html) | 다차원 큐브의 데이터 형식을 제공합니다. |
+> | [hstore](https://www.postgresql.org/docs/current/static/hstore.html) | 키-값 쌍 집합을 저장 하기 위한 데이터 형식을 제공 합니다. |
+> | [hll](https://github.com/citusdata/postgresql-hll) | HyperLogLog 데이터 구조를 제공 합니다. |
+> | [isn](https://www.postgresql.org/docs/current/static/isn.html) | 국제 제품 번호 매기기 표준에 대한 데이터 형식을 제공합니다. |
+> | [xt](https://www.postgresql.org/docs/current/lo.html) | 대량 개체 유지 관리. |
+> | [ltree](https://www.postgresql.org/docs/current/static/ltree.html) | 계층적 트리 구조에 대한 데이터 형식을 제공합니다. |
 > | [seg](https://www.postgresql.org/docs/current/seg.html) | 선 세그먼트나 부동 소수점 간격을 나타내는 데이터 형식입니다. |
 > | [topn](https://github.com/citusdata/postgresql-topn/) | Top-n JSONB에 대 한 형식입니다. |
 
 ### <a name="full-text-search-extensions"></a>전체 텍스트 검색 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
-> | [dict\_int](https://www.postgresql.org/docs/9.6/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
+> | [dict\_int](https://www.postgresql.org/docs/current/static/dict-int.html) | 정수에 대한 텍스트 검색 사전 템플릿을 제공합니다. |
 > | [dict\_xsyn](https://www.postgresql.org/docs/current/dict-xsyn.html) | 확장 된 동의어 처리를 위한 텍스트 검색 사전 템플릿입니다. |
-> | [unaccent](https://www.postgresql.org/docs/9.6/static/unaccent.html) | Lexemes에서 악센트(분음 기호)를 제거하는 텍스트 검색 사전입니다. |
+> | [unaccent](https://www.postgresql.org/docs/current/static/unaccent.html) | Lexemes에서 악센트(분음 기호)를 제거하는 텍스트 검색 사전입니다. |
 
 ### <a name="functions-extensions"></a>함수 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [autoinc](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.7) | 자동 증가 필드를 위한 함수입니다. |
-> | [earthdistance](https://www.postgresql.org/docs/9.6/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
-> | [fuzzystrmatch](https://www.postgresql.org/docs/9.6/static/fuzzystrmatch.html) | 문자열 간 유사성 및 거리를 확인하기 위한 몇 가지 함수를 제공합니다. |
-> | [insert\_username](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | 테이블을 변경한 사람을 추적 하는 함수입니다. |
+> | [earthdistance](https://www.postgresql.org/docs/current/static/earthdistance.html) | 지구 표면의 대원 거리를 계산하는 방법을 제공합니다. |
+> | [fuzzystrmatch](https://www.postgresql.org/docs/current/static/fuzzystrmatch.html) | 문자열 간 유사성 및 거리를 확인하기 위한 몇 가지 함수를 제공합니다. |
+> | [\_사용자 이름 삽입](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.8) | 테이블을 변경한 사람을 추적 하는 함수입니다. |
 > | [intagg](https://www.postgresql.org/docs/current/intagg.html) | 정수 집계 및 열거자 (사용 되지 않음). |
-> | [intarray](https://www.postgresql.org/docs/9.6/static/intarray.html) | null 없는 정수 배열을 조작하기 위한 함수 및 연산자를 제공합니다. |
+> | [intarray](https://www.postgresql.org/docs/current/static/intarray.html) | null 없는 정수 배열을 조작하기 위한 함수 및 연산자를 제공합니다. |
 > | [moddatetime](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.9) | 마지막 수정 시간을 추적 하는 함수입니다. |
-> | [pgcrypto](https://www.postgresql.org/docs/9.6/static/pgcrypto.html) | 암호화 함수를 제공합니다. |
+> | [pgcrypto](https://www.postgresql.org/docs/current/static/pgcrypto.html) | 암호화 함수를 제공합니다. |
 > | [pg\_partman](https://pgxn.org/dist/pg_partman/doc/pg_partman.html) | 시간 또는 ID로 분할된 테이블을 관리합니다. |
-> | [pg\_trgm](https://www.postgresql.org/docs/9.6/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. |
+> | [pg\_trgm](https://www.postgresql.org/docs/current/static/pgtrgm.html) | trigram 일치를 기준으로 영숫자 텍스트의 유사성을 확인하기 위한 함수 및 연산자를 제공합니다. |
 > | [refint](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.5) | 참조 무결성을 구현 하는 함수입니다 (사용 되지 않음). |
-> | session\_analytics | Hstore 배열을 쿼리 하는 함수입니다. |
-> | [tablefunc](https://www.postgresql.org/docs/9.6/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. |
+> | 세션\_분석 | Hstore 배열을 쿼리 하는 함수입니다. |
+> | [tablefunc](https://www.postgresql.org/docs/current/static/tablefunc.html) | 크로스탭을 비롯하여 전체 테이블을 조작하는 함수를 제공합니다. |
 > | [tcn](https://www.postgresql.org/docs/current/tcn.html) | 변경 알림이 트리거 되었습니다. |
 > | [timetravel](https://www.postgresql.org/docs/current/contrib-spi.html#id-1.11.7.45.6) | 시간 이동 구현을 위한 함수입니다. |
-> | [uuid-ossp](https://www.postgresql.org/docs/9.6/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. |
+> | [uuid-ossp](https://www.postgresql.org/docs/current/static/uuid-ossp.html) | UUID(범용 고유 식별자)를 생성합니다. |
 
 ### <a name="hyperscale-extensions"></a>Hyperscale 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [citus](https://github.com/citusdata/citus) | Citus 분산 데이터베이스입니다. |
-> | shard\_rebalancer | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
+> | 분할\_rebalancer | 노드 추가 또는 제거의 경우 서버 그룹의 데이터를 안전 하 게 리 밸런스 합니다. |
 
 ### <a name="index-types-extensions"></a>인덱스 형식 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
-> | [bloom](https://www.postgresql.org/docs/current/bloom.html) | 블 룸 access 메서드 서명 파일 기반 인덱스입니다. |
-> | [btree\_gin](https://www.postgresql.org/docs/9.6/static/btree-gin.html) | 특정 데이터 형식에 대 한 B-트리 형식의 동작을 구현 하는 샘플 GIN 연산자 클래스를 제공 합니다. |
-> | [btree\_gist](https://www.postgresql.org/docs/9.6/static/btree-gist.html) | B-트리를 구현하는 GiST 인덱스 연산자 클래스를 제공합니다. |
+> | [블 룸](https://www.postgresql.org/docs/current/bloom.html) | 블 룸 access 메서드 서명 파일 기반 인덱스입니다. |
+> | [btree\_gin](https://www.postgresql.org/docs/current/static/btree-gin.html) | 특정 데이터 형식에 대 한 B-트리 형식의 동작을 구현 하는 샘플 GIN 연산자 클래스를 제공 합니다. |
+> | [btree\_gist](https://www.postgresql.org/docs/current/static/btree-gist.html) | B-트리를 구현하는 GiST 인덱스 연산자 클래스를 제공합니다. |
 
 ### <a name="language-extensions"></a>언어 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
-> | [plpgsql](https://www.postgresql.org/docs/9.6/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
+> | [plpgsql](https://www.postgresql.org/docs/current/static/plpgsql.html) | PL/pgSQL 로드 가능 절차 언어. |
 
 ### <a name="miscellaneous-extensions"></a>기타 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [adminpack](https://www.postgresql.org/docs/current/adminpack.html) | PostgreSQL에 대 한 관리 기능. |
 > | [amcheck](https://www.postgresql.org/docs/current/amcheck.html) | 관계 무결성을 확인 하는 함수입니다. |
-> | [file\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | 플랫 파일 액세스용 외래 데이터 래퍼입니다. |
+> | [파일\_fdw](https://www.postgresql.org/docs/current/file-fdw.html) | 플랫 파일 액세스용 외래 데이터 래퍼입니다. |
 > | [pageinspect](https://www.postgresql.org/docs/current/pageinspect.html) | 낮은 수준에서 데이터베이스 페이지의 내용을 검사 합니다. |
-> | [pg\_buffercache](https://www.postgresql.org/docs/9.6/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
+> | [pg\_buffercache](https://www.postgresql.org/docs/current/static/pgbuffercache.html) | 공유 버퍼 캐시에서 일어나는 작업을 실시간으로 검사하기 위한 수단을 제공합니다. |
 > | [pg\_cron](https://github.com/citusdata/pg_cron) | PostgreSQL에 대 한 작업 스케줄러입니다. |
 > | [pg\_freespacemap](https://www.postgresql.org/docs/current/pgfreespacemap.html) | 사용 가능한 공간 맵 (FSM)을 검사 합니다. |
-> | [pg\_prewarm](https://www.postgresql.org/docs/9.6/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. |
-> | [pg\_stat\_statements](https://www.postgresql.org/docs/9.6/static/pgstatstatements.html) | 서버에서 실행되는 모든 SQL 문의 실행 통계를 추적하는 수단을 제공합니다. 이 확장에 대 한 자세한 내용은 "pg_stat_statements" 섹션을 참조 하세요. |
-> | [pg\_visibility](https://www.postgresql.org/docs/current/pgvisibility.html) | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다. |
-> | [pgrowlocks](https://www.postgresql.org/docs/9.6/static/pgrowlocks.html) | 행 수준 잠금 정보를 표시하는 방법을 제공합니다. |
-> | [pgstattuple](https://www.postgresql.org/docs/9.6/static/pgstattuple.html) | 튜플 수준 통계를 표시하는 방법을 제공합니다. |
-> | [postgres\_fdw](https://www.postgresql.org/docs/9.6/static/postgres-fdw.html) | 외부 PostgreSQL 서버에 저장된 데이터에 액세스하는 데 사용되는 외부 데이터 래퍼입니다. 이 확장에 대 한 자세한 내용은 "eblink 및 postgres_fdw" 섹션을 참조 하세요.|
-> | [sslinfo](https://www.postgresql.org/docs/current/sslinfo.html) | SSL 인증서에 대 한 정보입니다. |
-> | [tsm\_system\_rows](https://www.postgresql.org/docs/current/tsm-system-rows.html) | 행 수를 한도로 허용 하는 TABLESAMPLE 메서드. |
-> | [tsm\_system\_time](https://www.postgresql.org/docs/current/tsm-system-time.html) | 제한 시간을 밀리초 단위로 허용 하는 TABLESAMPLE 메서드. |
+> | [pg\_prewarm](https://www.postgresql.org/docs/current/static/pgprewarm.html) | 관계 데이터를 버퍼 캐시에 로드하는 방법을 제공합니다. |
+> | [pg\_stat\_statements](https://www.postgresql.org/docs/current/static/pgstatstatements.html) | 서버에서 실행되는 모든 SQL 문의 실행 통계를 추적하는 수단을 제공합니다. 이 확장에 대 한 자세한 내용은 "pg_stat_statements" 섹션을 참조 하세요. |
+> | [pg\_표시 유형](https://www.postgresql.org/docs/current/pgvisibility.html) | 표시 유형 맵 (VM) 및 페이지 수준 표시 유형 정보를 검사 합니다. |
+> | [pgrowlocks](https://www.postgresql.org/docs/current/static/pgrowlocks.html) | 행 수준 잠금 정보를 표시하는 방법을 제공합니다. |
+> | [pgstattuple](https://www.postgresql.org/docs/current/static/pgstattuple.html) | 튜플 수준 통계를 표시하는 방법을 제공합니다. |
+> | [postgres\_fdw](https://www.postgresql.org/docs/current/static/postgres-fdw.html) | 외부 PostgreSQL 서버에 저장된 데이터에 액세스하는 데 사용되는 외부 데이터 래퍼입니다. 이 확장에 대 한 자세한 내용은 "eblink 및 postgres_fdw" 섹션을 참조 하세요.|
+> | [sslin](https://www.postgresql.org/docs/current/sslinfo.html) | SSL 인증서에 대 한 정보입니다. |
+> | [tsm\_시스템\_행](https://www.postgresql.org/docs/current/tsm-system-rows.html) | 행 수를 한도로 허용 하는 TABLESAMPLE 메서드. |
+> | [tsm\_시스템\_시간](https://www.postgresql.org/docs/current/tsm-system-time.html) | 제한 시간을 밀리초 단위로 허용 하는 TABLESAMPLE 메서드. |
 > | [hypopg](https://hypopg.readthedocs.io/en/latest/) | CPU나 디스크 비용이 들지 않는 가상의 인덱스를 만드는 방법을 제공합니다. |
 > | [dblink](https://www.postgresql.org/docs/current/dblink.html) | 데이터베이스 세션 내에서 다른 PostgreSQL 데이터베이스로의 연결을 지원하는 모듈입니다. 이 확장에 대 한 자세한 내용은 "eblink 및 postgres_fdw" 섹션을 참조 하세요. |
 > | [xml2](https://www.postgresql.org/docs/current/xml2.html) | XPath 쿼리 및 XSLT. |
@@ -126,13 +127,13 @@ Citus (Azure Database for PostgreSQL-Hyperscale)는 현재 여기에 나열 된 
 ### <a name="postgis-extensions"></a>PostGIS 확장
 
 > [!div class="mx-tableFixed"]
-> | **확장** | **설명** |
+> | **확장명** | **설명** |
 > |---|---|
 > | [PostGIS](https://www.postgis.net/), postgis\_topology, postgis\_tiger\_geocoder, postgis\_sfcgal | PostgreSQL에 대한 공간 및 지리적 개체입니다. |
 > | address\_standardizer, address\_standardizer\_data\_us | 주소를 구성 요소로 구문 분석하는 데 사용됩니다. 지오코딩 주소 정규화 단계를 지원하는 데 사용됩니다. |
 > | postgis\_sfcgal | PostGIS SFCGAL 함수입니다. |
 > | postgis\_tiger\_geocoder | PostGIS tiger geocoder 및 reverse geocoder입니다. |
-> | postgis\_topology | PostGIS는 토폴로지 공간 유형 및 함수입니다. |
+> | postgis\_토폴로지 | PostGIS는 토폴로지 공간 유형 및 함수입니다. |
 
 
 ## <a name="pg_stat_statements"></a>pg_stat_statements

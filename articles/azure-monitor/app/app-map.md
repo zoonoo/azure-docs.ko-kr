@@ -8,12 +8,12 @@ author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 006ea071ce1ab0354ecf191cdde2e031255ef4ce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cc7d58f0557e620c273043af8ffb2e8ec4d8ec87
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407667"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485151"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 
@@ -276,6 +276,6 @@ Application Map이 예상대로 작동하지 않는 경우 다음 단계를 수�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 에서 상관 관계 Application Insights의 작동 방식에 대 한 자세한 내용은 [원격 분석 상관 관계 문서](https://docs.microsoft.com/azure/application-insights/application-insights-correlation)를 참조 하세요.
+* 에서 상관 관계 Application Insights의 작동 방식에 대 한 자세한 내용은 [원격 분석 상관 관계 문서](correlation.md)를 참조 하세요.
 * [종단 간 트랜잭션 진단 환경은](transaction-diagnostics.md) 모든 Application Insights 모니터링 되는 구성 요소에서 서버 쪽 원격 분석을 단일 보기로 상호 연결 합니다.
 * ASP.NET Core 및 ASP.NET의 고급 상관 관계 시나리오는 [사용자 지정 작업 추적](custom-operations-tracking.md) 문서를 참조 하세요.

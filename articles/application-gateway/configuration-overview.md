@@ -7,12 +7,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: absha
-ms.openlocfilehash: 146dbdbf2f4e107e81515ce83188fa48c52aef36
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 355909052a711773545114179cd5d1ca01811cec
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714862"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485083"
 ---
 # <a name="application-gateway-configuration-overview"></a>Application Gateway 구성 개요
 
@@ -210,7 +210,7 @@ V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우�
 
 기본 규칙에 대해 리디렉션이 구성 된 경우 연결 된 수신기에 대 한 모든 요청이 대상으로 리디렉션됩니다. *전역* 리디렉션입니다. 경로 기반 규칙에 대해 리디렉션이 구성 된 경우 특정 사이트 영역의 요청만 리디렉션됩니다. 예를 들면 */cart/\** 로 표시 되는 쇼핑 카트 영역이 있습니다. *경로 기반* 리디렉션입니다.
 
-리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](https://docs.microsoft.com/azure/application-gateway/redirect-overview)를 참조 하세요.
+리디렉션에 대 한 자세한 내용은 [Application Gateway 리디렉션 개요](redirect-overview.md)를 참조 하세요.
 
 #### <a name="redirection-type"></a>리디렉션 유형
 
@@ -227,24 +227,24 @@ V2 SKU의 경우 정확한 일치는 URL 경로 맵의 경로 순서 보다 우�
 ![Application Gateway 구성 요소 대화 상자](./media/configuration-overview/configure-redirection.png)
 
 HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참조 하세요.
-- [Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-portal)
-- [PowerShell을 사용 하 여 HTTP에서 HTTPS로 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-powershell)
-- [Azure CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-http-to-https-cli)
+- [Azure Portal를 사용 하 여 HTTP에서 HTTPS로 리디렉션](redirect-http-to-https-portal.md)
+- [PowerShell을 사용 하 여 HTTP에서 HTTPS로 리디렉션](redirect-http-to-https-powershell.md)
+- [Azure CLI를 사용 하 여 HTTP에서 HTTPS로 리디렉션](redirect-http-to-https-cli.md)
 
 ##### <a name="external-site"></a>외부 사이트
 
 이 규칙과 연결 된 수신기의 트래픽을 외부 사이트에 리디렉션하려면 외부 사이트를 선택 합니다. 리디렉션 대상에 전달 되는 요청의 원래 요청에서 쿼리 문자열을 포함 하도록 선택할 수 있습니다. 원래 요청에 있던 외부 사이트에 경로를 전달할 수 없습니다.
 
 리디렉션에 대 한 자세한 내용은 다음을 참조 하세요.
-- [PowerShell을 사용 하 여 외부 사이트로 트래픽 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-powershell)
-- [CLI를 사용 하 여 외부 사이트로 트래픽 리디렉션](https://docs.microsoft.com/azure/application-gateway/redirect-external-site-cli)
+- [PowerShell을 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-powershell.md)
+- [CLI를 사용 하 여 외부 사이트로 트래픽 리디렉션](redirect-external-site-cli.md)
 
 #### <a name="rewrite-the-http-header-setting"></a>HTTP 헤더 설정 다시 작성
 
 이 설정은 요청 및 응답 패킷이 클라이언트와 백 엔드 풀 간에 이동 하는 동안 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트 합니다. 자세한 내용은 다음을 참조하세요.
 
- - [HTTP 헤더 재작성 개요](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers)
- - [HTTP 헤더 재작성 구성](https://docs.microsoft.com/azure/application-gateway/rewrite-http-headers-portal)
+ - [HTTP 헤더 재작성 개요](rewrite-http-headers.md)
+ - [HTTP 헤더 재작성 구성](rewrite-http-headers-portal.md)
 
 ## <a name="http-settings"></a>HTTP 설정
 
@@ -252,7 +252,18 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 ### <a name="cookie-based-affinity"></a>쿠키 기반 선호도
 
-이 기능은 동일한 서버에 사용자 세션을 유지 하려는 경우에 유용 합니다. 게이트웨이 관리 쿠키를 사용 하면 응용 프로그램 게이트웨이에서 처리를 위해 사용자 세션에서 동일한 서버로 후속 트래픽을 보낼 수 있습니다. 이는 세션 상태가 사용자 세션에 대해 서버에 로컬로 저장 된 경우에 중요 합니다. 응용 프로그램에서 쿠키 기반 선호도를 처리할 수 없는 경우에는이 기능을 사용할 수 없습니다. 이를 사용 하려면 클라이언트에서 쿠키를 지원 하는지 확인 합니다.
+Azure 애플리케이션 게이트웨이는 사용자 세션을 유지 관리 하기 위해 게이트웨이 관리 쿠키를 사용 합니다. 사용자가 Application Gateway에 대 한 첫 번째 요청을 보내면, 세션 세부 정보를 포함 하는 해시 값을 사용 하 여 응답에 선호도 쿠키를 설정 하므로 선호도 쿠키를 전달 하는 후속 요청은에 대해 동일한 백 엔드 서버로 라우팅됩니다. 유지 관리. 
+
+이 기능은 동일한 서버에 사용자 세션을 유지 하려는 경우와 사용자 세션에 대해 세션 상태가 서버에 로컬로 저장 된 경우에 유용 합니다. 응용 프로그램에서 쿠키 기반 선호도를 처리할 수 없는 경우에는이 기능을 사용할 수 없습니다. 이를 사용 하려면 클라이언트에서 쿠키를 지원 하는지 확인 합니다.
+
+**2020 년 2 월 17 일**부터 [Chromium](https://www.chromium.org/Home) [v80 업데이트](https://chromiumdash.appspot.com/schedule) 는 SameSite 특성이 없는 HTTP 쿠키가 SameSite = a 2로 처리 되는 것을 요구 합니다. CORS (크로스-원본 자원 공유) 요청이 있는 경우 타사 컨텍스트에서 쿠키를 보내야 하는 경우 "SameSite = None;을 사용 해야 합니다. 보안 "특성 및 HTTPS를 통해서만 전송 해야 합니다. 그렇지 않으면 HTTP 전용 시나리오에서는 브라우저가 타사 컨텍스트에서 쿠키를 보내지 않습니다. Chrome에서이 업데이트의 목표는 보안을 강화 하 고 CSRF (교차 사이트 요청 위조) 공격을 방지 하는 것입니다. 
+
+이러한 변경을 지원 하기 위해 Application Gateway (모든 SKU 형식)는 기존 **Applicationgatewayaffinity** 쿠키 외에도 **ApplicationGatewayAffinityCORS** 라는 또 다른 동일한 쿠키를 삽입 합니다 .이 쿠키는 유사 하지만이 쿠키에는 이제 **"SameSite = None; 이라는 두 개의 특성이 있습니다. 보안 "** 을 추가 하 여 원본 간 요청에 대해서도 고정 세션을 유지할 수 있습니다.
+
+기본 선호도 쿠키 이름은 **Applicationgatewayaffinity** 이며 사용자가 변경할 수 있습니다. 사용자 지정 선호도 쿠키 이름을 사용 하는 경우 추가 쿠키는 CORS로 CORS로 추가 됩니다 (예: **CustomCookieNameCORS**).
+
+> [!NOTE]
+> **SameSite = None** 특성이 설정 된 경우에도 쿠키는 **보안** 플래그를 포함 하 고 **HTTPS**를 통해 전송 되어야 합니다. 따라서 CORS를 통해 세션 선호도가 필요한 경우 작업을 HTTPS로 마이그레이션해야 합니다. 여기에서 Application Gateway에 대 한 SSL 오프 로드 및 종단 간 SSL 설명서를 참조 하세요. [개요](ssl-overview.md), [ssl 오프 로드 구성](create-ssl-portal.md)방법, [종단 간 ssl 구성 방법](end-to-end-ssl-portal.md)을 참조 하세요.
 
 ### <a name="connection-draining"></a>연결 드레이닝
 
@@ -262,7 +273,7 @@ HTTP에서 HTTPS로의 리디렉션에 대 한 자세한 내용은 다음을 참
 
 Application Gateway 백 엔드 서버에 대 한 라우팅 요청에 HTTP 및 HTTPS를 모두 지원 합니다. HTTP를 선택 하는 경우 백 엔드 서버에 대 한 트래픽이 암호화 되지 않습니다. 암호화 되지 않은 통신이 허용 되지 않는 경우 HTTPS를 선택 합니다.
 
-수신기에서 HTTPS와 결합 된이 설정은 [종단 간 SSL](https://docs.microsoft.com/azure/application-gateway/ssl-overview)을 지원 합니다. 이를 통해 백 엔드에 암호화 된 중요 한 데이터를 안전 하 게 전송할 수 있습니다. 종단 간 SSL을 사용 하도록 설정 된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용 하는 인증서를 사용 하 여 구성 해야 합니다.
+수신기에서 HTTPS와 결합 된이 설정은 [종단 간 SSL](ssl-overview.md)을 지원 합니다. 이를 통해 백 엔드에 암호화 된 중요 한 데이터를 안전 하 게 전송할 수 있습니다. 종단 간 SSL을 사용 하도록 설정 된 백 엔드 풀의 각 백 엔드 서버는 보안 통신을 허용 하는 인증서를 사용 하 여 구성 해야 합니다.
 
 ### <a name="port"></a>포트
 
@@ -301,7 +312,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 ### <a name="use-custom-probe"></a>사용자 지정 프로브 사용
 
-이 설정은 [사용자 지정 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe) 를 HTTP 설정과 연결 합니다. HTTP 설정에는 사용자 지정 프로브를 하나만 연결할 수 있습니다. 사용자 지정 프로브를 명시적으로 연결 하지 않으면 [기본 프로브](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#default-health-probe-settings) 를 사용 하 여 백 엔드의 상태를 모니터링 합니다. 백 엔드의 상태 모니터링을 보다 효율적으로 제어 하기 위해 사용자 지정 프로브를 만드는 것이 좋습니다.
+이 설정은 [사용자 지정 프로브](application-gateway-probe-overview.md#custom-health-probe) 를 HTTP 설정과 연결 합니다. HTTP 설정에는 사용자 지정 프로브를 하나만 연결할 수 있습니다. 사용자 지정 프로브를 명시적으로 연결 하지 않으면 [기본 프로브](application-gateway-probe-overview.md#default-health-probe-settings) 를 사용 하 여 백 엔드의 상태를 모니터링 합니다. 백 엔드의 상태 모니터링을 보다 효율적으로 제어 하기 위해 사용자 지정 프로브를 만드는 것이 좋습니다.
 
 > [!NOTE]
 > 해당 HTTP 설정이 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.
@@ -335,7 +346,7 @@ Azure App Service 백 엔드에 대 한 두 가지 필수 설정을 선택 하�
 
 ## <a name="health-probes"></a>상태 프로브
 
-Application gateway는 기본적으로 백 엔드에서 모든 리소스의 상태를 모니터링 합니다. 하지만 상태 모니터링에 대 한 제어를 강화 하기 위해 각 백 엔드 HTTP 설정에 대 한 사용자 지정 프로브를 만드는 것이 좋습니다. 사용자 지정 프로브를 구성 하는 방법에 대 한 자세한 내용은 [사용자 지정 상태 프로브 설정](https://docs.microsoft.com/azure/application-gateway/application-gateway-probe-overview#custom-health-probe-settings)을 참조 하세요.
+Application gateway는 기본적으로 백 엔드에서 모든 리소스의 상태를 모니터링 합니다. 하지만 상태 모니터링에 대 한 제어를 강화 하기 위해 각 백 엔드 HTTP 설정에 대 한 사용자 지정 프로브를 만드는 것이 좋습니다. 사용자 지정 프로브를 구성 하는 방법에 대 한 자세한 내용은 [사용자 지정 상태 프로브 설정](application-gateway-probe-overview.md#custom-health-probe-settings)을 참조 하세요.
 
 > [!NOTE]
 > 사용자 지정 상태 프로브를 만든 후에는 백 엔드 HTTP 설정에 연결 해야 합니다. 해당 HTTP 설정이 규칙을 사용 하 여 수신기와 명시적으로 연결 되지 않은 경우 사용자 지정 프로브는 백 엔드 풀의 상태를 모니터링 하지 않습니다.

@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: 920b887382ca55d84c66fabb8f1464fd05041094
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 0da8322a57d925608f7b52054c7a52e6cb3e5d06
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198459"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484658"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
@@ -34,8 +34,8 @@ Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 
-+ [Queue Storage](functions-bindings-storage-queue.md#exceptions-and-return-codes)
++ [Queue Storage](functions-bindings-storage-queue-output.md#exceptions-and-return-codes)
 
-+ [Service Bus](functions-bindings-service-bus.md#exceptions-and-return-codes)
++ [Service Bus](functions-bindings-service-bus-output.md#exceptions-and-return-codes)
 
 + [Table Storage](functions-bindings-storage-table.md#exceptions-and-return-codes)

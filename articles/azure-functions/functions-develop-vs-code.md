@@ -3,12 +3,12 @@ title: 을 사용 하 여 Azure Functions 개발 Visual Studio Code
 description: Visual Studio Code에 대 한 Azure Functions 확장을 사용 하 여 Azure Functions를 개발 하 고 테스트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.openlocfilehash: 3bc8c9aa5d31f757a34350d9605fdecbe42b8be7
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 41a1a64be4823769f6bf23b251fec94fd68eb0f0
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210245"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484777"
 ---
 # <a name="develop-azure-functions-by-using-visual-studio-code"></a>을 사용 하 여 Azure Functions 개발 Visual Studio Code
 
@@ -92,11 +92,11 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 언어에 따라 다음과 같은 다른 파일이 생성 됩니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 * 함수를 구현 하는 [HttpExample.cs 클래스 라이브러리 파일](functions-dotnet-class-library.md#functions-class-library-project) 입니다.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 * 루트 폴더의 package. json 파일
 
@@ -122,7 +122,7 @@ Azure storage 계정과 같은 필요한 다른 리소스는 [Visual Studio Code
 
 HTTP 및 타이머 트리거를 제외 하 고 바인딩은 확장 패키지에서 구현 됩니다. 필요한 트리거 및 바인딩에 대 한 확장 패키지를 설치 해야 합니다. 바인딩 확장을 설치 하는 프로세스는 프로젝트의 언어에 따라 달라 집니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 터미널 창에서 [dotnet add package](/dotnet/core/tools/dotnet-add-package) 명령을 실행 하 여 프로젝트에 필요한 확장 패키지를 설치 합니다. 다음 명령은 Blob, Queue 및 Table Storage에 대 한 바인딩을 구현 하는 Azure Storage 확장을 설치 합니다.
 
@@ -130,7 +130,7 @@ HTTP 및 타이머 트리거를 제외 하 고 바인딩은 확장 패키지에�
 dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 ```
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 [!INCLUDE [functions-extension-bundles](../../includes/functions-extension-bundles.md)]
 
@@ -142,11 +142,11 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 이 작업의 결과는 프로젝트의 언어에 따라 달라 집니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 새 C# 클래스 라이브러리 (.cs) 파일이 프로젝트에 추가 됩니다.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 프로젝트에 새 폴더가 만들어집니다. 폴더에는 새 함수 json 파일 및 새 JavaScript 코드 파일이 포함 되어 있습니다.
 
@@ -158,7 +158,7 @@ dotnet add package Microsoft.Azure.WebJobs.Extensions.Storage --version 3.0.4
 
 다음 예에서는 `outqueue`이라는 저장소 큐에 연결 합니다. 여기서 저장소 계정에 대 한 연결 문자열은 로컬. 설정의 `MyStorageConnection` 응용 프로그램 설정에 설정 됩니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 함수 메서드를 업데이트 하 여 `Run` 메서드 정의에 다음 매개 변수를 추가 합니다.
 
@@ -174,9 +174,9 @@ using Microsoft.Azure.WebJobs.Extensions.Storage;
 
 `msg` 매개 변수는 `ICollector<T>` 형식이며, 함수가 완료될 때 출력 바인딩에 작성되는 메시지의 컬렉션을 나타냅니다. 하나 이상의 메시지를 컬렉션에 추가 합니다. 이러한 메시지는 함수가 완료 되 면 큐에 전송 됩니다.
 
-자세히 알아보려면 [Queue storage output binding](functions-bindings-storage-queue.md#output) 설명서를 참조 하세요.
+자세히 알아보려면 [Queue storage output binding](functions-bindings-storage-queue-output.md) 설명서를 참조 하세요.
 
-# <a name="javascripttabnodejs"></a>[JavaScript](#tab/nodejs)
+# <a name="javascript"></a>[JavaScript](#tab/nodejs)
 
 Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함수 json 파일에 바인딩을 추가할 수 있습니다. 바인딩을 만들려면 함수 폴더의 **함수 json** 파일을 마우스 오른쪽 단추로 클릭 하 고 (Macos에서 Ctrl + 클릭) **바인딩 추가**를 선택 합니다.
 
@@ -212,7 +212,7 @@ Visual Studio Code를 사용 하면 편리한 프롬프트 집합에 따라 함�
 context.bindings.msg = "Name passed to the function: " req.query.name;
 ```
 
-자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue.md#output) 참조를 참조 하세요.
+자세히 알아보려면 [큐 저장소 출력 바인딩](functions-bindings-storage-queue-output.md) 참조를 참조 하세요.
 
 ---
 

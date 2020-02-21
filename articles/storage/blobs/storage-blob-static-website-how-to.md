@@ -7,12 +7,12 @@ ms.subservice: blobs
 ms.topic: conceptual
 ms.author: normesta
 ms.date: 05/28/2019
-ms.openlocfilehash: 4214c4eb9fbe1d3e39d1ee16289f30b893b94653
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 35b5a85ea6fba87e785b581a7a20d0c28f312820
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906609"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484148"
 ---
 # <a name="host-a-static-website-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트를 호스팅합니다.
 
@@ -22,7 +22,7 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠 (HTML, C
 
 <a id="portal" />
 
-## <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+## <a name="portal"></a>[포털](#tab/azure-portal)
 
 단계별 자습서는 [자습서: Blob Storage에서 정적 웹 사이트 호스팅](https://docs.microsoft.com/azure/storage/blobs/storage-blob-static-website-host)을 참조 하세요.
 
@@ -38,7 +38,7 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠 (HTML, C
 
 <a id="cli" />
 
-## <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+## <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 [CLI (Azure 명령줄 인터페이스)](https://docs.microsoft.com/cli/azure/?view=azure-cli-latest)를 사용 하 여 정적 웹 사이트 호스팅을 사용 하도록 설정할 수 있습니다.
 
@@ -72,7 +72,7 @@ Azure Storage GPv2 계정의 컨테이너에서 직접 정적 콘텐츠 (HTML, C
    이 예에서는 Azure Cloud Shell 세션에서 명령을 실행 중인 것으로 가정 합니다.
 
    ```azurecli-interactive
-   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name>
+   az storage blob upload-batch -s <source-path> -d \$web --account-name <storage-account-name> --content-type 'text/html; charset=utf-8'
    ```
 
    * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
@@ -102,7 +102,7 @@ az storage account show -n <storage-account-name> -g <resource-group-name> --que
 
 <a id="powershell" />
 
-## <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+## <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트 호스팅을 사용 하도록 설정할 수 있습니다.
 
@@ -157,6 +157,7 @@ Azure PowerShell 모듈을 사용 하 여 정적 웹 사이트 호스팅을 사�
     ```powershell
     # upload a file
     set-AzStorageblobcontent -File "<path-to-file>" `
+    -Properties @{ ContentType = "text/html; charset=utf-8";} `
     -Container `$web `
     -Blob "<blob-name>" `
     -Context $ctx
@@ -207,7 +208,7 @@ Write-Output $storageAccount.PrimaryEndpoints.Web
 
    ![Azure Storage 정적 웹 사이트 메트릭](./media/storage-blob-static-website/storage-blob-static-website-metrics-metric.png)
 
-5. *집계* 선택기에서 **합계**를 선택합니다.
+5. **집계** 선택기에서 *합계*를 선택합니다.
 
    ![Azure Storage 정적 웹 사이트 메트릭 집계](./media/storage-blob-static-website/storage-blob-static-website-metrics-aggregation.png)
 

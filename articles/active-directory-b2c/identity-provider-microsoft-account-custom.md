@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 07/08/2019
+ms.date: 02/19/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: b1489ce6bee2ce25ffb268ef20cc8fa587664619
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f4265659df786cf0a972b6dcf4f122bfc68535c1
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848929"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483281"
 ---
 # <a name="set-up-sign-in-with-a-microsoft-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 Microsoft 계정을 통한 로그인 설정
 
@@ -24,12 +24,12 @@ ms.locfileid: "76848929"
 
 이 문서에서는 Azure Active Directory B2C (Azure AD B2C)에서 [사용자 지정 정책을](custom-policy-overview.md) 사용 하 여 Microsoft 계정에서 사용자에 대 한 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 - Microsoft 계정이 아직 없으면 [https://www.live.com/](https://www.live.com/)에서 만듭니다.
 
-## <a name="add-an-application"></a>애플리케이션 추가
+## <a name="register-an-application"></a>애플리케이션 등록
 
 Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하려면 Azure AD 테 넌 트 내에서 응용 프로그램을 등록 해야 합니다. Azure AD 테넌트는 Azure AD B2C 테넌트와 다릅니다.
 
@@ -46,6 +46,19 @@ Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하�
 1. **새 클라이언트 암호** 를 클릭 합니다.
 1. 암호에 대 한 **설명** (예: *MSA 응용 프로그램 클라이언트 암호*)을 입력 한 다음 **추가**를 클릭 합니다.
 1. **값** 열에 표시 된 응용 프로그램 암호를 기록 합니다. 다음 섹션에서이 값을 사용 합니다.
+
+## <a name="configuring-optional-claims"></a>선택적 클레임 구성
+
+Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경우 Azure Portal UI 또는 응용 프로그램 매니페스트에서 응용 프로그램에 대 한 선택적 클레임을 구성할 수 있습니다. 자세한 내용은 [AZURE AD 앱에 선택적 클레임을 제공 하는 방법](../active-directory/develop/active-directory-optional-claims.md)을 참조 하세요.
+
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다. **Azure Active Directory**를 검색하고 선택합니다.
+1. **관리** 섹션에서 **앱 등록**을 선택 합니다.
+1. 목록에서 선택적 클레임을 구성 하려는 응용 프로그램을 선택 합니다.
+1. **관리** 섹션에서 **토큰 구성 (미리 보기)** 을 선택 합니다.
+1. **선택적 클레임 추가**를 선택 합니다.
+1. 구성 하려는 토큰 유형을 선택 합니다.
+1. 추가할 선택적 클레임을 선택 합니다.
+1. **추가**를 클릭합니다.
 
 ## <a name="create-a-policy-key"></a>정책 키 만들기
 
@@ -94,10 +107,12 @@ Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하�
             <Key Id="client_secret" StorageReferenceId="B2C_1A_MSASecret" />
           </CryptographicKeys>
           <OutputClaims>
-            <OutputClaim ClaimTypeReferenceId="identityProvider" DefaultValue="live.com" />
-            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
-            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="sub" />
+            <OutputClaim ClaimTypeReferenceId="issuerUserId" PartnerClaimType="oid" />
+            <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="given_name" />
+            <OutputClaim ClaimTypeReferenceId="surName" PartnerClaimType="family_name" />
             <OutputClaim ClaimTypeReferenceId="displayName" PartnerClaimType="name" />
+            <OutputClaim ClaimTypeReferenceId="authenticationSource" DefaultValue="socialIdpAuthentication" />
+            <OutputClaim ClaimTypeReferenceId="identityProvider" PartnerClaimType="iss" />
             <OutputClaim ClaimTypeReferenceId="email" />
           </OutputClaims>
           <OutputClaimsTransformations>
@@ -133,7 +148,7 @@ Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하�
 이 시점에서 id 공급자를 설정 했지만 등록 또는 로그인 화면에서 아직 사용할 수 없는 상태입니다. 사용할 수 있도록 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 Microsoft 계정 id 공급자도 갖도록 수정 합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-1. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
+1. **이 포함된** UserJourney`Id="SignUpOrSignIn"` 요소를 찾아서 전체 콘텐츠를 복사합니다.
 1. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 1. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInMSA`)을 입력합니다.
@@ -142,7 +157,7 @@ Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하�
 
 **ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. Microsoft 계정에 대 한 **ClaimsProviderSelection** 요소를 추가 하면 사용자가 페이지를 이동할 때 새 단추가 표시 됩니다.
 
-1. 앞에서 만든 사용자 경험의 `Order="1"`이 포함된 **OrchestrationStep** 요소를 *TrustFrameworkExtensions.xml* 파일에서 찾습니다.
+1. 앞에서 만든 사용자 경험의 *이 포함된* OrchestrationStep**요소를**TrustFrameworkExtensions.xml`Order="1"` 파일에서 찾습니다.
 1. **ClaimsProviderSelects** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `MicrosoftAccountExchange`)으로 설정합니다.
 
     ```XML
@@ -153,7 +168,7 @@ Microsoft 계정 사용자에 대 한 로그인을 사용 하도록 설정 하�
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우 작업은 Azure AD B2C Microsoft 계정와 통신 하 여 토큰을 수신 하는 데 사용 됩니다.
 
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
+1. 사용자 경험에서 **가 포함된** OrchestrationStep`Order="2"`을 찾습니다.
 1. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```xml
@@ -179,7 +194,7 @@ Azure AD B2C와의 통신은 B2C 테 넌 트에 등록 하는 응용 프로그�
 1. **PublicPolicyUri** 값을 정책의 URI로 업데이트합니다. 예를 들어 `http://contoso.com/B2C_1A_signup_signin_msa`으로 업데이트할 수 있습니다.
 1. **Defaultuserjourney** 에서 **ReferenceId** 특성의 값을 이전에 만든 사용자 경험의 ID (SignUpSignInMSA)와 일치 하도록 업데이트 합니다.
 1. 변경 내용을 저장하고 파일을 업로드한 다음, 목록에서 새 정책을 선택합니다.
-1. **응용 프로그램 선택** 필드에 이전 섹션에서 만든 Azure AD B2C 응용 프로그램 (또는 *webapp1* 또는 *testapp1-development*와 같은 필수 구성 요소를 완료)이 선택 되어 있는지 확인 한 다음 지금 실행을 클릭 하 여 테스트 합니다.
+1. **응용 프로그램 선택** 필드에 이전 섹션에서 만든 Azure AD B2C 응용 프로그램 (또는 *webapp1* 또는 *testapp1-development*와 같은 필수 구성 요소를 완료)이 선택 되어 있는지 확인 한 다음 **지금 실행**을 클릭 하 여 테스트 합니다.
 1. **Microsoft 계정** 단추를 선택 하 고 로그인 합니다.
 
     로그인 작업이 성공 하면 다음과 같이 디코딩된 토큰을 표시 하는 `jwt.ms`으로 리디렉션됩니다.

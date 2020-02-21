@@ -12,16 +12,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 12/17/2018
 ms.author: labrenne
-ms.openlocfilehash: 17cd9db1e86a66630d3b93c8295915933abb1ec2
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 22ee4aad6d2aabcc26dd97e50a2c716cb14be67a
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023602"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77483587"
 ---
 # <a name="use-rdma-or-gpu-instances-in-batch-pools"></a>Batch 풀에서 RDMA 또는 GPU 인스턴스 사용
 
-특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 예:
+특정 Batch 작업을 실행하려면 대규모 컴퓨팅을 위해 설계된 Azure VM 크기를 활용할 수 있습니다. 다음은 그 예입니다.
 
 * 다중 인스턴스 [MPI 워크로드](batch-mpi.md)를 실행하려면 RDMA(Remote Direct Memory Access)에 대한 네트워크 인터페이스가 있는 H 시리즈 또는 기타 크기를 선택합니다. 이러한 크기는 MPI 애플리케이션을 가속화할 수 있는 노드 간 통신에 대한 InfiniBand 네트워크에 연결합니다. 
 
@@ -44,9 +44,9 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | -------- | ----- |  -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, NCv3, NDv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버 | N/A | 
-| [NV, NVv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID 드라이버 | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/linux/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/linux/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Ubuntu 16.04 LTS 또는<br/>CentOS 기반 HPC<br/>(Azure Marketplace) | Intel MPI 5<br/><br/>Linux RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
+| [NC, NCv2, NCv3, NDv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3 또는 7.4<br/>(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버 | 해당 없음 | 
+| [NV, NVv2 시리즈](../virtual-machines/linux/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Ubuntu 16.04 LTS 또는<br/>CentOS 7.3<br/>(Azure Marketplace) | NVIDIA GRID 드라이버 | 해당 없음 |
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
 
@@ -54,9 +54,9 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------ | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 또는<br/>2012(Azure Marketplace) | Microsoft MPI 2012 R2 이상 또는<br/> Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
-| [NC, NCv2, NCv3, ND, NDv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>2012 R2(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버| N/A | 
-| [NV, NVv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 또는<br/>2012 R2(Azure Marketplace) | NVIDIA GRID 드라이버 | N/A |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md)<br/>[NC24r, NC24rs_v2, NC24rs_v3, ND24rs<sup>*</sup>](../virtual-machines/windows/n-series-driver-setup.md#rdma-network-connectivity) | RDMA | Windows Server 2016, 2012 R2 또는<br/>2012(Azure Marketplace) | Microsoft MPI 2012 R2 이상 또는<br/> Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용, 동시 작업 실행 사용 안 함 |
+| [NC, NCv2, NCv3, ND, NDv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla GPU(시리즈에 따라 다름) | Windows Server 2016 또는 <br/>2012 R2(Azure Marketplace) | NVIDIA CUDA 또는 CUDA Toolkit 드라이버| 해당 없음 | 
+| [NV, NVv2 시리즈](../virtual-machines/windows/n-series-driver-setup.md) | NVIDIA Tesla M60 GPU | Windows Server 2016 또는<br/>2012 R2(Azure Marketplace) | NVIDIA GRID 드라이버 | 해당 없음 |
 
 <sup>*</sup>RDMA 지원 N 시리즈 크기에는 NVIDIA Tesla GPU도 포함됨
 
@@ -68,13 +68,13 @@ Batch에서 컴퓨팅 집약적인 크기의 RDMA 또는 GPU 기능은 특정 �
 
 | 크기 | 기능 | 운영 체제 | 필수 소프트웨어 | 풀 설정 |
 | -------- | ------- | -------- | -------- | ----- |
-| [H16r, H16mr, A8, A9](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances) | RDMA | Windows Server 2016, 2012 R2, 2012 또는<br/>2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
+| [H16r, H16mr, A8, A9](../virtual-machines/sizes-hpc.md) | RDMA | Windows Server 2016, 2012 R2, 2012 또는<br/>2008 R2(게스트 OS 제품군) | Microsoft MPI 2012 R2 이상 또는<br/>Intel MPI 5<br/><br/>Windows RDMA 드라이버 | 노드 간 통신 사용<br/> 동시 작업 실행 사용 안 함 |
 
 ## <a name="pool-configuration-options"></a>풀 구성 옵션
 
 Batch 풀에 대해 특별한 VM 크기를 구성하려면 필수 소프트웨어 또는 드라이버를 설치하는 몇 가지 옵션이 있습니다.
 
-* 가상 머신 구성의 풀인 경우 드라이버 및 소프트웨어가 미리 설치되어 미리 구성된 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 이미지를 선택합니다. 예시: 
+* 가상 머신 구성의 풀인 경우 드라이버 및 소프트웨어가 미리 설치되어 미리 구성된 [Azure Marketplace](https://azuremarketplace.microsoft.com/marketplace/) VM 이미지를 선택합니다. 예제: 
 
   * [CentOS 기반 7.4 HPC](https://azuremarketplace.microsoft.com/marketplace/apps/RogueWave.CentOSbased74HPC?tab=Overview) - RDMA 드라이버 및 Intel MPI 5.1 포함
 
@@ -103,7 +103,7 @@ Windows NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 NVDIA 
 
 1. [NVIDIA 웹 사이트](https://www.nvidia.com/Download/index.aspx)에서 Windows Server 2016에 GPU 드라이버 설치 패키지를 다운로드합니다. 예를 들면 [411.82 버전](https://us.download.nvidia.com/Windows/Quadro_Certified/411.82/411.82-tesla-desktop-winserver2016-international.exe)입니다. *GPUDriverSetup.exe*와 같은 짧은 이름을 사용하여 파일을 로컬에 저장합니다.
 2. 패키지의 zip 파일을 만듭니다.
-3. Batch 계정에 패키지를 업로드합니다. 단계는 [애플리케이션 패키지](batch-application-packages.md) 지침을 참조하세요. *GPUDriver*와 같은 애플리케이션 ID 및 *411.82*와 같은 버전을 지정합니다.
+3. Batch 계정에 패키지를 업로드합니다. 단계는 [애플리케이션 패키지](batch-application-packages.md) 지침을 참조하세요. *GPUDriver*와 같은 응용 프로그램 ID 및 *411.82*등의 버전을 지정 합니다.
 1. Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모로 가상 머신 구성에서 풀을 만듭니다. 다음 표에서는 시작 작업을 사용하여 NVIDIA GPU 드라이버를 자동으로 설치하는 샘플 설정을 보여줍니다.
 
 | 설정 | 값 |
@@ -114,7 +114,7 @@ Windows NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 NVDIA 
 | **Sku** | 2016-Datacenter |
 | **노드 크기** | NC6 표준 |
 | **애플리케이션 패키지 참조** | GPUDriver, 버전 411.82 |
-| **시작 작업 사용** | 참<br>**명령줄** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**사용자 ID** - 풀 autouser, 관리자<br/>**성공 대기** - True
+| **시작 작업 사용** | True<br>**명령줄** - `cmd /c "%AZ_BATCH_APP_PACKAGE_GPUDriver#411.82%\\GPUDriverSetup.exe /s"`<br/>**사용자 ID** - 풀 autouser, 관리자<br/>**성공 대기** - True
 
 ## <a name="example-nvidia-gpu-drivers-on-a-linux-nc-vm-pool"></a>예: Linux NC VM 풀의 NVIDIA GPU 드라이버
 
@@ -139,8 +139,7 @@ Linux NC 노드의 풀에서 CUDA 애플리케이션을 실행하려면 CUDA Too
 Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면 HpcVmDrivers 확장을 구성하고 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi)를 설치해야 합니다. 필요한 드라이버와 소프트웨어와 함께 사용자 지정 Windows Server 2016 이미지를 배포하는 샘플 단계는 다음과 같습니다.
 
 1. Windows Server 2016을 실행하는 Azure H16r VM을 배포합니다. 예를 들어, 미국 서부 지역에서 VM을 만듭니다. 
-2. Azure 구독에 연결하는 클라이언트 컴퓨터에서 [Azure PowerShell 명령](../virtual-machines/windows/sizes-hpc.md#rdma-capable-instances
-)을 실행하거나 Azure Cloud Shell을 사용하여 VM에 HpcVmDrivers 확장을 추가합니다. 
+2. Azure 구독에 연결하는 클라이언트 컴퓨터에서 [Azure PowerShell 명령](../virtual-machines/sizes-hpc.md)을 실행하거나 Azure Cloud Shell을 사용하여 VM에 HpcVmDrivers 확장을 추가합니다. 
 1. VM에 대한 원격 데스크톱 연결을 만듭니다.
 1. 최신 버전의 Microsoft MPI에 대한 [설치 패키지](https://www.microsoft.com/download/details.aspx?id=57467)(MSMpiSetup.exe)를 다운로드하고 Microsoft MPI를 설치합니다.
 1. 일괄 처리를 위한 [공유 이미지 갤러리 이미지](batch-sig-images.md) 를 만드는 단계를 수행 합니다.
@@ -152,7 +151,7 @@ Azure H16r VM 노드 풀에서 Windows MPI 애플리케이션을 실행하려면
 | **사용자 지정 이미지** | *이미지 이름* |
 | **노드 에이전트 SKU** | batch.node.windows amd64 |
 | **노드 크기** | H16r Standard |
-| **노드 간 통신 사용** | 참 |
+| **노드 간 통신 사용** | True |
 | **노드당 최대 작업** | 1 |
 
 ## <a name="example-intel-mpi-on-a-linux-h16r-vm-pool"></a>예: Linux H16r VM 풀의 Intel MPI
@@ -168,7 +167,7 @@ Batch API 또는 Azure Portal을 사용하여 원하는 수의 노드 및 규모
 | **제안** | CentOS-HPC |
 | **Sku** | 7.4 |
 | **노드 크기** | H16r Standard |
-| **노드 간 통신 사용** | 참 |
+| **노드 간 통신 사용** | True |
 | **노드당 최대 작업** | 1 |
 
 ## <a name="next-steps"></a>다음 단계

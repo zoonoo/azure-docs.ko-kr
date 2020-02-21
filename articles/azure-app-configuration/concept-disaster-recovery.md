@@ -5,13 +5,13 @@ author: lisaguthrie
 ms.author: lcozzens
 ms.service: azure-app-configuration
 ms.topic: conceptual
-ms.date: 05/29/2019
-ms.openlocfilehash: 889699ab184b82a7c194043d15358ecdaab5d03d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.date: 02/20/2020
+ms.openlocfilehash: 96ef09ac081aa328014217592a7fcd3ed6314c0e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899645"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523767"
 ---
 # <a name="resiliency-and-disaster-recovery"></a>복원력 및 재해 복구
 
@@ -27,9 +27,9 @@ ms.locfileid: "76899645"
 
 ## <a name="failover-between-configuration-stores"></a>구성 저장소 간 장애 조치
 
-기술적으로는 애플리케이션에서 장애 조치(failover)를 실행하지 않습니다. 두 App Configuration 저장소에서 동일한 구성 데이터 세트를 동시에 검색하려고 합니다. 먼저 보조 저장소에서 로드한 다음, 기본 저장소에서 로드하도록 코드를 정렬합니다. 이 방법은 기본 저장소의 구성 데이터를 사용할 수 있을 때마다 이를 우선적으로 적용하도록 합니다. 다음 코드 조각은 .NET Core CLI에서 이 정렬을 구현하는 방법을 보여줍니다.
+기술적으로는 애플리케이션에서 장애 조치(failover)를 실행하지 않습니다. 두 App Configuration 저장소에서 동일한 구성 데이터 세트를 동시에 검색하려고 합니다. 먼저 보조 저장소에서 로드한 다음, 기본 저장소에서 로드하도록 코드를 정렬합니다. 이 방법은 기본 저장소의 구성 데이터를 사용할 수 있을 때마다 이를 우선적으로 적용하도록 합니다. 다음 코드 조각에서는 .NET Core에서이 배열을 구현할 수 있는 방법을 보여 줍니다.
 
-#### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+#### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
 
 ```csharp
 public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -44,7 +44,7 @@ public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
     
 ```
 
-#### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+#### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
 
 ```csharp
 public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -70,17 +70,18 @@ Azure Portal에서 다음 단계를 수행하면 다른 구성 저장소에 대�
 
 1. **가져오기/내보내기** 탭으로 이동하고 **내보내기** > **App Configuration** > **대상** > **리소스 선택**을 선택합니다.
 
-2. 열린 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음, **적용**을 선택합니다.
+1. 열리는 새 블레이드에서 보조 저장소의 구독, 리소스 그룹 및 리소스 이름을 지정한 다음 **적용**을 선택 합니다.
 
-3. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 유지한 채 **원본 레이블** 및 **레이블 지정**을 모두 동일한 값으로 설정할 수 있습니다. **적용**을 선택합니다.
+1. UI가 업데이트되어 보조 저장소로 내보내려는 구성 데이터를 선택할 수 있습니다. 기본 시간 값을 그대로 유지한 채 **원본 레이블** 및 **레이블 지정**을 모두 동일한 값으로 설정할 수 있습니다. **적용**을 선택합니다.
 
-4. 모든 구성 변경에 대해 위의 단계를 반복합니다.
+1. 모든 구성 변경에 대해 위의 단계를 반복합니다.
 
 이 내보내기 프로세스를 자동화하려면 Azure CLI를 사용합니다. 다음 명령에서는 단일 구성 변경을 기본 저장소에서 보조 저장소로 내보내는 방법을 보여줍니다.
 
+```azurecli
     az appconfig kv export --destination appconfig --name {PrimaryStore} --label {Label} --dest-name {SecondaryStore} --dest-label {Label}
+```
 
 ## <a name="next-steps"></a>다음 단계
 
 이 문서에서는 App Configuration 런타임 동안 지역 복원력을 달성하기 위해 애플리케이션을 보강하는 방법에 대해 알아보았습니다. 또한 빌드하거나 배포할 때 App Configuration의 구성 데이터를 포함시킬 수 있습니다. 자세한 내용은 [CI/CD 파이프라인과 통합](./integrate-ci-cd-pipeline.md)을 참조하세요.
-

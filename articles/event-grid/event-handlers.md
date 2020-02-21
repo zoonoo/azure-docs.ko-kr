@@ -1,18 +1,18 @@
 ---
 title: Azure Event Grid 이벤트 처리기
-description: Azure Event Grid에 대해 지원 되는 이벤트 처리기에 대해 설명 합니다. 처리기는 이벤트를 처리하기 위한 추가 작업을 수행합니다.
+description: Azure Event Grid에 대해 지원 되는 이벤트 처리기에 대해 설명 합니다. Azure Automation, 함수, Event Hubs, 하이브리드 연결, Logic Apps, Service Bus, Queue Storage, 웹 후크.
 services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 3cef32cd204e8bd4b21353cf66575a721315b387
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 7ea00d663264e902c1818f7a4684e90eccd97b28
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76511317"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525807"
 ---
 # <a name="event-handlers-in-azure-event-grid"></a>Azure Event Grid의 이벤트 처리기
 
@@ -28,7 +28,7 @@ ms.locfileid: "76511317"
 |---------|---------|
 |[자습서: Event Grid 및 Microsoft 팀을 사용한 Azure Automation](ensure-tags-exists-on-new-virtual-machines.md) |이벤트를 전송 하는 가상 머신을 만듭니다. 이벤트는 가상 머신에 태그를 지정하는 Automation Runbook을 트리거하고, Microsoft 팀 채널에 전송되는 메시지를 트리거합니다. |
 
-## <a name="azure-functions"></a>Azure Function
+## <a name="azure-functions"></a>Azure 기능
 
 이벤트에 대한 serverless 응답으로 Azure Functions를 사용합니다.
 
@@ -97,7 +97,7 @@ az eventgrid event-subscription create \
     --endpoint /subscriptions/{SubID}/resourceGroups/TestRG/providers/Microsoft.ServiceBus/namespaces/ns1/queues/queue1
 ```
 
-### <a name="service-bus-topics"></a>Service Bus 항목
+### <a name="service-bus-topics"></a>Service Bus 토픽
 
 Service Bus 항목을 사용 하 여 Azure 시스템 이벤트를 처리 하기 위해 Event Grid의 이벤트를 Service Bus 항목으로 직접 라우트 하거나 명령 & 메시징 시나리오를 제어할 수 있습니다.
 

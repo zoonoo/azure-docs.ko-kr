@@ -3,33 +3,39 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 10/16/2019
+ms.date: 02/12/2020
 ms.author: marsma
-ms.openlocfilehash: 43bcd1f11eb228bd1454b2ad0f2addb851029f2f
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: e5201dfee83ec5360e55533e923e2b55c24c09d9
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73799973"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492930"
 ---
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
 1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
-1. **Windows Azure Active Directory**를 선택합니다.
-1. **응용 프로그램 사용 권한**에서 **디렉터리 데이터 읽기 및 쓰기**를 선택 합니다.
+1. **Microsoft Graph**를 선택합니다.
+1. **응용 프로그램 사용 권한**에서 관리 응용 프로그램에 부여할 사용 권한의 확인란을 선택 합니다. 다음은 그 예입니다.
+    * **모든 감사 로그 데이터 읽기**: 디렉터리의 감사 로그를 읽을 수 있도록이 권한을 선택 합니다.
+    * **디렉터리 데이터 읽기 및 쓰기**: 사용자 마이그레이션 또는 사용자 관리 시나리오에 대해이 권한을 선택 합니다.
+    * **조직의 신뢰 프레임 워크 정책 읽기 및 쓰기**: CI/CD (연속 통합/지속적인 업데이트) 시나리오에 대 한이 사용 권한을 선택 합니다. 예를 들어 Azure Pipelines를 사용 하는 사용자 지정 정책 배포가 있습니다.
 1. **저장**을 선택합니다.
 1. **사용 권한 부여**를 선택한 다음, **예**를 선택합니다. 권한이 완전히 전파 되는 데 몇 분 정도 걸릴 수 있습니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **관리** 아래에서 **API 권한**을 선택합니다.
-1. **구성 된 사용 권한**에서 **사용 권한 추가**를 선택 합니다.
-1. **Azure Active Directory 그래프**를 선택 합니다.
+1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
+1. **Microsoft api** 탭을 선택 하 고 **Microsoft Graph**를 선택 합니다.
 1. **애플리케이션 권한**을 선택합니다.
-1. **디렉터리** 를 확장 하 고 **디렉터리. ReadWrite. 모두** 확인란을 선택 합니다.
-1. **권한 추가**를 선택 합니다. 지시에 따라 몇 분 정도 기다린 후 다음 단계를 진행 합니다.
-1. **사용자의 테 넌 트 이름에 대해 관리자 동의 부여를**선택 합니다.
-1. 테 넌 트 관리자 계정을 선택 합니다.
+1. 적절 한 권한 그룹을 확장 하 고 관리 응용 프로그램에 부여할 권한의 확인란을 선택 합니다. 다음은 그 예입니다.
+    * **감사 로그** > **감사 로그**: 디렉터리의 감사 로그를 읽습니다.
+    * **디렉터리** > **directory. ReadWrite. All**: 사용자 마이그레이션 또는 사용자 관리 시나리오에 사용 됩니다.
+    * **정책** > **policy. ReadWrite. trustframework**: 연속 통합/지속적인 업데이트 (CI/CD) 시나리오를 위한 것입니다. 예를 들어 Azure Pipelines를 사용 하는 사용자 지정 정책 배포가 있습니다.
+1. **권한 추가**를 선택합니다. 안내에 따라 몇 분 정도 기다린 후 다음 단계를 진행하세요.
+1. **(테넌트 이름)에 대한 관리자 동의 허용**을 선택합니다.
+1. 현재 로그인된 관리자 계정을 선택하거나 Azure AD B2C 테넌트에서 최소한 *클라우드 애플리케이션 관리자* 역할이 할당된 계정으로 로그인합니다.
 1. **수락**을 선택합니다.
-1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. **상태**아래에 나타납니다. 권한을 전파 하는 데 몇 분 정도 걸릴 수 있습니다.
+1. **새로 고침**을 선택 하 고 "다음에 대해 권한 부여 ..."를 확인 합니다. **상태**아래에 나타납니다. 권한이 전파되려면 몇 분 정도 걸릴 수 있습니다.

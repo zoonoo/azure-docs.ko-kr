@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 11/30/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 846819c3a05baf4ef1174d4e086f09893e834b2a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdc7d9fce3ebce4603369262f164ba72b1e39499
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847798"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484318"
 ---
 # <a name="user-flows-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 흐름
 
@@ -81,10 +81,8 @@ Azure Portal에서는 새 [버전의 사용자 흐름](user-flow-versions.md)이
 
 이러한 경우에는 메일 주소가 확인되지 않습니다. 테넌트 관리자는 로컬 계정에 대한 기본 정책에서 메일 확인을 사용하지 않도록 설정할 수 있습니다. 메일 주소 확인이 사용되더라도 소셜 ID 공급자가 제공한 것이며 변경되지 않은 경우에는 주소가 확인되지 않습니다.
 
-**otherMails** 및 **signInNames** 속성만 Active Directory Graph API를 통해 노출됩니다. 강력한 인증 정보 속성의 메일 주소를 사용할 수 없습니다.
+Microsoft Graph API를 통해 **Othermails** 및 **signInNames** 속성만 노출 됩니다. 강력한 인증 정보 속성의 메일 주소를 사용할 수 없습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 권장 사용자 흐름을 만들려면 [자습서: 사용자 흐름 만들기](tutorial-create-user-flows.md)의 지침을 따르세요.
-
-

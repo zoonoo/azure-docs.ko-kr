@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/18/2019
 ms.author: cshoe
-ms.openlocfilehash: 9b9e39776e519a91a4464532e11e85da711087b3
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 2d0cf18de09932c5d66e269a85919f4d85383c5b
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766246"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485508"
 ---
 # <a name="azure-functions-binding-expression-patterns"></a>Azure Functions 바인딩 식 패턴
 
@@ -115,7 +115,7 @@ public static void Run(Stream image, string filename, Stream imageSmall, ILogger
 <!--TODO: add JavaScript example -->
 <!-- Blocked by bug https://github.com/Azure/Azure-Functions/issues/248 -->
 
-바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 다음 예제에서 특성 생성자 매개 변수는 앞의 *function.json* 예제와 동일한 `path` 값입니다. 
+바인딩 식 및 패턴을 사용하는 동일한 기능은 클래스 라이브러리의 특성에 적용됩니다. 다음 예제에서 특성 생성자 매개 변수는 앞의 `path`function.json*예제와 동일한* 값입니다. 
 
 ```csharp
 [FunctionName("ResizeImage")]
@@ -159,7 +159,7 @@ Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자�
 * NextVisibleTime
 * PopReceipt
 
-이러한 메타데이터 값은 *function.json* 파일 속성에서 액세스할 수 있습니다. 예를 들어 큐 트리거를 사용하고 큐 메시지는 읽으려는 Blob의 이름을 포함한다고 가정합니다. *function.json* 파일에서 다음 예제와 같이 Blob `path` 속성에서 `queueTrigger` 메타데이터 속성을 사용할 수 있습니다.
+이러한 메타데이터 값은 *function.json* 파일 속성에서 액세스할 수 있습니다. 예를 들어 큐 트리거를 사용하고 큐 메시지는 읽으려는 Blob의 이름을 포함한다고 가정합니다. *function.json* 파일에서 다음 예제와 같이 Blob `queueTrigger` 속성에서 `path` 메타데이터 속성을 사용할 수 있습니다.
 
 ```json
   "bindings": [
@@ -179,7 +179,7 @@ Blob 경로 문자열에서 식 및 패턴을 사용하는 방법에 대한 자�
   ]
 ```
 
-각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue.md#trigger---message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
+각 트리거의 메타데이터 속성은 해당 참조 문서에서 자세히 설명되어 있습니다. 예를 들어 [큐 트리거 메타데이터](functions-bindings-storage-queue-trigger.md#message-metadata)를 참조하세요. 설명서는 Portal에서 **통합** 탭의 바인딩 구성 영역 아래 **설명서** 섹션에서도 참조할 수 있습니다.  
 
 ## <a name="json-payloads"></a>JSON 페이로드
 

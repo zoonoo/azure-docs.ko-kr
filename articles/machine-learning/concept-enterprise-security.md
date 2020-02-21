@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 32b3135f805cc6c68d8cd9d6fa2b6f957cd140ad
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444148"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486396"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -112,6 +112,7 @@ Azure Machine Learning는 계산 리소스에 대 한 다른 Azure 서비스에 
 > [!IMPORTANT]
 > 작업 영역에 중요 한 데이터가 포함 된 경우 작업 영역을 만드는 동안 [hbi_workspace 플래그](https://docs.microsoft.com/python/api/azureml-core/azureml.core.workspace(class)?view=azure-ml-py#create-name--auth-none--subscription-id-none--resource-group-none--location-none--create-resource-group-true--sku--basic---friendly-name-none--storage-account-none--key-vault-none--app-insights-none--container-registry-none--cmk-keyvault-none--resource-cmk-uri-none--hbi-workspace-false--default-cpu-compute-target-none--default-gpu-compute-target-none--exist-ok-false--show-output-true-) 를 설정 하는 것이 좋습니다. Microsoft에서 진단 목적으로 수집 하 고 Microsoft 관리 환경에서 추가 암호화를 사용 하도록 설정 하는 데이터의 양을 제어 합니다.
 
+Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [미사용 azure 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조 하세요.
 
 #### <a name="azure-blob-storage"></a>Azure BLOB 스토리지
 
@@ -189,7 +190,9 @@ Azure Storage에 저장 된 각 계산 노드에 대 한 OS 디스크는 Azure M
 
 또한 각 가상 컴퓨터에는 OS 작업을 위한 로컬 임시 디스크가 있습니다. 원할 경우 디스크를 사용 하 여 학습 데이터를 준비할 수 있습니다. `hbi_workspace` 매개 변수를 `TRUE`으로 설정 하 여 작업 영역에 대해 기본적으로 디스크가 암호화 됩니다. 이 환경은 실행 기간 동안만 수명이 짧고 암호화 지원은 시스템 관리 키로만 제한 됩니다.
 
-Azure에서 미사용 암호화가 작동 하는 방식에 대 한 자세한 내용은 [미사용 azure 데이터 암호화](https://docs.microsoft.com/azure/security/fundamentals/encryption-atrest)를 참조 하세요.
+#### <a name="azure-databricks"></a>Azure Databricks
+
+Azure Databricks은 Azure Machine Learning 파이프라인에서 사용할 수 있습니다. 기본적으로 Azure Databricks에서 사용 되는 DBFS (Databricks File System)는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 고객이 관리 하는 키를 사용 하도록 Azure Databricks를 구성 하려면 [기본 (루트) DBFS에서 고객 관리 키 구성](/azure/databricks/security/customer-managed-keys-dbfs)을 참조 하세요.
 
 ### <a name="encryption-in-transit"></a>전송 중 암호화
 

@@ -13,12 +13,12 @@ ms.workload: infrastructure-services
 ms.date: 10/22/2019
 ms.author: jispar
 ms.reviewer: kumud
-ms.openlocfilehash: 270b3f0fe7c654d2bf059784e872b7dbe97a6068
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.openlocfilehash: c93460797fc1cf953d467e2739d71c5a2a9b74ed
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190484"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486171"
 ---
 # <a name="virtual-network-service-tags"></a>가상 네트워크 서비스 태그 
 <a name="network-service-tags"></a>
@@ -52,7 +52,7 @@ ms.locfileid: "77190484"
 | **AzureBackup** |Azure Backup.<br/><br/>*참고:* 이 태그는 **Storage** 및 **AzureActiveDirectory** 태그에 종속 됩니다. | 아웃바운드 | 예 | yes |
 | **AzureBotService** | Azure Bot Service. | 아웃바운드 | 예 | 예 |
 | **AzureCloud** | 모든 [데이터 센터 공용 IP 주소](https://www.microsoft.com/download/details.aspx?id=56519)입니다. | 아웃바운드 | yes | yes |
-| **AzureCognitiveSearch** | Azure Cognitive Search (기술와 함께 인덱서를 사용 하는 경우). | 모두 | 예 | 예 |
+| **AzureCognitiveSearch** | Azure Cognitive Search. <br/><br/>이 태그가 적용 되는이 태그 또는 IP 주소를 사용 하 여 데이터 원본에 대 한 보안 액세스를 인덱서에 부여할 수 있습니다. 자세한 내용은 [인덱서 연결 설명서](https://docs.microsoft.com/azure/search/search-indexer-troubleshooting#connection-errors) 를 참조 하세요. | 인바운드 | 예 | 예 |
 | **AzureConnectors** | 프로브/백 엔드 연결용 커넥터를 Azure Logic Apps 합니다. | 인바운드 | yes | yes |
 | **AzureContainerRegistry** | Azure Container Registry. | 아웃바운드 | yes | yes |
 | **Microsoft.azurecosmosdb** | Azure Cosmos DB. | 아웃바운드 | yes | yes |

@@ -12,12 +12,12 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 04/13/2018
 ms.author: cjiang
-ms.openlocfilehash: 9bb228725d5ad8e3583c73be09c582478f74a1e8
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b4750ad9fdfa214aa4d7b6a0355c319e7eb1d9c3
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77471893"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484403"
 ---
 # <a name="troubleshoot-allocation-failures-when-you-create-restart-or-resize-vms-in-azure"></a>Azure에서 VM을 만들거나 재시작하거나 크기를 조정하는 경우 할당 오류 해결
 
@@ -87,9 +87,9 @@ Azure 인프라가 확장되면서 최신 세대 가상 머신 유형을 지원�
 
 |레거시 VM 시리즈/크기|권장되는 신규 VM 시리즈/크기|자세한 정보|
 |----------------------|----------------------------|--------------------|
-|Av1 시리즈|[Av2 시리즈](../windows/sizes-general.md#av2-series)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../windows/sizes-general.md#dsv3-series-1)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
-|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../windows/sizes-memory.md#ev3-series)|
+|Av1 시리즈|[Av2 시리즈](../av2-series.md)|https://azure.microsoft.com/blog/new-av2-series-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D1 - D5)|[Dv3 또는 DSv3 시리즈](../dv3-dsv3-series.md)|https://azure.microsoft.com/blog/introducing-the-new-dv3-and-ev3-vm-sizes/
+|Dv1 또는 DSv1 시리즈(D11 - D14)|[Ev3 또는 ESv3 시리즈](../ev3-esv3-series.md)|
 |D15v2 또는 DS15v2|대규모 VM 크기 활용하기 위해 Resource Manager 배포 모델을 사용하는 경우 D16v3/DS16v3 또는 D32v3/DS32v3으로 이동하는 것이 좋습니다. 이러한 항목은 최신 세대 하드웨어에서 실행되도록 설계되었습니다. VM 인스턴스가 단일 고객 전용 하드웨어로 격리되도록 Resource Manager 배포 모델을 사용하는 경우, 최신 세대 하드웨어에서 실행되도록 설계된 신규 격리형 VM 크기인 E64i_v3 또는 E64is_v3으로 이동하는 것이 좋습니다. |https://azure.microsoft.com/blog/new-isolated-vm-sizes-now-available/
 
 ## <a name="allocation-failures-for-large-deployments-more-than-500-cores"></a>대량 배포(코어 500개 초과)에 대한 할당 실패

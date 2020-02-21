@@ -7,18 +7,18 @@ ms.service: container-service
 ms.topic: article
 ms.date: 07/18/2019
 ms.author: mlearned
-ms.openlocfilehash: 033cf88e29ba4a9f7ce9397fe216f7380e70be07
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 12e5ee1b5c56e642cef117963d7cd879cf9b0633
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76713389"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524291"
 ---
 # <a name="automatically-scale-a-cluster-to-meet-application-demands-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞게 자동으로 클러스터 크기 조정
 
 AKS(Azure Kubernetes Service)에서 애플리케이션 수요에 맞추려면 워크로드를 실행하는 노드 수를 조정해야 할 수 있습니다. 클러스터 자동 크기 조정기 구성 요소는 리소스 제약 조건으로 인해 예약할 수 없는 클러스터의 Pod를 확인할 수 있습니다. 문제가 감지 되 면 응용 프로그램 수요를 충족 하기 위해 노드 풀의 노드 수가 늘어납니다. 또한 실행 중인 Pod가 부족한지 노드를 주기적으로 확인하고 필요에 따라 노드 수가 감소합니다. AKS 클러스터에서 노드 수를 자동으로 강화하거나 규모 축소하는 이 기능을 통해 효율적이고 비용 효과적인 클러스터를 실행할 수 있습니다.
 
-이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다. 
+이 문서에서는 AKS 클러스터에서 클러스터 자동 크기 조정기를 사용하도록 설정하고 관리하는 방법을 보여 줍니다.
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
@@ -106,6 +106,90 @@ az aks update \
 
 애플리케이션 및 서비스의 성능을 모니터링하고 클러스터 자동 크기 조정기 노드 수를 필요한 성능과 일치하도록 조정합니다.
 
+## <a name="using-the-autoscaler-profile"></a>Autoscaler 프로필 사용
+
+클러스터 전체 autoscaler 프로필의 기본값을 변경 하 여 클러스터 autoscaler 더 세부적인 세부 정보를 구성할 수도 있습니다. 예를 들어 10 분 후 노드가 미달 사용 된 후 scale down 이벤트가 발생 합니다. 15 분 마다 실행 되는 워크 로드가 있는 경우 15 또는 20 분 후에 미달 사용 노드 아래에서 autoscaler 프로필을 축소 하도록 변경할 수 있습니다. 클러스터 autoscaler를 사용 하도록 설정 하면 다른 설정을 지정 하지 않는 한 기본 프로필이 사용 됩니다. Cluster autoscaler profile에는 다음과 같은 설정을 업데이트할 수 있습니다.
+
+| 설정                          | Description                                                                              | 기본값 |
+|----------------------------------|------------------------------------------------------------------------------------------|---------------|
+| 검사 간격                    | 규모 확장 또는 축소를 위해 클러스터를 다시 평가 하는 빈도                                    | 10초    |
+| 축소-지연-추가 후       | Scale down 평가가 재개 된 후 경과한 시간                               | 10분    |
+| 축소-지연-삭제 후    | 노드 삭제 후 평가를 다시 시작 하는 기간                          | 검사 간격 |
+| 다운 축소-지연 시간 이후   | 규모 축소 후 평가를 다시 시작 하는 시간 축소 후 시간                     | 3분     |
+| 확대/축소-불필요 한 시간         | 규모를 축소 하기 위해 노드를 불필요 하 게 해야 하는 기간                  | 10분    |
+| 다운 축소-준비 시간 없음          | 준비 되지 않은 노드가 축소 가능 해야 하는 기간입니다.         | 20분    |
+| 확장 사용률-임계값 | 용량으로 나눈 요청 된 리소스의 합계로 정의 된 노드 사용률 수준으로, 아래 노드가 규모 축소를 고려할 수 있습니다. | 0.5 |
+| 최대-정상-종료-초     | 클러스터 autoscaler 노드를 축소 하려고 할 때 pod 종료를 대기 하는 최대 시간 (초)입니다. | 600 초   |
+
+> [!IMPORTANT]
+> Cluster autoscaler profile은 cluster autoscaler를 사용 하는 모든 노드 풀에 영향을 줍니다. 노드 풀 당 autoscaler 프로필을 설정할 수 없습니다.
+
+### <a name="install-aks-preview-cli-extension"></a>aks-preview CLI 확장 설치
+
+클러스터 autoscaler 설정 프로필을 설정 하려면 *aks-preview* CLI 확장 버전 0.4.30 이상이 필요 합니다. [Az extension add][az-extension-add] 명령을 사용 하 여 *aks-preview* Azure CLI 확장을 설치한 다음 [az extension update][az-extension-update] 명령을 사용 하 여 사용 가능한 업데이트를 확인 합니다.
+
+```azurecli-interactive
+# Install the aks-preview extension
+az extension add --name aks-preview
+
+# Update the extension to make sure you have the latest version installed
+az extension update --name aks-preview
+```
+
+### <a name="set-the-cluster-autoscaler-profile-on-an-existing-aks-cluster"></a>기존 AKS 클러스터에서 cluster autoscaler profile 설정
+
+[Az aks update][az-aks-update] 명령을 *cluster-autoscaler* 매개 변수와 함께 사용 하 여 클러스터에서 클러스터 autoscaler 프로필을 설정 합니다. 다음 예에서는 프로필에서 scan interval 설정을 30 초로 구성 합니다.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+클러스터의 노드 풀에서 클러스터 autoscaler를 사용 하도록 설정 하면 해당 클러스터는 cluster autoscaler profile도 사용 합니다. 다음은 그 예입니다.
+
+```azurecli-interactive
+az aks nodepool update \
+  --resource-group myResourceGroup \
+  --cluster-name myAKSCluster \
+  --name mynodepool \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3
+```
+
+> [!IMPORTANT]
+> 클러스터 autoscaler 프로필을 설정 하는 경우 클러스터 autoscaler 사용 하도록 설정 된 모든 기존 노드 풀은 프로필을 즉시 사용 하기 시작 합니다.
+
+### <a name="set-the-cluster-autoscaler-profile-when-creating-an-aks-cluster"></a>AKS 클러스터를 만들 때 cluster autoscaler profile 설정
+
+클러스터를 만들 때 *autoscaler* 매개 변수를 사용할 수도 있습니다. 다음은 그 예입니다.
+
+```azurecli-interactive
+az aks create \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --node-count 1 \
+  --enable-cluster-autoscaler \
+  --min-count 1 \
+  --max-count 3 \
+  --cluster-autoscaler-profile scan-interval=30s
+```
+
+위의 명령은 AKS 클러스터를 만들고 클러스터 전체 autoscaler 프로필에 대 한 검색 간격을 30 초로 정의 합니다. 또한이 명령은 초기 노드 풀에서 클러스터 autoscaler 사용 하도록 설정 하 고, 최소 노드 수를 1로, 최대 노드 수를 3으로 설정 합니다.
+
+### <a name="reset-cluster-autoscaler-profile-to-default-values"></a>클러스터 autoscaler 프로필을 기본값으로 다시 설정
+
+[Az aks update][az-aks-update] 명령을 사용 하 여 클러스터에서 클러스터 autoscaler 프로필을 다시 설정 합니다.
+
+```azurecli-interactive
+az aks update \
+  --resource-group myResourceGroup \
+  --name myAKSCluster \
+  --cluster-autoscaler-profile ""
+```
+
 ## <a name="disable-the-cluster-autoscaler"></a>클러스터 자동 크기 조정기 사용 안 함
 
 클러스터 autoscaler을 더 이상 사용 하지 않으려면 [az aks update][az-aks-update] 명령을 사용 하 여 *--autoscaler* 매개 변수를 지정 하 여 사용 하지 않도록 설정할 수 있습니다. 클러스터 자동 크기 조정기가 사용하지 않도록 설정되면 노드가 제거되지 않습니다.
@@ -129,7 +213,7 @@ Autoscaler 이벤트를 진단 하 고 디버그 하려면 autoscaler 추가 기
 
 AKS는 사용자를 대신 하 여 클러스터 autoscaler를 관리 하 고 관리 되는 제어 평면에서 실행 합니다. 마스터 노드 로그를 결과로 표시 되도록 구성 해야 합니다.
 
-Autoscaler 클러스터에서 푸시 되도록 로그를 구성 하려면 다음 단계를 수행 Log Analytics 합니다.
+클러스터 autoscaler에서 Log Analytics로 로그를 푸시 하도록 구성 하려면 다음 단계를 수행 합니다.
 
 1. Log Analytics에 클러스터 autoscaler 로그를 푸시하는 진단 로그에 대 한 규칙을 설정 합니다. [지침은 여기에 자세히 설명 되어](https://docs.microsoft.com/azure/aks/view-master-logs#enable-diagnostics-logs)있습니다. "로그" 옵션을 선택 하는 경우 `cluster-autoscaler`의 확인란을 선택 합니다.
 1. Azure Portal를 통해 클러스터에서 "로그" 섹션을 클릭 합니다.
@@ -140,7 +224,7 @@ AzureDiagnostics
 | where Category == "cluster-autoscaler"
 ```
 
-검색할 로그가 있는 경우 반환 되는 것과 유사한 로그가 표시 됩니다.
+검색할 로그가 있는 경우 다음 예제와 유사한 로그가 표시 됩니다.
 
 ![Log Analytics 로그](media/autoscaler/autoscaler-logs.png)
 
@@ -185,20 +269,20 @@ az aks nodepool update \
 이 문서에서는 AKS 노드 수를 자동으로 조정하는 방법을 설명했습니다. Horizontal Pod Autoscaler를 사용하여 애플리케이션을 실행하는 Pod 수를 자동으로 조정할 수도 있습니다. 수평 pod autoscaler 사용에 대 한 단계는 [AKS에서 응용 프로그램 크기 조정][aks-scale-apps]을 참조 하세요.
 
 <!-- LINKS - internal -->
+[aks-faq]: faq.md
+[aks-scale-apps]: tutorial-kubernetes-scale.md
+[aks-support-policies]: support-policies.md
 [aks-upgrade]: upgrade-cluster.md
+[autoscaler-profile-properties]: #using-the-autoscaler-profile
 [azure-cli-install]: /cli/azure/install-azure-cli
 [az-aks-show]: /cli/azure/aks#az-aks-show
 [az-extension-add]: /cli/azure/extension#az-extension-add
-[aks-scale-apps]: tutorial-kubernetes-scale.md
+[az-extension-update]: /cli/azure/extension#az-extension-update
 [az-aks-create]: /cli/azure/aks#az-aks-create
 [az-aks-scale]: /cli/azure/aks#az-aks-scale
 [az-feature-register]: /cli/azure/feature#az-feature-register
 [az-feature-list]: /cli/azure/feature#az-feature-list
 [az-provider-register]: /cli/azure/provider#az-provider-register
-[aks-support-policies]: support-policies.md
-[aks-faq]: faq.md
-[az-extension-add]: /cli/azure/extension#az-extension-add
-[az-extension-update]: /cli/azure/extension#az-extension-update
 
 <!-- LINKS - external -->
 [az-aks-update]: https://github.com/Azure/azure-cli-extensions/tree/master/src/aks-preview

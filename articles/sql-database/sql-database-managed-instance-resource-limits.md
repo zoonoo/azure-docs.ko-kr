@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 11/27/2019
-ms.openlocfilehash: eed0ed96efdc84697797c50578e11eee37d4d495
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/18/2020
+ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201733"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526861"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -96,7 +96,7 @@ ms.locfileid: "77201733"
 
 일반적으로 서비스 계층에서 모든 데이터베이스 파일은 파일 크기에 따라 전용 IOPS 및 처리량을 가져옵니다. 더 큰 파일은 더 많은 IOPS 및 처리량을 얻을 수 있습니다. 데이터베이스 파일의 IO 특성은 다음 표에 나와 있습니다.
 
-| 파일 크기           | 0-128 GiB | 128-256 GiB | 256-512 GiB | 0.5-1 TiB    | 1-2 TiB    | 2-4 TiB | 4-8 TiB |
+| 파일 크기 | > = 0 및 < = 128 GiB | > 128 및 < = 256 GiB | > 256 및 < = 512 GiB | > 0.5 및 < = 1 TiB    | > 1 및 < = 2 TiB    | > 2 및 < = 4 TiB | > 4 및 < = 8 TiB |
 |---------------------|-------|-------|-------|-------|-------|-------|-------|
 | 파일당 IOPS       | 500   | 1100 | 2300              | 5,000              | 7,500              | 7,500              | 12,500   |
 | 파일당 처리량 | 100MiB/초 | 125MiB/초 | 150MiB/초 | 200MiB/초 | 250MiB/초 | 250MiB/초 | 480 MiB/s | 

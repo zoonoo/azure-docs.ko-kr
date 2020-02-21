@@ -8,12 +8,12 @@ ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
 ms.date: 11/27/2018
 ms.author: pabutler
-ms.openlocfilehash: ae5a55c6d640852cbd873bc6b36e502b5fe17165
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 7d050b32b212f66623a24bcf87d40111fc5973a5
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73817946"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77481377"
 ---
 # <a name="configure-winrm-after-virtual-machine-creation"></a>가상 머신을 만든 후 WinRM 구성
 
@@ -25,7 +25,7 @@ ms.locfileid: "73817946"
 
 ## <a name="enabling-port-traffic"></a>포트 트래픽 사용
 
-HTTPS 프로토콜을 통한 WinRM은 Azure Marketplace에서 제공되는 사전 구성된 Windows VM에서 기본적으로 사용할 수 없는 포트 5896을 사용합니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
+WinRM over HTTPS 프로토콜은 포트 5986를 사용 합니다 .이 포트는 Azure Marketplace에서 제공 하는 미리 구성 된 Windows Vm에서 기본적으로 사용 되지 않습니다. 이 프로토콜을 사용하려면 [Azure Portal](https://portal.azure.com)에서 다음 단계를 수행하여 NSG(네트워크 보안 그룹)에 새 규칙을 추가합니다.  NSG에 대한 자세한 내용은 [보안 그룹](https://docs.microsoft.com/azure/virtual-network/security-overview)을 참조하세요.
 
 1.  **가상 머신 >**   <*vm-name*>   **> 설정/네트워킹** 블레이드로 이동합니다.
 2.  NSG 이름(이 예제에서는 **testvm11002**)을 클릭하여 해당 속성을 표시합니다.

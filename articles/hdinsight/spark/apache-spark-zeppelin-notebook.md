@@ -5,24 +5,23 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 11/05/2019
-ms.openlocfilehash: 75811382867b93c778641ece42971018eff39949
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: hdinsightactive
+ms.date: 02/18/2020
+ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73664589"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484811"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
 HDInsight Spark 클러스터에는 [Apache Spark](https://zeppelin.apache.org/) 작업을 실행하는 데 사용할 수 있는 [Apache Zeppelin](https://spark.apache.org/) Notebook이 포함되어 있습니다. 이 문서에서는 HDInsight 클러스터에서 Zeppelin Notebook을 사용하는 방법에 대해 알아 봅니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. [Azure 무료 평가판](https://azure.microsoft.com/documentation/videos/get-azure-free-trial-for-testing-hadoop-in-hdinsight/)을 참조하세요.
-* HDInsight의 Apache Spark 클러스터입니다. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
+* HDInsight의 Apache Spark. 자세한 내용은 [Azure HDInsight에서 Apache Spark 클러스터 만들기](apache-spark-jupyter-spark-sql.md)를 참조하세요.
 * 클러스터 기본 저장소에 대 한 URI 체계입니다. 이는 `adl://`에 대 한 Azure Data Lake Storage Gen2 또는 Azure Data Lake Storage Gen1 `abfs://` Azure Blob Storage `wasb://` 됩니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://`됩니다.  자세한 내용은 [Azure Storage에서 보안 전송 필요](../../storage/common/storage-require-secure-transfer.md) 를 참조 하세요.
 
 ## <a name="launch-an-apache-zeppelin-notebook"></a>Apache Zeppelin Notebook 시작
@@ -140,7 +139,7 @@ HDInsight Spark 클러스터에는 [Apache Spark](https://zeppelin.apache.org/) 
 
     ![Jupyter 노트북에서 외부 패키지 사용](./media/apache-spark-zeppelin-notebook/use-external-packages-with-jupyter.png "Jupyter 노트북에서 외부 패키지 사용")
 
-    c. 콜론( **:** )으로 구분된 세 개의 값을 연결합니다.
+    다. 콜론( **:** )으로 구분된 세 개의 값을 연결합니다.
 
         com.databricks:spark-csv_2.10:1.4.0
 
@@ -154,7 +153,7 @@ Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 �
 
 ## <a name="livy-session-management"></a>Livy 세션 관리
 
-Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark 클러스터에 새로운 Livy 세션이 만들어집니다. 이 세션은 이후에 만드는 모든 Zeppelin Notebook에서 공유됩니다. 클러스터 재부팅 등 어떤 이유로 Livy 세션이 종료되면 Zeppelin Notebook에서 작업을 실행할 수 없습니다.
+Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark 클러스터에 새로운 Livy 세션이 만들어집니다. 이 세션은 이후에 만드는 모든 Zeppelin Notebook에서 공유됩니다. 어떤 이유로 Livy 세션이 중단 된 경우 (클러스터 재부팅 등) Zeppelin 노트북에서 작업을 실행할 수 없습니다.
 
 이 경우 Zeppelin Notebook에서 작업 실행을 시작하기 전에 다음 단계를 수행해야 합니다.  
 
@@ -168,9 +167,44 @@ Zeppelin Notebook에서 첫 번째 코드 단락을 실행하면 HDInsight Spark
 
 3. 기존 Zeppelin Notebook에서 코드 셀을 실행합니다. 이렇게 하면 HDInsight 클러스터에 새로운 Livy 세션이 만들어집니다.
 
-## <a name="seealso"></a>참고 항목
+## <a name="general-information"></a>일반 정보
 
-* [개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
+### <a name="validate-service"></a>서비스 유효성 검사
+
+Ambari에서 서비스의 유효성을 검사 하려면 `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary`으로 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+
+명령줄에서 서비스의 유효성을 검사 하려면 헤드 노드로 SSH를 수행 합니다. 명령 `sudo su zeppelin`를 사용 하 여 zeppelin으로 사용자를 전환 합니다. 상태 명령:
+
+|명령 |Description |
+|---|---|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh status`|서비스 상태.|
+|`/usr/hdp/current/zeppelin-server/bin/zeppelin-daemon.sh --version`|서비스 버전입니다.|
+|`ps -aux | grep zeppelin`|PID를 식별 합니다.|
+
+### <a name="log-locations"></a>로그 위치
+
+|서비스 |경로 |
+|---|---|
+|zeppelin-서버|/usr/hdp/current/zeppelin-server/|
+|서버 로그|/var/log/zeppelin|
+|구성 인터프리터, Shiro, site .xml, log4j|/usr/hdp/current/zeppelin-server/conf 또는/etc/zeppelin/conf|
+|PID 디렉터리|/var/run/zeppelin|
+
+### <a name="enable-debug-logging"></a>디버그 로깅 활성화
+
+1. `https://CLUSTERNAME.azurehdinsight.net/#/main/services/ZEPPELIN/summary`로 이동 합니다. 여기서 CLUSTERNAME은 클러스터의 이름입니다.
+
+1. **CONFIGS** > **Advanced zeppelin-log4j** > **log4j_properties_content**으로 이동 합니다.
+
+1. `log4j.appender.dailyfile.Threshold = DEBUG``log4j.appender.dailyfile.Threshold = INFO`을 수정 합니다.
+
+1. `log4j.logger.org.apache.zeppelin.realm=DEBUG`를 추가합니다.
+
+1. 변경 내용을 저장 하 고 서비스를 다시 시작 합니다.
+
+## <a name="next-steps"></a>다음 단계
+
+[개요: Azure HDInsight에서 Apache Spark](apache-spark-overview.md)
 
 ### <a name="scenarios"></a>시나리오
 

@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9b0d078a8c6df21e8000930e72856e92e2d40af7
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425207"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484437"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 호스트 json 참조 
 
@@ -341,7 +341,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ## <a name="queues"></a>queues
 
-구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue.md#host-json)에서 찾을 수 있습니다.  
+구성 설정은 [스토리지 큐 트리거 및 바인딩](functions-bindings-storage-queue-output.md#host-json)에서 찾을 수 있습니다.  
 
 ## <a name="sendgrid"></a>sendGrid
 
@@ -349,7 +349,7 @@ Application Insights를 포함한 함수 앱의 로깅 동작을 제어합니다
 
 ## <a name="servicebus"></a>serviceBus
 
-구성 설정은 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus.md#host-json)에서 찾을 수 있습니다.
+구성 설정은 [Service Bus 트리거 및 바인딩](functions-bindings-service-bus-output.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="singleton"></a>singleton
 

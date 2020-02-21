@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 07/24/2018
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 90be5b407708f6cca3748dd6d6fa09c28ab7fcdc
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fcdbf0d56b79662cccd90380489ede672e6a0a66
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840437"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484114"
 ---
 # <a name="manage-user-access-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 액세스 관리
 
@@ -46,7 +46,7 @@ ms.locfileid: "76840437"
 
 다음은 보호자 동의를 수집하는 사용자 흐름의 예입니다.
 
-1. [Azure Active Directory Graph API](/previous-versions/azure/ad/graph/api/api-catalog) 작업이 사용자를 미성년자로 식별하고 서명되지 않은 JSON 토큰의 형태로 사용자 데이터를 애플리케이션에 반환합니다.
+1. [MICROSOFT GRAPH API](https://docs.microsoft.com/graph/use-the-api) 작업은 사용자를 부로 식별 하 고, 서명 되지 않은 JSON 토큰 형식의 응용 프로그램에 사용자 데이터를 반환 합니다.
 
 2. 응용 프로그램은 JSON 토큰을 처리 하 고 보조에 화면을 표시 하 여 보호자 동의가 필요 하 고 부모 온라인의 동의를 요청 하 고 있음을 알립니다.
 
@@ -54,9 +54,9 @@ ms.locfileid: "76840437"
 
 4. 애플리케이션이 미성년자에게 동의 철회 옵션을 제공합니다.
 
-5. 미성년자 또는 성인이 동의를 철회하면 Azure AD Graph API를 사용하여 **consentProvidedForMinor**를 **denied**로 변경할 수 있습니다. 또는 애플리케이션이 동의가 철회된 미성년자를 삭제하도록 선택할 수도 있습니다. 필요에 따라 인증된 미성년자(또는 미성년자의 계정을 사용하는 보호자)가 동의를 철회할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다. Azure AD B2C가 **consentProvidedForMinor**를 **denied**로 기록합니다.
+5. 부 또는 성인 승인이 취소 되 면 Microsoft Graph API를 사용 하 여 **consentProvidedForMinor** 를 **거부 됨**으로 변경할 수 있습니다. 또는 애플리케이션이 동의가 철회된 미성년자를 삭제하도록 선택할 수도 있습니다. 필요에 따라 인증된 미성년자(또는 미성년자의 계정을 사용하는 보호자)가 동의를 철회할 수 있도록 사용자 흐름을 사용자 지정할 수도 있습니다. Azure AD B2C가 **consentProvidedForMinor**를 **denied**로 기록합니다.
 
-**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](user-flow-custom-attributes.md)를 참조하세요. Azure AD Graph API를 사용하여 확장된 특성을 처리하는 경우 긴 버전의 특성(예: *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01T00:00:00Z*)을 사용해야 합니다.
+**legalAgeGroupClassification**, **consentProvidedForMinor** 및 **ageGroup**에 대한 자세한 내용은 [사용자 리소스 종류](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/user)를 참조하세요. 사용자 지정 특성에 대한 자세한 내용은 [사용자 지정 특성을 사용하여 소비자에 대한 정보를 수집합니다.](user-flow-custom-attributes.md)를 참조하세요. Microsoft Graph API를 사용 하 여 확장 특성의 주소를 처리 하는 경우 *extension_18b70cf9bb834edd8f38521c2583cd86_dateOfBirth*: *2011-01-01t00:00:00z*와 같은 긴 버전의 특성을 사용 해야 합니다.
 
 ## <a name="gather-date-of-birth-and-countryregion-data"></a>생년월일 및 국가/지역 데이터 수집
 
@@ -78,7 +78,7 @@ ms.locfileid: "76840437"
 
 4. 두 계산에서 모두 true를 반환하지 않으면 **Adult**를 반환합니다.
 
-응용 프로그램에서 다른 방법으로 DOB 또는 국가/지역 데이터를 안정적으로 수집한 경우 응용 프로그램은 Graph API를 사용 하 여이 정보로 사용자 레코드를 업데이트할 수 있습니다. 예:
+응용 프로그램에서 다른 방법으로 DOB 또는 국가/지역 데이터를 안정적으로 수집한 경우 응용 프로그램은 Graph API를 사용 하 여이 정보로 사용자 레코드를 업데이트할 수 있습니다. 다음은 그 예입니다.
 
 - 사용자가 성인으로 알려지면 디렉터리 특성인 **ageGroup**의 값을 **Adult**로 업데이트합니다.
 - 사용자가 미성년자인 것으로 확인되면 **ageGroup** 디렉터리 특성을 **Minor** 값으로 업데이트하고 **consentProvidedForMinor**를 적절하게 설정합니다.

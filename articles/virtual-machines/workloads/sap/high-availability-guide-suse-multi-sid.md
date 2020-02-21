@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: radeltch
-ms.openlocfilehash: 7471fc6d7f10c849ba79fedf88961d6c3c99913f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: e48cb1baa515e6a1549bf913a3c3e4cf50e1fff6
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314201"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525484"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications-multi-sid-guide"></a>SAP 응용 프로그램에 대 한 SUSE Linux Enterprise Server Azure Vm의 SAP NetWeaver에 대 한 고가용성-다중 SID 가이드
 
@@ -83,13 +83,13 @@ ms.locfileid: "76314201"
 * [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]
 * [SUSE SAP HA 모범 사례 가이드][suse-ha-guide] 이 가이드에는 온-프레미스에서 Netweaver HA 및 SAP HANA 시스템 복제를 설정 하는 데 필요한 모든 정보가 포함 되어 있습니다. 이 가이드를 일반 기준으로 사용하세요. 여기서 훨씬 더 자세한 정보를 제공합니다.
 * [SUSE 고가용성 확장 12 SP3 릴리스 정보][suse-ha-12sp3-relnotes]
-* [다중 SID 클러스터에 대 한 SUSE 지원](https://www.suse.com/c/sap-workloads-going-green/)
+* [SLES 12 및 SLES 15 용 SUSE 다중 SID 클러스터 가이드](https://documentation.suse.com/sbp/all/html/SBP-SAP-MULTI-SID/index.html)
 
 ## <a name="overview"></a>개요
 
 장애 조치 (failover)가 발생 하는 경우 클러스터에 참여 하는 가상 머신은 모든 리소스를 실행할 수 있도록 크기를 조정 해야 합니다. 각 SAP SID는 다중 SID 고가용성 클러스터에서 서로 독립적인 장애 조치 (failover) 될 수 있습니다.  SBD fence를 사용 하는 경우 여러 클러스터 간에 SBD 장치를 공유할 수 있습니다.  
 
-고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [nfs 파일 서버](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유는 [Azure NetApp FILES NFS 볼륨](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 배포 됩니다.  
+고가용성을 위해 SAP NetWeaver에는 항상 사용 가능한 NFS 공유가 필요 합니다. 이 예에서는 SAP NFS 공유가 항상 사용 가능한 [NFS 파일 서버](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-nfs)에 호스트 되는 것으로 가정 합니다 .이 서버는 여러 sap 시스템에서 사용할 수 있습니다. 또는 공유는 [Azure NetApp FILES NFS 볼륨](https://docs.microsoft.com/azure/azure-netapp-files/azure-netapp-files-create-volumes)에 배포 됩니다.  
 
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-suse/ha-suse-multi-sid.png)
 
@@ -175,7 +175,7 @@ SAP NetWeaver에는 전송, 프로필 디렉터리 등에 대 한 공유 저장�
 
 다음 항목에는 접두사 **[A]** (모든 노드에 적용됨), **[1]** (노드 1에만 적용됨), **[2]** (노드 2에만 적용됨) 접두사가 표시되어 있습니다.
 
-### <a name="prerequisites"></a>필수 조건 
+### <a name="prerequisites"></a>사전 요구 사항 
 
 > [!IMPORTANT]
 > 클러스터에 추가 SAP 시스템을 배포 하기 위한 지침을 수행 하기 전에 첫 번째 시스템 배포 중에만 필요한 단계를 설명 하는 지침에 따라 클러스터의 첫 번째 SAP 시스템을 배포 합니다.  

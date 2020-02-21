@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/04/2019
 ms.author: memildin
-ms.openlocfilehash: 0096bccf76e81f2bca1a449cea2474cb5266fabc
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: f4f6cf01502070ea63eaf0083aba33ff213534a4
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443587"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500240"
 ---
 # <a name="the-enhanced-secure-score-preview"></a>향상 된 보안 점수 (미리 보기) 
 
@@ -65,15 +65,15 @@ Security Center에서 점수를 매우 두드러지게 표시 합니다. 개요 
 
 위의 스크린샷에서 "시스템 업데이트 적용" 보안 제어는 "2% (1 포인트)"를 표시 합니다. 즉,이 컨트롤의 모든 권장 사항을 재구성 하면 점수가 2% (이 경우 1 포인트) 씩 증가 합니다. 편의상 권장 구성 목록의 "잠재적 증가" 열 값은 정수로 반올림 됩니다. 도구 설명에 정확한 값이 표시 됩니다.
 
+* **최대 점수** -컨트롤 내에서 모든 권장 사항을 완료 하 여 얻을 수 있는 최대 요소 수입니다. 컨트롤의 최대 점수는 해당 컨트롤의 상대적 중요도를 나타냅니다. 가장 먼저 작업할 문제를 심사 하려면 최대 점수 값을 사용 합니다. 
 * **잠재적 증가** -컨트롤 내에서 사용할 수 있는 나머지 요소입니다. 이러한 점수를 보안 점수에 추가 하려면 컨트롤의 모든 권장 사항을 수정 합니다. 위의 예제에서 컨트롤에 대해 표시 되는 한 가지 점은 실제로 0.96 포인트입니다.
 * **현재 점수** -이 컨트롤의 현재 점수입니다. 각 컨트롤은 전체 점수를 차지 합니다. 이 예제에서 컨트롤은 5.04에 영향을 주는 합계를 가리킵니다. 
-* **최대 점수** -이전 두 값의 합계입니다.
 
 ### <a name="calculations---understanding-your-score"></a>계산-점수 이해
 
 |메트릭|수식 및 예제|
 |-|-|
-|**보안 제어의 현재 점수**|<br>보안 컨트롤의 현재 점수를 계산 하기 위한 ![수식](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>각 개별 보안 제어는 보안 점수를 달성 합니다. 컨트롤 내의 권장 구성에 의해 영향을 받는 각 리소스는 컨트롤의 현재 점수를 계산 합니다. 각 컨트롤의 현재 점수는 컨트롤 *내의* 리소스 상태를 측정 한 것입니다.<br>보안 컨트롤의 현재 점수를 계산할 때 사용 되는 값을 보여 주는 ![도구 설명](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>이 예제에서 최대 점수는 정상 및 비정상 리소스의 합계인 78로 나뉩니다.<br>6/78 = 0.0769<br>정상 리소스 (74) 수를 곱하여 현재 점수를 계산 합니다.<br>0.0769 * 74 = **5.69**<br><br>|
+|**보안 제어의 현재 점수**|<br>보안 컨트롤의 현재 점수를 계산 하기 위한 ![수식](media/secure-score-security-controls/security-control-scoring-equation.png)<br><br>각 개별 보안 제어는 보안 점수를 달성 합니다. 컨트롤 내의 권장 구성에 의해 영향을 받는 각 리소스는 컨트롤의 현재 점수를 계산 합니다. 각 컨트롤의 현재 점수는 컨트롤 *내의* 리소스 상태를 측정 한 것입니다.<br>보안 컨트롤의 현재 점수를 계산할 때 사용 되는 값을 보여 주는 ![도구 설명](media/secure-score-security-controls/security-control-scoring-tooltips.png)<br>이 예제에서 최대 점수는 정상 및 비정상 리소스의 합계인 78로 나뉩니다.<br>6/78 = 0.0769<br>정상 리소스 (4)의 수를 곱하여 현재 점수를 반환 합니다.<br>0.0769 * 4 = **0.31**<br><br>|
 |**보안 점수**<br>단일 구독|<br>![현재 보안 점수를 계산 하는 수식](media/secure-score-security-controls/secure-score-equation.png)<br><br>![모든 컨트롤이 활성화 된 단일 구독 보안 점수](media/secure-score-security-controls/secure-score-example-single-sub.png)<br>이 예제에는 모든 보안 컨트롤을 사용할 수 있는 단일 구독이 있습니다 (60 지점의 잠재적 최대 점수). 점수에는 가능한 60에서 28 점이 표시 되 고 나머지 32 지점은 보안 컨트롤의 "잠재적 점수 증가" 그림에 반영 됩니다.<br>![컨트롤 목록 및 잠재적 점수 증가](media/secure-score-security-controls/secure-score-example-single-sub-recs.png)|
 |**보안 점수**<br>여러 구독|<br>모든 구독에서 모든 리소스에 대 한 현재 점수가 추가 되 고 계산은 단일 구독에 대 한 것과 동일 합니다.<br><br>여러 구독을 볼 때 보안 점수는 모든 사용 가능한 정책 내의 모든 리소스를 평가 하 고 각 보안 제어의 최대 점수에 대해 결합 된 영향을 그룹화 합니다.<br>모든 컨트롤이 활성화 된 여러 구독의 보안 점수를 ![](media/secure-score-security-controls/secure-score-example-multiple-subs.png)<br>결합 된 점수가 평균이 **아닙니다** . 모든 구독에서 모든 리소스의 상태에 대 한 평가 된 상태입니다.<br>여기서도 권장 사항 페이지로 이동 하 여 사용할 수 있는 가능한 점수를 추가 하면 현재 점수 (24)와 사용 가능한 최대 점수 (60)의 차이가 있다는 것을 알 수 있습니다.|
 ||||

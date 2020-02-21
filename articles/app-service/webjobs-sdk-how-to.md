@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 83884447e9856b5e3db26e4829ccbd3ab1baed13
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549090"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486345"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -281,7 +281,7 @@ static async Task Main()
 * Queue Storage
 * Table Storage
 
-다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `JobHostConfiguration` 개체에서 `Use<binding>` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 `Microsoft.Azure.WebJobs.Extensions`를 설치 하 고 다음과 같이 `Main` 메서드에서 `UseTimers`를 호출 합니다.
+다른 트리거 및 바인딩 형식을 사용하려면 사용하려는 트리거 및 바인딩 형식이 포함된 NuGet 패키지를 설치하고 `Use<binding>` 개체에서 `JobHostConfiguration` 메서드를 호출합니다. 예를 들어 타이머 트리거를 사용 하려면 `Microsoft.Azure.WebJobs.Extensions`를 설치 하 고 다음과 같이 `Main` 메서드에서 `UseTimers`를 호출 합니다.
 
 ```cs
 static void Main()
@@ -453,7 +453,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [큐 저장소 바인딩](../azure-functions/functions-bindings-storage-queue.md#hostjson-settings) 문서를 참조 하세요.
+자세한 내용은 [큐 저장소 바인딩](../azure-functions/functions-bindings-storage-queue-trigger.md#hostjson-properties) 문서를 참조 하세요.
 
 #### <a name="version-2x"></a>버전 2. *x*
 
@@ -524,7 +524,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus.md#hostjson-settings) 문서를 참조 하세요.
+자세한 내용은 [Service Bus 바인딩](../azure-functions/functions-bindings-service-bus-output.md#hostjson-settings) 문서를 참조 하세요.
 
 ### <a name="configuration-for-other-bindings"></a>다른 바인딩의 구성
 
@@ -680,11 +680,11 @@ public static void CreateQueueMessage(
 
 Azure Functions 설명서에서는 각 바인딩 형식에 대 한 참조 정보를 제공 합니다. 각 바인딩 참조 문서에서 다음 정보를 찾을 수 있습니다. 이 예제는 저장소 큐를 기반으로 합니다.
 
-* [패키지](../azure-functions/functions-bindings-storage-queue.md#packages---functions-1x). WebJobs SDK 프로젝트에서 바인딩에 대 한 지원을 포함 하기 위해 설치 해야 하는 패키지입니다.
-* [예](../azure-functions/functions-bindings-storage-queue.md#trigger). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. `FunctionName` 특성만 생략 하면 됩니다.
-* [특성](../azure-functions/functions-bindings-storage-queue.md#trigger---attributes-and-annotations). 바인딩 형식에 사용할 특성입니다.
-* [구성](../azure-functions/functions-bindings-storage-queue.md#trigger---configuration). 특성 속성 및 생성자 매개 변수에 대 한 설명입니다.
-* [사용 현황](../azure-functions/functions-bindings-storage-queue.md#trigger---usage). 바인딩할 수 있는 형식과 바인딩의 작동 방식에 대 한 정보입니다. 예: 폴링 알고리즘, 포이즌 큐 처리.
+* [패키지](../azure-functions/functions-bindings-storage-queue.md). WebJobs SDK 프로젝트에서 바인딩에 대 한 지원을 포함 하기 위해 설치 해야 하는 패키지입니다.
+* [예](../azure-functions/functions-bindings-storage-queue-trigger.md). 코드 샘플. 클래스 C# 라이브러리 예제는 WebJobs SDK에 적용 됩니다. `FunctionName` 특성만 생략 하면 됩니다.
+* [특성](../azure-functions/functions-bindings-storage-queue-trigger.md#attributes-and-annotations). 바인딩 형식에 사용할 특성입니다.
+* [구성](../azure-functions/functions-bindings-storage-queue-trigger.md#configuration). 특성 속성 및 생성자 매개 변수에 대 한 설명입니다.
+* [사용 현황](../azure-functions/functions-bindings-storage-queue-trigger.md#usage). 바인딩할 수 있는 형식과 바인딩의 작동 방식에 대 한 정보입니다. 예: 폴링 알고리즘, 포이즌 큐 처리.
   
 바인딩 참조 문서 목록은 Azure Functions의 [트리거 및 바인딩](../azure-functions/functions-triggers-bindings.md#supported-bindings) 문서에서 "지원 되는 바인딩"을 참조 하세요. 이 목록에서 HTTP, Webhook 및 Event Grid 바인딩은 WebJobs SDK가 아닌 Azure Functions 에서만 지원 됩니다.
 
@@ -826,10 +826,10 @@ ASP.NET 용으로 개발 된 로깅 프레임 워크를 권장 합니다. [시�
 |추적       | 0 |
 |디버그       | 1 |
 |정보 | 2 |
-|경고     | 3 |
-|오류       | 4 |
+|Warning     | 3 |
+|Error       | 4 |
 |위험    | 5 |
-|없음        | 6 |
+|None        | 6 |
 
 각 범주를 특정 [`LogLevel`](/dotnet/api/microsoft.extensions.logging.loglevel)에 독립적으로 필터링 할 수 있습니다. 예를 들어 Blob 트리거 처리에 대한 모든 로그를 보고 싶지만 그 외에는 `Error` 이상만 보고 싶은 경우가 있습니다.
 
@@ -903,7 +903,7 @@ using Microsoft.ApplicationInsights.Extensibility;
 using Microsoft.ApplicationInsights.Channel;
 ```
 
-다음 사용자 지정 [`ITelemetryInitializer`] 구현을 사용하면 기본 [`TelemetryConfiguration`]에 고유한 [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry)를 추가할 수 있습니다.
+다음 사용자 지정 [`ITelemetryInitializer`] 구현을 사용하면 기본 [`ITelemetry`](/dotnet/api/microsoft.applicationinsights.channel.itelemetry)에 고유한 [`TelemetryConfiguration`]를 추가할 수 있습니다.
 
 ```cs
 internal class CustomTelemetryInitializer : ITelemetryInitializer
@@ -952,7 +952,7 @@ static async Task Main()
 
 [`TelemetryConfiguration`]이 생성되면 등록된 모든 [`ITelemetryInitializer`] 유형이 포함됩니다. 자세히 알아보려면 [사용자 지정 이벤트 및 메트릭에 대 한 APPLICATION INSIGHTS API](../azure-monitor/app/api-custom-events-metrics.md)를 참조 하세요.
 
-버전 3 *x*에서는 호스트가 중지 될 때 더 이상 [`TelemetryClient`] 를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 [`TelemetryClient`]를 플러시하는 등록된 `ApplicationInsightsLoggerProvider`를 자동으로 제거합니다.
+버전 3 *x*에서는 호스트가 중지 될 때 더 이상 [`TelemetryClient`] 를 플러시할 필요가 없습니다. .NET Core 종속성 주입 시스템은 `ApplicationInsightsLoggerProvider`[`TelemetryClient`를 플러시하는 등록된 ]를 자동으로 제거합니다.
 
 #### <a name="version-2x"></a>버전 2. *x*
 
@@ -1002,4 +1002,4 @@ config.LoggerFactory = new LoggerFactory()
 [`ConfigureServices`]: /dotnet/api/microsoft.extensions.hosting.hostinghostbuilderextensions.configureservices
 [`ITelemetryInitializer`]: /dotnet/api/microsoft.applicationinsights.extensibility.itelemetryinitializer
 [`TelemetryConfiguration`]: /dotnet/api/microsoft.applicationinsights.extensibility.telemetryconfiguration
-[`JobHostConfiguration`]: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs
+[' JobHostConfiguration ']: https://github.com/Azure/azure-webjobs-sdk/blob/v2.x/src/Microsoft.Azure.WebJobs.Host/JobHostConfiguration.cs

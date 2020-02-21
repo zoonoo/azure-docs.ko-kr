@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/23/2020
-ms.openlocfilehash: 9f377f93ab8fef2c1ad713da6fcd6c6f14107c3f
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 33af9c8f3fbe4de57d65be432f249d4aeb5d3e27
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76986821"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485338"
 ---
 # <a name="azure-monitor-frequently-asked-questions"></a>Azure Monitor 질문과 대답
 
@@ -36,7 +36,7 @@ Azure Monitor는 새 Azure 구독을 만들 때 사용 하도록 설정 되며 [
 Azure Portal의 **모니터** 메뉴에서 모든 Azure Monitor 기능 및 데이터에 액세스 합니다. 서로 다른 Azure 서비스에 대 한 메뉴의 **모니터링** 섹션에서는 특정 리소스로 필터링 된 데이터를 사용 하 여 동일한 도구에 대 한 액세스를 제공 합니다. Azure Monitor 데이터는 CLI, PowerShell 및 REST API를 사용 하는 다양 한 시나리오에도 액세스할 수 있습니다.
 
 ### <a name="is-there-an-on-premises-version-of-azure-monitor"></a>Azure Monitor 온-프레미스 버전이 있나요?
-아닙니다. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
+아니요. Azure Monitor은 많은 양의 데이터를 처리 하 고 저장 하는 확장 가능한 클라우드 서비스 이며, Azure Monitor 온-프레미스 및 다른 클라우드의 리소스를 모니터링할 수 있습니다.
 
 ### <a name="can-azure-monitor-monitor-on-premises-resources"></a>온-프레미스 리소스를 Azure Monitor 모니터링할 수 있나요?
 예, Azure 리소스의 모니터링 데이터를 수집 하는 것 외에도 다른 클라우드 및 온-프레미스의 가상 컴퓨터 및 응용 프로그램에서 데이터를 수집할 수 Azure Monitor. [Azure Monitor에 대 한 모니터링 데이터 원본](platform/data-sources.md)을 참조 하세요.
@@ -90,7 +90,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 ### <a name="how-do-i-retrieve-log-data"></a>로그 데이터를 검색 어떻게 할까요??
 KQL (Kusto Query Language)를 사용 하 여 작성 된 로그 쿼리를 사용 하 여 Log Analytics 작업 영역에서 모든 데이터를 검색 합니다. 사용자 고유의 쿼리를 작성 하거나 특정 응용 프로그램 또는 서비스에 대 한 로그 쿼리를 포함 하는 솔루션 및 정보를 사용할 수 있습니다. [Azure Monitor의 로그 쿼리 개요](log-query/log-query-overview.md)를 참조 하세요.
 
-### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역이란 무엇인가요?
+### <a name="what-is-a-log-analytics-workspace"></a>Log Analytics 작업 영역 이란 무엇 인가요?
 Azure Monitor에 의해 수집 된 모든 로그 데이터는 Log Analytics 작업 영역에 저장 됩니다. 작업 영역은 기본적으로 다양 한 원본에서 로그 데이터를 수집 하는 컨테이너입니다. 모든 모니터링 데이터에 대 한 단일 Log Analytics 작업 영역이 있거나 여러 작업 영역에 대 한 요구 사항이 있을 수 있습니다. [Azure Monitor 로그 배포 디자인](platform/design-logs-deployment.md)을 참조 하세요.
 
 ### <a name="can-you-move-an-existing-log-analytics-workspace-to-another-azure-subscription"></a>기존 Log Analytics 작업 영역을 다른 Azure 구독으로 이동할 수 있나요?
@@ -240,7 +240,7 @@ WireData
 
 [가격 책정 계획을 참조하세요](https://azure.microsoft.com/pricing/details/application-insights/).
 
-### <a name="how-much-does-it-cost"></a>비용은 얼마인가요?
+### <a name="how-much-does-it-cost"></a>그거 얼마에요?
 
 * Application Insights 리소스에서 **사용량 및 예상 비용 페이지**를 엽니다. 최근 사용 현황에 대한 차트가 있습니다. 원하는 경우 데이터 볼륨 한도를 설정할 수 있습니다.
 * [Azure 청구 블레이드](https://portal.azure.com/#blade/Microsoft_Azure_Billing/BillingBlade/Overview)를 열어 모든 리소스에 대한 청구서를 확인합니다.
@@ -273,7 +273,7 @@ WireData
 
 웹앱에서 Application Insights를 구성하기 위해 IIS 웹 서버에서 사용할 수 있는 데스크톱 앱입니다. 원격 분석을 수집하지 않으며 앱을 구성하지 않는 경우 중지할 수 있습니다. 
 
-[자세히 알아보기](app/monitor-performance-live-website-now.md#questions).
+[자세히 알아봅니다](app/monitor-performance-live-website-now.md#questions).
 
 ### <a name="what-telemetry-is-collected-by-application-insights"></a>어떤 원격 분석이 Application Insights에서 수집되나요?
 
@@ -319,7 +319,7 @@ WireData
 * IP 주소 및 지리적 위치 데이터를 수집 하는 방법에 대 한 자세한 내용은이 [문서](https://docs.microsoft.com/azure/azure-monitor/app/ip-collection)를 참조 Application Insights.
 
 
-`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아보기](https://apmtips.com/blog/2016/07/05/client-ip-address/).
+`ClientIpHeaderTelemetryInitializer`를 구성하여 다른 헤더에서 IP 주소를 가져올 수 있습니다. 예를 들어 일부 시스템에서는 프록시, 부하 분산 장치 또는 CDN에 의해 `X-Originating-IP`로 이동됩니다. [자세히 알아봅니다](https://apmtips.com/blog/2016/07/05/client-ip-address/).
 
 [Power BI를 사용](app/export-power-bi.md )하여 요청 원격 분석을 지도에 표시할 수 있습니다.
 
@@ -697,7 +697,10 @@ Azure Portal에서 Azure VM을 온보딩한 경우 다음 단계가 수행됩니
 각 상태 조건에 대해 정의된 경고 규칙은 Azure Portal에 표시되지 않습니다. [워크로드 모니터 API](https://docs.microsoft.com/rest/api/monitor/microsoft.workloadmonitor/components)에서만 상태 경고 규칙을 사용하거나 사용하지 않도록 설정할 수 있습니다. 또한 Azure Portal에서는 상태 경고에 대해 [Azure Monitor 작업 그룹](platform/action-groups.md)을 할당할 수 없습니다. 오직 알림 설정 API를 사용하여 상태 경고가 발생할 때마다 트리거되도록 작업 그룹을 구성할 수 있습니다. 현재, VM에 대해 발생한 모든 *상태 경고*가 동일한 작업 그룹을 트리거하도록 VM에 대해 작업 그룹을 할당할 수 있습니다. 기존의 Azure 경고와 달리, 각 상태 경고 규칙에 대한 별도의 작업 그룹이라는 개념이 없습니다. 또한 상태 경고가 트리거될 때 메일 또는 SMS 알림을 제공하도록 구성된 작업 그룹만 지원됩니다. 
 
 ### <a name="i-dont-see-some-or-any-data-in-the-performance-charts-for-my-vm"></a>내 VM의 성능 차트에 일부 또는 모든 데이터가 표시되지 않습니다
+*InsightsMetrics* 테이블에 저장 된 데이터를 사용 하도록 성능 차트가 업데이트 되었습니다.  이러한 차트에서 데이터를 보려면 새 VM Insights 솔루션을 사용 하도록 업그레이드 해야 합니다.  추가 정보는 [GA FAQ](insights/vminsights-ga-release-faq.md) 를 참조 하세요.
+
 디스크 테이블 또는 일부 성능 차트에 성능 데이터가 표시되지 않는 경우 작업 영역에서 성능 카운터를 구성할 수 없습니다. 이 문제를 해결하려면 다음 [PowerShell 스크립트](insights/vminsights-enable-at-scale-powershell.md#enable-with-powershell)를 실행합니다.
+
 
 ### <a name="how-is-azure-monitor-for-vms-map-feature-different-from-service-map"></a>VM용 Azure Monitor 맵 기능과 서비스 맵이 어떻게 다른가요?
 VM용 Azure Monitor 맵 기능은 서비스 맵을 기반으로 하지만 다음과 같은 차이점이 있습니다.
