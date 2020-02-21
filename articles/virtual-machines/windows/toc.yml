@@ -710,7 +710,7 @@
             - name: FAQ
               href: migration-classic-resource-manager-faq.md
 - name: 문제 해결
-  href: ../troubleshooting/index.md
+  href: ../troubleshooting/index.yml
 - name: 참조
   items:
     - name: Azure CLI
