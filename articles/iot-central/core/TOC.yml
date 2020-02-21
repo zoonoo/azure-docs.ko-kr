@@ -35,7 +35,7 @@
       items:
         - name: 규칙 만들기
           href: tutorial-create-telemetry-rules.md
-        - name: REST API 사용
+        - name: IoT Central API 살펴보기
           href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
 - name: 개념
   items:
@@ -83,8 +83,10 @@
           href: howto-version-device-template.md
     - name: 변환
       items:
-        - name: 연속 데이터 내보내기 구성
+        - name: Azure에서 대상으로 데이터 내보내기
           href: howto-export-data.md
+        - name: IoT Central API 살펴보기
+          href: 'https://docs.microsoft.com/learn/modules/manage-iot-central-apps-with-rest-api/'
         - name: 규칙에서 웹후크 만들기
           href: howto-create-webhooks.md
         - name: 규칙에서 Azure Monitor 작업 그룹 연결
@@ -159,7 +161,7 @@
   items:
     - name: 지원 및 도움말 옵션
       href: /azure/iot-fundamentals/iot-support-help
-    - name: REST API
+    - name: IoT Central API 참조
       href: 'https://docs.microsoft.com/rest/api/iotcentral/'
     - name: 고객 데이터 요청
       href: iot-central-customer-data-requests.md

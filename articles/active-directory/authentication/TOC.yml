@@ -130,10 +130,14 @@
       items:
         - name: 암호 없는 배포
           href: howto-authentication-passwordless-deployment.md
-        - name: 암호 없는 보안 키
-          href: howto-authentication-passwordless-security-key.md
-        - name: 암호 없는 Windows 10
-          href: howto-authentication-passwordless-security-key-windows.md
+        - name: 암호 없는 FIDO2 보안 키
+          items:
+            - name: 테넌트에 FIDO2 보안 키 사용
+              href: howto-authentication-passwordless-security-key.md
+            - name: Windows 10 디바이스에 로그인
+              href: howto-authentication-passwordless-security-key-windows.md
+            - name: 온-프레미스 리소스에 대한 SSO
+              href: howto-authentication-passwordless-security-key-on-premises.md
         - name: 암호 없는 휴대폰 로그인
           href: howto-authentication-passwordless-phone.md
         - name: 비즈니스용 Windows Hello

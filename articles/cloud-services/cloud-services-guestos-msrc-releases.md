@@ -10,17 +10,57 @@ ms.service: cloud-services
 ms.topic: article
 ms.tgt_pltfrm: na
 ms.workload: tbd
-ms.date: 02/07/2020
+ms.date: 02/20/2020
 ms.author: raiye
-ms.openlocfilehash: cca79946c0537b75335eb2e64ae1fa429f2c8d18
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5411e47494668341a952a97268affe4157e85a9a
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087240"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77506035"
 ---
 # <a name="azure-guest-os"></a>Azure 게스트 OS
 다음 테이블에서 Azure 게스트 OS에 적용된 Microsoft 보안 대응 센터(MSRC) 업데이트를 보여줍니다. 사용 중인 게스트 OS에 특정 업데이트가 적용되는 경우 이 문서를 검색합니다. 업데이트는 항상 도입 된 특정 [제품군][family-explain] 에 대해 항상 전달 됩니다.
+
+## <a name="february-2020-guest-os"></a>2020 2 월 게스트 OS
+
+>[!NOTE]
+>2 월 게스트 OS는 현재 자동 업데이트를 위해 구성 된 클라우드 서비스 Vm에 출시 됩니다. 롤아웃이 완료되면 이 버전은 Azure Portal 및 구성 파일을 통해 수동으로 업데이트할 수 있습니다. 다음 패치는 2 월 게스트 OS에 포함 되어 있습니다. 이 목록은 변경될 수 있습니다.
+
+| 제품 범주 | 부모 기술 자료 문서 | 취약성 설명 | 게스트 OS | 처음 도입된 날짜 |
+| --- | --- | --- | --- | --- |
+|  Rel 20-02 |  [4537767]  |  Internet Explorer | 2.85, 3.82, 4.75 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537813]  |  Windows 보안 | 2.85 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537794]  |  Windows 보안 | 3.82 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537803]  |  Windows 보안 | 4.75 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537764]  |  최신 누적 업데이트 (LCU) | 5.4 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4532691]  |  최신 누적 업데이트 (LCU) | 6.16 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4534310]  |  월간 롤업 | 2.85 | 1 월 14 일 2020 |
+|  Rel 20-02 |  [4536952]  |  서비스 스택 업데이트 (SSU) | 2.85 | 1 월 14 일 2020 |
+|  Rel 20-02 |  [4537829]  |  서비스 스택 업데이트 (SSU) | 2.85 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4538483]  |  ESU (확장 된 보안 업데이트) | 2.85 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537820]  |  월간 롤업 | 2.85 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4537759]  |  보안 업데이트 (Flash) | 3.82, 4.75 | 2 월 11 일, 2020 |
+|  Rel 20-02 |  [4534283]  |  월간 롤업 | 3.82 | 1 월 14 일 2020 |
+|  Rel 20-02 |  [4532920]  |  서비스 스택 업데이트 (SSU) | 3.82 | 2020 년 12 월 10 일 |
+|  Rel 20-02 |  [4534297]  |  비보안 | 4.75 | 1 월 14 일 2020 |
+
+[4537767]: https://support.microsoft.com/kb/4537767
+[4537813]: https://support.microsoft.com/kb/4537813
+[4537794]: https://support.microsoft.com/kb/4537794
+[4537803]: https://support.microsoft.com/kb/4537803
+[4537764]: https://support.microsoft.com/kb/4537764
+[4532691]: https://support.microsoft.com/kb/4532691
+[4534310]: https://support.microsoft.com/kb/4534310
+[4536952]: https://support.microsoft.com/kb/4536952
+[4537829]: https://support.microsoft.com/kb/4537829
+[4538483]: https://support.microsoft.com/kb/4538483
+[4537820]: https://support.microsoft.com/kb/4537820
+[4537759]: https://support.microsoft.com/kb/4537759
+[4534283]: https://support.microsoft.com/kb/4534283
+[4532920]: https://support.microsoft.com/kb/4532920
+[4534297]: https://support.microsoft.com/kb/4534297
+
 
 ## <a name="january-2020-guest-os"></a>게스트 OS 1 월 2020
 

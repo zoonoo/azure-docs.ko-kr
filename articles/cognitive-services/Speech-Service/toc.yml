@@ -305,46 +305,50 @@
       items:
         - name: 음성 도우미란?
           href: voice-assistants.md
-    - name: 도우미 작성
+    - name: 사용자 지정 명령(미리 보기)
       items:
-        - name: 사용자 지정 명령(미리 보기)
+        - name: 사용자 지정 명령이란?
           href: custom-commands.md
-        - name: Direct Line Speech
+        - name: 빠른 시작
+          items:
+            - name: 사용자 지정 명령 만들기(미리 보기)
+              href: quickstart-custom-speech-commands-create-new.md
+            - name: 매개 변수를 사용하여 사용자 지정 명령 만들기(미리 보기)
+              href: quickstart-custom-speech-commands-create-parameters.md
+            - name: 사용자 지정 음성과 함께 사용자 지정 명령 사용(미리 보기)
+              href: quickstart-custom-speech-commands-select-custom-voice.md
+            - name: Speech SDK를 사용하여 사용자 지정 명령 만들기(미리 보기)
+              href: quickstart-custom-speech-commands-speech-sdk.md
+        - name: 방법 가이드
+          items:
+            - name: 음성 SDK를 사용하여 사용자 지정 명령 수행
+              href: how-to-custom-speech-commands-fulfill-sdk.md
+            - name: 사용자 지정 명령에 매개 변수 유효성 검사 추가
+              href: how-to-custom-speech-commands-validations.md
+            - name: 사용자 지정 명령에 확인 추가
+              href: how-to-custom-speech-commands-confirmations.md
+            - name: 사용자 지정 명령에 1단계 수정 추가
+              href: how-to-custom-speech-commands-one-step-correction.md
+    - name: Direct Line Speech
+      items:
+        - name: Direct Line Speech란?
           href: direct-line-speech.md
-    - name: 빠른 시작
-      items:
-        - name: 'C#(UWP)'
-          href: quickstart-voice-assistant-csharp-uwp.md
-        - name: 'Java(Windows, macOS, Linux)'
-          href: quickstart-voice-assistant-java-jre.md
-        - name: Java(Android)
-          href: quickstart-voice-assistant-java-android.md
-        - name: 사용자 지정 명령 만들기(미리 보기)
-          href: quickstart-custom-speech-commands-create-new.md
-        - name: 매개 변수를 사용하여 사용자 지정 명령 만들기(미리 보기)
-          href: quickstart-custom-speech-commands-create-parameters.md
-        - name: 사용자 지정 음성과 함께 사용자 지정 명령 사용(미리 보기)
-          href: quickstart-custom-speech-commands-select-custom-voice.md
-        - name: Speech SDK를 사용하여 사용자 지정 명령 만들기(미리 보기)
-          href: quickstart-custom-speech-commands-speech-sdk.md
-    - name: 방법 가이드
-      items:
-        - name: 음성 SDK를 사용하여 사용자 지정 명령 수행
-          href: how-to-custom-speech-commands-fulfill-sdk.md
-        - name: 사용자 지정 명령에 매개 변수 유효성 검사 추가
-          href: how-to-custom-speech-commands-validations.md
-        - name: 사용자 지정 명령에 확인 추가
-          href: how-to-custom-speech-commands-confirmations.md
-        - name: 사용자 지정 명령에 1단계 수정 추가
-          href: how-to-custom-speech-commands-one-step-correction.md
-    - name: 자습서
-      items:
-        - name: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
-          href: tutorial-voice-enable-your-bot-speech-sdk.md
-    - name: 리소스
-      items:
-        - name: 음성 도우미 FAQ
-          href: faq-voice-assistants.md
+        - name: 빠른 시작
+          items:
+            - name: 'C#(UWP)'
+              href: quickstart-voice-assistant-csharp-uwp.md
+            - name: 'Java(Windows, macOS, Linux)'
+              href: quickstart-voice-assistant-java-jre.md
+            - name: Java(Android)
+              href: quickstart-voice-assistant-java-android.md
+        - name: 자습서
+          items:
+            - name: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
+              href: tutorial-voice-enable-your-bot-speech-sdk.md
+        - name: 리소스
+          items:
+            - name: 음성 도우미 FAQ
+              href: faq-voice-assistants.md
 - name: 사용자 지정
   expanded: false
   items:

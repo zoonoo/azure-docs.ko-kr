@@ -75,6 +75,8 @@
           href: howto-integrate-azure-managed-service-identity.md
         - name: Azure Active Directory를 통해 액세스 사용
           href: concept-enable-rbac.md
+        - name: Azure 관리 ID 할당
+          href: overview-managed-identity.md
     - name: 고가용성
       items:
         - name: 복원력 및 재해 복구

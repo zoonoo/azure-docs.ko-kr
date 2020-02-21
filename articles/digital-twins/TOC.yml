@@ -72,54 +72,47 @@
     - name: 사용자 정의 함수 클라이언트 라이브러리
       href: reference-user-defined-functions-client-library.md
 - name: 리소스
+  expanded: true
   items:
+    - name: 개발자 리소스
+      items:
+        - name: Azure Digital Twins Graph 뷰어
+          href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
+        - name: 'C#용 Azure Digital Twins 샘플(.NET)'
+          href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
+        - name: Azure Digital Twins REST API
+          href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
+    - name: 가격 책정 및 가용성
+      items:
+        - name: 가격 책정
+          href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
+        - name: 요금 계산기
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: 지역 가용성
+          href: 'https://azure.microsoft.com/regions/services/'
     - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
-    - name: 'C#용 Azure Digital Twins 샘플(.NET)'
-      href: 'https://github.com/Azure-Samples/digital-twins-samples-csharp'
-    - name: Azure Digital Twins REST API
-      href: 'https://docs.westcentralus.azuresmartspaces.net/management/swagger'
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/digital-twins/'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: Azure Digital Twins Graph 뷰어
-      href: 'https://github.com/Azure/azure-digital-twins-graph-viewer'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+      items:
+        - name: Azure 지원 옵션
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Azure IoT 지원 및 도움말 옵션
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: 스택 오버플로
+          href: 'https://stackoverflow.com/questions/tagged/azure-digital-twins'
+        - name: MSDN 포럼
+          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: Azure IoT 코드 샘플
+          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
+    - name: 피드백 및 포럼
+      items:
+        - name: MSDN 포럼
+          href: 'https://social.msdn.microsoft.com/Forums/home?category=&forum=&filter=&sort=relevancedesc&brandIgnore=true&searchTerm=Azure+Digital+Twins'
+        - name: 제품 요청 및 제안
+          href: 'https://feedback.azure.com/forums/916621-azure-digital-twins'
     - name: 고객 사례
-      href: 'https://blogs.microsoft.com/iot/2018/09/24/announcing-azure-digital-twins-create-digital-replicas-of-spaces-and-infrastructure-using-cloud-ai-and-iot/'
-    - name: Azure IoT 개발자 센터
-      href: 'https://azure.microsoft.com/develop/iot/'
-    - name: Azure 로드맵
+      href: 'https://customers.microsoft.com/en-us/search?sq=%22Azure%20Digital%20Twins%22&ff=&p=0&so=story_publish_date%20desc'
+    - name: Azure 비디오
+      href: 'https://azure.microsoft.com/resources/videos/index/?services=digital-twins&sort=newest'
+    - name: Channel 9 동영상
+      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22'
+    - name: Azure IoT 업데이트
       href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: 동영상
-      href: 'https://channel9.msdn.com/Search?term=%22Azure%20Digital%20Twins%22&lang-en=true'
-- name: 관련 항목
-  items:
-    - name: 솔루션
-      items:
-        - name: IoT 솔루션 가속기
-          href: /azure/iot-suite
-        - name: IoT Central
-          href: /azure/iot-central/iot-support-help
-    - name: 플랫폼 서비스
-      items:
-        - name: IoT Hub
-          href: /azure/iot-hub
-        - name: IoT 플러그 앤 플레이
-          href: /azure/iot-pnp
-        - name: IoT Hub Device Provisioning Service
-          href: /azure/iot-dps
-        - name: 지도
-          href: /azure/azure-maps
-        - name: 서비스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-service-sdks'
-        - name: Time Series Insights
-          href: /azure/time-series-insights
-    - name: Edge 솔루션
-      items:
-        - name: IoT Edge
-          href: /azure/iot-edge
-        - name: IoT 디바이스 SDK
-          href: '/azure/iot-hub/iot-hub-devguide-sdks#azure-iot-device-sdks'

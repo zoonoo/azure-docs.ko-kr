@@ -77,7 +77,9 @@
       href: application-provisioning-configure-api.md
 - name: 참조
   items:
-    - name: 프로비저닝 메서드 선택
+    - name: SCIM 2.0 프로토콜 규정 준수
+      href: application-provisioning-config-problem-scim-compatibility.md
+    - name: 프로비전 메서드 선택
       href: isv-automatic-provisioning-multi-tenant-apps.md
     - name: 클라우드 HR 프로비저닝
       items:

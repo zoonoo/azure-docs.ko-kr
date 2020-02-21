@@ -281,23 +281,23 @@
         - name: Azure Backup 보고서 구성
           items:
             - name: Azure Backup 보고서 구성
-              href: backup-azure-configure-reports.md
-            - name: Azure Backup 보고서용 데이터 모델
-              href: backup-azure-reports-data-model.md
-            - name: Azure Backup용 Log Analytics 데이터 모델
-              href: backup-azure-log-analytics-data-model.md
+              href: configure-reports.md
         - name: Recovery Services 자격 증명 모음에 대한 진단 이벤트 구성
           items:
             - name: Recovery Services 자격 증명 모음용 진단 설정 사용
               href: backup-azure-diagnostic-events.md
             - name: 리소스 관련 진단 이벤트에 대한 Log Analytics 데이터 모델
-              href: backup-azure-log-analytics-new-data-model.md
+              href: backup-azure-reports-data-model.md
+            - name: Azure Backup용 Log Analytics 데이터 모델(Azure Diagnostics 모드)
+              href: backup-azure-diagnostics-mode-data-model.md
     - name: Automation
       items:
         - name: Azure Backup을 위한 기본 제공 Azure Policy
           items:
             - name: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
               href: backup-azure-auto-enable-backup.md
+            - name: 대규모로 자격 증명 모음 진단 설정 구성
+              href: azure-policy-configure-diagnostics.md
         - name: PowerShell
           items:
             - name: Azure Portal의 Azure VM

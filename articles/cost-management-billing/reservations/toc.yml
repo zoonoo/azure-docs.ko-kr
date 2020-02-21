@@ -68,6 +68,8 @@
           href: understand-rhel-reservation-charges.md
         - name: Azure Database for MariaDB 할인
           href: understand-reservation-charges-mariadb.md
+        - name: Azure Cache for Redis 할인
+          href: understand-azure-cache-for-redis-reservation-charges.md
         - name: App Service 할인
           href: reservation-discount-app-service-isolated-stamp.md
         - name: Azure 소프트웨어 요금제 할인

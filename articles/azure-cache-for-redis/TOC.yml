@@ -53,6 +53,8 @@
           href: cache-how-to-premium-vnet.md
         - name: 지리적 복제 설정
           href: cache-how-to-geo-replication.md
+        - name: 예약 용량으로 저장
+          href: cache-reserved-pricing.md
         - name: Managed Cache Service에서 마이그레이션
           href: cache-migrate-to-redis.md
     - name: 자동화
@@ -139,7 +141,7 @@
       href: /learn/browse/?products=azure-redis-cache
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=databases'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cache/'
     - name: Azure Cache for Redis FAQ
       href: cache-faq.md

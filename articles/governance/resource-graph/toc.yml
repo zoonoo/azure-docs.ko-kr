@@ -52,7 +52,7 @@
 - name: 문제 해결
   displayName: 'errors, violation'
   href: ./troubleshoot/general.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/ext/resource-graph/graph
@@ -78,6 +78,8 @@
       href: /rest/api/azure-resourcegraph/
     - name: OpenAPI
       href: 'https://github.com/Azure/azure-rest-api-specs/tree/master/specification/resourcegraph/resource-manager/Microsoft.ResourceGraph/stable/2019-04-01'
+    - name: Resource Graph 테이블 및 리소스 종류
+      href: ./reference/supported-tables-resources.md
 - name: 리소스
   items:
     - name: Azure 로드맵

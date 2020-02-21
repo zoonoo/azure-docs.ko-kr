@@ -431,53 +431,9 @@
           items:
             - name: Apache Hadoop 샌드박스 사용
               href: ./hadoop/apache-hadoop-emulator-get-started.md
+            - name: Apache Pig 사용
+              href: use-pig.md
         - name: 개발
-          items:
-            - name: Apache Hadoop과 MapReduce 사용
-              items:
-                - name: MapReduce 개요
-                  href: ./hadoop/hdinsight-use-mapreduce.md
-                - name: SSH 사용
-                  href: ./hadoop/apache-hadoop-use-mapreduce-ssh.md
-                - name: cURL 사용
-                  href: ./hadoop/apache-hadoop-use-mapreduce-curl.md
-                - name: Azure PowerShell 사용
-                  href: ./hadoop/apache-hadoop-use-mapreduce-powershell.md
-                - name: .NET용 SDK 사용
-                  href: ./hadoop/apache-hadoop-use-mapreduce-dotnet-sdk.md
-                - name: MapReduce 샘플 실행
-                  href: ./hadoop/apache-hadoop-run-samples-linux.md
-                - name: 사용자 지정 Apache Hadoop MapReduce 프로그램 실행
-                  href: ./hadoop/apache-hadoop-run-custom-programs.md
-                - name: 'C# 스트리밍 MapReduce 프로그램 개발'
-                  href: ./hadoop/apache-hadoop-dotnet-csharp-mapreduce-streaming.md
-                - name: Java MapReduce 프로그램 개발
-                  href: ./hadoop/apache-hadoop-develop-deploy-java-mapreduce-linux.md
-            - name: 'Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용'
-              href: ./hadoop/apache-hadoop-using-apache-hive-as-an-etl-tool.md
-            - name: '규모에 따라 추출, 변환 및 로드'
-              href: ./hadoop/apache-hadoop-etl-at-scale.md
-            - name: 비대화형 인증 .NET HDInsight 애플리케이션 만들기
-              href: ./hdinsight-create-non-interactive-authentication-dotnet-applications.md
-            - name: 빅 데이터 분석
-              items:
-                - name: 파워 쿼리를 사용하여 분석
-                  href: ./hadoop/apache-hadoop-connect-excel-power-query.md
-                - name: 대화형 쿼리에 Power BI 연결
-                  href: ./interactive-query/apache-hadoop-connect-hive-power-bi-directquery.md
-                - name: Apache Hadoop에 Power BI 연결
-                  href: ./hadoop/apache-hadoop-connect-hive-power-bi.md
-                - name: Apache Hadoop에 Excel 연결
-                  href: ./hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md
-                - name: Apache Hive JDBC 드라이버를 사용하여 연결
-                  href: ./hadoop/apache-hadoop-connect-hive-jdbc-driver.md
-                - name: 저장된 트윗 분석
-                  href: ./hdinsight-analyze-twitter-data-linux.md
-                - name: Apache Mahout를 사용하여 추천 생성
-                  href: ./hadoop/apache-hadoop-mahout-linux-mac.md
-                - name: HDInsight에 대한 고급 분석
-                  href: ./hadoop/apache-hadoop-deep-dive-advanced-analytics.md
-        - name: 관리
           items:
             - name: 빈 에지 노드 사용
               href: ./hdinsight-apps-use-edge-node.md

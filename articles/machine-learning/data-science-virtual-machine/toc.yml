@@ -6,20 +6,20 @@
   items:
     - name: DSVM(Data Science Virtual Machine)이란?
       href: overview.md
-    - name: Geo AI DSVM이란?
+    - name: Geo AI Data Science Virtual Machine이란?
       href: geo-ai-dsvm-overview.md
-    - name: DSVM에 포함된 도구
+    - name: Data Science Virtual Machine에 포함된 도구
       href: tools-included.md
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Windows DSVM 만들기
+    - name: Windows Data Science Virtual Machine 만들기
       href: provision-vm.md
-    - name: Ubuntu DSVM 만들기
+    - name: Ubuntu Data Science Virtual Machine 만들기
       href: dsvm-ubuntu-intro.md
-    - name: CentOS DSVM 만들기
+    - name: CentOS Data Science Virtual Machine 만들기
       href: linux-dsvm-intro.md
-    - name: Geo AI DSVM 만들기
+    - name: Geo AI Data Science Virtual Machine 만들기
       href: provision-geo-ai-dsvm.md
 - name: 개념
   items:
@@ -43,13 +43,13 @@
   href: dsvm-samples-and-walkthroughs.md
 - name: 방법 가이드
   items:
-    - name: Windows DSVM 사용
+    - name: Windows Data Science Virtual Machine 사용
       href: vm-do-ten-things.md
-    - name: Linux DSVM 사용
+    - name: Linux Data Science Virtual Machine 사용
       href: linux-dsvm-walkthrough.md
-    - name: Geo AI DSVM 사용
+    - name: Geo AI Data Science Virtual Machine 사용
       href: use-geo-ai-dsvm.md
-    - name: 자동 크기 조정 DSVM 풀 만들기
+    - name: 자동 크기 조정된 Data Science Virtual Machine 풀 만들기
       href: dsvm-pools.md
     - name: Active Directory와 통합할 수 있습니다.
       href: dsvm-common-identity.md
@@ -65,9 +65,9 @@
       href: /azure/architecture/data-guide/technology-choices/r-developers-guide?context=azure/machine-learning/data-science-virtual-machine/context/ml-context
 - name: 참조
   items:
-    - name: Ubuntu DSVM
+    - name: Ubuntu Data Science Virtual Machine
       href: reference-ubuntu-vm.md
-    - name: CentOS DSVM
+    - name: CentOS Data Science Virtual Machine
       href: reference-centos-vm.md
     - name: 릴리스 정보
       href: release-notes.md

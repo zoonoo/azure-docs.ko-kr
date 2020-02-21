@@ -136,24 +136,47 @@
         - name: JavaScript 클라이언트 SDK
           href: 'https://github.com/microsoft/tsiclient/blob/master/docs/API.md'
 - name: 리소스
+  expanded: true
   items:
-    - name: 지원 및 도움말 옵션
-      href: /azure/iot-fundamentals/iot-support-help
     - name: 고객 데이터 요청
       href: time-series-insights-customer-data-requests.md
-    - name: Azure 로드맵
-      href: 'https://azure.microsoft.com/roadmap/?category=iot'
-    - name: 가격 책정
-      href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
-    - name: 요금 계산기
-      href: 'https://azure.microsoft.com/pricing/calculator/'
-    - name: 지역 가용성
-      href: 'https://azure.microsoft.com/regions/services/'
-    - name: MSDN 포럼
-      href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=AzureTimeSeriesInsights'
-    - name: 스택 오버플로
-      href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
-    - name: 지원 옵션
-      href: 'https://azure.microsoft.com/support/options/'
-    - name: 동영상
+    - name: 개발자 리소스
+      items:
+        - name: Azure Time Series Insights 코드 샘플
+          href: 'https://github.com/Azure-Samples/Azure-Time-Series-Insights/'
+        - name: JavaScript 클라이언트 SDK
+          href: 'https://github.com/Microsoft/tsiclient'
+        - name: 호스팅된 클라이언트 샘플
+          href: 'https://tsiclientsample.azurewebsites.net/'
+        - name: Azure IoT 코드 샘플
+          href: 'https://docs.microsoft.com/samples/browse/?term=iot'
+    - name: 가격 책정 및 가용성
+      items:
+        - name: 가격 책정
+          href: 'https://azure.microsoft.com/pricing/details/time-series-insights/'
+        - name: 요금 계산기
+          href: 'https://azure.microsoft.com/pricing/calculator/'
+        - name: 지역 가용성
+          href: 'https://azure.microsoft.com/regions/services/'
+    - name: 지원 및 도움말 옵션
+      items:
+        - name: Azure 지원 옵션
+          href: 'https://azure.microsoft.com/support/options/'
+        - name: Azure IoT 지원 및 도움말 옵션
+          href: 'https://docs.microsoft.com/azure/iot-fundamentals/iot-support-help'
+        - name: 스택 오버플로
+          href: 'https://stackoverflow.com/questions/tagged/azure-timeseries-insights'
+        - name: MSDN 포럼
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+    - name: 피드백 및 포럼
+      items:
+        - name: MSDN 포럼
+          href: 'https://social.msdn.microsoft.com/Forums/home?forum=AzureTimeSeriesInsights'
+        - name: 제품 요청 및 제안
+          href: 'https://feedback.azure.com/forums/906859-azure-time-series-insights'
+    - name: Azure 비디오
       href: 'https://azure.microsoft.com/resources/videos/index/?services=time-series-insights'
+    - name: Channel 9 동영상
+      href: 'https://channel9.msdn.com/Search?term=time%20series%20insights'
+    - name: Azure IoT 업데이트
+      href: 'https://azure.microsoft.com/roadmap/?category=iot'

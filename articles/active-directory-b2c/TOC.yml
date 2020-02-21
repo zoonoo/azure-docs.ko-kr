@@ -81,6 +81,9 @@
         - name: SAML 서비스 공급자 등록
           href: connect-with-saml-service-providers.md
           displayName: 'SP, RP, service provider, connect'
+        - name: Graph 애플리케이션 등록
+          href: microsoft-graph-get-started.md
+          displayName: 'migrate, migration, microsoft graph'
         - name: 웹 API 애플리케이션 추가
           href: add-web-application.md
         - name: 네이티브 클라이언트 애플리케이션 추가
@@ -377,8 +380,6 @@
       items:
         - name: 사용자 마이그레이션
           href: user-migration.md
-        - name: 외부 ID로 사용자 마이그레이션
-          href: migrate-social-identities.md
 - name: 참조
   items:
     - name: Identity Experience Framework 릴리스 정보
@@ -392,9 +393,11 @@
       displayName: 'cookies, SameSite'
     - name: 오류 코드
       href: error-codes.md
+    - name: Microsoft Graph API 작업
+      href: microsoft-graph-operations.md
     - name: 지역 가용성 및 데이터 상주
       href: data-residency.md
-    - name: 청구를 사용하도록 설정
+    - name: 청구 모델
       href: billing.md
     - name: 위협 관리
       href: threat-management.md
