@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/14/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5eeae1ab6866435311eeec944b4a51ecf2793dee
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
-ms.translationtype: MT
+ms.openlocfilehash: 1f23d3ffa14deccae9825568dee2f3c8b9ac7e7e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522971"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77492956"
 ---
 # <a name="microsoft-graph-operations-available-for-azure-ad-b2c"></a>Azure AD B2C에 사용할 수 있는 Microsoft Graph 작업
 
@@ -57,7 +57,7 @@ Azure AD B2C 테 넌 트에서 사용자 흐름에서 사용할 수 있는 id �
 
 다음 작업을 사용 하 여 [사용자 지정 정책](custom-policy-overview.md)이라고 하는 Azure AD B2C 신뢰 프레임 워크 정책을 관리할 수 있습니다.
 
-- [테 넌 트에서 구성 된 모든 신뢰 프레임 워크 정책을 나열 합니다.](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies)
+- [테 넌 트에서 구성 된 모든 신뢰 프레임 워크 정책을 나열 합니다.](https://docs.microsoft.com/graph/api/trustframework-list-trustframeworkpolicies.md)
 - [신뢰 프레임 워크 정책 만들기](https://docs.microsoft.com/graph/api/trustframework-post-trustframeworkpolicy)
 - [기존 보안 프레임 워크 정책의 속성을 읽습니다.](https://docs.microsoft.com/graph/api/trustframeworkpolicy-get)
 - [신뢰 프레임 워크 정책을 업데이트 하거나 만듭니다.](https://docs.microsoft.com/graph/api/trustframework-put-trustframeworkpolicy)
