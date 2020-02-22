@@ -13,7 +13,7 @@
 - name: 자습서
   items:
     - name: Azure Multi-Factor Authentication 필요
-      href: /authentication/tutorial-enable-azure-mfa.md?toc=/azure/conditional-access/toc.json&bc=/azure/conditional-access/breadcrumb/toc.json
+      href: ../authentication/tutorial-enable-azure-mfa.md?toc=/azure/active-directory/conditional-access/toc.json&bc=/azure/active-directory/conditional-access/breadcrumb/toc.json
 - name: 개념
   expanded: false
   items:
