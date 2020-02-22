@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
 ms.author: mlearned
-ms.openlocfilehash: 520557c80bf2630a359188dd86ec0987e0d5326b
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 32138c228284f9487b816583dd1f701556bbcb95
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158148"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544218"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -123,7 +123,7 @@ oAuthPermissionId=$(az ad app show --id $serverApplicationId --query "oauth2Perm
 [Az ad app permission add][az-ad-app-permission-add] 명령을 사용 하 여 oAuth2 통신 흐름을 사용 하도록 클라이언트 응용 프로그램 및 서버 응용 프로그램 구성 요소에 대 한 사용 권한을 추가 합니다. 그런 다음 [az ad app permission grant][az-ad-app-permission-grant] 명령을 사용 하 여 서버 응용 프로그램과 통신 하는 클라이언트 응용 프로그램에 대 한 권한을 부여 합니다.
 
 ```azurecli-interactive
-az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions $oAuthPermissionId=Scope
+az ad app permission add --id $clientApplicationId --api $serverApplicationId --api-permissions ${oAuthPermissionId}=Scope
 az ad app permission grant --id $clientApplicationId --api $serverApplicationId
 ```
 

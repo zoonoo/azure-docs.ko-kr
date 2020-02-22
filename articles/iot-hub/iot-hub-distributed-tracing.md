@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: ed477dddeb499023f4803929d9433ed37c302159
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212479"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539538"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -308,8 +308,8 @@ IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 
 1. IoT 디바이스는 IoT Hub에 메시지를 보냅니다.
 1. 메시지가 IoT Hub 게이트웨이에 도착합니다.
 1. IoT Hub가 메시지 애플리케이션 속성에서 `tracestate`를 찾고 올바른 형식인지 확인합니다.
-1. 형식이 올바르면 IoT Hub는 `trace-id` 및 `span-id`를 생성한 후 Azure Monitor 진단 로그의 `DiagnosticIoTHubD2C` 범주 아래에 기록합니다.
-1. 메시지 처리가 완료되면 IoT Hub는 다른 `span-id`를 생성하고 `trace-id` 범주 아래에 기존 `DiagnosticIoTHubIngress`와 함께 기록합니다.
+1. 이 경우 IoT Hub는 메시지에 대 한 전역적으로 고유한 `trace-id`를 생성 하 고, "홉"에 대해 `span-id` 하 고, 작업 `DiagnosticIoTHubD2C`에서 Azure Monitor 진단 로그에 기록 합니다.
+1. 메시지 처리가 완료 되 면 IoT Hub는 다른 `span-id` 생성 하 고 작업 `DiagnosticIoTHubIngress`아래의 기존 `trace-id` 함께 로깅합니다.
 1. 메시지에 대해 라우팅을 사용하도록 설정하면, IoT Hub는 사용자 지정 엔드포인트에 쓰고, `span-id` 범주 아래에 동일한 `trace-id`를 사용하여 다른 `DiagnosticIoTHubEgress`를 기록합니다.
 1. 위 단계는 생성된 각 메시지에 대해 반복됩니다.
 

@@ -11,19 +11,19 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 10/12/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: ad7fd664f0dce08e4482b4fb2cba2831208396fc
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ac990141ccc694ed7460763e84126d9fefdbb609
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264834"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539453"
 ---
 # <a name="manage-classroom-labs-in-azure-lab-services"></a>Azure Lab Services에서 클래스룸 랩 관리 
 이 문서에서는 클래스룸 랩을 만들고 삭제하는 방법을 설명합니다. 또한 랩 계정에서 모든 클래스룸 랩을 보는 방법을 보여 줍니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 랩 계정에서 클래스룸 랩을 설정하려면 랩 계정에서 **랩 작성자** 역할의 멤버여야 합니다. 랩 계정을 만드는 데 사용한 계정이 이 역할에 자동으로 추가됩니다. 랩 소유자는 [랩 작성자 역할에 사용자 추가](tutorial-setup-lab-account.md#add-a-user-to-the-lab-creator-role) 문서의 단계에 따라 랩 작성자 역할에 다른 사용자를 추가할 수 있습니다.
 
 ## <a name="create-a-classroom-lab"></a>클래스룸 랩 만들기
@@ -41,6 +41,9 @@ ms.locfileid: "76264834"
     6. **저장**을 선택합니다.
 
         ![새 랩 창](../media/tutorial-setup-classroom-lab/new-lab-window.png)
+
+        > [!NOTE]
+        > 랩 계정이 랩 [위치 옵션을 선택할 수 있도록](allow-lab-creator-pick-lab-location.md) 랩 계정이 구성 된 경우 랩의 위치를 선택 하는 옵션이 표시 됩니다. 
 4. **가상 머신 자격 증명** 페이지에서 랩의 모든 VM에 대한 기본 자격 증명을 지정합니다.
     1. 랩의 모든 VM에 대한 **사용자 이름**을 지정합니다.
     2. 사용자에 대한 **암호**를 지정합니다. 
@@ -52,12 +55,14 @@ ms.locfileid: "76264834"
         교사는 랩의 모든 Vm에 대해 동일한 암호를 사용 하도록 선택 하거나, 학생 들이 자신의 Vm에 대 한 암호를 설정 하도록 할 수 있습니다. 기본적으로이 설정은 Ubuntu를 제외한 모든 Windows 및 Linux 이미지에 대해 사용 하도록 설정 됩니다. **Ubuntu** VM을 선택 하는 경우이 설정을 사용 하지 않도록 설정 하므로 학생에 게 처음 로그인 할 때 암호를 설정 하 라는 메시지가 표시 됩니다.  
 
         ![새 랩 창](../media/tutorial-setup-classroom-lab/virtual-machine-credentials.png)
-        > [!IMPORTANT]
-        > 사용자 이름과 암호를 적어 둡니다. 다시 표시되지 않습니다.    
     4. 그런 다음 **가상 머신 자격 증명** 페이지에서 **다음** 을 선택 합니다. 
-5. **랩 정책** 페이지에서 각 사용자에게 할당되는 시간(**각 사용자에 대한 할당량**)을 랩에 예약된 시간 이외의 시간으로 입력한 다음, **마침**을 선택합니다. 
+5. **랩 정책** 페이지에서 다음 단계를 수행 합니다.
+    1. 랩의 예약 된 시간을 벗어나 각 사용자 (**각 사용자의 할당량**)에 할당 된 시간을 입력 합니다. 
+    2. **가상 컴퓨터 자동 종료** 옵션의 경우 사용자가 연결을 끊을 때 VM이 자동으로 종료 되도록 할지 여부를 지정 합니다. VM이 자동으로 종료 되기 전에 사용자가 다시 연결 될 때까지 대기 해야 하는 기간을 지정할 수도 있습니다. 자세한 내용은 [연결 끊기 시 vm의 자동 종료 사용](how-to-enable-shutdown-disconnect.md)을 참조 하세요.
+    3. 그런 다음 **마침**을 선택 합니다. 
 
-    ![각 사용자에 대한 할당량](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+        ![각 사용자에 대한 할당량](../media/tutorial-setup-classroom-lab/quota-for-each-user.png)
+    
 5. 템플릿 VM 만들기 상태를 보여 주는 다음 화면이 표시됩니다. 랩에서 템플릿을 만드는 데는 최대 20분이 걸립니다. 
 
     ![템플릿 VM 만들기 상태](../media/tutorial-setup-classroom-lab/create-template-vm-progress.png)
@@ -97,7 +102,7 @@ ms.locfileid: "76264834"
 | 작음 | 2 | 3.5 GB | 이 크기는 명령줄, 웹 브라우저 열기, 트래픽이 적은 웹 서버, 중소 규모의 데이터베이스에 가장 적합 합니다. |
 | 중간 | 4 | 7 GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. | 
 | 중간 (중첩 된 가상화) | 4 | 16GB | 이 크기는 관계형 데이터베이스, 메모리 내 캐싱 및 분석에 가장 적합 합니다. 이 크기는 중첩 된 가상화도 지원 합니다. <p>이 크기는 각 학생이 여러 Vm이 필요한 시나리오에서 사용할 수 있습니다. 교사는 중첩 된 가상화를 사용 하 여 가상 컴퓨터 내에서 작은 크기의 중첩 된 가상 컴퓨터를 설정할 수 있습니다. </p> |
-| 큼 | 8 | 32GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. 이 크기는 또한 중첩 된 가상화를 지원 합니다. |  
+| 큰 | 8 | 32GB | 이 크기는 더 빠른 Cpu, 더 뛰어난 로컬 디스크 성능, 큰 데이터베이스, 큰 메모리 캐시를 필요로 하는 응용 프로그램에 가장 적합 합니다. 이 크기는 또한 중첩 된 가상화를 지원 합니다. |  
 | 소형 GPU (시각화) | 6 | 56GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 
 | 소형 GPU (계산) | 6 | 56GB | 이 크기는 인공 지능 및 심층 학습 응용 프로그램과 같은 계산 집약적 및 네트워크 집약적 응용 프로그램에 가장 적합 합니다. | 
 | 중형 GPU (시각화) | 12 | 112GB | 이 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하는 원격 시각화, 스트리밍, 게임, 인코딩에 가장 적합 합니다. | 

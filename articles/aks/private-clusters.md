@@ -5,14 +5,14 @@ services: container-service
 author: mlearned
 ms.service: container-service
 ms.topic: article
-ms.date: 1/24/2020
+ms.date: 2/21/2020
 ms.author: mlearned
-ms.openlocfilehash: 934dfdb43d6d2e4ccc346b728f0ac4f5febea327
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932585"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544235"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 
@@ -26,18 +26,38 @@ ms.locfileid: "76932585"
 > * [AKS 지원 정책](support-policies.md)
 > * [Azure 지원 FAQ](faq.md)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI 버전 2.0.77 이상 및 Azure CLI AKS Preview 확장 버전 0.4.18
 
 ## <a name="currently-supported-regions"></a>현재 지원 되는 지역
+
+* 오스트레일리아 동부
+* 오스트레일리아 남동부
+* 브라질 남부
+* 캐나다 중부
+* 캐나다 동부
+* 미국 Cenral
+* 동아시아
+* 미국 동부
+* 미국 동부 2
+* 미국 동부 2 EUAP
+* 프랑스 중부
+* 독일 북부
+* 일본 동부
+* 일본 서부
+* 한국 중부
+* 한국 남부
+* 미국 중북부
+* 북유럽
+* 북유럽
+* 미국 중남부
+* 영국 남부
+* 서유럽
 * 미국 서부
 * 미국 서부 2
 * 미국 동부 2
-* 캐나다 중부
-* 북유럽
-* 서유럽
-* 오스트레일리아 동부
+
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>최신 Azure CLI AKS Preview 확장을 설치 합니다.
 

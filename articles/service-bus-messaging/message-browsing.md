@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: aschhab
-ms.openlocfilehash: 7ad10ad2d4393c1d25a835d0ff8cd0b98ed25879
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 6156557d10210535b287aa516070c0b5da416512
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756399"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539368"
 ---
 # <a name="message-browsing"></a>메시지 찾아보기
 
@@ -34,7 +34,7 @@ ms.locfileid: "76756399"
 
 ## <a name="peek-apis"></a>Peek API
 
-[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 모든 .NET 및 Java 클라이언트 라이브러리와 모든 수신기 개체(**MessageReceiver**, **MessageSession**, **QueueClient**, **SubscriptionClient**)에 존재합니다. Peek은 모든 큐와 구독 및 각각의 배달 못한 메시지 큐에서 작동합니다.
+[Peek/PeekAsync](/dotnet/api/microsoft.azure.servicebus.core.messagereceiver.peekasync#Microsoft_Azure_ServiceBus_Core_MessageReceiver_PeekAsync) 및 [PeekBatch/PeekBatchAsync](/dotnet/api/microsoft.servicebus.messaging.queueclient.peekbatchasync#Microsoft_ServiceBus_Messaging_QueueClient_PeekBatchAsync_System_Int64_System_Int32_) 메서드는 모든 .net 및 Java 클라이언트 라이브러리와 모든 받는 사람 개체: **MessageReceiver**, **messagesession**에 존재 합니다. Peek은 모든 큐와 구독 및 각각의 배달 못한 메시지 큐에서 작동합니다.
 
 반복적으로 호출되면 Peek 메서드는 큐 또는 구독 로그에 있는 모든 메시지를 시퀀스 번호 순서대로(가장 낮은 시퀀스 번호에서 가장 높은 시퀀스 번호로) 열거합니다. 다음은 메시지를 큐에 넣은 순서이며 최종적으로 메시지가 검색될 수 있는 순서는 아닙니다.
 

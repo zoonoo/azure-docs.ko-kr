@@ -11,14 +11,14 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 01/16/2020
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: 80e8bc47f6e6293d70bbc9fae888abdf5527fe93
-ms.sourcegitcommit: d29e7d0235dc9650ac2b6f2ff78a3625c491bbbf
+ms.openlocfilehash: 9fda1295bcdcd44b8a92c101c2aa445197ce6d4a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76169219"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539205"
 ---
 # <a name="add-and-manage-lab-users"></a>랩 사용자 추가 및 관리
 이 문서에서는 랩에 사용자를 추가하고, 사용자를 랩에 등록하고, VM을 사용할 수 있는 시간을 제어하는 방법 등을 설명합니다. 
@@ -35,7 +35,7 @@ ms.locfileid: "76169219"
     ![사용자 이메일 주소 추가](../media/how-to-configure-student-usage/add-users-email-addresses.png)
 4. **저장**을 선택합니다. 목록에서 사용자의 이메일 주소 및 해당 상태(등록됨 또는 등록 해제됨)를 확인합니다. 
 
-    ![사용자 목록](../media/how-to-configure-student-usage/users-list-new.png)
+    ![사용자 목록](../media/how-to-configure-student-usage/list-of-added-users.png)
 
     > [!NOTE]
     > 사용자가 랩에 등록되면 목록에 사용자 이름이 표시됩니다. 목록에 표시 되는 이름은 Azure Active Directory 사용자의 이름과 성을 사용 하 여 생성 됩니다. 
@@ -101,11 +101,14 @@ ms.locfileid: "76169219"
 2. **사용자 등록** 대화 상자에서 **완료**를 선택 합니다. 
 4. 학생 들이 클래스에 등록할 수 있도록 **등록 링크** 를 학생에 게 보냅니다. 
 
-## <a name="view-users-registered-with-the-lab"></a>랩에 등록된 사용자 보기
+## <a name="view-registered-users"></a>등록 된 사용자 보기
 
-왼쪽 메뉴에서 **사용자**를 선택하여 랩에 등록된 사용자 목록을 봅니다. 
+1. [Azure Lab Services 웹 사이트](https://labs.azure.com)로 이동합니다. 
+2. **로그인**을 선택하고 자격 증명을 입력합니다. Azure Lab Services는 조직 계정 및 Microsoft 계정을 지원합니다.
+3. **내 랩** 페이지에서, 사용량을 추적하려는 랩을 선택합니다. 
+4. 왼쪽 메뉴에서 **사용자** 또는 **사용자** 타일을 선택합니다. 랩에 등록한 학생이 표시됩니다.  
 
-![랩에 등록된 사용자 목록](../media/how-to-configure-student-usage/students-registered.png)
+    ![등록된 사용자](../media/tutorial-track-usage/registered-users.png)
 
 ## <a name="set-quotas-for-users"></a>사용자에 대한 할당량 설정
 다음 단계를 사용하여 사용자당 할당량을 설정할 수 있습니다. 
@@ -115,7 +118,7 @@ ms.locfileid: "76169219"
 3. **사용자 당 할당량** 페이지에서 예약 된 클래스 시간 외에 각 사용자 (학생)에 게 제공할 시간 수를 지정한 다음 **저장**을 선택 합니다.
 
     ![사용자당 할당량](../media/how-to-configure-student-usage/quota-per-user.png)    
-5. 도구 모음에 변경 된 값이 표시 됩니다. **사용자 당 할당량: \<시간 >** 입니다. 
+5. 이제 도구 모음에 변경 된 값이 표시 됩니다. **사용자 당 할당량: \<시간 >** 및 사용자 목록에도 표시 됩니다.
 
     ![사용자 당 할당량-이후](../media/how-to-configure-student-usage/quot-per-user-after.png)
 

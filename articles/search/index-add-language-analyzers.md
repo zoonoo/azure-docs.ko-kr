@@ -19,12 +19,12 @@ translation.priority.mt:
 - ru-ru
 - zh-cn
 - zh-tw
-ms.openlocfilehash: ea7a62210f48b216d3f98f6359447eacf15cf821
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a97bee27b74aa211b4d4d56547726555edefa87a
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75460806"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539402"
 ---
 # <a name="add-language-analyzers-to-string-fields-in-an-azure-cognitive-search-index"></a>Azure Cognitive Search 인덱스의 문자열 필드에 언어 분석기 추가
 
@@ -44,7 +44,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
  
 + Lucene 영어 분석기는 표준 분석기를 확장합니다. 이 분석기는 단어에서 소유격(후행 's)을 제거하고, Porter 형태소 분석 알고리즘에 따라 형태소 분석을 적용하며, 영어의 중지 단어를 제거합니다.  
 
-+ Microsoft 영어 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 따라서 어형이 변화되고 불규칙한 단어 형태를 훨씬 잘 처리하여 보다 관련된 검색 결과를 제공할 수 있습니다. 
++ Microsoft 영어 분석기는 형태소 분석 대신 분류 정리를 수행합니다. 즉, 더 많은 관련 검색 결과가 발생 하는 만들거나 굴절 형 및 불규칙 한 단어 형태를 처리할 수 있습니다. 
 
 ## <a name="configuring-analyzers"></a>분석기 구성
 
@@ -76,7 +76,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |체코어|cs.microsoft|cs.lucene|  
 |덴마크어|da.microsoft|da.lucene|  
 |네덜란드어|nl.microsoft|nl.lucene|  
-|한국어|en.microsoft|en.lucene|  
+|영어|en.microsoft|en.lucene|  
 |에스토니아어|et.microsoft||  
 |핀란드어|fi.microsoft|fi.lucene|  
 |프랑스어|fr.microsoft|fr.lucene|  
@@ -102,7 +102,7 @@ Azure Cognitive Search는 Lucene에 의해 지원 되는 35 분석기와 Office 
 |노르웨이어|nb.microsoft|no.lucene|  
 |페르시아어||fa.lucene|  
 |폴란드어|pl.microsoft|pl.lucene|  
-|포르투갈어 (브라질)|pt-Br.microsoft|pt-Br.lucene|  
+|포르투갈어(브라질)|pt-Br.microsoft|pt-Br.lucene|  
 |포르투갈어(포르투갈)|pt-Pt.microsoft|pt-Pt.lucene|  
 |펀잡어|pa.microsoft||  
 |루마니아어|ro.microsoft|ro.lucene|  

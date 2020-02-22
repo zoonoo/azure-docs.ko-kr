@@ -1,29 +1,26 @@
 ---
 title: SharePoint 파일-QnA Maker
-titleSuffix: Azure Cognitive Services
 description: 기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 06/24/2019
-ms.author: diberry
-ms.openlocfilehash: e28f144c33cbdf253603cb38ca56a4d304afd474
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/20/2020
+ms.openlocfilehash: ec77d3ac217991ff191d80249bc86805e7c8ba35
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843295"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544167"
 ---
 # <a name="add-a-secured-sharepoint-data-source-to-your-knowledge-base"></a>기술 자료에 보안 된 SharePoint 데이터 원본 추가
 
-기술 자료에 보안 된 SharePoint 데이터 원본을 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
+보호 된 클라우드 기반 SharePoint 데이터 원본을 기술 자료에 추가 하 여 Active Directory로 보호할 수 있는 질문과 대답으로 기술 자료를 보강 합니다.
 
 기술 자료에 보안 SharePoint 문서를 추가 하는 경우 QnA Maker 관리자는 QnA Maker에 대 한 Active Directory 권한을 요청 해야 합니다. 이 권한이 Active Directory manager에서 SharePoint에 대 한 액세스를 QnA Maker 하는 경우에는 다시 제공 하지 않아도 됩니다. 동일한 SharePoint 리소스에 있는 경우 기술 자료에 대 한 각 후속 문서 추가는 권한 부여가 필요 하지 않습니다.
 
 QnA Maker 기술 자료 관리자가 Active Directory 관리자가 아닌 경우에는 Active Directory manager와 통신 하 여이 프로세스를 완료 해야 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+QnA Maker는 사용 권한에 대해 Microsoft Graph를 사용 합니다. SharePoint가 온-프레미스에 있는 경우 Microsoft Graph에서 권한을 확인할 수 없기 때문에 SharePoint에서 추출할 수 없습니다.
 
 ## <a name="add-supported-file-types-to-knowledge-base"></a>기술 자료에 지원 되는 파일 형식 추가
 
@@ -50,7 +47,7 @@ SharePoint 사이트에서 QnA Maker 지원 되는 모든 [파일 형식을](../
 
 대화형 테스트 패널에서 QnA 쌍을 테스트 하면 QnA Maker 포털에서 markdown 텍스트가 아닌 이미지가 표시 됩니다. 이렇게 하면 클라이언트 응용 프로그램에서 이미지를 공개적으로 검색할 수 있는지 유효성을 검사 합니다.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 권한 부여는 SharePoint 서버의 보안 파일이 기술 자료에 추가 된 경우에 발생 합니다. SharePoint를 설정 하는 방법 및 파일을 추가 하는 사용자의 사용 권한에 따라 다음과 같은 작업이 필요할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: 효과 작동 방식 이해
 description: Azure Policy 정의에는 규정 준수를 관리 하 고 보고 하는 방법을 결정 하는 다양 한 효과가 있습니다.
 ms.date: 11/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 2b588cfb7c13a63e3fa5d3a65d9ccb24a2e854fd
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 502c8a87c4e915ebd1fd764915daa9c89a307097
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972807"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77544133"
 ---
 # <a name="understand-azure-policy-effects"></a>Azure Policy의 영향 파악
 
@@ -28,7 +28,7 @@ Azure Policy의 각 정책 정의는 단일 효과가 있습니다. 해당 효�
 
 ## <a name="order-of-evaluation"></a>평가 순서
 
-Azure Resource Manager를 통해 리소스를 만들거나 업데이트하도록 요구하는 요청은 먼저 Azure Policy에서 평가됩니다. Azure Policy 리소스에 적용 되는 모든 할당 목록을 만든 다음 각 정의에 대해 리소스를 평가 합니다. Azure Policy은 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이렇게 하면 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다.
+Azure Resource Manager를 통해 리소스를 만들거나 업데이트 하는 요청은 먼저 Azure Policy에 의해 평가 됩니다. Azure Policy 리소스에 적용 되는 모든 할당 목록을 만든 다음 각 정의에 대해 리소스를 평가 합니다. Azure Policy은 적절 한 리소스 공급자에 게 요청을 전달 하기 전에 몇 가지 효과를 처리 합니다. 이렇게 하면 리소스가 Azure Policy의 디자인 된 거 버 넌 스 컨트롤을 충족 하지 않는 경우 리소스 공급자에의 한 불필요 한 처리를 방지 합니다.
 
 - **사용 안 함**을 먼저 선택하여 정책 규칙을 평가할지 여부를 확인합니다.
 - 그런 다음 **추가** 및 **수정** 이 평가 됩니다. 에서 요청을 변경할 수 있기 때문에 변경 사항이 있으면 감사 또는 거부 효과가 발생 하지 않을 수 있습니다.
@@ -158,7 +158,7 @@ Modify는 만들거나 업데이트 하는 동안 리소스에 대 한 태그를
 
 **Operation** 속성에는 다음과 같은 옵션이 있습니다.
 
-|작업 |Description |
+|작업(Operation) |Description |
 |-|-|
 |addOrReplace |태그가 다른 값으로 이미 존재 하는 경우에도 정의 된 태그 및 값을 리소스에 추가 합니다. |
 |추가 |리소스에 정의 된 태그 및 값을 추가 합니다. |
@@ -327,11 +327,12 @@ AuditIfNotExists 효과의 **details** 속성에는 일치하는 관련된 리�
 AuditIfNotExists와 마찬가지로, DeployIfNotExists 정책 정의는 조건이 충족 될 때 템플릿 배포를 실행 합니다.
 
 > [!NOTE]
-> **deployIfNotExists**에서는 [중첩 템플릿](../../../azure-resource-manager/templates/linked-templates.md#nested-template)은 지원되지만 [연결된 템플릿](../../../azure-resource-manager/templates/linked-templates.md#linked-template)은 현재 지원되지 않습니다.
+> [deployIfNotExists](../../../azure-resource-manager/templates/linked-templates.md#nested-template)에서는 **중첩 템플릿**은 지원되지만 [연결된 템플릿](../../../azure-resource-manager/templates/linked-templates.md#linked-template)은 현재 지원되지 않습니다.
 
 ### <a name="deployifnotexists-evaluation"></a>DeployIfNotExists 평가
 
-리소스 공급 기업이 리소스 만들기 또는 업데이트 요청을 처리하고 성공 상태 코드를 반환한 후 DeployIfNotExists가 실행됩니다. 관련 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다.
+DeployIfNotExists는 리소스 공급자가 리소스 만들기 또는 업데이트 요청을 처리 하 고 성공 상태 코드를 반환 하는 데 약 15 분 후에 실행 됩니다. 관련 리소스가 없거나 **ExistenceCondition**에서 정의된 리소스가 true로 평가되지 않는 경우 템플릿 배포가 발생합니다.
+배포 기간은 템플릿에 포함 된 리소스의 복잡성에 따라 달라 집니다.
 
 평가 주기 중 리소스와 일치하는 DeployIfNotExists 효과가 포함된 정책 정의는 비준수로 표시되지만 해당 리소스에서 작업이 수행되지 않습니다.
 
@@ -501,7 +502,7 @@ EnforceOPAConstraint 효과의 **details** 속성에는 게이트 키퍼 v3 허�
 
 EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제어 규칙을 설명 하는 하위 속성이 있습니다.
 
-- **policyId** [required]
+- **Policyid** [필수]
   - Rego 허용 제어 규칙에 매개 변수로 전달 되는 고유 이름입니다.
 - **정책** [필수]
   - Rego 허용 제어 규칙의 URI를 지정 합니다.
@@ -539,7 +540,7 @@ EnforceRegoPolicy 효과의 **details** 속성에는 게이트 키퍼 허용 제
 
 ## <a name="layering-policies"></a>레이어링 정책
 
-리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 예:
+리소스는 여러 할당에서 영향을 받을 수 있습니다. 이러한 할당은 동일한 범위 또는 서로 다른 범위에 있을 수 있습니다. 이러한 각 할당은 정의된 다른 효과를 가질 수 있습니다. 각 정책에 대한 조건 및 효과는 독립적으로 평가됩니다. 다음은 그 예입니다.
 
 - 정책 1
   - 리소스 위치를 'westus'로 제한

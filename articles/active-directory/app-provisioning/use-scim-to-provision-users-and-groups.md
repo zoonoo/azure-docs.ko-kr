@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4cb1a57c5b18f1da25e3843b55e86705d05f43c5
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522342"
+ms.locfileid: "77538178"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -1448,12 +1448,13 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 ### <a name="gallery-onboarding-checklist"></a>갤러리 등록 검사 목록
 아래의 검사 목록에 따라 응용 프로그램이 등록 quicky 이며 고객에 게 원활한 배포 환경이 있는지 확인 하세요. 갤러리에 등록 하면 해당 정보가 수집 됩니다. 
 > [!div class="checklist"]
-> * [SCIM 2.0](https://tools.ietf.org/html/draft-wahl-scim-profile-00) (필수) 지원
+> * [Scim 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 끝점을 지원 합니다 (하나만 필요 하지만 둘 다 권장 됨).
 > * 테 넌 트 당 최소 25 개의 요청을 지원 합니다 (필수).
-> * 지원 스키마 검색 (권장)
 > * 아래 설명 된 대로 OAuth 인증 코드 부여 또는 수명이 긴 토큰을 지원 합니다 (필수).
-> * 고객 사후 갤러리 온 보 딩 지원에 대 한 엔지니어링 및 지원 연락 지점 설정 (필수)
+> * 고객을 지원 하기 위한 엔지니어링 및 지원 연락 지점 설정 (필수)
+> * 단일 패치를 사용 하 여 여러 그룹 구성원 업데이트 지원 (권장) 
 > * SCIM 끝점을 공개적으로 문서화 (권장) 
+> * [지원 스키마 검색](https://tools.ietf.org/html/rfc7643#section-6) (권장)
 
 
 ### <a name="authorization-for-provisioning-connectors-in-the-application-gallery"></a>응용 프로그램 갤러리에서 커넥터 프로 비전에 대 한 권한 부여

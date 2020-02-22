@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 08/07/2019
 ms.author: helohr
-ms.openlocfilehash: 7b67569ee821fee837f4fa63a1d71e622a0370a5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 49a63be8e8ac3752006d531f4541cb3c2904c3e3
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472471"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539623"
 ---
 # <a name="fslogix-profile-containers-and-azure-files"></a>FSLogix 프로필 컨테이너 및 Azure Files
 
@@ -87,7 +87,7 @@ Windows 가상 데스크톱은 고객이 사용 중인 Vm의 크기, 유형 및 
 Windows 가상 데스크톱 환경이 모범 사례를 따르는지 확인 하려면 다음을 수행 합니다.
 
 - Azure Files 저장소 계정은 세션 호스트 Vm과 동일한 지역에 있어야 합니다.
-- Azure Files 권한은 [요구 사항-프로필 컨테이너](/fslogix/overview#requirements)에 설명 된 권한과 일치 해야 합니다.
+- Azure Files 권한은 [요구 사항-프로필 컨테이너](/fslogix/fslogix-storage-config-ht)에 설명 된 권한과 일치 해야 합니다.
 - 각 호스트 풀은 동일한 마스터 이미지를 기반으로 동일한 유형 및 크기 VM을 기반으로 빌드해야 합니다.
 - 관리, 크기 조정 및 업데이트를 지원 하려면 각 호스트 풀 VM이 동일한 리소스 그룹에 있어야 합니다.
 - 성능을 최적화 하려면 저장소 솔루션과 FSLogix 프로필 컨테이너가 동일한 데이터 센터 위치에 있어야 합니다.

@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 3a2eb98af2c73b5a920f3e3bcedb7ab18e9f0430
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 0c6a712f1dfb4410f3eee0fbd0192c6147618f96
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548852"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539589"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -52,13 +52,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못했습니다.
 
-Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예:
+Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 다음은 그 예입니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예:
+이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 다음은 그 예입니다.
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -105,7 +105,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 
 다른 언어로 작성 된 코드를 사용 하 여 Azure Dev Spaces을 계속 사용할 수 있지만, `azds up`를 처음 실행 하기 전에 Dockerfile을 수동으로 만들어야 합니다.
 
-응용 프로그램이 기본적으로 지원 되지 Azure Dev Spaces 않는 언어로 작성 된 경우 코드를 실행 하는 컨테이너 이미지를 빌드하기 위한 적절 한 Dockerfile을 제공 해야 합니다. Docker는 요구에 맞는 Dockerfile을 작성하는 데 도움이 되는 [Dockerfile 참조](https://docs.docker.com/engine/reference/builder/) 및 [Dockerfile 작성 모범 사례 목록](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/)을 제공합니다.
+응용 프로그램이 기본적으로 지원 되지 Azure Dev Spaces 않는 언어로 작성 된 경우 코드를 실행 하는 컨테이너 이미지를 빌드하기 위한 적절 한 Dockerfile을 제공 해야 합니다. Docker는 요구에 맞는 Dockerfile을 작성하는 데 도움이 되는 [Dockerfile 참조](https://docs.docker.com/develop/develop-images/dockerfile_best-practices/) 및 [Dockerfile 작성 모범 사례 목록](https://docs.docker.com/engine/reference/builder/)을 제공합니다.
 
 적절 한 Dockerfile이 준비 되 면 `azds up`를 실행 하 여 Azure Dev Spaces에서 응용 프로그램을 실행 합니다.
 
@@ -123,7 +123,7 @@ Azure Dev Spaces는 C# 및 Node.js에 대해 네이티브 지원을 제공합니
 
 이 시간 제한은 [AKS 가상 노드에서](https://docs.microsoft.com/azure/aks/virtual-nodes-portal)실행 하도록 구성 된 서비스를 실행 하기 위해 Dev Spaces를 사용 하려고 할 때 발생 합니다. 개발 공간은 현재 가상 노드에서 서비스 빌드 또는 디버깅을 지원 하지 않습니다.
 
-`--verbose` 스위치를 사용하여 `azds up`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
+`azds up` 스위치를 사용하여 `--verbose`을 실행하거나 Visual Studio에서 자세한 정보 로깅을 사용하도록 설정하면 추가 정보가 표시됩니다.
 
 ```cmd
 $ azds up --verbose
@@ -159,7 +159,7 @@ Container image build failed
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예:
+이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 다음은 그 예입니다.
 
 ```yaml
 ...
@@ -206,7 +206,7 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용 하도록 설정 합니다.
 
-명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예:
+명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 다음은 그 예입니다.
 
 ```cmd
 azds up --verbose --output json
@@ -265,7 +265,7 @@ Azure Dev Spaces를 사용 하 여 [AKS 클러스터를 개발 컴퓨터에 연�
 예를 들어 *Windows BranchCache* 서비스를 중지 하 고 사용 하지 않도록 설정 하려면 다음을 수행 합니다.
 * 명령 프롬프트에서 `services.msc`를 실행 합니다.
 * *BranchCache* 를 마우스 오른쪽 단추로 클릭 하 고 *속성*을 선택 합니다.
-* *중지*를 클릭합니다.
+* *중지*를 클릭 합니다.
 * 필요에 따라 *시작 유형* 을 *사용*안 함으로 설정 하 여 비활성화할 수 있습니다.
 * *확인*을 클릭합니다.
 
@@ -304,7 +304,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습니다. 기본적으로 VS Code 확장은 컨테이너에 대한 프로젝트의 작업 디렉터리로 여 `src`를 사용합니다. 다른 작업 디렉터리를 지정하도록 `Dockerfile`을 업데이트한 경우에 다음 오류가 표시될 수 있습니다.
 
-이 문제를 해결 하려면 프로젝트 폴더의 `.vscode` 하위 디렉터리에 있는 `launch.json` 파일을 업데이트 합니다. 프로젝트의 `Dockerfile`에 정의된 `WORKDIR`과 동일한 디렉터리를 가리키도록 `configurations->cwd` 지시문을 변경합니다. `configurations->program` 지시문도 업데이트해야 할 수 있습니다.
+이 문제를 해결 하려면 프로젝트 폴더의 `.vscode` 하위 디렉터리에 있는 `launch.json` 파일을 업데이트 합니다. 프로젝트의 `configurations->cwd`에 정의된 `WORKDIR`과 동일한 디렉터리를 가리키도록 `Dockerfile` 지시문을 변경합니다. `configurations->program` 지시문도 업데이트해야 할 수 있습니다.
 
 ### <a name="error-the-pipe-program-azds-exited-unexpectedly-with-code-126"></a>"파이프 프로그램 ' azds '은 코드 126로 인해 예기치 않게 종료 되었습니다." 오류가 발생 합니다.
 
@@ -318,7 +318,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 이 문제에 대 한 임시 해결 방법은 클러스터의 각 노드에서 *max_user_watches inotify* 의 값을 늘리고 해당 노드를 다시 시작 하 여 변경 내용을 적용 하는 것입니다.
 
-## <a name="other-common-issues"></a>그 외 일반적인 문제
+## <a name="other-common-issues"></a>기타 일반적인 문제
 
 ### <a name="error-azds-is-not-recognized-as-an-internal-or-external-command-operable-program-or-batch-file"></a>"Azds" 오류는 내부 또는 외부 명령, 실행할 수 있는 프로그램 또는 배치 파일로 인식 되지 않습니다.
 
@@ -335,7 +335,7 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>"Microsoft DevSpaces/register/action" 권한 부여 오류
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예:
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
 
 ```console
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
@@ -381,7 +381,7 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
 
 컨트롤러에 대 한 사용자의 RBAC 역할을 업데이트 하려면:
 
-1. [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 1. 일반적으로 AKS 클러스터와 동일한 컨트롤러를 포함 하는 리소스 그룹으로 이동 합니다.
 1. *숨겨진 형식 표시* 확인란을 사용 하도록 설정 합니다.
 1. 컨트롤러를 클릭 합니다.
@@ -395,7 +395,7 @@ Azure Dev Spaces 컨트롤러에 액세스 하는 사용자는 AKS 클러스터�
 
 ### <a name="dns-name-resolution-fails-for-a-public-url-associated-with-a-dev-spaces-service"></a>Dev Spaces 서비스에 연결된 공용 URL에 대한 DNS 이름 확인 실패
 
-`azds prep` 명령에 `--public` 스위치를 지정하거나 Visual Studio에서 `Publicly Accessible` 확인란을 선택하여 서비스에 대해 공용 URL 엔드포인트를 구성할 수 있습니다. Dev Spaces에서 서비스를 실행하면 공용 DNS 이름이 자동으로 등록됩니다. 이 DNS 이름이 등록되지 않은 경우 공용 URL에 연결할 때 웹 브라우저에 ‘페이지를 표시할 수 없습니다.’ 또는 ‘사이트에 연결할 수 없습니다.’라는 오류가 표시됩니다.
+`--enable-ingress` 명령에 `azds prep` 스위치를 지정하거나 Visual Studio에서 `Publicly Accessible` 확인란을 선택하여 서비스에 대해 공용 URL 엔드포인트를 구성할 수 있습니다. Dev Spaces에서 서비스를 실행하면 공용 DNS 이름이 자동으로 등록됩니다. 이 DNS 이름이 등록되지 않은 경우 공용 URL에 연결할 때 웹 브라우저에 ‘페이지를 표시할 수 없습니다.’ 또는 ‘사이트에 연결할 수 없습니다.’라는 오류가 표시됩니다.
 
 이 문제를 해결하려면
 
@@ -469,7 +469,7 @@ Pod가 다시 시작 되 면 Azure Dev Spaces에서 기존 네임 스페이스 �
 
 클러스터 노드의 송신 트래픽이 제한 되는 AKS 클러스터에 대 한 Azure Dev Spaces를 사용 하도록 설정 하려면 다음 Fqdn을 허용 해야 합니다.
 
-| FQDN                                    | Port      | 사용      |
+| FQDN                                    | 포트      | 사용      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Linux 알파인 및 기타 Azure Dev Spaces 이미지를 꺼내려면 |
 | gcr.io | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|

@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 0138af15c89a4792b9ccb73a8b761577fad36c5e
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290379"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539504"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -38,7 +38,7 @@ Azure Functions 1.x 실험적 언어는 새 모델을 사용할 수 없으므로
 
 ## <a name="creating-1x-apps"></a>특정 버전에서 실행
 
-기본적으로 Azure Portal 및 Azure CLI에서 만든 함수 앱은 버전 2.x로 설정 됩니다. 이 버전은 필요에 따라 수정할 수 있습니다. 함수 앱을 만든 후 함수를 추가 하기 전에는 런타임 버전을 1.x로만 변경할 수 있습니다.  기능이 있는 응용 프로그램 에서도 2.x와 2.x 간 이동이 허용 되지만 먼저 새 앱에서 테스트 하는 것이 좋습니다.
+기본적으로 Azure Portal 및 Azure CLI에서 만든 함수 앱은 버전 3.x로 설정 됩니다. 이 버전은 필요에 따라 수정할 수 있습니다. 함수 앱을 만든 후 함수를 추가 하기 전에는 런타임 버전을 1.x로만 변경할 수 있습니다.  기능이 있는 응용 프로그램 에서도 2.x와 2.x 간 이동이 허용 되지만 먼저 새 앱에서 테스트 하는 것이 좋습니다.
 
 ## <a name="migrating-from-1x-to-later-versions"></a>1\.x에서 이후 버전으로 마이그레이션
 

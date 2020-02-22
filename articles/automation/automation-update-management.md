@@ -5,12 +5,12 @@ services: automation
 ms.subservice: update-management
 ms.date: 01/21/2020
 ms.topic: conceptual
-ms.openlocfilehash: aec46a1914fa2361ea15ba34dd1510cfe53a4dc0
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: e7a86f3a709566bcf18241ce3c329c0355be2743
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443842"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539555"
 ---
 # <a name="update-management-solution-in-azure"></a>Azure의 업데이트 관리 솔루션
 
@@ -115,7 +115,7 @@ Linux의 경우 컴퓨터에 업데이트 리포지토리에 대한 액세스 �
 
 Linux 용 Log Analytics 에이전트를 설치 하 고 최신 버전을 다운로드 하는 방법에 대 한 자세한 내용은 [linux 용 Log Analytics 에이전트](https://github.com/microsoft/oms-agent-for-linux)를 참조 하세요. Windows 용 Log Analytics 에이전트를 설치 하는 방법에 대 한 자세한 내용은 [Azure Monitor에 windows 컴퓨터 연결](../log-analytics/log-analytics-windows-agent.md)을 참조 하세요.
 
-Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../virtual-machines/virtual-machines-linux-update-infrastructure-redhat.md) 에 액세스 하도록 등록 됩니다. 배포의 지원 되는 메서드를 사용 하 여 배포의 온라인 파일 리포지토리에서 다른 모든 Linux 배포를 업데이트 해야 합니다.
+Azure Marketplace에서 사용할 수 있는 주문형 Red Hat Enterprise Linux (RHEL) 이미지에서 만든 Vm은 Azure에 배포 된 [RHUI (Red Hat Update Infrastructure)](../virtual-machines/workloads/redhat/redhat-rhui.md) 에 액세스 하도록 등록 됩니다. 배포의 지원 되는 메서드를 사용 하 여 배포의 온라인 파일 리포지토리에서 다른 모든 Linux 배포를 업데이트 해야 합니다.
 
 ## <a name="permissions"></a>사용 권한
 
@@ -184,7 +184,7 @@ System Center Operations Manager 관리 그룹이 Log Analytics 작업 영역에
 
 Windows 컴퓨터의 경우 Windows 업데이트에 필요한 끝점에 대 한 트래픽만 허용 해야 합니다. [HTTP/프록시와 관련 된 문제](/windows/deployment/update/windows-update-troubleshooting#issues-related-to-httpproxy)에서 필수 끝점의 업데이트 된 목록을 찾을 수 있습니다. 로컬 [Windows 업데이트 서버가](/windows-server/administration/windows-server-update-services/plan/plan-your-wsus-deployment)있는 경우 [WSUS 키](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry)에 지정 된 서버에 대 한 트래픽만 허용 해야 합니다.
 
-Red Hat Linux 컴퓨터의 경우 필수 끝점에 대 한 [RHUI content delivery server에 대 한 ip](../virtual-machines/linux/update-infrastructure-redhat.md#the-ips-for-the-rhui-content-delivery-servers) 를 참조 하세요. 다른 Linux 배포의 경우 공급자 설명서를 참조 하세요.
+Red Hat Linux 컴퓨터의 경우 필수 끝점에 대 한 [RHUI content delivery server에 대 한 ip](../virtual-machines/workloads/redhat/redhat-rhui.md#the-ips-for-the-rhui-content-delivery-servers) 를 참조 하세요. 다른 Linux 배포의 경우 공급자 설명서를 참조 하세요.
 
 Hybrid Runbook Worker에 필요한 포트에 대한 자세한 내용은 [Hybrid Worker 역할 포트](automation-hybrid-runbook-worker.md#hybrid-worker-role)를 참조하세요.
 

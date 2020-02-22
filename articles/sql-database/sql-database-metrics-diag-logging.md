@@ -10,32 +10,32 @@ ms.topic: conceptual
 author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
-ms.date: 11/16/2019
-ms.openlocfilehash: f5ed3ee9b0e7e7218a519baa56cda443fddab105
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/21/2020
+ms.openlocfilehash: 880967fd48d82aaa15c6e3c08d36ec02eee60ead
+ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522620"
+ms.locfileid: "77544303"
 ---
 # <a name="azure-sql-database-metrics-and-diagnostics-logging"></a>Azure SQL Database 메트릭 및 진단 로깅
 
-이 항목에서는 Azure Portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL Database에 대 한 진단 원격 분석 로깅을 구성 하는 방법에 대해 설명 합니다. 이러한 진단을 사용 하 여 리소스 사용률 및 쿼리 실행 통계를 측정할 수 있습니다.
+이 문서에서는 Azure Portal, PowerShell, Azure CLI, Azure Monitor REST API 및 Azure Resource Manager 템플릿을 통해 Azure SQL 데이터베이스용 진단 원격 분석에 대 한 로깅을 구성 하는 방법에 대해 설명 합니다. 이러한 진단을 사용 하 여 리소스 사용률 및 쿼리 실행 통계를 측정할 수 있습니다.
 
-단일 데이터베이스, 탄력적 풀의 풀링된 데이터베이스 및 관리형 인스턴스의 인스턴스 데이터베이스는 성능을 더 쉽게 모니터링할 수 있도록 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송하도록 데이터베이스를 구성할 수 있습니다.
+단일 데이터베이스, 풀링된 데이터베이스 및 관리 되는 인스턴스 데이터베이스는 더 쉬운 성능 모니터링을 위해 메트릭 및 진단 로그를 스트리밍할 수 있습니다. 리소스 사용량, 작업자와 세션 및 연결을 다음 Azure 리소스 중 하나로 전송 하도록 Azure SQL database를 구성할 수 있습니다.
 
-- **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함하는 Azure SQL 데이터베이스의 인텔리전트 모니터링을 가져옵니다.
-- **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 SQL Database 원격 분석을 통합합니다.
-- **Azure Storage**: 적은 비용으로 방대한 양의 원격 분석 데이터를 보관합니다.
+- **Azure SQL 분석**: 성능 보고서, 경고 및 완화 권장 사항을 포함 하는 데이터베이스에 대 한 지능형 모니터링을 가져옵니다.
+- **Azure Event Hubs**: 사용자 지정 모니터링 솔루션 또는 핫 파이프라인과 데이터베이스 원격 분석 통합
+- **Azure Storage**: 가격에 대 한 방대한 양의 원격 분석을 보관 합니다.
 
-    ![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
+![Architecture](./media/sql-database-metrics-diag-logging/architecture.png)
 
 다양한 Azure 서비스에서 지원하는 메트릭 및 로그 범주에 대한 자세한 내용은 다음을 참조하세요.
 
 - [Microsoft Azure의 메트릭 개요](../monitoring-and-diagnostics/monitoring-overview-metrics.md)
 - [Azure 진단 로그 개요](../azure-monitor/platform/platform-logs-overview.md)
 
-이 문서에서는 Azure SQL 데이터베이스, 탄력적 풀 및 관리되는 인스턴스에 대한 진단 원격 분석을 사용하도록 설정하는 데 도움이 되는 지침을 제공합니다. 또한 이를 통해 데이터베이스 진단 원격 분석을 보기 위한 모니터링 도구로 Azure SQL 분석을 구성하는 방법을 이해할 수 있습니다.
+이 문서에서는 모든 Azure SQL 데이터베이스에 대해 진단 원격 분석을 사용 하도록 설정 하는 데 도움이 되는 지침을 제공 합니다.
 
 ## <a name="enable-logging-of-diagnostics-telemetry"></a>진단 원격 분석의 로깅 사용
 
@@ -55,13 +55,11 @@ ms.locfileid: "77522620"
 
 새 Azure 리소스를 프로비전하거나 기존 리소스를 선택할 수 있습니다. **진단 설정** 옵션을 사용하여 리소스를 선택한 후 수집할 데이터를 지정합니다.
 
-## <a name="supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases"></a>Azure SQL database 및 인스턴스 데이터베이스에 대해 지원 되는 진단 로깅
+## <a name="supported-diagnostic-logging-for-azure-sql-databases"></a>Azure SQL 데이터베이스에 대해 지원 되는 진단 로깅
 
-SQL Database에 대한 메트릭과 진단 로깅을 사용하도록 설정합니다. 이러한 항목은 기본적으로 사용되지 않습니다.
+SQL database에 대 한 메트릭 및 진단 로깅을 사용 하도록 설정 합니다. 진단 로깅은 기본적으로 사용 되지 않습니다. 다음 진단 원격 분석을 수집하도록 Azure SQL 데이터베이스를 설정할 수 있습니다.
 
-Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음과 같은 진단 원격 분석을 수집할 수 있습니다.
-
-| 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
+| 데이터베이스에 대한 원격 분석 모니터링 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 관리 되는 인스턴스 데이터베이스 지원 |
 | :------------------- | ----- | ----- |
 | [기본 메트릭](#basic-metrics): DTU/cpu 백분율, DTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단 됨, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, XTP 저장소 백분율을 포함 합니다. | yes | 예 |
 | [인스턴스 및 앱 고급](#advanced-metrics): tempdb 시스템 데이터베이스 데이터와 로그 파일 크기 및 사용 된 tempdb 비율 로그 파일을 포함 합니다. | yes | 예 |
@@ -76,15 +74,17 @@ Azure SQL database 및 인스턴스 데이터베이스를 설정 하 여 다음�
 | [SQLInsights](#intelligent-insights-dataset): 데이터베이스의 성능에 대 한 Intelligent Insights를 포함 합니다. 자세한 내용은 [Intelligent Insights](sql-database-intelligent-insights.md)를 참조하세요. | yes | yes |
 
 > [!IMPORTANT]
-> 탄력적 풀 및 관리 되는 인스턴스에는 포함 된 데이터베이스와 별도의 진단 원격 분석이 있습니다. 진단 원격 분석은 아래에서 설명한 대로 이러한 각 리소스에 대해 개별적으로 구성 되므로 주의 해야 합니다.
+> 탄력적 풀 및 관리 되는 인스턴스에는 포함 된 데이터베이스와 별도의 진단 원격 분석이 있습니다. 진단 원격 분석은 이러한 각 리소스에 대해 개별적으로 구성 되므로 주의 해야 합니다.
+>
+> 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2) 및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+>
+> Master, msdb, model, 리소스 및 tempdb 데이터베이스와 같은 **시스템 데이터베이스**에 대해서는 진단 설정을 구성할 수 없습니다.
 
-> [!NOTE]
-> - 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
-> - Master, msdb, model, 리소스 및 tempdb 데이터베이스와 같은 **시스템 데이터베이스**에 대해서는 진단 설정을 구성할 수 없습니다.
+## <a name="configure-diagnostic-logging-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 진단 로깅 구성
 
-## <a name="azure-portal"></a>Azure portal
+Azure Portal에서 각 단일 풀링된 또는 관리 되는 인스턴스 데이터베이스의 **진단 설정** 메뉴를 사용 하 여 진단 원격 분석의 스트리밍을 구성할 수 있습니다. 또한 데이터베이스 컨테이너 (탄력적 풀 및 관리 되는 인스턴스)에 대해 진단 원격 분석을 별도로 구성할 수도 있습니다. 
 
-Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 데이터베이스의 **진단 설정** 메뉴를 사용 하 여 진단 원격 분석의 스트리밍을 구성할 수 있습니다. 또한 데이터베이스 컨테이너 (탄력적 풀 및 관리 되는 인스턴스)에 대해 진단 원격 분석을 별도로 구성할 수도 있습니다. 진단 원격 분석 Azure Storage, Azure Event Hubs 및 Azure Monitor 로그를 스트리밍하려면 다음 대상을 설정할 수 있습니다.
+진단 원격 분석 Azure Storage, Azure Event Hubs 및 Azure Monitor 로그를 스트리밍하려면 다음 대상을 설정할 수 있습니다.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-elastic-pools"></a>탄력적 풀에 대한 진단 원격 분석 스트리밍 구성
 
@@ -96,60 +96,57 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 | :------------------- | ------------------- |
 | **탄력적 풀** | [기본 메트릭에](sql-database-metrics-diag-logging.md#basic-metrics) 는 EDTU/cpu 백분율, EDTU/cpu 제한, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 저장소, 저장소 백분율, 저장소 제한 및 XTP 저장소 백분율이 포함 됩니다. |
 
-탄력적 풀 및 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석 스트리밍을 구성 하려면 다음 **두** 가지를 별도로 구성 해야 합니다.
+탄력적 풀 및 풀링된 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 하려면 개별적으로 개별적으로 구성 해야 합니다.
 
-- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
+- 탄력적 풀에 대 한 진단 원격 분석의 스트리밍 사용
 - 탄력적 풀의 각 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
-탄력적 풀은 개별 데이터베이스 원격 분석과 분리 된 자체 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
+탄력적 풀 컨테이너에는 개별 데이터베이스의 원격 분석과 별도의 고유한 원격 분석이 있습니다.
 
 탄력적 풀 리소스에 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
 1. Azure Portal에서 **탄력적 풀** 리소스로 이동 합니다.
-1. **진단 설정**을 선택합니다.
-1. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
 
    ![탄력적 풀에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-enable.png)
 
-1. 고유한 참조의 설정 이름을 입력합니다.
-1. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
-1. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 선택 합니다.
-1. 탄력적 풀 진단 원격 분석: **기본** 메트릭에 대 한 확인란을 선택 합니다.
+4. 고유한 참조의 설정 이름을 입력합니다.
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
+6. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 선택 합니다.
+7. 탄력적 풀 진단 원격 분석: **기본** 메트릭에 대 한 확인란을 선택 합니다.
    탄력적 풀에 대 한 진단을 구성 ![](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-elasticpool-selection.png)
 
-1. **저장**을 선택합니다.
-1. 또한 다음 섹션에서 설명 하는 단계에 따라 모니터링 하려는 탄력적 풀 내의 각 데이터베이스에 대해 진단 원격 분석의 스트리밍을 구성 합니다.
+8. **저장**을 선택합니다.
+9. 또한 다음 섹션에서 설명 하는 단계에 따라 모니터링 하려는 탄력적 풀 내의 각 데이터베이스에 대해 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
-> 탄력적 풀에 대 한 진단 원격 분석을 구성 하는 것 외에도 아래에 설명 된 대로 탄력적 풀의 각 데이터베이스에 대해 진단 원격 분석을 구성 해야 합니다.
+> 탄력적 풀에 대 한 진단 원격 분석을 구성 하는 것 외에도 탄력적 풀의 각 데이터베이스에 대해 진단 원격 분석을 구성 해야 합니다.
 
-### <a name="configure-streaming-of-diagnostics-telemetry-for-single-database-or-database-in-elastic-pool"></a>단일 데이터베이스 또는 탄력적 풀의 데이터베이스에 대 한 진단 원격 분석 스트리밍 구성
+### <a name="configure-streaming-of-diagnostics-telemetry-for-single-databases-and-pooled-database"></a>단일 데이터베이스 및 풀링된 데이터베이스에 대 한 진단 원격 분석 스트리밍 구성
 
    ![SQL Database 아이콘](./media/sql-database-metrics-diag-logging/icon-sql-database-text.png)
 
 단일 또는 풀링된 데이터베이스에 대 한 진단 원격 분석 스트리밍을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. Azure **SQL database** 리소스로 이동 합니다.
-1. **진단 설정**을 선택합니다.
-1. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
-   - 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다.
-   - 진단 데이터의 병렬 스트리밍을 여러 리소스에 구성 하려면 **진단 설정 추가** 를 선택 합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다. 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다. 
+4. 진단 데이터의 병렬 스트리밍을 여러 리소스에 구성 하려면 **진단 설정 추가** 를 선택 합니다.
 
    ![단일, 풀링된 또는 인스턴스 데이터베이스에 대한 진단을 사용하도록 설정](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-enable.png)
 
-1. 고유한 참조의 설정 이름을 입력합니다.
-1. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
-1. 표준 이벤트 기반 모니터링 환경에서는 데이터베이스 진단 로그 원격 분석에 대 한 다음 확인란을 선택 합니다. **SQLInsights**, 자동 **조정**, **QueryStoreRuntimeStatistics**, **queryswaitwaitstatistics**, **Errors**, **databasewaitstatistics**, **시간 제한**, **블록**및 **교착 상태**.
-1. 1 분 분량의 고급 모니터링 환경을 위해 **기본** 메트릭에 대 한 확인란을 선택 합니다.
-   단일 풀링된 데이터베이스 또는 인스턴스 데이터베이스에 대 한 진단을 구성 ![](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
-1. **저장**을 선택합니다.
-1. 모니터링할 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
+5. 고유한 참조의 설정 이름을 입력합니다.
+6. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
+7. 표준 이벤트 기반 모니터링 환경에서는 데이터베이스 진단 로그 원격 분석에 대 한 다음 확인란을 선택 합니다. **SQLInsights**, 자동 **조정**, **QueryStoreRuntimeStatistics**, **queryswaitwaitstatistics**, **Errors**, **databasewaitstatistics**, **시간 제한**, **블록**및 **교착 상태**.
+8. 1 분 분량의 고급 모니터링 환경을 위해 **기본** 메트릭에 대 한 확인란을 선택 합니다.
 
-> [!NOTE]
-> 감사 로그 스트리밍을 사용 하도록 설정 하려면 [데이터베이스에 대 한 감사 설정](sql-database-auditing.md#subheading-2)및 [Azure Monitor 로그 및 Azure Event Hubs의 감사 로그](https://techcommunity.microsoft.com/t5/Azure-SQL-Database/SQL-Audit-logs-in-Azure-Log-Analytics-and-Azure-Event-Hubs/ba-p/386242)를 참조 하세요.
+   ![단일, 풀링된 또는 인스턴스 데이터베이스에 대한 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-sql-selection.png)
+9. **저장**을 선택합니다.
+10. 모니터링할 각 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!TIP]
-> 모니터링하려는 각 Azure SQL Database에 대해 이러한 단계를 반복합니다.
+> 모니터링할 단일 및 풀링된 데이터베이스 각각에 대해 이러한 단계를 반복 합니다.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-managed-instances"></a>관리되는 인스턴스에 대한 진단 원격 분석 스트리밍 구성
 
@@ -159,35 +156,35 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 
 | 리소스 | 모니터링 원격 분석 |
 | :------------------- | ------------------- |
-| **관리되는 인스턴스** | [ResourceUsageStats](#resource-usage-stats-for-managed-instance)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
+| **관리되는 인스턴스** | [ResourceUsageStats](#resource-usage-stats-for-managed-instances)는 vCore 수, 평균 CPU 백분율, IO 요청 수, 읽은/쓴 바이트, 예약된 스토리지 공간 및 사용된 스토리지 공간을 포함합니다. |
 
-관리 되는 인스턴스 및 인스턴스 데이터베이스의 진단 원격 분석 스트리밍을 구성 하려면 다음 **두 가지** 를 별도로 구성 해야 합니다.
+관리 되는 인스턴스 및 인스턴스 데이터베이스의 진단 원격 분석 스트리밍을 구성 하려면 각각 별도로 구성 해야 합니다.
 
-- 관리 되는 인스턴스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 **설정 합니다.**
+- 관리 되는 인스턴스에 대 한 진단 원격 분석의 스트리밍 사용
 - 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 사용 하도록 설정
 
-이는 관리 되는 인스턴스가 개별 인스턴스 데이터베이스 원격 분석과는 별개의 원격 분석이 있는 데이터베이스 컨테이너 이기 때문입니다.
+관리 되는 인스턴스 컨테이너에는 각 인스턴스 데이터베이스의 원격 분석과 별도의 고유한 원격 분석이 있습니다.
 
 관리되는 인스턴스 리소스에 대한 진단 원격 분석 스트리밍을 사용하도록 설정하려면 다음 단계를 따릅니다.
 
 1. Azure Portal에서 **관리 되는 인스턴스** 리소스로 이동 합니다.
-1. **진단 설정**을 선택합니다.
-1. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
 
    ![관리되는 인스턴스에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-enable.png)
 
-1. 고유한 참조의 설정 이름을 입력합니다.
-1. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
-1. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 사용 합니다.
-1. 인스턴스 진단 원격 분석: **ResourceUsageStats**에 대 한 확인란을 선택 합니다.
+4. 고유한 참조의 설정 이름을 입력합니다.
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
+6. Log analytics의 경우 **구성** 을 선택 하 고 새 작업 영역 **만들기**를 선택 하 여 새 작업 영역을 만들거나 기존 작업 영역을 사용 합니다.
+7. 인스턴스 진단 원격 분석: **ResourceUsageStats**에 대 한 확인란을 선택 합니다.
 
    ![관리되는 인스턴스에 대한 진단 구성](./media/sql-database-metrics-diag-logging/diagnostics-settings-container-mi-selection.png)
 
-1. **저장**을 선택합니다.
-1. 또한 다음 섹션에 설명 된 단계에 따라 모니터링 하려는 관리 되는 인스턴스 내의 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
+8. **저장**을 선택합니다.
+9. 또한 다음 섹션에 설명 된 단계에 따라 모니터링 하려는 관리 되는 인스턴스 내의 각 인스턴스 데이터베이스에 대 한 진단 원격 분석의 스트리밍을 구성 합니다.
 
 > [!IMPORTANT]
-> 관리 되는 인스턴스에 대 한 진단 원격 분석을 구성 하는 것 외에도 아래에 설명 된 대로 각 인스턴스 데이터베이스에 대 한 진단 원격 분석을 구성 해야 합니다.
+> 관리 되는 인스턴스에 대 한 진단 원격 분석을 구성 하는 것 외에도 각 인스턴스 데이터베이스에 대 한 진단 원격 분석을 구성 해야 합니다.
 
 ### <a name="configure-streaming-of-diagnostics-telemetry-for-instance-databases"></a>인스턴스 데이터베이스의 진단 원격 분석 스트리밍 구성
 
@@ -196,24 +193,24 @@ Azure Portal에서 각 단일 풀링된 데이터베이스 또는 인스턴스 �
 인스턴스 데이터베이스의 진단 원격 분석 스트리밍을 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 관리 되는 인스턴스 내의 **인스턴스 데이터베이스** 리소스로 이동 합니다.
-1. **진단 설정**을 선택합니다.
-1. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
+2. **진단 설정**을 선택합니다.
+3. 이전 설정이 없으면 **진단 켜기**를 선택하고, 이전 설정이 있으면 **설정 편집**을 선택하여 이전 설정을 편집합니다.
    - 진단 원격 분석을 스트림하는 병렬 연결을 3개까지 만들 수 있습니다.
    - **+진단 설정 추가**를 선택하여 진단 데이터를 여러 리소스로 병렬 스트림하도록 구성합니다.
 
    ![인스턴스 데이터베이스에 대해 진단 사용](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-enable.png)
 
-1. 고유한 참조의 설정 이름을 입력합니다.
-1. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
-1. 데이터베이스 진단 원격 분석에 대 한 확인란을 선택 합니다. SQLInsights, **QueryStoreRuntimeStatistics**, **query Waitstatistics** 및 **Errors**.
+4. 고유한 참조의 설정 이름을 입력합니다.
+5. 스트리밍 진단 데이터에 대 한 대상 리소스를 선택 합니다. **저장소 계정에 보관**, **이벤트 허브에 스트림**또는 **Log Analytics으로 전송**합니다.
+6. 데이터베이스 진단 원격 분석에 대 한 확인란을 선택 합니다. **SQLInsights**, **QueryStoreRuntimeStatistics**, **Query waitstatistics**및 **Errors**
    인스턴스 데이터베이스에 대 한 진단을 구성 ![](./media/sql-database-metrics-diag-logging/diagnostics-settings-database-mi-selection.png)
-1. **저장**을 선택합니다.
-1. 모니터링 하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복 합니다.
+7. **저장**을 선택합니다.
+8. 모니터링 하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
 > [!TIP]
 > 모니터링 하려는 각 인스턴스 데이터베이스에 대해 이러한 단계를 반복 합니다.
 
-### <a name="powershell"></a>PowerShell
+### <a name="configure-diagnostic-logging-by-using-powershell"></a>PowerShell을 사용 하 여 진단 로깅 구성
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
@@ -271,12 +268,12 @@ PowerShell을 사용하여 메트릭 및 진단 로깅을 사용하도록 설정
 
    \<subID\>를 구독 ID로, \<RG_NAME\>을 리소스 그룹 이름으로, \<WS_NAME\>을 작업 영역 이름으로 바꿉니다.
 
-### <a name="azure-cli"></a>Azure CLI
+### <a name="configure-diagnostic-logging-by-using-the-azure-cli"></a>Azure CLI를 사용 하 여 진단 로깅 구성
 
 Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정할 수 있습니다.
 
-> [!NOTE]
-> 진단 로깅을 사용 하도록 설정 하는 스크립트는 Azure CLI v 1.0에 대해 지원 됩니다. 현재 CLI v 2.0은 지원 되지 않습니다.
+> [!IMPORTANT]
+> 진단 로깅을 사용 하도록 설정 하는 스크립트는 Azure CLI v 1.0에 대해 지원 됩니다. 현재 Azure CLI v 2.0은 지원 되지 않습니다.
 
 - 스토리지 계정에서 진단 로그의 스토리지를 사용하도록 설정하려면 다음 명령을 사용합니다.
 
@@ -306,7 +303,7 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 이러한 매개 변수를 결합하여 여러 출력 옵션을 활성화할 수 있습니다.
 
-### <a name="rest-api"></a>REST API
+### <a name="configure-diagnostic-logging-by-using-the-rest-api"></a>REST API를 사용 하 여 진단 로깅 구성
 
 [Azure Monitor REST API를 사용하여 진단 설정 변경](https://docs.microsoft.com/rest/api/monitor/diagnosticsettings)을 참조하세요.
 
@@ -314,17 +311,17 @@ Azure CLI를 사용하여 메트릭 및 진단 로깅을 사용하도록 설정�
 
 [Resource Manager 템플릿을 사용하여 리소스 생성 시 진단 설정을 활성화하는 방법](../azure-monitor/platform/diagnostic-settings-template.md)을 참조하세요.
 
-## <a name="stream-into-azure-sql-analytics"></a>Azure SQL Analytics로 스트리밍
+## <a name="stream-metrics-and-diagnostic-logs-into-azure-sql-analytics"></a>메트릭 및 진단 로그를 Azure SQL 분석으로 스트리밍
 
-Azure SQL 분석은 여러 구독 간에 대규모로 Azure SQL 데이터베이스, 탄력적 풀 및 관리되는 인스턴스의 성능을 모니터링하는 클라우드 솔루션입니다. Azure SQL Database 성능 메트릭을 수집 및 시각화하는 데 도움이 될 수 있고 성능 문제 해결을 위한 기본 제공 인텔리전스를 제공합니다.
+Azure SQL 분석는 단일 데이터베이스, 탄력적 풀, 관리 되는 인스턴스 및 여러 구독에 걸친 규모의 인스턴스 데이터베이스의 성능을 모니터링 하는 클라우드 솔루션입니다. Azure SQL Database 성능 메트릭을 수집 및 시각화하는 데 도움이 될 수 있고 성능 문제 해결을 위한 기본 제공 인텔리전스를 제공합니다.
 
 ![Azure SQL 분석 개요](../azure-monitor/insights/media/azure-sql/azure-sql-sol-overview.png)
 
-SQL Database 메트릭 및 진단 로그는 포털의 진단 설정 탭에 기본 제공되는 **Log Analytics에 보내기** 옵션을 사용하여 Azure SQL 분석으로 스트림될 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 log analytics를 사용 하도록 설정할 수도 있습니다.
+SQL Database 메트릭 및 진단 로그는 Azure Portal의 진단 설정 탭에서 기본 제공 **Log Analytics 보내기** 옵션을 사용 하 여 Azure SQL 분석로 스트리밍할 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 log analytics를 사용 하도록 설정할 수도 있습니다.
 
 ### <a name="installation-overview"></a>설치 개요
 
-Azure SQL 분석을 사용하여 SQL Database 세트를 모니터링할 수 있습니다. 다음 단계를 수행합니다.
+다음 단계를 수행 하 여 Azure SQL 분석를 사용 하 여 Azure SQL database의 컬렉션을 모니터링할 수 있습니다.
 
 1. Azure Marketplace에서 Azure SQL 분석 솔루션을 만듭니다.
 2. 솔루션에서 모니터링 작업 영역을 만듭니다.
@@ -332,7 +329,7 @@ Azure SQL 분석을 사용하여 SQL Database 세트를 모니터링할 수 있�
 
 또한 탄력적 풀 또는 관리되는 인스턴스를 사용하는 경우 이러한 리소스에서 진단 원격 분석 스트리밍을 구성해야 합니다.
 
-### <a name="create-azure-sql-analytics-resource"></a>Azure SQL 분석 리소스 만들기
+### <a name="create-an-azure-sql-analytics-resource"></a>Azure SQL 분석 리소스 만들기
 
 1. Azure Marketplace에서 Azure SQL 분석을 검색하고 선택합니다.
 
@@ -348,20 +345,18 @@ Azure SQL 분석을 사용하여 SQL Database 세트를 모니터링할 수 있�
 
 ### <a name="configure-databases-to-record-metrics-and-diagnostics-logs"></a>메트릭 및 진단 로그를 기록하도록 데이터베이스 구성
 
-데이터베이스가 메트릭을 기록 하는 위치를 구성 하는 가장 쉬운 방법은 Azure Portal를 사용 하는 것입니다. 앞에서 설명한 대로 Azure Portal의 SQL Database 리소스로 이동하고 **진단 설정**을 선택합니다.
+데이터베이스가 메트릭을 기록 하는 위치를 구성 하는 가장 쉬운 방법은 Azure Portal를 사용 하는 것입니다. Azure Portal에서 데이터베이스 리소스로 이동 하 고 **진단 설정**을 선택 합니다.
 
-또한 탄력적 풀 또는 관리되는 인스턴스를 사용하는 경우 진단 원격 분석이 작업 영역으로 스트리밍될 수 있도록 이러한 리소스에서 진단 설정을 구성해야 합니다.
+### <a name="use-azure-sql-analytics-for-monitoring-and-alerting"></a>모니터링 및 경고에 Azure SQL 분석 사용
 
-### <a name="use-the-sql-analytics-solution-for-monitoring-and-alerting"></a>SQL Analytics 솔루션을 사용 하 여 모니터링 및 경고
+Sql Analytics를 계층적 대시보드로 사용 하 여 SQL database 리소스를 볼 수 있습니다.
 
-SQL 분석을 계층 구조 대시보드로 사용하여 SQL Database 리소스를 볼 수 있습니다.
-
-- SQL Analytics 솔루션 사용 방법은 [SQL Analytics 솔루션을 사용한 SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조하세요.
-- SQL Analytics에 따라 SQL Database 및 관리 되는 인스턴스에 대 한 경고를 설정 하는 방법을 알아보려면 [SQL Database 및 관리 되는 인스턴스에 대 한 경고 만들기](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)를 참조 하세요.
+- Azure SQL 분석를 사용 하는 방법에 대 한 자세한 내용은 [SQL Analytics를 사용 하 여 SQL Database 모니터링](../log-analytics/log-analytics-azure-sql.md)을 참조 하세요.
+- SQL Analytics에서에 대 한 경고를 설정 하는 방법을 알아보려면 [데이터베이스, 탄력적 풀 및 관리 되는 인스턴스에 대 한 경고 만들기](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)를 참조 하세요.
 
 ## <a name="stream-into-event-hubs"></a>Event Hubs로 스트림
 
-Azure Portal에서 기본 제공되는 **이벤트 허브로 스트림** 옵션을 사용하여 SQL Database 메트릭 및 진단 로그를 Event Hubs로 스트림할 수 있습니다. 또한 PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용하여 Service Bus 규칙 ID를 사용하도록 설정할 수도 있습니다.
+Azure Portal에서 기본 제공되는 **이벤트 허브로 스트림** 옵션을 사용하여 SQL Database 메트릭 및 진단 로그를 Event Hubs로 스트림할 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 Service Bus 규칙 ID를 사용 하도록 설정할 수도 있습니다.
 
 ### <a name="what-to-do-with-metrics-and-diagnostics-logs-in-event-hubs"></a>Event Hubs에서 메트릭 및 진단 로그를 사용하여 수행할 수 있는 작업
 
@@ -386,7 +381,7 @@ Event Hubs의 스트림된 메트릭을 사용하여 다음을 수행할 수 있
 
 ## <a name="stream-into-storage"></a>Storage에 스트림
 
-Azure Portal에서 기본 제공되는 **스토리지 계정에 보관** 옵션을 사용하여 SQL Database 메트릭 및 진단 로그를 Azure Storage에 저장할 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용하여 Storage를 사용하도록 설정할 수도 있습니다.
+Azure Portal에서 **저장소 계정에** 기본 제공 된 보관 옵션을 사용 하 여 Azure Storage에 메트릭 및 진단 로그를 저장할 수 있습니다. PowerShell cmdlet, Azure CLI 또는 Azure Monitor REST API를 통해 진단 설정을 사용 하 여 저장소를 사용 하도록 설정할 수도 있습니다.
 
 ### <a name="schema-of-metrics-and-diagnostics-logs-in-the-storage-account"></a>스토리지 계정의 메트릭 및 진단 로그 스키마
 
@@ -416,13 +411,16 @@ insights-{metrics|logs}-{category name}/resourceId=/SUBSCRIPTIONS/{subscription 
 
 ## <a name="data-retention-policy-and-pricing"></a>데이터 보존 정책 및 가격 책정
 
-Event Hubs 또는 스토리지 계정을 선택하면 보존 정책을 지정할 수 있습니다. 이 정책은 선택한 기간보다 오래된 데이터를 삭제합니다. Log Analytics를 지정한 경우 선택한 가격 책정 계층에 따라 보존 정책이 달라집니다. 이 경우 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 무료 단위를 초과하는 진단 원격 분석 사용에는 요금이 부과될 수 있습니다. 워크로드가 많은 활성 데이터는 유휴 데이터베이스보다 더 많은 데이터를 수집합니다. 자세한 내용은 [Log analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
+Event Hubs 또는 스토리지 계정을 선택하면 보존 정책을 지정할 수 있습니다. 이 정책은 선택한 기간보다 오래된 데이터를 삭제합니다. Log Analytics를 지정한 경우 선택한 가격 책정 계층에 따라 보존 정책이 달라집니다. 이 경우 제공되는 데이터 수집 무료 단위만큼 매월 여러 데이터베이스를 무료로 모니터링할 수 있습니다. 무료 단위를 초과하는 진단 원격 분석 사용에는 요금이 부과될 수 있습니다. 
 
-Azure SQL 분석을 사용하는 경우 Azure SQL 분석의 탐색 메뉴에서 **OMS 작업 영역**을 선택한 다음, **사용량** 및 **예상 비용**을 선택하여 솔루션에서 데이터 수집 사용량을 모니터링할 수 있습니다.
+> [!IMPORTANT]
+> 작업 부하가 많은 활성 데이터베이스는 유휴 데이터베이스 보다 많은 데이터를 수집 합니다. 자세한 내용은 [Log analytics 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
+
+Azure SQL 분석를 사용 하는 경우 Azure SQL 분석 탐색 메뉴에서 **OMS 작업 영역** 을 선택한 다음 **사용량** 및 **예상 비용**을 선택 하 여 데이터 수집 사용량을 모니터링할 수 있습니다.
 
 ## <a name="metrics-and-logs-available"></a>사용 가능한 메트릭 및 로그
 
-Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 수 있는 원격 분석 모니터링은 아래에 설명 되어 있습니다. SQL Analytics 내에서 수집 된 모니터링 원격 분석은 [Azure Monitor 로그 쿼리](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 언어를 사용 하 여 사용자 지정 분석 및 응용 프로그램 개발에 사용할 수 있습니다.
+단일 데이터베이스, 탄력적 풀 및 관리 되는 인스턴스에 사용할 수 있는 원격 분석 모니터링은 문서의이 섹션에 설명 되어 있습니다. SQL Analytics 내에서 수집 된 모니터링 원격 분석은 [Azure Monitor 로그 쿼리](https://docs.microsoft.com/azure/log-analytics/query-language/get-started-queries) 언어를 사용 하 여 사용자 지정 분석 및 응용 프로그램 개발에 사용할 수 있습니다.
 
 ## <a name="basic-metrics"></a>기본 메트릭
 
@@ -437,11 +435,11 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 |---|---|
 |탄력적 풀|eDTU 백분율, 사용된 eDTU, eDTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, 스토리지 용량 한도, XTP 스토리지 백분율을 포함합니다. |
 
-### <a name="basic-metrics-for-azure-sql-databases"></a>Azure SQL Database에 대 한 기본 메트릭
+### <a name="basic-metrics-for-single-and-pooled-databases"></a>단일 및 풀링된 데이터베이스에 대 한 기본 메트릭
 
 |**리소스**|**Metrics**(메트릭)|
 |---|---|
-|Azure SQL 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율, 교착 상태를 포함합니다. |
+|단일 및 풀링된 데이터베이스|DTU 백분율, 사용된 DTU, DTU 제한, CPU 백분율, 실제 데이터 읽기 백분율, 로그 쓰기 백분율, 성공/실패/방화벽 연결에 의해 차단됨, 세션 백분율, 작업자 백분율, 스토리지, 스토리지 백분율, XTP 스토리지 백분율, 교착 상태를 포함합니다. |
 
 ## <a name="advanced-metrics"></a>고급 메트릭
 
@@ -455,9 +453,9 @@ Azure SQL Database, 탄력적 풀 및 관리 되는 인스턴스에 사용할 �
 
 ## <a name="basic-logs"></a>기본 로그
 
-모든 로그에 사용할 수 있는 원격 분석의 세부 정보는 아래 표에 설명 되어 있습니다. 특정 데이터베이스 버전에 대해 지원 되는 로그 (Azure SQL single, 풀링된 또는 instance 데이터베이스)를 이해 하려면 [지원 되는 진단 로깅](#supported-diagnostic-logging-for-azure-sql-databases-and-instance-databases) 을 참조 하세요.
+모든 로그에 사용할 수 있는 원격 분석의 세부 정보는 다음 표에 설명 되어 있습니다. 특정 데이터베이스 버전에 대해 지원 되는 로그를 이해 하려면 [지원 되는 진단 로깅](#supported-diagnostic-logging-for-azure-sql-databases) (Azure SQL single, 풀링된 또는 instance database)을 참조 하세요.
 
-### <a name="resource-usage-stats-for-managed-instance"></a>관리 되는 인스턴스의 리소스 사용 통계
+### <a name="resource-usage-stats-for-managed-instances"></a>관리 되는 인스턴스의 리소스 사용 통계
 
 |속성|Description|
 |---|---|
@@ -743,6 +741,6 @@ Event Hubs에 대해 알아보려면 다음을 확인합니다.
 - [Azure Event Hubs 정의](../event-hubs/event-hubs-what-is-event-hubs.md)
 - [Event Hubs 시작](../event-hubs/event-hubs-csharp-ephcs-getstarted.md)
 
-Log analytics의 원격 분석을 기반으로 경고를 설정 하는 방법을 알아보려면 다음을 참조 하세요.
+Log analytics의 원격 분석을 기반으로 경고를 설정 하는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [SQL Database 및 관리 되는 인스턴스에 대 한 경고 만들기](../azure-monitor/insights/azure-sql.md#analyze-data-and-create-alerts)

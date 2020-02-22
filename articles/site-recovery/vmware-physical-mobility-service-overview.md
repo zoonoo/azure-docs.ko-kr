@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: conceptual
 ms.date: 03/25/2019
 ms.author: ramamill
-ms.openlocfilehash: b2c59fd6ee925d531a5a5ff3bb26fdebea025b83
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c5acc9637fe5afe8f7dd32d23fbdbb80373b4f61
+ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513561"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77539385"
 ---
 # <a name="about-the-mobility-service-for-vmware-vms-and-physical-servers"></a>VMware VM 및 물리적 서버의 재해 복구를 위한 Mobility 서비스
 
@@ -21,6 +21,9 @@ ms.locfileid: "76513561"
 - [강제 설치](#push-installation): Azure Portal를 통해 보호를 사용 하도록 설정 하면 Site Recovery 서버에 모바일 에이전트를 설치 합니다.
 - 수동으로 설치: [UI](#install-mobility-agent-through-ui) 또는 [명령 프롬프트](#install-mobility-agent-through-command-prompt)를 통해 각 컴퓨터에 모바일 서비스를 수동으로 설치할 수 있습니다.
 - [자동 배포](vmware-azure-mobility-install-configuration-mgr.md): Configuration Manager와 같은 소프트웨어 배포 도구를 사용 하 여 설치를 자동화할 수 있습니다.
+
+> [!NOTE]
+> 모바일 에이전트는 VMware Vm 또는 물리적 컴퓨터에 대 한 원본 컴퓨터에서 약 6%-10%의 메모리를 사용 합니다.
 
 ## <a name="anti-virus-on-replicated-machines"></a>복제된 머신에서 바이러스 백신
 
@@ -35,7 +38,7 @@ ms.locfileid: "76513561"
 
 푸시 설치 워크플로의 세부 정보는 다음 섹션에 설명 되어 있습니다.
 
-### <a name="from-923-versionhttpssupportmicrosoftcomen-inhelp4494485update-rollup-35-for-azure-site-recovery-onwards"></a>[9.23 버전](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) 이상
+### <a name="from-923-version-onwards"></a>[9.23 버전](https://support.microsoft.com/en-in/help/4494485/update-rollup-35-for-azure-site-recovery) 이상
 
 모바일 에이전트를 강제 설치 하는 동안 다음 단계가 수행 됩니다.
 
@@ -55,7 +58,7 @@ ms.locfileid: "76513561"
 
 ## <a name="install-mobility-agent-through-ui"></a>UI를 통해 모바일 에이전트 설치
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 
 - 모든 서버의 구성이 [VMware에서 AZURE DR 시나리오의 지원 매트릭스에](vmware-physical-azure-support-matrix.md)포함 되는지 확인 합니다.
 - 서버의 운영 체제에 따라 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -73,7 +76,7 @@ ms.locfileid: "76513561"
 
     ![Mobility Service 등록 페이지](./media/vmware-physical-mobility-service-install-manual/mobility3.png)
 
-5. **구성 서버 세부 정보**에서 구성 된 IP 주소 및 암호를 지정 합니다.  
+5. **구성 서버 세부 정보**에서 구성 된 IP 주소 및 암호를 지정 합니다.
 
     ![Mobility Service 등록 페이지](./media/vmware-physical-mobility-service-install-manual/mobility4.png)
 
@@ -83,7 +86,7 @@ ms.locfileid: "76513561"
 
 ## <a name="install-mobility-agent-through-command-prompt"></a>명령 프롬프트를 통해 모바일 에이전트 설치
 
-### <a name="prerequisite"></a>필수 조건
+### <a name="prerequisite"></a>필수 요소
 
 - 모든 서버의 구성이 [VMware에서 AZURE DR 시나리오의 지원 매트릭스에](vmware-physical-azure-support-matrix.md)포함 되는지 확인 합니다.
 - 서버의 운영 체제에 따라 [설치 관리자를 찾습니다](#locate-installer-files) .
@@ -115,7 +118,7 @@ ms.locfileid: "76513561"
 #### <a name="installation-settings"></a>설치 설정
 **설정** | **세부 정보**
 --- | ---
-사용량 | Unifiedagent.exe/Role \<MS/MT >/InstallLocation \<설치 위치 >/Platform "VmWare"/Silent
+사용 | Unifiedagent.exe/Role \<MS/MT >/InstallLocation \<설치 위치 >/Platform "VmWare"/Silent
 설정 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentInstaller.log에 있습니다.
 /Role | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 /InstallLocation| 선택적 매개 변수. Mobility 서비스 설치 위치(모든 폴더)를 지정합니다.
@@ -125,7 +128,7 @@ ms.locfileid: "76513561"
 #### <a name="registration-settings"></a>등록 설정
 **설정** | **세부 정보**
 --- | ---
-사용량 | UnifiedAgentConfigurator.exe  /CSEndPoint \<CSIP> /PassphraseFilePath \<PassphraseFilePath>
+사용 | UnifiedAgentConfigurator/CSEndPoint \<CSIP >/PassphraseFilePath \<PassphraseFilePath >
 에이전트 구성 로그 | %ProgramData%\ASRSetupLogs\ASRUnifiedAgentConfigurator.log에 있습니다.
 /CSEndPoint | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 /PassphraseFilePath |  필수. 암호의 위치입니다. 유효한 UNC 또는 로컬 파일 경로를 사용합니다.
@@ -154,7 +157,7 @@ ms.locfileid: "76513561"
 #### <a name="installation-settings"></a>설치 설정
 **설정** | **세부 정보**
 --- | ---
-사용량 | ./install-d \<설치 위치 >-r \<MS/MT >-v VmWare-q
+사용 | ./install-d \<설치 위치 >-r \<MS/MT >-v VmWare-q
 -r | 필수 설치 매개 변수입니다. MS(Mobility 서비스) 또는 MT(마스터 대상) 설치 여부를 지정합니다.
 -d | 선택적 매개 변수. Mobility 서비스 설치 위치(/usr/local/ASR)를 지정합니다.
 -v | 필수. Mobility Service가 설치되는 플랫폼을 지정합니다. VMware VM/물리적 서버에 **VMware**, Azure VM에 **Azure**입니다.
@@ -163,7 +166,7 @@ ms.locfileid: "76513561"
 #### <a name="registration-settings"></a>등록 설정
 **설정** | **세부 정보**
 --- | ---
-사용량 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh -i \<CSIP> -P \<PassphraseFilePath>
+사용 | cd /usr/local/ASR/Vx/bin<br/><br/> UnifiedAgentConfigurator.sh \<CSIP >-P \<PassphraseFilePath >
 -i | 필수 매개 변수입니다. 구성 서버의 IP 주소를 지정합니다. 유효한 IP 주소를 사용합니다.
 -P |  필수. 암호가 저장되는 파일의 전체 파일 경로입니다. 유효한 폴더를 사용합니다.
 
