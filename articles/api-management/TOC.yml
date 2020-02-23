@@ -123,6 +123,8 @@
       items:
         - name: Azure AD로 API 보호
           href: api-management-howto-protect-backend-with-aad.md
+        - name: Azure AD B2C를 사용하여 SPA 백 엔드 API 보호
+          href: howto-protect-backend-frontend-azure-ad-b2c.md
         - name: 가상 네트워크에 연결
           href: api-management-using-with-vnet.md
         - name: 내부 가상 네트워크에 연결
@@ -247,7 +249,7 @@
   items:
     - name: FAQ
       href: api-management-faq.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://aka.ms/apimpricing'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/regions/services/'
