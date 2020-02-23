@@ -150,8 +150,6 @@
                   href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
                 - name: NVv3 시리즈
                   href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NVv4 시리즈
-                  href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
         - name: 고성능 컴퓨팅

@@ -397,8 +397,6 @@
       items:
         - name: 기존 플레이어로 미디어 재생
           href: media-services-playback-content-with-existing-players.md
-        - name: Media Player로 미디어 재생
-          href: media-services-develop-video-players.md
         - name: 기타 재생 옵션
           items:
             - name: 부드러운 스트리밍 Windows 스토어 애플리케이션

@@ -350,8 +350,6 @@
         - name: Azure Monitor
           href: azure-monitor.md
           displayName: 'log, logs, logging, usage, events'
-        - name: 사용 현황 보고서 내보내기
-          href: view-usage-reports.md
         - name: 계정 관리
           href: manage-user-accounts-graph-api.md
         - name: Azure Pipelines를 사용하여 배포
