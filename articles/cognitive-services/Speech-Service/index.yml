@@ -1,0 +1,211 @@
+### YamlMime:Hub
+title: Speech Service 설명서
+summary: 음성을 인식하거나, 음성을 합성하거나, 실시간 번역을 받거나, 대화를 받아쓰거나, 음성을 봇 경험에 통합합니다.
+brand: azure
+metadata:
+  title: Speech Service 설명서 - 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  description: 음성을 인식하거나, 음성을 합성하거나, 실시간 번역을 받거나, 대화를 받아쓰거나, 음성을 봇 경험에 통합합니다.
+  author: IEvangelist
+  manager: nitinme
+  ms.service: speech-service
+  ms.topic: hub-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 26979b2d9ffdd80676ca9162b30ae17db20b1129
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563026"
+highlightedContent:
+  items:
+  - title: Speech Service란?
+    itemType: overview
+    url: overview.md
+  - title: Speech SDK 릴리스 정보
+    itemType: whats-new
+    url: releasenotes.md
+  - title: Speech Services의 언어 지원
+    itemType: reference
+    url: language-support.md
+  - title: Speech Services 리소스 만들기
+    itemType: how-to-guide
+    url: get-started.md
+conceptualContent:
+  items:
+  - title: 음성 텍스트 변환
+    links:
+    - itemType: quickstart
+      text: 마이크 입력에서 음성 인식
+      url: quickstarts/speech-to-text-from-microphone.md
+    - itemType: quickstart
+      text: 오디오 파일에서 음성 인식
+      url: quickstarts/speech-to-text-from-file.md
+    - itemType: quickstart
+      text: Blob 스토리지에 저장된 음성 인식
+      url: quickstarts/from-blob.md
+    footerLink:
+      text: 자세히 보기
+      url: index-speech-to-text.yml
+  - title: 텍스트 음성 변환
+    links:
+    - itemType: quickstart
+      text: 스피커로 음성 합성
+      url: quickstarts/text-to-speech.md
+    - itemType: quickstart
+      text: 오디오 파일로 음성 합성
+      url: quickstarts/text-to-speech-audio-file.md
+    - itemType: quickstart
+      text: 긴 형식의 오디오로 음성 합성
+      url: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
+    footerLink:
+      text: 자세히 보기
+      url: index-text-to-speech.yml
+  - title: 음성 번역
+    links:
+    - itemType: quickstart
+      text: 음성을 텍스트로 변환
+      url: quickstarts/translate-speech-to-text.md
+    - itemType: quickstart
+      text: 음성을 여러 대상 언어로 번역
+      url: quickstarts/translate-speech-to-text-multiple-languages.md
+    - itemType: quickstart
+      text: 음성을 음성으로 번역
+      url: quickstarts/translate-speech-to-speech.md
+    footerLink:
+      text: 자세히 보기
+      url: index-speech-translation.yml
+  - title: 의도 인식
+    links:
+    - itemType: quickstart
+      text: 음성, 의도 및 엔터티 인식
+      url: quickstarts/intent-recognition.md
+    - itemType: how-to-guide
+      text: LUIS 및 C#을 통해 음성 의도 인식
+      url: how-to-recognize-intents-from-speech-csharp.md
+    - itemType: reference
+      text: LUIS(Language Understanding) 포털
+      url: https://www.luis.ai
+    footerLink:
+      text: 자세히 보기
+      url: index-intent-recognition.yml
+  - title: 대화 시나리오
+    links:
+    - itemType: overview
+      text: 대화 전사 정보
+      url: conversation-transcription.md
+    - itemType: overview
+      text: 다중 디바이스 대화 정보
+      url: multi-device-conversation.md
+    - itemType: how-to-guide
+      text: 호출 센터 전사
+      url: call-center-transcription.md
+    footerLink:
+      text: 자세히 보기
+      url: index-conversation-scenarios.yml
+  - title: 음성 도우미
+    links:
+    - itemType: overview
+      text: 음성 도우미 정보
+      url: voice-assistants.md
+    - itemType: quickstart
+      text: 사용자 지정 명령을 사용하여 음성 도우미 만들기
+      url: custom-commands.md
+    - itemType: get-started
+      text: Bot Framework를 사용하여 음성 도우미 만들기
+      url: direct-line-speech.md
+    footerLink:
+      text: 자세히 보기
+      url: index-voice-assistants.yml
+  - title: Hosting
+    links:
+    - itemType: how-to-guide
+      text: Speech Service 컨테이너
+      url: speech-container-howto.md
+    - itemType: how-to-guide
+      text: Kubernetes를 사용하는 Speech Service 컨테이너
+      url: speech-container-howto-on-premises.md
+    - itemType: how-to-guide
+      text: Azure Container Instances의 Speech Service 컨테이너
+      url: deploy-speech-on-container-instances.md
+    footerLink:
+      text: 자세히 보기
+      url: index-hosting.yml
+  - title: 디바이스
+    links:
+    - itemType: overview
+      text: Speech Devices SDK 정보
+      url: speech-devices-sdk.md
+    - itemType: how-to-guide
+      text: 음성 디바이스 SDK 가져오기
+      url: get-speech-devices-sdk.md
+    - itemType: quickstart
+      text: Speech Devices SDK 사용
+      url: speech-devices-sdk-quickstart.md
+    footerLink:
+      text: 자세히 보기
+      url: index-devices.yml
+  - title: 마이그레이션
+    links:
+    - itemType: how-to-guide
+      text: Bing Speech에서 마이그레이션
+      url: how-to-migrate-from-bing-speech.md
+    - itemType: how-to-guide
+      text: Custom Speech Service에서 마이그레이션
+      url: how-to-migrate-from-custom-speech-service.md
+    - itemType: how-to-guide
+      text: Translator Speech API에서 마이그레이션
+      url: how-to-migrate-from-translator-speech-api.md
+tools:
+  title: SDK(소프트웨어 개발 키트)
+  summary: 선호하는 프로그래밍 언어로 Speech SDK를 시작하세요.
+  items:
+  - title: C#
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Csharp.svg
+    url: https://aka.ms/csspeech/csharpref
+  - title: C++
+    imageSrc: https://docs.microsoft.com/media/logos/logo_Cplusplus.svg
+    url: https://aka.ms/csspeech/cppref
+  - title: Java
+    imageSrc: https://docs.microsoft.com/media/logos/logo_java.svg
+    url: https://aka.ms/csspeech/javaref
+  - title: JavaScript
+    imageSrc: https://docs.microsoft.com/media/logos/logo_js.svg
+    url: https://aka.ms/csspeech/javascriptref
+  - title: Objective-C 및 Swift
+    imageSrc: https://docs.microsoft.com/media/logos/logo_ios.svg
+    url: https://aka.ms/csspeech/objectivecref
+  - title: Python
+    imageSrc: https://docs.microsoft.com/media/logos/logo_python.svg
+    url: https://aka.ms/csspeech/pythonref
+additionalContent:
+  sections:
+  - items:
+    - title: REST API
+      links:
+      - text: 음성 텍스트 변환
+        url: rest-speech-to-text.md
+      - text: 일괄 처리 기록
+        url: batch-transcription.md
+      - text: 텍스트 음성 변환
+        url: rest-text-to-speech.md
+      - text: 대화 전사
+        url: https://signature.centralus.cts.speech.microsoft.com/UI/index.html
+    - title: 리소스
+      links:
+      - text: 가격 책정
+        url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/
+      - text: 영역
+        url: regions.md
+      - text: 배우기
+        url: https://docs.microsoft.com/learn/browse/?products=azure-cognitive-services&term=Speech
+    - title: 지원
+      links:
+      - text: 지원 및 도움말
+        url: support.md
+      - text: GitHub 문제
+        url: https://github.com/Azure-Samples/cognitive-services-speech-sdk/issues
+      - text: 스택 오버플로
+        url: https://aka.ms/SOspeechquestions

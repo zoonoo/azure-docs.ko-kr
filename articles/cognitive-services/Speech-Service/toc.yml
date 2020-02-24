@@ -1,26 +1,30 @@
 - name: Speech Service 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   expanded: true
   items:
     - name: Speech Service란?
       href: overview.md
+    - name: Speech Service 체험해 보기
+      href: get-started.md
     - name: 언어 및 지역 지원
       href: language-support.md
       displayName: 'languages,locales,region,voice,gender,language code,locale,locale code,neural voice,standard voice'
 - name: 음성 텍스트 변환
   expanded: false
   items:
+    - name: 음성 텍스트 변환 설명서
+      href: index-speech-to-text.yml
     - name: 개요
       items:
         - name: 음성 텍스트 변환이란?
           href: speech-to-text.md
     - name: 빠른 시작
       items:
-        - name: 오디오 파일에서 음성 인식
-          href: quickstarts/speech-to-text-from-file.md
         - name: 마이크 입력에서 음성 인식
           href: quickstarts/speech-to-text-from-microphone.md
+        - name: 오디오 파일에서 음성 인식
+          href: quickstarts/speech-to-text-from-file.md
         - name: Blob 스토리지에 저장된 음성 인식
           href: quickstarts/from-blob.md
     - name: 방법 가이드
@@ -45,8 +49,20 @@
           href: how-to-use-codec-compressed-audio-input-streams-ios.md
         - name: 압축된 오디오 입력 형식 사용(Android)
           href: how-to-use-codec-compressed-audio-input-streams-android.md
-        - name: Docker 컨테이너를 통해 음성 인식 사용
-          href: speech-container-howto.md?tabs=stt
+    - name: 사용자 지정
+      items:
+        - name: 데이터 준비
+          href: how-to-custom-speech-test-data.md
+        - name: 데이터 검사
+          href: how-to-custom-speech-inspect-data.md
+        - name: 정확도 평가
+          href: how-to-custom-speech-evaluate-data.md
+        - name: 사용자 지정 모델 학습
+          href: how-to-custom-speech-train-model.md
+        - name: 사용자 지정 모델 배포
+          href: how-to-custom-speech-deploy-model.md
+        - name: 휴먼 레이블 전사 만들기
+          href: how-to-custom-speech-human-labeled-transcriptions.md
     - name: 참조
       items:
         - name: 음성 SDK API
@@ -86,33 +102,68 @@
 - name: 텍스트 음성 변환
   expanded: false
   items:
+    - name: 텍스트 음성 변환 설명서
+      href: index-text-to-speech.yml
     - name: 개요
       items:
         - name: 텍스트 음성 변환이란?
           href: text-to-speech.md
     - name: 빠른 시작
       items:
-        - name: 오디오 파일로 음성 합성
-          href: quickstarts/text-to-speech-audio-file.md
         - name: 스피커로 음성 합성
           href: quickstarts/text-to-speech.md
-        - name: 긴 형식의 오디오에 대한 비동기 합성
+        - name: 오디오 파일로 음성 합성
+          href: quickstarts/text-to-speech-audio-file.md
+        - name: 긴 형식의 오디오로 음성 합성
           href: quickstarts/text-to-speech/async-synthesis-long-form-audio.md
     - name: 방법 가이드
       items:
-        - name: SSML을 사용하여 출력 향상
+        - name: SSML을 사용하여 합성 향상
           href: speech-synthesis-markup.md
-        - name: Custom Voice를 사용하여 출력 향상
+        - name: Custom Voice를 사용하여 합성 향상
           href: how-to-custom-voice.md
           displayName: custom voice
         - name: 긴 오디오 API를 사용하여 음성 합성
           href: long-audio-api.md
-        - name: Docker 컨테이너를 통해 음성 합성 사용
-          href: speech-container-howto.md?tabs=tts
         - name: REST를 사용하여 음성 목록 가져오기(Python)
           href: quickstart-python-get-text-to-speech-voices.md
         - name: REST을 사용하여 텍스트 음성 변환(Python)
           href: quickstart-python-text-to-speech.md
+    - name: 사용자 지정
+      items:
+        - name: 신뢰할 수 있는 배포
+          items:
+            - name: Custom Voice 게이팅
+              href: concepts-gating-overview.md
+            - name: 합성 기술 배포
+              href: concepts-guidelines-responsible-deployment-synthetic.md
+            - name: 발화자 공개 지침
+              href: 'https://aka.ms/disclosure-voice-talent'
+            - name: 디자인 지침 공개
+              href: concepts-disclosure-guidelines.md
+            - name: 디자인 패턴 공개
+              href: concepts-disclosure-patterns.md
+            - name: 사용 규정
+              href: 'https://aka.ms/custom-neural-code-of-conduct'
+        - name: Custom Voice 포털
+          items:
+            - name: Custom Voice 시작
+              href: how-to-custom-voice.md
+              displayName: 'custom voice, neural voice'
+            - name: 데이터 준비
+              href: how-to-custom-voice-prepare-data.md
+            - name: Custom Voice 모델 만들기 및 사용
+              href: how-to-custom-voice-create-voice.md
+            - name: 음성 샘플 기록
+              href: record-custom-voice-samples.md
+            - name: 사용자 지정 키워드 명명 지침
+              href: speech-devices-sdk-kws-guidelines.md
+            - name: 사용자 지정 키워드 발견
+              href: speech-devices-sdk-create-kws.md
+        - name: 오디오 콘텐츠 만들기
+          items:
+            - name: 오디오 콘텐츠 만들기
+              href: how-to-audio-content-creation.md
     - name: 참조
       items:
         - name: 음성 SDK
@@ -147,50 +198,11 @@
         - name: 텍스트 음성 변환 FAQ
           href: faq-text-to-speech.md
           displayName: 'FAQ,TTS FAQ,SS FAQ,frequently asked questions'
-- name: 의도 인식
-  expanded: false
-  items:
-    - name: 빠른 시작
-      items:
-        - name: '음성, 의도 및 엔터티 인식'
-          href: quickstarts/intent-recognition.md
-          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
-    - name: 방법 가이드
-      items:
-        - name: 'LUIS, C#을 통해 음성 의도 인식'
-          href: how-to-recognize-intents-from-speech-csharp.md
-    - name: 참조
-      items:
-        - name: 음성 SDK
-          items:
-            - name: C++
-              href: 'https://aka.ms/csspeech/cppref'
-              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
-            - name: 'C#'
-              href: 'https://aka.ms/csspeech/csharpref'
-              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
-            - name: Java
-              href: 'https://aka.ms/csspeech/javaref'
-              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
-            - name: JavaScript
-              href: 'https://aka.ms/csspeech/javascriptref'
-              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
-            - name: Objective-C
-              href: 'https://aka.ms/csspeech/objectivecref'
-              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
-            - name: Python
-              href: 'https://aka.ms/csspeech/pythonref'
-              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
-            - name: 릴리스 정보
-              href: releasenotes.md
-              displayName: 'release notes,updates,what''s new,what is new,changes'
-        - name: LUIS 서비스
-          items:
-            - name: LUIS 개발자 리소스
-              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
 - name: 음성 번역
   expanded: false
   items:
+    - name: 음성 번역 설명서
+      href: index-speech-translation.yml
     - name: 개요
       items:
         - name: 음성 번역이란?
@@ -236,17 +248,65 @@
       items:
         - name: 음성 번역 FAQ
           href: 'https://www.microsoft.com/translator/faq.aspx'
+- name: 의도 인식
+  expanded: false
+  items:
+    - name: 의도 인식 설명서
+      href: index-intent-recognition.yml
+    - name: 빠른 시작
+      items:
+        - name: '음성, 의도 및 엔터티 인식'
+          href: quickstarts/intent-recognition.md
+          displayName: 'Recognize intents and entities with LUIS, LUIS, Language Understanding, prebuilt domains'
+    - name: 방법 가이드
+      items:
+        - name: 'LUIS, C#을 통해 음성 의도 인식'
+          href: how-to-recognize-intents-from-speech-csharp.md
+    - name: 참조
+      items:
+        - name: 음성 SDK
+          items:
+            - name: C++
+              href: 'https://aka.ms/csspeech/cppref'
+              displayName: 'C++ SDK,C++ dev kit,reference,reference docs,ref documentation'
+            - name: 'C#'
+              href: 'https://aka.ms/csspeech/csharpref'
+              displayName: 'CSharp SDK,.NET SDK,C# SDK,C# dev kit,reference,reference docs,ref documentation'
+            - name: Java
+              href: 'https://aka.ms/csspeech/javaref'
+              displayName: 'Java SDK,Java dev kit,reference,reference docs,ref documentation'
+            - name: JavaScript
+              href: 'https://aka.ms/csspeech/javascriptref'
+              displayName: 'JS SDK,JavaScript SDK,JavaScript dev kit,reference,reference docs,ref documentation'
+            - name: Objective-C
+              href: 'https://aka.ms/csspeech/objectivecref'
+              displayName: 'Objective-C SDK,Objective-C dev kit,reference,reference docs,ref documentation'
+            - name: Python
+              href: 'https://aka.ms/csspeech/pythonref'
+              displayName: 'Python SDK,Python dev kit,reference,reference docs,ref documentation'
+            - name: 릴리스 정보
+              href: releasenotes.md
+              displayName: 'release notes,updates,what''s new,what is new,changes'
+        - name: LUIS 서비스
+          items:
+            - name: LUIS 개발자 리소스
+              href: 'https://docs.microsoft.com/azure/cognitive-services/luis/developer-reference-resource'
 - name: 대화 시나리오
   expanded: false
   items:
+    - name: 대화 시나리오 설명서
+      href: index-conversation-scenarios.yml
     - name: 대화 전사
       items:
         - name: 개요
           items:
-            - name: 대화 전사란?
+            - name: 대화 전사 정보
               href: conversation-transcription.md
         - name: 방법 가이드
           items:
+            - name: 콜 센터 시나리오 처리
+              href: call-center-transcription.md
+              displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
             - name: 실시간 대화 전사
               href: how-to-use-conversation-transcription.md
             - name: 비동기 대화 전사
@@ -284,7 +344,7 @@
       items:
         - name: 개요
           items:
-            - name: 다중 디바이스 대화란?
+            - name: 다중 디바이스 대화 정보
               href: multi-device-conversation.md
         - name: 빠른 시작
           items:
@@ -301,6 +361,8 @@
 - name: 음성 도우미
   expanded: false
   items:
+    - name: 음성 도우미 설명서
+      href: index-voice-assistants.yml
     - name: 개요
       items:
         - name: 음성 도우미란?
@@ -349,115 +411,25 @@
           items:
             - name: 음성 도우미 FAQ
               href: faq-voice-assistants.md
-- name: 사용자 지정
+- name: Hosting
   expanded: false
   items:
-    - name: 음성 텍스트 변환
-      items:
-        - name: Custom Speech 포털
-          items:
-            - name: Custom Speech 시작
-              href: how-to-custom-speech.md
-            - name: 데이터 준비
-              href: how-to-custom-speech-test-data.md
-            - name: 데이터 검사
-              href: how-to-custom-speech-inspect-data.md
-            - name: 정확도 평가
-              href: how-to-custom-speech-evaluate-data.md
-            - name: 사용자 지정 모델 학습
-              href: how-to-custom-speech-train-model.md
-            - name: 사용자 지정 모델 배포
-              href: how-to-custom-speech-deploy-model.md
-            - name: 휴먼 레이블 전사 만들기
-              href: how-to-custom-speech-human-labeled-transcriptions.md
-        - name: 테넌트 모델
-          items:
-            - name: '모델 만들기, 게시 및 사용'
-              href: tutorial-tenant-model.md
-    - name: 텍스트 음성 변환
-      items:
-        - name: 신뢰할 수 있는 배포
-          items:
-            - name: Custom Voice 게이팅
-              href: concepts-gating-overview.md
-            - name: 합성 기술 배포
-              href: concepts-guidelines-responsible-deployment-synthetic.md
-            - name: 발화자 공개 지침
-              href: 'https://aka.ms/disclosure-voice-talent'
-            - name: 디자인 지침 공개
-              href: concepts-disclosure-guidelines.md
-            - name: 디자인 패턴 공개
-              href: concepts-disclosure-patterns.md
-            - name: 사용 규정
-              href: 'https://aka.ms/custom-neural-code-of-conduct'
-        - name: Custom Voice 포털
-          items:
-            - name: Custom Voice 시작
-              href: how-to-custom-voice.md
-              displayName: 'custom voice, neural voice'
-            - name: 데이터 준비
-              href: how-to-custom-voice-prepare-data.md
-            - name: Custom Voice 모델 만들기 및 사용
-              href: how-to-custom-voice-create-voice.md
-            - name: 음성 샘플 기록
-              href: record-custom-voice-samples.md
-        - name: 오디오 콘텐츠 만들기
-          items:
-            - name: 오디오 콘텐츠 만들기
-              href: how-to-audio-content-creation.md
-    - name: 사용자 지정 키워드 명명 지침
-      href: speech-devices-sdk-kws-guidelines.md
-    - name: 사용자 지정 키워드 발견
-      href: speech-devices-sdk-create-kws.md
-- name: Speech Service
-  expanded: false
-  items:
-    - name: 시나리오
-      items:
-        - name: 콜 센터
-          href: call-center-transcription.md
-          displayName: 'IVRs, IVR, Telephony Data, Transcription for Telephony Data, Real-time Transcription for Call Centers'
+    - name: 호스팅 설명서
+      href: index-hosting.yml
     - name: 방법 가이드
       items:
-        - name: Speech Service 체험해 보기
-          href: get-started.md
-        - name: Speech Service 리소스 만들기
-          href: 'get-started.md#create-a-speech-resource-in-azure'
-        - name: 컨테이너
-          expanded: false
-          items:
-            - name: 컨테이너 설치 및 실행
-              href: speech-container-howto.md
-              displayName: 'containers,install container,run container'
-            - name: 컨테이너 구성
-              href: speech-container-configuration.md
-              displayName: 'containers,configure containers,container config,configuration'
-            - name: Kubernetes 및 Helm
-              href: speech-container-howto-on-premises.md
-              displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
-            - name: Azure Container Instances
-              href: deploy-speech-on-container-instances.md
-              displayName: 'ACI,azure container instances,container instances,containers'
-    - name: 샘플
-      items:
-        - name: 텍스트 음성 변환 REST 샘플
-          href: 'https://github.com/Azure-Samples/Cognitive-Speech-TTS'
-        - name: 일괄 처리 전사 REST 샘플
-          href: 'https://github.com/Azure-Samples/cognitive-services-speech-sdk/tree/master/samples/batch'
-    - name: 참조
-      items:
-        - name: REST API
-          items:
-            - name: 일괄 처리 전사 및 사용자 지정 REST API
-              href: 'https://westus.cris.ai/swagger/ui/index'
-            - name: 대화 전사 REST API
-              href: 'https://signature.centralus.cts.speech.microsoft.com/UI/index.html'
-            - name: Speech-to-Text REST API
-              href: rest-speech-to-text.md
-            - name: Text-to-Speech REST API
-              href: rest-text-to-speech.md
-        - name: Swagger 설명서
-          href: swagger-documentation.md
+        - name: 컨테이너 설치 및 실행
+          href: speech-container-howto.md
+          displayName: 'containers,install container,run container'
+        - name: 컨테이너 구성
+          href: speech-container-configuration.md
+          displayName: 'containers,configure containers,container config,configuration'
+        - name: Kubernetes 및 Helm
+          href: speech-container-howto-on-premises.md
+          displayName: 'containers,kubernetes,k8s,helm,orchestration,on-prem,on-premises'
+        - name: Azure Container Instances
+          href: deploy-speech-on-container-instances.md
+          displayName: 'ACI,azure container instances,container instances,containers'
 - name: 음성 SDK
   expanded: false
   items:
@@ -510,6 +482,8 @@
 - name: 디바이스
   expanded: false
   items:
+    - name: 음성 디바이스 설명서
+      href: index-devices.yml
     - name: 개요
       items:
         - name: Speech Devices SDK 정보
@@ -524,12 +498,8 @@
           href: speech-devices-sdk-roobo-v1.md
     - name: 빠른 시작
       items:
-        - name: Windows
-          href: speech-devices-sdk-windows-quickstart.md
-        - name: Linux
-          href: speech-devices-sdk-linux-quickstart.md
-        - name: Android
-          href: speech-devices-sdk-android-quickstart.md
+        - name: Speech Devices SDK 사용
+          href: speech-devices-sdk-quickstart.md
     - name: 리소스
       items:
         - name: Speech Devices SDK 문제 해결
@@ -555,6 +525,8 @@
       displayName: 'support,help,release notes,search,scoped search,azure support,github support,stack overflow,github issues,bugs,feedback,uservoice'
     - name: 영역
       href: regions.md
+    - name: Swagger 설명서
+      href: swagger-documentation.md
     - name: 독립적 클라우드
       href: sovereign-clouds.md
       displayName: 'fairfax,mooncake,compliant,secret,compliance,government,government cloud,dod,china'

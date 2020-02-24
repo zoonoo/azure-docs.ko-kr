@@ -99,6 +99,8 @@
         - name: 스트리밍 엔드포인트
           displayName: 'origin, packager, cdn'
           href: streaming-endpoint-concept.md
+        - name: CDN을 사용하여 스트리밍 크기 조정
+          href: scale-streaming-cdn.md
         - name: 스트리밍 로케이터
           displayName: URLs
           href: streaming-locators-concept.md
@@ -228,6 +230,8 @@
           href: cli-create-transform.md
         - name: 작업 만들기 - CLI
           href: cli-create-jobs.md
+        - name: 여러 변환 출력이 있는 작업
+          href: job-multiple-transform-outputs.md
     - name: 콘텐츠 인코딩
       items:
         - name: 작업 입력으로의 HTTPS - .NET
