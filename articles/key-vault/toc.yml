@@ -72,12 +72,12 @@
       items:
         - name: 보안 개요
           href: overview-security.md
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 보안 권역
           href: key-vault-ovw-security-worlds.md
         - name: 키 자격 증명 모음 보안
           href: key-vault-secure-your-key-vault.md
-        - name: 기본 제공 보안 컨트롤
-          href: key-vault-security-controls.md
     - name: 일시 삭제
       href: key-vault-ovw-soft-delete.md
     - name: Key Vault 이벤트 모니터링

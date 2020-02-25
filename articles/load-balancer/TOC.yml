@@ -68,6 +68,8 @@
       href: upgrade-basicInternal-standard.md
     - name: 아웃바운드 규칙 구성
       items:
+        - name: Azure portal
+          href: configure-load-balancer-outbound-portal.md
         - name: Azure CLI
           href: configure-load-balancer-outbound-cli.md
         - name: Azure PowerShell

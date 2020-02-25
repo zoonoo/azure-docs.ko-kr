@@ -41,6 +41,10 @@
       href: cli-samples.md
 - name: 개념
   items:
+    - name: 보안
+      items:
+        - name: 보안 기준
+          href: security-baseline.md
     - name: 개발자 기능
       href: batch-api-basics.md
     - name: API 및 도구

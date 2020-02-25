@@ -21,8 +21,8 @@
     - name: Chef
       items:
         - name: Windows VM 만들기
-          href: /azure/virtual-machines/windows/chef-automation
-- name: 참고 자료
+          href: ./chef-automation.md
+- name: 참조
   items:
     - name: Azure Chef 확장
       href: 'https://docs.chef.io/azure_portal.html#azure-chef-extension'

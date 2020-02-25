@@ -353,9 +353,27 @@
             - name: 출력
               href: functions-bindings-event-grid-output.md
         - name: Event Hubs
-          href: functions-bindings-event-hubs.md
+          items:
+            - name: 개요
+              href: functions-bindings-event-hubs.md
+              displayName: Azure Event Hubs
+            - name: 트리거
+              href: functions-bindings-event-hubs-trigger.md
+              displayName: Azure Event Hubs
+            - name: 출력
+              href: functions-bindings-event-hubs-output.md
+              displayName: Azure Event Hubs
         - name: IoT Hub
-          href: functions-bindings-event-iot.md
+          items:
+            - name: 개요
+              href: functions-bindings-event-iot.md
+              displayName: Azure IoT Hubs
+            - name: 트리거
+              href: functions-bindings-event-iot-trigger.md
+              displayName: Azure IoT Hubs
+            - name: 출력
+              href: functions-bindings-event-iot-output.md
+              displayName: Azure IoT Hubs
         - name: HTTP 및 웹후크
           items:
             - name: 개요
