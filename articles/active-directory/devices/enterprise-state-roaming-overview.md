@@ -1,22 +1,22 @@
 ---
-title: Azure Active Directory의 엔터프라이즈 상태 로밍이란? | Microsoft Docs
-description: Enterprise State Roaming은 사용자의 모든 Windows 디바이스에 통합된 환경을 제공하고 새 디바이스 구성에 드는 시간을 줄여 줍니다.
+title: Azure Active Directory의 엔터프라이즈 상태 로밍이란?
+description: Enterprise State Roaming은 사용자에게 Windows 디바이스에 통합된 환경을 제공합니다.
 services: active-directory
 ms.service: active-directory
 ms.subservice: devices
 ms.topic: overview
-ms.date: 06/28/2019
+ms.date: 02/12/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: na
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: c5b60970592180a2353860369e637d4b9a9bb8f9
-ms.sourcegitcommit: 9b80d1e560b02f74d2237489fa1c6eb7eca5ee10
+ms.openlocfilehash: c22baf0a08718883f0c0c9844cc395f607b5b20d
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/01/2019
-ms.locfileid: "67481902"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194282"
 ---
 # <a name="what-is-enterprise-state-roaming"></a>엔터프라이즈 상태 로밍이란?
 
@@ -28,13 +28,13 @@ Windows 10에서는 [Azure Active Directory(Azure AD)](../fundamentals/active-di
 
 엔터프라이즈 상태 로밍은 여러 Azure 지역에서 사용할 수 있습니다. 사용할 수 있는 지역 목록 업데이트는 Azure Active Directory의 [지역별 Azure 서비스](https://azure.microsoft.com/regions/#services) 페이지에서 확인할 수 있습니다.
 
-| 문서 | 설명 |
+| 아티클 | Description |
 | --- | --- |
-| [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](enterprise-state-roaming-enable.md) |엔터프라이즈 상태 로밍은 프리미엄 Azure Active Directory(Azure AD)를 구독하는 모든 조직에 제공됩니다. Azure AD 구독 방법에 대한 자세한 내용은 [Azure AD 제품](https://azure.microsoft.com/services/active-directory) 페이지를 참조하세요. |
-| [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md) |이 토픽에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다. |
+| [Azure Active Directory에서 엔터프라이즈 상태 로밍 활성화](enterprise-state-roaming-enable.md) |엔터프라이즈 상태 로밍은 프리미엄 Azure Active Directory(Azure AD)를 구독하는 모든 조직에 제공됩니다. Azure AD 구독을 가져오는 방법에 대한 자세한 내용은 [Azure AD 제품](https://azure.microsoft.com/services/active-directory) 페이지를 참조하세요. |
+| [설정 및 데이터 로밍 FAQ](enterprise-state-roaming-faqs.md) |이 문서에서는 설정 및 앱 데이터 동기화에 대한 IT 관리자의 질문에 답변합니다. |
 | [설정 동기화에 대한 그룹 정책 및 MDM 설정](enterprise-state-roaming-group-policy-settings.md) |Windows 10은 설정 동기화를 제한하는 그룹 정책 및 MDM(모바일 디바이스 관리) 정책 설정을 제공합니다. |
-| [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md) |다음은 Windows 10에서 로밍 및/또는 백업되는 모든 설정의 전체 목록입니다. |
-| [문제 해결](enterprise-state-roaming-troubleshooting.md) |이 토픽은 문제 해결을 위한 몇 가지 기본 단계를 살펴 보며 알려진 문제 목록이 포함되어 있습니다. |
+| [Windows 10 로밍 설정 참조](enterprise-state-roaming-windows-settings-reference.md) |Windows 10에서 로밍 및/또는 백업될 설정 목록입니다. |
+| [문제 해결](enterprise-state-roaming-troubleshooting.md) |이 문서에서는 문제 해결을 위한 몇 가지 기본 단계를 안내하고 알려진 문제 목록이 포함되어 있습니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

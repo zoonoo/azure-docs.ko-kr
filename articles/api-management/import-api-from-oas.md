@@ -12,19 +12,19 @@ ms.tgt_pltfrm: na
 ms.topic: tutorial
 ms.date: 07/12/2019
 ms.author: apimpm
-ms.openlocfilehash: 2b5bcd0d3bba914b81e305c88a512645c1a1c258
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 57803ec9889cb6a19dae6d6d1070d8381577aff0
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108517"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77468391"
 ---
 # <a name="import-an-openapi-specification"></a>OpenAPI 사양 가져오기
 
 이 문서에서는 https://conferenceapi.azurewebsites.net?format=json 에 있는 "OpenAPI 사양" 백 엔드 API를 가져오는 방법을 보여줍니다. 이 백 엔드 API는 Microsoft에서 제공하고 Azure에서 호스트됩니다. 또한 APIM API를 테스트하는 방법도 설명합니다.
 
 > [!IMPORTANT]
-> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://blogs.msdn.microsoft.com/apimanagement/2018/04/11/important-changes-to-openapi-import-and-export/)를 참조하세요.
+> OpenAPI 가져오기와 관련된 중요한 정보 및 팁은 이 [문서](https://azure.microsoft.com/blog/announcing-the-preview-of-openapi-specification-v3-support-in-azure-api-management/)를 참조하세요.
 
 이 문서에서는 다음 방법을 설명합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "74108517"
 > * Azure Portal에서 API 테스트
 > * 개발자 포털에서 API 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 빠른 시작을 완료합니다. [Azure API Management 인스턴스 만들기](get-started-create-service-instance.md)
 
@@ -49,11 +49,11 @@ ms.locfileid: "74108517"
 
     ![API 만들기](./media/api-management-get-started/create-api.png)
 
-    |설정|값|설명|
+    |설정|값|Description|
     |---|---|---|
     |**OpenAPI 사양**|https://conferenceapi.azurewebsites.net?format=json|API를 구현하는 서비스를 참조합니다. API 관리는 이 주소로 요청을 전달합니다.|
     |**표시 이름**|*데모 회의 API*|서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다. <br/>이 이름은 개발자 포털에 표시됩니다.|
-    |**Name**|*demo-conference-api*|API의 고유한 이름을 제공합니다. <br/>서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.|
+    |**이름**|*demo-conference-api*|API의 고유한 이름을 제공합니다. <br/>서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.|
     |**설명**|API에 대한 선택적 설명을 제공합니다.|서비스 URL을 입력한 후 tab 키를 누르면 APIM은 json에 포함된 내용에 따라 이 필드를 채웁니다.|
     |**API URL 접미사**|*conference*|접미사는 API Management 서비스의 기준 URL에 추가됩니다. API Management는 접미사를 사용하여 API를 구분하므로, 접미사는 지정된 게시자의 모든 API에 대해 고유해야 합니다.|
     |**URL 구성표**|*HTTPS*|API에 액세스하는 데 사용할 수 있는 프로토콜을 결정합니다. |

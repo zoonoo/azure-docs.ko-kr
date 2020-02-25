@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 01/27/2020
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 94fafd8b0411c1c7a4032769eec0eb5818844648
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 5469c2512e133d17e4d18cebb64ab9e2a21b1f83
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118149"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482308"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-rest-api-and-python"></a>REST API 및 Python을 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -28,9 +28,13 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 - 샘플을 로컬로 실행하려면 [Python](https://www.python.org/downloads/)이 설치되어 있어야 합니다.
 - 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트할 것입니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
 
+## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-training-data"></a>학습 데이터 설정
 
-먼저 필요한 입력 데이터를 설정해야 합니다. 레이블 지정 데이터 기능에는 사용자 지정 모델을 학습시키는 데 필요한 것보다 특별한 입력 요구 사항이 있습니다. 
+다음으로, 필요한 입력 데이터를 설정해야 합니다. 레이블 지정 데이터 기능에는 사용자 지정 모델을 학습시키는 데 필요한 것보다 특별한 입력 요구 사항이 있습니다. 
 
 모든 학습 문서가 동일한 형식인지 확인합니다. 양식의 형식이 여러 개인 경우 공통 형식에 따라 하위 폴더로 구성합니다. 학습시킬 때 API를 하위 폴더로 전달해야 합니다.
 

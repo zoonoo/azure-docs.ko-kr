@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인 | Microsoft Azure Maps'
 description: 이 자습서에서는 Azure Notebooks(Python)를 사용하여 Microsoft Azure Maps Weather Service의 날씨 예측 데이터와 센서 데이터를 조인하는 방법을 보여줍니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/29/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 6d49a305a9b2e02d9e9d743ff8f076f453a08fcb
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: d6b82ec0662745fd9c9a05db28595ff84f57f330
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989623"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208032"
 ---
 # <a name="tutorial-join-sensor-data-with-weather-forecast-data-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks(Python)를 사용하여 센서 데이터와 날씨 예측 데이터 조인
 
@@ -68,7 +68,7 @@ df = pd.read_csv("./data/weather_dataset_demo.csv")
 
 ## <a name="request-daily-forecast-data"></a>일일 예측 데이터 요청
 
-시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps 날씨 서비스의 [일일 예측 API](https://aka.ms/AzureMapsWeatherDailyForecast)를 호출하여 현재 날짜로부터 다음 15일간의 각 풍력 터빈에 대한 일일 날씨 예측을 가져옵니다.
+시나리오에서는 각 센서 위치에 대한 일일 예측을 요청하려고 합니다. 다음 스크립트는 Azure Maps 날씨 서비스의 [Daily Forecast API](https://aka.ms/AzureMapsWeatherDailyForecast)를 호출합니다. 이 API는 현재 날짜로부터 다음 15일 동안 각 풍력 터빈에 대한 날씨 예보를 반환합니다.
 
 
 ```python
@@ -129,7 +129,7 @@ display(Image(poi_range_map))
 ![터빈 위치](./media/weather-service-tutorial/location-map.png)
 
 
-날씨 데이터 센터의 스테이션 ID를 기반으로 하는 데모 데이터를 사용하여 예측 데이터를 그룹화합니다. 이 그룹화는 예측 데이터를 사용하여 데모 데이터를 보강합니다. 
+스테이션 ID를 기반으로 하는 데모 데이터를 사용하여 예측 데이터를 그룹화합니다. 스테이션 ID는 날씨 데이터 센터용입니다. 이 그룹화는 예측 데이터를 사용하여 데모 데이터를 보강합니다.
 
 ```python
 # Group forecasted data for all locations

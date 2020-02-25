@@ -13,15 +13,15 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: tutorial
-ms.date: 08/28/2019
+ms.date: 02/11/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: dc99e23e1b885de25bd2159d7916790cad851108
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1d83dbe756e8e6acdb58861ac359801bc13a63c4
+ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150313"
+ms.lasthandoff: 02/17/2020
+ms.locfileid: "77373225"
 ---
 # <a name="tutorial-azure-active-directory-sso-integration-with-jamf-pro"></a>자습서: Jamf Pro와 Azure Active Directory SSO 통합
 
@@ -31,7 +31,7 @@ ms.locfileid: "77150313"
 * 사용자가 해당 Azure AD 계정으로 Jamf Pro에 자동으로 로그인합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)을 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -42,7 +42,10 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 ## <a name="scenario-description"></a>시나리오 설명
 
-이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. Jamf Pro는 **SP 시작** 및 **IdP 시작** SSO를 지원합니다.
+이 자습서에서는 테스트 환경에서 Azure AD SSO를 구성하고 테스트합니다. 
+
+* Jamf Pro는 **SP 시작** 및 **IdP 시작** SSO를 지원합니다.
+* Jamf Pro를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법 알아보기](https://docs.microsoft.com/cloud-app-security/proxy-deployment-aad)
 
 ## <a name="add-jamf-pro-from-the-gallery"></a>갤러리에서 Jamf Pro 추가
 
@@ -147,20 +150,20 @@ B.Simon이라는 테스트 사용자를 사용하여 Jamf Pro에서 Azure AD SSO
 
     ![Jamf Pro의 Single Sign-On 페이지](./media/jamfprosamlconnector-tutorial/configure3.png)
 
-  a. **편집**을 선택합니다.
+    a. **편집**을 선택합니다.
 
-  b. **Enable Single Sign-On Authentication**(Single Sign-On 인증 사용) 확인란을 선택합니다.
+    b. **Enable Single Sign-On Authentication**(Single Sign-On 인증 사용) 확인란을 선택합니다.
 
-    다. **ID 공급자** 드롭다운 메뉴에서 **Azure**를 옵션으로 선택합니다.
+  다. **ID 공급자** 드롭다운 메뉴에서 **Azure**를 옵션으로 선택합니다.
 
-    d. **ENTITY ID**(엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 필드에 붙여넣습니다.
+  d. **ENTITY ID**(엔터티 ID) 값을 복사하여 Azure Portal에 있는 **기본 SAML 구성** 섹션의 **식별자(엔터티 ID)** 필드에 붙여넣습니다.
 
-    > [!NOTE]
-    > `<SUBDOMAIN>` 필드의 값을 사용하여 Azure Portal의 **기본 SAML 구성** 섹션에서 로그온 URL 및 회신 URL을 완성합니다.
+> [!NOTE]
+> `<SUBDOMAIN>` 필드의 값을 사용하여 Azure Portal의 **기본 SAML 구성** 섹션에서 로그온 URL 및 회신 URL을 완성합니다.
 
-    e. **ID 공급자 메타데이터 원본** 드롭다운 메뉴에서 **메타데이터 URL**을 선택합니다. 표시되는 필드에서 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 붙여넣습니다.
+  e. **ID 공급자 메타데이터 원본** 드롭다운 메뉴에서 **메타데이터 URL**을 선택합니다. 표시되는 필드에서 Azure Portal에서 복사한 **앱 페더레이션 메타데이터 URL** 값을 붙여넣습니다.
 
-    f. (선택 사항) 토큰 만료 값을 편집하거나 "SAML 토큰 만료 사용 안 함"을 선택합니다.
+  f. (선택 사항) 토큰 만료 값을 편집하거나 "SAML 토큰 만료 사용 안 함"을 선택합니다.
 
 7. 동일한 페이지에서 **User Mapping**(사용자 매핑) 섹션까지 아래로 스크롤합니다. 그런 다음, 다음 단계를 수행합니다.
 
@@ -200,7 +203,7 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 해당 사용자를
 
     ![Jamf Pro User Accounts & Groups 페이지의 Create Standard Account 옵션](./media/jamfprosamlconnector-tutorial/user3.png)
 
-6. **New Account**(새 계정) 대화 상자에서 다음 단계를 수행합니다.
+6. **새 계정** 대화 상자에서 다음 단계를 수행합니다.
 
     ![Jamf Pro 시스템 설정의 New Account 설정 옵션](./media/jamfprosamlconnector-tutorial/user4.png)
 
@@ -228,8 +231,8 @@ Azure AD 사용자가 Jamf Pro에 로그인할 수 있도록 해당 사용자를
 
 - [SaaS 애플리케이션과 Azure Active Directory를 통합하는 방법에 대한 자습서](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory의 애플리케이션에 대한 Single Sign-On](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
-
+- [Microsoft Cloud App Security의 세션 제어란?](https://docs.microsoft.com/cloud-app-security/proxy-intro-aad)
 - [Azure AD에서 Jamf Pro 사용해 보기](https://aad.portal.azure.com/)

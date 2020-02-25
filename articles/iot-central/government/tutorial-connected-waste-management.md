@@ -7,12 +7,12 @@ ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
-ms.openlocfilehash: 6b8458ce41a1bdacddc4102e8282bbc638d4c01c
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 274d725a0e7987c8cb15363ba276aec7ebc541d5
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016496"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426363"
 ---
 # <a name="tutorial-create-a-connected-waste-management-application-in-iot-central"></a>자습서: IoT Central에서 연결된 폐기물 관리 애플리케이션 만들기
 
@@ -129,7 +129,7 @@ Azure IoT Central의 디바이스 템플릿은 원격 분석, 속성 또는 명�
 
 디바이스 템플릿을 보려면 다음을 수행합니다.
 
-1. IoT Central에서 애플리케이션의 왼쪽 탐색 창에서 **디바이스 템플릿**을 클릭합니다. 
+1. IoT Central에서 애플리케이션의 왼쪽 창에 있는 **디바이스 템플릿**을 클릭합니다. 
 
     ![디바이스 템플릿](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devicetemplate.png)
 
@@ -177,7 +177,7 @@ IoT Central에서는 시뮬레이션된 디바이스를 만들어서 디바이�
 
 ### <a name="to-view-the-devices"></a>이러한 디바이스를 보려면 다음을 수행합니다.
 
-1. IoT Central 왼쪽 탐색 창에서 **디바이스**로 이동합니다. 
+1. IoT Central 왼쪽 창에서 **디바이스**로 이동합니다. 
 
    ![디바이스](./media/tutorial-connectedwastemanagement/connectedwastemanagement-devices.png)
 
@@ -202,7 +202,7 @@ Azure IoT Central에서 디바이스 원격 분석에 따라 자동으로 모니
 **연결된 폐기물 관리** 애플리케이션에는 4개의 샘플 규칙이 있습니다.
 
 ### <a name="to-view-rules"></a>규칙을 보려면 다음을 수행합니다.
-1. IoT Central 왼쪽 탐색 창에서 **규칙**으로 이동합니다.
+1. IoT Central 왼쪽 창에서 **규칙**으로 이동합니다.
 
    ![규칙](./media/tutorial-connectedwastemanagement/connectedwastemanagement-rules.png)
 
@@ -231,13 +231,13 @@ Azure IoT Central에서 디바이스 원격 분석에 따라 자동으로 모니
 > 이 애플리케이션은 조건이 충족될 때마다 이메일을 전송합니다. 자동화된 규칙으로부터 이메일 수신을 중지하려면 규칙을 **사용 안 함**으로 설정합니다. 
   
 새 규칙을 만들려면 다음을 수행합니다. 
-1. 왼쪽 탐색 창의 **규칙**에서 **+새로 만들기**를 선택합니다.
+1. 왼쪽 창의 **규칙**에서 **+새로 만들기**를 선택합니다.
 
 ## <a name="configure-jobs"></a>작업 구성
 
 IoT Central 작업을 사용하면 여러 디바이스에서 디바이스 또는 클라우드 속성 업데이트를 트리거할 수 있습니다. 속성 외에도 작업을 사용하여 여러 디바이스에서 디바이스 명령을 트리거할 수 있습니다. IoT Central은 워크플로를 자동화합니다. 
 
-1. 왼쪽 탐색 창에서 **작업**으로 이동합니다. 
+1. 왼쪽 창에서 **작업**으로 이동합니다. 
 2. **+새로 만들기**를 클릭하고 하나 이상의 작업을 구성합니다. 
 
 

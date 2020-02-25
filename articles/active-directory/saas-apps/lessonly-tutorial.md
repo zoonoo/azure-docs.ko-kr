@@ -11,17 +11,16 @@ ms.service: active-directory
 ms.subservice: saas-app-tutorial
 ms.workload: identity
 ms.tgt_pltfrm: na
-ms.devlang: na
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/12/2020
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 727d4ec79b142595e59ff63a4afbcbe4a51c2a6d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e7911f52d71501324a1b05c290402cc2ee33a706
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057445"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370420"
 ---
 # <a name="tutorial-azure-active-directory-single-sign-on-sso-integration-with-lessonly"></a>자습서: Lesson.ly와 Azure Active Directory SSO(Single Sign-On) 연결
 
@@ -31,7 +30,7 @@ ms.locfileid: "77057445"
 * 사용자가 해당 Azure AD 계정으로 Lesson.ly에 자동으로 로그인되도록 설정합니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리합니다.
 
-Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)를 참조하세요.
+Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란 무엇인가요?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)를 참조하세요.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -46,6 +45,7 @@ Azure AD와 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Director
 
 * Lesson.ly는 **SP** 시작 SSO를 지원합니다.
 * Lesson.ly는 **Just In Time** 사용자 프로비저닝을 지원합니다.
+* Lesson.ly를 구성한 후에는 세션 제어를 적용하여 조직의 중요한 데이터의 반출 및 침입을 실시간으로 보호할 수 있습니다. 세션 제어는 조건부 액세스에서 확장됩니다. [Microsoft Cloud App Security를 사용하여 세션 제어를 적용하는 방법을 알아봅니다](https://docs.microsoft.com/cloud-app-security/proxy-deployment-any-app).
 
 ## <a name="adding-lessonly-from-the-gallery"></a>갤러리에서 Lesson.ly 추가
 
@@ -83,14 +83,14 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 1. **기본 SAML 구성** 섹션에서 다음 필드에 대한 값을 입력합니다.
 
-     a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.lessonly.com/signin` 패턴을 사용하는 URL을 입력합니다.
+    a. **로그온 URL** 텍스트 상자에서 `https://<companyname>.lessonly.com/auth/saml` 패턴을 사용하는 URL을 입력합니다.
 
     > [!NOTE]
     > **companyname** 을 실제 이름으로 교체해야 하는 일반 이름을 참조하는 경우
     
-     b. **회신 URL(Assertion Customer Service URL)** 텍스트 상자에 `https://<companyname>.lessonly.com/auth/saml/callback` 패턴을 사용하는 URL을 입력합니다.
+    b. **회신 URL(Assertion Customer Service URL)** 텍스트 상자에 `https://<companyname>.lessonly.com/auth/saml/callback` 패턴을 사용하는 URL을 입력합니다.
 
-     다. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.lessonly.com/auth/saml/metadata` 패턴을 사용하는 URL을 입력합니다.
+    다. **식별자(엔터티 ID)** 텍스트 상자에서 `https://<companyname>.lessonly.com/auth/saml/metadata` 패턴을 사용하는 URL을 입력합니다.
     
     > [!NOTE]
     > 이러한 값은 실제 값이 아닙니다. 실제 로그온 URL, 회신 URL 및 식별자로 이러한 값을 업데이트합니다. 이러한 값을 얻으려면 [Lessonly.com 클라이언트 지원 팀](mailto:support@lessonly.com)에 문의하세요. Azure Portal의 **기본 SAML 구성** 섹션에 표시된 패턴을 참조할 수도 있습니다.
@@ -169,7 +169,7 @@ Azure Portal에서 Azure AD SSO를 사용하도록 설정하려면 다음 단계
 
 - [Azure Active Directory와 SaaS 앱을 통합하는 방법에 대한 자습서 목록](https://docs.microsoft.com/azure/active-directory/active-directory-saas-tutorial-list)
 
-- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)
+- [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On이란?](https://docs.microsoft.com/azure/active-directory/manage-apps/what-is-single-sign-on)
 
 - [Azure Active Directory의 조건부 액세스란?](https://docs.microsoft.com/azure/active-directory/conditional-access/overview)
 

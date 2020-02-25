@@ -1,5 +1,6 @@
 ---
-title: 데이터 복사 서비스를 통해 Azure Data Box 디바이스에 데이터를 복사하는 자습서 | Microsoft Docs
+title: '자습서: 데이터 복사 서비스를 사용하여 디바이스에 복사'
+titleSuffix: Azure Data Box
 description: 이 자습서에서는 데이터 복사 서비스를 통해 Azure Data Box 디바이스로 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -8,12 +9,12 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 06/18/2019
 ms.author: alkohli
-ms.openlocfilehash: a8a8b9d872860425be721515a7087085acf12065
-ms.sourcegitcommit: b7a44709a0f82974578126f25abee27399f0887f
+ms.openlocfilehash: 579c1984ee1906519980bbed154921a20ed40b79
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/18/2019
-ms.locfileid: "67206056"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77466980"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box로 데이터 복사(미리 보기)
 
@@ -24,12 +25,12 @@ ms.locfileid: "67206056"
 - NAS 환경에서 중간 호스트를 사용하지 못할 수도 있습니다.
 - 데이터의 수집 및 업로드에 몇 주가 소요되는 작은 파일 사용. 데이터 복사 서비스는 작은 파일에 대한 수집 및 업로드 시간을 대폭 단축시킵니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box에 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 

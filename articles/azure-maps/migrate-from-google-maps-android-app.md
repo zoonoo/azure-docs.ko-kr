@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 855036a5a8e87bd10e9a4d524a1e8ea8bcdccf50
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 9514398ec6a84becd1283e4b0975804101b64086
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086306"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209735"
 ---
 # <a name="migrate-an-android-app-from-google-maps"></a>Google Maps에서 Android 앱 마이그레이션
 
@@ -447,7 +447,7 @@ mapControl.onReady(map -> {
 
 ## <a name="adding-a-marker"></a>표식 추가
 
-지점 데이터는 맵의 이미지를 사용하여 렌더링되는 경우가 많습니다. 이러한 이미지를 표식, 압정, 핀 또는 기호라고 합니다. 다음 예제에서는 맵에서 위도 51.5, 경도 -0.2의 지점 데이터를 표식으로 렌더링합니다.
+지점 데이터는 맵의 이미지를 사용하여 렌더링되는 경우가 많습니다. 이러한 이미지를 표식, 압정, 핀 또는 기호라고 합니다. 다음 예제에서는 맵에서 위도 51.5, 경도 -0.2로 표시됩니다.
 
 **이전: Google Maps**
 
@@ -725,7 +725,7 @@ public void onMapReady(GoogleMap googleMap) {
 타일 레이어를 다른 레이어와 비슷한 방식으로 맵에 추가할 수 있습니다. x, y 및 확대/축소 자리 표시자가 있는 형식이 지정된 URL `{x}`, `{y}`, `{z}`는 각각 타일에 액세스할 위치를 레이어에 알리는 데 사용됩니다. 또한 Azure Maps의 타일 계층은 `{quadkey}`, `{bbox-epsg-3857}` 및 `{subdomain}` 자리 표시자를 지원합니다. 타일 레이어를 반투명하게 만들기 위해 불투명도 값 0.8이 사용됩니다. 불투명도와 투명도는 비슷하지만 반전된 값을 사용합니다. 두 옵션 사이를 변환하려면 숫자 1에서 해당 값을 뺍니다.
 
 > [!TIP]
-> Azure Maps에서는 기본 지도 계층을 포함하여 다른 레이어 아래에 레이어를 렌더링하는 것이 편리합니다. 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용할 수 있습니다.
+> Azure Maps에서는 기본 지도 계층을 포함하여 다른 레이어 아래에 레이어를 렌더링하는 것이 편리합니다. 또한 쉽게 읽을 수 있도록 맵 레이블 아래에 타일 레이어를 렌더링하는 것이 좋은 경우가 많습니다. `map.layers.add` 메서드는 아래에 새 레이어를 삽입할 레이어의 ID인 두 번째 매개 변수를 사용합니다. 타일 계층을 맵 레이블 아래에 삽입하려면 `map.layers.add(myTileLayer, "labels");` 코드를 사용할 수 있습니다.
 
 ```java
 mapControl.onReady(map -> {

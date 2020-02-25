@@ -1,24 +1,19 @@
 ---
-title: .NET Framework 앱에서 Azure App Configuration 동적 구성 사용을 위한 자습서 | Microsoft Docs
-description: 이 자습서에서는 .NET Framework 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봅니다.
+title: '.NET Framework 자습서: Azure App Configuration의 동적 구성'
+description: 이 자습서에서는 Azure App Configuration을 사용하여 .NET Framework 앱의 구성 데이터를 동적으로 업데이트하는 방법을 알아봅니다.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
-ms.assetid: ''
 ms.service: azure-app-configuration
-ms.workload: tbd
 ms.devlang: csharp
 ms.topic: tutorial
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: 7cb76d5836055ce352373fa13449e27d81e84022
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: 7ba3eae4ea5557b4bb1b1be4e2c79eab8f6e7988
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74185245"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484879"
 ---
 # <a name="tutorial-use-dynamic-configuration-in-a-net-framework-app"></a>자습서: .NET Framework에서 동적 구성 사용
 
@@ -28,12 +23,12 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 이 자습서에서는 코드에서 동적 구성 업데이트를 구현하는 방법을 보여줍니다. 빠른 시작에 소개된 앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 .NET Framework 앱 만들기](./quickstart-dotnet-app.md)를 완료합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * App Configuration 저장소의 변경에 따라 .NET Framework 앱의 해당 구성을 업데이트하도록 설정합니다.
 > * 애플리케이션에 최신 구성을 삽입합니다.
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
@@ -120,7 +115,7 @@ App Configuration .NET 클라이언트 라이브러리는 애플리케이션을 
 
 ## <a name="build-and-run-the-app-locally"></a>로컬로 앱 빌드 및 실행
 
-1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 저장소에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
+1. **ConnectionString**이라는 환경 변수를 설정하고, App Configuration 스토리지에 대한 액세스 키로 설정합니다. Windows 명령 프롬프트를 사용하는 경우 다음 명령을 실행하고, 명령 프롬프트를 다시 시작하여 변경 내용을 적용합니다.
 
         setx ConnectionString "connection-string-of-your-app-configuration-store"
 

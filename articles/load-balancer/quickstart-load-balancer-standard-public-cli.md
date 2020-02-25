@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 01/25/2019
 ms.author: allensu
 ms.custom: mvc
-ms.openlocfilehash: 8ef24630d255876c45d9cbc072fc989288f2ac5f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: fdbd002ac946f3ac3a1a67980905d4ed6f5510c5
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837258"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470346"
 ---
 # <a name="quickstart-create-a-standard-load-balancer-to-load-balance-vms-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 VM 부하를 분산하는 표준 Load Balancer 만들기
 
@@ -58,7 +58,10 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
   az network public-ip create --resource-group myResourceGroupSLB --name myPublicIP --sku standard --zone 1
 ```
 
- ```--sku basic```을 사용하여 기본 공용 IP를 만듭니다. 기본은 가용성 영역을 지원하지 않습니다. Microsoft는 프로덕션 워크로드용 표준 SKU를 권장합니다.
+```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ## <a name="create-azure-load-balancer"></a>Azure Load Balancer 만들기
 
@@ -81,6 +84,9 @@ CLI를 로컬로 설치하고 사용하도록 선택하는 경우 이 자습서�
     --frontend-ip-name myFrontEnd \
     --backend-pool-name myBackEndPool       
   ```
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ### <a name="create-the-health-probe"></a>상태 프로브 만들기
 

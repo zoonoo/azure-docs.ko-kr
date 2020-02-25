@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 10/28/2019
 ms.author: erhopf
-ms.openlocfilehash: 3f315f29eab107c9e0e145bd25db71a8cb8b2ace
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: ed37e4f5b84431355b63b3d59b0e49b78eaeed86
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156533"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445624"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -48,13 +48,13 @@ ms.locfileid: "77156533"
 1. 원본 파일의 `OnRecognitionButtonClicked` 처리기에서 `YourSubscriptionKey` 문자열을 찾아 구독 키로 바꿉니다.
 
 
-1. `OnRecognitionButtonClicked` 처리기에서 `YourServiceregion` 문자열을 찾아 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 "Speech SDK 매개 변수"로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
+1. `OnRecognitionButtonClicked` 처리기에서 `YourServiceregion` 문자열을 찾아 구독과 연결된 [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**로 바꿉니다. 예를 들어 평가판 구독의 경우 `westus`를 사용합니다.
 
 1. 다음으로, 다른 플랫폼 프로젝트(예: UWP, Android 및 iOS)에서 마이크 권한을 쿼리하는 데 사용되는 [Xamarin 서비스](https://docs.microsoft.com/xamarin/android/app-fundamentals/services/creating-a-service/)를 만들어야 합니다. 이렇게 하려면 *Services*라는 새 폴더를 hellowworld 프로젝트 아래에 추가하고, 그 아래에 새 C# 소스 파일을 만듭니다. 마우스 오른쪽 단추로 *Services* 폴더를 클릭하고, **추가** > **새 항목** > **코드 파일**을 차례로 선택할 수 있습니다. 파일 이름을 `IMicrophoneService.cs`로 바꾸고, 다음 코드 조각의 모든 코드를 해당 파일에 넣습니다.
 
    [!code-csharp[Quickstart code](~/samples-cognitive-services-speech-sdk/quickstart/csharp/xamarin/helloworld/helloworld/Services/IMicrophoneService.cs)]
 
-#### <a name="androidtabx-android"></a>[Android](#tab/x-android)
+#### <a name="android"></a>[Android](#tab/x-android)
 ## <a name="add-sample-code-for-the-helloworldandroid-project"></a>`helloworld.Android` 프로젝트용 샘플 코드 추가
 
 이제 애플리케이션의 Android 관련 부분을 정의하는 C# 코드를 추가합니다.
@@ -75,7 +75,7 @@ ms.locfileid: "77156533"
    <uses-permission android:name="android.permission.RECORD_AUDIO" />
    ```
    
-#### <a name="iostabios"></a>[iOS](#tab/ios)
+#### <a name="ios"></a>[iOS](#tab/ios)
 ## <a name="add-sample-code-for-the-helloworldios-project"></a>`helloworld.iOS` 프로젝트용 샘플 코드 추가
 
 이제 애플리케이션의 iOS 관련 부분을 정의하는 C# 코드를 추가합니다. 또한 helloworld.iOS 프로젝트에 대한 Apple 디바이스 특정 구성을 만듭니다.
@@ -100,7 +100,7 @@ ms.locfileid: "77156533"
 
 1. Windows PC에서 빌드하는 경우 **도구** > **iOS** > **Mac에 페어링**을 통해 빌드할 Mac 디바이스에 대한 연결을 설정합니다. Visual Studio에서 제공하는 지침 마법사에 따라 Mac 디바이스에 대한 연결을 설정합니다.
 
-#### <a name="uwptabhelloworlduwp"></a>[UWP](#tab/helloworlduwp)
+#### <a name="uwp"></a>[UWP](#tab/helloworlduwp)
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>`helloworld.UWP` 프로젝트용 샘플 코드 추가
 
 ## <a name="add-sample-code-for-the-helloworlduwp-project"></a>helloworld.UWP 프로젝트의 샘플 코드 추가

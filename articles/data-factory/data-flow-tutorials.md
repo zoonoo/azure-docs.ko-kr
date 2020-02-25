@@ -6,12 +6,12 @@ ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
 ms.date: 02/06/2020
-ms.openlocfilehash: 00b51c14a24b525d98e9634a4f416177364228cb
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069592"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77460538"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
@@ -68,6 +68,8 @@ ms.locfileid: "77069592"
 [조건부 분할 변환](http://youtu.be/W1lQHojhKZw?hd=1)
 
 [Exists 변환](http://youtu.be/GS8JVgNBMfs?hd=1)
+
+[동적 조인 및 동적 조회](https://youtu.be/CMOPPie9bXM)
 
 ## <a name="source-and-sink"></a>원본 및 싱크
 
@@ -136,3 +138,5 @@ ms.locfileid: "77069592"
 ## <a name="data-flow-expressions"></a>데이터 흐름 식
 
 [날짜/시간 식](https://www.youtube.com/watch?v=uboyCZ25r_E&feature=youtu.be&hd=1)
+
+[배열 및 Case 문 분할](https://www.youtube.com/watch?v=DHNH8ZO7YjI)

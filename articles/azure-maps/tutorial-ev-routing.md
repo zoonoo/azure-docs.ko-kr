@@ -1,24 +1,24 @@
 ---
 title: '자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python) | Microsoft Azure Maps'
 description: Microsoft Azure Maps 라우팅 API 및 Azure Notebooks를 사용하여 전기 차량을 라우팅합니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 11/12/2019
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: dfc9c045af5347ebd3f15df48d5a5756dd2a9e05
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 22a8561d69dd0eeb22f9fe025f5b792422db2c17
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844754"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208168"
 ---
 # <a name="tutorial-route-electric-vehicles-by-using-azure-notebooks-python"></a>자습서: Azure Notebooks를 사용하여 전기 차량 라우팅(Python)
 
-Azure Maps는 기본적으로 Azure에 통합된 지리 공간적 서비스 API의 포트폴리오입니다. 이러한 API를 통해 개발자, 엔터프라이즈 및 ISV는 위치 인식 앱, IoT, 이동성, 물류 및 자산 추적 솔루션을 만들 수 있습니다. 
+Azure Maps는 기본적으로 Azure에 통합된 지리 공간적 서비스 API의 포트폴리오입니다. 이러한 API를 통해 개발자, 엔터프라이즈 및 ISV는 위치 인식 앱, IoT, 이동성, 물류 및 자산 추적 솔루션을 개발할 수 있습니다. 
 
 Python 및 R과 같은 언어에서 Azure Maps REST API를 호출하여 지리 공간적 데이터 분석 및 기계 학습 시나리오를 사용할 수 있습니다. Azure Maps는 사용자가 여러 데이터 포인트 간의 경로를 계산할 수 있는 강력한 [라우팅 API](https://docs.microsoft.com/rest/api/maps/route) 세트를 제공합니다. 계산은 차량 유형 또는 도달 가능한 영역과 같은 다양한 조건을 기반으로 합니다. 
 
@@ -74,7 +74,7 @@ Azure Maps의 인증에 대한 자세한 내용은 [Azure Maps의 인증 관리]
 
 1. 업로드가 성공적으로 완료되면, 프로젝트 페이지에 파일이 표시됩니다. 파일을 두 번 클릭하여 Jupyter Notebook으로 엽니다.
 
-Notebook 파일에 구현된 기능을 더 잘 이해하려면 Notebook에서 한 번에 한 셀씩 코드를 실행합니다. Notebook 앱의 위쪽에서 **실행** 단추를 선택하여 각 셀의 코드를 실행할 수 있습니다.
+Notebook 파일에 구현된 기능을 이해하세요. Notebook 파일에서 한 번에 하나의 셀로 코드를 실행합니다. Notebook 앱의 위쪽에서 **실행** 단추를 선택하여 각 셀의 코드를 실행할 수 있습니다.
 
   ![실행 단추](./media/tutorial-ev-routing/run.png)
 
@@ -156,7 +156,7 @@ boundsData = {
 
 전기 차량의 도달 가능한 범위(등시선)가 결정되면 해당 범위 내에서 충전소를 검색할 수 있습니다. 
 
-다음 스크립트는 Azure Maps [기하 도형 내 사후 검색 API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)를 호출합니다. 차량의 최대 도달 가능한 범위의 경계 내에서 전기 차량 충전소를 검색한 다음, 응답을 도달 가능한 위치의 배열로 구문 분석합니다.
+다음 스크립트는 Azure Maps [기하 도형 내 사후 검색 API](https://docs.microsoft.com/rest/api/maps/search/postsearchinsidegeometry)를 호출합니다. 자동차의 최대 도달 가능 범위 내에서 전기 차량의 충전소를 검색합니다. 그런 다음, 스크립트는 도달 가능한 위치의 배열로 응답을 구문 분석합니다.
 
 도달 가능한 범위 내에서 전기 차량 충전소를 검색하려면 다음 스크립트를 실행합니다.
 

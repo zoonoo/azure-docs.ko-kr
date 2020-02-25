@@ -8,31 +8,32 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/25/2019
 ms.author: alkohli
-ms.openlocfilehash: 0b106e0412de972801fa8782de08269e13042191
-ms.sourcegitcommit: 6da4959d3a1ffcd8a781b709578668471ec6bf1b
+ms.openlocfilehash: 63d88f1b9903eaad7ed4f57f59ca2a49445e3d40
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/27/2019
-ms.locfileid: "58517915"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77365313"
 ---
 # <a name="tutorial-provision-azure-data-box-gateway-in-hyper-v"></a>자습서: Hyper-V에서 Azure Data Box Gateway 프로비저닝
 
 ## <a name="overview"></a>개요
 
-이 자습서에서는 Windows Server 2016, Windows Server 2012 R2 또는 Windows Server 2012에서 Hyper-V를 실행하는 호스트 시스템에 Data Box Gateway를 프로비전하는 방법을 설명합니다. 
+이 자습서에서는 Windows Server 2016, Windows Server 2012 R2 또는 Windows Server 2012에서 Hyper-V를 실행하는 호스트 시스템에 Data Box Gateway를 프로비전하는 방법을 설명합니다.
 
 가상 디바이스를 프로비전하고 구성하려면 관리자 권한이 필요합니다. 프로비전 및 초기 설정을 완료하는 데 10분 정도가 소요됩니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
+>
 > * 호스트가 최소 디바이스 요구 사항을 충족하는지 확인
 > * 하이퍼바이저에서 가상 디바이스 프로비전
 > * 가상 디바이스 시작 및 IP 주소 가져오기
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 호스트 시스템에 가상 디바이스를 프로비전하기 위한 필수 조건은 다음과 같습니다.
 
@@ -44,8 +45,8 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 * [Data Box Gateway에 대한 포털 준비](data-box-gateway-deploy-prep.md)에 설명된 대로 Azure Portal에서 Hyper-V에 대한 가상 디바이스 이미지를 다운로드했습니다.
 
   > [!IMPORTANT]
-  > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에만 사용할 수 있습니다.
- 
+  > Data Box Gateway에서 실행되는 소프트웨어는 Data Box Gateway 리소스에서만 사용할 수 있습니다.
+
 ### <a name="for-the-data-box-gateway-virtual-device"></a>Data Box Gateway 가상 디바이스의 경우
 
 디바이스를 배포하기 전에 다음 사항을 확인합니다.
@@ -54,7 +55,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 * 가상 디스크 프로비전을 위해 호스트 시스템에서 다음 리소스를 전용할 수 있습니다.
 
   * 코어 4개 이상
-  * RAM 8GB 이상 
+  * RAM 8GB 이상
   * 네트워크 인터페이스 하나
   * 250GB OS 디스크
   * 데이터용 2TB 가상 디스크
@@ -65,7 +66,6 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 
 - Data Box Gateway를 배포하기 위한 네트워킹 요구 사항을 검토하고, 요구 사항에 따라 데이터 센터 네트워크를 구성합니다. 자세한 내용은 [Data Box Gateway 네트워킹 요구 사항](data-box-gateway-system-requirements.md#networking-port-requirements)을 참조하세요.
 - 디바이스가 최적으로 작동할 수 있도록 최소 인터넷 대역폭이 20Mbps인지 확인합니다.
-
 
 ## <a name="check-the-host-system"></a>호스트 시스템 확인
 
@@ -127,18 +127,17 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 14. **하드 드라이브** 페이지에서 **가상 하드 디스크** 옵션을 선택하고 **새로 만들기**를 클릭합니다. **새 가상 하드 디스크 마법사**가 시작됩니다.
 
     ![새 가상 하드 디스크 마법사](./media/data-box-gateway-deploy-provision-hyperv/image12.png)
-1. 새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
-2. **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다.
-   
-17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크는 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다. 
+15. 새 가상 하드 디스크 마법사의 **시작하기 전에** 페이지에서 **다음**을 클릭합니다.
+16. **디스크 형식 선택** 페이지에서 **VHDX** 형식의 기본 옵션을 적용합니다. **다음**을 클릭합니다.
+17. **디스크 유형 선택** 페이지에서 가상 하드 디스크 유형을 **동적 확장**(권장)으로 설정합니다. **고정 크기** 디스크는 작동은 되지만 오래 기다려야 할 수 있습니다. **차이점 보관용** 옵션은 사용하지 않는 것이 좋습니다. **다음**을 클릭합니다.
 
     ![디스크 유형 선택 페이지](./media/data-box-gateway-deploy-provision-hyperv/image13.png)
 18. **이름 및 위치 지정** 페이지에서 데이터 디스크의 **이름** 및 **위치**(해당 위치로 이동 가능)를 입력합니다. **다음**을 클릭합니다.
 
     ![이름 및 위치 지정 페이지](./media/data-box-gateway-deploy-provision-hyperv/image14.png)
-19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다. 
+19. **디스크 구성** 페이지에서 **비어 있는 새 가상 하드 디스크 만들기** 옵션을 선택하고 크기를 **2TB**(또는 그 이상)로 지정합니다.
     
-    2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 그러나 데이터 디스크를 추가하여 디스크를 확장할 수 있습니다. **다음**을 클릭합니다.
+    2TB가 최소 요구 사항이지만 언제든지 더 큰 디스크를 프로비전할 수 있습니다. 프로비전한 후에는 디스크를 축소할 수 없습니다. 디스크를 축소하려고 하면 디바이스의 모든 로컬 데이터가 손실됩니다. 데이터 디스크 확장은 지원되지 않습니다. **다음**을 클릭합니다.
 
     ![디스크 구성 페이지](./media/data-box-gateway-deploy-provision-hyperv/image15.png)
 20. **요약** 페이지에서 가상 데이터 디스크의 세부 정보를 검토한 후 만족스러우면 **마침**을 클릭하여 디스크를 만듭니다. 마법사가 닫히고 가상 하드 디스크가 컴퓨터에 추가됩니다.
@@ -165,7 +164,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
     
 7. 네트워크를 구성하려면 `Get-HcsIpAddress` 명령을 사용하여 가상 디바이스에서 사용하도록 설정된 네트워크 인터페이스 목록을 표시합니다. 디바이스에 사용하도록 설정된 네트워크 인터페이스가 하나인 경우에는 `Ethernet`이라는 기본 이름이 인터페이스에 할당됩니다.
 
-8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하세요.
+8. `Set-HcsIpAddress` cmdlet을 사용하여 네트워크를 구성합니다. 다음 예제를 참조하십시오.
 
     `Set-HcsIpAddress –Name Ethernet –IpAddress 10.161.22.90 –Netmask 255.255.255.0 –Gateway 10.161.22.1`
     
@@ -190,9 +189,7 @@ Windows Server 2016 또는 Windows Server 2012 R2에서 Hyper-V를 실행하는 
 > * 하이퍼바이저에서 가상 디바이스 프로비전
 > * 가상 디바이스 시작 및 IP 주소 가져오기
 
-가상 디바이스를 연결, 설정 및 활성화하는 방법을 알아보려면 다음 자습서로 이동합니다.
+다음 자습서로 이동하여 가상 디바이스를 연결하고, 설정하고, 활성화하는 방법을 알아보세요.
 
 > [!div class="nextstepaction"]
 > [Data Box Gateway 연결 및 설정](./data-box-gateway-deploy-connect-setup-activate.md)
-
-

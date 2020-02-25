@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: corywink
-ms.openlocfilehash: 4e699b0fdbc22594a181d83c9650d569b35c52f3
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: b905b1e86810b25c4c94072d6cd414b993e2a883
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024163"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77426195"
 ---
 # <a name="take-a-tour-of-the-azure-iot-central-ui"></a>Azure IoT Central UI 둘러보기
 
@@ -59,10 +59,10 @@ _운영자_는 Azure IoT Central UI를 사용하여 Azure IoT Central 솔루션�
 
 ## <a name="navigate-your-application"></a>애플리케이션 탐색
 
-IoT 애플리케이션 내부로 이동한 후에는 왼쪽 창을 사용하여 다른 영역에 액세스합니다. 탐색 모음 위에 있는 세 개의 선 아이콘을 선택하여 탐색 모음을 확장하거나 축소할 수 있습니다.
+IoT 애플리케이션 내부로 이동한 후에는 왼쪽 창을 사용하여 다른 영역에 액세스합니다. 창 위에 있는 세 개의 선 아이콘을 선택하여 왼쪽 창을 확장하거나 축소할 수 있습니다.
 
 > [!NOTE]
-> 탐색 모음에 표시되는 항목은 사용자 역할에 따라 달라집니다. [사용자 및 역할 관리](howto-manage-users-roles.md)에 대해 자세히 알아보세요. 
+> 왼쪽 창에 표시되는 항목은 사용자 역할에 따라 다릅니다. [사용자 및 역할 관리](howto-manage-users-roles.md)에 대해 자세히 알아보세요. 
 
 :::row:::
   :::column span="":::

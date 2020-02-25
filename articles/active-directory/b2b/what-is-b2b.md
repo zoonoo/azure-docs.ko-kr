@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: overview
-ms.date: 01/23/2020
+ms.date: 02/12/2020
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3fc1129b4ca6d0618e6b818a103e2a5513f69f3d
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: c5ccfb4719d14d0ce73caf093c5fe63631eda2a7
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76758220"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77195218"
 ---
 # <a name="what-is-guest-user-access-in-azure-active-directory-b2b"></a>Azure Active Directory B2B의 게스트 사용자 액세스란?
 
@@ -30,23 +30,29 @@ Azure AD(Azure Active Directory) B2B(business-to-business) 협업을 사용하�
 >[!VIDEO https://www.youtube.com/embed/AhwrweCBdsc]
 
 ## <a name="collaborate-with-any-partner-using-their-identities"></a>ID를 사용하여 파트너와 공동 작업
-Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로 조직에 대한 외부 관리 오버헤드가 없습니다. 
-- 파트너는 자체 ID 및 자격 증명을 사용하고, Azure AD는 필요하지 않습니다. 
-- 외부 계정 또는 암호를 관리할 필요가 없습니다. 
+
+Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로 조직에 대한 외부 관리 오버헤드가 없습니다.
+
+- 파트너는 자체 ID 및 자격 증명을 사용하고, Azure AD는 필요하지 않습니다.
+- 외부 계정 또는 암호를 관리할 필요가 없습니다.
 - 계정을 동기화하거나 계정 수명 주기를 관리할 필요가 없습니다.  
 
 ![멤버 추가 페이지를 보여 주는 스크린샷](media/what-is-b2b/add-member.png)
 
 ## <a name="invite-guest-users-with-a-simple-invitation-and-redemption-process"></a>간단한 초대 및 사용 프로세스를 사용하여 게스트 사용자 초대
+
 게스트 사용자는 자신의 회사, 학교 또는 소셜 ID로 앱 및 서비스에 로그인합니다. 게스트 사용자에게 Microsoft 계정이나 Azure AD 계정이 없는 경우 해당 사용자가 초대를 사용하면 해당 사용자의 계정이 만들어집니다. 
+
 - 선택한 메일 ID를 사용하여 게스트 사용자를 초대합니다.
-- 앱의 직접 링크를 보내거나 게스트 사용자 소유의 액세스 패널에 초대를 보냅니다. 
+- 앱의 직접 링크를 보내거나 게스트 사용자 소유의 액세스 패널에 초대를 보냅니다.
 - 게스트 사용자는 로그인하기 위해 몇 가지 간단한 사용 단계를 따릅니다.
 
 ![권한 검토 페이지를 보여 주는 스크린샷](media/what-is-b2b/consentscreen.png)
 
 ## <a name="use-policies-to-securely-share-your-apps-and-services"></a>정책을 사용하여 안전하게 앱 및 서비스 공유
+
 권한 부여 정책을 사용하여 회사 콘텐츠를 보호할 수 있습니다. 다단계 인증 등의 조건부 액세스 정책을 적용할 수 있습니다.
+
 - 테넌트 수준에서 적용
 - 애플리케이션 수준에서 적용
 - 회사 앱과 데이터를 보호하기 위해 특정 게스트 사용자에 적용
@@ -57,6 +63,7 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 ## <a name="easily-add-guest-users-in-the-azure-ad-portal"></a>Azure AD 포털에서 간편하게 게스트 사용자 추가
 
 관리자는 게스트 사용자를 Azure Portal의 조직에 손쉽게 추가할 수 있습니다.
+
 - 새 사용자를 추가하는 방법과 비슷하게 Azure AD에서 새 게스트 사용자를 만듭니다.
 - 게스트 사용자는 자신의 액세스 패널에 로그인하는 데 사용할 수 있는 사용자 지정 가능한 초대를 즉시 받습니다.
 - 디렉터리에 있는 게스트 사용자를 앱 또는 그룹에 할당할 수 있습니다.  
@@ -65,19 +72,19 @@ Azure AD B2B에서는 파트너가 자체 ID 관리 솔루션을 사용하므로
 
 ## <a name="let-application-and-group-owners-manage-their-own-guest-users"></a>애플리케이션 및 그룹 소유자가 자신의 게스트 사용자를 관리할 수 있음
 
-Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플리케이션에 게스트 사용자를 직접 추가할 수 있도록 게스트 사용자 관리를 애플리케이션 소유자에게 위임할 수 있습니다. 
- - 관리자가 셀프 서비스 앱 및 그룹 관리를 설정합니다.
- - 관리자가 아닌 사용자는 자신의 [액세스 패널](https://myapps.microsoft.com)을 사용하여 애플리케이션 또는 그룹에 게스트 사용자를 추가합니다.
+Microsoft 애플리케이션인지 여부에 관계없이 공유하려는 애플리케이션에 게스트 사용자를 직접 추가할 수 있도록 게스트 사용자 관리를 애플리케이션 소유자에게 위임할 수 있습니다.
+
+- 관리자가 셀프 서비스 앱 및 그룹 관리를 설정합니다.
+- 관리자가 아닌 사용자는 자신의 [액세스 패널](https://myapps.microsoft.com)을 사용하여 애플리케이션 또는 그룹에 게스트 사용자를 추가합니다.
 
 ![게스트 사용자에 대한 액세스 패널을 보여 주는 스크린샷](media/what-is-b2b/access-panel-manage-app.png)
 
-## <a name="use-apis-and-sample-code-to-easily-build-applications-to-onboard"></a>API 및 샘플 코드를 사용하여 등록할 애플리케이션을 쉽게 빌드할 수 있음
+## <a name="customize-the-onboarding-experience-for-b2b-guest-users"></a>B2B 게스트 사용자를 위한 온보딩 환경 사용자 지정
 
 조직의 요구에 맞게 사용자 지정된 방식으로 외부 파트너를 등록하세요.
-- [B2B 협업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 셀프 서비스 등록 포털 생성을 포함하여 등록 환경을 사용자 지정할 수 있습니다. 
-- [GitHub](https://github.com/Azure/active-directory-dotnet-graphapi-b2bportal-web)의 셀프 서비스 포털에 Microsoft가 제공하는 샘플 코드를 사용합니다.
 
-![샘플 등록 포털을 보여 주는 스크린샷](media/what-is-b2b/sign-up-portal.png)
+- [Azure AD 권한 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-overview)를 사용하여 [외부 사용자에 대한 액세스를 관리](https://docs.microsoft.com/azure/active-directory/governance/entitlement-management-external-users#how-access-works-for-external-users)하는 정책을 구성할 수 있습니다.
+- [B2B 협업 초대 API](https://developer.microsoft.com/graph/docs/api-reference/v1.0/resources/invitation)를 사용하여 온보딩 환경을 사용자 지정합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

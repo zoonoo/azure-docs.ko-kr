@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 01/27/2020
 ms.author: allensu
 ms:custom: seodec18
-ms.openlocfilehash: 50a7854688164383bff08bfe55d356fe32239812
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 0cd2bb54bb436beaa933195b88bc6f13a1b23e6f
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846522"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470448"
 ---
 # <a name="quickstart-create-a-load-balancer-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 Load Balancer 만들기
 
@@ -68,7 +68,10 @@ $publicIp = New-AzPublicIpAddress `
  -zone 1
 ```
 
-```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 사용을 권장합니다.
+```-SKU Basic```을 사용하여 기본 공용 IP를 만듭니다. 기본 공용 IP는 **표준** 부하 분산 장치와 호환되지 않습니다. Microsoft는 프로덕션 워크로드용 **표준** 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ## <a name="create-load-balancer"></a>부하 분산 장치 만들기
 
@@ -161,6 +164,9 @@ $lb = New-AzLoadBalancer `
 ```
 
 ```-SKU Basic```을 사용하여 기본 Load Balancer를 만듭니다. Microsoft는 프로덕션 워크로드용 표준 사용을 권장합니다.
+
+> [!IMPORTANT]
+> 이 빠른 시작의 나머지 부분에서는 위의 SKU 선택 프로세스 중에 **표준** SKU가 선택되었다고 가정합니다.
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 일부 VM을 배포하고 부하 분산 장치를 테스트하려면 지원하는 네트워크 리소스 - 가상 네트워크 및 가상 NIC를 만들어야 합니다. 

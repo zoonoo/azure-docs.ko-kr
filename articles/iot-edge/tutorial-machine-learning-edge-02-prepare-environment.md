@@ -8,12 +8,12 @@ ms.date: 1/23/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: a36427616691b0a0d400dadb4e35c2f7fbf23b22
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 572441fe13dfeff550e2e541c3d775bd4c3d433e
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722295"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77482907"
 ---
 # <a name="tutorial-set-up-an-environment-for-machine-learning-on-iot-edge"></a>자습서: IoT Edge의 기계 학습에 사용할 환경 설정
 
@@ -26,7 +26,7 @@ ms.locfileid: "76722295"
 
 이 단계는 일반적으로 클라우드 개발자가 수행합니다. 일부 소프트웨어는 데이터 과학자도 유용하게 사용할 수 있습니다.
 
-많은 필수 구성 요소가 이미 구성된 Azure 가상 머신을 만드는 PowerShell 스크립트를 만들었습니다. 우리가 만드는 VM은 [중첩 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)를 처리할 수 있어야 하므로 [Standard_D8s_v3](../virtual-machines/windows/sizes-general.md#dsv3-series-1) 머신 크기를 선택했습니다.
+많은 필수 구성 요소가 이미 구성된 Azure 가상 머신을 만드는 PowerShell 스크립트를 만들었습니다. 우리가 만드는 VM은 [중첩 가상화](https://docs.microsoft.com/azure/virtual-machines/windows/nested-virtualization)를 처리할 수 있어야 하므로 [Standard_D8s_v3](../virtual-machines/dv3-dsv3-series.md) 머신 크기를 선택했습니다.
 
 개발 VM을 설정하려면 다음이 필요합니다.
 
@@ -35,7 +35,7 @@ ms.locfileid: "76722295"
 * [Windows용 Docker Desktop](https://www.docker.com/products/docker-desktop)
 * [Windows용 Git](https://gitforwindows.org/)
 * [Windows용 Git Credential Manager](https://github.com/Microsoft/Git-Credential-Manager-for-Windows)
-* [.Net Core SDK](https://dotnet.microsoft.com/)
+* [.NET Core SDK](https://dotnet.microsoft.com/)
 * [Python 3](https://www.python.org/)
 * [Visual Studio Code](https://code.visualstudio.com/)
 * [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview?view=azps-1.1.0)
@@ -52,7 +52,7 @@ ms.locfileid: "76722295"
 
 1. [Machine Learning 및 IoT Edge](https://github.com/Azure-Samples/IoTEdgeAndMlSample) 샘플 리포지토리를 로컬 컴퓨터에 복제하거나 다운로드합니다.
 
-1. Powershell을 관리자 권한으로 열고 코드를 다운로드한 루트 디렉터리 아래에 있는 **\IoTEdgeAndMlSample\DevVM** 디렉터리로 이동합니다. 원본의 루트 디렉터리를 `srcdir`로 참조할 것입니다.
+1. PowerShell을 관리자 권한으로 열고 코드를 다운로드한 루트 디렉터리 아래에 있는 **\IoTEdgeAndMlSample\DevVM** 디렉터리로 이동합니다. 원본의 루트 디렉터리를 `srcdir`로 참조할 것입니다.
 
     ```powershell
     cd c:\srcdir\IoTEdgeAndMlSample\DevVM

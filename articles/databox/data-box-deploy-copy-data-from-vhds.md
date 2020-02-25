@@ -1,5 +1,6 @@
 ---
-title: Azure Data Box를 통해 VHD의 데이터를 관리 디스크에 복사하는 자습서 | Microsoft Docs
+title: '자습서: VHD에서 관리 디스크로 복사'
+titleSuffix: Azure Data Box
 description: 온-프레미스 VM 워크로드의 VHD에서 Azure Data Box로 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
@@ -8,18 +9,18 @@ ms.subservice: pod
 ms.topic: tutorial
 ms.date: 09/03/2019
 ms.author: alkohli
-ms.openlocfilehash: 4b7182d1fa70a146da1c01273ffe1032f2982546
-ms.sourcegitcommit: 6794fb51b58d2a7eb6475c9456d55eb1267f8d40
+ms.openlocfilehash: 8f076deaafd938dc93800cf351bf471cead5f009
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/04/2019
-ms.locfileid: "70240453"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471230"
 ---
 # <a name="tutorial-use-data-box-to-import-data-as-managed-disks-in-azure"></a>자습서: Data Box를 사용하여 Azure의 관리 디스크로 데이터 가져오기
 
 이 자습서에서는 Azure Data Box를 사용하여 Azure의 관리 디스크로 온-프레미스 VHD를 마이그레이션하는 방법을 설명합니다. 온-프레미스 VM의 VHD는 Data Box에 페이지 Blob으로 복사되며 관리 디스크로 Azure에 업로드됩니다. 그런 다음, 이러한 관리 디스크를 Azure VM에 연결할 수 있습니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 필수 구성 요소 검토
@@ -27,7 +28,7 @@ ms.locfileid: "70240453"
 > * Data Box에 데이터 복사
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 

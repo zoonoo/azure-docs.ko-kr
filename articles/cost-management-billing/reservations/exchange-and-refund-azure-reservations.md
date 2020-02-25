@@ -2,20 +2,16 @@
 title: Azure Reservations의 셀프 서비스 교환 및 환불
 description: Azure Reservations을 교환하거나 환불하는 방법을 알아봅니다.
 author: yashesvi
-manager: yashesvi
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 01/24/2020
+ms.date: 02/12/2020
 ms.author: banders
-ms.openlocfilehash: 5f0c0c50ffd639109fdbb90c76e4ec036a8bc975
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 393db5d2e14e047ade04e0b688582e272c6ca44f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76773892"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200438"
 ---
 # <a name="self-service-exchanges-and-refunds-for-azure-reservations"></a>Azure Reservations의 셀프 서비스 교환 및 환불
 
@@ -72,12 +68,10 @@ Azure에는 취소, 교환 및 환불에 대해 다음과 같은 정책이 있�
 - 교환에 대한 위약금이나 연간 한도는 없습니다.
 
 **환불 정책**
-- 예약을 취소하면 12%의 조기 종료 수수료가 있습니다.
-- 취소에 대한 환불은 12%의 조기 종료 수수료를 뺀 나머지 비례 배분 잔액입니다. 취소하려면 Azure Portal의 예약으로 이동하여 **환불**을 선택합니다.
+- 향후 취소 시 12%의 조기 해지 수수료가 부과될 수 있습니다. 현재 이 페널티를 부과하지 않습니다.
 - 총 환불 금액은 12개월 롤링 기간 동안 $50,000USD를 초과할 수 없습니다.
 - 환불은 예약의 구매 가격 또는 현재 가격 중 가장 낮은 가격을 기준으로 계산됩니다.
-- 예약 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
-- Microsoft는 모든 반환에 대해 12% 위약금을 부과할 권리를 보유합니다. 현재는 위약금이 청구되지 않지만 향후 청구될 예정입니다.
+- 예약 주문 소유자만 환불을 처리할 수 있습니다. [예약을 관리할 수 있는 사용자를 추가 또는 변경하는 방법을 알아보세요](manage-reserved-vm-instance.md#add-or-change-users-who-can-manage-a-reservation).
 
 ## <a name="exchange-non-premium-storage-for-premium-storage"></a>프리미엄이 아닌 스토리지를 프리미엄 스토리지로 교환
 

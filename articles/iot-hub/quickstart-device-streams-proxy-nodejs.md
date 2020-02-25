@@ -9,65 +9,60 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 7f2b98f196a0889406e7821c60db7066a21b9178
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: f7dfa1bf391e4affba52fc40a8c22ea9b5f4b4df
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084277"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470686"
 ---
 # <a name="quickstart-enable-ssh-and-rdp-over-an-iot-hub-device-stream-by-using-a-nodejs-proxy-application-preview"></a>빠른 시작: Node.js 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-4-selector](../../includes/iot-hub-quickstarts-4-selector.md)]
 
+이 빠른 시작에서는 디바이스 스트림을 통해 디바이스로 전송되는 SSH(Secure Shell) 및 RDP(Remote Desktop Protocol) 트래픽을 사용하도록 설정합니다. Azure IoT Hub 디바이스 스트림은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 이 빠른 시작에서는 서비스쪽에서 실행 중인 Node.js 프록시 애플리케이션을 실행하는 방법을 설명합니다. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽의 디바이스 스트림만 지원합니다. 결과적으로 이 빠른 시작에서는 서비스-로컬 프록시 애플리케이션만 실행하는 지침에 대해 설명합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
+
+* [C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-c.md) 또는 [C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-csharp.md) 완료.
+
+* 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+
+* [Node.js 10 이상](https://nodejs.org).
+
+* [샘플 Node.js 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
+
+다음 명령을 사용하여 개발 머신에서 Node.js의 현재 버전을 확인할 수 있습니다.
+
+```cmd/sh
+node --version
+```
+
 Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
 
-[IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 
-
-이 빠른 시작에서는 서비스 쪽에서 실행되는 Node.js 프록시 애플리케이션을 실행하여 디바이스 스트림을 통해 SSH(Secure Shell) 및 RDP(원격 데스크톱 프로토콜) 트래픽을 디바이스에 보낼 수 있도록 합니다. 설정 개요는 [로컬 프록시 샘플](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)을 참조하세요. 
-
-공개 미리 보기 동안 Node.js SDK는 서비스 쪽의 디바이스 스트림만 지원합니다. 결과적으로 이 빠른 시작에서는 서비스-로컬 프록시 애플리케이션만 실행하는 지침에 대해 설명합니다. 디바이스-로컬 프록시 애플리케이션을 실행하려면 다음을 참조하세요.  
-
-   * [C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-c.md)
-   * [C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-csharp.md)
-
-이 문서에서는 먼저 SSH 설정(22 포트 사용)을 설명한 다음, RDP 설정(3389 포트 사용)을 수정하는 방법을 설명합니다. 디바이스 스트림은 애플리케이션 및 프로토콜에 구속받지 않으므로 다른 유형의 클라이언트-서버 트래픽을 수용하도록 동일한 샘플을 수정할 수 있습니다(일반적으로 통신 포트를 수정함).
-
+> [!IMPORTANT]
+> 디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+>
+> * 미국 중부
+> * 미국 중부 EUAP
+> * 북유럽
+> * 동남아시아
+  
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+### <a name="add-azure-iot-extension"></a>Azure IoT 확장 추가
 
-## <a name="prerequisites"></a>필수 조건
+다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 관련 명령을 Azure CLI에 추가합니다.
 
-* 디바이스 스트림 미리 보기는 현재 다음 Azure 지역에서 만든 IoT Hub만 지원합니다.
-
-  * 미국 중부
-  * 미국 중부 EUAP
-  * 동남아시아
-  * 북유럽
-  
-
-* 이 빠른 시작에서 서비스-로컬 애플리케이션을 실행하려면 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
-  * 여러 플랫폼에서 사용할 [Node.js](https://nodejs.org)를 다운로드합니다.
-  * 다음 명령을 사용하여 개발 머신에서 Node.js의 현재 버전을 확인합니다.
-
-   ```
-   node --version
-   ```
-
-* 다음 명령을 실행하여 Azure CLI용 Azure IoT 확장을 Cloud Shell 인스턴스에 추가합니다. IoT 확장은 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 특정의 명령을 Azure CLI에 추가합니다.
-
-    ```azurecli-interactive
-    az extension add --name azure-cli-iot-ext
-    ```
-
-* 아직 수행하지 않은 경우 [Node.js 샘플 프로젝트를 다운로드](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip)하고 ZIP 보관 파일을 추출합니다.
+```azurecli-interactive
+az extension add --name azure-cli-iot-ext
+```
 
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
@@ -109,9 +104,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
    * [C 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-c.md)
    * [C# 프록시 애플리케이션을 사용하여 IoT Hub 디바이스 스트림을 통해 SSH 및 RDP 사용](./quickstart-device-streams-proxy-csharp.md) 
 
-다음 단계로 진행하기 전에 디바이스-로컬 프록시 애플리케이션이 실행되고 있는지 확인합니다.
+다음 단계로 진행하기 전에 디바이스-로컬 프록시 애플리케이션이 실행되고 있는지 확인합니다. 설정 개요는 [로컬 프록시 샘플](./iot-hub-device-streams-overview.md#local-proxy-sample-for-ssh-or-rdp)을 참조하세요.
 
 ### <a name="run-the-service-local-proxy-application"></a>서비스-로컬 프록시 애플리케이션 실행
+
+이 문서에서는 먼저 SSH 설정(22 포트 사용)을 설명한 다음, RDP 설정(3389 포트 사용)을 수정하는 방법을 설명합니다. 디바이스 스트림은 애플리케이션 및 프로토콜에 구속받지 않으므로 다른 유형의 클라이언트-서버 트래픽을 수용하도록 동일한 샘플을 수정할 수 있습니다(일반적으로 통신 포트를 수정함).
 
 디바이스-로컬 프록시 애플리케이션이 실행된 상태에서 로컬 터미널 창에서 다음을 수행하여 Node.js로 작성된 서비스-로컬 프록시 애플리케이션을 실행합니다.
 

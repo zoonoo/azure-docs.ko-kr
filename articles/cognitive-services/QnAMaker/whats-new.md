@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/08/2019
+ms.date: 02/14/2020
 ms.author: diberry
-ms.openlocfilehash: 2d7615d810e96beb61c3fe0b182a88158dc77c07
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4dca8ef9381096d83cd63a9f9a4449d9c8750933
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76844839"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77368343"
 ---
 # <a name="whats-new-in-qna-maker"></a>QnA Maker의 새로운 기능
 
@@ -24,6 +24,10 @@ ms.locfileid: "76844839"
 ## <a name="release-notes"></a>릴리스 정보
 
 QnA Maker의 새로운 기능에 대해 알아봅니다.
+
+### <a name="february-2020"></a>2020년 2월
+
+* GenerateAnswer API가 포함된 [NPM 패키지](https://www.npmjs.com/package/@azure/cognitiveservices-qnamaker)
 
 ### <a name="november-2019"></a>2019년 11월
 

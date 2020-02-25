@@ -5,26 +5,26 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive,mvc
 ms.topic: tutorial
-ms.date: 10/03/2019
-ms.openlocfilehash: 8c5fe1970857a04c7b237a101ac228dea024815b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.custom: hdinsightactive,mvc
+ms.date: 02/12/2020
+ms.openlocfilehash: 5eb6788a558e4429296731f1693edd18bf92f98f
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73494495"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77198891"
 ---
 # <a name="tutorial-load-data-and-run-queries-on-an-apache-spark-cluster-in-azure-hdinsight"></a>자습서: Azure HDInsight의 Apache Spark 클러스터에서 데이터 로드 및 쿼리 실행
 
 이 자습서에서는 csv 파일에서 데이터 프레임을 만드는 방법과 Azure HDInsight의 [Apache Spark](https://spark.apache.org/) 클러스터에 대해 대화형 Spark SQL 쿼리를 실행하는 방법을 알아봅니다. Spark에서 데이터 프레임은 명명된 열로 구성된 데이터의 분산된 컬렉션입니다. 데이터 프레임은 관계형 데이터베이스의 테이블이나 R/Python의 데이터 프레임과 개념적으로 동일합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 > [!div class="checklist"]
 > * csv 파일에서 데이터 프레임 만들기
 > * 데이터 프레임에서 쿼리 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 HDInsight의 Apache Spark. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
 
@@ -60,7 +60,9 @@ Jupyter Notebook은 다양한 프로그래밍 언어를 지원하는 대화형 N
 
     ![대화형 Spark SQL 쿼리 상태](./media/apache-spark-load-data-run-query/hdinsight-spark-interactive-spark-query-status.png "대화형 Spark SQL 쿼리 상태")
 
-2. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다.
+1. 반환된 세션 ID를 확인합니다. 위의 그림에서 세션 ID는 0입니다. 원하는 경우 `https://CLUSTERNAME.azurehdinsight.net/livy/sessions/ID/statements`로 이동하여 세션 세부 정보를 검색할 수 있습니다. 여기서 CLUSTERNAME은 Spark 클러스터의 이름이고 ID는 세션 ID 번호입니다.
+
+1. 다음 코드를 실행하여 데이터 프레임 및 임시 테이블(**hvac**)을 만듭니다.
 
     ```python
     # Create a dataframe and table from sample data

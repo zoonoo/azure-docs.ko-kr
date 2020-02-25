@@ -16,12 +16,12 @@ ms.date: 05/08/2019
 ms.author: ryanwi
 ms.reviewer: agirling, saeeda, benv
 ms.custom: aaddev, identityplatformtop40
-ms.openlocfilehash: 8bf4039ac968883628a72974b64d90faf707c9af
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 6280f3784247b671521a4994be1f233d4913d90c
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700297"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77194503"
 ---
 # <a name="microsoft-identity-platform-v20-overview"></a>Microsoft ID 플랫폼(v2.0) 개요
 
@@ -42,7 +42,11 @@ Microsoft ID 플랫폼에서는 코드를 한 번에 작성하여 사용자를 �
 
 ## <a name="getting-started"></a>시작
 
-ID 관련 작업이 어려울 필요는 없습니다. 내게 맞는 [시나리오](authentication-flows-app-scenarios.md)를 선택하면 됩니다. 각 시나리오 경로는 빠른 시작과 개요 페이지로 연결되기 때문에 몇 분 안에 작동과 실행이 가능합니다.
+ID 관련 작업이 어려울 필요는 없습니다. 
+
+[Microsoft ID 플랫폼 비디오](identity-videos.md)를 시청하여 기본 사항을 알아보세요. 
+
+내게 맞는 [시나리오](authentication-flows-app-scenarios.md)를 선택하면 됩니다. 각 시나리오 경로는 빠른 시작과 개요 페이지로 연결되기 때문에 몇 분 안에 작동과 실행이 가능합니다.
 
 - [단일 페이지 앱 빌드](scenario-spa-overview.md)
 - [사용자가 로그인하는 웹앱 빌드](scenario-web-app-sign-user-overview.md)

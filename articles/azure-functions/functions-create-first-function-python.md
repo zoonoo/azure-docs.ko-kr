@@ -4,12 +4,12 @@ description: Azure Functions를 사용하여 서버리스 Python 코드를 만�
 ms.date: 02/11/2020
 ms.topic: quickstart
 ms.custom: mvc
-ms.openlocfilehash: a781e10cee4cf433de5e837490d901020a875205
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 16d4d5627ea297d825092009511915f5b6e734b6
+ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157893"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77212426"
 ---
 # <a name="quickstart-create-a-python-function-in-azure-that-responds-to-http-requests"></a>빠른 시작: Azure에서 HTTP 요청에 응답하는 Python 함수 만들기
 
@@ -36,7 +36,7 @@ ms.locfileid: "77157893"
 적절한 폴더에서 다음 명령을 실행하여 `.venv`라는 가상 환경을 만들고 활성화합니다. Azure Functions에서 지원하는 Python 3.7을 사용해야 합니다.
 
 
-# <a name="bashtabbash"></a>[bash](#tab/bash)
+# <a name="bash"></a>[bash](#tab/bash)
 
 ```bash
 python -m venv .venv
@@ -52,7 +52,7 @@ Python에서 venv 패키지를 Linux 배포에 설치하지 않은 경우 다음
 sudo apt-get install python3-venv
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -m venv .venv
@@ -62,7 +62,7 @@ py -m venv .venv
 .venv\scripts\activate
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -m venv .venv
@@ -97,7 +97,7 @@ Azure Functions에서 함수 프로젝트는 각각 특정 트리거에 응답�
     cd LocalFunctionProj
     ```
     
-1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름이고, `--template` 인수는 함수의 트리거를 지정합니다. `func new`는 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
+1. 다음 명령을 사용하여 함수를 프로젝트에 추가합니다. 여기서 `--name` 인수는 함수의 고유 이름(이 경우 HttpExample)을 지정하고 `--template` 인수는 함수의 트리거(HTTP 트리거)를 지정합니다. 이 `func new` 명령은 프로젝트의 선택한 언어에 적합한 코드 파일과 *function.json*이라는 구성 파일을 포함하는 함수 이름과 일치하는 하위 폴더를 만듭니다.
 
     ```
     func new --name HttpExample --template "HTTP trigger"
@@ -167,7 +167,7 @@ HTTP 트리거의 경우 함수는 *function.json*에서 정의한 대로 `req` 
 }
 ```
 
-각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook.md#trigger) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook.md#output) 형식입니다.
+각 바인딩에는 명령, 형식 및 고유한 이름이 필요합니다. HTTP 트리거의 입력 바인딩은 [`httpTrigger`](functions-bindings-http-webhook-trigger.md) 형식이고, 출력 바인딩은 [`http`](functions-bindings-http-webhook-output.md) 형식입니다.
 
 
 ## <a name="run-the-function-locally"></a>로컬에서 함수 실행
@@ -269,14 +269,14 @@ Functions in msdocs-azurefunctions-qs:
 
 함수에서 HTTP 트리거를 사용하므로 브라우저 또는 도구(예: curl)를 사용하여 URL에 대한 HTTP 요청을 수행하여 호출합니다. 두 경우 모두에서 `code` URL 매개 변수는 함수 엔드포인트를 사용하여 호출 권한을 부여하는 고유한 함수 키입니다.
 
-# <a name="browsertabbrowser"></a>[브라우저](#tab/browser)
+# <a name="browser"></a>[브라우저](#tab/browser)
 
 publish 명령의 출력에 표시된 **호출 URL** 전체를 브라우저 주소 표시줄에 복사하여 `&name=Azure` 쿼리 매개 변수를 추가합니다. 브라우저에서 함수를 로컬로 실행했을 때와 비슷한 출력이 표시됩니다.
 
 ![브라우저에서 보여 주는 Azure에서 실행되는 함수의 출력](./media/functions-create-first-function-python/function-test-cloud-browser.png)
 
 
-# <a name="curltabcurl"></a>[curl](#tab/curl)
+# <a name="curl"></a>[curl](#tab/curl)
 
 **호출 URL**을 사용하고 `&name=Azure` 매개 변수를 추가하여 [curl](https://curl.haxx.se/)을 실행합니다. 이 명령의 출력은 "Hello Azure" 텍스트입니다.
 

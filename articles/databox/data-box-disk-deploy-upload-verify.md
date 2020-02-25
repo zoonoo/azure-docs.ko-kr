@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.localizationpriority: high
 ms.date: 09/04/2019
 ms.author: alkohli
-ms.openlocfilehash: e2851f7087151b09b5f859b7142aa28e5b18a4e5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3f89d713003f1f4265a7ab7c467454af750fab48
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514088"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77200132"
 ---
 ::: zone target="docs"
 
@@ -56,7 +56,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
   - 블록 Blob 및 페이지 Blob의 경우: `https://<storage_account_name>.blob.core.windows.net/<containername>/files/a.txt`
   - Azure Files의 경우: `https://<storage_account_name>.file.core.windows.net/<sharename>/files/a.txt`
 
-    또는 Azure Portal에서 Azure storage 계정으로 이동하여 찾아볼 수도 있습니다.
+    또는 Azure Portal에서 Azure 스토리지 계정으로 이동하여 찾아볼 수도 있습니다.
 
 - 관리 디스크 리소스 그룹. 관리 디스크를 만들 때 VHD는 페이지 Blob으로 업로드된 다음, 관리 디스크로 변환됩니다. 관리 디스크는 주문을 만들 때 지정된 리소스 그룹에 연결됩니다.
 
@@ -100,7 +100,7 @@ Microsoft에서 디스크를 수신하고 검사할 때 작업 상태는 **수�
 
 ## <a name="erasure-of-data-from-data-box-disk"></a>Data Box Disk에서 데이터 지우기
 
-복사가 완료되고 데이터가 Azure Storage 계정에 있는지 확인한 후 NIST 표준에 따라 디스크가 안전하게 지워집니다.
+Azure에 대한 업로드가 완료되면 Data Box Disk는 [NIST SP 800-88](https://csrc.nist.gov/News/2014/Released-SP-800-88-Revision-1,-Guidelines-for-Medi) 표준에 따라 데이터를 지웁니다.
 
 ::: zone target="docs"
 

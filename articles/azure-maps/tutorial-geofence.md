@@ -1,20 +1,20 @@
 ---
 title: '자습서: 지오펜스 생성 및 맵에서 디바이스 추적 | Microsoft Azure Maps'
 description: Microsoft Azure Maps 공간 서비스를 사용하여 지오펜스를 설정하고, 지오펜스와 관련된 디바이스를 추적하는 방법을 알아봅니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 1/15/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 932dfb9624177c299997c4f9f184dc5c973d0fa0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e0e918a2508bb65de176b030a73598e221aff676
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899222"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77370206"
 ---
 # <a name="tutorial-set-up-a-geofence-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 지오펜스 설정
 
@@ -176,7 +176,7 @@ Postman 앱이 설치되면 다음 단계에 따라 Azure Maps, 데이터 업로
 
 이벤트를 처리, 입력 및 종료하기 위해 두 개의 [Logic Apps](https://docs.microsoft.com/azure/event-grid/event-handlers#logic-apps) 서비스를 만듭니다. Logic Apps의 이벤트가 트리거되면 더 많은 이벤트가 순서대로 트리거됩니다. 경고(이 경우 이메일)를 Operations Manager에 보내는 것이 좋습니다. 다음 그림에서는 지오펜스 입장 이벤트에 대한 Logic App 만들기를 보여 줍니다. 마찬가지로 퇴장 이벤트에 대한 다른 이벤트를 만들 수 있습니다. 자세한 내용은 [지원되는 모든 이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)에서 확인할 수 있습니다.
 
-1. Azure Portal에서 Logic App 만들기
+1. Azure Portal에서 논리 앱을 만듭니다. Azure Marketplace에서 논리 앱을 선택합니다. 그런 다음, **만들기** 단추를 선택합니다.
 
    ![지오펜스 이벤트를 처리하는 Azure Logic Apps 만들기](./media/tutorial-geofence/logic-app.png)
 

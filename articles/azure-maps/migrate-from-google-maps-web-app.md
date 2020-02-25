@@ -9,18 +9,18 @@ ms.service: azure-maps
 services: azure-maps
 manager: cpendle
 ms.custom: ''
-ms.openlocfilehash: 67f9168d2b18a98850588554f77c4a5859f365df
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: b954c812bea6c2abf4376c2cee38a3789461ad01
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086424"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77208746"
 ---
 # <a name="migrate-a-web-app-from-google-maps"></a>Google Maps에서 웹앱 마이그레이션
 
 Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK를 사용합니다. Azure Maps 웹 SDK는 마이그레이션에 적합한 Azure 기반 SDK입니다. Azure Maps 웹 SDK를 사용하면 고유한 콘텐츠와 이미지를 사용하여 대화형 맵을 사용자 지정할 수 있습니다. 웹 또는 모바일 애플리케이션 모두에서 앱을 실행할 수 있습니다. 이 컨트롤을 통해 WebGL을 사용하여 성능이 높은 대형 데이터 집합을 렌더링할 수 있습니다. JavaScript 또는 TypeScript를 사용하여 이 SDK로 개발하세요.
 
-기존 웹 애플리케이션을 마이그레이션하는 경우 오픈 소스 맵 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 오픈 소스 맵 컨트롤 라이브러리의 예로 Cesium, Leaflet 및 OpenLayers가 있습니다. 애플리케이션에 오픈 소스 지도 컨트롤 라이브러리가 사용되고 Azure Maps 웹 SDK를 사용하지 않으려는 경우에도 마이그레이션이 가능합니다. 이런 경우 애플리케이션을 Azure Maps 타일 서비스([도로 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile))에 연결합니다. 다음은 일반적으로 사용되는 오픈 소스 맵 컨트롤 라이브러리 중 일부에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
+기존 웹 애플리케이션을 마이그레이션하는 경우 오픈 소스 맵 컨트롤 라이브러리를 사용하고 있는지 확인하세요. 오픈 소스 맵 컨트롤 라이브러리의 예로 Cesium, Leaflet 및 OpenLayers가 있습니다. 오픈 소스 맵 컨트롤 라이브러리를 사용하고 Azure Maps 웹 SDK를 사용하지 않으려는 경우에도 애플리케이션을 계속 마이그레이션할 수 있습니다. 이 경우 애플리케이션을 Azure Maps 타일 서비스([도로 타일](https://docs.microsoft.com/rest/api/maps/render/getmaptile) \| [위성 타일](https://docs.microsoft.com/rest/api/maps/render/getmapimagerytile))에 연결합니다. 다음은 일반적으로 사용되는 오픈 소스 맵 컨트롤 라이브러리 중 일부에서 Azure Maps를 사용하는 방법에 대해 자세히 설명합니다.
 
 - Cesium - 웹용 3D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Raster%20Tiles%20in%20Cesium%20JS) \| [설명서](https://cesiumjs.org/)
 - Leaflet – 웹용 경량 2D 지도 컨트롤입니다. [코드 샘플](https://azuremapscodesamples.azurewebsites.net/index.html?sample=Azure%20Maps%20Raster%20Tiles%20in%20Leaflet%20JS) \| [설명서](https://leafletjs.com/)
@@ -62,7 +62,7 @@ Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK
 
 ## <a name="web-sdk-side-by-side-examples"></a>웹 SDK 화면 분할 예제
 
-이 컬렉션에는 각 플랫폼에 대한 코드 샘플이 있으며, 각 샘플은 일반적인 사용 사례를 다룹니다. 이는 웹 애플리케이션을 Google Maps V3 JavaScript SDK에서 Azure Maps 웹 SDK로 마이그레이션하는 데 도움이 됩니다. 웹 애플리케이션과 관련된 코드 샘플은 JavaScript로 제공됩니다. 그러나 Azure Maps는 [NPM 모듈](how-to-use-map-control.md)을 통해 TypeScript 정의를 추가 옵션으로 제공합니다.
+이 컬렉션에는 각 플랫폼에 대한 코드 샘플이 있으며, 각 샘플은 일반적인 사용 사례를 다룹니다. 웹 애플리케이션을 Google Maps V3 JavaScript SDK에서 Azure Maps 웹 SDK로 마이그레이션하는 데 도움이 됩니다. 웹 애플리케이션과 관련된 코드 샘플은 JavaScript로 제공됩니다. 그러나 Azure Maps는 [NPM 모듈](how-to-use-map-control.md)을 통해 TypeScript 정의를 추가 옵션으로 제공합니다.
 
 ### <a name="load-a-map"></a>맵 로드
 
@@ -80,7 +80,7 @@ Google Maps를 사용하는 대부분의 웹앱은 Google Maps V3 JavaScript SDK
 - 맵이 렌더링될 `div` 요소를 참조하는 경우 Google Maps는 `HTMLElement` 개체가 필요하지만 Azure Maps의 `Map` 클래스에는 `id` 값만 필요합니다.
 - Azure Maps의 좌표는 `[longitude, latitude]` 형식의 단순 숫자 배열로 지정할 수 있는 Position 개체로 정의됩니다.
 - Azure Maps의 확대/축소 수준은 Google Maps의 확대/축소 수준보다 한 수준 낮습니다. 이러한 불일치는 두 플랫폼의 바둑판식 배열 시스템 크기가 다르기 때문입니다.
-- Azure Maps는 탐색 컨트롤을 맵 캔버스에 추가하지 않습니다. 따라서 맵에는 기본적으로 확대/축소 단추와 맵 스타일 단추가 없습니다. 하지만 맵 스타일 선택기, 확대/축소 단추, 나침반 또는 회전 컨트롤 및 피치 컨트롤을 추가할 수 있는 컨트롤이 있습니다.
+- Azure Maps는 탐색 컨트롤을 맵 캔버스에 추가하지 않습니다. 따라서 맵에는 기본적으로 확대/축소 단추와 맵 스타일 단추가 없습니다. 하지만 맵 스타일 선택기, 확대/축소 단추, 나침반 또는 회전 컨트롤 및 피치 컨트롤을 추가할 수 있는 컨트롤 옵션이 있습니다.
 - Azure Maps에는 map 인스턴스의 `ready` 이벤트를 모니터링할 수 있는 이벤트 처리기가 추가되었습니다. 맵에서 WebGL 컨텍스트 및 필요한 모든 리소스의 로드가 완료되면 이 이벤트가 실행됩니다. 맵 로드가 완료되면 실행할 코드를 이 이벤트 처리기에 추가합니다.
 
 아래의 기본 예제는 Google Maps를 사용하여 좌표에 따라 뉴욕을 중심으로 맵을 로드합니다. 경도: -73.985, 위도: 40.747이며 맵의 확대/축소 수준은 12입니다.
@@ -212,7 +212,7 @@ Google Maps를 지역화하려면 언어 및 지역 매개 변수를 추가합�
 
 **이후: Azure Maps**
 
-Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 지도 컨트롤 인스턴스가 기본적으로 이 설정으로 지정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "auto"로 설정합니다.
+Azure Maps는 맵의 언어 및 지역 보기를 설정하는 두 가지 방법을 제공합니다. 첫 번째 옵션은 이 정보를 글로벌 *atlas* 네임스페이스에 추가하는 것입니다. 그러면 앱의 모든 맵 컨트롤 인스턴스가 이러한 설정으로 기본 설정됩니다. 다음은 언어를 프랑스어("fr-FR")로 설정하고 지역 보기를 "auto"로 설정합니다.
 
 ```javascript
 atlas.setLanguage('fr-FR');
@@ -246,7 +246,7 @@ Azure Maps에서 [지원되는 언어](supported-languages.md)의 자세한 목�
 
 ### <a name="setting-the-map-view"></a>맵 보기 설정
 
-Azure Maps와 Google Maps 모두에서 동적 맵을 프로그래밍 방식으로 새로운 지리적 위치로 이동할 수 있습니다. 이렇게 하려면 JavaScript에서 적절한 함수를 호출합니다. 이 예제에서는 Google Maps에서 위성 항공 이미지를 맵에 표시하고, 위치를 맵의 가운데에 배치하며, 확대/축소 수준을 15로 변경하는 방법을 보여줍니다. 경도가 -111.0225이고 위도가 35.0272인 위치 좌표가 사용됩니다.
+Azure Maps와 Google Maps 모두에서 동적 맵을 프로그래밍 방식으로 새로운 지리적 위치로 이동할 수 있습니다. 이렇게 하려면 JavaScript에서 적절한 함수를 호출합니다. 이 예제에서는 위성 항공 이미지를 맵에 표시하고, 위치를 맵의 가운데에 배치하며, 확대/축소 수준을 변경하는 방법을 보여줍니다. 경도가 -111.0225이고 위도가 35.0272인 위치 좌표가 사용됩니다.
 
 > [!NOTE]
 > Google Maps는 크기가 256픽셀인 타일을 사용하지만, Azure Maps는 이보다 큰 512픽셀 타일을 사용합니다. 따라서 Azure Maps는 Google Maps와 동일한 맵 영역을 로드하는 경우 더 적은 수의 네트워크 요청이 필요합니다. 지도 컨트롤에서 타일 피라미드가 작동하는 방식 때문에, Azure Maps를 사용하는 경우 Google Maps에 사용되는 확대/축소 수준을 숫자 1만큼 빼야 합니다. 이 산술 연산을 사용하여 Azure Maps의 큰 타일로 Google Maps와 동일한 맵 영역을 렌더링할 수 있습니다.
@@ -417,7 +417,7 @@ map.markers.add(new atlas.HtmlMarker({
 
 ### <a name="adding-a-custom-marker"></a>사용자 지정 표식 추가
 
-사용자 지정 이미지를 사용하여 맵에서 지점을 나타낼 수 있습니다. 아래 맵은 사용자 지정 이미지를 사용하여 맵에 지점을 표시합니다. 지점은 위도: 51.5 및 경도 -0.2로 표시됩니다. 앵커는 표식의 위치를 오프셋하여 압정 아이콘의 지점이 맵의 올바른 위치와 맞춰집니다.
+사용자 지정 이미지를 사용하여 맵에서 지점을 나타낼 수 있습니다. 아래 맵은 사용자 지정 이미지를 사용하여 맵에 지점을 표시합니다. 지점은 51.5 및 경도 -0.2로 표시됩니다. 앵커는 표식의 위치를 오프셋하여 압정 아이콘의 지점이 맵의 올바른 위치와 맞춰집니다.
 
 <center>
 
@@ -856,7 +856,7 @@ Google Maps는 `google.maps.Data` 클래스를 통해 GeoJSON 데이터의 로�
 
 **이후: Azure Maps**
 
-GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFromUrl` 메서드를 사용하여 데이터 원본으로 가져옵니다. 거품형 레이어를 사용하면 데이터 원본의 기능 속성을 기반으로 크기가 조정된 원을 렌더링하는 기능을 제공합니다. 콜백 함수를 포함하는 대신, 비즈니스 논리가 식으로 변환되어 스타일 옵션에 전달됩니다. 식은 비즈니스 논리의 작동 방식을 정의합니다. 식은 다른 스레드에 전달되고 기능 데이터와 비교하여 평가할 수 있습니다. 각각 비즈니스 논리가 다른 여러 데이터 원본과 레이어를 Azure Maps에 추가할 수 있습니다. 이 기능을 사용하면 여러 데이터 세트를 여러 가지 방법으로 맵에 렌더링할 수 있습니다.
+GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFromUrl` 메서드를 사용하여 데이터 원본으로 가져옵니다. 거품형 레이어를 사용합니다. 거품형 레이어는 데이터 원본의 기능 속성에 따라 크기가 조정된 원을 렌더링하는 기능을 제공합니다. 콜백 함수를 포함하는 대신, 비즈니스 논리가 식으로 변환되어 스타일 옵션에 전달됩니다. 식은 비즈니스 논리의 작동 방식을 정의합니다. 식은 다른 스레드에 전달되고 기능 데이터와 비교하여 평가할 수 있습니다. 각각 비즈니스 논리가 다른 여러 데이터 원본과 레이어를 Azure Maps에 추가할 수 있습니다. 이 기능을 사용하면 여러 데이터 세트를 여러 가지 방법으로 맵에 렌더링할 수 있습니다.
 
 ```html
 <!DOCTYPE html>
@@ -953,7 +953,7 @@ GeoJSON은 Azure Maps의 기본 데이터 형식입니다. `datasource.importFro
 
 **이전: Google Maps**
 
-MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다. 클러스터 아이콘은 이름이 1에서 5까지이며 동일한 디렉터리에서 호스팅되는 이미지로 제한됩니다.
+MarkerCluster 라이브러리를 사용하여 표식을 클러스터링합니다. 클러스터 아이콘은 이름이 1에서 5까지의 숫자로 이루어진 이미지로 제한됩니다. 동일한 디렉터리에서 호스팅됩니다.
 
 ```html
 <!DOCTYPE html>
@@ -1395,7 +1395,7 @@ Azure Maps에서 트래픽 아이콘 중 하나를 클릭하면 팝업에 추가
 
 ### <a name="add-a-ground-overlay"></a>그라운드 오버레이 추가
 
-Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 오버레이를 지원합니다. 맵을 이동하고 확대/축소하면 지리 좌표화된(georeferenced) 이미지가 이동되고 크기가 조정됩니다. 지리 좌표화된(georeferenced) 이미지를 Google Maps에서는 그라운드 오버레이라고 하지만 Azure Maps에서는 이미지 레이어라고 합니다. 이 기능은 평면도를 작성하고, 이전 맵 또는 드론의 이미지를 오버레이하는 데 매우 유용합니다.
+Azure와 Google 맵 모두, 맵에 지리 좌표화된(georeferenced) 이미지 오버레이를 지원합니다. 맵을 이동하고 확대/축소하면 지리 좌표화된(georeferenced) 이미지가 이동되고 크기가 조정됩니다. 지리 좌표화된(georeferenced) 이미지를 Google Maps에서는 그라운드 오버레이라고 하지만 Azure Maps에서는 이미지 레이어라고 합니다. 이 기능은 평면도를 빌드하고, 이전 맵 또는 드론의 이미지를 오버레이하는 데 매우 유용합니다.
 
 **이전: Google Maps**
 

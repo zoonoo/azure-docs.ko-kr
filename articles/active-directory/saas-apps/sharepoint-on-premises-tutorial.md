@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: tutorial
 ms.date: 04/25/2019
 ms.author: jeedes
-ms.openlocfilehash: 7feb62bb3e38452a441c505107569457d7c90a3f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 60ff8769192191ba112008e7baee23740147dfe9
+ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233459"
+ms.lasthandoff: 02/15/2020
+ms.locfileid: "77367023"
 ---
 # <a name="tutorial-azure-active-directory-integration-with-sharepoint-on-premises"></a>자습서: SharePoint 온-프레미스와 Azure Active Directory 통합
 
@@ -31,10 +31,10 @@ SharePoint 온-프레미스를 Azure AD와 통합하면 다음과 같은 장점�
 * 사용자가 해당 Azure AD 계정으로 SharePoint 온-프레미스에 자동으로 로그온(Single Sign-On)되도록 설정할 수 있습니다.
 * 단일 중앙 위치인 Azure Portal에서 계정을 관리할 수 있습니다.
 
-Azure AD와의 SaaS 앱 통합에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
+Azure AD와의 SaaS 앱 연결에 대한 자세한 내용은 [Azure Active Directory를 사용한 애플리케이션 액세스 및 Single Sign-On](https://docs.microsoft.com/azure/active-directory/active-directory-appssoaccess-whatis)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SharePoint 온-프레미스와 Azure AD 통합을 구성하려면 다음 항목이 필요합니다.
 
@@ -204,7 +204,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
     b. **사용자 이름** 필드에 `brittasimon@yourcompanydomain.extension`을 입력합니다.  
     예를 들어 BrittaSimon@contoso.com
 
-    c. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
+    다. **암호 표시** 확인란을 선택한 다음, [암호] 상자에 표시된 값을 적어둡니다.
 
     d. **만들기**를 클릭합니다.
 
@@ -263,7 +263,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
 9. 이제 필수 설정 아래에서 **권한 부여**를 클릭하고 예를 클릭하여 권한을 부여합니다.
 
-    ![권한 부여](./media/sharepoint-on-premises-tutorial/grantpermission.png)
+    ![사용 권한 부여](./media/sharepoint-on-premises-tutorial/grantpermission.png)
 
     > [!NOTE]
     > 알림 아래에서 권한이 성공적으로 부여되었는지를 확인합니다.  그렇지 않은 경우, AzureCP가 제대로 작동하지 않고, Azure Active Directory 보안 그룹을 사용하여 SharePoint 온-프레미스를 구성할 수 없습니다.
@@ -330,7 +330,7 @@ SharePoint 온-프레미스에서 Azure AD Single Sign-On을 구성하려면 다
 
 검색한 값에 대해 유효성 검사가 없기 때문에 철자 오류가 발생하거나, 사용자가 실수로 **SurName** 클레임 등, 잘못된 클레임 유형을 선택하여 할당할 수 있습니다. 이렇게 되면 사용자가 리소스에 액세스하지 못할 수 있습니다.
 
-이 시나리오를 지원하기 위해 [AzureCP](https://yvand.github.io/AzureCP/)라고 하는 오픈 소스 솔루션이 SharePoint 2016에 대한 사용자 지정 클레임 공급자를 제공합니다. 여기서는 Azure AD Graph를 사용하여 사용자 입력을 확인하고 유효성 검사를 수행합니다. [AzureCP](https://yvand.github.io/AzureCP/)에 대한 정보를 알아보세요.
+이 시나리오를 지원하기 위해 [AzureCP](https://yvand.github.io/AzureCP/)라고 하는 오픈 소스 솔루션이 SharePoint 2016에 대한 사용자 지정 클레임 공급자를 제공합니다. Microsoft Graph API를 사용하여 사용자 입력을 확인하고 유효성 검사를 수행합니다. [AzureCP](https://yvand.github.io/AzureCP/)에 대한 정보를 알아보세요.
 
 ### <a name="assign-the-azure-ad-security-group-in-the-azure-portal"></a>Azure Portal에서 Azure AD 보안 그룹 할당
 

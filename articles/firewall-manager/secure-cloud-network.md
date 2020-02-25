@@ -1,41 +1,38 @@
 ---
-title: '자습서: Azure Portal에서 Azure Firewall Manager Preview를 사용하여 클라우드 네트워크를 보호합니다.'
-description: 이 자습서에서는 Azure Portal를 사용하여 Azure Firewall Manager로 클라우드 네트워크를 보호하는 방법을 알아봅니다.
+title: '자습서: Azure Firewall Manager 미리 보기를 사용하여 가상 WAN 보호'
+description: 이 자습서에서는 Azure Portal을 통해 Azure Firewall Manager를 사용하여 가상 WAN을 보호하는 방법을 알아봅니다.
 services: firewall-manager
 author: vhorne
 ms.service: firewall-manager
 ms.topic: tutorial
-ms.date: 10/27/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: d2ebfd6003c0bc2b47636be1e38f47e554cc6988
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 3dc94a8be265682fbe2128f2e5870dfdf5850a2d
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73510037"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443060"
 ---
-# <a name="tutorial-secure-your-cloud-network-with-azure-firewall-manager-preview-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall Manager Preview로 클라우드 네트워크 보호
+# <a name="tutorial-secure-your-virtual-wan-using-azure-firewall-manager-preview"></a>자습서: Azure Firewall Manager 미리 보기를 사용하여 가상 WAN 보호 
 
 [!INCLUDE [Preview](../../includes/firewall-manager-preview-notice.md)]
 
-Azure Firewall Manager Preview를 사용하여 프라이빗 IP 주소, Azure PaaS 및 인터넷으로 향하는 클라우드 네트워크 트래픽을 보호하는 보안 허브를 만들 수 있습니다. 방화벽에 대한 트래픽 라우팅이 자동화되므로 UDR(사용자 정의 경로)을 만들 필요가 없습니다.
+Azure Firewall Manager Preview를 사용하여 개인 IP 주소, Azure PaaS 및 인터넷으로 향하는 클라우드 네트워크 트래픽을 보호하는 보안 가상 허브를 만들 수 있습니다. 방화벽에 대한 트래픽 라우팅이 자동화되므로 UDR(사용자 정의 경로)을 만들 필요가 없습니다.
 
 ![클라우드 네트워크 보안](media/secure-cloud-network/secure-cloud-network.png)
 
-## <a name="prerequisites"></a>필수 조건
+Firewall Manager는 허브 가상 네트워크 아키텍처도 지원합니다. 보안 가상 허브 및 허브 가상 네트워크 아키텍처 유형을 비교하려면 [Azure Firewall Manager 아키텍처 옵션이란?](vhubs-and-vnets.md)을 참조하세요.
 
-> [!IMPORTANT]
-> `Register-AzProviderFeature` PowerShell 명령을 사용하여 Azure Firewall Manager Preview를 명시적으로 사용하도록 설정해야 합니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
-PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
-
-```azure-powershell
-connect-azaccount
-Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
-```
-기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 명령을 실행하여 등록 상태를 확인합니다.
-
-`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
+> [!div class="checklist"]
+> * 스포크 가상 네트워크 만들기
+> * 보안 가상 허브 만들기
+> * 허브 및 스포크 VNet 연결
+> * 방화벽 정책 만들기 및 허브 보안 설정
+> * 허브로 트래픽 라우팅
+> * 방화벽 테스트
 
 ## <a name="create-a-hub-and-spoke-architecture"></a>허브 및 스포크 아키텍처 만들기
 
@@ -77,7 +74,7 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 8. 새 vWAN 이름에 **vwan-01**을 입력합니다.
 9. **신뢰할 수 있는 보안 파트너를 사용하도록 설정하기 위해 VPN Gateway 포함** 확인란을 취소된 상태로 둡니다.
 10. **다음:Azure Firewall**을 선택합니다.
-11. 기본 **Azure Firewall** **사용** 설정을 그대로 적용하고 **다음: 신뢰할 수 있는 보안 파트너**를 선택합니다.
+11. 기본 **Azure Firewall** **사용** 설정을 그대로 적용한 후, **다음: 신뢰할 수 있는 보안 파트너**를 선택합니다.
 12. 기본 **신뢰할 수 있는 보안 파트너** **사용 안 함** 설정을 그대로 적용하고 **다음: 리뷰 + 만들기**를 클릭합니다.
 13. **만들기**를 선택합니다. 배포하는 데 30분 정도 걸립니다.
 
@@ -151,7 +148,7 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
    |가상 머신 이름     |**Jump-Srv**|
    |지역     |**((미국) 미국 동부)**|
    |관리자 사용자 이름     |**azureuser**|
-   |암호     |**Azure123456!** -|
+   |암호     |암호 입력|
 
 4. **인바운드 포트 규칙** 아래의 **공용 인바운드 포트**에서 **선택한 포트 허용**을 선택합니다.
 5. **인바운드 포트 선택**에서 **RDP(3389)** 를 선택합니다.
@@ -200,12 +197,12 @@ Firewall Manager를 사용하여 보안 가상 허브를 만듭니다.
 1. Azure Portal에서 **Workload-Srv** 가상 머신에 대한 네트워크 설정을 검토하고 프라이빗 IP 주소를 참고합니다.
 2. 원격 데스크톱을 **Jump-Srv** 가상 머신과 연결하고 로그인합니다. 여기에서 원격 데스크톱 연결을 **Workload-Srv** 프라이빗 IP 주소로 엽니다.
 
-3. Internet Explorer를 열고 [https://www.google.com](https://www.microsoft.com )을 찾습니다.
+3. Internet Explorer를 열고 [https://www.google.com]\(https://www.microsoft.com )을 찾습니다.
 4. Internet Explorer 보안 경고에서 **확인** > **닫기**를 선택합니다.
 
    Microsoft 홈페이지가 표시됩니다.
 
-5. [https://www.microsoft.com](https://www.google.com ) 로 이동합니다.
+5. [https://www.microsoft.com]\(https://www.google.com ) 로 이동합니다.
 
    방화벽에서 차단해야 합니다.
 

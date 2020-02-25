@@ -2,17 +2,17 @@
 title: Azure Reservations란?
 description: 가상 머신, SQL Database, Azure Cosmos DB 및 기타 리소스 비용을 절약하기 위한 Azure 예약 및 가격 책정 정보에 대해 알아봅니다.
 author: yashesvi
-manager: yashar
+ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 11/22/2019
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 10cf5b5a0ec4edda3d3c868cda34352e827604b0
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c6a8547235c302f52aacd0e6ae4a8fbf08b538b8
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76841883"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443638"
 ---
 # <a name="what-are-azure-reservations"></a>Azure Reservations란?
 
@@ -32,16 +32,24 @@ Azure Reservations는 가상 머신, Azure Blob 스토리지 또는 Azure Data L
 
 - **예약 Virtual Machine 인스턴스** - 예약에 가상 머신 컴퓨팅 비용만 포함됩니다. 추가 소프트웨어, 네트워킹 또는 스토리지 요금은 포함되지 않습니다.
 - **Azure Storage 예약 용량** - 예약에는 Blob 스토리지 또는 Azure Data Lake Gen2 스토리지의 표준 스토리지 계정에 대한 스토리지 용량이 포함됩니다. 예약에는 대역폭 또는 트랜잭션 요금이 포함되지 않습니다.
-- **Azure Disk Storage 예약** - 예약은 P30 크기 이상의 프리미엄 SSD에만 적용됩니다. P30보다 작은 디스크 유형이나 크기는 다루지 않습니다.
+- **Azure Disk Storage 예약** - 예약은 P30 크기 이상의 프리미엄 SSD에만 적용됩니다. P30보다 작은 다른 디스크 유형이나 크기는 다루지 않습니다.
 - **Azure Cosmos DB 예약 용량** - 리소스에 프로비저닝된 처리량이 포함됩니다. 스토리지 및 네트워킹 요금은 포함하지 않습니다.
 - **SQL Database 예약 vCore** - 컴퓨팅 비용만 예약에 포함됩니다. 라이선스는 별도로 청구됩니다.
 - **SQL Data Warehouse** - 예약에 cDWU 사용이 포함됩니다. SQL Data Warehouse 사용과 관련된 스토리지 또는 네트워킹 요금은 포함되지 않습니다.
 - **App Service 스탬프 요금** - 예약에 스탬프 사용이 포함됩니다. 예약은 작업자에게 적용되지 않으므로 스탬프와 연결된 다른 모든 리소스에는 별도의 요금이 청구됩니다.
-- Azure Database for MySQL
-- Azure Database for PostgreSQL
-- Azure Database for MariaDB
-- Azure Data Explorer
+- **Azure Databricks** - 예약에는 DBU 사용량만 포함됩니다. 컴퓨팅, 스토리지 및 네트워킹과 같은 기타 요금은 별도로 적용됩니다.
+- **Azure Database for MySQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MySQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **Azure Database for PostgreSQL** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 PostgreSQL Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **Azure Database for MariaDB** - 컴퓨팅 비용만 예약에 포함됩니다. 예약에는 MariaDB Database 서버와 연결된 소프트웨어, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **Azure Data Explorer** - 예약에는 태그 요금이 포함됩니다. 예약에는 클러스터와 연결된 컴퓨팅, 네트워킹 또는 스토리지 요금이 포함되지 않습니다.
+- **프리미엄 SSD Managed Disks** - 지정된 디스크 SKU를 예약합니다. 
 
+소프트웨어 플랜:
+
+- **SUSE Linux** - 예약에는 소프트웨어 계획 비용이 포함됩니다. 할인은 SUSE 미터에만 적용되며 가상 머신 사용량에는 적용되지 않습니다.
+- **Red Hat 플랜** - 예약에는 소프트웨어 계획 비용이 포함됩니다. 할인은 RedHat 미터에만 적용되며 가상 머신 사용량에는 적용되지 않습니다.
+- **Azure VMware Solution by CloudSimple** - 예약에는 VMWare CloudSimple 노드가 포함됩니다. 추가 소프트웨어 비용이 여전히 적용됩니다.
+- **Azure Red Hat OpenShift** - 예약은 Azure 인프라 비용이 아닌 OpenShift 비용에 적용됩니다.
 
 Windows 가상 머신 및 SQL Database의 경우 [Azure 하이브리드 혜택](https://azure.microsoft.com/pricing/hybrid-benefit/)으로 라이선스 비용을 처리할 수 있습니다.
 

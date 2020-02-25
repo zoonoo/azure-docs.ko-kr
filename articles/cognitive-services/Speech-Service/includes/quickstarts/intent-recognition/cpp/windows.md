@@ -6,12 +6,12 @@ ms.date: 01/27/2020
 ms.topic: include
 ms.author: dapine
 zone_pivot_groups: programming-languages-set-two
-ms.openlocfilehash: 292eba09b151d8de50fc379051091a4d2990a105
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1c5411778bf2e8ab25ce3e71dba92227b2653c3d
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156132"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77446202"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -47,7 +47,7 @@ ms.locfileid: "77156132"
 `recognizeIntent()` 메서드에 이 코드를 삽입합니다. 다음 값을 업데이트해야 합니다.
 
 * `"YourLanguageUnderstandingSubscriptionKey"`를 LUIS 예측 키로 바꿉니다.
-* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다.  [지역](https://aka.ms/speech/sdkregion)에서 "Speech SDK 매개 변수"를 사용합니다.
+* `"YourLanguageUnderstandingServiceRegion"`을 LUIS 위치로 바꿉니다.  [지역](https://aka.ms/speech/sdkregion)의 **영역 식별자**를 사용합니다.
 
 >[!TIP]
 > 이러한 값을 찾는 데 도움이 필요한 경우 [의도 인식을 위한 LUIS 앱 만들기](#create-a-luis-app-for-intent-recognition)를 참조하세요.

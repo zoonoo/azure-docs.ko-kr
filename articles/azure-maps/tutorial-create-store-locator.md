@@ -1,20 +1,20 @@
 ---
 title: '자습서: Azure Maps를 사용하여 매장 로케이터 애플리케이션 만들기 | Microsoft Azure Maps'
 description: 이 자습서에서는 Microsoft Azure Maps 웹 SDK를 사용하여 매장 로케이터 웹 애플리케이션을 만드는 방법에 대해 알아봅니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 063f085de875272a7b1ba4f52aeceb8f36114cca
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 5621ed8f9e5d7990ca7b522d6388f855db81618e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76987008"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209565"
 ---
 # <a name="tutorial-create-a-store-locator-by-using-azure-maps"></a>자습서: Azure Maps를 사용하여 매장 로케이터 만들기
 
@@ -381,7 +381,7 @@ ms.locfileid: "76987008"
 
 이제 모든 항목이 사용자 인터페이스에서 설정됩니다. JavaScript를 추가하여 데이터를 로드 및 구문 분석한 다음, 지도에서 데이터를 렌더링해야 합니다. 시작하려면 *index.js*를 열고 다음 단계에 설명된 대로 코드를 추가합니다.
 
-1. 설정을 보다 쉽게 업데이트할 수 있도록 하는 전역 옵션을 추가합니다. 맵, 팝업 창, 데이터 원본, 아이콘 계층, 검색 영역 중앙에 표시되는 HTML 마커, Azure Maps 검색 서비스 클라이언트의 인스턴스에 대한 변수를 정의합니다.
+1. 설정을 보다 쉽게 업데이트할 수 있도록 하는 전역 옵션을 추가합니다. 지도, 팝업 창, 데이터 원본, 아이콘 계층 및 HTML 표식에 대한 변수를 정의합니다. 검색 영역의 중심을 나타내도록 HTML 표식을 설정합니다. 그리고 Azure Maps 검색 서비스 클라이언트의 인스턴스를 정의합니다.
 
     ```JavaScript
     //The maximum zoom level to cluster data point data on the map.
@@ -397,9 +397,9 @@ ms.locfileid: "76987008"
 
 1. *index.js*에 코드를 추가합니다. 다음 코드는 맵을 초기화합니다. 페이지 로드가 완료될 때까지 대기하도록 [이벤트 수신기](https://docs.microsoft.com/javascript/api/azure-maps-control/atlas.map?view=azure-iot-typescript-latest#events)를 추가했습니다. 그런 다음, 이벤트를 연결하여 지도의 로드를 모니터링하고 검색 단추와 내 위치 단추에 기능을 제공합니다.
 
-   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 후 Enter 키를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
+   사용자가 검색 단추를 선택하거나 검색 상자에 위치를 입력한 다음, Enter를 누르면 사용자의 쿼리에 대한 유사 항목 검색이 시작됩니다. 국가 ISO 2개 값 배열을 `countrySet` 옵션에 제공하여 검색 결과를 해당 국가/지역으로 제한할 수 있습니다. 검색할 국가/지역을 제한하면 반환되는 결과의 정확도를 높이는 데 도움이 됩니다. 
   
-   검색이 완료되면 첫 번째 결과를 사용한 후 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하는 경우, 브라우저에 기본 제공된 HTML5 Geolocation API를 사용하여 사용자의 위치를 검색하고 지도 중심을 해당 위치로 이동합니다.  
+   검색이 완료되면 첫 번째 결과를 가져와 해당 영역 위에 지도 카메라를 설정합니다. 사용자가 내 위치 단추를 선택하면 HTML5 지리적 위치 API를 사용하여 사용자의 위치를 검색합니다. 이 API는 브라우저에 기본 제공됩니다. 그런 다음, 지도의 위치를 가운데에 맞춥니다.  
 
    > [!Tip]
    > 팝업 창을 사용할 경우 단일 `Popup` 인스턴스를 만든 후 해당 콘텐츠 및 위치를 업데이트하여 인스턴스를 다시 사용하는 것이 좋습니다. 코드에 추가하는 모든 `Popup` 인스턴스에 대해 페이지에 여러 DOM 요소가 추가됩니다. 페이지에 더 많은 DOM 요소가 있을수록 브라우저가 추적할 내용이 더 많아집니다. 너무 많은 항목이 있는 경우 브라우저가 느려질 수 있습니다.
@@ -527,7 +527,7 @@ ms.locfileid: "76987008"
     map.markers.add(centerMarker);
     ```
 
-1. 지도의 `ready` 이벤트 수신기에서 데이터 원본을 추가합니다. 그런 후 데이터 세트를 로드한 후 구문 분석하기 위한 호출을 수행합니다. 데이터 원본에서 클러스터링을 사용하도록 설정합니다. 데이터 원본에 대해 클러스터링을 지정하면 겹치는 지점이 하나의 클러스터로 그룹화됩니다. 이러한 클러스터는 사용자가 확대하면 개별 점으로 분리됩니다. 이 기능은 보다 유연한 사용자 환경을 만들고 성능을 향상시킵니다.
+1. 지도의 `ready` 이벤트 수신기에서 데이터 원본을 추가합니다. 그런 후 데이터 세트를 로드한 후 구문 분석하기 위한 호출을 수행합니다. 데이터 원본에서 클러스터링을 사용하도록 설정합니다. 데이터 원본에 대해 클러스터링을 지정하면 겹치는 지점이 하나의 클러스터로 그룹화됩니다. 이러한 클러스터는 사용자가 확대하면 개별 점으로 분리됩니다. 이 동작은 더 나은 사용자 환경을 제공하고 성능을 향상시킵니다.
 
     ```JavaScript
     //Create a data source, add it to the map, and then enable clustering.
@@ -928,7 +928,7 @@ ms.locfileid: "76987008"
 
 ![사용자의 위치에 액세스하기 위한 브라우저 요청 스크린샷](./media/tutorial-create-store-locator/GeolocationApiWarning.png)</center>
 
-커피숍 위치가 포함된 영역에서 충분히 가깝게 확대하면 클러스터가 개별 위치로 분리됩니다. 지도에서 아이콘 중 하나를 선택하거나 측면 패널에서 항목을 선택하여 해당 위치에 대한 정보를 표시하는 팝업 창을 표시합니다.
+커피숍 위치가 포함된 영역에서 충분히 가깝게 확대하면 클러스터가 개별 위치로 분리됩니다. 지도에서 아이콘 중 하나를 선택하거나 측면 패널에서 항목을 선택하여 팝업 창을 표시합니다. 선택한 위치에 대한 정보가 팝업에 표시됩니다.
 
 <center>
 

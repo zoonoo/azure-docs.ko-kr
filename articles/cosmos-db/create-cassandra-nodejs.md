@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-cassandra
 ms.devlang: nodejs
 ms.topic: quickstart
 ms.date: 09/24/2018
-ms.openlocfilehash: 429b8845e49158c906c02773f654c9487ff98d1e
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ffc2681e487a51ce630d9433d6ded86961b5276c
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134737"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77210367"
 ---
 # <a name="quickstart-build-a-cassandra-app-with-nodejs-sdk-and-azure-cosmos-db"></a>빠른 시작: Node.js SDK 및 Azure Cosmos DB를 사용하여 Cassandra 앱 빌드
 
@@ -28,9 +28,11 @@ ms.locfileid: "77134737"
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio) 또는 Azure 구독 없이 [무료로 Azure Cosmos DB를 사용](https://azure.microsoft.com/try/cosmosdb/)할 수 있습니다.
-- [Node.js 0.10.29 이상](https://nodejs.org/).
-- [Git](https://www.git-scm.com/downloads)
+[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)] 또는 Azure 구독, 요금 및 약정 없이 [Azure Cosmos DB 평가판](https://azure.microsoft.com/try/cosmosdb/)을 사용할 수 있습니다.
+
+또한 다음 항목도 필요합니다.
+* [Node.js](https://nodejs.org/dist/v0.10.29/x64/node-v0.10.29-x64.msi) 버전 v0.10.29 이상
+* [Git](https://git-scm.com/)
 
 ## <a name="create-a-database-account"></a>데이터베이스 계정 만들기
 
@@ -110,42 +112,54 @@ ms.locfileid: "77134737"
 * 키/값 엔터티가 삽입됩니다.
 
     ```javascript
-    ...
-       {
-          query: 'INSERT INTO  uprofile.user  (user_id, user_name , user_bcity) VALUES (?,?,?)',
-          params: [5, 'IvanaV', 'Belgaum']
-        }
-    ];
-    client.batch(queries, { prepare: true}, next);
+        function insert(next) {
+            console.log("\insert");
+            const arr = ['INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (1, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (2, \'JiriK\', \'Toronto\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (3, \'IvanH\', \'Mumbai\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (4, \'IvanH\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (5, \'IvanaV\', \'Belgaum\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (6, \'LiliyaB\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (7, \'JindrichH\', \'Buenos Aires\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (8, \'AdrianaS\', \'Seattle\')',
+                        'INSERT INTO  uprofile.user (user_id, user_name , user_bcity) VALUES (9, \'JozefM\', \'Seattle\')'];
+            arr.forEach(element => {
+            client.execute(element);
+            });
+            next();
+        },
     ```
 
 * 모든 키 값을 가져오는 쿼리입니다.
 
     ```javascript
-   var query = 'SELECT * FROM uprofile.user';
-    client.execute(query, { prepare: true}, function (err, result) {
-      if (err) return next(err);
-      result.rows.forEach(function(row) {
-        console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-      }, this);
-      next();
-    });
+        function selectAll(next) {
+            console.log("\Select ALL");
+            var query = 'SELECT * FROM uprofile.user';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
+            result.rows.forEach(function(row) {
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        },
     ```  
     
 * 키 값을 가져오는 쿼리입니다.
 
     ```javascript
-    function selectById(next) {
-        console.log("\Getting by id");
-        var query = 'SELECT * FROM uprofile.user where user_id=1';
-        client.execute(query, { prepare: true}, function (err, result) {
-        if (err) return next(err);
+        function selectById(next) {
+            console.log("\Getting by id");
+            var query = 'SELECT * FROM uprofile.user where user_id=1';
+            client.execute(query, function (err, result) {
+            if (err) return next(err);
             result.rows.forEach(function(row) {
-            console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
-        }, this);
-        next();
-        });
-    }
+                console.log('Obtained row: %d | %s | %s ',row.user_id, row.user_name, row.user_bcity);
+            }, this);
+            next();
+            });
+        }
     ```  
 
 ## <a name="update-your-connection-string"></a>연결 문자열 업데이트
@@ -190,19 +204,41 @@ ms.locfileid: "77134737"
 
 3. `uprofile.js`를 저장합니다.
 
+> [!NOTE]
+> 이후 단계에서 인증서 관련 오류가 발생하고 Windows 머신에서 실행되고 있는 경우 .crt 파일을 아래의 Microsoft .cer 형식으로 올바르게 변환하는 프로세스를 수행했는지 확인합니다.
+> 
+> .crt 파일을 두 번 클릭하여 인증서 표시로 엽니다. 
+>
+> ![출력 보기 및 확인](./media/create-cassandra-nodejs/crtcer1.gif)
+>
+> 인증서 마법사에서 다음을 누릅니다. Base-64로 인코딩된 X.509(.CER)를 선택한 후, 다음을 선택합니다.
+>
+> ![출력 보기 및 확인](./media/create-cassandra-nodejs/crtcer2.gif)
+>
+> 찾아보기를 선택하여 대상을 찾고 파일 이름을 입력합니다.
+> 다음을 선택한 다음, 완료를 선택합니다.
+>
+> 이제 올바른 형식의 .cer 파일이 있어야 합니다. `uprofile.js`의 경로가 이 파일을 가리키는지 확인합니다.
+
 ## <a name="run-the-nodejs-app"></a>Node.js 앱 실행
 
-1. git 터미널 창에서 `npm install`을 실행하여 필요한 npm 모듈을 설치합니다.
+1. git 터미널 창에서 이전에 복제한 샘플 디렉터리에 있는지 확인합니다.
 
-2. `node uprofile.js`를 실행하여 노드 애플리케이션을 시작합니다.
+    ```bash
+    cd azure-cosmos-db-cassandra-nodejs-getting-started
+    ```
 
-3. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
+2. `npm install`을 실행하여 필요한 npm 모듈을 설치합니다.
+
+3. `node uprofile.js`를 실행하여 노드 애플리케이션을 시작합니다.
+
+4. 명령줄에서 예상대로 결과가 나타나는지 확인하세요.
 
     ![출력 보기 및 확인](./media/create-cassandra-nodejs/output.png)
 
     프로그램 실행을 중지하고 콘솔 창을 닫으려면 CTRL+C를 누릅니다. 
 
-4. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
+5. Azure Portal에서 **데이터 탐색기**를 열어 이 새 데이터를 쿼리/수정/사용합니다. 
 
     ![데이터 탐색기에서 데이터 보기](./media/create-cassandra-nodejs/data-explorer.png) 
 
@@ -220,5 +256,3 @@ ms.locfileid: "77134737"
 
 > [!div class="nextstepaction"]
 > [Azure Cosmos DB로 Cassandra 데이터 가져오기](cassandra-import-data.md)
-
-

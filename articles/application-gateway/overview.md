@@ -8,12 +8,12 @@ ms.topic: overview
 ms.custom: mvc
 ms.date: 11/23/2019
 ms.author: victorh
-ms.openlocfilehash: a72e98341ecafcda98cc2fde34cf1f9d4eaff94c
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 1e80fa23519104c3c62f6a0bf5d65cbbe0848ae2
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75658273"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443825"
 ---
 # <a name="what-is-azure-application-gateway"></a>Azure Application Gateway란?
 
@@ -61,7 +61,7 @@ WAF(웹 애플리케이션 방화벽)는 일반적인 악용과 취약성으로�
 ## <a name="ingress-controller-for-aks"></a>AKS용 Ingress Controller
 AGIC(Application Gateway Ingress Controller)에서는 Application Gateway를 [AKS(Azure Kubernetes Service)](https://azure.microsoft.com/services/kubernetes-service/) 클러스터용 Ingress Controller로 사용할 수 있습니다. 
 
-Ingress Controller는 AKS 클러스터 내에서 Pod로 실행되고 [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/)를 사용하며 게이트웨이가 Kubernetes Pod로 트래픽을 부하 분산할 수 있게 해주는 Application Gateway로 변환합니다. Ingress Controller는 Application Gateway V2 SKU만 지원합니다. 
+Ingress Controller는 AKS 클러스터 내에서 Pod로 실행되고 [Kubernetes Ingress Resources](https://kubernetes.io/docs/concepts/services-networking/ingress/)를 사용하며 게이트웨이가 Kubernetes Pod로 트래픽을 부하 분산할 수 있게 해주는 Application Gateway로 변환합니다. 수신 컨트롤러는 Application Gateway Standard_v2 및 WAF_v2 SKU만 지원합니다. 
 
 자세한 내용은 [AGIC(Application Gateway Ingress Controller)](ingress-controller-overview.md)를 참조하세요.
 

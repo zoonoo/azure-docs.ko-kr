@@ -5,12 +5,12 @@ author: KarlErickson
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.author: karler
-ms.openlocfilehash: cef1d09f3365350240cb2ed879e4d41edec74aef
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: b6d7b2c60e777266b1cab578b8970c1fa1c6bc50
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849839"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425326"
 ---
 # <a name="tutorial-create-a-function-in-java-with-an-event-hub-trigger-and-an-azure-cosmos-db-output-binding"></a>자습서: Java에서 Event Hub 트리거 및 Azure Cosmos DB 출력 바인딩을 사용하여 함수 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "74849839"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 설치되어 있어야 합니다.
 
@@ -36,6 +36,8 @@ ms.locfileid: "74849839"
 
 > [!IMPORTANT]
 > 이 자습서를 완료하려면 `JAVA_HOME` 환경 변수를 JDK의 설치 위치로 설정해야 합니다.
+
+이 자습서의 코드를 직접 사용하려면 [java-functions-eventhub-cosmosdb](https://github.com/Azure-Samples/java-functions-eventhub-cosmosdb) 샘플 리포지토리를 참조하세요.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
@@ -201,7 +203,7 @@ az functionapp config appsettings set \
 
 ## <a name="create-and-test-your-functions"></a>함수 만들기 및 테스트
 
-다음으로, 프로젝트를 로컬 머신에 만들고, Java 코드를 추가하고, 테스트합니다. Azure Functions용 Maven 플러그 인 및 Azure Functions Core Tools에서 작동하는 명령을 사용합니다. 함수는 로컬로 실행되지만, 만든 클라우드 기반 리소스를 사용합니다. 로컬로 작동하는 함수를 가져오면 Maven을 사용하여 클라우드에 배포하고 누적되는 데이터와 분석을 볼 수 있습니다.
+다음으로, 프로젝트를 로컬 머신에 만들고, Java 코드를 추가하고, 테스트합니다. Azure Functions Plugin for Maven 및 Azure Functions Core Tools에서 작동하는 명령을 사용합니다. 함수는 로컬로 실행되지만, 만든 클라우드 기반 리소스를 사용합니다. 로컬로 작동하는 함수를 가져오면 Maven을 사용하여 클라우드에 배포하고 누적되는 데이터와 분석을 볼 수 있습니다.
 
 Cloud Shell을 사용하여 리소스를 만든 경우 Azure에 로컬로 연결되지 않습니다. 이 경우 `az login` 명령을 사용하여 브라우저 기반 로그인 프로세스를 시작합니다. 그런 다음, 필요한 경우 기본 구독을 구독 ID가 뒤에 나오는 `az account set --subscription`으로 설정합니다. 마지막으로, 다음 명령을 실행하여 로컬 머신에서 일부 환경 변수를 다시 만듭니다. `<value>` 자리 표시자를 이전에 사용한 것과 동일한 값으로 바꿉니다.
 
@@ -411,7 +413,7 @@ mvn azure-functions:run
 
 그런 다음, [Azure Portal](https://portal.azure.com), Azure Cosmos DB 계정으로 차례로 이동할 수 있습니다. **데이터 탐색기**를 선택하고, **TelemetryInfo**를 펼친 다음, **항목**을 선택하여 데이터가 도착하면 이를 확인합니다.
 
-![Cosmos DB 데이터 탐색기](media/functions-event-hub-cosmos-db/data-explorer.png)
+![Cosmos DB Data Explorer](media/functions-event-hub-cosmos-db/data-explorer.png)
 
 ## <a name="deploy-to-azure-and-view-app-telemetry"></a>Azure에 배포 및 앱 원격 분석 보기
 

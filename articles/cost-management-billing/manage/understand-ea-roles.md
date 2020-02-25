@@ -1,35 +1,31 @@
 ---
 title: Azure의 엔터프라이즈 관리자 역할 이해 | Microsoft Docs
 description: Azure의 엔터프라이즈 관리자 역할에 대해 알아봅니다.
-services: billing
-documentationcenter: ''
-author: adpick
-manager: adpick
-editor: ''
+author: bandersmsft
+ms.reviewer: adwise
 ms.service: cost-management-billing
-ms.devlang: na
 ms.topic: conceptual
-ms.tgt_pltfrm: na
-ms.workload: na
-ms.date: 02/04/2020
+ms.date: 02/14/2020
 ms.author: banders
-ms.openlocfilehash: ee918f0f49acf85486999fe9314758286bb57126
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 9fab4d8ba0cf2e6f684a1b9de177084f8ce31604
+ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023330"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77462193"
 ---
 # <a name="understand-azure-enterprise-agreement-administrative-roles-in-azure"></a>Azure의 Azure 기업계약 관리자 역할 이해
 
 조직의 사용량 및 지출 관리를 지원하기 위해 EA(기업계약)를 체결한 Azure 고객은 다음 5개의 관리 역할을 할당할 수 있습니다.
 
 - 엔터프라이즈 관리자
-- 엔터프라이즈 관리자(읽기 전용)
+- 엔터프라이즈 관리자(읽기 전용)<sup>1</sup>
 - 부서 관리자
 - 부서 관리자(읽기 전용)
 - 계정 소유자
- 
+
+<sup>1</sup> EA 계약의 청구 담당자가 이 역할을 수행합니다.
+
 이러한 역할은 Azure 기업계약 관리에만 적용되며, 리소스에 대한 액세스를 제어하기 위한 Azure의 기본 제공 역할 외에 추가로 제공됩니다. 자세한 내용은 [Azure 리소스에 대한 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 다음 섹션에서는 각 역할의 제한 사항 및 기능에 대해 설명합니다.
@@ -42,9 +38,9 @@ ms.locfileid: "77023330"
 |엔터프라이즈 관리자(읽기 전용)|제한 없음|
 |부서 관리자|제한 없음|
 |부서 관리자(읽기 전용)|제한 없음|
-|계정 소유자|계정당 1명<sup>1</sup>|
+|계정 소유자|계정당 1명<sup>2</sup>|
 
-<sup>1</sup> 각 계정마다 고유한 Microsoft 계정이나 회사 또는 학교 계정이 필요합니다.
+<sup>2</sup> 각 계정마다 고유한 Microsoft 계정이나 회사 또는 학교 계정이 필요합니다.
 
 ## <a name="organization-structure-and-permissions-by-role"></a>역할별 조직 구조 및 사용 권한
 
@@ -52,17 +48,17 @@ ms.locfileid: "77023330"
 |---|---|---|---|---|---|
 |엔터프라이즈 관리자 보기|✔|✔|✘|✘|✘|
 |엔터프라이즈 관리자 추가 또는 제거|✔|✘|✘|✘|✘|
-|알림 연락처 보기<sup>2</sup> |✔|✔|✘|✘|✘|
-|알림 연락처 추가 또는 제거<sup>2</sup> |✔|✘|✘|✘|✘|
+|알림 연락처 보기<sup>3</sup> |✔|✔|✘|✘|✘|
+|알림 연락처 추가 또는 제거<sup>3</sup> |✔|✘|✘|✘|✘|
 |부서 만들기 및 관리 |✔|✘|✘|✘|✘|
 |부서 관리자 보기|✔|✔|✔|✔|✘|
 |부서 관리자 추가 또는 제거|✔|✘|✔|✘|✘|
-|등록에 포함된 계정 보기 |✔|✔|✔<sup>3</sup>|✔<sup>3</sup>|✘|
-|등록에 계정 추가 및 계정 소유자 변경|✔|✘|✔<sup>3</sup>|✘|✘|
+|등록에 포함된 계정 보기 |✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✘|
+|등록에 계정 추가 및 계정 소유자 변경|✔|✘|✔<sup>4</sup>|✘|✘|
 |구독 및 구독 사용 권한 만들기/관리|✘|✘|✘|✘|✔|
 
-- <sup>2</sup> 알림 연락처는 Azure 기업계약에 대한 메일 통신을 받습니다.
-- <sup>3</sup> 작업은 부서의 계정으로 제한됩니다.
+- <sup>3</sup> 알림 연락처는 Azure 기업계약에 대한 이메일 통신이 전송됩니다.
+- <sup>4</sup> 작업은 부서의 계정으로 제한됩니다.
 
 
 ## <a name="usage-and-costs-access-by-role"></a>역할별 사용량 및 비용 액세스
@@ -73,11 +69,11 @@ ms.locfileid: "77023330"
 |부서 지출 할당량 보기|✔|✔|✘|✘|✘|
 |부서 지출 할당량 설정|✔|✘|✘|✘|✘|
 |조직의 EA 가격표 보기|✔|✔|✘|✘|✘|
-|사용량 및 비용 세부 정보 보기|✔|✔|✔<sup>4</sup>|✔<sup>4</sup>|✔<sup>5</sup>|
+|사용량 및 비용 세부 정보 보기|✔|✔|✔<sup>5</sup>|✔<sup>5</sup>|✔<sup>6</sup>|
 |Azure Portal의 리소스 관리|✘|✘|✘|✘|✔|
 
-- <sup>4</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **DA 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 부서 관리자가 부서의 비용 세부 정보를 볼 수 있습니다.
-- <sup>5</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **AO 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 계정 소유자가 계정의 비용 세부 정보를 볼 수 있습니다.
+- <sup>5</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **DA 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 부서 관리자가 부서의 비용 세부 정보를 볼 수 있습니다.
+- <sup>6</sup> 엔터프라이즈 관리자가 Enterprise Portal에서 **AO 요금 보기** 정책을 사용하도록 설정해야 합니다. 그러면 계정 소유자가 계정의 비용 세부 정보를 볼 수 있습니다.
 
 
 ## <a name="pricing-in-azure-portal"></a>Azure Portal의 가격

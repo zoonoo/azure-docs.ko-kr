@@ -4,14 +4,14 @@ description: 이 빠른 시작에서는 Azure CLI의 Azure Spring Cloud에 샘�
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 11/04/2019
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: adb5b64456de743142ffb464ebb2c5e9f8dc8f86
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1e30da0844efa48f64a5e2501c79d2167ca4be92
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190782"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431261"
 ---
 # <a name="quickstart-launch-a-java-spring-application-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Java Spring 애플리케이션 시작
 
@@ -143,28 +143,34 @@ az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth
 
 ## <a name="assign-public-endpoint-to-gateway"></a>게이트웨이에 공용 엔드포인트 할당
 
-웹 브라우저를 통해 애플리케이션에 액세스할 방법이 필요합니다. 게이트웨이 애플리케이션에는 다음 명령을 사용하여 할당할 수 있는 공용 연결 엔드포인트가 필요합니다.
+웹 브라우저를 통해 애플리케이션에 액세스할 방법이 필요합니다. 게이트웨이 애플리케이션에는 공용 엔드포인트가 필요합니다.
+
+1. 다음 명령을 사용하여 엔드포인트를 할당합니다.
 
 ```azurecli
 az spring-cloud app update -n gateway --is-public true
 ```
+2. 애플리케이션이 실행 중인지 확인할 수 있도록 **게이트웨이** 애플리케이션에 공용 IP를 쿼리합니다.
 
-마지막으로 애플리케이션이 실행 중인지 확인할 수 있도록 **게이트웨이** 애플리케이션에 공용 IP를 쿼리합니다.
-
+Linux:
 ```azurecli
 az spring-cloud app show --name gateway | grep url
 ```
-
-이전 명령에서 제공하는 URL로 이동하여 PiggyMetrics 애플리케이션을 실행합니다.
+Windows:
+```azurecli
+az spring-cloud app show --name gateway | findstr url
+```
+3. 이전 명령에서 제공하는 URL로 이동하여 PiggyMetrics 애플리케이션을 실행합니다.
     ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/launch-app.png)
 
 Azure Portal로 이동하여 URL을 찾을 수도 있습니다. 
 1. 서비스로 이동
-1. **앱** 선택
-1. **게이트웨이** 선택
+2. **앱** 선택
+3. **게이트웨이** 선택
 
     ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/navigate-app1.png)
-1. **게이트웨이 개요** 페이지 ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)에서 URL 찾기
+    
+4. **게이트웨이 개요** 페이지 ![실행 중인 PiggyMetrics 스크린샷](media/spring-cloud-quickstart-launch-app-cli/navigate-app2-url.png)에서 URL 찾기
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-cli-quickstart&step=public-endpoint)

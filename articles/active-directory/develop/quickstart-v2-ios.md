@@ -12,12 +12,12 @@ ms.date: 09/24/2019
 ms.author: marsma
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started, languages:iOS
-ms.openlocfilehash: 4dea0feb5d5a1cb42640b1fc05bb185e970ae8af
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c9eb8b3d909313470ee9febdc5b1c37eea834b08
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084505"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77484046"
 ---
 # <a name="quickstart-sign-in-users-and-call-the-microsoft-graph-api-from-an-ios-or-macos-app"></a>빠른 시작: iOS 또는 macOS 앱에서 사용자 로그인 및 Microsoft Graph API 호출
 
@@ -91,6 +91,14 @@ ms.locfileid: "77084505"
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. **ViewController.swift**를 편집하고, 'let kAuthority'로 시작하는 줄을 다음 코드 조각으로 바꿉니다.
+>    ```swift
+>    let kAuthority = "Enter_the_Authority_Endpoint_Host_HereEnter_the_Tenant_Info_Here"
+>    ```
+> 1. **ViewController.swift**를 편집하고, 'let kGraphEndpoint'로 시작하는 줄을 다음 코드 조각으로 바꿉니다.
+>    ```swift
+>    let kGraphEndpoint = "Enter_the_MS_Graph_Endpoint_Host_Here"
+>    ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
 > 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.
 > 1. iOS 전용으로, dict 루트 노드 아래에서 `CFBundleURLSchemes`를 포털에서 입력한 ***번들 ID***로 바꿉니다.
@@ -117,6 +125,16 @@ ms.locfileid: "77084505"
 >    ```swift
 >    let kClientID = "Enter_the_Application_Id_Here"
 >    ```
+> 1. [Azure AD 국가별 클라우드](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints)에 대한 앱을 빌드하는 경우 'let kGraphEndpoint' 및 'let kAuthority'로 시작하는 줄을 올바른 엔드포인트로 바꿉니다. 글로벌 액세스의 경우 기본값을 사용합니다.
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.com/"
+>     let kAuthority = "https://login.microsoftonline.com/common"
+>     ```
+> 1. 다른 엔드포인트는 [여기에](https://docs.microsoft.com/graph/deployments#app-registration-and-token-service-root-endpoints) 설명되어 있습니다. 예를 들어 Azure AD 독일에서 빠른 시작을 실행하려면 다음을 사용합니다.
+>     ```objective-c
+>     let kGraphEndpoint = "https://graph.microsoft.de/"
+>     let kAuthority = "https://login.microsoftonline.de/common"
+>     ```
 > 1. 프로젝트 설정을 엽니다. **ID** 섹션에서 포털에 입력한 **번들 식별자**를 입력합니다.
 > 1. iOS 전용으로, **Info.plist**를 마우스 오른쪽 단추로 클릭하고 **파일 열기 형식** > **소스 코드**를 선택합니다.
 > 1. iOS 전용으로, dict 루트 노드 아래에서 `Enter_the_bundle_Id_Here`를 포털에서 사용한 ***번들 ID***로 바꿉니다.

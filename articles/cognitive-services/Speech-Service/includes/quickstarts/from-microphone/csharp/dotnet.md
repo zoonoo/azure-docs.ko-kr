@@ -9,12 +9,12 @@ ms.subservice: speech-service
 ms.topic: include
 ms.date: 12/17/2019
 ms.author: erhopf
-ms.openlocfilehash: 4b8f58fbfa9de929139646ad267a433645e2db35
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 9c16e2e1726fcbf1e0b55ee0e9808a607b611ea6
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77156672"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77445833"
 ---
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -40,7 +40,7 @@ ms.locfileid: "77156672"
 
 ## <a name="create-a-speech-configuration"></a>음성 구성 만들기
 
-`SpeechRecognizer` 개체를 초기화하기 전에 구독 키와 구독 지역을 사용하는 구성을 만들어야 합니다([지역](https://aka.ms/speech/sdkregion)에서 "Speech SDK 매개 변수" 선택). `RecognizeSpeechAsync()` 메서드에 이 코드를 삽입합니다.
+`SpeechRecognizer` 개체를 초기화하기 전에 구독 키와 구독 지역을 사용하는 구성을 만들어야 합니다(**지역**의 [영역 식별자](https://aka.ms/speech/sdkregion) 선택). `RecognizeSpeechAsync()` 메서드에 이 코드를 삽입합니다.
 
 > [!NOTE]
 > 이 샘플에서는 `FromSubscription()` 메서드를 사용하여 `SpeechConfig`를 빌드합니다. 사용 가능한 메서드의 전체 목록은 [SpeechConfig 클래스](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.speechconfig?view=azure-dotnet)를 참조하세요.

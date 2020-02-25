@@ -6,14 +6,14 @@ author: bandersmsft
 ms.reviewer: yashesvi
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/18/2020
 ms.author: banders
-ms.openlocfilehash: 82bf250a7902cfe4b905991809fd4bbe5dea102a
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 8ee683501346f0ee99b513ad966db1cc06b2737a
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188513"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77470978"
 ---
 # <a name="manage-reservations-for-azure-resources"></a>Azure 리소스에 대한 예약 관리
 
@@ -121,8 +121,10 @@ Azure Reserved Virtual Machine Instances를 구입한 경우 예약에 대한 �
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. **모든 서비스** > **예약**을 선택합니다.
 3. 예약을 선택합니다.
-4. **설정** > **구성**을 선택합니다.
-5. **다음에 맞게 최적화** 설정을 변경합니다.
+4. **설정** > **구성**을 선택합니다.  
+  ![구성 항목을 보여주는 예제](./media/manage-reserved-vm-instance/add-product03.png)
+5. **다음에 맞게 최적화** 설정을 변경합니다.  
+  ![최적화 설정을 보여주는 예제](./media/manage-reserved-vm-instance/instance-size-flexibility-option.png)
 
 ## <a name="optimize-reservation-use"></a>예약 사용 최적화
 

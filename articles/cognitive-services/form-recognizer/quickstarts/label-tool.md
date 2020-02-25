@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: quickstart
-ms.date: 11/14/2019
+ms.date: 02/19/2020
 ms.author: pafarley
-ms.openlocfilehash: 8ab673c1a268f5ab663e8f423dd9b60cdfde14ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 812680e587ac5c5c8b3d949199a615fcd85fa610
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118381"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77485355"
 ---
 # <a name="train-a-form-recognizer-model-with-labels-using-the-sample-labeling-tool"></a>샘플 레이블 지정 도구를 사용하여 레이블로 Form Recognizer 모델 학습
 
@@ -28,10 +28,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 - 동일한 형식의 양식 6개 이상으로 구성된 세트. 이 데이터를 사용하여 모델을 학습시키고 양식을 테스트합니다. 이 빠른 시작에서는 [샘플 데이터 세트](https://go.microsoft.com/fwlink/?linkid=2090451)를 사용할 수 있습니다. Azure Storage 계정의 Blob 스토리지 컨테이너 루트에 학습 파일을 업로드합니다.
 
+## <a name="create-a-form-recognizer-resource"></a>Form Recognizer 리소스 만들기
+
+[!INCLUDE [create resource](../includes/create-resource.md)]
+
 ## <a name="set-up-the-sample-labeling-tool"></a>샘플 레이블 지정 도구 설정
 
 Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다. 다음 단계에 따라 Docker 컨테이너를 설정합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.
-1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 호스트 컴퓨터는 로컬 컴퓨터([Windows](https://docs.docker.com/docker-for-windows/), [MacOS](https://docs.docker.com/docker-for-mac/) 또는 [Linux](https://docs.docker.com/install/))일 수 있습니다. 또는 Azure에서 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) 또는 [Azure Stack에 배포된](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) Kubernetes 클러스터와 같은 Docker 호스팅 서비스를 사용할 수 있습니다. 호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
+1. 먼저 Docker를 호스트 컴퓨터에 설치합니다. 호스트 컴퓨터는 로컬 컴퓨터([Windows](https://docs.docker.com/docker-for-windows/), [macOS](https://docs.docker.com/docker-for-mac/) 또는 [Linux](https://docs.docker.com/install/))일 수 있습니다. 또는 Azure에서 [Azure Kubernetes Service](https://docs.microsoft.com/azure/aks/index), [Azure Container Instances](https://docs.microsoft.com/azure/container-instances/index) 또는 [Azure Stack에 배포된](https://docs.microsoft.com/azure-stack/user/azure-stack-solution-template-kubernetes-deploy?view=azs-1910) Kubernetes 클러스터와 같은 Docker 호스팅 서비스를 사용할 수 있습니다. 호스트 컴퓨터는 다음 하드웨어 요구 사항을 충족해야 합니다.
 
     | 컨테이너 | 최소 | 권장|
     |:--|:--|:--|
@@ -89,7 +93,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 샘플 레이블 지정 도구에서 구성과 설정은 프로젝트에 저장됩니다. 새 프로젝트를 만들고, 필드에서 다음 값을 입력합니다.
 
 * **표시 이름** - 프로젝트 표시 이름입니다.
-* **보안 토큰** - 일부 프로젝트 설정에는 API 키 또는 다른 공유 비밀과 같은 중요한 값이 포함될 수 있습니다. 각 프로젝트는 중요한 프로젝트 설정을 암호화/암호 해독하는 데 사용할 수 있는 보안 토큰을 생성합니다. 보안 토큰은 애플리케이션 설정에서 왼쪽 탐색 모음의 아래쪽 모서리에 있는 기어 아이콘을 클릭하여 찾을 수 있습니다.
+* **보안 토큰** - 일부 프로젝트 설정에는 API 키 또는 다른 공유 비밀과 같은 중요한 값이 포함될 수 있습니다. 각 프로젝트는 중요한 프로젝트 설정을 암호화/암호 해독하는 데 사용할 수 있는 보안 토큰을 생성합니다. 왼쪽 탐색 모음의 아래쪽 모서리에 있는 기어 아이콘을 클릭하여 애플리케이션 설정에서 보안 토큰을 찾을 수 있습니다.
 * **원본 연결** - 이 프로젝트에 사용하려는 이전 단계에서 만든 Azure Blob Storage 연결입니다.
 * **폴더 경로**(선택 사항) - 원본 양식이 Blob 컨테이너의 폴더에 있는 경우 여기에 폴더 이름을 지정합니다.
 * **Form Recognizer 서비스 URI** - Form Recognizer 엔드포인트 URL
@@ -155,7 +159,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 
 보고된 정확도에 따라 모델을 향상시키기 위해 추가 학습을 수행하는 것이 좋습니다. 예측이 완료되면 적용된 각 태그의 신뢰도 값을 검사합니다. 평균 정확도 학습 값이 높지만 신뢰도 점수가 낮거나 결과가 정확하지 않은 경우, 예측에 사용되는 파일을 학습 세트에 추가하고 레이블을 지정하고 다시 학습시켜야 합니다.
 
-분석되는 문서가 학습에 사용된 문서와 다를 경우 보고된 평균 정확도, 신뢰도 점수 및 실제 정확도가 일치하지 않을 수 있습니다. 사용자가 볼 때 일부 문서는 비슷하게 보이지만 AI 모델과는 다르게 보일 수 있습니다. 예를 들어 두 가지 변형이 있는 양식 유형을 사용하여 학습할 수 있습니다. 여기서 학습 세트는 변형 A(20%)와 변형 B(80%)로 구성됩니다. 예측하는 동안 변형 A 문서의 신뢰도 점수가 낮아질 수 있습니다.
+분석된 문서가 학습에 사용된 문서와 다를 경우 보고된 평균 정확도, 신뢰도 점수 및 실제 정확도가 일치하지 않을 수 있습니다. 사용자가 볼 때 일부 문서는 비슷하게 보이지만 AI 모델과는 다르게 보일 수 있습니다. 예를 들어 두 가지 변형이 있는 양식 유형을 사용하여 학습할 수 있습니다. 여기서 학습 세트는 변형 A(20%)와 변형 B(80%)로 구성됩니다. 예측하는 동안 변형 A 문서의 신뢰도 점수가 낮아질 수 있습니다.
 
 ## <a name="save-a-project-and-resume-later"></a>프로젝트 저장 및 나중에 다시 시작
 
@@ -165,7 +169,7 @@ Docker 엔진을 사용하여 샘플 레이블 지정 도구를 실행합니다.
 프로젝트 설정 페이지(슬라이더 아이콘)로 이동하여 보안 토큰 이름을 기록합니다. 그런 다음, 애플리케이션 설정(기어 아이콘)으로 이동합니다. 그러면 현재 브라우저 인스턴스의 모든 보안 토큰이 표시됩니다. 프로젝트의 보안 토큰을 찾아서 해당 이름과 키 값을 안전한 위치에 복사합니다.
 
 ### <a name="restore-project-credentials"></a>프로젝트 자격 증명 복원
-프로젝트를 다시 시작하려면 먼저 동일한 Blob 스토리지 컨테이너에 대한 연결을 만들어야 합니다. 이렇게 하려면 위의 단계를 수행합니다. 그런 다음, 애플리케이션 설정 페이지(기어 아이콘)로 이동하여 프로젝트의 보안 토큰이 있는지 확인합니다. 그렇지 않으면 새 보안 토큰을 추가하고, 이전 단계의 토큰 이름과 키를 다시 복사합니다. 그런 다음, [설정 저장]을 클릭합니다. 
+프로젝트를 다시 시작하려면 먼저 동일한 Blob 스토리지 컨테이너에 대한 연결을 만들어야 합니다. 위의 단계 반복하여 이 작업을 수행합니다. 그런 다음, 애플리케이션 설정 페이지(기어 아이콘)로 이동하여 프로젝트의 보안 토큰이 있는지 확인합니다. 그렇지 않으면 새 보안 토큰을 추가하고, 이전 단계의 토큰 이름과 키를 다시 복사합니다. 그런 다음, [설정 저장]을 클릭합니다. 
 
 ### <a name="resume-a-project"></a>프로젝트 다시 시작
 마지막으로, 기본 페이지(집 아이콘)로 이동하여 [클라우드 프로젝트 열기]를 클릭합니다. 그런 다음, Blob 스토리지 연결을 선택하고, 프로젝트의 *.vott* 파일을 선택합니다. 보안 토큰이 있으므로 애플리케이션에서 프로젝트의 모든 설정을 로드합니다.

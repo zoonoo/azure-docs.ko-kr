@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 10/28/2019
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: be39449c1c11acdbdc99bd96f917c51eebda44ae
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
+ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195784"
+ms.lasthandoff: 02/16/2020
+ms.locfileid: "77371342"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -34,7 +34,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 ![자습서 네트워크 인프라](media/tutorial-firewall-rules-portal/Tutorial_network.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 테스트 네트워크 환경 설정
@@ -70,7 +70,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 > [!NOTE]
 > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 1. **네트워킹** > **가상 네트워크**를 선택합니다.
 1. **이름**에 **Test-FW-VN**을 입력합니다.
 1. **주소 공간**에 **10.0.0.0/16**을 입력합니다.
@@ -98,7 +98,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이제 점프 및 워크로드 가상 머신을 만들어 적절한 서브넷에 배치합니다.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. **컴퓨팅**을 선택한 다음, 추천 목록에서 **Windows Server 2016 Datacenter**를 선택합니다.
 3. 가상 머신에 대해 다음 값을 입력합니다.
 
@@ -133,7 +133,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 VNet에 방화벽을 배포합니다.
 
-1. Azure Portal 메뉴 또는 **홈** 페이지에서 **리소스 만들기**를 선택합니다.
+1. Azure Portal 메뉴 또는 **홈**페이지에서 **리소스 만들기**를 선택합니다.
 2. 검색 상자에 **방화벽**을 입력하고 **Enter** 키를 누릅니다.
 3. **방화벽**을 선택하고 **만들기**를 선택합니다.
 4. **방화벽 만들기** 페이지에서 다음 표를 사용하여 방화벽을 구성합니다.
@@ -142,10 +142,10 @@ VNet에 방화벽을 배포합니다.
    |---------|---------|
    |Subscription     |\<구독\>|
    |Resource group     |**Test-FW-RG** |
-   |Name     |**Test-FW01**|
+   |속성     |**Test-FW01**|
    |위치     |전에 사용한 동일한 위치 선택|
    |가상 네트워크 선택     |**기존 리소스 사용**: **Test-FW-VN**|
-   |공용 IP 주소     |**새로 만듭니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
+   |공용 IP 주소     |**새로 추가합니다**. 공용 IP 주소는 표준 SKU 형식이어야 합니다.|
 
 5. **검토 + 만들기**를 선택합니다.
 6. 요약을 검토한 다음, **만들기**를 선택하여 방화벽을 만듭니다.

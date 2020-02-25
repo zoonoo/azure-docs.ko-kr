@@ -1,6 +1,6 @@
 ---
 title: '빠른 시작: Windows에서 Java 앱 만들기'
-description: 몇 분 안에 Windows의 Azure App Service에 첫 번째 Java Hello World를 배포합니다. App Service에 대한 Maven 플러그 인을 사용하면 Java 앱을 편리하게 배포할 수 있습니다.
+description: 몇 분 안에 Windows의 Azure App Service에 첫 번째 Java Hello World를 배포합니다. Azure Web App Plugin for Maven을 사용하면 Java 앱을 편리하게 배포할 수 있습니다.
 keywords: azure, 앱 서비스, 웹앱, windows, java, maven, 빠른 시작
 author: msangapu-msft
 ms.assetid: 582bb3c2-164b-42f5-b081-95bfcb7a502a
@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 05/29/2019
 ms.author: jafreebe
 ms.custom: mvc, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: c511ed3f432c8e54a820c01839269712271774bd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 3cf759294a31fcf90c5a3f4a6cdc68e3c35882e0
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672170"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425389"
 ---
 # <a name="quickstart-create-a-java-app-on-azure-app-service-on-windows"></a>빠른 시작: Windows의 App Service에서 Java 앱 만들기
 
@@ -22,7 +22,7 @@ ms.locfileid: "74672170"
 > 이 문서에서는 Windows의 App Service에 앱을 배포합니다. _Linux_의 App Service에 배포하려면 [Linux에서 Java 웹앱 만들기](./containers/quickstart-java.md)를 참조하세요.
 >
 
-[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 [Azure App Service용 Maven 플러그 인](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)에서 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 Java 웹 보관(WAR) 파일을 배포하는 방법을 보여줍니다.
+[Azure App Service](overview.md)는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다.  이 빠른 시작에서는 [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/tree/develop/azure-webapp-maven-plugin)과 함께 [Azure CLI](https://docs.microsoft.com/cli/azure/get-started-with-azure-cli)를 사용하여 Java 웹 보관(WAR) 파일을 배포하는 방법을 보여줍니다.
 
 > [!NOTE]
 > IntelliJ 및 Eclipse와 같은 인기 있는 IDE를 사용하여 동일한 작업을 수행할 수도 있습니다. [Azure Toolkit for IntelliJ 빠른 시작](/java/azure/intellij/azure-toolkit-for-intellij-create-hello-world-web-app) 또는 [Azure Toolkit for Eclipse 빠른 시작](/java/azure/eclipse/azure-toolkit-for-eclipse-create-hello-world-web-app)에서 유사한 문서를 확인하세요.
@@ -95,7 +95,7 @@ code pom.xml
 
 플러그인 구성에서 다음 자리 표시자를 수정합니다.
 
-| Placeholder | 설명 |
+| 자리 표시자 | Description |
 | ----------- | ----------- |
 | `SUBSCRIPTION_ID` | 앱을 배포하려는 구독의 고유 ID입니다. 기본 구독의 ID는 `az account show` 명령을 사용하여 Cloud Shell 또는 CLI에서 찾을 수 있습니다. 사용 가능한 모든 구독에 대해 `az account list` 명령을 사용합니다.|
 | `RESOURCEGROUP_NAME` | 앱을 만들 새 리소스 그룹의 이름입니다. 앱의 모든 리소스를 한 그룹에 배치하여 다 함께 관리할 수 있습니다. 예를 들어 리소스 그룹을 삭제하면 앱과 연결된 모든 리소스가 삭제됩니다. 이 값을 고유한 새 리소스 그룹(예: *myResourceGroup*)으로 수정합니다. 이 리소스 그룹 이름을 사용하여 이후 섹션에서 모든 Azure 리소스를 정리합니다. |

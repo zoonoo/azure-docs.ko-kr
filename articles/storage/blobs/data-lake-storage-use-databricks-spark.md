@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: normesta
 ms.reviewer: dineshm
-ms.openlocfilehash: e26ae4d384b1718b1cdb12abbda82aad22afde4d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c18c39ced40505a87af8907a65aa16aae978838
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75462584"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471876"
 ---
 # <a name="tutorial-azure-data-lake-storage-gen2-azure-databricks--spark"></a>자습서: Azure Data Lake Storage Gen2, Azure Databricks 및 Spark
 
@@ -129,7 +129,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
 
    * `<storage-account-name>` 자리 표시자 값을 스토리지 계정 이름으로 바꿉니다.
 
-   * `<container-name>` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
+   * `<container-name>` 자리 표시자를 스토리지 계정의 컨테이너 이름으로 바꿉니다.
 
 ## <a name="create-a-container-and-mount-it"></a>컨테이너 생성 및 탑재
 
@@ -161,20 +161,7 @@ AzCopy를 사용하여 *.csv* 파일의 데이터를 Data Lake Storage Gen2 계�
     extra_configs = configs)
     ```
 
-18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 이전 단계에서 컨테이너에 지정한 이름으로 바꿉니다.
-
-이러한 값을 사용하여 언급된 자리 표시자를 바꿉니다.
-
-   * `appId` 및 `password`는 서비스 주체 만들기의 일환으로 활성 디렉터리에 등록한 앱에서 가져온 것입니다.
-
-   * `tenant-id`는 구독에서 가져온 것입니다.
-
-   * `storage-account-name`은 Azure Data Lake Storage Gen2 스토리지 계정의 이름입니다.
-
-   * `container-name` 자리 표시자를 컨테이너에 지정할 이름으로 바꿉니다.
-
-   > [!NOTE]
-   > 프로덕션 설정에서 Azure Databricks에서 암호를 저장하는 것이 좋습니다. 그런 다음, 암호 대신 코드 블록에 조회 키를 추가합니다. 이 빠른 시작을 완료했으면 Azure Databricks 웹 사이트에서 [Azure Data Lake Storage Gen2](https://docs.azuredatabricks.net/spark/latest/data-sources/azure/azure-datalake-gen2.html) 문서에서 이 방법에 대한 예제를 살펴보세요.
+18. 이 코드 블록에서 `appId`, `password`, `tenant` 및 `storage-account-name` 자리 표시자 값을 이 자습서의 필수 조건을 수행하는 동안 수집한 값으로 바꿉니다. `container-name` 자리 표시자 값을 컨테이너 이름으로 바꿉니다.
 
 19. 이 블록에서 코드를 실행하려면 **SHIFT + ENTER** 키를 누릅니다.
 

@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 11/04/2019
 ms.author: brendm
-ms.openlocfilehash: a8ccda88239a150a24c9abaf6ebb172f0fd01dba
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: dd8ce6d9b4dc63592e491a06a0055a7d065252b5
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278917"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201437"
 ---
 # <a name="quickstart-launch-an-azure-spring-cloud-app-using-the-maven-plug-in"></a>빠른 시작: Maven 플러그 인을 사용하여 Azure Spring Cloud 앱 시작
 
@@ -63,7 +63,7 @@ Azure Spring Cloud Maven 플러그 인을 사용하면 Azure Spring Cloud 애플
 ## <a name="set-up-your-configuration-server"></a>구성 서버 설정
 
 1. 서비스 **개요** 페이지에서 **구성 서버**를 선택합니다.
-1. **기본 리포지토리** 섹션에서 **URI**를 **https://github.com/Azure-Samples/piggymetrics** 로 설정하고, **레이블**을 **config**로 설정하고, **적용**을 선택하여 변경 내용을 저장합니다.
+1. **기본 리포지토리** 섹션에서 **URI**를 **https://github.com/Azure-Samples/piggymetrics-config** 로 설정한 다음, **적용**을 선택하여 변경 내용을 저장합니다.
 
     > [!div class="mx-imgBorder"]
     > ![구성 설정 정의 및 적용](media/maven-qs-apply-config.jpg)

@@ -5,14 +5,14 @@ author: vhorne
 ms.service: firewall-manager
 services: firewall-manager
 ms.topic: overview
-ms.date: 10/25/2019
+ms.date: 02/18/2020
 ms.author: victorh
-ms.openlocfilehash: df87e652d2969d4ae12e97a2b455648cf39382c3
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: c3a94cea838609f65511a21ee2f64e8782a6adea
+ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73488259"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77443128"
 ---
 # <a name="azure-firewall-manager-preview-deployment-overview"></a>Azure Firewall Manager Preview 배포 개요
 
@@ -20,23 +20,32 @@ ms.locfileid: "73488259"
 
 Azure Firewall Manager Preview를 배포하는 방법은 여러 가지지만 다음과 같은 일반적인 프로세스가 권장됩니다.
 
-## <a name="prerequisites"></a>필수 조건
-
-> [!IMPORTANT]
-> `Register-AzProviderFeature` PowerShell 명령을 사용하여 Azure Firewall Manager Preview를 명시적으로 사용하도록 설정해야 합니다.
->PowerShell 명령 프롬프트에서 다음 명령을 실행합니다.
->
->```azure-powershell
->connect-azaccount
->Register-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network
->```
->기능 등록이 완료될 때까지 최대 30분이 걸립니다. 다음 명령을 실행하여 등록 상태를 확인합니다.
->
->`Get-AzProviderFeature -FeatureName AllowCortexSecurity -ProviderNamespace Microsoft.Network`
-
-
-
 ## <a name="general-deployment-process"></a>일반 배포 프로세스
+
+### <a name="hub-virtual-networks"></a>Hub 가상 네트워크
+
+1.  방화벽 정책 만들기
+
+    - 새 정책 만들기
+<br>*or*<br>
+    - 기본 정책 도출 및 로컬 정책 사용자 지정
+<br>*or*<br>
+    - 기존 Azure Firewall에서 규칙을 가져옵니다. 여러 방화벽에 적용해야 하는 정책에서 NAT 규칙을 제거해야 합니다.
+1. 허브 및 스포크 아키텍처 만들기
+   - Azure Firewall Manager를 사용하여 Hub Virtual Network를 만들고 가상 네트워크 피어링을 사용하여 피어 스포크 가상 네트워크를 만듭니다.
+<br>*or*<br>
+    - 가상 네트워크를 만들고 가상 네트워크 피어링을 사용하여 가상 네트워크 연결 및 피어 스포크 가상 네트워크를 추가합니다.
+
+3. 보안 공급자를 선택하고 방화벽 정책을 연결합니다. 현재 Azure Firewall만 지원되는 공급자입니다.
+
+   - Hub Virtual Network를 만드는 동안이 작업을 수행합니다.
+<br>*or*<br>
+    - 기존 가상 네트워크를 Hub Virtual Network로 변환합니다. 여러 가상 네트워크를 변환할 수도 있습니다.
+
+4. 트래픽을 Hub Virtual Network 방화벽으로 라우팅하도록 사용자 정의 경로를 구성합니다.
+
+
+### <a name="secured-virtual-hubs"></a>보안 가상 허브
 
 1. 허브 및 스포크 아키텍처 만들기
 

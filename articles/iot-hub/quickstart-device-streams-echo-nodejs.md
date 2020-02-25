@@ -9,49 +9,28 @@ ms.topic: quickstart
 ms.custom: mvc
 ms.date: 03/14/2019
 ms.author: robinsh
-ms.openlocfilehash: 538e04d7ae4f6528c26762a8efac06d02b4f86bc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 3bc5dc754509260591acf7c5d5809d5e85794d9b
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083742"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77471927"
 ---
 # <a name="quickstart-communicate-to-a-device-application-in-nodejs-via-iot-hub-device-streams-preview"></a>빠른 시작: IoT Hub 디바이스 스트림을 통해 Node.js에서 디바이스 애플리케이션과 통신(미리 보기)
 
 [!INCLUDE [iot-hub-quickstarts-3-selector](../../includes/iot-hub-quickstarts-3-selector.md)]
 
-Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
+이 빠른 시작에서는 서비스쪽 애플리케이션을 실행하고 디바이스 스트림을 사용하여 디바이스와 서비스 간의 통신을 설정합니다. Azure IoT Hub 디바이스 스트림은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림만 지원합니다. 결과적으로 이 빠른 시작에서는 서비스 쪽 애플리케이션을 실행하는 지침만 설명합니다.
 
-[IoT Hub 디바이스 스트림](./iot-hub-device-streams-overview.md)은 서비스 및 디바이스 애플리케이션이 안전하고 방화벽 친화적인 방식으로 통신할 수 있도록 합니다. 공개 미리 보기 동안 Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 결과적으로 이 빠른 시작에서는 서비스 쪽 애플리케이션을 실행하는 지침만 설명합니다. 다음 빠른 시작 중 하나에서 함께 제공되는 디바이스 쪽 애플리케이션을 실행해야 합니다.
+## <a name="prerequisites"></a>사전 요구 사항
 
-* [IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신](./quickstart-device-streams-echo-c.md)
+* [IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신](./quickstart-device-streams-echo-c.md) 또는 [IoT Hub 디바이스 스트림을 통해 C# 디바이스 앱과 통신](./quickstart-device-streams-echo-csharp.md) 완료.
 
-* [IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신](./quickstart-device-streams-echo-csharp.md).
+* 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
 
-이 빠른 시작의 서비스 쪽 Node.js 애플리케이션에는 다음과 같은 기능이 있습니다.
+* [Node.js 10 이상](https://nodejs.org).
 
-* IoT 디바이스에 디바이스 스트림을 만듭니다.
-
-* 명령줄에서 입력을 읽고 다시 에코하는 디바이스 애플리케이션에 보냅니다.
-
-코드는 디바이스 스트림의 초기화 프로세스와 데이터를 보내고 받는 데 사용하는 방법을 보여줍니다.
-
-[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
-
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
-
-## <a name="prerequisites"></a>필수 조건
-
-디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
-
-  * 미국 중부
-  * 미국 중부 EUAP
-  * 북유럽
-  * 동남아시아
-
-이 빠른 시작의 서비스 쪽 애플리케이션을 실행하려면 개발 머신에 Node.js v10.x.x 이상이 필요합니다.
-
-[Nodejs.org](https://nodejs.org)에서 여러 플랫폼에 대한 Node.js를 다운로드할 수 있습니다.
+* [샘플 Node.js 프로젝트](https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip).
 
 다음 명령을 사용하여 개발 컴퓨터에서 Node.js의 현재 버전을 확인할 수 있습니다.
 
@@ -59,19 +38,31 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 node --version
 ```
 
-다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IOT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 명령을 추가합니다.
+Microsoft Azure IoT Hub는 현재 디바이스 스트림을 [미리 보기 기능](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)으로 지원합니다.
+
+> [!IMPORTANT]
+> 디바이스 스트림의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
+>
+> * 미국 중부
+> * 미국 중부 EUAP
+> * 북유럽
+> * 동남아시아
+
+[!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
+
+### <a name="add-azure-iot-extension"></a>Azure IoT 확장 추가
+
+다음 명령을 실행하여 Cloud Shell 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다. IoT 확장은 Azure CLI에 IoT Hub, IoT Edge 및 IoT DPS(Device Provisioning Service) 명령을 추가합니다.
 
 ```azurecli-interactive
 az extension add --name azure-cli-iot-ext
 ```
 
-아직 그렇게 하지 않았다면 https://github.com/Azure-Samples/azure-iot-samples-node/archive/streams-preview.zip 에서 샘플 Node.js 프로젝트를 다운로드하고 ZIP 보관 파일을 추출합니다.
-
 ## <a name="create-an-iot-hub"></a>IoT Hub 만들기
 
 이전 [빠른 시작: 디바이스에서 IoT 허브로 원격 분석 보내기](quickstart-send-telemetry-node.md)를 완료한 경우 이 단계를 건너뛸 수 있습니다.
 
-[!INCLUDE [iot-hub-include-create-hub-device-streams](../../includes/iot-hub-include-create-hub-device-streams.md)]
+[!INCLUDE [iot-hub-include-create-hub](../../includes/iot-hub-include-create-hub.md)]
 
 ## <a name="register-a-device"></a>디바이스 등록
 
@@ -109,13 +100,20 @@ az extension add --name azure-cli-iot-ext
 
 앞에서 설명한 대로 IoT Hub Node.js SDK는 서비스 쪽에서 디바이스 스트림을 지원합니다. 디바이스 쪽 애플리케이션의 경우 다음 빠른 시작에서 함께 제공되는 디바이스 프로그램 중 하나를 사용합니다.
 
-   * [IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신](./quickstart-device-streams-echo-c.md)
+* [IoT Hub 디바이스 스트림을 통해 C에서 디바이스 앱과 통신](./quickstart-device-streams-echo-c.md)
 
-   * [IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신](./quickstart-device-streams-echo-csharp.md)
+* [IoT Hub 디바이스 스트림을 통해 C#에서 디바이스 앱과 통신](./quickstart-device-streams-echo-csharp.md)
 
 다음 단계로 진행하기 전에 디바이스 쪽 애플리케이션이 실행 중인지 확인합니다.
 
 ### <a name="run-the-service-side-application"></a>서비스 쪽 애플리케이션 실행
+
+이 빠른 시작의 서비스 쪽 Node.js 애플리케이션에는 다음과 같은 기능이 있습니다.
+
+* IoT 디바이스에 디바이스 스트림을 만듭니다.
+* 명령줄에서 입력을 읽고 다시 에코하는 디바이스 애플리케이션에 보냅니다.
+
+코드는 디바이스 스트림의 초기화 프로세스와 데이터를 보내고 받는 데 사용하는 방법을 보여줍니다.
 
 디바이스 쪽 애플리케이션이 실행되고 있다고 가정하여 로컬 터미널 창의 아래 단계에 따라 Node.js에서 서비스 쪽 애플리케이션을 실행합니다.
 

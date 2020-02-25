@@ -8,12 +8,12 @@ ms.author: heidist
 ms.service: cognitive-search
 ms.topic: overview
 ms.date: 11/04/2019
-ms.openlocfilehash: e6ee75f4a7e00e8c21079e1336756db20221750f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
+ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76838006"
+ms.lasthandoff: 02/19/2020
+ms.locfileid: "77472437"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
@@ -131,7 +131,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
 + [예: AI 보강에 대한 사용자 지정 기술 만들기(C#)](cognitive-search-create-custom-skill-example.md)
 
-학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 빠른 시작과 자습서를 하루에 모두 실행하려면 두 연습 모두에 적합하도록 더 작은 파일 세트(10개 문서)를 사용하거나, 빠른 시작 또는 자습서에서 사용한 인덱서를 삭제하여 카운터를 0으로 다시 설정합니다.
+학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 단원을 여러 번 실행하려면 인덱서를 삭제하고 다시 만들어 카운터를 0으로 재설정합니다.
 
 **3단계: API 검토**
 

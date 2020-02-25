@@ -4,14 +4,14 @@ description: 이 빠른 시작에서는 Azure Portal을 사용하여 Azure Sprin
 author: bmitchell287
 ms.service: spring-cloud
 ms.topic: quickstart
-ms.date: 02/03/2020
+ms.date: 02/15/2020
 ms.author: brendm
-ms.openlocfilehash: 67ad112021c2fadb5ea93ffefcf5e58e9404e92a
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: a215fe2305b320fe27ef9d868d060f3e9cb14c1c
+ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137750"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77431350"
 ---
 # <a name="quickstart-launch-an-existing-azure-spring-cloud-application-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 기존 Azure Spring Cloud 애플리케이션 시작
 
@@ -54,17 +54,42 @@ az extension add --name spring-cloud
 
 ## <a name="provision-a-service-instance-on-the-azure-portal"></a>Azure Portal에서 서비스 인스턴스 프로비저닝
 
-1. 웹 브라우저에서 [Azure Portal의 Azure Spring Cloud에 대한 이 링크](https://ms.portal.azure.com/#create/Microsoft.AppPlatform)를 엽니다.
+1. 새 탭에서 [Azure Portal](https://ms.portal.azure.com/)을 엽니다. 
 
-1. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
-    - 서비스 이름: 서비스 인스턴스의 이름을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
-    - 구독: 이 리소스 대한 요금이 청구될 구독을 선택합니다.  이 구독이 Azure Spring Cloud의 허용 목록에 추가되었는지 확인합니다.
-    - 리소스 그룹: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다.
-    - 위치: 서비스 인스턴스에 대한 위치를 선택합니다. 현재 지원되는 위치는 미국 동부, 미국 서부 2, 서유럽 및 동남 아시아입니다.
+2. 상단 검색 상자에서 **Azure Spring Cloud**를 검색합니다.
 
-1. **검토 + 만들기**를 클릭합니다.
+3. 결과에서 **Azure Spring Cloud**를 선택합니다.
 
-1. 사양을 확인하고 **만들기**를 클릭합니다.
+ ![ASC 아이콘](media/spring-cloud-quickstart-launch-app-portal/find-spring-cloud-start.png)
+
+4. Azure Spring Cloud 페이지에서 **+ 추가**를 클릭합니다.
+
+ ![ASC 아이콘](media/spring-cloud-quickstart-launch-app-portal/spring-cloud-add.png)
+
+5. Azure Spring Cloud **만들기** 페이지에 있는 양식을 채웁니다.  다음 지침을 고려하세요.
+    - **구독**: 이 리소스 대한 요금이 청구될 구독을 선택합니다.  이 구독이 Azure Spring Cloud의 허용 목록에 추가되었는지 확인합니다.
+    - **리소스 그룹**: 새 리소스에 대한 리소스 그룹을 새로 만드는 것이 가장 좋습니다.
+    - **서비스 세부 정보/이름**: 서비스 인스턴스의 이름을 지정합니다.  이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다.  서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+    - **위치**: 서비스 인스턴스에 대한 위치를 선택합니다. 현재 지원되는 위치는 미국 동부, 미국 서부 2, 서유럽 및 동남 아시아입니다.
+
+    ![ASC 포털 시작](media/spring-cloud-quickstart-launch-app-portal/portal-start.png)
+
+6. **진단 설정** 탭을 클릭하여 다음 대화 상자를 엽니다.
+
+7. 요구 사항에 따라 **로그 사용**을 *예* 또는 *아니요*로 설정할 수 있습니다.
+
+    ![로그 사용 설정](media/spring-cloud-quickstart-launch-app-portal/diagnostic-setting.png)
+
+8. **추적** 탭을 클릭합니다.
+
+9. 요구 사항에 따라 **추적 사용**을 *예* 또는 *아니요*로 설정할 수 있습니다.  **추적 사용**을 예로 설정하는 경우 기존 애플리케이션 인사이트를 선택하거나 새 애플리케이션을 만듭니다. **Application Insights** 규격이 없으면 유효성 검사 오류가 발생합니다.
+
+
+    ![추적](media/spring-cloud-quickstart-launch-app-portal/tracing.png)
+
+10. **검토 + 만들기**를 클릭합니다.
+
+11. 사양을 확인하고 **만들기**를 클릭합니다.
 
 서비스를 배포하는 데 약 5분이 걸립니다.  배포되면 서비스 인스턴스에 대한 **개요** 페이지가 나타납니다.
 
@@ -76,11 +101,9 @@ az extension add --name spring-cloud
 
 1. 서비스 **개요** 페이지로 이동하여 **구성 서버**를 선택합니다.
 
-1. **기본 리포지토리** 섹션에서 **URI**를 "https\://github.com/Azure-Samples/piggymetrics"로 설정합니다.
+2. **기본 리포지토리** 섹션에서 **URI**를 "https://github.com/Azure-Samples/piggymetrics-config"로 설정합니다.
 
-1. **LABEL**을 "config"로 설정합니다.
-
-1. **적용**을 선택하여 변경 내용을 저장합니다.
+3. **적용**을 선택하여 변경 내용을 저장합니다.
 
     ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-config.png)
 
@@ -97,27 +120,27 @@ az extension add --name spring-cloud
     git clone https://github.com/Azure-Samples/piggymetrics
     ```
 
-1. 복제된 패키지를 빌드합니다.
+2. 복제된 패키지를 빌드합니다.
 
     ```azurecli
     cd piggymetrics
     mvn clean package -DskipTests
     ```
-1. 리소스 그룹 및 서비스에 이름을 할당합니다. 아래 자리 표시자를 이 자습서의 앞부분에서 프로비저닝한 리소스 그룹 이름과 서비스 이름으로 대체해야 합니다.
+3. 리소스 그룹 및 서비스에 이름을 할당합니다. 아래 자리 표시자를 이 자습서의 앞부분에서 프로비저닝한 리소스 그룹 이름과 서비스 이름으로 대체해야 합니다.
 
     ```azurecli
     az configure --defaults group=<resource group name>
     az configure --defaults spring-cloud=<service instance name>
     ```
 
-1. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.
+4. `gateway` 애플리케이션을 만들고 JAR 파일을 배포합니다.
 
     ```azurecli
     az spring-cloud app create -n gateway
     az spring-cloud app deploy -n gateway --jar-path ./gateway/target/gateway.jar
     ```
 
-1. 동일한 패턴에 따라 `account-service` 및 `auth-service` 애플리케이션을 생성하고 해당 JAR 파일을 배포합니다.
+5. 동일한 패턴에 따라 `account-service` 및 `auth-service` 애플리케이션을 생성하고 해당 JAR 파일을 배포합니다.
 
     ```azurecli
     az spring-cloud app create -n account-service
@@ -126,7 +149,7 @@ az extension add --name spring-cloud
     az spring-cloud app deploy -n auth-service --jar-path ./auth-service/target/auth-service.jar
     ```
 
-1. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 세 애플리케이션 각각에 대한 줄이 보입니다.
+6. 애플리케이션 배포를 완료하는 데 몇 분이 걸립니다. 배포되었는지 확인하려면 Azure Portal의 **앱** 블레이드로 이동합니다. 세 애플리케이션 각각에 대한 줄이 보입니다.
 
 > [!div class="nextstepaction"]
 > [문제가 발생했습니다.](https://www.research.net/r/javae2e?tutorial=asc-portal-quickstart&step=deploy)
@@ -135,13 +158,13 @@ az extension add --name spring-cloud
 
 1. 왼쪽 메뉴에서 **Apps** 탭을 엽니다.
 
-1. `gateway` 애플리케이션을 선택하여 **개요** 페이지를 표시합니다.
+2. `gateway` 애플리케이션을 선택하여 **개요** 페이지를 표시합니다.
 
-1. **도메인 할당**을 선택하여 게이트웨이에 공용 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다.
+3. **엔드포인트 할당**을 선택하여 게이트웨이에 퍼블릭 엔드포인트를 할당합니다. 몇 분 정도 걸릴 수 있습니다.
 
     ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/portal-endpoint.png)
 
-1. 브라우저에 할당된 공용 엔드포인트(레이블이 지정된 **URL**)를 입력하여 실행 중인 애플리케이션을 봅니다.
+4. 브라우저에 할당된 공용 엔드포인트(레이블이 지정된 **URL**)를 입력하여 실행 중인 애플리케이션을 봅니다.
 
     ![ASC 포털의 스크린샷](media/spring-cloud-quickstart-launch-app-portal/sample-app.png)
 

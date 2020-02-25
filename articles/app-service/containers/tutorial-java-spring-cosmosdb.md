@@ -7,12 +7,12 @@ ms.devlang: java
 ms.topic: tutorial
 ms.date: 12/10/2018
 ms.custom: seodec18, seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: a3e9c05fbe68bf1b03f45d045afd8754753fecd3
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 5109c33acf4a92a3227fe79d6d2c997a54adec08
+ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74688824"
+ms.lasthandoff: 02/18/2020
+ms.locfileid: "77425275"
 ---
 # <a name="tutorial-build-a-java-spring-boot-web-app-with-azure-app-service-on-linux-and-azure-cosmos-db"></a>자습서: Linux 및 Azure Cosmos DB에서 Azure App Service를 사용하여 Java Spring Boot Java 웹앱 빌드
 
@@ -20,7 +20,7 @@ ms.locfileid: "74688824"
 
 ![Azure Cosmos DB에 데이터를 저장하는 Spring Boot 애플리케이션](./media/tutorial-java-spring-cosmosdb/spring-todo-app-running-locally.jpg)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Cosmos DB 데이터베이스 만들기
@@ -31,7 +31,7 @@ ms.locfileid: "74688824"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 고유한 컴퓨터에 설치된 [Azure CLI](https://docs.microsoft.com/cli/azure/overview) 
 * [Git](https://git-scm.com/)
@@ -173,7 +173,7 @@ bash-3.2$ mvn package spring-boot:run
 
 ## <a name="configure-azure-deployment"></a>Azure 배포 구성
 
-`initial/spring-boot-todo` 디렉터리에서 `pom.xml` 파일을 열고 다음 [Azure App Service의 Maven 플러그인](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) 구성을 추가합니다.
+`initial/spring-boot-todo` 디렉터리에서 `pom.xml` 파일을 열고 다음 [Azure Web App Plugin for Maven](https://github.com/Microsoft/azure-maven-plugins/blob/develop/azure-webapp-maven-plugin/README.md) 구성을 추가합니다.
 
 ```xml    
 <plugins> 

@@ -1,20 +1,20 @@
 ---
 title: '자습서: 여행 모드별 여러 경로 찾기 | Microsoft Azure Maps'
 description: 이 자습서에서는 Microsoft Azure Maps를 사용하여 다양한 여행 모드에 대한 경로를 찾는 방법을 알아봅니다.
-author: walsehgal
-ms.author: v-musehg
+author: farah-alyasari
+ms.author: v-faalya
 ms.date: 01/14/2020
 ms.topic: tutorial
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 73cc2ff49653c91d635d52b79a92d1974bfd895b
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 628a3003cec2cc2ca58f1b133cf3236417dfa94e
+ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989657"
+ms.lasthandoff: 02/14/2020
+ms.locfileid: "77209497"
 ---
 # <a name="tutorial-find-routes-for-different-modes-of-travel-using-azure-maps"></a>자습서: Azure Maps를 사용하여 여러 여행 모드에 대한 경로 찾기
 
@@ -158,7 +158,7 @@ ms.locfileid: "76989657"
     });
     ```
     
-    맵 `ready` 이벤트 처리기에서 경로 선과 출발점 및 도착점을 저장하는 데이터 원본이 만들어집니다. 선 레이어를 만들어 데이터 원본에 연결하여 경로 선이 렌더링되는 방식을 정의합니다. 식은 경로 선 기능의 속성에서 선 너비 및 색상을 검색하는 데 사용됩니다. 맵에 레이어를 추가하면 값이 `'labels'`인 두 번째 매개 변수가 전달됩니다. 이 매개 변수는 맵 레이블 아래의 이 레이어를 렌더링하도록 지정합니다. 이렇게 하면 경로 선이 도로 레이블을 가리지 않습니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 계층은 출발점과 도착점을 렌더링하는 방법을 지정합니다. 이 경우 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 
+    맵 `ready` 이벤트 처리기에서 경로 선과 출발점 및 도착점을 저장하는 데이터 원본이 만들어집니다. 선 레이어를 만들어 데이터 원본에 연결하여 경로 선이 렌더링되는 방식을 정의합니다. 식은 경로 선 기능의 속성에서 선 너비 및 색상을 검색하는 데 사용됩니다. 맵에 레이어를 추가하면 값이 `'labels'`인 두 번째 매개 변수가 전달됩니다. 이 매개 변수는 맵 레이블 아래의 이 레이어를 렌더링하도록 지정합니다. 이렇게 하면 경로 선이 도로 레이블을 포함하지 않습니다. 기호 레이어가 생성되어 데이터 원본에 연결됩니다. 이 계층은 출발점과 도착점을 렌더링하는 방법을 지정합니다. 이 경우 각 지점 개체의 속성에서 아이콘 이미지 및 텍스트 레이블 정보를 검색하는 식이 추가되었습니다. 
     
 2. 이 자습서에서는 출발 지점을 시애틀 소재의 Fabrikam이라는 가상 회사로, 도착 지점을 Microsoft 본사로 설정합니다. 맵 `ready` 이벤트 처리기에서 다음 코드를 추가합니다.
 
@@ -200,7 +200,11 @@ ms.locfileid: "76989657"
 
 ## <a name="render-routes-prioritized-by-mode-of-travel"></a>여행 모드에 따라 우선 순위가 지정된 경로 렌더링
 
-이 섹션에서는 Maps 경로 서비스 API를 사용하여 운송 모드에 따라 지정된 출발점과 도착점 간의 여러 경로를 찾는 방법을 보여 줍니다. 경로 서비스는 현재 교통 상황을 고려하여 두 위치 간의 *최소 시간*, *최단 거리*, *최적* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. 또한 사용자는 Azure의 광범위한 교통 기록 데이터베이스를 사용해 어떤 날짜 및 시간에 대한 경로 기간을 예측하여 미래의 경로를 계획할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 다음 코드 블록은 모두 맵 로드 후에 지도가 완전히 로드되도록 **map load eventListener 내**에 추가해야 합니다.
+이 섹션에서는 Maps 경로 서비스 API를 사용하는 방법을 보여줍니다. 경로 API는 운송 모드에 따라 지정된 출발점과 도착점 간의 여러 경로를 찾는 데 사용됩니다. 경로 서비스는 *최소 시간*, *최단 거리*, *에코* 또는 *모험* 경로를 계획할 수 있는 API를 제공합니다. API는 두 위치 간의 경로를 계획할 뿐만 아니라 현재 교통 상황도 고려합니다. 
+
+경로 API를 통해 Azure의 광범위한 교통 기록 데이터베이스를 사용해 향후 경로를 계획할 수 있습니다. API는 지정된 날짜와 시간에 대한 경로 기간을 예측할 수 있습니다. 자세한 내용은 [경로 방향 가져오기](https://docs.microsoft.com/rest/api/maps/route/getroutedirections)를 참조하세요. 
+
+맵이 완전히 로드된 후에 로드되도록 하려면 다음 코드 블록을 모두 **맵 로드 eventListener 내**에 추가해야 합니다.
 
 1. GetMap 함수에서 다음 JavaScript 코드를 추가합니다.
 
@@ -244,7 +248,7 @@ ms.locfileid: "76989657"
     });
     ```
 
-    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 인덱스 0은 데이터 원본의 다른 어떤 줄보다도 먼저 렌더링되도록 합니다. 이는 트럭 경로 계산이 종종 승용차 경로 계산보다 느리기 때문이며, 트럭 경로 선이 승용차 경로 후에 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(멋진 파란색 음영의 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다.
+    위의 이 코드 조각은 [getRouteDirections](https://docs.microsoft.com/javascript/api/azure-maps-rest/atlas.service.models.routedirectionsrequestbody?view=azure-maps-typescript-latest) 메서드를 통해 Azure Maps 라우팅 서비스를 쿼리합니다. 그런 후 `geojson.getFeatures()` 메서드를 사용하여 추출한 응답의 GeoJSON 기능 컬렉션에서 경로 선이 추출됩니다. 그런 다음, 경로 선이 데이터 원본에 추가됩니다. 인덱스 0은 데이터 원본의 다른 어떤 줄보다도 먼저 렌더링되도록 합니다. 이는 트럭 경로 계산이 승용차 경로 계산보다 느린 경우가 많기 때문에 수행됩니다. 승용차 경로 다음에 트럭 경로 선이 데이터 원본에 추가되면 그 위에 렌더링됩니다. 두 속성(멋진 파란색 음영의 스트로크 색 및 9픽셀의 스트로크 너비)이 트럭 경로 선에 추가됩니다.
 
 3. 다음 JavaScript 코드를 추가하여 승용차 경로를 생성하고 결과를 표시합니다.
 
@@ -270,7 +274,7 @@ ms.locfileid: "76989657"
 
     ![Azure Route Service를 사용하여 우선 순위가 지정된 경로](./media/tutorial-prioritized-routes/prioritized-routes.png)
 
-    화물차 경로는 두꺼운 파란색이지만, 승용차 경로는 얇은 자주색입니다. 승용차 경로는 I-90 도로를 통해 워싱턴 호수를 가로질러 주거 지역 아래의 터널을 통과하므로 위험한 폐기 화물을 제한합니다. USHazmatClass2 화물 유형을 지정한 화물차 경로는 다른 고속 도로를 사용하도록 올바르게 지시됩니다.
+    트럭 경로는 진한 파란색이며 승용차 경로는 엷은 자주색입니다. 승용차 경로는 I-90 도로를 통해 워싱턴 호수를 가로질러 주거 지역 아래의 터널을 통과합니다. 터널은 주거 지역에 가깝기 때문에 위험한 폐기 화물은 제한됩니다. USHazmatClass2 화물 유형을 지정한 트럭 경로는 다른 고속 도로를 사용하도록 지시됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

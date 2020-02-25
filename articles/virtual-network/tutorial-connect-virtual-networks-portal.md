@@ -1,5 +1,5 @@
 ---
-title: 가상 네트워크 피어링으로 가상 네트워크 연결 - 자습서 - Azure Portal | Microsoft Docs
+title: VNet 피어링으로 가상 네트워크 연결 - 자습서 - Azure Portal
 description: 이 자습서에서는 Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크를 연결하는 방법을 알아봅니다.
 services: virtual-network
 documentationcenter: virtual-network
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/22/2020
 ms.author: kumud
 ms.custom: ''
-ms.openlocfilehash: 65749182bf93e84c8712409cd16bd3a60184c7ca
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e95441aab6c8ce7de37ba5f6b08d5f7d54e13347
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77016054"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201301"
 ---
 # <a name="tutorial-connect-virtual-networks-with-virtual-network-peering-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 가상 네트워크 피어링으로 가상 네트워크 연결
 
@@ -34,7 +34,7 @@ ms.locfileid: "77016054"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="log-in-to-azure"></a>Azure에 로그인 
+## <a name="log-in-to-azure"></a>Azure에 로그인
 
 Azure Portal ( https://portal.azure.com ) 에 로그인합니다.
 

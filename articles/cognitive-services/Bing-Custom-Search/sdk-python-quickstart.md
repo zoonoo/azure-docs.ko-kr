@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: bing-custom-search
 ms.topic: quickstart
-ms.date: 12/09/2019
+ms.date: 02/12/2020
 ms.author: aahi
-ms.openlocfilehash: d67075fad719b1780682c705f0e17f15c5801559
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 4f4b6bad38992a9e0146d6324bc3a3fc7632ded2
+ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77136159"
+ms.lasthandoff: 02/13/2020
+ms.locfileid: "77201257"
 ---
 # <a name="quickstart-call-your-bing-custom-search-endpoint-using-the-python-sdk"></a>빠른 시작: Python SDK를 사용하여 Bing Custom Search 엔드포인트 호출 
 
@@ -47,17 +47,17 @@ from msrest.authentication import CognitiveServicesCredentials
 
 ## <a name="create-a-search-client-and-send-a-request"></a>검색 클라이언트 만들기 및 요청 보내기
 
-1. 구독 키에 대한 변수를 만듭니다.
+1. 구독 키 및 엔드포인트에 대한 변수를 만듭니다.
 
     ```python
     subscription_key = 'your-subscription-key'
-    endpoint = 'your-custom-endpoint'
+    endpoint = 'your-endpoint'
     ```
 
 2. 구독 키와 `CognitiveServicesCredentials` 개체를 사용하여 `CustomSearchClient` 인스턴스를 만듭니다. 
 
     ```python
-    client = CustomSearchClient(endpoint, CognitiveServicesCredentials(subscription_key))
+    client = CustomSearchClient(endpoint=endpoint, credentials=CognitiveServicesCredentials(subscription_key))
     ```
 
 3. `client.custom_instance.search()`를 사용하여 검색 요청을 보냅니다. `query` 매개 변수에 검색 용어를 추가하고 `custom_config`를 검색 인스턴스를 사용하기 위한 사용자 지정 구성 ID로 설정합니다. **프로덕션** 탭을 클릭하여 [Bing Custom Search 포털](https://www.customsearch.ai/)에서 ID를 가져올 수 있습니다.
