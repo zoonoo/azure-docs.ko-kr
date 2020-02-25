@@ -1,5 +1,5 @@
 ---
-title: Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
+title: Power BI 용 Azure 데이터 탐색기 connector를 사용 하 여 데이터 시각화
 description: 이 문서에서는 Azure 데이터 탐색기의 Power BI 커넥터를 사용 하 여 Power BI에서 데이터를 시각화 하는 세 가지 옵션 중 하나를 사용 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/10/2019
-ms.openlocfilehash: 361ea6ed76207e8e9721f64df61738b6cd9631dc
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: a95d45481bed17e46429e3a22dff4b8cc62354a9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024224"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560493"
 ---
 # <a name="visualize-data-using-the-azure-data-explorer-connector-for-power-bi"></a>Power BI용 Azure Data Explorer 커넥터를 사용하여 데이터 시각화
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Power BI는 데이터를 시각화하고 조직 전체에서 결과를 공유할 수 있는 비즈니스 분석 솔루션입니다. Azure Data Explorer는 Power BI에서 데이터에 연결하기 위한 세 가지 옵션, 즉 기본 제공 커넥터 사용, Azure Data Explorer에서 쿼리 가져오기 또는 SQL 쿼리 사용을 제공합니다. 이 문서에서는 기본 제공 커넥터를 사용 하 여 데이터를 가져오고 Power BI 보고서에서 시각화 하는 방법을 보여 줍니다. Power BI 대시보드를 만들기 위해 Azure 데이터 탐색기 native connector를 사용 하는 것은 간단 합니다. Power BI 커넥터는 [가져오기 및 직접 쿼리 연결 모드](https://docs.microsoft.com/power-bi/desktop-directquery-about)를 지원 합니다. 시나리오, 규모 및 성능 요구 사항에 따라 **가져오기** 또는 **DirectQuery** 모드를 사용 하 여 대시보드를 빌드할 수 있습니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 
@@ -44,7 +44,7 @@ Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능
 
     **설정** | **값** | **필드 설명**
     |---|---|---|
-    | 프로비전 | *https://help.kusto.windows.net* | 도움말 클러스터의 URL입니다. 다른 클러스터의 경우 이 URL은 *https://\<ClusterName\>.\<Region\>.kusto.windows.net* 형식입니다. |
+    | 클러스터 | *https://help.kusto.windows.net* | 도움말 클러스터의 URL입니다. 다른 클러스터의 경우 이 URL은 *https://\<ClusterName\>.\<Region\>.kusto.windows.net* 형식입니다. |
     | 데이터베이스 | 비워 둠 | 연결 중인 클러스터에서 호스트되는 데이터베이스입니다. 이후 단계에서 이 데이터베이스를 선택하게 됩니다. |
     | 테이블 이름 | 비워 둠 | 데이터베이스의 테이블 중 하나 또는 <code>StormEvents \| take 1000</code> 이후 단계에서 이 데이터베이스를 선택하게 됩니다. |
     | 고급 옵션 | 비워 둠 | 쿼리에 대한 옵션(예: 결과 세트 크기)입니다. |

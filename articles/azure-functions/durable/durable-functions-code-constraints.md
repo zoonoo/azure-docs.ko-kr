@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/02/2019
 ms.author: azfuncdf
-ms.openlocfilehash: 5013457aca99a63808077b86f5674460e83fdc41
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 4ed604302ca187ad4953e865d68dc73030a37c02
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74232969"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562142"
 ---
 # <a name="orchestrator-function-code-constraints"></a>Orchestrator 함수 코드 제약 조건
 
@@ -28,17 +28,17 @@ Orchestrator 함수는 대상 언어의 모든 API를 호출할 수 있습니다
 
 다음 표에서 *는 결정적이 지 않기* 때문에 사용 하지 않아야 하는 api의 예를 보여 줍니다. 이러한 제한은 오 케 스트레이 터 함수에만 적용 됩니다. 다른 함수 형식에는 이러한 제한이 없습니다.
 
-| API 범주 | Reason | 해결 방법 |
+| API 범주 | 이유 | 해결 방법 |
 | ------------ | ------ | ---------- |
 | 날짜 및 시간  | 반환 된 값은 각 재생 마다 다르므로 현재 날짜 또는 시간을 반환 하는 Api는 비결 정적입니다. | .NET의`CurrentUtcDateTime` API 또는 JavaScript의 `currentUtcDateTime` API를 사용 합니다 .이 api는 재생에 안전 합니다. |
 | Guid 및 Uuid  | 임의 GUID 또는 UUID를 반환 하는 Api는 생성 된 값이 각 재생 마다 다르기 때문에 비결 정적입니다. | .NET의 `NewGuid` 또는 JavaScript의 `newGuid`를 사용 하 여 임의의 Guid를 안전 하 게 생성 합니다. |
 | 난수 | 난수를 반환 하는 Api는 생성 된 값이 각 재생 마다 다르기 때문에 비결 정적입니다. | 작업 함수를 사용 하 여 임의의 숫자를 오케스트레이션에 반환 합니다. 작업 함수의 반환 값은 항상 재생에 안전 합니다. |
-| 바인딩 | 입력 및 출력 바인딩은 일반적으로 i/o를 수행 하 고 비결 정적입니다. 오 케 스트레이 터 함수는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 및 [엔터티 클라이언트](durable-functions-bindings.md#entity-client) 바인딩을 직접 사용 하지 않아야 합니다. | 클라이언트 또는 작업 함수 내에서 입력 및 출력 바인딩을 사용 합니다. |
+| Bindings | 입력 및 출력 바인딩은 일반적으로 i/o를 수행 하 고 비결 정적입니다. 오 케 스트레이 터 함수는 [오케스트레이션 클라이언트](durable-functions-bindings.md#orchestration-client) 및 [엔터티 클라이언트](durable-functions-bindings.md#entity-client) 바인딩을 직접 사용 하지 않아야 합니다. | 클라이언트 또는 작업 함수 내에서 입력 및 출력 바인딩을 사용 합니다. |
 | 네트워크 | 네트워크 호출은 외부 시스템과 관련 되며 비결 정적입니다. | 작업 함수를 사용 하 여 네트워크 호출을 수행 합니다. Orchestrator 함수에서 HTTP 호출을 수행 해야 하는 경우 [내구성이 있는 Http api](durable-functions-http-features.md#consuming-http-apis)를 사용할 수도 있습니다. |
 | Api 차단 | .NET 및 유사한 Api에서 `Thread.Sleep`와 같은 Api를 차단 하면 오 케 스트레이 터 함수에 대 한 성능 및 확장성 문제가 발생할 수 있으므로 피해 야 합니다. Azure Functions 소비 계획에서는 불필요 한 런타임 요금이 발생할 수도 있습니다. | Api를 사용할 수 있는 경우 차단 하는 대체 방법을 사용 합니다. 예를 들어 `CreateTimer`를 사용 하 여 오케스트레이션 실행 지연 시간을 발생 시킬 수 있습니다. 지 [속성 타이머](durable-functions-timers.md) 지연은 오 케 스트레이 터 함수의 실행 시간을 계산 하지 않습니다. |
 | 비동기 Api | Orchestrator 코드는 `IDurableOrchestrationContext` API 또는 `context.df` 개체의 API를 사용 하는 경우를 제외 하 고는 비동기 작업을 시작 해서는 안 됩니다. 예를 들어 .NET의 `Task.Run`, `Task.Delay`및 `HttpClient.SendAsync`를 사용할 수 없으며 JavaScript에서 `setTimeout` 및 `setInterval`을 사용할 수 없습니다. 지 속성 작업 프레임 워크는 단일 스레드에서 orchestrator 코드를 실행 합니다. 다른 비동기 Api에서 호출 될 수 있는 다른 스레드와 상호 작용할 수 없습니다. | Orchestrator 함수는 영 속 비동기 호출만 수행 해야 합니다. 작업 함수는 다른 비동기 API 호출을 수행 해야 합니다. |
 | 비동기 JavaScript 함수 | Node.js 런타임에서는 비동기 함수가 결정적 임을 보장 하지 않으므로 JavaScript orchestrator 함수를 `async`로 선언할 수 없습니다. | JavaScript orchestrator 함수를 동기 생성기 함수로 선언 합니다. |
-| 스레딩 Api | 지 속성 작업 프레임 워크는 단일 스레드에서 orchestrator 코드를 실행 하 고 다른 스레드와 상호 작용할 수 없습니다. 오케스트레이션의 실행에 새 스레드를 도입 하면 비결 정적 실행 또는 교착 상태가 발생할 수 있습니다. | Orchestrator 함수는 스레드 Api를 거의 사용 하지 않습니다. 이러한 Api가 필요한 경우 작업 함수만 사용 하도록 제한 합니다. |
+| 스레딩 Api | 지 속성 작업 프레임 워크는 단일 스레드에서 orchestrator 코드를 실행 하 고 다른 스레드와 상호 작용할 수 없습니다. 오케스트레이션의 실행에 새 스레드를 도입 하면 비결 정적 실행 또는 교착 상태가 발생할 수 있습니다. | Orchestrator 함수는 스레드 Api를 거의 사용 하지 않습니다. 예를 들어 .NET에서는 `ConfigureAwait(continueOnCapturedContext: false)`을 사용 하지 마십시오. 그러면 오 케 스트레이 터 함수의 원래 `SynchronizationContext`에서 작업 연속이 실행 됩니다. 이러한 Api가 필요한 경우 작업 함수만 사용 하도록 제한 합니다. |
 | 정적 변수 | Orchestrator 함수에서는 시간이 지남에 따라 값이 변경 될 수 있으므로 비상수 정적 변수를 사용 하지 않는 것이 좋습니다. 이렇게 하면 비결 정적 런타임 동작이 발생 합니다. | 상수를 사용 하거나 정적 변수를 활동 함수로 사용 하도록 제한 합니다. |
 | 환경 변수 | Orchestrator 함수에서 환경 변수를 사용 하지 마세요. 해당 값은 시간이 지남에 따라 변경 될 수 있으므로 비결 정적 런타임 동작이 발생 합니다. | 환경 변수는 클라이언트 함수 또는 작업 함수 내 에서만 참조 해야 합니다. |
 | 무한 루프 | 오케스트레이터 함수에는 무한 루프를 사용하지 않도록 방지하세요. 지 속성 작업 프레임 워크는 오케스트레이션 함수가 진행 됨에 따라 실행 기록을 저장 하므로 무한 루프를 수행 하면 orchestrator 인스턴스의 메모리가 부족 해질 수 있습니다. | 무한 루프 시나리오의 경우 .NET의 `ContinueAsNew`와 같은 Api 또는 JavaScript의 `continueAsNew`를 사용 하 여 함수 실행을 다시 시작 하 고 이전 실행 기록을 삭제 합니다. |

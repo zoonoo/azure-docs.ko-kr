@@ -1,23 +1,23 @@
 ---
-title: 대화 내용 (미리 보기) 이란 무엇 인가요? -음성 서비스
+title: 대화 내용 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
-description: 대화 기록은 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 (diarization 라고도 함)와 결합 하 여 실시간 및/또는 비동기 기록을 제공 하는 음성-텍스트 솔루션입니다. 대화창.
+description: 대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 (diarization 라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 음성-텍스트 솔루션입니다.
 services: cognitive-services
-author: markamos
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: 07e3e498a3bd2693b72079a8a731c3d139414c90
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: 8e36a5c4d9ce2bc38565d6c9c256ed2cc7efe357
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806289"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561071"
 ---
-# <a name="what-is-conversation-transcription-preview"></a>대화 내용 (미리 보기) 이란 무엇 인가요?
+# <a name="about-conversation-transcription-preview"></a>대화 기록 정보 (미리 보기)
 
 대화는 음성 인식, 스피커 식별 및 문장 특성을 각 스피커 ( _diarization_라고도 함)와 결합 하 여 대화에 대 한 실시간 및/또는 비동기 기록을 제공 하는 [음성-텍스트](speech-to-text.md) 솔루션입니다. 대화 기록을 통해 대화에서 스피커를 구분 하 여 및 시기를 확인 하 고 개발자가 다중 스피커 diarization을 수행 하는 응용 프로그램에 음성 텍스트를 쉽게 추가할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "74806289"
 > [!NOTE]
 > 대화를 통해 회의실의 스피커 수에 제한이 없지만 세션당 2-10 스피커에 대해 최적화 됩니다.
 
-## <a name="use-cases"></a>사례 사용
+## <a name="use-cases"></a>사용 사례
 
 ### <a name="inclusive-meetings"></a>포괄 모임
 
@@ -44,7 +44,7 @@ ms.locfileid: "74806289"
 
 모임 참가자는 회의에 집중할 수 있으며, 메모를 대화로 가져갈 수 있습니다. 참가자가 회의에 적극적으로 참여할 수 있으며, 회의 중에 메모를 작성 하는 대신 기록을 사용 하 여 다음 단계를 빠르게 진행할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 이는 대화 기록을 작동 하는 방법에 대 한 개략적인 개요입니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "74806289"
 
 오디오 데이터는 라이브 처리 되어 스피커 식별자 + 성적 증명서를 반환 합니다. 기록 솔루션 요구 사항으로 인해 대화 참가자에 게 진행 중인 대화에 대 한 라이브 성적 증명서 보기가 제공 되는 경우이 모드를 선택 합니다. 예를 들어, 회의에 더 쉽게 액세스할 수 있도록 응용 프로그램을 빌드하는 것은 실시간 기록을 위한 좋은 사용 사례입니다.
 
-### <a name="asynchronous"></a>비동기
+### <a name="asynchronous"></a>Asynchronous
 
 오디오 데이터는 스피커 식별자 및 성적 증명서를 반환 하기 위해 일괄 처리 됩니다. 기록 솔루션 요구 사항이 라이브 기록 보기 없이 더 높은 정확도를 제공 해야 하는 경우이 모드를 선택 합니다. 예를 들어 모임 참가자가 누락 된 모임을 쉽게 파악할 수 있도록 응용 프로그램을 빌드하려면 비동기 기록 모드를 사용 하 여 정확도가 높은 기록 결과를 얻을 수 있습니다.
 

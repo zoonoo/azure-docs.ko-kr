@@ -1,19 +1,19 @@
 ---
 title: Microsoft Azure에 대 한 고객 Lockbox
 description: Microsoft에서 고객 데이터에 액세스 해야 할 때 클라우드 공급자 액세스에 대 한 제어를 제공 하는 Microsoft Azure에 대 한 고객 Lockbox 기술 개요입니다.
-author: cabailey
+author: TerryLanfear
 ms.service: security
 ms.subservice: security-fundamentals
 ms.topic: article
-ms.author: cabailey
-manager: barbkess
+ms.author: terrylan
+manager: rkarlin
 ms.date: 11/04/2019
-ms.openlocfilehash: 7c0409d48876a0f830366381c2a46821c4aa03a0
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: abc16ae7f7ab8bf15173248a6e7668e689e127de
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73466412"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561972"
 ---
 # <a name="customer-lockbox-for-microsoft-azure"></a>Microsoft Azure에 대 한 고객 Lockbox
 
@@ -42,37 +42,37 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
     - 리소스의 범위입니다.
     - 요청 자가 격리 된 id 인지 아니면 multi-factor authentication을 사용 하는지 여부
     - 권한 수준
-    
+
     JIT 규칙에 따라이 요청에는 내부 Microsoft 승인자의 승인이 포함 될 수도 있습니다. 예를 들어 승인자는 고객 지원 리더 또는 DevOps 관리자가 될 수 있습니다.
 
 6. 요청을 통해 고객 데이터에 직접 액세스 해야 하는 경우에는 고객 Lockbox 요청이 시작 됩니다. 예를 들어 고객의 가상 컴퓨터에 대 한 원격 데스크톱 액세스를 사용할 수 있습니다.
-    
+
     요청은 이제 고객에 게 **알림** 상태 이며, 액세스 권한을 부여 하기 전에 고객의 승인을 기다리고 있습니다.
 
 7. 고객 조직에서 Azure 구독에 대 한 [소유자 역할](../../role-based-access-control/rbac-and-directory-admin-roles.md#azure-rbac-roles) 을 가진 사용자는 Microsoft에서 전자 메일을 받아 보류 중인 액세스 요청에 대해 알립니다. 고객 Lockbox 요청의 경우이 사람은 지정 된 승인자입니다.
-    
+
     전자 메일 예:
-    
+
     ![Azure 고객 Lockbox-전자 메일 알림](./media/customer-lockbox-overview/customer-lockbox-email-notification.png)
 
 8. 전자 메일 알림은 Azure Portal의 **고객 Lockbox** 블레이드에 대 한 링크를 제공 합니다. 지정 된 승인자는이 링크를 사용 하 여 Azure Portal에 로그인 하 여 조직에서 고객 Lockbox 하는 보류 중인 요청을 확인 합니다.
-    
+
     ![Azure 고객 Lockbox-방문 페이지](./media/customer-lockbox-overview/customer-lockbox-landing-page.png)
-    
+
    요청은 4 일간 고객 큐에 유지 됩니다. 이 시간이 지나면 액세스 요청이 자동으로 만료 되 고 Microsoft 엔지니어에 게 액세스 권한이 부여 되지 않습니다.
 
 9. 보류 중인 요청의 세부 정보를 가져오기 위해 지정 된 승인자는 **보류 중인 요청**에서 lockbox 요청을 선택할 수 있습니다.
-    
+
     ![Azure 고객 Lockbox-보류 중인 요청 보기](./media/customer-lockbox-overview/customer-lockbox-pending-requests.png)
 
-10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예:
-    
+10. 지정 된 승인자는 **서비스 요청 ID** 를 선택 하 여 원래 사용자가 만든 지원 티켓 요청을 볼 수도 있습니다. 이 정보는 Microsoft 지원가 개입 된 이유와 보고 된 문제의 기록에 대 한 컨텍스트를 제공 합니다. 예를 들면 다음과 같습니다.
+
     ![Azure 고객 Lockbox-지원 티켓 요청 보기](./media/customer-lockbox-overview/customer-lockbox-support-ticket.png)
 
 11. 요청을 검토 한 후 지정 된 승인자가 **승인** 또는 **거부**를 선택 합니다.
-    
+
     ![Azure 고객 Lockbox-승인 또는 거부를 선택 합니다.](./media/customer-lockbox-overview/customer-lockbox-approval.png)
-    
+
     선택의 결과로 다음과 같이 합니다.
     - **승인**: Microsoft 엔지니어에 게 액세스 권한이 부여 됩니다. 기본적으로 8 시간 동안 액세스 권한이 부여 됩니다.
     - **거부**: Microsoft 엔지니어가 관리자 권한으로 요청한 요청이 거부 되 고 추가 작업은 수행 되지 않습니다.
@@ -113,13 +113,13 @@ Microsoft Azure 고객 Lockbox는 고객이 고객 데이터 액세스 요청을
 
 다음 서비스는 현재 고객 Lockbox에 대해 미리 보기로 제공 됩니다.
 
-- Azure Storage 
+- Azure Storage
 
-- Azure SQL DB 
+- Azure SQL DB
 
-- Azure Data Explorer 
+- Azure Data Explorer
 
-- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함) 
+- 가상 컴퓨터 (이제 메모리 덤프 및 관리 디스크에 대 한 액세스도 포함)
 
 - Azure 구독 전송
 

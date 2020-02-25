@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: ef8596d8dcc9502f590c55223f207e71f5b91cf6
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843942"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564979"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -37,7 +37,7 @@ AMS는 전 세계 여러 데이터 센터에서 작동합니다. 이러한 데�
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
-* Azure 계정. 계정이 없는 경우 몇 분 만에 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com)을 참조하세요.
+* Azure 계정. 계정이 없는 경우 몇 분 내에 무료 평가판 계정을 만들 수 있습니다. 자세한 내용은 [Azure 평가판](https://azure.microsoft.com)을 참조하세요.
 * Azure Media Services 계정. 자세한 내용은 [계정 만들기](media-services-portal-create-account.md)를 참조하세요.
 * 콘텐츠를 스트리밍하려는 스트리밍 엔드포인트가 **실행** 상태에 있어야 합니다.
 
@@ -111,7 +111,7 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 3. 라이브 스트림을 미리 봅니다.
 4. 일반적인 스트리밍 프로토콜(예: MPEG DASH, 부드러운, HLS)을 통해 고객에게 직접 또는 추가 배포를 위해 CDN(Content Delivery Network)에 콘텐츠를 배달합니다.
 
-    또는
+    -또는-
 
     나중에 스트리밍하기 위해 수집된 콘텐츠를 기록 및 저장합니다(주문형 비디오).
 
@@ -137,7 +137,7 @@ Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.
 
 ## <a name="consuming-content"></a>콘텐츠 사용
 
-Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 다음 항목에서 제공하는 SDK 및 플레이어 프레임워크 링크를 사용하여 Media Services의 스트리밍 미디어를 사용할 수 있는 클라이언트 애플리케이션을 개발할 수 있습니다. 자세한 내용은 [비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)을 참조하세요.
+Azure Media Services는 iOS 디바이스, Android 디바이스, Windows, Windows Phone, Xbox 및 셋톱 박스를 포함한 대부분의 플랫폼에서 풍부한 동적 클라이언트 플레이어 애플리케이션을 만드는 데 필요한 도구를 제공합니다. 
 
 ## <a name="enabling-azure-cdn"></a>Azure CDN 사용하기
 
@@ -169,7 +169,7 @@ AMS 고객은 해당 AMS 계정에서 스트리밍 엔드포인트, 미디어 �
 
 #### <a name="availability"></a>가용성
 
-데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/ 로 이동하여 MEDIA 테이블로 스크롤합니다.
+데이터 센터에서 Media Services를 사용할 수 있는지 확인하려면 https://azure.microsoft.com/status/로 이동하여 MEDIA 테이블로 스크롤합니다.
 
 ### <a name="streaming-endpoints"></a>스트리밍 엔드포인트 
 
@@ -179,8 +179,8 @@ Media Services 고객은 **표준** 스트리밍 엔드포인트나 **프리미�
 
 |이름|상태|데이터 센터
 |---|---|---|
-|Standard|GA|전체|
-|프리미엄|GA|전체|
+|Standard|GA|모두|
+|프리미엄|GA|모두|
 
 ### <a name="live-encoding"></a>라이브 인코딩
 
@@ -196,7 +196,7 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
-|미디어 인코더 표준|GA|전체|
+|미디어 인코더 표준|GA|모두|
 |미디어 인코더 Premium 워크플로|GA|중국을 제외한 모든 지역|
 
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
@@ -207,12 +207,12 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 
 |미디어 프로세서 이름|상태|데이터 센터
 |---|---|---|
-|Azure 미디어 얼굴 탐지기|미리 보기|전체|
-|Azure Media Indexer|GA|전체|
-|Azure 미디어 동작 탐지기|미리 보기|전체|
-|Azure 미디어 OCR|미리 보기|전체|
-|Azure Media Redactor|GA|전체|
-|Azure 미디어 비디오 미리 보기|미리 보기|전체|
+|Azure 미디어 얼굴 탐지기|미리 보기|모두|
+|Azure Media Indexer|GA|모두|
+|Azure 미디어 동작 탐지기|미리 보기|모두|
+|Azure 미디어 OCR|미리 보기|모두|
+|Azure Media Redactor|GA|모두|
+|Azure 미디어 비디오 미리 보기|미리 보기|모두|
 
 ### <a name="protection"></a>보호
 
@@ -222,10 +222,10 @@ Microsoft Azure Media Services를 사용하면 컴퓨터를 떠날 때부터 스
 
 |암호화|상태|데이터 센터|
 |---|---|---| 
-|Storage|GA|전체|
-|AES-128 키|GA|전체|
-|Fairplay|GA|전체|
-|PlayReady|GA|전체|
+|스토리지|GA|모두|
+|AES-128 키|GA|모두|
+|Fairplay|GA|모두|
+|PlayReady|GA|모두|
 |Widevine|GA|독일, 연방 정부 및 중국을 제외한 모든 지역
 
 ### <a name="reserved-units-rus"></a>RU(예약 단위)
@@ -248,7 +248,7 @@ Media Services 계정은 미디어 처리 작업을 처리하는 속도를 결�
 
 |RU 형식 이름|상태|데이터 센터
 |---|---|---|
-|S1|GA|전체|
+|S1|GA|모두|
 |S2|GA|브라질 남부 및 인도 서부를 제외한 모든 지역|
 |S3|GA|인도 서부를 제외한 모든 지역|
 
@@ -262,6 +262,6 @@ Media Services 학습 경로를 검토합니다.
 
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 

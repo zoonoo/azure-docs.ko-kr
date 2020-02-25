@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 01/24/2020
+ms.date: 02/20/2020
 ms.author: jgao
-ms.openlocfilehash: a67f360aa08f306d6462342d96f59e06a4d3b501
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: d8212fb55b20f051c6479071010ef4f828792baa
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251858"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561156"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -29,7 +29,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 배포 스크립트의 이점은 다음과 같습니다.
 
 - 쉽게 코딩 하 고, 사용 하 고, 디버그할 수 있습니다. 즐겨 사용 하는 개발 환경에서 배포 스크립트를 개발할 수 있습니다. 스크립트는 템플릿 또는 외부 스크립트 파일에 포함 될 수 있습니다.
-- 스크립트 언어 및 플랫폼을 지정할 수 있습니다. 현재는 Linux 환경에서 Azure PowerShell 배포 스크립트만 지원 됩니다.
+- 스크립트 언어 및 플랫폼을 지정할 수 있습니다. 현재 Linux 환경에서 Azure PowerShell 및 Azure CLI 배포 스크립트가 지원 됩니다.
 - 스크립트를 실행 하는 데 사용 되는 id를 지정할 수 있습니다. 현재 [Azure 사용자 할당 관리 id](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md) 만 지원 됩니다.
 - 스크립트에 명령줄 인수를 전달 하도록 허용 합니다.
 - 는 스크립트 출력을 지정 하 고 배포에 다시 전달할 수 있습니다.
@@ -40,7 +40,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - **구독 수준에서 기여자 역할이 있는 사용자가 할당한 관리 ID**. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 하나를 만들려면 Azure Portal를 사용 하거나 [Azure CLI](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-cli.md)를 사용 하거나 [Azure PowerShell](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-powershell.md)를 사용 하 여 [사용자 할당 관리 id 만들기](../../active-directory/managed-identities-azure-resources/how-to-manage-ua-identity-portal.md)를 참조 하세요. 이 ID는 템플릿을 배포할 때 필요합니다. ID의 형식은 다음과 같습니다.
 
@@ -48,16 +48,29 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   /subscriptions/<SubscriptionID>/resourcegroups/<ResourceGroupName>/providers/Microsoft.ManagedIdentity/userAssignedIdentities/<IdentityID>
   ```
 
-  다음 PowerShell 스크립트를 통해 리소스 그룹 이름과 ID 이름을 제공하여 ID를 가져옵니다.
+  다음 CLI 또는 PowerShell 스크립트를 사용 하 여 리소스 그룹 이름 및 id 이름을 제공 하 여 ID를 가져옵니다.
+
+  # <a name="cli"></a>[CLI](#tab/CLI)
+
+  ```azurecli-interactive
+  echo "Enter the Resource Group name:" &&
+  read resourceGroupName &&
+  echo "Enter the managed identity name:" &&
+  read idName &&
+  az identity show -g jgaoidentity1008rg -n jgaouami --query id
+  ```
+
+  # <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
   ```azurepowershell-interactive
   $idGroup = Read-Host -Prompt "Enter the resource group name for the managed identity"
   $idName = Read-Host -Prompt "Enter the name of the managed identity"
 
-  $id = (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name idName).Id
+  (Get-AzUserAssignedIdentity -resourcegroupname $idGroup -Name $idName).Id
   ```
+  ---
 
-- **합니다, 2.8.0 또는 3.0.0 버전을 Azure PowerShell**합니다. 템플릿을 배포 하는 데 이러한 버전이 필요 하지 않습니다. 그러나 이러한 버전은 배포 스크립트를 로컬로 테스트 하는 데 필요 합니다. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 미리 구성 된 Docker 이미지를 사용할 수 있습니다.  [개발 환경 구성](#configure-development-environment)을 참조 하세요.
+- **Azure PowerShell 버전 3.0.0, 2.8.0 또는 합니다** 또는 **Azure CLI 버전 2.0.80, 2.0.79, 2.0.78 또는 2.0.77**입니다. 템플릿을 배포 하는 데 이러한 버전이 필요 하지 않습니다. 그러나 이러한 버전은 배포 스크립트를 로컬로 테스트 하는 데 필요 합니다. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 미리 구성 된 Docker 이미지를 사용할 수 있습니다.  [개발 환경 구성](#configure-development-environment)을 참조 하세요.
 
 ## <a name="sample-template"></a>샘플 템플릿
 
@@ -67,9 +80,9 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 {
   "type": "Microsoft.Resources/deploymentScripts",
   "apiVersion": "2019-10-01-preview",
-  "name": "myDeploymentScript",
+  "name": "runPowerShellInline",
   "location": "[resourceGroup().location]",
-  "kind": "AzurePowerShell",
+  "kind": "AzurePowerShell", // or "AzureCLI"
   "identity": {
     "type": "userAssigned",
     "userAssignedIdentities": {
@@ -78,7 +91,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
   },
   "properties": {
     "forceUpdateTag": 1,
-    "azPowerShellVersion": "3.0",
+    "azPowerShellVersion": "3.0",  // or "azCliVersion": "2.0.80"
     "arguments": "[concat('-name ', parameters('name'))]",
     "scriptContent": "
       param([string] $name)
@@ -102,13 +115,13 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 속성 값 정보:
 
 - **Id**: 배포 스크립트 서비스는 사용자 할당 관리 id를 사용 하 여 스크립트를 실행 합니다. 현재 사용자 할당 관리 id만 지원 됩니다.
-- **kind**: 스크립트의 유형을 지정 합니다. 현재 Azure PowerShell 스크립트만 지원 됩니다. 값은 **Azurepowershell**입니다.
+- **kind**: 스크립트의 유형을 지정 합니다. 현재 Azure PowerShell 및 Azure CLI 스크립트는 지원 됩니다. 값은 **Azurepowershell** 및 **azurepowershell**입니다.
 - **Forceupdatetag**: 템플릿 배포 간에이 값을 변경 하면 배포 스크립트가 강제로 다시 실행 됩니다. 매개 변수의 defaultValue로 설정 해야 하는 newGuid () 또는 utcNow () 함수를 사용 합니다. 자세한 내용은 [스크립트를 두 번 이상 실행](#run-script-more-than-once)을 참조하세요.
-- **azPowerShellVersion**: 사용할 Azure PowerShell 모듈 버전을 지정 합니다. 배포 스크립트는 현재 합니다, 2.8.0 및 3.0.0 버전을 지원 합니다.
+- **azPowerShellVersion**/**azCliVersion**: 사용할 모듈 버전을 지정 합니다. 배포 스크립트는 현재 합니다, 2.8.0, 3.0.0 및 Azure CLI 버전 2.0.80, 2.0.79, 2.0.78, 2.0.77 Azure PowerShell 버전을 지원 합니다.
 - **인수**: 매개 변수 값을 지정 합니다. 값은 공백으로 구분됩니다.
 - **scriptcontent**: 스크립트 콘텐츠를 지정 합니다. 외부 스크립트를 실행 하려면 대신 `primaryScriptUri`를 사용 합니다. 예제는 [인라인 스크립트 사용](#use-inline-scripts) 및 [외부 스크립트 사용](#use-external-scripts)을 참조 하세요.
-- **primaryScriptUri**: 지원 되는 powershell 파일 확장명을 사용 하 여 기본 powershell 스크립트에 공개적으로 액세스할 수 있는 Url을 지정 합니다.
-- **Supportingscripturis**: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출 되는 powershell 파일을 지원 하기 위해 공개적으로 액세스할 수 있는 url의 배열을 지정 합니다.
+- **primaryScriptUri**: 지원 되는 파일 확장명을 사용 하 여 기본 배포 스크립트에 공개적으로 액세스할 수 있는 Url을 지정 합니다.
+- **Supporting스크립트가**있습니다: `ScriptContent` 또는 `PrimaryScriptUri`에서 호출 되는 지원 파일에 공개적으로 액세스할 수 있는 url 배열을 지정 합니다.
 - **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)으로 지정 된 최대 허용 스크립트 실행 시간을 지정 합니다. 기본값은 **P1D**입니다.
 - **Cleanuppreference 설정**입니다. 스크립트 실행이 터미널 상태가 될 때 배포 리소스 정리의 기본 설정을 지정 합니다. 기본 설정은 **항상**입니다. 즉, 터미널 상태 (성공, 실패, 취소 됨)에도 불구 하 고 리소스를 삭제 합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 - **보존 기간**: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료 되 면 배포 스크립트 리소스가 삭제 됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 7 일을 의미 하는 **P1D**입니다. 이 속성은 cleanupPreference 설정이 *Onexpiration*로 설정 된 경우에 사용 됩니다. *Onexpiration* 속성이 현재 활성화 되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
@@ -124,7 +137,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 
 스크립트는 하나의 매개 변수를 사용 하 고 매개 변수 값을 출력 합니다. **Deploymentscriptoutputs** 는 출력을 저장 하는 데 사용 됩니다.  출력 섹션에서 **값** 줄은 저장 된 값에 액세스 하는 방법을 보여 줍니다. `Write-Output`은 디버깅 목적으로 사용 됩니다. 출력 파일에 액세스 하는 방법에 대 한 자세한 내용은 [배포 스크립트 디버그](#debug-deployment-scripts)를 참조 하세요.  속성 설명은 [샘플 템플릿](#sample-template)을 참조 하세요.
 
-스크립트를 실행 하려면 **시도** 를 선택 하 여 Cloud shell을 열고 다음 코드를 셸 창에 붙여넣습니다.
+스크립트를 실행 하려면 **시도** 를 선택 하 여 Azure Cloud Shell을 열고 다음 코드를 셸 창에 붙여넣습니다.
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the name of the resource group to be created"
@@ -144,7 +157,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 현재는 **ps1** 파일 확장명이 있는 PowerShell 스크립트만 지원 됩니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 다음은 그 예입니다.
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 예를 들면 다음과 같습니다.
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -170,11 +183,11 @@ Write-Host "Press [ENTER] to continue ..."
 ],
 ```
 
-지원 스크립트 파일은 인라인 스크립트와 기본 스크립트 파일 모두에서 호출 될 수 있습니다.
+지원 스크립트 파일은 인라인 스크립트와 기본 스크립트 파일 모두에서 호출 될 수 있습니다. 지원 스크립트 파일에는 파일 확장명에 대 한 제한이 없습니다.
 
 지원 파일은 런타임에 azscripts/azscriptinput에 복사 됩니다. 인라인 스크립트 및 기본 스크립트 파일에서 지원 파일을 참조 하려면 상대 경로를 사용 합니다.
 
-## <a name="work-with-outputs-from-deployment-scripts"></a>배포 스크립트에서 출력 작업
+## <a name="work-with-outputs-from-powershell-script"></a>PowerShell 스크립트에서 출력 작업
 
 다음 템플릿에서는 두 deploymentScripts 리소스 간에 값을 전달 하는 방법을 보여 줍니다.
 
@@ -185,6 +198,16 @@ Write-Host "Press [ENTER] to continue ..."
 ```json
 reference('<ResourceName>').output.text
 ```
+
+## <a name="work-with-outputs-from-cli-script"></a>CLI 스크립트에서 출력 작업
+
+PowerShell 배포 스크립트와는 달리 CLI/bash 지원에서는 스크립트 출력을 저장 하는 공통 변수를 노출 하지 않고 스크립트 출력 파일이 있는 위치를 저장 하는 **AZ_SCRIPTS_OUTPUT_PATH** 라는 환경 변수가 있습니다. 리소스 관리자 템플릿에서 배포 스크립트를 실행 하는 경우이 환경 변수는 Bash 셸에서 자동으로 설정 됩니다.
+
+배포 스크립트 출력은 AZ_SCRIPTS_OUTPUT_PATH 위치에 저장 해야 하며 출력은 유효한 JSON 문자열 개체 여야 합니다. 파일의 내용을 키-값 쌍으로 저장 해야 합니다. 예를 들어 문자열의 배열은 {"MyResult": ["foo", "bar"]}로 저장 됩니다.  예를 들어, ["foo", "bar"]와 같은 배열 결과만 저장 하는 것은 유효 하지 않습니다.
+
+[!code-json[](~/resourcemanager-templates/deployment-script/deploymentscript-basic-cli.json?range=1-44)]
+
+[jq](https://stedolan.github.io/jq/) 는 이전 샘플에서 사용 됩니다. 컨테이너 이미지와 함께 제공 됩니다. [개발 환경 구성](#configure-development-environment)을 참조 하세요.
 
 ## <a name="debug-deployment-scripts"></a>배포 스크립트 디버그
 
@@ -264,7 +287,7 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
 ## <a name="configure-development-environment"></a>개발 환경 구성
 
-현재 배포 스크립트는 Azure PowerShell 버전 합니다, 2.8.0 및 3.0.0를 지원 합니다.  Windows 컴퓨터가 있는 경우 지원 되는 Azure PowerShell 버전 중 하나를 설치 하 고 배포 스크립트 개발 및 테스트를 시작할 수 있습니다.  Windows 컴퓨터가 없거나 이러한 Azure PowerShell 버전 중 하나가 설치 되어 있지 않으면 미리 구성 된 docker 컨테이너 이미지를 사용할 수 있습니다. 다음 절차에서는 Windows에서 docker 이미지를 구성 하는 방법을 보여 줍니다. Linux 및 Mac의 경우 인터넷에서 정보를 찾을 수 있습니다.
+배포 스크립트 개발 환경으로 미리 구성 된 docker 컨테이너 이미지를 사용할 수 있습니다. 다음 절차에서는 Windows에서 docker 이미지를 구성 하는 방법을 보여 줍니다. Linux 및 Mac의 경우 인터넷에서 정보를 찾을 수 있습니다.
 
 1. 개발 컴퓨터에 [Docker Desktop](https://www.docker.com/products/docker-desktop) 을 설치 합니다.
 1. Docker Desktop을 엽니다.
@@ -281,7 +304,15 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
     docker pull mcr.microsoft.com/azuredeploymentscripts-powershell:az2.7
     ```
 
-    이 예에서는 버전 합니다를 사용 합니다.
+    이 예제에서는 버전 PowerShell 합니다을 사용 합니다.
+
+    MCR (Microsoft Container Registry)에서 CLI 이미지를 꺼내려면:
+
+    ```command
+    docker pull mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
+    이 예제에서는 버전 CLI 2.0.80를 사용 합니다. 배포 스크립트는 [여기](https://hub.docker.com/_/microsoft-azure-cli)에 있는 기본 CLI 컨테이너 이미지를 사용 합니다.
 
 1. Docker 이미지를 로컬로 실행 합니다.
 
@@ -297,12 +328,18 @@ armclient get /subscriptions/01234567-89AB-CDEF-0123-456789ABCDEF/resourcegroups
 
     **-** 컨테이너 이미지를 활성 상태로 유지 하는 것을 의미 합니다.
 
+    CLI 예제:
+
+    ```command
+    docker run -v d:/docker:/data -it mcr.microsoft.com/azure-cli:2.0.80
+    ```
+
 1. 메시지가 표시 되 면 **공유** 를 선택 합니다.
-1. 다음 스크린샷에 표시 된 것 처럼 PowerShell 스크립트를 실행 합니다 (d:\docker 폴더에 helloworld. ps1 파일이 있는 경우).
+1. 다음 스크린샷에서는 d:\docker 폴더에 helloworld 파일이 있는 경우 PowerShell 스크립트를 실행 하는 방법을 보여 줍니다.
 
     ![리소스 관리자 템플릿 배포 스크립트 docker cmd](./media/deployment-script-template/resource-manager-deployment-script-docker-cmd.png)
 
-PowerShell 스크립트를 성공적으로 테스트 한 후에는 배포 스크립트로 사용할 수 있습니다.
+스크립트를 성공적으로 테스트 한 후에는이 스크립트를 배포 스크립트로 사용할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

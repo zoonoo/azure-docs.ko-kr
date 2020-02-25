@@ -1,5 +1,5 @@
 ---
-title: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
+title: Powershell을 사용 하 여 Azure 데이터 탐색기 클러스터 & DB 만들기
 description: PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스를 만드는 방법을 알아봅니다.
 author: lucygoldbergmicrosoft
 ms.author: lugoldbe
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: d4561d49c37298a2b1a7f6c6542d78c3e19a145c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 690c3e281e65f54f240c70f7a6e5038f54102c99
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978331"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560595"
 ---
 # <a name="create-an-azure-data-explorer-cluster-and-database-by-using-powershell"></a>PowerShell을 사용하여 Azure Data Explorer 클러스터 및 데이터베이스 만들기
 
@@ -24,7 +24,7 @@ ms.locfileid: "75978331"
 > * [Python](create-cluster-database-python.md)
 > * [ARM 템플릿](create-cluster-database-resource-manager.md)  
 
-Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 수집된 대규모 데이터 스트리밍에 대한 실시간 분석을 제공하는 속도가 빠른 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Powershell을 사용 하 여 클러스터 및 데이터베이스를 만듭니다. [Az.Kusto](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)와 함께 [Azure Cloud Shell](../cloud-shell/overview.md)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
+Azure Data Explorer는 애플리케이션, 웹 사이트, IoT 디바이스 등으로부터 대량의 데이터 스트리밍에 대한 실시간 분석을 제공하는 빠른 속도의 완전 관리형 데이터 분석 서비스입니다. Azure Data Explorer를 사용하려면 먼저 클러스터를 만들고 이 클러스터에 데이터베이스를 하나 이상 만듭니다. 그런 다음, 데이터베이스에 대해 쿼리를 실행할 수 있도록 데이터베이스에 데이터를 수집(로드)합니다. 이 문서에서는 Powershell을 사용 하 여 클러스터 및 데이터베이스를 만듭니다. [Az.Kusto](../cloud-shell/overview.md)와 함께 [Azure Cloud Shell](/powershell/module/az.kusto/?view=azps-1.4.0#kusto)에서 또는 Windows, Linux에서 PowerShell cmdlet 및 스크립트를 실행하여 Azure Data Explorer 클러스터와 데이터베이스를 만들고 구성할 수 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -79,7 +79,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
     Get-AzKustoCluster -Name mykustocluster -ResourceGroupName testrg
     ```
 
-결과에 값이 `Succeeded`인 `provisioningState`가 있으면 클러스터가 성공적으로 만들어진 것입니다.
+결과에 값이 `provisioningState`인 `Succeeded`가 있으면 클러스터가 성공적으로 만들어진 것입니다.
 
 ## <a name="create-the-database-in-the-azure-data-explorer-cluster"></a>Azure Data Explorer 클러스터에 데이터베이스 만들기
 
@@ -92,7 +92,7 @@ Azure Cloud Shell에서 명령을 실행하는 경우에는 다음 단계가 필
    |**설정** | **제안 값** | **필드 설명**|
    |---|---|---|
    | ClusterName | *mykustocluster* | 데이터베이스가 만들어지는 클러스터의 이름입니다.|
-   | 이름 | *mykustodatabase* | 데이터베이스의 이름입니다.|
+   | 이름 | *mykustodatabase* | 데이터베이스 이름입니다.|
    | ResourceGroupName | *testrg* | 클러스터가 만들어질 리소스 그룹 이름입니다. |
    | SoftDeletePeriod | *3650:00:00:00* | 데이터를 쿼리할 수 있도록 유지되는 시간입니다. |
    | HotCachePeriod | *3650:00:00:00* | 데이터가 캐시에 유지되는 시간입니다. |

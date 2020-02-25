@@ -12,12 +12,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: juliako
-ms.openlocfilehash: c1e9be605a6f01695f2472ae76a9e5a786388aa0
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 849d1187d6b854d48ad75ab1e55f600407420346
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77206109"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562363"
 ---
 # <a name="streaming-endpoints-origin-in-azure-media-services"></a>Azure Media Services의 스트리밍 끝점 (원본)
 
@@ -41,13 +41,13 @@ Media Services 계정을 만들 경우 **기본** 스트리밍 엔드포인트�
 * 스트리밍 끝점 이름의 최대 값은 24 자입니다.
 * 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`[regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
 
-## <a name="types"></a>유형
+## <a name="types"></a>형식
 
 **표준** (미리 보기) 및 **프리미엄**의 두 가지 **스트리밍 끝점** 유형이 있습니다. 이러한 유형은 스트리밍 엔드포인트에 할당하는 배율 단위(`scaleUnits`) 수로 정의됩니다.
 
 다음 표에 해당 유형이 설명되어 있습니다.
 
-|Type|배율 단위|Description|
+|형식|배율 단위|설명|
 |--------|--------|--------|  
 |**Standard**|0|기본 스트리밍 끝점은 **표준** 유형이 며 `scaleUnits`를 조정 하 여 프리미엄 유형으로 변경할 수 있습니다.|
 |**Premium**|>0|**프리미엄** 스트리밍 끝점은 고급 워크 로드에 적합 하며, 확장 가능한 전용 대역폭 용량을 제공 합니다. `scaleUnits` (스트리밍 단위)를 조정 하 여 **프리미엄** 유형으로 이동 합니다. `scaleUnits`는 200Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공합니다. **프리미엄** 유형을 사용 하는 경우 사용 하도록 설정 된 각 단위는 앱에 추가 대역폭 용량을 제공 합니다. |
@@ -59,21 +59,21 @@ SLA에 대 한 자세한 내용은 [가격 책정 및 SLA](https://azure.microso
 
 ## <a name="comparing-streaming-types"></a>스트리밍 유형 비교
 
-기능|Standard|Premium
+기능|Standard|프리미엄
 ---|---|---
 처리량 |CDN을 사용 하는 경우 최대 600 Mbps 및 보다 효과적인 처리량을 제공할 수 있습니다.|SU(스트리밍 단위)당 200Mbps 는 CDN을 사용 하는 경우 훨씬 더 효율적인 처리량을 제공할 수 있습니다.
 CDN|Azure CDN, 타사 CDN 또는 CDN이 없습니다.|Azure CDN, 타사 CDN 또는 CDN이 없습니다.
 청구를 계산합니다.| 매일|매일
-동적 암호화|yes|yes
-동적 패키징|yes|yes
-확장|대상 처리량까지 자동으로 확장합니다.|추가 SUs
-IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|yes|yes
-점진적 다운로드|yes|yes
+동적 암호화|예|예
+동적 패키징|예|예
+Scale|대상 처리량까지 자동으로 확장합니다.|추가 SUs
+IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|예|예
+점진적 다운로드|예|예
 권장 사용량 |대부분의 스트리밍 시나리오에 권장됩니다.|전문 사용량입니다.
 
 <sup>1</sup> 끝점에서 CDN을 사용 하도록 설정 하지 않은 경우에만 스트리밍 끝점에서 직접 사용 됩니다.<br/>
 
-## <a name="properties"></a>속성
+## <a name="streaming-endpoint-properties"></a>스트리밍 끝점 속성
 
 이 섹션에서는 일부 스트리밍 끝점 속성에 대해 자세히 설명 합니다. 새 스트리밍 엔드포인트를 만드는 방법의 예제와 모든 속성에 대한 설명을 보려면 [스트리밍 엔드포인트](https://docs.microsoft.com/rest/api/media/streamingendpoints/create)를 참조하세요.
 
@@ -102,7 +102,7 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|yes|yes
     - `media.azure.net`
     - `verifydns.media.azure.net`
 
-  - 중국:
+  - China:
 
     - `mediaservices.chinacloudapi.cn`
     - `verifydns.mediaservices.chinacloudapi.cn`
@@ -130,50 +130,36 @@ IP 필터링/G20/사용자 지정 호스트 <sup>1</sup>|yes|yes
 
 - `scaleUnits`: 200 Mbps 단위로 구입할 수 있는 전용 송신 용량을 제공 합니다. **프리미엄** 유형으로 전환해야 할 경우 `scaleUnits`를 조정합니다.
 
-## <a name="working-with-cdn"></a>CDN 사용
+## <a name="why-use-multiple-streaming-endpoints"></a>여러 스트리밍 끝점을 사용 하는 이유
 
-대부분의 경우 CDN이 사용되도록 설정되어 있을 것입니다. 그러나 최대 동시성이 500 뷰어 보다 낮은 것으로 예상 되는 경우 CDN이 동시성을 통해 최적으로 확장 되므로 CDN을 사용 하지 않도록 설정 하는 것이 좋습니다.
+단일 스트리밍 끝점은 라이브 및 주문형 비디오를 모두 스트리밍할 수 있으며, 대부분의 고객은 하나의 스트리밍 끝점만 사용 합니다. 이 섹션에서는 여러 스트리밍 끝점을 사용 해야 하는 이유에 대 한 몇 가지 예를 제공 합니다.
 
-### <a name="considerations"></a>고려 사항
+* 각 예약 단위는 200 Mbps의 대역폭을 허용 합니다. 대역폭이 2000 Mbps (2gbps) 이상이 필요한 경우 두 번째 스트리밍 끝점과 부하 분산을 사용 하 여 추가 대역폭을 제공할 수 있습니다.
 
-* CDN을 사용 하도록 설정할지 여부에 관계 없이 스트리밍 끝점 `hostname` 및 스트리밍 URL은 동일 하 게 유지 됩니다.
-* CDN을 사용 하거나 사용 하지 않고 콘텐츠를 테스트 하는 기능이 필요한 경우 CDN이 사용 하도록 설정 되지 않은 또 다른 스트리밍 끝점을 만듭니다.
+    그러나 CDN은 스트리밍 콘텐츠의 규모를 확장 하는 가장 좋은 방법 이지만 CDN이 2gbps 이상 끌어오는 많은 콘텐츠를 제공 하는 경우에는 추가 스트리밍 끝점 (원본)을 추가할 수 있습니다. 이 경우 두 스트리밍 끝점에서 균형을 유지 하는 콘텐츠 Url을 전달 해야 합니다. 이 방법은 트래픽 관리자를 통해 임의로 각 원본에 요청을 전송 하는 것 보다 더 나은 캐싱을 제공 합니다. 
+    
+    > [!TIP]
+    > 일반적으로 CDN이 2 g b를 초과 하는 경우 잘못 구성 된 것일 수 있습니다 (예: 원본 차폐 없음).
+    
+* 다른 CDN 공급자의 부하를 분산 합니다. 예를 들어 Verizon CDN을 사용 하도록 기본 스트리밍 끝점을 설정 하 고 Akamai를 사용 하는 두 번째 스트리밍 끝점을 만들 수 있습니다. 그런 다음 다중 CDN 분산을 얻기 위해 둘 사이에 부하 분산을 추가 합니다. 
 
-### <a name="detailed-explanation-of-how-caching-works"></a>캐싱 작동 방식에 대한 자세한 설명
+    그러나 고객은 단일 원본을 사용 하 여 여러 CDN 공급자에서 부하 분산을 수행 하는 경우가 많습니다.
+* 혼합 콘텐츠 스트리밍: 주문형 라이브 및 비디오입니다. 
 
-Cdn을 사용 하는 스트리밍 끝점에 필요한 대역폭 양은 다양 하므로 CDN을 추가할 때 특정 대역폭 값은 없습니다. 많은 내용이 콘텐츠 형식, 인기 자료, 비트 전송률 및 프로토콜에 따라 달라 집니다. CDN은 요청 되는 항목만 캐시 합니다. 즉, 비디오 조각이 캐시 된 경우에는 널리 사용 되는 콘텐츠가 CDN에서 직접 제공 됩니다. 일반적으로 많은 사람들이 정확히 동일한 것을 보게 하므로 라이브 콘텐츠는 캐시될 확률이 높습니다. 주문형 콘텐츠는 널리 사용 되는 콘텐츠 중 일부를 포함할 수 있기 때문에 다소 까다롭습니다. 수많은 비디오 자산이 널리 사용 되 고 있지 않은 경우 (한 주에 한 번 또는 두 번만 표시), 수천 명의 사용자가 다른 비디오를 모두 감시 하는 경우 CDN이 훨씬 효율적입니다. 이 캐시가 손실되면 스트리밍 엔드포인트에 대한 부하를 늘립니다.
+    라이브 및 주문형 콘텐츠에 대 한 액세스 패턴은 매우 다릅니다. 라이브 콘텐츠는 동일한 콘텐츠에 대해 한 번에 많은 수요를 가져오는 경향이 있습니다. 주문형 비디오 콘텐츠 (인스턴스에 대 한 긴 비상 보관 콘텐츠)는 동일한 콘텐츠에 대 한 사용량이 적습니다. 따라서 캐싱은 라이브 콘텐츠에서 매우 잘 작동 하지만 긴 비상 콘텐츠에서는 잘 작동 하지 않습니다.
 
-또한 적응 스트리밍의 작동 방식도 고려해야 합니다. 각 개별 비디오 조각은 자체 엔터티로 캐시됩니다. 예를 들어 특정 비디오가 처음으로 시청 될 때를 가정 합니다. 뷰어에서 몇 초 동안만 감시 하는 것을 건너뛴 경우, 사용자가 감시에서 감시 하는 항목과 연결 된 비디오 조각만 표시 됩니다. 적응 스트리밍을 사용하면 비디오의 비트 전송률이 일반적으로 5~ 7 사이의 차이를 보입니다. 한 사용자가 하나의 비트 전송률을 감시 하 고 다른 사용자가 다른 비트 전송률을 감시 하는 경우 각 사용자는 CDN에서 별도로 캐시 됩니다. 두 명의 사용자가 동일한 비트 전송률을 시청 하는 경우에도 서로 다른 프로토콜을 통해 스트리밍할 수 있습니다. 각 프로토콜(HLS, MPEG DASH, 부드러운 스트리밍)은 별도로 캐시됩니다. 따라서 각 비트 전송률 및 프로토콜은 개별적으로 캐시되고, 요청된 비디오 조각만 캐시됩니다.
+    고객이 라이브 콘텐츠를 주로 감시 하지만 가끔 주문형 콘텐츠를 감시 하 고 동일한 스트리밍 끝점에서 제공 되는 시나리오를 고려해 보세요. 주문형 콘텐츠를 적게 사용 하면 라이브 콘텐츠에 더 잘 저장 되는 캐시 공간을 차지 하 게 됩니다. 이 시나리오에서는 하나의 스트리밍 끝점에서 라이브 콘텐츠를 제공 하 고 다른 스트리밍 끝점에서 긴 비상 콘텐츠를 제공 하는 것이 좋습니다. 이렇게 하면 라이브 이벤트 콘텐츠의 성능이 향상 됩니다.
+    
+## <a name="scaling-streaming-with-cdn"></a>CDN을 사용 하 여 스트리밍 크기 조정
 
-### <a name="enable-azure-cdn-integration"></a>Azure CDN 통합 사용
+다음 문서를 참조하세요.
 
-> [!IMPORTANT]
-> 평가판 또는 학생용 Azure 계정에 대해 CDN을 사용 하도록 설정할 수 없습니다.
->
-> CDN 통합은 연방 정부 및 중국 지역을 제외한 모든 Azure 데이터 센터에서 사용 하도록 설정 됩니다.
-
-CDN을 사용 하 여 스트리밍 끝점을 프로 비전 한 후에는 스트리밍 끝점을 CDN 끝점에 매핑하기 위해 DNS 업데이트를 수행 하기 전에 Media Services에 정의 된 대기 시간이 있습니다.
-
-나중에 CDN을 사용/사용 안 함으로 설정하려면 스트리밍 엔드포인트가 **중지됨** 상태여야 합니다. Azure CDN 통합이 사용하도록 설정되고 변경 내용이 모든 CDN POP에서 활성화되려면 최대 2시간이 걸릴 수 있습니다. 그러나 스트리밍 끝점을 시작 하 고 스트리밍 끝점에서 중단 없이 스트리밍할 수 있으며, 통합이 완료 되 면 CDN에서 스트림이 배달 됩니다. 프로 비전 기간 동안에는 스트리밍 끝점이 **시작** 상태가 되 고 성능이 저하 될 수 있습니다.
-
-표준 스트리밍 끝점을 만들 때 기본적으로 표준 Verizon을 사용 하 여 구성 됩니다. REST Api를 사용 하 여 Premium Verizon 또는 표준 Akamai 공급자를 구성할 수 있습니다.
-
-Azure Media Services와 Azure CDN의 통합은 **Verizon의 Azure CDN**에서 표준 스트리밍 엔드포인트에 구현됩니다. 프리미엄 스트리밍 엔드포인트는 모든 **Azure CDN 가격 책정 및 공급자**를 사용하여 구성할 수 있습니다. 
-
-> [!NOTE]
-> Azure CDN에 대 한 자세한 내용은 [CDN 개요](../../cdn/cdn-overview.md)를 참조 하세요.
-
-### <a name="determine-if-dns-change-was-made"></a>DNS 변경을 수행 했는지 확인 합니다.
-
-https://www.digwebinterface.com를 사용 하 여 스트리밍 끝점에 대 한 DNS 변경 (트래픽이 Azure CDN로 전달 됨)을 확인할 수 있습니다. 결과에 azureedge.net 도메인 이름이 있으면 이제 해당 트래픽이 CDN을 가리킵니다.
+- [CDN 개요](../../cdn/cdn-overview.md)
+- [CDN을 사용 하 여 스트리밍 크기 조정](scale-streaming-cdn.md)
 
 ## <a name="ask-questions-give-feedback-get-updates"></a>질문, 피드백 제공, 업데이트 받기
 
 [Azure Media Services 커뮤니티](media-services-community.md) 문서를 체크 아웃하여 다양한 방법으로 질문을 하고, 피드백을 제공하고, Media Services에 대한 업데이트를 가져올 수 있습니다.
-
-## <a name="see-also"></a>참고 항목
-
-[CDN 개요](../../cdn/cdn-overview.md)
 
 ## <a name="next-steps"></a>다음 단계
 

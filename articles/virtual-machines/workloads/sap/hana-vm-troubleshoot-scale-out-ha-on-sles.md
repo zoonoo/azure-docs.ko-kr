@@ -1,5 +1,5 @@
 ---
-title: Azure 가상 머신에서 SLES 12 SP3을 사용하여 SAP HANA 2.0 스케일 아웃 HSR-Pacemaker 설정 문제 해결 | Microsoft Docs
+title: Azure Vm의 SLES을 사용 하 여 Pacemaker HSR-확장을 확장 합니다. 문제 해결 | SAP HANA Microsoft Docs
 description: Azure 가상 머신에서 실행되는 SLES 12 SP3의 SAP HSR(HANA System Replication) 및 Pacemaker에 기반한 복잡한 SAP HANA 스케일 아웃 고가용성 구성 확인 및 문제 해결 가이드
 services: virtual-machines-linux
 documentationcenter: ''
@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/24/2018
 ms.author: hermannd
-ms.openlocfilehash: 299fba8a082f19f17ab581a6ac2bfac9fd3f8cf1
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: fb90bfff72f41d8d7ccc34d3ad6dd0e9206bb88e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099654"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566236"
 ---
 # <a name="verify-and-troubleshoot-sap-hana-scale-out-high-availability-setup-on-sles-12-sp3"></a>SLES 12 SP3에서 SAP HANA 스케일 아웃 고가용성 설정 확인 및 문제 해결 
 
@@ -38,7 +38,7 @@ ms.locfileid: "70099654"
 
 
 
-## <a name="important-notes"></a>중요 정보
+## <a name="important-notes"></a>중요
 
 SAP HANA System Replication 및 Pacemaker와 함께 SAP HANA 스케일 아웃에 대한 모든 테스트는 SAP HANA 2.0에서만 수행되었습니다. 운영 체제 버전은 SAP 애플리케이션용 SUSE Linux Enterprise Server 12 SP3이 사용되었습니다. 최신 RPM 패키지인 SUSE의 SAPHanaSR-ScaleOut도 Pacemaker 클러스터를 설정하는 데 사용되었습니다.
 SUSE [이 성능 최적화 설정에 대 한 자세한 설명을][sles-hana-scale-out-ha-paper]게시 했습니다.
@@ -65,7 +65,7 @@ SUSE의 지원이 필요한 경우이 [가이드][suse-pacemaker-support-log-fil
  SAP HANA 스케일 아웃 HA 확인 및 인증에 설정이 사용되었습니다. SAP HANA 노드 세 개(마스터 하나와 작업자 둘)와 시스템 두 개로 구성되었니다. 다음 테이블에는 VM 이름과 내부 IP 주소가 나열되어 있습니다. 뒤에 나오는 모든 확인 샘플은 이 VM에서 수행되었습니다. 명령 샘플에서 이러한 VM 이름과 IP 주소를 사용하면 명령과 해당 출력을 더 잘 이해할 수 있습니다.
 
 
-| 노드 형식 | VM 이름 | IP 주소 |
+| 노드 유형 | VM 이름 | IP 주소 |
 | --- | --- | --- |
 | 사이트 1의 마스터 노드 | hso-hana-vm-s1-0 | 10.0.0.30 |
 | 사이트 1의 작업자 노드 1 | hso-hana-vm-s1-1 | 10.0.0.31 |
@@ -172,7 +172,7 @@ nc: connect to 10.0.2.40 port 40002 (tcp) failed: Connection refused
 
 테스트 시스템에 있는 **corosync.conf**의 내용은 예제입니다.
 
-첫 번째 섹션은 [클러스터 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation), 11단계의 설명대로 **totem**입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **토큰** 및 **합의** 항목은 [Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정 해야 합니다.
+첫 번째 섹션은 **클러스터 설치**, 11단계의 설명대로 [totem](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#cluster-installation)입니다. **mcastaddr**에 대한 값은 무시할 수 있습니다. 기존 항목만 유지합니다. **토큰** 및 **합의** 항목은 [Microsoft Azure SAP HANA 설명서][sles-pacemaker-ha-guide]에 따라 설정 해야 합니다.
 
 <pre><code>
 totem {
@@ -457,7 +457,7 @@ node.startup = automatic
 5. 초기자 이름 위에 **Service Start**(서비스 시작) 값이 **When Booting**(부팅 시)로 설정되어 있는지 확인합니다.
 6. 그렇지 않은 경우 **Manually**(수동) 대신 **When Booting**(부팅 시)으로 설정합니다.
 7. 그런 다음, 위쪽 탭을 **Connected Targets**(연결된 대상)으로 전환합니다.
-8. **연결된 대상** 화면에서 이 샘플과 같은 SBD 디바이스에 대한 항목 (**10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**)이 표시됩니다.
+8. **Connected Targets**(연결된 대상) 화면에서 SBD 디바이스에 대한 항목이 이 샘플과 같이 표시됩니다(**10.0.0.19:3260 iqn.2006-04.dbhso.local:dbhso**).
 9. **Start-Up**(시작) 값이 **on boot**(부팅)로 설정되어 있는지 확인합니다.
 10. 그렇지 않은 경우 **Edit**(편집)을 선택하여 변경합니다.
 11. 변경 내용을 저장하고 YaST2를 종료합니다.
@@ -722,7 +722,7 @@ Transition Summary:
 
 
 
-## <a name="planned-maintenance"></a>계획된 유지 관리 
+## <a name="planned-maintenance"></a>계획된 유지 보수 
 
 계획된 유지 관리와 관련하여 다양한 사용 사례가 있습니다. 한 가지 질문은 OS 수준 및 디스크 구성 또는 HANA 업그레이드에 대한 변경과 같은 인프라 유지 관리뿐인지 여부입니다.
 SUSE에서 [0 가동 중지 시간][sles-zero-downtime-paper] 또는 [SAP HANA SR 성능 최적화 시나리오][sles-12-for-sap]와 같은 추가 정보를 찾을 수 있습니다. 이러한 문서에는 주 노드를 수동으로 마이그레이션하는 방법을 보여주는 샘플도 포함되어 있습니다.

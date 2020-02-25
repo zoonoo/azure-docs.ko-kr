@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 탐색기에 대 한 ODBC (Open Database Connectivity) 연결을 사용 하 여 Tableau로 데이터 시각화
+title: Azure 데이터 탐색기 ODBC 커넥터를 사용 하 여 Tableau 데이터 시각화
 description: 이 문서에서는 Azure 데이터 탐색기 연결에 대 한 ODBC (Open Database Connectivity) 연결을 사용 하 여 Tableau로 데이터를 시각화 하는 방법에 대해 알아봅니다.
 author: orspod
 ms.author: orspodek
@@ -7,18 +7,18 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.openlocfilehash: 4dd8fbd761a3442536919e17bae5465adf6b945f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 903daf450800a7f060899d736c2b31920c1b51f6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74023856"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562448"
 ---
 # <a name="visualize-data-from-azure-data-explorer-in-tableau"></a>Tableau의 Azure 데이터 탐색기에서 데이터 시각화
 
  [Tableau](https://www.tableau.com/) 는 비즈니스 인텔리전스를 위한 시각적 분석 플랫폼입니다. Tableau에서 Azure 데이터 탐색기에 연결 하 고 샘플 클러스터에서 데이터를 가져오려면 SQL Server ODBC (Open Database Connectivity) 드라이버를 사용 합니다. 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서를 완료 하려면 다음이 필요 합니다.
 

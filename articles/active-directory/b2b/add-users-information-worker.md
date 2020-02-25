@@ -12,12 +12,12 @@ manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro, seo-update-azuread-jan
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 37dc4a618f01022f4963a14aba921edcce9f4b60
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: abb5c6939d8c88db35a776aa8f2c075a4bdcc609
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74268848"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565420"
 ---
 # <a name="how-users-in-your-organization-can-invite-guest-users-to-an-app"></a>조직의 사용자가 게스트 사용자를 앱에 초대할 수 있는 방법
 
@@ -73,7 +73,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 7. **추가**를 선택하여 게스트 사용자에게 자동으로 초대를 발송합니다. 초대를 발송한 후 사용자 계정이 디렉터리에 게스트로 자동 추가됩니다.
 
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 셀프 서비스 앱 관리를 위해서는 글로벌 관리자 및 Azure AD 관리자가 일부 초기 설정을 해야 합니다. 이 설정의 일부로 셀프 서비스를 위해 앱을 구성하고 애플리케이션 소유자가 관리할 수 있는 그룹을 앱에 할당합니다. 모든 사용자가 멤버 자격을 요청할 수 있지만 그룹 소유자의 승인이 필요하도록 그룹을 구성할 수도 있습니다. ([셀프 서비스 그룹 관리](https://docs.microsoft.com/azure/active-directory/users-groups-roles/groups-self-service-management)에 대해 자세히 알아보세요.) 
 
@@ -105,7 +105,7 @@ Azure AD의 디렉터리에 게스트 사용자가 추가되면, 애플리케이
 2. 탐색 창에서 **Azure Active Directory**를 선택합니다.
 3. **관리**에서 **엔터프라이즈 애플리케이션** > **모든 애플리케이션**을 선택합니다.
 4. 애플리케이션 목록에서 앱을 찾아 엽니다.
-5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 애플리케이션을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-portal)을 참조하세요.)
+5. **관리**에서 **Single Sign-On**을 선택하고 Single Sign-On에 대한 애플리케이션을 구성합니다. (자세한 내용은 [엔터프라이즈 앱에 대한 Single Sign-On 관리 방법](https://docs.microsoft.com/azure/active-directory/manage-apps/configure-single-sign-on-non-gallery-applications)을 참조하세요.)
 6. **관리**에서 **셀프 서비스**를 선택하고 셀프 서비스 앱 액세스를 설정합니다. (자세한 내용은 [셀프 서비스 앱 액세스 사용 방법](https://docs.microsoft.com/azure/active-directory/application-access-panel-self-service-applications-how-to)을 참조하세요.) 
 
     > [!NOTE]

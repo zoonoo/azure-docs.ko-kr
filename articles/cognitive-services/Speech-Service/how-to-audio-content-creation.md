@@ -3,21 +3,21 @@ title: 오디오 콘텐츠 생성-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: 오디오 콘텐츠 만들기는 앱 및 제품에 대 한 Microsoft의 텍스트 음성 변환 출력을 사용자 지정 하 고 미세 조정할 수 있는 온라인 도구입니다.
 services: cognitive-services
-author: erhopf
+author: IEvangelist
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.author: erhopf
-ms.openlocfilehash: b65a39489f0823a411a9dddf79ec3abd1e5ee20d
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: aed9c0a72af063c84c0744757772e11c689ac14c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806208"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561037"
 ---
-# <a name="audio-content-creation"></a>오디오 콘텐츠 만들기
+# <a name="improve-synthesis-with-audio-content-creation"></a>오디오 콘텐츠 생성으로 합성 향상
 
 [오디오 콘텐츠 만들기](https://aka.ms/audiocontentcreation) 는 앱 및 제품에 대 한 Microsoft의 텍스트 음성 변환 출력을 사용자 지정 하 고 미세 조정할 수 있는 온라인 도구입니다. 이 도구를 사용 하 여 보다 정확한 자연 식에 대 한 공용 및 사용자 지정 음성을 미세 조정 하 고 클라우드에서 출력을 관리할 수 있습니다.
 
@@ -63,7 +63,7 @@ ms.locfileid: "74806208"
 1. [오디오 콘텐츠 생성](https://aka.ms/audiocontentcreation)에 로그인 한 후 **업로드** 를 클릭 하 여 하나 이상의 텍스트 파일을 가져옵니다. 일반 텍스트와 SSML은 모두 지원 됩니다.
 2. 텍스트 파일을 업로드할 때 콘텐츠가 이러한 요구 사항을 충족 하는지 확인 합니다.
 
-   | 자산 | 값/메모 |
+   | 속성 | 값/메모 |
    |----------|---------------|
    | 파일 형식 | 일반 텍스트(.txt)<br/> SSML 텍스트 (.txt)<br/> Zip 파일은 지원 되지 않습니다. |
    | 인코딩 형식 | UTF-8 |
@@ -95,11 +95,11 @@ Welcome to use Audio Content Creation to customize audio output for your product
 2. 튜닝 된 오디오의 출력 형식을 선택 합니다. 지원 되는 형식 및 샘플 속도 목록은 아래에서 볼 수 있습니다.
 3. 작업 **내보내기** 탭에서 작업 상태를 볼 수 있습니다. 태스크가 실패 하는 경우 전체 보고서에 대 한 자세한 정보 페이지를 참조 하세요.
 4. 작업이 완료 되 면 오디오 **라이브러리** 탭에서 오디오를 다운로드할 수 있습니다.
-5. **다운로드**를 클릭합니다. 이제 앱 또는 제품에서 사용자 지정 조정 된 오디오를 사용할 준비가 되었습니다.
+5. **다운로드**를 이제 앱 또는 제품에서 사용자 지정 조정 된 오디오를 사용할 준비가 되었습니다.
 
 ### <a name="supported-audio-formats"></a>지원되는 오디오 형식
 
-| 형식 | 16Khz 샘플 주기 | 24khz 샘플 요금 |
+| 서식 | 16Khz 샘플 주기 | 24khz 샘플 요금 |
 |--------|--------------------|--------------------|
 | wav | riff-16khz-16 비트 | riff-24khz-16 비트 |
 | mp3 | 오디오-16khz-128kbitrate 전송률-mono-mp3 | 오디오-24khz-160kbitrate 전송률-mono-mp3 |

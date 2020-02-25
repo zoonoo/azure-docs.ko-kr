@@ -1,5 +1,5 @@
 ---
-title: Custom Voice란? -음성 서비스
+title: 사용자 지정 음성-음성 서비스를 사용 하 여 합성 향상
 titleSuffix: Azure Cognitive Services
 description: 사용자 지정 음성은 브랜드에 대한 인식할 수 있는 독특한 음성을 만들 수 있는 온라인 도구 집합입니다. 시작하기 위해 필요한 것은 약간의 오디오 파일 및 관련 기록 뿐입니다. 사용자 지정 텍스트 음성 변환 환경 만들기를 시작하려면 아래 링크를 따르세요.
 services: cognitive-services
@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: dapine
-ms.openlocfilehash: 15d15ce2d4dfc55a51bf21ba005512606cc4997a
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 786cf687e569af172eabfaa9068ae61ffd6b2988
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424969"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562499"
 ---
 # <a name="get-started-with-custom-voice"></a>Custom Voice 시작
 

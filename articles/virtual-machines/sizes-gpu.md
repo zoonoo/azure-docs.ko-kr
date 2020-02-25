@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 3ee7a2ffed9c2c50829f237fdf4c8d3b5a6f1531
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: d88c76afb3426dce8c68ae4bcda366fe17700aa7
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538775"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566049"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 
@@ -31,7 +31,7 @@ GPU 최적화 VM 크기는 단일 또는 여러 NVIDIA GPU에서 사용 가능�
 
 - [NV 시리즈](nv-series.md) 및 [NVv3 시리즈](nvv3-series.md) 크기는 OpenGL 및 DirectX와 같은 프레임 워크를 사용 하 여 원격 시각화, 스트리밍, 게임, 인코딩 및 VDI 시나리오에 맞게 최적화 되 고 설계 되었습니다. 이러한 VM은 NVIDIA Tesla M60 GPU의 지원을 받습니다.
 
-- [NVv4 시리즈](nvv4-series.md) VDI 및 원격 가상화를 위해 최적화 되 고 설계 된 VM 크기입니다. 분할 된 Gpu를 사용 하면 NVv4는 더 작은 GPU 리소스가 필요한 워크 로드에 적합 한 크기를 제공 합니다. 이러한 Vm은 AMD Radeon 이러한 MI25 GPU에 의해 지원 됩니다.
+- [NVv4 시리즈](nvv4-series.md) VDI 및 원격 가상화를 위해 최적화 되 고 설계 된 VM 크기입니다. 분할 된 Gpu를 사용 하면 NVv4는 더 작은 GPU 리소스가 필요한 워크 로드에 적합 한 크기를 제공 합니다. 이러한 Vm은 AMD Radeon 이러한 MI25 GPU에 의해 지원 됩니다. NVv4 Vm은 현재 Windows 게스트 운영 체제만 지원 합니다.
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 

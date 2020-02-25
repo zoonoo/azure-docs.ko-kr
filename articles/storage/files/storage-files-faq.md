@@ -3,16 +3,16 @@ title: Azure Files에 대한 FAQ(질문과 대답) | Microsoft Docs
 description: Azure Files에 대한 질문과 대답을 확인합니다.
 author: roygara
 ms.service: storage
-ms.date: 07/30/2019
+ms.date: 02/19/2020
 ms.author: rogarana
 ms.subservice: files
 ms.topic: conceptual
-ms.openlocfilehash: e5b1880a12cda440a5772de80b8ec67b8f7ed5c3
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: c6503f2782832b7155c0c081aab9769296e08a8e
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75665387"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565063"
 ---
 # <a name="frequently-asked-questions-faq-about-azure-files"></a>Azure Files에 대한 FAQ(질문과 대답)
 [Azure Files](storage-files-introduction.md)는 산업 표준 [SMB(서버 메시지 블록) 프로토콜](https://msdn.microsoft.com/library/windows/desktop/aa365233.aspx)을 통해 액세스할 수 있는, 클라우드에서 완전히 관리되는 파일 공유를 제공합니다. Azure 파일 공유를 Windows, Linux 및 macOS의 클라우드 또는 온-프레미스 배포에 동시에 탑재할 수 있습니다. 데이터가 사용되는 위치 가까이에 대한 빠른 액세스를 위해 Azure 파일 동기화를 사용하여 Windows Server 컴퓨터에서 Azure 파일 공유를 캐시할 수도 있습니다.
@@ -151,13 +151,17 @@ ms.locfileid: "75665387"
 * <a id="afs-ntfs-acls"></a>
   **Azure 파일 동기화는 Azure Files에 저장된 데이터와 함께 디렉터리/파일 수준 NTFS ACL을 보존하나요?**
 
-    온-프레미스 파일 서버에서 수행된 NTFS ACL은 Azure 파일 동기화를 통해 메타데이터로 지속됩니다. Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
+    2 월 24 일, 2020, Azure file sync에 의해 계층화 된 새로운 및 기존 Acl은 NTFS 형식으로 유지 되며, Azure 파일 공유에 직접 적용 된 ACL 수정은 동기화 그룹의 모든 서버에 동기화 됩니다. Azure Files에 대 한 Acl 변경 내용은 Azure file sync를 통해 동기화 됩니다. Azure Files로 데이터를 복사 하는 경우 SMB를 사용 하 여 공유에 액세스 하 고 Acl을 유지 해야 합니다. AzCopy 또는 Storage 탐색기와 같은 기존 REST 기반 도구는 Acl을 유지 하지 않습니다.
+
+    파일 동기화 관리 되는 파일 공유에 대 한 Azure Backup를 사용 하도록 설정한 경우 파일 Acl은 백업 복원 워크플로의 일부로 계속 복원할 수 있습니다. 이는 전체 공유 또는 개별 파일/디렉터리에 대해 작동 합니다.
+
+    스냅숏을 파일 동기화를 통해 관리 되는 파일 공유에 대 한 자체 관리 되는 백업 솔루션의 일부로 사용 하는 경우 스냅숏이 2020 년 2 월 24 일 이전에 수행 된 경우 Acl이 NTFS Acl로 제대로 복원 되지 않을 수 있습니다. 이 문제가 발생 하는 경우 Azure 지원에 문의 하는 것이 좋습니다.
     
 ## <a name="security-authentication-and-access-control"></a>보안, 인증 및 액세스 제어
 * <a id="ad-support"></a>**Azure Files에서 
 id 기반 인증 및 액세스 제어를 지원 하나요?**  
     
-    예, Azure Files는 azure AD 도메인 서비스 (Azure AD DS)를 활용 하는 id 기반 인증 및 액세스 제어를 지원 합니다. Azure Files SMB를 통한 azure AD DS 인증을 사용 하면 azure AD DS 도메인에 가입 된 Windows Vm에서 Azure AD 자격 증명을 사용 하 여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. 자세한 내용은 [SMB 액세스를 위한 Azure AD DS (Azure Files Azure Active Directory 도메인 서비스) 인증 지원 개요](storage-files-active-directory-overview.md)를 참조 하세요. 
+    예, Azure Files는 id 기반 인증 및 액세스 제어를 지원 합니다. Id 기반 액세스 제어를 사용 하는 두 가지 방법 중 하나를 선택할 수 있습니다. Azure Active Directory Domain Services (Azure AD DS) (GA) 또는 Active Directory (AD) (미리 보기)입니다. Azure Files SMB를 통한 azure AD DS 인증을 사용 하면 azure AD DS 도메인에 가입 된 Windows Vm에서 Azure AD 자격 증명을 사용 하 여 공유, 디렉터리 및 파일에 액세스할 수 있습니다. AD는 온-프레미스 또는 Azure에서 AD 도메인에 가입 된 컴퓨터를 사용 하 여 SMB를 통해 Azure 파일 공유에 액세스 하는 인증을 지원 합니다. 자세한 내용은 [SMB 액세스를 위한 Azure Files id 기반 인증 지원 개요](storage-files-active-directory-overview.md)를 참조 하세요. 
 
     Azure Files는 액세스 제어를 관리하기 위한 두 가지 방법을 추가로 제공합니다.
 
@@ -167,35 +171,47 @@ id 기반 인증 및 액세스 제어를 지원 하나요?**
     
     Azure Storage에 대 한 [액세스 권한을 부여](https://docs.microsoft.com/azure/storage/common/storage-auth?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 하 여 Azure Storage 서비스에서 지원 되는 모든 프로토콜의 포괄적인 표현을 참조할 수 있습니다. 
 
-* <a id="ad-support-devices"></a>azure **ad 자격 증명을 사용 하 AD DS Azure Files는 azure ad 자격 증명을 사용 하 여 azure ad에 연결 하거나 azure ad에 등록 된 장치에서 SMB 액세스를 지 원하는** 
-
+* <a id="ad-support-devices"></a>
+**는 azure ad에 가입 되어 있거나 azure ad에 등록 된 장치에서 AZURE ad 자격 증명을 사용 하 여 SMB 액세스를 지원 Azure Files Azure Active Directory Domain Services (azure AD DS) 인증**
 
     아니요. 이 시나리오는 지원되지 않습니다.
 
 * <a id="ad-support-rest-apis"></a>
 **디렉터리/파일 NTFS ACL 가져오기/설정/복사를 지원하는 REST API가 있나요?**
 
-    지금은 디렉터리 또는 파일의 NTFS Acl을 가져오거나 설정 하거나 복사 하는 REST Api를 지원 하지 않습니다.
+    예, [2019-02-02](https://docs.microsoft.com/rest/api/storageservices/versioning-for-the-azure-storage-services#version-2019-02-02) 이상 REST API를 사용 하는 경우 디렉터리 또는 파일에 대 한 NTFS acl을 가져오거나 설정 하거나 복사 하는 REST api를 지원 합니다.
 
 * <a id="ad-vm-subscription"></a>
 **다른 구독으로 VM에서 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있나요?**
 
     파일 공유가 배포된 구독과 VM이 도메인에 조인된 Azure AD Domain Services 배포와 동일한 Azure AD 테넌트가 연결되어 있는 경우 동일한 Azure AD 자격 증명을 사용하여 Azure Files에 액세스할 수 있습니다. 제한 사항은 연결된 Azure AD 테넌트가 아닌 구독에만 적용됩니다.    
     
-* <a id="ad-support-subscription"></a>**파일 공유와 연결 된 기본 테 넌 트와 다른 AZURE AD 테 넌 트를 사용 하 여 azure AD DS 인증 Azure Files를 사용할 수 
-있나요?**
+* <a id="ad-support-subscription"></a>azure **ad 테 넌 트를 사용 하 여 Azure Files azure AD DS 또는 AD 인증을 사용 하도록 설정할 수 
+, 파일 공유가 연결 된 기본 테 넌 트와 다른** 경우
 
-    아니요, Azure Files는 azure AD 테 넌 트와 파일 공유와 동일한 구독에 있는 azure AD DS 통합만 지원 합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다.
+    아니요, Azure Files는 Azure AD DS 또는 파일 공유와 동일한 구독에 있는 Azure AD 테 넌 트와의 AD 통합만 지원 합니다. 하나의 구독만 Azure AD 테넌트와 연결할 수 있습니다. 이러한 제한 사항은 Azure AD DS 및 AD 인증 방법에 모두 적용 됩니다. 인증에 AD를 사용 하는 경우 AD 자격 증명을 저장소 계정이 연결 된 Azure AD와 동기화 해야 합니다.
 
 * <a id="ad-linux-vms"></a>
-**Azure AD DS 인증 지원 Linux vm을 Azure Files 하나요?**
+**Azure AD DS 또는 AD 인증 지원 Linux vm을 Azure Files 합니까?**
 
     아니요, Linux Vm에서의 인증은 지원 되지 않습니다.
 
-* <a id="ad-aad-smb-afs"></a>**Azure File Sync에서 관리 하는 파일 공유에서 Azure AD DS 인증 Azure Files 활용할 수 
+* <a id="ad-multiple-forest"></a>**여러 포리스트를 사용 하는 ad 환경과 ad 인증을 통합 하는 
+Azure Files**    
+
+    Azure Files AD 인증은 저장소 계정이 등록 된 AD 도메인 서비스의 포리스트와만 통합 됩니다. 다른 AD 포리스트의 인증을 지원 하려면 환경에서 포리스트 트러스트를 올바르게 구성 해야 합니다. AD 도메인 서비스에 대 한 Azure Files 등록은 일반적으로 일반 파일 서버와 동일 하며 인증을 위해 AD에서 계정을 만듭니다. 유일한 차이점은 저장소 계정의 등록 된 SPN이 도메인 접미사와 일치 하지 않는 "file.core.windows.net"로 끝나는 것입니다.
+
+    도메인 관리자에 게 문의 하 여 다중 포리스트 인증을 사용 하도록 설정 하려면 DNS 라우팅 정책에 대 한 업데이트가 필요한 지 확인 합니다.
+
+* <a id=""></a>**AZURE FILES AD 인증 (미리 보기)에 사용할 수 있는 지역을 
 ?**
 
-    아니요, Azure Files는 Azure File Sync에서 관리 하는 파일 공유에 대 한 NTFS Acl 유지를 지원 하지 않습니다. 온-프레미스 파일 서버에서 전달 되는 파일 Acl은 Azure File Sync에 의해 지속 됩니다. Azure Files에 대해 기본적으로 구성 된 모든 NTFS Acl은 Azure File Sync 서비스에서 덮어쓰게 됩니다. 또한 Azure Files는 Azure 파일 동기화 서비스에서 관리되는 파일 공유에 액세스하기 위한 Azure AD 자격 증명을 통한 인증을 지원하지 않습니다.
+    자세한 내용은 [AD 지역 가용성](storage-files-active-directory-domain-services-enable.md#regional-availability) 을 참조 하세요.
+
+* <a id="ad-aad-smb-afs"></a>**Azure File Sync에서 관리 하는 파일 공유에 대 한 Azure Files Azure AD DS 인증 또는 AD (Active Directory) 인증 (미리 보기)을 활용할 수 
+?**
+
+    예, azure file sync에서 관리 하는 파일 공유에서 Azure AD DS 또는 AD 인증을 사용 하도록 설정할 수 있습니다. 로컬 파일 서버의 디렉터리/파일 NTFS Acl에 대 한 변경 내용은 Azure Files로 계층화 되며 그 반대의 경우도 마찬가지입니다.
 
 * <a id="encryption-at-rest"></a>
 **Azure 파일 공유가 미사용 암호화되도록 하려면 어떻게 해야 하나요?**  
@@ -232,7 +248,7 @@ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 �
 * <a id="expressroute-not-required"></a>
 **Azure Files에 연결하거나 온-프레미스에서 Azure 파일 동기화를 사용하려면 Azure ExpressRoute를 사용해야 하나요?**  
 
-    아닙니다. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
+    No. ExpressRoute는 Azure 파일 공유에 액세스하는 데 필요하지 않습니다. Azure 파일 공유를 온-프레미스에 직접 탑재하는 경우 인터넷 액세스를 위해 포트 445(TCP 아웃바운드)만 열어 두면 됩니다(SMB가 통신하기 위해 사용하는 포트). Azure 파일 동기화를 사용하는 경우에는 HTTPS 액세스를 위해 포트 443(TCP 아웃바운드)만 열어 두면 됩니다(SMB 필요 없음). 그러나 이러한 액세스 옵션 중 하나로 ExpressRoute를 사용*할 수 있습니다*.
 
 * <a id="mount-locally"></a>
 **내 로컬 컴퓨터에서 Azure 파일 공유를 탑재하려면 어떻게 해야 하나요?**  
@@ -336,7 +352,7 @@ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 �
 * <a id="lfs-performance-impact"></a>내 **파일 공유 할당량을 확장 
 내 작업 또는 Azure File Sync에 영향을 미칩니까?**
     
-    아닙니다. 할당량을 확장 해도 작업 또는 Azure File Sync에는 영향을 주지 않습니다.
+    No. 할당량을 확장 해도 작업 또는 Azure File Sync에는 영향을 주지 않습니다.
 
 * <a id="open-handles-quota"></a>
 **동일한 파일에 동시에 액세스할 수 있는 클라이언트는 몇 개인가요?**    
@@ -361,11 +377,11 @@ Azure Files 탑재에 실패 하는 포트 445을 차단 합니다. 어떻게 �
 
 * <a id="rest-rename"></a>
 **REST API에 이름 바꾸기 작업이 있나요?**  
-    현재는 사용할 수 없습니다.
+    지금은 없습니다.
 
 * <a id="nested-shares"></a>**중첩 된 공유를 설정할 수 
 ? 즉, 공유에서 공유 하는** 경우  
-    아닙니다. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
+    No. 파일 공유*는* 마운트할 수 있는 가상 드라이버이므로 중첩된 공유는 지원되지 않습니다.
 
 * <a id="ibm-mq"></a>
 **IBM MQ에서 Azure Files를 어떻게 사용하나요?**  

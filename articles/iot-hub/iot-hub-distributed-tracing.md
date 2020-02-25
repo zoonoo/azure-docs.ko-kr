@@ -8,12 +8,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 02/06/2019
 ms.author: jlian
-ms.openlocfilehash: c3291746558dbec2147ebea24eadd0febd317033
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: efee34ddfb2b2f6090d5dc8c43647c7ee1c53ce2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539538"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562431"
 ---
 # <a name="trace-azure-iot-device-to-cloud-messages-with-distributed-tracing-preview"></a>분산 추적(미리 보기)을 사용하여 Azure IoT 디바이스-클라우드 메시지 추적
 
@@ -30,7 +30,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 이 문서에서는 분산 추적과 함께 [C용 Azure IoT 디바이스 SDK](iot-hub-device-sdk-c-intro.md)를 사용합니다. 다른 SDK의 경우 분산 추적 지원이 아직 진행 중입니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 분산 추적의 미리 보기는 현재 다음 지역에서 만든 IoT Hub에 대해서만 지원됩니다.
 
@@ -131,7 +131,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 ### <a name="edit-the-send-telemetry-sample-to-enable-distributed-tracing"></a>분산 추적을 사용하도록 원격 분석 보내기 샘플 편집
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">Github의 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/azure-iot-distributed-tracing-sample/blob/master/iothub_ll_telemetry_sample-c/iothub_ll_telemetry_sample.c" target="_blank">GitHub에서 샘플 가져오기</a>
 
 1. 편집기를 사용하여 `azure-iot-sdk-c/iothub_client/samples/iothub_ll_telemetry_sample/iothub_ll_telemetry_sample.c` 소스 파일을 엽니다.
 
@@ -164,7 +164,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
     cmake --build . --target iothub_ll_telemetry_sample --config Debug
     ```
 
-1. 애플리케이션을 실행합니다. 디바이스는 분산 추적을 지원하는 원격 분석을 보냅니다.
+1. 응용 프로그램을 실행합니다. 디바이스는 분산 추적을 지원하는 원격 분석을 보냅니다.
 
     ```cmd
     Debug/iothub_ll_telemetry_sample.exe
@@ -178,7 +178,7 @@ IoT Hub의 분산 추적을 사용하도록 설정하면 다음과 같은 기능
 
 C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습니다** . 따라서이 방법은 사용 하지 않는 것이 좋습니다.
 
-먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 MQTT/AMQP 메시지의 프로토콜 속성을 편집 하 여 `tracestate`를 **시스템 속성**으로 추가 합니다. 특히,
+먼저 개발자 가이드 [IoT Hub 메시지 만들기 및 읽기](iot-hub-devguide-messages-construct.md)를 따라 메시지의 모든 IoT Hub 프로토콜 기본 형식을 구현 해야 합니다. 그런 다음 MQTT/AMQP 메시지의 프로토콜 속성을 편집 하 여 `tracestate`를 **시스템 속성**으로 추가 합니다. 특히 다음에 대해 주의하십시오.
 
 * MQTT의 경우 메시지 항목에 `%24.tracestate=timestamp%3d1539243209`를 추가 합니다. 여기서 `1539243209`는 unix 타임 스탬프 형식으로 메시지를 만든 시간으로 바꾸어야 합니다. 예를 들어 [C SDK의](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/iothubtransport_mqtt_common.c#L761) 구현을 참조 하세요.
 * AMQP의 경우 `key("tracestate")` 및 `value("timestamp=1539243209")`를 메시지 주석으로 추가 합니다. 참조 구현은 [여기](https://github.com/Azure/azure-iot-sdk-c/blob/6633c5b18710febf1af7713cf1a336fd38f623ed/iothub_client/src/uamqp_messaging.c#L527)를 참조 하십시오.
@@ -244,10 +244,10 @@ C SDK를 사용 하지 않고도 분산 추적 **기능을 미리 볼 수 있습
 }
 ```
 
-| 요소 이름 | 필수 | Type | Description |
+| 요소 이름 | 필수 | 형식 | 설명 |
 |-----------------|----------|---------|-----------------------------------------------------|
-| `sampling_mode` | yes | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
-| `sampling_rate` | yes | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
+| `sampling_mode` | 예 | 정수 | 샘플링을 켜고 끄기 위해 현재 두 가지 모드 값이 지원됩니다. `1`은 켜짐이고 `2`는 꺼짐입니다. |
+| `sampling_rate` | 예 | 정수 | 이 값은 백분율입니다. `0`~`100`(경계값 포함) 사이의 값만 허용됩니다.  |
 
 ## <a name="query-and-visualize"></a>쿼리 및 시각화
 
@@ -267,11 +267,11 @@ AzureDiagnostics
 
 Log Analytics에 표시된 예제 로그:
 
-| TimeGenerated | OperationName | Category | Level | CorrelationId | DurationMs | 속성 |
+| TimeGenerated | OperationName | 범주 | Level | CorrelationId | DurationMs | 속성 |
 |--------------------------|---------------|--------------------|---------------|---------------------------------------------------------|------------|------------------------------------------------------------------------------------------------------------------------------------------|
-| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
-| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
-| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 제공 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:28.633Z | DiagnosticIoTHubD2C | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-0144d2590aacd909-01 |  | {"deviceId":"AZ3166","messageSize":"96","callerLocalTimeUtc":"2018-02-22T03:27:28.633Z","calleeLocalTimeUtc":"2018-02-22T03:27:28.687Z"} |
+| 2018-02-22T03:28:38.633Z | DiagnosticIoTHubIngress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 20 | {"isRoutingEnabled":"false","parentSpanId":"0144d2590aacd909"} |
+| 2018-02-22T03:28:48.633Z | DiagnosticIoTHubEgress | DistributedTracing | 정보 | 00-8cd869a412459a25f5b4f31311223344-349810a9bbd28730-01 | 23 | {"endpointType":"EventHub","endpointName":"myEventHub", "parentSpanId":"0144d2590aacd909"} |
 
 다양한 유형의 로그를 이해하려면 [Azure IoT Hub 진단 로그](iot-hub-monitor-resource-health.md#distributed-tracing-preview)를 참조하세요.
 
@@ -280,7 +280,7 @@ Log Analytics에 표시된 예제 로그:
 IoT 메시지의 흐름을 시각화하기 위해 애플리케이션 맵 샘플 앱을 설정합니다. 샘플 앱은 Azure Function 및 Event Hub를 사용하여 분산 추적 로그를 [애플리케이션 맵](../application-insights/app-insights-app-map.md)으로 보냅니다.
 
 > [!div class="button"]
-> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">Github의 샘플 가져오기</a>
+> <a href="https://github.com/Azure-Samples/e2e-diagnostic-provision-cli" target="_blank">GitHub에서 샘플 가져오기</a>
 
 아래 이미지는 다음과 같은 3개의 라우팅 엔드포인트가 있는 앱 지도의 분산 추적을 보여 줍니다.
 

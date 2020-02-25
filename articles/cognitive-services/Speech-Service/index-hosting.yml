@@ -1,0 +1,47 @@
+### YamlMime:Landing
+title: 호스팅 설명서
+summary: 음성 서비스 컨테이너는 표준 또는 사용자 지정 모델을 포괄 하는 음성 텍스트 및 텍스트 음성 변환 시나리오 모두에 사용할 수 있습니다.
+metadata:
+  title: 호스팅 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 1e8a57f6132af467975714e585f18059cf9b569e
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563079"
+landingContent:
+- title: 시작
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 음성 서비스 컨테이너
+      url: speech-container-howto.md
+    - text: Kubernetes를 사용 하는 음성 서비스 컨테이너
+      url: speech-container-howto-on-premises.md
+    - text: Azure Container Instances에서 음성 서비스 컨테이너
+      url: deploy-speech-on-container-instances.md
+- title: 단계별 가이드
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure 음성 리소스 만들기
+      url: get-started.md#create-a-speech-resource-in-azure
+    - text: 컨테이너 구성
+      url: speech-container-configuration.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 지원되는 지역
+      url: regions.md
+    - text: 소 버린 클라우드
+      url: sovereign-clouds.md

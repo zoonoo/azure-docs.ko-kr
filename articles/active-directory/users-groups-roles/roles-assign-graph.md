@@ -13,16 +13,16 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2f5be5829843e9857239ca5ea9a7395f569f563a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 3632f8a360df8837569104232b7380fdc8383953
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74025335"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559150"
 ---
-# <a name="assign-custom-admin-roles-using-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 
+# <a name="assign-custom-admin-roles-using-the-microsoft-graph-api-in-azure-active-directory"></a>Azure Active Directory에서 Microsoft Graph API를 사용 하 여 사용자 지정 관리자 역할 할당 
 
-API Microsoft Graph 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대 한 POST, GET 및 DELETE 작업에 대해 설명 합니다.
+Microsoft Graph API를 사용 하 여 사용자 계정에 역할을 할당 하는 방법을 자동화할 수 있습니다. 이 문서에서는 roleAssignments에 대 한 POST, GET 및 DELETE 작업에 대해 설명 합니다.
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
@@ -35,10 +35,11 @@ API Microsoft Graph 사용자 계정에 역할을 할당 하는 방법을 자동
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+POST https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
+Content-type: application/json
 ```
 
-Body
+본문
 
 ``` HTTP
 {
@@ -48,7 +49,7 @@ Body
 }
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 201 Created
@@ -59,10 +60,10 @@ HTTP/1.1 201 Created
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+본문
 
 ``` HTTP
 {
@@ -72,7 +73,7 @@ Body
 }
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -86,10 +87,10 @@ HTTP/1.1 404 Not Found
 POST
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+본문
 
 ``` HTTP
 {
@@ -99,7 +100,7 @@ Body
 }
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 400 Bad Request
@@ -127,13 +128,13 @@ HTTP/1.1 400 Bad Request
 
 지정 된 보안 주체에 대 한 역할 할당을 가져오기 위한 HTTP 요청
 
-가져오기
+GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=principalId eq ‘<object-id-of-principal>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=principalId eq ‘<object-id-of-principal>’
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -153,13 +154,13 @@ HTTP/1.1 200 OK
 
 지정 된 역할 정의에 대 한 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
-가져오기
+GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments?api-version=1.61-internal&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
+https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments&$filter=roleDefinitionId eq ‘<object-id-or-template-id-of-role-definition>’
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 200 OK
@@ -173,18 +174,18 @@ HTTP/1.1 200 OK
 
 ID로 역할 할당을 가져오기 위한 HTTP 요청입니다.
 
-가져오기
+GET
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 200 OK
 { 
-    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1"
+    "id":"mhxJMipY4UanIzy2yE-r7JIiSDKQoTVJrLE9etXyrY0-1",
     "principalId":"ab2e1023-bddc-4038-9ac1-ad4843e7e539",
     "roleDefinitionId":"10dae51f-b6af-4016-8d66-8c2a99b929b3",
     "resourceScopes":["/"]
@@ -195,26 +196,26 @@ HTTP/1.1 200 OK
 
 사용자와 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청입니다.
 
-삭제
+DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-response
+응답
 ``` HTTP
 HTTP/1.1 204 No Content
 ```
 
 더 이상 존재 하지 않는 역할 할당을 삭제 하는 HTTP 요청
 
-삭제
+DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 404 Not Found
@@ -222,13 +223,13 @@ HTTP/1.1 404 Not Found
 
 자체 역할과 기본 제공 역할 정의 간의 역할 할당을 삭제 하는 HTTP 요청
 
-삭제
+DELETE
 
 ``` HTTP
-https://graph.windows.net/<tenantDomain-or-tenantId>/roleAssignments/<id-of-role-assignment>?api-version=1.61-internal
+GET https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments/lAPpYvVpN0KRkAEhdxReEJC2sEqbR_9Hr48lds9SGHI-1
 ```
 
-response
+응답
 
 ``` HTTP
 HTTP/1.1 400 Bad Request

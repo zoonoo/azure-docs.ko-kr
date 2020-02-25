@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: mariadb
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: 67b045ff0661e8d0f8e20656a012e85d01e83d7b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: a9b3ae1ed28fc22d91760a4af3832a604a419a30
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425921"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561734"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-mariadb-preview-using-portal"></a>포털을 사용 하 여 Azure Database for MariaDB (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -37,17 +37,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     | 설정 | 값 |
     | ------- | ----- |
-    | 속성 | *MyVirtualNetwork*를 입력합니다. |
+    | 이름 | *MyVirtualNetwork*를 입력합니다. |
     | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
     | Subscription | 구독을 선택합니다.|
-    | Resource group | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
+    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
     | 위치 | **서유럽**를 선택합니다.|
     | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
     | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
     |||
 3. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
 
-### <a name="create-virtual-machine"></a>Virtual Machine 만들기
+### <a name="create-virtual-machine"></a>가상 컴퓨터 만들기
 
 1. Azure Portal 화면의 왼쪽 위에서 **리소스 만들기** > **컴퓨팅** > **가상 머신**을 선택합니다.
 
@@ -57,7 +57,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **서유럽**를 선택합니다. |
@@ -66,7 +66,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 크기 | 기본값인 **표준 DS1 v2**를 그대로 둡니다. |
     | **관리자 계정** |  |
     | 사용자 이름 | 선택한 사용자 이름을 입력합니다. |
-    | 암호 | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
+    | Password | 선택한 암호를 입력합니다. 암호는 12자 이상이어야 하며 [정의된 복잡성 요구 사항](../virtual-machines/windows/faq.md?toc=%2fazure%2fvirtual-network%2ftoc.json#what-are-the-password-requirements-when-creating-a-vm)을 충족해야 합니다.|
     | 암호 확인 | 암호를 다시 입력합니다. |
     | **인바운드 포트 규칙** |  |
     | 공용 인바운드 포트 | 기본값인 **없음**을 그대로 둡니다. |
@@ -107,11 +107,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **서버 정보** |  |
     |서버 이름  | *myserver*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다.|
     | 관리자 사용자 이름| 원하는 관리자 이름을 입력합니다. |
-    | 암호 | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
+    | Password | 선택한 암호를 입력합니다. 암호는 8자 이상이어야 하며 정의된 요구 사항을 충족해야 합니다. |
     | 위치 | MariaDB 서버를 배치 하려는 Azure 지역을 선택 합니다. |
     |버전  | 필요한 MariaDB 서버의 데이터베이스 버전을 선택 합니다.|
     | Compute + 저장소| 워크 로드에 따라 서버에 필요한 가격 책정 계층을 선택 합니다. |
@@ -137,9 +137,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | ------- | ----- |
     | **프로젝트 세부 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 세부 정보** |  |
-    | 속성 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
+    | 이름 | *myPrivateEndpoint*를 입력합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     |지역|**서유럽**를 선택합니다.|
     |||
 5. **다음: 리소스**를 선택 합니다.
@@ -170,6 +170,9 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **유효성 검사 통과** 메시지가 표시되면 **만들기**를 선택합니다. 
 
     ![개인 링크를 만듦](media/concepts-data-access-and-security-private-link/show-mariadb-private-link.png)
+
+    > [!NOTE] 
+    > 고객 DNS 설정의 FQDN은 구성 된 개인 IP로 확인 되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
 
 ## <a name="connect-to-a-vm-using-remote-desktop-rdp"></a>RDP(원격 데스크톱)를 사용하여 VM에 연결
 
@@ -222,7 +225,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
     | 서버 유형| **Mariadb**를 선택 합니다.|
     | 서버 이름| *Mydemoserver.privatelink.mariadb.database.azure.com* 선택 |
     | 사용자 이름 | MariaDB 서버 생성 중에 제공 되는 username@servername으로 사용자 이름을 입력 합니다. |
-    |암호 |MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+    |Password |MariaDB 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     |SSL|**필수**를 선택 합니다.|
     ||
 

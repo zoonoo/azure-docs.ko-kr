@@ -10,12 +10,12 @@ ms.workload: identity
 ms.date: 10/25/2019
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 4db758ce0710f5b8b122feaadaa8b97a90dcb7cb
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e3cdf44c2fc4c16bba283b6f884078dd947b1f34
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846862"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77564776"
 ---
 # <a name="billing-model-for-azure-active-directory-b2c"></a>Azure Active Directory B2C에 대 한 청구 모델
 
@@ -58,7 +58,7 @@ MAU (월간 활성 사용자) 청구는 **취소할**수 없습니다. Azure AD 
 
 MAU 기반 계량은 구독/리소스 소유자가 변경 내용을 확인 하는 즉시 사용 하도록 설정 됩니다. 월별 청구서는 변경 될 때까지 청구 되는 인증 단위와 변경으로 시작 하는 MAU의 새 단위를 반영 합니다.
 
-사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예:
+사용자는 전환 월에 두 번 계산 되지 않습니다. 변경 전에 인증 하는 고유 활성 사용자에 게는 달력 월의 인증 당 요금이 부과 됩니다. 이러한 동일한 사용자는 구독 청구 주기의 나머지 부분에 대 한 MAU 계산에 포함 되지 않습니다. 예를 들면 다음과 같습니다.
 
 * Contoso B2C 테 넌 트에는 1000 명의 사용자가 있습니다. 250 사용자는 지정 된 달에 활성화 됩니다. 구독 관리자는 해당 월 10 일에 인증 단위를 MAU (월간 활성 사용자)로 변경 합니다.
 * 1-10에 대 한 청구는 인증 당 모델을 사용 하 여 청구 됩니다.
@@ -113,7 +113,7 @@ Azure 구독에서 Azure AD B2C 리소스를 만든 후에는 다른 Azure 리�
 * 구독으로 이동 하 여 청구 정보를 검토 합니다.
 * GUID 형식으로 Azure AD B2C 테 넌 트의 테 넌 트 ID 가져오기
 * Azure AD B2C 테넌트로 이동합니다.
-* 지원 요청 제출
+* 지원 요청을 제출합니다.
 * Azure AD B2C 테 넌 트 리소스를 다른 Azure 구독 또는 리소스 그룹으로 이동
 
 ![Azure Portal의 B2C 리소스 설정 페이지](./media/billing/portal-02-b2c-resource-overview.png)
@@ -140,4 +140,4 @@ Azure AD B2C 테 넌 트와 같은 Azure 리소스를 다른 구독으로 이동
 
 ## <a name="next-steps"></a>다음 단계
 
-선택한 Azure 구독 내에서 사용량 및 청구 정보를 검토 하는 것 외에도 [사용 보고 API](view-usage-reports.md)를 사용 하 여 자세한 일일 사용 현황 보고서를 검토할 수 있습니다.
+최신 가격 책정 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)을 참조 하세요.

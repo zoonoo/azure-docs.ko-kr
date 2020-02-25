@@ -1,0 +1,73 @@
+### YamlMime:Landing
+title: 음성 도우미 설명서
+summary: 음성 도우미는 음성 서비스를 사용 하 여 개발자가 응용 프로그램 및 환경에 대 한 자연 스러운 대화형 인터페이스를 만들 수 있습니다.
+metadata:
+  title: 음성 도우미 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: b411ef91dd84916e9ace544f26ed88f3f316dc02
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563069"
+landingContent:
+- title: 시작
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 음성 도우미 정보
+      url: voice-assistants.md
+    - text: 직접 선 음성 정보
+      url: direct-line-speech.md
+  - linkListType: quickstart
+    links:
+    - text: C#(UWP)
+      url: quickstart-voice-assistant-csharp-uwp.md
+    - text: Java(Windows, macOS, Linux)
+      url: quickstart-voice-assistant-java-jre.md
+    - text: Java(Android)
+      url: quickstart-voice-assistant-java-android.md
+    - text: 사용자 지정 명령 만들기(미리 보기)
+      url: quickstart-custom-speech-commands-create-new.md
+    - text: 매개 변수를 사용하여 사용자 지정 명령 만들기(미리 보기)
+      url: quickstart-custom-speech-commands-create-parameters.md
+    - text: 사용자 지정 음성과 함께 사용자 지정 명령 사용(미리 보기)
+      url: quickstart-custom-speech-commands-select-custom-voice.md
+    - text: Speech SDK를 사용하여 사용자 지정 명령 만들기(미리 보기)
+      url: quickstart-custom-speech-commands-speech-sdk.md
+- title: 단계별 가이드
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: 음성 SDK를 사용하여 봇에서 음성을 사용하도록 설정
+      url: tutorial-voice-enable-your-bot-speech-sdk.md
+  - linkListType: how-to-guide
+    links:
+    - text: 사용자 지정 명령(미리 보기)
+      url: custom-commands.md
+    - text: Speech SDK를 사용 하는 사용자 지정 명령
+      url: how-to-custom-speech-commands-fulfill-sdk.md
+    - text: 음성 SDK를 사용하여 사용자 지정 명령 수행
+      url: how-to-custom-speech-commands-fulfill-sdk.md
+    - text: 사용자 지정 명령에 매개 변수 유효성 검사 추가
+      url: how-to-custom-speech-commands-validations.md
+    - text: 사용자 지정 명령에 확인 추가
+      url: how-to-custom-speech-commands-confirmations.md
+    - text: 사용자 지정 명령에 1단계 수정 추가
+      url: how-to-custom-speech-commands-one-step-correction.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services
+    - text: 음성 도우미 FAQ
+      url: faq-voice-assistants.md

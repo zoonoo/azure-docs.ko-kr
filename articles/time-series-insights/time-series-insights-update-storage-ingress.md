@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 0c7f2de0a454dceeff1946a93801c20ad81ab0ab
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122514"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559847"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -55,7 +55,7 @@ Azure Time Series Insights은 Azure IoT Hub 또는 Azure Event Hubs에서 보낸
 
 지원 되는 데이터 형식은 다음과 같습니다.
 
-| 데이터 형식 | Description |
+| 데이터 형식 | 설명 |
 |---|---|
 | **bool** | 두 상태 중 하나를 포함 하는 데이터 형식: `true` 또는 `false`. |
 | **dateTime** | 일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식으로 표현 됩니다. |
@@ -155,7 +155,7 @@ IoT Hub에서 장치를 만들면 파티션에 영구적으로 할당 됩니다.
 * [이벤트 허브 크기 조정](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [이벤트 허브 파티션](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
-### <a name="data-storage"></a>데이터 스토리지
+### <a name="data-storage"></a>데이터 저장소
 
 Time Series Insights 미리 보기 *종 량* 제 (PAYG) SKU 환경을 만들 때 다음 두 가지 Azure 리소스를 만듭니다.
 
@@ -171,7 +171,7 @@ Time Series Insights 미리 보기는 콜드 스토어 데이터를 [Parquet 파
 
 ### <a name="data-availability"></a>데이터 가용성
 
-최적의 쿼리 성능을 위해 파티션 및 인덱스 데이터를 미리 볼 Azure Time Series Insights. 데이터는 인덱싱된 후 쿼리를 사용할 수 있게 됩니다. 수집 되는 데이터의 양은이 가용성에 영향을 줄 수 있습니다.
+최적의 쿼리 성능을 위해 파티션 및 인덱스 데이터를 미리 볼 Azure Time Series Insights. 데이터는 두 웜 (설정 된 경우) 및 콜드 스토어 (인덱스 된 후) 모두에서 쿼리할 수 있게 됩니다. 수집 되는 데이터의 양은이 가용성에 영향을 줄 수 있습니다.
 
 > [!IMPORTANT]
 > 미리 보기 기간 동안에는 데이터를 사용할 수 있을 때까지 최대 60 초까지 걸릴 수 있습니다. 60 초 보다 긴 대기 시간이 발생 하는 경우 Azure Portal를 통해 지원 티켓을 제출 하세요.

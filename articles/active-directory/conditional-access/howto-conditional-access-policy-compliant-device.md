@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb, rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1d19cc39147608dafc4576f4c8bad0533ad1b32d
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 90d958d2adc8920e4e6ccbccef20acf20aedca4c
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77521917"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561615"
 ---
 # <a name="conditional-access-require-compliant-devices"></a>조건부 액세스: 준수 장치 필요
 
@@ -48,6 +48,9 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
    1. **선택**을 선택합니다.
 1. 설정을 확인 하 고 **정책 사용** 을 **켜기**로 설정 합니다.
 1. 만들기 **를 선택 하** 여 정책을 사용 하도록 설정 합니다.
+
+> [!NOTE]
+> 위의 단계를 사용 하 여 **모든 사용자** 와 **모든 클라우드 앱** 에 대 한 **준수 상태로 표시 된 장치 필요** 를 선택 하는 경우에도 Intune에 새 장치를 등록할 수 있습니다. **장치를 규격 컨트롤로 표시** 해야 함은 Intune 등록을 차단 하지 않습니다. 
 
 ### <a name="known-behavior"></a>알려진 동작
 

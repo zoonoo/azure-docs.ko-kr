@@ -15,12 +15,12 @@ ms.author: curtand
 ms.reviewer: jeffsta
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: a01ebde09517cbe7f093dd56a8a4116e76e64e38
-ms.sourcegitcommit: c662440cf854139b72c998f854a0b9adcd7158bb
+ms.openlocfilehash: 987c3ee7c90eb0bb793b96eb2771efbb258f16a4
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/02/2019
-ms.locfileid: "68736766"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565505"
 ---
 # <a name="sharing-accounts-with-azure-ad"></a>Azure AD와 계정 공유
 
@@ -51,7 +51,7 @@ Azure AD 관리자는 해당 애플리케이션에 대해 액세스 패널을 �
 
 공유 계정을 사용하면 관리뿐 아니라 활용성도 높아지며 보안도 향상됩니다. 자격 증명을 사용할 권한이 있는 사용자는 공유 암호를 보는 것이 아니라 조정된 인증 흐름의 일환으로 암호를 사용할 권한을 받는 것입니다. 또한 일부 암호 SSO 애플리케이션에는 Azure AD를 사용하여 정기적으로 암호를 롤오버(업데이트)하는 옵션이 있습니다. 시스템은 계정 보안을 증대하는 길고 복잡한 암호를 사용합니다. 관리자는 애플리케이션에 액세스 권한을 쉽게 부여 또는 취소할 수 있으며 누가 계정에 액세스 권한이 있고 누가 과거에 액세스했는지 파악할 수 있습니다.
 
-Azure AD는 모든 유형의 암호 single sign-on 응용 프로그램에서 EMS (Enterprise Mobility Suite) 또는 Azure AD Premium 라이선스 계획에 대 한 공유 계정을 지원 합니다. 애플리케이션 갤러리에서 수천 개의 사전 통합된 애플리케이션에서 계정을 공유하고, [사용자 지정 SSO 앱](../manage-apps/configure-single-sign-on-portal.md)으로 자체 암호 인증 애플리케이션을 추가할 수 있습니다.
+Azure AD는 모든 유형의 암호 Single Sign-On 응용 프로그램에서 EMS (Enterprise Mobility Suite) 또는 Azure AD Premium 라이선스 계획에 대 한 공유 계정을 지원 합니다. 애플리케이션 갤러리에서 수천 개의 사전 통합된 애플리케이션에서 계정을 공유하고, [사용자 지정 SSO 앱](../manage-apps/configure-single-sign-on-non-gallery-applications.md)으로 자체 암호 인증 애플리케이션을 추가할 수 있습니다.
 
 계정에 공유를 사용하는 Azure AD 기능은 다음과 같습니다.
 

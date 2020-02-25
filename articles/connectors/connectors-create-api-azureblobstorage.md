@@ -5,14 +5,14 @@ services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 86e8415cf2076819e23226e5e7878a2c96343f69
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789926"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566015"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Blob Storage에서 blob 만들기 및 관리
 
@@ -23,11 +23,11 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 논리 앱을 처음 사용하는 경우 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 및 [빠른 시작: 첫 번째 논리 앱 만들기](../logic-apps/quickstart-create-first-logic-app-workflow.md)를 검토합니다. 커넥터 관련 기술 정보는 [Azure Blob Storage 커넥터 참조](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조하세요.
 
 > [!IMPORTANT]
-> Azure Logic Apps에서 방화벽 뒤에 있는 저장소 계정에 액세스할 수 있도록 하려면이 항목의 뒷부분에 있는 [방화벽 뒤에 있는 저장소 계정 액세스](#storage-firewalls) 섹션을 참조 하세요.
+> 논리 앱은 모두 동일한 지역에 있는 경우 방화벽 뒤에 있는 저장소 계정에 직접 액세스할 수 없습니다. 문제를 해결 하기 위해 논리 앱과 저장소 계정을 서로 다른 지역에 포함할 수 있습니다. Azure Logic Apps에서 방화벽 뒤의 저장소 계정으로의 액세스를 설정 하는 방법에 대 한 자세한 내용은이 항목의 뒷부분에 있는 [방화벽 뒤의 저장소 계정 액세스](#storage-firewalls) 섹션을 참조 하세요.
 
 <a name="blob-storage-limits"></a>
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>제한
 
 * 기본적으로 Azure Blob Storage 작업은 *50 MB 미만의*파일을 읽거나 쓸 수 있습니다. 50 MB 보다 큰 파일을 처리 하기 위해 최대 1024 MB까지 Azure Blob Storage 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. **Blob 콘텐츠 가져오기** 작업은 청크를 암시적으로 사용 합니다.
 
@@ -37,9 +37,9 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
   * 전체 파일을 읽고 청크를 암시적으로 사용 하는 Azure Blob Storage **Blob 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [Azure Storage 계정 및 스토리지 컨테이너](../storage/blobs/storage-quickstart-blobs-portal.md)
 
@@ -121,15 +121,15 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결을 만들지 묻는 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
-   | **연결 이름** | yes | <*connection-name*> | 연결에 만들 이름 |
-   | **Storage 계정** | yes | <*storage-account*> | 목록에서 스토리지 계정을 선택합니다. |
+   | **연결 이름** | 예 | <*connection-name*> | 연결에 만들 이름 |
+   | **Storage 계정** | 예 | <*storage-account*> | 목록에서 스토리지 계정을 선택합니다. |
    ||||
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
-   ![Azure Blob storage 계정 연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png)  
+   ![Azure Blob storage 계정 연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
 1. 준비가 되 면 **만들기** 를 선택 합니다.
 
@@ -159,9 +159,12 @@ Azure Blob Storage 커넥터 또는 다른 솔루션을 사용 하 여 Azure Log
 
 <a name="access-other-regions"></a>
 
-### <a name="access-to-storage-accounts-in-other-regions"></a>다른 지역의 저장소 계정에 대 한 액세스
+### <a name="problems-accessing-storage-accounts-in-the-same-region"></a>동일한 지역에서 저장소 계정에 액세스 하는 문제
 
-논리 앱은 방화벽 규칙이 있고 동일한 지역에 있는 저장소 계정에 직접 액세스할 수 없습니다. 그러나 [지역에서 관리 되는 커넥터의 아웃 바운드 IP 주소](../logic-apps/logic-apps-limits-and-config.md#outbound)에 대 한 액세스를 허용 하는 경우 azure Table Storage 커넥터 또는 azure Queue Storage 커넥터를 사용 하는 경우를 제외 하 고 논리 앱은 다른 지역의 저장소 계정에 액세스할 수 있습니다. Table Storage 또는 Queue Storage에 액세스 하려면 기본 제공 HTTP 트리거 및 작업을 계속 사용할 수 있습니다.
+논리 앱은 동일한 지역에 있는 경우 방화벽 뒤에 있는 저장소 계정에 직접 액세스할 수 없습니다. 해결 방법으로, 저장소 계정과 다른 지역에 논리 앱을 배치 하 고 [해당 지역의 관리 되는 커넥터에 대 한 아웃 바운드 IP 주소에 대 한](../logic-apps/logic-apps-limits-and-config.md#outbound)액세스를 제공 합니다.
+
+> [!NOTE]
+> 이 솔루션은 Azure Table Storage 커넥터 및 Azure Queue Storage 커넥터에는 적용 되지 않습니다. 대신 Table Storage 또는 Queue Storage에 액세스 하려면 기본 제공 HTTP 트리거 및 동작을 사용 합니다.
 
 <a name="access-trusted-virtual-network"></a>
 

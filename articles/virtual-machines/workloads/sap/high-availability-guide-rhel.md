@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/13/2020
+ms.date: 02/21/2020
 ms.author: radeltch
-ms.openlocfilehash: f3b540fb9122655d0b2c12c90995daa181dd227f
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 8f2de656473d52c7a40bef83237bf2aed563e111
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212787"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77566168"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -178,7 +178,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -196,7 +196,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -207,7 +207,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
 1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -215,7 +215,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -225,7 +225,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 가상 머신 추가 클릭
          1. 이전에 만든 가용성 집합 선택
          1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대한 백 엔드 풀 만들기
          * 위의 단계를 반복하여 ERS에 대한 백 엔드 풀을 만듭니다(예: **nw1-aers-backend**).
    1. 상태 프로브 만들기
@@ -233,7 +233,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -244,7 +244,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS에 대한 추가 포트
          * ASCS의 경우 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
       1. ASCS ERS에 대한 추가 포트
@@ -575,6 +575,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
       
    sudo pcs constraint colocation add g-<b>NW1</b>_AERS with g-<b>NW1</b>_ASCS -5000
    sudo pcs constraint order g-<b>NW1</b>_ASCS then g-<b>NW1</b>_AERS kind=Optional symmetrical=false
+   sudo pcs constraint order start g-<b>NW1</b>_ASCS then stop g-<b>NW1</b>_AERS symmetrical=false
    
    sudo pcs node unstandby <b>nw1-cl-0</b>
    sudo pcs property set maintenance-mode=false
@@ -904,7 +905,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    <pre><code>[root@nw1-cl-0 ~]# pgrep ms.sapNW1 | xargs kill -9
    </code></pre>
 
-   메시지 서버를 한 번만 종료하면 sapstart에 의해 다시 시작됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
+   메시지 서버를 한 번만 종료 하면 `sapstart`의해 다시 시작 됩니다. 충분히 자주 종료하면 Pacemaker는 ASCS 인스턴스를 다른 노드로 이동합니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ASCS 및 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ASCS00
    [root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
@@ -990,7 +991,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
    <pre><code>[root@nw1-cl-1 ~]# pgrep er.sapNW1 | xargs kill -9
    </code></pre>
 
-   이 명령을 한 번만 실행하는 경우 sapstart가 프로세스 다시 시작합니다. 충분히 자주 실행하면 sapstart가 해당 프로세스를 다시 시작하지 않으며 리소스는 중지된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
+   명령을 한 번만 실행 하는 경우 `sapstart` 프로세스를 다시 시작 합니다. 자주 실행 하는 경우에는 `sapstart` 프로세스를 다시 시작 하지 않고 리소스가 중지 된 상태가 됩니다. 테스트 후에 다음 명령을 루트 권한으로 실행하여 ERS 인스턴스의 리소스 상태를 정리합니다.
 
    <pre><code>[root@nw1-cl-0 ~]# pcs resource cleanup rsc_sap_NW1_ERS02
    </code></pre>

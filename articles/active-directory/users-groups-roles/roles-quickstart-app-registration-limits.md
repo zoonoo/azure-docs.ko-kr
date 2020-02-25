@@ -13,20 +13,20 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 12803e2f65e17155e8bbcaf4842789adc101b0dd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 7acd76ff45f783f614b2a1d3f0d5c10d800a1ea9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024402"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77559048"
 ---
 # <a name="quickstart-grant-permission-to-create-unlimited-app-registrations"></a>빠른 시작: 무제한 앱 등록을 만들 수 있는 권한 부여
 
-이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 만든 다음 해당 역할을 사용자에 게 할당 합니다. 그러면 할당 된 사용자가 Azure AD portal, Azure ad PowerShell, Azure AD Graph API 또는 Microsoft Graph API를 사용 하 여 응용 프로그램 등록을 만들 수 있습니다. 기본 제공 응용 프로그램 개발자 역할과 달리이 사용자 지정 역할은 응용 프로그램 등록을 무제한으로 만들 수 있는 기능을 부여 합니다. 응용 프로그램 개발자 역할은 기능을 부여 하지만 [디렉터리 차원의 개체 할당량에](directory-service-limits-restrictions.md)도달 하지 않도록 생성 된 개체의 총 수는 250 개로 제한 됩니다.
+이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 만든 다음 해당 역할을 사용자에 게 할당 합니다. 그러면 할당 된 사용자가 Azure AD portal, Azure AD PowerShell 또는 Microsoft Graph API를 사용 하 여 응용 프로그램 등록을 만들 수 있습니다. 기본 제공 응용 프로그램 개발자 역할과 달리이 사용자 지정 역할은 응용 프로그램 등록을 무제한으로 만들 수 있는 기능을 부여 합니다. 응용 프로그램 개발자 역할은 기능을 부여 하지만 [디렉터리 차원의 개체 할당량에](directory-service-limits-restrictions.md)도달 하지 않도록 생성 된 개체의 총 수는 250 개로 제한 됩니다.
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.microsoft.com/free/) 계정을 만듭니다.
 
-## <a name="prerequisite"></a>사전 요구 사항
+## <a name="prerequisite"></a>필수 요소
 
 Azure AD 사용자 지정 역할을 만들고 할당 하는 데 필요한 최소 권한 있는 역할은 권한 있는 역할 관리자입니다.
 
@@ -54,7 +54,7 @@ Azure AD 사용자 지정 역할을 만들고 할당 하는 데 필요한 최소
 1. 응용 프로그램 등록 작성자 역할을 선택 하 고 **할당 추가**를 선택 합니다.
 1. 원하는 사용자를 선택 하 고 **선택** 을 클릭 하 여 사용자를 역할에 추가 합니다.
 
-완료되었습니다. 이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 성공적으로 만든 후 해당 역할을 사용자에 게 할당 합니다.
+Done! 이 빠른 시작에서는 무제한 개수의 앱 등록을 만들 수 있는 권한이 있는 사용자 지정 역할을 성공적으로 만든 후 해당 역할을 사용자에 게 할당 합니다.
 
 > [!TIP]
 > Azure AD 포털을 사용 하 여 응용 프로그램에 역할을 할당 하려면 할당 페이지의 검색 상자에 응용 프로그램의 이름을 입력 합니다. 응용 프로그램은 기본적으로 목록에 표시 되지 않지만 검색 결과에 반환 됩니다.
@@ -135,13 +135,13 @@ $customRole = New-AzureAdRoleDefinition -RolePermissions $rolePermissions -Displ
 
 사용자 지정 역할을 만들기 위한 HTTP 요청입니다.
 
-올리기
+POST
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleDefinitions
 ```
 
-Body
+본문
 
 ```HTTP
 {
@@ -172,13 +172,13 @@ Body
 
 사용자 지정 역할을 할당 하는 HTTP 요청입니다.
 
-올리기
+POST
 
 ``` HTTP
 https://graph.microsoft.com/beta/roleManagement/directory/roleAssignments
 ```
 
-Body
+본문
 
 ``` HTTP
 {

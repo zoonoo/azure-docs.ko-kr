@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 10/01/2018
+ms.date: 01/21/2020
 ms.author: nitinme
-ms.openlocfilehash: c0e1cc2fc1b3d4aed82c5442d2d3e23a1272fab5
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: d6d9cb4dda93523b1136c8cc4cd307ae82c8b674
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805946"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560936"
 ---
 # <a name="migrate-from-bing-speech-to-the-speech-service"></a>Bing Speech에서 Speech service로 마이그레이션
 
@@ -51,7 +51,7 @@ Custom Speech 모델 | :heavy_check_mark: | :heavy_check_mark: | Bing Speech에�
 간단한 의도 인식 | :heavy_minus_sign: | :heavy_check_mark:
 긴 오디오 파일의 일괄 처리 기록 | :heavy_minus_sign: | :heavy_check_mark:
 인식 모드 | 엔드포인트 URI 통해 수동 | 자동 | 인식 모드는 음성 서비스에서 사용할 수 없습니다.
-엔드포인트 위치 | 글로벌 | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다.
+엔드포인트 위치 | Global | 지역 | 지역별 엔드포인트가 대기 시간을 향상시킵니다.
 REST API | :heavy_check_mark: | :heavy_check_mark: | 음성 서비스 REST Api는 Bing Speech (다른 끝점)와 호환 됩니다. REST API는 텍스트 음성 변환 및 제한된 음성 텍스트 변환 기능을 지원합니다.
 WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech service Websocket API는 Bing Speech (다른 끝점)과 호환 됩니다. 코드를 단순화하기 위해 가능한 경우 Speech SDK로 마이그레이션합니다.
 서비스 간 API 호출 | :heavy_check_mark: | :heavy_minus_sign: | C# 서비스 라이브러리를 통해 Bing Speech에 제공됩니다.
@@ -61,7 +61,7 @@ WebSocket 프로토콜 | :heavy_check_mark: | :heavy_check_mark: | Speech servic
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-사용자 또는 조직에 Bing Speech API를 사용 하는 개발 또는 프로덕션 환경에서 응용 프로그램이 있는 경우 가능한 한 빨리 음성 서비스를 사용 하도록 업데이트 해야 합니다. 사용 가능한 Sdk, 코드 샘플 및 자습서는 [음성 서비스 설명서](index.md) 를 참조 하세요.
+사용자 또는 조직에 Bing Speech API를 사용 하는 개발 또는 프로덕션 환경에서 응용 프로그램이 있는 경우 가능한 한 빨리 음성 서비스를 사용 하도록 업데이트 해야 합니다. 사용 가능한 Sdk, 코드 샘플 및 자습서는 [음성 서비스 설명서](index.yml) 를 참조 하세요.
 
 Speech service [REST api](rest-apis.md) 는 Bing Speech api와 호환 됩니다. 현재 Bing Speech REST Api를 사용 하는 경우 REST 끝점을 변경 하 고 음성 서비스 구독 키로 전환 하기만 하면 됩니다.
 

@@ -4,20 +4,18 @@ description: Azure Functions의 지속성 함수 확장에서 인간 상호 작�
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: 6a442ac0d515f9cca9201767087a9b59588edeed
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 0c16ef092c30a94cd04b55c91d3643ac29b82be0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769577"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562108"
 ---
 # <a name="human-interaction-in-durable-functions---phone-verification-sample"></a>지속성 함수의 인간 상호 작용 - 전화 확인 샘플
 
 이 샘플에서는 인간 상호 작용이 포함된 [지속성 함수](durable-functions-overview.md) 오케스트레이션을 작성하는 방법을 보여 줍니다. 실제 사람이 자동화된 프로세스에 참여할 때마다 프로세스에서 당사자에게 알림을 보내고 응답을 비동기적으로 받을 수 있어야 합니다. 사람이 사용할 수 없는 가능성도 허용해야 합니다. (이 마지막 부분은 시간 제한이 중요한 부분입니다.)
 
 이 샘플에서는 SMS 기반 전화 확인 시스템을 구현합니다. 이러한 유형의 흐름은 고객의 전화 번호를 확인할 때 또는 MFA(다단계 인증)를 위해 자주 사용됩니다. 몇 가지 작은 함수를 사용 하 여 전체 구현을 수행 하기 때문에 강력한 예제입니다. 데이터베이스와 같은 외부 데이터 저장소는 필요하지 않습니다.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -37,26 +35,32 @@ ms.locfileid: "75769577"
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* **E4_SmsPhoneVerification**
-* **E4_SendSmsChallenge**
+* `E4_SmsPhoneVerification`: 시간 제한 및 재시도 관리를 포함 하 여 전화 확인 프로세스를 수행 하는 오 케 스트레이 터 [함수](durable-functions-bindings.md#orchestration-trigger) 입니다.
+* `E4_SendSmsChallenge`: 문자 메시지를 통해 코드를 보내는 오 케 스트레이 터 [함수](durable-functions-bindings.md#activity-trigger) 입니다.
 
-다음 섹션에서는 스크립팅 및 JavaScript에 C# 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+### <a name="e4_smsphoneverification-orchestrator-function"></a>E4_SmsPhoneVerification orchestrator 함수
 
-## <a name="the-sms-verification-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>SMS 확인 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=17-70)]
+
+> [!NOTE]
+> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime` 속성이 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며 오 케 스트레이 터 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은 `Task.WhenAny`에 대 한 반복 된 모든 호출에서 동일한 `winner` 발생 하는지 확인 하는 데 중요 합니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **E4_SmsPhoneVerification** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/function.json)]
 
 다음은 이 함수를 구현하는 코드입니다.
 
-### <a name="c-script"></a>C# 스크립트
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SmsPhoneVerification/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SmsPhoneVerification/index.js)]
+
+> [!NOTE]
+> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `currentUtcDateTime` 속성이 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며 오 케 스트레이 터 코드에서이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은 `context.df.Task.any`에 대 한 반복 된 모든 호출에서 동일한 `winner` 발생 하는지 확인 하는 데 중요 합니다.
+
+---
 
 시작되면 이 오케스트레이터 함수에서 다음을 수행합니다.
 
@@ -65,33 +69,35 @@ ms.locfileid: "75769577"
 3. 현재 시간에서 90초를 트리거하는 지속성 타이머를 만듭니다.
 4. 타이머와 병행하여 사용자로부터 **SmsChallengeResponse** 이벤트를 기다립니다.
 
-사용자는 4자리 코드가 있는 SMS 메시지를 받습니다. 확인 프로세스를 완료하기 위해 동일한 4자리 코드를 오케스트레이터 함수 인스턴스로 다시 보내는 데 90초가 걸립니다. 잘못된 코드를 제출하면 동일한 90초 간격으로 3번의 시도를 추가로 얻을 수 있습니다.
-
-> [!NOTE]
-> 처음에는 명확하지 않을 수도 있지만 이 오케스트레이터 함수는 완전히 결정적입니다. 이는 `CurrentUtcDateTime` (.NET) 및 `currentUtcDateTime` (JavaScript) 속성이 타이머 만료 시간을 계산 하는 데 사용 되므로 결정적 이며, 이러한 속성은 오 케 스트레이 터 코드의이 시점에 재생 될 때마다 동일한 값을 반환 합니다. 이 동작은 `Task.WhenAny` (.NET) 또는 `context.df.Task.any` (JavaScript)에 대 한 반복 된 모든 호출에서 동일한 `winner` 발생 하는지 확인 하는 데 중요 합니다.
+사용자는 4자리 코드가 있는 SMS 메시지를 받습니다. 확인 프로세스를 완료 하기 위해 동일한 4 자리 코드를 오 케 스트레이 터 함수 인스턴스로 다시 전송 하는 데 90 초 정도 있습니다. 잘못된 코드를 제출하면 동일한 90초 간격으로 3번의 시도를 추가로 얻을 수 있습니다.
 
 > [!WARNING]
 > 챌린지 응답이 수락되고 타이머가 더 이상 만료될 필요가 없으면 위의 예제와 같이 [타이머를 취소](durable-functions-timers.md)하는 것이 중요합니다.
 
-## <a name="send-the-sms-message"></a>SMS 메시지 전송
+## <a name="e4_sendsmschallenge-activity-function"></a>E4_SendSmsChallenge activity 함수
 
-**E4_SendSmsChallenge** 함수는 Twilio 바인딩을 사용하여 4자리 코드가 있는 SMS 메시지를 최종 사용자에게 보냅니다. *function.json*은 다음과 같이 정의됩니다.
+**E4_SendSmsChallenge** 함수는 Twilio binding을 사용 하 여 4 자리 코드로 SMS 메시지를 최종 사용자에 게 보냅니다.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/function.json)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-다음은 4자리 챌린지 코드를 생성하고 SMS 메시지를 보내는 코드입니다.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs?range=72-89)]
 
-### <a name="c-script"></a>C# 스크립트
+> [!NOTE]
+> 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치 해야 합니다.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E4_SendSmsChallenge/run.csx)]
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+*function.json*은 다음과 같이 정의됩니다.
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/function.json)]
+
+네 자리 챌린지 코드를 생성 하 고 SMS 메시지를 전송 하는 코드는 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E4_SendSmsChallenge/index.js)]
 
-이 **E4_SendSmsChallenge** 함수는 프로세스가 충돌하거나 재생되는 경우에도 한 번만 호출됩니다. 이는 최종 사용자가 여러 개의 SMS 메시지를 받지 않으려고 하기 때문에 좋습니다. `challengeCode` 반환 값은 자동으로 유지되므로 오케스트레이터 함수는 항상 올바른 코드를 인식하고 있습니다.
+---
 
-## <a name="run-the-sample"></a>샘플 실행
+## <a name="run-the-sample"></a>예제 실행
 
 샘플에 포함된 HTTP 트리거 함수를 사용하여 다음 HTTP POST 요청을 전송함으로써 오케스트레이션을 시작할 수 있습니다.
 
@@ -147,15 +153,6 @@ Content-Length: 145
 
 {"runtimeStatus":"Completed","input":"+1425XXXXXXX","output":false,"createdTime":"2017-06-29T19:20:49Z","lastUpdatedTime":"2017-06-29T19:22:23Z"}
 ```
-
-## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
-
-다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
-
-> [!NOTE]
-> 아래 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 패키지를 설치 해야 합니다.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/PhoneVerification.cs)]
 
 ## <a name="next-steps"></a>다음 단계
 

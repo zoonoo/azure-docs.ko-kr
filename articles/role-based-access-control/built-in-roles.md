@@ -11,16 +11,16 @@ ms.devlang: ''
 ms.topic: reference
 ms.tgt_pltfrm: ''
 ms.workload: identity
-ms.date: 02/13/2020
+ms.date: 02/18/2020
 ms.author: rolyon
 ms.reviewer: bagovind
 ms.custom: it-pro
-ms.openlocfilehash: 9858f7ac25f2063e62dce0322f1859a0a7fcf83b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 63b1adc7b25b732cda147c5c1d11cc37e7b39248
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198669"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562023"
 ---
 # <a name="built-in-roles-for-azure-resources"></a>Azure 리소스에 대한 기본 제공 역할
 
@@ -34,7 +34,7 @@ ms.locfileid: "77198669"
 
 
 > [!div class="mx-tableFixed"]
-> | 기본 제공 역할 | Description | Id |
+> | 기본 제공 역할 | 설명 | Id |
 > | --- | --- | --- |
 > | [소유자](#owner) | 리소스 액세스를 비롯한 모든 것을 관리할 수 있습니다. | 8e3af657-a8ff-443c-a75c-2fe8c4bcb635 |
 > | [기여자](#contributor) | 리소스 액세스 권한을 부여 하는 것을 제외 하 고 모든 항목을 관리할 수 있습니다. | b24988ac-6180-42a0-ab88-20f7382dd24c |
@@ -115,6 +115,7 @@ ms.locfileid: "77198669"
 > | [Log Analytics 독자](#log-analytics-reader) | Log Analytics 독자는 모든 Azure 리소스에 대한 Azure 진단의 구성 보기를 비롯하여 모니터링 설정 보기 및 모든 모니터링 데이터를 보고 검색할 수 있습니다. | 73c42c96-874c-492b-b04d-ab87d138a893 |
 > | [논리 앱 기여자](#logic-app-contributor) | 논리 앱을 관리할 수 있지만 해당 앱에 대 한 액세스 권한은 변경할 수 없습니다. | 87a39d53-fc1b-424a-814c-f7e04687dc9e |
 > | [논리 앱 운영자](#logic-app-operator) | 논리 앱을 읽고 사용 하지 않도록 설정할 수 있지만 편집 하거나 업데이트할 수는 없습니다. | 515c2055-d9d4-4321-b1b9-bd0c9a0f79fe |
+> | [관리 되는 응용 프로그램 참가자 역할](#managed-application-contributor-role) | 관리 되는 응용 프로그램 리소스를 만들 수 있습니다. | 641177b8-a67a-45b9-a033-47bc880bb21e |
 > | [관리되는 애플리케이션 운영자 역할](#managed-application-operator-role) | 관리되는 애플리케이션 리소스에서 작업을 읽고 수행할 수 있습니다. | c7393b34-138c-406f-901b-d8cf2b17e6ae |
 > | [Managed Applications 읽기 권한자](#managed-applications-reader) | 관리 앱 및 요청 JIT 액세스에서 리소스를 읽을 수 있습니다. | b9331d33-8a36-4f8c-b097-4f54124fdb44 |
 > | [관리 ID 기여자](#managed-identity-contributor) | 사용자 할당 ID를 만들고, 읽고, 업데이트하고, 삭제합니다. | e40ec5ca-96e0-45a2-b4ff-59039f2c2b59 |
@@ -133,9 +134,10 @@ ms.locfileid: "77198669"
 > | [리소스 정책 기여자](#resource-policy-contributor) | 리소스 정책을 만들거나 수정할 수 있는 권한이 있는 사용자, 지원 티켓을 만들고 리소스/계층 구조를 읽을 수 있습니다. | 36243c78-bf99-498c-9df9-86d9f8d28608 |
 > | [Scheduler 작업 컬렉션 참가자](#scheduler-job-collections-contributor) | Scheduler 작업 컬렉션을 관리할 수 있지만 액세스할 수는 없습니다. | 188a0f2f-5c9e-469b-ae67-2aa5ce574b94 |
 > | [Search 서비스 기여자](#search-service-contributor) | Search 서비스를 관리할 수 있지만 액세스할 수는 없습니다. | 7ca78c08-252a-4471-8644-bb5ff32d4ba0 |
-> | [보안 관리자](#security-admin) | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 | fb1c8493-542b-48eb-b624-b4c8fea62acd |
-> | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
-> | [보안 판독기](#security-reader) | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
+> | [보안 관리자](#security-admin) | 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. | fb1c8493-542b-48eb-b624-b4c8fea62acd |
+> | [보안 평가 참가자](#security-assessment-contributor) | Security Center에 대 한 평가를 푸시할 수 있습니다. | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | [보안 관리자(레거시)](#security-manager-legacy) | 레거시 역할입니다. 대신 보안 관리자를 사용 하세요. | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
+> | [보안 판독기](#security-reader) | 권장 사항 및 경고를 볼 수 있으며, 보안 정책을 보거나, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | [Site Recovery 기여자](#site-recovery-contributor) | 자격 증명 모음 만들기 및 역할 할당을 제외한 Site Recovery 서비스를 관리할 수 있습니다. | 6670b86e-a3f7-4917-ac9b-5d6ab1be4567 |
 > | [Site Recovery 운영자](#site-recovery-operator) | 장애 조치(failover) 및 장애 복구(failback)를 수행할 수 있지만 다른 Site Recovery 관리 작업은 수행할 수 없습니다. | 494ae006-db33-4328-bf46-533a6560a3ca |
 > | [Site Recovery 구독자](#site-recovery-reader) | Site Recovery 상태를 볼 수 있지만 다른 관리 작업은 수행할 수 없습니다. | dbaa88c4-0c30-4179-9fb3-46319faa6149 |
@@ -167,6 +169,8 @@ ms.locfileid: "77198669"
 > | [가상 머신 사용자 로그인](#virtual-machine-user-login) | 포털에서 Virtual Machines를 보고 일반 사용자 권한으로 로그인합니다. | fb879df8-f326-4884-b1cf-06f3ad86be52 |
 > | [웹 계획 참가자](#web-plan-contributor) | 웹 사이트의 웹 계획을 관리할 수 있지만 액세스할 수는 없습니다. | 2cc479cb-7b4d-49a8-b449-8c00fd0f0a4b |
 > | [웹 사이트 기여자](#website-contributor) | 웹 사이트(웹 계획은 제외)를 관리할 수 있지만 액세스할 수는 없습니다. | de139f84-1756-47ae-9be6-808fbbe84772 |
+> | [통합 문서 기여자](#workbook-contributor) | 공유 통합 문서를 저장할 수 있습니다. | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | [통합 문서 판독기](#workbook-reader) | 통합 문서를 읽을 수 있습니다. | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
 
 
 ## <a name="owner"></a>소유자
@@ -184,7 +188,7 @@ ms.locfileid: "77198669"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
-## <a name="contributor"></a>참가자
+## <a name="contributor"></a>Contributor
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
@@ -346,7 +350,7 @@ ms.locfileid: "77198669"
 > | Microsoft.ApiManagement/service/restore/action | 사용자가 제공한 스토리지 계정의 지정된 컨테이너에서 API Management 서비스 복원 |
 > | Microsoft.ApiManagement/service/updatecertificate/action | API Management 서비스에 대한 SSL 인증서를 업로드합니다. |
 > | Microsoft.ApiManagement/service/updatehostname/action | API Management 서비스에 대한 사용자 지정 도메인 이름 설정, 업데이트 또는 제거합니다. |
-> | Microsoft.ApiManagement/service/write | API Management 서비스의 새 인스턴스 만들기 |
+> | Microsoft.ApiManagement/service/write | API Management 서비스 인스턴스 만들기 또는 업데이트 |
 > | Microsoft.Authorization/*/read | 읽기 권한 부여 |
 > | Microsoft.Insights/alertRules/* | 경고 규칙 만들기 및 관리 |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
@@ -609,7 +613,7 @@ ms.locfileid: "77198669"
 > | **Id** | b64e21ea-ac4e-4cdf-9dc9-5b892992bee7 |
 > | **actions** |  |
 > | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
-> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터 작성 |
+> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터를 작성 합니다. |
 > | Microsoft.GuestConfiguration/guestConfigurationAssignments/read | 게스트 구성 할당을 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
@@ -626,8 +630,8 @@ ms.locfileid: "77198669"
 > | **Id** | cd570a14-e51a-42ad-bac8-bafd67325302 |
 > | **actions** |  |
 > | HybridCompute/컴퓨터/읽기 | 모든 Azure Arc 컴퓨터를 읽습니다. |
-> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터 작성 |
-> | HybridCompute/컴퓨터/삭제 | Azure Arc 컴퓨터 삭제 |
+> | HybridCompute/컴퓨터/쓰기 | Azure Arc 컴퓨터를 작성 합니다. |
+> | HybridCompute/컴퓨터/삭제 | Azure Arc 컴퓨터를 삭제 합니다. |
 > | HybridCompute/컴퓨터/다시 연결/작업 | Azure Arc 컴퓨터 다시 연결 |
 > | HybridCompute/*/읽기 |  |
 > | **NotActions** |  |
@@ -690,6 +694,7 @@ ms.locfileid: "77198669"
 > | **Id** | 0ab0b1a8-8aac-4efd-b8c2-3ee1fb270be8 |
 > | **actions** |  |
 > | Microsoft.ContainerService/managedClusters/listClusterAdminCredential/action | 관리되는 클러스터의 clusterAdmin 자격 증명을 나열합니다. |
+> | Microsoft.ContainerService/managedClusters/accessProfiles/listCredential/action | 자격 증명 나열을 사용하여 역할 이름별로 관리되는 클러스터 액세스 프로필을 가져옵니다. |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1540,6 +1545,8 @@ ms.locfileid: "77198669"
 > | Microsoft.Databox/jobs/listsecrets/action |  |
 > | Microsoft.Databox/jobs/listcredentials/action | 주문과 관련된 암호화되지 않은 자격 증명을 나열합니다. |
 > | Microsoft.Databox/locations/availableSkus/action | 이 메서드는 사용할 수 있는 SKU 목록을 반환합니다. |
+> | Databox/위치/validateInputs/작업 | 이 메서드는 모든 유형의 유효성 검사를 수행 합니다. |
+> | Databox/위치/지역 구성/작업 | 이 메서드는 영역에 대 한 구성을 반환 합니다. |
 > | Microsoft.Databox/locations/validateAddress/action | 배송 주소의 유효성을 검사하고, 있는 경우, 대체 주소를 제공합니다. |
 > | Microsoft.ResourceHealth/availabilityStatuses/read | 지정된 범위의 모든 리소스에 대한 가용성 상태를 가져옵니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
@@ -1565,6 +1572,7 @@ ms.locfileid: "77198669"
 > | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
+> | Microsoft.EventGrid/eventSubscriptions/write | EventSubscription 만들기 또는 업데이트 |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -1851,6 +1859,8 @@ ms.locfileid: "77198669"
 > | Microsoft.LabServices/labAccounts/createLab/action | 랩 계정에서 랩을 만듭니다. |
 > | Microsoft.LabServices/labAccounts/sizes/getRegionalAvailability/action |  |
 > | Microsoft.LabServices/labAccounts/getRegionalAvailability/action | 랩 계정에서 구성된 각 크기 범주에 대한 지역별 가용성 정보를 가져옵니다. |
+> | Microsoft. 서비스/랩 계정/getPricingAndAvailability/작업 | 랩 계정의 크기, 지역 및 운영 체제 조합에 대 한 가격 책정 및 가용성을 가져옵니다. |
+> | Microsoft. 서비스/랩 계정/getRestrictionsAndUsage/작업 | 이 구독에 대 한 핵심 제한 및 사용 현황 가져오기 |
 > | Microsoft.Resources/subscriptions/resourceGroups/read | 리소스 그룹을 가져오거나 나열합니다. |
 > | Microsoft.Support/* | 지원 티켓 만들기 및 관리 |
 > | **NotActions** |  |
@@ -1964,6 +1974,25 @@ ms.locfileid: "77198669"
 > | Microsoft.Web/connections/*/read | 연결을 읽습니다. |
 > | Microsoft.Web/customApis/*/read | 사용자 지정 API를 읽습니다. |
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="managed-application-contributor-role"></a>관리 되는 응용 프로그램 참가자 역할
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 관리 되는 응용 프로그램 리소스를 만들 수 있습니다. |
+> | **Id** | 641177b8-a67a-45b9-a033-47bc880bb21e |
+> | **actions** |  |
+> | */read | 암호를 제외한 모든 유형의 리소스를 읽습니다. |
+> | Microsoft 솔루션/응용 프로그램/* |  |
+> | Microsoft.Solutions/register/action | 솔루션에 등록합니다. |
+> | Microsoft .Resources/subscription/resourceGroups/* |  |
+> | Microsoft.Resources/deployments/* | 리소스 그룹 배포 만들기 및 관리 |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |
@@ -2337,7 +2366,7 @@ ms.locfileid: "77198669"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Security Center에서만: 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제 |
+> | **설명** | 보안 정책 보기, 보안 상태 보기, 보안 정책 편집, 경고 및 권장 사항 보기, 경고 및 권장 사항 해제를 수행합니다. |
 > | **Id** | fb1c8493-542b-48eb-b624-b4c8fea62acd |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -2358,11 +2387,26 @@ ms.locfileid: "77198669"
 > | **NotDataActions** |  |
 > | *없음* |  |
 
+## <a name="security-assessment-contributor"></a>보안 평가 참가자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | Security Center에 대 한 평가를 푸시할 수 있습니다. |
+> | **Id** | 612c2aa1-cb24-443b-ac28-3ab7272de6f5 |
+> | **actions** |  |
+> | Microsoft. 보안/평가/작성 | 구독에서 보안 평가를 만들거나 업데이트 합니다. |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
 ## <a name="security-manager-legacy"></a>보안 관리자(레거시)
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | 레거시 역할입니다. 보안 관리자를 대신 사용하세요. |
+> | **설명** | 레거시 역할입니다. 대신 보안 관리자를 사용 하세요. |
 > | **Id** | e3d13bf0-dd5a-482e-ba6b-9b8433878d10 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -2386,7 +2430,7 @@ ms.locfileid: "77198669"
 > [!div class="mx-tableFixed"]
 > | | |
 > | --- | --- |
-> | **설명** | Security Center에서만: 권장 사항 및 경고 보기, 보안 정책 보기, 보안 상태 보기 가능, 변경 불가 |
+> | **설명** | 권장 사항 및 경고를 볼 수 있으며, 보안 정책을 보거나, 보안 상태를 볼 수 있지만 변경할 수는 없습니다. |
 > | **Id** | 39bc4728-0917-49c7-9d2c-d95423bc2eb4 |
 > | **actions** |  |
 > | Microsoft.Authorization/*/read | 역할 및 역할 할당 읽기 |
@@ -3114,6 +3158,9 @@ ms.locfileid: "77198669"
 > | Microsoft.Compute/locations/* | 컴퓨팅 위치 만들기 및 관리 |
 > | Microsoft.Compute/virtualMachines/* | 가상 머신 만들기 및 관리 |
 > | Microsoft.Compute/virtualMachineScaleSets/* | 가상 머신 크기 집합 만들기 및 관리 |
+> | Microsoft.Compute/disks/write | 새 디스크를 만들거나 기존 디스크를 업데이트합니다. |
+> | Microsoft.Compute/disks/read | 디스크의 속성을 가져옵니다. |
+> | Microsoft.Compute/disks/delete | 디스크를 삭제합니다. |
 > | Microsoft.DevTestLab/schedules/* |  |
 > | Microsoft.Insights/alertRules/* | Insights 경고 규칙 만들기 및 관리 |
 > | Microsoft.Network/applicationGateways/backendAddressPools/join/action | 응용 프로그램 게이트웨이 백 엔드 주소 풀을 조인 합니다. 했어야 하지 않습니다. |
@@ -3214,6 +3261,38 @@ ms.locfileid: "77198669"
 > | Microsoft.Web/serverFarms/join/action |  |
 > | Microsoft.Web/serverFarms/read | App Service 계획의 속성을 가져옵니다. |
 > | Microsoft.Web/sites/* | 웹 사이트 만들기 및 관리(사이트 만들기도 관련 App Service 계획에 대한 쓰기 권한이 필요) |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="workbook-contributor"></a>통합 문서 기여자
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 공유 통합 문서를 저장할 수 있습니다. |
+> | **Id** | e8ddcd69-c73f-4f9f-9844-4100522f16ad |
+> | **actions** |  |
+> | Microsoft Insights/통합 문서/쓰기 | 통합 문서 만들기 또는 업데이트 |
+> | Microsoft Insights/통합 문서/삭제 | 통합 문서 삭제 |
+> | Microsoft Insights/통합 문서/읽기 | 통합 문서 읽기 |
+> | **NotActions** |  |
+> | *없음* |  |
+> | **DataActions** |  |
+> | *없음* |  |
+> | **NotDataActions** |  |
+> | *없음* |  |
+
+## <a name="workbook-reader"></a>통합 문서 판독기
+> [!div class="mx-tableFixed"]
+> | | |
+> | --- | --- |
+> | **설명** | 통합 문서를 읽을 수 있습니다. |
+> | **Id** | b279062a-9be3-42a0-92ae-8b3cf002ec4d |
+> | **actions** |  |
+> | microsoft insights/통합 문서/읽기 | 통합 문서 읽기 |
 > | **NotActions** |  |
 > | *없음* |  |
 > | **DataActions** |  |

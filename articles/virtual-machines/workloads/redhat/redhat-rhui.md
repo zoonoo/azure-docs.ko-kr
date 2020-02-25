@@ -11,12 +11,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: dc4762cbda5ad2877d2d69953d2514dea17c8b46
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: d989553dc2248e7e0c830bb8cf169a80354dbab2
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368892"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562550"
 ---
 # <a name="red-hat-update-infrastructure-for-on-demand-red-hat-enterprise-linux-vms-in-azure"></a>Azure에서 주문형 Red Hat Enterprise Linux VM에 대한 Red Hat 업데이트 인프라
  [RHUI(Red Hat 업데이트 인프라)](https://access.redhat.com/products/red-hat-update-infrastructure)를 사용하면 클라우드 공급자(예: Azure)가 Red Hat 호스트 리포지토리 콘텐츠를 미러링하고, Azure 관련 콘텐츠를 포함한 사용자 지정 저장소를 만들고, 최종 사용자 VM에 사용할 수 있도록 합니다.
@@ -28,7 +28,7 @@ RHEL(Red Hat Enterprise Linux) 종량제(PAYG) 이미지는 Azure RHUI에 액세
 모든 RHEL 버전에 대한 Red Hat 지원 정책 관련 정보는 [Red Hat Enterprise Linux 수명 주기](https://access.redhat.com/support/policy/updates/errata) 페이지에서 확인할 수 있습니다.
 
 > [!IMPORTANT]
-> RHUI는 PAYGO (종 량 제) 이미지에만 사용할 수 있습니다. 사용자 지정 및 골든 이미지 (BYOS) 라고도 하는 경우 업데이트를 받으려면 시스템을 RHSM 또는 위성에 연결 해야 합니다. 자세한 내용은 [Red Hat 문서](https://access.redhat.com/solutions/253273) 를 참조 하세요.
+> RHUI는 PAYG (종 량 제) 이미지에만 사용할 수 있습니다. 사용자 지정 및 골든 이미지 (BYOS) 라고도 하는 경우 업데이트를 받으려면 시스템을 RHSM 또는 위성에 연결 해야 합니다. 자세한 내용은 [Red Hat 문서](https://access.redhat.com/solutions/253273) 를 참조 하세요.
 
 
 ## <a name="important-information-about-azure-rhui"></a>Azure RHUI에 대한 중요한 정보
@@ -105,7 +105,7 @@ EUS (확장 업데이트 지원) 리포지토리는 VM을 프로 비전 한 후�
     yum --config='https://rhelimage.blob.core.windows.net/repositories/rhui-microsoft-azure-rhel7-eus.config' install 'rhui-azure-rhel7-eus'
     ```
 
-1. Releasever 변수 잠금 (실행 루트):
+1. `releasever` 변수를 잠급니다 (루트로 실행).
     ```bash
     echo $(. /etc/os-release && echo $VERSION_ID) > /etc/yum/vars/releasever
     ```
@@ -120,7 +120,7 @@ EUS (확장 업데이트 지원) 리포지토리는 VM을 프로 비전 한 후�
 
 ### <a name="switch-a-rhel-vm-back-to-non-eus-remove-a-version-lock"></a>RHEL VM을 EUS (버전 잠금 제거)로 다시 전환 합니다.
 Root로 다음을 실행 합니다.
-1. Releasever 파일을 제거 합니다.
+1. `releasever` 파일을 제거 합니다.
     ```bash
     rm /etc/yum/vars/releasever
      ```

@@ -1,23 +1,23 @@
 ---
-title: 다중 장치 대화의 정의 (미리 보기)-음성 서비스
+title: 다중 장치 대화 (미리 보기)-음성 서비스
 titleSuffix: Azure Cognitive Services
 description: ''
 services: cognitive-services
-author: ralphe
-manager: cpoulain
+author: IEvangelist
+manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 1/15/2020
-ms.author: ralphe
-ms.openlocfilehash: 8d73c896f784507c2336a79130ff5f35aa61d30f
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.date: 01/31/2020
+ms.author: dapine
+ms.openlocfilehash: d94b3392d6bd5ab539d49c8a4cfdd568fbbb1cd0
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76268119"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560816"
 ---
-# <a name="what-is-multi-device-conversation-preview"></a>다중 장치 대화 (미리 보기) 란?
+# <a name="about-multi-device-conversation-preview"></a>다중 장치 대화 정보 (미리 보기)
 
 **다중 장치 대화** 를 사용 하면 여러 클라이언트 간에 음성 또는 텍스트 대화를 쉽게 만들고 두 클라이언트 간에 전송 되는 메시지를 조정할 수 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "76268119"
 - **메시지 릴레이** -다중 장치 대화 서비스는 한 클라이언트에서 보낸 메시지를 선택한 언어로 모든 다른 클라이언트에 배포 합니다.
 - **메시지 식별** – 대화에서 사용자에 게 표시 되는 모든 메시지에는 해당 메시지를 보낸 사용자의 애칭 태그가 지정 됩니다.
 
-## <a name="use-cases"></a>사례 사용
+## <a name="use-cases"></a>사용 사례
 
 ### <a name="lightweight-conversations"></a>경량 대화
 
@@ -62,7 +62,7 @@ ms.locfileid: "76268119"
 > [!NOTE]
 > 예를 보려면 다중 장치 대화 서비스를 사용 하는 PowerPoint 추가 서비스인 [프레젠테이션 변환기](https://www.microsoft.com/translator/apps/presentation-translator/)를 확인 하세요. [여기](https://www.microsoft.com/download/details.aspx?id=55024)에서 다운로드할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 모든 클라이언트는 음성 SDK를 사용 하 여 대화를 만들거나 조인 합니다. Speech SDK는 참가자 목록, 각 클라이언트의 선택 된 언어 및 전송 된 메시지를 포함 하 여 대화의 수명을 관리 하는 다중 장치 대화 서비스와 상호 작용 합니다.  
 

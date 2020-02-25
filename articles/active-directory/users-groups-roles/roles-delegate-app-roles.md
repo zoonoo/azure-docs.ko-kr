@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 461ee1fc73448f16ba68850d6137fb396c658abd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 251bc1c2277f9e43543f95c49d0b730a5a41c3d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74024864"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558981"
 ---
 # <a name="delegate-app-registration-permissions-in-azure-active-directory"></a>Azure Active Directory에서 앱 등록 권한 위임
 
@@ -74,7 +74,7 @@ ms.locfileid: "74024864"
 
 Azure AD에는 모든 응용 프로그램에 대해 Azure AD의 구성 관리에 대 한 액세스 권한을 부여 하기 위한 기본 제공 관리자 역할 집합이 있습니다. 이러한 역할은 IT 전문가에 게 응용 프로그램 구성과 관련이 없는 Azure AD의 다른 부분을 관리 하기 위한 액세스 권한을 부여 하지 않고도 광범위 한 응용 프로그램 구성 권한을 관리할 수 있는 권한을 부여 하는 데 권장 되는 방법입니다.
 
-- 응용 프로그램 관리자:이 역할의 사용자는 엔터프라이즈 응용 프로그램, 응용 프로그램 등록 및 응용 프로그램 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 또한 이 역할은 위임된 권한 및 Microsoft Graph와 Azure AD Graph를 제외한 애플리케이션 사용 권한에 동의하는 기능을 부여합니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
+- 응용 프로그램 관리자:이 역할의 사용자는 엔터프라이즈 응용 프로그램, 응용 프로그램 등록 및 응용 프로그램 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할은 위임 된 권한에 동의할 수 있는 기능 및 Microsoft Graph를 제외한 응용 프로그램 권한을 부여 합니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
 - 클라우드 응용 프로그램 관리자:이 역할의 사용자는 응용 프로그램 프록시를 관리 하는 기능을 제외 하 고 응용 프로그램 관리자 역할과 동일한 권한을 갖습니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
 
 자세한 내용 및 이러한 역할에 대 한 설명을 보려면 [사용 가능한 역할](directory-assign-admin-roles.md#available-roles)을 참조 하세요.

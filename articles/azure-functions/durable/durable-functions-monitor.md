@@ -4,18 +4,16 @@ description: Azure Functions의 지속성 함수 확장을 사용하여 상태 �
 ms.topic: conceptual
 ms.date: 12/07/2018
 ms.author: azfuncdf
-ms.openlocfilehash: f8a589bd4ab4de396c0688f8022515d6fbec96a2
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: ed92156df9d8e1e07b56cea4b1e64edee11d68d9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769594"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562125"
 ---
 # <a name="monitor-scenario-in-durable-functions---weather-watcher-sample"></a>지속성 함수의 모니터 시나리오 - 날씨 관찰 앱 샘플
 
 모니터링 패턴은 워크플로의 유연한 되풀이(예: 특정 조건이 충족될 때까지 폴링) 프로세스를 말합니다. 이 문서에서는 [지속성 함수](durable-functions-overview.md)를 사용하여 모니터링을 구현하는 샘플에 대해 설명합니다.
-
-[!INCLUDE [v1-note](../../../includes/functions-durable-v1-tutorial-note.md)]
 
 [!INCLUDE [durable-functions-prerequisites](../../../includes/durable-functions-prerequisites.md)]
 
@@ -30,11 +28,13 @@ ms.locfileid: "75769594"
 * 모니터는 확장성이 있습니다. 각 모니터는 오케스트레이션 인스턴스이기 때문에 새 함수를 만들거나 코드를 더 정의하지 않고도 다수의 모니터를 만들 수 있습니다.
 * 모니터는 보다 큰 워크플로에 쉽게 통합됩니다. 모니터는 더 복잡한 오케스트레이션 함수 또는 [ 하위 오케스트레이션](durable-functions-sub-orchestrations.md)의 한 섹션이 될 수 있습니다.
 
-## <a name="configuring-twilio-integration"></a>Twilio 통합 구성
+## <a name="configuration"></a>구성
+
+### <a name="configuring-twilio-integration"></a>Twilio 통합 구성
 
 [!INCLUDE [functions-twilio-integration](../../../includes/functions-twilio-integration.md)]
 
-## <a name="configuring-weather-underground-integration"></a>Weather Underground 통합 구성
+### <a name="configuring-weather-underground-integration"></a>Weather Underground 통합 구성
 
 이 샘플에는 Weather Underground API를 사용하여 특정 위치의 현재 기상 조건을 확인하는 작업이 포함됩니다.
 
@@ -50,79 +50,85 @@ API 키가 확보되면 함수 앱에 다음 **앱 설정**을 추가합니다.
 
 이 문서에서는 샘플 앱의 다음 함수에 대해 설명합니다.
 
-* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출하는 오케스트레이터 함수입니다. `E3_GetIsClear`가 true를 반환하면 `E3_SendGoodWeatherAlert`를 호출합니다.
-* `E3_GetIsClear`: 특정 위치의 현재 기상 조건을 확인하는 작업 함수입니다.
+* `E3_Monitor`: `E3_GetIsClear`를 주기적으로 호출 하는 오 케 스트레이 터 [함수](durable-functions-bindings.md#orchestration-trigger) 입니다. `E3_SendGoodWeatherAlert`가 true를 반환하면 `E3_GetIsClear`를 호출합니다.
+* `E3_GetIsClear`: 위치에 대 한 현재 날씨 조건을 확인 하는 [작업 함수](durable-functions-bindings.md#activity-trigger) 입니다.
 * `E3_SendGoodWeatherAlert`: Twilio를 통해 SMS 메시지를 보내는 작업 함수입니다.
 
-다음 섹션에서는 스크립팅 및 JavaScript에 C# 사용 되는 구성 및 코드에 대해 설명 합니다. Visual Studio 개발을 위한 코드는 이 문서의 끝 부분에 나와 있습니다.
+### <a name="e3_monitor-orchestrator-function"></a>E3_Monitor orchestrator 함수
 
-## <a name="the-weather-monitoring-orchestration-visual-studio-code-and-azure-portal-sample-code"></a>날씨 모니터링 오케스트레이션(Visual Studio Code 및 Azure Portal 샘플 코드)
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=41-78,97-115)]
+
+오 케 스트레이 터가 해당 위치에서 분명 하 게 표시 되는 경우 오 케 스트레이 터는 모니터링할 위치와 메시지를 보낼 전화 번호를 요구 합니다. 이 데이터는 orchestrator에 강력한 형식의 `MonitorRequest` 개체로 전달 됩니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 **E3_Monitor** 함수는 오케스트레이터 함수에 표준 *function.json*을 사용합니다.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_Monitor/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/function.json)]
 
 다음은 이 함수를 구현하는 코드입니다.
 
-### <a name="c-script"></a>C# 스크립트
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_Monitor/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_Monitor/index.js)]
+
+---
 
 이 오케스트레이터 함수는 다음 작업을 수행합니다.
 
-1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 **MonitorRequest**를 가져옵니다.
+1. 모니터링할 위치와 SMS 알림을 보낼 전화 번호로 구성된 *MonitorRequest*를 가져옵니다.
 2. 모니터의 만료 시간을 결정합니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
 3. **E3_GetIsClear**를 호출하여 요청 받은 위치에 하늘이 맑은지 확인합니다.
 4. 날씨가 맑으면 **E3_SendGoodWeatherAlert**를 호출하여 요청 받은 전화 번호로 SMS 알림을 보냅니다.
 5. 다음 폴링 간격에서 오케스트레이션을 다시 시작하도록 지속성 타이머를 만듭니다. 간결함을 위해 이 샘플에서는 하드 코드된 값을 사용합니다.
-6. `CurrentUtcDateTime` (.NET) 또는 `currentUtcDateTime` (JavaScript)가 모니터의 만료 시간을 전달 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
+6. 현재 UTC 시간이 모니터의 만료 시간을 경과 하거나 SMS 경고가 전송 될 때까지 계속 실행 됩니다.
 
-**MonitorRequests**를 여러 개 보내면 오케스트레이터 인스턴스를 동시에 여러 개 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
+여러 orchestrator 인스턴스는 오 케 스트레이 터 함수를 여러 번 호출 하 여 동시에 실행할 수 있습니다. 모니터링할 위치와 SMS 알림을 보낼 전화 번호를 지정할 수 있습니다.
 
-## <a name="strongly-typed-data-transfer-net-only"></a>강력한 형식의 데이터 전송(.NET만 해당)
+### <a name="e3_getisclear-activity-function"></a>E3_GetIsClear activity 함수
 
-Orchestrator에는 여러 데이터 조각이 필요 하므로 [공유 POCO 개체](../functions-reference-csharp.md#reusing-csx-code) 는 및 C# C# 스크립트에서 강력한 형식의 데이터 전송에 사용 됩니다.  
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/MonitorRequest.csx)]
+다른 샘플과 마찬가지로 도우미 작업 함수는 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수입니다. **E3_GetIsClear** 함수는 Weather Underground API를 사용하여 현재 기상 조건을 가져와서 하늘이 맑은지를 판단합니다.
 
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/shared/Location.csx)]
+# <a name="c"></a>[C#](#tab/csharp)
 
-JavaScript 샘플은 매개 변수로 기본 JSON 개체를 사용합니다.
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=80-85)]
 
-## <a name="helper-activity-functions"></a>도우미 작업 함수
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
-다른 샘플과 마찬가지로 도우미 작업 함수는 `activityTrigger` 트리거 바인딩을 사용하는 일반 함수입니다. **E3_GetIsClear** 함수는 Weather Underground API를 사용하여 현재 기상 조건을 가져와서 하늘이 맑은지를 판단합니다. *function.json*은 다음과 같이 정의됩니다.
+*function.json*은 다음과 같이 정의됩니다.
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/function.json)]
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/function.json)]
 
-그리고 구현은 다음과 같습니다. 데이터 전송에 사용되는 POCO와 마찬가지로 API 호출을 처리하고 응답 JSON을 구문 분석하는 논리는 C#에서 공유 클래스로 추상화됩니다. [Visual Studio 샘플 코드](#run-the-sample)의 일부로 찾을 수 있습니다.
-
-### <a name="c-script"></a>C# 스크립트
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_GetIsClear/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
+그리고 구현은 다음과 같습니다.
 
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_GetIsClear/index.js)]
 
-**E3_SendGoodWeatherAlert** 함수는 Twilio 바인딩을 사용하여 최종 사용자에게 걷기 좋은 시간임을 알리는 SMS 메시지를 보냅니다 *function.json*은 간단합니다.
+---
 
-[!code-json[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/function.json)]
+### <a name="e3_sendgoodweatheralert-activity-function"></a>E3_SendGoodWeatherAlert activity 함수
+
+**E3_SendGoodWeatherAlert** 함수는 Twilio 바인딩을 사용하여 최종 사용자에게 걷기 좋은 시간임을 알리는 SMS 메시지를 보냅니다
+
+# <a name="c"></a>[C#](#tab/csharp)
+
+[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs?range=87-96,140-205)]
+
+> [!NOTE]
+> 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` Nuget 패키지를 설치 해야 합니다.
+
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
+
+*function.json*은 간단합니다.
+
+[!code-json[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/function.json)]
 
 SMS 메시지를 보내는 코드는 다음과 같습니다.
 
-### <a name="c-script"></a>C# 스크립트
-
-[!code-csharp[Main](~/samples-durable-functions/samples/csx/E3_SendGoodWeatherAlert/run.csx)]
-
-### <a name="javascript-functions-20-only"></a>JavaScript(Functions 2.0만 해당)
-
 [!code-javascript[Main](~/samples-durable-functions/samples/javascript/E3_SendGoodWeatherAlert/index.js)]
 
-## <a name="run-the-sample"></a>샘플 실행
+---
+
+## <a name="run-the-sample"></a>예제 실행
 
 샘플에 포함된 HTTP 트리거 함수를 사용하여 다음 HTTP POST 요청을 전송함으로써 오케스트레이션을 시작할 수 있습니다.
 
@@ -168,15 +174,6 @@ Azure Functions 포털의 함수 로그를 검토하여 오케스트레이션의
 ```
 POST https://{host}/runtime/webhooks/durabletask/instances/f6893f25acf64df2ab53a35c09d52635/terminate?reason=Because&taskHub=SampleHubVS&connection=Storage&code={systemKey}
 ```
-
-## <a name="visual-studio-sample-code"></a>Visual Studio 샘플 코드
-
-다음은 Visual Studio 프로젝트의 단일 C# 파일로서의 오케스트레이션입니다.
-
-> [!NOTE]
-> 아래 샘플 코드를 실행 하려면 `Microsoft.Azure.WebJobs.Extensions.Twilio` NuGet 패키지를 설치 해야 합니다.
-
-[!code-csharp[Main](~/samples-durable-functions/samples/precompiled/Monitor.cs)]
 
 ## <a name="next-steps"></a>다음 단계
 

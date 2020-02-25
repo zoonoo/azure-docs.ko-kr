@@ -4,15 +4,15 @@ description: Azure 방화벽과 통합 하 여 App Service 환경 내에서 아�
 author: ccompy
 ms.assetid: 955a4d84-94ca-418d-aa79-b57a5eb8cb85
 ms.topic: article
-ms.date: 01/14/2020
+ms.date: 01/24/2020
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 6b9633e8a37e665577f1e69e8008a64b7e139c1c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f24a984a4b3e13039f1f9dcf0be459425c048c41
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513350"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565726"
 ---
 # <a name="locking-down-an-app-service-environment"></a>App Service Environment 잠금
 
@@ -41,9 +41,11 @@ ASE에서 들어오고 나가는 트래픽은 다음 규칙을 준수 해야 합
 
 ## <a name="locking-down-inbound-management-traffic"></a>인바운드 관리 트래픽 잠금
 
-ASE 서브넷에 NSG가 아직 할당 되지 않은 경우 하나를 만듭니다. NSG 내에서 포트 454, 455에서 이름이 AppServiceManagement 인 서비스 태그의 트래픽을 허용 하는 첫 번째 규칙을 설정 합니다. 이는 ASE를 관리 하기 위해 공용 Ip에서 필요한 모든 것입니다. 해당 서비스 태그 뒤에 있는 주소는 Azure App Service를 관리 하는 데만 사용 됩니다. 이러한 연결을 통해 흐르는 관리 트래픽은 암호화 되어 인증 인증서로 보호 됩니다. 이 채널의 일반적인 트래픽에는 고객 시작 명령 및 상태 프로브와 같은 항목이 포함 됩니다. 
+ASE 서브넷에 NSG가 아직 할당 되지 않은 경우 하나를 만듭니다. NSG 내에서 포트 454, 455에서 이름이 AppServiceManagement 인 서비스 태그의 트래픽을 허용 하도록 첫 번째 규칙을 설정 합니다. AppServiceManagement 태그에서 액세스를 허용 하는 규칙은 ASE를 관리 하기 위해 공용 Ip에서 필요한 유일한 작업입니다. 해당 서비스 태그 뒤에 있는 주소는 Azure App Service를 관리 하는 데만 사용 됩니다. 이러한 연결을 통해 흐르는 관리 트래픽은 암호화 되어 인증 인증서로 보호 됩니다. 이 채널의 일반적인 트래픽에는 고객 시작 명령 및 상태 프로브와 같은 항목이 포함 됩니다. 
 
 새 서브넷을 사용 하 여 포털을 통해 수행 되는 Ase는 AppServiceManagement 태그에 대 한 허용 규칙이 포함 된 NSG를 사용 하 여 생성 됩니다.  
+
+ASE는 포트 16001의 Load Balancer 태그에서 인바운드 요청을 허용 해야 합니다. 16001 포트에서 Load Balancer의 요청은 Load Balancer와 ASE 프런트 엔드 사이에서 연결 유지 검사입니다. 16001 포트를 차단 하면 ASE가 비정상 상태가 됩니다.
 
 ## <a name="configuring-azure-firewall-with-your-ase"></a>ASE를 사용하여 Azure Firewall 구성 
 
@@ -273,6 +275,21 @@ Linux는 US Gov 지역에서 사용할 수 없으며, 따라서 선택적 구성
 | Azure SQL |
 | Azure Storage |
 | Azure Event Hub |
+
+#### <a name="ip-address-dependencies"></a>IP 주소 종속성
+
+| 엔드포인트 | 세부 정보 |
+|----------| ----- |
+| \*:123 | NTP 클록 확인. 트래픽이 포트 123의 여러 엔드포인트에서 확인됩니다. |
+| \*:12000 | 이 포트는 일부 시스템 모니터링에 사용됩니다. 차단 된 경우 일부 문제는 심사 하기 어려우므로 ASE는 계속 작동 합니다. |
+| 40.77.24.27:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 40.77.24.27:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.90.249.229:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 104.45.230.69:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:80 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
+| 13.82.184.151:443 | ASE 문제를 모니터링 하 고 경고 하는 데 필요 합니다. |
 
 #### <a name="dependencies"></a>종속성 ####
 

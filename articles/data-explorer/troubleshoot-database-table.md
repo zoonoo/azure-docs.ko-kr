@@ -1,5 +1,5 @@
 ---
-title: Azure 데이터 탐색기에서 데이터베이스 또는 테이블을 만들거나 삭제하지 못함
+title: Azure 데이터 탐색기에서 DB 또는 테이블을 만들거나 삭제 하지 못했습니다.
 description: 이 문서에서는 Azure 데이터 탐색기에서 데이터베이스와 테이블의 만들기 또는 삭제와 관련된 문제를 해결하는 단계를 설명합니다.
 author: orspod
 ms.author: orspodek
@@ -7,12 +7,12 @@ ms.reviewer: mblythe
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 09/24/2018
-ms.openlocfilehash: 0d221138914230d5455dc0addbe08cdaaed36a0b
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 67e4c33498b05884fe667a7977ddb40e647ab4c8
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60826257"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562397"
 ---
 # <a name="troubleshoot-failure-to-create-or-delete-a-database-or-table-in-azure-data-explorer"></a>문제 해결: Azure 데이터 탐색기에서 데이터베이스 또는 테이블을 만들거나 삭제하지 못함
 
@@ -36,7 +36,7 @@ Azure 데이터 탐색기에서는 정기적으로 데이터베이스와 테이�
 
     권한에 대한 자세한 내용은 [데이터베이스 권한 관리](manage-database-permissions.md)를 참조하세요.
 
-1. 동일한 이름의 테이블이 아직 없는지 확인합니다. 존재 하는 경우 다음을 수행할 수 있습니다. 다른 이름을;를 사용 하 여 테이블 만들기 기존 테이블의 이름을 바꾸고 (필요 *테이블 관리* 역할); 기존 테이블을 삭제 하거나 (필요 *데이터베이스 관리자* 역할). 다음 명령을 사용합니다.
+1. 동일한 이름의 테이블이 아직 없는지 확인합니다. 있는 경우 다른 이름으로 테이블 만들기, 기존 테이블 이름 바꾸기(*테이블 관리자* 역할 필요) 또는 기존 테이블 삭제(*데이터베이스 관리자* 역할 필요)를 수행할 수 있습니다. 다음 명령을 사용합니다.
 
     ```Kusto
     .drop table <TableName>

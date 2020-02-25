@@ -6,14 +6,14 @@ ms.service: cosmos-db
 ms.subservice: cosmosdb-sql
 ms.devlang: java
 ms.topic: reference
-ms.date: 03/13/2019
+ms.date: 02/21/2020
 ms.author: sngun
-ms.openlocfilehash: 3a7eaabedd6736c107625204f982a530f2bab73d
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 514982727509788918c159e07f8061962df32336
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76718176"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558931"
 ---
 # <a name="azure-cosmos-db-java-sdk-for-sql-api-release-notes-and-resources"></a>Azure Cosmos DB Java SDK for SQL API: 릴리스 정보 및 리소스
 > [!div class="op_single_selector"]
@@ -42,6 +42,10 @@ SQL API Java SDK는 동기 작업을 지원합니다. 비동기 지원의 경우
 |**지원되는 최소 런타임**|[JDK(Java Development Kit) 7 이상](https://aka.ms/azure-jdks)|
 
 ## <a name="release-notes"></a>릴리스 정보
+
+### <a name="a-name247247"></a><a name="2.4.7"/>2.4.7
+* 연결 풀 제한 시간 문제를 수정 합니다.
+* 내부 다시 시도 시 인증 토큰 새로 고침을 수정 합니다.
 
 ### <a name="a-name246246"></a><a name="2.4.6"/>2.4.6
 * DatabaseAccount의 올바른 클라이언트 쪽 복제본 정책 태그를 업데이트 하 고 캐시에서 databaseAccount 구성 읽기를 설정 했습니다.
@@ -259,8 +263,19 @@ Microsoft는 매끄럽게 최신/지원 버전으로 전환할 수 있도록 적
 
 | 버전 | 출시 날짜 | 사용 중지 날짜 |
 | --- | --- | --- |
-| [2.1.3](#2.1.3) |3 월 13 일, 2018 |--- |
-| [2.1.2](#2.1.2) |3 월 9 일, 2018 |--- |
+| [2.4.7](#2.4.7) |2 월 20 일, 2020 |--- |
+| [2.4.6](#2.4.6) |2020 년 1 월 24 일 |--- |
+| [2.4.5](#2.4.5) |2019 년 11 월 10 일 |--- |
+| [2.4.4](#2.4.4) |2019 년 10 월 24 일 |--- |
+| [2.4.2 sections](#2.4.2) |9 월 26 일, 2019 |--- |
+| [2.4.1](#2.4.1) |2019 년 7 월 18 일 |--- |
+| [2.4.0](#2.4.0) |5 월 4 일, 2019 |--- |
+| [2.3.0](#2.3.0) |4 월 24 일, 2019 |--- |
+| [2.2.3](#2.2.3) |4 월 16 일, 2019 |--- |
+| [2.2.2](#2.2.2) |Apr 05, 2019 |--- |
+| [2.2.0](#2.2.0) |3 월 27 일, 2019 |--- |
+| [2.1.3](#2.1.3) |3 월 13 일, 2019 |--- |
+| [2.1.2](#2.1.2) |3 월 9 일, 2019 |--- |
 | [2.1.1](#2.1.1) |Dec 13, 2018 |--- |
 | [2.1.0](#2.1.0) |11 월 20 일, 2018 |--- |
 | [2.0.0](#2.0.0) |2018년 9월 21일 |--- |

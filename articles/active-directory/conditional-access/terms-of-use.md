@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 31d84d5bf43bac55769a6479917794a51c1ccd0c
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: d92c3e51aae70c66dcf9b7ca6dfd631650ace574
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "70999111"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561751"
 ---
 # <a name="azure-active-directory-terms-of-use"></a>Azure Active Directory 사용 약관
 
@@ -52,12 +52,12 @@ Azure AD 사용 약관에는 다음과 같은 기능이 있습니다.
 - 준수 및 감사에 대 한 사용 약관 작업 로그를 표시 합니다.
 - [Microsoft Graph api](https://developer.microsoft.com/graph/docs/api-reference/beta/resources/agreement) (현재 미리 보기 상태)를 사용 하 여 사용 약관을 만들고 관리 합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 Azure AD 사용 약관을 사용 하 고 구성 하려면 다음이 있어야 합니다.
 
 - Azure AD Premium P1, P2, EMS E3 또는 EMS E5 구독.
-   - 이러한 구독 중 하나가 없는 경우 [Azure AD Premium을 받거나](../fundamentals/active-directory-get-started-premium.md) [Azure AD Premium 평가판을 사용](https://azure.microsoft.com/trial/get-started-active-directory/)할 수 있습니다.
+   - 이러한 구독 중 하나가 없는 경우 [Azure AD Premium을 받거나](../fundamentals/active-directory-get-started-premium.md)[Azure AD Premium 평가판을 사용](https://azure.microsoft.com/trial/get-started-active-directory/)할 수 있습니다.
 - 구성하려는 디렉터리에 대한 다음 관리자 계정 중 하나:
    - 전역 관리자
    - 보안 관리자
@@ -72,7 +72,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 사용 약관 문서를 완료 했으면 다음 절차를 사용 하 여 추가 합니다.
 
 1. Azure에 전역 관리자, 보안 관리자 또는 조건부 액세스 관리자로 로그인합니다.
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 **사용 약관**으로 이동합니다.
+1. [에서 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 
    ![조건부 액세스-사용 약관 블레이드](./media/terms-of-use/tou-blade.png)
 
@@ -85,7 +85,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 1. **사용 약관 문서**에 대해 완성 된 사용 약관 PDF로 이동 하 여 선택 합니다.
 1. 사용 약관 문서에 대 한 언어를 선택 합니다. 언어 옵션을 사용하면 사용 약관을 다양한 언어로 여러 개 업로드할 수 있습니다. 최종 사용자에게 표시되는 사용 약관의 버전은 브라우저 기본 설정에 기반합니다.
 1. 최종 사용자가 사용 약관에 동의 하기 전에 사용 약관을 볼 수 있도록 하려면 **사용자에 게 사용 약관을 확장 하도록 요구** 를 설정 **합니다.**
-1. 최종 사용자가 액세스 하는 모든 장치에서 사용 약관에 동의 하도록 요구 하려면 **모든 장치에서 사용자에 게 동의 해야** 함을 설정 **합니다.** 자세한 내용은 [장치 단위 사용 조건](#per-device-terms-of-use)을 참조 하세요.
+1. 최종 사용자가 액세스 하는 모든 장치에서 사용 약관에 동의 하도록 요구 하려면 **모든 장치에서 사용자에 게 동의 해야** 함을 설정 **합니다.** 이 옵션을 사용 하도록 설정 하면 사용자가 추가 응용 프로그램을 설치 해야 할 수 있습니다. 자세한 내용은 [장치 단위 사용 조건](#per-device-terms-of-use)을 참조 하세요.
 1. 일정에 따라 사용 약관 동의을 만료 하려면 **만료 동의** 를 **켜기**로 설정 합니다. 켜기로 설정되면 두 개의 추가 일정 설정이 표시됩니다.
 
    ![시작 날짜, 빈도 및 기간을 설정 하는 동의 설정 만료](./media/terms-of-use/expire-consents.png)
@@ -127,7 +127,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
    >[!IMPORTANT]
    >조건부 액세스 정책 제어 (사용 약관 포함)는 서비스 계정에 대 한 적용을 지원 하지 않습니다. 조건부 액세스 정책에서 모든 서비스 계정을 제외 하는 것이 좋습니다.
 
-    사용자 지정 조건부 액세스 정책을 사용 하면 특정 클라우드 응용 프로그램 또는 사용자 그룹에 대해 세부적인 사용 약관을 사용할 수 있습니다. 자세한 내용은 [빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구](require-tou.md)를 참조하세요.
+    사용자 지정 조건부 액세스 정책을 사용 하면 특정 클라우드 응용 프로그램 또는 사용자 그룹에 대해 세부적인 사용 약관을 사용할 수 있습니다. 자세한 내용은 [빠른 시작: 클라우드 앱에 액세스 하기 전에 동의 해야 하는 사용 약관](require-tou.md)을 참조 하세요.
 
 1. **만들기**를 클릭합니다.
 
@@ -143,7 +143,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
 [사용 약관] 블레이드에는 사용 약관에 동의한 사용자 및 거부한 사용자 수가 표시됩니다. 이러한 개수와 승인/거부 된 사람은 사용 약관의 수명 동안 저장 됩니다.
 
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+1. [에서 Azure에 로그인하여 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 
    ![수락 하 고 거부 한 사용자 표시 수를 나열 하는 사용 약관 블레이드](./media/terms-of-use/view-tou.png)
 
@@ -165,7 +165,7 @@ Azure AD 사용 약관에서는 PDF 형식을 사용 하 여 콘텐츠를 제공
 
 Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+1. [에서 Azure에 로그인하여 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 1. 사용 약관을 선택 합니다.
 1. **감사 로그 보기**를 클릭합니다.
 
@@ -216,7 +216,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 사용 약관에 대 한 세부 정보를 편집할 수 있지만 기존 문서를 수정할 수는 없습니다. 다음 절차에서는 세부 정보를 편집하는 방법에 대해 설명합니다.
 
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+1. [에서 Azure에 로그인하여 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 1. 편집 하려는 사용 약관을 선택 합니다.
 1. **사용 약관 편집**을 클릭합니다.
 1. [사용 약관 편집] 창에서 이름을 변경하거나, 이름을 표시하거나, 사용자가 값을 확장하도록 요구합니다.
@@ -233,7 +233,7 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 다음 절차에서는 사용 약관 언어를 추가 하는 방법에 대해 설명 합니다.
 
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+1. [에서 Azure에 로그인하여 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 1. 편집 하려는 사용 약관을 선택 합니다.
 1. 세부 정보 창에서 **언어** 탭을 클릭합니다.
 
@@ -277,6 +277,10 @@ Azure AD 감사 로그를 시작하려면 다음 절차를 따릅니다.
 
 Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.com/webstore/detail/windows-10-accounts/ppnbnpeolgkicgegkbkbjmhlideopiji)을 설치할지 묻는 메시지가 표시됩니다.
 
+### <a name="join-an-android-device"></a>Android 장치 참여
+
+사용자가 Android 장치를 사용 하는 경우 [Microsoft Authenticator 앱](https://play.google.com/store/apps/details?id=com.azure.authenticator)을 설치 하 라는 메시지가 표시 됩니다.
+
 ### <a name="browsers"></a>브라우저
 
 사용자가 지원되지 않는 브라우저를 사용하는 경우에는 다른 브라우저를 사용하도록 요청하는 메시지가 표시됩니다.
@@ -287,7 +291,7 @@ Chrome을 사용하는 경우 [Windows 10 계정 확장](https://chrome.google.c
 
 다음 절차를 사용 하 여 이전 사용 약관을 삭제할 수 있습니다.
 
-1. [https://aka.ms/catou](https://aka.ms/catou)에서 Azure에 로그인하여 **사용 약관**으로 이동합니다.
+1. [에서 Azure에 로그인하여 https://aka.ms/catou사용 약관](https://aka.ms/catou)으로 이동합니다.
 1. 제거할 사용 약관을 선택합니다.
 1. **사용 약관 삭제**를 클릭합니다.
 1. 계속 진행할 것인지 묻는 메시지가 표시되면 **예**를 클릭합니다.
@@ -339,49 +343,49 @@ Intune에서 장치를 등록 하기 전에 Microsoft Intune 등록 앱에 대 �
 
 ## <a name="frequently-asked-questions"></a>질문과 대답
 
-**Q: 사용자가 사용 약관에 동의 했는지 여부를 확인 어떻게 할까요?**<br />
-A: 사용 약관 블레이드에서 **동의** 아래에 있는 숫자를 클릭합니다. Azure AD 감사 로그에서 동의 작업을 보거나 검색할 수도 있습니다. 자세한 내용은 사용 약관에 동의/거부한 사람에 대한 보고서 보기 및 [Azure AD 감사 로그 보기](#view-azure-ad-audit-logs)를 참조하세요.
+**Q: 사용자가 사용 약관에 동의했는지 어떻게 볼 수 있나요?**<br />
+A: 사용 약관 블레이드에서 **수락** 아래에 있는 숫자를 클릭합니다. Azure AD 감사 로그에서 동의 작업을 보거나 검색할 수도 있습니다. 자세한 내용은 사용 약관에 동의/거부한 사람에 대한 보고서 보기 및 [Azure AD 감사 로그 보기](#view-azure-ad-audit-logs)를 참조하세요.
 
 **Q: 정보가 얼마나 오래 저장되나요?**<br />
-A: 사용 약관 보고서에서 사용자 수를 계산 하 고 사용 약관에 동의/거부 한 사용자를 저장 합니다. Azure AD 감사 로그는 30일 동안 저장됩니다.
+A: 사용 약관 보고서에서 사용자 수가 계산 되 고 승인/거부 된 사용자는 사용 약관의 수명 동안 저장 됩니다. Azure AD 감사 로그는 30일 동안 저장됩니다.
 
 **Q: 사용 약관 보고서와 Azure AD 감사 로그에 다른 수의 동의가 표시 되는 이유는 무엇 인가요?**<br />
 A: 사용 약관 보고서는 해당 사용 약관의 수명 동안 저장 되며 Azure AD 감사 로그는 30 일 동안 저장 됩니다. 또한 사용 약관 보고서에는 사용자의 현재 동의 상태만 표시 됩니다. 예를 들어 사용자가 동의 하 고 수락 하면 사용 약관 보고서에 해당 사용자의 수락만 표시 됩니다. 기록을 확인해야 하는 경우, Azure AD 감사 로그를 사용할 수 있습니다.
 
 **Q: 사용 약관에 대 한 세부 정보를 편집 하는 경우 사용자가 다시 동의 해야 하나요?**<br />
-A: 아니요. 관리자가 사용 약관에 대 한 세부 정보 (이름, 표시 이름, 사용자가 확장 하거나 언어를 추가 해야 함)를 편집 하는 경우 사용자가 새 약관에 다시 동의 하지 않아도 됩니다.
+A: 아니요, 관리자가 사용 약관에 대 한 세부 정보 (이름, 표시 이름, 사용자를 확장 하거나 언어를 추가 해야 함)를 편집 하는 경우 사용자가 새 약관에 다시 동의 하지 않아도 됩니다.
 
 **Q: 기존 사용 약관 문서를 업데이트할 수 있나요?**<br />
 A: 현재는 기존 사용 약관 문서를 업데이트할 수 없습니다. 사용 약관 문서를 변경 하려면 새 사용 약관 인스턴스를 만들어야 합니다.
 
-**Q: 하이퍼링크가 사용 약관 PDF 문서에 있는 경우 최종 사용자가 해당 문서를 클릭할 수 있나요?**<br />
+**Q: 하이퍼링크가 PDF 문서 사용 약관에 있으면 최종 사용자가 해당 문서를 클릭할 수 있나요?**<br />
 A: 예, 최종 사용자는 추가 페이지에 대 한 하이퍼링크를 선택할 수 있지만 문서 내의 섹션에 대 한 링크는 지원 되지 않습니다.
 
-**Q: 사용 약관에서 여러 언어를 지원할 수 있나요?**<br />
+**Q: 사용 약관에서 다중 언어를 지원할 수 있나요?**<br />
 A: 예. 현재 관리자가 단일 사용 약관에 대해 구성할 수 있는 108 다른 언어가 있습니다. 관리자는 여러 PDF 문서를 업로드하고 해당 언어를 사용하는 문서에 태그를 지정할 수 있습니다(최대 108개). 최종 사용자가 로그인할 때 브라우저 언어 기본 설정이 확인되고 일치하는 문서가 표시됩니다. 일치 항목이 없으면 업로드된 첫 번째 문서인 기본 문서가 표시됩니다.
 
-**Q: 사용 약관은 언제 트리거됨?**<br />
-A: 사용 약관은 로그인 환경에서 트리거됩니다.
+**Q: 사용 약관은 언제 트리거되나요?**<br />
+A: 사용 약관은 로그인 환경 중에 트리거됩니다.
 
-**Q: 사용 약관을 대상으로 지정할 수 있는 응용 프로그램은 무엇 인가요?**<br />
+**Q: 사용 약관을 대상으로 지정할 수 있는 애플리케이션은 무엇인가요?**<br />
 A: 최신 인증을 사용 하 여 엔터프라이즈 응용 프로그램에 대 한 조건부 액세스 정책을 만들 수 있습니다. 자세한 내용은 [엔터프라이즈 애플리케이션](./../manage-apps/view-applications-portal.md)을 참조하세요.
 
-**Q: 지정 된 사용자 또는 앱에 여러 사용 약관을 추가할 수 있나요?**<br />
+**Q: 특정 사용자 또는 앱에 여러 사용 약관을 추가할 수 있나요?**<br />
 A: 예, 이러한 그룹 또는 응용 프로그램을 대상으로 하는 여러 조건부 액세스 정책을 만듭니다. 사용자가 여러 사용 약관의 범위에 속하는 경우 한 번에 하나의 사용 약관에 동의 하는 것입니다.
 
-**Q: 사용자가 사용 약관을 거부 하면 어떻게 되나요?**<br />
+**Q: 사용자가 사용 약관을 거부하는 경우 어떻게 되나요?**<br />
 A: 사용자는 애플리케이션에 액세스할 수 없습니다. 액세스하려면 다시 로그인하여 약관에 동의해야 합니다.
 
 **Q: 이전에 수락 된 사용 약관에 동의 하지 못할 수 있나요?**<br />
 A: [이전에 동의한 사용 약관을 검토할](#how-users-can-review-their-terms-of-use)수 있지만 현재 수락 하지 않는 방법은 없습니다.
 
 **Q: Intune 사용 약관도 사용하면 어떻게 되나요?**<br />
-A: Azure AD 사용 약관 및 [Intune](/intune/terms-and-conditions-create)사용 약관을 모두 구성한 경우에는 사용자가 둘 다 수락 해야 합니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)을 참조하세요.
+A: Azure AD 사용 약관 및 [Intune](/intune/terms-and-conditions-create)사용 약관을 모두 구성한 경우 사용자는 둘 다 수락 해야 합니다. 자세한 내용은 [조직에 적합한 약관 솔루션 선택 블로그 게시물](https://go.microsoft.com/fwlink/?linkid=2010506&clcid=0x409)을 참조하세요.
 
 **Q: 사용 약관 서비스에서 인증에 사용 하는 끝점은 무엇 인가요?**<br />
-A: 사용 약관는 인증을 위해 및 https://tokenprovider.termsofuse.identitygovernance.azure.com https://account.activedirectory.windowsazure.com 의 끝점을 활용 합니다. 조직에서 등록을 위한 Url의 허용 목록을 사용 하는 경우 로그인을 위해 Azure AD 끝점과 함께 이러한 끝점을 허용 목록에 추가 해야 합니다.
+A: 사용 약관는 인증을 위해 https://tokenprovider.termsofuse.identitygovernance.azure.com 및 https://account.activedirectory.windowsazure.com끝점을 활용 합니다. 조직에서 등록을 위한 Url의 허용 목록을 사용 하는 경우 로그인을 위해 Azure AD 끝점과 함께 이러한 끝점을 허용 목록에 추가 해야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-- [빠른 시작: 클라우드 앱에 액세스하기 전에 사용 약관에 동의하도록 요구](require-tou.md)
+- [빠른 시작: 클라우드 앱에 액세스 하기 전에 동의 해야 하는 사용 약관](require-tou.md)
 - [Azure Active Directory의 조건부 액세스에 대 한 모범 사례](best-practices.md)

@@ -8,18 +8,18 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 01/21/2020
 ms.author: aahi
-ms.openlocfilehash: ba9484bd5b04e5a79da53a0bb78877153be42a43
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 75a456c4a297b0465c34b8e0af2e87056ad565b3
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74805912"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560901"
 ---
 # <a name="migrate-from-the-translator-speech-api-to-the-speech-service"></a>Translator Speech API에서 Speech service로 마이그레이션
 
-이 문서를 사용 하 여 Microsoft Translator Speech API에서 [음성 서비스로](index.md)응용 프로그램을 마이그레이션합니다. 이 가이드에서는 Translator Speech API와 음성 서비스 간의 차이점에 대해 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다.
+이 문서를 사용 하 여 Microsoft Translator Speech API에서 [음성 서비스로](index.yml)응용 프로그램을 마이그레이션합니다. 이 가이드에서는 Translator Speech API와 음성 서비스 간의 차이점에 대해 간략하게 설명 하 고 응용 프로그램을 마이그레이션하기 위한 전략을 제안 합니다.
 
 > [!NOTE]
 > Translator Speech API 구독 키는 음성 서비스에서 허용 되지 않습니다. 새 음성 서비스 구독을 만들어야 합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "74805912"
 | 연결 시간 제한                             | 90분                                               | SDK를 사용할 경우 무제한 WebSocket 연결을 사용할 경우 10분                                                                                                                                                                                                                                                                                   |
 | 헤더의 인증 키                                | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | 단일 요청을 통해 여러 언어 번역 | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
-| SDK 사용 가능                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 사용 가능한 Sdk는 [음성 서비스 설명서](index.md) 를 참조 하세요.                                                                                                                                                    |
+| SDK 사용 가능                                    | :heavy_minus_sign:                                              | :heavy_check_mark:                 | 사용 가능한 Sdk는 [음성 서비스 설명서](index.yml) 를 참조 하세요.                                                                                                                                                    |
 | WebSocket 연결                            | :heavy_check_mark:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
 | Languages API                                     | :heavy_check_mark:                                              | :heavy_minus_sign:                 | 음성 서비스는 [TRANSLATOR API 언어 참조](../translator-speech/languages-reference.md) 문서에 설명 된 것과 동일한 언어 범위를 지원 합니다. |
 | 욕설 필터 및 표식                       | :heavy_minus_sign:                                              | :heavy_check_mark:                 |                                                                                                                                                                                                                                                                                    |
@@ -49,7 +49,7 @@ ms.locfileid: "74805912"
 
 ## <a name="migration-strategies"></a>마이그레이션 전략
 
-사용자 또는 조직에 Translator Speech API를 사용 하는 개발 또는 프로덕션 환경에서 응용 프로그램이 있는 경우 음성 서비스를 사용 하도록 업데이트 해야 합니다. 사용 가능한 Sdk, 코드 샘플 및 자습서는 [음성 서비스](index.md) 설명서를 참조 하세요. 마이그레이션하는 경우 다음을 고려합니다.
+사용자 또는 조직에 Translator Speech API를 사용 하는 개발 또는 프로덕션 환경에서 응용 프로그램이 있는 경우 음성 서비스를 사용 하도록 업데이트 해야 합니다. 사용 가능한 Sdk, 코드 샘플 및 자습서는 [음성 서비스](index.yml) 설명서를 참조 하세요. 마이그레이션하는 경우 다음을 고려합니다.
 
 * 음성 서비스는 글로벌 끝점을 제공 하지 않습니다. 애플리케이션이 모든 해당 트래픽에 대해 단일 지역별 엔드포인트를 사용할 때 효율적으로 작동하는지를 확인합니다. 그렇지 않을 경우 지리적 위치를 사용하여 가장 효율적인 엔드포인트를 확인합니다.
 

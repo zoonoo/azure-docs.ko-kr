@@ -8,12 +8,12 @@ ms.service: storage
 ms.topic: troubleshooting
 ms.date: 06/15/2018
 ms.author: delhan
-ms.openlocfilehash: 3d5b1ab4e72ec759098e9c71515200f89a8dfe82
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: aec8048c7ef2eb0d944cdd2a863e23578f4f87e5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74931203"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561683"
 ---
 # <a name="azure-storage-explorer-troubleshooting-guide"></a>Azure Storage Explorer 문제 해결 가이드
 
@@ -60,6 +60,17 @@ Storage 탐색기를 통해 Azure 리소스에 연결 하는 데 필요한 정�
 
 현재이 문제에 대 한 RBAC 관련 솔루션이 없습니다. 이 문제를 해결 하려면 [리소스에 연결할](https://docs.microsoft.com/azure/vs-azure-tools-storage-manage-with-storage-explorer?tabs=linux#use-a-shared-access-signature-uri)SAS URI를 요청할 수 있습니다.
 
+### <a name="recommended-built-in-rbac-roles"></a>권장 되는 기본 제공 RBAC 역할
+
+Storage 탐색기를 사용 하는 데 필요한 권한을 제공할 수 있는 몇 가지 기본 제공 RBAC 역할이 있습니다. 이러한 역할 중 일부는 다음과 같습니다.
+- [Owner](/azure/role-based-access-control/built-in-roles#owner): 리소스에 대 한 액세스를 포함 하 여 모든 것을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
+- [참가자](/azure/role-based-access-control/built-in-roles#contributor): 리소스에 대 한 액세스를 제외한 모든 항목을 관리 합니다. **참고**:이 역할은 키 액세스를 제공 합니다.
+- [Reader](/azure/role-based-access-control/built-in-roles#reader): 리소스를 읽고 나열 합니다.
+- [Storage 계정 참가자](/azure/role-based-access-control/built-in-roles#storage-account-contributor): 저장소 계정에 대 한 전체 관리 **참고**:이 역할은 키 액세스를 제공 합니다.
+- [저장소 Blob 데이터 소유자](/azure/role-based-access-control/built-in-roles#storage-blob-data-owner): Azure Storage Blob 컨테이너 및 데이터에 대 한 모든 권한입니다.
+- [저장소 Blob 데이터 참여자](/azure/role-based-access-control/built-in-roles#storage-blob-data-contributor): 컨테이너 및 blob Azure Storage 읽기, 쓰기 및 삭제
+- [저장소 Blob 데이터 판독기](/azure/role-based-access-control/built-in-roles#storage-blob-data-reader): 컨테이너 및 blob Azure Storage 읽고 나열 합니다.
+
 ## <a name="error-self-signed-certificate-in-certificate-chain-and-similar-errors"></a>오류: 인증서 체인의 자체 서명 된 인증서 (및 유사한 오류)
 
 인증서 오류는 일반적으로 다음과 같은 경우에 발생 합니다.
@@ -82,7 +93,7 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 2. OpenSSL를 실행 합니다.
     * Windows: 설치 디렉터리를 열고 **/st/** 를 선택한 다음 **openssl**를 두 번 클릭 합니다.
     * Mac 및 Linux: 터미널에서 `openssl`를 실행 합니다.
-3. `s_client -showcerts -connect microsoft.com:443`.
+3. `s_client -showcerts -connect microsoft.com:443`을 실행합니다.
 4. 자체 서명된 인증서를 찾습니다. 자체 서명 된 인증서를 확실 하 게 알지 못하는 경우 주제 `("s:")`와 발급자 `("i:")` 동일한 위치를 기록해 둡니다.
 5. 자체 서명 된 인증서를 찾았으면 각 인증서에 대해 `-----END CERTIFICATE-----`를 통해 `-----BEGIN CERTIFICATE-----` 모든 항목을 복사 하 여 새 .cer 파일에 붙여넣습니다.
 6. Storage 탐색기를 열고 **편집** > **SSL 인증서** > **인증서 가져오기**로 이동 합니다. 그런 다음 파일 선택기를 사용 하 여 만든 .cer 파일을 찾고 선택 하 고 엽니다.
@@ -93,12 +104,12 @@ Storage 탐색기 자체 서명 된 인증서 또는 신뢰할 수 없는 인증
 
 ### <a name="blank-sign-in-dialog-box"></a>빈 로그인 대화 상자
 
-빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이렇게 하려면 다음 단계를 따르십시오.
+빈 로그인 대화 상자는 Active Directory Federation Services (AD FS) 메시지를 Storage 탐색기 표시 하 여 전자에서 지원 하지 않는 리디렉션을 수행 하는 경우 가장 자주 발생 합니다. 이 문제를 해결 하기 위해 로그인에 장치 코드 흐름을 사용 하려고 할 수 있습니다. 이 작업을 수행하려면 다음 단계를 수행합니다.
 
 1. 왼쪽 세로 도구 모음에서 **설정**을 엽니다. 설정 패널에서 **응용 프로그램** > **로그인**으로 이동 합니다. **장치 코드 흐름 로그인 사용**을 사용 하도록 설정 합니다.
 2. 왼쪽 세로 막대에 있는 플러그 아이콘을 통해 또는 계정 패널에서 **계정 추가** 를 선택 하 여 **연결** 대화 상자를 엽니다.
 3. 로그인 할 환경을 선택 합니다.
-4. **로그인**을 선택합니다.
+4. **로그인**을 선택 합니다.
 5. 다음 패널의 지침을 따릅니다.
 
 기본 브라우저가 이미 다른 계정에 로그인 되어 있으므로 사용 하려는 계정에 로그인 할 수 없는 경우 다음 중 하나를 수행 합니다.
@@ -244,20 +255,20 @@ Windows 용 Fiddler와 같은 네트워킹 도구가 있는 경우 다음과 같
 
 모든 연결을 이동한 후에는 다시 추가 되지 않는 모든 연결 이름에 대해 손상 된 데이터 (있는 경우)를 지우고 Storage 탐색기의 표준 단계를 사용 하 여 다시 추가 해야 합니다.
 
-# <a name="windowstabwindows"></a>[Windows](#tab/Windows)
+# <a name="windows"></a>[Windows](#tab/Windows)
 
 1. **시작** 메뉴에서 **자격 증명 관리자** 를 검색 하 여 엽니다.
 2. **Windows 자격 증명**으로 이동 합니다.
 3. **일반 자격 증명**에서 `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 4. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
-# <a name="macostabmacos"></a>[macOS](#tab/macOS)
+# <a name="macos"></a>[macOS](#tab/macOS)
 
 1. 스포트라이트 (명령 + 스페이스바)를 열고 키 **집합 액세스**를 검색 합니다.
 2. `<connection_type_key>/<corrupted_connection_name>` 키가 있는 항목을 찾습니다 (예: `StorageExplorer_CustomConnections_Accounts_v1/account1`).
 3. 이러한 항목을 삭제 하 고 연결을 다시 추가 합니다.
 
-# <a name="linuxtablinux"></a>[Linux](#tab/Linux)
+# <a name="linux"></a>[Linux](#tab/Linux)
 
 로컬 자격 증명 관리는 Linux 배포에 따라 다릅니다. Linux 배포판에서 로컬 자격 증명 관리에 대 한 기본 제공 GUI 도구를 제공 하지 않는 경우 타사 도구를 설치 하 여 로컬 자격 증명을 관리할 수 있습니다. 예를 들어 Linux 로컬 자격 증명을 관리 하기 위한 오픈 소스 GUI 도구인 [Seahorse](https://wiki.gnome.org/Apps/Seahorse/)를 사용할 수 있습니다.
 
@@ -309,7 +320,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
 > [!NOTE]
 > Storage 탐색기 버전 1.7.0 및 이전 버전에서는 .NET Core 2.0이 필요 합니다. 최신 버전의 .NET Core가 설치 되어 있는 경우 [Storage 탐색기 패치](#patching-storage-explorer-for-newer-versions-of-net-core)를 제공 해야 합니다. Storage 탐색기 1.8.0 이상 버전을 실행 하는 경우에는 .NET Core 2.2을 사용할 수 있어야 합니다. 2\.2 이외의 버전은 현재 작동 하도록 확인 되지 않았습니다.
 
-# <a name="ubuntu-1904tab1904"></a>[Ubuntu 19.04](#tab/1904)
+# <a name="ubuntu-1904"></a>[Ubuntu 19.04](#tab/1904)
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu19-04/runtime-current)설치 합니다.
@@ -318,7 +329,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
    sudo apt-get install libgconf-2-4 libgnome-keyring0
    ```
 
-# <a name="ubuntu-1804tab1804"></a>[Ubuntu 18.04](#tab/1804)
+# <a name="ubuntu-1804"></a>[Ubuntu 18.04](#tab/1804)
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu18-04/runtime-current)설치 합니다.
@@ -327,7 +338,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
    sudo apt-get install libgconf-2-4 libgnome-keyring-common libgnome-keyring0
    ```
 
-# <a name="ubuntu-1604tab1604"></a>[Ubuntu 16.04](#tab/1604)
+# <a name="ubuntu-1604"></a>[Ubuntu 16.04](#tab/1604)
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu16-04/runtime-current)설치 합니다.
@@ -336,7 +347,7 @@ snap connect storage-explorer:password-manager-service :password-manager-service
    sudo apt install libgnome-keyring-dev
    ```
 
-# <a name="ubuntu-1404tab1404"></a>[Ubuntu 14.04](#tab/1404)
+# <a name="ubuntu-1404"></a>[Ubuntu 14.04](#tab/1404)
 
 1. Storage 탐색기를 다운로드 합니다.
 2. [.Net Core 런타임을](https://dotnet.microsoft.com/download/linux-package-manager/ubuntu14-04/runtime-current)설치 합니다.
@@ -370,4 +381,4 @@ Azure Portal에서 **탐색기에서 열기** 단추가 작동 하지 않으면 
 
 이러한 해결 방법이 없는 경우 [GitHub에서 문제를 엽니다](https://github.com/Microsoft/AzureStorageExplorer/issues). 왼쪽 아래 모서리에 있는 **GitHub에 문제 보고** 단추를 선택 하 여이 작업을 수행할 수도 있습니다.
 
-![피드백](./media/storage-explorer-troubleshooting/feedback-button.PNG)
+![사용자 의견](./media/storage-explorer-troubleshooting/feedback-button.PNG)

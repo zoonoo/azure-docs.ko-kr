@@ -8,12 +8,12 @@ ms.reviewer: rkarlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: d39ffa05448600fe3bd09baf6080aa1565ae19ba
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c7e98c31c0db1db3051ad66df6526dcbddb265c5
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843588"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560425"
 ---
 # <a name="query-data-in-azure-monitor-using-azure-data-explorer-preview"></a>Azure 데이터 탐색기 (미리 보기)를 사용 하 여 Azure Monitor에서 데이터 쿼리
 
@@ -34,7 +34,7 @@ Azure 데이터 탐색기 프록시 흐름:
 
     ![ADX native cluster](media/adx-proxy/web-ui-help-cluster.png)
 
-1. Azure 데이터 탐색기 UI (https://dataexplorer.azure.com/clusters) 에서 **클러스터 추가**를 선택 합니다.
+1. Azure 데이터 탐색기 UI (https://dataexplorer.azure.com/clusters)에서 **클러스터 추가**를 선택 합니다.
 
 1. **클러스터 추가** 창에서 LA 또는 AI 클러스터에 URL을 추가 합니다. 
     

@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 548a578365b03162396fb8618718ab1e7ce5b081
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 28b7a2b95e8ad23226f92f2b6fba085cc0fa1bfd
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400792"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565556"
 ---
 # <a name="how-to-upgrade-the-azure-monitor-for-vms-dependency-agent"></a>VM용 Azure Monitor 종속성 에이전트를 업그레이드 하는 방법
 
@@ -39,16 +39,9 @@ Windows VM의 에이전트를 종속성 에이전트 VM 확장을 사용 하 여
 1. 관리 권한이 있는 계정으로 컴퓨터에 로그인합니다.
 
 2. **Installdependencyagent-windows.exe** 를 실행 하 여 설치 마법사를 시작 합니다.
+   
+3. **Dependency Agent 설치** 마법사의 지침에 따라 이전 버전의 종속성 에이전트를 제거한 다음 최신 버전을 설치 합니다.
 
-3. **Dependency Agent 9.9.1 설정** 대화 상자에서 **동의** 함을 클릭 하 여 사용권 계약에 동의 합니다.
-
-5. **Dependency Agent 9.9.0 제거** 대화 상자에서 **다음**을 클릭 합니다. 상태 페이지에 이전 버전의 제거 진행률이 표시 됩니다.
-
-6. **Dependency Agent 9.9.0 제거** 대화 상자에서 **제거** 를 클릭 하 여 대화 상자에 지정 된 경로에서 이전 버전의 제거를 계속 합니다. 
-
-7. **Dependency Agent 9.9.0 제거** 대화 상자에서 제거 진행률이 표시 되 고 완료 되 면 **Dependency Agent 제거 완료** 페이지가 나타납니다. **Finish**를 클릭합니다.
-
-8. **Dependency Agent 9.9.1 설정** 대화 상자에서 설치 진행률이 표시 됩니다. **Dependency Agent 제거 완료** 페이지가 표시 되 면 **마침**을 클릭 합니다. 
 
 ### <a name="from-the-command-line"></a>명령줄에서
 

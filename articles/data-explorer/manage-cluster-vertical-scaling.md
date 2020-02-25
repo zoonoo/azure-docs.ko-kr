@@ -1,5 +1,5 @@
 ---
-title: 변경 수요에 맞게 Azure 데이터 탐색기에서 클러스터 수직 확장 (강화) 관리
+title: Azure 데이터 탐색기의 수요와 일치 하도록 클러스터 수직 확장 (확장) 관리
 description: 이 문서에서는 수요 변화에 따라 Azure 데이터 탐색기 클러스터를 확장 하 고 축소 하는 단계를 설명 합니다.
 author: radennis
 ms.author: radennis
@@ -7,12 +7,12 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 07/14/2019
-ms.openlocfilehash: 80bbdf3a5d936719b06782cd78d56088b36cb21d
-ms.sourcegitcommit: 6b41522dae07961f141b0a6a5d46fd1a0c43e6b2
+ms.openlocfilehash: 95275598febae2b6b0355a7bc3e512490dae500d
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/15/2019
-ms.locfileid: "67985475"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560442"
 ---
 # <a name="manage-cluster-vertical-scaling-scale-up-in-azure-data-explorer-to-accommodate-changing-demand"></a>변경 수요에 맞게 Azure 데이터 탐색기에서 클러스터 수직 확장 (강화) 관리
 
@@ -50,5 +50,5 @@ Azure 데이터 탐색기 클러스터의 크기를 조정 하는 데는 두 가
 
 * [클러스터 수평 확장을 관리](manage-cluster-horizontal-scaling.md) 하 여 지정한 메트릭에 따라 인스턴스 수를 동적으로 확장 합니다.
 
-* 이 문서에 따라 리소스 사용량을 모니터링 합니다. [메트릭을 사용 하 여 Azure 데이터 탐색기 성능, 상태 및 사용량을 모니터링](using-metrics.md)합니다.
+* [메트릭을 사용 하 여 Azure 데이터 탐색기 성능, 상태 및 사용 현황 모니터링](using-metrics.md)문서를 수행 하 여 리소스 사용량을 모니터링 합니다.
 

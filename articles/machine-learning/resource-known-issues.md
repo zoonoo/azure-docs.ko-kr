@@ -10,18 +10,84 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 40749a80d99782a1ea84b27e68376ea2870e8eb7
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 771ae508aaa46167413c2e701d8193790198cb68
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137999"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565913"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
 이 문서는 Azure Machine Learning를 사용할 때 발생 하는 오류 또는 오류를 찾고 수정 하는 데 도움이 됩니다.
 
-## <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>중단: AmlCompute에서 NCv3 컴퓨터로 SR-IOV 업그레이드
+## <a name="sdk-installation-issues"></a>SDK 설치 문제
+
+**오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
+
+Python 용 Azure Machine Learning SDK: PyYAML는 distutils 설치 된 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
+
+```Python
+pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
+```
+
+**오류 메시지: `ERROR: No matching distribution found for azureml-dataprep-native`**
+
+Anaconda의 Python 3.7.4 배포에는 azureml sdk 설치를 중단 하는 버그가 있습니다. 이 문제는이 [GitHub 문제](https://github.com/ContinuumIO/anaconda-issues/issues/11195) 에 설명 되어 있습니다 .이 작업은 다음 명령을 사용 하 여 새 Conda 환경을 만들어 해결할 수 있습니다.
+```bash
+conda create -n <env-name> python=3.7.3
+```
+이를 통해 3.7.4에 설치 문제가 없는 Python 3.7.3를 사용 하 여 Conda 환경을 만듭니다.
+
+## <a name="training-and-experimentation-issues"></a>교육 및 실험 문제
+
+### <a name="metric-document-is-too-large"></a>메트릭 문서가 너무 큼
+Azure Machine Learning에는 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 커서" 오류가 발생 하는 경우 목록을 더 작은 청크로 분할 해 보세요. 예를 들면 다음과 같습니다.
+
+```python
+run.log_list("my metric name", my_metric[:N])
+run.log_list("my metric name", my_metric[N:])
+```
+
+내부적으로 Azure ML은 동일한 메트릭 이름을 가진 블록을 연속 된 목록에 연결 합니다.
+
+### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
+Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육 실행에 사용 되는 환경에 패키지를 설치 합니다. 
+
+[추정](concept-azure-machine-learning-architecture.md#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. `conda_dependencies_file`를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다. 평가기에서 사용 하는 기본 이미지를 재정의 하려는 고유한 Azure ML Environment 개체가 있는 경우 평가기 생성자의 `environment` 매개 변수를 통해 해당 환경을 지정할 수 있습니다.
+
+또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하 여 학습에 사용 되는 환경에서 핵심 프레임 워크 종속성을 대신 설치 하도록 합니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
+ 
+Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
+프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
+
+> [!Note]
+> 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
+ 
+### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
+이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 실행을 다시 전송 하기 전에 학습 스크립트를 확인 하 고 오류를 수정 하세요. 
+
+### <a name="horovod-has-been-shut-down"></a>Horovod가 종료 되었습니다.
+"AbortedError: Horovod가 종료 되었습니다."가 발생 하는 대부분의 경우이 예외는 Horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod가 종료 되는 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 있는 `Traceback`를 확인 합니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
+
+### <a name="sr-iov-availability-on-ncv3-machines-in-amlcompute-for-distributed-training"></a>분산 학습을 위한 AmlCompute의 NCv3 컴퓨터에서 sr-iov 가용성
+Azure Compute는 고객이 Azure ML의 관리 되는 계산 제공 (AmlCompute)을 통해 활용할 수 있는 NCv3 컴퓨터의 [sr-iov 업그레이드](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku/) 를 배포 했습니다. 업데이트를 통해 전체 MPI 스택을 지원 하 고, 특히 심층 학습을 위해 Infiniband RDMA 네트워크를 사용 하 여 다중 노드 분산 교육 성능을 향상 시킬 수 있습니다.
+
+[업데이트 일정](https://azure.microsoft.com/updates/sr-iov-availability-schedule-on-ncv3-virtual-machines-sku/) 을 확인 하 여 해당 지역에 대 한 지원이 롤아웃 되는 시기를 확인 합니다.
+
+### <a name="run-or-experiment-deletion"></a>실행 또는 실험 삭제
+실험은 [실험](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) (archive) 방법을 사용 하 여 보관 하거나 "실험 보관" 단추를 통해 Azure Machine Learning studio 클라이언트의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
+
+개별 실험 또는 실행을 영구적으로 삭제 하는 것은 현재 지원 되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
+
+## <a name="azure-machine-learning-compute-issues"></a>Azure Machine Learning 계산 문제
+Azure Machine Learning Compute (AmlCompute) 사용에 대 한 알려진 문제입니다.
+
+### <a name="trouble-creating-amlcompute"></a>AmlCompute 생성 문제
+
+GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 만든 일부 사용자가 해당 작업 영역에서 AmlCompute를 만들지 못할 수 있습니다. 서비스에 대 한 지원 요청을 발생 시키거나 포털 또는 SDK를 통해 새 작업 영역을 만들어 즉시 차단을 해제할 수 있습니다.
+
+### <a name="outage-sr-iov-upgrade-to-ncv3-machines-in-amlcompute"></a>중단: AmlCompute에서 NCv3 컴퓨터로 SR-IOV 업그레이드
 
 Azure Compute는 모든 MPI 구현 및 버전을 지원 하 고 InfiniBand 장착 가상 머신에 대 한 RDMA 동사를 지원 하기 위해 11 월 2019 초에 시작 하는 NCv3 Sku를 업데이트 합니다. 이 작업을 수행 하려면 짧은 가동 중지 시간이 필요 합니다. [sr-iov 업그레이드에 대해 자세히](https://azure.microsoft.com/updates/sriov-availability-on-ncv3-virtual-machines-sku)알아보세요.
 
@@ -43,28 +109,6 @@ Azure Machine Learning의 관리 되는 계산 제공 (AmlCompute)의 고객으�
 이 문제를 해결 하기 전에 데이터 집합을 데이터 변환 모듈 (데이터 집합의 열 선택, 메타 데이터 편집, 데이터 분할 등)에 연결 하 고 실험을 실행할 수 있습니다. 그런 다음 데이터 집합을 시각화할 수 있습니다. 
 
 다음 이미지는 ![visulize](./media/resource-known-issues/aml-visualize-data.png)를 보여 줍니다.
-
-## <a name="sdk-installation-issues"></a>SDK 설치 문제
-
-**오류 메시지: ‘PyYAML’을 제거할 수 없습니다.**
-
-Python 용 Azure Machine Learning SDK: PyYAML는 distutils 설치 된 프로젝트입니다. 따라서 부분 제거가 있는 경우 속해 있는 파일을 정확히 확인할 수 없습니다. 이 오류를 무시하면서 SDK를 게속 설치하려면 다음을 사용합니다.
-
-```Python
-pip install --upgrade azureml-sdk[notebooks,automl] --ignore-installed PyYAML
-```
-
-**오류 메시지: `ERROR: No matching distribution found for azureml-dataprep-native`**
-
-Anaconda의 Python 3.7.4 배포에는 azureml sdk 설치를 중단 하는 버그가 있습니다. 이 문제는이 [GitHub 문제](https://github.com/ContinuumIO/anaconda-issues/issues/11195) 에 설명 되어 있습니다 .이 작업은 다음 명령을 사용 하 여 새 Conda 환경을 만들어 해결할 수 있습니다.
-```bash
-conda create -n <env-name> python=3.7.3
-```
-이를 통해 3.7.4에 설치 문제가 없는 Python 3.7.3를 사용 하 여 Conda 환경을 만듭니다.
-
-## <a name="trouble-creating-azure-machine-learning-compute"></a>Azure Machine Learning 컴퓨팅을 만드는 문제
-
-GA 릴리스 전에 Azure Portal에서 Azure Machine Learning 작업 영역을 만든 일부 사용자가 해당 작업 영역에서 Azure Machine Learning 컴퓨팅을 만들 수 없는 경우는 거의 없습니다. 서비스에 대해 지원 요청을 제기하거나 포털 또는 SDK를 통해 새 작업 영역을 만들어 즉시 차단을 직접 해제할 수 있습니다.
 
 ## <a name="image-building-failure"></a>이미지 빌드 실패
 
@@ -255,38 +299,6 @@ kubectl get secret/azuremlfessl -o yaml
 >[!Note]
 >Kubernetes는 암호를 base-64로 인코딩된 형식으로 저장 합니다. `attach_config.enable_ssl`에 제공 하기 전에 `cert.pem` 및 암호의 `key.pem` 구성 요소를 먼저 디코딩하는 것이 64 필요 합니다. 
 
-## <a name="recommendations-for-error-fix"></a>오류 수정에 대 한 권장 사항
-일반적인 관찰을 기준으로 azure ML에서 일반적인 오류 중 일부를 해결 하기 위한 Azure ML 권장 사항은 다음과 같습니다.
-
-### <a name="metric-document-is-too-large"></a>메트릭 문서가 너무 큼
-Azure Machine Learning에는 학습 실행에서 한 번에 기록할 수 있는 메트릭 개체 크기에 대 한 내부 제한이 있습니다. 목록 값 메트릭을 로깅할 때 "메트릭 문서가 너무 커서" 오류가 발생 하는 경우 목록을 더 작은 청크로 분할 해 보세요. 예를 들면 다음과 같습니다.
-
-```python
-run.log_list("my metric name", my_metric[:N])
-run.log_list("my metric name", my_metric[N:])
-```
-
- 내부적으로 실행 기록 서비스는 동일한 메트릭 이름을 가진 블록을 연속 된 목록에 연결 합니다.
-
-### <a name="moduleerrors-no-module-named"></a>ModuleErrors (이름이 지정 된 모듈 없음)
-Azure ML에서 실험을 제출 하는 동안 ModuleErrors를 실행 하는 경우 학습 스크립트는 패키지를 설치 하는 것으로 예상 하지만 추가 되지 않았음을 의미 합니다. 패키지 이름을 제공 하면 Azure ML은 교육에 사용 되는 환경에 패키지를 설치 합니다. 
-
-[추정](concept-azure-machine-learning-architecture.md#estimators) 를 사용 하 여 실험을 제출 하는 경우 패키지를 설치 하려는 원본에서 기반으로 평가기의 `conda_packages` 매개 변수를 사용 하 여 패키지 `pip_packages` 이름을 지정할 수 있습니다. `conda_dependencies_file`를 사용 하 여 모든 종속성이 포함 된 iisnode.yml 파일을 지정 하거나 `pip_requirements_file` 매개 변수를 사용 하 여 txt 파일에 모든 pip 요구 사항을 나열할 수도 있습니다.
-
-또한 Azure ML은 Tensorflow, PyTorch, 체 이너 및 추정에 대 한 프레임 워크 관련 제공 합니다. 이러한 추정을 사용 하면 학습에 사용 되는 환경에서 프레임 워크 종속성을 대신 설치할 수 있습니다. 위에서 설명한 대로 추가 종속성을 지정 하는 옵션이 있습니다. 
- 
-Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 볼 수 있습니다.
-프레임 워크 관련 종속성은 해당 프레임 워크 설명서- [체](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.chainer?view=azure-ml-py#remarks), [PyTorch](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.pytorch?view=azure-ml-py#remarks), [TensorFlow](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.dnn.tensorflow?view=azure-ml-py#remarks), 고 지 사항 [배우기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.sklearn.sklearn?view=azure-ml-py#remarks)에 나열 되어 있습니다.
-
-> [!Note]
-> 특정 패키지가 Azure 기계 학습에서 유지 관리 되는 이미지 및 환경에 추가할 수 있는 것으로 생각 되는 경우 [AzureML 컨테이너](https://github.com/Azure/AzureML-Containers)에서 GitHub 문제를 제기 하세요. 
- 
- ### <a name="nameerror-name-not-defined-attributeerror-object-has-no-attribute"></a>NameError (이름이 정의 되지 않음), AttributeError (개체에 특성이 없음)
-이 예외는 학습 스크립트에서 제공 되어야 합니다. Azure Portal에서 로그 파일을 확인 하 여 지정 되지 않은 특정 이름 또는 특성 오류에 대 한 자세한 정보를 볼 수 있습니다. SDK에서 `run.get_details()`를 사용 하 여 오류 메시지를 확인할 수 있습니다. 또한 실행을 위해 생성 된 모든 로그 파일을 나열 합니다. 학습 스크립트를 확인 하 고 다시 시도 하기 전에 오류를 수정 하세요. 
-
-### <a name="horovod-is-shut-down"></a>Horovod가 종료 되었습니다.
-대부분의 경우이 예외는 horovod 종료를 일으킨 프로세스 중 하나에 기본 예외가 있음을 의미 합니다. MPI 작업의 각 순위는 Azure ML의 전용 로그 파일을 가져옵니다. 이러한 로그의 이름은 `70_driver_logs`입니다. 분산 교육의 경우 로그를 쉽게 구분할 수 있도록 로그 이름에 `_rank` 접미사가 붙습니다. Horovod shutdown이 발생 한 정확한 오류를 찾으려면 모든 로그 파일을 확인 하 고 driver_log 파일의 끝에 있는 `Traceback`를 확인 합니다. 이러한 파일 중 하나는 실제 기본 예외를 제공 합니다. 
-
 ## <a name="labeling-projects-issues"></a>프로젝트 문제 레이블 지정
 
 프로젝트 레이블 지정의 알려진 문제입니다.
@@ -306,12 +318,6 @@ Azure ML에서 관리 하는 docker 이미지와 해당 콘텐츠는 [AzureML �
 ### <a name="pressing-esc-key-while-labeling-for-object-detection-creates-a-zero-size-label-on-the-top-left-corner-submitting-labels-in-this-state-fails"></a>개체 검색에 대 한 레이블을 지정 하는 동안 Esc 키를 누르면 왼쪽 위 모퉁이에 크기가 0 인 레이블이 생성 됩니다. 이 상태의 레이블 전송에 실패 합니다.
 
 옆의 십자 표시를 클릭 하 여 레이블을 삭제 합니다.
-
-## <a name="run-or-experiment-deletion"></a>실행 또는 실험 삭제
-
-실험 [은 실험을 사용 하거나](https://docs.microsoft.com/python/api/azureml-core/azureml.core.experiment(class)?view=azure-ml-py#archive--) Azure Machine Learning studio Client의 실험 탭 보기에서 보관할 수 있습니다. 이 동작을 수행 하면 쿼리 및 뷰 목록에서 실험을 숨길 수 있지만 삭제 하지는 않습니다.
-
-개별 실험 또는 실행을 영구적으로 삭제 하는 것은 현재 지원 되지 않습니다. 작업 영역 자산을 삭제 하는 방법에 대 한 자세한 내용은 [Machine Learning 서비스 작업 영역 데이터 내보내기 또는 삭제](how-to-export-delete-data.md)를 참조 하세요.
 
 ## <a name="moving-the-workspace"></a>작업 영역 이동
 

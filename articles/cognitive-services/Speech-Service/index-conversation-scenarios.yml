@@ -1,0 +1,55 @@
+### YamlMime:Landing
+title: 대화 시나리오 설명서
+summary: 다양 한 대화 시나리오, 대화 기록 또는 다중 장치 대화를 살펴보세요.
+metadata:
+  title: 대화 시나리오 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: d6ea318c2745f7d80a49e5fcb1b47381a9f276f7
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563081"
+landingContent:
+- title: 대화 전사
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 대화 기록 정보
+      url: conversation-transcription.md
+  - linkListType: how-to-guide
+    links:
+    - text: 실시간 대화 전사
+      url: how-to-use-conversation-transcription.md
+    - text: 비동기 대화 전사
+      url: how-to-async-conversation-transcription.md
+    - text: 콜 센터 시나리오를 처리 합니다.
+      url: call-center-transcription.md
+- title: 다중 디바이스 대화
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: 다중 장치 대화 정보
+      url: multi-device-conversation.md
+  - linkListType: quickstart
+    links:
+    - text: 대화 시작 및 참가
+      url: quickstarts/multi-device-conversation.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: 대화 내용 언어 지원
+      url: conversation-transcription.md#language-support
+    - text: 다중 장치 대화 언어 지원
+      url: multi-device-conversation.md#language-support
+    - text: 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/speech-services/

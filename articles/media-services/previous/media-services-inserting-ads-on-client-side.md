@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/18/2019
 ms.author: juliako
-ms.openlocfilehash: f56c897fd6f5ce7e5129a4500ecaacbaf0a75f3b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 274ee09ae98dd229b255e58261f462e322be9f89
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74895959"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565743"
 ---
 # <a name="inserting-ads-on-the-client-side"></a>클라이언트 쪽에 광고 삽입
 이 문서에서는 클라이언트 측에서 다양한 유형의 광고를 삽입하는 방법에 대해 설명합니다.
@@ -224,7 +224,7 @@ VMAP 파일을 사용하여 광고가 발생하는 시기, 각 광고가 지속�
     </vmap:VMAP>
 ```
 
-VMAP 파일은 각각 광고를 정의하는 하나 이상의 `<AdBreak>` 요소를 포함하는 `<VMAP>` 요소로 시작합니다. 각 광고는 광고 유형, 광고 ID 및 시간 오프셋을 지정합니다. breakType 특성은 광고 중에 표시할 수 있는 광고 유형을 선형, 비선형 또는 표시 중에서 지정합니다. 표시 광고는 VAST 동반 광고에 매핑됩니다. 둘 이상의 광고 유형은 공백 없이 쉼표로 구분된 목록으로 지정할 수 있습니다. breakID는 광고의 선택적 식별자입니다. timeOffset은 광고가 표시되어야 하는 시기를 지정합니다. 다음 방법의 하나로 지정할 수 있습니다.
+VMAP 파일은 각각 광고를 정의하는 하나 이상의 `<VMAP>` 요소를 포함하는 `<AdBreak>` 요소로 시작합니다. 각 광고는 광고 유형, 광고 ID 및 시간 오프셋을 지정합니다. breakType 특성은 광고 중에 표시할 수 있는 광고 유형을 선형, 비선형 또는 표시 중에서 지정합니다. 표시 광고는 VAST 동반 광고에 매핑됩니다. 둘 이상의 광고 유형은 공백 없이 쉼표로 구분된 목록으로 지정할 수 있습니다. breakID는 광고의 선택적 식별자입니다. timeOffset은 광고가 표시되어야 하는 시기를 지정합니다. 다음 방법의 하나로 지정할 수 있습니다.
 
 1. Time – hh:mm:ss 또는 hh:mm:ss.mmm 형식으로 지정합니다. 여기서 .mmm은 밀리초입니다. 이 특성 값은 비디오 타임라인 시작부터 광고 시작까지 지나는 시간을 지정합니다.
 2. Percentage – n% 형식으로 지정합니다. 여기서 n은 광고를 재생하기 전에 재생할 비디오 타임라인의 백분율입니다.
@@ -276,7 +276,7 @@ VMAP 파일은 각각 광고를 정의하는 하나 이상의 `<AdBreak>` 요소
     </vmap:VMAP>
 ```
 
-<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf 를 참조하세요.
+<**TrackingEvents**> 요소 및 해당 자식에 대한 자세한 내용은 http://iab.net/VMAP.pdf를 참조하세요.
 
 ### <a name="using-a-media-abstract-sequencing-template-mast-file"></a>MAST(Media Abstract Sequencing Template) 파일 사용
 MAST 파일을 사용하여 광고가 표시되는 시기를 정의하는 트리거를 지정할 수 있습니다. 재생 전 광고, 재생 중 광고 및 재생 후 광고에 대한 트리거를 포함하는 예제 MAST 파일은 다음과 같습니다.
@@ -334,7 +334,7 @@ MAST 파일은 하나의 **triggers** 요소를 포함하는 **MAST** 요소로 
 3. **value** – 속성을 평가할 기준 값
 4. **operator** – 평가 중에 사용할 연산: EQ(같음), NEQ(같지 않음), GTR(보다 큼), GEQ(크거나 같음), LT(보다 작음), LEQ(작거나 같음), MOD(나머지)
 
-**endConditions**도 `<condition>` 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. `<trigger>` 요소에는 `<source>` 요소를 하나 이상 포함하는 `<sources>` 요소도 포함됩니다. `<source>` 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
+**endConditions**도 `<condition>` 요소를 포함합니다. 조건이 true로 평가되면 트리거가 다시 설정됩니다. `<trigger>` 요소에는 `<sources>` 요소를 하나 이상 포함하는 `<source>` 요소도 포함됩니다. `<source>` 요소는 광고 응답에 대한 URI와 광고 응답 유형을 정의합니다. 다음 예제에서는 VAST 응답에 URI가 지정되어 있습니다.
 
 ```xml
     <trigger id="postroll" description="postroll"  >
@@ -363,7 +363,7 @@ VPAID는 실행 가능한 광고 단위가 비디오 플레이어와 통신하�
     </MediaFiles>
 ```
 
-실행 가능한 광고는 VAST 응답의 `<Linear>` 또는 `<NonLinear>` 요소 내에서 `<AdParameters>` 요소를 사용하여 초기화할 수 있습니다. `<AdParameters>` 요소에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
+실행 가능한 광고는 VAST 응답의 `<AdParameters>` 또는 `<Linear>` 요소 내에서 `<NonLinear>` 요소를 사용하여 초기화할 수 있습니다. `<AdParameters>` 요소에 대한 자세한 내용은 [VAST 3.0](https://www.iab.net/media/file/VASTv3.0.pdf)(영문)을 참조하세요. VPAID API에 대한 자세한 내용은 [VPAID 2.0](https://www.iab.net/media/file/VPAID_2.0_Final_04-10-2012.pdf)(영문)을 참조하세요.
 
 ## <a name="implementing-a-windows-or-windows-phone-8-player-with-ad-support"></a>광고 지원이 포함된 Windows 또는 Windows Phone 8 플레이어 구현
 Microsoft Media Platform: Windows 8 및 Windows Phone 8용 플레이어 프레임워크에는 프레임워크를 사용하여 비디오 플레이어 애플리케이션을 구현하는 방법을 보여 주는 샘플 애플리케이션 컬렉션이 포함됩니다. [Windows 8 및 Windows Phone 8용 플레이어 프레임워크](https://playerframework.codeplex.com)에서 플레이어 프레임워크와 샘플을 다운로드할 수 있습니다.
@@ -846,9 +846,5 @@ Microsoft Media Platform: iOS용 플레이어 프레임워크에는 프레임워
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
-
-## <a name="see-also"></a>참고 항목
-[비디오 플레이어 애플리케이션 개발](media-services-develop-video-players.md)
-

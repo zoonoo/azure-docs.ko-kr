@@ -6,12 +6,12 @@ ms.author: manishku
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 01/09/2020
-ms.openlocfilehash: d982771d5c7ebc864991026e399e9648d333cc8f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0eacf0f65346247d5fda5b26ead924a8cfd94dd9
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425530"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562091"
 ---
 # <a name="create-and-manage-private-link-for-azure-database-for-postgresql---single-server-preview-using-cli"></a>CLI를 사용 하 여 Azure Database for PostgreSQL 단일 서버 (미리 보기)에 대 한 개인 링크 만들기 및 관리
 
@@ -20,7 +20,7 @@ ms.locfileid: "77425530"
 > [!NOTE]
 > 이 기능은 Azure Database for PostgreSQL 단일 서버가 범용 및 메모리 액세스에 최적화 된 가격 책정 계층을 지 원하는 모든 Azure 지역에서 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 
@@ -121,6 +121,9 @@ az network private-dns record-set a create --name myserver --zone-name privateli
 az network private-dns record-set a add-record --record-set-name myserver --zone-name privatelink.postgres.database.windows.net --resource-group myResourceGroup -a <Private IP Address>
 ```
 
+> [!NOTE] 
+> 고객 DNS 설정의 FQDN은 구성 된 개인 IP로 확인 되지 않습니다. [여기](../dns/dns-operations-recordsets-portal.md)에 표시 된 대로 구성 된 FQDN에 대 한 DNS 영역을 설정 해야 합니다.
+
 ## <a name="connect-to-a-vm-from-the-internet"></a>인터넷에서 VM에 연결
 
 다음과 같이 인터넷에서 *myVm* VM에 연결합니다.
@@ -170,7 +173,7 @@ az network private-dns record-set a add-record --record-set-name myserver --zone
     | 서버 유형| **PostgreSQL**를 선택 합니다.|
     | 서버 이름| *Mydemopostgresserver.privatelink.postgres.database.azure.com* 선택 |
     | 사용자 이름 | PostgreSQL 서버를 만드는 동안 제공 되는 username@servername 사용자 이름을 입력 합니다. |
-    |암호 |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
+    |Password |PostgreSQL 서버를 만드는 동안 제공 된 암호를 입력 합니다. |
     |SSL|**필수**를 선택 합니다.|
     ||
 

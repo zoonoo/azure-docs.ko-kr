@@ -1,0 +1,45 @@
+### YamlMime:Landing
+title: 의도 인식 설명서
+summary: 음성 및 Language Understanding (LUIS) 서비스를 사용 하면 의도 및 엔터티를 식별 하는 동시에 오디오 스트림의 실시간 기록을 텍스트에 사용할 수 있습니다.
+metadata:
+  title: 의도 인식 설명서-자습서, API 참조-Azure Cognitive Services | Microsoft Docs
+  titleSuffix: Azure Cognitive Services
+  services: cognitive-services
+  author: IEvangelist
+  manager: nitinme
+  layout: LandingPage
+  ms.service: speech-service
+  ms.topic: landing-page
+  ms.date: 02/11/2020
+  ms.author: dapine
+  ms.openlocfilehash: 278dc182b682615d621bfd8a891cc77591a511f1
+  ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+  ms.translationtype: MT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/22/2020
+  ms.locfileid: "77563061"
+landingContent:
+- title: 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: 음성, 의도 및 엔터티 인식
+      url: quickstarts/intent-recognition.md
+- title: 단계별 가이드
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: LUIS 및를 사용 하 여 음성 의도 인식C#
+      url: how-to-recognize-intents-from-speech-csharp.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: LUIS(Language Understanding) 포털
+      url: https://www.luis.ai
+    - text: LUIS 개발자 리소스
+      url: ../luis/developer-reference-resource.md
+    - text: 언어 지원
+      url: ../luis/luis-language-support.md#languages-supported
+    - text: 가격
+      url: https://azure.microsoft.com/pricing/details/cognitive-services/language-understanding-intelligent-services
