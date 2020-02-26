@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 01/25/2019
-ms.openlocfilehash: 386c44cbf7a86e1a1dc92b918d87d0d8c1e60dd2
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: c4923e43613653bf3dfe8055754039ab0cf57fca
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75744712"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587382"
 ---
 # <a name="troubleshoot-azure-sql-database-performance-issues-with-intelligent-insights"></a>Intelligent Insights를 사용하여 Azure SQL Database 성능 문제 해결
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md) 데이터베이스 성능 진단 로그를 통해 감지되는 Azure SQL Database 및 Managed Instance 성능 문제에 대한 정보를 제공합니다. 진단 로그 원격 분석은 사용자 지정 DevOps 경고 및 보고 기능을 위해 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)또는 타사 솔루션으로 스트리밍할 수 있습니다.
 
 > [!NOTE]
 > Intelligent Insights를 사용한 빠른 SQL Database 성능 문제 해결 가이드는 이 문서의 [권장되는 문제 해결 흐름](sql-database-intelligent-insights-troubleshoot-performance.md#recommended-troubleshooting-flow) 순서도를 참조하세요.
@@ -34,7 +34,7 @@ Intelligent Insights는 쿼리 실행 대기 시간, 오류 또는 시간 제한
 | :------------------- | ------------------- | ------------------- |
 | [리소스 제한에 도달](sql-database-intelligent-insights-troubleshoot-performance.md#reaching-resource-limits) | 리소스(DTU), 데이터베이스 작업자 스레드 또는 모니터링된 구독에서 사용 가능한 데이터베이스 로그인 세션의 사용량이 제한에 도달하였습니다. 이는 SQL Database 성능에 영향을 줍니다. | CPU 리소스의 사용량이 Managed Instance 제한에 도달합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [워크로드 증가](sql-database-intelligent-insights-troubleshoot-performance.md#workload-increase) | 데이터베이스의 워크로드가 증가하거나 지속적으로 누적되었음이 발견되었습니다. 이는 SQL Database 성능에 영향을 줍니다. | 워크로드 증가가 감지되었습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
-| [메모리 압력](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기해야 합니다. 또는 메모리 부여를 요청한 작업자가 지속적으로 누적되어 존재합니다. 이는 SQL Database 성능에 영향을 줍니다. | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
+| [메모리 압력](sql-database-intelligent-insights-troubleshoot-performance.md#memory-pressure) | 메모리 부여를 요청한 작업자는 통계적으로 상당한 시간 동안 메모리 할당을 기다리거나 요청 된 메모리 부여가 있는 작업자의 누적 된 시간을 늘려야 합니다. 이는 SQL Database 성능에 영향을 줍니다. | 메모리 부여를 요청한 작업자는 통계적으로 유의미한 시간 동안 메모리 할당을 대기합니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [잠금](sql-database-intelligent-insights-troubleshoot-performance.md#locking) | SQL Database 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. | 데이터베이스 성능에 영향을 주는 과도한 데이터베이스 잠금이 발견되었습니다. |
 | [MAXDOP 증가](sql-database-intelligent-insights-troubleshoot-performance.md#increased-maxdop) | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 SQL Database 성능에 영향을 줍니다. | MAXDOP(최대 병렬 처리 수준 옵션)이 변경되었으며 쿼리 실행 효율성에 영향을 주고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |
 | [페이지 래치 경합](sql-database-intelligent-insights-troubleshoot-performance.md#pagelatch-contention) | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 SQL Database 성능에 영향을 줍니다. | 여러 스레드가 동일한 메모리 내 데이터 버퍼 페이지에 동시에 액세스하려고 시도하여 페이지 래치 경합이 발생하고 있습니다. 이는 데이터베이스 성능에 영향을 줍니다. |

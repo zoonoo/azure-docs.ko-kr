@@ -2,17 +2,17 @@
 title: Azure 개인 링크 서비스 란?
 description: Azure 개인 링크 서비스에 대해 알아봅니다.
 services: private-link
-author: malopMSFT
+author: sumeetmittal
 ms.service: private-link
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: allensu
-ms.openlocfilehash: 1ac1feb5e3b179ded5fd8dae47e1859f082ad827
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.author: sumi
+ms.openlocfilehash: 97515b308323452e88cf6fd8a517c1f169c9ba6f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565789"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587416"
 ---
 # <a name="what-is-azure-private-link-service"></a>Azure 개인 링크 서비스 란?
 
@@ -104,9 +104,9 @@ Azure Private Link 서비스는 Azure Private Link에서 제공하는 자체 서
 
 사용자 지정 TLV 세부 정보:
 
-|필드 |길이 (8 진수)  |설명  |
+|필드 |길이 (8 진수)  |Description  |
 |---------|---------|----------|
-|형식  |1        |PP2_TYPE_AZURE (0xEE)|
+|Type  |1        |PP2_TYPE_AZURE (0xEE)|
 |길이  |2      |값의 길이|
 |값  |1     |PP2_SUBTYPE_AZURE_PRIVATEENDPOINT_LINKID (0x01)|
 |  |4        |UINT32 (4 바이트)-개인 끝점의 LINKID을 나타냅니다. Little endian 형식으로 인코딩됩니다.|

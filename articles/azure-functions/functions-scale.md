@@ -5,12 +5,12 @@ ms.assetid: 5b63649c-ec7f-4564-b168-e0a74cb7e0f3
 ms.topic: conceptual
 ms.date: 03/27/2019
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: fb36b81d1b2a343da334d63d9c0555ed537ef122
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: c4ff3ebf6239f9b62409ff0885f23115711e33cb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024656"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584544"
 ---
 # <a name="azure-functions-scale-and-hosting"></a>Azure Functions 크기 조정 및 호스팅
 
@@ -37,12 +37,12 @@ App Service 계획을 사용 하면 관리 하는 전용 인프라를 활용할 
 
 다음 표는 Windows 또는 Linux에서 실행 되는 경우 세 가지 호스팅 계획에 대 한 현재 지원 수준을 나타냅니다.
 
-| | 사용량 과금 플랜 | 프리미엄 플랜 | 전용 계획 |
+| | 소비 계획 | 프리미엄 플랜 | 전용 계획 |
 |-|:----------------:|:------------:|:----------------:|
 | Windows | GA | GA | GA |
 | Linux | GA | GA | GA |
 
-## <a name="consumption-plan"></a>사용량 과금 플랜
+## <a name="consumption-plan"></a>소비 계획
 
 소비 계획을 사용 하는 경우 Azure Functions 호스트의 인스턴스는 들어오는 이벤트의 수에 따라 동적으로 추가 및 제거 됩니다. 이 서버리스 계획은 자동으로 규모를 조정하며, 함수를 실행하는 경우에만 컴퓨팅 리소스에 대한 요금이 청구됩니다. 소비 계획에서 구성 가능한 시간 후 함수 실행 시간이 초과됩니다.
 
@@ -105,11 +105,11 @@ App Service 계획에서 실행하는 경우 함수 앱이 올바르게 실행�
 [!INCLUDE [Timeout Duration section](../../includes/functions-timeout-duration.md)]
 
 
-Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 [host.json](functions-host-json.md#functiontimeout) 프로젝트 파일의 `functionTimeout` 설정에 의해 제어됩니다.
+Always On이 설정된 경우에도 개별 함수의 실행 시간 초과는 `functionTimeout`host.json[ 프로젝트 파일의 ](functions-host-json.md#functiontimeout) 설정에 의해 제어됩니다.
 
 ## <a name="determine-the-hosting-plan-of-an-existing-application"></a>기존 응용 프로그램의 호스팅 계획 결정
 
-함수 앱에서 사용하는 호스팅 계획을 결정하려면 [Azure Portal](https://portal.azure.com)의 함수 앱에 대한 **개요** 탭에서 **App Service 계획/가격 책정 계층**을 참조하세요. App Service 계획의 경우 가격 책정 계층도 표시됩니다.
+함수 앱에서 사용하는 호스팅 계획을 결정하려면 **Azure Portal**의 함수 앱에 대한 **개요** 탭에서 [App Service 계획/가격 책정 계층](https://portal.azure.com)을 참조하세요. App Service 계획의 경우 가격 책정 계층도 표시됩니다.
 
 ![포털에서 크기 조정 계획 보기](./media/functions-scale/function-app-overview-portal.png)
 
@@ -158,7 +158,7 @@ Azure Functions 확장 단위는 함수 앱입니다. 함수 앱을 확장하면
 
 다른 트리거에는 아래에 문서화된 대로 다른 규모 조정 제한이 있을 수도 있습니다.
 
-* [이벤트 허브](functions-bindings-event-hubs.md#trigger---scaling)
+* [이벤트 허브](functions-bindings-event-hubs-trigger.md#scaling)
 
 ### <a name="best-practices-and-patterns-for-scalable-apps"></a>확장성 있는 앱의 모범 사례 및 패턴
 

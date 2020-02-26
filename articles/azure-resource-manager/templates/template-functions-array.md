@@ -3,12 +3,12 @@ title: 템플릿 함수-배열 및 개체
 description: 배열 및 개체 작업을 위해 Azure Resource Manager 템플릿에서 사용할 수 있는 함수에 대해 설명합니다.
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: a38ab0fb2ddb15c3e853ae1b249df9a8364c6910
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1359951c00ba04e641ae84636459a8836924c729
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207369"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591186"
 ---
 # <a name="array-and-object-functions-for-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿에 대한 배열 및 개체 함수
 
@@ -1067,7 +1067,7 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 ## <a name="range"></a>range
 
-`range(startingInteger, numberOfElements)`
+`range(startIndex, count)`
 
 시작 정수 및 항목의 수를 포함하는 정수 배열을 만듭니다.
 
@@ -1075,8 +1075,8 @@ New-AzResourceGroupDeployment -ResourceGroupName functionexamplegroup -TemplateU
 
 | 매개 변수 | 필수 | Type | Description |
 |:--- |:--- |:--- |:--- |
-| startingInteger |yes |int |배열에서 첫 번째 정수입니다. |
-| numberofElements |yes |int |배열에 있는 정수의 수입니다. |
+| startIndex |yes |int |배열에서 첫 번째 정수입니다. StartIndex와 count의 합계는 2147483647 보다 크지 않아야 합니다. |
+| count |yes |int |배열에 있는 정수의 수입니다. 1만 까지의 음수가 아닌 정수 여야 합니다. |
 
 ### <a name="return-value"></a>반환 값
 

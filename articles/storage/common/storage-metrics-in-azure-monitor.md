@@ -8,12 +8,12 @@ ms.date: 09/05/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: f4c76539f6b14c3fb5ad5dba8fc8c8df514edfe4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 34665db48d2097fd3be3cdcd11a0d9cceb31855c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526844"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588946"
 ---
 # <a name="azure-storage-metrics-in-azure-monitor"></a>Azure Monitor의 Azure Storage 메트릭
 
@@ -396,7 +396,6 @@ Azure Storage는 Azure Monitor의 메트릭에 대해 다음과 같은 차원을
 | **BlobTier** | Azure storage는 blob 개체 데이터를 가장 비용 효율적인 방식으로 저장할 수 있는 다양 한 액세스 계층을 제공 합니다. [Azure Storage blob 계층](../blobs/storage-blob-storage-tiers.md)을 참조 하세요. 지원되는 값은 <br/> <li>**핫**: 핫 계층</li> <li>**쿨**: 쿨 계층</li> <li>**보관**: 보관 계층</li> <li>**Premium**: 블록 blob에 대 한 프리미엄 계층</li> <li>**P4/P6/P10/P15/P20/P30/P40/P50/P60**: 프리미엄 페이지 blob에 대 한 계층 형식</li> <li>**표준**: 표준 페이지 Blob의 계층 유형</li> <li>**계층화**되지 않음: 범용 v1 저장소 계정에 대 한 계층 유형</li> |
 | **GeoType** | 기본 또는 보조 클러스터에서 전송되는 트랜잭션입니다. 사용 가능한 값에는 **Primary** 및 **Secondary**가 포함 됩니다. 이는 보조 테넌트에서 개체를 읽을 때 RA-GRS(Read Access Geo Redundant Storage)에 적용됩니다. |
 | **ResponseType** | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>**Serverothererror**: 설명한 것을 제외 하 고 다른 모든 서버 쪽 오류 </li> <li>**ServerBusyError**: HTTP 503 상태 코드를 반환 하는 인증 된 요청입니다. </li> <li>**ServerTimeoutError**: HTTP 500 상태 코드를 반환 하는 인증 된 요청 시간이 초과 되었습니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li>**Authorizationerror**: 무단 데이터 액세스 또는 인증 실패로 인해 실패 한 인증 된 요청입니다. </li> <li>**Networkerror**: 네트워크 오류로 인해 실패 한 인증 된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li>  <li>**ClientAccountBandwidthThrottlingError**: [저장소 계정 확장성 제한을](scalability-targets-standard-account.md)초과 하는 대역폭에 대 한 요청을 제한 합니다.</li><li>**ClientAccountRequestThrottlingError**: 요청이 [저장소 계정 확장성 제한을](scalability-targets-standard-account.md)초과 하는 요청 속도로 제한 됩니다.<li>**ClientThrottlingError**: 다른 클라이언트 쪽 제한 오류입니다. ClientAccountBandwidthThrottlingError 및 ClientAccountRequestThrottlingError은 제외 됩니다.</li> <li>**ClientTimeoutError**: HTTP 500 상태 코드를 반환 하는 인증 된 요청 시간이 초과 되었습니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 스토리지 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다.</li> </li> <li>**Clientothererror**: 설명한 것을 제외 하 고 다른 모든 클라이언트 쪽 오류입니다. </li> <li>**성공**: 성공적인 요청</li> <li> **SuccessWithThrottling**: 첫 번째 시도에서 SMB 클라이언트를 제한 했지만 다시 시도한 후 성공 하는 경우 요청이 성공 합니다.</li> |
-| **ResponseType** | 트랜잭션 응답 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/><br/> <li>**Serverothererror**: 설명한 것을 제외 하 고 다른 모든 서버 쪽 오류 </li> <li>**ServerBusyError**: HTTP 503 상태 코드를 반환 하는 인증 된 요청입니다. </li> <li>**ServerTimeoutError**: HTTP 500 상태 코드를 반환 하는 인증 된 요청 시간이 초과 되었습니다. 서버 오류로 인해 시간 제한이 발생하였습니다. </li> <li>**Authorizationerror**: 무단 데이터 액세스 또는 인증 실패로 인해 실패 한 인증 된 요청입니다. </li> <li>**Networkerror**: 네트워크 오류로 인해 실패 한 인증 된 요청입니다. 가장 일반적으로 시간 제한이 만료하기 전에 클라이언트가 연결을 너무 일찍 닫은 경우에 발생합니다. </li>  <li>**ClientAccountBandwidthThrottlingError**: [저장소 계정 확장성 제한을](scalability-targets-standard-account.md)초과 하는 대역폭에 대 한 요청을 제한 합니다.</li><li>**ClientAccountRequestThrottlingError**: 요청이 [저장소 계정 확장성 제한을]()초과 하는 요청 속도로 제한 됩니다.<li>**ClientThrottlingError**: 다른 클라이언트 쪽 제한 오류입니다. ClientAccountBandwidthThrottlingError 및 ClientAccountRequestThrottlingError은 제외 됩니다.</li> <li>**ClientTimeoutError**: HTTP 500 상태 코드를 반환 하는 인증 된 요청 시간이 초과 되었습니다. 클라이언트의 네트워크 시간 제한 또는 요청 시간 제한이 스토리지 서비스에서 예상한 것보다 낮은 값으로 설정된 경우 이는 예상된 시간 제한입니다. 그렇지 않은 경우 이는 ServerTimeoutError로 보고됩니다.</li> </li> <li>**Clientothererror**: 설명한 것을 제외 하 고 다른 모든 클라이언트 쪽 오류입니다. </li> <li>**성공**: 성공적인 요청</li> <li> **SuccessWithThrottling**: 첫 번째 시도에서 SMB 클라이언트를 제한 했지만 다시 시도한 후 성공 하는 경우 요청이 성공 합니다.</li> |
 | **ApiName** | 작업 이름입니다. 다음은 그 예입니다. <br/> <li>**CreateContainer**</li> <li>**DeleteBlob**</li> <li>**GetBlob**</li> 모든 작업 이름은 [문서](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages)를 참조하세요. |
 | **인증** | 트랜잭션에 사용되는 인증 형식입니다. 사용 가능한 값은 다음을 포함합니다. <br/> <li>**AccountKey**: 트랜잭션은 저장소 계정 키를 사용 하 여 인증 됩니다.</li> <li>**SAS**: 트랜잭션이 공유 액세스 서명으로 인증 됩니다.</li> <li>**Oauth**: 트랜잭션이 OAuth 액세스 토큰으로 인증 됩니다.</li> <li>**Anonymous**: 트랜잭션이 익명으로 요청 됩니다. 실행 전 요청은 포함되지 않습니다.</li> <li>**AnonymousPreflight**: 트랜잭션이 실행 전 요청입니다.</li> |
 

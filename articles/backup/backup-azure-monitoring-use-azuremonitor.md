@@ -4,12 +4,12 @@ description: Azure Backup 작업을 모니터링 하 고 Azure Monitor를 사용
 ms.topic: conceptual
 ms.date: 06/04/2019
 ms.assetid: 01169af5-7eb0-4cb0-bbdb-c58ac71bf48b
-ms.openlocfilehash: acdd7ae870334fe3a77a37505fac5e02b3af360d
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 0673291ac6bd1692c6ebe07540e05077e3025d55
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500679"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583874"
 ---
 # <a name="monitor-at-scale-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 규모에 맞게 모니터링
 
@@ -29,11 +29,11 @@ Azure Monitor에서 Log Analytics 작업 영역에 경고를 직접 만들 수 �
 > [!IMPORTANT]
 > 이 쿼리를 만드는 데 드는 비용에 대 한 자세한 내용은 [Azure Monitor 가격 책정](https://azure.microsoft.com/pricing/details/monitor/)을 참조 하세요.
 
-그래프 중 하나를 선택 하 여 Log Analytics 작업 영역의 **로그** 섹션을 엽니다. **로그** 섹션에서 쿼리를 편집 하 고이에 대 한 경고를 만듭니다.
+Log Analytics 작업 영역의 **로그** 섹션을 열고 로그에 쿼리를 작성 합니다. **새 경고 규칙**을 선택 하면 다음 그림에 표시 된 것 처럼 Azure Monitor 경고 생성 페이지가 열립니다.
 
-![Log Analytics 작업 영역에서 경고 만들기](media/backup-azure-monitoring-laworkspace/la-azurebackup-customalerts.png)
+![Log Analytics 작업 영역에서 경고 만들기](media/backup-azure-monitoring-laworkspace/custom-alert.png)
 
-**새 경고 규칙**을 선택 하면 다음 그림에 표시 된 것 처럼 Azure Monitor 경고 생성 페이지가 열립니다. 여기서 리소스는 이미 Log Analytics 작업 영역으로 표시 되었으며 작업 그룹 통합이 제공 됩니다.
+여기서 리소스는 이미 Log Analytics 작업 영역으로 표시 되었으며 작업 그룹 통합이 제공 됩니다.
 
 ![Log Analytics 경고 만들기 페이지](media/backup-azure-monitoring-laworkspace/inkedla-azurebackup-createalert.jpg)
 
@@ -122,6 +122,26 @@ Log Analytics의 모든 경고 및 모니터링 요구 사항을 충족 하거�
     )
     on BackupItemUniqueId
     ````
+
+- 백업 항목당 사용 된 백업 저장소
+
+    ````Kusto
+    CoreAzureBackup
+    //Get all Backup Items
+    | where OperationName == "BackupItem"
+    //Get distinct Backup Items
+    | distinct BackupItemUniqueId, BackupItemFriendlyName
+    | join kind=leftouter
+    (AddonAzureBackupStorage
+    | where OperationName == "StorageAssociation"
+    //Get latest record for each Backup Item
+    | summarize arg_max(TimeGenerated, *) by BackupItemUniqueId 
+    | project BackupItemUniqueId , StorageConsumedInMBs)
+    on BackupItemUniqueId
+    | project BackupItemUniqueId , BackupItemFriendlyName , StorageConsumedInMBs 
+    | sort by StorageConsumedInMBs desc
+    ````
+
 
 ### <a name="diagnostic-data-update-frequency"></a>진단 데이터 업데이트 빈도
 

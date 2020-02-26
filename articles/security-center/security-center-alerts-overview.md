@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 6fc4b40e9b65f17b0af61b601826279e99410ed1
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 826cc155bae037121ddc303a6e1bf300e2d50a27
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75920751"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589303"
 ---
 # <a name="security-alerts-in-azure-security-center"></a>Azure Security Center의 보안 경고
 
@@ -35,7 +35,7 @@ Azure Security Center에는 다양 한 리소스 유형에 대 한 다양 한 �
 
 ## <a name="what-are-security-alerts"></a>보안 경고란?
 
-경고는 리소스에 대한 위협을 탐지할 때 Security Center에서 생성하는 알림입니다. Security Center 우선 순위를 정하여 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 나열 합니다. Security Center는 공격을 해결하는 방법에 대한 권장 사항도 제공합니다.
+경고는 리소스에 대 한 위협을 검색할 때 Security Center에서 생성 하는 알림입니다. Security Center 우선 순위를 정하여 문제를 신속 하 게 조사 하는 데 필요한 정보와 함께 경고를 나열 합니다. Security Center는 공격을 해결 하는 방법에 대 한 권장 사항도 제공 합니다.
 
 ## 는 어떻게 위협을 Security Center 검색 하나요? <a name="detect-threats"> </a>
 
@@ -63,7 +63,7 @@ Microsoft는 방대한 글로벌 위협 인텔리전스가 있습니다. 원격 
 
 또한 광범위 한 캠페인의 증명을 지 원하는 것을 확인 하기 위해 다른 신호와의 상관 관계가 있습니다. 이 상관 관계를 통해 설정된 손상 표시기와 일치하는 이벤트를 식별할 수 있습니다. 
 
-### <a name="anomaly-detection"></a>변칙 검색
+### <a name="anomaly-detection"></a>이상 감지
 
 Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다. 동작 분석(큰 데이터 집합에서 파생된 알려진 패턴에 따라 결정)과 달리 이상 감지는 더욱 "개인화"되고 배포에만 적용되는 기준에 중점을 둡니다. 배포에 대한 정상적인 작동을 확인하기 위해 기계 학습이 적용되고 보안 이벤트를 표시할 수 있는 이상값 조건을 정의하는 규칙이 생성됩니다.
 
@@ -72,15 +72,15 @@ Azure Security Center는 이상 감지를 사용하여 위협을 식별합니다
 Security Center는 경고에 대 한 심각도를 할당 하 여 각 경고에 참석 하는 순서의 우선 순위를 지정할 수 있도록 합니다. 따라서 리소스가 손상 되 면 즉시 가져올 수 있습니다. 심각도는 경고를 실행 하는 데 사용 되는 검색 또는 분석에 사용 되는 Security Center의 신뢰도와 경고를 발생 시킨 활동의 악의적인 의도를 가진 신뢰도 수준을 기준으로 합니다.
 
 > [!NOTE]
-> 경고 심각도는 포털과 REST API에서 다르게 표시되며, 차이점은 아래 목록에 나와 있습니다.
+> 경고 심각도는 01-01-2019 predate는 포털 및 REST API 버전에 따라 다르게 표시 됩니다. 이전 버전의 API를 사용 하는 경우 아래에 설명 된 일관 된 환경을 업그레이드 하세요.
 
-* **높음:** 리소스가 손상 될 확률이 매우 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.
-* **보통 (REST API 낮음)** : 의심 스러운 활동으로 리소스가 손상 된 것을 나타낼 수 있습니다.
+- **높음:** 리소스가 손상 될 확률이 매우 높습니다. 지금 즉시 리소스를 살펴보아야 합니다. Security Center는 경고 실행에 사용되는 악의적 의도와 결과 둘 다에서 신뢰성이 높습니다. 자격 증명 훔치기에 많이 사용되는 Mimikatz처럼 알려진 악의적 도구 실행을 검색하는 경고를 예로 들 수 있습니다.
+- **보통:** 의심 스러운 활동으로 리소스가 손상 된 것을 나타낼 수 있습니다.
 Security Center의 분석 또는 결과 신뢰도는 보통이며 악의적 의도의 신뢰도는 보통부터 높음 사이입니다. 이러한 검색은 일반적으로 기계 학습 이거나 변칙 기반 검색입니다. 예를 들어 비정상적인 위치에서 로그인을 시도 합니다.
-* **낮음(REST API에서는 Information)** : 무해한 양성 또는 차단된 공격일 수 있습니다.
+- **낮음:** 이는 무해 한 긍정 또는 차단 된 공격 일 수 있습니다.
    * Security Center는 신뢰도가 높지 않기 때문에 의도가 악의적이고 작업은 악의적이지 않을 수 있습니다. 예를 들어 로그 지우기는 공격자가 흔적을 숨기려 시도할 때 발생할 수도 있지만, 대부분은 관리자가 수행하는 일상적인 작업입니다.
    * Security Center는 일반적으로 공격을 차단하더라도 살펴볼 가치가 있는 흥미로운 사례가 아닌 경우에는 사용자에게 알리지 않습니다. 
-* **정보(REST API에서는 Silent)** : 보안 인시던트로 드릴다운하거나 특정 경고 ID가 있는 REST API를 사용하는 경우 정보 경고만 표시됩니다. 일반적으로 한 인시던트는 여러 경고로 구성되며, 그 중 일부는 오직 정보 제공만을 위해 단독으로 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다. 
+- **정보:** 보안 인시던트를 드릴 다운 하거나 특정 경고 ID로 REST API을 사용 하는 경우에만 정보 알림이 표시 됩니다. 일반적으로 한 인시던트는 여러 경고로 구성되며, 그 중 일부는 오직 정보 제공만을 위해 단독으로 표시될 수 있지만 다른 경고의 컨텍스트에서는 자세히 살펴볼 필요가 있습니다. 
  
 
 ## <a name="continuous-monitoring-and-assessments"></a>연속 모니터링 및 평가

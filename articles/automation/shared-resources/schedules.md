@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 04/04/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 8daa87eca74570f5b1fdf1537b83dae60d292128
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: c4898ba62abdc42d95b77b9a77387bfe71fb4771
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74849465"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592206"
 ---
 # <a name="scheduling-a-runbook-in-azure-automation"></a>Azure Automation에서 Runbook 예약
 
@@ -23,11 +23,11 @@ Azure Automation에서 Runbook이 지정된 시간에 시작되도록 예약하�
 > [!NOTE]
 > 일정은 현재 Azure Automation DSC 구성을 지원하지 않습니다.
 
-## <a name="powershell-cmdlets"></a>Powershell Cmdlet
+## <a name="powershell-cmdlets"></a>PowerShell Cmdlet
 
 다음 표의 cmdlet은 Azure Automation에서 PowerShell을 사용 하 여 일정을 만들고 관리 하는 데 사용 됩니다. 이러한 cmdlet은 [Azure PowerShell 모듈](/powershell/azure/overview)의 일부로 제공됩니다.
 
-| Cmdlet | 설명 |
+| Cmdlet | Description |
 |:--- |:--- |
 | [Get-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/get-azurermautomationschedule) |일정을 검색합니다. |
 | [New-AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) |새 일정을 만듭니다. |
@@ -43,7 +43,7 @@ Azure Portal 또는 PowerShell을 사용 하 여 runbook에 대 한 새 일정�
 
 > [!NOTE]
 > Azure Automation은 예약된 새 작업이 실행될 때 Automation 계정의 최신 모듈을 사용합니다.  자동화하는 프로세스 및 Runbook에 영향을 주지 않으려면 먼저 테스트 전용 Automation 계정으로 일정을 연결한 모든 Runbook을 테스트해야 합니다.  이렇게 하면 예약된 Runbook이 제대로 계속 작동하는지 확인하고, 그렇지 않은 경우 프로덕션 환경에 업데이트된 Runbook 버전을 마이그레이션하기 전에 추가적으로 문제를 해결하고 필요한 모든 변경 내용을 적용할 수 있습니다.
-> **모듈**에서 [Azure 모듈 업데이트](../automation-update-azure-modules.md) 옵션을 선택하여 수동으로 업데이트하지 않는 한 Automation 계정에서 새 버전의 모듈을 자동으로 가져오지 않습니다.
+> [모듈](../automation-update-azure-modules.md)에서 **Azure 모듈 업데이트** 옵션을 선택하여 수동으로 업데이트하지 않는 한 Automation 계정에서 새 버전의 모듈을 자동으로 가져오지 않습니다.
 
 ### <a name="to-create-a-new-schedule-in-the-azure-portal"></a>Azure 포털에서 새 일정을 만들려면
 
@@ -143,7 +143,7 @@ Register-AzureRmAutomationScheduledRunbook –AutomationAccountName $automationA
 
 Azure Automation에서 일정에 구성할 수 있는 가장 빈번한 간격은 1시간입니다. 일정을 이보다 더 자주 실행해야 하는 경우 두 가지 옵션이 있습니다.
 
-* Runbook에 대한 [웹후크](../automation-webhooks.md)를 만들고 [Azure Scheduler](../../scheduler/scheduler-get-started-portal.md)를 사용하여 웹후크를 호출합니다. Azure Scheduler는 일정을 정의할 때 보다 세분화된 세분성을 제공합니다.
+* Runbook에 대 한 [webhook](../automation-webhooks.md) 을 만들고 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) 를 사용 하 여 웹 후크를 호출 합니다. Azure Logic Apps는 일정을 정의할 때 보다 세분화 된 세분성을 제공 합니다.
 
 * 한 시간에 한 번씩 실행되는 일정을 4개 만들어서 서로 15분 이내에 시작되도록 설정합니다. 이 시나리오를 적용하면 Runbook을 다른 일정으로 15분마다 실행할 수 있습니다.
 

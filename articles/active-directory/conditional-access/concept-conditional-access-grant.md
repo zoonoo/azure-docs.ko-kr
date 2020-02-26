@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: fb098363a6f1b27bd8afa8e68ab14bfa666ea539
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561649"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585886"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -30,7 +30,7 @@ ms.locfileid: "77561649"
 
 Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨트롤입니다. 관리자는 [보고서 전용 모드](concept-conditional-access-report-only.md) 를 사용 하 여를 활성화 하기 전에 테스트 해야 합니다.
 
-## <a name="grant-access"></a>액세스 허용
+## <a name="grant-access"></a>액세스 권한 부여
 
 관리자는 액세스 권한을 부여할 때 하나 이상의 컨트롤을 적용 하도록 선택할 수 있습니다. 이러한 컨트롤에는 다음 옵션이 포함 됩니다. 
 
@@ -65,7 +65,7 @@ Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용
 
 ### <a name="require-approved-client-app"></a>승인된 클라이언트 앱 필요
 
-조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 ap는 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
+조직에서 선택한 클라우드 앱에 대 한 액세스를 승인 된 클라이언트 앱에서 수행 해야 하도록 요구할 수 있습니다. 이러한 승인 된 클라이언트 앱은 모든 MDM (모바일 장치 관리) 솔루션과 독립적인 [Intune 앱 보호 정책을](/intune/app-protection-policy) 지원 합니다.
 
 이 설정은 다음 클라이언트 앱에 적용됩니다.
 

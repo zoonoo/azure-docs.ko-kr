@@ -2,17 +2,14 @@
 title: AKS (Azure Kubernetes Service)의 Windows Server 노드 풀에 대 한 제한 사항
 description: AKS (Azure Kubernetes Service)에서 Windows Server 노드 풀 및 응용 프로그램 작업을 실행할 때 알려진 제한 사항에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: 3dd7399b68388d92d38b0f64c6e816cb94b3f295
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6d951652e3522b7ff926b72a3916bffe97575054
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768574"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592496"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 

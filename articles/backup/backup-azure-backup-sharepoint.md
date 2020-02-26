@@ -4,12 +4,12 @@ description: 이 문서는 Azure에 대한 SharePoint 팜 DPM/Azure Backup 서�
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 07/09/2019
-ms.openlocfilehash: 1750270b3383e815b9255273923b50d2879fdba6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b766c0401dde10fdc257044e004de3dbf8a7b84c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173332"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586481"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-dpm"></a>DPM을 사용 하 여 Azure에 SharePoint 팜 백업
 
@@ -27,13 +27,13 @@ DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 진행에 앞서, 워크로드를 보호하기 위해 [Microsoft Azure Backup 사용의 필수 조건](backup-azure-dpm-introduction.md#prerequisites-and-limitations) 을 모두 충족해야 합니다. 필수 조건을 위한 작업에는 백업 자격 증명 모음 만들기, 보관 자격 증명 모음 다운로드, Azure Backup 에이전트 설치, 자격 증명 모음에 DPM/Azure Backup 서버 등록 등이 포함됩니다.
 
 ### <a name="dpm-agent"></a>DPM 에이전트
 
-DPM 에이전트가 SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. DPM은 보호를 위한 진입점 용도로만 단일 WFE 서버의 에이전트가 필요합니다.
+DPM 에이전트가 SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. DPM은 보호를 위한 진입점 용도로만 단일 WFE 서버의 에이전트가 필요합니다.
 
 ### <a name="sharepoint-farm"></a>Sharepoint 팜
 
@@ -102,7 +102,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
     ![데이터 보호 방법 선택](./media/backup-azure-backup-sharepoint/select-data-protection-method1.png)
 
    > [!NOTE]
-   > 디스크 보호 방법은 짧은 복구 시간 목표를 충족하는 데 유용합니다. Azure는 테이프에 비해 경제적인 장기 보호 대상입니다. 자세한 내용은 [Azure Backup을 사용하여 테이프 인프라 대체](https://azure.microsoft.com/documentation/articles/backup-azure-backup-cloud-as-tape/)
+   > 디스크 보호 방법은 짧은 복구 시간 목표를 충족하는 데 유용합니다. Azure는 테이프에 비해 경제적인 장기 보호 대상입니다. 자세한 내용은 [Azure Backup을 사용하여 테이프 인프라 대체](./backup-azure-backup-cloud-as-tape.md)
    >
    >
 5. **단기 목표 지정** 페이지에서, 원하는 **보존 범위**를 선택하고 백업을 수행할 때를 식별합니다.
@@ -124,7 +124,7 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
    >
 8. DPM은 복사본에서 일관성 확인을 수행하여 데이터 무결성을 보장합니다. 사용할 수 있는 두 가지 옵션이 있습니다. 일관성 확인을 실행하는 일정을 정의하거나 복제본이 일관되지 않을 때마다 DPM이 복제본에 자동으로 일관성 확인을 실행할 수 있습니다. 원하는 옵션을 선택하고 **다음**을 클릭합니다.
 
-    ![일관성 확인](./media/backup-azure-backup-sharepoint/consistency-check.png)
+    ![일관성 검사](./media/backup-azure-backup-sharepoint/consistency-check.png)
 9. **온라인 보호 데이터 지정** 페이지에서 보호할 SharePoint 팜을 선택하고 **다음**을 클릭합니다.
 
     ![DPM SharePoint Protection1](./media/backup-azure-backup-sharepoint/select-online-protection1.png)
@@ -238,10 +238,10 @@ DPM을 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureSharePo
 4. DPM **복구** 탭의 SharePoint 개체를 클릭하여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭한 다음 **복구**를 클릭합니다.
 
     ![DPM SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 이 지점에서 이 문서 앞쪽의 복구 단계를 따라 디스크에서 SharePoint 콘텐츠 데이터베이스를 복구합니다.
+5. 이제 이 문서 앞부분의 복구 단계를 수행하여 디스크로 SharePoint 콘텐츠 데이터베이스를 복구합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
 * SharePoint의 DPM 보호에 대한 자세한 정보는 [SharePoint의 DPM 보호를 위한 비디오 시리즈](https://channel9.msdn.com/Series/Azure-Backup/Microsoft-SCDPM-Protection-of-SharePoint-1-of-2-How-to-create-a-SharePoint-Protection-Group)
-* [System Center 2012 - Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860415.aspx)
-* [System Center 2012 SP1의 Data Protection Manager에 대한 릴리스 정보](https://technet.microsoft.com/library/jj860394.aspx)
+* [System Center 2012 - Data Protection Manager에 대한 릴리스 정보](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860415(v=sc.12)?redirectedfrom=MSDN)
+* [System Center 2012 SP1의 Data Protection Manager에 대한 릴리스 정보](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj860394(v=sc.12)?redirectedfrom=MSDN)

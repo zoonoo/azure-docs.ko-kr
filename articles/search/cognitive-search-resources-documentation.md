@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: quickstart
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: e73e69f90b1228154d7f209c54c6b52cc03d5eb4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
-ms.translationtype: HT
+ms.openlocfilehash: 9f8a14c348f4f8eddcd60c6946c831c90262757b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76837793"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588997"
 ---
 # <a name="documentation-resources-for-ai-enrichment-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 보강에 대한 설명서 리소스
 
@@ -23,9 +23,9 @@ AI 보강은 텍스트가 아닌 원본 및 구분되지 않는 텍스트에서 
 
 ## <a name="getting-started"></a>시작
 + [Azure Cognitive Search의 AI 소개](cognitive-search-concept-intro.md)
-+ [빠른 시작: Azure Portal에서 인지 기술 세트 만들기](cognitive-search-quickstart-blob.md)
-+ [자습서: AI를 사용하는 보강 인덱싱](cognitive-search-tutorial-blob.md)
-+ [예: AI 보강에 대한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
++ [빠른 시작: Azure Portal에서 인지 기술 만들기](cognitive-search-quickstart-blob.md)
++ [자습서: AI를 사용 하 여 보강 인덱싱](cognitive-search-tutorial-blob.md)
++ [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
 ## <a name="how-to-guidance"></a>방법 가이드
 + [기술 집합을 정의하는 방법](cognitive-search-defining-skillset.md)

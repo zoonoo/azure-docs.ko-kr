@@ -11,12 +11,12 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 20c30a77201c4f728013bdd204eef81294eefb73
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: d32ce79d0c8b26e0e78e2bae0f0335315c1a3a40
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76545163"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587331"
 ---
 # <a name="intelligent-insights-using-ai-to-monitor-and-troubleshoot-database-performance-preview"></a>AI를 사용 하 여 데이터베이스 성능 모니터링 및 문제 해결 (미리 보기) Intelligent Insights
 
@@ -28,7 +28,7 @@ Intelligent Insights는 기본 제공 인텔리전스를 사용하여 지속적�
 
 Intelligent Insights는 다음 값을 제공하는 Azure의 기본 제공 인텔리전스의 고유 기능입니다.
 
-- 사전 대처식 모니터링
+- 사전 모니터링
 - 맞춤형 성능 정보
 - 데이터베이스 성능 저하의 초기 검색
 - 검색된 문제의 근본 원인 분석
@@ -72,10 +72,10 @@ Azure SQL Database에서 사용할 수 있는 Intelligent Insights 옵션은 다
 
 | Intelligent Insights 옵션 | 단일 데이터베이스 및 풀링된 데이터베이스 지원 | 인스턴스 데이터베이스 지원 |
 | :----------------------------- | ----- | ----- |
-| **Intelligent Insights 구성** -데이터베이스에 대 한 Intelligent Insights 분석을 구성 합니다. | 예 | 예 | 
-| **Azure SQL 분석에 대 한 정보를 스트림 하** 고 Azure SQL Database에 대 한 Azure SQL 분석 모니터링 솔루션에 대 한 정보를 스트리밍합니다. | 예 | 예 | 
-| **이벤트 허브에** 대 한 정보를 스트림 하 여 추가 사용자 지정 통합을 위해 Event Hubs를 스트림 합니다. | 예 | 예 | 
-| 추가 분석 및 장기 보관을 위해 Azure Storage에 대 한 Azure Storage 스트림 정보에 대 한 **정보를 스트리밍합니다** . | 예 | 예 |
+| **Intelligent Insights 구성** -데이터베이스에 대 한 Intelligent Insights 분석을 구성 합니다. | yes | yes | 
+| **Azure SQL 분석에 대 한 정보를 스트림 하** 고 Azure SQL Database에 대 한 Azure SQL 분석 모니터링 솔루션에 대 한 정보를 스트리밍합니다. | yes | yes | 
+| **이벤트 허브에** 대 한 정보를 스트림 하 여 추가 사용자 지정 통합을 위해 Event Hubs를 스트림 합니다. | yes | yes | 
+| 추가 분석 및 장기 보관을 위해 Azure Storage에 대 한 Azure Storage 스트림 정보에 대 한 **정보를 스트리밍합니다** . | yes | yes |
 
 ## <a name="configure-intelligent-insights"></a>Intelligent Insights 구성
 
@@ -113,7 +113,7 @@ Event Hubs를 사용하여 사용자 지정 모니터링 및 경고를 설정하
 
 ### <a name="set-up-with-azure-storage"></a>Azure Storage를 사용하여 설정
 
-Storage에서 Intelligent Insights를 사용하고 Storage로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Azure Storage로 스트리밍](sql-database-metrics-diag-logging.md#stream-into-storage)을 참조하세요.
+Storage에서 Intelligent Insights를 사용하고 Storage로 스트리밍되도록 Intelligent Insights 로그 데이터를 구성하려면 [Azure Storage로 스트리밍](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)을 참조하세요.
 
 ### <a name="custom-integrations-of-intelligent-insights-log"></a>인텔리전스 Insights 로그의 사용자 지정 통합
 

@@ -11,12 +11,12 @@ author: bonova
 ms.author: bonova
 ms.reviewer: sstein, carlrab
 ms.date: 09/05/2019
-ms.openlocfilehash: 98757677eae6d21b02d6b0b2a3abade453b5dfed
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: c1e740fbfa4bf1e8a77a2d9d6060ab39dba7ae7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552783"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587399"
 ---
 # <a name="what-are-sql-database-instance-pools-preview"></a>SQL Database 인스턴스 풀 (미리 보기) 이란 무엇 인가요?
 
@@ -126,7 +126,7 @@ ms.locfileid: "75552783"
 
 풀 내의 단일 인스턴스 또는 데이터베이스와 관련 된 문제가 발생 하는 경우 Azure SQL Database 관리 되는 인스턴스에 대 한 일반 지원 티켓을 만들어야 합니다.
 
-인스턴스 풀을 사용 하거나 사용 하지 않고 더 큰 관리 되는 인스턴스 배포를 만들려면 더 큰 지역 할당량을 얻어야 할 수 있습니다. [더 큰 할당량을 요청 하기 위해 표준 관리 되는 인스턴스 절차](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance)를 사용 합니다. 그러나 인스턴스 풀을 사용 하는 경우 배포 논리는 할당량을 기준으로 *풀 수준의* 총 vcore 사용량을 비교 하 여 할당량을 늘리지 않고 새 리소스를 만들 수 있는지 여부를 확인 합니다.
+인스턴스 풀을 사용 하거나 사용 하지 않고 더 큰 관리 되는 인스턴스 배포를 만들려면 더 큰 지역 할당량을 얻어야 할 수 있습니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md)를 참조 하세요. 인스턴스 풀을 사용 하는 경우 배포 논리는 할당량을 기준으로 *풀 수준의* 총 vcore 사용량을 비교 하 여 할당량을 늘리지 않고 새 리소스를 만들 수 있는지 여부를 확인 합니다.
 
 ## <a name="instance-pool-billing"></a>인스턴스 풀 청구
 

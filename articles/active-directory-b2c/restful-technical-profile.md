@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/13/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: edad748bc2192f98b9674b80dada5b03aa9ee2d1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 80298ca4df01a93730fc831fc495b3123ead5f97
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77197989"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585682"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -130,6 +130,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 | ClaimUsedForRequestPayload| 예 | REST API 전송 될 페이로드를 포함 하는 문자열 클레임의 이름입니다. |
 | DebugMode | 예 | 디버그 모드에서 기술 프로필을 실행합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. [오류 메시지 반환](#returning-error-message) 섹션을 참조 하세요. |
 | IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |
+| ResolveJsonPathsInJsonTokens  | 예 | 기술 프로필이 JSON 경로를 확인 하는지 여부를 나타냅니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 이 메타 데이터를 사용 하 여 중첩 된 JSON 요소에서 데이터를 읽습니다. [Outputclaim](technicalprofiles.md#outputclaims)에서 출력 하려는 JSON 경로 요소로 `PartnerClaimType`를 설정 합니다. 예: `firstName.localized`또는 `data.0.to.0.email`.|
 
 ## <a name="cryptographic-keys"></a>암호화 키
 

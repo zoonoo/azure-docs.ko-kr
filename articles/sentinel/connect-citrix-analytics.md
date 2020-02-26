@@ -3,7 +3,7 @@ title: Azure 센티널에 Citrix 분석 (보안) 연결 | Microsoft Docs
 description: Azure 센티널에 Citrix Analytics (보안)를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: b4a720702cdadf641665c4c8dc3754edd1c42361
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: bbc77340375b22f137045d68b7449dd1e8adc4b7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610627"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588385"
 ---
 # <a name="connect-citrix-analytics-security"></a>Citrix Analytics 연결(보안) 
 
@@ -27,7 +27,7 @@ Citrix Analytics (보안)와 Azure 센티널의 통합을 통해 Citrix 분석 (
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 

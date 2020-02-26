@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/11/2019
 ms.author: cshoe
-ms.openlocfilehash: 0da8322a57d925608f7b52054c7a52e6cb3e5d06
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: befdb4a8cceaef18961c1e9297e23ed5d405ff50
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484658"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586192"
 ---
 # <a name="azure-functions-error-handling"></a>Azure Functions 오류 처리
 
@@ -30,7 +30,9 @@ Azure 서비스와 통합 하는 경우 기본 서비스의 Api에서 오류가 
 
 + [Blob Storage](functions-bindings-storage-blob-output.md#exceptions-and-return-codes)
 
-+ [Event Hubs](functions-bindings-event-hubs.md#exceptions-and-return-codes)
++ [Event Hubs](functions-bindings-event-hubs-output.md#exceptions-and-return-codes)
+
++ [IoT Hub](functions-bindings-event-iot-output.md#exceptions-and-return-codes)
 
 + [Notification Hubs](functions-bindings-notification-hubs.md#exceptions-and-return-codes)
 

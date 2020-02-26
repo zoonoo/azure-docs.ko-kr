@@ -3,12 +3,12 @@ title: Azure Stack에 Azure Backup Server 설치
 description: 이 문서에서는 Azure Backup Server를 사용 하 여 Azure Stack에서 작업을 보호 하거나 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 01/31/2019
-ms.openlocfilehash: 396621b43db2500ca9107979fca9d4d2c0646e6d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: b78e5a662bdcf23ad38cb33292658d4d2455e579
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172388"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583438"
 ---
 # <a name="install-azure-backup-server-on-azure-stack"></a>Azure Stack에 Azure Backup Server 설치
 
@@ -91,7 +91,7 @@ Azure Backup Server 가상 머신을 도메인에 조인해야 합니다. 관리
 
 Azure Backup Server에 사용할 서버를 선택할 때 Windows Server 2012 R2 Datacenter 또는 Windows Server 2016 Datacenter 갤러리 이미지로 시작하는 것이 좋습니다. [Azure Portal에서 첫 번째 Windows 가상 머신 만들기](../virtual-machines/virtual-machines-windows-hero-tutorial.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json) 문서는 권장 가상 머신을 시작하는 방법에 대한 자습서를 제공합니다. 서버 VM(가상 머신)에 대한 권장 최소 요구 사항은 2코어 및 3.5GB RAM의 A2 Standard입니다.
 
-Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://technet.microsoft.com/library/jj852163.aspx)문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
+Azure Backup 서버를 사용하여 워크로드를 보호하는 데는 미묘한 많은 차이가 있습니다. [Azure 가상 머신으로 DPM 설치](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/jj852163(v=sc.12))문서는 이러한 미묘한 차이를 설명하는 데 도움이 됩니다. 컴퓨터를 배포하기 전에 이 문서를 완전히 읽어보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 가상 머신에서 실행되도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
@@ -123,13 +123,13 @@ Azure Backup Server 설치 관리자를 다운로드하는 두 가지 방법이 
 1. Azure Stack 가상 머신에서, [Azure Portal에서 Azure 구독에 로그인](https://portal.azure.com/)합니다.
 2. 왼쪽 메뉴에서 **모든 서비스**를 선택합니다.
 
-    ![주 메뉴에서 [모든 서비스] 옵션을 선택합니다.](./media/backup-mabs-install-azure-stack/click-all-services.png)
+    ![주 메뉴에서 모든 서비스 옵션 선택](./media/backup-mabs-install-azure-stack/click-all-services.png)
 
 3. **모든 서비스** 대화 상자에서 *Recovery Services*를 입력합니다. 입력하기 시작하면 입력은 리소스 목록을 필터링합니다. **Recovery Services 자격 증명 모음**이 보이면 선택합니다.
 
     ![모든 서비스 대화 상자에서 Recovery Services 입력](./media/backup-mabs-install-azure-stack/all-services.png)
 
-    구독에 Recovery Services 자격 증명 모음 목록이 표시됩니다.
+    구독의 Recovery Services 자격 증명 모음 목록이 표시됩니다.
 
 4. Recovery Services 자격 증명 모음 목록에서 해당 자격 증명 모음을 선택하여 대시보드를 엽니다.
 
@@ -243,7 +243,7 @@ Azure Backup Server는 Data Protection Manager과 코드를 공유합니다. Azu
 
     ![Microsoft Azure Backup PreReq2](./media/backup-mabs-install-azure-stack/mabs-install-wizard-settings-11.png)
 
-    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관련된 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://technet.microsoft.com/library/hh758075.aspx)을 참조하세요.
+    스크래치 위치는 Azure에 백업하는 데 필요합니다. 스크래치 위치의 크기는 Azure에 백업하기로 계획된 데이터의 5% 이상이어야 합니다. 디스크 보호를 위해 별도 디스크가 설치를 완료하면 구성되어야 합니다. 스토리지 풀에 관련된 자세한 내용은 [스토리지 풀 및 디스크 스토리지 구성](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758075(v=sc.12))을 참조하세요.
 
 6. **보안 설정** 화면에서, 제한된 로컬 사용자 계정에 강력한 암호를 제공하고 **다음**을 클릭합니다.
 
@@ -326,11 +326,11 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 
 | 연결 상태 | Azure 구독 | Azure에 백업 | 디스크에 백업 | Azure에서 복구 | 디스크에서 복구 |
 | --- | --- | --- | --- | --- | --- |
-| 연결됨 |Active |허용함 |허용함 |허용함 |허용함 |
-| 연결됨 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 연결됨 |Active |허용됨 |허용됨 |허용됨 |허용됨 |
+| 연결됨 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 연결됨 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
-| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용함 |허용함 |
-| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용함 |허용함 |
+| 손실된 연결 > 15일 |Active |중지됨 |중지됨 |허용됨 |허용됨 |
+| 손실된 연결 > 15일 |만료됨 |중지됨 |중지됨 |허용됨 |허용됨 |
 | 손실된 연결 > 15일 |프로비전 해제됨 |중지됨 |중지됨 |중지되고 Azure 복구 지점 삭제됨 |중지됨 |
 
 ### <a name="recovering-from-loss-of-connectivity"></a>연결 끊김 복구
@@ -343,7 +343,7 @@ Azure 연결 및 Azure 구독 상태를 알고 있다면 아래 표를 사용하
 - \*.microsoftonline.com
 - \*.windows.net
 
-Azure에 대한 연결이 Azure Backup Server로 복원되면 Azure 구독 상태에 따라 수행 가능한 작업이 결정됩니다. 서버가 **연결되면** [네트워크 연결](backup-mabs-install-azure-stack.md#network-connectivity)의 테이블을 사용하여 사용 가능한 작업을 볼 수 있습니다.
+Azure에 대한 연결이 Azure Backup Server로 복원되면 Azure 구독 상태에 따라 수행 가능한 작업이 결정됩니다. 서버가 **연결되면**[네트워크 연결](backup-mabs-install-azure-stack.md#network-connectivity)의 테이블을 사용하여 사용 가능한 작업을 볼 수 있습니다.
 
 ### <a name="handling-subscription-states"></a>구독 상태 처리
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: e2201eb678aafe14c86b7faedde67e6b4d92f2b5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e4c18d93f07cb2143dcc5bf9c93b9ac7298d2f7b
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980599"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587637"
 ---
 # <a name="manage-azure-cosmos-db-gremlin-api-resources-using-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB Gremlin API 리소스 관리
 
@@ -25,7 +25,7 @@ Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 리소스를 
 > 계정 이름은 소문자와 44 자이 하 여야 합니다.
 > R u/s를 업데이트 하려면 업데이트 된 처리량 속성 값으로 템플릿을 다시 전송 합니다.
 
-[!code-json[create-cosmos-gremlin](~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-gremlin/azuredeploy.json":::
 
 ## <a name="deploy-with-the-azure-cli"></a>Azure CLI를 사용 하 여 배포
 

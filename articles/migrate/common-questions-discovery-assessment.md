@@ -3,12 +3,12 @@ title: Azure Migrate의 일반적인 질문-검색, 평가 및 종속성 분석
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 2ae534e50cbee3ebd17d703f957aa7200460dbfe
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426295"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589235"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>검색, 평가 및 종속성 분석에 대 한 일반적인 질문
 
@@ -92,7 +92,7 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 
 ## <a name="can-i-use-an-existing-workspace"></a>기존 작업 영역을 사용해도 되나요?
 
-예, 기존 작업 영역을 마이그레이션 프로젝트에 연결 하 고 종속성 시각화에 사용할 수 있습니다. [자세히 알아봅니다](concepts-dependency-visualization.md#how-does-it-work).
+예, 기존 작업 영역을 마이그레이션 프로젝트에 연결 하 고 종속성 시각화에 사용할 수 있습니다. 
 
 ## <a name="can-i-export-the-dependency-visualization-report"></a>종속성 시각화 보고서를 내보낼 수 있나요?
 

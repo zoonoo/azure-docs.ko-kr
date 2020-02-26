@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: tisande
-ms.openlocfilehash: 4f6d7580ea7ff0e8968c0c3ce4b3ca6111c86ac8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3939594064b63c567720378b9d316acca64d3266
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873372"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587688"
 ---
 # <a name="from-clause-in-azure-cosmos-db"></a>Azure Cosmos DB의 FROM 절
 
@@ -79,9 +79,9 @@ FROM <from_specification>
   
   제공된 별칭으로 정의된 다른 원본에서 문서를 검색하도록 지정합니다.  
   
-- `<container_expression> '.' property_`  
+- `<container_expression> '.' property_name`  
   
-  지정된 컨테이너 식으로 검색된 모든 문서에 대해 `property_name` 속성 또는 array_index 배열 요소에 액세스하여 문서를 검색하도록 지정합니다.  
+  `property_name` 속성에 액세스 하 여 문서를 검색 하도록 지정 합니다.  
   
 - `<container_expression> '[' "property_name" | array_index ']'`  
   
@@ -103,7 +103,7 @@ FROM <from_specification>
   
 -   컨테이너 식의 기본 원본이 쿼리의 앞 부분에 도입된 `input_alias`이면 식은 문서 범위입니다. 이러한 식은 별칭 지정된 컨테이너와 연결된 집합에 속한 각 문서의 범위에서 컨테이너 식을 평가하여 얻는 문서 집합을 나타냅니다.  결과 집합은 기본 집합에 있는 각 문서에 대해 컨테이너 식을 평가하여 얻는 집합의 합집합입니다. 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="get-subitems-by-using-the-from-clause"></a>FROM 절을 사용 하 여 하위 항목 가져오기
 

@@ -9,27 +9,36 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: jpe316
 ms.author: jordane
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: e53db645875646b1e021cc0d3d760677e1128c0c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486379"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589371"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
 이 문서에서는 Azure Machine Learning 사용 하 여 모델의 수명 주기를 관리 하는 방법에 대해 알아봅니다. Azure Machine Learning는 MLOps (Machine Learning 작업) 방법을 사용 합니다. MLOps는 machine learning 솔루션의 품질 및 일관성을 개선 합니다. 
 
+## <a name="what-is-mlops"></a>MLOps란?
+
+MLOps (Machine Learning 작업)는 워크플로의 효율성을 향상 시키는 [Devops](https://azure.microsoft.com/overview/what-is-devops/) 원칙 및 사례를 기반으로 합니다. 예를 들어 지속적인 통합, 배달 및 배포입니다. MLOps는 다음과 같은 목표를 사용 하 여 이러한 보안 주체를 기계 학습 프로세스에 적용 합니다.
+
+* 모델의 실험 및 개발 속도 향상
+* 프로덕션 환경에 더 빠르게 모델 배포
+* 품질 보증
+
 Azure Machine Learning는 다음과 같은 MLOps 기능을 제공 합니다.
 
-- **재현 가능한 ML 파이프라인을 만듭니다**. 파이프라인을 사용 하 여 데이터 준비, 학습 및 점수 매기기 프로세스에 대해 반복 가능 하 고 재사용 가능한 단계를 정의할 수 있습니다.
-- **어디에서 나 모델을 등록, 패키지 및 배포** 하 고 모델을 사용 하는 데 필요한 연결 된 메타 데이터를 추적 합니다.
-- 모델을 게시 하는 사람, 변경 하는 이유 및 프로덕션 환경에서 모델을 배포 하거나 사용한 경우를 포함 하 여 **종단 간 ML 수명 주기를 캡처하는 데 필요한 거 버 넌 스 데이터를 캡처합니다**.
-- 실험 완료, 모델 등록, 모델 배포 및 데이터 드리프트 감지와 같은 **ML 수명 주기의 이벤트를 알리고 경고** 합니다.
+- **재현 가능한 ML 파이프라인을 만듭니다**. Machine Learning 파이프라인을 사용 하 여 데이터 준비, 학습 및 점수 매기기 프로세스에 대해 반복 가능 하 고 재사용 가능한 단계를 정의할 수 있습니다.
+- 모델 학습 및 배포를 위한 **재사용 가능한 소프트웨어 환경을 만듭니다** .
+- **어디에서 나 모델을 등록 하 고 패키지 하 고 배포**합니다. 또한 모델을 사용 하는 데 필요한 연결 된 메타 데이터를 추적할 수 있습니다.
+- **종단 간 ML 수명 주기에 대 한 거 버 넌 스 데이터를 캡처합니다**. 기록 된 정보에는 모델을 게시 하는 사람, 변경 된 이유 및 프로덕션 환경에서 모델을 배포 하거나 사용한 시기 등이 포함 될 수 있습니다.
+- **ML 수명 주기의 이벤트를 알리고 경고**합니다. 예를 들면 실험 완료, 모델 등록, 모델 배포 및 데이터 드리프트 검색입니다.
 - **Ml 응용 프로그램을 모니터링 하 여 운영 및 ml 관련 문제를 해결**합니다. 학습 및 유추 간에 모델 입력을 비교 하 고, 모델 관련 메트릭을 탐색 하 고, ML 인프라에 대 한 모니터링 및 경고를 제공 합니다.
-- **Azure Machine Learning 및 Azure DevOps를 사용 하 여 종단 간 ML 수명 주기를 자동화** 하 여 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃 하세요.
+- **Azure Machine Learning 및 Azure Pipelines를 사용 하 여 종단 간 ML 수명 주기를 자동화**합니다. 파이프라인을 사용 하면 모델을 자주 업데이트 하 고, 새 모델을 테스트 하 고, 다른 응용 프로그램 및 서비스와 함께 새 ML 모델을 지속적으로 롤아웃할 수 있습니다.
 
 ## <a name="create-reproducible-ml-pipelines"></a>재현 가능한 ML 파이프라인 만들기
 
@@ -38,6 +47,12 @@ Azure Machine Learning의 ML 파이프라인을 사용 하 여 모델 학습 프
 ML 파이프라인은 모델 평가에 대 한 하이퍼 매개 변수 조정에 대 한 데이터 준비의 단계를 포함할 수 있습니다. 자세한 내용은 [ML 파이프라인](concept-ml-pipelines.md)을 참조 하세요.
 
 [디자이너](concept-designer.md) 를 사용 하 여 ML 파이프라인을 만드는 경우 언제 든 지 디자이너 페이지의 오른쪽 위에 있는 **"..."** 를 클릭 하 고 **복제**를 선택할 수 있습니다. 파이프라인을 복제 하면 이전 버전을 잃지 않고 파이프라인 디자인을 반복할 수 있습니다.  
+
+## <a name="create-reusable-software-environments"></a>재사용 가능한 소프트웨어 환경 만들기
+
+Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 종속성이 진화 함에 따라 추적 하 고 재현할 수 있습니다. 환경을 사용 하면 수동 소프트웨어 구성 없이도 빌드를 재현할 수 있습니다.
+
+환경에서는 프로젝트의 pip 및 Conda 종속성을 설명 하 고 모델의 학습 및 배포 모두에 사용할 수 있습니다. 자세한 내용은 [Azure Machine Learning 환경 이란?](concept-environments.md)을 참조 하세요.
 
 ## <a name="register-package-and-deploy-models-from-anywhere"></a>어디에서 나 모델 등록, 패키징 및 배포
 
@@ -82,7 +97,7 @@ Azure Machine Learning에 대 한 자세한 내용은 [ML 모델 만들기 및 �
 
 * 서비스/장치에 전송 된 데이터의 점수를 매기는 데 사용 되는 모델입니다.
 * 항목 스크립트입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 데이터의 점수를 매기고, 응답을 반환 합니다.
-* 모델 및 항목 스크립트에 필요한 종속성을 설명 하는 conda 환경 파일입니다.
+* 모델 및 항목 스크립트에 필요한 pip 및 Conda 종속성을 설명 하는 Azure Machine Learning 환경입니다.
 * 모델 및 항목 스크립트에 필요한 텍스트, 데이터 등의 추가 자산입니다.
 
 또한 대상 배포 플랫폼의 구성을 제공 합니다. 예를 들어 Azure Kubernetes Service에 배포할 때 VM 제품군 유형, 사용 가능한 메모리 및 코어 수가 있습니다.
@@ -162,6 +177,8 @@ GitHub 및 Azure Pipelines를 사용 하 여 모델을 학습 하는 연속 통�
 * 학습 파이프라인에서 생성 된 학습 된 모델을 사용 하 여 릴리스 파이프라인을 트리거할 수 있습니다.
 
 Azure Machine Learning에서 Azure Pipelines를 사용 하는 방법에 대 한 자세한 내용은 Azure Pipelines 문서 및 [Azure Machine Learning MLOps](https://aka.ms/mlops) 리포지토리를 사용 하 여 [ML 모델의 연속 통합 및 배포](/azure/devops/pipelines/targets/azure-machine-learning) 를 참조 하세요.
+
+또한 Azure Data Factory를 사용 하 여 학습에 사용할 데이터를 준비 하는 데이터 수집 파이프라인을 만들 수 있습니다. 자세한 내용은 [데이터 수집 파이프라인](how-to-cicd-data-ingestion.md)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

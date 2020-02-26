@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/16/2019
 ms.author: damendo
-ms.openlocfilehash: 6898bed0645146af9c0131307459e31bad661329
-ms.sourcegitcommit: 94ee81a728f1d55d71827ea356ed9847943f7397
+ms.openlocfilehash: 6d535bcc2e0831baae658796f76c8087d74c6a85
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/26/2019
-ms.locfileid: "70036301"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587212"
 ---
 # <a name="delete-network-security-group-flow-log-storage-blobs-in-network-watcher"></a>Network Watcher에서 네트워크 보안 그룹 흐름 로그 저장소 blob를 삭제 합니다.
 
@@ -125,9 +125,9 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
 ```
 
 1. 필요에 따라 스크립트에서 다음 매개 변수를 입력 합니다.
-   - **SubscriptionId** [필수]: NSG 흐름 로그 blob을 삭제 하려는 구독 ID입니다.
-   - **위치** [필수]: NSGS 흐름 로그 blob을 삭제 하려는 NSGs 지역의 _위치 문자열_ 입니다. Azure Portal 또는 [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23)에서이 정보를 볼 수 있습니다.
-   - **확인** [선택 사항]: 각 저장소 blob의 삭제를 수동으로 확인 하려면 확인 플래그를 전달 합니다.
+   - **SubscriptionId** [필수]: Nsg 흐름 로그 blob을 삭제 하려는 구독 ID입니다.
+   - **Location** [필수]: Nsgs 흐름 로그 blob을 삭제 하려는 nsgs 지역의 _위치 문자열_ 입니다. Azure Portal 또는 [GitHub](https://github.com/Azure/azure-extensions-cli/blob/beb3d3fe984cfa9c7798cb11a274c5337968cbc5/regions.go#L23)에서이 정보를 볼 수 있습니다.
+   - [선택 사항] **확인** : 각 저장소 blob의 삭제를 수동으로 확인 하려면 확인 플래그를 전달 합니다.
 
 1. 스크립트 파일이 **Delete-NsgFlowLogsBlobs**로 저장 된 다음 예제와 같이 저장 된 스크립트를 실행 합니다.
    ```
@@ -135,6 +135,6 @@ Write-Output ('Retention policy for all NSGs evaluated and completed successfull
    ```
     
 ## <a name="next-steps"></a>다음 단계
-- 고객은 [Azure Scheduler](https://azure.microsoft.com/services/scheduler/) 또는 [Azure Automation](https://azure.microsoft.com/services/automation/) 를 사용 하 여 스크립트 실행을 자동화할 수 있습니다.
-- NSG 로깅에 대해 자세히 알아보려면 Nsg [(네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
+- 고객은 [Azure Logic Apps](../logic-apps/logic-apps-overview.md) 또는 [Azure Automation](https://azure.microsoft.com/services/automation/) 를 사용 하 여 스크립트 실행을 자동화할 수 있습니다.
+- NSG 로깅에 대해 자세히 알아보려면 [nsg (네트워크 보안 그룹)에 대 한 Azure Monitor 로그](../virtual-network/virtual-network-nsg-manage-log.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json)를 참조 하세요.
 

@@ -3,7 +3,7 @@ title: Azure 센티널에 Syslog 데이터 연결 | Microsoft Docs
 description: Azure 센티널에 Syslog 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: d5f3d24d10262f28023523668c22f4571799cff9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 73fd55fc24fd94dc88bba2f591c32480f77c7d5d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610474"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588079"
 ---
 # <a name="connect-your-external-solution-using-syslog"></a>Syslog를 사용 하 여 외부 솔루션 연결
 
@@ -28,7 +28,7 @@ Syslog를 지 원하는 온-프레미스 어플라이언스를 Azure 센티널�
 > [!NOTE]
 > 어플라이언스에서 Syslog CEF를 지 원하는 경우에는 연결이 더 완벽 하므로이 옵션을 선택 하 고 [CEF의 데이터 연결](connect-common-event-format.md)에 설명 된 지침을 따라야 합니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.
 
@@ -87,7 +87,7 @@ Azure 센티널은 syslog 데이터에 기계 학습 (ML)을 적용 하 여 비�
  
 이 검색에는 Syslog 데이터 커넥터의 특정 구성이 필요 합니다. 
 
-1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 예:
+1. 이전 절차의 5 단계에는 **auth** 및 **authpriv** 가 모두 모니터링할 기능으로 선택 되어 있는지 확인 합니다. 심각도 옵션의 기본 설정은 모두 선택 된 상태로 유지 합니다. 다음은 그 예입니다.
     
     > [!div class="mx-imgBorder"]
     > 비정상적인 SSH 로그인 검색에 필요한 ![기능](./media/connect-syslog/facilities-ssh-detection.png)

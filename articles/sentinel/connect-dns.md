@@ -3,7 +3,7 @@ title: Azure 센티널에서 DNS 데이터 연결 | Microsoft Docs
 description: Azure 센티널에서 DNS 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 77af84f9-47bc-418e-8ce2-4414d7b58c0c
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: 96515d81668bf172325f88e3e5bac8d8cccfa999
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.author: yelevin
+ms.openlocfilehash: 6d43b82ecd13ac5e082d270ee44ce61fef763d2c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190853"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588317"
 ---
 # <a name="connect-your-domain-name-server"></a>도메인 이름 서버 연결
 

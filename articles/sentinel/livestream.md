@@ -3,7 +3,7 @@ title: Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위
 description: 이 문서에서는 Azure 센티널에서 사냥 라이브 스트림를 사용 하 여 데이터를 추적 하는 방법을 설명 합니다.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -14,13 +14,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/06/2019
-ms.author: cabailey
-ms.openlocfilehash: 5b347848c9c6a58a70ab1093a6f9c70b62f3f769
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.author: yelevin
+ms.openlocfilehash: b392644e504fa8187e637278bef8718c9c2caa3f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74900448"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582129"
 ---
 # <a name="use-hunting-livestream-in-azure-sentinel-to-detect-threats"></a>Azure 센티널에서 구하기 라이브 스트림를 사용 하 여 위협 감지
 

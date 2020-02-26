@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 02/05/2020
 ms.author: b-juche
-ms.openlocfilehash: c65da771dd483b3a79785d4bec2b89cbeefca5c4
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 7affd408ce2471f34a8362ba32101b639aafc514
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049879"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586611"
 ---
 # <a name="create-an-smb-volume-for-azure-netapp-files"></a>Azure NetApp Files에 대한 SMB 볼륨 만들기
 
@@ -40,12 +40,12 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 * 해당 하는 Windows Active Directory (AD) 서버에서 적절 한 포트가 열려 있어야 합니다.  
     필요한 포트는 다음과 같습니다. 
 
-    |     Service           |     포트     |     프로토콜     |
+    |     서비스           |     포트     |     프로토콜     |
     |-----------------------|--------------|------------------|
     |    AD 웹 서비스    |    9389      |    TCP           |
     |    DNS                |    53        |    TCP           |
     |    DNS                |    53        |    UDP           |
-    |    ICMPv4             |    N/A       |    Echo Reply    |
+    |    ICMPv4             |    해당 없음       |    Echo Reply    |
     |    Kerberos           |    464       |    TCP           |
     |    Kerberos           |    464       |    UDP           |
     |    Kerberos           |    88        |    TCP           |
@@ -70,7 +70,7 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
 
 * Azure NetApp Files 위임 된 서브넷은 모든 로컬 및 원격 도메인 컨트롤러를 포함 하 여 도메인의 모든 Active Directory Domain Services (추가) 도메인 컨트롤러에 연결할 수 있어야 합니다. 그렇지 않으면 서비스 중단이 발생할 수 있습니다.  
 
-    Azure NetApp Files 위임 된 서브넷을 통해 연결할 수 없는 도메인 컨트롤러가 있는 경우 Azure 지원 요청을 제출 하 여 범위를 **전역** (기본값)에서 **사이트**로 변경할 수 있습니다.  Azure NetApp Files은 Azure NetApp Files 위임 된 서브넷 주소 공간이 있는 사이트의 도메인 컨트롤러와만 통신 해야 합니다.
+    Azure NetApp Files 위임 된 서브넷을 통해 연결할 수 없는 도메인 컨트롤러가 있는 경우 Active Directory 연결을 만들 때 Active Directory 사이트를 지정할 수 있습니다.  Azure NetApp Files은 Azure NetApp Files 위임 된 서브넷 주소 공간이 있는 사이트의 도메인 컨트롤러와만 통신 해야 합니다.
 
     AD 사이트 및 서비스에 대 한 [사이트 토폴로지 디자인을](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/designing-the-site-topology) 참조 하세요. 
     
@@ -88,8 +88,10 @@ Azure NetApp Files에 서브넷을 위임해야 합니다.
         Active Directory 도메인 가입 및 SMB 인증 작업에 필요한 DNS입니다. 
     * **보조 DNS**   
         중복 된 이름 서비스를 보장 하기 위한 보조 DNS 서버입니다. 
-    * **도메인**  
+    * **AD DNS 도메인 이름**  
         가입 하려는 Active Directory Domain Services의 도메인 이름입니다.
+    * **AD 사이트 이름**  
+        도메인 컨트롤러 검색이 제한 될 사이트 이름입니다.
     * **SMB 서버 (컴퓨터 계정) 접두사**  
         Azure NetApp Files에서 새 계정을 만드는 데 사용할 Active Directory의 컴퓨터 계정에 대 한 명명 접두사입니다.
 

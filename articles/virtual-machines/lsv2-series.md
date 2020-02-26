@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 226611bde6024f98ce6d3660fe18e66dba9a420c
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b10433190ccc7703938bed2a75a5d816f073295e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493697"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587263"
 ---
 # <a name="lsv2-series"></a>Lsv2 시리즈
 
@@ -23,7 +23,7 @@ Lsv2 시리즈는 처리량이 많고, 대기 시간이 짧으며, 모든 코어
 >
 > 로컬 디스크의 높은 처리량 및 IOPs를 통해 Lsv2 시리즈 Vm은 단일 VM의 장애가 발생 하는 경우 지 속성을 얻기 위해 여러 Vm 간에 데이터를 복제 하는 Apache Cassandra 및 MongoDB와 같은 NoSQL 저장소에 적합 합니다.
 >
-> 자세한 내용은 [Lsv2 시리즈 가상 머신에서 성능 최적화](/linux/storage-performance.md)를 참조 하세요.  
+> 자세히 알아보려면 [Windows](../virtual-machines/windows/storage-performance.md) 또는 [Linux](../virtual-machines/linux/storage-performance.md)용 Lsv2 시리즈 가상 머신에서 성능 최적화를 참조 하세요.  
 
 ACU: 150-175
 

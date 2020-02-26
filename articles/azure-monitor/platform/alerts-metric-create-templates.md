@@ -5,15 +5,15 @@ author: harelbr
 services: azure-monitor
 ms.service: azure-monitor
 ms.topic: conceptual
-ms.date: 2/17/2020
+ms.date: 2/24/2020
 ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: f402effe40042740e74220d177c54963f6c45916
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444012"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586532"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 
@@ -1251,7 +1251,7 @@ az group deployment create \
 
 Azure Monitor의 사용자 지정 메트릭에 대 한 자세한 내용은 [Azure Monitor의 사용자 지정 메트릭](https://docs.microsoft.com/azure/azure-monitor/platform/metrics-custom-overview)을 참조 하세요.
 
-사용자 지정 메트릭에 대 한 경고 규칙을 만들 때 메트릭 이름과 메트릭 네임 스페이스를 모두 지정 해야 합니다.
+사용자 지정 메트릭에 대 한 경고 규칙을 만들 때 메트릭 이름과 메트릭 네임 스페이스를 모두 지정 해야 합니다. 아직 존재 하지 않는 사용자 지정 메트릭에 대 한 경고 규칙을 만들 수 없으므로 사용자 지정 메트릭이 이미 보고 되 고 있는지도 확인 해야 합니다.
 
 이 연습의 목적을 위해 아래 json을 customstaticmetricalert로 저장 합니다.
 

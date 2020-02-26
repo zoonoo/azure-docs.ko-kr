@@ -3,12 +3,12 @@ title: Azure Service Fabric 중앙 비밀 저장소
 description: 이 문서에서는 Azure Service Fabric에서 중앙 비밀 저장소를 사용 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.openlocfilehash: bc6ea6260bf50d5b4f8e294e0a3827426f90bee3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 11fb94a9fba40e6f2474ad64f5eb0c454be28ca0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980935"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589167"
 ---
 # <a name="central-secrets-store-in-azure-service-fabric"></a>Azure Service Fabric의 중앙 비밀 저장소 
 이 문서에서는 Azure Service Fabric에서 CSS (중앙 비밀 저장소)를 사용 하 여 Service Fabric 응용 프로그램에서 비밀을 만드는 방법을 설명 합니다. CSS는 중요 한 데이터 (예: 암호, 토큰, 키 등)를 메모리에 암호화 된 상태로 유지 하는 로컬 암호 저장소 캐시입니다.
@@ -76,7 +76,8 @@ Azure Resource Manager 템플릿 또는 REST API를 사용 하 여 비밀 리소
 REST API를 사용 하 여 `supersecret` 비밀 리소스를 만들려면 PUT 요청을 `https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview`합니다. 비밀 리소스를 만들려면 클러스터 인증서 또는 관리 클라이언트 인증서가 필요 합니다.
 
 ```powershell
-Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint>
+$json = '{"properties": {"kind": "inlinedValue", "contentType": "text/plain", "description": "supersecret"}}'
+Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret?api-version=6.4-preview -Method PUT -CertificateThumbprint <CertThumbprint> -Body $json
 ```
 
 ## <a name="set-the-secret-value"></a>비밀 값 설정
@@ -125,8 +126,12 @@ Invoke-WebRequest  -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecre
 
 다음 스크립트를 사용 하 여 REST API 사용 하 여 비밀 값을 설정 합니다.
 ```powershell
-$Params = @{"properties": {"value": "mysecretpassword"}}
+$Params = '{"properties": {"value": "mysecretpassword"}}'
 Invoke-WebRequest -Uri https://<clusterfqdn>:19080/Resources/Secrets/supersecret/values/ver1?api-version=6.4-preview -Method PUT -Body $Params -CertificateThumbprint <ClusterCertThumbprint>
+```
+### <a name="examine-the-secret-value"></a>비밀 값 검사
+```powershell
+Invoke-WebRequest -CertificateThumbprint <ClusterCertThumbprint> -Method POST -Uri "https:<clusterfqdn>/Resources/Secrets/supersecret/values/ver1/list_value?api-version=6.4-preview"
 ```
 ## <a name="use-the-secret-in-your-application"></a>응용 프로그램에서 암호 사용
 

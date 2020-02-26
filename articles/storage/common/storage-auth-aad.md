@@ -6,16 +6,16 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: conceptual
-ms.date: 12/12/2019
+ms.date: 2/23/2020
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: 820e7187332b02993d3d8bcba9c01958cfbdd61d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: b8a42723a9b56665160e660c0ea1451253c3d185
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965827"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588980"
 ---
 # <a name="authorize-access-to-blobs-and-queues-using-azure-active-directory"></a>Azure Active Directory를 사용 하 여 blob 및 큐에 대 한 액세스 권한 부여
 
@@ -27,7 +27,7 @@ Azure AD를 사용한 권한 부여는 모든 공용 지역 및 국가 클라우
 
 또한 Blob storage는 Azure AD 자격 증명으로 서명 된 SAS (공유 액세스 서명) 만들기를 추가로 지원 합니다. 자세한 내용은 [공유 액세스 서명을 사용 하 여 데이터에 제한 된 액세스 권한 부여](storage-sas-overview.md)를 참조 하세요.
 
-Azure Files는 도메인에 가입 된 Vm에 대해서만 SMB를 통해 Azure AD에 대 한 권한 부여를 지원 합니다. Azure Files에 대해 SMB over SMB를 사용 하는 방법에 대 한 자세한 내용은 [Azure Files의 smb를 통한 Azure Active Directory 권한 부여 개요](../files/storage-files-active-directory-overview.md)를 참조 하세요.
+Azure Files는 도메인에 가입 된 Vm에 대해서만 AD (미리 보기) 또는 SMB를 통한 Azure AD DS (GA) 권한 부여를 지원 합니다. Azure Files SMB를 통한 AD (미리 보기) 또는 Azure AD DS (GA)를 사용 하는 방법에 대 한 자세한 내용은 [smb 액세스를 위한 Azure Files id 기반 인증 지원 개요](../files/storage-files-active-directory-overview.md)를 참조 하세요.
 
 Azure AD를 사용한 권한 부여는 Azure Table storage에 대해 지원 되지 않습니다. 공유 키를 사용 하 여 테이블 저장소에 대 한 요청에 권한을 부여 합니다.
 

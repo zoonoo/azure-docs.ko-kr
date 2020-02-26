@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 MARS (Microsoft Azure Backup Recovery Services) 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 23e0d2874229616037c44800639411f66bc4d1b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173183"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586464"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -28,7 +28,7 @@ ms.locfileid: "74173183"
 
   ![보호 된 서버 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error-message.jpg)
 
-- 백업 항목이 일시 삭제 됨 상태에 있는 경우 경고 메시지가 표시 되 고 영구적으로 삭제 될 때까지 기다려야 합니다. 자세한 내용은 이 [문서](https://aka.ms/SoftDeleteCloudWorkloads)를 참조하세요.
+- 백업 항목이 일시 삭제 됨 상태에 있는 경우 경고 메시지가 표시 되 고 영구적으로 삭제 될 때까지 기다려야 합니다. 자세한 내용은 이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature-cloud)를 참조하세요.
 
    ![자격 증명 모음 오류를 삭제 합니다.](./media/backup-azure-delete-vault/error-message-soft-delete.png)
   
@@ -50,7 +50,7 @@ MABS (Microsoft Azure Backup 서버) 또는 DPM (System Center Data Protection M
 
 1. 포털에서 **Recovery Services 자격 증명 모음**으로 이동한 다음 **백업 항목**으로 이동 합니다. 그런 다음 클라우드에서 보호 된 항목을 선택 합니다 (예: Azure Virtual Machines, Azure Storage [Azure Files service] 또는 Azure Virtual Machines에서 SQL Server).
 
-    ![백업 유형을 선택 합니다.](./media/backup-azure-delete-vault/azure-storage-selected.png)
+    ![백업 유형을 선택합니다.](./media/backup-azure-delete-vault/azure-storage-selected.png)
 
 2. 마우스 오른쪽 단추를 클릭 하 여 백업 항목을 선택 합니다. 백업 항목이 보호 되었는지 여부에 따라 메뉴에 **백업 중지** 창이 나 **백업 데이터 삭제** 창이 표시 됩니다.
 
@@ -134,7 +134,7 @@ MABS 관리 콘솔에서 백업 항목을 삭제 하는 데 사용할 수 있는
 보호를 중지 하 고 백업 데이터를 삭제 하려면 다음 단계를 수행 합니다.
 
 1. DPM 관리자 콘솔 열고 탐색 모음에서 **보호** 를 선택 합니다.
-2. 디스플레이 창에서 제거할 보호 그룹 구성원을 선택 합니다. **그룹 구성원의 보호 중지** 옵션을 마우스 오른쪽 단추로 클릭 하 여 선택 합니다.
+2. 디스플레이 창에서 제거할 보호 그룹 구성원을 선택합니다. **그룹 구성원의 보호 중지** 옵션을 마우스 오른쪽 단추로 클릭 하 여 선택 합니다.
 3. **보호 중지** 대화 상자에서 **보호 된 데이터 삭제**를 선택 하 고 **저장소를 온라인으로 삭제** 확인란을 선택 합니다. 그런 다음 **보호 중지**를 선택 합니다.
 
     ![보호 중지 창에서 보호 된 데이터 삭제를 선택 합니다.](./media/backup-azure-delete-vault/delete-storage-online.png)

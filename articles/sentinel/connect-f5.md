@@ -3,7 +3,7 @@ title: Azure 센티널에 F5 데이터 연결 | Microsoft Docs
 description: Azure 센티널에 F5 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 0001cad6-699c-4ca9-b66c-80c194e439a5
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: cf6dc6977ff066b646beac4db5562ae8d97ab066
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 6f33cecca1c67f91d0f2be64ab156f45ee500521
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610559"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588266"
 ---
 # <a name="connect-f5-to-azure-sentinel"></a>Azure 센티널에 F5 연결
 

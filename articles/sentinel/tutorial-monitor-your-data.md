@@ -3,7 +3,7 @@ title: Azure 센티널의 Azure Monitor 통합 문서에 따라 대시보드를 
 description: 이 자습서에서는 Azure 센티널의 통합 문서를 기반으로 대시보드를 사용 하 여 데이터를 시각화 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/01/2020
-ms.author: rkarlin
-ms.openlocfilehash: 7baf8cf2e954d773376b7c3c989bce01f60ae0a6
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: b4461ac43e9356536914b345ef28f5de62fc9f82
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610457"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585223"
 ---
 # <a name="tutorial-visualize-and-monitor-your-data"></a>자습서: 데이터 시각화 및 모니터링
 
@@ -33,7 +33,7 @@ ms.locfileid: "75610457"
 > * 기본 제공 통합 문서 사용
 > * 새 통합 문서 만들기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역의 리소스 그룹에 대해 적어도 통합 문서 판독기 또는 통합 문서 참가자 권한이 있어야 합니다.
 

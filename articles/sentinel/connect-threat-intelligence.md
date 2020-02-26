@@ -2,7 +2,7 @@
 title: Azure 센티널에 위협 인텔리전스 데이터 연결 | Microsoft Docs
 description: Azure 센티널에 위협 인텔리전스 데이터를 연결 하는 방법에 대해 알아봅니다.
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: security-center
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/22/2019
-ms.author: cabailey
-ms.openlocfilehash: 33edeb04e88a01efafaf69b850ed87120671ed11
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.author: yelevin
+ms.openlocfilehash: 5c79642d287224cd15531701d7cc87ebfd72eb69
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74384132"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588045"
 ---
 # <a name="connect-data-from-threat-intelligence-providers"></a>위협 인텔리전스 공급자의 데이터 연결
 
@@ -54,13 +54,13 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 ## <a name="connect-azure-sentinel-to-your-threat-intelligence-platform"></a>Azure 센티널을 위협 인텔리전스 플랫폼에 연결
 
-## <a name="prerequisites"></a>선행 조건  
+## <a name="prerequisites"></a>사전 요구 사항  
 
 - 전역 관리자 또는 보안 관리자의 Azure AD 역할로, Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 사용자 지정 응용 프로그램 또는 팁 제품에 대 한 사용 권한을 부여 합니다.
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한으로 위협 지표를 저장 합니다.
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 
 1. 응용 프로그램 ID, 응용 프로그램 암호 및 Azure Active Directory 테 넌 트 ID를 가져오려면 Azure Active Directory에 [응용 프로그램을 등록](/graph/auth-v2-service#1-register-your-app) 합니다. Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 통합 팁 제품 또는 앱을 구성 하는 경우에 이러한 값이 필요 합니다.
 
@@ -70,11 +70,11 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 4. 다음을 지정 하 여 Azure 센티널에 표시기를 보내도록 Microsoft Graph Security tiIndicators API와의 직접 통합을 사용 하는 TIP 제품 또는 앱을 구성 합니다.
     
-    가. 등록 된 응용 프로그램의 ID, 비밀 및 테 넌 트 ID에 대 한 값입니다.
+    a. 등록 된 응용 프로그램의 ID, 비밀 및 테 넌 트 ID에 대 한 값입니다.
     
     b. 대상 제품의 경우 Azure 센티널을 지정 합니다.
     
-    c. 작업의 경우 경고를 지정 합니다.
+    다. 작업의 경우 경고를 지정 합니다.
 
 5. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 다음, **위협 인텔리전스 플랫폼 (미리 보기)** 커넥터를 선택 합니다.
 
@@ -84,13 +84,13 @@ Azure 센티널을 사용 하 여 조직에서 사용 중인 위협 지표를 �
 
 ## <a name="connect-azure-sentinel-to-taxii-servers"></a>TAXII 서버에 Azure 센티널 연결
 
-## <a name="prerequisites"></a>선행 조건  
+## <a name="prerequisites"></a>사전 요구 사항  
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한으로 위협 지표를 저장 합니다.
 
 - TAXII 2.0 서버 URI 및 컬렉션 ID입니다.
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 
 1. Azure Portal에서 **Azure 센티널** > **데이터 커넥터** 로 이동한 후 **위협 인텔리전스-TAXII (미리 보기)** 커넥터를 선택 합니다.
 

@@ -3,12 +3,12 @@ title: Recovery Services 자격 증명 모음에 대 한 진단 설정 사용
 description: Azure Backup에 대해 이전 및 새 진단 이벤트를 사용 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: 875adb82aeeb56b378a84ca01e716c7189abc64f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 7abf8873aafeb996476d818376057bfd8732d906
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74281104"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583948"
 ---
 # <a name="using-diagnostics-settings-for-recovery-services-vaults"></a>Recovery Services 자격 증명 모음용 진단 설정 사용
 
@@ -21,14 +21,15 @@ Azure Backup은 수집 하 여 분석, 경고 및 보고를 위해 사용할 수
 ## <a name="diagnostics-events-available-for-azure-backup-users"></a>Azure Backup 사용자에 게 제공 되는 진단 이벤트
 
 Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 진단 이벤트는 특정 백업 관련 아티팩트의 집합에 대 한 자세한 데이터를 제공 합니다.
+
 * CoreAzureBackup
 * AddonAzureBackupAlerts
 * AddonAzureBackupProtectedInstance
 * AddonAzureBackupJobs
 * AddonAzureBackupPolicy
-* AddonAzureBackupStorage 
+* AddonAzureBackupStorage
 
-[Azure Backup 진단 이벤트에 대 한 데이터 모델](https://aka.ms/diagnosticsdatamodel)
+[Azure Backup 진단 이벤트에 대 한 데이터 모델](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)
 
 이러한 이벤트에 대 한 데이터는 저장소 계정, LA 작업 영역 또는 이벤트 허브로 보낼 수 있습니다. 이 데이터를 LA 작업 영역으로 보내는 경우 **진단 설정** 화면에서 **리소스 특정** 설정/해제를 선택 해야 합니다 (아래 섹션의 자세한 내용 참조).
 
@@ -37,6 +38,7 @@ Azure Backup는 다음과 같은 진단 이벤트를 제공 합니다. 각 진�
 Azure Log Analytics 로드맵에 맞춰 이제 Azure Backup를 사용 하 여 백업에 대 한 전용 LA 테이블로 자격 증명 모음 진단 데이터를 보낼 수 있습니다. 이러한 [테이블을 리소스 관련 테이블](https://docs.microsoft.com/azure/azure-monitor/platform/resource-logs-collect-workspace#resource-specific)이라고 합니다.
 
 자격 증명 모음 진단 데이터를 LA에 게 보내려면:
+
 1.  자격 증명 모음으로 이동 하 고 **진단 설정**을 클릭 합니다. **+ 진단 설정 추가**를 클릭 합니다.
 2.  진단 설정에 이름을 지정 합니다.
 3.  **Log Analytics 보내기** 상자를 선택 하 고 Log Analytics 작업 영역을 선택 합니다.
@@ -84,4 +86,4 @@ Azure Backup 및 Azure Site Recovery 이벤트는 동일한 Recovery Services �
 
 ## <a name="next-steps"></a>다음 단계
 
-[진단 이벤트에 대 한 Log Analytics 데이터 모델 알아보기](https://aka.ms/diagnosticsdatamodel)
+[진단 이벤트에 대 한 Log Analytics 데이터 모델 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-reports-data-model)

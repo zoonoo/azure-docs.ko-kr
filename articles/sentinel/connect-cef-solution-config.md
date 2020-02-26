@@ -3,7 +3,7 @@ title: Azure 센티널 Preview에 CEF 데이터를 연결 하도록 보안 솔�
 description: Azure 센티널에 CEF 데이터를 연결 하도록 보안 솔루션을 구성 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2513638be6f895598f93758d8d8dbdf04c9561e9
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: bdb76954b1db8135d8a36d6658bb7fff274ac126
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75615360"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588453"
 ---
 # <a name="step-2-configure-your-security-solution-to-send-cef-messages"></a>2 단계: CEF 메시지를 보내도록 보안 솔루션 구성
 

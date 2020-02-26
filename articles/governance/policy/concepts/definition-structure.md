@@ -3,12 +3,12 @@ title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
 ms.date: 11/26/2019
 ms.topic: conceptual
-ms.openlocfilehash: d30097badd3ab9ee5a328f17d0e3e91254a89185
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462005"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587127"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -328,7 +328,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 **value**는 지원되는 모든 [조건](#conditions)과 쌍을 이룹니다.
 
 > [!WARNING]
-> _템플릿 함수의_ 결과가 오류 이면 정책 평가가 실패 합니다. 실패 한 계산은 암시적 **거부**입니다. 자세한 내용은 [템플릿 실패 방지](#avoiding-template-failures)를 참조 하세요.
+> _템플릿 함수_의 결과가 오류이면 정책 평가가 실패합니다. 실패한 평가는 암시적 **거부**입니다. 자세한 내용은 [템플릿 오류 방지](#avoiding-template-failures)를 참조하세요. 새 정책 정의를 테스트 하 고 유효성을 검사 하는 동안 새 리소스 또는 업데이트 된 리소스에 대해 실패 한 평가의 영향을 방지 하려면 [enforcementMode](./assignment-structure.md#enforcement-mode) 의 **DoNotEnforce** 을 사용 합니다.
 
 #### <a name="value-examples"></a>값 예제
 
@@ -372,7 +372,7 @@ JSON을 사용하여 정책 정의를 만듭니다. 정책 정의에는 다음 �
 
 #### <a name="avoiding-template-failures"></a>템플릿 실패 방지
 
-**Value** 에서 _템플릿 함수_ 를 사용 하면 복잡 한 여러 중첩 함수가 허용 됩니다. _템플릿 함수의_ 결과가 오류 이면 정책 평가가 실패 합니다. 실패 한 계산은 암시적 **거부**입니다. 특정 시나리오에서 실패 하는 **값** 의 예는 다음과 같습니다.
+**Value** 에서 _템플릿 함수_ 를 사용 하면 복잡 한 여러 중첩 함수가 허용 됩니다. _템플릿 함수_의 결과가 오류이면 정책 평가가 실패합니다. 실패한 평가는 암시적 **거부**입니다. 특정 시나리오에서 실패 하는 **값** 의 예는 다음과 같습니다.
 
 ```json
 {
@@ -580,13 +580,22 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 다음 함수는 정책 규칙에서 사용할 수 있지만 Azure Resource Manager 템플릿에 사용 되는 것과는 다릅니다.
 
-- addDays(dateTime, numberOfDaysToAdd)
+- `addDays(dateTime, numberOfDaysToAdd)`
   - **datetime**: [Required] Universal ISO 8601 datetime 형식 ' YYYY-Mm-yyyy-mm-ddthh: MM: Ss. fffffffZ '의 문자열 문자열
   - **Numberofdaystoadd**: [필수] 정수-더할 일 수
-- utcNow ()-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
+- `utcNow()`-리소스 관리자 템플릿과 달리 defaultValue 외부에서 사용할 수 있습니다.
   - 유니버설 ISO 8601 DateTime 형식 ' yyyy-MM-Yyyy-mm-ddthh: MM: ss. fffffffZ '의 현재 날짜 및 시간으로 설정 된 문자열을 반환 합니다.
 
-`field` 함수도 정책 규칙에 사용할 수 있습니다. `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+다음 함수는 정책 규칙 에서만 사용할 수 있습니다.
+
+- `field(fieldName)`
+  - **fieldName**: [필수] 문자열-검색할 [필드](#fields) 의 이름입니다.
+  - If 조건에 의해 계산 되는 리소스에서 해당 필드의 값을 반환 합니다.
+  - `field`는 주로 평가 중인 리소스의 필드를 참조하기 위해 **AuditIfNotExists** 및 **DeployIfNotExists**와 함께 사용합니다. 이 사용 예제는 [DeployIfNotExists 예제](effects.md#deployifnotexists-example)에서 볼 수 있습니다.
+- `requestContext().apiVersion`
+  - 정책 평가를 트리거한 요청의 API 버전을 반환 합니다 (예: `2019-09-01`). 이 버전은 리소스 생성/업데이트에 대 한 평가를 위해 PUT/PATCH 요청에 사용 된 API 버전입니다. 최신 API 버전은 기존 리소스에 대 한 준수 평가 중 항상 사용 됩니다.
+  
+
 
 #### <a name="policy-function-example"></a>정책 함수 예제
 

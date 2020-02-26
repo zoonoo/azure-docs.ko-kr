@@ -3,7 +3,7 @@ title: Azure 활동 데이터를 Azure 센티널에 연결 | Microsoft Docs
 description: Azure 활동 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 8c25baa8-b93b-41da-9e6c-15bb7b5c5511
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 107bbed8aea692a76f6d5bf6bbf1da26277b2c85
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.author: yelevin
+ms.openlocfilehash: 28d5acd80deef193c7d2fea46f682f26abd756aa
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156576"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588606"
 ---
 # <a name="connect-data-from-azure-activity-log"></a>Azure 활동 로그에서 데이터 연결
 
@@ -29,7 +29,7 @@ ms.locfileid: "76156576"
 한 번의 클릭으로 [Azure 활동 로그](../azure-monitor/platform/platform-logs-overview.md) 의 로그를 azure 센티널로 스트리밍할 수 있습니다. 활동 로그는 Azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 하는 구독 로그입니다. 여기에는 Azure Resource Manager 작동 데이터에서 서비스 상태 이벤트 업데이트에 이르기까지 광범위한 데이터가 포함됩니다. 활동 로그를 사용 하 여 구독의 리소스에 대해 수행 되는 모든 쓰기 작업 (PUT, POST, DELETE)에 대 한 ' 무엇을, 누가, 언제 '를 결정할 수 있습니다. 또한 작업 및 기타 관련 속성의 상태도 이해할 수 있습니다. 활동 로그에는 읽기 (GET) 작업 또는 클래식/"RDFE" 모델을 사용 하는 리소스에 대 한 작업이 포함 되지 않습니다. 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Log Analytics 작업 영역에 대 한 참가자 권한이 있는 사용자 
 

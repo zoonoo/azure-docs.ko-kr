@@ -2,7 +2,7 @@
 title: Forcepoint DLP를 Azure 센티널에 연결 | Microsoft Docs
 description: Forcepoint DLP를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
-author: rkarlin
+author: yelevin
 editor: ''
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
-ms.openlocfilehash: bd3940af1553ec65731ed743fd23027403e9ec53
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.author: yelevin
+ms.openlocfilehash: 3bdb9d2b23ce05929ba5612e0c6a03fe1aab05de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500953"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588249"
 ---
 # <a name="connect-your-forcepoint-dlp-to-azure-sentinel"></a>Forcepoint DLP를 Azure 센티널에 연결
 

@@ -3,7 +3,7 @@ title: Azure 센티널을 사용 하 여 의심 스러운 위협을 검색 하�
 description: 이 자습서를 사용 하 여 Azure 센티널에서 의심 스러운 위협을 검색 하는 사용자 지정 분석 규칙을 만드는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/20/2020
-ms.author: rkarlin
-ms.openlocfilehash: bdd36e2f3c2b426f4bad3e787c12be2f7d09b303
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.author: yelevin
+ms.openlocfilehash: cea7429ecea105355b0afe306bfa334e55d5d9c4
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565522"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585110"
 ---
 # <a name="tutorial-create-custom-analytic-rules-to-detect-suspicious-threats"></a>자습서: 의심 스러운 위협을 검색 하는 사용자 지정 분석 규칙 만들기
 
@@ -85,7 +85,7 @@ ms.locfileid: "77565522"
 
     2. **이 분석 규칙에 의해 트리거되는 경고를 단일 인시던트**로 그룹화 합니다. 경고를 그룹화 할 기준을 선택 합니다.
 
-        - **모든 엔터티가 일치 하는 경우 경고를 단일 인시던트에 그룹화 합니다**. <br></br>위의 규칙 논리 설정 탭에 정의 된 대로 매핑된 각 엔터티에 대해 동일한 값을 공유 하는 경우 경고가 함께 그룹화 됩니다. 이 설정은 권장되는 설정입니다.
+        - **모든 엔터티가 일치 하는 경우 경고를 단일 인시던트에 그룹화 합니다**. <br></br>위의 규칙 논리 설정 탭에 정의 된 대로 매핑된 각 엔터티에 대해 동일한 값을 공유 하는 경우 경고가 함께 그룹화 됩니다. 권장 설정입니다.
 
         - **이 규칙에 의해 트리거되는 모든 경고를 단일 인시던트에 그룹화 합니다**. <br></br>이 규칙에 의해 생성 된 모든 경고는 동일한 값을 공유 하지 않더라도 함께 그룹화 됩니다.
 

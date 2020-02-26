@@ -1,10 +1,10 @@
 ---
-title: SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비 | Microsoft Docs
+title: WSFC & 파일 공유를 사용 하는 SAP ASCS/SCS HA 용 Azure 인프라 | Microsoft Docs
 description: SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: cc2295f6151b3cde81c27c8ed1116013e1a3f9a9
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 4abae94ded92aca075fcb41a7cd42491e92d41d6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647546"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591543"
 ---
 # <a name="prepare-azure-infrastructure-for-sap-high-availability-by-using-a-windows-failover-cluster-and-file-share-for-sap-ascsscs-instances"></a>SAP ASCS/SCS 인스턴스에 대해 Windows 장애 조치(Failover) 클러스터 및 파일 공유를 사용하여 SAP 고가용성을 위한 Azure 인프라 준비
 
@@ -209,7 +209,7 @@ ms.locfileid: "75647546"
 
 이 문서에서는 SAP ASCS/SCS 인스턴스를 클러스터링하는 옵션으로 스케일 아웃 파일 공유를 사용하여 WSFC(Windows 장애 조치(failover) 클러스터)에서 고가용성 SAP 시스템을 설치하고 구성하는 데 필요한 Azure 인프라 준비 단계를 설명합니다.
 
-## <a name="prerequisite"></a>필수 조건
+## <a name="prerequisite"></a>필수 요소
 
 설치를 시작하기 전에 다음 문서를 검토하세요.
 
@@ -222,8 +222,8 @@ ms.locfileid: "75647546"
 | --- | --- | --- | --- |
 | 첫 번째 클러스터 노드 ASCS/SCS 클러스터 | ascs-1 | 10.0.6.4 | ascs-as |
 | 두 번째 클러스터 노드 ASCS/SCS 클러스터 | ascs-2 | 10.0.6.5 | ascs-as |
-| 클러스터 네트워크 이름 |ascs-cl | 10.0.6.6 | n/a |
-| SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | n/a |
+| 클러스터 네트워크 이름 |ascs-cl | 10.0.6.6 | 해당 없음 |
+| SAP PR1 ASCS 클러스터 네트워크 이름 |pr1-ascs | 10.0.6.7 | 해당 없음 |
 
 
 **테이블 1**: ASCS/SCS 클러스터
@@ -240,8 +240,8 @@ ms.locfileid: "75647546"
 | 첫 번째 클러스터 노드 | sofs-1 | 10.0.6.10 | sofs-as |
 | 두 번째 클러스터 노드 | sofs-2 | 10.0.6.11 | sofs-as |
 | 세 번째 클러스터 노드 | sofs-3 | 10.0.6.12 | sofs-as |
-| 클러스터 네트워크 이름 | sofs-cl | 10.0.6.13 | n/a |
-| SAP 전역 호스트 이름 | sapglobal | 모든 클러스터 노드의 IP 사용 | n/a |
+| 클러스터 네트워크 이름 | sofs-cl | 10.0.6.13 | 해당 없음 |
+| SAP 전역 호스트 이름 | sapglobal | 모든 클러스터 노드의 IP 사용 | 해당 없음 |
 
 **표 3**: 스케일 아웃 파일 서버 클러스터
 

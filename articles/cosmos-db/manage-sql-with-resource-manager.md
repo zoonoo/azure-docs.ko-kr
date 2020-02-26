@@ -6,16 +6,16 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: thvankra
-ms.openlocfilehash: ce9ca202ee57fe9c42906ebeb62a44c724bd1a52
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 72a87c3b23e0eed6cfbf1614388702443f4e99d0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75978720"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588790"
 ---
 # <a name="manage-azure-cosmos-db-sql-core-api-resources-with-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB SQL (코어) API 리소스 관리
 
-이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화 하는 방법에 대해 알아봅니다.
+이 문서에서는 Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 계정, 데이터베이스 및 컨테이너의 관리를 자동화하는 방법에 대해 알아봅니다.
 
 이 문서에서는 SQL API 계정에 대 한 Azure Resource Manager 템플릿 예제만 보여 줍니다. [Cassandra](manage-cassandra-with-resource-manager.md), [Gremlin](manage-gremlin-with-resource-manager.md), [MongoDB](manage-mongodb-with-resource-manager.md)및 [Table](manage-table-with-resource-manager.md) api에 대 한 템플릿 예제를 찾을 수도 있습니다.
 
@@ -39,7 +39,7 @@ Azure Cosmos DB 리소스를 만들려면 다음 예제 템플릿을 복사 하 
 > * 계정 이름은 44 자 (모두 소문자)로 제한 됩니다.
 > * 처리량 값을 변경 하려면 업데이트 된 r u/s를 사용 하 여 템플릿을 다시 전송 합니다.
 
-[!code-json[create-cosmosdb-sql](~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql/azuredeploy.json":::
 
 > [!NOTE]
 > 파티션 키가 많은 컨테이너를 만들려면 `partitionKey` 개체 내에 `"version":2` 속성을 포함 하도록 이전 템플릿을 수정 합니다.
@@ -136,9 +136,9 @@ Azure Resource Manager 템플릿을 사용 하 여 저장 프로시저, 트리�
 * 필요한 경우 [Azure 빠른 시작 갤러리](https://azure.microsoft.com/resources/templates/101-cosmosdb-sql-container-sprocs/) 를 방문 하 여 Azure Portal에서 템플릿을 배포할 수 있습니다.
 * 로컬 컴퓨터에 템플릿을 다운로드 하거나 새 템플릿을 만들고 `--template-file` 매개 변수를 사용 하 여 로컬 경로를 지정할 수도 있습니다.
 
-[!code-json[create-cosmosdb-sql-sprocs](~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-sql-container-sprocs/azuredeploy.json":::
 
-### <a name="deploy-with-powershell"></a>Powershell을 사용하여 배포
+### <a name="deploy-with-powershell"></a>PowerShell을 사용하여 배포
 
 PowerShell을 사용 하 여 Azure Resource Manager 템플릿을 배포 하려면 다음을 수행 합니다.
 

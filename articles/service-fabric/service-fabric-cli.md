@@ -5,12 +5,12 @@ author: jeffj6123
 ms.topic: conceptual
 ms.date: 1/16/2020
 ms.author: jejarry
-ms.openlocfilehash: b4ddc5bb52aeef622a33ace7b3ffad4694d7c072
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 46c5e1ed0a1d0db100c3415c40f59d46f62b21f9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904826"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587620"
 ---
 # <a name="azure-service-fabric-cli"></a>Azure Service Fabric CLI
 
@@ -18,7 +18,7 @@ Azure Service Fabric CLI(명령줄 인터페이스)는 Azure Service Fabric 엔�
 
 [!INCLUDE [links to azure cli and service fabric cli](../../includes/service-fabric-sfctl.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 설치하기 전에 환경에 Python과 pip가 모두 설치되어 있는지 확인합니다. 자세한 내용은 [pip 빠른 시작 설명서(영문)](https://pip.pypa.io/en/latest/quickstart/) 및 공식 [Python 설치 설명서(영문)](https://wiki.python.org/moin/BeginnersGuide/Download)를 참조하세요.
 
@@ -41,7 +41,7 @@ Service Fabric CLI는 Service Fabric SDK의 최신 런타임 버전을 지원하
 
 필요에 따라 `pip install` 명령에 `==<version>`을 접미사로 붙여 설치하기 위해 CLI의 대상 버전을 지정할 수 있습니다. 예를 들어 1.1.0 버전에서 구문은 다음과 같습니다.
 
-```
+```shell
 pip install -I sfctl==1.1.0
 ```
 
@@ -67,14 +67,14 @@ Windows 10, Windows Server 2016 및 Windows Server 2012 R2의 경우 표준 공�
 
 이제 새 명령 창을 열고 Python과 pip의 버전을 모두 가져올 수 있습니다.
 
-```bat
+```shell
 python --version
 pip --version
 ```
 
 그런 다음, 다음 명령을 실행하여 Azure Service Fabric CLI(sfctl)를 설치하고 CLI 도움말 페이지를 봅니다.
 
-```bat
+```shell
 pip install sfctl
 sfctl -h
 ```
@@ -99,11 +99,11 @@ sfctl -h
 
 `sfctl: command not found`
 
-`$PATH`에서 `~/.local/bin`에 액세스할 수 있도록 합니다.
+`~/.local/bin`에서 `$PATH`에 액세스할 수 있도록 합니다.
 
 ```bash
 export PATH=$PATH:~/.local/bin
-echo "export PATH=$PATH:~/.local/bin" >> .bashrc
+echo "export PATH=$PATH:~/.local/bin" >> .shellrc
 ```
 
 Linux용 Windows 하위 시스템에 대한 설치가 잘못된 폴더 사용 권한으로 인해 실패하는 경우 승격된 사용 권한으로 다시 시도해야 합니다.
@@ -148,7 +148,7 @@ sfctl -h
 
 명령은 동사 또는 작업 앞에 명령의 대상이 포함된 반복 구조를 따릅니다.
 
-```azurecli
+```shell
 sfctl <object> <action>
 ```
 
@@ -161,7 +161,7 @@ sfctl <object> <action>
 > [!WARNING]
 > 프로덕션 환경에는 보안되지 않은 Service Fabric 클러스터를 사용하지 않습니다.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint http://testcluster.com:19080
 ```
 
@@ -169,7 +169,7 @@ sfctl cluster select --endpoint http://testcluster.com:19080
 
 인증서로 보호되는 클러스터에는 PEM으로 인코딩된 인증서를 지정할 수 있습니다. 인증서는 단일 파일 또는 인증서와 키 쌍으로 지정할 수 있습니다. CA 서명되지 않은 자체 서명된 인증서인 경우 `--no-verify` 옵션을 전달하여 CA 확인을 건너뛸 수 있습니다.
 
-```azurecli
+```shell
 sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./client.pem --no-verify
 ```
 
@@ -181,7 +181,7 @@ sfctl cluster select --endpoint https://testsecurecluster.com:19080 --pem ./clie
 
 예를 들어, Service Fabric 클러스터 상태를 가져오려면 다음 명령을 실행합니다.
 
-```azurecli
+```shell
 sfctl cluster health
 ```
 
@@ -218,13 +218,13 @@ sfctl cluster health
 
 Service Fabric CLI는 PEM(확장명 .pem) 파일의 클라이언트 쪽 인증서를 지원합니다. Windows에서 PFX 파일을 사용하는 경우 해당 인증서를 PEM 형식으로 변환해야 합니다. PFX 파일을 PEM 파일로 변환하려면 다음 명령을 사용합니다.
 
-```bash
+```shell
 openssl pkcs12 -in certificate.pfx -out mycert.pem -nodes
 ```
 
 마찬가지로, PEM 파일에서 PFX 파일로 변환하려면 다음 명령을 사용할 수 있습니다(여기에서 암호가 제공되지 않음).
 
-```bash
+```shell
 openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certificates.pem -passout pass:'' 
 ```
 
@@ -246,13 +246,13 @@ openssl  pkcs12 -export -out Certificates.pfx -inkey Certificates.pem -in Certif
 
 특정 명령 또는 명령 그룹에 대한 도움말은 얻으려면 `-h` 플래그를 사용합니다.
 
-```azurecli
+```shell
 sfctl application -h
 ```
 
 다른 예제입니다.
 
-```azurecli
+```shell
 sfctl application create -h
 ```
 
@@ -260,7 +260,7 @@ sfctl application create -h
 
 Service Fabric CLI를 업데이트하려면 다음 명령을 실행합니다(원래 설치 중 선택한 항목에 따라 `pip`를 `pip3`으로 대체).
 
-```bash
+```shell
 pip uninstall sfctl
 pip install sfctl
 ```

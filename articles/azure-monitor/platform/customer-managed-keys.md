@@ -6,13 +6,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
-ms.date: 02/05/2020
-ms.openlocfilehash: eff751465c7b64429968b0305e6ad483943c374b
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.date: 02/24/2020
+ms.openlocfilehash: 0cb33f55acacfd3635d19719265a46b566765a64
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048178"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592105"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -86,8 +86,8 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 1. Subscription 허용 목록-이 초기 액세스 기능에 필요 합니다.
 2. Azure Key Vault 만들기 및 키 저장
 3. *클러스터* 리소스 만들기
-4. Key Vault에 대 한 사용 권한 부여
-5. ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전
+4. ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전
+5. Key Vault에 대 한 사용 권한 부여
 6. Log Analytics 작업 영역 연결
 
 이 프로시저는 현재 UI에서 지원 되지 않으며 프로 비전 프로세스는 REST API를 통해 수행 됩니다.
@@ -95,7 +95,7 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```rst
 GET
@@ -135,7 +135,7 @@ Azure Key Vault 리소스를 만든 다음 데이터 암호화에 사용할 키�
 
 ### <a name="create-cluster-resource"></a>*클러스터* 리소스 만들기
 
-이 리소스는 Key Vault와 작업 영역 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 된 것을 확인 한 후에는 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다. Application Insights 및 Log Analytics에는 별도의 클러스터 리소스가 필요 합니다. 클러스터 리소스의 형식은 생성 시 "clusterType" 속성을 ' LogAnalytics ' 또는 ' ApplicationInsights '로 설정 하 여 정의 됩니다. 클러스터 리소스 유형은 변경할 수 없습니다.
+이 리소스는 Key Vault와 작업 영역 간의 중간 id 연결로 사용 됩니다. 구독이 허용 목록 된 것을 확인 한 후에는 작업 영역이 있는 지역에서 Log Analytics *클러스터* 리소스를 만듭니다. Application Insights 및 Log Analytics에는 별도의 클러스터 리소스가 필요 합니다. *클러스터* 리소스의 형식은 생성 시 "clustertype" 속성을 ' loganalytics ' 또는 ' applicationinsights '로 설정 하 여 정의 됩니다. 클러스터 리소스 유형은 변경할 수 없습니다.
 
 CMK를 구성 Application Insights이 단계에 대해서는 부록 콘텐츠를 따르세요.
 
@@ -156,61 +156,73 @@ Content-type: application/json
    }
 }
 ```
+Id는 생성 시 *클러스터* 리소스에 할당 됩니다.
 "clusterType" 값은 Application Insights CMK에 대 한 "ApplicationInsights"입니다.
 
 **응답**
 
-만든 시간에는 id가 *클러스터* 리소스에 할당 됩니다.
+202이 승인 되었습니다. 비동기 작업에 대 한 표준 리소스 관리자 응답입니다.
 
-```json
-{
-  "identity": {
-    "type": "SystemAssigned",
-    "tenantId": "tenant-id",
-    "principalId": "principle-id"
-  },
-  "properties": {
-    "provisioningState": "Succeeded",
-    "clusterType": "LogAnalytics", 
-    "clusterId": "cluster-id"
-  },
-  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",    //The cluster resource Id
-  "name": "cluster-name",
-  "type": "Microsoft.OperationalInsights/clusters",
-  "location": "region-name"
-}
-
-```
-"principalId"는 *클러스터* 리소스에 대 한 관리 id 서비스에 의해 생성 되는 GUID입니다.
-
-> [!IMPORTANT]
-> "클러스터 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
-
-어떤 이유로 든 *클러스터* 리소스를 삭제 하는 경우, 예를 들어 다른 이름 또는 clustertype을 사용 하 여 만들려면 다음 API 호출을 사용 합니다.
+어떤 이유로 든 *클러스터* 리소스를 삭제 하는 경우 (예: 다른 이름 또는 clustertype을 사용 하 여 만드는 경우)이 REST API 사용 합니다.
 
 ```rst
 DELETE
 https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
 ```
 
+### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전
+
+이전 단계를 완료 한 후에는이 기능의 초기 액세스 기간 동안 ADX 클러스터가 제품 팀에서 수동으로 프로 비전 됩니다. Microsoft에서 제공 하는 채널을 사용 하 여 *클러스터* 리소스 세부 정보를 제공 합니다. JSON 응답은 GET REST API를 사용 하 여 검색할 수 있습니다.
+
+```rst
+GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
+Authorization: Bearer <token>
+```
+
+**응답**
+```json
+{
+  "identity": {
+    "type": "SystemAssigned",
+    "tenantId": "tenant-id",
+    "principalId": "principal-Id"
+    },
+  "properties": {
+    "provisioningState": "Succeeded",
+    "clusterType": "LogAnalytics", 
+    "clusterId": "cluster-id"
+    },
+  "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
+  "name": "cluster-name",
+  "type": "Microsoft.OperationalInsights/clusters",
+  "location": "region-name"
+  }
+```
+
+"principalId"는 *클러스터* 리소스에 대 한 관리 id 서비스에 의해 생성 되는 GUID입니다.
+
+> [!IMPORTANT]
+> "클러스터 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
+
+
 ### <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
 
-Key Vault를 업데이트 하 고 클러스터 리소스에 대 한 액세스 정책을 추가 합니다. 그런 다음 Key Vault에 대 한 권한이 데이터 암호화에 사용 되는 Azure Monitor 저장소에 전파 됩니다.
+> [!IMPORTANT]
+> 이 단계는 ADX 클러스터 (Azure Monitor 데이터 저장소) 프로비저닝이 충족 된 Microsoft 채널을 통해 제품 그룹에서 확인을 받은 후에 수행 해야 합니다. 이 프로 비전 전에 Key Vault 액세스 정책 업데이트가 실패할 수 있습니다.
+
+*클러스터* 리소스에 대 한 사용 권한을 부여 하는 새 액세스 정책을 사용 하 여 Key Vault를 업데이트 합니다. 이러한 권한은 데이터 암호화를 위해 Azure Monitor 저장소를 저장 하는 데 사용 됩니다.
 Azure Portal에서 Key Vault을 열고 "액세스 정책"을 클릭 한 다음 "+ 액세스 정책 추가"를 클릭 하 여 다음 설정을 사용 하 여 새 정책을 만듭니다.
 
 - 키 사용 권한: ' 가져오기 ', ' 줄 바꿈 키 ' 및 ' 래핑 해제 키 ' 권한을 선택 합니다.
-
-- 보안 주체 선택: 이전 단계의 응답에서 "clusterId" 값인 클러스터 id를 입력 합니다.
+- 보안 주체 선택: 이전 단계의 응답에서 반환 된 클러스터 id 값을 입력 합니다.
 
 ![Key Vault 권한 부여](media/customer-managed-keys/grant-key-vault-permissions.png)
 
 사용자의 키와 Azure Monitor 데이터에 대 한 액세스를 보호 하기 위해 Key Vault가 복구 가능한 것으로 구성 되었는지 확인 하려면 *Get* 권한이 필요 합니다.
 
-Azure Resource Manager에서 *클러스터* 리소스가 전파 될 때까지 몇 분 정도 걸립니다. *클러스터* 리소스를 만든 후 즉시이 액세스 정책을 구성 하면 일시적인 오류가 발생할 수 있습니다. 이 경우 몇 분 후에 다시 시도 하세요.
-
 ### <a name="update-cluster-resource-with-key-identifier-details"></a>키 식별자 세부 정보를 사용 하 여 클러스터 리소스 업데이트
 
-이 단계에서는 Key Vault의 이후 주요 버전 업데이트를 적용 합니다. Key Vault *키 식별자* 세부 정보를 사용 하 여 *클러스터* 리소스를 업데이트 하 여 Azure Monitor 저장소에서 새 키 버전을 사용할 수 있도록 합니다. 키 식별자 정보를 가져오려면 Azure Key Vault에서 키의 현재 버전을 선택 합니다.
+이 단계는 Key Vault의 향후 주요 버전 업데이트에 적용 됩니다. Key Vault *키 식별자* 세부 정보를 사용 하 여 *클러스터* 리소스를 업데이트 하 여 Azure Monitor 저장소에서 새 키 버전을 사용할 수 있도록 합니다. 키 식별자 정보를 가져오려면 Azure Key Vault에서 키의 현재 버전을 선택 합니다.
 
 ![Key Vault 권한 부여](media/customer-managed-keys/key-identifier-8bit.png)
 
@@ -225,16 +237,16 @@ Content-type: application/json
 
 {
    "properties": {
-       "KeyVaultProperties": {
-            KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
-            KeyName: "<key-name>",
-            KeyVersion: "<current-version>"
-            },
+     "KeyVaultProperties": {
+       KeyVaultUri: "https://<key-vault-name>.vault.azure.net",
+       KeyName: "<key-name>",
+       KeyVersion: "<current-version>"
+       },
    },
    "location":"<region-name>",
    "identity": { 
-        "type": "systemAssigned" 
-        }
+     "type": "systemAssigned" 
+     }
 }
 ```
 "KeyVaultProperties"에는 Key Vault 키 식별자 정보가 포함 되어 있습니다.
@@ -264,44 +276,6 @@ Content-type: application/json
   "location": "region-name"
 }
 ```
-
-### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전
-
-이전 단계를 완료 한 후에는이 기능의 초기 액세스 기간 동안 ADX 클러스터가 제품 팀에서 수동으로 프로 비전 됩니다. Microsoft에서 제공 하는 채널을 사용 하 여 다음 세부 정보를 제공 합니다.
-
-- 위의 단계가 성공적으로 완료 되었음을 확인 합니다.
-
-- 이전 단계의 JSON 응답입니다. Get API 호출을 사용 하 여 언제 든 지 검색할 수 있습니다.
-
-   ```rst
-   GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
-   Authorization: Bearer <token>
-   ```
-
-   **응답**
-   ```json
-   {
-     "identity": {
-       "type": "SystemAssigned",
-       "tenantId": "tenant-id",
-       "principalId": "principal-Id"
-     },
-     "properties": {
-          "KeyVaultProperties": {
-               KeyVaultUri: "https://key-vault-name.vault.azure.net",
-               KeyName: "key-name",
-               KeyVersion: "current-version"
-               },
-       "provisioningState": "Succeeded",
-       "clusterType": "LogAnalytics", 
-       "clusterId": "cluster-id"
-     },
-     "id": "/subscriptions/subscription-id/resourceGroups/resource-group-name/providers/Microsoft.OperationalInsights/clusters/cluster-name",
-     "name": "cluster-name",
-     "type": "Microsoft.OperationalInsights/clusters",
-     "location": "region-name"
-   }
-   ```
 
 ### <a name="workspace-association-to-cluster-resource"></a>*클러스터* 리소스에 작업 영역 연결
 
@@ -487,7 +461,7 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
   **응답**
 
-  200 OK
+  200 정상
 
 
 ## <a name="appendix"></a>부록
@@ -560,7 +534,7 @@ Content-type: application/json
 > [!IMPORTANT]
 > "클러스터 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
 
-### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-updatehttpsdocsmicrosoftcomrestapiapplication-insightscomponentscreateorupdate-api"></a>구성 요소를 사용 하 여 *클러스터* 리소스에 구성 요소 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
+### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>구성 요소를 사용 하 여 *클러스터* 리소스에 구성 요소 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
 
 ```rst
 PUT https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.Insights/components/<component-name>?api-version=2015-05-01

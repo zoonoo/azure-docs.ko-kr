@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d5ed903eefea3a8c13bb9e43f5ef71063b453d93
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: f31d742dc78e16d4786216259a8fce5349152c63
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806646"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591254"
 ---
 # <a name="available-skus-for-hli"></a>HLI에 사용 가능한 SKU
 
@@ -55,6 +55,7 @@ ms.locfileid: "74806646"
 | OLTP에 대해 최적화됨: SAP Business Suite<br /> SAP HANA 또는 S/4HANA(OLTP)에서,<br /> 일반 OLTP | Azure S72m에서 SAP HANA<br /> – 2 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 36 CPU 코어 및 72 CPU 스레드 |  1.5 TB |  6 TB | 더 이상 제공되지 않음 |
 |---| Azure S144m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v3<br /> 72 CPU 코어 및 144 CPU 스레드 |  3.0 TB |  12 TB | 더 이상 제공되지 않음 |
 |---| Azure S192m에서 SAP HANA<br /> – 4 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 96 CPU 코어 및 192 CPU 스레드  |  4.0 TB |  16 TB | 더 이상 제공되지 않음 |
+| --- | Azure S224m의 SAP HANA<br /> – 4 x Intel® Xeon® Platinum 8276 프로세서 (Cascade lake 라고도 함)<br /> 112 CPU 코어 및 224 CPU 스레드 |  6.0 TB |  10.5 TB | Revision3 및 Revision4 스탬프에서 사용 가능  |
 |---| Azure S384m에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  6.0 TB |  18 TB | Revision4 스탬프에서 사용 가능|
 |---| Azure S384xm에서 SAP HANA<br /> – 8 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 192 CPU 코어 및 384 CPU 스레드 |  8.0 TB |  22 TB |  Revision4 스탬프에서 사용 가능 |
 |---| Azure의 SAP HANA S576m<br /> – 12 x Intel® Xeon® 프로세서 E7-8890 v4<br /> 288 CPU 코어 및 576 CPU 스레드 |  12.0 TB |  28 TB | Revision4 스탬프에서 사용 가능|
@@ -90,7 +91,7 @@ SAP HANA TDIv5에서 SAP는 고객 특정 크기 조정 및 고객 관련 프로
 
 고객 특정 규모 프로젝트 단위를 제외하고 제공되는 하드웨어 기준은 SAP HANA TDI 인증입니다. SKU를 구분하는 두 가지 하드웨어 클래스는 다음과 같습니다.
 
-- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224,,,,,,,,,,,,.
+- S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224, S224m,,,,,,,,,,,,.
 - S384, S384m, S384xm, S384xxm, S576m, S576xm S768m, S768xm 및 S960m (Sku의 "형식 II 클래스" 라고도 함)
 - 4\.5 TB에서 9TB까지 Optane를 사용 하 여 다른 S224 Sku 제품에 관심이 있는 경우 Microsoft 계정 팀에 문의 하 여 자세한 정보를 받으세요. 
 

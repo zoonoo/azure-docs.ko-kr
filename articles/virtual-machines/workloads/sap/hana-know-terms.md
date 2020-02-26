@@ -10,15 +10,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 12/03/2019
+ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 2ea6a8963d0905036f759fbab792492cc63d551c
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806748"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591220"
 ---
 # <a name="know-the-terms"></a>용어 알아보기
 
@@ -38,7 +38,7 @@ ms.locfileid: "74806748"
    온-프레미스 도메인의 도메인 사용자는 서버에 액세스하고, 이러한 VM에서 서비스(예: DBMS 서비스)를 실행할 수 있습니다. 온-프레미스에 배포된 VM과 Azure에 배포된 VM 간의 통신 및 이름 확인이 가능합니다. 이 시나리오는 대부분의 SAP 자산이 배포되는 전형적인 방식입니다. 자세한 내용은 [Azure VPN Gateway](../../../vpn-gateway/vpn-gateway-about-vpngateways.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json) 및 [Azure Portal를 사용 하 여 사이트 간 연결](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)을 사용 하 여 가상 네트워크 만들기를 참조 하세요.
 - **테넌트:** HANA 대규모 인스턴스 스탬프에 배포된 고객은 *테넌트*로 격리됩니다. 테넌트는 네트워킹, 스토리지 및 컴퓨팅 계층에서 다른 테넌트로부터 격리됩니다. 다른 테넌트에 할당된 스토리지 및 컴퓨팅 단위는 HANA 대규모 인스턴스 스탬프 수준에서 서로 표시하거나 통신할 수 없습니다. 고객은 다양한 테넌트에 배포하도록 선택할 수 있습니다. 그러한 경우에도 HANA 대규모 인스턴스 스탬프 수준에서 테넌트 간 통신은 없습니다.
 - **SKU 범주:** HANA 대규모 인스턴스의 경우 SKU는 다음 두 가지 범주로 제공됩니다.
-    - **유형 I 클래스**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm 및 S224
+    - **유형 I 클래스**: S72, S72m, S96, S144, S144m, S192, S192m, S192xm, S224 및 S224m
     - **유형 II 클래스**: S384, S384m, S384xm, S384xxm, S576m, S576xm, S768m, S768xm 및 S960m
 - **스탬프**: HANA 큰 인스턴스의 Microsoft 내부 배포 크기를 정의 합니다. HANA 대량 인스턴스 단위를 배포 하기 전에 계산, 네트워크 및 저장소 랙에 구성 된 HANA Large Instance 스탬프를 데이터 센터 위치에 배포 해야 합니다. 이러한 배포를 HANA Large instance 스탬프 라고 하거나, 수정 버전 4에서 (아래 참조), **대량 인스턴스 행** 의 대체 용어를 사용 합니다.
 - **수정 버전**: HANA Large Instance 스탬프에 대해 두 개의 다른 스탬프 수정이 있습니다. 아키텍처와 Azure 가상 컴퓨터 호스트의 차이가 다릅니다.

@@ -2,14 +2,14 @@
 title: Azure로 Chef 사용하기
 description: Azure 인프라를 구성하고 테스트하기 위한 Chef 사용 소개
 keywords: azure, chef, devops, 가상 머신, 개요, 자동화
-ms.date: 05/15/2018
+ms.date: 02/22/2020
 ms.topic: article
-ms.openlocfilehash: 4ad8b79b42c9d8d7942f391223c052f63579b11b
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: c22faa69bf8f42111d328a9c156dc1a2432731b2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158001"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586345"
 ---
 # <a name="using-chef-with-azure"></a>Azure로 Chef 사용하기
 [Chef](https://www.chef.io)는 Azure에서 가상 머신 인프라를 코드로 변환하는 강력한 자동화 플랫폼입니다. Chef는 크기에 관계 없이 네트워크를 통해 인프라를 구성하고 배포하고 관리하는 방법을 자동화합니다.
@@ -17,7 +17,7 @@ ms.locfileid: "74158001"
 이 문서에서는 Chef를 사용하여 Azure 인프라를 관리하는 이점에 대해 설명합니다.
 
 ## <a name="chef-extension-on-azure"></a>Azure의 Chef 확장
-Azure Portal에서 [Chef 확장](https://docs.microsoft.com/azure/chef/chef-extension-portal)을 통해 Chef 클라이언트를 백그라운드 서비스로 실행하여 가상 머신을 프로비전합니다. 프로비전되고 나면 이러한 가상 머신을 Chef 서버에서 관리할 준비가 된 것입니다.
+[Azure Portal](https://go.microsoft.com/fwlink/p/?LinkID=525040)에서 [Chef 확장](https://docs.microsoft.com/azure/chef/chef-extension-portal) 을 사용 하 여 백그라운드 서비스로 실행 되는 Chef 클라이언트를 사용 하 여 가상 컴퓨터를 프로 비전 합니다. 프로비전되고 나면 이러한 가상 머신을 Chef 서버에서 관리할 준비가 된 것입니다.
 
 ## <a name="chef-cloud-shell"></a>Chef Cloud Shell
 Azure Cloud Shell에서 Chef 워크스테이션을 직접 사용하세요! Cloud Shell에서 바로, 모든 Chef 유틸리티 및 InSpec을 실행합니다. 다음에서 Chef 명령을 이용할 수 있습니다.
@@ -27,7 +27,6 @@ Azure Cloud Shell에서 Chef 워크스테이션을 직접 사용하세요! Cloud
 * [inspec](https://www.inspec.io/docs/reference/cli/)
 * [knife](https://docs.chef.io/knife.html)
 * [cookstyle](https://docs.chef.io/cookstyle.html)
-* [foodcritic](https://docs.chef.io/foodcritic.html)
 * [chef-run](https://www.chef.sh/docs/chef-workstation/getting-started/)
 
 명령 유틸리티를 Cloud Shell에서 사용할 수 있는 다른 도구(`git`, `az-cli` 및 `terraform`)와 결합하여 브라우저에서 인프라 및 규정 준수 자동화를 작성합니다.
@@ -40,4 +39,4 @@ Chef의 지원을 받아 [Chef Automate Azure Marketplace 솔루션](https://azu
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Azure에서 Chef를 사용하여 Windows 가상 머신 만들기](/azure/virtual-machines/windows/chef-automation)
+* [Azure에서 Chef를 사용하여 Windows 가상 머신 만들기](chef-automation.md)

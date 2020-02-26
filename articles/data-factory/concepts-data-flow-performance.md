@@ -6,13 +6,13 @@ ms.topic: conceptual
 ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
-ms.date: 01/25/2020
-ms.openlocfilehash: ff128d148abb87959894aee94d257ae71a3ca65e
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.date: 02/24/2020
+ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76773856"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587586"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -35,8 +35,8 @@ ADF UX에서 데이터 흐름을 디자인 하 고 테스트할 때 클러스터
 ## <a name="increasing-compute-size-in-azure-integration-runtime"></a>Azure Integration Runtime에서 계산 크기를 늘립니다.
 
 더 많은 코어가 있는 Integration Runtime Spark 계산 환경에서 노드 수를 늘리고 데이터를 읽고, 쓰고, 변환할 수 있는 더 많은 처리 능력을 제공 합니다.
-* 처리 속도가 입력 요금 보다 높은 경우 **계산에 최적화** 된 클러스터를 시도 합니다.
-* 메모리에 더 많은 데이터를 캐시 하려면 메모리 액세스에 **최적화** 된 클러스터를 시도 합니다.
+* 처리 속도가 입력 요금 보다 높은 경우 **계산에 최적화** 된 클러스터를 사용해 보세요.
+* 메모리에 더 많은 데이터를 캐시 하려면 메모리 액세스에 **최적화** 된 클러스터를 시도 합니다. 메모리 액세스에 최적화 됨은 계산에 최적화 된 것 보다 코어 당 더 높은 가격 포인트를 갖지만 변환 속도가 더 빨라집니다.
 
 ![새 IR](media/data-flow/ir-new.png "새 IR")
 
@@ -87,17 +87,24 @@ Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Da
 
 처리량을 늘리고 DTU 한도에 도달 하면 Azure 제한을 최소화 하기 위해 파이프라인 실행 전에 원본 크기 조정 및 Azure SQL DB 및 DW를 싱크 합니다. 파이프라인 실행이 완료 되 면 데이터베이스를 다시 일반 실행 속도로 조정 합니다.
 
-### <a name="azure-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Azure SQL DW 전용] 준비를 사용 하 여 Polybase를 통해 데이터를 대량으로 로드
+* 단일 파생 열 변환을 사용 하는 sql db 테이블에 887k 행 및 74 열이 있는 SQL DB 원본 테이블은 메모리 액세스에 최적화 된 80 코어 디버그 Azure IRs를 사용 하 여 종단 간 약 3 분 정도 걸립니다.
+
+### <a name="azure-synapse-sql-dw-only-use-staging-to-load-data-in-bulk-via-polybase"></a>[Azure Synapse SQL DW 전용] 준비를 사용 하 여 Polybase를 통해 데이터를 대량으로 로드
 
 DW에 행 단위 삽입을 방지 하려면 ADF가 [PolyBase](https://docs.microsoft.com/sql/relational-databases/polybase/polybase-guide)를 사용할 수 있도록 싱크 설정에서 **준비 사용** 을 선택 합니다. PolyBase를 사용 하면 ADF가 데이터를 대량으로 로드할 수 있습니다.
 * 파이프라인에서 데이터 흐름 활동을 실행할 경우 대량 로드 중 데이터를 준비 하기 위해 Blob 또는 ADLS Gen2 저장소 위치를 선택 해야 합니다.
 
+* Synapse 테이블에 74 개의 열이 있는 421Mb 파일의 파일 원본 및 단일 파생 열 변환은 메모리 액세스에 최적화 된 80 코어 디버그 Azure IRs를 사용 하 여 종단 간 종단 간 작업을 수행 합니다.
+
 ## <a name="optimizing-for-files"></a>파일 최적화
 
-각 변환에서 데이터 팩터리가 사용할 파티션 구성표를 최적화 탭에서 설정할 수 있습니다.
+각 변환에서 데이터 팩터리가 사용할 파티션 구성표를 최적화 탭에서 설정할 수 있습니다. 기본 분할 및 최적화를 유지 하는 파일 기반 싱크를 먼저 테스트 하는 것이 좋습니다.
+
 * 작은 파일의 경우 Spark에 작은 파일을 분할 하 라고 요청 하는 것 보다 *단일 파티션* 선택이 더 빠르고 빠르게 작동할 수 있습니다.
 * 원본 데이터에 대 한 충분 한 정보가 없는 경우 *라운드 로빈* 분할을 선택 하 고 파티션 수를 설정 합니다.
 * 데이터에 적절 한 해시 키가 될 수 있는 열이 있는 경우 *해시 분할*을 선택 합니다.
+
+* 74 개의 열이 있는 421Mb 파일의 파일 싱크가 있는 파일 원본 및 단일 파생 열 변환은 메모리 액세스에 최적화 된 80 코어 디버그 Azure IRs를 사용 하 여 종단 간 종단 간 작업을 수행 합니다.
 
 데이터 미리 보기 및 파이프라인 디버그에서 디버그할 때 파일 기반 원본 데이터 집합의 제한 및 샘플링 크기는 읽은 행 수가 아니라 반환 된 행 수에만 적용 됩니다. 이로 인해 디버그 실행의 성능에 영향을 줄 수 있으며 흐름이 실패할 수 있습니다.
 * 디버그 클러스터는 기본적으로 작은 단일 노드 클러스터 이며 디버깅을 위해 샘플 작은 파일을 사용 하는 것이 좋습니다. 디버그 설정으로 이동 하 여 임시 파일을 사용 하 여 데이터의 작은 하위 집합을 가리킵니다.

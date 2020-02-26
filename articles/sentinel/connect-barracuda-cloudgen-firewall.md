@@ -3,7 +3,7 @@ title: Azure 센티널에 Barracuda CloudGen 방화벽 연결 | Microsoft Docs
 description: Barracuda CloudGen 방화벽을 Azure 센티널에 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: f7d5531c8aba3e2e7abb56d82342bfda79dbc71b
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: aaedbfdd3b1bbbc653756d74ee86fc277b21caec
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610729"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588504"
 ---
 # <a name="connect-barracuda-cloudgen-firewall"></a>Barracuda CloudGen Firewall 연결
 
@@ -28,7 +28,7 @@ CGFW (Barracuda CloudGen Firewall) 커넥터를 사용 하면 Barracuda CGFW 로
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 

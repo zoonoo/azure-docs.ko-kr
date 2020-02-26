@@ -3,12 +3,12 @@ title: 아키텍처 개요
 description: Azure Backup 서비스에서 사용하는 아키텍처, 구성 요소 및 프로세스에 대한 개요를 제공합니다.
 ms.topic: conceptual
 ms.date: 02/19/2019
-ms.openlocfilehash: f311f6d49a776a49080675f3c1ccc28a7a27cb92
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: b093c6702bb26fe537622727fe1b623141bf4160
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963940"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584390"
 ---
 # <a name="azure-backup-architecture-and-components"></a>Azure Backup 아키텍처 및 구성 요소
 
@@ -44,8 +44,8 @@ Recovery Services 자격 증명 모음에는 다음과 같은 기능이 있습�
 - Azure Vm 및 온-프레미스 컴퓨터를 포함 하 여 자격 증명 모음에서 백업 된 항목을 모니터링할 수 있습니다.
 - Azure [RBAC(역할 기반 액세스 제어)](https://docs.microsoft.com/azure/role-based-access-control/role-assignments-portal)를 사용하여 자격 증명 모음 액세스를 관리할 수 있습니다.
 - 자격 증명 모음의 데이터가 중복성을 위해 복제되는 방법을 지정합니다.
-  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
-  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아보기](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
+  - **LRS (로컬 중복 저장소)** : 데이터 센터의 오류 로부터 보호 하기 위해 LRS를 사용할 수 있습니다. LRS는 스토리지 배율 단위에 데이터를 복제합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-lrs).
+  - **GRS (지역 중복 저장소)** : 지역 전체의 작동 중단을 방지 하기 위해 GRS를 사용할 수 있습니다. GRS은 데이터를 보조 지역으로 복제 합니다. [자세히 알아봅니다](https://docs.microsoft.com/azure/storage/common/storage-redundancy-grs).
   - 기본적으로 Recovery Services 자격 증명 모음은 GRS를 사용 합니다.
 
 ## <a name="backup-agents"></a>백업 에이전트
@@ -94,10 +94,10 @@ Azure Backup는 백업 중인 컴퓨터의 유형에 따라 서로 다른 백업
 
 **기능** | **파일 및 폴더에 대 한 직접 백업 (MARS 에이전트 사용)** | **Azure VM 백업** | **DPM/MABS를 사용 하는 컴퓨터 또는 앱**
 --- | --- | --- | ---
-자격 증명 모음에 백업 | ![예][green] | ![예][green] | ![예][green]
-DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
-백업을 위해 전송된 데이터 압축 | ![예][green] | 데이터를 전송할 때 압축이 사용되지 않습니다. 스토리지가 약간 증가하지만 복원 속도가 더 빠릅니다.  | ![예][green]
-증분 백업 실행 |![예][green] |![예][green] |![예][green]
+자격 증명 모음에 백업 | ![yes][green] | ![yes][green] | ![yes][green]
+DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![yes][green]
+백업을 위해 전송된 데이터 압축 | ![yes][green] | 데이터를 전송할 때 압축이 사용되지 않습니다. 스토리지가 약간 증가하지만 복원 속도가 더 빠릅니다.  | ![yes][green]
+증분 백업 실행 |![yes][green] |![yes][green] |![yes][green]
 중복 제거된 디스크 백업 | | | ![부분적으로][yellow]<br/><br/> 온-프레미스에 배포된 DPM/MABS 서버에만 해당합니다.
 
 ![테이블 키](./media/backup-architecture/table-key.png)
@@ -135,7 +135,7 @@ DPM/MABS 디스크에 백업한 다음 Azure에 백업 | | | ![예][green]
     - 스냅샷 데이터가 자격 증명 모음에 즉시 복사되지 않을 수 있습니다. 사용량이 많은 시간에 백업은 약간의 시간이 걸릴 수 있습니다. 일별 백업 정책에서 VM의 총 백업 시간은 24 시간 미만입니다.
 1. 자격 증명 모음에 데이터가 전송 된 후에는 복구 지점이 생성 됩니다. 기본적으로 스냅숏은 삭제 되기 2 일 동안 보존 됩니다. 이 기능을 통해 이러한 스냅숏에서 복원 작업을 수행할 수 있으므로 복원 시간이 줄어듭니다. 자격 증명 모음에서 데이터를 다시 변환 하 고 복사 하는 데 필요한 시간을 줄일 수 있습니다. [Azure Backup 인스턴트 복원 기능](https://docs.microsoft.com/azure/backup/backup-instant-restore-capability)을 참조 하세요.
 
-Azure Vm은 제어 명령에 대 한 인터넷 액세스가 필요 합니다. VM 내에서 워크 로드를 백업 하는 경우 (예: SQL Server 데이터베이스 백업), 백 엔드 데이터도 인터넷에 액세스할 수 있어야 합니다.
+Azure Vm을 백업 하기 위해 인터넷 연결을 명시적으로 허용 하지 않아도 됩니다.
 
 ![Azure VM의 백업](./media/backup-architecture/architecture-azure-vm.png)
 

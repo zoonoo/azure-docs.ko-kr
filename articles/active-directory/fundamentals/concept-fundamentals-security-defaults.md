@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 023a52f373844e026de0e588e9cd46323abdcf34
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149833"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585988"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -83,7 +83,7 @@ Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개의 Azure
 
 조직에서는 다음을 포함 하 여 Azure Resource Manager API를 통해 관리 되는 다양 한 Azure 서비스를 사용 합니다.
 
-- Azure 포털 
+- Azure portal 
 - Azure PowerShell 
 - Azure CLI
 
@@ -95,7 +95,8 @@ Azure Resource Manager에 액세스 하 고 구성을 업데이트 하려는 사
 
 사용자가 Multi-Factor Authentication 등록 되지 않은 경우 계속 진행 하려면 Microsoft Authenticator 앱을 사용 하 여 등록 해야 합니다. 14 일 Multi-Factor Authentication 등록 기간이 제공 되지 않습니다.
 
-2017 이전 Exchange Online 테 넌 트는 최신 인증을 기본적으로 사용 하지 않도록 설정 합니다. 이러한 테 넌 트를 통해 인증 하는 동안 로그인 루프의 가능성을 방지 하려면 [최신 인증을 사용 하도록 설정](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)해야 합니다.
+> [!NOTE]
+> 2017 이전 Exchange Online 테 넌 트는 최신 인증을 기본적으로 사용 하지 않도록 설정 합니다. 이러한 테 넌 트를 통해 인증 하는 동안 로그인 루프의 가능성을 방지 하려면 [최신 인증을 사용 하도록 설정](https://docs.microsoft.com/exchange/clients-and-mobile-in-exchange-online/enable-or-disable-modern-authentication-in-exchange-online)해야 합니다.
 
 > [!NOTE]
 > Azure AD Connect 동기화 계정은 보안 기본값에서 제외 되며 등록 하거나 multi-factor authentication을 수행 하 라는 메시지가 표시 되지 않습니다. 조직에서는 다른 용도로이 계정을 사용 하지 않아야 합니다.

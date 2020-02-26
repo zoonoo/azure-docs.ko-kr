@@ -3,7 +3,7 @@ title: Azure 센티널에 Id 보호를 하나 연결 | Microsoft Docs
 description: 하나의 Id 보호를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: cabailey
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,19 +13,19 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: cabailey
-ms.openlocfilehash: 7e33580c253c98279644e10305557a7e60701c90
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 849087cbbe91be799c51929353b9f020859c85b8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610508"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588147"
 ---
 # <a name="connect-one-identity-safeguard"></a>하나의 Id 보호 연결
 하나의 Id 보호 데이터 커넥터는 권한 있는 세션 관련 대시보드의 보호를 사용 하 여 표준 CEF (일반 이벤트 형식) 커넥터를 향상 시킵니다. 이 커넥터를 사용 하 여 시각화, 경고, 조사 등에 대해 장치에서 생성 된 이벤트를 쉽게 사용할 수 있습니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 센티널 작업 영역에 대 한 읽기 및 쓰기 권한입니다.
 

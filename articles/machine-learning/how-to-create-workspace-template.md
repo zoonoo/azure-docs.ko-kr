@@ -10,12 +10,12 @@ ms.author: larryfr
 author: Blackmist
 ms.date: 11/04/2019
 ms.custom: seoapril2019
-ms.openlocfilehash: b3e4ff60ab290d25afb003f0753cf852cefffe1a
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 75297f15dbc0067767d97afd7c8aa16738f2fc1a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069560"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581313"
 ---
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 <br>
@@ -63,9 +63,11 @@ ms.locfileid: "77069560"
     다른 서비스의 이름은 임의로 생성됩니다.
 
 > [!TIP]
-> 이 문서와 연결 된 템플릿은 새 Azure Container Registry을 만들지만 컨테이너 레지스트리를 만들지 않고 새 작업 영역을 만들 수도 있습니다. 컨테이너 레지스트리가 작업 영역에 있는 경우 컨테이너 레지스트리가 필요한 작업을 수행할 때 생성 됩니다. 예를 들어 모델을 학습 하거나 배포 합니다.
+> 이 문서와 연결 된 템플릿은 새 Azure Container Registry을 만들지만 컨테이너 레지스트리를 만들지 않고 새 작업 영역을 만들 수도 있습니다. 하나는 컨테이너 레지스트리가 필요한 작업을 수행할 때 만들어집니다. 예를 들어 모델을 학습 하거나 배포 합니다.
 >
 > 새 컨테이너 레지스트리를 만드는 대신 Azure Resource Manager 템플릿에서 기존 컨테이너 레지스트리 또는 저장소 계정을 참조할 수도 있습니다.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 템플릿에 대한 자세한 내용은 다음 문서를 참조하세요.
 

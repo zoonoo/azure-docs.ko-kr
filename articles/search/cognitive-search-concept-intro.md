@@ -6,18 +6,18 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 6d75e48443fd8622ca2ae7ff05fe81184c4b2b16
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
-ms.translationtype: HT
+ms.openlocfilehash: 14c120af69a94331586f9264a12f5d2333a5d87d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472437"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586753"
 ---
 # <a name="introduction-to-ai-in-azure-cognitive-search"></a>Azure Cognitive Search의 AI 소개
 
-AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Cognitive Search 인덱싱 기능이며, 인덱스 또는 지식 저장소에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다.  서비스에서 기본 제공되는 인식 기술은 다음 범주로 구분됩니다. 
+AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스트를 추출하는 데 사용되는 Azure Cognitive Search 인덱싱 기능이며, 인덱스 또는 지식 저장소에서 더 쉽게 검색할 수 있도록 콘텐츠를 보강합니다. 추출 및 보강은 인덱싱 파이프라인에 연결된 ‘인식 기술’을 통해 구현됩니다. 서비스에서 기본 제공되는 인식 기술은 다음 범주로 구분됩니다. 
 
 + **자연어 처리** 기술에는 [엔터티 인식](cognitive-search-skill-entity-recognition.md), [언어 검색](cognitive-search-skill-language-detection.md), [핵심 구 추출](cognitive-search-skill-keyphrases.md), 텍스트 조작, [감정 검색](cognitive-search-skill-sentiment.md) 및 [PII 검색](cognitive-search-skill-pii-detection.md)이 포함됩니다. 해당 기술을 사용하면 비정형 텍스트가 인덱스에서 검색 및 필터링 가능한 필드로 매핑되는 새 양식을 가정할 수 있습니다.
 
@@ -25,7 +25,7 @@ AI 보강은 이미지, Blob 및 기타 비정형 데이터 원본에서 텍스�
 
 ![보강 파이프라인 다이어그램](./media/cognitive-search-intro/cogsearch-architecture.png "보강 파이프라인 개요")
 
-Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 학습된 기계 학습 모델을 기반으로 합니다. [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) 및 [Text Analysis](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)와 같은 Cognitive Services API의 기계 학습 모델을 기반으로 합니다. 
+Azure Cognitive Search의 인식 기술은 Cognitive Services API: [Computer Vision](https://docs.microsoft.com/azure/cognitive-services/computer-vision/) 및 [텍스트 분석](https://docs.microsoft.com/azure/cognitive-services/text-analytics/overview)의 미리 학습 된 기계 학습 모델을 기반으로 합니다. 
 
 자연어 및 이미지 처리는 데이터 수집 단계에서 적용되며, 여기서 결과는 Azure Cognitiv Search의 검색 가능한 인덱스에서 문서의 컴퍼지션 중 일부가 됩니다. 데이터는 Azure 데이터 집합으로 소싱된 다음, 필요한 [기본 제공 기술](cognitive-search-predefined-skills.md)을 사용하여 인덱싱 파이프라인을 통해 푸시됩니다. 아키텍처는 확장이 가능하므로 기본 제공 기술이 충분하지 않은 경우 사용자 지정 처리를 통합하도록 [사용자 지정 기술](cognitive-search-create-custom-skill-example.md)을 만들고 연결할 수 있습니다. 예에는 금융, 과학 출판물 또는 의약품과 같은 특정 도메인을 대상으로 하는 사용자 지정 엔터티 모듈 또는 문서 분류자가 있습니다.
 
@@ -65,7 +65,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 보강 파이프라인은 데이터 원본을 크롤링하고 엔드투엔드 인덱스 처리를 제공하는 [*인덱서*](search-indexer-overview.md)를 기반으로 합니다. 기술이 인덱서에 연결되어 문서를 가로채서 사용자가 정의한 기술에 따라 문서를 보강합니다. 인덱싱이 완료되면 [Azure Cognitive Search에서 지원하는 모든 쿼리 유형](search-query-overview.md)을 통한 검색 요청에서 콘텐츠에 액세스할 수 있습니다.  인덱서를 처음 접하는 경우, 이 섹션의 단계별 안내를 참조하세요.
 
-### <a name="step-1-connection-and-document-cracking-phase"></a>1단계: 연결 및 문서 크래킹 단계
+### <a name="step-1-connection-and-document-cracking-phase"></a>1 단계: 연결 및 문서 크랙 단계
 
 파이프라인의 시작 부분에는 구조화되지 않은 텍스트 또는 텍스트가 아닌 콘텐츠(예: 이미지 및 스캔한 문서 JPEG 파일)가 있습니다. 데이터는 인덱서가 액세스할 수 있는 Azure 데이터 스토리지 서비스에 있어야 합니다. 인덱서는 원본 문서에서 텍스트를 추출하기 위해 원본 문서를 "크래킹"할 수 있습니다.
 
@@ -73,7 +73,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
  지원되는 원본에는 Azure Blob Storage, Azure Table Storage, Azure SQL Database 및 Azure Cosmos DB가 포함됩니다. 텍스트 기반 콘텐츠는 PDF, Word, PowerPoint, CSV 파일 형식에서 추출할 수 있습니다. 전체 목록은 [지원되는 형식](search-howto-indexing-azure-blob-storage.md#supported-document-formats)을 참조하세요.
 
-### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2단계: 인지 기술 및 보강 단계
+### <a name="step-2-cognitive-skills-and-enrichment-phase"></a>2 단계: 인식 기술 및 보강 단계
 
 보강은 원자성 작업을 수행하는 인지 기술(*cognitive skills*)을 거칩니다. 예를 들어 PDF에서 텍스트 콘텐츠를 확보하면 엔터티 인식 언어 감지 또는 핵심 구 추출을 적용하여 원본에서 기본적으로 사용할 수 없는 새 필드를 인덱스에 생성합니다. 전체적으로 파이프라인에 사용된 기술 컬렉션을 기술 집합(*skillset*)이라고 합니다.  
 
@@ -89,7 +89,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 기술 세트에 지식 저장소를 추가하면 전체 텍스트 검색 이외의 시나리오에 대한 보강 표현을 예상할 수 있습니다. 자세한 내용은 [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)를 참조하세요.
 
-### <a name="step-3-search-index-and-query-based-access"></a>3단계: 검색 인덱스 및 쿼리 기반 액세스
+### <a name="step-3-search-index-and-query-based-access"></a>3 단계: 인덱스 및 쿼리 기반 액세스 검색
 
 처리가 완료되면 Azure Cognitive Search에서 전체 텍스트를 검색할 수 있는 보강된 문서로 구성된 검색 인덱스가 있습니다. [인덱스 쿼리](search-query-overview.md)는 개발자와 사용자가 파이프라인에서 생성된 보강된 콘텐츠에 액세스하는 방법입니다. 
 
@@ -123,17 +123,17 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 
 ## <a name="where-do-i-start"></a>시작 단계
 
-**1단계: [Azure Cognitive Search 리소스 만들기](search-create-service-portal.md)** 
+**1 단계: [Azure Cognitive Search 리소스 만들기](search-create-service-portal.md)** 
 
-**2단계: 실습 환경에 대한 일부 빠른 시작 및 예제 사용해보기**
+**2 단계: 실습 환경에 대 한 몇 가지 빠른 시작 및 예제 시도**
 
 + [빠른 시작(포털)](cognitive-search-quickstart-blob.md)
 + [자습서(HTTP 요청)](cognitive-search-tutorial-blob.md)
-+ [예: AI 보강에 대한 사용자 지정 기술 만들기(C#)](cognitive-search-create-custom-skill-example.md)
++ [예: AI 보강 (C#)에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
 
-학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 단원을 여러 번 실행하려면 인덱서를 삭제하고 다시 만들어 카운터를 0으로 재설정합니다.
+학습 목적이라면 무료 서비스를 추천하지만, 무료 트랜잭션 수는 하루에 문서 20개로 제한됩니다. 단원을 여러 번 실행 하려면 인덱서를 삭제 하 고 다시 만들어 카운터를 0으로 다시 설정 합니다.
 
-**3단계: API 검토**
+**3 단계: API 검토**
 
 요청 또는 .NET SDK에서 REST `api-version=2019-05-06`을 사용할 수 있습니다. 지식 저장소를 검색하는 경우 REST API 미리 보기(`api-version=2019-05-06-Preview`)를 대신 사용합니다.
 
@@ -171,7 +171,7 @@ Azure Cognitive Search의 인지 기술은 Cognitive Services API에서 미리 �
 ## <a name="next-steps"></a>다음 단계
 
 + [AI 보강 설명서 링크](cognitive-search-resources-documentation.md)
-+ [빠른 시작: 포털에서 AI 보강 체험 연습](cognitive-search-quickstart-blob.md)
-+ [자습서: AI 보강 API에 대해 알아보기](cognitive-search-tutorial-blob.md)
++ [빠른 시작: 포털에서 AI 보강 시도 연습](cognitive-search-quickstart-blob.md)
++ [자습서: AI 보강 Api에 대 한 자세한 정보](cognitive-search-tutorial-blob.md)
 + [지식 저장소(미리 보기)](knowledge-store-concept-intro.md)
 + [REST에서 지식 저장소 만들기](knowledge-store-create-rest.md)

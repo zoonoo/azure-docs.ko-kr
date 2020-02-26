@@ -5,12 +5,12 @@ author: markfussell
 ms.topic: conceptual
 ms.date: 06/18/2019
 ms.author: mfussell
-ms.openlocfilehash: 755e3c1eb649bc6c8ecc084d18e9904cc90b1282
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 876980bd6a59bace9ab4e490358964d19fa52c7e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551848"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586090"
 ---
 # <a name="azure-service-fabric-application-design-best-practices"></a>Azure Service Fabric 응용 프로그램 디자인 모범 사례
 
@@ -30,7 +30,7 @@ Service Fabric 응용 프로그램의 [일반적인 아키텍처](https://docs.m
 확장할 수 있는 백 엔드 서비스와 통신 하는 API gateway 서비스를 사용 합니다. 가장 일반적으로 사용 되는 API gateway 서비스는 다음과 같습니다.
 
 - [Azure API Management](https://docs.microsoft.com/azure/service-fabric/service-fabric-api-management-overview) [Service Fabric와 통합](https://docs.microsoft.com/azure/service-fabric/service-fabric-tutorial-deploy-api-management)됩니다.
-- [ServiceFabricProcessor](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/ServiceFabricProcessor) 를 사용 하 여 이벤트 허브 파티션에서 읽는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
+- [ServiceFabricProcessor](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/eventhub/Microsoft.Azure.EventHubs.ServiceFabricProcessor) 를 사용 하 여 이벤트 허브 파티션에서 읽는 [Azure IoT Hub](https://docs.microsoft.com/azure/iot-hub/) 또는 [Azure Event Hubs](https://docs.microsoft.com/azure/event-hubs/).
 - [Træfik 역방향 프록시](https://blogs.msdn.microsoft.com/azureservicefabric/2018/04/05/intelligent-routing-on-service-fabric-with-traefik/)를 사용 하 여 [Azure Service Fabric 공급자](https://docs.traefik.io/v1.6/configuration/backends/servicefabric/)를 사용 합니다.
 - [Azure Application Gateway](https://docs.microsoft.com/azure/application-gateway/).
 

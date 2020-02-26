@@ -12,12 +12,12 @@ ms.date: 10/14/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 0d3e1e10120dce404f0fdfe781661c4c169ae00a
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697220"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591577"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -40,9 +40,9 @@ ms.locfileid: "76697220"
 
 Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
-## <a name="assign-the-application-to-a-role"></a>애플리케이션을 역할에 할당
+## <a name="assign-a-role-to-the-application"></a>응용 프로그램에 역할 할당
 
-구독의 리소스에 액세스하려면 역할에 애플리케이션을 할당해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
+구독의 리소스에 액세스 하려면 응용 프로그램에 역할을 할당 해야 합니다. 애플리케이션에 적합한 권한을 제공하는 역할을 결정합니다. 사용 가능한 역할에 대해 알아보려면 [RBAC: 기본 제공 역할](../../role-based-access-control/built-in-roles.md)을 참조하세요.
 
 구독, 리소스 그룹 또는 리소스 수준에서 범위를 설정할 수 있습니다. 권한은 하위 수준의 범위로 상속됩니다. 예를 들어 애플리케이션에 리소스 그룹에 대한 읽기 권한자 역할을 추가하면 애플리케이션이 리소스 그룹과 그 안에 포함된 모든 리소스를 읽을 수 있습니다.
 
@@ -62,7 +62,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
    ![응용 프로그램에 할당할 역할을 선택 합니다.](./media/howto-create-service-principal-portal/select-role.png)
 
-1. **저장**을 선택하여 역할 할당을 완료합니다. 목록에서 해당 범위에 대한 역할에 할당된 사용자 목록에 애플리케이션이 표시될 것입니다.
+1. **저장**을 선택하여 역할 할당을 완료합니다. 해당 범위에 대 한 역할이 있는 사용자 목록에 응용 프로그램이 표시 됩니다.
 
 서비스 주체가 설정되었습니다. 서비스 주체 사용을 시작하여 스크립트나 앱을 실행할 수 있습니다. 다음 섹션에서는 프로그래밍 방식으로 로그인할 때 필요한 값을 가져오는 방법을 보여 줍니다.
 
@@ -112,7 +112,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 1. **클라이언트 비밀 -> 새 클라이언트 비밀**을 차례로 선택합니다.
 1. 비밀에 대한 설명과 기간을 제공합니다. 완료되면 **추가**를 선택합니다.
 
-   클라이언트 비밀이 저장되면 클라이언트 비밀의 값이 표시됩니다. 나중에 키를 검색할 수 없으므로 이 값을 복사해둡니다. 애플리케이션으로 로그인하려면 애플리케이션 ID와 함께 키 값을 제공합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
+   클라이언트 비밀이 저장되면 클라이언트 비밀의 값이 표시됩니다. 나중에 키를 검색할 수 없기 때문에이 값을 복사 합니다. 응용 프로그램으로 로그인 하는 데 사용할 수 있는 응용 프로그램 ID를 키 값에 제공 합니다. 애플리케이션에서 검색할 수 있는 위치에 키 값을 저장합니다.
 
    ![나중에 이 키를 검색할 수 없으므로 비밀 값 복사](./media/howto-create-service-principal-portal/copy-secret.png)
 
@@ -126,7 +126,7 @@ Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/fr
 
 ## <a name="required-permissions"></a>필요한 사용 권한
 
-Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할에 애플리케이션을 할당하기 위한 충분한 권한이 있어야 합니다.
+Azure AD 테 넌 트에 응용 프로그램을 등록 하 고 Azure 구독의 역할에 응용 프로그램을 할당할 수 있는 충분 한 권한이 있어야 합니다.
 
 ### <a name="check-azure-ad-permissions"></a>Azure AD 권한 확인
 
@@ -138,11 +138,11 @@ Azure AD 테넌트에 애플리케이션을 등록하고 Azure 구독의 역할�
 1. 왼쪽 창에서 **사용자 설정**을 선택 합니다.
 1. **앱 등록** 설정을 확인합니다. 이 값은 관리자만 설정할 수 있습니다. **예**로 설정하면 Azure AD 테넌트의 모든 사용자가 앱을 등록할 수 있습니다.
 
-앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정이 사용자 역할에 할당되어 있으나 앱 등록 설정이 관리자로 제한되어 있으면 관리자에게 앱 등록과 관련된 모든 것을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당해 달라고 요청하거나 사용자가 앱을 등록할 수 있게 해달라고 요청하세요.
+앱 등록 설정이 **아니요**로 설정되어 있으면 관리자 역할이 있는 사용자만 이러한 유형의 애플리케이션을 등록할 수 있습니다. Azure AD에서 사용 가능한 관리자 역할 및 각 역할에 제공되는 특정 권한에 대한 자세한 내용은 [사용 가능한 역할](../users-groups-roles/directory-assign-admin-roles.md#available-roles) 및 [역할 권한](../users-groups-roles/directory-assign-admin-roles.md#role-permissions)을 참조하세요. 계정에 사용자 역할이 할당 되어 있지만 앱 등록 설정이 관리자 사용자로 제한 되는 경우, 관리자에 게 앱 등록의 모든 측면을 만들고 관리할 수 있는 관리자 역할 중 하나를 할당 하거나 사용자가 등록할 수 있도록 설정 하도록 요청 합니다. app.
 
 ### <a name="check-azure-subscription-permissions"></a>Azure 구독 권한 확인
 
-Azure 구독에서 사용자 계정에 AD 앱을 역할에 할당할 수 있는 `Microsoft.Authorization/*/Write` 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다. 계정이 **기여자** 역할에 할당된 경우 적절한 사용 권한이 없습니다. 서비스 주체를 역할에 할당하려고 하면 오류가 발생합니다.
+Azure 구독에서 계정에는 AD 앱에 역할을 할당 하기 위한 `Microsoft.Authorization/*/Write` 권한이 있어야 합니다. 이 작업에 대한 권한은 [소유자](../../role-based-access-control/built-in-roles.md#owner) 역할 또는 [사용자 액세스 관리자](../../role-based-access-control/built-in-roles.md#user-access-administrator) 역할을 통해 부여됩니다. 계정에 **참가자** 역할이 할당 된 경우에는 적절 한 권한이 없습니다. 서비스 주체에 역할을 할당 하려고 하면 오류가 표시 됩니다.
 
 Azure 구독 권한을 확인하려면
 
@@ -154,9 +154,9 @@ Azure 구독 권한을 확인하려면
 
    ![서비스 사용자를 만들려는 구독을 선택 합니다.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. **역할 할당** 을 선택 하 여 할당 된 역할을 확인 하 고 역할에 AD 앱을 할당할 수 있는 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에게는 소유자 역할이 할당됩니다. 즉, 사용자에게는 적절한 권한이 있습니다.
+1. **역할** 할당을 선택 하 여 할당 된 역할을 확인 하 고, AD 앱에 역할을 할당할 수 있는 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에 게 소유자 역할이 할당 됩니다. 즉, 사용자에 게 적절 한 권한이 있음을 의미 합니다.
 
-   ![이 예제에서는 사용자가 소유자 역할에 할당 된 것을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
+   ![이 예제에서는 사용자에 게 소유자 역할이 할당 된 것을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
 
 ## <a name="next-steps"></a>다음 단계
 

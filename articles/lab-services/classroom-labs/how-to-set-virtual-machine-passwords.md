@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: c01106bf7288e777e601c06558b1408960f4e49b
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 0af2b5f7d756060d463d2b4f3ef71bdd135710ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539436"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591526"
 ---
 # <a name="set-up-and-manage-virtual-machine-pool"></a>가상 머신 풀 설정 및 관리 
 이 문서에서는 다음 작업을 수행 하는 방법을 보여 줍니다.
@@ -58,6 +58,9 @@ ms.locfileid: "77539436"
 ![선택한 Vm 시작](../media/how-to-set-virtual-machine-passwords/start-selected-vms.png)
 
 마찬가지로 **상태** 열의 단추를 전환 하거나 도구 모음에서 **중지** 를 선택 하 여 하나 이상의 vm을 중지할 수 있습니다. 
+
+> [!NOTE]
+> 교육자 학생 VM을 켜면 학생에 대 한 할당량이 영향을 받지 않습니다. 사용자에 대 한 할당량은 예약 된 클래스 시간 외에 사용자가 사용할 수 있는 랩 시간 수를 지정 합니다. 할당량에 대 한 자세한 내용은 [사용자에 대 한 할당량 설정](how-to-configure-student-usage.md?#set-quotas-for-users)을 참조 하세요.
 
 ## <a name="reset-vms"></a>Vm 다시 설정
 하나 이상의 Vm을 다시 설정 하려면 목록에서 Vm을 선택한 다음 도구 모음에서 **다시 설정** 을 선택 합니다. 
