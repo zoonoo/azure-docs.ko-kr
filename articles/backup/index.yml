@@ -9,12 +9,12 @@ metadata:
   author: dcurwin
   ms.author: dacurwin
   ms.date: 12/01/2019
-  ms.openlocfilehash: 607603965b0935941fa5ad06c39110535aa33633
-  ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+  ms.openlocfilehash: 9efc7d3ba072b0281d932b31365e7458034c30f5
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/21/2020
-  ms.locfileid: "76290787"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77582622"
 landingContent:
 - title: Azure Backup에 대해 알아보기
   linkLists:
@@ -130,6 +130,16 @@ landingContent:
       url: backup-azure-dpm-azure-server-faq.md
     - text: MABS 설치 및 업그레이드
       url: backup-azure-microsoft-azure-backup.md
+- title: 규모에 맞게 관리
+  linkLists:
+  - linkListType: how-to-guide
+    links:
+    - text: Azure Policy를 사용하여 규모에 맞게 관리
+      url: backup-azure-auto-enable-backup.md
+    - text: 백업 탐색기를 사용하여 규모에 맞게 모니터링 및 운영
+      url: monitor-azure-backup-with-backup-explorer.md
+    - text: 백업 보고서를 사용하여 규모에 맞게 분석
+      url: configure-reports.md
 - title: Azure Backup 리소스 검색
   linkLists:
   - linkListType: concept

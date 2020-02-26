@@ -1,5 +1,5 @@
 - name: Mobile Apps 설명서
-  href: index.md
+  href: index.yml
 - name: 개요
   items:
     - name: Mobile Apps란?
@@ -273,7 +273,7 @@
       href: 'https://azure.microsoft.com/roadmap/'
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/forums/azure/home?forum=azuremobile'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

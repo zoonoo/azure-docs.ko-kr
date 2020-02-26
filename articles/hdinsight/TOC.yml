@@ -15,7 +15,7 @@
           href: ./hdinsight-administer-use-command-line.md
         - name: HDInsight 클러스터 관리 - .NET SDK
           href: ./hdinsight-administer-use-dotnet-sdk.md
-        - name: HDInsight 클러스터 관리 - Powershell
+        - name: HDInsight 클러스터 관리 - PowerShell
           href: ./hdinsight-administer-use-powershell.md
         - name: Runbook을 사용하여 클러스터 만들기
           href: ./manage-clusters-runbooks.md
@@ -810,6 +810,8 @@
           href: ./domain-joined/hdinsight-use-oozie-domain-joined-clusters.md
     - name: 개념
       items:
+        - name: 보안 기준
+          href: security-baseline.md
         - name: 엔터프라이즈 보안 일반 지침
           href: ./domain-joined/general-guidelines.md
         - name: ESP 클러스터 플랜

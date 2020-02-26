@@ -1,8 +1,8 @@
 ### YamlMime:Landing
-title: Azure Media Services v2(레거시)
+title: Azure Media Services v2(레거시) 설명서
 summary: Media Services v2에는 새로운 기능이 추가되지 않습니다. Media Services v3의 최신 버전을 확인하세요.
 metadata:
-  title: Azure Media Services v2 설명서
+  title: Azure Media Services v2(레거시) 설명서
   description: Media Services v2를 사용하여 주문형 또는 브로드캐스트 품질 라이브 비디오를 안전하게 스트리밍하는 방법에 대해 알아봅니다.
   services: media-services
   ms.service: media-services
@@ -12,12 +12,12 @@ metadata:
   author: Juliako
   ms.author: juliako
   ms.date: 02/18/2020
-  ms.openlocfilehash: c222a7c0603e9b57518993216711076659b51e4c
-  ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+  ms.openlocfilehash: 6cd7d5d0ef9bd188b42ca893ffa2bacbda1bdbc8
+  ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/20/2020
-  ms.locfileid: "77500776"
+  ms.lasthandoff: 02/25/2020
+  ms.locfileid: "77589388"
 landingContent:
 - title: Azure Media Services v2 정보
   linkLists:

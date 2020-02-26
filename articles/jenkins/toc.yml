@@ -18,7 +18,7 @@
     - name: 2. 구성
       items:
         - name: Azure Container Instances를 사용하여 크기 조정
-          href: /azure/container-instances/container-instances-jenkins
+          href: container-instances-jenkins.md
           maintainContext: true
         - name: Azure VM 에이전트를 사용하여 크기 조정
           href: jenkins-azure-vm-agents.md
