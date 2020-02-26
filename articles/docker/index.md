@@ -10,12 +10,12 @@ ms.devlang: devops
 ms.topic: landing-page
 ms.date: 06/19/2017
 ms.author: gwallace
-ms.openlocfilehash: 33f18722c26decb117a476a9d3adb562a7a726ed
-ms.sourcegitcommit: 6cff17b02b65388ac90ef3757bf04c6d8ed3db03
+ms.openlocfilehash: 4f4849139f0e5c5a8672b9364f7acc03cff6c948
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/29/2019
-ms.locfileid: "68610457"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605577"
 ---
 <div class="content">
    <h1>Azure의 Docker</h1>   
@@ -33,7 +33,7 @@ Docker는 Linux 및 Windows에서 컨테이너와 함께 빠르게 사용할 수
 <ol>
   <li><a href="/azure/app-service/containers/tutorial-python-postgresql-app">Docker를 사용하여 Python 및 PostgreSQL 만들기</a></li>
   <li><a href="/azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine">Docker Swarm 및 Azure DevOps Services를 사용하는 CI/CD</a></li>
-  <li><a href="/azure/virtual-machines/linux/tutorial-jenkins-github-docker-cicd">Docker, Jenkins 및 Linux VM 통합</a></li>
+  <li><a href="/azure/jenkins/tutorial-jenkins-github-docker-cicd">Docker, Jenkins 및 Linux VM 통합</a></li>
 </ol>
 <h2>리소스</h2>
 <p>Azure에서 Docker를 사용하는 방법에 대한 추가 참조 자료 및 도구는 다음 링크를 참조하세요.</p>

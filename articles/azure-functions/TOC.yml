@@ -342,8 +342,20 @@
               href: functions-bindings-cosmosdb.md
               displayName: Azure Cosmos DB
             - name: Functions 2.x
-              href: functions-bindings-cosmosdb-v2.md
               displayName: Azure Cosmos DB
+              items:
+                - name: 개요
+                  href: functions-bindings-cosmosdb-v2.md
+                  displayName: Azure Cosmos DB
+                - name: 트리거
+                  href: functions-bindings-cosmosdb-v2-trigger.md
+                  displayName: Azure Cosmos DB
+                - name: 입력
+                  href: functions-bindings-cosmosdb-v2-input.md
+                  displayName: Azure Cosmos DB
+                - name: 출력
+                  href: functions-bindings-cosmosdb-v2-output.md
+                  displayName: Azure Cosmos DB
         - name: Event Grid
           items:
             - name: 개요
