@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: 416d4a1eee6f3fe89fbe697bda896b30c8441756
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.openlocfilehash: 70d7924f1a7767db393faccf98d3a9250de049ec
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77020814"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77621422"
 landingContent:
 - title: 소매업 솔루션 빌드
   linkLists:
@@ -47,6 +47,8 @@ landingContent:
     links:
     - text: 디바이스 템플릿 설정
       url: ../core/howto-set-up-template.md
+    - text: 디바이스 연결
+      url: ../core/tutorial-connect-device.md
     - text: IoT 플러그 앤 플레이(미리 보기) 디바이스 연결
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide

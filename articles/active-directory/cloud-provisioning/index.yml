@@ -1,6 +1,6 @@
 ### YamlMime:Landing
 title: Azure AD Connect 클라우드 프로비저닝 설명서
-summary: 클라우드 프로비저닝은 클라우드에 모든 것을 유지함으로써 온-프레미스 사용자의 관리를 단순화하고 자동화할 수 있도록 지원합니다.
+summary: 클라우드 프로비저닝은 기존 AD 포리스트에서 이러한 사용자를 동기화하는 클라우드 관리 규칙을 통해 Azure AD 사용자의 관리를 단순화하고 자동화할 수 있도록 지원합니다.
 metadata:
   author: billmath
   description: 클라우드 프로비저닝은 기존 AD 포리스트에서 이러한 사용자를 동기화하는 클라우드 관리 규칙을 통해 Azure AD 사용자의 관리를 단순화하고 자동화할 수 있도록 지원합니다.
@@ -11,12 +11,12 @@ metadata:
   ms.subservice: na
   ms.topic: landing-page
   services: active-directory
-  ms.openlocfilehash: 89f3cf397322be65166e05c20b2e1d978a837581
-  ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+  ms.openlocfilehash: 83beffa0c0eb035c9cd5e30ec4644200b940dd6c
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 12/03/2019
-  ms.locfileid: "74795244"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77620900"
 landingContent:
 - title: 클라우드 프로비저닝 정보
   linkLists:

@@ -31,7 +31,7 @@
         - name: AKS
           items:
             - name: Kubernetes에 대한 CI/CD
-              href: /azure/aks/jenkins-continuous-deployment
+              href: jenkins-continuous-deployment.md
               maintainContext: true
             - name: 파란색/녹색 패턴을 사용하여 AKS에 배포
               href: jenkins-aks-blue-green-deployment.md
@@ -49,7 +49,7 @@
         - name: Azure Functions에 배포
           href: jenkins-azure-functions-deploy.md
         - name: Azure Storage에 게시
-          href: /azure/storage/storage-java-jenkins-continuous-integration-solution
+          href: storage-java-jenkins-continuous-integration-solution.md
           maintainContext: true
         - name: Linux VM에 대한 CI/CD
           href: tutorial-jenkins-github-docker-cicd.md

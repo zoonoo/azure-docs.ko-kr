@@ -142,6 +142,9 @@
             - name: variables
               displayName: 'iteration,copy'
               href: copy-variables.md
+            - name: outputs
+              displayName: 'iteration,copy'
+              href: copy-outputs.md
         - name: 구독 수준 리소스
           href: deploy-to-subscription.md
         - name: 관리 그룹 수준 리소스

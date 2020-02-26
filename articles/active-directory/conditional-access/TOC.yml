@@ -43,7 +43,7 @@
       href: location-condition.md
     - name: What if 도구
       href: what-if-tool.md
-    - name: 컨트롤
+    - name: 사용자 지정 컨트롤
       href: controls.md
     - name: 클래식 정책 마이그레이션
       href: policy-migration.md

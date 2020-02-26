@@ -10,12 +10,12 @@ metadata:
   author: philmea
   ms.author: philmea
   ms.date: 10/25/2019
-  ms.openlocfilehash: e778cafcd75cec1f0a763dad4f3f57bbcbec19fd
-  ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+  ms.openlocfilehash: 1ef9e42fca50dcc9fdec9076167816e940cdca7e
+  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/05/2020
-  ms.locfileid: "77016530"
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77623072"
 landingContent:
 - title: 정부 기관 솔루션 빌드
   linkLists:
@@ -37,6 +37,8 @@ landingContent:
     links:
     - text: 디바이스 템플릿 설정
       url: ../core/howto-set-up-template.md
+    - text: 디바이스 연결
+      url: ../core/tutorial-connect-device.md
     - text: IoT 플러그 앤 플레이(미리 보기) 디바이스 연결
       url: ../core/tutorial-connect-pnp-device.md
   - linkListType: how-to-guide
