@@ -4,12 +4,12 @@ ms.service: cost-management-billing
 ms.topic: include
 ms.date: 11/09/2018
 ms.author: jroth
-ms.openlocfilehash: a306a05899a644f2ee8ea738789b84ee98221531
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2b8d60da507aa1eb312d1a8505f756ff337085ff
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392360"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592431"
 ---
 다음 표에는 Azure IoT Hub Device Provisioning Service 리소스에 적용되는 제한이 나열되어 있습니다.
 
@@ -25,6 +25,9 @@ ms.locfileid: "75392360"
 
 > [!NOTE]
 > 프로비저닝 서비스의 등록 수를 늘리려면 [Microsoft 지원](https://azure.microsoft.com/support/options/)에 문의하세요.
+
+> [!NOTE]
+> 최대 CA 수는 늘릴 수 없습니다.
 
 다음 할당량이 초과되면 디바이스 프로비저닝 서비스 요청을 제한합니다.
 
