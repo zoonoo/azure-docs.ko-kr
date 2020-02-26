@@ -3,7 +3,7 @@ title: Azure 센티널에서 고객 관리 키 설정 | Microsoft Docs
 description: Azure 센티널에서 고객 관리 키 (CMK)를 설정 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 4858e2099baa82226766ecfce32b39471c3b96cd
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.author: yelevin
+ms.openlocfilehash: bc2fa02925e7f5c671085eb87ca0431d3fca7691
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845313"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587960"
 ---
 # <a name="set-up-azure-sentinel-customer-managed-key"></a>Azure 센티널 고객이 관리 하는 키 설정
 
@@ -52,7 +52,7 @@ CMK를 프로 비전 하려면 다음 단계를 수행 합니다. 
 
 5.  Azure 센티널에서 CMK를 사용 하도록 설정 합니다.
 
-6.  Azure Sentinel을 사용하도록 설정
+6.  Azure 센티널을 사용 하도록 설정 합니다.
 
 ### <a name="step-1-create-an-azure-key-vault-and-storing-key"></a>1 단계: Azure Key Vault 만들기 및 키 저장
 

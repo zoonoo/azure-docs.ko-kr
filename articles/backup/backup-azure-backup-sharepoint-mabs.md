@@ -3,12 +3,12 @@ title: MABS를 사용 하 여 Azure에 SharePoint 팜 백업
 description: Azure Backup Server를 사용하여 SharePoint 데이터를 백업 및 복원합니다. 이 문서에서는 원하는 데이터를 Azure에 저장할 수 있도록 SharePoint 팜을 구성하는 정보를 제공합니다. 디스크 또는 Azure에서 보호된 SharePoint 데이터를 복원할 수 있습니다.
 ms.topic: conceptual
 ms.date: 06/08/2018
-ms.openlocfilehash: a48afd84f6c4e1ec80015696dc4b14beea8ebfa4
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ba9d79270da839cf99574322d68ccdba27fe2d93
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173203"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584254"
 ---
 # <a name="back-up-a-sharepoint-farm-to-azure-with-mabs"></a>MABS를 사용 하 여 Azure에 SharePoint 팜 백업
 
@@ -26,13 +26,13 @@ DPM의 Azure Backup은 다음 시나리오들을 지원합니다.
 
 SharePoint 팜을 Azure에 백업하기 전에 몇 가지 확인이 필요합니다.
 
-### <a name="prerequisites"></a>선행 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 진행에 앞서, 워크로드를 보호하기 위해 [Azure Backup Server를 설치 및 준비](backup-azure-microsoft-azure-backup.md)해야 합니다.
 
 ### <a name="protection-agent"></a>보호 에이전트
 
-SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 Azure Backup 에이전트가 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://technet.microsoft.com/library/hh758034\(v=sc.12\).aspx)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. Azure Backup Server는 보호를 위한 진입점 역할을 하는 한 WFE 서버에만 에이전트가 필요합니다.
+SharePoint를 실행하는 서버, SQL Server를 실행하는 서버, SharePoint 팜에 속하는 그 밖의 모든 서버에 Azure Backup 에이전트가 설치되어야 합니다. 보호 에이전트를 설정하는 방법 대한 자세한 내용은 [보호 에이전트 설치](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)를 참조하세요.  유일한 예외는 단일 WFE(웹 프런트엔드) 서버에만 에이전트를 설치하는 것입니다. Azure Backup Server는 보호를 위한 진입점 역할을 하는 한 WFE 서버에만 에이전트가 필요합니다.
 
 ### <a name="sharepoint-farm"></a>Sharepoint 팜
 
@@ -118,7 +118,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
    >
 8. MABS는 복사본에서 일관성 확인을 수행하여 데이터 무결성을 보장합니다. 사용할 수 있는 두 가지 옵션이 있습니다. 일관성 확인을 실행하는 일정을 정의하거나 복제본이 일관되지 않을 때마다 DPM이 복제본에 자동으로 일관성 확인을 실행할 수 있습니다. 원하는 옵션을 선택하고 **다음**을 클릭합니다.
 
-    ![일관성 확인](./media/backup-azure-backup-sharepoint/consistency-check.png)
+    ![일관성 검사](./media/backup-azure-backup-sharepoint/consistency-check.png)
 9. **온라인 보호 데이터 지정** 페이지에서 보호할 SharePoint 팜을 선택하고 **다음**을 클릭합니다.
 
     ![DPM SharePoint Protection1](./media/backup-azure-backup-sharepoint/select-online-protection1.png)
@@ -232,7 +232,7 @@ MABS를 사용하여 SharePoint를 보호할 수 있으려면, **ConfigureShareP
 4. MABS **복구** 탭의 SharePoint 개체를 클릭하여 콘텐츠 데이터베이스 구조를 가져옵니다. 항목을 마우스 오른쪽 단추로 클릭한 다음 **복구**를 클릭합니다.
 
     ![MABS SharePoint Protection13](./media/backup-azure-backup-sharepoint/dpm-sharepoint-protection15.png)
-5. 이 지점에서 이 문서 앞쪽의 복구 단계를 따라 디스크에서 SharePoint 콘텐츠 데이터베이스를 복구합니다.
+5. 이제 이 문서 앞부분의 복구 단계를 수행하여 디스크로 SharePoint 콘텐츠 데이터베이스를 복구합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

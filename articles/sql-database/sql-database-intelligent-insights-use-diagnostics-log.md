@@ -11,16 +11,16 @@ author: danimir
 ms.author: danil
 ms.reviewer: jrasnik, carlrab
 ms.date: 12/19/2018
-ms.openlocfilehash: 9ed2cc8bfb10d916218417a7dd27010638d2a927
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 8272867f5b6144b92dbffcf96cc539eb82f75801
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73810278"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587354"
 ---
 # <a name="use-the-intelligent-insights-azure-sql-database-performance-diagnostics-log"></a>Intelligent Insights Azure SQL Database 성능 진단 로그 사용
 
-이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-into-storage)또는 타사 솔루션에 보낼 수 있습니다.
+이 페이지에서는 [Intelligent Insights](sql-database-intelligent-insights.md)에서 생성된 Azure SQL Database 성능 진단 로그, 해당 형식 및 사용자 지정 개발 요구 사항을 위해 포함된 데이터를 사용하는 방법을 설명합니다. 사용자 지정 DevOps 경고 및 보고 기능을 위해이 진단 로그를 [Azure Monitor 로그](../azure-monitor/insights/azure-sql.md), [Azure Event Hubs](../azure-monitor/platform/resource-logs-stream-event-hubs.md), [Azure Storage](sql-database-metrics-diag-logging.md#stream-diagnostic-telemetry-into-azure-storage)또는 타사 솔루션에 보낼 수 있습니다.
 
 ## <a name="log-header"></a>로그 헤더
 
@@ -81,7 +81,7 @@ Intelligent Insights 성능 로그의 다음 섹션에는 기본 제공 인공 �
 | 워크로드 증가 | <li>실행이 증가한 쿼리 수</li><li>워크로드 증가에 가장 크게 영향을 미치는 쿼리의 쿼리 해시</li> |
 | 메모리 부족 | <li>메모리 클럭</li> |
 | 잠금 | <li>영향받는 쿼리 해시</li><li>차단 쿼리 해시</li> |
-| 증가한 MAXDOP | <li>쿼리 해시</li><li>CXP 대기 시간</li><li>대기 시간</li> |
+| MAXDOP 증가 | <li>쿼리 해시</li><li>CXP 대기 시간</li><li>대기 시간</li> |
 | Pagelatch 경합 | <li>경합을 초래하는 쿼리의 쿼리 해시</li> |
 | 누락된 인덱스 | <li>쿼리 해시</li> |
 | 새 쿼리 | <li>새 쿼리의 쿼리 해시</li> |

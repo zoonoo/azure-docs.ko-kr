@@ -7,12 +7,12 @@ ms.date: 12/26/2019
 ms.topic: conceptual
 ms.service: iot-pnp
 services: iot-pnp
-ms.openlocfilehash: 55f3e42687c90936c33208684b58792b3e2b9f85
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 5fda51e6d2f62b9cbef0fcac22d5bb2ea0df905b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905800"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605211"
 ---
 # <a name="iot-plug-and-play-preview-modeling-developer-guide"></a>IoT 플러그 앤 플레이 미리 보기 모델링 개발자 가이드
 
@@ -67,9 +67,9 @@ Implements 섹션에서 인터페이스 목록의 각 항목에는 다음이 포
 
 DTDL을 사용 하면 인터페이스를 사용 하 여 장치의 기능을 설명할 수 있습니다. 인터페이스는 장치에서 구현 하는 _속성_, _원격 분석_및 _명령을_ 설명 합니다.
 
-- `Properties`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 속성은 장치의 상태를 나타내는 데이터 필드입니다. 속성을 사용 하 여 냉각수 펌프의 꺼짐 상태와 같은 장치의 내구성이 있는 상태를 나타냅니다. 속성은 장치의 펌웨어 버전 같은 기본 장치 속성을 나타낼 수도 있습니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다.
-- `Telemetry`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 원격 분석 필드는 센서의 측정값을 나타냅니다. 장치가 센서를 사용 하는 경우에는 센서 데이터를 포함 하는 원격 분석 이벤트를 전송 해야 합니다.
-- `Commands`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다. 명령은 장치의 사용자가 장치에서 실행할 수 있는 메서드를 나타냅니다. 예를 들면 reset 명령 또는 팬을 전환 하는 명령입니다.
+- `Properties`입니다. 속성은 장치의 상태를 나타내는 데이터 필드입니다. 속성을 사용 하 여 냉각수 펌프의 꺼짐 상태와 같은 장치의 내구성이 있는 상태를 나타냅니다. 속성은 장치의 펌웨어 버전 같은 기본 장치 속성을 나타낼 수도 있습니다. 속성은 읽기 전용 또는 쓰기 가능으로 선언할 수 있습니다.
+- `Telemetry`입니다. 원격 분석 필드는 센서의 측정값을 나타냅니다. 장치가 센서를 사용 하는 경우에는 센서 데이터를 포함 하는 원격 분석 이벤트를 전송 해야 합니다.
+- `Commands`입니다. 명령은 장치의 사용자가 장치에서 실행할 수 있는 메서드를 나타냅니다. 예를 들면 reset 명령 또는 팬을 전환 하는 명령입니다.
 
 다음 예제에서는 자동 온도 조절기 장치에 대 한 인터페이스를 보여 줍니다.
 
@@ -182,26 +182,26 @@ result = DigitalTwin_DeviceClient_RegisterInterfacesAsync(
 
 IoT 플러그 앤 플레이를 사용 하면 IoT hub에 기능을 등록 한 장치를 사용할 수 있습니다. 예를 들어 장치의 속성 및 명령에 직접 액세스할 수 있습니다.
 
-Iot hub에 연결 된 IoT 플러그 앤 플레이 장치를 사용 하려면 IoT Hub REST API 또는 IoT 언어 Sdk 중 하나를 사용 합니다. 다음 예에서는 IoT Hub REST API를 사용 합니다.
+Iot hub에 연결 된 IoT 플러그 앤 플레이 장치를 사용 하려면 IoT Hub REST API 또는 IoT 언어 Sdk 중 하나를 사용 합니다. 다음 예에서는 IoT Hub REST API를 사용 합니다. API의 현재 버전은 `2019-07-01-preview`입니다. REST PI 호출에 `?api-version=2019-07-01-preview`을 추가 합니다.
 
 자동 온도 조절기의 `DeviceInformation` 인터페이스에서 펌웨어 버전 (`fwVersion`)과 같은 장치 속성의 값을 가져오려면 디지털 쌍 REST API을 사용 합니다.
 
-자동 온도 조절기 장치를 `t-123`이라고 하는 경우 REST API GET 호출을 사용 하 여 장치에서 구현 하는 모든 속성을 가져옵니다.
+자동 온도 조절기 장치를 `t-123`이라고 하는 경우 REST API GET 호출을 사용 하 여 장치에서 구현 된 모든 인터페이스에 대 한 모든 속성을 가져옵니다.
 
 ```REST
 GET /digitalTwins/t-123/interfaces
 ```
 
-보다 일반적으로이 REST API 템플릿을 사용 하 여 모든 속성에 액세스 합니다. 여기서 `{device-id}`는 장치의 식별자입니다.
+보다 일반적으로이 REST API 템플릿을 사용 하 여 모든 인터페이스의 모든 속성에 액세스 합니다. 여기서 `{device-id}`는 장치의 식별자입니다.
 
 ```REST
 GET /digitalTwins/{device-id}/interfaces
 ```
 
-인터페이스의 이름을 알고 있고 해당 특정 인터페이스에 대 한 속성을 가져오려면 이름으로 특정 인터페이스에 대 한 요청의 범위를 지정 합니다.
+`deviceInformation`와 같은 인터페이스의 이름을 알고 있고 해당 특정 인터페이스에 대 한 속성을 가져오려고 하는 경우 이름을 기준으로 특정 인터페이스에 대 한 요청의 범위를 지정 합니다.
 
 ```REST
-GET /digitalTwins/t-123/interfaces/info
+GET /digitalTwins/t-123/interfaces/deviceInformation
 ```
 
 보다 일반적으로 특정 인터페이스에 대 한 속성은이 REST API 템플릿을 통해 액세스할 수 있습니다. 여기서 `device-id`는 장치의 식별자이 고 `{interface-name}`는 인터페이스의 이름입니다.

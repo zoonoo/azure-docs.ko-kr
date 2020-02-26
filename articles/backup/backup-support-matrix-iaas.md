@@ -3,12 +3,12 @@ title: Azure VM Backup의 지원 매트릭스
 description: Azure Backup 서비스를 사용하여 Azure VM을 백업할 때의 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 5d83d3426a80acc12c2a53051dcfd7b889f47f02
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: d4d5168ee7f2f8c71b3a63fea64873a8dd71658b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469003"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602212"
 ---
 # <a name="support-matrix-for-azure-vm-backup"></a>Azure VM Backup의 지원 매트릭스
 
@@ -105,12 +105,12 @@ DPM/MABS 디스크의 복구 지점 수 | 파일 서버의 경우 64이 고, 앱
 
 ## <a name="supported-restore-methods"></a>지원되는 복원 방법
 
-**복원 방법** | **세부 정보**
+**복원 옵션** | **세부 정보**
 --- | ---
-새 VM 만들기 | 복원 프로세스 동안 VM을 만들 수 있습니다. <br/><br/> 이 옵션은 기본 VM을 작동 및 실행합니다. VM 이름, 리소스 그룹, 가상 네트워크, 서브넷 및 스토리지를 지정할 수 있습니다.  
-디스크 복원 | 디스크를 복원 하 고이를 사용 하 여 VM을 만들 수 있습니다.<br/><br/> 이 옵션을 선택하면 Azure Backup은 자격 증명 모음의 데이터를 선택한 스토리지 계정으로 복사합니다. 복원 작업은 템플릿을 생성합니다. 이 템플릿을 다운로드 하 고,이 템플릿을 사용 하 여 사용자 지정 VM 설정을 지정 하 고, VM을 만들 수 있습니다.<br/><br/> 이 옵션을 사용하면 이전 옵션보다 더 많은 설정을 지정하여 VM을 만들 수 있습니다.<br/><br/>
-기존 디스크 바꾸기 | 디스크를 복원하고 복원된 디스크를 사용하여 현재 VM에 있는 디스크를 바꿀 수 있습니다.
-파일 복원 | 선택한 복구 지점에서 파일을 복구할 수 있습니다. 복구 지점에서 VM 디스크를 탑재하는 스크립트를 다운로드합니다. 그런 다음 디스크 볼륨을 탐색 하 여 복구 하려는 파일/폴더를 찾고 완료 되 면 디스크를 분리 합니다.
+**새 VM 만들기** | 복원 지점에서 기본 VM을 빠르게 만들고, 준비하고, 실행할 수 있습니다.<br/><br/> VM의 이름을 지정 하 고, 리소스 그룹 및 가상 네트워크 (VNet)를 선택 하 고, 복원 된 VM에 대 한 저장소 계정을 지정할 수 있습니다. 새 VM은 원본 VM과 동일한 지역에 만들어야 합니다.
+**디스크 복원** | 새 VM을 만드는 데 사용할 수 있는 VM 디스크를 복원 합니다.<br/><br/> Azure Backup은 VM을 사용자 지정하고 만드는 데 도움이 되는 템플릿을 제공합니다. <br/><br> 복원 작업은 다운로드하여 사용자 지정 VM 설정을 지정하고 VM을 만드는 데 사용할 수 있는 템플릿을 생성합니다.<br/><br/> 지정한 리소스 그룹에 디스크가 복사 됩니다.<br/><br/> 또는 디스크를 기존 VM에 연결하거나 PowerShell을 사용하여 새 VM을 만들 수 있습니다.<br/><br/> 이 옵션은 VM을 사용자 지정하거나, 백업 시 존재하지 않았던 구성 설정을 추가하거나, 템플릿 또는 PowerShell을 사용하여 구성해야 하는 설정을 추가하려는 경우에 유용합니다.
+**기존 항목 바꾸기** | 디스크를 복원하고 이 디스크를 사용하여 기존 VM의 디스크를 바꿀 수 있습니다.<br/><br/> 현재 VM이 있어야 합니다. 삭제 된 경우에는이 옵션을 사용할 수 없습니다.<br/><br/> Azure Backup는 디스크를 교체 하기 전에 기존 VM의 스냅숏을 만들어 지정한 스테이징 위치에 저장 합니다. VM에 연결 된 기존 디스크는 선택한 복원 지점으로 대체 됩니다.<br/><br/> 스냅숏은 자격 증명 모음에 복사 되 고 보존 정책에 따라 보존 됩니다. <br/><br/> 디스크 바꾸기 작업 후에는 원래 디스크가 리소스 그룹에 유지 됩니다. 필요 하지 않은 경우 원본 디스크를 수동으로 삭제 하도록 선택할 수 있습니다. <br/><br/>기존 항목 바꾸기는 암호화되지 않은 관리 VM에 대해 지원됩니다. 관리되지 않는 디스크, [일반화된 VM](https://docs.microsoft.com/azure/virtual-machines/windows/capture-image-resource) 또는 [사용자 지정 이미지를 사용하여 만든](https://azure.microsoft.com/resources/videos/create-a-custom-virtual-machine-image-in-azure-resource-manager-with-powershell/) VM에 대해서는 지원되지 않습니다.<br/><br/> 현재 VM보다 많거나 적은 디스크가 복원 지점에 있는 경우 복원 지점의 디스크 수에는 VM 구성만 반영됩니다.<br><br> 백업 클라이언트 앱에는 복원 작업을 수행 하는 동안 이러한 리소스에 대 한 권한이 없기 때문에 연결 된 리소스 (예: [사용자 할당 관리 id](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview) 또는 [Key Vault](https://docs.microsoft.com/azure/key-vault/key-vault-overview))를 사용 하는 vm에 대해서는 기존 바꾸기가 지원 되지 않습니다.
+**지역 간 (보조 지역)** | 지역 간 복원은 [azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions#what-are-paired-regions)인 보조 지역에서 azure vm을 복원 하는 데 사용할 수 있습니다.<br><br> 백업이 보조 지역에서 수행 되는 경우 선택한 복구 지점에 대 한 모든 Azure Vm을 복원할 수 있습니다.<br><br> 이 기능은 아래 옵션에 사용할 수 있습니다.<br> [VM을 만드는](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#create-a-vm) *  <br> * [복원 디스크](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#restore-disks) <br><br> 현재 [기존 디스크 바꾸기](https://docs.microsoft.com/azure/backup/backup-azure-arm-restore-vms#replace-existing-disks) 옵션을 지원 하지 않습니다.<br><br> 사용 권한<br> 보조 지역에 대 한 복원 작업은 Backup Admins 및 App Admins를 통해 수행할 수 있습니다.
 
 ## <a name="support-for-file-level-restore"></a>파일 수준 복원에 대한 지원
 

@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan,moslake,josack
 ms.date: 11/19/2019
-ms.openlocfilehash: da8c194b7911d2eeda8e0c903cb7412186aacfcb
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: fa41649e002bd4845b95e787c1d0589ed1987588
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75638258"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587246"
 ---
 # <a name="sql-database-resource-limits-and-resource-governance"></a>SQL Database 리소스 제한 및 리소스 관리
 
@@ -37,14 +37,14 @@ ms.locfileid: "75638258"
 | 서버당 최대 풀 | DTU 또는 vCore의 수로 제한됩니다. 예를 들어 각 풀에 DTU가 1000개인 경우 서버는 54개 풀을 지원할 수 있습니다.|
 |||
 
-> [!NOTE]
-> 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 기본 용량 보다 많은 서버를 얻기 위해 문제 유형이 "Quota" 인 구독의 Azure Portal에 새 지원 요청을 제출할 수 있습니다. 서버 당 DTU/eDTU 할당량 및 데이터베이스 한도는 서버당 탄력적 풀 수를 제한 합니다.
-
 > [!IMPORTANT]
 > 데이터베이스 수가 SQL Database 서버당 한도에 근접하면 다음이 발생할 수 있습니다.
 >
 > - 마스터 데이터베이스에 대해 쿼리를 실행할 때 대기 시간이 증가합니다.  여기에는 sys.resource_stats와 같은 리소스 사용률 통계 보기가 포함됩니다.
 > - 관리 작업을 수행하고 서버의 데이터베이스 열거와 관련된 포털 뷰 포인트를 렌더링할 때 대기 시간이 증가합니다.
+
+> [!NOTE]
+> 더 많은 DTU/eDTU 할당량, vCore 할당량 또는 기본 용량 보다 많은 서버를 얻으려면 Azure Portal에 새 지원 요청을 제출 합니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md)를 참조 하세요.
 
 ### <a name="storage-size"></a>스토리지 크기
 
@@ -60,7 +60,7 @@ ms.locfileid: "75638258"
 - 데이터베이스 또는 탄력적 풀의 컴퓨팅 크기를 늘려 데이터베이스에 더 많은 컴퓨팅 리소스를 제공합니다. [단일 데이터베이스 리소스 확장](sql-database-single-database-scale.md) 및 [탄력적 풀 리소스 확장](sql-database-elastic-pool-scale.md)을 참조하세요.
 - 쿼리를 최적화하여 각 쿼리당 리소스 사용률을 줄입니다. 자세한 내용은 [쿼리 튜닝/힌트](sql-database-performance-guidance.md#query-tuning-and-hinting)를 참조하세요.
 
-### <a name="storage"></a>Storage
+### <a name="storage"></a>스토리지
 
 사용된 데이터베이스 공간이 최대 크기 제한에 도달하면 데이터 크기 증가를 가져오는 데이터베이스 삽입 및 업데이트가 실패하고 클라이언트에 [오류 메시지](troubleshoot-connectivity-issues-microsoft-azure-sql-database.md)가 표시됩니다. SELECT 및 DELETE 문은 계속 성공 합니다.
 

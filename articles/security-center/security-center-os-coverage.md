@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 6ec818ff77664fcc038412f79fffc1e3e05b82f0
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76294255"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603759"
 ---
 # <a name="supported-platforms"></a>지원 플랫폼 
 
@@ -94,7 +94,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * PostGreSQL
 * MySQL
 * CosmosDB
-* Storage 계정
+* 스토리지 계정
 * App Service
 * 함수
 * 클라우드 서비스
@@ -105,7 +105,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * Batch 계정
 * Service fabric 계정
 * Automation 계정
-* Load Balancer
+* 부하 분산 장치
 * 검색
 * Service Bus 네임스페이스
 * Stream Analytics
@@ -114,7 +114,7 @@ Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같�
 * Redis
 * Data Lake Analytics
 * Data Lake Store
-* Key Vault
+* 주요 자격 증명 모음
 
 위의 PaaS 리소스 목록에서 지원 되는 기능에 대해 자세히 알아보려면 [paas 서비스 지원 기능](security-center-services.md#paas-services)을 참조 하세요.
 
@@ -127,5 +127,3 @@ Azure Stack에 있는 Virtual Machines에 대 한 보호도 지원 됩니다. Az
 - [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
 - 다양 한 [클라우드 환경에 사용할 수 있는 기능](security-center-services.md)에 대해 알아봅니다.
 - [Azure Security Center에서 vm & 서버에 대 한 위협 검색](security-center-alerts-iaas.md)에 대해 자세히 알아보세요.
-- [Azure Security Center 사용에 관한 질문과 대답](security-center-faq.md)을 찾아봅니다.
-- [Azure 보안 및 규정 준수에 관한 블로그 게시물](https://blogs.msdn.com/b/azuresecurity/)을 찾아봅니다.

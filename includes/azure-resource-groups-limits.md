@@ -2,18 +2,19 @@
 author: tfitzmac
 ms.service: azure-resource-manager
 ms.topic: include
-ms.date: 08/19/2019
+ms.date: 02/24/2020
 ms.author: tomfitz
-ms.openlocfilehash: b4338560d515289d3e9aedfa716ec7c3ace51131
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1a52e1bc2dde74289cb270fcae832be24de5a06
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75392349"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592432"
 ---
 | 리소스 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
-| [리소스 그룹](../articles/azure-resource-manager/management/overview.md#resource-groups)당 리소스 유형별 리소스 |800 |일부 리소스 형식은 800 한계를 초과할 수 있습니다. 리소스 그룹당 [800 인스턴스로 제한 되지 않는 리소스를](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md)참조 하세요. |
+| [리소스](../articles/azure-resource-manager/management/overview.md#resource-groups) 그룹당 리소스 | 해당 없음 | 리소스는 리소스 그룹으로 제한 되지 않습니다. 대신 리소스 그룹의 리소스 형식에 의해 제한 됩니다. 다음 행을 참조 하세요. | 
+| 리소스 그룹당 리소스 유형별 리소스 |800 |일부 리소스 형식은 800 한계를 초과할 수 있습니다. 리소스 그룹당 [800 인스턴스로 제한 되지 않는 리소스를](../articles/azure-resource-manager/management/resources-without-resource-group-limit.md)참조 하세요. |
 | 배포 기록의 리소스 그룹당 배포 |800<sup>1</sup> |800 |
 | 배포당 리소스 |800 |800 |
 | 고유 범위 당 관리 잠금 |20 |20 |
@@ -28,7 +29,7 @@ ms.locfileid: "75392349"
 | 값 | 기본 제한 | 최대 제한 |
 | --- | --- | --- |
 | 매개 변수 |256 |256 |
-| 변수 |256 |256 |
+| variables |256 |256 |
 | 리소스(인쇄 매수 포함) |800 |800 |
 | outputs |64 |64 |
 | 템플릿 식 |24,576개 문자 |24,576개 문자 |

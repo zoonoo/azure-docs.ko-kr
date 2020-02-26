@@ -6,21 +6,21 @@ ms.service: storage
 ms.topic: article
 ms.date: 02/21/2020
 ms.author: rogarana
-ms.openlocfilehash: 3a9a2a903bd9979cd0f9a09b7589edc6d4fd8962
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 673bf3be59d72b2cc62b9f92af353fee235c5ddc
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565090"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598819"
 ---
 # <a name="overview-of-azure-files-identity-based-authentication-support-for-smb-access"></a>SMB 액세스를 위한 Azure Files id 기반 인증 지원 개요
 [!INCLUDE [storage-files-aad-auth-include](../../../includes/storage-files-aad-auth-include.md)]
 
-Azure 파일 공유에 대해 AD 인증을 사용 하도록 설정 하는 방법을 알아보려면 [azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용](storage-files-active-directory-domain-services-enable.md)을 참조 하세요.
+Azure 파일 공유에 대해 AD 인증을 사용 하도록 설정 하는 방법을 알아보려면 [azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용](storage-files-identity-auth-active-directory-enable.md)을 참조 하세요.
 
-Azure 파일 공유에 대해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 알아보려면 [Azure Files에 대해 SMB를 통한 Azure Active Directory 도메인 서비스 인증 사용](storage-files-active-directory-enable.md)을 참조 하세요.
+Azure 파일 공유에 대해 Azure AD DS 인증을 사용 하도록 설정 하는 방법을 알아보려면 [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)을 참조 하세요.
 
-## <a name="glossary"></a>용어집 
+## <a name="glossary"></a>용어 
 Azure 파일 공유를 위해 SMB를 통한 Azure AD 도메인 서비스 인증과 관련 된 몇 가지 주요 용어를 이해 하는 것이 유용 합니다.
 
 -   **Kerberos 인증**
@@ -98,7 +98,7 @@ VM에서 실행 되는 응용 프로그램과 연결 된 id가 Azure 파일 공�
 
 ### <a name="enable-identity-based-authentication"></a>Id 기반 인증 사용
 
-새 및 기존 저장소 계정에서 Azure 파일 공유에 대 한 Azure AD DS (GA) 또는 AD (미리 보기)를 사용 하 여 id 기반 인증을 사용 하도록 설정할 수 있습니다. 저장소 계정의 파일 액세스 인증에는 하나의 도메인 서비스만 사용할 수 있으며,이는 계정의 모든 파일 공유에 적용 됩니다. Azure AD DS (GA)를 사용 하 여 인증을 위해 파일 공유를 설정 하는 방법에 대 한 자세한 단계별 지침은 다른 문서에서 [Azure Files에 대 한 smb를 통한 인증 Azure Active Directory Domain Services 설정](storage-files-active-directory-enable.md) 및 AD (미리 보기)에 대 한 지침을 참조 하세요. [azure 파일 공유에 대해 smb를 통한 Active Directory 사용](storage-files-active-directory-domain-services-enable.md).
+새 및 기존 저장소 계정에서 Azure 파일 공유에 대 한 Azure AD DS (GA) 또는 AD (미리 보기)를 사용 하 여 id 기반 인증을 사용 하도록 설정할 수 있습니다. 저장소 계정의 파일 액세스 인증에는 하나의 도메인 서비스만 사용할 수 있으며,이는 계정의 모든 파일 공유에 적용 됩니다. Azure AD DS (GA)를 사용 하 여 인증을 위해 파일 공유를 설정 하는 방법에 대 한 자세한 단계별 지침은 다른 문서에서 AD (미리 보기)에 대 한 [Azure Active Directory Domain Services Azure Files 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md) 및 [azure 파일 공유에 대 한 SMB를 통한 인증 사용 Active Directory](storage-files-identity-auth-active-directory-enable.md)을 참조 하세요.
 
 ### <a name="configure-share-level-permissions-for-azure-files"></a>Azure Files에 대한 공유 수준 권한 구성
 
@@ -126,6 +126,6 @@ Azure Files는 Azure 파일 공유에 데이터를 복사할 때 디렉터리 �
 SMB를 통한 Azure Files 및 id 기반 인증에 대 한 자세한 내용은 다음 리소스를 참조 하세요.
 
 - [Azure 파일 배포에 대한 계획](storage-files-planning.md)
-- [Azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용](storage-files-active-directory-domain-services-enable.md)
-- [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-active-directory-enable.md)
+- [Azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용](storage-files-identity-auth-active-directory-enable.md)
+- [Azure Files에서 Azure Active Directory Domain Services 인증 사용](storage-files-identity-auth-active-directory-domain-service-enable.md)
 - [FAQ](storage-files-faq.md)

@@ -2,17 +2,14 @@
 title: 미리 보기-AKS (Azure Kubernetes Service) 클러스터에서 Windows Server 컨테이너 만들기
 description: Azure CLI를 사용 하 여 Kubernetes 클러스터를 신속 하 게 만들고 AKS (Azure Kubernetes Service)의 Windows Server 컨테이너에 응용 프로그램을 배포 하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/27/2020
-ms.author: mlearned
-ms.openlocfilehash: 0583e773a344a6786d13a5da30be24369d75f11f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 3a3374ea8e88b2494bb48c6835b4c22f1256ec84
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251705"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592683"
 ---
 # <a name="preview---create-a-windows-server-container-on-an-azure-kubernetes-service-aks-cluster-using-the-azure-cli"></a>미리 보기-Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에 Windows Server 컨테이너 만들기
 

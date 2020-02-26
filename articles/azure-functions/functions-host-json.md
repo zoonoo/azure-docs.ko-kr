@@ -3,12 +3,12 @@ title: Azure Functions 2.x에 대한 host.json 참조
 description: v2 런타임을 사용하는 Azure Functions host.json 파일에 대한 참조 설명서입니다.
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: b9c57378df1510179c5a45b6aa669bab804aca5e
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 949d4f2c5d8c1d8034ccc392915bc40f1f2fddda
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484437"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605126"
 ---
 # <a name="hostjson-reference-for-azure-functions-2x-and-later"></a>Azure Functions 2.x 이상에 대 한 호스트 json 참조 
 
@@ -208,7 +208,7 @@ ms.locfileid: "77484437"
 
 ## <a name="cosmosdb"></a>cosmosDb
 
-구성 설정은 [Cosmos DB 트리거 및 바인딩](functions-bindings-cosmosdb-v2.md#host-json)에서 찾을 수 있습니다.
+구성 설정은 [Cosmos DB 트리거 및 바인딩](functions-bindings-cosmosdb-v2-output.md#host-json)에서 찾을 수 있습니다.
 
 ## <a name="durabletask"></a>durableTask
 
@@ -216,7 +216,7 @@ ms.locfileid: "77484437"
 
 ## <a name="eventhub"></a>eventHub
 
-구성 설정은 [이벤트 허브 트리거 및 바인딩](functions-bindings-event-hubs.md#host-json)에서 찾을 수 있습니다. 
+구성 설정은 [이벤트 허브 트리거 및 바인딩](functions-bindings-event-hubs-output.md#host-json)에서 찾을 수 있습니다. 
 
 ## <a name="extensions"></a>확장
 

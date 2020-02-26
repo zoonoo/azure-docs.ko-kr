@@ -3,12 +3,12 @@ title: Azure VM 백업 정보
 description: 이 문서에서는 Azure Backup 서비스에서 Azure Virtual machines를 백업 하는 방법과 모범 사례를 따르는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: b38c61adaf334eacb7d85292d4174189d6fddc46
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ffbf0d0164cbf6f085518d57566b0befde6e124
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75391891"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597255"
 ---
 # <a name="an-overview-of-azure-vm-backup"></a>Azure VM 백업 개요
 
@@ -58,12 +58,7 @@ BEKs도 백업 됩니다. 따라서 BEKs가 손실 되 면 권한 있는 사용�
 
 Azure Backup는 백업 일정에 따라 스냅숏을 생성 합니다.
 
-- **Windows vm:** Windows Vm의 경우 Backup 서비스는 VSS와 조정 하 여 VM 디스크의 앱 일치 스냅숏을 만듭니다.
-
-  - 기본적으로 Azure Backup은 전체 VSS 백업을 만듭니다. [자세히 알아보기](https://blogs.technet.com/b/filecab/archive/2008/05/21/what-is-the-difference-between-vss-full-backup-and-vss-copy-backup-in-windows-server-2008.aspx).
-  - Azure Backup VSS 복사 백업을 사용 하도록 설정을 변경 하려면 명령 프롬프트에서 다음 레지스트리 키를 설정 합니다.
-
-    **REG ADD "HKLM\SOFTWARE\Microsoft\BcdrAgent" /v USEVSSCOPYBACKUP /t REG_SZ /d TRUE /f**
+- **Windows vm:** Windows Vm의 경우 Backup 서비스는 VSS와 조정 하 여 VM 디스크의 앱 일치 스냅숏을 만듭니다.  기본적으로 Azure Backup는 전체 VSS 백업을 수행 합니다. 백업 시 SQL Server와 같은 응용 프로그램의 로그를 잘라서 응용 프로그램 수준 일치 백업을 가져옵니다.  Azure VM 백업에 SQL Server 데이터베이스를 사용 하는 경우 VSS 복사본 백업을 수행 하는 설정을 수정 하 여 로그를 보존할 수 있습니다. 자세한 내용은 [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-vms-troubleshoot#troubleshoot-vm-snapshot-issues)(영문)를 읽어보세요.
 
 - **Linux vm:** Linux Vm의 앱 일치 스냅숏을 사용 하려면 Linux 사전 스크립트 및 사후 스크립트 프레임 워크를 사용 하 여 일관성을 유지 하기 위해 고유한 사용자 지정 스크립트를 작성 합니다.
 
@@ -127,10 +122,10 @@ Azure Backup으로 백업된 Azure VM에는 [Azure Backup 가격 책정](https:/
 
 **디스크** | **최대 크기** | **표시되는 실제 데이터**
 --- | --- | ---
-OS 디스크 | 32TB | 17GB
+OS 디스크 | 32 TB | 17GB
 로컬/임시 디스크 | 135GB | 5GB(백업에 포함되지 않음)
-데이터 디스크 1 | 32TB| 30GB
-데이터 디스크 2 | 32TB | 0GB
+데이터 디스크 1 | 32 TB| 30GB
+데이터 디스크 2 | 32 TB | 0GB
 
 이 경우 VM의 실제 크기는 17GB+30GB+0GB=47GB입니다. 이 보호 된 인스턴스 크기 (47 g b)는 월별 청구의 기반이 됩니다. VM의 데이터 양이 증가 함에 따라 청구 변경 내용이 일치 하는 데 사용 되는 보호 된 인스턴스 크기입니다.
 

@@ -9,19 +9,19 @@ ms.topic: conceptual
 ms.author: larryfr
 author: Blackmist
 ms.date: 11/05/2019
-ms.openlocfilehash: 715ea6239e070fe5ebb78c2e2766aabf1f491fcc
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 06b890a9186ec38ce3f851c9f36b778ec7549f76
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988161"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580550"
 ---
 # <a name="create-a-workspace-for-azure-machine-learning-with-azure-cli"></a>Azure CLI를 사용 하 여 Azure Machine Learning에 대 한 작업 영역 만들기
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
 
 이 문서에서는 Azure CLI를 사용 하 여 Azure Machine Learning 작업 영역을 만드는 방법에 대해 알아봅니다. Azure CLI는 Azure 리소스를 관리 하기 위한 명령을 제공 합니다. CLI에 대 한 machine learning 확장은 Azure Machine Learning 리소스를 사용 하기 위한 명령을 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **Azure 구독**. 없는 경우 [무료 또는 유료 버전의 Azure Machine Learning](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -52,7 +52,7 @@ Machine learning 확장을 설치 하려면 다음 명령을 사용 합니다.
 az extension add -n azure-cli-ml
 ```
 
-## <a name="create-a-workspace"></a>작업 영역 생성
+## <a name="create-a-workspace"></a>작업 영역 만들기
 
 Azure Machine Learning 작업 영역에서는 다음과 같은 Azure 서비스 또는 엔터티를 사용 합니다.
 
@@ -349,6 +349,17 @@ az group delete -g <resource-group-name>
 ### <a name="resource-provider-errors"></a>리소스 공급자 오류
 
 [!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>작업 영역 이동
+
+> [!WARNING]
+> Azure Machine Learning 작업 영역을 다른 구독으로 이동 하거나 소유 하는 구독을 새 테 넌 트로 이동 하는 것은 지원 되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
+
+### <a name="deleting-the-azure-container-registry"></a>Azure Container Registry 삭제
+
+Azure Machine Learning 작업 영역에서는 일부 작업에 Azure Container Registry (ACR)를 사용 합니다. 먼저 필요할 때 ACR 인스턴스를 자동으로 만듭니다.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

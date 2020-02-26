@@ -9,12 +9,12 @@ author: ramakoni1
 ms.author: ramakoni
 ms.reviewer: carlrab,vanto
 ms.date: 01/14/2020
-ms.openlocfilehash: 9ee43533532f51f6f0d2aa9d0d4e8d3993ccadb4
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 6baf9d4edba9ba8db008c5c6a8d7af6832ba3273
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76027738"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591237"
 ---
 # <a name="troubleshooting-connectivity-issues-and-other-errors-with-microsoft-azure-sql-database"></a>Microsoft Azure SQL Database 연결 문제 및 기타 오류 문제 해결
 
@@ -30,7 +30,7 @@ Azure 인프라에 는 SQL Database 서비스에 과도한 워크로드 부하�
 | 오류 코드 | 심각도 | Description |
 | ---:| ---:|:--- |
 | 4060 |16 |로그인에서 요청된 데이터베이스 "%.&#x2a;ls"을(를) 열 수 없습니다. 로그인이 실패했습니다. 자세한 내용은 [오류 4000 ~ 4999](https://docs.microsoft.com/sql/relational-databases/errors-events/database-engine-events-and-errors#errors-4000-to-4999) 를 참조 하세요.|
-| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197]의 메시지에 포함 된 오류 코드 (% d)는 발생 한 오류 또는 장애 조치 (failover) 종류에 대 한 추가 정보를 제공 합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>SQL Database 서버에 다시 연결하면 데이터베이스의 정상 복사본으로 자동 연결됩니다. 애플리케이션은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. 자세한 내용은 [일시적인 오류](sql-database-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
+| 40197 |17 |서비스에서 요청을 처리하는 오류가 발생했습니다. 나중에 다시 시도하세요. 오류 코드 %d.<br/><br/>소프트웨어 또는 하드웨어 업그레이드, 하드웨어 오류 또는 기타 장애 조치 문제로 인해 서비스가 종료되는 경우 이 오류가 발생합니다. 오류 40197]의 메시지에 포함 된 오류 코드 (% d)는 발생 한 오류 또는 장애 조치 (failover) 종류에 대 한 추가 정보를 제공 합니다. 오류 40197 메시지 내에 포함된 오류 코드의 일부 예제는 40020, 40143, 40166 및 40540입니다.<br/><br/>SQL Database 서버에 다시 연결하면 데이터베이스의 정상 복사본으로 자동 연결됩니다. 애플리케이션은 오류 40197을 포착하고 문제 해결을 위해 메시지 내에 포함된 오류 코드(%d)를 로그하고 리소스가 사용 가능하고 연결이 다시 설정될 때까지 SQL Database에 다시 접속을 시도해야 합니다. 자세한 내용은 [일시적인 오류](sql-database-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
 | 40501 |20 |서비스가 현재 사용 중입니다. 10초 후 요청을 다시 시도하십시오. 인시던트 ID: %ls. 코드: %d. 자세한 내용은 다음을 참조하세요. <br/>&bull; &nbsp;[데이터베이스 서버 리소스 제한](sql-database-resource-limits-database-server.md)<br/>[단일 데이터베이스에 대 한 DTU 기반 제한](sql-database-service-tiers-dtu.md) &bull; &nbsp;<br/>[탄력적 풀에 대 한 DTU 기반 제한](sql-database-dtu-resource-limits-elastic-pools.md) &bull; &nbsp;<br/>[단일 데이터베이스에 대 한 &bull; &nbsp;Vcore 기반 제한](sql-database-vcore-resource-limits-single-databases.md)<br/>[탄력적 풀에 대 한 &bull; &nbsp;Vcore 기반 제한](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&nbsp;[관리 되는 인스턴스 리소스 제한을](sql-database-managed-instance-resource-limits.md)&bull; 합니다.|
 | 40613 |17 |서버의 데이터베이스 '%.&#x2a;ls' '%.&#x2a;ls'을(를) 사용할 수 없습니다. 나중에 연결을 다시 시도하십시오. 문제가 지속되면 고객 지원 서비스에 문의하고 세션 추적 ID '%.&#x2a;ls'을(를) 제공하십시오.<br/><br/> 이 오류는 데이터베이스에 기존 DAC (관리자 전용 연결)가 이미 설정 된 경우에 발생할 수 있습니다. 자세한 내용은 [일시적인 오류](sql-database-connectivity-issues.md#transient-errors-transient-faults)를 참조 하세요.|
 | 49918 |16 |요청을 처리할 수 없습니다. 요청을 처리할 리소스가 부족합니다.<br/><br/>서비스가 현재 사용 중입니다. 요청을 나중에 다시 시도하세요. 자세한 내용은 다음을 참조하세요. <br/>&bull; &nbsp;[데이터베이스 서버 리소스 제한](sql-database-resource-limits-database-server.md)<br/>[단일 데이터베이스에 대 한 DTU 기반 제한](sql-database-service-tiers-dtu.md) &bull; &nbsp;<br/>[탄력적 풀에 대 한 DTU 기반 제한](sql-database-dtu-resource-limits-elastic-pools.md) &bull; &nbsp;<br/>[단일 데이터베이스에 대 한 &bull; &nbsp;Vcore 기반 제한](sql-database-vcore-resource-limits-single-databases.md)<br/>[탄력적 풀에 대 한 &bull; &nbsp;Vcore 기반 제한](sql-database-vcore-resource-limits-elastic-pools.md)<br/>&nbsp;[관리 되는 인스턴스 리소스 제한을](sql-database-managed-instance-resource-limits.md)&bull; 합니다. |
@@ -230,8 +230,8 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 
    ```sql
    SELECT o.name,
-    a.SUM(p.row_count) AS 'Row Count',
-    b.SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
+    SUM(p.row_count) AS 'Row Count',
+    SUM(p.reserved_page_count) * 8.0 / 1024 AS 'Table Size (MB)'
    FROM sys.objects o
    JOIN sys.dm_db_partition_stats p on p.object_id = o.object_id
    GROUP BY o.name
@@ -316,7 +316,7 @@ ADO.NET을 사용하는 클라이언트에 대한 *차단 기간* 의 설명은 
 |:--- |:--- |:--- |:--- |
 | 1132 | 17 |탄력적 풀이 스토리지 용량 한도에 도달했습니다. 탄력적 풀의 스토리지 사용량은 (%d)MB를 초과할 수 없습니다. 탄력적 풀이 스토리지 용량 한도에 도달했을 때 데이터베이스에 데이터를 기록하려고 했습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>[탄력적 풀에 대 한 DTU 기반 제한](sql-database-dtu-resource-limits-elastic-pools.md) &bull; &nbsp;<br/>[탄력적 풀에 대 한 Vcore 기반 제한을](sql-database-vcore-resource-limits-elastic-pools.md)&nbsp;&bull; 합니다. <br/> |가능하다면 탄력적 풀의 DTU를 늘리거나 탄력적 풀에 스토리지를 추가하여 스토리지 용량 한도를 늘리거나, 탄력적 풀에 있는 개별 데이터베이스에서 사용하는 스토리지를 줄이거나, 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. 탄력적 풀 크기 조정에 대해서는 [탄력적 풀 리소스 크기 조정](sql-database-elastic-pool-scale.md)을 참조 하세요.|
 | 10929 | 16 |%s의 최소 보장은 %d이며, 최대 한도는 %d이고, 해당 데이터베이스의 현재 사용량은 %d입니다. 하지만 현재 서버 사용량이 너무 많아 해당 데이터베이스에 대해 %d 이상의 요청을 지원할 수 없습니다. 리소스 제한에 대 한 자세한 내용은 다음을 참조 하세요. <br/>[탄력적 풀에 대 한 DTU 기반 제한](sql-database-dtu-resource-limits-elastic-pools.md) &bull; &nbsp;<br/>[탄력적 풀에 대 한 Vcore 기반 제한을](sql-database-vcore-resource-limits-elastic-pools.md)&nbsp;&bull; 합니다. <br/> 그렇지 않은 경우 나중에 다시 시도하세요. 데이터베이스당 DTU/vCore 최솟값, 데이터베이스당 DTU/vCore 최댓값. 탄력적 풀에 있는 전체 데이터베이스의 동시 작업자(요청) 수 합계가 풀 한도를 초과하려고 했습니다. |가능하다면 탄력적 풀의 DTU 또는 vCore를 늘려 작업자 한도를 늘리거나 탄력적 풀에서 데이터베이스를 제거하는 것을 고려하세요. |
-| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |N/A |
+| 40844 | 16 |서버 '%ls'에 있는 데이터베이스 '%ls'은(는) 탄력적 풀에 포함된 '%ls' 버전 데이터베이스이며, 연속 복사 관계를 가질 수 없습니다.  |해당 없음 |
 | 40857 | 16 |서버: '%ls'에서 탄력적 풀을 찾을 수 없음, 탄력적 풀 이름: '%ls'. 지정한 탄력적 풀이 지정한 서버에 존재하지 않습니다. | 유효한 탄력적 풀 이름을 입력하세요. |
 | 40858 | 16 |탄력적 풀 '%ls'이(가) 서버 '%ls'에 이미 있습니다. 지정한 탄력적 풀이 지정한 SQL Database 서버에 이미 있습니다. | 새 탄력적 풀 이름을 입력하세요. |
 | 40859 | 16 |탄력적 풀이 서비스 계층 '%ls'을(를) 지원하지 않습니다. 지정한 서비스 계층은 탄력적 풀 프로비저닝에 대해 지원되지 않습니다. |기본 서비스 계층을 사용하려면 오류를 수정하거나 서비스 계층을 빈 상태로 두세요. |

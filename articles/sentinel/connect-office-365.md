@@ -3,7 +3,7 @@ title: Azure 센티널에 Office 365 데이터 연결 | Microsoft Docs
 description: Azure 센티널에 Office 365 데이터를 연결 하는 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
-ms.author: rkarlin
-ms.openlocfilehash: 709961fe63e5ed862a0e8dc3fa735d426dd02998
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.author: yelevin
+ms.openlocfilehash: b00f9c9e7de9568a29d2b7a7f4ef84c022ef5679
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371323"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588164"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Office 365 로그의 데이터 연결
 

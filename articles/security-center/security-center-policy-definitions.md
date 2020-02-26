@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: memildin
-ms.openlocfilehash: 0bc03385cda8752571482cc3d74c0f3887b4656a
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 72f16463c7dfcd3d76db2d99e1805b0159261a55
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77506188"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603705"
 ---
 # <a name="azure-security-policies-monitored-by-security-center"></a>Security Center에서 모니터링 하는 Azure 보안 정책
 
@@ -33,14 +33,10 @@ Security Center에서 모니터링 하는 기본 제공 이니셔티브에 대�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Security Center의 Azure Policy 보안 정책 정의에 대해 알아보았습니다. Security Center에 대해 자세히 알아보려면 다음 문서를 참조 하세요.
+이 문서에서는 Security Center의 Azure Policy 보안 정책 정의에 대해 알아보았습니다. 자세히 알아보려면 다음 문서를 참조 하세요.
 
 * [Azure Security Center 계획 및 운영 가이드](security-center-planning-and-operations-guide.md): Azure Security Center에서 디자인 고려 사항을 계획 하 고 이해 하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md): Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md): 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 파트너 솔루션 모니터링](security-center-partner-solutions.md): 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md): 서비스 사용에 관한 질문과 대답을 가져옵니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.
 * [Azure Policy](../governance/policy/overview.md): Azure 리소스를 감사 하 고 관리 하는 방법을 알아봅니다.
-
-Azure Policy에 대 한 자세한 내용은 [Azure Policy 무엇입니까?](../governance/policy/overview.md)를 참조 하세요.

@@ -4,12 +4,12 @@ description: Azure Backup 성능 문제의 원인을 진단하는 데 도움이 
 ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 01fff1d970a76d0d4d38c2536b41d58a4db301c8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: f8988d3df7f61d2fce4c8fa5b49e42e872c185b8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198622"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603147"
 ---
 # <a name="troubleshoot-slow-backup-of-files-and-folders-in-azure-backup"></a>Azure Backup에서 파일 및 폴더의 느린 백업 문제 해결
 
@@ -44,7 +44,7 @@ ms.locfileid: "77198622"
 
 백업 중인 컴퓨터의 병목 현상으로 인해 지연이 발생할 수 있습니다. 예를 들어 컴퓨터가 디스크에 읽거나 쓰는 기능 또는 네트워크를 통해 데이터를 전송하는 데 사용할 수 있는 대역폭으로 인해 병목 현상이 발생할 수 있습니다.
 
-Windows에서는 이러한 병목 상태를 검색할 수 있는 [성능 모니터](https://technet.microsoft.com/magazine/2008.08.pulse.aspx) (Perfmon)라는 기본 제공 도구를 제공합니다.
+Windows에서는 이러한 병목 상태를 검색 하는 [성능 모니터](h https://techcommunity.microsoft.com/t5/ask-the-performance-team/windows-performance-monitor-overview/ba-p/375481) (Perfmon) 라는 기본 제공 도구를 제공 합니다.
 
 다음은 최적의 백업을 위해 병목 현상을 진단하는 데 도움이 될 수 있는 몇 가지 성능 카운터 및 범위입니다.
 

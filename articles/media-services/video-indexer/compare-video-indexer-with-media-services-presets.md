@@ -12,14 +12,14 @@ ms.workload: media
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 05/15/2019
+ms.date: 02/24/2020
 ms.author: juliako
-ms.openlocfilehash: 2e2abd4ffe5a6d0a6336d811599db687da146f1e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: dcfc6ea4afe23424e72c625518356be52f62bc81
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513187"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602198"
 ---
 # <a name="compare-azure-media-services-v3-presets-and-video-indexer"></a>Azure Media Services v3 미리 설정 및 Video Indexer 비교 
 
@@ -33,10 +33,10 @@ ms.locfileid: "76513187"
 |---|---|---|
 |미디어 인사이트|[향상된 기능](video-indexer-output-json-v2.md) |[기본 사항](../latest/intelligence-concept.md)|
 |환경|지원되는 기능의 전체 목록 보기: <br/> [개요](video-indexer-overview.md)|비디오 인사이트만 반환합니다.|
-|청구|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
-|규정 준수|[Iso 27001](https://www.microsoft.com/TrustCenter/Compliance/ISO-IEC-27001), [iso 27018](https://www.microsoft.com/trustcenter/Compliance/ISO-IEC-27018), [SOC 1, 2, 3](https://www.microsoft.com/TrustCenter/Compliance/SOC), [HIPAA](https://www.microsoft.com/trustcenter/compliance/hipaa), [FedRAMP](https://www.microsoft.com/TrustCenter/Compliance/fedramp), [PCI](https://www.microsoft.com/trustcenter/compliance/pci)및 [HITRUST](https://www.microsoft.com/TrustCenter/Compliance/hitrust) 인증. 최신 업데이트는 [Video Indexer의 현재 인증 상태](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942)를 참조 하세요.|Media Services는 많은 인증을 준수합니다. [Azure Compliance Offerings.pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf)를 살펴보고, "Media Services"를 검색하여 관심 인증서를 준수하는지 확인합니다.|
-|무료 평가판|미국 동부|사용할 수 없음|
-|리전 가용성|미국 동부 2, 미국 중부, 미국 서 부 2, 유럽 서 부, 유럽 서부, 동남 아시아, 동아시아 및 오스트레일리아 동부.  최신 업데이트는 [지역별 제품](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 페이지를 참조 하세요.|[Azure 상태](https://azure.microsoft.com/global-infrastructure/services/?products=media-services) 참조|
+|결제|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|[Media Services 가격](https://azure.microsoft.com/pricing/details/media-services/#analytics)|
+|규정 준수|최신 규정 준수 업데이트를 보려면 [Azure 준수 제공 .pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 여 "Video Indexer"을 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|최신 규정 준수 업데이트를 보려면 [Azure 준수 제공 .pdf](https://gallery.technet.microsoft.com/Overview-of-Azure-c1be3942/file/178110/23/Microsoft%20Azure%20Compliance%20Offerings.pdf) 를 방문 하 여 "Media Services"을 검색 하 여 관심 있는 인증서를 준수 하는지 확인 합니다.|
+|평가판|미국 동부|사용할 수 없음|
+|지역 가용성|[지역별 Cognitive Services 가용성](https://azure.microsoft.com/global-infrastructure/services/?products=cognitive-services) 참조|[지역별 Media Services 가용성을](https://azure.microsoft.com/global-infrastructure/services/?products=media-services)참조 하세요.|
 
 ## <a name="next-steps"></a>다음 단계
 

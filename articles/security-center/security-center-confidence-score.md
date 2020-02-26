@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/23/2018
 ms.author: memildin
-ms.openlocfilehash: ca2afaa9f4e01ac56657681ce71e32e3c5375fdf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8aa17f473c550c99d91862754e6a746575aca202
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355640"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604373"
 ---
 # <a name="alert-confidence-score-preview"></a>경고 신뢰 점수 (미리 보기)
 
@@ -47,14 +47,6 @@ Security Center의 신뢰도 점수 (현재 미리 보기 상태)는 팀이 경�
   ![의심스러운 신뢰도 점수][2]
 
 Security Center의 신뢰도 점수를 사용하여 환경에서 경고 심사의 우선 순위를 정합니다. 신뢰도 점수가 있으면 자동으로 경고를 조사하고, 업계 모범 사례와 지능형 알고리즘을 적용하고, 가상의 분석가 역할을 수행하여 어떤 위협이 실제인지, 어디에 관심을 집중해야 하는지 판단해 주기 때문에 시간과 노력이 절약됩니다.
-
-
-## <a name="next-steps"></a>다음 단계
-이 문서에서는 신뢰도 점수를 사용하여 경고 조사의 우선 순위를 정하는 방법을 설명했습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
-
-* [Azure Security Center FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-
 
 
 <!--Image references-->

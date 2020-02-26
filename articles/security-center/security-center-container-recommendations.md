@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: 96efe5271b91f87e30ba26aabe69a0de76e1a791
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202402"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604271"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Security Center 컨테이너 권장 사항 이해
 
@@ -42,9 +42,9 @@ Azure Security Center는 컨테이너를 보호하기 위한 다음과 같은 �
 ## <a name="recommendations"></a>권장 사항
 IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker 구성의 보안 평가를 이해하는 데 도움이 되는 아래 테이블을 참조하세요.
 
-| 권장 | 설명 | 업데이트 관리 |
+| 권장 | Description | 재구성 |
 | --- | --- | --- |
-|컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패한 규칙 목록을 검토합니다.<br>2. 지정된 지침에 따라 각 규칙을 수정합니다.|
+|컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패 한 규칙의 목록을 검토 합니다.<br>2. 지정 된 지침에 따라 각 규칙을 수정 합니다.|
 
 
 ## <a name="next-steps"></a>다음 단계
@@ -59,5 +59,3 @@ IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker
 * [Azure Security Center에서 머신 및 애플리케이션 보호](security-center-virtual-machine-protection.md)
 * [Azure Security Center에서 보안 정책 설정](tutorial-security-policy.md) -- Azure 구독 및 리소스 그룹에 대해 보안 정책을 구성하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) - 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-

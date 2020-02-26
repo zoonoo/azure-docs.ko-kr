@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d7d8a7881c00427023e5f174461b3d8b24d83444
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 22576be8dec021f0f18a6e2dda16891ce70d4f13
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121454"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603216"
 ---
 # <a name="tutorial-configure-workplace-by-facebook-for-automatic-user-provisioning"></a>자습서: 사용자 프로비전을 위한 Workplace by Facebook 구성
 
@@ -51,7 +51,7 @@ https://portal.azure.com/?Microsoft_AAD_IAM_userProvisioningEnableCredentialsOve
 
  
 #### <a name="when-will-these-changes-happen"></a>이러한 변경 내용은 언제 발생 하나요?
-작업 공간의 모든 새 인스턴스는 이미 새 통합/권한 부여 방법을 사용 하 고 있습니다. 기존 통합은 2 월에 점차적으로 마이그레이션됩니다. 해당 월의 끝까지 모든 테 넌 트에 대해 마이그레이션이 완료 됩니다. 
+작업 공간의 모든 새 인스턴스는 이미 새 통합/권한 부여 방법을 사용 하 고 있습니다. 기존 통합은 가능 하면 점진적으로 마이그레이션됩니다. 작업 공간 팀은 2 월부터 5 월까지 최종 기한에 내선 번호를 제공 했습니다. 
 
 ## <a name="capabilities-supported"></a>지원 되는 기능
 > [!div class="checklist"]

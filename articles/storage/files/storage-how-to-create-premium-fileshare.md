@@ -7,19 +7,19 @@ ms.topic: conceptual
 ms.date: 05/05/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: 4b3e51b5e8d0ee9b62a7e7bc39955396f327c7e7
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 237846ec3adda208126aeb22e7900cbf5118ee95
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209544"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598666"
 ---
 # <a name="how-to-create-an-premium-azure-file-share"></a>프리미엄 Azure 파일 공유를 만드는 방법
 프리미엄 파일 공유는 SSD (반도체 디스크) 저장소 미디어에 제공 되며, 호스팅 데이터베이스 및 HPC (고성능 컴퓨팅)를 포함 한 IO 집약적 작업에 유용 합니다. 프리미엄 파일 공유는 FileStorage 계정 이라고 하는 특수 한 용도의 저장소 계정 종류에서 호스팅됩니다. 프리미엄 파일 공유는 높은 성능 및 엔터프라이즈급 응용 프로그램을 위한 것으로, 일관성 낮은 대기 시간, 높은 IOPS 및 높은 처리량의 공유를 제공 합니다.
 
 이 문서에서는 [Azure Portal](https://portal.azure.com/), Azure PowerShell 및 Azure CLI를 사용 하 여이 새 계정 유형을 만드는 방법을 보여 줍니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 프리미엄 Azure 파일 공유를 포함 하 여 Azure 리소스에 액세스 하려면 Azure 구독이 필요 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -77,7 +77,7 @@ ms.locfileid: "74209544"
 
 먼저 [PowerShellGet](/powershell/scripting/gallery/installing-psget) 모듈의 최신 버전을 설치합니다.
 
-그런 다음, powershell 모듈을 업그레이드하고, Azure 구독에 로그인하고, 리소스 그룹을 만든 다음, 스토리지 계정을 만듭니다.
+그런 다음 PowerShell 모듈을 업그레이드 하 고, Azure 구독에 로그인 하 고, 리소스 그룹을 만든 다음, 저장소 계정을 만듭니다.
 
 ### <a name="upgrade-your-powershell-module"></a>PowerShell 모듈 업그레이드
 
@@ -113,7 +113,7 @@ New-AzResourceGroup -Name $resourceGroup -Location $location
 
 ### <a name="create-a-filestorage-storage-account"></a>FileStorage 저장소 계정 만들기
 
-PowerShell에서 filestorage 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령을 사용 합니다.
+PowerShell에서 FileStorage 저장소 계정을 만들려면 [AzStorageAccount](/powershell/module/az.storage/New-azStorageAccount) 명령을 사용 합니다.
 
 ```powershell
 $storageAcct = New-AzStorageAccount -ResourceGroupName $resourceGroup -Name "fileshowto" -SkuName "Premium_LRS" -Location "westus2" -Kind "FileStorage"
@@ -211,4 +211,4 @@ az group delete --name myResourceGroup
 이 문서에서는 프리미엄 파일 공유를 만들었습니다. 이 계정에서 제공 하는 성능에 대해 알아보려면 계획 가이드의 성능 계층 섹션을 계속 진행 합니다.
 
 > [!div class="nextstepaction"]
-> [파일 공유 성능 계층](storage-files-planning.md#file-share-performance-tiers)
+> [파일 공유 계층](storage-files-planning.md#storage-tiers)

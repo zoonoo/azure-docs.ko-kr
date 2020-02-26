@@ -4,12 +4,12 @@ description: Azure의 백업에서 Windows Server 시스템 상태를 복원하�
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 08/18/2017
-ms.openlocfilehash: 8e256fbac0651b4c237c540151b3377927989d36
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 6d46a091a4e620e26d05735f12a201009663e65d
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172823"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602459"
 ---
 # <a name="restore-system-state-to-windows-server"></a>Windows Server에 시스템 상태 복원
 
@@ -159,7 +159,7 @@ Azure Recovery Services 에이전트를 사용하여 시스템 상태를 파일�
 시스템 상태 백업은 Active Directory 데이터를 포함합니다. 다음 단계를 사용하여 현재 상태에서 이전 상태로 AD DS(Active Directory Domain Service)를 복원합니다.
 
 1. DSRM(디렉터리 서비스 복원 모드)로 도메인 컨트롤러를 다시 시작합니다.
-2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://technet.microsoft.com/library/cc794755(v=ws.10).aspx) 있는 단계를 수행합니다.
+2. Windows Server Backup cmdlet을 사용하여 AD DS를 복구하려면 [여기](https://docs.microsoft.com/windows-server/identity/ad-ds/manage/ad-forest-recovery-nonauthoritative-restore) 있는 단계를 수행합니다.
 
 ## <a name="troubleshoot-failed-system-state-restore"></a>실패한 시스템 상태 복원 문제 해결
 
