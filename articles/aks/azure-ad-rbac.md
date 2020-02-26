@@ -1,43 +1,40 @@
 ---
-title: RBAC와 Azure Kubernetes Service에서 Azure AD를 사용 하 여 클러스터 리소스 제어
-description: Azure Active Directory 그룹 멤버 자격을 사용 하 여 Azure Kubernetes Service (AKS)에서 역할 기반 액세스 제어 (RBAC)를 사용 하 여 클러스터 리소스에 대 한 액세스를 제한 하는 방법
+title: Azure Kubernetes Service에서 RBAC 및 Azure AD를 사용 하 여 클러스터 리소스 제어
+description: Azure Kubernetes 서비스에서 RBAC (역할 기반 액세스 제어)를 사용 하 여 클러스터 리소스에 대 한 액세스를 제한 하기 위해 Azure Active Directory 그룹 구성원 자격을 사용 하는 방법에 대해 알아봅니다 (AKS).
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.author: mlearned
-ms.openlocfilehash: fba54fd23fefbe0029b9a809b23568490f05b23e
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 456b6dcdd590b48e06c830db85b726d4bebb69e3
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67616160"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596524"
 ---
-# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>역할 기반 access control 및 Azure Active Directory id를 사용 하 여 Azure Kubernetes Service에서 클러스터 리소스에 대 한 액세스 제어
+# <a name="control-access-to-cluster-resources-using-role-based-access-control-and-azure-active-directory-identities-in-azure-kubernetes-service"></a>Azure Kubernetes Service에서 역할 기반 액세스 제어 및 Azure Active Directory id를 사용 하 여 클러스터 리소스에 대 한 액세스 제어
 
-사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 있습니다. Kubernetes를 구성할 수도 있습니다 클러스터 리소스에 대 한 액세스를 제한 하려면 역할 기반 액세스 제어 (RBAC) 사용자의 id 또는 그룹 구성원 자격을 기반으로 합니다.
+사용자 인증을 위해 Azure AD(Active Directory)를 사용하도록 AKS(Azure Kubernetes Service)를 구성할 수 있습니다. 이 구성에서는 Azure AD 인증 토큰을 사용 하 여 AKS 클러스터에 로그인 합니다. 사용자의 id 또는 그룹 멤버 자격을 기반으로 클러스터 리소스에 대 한 액세스를 제한 하도록 Kubernetes RBAC (역할 기반 액세스 제어)를 구성할 수도 있습니다.
 
-이 문서에서는 네임 스페이스에 대 한 액세스를 제어 하 고 Kubernetes RBAC를 사용 하 여 AKS 클러스터에서 리소스를 클러스터에 Azure AD 그룹 구성원 자격을 사용 하는 방법을 보여 줍니다. 예제에서는 그룹 및 사용자가 Azure AD에서 생성 됩니다 다음 역할 및 RoleBindings을 만들고 리소스를 볼 적절 한 권한을 부여 하려면 AKS 클러스터에 생성 됩니다.
+이 문서에서는 Azure AD 그룹 멤버 자격을 사용 하 여 AKS 클러스터에서 Kubernetes RBAC를 사용 하 여 네임 스페이스 및 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 줍니다. 예제 그룹 및 사용자가 Azure AD에 생성 된 다음, 리소스를 만들고 볼 수 있는 적절 한 권한을 부여 하기 위해 역할 및 RoleBindings가 AKS 클러스터에 생성 됩니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
-이 문서에서는 Azure AD 통합을 사용 하도록 설정 하는 기존 AKS 클러스터 있다고 가정 합니다. AKS 클러스터에 필요한 경우 참조 [통합 Azure Active Directory AKS 사용 하 여][azure-ad-aks-cli]입니다.
+이 문서에서는 기존 AKS 클러스터가 Azure AD 통합을 사용 하도록 설정 되어 있다고 가정 합니다. AKS 클러스터가 필요한 경우 [AKS와 Azure Active Directory 통합][azure-ad-aks-cli]을 참조 하세요.
 
-이상이 설치 및 구성 수 또는 Azure CLI 버전 2.0.61 필요 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
+Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
 ## <a name="create-demo-groups-in-azure-ad"></a>Azure AD에서 데모 그룹 만들기
 
-이 문서에서는 Kubernetes RBAC와 Azure AD 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 주는 데 사용할 수 있는 두 개의 사용자 역할을 만들어 보겠습니다. 다음 두 가지 예제 역할 사용 됩니다.
+이 문서에서는 Kubernetes RBAC 및 Azure AD에서 클러스터 리소스에 대 한 액세스를 제어 하는 방법을 보여 주는 데 사용할 수 있는 두 개의 사용자 역할을 만들어 보겠습니다. 다음 두 가지 예제 역할이 사용 됩니다.
 
 * **응용 프로그램 개발자**
-    * 명명 된 사용자 *aksdev* 일부분인 합니다 *appdev* 그룹입니다.
-* **사이트 안정성 엔지니어로 근무**
-    * 명명 된 사용자 *akssre* 일부분인 합니다 *opssre* 그룹입니다.
+    * *Appdev* 그룹의 일부인 *aksdev* 이라는 사용자입니다.
+* **사이트 안정성 엔지니어**
+    * *Opssre* 그룹의 일부인 *akssre* 이라는 사용자입니다.
 
-프로덕션 환경에서는 기존 사용자 및 Azure AD 테 넌 트 내에서 그룹을 사용할 수 있습니다.
+프로덕션 환경에서는 Azure AD 테 넌 트 내에서 기존 사용자 및 그룹을 사용할 수 있습니다.
 
-사용 하 여 AKS 클러스터의 리소스 ID를 가져오려면 먼저 합니다 [az aks 표시][az-aks-show] 명령입니다. 리소스 ID를 변수에 할당할 *AKS_ID* 추가 명령에서 참조 될 수 있도록 합니다.
+먼저 [az AKS show][az-aks-show] 명령을 사용 하 여 AKS 클러스터의 리소스 ID를 가져옵니다. 추가 명령에서 참조 될 수 있도록 *AKS_ID* 라는 변수에 리소스 ID를 할당 합니다.
 
 ```azurecli-interactive
 AKS_ID=$(az aks show \
@@ -46,13 +43,13 @@ AKS_ID=$(az aks show \
     --query id -o tsv)
 ```
 
-사용 하 여 응용 프로그램 개발자를 위한 Azure AD에서 첫 번째 예제에서는 그룹을 만들 합니다 [az ad 그룹 만들기][az-ad-group-create] 명령입니다. 다음 예제에서는 명명 된 그룹을 만듭니다 *appdev*:
+[Az AD group create][az-ad-group-create] 명령을 사용 하 여 응용 프로그램 개발자를 위한 Azure AD의 첫 번째 예제 그룹을 만듭니다. 다음 예제에서는 *appdev*라는 그룹을 만듭니다.
 
 ```azurecli-interactive
 APPDEV_ID=$(az ad group create --display-name appdev --mail-nickname appdev --query objectId -o tsv)
 ```
 
-이제의 Azure 역할 할당을 만듭니다는 *appdev* 사용 하 여 그룹을 [az 역할 할당 만들기][az-role-assignment-create] 명령입니다. 이 할당에 사용 하 여 그룹의 멤버 수 있습니다 `kubectl` 부여 하 여 AKS 클러스터와 상호 작용 하는 *Azure Kubernetes 서비스 클러스터 사용자 역할*입니다.
+이제 [az role 대입문 create][az-role-assignment-create] 명령을 사용 하 여 *appdev* 그룹에 대 한 Azure 역할 할당을 만듭니다. 이 할당을 통해 그룹의 모든 구성원은 `kubectl`를 사용 하 여 *Azure Kubernetes Service 클러스터 사용자 역할*을 부여 함으로써 AKS 클러스터와 상호 작용할 수 있습니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -62,15 +59,15 @@ az role assignment create \
 ```
 
 > [!TIP]
-> 와 같은 오류가 표시 되 면 `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`, Azure AD 그룹 개체 id 디렉터리를 통해 전파 시도를 몇 초를 `az role assignment create` 명령을 다시 합니다.
+> `Principal 35bfec9328bd4d8d9b54dea6dac57b82 does not exist in the directory a5443dcd-cd0e-494d-a387-3039b419f0d5.`와 같은 오류가 발생 하는 경우 Azure AD 그룹 개체 ID가 디렉터리를 통해 전파 될 때까지 몇 초 정도 기다린 후 `az role assignment create` 명령을 다시 시도 합니다.
 
-두 번째 예제에서는 그룹 만들기, SREs에이 이름이 *opssre*:
+이름이 *opssre*인 sres에 대해 두 번째 예제 그룹을 만듭니다.
 
 ```azurecli-interactive
 OPSSRE_ID=$(az ad group create --display-name opssre --mail-nickname opssre --query objectId -o tsv)
 ```
 
-그룹의 멤버에 게 부여 하는 Azure 역할 할당을 다시 만드는 합니다 *Azure Kubernetes 서비스 클러스터 사용자 역할*:
+다시 Azure 역할 할당을 만들어 그룹 구성원에 게 *Azure Kubernetes Service 클러스터 사용자 역할*을 부여 합니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -81,11 +78,11 @@ az role assignment create \
 
 ## <a name="create-demo-users-in-azure-ad"></a>Azure AD에서 데모 사용자 만들기
 
-응용 프로그램 개발자 및 SREs에 대 한 Azure AD에서 만든 두 개의 예제에서는 그룹을 사용 하 여 이제 두 예제에서는 사용자가 만드는 있습니다. 문서 끝에는 RBAC 통합을 테스트 하려면 이러한 계정 사용 하 여 AKS 클러스터에 로그인 할 합니다.
+이제 응용 프로그램 개발자 및 SREs에 대해 Azure AD에서 만든 두 가지 예제 그룹을 사용 하 여 두 예제 사용자를 만들 수 있습니다. 문서 끝에서 RBAC 통합을 테스트 하려면 이러한 계정을 사용 하 여 AKS 클러스터에 로그인 합니다.
 
-사용 하 여 Azure AD에서 첫 번째 사용자 계정을 만듭니다는 [az ad 사용자가 만들][az-ad-user-create] 명령입니다.
+[Az AD user create][az-ad-user-create] 명령을 사용 하 여 Azure AD에서 첫 번째 사용자 계정을 만듭니다.
 
-다음 예제에서는 표시 이름을 사용 하 여 사용자를 만듭니다 *AKS Dev* 및의 사용자 계정 이름 (UPN) `aksdev@contoso.com`합니다. Azure AD 테 넌 트에 대 한 확인된 된 도메인을 포함 하도록 UPN을 업데이트 (바꿉니다 *contoso.com* 자체 도메인을 사용 하 여), 사용자 고유의 보안 제공 `--password` 자격 증명:
+다음 예에서는 `aksdev@contoso.com`표시 이름 *AKS Dev* 및 UPN (사용자 계정 이름)을 사용 하 여 사용자를 만듭니다. Azure AD 테 넌 트에 대해 확인 된 도메인을 포함 하도록 UPN을 업데이트 하 고 ( *contoso.com* 를 사용자의 도메인으로 대체) 사용자 고유의 보안 `--password` 자격 증명을 제공 합니다.
 
 ```azurecli-interactive
 AKSDEV_ID=$(az ad user create \
@@ -95,13 +92,13 @@ AKSDEV_ID=$(az ad user create \
   --query objectId -o tsv)
 ```
 
-이제 사용자를 추가 합니다 *appdev* 사용 하 여 이전 섹션에서 만든 그룹은 [az ad 그룹 구성원 추가][az-ad-group-member-add] 명령:
+이제 [az ad group member add][az-ad-group-member-add] 명령을 사용 하 여 이전 섹션에서 만든 *appdev* 그룹에 사용자를 추가 합니다.
 
 ```azurecli-interactive
 az ad group member add --group appdev --member-id $AKSDEV_ID
 ```
 
-두 번째 사용자 계정을 만듭니다. 다음 예제에서는 표시 이름을 사용 하 여 사용자를 만듭니다 *AKS SRE* 및의 사용자 계정 이름 (UPN) `akssre@contoso.com`합니다. 다시 Azure AD 테 넌 트에 대 한 확인된 된 도메인을 포함 하도록 UPN을 업데이트 (바꿉니다 *contoso.com* 자체 도메인을 사용 하 여), 사용자 고유의 보안 제공 `--password` 자격 증명:
+두 번째 사용자 계정을 만듭니다. 다음 예에서는 표시 이름 *AKS SRE* 및 UPN (사용자 계정 이름 `akssre@contoso.com`)을 사용 하 여 사용자를 만듭니다. 다시, Azure AD 테 넌 트에 대해 확인 된 도메인을 포함 하도록 UPN을 업데이트 하 고 ( *contoso.com* 를 사용자의 도메인으로 대체) 사용자 고유의 보안 `--password` 자격 증명을 제공 합니다.
 
 ```azurecli-interactive
 # Create a user for the SRE role
@@ -115,27 +112,27 @@ AKSSRE_ID=$(az ad user create \
 az ad group member add --group opssre --member-id $AKSSRE_ID
 ```
 
-## <a name="create-the-aks-cluster-resources-for-app-devs"></a>앱 개발자를 위한 AKS 클러스터 리소스 만들기
+## <a name="create-the-aks-cluster-resources-for-app-devs"></a>앱 개발자에 대 한 AKS 클러스터 리소스 만들기
 
-이제 Azure AD 그룹 및 사용자가 생성 됩니다. 일반 사용자로 AKS 클러스터에 연결 하는 그룹 멤버에 대 한 azure 역할 할당을 만들었습니다. 이제 이러한 특정 리소스에 대 한 서로 다른 그룹 액세스를 허용 하도록 AKS 클러스터를 구성 해 보겠습니다.
+이제 Azure AD 그룹 및 사용자를 만들었습니다. AKS 클러스터에 일반 사용자로 연결 하기 위해 그룹 구성원에 대해 Azure 역할 할당을 만들었습니다. 이제 이러한 여러 그룹이 특정 리소스에 액세스할 수 있도록 AKS 클러스터를 구성 하겠습니다.
 
-먼저 클러스터를 사용 하 여 관리자 자격 증명 가져오기의 [az aks 자격 증명 가져오기][az-aks-get-credentials] 명령입니다. 일반 다음 섹션 중 하나를 받게 *사용자* 클러스터를 Azure AD 인증 자격 증명 흐름입니다.
+먼저 [az aks][az-aks-get-credentials] 명령을 사용 하 여 클러스터 관리자 자격 증명을 가져옵니다. 다음 섹션 중 하나에서 일반 *사용자* 클러스터 자격 증명을 가져와 Azure AD 인증 흐름이 작동 하는지 확인 합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --admin
 ```
 
-네임 스페이스를 사용 하 여 AKS 클러스터 만들기는 [kubectl 네임 스페이스 만들기][kubectl-create] 명령입니다. 다음 예제에서는 네임 스페이스 이름을 *개발*:
+[Kubectl create namespace][kubectl-create] 명령을 사용 하 여 AKS 클러스터에 네임 스페이스를 만듭니다. 다음 예제에서는 네임 스페이스 이름 *dev*를 만듭니다.
 
 ```console
 kubectl create namespace dev
 ```
 
-Kubernetes에서 *역할* 에 권한을 부여 하려면 권한을 정의 하 고 *RoleBindings* 원하는 사용자 또는 그룹에 적용 합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC를 사용 하 여 권한 부여][rbac-authorization]합니다.
+Kubernetes에서 *역할* 은 부여할 사용 권한을 정의 하 고 *rolebindings* 는 원하는 사용자 또는 그룹에 해당 권한을 적용 합니다. 이러한 할당은 주어진 네임스페이스 또는 전체 클러스터에 적용될 수 있습니다. 자세한 내용은 [RBAC 권한 부여 사용][rbac-authorization]을 참조 하세요.
 
-먼저 역할을 만들 합니다 *개발* 네임 스페이스입니다. 이 역할에는 네임 스페이스에 대 한 모든 권한을 부여합니다. 프로덕션 환경에서는 다른 사용자 또는 그룹에 대 한 보다 세분화 된 사용 권한을 지정할 수 있습니다.
+먼저 *dev* 네임 스페이스에 대 한 역할을 만듭니다. 이 역할은 네임 스페이스에 대 한 모든 권한을 부여 합니다. 프로덕션 환경에서는 다른 사용자 또는 그룹에 대 한 보다 세부적인 사용 권한을 지정할 수 있습니다.
 
-라는 파일을 만들고 `role-dev-namespace.yaml` 다음 YAML 매니페스트를 붙여넣습니다.
+`role-dev-namespace.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 kind: Role
@@ -154,19 +151,19 @@ rules:
   verbs: ["*"]
 ```
 
-사용 하 여 역할 만들기를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 역할을 만들고 yaml 매니페스트의 파일 이름을 지정 합니다.
 
 ```console
 kubectl apply -f role-dev-namespace.yaml
 ```
 
-다음으로에 대 한 리소스 ID를 가져옵니다는 *appdev* 사용 하 여 그룹을 [az ad 그룹 표시][az-ad-group-show] 명령입니다. 이 그룹은 다음 단계에서는 RoleBinding의 제목으로 설정 됩니다.
+다음으로 [az ad group show][az-ad-group-show] 명령을 사용 하 여 *appdev* 그룹에 대 한 리소스 ID를 가져옵니다. 이 그룹은 다음 단계에서 RoleBinding의 주체로 설정 됩니다.
 
 ```azurecli-interactive
 az ad group show --group appdev --query objectId -o tsv
 ```
 
-이제 한 RoleBinding 만듭니다는 *appdev* 네임 스페이스 액세스에 대 한 이전에 만든된 역할을 사용 하는 그룹입니다. `rolebinding-dev-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄으로 바꿉니다 *groupObjectId* 이전 명령에서 그룹 개체 ID 출력을 사용 하 여:
+이제 네임 스페이스 액세스에 대해 이전에 만든 역할을 사용 하는 *appdev* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-dev-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId* 을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
 
 ```yaml
 kind: RoleBinding
@@ -184,23 +181,23 @@ subjects:
   name: groupObjectId
 ```
 
-사용 하 여 RoleBinding 만듭니다를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 rolebinding을 만들고 yaml 매니페스트의 파일 이름을 지정 합니다.
 
 ```console
 kubectl apply -f rolebinding-dev-namespace.yaml
 ```
 
-## <a name="create-the-aks-cluster-resources-for-sres"></a>SREs에 AKS 클러스터 리소스 만들기
+## <a name="create-the-aks-cluster-resources-for-sres"></a>SREs에 대 한 AKS 클러스터 리소스 만들기
 
-이제는 SREs에 대 한 네임 스페이스, 역할 및 RoleBinding 만드는 이전 단계를 반복 합니다.
+이제 이전 단계를 반복 하 여 SREs에 대 한 네임 스페이스, 역할 및 RoleBinding을 만듭니다.
 
-먼저 네임 스페이스를 만듭니다 *sre* 사용 하는 [kubectl 네임 스페이스 만들기][kubectl-create] 명령:
+먼저 [kubectl create namespace][kubectl-create] 명령을 사용 하 여 *sre* 에 대 한 네임 스페이스를 만듭니다.
 
 ```console
 kubectl create namespace sre
 ```
 
-라는 파일을 만들고 `role-sre-namespace.yaml` 다음 YAML 매니페스트를 붙여넣습니다.
+`role-sre-namespace.yaml` 라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다.
 
 ```yaml
 kind: Role
@@ -219,19 +216,19 @@ rules:
   verbs: ["*"]
 ```
 
-사용 하 여 역할 만들기를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 역할을 만들고 yaml 매니페스트의 파일 이름을 지정 합니다.
 
 ```console
 kubectl apply -f role-sre-namespace.yaml
 ```
 
-에 대 한 리소스 ID를 가져오려면 합니다 *opssre* 사용 하 여 그룹을 [az ad 그룹 표시][az-ad-group-show] 명령:
+[Az ad group show][az-ad-group-show] 명령을 사용 하 여 *opssre* 그룹에 대 한 리소스 ID를 가져옵니다.
 
 ```azurecli-interactive
 az ad group show --group opssre --query objectId -o tsv
 ```
 
-만들기에 대 한 RoleBinding 합니다 *opssre* 네임 스페이스 액세스에 대 한 이전에 만든된 역할을 사용 하는 그룹입니다. `rolebinding-sre-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄으로 바꿉니다 *groupObjectId* 이전 명령에서 그룹 개체 ID 출력을 사용 하 여:
+네임 스페이스 액세스에 이전에 만든 역할을 사용 하려면 *opssre* 그룹에 대해 rolebinding을 만듭니다. `rolebinding-sre-namespace.yaml`라는 파일을 만들고 다음 YAML 매니페스트를 붙여 넣습니다. 마지막 줄에서 *groupObjectId* 을 이전 명령의 그룹 개체 ID 출력으로 바꿉니다.
 
 ```yaml
 kind: RoleBinding
@@ -249,7 +246,7 @@ subjects:
   name: groupObjectId
 ```
 
-사용 하 여 RoleBinding 만듭니다를 [kubectl 적용][kubectl-apply] 명령 및 YAML 매니페스트의 파일 이름을 지정 합니다.
+[Kubectl apply][kubectl-apply] 명령을 사용 하 여 rolebinding을 만들고 yaml 매니페스트의 파일 이름을 지정 합니다.
 
 ```console
 kubectl apply -f rolebinding-sre-namespace.yaml
@@ -257,21 +254,21 @@ kubectl apply -f rolebinding-sre-namespace.yaml
 
 ## <a name="interact-with-cluster-resources-using-azure-ad-identities"></a>Azure AD id를 사용 하 여 클러스터 리소스와 상호 작용
 
-이제 만들고 AKS 클러스터에서 리소스를 관리할 때 예상 되는 권한 작업을 테스트해 보겠습니다. 이 예제에서는 예약 하 고 사용자의 할당 된 네임 스페이스에 있는 pod를 확인 합니다. 그런 다음 할당 된 네임 스페이스 외부에서 일정 및 보기 pod를 시도 합니다.
+이제 AKS 클러스터에서 리소스를 만들고 관리할 때 예상 되는 사용 권한을 테스트 하겠습니다. 이 예에서는 사용자의 할당 된 네임 스페이스에서 pod를 예약 하 고 확인 합니다. 그런 다음, 할당 된 네임 스페이스 외부에서 pod 일정을 예약 하 고 확인 하려고 합니다.
 
-먼저 다시 설정 합니다 *kubeconfig* 컨텍스트를 사용 하 여 합니다 [az aks 자격 증명 가져오기][az-aks-get-credentials] 명령입니다. 이전 섹션에서 클러스터 관리자 자격 증명을 사용 하 여 컨텍스트를 설정 해야 합니다. 관리 사용자를 Azure AD 로그인 프롬프트를 무시합니다. 없이 `--admin` 모든 요청을 Azure AD를 사용 하 여 인증 해야 하는 사용자 컨텍스트 매개 변수에 적용 됩니다.
+먼저 [az aks get 자격 증명][az-aks-get-credentials] 명령을 사용 하 여 *kubeconfig* 컨텍스트를 다시 설정 합니다. 이전 섹션에서는 클러스터 관리자 자격 증명을 사용 하 여 컨텍스트를 설정 합니다. 관리 사용자는 Azure AD 로그인 프롬프트를 무시 합니다. `--admin` 매개 변수를 사용 하지 않으면 Azure AD를 사용 하 여 모든 요청을 인증 해야 하는 사용자 컨텍스트가 적용 됩니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-일정을 사용 하 여 기본 NGINX pod를 [실행 kubectl][kubectl-run] 명령을 합니다 *개발* 네임 스페이스:
+*Dev* 네임 스페이스의 [kubectl run][kubectl-run] 명령을 사용 하 여 기본 NGINX pod를 예약 합니다.
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
 ```
 
-프롬프트 로그인으로 사용자 고유의 자격 증명을 입력 `appdev@contoso.com` 문서의 시작 부분에 만든 계정. 미래에 대 한 계정 토큰을 캐시 되는 성공적으로 로그인 하면, `kubectl` 명령입니다. NGINX는 다음 예제 출력 에서처럼 성공적으로 예약 됩니다.
+로그인 프롬프트로, 문서의 시작 부분에서 만든 `appdev@contoso.com` 계정에 대 한 자격 증명을 입력 합니다. 성공적으로 로그인 되 면 계정 토큰은 나중에 `kubectl` 명령에 대해 캐시 됩니다. 다음 예제 출력과 같이 NGINX이 성공적으로 예약 됩니다.
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace dev
@@ -281,13 +278,13 @@ To sign in, use a web browser to open the page https://microsoft.com/devicelogin
 pod/nginx-dev created
 ```
 
-이제 사용 하 여는 [kubectl get pod][kubectl-get] 의 pod를 보려면 명령을 합니다 *개발* 네임 스페이스입니다.
+이제 [kubectl get pod][kubectl-get] 명령을 사용 하 여 *dev* 네임 스페이스의 pod를 확인 합니다.
 
 ```console
 kubectl get pods --namespace dev
 ```
 
-NGINX pod를 성공적으로 다음 예제 출력 에서처럼 *실행*:
+다음 예제 출력과 같이 NGINX pod가 성공적으로 *실행*되 고 있습니다.
 
 ```console
 $ kubectl get pods --namespace dev
@@ -296,15 +293,15 @@ NAME        READY   STATUS    RESTARTS   AGE
 nginx-dev   1/1     Running   0          4m
 ```
 
-### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>만들기 및 할당 된 네임 스페이스 외부에서 클러스터 리소스 보기
+### <a name="create-and-view-cluster-resources-outside-of-the-assigned-namespace"></a>할당 된 네임 스페이스 외부에서 클러스터 리소스 만들기 및 보기
 
-이제 외부 pod를 보려고 합니다 *개발* 네임 스페이스입니다. 사용 된 [kubectl get pod][kubectl-get] 이 때 명령을 다시 `--all-namespaces` 같이:
+이제 *dev* 네임 스페이스 외부에서 pod를 보려고 시도 합니다. 이번에는 [kubectl get pod][kubectl-get] 명령을 다시 사용 하 여 다음과 같이 `--all-namespaces`를 확인 합니다.
 
 ```console
 kubectl get pods --all-namespaces
 ```
 
-사용자의 그룹 멤버 자격을 Kubernetes 역할이 없습니다이 작업을 허용 하는 다음 예제 출력 에서처럼:
+사용자의 그룹 멤버 자격에는 다음 예제 출력과 같이이 작업을 허용 하는 Kubernetes 역할이 없습니다.
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -312,7 +309,7 @@ $ kubectl get pods --all-namespaces
 Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cannot list resource "pods" in API group "" at the cluster scope
 ```
 
-마찬가지로와 같은 다른 네임 스페이스에 있는 pod를 예약 하려고 시도 합니다 *sre* 네임 스페이스입니다. 다음 예제 출력 에서처럼 사용자의 그룹 멤버 자격와 Kubernetes 역할 RoleBinding 이러한 권한을 부여 하려면 정렬 되지 않습니다.
+동일한 방식으로 *sre* 네임 스페이스와 같은 다른 네임 스페이스의 pod를 예약 하려고 합니다. 다음 예제 출력과 같이 사용자의 그룹 멤버 자격은 Kubernetes 역할 및 RoleBinding과 일치 하 여 이러한 권한을 부여 하지 않습니다.
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-dev --image=nginx --namespace sre
@@ -322,22 +319,22 @@ Error from server (Forbidden): pods is forbidden: User "aksdev@contoso.com" cann
 
 ### <a name="test-the-sre-access-to-the-aks-cluster-resources"></a>AKS 클러스터 리소스에 대 한 SRE 액세스 테스트
 
-이 Azure AD 그룹 구성원 자격 및 Kubernetes RBAC 올바르게 작동 하는지 다른 사용자와 그룹 간에 확인 하려면 이전 명령으로 로그인 할 때를 시도 합니다 *opssre* 사용자입니다.
+Azure AD 그룹 멤버 자격 및 Kubernetes RBAC가 서로 다른 사용자와 그룹 간에 올바르게 작동 하는지 확인 하려면 *opssre* 사용자로 로그인 한 경우 이전 명령을 사용해 보세요.
 
-다시 설정 합니다 *kubeconfig* 컨텍스트를 사용 하 여 합니다 [az aks 자격 증명 가져오기][az-aks-get-credentials] 을 이전에 캐시 된 인증 토큰을 지우는 명령 합니다 *aksdev* 사용자:
+*Aksdev* 사용자에 대해 이전에 캐시 된 인증 토큰을 지우는 [az aks][az-aks-get-credentials] 명령을 사용 하 여 *kubeconfig* 컨텍스트를 다시 설정 합니다.
 
 ```azurecli-interactive
 az aks get-credentials --resource-group myResourceGroup --name myAKSCluster --overwrite-existing
 ```
 
-일정 및 보기 pod에 할당 된 하려고 *sre* 네임 스페이스입니다. 메시지가 표시 되 면 로그인 사용자 고유의 `opssre@contoso.com` 문서의 시작 부분에 생성 된 자격 증명:
+할당 된 *sre* 네임 스페이스에서 pod을 예약 하 고 봅니다. 메시지가 표시 되 면 문서의 시작 부분에서 만든 `opssre@contoso.com` 자격 증명을 사용 하 여 로그인 합니다.
 
 ```console
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
 kubectl get pods --namespace sre
 ```
 
-다음 예제 출력 에서처럼 성공적으로 만드는 고 pod를 볼 수 있습니다.
+다음 예제 출력과 같이 성공적으로 pod을 만들고 볼 수 있습니다.
 
 ```console
 $ kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace sre
@@ -352,14 +349,14 @@ NAME        READY   STATUS    RESTARTS   AGE
 nginx-sre   1/1     Running   0
 ```
 
-이제 하려고 보거나 할당된 SRE 네임 스페이스 외부에서 pod를 예약 합니다.
+이제 할당 된 SRE 네임 스페이스의 외부에서 pod을 보거나 예약 해 봅니다.
 
 ```console
 kubectl get pods --all-namespaces
 kubectl run --generator=run-pod/v1 nginx-sre --image=nginx --namespace dev
 ```
 
-이러한 `kubectl` 다음 예제 출력 에서처럼 명령이 실패 합니다. 사용자의 그룹 멤버 자격 및 Kubernetes 역할과 RoleBindings 만들 수 있는 권한이 나 다른 네임 스페이스의 리소스 관리자 권한을 부여 하지 않으면:
+다음 예제 출력에 표시 된 것 처럼 이러한 `kubectl` 명령은 실패 합니다. 사용자의 그룹 멤버 자격 및 Kubernetes 역할 및 RoleBindings는 다른 네임 스페이스에서 리소스를 만들거나 관리자는 권한을 부여 하지 않습니다.
 
 ```console
 $ kubectl get pods --all-namespaces
@@ -371,7 +368,7 @@ Error from server (Forbidden): pods is forbidden: User "akssre@contoso.com" cann
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 문서에서는 AKS 클러스터와 사용자의 리소스 및 Azure AD의 그룹을 만들었습니다. 이러한 모든 리소스를 정리 하려면 다음 명령을 실행 합니다.
+이 문서에서는 Azure AD의 AKS 클러스터와 사용자 및 그룹에서 리소스를 만들었습니다. 이러한 모든 리소스를 정리 하려면 다음 명령을 실행 합니다.
 
 ```azurecli-interactive
 # Get the admin kubeconfig context to delete the necessary cluster resources
@@ -392,9 +389,9 @@ az ad group delete --group opssre
 
 ## <a name="next-steps"></a>다음 단계
 
-Kubernetes 클러스터를 보호 하는 방법에 대 한 자세한 내용은 참조 하십시오 [AKS에 대 한 액세스 및 id 옵션)][rbac-authorization]합니다.
+Kubernetes 클러스터를 보호 하는 방법에 대 한 자세한 내용은 [AKS에 대 한 액세스 및 id 옵션][rbac-authorization]을 참조 하세요.
 
-Id 및 리소스 제어에 대 한 모범 사례를 참조 하세요 [인증 및 권한 부여 AKS에 대 한 유용한][operator-best-practices-identity]합니다.
+Id 및 리소스 제어에 대 한 모범 사례는 [AKS의 인증 및 권한 부여에 대 한 모범 사례][operator-best-practices-identity]를 참조 하세요.
 
 <!-- LINKS - external -->
 [kubectl-create]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create

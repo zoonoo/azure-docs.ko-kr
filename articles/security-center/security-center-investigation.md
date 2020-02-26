@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/29/2018
 ms.author: memildin
-ms.openlocfilehash: 32cc4b01d68ee7a15ae7cfa2259d234cbcd143c4
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: ef1684f11349696c22a290c90469a8d94f922e58
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71202054"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603986"
 ---
 # <a name="investigate-incidents-and-alerts-in-azure-security-center-retired"></a>Azure Security Center에서 인시던트 및 경고 조사 (사용 중지 됨)
 이 문서는 Azure Security Center의 조사 기능 (미리 보기)을 사용 하 여 보안 인시던트 및 경고를 조사 하는 데 도움이 됩니다.
@@ -72,7 +72,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 ### <a name="exploration"></a>탐색
 
-**탐색** 탭을 사용하면 조사기에서 엔터티와 관련된 다양한 문제와 관련된 데이터를 검사할 수 있습니다. 예를 들어 컴퓨터를 조사하는 경우 여기서 실행된 프로세스의 목록은 탐색 탭에 표시됩니다. 경우에 따라 탐색 탭은 의심 스러운 문제를 나타낼 수 있는 데이터를 표시합니다. 조사기는 탭 내에서 데이터를 검사하거나 검색 화면에서 열어서 큰 데이터 집합을 검사하고 필터링 및 Excel로 내보내기 등 고급 검색 옵션을 사용할 수 있습니다.
+**탐색** 탭을 사용하면 조사기에서 엔터티와 관련된 다양한 문제와 관련된 데이터를 검사할 수 있습니다. 예를 들어 컴퓨터를 조사 하는 경우 해당 컴퓨터에서 실행 되는 프로세스 목록이 탐색 탭에 표시 됩니다. 탐색 탭에서 의심 스러운 문제를 나타낼 수 있는 데이터를 표시 하는 경우도 있습니다. 조사기는 탭 내에서 데이터를 검사하거나 검색 화면에서 열어서 큰 데이터 집합을 검사하고 필터링 및 Excel로 내보내기 등 고급 검색 옵션을 사용할 수 있습니다.
 
 ![탐색](./media/security-center-investigation/security-center-investigation-fig6.png)
 
@@ -104,7 +104,7 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 2.  **보안 경고**를 클릭하여 조사하려는 인시던트를 선택합니다.
 3.  인시던트의 페이지에서 **시작 조사** 단추를 클릭하면 **조사** 대시보드가 표시됩니다.
 
-    ![알림](./media/security-center-investigation/security-center-investigation-fig8.png)
+    ![경고](./media/security-center-investigation/security-center-investigation-fig8.png)
 
 4. 이 대시보드에서 맵에 있는 엔터티를 선택할 수 있고 이 엔터티의 관련 정보는 화면 오른쪽에 나타납니다.
 
@@ -112,12 +112,9 @@ Security Center의 조사 기능을 사용하면 범위를 심사하고, 이해�
 
 이 지점에서부터 이 인시던트에 관련된 엔터티를 탐색하고 각각에 대한 자세한 정보를 탐색할 수 있습니다.
 
-## <a name="see-also"></a>참조
+## <a name="see-also"></a>참고 항목
 이 문서에서는 Security Center에서 조사 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center에서 보안 경고 관리 및 대응](https://docs.microsoft.com/azure/security-center/security-center-managing-and-responding-alerts) Security Center에서 경고를 관리하고 보안 인시던트에 대응하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
-* [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

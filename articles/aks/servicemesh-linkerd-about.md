@@ -2,16 +2,15 @@
 title: Linkerd 개요
 description: Linkerd 개요 얻기
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 9d0a65f2cf557120ec5a551494e697c876ad5c59
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 3181be62a14ec1b3450bd181172b5323ca176427
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530213"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593770"
 ---
 # <a name="linkerd"></a>Linkerd
 
@@ -19,7 +18,7 @@ ms.locfileid: "72530213"
 
 [Linkerd][linkerd] 는 사용 하기 쉽고 간단한 서비스 메시입니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>Architecture
 
 Linkerd는 ultralight [linkerd][linkerd-proxy] 다루고 proxy 사이드카로 구성 된 데이터 평면을 제공 합니다. 이러한 지능형 프록시는 사용자가 선택한 앱 및 워크 로드에서 모든 네트워크 트래픽을 제어 합니다. 또한 프록시는 [프로메테우스][prometheus] 메트릭 끝점을 통해 메트릭을 노출 합니다.
 

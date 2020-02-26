@@ -14,16 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a54e1c9cbc9a80139d71a89f86ac51ecf5ce9902
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190510"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597697"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
 RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자 고유의 구독 (Red Hat 골드 이미지) 모델을 통해 Azure에서 사용할 수 있습니다. 이 문서에서는 Azure의 Red Hat 골드 이미지에 대 한 개요를 제공 합니다.
+
+>[!NOTE]
+> RHEL BYOS 골드 이미지는 Azure 공용 (상용) 및 Azure Government 클라우드에서 사용할 수 있습니다. Azure 중국 또는 Azure 블랙 포리스트 클라우드에서 사용할 수 없습니다.
 
 ## <a name="important-points-to-consider"></a>고려해 야 할 중요 사항
 

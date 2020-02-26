@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 보호
 description: AKS (Azure Kubernetes Service)에서 Kubernetes 네트워크 정책을 사용 하 여 pod에서 들어오고 나가는 트래픽을 보호 하는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 350e553563aa152c61c922727fb87937bedd14b5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 92e726529f2c81b169dc5ad485148ad8118bbc81
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72928490"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592869"
 ---
 # <a name="secure-traffic-between-pods-using-network-policies-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 네트워크 정책을 사용하여 pod 간 트래픽 보호
 
@@ -54,10 +51,10 @@ Azure는 네트워크 정책을 구현 하는 두 가지 방법을 제공 합니
 
 | 기능                               | Azure                      | Calico                      |
 |------------------------------------------|----------------------------|-----------------------------|
-| 지원되는 플랫폼                      | Linux                      | Linux                       |
+| 지원 플랫폼                      | Linux                      | Linux                       |
 | 지원 되는 네트워킹 옵션             | Azure CNI                  | Azure CNI 및 kubenet       |
 | Kubernetes 사양 준수 | 지원 되는 모든 정책 유형 |  지원 되는 모든 정책 유형 |
-| 추가 기능                      | 없음                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. `calicoctl` CLI를 사용 하 여 이러한 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
+| 추가 기능                      | None                       | 글로벌 네트워크 정책, 글로벌 네트워크 집합 및 호스트 끝점으로 구성 된 확장 정책 모델입니다. `calicoctl` CLI를 사용 하 여 이러한 확장 기능을 관리 하는 방법에 대 한 자세한 내용은 [calicoctl user reference][calicoctl]를 참조 하세요. |
 | 지원                                  | Azure 지원 및 엔지니어링 팀에서 지원 | Calico 커뮤니티 지원. 추가 유료 지원에 대 한 자세한 내용은 [프로젝트 Calico 지원 옵션][calico-support]을 참조 하세요. |
 | 로깅                                  | IPTables에서 추가/삭제 된 규칙은 */var/log/azure-npm.log* 아래의 모든 호스트에 기록 됩니다. | 자세한 내용은 [Calico 구성 요소 로그][calico-logs] 를 참조 하세요. |
 

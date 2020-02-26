@@ -7,12 +7,12 @@ ms.date: 07/17/2019
 ms.author: maquaran
 ms.topic: troubleshooting
 ms.reviewer: sngun
-ms.openlocfilehash: f3af350c96d1dd9eaf4773db503acb10d8a08a8f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f382406d164aa7378631753c2cfc85bc69003a4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75441114"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605081"
 ---
 # <a name="diagnose-and-troubleshoot-issues-when-using-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB에 대해 Azure Functions 트리거를 사용 하는 경우 문제 진단 및 해결
 
@@ -66,7 +66,7 @@ Azure Function이 실패 하 고 "원본 컬렉션 ' 컬렉션 이름 ' (데이�
 
 1. Azure 함수가 Azure Cosmos 계정과 동일한 지역에 배포되나요? 네트워크 대기 시간을 최적화하려면 Azure 함수와 Azure Cosmos 계정이 동일한 Azure 지역에 공동 배치되어야 합니다.
 2. Azure Cosmos 컨테이너가 연속적으로 변경되나요? 간헐적으로 변경되나요?
-후자인 경우 저장되는 변경 내용과 변경 내용을 선택하는 Azure 함수 사이에 약간의 지연이 있을 수 있습니다. 이는 내부적으로 트리거가 Azure Cosmos 컨테이너에서 변경 내용을 확인하여 읽기 보류 중인 항목이 없으면 새 변경 내용을 확인하기 전에 높은 RU 사용을 방지하기 위해 구성 가능한 시간(기본값: 5초) 동안 일시 중지하기 때문입니다. 트리거의 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 `FeedPollDelay/feedPollDelay` 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
+후자인 경우 저장되는 변경 내용과 변경 내용을 선택하는 Azure 함수 사이에 약간의 지연이 있을 수 있습니다. 이는 내부적으로 트리거가 Azure Cosmos 컨테이너에서 변경 내용을 확인하여 읽기 보류 중인 항목이 없으면 새 변경 내용을 확인하기 전에 높은 RU 사용을 방지하기 위해 구성 가능한 시간(기본값: 5초) 동안 일시 중지하기 때문입니다. 트리거의 `FeedPollDelay/feedPollDelay`구성[에서 ](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
 3. Azure Cosmos 컨테이너는 [rate가 제한](./request-units.md)될 수 있습니다.
 4. 트리거에서 `PreferredLocations` 특성을 사용 하 여 쉼표로 구분 된 Azure 지역 목록을 지정 하 여 사용자 지정 기본 연결 순서를 정의할 수 있습니다.
 
@@ -93,10 +93,10 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 컨테이너의 모든 항목을 처음부터 다시 처리 하려면 다음을 수행 합니다.
 1. 현재 실행 중인 Azure 함수를 중지 합니다. 
 1. 임대 컬렉션의 문서를 삭제 합니다 (또는 삭제 하 고 다시 만들어 임대 컬렉션을 삭제 한 후 다시 만들기).
-1. 함수에서 [Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) CosmosDBTrigger 특성을 true로 설정 합니다. 
+1. 함수에서 [Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) CosmosDBTrigger 특성을 true로 설정 합니다. 
 1. Azure 함수를 다시 시작 합니다. 이제는 처음부터 모든 변경 내용을 읽고 처리 합니다. 
 
-[Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration) true로 설정 하면 Azure 함수는 현재 시간 대신 컬렉션의 기록 시작 부분에서 변경 내용 읽기를 시작 하도록 지시 합니다. 이는 아직 생성 된 임대가 없는 경우에만 작동 합니다 (즉, 임대 컬렉션에 문서). 이미 생성 된 임대가 있는 경우이 속성을 true로 설정 해도 아무런 효과가 없습니다. 이 시나리오에서는 함수가 중지 되었다가 다시 시작 될 때 임대 컬렉션에 정의 된 대로 마지막 검사점에서 읽기를 시작 합니다. 처음부터 다시 처리 하려면 위의 1-4 단계를 수행 합니다.  
+[Startfrombeginning](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) true로 설정 하면 Azure 함수는 현재 시간 대신 컬렉션의 기록 시작 부분에서 변경 내용 읽기를 시작 하도록 지시 합니다. 이는 아직 생성 된 임대가 없는 경우에만 작동 합니다 (즉, 임대 컬렉션에 문서). 이미 생성 된 임대가 있는 경우이 속성을 true로 설정 해도 아무런 효과가 없습니다. 이 시나리오에서는 함수가 중지 되었다가 다시 시작 될 때 임대 컬렉션에 정의 된 대로 마지막 검사점에서 읽기를 시작 합니다. 처음부터 다시 처리 하려면 위의 1-4 단계를 수행 합니다.  
 
 ### <a name="binding-can-only-be-done-with-ireadonlylistdocument-or-jarray"></a>Binding은 IReadOnlyList\<Document > 또는 JArray로만 수행할 수 있습니다.
 
@@ -106,7 +106,7 @@ Azure 함수는 변경 내용을 받으면 자주 처리 하 고, 선택적으�
 
 ### <a name="changing-azure-functions-polling-interval-for-the-detecting-changes"></a>변경 내용 검색에 대 한 Azure 함수의 폴링 간격 변경
 
-이전에 변경 된 [내용을 수신 하는 데 너무 오래 걸리므로](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)Azure function은 새 변경 내용을 확인 하기 전에 구성 가능한 시간 (기본적으로 5 초) 동안 대기 합니다. 트리거의 [구성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에서 `FeedPollDelay/feedPollDelay` 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
+이전에 변경 된 [내용을 수신 하는 데 너무 오래 걸리므로](./troubleshoot-changefeed-functions.md#my-changes-take-too-long-to-be-received)Azure function은 새 변경 내용을 확인 하기 전에 구성 가능한 시간 (기본적으로 5 초) 동안 대기 합니다. 트리거의 `FeedPollDelay/feedPollDelay`구성[에서 ](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration) 설정을 통해 이 일시 중지 시간을 구성할 수 있습니다(값은 밀리초 단위여야 함).
 
 ## <a name="next-steps"></a>다음 단계
 

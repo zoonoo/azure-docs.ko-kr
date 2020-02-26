@@ -4,12 +4,12 @@ description: Azure Backup의 보안 기능을 사용하여 백업을 좀 더 안
 ms.reviewer: utraghuv
 ms.topic: conceptual
 ms.date: 06/08/2017
-ms.openlocfilehash: c3c62f8ea7813c14fa6e19d825a5253de18f6639
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 7213f26493a118c2cb32f8f9935b4954176b99a2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172689"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586396"
 ---
 # <a name="security-features-to-help-protect-hybrid-backups-that-use-azure-backup"></a>Azure Backup을 사용하여 하이브리드 백업을 보호하기 위한 보안 기능
 
@@ -88,7 +88,7 @@ Backup은 추가로 14일 동안 삭제된 백업 데이터를 유지하고, **�
 
 이 PIN을 받으려면 다음을 수행합니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. **Recovery Services 자격 증명 모음** > **설정** > **속성**을 찾습니다.
 3. **보안 PIN** 아래에서 **생성**을 클릭합니다. Azure Recovery Services 에이전트 사용자 인터페이스에 입력하는 PIN을 포함한 블레이드가 열립니다.
     이 PIN은 5분 동안만 유효하며 해당 시간이 지나면 자동으로 생성됩니다.
@@ -120,5 +120,5 @@ Backup은 추가로 14일 동안 삭제된 백업 데이터를 유지하고, **�
 
 - [Azure Recovery Services 자격 증명 모음을 시작](backup-azure-vms-first-look-arm.md)하여 이러한 기능을 사용하도록 설정합니다.
 - [최신 Azure Recovery Services 에이전트를 다운로드](https://aka.ms/azurebackup_agent)하여 공격으로부터 Windows 컴퓨터 및 백업 데이터를 보호합니다.
-- [최신 Azure Backup Server를 다운로드](https://aka.ms/latest_azurebackupserver)하여 공격으로부터 워크로드 및 백업 데이터를 보호합니다.
+- [최신 Azure Backup Server를 다운로드](https://support.microsoft.com/help/4457852/microsoft-azure-backup-server-v3)하여 공격으로부터 워크로드 및 백업 데이터를 보호합니다.
 - [System Center 2012 R2 Data Protection Manager용 UR12를 다운로드](https://support.microsoft.com/help/3209592/update-rollup-12-for-system-center-2012-r2-data-protection-manager)하거나 [System Center 2016 Data Protection Manager용 UR2를 다운로드](https://support.microsoft.com/help/3209593/update-rollup-2-for-system-center-2016-data-protection-manager)하여 공격으로부터 워크로드 및 백업 데이터를 보호합니다.

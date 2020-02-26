@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/13/2019
 ms.author: maquaran
-ms.openlocfilehash: 600556a06d3f58c4d2ec79a49fdee5e8e04d4036
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8a5507d11c9545e4053dde832b7305f9bf35e39e
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093641"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586277"
 ---
 # <a name="how-to-configure-the-change-feed-processor-start-time"></a>변경 피드 프로세서 시작 시간을 구성하는 방법
 
@@ -23,9 +23,9 @@ ms.locfileid: "70093641"
 
 ## <a name="reading-from-a-previous-date-and-time"></a>이전 날짜와 시간에서 읽기
 
-`DateTime` 인스턴스를 `WithStartTime` 빌더 확장에 전달하여 **특정 날짜와 시간**에 시작되는 변경 사항을 읽도록 변경 피드 프로세서를 초기화할 수 있습니다.
+**인스턴스를** 빌더 확장에 전달하여 `DateTime`특정 날짜와 시간`WithStartTime`에 시작되는 변경 사항을 읽도록 변경 피드 프로세서를 초기화할 수 있습니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=TimeInitialization)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="TimeInitialization":::
 
 특정 날짜 및 시간에 변경 피드 프로세서가 초기화되고 이후에 발생한 변경 내용을 읽기 시작합니다.
 
@@ -33,7 +33,7 @@ ms.locfileid: "70093641"
 
 데이터 마이그레이션이나 컨테이너의 전체 기록 분석과 같은 다른 시나리오에서는 **컨테이너 수명이 시작**될 때부터 변경 피드를 읽어야 합니다. 이렇게 하려면 빌더 확장에 `WithStartTime`을 사용하면 되지만 `DateTime.MinValue.ToUniversalTime()`을 전달하면 다음과 같이 최소 `DateTime` 값의 UTC 표현이 생성됩니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartFromBeginningInitialization)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartFromBeginningInitialization":::
 
 변경 피드 프로세서가 초기화되고 컨테이너 수명이 시작되는 시점부터 변경 내용을 읽기 시작합니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "70093641"
 > [!NOTE]
 > 특정 시점을 지정하면 컨테이너에 현재 존재하는 항목에 대한 변경 내용만 읽습니다. 항목이 삭제되면 변경 피드의 해당 기록도 제거됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

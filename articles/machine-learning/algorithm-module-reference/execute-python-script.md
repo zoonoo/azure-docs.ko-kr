@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 1d82261d4b5c1a66498c33610670d7a38acbb197
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 91480b3ba0a2bbd3e8c31adb931f5baabe1b07ce
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152332"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605584"
 ---
 # <a name="execute-python-script-module"></a>Python 스크립트 실행 모듈
 
@@ -91,7 +91,7 @@ os.system(f"pip install scikit-misc")
 
     ![Python 입력 맵 실행](media/module/python-module.png)
 
-4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스를 포함 하는 zip 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 작업 영역에 이미 업로드 된 압축 파일 이어야 합니다. 
+4. 새 Python 패키지 또는 코드를 포함 하려면 **스크립트 번들**에 이러한 사용자 지정 리소스를 포함 하는 zip 파일을 추가 합니다. **스크립트 번들** 에 대 한 입력은 파일 형식 데이터 집합으로 작업 영역에 업로드 된 압축 파일 이어야 합니다. 
 
     업로드 된 압축 된 보관 파일에 포함 된 모든 파일은 파이프라인 실행 중에 사용할 수 있습니다. 보관 파일에 디렉터리 구조가 포함 되어 있으면 구조가 유지 되지만 **src** 라는 디렉터리 앞에 경로를 추가 해야 합니다.
 

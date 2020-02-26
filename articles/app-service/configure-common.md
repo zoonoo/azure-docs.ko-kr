@@ -6,12 +6,12 @@ ms.assetid: 9af8a367-7d39-4399-9941-b80cbc5f39a0
 ms.topic: article
 ms.date: 08/13/2019
 ms.custom: seodec18
-ms.openlocfilehash: 021941339bbbf72112628c54f5b05d5fd305bd0f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: ce0a170a629f347e2687a2e9f63fb3438fe2bd2f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198584"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592529"
 ---
 # <a name="configure-an-app-service-app-in-the-azure-portal"></a>Azure Portal에서 App Service 앱 구성
 
@@ -168,6 +168,8 @@ ASP.NET 및 ASP.NET Core 개발자를 위해 App Service에서 연결 *문자열
     - **비트: 32**비트 또는 64 비트.
     - **WebSocket 프로토콜**: 예를 들어 [ASP.NET SignalR] 또는 [socket.io](https://socket.io/)에 대 한입니다.
     - **Always On**: 트래픽이 없는 경우에도 앱을 로드 된 상태로 유지 합니다. CRON 식을 사용 하 여 트리거되는 연속 WebJobs 또는 WebJobs에 필요 합니다.
+      > [!NOTE]
+      > Always On 기능을 사용 하면 끝점을 제어할 수 없습니다. 항상 응용 프로그램 루트에 요청을 보냅니다.
     - **관리 되는 파이프라인 버전**: IIS [파이프라인 모드]입니다. 이전 버전의 IIS가 필요한 레거시 앱이 있는 경우 **클래식** 으로 설정 합니다.
     - **HTTP 버전**: [HTTPS/2](https://wikipedia.org/wiki/HTTP/2) 프로토콜에 대 한 지원을 사용 하도록 설정 하려면 **2.0** 로 설정 합니다.
     > [!NOTE]

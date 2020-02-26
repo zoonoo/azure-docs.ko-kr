@@ -3,16 +3,15 @@ title: AKS (Azure Kubernetes Service)에 대 한 지원 정책
 description: AKS (Azure Kubernetes Service) 지원 정책, 공유 책임 및 미리 보기 (또는 알파 또는 베타)에 있는 기능에 대해 알아봅니다.
 services: container-service
 author: jnoller
-ms.service: container-service
 ms.topic: article
 ms.date: 01/24/2020
 ms.author: jenoller
-ms.openlocfilehash: 9a68a0d0a288a27d67a9615385391c06be2b662d
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5d90106a85a61cbf499c4c08130392b922a45f0
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76767377"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593583"
 ---
 # <a name="support-policies-for-azure-kubernetes-service"></a>Azure Kubernetes Service에 대 한 지원 정책
 

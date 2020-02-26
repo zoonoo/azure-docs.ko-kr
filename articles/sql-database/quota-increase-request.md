@@ -8,12 +8,12 @@ author: sachinpMSFT
 ms.author: sachinp
 ms.reviewer: sstein
 ms.date: 02/04/2020
-ms.openlocfilehash: fb576b81adeec99e4080c744749097390d1add1d
-ms.sourcegitcommit: 9add86fb5cc19edf0b8cd2f42aeea5772511810c
+ms.openlocfilehash: ff2be6972bb4e8af266d0aa8a56d1879bc1b8b78
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/09/2020
-ms.locfileid: "77111099"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586158"
 ---
 # <a name="request-quota-increases-for-azure-sql-database"></a>Azure SQL Database에 대 한 요청 할당량 증가가
 
@@ -90,7 +90,7 @@ ms.locfileid: "77111099"
 
 자세한 내용은 [SQL Database 리소스 제한 및 리소스 관리](sql-database-resource-limits-database-server.md)를 참조 하세요.
 
-### <a name="enable-subscription-access-to-a-region"></a>지역에 대 한 구독 액세스 사용
+### <a id="other"></a>지역에 대 한 구독 액세스 사용
 
 일부 제품 유형은 모든 지역에서 사용할 수 없습니다. 다음과 같은 오류가 표시 될 수 있습니다.
 

@@ -2,17 +2,14 @@
 title: AKS (Azure Kubernetes Service)에서 kured를 사용 하 여 Linux 노드 업데이트 및 다시 부팅
 description: AKS (Azure Kubernetes Service)에서 kured를 사용 하 여 Linux 노드를 업데이트 하 고 자동으로 다시 부팅 하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.author: mlearned
-ms.openlocfilehash: c9e7c23806d4a0a0e2c0b36122d9eb087c986556
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: b0bb7a3309cf1b56a5779b54b34310aa01f3e719
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549175"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594943"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Linux 노드에 보안 및 커널 업데이트 적용
 
@@ -39,7 +36,7 @@ AKS 클러스터에서 Kubernetes 노드는 Azure VM(가상 머신)으로 실행
 
 커널 업데이트와 같은 일부 보안 업데이트에서는 프로세스를 완료하기 위해 노드를 다시 부팅해야 합니다. 다시 부팅 해야 하는 Linux 노드는 이름이 */var/run/reboot-required*인 파일을 만듭니다. 이 다시 부팅 프로세스는 자동으로 발생하지 않습니다.
 
-사용자 고유의 워크플로 및 프로세스를 사용하여 노드 다시 부팅을 처리하거나 `kured`를 사용하여 프로세스를 오케스트레이션할 수 있습니다. `kured`에서는 클러스터의 각 Linux 노드에서 pod를 실행 하는 [DaemonSet][DaemonSet]가 배포 됩니다. 이러한 pod는 DaemonSet에서 */var/run/reboot-required* 파일이 있는지 감시 한 다음 노드를 다시 부팅 하는 프로세스를 시작 합니다.
+사용자 고유의 워크플로 및 프로세스를 사용하여 노드 다시 부팅을 처리하거나 `kured`를 사용하여 프로세스를 오케스트레이션할 수 있습니다. `kured`를 사용 하면 클러스터의 각 Linux 노드에서 pod를 실행 하는 [DaemonSet][DaemonSet] 가 배포 됩니다. 이러한 pod는 DaemonSet에서 */var/run/reboot-required* 파일이 있는지 감시 한 다음 노드를 다시 부팅 하는 프로세스를 시작 합니다.
 
 ### <a name="node-upgrades"></a>노드 업그레이드
 

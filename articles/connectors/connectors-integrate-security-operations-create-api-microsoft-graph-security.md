@@ -5,16 +5,16 @@ services: logic-apps
 ms.suite: integration
 author: preetikr
 ms.author: preetikr
-ms.reviewer: klam, estfan, logicappspm
+ms.reviewer: v-ching, estfan, logicappspm
 ms.topic: article
-ms.date: 12/12/2019
+ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: f9aa88934d67d98fce43763c6c8fac7c384d765d
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: b4f51b192d1a7c0ee14a769321793753e8217dea
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313793"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598836"
 ---
 # <a name="improve-threat-protection-by-integrating-security-operations-with-microsoft-graph-security--azure-logic-apps"></a>Microsoft Graph Security 및 Azure Logic Apps와 보안 작업을 통합하여 위협 방지 향상
 
@@ -32,16 +32,16 @@ ms.locfileid: "76313793"
 
 Microsoft Graph Security에 대한 자세한 내용은 [Microsoft Graph 보안 API 개요](https://aka.ms/graphsecuritydocs)를 참조하세요. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다. Microsoft Flow 또는 PowerApps를 찾고 있는 경우 [흐름 이란?](https://flow.microsoft.com/) 또는 [powerapps 란?](https://powerapps.microsoft.com/) 을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
+* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다. 
 
 * Microsoft Graph Security 커넥터를 사용하려면 [Microsoft Graph Security 인증 요구 사항](https://aka.ms/graphsecurityauth)의 일부인 ‘명시적으로 제공된’ Azure AD(Active Directory) 테넌트 관리자 동의가 있어야 합니다. 이 동의에는 [Azure Portal](https://portal.azure.com)에서 확인할 수 있는 Microsoft Graph Security 커넥터의 애플리케이션 ID 및 이름이 필요합니다.
 
   | 속성 | 값 |
   |----------|-------|
-  | **애플리케이션 이름** | `MicrosoftGraphSecurityConnector` |
-  | **애플리케이션 ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
+  | **Application Name** | `MicrosoftGraphSecurityConnector` |
+  | **응용 프로그램 ID** | `c4829704-0edc-4c3d-a347-7c4a67586f3c` |
   |||
 
   커넥터에 대 한 동의를 부여 하려면 Azure AD 테 넌 트 관리자가 다음 단계를 따를 수 있습니다.
@@ -87,16 +87,16 @@ Azure Logic Apps에서 모든 논리 앱은 특정 이벤트가 발생하거나 
 
 1.  Azure Portal 또는 Visual Studio에서 논리 앱 디자이너를 여는 빈 논리 앱을 만듭니다. 이 예에서는 Azure Portal을 사용합니다.
 
-1.  디자이너의 검색 상자에 "microsoft graph security"를 필터로 입력 합니다. 트리거 목록에서 다음 트리거: **모든 새 경고** 를 선택 합니다.
+1.  디자이너의 검색 상자에 "microsoft graph security"를 필터로 입력 합니다. 트리거 목록에서 다음 트리거를 선택합니다. **모든 새 경고**
 
 1.  트리거에서 모니터링 하려는 경고에 대 한 정보를 제공 합니다. 추가 속성을 보려면 **새 매개 변수 추가** 목록을 열고 매개 변수를 선택 하 여 해당 속성을 트리거에 추가 합니다.
 
-   | 속성 | Property(JSON) | 필수 | 유형 | Description |
+   | 속성 | 속성 (JSON) | 필수 | 형식 | Description |
    |----------|-----------------|----------|------|-------------|
    | **간격** | `interval` | 예 | 정수 | 빈도에 따라 워크플로가 얼마나 자주 실행되는지를 설명하는 양의 정수입니다. 다음은 최소 및 최대 간격입니다. <p><p>- 월: 1-16개월 <br>- 일: 1-500일 <br>- 시간: 1-12,000시간 <br>- 분: 1-72,000분 <br>- 초: 1-9,999,999초 <p>예를 들어 간격이 6이고 빈도가 “월”이면 되풀이 간격은 6개월마다입니다. |
-   | **빈도** | `frequency` | 예 | String | 되풀이 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
-   | **표준 시간대** | `timeZone` | 아닙니다. | String | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
-   | **시작 시간** | `startTime` | 아닙니다. | String | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p><p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
+   | **빈도** | `frequency` | 예 | 문자열 | 되풀이에 대한 시간 단위: **초**, **분**, **시간**, **일**, **주** 또는 **월** |
+   | **표준 시간대** | `timeZone` | 아니요 | 문자열 | 이 트리거는 [UTC 오프셋](https://en.wikipedia.org/wiki/UTC_offset)을 허용하지 않으므로 시작 시간을 지정할 때만 적용됩니다. 적용하려는 표준 시간대를 선택합니다. |
+   | **시작 시간** | `startTime` | 아니요 | 문자열 | 시작 날짜와 시간을 다음 형식으로 지정 합니다. <p><p>표준 시간대를 선택하는 경우 YYYY-MM-DDThh:mm:ss <p>또는 <p>표준 시간대를 선택하지 않은 경우 YYYY-MM-DDThh:mm:ssZ <p>예를 들어 오후 2:00에 2017 년 9 월 18 일을 원하는 경우 "2017-09-18T14:00:00"을 지정 하 고 태평양 표준시와 같은 표준 시간대를 선택 합니다. 또는 표준 시간대 없이 “2017-09-18T14:00:00Z”를 지정합니다. <p>**참고:** 이 시작 시간은 미래의 최대 49 년 이며 utc [오프셋](https://en.wikipedia.org/wiki/UTC_offset)없이 [utc 날짜/시간 형식의](https://en.wikipedia.org/wiki/Coordinated_Universal_Time) [ISO 8601 날짜 시간 사양을](https://en.wikipedia.org/wiki/ISO_8601#Combined_date_and_time_representations) 따라야 합니다. 표준 시간대를 선택하지 않으면 공백 없이 맨 끝에 문자 “Z”를 추가해야 합니다. 이 “Z”는 해당 [항해 시간](https://en.wikipedia.org/wiki/Nautical_time)을 나타냅니다. <p>단순 일정의 경우 시작 시간은 첫 번째 발생이지만 복잡한 일정의 경우 트리거는 시작 시간보다 더 일찍 발생하지 않습니다. [*시작 날짜 및 시간을 사용할 수 있는 방법에는 무엇이 있나요?* ](../logic-apps/concepts-schedule-automated-recurring-tasks-workflows.md#start-time) |
    ||||||
 
 1.  작업이 완료 되 면 디자이너 도구 모음에서 **저장**을 선택 합니다.
@@ -117,9 +117,9 @@ Microsoft Graph Security 커넥터에서 사용 가능한 다양한 작업의 �
 
 | 실행력 | Description |
 |--------|-------------|
-| **경고 가져오기** | 하나 이상의 [경고 속성](https://docs.microsoft.com/graph/api/resources/alert)을 기준으로 필터링된 경고를 가져옵니다. 예: <p>`Provider eq 'Azure Security Center' or 'Palo Alto Networks'` | 
+| **경고 가져오기** | 하나 이상의 [경고 속성](https://docs.microsoft.com/graph/api/resources/alert)(예: `Provider eq 'Azure Security Center' or 'Palo Alto Networks'`)에 따라 필터링 된 경고를 가져옵니다. | 
 | **ID로 경고 가져오기** | 경고 ID를 기준으로 특정 경고를 가져옵니다. | 
-| **경고 업데이트** | 경고 ID를 기준으로 특정 경고를 업데이트합니다. <p>요청에 필수 속성과 편집 가능한 속성을 전달하려면 [경고의 편집 가능한 속성](https://docs.microsoft.com/graph/api/alert-update)을 참조하세요. 예를 들어 조사할 수 있도록 보안 분석가에게 경고를 할당하려면 경고의 **할당 대상** 속성을 업데이트할 수 있습니다. |
+| **경고 업데이트** | 경고 ID를 기준으로 특정 경고를 업데이트합니다. 요청에 필수 속성과 편집 가능한 속성을 전달하려면 [경고의 편집 가능한 속성](https://docs.microsoft.com/graph/api/alert-update)을 참조하세요. 예를 들어 조사할 수 있도록 보안 분석가에게 경고를 할당하려면 경고의 **할당 대상** 속성을 업데이트할 수 있습니다. |
 |||
 
 ### <a name="manage-alert-subscriptions"></a>경고 구독 관리
@@ -135,6 +135,27 @@ Microsoft Graph는 [구독](https://docs.microsoft.com/graph/api/resources/subsc
 | **구독 업데이트** | 구독 ID를 입력하여 [구독을 업데이트](https://docs.microsoft.com/graph/api/subscription-update)합니다. 예를 들어 구독을 연장하려면 구독의 `expirationDateTime` 속성을 업데이트할 수 있습니다. | 
 | **구독 삭제** | 구독 ID를 입력하여 [구독을 삭제](https://docs.microsoft.com/graph/api/subscription-delete)합니다. | 
 ||| 
+
+### <a name="manage-threat-intelligence-indicators"></a>위협 인텔리전스 표시기 관리
+
+가장 최근 결과를 필터링, 정렬 또는 가져오려면 [Microsoft Graph에서 지원하는 ODATA 쿼리 매개 변수](https://docs.microsoft.com/graph/query-parameters)만을 제공합니다. 전체 기준 URL이나 HTTP 작업(예: `https://graph.microsoft.com/beta/security/tiIndicators`, `GET` 또는 `PATCH` 작업)을 ‘지정하지 마세요’. 다음은 `DDoS` 위협 형식이 포함 된 목록을 원할 때 **tiIndicators 가져오기** 작업의 매개 변수를 보여 주는 특정 예제입니다.
+
+`Filter threat intelligence indicator value as threatType eq 'DDoS'`
+
+이 커넥터에서 사용할 수 있는 쿼리에 대 한 자세한 내용은 [Microsoft Graph 보안 위협 인텔리전스 표시기 참조 설명서의 "선택적 쿼리 매개 변수"](https://docs.microsoft.com/graph/api/tiindicators-list?view=graph-rest-beta&tabs=http)를 참조 하세요. 이 커넥터를 사용 하 여 향상 된 환경을 구축 하려면 커넥터에서 지 원하는 [스키마 속성 위협 인텔리전스 표시기](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta) 에 대해 자세히 알아보세요.
+
+| 실행력 | Description |
+|--------|-------------|
+| **위협 인텔리전스 지표 가져오기** | 하나 이상의 [tiindicators 속성](https://docs.microsoft.com/graph/api/resources/tiindicator?view=graph-rest-beta)을 기반으로 필터링 된 tiindicators 가져오기 (예: `threatType eq 'MaliciousUrl' or 'DDoS'` |
+| **ID 별로 위협 인텔리전스 지표 가져오기** | TiIndicator ID를 기준으로 특정 tiIndicator를 가져옵니다. | 
+| **위협 인텔리전스 표시기 만들기** | Tiindicator 컬렉션에 게시 하 여 새 tiIndicator를 만듭니다. 요청에서 필수 속성을 전달 하도록 하려면 [tiIndicator를 만드는 데 필요한 속성](https://docs.microsoft.com/graph/api/tiindicators-post?view=graph-rest-beta&tabs=http)을 참조 하세요. |
+| **여러 위협 인텔리전스 표시기 제출** | TiIndicators 컬렉션을 게시 하 여 여러 새 tiIndicators를 만듭니다. 요청에 필요한 속성을 전달 하려면 [여러 tiIndicators를 제출 하는 데 필요한 속성](https://docs.microsoft.com/graph/api/tiindicator-submittiindicators?view=graph-rest-beta&tabs=http)을 참조 하세요. |
+| **위협 인텔리전스 표시기 업데이트** | TiIndicator ID를 기준으로 특정 tiIndicator를 업데이트 합니다. 요청에서 필수 및 편집 가능한 속성을 전달 하려면 [tiIndicator의 편집 가능한 속성](https://docs.microsoft.com/graph/api/tiindicator-update?view=graph-rest-beta&tabs=http)을 참조 하세요. 예를 들어, 대상 제품 보안 도구 내에서 표시기가 일치 하는 경우 적용 되는 동작을 업데이트 하려면 tiIndicator의 **작업** 속성을 업데이트할 수 있습니다. |
+| **여러 위협 인텔리전스 표시기 업데이트** | 여러 tiIndicators를 업데이트 합니다. 요청에서 필수 속성을 전달 하려면 [여러 tiIndicators를 업데이트 하기 위한 필수 속성](https://docs.microsoft.com/graph/api/tiindicator-updatetiindicators?view=graph-rest-beta&tabs=http)을 참조 하세요. |
+| **ID 별로 위협 인텔리전스 표시기 삭제** | TiIndicator ID를 기준으로 특정 tiIndicator를 삭제 합니다. |
+| **Id로 여러 위협 인텔리전스 표시기 삭제** | Id로 여러 tiIndicators를 삭제 합니다. 요청에서 필수 속성을 전달 하도록 하려면 Id를 사용 하 [여 여러 tiIndicators를 삭제 하는 데 필요한 속성](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicators?view=graph-rest-beta&tabs=http)을 참조 하세요. |
+| **외부 Id로 여러 위협 인텔리전스 표시기 삭제** | 외부 Id로 여러 tiIndicators를 삭제 합니다. 요청에 필요한 속성을 전달 하려면 [외부 id에서 여러 tiIndicators를 삭제 하는 데 필요한 속성](https://docs.microsoft.com/graph/api/tiindicator-deletetiindicatorsbyexternalid?view=graph-rest-beta&tabs=http)을 참조 하세요. |
+|||
 
 ## <a name="connector-reference"></a>커넥터 참조
 

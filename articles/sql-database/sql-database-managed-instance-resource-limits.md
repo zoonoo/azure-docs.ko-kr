@@ -10,13 +10,13 @@ ms.topic: conceptual
 author: bonova
 ms.author: bonova
 ms.reviewer: carlrab, jovanpop, sachinp, sstein
-ms.date: 02/18/2020
-ms.openlocfilehash: 6e6d4ea6c96949a60677bcf3bf40a53ec3a251c7
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/25/2020
+ms.openlocfilehash: 12d457d8d5e57dc4db16d9a191c7795a5f013574
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526861"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605018"
 ---
 # <a name="overview-azure-sql-database-managed-instance-resource-limits"></a>관리 되는 인스턴스 리소스 제한 Azure SQL Database 개요
 
@@ -74,7 +74,7 @@ ms.locfileid: "77526861"
 | 인스턴스당 데이터베이스 파일의 최대 수 | 인스턴스 저장소 크기 또는 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files) 제한에 도달 하지 않는 한 최대 280입니다. | 32767 인스턴스 저장소 크기 제한에 도달 하지 않으면 데이터베이스당 파일 수입니다. |
 | 최대 데이터 파일 크기 | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 2tb, 648TB) 및 [Azure Premium Disk storage 할당 공간](sql-database-managed-instance-transact-sql-information.md#exceeding-storage-space-with-small-database-files)으로 제한 됩니다. | 현재 사용할 수 있는 인스턴스 저장소 크기 (최대 1tb-4 TB)로 제한 됩니다. |
 | 최대 로그 파일 크기 | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. | 2tb 및 현재 사용할 수 있는 인스턴스 저장소 크기로 제한 됩니다. |
-| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>[더 많은 IOPS를 얻기 위해 파일 크기를 늘립니다](#file-io-characteristics-in-general-purpose-tier) \*| 5.5 k-110 K (1375 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
+| 데이터/로그 IOPS(근사치) | 인스턴스당 최대 30-40 K IOPS *, 500-7500/파일<br/>[더 많은 IOPS를 얻기 위해 파일 크기를 늘립니다](#file-io-characteristics-in-general-purpose-tier) \*| 10 k-200 K (2500 IOPS/vCore)<br/>더 나은 IO 성능을 얻으려면 vCores를 더 추가 합니다. |
 | 로그 쓰기 처리량 한도 (인스턴스당) | vCore당 3MB/초<br/>최대 22 m b/초 | vCore 당 4mb/s<br/>최대 48MB/초 |
 | 데이터 처리량(근사치) | 파일당 100~250MB/초<br/>[더 나은 IO 성능을 얻기 위해 파일 크기를 늘릴](#file-io-characteristics-in-general-purpose-tier) \* | 제한 되지 않습니다. |
 | 저장소 IO 대기 시간 (근사치) | 5~10ms | 1~2ms |
@@ -107,7 +107,7 @@ ms.locfileid: "77526861"
 
 ## <a name="supported-regions"></a>지원되는 지역
 
-관리 되는 인스턴스는 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보낼](#obtaining-a-larger-quota-for-sql-managed-instance)수 있습니다.
+관리 되는 인스턴스는 [지원 되는 지역](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)에서만 만들 수 있습니다. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보낼](quota-increase-request.md)수 있습니다.
 
 ## <a name="supported-subscription-types"></a>지원되는 구독 유형
 
@@ -122,13 +122,13 @@ ms.locfileid: "77526861"
 
 ## <a name="regional-resource-limitations"></a>지역별 리소스 제한
 
-지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. 관리 되는 인스턴스에는 Azure 지역 당 두 가지 기본 제한이 있습니다. 구독 유형의 유형에 따라 [Azure Portal에서 특수 지원 요청](#obtaining-a-larger-quota-for-sql-managed-instance)을 만들어 요청 시 증가 시킬 수 있습니다.
+지원되는 구독 유형에는 지역당 제한된 수의 리소스가 포함될 수 있습니다. 관리 되는 인스턴스에는 Azure 지역 당 두 가지 기본 제한이 있습니다 .이는 구독 유형의 유형에 따라 [Azure Portal에서 특수 지원 요청](quota-increase-request.md) 을 만들어 요청 시 증가 시킬 수 있습니다.
 
 - **서브넷 제한**: 관리되는 인스턴스가 단일 지역에 배포되는 서브넷의 최대 수입니다.
 - **Vcore 단위 제한**: 단일 지역의 모든 인스턴스에 배포할 수 있는 최대 vcore 단위 수입니다. 하나의 GP vCore는 vCore 단위 하나를 사용 하 고 하나의 BC vCore는 4 개의 vCore를 사용 합니다. 총 인스턴스 수는 vCore 단위 제한 내에 있기만 하면 제한 되지 않습니다.
 
 > [!Note]
-> 이러한 제한은 기술 제한이 아닌 기본 설정입니다. 현재 지역에서 더 많은 관리 되는 인스턴스가 필요한 경우 [Azure Portal에서 특수 지원 요청](#obtaining-a-larger-quota-for-sql-managed-instance) 을 만들어 요청 시 제한을 늘릴 수 있습니다. 대신 지원 요청을 보내지 않고 다른 Azure 지역에서 새 관리 되는 인스턴스를 만들 수 있습니다.
+> 이러한 제한은 기술 제한이 아닌 기본 설정입니다. 현재 지역에서 더 많은 관리 되는 인스턴스가 필요한 경우 [Azure Portal에서 특수 지원 요청](quota-increase-request.md) 을 만들어 요청 시 제한을 늘릴 수 있습니다. 대신 지원 요청을 보내지 않고 다른 Azure 지역에서 새 관리 되는 인스턴스를 만들 수 있습니다.
 
 다음 표에서는 지원 되는 구독 유형에 대 한 **기본 지역 제한을** 보여 줍니다. 기본 제한은 아래 설명 된 지원 요청을 사용 하 여 확장할 수 있습니다.
 
@@ -146,39 +146,9 @@ ms.locfileid: "77526861"
 
 오스트레일리아 동부, 미국 동부, 미국 동부 2, 서유럽, 미국 동부, 동남 아시아, 영국 남부, 유럽 서부, 미국 서 부 2 지역에서 더 큰 서브넷 및 vCore 제한을 \* \*있습니다.
 
-## <a name="obtaining-a-larger-quota-for-sql-managed-instance"></a>SQL 관리 되는 인스턴스의 더 큰 할당량 가져오기
+## <a name="request-a-quota-increase-for-sql-managed-instance"></a>SQL 관리 되는 인스턴스의 할당량 증가를 요청 합니다.
 
-현재 지역에서 관리 되는 인스턴스가 더 필요한 경우 Azure Portal를 사용 하 여 할당량을 연장 하는 지원 요청을 보냅니다.
-더 많은 할당량을 가져오는 프로세스를 시작하려면 다음을 수행합니다.
-
-1. **도움말 + 지원**을 열고, **새 지원 요청**을 클릭합니다.
-
-   ![도움말 및 지원](media/sql-database-managed-instance-resource-limits/help-and-support.png)
-2. 새 지원 요청에 대한 [기본 사항] 탭에서 다음을 수행합니다.
-   - **문제점 유형**에 대해 **서비스 및 구독 제한(할당량)** 를 선택합니다.
-   - **구독**의 경우 사용자의 구독을 선택합니다.
-   - **할당량 유형**에 대해 **SQL Database Managed Instance**를 선택합니다.
-   - **지원 계획**에 대해 해당 지원 계획을 선택합니다.
-
-     ![문제점 유형 할당량](media/sql-database-managed-instance-resource-limits/issue-type-quota.png)
-
-3. **다음**을 클릭합니다.
-4. 새 지원 요청에 대 한 **문제 탭** 에서 다음을 수행 합니다.
-   - **심각도**에 대해 문제점의 심각도 수준을 선택합니다.
-   - **세부 정보**에 대해 오류 메시지를 포함하여 문제점에 대한 추가 정보를 제공합니다.
-   - **파일 업로드**에 대해 자세한 정보가 포함된 파일(최대 4MB)을 첨부합니다.
-
-     ![문제점 세부 정보](media/sql-database-managed-instance-resource-limits/problem-details.png)
-
-     > [!IMPORTANT]
-     > 유효한 요청에 포함되어야 하는 다음과 같습니다.
-     > - 구독 제한을 늘려야 하는 영역입니다.
-     > - 할당량 증가 후 기존 서브넷의 서비스 계층 당 필요한 vCores 수 (기존 서브넷을 확장 해야 하는 경우)
-     > - 필요한 새 서브넷 수 및 새 서브넷 내 서비스 계층 당 총 vCores 수 (새 서브넷에서 관리 되는 인스턴스를 배포 해야 하는 경우).
-
-5. **다음**을 클릭합니다.
-6. 새 지원 요청에 대한 [연락처 정보] 탭에서 기본 연락 방법(이메일 또는 전화)과 연락처 세부 정보를 입력합니다.
-7. **만들기**를 클릭합니다.
+현재 지역에서 관리 되는 인스턴스가 더 필요한 경우 Azure Portal를 사용 하 여 할당량을 연장 하는 지원 요청을 보냅니다. 자세한 내용은 [Azure SQL Database에 대 한 요청 할당량 늘리기](quota-increase-request.md)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

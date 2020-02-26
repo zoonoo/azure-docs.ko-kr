@@ -12,12 +12,12 @@ ms.date: 09/27/2019
 ms.author: mimart
 ms.reviewer: arvindh
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 4f9ff446bae0a010b12e84172d5af60c6ca81c0e
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 72b3e37a423442194b81e3d10ecc7157201ff8be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76896909"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586056"
 ---
 # <a name="end-user-experiences-for-applications-in-azure-active-directory"></a>Azure Active Directory에서 애플리케이션에 대한 최종 사용자 환경
 
@@ -32,7 +32,7 @@ Azure AD(Azure Active Directory)는 조직의 최종 사용자에게 애플리�
 
 ## <a name="azure-ad-access-panel"></a>Azure AD 액세스 패널
 
-https://myapps.microsoft.com 의 액세스 패널은 최종 사용자가 Azure Active Directory의 조직 계정을 사용하여 Azure AD 관리자가 액세스 권한을 부여한 클라우드 기반의 애플리케이션을 보고 시작할 수 있도록 하는 웹 기반 포털입니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
+https://myapps.microsoft.com의 액세스 패널은 웹 기반 포털입니다 .이 포털을 사용 하 여 최종 사용자가 Azure Active Directory에서 조직 계정을 사용 하 여 Azure AD 관리자가 액세스 권한을 부여 받은 응용 프로그램을 보고 시작할 수 있습니다. [Azure Active Directory Premium](https://azure.microsoft.com/pricing/details/active-directory/)의 최종 사용자는 액세스 패널을 통해 셀프 서비스 그룹 관리 기능을 활용할 수도 있습니다.
 
 ![Azure AD 액세스 패널 포털을 보여 주는 스크린샷](media/what-is-single-sign-on/azure-ad-access-panel.png)
 

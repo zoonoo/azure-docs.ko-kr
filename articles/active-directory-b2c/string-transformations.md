@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/20/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: df0bd87fffba8ed70c60da358b38079d3d017c76
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: e220009ec04ce732d99a53432077d681707e28d1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505650"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585733"
 ---
 # <a name="string-claims-transformations"></a>문자열 클레임 변환
 
@@ -127,7 +127,7 @@ ms.locfileid: "77505650"
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 |----- | ----------------------- | --------- | ----- |
-| InputParameter | 값 | 문자열 | 설정할 문자열입니다. |
+| InputParameter | 값 | 문자열 | 설정할 문자열입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식을](string-transformations.md#string-claim-transformations-expressions)지원 합니다. |
 | OutputClaim | createdClaim | 문자열 | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 문자열 ClaimType 값을 설정하려면 다음 클레임 변환을 사용합니다.
@@ -297,7 +297,7 @@ ms.locfileid: "77505650"
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |문자열 |문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
-| InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. |
+| InputParameter | stringFormat | 문자열 | {0} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식을](string-transformations.md#string-claim-transformations-expressions)지원 합니다.  |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 매개 변수 {0} 하나가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 **userPrincipalName**을 만듭니다. `Facebook-OAUTH` 등의 모든 소셜 ID 공급자 기술 프로필은 **CreateUserPrincipalName**을 호출하여 **userPrincipalName**을 생성합니다.
@@ -333,7 +333,7 @@ ms.locfileid: "77505650"
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim |문자열 | 문자열 형식 {0} 매개 변수로 사용되는 ClaimType입니다. |
 | InputClaim | inputClaim | 문자열 | 문자열 형식 {1} 매개 변수로 사용되는 ClaimType입니다. |
-| InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. |
+| InputParameter | stringFormat | 문자열 | {0} 및 {1} 매개 변수를 포함하는 문자열 형식입니다. 이 입력 매개 변수는 [문자열 클레임 변환 식을](string-transformations.md#string-claim-transformations-expressions)지원 합니다.   |
 | OutputClaim | outputClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 두 매개 변수({0} 및 {1})가 포함된 모든 문자열의 서식을 지정하려면 이 클레임 변환을 사용합니다. 다음 예제는 지정된 형식으로 **displayName**을 만듭니다.
@@ -925,3 +925,12 @@ GetLocalizedStringsTransformation 클레임 변환을 사용 하려면 다음을
   - **구분 기호**: ","
 - 출력 클레임:
   - **Outputclaim**: ["Admin", "Author", "Reader"]
+  
+## <a name="string-claim-transformations-expressions"></a>문자열 클레임 변환 식
+Azure AD B2C 사용자 지정 정책에서 클레임 변환 식은 테 넌 트 ID 및 기술 프로필 ID에 대 한 컨텍스트 정보를 제공 합니다.
+
+  | 식 | Description | 예제 |
+ | ----- | ----------- | --------|
+ | `{TechnicalProfileId}` | 기술 프로필 id 이름입니다. | Facebook-OAUTH |
+ | `{RelyingPartyTenantId}` | 신뢰 당사자 정책의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |
+ | `{TrustFrameworkTenantId}` | 보안 프레임워크의 테넌트 ID입니다. | your-tenant.onmicrosoft.com |

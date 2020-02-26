@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gunjanj
 ms.subservice: files
-ms.openlocfilehash: 00187051eec27ee7b6b2d4927510a2ab9dee442e
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 09e55abcd97317b87f8a272afa51c6b4ace572e8
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708260"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598088"
 ---
 # <a name="troubleshoot-azure-files-performance-issues"></a>Azure Files 성능 문제 해결
 
@@ -22,7 +22,7 @@ ms.locfileid: "75708260"
 
 ### <a name="cause-1-share-experiencing-throttling"></a>원인 1: 제한 발생 공유
 
-프리미엄 공유의 기본 할당량은 100 GiB, 100 기준선 IOPS를 제공 합니다 (한 시간 동안 300까지 증가 시킬 수 있음). 프로 비전 및 IOPS와의 관계에 대 한 자세한 내용은 계획 가이드의 [프로 비전 된 공유](storage-files-planning.md#provisioned-shares) 섹션을 참조 하십시오.
+프리미엄 공유의 기본 할당량은 100 GiB, 100 기준선 IOPS를 제공 합니다 (한 시간 동안 300까지 증가 시킬 수 있음). 프로 비전 및 IOPS와의 관계에 대 한 자세한 내용은 계획 가이드의 [프로 비전 된 공유](storage-files-planning.md#understanding-provisioning-for-premium-file-shares) 섹션을 참조 하십시오.
 
 공유를 제한 하 고 있는지 확인 하려면 포털에서 Azure 메트릭을 활용할 수 있습니다.
 
@@ -45,7 +45,7 @@ ms.locfileid: "75708260"
 > [!NOTE]
 > 파일 공유를 제한 하는 경우 경고를 수신 하려면 [파일 공유를 제한 하는 경우 경고를 만드는 방법](#how-to-create-an-alert-if-a-file-share-is-throttled)을 참조 하세요.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 공유에서 더 높은 할당량을 지정 하 여 공유 프로 비전 된 용량을 늘립니다.
 
@@ -66,7 +66,7 @@ ms.locfileid: "75708260"
 
 고객이 사용 하는 응용 프로그램이 단일 스레드 인 경우 프로 비전 된 공유 크기에 따라 허용 되는 최대 크기 보다 훨씬 낮은 IOPS/처리량이 발생할 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 스레드 수를 늘려 응용 프로그램 병렬 처리를 늘립니다.
 - 병렬 처리를 사용할 수 있는 응용 프로그램으로 전환 합니다. 예를 들어 복사 작업의 경우 고객은 Windows 클라이언트의 AzCopy 또는 RoboCopy를 사용 하거나 Linux 클라이언트에서 **parallel** 명령을 사용할 수 있습니다.
@@ -77,7 +77,7 @@ ms.locfileid: "75708260"
 
 클라이언트 VM은 파일 공유와 다른 지역에 있을 수 있습니다.
 
-### <a name="solution"></a>솔루션
+### <a name="solution"></a>해결 방법
 
 - 파일 공유와 동일한 지역에 있는 VM에서 응용 프로그램을 실행 합니다.
 
@@ -102,7 +102,7 @@ Linux에서 SMB 클라이언트를 구현 하는 것과 관련 하 여 알려진
 
 - 부하를 여러 Vm에 분산 합니다.
 - 동일한 VM에서 **nosharesock** 옵션을 사용 하 여 여러 탑재 위치를 사용 하 고 이러한 탑재 지점의 부하를 분산 합니다.
-- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 fsync 호출에서 SMB 플러시를 방지 합니다. Azure Files의 경우이 옵션은 데이터 consistentcy을 방해 하지 않지만 디렉터리 목록 (**ls-l** 명령)에서 오래 된 파일 메타 데이터를 생성 하 게 될 수 있습니다. 파일의 메타 데이터를 직접 쿼리하면 (**stat** 명령) 최신 파일 메타 데이터가 반환 됩니다.
+- Linux에서 **nostrictsync** 옵션으로 탑재를 시도 하 여 모든 **fsync** 호출에서 SMB 플러시를 방지 합니다. Azure Files의 경우이 옵션은 데이터 일관성을 방해 하지 않지만 디렉터리 목록에 오래 된 파일 메타 데이터 (**ls-l** 명령)를 발생 시킬 수 있습니다. 파일의 메타 데이터를 직접 쿼리하면 (**stat** 명령) 최신 파일 메타 데이터가 반환 됩니다.
 
 ## <a name="high-latencies-for-metadata-heavy-workloads-involving-extensive-openclose-operations"></a>광범위 한 열기/닫기 작업을 포함 하는 메타 데이터 사용량이 많은 작업에 대 한 대기 시간이 깁니다.
 
@@ -160,7 +160,7 @@ DirectoryOpen/Directoryopen 호출 수가 최상위 API 호출 중에 있고 클
 
 ### <a name="workaround"></a>해결 방법
 
-- 없음.
+- 없음
 
 ## <a name="slow-performance-from-windows-81-or-server-2012-r2"></a>Windows 8.1 또는 Server 2012 r 2의 성능 저하
 
@@ -194,7 +194,7 @@ IO를 많이 사용 하는 작업에 대 한 Azure Files 액세스 하는 데 �
   > [!NOTE]
   > 파일 공유가 표준 파일 공유 인 경우 표준 파일 공유에 대 한 공유 메트릭을 사용할 수 없으므로 차원 값 드롭다운이 비어 있습니다. 저장소 계정 내에서 파일 공유를 제한 하 고 경고에서 제한 된 파일 공유를 식별 하지 않으면 표준 파일 공유에 대 한 제한 경고가 트리거됩니다. 표준 파일 공유에는 공유 별 메트릭을 사용할 수 없으므로 저장소 계정 마다 하나의 파일 공유를 사용 하는 것이 좋습니다. 
 
-8. 메트릭 경고 규칙을 평가 하는 데 사용 되는 **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 frequency)를 정의 하 고 **완료**를 클릭 합니다.
+8. 메트릭 경고 규칙을 평가 하는 데 사용 되는 **경고 매개 변수** (임계값, 연산자, 집계 세분성 및 빈도)를 정의 하 고 **완료**를 클릭 합니다.
 
   > [!TIP]
   > 정적 임계값을 사용 하는 경우 메트릭 차트는 파일 공유가 현재 제한 되는 경우 적절 한 임계값을 결정 하는 데 도움이 될 수 있습니다. 동적 임계값을 사용 하는 경우 메트릭 차트에는 최근 데이터를 기반으로 계산 된 임계값이 표시 됩니다.

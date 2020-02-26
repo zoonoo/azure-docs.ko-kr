@@ -2,17 +2,14 @@
 title: Azure Kubernetes 서비스 (AKS)의 할당량, Sku 및 지역 가용성
 description: Azure Kubernetes 서비스 (AKS)의 기본 할당량, 제한 된 노드 VM SKU 크기 및 지역 가용성에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 04/09/2019
-ms.author: mlearned
-ms.openlocfilehash: 1bb928f8e7a1f56c4b6b437f260d875662bff60f
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 03e7396932f0813ef4bd00d644dcdaddfe229e6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469837"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594552"
 ---
 # <a name="quotas-virtual-machine-size-restrictions-and-region-availability-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)의 할당량, 가상 머신 크기 제한 및 지역 가용성
 
