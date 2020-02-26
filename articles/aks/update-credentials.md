@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service) 클러스터의 자격 증명 다시 설정
 description: AKS(Azure Kubernetes Service)에서 클러스터의 서비스 주체 자격 증명을 업데이트하거나 다시 설정하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.author: mlearned
-ms.openlocfilehash: bda0ab50b829fa2e6d58e73b51e3a0a0f6c9e2af
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 46665e78450538cdc473de32e6c2e9a418660af1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72432925"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593073"
 ---
 # <a name="update-or-rotate-the-credentials-for-a-service-principal-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 서비스 주체의 자격 증명 업데이트 또는 회전
 
@@ -31,7 +28,7 @@ AKS 클러스터의 자격 증명을 업데이트하려면 다음을 선택하�
 
 ### <a name="update-existing-service-principal-expiration"></a>기존 서비스 사용자 만료 업데이트
 
-기존 서비스 사용자에 대 한 자격 증명을 업데이트 하려면 [az aks show][az-aks-show] 명령을 사용 하 여 클러스터의 서비스 사용자 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 ID를 가져옵니다. 서비스 사용자 ID는 추가 명령에서 사용할 *SP_ID* 이라는 변수로 설정 됩니다.
+기존 서비스 사용자에 대 한 자격 증명을 업데이트 하려면 [az aks show][az-aks-show] 명령을 사용 하 여 클러스터의 서비스 사용자 ID를 가져옵니다. 다음 예제에서는 *myResourceGroup* 리소스 그룹에서 *myAKSCluster* 클러스터의 ID를 가져옵니다. 서비스 사용자 ID는 추가 명령에서 사용할 *SP_ID* 라는 변수로 설정 됩니다.
 
 ```azurecli-interactive
 SP_ID=$(az aks show --resource-group myResourceGroup --name myAKSCluster \

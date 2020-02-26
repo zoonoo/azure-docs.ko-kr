@@ -3,12 +3,12 @@ title: Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 description: Azure Policy를 사용 하 여 지정 된 범위에서 만든 모든 Vm에 대 한 백업을 자동으로 활성화 하는 방법을 설명 하는 문서입니다.
 ms.topic: conceptual
 ms.date: 11/08/2019
-ms.openlocfilehash: 7a3b526d654936d4e7ec89127a9074146c1b0179
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1d423371788f87155328e8f5c9334e47349a68e8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450129"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584271"
 ---
 # <a name="auto-enable-backup-on-vm-creation-using-azure-policy"></a>Azure Policy를 사용하여 VM 생성 시 백업 자동 활성화
 
@@ -16,9 +16,9 @@ ms.locfileid: "75450129"
 
 현재 Azure Backup는 **구독 또는 리소스 그룹 내의 지정 된 위치에 있는 모든 Azure vm**에 할당 될 수 있는 기본 제공 정책 (Azure Policy 사용)을 제공 합니다. 이 정책이 지정 된 범위에 할당 되 면 해당 범위에서 만들어진 모든 새 Vm은 **동일한 위치 및 구독의 기존 자격 증명 모음**에 백업 하도록 자동으로 구성 됩니다. 사용자는 백업 된 Vm을 연결할 자격 증명 모음 및 보존 정책을 지정할 수 있습니다.
 
-## <a name="supported-scenarios"></a>지원되는 시나리오 
+## <a name="supported-scenarios"></a>지원되는 시나리오
 
-* 기본 제공 정책은 현재 Azure Vm에 대해서만 지원 됩니다. 사용자는 할당 중에 지정 된 보존 정책이 VM 보존 정책 인지 확인 해야 합니다. 이 정책에서 지 원하는 모든 VM Sku를 보려면 [이](https://aka.ms/PolicySupportedSKUs) 문서를 참조 하세요.
+* 기본 제공 정책은 현재 Azure Vm에 대해서만 지원 됩니다. 사용자는 할당 중에 지정 된 보존 정책이 VM 보존 정책 인지 확인 해야 합니다. 이 정책에서 지 원하는 모든 VM Sku를 보려면 [이](https://docs.microsoft.com/azure/backup/backup-azure-policy-supported-skus) 문서를 참조 하세요.
 
 * 정책은 한 번에 하나의 위치 및 구독에 할당 될 수 있습니다. 위치 및 구독의 Vm에 대 한 백업을 사용 하도록 설정 하려면 각 위치 및 구독의 조합에 대해 하나씩, 정책 할당의 여러 인스턴스를 만들어야 합니다.
 

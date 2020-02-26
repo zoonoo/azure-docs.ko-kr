@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.openlocfilehash: ce85c45d80a776af84a0987cfbc3f496c2bbb72b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: fcaa7a0c44851d6b48b40b01af4c8ec992c330b8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75893952"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602574"
 ---
 # <a name="set-up-authentication-for-azure-machine-learning-resources-and-workflows"></a>Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ ms.locfileid: "75893952"
 
 Azure Machine Learning 내에서 보안 및 인증에 대 한 일반적인 개요는 [개념 문서](concept-enterprise-security.md) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)을 만듭니다.
 * Azure Machine Learning SDK를 설치 하거나 SDK가 이미 설치 된 [Azure Machine Learning 노트북 VM](concept-azure-machine-learning-architecture.md#compute-instance) 을 사용 하도록 [개발 환경을 구성](how-to-configure-environment.md) 합니다.
@@ -266,7 +266,7 @@ from azureml.core.webservice import AciWebservice
 
 aci_config = AciWebservice.deploy_configuration(cpu_cores = 1,
                                                 memory_gb = 1,
-                                                auth_enable=True)
+                                                auth_enabled=True)
 ```
 
 그런 다음 `Model` 클래스를 사용 하 여 배포에서 사용자 지정 ACI 구성을 사용할 수 있습니다.

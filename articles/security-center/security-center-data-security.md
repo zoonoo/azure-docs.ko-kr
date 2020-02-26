@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 9dfed5ec14460c3c6213d528f59b86eda15aa1a7
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: a25bbd0f14d38a70624dbc58755c0e814753a181
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73520887"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604188"
 ---
 # <a name="azure-security-center-data-security"></a>Azure Security Center 데이터 보안
 고객이 위협을 방지, 감지 및 대응하는 데 도움을 주기 위해 Azure Security Center에서는 구성 정보, 메타데이터, 이벤트 로그, 크래시 덤프 파일 등을 포함한 보안 관련 데이터를 수집하고 처리합니다. Microsoft는 코딩부터 서비스에 이르기까지 엄격한 규정 준수 및 보안 지침을 따릅니다.
@@ -48,9 +48,9 @@ Azure Security Center에서는 다음 소스의 데이터를 분석하여 보안
 | VM 지역                              | 작업 영역 지역 |
 |-------------------------------------|---------------|
 | 미국, 브라질, 남아프리카 공화국 | 미국 |
-| 캐나다                              | 캐나다        |
+| Canada                              | Canada        |
 | 유럽 (영국 제외)   | 유럽        |
-| 영국                      | 영국 |
+| United Kingdom                      | United Kingdom |
 | 아시아 (인도, 일본, 대한민국, 중국 제외)   | 아시아 태평양  |
 | 한국                              | 아시아 태평양  |
 | 인도                               | 인도         |
@@ -94,5 +94,4 @@ Azure Security Center를 무료로 사용하는 경우 보안 정책의 가상 �
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) — Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md) — 보안 경고를 관리하고 대응하는 방법을 알아봅니다.
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

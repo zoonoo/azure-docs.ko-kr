@@ -2,18 +2,15 @@
 title: Azure Kubernetes 서비스에서 가용성 영역 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)의 가용성 영역에 노드를 배포 하는 클러스터를 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
 ms.custom: fasttrack-edit
-ms.service: container-service
 ms.topic: article
 ms.date: 06/24/2019
-ms.author: mlearned
-ms.openlocfilehash: b73cb09f95fa2b23fb23fb719fe57143e1731ceb
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5693d9e90de9ba68e7b76e0f2bd5b75141dbda71
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086515"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596813"
 ---
 # <a name="create-an-azure-kubernetes-service-aks-cluster-that-uses-availability-zones"></a>가용성 영역을 사용 하는 AKS (Azure Kubernetes Service) 클러스터 만들기
 

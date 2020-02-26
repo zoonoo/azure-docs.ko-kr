@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 07/10/2019
+ms.date: 02/13/2020
 ms.author: juergent
-ms.openlocfilehash: 5487b90172788c08a4383a32462ea5a85c1763ee
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c6a230f6abeab45c56aab2db40b8b1defcc06d90
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099672"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598700"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -68,7 +68,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 설치를 시작 하기 전에 다음 SAP 참고 사항 및 설명서를 참조 하세요.
 
-| SAP note | 설명 |
+| SAP note | Description |
 | --- | --- |
 | [1928533] | Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 지원 필수 조건 |
@@ -82,7 +82,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [1612105] | DB6: d b 2에서 HADR에 대 한 FAQ |
 
 
-| 설명서 | 
+| 문서화 | 
 | --- |
 | [Sap Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 필요한 모든 sap note |
 | [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드 |
@@ -91,7 +91,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [Azure의 SAP 워크 로드 계획 및 배포 검사 목록][azr-sap-plancheck] |
 | [Red Hat Enterprise Linux 7에 대 한 고가용성 추가 기능 개요][rhel-ha-addon] |
 | [High Availability Add-On Administration][rhel-ha-admin](고가용성 추가 기능 관리) |
-| [고가용성 추가 기능 참조][rhel-ha-ref] |
+| [High Availability Add-On Reference][rhel-ha-ref](고가용성 추가 기능 참조) |
 | [Support Policies for RHEL High Availability Clusters - Microsoft Azure Virtual Machines as Cluster Members][rhel-azr-supp](RHEL 고가용성 클러스터용 지원 정책 - Microsoft Azure Virtual Machines(클러스터 멤버))
 | [Installing and Configuring a Red Hat Enterprise Linux 7.4 (and later) High-Availability Cluster on Microsoft Azure][rhel-azr-inst](Microsoft Azure에서 Red Hat Enterprise Linux 7.4 이상 고가용성 클러스터 설치 및 구성)
 | [SAP 워크 로드에 대 한 IBM Db2 Azure Virtual Machines DBMS 배포][dbms-db2] |
@@ -146,9 +146,9 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 | Azure 리소스 그룹 정의 | VM, VNet, Azure Load Balancer 및 기타 리소스를 배포 하는 리소스 그룹입니다. 기존 또는 신규 일 수 있습니다. |
 | 가상 네트워크/서브넷 정의 | IBM Db2 및 Azure Load Balancer에 대 한 Vm이 배포 되 고 있습니다. 기존 또는 새로 만들 수 있습니다. |
 | IBM Db2 LUW을 호스트 하는 가상 머신 | VM 크기, 저장소, 네트워킹, IP 주소입니다. |
-| IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **db-virt-hostname**, **db-virt-ip**. |
+| IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **virt-hostname**, **db-virt-ip**. |
 | Azure 펜스 | 분할을 방지 하는 메서드를 사용 하는 것이 금지 됩니다. |
-| Azure 부하 분산 장치 | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
+| Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
 | 이름 확인| 환경에서 이름 확인이 작동 하는 방식입니다. DNS 서비스는 매우 권장 됩니다. 로컬 호스트 파일을 사용할 수 있습니다. |
     
 Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker on Red Hat Enterprise Linux 설정][rhel-pcs-azr]을 참조 하세요.
@@ -370,7 +370,7 @@ SOCK_RECV_BUF_REQUESTED,ACTUAL(bytes) = 0, 367360
 - **[1]** : 노드 1에만 적용 가능 
 - **[2]** : 노드 2에만 적용 가능
 
-**[A]** Pacemaker 구성에 대 한 필수 조건:
+**[A]** Pacemaker 구성에 대 한 필수 구성 요소:
 1. Db2stop를 사용 하 여 사용자 db2\<sid >를 사용 하 여 두 데이터베이스 서버를 종료 합니다.
 1. Db2\<sid > 사용자에 대 한 셸 환경을 */bin/ksh*로 변경 합니다.
 <pre><code># Install korn shell:
@@ -435,13 +435,18 @@ sudo pcs property set maintenance-mode=false</pre></code>
 ### <a name="configure-azure-load-balancer"></a>Azure Load Balancer 구성
 Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) 를 사용 하 고 다음을 수행 하는 것이 좋습니다.
 
+> [!NOTE]
+> 표준 Load Balancer SKU는 Load Balancer 아래의 노드에서 공용 IP 주소에 액세스할 때 제한이 있습니다. [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) 문서에서는 이러한 노드가 공용 IP 주소에 액세스할 수 있도록 하는 방법에 대해 설명 합니다.
+
+
+
 1. 프런트 엔드 IP 풀을 만듭니다.
 
    a. Azure Portal에서 Azure Load Balancer를 열고 **프런트 엔드 IP 풀**을 선택한 다음 **추가**를 선택 합니다.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   c. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -453,7 +458,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
 
-   c. **가상 머신 추가**를 선택합니다.
+   다. **가상 머신 추가**를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -467,7 +472,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -477,7 +482,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
 
@@ -494,12 +499,12 @@ sudo firewall-cmd --reload</code></pre>
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>연결에 가상 IP를 사용 하도록 SAP 프로필 변경
 HADR 구성의 기본 인스턴스에 연결 하려면 SAP 응용 프로그램 계층에서 Azure Load Balancer에 대해 정의 하 고 구성한 가상 IP 주소를 사용 해야 합니다. 다음과 같이 변경 해야 합니다.
 
-/sapmnt/\<SID>/profile/DEFAULT.PFL
+/sapmnt/\<SID >/profile/DEFAULT. DEFAULT.PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<SID >/global/db6db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -537,7 +542,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유 또는 GlusterFS를 구성 하는 것이 좋습니다. NFS 공유 또는 GlusterFS는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은
+전송 또는 프로필 디렉터리에 대해 기존의 항상 사용 가능한 NFS 공유 또는 GlusterFS를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [SAP NetWeaver에 대한 Red Hat Enterprise Linux에 있는 Azure VM의 GlusterFS][glusterfs] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 Red Hat Enterprise Linux의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성][anf-rhel]
@@ -652,7 +657,7 @@ sudo pcs resource clear Db2_HADR_<b>ID2</b>-master
 *Az-idb01* Node에서 Pacemaker 서비스를 중지 하 여 수동 인수을 테스트할 수 있습니다.
 <pre><code>systemctl stop pacemaker</code></pre>
 
-status on *az-ibdb02*
+*az-ibdb02* 에 대 한 상태
 <pre><code>2 nodes configured
 5 resources configured
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 7ffab200b50a7c4d1af60a230f237b18e8afc621
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75754216"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603396"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -33,7 +33,7 @@ ms.locfileid: "75754216"
 
 ## 가상 컴퓨터/서버 지원 기능<a name="vm-server-features"></a>
 
-### <a name="windowstabfeatures-windows"></a>[Windows](#tab/features-windows)
+### <a name="windows"></a>[Windows](#tab/features-windows)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -51,15 +51,15 @@ ms.locfileid: "75754216"
 |적응형 네트워크 제어|✔|✔|-|Standard|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|-|-|-|Standard|
-|누락 된 OS 패치 평가|✔|✔|✔|체험판|
-|보안 잘못 평가|✔|✔|✔|체험판|
-|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|체험판|
-|디스크 암호화 평가|✔|✔|-|체험판|
-|타사 취약성 평가|✔|-|-|체험판|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|체험판|
+|누락 된 OS 패치 평가|✔|✔|✔|무료|
+|보안 잘못 평가|✔|✔|✔|무료|
+|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|무료|
+|디스크 암호화 평가|✔|✔|-|무료|
+|타사 취약성 평가|✔|-|-|무료|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|무료|
 
 
-### <a name="linuxtabfeatures-linux"></a>[Linux](#tab/features-linux)
+### <a name="linux"></a>[Linux](#tab/features-linux)
 
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
@@ -77,12 +77,12 @@ ms.locfileid: "75754216"
 |적응형 네트워크 제어|✔|✔|-|Standard|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
 |Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|✔|✔|✔|Standard|
-|누락 된 OS 패치 평가|✔|✔|✔|체험판|
-|보안 잘못 평가|✔|✔|✔|체험판|
-|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|체험판|
-|디스크 암호화 평가|✔|✔|-|체험판|
-|타사 취약성 평가|✔|-|-|체험판|
-|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|체험판|
+|누락 된 OS 패치 평가|✔|✔|✔|무료|
+|보안 잘못 평가|✔|✔|✔|무료|
+|[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|무료|
+|디스크 암호화 평가|✔|✔|-|무료|
+|타사 취약성 평가|✔|-|-|무료|
+|[네트워크 보안 평가](security-center-network-recommendations.md)|✔|✔|-|무료|
 
 --- 
 
@@ -95,15 +95,15 @@ ms.locfileid: "75754216"
 
 이러한 각 보호에 대 한 권장 사항이 생성 되는 경우에 대 한 자세한 내용은 [Endpoint Protection 평가 및 권장 사항](security-center-endpoint-protection.md)을 참조 하세요.
 
-| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
-| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 아닙니다. | 예 |
-| Symantec v12.1.1100+| Windows Server 제품군  | 아닙니다. | 예 |
-| McAfee v10+ | Windows Server 제품군  | 아닙니다. | 예 |
-| McAfee v10+ | Linux 서버 제품군  | 아닙니다. | 예 **\*** |
-| Sophos V9 +| Linux 서버 제품군  | 아닙니다. | 예 **\***  |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| yes |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | yes |
+| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 예 | yes |
+| Symantec v12.1.1100+| Windows Server 제품군  | 예 | yes |
+| McAfee v10+ | Windows Server 제품군  | 예 | yes |
+| McAfee v10+ | Linux 서버 제품군  | 예 | 예 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 예 | 예 **\***  |
 
  **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 
@@ -124,7 +124,7 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |Azure Database for PostgreSQL *|✔|✔|-|
 |Azure Database for MySQL *|✔|✔|-|
 |Azure CosmosDB *|-|✔|-|
-|스토리지 계정|✔|-|-|
+|Storage 계정|✔|-|-|
 |Blob Storage|✔|✔|-|
 |App Service|✔|✔|-|
 |함수 앱|✔|-|-|
@@ -145,7 +145,7 @@ Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니�
 |논리 앱|✔|-|-|
 |Redis에 대 한 캐시|✔|-|-|
 |Data Lake Analytics|✔|-|-|
-|Azure Data Lake Storage|✔|-|-|
+|Azure Data Lake 스토리지|✔|-|-|
 |Key Vault|✔|✔ *|-|
 
 \* 이러한 기능은 현재 미리 보기에서 지원 됩니다.
@@ -159,5 +159,5 @@ Azure AD (\*\* Azure Active Directory 권장 사항은 표준 구독에 대해�
 - [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
 - [Security center를 지 원하는 플랫폼](security-center-os-coverage.md)을 검토 합니다.
 - [Azure Security Center에서 vm & 서버에 대 한 위협 검색](security-center-alerts-iaas.md)에 대해 자세히 알아보세요.
-- [Azure Security Center 사용에 관한 질문과 대답](security-center-faq.md)을 찾아봅니다.
+- [Azure Security Center에 대 한 질문과 대답](faq-general.md)을 찾습니다.
 - [Azure 보안 및 규정 준수에 관한 블로그 게시물](https://blogs.msdn.com/b/azuresecurity/)을 찾아봅니다.

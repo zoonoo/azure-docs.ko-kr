@@ -8,14 +8,14 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: de6bbb81b04b93cce8ab7ddaf1d983cb7e4a700d
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 2f4b034948605b0a53a0320863608d284719a96d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990592"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587535"
 ---
-# <a name="overview-of-azure-security-controls"></a>Azure 보안 컨트롤 개요
+# <a name="overview-of-the-azure-security-benchmark"></a>Azure 보안 벤치 마크 개요
 
 Azure 보안 벤치 마크에는 Azure에서 응용 프로그램 및 데이터의 보안을 개선 하는 데 도움이 되는 권장 사항이 포함 되어 있습니다.
 

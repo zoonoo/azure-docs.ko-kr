@@ -2,16 +2,15 @@
 title: 서비스 메시 정보
 description: 서비스 메시, 아키텍처 및 기능에 대 한 개요 및 배포할 조건을 선택할 때 고려해 야 하는 조건을 파악 합니다.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 226a4e5cf97be2e23ef13a95b80be07b7fbf5d7a
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: eca49a3fac1ea0398ebe1d05bde20fbca3c81232
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530707"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594314"
 ---
 # <a name="about-service-meshes"></a>서비스 메시 정보
 
@@ -29,7 +28,7 @@ ms.locfileid: "72530707"
 
 - **관찰성** -서비스가 서로 연결 되는 트래픽에 대 한 통찰력을 얻습니다. 클러스터의 모든 트래픽과 수신/송신에 대 한 메트릭, 로그 및 추적을 얻습니다. 응용 프로그램에 분산 추적 기능을 추가 합니다.
 
-## <a name="architecture"></a>건축
+## <a name="architecture"></a>Architecture
 
 서비스 메시는 일반적으로 제어 평면과 데이터 평면으로 구성 됩니다.
 

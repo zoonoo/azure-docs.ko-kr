@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 여러 Pod용 Files 볼륨을 동적으로 만들기
 description: Azure Files를 사용하여 AKS(Azure Kubernetes Service)에서 여러 Pod에 동시에 사용할 영구 볼륨을 동적으로 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 09/12/2019
-ms.author: mlearned
-ms.openlocfilehash: 999e106240a8a1d95c35d098062d474a0b57228d
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: a6e46433354be0d9d958ec69da4529e94a4edd75
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74231747"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596423"
 ---
 # <a name="dynamically-create-and-use-a-persistent-volume-with-azure-files-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure Files를 사용하여 영구 볼륨을 동적으로 만들어 사용
 

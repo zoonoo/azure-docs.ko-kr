@@ -2,18 +2,15 @@
 title: AKS(Azure Kubernetes Service)에서 kubenet 네트워킹 구성
 description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배포하도록 AKS(Azure Kubernetes Service)에서 kubenet(기본) 네트워크를 구성하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/26/2019
-ms.author: mlearned
 ms.reviewer: nieberts, jomore
-ms.openlocfilehash: 382895c1b5a4cb2bc88ff2371cec59267ea4e176
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9931c752d5ce33beb41dc00194c27d06b9469807
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75442932"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595896"
 ---
 # <a name="use-kubenet-networking-with-your-own-ip-address-ranges-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 사용자 고유의 IP 주소 범위에 kubenet 네트워킹 사용
 
@@ -23,7 +20,7 @@ ms.locfileid: "75442932"
 
 이 문서에서는 *kubenet* 네트워킹을 사용하여 AKS 클러스터용 가상 네트워크를 만들고 사용하는 방법에 대해 설명합니다. 네트워크 옵션 및 고려 사항에 대 한 자세한 내용은 [Kubernetes 및 AKS의 네트워크 개념][aks-network-concepts]을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * AKS 클러스터에 대한 가상 네트워크는 아웃바운드 인터넷 연결을 허용해야 합니다.
 * 동일한 서브넷에 둘 이상의 AKS 클러스터를 만들지 마세요.

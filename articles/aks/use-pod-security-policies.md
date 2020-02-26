@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service에서 pod 보안 정책 사용 (AKS)
 description: AKS (Azure Kubernetes Service)에서 PodSecurityPolicy를 사용 하 여 pod 입학을 제어 하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 04/17/2019
-ms.author: mlearned
-ms.openlocfilehash: 5aec645c19ee5f813fdefb57d728c14688da8712
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: bc22a577777e50724fbafa04cf01f28362113cc7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926404"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592835"
 ---
 # <a name="preview---secure-your-cluster-using-pod-security-policies-in-azure-kubernetes-service-aks"></a>미리 보기-Azure Kubernetes Service에서 pod 보안 정책을 사용 하 여 클러스터 보호 (AKS)
 

@@ -2,20 +2,20 @@
 title: 보안 구하기를 위해 Azure 센티널에서 노트북 사용
 description: 이 문서에서는 Azure 센티널 구하기 기능에서 노트북을 사용 하는 방법을 설명 합니다.
 services: sentinel
-author: rkarlin
-ms.author: rkarlin
+author: yelevin
+ms.author: yelevin
 ms.assetid: 1721d0da-c91e-4c96-82de-5c7458df566b
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/25/2019
-ms.openlocfilehash: 44a37fb8d06040b0d872f15ab25bdd2c7ff685b8
-ms.sourcegitcommit: 5925df3bcc362c8463b76af3f57c254148ac63e3
+ms.openlocfilehash: 84b72a71ed2de910bce44b0c3f3309782f096680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75563703"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581840"
 ---
 # <a name="use-jupyter-notebooks-to-hunt-for-security-threats"></a>Jupyter 노트북을 사용 하 여 보안 위협 구하기
 
@@ -62,7 +62,7 @@ Azure 센티널에서 노트북 다이렉트를 실행 하거나 모든 Azure �
  
 1. Azure Portal에서 azure 센티널이 제공 하는 노트북을 볼 수 있는 **Azure 센티널** > **Threat management** > **노트북**으로 이동 합니다. 
 
-2. 개별 노트북을 선택 하 여 설명, 필수 데이터 형식 및 데이터 원본을 읽습니다. 예:
+2. 개별 노트북을 선택 하 여 설명, 필수 데이터 형식 및 데이터 원본을 읽습니다. 다음은 그 예입니다.
     
     > [!div class="mx-imgBorder"]
     > 노트북](./media/notebooks/sentinel-azure-notebooks-launch.png) 시작 ![
@@ -86,7 +86,7 @@ Azure 센티널에서 노트북 다이렉트를 실행 하거나 모든 Azure �
 
    ![노트북 가져오기](./media/notebooks/sentinel-create-project.png)
 
-4. 방금 만든 프로젝트를 열고 **노트북 폴더를 열어 전자 필기장** 을 확인 합니다. 예:
+4. 방금 만든 프로젝트를 열고 **노트북 폴더를 열어 전자 필기장** 을 확인 합니다. 다음은 그 예입니다.
 
    ![리포지토리 가져오기](./media/notebooks/sentinel-open-notebook1.png)
 

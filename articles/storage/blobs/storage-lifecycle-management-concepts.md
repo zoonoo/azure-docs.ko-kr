@@ -8,12 +8,12 @@ ms.service: storage
 ms.subservice: common
 ms.topic: conceptual
 ms.reviewer: yzheng
-ms.openlocfilehash: fdc98991134e0857d24575d22962a52e43266cbe
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 238c12baf55b525a24107a727d09588ef06a6bef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939233"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598309"
 ---
 # <a name="manage-the-azure-blob-storage-lifecycle"></a>Azure Blob Storage 수명 주기 관리
 
@@ -58,7 +58,7 @@ ms.locfileid: "76939233"
 
 이 문서에서는 포털 및 PowerShell 메서드를 사용 하 여 정책을 관리 하는 방법을 보여 줍니다.  
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습니다. 
 
@@ -128,7 +128,7 @@ Azure Portal를 통해 정책을 추가 하는 방법에는 두 가지가 있습
 
 6. 이 JSON 예제에 대 한 자세한 내용은 [정책](#policy) 및 [규칙](#rules) 섹션을 참조 하십시오.
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 
 다음 PowerShell 스크립트를 사용 하 여 저장소 계정에 정책을 추가할 수 있습니다. `$rgname` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다.
 
@@ -158,7 +158,7 @@ $rule1 = New-AzStorageAccountManagementPolicyRule -Name Test -Action $action -Fi
 $policy = Set-AzStorageAccountManagementPolicy -ResourceGroupName $rgname -StorageAccountName $accountName -Rule $rule1
 ```
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정의할 수 있습니다. 다음은 수명 주기 관리 정책으로 RA GRS GPv2 storage 계정을 배포 하는 샘플 템플릿입니다.
 
@@ -438,7 +438,7 @@ Azure Resource Manager 템플릿을 사용 하 여 수명 주기 관리를 정�
 플랫폼은 하루에 한 번 수명 주기 정책을 실행합니다. 정책을 구성한 후에는 일부 작업을 처음 실행 하는 데 최대 24 시간이 걸릴 수 있습니다.  
 
 **기존 정책을 업데이트 하는 경우 작업이 실행 되는 데 얼마나 걸립니까?**  
-업데이트 된 정책은 적용 되는 데 최대 24 시간이 걸립니다. 정책이 적용 되 면 작업이 실행 되는 데 최대 24 시간이 걸릴 수 있습니다. 따라서 정책을 실행 하는 데 최대 48 시간이 걸릴 수 있습니다.   
+업데이트 된 정책은 적용 되는 데 최대 24 시간이 걸립니다. 정책이 적용 되 면 작업이 실행 되는 데 최대 24 시간이 걸릴 수 있습니다. 따라서 정책 작업을 완료 하는 데 최대 48 시간이 걸릴 수 있습니다.   
 
 **보관 된 blob을 수동으로 전환 하 여 보관 계층으로 다시 이동 하는 것을 방지 하려면 어떻게 해야 하나요?**  
 Blob을 한 액세스 계층에서 다른 액세스 계층으로 이동 하면 마지막 수정 시간이 변경 되지 않습니다. 보관 된 blob을 핫 계층으로 수동으로 리하이드레이션 수명 주기 관리 엔진에서 보관 계층으로 다시 이동 합니다. 이 blob에 일시적으로 영향을 주는 규칙을 사용 하지 않도록 설정 하 여 다시 보관 되지 않도록 합니다. Blob을 다시 보관 계층으로 안전 하 게 이동할 수 있는 경우 규칙을 다시 사용 하도록 설정 합니다. 핫 또는 쿨 계층을 영구적으로 유지 해야 하는 경우 blob을 다른 위치로 복사할 수도 있습니다.

@@ -3,12 +3,12 @@ title: Service Fabric 클러스터 확장 또는 축소
 description: 각 노드 형식/가상 머신 확장 집합에 대 한 자동 크기 조정 규칙을 설정 하 여 수요에 맞게 Service Fabric 클러스터의 크기를 조정 합니다. 서비스 패브릭 클러스터에 노드 추가 또는 제거
 ms.topic: conceptual
 ms.date: 03/12/2019
-ms.openlocfilehash: 42193ee06eda3f1d8c56b4db3251763b9dc52076
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 26ef13f38d525e4e493ad933bfb906dd36ed0070
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76774457"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587484"
 ---
 # <a name="scale-a-cluster-in-or-out"></a>클러스터 규모 확장 또는 규모 감축
 
@@ -104,7 +104,7 @@ Service fabric 시스템 서비스는 클러스터의 주 노드 형식에서 �
 Get-ServiceFabricNode | Sort-Object NodeInstanceId -Descending | Select-Object -First 1
 ```
 
-```azurecli
+```shell
 sfctl node list --query "sort_by(items[*], &name)[-1]"
 ```
 
@@ -184,9 +184,9 @@ else
 }
 ```
 
-아래 **sfctl** 코드에서 `sfctl node list --query "sort_by(items[*], &name)[-1].name"` 명령을 사용하여 마지막으로 만든 노드의 **node-name** 값을 가져옵니다.
+아래 **sfctl** 코드에서 **명령을 사용하여 마지막으로 만든 노드의**node-name`sfctl node list --query "sort_by(items[*], &name)[-1].name"` 값을 가져옵니다.
 
-```azurecli
+```shell
 # Inform the node that it is going to be removed
 sfctl node disable --node-name _nt1vm_5 --deactivation-intent 4 -t 300
 

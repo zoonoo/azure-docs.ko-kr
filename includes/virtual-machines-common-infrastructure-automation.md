@@ -4,12 +4,12 @@ ms.service: virtual-machines
 ms.topic: include
 ms.date: 04/11/2019
 ms.author: cynthn
-ms.openlocfilehash: 525eba8a5a4e891526eb32a24287ea3887ee6743
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 9cbc48d8bca2f7491d0464be1c5bd64054927dc9
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77474153"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77608742"
 ---
 Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리하려면 일종의 자동화가 필요합니다. 완벽한 Azure 인프라 배포 및 관리 수명 주기를 자동화할 수 있는 다양한 도구와 솔루션이 있습니다. 이 문서에서는 Azure에서 사용할 수 있는 인프라 자동화 도구 중 일부를 소개합니다. 이러한 도구는 일반적으로 다음 방법 중 하나에 적합합니다.
 
@@ -40,7 +40,7 @@ Azure VM(가상 머신)을 대규모의 일관된 방식으로 만들고 관리�
 방법 배우기:
 
 - [Azure Marketplace에서 Chef Automate 배포(영문)](https://azuremarketplace.microsoft.com/marketplace/apps/chef-software.chef-automate?tab=Overview)
-- [Windows에 Chef 설치 및 Azure VM 만들기](../articles/virtual-machines/windows/chef-automation.md)
+- [Windows에 Chef 설치 및 Azure VM 만들기](../articles/chef/chef-automation.md)
 
 
 ## <a name="puppet"></a>Puppet
@@ -128,7 +128,7 @@ DSC 구성은 컴퓨터에 설치할 항목과 호스트를 구성하는 방법�
 
 방법 배우기:
 
-- [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](../articles/virtual-machines/linux/tutorial-jenkins-github-docker-cicd.md)
+- [Jenkins, GitHub 및 Docker를 사용하여 Azure에서 Linux VM의 개발 인프라 만들기](../articles/jenkins/tutorial-jenkins-github-docker-cicd.md)
 
 
 ## <a name="next-steps"></a>다음 단계

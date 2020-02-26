@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 04/10/2019
+ms.date: 02/25/2020
 ms.author: juergent
-ms.openlocfilehash: e7de3e8026b15342c06eff9718242c08d33a53a4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.openlocfilehash: a4b3378909d40fe2b770f70f83054a97f2646bd3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72783774"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602367"
 ---
 [1928533]: https://launchpad.support.sap.com/#/notes/1928533
 [2015553]: https://launchpad.support.sap.com/#/notes/2015553
@@ -60,7 +60,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 
 설치를 시작 하기 전에 다음 SAP 참고 사항 및 설명서를 참조 하세요.
 
-| SAP note | 설명 |
+| SAP note | Description |
 | --- | --- |
 | [1928533] | Azure의 SAP 응용 프로그램: 지원 되는 제품 및 Azure VM 유형 |
 | [2015553] | Azure의 SAP: 지원 필수 조건 |
@@ -73,7 +73,7 @@ HADR (고가용성 [및 재해 복구) 구성](https://www.ibm.com/support/knowl
 | [1612105] | DB6: d b 2에서 HADR에 대 한 FAQ |
 
 
-| 설명서 | 
+| 문서화 | 
 | --- |
 | [Sap Community Wiki](https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes): Linux에 필요한 모든 sap note |
 | [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide] 가이드 |
@@ -131,10 +131,10 @@ IBM Db2 구성을 배포 하려면 다음 단계를 수행 해야 합니다.
 | Azure 리소스 그룹 정의 | VM, VNet, Azure Load Balancer 및 기타 리소스를 배포 하는 리소스 그룹입니다. 기존 또는 신규 일 수 있습니다. |
 | 가상 네트워크/서브넷 정의 | IBM Db2 및 Azure Load Balancer에 대 한 Vm이 배포 되 고 있습니다. 기존 또는 새로 만들 수 있습니다. |
 | IBM Db2 LUW을 호스트 하는 가상 머신 | VM 크기, 저장소, 네트워킹, IP 주소입니다. |
-| IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **db-virt-hostname**, **db-virt-ip**. |
+| IBM Db2 데이터베이스용 가상 호스트 이름 및 가상 IP| SAP 응용 프로그램 서버 연결에 사용 되는 가상 IP 또는 호스트 이름입니다. **virt-hostname**, **db-virt-ip**. |
 | Azure 펜스 | Azure 펜스 또는 SBD 펜스 (매우 권장). 메서드를 사용 하 여 부분 분할 상황을 방지 합니다. |
 | SBD VM | SBD 가상 머신 크기, 저장소, 네트워크. |
-| Azure 부하 분산 장치 | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
+| Azure Load Balancer | 기본 또는 표준 (권장)을 사용 하 고 Db2 데이터베이스용 프로브 포트 (권장 62500) **프로브 포트**를 사용 합니다. |
 | 이름 확인| 환경에서 이름 확인이 작동 하는 방식입니다. DNS 서비스는 매우 권장 됩니다. 로컬 호스트 파일을 사용할 수 있습니다. |
     
 Azure의 Linux Pacemaker에 대 한 자세한 내용은 [azure에서 Pacemaker on SUSE Linux Enterprise Server 설정](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker)을 참조 하세요.
@@ -422,13 +422,16 @@ sudo crm configure property maintenance-mode=false</pre></code>
 ### <a name="configure-azure-load-balancer"></a>Azure Load Balancer 구성
 Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-overview) 를 사용 하 고 다음을 수행 하는 것이 좋습니다.
 
+> [!NOTE]
+> 표준 Load Balancer SKU는 Load Balancer 아래의 노드에서 공용 IP 주소에 액세스할 때 제한이 있습니다. [SAP 고가용성 시나리오에서 Azure 표준 Load Balancer를 사용 하 Virtual Machines에 대 한 공용 끝점 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-standard-load-balancer-outbound-connections) 문서에서는 이러한 노드가 공용 IP 주소에 액세스할 수 있도록 하는 방법에 대해 설명 합니다.
+
 1. 프런트 엔드 IP 풀을 만듭니다.
 
    a. Azure Portal에서 Azure Load Balancer를 열고 **프런트 엔드 IP 풀**을 선택한 다음 **추가**를 선택 합니다.
 
    b. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **Db2 연결**).
 
-   c. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
+   다. **할당** 을 **정적**으로 설정 하 고, 시작 부분에 정의 된 ip 주소 **가상 ip** 를 입력 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -440,7 +443,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 백 엔드 풀의 이름 (예: **Db2-백**엔드)을 입력 합니다.
 
-   c. **가상 머신 추가**를 선택합니다.
+   다. **가상 머신 추가**를 선택합니다.
 
    d. 이전 단계에서 만든 IBM Db2 데이터베이스를 호스트 하는 가용성 집합 또는 가상 머신을 선택 합니다.
 
@@ -454,7 +457,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 상태 프로브 (예: **Db2-hp**)의 이름을 입력 합니다.
 
-   c. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
+   다. 프로토콜 및 포트 **62500**로 **TCP** 를 선택 합니다. **간격** 값을 **5**로 유지 하 고 **비정상 임계값** 을 **2**로 설정 된 상태로 유지 합니다.
 
    d. **확인**을 선택합니다.
 
@@ -464,7 +467,7 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 
    b. 새 Load Balancer 규칙의 이름 (예: **Db2-SID**)을 입력 합니다.
 
-   c. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
+   다. 앞에서 만든 프런트 엔드 IP 주소, 백 엔드 풀 및 상태 프로브 (예: **Db2-프런트 엔드**)를 선택 합니다.
 
    d. **프로토콜** 을 **TCP**로 설정 된 상태로 유지 하 고 포트 *데이터베이스 통신 포트*를 입력 합니다.
 
@@ -478,12 +481,12 @@ Azure Load Balancer를 구성 하려면 [Azure 표준 LOAD BALANCER SKU](https:/
 ### <a name="make-changes-to-sap-profiles-to-use-virtual-ip-for-connection"></a>연결에 가상 IP를 사용 하도록 SAP 프로필 변경
 HADR 구성의 기본 인스턴스에 연결 하려면 SAP 응용 프로그램 계층에서 Azure Load Balancer에 대해 정의 하 고 구성한 가상 IP 주소를 사용 해야 합니다. 다음과 같이 변경 해야 합니다.
 
-/sapmnt/\<SID>/profile/DEFAULT.PFL
+/sapmnt/\<SID >/profile/DEFAULT. DEFAULT.PFL
 <pre><code>SAPDBHOST = db-virt-hostname
 j2ee/dbhost = db-virt-hostname
 </code></pre>
 
-/sapmnt/\<SID>/global/db6/db2cli.ini
+/sapmnt/\<SID >/global/db6db2cli.ini
 <pre><code>Hostname=db-virt-hostname
 </code></pre>
 
@@ -516,7 +519,7 @@ HADR 설치를 위해 Db2 로그 보관을 구성 하려면 모든 로그 보관
 
 두 노드에서 로그가 기록 되는 일반적인 NFS 공유를 구성 하는 것이 좋습니다. NFS 공유는 항상 사용 가능 해야 합니다. 
 
-전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 자세한 내용은
+전송 또는 프로필 디렉터리에 대해 항상 사용 가능한 기존 NFS 공유를 사용할 수 있습니다. 자세한 내용은 다음을 참조하세요.
 
 - [SUSE Linux Enterprise Server에서 Azure Vm의 NFS에 대 한 고가용성][nfs-ha] 
 - [SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)

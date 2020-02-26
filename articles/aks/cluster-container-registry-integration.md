@@ -2,18 +2,15 @@
 title: Azure Kubernetes Service와 Azure Container Registry 통합
 description: ACR (Kubernetes Service) Azure Container Registry를 사용 하 여 AKS (Azure Service)를 통합 하는 방법 알아보기
 services: container-service
-author: mlearned
 manager: gwallace
-ms.service: container-service
 ms.topic: article
 ms.date: 09/17/2018
-ms.author: mlearned
-ms.openlocfilehash: ba52cac4ebe923b7217550ed90948d908d8daf7f
-ms.sourcegitcommit: bc193bc4df4b85d3f05538b5e7274df2138a4574
+ms.openlocfilehash: b1f4449728589eca4f64035d7e70d01dbc187bc4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/10/2019
-ms.locfileid: "73900658"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596201"
 ---
 # <a name="authenticate-with-azure-container-registry-from-azure-kubernetes-service"></a>Azure Kubernetes Service의 Azure Container Registry를 사용하여 인증
 
@@ -23,7 +20,7 @@ Azure CLI를 사용 하 여 몇 가지 간단한 명령에서 ACR 통합에 AKS�
 
 ## <a name="before-you-begin"></a>시작하기 전에
 
-이러한 예제에는 다음이 필요 합니다.
+이러한 예제에는 다음이 필요합니다.
 
 * **Azure 구독** 에 대 한 **소유자** 또는 **azure 계정 관리자** 역할
 * Azure CLI 버전 2.0.73 이상
@@ -68,7 +65,7 @@ az aks update -n myAKSCluster -g myResourceGroup --attach-acr <acr-resource-id>
 ```azurecli
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acrName>
 ```
-or
+또는
 ```
 az aks update -n myAKSCluster -g myResourceGroup --detach-acr <acr-resource-id>
 ```

@@ -11,12 +11,12 @@ author: MayMSFT
 ms.reviewer: nibaccam
 ms.date: 01/15/2020
 ms.custom: seodec18
-ms.openlocfilehash: 6d68599af644e5bb03fc850a880b07c6a4d262a9
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 54ad9109a23b0fb25470987c2bc863934864b83f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77370475"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580681"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "77370475"
 
 [이러한 Azure Storage 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다. 지원 되지 않는 저장소 솔루션의 경우 machine learning 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure Storage 솔루션으로 [데이터를 이동](#move) 하는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 필요한 사항:
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -58,9 +58,9 @@ Datastores는 현재 다음 행렬에 나열 된 저장소 서비스에 대 한 
 Azure&nbsp;SQL&nbsp;데이터베이스| SQL 인증 <br>서비스 주체| ✓ | ✓ | ✓ |✓
 Azure&nbsp;PostgreSQL | SQL 인증| ✓ | ✓ | ✓ |✓
 &nbsp;MySQL에 대 한 Azure&nbsp;Database&nbsp; | SQL 인증|  | ✓ | ✓ |✓
-Databricks&nbsp;File&nbsp;System| 인증 없음 | | ✓ | ✓ |✓ 
+Databricks&nbsp;File&nbsp;System| 인증 없음 | | ✓ * * | ✓ * * |✓ * * 
 
-\* 로컬 계산 대상 시나리오 에서만 지원 됨
+*MySQL은 파이프라인 [DataTransferStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.datatransferstep?view=azure-ml-py)지원 됩니다 <br> \** Databricks은 파이프라인 [DatabricksStep](https://docs.microsoft.com/python/api/azureml-pipeline-steps/azureml.pipeline.steps.databricks_step.databricksstep?view=azure-ml-py) 지원 됩니다.
 
 ### <a name="storage-guidance"></a>스토리지 지침
 
@@ -77,7 +77,7 @@ Azure Storage 솔루션을 데이터 저장소로 등록 하면 해당 데이터
 
 >[!IMPORTANT]
 > 현재 데이터 저장소 만들기 및 등록 프로세스의 일부로, Azure Machine Learning 사용자가 제공한 보안 주체 (사용자 이름, 서비스 주체 또는 SAS 토큰)가 기본 저장소 서비스에 액세스할 수 있는지를 확인 합니다. 
-<br>
+<br><br>
 그러나 Gen 1 및 2 데이터 저장소 Azure Data Lake Storage의 경우 나중에 [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py) 또는 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-parquet-files-path--validate-true--include-path-false--set-column-types-none--partition-format-none-) 같은 데이터 액세스 메서드가 호출 될 때이 유효성 검사가 수행 됩니다. 
 
 ### <a name="python-sdk"></a>Python SDK
@@ -87,10 +87,13 @@ Azure Storage 솔루션을 데이터 저장소로 등록 하면 해당 데이터
 [Azure Portal](https://portal.azure.com)를 사용 하 여 `register()` 메서드를 채우는 데 필요한 정보를 찾을 수 있습니다.
 
 1. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. 
-2. 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보는 **개요** 페이지로 이동 합니다. 계정 키 또는 SAS 토큰과 같은 인증 정보는 **설정** 창에서 **액세스 키** 로 이동 합니다. 
+2. 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보는 **개요** 페이지로 이동 합니다. 
+3. 계정 키 또는 SAS 토큰과 같은 인증 정보는 **설정** 창에서 **액세스 키** 로 이동 합니다. 
+
+4. 테 넌 트 ID 및 클라이언트 ID와 같은 서비스 사용자 항목의 경우 **앱 등록**의 **개요** 페이지로 이동 합니다. 
 
 > [!IMPORTANT]
-> 저장소 계정이 가상 네트워크에 있는 경우 Azure blob 데이터 저장소 만들기만 지원 됩니다. 작업 영역에 저장소 계정에 대 한 액세스 권한을 부여 하려면 매개 변수 `grant_workspace_access` `True`로 설정 합니다.
+> 저장소 계정이 가상 네트워크에 있는 경우 **SDK를 통해** Blob, 파일 공유, ADLS gen 1 및 ADLS gen 2 데이터 저장소 만들기만 지원 됩니다. 작업 영역에 저장소 계정에 대 한 액세스 권한을 부여 하려면 매개 변수 `grant_workspace_access` `True`로 설정 합니다.
 
 다음 예제에서는 Azure blob 컨테이너, Azure 파일 공유 및 Azure Data Lake Storage 2 세대를 데이터 저장소로 등록 하는 방법을 보여 줍니다. 다른 저장소 서비스는 [`register_azure_*` 방법에 대 한 참조 설명서](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#methods)를 참조 하세요.
 
@@ -134,7 +137,7 @@ file_datastore = Datastore.register_azure_file_share(workspace=ws,
 
 #### <a name="azure-data-lake-storage-generation-2"></a>Azure Data Lake Storage 2 세대
 
-ADLS Gen 2 (Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 [서비스 사용자 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)으로 Azure DataLake Gen 2 저장소에 연결 된 자격 증명 데이터 저장소를 등록 합니다. [ADLS Gen 2에 대 한 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대 한 자세한 정보. 
+ADLS Gen 2 (Gen 2) 데이터 저장소 Azure Data Lake Storage의 경우 [register_azure_data_lake_gen2 ()](https://docs.microsoft.com/python/api/azureml-core/azureml.core.datastore.datastore?view=azure-ml-py#register-azure-data-lake-gen2-workspace--datastore-name--filesystem--account-name--tenant-id--client-id--client-secret--resource-url-none--authority-url-none--protocol-none--endpoint-none--overwrite-false-) 를 사용 하 여 [서비스 사용자 권한](https://docs.microsoft.com/azure/active-directory/develop/howto-create-service-principal-portal)으로 Azure DataLake Gen 2 저장소에 연결 된 자격 증명 데이터 저장소를 등록 합니다. 서비스 주체를 활용 하기 위해 [응용 프로그램을 등록](https://docs.microsoft.com/azure/active-directory/develop/app-objects-and-service-principals)해야 합니다. [ADLS Gen 2에 대 한 액세스 제어 설정](https://docs.microsoft.com/azure/storage/blobs/data-lake-storage-access-control)에 대 한 자세한 정보. 
 
 다음 코드는 `adlsgen2_datastore_name` 데이터 저장소를 만들어 `ws` 작업 영역에 등록 합니다. 이 데이터 저장소는 제공 된 서비스 주체 자격 증명을 사용 하 여 `account_name` 저장소 계정의 파일 시스템 `test`에 액세스 합니다.
 
@@ -162,12 +165,19 @@ adlsgen2_datastore = Datastore.register_azure_data_lake_gen2(workspace=ws,
 
 Azure Machine Learning studio에서 몇 가지 단계를 수행 하 여 새 데이터 저장소를 만듭니다.
 
+> [!IMPORTANT]
+> 저장소 계정이 가상 네트워크에 있는 경우 [SDK를 통한](#python-sdk) 데이터 저장소 만들기만 지원 됩니다. 
+
 1. [Azure Machine Learning Studio](https://ml.azure.com/)에 로그인합니다.
 1. **관리**아래의 왼쪽 창에서 **datastores** 를 선택 합니다.
 1. **+ 새 데이터 저장소**를 선택 합니다.
 1. 새 데이터 저장소에 대 한 양식을 작성 합니다. 양식은 Azure Storage 유형 및 인증 유형에 대 한 선택 항목에 따라 지능적으로 업데이트 됩니다.
   
-[Azure Portal](https://portal.azure.com)에서 폼을 채우는 데 필요한 정보를 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지에서 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보를 제공 합니다. 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창의 **계정 키** 로 이동 합니다.
+[Azure Portal](https://portal.azure.com)에서 폼을 채우는 데 필요한 정보를 찾을 수 있습니다. 왼쪽 창에서 **저장소 계정** 을 선택 하 고 등록 하려는 저장소 계정을 선택 합니다. **개요** 페이지에서 계정 이름, 컨테이너 및 파일 공유 이름과 같은 정보를 제공 합니다. 
+
+* 계정 키 또는 SAS 토큰과 같은 인증 항목의 경우 **설정** 창의 **계정 키** 로 이동 합니다. 
+
+* 테 넌 트 ID 및 클라이언트 ID와 같은 서비스 사용자 항목의 경우 **앱 등록**의 **개요** 페이지로 이동 합니다. 
 
 다음 예제에서는 Azure blob 데이터 저장소를 만들 때 양식이 표시 되는 모양을 보여 줍니다. 
     
@@ -259,7 +269,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 datastores에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
 
-| 방법 | 데이터 저장소 액세스 | 설명 |
+| 방법 | 데이터 저장소 액세스 | Description |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |

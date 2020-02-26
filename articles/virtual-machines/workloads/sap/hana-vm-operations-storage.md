@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 11/27/2019
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 26994c3488feb5f2c1522960ba4d2664bdbc80f4
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707467"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598530"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -54,8 +54,11 @@ IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목�
 
 **권장 사항: RAID 0의 스트라이프 크기는 다음을 사용 하는 것이 좋습니다.**
 
-- **/hana/data**에 대해 64KB 또는 128KB
+- **/hana/data** 의 경우 256 KB
 - **/hana/log**에 대해 32KB
+
+> [!IMPORTANT]
+> /Hana/data에 대 한 스트라이프 크기가 최신 Linux 버전을 사용 하는 고객 환경에 따라 64 KB 또는 128 KB ~ 256 KB를 호출 하는 이전 권장 사항에서 변경 되었습니다. 256 KB 크기는 약간 더 나은 성능을 제공 합니다.
 
 > [!NOTE]
 > Azure Premium과 Standard 스토리지는 세 개의 VHD 이미지를 유지하므로 RAID 볼륨을 사용하여 모든 중복 수준을 구성할 필요가 없습니다. RAID 볼륨의 사용법은 순수하게 충분한 I/O 처리량을 제공하는 볼륨을 구성하는 것입니다.
@@ -65,7 +68,7 @@ RAID 아래의 Azure VHD 수 누적은 IOPS 및 스토리지 처리량 측면의
 VM의 크기를 조정하거나 결정할 때도 전체 VM I/O 처리량을 고려하세요. 전체 VM 스토리지 처리량은 [메모리 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory) 문서에 설명되어 있습니다.
 
 ## <a name="linux-io-scheduler-mode"></a>Linux I/O 스케줄러 모드
-Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 **cfq** 모드에서 **noop** 모드로 디스크 볼륨에 대 한 i/o scheduler 모드를 다시 구성 하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조 하세요. 
+Linux에는 몇 가지 다른 I/O 일정 예약 모드가 있습니다. Linux 공급 업체 및 SAP를 통한 일반적인 권장 사항은 **cfq** 모드에서 **noop** (multiqueue)로 또는 **none** (multiqueue) 모드에서 디스크 볼륨에 대 한 i/o scheduler 모드를 다시 구성 하는 것입니다. 자세한 내용은 [SAP Note #1984787](https://launchpad.support.sap.com/#/notes/1984787)에서 참조 하세요. 
 
 
 ## <a name="solutions-with-premium-storage-and-azure-write-accelerator-for-azure-m-series-virtual-machines"></a>Azure M 시리즈 가상 머신에 대 한 Premium Storage 및 Azure 쓰기 가속기를 사용 하는 솔루션
@@ -105,10 +108,10 @@ Azure 쓰기 가속기는 Azure M 시리즈 Vm에만 사용할 수 있는 기능
 | M32ts | 192GiB | 500MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M32ls | 256GiB | 500MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P20 |
 | M64ls | 512GiB | 1000MB/s | 3 x P20 | 2 x P20 | 1 x P20 | 1 x P6 | 1 x P6 |1 x P30 |
-| M64S | 1000GiB | 1000MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
-| M64MS | 1750GiB | 1000MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
-| M128S | 2000GiB | 2000MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
-| M128MS | 3800GiB | 2000MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
+| M64s | 1000GiB | 1000MB/s | 4 x P20 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 |2 x P30 |
+| M64ms | 1750GiB | 1000MB/s | 3 x P30 | 2 x P20 | 1 x P30 | 1 x P6 | 1 x P6 | 3 x P30 |
+| M128s | 2000GiB | 2000MB/s |3 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 2 x P40 |
+| M128ms | 3800GiB | 2000MB/s | 5 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 4 x P40 |
 | M208s_v2 | 2850 GiB | 1000MB/s | 4 x P30 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P40 |
 | M208ms_v2 | 5700 GiB | 1000MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
 | M416s_v2 | 5700 GiB | 2000MB/s | 4 x P40 | 2 x P20 | 1 x P30 | 1 x P10 | 1 x P6 | 3 x P50 |
@@ -152,10 +155,10 @@ Azure Write Accelerator에 대한 세부 정보 및 제한 사항은 동일한 �
 | M32ts | 192GiB | 500MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
 | M32ls | 256GiB | 500MB/s | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 | 1 x E20 |
 | M64ls | 512GiB | 1000 m b/초 | 3 x P20 | 1 x E20 | 1 x E6 | 1 x E6 |1 x E30 |
-| M64S | 1000 GiB | 1000 m b/초 | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
-| M64MS | 1750 GiB | 1000 m b/초 | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
-| M128S | 2000 GiB | 2000 m b/초 |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
-| M128MS | 3800 GiB | 2000 m b/초 | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
+| M64s | 1000 GiB | 1000 m b/초 | 2 x P30 | 1 x E30 | 1 x E6 | 1 x E6 |2 x E30 |
+| M64ms | 1750 GiB | 1000 m b/초 | 3 x P30 | 1 x E30 | 1 x E6 | 1 x E6 | 3 x E30 |
+| M128s | 2000 GiB | 2000 m b/초 |3 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E40 |
+| M128ms | 3800 GiB | 2000 m b/초 | 5 x P30 | 1 x E30 | 1 x E10 | 1 x E6 | 2 x E50 |
 | M208s_v2 | 2850 GiB | 1000 m b/초 | 4 x P30 | 1 x E30 | 1 x E10 | 1 x E6 |  3 x E40 |
 | M208ms_v2 | 5700 GiB | 1000 m b/초 | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
 | M416s_v2 | 5700 GiB | 2000 m b/초 | 4 x P40 | 1 x E30 | 1 x E10 | 1 x E6 |  4 x E40 |
@@ -182,7 +185,7 @@ Microsoft는 [Azure Ultra disk](https://docs.microsoft.com/azure/virtual-machine
 
 Ultra disk를 사용 하면 크기, IOPS 및 디스크 처리량 범위를 충족 하는 단일 디스크를 정의할 수 있습니다. IOPS 및 저장소 처리량 요구 사항을 충족 하는 볼륨을 구성 하기 위해 Azure Premium Storage 위에 LVM 또는 MDADM과 같은 논리 볼륨 관리자를 사용 하는 대신 Ultra disk와 Premium Storage 간에 구성 조합을 실행할 수 있습니다. 결과적으로 Ultra disk의 사용량을/hana/data 및/hana/log 볼륨의 성능으로 제한 하 고 Azure를 사용 하 여 다른 볼륨을 처리할 수 있습니다 Premium Storage
 
-울트라 디스크의 다른 이점은 Premium Storage에 비해 더 나은 읽기 대기 시간이 될 수 있습니다. 더 빠른 읽기 대기 시간은 HANA 시작 시간을 줄이고 데이터를 메모리에 로드 하는 데 필요한 경우에 이점이 있습니다. HANA가 저장점을 작성 하는 경우에도 Ultra disk storage의 이점을 느낄 수 있습니다. /Hana/data에 대 한 Premium Storage 디스크는 일반적으로 캐시 쓰기 가속기 되지 않으므로,/hana/data Premium Storage에 대 한 쓰기 대기 시간이 Ultra disk와 비교 하 여 더 높습니다. Ultra disk로 쓰기 저장 점이 Ultra disk에서 더 나은 성능을 기대할 수 있습니다.
+울트라 디스크의 다른 이점은 Premium Storage에 비해 더 나은 읽기 대기 시간이 될 수 있습니다. 더 빠른 읽기 대기 시간은 HANA 시작 시간 및 데이터의 후속 로드를 메모리로 줄이려는 경우에 이점이 있습니다. HANA가 저장점을 작성 하는 경우에도 Ultra disk storage의 이점을 느낄 수 있습니다. /Hana/data에 대 한 Premium Storage 디스크는 일반적으로 캐시 쓰기 가속기 되지 않으므로,/hana/data Premium Storage에 대 한 쓰기 대기 시간이 Ultra disk와 비교 하 여 더 높습니다. Ultra disk로 쓰기 저장 점이 Ultra disk에서 더 나은 성능을 기대할 수 있습니다.
 
 > [!IMPORTANT]
 > Ultra disk는 아직 모든 Azure 지역에 존재 하지 않으며 아래 나열 된 모든 VM 유형을 아직 지원 하지 않습니다. Ultra disk를 사용할 수 있고 지원 되는 VM 제품군에 대 한 자세한 내용은 [Azure에서 사용할 수 있는 디스크 유형](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#ultra-disk)문서를 참조 하세요.
@@ -198,10 +201,10 @@ Ultra disk를 사용 하면 크기, IOPS 및 디스크 처리량 범위를 충�
 | M32ts | 192GiB | 500MB/s | 250GB | 400 MBps | 7,500 | 256GB | 250 MBps  | 2,000 |
 | M32ls | 256GiB | 500MB/s | 300GB | 400 MBps | 7,500 | 256GB | 250 MBps  | 2,000 |
 | M64ls | 512GiB | 1000 m b/초 | 600GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M64S | 1000 GiB | 1000 m b/초 |  1200 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M64MS | 1750 GiB | 1000 m b/초 | 2100 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
-| M128S | 2000 GiB | 2000 m b/초 |2400 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
-| M128MS | 3800 GiB | 2000 m b/초 | 4800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M64s | 1000 GiB | 1000 m b/초 |  1200 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M64ms | 1750 GiB | 1000 m b/초 | 2100 GB | 600 MBps | 7,500 | 512 GB | 400 MBps  | 2,500 |
+| M128s | 2000 GiB | 2000 m b/초 |2400 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
+| M128ms | 3800 GiB | 2000 m b/초 | 4800 GB | 1200 MBps |9,000 | 512 GB | 800 MBps  | 3,000 | 
 | M208s_v2 | 2850 GiB | 1000 m b/초 | 3500 GB | 1000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
 | M208ms_v2 | 5700 GiB | 1000 m b/초 | 7200 GB | 1000 MBps | 9,000 | 512 GB | 400 MBps  | 2,500 | 
 | M416s_v2 | 5700 GiB | 2000 m b/초 | 7200 GB | 1500 MBps | 9,000 | 512 GB | 800 MBps  | 3,000 | 
@@ -223,10 +226,10 @@ Ultra disk를 사용 하면 크기, IOPS 및 디스크 처리량 범위를 충�
 | M32ts | 192GiB | 500MB/s | 512 GB | 400 MBps | 9500 | 
 | M32ls | 256GiB | 500MB/s | 600GB | 400 MBps | 9500 | 
 | M64ls | 512GiB | 1000 m b/초 | 1100 GB | 900 MBps | 10000 | 
-| M64S | 1000 GiB | 1000 m b/초 |  1700 GB | 900 MBps | 10000 | 
-| M64MS | 1750 GiB | 1000 m b/초 | 2600 GB | 900 MBps | 10000 | 
-| M128S | 2000 GiB | 2000 m b/초 |2900 GB | 1800 MBps |12,000 | 
-| M128MS | 3800 GiB | 2000 m b/초 | 5300 GB | 1800 MBps |12,000 |  
+| M64s | 1000 GiB | 1000 m b/초 |  1700 GB | 900 MBps | 10000 | 
+| M64ms | 1750 GiB | 1000 m b/초 | 2600 GB | 900 MBps | 10000 | 
+| M128s | 2000 GiB | 2000 m b/초 |2900 GB | 1800 MBps |12,000 | 
+| M128ms | 3800 GiB | 2000 m b/초 | 5300 GB | 1800 MBps |12,000 |  
 | M208s_v2 | 2850 GiB | 1000 m b/초 | 4000 GB | 900 MBps | 10000 |  
 | M208ms_v2 | 5700 GiB | 1000 m b/초 | 7700 GB | 900 MBps | 10000 | 
 | M416s_v2 | 5700 GiB | 2000 m b/초 | 7700 GB | 1, 800MBps | 12,000 |  
@@ -294,6 +297,6 @@ ANF에서 호스트 되는 NFS v 4.1 볼륨을 사용 하 여 SAP HANA 스케일
 
 
 ## <a name="next-steps"></a>다음 단계
-자세한 내용은
+자세한 내용은 다음을 참조하세요.
 
 - [Azure virtual machines에 대 한 고가용성 가이드를 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-hana-availability-overview)합니다.

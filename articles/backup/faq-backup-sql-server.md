@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Vm에 SQL Server 데이터베�
 ms.reviewer: vijayts
 ms.topic: conceptual
 ms.date: 04/23/2019
-ms.openlocfilehash: 73224164286e35f8c9447dd24cd81d7242fbb7b6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: a973761bf16e2d271d718e4a8b29e08624276987
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74172027"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597085"
 ---
 # <a name="faq-about-sql-server-databases-that-are-running-on-an-azure-vm-backup"></a>Azure VM 백업에서 실행 되는 SQL Server 데이터베이스에 대 한 FAQ
 
@@ -37,13 +37,15 @@ ms.locfileid: "74172027"
 - 변경 내용을 저장하고 파일을 닫습니다.
 - SQL Server 인스턴스에서 **작업 관리** 를 열고 **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작 합니다.
 
-## <a name="can-i-control-as-to-how-many-concurrent-backups-run-on-the-sql-server"></a>SQL server에서 실행 되는 동시 백업 수를 제어할 수 있나요?
+## <a name="can-i-control-how-many-concurrent-backups-run-on-the-sql-server"></a>SQL server에서 실행 되는 동시 백업 수를 제어할 수 있나요?
 
 예. SQL Server 인스턴스에 대한 영향을 최소화하기 위해 백업 정책이 실행되는 속도를 제한할 수 있습니다. 설정을 변경하려면:
 
 1. SQL Server 인스턴스의 *C:\Program Files\Azure 워크 로드 Backup\bin* 폴더에서 *ExtensionSettingsOverrides* 파일을 만듭니다.
 2. *ExtensionSettingsOverrides* 파일에서 **Defaultbackup threshold** 설정을 더 낮은 값으로 변경 합니다 (예: 5). <br>
   `{"DefaultBackupTasksThreshold": 5}`
+<br>
+Defaultbackup업무 임계값의 기본값은 **20**입니다.
 
 3. 변경 내용을 저장하고 파일을 닫습니다.
 4. SQL Server 인스턴스에서 **작업 관리자**를 엽니다. **AzureWLBackupCoordinatorSvc** 서비스를 다시 시작합니다.<br/> <br/>

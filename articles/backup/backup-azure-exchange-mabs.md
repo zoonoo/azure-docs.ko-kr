@@ -4,18 +4,18 @@ description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 73dcc190446a71498dee3f12a5225a56c9f4ddc7
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 051e33e9340a5ee788011254bb2cf88029ba1505
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173117"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583846"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
 이 문서에서는 Microsoft Azure Backup Server(MABS)를 구성하여 Azure에 Microsoft Exchange server를 백업하는 방법을 설명합니다.  
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 계속하기 전에 Azure Backup Server가 [설치 및 준비](backup-azure-microsoft-azure-backup.md)되어 있는지 확인합니다.
 
@@ -23,8 +23,8 @@ ms.locfileid: "74173117"
 
 Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계를 수행합니다.
 
-1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](https://technet.microsoft.com/library/Hh758204.aspx)을 참조하세요.
-2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](https://technet.microsoft.com/library/hh758186.aspx?f=255&MSPPError=-2147217396)를 참조하세요.
+1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12))을 참조하세요.
+2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12))를 참조하세요.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Exchange 서버에 보호 그룹 만들기
 
@@ -34,7 +34,7 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 4. 보호하려는 Exchange 서버 데이터베이스를 선택하고 **다음**을 클릭합니다.
 
    > [!NOTE]
-   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://technet.microsoft.com/library/dn751029.aspx)를 확인합니다.
+   > Exchange 2013을 보호하는 경우 [Exchange 2013 필수 구성 요소](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn751029(v=sc.12))를 확인합니다.
    >
    >
 
@@ -68,10 +68,10 @@ Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계�
 11. 사용 가능한 디스크 공간을 검토하고 **다음**을 클릭합니다.
 12. MAB 서버가 초기 복제를 만들 시기를 선택하고 **다음**을 클릭합니다.
 13. 일관성 확인 옵션을 선택하고 **다음**을 클릭합니다.
-14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 예:
+14. Azure에 백업하려는 데이터베이스를 선택하고 **다음**을 클릭합니다. 다음은 그 예입니다.
 
     ![온라인 보호 데이터 지정](./media/backup-azure-backup-exchange-server/specify-online-protection-data.png)
-15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 예:
+15. **Azure Backup**에 대한 일정을 정의하고 **다음**을 클릭합니다. 다음은 그 예입니다.
 
     ![온라인 백업 일정 지정](./media/backup-azure-backup-exchange-server/specify-online-backup-schedule.png)
 

@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용 하 여 Azure Backup에 대 한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: 5c43efc8d61d7aa6c8fc94c6c39294d744cd6b87
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77501122"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582707"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -41,11 +41,11 @@ LA 작업 영역을 설정 하려면 [Azure Portal에서 Log Analytics 작업 �
 
 Recovery Services 자격 증명 모음과 같은 Azure Resource Manager 리소스는 예약 된 작업 및 사용자가 트리거한 작업에 대 한 정보를 진단 데이터로 기록 합니다. 
 
-Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정** 을 선택 하 고 Recovery Services 자격 증명 모음 진단 데이터의 대상을 지정 합니다. [진단 이벤트 사용에 대해 자세히 알아보세요](https://aka.ms/AzureBackupDiagnosticDocs).
+Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설정** 을 선택 하 고 Recovery Services 자격 증명 모음 진단 데이터의 대상을 지정 합니다. [진단 이벤트 사용에 대해 자세히 알아보세요](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events).
 
 ![진단 설정 블레이드](./media/backup-azure-configure-backup-reports/resource-specific-blade.png)
 
-또한 Azure Backup는 지정 된 범위의 모든 자격 증명 모음에 대 한 진단 설정 구성을 자동화 하는 기본 제공 Azure Policy 제공 합니다. 이 정책을 사용 하는 방법에 대해 알아보려면 다음 문서를 참조 하세요. [대규모로 자격 증명 모음 진단 설정 구성](https://aka.ms/AzureBackupDiagnosticsPolicyDocs)
+또한 Azure Backup는 지정 된 범위의 모든 자격 증명 모음에 대 한 진단 설정 구성을 자동화 하는 기본 제공 Azure Policy 제공 합니다. 이 정책을 사용 하는 방법에 대해 알아보려면 다음 문서를 참조 하세요. [대규모로 자격 증명 모음 진단 설정 구성](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
 3. **Azure Portal에 대 한 보고서 보기:**
 
@@ -53,7 +53,7 @@ Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설
 
 ![자격 증명 모음 대시보드](./media/backup-azure-configure-backup-reports/vault-dashboard.png)
 
-이 링크를 클릭 하면 백업 보고서 통합 문서가 열립니다. 
+이 링크를 클릭 하면 백업 보고서 통합 문서가 열립니다.
 
 > [!NOTE]
 > 현재 보고서의 초기 로드는 최대 1 분 정도 걸릴 수 있습니다.

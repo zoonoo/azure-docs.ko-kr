@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: 6e4c50e5dcc35450463d02bbed040754ea778e70
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 953121a9a15d4fef56d381e3aab85329fadacce2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70093611"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604957"
 ---
 # <a name="how-to-configure-the-connection-policy-used-by-azure-functions-trigger-for-cosmos-db"></a>Cosmos DB용 Azure Functions 트리거에서 사용할 연결 정책을 구성하는 방법
 
@@ -23,7 +23,7 @@ ms.locfileid: "70093611"
 
 ## <a name="changing-the-connection-mode-and-protocol"></a>연결 모드 및 프로토콜 변경
 
-클라이언트 연결 정책, 즉, **연결 모드**와 **연결 프로토콜**을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다. Cosmos DB용 Azure Functions 트리거와 모든 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb-v2.md#output))에서 사용하는 기본 연결 모드 및 프로토콜을 변경할 수 있습니다. 기본 설정을 변경하려면 Azure Functions 프로젝트 또는 Azure Functions 앱에서 `host.json` 파일을 찾아 다음과 같은 [추가 설정](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings)에 추가해야 합니다.
+클라이언트 연결 정책, 즉, **연결 모드**와 **연결 프로토콜**을 구성하는 데 사용할 수 있는 두 가지 주요 구성 설정이 있습니다. Cosmos DB용 Azure Functions 트리거와 모든 [Azure Cosmos DB 바인딩](../azure-functions/functions-bindings-cosmosdb-v2-output.md))에서 사용하는 기본 연결 모드 및 프로토콜을 변경할 수 있습니다. 기본 설정을 변경하려면 Azure Functions 프로젝트 또는 Azure Functions 앱에서 `host.json` 파일을 찾아 다음과 같은 [추가 설정](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings)에 추가해야 합니다.
 
 ```js
 {
@@ -36,7 +36,7 @@ ms.locfileid: "70093611"
 
 이때 `connectionMode`에는 원하는 연결 모드(직접 또는 게이트웨이)가 있어야 하고 `protocol`에는 원하는 연결 프로토콜(Tcp 또는 Https)이 있어야 합니다. 
 
-Azure Functions 프로젝트가 Azure Functions V1 런타임과 함께 작동하는 경우 구성의 이름이 약간 다릅니다. 다음과 같이 `cosmosDB` 대신 `documentDB`를 사용해야 합니다.
+Azure Functions 프로젝트가 Azure Functions V1 런타임과 함께 작동하는 경우 구성의 이름이 약간 다릅니다. 다음과 같이 `documentDB` 대신 `cosmosDB`를 사용해야 합니다.
 
 ```js
 {

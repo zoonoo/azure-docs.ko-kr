@@ -3,16 +3,15 @@ title: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가
 description: AKS(Azure Kubernetes Service)의 HTTP 애플리케이션 라우팅 추가 기능을 사용합니다.
 services: container-service
 author: lachie83
-ms.service: container-service
 ms.topic: article
 ms.date: 08/06/2019
 ms.author: laevenso
-ms.openlocfilehash: fc04e38c3d6933cde81d81d5569ed73e7506a745
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 5794e46f10abec1ceef4c79a881f7f353e729634
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76756439"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595691"
 ---
 # <a name="http-application-routing"></a>HTTP 애플리케이션 라우팅
 
@@ -205,7 +204,7 @@ kube-system   addon-http-application-routing-udp-services                0      
 kubectl delete configmaps addon-http-application-routing-nginx-configuration --namespace kube-system
 ```
 
-클러스터에 남아 있던 모든 *addon-http-application-routing* 리소스에 대해 이전 `kubectl delete` 단계를 반복합니다.
+클러스터에 남아 있던 모든 `kubectl delete`addon-http-application-routing*리소스에 대해 이전* 단계를 반복합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 

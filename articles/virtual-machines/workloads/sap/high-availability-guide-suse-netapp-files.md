@@ -1,5 +1,5 @@
 ---
-title: Azure NetApp Files를 사용 하는 SUSE Linux Enterprise Server에서 SAP NetWeaver에 대 한 Azure Virtual Machines 고가용성 Microsoft Docs
+title: Azure NetApp Files를 사용 하는 SLES에서 SAP NW의 Azure Vm 고가용성 Microsoft Docs
 description: Sap 응용 프로그램용 Azure NetApp Files를 사용 하는 SUSE Linux Enterprise Server의 SAP NetWeaver에 대 한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 1a413ce55604ef8b5c3219e8de466fcc23d41bac
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 18aecfc5ea40c8368fbf4d4a07f86e71047265f7
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990944"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598649"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -78,7 +78,7 @@ ms.locfileid: "76990944"
 * SAP Note [2243692][2243692]는 Azure에서 Linux의 SAP 라이선스에 대한 정보를 포함하고 있습니다.
 * SAP Note [1984787][1984787]은 SUSE LINUX Enterprise Server 12에 대한 일반 정보를 포함하고 있습니다.
 * SAP Note [1999351][1999351]은 SAP용 Azure 고급 모니터링 확장을 위한 추가 문제 해결 정보를 포함하고 있습니다.
-* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes) 에는 Linux에 필요한 모든 SAP 노트가 있습니다.
+* SAP Community WIKI] (https://wiki.scn.sap.com/wiki/display/HOME/SAPonLinuxNotes)에는 Linux에 필요한 모든 SAP 노트가 있습니다.
 * [Linux에서 SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [Linux에서 SAP 용 Azure Virtual Machines 배포][deployment-guide]
 * [Linux에서 SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]

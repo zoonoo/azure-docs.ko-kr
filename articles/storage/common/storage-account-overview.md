@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 01/17/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 11fdaa0d547e588daa9d264c2393606705554a17
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 2983be507fdc40d033623afa37c72eb2507d99ca
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77157274"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597171"
 ---
 # <a name="storage-account-overview"></a>Storage 계정 개요
 
@@ -72,7 +72,7 @@ BlockBlobStorage 계정은 현재 핫, 쿨 또는 보관 액세스 계층에 대
 
 FileStorage 계정은 프리미엄 파일 공유를 저장 하 고 만드는 데 사용 되는 특수 저장소 계정입니다. 이 저장소 계정 유형은 파일을 지원 하지만 블록 blob, 추가 blob, 페이지 blob, 테이블 또는 큐를 지원 하지 않습니다.
 
-FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 성능 계층](../files/storage-files-planning.md#file-share-performance-tiers) 섹션을 참조 하십시오.
+FileStorage 계정은 IOPS 버스트와 같은 고유한 성능 전용 특성을 제공 합니다. 이러한 특성에 대 한 자세한 내용은 파일 계획 가이드의 [파일 공유 저장소 계층](../files/storage-files-planning.md#storage-tiers) 섹션을 참조 하십시오.
 
 ## <a name="naming-storage-accounts"></a>스토리지 계정 이름 지정
 

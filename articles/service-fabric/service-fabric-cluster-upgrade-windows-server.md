@@ -5,12 +5,12 @@ author: dkkapur
 ms.topic: conceptual
 ms.date: 11/09/2018
 ms.author: dekapur
-ms.openlocfilehash: f8c146d1a82fd745e6641ac2aea91aa34539d6f0
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 489a90180454e2b4a9dad34730fbd3c4f235a2ad
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610032"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598105"
 ---
 # <a name="upgrade-the-service-fabric-version-that-runs-on-your-cluster"></a>클러스터에서 실행되는 Service Fabric 버전 업그레이드 
 
@@ -94,7 +94,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
 >
 
 ### <a name="auto-provisioning-vs-manual-provisioning"></a>자동 프로비전 및 수동 프로비전
-최신 코드 버전에 대한 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침은 [독립 실행형 패키지](service-fabric-cluster-standalone-package-contents.md)에 있는 *Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt*를 참조하세요.
+최신 코드 버전에 대한 자동 다운로드 및 등록을 사용하도록 설정하려면 Service Fabric 업데이트 서비스를 설정합니다. 지침은 *독립 실행형 패키지*에 있는 [Tools\ServiceFabricUpdateService.zip\Readme_InstructionsAndHowTos.txt](service-fabric-cluster-standalone-package-contents.md)를 참조하세요.
 
 수동 프로세스의 경우 다음 지침을 따릅니다.
 
@@ -139,7 +139,7 @@ Microsoft에서 새 버전을 출시할 때 Service Fabric 업데이트를 다�
     Register-ServiceFabricClusterPackage -Code -CodePackagePath <name of the .cab file>
 
     ###### Here is a filled-out example
-    Register-ServiceFabricClusterPackage -Code -CodePackagePath .\MicrosoftAzureServiceFabric.5.3.301.9590.cab
+    Register-ServiceFabricClusterPackage -Code -CodePackagePath MicrosoftAzureServiceFabric.5.3.301.9590.cab
     ```
 6. 사용 가능한 버전으로의 클러스터 업그레이드를 시작합니다.
 

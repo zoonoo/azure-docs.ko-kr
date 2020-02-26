@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: rogarana
 ms.subservice: files
-ms.openlocfilehash: dcb0ffef0cf48a7bcbfbdb0107999f7e90333559
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 1a74ec3610367193b5eee53ea0e0818901433e96
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151992"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598574"
 ---
 # <a name="azure-files-scalability-and-performance-targets"></a>Azure Files 확장성 및 성능 목표
 
@@ -51,8 +51,8 @@ Azure 파일 공유에 대한 부모 리소스는 Azure Storage 계정입니다.
 ### <a name="file-share-and-file-scale-targets"></a>파일 공유 및 파일 크기 조정 대상
 
 > [!NOTE]
-> 5 보다 큰 표준 파일 공유에는 특정 제한 사항이 TiB.
-> 이러한 큰 파일 공유 크기를 설정 하는 제한 사항, 지역별 정보 및 지침을 보려면 계획 가이드의 [더 큰 파일 공유에 대 한 온보드](storage-files-planning.md#onboard-to-larger-file-shares-standard-tier) 섹션을 참조 하십시오.
+> 5 보다 큰 표준 파일 공유에는 특정 제한 사항과 지역 제한이 TiB.
+> 이러한 큰 파일 공유 크기를 설정 하는 제한 사항, 지역별 정보 및 지침을 보려면 계획 가이드의 [더 큰 파일 공유에 대 한 온보드](storage-files-planning.md#enable-standard-file-shares-to-span-up-to-100-tib) 섹션을 참조 하십시오.
 
 [!INCLUDE [storage-files-scale-targets](../../../includes/storage-files-scale-targets.md)]
 

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/15/2019
 ms.author: maquaran
-ms.openlocfilehash: 0023f68400b36b9abd3b9d4a789895e79f67aa03
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 8bd024fae7496db6c9cb6410df26975fde1984f7
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70092942"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585291"
 ---
 # <a name="use-the-change-feed-estimator"></a>변경 피드 추정기 사용
 
@@ -33,11 +33,11 @@ ms.locfileid: "70092942"
 
 예를 들어 변경 피드 프로세서가 다음과 같이 정의된 경우:
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartProcessorEstimator)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartProcessorEstimator":::
 
 추정기를 초기화하여 해당 프로세서를 측정하는 올바른 방법은 다음과 같이 `GetChangeFeedEstimatorBuilder`를 사용하는 것입니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=StartEstimator)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="StartEstimator":::
 
 프로세서와 추정기는 동일한 `leaseContainer` 및 동일한 이름을 공유합니다.
 
@@ -45,14 +45,14 @@ ms.locfileid: "70092942"
 
 예측을 수신하는 대리자의 예는 다음과 같습니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs?name=EstimationDelegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-v3/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed/Program.cs" id="EstimationDelegate":::
 
 이 예측을 모니터링 솔루션으로 전송하여 시간이 지남에 따라 진행률이 어떻게 되는지 이해할 수 있습니다.
 
 > [!NOTE]
 > 변경 피드 추정기를 변경 피드 프로세서의 일부로 배포하거나 동일한 프로젝트에 포함할 필요가 없습니다. 변경 피드 추정기는 독립적이며 완전히 다른 인스턴스에서 실행할 수 있습니다. 동일한 이름과 임대 구성을 사용하기만 하면 됩니다.
 
-## <a name="additional-resources"></a>추가 자료
+## <a name="additional-resources"></a>추가 리소스
 
 * [Azure Cosmos DB SDK](sql-api-sdk-dotnet.md)
 * [GitHub의 사용 샘플](https://github.com/Azure/azure-cosmos-dotnet-v3/tree/master/Microsoft.Azure.Cosmos.Samples/Usage/ChangeFeed)

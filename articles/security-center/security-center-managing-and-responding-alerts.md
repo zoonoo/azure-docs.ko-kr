@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 46ed2af51f34a25c1cdc1abb6152169feedd989e
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666298"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603851"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
@@ -65,7 +65,7 @@ ms.locfileid: "75666298"
     > [!NOTE]
     >일부 경우에는 원본 IP 주소를 사용할 수 없습니다. 일부 Windows 보안 이벤트 로그에는 IP 주소가 포함 되지 않습니다.
 
-1. Security Center에서 제안하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
+1. Security Center에서 제안 하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
 
     다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
     
@@ -85,5 +85,3 @@ ms.locfileid: "75666298"
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 * [보안 인시던트 처리](security-center-incident.md)
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) - Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

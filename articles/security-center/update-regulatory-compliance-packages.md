@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: f76b5443d6c1e3fd2cebf87cba39ba0a6bbdeaee
-ms.sourcegitcommit: 3f8017692169bd75483eefa96c225d45cd497f06
+ms.openlocfilehash: cfa39799e44cee0a2d36efccd454ccf8ca15157f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73521788"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603231"
 ---
 # <a name="update-to-dynamic-compliance-packages-in-your-regulatory-compliance-dashboard-preview"></a>규정 준수 대시보드의 동적 준수 패키지 업데이트 (미리 보기)
 
@@ -75,6 +75,5 @@ Azure cis 벤치 마크에 대 한 동적 준수 패키지 인 **AZURE cis 1.1.0
 기타 관련 자료는 다음 문서를 참조 하세요. 
 
 - [보안 센터 규정 준수 대시보드](security-center-compliance-dashboard.md)
-- [보안 정책 사용](tutorial-security-policy.md)
-- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) -Azure Security Center에서 권장 사항을 사용 하 여 Azure 리소스를 보호 하는 방법을 알아봅니다.
-- [Azure Security Center faq](security-center-faq.md) -Security Center 사용에 대 한 질문과 대답을 확인 하세요.
+- [보안 정책 작업](tutorial-security-policy.md)
+- [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) - Azure 리소스 보호에 도움이 되도록 Azure Security Center에서 권장 사항을 사용하는 방법을 알아봅니다.

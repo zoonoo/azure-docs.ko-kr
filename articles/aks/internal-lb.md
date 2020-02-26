@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 내부 부하 분산 장치 만들기
 description: 내부 부하 분산 장치를 만들고 사용하여 AKS(Azure Kubernetes Service)를 통해 서비스를 노출하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: mlearned
-ms.openlocfilehash: 8b0b0358534c30407c9841d5c23560623545cf64
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: ff102ebe50dd4d2169090718ced9e550701b1b09
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044996"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595470"
 ---
 # <a name="use-an-internal-load-balancer-with-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)를 통해 내부 부하 분산 장치 사용
 
@@ -31,7 +28,7 @@ AKS(Azure Kubernetes Service)에서 애플리케이션에 대한 액세스를 �
 
 ## <a name="create-an-internal-load-balancer"></a>내부 부하 분산 장치 만들기
 
-내부 부하 분산 장치를 만들려면 다음 예제와 같이 서비스 형식 *LoadBalancer* 및 *azure-load-balancer-internal* 주석으로 `internal-lb.yaml`이라는 서비스 매니페스트를 만듭니다.
+내부 부하 분산 장치를 만들려면 다음 예제와 같이 서비스 형식 `internal-lb.yaml`LoadBalancer*및*azure-load-balancer-internal*주석으로*이라는 서비스 매니페스트를 만듭니다.
 
 ```yaml
 apiVersion: v1
@@ -56,7 +53,7 @@ kubectl apply -f internal-lb.yaml
 
 Azure 부하 분산 장치는 노드 리소스 그룹에 만들어지고 AKS 클러스터와 동일한 가상 네트워크에 연결 됩니다.
 
-서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *external* 은 부하 분산 장치의 외부 인터페이스와 관련 되어 있으며 공용 외부 IP 주소를 수신 하지는 않습니다. 다음 예제와 같이 IP 주소가 \<보류 중\>에서 실제 내부 IP 주소로 변경되는 데 1~2분이 소요될 수 있습니다.
+서비스 세부 정보를 보면 내부 부하 분산 장치의 IP 주소는 *EXTERNAL-IP* 열에 표시됩니다. 이 컨텍스트에서 *external* 은 부하 분산 장치의 외부 인터페이스와 관련 되어 있으며 공용 외부 IP 주소를 수신 하지는 않습니다. 다음 예제와 같이 IP 주소가 *보류 중\<에서 실제 내부 IP 주소로 변경되는 데 1~2분이 소요될 수 있습니다.\>*
 
 ```
 $ kubectl get service internal-app

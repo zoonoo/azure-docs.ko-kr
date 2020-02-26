@@ -2,17 +2,14 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 액세스 및 ID
 description: Azure Active Directory 통합, Kubernetes RBAC(역할 기반 액세스 제어), 역할 및 바인딩을 포함하여 AKS(Azure Kubernetes Service)의 액세스 및 ID에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
-ms.author: mlearned
-ms.openlocfilehash: 5d29598b0962fc42c855e7a26917a34269c30ddb
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e4945535417f7d8d33308121267ba97e1f835e13
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158065"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596371"
 ---
 # <a name="access-and-identity-options-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 액세스 및 ID 옵션
 

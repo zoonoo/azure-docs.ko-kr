@@ -2,17 +2,14 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Service)의 기본 스케줄러 기능
 description: AKS(Azure Kubernetes Service)의 리소스 할당량 및 Pod 중단 예산과 같은 기본 스케줄러 기능 사용에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/26/2018
-ms.author: mlearned
-ms.openlocfilehash: 3661f435b5c2dd88aa8e17ca396f9af43aea5224
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: cccc476a944b28d24c53a947e434d465c94f94ee
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293609"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594654"
 ---
 # <a name="best-practices-for-basic-scheduler-features-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 기본 스케줄러 기능 모범 사례
 

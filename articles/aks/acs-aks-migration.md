@@ -2,18 +2,15 @@
 title: Azure Kubernetes Service로 마이그레이션 (AKS)
 description: Azure Kubernetes 서비스 (AKS)로 마이그레이션합니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 11/07/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c4ed78dc9fd277fc61a923364519e338a9f720c2
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bc96d3e8e5a595c80822065801873a44642be078
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290396"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596847"
 ---
 # <a name="migrate-to-azure-kubernetes-service-aks"></a>Azure Kubernetes Service로 마이그레이션 (AKS)
 
@@ -35,7 +32,7 @@ ms.locfileid: "76290396"
 
 * [Velero](https://velero.io/) (Kubernetes 1.7 이상 필요)
 * [Azure Kube CLI 확장](https://github.com/yaron2/azure-kube-cli)
-* [ReShifter](https://github.com/mhausenblas/reshifter)
+* [Resster](https://github.com/mhausenblas/reshifter)
 
 이 문서에서는 다음에 대 한 마이그레이션 세부 정보를 요약 합니다.
 
@@ -82,7 +79,7 @@ az aks create \
 * Log Analytics
 * Application Insights
 * Traffic Manager
-* Storage 계정
+* 스토리지 계정
 * 외부 데이터베이스
 
 ## <a name="ensure-valid-quotas"></a>유효한 할당량 확인
@@ -124,7 +121,7 @@ Azure Managed Disks를 사용 하는 경우 VM에 연결 되지 않은 경우에
 이러한 방법이 작동 하지 않는 경우 백업 및 복원 옵션을 사용할 수 있습니다.
 * [Azure의 Velero](https://github.com/heptio/velero/blob/master/site/docs/master/azure-config.md)
 
-#### <a name="azure-files"></a>Azure Files
+#### <a name="azure-files"></a>Azure 파일
 
 디스크와 달리 Azure Files는 여러 호스트에 동시에 탑재할 수 있습니다. AKS 클러스터에서 Azure 및 Kubernetes는 ACS 클러스터가 여전히 사용 하는 pod를 만들 수 있도록 방지 하지 않습니다. 데이터 손실 및 예기치 않은 동작을 방지 하려면 클러스터가 같은 파일에 동시에 쓰지 않도록 합니다.
 

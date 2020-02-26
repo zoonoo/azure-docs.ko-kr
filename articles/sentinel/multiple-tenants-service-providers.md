@@ -3,7 +3,7 @@ title: MSSP 서비스 공급자에 대 한 Azure 센티널에 다중 테 넌 트
 description: MSSP 서비스 공급자에 대해 여러 테 넌 트를 Azure 센티널로 작업 하는 방법입니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,22 +13,22 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: 34997fb3cd91e4540c76ecdd781d21e2ed1bdb07
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: caa79b572d0024b93abd2d32ca99d92cc2a8b4bb
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240499"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582078"
 ---
 # <a name="work-with-multiple-tenants-in-azure-sentinel"></a>Azure 센티널에서 여러 테 넌 트 작업 
 
-관리 되는 MSSP (security service provider) 인 경우 [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 고객의 SOC (security operations center)를 관리 하는 경우에 직접 연결 하지 않고도 고객의 azure 센티널 리소스를 관리할 수 있습니다. 사용자의 Azure 테 넌 트에서 고객 테 넌 트. 
+사용자가 관리 되는 MSSP (security service provider) 인 경우 [Azure Lighthouse](../lighthouse/overview.md) 를 사용 하 여 고객의 SOC (security operations center)를 관리 하는 경우 사용자의 azure 테 넌 트에서 고객 테 넌 트에 직접 연결 하지 않고도 고객의 azure 센티널 리소스를 관리할 수 있습니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 - [Azure Lighthouse 등록](../lighthouse/how-to/onboard-customer.md)
-- 이 작업이 제대로 작동 하려면 하나 이상의 구독에서 테 넌 트가 Azure 센티널 리소스 공급자에 등록 되어 있어야 합니다. 테 넌 트에 등록 된 Azure 센티널가 있는 경우 시작할 준비가 된 것입니다. 그렇지 않은 경우 Azure Portal에서 **구독** 을 선택한 `Microsoft.Security.Insights` 다음 **리소스 공급자** 를 검색 하 고 **등록**을 선택 합니다.
-   ![리소스 공급자 확인](media/multiple-tenants-service-providers/check-resource-provider.png)
+- 이 작업이 제대로 작동 하려면 하나 이상의 구독에서 테 넌 트가 Azure 센티널 리소스 공급자에 등록 되어 있어야 합니다. 테 넌 트에 등록 된 Azure 센티널가 있는 경우 시작할 준비가 된 것입니다. 그렇지 않은 경우 Azure Portal에서 **구독** 을 선택한 다음 **리소스 공급자** 를 선택 하 `Microsoft.Security.Insights`를 검색 하 고 **등록**을 선택 합니다.
+   ![리소스 공급자를 확인](media/multiple-tenants-service-providers/check-resource-provider.png)
 ## <a name="how-to-access-azure-sentinel-from-other-tenants"></a>다른 테 넌 트에서 Azure 센티널에 액세스 하는 방법
 1. **디렉터리 + 구독**에서 위임 된 디렉터리 및 고객의 Azure 센티널 작업 영역이 있는 구독을 선택 합니다.
 
@@ -45,6 +45,6 @@ ms.locfileid: "71240499"
 
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 여러 Azure 센티널 테 넌 트를 원활 하 게 관리 하는 방법을 배웠습니다. Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
 

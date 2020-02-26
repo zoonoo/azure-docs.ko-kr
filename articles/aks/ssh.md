@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH 연결 만들기
 description: 문제 해결 및 유지 관리 작업은 AKS(Azure Kubernetes Service) 클러스터 노드를 사용하여 SSH 연결을 만드는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 07/31/2019
-ms.author: mlearned
-ms.openlocfilehash: 5ff79dc597571f4e6ef3d7c2c20bce61c0d061ad
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: dfdcda40a24142f85bbeb360aacf0971d72d181f
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74926366"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593634"
 ---
 # <a name="connect-with-ssh-to-azure-kubernetes-service-aks-cluster-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 AKS(Azure Kubernetes Service) 클러스터 노드에 대한 SSH와 연결
 

@@ -2,17 +2,14 @@
 title: Azure Kubernetes Service에서 여러 노드 풀 사용 (AKS)
 description: Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀을 만들고 관리 하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 02/14/2020
-ms.author: mlearned
-ms.openlocfilehash: e77710fe446810ec566ebc7088d802f0721806d2
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 846425e6d36462636ea1f4e82d6c7233dcb28ac9
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443927"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592886"
 ---
 # <a name="create-and-manage-multiple-node-pools-for-a-cluster-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터에 대 한 여러 노드 풀 만들기 및 관리
 

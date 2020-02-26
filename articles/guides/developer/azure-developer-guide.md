@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 11/18/2019
 ms.author: glenga
-ms.openlocfilehash: af5399a6e1a76a6020448b2e91d76a1d2e1f0ed8
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: d74fd2e3f6b5cc090c6313aba67a1e139c713b85
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186943"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598054"
 ---
 # <a name="get-started-guide-for-azure-developers"></a>Azure 개발자를 위한 시작 가이드
 
@@ -33,7 +33,7 @@ Azure에서 애플리케이션을 호스트하면 작은 애플리케이션부�
 
 ## <a name="where-do-i-start"></a>시작 단계
 
-Azure에서 제공 하는 모든 서비스를 사용 하 여 솔루션 아키텍처를 지 원하는 데 필요한 서비스를 파악 하는 것이 어려울 수 있습니다. 이 섹션에서는 개발자가 일반적으로 사용하는 Azure 서비스를 중점적으로 설명합니다. 모든 Azure 서비스 목록은 [Azure 설명서](../../index.md)를 참조하세요.
+Azure에서 제공 하는 모든 서비스를 사용 하 여 솔루션 아키텍처를 지 원하는 데 필요한 서비스를 파악 하는 것이 어려울 수 있습니다. 이 섹션에서는 개발자가 일반적으로 사용하는 Azure 서비스를 중점적으로 설명합니다. 모든 Azure 서비스 목록은 [Azure 설명서](../../index.yml)를 참조하세요.
 
 먼저, Azure에서 애플리케이션을 호스트하는 방법을 결정해야 합니다. 전체 인프라를 VM(가상 머신)으로 관리해야 하나요? Azure에서 제공하는 플랫폼 관리 기능을 사용할 수 있나요? 코드 실행만 호스트하는 서버를 사용하지 않는 프레임워크가 필요한가요?
 

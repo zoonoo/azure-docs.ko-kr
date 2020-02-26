@@ -1,18 +1,15 @@
 ---
 title: 개념 - AKS(Azure Kubernetes Service)의 네트워킹
 description: kubenet 및 Azure CNI 네트워킹, 수신 컨트롤러, 부하 분산 장치 및 고정 IP 주소를 포함하여 AKS(Azure Kubernetes Service)의 네트워킹에 대해 알아봅니다.
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 02/28/2019
 ms.custom: fasttrack-edit
-ms.author: mlearned
-ms.openlocfilehash: 06825f184365cfc439167be15580eb19bf5ecb38
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 5800254ab44b5b0f1048ce2200f90c06a8d1666a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77084270"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596167"
 ---
 # <a name="network-concepts-for-applications-in-azure-kubernetes-service-aks"></a>애플리케이션에 대한 AKS(Azure Kubernetes Service)의 네트워크 개념
 

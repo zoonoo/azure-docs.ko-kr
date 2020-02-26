@@ -3,12 +3,12 @@ title: Azure Migrate 어플라이언스
 description: 서버 평가 및 마이그레이션에 사용 되는 Azure Migrate 어플라이언스에 대 한 개요를 제공 합니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: d02227747be4bc7d994e2ea84cd74e7f2fd2531f
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1b1e35c3b7a9d98e57ec4261f6f913c370bbb365
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425462"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597544"
 ---
 # <a name="azure-migrate-appliance"></a>Azure Migrate 어플라이언스
 
@@ -34,7 +34,7 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
 **배포** | 어플라이언스를 VMware VM으로 배포 합니다. 32 GB RAM, 8 개 vCPUs, 80 GB의 디스크 저장소 및 외부 가상 스위치를 사용 하 여 VM을 할당 하려면 vCenter Server에 충분 한 리소스가 필요 합니다.<br/> 어플라이언스는 직접 또는 프록시를 통해 인터넷에 액세스 해야 합니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
 **하드웨어** | VCenter의 리소스를 사용 하 여 32 GB RAM 8 vCPUs, 80 GB의 디스크 저장소, 외부 가상 스위치를 사용 하 여 VM을 할당 합니다. 
-**해시 값** | MD5: c06ac2a2c0f870d3b274a0b7a73b78b1<br/><br/> SHA256:4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
+**해시 값** | [여기](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security) 를 확인 하세요.
 **vCenter 서버/호스트** | 어플라이언스 VM은 버전 5.5 이상을 실행 하는 ESXi 호스트에 배포 해야 합니다.<br/><br/> 5\.5, 6.0, 6.5 또는 6.7을 실행 하는 vCenter Server.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **조사** | 어플라이언스는 vCenter Server에서 VMware Vm을 1만 개까지 검색할 수 있습니다.<br/> 어플라이언스는 단일 vCenter Server에 연결할 수 있습니다.
@@ -52,7 +52,7 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **라이선스** | 다운로드 한 어플라이언스 템플릿에는 180 일 동안 유효한 Windows Server 2016 평가판 라이선스가 제공 됩니다. 평가 기간이 만료에 근접 한 경우 새 어플라이언스를 다운로드 하 여 배포 하거나 어플라이언스 VM의 운영 체제 라이선스를 활성화 하는 것이 좋습니다.
 **어플라이언스 배포**   |  어플라이언스를 Hyper-v VM으로 배포 합니다.<br/> Azure Migrate에서 제공 하는 어플라이언스 VM은 Hyper-v VM 버전 5.0입니다.<br/> Hyper-v 호스트는 Windows Server 2012 R2 이상을 실행 해야 합니다.<br/> 호스트는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 하는 데 충분 한 공간이 필요 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
 **하드웨어** | Hyper-v 호스트의 리소스-16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 어플라이언스 VM에 대 한 외부 스위치를 할당 합니다.
-**해시 값** | MD5:29a7531f32bcf69f32d964fa5ae950bc<br/><br/> SHA256:37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
+**해시 값** | [여기](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security) 를 확인 하세요.
 **Hyper-V 호스트** | Windows Server 2012 R2 이상 버전을 실행 하 고 있습니다.
 **Azure Migrate 프로젝트** | 어플라이언스는 단일 프로젝트에 연결할 수 있습니다. <br/> 모든 수의 어플라이언스를 단일 프로젝트에 연결할 수 있습니다.<br/> 
 **조사** | 어플라이언스는 Hyper-v Vm을 최대 5000 개까지 검색할 수 있습니다.<br/> 어플라이언스는 최대 300 Hyper-v 호스트에 연결할 수 있습니다.
@@ -67,7 +67,7 @@ Hyper-V VM | Azure Migrate: 서버 평가 | Hyper-v Vm 검색<br/><br/> 평가�
 **다운로드 링크** | [다운로드 링크](https://go.microsoft.com/fwlink/?linkid=2105112)
 **다운로드 크기** | 59.7 M B
 **하드웨어** | 전용 물리적 컴퓨터 또는 가상 컴퓨터를 사용 합니다. 어플라이언스를 실행 하는 컴퓨터는 16gb RAM, 8 개 vCPUs, 80 GB의 저장소 공간 및 외부 스위치를 요구 합니다.<br/> 어플라이언스에는 정적 또는 동적 IP 주소와 인터넷 액세스가 필요 합니다.
-**해시 값** | MD5:1e92ede3e87c03bd148e56a708cdd33f<br/><br/> SHA256: a3fa78edc8ff8aff9ab5ae66be1b64e66de7b9f475b6542beef114b20bfdac3c
+**해시 값** | [여기](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security) 를 확인 하세요.
 **운영 체제** | 어플라이언스 컴퓨터에서 Windows Server 2016를 실행 해야 합니다. 
 **어플라이언스 배포**   |  어플라이언스 설치 관리자 스크립트는 포털 (zip 폴더)에서 다운로드 됩니다. <br/> 폴더의 압축을 풀고 PowerShell 스크립트 (AzureMigrateInstaller)를 실행 합니다.
 **조사** | 어플라이언스는 최대 250 대의 물리적 서버를 검색할 수 있습니다.

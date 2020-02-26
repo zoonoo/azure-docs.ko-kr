@@ -3,12 +3,12 @@ title: MARS 에이전트에 대 한 지원 매트릭스
 description: 이 문서에서는 MARS (Microsoft Azure Recovery Services) 에이전트를 실행 하는 컴퓨터를 백업할 때 지원 Azure Backup를 요약 합니다.
 ms.date: 08/30/2019
 ms.topic: conceptual
-ms.openlocfilehash: 8f5ce33b5057b11caa33c0ae80cf72e1b13da5d0
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ef57688dd7b5ccee4e71ac0a54138ac567320aa2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425020"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582639"
 ---
 # <a name="support-matrix-for-backup-with-the-microsoft-azure-recovery-services-mars-agent"></a>MARS(Microsoft Azure Recovery Services) 에이전트를 통한 백업 매트릭스 지원
 
@@ -66,6 +66,29 @@ MARS 에이전트에서 액세스해야 하는 URL은 다음과 같습니다.
 - 40.126.0.0/18
 
 위에 나열 된 모든 Url 및 IP 주소에 대 한 액세스는 포트 443에서 HTTPS 프로토콜을 사용 합니다.
+
+### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
+
+공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링을 통한 백업은 지원 되지 않습니다.
+
+공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
+
+- `http://www.msftncsi.com/ncsi.txt`
+- `microsoft.com`
+- `.WindowsAzure.com`
+- `.microsoftonline.com`
+- `.windows.net`
+
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+
+- Azure Active Directory (12076:5060)
+- Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
+- Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
+
+자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
+
+>[!NOTE]
+>공용 피어 링은 새 회로에서 사용 되지 않습니다.
 
 ### <a name="throttling-support"></a>제한 지원
 

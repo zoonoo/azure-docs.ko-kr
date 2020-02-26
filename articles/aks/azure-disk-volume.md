@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 Pod용 정적 볼륨 만들기
 description: AKS(Azure Kubernetes Service)에서 Pod에 사용할 Azure 디스크가 포함된 볼륨을 수동으로 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: 9017c8cf721fbb9c493dc18da769b9d6e83ddf05
-ms.sourcegitcommit: bafb70af41ad1326adf3b7f8db50493e20a64926
+ms.openlocfilehash: b84f62dd02aa29a4c1aa64e3235c0a1e7cc66522
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/25/2019
-ms.locfileid: "67616130"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596745"
 ---
 # <a name="manually-create-and-use-a-volume-with-azure-disks-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure 디스크가 포함된 볼륨을 수동으로 만들어 사용
 
@@ -23,7 +20,7 @@ ms.locfileid: "67616130"
 
 Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 저장소 옵션][concepts-storage]을 참조 하세요.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -33,7 +30,7 @@ Kubernetes 볼륨에 대 한 자세한 내용은 [AKS의 응용 프로그램에 
 
 AKS에서 사용할 Azure 디스크를 만들 때는 **노드** 리소스 그룹에 디스크 리소스를 만들 수 있습니다. 이러한 방식을 사용하면 AKS 클러스터가 디스크 리소스에 액세스하고 해당 리소스를 관리할 수 있습니다. 이 방식 대신 별도의 리소스 그룹에 디스크를 만들어야 하는 경우에는 클러스터의 AKS(Azure Kubernetes Service) 서비스 주체에 디스크 리소스 그룹에 대한 `Contributor` 역할을 부여해야 합니다.
 
-이 문서에서는 노드 리소스 그룹에 디스크를 만듭니다. 먼저 [az aks show][az-aks-show] 명령을 사용 하 여 리소스 그룹 이름을 가져오고 쿼리 매개 변수를 `--query nodeResourceGroup` 추가 합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
+이 문서에서는 노드 리소스 그룹에 디스크를 만듭니다. 먼저 [az aks show][az-aks-show] 명령을 사용 하 여 리소스 그룹 이름을 가져오고 `--query nodeResourceGroup` 쿼리 매개 변수를 추가 합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
@@ -41,7 +38,7 @@ $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeR
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
-이제 [az disk create][az-disk-create] 명령을 사용 하 여 디스크를 만듭니다. 이전 명령에서 가져온 노드 리소스 그룹 이름을 지정한 다음 디스크 리소스의 이름을 *myAKSDisk*와 같이 지정합니다. 다음 예에서는 *20 개의*GiB 디스크를 만들고 생성 된 디스크의 ID를 출력 합니다. Windows Server 컨테이너에 사용할 디스크를 만들어야 하는 경우 (현재 AKS에서 미리 보기 상태), 디스크를 올바르게 `--os-type windows` 포맷 하는 매개 변수를 추가 합니다.
+이제 [az disk create][az-disk-create] 명령을 사용 하 여 디스크를 만듭니다. 이전 명령에서 가져온 노드 리소스 그룹 이름을 지정한 다음 디스크 리소스의 이름을 *myAKSDisk*와 같이 지정합니다. 다음 예에서는 *20 개의*GiB 디스크를 만들고 생성 된 디스크의 ID를 출력 합니다. Windows Server 컨테이너에 사용할 디스크를 만들어야 하는 경우 (현재 AKS에서 미리 보기 상태) 디스크를 올바르게 포맷 하려면 `--os-type windows` 매개 변수를 추가 합니다.
 
 ```azurecli-interactive
 az disk create \
@@ -62,7 +59,7 @@ az disk create \
 
 ## <a name="mount-disk-as-volume"></a>볼륨으로 디스크 탑재
 
-Pod에 Azure 디스크를 탑재하려면 컨테이너 사양에서 볼륨을 구성합니다. 다음 내용이 포함된 새 파일 `azure-disk-pod.yaml`을 만듭니다. `diskName`은 이전 단계에서 만든 디스크의 이름으로, `diskURI`는 disk create 명령의 출력에 표시된 디스크 ID로 업데이트합니다. 원하는 경우 Pod에서 Azure 디스크가 탑재되는 경로인 `mountPath`를 업데이트합니다. Windows Server 컨테이너 (현재 AKS의 미리 보기 상태)의 경우 *' d: '* 와 같은 windows 경로 규칙을 사용 하 여 *mountPath* 를 지정 합니다.
+Azure 디스크를 pod에 탑재 하려면 컨테이너 사양에서 볼륨을 구성 합니다. 다음 내용이 포함 된 `azure-disk-pod.yaml` 라는 새 파일을 만듭니다. `diskName`은 이전 단계에서 만든 디스크의 이름으로, `diskURI`는 disk create 명령의 출력에 표시된 디스크 ID로 업데이트합니다. 원하는 경우 Pod에서 Azure 디스크가 탑재되는 경로인 `mountPath`를 업데이트합니다. Windows Server 컨테이너 (현재 AKS의 미리 보기 상태)의 경우 *' d: '* 와 같은 windows 경로 규칙을 사용 하 여 *mountPath* 를 지정 합니다.
 
 ```yaml
 apiVersion: v1

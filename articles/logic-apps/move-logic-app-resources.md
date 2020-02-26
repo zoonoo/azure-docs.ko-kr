@@ -1,29 +1,31 @@
 ---
-title: 구독, 리소스 그룹 또는 지역에서 논리 앱 이동
+title: 구독, 리소스 그룹 또는 지역에서 논리 앱 마이그레이션
 description: 논리 앱 또는 통합 계정을 다른 Azure 구독, 리소스 그룹 또는 위치 (지역)로 마이그레이션
 services: logic-apps
 ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.openlocfilehash: d6250238edd15126e7a56bd821fbd1c736ebda07
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5944accb185f1311c811cf65a8ea8348fd569db
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965882"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605617"
 ---
 # <a name="move-logic-app-resources-to-other-azure-subscriptions-resource-groups-or-regions"></a>논리 앱 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 이동
 
-논리 앱 또는 관련 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 이동 하기 위해 Azure Portal, Azure PowerShell, Azure CLI, REST API 등의 여러 가지 방법으로 이러한 작업을 완료할 수 있습니다. 리소스를 이동 하기 전에 다음 사항을 검토 하십시오. 
+논리 앱 또는 관련 리소스를 다른 Azure 구독, 리소스 그룹 또는 지역으로 마이그레이션하려면 Azure Portal, Azure PowerShell, Azure CLI, REST API 등의 여러 가지 방법으로 이러한 작업을 완료할 수 있습니다. 리소스를 이동 하기 전에 다음 사항을 검토 하십시오. 
 
 * [특정 논리 앱 리소스 유형만](../azure-resource-manager/management/move-support-resources.md#microsoftlogic) Azure 리소스 그룹 또는 구독 간에 이동할 수 있습니다.
 
 * Azure 구독 및 각 Azure 지역에서 사용할 수 있는 논리 앱 리소스의 수에 대 한 [제한을](../logic-apps/logic-apps-limits-and-config.md) 확인 합니다. 이러한 제한은 지역이 구독 또는 리소스 그룹에서 동일 하 게 유지 될 때 특정 리소스 종류를 이동할 수 있는지 여부에 영향을 줍니다. 예를 들어 각 Azure 구독에서 각 Azure 지역에 대해 무료 계층 통합 계정을 하나만 사용할 수 있습니다.
 
-* 리소스를 이동 하면 Azure에서 새 리소스 Id를 만듭니다. 따라서 새 Id를 대신 사용 하 여 이동 된 리소스와 관련 된 스크립트나 도구를 업데이트 해야 합니다. 구독, 리소스 그룹 또는 지역 간에 논리 앱을 이동한 후에는 모든 OAuth 기반 연결을 다시 만들거나 다시 인증 해야 합니다.
+* 구독, 리소스 그룹 또는 지역 간에 논리 앱을 마이그레이션한 후에는 OAuth (Open Authentication)가 필요한 모든 연결을 다시 만들거나 다시 인증 해야 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+* 리소스를 이동할 때마다 Azure에서 새 리소스 Id를 만듭니다. 따라서 새 Id를 대신 사용 하 여 이동 된 리소스와 관련 된 스크립트나 도구를 업데이트 해야 합니다.
+
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 이동 하려는 논리 앱 또는 통합 계정을 만드는 데 사용 된 것과 동일한 Azure 구독
 

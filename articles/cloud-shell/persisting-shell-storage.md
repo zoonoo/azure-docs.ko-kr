@@ -12,14 +12,14 @@ ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm-linux
 ms.devlang: na
 ms.topic: article
-ms.date: 11/20/2019
+ms.date: 02/24/2020
 ms.author: damaerte
-ms.openlocfilehash: 0b3b0b2cc97c86fefe37055e0744b747d4f31687
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15a5770eb2964f0f2039fe93de904af65d4c81ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75385559"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598751"
 ---
 # <a name="persist-files-in-azure-cloud-shell"></a>Azure Cloud Shell에서 파일 유지
 Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 유지합니다. 처음 시작 시 Cloud Shell은 세션 간에 파일을 유지하기 위해 새 또는 기존 파일 공유를 연결하도록 요구합니다.
@@ -39,7 +39,7 @@ Cloud Shell은 Azure File 스토리지를 활용하여 세션 간에 파일을 �
 
 ![구독 설정](media/persisting-shell-storage/basic-storage.png)
 
-파일 공유는 `$Home` 디렉터리에서 `clouddrive`로 마운트됩니다. 이것은 일회성 작업이며 파일 공유는 후속 세션에서 자동으로 마운트됩니다. 
+파일 공유는 `clouddrive` 디렉터리에서 `$Home`로 마운트됩니다. 이것은 일회성 작업이며 파일 공유는 후속 세션에서 자동으로 마운트됩니다. 
 
 파일 공유는 `$Home` 디렉터리에서 데이터를 자동으로 유지하기 위해 만든 5GB 이미지를 포함합니다. 이는 Bash 및 PowerShell 모두에 적용됩니다.
 
@@ -62,7 +62,7 @@ Cloud Shell는 지정 된 구독 내에서 저장소 계정에 Azure 파일 공�
 사용자는 저장소 계정 또는 구독 수준에서 사용 권한을 설정 하 여 파일에 대 한 액세스를 잠가야 합니다.
 
 ## <a name="supported-storage-regions"></a>지원되는 스토리지 지역
-연결된 Azure Storage 계정은 사용자가 마운트하는 Cloud Shell 컴퓨터와 동일한 지역에 있어야 합니다. 현재 영역을 찾으려면 Bash에서 `env`를 실행하여 `ACC_LOCATION` 변수를 찾을 수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
+현재 지역을 찾으려면 Bash에서 `env`를 실행 하 고 `ACC_LOCATION`변수를 찾거나 PowerShell에서 `$env:ACC_LOCATION`를 실행할 수 있습니다. 파일 공유는 `$Home` 디렉터리를 유지하기 위해 만든 5GB 이미지를 수신합니다.
 
 Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 
@@ -72,13 +72,23 @@ Cloud Shell 컴퓨터는 아래 하위 지역에 위치합니다.
 |유럽|북유럽, 서유럽|
 |아시아 태평양|인도 중부, 동남 아시아|
 
+사용자는 미사용 데이터를 특정 지역에 저장 해야 하는 요구 사항이 있는 경우를 제외 하 고는 주 지역을 선택 해야 합니다. 이러한 요구 사항이 있는 경우 보조 저장소 지역을 사용 해야 합니다.
+
+### <a name="secondary-storage-regions"></a>보조 저장소 영역
+보조 저장소 지역이 사용 되는 경우 연결 된 Azure storage 계정은 탑재 하는 Cloud Shell 머신과 다른 지역에 상주 합니다. 예를 들어 Jane은 자신의 저장소 계정을 캐나다 동부, 보조 지역에 배치 되도록 설정할 수 있지만, 탑재 된 컴퓨터는 여전히 주 지역에 있습니다. 휴지 상태의 데이터는 캐나다에 있지만 미국에서 처리 됩니다.
+
+> [!NOTE]
+> 보조 지역이 사용 되는 경우 Cloud Shell의 파일 액세스 및 시작 시간이 느릴 수 있습니다.
+
+사용자는 PowerShell에서 `(Get-CloudDrive | Get-AzStorageAccount).Location`를 실행 하 여 파일 공유의 위치를 확인할 수 있습니다.
+
 ## <a name="restrict-resource-creation-with-an-azure-resource-policy"></a>Azure 리소스 정책으로 리소스 만들기 제한
 Cloud Shell에서 생성된 Storage 계정에 `ms-resource-usage:azure-cloud-shell` 태그가 지정됩니다. 사용자가 Cloud Shell에서 스토리지 계정을 만드는 것을 허용하지 않으려면 이 특정 태그로 트리거되는 [태그에 대한 Azure 리소스 정책](../azure-policy/json-samples.md)을 만듭니다.
 
 ## <a name="how-cloud-shell-storage-works"></a>Cloud Shell 스토리지 작동 방법 
 Cloud Shell은 다음 방법 모두를 통해 파일을 유지합니다. 
-* `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`에서 `acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
-* 직접 파일 공유의 상호 작용을 위해 `$Home` 디렉터리에서 지정된 파일 공유를 `clouddrive`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
+* `$Home` 디렉터리 내에 모든 콘텐츠를 유지하기 위해 해당 디렉터리의 디스크 이미지를 만듭니다. 디스크 이미지는 `acc_<User>.img`에서 `fileshare.storage.windows.net/fileshare/.cloudconsole/acc_<User>.img`로 지정된 파일 공유에 저장되고 변경 내용을 자동으로 동기화합니다. 
+* 직접 파일 공유의 상호 작용을 위해 `clouddrive` 디렉터리에서 지정된 파일 공유를 `$Home`로 마운트합니다. `/Home/<User>/clouddrive`은 `fileshare.storage.windows.net/fileshare`에 매핑됩니다.
  
 > [!NOTE]
 > SSH 키와 같이 `$Home` 디렉터리의 모든 파일은 마운트된 파일 공유에 저장된 사용자 디스크 이미지에서 유지됩니다. `$Home` 디렉터리 및 마운트된 파일 공유에서 정보를 유지하는 경우 모범 사례를 적용합니다.

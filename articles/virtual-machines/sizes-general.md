@@ -12,14 +12,14 @@ ms.service: virtual-machines
 ms.devlang: na
 ms.topic: article
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 674197bd4d1562d8492a2605d8929572d450af90
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: d8a13d9013b2ad526c8e332cf3ea74e04f253d98
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493580"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597714"
 ---
 # <a name="general-purpose-virtual-machine-sizes"></a>범용 가상 머신 크기
 
@@ -31,7 +31,7 @@ ms.locfileid: "77493580"
 
 - [Dav4 및 Dasv4 시리즈](dav4-dasv4-series.md) 는 AMD의 2.35 GHZ의 Epyc<sup>TM</sup> 7452 프로세서를 사용 하는 새로운 크기입니다. 최대 256 MB의 l3 캐시를 사용 하는 다중 스레드 구성에서 8 개 코어 마다 해당 l3 캐시를 사용 하 여 범용 워크 로드를 실행 하는 고객 옵션을 늘립니다. Dav4 시리즈와 Dasv4 시리즈는 D & Dsv3 시리즈와 동일한 메모리 및 디스크 구성을 포함 합니다.
 
-- [DC 시리즈](dc-series.md) 는 공용 클라우드에서 처리 되는 동안 데이터 및 코드의 기밀성과 무결성을 보호 하는 데 도움이 되는 Azure의 가상 머신 패밀리입니다. 이러한 컴퓨터는 SGX 기술을 사용 하는 최신 3.7 GHz Intel® Xeon® E-2176G 프로세서에서 지원 됩니다. Intel Turbo Boost 기술을 사용하면 이 머신은 최대 4.7GHz까지 작동할 수 있습니다. DC 시리즈 인스턴스를 사용하면 고객은 사용 중인 고객의 코드와 데이터를 보호할 수 있는 보안 Enclave 기반 애플리케이션을 빌드할 수 있습니다.
+- [DCv2 시리즈](dcv2-series.md) 는 공용 클라우드에서 처리 되는 동안 데이터 및 코드의 기밀성과 무결성을 보호 하는 데 도움이 될 수 있습니다. 이러한 컴퓨터는 SGX 기술을 사용 하는 Intel XEON E-2288G 프로세서의 최신 세대에서 지원 됩니다. Intel 터보 부스트 기술을 사용 하 여 이러한 컴퓨터는 최대 5.0 g h z까지 갈 수 있습니다. DCv2 series 인스턴스를 사용 하면 고객이 사용 중인 코드와 데이터를 보호 하기 위해 보안 enclave 기반 응용 프로그램을 빌드할 수 있습니다.
 
 - [Dv2 및 Dsv2 시리즈](dv2-dsv2-series.md) 원본 D 시리즈에 대 한 후속 기능을 제공 하는 Vm은 더 강력한 CPU와 메모리를 최적으로 구성 하 여 대부분의 프로덕션 워크 로드에 적합 합니다. Dv2 시리즈는 D 시리즈 보다 약 35% 더 빠릅니다. Dv2 시리즈는 intel 터보 부스트 기술 2.0을 사용 하 여 Intel® Xeon® 8171M (Skylake), Intel® Xeon® E5-2673 v4 2.3 GHz (Broadwell) 또는 Intel® Xeon® E5-2673 v3 2.4 GHz (Haswell) 프로세서에서 실행 됩니다. Dv2 시리즈는 D 시리즈와 메모리 및 디스크 구성이 같습니다.
 

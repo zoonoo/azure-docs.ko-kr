@@ -14,12 +14,12 @@ ms.date: 01/14/2020
 ms.author: mathoma
 ms.reviewer: jroth
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 7d096f721869e43e9a860733d0f6893f224a6776
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: bd9622d3e34198402bc45e5d855d05b0c8e35eb8
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772583"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605449"
 ---
 # <a name="in-place-change-of-sql-server-edition-on-azure-vm"></a>Azure VM에서 SQL Server 버전의 현재 위치가 변경 되었습니다.
 
@@ -29,13 +29,13 @@ SQL Server 버전은 제품 키에 따라 결정 되며 설치 과정에서 설�
 
 SQL Server 버전이 SQL Server VM 내부적으로 변경 된 후에는 청구를 위해 Azure Portal에서 SQL Server의 버전 속성을 업데이트 해야 합니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 SQL Server 버전의 현재 위치를 변경 하려면 다음이 필요 합니다. 
 
 - [Azure 구독](https://azure.microsoft.com/free/).
 - [SQL VM 리소스 공급자](virtual-machines-windows-sql-register-with-resource-provider.md)에 등록 된 [Windows의 SQL Server VM](https://docs.microsoft.com/azure/virtual-machines/windows/sql/virtual-machines-windows-portal-sql-server-provision) 입니다.
-- **원하는 SQL Server 버전** 으로 미디어를 설치 합니다. [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전 (일반적으로 `c:\SQLInstalls`에 있음)을 포함 하는 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다. 
+- **원하는 SQL Server 버전** 으로 미디어를 설치 합니다. [소프트웨어 보증이](https://www.microsoft.com/licensing/licensing-programs/software-assurance-default) 있는 고객은 [볼륨 라이선스 센터](https://www.microsoft.com/Licensing/servicecenter/default.aspx)에서 설치 미디어를 가져올 수 있습니다. 소프트웨어 보증이 없는 고객은 원하는 버전 (일반적으로 `C:\SQLServerFull`에 있음)을 포함 하는 Azure Marketplace SQL Server VM 이미지에서 설치 미디어를 사용할 수 있습니다. 
 
 
 ## <a name="upgrade-an-edition"></a>버전 업그레이드

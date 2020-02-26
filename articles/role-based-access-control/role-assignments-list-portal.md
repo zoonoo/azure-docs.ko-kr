@@ -14,12 +14,12 @@ ms.workload: identity
 ms.date: 01/23/2020
 ms.author: rolyon
 ms.reviewer: bagovind
-ms.openlocfilehash: 099cf74dd27f39a4289397d5178511125d9ebf6f
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 63aef8d2036e442659145e031d384e9677c779a1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720726"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598071"
 ---
 # <a name="list-role-assignments-using-azure-rbac-and-the-azure-portal"></a>Azure RBAC 및 Azure Portal를 사용 하 여 역할 할당 나열
 
@@ -116,7 +116,7 @@ ms.locfileid: "76720726"
 
 ## <a name="list-role-assignments-for-a-user-assigned-managed-identity"></a>사용자 할당 관리 id에 대 한 역할 할당 나열
 
-1. Azure Portal에서 시스템 할당 관리 id를 엽니다.
+1. Azure Portal에서 사용자 할당 관리 id를 엽니다.
 
 1. **Azure 리소스**를 클릭합니다.
 

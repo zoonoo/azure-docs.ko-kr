@@ -2,17 +2,14 @@
 title: AKS (Azure Kubernetes Service) 부하 분산 장치에 고정 IP 주소 및 DNS 레이블 사용
 description: 고정 IP 주소를 만들어 AKS(Azure Kubernetes Service) 부하 분산 장치에서 사용하는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 11/06/2019
-ms.author: mlearned
-ms.openlocfilehash: 5e1f88e82d994c7f912b21781271448d35b5d726
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d5177494ecdd112342b2cd719e9305bfab97902c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77558908"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593600"
 ---
 # <a name="use-a-static-public-ip-address-and-dns-label-with-the-azure-kubernetes-service-aks-load-balancer"></a>AKS (Azure Kubernetes Service) 부하 분산 장치에 고정 공용 IP 주소 및 DNS 레이블 사용
 
@@ -65,7 +62,7 @@ $ az network public-ip show --resource-group myResourceGroup --name myAKSPublicI
 
 ## <a name="create-a-service-using-the-static-ip-address"></a>고정 IP 주소를 사용하여 서비스 만들기
 
-서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 예를 들면 다음과 같습니다.
+서비스를 만들기 전에 AKS 클러스터에서 사용 하는 서비스 사용자에 게 다른 리소스 그룹에 대 한 위임 된 권한이 있는지 확인 합니다. 다음은 그 예입니다.
 
 ```azurecli-interactive
 az role assignment create \
@@ -102,7 +99,7 @@ kubectl apply -f load-balancer-service.yaml
 
 서비스에서 동적 또는 고정 공용 IP 주소를 사용 하는 경우 서비스 주석 `service.beta.kubernetes.io/azure-dns-label-name`를 사용 하 여 공용 DNS 레이블을 설정할 수 있습니다. 그러면 Azure의 공용 DNS 서버 및 최상위 도메인을 사용 하 여 서비스에 대 한 정규화 된 도메인 이름이 게시 됩니다. 주석 값은 Azure 위치 내에서 고유 해야 하므로 충분히 정규화 된 레이블을 사용 하는 것이 좋습니다.   
 
-그러면 Azure에서 사용자가 제공한 이름에 `<location>.cloudapp.azure.com` (여기서 location은 선택한 지역)와 같은 기본 서브넷을 자동으로 추가 하 여 정규화 된 DNS 이름을 만듭니다. 예를 들면 다음과 같습니다.
+그러면 Azure에서 사용자가 제공한 이름에 `<location>.cloudapp.azure.com` (여기서 location은 선택한 지역)와 같은 기본 서브넷을 자동으로 추가 하 여 정규화 된 DNS 이름을 만듭니다. 다음은 그 예입니다.
 
 ```yaml
 apiVersion: v1

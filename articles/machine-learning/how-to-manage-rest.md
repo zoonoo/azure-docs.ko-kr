@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/31/2020
-ms.openlocfilehash: e1e19f985c9aa02759c6fff3c634c216c7ef42ef
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 419dbd998abc5cbd2da64a990e13d46f3fb2efbe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525552"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580631"
 ---
 # <a name="create-run-and-delete-azure-ml-resources-using-rest"></a>REST를 사용 하 여 Azure ML 리소스 만들기, 실행 및 삭제
 
@@ -401,6 +401,23 @@ providers/Microsoft.Storage/storageAccounts/{your-storage-account-name}"
 ```
 
 `202 Accepted` 응답을 수신 하 고 반환 된 헤더에 `Location` URI를 제공 해야 합니다. 종속 리소스 중 하나에 문제가 있는 경우 (예를 들어 컨테이너 레지스트리에서 관리자 액세스를 사용 하도록 설정 하지 않은 경우) 유용한 디버깅 정보를 포함 하 여 배포에 대 한 정보에 대 한이 URI를 가져올 수 있습니다. 
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="resource-provider-errors"></a>리소스 공급자 오류
+
+[!INCLUDE [machine-learning-resource-provider](../../includes/machine-learning-resource-provider.md)]
+
+### <a name="moving-the-workspace"></a>작업 영역 이동
+
+> [!WARNING]
+> Azure Machine Learning 작업 영역을 다른 구독으로 이동 하거나 소유 하는 구독을 새 테 넌 트로 이동 하는 것은 지원 되지 않습니다. 이렇게 하면 오류가 발생할 수 있습니다.
+
+### <a name="deleting-the-azure-container-registry"></a>Azure Container Registry 삭제
+
+Azure Machine Learning 작업 영역에서는 일부 작업에 Azure Container Registry (ACR)를 사용 합니다. 먼저 필요할 때 ACR 인스턴스를 자동으로 만듭니다.
+
+[!INCLUDE [machine-learning-delete-acr](../../includes/machine-learning-delete-acr.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

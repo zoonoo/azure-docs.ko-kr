@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 02/18/2020
-ms.openlocfilehash: c5c8a41aef92876ceaa66fb23c01c6ece1609f91
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e313048986beca1991e38ce2e65ea12f954170d2
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484811"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598275"
 ---
 # <a name="use-apache-zeppelin-notebooks-with-apache-spark-cluster-on-azure-hdinsight"></a>Azure HDInsight에서 Apache Spark 클러스터와 함께 Apache Zeppelin Notebook 사용
 
@@ -150,6 +150,25 @@ Zeppelin Notebook은 클러스터 헤드 노드에 저장됩니다. 따라서 �
 ![노트북 다운로드](./media/apache-spark-zeppelin-notebook/zeppelin-download-notebook.png "노트북 다운로드")
 
 이렇게 하면 Notebook이 다운로드 위치에 JSON 파일로 저장됩니다.
+
+## <a name="use-shiro-to-configure-access-to-zeppelin-interpreters-in-enterprise-security-package-esp-clusters"></a>Shiro를 사용 하 여 Enterprise Security Package (ESP) 클러스터의 Zeppelin 인터프리터에 대 한 액세스를 구성 합니다.
+위에서 설명한 것 처럼 `%sh` 인터프리터는 HDInsight 4.0 이상에서 지원 되지 않습니다. 또한 `%sh` 인터프리터는 셸 명령을 사용 하 여 액세스 keytabs와 같은 잠재적인 보안 문제를 도입 하므로 HDInsight 3.6 ESP 클러스터 에서도 제거 되었습니다. 이는 기본적으로 **새 메모 만들기** 를 클릭 하거나 인터프리터 UI에서 `%sh` 인터프리터를 사용할 수 없음을 의미 합니다. 
+
+권한 있는 도메인 사용자는 `Shiro.ini` 파일을 활용 하 여 인터프리터 UI에 대 한 액세스를 제어할 수 있습니다. 따라서 이러한 사용자만 새 `%sh` 인터프리터를 만들고 새 `%sh` 인터프리터 마다 사용 권한을 설정할 수 있습니다. `shiro.ini` 파일을 사용 하 여 액세스를 제어 하려면 다음 단계를 사용 합니다.
+
+1. 기존 도메인 그룹 이름을 사용 하 여 새 역할을 정의 합니다. 다음 예제에서 `adminGroupName`은 AAD의 권한 있는 사용자 그룹입니다. 그룹 이름에 특수 문자나 공백을 사용 하지 마십시오. `=` 뒤의 문자는이 역할에 대 한 사용 권한을 부여 합니다. `*`은 그룹에 모든 권한이 있음을 의미 합니다.
+
+    ```
+    [roles]
+    adminGroupName = *
+    ```
+
+2. Zeppelin 인터프리터에 대 한 액세스에 대 한 새 역할을 추가 합니다. 다음 예제에서는 `adminGroupName`의 모든 사용자에 게 Zeppelin 인터프리터에 대 한 액세스 권한을 부여 하 고 새 인터프리터를 만들 수 있습니다. 쉼표로 구분 된 `roles[]`의 대괄호 사이에 여러 역할을 넣을 수 있습니다. 그런 다음 필요한 권한이 있는 사용자는 Zeppelin 인터프리터에 액세스할 수 있습니다.
+
+    ```
+    [urls]
+    /api/interpreter/** = authc, roles[adminGroupName]
+    ```
 
 ## <a name="livy-session-management"></a>Livy 세션 관리
 

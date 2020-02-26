@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: e7aa19c1d189eb19237ea85aae1ad2441d7e98b9
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 8b1e4c60e6054141e71d2509fe34c7ca9baf9ca6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77163197"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598462"
 ---
 # <a name="import-data-module"></a>데이터 가져오기 모듈
 
@@ -48,9 +48,7 @@ ms.locfileid: "77163197"
 
 1. 파이프라인에 **데이터 가져오기** 모듈을 추가 합니다. 이 모듈은 디자이너의 **데이터 입력 및 출력** 범주에서 찾을 수 있습니다.
 
-1. 마법사를 사용 하 여 데이터 원본을 구성 하려면 **데이터 가져오기 마법사 시작** 을 클릭 합니다.
-
-    마법사는 계정 이름 및 자격 증명을 가져오고 다른 옵션을 구성 하는 데 도움을 줍니다. 기존 구성을 편집 하는 경우에는 현재 값을 먼저 로드 합니다.
+1. 모듈을 선택 하 여 오른쪽 창을 엽니다.
 
 1. **데이터 원본**을 선택 하 고 데이터 원본 유형을 선택 합니다. HTTP 또는 데이터 저장소 일 수 있습니다.
 
@@ -60,6 +58,11 @@ ms.locfileid: "77163197"
 
     ![가져오기-데이터-미리 보기](media/module/import-data.png)
 
+1. **출력 다시 생성**확인란은 실행 시 출력을 다시 생성 하기 위해 모듈을 실행할지 여부를 결정 합니다. 
+
+    기본적으로 선택 취소 되어 있습니다. 즉, 모듈이 이전에 동일한 매개 변수를 사용 하 여 실행 되는 경우 시스템은 마지막 실행의 출력을 다시 사용 하 여 실행 시간을 줄입니다. 
+
+    이 확인란이 선택 되어 있으면 시스템에서 모듈을 다시 실행 하 여 출력을 다시 생성 합니다. 따라서 저장소의 기본 데이터를 업데이트 하는 경우이 옵션을 선택 하면 최신 데이터를 가져오는 데 도움이 될 수 있습니다.
 
 
 1. 파이프라인을 실행합니다.

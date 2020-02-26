@@ -1,5 +1,5 @@
 ---
-title: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 | Microsoft Docs
+title: SLES의 SAP NetWeaver에 대 한 Azure Vm 고가용성 Microsoft Docs
 description: SAP 애플리케이션용 SUSE Linux Enterprise Server의 SAP NetWeaver에 대한 고가용성 가이드
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: radeltch
-ms.openlocfilehash: 77a26d229ddc4ce5f35fde3db010e3b7c146a563
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 4dbce04df4a2542884f1f24b3207fe45fd4b26ae
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76985520"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598241"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -170,11 +170,11 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
 1. 가용성 집합 만들기  
    최대 업데이트 도메인 설정
 1. Virtual Machine 1 만들기  
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )를 사용합니다.  
+   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)를 사용합니다.  
    SAP Applications 12 SP1용 SLES 사용  
    이전에 만든 가용성 집합 선택  
 1. Virtual Machine 2 만들기  
-   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM )를 사용합니다.  
+   SLES4SAP 12 SP1 이상을 사용합니다. 이 예제에서는 SLES4SAP 12 SP1 이미지(https://portal.azure.com/#create/SUSE.SUSELinuxEnterpriseServerforSAPApplications12SP1PremiumImage-ARM)를 사용합니다.  
    SAP Applications 12 SP1용 SLES 사용  
    이전에 만든 가용성 집합 선택  
 1. 두 가상 머신 모두에 하나 이상의 데이터 디스크 추가  

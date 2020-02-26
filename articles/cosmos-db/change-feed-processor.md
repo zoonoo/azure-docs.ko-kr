@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: conceptual
 ms.date: 12/03/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 3e7f5e46068844da538864fdfaa03ca7023e4372
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f8ae85ffc16bd953f04f1c3d7790231939c1f2cf
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445573"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588910"
 ---
 # <a name="change-feed-processor-in-azure-cosmos-db"></a>Azure Cosmos DB의 변경 피드 프로세서 
 
@@ -41,13 +41,13 @@ ms.locfileid: "75445573"
 
 항목의 지점은 `GetChangeFeedProcessorBuilder`호출 하는 `Container` 인스턴스에서 항상 모니터링 되는 컨테이너입니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=DefineProcessor)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="DefineProcessor":::
 
 여기서 첫 번째 매개 변수는이 프로세서의 목표를 설명 하는 고유한 이름이 고, 두 번째 이름은 변경 내용을 처리 하는 대리자 구현입니다. 
 
 대리자의 예는 다음과 같습니다.
 
-[!code-csharp[Main](~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs?name=Delegate)]
+:::code language="csharp" source="~/samples-cosmosdb-dotnet-change-feed-processor/src/Program.cs" id="Delegate":::
 
 마지막으로 `WithInstanceName` 및 `WithLeaseContainer`를 사용 하 여 임대 상태를 유지 하는 컨테이너를 사용 하 여이 프로세서 인스턴스의 이름을 정의 합니다.
 

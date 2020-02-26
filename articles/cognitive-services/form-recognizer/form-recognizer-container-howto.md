@@ -7,14 +7,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: forms-recognizer
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: f0a707f65ecf17887b4e5d12e3487ba3359a68ec
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 64bd6bb0a1a064f38eae472cb889acb6df7ae4b1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888314"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605154"
 ---
 # <a name="install-and-run-form-recognizer-containers-preview"></a>양식 인식기 컨테이너 설치 및 실행 (미리 보기)
 
@@ -31,11 +31,11 @@ Azure 양식 인식기는 기계 학습 기술을 적용 하 여 양식에서 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 양식 인식기 컨테이너를 사용 하기 전에 다음 필수 구성 요소를 충족 해야 합니다.
 
-|필수|용도|
+|필수|목적|
 |--|--|
 |Docker 엔진| [호스트 컴퓨터](#the-host-computer)에 설치된 Docker 엔진이 필요합니다. Docker는 [macOS](https://docs.docker.com/docker-for-mac/), [Windows](https://docs.docker.com/docker-for-windows/) 및 [Linux](https://docs.docker.com/engine/installation/#supported-platforms)에서 Docker 환경을 구성하는 패키지를 제공합니다. Docker 및 컨테이너에 대한 기본 사항은 [Docker 개요](https://docs.docker.com/engine/docker-overview/)를 참조하세요.<br><br> Docker는 컨테이너에서 Azure에 연결하여 청구 데이터를 보낼 수 있도록 구성해야 합니다. <br><br> Windows에서는 Linux 컨테이너를 지원 하도록 Docker도 구성 해야 합니다.<br><br>|
 |Docker 사용 경험 | 레지스트리, 리포지토리, 컨테이너 및 컨테이너 이미지와 같은 Docker 개념을 기본적으로 이해 하 고 기본 `docker` 명령에 대해 알고 있어야 합니다.|
@@ -64,7 +64,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="request-access-to-the-container-registry"></a>컨테이너 레지스트리에 대한 액세스 요청
 
-컨테이너에 대 한 액세스를 요청 하려면 먼저 [Cognitive Services 양식 인식기 컨테이너 액세스 요청 폼](https://aka.ms/FormRecognizerRequestAccess) 을 완료 하 고 제출 해야 합니다. 이렇게 하면 Computer Vision에 등록 됩니다. Computer Vision 요청 양식에 별도로 등록할 필요가 없습니다. 
+컨테이너에 대 한 액세스를 요청 하려면 먼저 [Cognitive Services 양식 인식기 컨테이너 액세스 요청 폼](https://aka.ms/FormRecognizerContainerRequestAccess) 을 완료 하 고 제출 해야 합니다. 이렇게 하면 Computer Vision에 등록 됩니다. Computer Vision 요청 양식에 별도로 등록할 필요가 없습니다. 
 
 [!INCLUDE [Request access to the container registry](../../../includes/cognitive-services-containers-request-access-only.md)]
 
@@ -80,11 +80,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 | 컨테이너 | 최소 | 권장 |
 |-----------|---------|-------------|
-| Form Recognizer | 2 코어, 4gb 메모리 | 4 코어, 8gb 메모리 |
+| Form Recognizer | 2개 코어, 4GB 메모리 | 4개 코어, 8GB 메모리 |
 | 텍스트 인식 | 1 코어, 8gb 메모리 | 2 코어, 8gb 메모리 |
 
 * 각 코어는 속도가 2.6GHz 이상이어야 합니다.
-* `docker run` 명령의 일부로 사용되는 `--cpus` 및 `--memory` 설정에 해당하는 코어 및 메모리.
+* `--cpus` 명령의 일부로 사용되는 `--memory` 및 `docker run` 설정에 해당하는 코어 및 메모리.
 
 > [!Note]
 > 최소 및 권장 값은 호스트 컴퓨터 리소스가 *아니라* Docker 제한을 기반으로 합니다.
@@ -125,14 +125,14 @@ docker pull containerpreview.azurecr.io/microsoft/cognitive-services-recognize-t
 
 컨테이너를 [호스트 컴퓨터](#the-host-computer)에 설치한 후 다음 프로세스를 사용 하 여 컨테이너 작업을 수행 합니다.
 
-1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-by-using-the-docker-run-command)합니다. `docker run` 명령의 자세한 [예제](form-recognizer-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
+1. 필수 청구 설정을 사용하여 [컨테이너를 실행](#run-the-container-by-using-the-docker-run-command)합니다. [ 명령의 자세한 ](form-recognizer-container-configuration.md#example-docker-run-commands)예제`docker run`를 사용할 수 있습니다.
 1. [컨테이너의 예측 엔드포인트를 쿼리합니다](#query-the-containers-prediction-endpoint).
 
 ## <a name="run-the-container-by-using-the-docker-run-command"></a>Docker run 명령을 사용 하 여 컨테이너를 실행 합니다.
 
-[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` 및 `{FORM_RECOGNIZER_API_KEY}` 값을 가져오는 방법에 대한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters)을 참조하세요.
+[Docker 실행](https://docs.docker.com/engine/reference/commandline/run/) 명령을 사용하여 컨테이너를 실행합니다. `{COMPUTER_VISION_ENDPOINT_URI}`, `{COMPUTER_VISION_API_KEY}`, `{FORM_RECOGNIZER_ENDPOINT_URI}` 및 `{FORM_RECOGNIZER_API_KEY}` 값을 가져오는 방법에 대 한 자세한 내용은 [필수 매개 변수 수집](#gathering-required-parameters) 을 참조 하세요.
 
-`docker run`명령의 [예](form-recognizer-container-configuration.md#example-docker-run-commands)를 사용할 수 있습니다.
+`docker run` 명령의 [예](form-recognizer-container-configuration.md#example-docker-run-commands) 를 사용할 수 있습니다.
 
 ### <a name="form-recognizer"></a>Form Recognizer
 
@@ -310,7 +310,7 @@ formrecognizer_config =
 
 [!INCLUDE [Cognitive Services FAQ note](../containers/includes/cognitive-services-faq-note.md)]
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 양식 인식기 컨테이너는 Azure 계정의 _양식 인식기_ 리소스를 사용 하 여 azure에 청구 정보를 보냅니다.
 

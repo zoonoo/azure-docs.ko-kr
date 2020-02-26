@@ -8,12 +8,12 @@ ms.service: service-bus-messaging
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: aschhab
-ms.openlocfilehash: 21a3bfd09e83571e489e15e9351e12220a99e563
-ms.sourcegitcommit: 8b44498b922f7d7d34e4de7189b3ad5a9ba1488b
+ms.openlocfilehash: f852ad70b2eb97e2b8b3e40d086e98b3836c3592
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/13/2019
-ms.locfileid: "72301257"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598292"
 ---
 # <a name="throttling-operations-on-azure-service-bus"></a>Azure Service Bus에 대 한 제한 작업
 
@@ -51,10 +51,15 @@ Azure Service Bus 표준 계층은 종 량 제 가격 책정 모델을 사용 �
 
 모든 작업이 동일 하 게 생성 되는 것은 아닙니다. 각 작업의 신용 비용은 다음과 같습니다. 
 
-| 연산 | 신용 비용|
+| 작업(Operation) | 신용 비용|
 |-----------|-----------|
 | 데이터 작업 (Send, SendAsync, Receive, ReceiveAsync, Peek) |메시지당 1 개 크레딧 |
 | 관리 작업 (큐, 항목, 구독, 필터에 대 한 만들기, 읽기, 업데이트, 삭제) | 크레딧을 10 개 |
+
+> [!NOTE]
+> 토픽으로 보낼 때 각 메시지는 구독에서 사용할 수 있게 되기 전에 필터에 대해 평가 됩니다.
+> 또한 각 필터 평가는 신용 한도 (즉, 필터 평가 당 크레딧 1 개)를 계산 합니다.
+>
 
 ### <a name="how-will-i-know-that-im-being-throttled"></a>제한 되는 것을 어떻게 알 수 있나요?
 

@@ -2,17 +2,14 @@
 title: AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드로 RDP
 description: 문제 해결 및 유지 관리 작업을 위해 AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드를 사용 하 여 RDP 연결을 만드는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/04/2019
-ms.author: mlearned
-ms.openlocfilehash: e3a4ea2e81e6c428b51d164336282f8f929d414b
-ms.sourcegitcommit: 36e9cbd767b3f12d3524fadc2b50b281458122dc
+ms.openlocfilehash: 897504aa9902d0feaf4245c719d3a4a3c6fd2241
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/20/2019
-ms.locfileid: "69639803"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594484"
 ---
 # <a name="connect-with-rdp-to-azure-kubernetes-service-aks-cluster-windows-server-nodes-for-maintenance-or-troubleshooting"></a>유지 관리 또는 문제 해결을 위해 RDP를 사용 하 여 AKS (Azure Kubernetes Service) 클러스터 Windows Server 노드에 연결
 
@@ -22,7 +19,7 @@ Windows Server 노드 지원은 현재 AKS에서 미리 보기로 제공 됩니�
 
 이 문서에서는 개인 IP 주소를 사용 하 여 AKS 노드를 사용 하 여 RDP 연결을 만드는 방법을 보여 줍니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 Windows Server 노드가 있는 기존 AKS 클러스터가 있다고 가정 합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용 하 여 Windows 컨테이너를 사용 하 여 AKS 클러스터 만들기][aks-windows-cli]문서를 참조 하세요. 문제를 해결 하려면 Windows Server 노드에 대 한 Windows 관리자 사용자 이름 및 암호가 필요 합니다. [Microsoft 원격 데스크톱][rdp-mac]와 같은 RDP 클라이언트도 필요 합니다.
 
@@ -43,7 +40,7 @@ SUBNET_NAME=$(az network vnet subnet list -g $CLUSTER_RG --vnet-name $VNET_NAME 
 SUBNET_ID=$(az network vnet subnet show -g $CLUSTER_RG --vnet-name $VNET_NAME --name $SUBNET_NAME --query id -o tsv)
 ```
 
-이제 SUBNET_ID이 있으므로 동일한 Azure Cloud Shell 창에서 다음 명령을 실행 하 여 VM을 만듭니다.
+SUBNET_ID 했으므로 이제 동일한 Azure Cloud Shell 창에서 다음 명령을 실행 하 여 VM을 만듭니다.
 
 ```azurecli-interactive
 az vm create \

@@ -3,7 +3,7 @@ title: Azure 센티널에 Cisco 데이터 연결 | Microsoft Docs
 description: Cisco 데이터를 Azure 센티널에 연결 하는 방법을 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 62029b5c-29d3-4336-8a22-a9db8214eb7e
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/30/2019
-ms.author: rkarlin
-ms.openlocfilehash: 67a76f1fcd4cfcdd372407ae62eb03d5905cda68
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 264dab4fabc890ffe03d911f8ee3c08ef51375d8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610661"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588402"
 ---
 # <a name="connect-cisco-asa-to-azure-sentinel"></a>Azure 센티널에 Cisco GLOBAL.ASA 연결
 

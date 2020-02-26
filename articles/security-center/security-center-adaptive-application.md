@@ -13,14 +13,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/23/2019
 ms.author: memildin
-ms.openlocfilehash: 862fb4f8a9dcd357148f73a729ffc7e92ba0083a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1dc94c5ec08cc27fb1819ccc16fd766c62aad796
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75353435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604678"
 ---
-# <a name="adaptive-application-controls"></a>적응 애플리케이션 제어
+# <a name="adaptive-application-controls"></a>적응 애플리케이션 컨트롤
 이 연습을 통해 Azure Security Center에서 애플리케이션 컨트롤을 구성하는 방법에 대해 알아봅니다.
 
 ## <a name="what-are-adaptive-application-controls-in-security-center"></a>Security Center의 적응형 애플리케이션 제어란 무엇입니까?
@@ -180,5 +180,4 @@ Azure Security Center를 사용하면 권장되지 않는 VM 그룹에서도 애
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md). Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center에서 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type). 다양한 유형의 보안 경고에 대해 알아봅니다.
 * [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide). Security Center의 일반적인 문제를 해결하는 방법에 대해 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md)로 설정합니다. 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/). Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

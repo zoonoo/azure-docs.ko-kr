@@ -6,19 +6,16 @@ ms.service: azure-migrate
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: raynew
-ms.openlocfilehash: 99ccd00dbcea7f8eaed2e8e51a64b89c1e0b42a2
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b60a30e5e30ee81cbaca7d5e4691ccedac2462b6
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028843"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598173"
 ---
 # <a name="set-up-an-appliance-for-physical-servers"></a>물리적 서버용 어플라이언스 설정
 
 이 문서에서는 Azure Migrate: 서버 평가 도구를 사용 하 여 물리적 서버를 평가 하는 경우 Azure Migrate 어플라이언스를 설정 하는 방법을 설명 합니다.
-
-> [!NOTE]
-> Azure Migrate 포털에 표시 되지 않는 기능을 여기에서 설명 하는 경우에는 중단 합니다. 이는 다음 주 정도에 표시됩니다.
 
 Azure Migrate 어플라이언스는 Azure Migrate Server 평가에서 다음을 수행 하는 데 사용 하는 경량 어플라이언스입니다.
 
@@ -44,7 +41,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **가상화되지 않음/기타**를 클릭합니다.
 3. **다운로드**를 클릭하여 압축 파일을 다운로드합니다.
 
-    ![VM 다운로드](./media/how-to-set-up-appliance-hyper-v/download-appliance-hyperv.png)
+    ![VM 다운로드](./media/tutorial-assess-physical/download-appliance.png)
 
 
 ### <a name="verify-security"></a>보안 확인
@@ -55,21 +52,16 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3.  최신 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
-
-  **알고리즘** | **해시 값**
-  --- | ---
-  MD5 | 96fd99581072c400aa605ab036a0a7c0
-  SHA256 | f5454beef510c0aa38ac1c6be6346207c351d5361afa0c9cea4772d566fcdc36
+3.  최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-physical#verify-security)일치 해야 합니다.
 
 
 
 ## <a name="run-the-azure-migrate-installer-script"></a>Azure Migrate 설치 프로그램 스크립트 실행
-설치 프로그램 스크립트에서 수행하는 작업은 다음과 같습니다.
+설치 프로그램 스크립트는 다음을 수행합니다.
 
 - 물리적 서버 검색 및 평가를 위한 에이전트와 웹 애플리케이션을 설치합니다.
 - Windows 정품 인증 서비스, IIS 및 PowerShell ISE를 비롯한 Windows 역할을 설치합니다.
-- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아보기](https://www.microsoft.com/download/details.aspx?id=7435).
+- IIS 재작성 모듈을 다운로드하여 설치합니다. [자세히 알아봅니다](https://www.microsoft.com/download/details.aspx?id=7435).
 - Azure Migrate에 대한 영구적인 설정 세부 정보를 사용하여 레지스트리 키(HKLM)를 업데이트합니다.
 - 지정된 경로에 다음 파일을 만듭니다.
     - **구성 파일**: %Programdata%\Microsoft Azure\Config
@@ -80,13 +72,16 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 1. 어플라이언스를 호스팅할 서버의 폴더에 압축 파일을 추출합니다.
 2. 위 서버에서 관리자(상승된) 권한을 사용하여 PowerShell을 시작합니다.
 3. 다운로드한 압축 파일에서 콘텐츠를 추출한 폴더로 PowerShell 디렉터리를 변경합니다.
-4. 다음 명령을 실행하여 스크립트를 실행합니다.
+4. 다음 명령을 실행하여 **AzureMigrateInstaller.ps1**이라는 스크립트를 실행합니다.
     ```
-    AzureMigrateInstaller.ps1
+    PS C:\Users\administrator\Desktop\AzureMigrateInstaller> AzureMigrateInstaller.ps1
     ```
 스크립트가 성공적으로 완료되면 어플라이언스 웹 애플리케이션이 시작됩니다.
 
+문제가 발생하는 경우 문제 해결을 위해 C:\ProgramData\Microsoft Azure\Logs\AzureMigrateScenarioInstaller_<em>Timestamp</em>.log 스크립트 로그에 액세스할 수 있습니다.
 
+> [!NOTE]
+> 기존 Azure Migrate 어플라이언스에서 Azure Migrate 설치 프로그램 스크립트를 실행하지 마세요.
 
 ### <a name="verify-appliance-access-to-azure"></a>Azure에 대한 어플라이언스 액세스 확인
 

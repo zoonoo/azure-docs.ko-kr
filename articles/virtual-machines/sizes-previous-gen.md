@@ -12,14 +12,14 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/03/2020
+ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: cd45d38759bcf41307ba42d68d504266719579d2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 2d54c39577a359499cf6dc3aca84cebc4fa6e206
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493424"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598020"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -210,6 +210,24 @@ Premium Storage 캐싱: 지원 되지 않음
 <sup>1</sup> VM 제품군은 다음 CPU의 하나에서 실행할 수 있습니다. 2.2 Ghz intel Xeon® e5-2660 v2, 2.4 Ghz intel Xeon® e5-2673 V3 (haswell) 또는 2.3 GHZ intel Xeon® E5-2673 V4 (Broadwell)  
 
 <br>
+
+## <a name="preview-dc-series"></a>미리 보기: DC 시리즈
+
+Premium Storage: 지원됨
+
+Premium Storage 캐싱: 지원 됨
+
+DC 시리즈는 SGX 기술이 포함 된 최신 버전의 3.7 g h z Intel XEON E-2176G 프로세서를 사용 하며, Intel 터보 부스트 기술을 통해 최대 4.7 g h z까지 이동할 수 있습니다. 
+
+| 크기          | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시된 임시 스토리지 처리량: IOPS/MBps(GiB 단위의 캐시 크기) | 최대 캐시되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 / 예상 네트워크 대역폭(Mbps) |
+|---------------|------|-------------|------------------------|----------------|-------------------------------------------------------------------------|-------------------------------------------|----------------------------------------------|
+| Standard_DC2s | 2    | 8           | 100                    | 2              | 4000 / 32(43)                                                          | 3200 /48                                  | 2 / 1500                                     |
+| Standard_DC4s | 4    | 16          | 200                    | 4              | 8000 / 64 (86)                                                          | 6400 /96                                  | 2 / 3000                                     |
+
+> [!IMPORTANT]
+>
+> DC 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
+
 
 ### <a name="ds-series"></a>DS 시리즈  
 

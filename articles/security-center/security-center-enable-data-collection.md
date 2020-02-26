@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 795661912633f0d225aef4de8ea7620a8766e096
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: 71c30e0a86f67a2e2826859032144aa491c0cee1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74766993"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597034"
 ---
 # <a name="data-collection-in-azure-security-center"></a>Azure Security Center에서 데이터 수집
 Security Center는 Azure Vm (가상 머신), 가상 머신 확장 집합, IaaS 컨테이너 및 비 Azure (온-프레미스) 컴퓨터에서 보안 취약성 및 위협에 대 한 모니터링 데이터를 수집 합니다. 데이터는 컴퓨터에서 다양 한 보안 관련 구성 및 이벤트 로그를 읽고 분석을 위해 작업 영역에 데이터를 복사 하는 Log Analytics 에이전트를 사용 하 여 수집 됩니다. 이러한 데이터의 예로는 운영 체제 유형 및 버전, 운영 체제 로그(Windows 이벤트 로그), 실행 중인 프로세스, 머신 이름, IP 주소, 로그인된 사용자를 들 수 있습니다. 또한 Log Analytics 에이전트는 작업 영역에 크래시 덤프 파일을 복사 합니다.
@@ -72,7 +72,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 1. **기본 작업 영역 구성** 아래에서 [Security Center가 만든 작업 영역 사용]을 선택합니다.
    ![가격 책정 계층 선택][10] 
 
-1. 페이지 맨 아래에 있는 **저장**을 참조하세요.<br>
+1. **저장**을 클릭합니다.<br>
     Security Center는 해당 지리적 위치에 새 리소스 그룹 및 기본 작업 영역을 만들고 에이전트를 해당 작업 영역에 연결합니다. 작업 영역 및 리소스 그룹에 대한 명명 규칙은 다음과 같습니다.<br>
    **작업 영역: DefaultWorkspace-[subscription-ID]-[geo]<br> 리소스 그룹: DefaultResourceGroup-[geo]**
 
@@ -83,7 +83,7 @@ Security Center가 만든 작업 영역을 선택하려면:
 > Security Center에서 만든 작업 영역의 Log Analytics 가격 책정 계층은 Security Center 청구에 영향을 주지 않습니다. Security Center 청구는 항상 작업 영역에 설치된 Security Center 보안 정책 및 솔루션에 기반합니다. 체험 계층의 경우 Security Center는 기본 작업 영역에서 *SecurityCenterFree* 솔루션을 사용하도록 설정합니다. 표준 계층의 경우 Security Center는 기본 작업 영역에서 *Security* 솔루션을 사용하도록 설정합니다.
 > Log Analytics 데이터를 저장 하면 데이터 저장소에 대 한 추가 요금이 발생할 수 있습니다. 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-기존 log analytics 계정에 대 한 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
+기존 log analytics 계정에 대 한 자세한 내용은 [기존 log analytics 고객](./faq-azure-monitor-logs.md)을 참조 하세요.
 
 ### <a name="using-an-existing-workspace"></a>기존 작업 영역 사용
 
@@ -145,7 +145,7 @@ Azure Security Center에서 데이터 수집 계층을 선택하면 Log Analytic
 > 
 > 작업 영역에 저장할 4개 이벤트 집합 중에서 구독 및 작업 영역에 적합한 필터링 정책을 선택할 수 있습니다. 
 
-- **없음** – 보안 이벤트 스토리지를 사용하지 않도록 설정합니다. 기본 설정입니다.
+- **없음** – 보안 이벤트 스토리지를 사용하지 않도록 설정합니다. 이 값은 기본 설정입니다.
 - **최소** – 이벤트의 양을 최소화하려는 고객을 위한 더 작은 이벤트 집합입니다.
 - **일반** – 대다수 고객의 요구를 충족하는 이벤트 집합으로, 전체 감사 내역을 확인할 수 있습니다.
 - **모든 이벤트** – 모든 이벤트를 저장하려는 고객용입니다.
@@ -170,7 +170,7 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 | --- | --- |
 | 최소 | 1102,4624,4625,4657,4663,4688,4700,4702,4719,4720,4722,4723,4724,4727,4728,4732,4735,4737,4739,4740,4754,4755, |
 | | 4756,4767,4799,4825,4946,4948,4956,5024,5033,8001,8002,8003,8004,8005,8006,8007,8222 |
-| 일반 | 1, 299, 300, 324, 340, 403, 404, 410, 411, 412, 413, 431, 500, 501, 1100, 1102, 1107, 1108, 4608, 4610, 4611, 4614, 4622, |
+| 일반 | 1,299,300,324,340,403,404,410,411,412,413,431,500,501,1100,1102,1107,1108,4608,4610,4611,4614,4622, |
 | |  4624,4625,4634,4647,4648,4649,4657,4661,4662,4663,4665,4666,4667,4688,4670,4672,4673,4674,4675,4689,4697, |
 | | 4700,4702,4704,4705,4716,4717,4718,4719,4720,4722,4723,4724,4725,4726,4727,4728,4729,4733,4732,4735,4737, |
 | | 4738,4739,4740,4742,4744,4745,4746,4750,4751,4752,4754,4755,4756,4757,4760,4761,4762,4764,4767,4768,4771, |
@@ -179,7 +179,7 @@ Microsoft는 **일반** 및 **최소** 이벤트 집합에 포함할 이벤트�
 | | 6273,6278,6416,6423,6424,8001,8002,8003,8004,8005,8006,8007,8222,26401,30004 |
 
 > [!NOTE]
-> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](security-center-faq.md#what-happens-when-data-collection-is-enabled)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
+> - GPO(그룹 정책 개체)를 사용하는 경우 감사 정책인 프로세스 만들기 이벤트 4688과 *CommandLine* 필드 내부 이벤트 4688을 사용하는 것이 좋습니다. 프로세스 만들기 이벤트 4688에 대한 자세한 내용은 Security Center의 [FAQ](faq-data-collection-agents.md#what-happens-when-data-collection-is-enabled)를 참조하세요. 감사 정책에 대한 자세한 내용은 [감사 정책 권장 사항](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/audit-policy-recommendations)을 참조하세요.
 > -  [적응형 애플리케이션 제어](security-center-adaptive-application.md)에 데이터 수집을 사용하기 위해 Security Center는 모든 애플리케이션을 허용하도록 감사 모드에서 로컬 AppLocker 정책을 구성합니다. 이렇게 하면 AppLocker가 이벤트를 생성하게 되고, 이 이벤트를 Security Center에서 수집하여 활용합니다. 이 정책은 이미 AppLocker 정책이 구성된 컴퓨터에서는 구성할 수 없습니다. 
 > - Windows 필터링 플랫폼 [이벤트 ID 5156](https://www.ultimatewindowssecurity.com/securitylog/encyclopedia/event.aspx?eventID=5156)을 수집하려면 [감사 필터링 플랫폼 연결](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)을 사용하도록 설정해야 합니다(Auditpol /set /subcategory:"Filtering Platform Connection" /Success:Enable).
 >
@@ -211,7 +211,7 @@ Security center는 Log Analytics 에이전트 확장을 기존 Operations Manage
 - 기존 VM 확장이 있음<br>
     - 모니터링 에이전트가 확장으로 설치 될 때 확장 구성은 단일 작업 영역에만 보고 하도록 허용 합니다. Security Center는 사용자 작업 영역에 대한 기존 연결을 재정의하지 않습니다. "보안" 또는 "securityFree" 솔루션이 설치 되어 있으면 Security Center는 이미 연결 된 작업 영역에 있는 VM의 보안 데이터를 저장 합니다. 이 프로세스에서 확장 버전을 최신 버전으로 업그레이드할 수 Security Center.  
     - 기존 작업 영역이 어떤 작업 영역으로 데이터를 전송하는지 확인하려면 [Azure Security Center를 사용하여 연결 유효성을 검사](https://blogs.technet.microsoft.com/yuridiogenes/2017/10/13/validating-connectivity-with-azure-security-center/)하는 테스트를 실행하세요. 또는 Log Analytics 작업 영역을 열고, 작업 영역을 선택 하 고, VM을 선택 하 고, Log Analytics 에이전트 연결을 확인할 수 있습니다. 
-    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 지원 되는지 확인 합니다. 자세한 내용은 [기존 log analytics 고객](security-center-faq.md#existingloganalyticscust)을 참조 하세요.
+    - Log Analytics 에이전트가 클라이언트 워크스테이션에 설치 되 고 기존 Log Analytics 작업 영역에 보고 하는 환경이 있는 경우 [Azure Security Center에서 지 원하는 운영 체제](security-center-os-coverage.md) 목록을 검토 하 여 운영 체제가 지원 되는지 확인 합니다. 자세한 내용은 [기존 log analytics 고객](./faq-azure-monitor-logs.md)을 참조 하세요.
  
 ### 자동 프로비전 끄기 <a name="offprovisioning"></a>
 언제든지 보안 정책에서 이 설정을 해제하여 리소스 자동 프로비전을 끌 수 있습니다. 
@@ -231,7 +231,7 @@ Security center는 Log Analytics 에이전트 확장을 기존 Operations Manage
 -   Security Center가 기본 작업 영역에서 데이터 수집을 중지합니다.
  
 > [!NOTE]
->  자동 프로비저닝을 사용 하지 않도록 설정 해도 에이전트가 프로 비전 된 Azure Vm에서 Log Analytics 에이전트가 제거 되지 않습니다. OMS 확장을 제거하는 방법은 [Security Center가 설치한 OMS 확장을 제거하는 방법](security-center-faq.md#remove-oms)을 참조하세요.
+>  자동 프로비저닝을 사용 하지 않도록 설정 해도 에이전트가 프로 비전 된 Azure Vm에서 Log Analytics 에이전트가 제거 되지 않습니다. OMS 확장을 제거하는 방법은 [Security Center가 설치한 OMS 확장을 제거하는 방법](faq-data-collection-agents.md#remove-oms)을 참조하세요.
 >
     
 ## 수동 에이전트 프로비전 <a name="manual-agent"></a>
@@ -314,7 +314,7 @@ Log Analytics 에이전트를 수동으로 설치 하 여 Vm에서 보안 데이
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 데이터 수집 및 자동 프로비저닝이 작동하는 방식에 대해 알아보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
-* [Azure Security Center FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](faq-general.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md)--Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 
 

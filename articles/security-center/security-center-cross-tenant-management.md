@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 3dc7ebe224f1edb1b0fabc40441bd399fda6c133
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75355581"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604246"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -56,5 +56,5 @@ ms.locfileid: "75355581"
 이 문서에서는 Security Center에서 교차 테 넌 트 관리를 작동 하는 방법을 설명 합니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
 
 * [Azure Security Center 사용](security-center-monitoring.md) 하 여 보안 상태를 강화 하 고 Azure 리소스의 상태를 모니터링 하는 방법을 알아보세요.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](faq-general.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [엔터프라이즈 시나리오의 Azure Lighthouse에 대해 알아보기](https://docs.microsoft.com/azure/lighthouse/concepts/enterprise) -azure Lighthouse에서 여러 azure AD 테 넌 트를 사용 하는 엔터프라이즈 내에서 교차 테 넌 트 관리를 간소화 하는 방법을 알아봅니다.

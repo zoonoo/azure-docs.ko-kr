@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service) 클러스터로 HTTPS 수신 만들기
 description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증서 생성을 위해 암호화를 사용 하는 NGINX 수신 컨트롤러를 설치 하 고 구성 하는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.author: mlearned
-ms.openlocfilehash: 661ed72265b81f47cbe8e9cf26595632360ec352
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6b465aeb08f14e48249be9587e5fdee1f4b08ba4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898799"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595538"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -344,7 +341,7 @@ kubectl delete namespace ingress-basic
 
 - [투구 CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
-- [cert-manager][cert-manager]
+- [인증서-관리자][cert-manager]
 
 다음도 가능합니다.
 

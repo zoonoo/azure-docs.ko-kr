@@ -3,16 +3,15 @@ title: AKS(Azure Kubernetes Service)에서 GPU 사용
 description: AKS(Azure Kubernetes Service)에서 고성능 컴퓨팅 또는 그래픽 집약적 워크로드에 GPU를 사용하는 방법 알아보기
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 05/16/2019
 ms.author: zarhoads
-ms.openlocfilehash: a68bd124f323225062a86a3e1fc178d2fc089c5d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 9179d8bbf16913b89f7384fcee7519f8a205012b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276024"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595589"
 ---
 # <a name="use-gpus-for-compute-intensive-workloads-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 계산 집약적 워크로드에 GPU 사용
 
@@ -183,7 +182,7 @@ Non-terminated Pods:         (9 in total)
 
 ## <a name="run-a-gpu-enabled-workload"></a>GPU 지원 워크로드 실행
 
-GPU가 실제로 작동하는 모습을 보려면 적절한 리소스 요청을 사용하여 GPU 사용 워크로드를 예약하세요. 이 예제에서는 [MNIST 데이터 세트](http://yann.lecun.com/exdb/mnist/)에 대해 [Tensorflow](https://www.tensorflow.org/) 작업을 실행하겠습니다.
+GPU가 실제로 작동하는 모습을 보려면 적절한 리소스 요청을 사용하여 GPU 사용 워크로드를 예약하세요. 이 예제에서는 [MNIST 데이터 세트](https://www.tensorflow.org/)에 대해 [Tensorflow](http://yann.lecun.com/exdb/mnist/) 작업을 실행하겠습니다.
 
 *samples-tf-mnist-demo.yaml*이라는 파일을 만들고 다음 YAML 매니페스트를 붙여넣습니다. 다음 작업 매니페스트에는 `nvidia.com/gpu: 1`의 리소스 제한이 포함되어 있습니다.
 

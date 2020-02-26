@@ -4,12 +4,12 @@ description: JavaScript를 사용하여 함수를 개발하는 방법을 알아�
 ms.assetid: 45dedd78-3ff9-411f-bb4b-16d29a11384c
 ms.topic: reference
 ms.date: 12/17/2019
-ms.openlocfilehash: ee6b886c6ed18aad54092005d800b4087280190b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: b0cd9541deac106525cfe80244d1867f513825f0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714789"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77584492"
 ---
 # <a name="azure-functions-javascript-developer-guide"></a>Azure Functions JavaScript 개발자 가이드
 
@@ -232,7 +232,7 @@ context.bindings.myOutput = {
 context.bindingData
 ```
 
-트리거 메타데이터 및 함수 호출 데이터(`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`)를 포함하는 명명된 개체를 반환합니다. 트리거 메타데이터의 예제는 [event hubs example](functions-bindings-event-hubs.md#trigger)을 참조하세요.
+트리거 메타데이터 및 함수 호출 데이터(`invocationId`, `sys.methodName`, `sys.utcNow`, `sys.randGuid`)를 포함하는 명명된 개체를 반환합니다. 트리거 메타데이터의 예제는 [event hubs example](functions-bindings-event-hubs-trigger.md)을 참조하세요.
 
 ### <a name="contextdone-method"></a>context.done 메서드
 
@@ -265,7 +265,7 @@ context.log(message)
 기본 추적 수준에서 스트리밍 함수 로그에 기록할 수 있습니다. `context.log`에 다른 추적 수준에서 함수 로그를 작성할 수 있는 추가 로깅 메서드가 제공됩니다.
 
 
-| 방법                 | 설명                                |
+| 방법                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **error(_message_)**   | 오류 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다.   |
 | **warn(_message_)**    | 경고 수준 로깅 또는 더 낮은 수준의 로깅에 씁니다. |
@@ -342,7 +342,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.req`(요청) 개체의 속성은 다음과 같습니다.
 
-| 속성      | 설명                                                    |
+| 속성      | Description                                                    |
 | ------------- | -------------------------------------------------------------- |
 | _body_        | 요청의 본문을 포함하는 개체입니다.               |
 | _headers_     | 요청 헤더를 포함하는 개체입니다.                   |
@@ -357,7 +357,7 @@ HTTP, 웹후크 트리거 및 HTTP 출력 바인딩은 요청 및 응답 개체�
 
 `context.res`(응답) 개체의 속성은 다음과 같습니다.
 
-| 속성  | 설명                                               |
+| 속성  | Description                                               |
 | --------- | --------------------------------------------------------- |
 | _body_    | 응답의 본문을 포함하는 개체입니다.         |
 | _headers_ | 응답 헤더를 포함하는 개체입니다.             |
@@ -418,14 +418,17 @@ FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램
 
 ## <a name="node-version"></a>노드 버전
 
-다음 표에서는 주 버전의 Functions 런타임 각각에서 사용되는 Node.js 버전을 보여 줍니다.
+다음 표에서는 운영 체제별로 함수 런타임의 각 주 버전에 대해 지원 되는 현재 node.js 버전을 보여 줍니다.
 
-| Functions 버전 | Node.js 버전 | 
-|---|---|
-| 1.x | 6.11.2(런타임에 의해 잠김) |
-| 2.x  | _활성 lts_ 및 _유지 관리 lts_ node.js 버전 (~ 10 권장). WEBSITE_NODE_DEFAULT_VERSION [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) `~10`으로 설정 하 여 Azure의 버전을 대상으로 합니다.|
+| Functions 버전 | 노드 버전 (Windows) | 노드 버전 (Linux) |
+|---|---| --- |
+| 1.x | 6.11.2(런타임에 의해 잠김) | 해당 없음 |
+| 2.x  | ~ 8<br/>~ 10 (권장)<br/>~ 12<sup>*</sup> | ~ 8 (권장)<br/>~ 10  |
+| 3.x | ~ 10<br/>~ 12 (권장)  | ~ 10<br/>~ 12 (권장) |
 
-위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다.
+<sup>*</sup> 노드 ~ 12는 현재 함수 런타임의 버전 2.x에서 허용 됩니다. 그러나 최상의 성능을 위해 노드 ~ 12에서 함수 런타임 버전 3(sp3)을 사용 하는 것이 좋습니다. 
+
+위의 앱 설정을 확인하거나 함수에서 `process.version`을 인쇄하여 런타임에 사용 중인 현재 버전을 확인할 수 있습니다. WEBSITE_NODE_DEFAULT_VERSION [앱 설정을](functions-how-to-use-azure-function-app-settings.md#settings) `~10`와 같이 지원 되는 lts 버전으로 설정 하 여 Azure의 버전을 대상으로 합니다.
 
 ## <a name="dependency-management"></a>종속성 관리
 아래 예제와 같이 JavaScript 코드에서 커뮤니티 라이브러리를 사용하려면, Azure의 함수 앱에 모든 종속성이 설치되어 있는지 확인해야 합니다.

@@ -2,17 +2,16 @@
 title: 자습서 - Jenkins를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
 description: GitHub에서의 CI(지속적인 통합) 및 AKS(Azure Kubernetes Service)로의 CD(지속적인 배포)를 위해 Jenkins 설정
 services: container-service
-ms.service: container-service
 author: zr-msft
 ms.author: zarhoads
 ms.topic: article
 ms.date: 01/09/2019
-ms.openlocfilehash: e46e2c2933ee9afda860b68b10c135ac75a5d247
-ms.sourcegitcommit: b4665f444dcafccd74415fb6cc3d3b65746a1a31
+ms.openlocfilehash: fd754b539a9b0ba3d47ddd2228365dbd09d6e6df
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/11/2019
-ms.locfileid: "72263934"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595487"
 ---
 # <a name="tutorial-deploy-from-github-to-azure-kubernetes-service-aks-with-jenkins-continuous-integration-and-deployment"></a>자습서: Jenkins 지속적인 통합 및 배포를 사용하여 GitHub에서 AKS(Azure Kubernetes Service)로 배포
 
@@ -27,7 +26,7 @@ ms.locfileid: "72263934"
 > * 자동화된 빌드를 위한 Jenkins 빌드 작업 및 GitHub 웹후크를 만듭니다.
 > * CI/CD 파이프라인을 테스트하여 GitHub 코드 커밋에 따라 AKS에서 애플리케이션을 업데이트합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 

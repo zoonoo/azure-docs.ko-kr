@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 19afaf743cc594ab17776b990687a442c339ed92
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: f07b37fffe61a6be62a72a0281e701b69167e95b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559014"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596762"
 ---
 # <a name="administrator-roles-by-admin-task-in-azure-active-directory"></a>Azure Active Directory에서 관리 작업별 관리자 역할
 
@@ -27,11 +27,11 @@ ms.locfileid: "77559014"
 
 ## <a name="application-proxy"></a>애플리케이션 프록시
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 애플리케이션 프록시 앱 구성 | 애플리케이션 관리자 | 
 커넥터 그룹 속성 구성 | 애플리케이션 관리자 | 
-모든 사용자에 대한 기능이 비활성화되면 애플리케이션 등록 만들기 | 응용 프로그램 개발자 | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
+모든 사용자에 대한 기능이 비활성화되면 애플리케이션 등록 만들기 | 애플리케이션 개발자 | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 커넥터 그룹 만들기 | 애플리케이션 관리자 | 
 커넥터 그룹 삭제 | 애플리케이션 관리자 | 
 애플리케이션 프록시 사용 안 함 | 애플리케이션 관리자 | 
@@ -40,19 +40,19 @@ ms.locfileid: "77559014"
 
 ## <a name="b2c"></a>B2C
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 Azure AD B2C 디렉터리 만들기 | 모든 비 게스트 사용자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 B2C 애플리케이션 만들기 | 전역 관리자 | 
-엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 응용 프로그램 관리자
-B2C 정책 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-암호 재설정 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-프로필 편집 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-로그인 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-등록 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 |전역 관리자 | 
-사용자 특정 만들기, 읽기, 업데이트 및 삭제 | 전역 관리자 | 
-사용자 만들기, 읽기, 업데이트 및 삭제 | 글로벌 관리자([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs))
+엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
+B2C 정책 만들기, 읽기, 업데이트 및 삭제 | B2C IEF 정책 관리자 | 
+ID 공급자 만들기, 읽기, 업데이트 및 삭제 | 외부 Id 공급자 관리자 | 
+암호 재설정 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
+프로필 편집 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
+로그인 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 관리자 | 
+등록 사용자 흐름 만들기, 읽기, 업데이트 및 삭제 |B2C 사용자 흐름 관리자 | 
+사용자 특정 만들기, 읽기, 업데이트 및 삭제 | B2C 사용자 흐름 특성 관리자 | 
+사용자 만들기, 읽기, 업데이트 및 삭제 | 사용자 관리자
 모든 구성 읽기 | 전역 판독기 | 
 B2C 감사 로그 읽기 | 전역 판독기 ([설명서 참조](https://docs.microsoft.com/azure/active-directory-b2c/active-directory-b2c-faqs)) | 
 
@@ -61,20 +61,20 @@ B2C 감사 로그 읽기 | 전역 판독기 ([설명서 참조](https://docs.mic
 
 ## <a name="company-branding"></a>회사 브랜딩
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 회사 브랜딩 구성 | 전역 관리자 | 
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
 ## <a name="company-properties"></a>회사 속성
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 회사 속성 구성 | 전역 관리자 | 
 
 ## <a name="connect"></a>연결
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 통과 인증 | 전역 관리자 | 
 모든 구성 읽기 | 전역 판독기 | 
@@ -82,7 +82,7 @@ B2C 감사 로그 읽기 | 전역 판독기 ([설명서 참조](https://docs.mic
 
 ## <a name="connect-health"></a>Connect Health
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 서비스 추가 또는 삭제 | 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/hybrid/how-to-connect-health-operations)) | 
 동기화 오류 수정 적용 | 기여자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions?context=azure/active-directory/users-groups-roles/context/ugr-context)) | 소유자
@@ -99,22 +99,22 @@ ADFS 보안 보고서 읽기 | 보안 판독기 | 기여자, 소유자
 
 ## <a name="custom-domain-names"></a>사용자 지정 도메인 이름
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 도메인 관리 | 전역 관리자 | 
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 
-## <a name="domain-services"></a>도메인 서비스
+## <a name="domain-services"></a>Domain Services
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 Azure AD Domain Services 인스턴스 만들기 | 전역 관리자 | 
 모든 Azure AD Domain Services 작업 수행 | Azure AD DC 관리자 그룹([설명서 참조](../../active-directory-domain-services/tutorial-create-management-vm.md#administrative-tasks-you-can-perform-on-an-azure-ad-ds-managed-domain)) | 
 모든 구성 읽기 | AD DS 서비스를 포함하는 Azure 구독에 대한 읽기 권한자 | 
 
-## <a name="devices"></a>장치
+## <a name="devices"></a>디바이스
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 디바이스 사용 안 함 | 클라우드 디바이스 관리자 | 
 디바이스 사용 | 클라우드 디바이스 관리자 | 
@@ -123,11 +123,11 @@ BitLocker 키 읽기 | 보안 판독기 | 암호 관리자, 보안 관리자
 
 ## <a name="enterprise-applications"></a>Enterprise 애플리케이션
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 위임된 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 Microsoft Graph를 포함 하지 않는 응용 프로그램 권한에 동의 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
-Microsoft Graph에 대 한 응용 프로그램 사용 권한에 동의 | 전역 관리자 | 
+Microsoft Graph에 대 한 응용 프로그램 사용 권한에 동의 | 권한 있는 역할 관리자 | 
 자체 데이터에 액세스하는 애플리케이션에 동의 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 엔터프라이즈 애플리케이션 만들기 | 클라우드 애플리케이션 관리자 | 애플리케이션 관리자
 애플리케이션 프록시 관리 | 애플리케이션 관리자 | 
@@ -142,7 +142,7 @@ Microsoft Graph에 대 한 응용 프로그램 사용 권한에 동의 | 전역 
 Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소유자([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 클라우드 애플리케이션 관리자, 애플리케이션 관리자
 
 ## <a name="entitlement-management"></a>권한 관리
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 카탈로그에 리소스 추가 | 사용자 관리자 | 권한 관리를 사용 하 여이 작업을 카탈로그 소유자에 게 위임할 수 있습니다 ([설명서 참조](../governance/entitlement-management-catalog-create.md#add-additional-catalog-owners)).
 카탈로그에 SharePoint Online 사이트 추가 | 전역 관리자
@@ -150,13 +150,13 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 
 ## <a name="groups"></a>그룹
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 라이선스 할당 | 사용자 관리자 | 
 그룹 만들기 | 사용자 관리자 | 
 그룹 또는 앱의 액세스 검토 만들기, 업데이트 또는 삭제 | 사용자 관리자 | 
 그룹 만료 관리 | 사용자 관리자 | 
-그룹 설정 관리 | 전역 관리자 | 
+그룹 설정 관리 | 그룹 관리자 | 사용자 관리자 | 
 모든 구성 읽기(숨겨진 멤버 자격 제외) | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
 숨겨진 멤버 자격 읽기 | 그룹 멤버 | 그룹 소유자, 암호 관리자, Exchange 관리자, SharePoint 관리자, 팀 관리자, 사용자 관리자
 숨겨진 구성원이 있는 그룹의 멤버 자격 읽기 | 기술 지원팀 관리자 | 사용자 관리자, 팀 관리자
@@ -167,7 +167,7 @@ Single Sign-On 속성 업데이트 | 엔터프라이즈 애플리케이션 소�
 
 ## <a name="identity-protection"></a>ID 보호
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 경고 알림 구성| 보안 관리자 | 
 MFA 정책을 구성하고 설정/해제| 보안 관리자 | 
@@ -182,7 +182,7 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 
 ## <a name="licenses"></a>라이선스
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 라이선스 할당 | 라이선스 관리자 | 사용자 관리자
 모든 구성 읽기 | 디렉터리 읽기 권한자 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions))
@@ -192,19 +192,19 @@ MFA 정책을 구성하고 설정/해제| 보안 관리자 |
 
 ## <a name="monitoring---audit-logs"></a>모니터링 - 감사 로그
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 감사 로그 읽기 | 보고서 읽기 권한자 | 보안 읽기 권한자, 보안 관리자
 
 ## <a name="monitoring---sign-ins"></a>모니터링 - 로그인
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 로그인 로그 읽기 | 보고서 읽기 권한자 | 보안 읽기 권한자, 보안 관리자
 
 ## <a name="multi-factor-authentication"></a>Multi-Factor Authentication
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 선택한 사용자가 생성한 모든 기존 앱 암호 삭제 | 전역 관리자 | 
 MFA 사용 | 전역 관리자 | 
@@ -215,7 +215,7 @@ MFA 서비스 설정 관리 | 전역 관리자 |
 
 ## <a name="mfa-server"></a>MFA 서버
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 사용자 차단/차단 해제 | 전역 관리자 | 
 계정 잠금 구성 | 전역 관리자 | 
@@ -232,16 +232,16 @@ MFA 서비스 설정 관리 | 전역 관리자 |
 
 ## <a name="organizational-relationships"></a>조직 관계
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
-ID 공급자 관리 | 전역 관리자 | 
+ID 공급자 관리 | 외부 Id 공급자 관리자 | 
 설정 관리 | 전역 관리자 | 
 사용 약관 관리 | 전역 관리자 | 
 모든 구성 읽기 | 전역 판독기 | 
 
 ## <a name="password-reset"></a>암호 재설정
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 인증 방법 구성 | 전역 관리자 |
 사용자 지정 구성 | 전역 관리자 |
@@ -253,7 +253,7 @@ ID 공급자 관리 | 전역 관리자 |
 
 ## <a name="privileged-identity-management"></a>Privileged Identity Management
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 역할에 사용자 할당 | 권한 있는 역할 관리자 | 
 역할 설정 구성 | 권한 있는 역할 관리자 | 
@@ -262,7 +262,7 @@ ID 공급자 관리 | 전역 관리자 |
 
 ## <a name="roles-and-administrators"></a>역할 및 관리자
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 역할 할당 관리 | 권한 있는 역할 관리자 | 
 Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리자, 권한 있는 역할 관리자
@@ -270,14 +270,14 @@ Azure AD 역할의 액세스 검토 읽기  | 보안 판독기 | 보안 관리�
 
 ## <a name="security---authentication-methods"></a>보안 - 인증 방법
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 인증 방법 구성 | 전역 관리자 | 
 모든 구성 읽기 | 전역 판독기 | 
 
 ## <a name="security---conditional-access"></a>보안-조건부 액세스
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 MFA에서 신뢰할 수 있는 IP 주소 구성 | 조건부 액세스 관리자 | 
 사용자 지정 컨트롤 만들기 | 조건부 액세스 관리자 | 보안 관리자
@@ -297,7 +297,7 @@ VPN 연결 인증서 삭제 | 조건부 액세스 관리자 | 보안 관리자
 
 ## <a name="security---identity-security-score"></a>보안 - ID 보안 점수
 
-작업 | 최소 권한 역할 | 추가 역할 | 
+Task | 최소 권한 역할 | 추가 역할 | 
 ---- | --------------------- | ----------------
 모든 구성 읽기 | 보안 판독기 | 보안 관리자
 보안 점수 읽기 | 보안 판독기 | 보안 관리자
@@ -305,22 +305,22 @@ VPN 연결 인증서 삭제 | 조건부 액세스 관리자 | 보안 관리자
 
 ## <a name="security---risky-sign-ins"></a>보안 - 위험한 로그인
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 구성 읽기 | 보안 판독기 | 
 위험한 로그인 읽기 | 보안 판독기 | 
 
 ## <a name="security---users-flagged-for-risk"></a>보안 - 위험 플래그가 지정된 사용자
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 모든 이벤트 해제 | 보안 관리자 | 
 모든 구성 읽기 | 보안 판독기 | 
 위험 플래그가 지정된 사용자 읽기 | 보안 판독기 | 
 
-## <a name="users"></a>Users
+## <a name="users"></a>사용자
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 디렉터리 역할에 사용자 추가 | 권한 있는 역할 관리자 | 
 그룹에 사용자 추가 | 사용자 관리자 | 
@@ -330,11 +330,11 @@ VPN 연결 인증서 삭제 | 조건부 액세스 관리자 | 보안 관리자
 사용자 삭제 | 사용자 관리자 | 
 제한된 관리자의 새로 고침 토큰 무효화(설명서 참조) | 사용자 관리자 | 
 비 관리자의 새로 고침 토큰 무효화(설명서 참조) | 암호 관리자 | 사용자 관리자
-권한 있는 관리자의 새로 고침 토큰 무효화(설명서 참조) | 전역 관리자 | 
+권한 있는 관리자의 새로 고침 토큰 무효화(설명서 참조) | 권한 있는 인증 관리자 | 
 기본 구성 읽기 | 기본 사용자 역할([설명서 참조](https://docs.microsoft.com/azure/active-directory/fundamentals/users-default-permissions)) | 
 제한된 관리자의 암호 재설정(설명서 참조) | 사용자 관리자 | 
 비 관리자의 암호 재설정(설명서 참조) | 암호 관리자 | 사용자 관리자
-권한 있는 관리자의 암호 재설정 | 전역 관리자 | 
+권한 있는 관리자의 암호 재설정 | 권한 있는 인증 관리자 | 
 라이선스 해지 | 라이선스 관리자 | 사용자 관리자
 사용자 계정 이름을 제외한 모든 속성 업데이트 | 사용자 관리자 | 
 제한된 관리자의 사용자 계정 이름 업데이트(설명서 참조) | 사용자 관리자 | 
@@ -344,7 +344,7 @@ VPN 연결 인증서 삭제 | 조건부 액세스 관리자 | 보안 관리자
 
 ## <a name="support"></a>지원
 
-작업 | 최소 권한 역할 | 추가 역할
+Task | 최소 권한 역할 | 추가 역할
 ---- | --------------------- | ----------------
 지원 티켓 제출 | 서비스 관리자 | 응용 프로그램 관리자, Azure Information Protection 관리자, 대금 청구 관리자, 클라우드 응용 프로그램 관리자, 준수 관리자, Dynamics 365 관리자, 데스크톱 분석 관리자, Exchange 관리자, 암호 관리자, Intune 관리자, 비즈니스용 Skype 관리자, Power BI 관리자, 권한 있는 인증 관리자, SharePoint 관리자, 팀 통신 관리자, 팀 관리자, 사용자 관리자 작업 공간 분석 관리자
 

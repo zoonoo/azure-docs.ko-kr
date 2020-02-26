@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 02/20/2020
+ms.date: 02/25/2020
 ms.topic: reference
-ms.openlocfilehash: 130b11f0060f7f27091a21652aa481f0340b288f
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77530225"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602565"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -116,6 +116,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft. compute/sharedvmimages
 - microsoft. compute/sharedvmimages/버전
 - microsoft. compute/스냅숏
+- sshpublickeys/
 - virtualmachines/
 - microsoft. compute/virtualmachines/extensions
 - virtualmachinescalesets/
@@ -138,7 +139,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft.datacatalog/카탈로그
 - microsoft.datacatalog/datacatalogs
 - datafactory/datafactories
-- Datafactory/팩터리
+- datafactory/팩터리
 - datalakeanalytics/계정
 - datalakestore/계정
 - microsoft.datamigration/서비스
@@ -183,7 +184,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft eventgrid/systemtopics
 - microsoft eventgrid/토픽
 - microsoft eventhub/클러스터
-- Microsoft eventhub/네임 스페이스
+- microsoft eventhub/네임 스페이스
 - microsoft. 실험/experimentworkspaces
 - microsoft 게임/제목
 - genomics/계정
@@ -191,7 +192,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - hanaonazure/hanainstances
 - hanaonazure/sapmonitors
 - hardwaresecuritymodules/dedicatedhsms
-- Microsoft hdinsight/클러스터
+- microsoft hdinsight/클러스터
 - healthcareapis/서비스
 - hybridcompute/컴퓨터
 - hybridcompute/컴퓨터/확장
@@ -277,6 +278,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft. network/firewallpolicies
 - microsoft. network/frontdoors
 - microsoft. network/frontdoorwebapplicationfirewallpolicies
+- microsoft. network/ipallocations
 - microsoft. network/ipgroups
 - microsoft. 네트워크/loadbalancers 장치
 - microsoft. network/localnetworkgateways

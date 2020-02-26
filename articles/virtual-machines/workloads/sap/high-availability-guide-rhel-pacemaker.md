@@ -1,10 +1,10 @@
 ---
-title: Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정 | Microsoft Docs
+title: Azure에서 RHEL의 Pacemaker 설정 Microsoft Docs
 description: Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: mssedusch
-manager: timlt
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,13 +13,13 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 08/17/2018
-ms.author: sedusch
-ms.openlocfilehash: 9ccbd67348a8dae7391471ccd1dcc1ba9b135ea2
-ms.sourcegitcommit: b5106424cd7531c7084a4ac6657c4d67a05f7068
+ms.author: radeltch
+ms.openlocfilehash: 21c551721815847eea4cb1435298ea6f7bf37966
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75941818"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598802"
 ---
 # <a name="setting-up-pacemaker-on-red-hat-enterprise-linux-in-azure"></a>Azure의 Red Hat Enterprise Linux에서 Pacemaker 설정
 
@@ -200,7 +200,7 @@ ms.locfileid: "75941818"
 
 STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure에 대해 권한을 부여합니다. 다음 단계에 따라 서비스 주체를 만듭니다.
 
-1. <https://portal.azure.com>(으)로 이동
+1. [https://editor.swagger.io](<https://portal.azure.com>) 으로 이동합니다.
 1. Azure Active Directory 블레이드 열기  
    속성으로 이동하여 Directory ID 기록 이 ID는 **테넌트 ID**입니다.
 1. 앱 등록 클릭
@@ -243,14 +243,14 @@ STONITH 디바이스에서는 서비스 주체를 사용하여 Microsoft Azure�
 
 마지막 단원에서 만든 사용자 지정 역할인 "Linux 펜스 에이전트 역할"을 서비스 주체에 할당합니다. 소유자 역할을 더 이상 사용하지 마십시오!
 
-1. https://portal.azure.com (으)로 이동
+1. [https://editor.swagger.io](https://portal.azure.com) 으로 이동합니다.
 1. 모든 리소스 블레이드 열기
 1. 첫 번째 클러스터 노드의 가상 머신 선택
 1. 액세스 제어(IAM) 클릭
 1. 역할 할당 추가 클릭
 1. "Linux 펜스 에이전트 역할"이라는 역할 선택
 1. 위에서 만든 애플리케이션의 이름 입력
-1. [저장]을 클릭합니다.
+1. 저장을 클릭합니다.
 
 두 번째 클러스터 노드에 위 단계 반복
 

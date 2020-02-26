@@ -2,17 +2,14 @@
 title: 운영자 모범 사례 - AKS(Azure Kubernetes Services)의 네트워크 연결
 description: AKS(Azure Kubernetes Services)의 가상 네트워크 리소스 및 연결에 대한 클러스터 운영자 모범 사례 알아보기
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/10/2018
-ms.author: mlearned
-ms.openlocfilehash: 5b138849538cb9bbd6af6cbcf3e7a11b0cf66395
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 93659a0891b09c83db9f63fe0756fcf4d7e87f6a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549124"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594688"
 ---
 # <a name="best-practices-for-network-connectivity-and-security-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 네트워크 연결 및 보안에 대한 모범 사례
 

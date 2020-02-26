@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 0c6a712f1dfb4410f3eee0fbd0192c6147618f96
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539589"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605256"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -24,7 +24,7 @@ Azure Dev Spaces를 사용 하는 동안 문제가 발생 하는 경우 [Azure D
 
 Visual Studio 확장의 경우 `MS_VS_AZUREDEVSPACES_TOOLS_LOGGING_ENABLED` 환경 변수를 1로 설정합니다. 환경 변수가 적용되도록 Visual Studio를 다시 시작해야 합니다. 이와 같이 환경 변수가 사용되면 자세한 로그가 사용자 `%TEMP%\Microsoft.VisualStudio.Azure.DevSpaces.Tools` 디렉터리에 작성됩니다.
 
-CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac의 경우 터미널 창에서 `echo $TMPDIR`을 실행하면 TEMP 디렉터리를 찾을 수 있습니다. Linux 컴퓨터에서 TEMP 디렉터리는 일반적으로 `/tmp`입니다.
+CLI에서 `--verbose` 전환을 사용하여 명령을 실행하는 동안 자세한 정보를 출력할 수 있습니다. `%TEMP%\Azure Dev Spaces`에서 자세한 로그를 찾아볼 수도 있습니다. Mac에서 *임시* 디렉터리는 터미널 창에서 `echo $TMPDIR`를 실행 하 여 찾을 수 있습니다. Linux 컴퓨터에서 *임시* 디렉터리는 일반적으로 `/tmp`합니다. 또한 [Azure CLI 구성 파일](/cli/azure/azure-cli-configuration?view=azure-cli-latest#cli-configuration-values-and-environment-variables)에서 로깅이 사용 되는지 확인 합니다.
 
 또한 Azure Dev Spaces는 단일 인스턴스 또는 pod를 디버그할 때 가장 잘 작동 합니다. `azds.yaml` 파일에는 Kubernetes에서 서비스에 대해 실행 하는 pod의 수를 나타내는 *replicaCount*설정이 포함 되어 있습니다. 지정 된 서비스에 대해 여러 pod를 실행 하도록 응용 프로그램을 구성 하도록 *replicaCount* 를 변경 하는 경우 디버거는 사전순으로 나열 될 때 첫 번째 pod에 연결 됩니다. 원래 Pod가 재순환될 때는 디버거가 다른 Pod에 연결되므로 예기치 않은 동작이 발생할 수 있습니다.
 

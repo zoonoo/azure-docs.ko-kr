@@ -2,17 +2,14 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 보안
 description: 마스터 및 노드 통신, 네트워크 정책 및 Kubernetes 비밀을 비롯한 AKS(Azure Kubernetes Service)의 보안에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.author: mlearned
-ms.openlocfilehash: e461f9de8b20e4f6c8f027b1ae81ae21e54ece86
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 7238e6cd7ab3625e2953a4408c82802d43372256
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76547934"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595946"
 ---
 # <a name="security-concepts-for-applications-and-clusters-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 애플리케이션 및 클러스터에 대한 보안 개념
 
@@ -38,7 +35,7 @@ AKS 노드는 사용자가 관리하고 유지하는 Azure 가상 머신입니�
 
 Azure 플랫폼은 매일 밤마다 Linux 노드에 OS 보안 패치를 자동으로 적용합니다. 호스트의 재부팅을 해야 하는 Linux OS 보안 업데이트는 자동으로 재부팅을 수행하지 않습니다. Linux 노드를 수동으로 다시 부팅 하거나, Kubernetes에 대 한 오픈 소스 재부팅 디먼 인 [Kured][kured]를 사용 하는 것이 일반적인 방법입니다. Kured는 [DaemonSet][aks-daemonsets]으로 실행하며 다시 부팅해야 함을 표시하는 파일의 존재에 대한 각 노드를 모니터링합니다. 다시 부팅은 업그레이드와 동일한 [cordon 및 드레이닝 프로세스](#cordon-and-drain)를 사용하여 클러스터 전체에서 관리됩니다.
 
-Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스에서는 정기적인 일정에 따라 AKS 클러스터의 Windows Server 노드 풀에서 업그레이드를 수행해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조하세요.
+Windows Server 노드(현재 AKS에서 프리뷰)에 대한 Windows Update는 최신 업데이트를 자동으로 실행 및 적용하지 않습니다. Windows 업데이트 릴리스 주기 및 사용자 고유의 유효성 검사 프로세스에서는 정기적인 일정에 따라 AKS 클러스터의 Windows Server 노드 풀에서 업그레이드를 수행해야 합니다. 이 업그레이드 프로세스는 최신 Windows Server 이미지 및 패치를 실행하는 노드를 생성하고 이전 노드를 제거합니다. 이 프로세스에 대 한 자세한 내용은 [AKS에서 노드 풀 업그레이드][nodepool-upgrade]를 참조 하세요.
 
 노드는 공용 IP 주소가 할당되지 않은 상태에서 프라이빗 가상 네트워크 서브넷에 배포됩니다. 문제 해결 및 관리를 목적으로 SSH는 기본적으로 사용하도록 설정됩니다. SSH 액세스는 내부 IP 주소를 사용하는 경우에만 가능합니다.
 

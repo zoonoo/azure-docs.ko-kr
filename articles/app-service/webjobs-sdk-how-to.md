@@ -6,12 +6,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 02/18/2019
 ms.author: glenga
-ms.openlocfilehash: 715415929afaad36e4854e75a2b7b5360d22a6bf
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c606f6e60b1c906a0d5c29992287d126aaa37b7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486345"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602946"
 ---
 # <a name="how-to-use-the-azure-webjobs-sdk-for-event-driven-background-processing"></a>이벤트 중심 백그라운드 처리를 위한 Azure WebJobs SDK 사용 방법
 
@@ -395,7 +395,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2.md#hostjson-settings) 문서를 참조 하세요.
+자세한 내용은 [Azure CosmosDB binding](../azure-functions/functions-bindings-cosmosdb-v2-output.md#hostjson-settings) 문서를 참조 하세요.
 
 ### <a name="event-hubs-trigger-configuration-version-3x"></a>트리거 구성 (버전 3)을 Event Hubs 합니다. *x*)
 
@@ -423,7 +423,7 @@ static async Task Main()
 }
 ```
 
-자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs.md#hostjson-settings) 문서를 참조 하세요.
+자세한 내용은 [Event Hubs 바인딩](../azure-functions/functions-bindings-event-hubs-output.md#hostjson-settings) 문서를 참조 하세요.
 
 ### <a name="queue-storage-trigger-configuration"></a>큐 저장소 트리거 구성
 

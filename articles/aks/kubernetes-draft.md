@@ -3,16 +3,15 @@ title: Draft를 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 description: AKS 및 Azure Container Registry에서 Draft 사용
 services: container-service
 author: zr-msft
-ms.service: container-service
 ms.topic: article
 ms.date: 06/20/2019
 ms.author: zarhoads
-ms.openlocfilehash: 07e267af307fedd9b896e08919b7026a3a1c2bac
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b03256ee65a3c40d8a64d70b877c49e44e68f822
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292965"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595224"
 ---
 # <a name="quickstart-develop-on-azure-kubernetes-service-aks-with-draft"></a>빠른 시작: 초안을 사용 하 여 AKS (Azure Kubernetes Service)에서 개발
 
@@ -21,7 +20,7 @@ Draft는 Kubernetes 클러스터에서 응용 프로그램 컨테이너를 패�
 이 문서에서는 Draft를 사용 하 여 AKS에서 응용 프로그램을 패키지 하 고 실행 하는 방법을 보여 줍니다.
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)

@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: maquaran
-ms.openlocfilehash: efb0a9229d6061d4df8d67ba8455801d9d2a2964
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 32b680acdee29bf97a0e132fee93d5fee3377245
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548886"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604949"
 ---
 # <a name="create-multiple-azure-functions-triggers-for-cosmos-db"></a>여러 개의 Cosmos DB용 Azure Functions 트리거 만들기
 
@@ -38,7 +38,7 @@ Cosmos DB용 Azure Functions 트리거의 *요구 사항*을 고려할 때, 상�
 
 ## <a name="configuring-a-shared-leases-container"></a>공유 임대 컨테이너 구성
 
-공유 임대 컨테이너를 구성 하기 위해, JavaScript를 사용 하는 경우 `leaseCollectionPrefix` 또는 [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger) 을 사용 C# 하는 경우에는 `LeaseCollectionPrefix` [특성](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---attributes-and-annotations) 을 추가 해야 합니다. 특성 값은 해당 특정 트리거의 논리적 설명자여야 합니다.
+공유 임대 컨테이너를 구성 하기 위해, JavaScript를 사용 하는 경우 `leaseCollectionPrefix` 또는 [특성](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md) 을 사용 C# 하는 경우에는 `LeaseCollectionPrefix` [특성](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#attributes-and-annotations) 을 추가 해야 합니다. 특성 값은 해당 특정 트리거의 논리적 설명자여야 합니다.
 
 예를 들어 세 개의 트리거, 즉 이메일을 보내는 트리거, 구체화된 보기를 만들기 위해 집계를 수행하는 트리거 및 변경 내용을 다른 스토리지에 보내는 트리거가 있는 경우, 나중에 분석하기 위해 첫 번째 트리거에는 "emails"인 `LeaseCollectionPrefix`를, 두 번째 트리거에는 "materialized"를, 세 번째 트리거에는 "analytics"를 할당할 수 있습니다.
 
@@ -78,7 +78,7 @@ public static void MaterializedViews([CosmosDBTrigger(
 }
 ```
 
-그리고 JavaScript의 경우 `leaseCollectionPrefix` 특성을 사용하여 `function.json` 파일에 구성을 적용할 수 있습니다.
+그리고 JavaScript의 경우 `function.json` 특성을 사용하여 `leaseCollectionPrefix` 파일에 구성을 적용할 수 있습니다.
 
 ```json
 {
@@ -108,6 +108,6 @@ public static void MaterializedViews([CosmosDBTrigger(
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Cosmos DB용 Azure Functions 트리거](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger---configuration)에 대한 전체 구성을 확인합니다.
-* 모든 언어에 대한 [샘플의 확장 목록](../azure-functions/functions-bindings-cosmosdb-v2.md#trigger)을 확인합니다.
+* [Cosmos DB용 Azure Functions 트리거](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md#configuration)에 대한 전체 구성을 확인합니다.
+* 모든 언어에 대한 [샘플의 확장 목록](../azure-functions/functions-bindings-cosmosdb-v2-trigger.md)을 확인합니다.
 * 자세한 샘플은 Azure Cosmos DB 및 Azure Functions [GitHub 리포지토리](https://github.com/ealsur/serverless-recipes/tree/master/cosmosdbtriggerscenarios)를 사용하여 서버리스 레시피를 방문합니다.

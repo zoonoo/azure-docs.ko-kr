@@ -8,16 +8,16 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 12/10/2019
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 09c704237e3c1fde8a7591d610d1b801dd016c46
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836663"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581466"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -43,7 +43,7 @@ SAML을 사용 하 여 두 가지 비 배타 코어 시나리오 요약:
 | 응용 프로그램은 인증을 완료 하는 데 SAML 어설션이 필요 합니다. | **Azure AD B2C는 IdP (id 공급자) 역할을 합니다.**<br />Azure AD B2C는 응용 프로그램에 대 한 SAML IdP 역할을 합니다. | 이 문서의 내용: |
 | 내 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 호환 id 공급자를 사용 하는 single sign-on이 필요 합니다.  | **Azure AD B2C SP (서비스 공급자) 역할을 합니다.**<br />Azure AD B2C는 SAML id 공급자에 연결할 때 서비스 공급자 역할을 합니다. 응용 프로그램과 SAML id 공급자 간의 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 사용 하 여 SAML IdP ADFS로 로그인 설정](identity-provider-adfs2016-custom.md)</li><li>[사용자 지정 정책을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료 합니다. 이 문서에서 설명 하는 사용자 지정 정책 시작 팩의 *Socialandlocalaccounts* 사용자 지정 정책이 필요 합니다.
 * SAML (Security Assertion Markup Language) 프로토콜에 대 한 기본적인 이해
@@ -259,7 +259,7 @@ SAML 서비스 공급자와 연결 된 메타 데이터 끝점이 아직 없는 
 
 변경 내용을 저장 하 고 새 정책 파일을 업로드 합니다. 두 정책 (확장 및 신뢰 당사자 파일)을 업로드 한 후에는 웹 브라우저를 열고 정책 메타 데이터로 이동 합니다.
 
-Azure AD B2C 정책 메타 데이터는 다음 URL에서 사용할 수 있습니다. `tenant-name` `policy-name`를 Azure AD B2C 테 넌 트의 이름으로 바꾸고,을 정책의 이름 (ID)으로 바꿉니다.
+Azure AD B2C policy IDP 메타 데이터는 saml 프로토콜에서 SAML id 공급자의 구성을 노출 하는 데 사용 되는 정보입니다. 메타데이터는 로그인/로그아웃, 인증서, 로그인 방법 등과 같은 서비스의 위치를 정의합니다. Azure AD B2C 정책 메타 데이터는 다음 URL에서 사용할 수 있습니다. `tenant-name` `policy-name`를 Azure AD B2C 테 넌 트의 이름으로 바꾸고,을 정책의 이름 (ID)으로 바꿉니다.
 
 `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
 
@@ -321,7 +321,7 @@ SAML 테스트 응용 프로그램을 사용 하는이 자습서에서는 `reply
 ],
 ```
 
-#### <a name="logouturl-optional"></a>LogoutUrl (옵션)
+#### <a name="logouturl-optional"></a>logoutUrl (옵션)
 
 이 선택적 속성은 `Logout` URL (신뢰 당사자 메타 데이터의`SingleLogoutService` URL)을 나타내며이에 대 한 `BindingType` `Http-Redirect`것으로 간주 됩니다.
 

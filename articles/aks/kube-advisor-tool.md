@@ -3,16 +3,15 @@ title: 모범 사례 구현을 위해 Azure에서 Kubernetes 배포 확인
 description: kube-advisor를 사용하여 Azure Kubernetes Service에 대한 배포의 모범 사례 구현을 확인하는 방법 알아보기
 services: container-service
 author: seanmck
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 11/05/2018
 ms.author: seanmck
-ms.openlocfilehash: 03c5eb2e32a0a8ec51844511276d9efba5651068
-ms.sourcegitcommit: e5dcf12763af358f24e73b9f89ff4088ac63c6cb
+ms.openlocfilehash: 29ea7dba1df8bc7c68e3d17563a51b784ce4a561
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/14/2019
-ms.locfileid: "65073768"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595436"
 ---
 # <a name="checking-for-kubernetes-best-practices-in-your-cluster"></a>클러스터에서 Kubernetes 모범 사례 확인
 
@@ -20,9 +19,9 @@ ms.locfileid: "65073768"
 
 ## <a name="about-kube-advisor"></a>kube-advisor에 대한 정보
 
-[kube-advisor 도구][kube-advisor-github]는 클러스터에서 실행되도록 설계된 단일 컨테이너입니다. Kubernetes API 서버에 배포에 대한 정보를 쿼리하여 제안된 개선 사항 집합을 반환합니다.
+[Kube-advisor 도구][kube-advisor-github] 는 클러스터에서 실행 되도록 설계 된 단일 컨테이너입니다. Kubernetes API 서버에 배포에 대한 정보를 쿼리하여 제안된 개선 사항 집합을 반환합니다.
 
-Kube-관리자 도구 리소스 요청과 PodSpecs에 대 한 Windows 응용 프로그램 뿐만 아니라 Linux 응용 프로그램에서 누락 된 제한에 대해 보고할 수 있지만 kube-관리자 도구 자체 Linux pod에서 예약 해야 합니다. Pod를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 예약할 수 있습니다는 [노드 선택기] [ k8s-node-selector] pod 구성에서 합니다.
+Kube-advisor 도구는 Linux 응용 프로그램 뿐만 아니라 Windows 응용 프로그램에 대해 PodSpecs에 누락 된 리소스 요청 및 제한에 대해 보고할 수 있지만 kube 도구 자체는 Linux pod에서 예약 해야 합니다. Pod 구성에서 [노드 선택기][k8s-node-selector] 를 사용 하 여 특정 OS를 사용 하 여 노드 풀에서 실행 되도록 pod를 예약할 수 있습니다.
 
 > [!NOTE]
 > kube-advisor 도구는 최상의 노력을 기준으로 Microsoft에서 지원됩니다. 문제와 제안은 GitHub에 제출해야 합니다.
@@ -53,7 +52,7 @@ kubectl run --rm -i -t kubeadvisor --image=mcr.microsoft.com/aks/kubeadvisor --r
 
 ### <a name="resource-requests-and-limits"></a>리소스 요청 및 제한
 
-Kubernetes는 [Pod 사양에 대한 리소스 요청 및 제한][kube-cpumem]을 정의하도록 지원합니다. 요청은 컨테이너를 실행하는 데 필요한 최소 CPU 및 메모리를 정의합니다. 제한은 허용해야 하는 최대 CPU 및 메모리를 정의합니다.
+Kubernetes는 [pod 사양에 대 한 리소스 요청 및 제한의 정의를][kube-cpumem]지원 합니다. 요청은 컨테이너를 실행하는 데 필요한 최소 CPU 및 메모리를 정의합니다. 제한은 허용해야 하는 최대 CPU 및 메모리를 정의합니다.
 
 기본적으로 Pod 사양에는 요청 또는 제한이 설정되지 않습니다. 이로 인해 노드가 과도하게 예약되고 컨테이너가 부족할 수 있습니다. kube-advisor 도구는 요청 및 제한이 설정되지 않은 Pod를 강조 표시합니다.
 

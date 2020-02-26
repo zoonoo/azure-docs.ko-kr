@@ -8,16 +8,16 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: b2ab769fc2595af9fd1ea41f1ef492944cb5e7fa
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75665771"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604086"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
-보안 경고를 심사 하 고 조사 하는 것이 가장 숙련 된 보안 분석가의 경우에도 많은 시간이 소요 될 수 있으며, 대부분의 경우 시작할 위치를 알아야 합니다. 보안 센터에서는 고유한 [보안 경고](security-center-managing-and-responding-alerts.md) 간에 정보를 연결하기 위해 [분석](security-center-detection-capabilities.md)을 사용하여 공격 캠페인의 단일 보기 및 모든 관련된 경고를 제공할 수 있습니다. 공격자가 사용한 작업 및 영향을 받는 리소스를 신속하게 이해할 수 있습니다.
+보안 경고를 심사 하 고 조사 하는 것이 가장 숙련 된 보안 분석가의 경우에도 많은 시간이 소요 될 수 있으며, 대부분의 경우 시작할 위치를 알아야 합니다. 보안 센터에서는 고유한 [보안 경고](security-center-detection-capabilities.md) 간에 정보를 연결하기 위해 [분석](security-center-managing-and-responding-alerts.md)을 사용하여 공격 캠페인의 단일 보기 및 모든 관련된 경고를 제공할 수 있습니다. 공격자가 사용한 작업 및 영향을 받는 리소스를 신속하게 이해할 수 있습니다.
 
 이 항목에서는 Security Center의 인시던트에 대해 설명 하 고 해당 경고를 수정 하는 방법을 설명 합니다.
 
@@ -63,5 +63,4 @@ ms.locfileid: "75665771"
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 * [보안 경고 관리](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-* [Azure Security Center FAQ](security-center-faq.md)--서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)--Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

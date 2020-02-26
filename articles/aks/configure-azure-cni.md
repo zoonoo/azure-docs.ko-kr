@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 description: AKS 클러스터를 기존 가상 네트워크와 서브넷에 배포하는 것을 포함하여 AKS(Azure Kubernetes Service)에서 Azure CNI 네트워크를 구성하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 11607ffe03d5d2519df1b1199a741dfb55aff2f4
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: f7f8fe85b0a0e149859715b86abb08753a6ea65e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111613"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595980"
 ---
 # <a name="configure-azure-cni-networking-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 Azure CNI 네트워킹 구성
 

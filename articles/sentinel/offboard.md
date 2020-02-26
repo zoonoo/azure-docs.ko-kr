@@ -3,7 +3,7 @@ title: Azure 센티널 제거 | Microsoft Docs
 description: Azure 센티널 인스턴스를 삭제 하는 방법
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.service: azure-sentinel
@@ -13,13 +13,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
-ms.author: rkarlin
-ms.openlocfilehash: d71a9fc21cca75312696a1bc17c4896c2e5bce2d
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.author: yelevin
+ms.openlocfilehash: 4042f7b9d0f6fdf293f338c89d5783fe266c4edf
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75610365"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581687"
 ---
 # <a name="remove-azure-sentinel-from-your-workspace"></a>작업 영역에서 Azure 센티널 제거
 
@@ -44,7 +44,7 @@ Azure 센티널을 더 이상 사용 하지 않으려는 경우이 문서에서�
 연결이 끊어진 후에는 오프 보 딩 프로세스가 시작 됩니다.
 
 **이러한 커넥터의 구성이 제거 됩니다.**
--   PowerApps
+-   Office 365
 
 -   AWS
 

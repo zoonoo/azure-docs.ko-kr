@@ -1,15 +1,14 @@
 ---
 author: paulbouwer
-ms.service: container-service
 ms.topic: include
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 1729eabca75ed7c7a3a43ea2c0b1617efd337f2c
-ms.sourcegitcommit: f29fec8ec945921cc3a89a6e7086127cc1bc1759
+ms.openlocfilehash: 7a22256c88f9cee3ce62c68a2de4a5974d76f026
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72530109"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593732"
 ---
 ## <a name="download-and-install-the-linkerd-linkerd-client-binary"></a>Linkerd Linkerd 클라이언트 이진 파일을 다운로드 하 여 설치 합니다.
 
@@ -22,7 +21,7 @@ LINKERD_VERSION=stable-2.6.0
 curl -sLO "https://github.com/linkerd/linkerd2/releases/download/$LINKERD_VERSION/linkerd2-cli-$LINKERD_VERSION-linux"
 ```
 
-@No__t_0 클라이언트 이진 파일은 클라이언트 컴퓨터에서 실행 되며 Linkerd 서비스 메시와 상호 작용할 수 있습니다. 다음 명령을 사용 하 여 linux의 bash 기반 셸 또는 [linux 용 Windows 하위 시스템][install-wsl]에 Linkerd `linkerd` 클라이언트 이진을 설치 합니다. 이 명령을 사용하여 `linkerd` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
+`linkerd` 클라이언트 이진 파일은 클라이언트 컴퓨터에서 실행 되며 Linkerd 서비스 메시와 상호 작용할 수 있습니다. 다음 명령을 사용 하 여 linux의 bash 기반 셸 또는 [linux 용 Windows 하위 시스템][install-wsl]에 Linkerd `linkerd` 클라이언트 이진을 설치 합니다. 이 명령을 사용하여 `linkerd` 클라이언트 이진 파일을 `PATH`의 표준 사용자 프로그램 위치에 복사합니다.
 
 ```bash
 sudo cp ./linkerd2-cli-$LINKERD_VERSION-linux /usr/local/bin/linkerd

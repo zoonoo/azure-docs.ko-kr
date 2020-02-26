@@ -3,12 +3,12 @@ title: MABS & System Center DPM 지원 매트릭스
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버) 또는 System Center DPM을 사용 하 여 온-프레미스 및 Azure VM 리소스를 백업 하는 경우 지원 Azure Backup를 요약 합니다.
 ms.date: 02/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 9441f7ce9069cd85475877f37abe669f3c4fd516
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 6664f7b226b75b364fd1c83f2abc56b5a275eff9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77444029"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582656"
 ---
 # <a name="support-matrix-for-backup-with-microsoft-azure-backup-server-or-system-center-dpm"></a>Microsoft Azure Backup Server 또는 System Center DPM을 사용 하 여 백업에 대 한 지원 매트릭스
 
@@ -113,11 +113,34 @@ Azure Backup는 다음 운영 체제 중 하나를 실행 하는 DPM/MABS 인스
 
 DPM 서버/MABS는 다음 URL에 액세스할 수 있어야 합니다.
 
-- http://www.msftncsi.com/ncsi.txt
+- `http://www.msftncsi.com/ncsi.txt`
 - *.Microsoft.com
 - *.WindowsAzure.com
 - *.microsoftonline.com
 - *.windows.net
+
+### <a name="azure-expressroute-support"></a>Azure Express 경로 지원
+
+공용 피어 링 (이전 회로에 사용 가능) 및 Microsoft 피어 링을 사용 하 여 Azure Express 경로를 통해 데이터를 백업할 수 있습니다. 개인 피어 링을 통한 백업은 지원 되지 않습니다.
+
+공용 피어 링 사용: 다음 도메인/주소에 대 한 액세스를 확인 합니다.
+
+* `http://www.msftncsi.com/ncsi.txt`
+* `microsoft.com`
+* `.WindowsAzure.com`
+* `.microsoftonline.com`
+* `.windows.net`
+
+Microsoft 피어 링을 사용 하 여 다음 서비스/지역 및 관련 커뮤니티 값을 선택 하세요.
+
+* Azure Active Directory (12076:5060)
+* Microsoft Azure 지역 (Recovery Services 자격 증명 모음의 위치에 따라)
+* Azure Storage (Recovery Services 자격 증명 모음의 위치에 따라)
+
+자세한 내용은 [express 경로 라우팅 요구 사항](https://docs.microsoft.com/azure/expressroute/expressroute-routing)을 참조 하세요.
+
+>[!NOTE]
+>공용 피어 링은 새 회로에서 사용 되지 않습니다.
 
 ### <a name="dpmmabs-connectivity-to-azure-backup"></a>Azure Backup에 대한 DPM/MABS 연결
 

@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 08/13/2018
 ms.author: asrastog
-ms.openlocfilehash: e95a0b4b9f071a0fd3949d50eeee17b811dfb8ea
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e01be0442f6d968613ffd800f076705d33e3e16e
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064821"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598207"
 ---
 # <a name="iot-hub-message-routing-query-syntax"></a>IoT Hub 메시지 라우팅 쿼리 구문
 
@@ -50,13 +50,13 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 시스템 속성을 사용하면 메시지의 콘텐츠 및 소스를 식별할 수 있습니다. 
 
-| 속성 | 형식 | 설명 |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
-| contentType | string | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
-| contentEncoding | string | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
-| iothub-connection-device-id | string | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
-| iothub-enqueuedtime | string | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
-| iothub-interface-name | string | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
+| contentType | 문자열 | 사용자가 메시지의 콘텐츠 형식을 지정합니다. 메시지 본문에 대한 쿼리를 허용하려면 이 값이 application/JSON으로 설정되어야 합니다. |
+| contentEncoding | 문자열 | 사용자가 메시지의 인코딩 형식을 지정합니다. 허용되는 값은 contentType이 application/JSON으로 설정된 경우 UTF-8, UTF-16, UTF-32입니다. |
+| iothub-connection-device-id | 문자열 | 이 값은 IoT Hub에 의해 설정되며 디바이스의 ID를 식별합니다. 쿼리하려면 `$connectionDeviceId`을 사용합니다. |
+| iothub-enqueuedtime | 문자열 | 이 값은 IoT Hub에 의해 설정되며 UTC에서 메시지를 큐에 넣는 실제 시간을 나타냅니다. 쿼리하려면 `enqueuedTime`을 사용합니다. |
+| iothub-interface-name | 문자열 | 이 값은 사용자가 설정 하 고 원격 분석 메시지를 구현 하는 디지털 쌍 인터페이스의 이름을 나타냅니다. 쿼리하려면 `$interfaceName`을 사용합니다. 이 기능은 [IoT 플러그 앤 플레이 공개 미리 보기](../iot-pnp/overview-iot-plug-and-play.md)의 일부로 사용할 수 있습니다. |
 
 [IoT Hub 메시지](iot-hub-devguide-messages-construct.md)에 설명된 대로, 메시지에 추가적인 시스템 속성에 있습니다. **contentType**, **contentEncoding** 및 **enqueuedTime** 이외에 **connectionDeviceId** 및 **connectionModuleId**도 쿼리할 수 있습니다.
 
@@ -66,7 +66,7 @@ IoT Hub는 프로토콜 전체에서의 상호 운용성을 위해 모든 디바
 
 ### <a name="query-expressions"></a>쿼리 식
 
-메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 예를 들면 다음과 같습니다. 
+메시지 시스템 속성에 대한 쿼리는 접두사로 `$` 기호를 사용해야 합니다. 애플리케이션 속성에 대한 쿼리는 이름으로 액세스하며 `$` 기호를 접두사로 사용하지 않아야 합니다. 애플리케이션 속성 이름이 `$`로 시작하는 경우, IoT Hub는 시스템 속성에서 해당 항목을 검색하며, 찾을 수 없으면 애플리케이션 속성에서 찾습니다. 다음은 그 예입니다. 
 
 시스템 속성 contentEncoding에서 쿼리 
 
@@ -88,7 +88,7 @@ $contentEncoding = 'UTF-8' AND processingPath = 'hot'
 
 지원 되는 연산자 및 함수에 대 한 전체 목록은 [식 및 조건](iot-hub-devguide-query-language.md#expressions-and-conditions)에 나와 있습니다.
 
-## <a name="message-routing-query-based-on-message-body"></a>메시지 본문에 따른 메시지 라우팅 쿼리 
+## <a name="message-routing-query-based-on-message-body"></a>메시지 본문에 따른 메시지 라우팅 쿼리
 
 메시지 본문에 대한 쿼리를 사용하려면 메시지가 UTF-8, UTF-16 또는 UTF-32로 인코딩된 JSON 형식이어야 합니다. `contentType`은 `application/JSON`으로 설정되고 `contentEncoding`은 시스템 속성에서 지원되는 UTF 인코딩 중 하나로 설정되어야 합니다. 이러한 속성을 지정하지 않은 경우 IoT Hub는 메시지 본문에 대해 쿼리 식을 평가하지 않습니다. 
 
@@ -140,6 +140,10 @@ deviceClient.sendEvent(message, (err, res) => {
     if (res) console.log('status: ' + res.constructor.name);
 });
 ```
+
+> [!NOTE] 
+> Javascript에서 본문의 인코딩을 처리 하는 방법을 보여 줍니다. 에서 C#샘플을 보려는 경우 [Azure IoT C# 샘플](https://github.com/Azure-Samples/azure-iot-samples-csharp/archive/master.zip)을 다운로드 합니다. master.zip 파일의 압축을 풉니다. Visual Studio solution *SimulatedDevice*의 Program.cs 파일은 메시지를 인코딩 및 전송 하 여 IoT Hub 하는 방법을 보여 줍니다. [메시지 라우팅 자습서](tutorial-routing.md)에 설명 된 것 처럼 메시지 라우팅을 테스트 하는 데 사용 되는 것과 동일한 샘플입니다. Program.cs의 맨 아래에는 인코딩된 파일 중 하나에서 읽고 디코드 하 여 읽을 수 있도록 ASCII로 다시 쓸 수 있는 메서드가 있습니다. 
+
 
 ### <a name="query-expressions"></a>쿼리 식
 

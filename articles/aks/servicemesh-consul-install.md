@@ -2,17 +2,16 @@
 title: Azure Kubernetes 서비스 (AKS)에서 Consul 설치
 description: Consul을 설치 하 고 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에서 서비스 메시를 만드는 방법에 대해 알아봅니다.
 author: dstrebel
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: d5d0a575c3fb662df034b66a48135ac33393f95c
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73885399"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594272"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Consul 설치 및 사용
 

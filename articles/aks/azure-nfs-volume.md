@@ -3,16 +3,15 @@ title: AKS (pod of Azure Kubernetes Service)에서 사용할 NFS (네트워크 �
 description: AKS (Azure Kubernetes Service)에서 pod와 함께 사용할 NFS Ubuntu Linux 서버 볼륨을 수동으로 만드는 방법에 대해 알아봅니다.
 services: container-service
 author: ozboms
-ms.service: container-service
 ms.topic: article
 ms.date: 4/25/2019
 ms.author: obboms
-ms.openlocfilehash: 9b9c4b326596887774d9dfc0dd792052ec672be2
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: e5676710bc47557318f3e2adcf36ec0ed13d47de
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063818"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596626"
 ---
 # <a name="manually-create-and-use-an-nfs-network-file-system-linux-server-volume-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하 여 NFS (네트워크 파일 시스템) Linux 서버 볼륨을 수동으로 만들고 사용 합니다.
 컨테이너 간에 데이터를 공유 하는 것은 종종 컨테이너 기반 서비스 및 응용 프로그램의 필수 구성 요소입니다. 일반적으로 외부 영구 볼륨에서 동일한 정보에 액세스 해야 하는 다양 한 pod 있습니다.    

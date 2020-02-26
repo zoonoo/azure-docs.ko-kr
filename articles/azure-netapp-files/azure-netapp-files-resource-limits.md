@@ -12,14 +12,14 @@ ms.workload: storage
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 02/25/2020
 ms.author: b-juche
-ms.openlocfilehash: 6fcea0aaecb860e07c2066877494c05b51f43ca4
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 7637d18017f5bdc76c8a271198a88f21a59a6aac
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74976250"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604985"
 ---
 # <a name="resource-limits-for-azure-netapp-files"></a>Azure NetApp Files에 대한 리소스 제한
 
@@ -34,15 +34,15 @@ Azure NetApp Files에 대한 리소스 제한을 이해하면 볼륨을 관리�
 |  Azure 지역별 NetApp 계정 수   |  10    |  yes   |
 |  NetApp 계정 당 용량 풀 수   |    25     |   yes   |
 |  용량 풀 당 볼륨 수     |    500   |    yes     |
-|  볼륨당 스냅숏 수       |    255     |    아닙니다.        |
-|  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    아닙니다.    |
-|  Azure NetApp Files에 액세스할 수 있는 VNet (피어 링 Vnet 포함)의 Ip 수   |    1000   |    yes   |
-|  단일 용량 풀의 최소 크기   |  4TiB     |    아닙니다.  |
-|  단일 용량 풀의 최대 크기    |  500TiB   |   아닙니다.   |
-|  단일 볼륨의 최소 크기    |    100GiB    |    아닙니다.    |
-|  단일 볼륨의 최대 크기     |    100 TiB    |    아닙니다.    |
+|  볼륨당 스냅숏 수       |    255     |    예        |
+|  Azure Virtual Network Azure NetApp Files (Microsoft NetApp/볼륨)에 위임 된 서브넷 수    |   1   |    예    |
+|  Azure NetApp Files 사용 하는 VNet에서 사용 된 Ip 수 (즉시 피어 링 Vnet 포함)   |    1000   |    yes   |
+|  단일 용량 풀의 최소 크기   |  4TiB     |    예  |
+|  단일 용량 풀의 최대 크기    |  500TiB   |   예   |
+|  단일 볼륨의 최소 크기    |    100GiB    |    예    |
+|  단일 볼륨의 최대 크기     |    100 TiB    |    예    |
 |  볼륨당 최대 파일 수 ([maxfiles](#maxfiles))     |    1억    |    yes    |    
-|  단일 파일의 최대 크기     |    16TiB    |    아닙니다.    |    
+|  단일 파일의 최대 크기     |    16 TiB    |    예    |    
 
 ## Maxfiles 제한<a name="maxfiles"></a> 
 
@@ -78,7 +78,7 @@ Azure Portal 탐색 평면에서:
 
         |  리소스  |    부모 리소스      |    요청 된 새 제한     |    할당량 증가 이유       |
         |----------------|------------------------------|---------------------------------|------------------------------------------|
-        |  계좌 |  *구독 ID*   |  *요청 된 새 최대 **계정** 번호*    |  *요청을 확인 하는 시나리오 또는 사용 사례는 무엇입니까?*  |
+        |  계정 |  *구독 ID*   |  *요청 된 새 최대 **계정** 번호*    |  *요청을 확인 하는 시나리오 또는 사용 사례는 무엇입니까?*  |
         |  풀    |  *구독 ID, 계정 URI*  |  *요청 된 새 최대 **풀** 번호*   |  *요청을 확인 하는 시나리오 또는 사용 사례는 무엇입니까?*  |
         |  볼륨  |  *구독 ID, 계정 URI, 풀 URI*   |  *요청 된 새 최대 **볼륨** 번호*     |  *요청을 확인 하는 시나리오 또는 사용 사례는 무엇입니까?*  |
         |  Maxfiles  |  *구독 ID, 계정 URI, 풀 URI, 볼륨 URI*   |  *요청 된 새 최대 **maxfiles** 수*     |  *요청을 확인 하는 시나리오 또는 사용 사례는 무엇입니까?*  |    

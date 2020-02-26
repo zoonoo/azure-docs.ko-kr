@@ -2,17 +2,14 @@
 title: 개념 - AKS(Azure Kubernetes Service)의 Kubernetes 기본 사항
 description: Kubernetes의 기본 클러스터 및 워크로드 구성 요소와 AKS(Azure Kubernetes Service)의 기능과의 관계에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 06/03/2019
-ms.author: mlearned
-ms.openlocfilehash: 9efd053bde11a29c37e3ff6afb7c6fc4492338db
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bcf56aa89a42d65fdb7bf03696faad13c64cbc8a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967561"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596235"
 ---
 # <a name="kubernetes-core-concepts-for-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 Kubernetes 핵심 개념
 
@@ -20,7 +17,7 @@ ms.locfileid: "75967561"
 
 이 문서에서는 *제어 평면*, *노드*, *노드 풀*등의 핵심 Kubernetes 인프라 구성 요소를 소개 합니다. 리소스를 *네임스페이스*로 그룹화하는 방법과 함께 *Pod*, *배포* 및 *집합*과 같은 워크로드 리소스도 소개합니다.
 
-## <a name="what-is-kubernetes"></a>Kubernetes란 무엇인가요?
+## <a name="what-is-kubernetes"></a>Kubernetes란?
 
 Kubernetes는 컨테이너 기반 애플리케이션과 관련 네트워킹 및 스토리지 구성 요소를 관리하는 플랫폼으로서 빠르게 진화하고 있습니다. 기본 인프라 구성 요소가 아니라 애플리케이션 워크로드에 중점을 두고 있습니다. Kubernetes는 관리 작업을 위한 강력한 API 집합을 통해 지원되는 선언적 배포 방식을 제공합니다.
 
@@ -70,9 +67,9 @@ AKS는 전용 API 서버, 스케줄러 등의 단일 테 넌 트 제어 평면�
 
 노드의 Azure VM 크기는 CPU 수, 메모리 크기, 사용 가능한 스토리지(예: 고성능 SSD 또는 일반 HDD)의 크기 및 유형을 정의합니다. 대용량의 CPU와 메모리 또는 고성능 스토리지가 필요한 애플리케이션이 요구되는 경우 노드 크기를 적절히 계획합니다. 요구에 맞게 AKS 클러스터의 노드 수를 확장할 수도 있습니다.
 
-AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019 기반입니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 진행해야 하는 구성은 없습니다. 에이전트 노드는 표준 가상 머신으로 청구 되므로 사용 중인 VM 크기에 대 한 모든 할인([Azure 예약][reservation-discounts] 포함)이 자동으로 적용 됩니다.
+AKS에서 클러스터의 노드에 대한 VM 이미지는 현재 Ubuntu Linux 또는 Windows Server 2019 기반입니다. AKS 클러스터를 만들거나 노드 수를 확장하면 Azure 플랫폼에서 요청된 수의 VM을 만들고 구성합니다. 수동으로 진행해야 하는 구성은 없습니다. 에이전트 노드는 표준 가상 머신으로 청구 되므로 사용 중인 VM 크기에 [대 한 모든][reservation-discounts]할인이 자동으로 적용 됩니다.
 
-다른 호스트 OS, container runtime을 사용 하거나 사용자 지정 패키지를 포함 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어 모비(Moby) 이외의 컨테이너 런타임을 사용하려면 `aks-engine`을 사용하여 Kubernetes 클러스터를 구성하고 배포할 수 있습니다.
+다른 호스트 OS, container runtime을 사용 하거나 사용자 지정 패키지를 포함 해야 하는 경우 [aks][aks-engine]를 사용 하 여 사용자 고유의 Kubernetes 클러스터를 배포할 수 있습니다. 업스트림 `aks-engine`은 AKS 클러스터에서 공식적으로 지원되기 전에 기능을 릴리스하고 구성 옵션을 제공합니다. 예를 들어, Moby 이외의 컨테이너 런타임을 사용 하려는 경우 `aks-engine`를 사용 하 여 현재 요구를 충족 하는 Kubernetes 클러스터를 구성 하 고 배포할 수 있습니다.
 
 ### <a name="resource-reservations"></a>리소스 예약
 
@@ -106,7 +103,7 @@ kubectl describe node [NODE_NAME]
     - 다음 112 g b 메모리의 6% (최대 128 GB)
     - 128 GB 이상의 메모리 중 2%
 
-위의 메모리 및 CPU 할당 규칙은 에이전트 노드를 정상 상태로 유지 하는 데 사용 됩니다. 일부 호스팅 시스템은 클러스터 상태에 pod 중요 합니다. 이러한 할당 규칙으로 인해 노드가 Kubernetes 클러스터의 일부가 아닌 경우 보다 할당 되지 않은 메모리와 CPU를 보고 합니다. 위의 리소스 예약은 변경할 수 없습니다.
+위의 메모리 및 CPU 할당 규칙은 클러스터 상태에 중요 한 일부 호스팅 시스템 pod 포함 하 여 에이전트 노드를 정상 상태로 유지 하는 데 사용 됩니다. 이러한 할당 규칙으로 인해 노드가 Kubernetes 클러스터의 일부가 아닌 경우 보다 할당 되지 않은 메모리와 CPU를 보고 합니다. 위의 리소스 예약은 변경할 수 없습니다.
 
 예를 들어 노드가 7GB를 제공 하는 경우 750Mi 하드 제거 임계값을 기반으로 할당 되지 않은 메모리의 34%를 보고 합니다.
 
@@ -131,7 +128,7 @@ AKS에서 여러 노드 풀을 사용 하는 방법에 대 한 자세한 내용�
 
 AKS 클러스터에서 여러 노드 풀을 포함하는 경우 지정된 리소스에 대해 사용할 노드 풀을 Kubernetes 스케줄러에게 알려주어야 할 수 있습니다. 예를 들어, 수신 컨트롤러는 Windows Server 노드에서 실행하지 않아야 합니다(현재 AKS에서 미리 보기). 노드 선택기를 사용하면 노드 OS와 같은 다양한 매개 변수를 정의하여 pod 예약 제어를 할 수 있습니다.
 
-다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용하여 Linux 노드 상의 NGINX 인스턴스를 예약합니다.
+다음 기본 예제에서는 노드 선택기 *"beta.kubernetes.io/os": linux*를 사용 하 여 LINUX 노드에서 NGINX 인스턴스를 예약 합니다.
 
 ```yaml
 kind: Pod
@@ -224,7 +221,7 @@ Helm을 사용하려면 *Tiller*라는 서버 구성 요소가 Kubernetes 클러
 
 ### <a name="statefulsets"></a>StatefulSets
 
-최신 애플리케이션 개발은 종종 상태 비저장 애플리케이션을 대상으로 하지만, *StatefulSets*는 데이터베이스 구성 요소가 포함된 애플리케이션과 같은 상태 저장 애플리케이션에 사용할 수 있습니다. StatefulSet은 하나 이상의 동일한 Pod가 만들어지고 관리된다는 점에서 배포와 비슷합니다. StatefulSet의 복제본은 배포, 크기 조정, 업그레이드 및 종료에 대한 정상적이고 순차적인 접근 방식을 따릅니다. StatefulSet을 사용하면 복제본이 다시 예약될 때 명명 규칙, 네트워크 이름 및 스토리지가 그대로 유지됩니다.
+최신 애플리케이션 개발은 종종 상태 비저장 애플리케이션을 대상으로 하지만, *StatefulSets*는 데이터베이스 구성 요소가 포함된 애플리케이션과 같은 상태 저장 애플리케이션에 사용할 수 있습니다. StatefulSet은 하나 이상의 동일한 Pod가 만들어지고 관리된다는 점에서 배포와 비슷합니다. StatefulSet의 복제본은 배포, 크기 조정, 업그레이드 및 종료에 대한 정상적이고 순차적인 접근 방식을 따릅니다. StatefulSet (복제본이 다시 예약 됨)은 명명 규칙, 네트워크 이름 및 저장소가 유지 됩니다.
 
 `kind: StatefulSet`을 사용하여 애플리케이션을 YAML 형식으로 정의한 다음, StatefulSet 컨트롤러에서 필요한 복제본의 배포와 관리를 처리합니다. 데이터는 Azure Managed Disks 또는 Azure Files에서 제공되는 영구적 스토리지에 기록됩니다. StatefulSet을 사용하면 StatefulSet이 삭제되는 경우에도 기본 영구적 스토리지가 유지됩니다.
 
@@ -243,7 +240,7 @@ StatefulSet과 마찬가지로 DaemonSet은 `kind: DaemonSet`을 사용하여 YA
 자세한 내용은 [Kubernetes DaemonSets][kubernetes-daemonset]를 참조 하세요.
 
 > [!NOTE]
-> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용하는 경우, Daemonset는 해당 가상 노드에 pod를 생성하지 않습니다.
+> [가상 노드 추가 기능](virtual-nodes-cli.md#enable-virtual-nodes-addon)을 사용 하는 경우 DaemonSets는 가상 노드에 pod를 만들지 않습니다.
 
 ## <a name="namespaces"></a>네임스페이스
 

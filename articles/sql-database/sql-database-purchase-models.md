@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: aa7197dc631ea281bd5616b572f4ca01aeb9d45c
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964773"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587297"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
@@ -27,7 +27,7 @@ Azure SQL Database를 사용 하면 성능 및 비용 요구에 맞는 완전히
 
 다양 한 Azure SQL Database 배포 모델에 대해 여러 구매 모델을 사용할 수 있습니다.
 
-- [Azure SQL Database](sql-database-technical-overview.md)의 [단일 데이터베이스](sql-database-single-databases-manage.md) 및 [탄력적 풀](sql-database-elastic-pool.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
+- [Azure SQL Database](sql-database-single-databases-manage.md)의 [단일 데이터베이스](sql-database-elastic-pool.md) 및 [탄력적 풀](sql-database-technical-overview.md) 배포 옵션은 [DTU 기반 구매 모델](sql-database-service-tiers-dtu.md) 및 [vCore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 모두 제공합니다.
 - Azure SQL Database의 [관리 되는 인스턴스](sql-database-managed-instance.md) 배포 옵션은 [vcore 기반 구매 모델만](sql-database-service-tiers-vcore.md)제공 합니다.
 - 하이퍼 [확장 서비스 계층](sql-database-service-tier-hyperscale.md) 은 [vcore 기반 구매 모델](sql-database-service-tiers-vcore.md)을 사용 하는 단일 데이터베이스에 사용할 수 있습니다.
 
@@ -77,7 +77,7 @@ VCore 기반 구매 모델을 사용 하 여 독립적으로 계산 및 저장�
 
 > [!IMPORTANT]
 > 계산 리소스, i/o, 데이터 및 로그 저장소는 데이터베이스 또는 탄력적 풀 별로 요금이 청구 됩니다. 백업 저장소는 각 데이터베이스당 청구 됩니다. 관리되는 인스턴스에 대한 자세한 내용은 [관리되는 인스턴스](sql-database-managed-instance.md)를 참조하세요.
-> **지역 제한 사항:** 지원 되는 지역에 대 한 현재 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조 하세요. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보냅니다](sql-database-managed-instance-resource-limits.md#obtaining-a-larger-quota-for-sql-managed-instance).
+> **지역 제한 사항:** 지원 되는 지역에 대 한 현재 목록은 [지역별 사용 가능한 제품](https://azure.microsoft.com/global-infrastructure/services/?products=sql-database&regions=all)을 참조 하세요. 현재 지원 되지 않는 지역에서 관리 되는 인스턴스를 만들려면 [Azure Portal를 통해 지원 요청을 보냅니다](quota-increase-request.md).
 
 단일 데이터베이스 또는 탄력적 풀이 300 개 보다 많은 Dtu를 사용 하는 경우 vCore 기반 구매 모델로 변환 하면 비용이 줄어들 수 있습니다. 원하는 API를 사용 하거나 가동 중지 시간 없이 Azure Portal를 사용 하 여 변환할 수 있습니다. 그러나 변환은 필요 하지 않으며 자동으로 수행 되지 않습니다. DTU 기반 구매 모델이 성능 및 비즈니스 요구 사항을 충족하는 경우 이 모델을 계속 사용해야 합니다.
 
@@ -102,7 +102,7 @@ DTU 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-d
 
 ![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 예:
+Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 다음은 그 예입니다.
 
 - 데이터베이스의 계산 크기를 늘려서 Dtu를 두 배로 늘리면 해당 데이터베이스에서 사용할 수 있는 리소스 집합이 배가 됩니다.
 - 1750 dtu를 포함 하는 프리미엄 서비스 계층 P11 데이터베이스는 5 개의 dtu를 포함 하는 기본 서비스 계층 데이터베이스 보다 350 배 더 이상의 dtu 계산 기능을 제공 합니다.  
@@ -147,7 +147,7 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터�
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 변환 하려면 응용 프로그램을 오프 라인으로 전환 해야 하나요?
 
-아닙니다. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
+아니요. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>VCore 기반 구매 모델의 서비스 계층에서 DTU 기반 구매 모델의 서비스 계층으로 데이터베이스를 변환할 수 있나요?
 

@@ -3,12 +3,12 @@ title: VMware에 대 한 Azure Migrate 어플라이언스 설정
 description: VMware Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/18/2019
-ms.openlocfilehash: 139b694bafb9d67192e6f182ff879e86e2b73ce4
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: e331d45d3e87f8007642675a0349839e7494958c
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291943"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598156"
 ---
 # <a name="set-up-an-appliance-for-vmware-vms"></a>VMware Vm에 대 한 어플라이언스 설정
 
@@ -35,7 +35,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. **머신 검색** > **머신이 가상화되어 있습니까?** 에서 **예, VMWare vSphere 하이퍼바이저 사용**을 클릭합니다.
 3. **다운로드**를 클릭하여 .OVA 템플릿 파일을 다운로드합니다.
 
-
+  ![OVA 파일 다운로드 선택](./media/tutorial-assess-vmware/download-ova.png)
 
 ### <a name="verify-security"></a>보안 확인
 
@@ -45,12 +45,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행 하 여 OVA에 대 한 해시를 생성 합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.ova SHA256```
-3. 최신 어플라이언스 버전의 경우 생성된 해시는 다음 설정과 일치해야 합니다.
+3. 최신 어플라이언스 버전의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-vmware#verify-security)일치 해야 합니다.
 
-  **알고리즘** | **해시 값**
-  --- | ---
-  MD5 | c06ac2a2c0f870d3b274a0b7a73b78b1
-  SHA256 | 4ce4faa3a78189a09a26bfa5b817c7afcf5b555eb46999c2fad9d2ebc808540c
 
 
 ## <a name="create-the-appliance-vm"></a>어플라이언스 VM 만들기
@@ -58,6 +54,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 다운로드한 파일을 가져오고 VM을 만듭니다.
 
 1. vSphere Client 콘솔에서 **파일** > **OVF 템플릿 배포**를 클릭합니다.
+](./media/tutorial-assess-vmware/deploy-ovf.png) 파일을 배포 하는 메뉴 명령을 ![합니다.
+
 2. OVF 템플릿 배포 마법사 > **원본**에서 OVA 파일의 위치를 지정합니다.
 3. **이름** 및 **위치**에서 친숙한 VM 이름을 지정합니다. VM을 호스팅할 인벤토리 개체를 선택합니다.
 5. **호스트/클러스터**에서 VM이 실행될 호스트 또는 클러스터를 지정합니다.
@@ -87,7 +85,7 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
         - **프록시 설정**을 클릭하고, 프록시 주소와 수신 포트를 http://ProxyIPAddress 또는 http://ProxyFQDN 형식으로 지정합니다.
         - 프록시에 인증이 필요한 경우 자격 증명을 지정합니다.
         - HTTP 프록시만 지원됩니다.
-    - **시간 동기화**: 시간이 확인 됩니다. 검색을 제대로 작동 하려면 어플라이언스의 시간이 인터넷 시간과 동기화 되어야 합니다.
+    - **시간 동기화**: 시간이 확인 됩니다. 검색이 제대로 작동하려면 어플라이언스의 시간이 인터넷 시간과 동기화되어야 합니다.
     - **업데이트 설치**: Azure Migrate 최신 어플라이언스 업데이트가 설치 되어 있는지 확인 합니다.
     - **INSTALL VDDK**: Azure Migrate VMWare VSPHERE VDDK (가상 디스크 개발 키트)가 설치 되어 있는지 확인 합니다.
         - Azure migration은 VDDK를 사용 하 여 Azure로 마이그레이션하는 동안 컴퓨터를 복제 합니다.

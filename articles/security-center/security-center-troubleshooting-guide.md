@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 68d37bfbc629062a788ba32793b95c6f1653ff42
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 55a4aa066739203f8697fb4c9083869f5a05ef4f
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749646"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603380"
 ---
 # <a name="azure-security-center-troubleshooting-guide"></a>Azure Security Center 문제 해결 가이드
 
@@ -62,11 +62,11 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 서비스 관리 콘솔(services.msc)을 열 경우 다음과 같이 실행 중인 Microsoft Monitoring Agent 서비스가 나타납니다.
 
-![서비스](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
+![Services](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig5.png)
 
 설치된 에이전트의 버전을 확인하려면 **작업 관리자**를 열고 **프로세스** 탭에서 **Microsoft Monitoring Agent 서비스**를 찾고 마우스 오른쪽 단추로 클릭한 다음 **속성**을 클릭합니다. **세부 정보** 탭에서 아래와 같이 파일 버전을 확인합니다.
 
-![File](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
+![파일](./media/security-center-troubleshooting-guide/security-center-troubleshooting-guide-fig6.png)
 
 ## <a name="microsoft-monitoring-agent-installation-scenarios"></a>Microsoft Monitoring Agent 설치 시나리오
 
@@ -107,10 +107,10 @@ Security Center은 Microsoft Monitoring Agent를 사용 합니다 .이는 Azure 
 
 | 에이전트 리소스 | 포트 | HTTPS 검사 무시 |
 |---|---|---|
-| *.ods.opinsights.azure.com | 443 | 예 |
-| *.oms.opinsights.azure.com | 443 | 예 |
-| \*.blob.core.windows.net | 443 | 예 |
-| \* .azure-automation.net | 443 | 예 |
+| *.ods.opinsights.azure.com | 443 | yes |
+| *.oms.opinsights.azure.com | 443 | yes |
+| \*.blob.core.windows.net | 443 | yes |
+| \* .azure-automation.net | 443 | yes |
 
 에이전트와 온보딩 문제가 발생하는 경우 [Operations Management Suite 온보딩 문제를 해결하는 방법](https://support.microsoft.com/help/3126513/how-to-troubleshoot-operations-management-suite-onboarding-issues) 문서를 참조하도록 합니다.
 
@@ -154,5 +154,5 @@ Security Center 대시보드를 로드하는 문제가 있는 경우 Security Ce
 * [Azure Security Center에서 인시던트 및 경고 조사](security-center-investigation.md)
 * [Azure Security Center 감지 기능](security-center-detection-capabilities.md)
 * [Azure Security Center를 사용하여 파트너 솔루션 모니터링](security-center-partner-solutions.md) - 파트너 솔루션의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
+* [Azure Security Center FAQ](faq-general.md) — 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) — Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

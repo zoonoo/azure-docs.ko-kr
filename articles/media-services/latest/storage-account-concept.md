@@ -1,5 +1,5 @@
 ---
-title: Azure Media Services 계정 사용 하 여 azure Storage 계정 | Microsoft Docs
+title: Azure Media Services 계정으로 계정 Azure Storage | Microsoft Docs
 description: Media Services 계정을 만들려면 Azure Storage 계정 리소스의 이름을 제공해야 합니다. 지정된 스토리지 계정은 Media Services 계정에 연결됩니다.
 services: media-services
 documentationcenter: ''
@@ -11,12 +11,12 @@ ms.workload: ''
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: juliako
-ms.openlocfilehash: 5c5bfa224b87040f5142663e6adab01072c6e6ba
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: 4bbadd7e10f0fd6896932dd79a5ca42d9906d2a2
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67619291"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602147"
 ---
 # <a name="azure-storage-accounts"></a>Azure Storage 계정
 
@@ -26,16 +26,16 @@ Media Services 계정 및 연결된 모든 스토리지 계정은 동일한 Azur
 
 **기본** 스토리지 계정은 하나 있어야 하며 Media Services 계정과 연결된 **보조** 스토리지 계정은 여러 개 사용할 수 있습니다. Media Services는 **범용 v2**(GPv2) 또는 **범용 v1**(GPv1) 계정을 지원합니다. <br/>Blob 전용 계정은 **기본**으로 허용되지 않습니다. 
 
-최신 기능 및 성능을 활용할 수 있도록 GPv2를 사용 하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요.
+최신 기능과 성능을 활용할 수 있도록 GPv2를 사용 하는 것이 좋습니다. 스토리지 계정을 자세히 알아보려면 [Azure Storage 계정 개요](../../storage/common/storage-account-overview.md)를 참조하세요.
 
 > [!NOTE]
-> Azure Media services를 사용 하 여 적극적으로 사용 되지 않는 콘텐츠 저장소 비용을 줄이는 다른 액세스 계층을 사용할 수 있지만 핫 액세스 계층에만 지원 됩니다.
+> 핫 액세스 계층만 Azure Media Services와 함께 사용할 수 있지만, 다른 액세스 계층을 사용 하 여 적극적으로 사용 되지 않는 콘텐츠의 저장소 비용을 줄일 수 있습니다.
 
-다양 한 Sku를 저장소 계정에 대해 선택할 수 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 
+저장소 계정에 대해 선택할 수 있는 다양 한 Sku가 있습니다. 자세한 내용은 [스토리지 계정](https://docs.microsoft.com/cli/azure/storage/account?view=azure-cli-latest)을 참조하세요. 스토리지 계정을 실험하려면 `--sku Standard_LRS`를 사용합니다. 그러나 프로덕션용 SKU를 선택하는 경우 비즈니스 연속성을 위해 지리적 복제를 제공하는 `--sku Standard_RAGRS`를 고려해야 합니다. 
 
 ## <a name="assets-in-a-storage-account"></a>스토리지 계정의 자산
 
-Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 데 사용 됩니다. 자세한 내용은 [자산 개념](assets-concept.md)합니다.
+Media Services v 3에서 저장소 Api를 사용 하 여 자산에 파일을 업로드 합니다. 자세한 내용은 [자산 개념](assets-concept.md)을 참조 하세요.
 
 > [!Note]
 > Media Service API를 사용하지 않고 Media Services SDK에서 생성된 Blob 컨테이너의 콘텐츠를 변경하려고 하면 안 됩니다.
@@ -50,7 +50,7 @@ Media Services v3에서는 Storage Api는 자산에 파일을 업로드 하는 �
 |[미사용 데이터에 대한 Storage 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption)|Azure Storage가 제공하는 서버 쪽 암호화, Azure 또는 고객이 키 관리|지원됨|
 |[스토리지 클라이언트 쪽 암호화](https://docs.microsoft.com/azure/storage/common/storage-client-side-encryption)|Azure Storage가 제공하는 클라이언트 쪽 암호화, Key Vault의 고객이 키 관리|지원되지 않음|
 
-<sup>1</sup> Media Services v3에서 스토리지 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 스토리지 암호화된 자산과 작동하지만 새로 만들기를 허용하지는 않습니다.
+<sup>1</sup> Media Services v3에서 스토리지 암호화(AES-256 암호화)는 자산을 Media Services v2를 사용하여 만들었을 경우 이전 버전과의 호환성에 대해서만 지원됩니다. v3는 기존 스토리지 암호화된 자산과 함께 작동하지만 새로 만들기를 허용하지는 않습니다.
 
 ## <a name="storage-account-errors"></a>저장소 계정 오류
 
@@ -58,10 +58,14 @@ Media Services 계정의 "연결 끊김" 상태는 스토리지 액세스 키가
 
 다음은 연결된 스토리지 계정에 대한 액세스 권한이 Media Services 계정에서 없어지는 주요 시나리오입니다. 
 
-|문제점|솔루션|
+|문제|해결 방법|
 |---|---|
 |Media Services 계정이나 연결된 스토리지 계정이 별도의 구독으로 마이그레이션되었습니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다. |
 |이것이 지원되던 초기 Media Services 계정이기 때문에, Media Services 계정이 다른 구독에 속하는 연결된 스토리지 계정을 사용합니다. 모든 초기 Media Services 계정이 최신 ARM(Azure Resources Manager) 기반 계정으로 변환되었으며 연결 끊김 상태가 됩니다. |스토리지 계정이나 Media Services 계정이 모두 동일한 구독에 속하도록 마이그레이션합니다.|
+
+## <a name="azure-storage-firewall"></a>Azure Storage 방화벽
+
+Azure Media Services는 Azure Storage 방화벽이 나 [개인 끝점](https://docs.microsoft.com/azure/storage/common/storage-network-security) 을 사용 하는 저장소 계정을 지원 하지 않습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

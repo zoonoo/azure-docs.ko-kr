@@ -10,12 +10,12 @@ ms.author: aashishb
 author: aashishb
 ms.reviewer: larryfr
 ms.date: 01/09/2020
-ms.openlocfilehash: 7b6bd33346df9496c4c30353b68c11bdd7fad7a2
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b37b386273947f8c39fe182e4f29b7b080addf7b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486396"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605631"
 ---
 # <a name="enterprise-security-for-azure-machine-learning"></a>Azure Machine Learning에 대 한 엔터프라이즈 보안
 
@@ -37,7 +37,6 @@ Multi-factor authentication은 Azure AD (Azure Active Directory)를 사용 하�
 [Azure Machine Learning에서 ![인증](media/concept-enterprise-security/authentication.png)](media/concept-enterprise-security/authentication-expanded.png#lightbox)
 
 자세한 내용은 [Azure Machine Learning 리소스 및 워크플로에 대 한 인증 설정](how-to-setup-authentication.md)을 참조 하세요. 이 문서에서는 서비스 사용자 및 자동화 된 워크플로를 사용 하는 등 인증에 대 한 정보 및 예제를 제공 합니다.
-
 
 ### <a name="authentication-for-web-service-deployment"></a>웹 서비스 배포에 대 한 인증
 
@@ -77,6 +76,9 @@ Azure Machine Learning는 웹 서비스에 대 한 두 가지 형태의 인증 �
 | 웹 서비스 호출 | ✓ | ✓ | ✓ |
 
 기본 제공 역할이 요구 사항에 맞지 않는 경우 사용자 지정 역할을 만들 수 있습니다. 사용자 지정 역할은 작업 영역 및 Machine Learning 컴퓨팅에 대 한 작업에 대해서만 지원 됩니다. 사용자 지정 역할은 작업 영역 및 해당 작업 영역의 계산 리소스에 대 한 읽기, 쓰기 또는 삭제 권한을 가질 수 있습니다. 특정 작업 영역 수준, 특정 리소스 그룹 수준 또는 특정 구독 수준에서 역할을 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure Machine Learning 작업 영역에서 사용자 및 역할 관리](how-to-assign-roles.md)를 참조 하세요.
+
+> [!WARNING]
+> Azure Machine Learning은 현재 Azure Active Directory b2b 공동 작업에서 지원 되지 않습니다.
 
 ### <a name="securing-compute-targets-and-data"></a>계산 대상 및 데이터 보안
 

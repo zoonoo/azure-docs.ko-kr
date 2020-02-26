@@ -3,12 +3,12 @@ title: Azure Backup 진단 이벤트에 대 한 데이터 모델
 description: 이 데이터 모델은 Log Analytics (LA)로 진단 이벤트를 보내는 리소스 특정 모드를 참조 합니다.
 ms.topic: conceptual
 ms.date: 10/30/2019
-ms.openlocfilehash: d38c9dedba7111923fa4f823d348d0783ac36681
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 267753ee1647739e36d92b64f50d8a8be87537d9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500615"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77583387"
 ---
 # <a name="data-model-for-azure-backup-diagnostics-events"></a>Azure Backup 진단 이벤트에 대 한 데이터 모델
 
@@ -220,5 +220,5 @@ ms.locfileid: "77500615"
 
 ## <a name="next-steps"></a>다음 단계
 
-- [Log Analytics에 진단 데이터를 보내는 방법에 대해 알아봅니다.](https://aka.ms/AzureBackupDiagnosticsDocs)
+- [Log Analytics에 진단 데이터를 보내는 방법에 대해 알아봅니다.](https://docs.microsoft.com/azure/backup/backup-azure-diagnostic-events)
 - [리소스 관련 테이블에 대 한 쿼리를 작성 하는 방법 알아보기](https://docs.microsoft.com/azure/backup/backup-azure-monitoring-use-azuremonitor#sample-kusto-queries)

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 03/20/2019
 ms.author: memildin
-ms.openlocfilehash: 7174003485d51cf582c798c4b18404b1b72de0fb
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 23a00c766dbb38853c57c91e7f59ec364390c44b
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530955"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603798"
 ---
 # <a name="integrate-security-solutions-in-azure-security-center"></a>Azure Security Center에서 보안 솔루션 통합
 이 문서를 통해 이미 Azure Security Center에 연결된 보안 솔루션을 관리하고 새로 추가할 수 있습니다.
@@ -27,7 +27,7 @@ ms.locfileid: "75530955"
 > 보안 솔루션의 하위 집합은 2019 년 7 월 31 일에 사용이 중지 되었습니다. 자세한 내용 및 대체 서비스는 [Security Center 기능 사용 중지 (7 월 2019)](security-center-features-retirement-july2019.md#menu_solutions)를 참조 하세요.
 
 ## <a name="integrated-azure-security-solutions"></a>통합된 Azure 보안 솔루션
-Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 제공되는 혜택:
+Security Center를 사용하면 Azure에서 통합된 보안 솔루션을 쉽게 사용할 수 있습니다. 이점은 다음과 같습니다.
 
 - **배포 간소화**: Security Center에서는 통합된 파트너 솔루션의 간결한 프로비전을 제공합니다. 맬웨어 방지 및 취약성 평가와 같은 솔루션의 경우 가상 머신에서 에이전트를 프로 비전 할 수 Security Center. 방화벽 어플라이언스의 경우 필요한 네트워크 구성의 대부분을 처리할 수 Security Center.
 - **통합된 감지**: 파트너 솔루션의 보안 이벤트는 자동으로 수집, 집계되며 Security Center 알림 및 사고의 일부로 표시됩니다. 또한 이러한 이벤트는 다른 원본의 감지를 결합하여 고급 위협 감지 기능을 제공합니다.
@@ -113,7 +113,7 @@ Azure Security Center의 모든 이벤트는 Azure Monitor의 Azure [활동 로�
 
 다음 섹션에서는 데이터를 이벤트 허브로 스트리밍하도록 구성하는 방법에 대해 설명합니다. 다음 단계에서는 Azure Security Center가 Azure 구독에 이미 구성되어 있다고 가정합니다.
 
-### <a name="high-level-overview"></a>고급 개요
+### <a name="high-level-overview"></a>대략적인 개요
 
 ![대략적인 개요](media/security-center-export-data-to-siem/overview.png)
 
@@ -129,13 +129,13 @@ Azure Security Center의 모든 이벤트는 Azure Monitor의 Azure [활동 로�
 
 #### <a name="stream-the-azure-activity-log-to-event-hubs"></a>Azure 활동 로그를 Event Hubs로 스트림
 
-다음 문서 [스트림 활동 로그를](../azure-monitor/platform/activity-logs-stream-event-hubs.md) 참조 하세요 Event Hubs
+[Event Hubs stream 활동 로그](../azure-monitor/platform/activity-logs-stream-event-hubs.md)문서를 참조 하세요.
 
 #### <a name="install-a-partner-siem-connector"></a>파트너 SIEM 커넥터 설치 
 
 Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라우팅하면 파트너 SIEM 및 모니터링 도구와 쉽게 통합할 수 있습니다.
 
-[지원 되는 SIEMs](../azure-monitor/platform/resource-logs-stream-event-hubs.md#what-you-can-do-with-platform-logs-sent-to-an-event-hub) 목록은 다음 문서를 참조 하세요.
+[지원 되는 SIEMs](../azure-monitor/platform/stream-monitoring-data-event-hubs.md#partner-tools-with-azure-monitor-integration)목록은 다음 문서를 참조 하세요.
 
 ### <a name="example-for-querying-data"></a>데이터 쿼리 예제 
 
@@ -153,5 +153,3 @@ Azure Monitor를 사용하여 모니터링 데이터를 이벤트 허브로 라�
 이 문서에서는 Security Center에서 파트너 솔루션을 통합하는 방법을 살펴보았습니다. Security Center에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 * [Security Center에서 보안 상태 모니터링](security-center-monitoring.md) Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) Security Center 사용에 관한 질문과 대답에 대한 답을 가져옵니다.
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

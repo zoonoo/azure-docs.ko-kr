@@ -3,16 +3,15 @@ title: AKS (Azure Kubernetes Service) 진단 개요
 description: Azure Kubernetes Service의 자체 진단 클러스터에 대해 알아봅니다.
 services: container-service
 author: yunjchoi
-ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: yunjchoi
-ms.openlocfilehash: 2148c6c8c9d78355847b3240b54349f1e7789921
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 11b469425a80d588462e0332c973260cc3b56992
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291382"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77596184"
 ---
 # <a name="azure-kubernetes-service-aks-diagnostics-overview"></a>AKS (Azure Kubernetes Service) 진단 개요
 

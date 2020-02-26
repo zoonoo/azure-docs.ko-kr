@@ -2,17 +2,14 @@
 title: 개인 Azure Kubernetes Service 클러스터 만들기
 description: AKS (개인 Azure Kubernetes Service) 클러스터를 만드는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 08929d5ec05fbeb80eddebfd667fe1e0fde9bff7
-ms.sourcegitcommit: 78f367310e243380b591ff10f2500feca93f5d0a
+ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77544235"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594569"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 

@@ -3,16 +3,15 @@ title: 일반적인 Azure Kubernetes Service 문제 해결
 description: AKS(Azure Kubernetes Service)를 사용 할 때 발생하는 일반적인 문제를 해결하는 방법을 알아봅니다.
 services: container-service
 author: sauryadas
-ms.service: container-service
 ms.topic: troubleshooting
 ms.date: 12/13/2019
 ms.author: saudas
-ms.openlocfilehash: 663a1dc597493c7b534b54eab7ccc4bed0ff0e11
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: b7aa90bd19e52059319570f1e7f6e64b90dee6e4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209225"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593350"
 ---
 # <a name="aks-troubleshooting"></a>AKS 문제 해결
 

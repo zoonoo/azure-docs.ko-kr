@@ -2,17 +2,14 @@
 title: Azure Kubernetes 서비스에서 송신 트래픽 제한 (AKS)
 description: Azure Kubernetes 서비스 (AKS)에서 송신 트래픽을 제어 하는 데 필요한 포트 및 주소에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.author: mlearned
-ms.openlocfilehash: 1206c20ec4f547dd591ac711d546d1dad0b7a19a
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251603"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595011"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터 노드에 대 한 송신 트래픽 제어
 

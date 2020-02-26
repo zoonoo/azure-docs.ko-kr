@@ -2,16 +2,15 @@
 title: Consul 개요
 description: Consul 개요 얻기
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
-ms.openlocfilehash: 7ffbd2386cd0e50cec8976e6bdd6c5778aa014d7
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c518985b360fa3264bd5ac1e3fe76d61b2810b9b
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928435"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77594212"
 ---
 # <a name="consul"></a>Consul
 
@@ -19,7 +18,7 @@ ms.locfileid: "73928435"
 
 [Consul][consul] 은 런타임 플랫폼 간에 서비스를 연결 하 고 보호 하는 다중 데이터 센터 인식 서비스 네트워킹 솔루션입니다. [Connect][consul-features] 는 서비스 메시 기능을 제공 하는 구성 요소입니다.
 
-## <a name="architecture"></a>아키텍처
+## <a name="architecture"></a>Architecture
 
 Consul은 기본적으로 [엔보이][envoy-proxy]기반 [사이드카][consul-sidecar] 구성 된 데이터 평면을 제공 합니다. Consul에는 플러그형 프록시 아키텍처가 있습니다. 이러한 지능형 프록시는 사용자가 선택한 앱 및 워크 로드에서 모든 네트워크 트래픽을 제어 합니다.
 
@@ -54,7 +53,7 @@ Consul은 기본적으로 [엔보이][envoy-proxy]기반 [사이드카][consul-s
 - 인프라를 통해 안전 하 게 작업 **을 확장 하 고 통합** 합니다.
 
 
-### <a name="capabilities"></a>Capabilities
+### <a name="capabilities"></a>기능
 
 Consul은 다음과 같은 기능 집합을 제공 합니다.
 

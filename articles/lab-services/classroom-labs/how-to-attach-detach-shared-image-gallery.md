@@ -11,22 +11,24 @@ ms.workload: na
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: article
-ms.date: 02/14/2020
+ms.date: 02/24/2020
 ms.author: spelluru
-ms.openlocfilehash: 1267487e44556a468db26a2ffaaa163dce540571
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 3e915c26e9469b37ac8bc345c4d5cd1712e7acdb
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443485"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597731"
 ---
 # <a name="attach-or-detach-a-shared-image-gallery-in-azure-lab-services"></a>Azure Lab Services에서 공유 이미지 갤러리 연결 또는 분리
 교사/랩 관리자는 다른 사용자가 다시 사용할 수 있도록 Azure [공유 이미지 갤러리](../../virtual-machines/windows/shared-image-galleries.md) 에 템플릿 VM 이미지를 저장할 수 있습니다. 첫 번째 단계로 랩 관리자는 기존 공유 이미지 갤러리를 랩 계정에 연결 합니다. 공유 이미지 갤러리가 연결 되 면 랩 계정에서 생성 된 랩에서 공유 이미지 갤러리에 이미지를 저장할 수 있습니다. 다른 교사는 공유 이미지 갤러리에서이 이미지를 선택 하 여 해당 클래스에 대 한 템플릿을 만들 수 있습니다. 
 
+공유 이미지 갤러리에 이미지를 저장 하는 경우 Azure Lab Services는 저장 된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제 합니다. 이를 통해 동일한 지리에서 다른 지역에 생성 된 랩에서 이미지를 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장 하면 모든 복제 된 이미지에 대 한 비용을 포함 하는 추가 비용이 발생 합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. 공유 이미지 갤러리 가격에 대 한 자세한 내용은 [공유 이미지 갤러리 – 청구]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing)를 참조 하세요.
+
 이 문서에서는 공유 이미지 갤러리를 랩 계정에 연결 하거나 분리 하는 방법을 보여 줍니다. 
 
 > [!NOTE]
-> 공유 이미지 갤러리에 이미지를 저장 하는 경우 Azure Lab Services는 저장 된 이미지를 동일한 [지리](https://azure.microsoft.com/global-infrastructure/geographies/)에서 사용할 수 있는 다른 지역에 복제 합니다. 이를 통해 동일한 지리에서 다른 지역에 생성 된 랩에서 이미지를 사용할 수 있습니다. 공유 이미지 갤러리에 이미지를 저장 하면 모든 복제 된 이미지에 대 한 비용을 포함 하는 추가 비용이 발생 합니다. 이 비용은 Azure Lab Services 사용 비용과는 별개입니다. 공유 이미지 갤러리 가격에 대 한 자세한 내용은 [공유 이미지 갤러리 – 청구]( https://docs.microsoft.com/azure/virtual-machines/windows/shared-image-galleries#billing)를 참조 하세요.
+> 현재 Azure Lab Services은 공유 이미지 갤러리에서 **일반화** 된 vm 이미지 (특수 이미지 아님)만 기반으로 vm을 만들 수 있도록 지원 합니다. 
 
 
 ## <a name="configure-at-the-time-of-lab-account-creation"></a>랩 계정 생성 시 구성

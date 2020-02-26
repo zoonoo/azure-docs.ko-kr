@@ -3,7 +3,7 @@ title: Azure 센티널로 작업할 때 유용한 리소스 | Microsoft Docs
 description: 이 문서에서는 Azure 센티널로 작업할 때 유용한 리소스 목록을 제공 합니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 9b4c8e38-c986-4223-aa24-a71b01cb15ae
@@ -14,13 +14,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/02/2019
-ms.author: rkarlin
-ms.openlocfilehash: 2ce8b9e82907402538ca2d14b864c02bb8bc2d82
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.author: yelevin
+ms.openlocfilehash: 2110d3319cebf693ef06deec26a29fa655e35035
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548002"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585274"
 ---
 # <a name="useful-resources-for-working-with-azure-sentinel"></a>Azure 센티널 작업에 유용한 리소스
 
@@ -55,7 +55,7 @@ Azure 센티널의 감사 로그는 [Azure 활동 로그](../azure-monitor/platf
 |사례 설명 만들기   |Microsoft SecurityInsights/사례/설명|
 |데이터 커넥터 업데이트 |Microsoft SecurityInsights/dataConnectors|
 |데이터 커넥터 삭제 |Microsoft SecurityInsights/dataConnectors|
-|업데이트 설정    |Microsoft SecurityInsights/설정|
+|설정 업데이트    |Microsoft SecurityInsights/설정|
 
 ### <a name="view-audit-and-reporting-data-in-azure-sentinel"></a>Azure 센티널에서 감사 및 보고 데이터 보기
 

@@ -3,12 +3,12 @@ title: Azure Recovery Services 자격 증명 모음 및 서버 관리
 description: 이 문서에서는 Recovery Services 자격 증명 모음 개요 대시보드를 사용 하 여 Recovery Services 자격 증명 모음을 모니터링 하 고 관리 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 07/08/2019
-ms.openlocfilehash: f043d50a2b0e4efbda957a9c4ccb8f1d472dce15
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: 5ae875b2e767768e90a9fbc6ff4ecfc6efb239c5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173037"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586447"
 ---
 # <a name="monitor-and-manage-recovery-services-vaults"></a>Recovery Services 자격 증명 모음 모니터링 및 관리
 
@@ -79,9 +79,9 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 | 경고 수준 | 알림을 생성하는 이벤트 |
 | ----------- | ----------- |
-| 심각 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
+| 위험 | 다음과 같은 경우에 중요한 알림을 받습니다. 백업 작업이 실패하고 복구 작업이 실패하고 서버의 보호를 중지했지만 데이터를 보존할 때.|
 | Warning | 백업 작업이 경고와 함께 완료되었거나(예: 손상 문제로 인해 100개 미만의 파일이 백업되지 않은 경우), 1,000,000개가 넘는 파일이 성공적으로 백업된 경우에는 경고 알림을 받습니다. |
-| 정보 | 현재는 사용되는 정보 알림이 없습니다. |
+| 정보 제공 | 현재는 사용되는 정보 알림이 없습니다. |
 
 ### <a name="viewing-alert-details"></a>알림 세부 정보 보기
 
@@ -97,7 +97,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 * 심각도
 * Duration
 * 만든 시간
-* 가동 상태
+* 상태
 * 최근 발생 시간
 
 ### <a name="change-the-details-in-alerts-report"></a>경고 보고서의 세부 정보 변경
@@ -144,7 +144,7 @@ Recovery Services 자격 증명 모음 **개요** 대시보드는 모니터링 �
 
 그룹화하지 않거나 알림을 생성할 수 있는 항목이 많지 않으면 **알림** 컨트롤에서 **경고별**을 선택합니다. 모든 경고는 하나의 알림(기본 설정)으로 처리되며 해결 전자 메일이 즉시 전송됩니다.
 
-**시간별 요약**을 선택하면 받는 사람에게 마지막 한 시간 동안 생성되었지만 해결되지 않은 경고를 설명하는 이메일을 보냅니다. 한 시간이 끝날 때 확인 전자 메일이 전송됩니다.
+**시간별 요약**을 선택하면 받는 사람에게 마지막 한 시간 동안 생성되었지만 해결되지 않은 경고를 설명하는 이메일을 보냅니다. 한 시간이 끝날 때 확인 메일이 전송됩니다.
 
 이메일을 생성하는 데 사용되는 경고 심각도([위험] 또는 [경고])를 선택합니다. 현재 정보 알림이 없습니다.
 
@@ -200,12 +200,12 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 2. 필터 설정을 선택하고 **완료**를 클릭합니다. 필터링된 목록이 새 설정에 따라 새로 고쳐집니다.
 
-#### <a name="item-type"></a>항목 종류
+#### <a name="item-type"></a>항목 유형
 
 항목 종류는 보호된 인스턴스에 대한 백업 관리 유형입니다. 여기에는 네 가지 종류가 있으며, 다음 목록을 참조하세요. 하나 또는 모든 항목 종류를 볼 수 있습니다. 둘 또는 세 개의 항목 종류는 선택할 수 없습니다. 사용 가능한 항목 종류는 다음과 같습니다.
 
 * 모든 항목 종류
-* Azure 가상 컴퓨터
+* Azure 가상 머신
 * 파일 및 폴더
 * Azure Storage
 * Azure 워크로드
@@ -222,15 +222,15 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 * 백업 사용 안 함
 * 백업 데이터 삭제
 
-#### <a name="status"></a>가동 상태
+#### <a name="status"></a>상태
 
 하나 또는 모든 상태를 볼 수 있습니다. 둘 또는 세 개의 상태는 선택할 수 없습니다. 사용 가능한 상태는 다음과 같습니다.
 
 * 모든 상태
 * Completed
 * 진행 중
-* Failed
-* Canceled
+* 실패
+* 취소됨
 * 경고와 함께 완료됨
 
 #### <a name="start-time"></a>시작 시간
@@ -272,4 +272,4 @@ Recovery Services 자격 증명 모음은 다양한 유형의 백업 데이터�
 
 * [Azure에서 Windows Server 또는 Windows 클라이언트 복원](backup-azure-restore-windows-server.md)
 * Azure Backup에 대한 자세한 내용은 [Azure Backup 개요](backup-introduction-to-azure-backup.md)
-* [Azure Backup 포럼](https://go.microsoft.com/fwlink/p/?LinkId=290933)
+

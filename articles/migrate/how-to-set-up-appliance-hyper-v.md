@@ -3,12 +3,12 @@ title: Hyper-v에 대 한 Azure Migrate 어플라이언스 설정
 description: Hyper-v Vm을 평가 하 고 마이그레이션하기 위해 Azure Migrate 어플라이언스를 설정 하는 방법에 대해 알아봅니다.
 ms.topic: article
 ms.date: 11/19/2019
-ms.openlocfilehash: 0704adda314b94736b01fe114c3643ef8bd83753
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8199525a118ffca2cfc03734283eb26facba8483
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029094"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598343"
 ---
 # <a name="set-up-an-appliance-for-hyper-v-vms"></a>Hyper-v Vm에 대 한 어플라이언스 설정
 
@@ -48,12 +48,8 @@ Azure Migrate 어플라이언스에 [대해 자세히 알아보세요](migrate-a
 2. 다음 명령을 실행하여 VHD에 대한 해시를 생성합니다.
     - ```C:\>CertUtil -HashFile <file_location> [Hashing Algorithm]```
     - 사용 예: ```C:\>CertUtil -HashFile C:\AzureMigrate\AzureMigrate.vhd SHA256```
-3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 설정과 일치 해야 합니다.
+3.  어플라이언스 버전 2.19.11.12의 경우 생성 된 해시가 이러한 [설정과](https://docs.microsoft.com/azure/migrate/tutorial-assess-hyper-v#verify-security)일치 해야 합니다.
 
-  **알고리즘** | **해시 값**
-  --- | ---
-  MD5 | 29a7531f32bcf69f32d964fa5ae950bc
-  SHA256 | 37b3f27bc44f475872e355f04fcb8f38606c84534c117d1609f2d12444569b31
 
 
 

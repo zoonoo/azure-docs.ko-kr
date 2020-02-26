@@ -3,7 +3,7 @@ title: Azure Stack 가상 머신을 Azure 센티널에 등록 | Microsoft Docs
 description: 이 문서에서는 Azure Stack 가상 머신에서 Azure Monitor, 업데이트 및 구성 관리 가상 머신 확장을 프로 비전 하 고 센티널로 모니터링을 시작 하는 방법을 보여 줍니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 ms.service: azure-sentinel
 ms.subservice: azure-sentinel
 ms.devlang: na
@@ -11,13 +11,13 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/23/2019
-ms.author: rkarlin
-ms.openlocfilehash: fb306ec3f8abe2eedb97f83d01836745779db914
-ms.sourcegitcommit: 992e070a9f10bf43333c66a608428fcf9bddc130
+ms.author: yelevin
+ms.openlocfilehash: a8213bd57936f95870324950204dbd6c1473739a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/24/2019
-ms.locfileid: "71240765"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588521"
 ---
 # <a name="connect-azure-stack-virtual-machines-to-azure-sentinel"></a>Azure 센티널에 Azure Stack 가상 머신 연결
 
@@ -37,7 +37,7 @@ Azure Stack에서 실행 되는 가상 머신에 **Azure Monitor, 업데이트 �
 1. 새 브라우저 탭에서 [Azure Stack 포털](https://docs.microsoft.com/azure-stack/user/azure-stack-use-portal#access-the-portal)에 로그인 합니다.
 2. **Virtual machines** 페이지로 이동 하 여 Azure 센티널로 보호할 가상 머신을 선택 합니다. Azure Stack에서 가상 컴퓨터를 만드는 방법에 대 한 자세한 내용은 [Azure Stack 포털을 사용 하 여 Windows SERVER Vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-windows-portal) 또는 [Azure Stack 포털을 사용 하 여 Linux 서버 vm 만들기](https://docs.microsoft.com/azure/azure-stack/user/azure-stack-quick-linux-portal)를 참조 하세요.
 3. **확장**을 섡택합니다. 이 가상 머신에 설치된 가상 머신 확장 목록이 표시됩니다.
-4. **추가** 탭을 클릭합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장 목록이 표시됩니다. 
+4. **추가** 탭을 클릭 합니다. **새 리소스** 메뉴 블레이드가 열리고 사용 가능한 가상 머신 확장의 목록이 표시 됩니다. 
 5. **Azure Monitor, 업데이트 및 구성 관리** 확장을 선택 하 고 **만들기**를 클릭 합니다. **설치 확장** 구성 창이 열립니다.
 
    ![Azure Monitor, 업데이트 및 구성 관리 설정](./media/connect-azure-stack/azure-monitor-extension-fix.png)  
@@ -68,6 +68,6 @@ Azure의 Azure 센티널 포털의 **Virtual Machines**에는 모든 vm 및 컴�
 ## <a name="next-steps"></a>다음 단계
 
 Azure Sentinel에 대한 자세한 내용은 다음 문서를 참조하세요.
-- [데이터 및 잠재적 위협에 대 한 가시성을 얻는](quickstart-get-visibility.md)방법에 대해 알아봅니다.
-- [Azure 센티널로 위협 검색을](tutorial-detect-threats-built-in.md)시작 합니다.
-- [일반 오류 형식 어플라이언스](connect-common-event-format.md) 의 데이터를 Azure 센티널로 스트림 합니다.
+- [데이터에 대한 가시성을 얻고 재적 위협을 확인](quickstart-get-visibility.md)하는 방법을 알아봅니다.
+- [Azure Sentinel을 사용하여 위협 검색](tutorial-detect-threats-built-in.md)을 시작합니다.
+- [일반적인 오류 형식 어플라이언스](connect-common-event-format.md)의 데이터를 Azure Sentinel로 스트리밍합니다.

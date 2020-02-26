@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 709ac3a9f5e7cf0bd13a6e387f0b80caf2608fe0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 10ea15168d61d5e73aff976ef641e07b6327dbca
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748470"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604573"
 ---
 # <a name="alert-validation-eicar-test-file-in-azure-security-center"></a>Azure Security Center의 경고 유효성 검사 (EICAR 테스트 파일)
 이 문서에서는 시스템이 Azure Security Center 경고에 대해 제대로 구성되었는지 확인하는 방법을 알아봅니다.
@@ -79,5 +79,4 @@ Azure Kubernetes Service와 Azure Security Center를 통합 하는 방법에 대
 * [Azure Security Center에서 보안 상태 모니터링](security-center-monitoring.md) - Azure 리소스의 상태를 모니터링하는 방법을 알아봅니다.
 * [Azure Security Center의 보안 경고 이해](https://docs.microsoft.com/azure/security-center/security-center-alerts-type) -다양 한 유형의 보안 경고에 대해 알아봅니다.
 * [Azure Security Center 문제 해결 가이드](https://docs.microsoft.com/azure/security-center/security-center-troubleshooting-guide) -Security Center의 일반적인 문제를 해결 하는 방법을 알아봅니다.
-* [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
 * [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/) -azure 보안 및 규정 준수에 대 한 블로그 게시물을 찾습니다.

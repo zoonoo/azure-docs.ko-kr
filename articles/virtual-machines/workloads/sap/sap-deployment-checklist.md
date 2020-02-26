@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 01/21/2020
+ms.date: 02/13/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 56b78f4296709206cefb762c87d4d1471bff2df7
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 2c3c52fc85e6c915587db27a3f5ce247fd05ea51
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291518"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598326"
 ---
 # <a name="sap-workloads-on-azure-planning-and-deployment-checklist"></a>Azure의 SAP 워크 로드: 계획 및 배포 검사 목록
 
@@ -48,10 +48,13 @@ ms.locfileid: "76291518"
     - 비즈니스 연속성 및 재해 복구 아키텍처.
     - OS, DB, 커널 및 SAP 지원 팩 버전에 대 한 자세한 정보를 제공 합니다. SAP NetWeaver 또는 S/4HANA에서 지원 되는 모든 OS 릴리스가 Azure Vm에서 지원 되는 것은 아닙니다. DBMS 릴리스의 경우에도 마찬가지입니다. Sap와 Azure를 지원 하기 위해 SAP 릴리스, DBMS 릴리스 및 OS 릴리스를 정렬 하 고 필요한 경우 다음 원본을 확인 하세요. Sap 및 Microsoft에서 완벽 한 지원을 받으려면 SAP 및 Azure에서 지원 되는 릴리스 조합이 있어야 합니다. 필요한 경우 일부 소프트웨어 구성 요소를 업그레이드 하도록 계획 해야 합니다. 지원 되는 SAP, OS 및 DBMS 소프트웨어에 대 한 자세한 내용은 다음에 설명 되어 있습니다.
         - [SAP support note #1928533](https://launchpad.support.sap.com/#/notes/1928533). 이 정보는 Azure Vm에서 지원 되는 최소 OS 릴리스를 정의 합니다. 또한 대부분의 HANA가 아닌 데이터베이스에 필요한 최소 데이터베이스 릴리스를 정의 합니다. 마지막으로 SAP에서 지 원하는 Azure VM 유형에 대 한 SAP 크기 조정 기능을 제공 합니다.
+        - [SAP support note #2015553](https://launchpad.support.sap.com/#/notes/2015553). 이 메모는 Azure storage에 대 한 지원 정책 및 Microsoft에 필요한 지원 관계를 정의 합니다.
         - [SAP support note #2039619](https://launchpad.support.sap.com/#/notes/2039619). 이 정보는 Azure에 대 한 Oracle 지원 매트릭스를 정의 합니다. Oracle은 Azure에서 SAP 워크 로드에 대 한 게스트 운영 체제로 Windows 및 Oracle Linux만 지원 합니다. 이 지원 문은 SAP 인스턴스를 실행 하는 SAP 응용 프로그램 계층에도 적용 됩니다. 그러나 Oracle은 Pacemaker를 통해 Oracle Linux에서 SAP Central Services에 대 한 고가용성을 지원 하지 않습니다. Oracle Linux에서 ASCS에 대 한 고가용성이 필요한 경우 Linux 용 SIOS Protection Suite를 사용 해야 합니다. 자세한 SAP 인증 데이터는 SAP support note [#1662610-Linux 용 SIOS 보호 도구 모음에 대 한 지원 세부 정보](https://launchpad.support.sap.com/#/notes/1662610)를 참조 하세요. Windows의 경우 sap Central Services에 대해 SAP에서 지 원하는 Windows Server 장애 조치 (Failover) 클러스터링 솔루션이 DBMS 계층으로 Oracle과 함께 지원 됩니다.
         - [SAP support note #2235581](https://launchpad.support.sap.com/#/notes/2235581). 이 정보는 다양 한 OS 릴리스에서 SAP HANA에 대 한 지원 매트릭스를 제공 합니다.
         - SAP HANA 지원 되는 Azure Vm 및 [HANA Large 인스턴스](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 는 [SAP 웹 사이트](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)에 나열 됩니다.
         - [SAP 제품 가용성 매트릭스](https://support.sap.com/en/).
+        - [SAP support note #2555629-SAP HANA 2.0 동적 계층화 – 하이퍼바이저 및 클라우드 지원](https://launchpad.support.sap.com/#/notes/2555629)
+        - [SAP support note #1662610-Linux 용 SIOS 보호 도구 모음에 대 한 지원 세부 정보](https://launchpad.support.sap.com/#/notes/1662610)
         - 다른 SAP 관련 제품에 대 한 SAP 참고 사항     
     - SAP 프로덕션 시스템에는 엄격한 3 계층 설계를 권장 합니다. 단일 VM에서 ASCS 및/또는 DBMS 및/또는 앱 서버를 결합 하지 않는 것이 좋습니다. SAP Central Services에 다중 SID 클러스터 구성을 사용 하는 것은 Azure의 Windows 게스트 운영 체제에서 지원 됩니다. 그러나이 구성은 Azure에서 Linux 운영 체제의 SAP Central Services에 대해 지원 되지 않습니다. Windows 게스트 OS 시나리오에 대 한 설명서는 다음 문서에서 찾을 수 있습니다.
         - [Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 공유 디스크를 사용하는 SAP ASCS/SCS 인스턴스 다중 SID 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-ascs-ha-multi-sid-wsfc-shared-disk)
@@ -102,7 +105,7 @@ ms.locfileid: "76291518"
         - 계획 단계에서 선택한 VM 유형의 최대 저장소 처리량 및 네트워크 처리량과 관련 하 여 Azure Vm의 크기를 평가 하 고 테스트 합니다. 데이터는 다음 위치에서 찾을 수 있습니다.
            -  [Azure의 Windows 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json). 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
            -  [Azure의 Linux 가상 머신에 대 한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 크기를 조정 하는 데 *최대 캐시 되지 않은 디스크 처리량* 을 고려 하는 것이 중요 합니다.
-   2. Storage.
+   2. 저장할.
         - 최소한 SAP 응용 프로그램 계층을 나타내는 Vm에 대해 [Azure 표준 SSD 저장소](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-ssd) 를 사용 하 고 성능이 중요 하지 않은 dbms를 배포 합니다.
         - 일반적으로 [Azure 표준 HDD 디스크](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#standard-hdd)를 사용 하지 않는 것이 좋습니다.
         - 원격으로 성능이 중요 한 모든 DBMS Vm에 대해 [Azure Premium Storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 를 사용 합니다.
@@ -148,6 +151,21 @@ ms.locfileid: "76291518"
             - SameSubNetDelay = 2000
             - SameSubNetThreshold = 15
             - RoutingHistorylength = 30
+    6. OS 설정 또는 패치
+        - SAP에서 HANA를 실행 하는 방법에 대해서는 다음 notes 및 설명서을 참조 하세요.
+            -   [SAP support note #2814271-Azure에서 체크섬 오류로 인해 SAP HANA 백업이 실패 함](https://launchpad.support.sap.com/#/notes/2814271)
+            -   [SAP support note #2753418-타이머 대체로 인 한 잠재적 성능 저하](https://launchpad.support.sap.com/#/notes/2753418)
+            -   [SAP support note #2791572-Azure에서 Hyper-v에 대 한 VDSO 지원이 누락 되어 성능 저하가 발생 합니다.](https://launchpad.support.sap.com/#/notes/2791572)
+            -   [SAP support note #2382421-HANA 및 OS 수준에서 네트워크 구성 최적화](https://launchpad.support.sap.com/#/notes/2382421)
+            -   [SAP support note #2694118-Azure의 Red Hat Enterprise Linux HA 추가 기능](https://launchpad.support.sap.com/#/notes/2694118)
+            -   [SAP support note #1984787-SUSE LINUX Enterprise Server 12: 설치 참고 사항](https://launchpad.support.sap.com/#/notes/1984787)
+            -   [SAP support note #2002167-Red Hat Enterprise Linux 7.x: 설치 및 업그레이드](https://launchpad.support.sap.com/#/notes/0002002167)
+            -   [SAP Support Note #2292690 - SAP HANA DB: RHEL 7에 대한 권장 OS 설정](https://launchpad.support.sap.com/#/notes/0002292690)(영문)
+            -   [SAP support note #2772999-Red Hat Enterprise Linux 8.x: 설치 및 구성](https://launchpad.support.sap.com/#/notes/2772999)
+            -   [SAP support note #2777782-SAP HANA DB: RHEL 8에 권장 되는 OS 설정](https://launchpad.support.sap.com/#/notes/2777782)
+            -   [SAP support note #2578899-SUSE Linux Enterprise Server 15: 설치 참고](https://launchpad.support.sap.com/#/notes/2578899)
+            -   [SAP support note # https://launchpad.support.sap.com/#/notes/0002455582)(https://launchpad.support.sap.com/#/notes/0002455582)
+            -    [SAP HANA에 대해 인증 된 Azure Vm에서 "하이퍼바이저가 지원 되지 않습니다." 오류가 발생 하 여 SAP support note #2729475-HWCCT이 실패 함](https://launchpad.support.sap.com/#/notes/2729475)
 1. 고가용성 및 재해 복구 절차를 테스트 합니다.
    1. Vm (Windows 게스트 운영 체제)을 종료 하거나 운영 체제를 비상 모드 (Linux 게스트 운영 체제)에 배치 하 여 장애 조치 (failover) 상황을 시뮬레이트합니다. 이 단계는 장애 조치 (failover) 구성이 설계 된 대로 작동 하는지 여부를 파악 하는 데 도움이 됩니다.
    1. 장애 조치 (failover)를 실행 하는 데 걸리는 시간을 측정 합니다. 시간이 너무 길면 다음을 고려 하십시오.
@@ -188,7 +206,7 @@ ms.locfileid: "76291518"
 10. 인프라를 배포한 후 sap 지원 정보 [#500235](https://launchpad.support.sap.com/#/notes/500235) 및 [#1100926](https://launchpad.support.sap.com/#/notes/1100926/E)에 따라 Sap 응용 프로그램 계층 vm과 DBMS vm 간의 네트워크 대기 시간을 테스트 하 고 평가 합니다. [SAP support note #1100926](https://launchpad.support.sap.com/#/notes/1100926/E)의 네트워크 대기 시간 지침에 따라 결과를 평가 합니다. 네트워크 대기 시간은 보통 또는 적절 한 범위에 있어야 합니다. [이 문서](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-network-architecture#networking-architecture-for-hana-large-instance)에서 설명 하는 것 처럼 VM과 HANA Large Instance 단위 간의 트래픽에는 예외가 적용 됩니다. [SAP 워크 로드에 대 한 azure VIRTUAL MACHINES DBMS 배포에 대 한 고려 사항](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_general#azure-network-considerations) 및 [azure에 대 한 SAP HANA 인프라 구성 및 작업](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations) 에 대 한 고려 사항에서 언급 한 제한 사항이 배포에 적용 되는지 확인 합니다.
 11. [SAP 응용 프로그램을 사용 하 여 최적의 네트워크 대기 시간을 위해 azure 근접 배치 그룹](sap-proximity-placement-scenarios.md)에 설명 된 대로 vm이 올바른 [azure 근접 배치 그룹](https://docs.microsoft.com/azure/virtual-machines/linux/co-location)에 배포 되었는지 확인 합니다.
 11. 작업을 적용 하기 전에 개념 증명 단계에 대해 나열 된 다른 모든 검사를 수행 합니다.
-12. 워크 로드가 적용 되 면 Azure에서 시스템의 리소스 소비를 기록 합니다. 이 소비량을 이전 플랫폼의 레코드와 비교 합니다. 큰 차이가 있는 경우 향후 배포의 VM 크기를 조정 합니다. 크기를 낮출 때 Vm의 저장소 및 네트워크 대역폭도 줄어듭니다.
+12. 워크 로드가 적용 되 면 Azure에서 시스템의 리소스 소비를 기록 합니다. 이 소비량을 이전 플랫폼의 레코드와 비교 합니다. 큰 차이가 있는 경우 향후 배포의 VM 크기를 조정 합니다. 크기, 저장소 및 Vm의 네트워크 대역폭도 줄일 수 있습니다.
     - [Azure에서 Windows 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/windows/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json)
     - [Azure에서 Linux 가상 머신에 대한 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes?toc=%2fazure%2fvirtual-network%2ftoc.json) 
 13. 시스템 복사 기능 및 프로세스를 시험해 보세요. 목표는 개발 시스템 또는 테스트 시스템을 쉽게 복사할 수 있도록 하는 것입니다. 따라서 프로젝트 팀은 새로운 시스템을 신속 하 게 가져올 수 있습니다. 이러한 작업에는 [SAP LaMa](https://wiki.scn.sap.com/wiki/display/ATopics/SAP+Landscape+Management+%28SAP+LaMa%29+at+a+Glance) 를 사용 하는 것이 좋습니다.
@@ -209,7 +227,7 @@ ms.locfileid: "76291518"
     - Sap 릴리스 업그레이드와의 마이그레이션을 결합 해야 하는 경우 [SAP DMO](https://blogs.sap.com/2013/11/29/database-migration-option-dmo-of-sum-introduction/) 프로세스를 사용 합니다. 원본 DBMS와 대상 DBMS의 일부 조합이 지원 되지 않는다는 점에 유의 하세요. 특정 SAP 지원 정보에서 다양 한 DMO 릴리스에 대 한 자세한 정보를 찾을 수 있습니다. 예를 들어 [SUM 2.0 SP04의 DMO (데이터베이스 마이그레이션 옵션)](https://launchpad.support.sap.com/#/notes/2644872)를 사용할 수 있습니다.
     - 백업 또는 SAP 내보내기 파일을 이동 해야 하는 경우 데이터 전송 처리량이 인터넷 또는 Express 경로를 통해 더 나은 지 테스트 합니다. 인터넷을 통해 데이터를 이동 하는 경우 향후 프로덕션 시스템을 위해 준비 해야 하는 네트워크 보안 그룹/응용 프로그램 보안 그룹 규칙의 일부를 변경 해야 할 수 있습니다.
 1.  이전 플랫폼에서 Azure로 시스템을 이동 하기 전에 리소스 소비 데이터를 수집 합니다. 유용한 데이터에는 CPU 사용량, 저장소 처리량 및 IOPS 데이터가 포함 됩니다. 특히 DBMS 계층 단위에서이 데이터를 수집 하지만 응용 프로그램 계층 단위 에서도 수집 합니다. 또한 네트워크 및 스토리지 대기 시간을 측정합니다.
-1.  SAP 지원 정보, SAP HANA 하드웨어 디렉터리 및 SAP PAM을 다시 확인 합니다. Azure에 대해 지원 되는 Vm, 해당 Vm에서 지원 되는 OS 릴리스, 지원 되는 SAP 및 DBMS 릴리스 등이 변경 되지 않았는지 확인 합니다.
+1.  SAP 지원 정보 및 필요한 OS 설정, SAP HANA 하드웨어 디렉터리 및 SAP PAM을 다시 확인 합니다. Azure에 대해 지원 되는 Vm, 해당 Vm에서 지원 되는 OS 릴리스, 지원 되는 SAP 및 DBMS 릴리스 등이 변경 되지 않았는지 확인 합니다.
 1.  VM 유형 및 Azure 기능에 대 한 최신 결정을 고려 하 여 배포 스크립트를 업데이트 합니다.
 1.  인프라 및 응용 프로그램을 배포한 후 다음을 확인 합니다.
     - 올바른 특성 및 저장소 크기를 사용 하 여 올바른 VM 형식이 배포 되었습니다.
@@ -255,7 +273,7 @@ ms.locfileid: "76291518"
         - 개별 디스크당 디스크 쓰기 (KBps)
         - 디스크 쓰기/초, 개별 디스크당
         - 디스크 쓰기 (마이크로초/읽기, 개별 디스크 기준)
-    - 네트워크:
+    - Network.
         - 초당 네트워크 패킷
         - 초당 네트워크 패킷
         - 초당 네트워크 KB

@@ -2,17 +2,16 @@
 title: Azure Kubernetes 서비스 (AKS)에 Linkerd 설치
 description: Linkerd를 설치 하 고 사용 하 여 AKS (Azure Kubernetes Service) 클러스터에서 서비스 메시를 만드는 방법에 대해 알아봅니다.
 author: paulbouwer
-ms.service: container-service
 ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: f70052a62152a20f808c1e491a663d1406fbd407
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 419b61527b68299c82dec4f2f5da6b0220859cc1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73747717"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593735"
 ---
 # <a name="install-linkerd-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에 Linkerd 설치
 

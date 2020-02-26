@@ -7,15 +7,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/17/2020
+ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: fc01bd5c868cddd448e3a262960af64f50b78d74
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 2861b882d9b4c00a1c4db87b2dd49d49dfeb53a6
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372980"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581109"
 ---
 # <a name="claimsschema"></a>ClaimsSchema
 
@@ -175,6 +175,8 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 
 #### <a name="enumeration"></a>열거형
 
+**열거형** 요소는 사용자가 `CheckboxMultiSelect`, `DropdownSingleSelect`또는 `RadioSingleSelect`의 값과 같은 사용자 인터페이스에서 클레임에 대해 선택할 수 있는 옵션을 정의 합니다. 또는 [LocalizedCollections](localization.md#localizedcollections) 요소를 사용 하 여 사용 가능한 옵션을 정의 하 고 지역화할 수 있습니다. 클레임 **열거** 컬렉션에서 항목을 조회 하려면 [GetMappedValueFromLocalizedCollection](string-transformations.md#getmappedvaluefromlocalizedcollection) 클레임 변환을 사용 합니다.
+
 **Enumeration** 요소에는 다음과 같은 특성이 포함됩니다.
 
 | attribute | 필수 | Description |
@@ -209,7 +211,7 @@ PredicateValidationReference| 0:1 | **PredicateValidationsInput** 요소에 대�
 | attribute | 필수 | Description |
 | --------- | -------- | ----------- |
 | RegularExpression | yes | 이 형식의 클레임이 유효하려면 일치해야 하는 정규식입니다. |
-| HelpText | 예 | 이 클레임의 패턴 또는 정규식입니다. |
+| HelpText | 예 | 정규식 검사가 실패 한 경우 사용자에 대 한 오류 메시지입니다. |
 
 다음 예제에서는 정규식 입력 유효성 검사 및 도움말 텍스트를 사용하여 **email** 클레임을 구성합니다.
 
@@ -407,5 +409,3 @@ Azure AD B2C는 클레임 형식의 클레임 데이터를 수동으로 입력�
   </Restriction>
 </ClaimType>
 ```
-
-**responseMsg** 클레임에서 **Enumeration** 값 중 하나를 표시하려면 `GetMappedValueFromLocalizedCollection` 또는 `CreateStringClaim` 클레임 변환을 사용합니다. 자세한 내용은 [문자열 클레임 변환](string-transformations.md)을 참조하세요.

@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에서 고정 IP 주소를 사용하여 HTTP 수신 컨트롤러 만들기
 description: AKS(Azure Kubernetes Service) 클러스터에서 고정 공용 IP 주소를 사용하여 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 73798bf496f600e2ef98940051070a0ee117bdb3
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: a72312e2921b4721a4a5944cf62241b513da1e0a
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76261860"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595521"
 ---
 # <a name="create-an-ingress-controller-with-a-static-public-ip-address-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에서 고정 공용 IP 주소를 사용하여 수신 컨트롤러 만들기
 
@@ -302,7 +299,7 @@ certificate.cert-manager.io/tls-secret created
 
 ![Let's Encrypt 스테이징 인증서](media/ingress/staging-certificate.png)
 
-`staging` 대신 `prod`를 사용하도록 Let's Encrypt를 변경하면, 다음 예제와 같이 Let's Encrypt에서 발급된 신뢰할 수 있는 인증서가 사용됩니다.
+`prod` 대신 `staging`를 사용하도록 Let's Encrypt를 변경하면, 다음 예제와 같이 Let's Encrypt에서 발급된 신뢰할 수 있는 인증서가 사용됩니다.
 
 ![Let's Encrypt 인증서](media/ingress/certificate.png)
 
@@ -391,7 +388,7 @@ az network public-ip delete --resource-group MC_myResourceGroup_myAKSCluster_eas
 
 - [투구 CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
-- [cert-manager][cert-manager]
+- [인증서-관리자][cert-manager]
 
 다음도 가능합니다.
 

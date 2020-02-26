@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)에 내부 네트워크용 수신 컨트롤러 만들기
 description: AKS(Azure Kubernetes Service) 클러스터에서 내부 프라이빗 네트워크용 NGINX 수신 컨트롤러를 설치하고 구성하는 방법에 대해 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 05/24/2019
-ms.author: mlearned
-ms.openlocfilehash: 935b96bd553c9ae73b55086483baa0ea7c4aeaa4
-ms.sourcegitcommit: 7c4de3e22b8e9d71c579f31cbfcea9f22d43721a
+ms.openlocfilehash: 8c3eeaf2f9a92f1be9c691091d8e33d09a60b22d
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/26/2019
-ms.locfileid: "67615462"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595657"
 ---
 # <a name="create-an-ingress-controller-to-an-internal-virtual-network-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 내부 가상 네트워크에 대한 수신 컨트롤러 만들기
 
@@ -20,14 +17,14 @@ ms.locfileid: "67615462"
 
 이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress] 를 배포 하는 방법을 보여 줍니다. 수신 컨트롤러는 내부 프라이빗 가상 네트워크 및 IP 주소에 구성됩니다. 외부 액세스가 허용되지 않습니다. 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-또한 다음을 수행할 수 있습니다.
+다음도 가능합니다.
 
 - [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
 - [사용자 고유의 TLS 인증서를 사용 하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
 - 암호화를 사용 하 여 [동적 공용 ip 주소][aks-ingress-tls] 또는 [고정 공용 ip 주소][aks-ingress-static-tls] 를 사용 하는 TLS 인증서를 자동으로 생성 하는 수신 컨트롤러를 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 Helm을 사용하여 NGINX 수신 컨트롤러, cert-manager 및 샘플 웹앱을 설치합니다. AKS 클러스터 내에서, Tiller의 서비스 계정을 사용하여 Helm이 초기화되어 있어야 합니다. 투구 구성 및 사용에 대 한 자세한 내용은 [Azure Kubernetes 서비스에서 투구를 사용 하 여 응용 프로그램 설치 (AKS)][use-helm]를 참조 하세요.
 
@@ -47,15 +44,15 @@ controller:
       service.beta.kubernetes.io/azure-load-balancer-internal: "true"
 ```
 
-이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. 이전 단계에서 만든 매니페스트 파일을 사용하려면 `-f internal-ingress.yaml` 매개 변수를 추가합니다. 추가된 중복성을 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
+이제 Helm을 사용하여 *nginx-ingress* 차트를 배포합니다. 이전 단계에서 만든 매니페스트 파일을 사용하려면 `-f internal-ingress.yaml` 매개 변수를 추가합니다. 중복성을 추가하기 위해 NGINX 수신 컨트롤러의 두 복제본이 `--set controller.replicaCount` 매개 변수와 함께 배포됩니다. 수신 컨트롤러의 복제본을 실행하는 이점을 최대한 활용하려면 AKS 클러스터에 둘 이상의 노드가 있어야 합니다.
 
-수신 컨트롤러도 Linux 노드에서 예약 해야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. 노드 선택기는 `--set nodeSelector` 매개 변수를 사용 하 여 Kubernetes scheduler가 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행 하도록 지시 하는 데 지정 됩니다.
-
-> [!TIP]
-> 다음 예에서는 수신 *-기본*이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false` 투구 명령에를 추가 합니다.
+수신 컨트롤러도 Linux 노드에서 예약 해야 합니다. Windows Server 노드 (현재 AKS에서 미리 보기 상태)는 수신 컨트롤러를 실행 해서는 안 됩니다. `--set nodeSelector` 매개 변수를 사용 하 여 노드 선택기를 지정 하면 Linux 기반 노드에서 NGINX 수신 컨트롤러를 실행 하도록 Kubernetes scheduler에 지시할 수 있습니다.
 
 > [!TIP]
-> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local` 투구 install 명령에를 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한*요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 SSL 통과는 작동 하지 않습니다.
+> 다음 예에서는 수신 *-기본*이라는 수신 리소스에 대 한 Kubernetes 네임 스페이스를 만듭니다. 필요에 따라 사용자 환경에 대 한 네임 스페이스를 지정 합니다. AKS 클러스터가 RBAC를 사용 하도록 설정 되지 않은 경우 `--set rbac.create=false`를 투구 명령에 추가 합니다.
+
+> [!TIP]
+> 클러스터의 컨테이너에 대 한 요청에 대 한 [클라이언트 원본 IP 유지][client-source-ip] 를 사용 하도록 설정 하려면 `--set controller.service.externalTrafficPolicy=Local`을 투구 install 명령에 추가 합니다. 클라이언트 원본 IP가 *X 전달-에 대 한*요청 헤더에 저장 됩니다. 클라이언트 원본 IP 유지를 사용 하는 수신 컨트롤러를 사용 하는 경우 SSL 통과는 작동 하지 않습니다.
 
 ```console
 # Create a namespace for your ingress resources
@@ -155,13 +152,13 @@ ingress.extensions/hello-world-ingress created
 kubectl run -it --rm aks-ingress-test --image=debian --namespace ingress-basic
 ```
 
-`apt-get`을 사용하여 Pod에 `curl`을 설치합니다.
+`curl`을 사용하여 Pod에 `apt-get`을 설치합니다.
 
 ```console
 apt-get update && apt-get install -y curl
 ```
 
-이제 *http://10.240.0.42* 와 같은 `curl` 을 사용하여 Kubernetes 수신 컨트롤러의 주소에 액세스합니다. 이 문서의 첫 번째 단계에서 수신 컨트롤러를 배포할 때 지정한 고유한 내부 IP 주소를 제공합니다.
+이제 `curl` *http://10.240.0.42와 같은* 을 사용하여 Kubernetes 수신 컨트롤러의 주소에 액세스합니다. 이 문서의 첫 번째 단계에서 수신 컨트롤러를 배포할 때 지정한 고유한 내부 IP 주소를 제공합니다.
 
 ```console
 curl -L http://10.240.0.42
@@ -180,7 +177,7 @@ $ curl -L 10.240.0.42
 [...]
 ```
 
-이제 *http://10.240.0.42/hello-world-two* 와 같은 주소에 */hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
+이제*와 같은 주소에 http://10.240.0.42/hello-world-two/hello-world-two* 경로를 추가합니다. 사용자 지정 제목이 있는 두 번째 데모 애플리케이션은 다음 축소된 예제 출력에 표시된 대로 반환됩니다.
 
 ```
 $ curl -L -k http://10.240.0.42/hello-world-two
@@ -246,7 +243,7 @@ helm repo remove azure-samples
 kubectl delete -f hello-world-ingress.yaml
 ```
 
-마지막으로 자체 네임 스페이스를 삭제할 수 있습니다. 명령을 사용 `kubectl delete` 하 여 네임 스페이스 이름을 지정 합니다.
+마지막으로 자체 네임 스페이스를 삭제할 수 있습니다. `kubectl delete` 명령을 사용 하 여 네임 스페이스 이름을 지정 합니다.
 
 ```console
 kubectl delete namespace ingress-basic
@@ -259,7 +256,7 @@ kubectl delete namespace ingress-basic
 - [투구 CLI][helm-cli]
 - [NGINX 수신 컨트롤러][nginx-ingress]
 
-또한 다음을 수행할 수 있습니다.
+다음도 가능합니다.
 
 - [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]

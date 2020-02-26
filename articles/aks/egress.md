@@ -2,17 +2,14 @@
 title: AKS(Azure Kubernetes Service)의 송신 트래픽용 고정 IP 주소
 description: AKS(Azure Kubernetes Service) 클러스터의 송신 트래픽용으로 고정 공용 IP 주소를 만들어 사용하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: article
 ms.date: 03/04/2019
-ms.author: mlearned
-ms.openlocfilehash: 67471d688e64244067a7537bc87c379da4a69c03
-ms.sourcegitcommit: 800f961318021ce920ecd423ff427e69cbe43a54
+ms.openlocfilehash: 5850f8dfc08ed80dfe5e5e13f49808c3fd9338c1
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/31/2019
-ms.locfileid: "68696372"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595759"
 ---
 # <a name="use-a-static-public-ip-address-for-egress-traffic-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)의 송신 트래픽에 고정 공용 IP 주소 사용
 
@@ -20,7 +17,7 @@ ms.locfileid: "68696372"
 
 이 문서에서는 AKS 클러스터의 송신 트래픽에 사용할 고정 공용 IP 주소를 만들어 사용하는 방법을 설명합니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -34,7 +31,7 @@ AKS 클러스터의 아웃 바운드 트래픽은 [Azure Load Balancer 규칙][o
 
 ## <a name="create-a-static-public-ip"></a>고정 공용 IP 만들기
 
-[Az aks show][az-aks-show] 명령을 사용 하 여 리소스 그룹 이름을 가져오고 쿼리 매개 변수 `--query nodeResourceGroup` 를 추가 합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
+[Az aks show][az-aks-show] 명령을 사용 하 여 리소스 그룹 이름을 가져오고 `--query nodeResourceGroup` 쿼리 매개 변수를 추가 합니다. 다음 예제는 *myResourceGroup* 리소스 그룹에서 AKS 클러스터 *myAKSCluster*의 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
 $ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
