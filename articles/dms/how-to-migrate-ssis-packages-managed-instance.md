@@ -3,21 +3,21 @@ title: SSIS 패키지를 SQL 관리 되는 인스턴스로 마이그레이션
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 또는 Data Migration Assistant를 사용 하 여 SQL Server Integration Services (SSIS) 패키지 및 프로젝트를 Azure SQL Database 관리 되는 인스턴스로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 22f3e6a0e4c041024e826a7ed724d788ce77da62
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: a0669724888f02672d18ef9e8f725eef1c744f90
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751212"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650967"
 ---
 # <a name="migrate-sql-server-integration-services-packages-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 SQL Server Integration Services 패키지 마이그레이션
 SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에 의해 호스팅되는 원본 SSISDB에서 SSIS 프로젝트/패키지를 Azure SQL Database 관리 되는 인스턴스에서 호스팅하는 대상 SSISDB로 마이그레이션하려면 Azure Database Migration Service를 사용할 수 있습니다.
@@ -33,7 +33,7 @@ SQL Server Integration Services (SSIS)를 사용 하 고 SQL Server에 의해 �
 > * 원본 SSIS 프로젝트/패키지를 평가합니다.
 > * Azure에 SSIS 프로젝트/패키지를 마이그레이션합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 

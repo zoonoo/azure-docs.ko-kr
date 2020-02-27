@@ -5,15 +5,15 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 10/02/2019
-ms.openlocfilehash: fdfd026be1a10410cd7c875dbdf0de9660c8412c
-ms.sourcegitcommit: f2d9d5133ec616857fb5adfb223df01ff0c96d0a
+ms.custom: hdinsightactive
+ms.date: 02/24/2020
+ms.openlocfilehash: 888f24e13ce67c878592068927383dd8cbfefa60
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71937628"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623098"
 ---
 # <a name="use-apache-spark-to-read-and-write-apache-hbase-data"></a>Apache Spark를 사용하여 Apache HBase 데이터 읽기 및 쓰기
 
@@ -21,11 +21,11 @@ Apache HBase는 일반적으로 낮은 수준의 API(scans, gets, puts) 또는 A
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* 동일한 가상 네트워크에 배포 된 두 개의 별도 HDInsight 클러스터. HBase 하나 및 spark 2.1 (HDInsight 3.6) 이상이 설치 된 Spark 하나 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
+* 동일한 [가상 네트워크](./hdinsight-plan-virtual-network-deployment.md)에 배포 된 두 개의 별도 HDInsight 클러스터. HBase 하나 및 spark 2.1 (HDInsight 3.6) 이상이 설치 된 Spark 하나 자세한 내용은 [Azure Portal을 사용하여 HDInsight에서 Linux 기반 클러스터 만들기](hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 * SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache Hadoop)에 연결](hdinsight-hadoop-linux-use-ssh-unix.md)을 참조하세요.
 
-* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://에 대 한 Azure Blob Storage, abfs://에 대 한 wasb://입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI `wasbs://`는입니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
+* 클러스터 기본 스토리지에 대한 [URI 체계](hdinsight-hadoop-linux-information.md#URI-and-scheme)입니다. 이 체계는 Azure Data Lake Storage Gen1에 대 한 Azure Data Lake Storage Gen2 또는 adl://의 Azure Blob Storage, abfs://에 대 한 wasb://입니다. Blob Storage에 대해 보안 전송이 사용 되는 경우 URI는 `wasbs://`됩니다.  [보안 전송](../storage/common/storage-require-secure-transfer.md)도 참조하세요.
 
 ## <a name="overall-process"></a>전체 프로세스
 
@@ -34,7 +34,7 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 1. HBase에서 일부 샘플 데이터를 준비합니다.
 2. HBase 클러스터 구성 폴더(/etc/hbase/conf)에서 hbase-site.xml 파일을 얻습니다.
 3. Spark 2 구성 폴더(/etc/spark2/conf)에 hbase-site.xml 사본을 배치합니다.
-4. `packages` 옵션의 Maven 좌표를 기준으로 Spark HBase 커넥터를 참조하는 `spark-shell`을 실행합니다.
+4. `spark-shell` 옵션의 Maven 좌표를 기준으로 Spark HBase 커넥터를 참조하는 `packages`을 실행합니다.
 5. Spark에서 HBase로 스키마를 매핑하는 카탈로그를 정의합니다.
 6. RDD 또는 데이터 프레임 API를 사용하여 HBase 데이터와 상호 작용합니다.
 
@@ -42,7 +42,7 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
 
 이 단계에서는 Spark를 사용 하 여 쿼리할 수 있는 Apache HBase의 테이블을 만들고 채웁니다.
 
-1. `ssh` 명령을 사용 하 여 HBase 클러스터에 연결 합니다. HBase 클러스터의 이름으로 대체 `HBASECLUSTER` 하 여 아래 명령을 편집 하 고 다음 명령을 입력 합니다.
+1. `ssh` 명령을 사용 하 여 HBase 클러스터에 연결 합니다. `HBASECLUSTER`를 HBase 클러스터의 이름으로 바꿔서 아래 명령을 편집 하 고 명령을 입력 합니다.
 
     ```cmd
     ssh sshuser@HBASECLUSTER-ssh.azurehdinsight.net
@@ -60,7 +60,7 @@ Spark 클러스터가 HDInsight 클러스터를 쿼리할 수 ​​있도록 �
     create 'Contacts', 'Personal', 'Office'
     ```
 
-4. `put` 명령을 사용 하 여 특정 테이블의 지정 된 행에서 지정 된 열에 값을 삽입할 수 있습니다. 다음 명령을 입력합니다.
+4. `put` 명령을 사용 하 여 특정 테이블의 지정 된 행에 지정 된 열에 값을 삽입할 수 있습니다. 다음 명령을 입력합니다.
 
     ```hbase
     put 'Contacts', '1000', 'Personal:Name', 'John Dole'
@@ -95,11 +95,19 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
 그런 다음 HBase 클러스터에 대 한 ssh 연결을 종료 합니다.
 
+```bash
+exit
+```
+
 ## <a name="put-hbase-sitexml-on-your-spark-cluster"></a>Spark 클러스터에 hbase-site.xml 배치
 
-1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다.
+1. SSH를 사용하여 Spark 클러스터의 헤드 노드에 연결합니다. `SPARKCLUSTER`를 Spark 클러스터의 이름으로 바꾸고 아래 명령을 편집 하 고 명령을 입력 합니다.
 
-2. 아래 명령을 입력 하 여 spark `hbase-site.xml` 클러스터의 기본 저장소에서 클러스터의 로컬 저장소에 있는 spark 2 구성 폴더로 복사 합니다.
+    ```cmd
+    ssh sshuser@SPARKCLUSTER-ssh.azurehdinsight.net
+    ```
+
+2. 다음 명령을 입력 하 여 Spark 클러스터의 기본 저장소에서 클러스터의 로컬 저장소에 있는 Spark 2 구성 폴더로 `hbase-site.xml`를 복사 합니다.
 
     ```bash
     sudo hdfs dfs -copyToLocal /hbase-site.xml /etc/spark2/conf
@@ -128,7 +136,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     import spark.sqlContext.implicits._
     ```  
 
-2. 다음 명령을 입력 하 여 HBase에서 만든 Contacts 테이블에 대 한 카탈로그를 정의 합니다.
+1. 다음 명령을 입력 하 여 HBase에서 만든 Contacts 테이블에 대 한 카탈로그를 정의 합니다.
 
     ```scala
     def catalog = s"""{
@@ -148,9 +156,9 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
 
      a. 이름이 `Contacts`인 HBase 테이블에 대한 카탈로그 스키마를 정의합니다.  
      b. rowkey를 `key`로 식별하고 Spark에서 사용된 열 이름을 HBase에서 사용되는 열 패밀리, 열 이름 및 열 유형으로 매핑합니다.  
-     c. 또한 rowkey는 `rowkey`의 특정 열 패밀리 `cf`가 있는 명명된 열(`rowkey`)로 자세하게 정의되어야 합니다.  
+     다. 또한 rowkey는 `rowkey`의 특정 열 패밀리 `cf`가 있는 명명된 열(`rowkey`)로 자세하게 정의되어야 합니다.  
 
-3. 다음 명령을 입력 하 여 HBase의 `Contacts` 테이블 주위에 데이터 프레임를 제공 하는 메서드를 정의 합니다.
+1. 다음 명령을 입력 하 여 HBase의 `Contacts` 테이블 주위에 데이터 프레임를 제공 하는 메서드를 정의 합니다.
 
     ```scala
     def withCatalog(cat: String): DataFrame = {
@@ -162,40 +170,42 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
      }
     ```
 
-4. 데이터 프레임의 인스턴스를 만듭니다.
+1. 데이터 프레임의 인스턴스를 만듭니다.
 
     ```scala
     val df = withCatalog(catalog)
     ```  
 
-5. 데이터 프레임을 쿼리합니다.
+1. 데이터 프레임을 쿼리합니다.
 
     ```scala
     df.show()
     ```
 
-6. 두 개의 데이터 행이 표시되어야 합니다.
+    두 개의 데이터 행이 표시되어야 합니다.
 
-        +------+--------------------+--------------+-------------+--------------+
-        |rowkey|       officeAddress|   officePhone| personalName| personalPhone|
-        +------+--------------------+--------------+-------------+--------------+
-        |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John Dole|1-425-000-0001|
-        |  8396|5415 San Gabriel Dr.|  230-555-0191|  Calvin Raji|  230-555-0191|
-        +------+--------------------+--------------+-------------+--------------+
+    ```output
+    +------+--------------------+--------------+-------------+--------------+
+    |rowkey|       officeAddress|   officePhone| personalName| personalPhone|
+    +------+--------------------+--------------+-------------+--------------+
+    |  1000|1111 San Gabriel Dr.|1-425-000-0002|    John Dole|1-425-000-0001|
+    |  8396|5415 San Gabriel Dr.|  230-555-0191|  Calvin Raji|  230-555-0191|
+    +------+--------------------+--------------+-------------+--------------+
+    ```
 
-7. Spark SQL을 사용하여 HBase 테이블을 쿼리할 수 있도록 임시 테이블을 등록합니다.
+1. Spark SQL을 사용하여 HBase 테이블을 쿼리할 수 있도록 임시 테이블을 등록합니다.
 
     ```scala
     df.createTempView("contacts")
     ```
 
-8. `contacts` 테이블에 대해 SQL 쿼리를 실행합니다.
+1. `contacts` 테이블에 대해 SQL 쿼리를 실행합니다.
 
     ```scala
     spark.sqlContext.sql("select personalName, officeAddress from contacts").show
     ```
 
-9. 다음과 같은 결과가 표시되어야 합니다.
+    다음과 같은 결과가 표시되어야 합니다.
 
     ```output
     +-------------+--------------------+
@@ -220,7 +230,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
         )
     ```
 
-2. `ContactRecord` 인스턴스를 만들어 배열에 넣습니다.
+1. `ContactRecord` 인스턴스를 만들어 배열에 넣습니다.
 
     ```scala
     val newContact = ContactRecord("16891", "40 Ellis St.", "674-555-0110", "John Jackson","230-555-0194")
@@ -229,19 +239,19 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     newData(0) = newContact
     ```
 
-3. 새 데이터의 배열을 HBase에 저장합니다.
+1. 새 데이터의 배열을 HBase에 저장합니다.
 
     ```scala
     sc.parallelize(newData).toDF.write.options(Map(HBaseTableCatalog.tableCatalog -> catalog, HBaseTableCatalog.newTable -> "5")).format("org.apache.spark.sql.execution.datasources.hbase").save()
     ```
 
-4. 결과를 검사합니다.
+1. 결과를 검사합니다.
 
     ```scala  
     df.show()
     ```
 
-5. 다음과 유사한 출력이 표시됩니다.
+    다음과 유사한 출력이 표시됩니다.
 
     ```output
     +------+--------------------+--------------+------------+--------------+
@@ -253,7 +263,7 @@ hdfs dfs -copyFromLocal /etc/hbase/conf/hbase-site.xml wasbs://SPARK_STORAGE_CON
     +------+--------------------+--------------+------------+--------------+
     ```
 
-6. 다음 명령을 입력 하 여 spark 셸을 닫습니다.
+1. 다음 명령을 입력 하 여 spark 셸을 닫습니다.
 
     ```scala
     :q

@@ -4,7 +4,7 @@ description: Azure (Large Instances)의 SAP HANA를 Azure virtual machines로 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: bentrin
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/11/2020
 ms.author: bentrin
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 82d39ef9f0b9bfee15bb78e897b247426bf8e2a2
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: fd1267711871b3e55f1a6229e46ae27b360322f6
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77369734"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617034"
 ---
 # <a name="sap-hana-on-azure-large-instance-migration-to-azure-virtual-machines"></a>Azure Virtual Machines에 대 한 Azure Large Instance 마이그레이션 SAP HANA
 이 문서에서는 가능한 Azure Large Instance 배포 시나리오를 설명 하 고 전환 가동 중지 시간을 최소화 하는 계획 및 마이그레이션 방식을 제공 합니다.

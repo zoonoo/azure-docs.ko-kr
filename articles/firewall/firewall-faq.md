@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/20/2020
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: b28d228dd950796265c5412be30e5d7777cf94c6
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526515"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621957"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -50,11 +50,11 @@ Azure Firewall은 규칙 및 규칙 컬렉션을 지원합니다. 규칙 컬렉�
 
 * *응용 프로그램 규칙*: 서브넷에서 액세스할 수 있는 fqdn (정규화 된 도메인 이름)을 구성 합니다.
 * *네트워크 규칙*: 원본 주소, 프로토콜, 대상 포트 및 대상 주소를 포함 하는 규칙을 구성 합니다.
-* *NAT 규칙*: 들어오는 연결을 허용 하도록 dnat 규칙을 구성 합니다.
+* *NAT 규칙*: 들어오는 인터넷 연결을 허용 하도록 dnat 규칙을 구성 합니다.
 
 ## <a name="does-azure-firewall-support-inbound-traffic-filtering"></a>Azure Firewall은 인바운드 트래픽 필터링을 지원하나요?
 
-Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 일반적으로 비 HTTP/S 프로토콜에 사용 됩니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다. 최적의 인바운드 HTTP/S 보호를 사용 하려면 [Azure 애플리케이션 게이트웨이에서 Azure 웹 응용 프로그램 방화벽과](../web-application-firewall/ag/ag-overview.md)같은 웹 응용 프로그램 방화벽을 사용 합니다.
+Azure Firewall은 인바운드 및 아웃바운드 필터링을 지원합니다. 인바운드 보호는 일반적으로 비 HTTP/S 프로토콜에 사용 됩니다. 예를 들어 RDP, SSH 및 FTP 프로토콜이 이에 해당합니다. 최상의 인바운드 HTTP/S 보호를 사용 하려면 [Azure WAF (웹 응용 프로그램 방화벽)](../web-application-firewall/overview.md)와 같은 웹 응용 프로그램 방화벽을 사용 합니다.
 
 ## <a name="which-logging-and-analytics-services-are-supported-by-the-azure-firewall"></a>Azure Firewall에서는 어떤 로깅 및 분석 서비스를 지원하나요?
 
@@ -139,7 +139,7 @@ Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewa
 
 예. 방화벽, VNet 및 공용 IP 주소는 모두 동일한 리소스 그룹에 있어야 합니다.
 
-## <a name="when-configuring-dnat-for-inbound-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 네트워크 트래픽에 대해 DNAT를 구성할 때 해당 트래픽을 허용하도록 해당 네트워크 규칙을 구성해야 하나요?
+## <a name="when-configuring-dnat-for-inbound-internet-network-traffic-do-i-also-need-to-configure-a-corresponding-network-rule-to-allow-that-traffic"></a>인바운드 인터넷 네트워크 트래픽에 대해 DNAT를 구성 하는 경우 해당 트래픽을 허용 하는 해당 네트워크 규칙도 구성 해야 하나요?
 
 아니요. NAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 

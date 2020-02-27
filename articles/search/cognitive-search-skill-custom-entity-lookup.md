@@ -8,12 +8,12 @@ ms.author: luisca
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 01/30/2020
-ms.openlocfilehash: 5c820b7e11c06f2d785da036f5174298caf56da6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: d5e2813c71e9d6941eea7d11fb6565fb84fd0789
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960608"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651341"
 ---
 #    <a name="custom-entity-lookup-cognitive-skill-preview"></a>사용자 지정 엔터티 조회 인식 기술 (미리 보기)
 
@@ -63,7 +63,7 @@ Microsoft. 텍스트. CustomEntityLookupSkill
 
 사용자 지정 엔터티 목록을 사용자 지정 엔터티 조회 기술에 제공 하는 세 가지 방법이 있습니다. 에서 목록을 제공할 수 있습니다. CSV 파일. 기술 정의의 일부로 JSON 파일 또는 인라인 정의로 구성 됩니다.  
 
-정의 파일이 이면이 고, CSV 또는 *EntitiesDefitionUri* 매개 변수의 일부로 파일 경로를 제공 해야 합니다. 이 경우 파일은 각 인덱서 실행이 시작 될 때 한 번 다운로드 됩니다. 인덱서를 실행 하려는 경우에만 파일에 액세스할 수 있어야 합니다.
+정의 파일이 이면이 고, CSV 또는 *EntitiesDefitionUri* 매개 변수의 일부로 파일 경로를 제공 해야 합니다. 이 경우 파일은 각 인덱서 실행이 시작 될 때 한 번 다운로드 됩니다. 인덱서를 실행 하려는 경우에만 파일에 액세스할 수 있어야 합니다. 또한 파일은 u t f-8로 인코딩해야 합니다.
 
 정의가 인라인으로 제공 되는 경우 *inlineEntitiesDefinition* 기술 매개 변수의 콘텐츠로 인라인으로 제공 되어야 합니다. 
 

@@ -12,12 +12,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: carlrab
 ms.date: 12/04/2018
-ms.openlocfilehash: 8eb115497427338599db08e8c7bbdd55c5a158fc
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: 348bd2b92801217a5aea2ef4d1426c020085e4c1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73807959"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624159"
 ---
 # <a name="designing-globally-available-services-using-azure-sql-database"></a>Azure SQL Database를 사용하여 전역적으로 사용 가능 서비스 디자인
 
@@ -119,7 +119,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 
 ![시나리오 3. 미국 동부에서 기본으로 구성](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-a.png)
 
-일과를 마치면(예: 현지 시간 밤 11시) 활성 데이터베이스가 다음 지역으로 전환됩니다(북유럽). 이 작업은 [Azure 예약 서비스](../scheduler/scheduler-intro.md)로 완전히 자동화할 수 있습니다.  이 작업에는 다음 단계가 필요합니다.
+하루 끝 (예: 현지 시간 오후 11 시)에 활성 데이터베이스를 다음 지역 (유럽 북부)으로 전환 해야 합니다. [Azure Logic Apps](../logic-apps/logic-apps-overview.md)를 사용 하 여이 작업을 완전히 자동화할 수 있습니다. 이 작업에는 다음 단계가 필요합니다.
 
 * 익숙한 장애 조치를 사용하여 장애 조치 그룹의 주 서버를 북유럽으로 전환(1)
 * 미국 동부 및 북유럽 사이의 장애 조치 그룹 제거
@@ -130,7 +130,7 @@ Azure SQL Database에서 클라우드 서비스를 빌드하고 배포하는 경
 
 ![시나리오 3. 주를 북유럽으로 전환](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-b.png)
 
-예를 들어 가동 중단이 북유럽에서 발생한 경우 장애 조치 그룹에서 자동 데이터베이스 장애 조치를 시작하며 이를 통해 효과적으로 일정에 앞서 애플리케이션을 다음 지역으로 이동할 수 있습니다(1).  이 경우 미국 동부는 북유럽이 온라인이 되기 전까지 유일하게 남은 보조 지역이 됩니다. 나머지 두 지역은 역할 전환을 통해 세 지역 모두의 고객을 서비스합니다. Azure Scheduler를 그에 맞게 조절해야 합니다. 나머지 지역이 유럽의 사용자 트래픽을 추가적으로 받게 되므로 애플리케이션 성능에 영향이 있습니다. 대기 시간이 추가될 뿐 아니라 최종 사용자의 연결 수도 증대합니다. 북유럽에서의 작동 중단이 완화되면 보조 데이터베이스가 현재의 주 데이터베이스와 즉시 동기화됩니다. 다음 다이어그램에서는 북유럽에서의 가동 중단을 보여 줍니다.
+예를 들어 가동 중단이 북유럽에서 발생한 경우 장애 조치 그룹에서 자동 데이터베이스 장애 조치를 시작하며 이를 통해 효과적으로 일정에 앞서 애플리케이션을 다음 지역으로 이동할 수 있습니다(1).  이 경우 미국 동부는 북유럽이 온라인이 되기 전까지 유일하게 남은 보조 지역이 됩니다. 나머지 두 지역은 역할 전환을 통해 세 지역 모두의 고객을 서비스합니다. 그에 따라 Azure Logic Apps 조정 해야 합니다. 나머지 지역이 유럽의 사용자 트래픽을 추가적으로 받게 되므로 애플리케이션 성능에 영향이 있습니다. 대기 시간이 추가될 뿐 아니라 최종 사용자의 연결 수도 증대합니다. 북유럽에서의 작동 중단이 완화되면 보조 데이터베이스가 현재의 주 데이터베이스와 즉시 동기화됩니다. 다음 다이어그램에서는 북유럽에서의 가동 중단을 보여 줍니다.
 
 ![시나리오 3. 북유럽에서의 가동 중단](./media/sql-database-designing-cloud-solutions-for-disaster-recovery/scenario3-c.png)
 

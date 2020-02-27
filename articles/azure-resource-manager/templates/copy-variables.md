@@ -3,18 +3,18 @@ title: 변수의 여러 인스턴스 정의
 description: 변수를 만들 때 Azure Resource Manager 템플릿에서 복사 작업을 사용 하 여 여러 번 반복 합니다.
 ms.topic: conceptual
 ms.date: 02/13/2020
-ms.openlocfilehash: 9e252a0b9721ffec99535c5d30e609e12e9e67eb
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: ea4caf3553b3cd14eec194b8cef0db59499a4f4c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210815"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622877"
 ---
 # <a name="variable-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 변수 반복
 
 이 문서에서는 Azure Resource Manager 템플릿에서 변수 값을 두 개 이상 만드는 방법을 보여 줍니다. **복사** 요소를 템플릿의 변수 섹션에 추가 하 여 배포 하는 동안 변수에 대 한 항목 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
-[리소스의](copy-properties.md)리소스 및 속성과 함께 [copy를 사용할](copy-resources.md) 수도 있습니다.
+[리소스](copy-resources.md), [리소스의 속성](copy-properties.md)및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
 ## <a name="variable-iteration"></a>변수 반복
 
@@ -313,7 +313,10 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 살펴보려면 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](template-tutorial-create-multiple-instances.md)를 참조하세요.
-* Copy 요소를 다른 용도로 사용 하는 경우 [Azure Resource Manager 템플릿에서 리소스 반복](copy-resources.md) 및 [Azure Resource Manager 템플릿의 속성 반복](copy-properties.md)을 참조 하세요.
+* Copy 요소의 다른 용도는 다음을 참조 하세요.
+  * [Azure Resource Manager 템플릿의 리소스 반복](copy-resources.md)
+  * [Azure Resource Manager 템플릿의 속성 반복](copy-properties.md)
+  * [Azure Resource Manager 템플릿의 출력 반복](copy-outputs.md)
 * 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
 * 템플릿 배포 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.
 

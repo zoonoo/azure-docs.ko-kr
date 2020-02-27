@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 10/02/2019
 ms.author: iainfou
-ms.openlocfilehash: aa03e388019bf696324ea7af6062ec98386df5fa
-ms.sourcegitcommit: 7c2dba9bd9ef700b1ea4799260f0ad7ee919ff3b
+ms.openlocfilehash: 0585ced3bc53f216ab203b4686b5800b5e14bbbd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/02/2019
-ms.locfileid: "71827041"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612738"
 ---
 # <a name="troubleshoot-account-sign-in-problems-with-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 계정 로그인 문제 해결
 
@@ -32,7 +32,7 @@ Azure AD DS 관리 되는 도메인에 로그인 할 수 없는 사용자 계정
 
 디렉터리 크기에 따라 Azure AD DS에서 사용자 계정 및 자격 증명 해시를 사용 하는 데 다소 시간이 걸릴 수 있습니다. 규모가 많은 디렉터리의 경우 Azure AD에서이 초기 단방향 동기화는 몇 시간이 걸릴 수 있으며, 최대 한 일 또는 2 개까지 걸릴 수 있습니다. 인증을 다시 시도 하기 전에 충분히 기다려야 합니다.
 
-사용자 Azure AD Connect가 온-프레미스 디렉터리 데이터를 Azure AD로 동기화 하는 하이브리드 환경의 경우 최신 버전의 Azure AD Connect를 실행 하 고 [azure를 사용 하도록 설정한 후 전체 동기화를 수행 하도록 Azure AD Connect를 구성 했는지 확인 합니다. AD DS][azure-ad-connect-phs]. Azure AD DS을 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 하는 경우이 단계를 다시 수행 해야 합니다.
+사용자 Azure AD Connect가 온-프레미스 디렉터리 데이터를 Azure AD로 동기화 하는 하이브리드 환경의 경우 최신 버전의 Azure AD Connect를 실행 하 고 [azure AD DS를 사용 하도록 설정한 후 전체 동기화를 수행 하도록 Azure AD Connect를 구성][azure-ad-connect-phs]해야 합니다. Azure AD DS을 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 하는 경우이 단계를 다시 수행 해야 합니다.
 
 Azure AD Connect를 통해 동기화 되지 않는 계정에 문제가 계속 발생 하는 경우 Azure AD Sync 서비스를 다시 시작 합니다. Azure AD Connect 설치 된 컴퓨터에서 명령 프롬프트 창을 열고 다음 명령을 실행 합니다.
 
@@ -59,7 +59,7 @@ Azure AD DS 온-프레미스 동기화가 없는 관리 되는 도메인, Azure 
     * [계정에 대 한 암호를 변경][enable-user-accounts] 하 여 필요한 암호 해시를 생성 한 다음, 다시 로그인을 시도 하기 전에 15 분 동안 기다립니다.
     * Azure AD DS을 사용 하지 않도록 설정한 다음 다시 사용 하도록 설정 하면 각 계정에서 단계를 다시 수행 하 여 암호를 변경 하 고 필요한 암호 해시를 생성 해야 합니다.
 * **예, 암호가 변경 되었습니다.**
-    * @No__t-3과 같은 *SAMAccountName* 형식 대신 *UPN* 형식 (예: `driley@contoso.com`)을 사용 하 여 로그인을 시도 합니다.
+    * `AADDSCONTOSO\deeriley`와 같은 *SAMAccountName* 형식 대신 *UPN* 형식 (예: `driley@aaddscontoso.com`)을 사용 하 여 로그인을 시도 합니다.
     * UPN 접두사가 너무 길거나 관리 되는 도메인의 다른 사용자와 동일한 사용자에 대해 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. *UPN* 형식은 Azure AD 테 넌 트 내에서 고유 하도록 보장 됩니다.
 
 ## <a name="the-account-is-locked-out"></a>계정이 잠겼습니다.

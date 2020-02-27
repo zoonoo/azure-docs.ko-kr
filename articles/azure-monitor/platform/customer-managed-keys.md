@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 0cb33f55acacfd3635d19719265a46b566765a64
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592105"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620319"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -95,7 +95,7 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-다음은 그 예입니다.
+예를 들면 다음과 같습니다.
 
 ```rst
 GET
@@ -172,7 +172,7 @@ https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<res
 
 ### <a name="azure-monitor-data-store-adx-cluster-provisioning"></a>ADX 클러스터 (Azure Monitor 데이터 저장소) 프로 비전
 
-이전 단계를 완료 한 후에는이 기능의 초기 액세스 기간 동안 ADX 클러스터가 제품 팀에서 수동으로 프로 비전 됩니다. Microsoft에서 제공 하는 채널을 사용 하 여 *클러스터* 리소스 세부 정보를 제공 합니다. JSON 응답은 GET REST API를 사용 하 여 검색할 수 있습니다.
+이전 단계를 완료 한 후에는이 기능의 초기 액세스 기간 동안 ADX 클러스터가 제품 팀에서 수동으로 프로 비전 됩니다. Microsoft 채널을 사용 하 여 *클러스터* 리소스 세부 정보를 제공 합니다. *클러스터* 리소스에서 JSON 응답을 복사 REST API 가져옵니다.
 
 ```rst
 GET https://management.azure.com/subscriptions/<subscription-id>/resourceGroups/<resource-group-name>/providers/Microsoft.OperationalInsights/clusters/<cluster-name>?api-version=2019-08-01-preview
@@ -461,7 +461,7 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
   **응답**
 
-  200 정상
+  200 OK
 
 
 ## <a name="appendix"></a>부록

@@ -9,12 +9,12 @@ ms.topic: tutorial
 ms.date: 08/06/2019
 ms.author: dech
 Customer intent: As a developer, I want to build a Node.js console application to access and manage SQL API account resources in Azure Cosmos DB, so that customers can better use the service.
-ms.openlocfilehash: a273b89d864d97d9bc71acff476371f77cfff066
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 5204c7cf80a5b52b0c30b3165d522aa2648cd95c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72754832"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587433"
 ---
 # <a name="tutorial-build-a-nodejs-console-app-with-the-javascript-sdk-to-manage-azure-cosmos-db-sql-api-data"></a>자습서: JavaScript SDK를 사용하여 Azure Cosmos DB SQL API 데이터를 관리하는 Node.js 콘솔 앱 빌드
 
@@ -37,7 +37,7 @@ ms.locfileid: "72754832"
 > * 컨테이너에 항목 추가
 > * 항목, 컨테이너 및 데이터베이스에 대한 기본 작업 수행
 
-## <a name="prerequisites"></a>필수 조건 
+## <a name="prerequisites"></a>사전 요구 사항 
 
 다음 리소스가 있는지 확인합니다.
 
@@ -95,7 +95,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용하려는 계정이 �
 
 1. ```database```, ```container``` 및 ```items``` 데이터를 복사하여 ```config.endpoint``` 및 ```config.key``` 속성을 설정한 아래의 ```config``` 개체에 붙여넣습니다. 데이터베이스에 저장하려는 데이터가 이미 있는 경우 여기서 데이터를 정의하는 대신 Azure Cosmos DB의 데이터 마이그레이션 도구를 사용할 수 있습니다. config.js 파일에 다음 코드가 있어야 합니다.
 
-   [!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/config.js)]
+   :::code language="javascript" source="~/cosmosdb-nodejs-get-started/config.js":::
 
    JavaScript SDK에서는 일반 용어인 *컨테이너* 및 *항목*을 사용합니다. 컨테이너는 컬렉션, 그래프 또는 테이블입니다. 항목은 문서, 에지/꼭짓점 또는 행이며, 컨테이너 내부의 콘텐츠입니다. 
    
@@ -602,7 +602,7 @@ Azure Cosmos DB는 JSON 항목 삭제를 지원합니다.
 
 전체적으로 코드는 다음과 비슷할 것입니다.
 
-[!code-javascript[nodejs-get-started](~/cosmosdb-nodejs-get-started/app.js)]
+:::code language="javascript" source="~/cosmosdb-nodejs-get-started/app.js":::
 
 터미널에서 ```app.js``` 파일을 찾고 다음 명령을 실행합니다. 
 

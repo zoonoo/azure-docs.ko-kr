@@ -3,22 +3,22 @@ title: 가상 네트워크에서 Azure (large instances)의 SAP HANA로 설정 �
 description: Azure (large instances)에서 SAP HANA를 사용 하도록 가상 네트워크에서 설정 되는 연결입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 05/25/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5fbcc6ace4923d8aa2d938cd9fffe7a16c4fc1ff
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: f7ac8e69c4e149fdd0f365e19f7a0282a547af43
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74206737"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617195"
 ---
 # <a name="connect-a-virtual-network-to-hana-large-instances"></a>가상 네트워크를 HANA 대규모 인스턴스에 연결
 

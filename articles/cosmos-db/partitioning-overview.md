@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: c781c5e12f3f678ef640c6017a768e7ac14448f9
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 551703b5dcca082904197010366ee059998dde4b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74871995"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621875"
 ---
 # <a name="partitioning-in-azure-cosmos-db"></a>Azure Cosmos DB에서 분할
 
@@ -37,7 +37,7 @@ Azure Cosmos DB 파티션을 관리 하는 방법에 대 한 자세한 내용은
 
 다음은 파티션 키를 선택 하는 데 유용한 지침입니다.
 
-* 단일 논리 파티션은 10gb의 저장소로 제한 됩니다.  
+* 단일 논리 파티션은 20gb의 저장소로 제한 됩니다.  
 
 * Azure Cosmos 컨테이너는 초당 최소 처리량 400 요청 단위 (r u/초)를 포함 합니다. 데이터베이스에서 처리량이 프로 비전 되 면 컨테이너 당 최소 RUs는 100 초당 요청 단위입니다. 동일한 파티션 키에 대 한 요청은 파티션에 할당 된 처리량을 초과할 수 없습니다. 요청이 할당 된 처리량을 초과 하는 경우 요청은 속도 제한입니다. 따라서 애플리케이션 내에서 "핫 스폿"을 초래하지 않는 파티션 키를 선택해야 합니다.
 

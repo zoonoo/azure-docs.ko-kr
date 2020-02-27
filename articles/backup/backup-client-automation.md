@@ -3,12 +3,12 @@ title: PowerShell을 사용하여 Azure에 Windows Server 백업
 description: 이 문서에서는 Windows Server 또는 Windows 클라이언트에서 Azure Backup를 설정 하 고 백업 및 복구를 관리 하는 데 PowerShell을 사용 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/2/2019
-ms.openlocfilehash: ff723eb2ebe48a7019fecec9106c1618a636b94c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 85006a318864aed537b70a97fb38f89746d2878c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583126"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622817"
 ---
 # <a name="deploy-and-manage-backup-to-azure-for-windows-serverwindows-client-using-powershell"></a>PowerShell을 사용하여 Windows Server/Windows Client용 Azure 백업 배포 및 관리
 
@@ -403,34 +403,6 @@ State           : New
 PolicyState     : Valid
 ```
 
-## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>MABS 에이전트에서 Windows Server 시스템 상태 백업
-
-이 섹션에서는 MABS 에이전트에서 시스템 상태를 설정 하는 PowerShell 명령에 대해 설명 합니다.
-
-### <a name="schedule"></a>일정
-
-```powershell
-$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
-```
-
-### <a name="retention"></a>보존
-
-```powershell
-$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
-```
-
-### <a name="configuring-schedule-and-retention"></a>일정 및 보존 구성
-
-```powershell
-New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
- ```
-
-### <a name="verifying-the-policy"></a>정책을 확인 하는 중
-
-```powershell
-Get-OBSystemStatePolicy
- ```
-
 ### <a name="applying-the-policy"></a>정책 적용
 
 이제 정책 개체가 완료되었으므로 연결된 백업 일정, 보존 정책 및 파일의 포함/제외 목록이 있습니다. 이제는 이 정책을 Azure Backup에 커밋하여 사용할 수 있습니다. 새로 만든 정책을 적용 하기 전에 [OBPolicy](https://docs.microsoft.com/powershell/module/msonlinebackup/remove-obpolicy?view=winserver2012-ps) cmdlet을 사용 하 여 서버와 연결 된 기존 백업 정책이 없는지 확인 합니다. 정책을 제거하면 확인 메시지가 나타납니다. 확인을 건너뛰려면 cmdlet과 함께 `-Confirm:$false` 플래그를 사용 합니다.
@@ -565,6 +537,34 @@ Job completed.
 The backup operation completed successfully.
 ```
 
+## <a name="back-up-windows-server-system-state-in-mabs-agent"></a>MABS 에이전트에서 Windows Server 시스템 상태 백업
+
+이 섹션에서는 MABS 에이전트에서 시스템 상태를 설정 하는 PowerShell 명령에 대해 설명 합니다.
+
+### <a name="schedule"></a>일정
+
+```powershell
+$sched = New-OBSchedule -DaysOfWeek Sunday,Monday,Tuesday,Wednesday,Thursday,Friday,Saturday -TimesOfDay 2:00
+```
+
+### <a name="retention"></a>보존
+
+```powershell
+$rtn = New-OBRetentionPolicy -RetentionDays 32 -RetentionWeeklyPolicy -RetentionWeeks 13 -WeekDaysOfWeek Sunday -WeekTimesOfDay 2:00  -RetentionMonthlyPolicy -RetentionMonths 13 -MonthDaysOfMonth 1 -MonthTimesOfDay 2:00
+```
+
+### <a name="configuring-schedule-and-retention"></a>일정 및 보존 구성
+
+```powershell
+New-OBPolicy | Add-OBSystemState |  Set-OBRetentionPolicy -RetentionPolicy $rtn | Set-OBSchedule -Schedule $sched | Set-OBSystemStatePolicy
+ ```
+
+### <a name="verifying-the-policy"></a>정책을 확인 하는 중
+
+```powershell
+Get-OBSystemStatePolicy
+ ```
+
 ## <a name="restore-data-from-azure-backup"></a>Azure Backup에서 데이터 복원
 
 이 섹션에서는 Azure Backup에서 데이터 복구를 자동화하는 방법을 단계별로 안내합니다. 다음 단계를 수행하여 작업을 진행합니다.
@@ -631,7 +631,7 @@ ItemLastModifiedTime :
 
 ### <a name="specifying-an-item-to-restore"></a>복원할 항목 지정
 
-특정 파일을 복원 하려면 루트 볼륨을 기준으로 파일 이름을 지정 합니다. 예를 들어 C:\Test\Cat.job를 검색 하려면 다음 명령을 실행 합니다. 
+특정 파일을 복원 하려면 루트 볼륨을 기준으로 파일 이름을 지정 합니다. 예를 들어 C:\Test\Cat.job를 검색 하려면 다음 명령을 실행 합니다.
 
 ```powershell
 $Item = New-OBRecoverableItem $Rps[0] "Test\cat.jpg" $FALSE

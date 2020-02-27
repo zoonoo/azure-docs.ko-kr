@@ -4,7 +4,7 @@ description: Azure Virtual Machines에서 단일 인스턴스 SAP HANA를 수동
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/06/2018
 ms.author: hermannd
-ms.openlocfilehash: 630f094ffc6c57a0137d1abc46476f5abe64f616
-ms.sourcegitcommit: 8074f482fcd1f61442b3b8101f153adb52cf35c9
+ms.openlocfilehash: 0090ffe977dee3e493d726c9eb4d151bcbeb503f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/22/2019
-ms.locfileid: "72750376"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617241"
 ---
 # <a name="quickstart-manual-installation-of-single-instance-sap-hana-on-azure-virtual-machines"></a>빠른 시작: Azure Virtual Machines에서 단일 인스턴스 SAP HANA 수동 설치
 ## <a name="introduction"></a>소개
@@ -29,7 +29,7 @@ ms.locfileid: "72750376"
 > [!NOTE]
 > 이 가이드에서는 Azure VM에 SAP HANA를 배포하는 방법에 대해 설명합니다. HANA large instances에 SAP HANA를 배포 하는 방법에 대 한 자세한 내용은 [Azure Virtual Machines에서 SAP 사용](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/get-started)을 참조 하세요.
  
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 가이드에서는 다음과 같은 IaaS (infrastructure as a service) 기본 사항에 대해 잘 알고 있다고 가정 합니다.
  * Azure Portal 또는 PowerShell을 통해 Vm (가상 머신) 또는 가상 네트워크를 배포 하는 방법
  * JSON (JavaScript Object Notation) 템플릿을 사용 하는 옵션을 포함 하는 Azure 플랫폼 간 CLI (명령줄 인터페이스).
@@ -184,11 +184,11 @@ Sap NetWeaver 또는 S/4HANA 응용 프로그램 계층에 대해 SAP에서 인�
 
 심각도에 일반적으로 사용 되는 값은 다음과 같습니다.
 
-- 중요
+- 위험
 - 중요
 - 보통
 - 낮음
-- 지정 되지 않은
+- Unspecified
 
 **zypper** 명령은 설치된 패키지에 필요한 업데이트만 찾습니다. 예를 들어 다음 명령을 사용할 수 있습니다.
 

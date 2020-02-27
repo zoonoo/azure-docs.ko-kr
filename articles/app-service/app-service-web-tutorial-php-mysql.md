@@ -6,12 +6,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: d827270c89160097f76a7fdb36f9a6f97525064b
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 9375a59fedcd134a64cfa3bf8b92e33d326ee925
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671999"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500043"
 ---
 # <a name="tutorial-build-a-php-and-mysql-app-in-azure"></a>자습서: Azure에서 PHP 및 MySQL 앱 빌드
 
@@ -23,7 +23,7 @@ ms.locfileid: "74671999"
 
 ![Azure App Service에서 실행 중인 PHP 앱](./media/app-service-web-tutorial-php-mysql/complete-checkbox-published.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 MySQL 데이터베이스 만들기
@@ -35,7 +35,7 @@ ms.locfileid: "74671999"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -615,7 +615,7 @@ az webapp log tail --name <app_name> --resource-group myResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 MySQL 데이터베이스 만들기

@@ -1,16 +1,16 @@
 ---
-title: Visual Studio에서 애플리케이션 디버그
+title: Visual Studio에서 응용 프로그램 디버그
 description: 로컬 개발 클러스터의 Visual Studio에서 개발하고 디버그하여 서비스의 안정성과 성능을 향상시킵니다.
 author: vturecek
 ms.topic: conceptual
 ms.date: 11/02/2017
 ms.author: vturecek
-ms.openlocfilehash: 18b32c0fb0b2d203b3536e7a859e149da8453f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fff8a19d5643f7ce866c9eb9c57486340b6f8a50
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75458122"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624131"
 ---
 # <a name="debug-your-service-fabric-application-by-using-visual-studio"></a>Visual Studio를 사용하여 Service Fabric 애플리케이션 디버그
 > [!div class="op_single_selector"]
@@ -20,7 +20,7 @@ ms.locfileid: "75458122"
 
 
 ## <a name="debug-a-local-service-fabric-application"></a>로컬 Service Fabric 애플리케이션 디버깅
-로컬 컴퓨터 개발 클러스터에서 Azure Service Fabric 애플리케이션을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio 2019 또는 2015는 로컬 클러스터에 응용 프로그램을 배포 하 고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다. 디버거를 연결 하려면 관리자 권한으로 Visual Studio를 실행 해야 합니다.
+로컬 컴퓨터 개발 클러스터에서 Azure Service Fabric 애플리케이션을 배포하고 디버그하여 시간과 비용을 절약할 수 있습니다. Visual Studio 2019 또는 2015는 로컬 클러스터에 응용 프로그램을 배포 하 고 응용 프로그램의 모든 인스턴스에 디버거를 자동으로 연결할 수 있습니다. 디버거를 연결 하려면 Visual Studio를 관리자 권한으로 실행 해야 합니다.
 
 1. [서비스 패브릭 개발 환경 설정](service-fabric-get-started.md)의 단계를 따라 로컬 개발 클러스터를 시작합니다.
 2. **F5** 키를 누르거나 **디버그** > **디버깅 시작**을 클릭합니다.

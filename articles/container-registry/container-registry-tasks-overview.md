@@ -2,13 +2,13 @@
 title: ACR 작업 개요
 description: 안전 하 고 자동화 된 컨테이너 이미지 빌드, 관리 및 클라우드에서 패치를 제공 하는 Azure Container Registry의 기능 모음인 ACR 작업에 대해 소개 합니다.
 ms.topic: article
-ms.date: 09/05/2019
-ms.openlocfilehash: f8ab3c3bd259f83a61d0b030a49e158ccd6e2a69
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.date: 01/22/2020
+ms.openlocfilehash: cb5f0a71c31c26d679efd8a17b360dab2ad0862b
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938872"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615946"
 ---
 # <a name="automate-container-image-builds-and-maintenance-with-acr-tasks"></a>ACR 작업을 사용 하 여 컨테이너 이미지 빌드 및 유지 관리 자동화
 
@@ -59,7 +59,7 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 | 트리거 | 기본적으로 사용 |
 | ------- | ------------------ |
 | Commit | 예 |
-| 끌어오기 요청 | 아닙니다. |
+| 끌어오기 요청 | 아니요 |
 
 소스 코드 업데이트 트리거를 구성 하려면 공용 또는 개인 GitHub 또는 Azure DevOps 리포지토리에서 webhook를 설정 하기 위해 작업에 PAT (개인용 액세스 토큰)를 제공 해야 합니다.
 
@@ -70,26 +70,12 @@ ACR 태스크는 Git 리포지토리를 작업의 컨텍스트로 설정할 때 
 
 ## <a name="automate-os-and-framework-patching"></a>OS 및 프레임워크 패치 자동화
 
-컨테이너 빌드 워크플로를 실제로 향상시키는 ACR 작업의 기능은 기본 이미지에 대한 업데이트를 검색하는 기능에서 제공됩니다. 업데이트 된 기본 이미지가 레지스트리에 푸시되는 경우 또는 Docker Hub와 같은 공용 리포지토리에서 기본 이미지가 업데이트 되는 경우 ACR 작업은이에 따라 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
+컨테이너 빌드 워크플로를 실제로 향상 시킬 수 있는 ACR 작업은 *기본 이미지*에 대 한 업데이트를 검색 하는 기능에서 제공 됩니다. 대부분의 컨테이너 이미지의 기능입니다. 기본 이미지는 하나 이상의 응용 프로그램 이미지의 기반이 되는 부모 이미지입니다. 일반적으로 기본 이미지에는 운영 체제 및 응용 프로그램 프레임 워크가 포함 되어 있습니다. 
 
-컨테이너 이미지는 *기본* 이미지와 *애플리케이션* 이미지로 크게 분류할 수 있습니다. 기본 이미지에는 일반적으로 애플리케이션이 빌드되는 운영 체제 및 애플리케이션 프레임워크가 다른 사용자 지정 항목과 함께 포함됩니다. 이러한 기본 이미지는 일반적으로 공용 업스트림 이미지 (예: [알파인 Linux][base-alpine], [Windows][base-windows], [.net][base-dotnet]또는 [node.js][base-node])를 기반으로 합니다. 일부 애플리케이션 이미지에서는 일반적인 기본 이미지를 공유할 수 있습니다.
+응용 프로그램 이미지를 빌드할 때 기본 이미지에 대 한 종속성을 추적 하도록 ACR 작업을 설정할 수 있습니다. 업데이트 된 기본 이미지가 레지스트리에 푸시되는 경우 또는 Docker Hub와 같은 공용 리포지토리에서 기본 이미지가 업데이트 되는 경우 ACR 작업은이에 따라 모든 응용 프로그램 이미지를 자동으로 빌드할 수 있습니다.
+이 자동 검색 및 다시 빌드를 통해 ACR 작업에서 업데이트된 기본 이미지를 참조하는 각 애플리케이션 이미지를 빠짐없이 수동으로 추적하고 업데이트하는 데 필요한 시간과 노력을 절약할 수 있습니다.
 
-중요한 OS 보안 패치와 같이 업스트림 유지 관리자가 OS 또는 응용 프로그램 프레임워크 이미지를 업데이트하는 경우, 중요한 수정 프로그램이 포함되도록 기본 이미지도 업데이트해야 합니다. 그러면 각 애플리케이션 이미지도 이제 기본 이미지에 포함된 이러한 업스트림 수정 프로그램을 포함하도록 다시 빌드해야 합니다.
-
-ACR 작업은 컨테이너 이미지를 빌드할 때 기본 이미지 종속성을 동적으로 검색하므로 애플리케이션 이미지의 기본 이미지가 업데이트되는 시기를 검색할 수 있습니다. 미리 구성된 하나의 [빌드 작업](container-registry-tutorial-base-image-update.md#create-a-task)을 사용하면 ACR 작업에서 **모든 애플리케이션 이미지를 자동으로 다시 빌드합니다**. 이 자동 검색 및 다시 빌드를 통해 ACR 작업에서 업데이트된 기본 이미지를 참조하는 각 애플리케이션 이미지를 빠짐없이 수동으로 추적하고 업데이트하는 데 필요한 시간과 노력을 절약할 수 있습니다.
-
-Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 중 하나에 있으면 ACR 태스크가 기본 이미지 업데이트를 추적 합니다.
-
-* 태스크가 실행되는 동일한 Azure Container Registry
-* 동일한 지역의 다른 Azure Container Registry 
-* Docker Hub의 공용 리포지토리
-* Microsoft 컨테이너 레지스트리의 공용 리포지토리
-
-> [!NOTE]
-> * 기본 이미지 업데이트 트리거는 ACR 작업에서 기본적으로 사용 하도록 설정 됩니다. 
-> * 현재 ACR 작업은 응용 프로그램 (*런타임*) 이미지에 대 한 기본 이미지 업데이트만 추적 합니다. ACR 작업은 다중 단계 Dockerfiles에서 사용 되는 중간 (*buildtime*) 이미지에 대 한 기본 이미지 업데이트를 추적 하지 않습니다. 
-
-세 번째 ACR 작업 자습서의 OS 및 프레임 워크 패치에 대 한 자세한 내용은 [Azure Container Registry 작업을 사용 하 여 기본 이미지 업데이트에서 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md)를 확인 하세요.
+ACR 작업의 [기본 이미지 업데이트 트리거에](container-registry-tasks-base-images.md) 대해 자세히 알아보세요. 기본 이미지가 [Azure container registry에서 업데이트 될 때 컨테이너 이미지 빌드 자동화](container-registry-tutorial-base-image-update.md) 자습서에서 기본 이미지가 컨테이너 레지스트리에 푸시되는 경우 이미지 빌드를 트리거하는 방법에 대해 알아봅니다.
 
 ## <a name="schedule-a-task"></a>작업 예약
 
@@ -116,7 +102,7 @@ Dockerfile에서 이미지 빌드의 경우 기본 이미지가 다음 위치 �
 
 다음 표에서는 ACR 작업에 지원되는 컨텍스트 위치의 몇 가지 예를 보여 줍니다.
 
-| 컨텍스트 위치 | Description | 예 |
+| 컨텍스트 위치 | 설명 | 예제 |
 | ---------------- | ----------- | ------- |
 | 로컬 파일 시스템 | 로컬 파일 시스템의 디렉터리 내에 있는 파일. | `/home/user/projects/myapp` |
 | GitHub 마스터 분기 | 공용 또는 개인 GitHub 리포지토리의 마스터 (또는 다른 기본) 분기 내에 있는 파일입니다.  | `https://github.com/gituser/myapp-repo.git` |

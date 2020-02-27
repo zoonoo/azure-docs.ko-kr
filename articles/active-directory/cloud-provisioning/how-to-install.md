@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7f4e8450593b8ff0f73c09f236f17eb4ef09334c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: e4581ab89f74425682f569425f62714ead2c27c5
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549505"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620943"
 ---
 # <a name="install-the-azure-ad-connect-cloud-provisioning-agent"></a>Azure AD Connect 클라우드 프로비저닝 에이전트 설치
 이 문서에서는 Azure Active Directory (Azure AD) Connect 프로 비전 에이전트의 설치 프로세스와 Azure Portal에서 처음으로 구성 하는 방법을 안내 합니다.
@@ -55,7 +55,7 @@ Azure AD Connect 프로 비전을 설치 하 고 구성 하는 작업은 다음 
 
 1. 이 작업이 완료 되 면 **에이전트 구성이 성공적으로 확인 되었다는** 알림이 표시 됩니다. **끝내기**를 선택 합니다.
 
-   ![종료 단추](media/how-to-install/install5.png)</br>
+   ![끝내기 단추](media/how-to-install/install5.png)</br>
 1. 초기 **Microsoft Azure AD 연결 프로 비전 에이전트 패키지** 화면이 계속 표시 되는 경우 **닫기**를 선택 합니다.
 
 ## <a name="verify-agent-installation"></a>에이전트 설치 확인
@@ -64,10 +64,10 @@ Azure AD Connect 프로 비전을 설치 하 고 구성 하는 작업은 다음 
 ### <a name="azure-portal-agent-verification"></a>Azure Portal에서 에이전트 확인
 Azure에서 에이전트가 표시 되는지 확인 하려면 다음 단계를 수행 합니다.
 
-1. Azure Portal에 로그인합니다.
+1. Azure 포털에 로그인합니다.
 1. 왼쪽에서 **Azure Active Directory** > **Azure AD Connect**를 선택 합니다. 가운데에서 **프로 비전 관리 (미리 보기)** 를 선택 합니다.
 
-   ![Azure Portal](media/how-to-install/install6.png)</br>
+   ![Azure 포털](media/how-to-install/install6.png)</br>
 
 1.  **AZURE AD 프로 비전 (미리 보기)** 화면에서 **모든 에이전트 검토**를 선택 합니다.
 
@@ -96,7 +96,7 @@ https://aadap-portcheck.connectorporttest.msappproxy.net/
     ![서비스 화면](media/how-to-troubleshoot/troubleshoot1.png)
 
 >[!IMPORTANT]
->에이전트가 설치 되었지만 사용자 동기화를 시작 하기 전에 구성 하 고 사용 하도록 설정 해야 합니다. 새 에이전트를 구성 하려면 [새 에이전트 구성 Azure AD Connect 클라우드 프로 비전](how-to-configure.md)을 참조 하세요.
+>에이전트가 설치 되었지만 사용자 동기화를 시작 하기 전에 구성 하 고 사용 하도록 설정 해야 합니다. 새 에이전트를 구성 하려면 [클라우드 기반 프로 비전 Azure AD Connect 새 구성 만들기](how-to-configure.md)를 참조 하세요.
 
 
 

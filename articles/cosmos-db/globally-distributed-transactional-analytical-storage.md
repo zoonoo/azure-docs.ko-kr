@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 09/30/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 18cf43ba137c92fc00d5f8e82e13501d03b4b6a3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1c2b79f8d0641b1a1386329a2add14ded766bf5a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445397"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623390"
 ---
 # <a name="globally-distributed-transactional-and-analytical-storage-for-azure-cosmos-containers"></a>Azure Cosmos 컨테이너에 대 한 전역 분산 트랜잭션 및 분석 저장소
 
@@ -30,13 +30,13 @@ Azure Cosmos 컨테이너는 내부적으로 두 개의 저장소 엔진 (트랜
 |기능  |트랜잭션 저장소  |분석 저장소 |
 |---------|---------|---------|
 |Azure Cosmos 컨테이너 당 최대 저장소 |   제한 없음      |    제한 없음     |
-|논리적 파티션 키 당 최대 저장소   |   10GB      |   제한 없음      |
+|논리적 파티션 키 당 최대 저장소   |   20GB      |   제한 없음      |
 |저장소 인코딩  |   내부 형식을 사용 하는 행 기반입니다.   |   Apache Parquet format을 사용 하는 열 기반. |
 |저장소 위치 |   로컬/클러스터 간 Ssd에서 지원 되는 복제 된 저장소입니다. |  저렴 한 원격/오프 클러스터 Ssd에서 지원 되는 복제 된 저장소입니다.       |
 |내구성  |    99.99999 (7-9 s)     |  99.99999 (7-9 s)       |
 |데이터에 액세스 하는 Api  |   SQL, MongoDB, Cassandra, Gremlin, Tables 및 etcd가 있습니다.       | Apache Spark         |
 |보존 (TTL (time-to-live) 또는 TTL)   |  `DefaultTimeToLive` 속성을 사용 하 여 Azure Cosmos 컨테이너에 구성 된 정책 기반입니다.       |   `ColumnStoreTimeToLive` 속성을 사용 하 여 Azure Cosmos 컨테이너에 구성 된 정책 기반입니다.      |
-|GB당 가격    |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
+|GB 당 가격    |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)     |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 |저장소 트랜잭션 가격    |  [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)         |   [가격 책정 페이지](https://azure.microsoft.com/pricing/details/cosmos-db/)        |
 
 ## <a name="benefits-of-transactional-and-analytical-storage"></a>트랜잭션 및 분석 저장소의 이점

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: d734553dd8eaf51d42cc31304f6a42c9cad5bbcd
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: bb75631beed73a6ebd9d1cf2c00c375726fed387
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429084"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586991"
 ---
 # <a name="tutorial-create-a-nat-gateway-using-azure-powershell-and-test-the-nat-service"></a>자습서: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기 및 NAT 서비스 테스트
 
@@ -35,8 +35,6 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-> [!IMPORTANT]
-> 구독에서 Virtual Network NAT [미리 보기를 사용하도록 설정](./nat-overview.md#enable-preview)되면 https://aka.ms/natportal 을 사용하여 포털에 액세스합니다.
 
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -494,10 +492,10 @@ Azure Monitor에서 메트릭을 검토하여 NAT 서비스의 작동 상태를 
 
 - [Virtual Network NAT](./nat-overview.md)에 대한 자세한 정보
 - [NAT 게이트웨이 리소스](./nat-gateway-resource.md)에 대한 자세한 정보
-- [Azure CLI를 사용하여 NAT 게이트웨이 리소스 배포](./quickstart-create-nat-gateway-cli.md) 빠른 시작
-- [Azure PowerShell을 사용하여 NAT 게이트웨이 리소스 배포](./quickstart-create-nat-gateway-powershell.md) 빠른 시작
-- [Azure Portal을 사용하여 NAT 게이트웨이 리소스 배포](./quickstart-create-nat-gateway-portal.md) 빠른 시작
-- [공개 미리 보기에 대한 피드백 제공](https://aka.ms/natfeedback)
+- [Azure CLI를 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-cli.md)를 배포하기 위한 빠른 시작.
+- [Azure PowerShell을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-powershell.md)를 배포하기 위한 빠른 시작.
+- [Azure Portal을 사용하여 NAT 게이트웨이 리소스](./quickstart-create-nat-gateway-portal.md)를 배포하기 위한 빠른 시작.
+- [공개 미리 보기에 대한 피드백을 제공합니다](https://aka.ms/natfeedback).
 
 > [!div class="nextstepaction"]
 

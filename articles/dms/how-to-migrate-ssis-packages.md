@@ -3,21 +3,21 @@ title: SSIS 패키지를 SQL 단일 데이터베이스에 다시 배포
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 및 Data Migration Assistant를 사용 하 여 SQL Server Integration Services 패키지 및 프로젝트를 Azure SQL Database 단일 데이터베이스로 마이그레이션 또는 재배포 하는 방법에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/08/2019
-ms.openlocfilehash: b1889410a6c6925ebba5632a08c34bc967ced627
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 90a39b8fe3604a05f1d35a875ae4e34491b47d72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437981"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648532"
 ---
 # <a name="redeploy-ssis-packages-to-azure-sql-database-with-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 SSIS 패키지를 Azure SQL Database 다시 배포
 
@@ -87,7 +87,7 @@ SSIS 프로젝트/패키지를 Azure SQL Database 서버로 마이그레이션�
 
     ![배포 마법사 대상 선택 페이지](media/how-to-migrate-ssis-packages/dms-deployment-wizard-select-destination-page.png)
 
-    다. **찾아보기** 를 선택 하 여 SSISDB에서 대상 폴더를 지정 하 고 **다음을 선택 합니다.**
+    c. **찾아보기** 를 선택 하 여 SSISDB에서 대상 폴더를 지정 하 고 **다음을 선택 합니다.**
 
     > [!NOTE]
     > **연결**을 선택한 후에만 **다음** 단추가 활성화됩니다.

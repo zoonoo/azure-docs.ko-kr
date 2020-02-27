@@ -3,18 +3,18 @@ title: 리소스의 여러 인스턴스 배포
 description: Azure Resource Manager 템플릿에서 복사 작업 및 배열을 사용 하 여 리소스 형식을 여러 번 배포 합니다.
 ms.topic: conceptual
 ms.date: 09/27/2019
-ms.openlocfilehash: 38b5bcd38e0dc8ba8c758e9aa8371857541ba55e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: e90673504ceaccdc25a477e856defa77eed37d86
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210828"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620228"
 ---
 # <a name="resource-iteration-in-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 리소스 반복
 
 이 문서에서는 Azure Resource Manager 템플릿에서 리소스의 여러 인스턴스를 만드는 방법을 보여 줍니다. 템플릿의 리소스 섹션에 **copy** 요소를 추가 하 여 배포할 리소스의 수를 동적으로 설정할 수 있습니다. 템플릿 구문을 반복 하지 않아도 됩니다.
 
-[속성](copy-properties.md) 및 [변수와](copy-variables.md)함께 copy를 사용할 수도 있습니다.
+[속성](copy-properties.md), [변수](copy-variables.md) 및 [출력과](copy-outputs.md)함께 copy를 사용할 수도 있습니다.
 
 리소스 배포 여부를 지정해야 하는 경우, [조건 요소](conditional-resource-deployment.md)를 참조하세요.
 
@@ -130,6 +130,8 @@ Copy 요소의 일반적인 형식은 다음과 같습니다.
   "outputs": {}
 }
 ```
+
+배포 된 리소스에서 값을 반환 하려는 경우에는 [출력 섹션에서 copy](copy-outputs.md)를 사용할 수 있습니다.
 
 ## <a name="serial-or-parallel"></a>직렬 또는 병렬
 
@@ -268,7 +270,7 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 
 다음 예제에서는 여러 리소스 또는 속성 인스턴스를 만들기 위한 일반적인 시나리오를 보여 줍니다.
 
-|템플릿  |Description  |
+|템플릿  |설명  |
 |---------|---------|
 |[스토리지 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/copystorage.json) |이름의 인덱스 번호를 사용하여 여러 스토리지 계정을 배포합니다. |
 |[스토리지 직렬 복사](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/multipleinstance/serialcopystorage.json) |여러 스토리지 계정을 한 번에 하나씩 배포합니다. 이름에는 인덱스 번호가 포함됩니다. |
@@ -279,7 +281,10 @@ Copy를 사용 하 여 [전체 모드 배포](deployment-modes.md) 를 주의 �
 ## <a name="next-steps"></a>다음 단계
 
 * 자습서를 살펴보려면 [자습서: Resource Manager 템플릿을 사용하여 여러 리소스 인스턴스 만들기](template-tutorial-create-multiple-instances.md)를 참조하세요.
-* Copy 요소의 다른 용도는 [Azure Resource Manager 템플릿에서 속성 반복](copy-properties.md) 및 [Azure Resource Manager 템플릿의 변수 반복](copy-variables.md)을 참조 하세요.
+* Copy 요소의 다른 용도는 다음을 참조 하세요.
+  * [Azure Resource Manager 템플릿의 속성 반복](copy-properties.md)
+  * [Azure Resource Manager 템플릿의 변수 반복](copy-variables.md)
+  * [Azure Resource Manager 템플릿의 출력 반복](copy-outputs.md)
 * 중첩 된 템플릿과 함께 복사를 사용 하는 방법에 대 한 자세한 내용은 [Copy 사용](linked-templates.md#using-copy)을 참조 하세요.
 * 템플릿 섹션에 대한 자세한 내용은 [Azure Resource Manager 템플릿 작성](template-syntax.md)을 참조하세요.
 * 템플릿 배포 방법에 대한 자세한 내용은 [Azure Resource Manager 템플릿을 사용하여 애플리케이션 배포](deploy-powershell.md)를 참조하세요.

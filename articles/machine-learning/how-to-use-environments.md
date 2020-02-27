@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/06/2020
-ms.openlocfilehash: 9d6c823b5dc85676b15188c8f1783e50e5ed441b
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76717823"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623648"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 환경 재사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -231,7 +231,7 @@ build.wait_for_completion(show_output=True)
 
  Azure Machine Learning `Environment` 클래스의 [`DockerSection`](https://docs.microsoft.com/python/api/azureml-core/azureml.core.environment.dockersection?view=azure-ml-py) 를 사용 하 여 학습을 실행 하는 게스트 운영 체제를 세부적으로 사용자 지정 하 고 제어할 수 있습니다.
 
-Docker를 `enable` 하면 서비스에서 Docker 이미지를 빌드합니다. 또한 해당 Docker 컨테이너 내에서 사양을 사용 하는 Python 환경을 만듭니다. 이 기능은 학습 실행에 대 한 추가 격리 및 재현 가능성을 제공 합니다.
+Docker를 사용 하도록 설정 하면 서비스에서 Docker 이미지를 빌드합니다. 또한 해당 Docker 컨테이너 내에서 사양을 사용 하는 Python 환경을 만듭니다. 이 기능은 학습 실행에 대 한 추가 격리 및 재현 가능성을 제공 합니다.
 
 ```python
 # Creates the environment inside a Docker container.

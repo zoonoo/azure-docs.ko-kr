@@ -4,12 +4,12 @@ description: Azure Backup Server를 사용하여 Azure 백업에 Exchange 서버
 ms.reviewer: kasinh
 ms.topic: conceptual
 ms.date: 03/24/2017
-ms.openlocfilehash: 051e33e9340a5ee788011254bb2cf88029ba1505
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dbd37bbb7418560a0426ed47d7869bf9d949d2e2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583846"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617561"
 ---
 # <a name="back-up-an-exchange-server-to-azure-with-azure-backup-server"></a>Azure Backup Server를 사용하여 Azure에 Exchange 서버 백업
 
@@ -23,8 +23,8 @@ ms.locfileid: "77583846"
 
 Exchange 서버에서 MABS 보호 에이전트를 설치하려면 다음 단계를 수행합니다.
 
-1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758204(v=sc.12))을 참조하세요.
-2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12))를 참조하세요.
+1. 방화벽이 올바르게 구성되어 있는지 확인합니다. [에이전트에 대한 방화벽 예외 구성](h https://docs.microsoft.com/system-center/dpm/configure-firewall-settings-for-dpm?view=sc-dpm-2019)을 참조하세요.
+2. MABS 관리자 콘솔에서 **관리 > 에이전트 > 설치**를 클릭하여 Exchange 서버에 에이전트를 설치합니다. 자세한 단계는 [MABS 보호 에이전트 설치](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)를 참조하세요.
 
 ## <a name="create-a-protection-group-for-the-exchange-server"></a>Exchange 서버에 보호 그룹 만들기
 

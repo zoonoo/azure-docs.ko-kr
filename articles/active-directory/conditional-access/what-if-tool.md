@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: article
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: nigu
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: aeb2e98ad9bbd35f3ec507e36e958c5ce6ad2198
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: dc87b434664ba12cefeb233972e749f631d8a2b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185874"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620679"
 ---
 # <a name="troubleshoot-using-the-what-if-tool-in-conditional-access"></a>조건부 액세스에서 What If 도구를 사용 하 여 문제 해결
 
@@ -98,7 +98,7 @@ IP 주소는 [위치 조건](location-condition.md)을 모방하기 위한 단�
 
 선택한 클라우드 앱에 대해 [클래식 정책](policy-migration.md#classic-policies)이 존재하는 경우 해당 표시가 제공됩니다. 이 표시를 클릭하면 클래식 정책 페이지로 리디렉션됩니다. 클래식 정책 페이지에서 클래식 정책을 마이그레이션하거나 사용하지 않도록 설정할 수 있습니다. 이 페이지를 닫고 평가 결과로 돌아갈 수 있습니다.
 
-선택한 사용자에게 적용되는 정책 목록에서 사용자가 충족해야 하는 [권한 부여 컨트롤](controls.md#grant-controls) 및 [세션 컨트롤](controls.md#session-controls) 목록을 찾을 수도 있습니다.
+선택한 사용자에 게 적용 되는 정책 목록에서 사용자가 충족 해야 하는 [권한 부여 컨트롤](concept-conditional-access-grant.md) 및 [세션 컨트롤](concept-conditional-access-session.md) 목록을 찾을 수도 있습니다.
 
 사용자에게 적용되지 않는 정책 목록에서 이러한 정책이 적용되지 않는 이유를 찾을 수도 있습니다. 나열된 각 정책에 대해 이유는 충족되지 않은 첫 번째 조건을 나타냅니다. 적용되지 않는 정책의 가능한 이유는 추가로 평가되지 않기 때문에 사용되지 않도록 설정된 경우입니다.   
 

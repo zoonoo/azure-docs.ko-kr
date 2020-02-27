@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: 81db0889294360f74cb42d388e5d875de91c1019
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212466"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615672"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -88,7 +88,7 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 
 계획을 만들거나 크기를 조정할 때 세 가지 인스턴스 크기 중에서 선택할 수 있습니다.  총 코어 수와 초당 사용 된 메모리에 대 한 요금이 청구 됩니다.  필요에 따라 앱이 여러 인스턴스로 자동 확장 될 수 있습니다.  
 
-|SKU|코어 수|메모리|스토리지|
+|SKU|코어|메모리|스토리지|
 |--|--|--|--|
 |EP1|1|3.5GB|250GB|
 |EP2|2|7GB|250GB|
@@ -107,28 +107,29 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |--| -- | -- |
 |오스트레일리아 중부| ✔<sup>1</sup> | |
 |오스트레일리아 중부 2| ✔<sup>1</sup> | |
-|오스트레일리아 동부| ✔ | |
+|오스트레일리아 동부| ✔ | ✔<sup>1</sup> |
 |오스트레일리아 남동부 | ✔ | ✔<sup>1</sup> |
 |브라질 남부| ✔<sup>2</sup> |  |
-|캐나다 중부| ✔ |  |
+|캐나다 중부| ✔ | ✔<sup>1</sup> |
 |미국 중부| ✔ |  |
 |동아시아| ✔ |  |
 |미국 동부 | ✔ | ✔<sup>1</sup> |
-|미국 동부 2| ✔ |  |
+|미국 동부 2| ✔ | ✔<sup>1</sup> |
 |프랑스 중부| ✔ |  |
 |독일 중서부| ✔ | |
 |일본 동부| ✔ | ✔<sup>1</sup> |
-|일본 서부| ✔ | |
-|한국 중부| ✔ |  |
+|일본 서부| ✔ | ✔<sup>1</sup> |
+|한국 중부| ✔ | ✔<sup>1</sup> |
 |미국 중북부| ✔ |  |
 |북유럽| ✔ | ✔<sup>1</sup> |
 |미국 중남부| ✔ | ✔<sup>1</sup> |
 |인도 남부 | ✔ | |
 |동남아시아| ✔ | ✔<sup>1</sup> |
-|영국 남부| ✔ | |
+|영국 남부| ✔ | ✔<sup>1</sup> |
 |영국 서부| ✔ |  |
 |서유럽| ✔ | ✔<sup>1</sup> |
 |인도 서부| ✔ |  |
+|미국 중서부| | ✔<sup>1</sup> |
 |미국 서부| ✔ | ✔<sup>1</sup> |
 |미국 서부 2| ✔ |  |
 

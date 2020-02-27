@@ -3,22 +3,22 @@ title: Azure의 SAP HANA (대규모 인스턴스)에서 HANA 쪽의 모니터링
 description: Azure의 SAP HANA (대규모 인스턴스)에서 HANA 쪽의 모니터링 및 문제 해결.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/10/2018
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e2c596a876817f0a501025c37e463a7eebb55cf2
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 047ea4d07f2b497ac8c7deb90c056d63976094f4
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70099834"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617069"
 ---
 # <a name="monitoring-and-troubleshooting-from-hana-side"></a>HANA 쪽에서 모니터링 및 문제 해결
 
@@ -26,18 +26,18 @@ Azure(큰 인스턴스)의 SAP HANA와 관련된 문제를 효과적으로 분�
 
 SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에서 찾을 수 있습니다.
 
-- [SAP Note #2222200 – FAQ: 네트워크 SAP HANA](https://launchpad.support.sap.com/#/notes/2222200)
-- [SAP Note #2100040 – FAQ: SAP HANA CPU](https://launchpad.support.sap.com/#/notes/0002100040)
-- [SAP Note #199997 – FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/2177064)
-- [SAP Note #200000 – FAQ: SAP HANA 성능 최적화](https://launchpad.support.sap.com/#/notes/2000000)
-- [SAP Note #199930 – FAQ: I/o 분석 SAP HANA](https://launchpad.support.sap.com/#/notes/1999930)
-- [SAP Note #2177064 – FAQ: SAP HANA 서비스 다시 시작 및 작동 중단](https://launchpad.support.sap.com/#/notes/2177064)
+- [SAP 참고 사항 #2222200 – FAQ: SAP HANA 네트워크](https://launchpad.support.sap.com/#/notes/2222200)
+- [SAP 참고 사항 #2100040 – FAQ: SAP HANA CPU](https://launchpad.support.sap.com/#/notes/0002100040)
+- [SAP 참고 사항 #199997 – FAQ: SAP HANA 메모리](https://launchpad.support.sap.com/#/notes/2177064)
+- [SAP 참고 사항 #200000 – FAQ: SAP HANA 성능 최적화](https://launchpad.support.sap.com/#/notes/2000000)
+- [SAP 참고 사항 #199930 – FAQ: SAP HANA I/O 분석](https://launchpad.support.sap.com/#/notes/1999930)
+- [SAP 참고 사항 #2177064 – FAQ: SAP HANA 서비스 다시 시작 및 충돌](https://launchpad.support.sap.com/#/notes/2177064)
 
 ## <a name="sap-hana-alerts"></a>SAP HANA 경고
 
-첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔로 이동 합니다. 알립니다 표시: 모든 경고**. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
+첫 번째 단계로 현재 SAP HANA 경고 로그를 확인합니다. SAP HANA Studio에서 **관리 콘솔: 경고: 표시: 모든 경고**로 이동합니다. 이 탭에서는 최소 및 최대 임계값 설정 범위에 속하지 않는 특정 값(사용 가능한 실제 메모리, CPU 사용률 등)에 대한 모든 SAP HANA 경고를 표시합니다. 기본적으로 검사는 15분마다 자동으로 새로 고쳐집니다.
 
-![SAP HANA Studio에서 관리 콘솔로 이동 합니다. 알립니다 표시: 모든 경고](./media/troubleshooting-monitoring/image1-show-alerts.png)
+![SAP HANA Studio에서 [관리 콘솔: 경고: 표시: 모든 경고]로 이동합니다.](./media/troubleshooting-monitoring/image1-show-alerts.png)
 
 ## <a name="cpu"></a>CPU
 
@@ -64,7 +64,7 @@ SAP HANA 성능과 관련된 적용 가능한 FAQ는 다음 SAP 참고 사항에
 
 높은 CPU 사용률으로 인해 트리거되는 경고는 특정 트랜잭션 실행, 데이터 로드, 응답 하지 않는 작업, 장기 실행 SQL 문 및 잘못 된 쿼리 성능 (예: HANA 큐브의 BW 사용).
 
-[SAP HANA 문제 해결을 참조 하세요. 자세한 문제 해결 단계는](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) CPU 관련 원인 및 솔루션 사이트를.
+자세한 문제 해결 단계는 [SAP HANA 문제 해결: CPU 관련 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/4f/bc915462db406aa2fe92b708b95189/content.htm?frameset=/en/db/6ca50424714af8b370960c04ce667b/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=46&amp;show_children=false) 사이트를 참조하세요.
 
 ## <a name="operating-system"></a>운영 체제
 
@@ -86,26 +86,26 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 - 열 스토리지 테이블 중 기본 스토리지의 메모리 사용량(경고 45)
 - 런타임 덤프 파일(경고 46)
 
-[SAP HANA 문제 해결을 참조 하세요. 메모리 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) 사이트에서 자세한 문제 해결 단계를 수행 합니다.
+자세한 문제 해결 단계는 [SAP HANA 문제 해결: 메모리 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/db/6ca50424714af8b370960c04ce667b/content.htm?frameset=/en/59/5eaa513dde43758b51378ab3315ebb/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=26&amp;show_children=false) 사이트를 참조하세요.
 
 ## <a name="network"></a>네트워크
 
 [SAP 참고 사항 #2081065 - SAP HANA 네트워크 문제 해결](https://launchpad.support.sap.com/#/notes/2081065)을 참조하고 이 SAP 참고 사항에 있는 네트워크 문제 해결 단계를 수행합니다.
 
 1. 서버와 클라이언트 간의 왕복 시간을 분석합니다.
-  1\. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  A. SQL 스크립트 [_HANA\_네트워크\_클라이언트_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
   
 2. 노드 간 통신을 분석합니다.
-  1\. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
+  A. SQL 스크립트 [_HANA\_네트워크\_서비스_](https://launchpad.support.sap.com/#/notes/1969700)_를 실행합니다._
 
 3. Linux 명령 **ifconfig**를 실행합니다(패킷 손실이 발생하는 경우 출력에서 표시).
 4. Linux 명령 **tcpdump**를 실행합니다.
 
 또한 오픈 소스 [IPERF](https://iperf.fr/) 도구(또는 유사한 기능)를 사용하여 실제 애플리케이션 네트워크 성능을 측정합니다.
 
-[SAP HANA 문제 해결을 참조 하세요. 네트워킹 성능 및 연결 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 사이트에서 자세한 문제 해결 단계를 수행 합니다.
+자세한 문제 해결 단계는 [SAP HANA 문제 해결: 네트워킹 성능 및 연결 문제](https://help.sap.com/saphelp_hanaplatform/helpdata/en/a3/ccdff1aedc4720acb24ed8826938b6/content.htm?frameset=/en/dc/6ff98fa36541e997e4c719a632cbd8/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=142&amp;show_children=false) 사이트를 참조하세요.
 
-## <a name="storage"></a>저장 공간
+## <a name="storage"></a>스토리지
 
 최종 사용자 관점에서 응용 프로그램 (또는 전체 시스템)이 느리게를 실행 하거나, 응답 하지 않거나, i/o 성능에 문제가 있는 경우 응답을 중지 하는 것 처럼 보일 수도 있습니다. SAP HANA Studio의 **볼륨** 탭에서 연결된 볼륨 및 각 서비스에서 사용하는 볼륨을 확인할 수 있습니다.
 
@@ -115,7 +115,7 @@ SAP HANA 데이터베이스에 의해 할당된 메모리 양이 예상보다 �
 
 ![화면 아래쪽의 [연결된 볼륨]에서 파일 및 I/O 통계와 같은 볼륨의 세부 정보를 볼 수 있습니다.](./media/troubleshooting-monitoring/image6-volumes-tab-b.png)
 
-[SAP HANA 문제 해결을 참조 하세요. I/o 관련 근본 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) 및 [SAP HANA 문제 해결: 자세한 문제 해결 단계는 디스크](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) 관련 근본 원인 및 솔루션 사이트에 있습니다.
+자세한 문제 해결 단계는 [SAP HANA 문제 해결: I/O 관련 근본 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/dc/6ff98fa36541e997e4c719a632cbd8/content.htm?frameset=/en/47/4cb08a715c42fe9f7cc5efdc599959/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=55&amp;show_children=false) 및 [SAP HANA 문제 해결: 디스크 관련 근본 원인 및 솔루션](https://help.sap.com/saphelp_hanaplatform/helpdata/en/47/4cb08a715c42fe9f7cc5efdc599959/content.htm?frameset=/en/44/3e1db4f73d42da859008df4f69e37a/frameset.htm&amp;current_toc=/en/85/d132c3f05e40a2b20c25aa5fd6331b/plain.htm&amp;node_id=53&amp;show_children=false) 사이트를 참조하세요.
 
 ## <a name="diagnostic-tools"></a>진단 도구
 
@@ -129,15 +129,15 @@ SAP HANA Studio의 **시스템 정보** 탭에서 **이름** 열을 마우스 �
 
 로컬에 저장된 SQL Statements.zip 파일을 선택하고 해당 SQL 문을 포함한 폴더를 가져옵니다. 이 시점에서 이러한 SQL 문으로 다른 여러 진단 검사를 실행할 수 있습니다.
 
-예를 들어 SAP HANA 시스템 복제 대역폭 요구 사항을 테스트 하려면 복제 아래 **에서 **대역폭** 문을 마우스 오른쪽 단추로 클릭 합니다. SQL 콘솔에서 **열기** 를선택** 합니다.
+예를 들어 SAP HANA 시스템 복제 대역폭 요구 사항을 테스트하려면 **복제: 대역폭** 아래에서 **대역폭** 문을 마우스 오른쪽 단추로 클릭하고 SQL 콘솔에서 **열기**를 선택합니다.
 
 입력 매개 변수(수정 섹션)을 변경한 다음 실행할 수 있도록 전체 SQL 문이 열립니다.
 
 ![입력 매개 변수(수정 섹션)을 변경한 다음 실행할 수 있도록 전체 SQL 문이 열립니다.](./media/troubleshooting-monitoring/image8-import-statements-b.png)
 
-또 다른 예는 복제 아래 **에서 문을 마우스 오른쪽 단추로 클릭 하는 것입니다. 개요**. 상황에 맞는 메뉴에서 **실행**을 선택합니다.
+또 다른 예는 **복제: 개요** 아래에서 문을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 **실행**을 선택합니다.
 
-![또 다른 예는 복제 아래에서 문을 마우스 오른쪽 단추로 클릭 하는 것입니다. 설명은. 상황에 맞는 메뉴에서 [실행]을 선택합니다.](./media/troubleshooting-monitoring/image9-import-statements-c.png)
+![또 다른 예는 [복제: 개요] 아래에서 문을 마우스 오른쪽 단추로 클릭합니다. 상황에 맞는 메뉴에서 [실행]을 선택합니다.](./media/troubleshooting-monitoring/image9-import-statements-c.png)
 
 그러면 문제 해결에 도움이 되는 정보가 표시됩니다.
 

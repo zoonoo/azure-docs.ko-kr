@@ -8,16 +8,16 @@ ms.topic: include
 ms.date: 12/13/2018
 ms.author: spelluru
 ms.custom: include file
-ms.openlocfilehash: c8412a01f4a5056b352b1d985f36e5a51a25a649
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: b19dc7a85fafa1a4d875c84db9bbefabb3cd5a7d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76158893"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651527"
 ---
 다음 표에는 Azure Service Bus 메시징과 관련 된 할당량 정보가 나와 있습니다. Service Bus에 대 한 가격 책정 및 기타 할당량에 대 한 자세한 내용은 [Service Bus 가격 책정](https://azure.microsoft.com/pricing/details/service-bus/)을 참조 하세요.
 
-| 할당량 이름 | 범위 | 메모 | 값 |
+| 할당량 이름 | 범위 | 참고 | 값 |
 | --- | --- | --- | --- |
 | Azure 구독 당 기본 또는 표준 네임 스페이스의 최대 수 |네임스페이스 |추가 기본 또는 표준 네임 스페이스에 대 한 후속 요청은 Azure Portal에서 거부 됩니다. |100|
 | Azure 구독 당 최대 프리미엄 네임 스페이스 수 |네임스페이스 |추가 프리미엄 네임 스페이스에 대 한 후속 요청은 포털에서 거부 됩니다. |100 |
@@ -34,9 +34,9 @@ ms.locfileid: "76158893"
 | 큐, 토픽 또는 구독 엔터티의 메시지 속성 크기 |엔터티 | **SerializationException** 예외가 생성 됩니다. |각 속성의 최대 메시지 속성 크기는 32000입니다. 모든 속성의 누적 크기는 64000를 초과할 수 없습니다. 이 제한은 사용자 속성과 시스템 속성 (예: [SequenceNumber](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.sequencenumber), [Label](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.label), [MessageId](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage.messageid))이 모두 포함 된 [BrokeredMessage](/dotnet/api/microsoft.servicebus.messaging.brokeredmessage)의 전체 헤더에 적용 됩니다. |
 | 토픽당 구독 수 |엔터티 |토픽에 추가 구독을 만들기 위한 후속 요청이 거부됩니다. 따라서 포털을 통해 구성된 경우 오류 메시지가 표시됩니다. 관리 API에서 호출되는 경우 호출 코드에서 예외가 수신됩니다. |표준 계층에 대 한 항목당 2000. |
 | 토픽당 SQL 필터 수 |엔터티 |토픽에서 추가 필터를 만들기 위한 후속 요청이 거부 되 고 호출 코드에서 예외를 수신 합니다. |2,000 |
-| 토픽당 상관 관계 필터 수 |엔터티 |토픽에서 추가 필터를 만들기 위한 후속 요청이 거부 되 고 호출 코드에서 예외를 수신 합니다. |100,000개의 |
+| 토픽당 상관 관계 필터 수 |엔터티 |토픽에서 추가 필터를 만들기 위한 후속 요청이 거부 되 고 호출 코드에서 예외를 수신 합니다. |100,000 |
 | SQL 필터 또는 작업 크기 |네임스페이스 |추가 필터를 만들기 위한 후속 요청이 거부 되 고 호출 코드에서 예외를 수신 합니다. |필터 조건 문자열의 최대 길이: 1024 (1 K).<br /><br />규칙 동작 문자열의 최대 길이: 1024 (1 K).<br /><br />규칙 작업당 식의 최대 수: 32 |
-| 네임스페이스, 큐 또는 토픽당 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙 수 |엔터티, 네임스페이스 |추가 규칙 만들기에 대 한 후속 요청이 거부 되며 호출 코드에서 예외를 수신 합니다. |최대 규칙 수: 12 <br /><br /> Service Bus 네임스페이스에 구성된 규칙이 해당 네임스페이스에 있는 모든 큐 및 토픽에 적용됩니다. |
+| 네임스페이스, 큐 또는 토픽당 [SharedAccessAuthorizationRule](/dotnet/api/microsoft.servicebus.messaging.sharedaccessauthorizationrule) 규칙 수 |엔터티, 네임스페이스 |추가 규칙 만들기에 대 한 후속 요청이 거부 되며 호출 코드에서 예외를 수신 합니다. |엔터티 유형별 최대 규칙 수: 12. <br /><br /> Service Bus 네임 스페이스에 구성 된 규칙은 모든 형식 (큐, 항목)에 적용 됩니다. |
 | 트랜잭션당 메시지 수 | 트랜잭션 | 추가 수신 메시지는 거부 되 고 호출 코드에서 "단일 트랜잭션에서 100 개 이상의 메시지를 보낼 수 없습니다." 라는 예외를 수신 합니다. | 100 <br /><br /> **Send()** 및 **SendAsync()** 작업 모두에 해당합니다. |
 | 가상 네트워크 및 IP 필터 규칙 수 | 네임스페이스 | &nbsp; | 128 | 
 

@@ -4,7 +4,7 @@ description: SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/13/2020
 ms.author: sedusch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4b8f38b49a5d1b99664ef3479979179b9974f791
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 48e06ed31de35ad29a0fda271feaaf50b5efaf8a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591958"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616826"
 ---
 # <a name="azure-virtual-machines-planning-and-implementation-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 계획 및 구현
 
@@ -428,12 +428,12 @@ Microsoft에서 제공 하는 규정 준수 [제품 목록을 보려면 microsof
 
 
 
-## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure Virtual Machine 서비스
+## <a name="microsoft-azure-virtual-machine-services"></a>Microsoft Azure 가상 컴퓨터 서비스
 Microsoft Azure Platform은 Microsoft 데이터 센터에서 호스트되고 작동되는 인터넷 규모 클라우드 서비스 플랫폼입니다. 이 플랫폼에는 Microsoft Azure Virtual Machine Services(Infrastructure as a Service 또는 IaaS) 및 풍부한 PaaS(Platform as a Service) 기능 집합이 포함되어 있습니다.
 
 Azure 플랫폼을 사용하면 사전에 기술 및 인프라를 구입할 필요가 줄어듭니다. 이 플랫폼은 웹 애플리케이션 및 연결된 애플리케이션을 호스트, 확장 및 관리하기 위한 주문형 컴퓨팅 및 스토리지를 제공하여 애플리케이션 유지 관리 및 운영을 간소화합니다. 인프라 관리는 사용 요구에 맞는 종량제 가격 모델 옵션을 사용하도록 하여 고가용성 및 동적 확장을 충족하도록 설계된 플랫폼으로 자동화됩니다.
 
-![Microsoft Azure Virtual Machine 서비스 위치 지정][planning-guide-figure-400]
+![Microsoft Azure 가상 컴퓨터 서비스 배치][planning-guide-figure-400]
 
 Azure Virtual Machine 서비스를 사용 하 여 Microsoft는 사용자 지정 서버 이미지를 IaaS 인스턴스로 Azure에 배포할 수 있도록 합니다. Azure의 Virtual Machines는 VHD (가상 하드 드라이브)를 기반으로 하며 다른 운영 체제를 게스트 OS로 실행할 수 있습니다.
 
@@ -653,7 +653,7 @@ Azure Virtual Machine에 대해 여러 개의 vNIC(가상 네트워크 인터페
 
 크로스-프레미스에서는 투명한 영구 VPN 연결을 사용하여 Azure VM과 온-프레미스가 연결되어 있습니다. 이것이 Azure에서 가장 일반적인 SAP 배포 패턴이 될 것입니다. 그렇지만 Azure의 SAP 인스턴스에 대한 운영 절차 및 프로세스가 투명하게 진행되어야 합니다. 즉, 이러한 시스템에서 결과를 출력하고 SAP TMS(전송 관리 시스템)를 사용하여 Azure의 개발 시스템 변경 내용을 온-프레미스에 배포되는 테스트 시스템으로 전송할 수 있어야 합니다. 사이트 간 관련 설명서는 [이 문서][vpn-gateway-create-site-to-site-rm-powershell] 에 나와 있습니다.
 
-##### <a name="vpn-tunnel-device"></a>VPN 터널 디바이스
+##### <a name="vpn-tunnel-device"></a>VPN 터널 장치
 
 사이트 간 연결(온-프레미스 데이터에서 Azure 데이터 센터로의 연결)을 만들려면 VPN 디바이스를 얻은 후 구성하거나 Windows Server 2012에 소프트웨어 구성 요소로 도입된 RRAS(라우팅 및 원격 액세스 서비스)를 사용해야 합니다.
 
@@ -714,7 +714,7 @@ ExpressRoute를 사용한 강제 터널링은 ExpressRoute BGP 피어링 세션�
 * 사이트 간 또는 지점 및 사이트 간 연결을 설정하려면 먼저 Azure Virtual Network를 만들어야 함
 * 가상 컴퓨터를 배포한 후에는 VM에 할당된 Virtual Network를 더 이상 변경할 수 없음
 
-### <a name="quotas-in-azure-virtual-machine-services"></a>Azure Virtual Machine 서비스의 할당량
+### <a name="quotas-in-azure-virtual-machine-services"></a>Azure 가상 컴퓨터 서비스의 할당량
 스토리지 및 네트워크 인프라가 Azure 인프라에서 다양한 서비스를 실행하는 VM 간에 공유된다는 사실을 명확히할 필요가 있습니다. 또한 고객 소유의 데이터 센터와 마찬가지로 일부 인프라 리소스가 과도하게 프로비전되는 경우도 발생하고 있습니다. Microsoft Azure Platform은 디스크, CPU, 네트워크 및 기타 할당량을 사용하여 리소스 소비를 제한하며 일관되고 명확한 성능을 유지합니다.  VM 유형(A5, A6, 등)마다 디스크 수, CPU, RAM, 네트워크에 대해 각기 다른 할당량을 갖습니다.
 
 > [!NOTE]
@@ -750,7 +750,7 @@ Azure의 SAP 크기 조정에 대한 내용은 이 블로그와 첨부 문서를
 
 ## <a name="managing-azure-assets"></a>Azure 자산 관리
 
-### <a name="azure-portal"></a>Azure portal
+### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal은 Azure VM 배포를 관리하기 위한 세 가지 인터페이스 중 하나입니다. 이미지에서 VM을 배포하는 등의 기본적인 관리 작업은 Azure Portal을 통해 수행할 수 있습니다. 또한 Storage 계정, Virtual Network 및 기타 Azure 구성 요소 만들기 작업은 Azure Portal에서 효율적으로 처리할 수 있는 작업이기도 합니다. 그러나 온-프레미스에서 Azure로 VHD를 업로드하거나, Azure 내에서 VHD를 복사하는 등의 기능을 수행하려면 타사 도구나 PowerShell 또는 CLI를 통한 관리가 필요합니다.
 
@@ -799,7 +799,7 @@ Azure CLI는 Azure 플랫폼 작업을 위한 플랫폼 간 오픈 소스 명령
 
 또한 Azure CLI를 사용 하 여 SAP 용 Azure 확장을 배포 하는 방법에 대 한 [배포 가이드][planning-guide] 에서 [Linux vm에 대 한 Azure CLI][deployment-guide-4.5.2] 챕터를 읽어 보세요.
 
-## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Azure에서 SAP용 VM을 배포하는 다른 방법
+## <a name="different-ways-to-deploy-vms-for-sap-in-azure"></a>Azure에서 SAP용 VM을 배포하는 여러 가지 방법
 
 이 장에서는 Azure에서 VM을 배포하는 다양한 방법을 알아봅니다. 이 장에서는 Azure의 VM 및 VHD의 처리뿐만 아니라 추가 준비 절차도 설명합니다.
 
@@ -1291,7 +1291,7 @@ SAP GUI를 사용하여 공용 인터넷을 통해 해당 시스템에 연결하
 
 이 문서 뒷부분에서는 사이트 간 연결(VPN 터널) 또는 온-프레미스 시스템과 Azure 시스템 간의 Azure ExpressRoute 연결이 있는 프레미스 간 배포에서 SAP 시스템에 연결하는 다른 주요 시나리오가 나와 있습니다.
 
-### <a name="remote-access-to-sap-systems"></a>SAP 시스템에 대한 원격 액세스
+### <a name="remote-access-to-sap-systems"></a>SAP 시스템 원격 액세스
 
 Azure Resource Manager를 사용할 경우 더 이상 이전의 클래식 모델과 같은 기본 엔드포인트가 없습니다. 다음과 같은 조건이 충족되면 Azure Resource Manager VM의 모든 포트는 열려 있습니다.
 
@@ -1312,7 +1312,7 @@ SAP 시스템으로의 인바운드 트래픽을 허용하도록 가상 머신�
 > ![Windows][Logo_Windows] Windows
 >
 > 기본적으로 Azure 배포 VM 내의 Windows 방화벽은 켜져 있습니다. 이제 SAP 포트가 열리도록 허용해야 하며 그러지 않으면 SAP GUI에 연결할 수 없게 됩니다.
-> 다음을 수행합니다.
+> 이렇게 하려면 다음과 같이 하십시오.
 >
 > * 제어판\시스템 및 보안\Windows 방화벽의 **고급 설정**을 엽니다.
 > * 인바운드 규칙을 마우스 오른쪽 단추로 클릭하고 **새 규칙**을 선택합니다.
@@ -1395,7 +1395,7 @@ $pip = New-AzPublicIpAddress -Name SAPERPDemoPIP -ResourceGroupName $rgName -Loc
 $nic = New-AzNetworkInterface -Name SAPERPDemoNIC -ResourceGroupName $rgName -Location "North Europe" -Subnet $vnet.Subnets[0] -PublicIpAddress $pip
 ```
 
-* 가상 머신을 만듭니다. 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
+* 가상 컴퓨터 만들기 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
 
 ```powershell
 #####
@@ -1481,7 +1481,7 @@ rgNameLower=saperpdemo1
 az group create --name $rgName --location "North Europe"
 ```
 
-* 새 스토리지 계정 만들기
+* 새 저장소 계정 만들기
 
 ```
 az storage account create --resource-group $rgName --location "North Europe" --kind Storage --sku Standard_LRS --name $rgNameLower
@@ -1510,7 +1510,7 @@ az network public-ip create --resource-group $rgName --name SAPERPDemoPIP --loca
 az network nic create --resource-group $rgName --location "North Europe" --name SAPERPDemoNIC --public-ip-address SAPERPDemoPIP --subnet Subnet1 --vnet-name SAPERPDemoVNet
 ```
 
-* 가상 머신을 만듭니다. 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
+* 가상 컴퓨터 만들기 이 시나리오의 경우 모든 VM이 동일한 이름을 갖습니다. 해당 VM에 있는 SAP NetWeaver 인스턴스의 SAP SID도 동일하게 유지됩니다. Azure 리소스 그룹 내에서 VM의 이름은 고유해야 하지만 서로 다른 Azure 리소스 그룹에서는 동일한 이름의 VM을 실행할 수 있습니다. Windows의 기본 '관리자' 계정 또는 Linux의 '루트'는 유효하지 않습니다. 따라서 새 관리자 사용자 이름을 암호와 함께 정의해야 합니다. 또한 VM의 크기를 정의해야 합니다.
 
 ```
 #####
@@ -1607,12 +1607,12 @@ SAP 지형을 실행하고 고급 DBMS 서버용 운영 체제 미설치 영역,
 
 <!-- sapms is prefix of a SAP service name and not a spelling error -->
 
-| 서비스 | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 주석 |
+| Service | 포트 이름 | 예: `<nn`> = 01 | 기본 범위(최소-최대) | 설명 |
 | --- | --- | --- | --- | --- |
-| 디스패처 |sapdp`<nn>` 참조: * |3201 |3200 - 3299 |SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
+| 발송자 |sapdp`<nn>` 참조: * |3201 |3200 - 3299 |SAP 디스패처, Windows 및 Java용 SAP GUI에서 사용 |
 | 메시지 서버 |sapms`<sid`> 참조: ** |3600 |제한 없는 sapms`<anySID`> |sid = SAP-System-ID |
-| 게이트웨이 |sapgw`<nn`> 참조: * |3301 |제한 없음 |SAP 게이트웨이, CPIC 및 RFC 통신에 사용 |
-| SAP 라우터 |sapdp99 |3299 |제한 없음 |CI(중앙 인스턴스) 서비스 이름만 설치한 후에 /etc/services에서 임의 값으로 재할당될 수 있습니다. |
+| 게이트웨이 |sapgw`<nn`> 참조: * |3301 |free |SAP 게이트웨이, CPIC 및 RFC 통신에 사용 |
+| SAP 라우터 |sapdp99 |3299 |free |CI(중앙 인스턴스) 서비스 이름만 설치한 후에 /etc/services에서 임의 값으로 재할당될 수 있습니다. |
 
 *) nn = SAP 인스턴스 번호
 
@@ -1636,7 +1636,7 @@ Azure VM에서 온-프레미스 TCP/IP 기반 네트워크 프린터를 설정�
 ---
 > ![Windows][Logo_Windows] Windows
 >
-> 다음을 수행합니다.
+> 이렇게 하려면 다음과 같이 하십시오.
 >
 > * 일부 네트워크 프린터에는 Azure VM에서 프린터를 쉽게 설정할 수 있도록 하는 구성 마법사가 포함되어 있습니다. 마법사 소프트웨어가 프린터와 함께 배포되지 않은 경우 프린터를 설정하는 "수동" 방법은 새 TCP/IP 프린터 포트를 만드는 것입니다.
 > * [제어판] -&gt; [디바이스 및 프린터] -&gt; [프린터 추가] 열기
@@ -1780,13 +1780,13 @@ SAP 용 Azure 확장의 전반적인 아키텍처는 다음과 같습니다.
 
 **배포 하는 동안 이러한 PowerShell cmdlet 또는 CLI 명령을 사용 하는 정확한 방법 및 자세한 단계는 [배포 가이드][deployment-guide]에 제공 된 지침을 따르세요.**
 
-### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Azure 배치 SAP 인스턴스를 SAProuter에 통합
+### <a name="integration-of-azure-located-sap-instance-into-saprouter"></a>Azure에 위치한 SAP 인스턴스를 SAProuter에 통합
 
 Azure에서 실행되는 SAP 인스턴스도 SAProuter에서 액세스할 수 있어야 합니다.
 
 ![SAP-라우터 네트워크 연결][planning-guide-figure-2600]
 
-SAProuter를 사용하면 직접적인 IP 연결이 없는 경우에도 참여 시스템 간에 TCP/IP 통신이 가능해집니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 엔드투엔드 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
+직접 IP 연결을 사용할 수 없는 경우 SAProuter를 통해 참여 시스템 간에 TCP/IP 통신을 사용하도록 설정할 수 있습니다. 이를 통해 네트워크 수준에서 통신 파트너 간의 엔드투엔드 연결이 없어도 된다는 이점을 얻게 됩니다. SAProuter는 기본적으로 3299 포트에서 수신 대기합니다.
 SAProuter를 통해 SAP 인스턴스를 연결 하려면 연결을 시도 하 여 SAProuter 문자열과 호스트 이름을 제공 해야 합니다.
 
 ## <a name="sap-netweaver-as-java"></a>SAP NetWeaver AS Java

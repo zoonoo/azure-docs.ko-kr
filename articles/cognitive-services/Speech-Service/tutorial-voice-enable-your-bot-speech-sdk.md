@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/25/2020
 ms.author: dapine
-ms.openlocfilehash: 6b037ced7acb94340214ce401ffee9d940312de8
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 9112c7070708f3b97d79c1978a9b7204721c3194
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562640"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616629"
 ---
 # <a name="tutorial-voice-enable-your-bot-using-the-speech-sdk"></a>자습서: 음성 SDK를 사용 하 여 봇 음성 사용
 
@@ -155,7 +155,7 @@ ms.locfileid: "77562640"
 4. 프로젝트가 로드 되 면 <kbd>F5</kbd> 키를 눌러 프로젝트를 빌드하고 실행 합니다.
 5. 브라우저가 시작 되 고 다음과 비슷한 화면이 표시 됩니다.
     > [!div class="mx-imgBorder"]
-    > ![echobot-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "Localhost에서 실행 되는 EchoBot")
+    > [![echobot-localhost](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png "Localhost에서 실행 되는 EchoBot")](media/tutorial-voice-enable-your-bot-speech-sdk/echobot-running-on-localhost.png#lightbox)
 
 ### <a name="test-the-bot-sample-with-the-bot-framework-emulator"></a>Bot Framework 에뮬레이터를 사용 하 여 봇 샘플 테스트
 
@@ -171,7 +171,7 @@ ms.locfileid: "77562640"
    ```
    "연결"을 누릅니다.
 4. 봇에서 "Hello 및 환영!"을 즉시 환영 합니다. 않습니다. 모든 문자 메시지를 입력 하 고 봇에서 응답이 수신 되는지 확인 합니다.
-5. Echo Bot 인스턴스와 통신 교환이 다음과 같이 표시 될 수 있습니다. ![봇-에뮬레이터](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework 에뮬레이터")
+5. Echo Bot 인스턴스와 통신 교환이 다음과 같이 표시 될 수 있습니다. [ ![봇-에뮬레이터](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png "Bot Framework 에뮬레이터")](media/tutorial-voice-enable-your-bot-speech-sdk/bot-framework-emulator.png#lightbox)
 
 ## <a name="deploy-your-bot-to-an-azure-app-service"></a>Azure App Service에 봇 배포
 
@@ -188,13 +188,14 @@ ms.locfileid: "77562640"
 
 1. **솔루션 탐색기**에서 **EchoBot** 프로젝트를 마우스 오른쪽 단추로 클릭 하 고 **게시 ...** 를 선택 합니다.
 1. **게시 대상 선택** 이라는 제목의 새 창이 열립니다.
-1. **Azure 서비스** 탐색에서 **App Service** 를 선택 하 고 **새로 만들기**를 선택한 다음 **게시**를 클릭 합니다.
+1. **Azure 서비스** 탐색에서 **App Service** 를 선택 하 고 **새로 만들기**를 선택한 다음 **프로필 만들기**를 클릭 합니다.
 1. **App Service 만들기** 창이 표시 되 면 다음을 수행 합니다.
    * **계정 추가**를 클릭 하 고 Azure 계정 자격 증명을 사용 하 여 로그인 합니다. 이미 로그인한 경우 드롭다운 목록에서 원하는 계정을 선택합니다.
    * **앱 이름**에 대해 봇에 대해 전역적으로 고유한 이름을 입력 해야 합니다. 이 이름은 고유한 bot URL을 만드는 데 사용 됩니다. 날짜 및 시간을 포함 하는 기본값이 채워집니다 (예: "EchoBot20190805125647"). 이 자습서의 기본 이름을 사용할 수 있습니다.
    * **구독**의 경우 **무료 평가판** 으로 설정 합니다.
    * **리소스 그룹**에 대해 **SpeechEchoBotTutorial-ResourceGroup** 을 선택 합니다.
    * **호스팅 계획**의 경우 **SpeechEchoBotTutorial-appserviceplan** 을 선택 합니다.
+   * **Application Insights**의 경우 **None** 으로 유지 합니다.
 1. **만들기**
 1. Visual Studio에서 다음과 같은 성공 메시지가 표시 됩니다.
 
@@ -232,12 +233,9 @@ ms.locfileid: "77562640"
 > [!NOTE]
 > Bot에서 채널을 활용 하는 방법에 대해 자세히 알아보려면 [채널에 봇 연결](https://docs.microsoft.com/azure/bot-service/bot-service-manage-channels?view=azure-bot-service-4.0)을 참조 하세요.
 
-<!-- https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage -->
 
-1. 첫 번째 단계는 등록을 위한 새 리소스를 만드는 것입니다. [Azure Portal](https://portal.azure.com)에서 **리소스 만들기**를 클릭합니다.
-2. 검색 표시줄 유형 **봇**에서 결과가 표시 되 면 **bot 채널 등록**을 선택 합니다.
-3. **만들기**를 클릭합니다.
-4. 몇 가지 정보를 제공 하 라는 메시지가 표시 됩니다.
+1. <a href="https://ms.portal.azure.com/#create/Microsoft.BotServiceConnectivityGalleryPackage" target="_blank">Azure Bot 채널 등록 만들기<span class="docon docon-navigate-external x-hidden-focus"></span></a>
+2. 몇 가지 정보를 제공 하 라는 메시지가 표시 됩니다.
    * **봇 핸들**에 **SpeechEchoBotTutorial-BotRegistration**를 입력 합니다.
    * **구독**의 경우 **무료 평가판**을 선택 합니다.
    * **리소스 그룹**에 대해 **SpeechEchoBotTutorial-ResourceGroup**을 선택 합니다.
@@ -254,7 +252,7 @@ ms.locfileid: "77562640"
 |------|-------|----------|
 | EchoBot20190805125647 | App Service | 미국 서부 |
 | SpeechEchoBotTutorial-AppServicePlan | App Service 계획 | 미국 서부 |
-| SpeechEchoBotTutorial-BotRegistration | Bot 채널 등록 | Global |
+| SpeechEchoBotTutorial-BotRegistration | Bot 채널 등록 | 전역 |
 | SpeechEchoBotTutorial-Speech | Cognitive Services | 미국 서부 |
 
 > [!IMPORTANT]
@@ -271,7 +269,7 @@ ms.locfileid: "77562640"
    * 메뉴에서 이전에 만든 음성 리소스 (예: **SpeechEchoBotTutorial**)를 선택 하 여 봇을 음성 구독 키에 연결 합니다.
    * **저장**을 클릭합니다.
 
-1. **Azure 서비스** 탐색에서 **설정**을 클릭 합니다.
+1. **Bot management** 탐색에서 **설정**을 클릭 합니다.
    * **스트리밍 끝점 사용**확인란을 선택 합니다. 이는 봇과 직접 선 음성 채널 사이에서 웹 소켓을 기반으로 하는 통신 프로토콜을 사용 하도록 설정 하는 데 필요 합니다.
    * **저장**을 클릭합니다.
 
@@ -310,6 +308,7 @@ Direct Line Speech Client에는 bot에 대 한 연결을 구성 하 고, 텍스�
 모든 봇은 **활동** 메시지를 보내고 받습니다. Direct Speech Client의 **활동 로그** 창에는 클라이언트가 봇에서 받은 각 활동이 있는 타임 스탬프 로그가 표시 됩니다. [`DialogServiceConnector.SendActivityAsync`](https://docs.microsoft.com/dotnet/api/microsoft.cognitiveservices.speech.dialog.dialogserviceconnector.sendactivityasync) 메서드를 사용 하 여 클라이언트에서 봇으로 보낸 작업을 확인할 수도 있습니다. 로그 항목을 선택 하면 연결 된 작업의 세부 정보가 JSON으로 표시 됩니다.
 
 클라이언트에서 받은 작업의 샘플 json은 다음과 같습니다.
+
 ```json
 {
     "attachments":[],
@@ -395,7 +394,6 @@ Speech SDK는 사용자 지정 키워드 활성화를 지원 합니다. Microsof
 1. 다이렉트 음성 클라이언트 앱을 열고 설정 단추 (오른쪽 위 기어 아이콘)를 클릭 한 다음 언어 필드에 `de-de`를 입력 합니다 ( [음성 텍스트](language-support.md#speech-to-text) 테이블에서 언급 한 로캘 값). 그러면 음성 언어가 인식 되어 기본 `en-us`재정의 됩니다. 또한 직접 선 음성 채널에 봇 회신에 대 한 기본 독일어 음성을 사용 하도록 지시 합니다.
 2. 설정 페이지를 닫고 다시 연결 단추를 클릭 하 여 echo 봇에 대 한 새 연결을 설정 합니다.
 3. 마이크 단추를 클릭 하 고 독일어로 된 구를 말합니다. 인식 된 텍스트와 echo 봇이 기본 독일 음성으로 회신 하는 것을 볼 수 있습니다.
-
 
 ### <a name="change-the-default-bot-voice"></a>기본 봇 음성 변경
 

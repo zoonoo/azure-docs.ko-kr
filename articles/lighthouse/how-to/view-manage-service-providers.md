@@ -1,29 +1,29 @@
 ---
 title: 서비스 공급자 보기 및 관리
 description: 고객은 Azure Portal의 서비스 공급자 페이지를 사용하여 서비스 공급자, 서비스 공급자 제공 및 위임된 리소스의 정보를 볼 수 있습니다.
-ms.date: 01/15/2020
+ms.date: 02/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: ff3c37c02c580a833008a65315009d1e42e49043
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 94103c293ffa7ccfb9d7da0a237dc1b1c6540b72
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76046131"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649741"
 ---
 # <a name="view-and-manage-service-providers"></a>서비스 공급자 보기 및 관리
 
-고객은 [AzurePortal](https://portal.azure.com)의 **서비스 공급자** 페이지를 사용하여 서비스 공급자 및 서비스 공급자 제품 정보를 확인하고, [Azure 위임 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 특정 리소스를 위임하고, 추가 서비스 공급자 제품을 구입할 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
+고객은 [Azure Portal](https://portal.azure.com) 의 **서비스** 공급자 페이지를 사용 하 여 서비스 공급자 및 서비스 공급자 제안에 대 한 정보를 확인 하 고, [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 통해 특정 리소스를 위임 하 고, 새로운 서비스 공급자 제품을 사용할 수 있습니다. 여기서는 서비스 공급자 및 고객 관련 내용을 다루지만, 여러 테넌트를 관리하는 기업은 동일한 프로세스를 사용하여 관리 환경을 통합할 수 있습니다.
 
 Azure Portal의 **서비스 공급자** 페이지에 액세스하려면 고객은 **모든 서비스**를 선택하고 **서비스 공급자**를 검색하여 선택할 수 있습니다. 또한 Azure Portal 위쪽에 있는 검색 상자에 "서비스 공급자"를 입력하여 찾을 수도 있습니다.
 
-**서비스 공급자** 페이지에는 Azure 위임 리소스 관리를 통해 고객의 구독 또는 리소스 그룹에 액세스할 수 있는 서비스 공급자의 정보만 표시됩니다. 고객이 Azure 위임 리소스 관리를 사용하여 고객의 리소스에 액세스하지 않는 추가 서비스 공급자와 함께 작업하는 경우 해당 서비스 공급자에 대한 정보는 여기에 표시되지 않습니다.
+**서비스 공급자** 페이지에는 Azure 위임 된 리소스 관리를 통해 고객의 구독 또는 리소스 그룹에 액세스할 수 있는 서비스 공급자에 대 한 정보만 표시 됩니다. 고객이 Azure 위임 리소스 관리를 사용하여 고객의 리소스에 액세스하지 않는 추가 서비스 공급자와 함께 작업하는 경우 해당 서비스 공급자에 대한 정보는 여기에 표시되지 않습니다.
 
 > [!NOTE]
 > 서비스 공급자는 Azure Portal의 **내 고객**으로 이동하여 고객에 대한 정보를 볼 수 있습니다. 자세한 내용은 [고객과 위임된 리소스 보기 및 관리](view-manage-customers.md)를 참조하세요.
 
 ## <a name="view-service-provider-details"></a>서비스 공급자 세부 정보 보기
 
-고객이 함께 작업하는 서비스 공급자에 대한 정보를 보려면 **서비스 공급자** 페이지의 왼쪽에서 **공급자 제품**을 선택할 수 있습니다.
+서비스 공급자에 대 한 정보를 보려면 고객이 **서비스 공급자** 페이지의 왼쪽에 있는 **공급자 제품** 을 선택할 수 있습니다.
 
 각 서비스 공급자 제품에 대해 고객은 온보딩 프로세스 중에 고객이 입력한 이름과 함께 서비스 공급자의 이름 및 해당 서비스 공급자와 연결된 제품을 볼 수 있습니다.
 
@@ -59,12 +59,20 @@ Azure Portal의 **서비스 공급자** 페이지에 액세스하려면 고객�
 
 위임은 고객이 위임한 리소스에 대한 권한을 서비스 공급자에게 부여하는 역할 할당을 나타냅니다. 이 정보를 보려면 **서비스 공급자**  페이지의 왼쪽에서 **위임**을 선택합니다.
 
-페이지 맨 위에 있는 필터를 사용하여 위임 정보를 정렬 및 그룹화하거나 특정 고객, 제품 또는 키워드를 기준으로 필터링할 수 있습니다.
+페이지 맨 위에 있는 필터를 사용 하 여 위임 정보를 정렬 하 고 그룹화 할 수 있습니다. 특정 고객, 제품 또는 키워드를 기준으로 필터링 할 수도 있습니다.
 
 > [!NOTE]
 > Azure Portal 또는 Api를 통해 [위임 된 범위에 대 한 역할 할당 정보를 볼](../../role-based-access-control/role-assignments-list-portal.md#list-role-assignments-at-a-scope) 때 이러한 역할이 부여 된 서비스 공급자 테 넌 트의 사용자 또는 이러한 역할 할당은 고객에 게 표시 되지 않습니다.
 
-## <a name="next-steps"></a>다음 단계
+## <a name="audit-delegations-in-your-environment"></a>사용자 환경에서 위임 감사
 
+고객은 [Azure 위임 된 리소스 관리](../concepts/azure-delegated-resource-management.md)를 위해 서비스 공급자에 게 위임 된 구독 및/또는 리소스 그룹에 대 한 가시성을 확보할 수 있습니다. 이는 많은 수의 구독이 있는 고객 또는 관리 작업을 수행 하는 많은 사용자에 게 특히 유용 합니다.
+
+관리 테 넌 트에 대 한 범위 위임을 감사 하는 [Azure Policy 기본 제공 정책 정의](../../governance/policy/samples/built-in-policies.md#lighthouse) 를 제공 합니다. 감사 하려는 모든 구독이 포함 된 관리 그룹에이 정책을 할당할 수 있습니다. 이 정책에 대 한 준수 여부를 확인 하는 경우 정책이 할당 된 관리 그룹 내에서 위임 된 구독 및/또는 리소스 그룹이 비규격 상태로 표시 됩니다. 그런 다음 결과를 검토 하 고 예기치 않은 위임이 있는지 확인할 수 있습니다.
+
+정책을 할당 하 고 준수 상태 결과를 확인 하는 방법에 대 한 자세한 내용은 [빠른 시작: 정책 할당 만들기](../../governance/policy/assign-policy-portal.md)를 참조 하세요.
+
+## <a name="next-steps"></a>다음 단계
+ 
 - [Azure Lighthouse](../overview.md)에 대해 자세히 알아봅니다.
-- Azure Portal에서 **내 고객**으로 이동하여 서비스 공급자가 [고객을 보고 관리](view-manage-customers.md)하는 방법을 알아봅니다.
+- Azure Portal에서 [내 고객](view-manage-customers.md)으로 이동하여 서비스 공급자가 **고객을 보고 관리**하는 방법을 알아봅니다.

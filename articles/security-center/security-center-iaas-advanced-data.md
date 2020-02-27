@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/11/2019
 ms.author: memildin
-ms.openlocfilehash: 068fb9f61b7dcb3948e4f03c284ddfa680522c85
-ms.sourcegitcommit: 6dec090a6820fb68ac7648cf5fa4a70f45f87e1a
+ms.openlocfilehash: a2970ea3f5ad360deaedd7efc82154cd3bc50337
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/11/2019
-ms.locfileid: "73907016"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617101"
 ---
 # <a name="advanced-data-security-for-sql-servers-on-azure-virtual-machines-preview"></a>Azure Virtual Machines의 SQL server에 대 한 고급 데이터 보안 (미리 보기)
 Azure Virtual Machines의 SQL Server에 대 한 고급 데이터 보안은 고급 SQL 보안 기능을 위한 통합 패키지입니다. 이 미리 보기 기능에는 잠재적 데이터베이스 취약성을 식별 하 고 완화 하 고 데이터베이스에 대 한 위협을 나타낼 수 있는 비정상적인 활동을 검색 하기 위한 기능이 포함 되어 있습니다. 
@@ -61,7 +61,7 @@ Advanced data security는 취약성 평가 및 고급 위협 방지로 구성 �
 SQL Server의 호스트를 작업 영역에 연결 하려면 [Azure Monitor에 Windows 컴퓨터 연결](https://docs.microsoft.com/azure/azure-monitor/platform/agent-windows)의 지침을 따르세요.
 
 
-## <a name="set-up-email-notification-for-atp-alerts"></a>ATP 경고에 대 한 전자 메일 알림 설정 
+## <a name="set-up-email-notification-for-security-alerts"></a>보안 경고에 대 한 전자 메일 알림 설정 
 
 Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 사람 목록을 설정할 수 있습니다. 전자 메일에는 관련 된 모든 세부 정보와 함께 Azure Security Center의 경고에 대 한 직접 링크가 포함 됩니다. 
 
@@ -72,7 +72,7 @@ Security Center 경고가 생성 될 때 전자 메일 알림을 받을 받는 �
 1. 설정 메뉴에서 **전자 메일 알림**을 클릭 합니다. 
 1. **전자 메일 주소** 텍스트 상자에 알림을 받을 전자 메일 주소를 입력 합니다. 전자 메일 주소를 쉼표 (,)로 구분 하 여 전자 메일 주소를 두 개 이상 입력할 수 있습니다.  예 admin1@mycompany.com들어admin2@mycompany.com,admin3@mycompany.com
 
-    ![메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
+    ![전자 메일 설정](./media/security-center-advanced-iaas-data/email-settings.png)
 
 1. **전자 메일 알림** 설정에서 다음 옵션을 설정 합니다.
   

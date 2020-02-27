@@ -5,12 +5,12 @@ ms.assetid: d20743e3-aab6-442c-a836-9bcea09bfd32
 ms.topic: conceptual
 ms.date: 04/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: bb2371fc7732e8fa6fcfea53bf2822fcf3d7d2fa
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 48d98d6fef896f9288be88824a62fa1c8179217f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963957"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621060"
 ---
 # <a name="automate-resource-deployment-for-your-function-app-in-azure-functions"></a>Azure Functions의 함수 앱에 대한 리소스 배포 자동화
 
@@ -22,7 +22,7 @@ Azure Resource Manager 템플릿을 사용하여 함수 앱을 배포할 수 있
 - [소비 계획의 함수 앱]
 - [Azure App Service 계획의 함수 앱]
 
-## <a name="required-resources"></a>필요한 리소스
+## <a name="required-resources"></a>필수 리소스
 
 Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 
@@ -30,7 +30,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 |------------------------------------------------------------------------------------|-------------|-----------------------------------------------------------------------------------------|---|
 | 함수 앱                                                                     | 필수    | [Microsoft.Web/sites](/azure/templates/microsoft.web/sites)                             |   |
 | [Azure Storage](../storage/index.yml) 계정                                   | 필수    | [Microsoft.Storage/storageAccounts](/azure/templates/microsoft.storage/storageaccounts) |   |
-| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft.Insights/components](/azure/templates/microsoft.insights/components)         |   |
+| [Application Insights](../azure-monitor/app/app-insights-overview.md) 구성 요소 | 선택 사항    | [Microsoft 인 사이트/구성 요소](/azure/templates/microsoft.insights/components)         |   |
 | [호스팅 계획](./functions-scale.md)                                             | 선택 사항<sup>1</sup>    | [Microsoft.Web/serverfarms](/azure/templates/microsoft.web/serverfarms)                 |   |
 
 <sup>1</sup> 호스팅 계획은 [프리미엄 계획](./functions-premium-plan.md) (미리 보기) 또는 [App Service 계획](../app-service/overview-hosting-plans.md)에서 함수 앱을 실행 하도록 선택한 경우에만 필요 합니다.
@@ -39,7 +39,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 > 필수는 아니지만 앱에 대 한 Application Insights를 구성 하는 것이 좋습니다.
 
 <a name="storage"></a>
-### <a name="storage-account"></a>Storage 계정
+### <a name="storage-account"></a>스토리지 계정
 
 함수 앱에는 Azure Storage 계정이 필요합니다. Blob, 테이블, 큐 및 파일을 지원하는 일반 용도의 계정이 있어야 합니다. 자세한 내용은 [Azure Functions 스토리지 계정 요구 사항](storage-considerations.md#storage-account-requirements)을 참조하세요.
 
@@ -60,7 +60,7 @@ Azure Functions 배포는 일반적으로 다음 리소스로 구성 됩니다.
 
 Azure Functions 런타임에서는 `AzureWebJobsStorage` 연결 문자열을 사용하여 내부 큐를 만듭니다.  Application Insights가 활성화되지 않은 경우 런타임은 `AzureWebJobsDashboard` 연결 문자열을 사용하여 Azure Table Storage에 로그온하고 포털의 **모니터** 탭에 전원을 공급합니다.
 
-이러한 속성은 `siteConfig` 개체의 `appSettings` 컬렉션에서 지정됩니다.
+이러한 속성은 `appSettings` 개체의 `siteConfig` 컬렉션에서 지정됩니다.
 
 ```json
 "appSettings": [
@@ -137,7 +137,7 @@ Application Insights 함수 앱 모니터링에 권장 됩니다. Application In
 
 함수 앱에는 다음과 같은 응용 프로그램 설정이 포함 되어야 합니다.
 
-| 설정 이름                 | Description                                                                               | 예제 값                        |
+| 설정 이름                 | 설명                                                                               | 예제 값                        |
 |------------------------------|-------------------------------------------------------------------------------------------|---------------------------------------|
 | AzureWebJobsStorage          | 함수 런타임에서 내부 큐에 사용 하는 저장소 계정에 대 한 연결 문자열입니다. | [저장소 계정](#storage) 을 참조 하세요.       |
 | FUNCTIONS_EXTENSION_VERSION  | Azure Functions 런타임의 버전입니다.                                                | `~2`                                  |
@@ -309,17 +309,25 @@ Linux에서 함수 앱은 `kind` `functionapp,linux`로 설정 되어야 하 고
 
 ### <a name="create-a-premium-plan"></a>프리미엄 플랜 만들기
 
-프리미엄 요금제는 특수 한 유형의 "서버 팜" 리소스입니다. `sku` 속성 값으로 `EP1`, `EP2`또는 `EP3`를 사용 하 여 지정할 수 있습니다.
+프리미엄 요금제는 특수 한 유형의 "서버 팜" 리소스입니다. `sku` [description 개체](https://docs.microsoft.com/azure/templates/microsoft.web/2018-02-01/serverfarms#skudescription-object)의 `Name` 속성 값에 대해 `EP1`, `EP2`또는 `EP3`를 사용 하 여 지정할 수 있습니다.
 
 ```json
 {
     "type": "Microsoft.Web/serverfarms",
-    "apiVersion": "2015-04-01",
-    "name": "[variables('hostingPlanName')]",
+    "apiVersion": "2018-02-01",
+    "name": "[parameters('hostingPlanName')]",
     "location": "[resourceGroup().location]",
     "properties": {
-        "name": "[variables('hostingPlanName')]",
-        "sku": "EP1"
+        "name": "[parameters('hostingPlanName')]",
+        "workerSize": "[parameters('workerSize')]",
+        "workerSizeId": "[parameters('workerSizeId')]",
+        "numberOfWorkers": "[parameters('numberOfWorkers')]",
+        "hostingEnvironment": "[parameters('hostingEnvironment')]",
+        "maximumElasticWorkerCount": "20"
+    },
+    "sku": {
+        "Tier": "ElasticPremium",
+        "Name": "EP1"
     }
 }
 ```
@@ -646,7 +654,7 @@ App Service 계획의 함수 앱에는 앞에서 만든 계획의 리소스 ID�
 
 ### <a name="deploy-to-azure-button"></a>Azure 단추에 배포
 
-```<url-encoded-path-to-azuredeploy-json>```을 GitHub에 있는 `azuredeploy.json` 파일의 원시 경로에 대한 [URL 인코딩](https://www.bing.com/search?q=url+encode) 버전으로 바꿉니다.
+```<url-encoded-path-to-azuredeploy-json>```을 GitHub에 있는 [ 파일의 원시 경로에 대한 ](https://www.bing.com/search?q=url+encode)URL 인코딩`azuredeploy.json` 버전으로 바꿉니다.
 
 markdown을 사용하는 예는 다음과 같습니다.
 

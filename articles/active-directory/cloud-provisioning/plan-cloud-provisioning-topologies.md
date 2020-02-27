@@ -7,16 +7,16 @@ manager: daveba
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 142974423816b07d754a5425017aedc3195e2f4e
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 386af46bbee623d37bc914d2ee9130c914c6c885
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74793998"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620866"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-supported-topologies-and-scenarios"></a>지원 되는 토폴로지 및 시나리오 Azure AD Connect 클라우드 프로 비전
 이 문서에서는 Azure AD Connect 클라우드 프로 비전을 사용 하는 다양 한 온-프레미스 및 Azure Active Directory (Azure AD) 토폴로지에 대해 설명 합니다. 이 문서에는 지원 되는 구성 및 시나리오만 포함 되어 있습니다.
@@ -33,12 +33,16 @@ ms.locfileid: "74793998"
 - 개체에 대 한 원본 앵커는 자동으로 선택 됩니다.  Msds-consistencyguid를 사용 합니다 (있는 경우). 그렇지 않으면 ObjectGUID가 사용 됩니다.
 - 원본 앵커에 사용 되는 특성은 변경할 수 없습니다.
 
+## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
+![단일 포리스트 및 단일 테넌트에 대한 토폴로지](media/plan-cloud-provisioning-topologies/single-forest.png)
+
+가장 간단한 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 단일 온-프레미스 포리스트입니다.  이 시나리오의 예는 [자습서: 단일 AZURE AD 테 넌 트를 포함 하는 단일 포리스트](tutorial-single-forest.md) 를 참조 하세요.
 
 
 ## <a name="multi-forest-single-azure-ad-tenant"></a>다중 포리스트, 단일 Azure AD 테 넌 트
 ![다중 포리스트 및 단일 테 넌 트에 대 한 토폴로지](media/plan-cloud-provisioning-topologies/multi-forest.png)
 
-가장 일반적인 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 여러 AD 포리스트입니다.  
+일반적인 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 여러 AD 포리스트입니다.  
 
 ## <a name="existing-forest-with-azure-ad-connect-new-forest-with-cloud-provisioning"></a>Azure AD Connect 있는 기존 포리스트, 클라우드 프로 비전을 사용 하는 새 포리스트
 ![단일 포리스트 및 단일 테넌트에 대한 토폴로지](media/plan-cloud-provisioning-topologies/existing-forest-new-forest.png)
@@ -50,13 +54,10 @@ ms.locfileid: "74793998"
 
 이 시나리오에 대 한 예는 [자습서: 기존 동기화 된 AD 포리스트에 Azure AD Connect 클라우드 프로 비전 파일럿](tutorial-pilot-aadc-aadccp.md) 을 참조 하세요.
 
-## <a name="single-forest-single-azure-ad-tenant"></a>단일 포리스트, 단일 Azure AD 테넌트
-![단일 포리스트 및 단일 테넌트에 대한 토폴로지](media/plan-cloud-provisioning-topologies/single-forest.png)
 
-가장 간단한 토폴로지는 하나 이상의 도메인 및 단일 Azure AD 테 넌 트를 포함 하는 단일 온-프레미스 포리스트입니다.  이 시나리오의 예는 [자습서: 단일 AZURE AD 테 넌 트를 포함 하는 단일 포리스트](tutorial-single-forest.md) 를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계 
 
-- [프로 비전 이란?](what-is-provisioning.md)
-- [클라우드 프로 비전 Azure AD Connect 이란?](what-is-cloud-provisioning.md)
+- [프로비저닝이란?](what-is-provisioning.md)
+- [Azure AD Connect 클라우드 프로비저닝이란?](what-is-cloud-provisioning.md)
 

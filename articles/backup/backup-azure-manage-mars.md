@@ -4,12 +4,12 @@ description: Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Reco
 ms.reviewer: srinathv
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: b7e947e7fd473ec787d49ffe82532ffd5b6a98d1
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.openlocfilehash: 26ed6fefdf95281429a8c91057195785db4f5589
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75496984"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617596"
 ---
 # <a name="manage-microsoft-azure-recovery-services-mars-agent-backups-by-using-the-azure-backup-service"></a>Azure Backup 서비스를 사용 하 여 MARS (Microsoft Azure Recovery Services) 에이전트 백업 관리
 
@@ -162,7 +162,7 @@ ms.locfileid: "75496984"
 - **찾아보기** 를 클릭 하 여 새 암호를 저장 합니다.
 
     ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase.png)
-- **확인**을 클릭하여 변경 내용을 적용합니다.  Recovery Services 자격 증명 모음에 대 한 Azure Portal에서 [보안 기능](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) 을 사용 하는 경우 보안 PIN을 입력 하 라는 메시지가 표시 됩니다. PIN을 받으려면이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)에 나열 된 단계를 따르세요.<br>
+- **확인** 을 클릭 하 여 변경 내용을 적용 합니다.  Recovery Services 자격 증명 모음에 대 한 Azure Portal에서 [보안 기능](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#enable-security-features) 을 사용 하는 경우 보안 PIN을 입력 하 라는 메시지가 표시 됩니다. PIN을 받으려면이 [문서](https://docs.microsoft.com/azure/backup/backup-azure-security-feature#authentication-to-perform-critical-operations)에 나열 된 단계를 따르세요.<br>
 - 포털에서 보안 PIN을 붙여넣은 다음 **확인** 을 클릭 하 여 변경 내용을 적용 합니다.<br>
 
     ![암호를 생성 합니다.](./media/backup-azure-manage-mars/passphrase2.png)
@@ -172,4 +172,4 @@ ms.locfileid: "75496984"
 ## <a name="next-steps"></a>다음 단계
 
 - 지원 되는 시나리오 및 제한 사항에 대 한 자세한 내용은 [MARS 에이전트에 대 한 지원 매트릭스](https://docs.microsoft.com/azure/backup/backup-support-matrix-mars-agent)를 참조 하세요.
-- [주문형 백업 정책 보존 동작](backup-configure-vault.md#on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.
+- [주문형 백업 정책 보존 동작](backup-configure-vault.md#set-up-on-demand-backup-policy-retention-behavior)에 대해 자세히 알아보세요.

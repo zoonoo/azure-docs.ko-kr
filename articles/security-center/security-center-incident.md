@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: memildin
-ms.openlocfilehash: a600b17ce25a467b788671e12e3c2425ad20b809
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 1a6dbaeac5355d50edb93a7f215d7f8e88231e98
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604086"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615963"
 ---
 # <a name="manage-security-incidents-in-azure-security-center"></a>Azure Security Center에서 보안 인시던트 관리
 
@@ -40,7 +40,7 @@ ms.locfileid: "77604086"
    > [!NOTE]
    > 동일한 경고가 인시던트의 일부로 있을 수 있을 뿐만 아니라 독립 실행형 경고로 표시 될 수도 있습니다.
 
-    ![경고 세부 정보](./media/security-center-incident/security-center-incident-alert.png)
+    ![경고 정보](./media/security-center-incident/security-center-incident-alert.png)
 
 1. 각 경고에 대해 제공 된 수정 단계를 따릅니다.
 
@@ -48,14 +48,20 @@ ms.locfileid: "77604086"
 
 다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
 
-* [IaaS Vm 및 서버 경고](security-center-alerts-iaas.md)
-* [기본 계산 경고](security-center-alerts-compute.md)
-* [데이터 서비스 경고](security-center-alerts-data-services.md)
+* [IaaS Windows 컴퓨터에 대 한 경고](threat-protection.md#windows-machines)
+* [IaaS Linux 컴퓨터에 대 한 경고](threat-protection.md#linux-machines)
+* [Azure App Service에 대 한 경고](threat-protection.md#app-services)
+* [Azure 컨테이너에 대 한 경고](threat-protection.md#azure-containers)
+* [SQL Database 및 SQL Data Warehouse에 대 한 경고](threat-protection.md#data-sql)
+* [Azure Storage에 대 한 경고](threat-protection.md#azure-storage)
+* [Cosmos DB에 대 한 경고](threat-protection.md#cosmos-db)
 
 다음 항목에서는 azure에 배포 된 리소스에 대 한 추가 보호 계층을 적용 하기 위해 Security Center Azure 인프라와 통합 하 여 수집 하는 다양 한 원격 분석을 사용 하는 방법에 대해 설명 합니다.
 
-* [서비스 계층 경고](security-center-alerts-service-layer.md)
-* [Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지](security-center-alerts-integration.md)
+* [Azure 관리 계층 (Azure Resource Manager)에 대 한 경고 (미리 보기)](threat-protection.md#management-layer)
+* [Azure Key Vault에 대 한 경고 (미리 보기)](threat-protection.md#azure-keyvault)
+* [Azure 네트워크 계층에 대 한 경고](threat-protection.md#network-layer)
+* [다른 서비스의 경고](threat-protection.md#alerts-other)
 
 ## <a name="see-also"></a>참고 항목
 이 문서에서는 보안 센터에서 보안 인시던트 기능을 사용하는 방법을 살펴보았습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.
@@ -63,4 +69,3 @@ ms.locfileid: "77604086"
 * [Azure Security Center의 보안 경고](security-center-alerts-overview.md)
 * [보안 경고 관리](security-center-managing-and-responding-alerts.md)
 * [Azure Security Center 계획 및 작업 가이드](security-center-planning-and-operations-guide.md)
-* [Azure 보안 블로그](https://blogs.msdn.com/b/azuresecurity/)--Azure 보안 및 규정 준수에 관한 블로그 게시물을 찾습니다.

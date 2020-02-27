@@ -5,12 +5,12 @@ ms.devlang: php
 ms.topic: tutorial
 ms.date: 11/25/2019
 ms.custom: seodec18
-ms.openlocfilehash: be8bbfde7e9873f9cef3a85cacc2dfcf4db9039b
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 89b8d9fb1d929e0598469ba582049c61216e923a
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687426"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524026"
 ---
 # <a name="build-a-php-and-mysql-app-in-azure-app-service-on-linux"></a>Linux의 Azure App Service에서 PHP 및 MySQL 앱 빌드
 
@@ -22,7 +22,7 @@ ms.locfileid: "74687426"
 
 ![Azure App Service에서 실행 중인 PHP 앱](./media/tutorial-php-mysql-app/complete-checkbox-published.png)
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Azure에서 MySQL 데이터베이스 만들기
@@ -34,7 +34,7 @@ ms.locfileid: "74687426"
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -212,7 +212,7 @@ CREATE DATABASE sampledb;
 
 ### <a name="create-a-user-with-permissions"></a>사용 권한이 있는 사용자 만들기
 
-_phpappuser_라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다.
+_phpappuser_ 라는 데이터베이스 사용자를 만들고 `sampledb` 데이터베이스의 모든 권한을 부여합니다.
 
 ```sql
 CREATE USER 'phpappuser' IDENTIFIED BY 'MySQLAzure2017'; 
@@ -587,7 +587,7 @@ git push azure master
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * Azure에서 MySQL 데이터베이스 만들기

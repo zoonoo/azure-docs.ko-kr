@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 8913c956554fa7bf1d0362b44dc6f8031ffd74f9
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 429c221609005136663d5e64a1b8650027cba411
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77429134"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77588742"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 NAT 게이트웨이 만들기
 
@@ -30,11 +30,7 @@ ms.locfileid: "77429134"
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-> [!IMPORTANT]
-> 구독에서 Virtual Network NAT [미리 보기를 사용하도록 설정](./nat-overview.md#enable-preview)되면 https://aka.ms/natportal 을 사용하여 포털에 액세스합니다.
-
-[Azure Portal](https://aka.ms/natportal)에 로그인합니다.
-
+[Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 ### <a name="create-a-virtual-network"></a>가상 네트워크 만들기
 

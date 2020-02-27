@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d9ebeb0db14a42f090a629e379d88e00867bda65
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77538178"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619236"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -60,7 +60,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|이름. lastName|lastName|
-|회사 메일|전자 메일 [type eq "work"]. value|Mail|
+|회사 메일|전자 메일 [type eq "work"]. value|메일|
 |manager|manager|manager|
 |tag|urn: ietf: params: scim: 스키마: 확장: 2.0: CustomExtension: tag|extensionAttribute1|
 |상태|활성|Is소프트 삭제 (사용자에 게 저장 되지 않은 계산 값)|
@@ -106,7 +106,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| mail |emails[type eq "work"].value |
+| 메일 |emails[type eq "work"].value |
 | mailNickname |displayName |
-| members |members |
+| 멤버 |멤버 |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -966,6 +966,9 @@ netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc
 
 Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Microsoft Graph API 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은 토큰이 발급 된 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
 
+   > [!NOTE]
+   > Azure AD에서 생성 된 토큰을 사용 하 여이 필드를 비워 두지 ***않는*** 것이 좋습니다. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
+
 SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 다음 단계에 따라 ActiveDirectory 패키지를 사용 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
 
 먼저 공급자에서 서비스를 시작할 때마다 호출 되는 메서드를 반환 하도록 하 여 Microsoft.systemforcrossdomainidentitymanagement 속성을 구현 합니다. 
@@ -1450,6 +1453,8 @@ Azure AD 애플리케이션 갤러리에 있는 "비-갤러리 애플리케이�
 > [!div class="checklist"]
 > * [Scim 2.0](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#step-2-understand-the-azure-ad-scim-implementation) 사용자 및 그룹 끝점을 지원 합니다 (하나만 필요 하지만 둘 다 권장 됨).
 > * 테 넌 트 당 최소 25 개의 요청을 지원 합니다 (필수).
+> * 엔지니어링 및 지원 연락처를 설정 하 여 고객에 게 갤러리 온 보 딩 (필수)을 안내 합니다.
+> * 3 응용 프로그램에 대 한 만료 되지 않은 테스트 자격 증명 (필수)
 > * 아래 설명 된 대로 OAuth 인증 코드 부여 또는 수명이 긴 토큰을 지원 합니다 (필수).
 > * 고객을 지원 하기 위한 엔지니어링 및 지원 연락 지점 설정 (필수)
 > * 단일 패치를 사용 하 여 여러 그룹 구성원 업데이트 지원 (권장) 

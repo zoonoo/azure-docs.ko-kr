@@ -12,12 +12,12 @@ ms.workload: integration
 ms.topic: article
 ms.date: 01/13/2020
 ms.author: apimpm
-ms.openlocfilehash: 72075d4eff336af625bbf6d62f1276d2997bfed4
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 887019bbdb92807d49c09af3a83313470f334a52
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251212"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649548"
 ---
 # <a name="configure-a-custom-domain-name"></a>사용자 지정 도메인 이름 구성
 
@@ -29,7 +29,7 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는 `azure-api.ne
 > [!WARNING]
 > 인증서 고정을 사용 하 여 응용 프로그램의 보안을 강화 하려는 고객은 기본 인증서가 아니라 관리 하는 사용자 지정 도메인 이름 및 인증서를 사용 해야 합니다. 대신 기본 인증서를 고정 하는 고객은 제어 하지 않는 인증서의 속성에 대 한 하드 종속성을 차지 하므로 권장 되는 방법은 아닙니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에 설명한 단계를 수행하려면 다음 항목이 있어야 합니다.
 
@@ -52,7 +52,8 @@ Azure API Management 서비스 인스턴스를 만들 때 Azure는 `azure-api.ne
     - **게이트웨이** (기본값: `<apim-service-name>.azure-api.net`),
     - **포털**(기본값: `<apim-service-name>.portal.azure-api.net`),
     - **관리**(기본값: `<apim-service-name>.management.azure-api.net`),
-    - **SCM**(기본값: `<apim-service-name>.scm.azure-api.net`).
+    - **SCM** (기본값: `<apim-service-name>.scm.azure-api.net`),
+    - **Newportal** (기본값: `<apim-service-name>.developer.azure-api.net`).
 
     > [!NOTE]
     > **게이트웨이** 끝점만 소비 계층의 구성에 사용할 수 있습니다.

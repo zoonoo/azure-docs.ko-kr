@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: ab7d2ccccf7f309c59c5b8ad4ac26350030760cf
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b2569859a039739f2804a180be44e621421f0cd2
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118775"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525118"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-determine-sentence-length"></a>빠른 시작: Translator Text API를 사용하여 문장 길이 확인
 
@@ -25,33 +25,23 @@ ms.locfileid: "77118775"
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [C# quickstart](includes/sentences-csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](includes/sentences-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](includes/sentences-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Node.js quickstart](includes/sentences-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Go quickstart](includes/sentences-go.md)]
+::: zone-end
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java quickstart](includes/sentences-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Node.js quickstart](includes/sentences-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python quickstart](includes/sentences-python.md)]
 ::: zone-end
 
 ## <a name="see-also"></a>참고 항목

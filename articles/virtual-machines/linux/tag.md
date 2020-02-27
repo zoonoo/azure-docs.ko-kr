@@ -14,15 +14,15 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/28/2017
 ms.author: memccror
-ms.openlocfilehash: cb8ec68ac0be4cf4480f5d75f987707cf7393003
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3dd46f0c1c1e36e0373311ce6dcbf5d2f155dacc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973196"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616269"
 ---
 # <a name="how-to-tag-a-linux-virtual-machine-in-azure"></a>Azure에서 Linux 가상 머신에 태그를 지정하는 방법
-이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 15개의 태그를 지원합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
+이 문서에서는 리소스 관리자 배포 모델을 통해 Azure의 Linux 가상 머신에 태그를 지정하는 다양한 방법에 대해 설명합니다. 태그는 리소스 또는 리소스 그룹에 직접 배치할 수 있는 사용자 정의 키/값 쌍입니다. Azure는 현재 리소스 및 리소스 그룹당 최대 50 개의 태그를 지원 합니다. 태그를 만들 때 리소스에 배치하거나 기존 리소스에 추가할 수 있습니다. 태그는 리소스 관리자 배포 모델을 통해 만든 리소스에 대해서만 지원됩니다.
 
 [!INCLUDE [virtual-machines-common-tag](../../../includes/virtual-machines-common-tag.md)]
 
@@ -36,7 +36,7 @@ ms.locfileid: "75973196"
 az vm show --resource-group MyResourceGroup --name MyTestVM
 ```
 
-Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 **--set**과 함께 `azure vm update` 명령을 사용할 수 있습니다.
+Azure CLI를 통해 새 VM 태그를 추가하려면 태그 매개 변수 `azure vm update`--set**과 함께**  명령을 사용할 수 있습니다.
 
 ```azurecli
 az vm update \
@@ -45,7 +45,7 @@ az vm update \
     --set tags.myNewTagName1=myNewTagValue1 tags.myNewTagName2=myNewTagValue2
 ```
 
-`azure vm update` 명령에 **--remove** 매개 변수를 사용하여 태그를 제거할 수 있습니다.
+**명령에**--remove`azure vm update` 매개 변수를 사용하여 태그를 제거할 수 있습니다.
 
 ```azurecli
 az vm update --resource-group MyResourceGroup --name MyTestVM --remove tags.myNewTagName1

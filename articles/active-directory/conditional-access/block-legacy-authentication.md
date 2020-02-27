@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 11/21/2019
+ms.date: 02/25/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 2a65145fe9752a90e3328c308ce603c8626d8708
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 7f7f6f31c4d2f67660fef507ce101b2d15897d51
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74380873"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620861"
 ---
 # <a name="how-to-block-legacy-authentication-to-azure-ad-with-conditional-access"></a>방법: 조건부 액세스를 사용 하 여 Azure AD에 대 한 레거시 인증 차단   
 
@@ -24,7 +24,7 @@ ms.locfileid: "74380873"
 
 사용자 환경이 레거시 인증을 차단 하 여 테 넌 트의 보호를 향상 시킬 준비가 된 경우 조건부 액세스를 사용 하 여이 목표를 달성할 수 있습니다. 이 문서에서는 테 넌 트에 대해 레거시 인증을 차단 하는 조건부 액세스 정책을 구성 하는 방법을 설명 합니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 
 이 문서에서는 사용자가 다음에 대해 잘 알고 있다고 가정합니다. 
 
@@ -48,13 +48,30 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 이 섹션에서는 레거시 인증을 차단 하도록 조건부 액세스 정책을 구성 하는 방법을 설명 합니다. 
 
+### <a name="legacy-authentication-protocols"></a>레거시 인증 프로토콜
+
+다음 옵션은 레거시 인증 프로토콜로 간주 됩니다.
+
+- 인증 된 SMTP-POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.
+- 자동 검색-Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.
+- Exchange Online PowerShell-원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.
+- EWS (Exchange 웹 서비스)-Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.
+- IMAP4-IMAP 메일 클라이언트에서 사용 합니다.
+- MAPI over HTTP (MAPI/HTTP)-Outlook 2010 이상에서 사용 됩니다.
+- OAB (오프 라인 주소록)-Outlook에서 다운로드 하 여 사용 하는 주소 목록 컬렉션의 복사본입니다.
+- Outlook Anywhere (RPC over HTTP)-Outlook 2016 및 이전 버전에서 사용 됩니다.
+- Outlook 서비스-Windows 10 용 메일 및 일정 앱에서 사용 됩니다.
+- POP3-POP 메일 클라이언트에서 사용 합니다.
+- 보고 웹 서비스-Exchange Online에서 보고서 데이터를 검색 하는 데 사용 됩니다.
+- 기타 클라이언트-레거시 인증을 활용 하는 것으로 확인 된 다른 프로토콜입니다.
+
 ### <a name="identify-legacy-authentication-use"></a>레거시 인증 사용 확인
 
 디렉터리에서 레거시 인증을 차단 하려면 먼저 사용자에 게 레거시 인증을 사용 하는 앱이 있는지, 그리고 전체 디렉터리에 어떻게 영향을 미치는지 이해 해야 합니다. Azure AD 로그인 로그를 사용 하 여 레거시 인증을 사용 하 고 있는지 파악할 수 있습니다.
 
 1. **Azure Portal** > **Azure Active Directory** > **로그인**으로 이동 합니다.
 1. 클라이언트 앱 열 > **클라이언트**앱에서 **열** 을 클릭 하 여 표시 되지 않은 경우 클라이언트 앱 열을 추가 합니다.
-1. **클라이언트 앱** > **필터 추가** > **다른 클라이언트** 에 대 한 옵션을 모두 선택 하 고 **적용**을 클릭 합니다.
+1. **클라이언트 앱** > **필터를 추가** > 모든 레거시 인증 프로토콜을 선택 하 고 **적용**을 클릭 합니다.
 
 필터링은 레거시 인증 프로토콜을 통해 수행 된 로그인 시도만 표시 합니다. 개별 로그인 시도를 클릭 하면 추가 세부 정보가 표시 됩니다. **기본 정보** 탭의 **클라이언트 앱** 필드는 사용 된 레거시 인증 프로토콜을 표시 합니다.
 
@@ -64,7 +81,7 @@ Azure AD는 레거시 인증을 포함하여 가장 널리 사용되는 몇 가�
 
 조건부 액세스 정책에서 리소스에 액세스 하는 데 사용 되는 클라이언트 앱에 연결 된 조건을 설정할 수 있습니다. **모바일 앱 및 데스크톱 클라이언트**에 대해 **기타 클라이언트**를 선택하여 레거시 인증을 사용하는 앱으로 앱의 범위를 좁힐 수 있습니다.
 
-![다른 클라이언트](./media/block-legacy-authentication/01.png)
+![기타 클라이언트](./media/block-legacy-authentication/01.png)
 
 이러한 앱에 대한 액세스를 차단하려면 **액세스 차단**을 선택해야 합니다.
 

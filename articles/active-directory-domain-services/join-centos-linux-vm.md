@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: iainfou
-ms.openlocfilehash: 0c49624a28950cd3625ee5f6bb565fe8a1e7fd7a
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 0f0cf1f066257413f23dd83ffc5ecad0169f7e77
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76712628"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613835"
 ---
 # <a name="join-a-centos-linux-virtual-machine-to-an-azure-ad-domain-services-managed-domain"></a>CentOS Linux 가상 머신을 Azure AD Domain Services 관리 되는 도메인에 가입
 
@@ -63,13 +63,13 @@ sudo vi /etc/hosts
 
 *Hosts* 파일에서 *localhost* 주소를 업데이트 합니다. 다음 예제에서,
 
-* *aadds.contoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
+* *aaddscontoso.com* 는 Azure AD DS 관리 되는 도메인의 DNS 도메인 이름입니다.
 * *centos* 는 관리 되는 도메인에 가입 하는 centos VM의 호스트 이름입니다.
 
 이러한 이름을 사용자 고유의 값으로 업데이트 합니다.
 
 ```console
-127.0.0.1 centos.aadds.contoso.com centos
+127.0.0.1 centos.aaddscontoso.com centos
 ```
 
 완료 되 면 편집기의 `:wq` 명령을 사용 하 여 *hosts* 파일을 저장 하 고 종료 합니다.
@@ -86,30 +86,30 @@ sudo yum install realmd sssd krb5-workstation krb5-libs oddjob oddjob-mkhomedir 
 
 필요한 패키지가 VM에 설치 되었으므로 Azure AD DS 관리 되는 도메인에 VM을 가입 시킵니다.
 
-1. `realm discover` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예제에서는 영역 Aadds를 검색 합니다 *. CONTOSO.COM*. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
+1. `realm discover` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인을 검색 합니다. 다음 예에서는 영역 *AADDSCONTOSO.COM*을 검색 합니다. Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 지정 합니다.
 
     ```console
-    sudo realm discover AADDS.CONTOSO.COM
+    sudo realm discover AADDSCONTOSO.COM
     ```
 
    `realm discover` 명령이 Azure AD DS 관리 되는 도메인을 찾을 수 없는 경우 다음 문제 해결 단계를 검토 합니다.
 
-    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping aadds.contoso.com`를 시도 하 여 긍정 회신이 반환 되는지 확인 합니다.
+    * VM에서 도메인에 연결할 수 있는지 확인 합니다. `ping aaddscontoso.com`를 시도 하 여 긍정 회신이 반환 되는지 확인 합니다.
     * VM이 Azure AD DS 관리 되는 도메인을 사용할 수 있는 동일한 또는 피어 링 가상 네트워크에 배포 되었는지 확인 합니다.
     * 가상 네트워크에 대 한 DNS 서버 설정이 Azure AD DS 관리 되는 도메인의 도메인 컨트롤러를 가리키도록 업데이트 되었는지 확인 합니다.
 
 1. 이제 `kinit` 명령을 사용 하 여 Kerberos를 초기화 합니다. *AAD DC 관리자* 그룹에 속한 사용자를 지정 합니다. 필요한 경우 [AZURE AD의 그룹에 사용자 계정을 추가](../active-directory/fundamentals/active-directory-groups-members-azure-portal.md)합니다.
 
-    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 `contosoadmin@aadds.contoso.com` 라는 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC 관리자* 그룹의 구성원 인 사용자 계정을 입력 합니다.
+    Azure AD DS 관리 되는 도메인 이름을 모두 대문자로 입력 해야 합니다. 다음 예에서는 `contosoadmin@aaddscontoso.com` 라는 계정이 Kerberos를 초기화 하는 데 사용 됩니다. *AAD DC 관리자* 그룹의 구성원 인 사용자 계정을 입력 합니다.
 
     ```console
-    kinit contosoadmin@AADDS.CONTOSO.COM
+    kinit contosoadmin@AADDSCONTOSO.COM
     ```
 
-1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전 `kinit` 명령에서 지정한 *AAD DC Administrators* 그룹의 구성원 인 동일한 사용자 계정 (예: `contosoadmin@AADDS.CONTOSO.COM`)을 사용 합니다.
+1. 마지막으로 `realm join` 명령을 사용 하 여 Azure AD DS 관리 되는 도메인에 컴퓨터를 가입 시킵니다. 이전 `kinit` 명령에서 지정한 *AAD DC Administrators* 그룹의 구성원 인 동일한 사용자 계정 (예: `contosoadmin@AADDSCONTOSO.COM`)을 사용 합니다.
 
     ```console
-    sudo realm join --verbose AADDS.CONTOSO.COM -U 'contosoadmin@AADDS.CONTOSO.COM'
+    sudo realm join --verbose AADDSCONTOSO.COM -U 'contosoadmin@AADDSCONTOSO.COM'
     ```
 
 VM을 Azure AD DS 관리 되는 도메인에 가입 하는 데 몇 분 정도 걸립니다. 다음 예제 출력에서는 VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었음을 보여 줍니다.
@@ -154,11 +154,11 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
     sudo visudo
     ```
 
-1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aadds.contoso.com*와 같은 고유한 도메인 이름을 추가 합니다.
+1. */Etc/sudoers* 파일의 끝에 다음 항목을 추가 합니다. *AAD DC Administrators* 그룹은 이름에 공백을 포함 하므로 그룹 이름에 백슬래시 이스케이프 문자를 포함 합니다. *Aaddscontoso.com*와 같은 고유한 도메인 이름을 추가 합니다.
 
     ```console
     # Add 'AAD DC Administrators' group members as admins.
-    %AAD\ DC\ Administrators@aadds.contoso.com ALL=(ALL) NOPASSWD:ALL
+    %AAD\ DC\ Administrators@aaddscontoso.com ALL=(ALL) NOPASSWD:ALL
     ```
 
     완료 되 면 편집기의 `:wq` 명령을 사용 하 여 편집기를 저장 하 고 종료 합니다.
@@ -167,10 +167,10 @@ VM이 도메인 가입 프로세스를 성공적으로 완료할 수 없는 경�
 
 VM이 Azure AD DS 관리 되는 도메인에 성공적으로 가입 되었는지 확인 하려면 도메인 사용자 계정을 사용 하 여 새 SSH 연결을 시작 합니다. 홈 디렉터리가 만들어지고 도메인의 그룹 구성원이 적용 되었는지 확인 합니다.
 
-1. 콘솔에서 새 SSH 연결을 만듭니다. `contosoadmin@contoso.com`와 같은 `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용한 다음 VM의 주소 (예: *centos.aadds.contoso.com*)를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
+1. 콘솔에서 새 SSH 연결을 만듭니다. `contosoadmin@aaddscontoso.com`와 같은 `ssh -l` 명령을 사용 하 여 관리 되는 도메인에 속하는 도메인 계정을 사용한 다음 VM의 주소 (예: *centos.aaddscontoso.com*)를 입력 합니다. Azure Cloud Shell 사용 하는 경우 내부 DNS 이름이 아닌 VM의 공용 IP 주소를 사용 합니다.
 
     ```console
-    ssh -l contosoadmin@AADDS.CONTOSO.com centos.aadds.contoso.com
+    ssh -l contosoadmin@AADDSCONTOSO.com centos.aaddscontoso.com
     ```
 
 1. VM에 성공적으로 연결한 경우 홈 디렉터리가 올바르게 초기화 되었는지 확인 합니다.

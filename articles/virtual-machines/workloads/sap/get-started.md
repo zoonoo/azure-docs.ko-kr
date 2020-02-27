@@ -16,12 +16,12 @@ ms.workload: infrastructure-services
 ms.date: 02/25/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d6efad8160115347469fb387108812ddc9adecc1
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: c9d287d5bfc091fcbbff46095da5458fa08de73d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77601942"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624163"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -34,23 +34,20 @@ Azure for SAP HANA의 고유성은 Azure를 따로 설정 하는 제품입니다
 Azure에서 SAP 워크 로드 시나리오를 호스트 하는 것도 id 통합 및 Single Sign-On 요구 사항을 만들 수 있습니다. 이 상황은 Azure Active Directory (Azure AD)를 사용 하 여 다양 한 SAP 구성 요소와 SAP SaaS (software as a service) 또는 PaaS (platform as a service) 제품을 연결 하는 경우에 발생할 수 있습니다. Azure AD 및 SAP 엔터티와 이러한 통합 및 Single Sign-On 시나리오의 목록은 "AAD SAP identity integration and Single Sign-On" 섹션에서 설명 하 고 설명 합니다.
 
 ## <a name="changes-to-the-sap-workload-section"></a>SAP 워크 로드 섹션의 변경 내용
-Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 문서의 끝에 나열 되어 있습니다.
+Azure의 SAP 워크 로드 섹션에서 문서에 대 한 변경 내용은이 문서의 끝에 나열 되어 있습니다. 변경 로그의 항목은 약 180 일 동안 유지 됩니다.
 
+## <a name="you-want-to-know"></a>알고 싶습니다.
+특정 질문이 있는 경우 시작 페이지의이 섹션에 특정 문서 또는 흐름이 표시 됩니다. 다음 사항을 알고 싶습니다.
 
+- SAP 소프트웨어 릴리스 및 운영 체제 버전에 대해 지원 되는 Azure Vm 및 HANA Large Instance 장치는 무엇 인가요? [Azure 배포에 대해 지원 되는 SAP 소프트웨어](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-supported-product-on-azure) 및 정보를 찾는 프로세스에 대 한 문서를 참조 하십시오.
+- Azure Vm 및 HANA Large Instances에서 지원 되는 SAP 배포 시나리오 지원 되는 시나리오에 대 한 정보는 다음 문서에서 찾을 수 있습니다.
+    - [Azure virtual machine의 SAP 워크 로드 지원 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-planning-supported-configurations)
+    - [HANA Large Instance에 대해 지원 되는 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-supported-scenario)
+
+ 
 ## <a name="sap-hana-on-azure-large-instances"></a>Azure(큰 인스턴스)에서 SAP HANA 사용
 
-일련의 문서는 Azure (Large Instances) 또는 간단한 HANA Large Instances에 대 한 SAP HANA를 안내 합니다. HANA Large Instances의 다음 영역에 대 한 자세한 내용은 다음을 참조 하세요.
-
-- [Azure의 SAP HANA(대규모 인스턴스) 개요](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture)
-- [Azure의 SAP HANA(대규모 인스턴스) 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-architecture)
-- [Azure (Large Instances)의 SAP HANA에 대 한 인프라 및 연결](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-infrastructure-connectivity)
-- [Azure (Large Instances)에 SAP HANA 설치](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-installation)
-- [Azure (큰 인스턴스)의 SAP HANA에 대 한 고가용성 및 재해 복구](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-high-availability-disaster-recovery)
-- [Azure (Large Instances)에서 SAP HANA 문제 해결 및 모니터링](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/troubleshooting-monitoring)
-
-다음 단계:
-
-- [Azure (Large Instances)에서 SAP HANA의 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 읽기
+일련의 문서는 Azure (Large Instances) 또는 간단한 HANA Large Instances에 대 한 SAP HANA를 안내 합니다. HANA Large Instances에 대 한 자세한 내용은 [Azure (Large instances)의 SAP HANA 문서 개요 및 아키텍처](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-overview-architecture) 에서 시작 하 고 Hana large Instance 섹션에서 관련 설명서를 참조 하세요.
 
 
 
@@ -120,7 +117,9 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 02/25/2020: SAP에서 최신 HA 아티클에 대 한 링크를 추가 하 [는 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) 변경
 - 02/25/2020: 표준 Azure 부하 분산 장치를 사용 하 여 공용 끝점에 대 한 액세스를 설명 하는 문서를 가리키도록 [Pacemaker로 SUSE Linux Enterprise Server의 Azure vm에서 IBM DB2 LUW의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) 을 변경 합니다.
+- 02/21/2020: sap [ASE Azure VIRTUAL MACHINES sap 워크 로드에 대 한 DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) 아티클의 수정이 완료 되었습니다.
 - 02/21/2020:/hana/data의 스트라이프 크기에 새로운 권장 사항을 표시 하 고 i/o scheduler 설정을 추가 하 여 [Azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 를 변경 합니다.
 - 02/21/2020: S224 및 S224m의 새로 인증 된 Sku를 나타내기 위해 HANA Large Instance 문서를 변경 했습니다.
 - 02/21/2020: RHEL에서 [Sap NetWeaver의 Sap에 대 한](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) 고가용성 및 [azure vm](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) 의 변경 (RHEL)을 Azure NetApp Files 사용 하 여의 sap NetWeaver에 대 한 고가용성-큐에 넣기 서버 복제 2 아키텍처 (ENSA2)에 대 한 클러스터 제약 조건을 조정

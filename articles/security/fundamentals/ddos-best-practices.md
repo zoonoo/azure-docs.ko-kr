@@ -1,5 +1,5 @@
 ---
-title: 복원 력 있는 솔루션을 Azure DDoS Protection 설계 | Microsoft Docs
+title: Azure DDoS Protection를 사용 하 여 복원 력 솔루션 디자인
 description: 로깅 데이터를 사용하여 애플리케이션에 대해 깊이 이해할 수 있는 방법에 대해 알아봅니다.
 services: security
 author: barclayn
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/18/2018
 ms.author: barclayn
-ms.openlocfilehash: ac36a4c59dbec8bf27850de1565e86b78643148a
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 8d3fc809999508bf3d49c3765c90017e89e80fa7
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72595413"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624048"
 ---
 # <a name="azure-ddos-protection---designing-resilient-solutions"></a>복원 력 있는 솔루션 Azure DDoS Protection 설계
 
@@ -227,7 +227,7 @@ DDoS Protection Standard는 [가상 네트워크에 배포되는 서비스](/azu
 
 #### <a name="application-running-on-windows-n-tier"></a>Windows N 계층에서 실행 중인 애플리케이션
 
-n 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. 다음 다이어그램은 일반적인 3계층 웹 애플리케이션을 보여줍니다. 이 아키텍처는 [부하가 분산된 VM을 실행하여 확장성 및 가용성 확보](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm) 아티클을 기반으로 합니다. 웹 및 비즈니스 계층은 부하 분산된 VM을 사용합니다.
+N 계층 아키텍처를 구현하는 방법은 여러 가지가 있습니다. 다음 다이어그램은 일반적인 3계층 웹 애플리케이션을 보여줍니다. 이 아키텍처는 [부하가 분산된 VM을 실행하여 확장성 및 가용성 확보](/azure/architecture/reference-architectures/virtual-machines-windows/multi-vm) 아티클을 기반으로 합니다. 웹 및 비즈니스 계층은 부하 분산된 VM을 사용합니다.
 
 ![Windows N 계층에서 실행 중인 애플리케이션에 대한 참조 아키텍처 다이어그램](./media/ddos-best-practices/image10.png)
 

@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 179d0ff8143b526e100b89cffbbac0bbc29ca3e1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76776665"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616745"
 ---
-# <a name="upgrade-azure-public-load-balancer-from-basic-sku-to-standard-sku"></a>Azure Public Load Balancer를 Basic SKU에서 Standard SKU로 업그레이드
+# <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요.
 
 업그레이드에는 두 단계가 있습니다.
@@ -28,8 +28,8 @@ ms.locfileid: "76776665"
 
 다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
 
-* 지정 된 리소스 그룹 및 위치에 표준 공용 SKU Load Balancer를 만듭니다.
-* 기본 SKU 공용 Load Balancer의 구성을 새로 만든 표준 공용 Load Balancer에 원활 하 게 복사 합니다.
+* 지정 된 리소스 그룹 및 위치에 표준 SKU Load Balancer를 만듭니다.
+* 기본 SKU Load Balancer의 구성을 새로 만든 표준 Load Balancer에 원활 하 게 복사 합니다.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
@@ -64,24 +64,15 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 일부 Azure Az 모듈이 설치 되어 있고 제거할 수 없는 경우 (또는 제거 하지 않으려는 경우) 스크립트 다운로드 링크의 **수동 다운로드** 탭을 사용 하 여 스크립트를 수동으로 다운로드할 수 있습니다. 이 스크립트는 원시 nupkg 파일로 다운로드 됩니다. 이 nupkg 파일에서 스크립트를 설치 하려면 [수동 패키지 다운로드](/powershell/scripting/gallery/how-to/working-with-packages/manual-download)를 참조 하세요.
 
-스크립트를 실행하려면
+스크립트를 실행하려면 다음과 같이 하십시오.
 
 1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
 
 1. `Import-Module Az`를 사용 하 여 Az 모듈을 가져옵니다.
 
-1. `Get-Help AzureLBUpgrade.ps1`를 실행 하 여 필요한 매개 변수를 검사 합니다.
+1. 필수 매개 변수를 검사 합니다.
 
-   ```
-   AzurePublicLBUpgrade.ps1
-    -oldRgName <name of the Resource Group where Basic Load Balancer exists>
-    -oldLBName <name of existing Basic Load Balancer>
-    -newrgName <Name of the Resource Group where the new Standard Load Balancer will be created>
-    -newlocation <Name of the location where the new Standard Load Balancer will be created>
-    -newLBName <Name of the Standard Load Balancer to be created>
-   ```
-   스크립트에 대 한 매개 변수:
-   * **Oldrgname: [String]: 필수** – 업그레이드 하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 여 기본 Load Balancer 원본을 선택 하 고 부하 분산 장치에 대 한 **개요** 를 클릭 합니다. 리소스 그룹은 해당 페이지에 있습니다.
+   * **Oldrgname: [String]: 필수** – 업그레이드 하려는 기존 기본 Load Balancer의 리소스 그룹입니다. 이 문자열 값을 찾으려면 Azure Portal로 이동 하 고, 기본 Load Balancer 원본을 선택 하 고, 부하 분산 장치에 대 한 **개요** 를 클릭 합니다. 리소스 그룹은 해당 페이지에 있습니다.
    * **Oldlbname: [String]: 필수** – 업그레이드 하려는 기존 기본 분산 장치의 이름입니다. 
    * **newrgName: [String]: Required** -표준 Load Balancer을 만들 리소스 그룹입니다. 새 리소스 그룹 또는 기존 리소스 그룹 일 수 있습니다. 기존 리소스 그룹을 선택 하는 경우 Load Balancer 이름이 리소스 그룹 내에서 고유 해야 합니다. 
    * **newlocation: [String]: Required** -표준 Load Balancer을 만들 위치입니다. 다른 기존 리소스와의 연결을 개선 하기 위해 선택한 기본 Load Balancer의 동일한 위치를 표준 Load Balancer에 상속 하는 것이 좋습니다.
@@ -126,7 +117,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 트래픽을 전환 하나요?
 
-아닙니다. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
+No. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   

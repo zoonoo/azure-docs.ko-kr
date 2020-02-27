@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/22/2020
 ms.author: iainfou
-ms.openlocfilehash: bd20bb008c52b7d99416aed7a0599a6e78d2acf2
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 114a460b3db67af278f813de2e7a18d571cf3c28
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161650"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613446"
 ---
 # <a name="migrate-azure-ad-domain-services-from-the-classic-virtual-network-model-to-resource-manager"></a>클래식 가상 네트워크 모델에서 리소스 관리자으로 Azure AD Domain Services 마이그레이션
 
@@ -206,12 +206,12 @@ Azure PowerShell은 마이그레이션을 위해 Azure AD DS 관리 되는 도�
     $creds = Get-Credential
     ```
 
-1. 이제 *-Prepare* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Contoso.com*와 같은 사용자 고유의 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
+1. 이제 *-Prepare* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Aaddscontoso.com*와 같은 사용자 고유의 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
 
     ```powershell
     Migrate-Aadds `
         -Prepare `
-        -ManagedDomainFqdn contoso.com `
+        -ManagedDomainFqdn aaddscontoso.com `
         -Credentials $creds
     ```
 
@@ -219,7 +219,7 @@ Azure PowerShell은 마이그레이션을 위해 Azure AD DS 관리 되는 도�
 
 Azure AD DS 관리 되는 도메인을 준비 하 고 백업 하면 도메인을 마이그레이션할 수 있습니다. 이 단계에서는 리소스 관리자 배포 모델을 사용 하 여 Azure AD Domain Services 도메인 컨트롤러 Vm을 다시 만듭니다. 이 단계를 완료 하는 데 1 ~ 3 시간이 걸릴 수 있습니다.
 
-*-Commit* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Contoso.com*와 같은 이전 섹션에서 준비한 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
+*-Commit* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Aaddscontoso.com*와 같은 이전 섹션에서 준비한 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 을 제공 합니다.
 
 Azure AD DS을 마이그레이션할 가상 네트워크를 포함 하는 대상 리소스 그룹 (예: *Myresourcegroup*)을 지정 합니다. *Myvnet*과 같은 대상 가상 네트워크와 *domainservices*와 같은 서브넷을 제공 합니다.
 
@@ -228,7 +228,7 @@ Azure AD DS을 마이그레이션할 가상 네트워크를 포함 하는 대상
 ```powershell
 Migrate-Aadds `
     -Commit `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -VirtualNetworkResourceGroupName myResourceGroup `
     -VirtualNetworkName myVnet `
     -VirtualSubnetName DomainServices `
@@ -265,7 +265,7 @@ PowerShell 스크립트를 닫는 경우에도 마이그레이션 프로세스�
 
 1. 도메인 컨트롤러 중 하나의 IP 주소를 ping 할 수 있는지 확인 합니다 (예: `ping 10.1.0.4`
     * 도메인 컨트롤러의 IP 주소는 Azure Portal의 Azure AD DS 관리 되는 도메인에 대 한 **속성** 페이지에 표시 됩니다.
-1. 관리 되는 도메인의 이름 확인 (예: `nslookup contoso.com`)을 확인 합니다.
+1. 관리 되는 도메인의 이름 확인 (예: `nslookup aaddscontoso.com`)을 확인 합니다.
     * 사용자 고유의 Azure AD DS 관리 되는 도메인에 대 한 DNS 이름을 지정 하 여 DNS 설정이 올바른지 확인 하 고 확인 합니다.
 
 두 번째 도메인 컨트롤러는 마이그레이션 cmdlet이 완료 된 후 1-2 시간 후에 사용할 수 있어야 합니다. 두 번째 도메인 컨트롤러를 사용할 수 있는지 확인 하려면 Azure Portal에서 Azure AD DS 관리 되는 도메인에 대 한 **속성** 페이지를 확인 합니다. 두 개의 IP 주소가 표시 되 면 두 번째 도메인 컨트롤러가 준비 된 것입니다.
@@ -309,12 +309,12 @@ Azure AD DS에는 관리 되는 도메인에 필요한 포트를 보호 하 고 
 
 3 단계에서 마이그레이션을 준비 하기 위해 PowerShell cmdlet을 실행 하는 동안 오류가 발생 하는 경우 Azure AD DS 관리 되는 도메인에서 원래 구성으로 롤백할 수 있습니다. 이 롤백에는 원래 클래식 가상 네트워크가 필요 합니다. 롤백 후에도 IP 주소는 변경 될 수 있습니다.
 
-*-Abort* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Contoso.com*와 같은 이전 섹션에서 준비한 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 및 *myClassicVnet*와 같은 클래식 가상 네트워크 이름을 제공 합니다.
+*-Abort* 매개 변수를 사용 하 여 `Migrate-Aadds` cmdlet을 실행 합니다. *Aaddscontoso.com*와 같은 이전 섹션에서 준비한 Azure AD DS 관리 되는 도메인에 대 한 *-ManagedDomainFqdn* 및 *myClassicVnet*와 같은 클래식 가상 네트워크 이름을 제공 합니다.
 
 ```powershell
 Migrate-Aadds `
     -Abort `
-    -ManagedDomainFqdn contoso.com `
+    -ManagedDomainFqdn aaddscontoso.com `
     -ClassicVirtualNetworkName myClassicVnet `
     -Credentials $creds
 ```

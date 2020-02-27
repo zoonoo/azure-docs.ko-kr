@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.date: 02/04/2020
 ms.author: tamram
 ms.reviewer: cbrooks
-ms.openlocfilehash: f9889f58ead8d1dd35ceb50fa100b2b466cbe7cf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: d97b63aa87bfd8cf8ca1a3f5b213d6b16ca066df
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77022395"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616854"
 ---
 # <a name="configure-advanced-threat-protection-for-azure-storage"></a>Azure Storage에 대 한 advanced threat protection 구성
 
@@ -31,7 +31,7 @@ Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액�
 
 다음 섹션에서 설명 하는 여러 가지 방법으로 advanced threat protection을 구성할 수 있습니다.
 
-### <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+### <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com/)을 시작합니다.
 1. Azure Storage 계정으로 이동 합니다. **설정**아래에서 **고급 보안**을 선택 합니다.
@@ -41,7 +41,7 @@ Azure Storage에 대 한 Advanced threat protection은 저장소 계정에 액�
 
     ![Azure Storage Advanced Threat Protection 켜기](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-turn-on.png)
 
-### <a name="azure-security-centertabazure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
+### <a name="azure-security-center"></a>[Azure Security Center](#tab/azure-security-center)
 
 Azure Security Center 표준 계층을 구독할 때 advanced threat protection은 모든 저장소 계정에 자동으로 설정 됩니다. 다음과 같이 특정 구독에서 저장소 계정에 대 한 고급 위협 방지를 사용 하거나 사용 하지 않도록 설정할 수 있습니다.
 
@@ -57,11 +57,11 @@ Azure Security Center 표준 계층을 구독할 때 advanced threat protection�
     ![Security Center에서 ATP 사용](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-pricing2.png)
 1. **저장**을 클릭합니다.
 
-### <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+### <a name="template"></a>[템플릿](#tab/template)
 
 Azure Resource Manager 템플릿을 사용 하 여 advanced threat protection이 설정 된 Azure Storage 계정을 배포 합니다. 자세한 내용은 [advanced threat protection을 사용 하는 저장소 계정](https://azure.microsoft.com/resources/templates/201-storage-advanced-threat-protection-create/)을 참조 하세요.
 
-### <a name="azure-policytabazure-policy"></a>[Azure Policy](#tab/azure-policy)
+### <a name="azure-policy"></a>[Azure Policy](#tab/azure-policy)
 
 Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장소 계정에서 advanced threat protection을 사용 하도록 설정 합니다.
 
@@ -79,14 +79,14 @@ Azure Policy를 사용 하 여 특정 구독 또는 리소스 그룹의 저장�
 
     ![정책 정의 페이지](./media/storage-advanced-threat-protection/storage-atp-policy1.png)
 
-### <a name="rest-apitabrest-api"></a>[REST API](#tab/rest-api)
+### <a name="rest-api"></a>[REST API](#tab/rest-api)
 
 Rest API 명령을 사용 하 여 특정 저장소 계정에 대 한 advanced threat protection 설정을 만들거나 업데이트 하거나 가져옵니다.
 
 * [Advanced threat protection-만들기](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/create)
 * [Advanced threat protection-Get](https://docs.microsoft.com/rest/api/securitycenter/advancedthreatprotection/get)
 
-### <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+### <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 다음 PowerShell cmdlet을 사용 합니다.
 
@@ -116,9 +116,9 @@ Azure Security Center의 [보안 경고 타일](../../security-center/security-c
 
 ![Azure Storage Advanced Threat Protection 경고 이메일](./media/storage-advanced-threat-protection/storage-advanced-threat-protection-alert.png)
 
-## <a name="protection-alerts"></a>보호 경고
+## <a name="security-alerts"></a>보안 경고
 
-경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 스토리지 계정 악용에 의해 생성됩니다. Azure Storage에 대 한 경고 목록은 [Azure Security Center 경고에서 데이터 서비스에 대 한 위협 검색](../../security-center/security-center-alerts-data-services.md#azure-storage) 의 **저장소** 섹션을 참조 하세요.
+경고는 평소와 다르고 잠재적 위험이 있는 액세스 시도 또는 스토리지 계정 악용에 의해 생성됩니다. Azure Storage에 대 한 경고 목록은 [Azure Security Center에서 data services에 대 한 위협 방지](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurestorage)의 **저장소** 섹션을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

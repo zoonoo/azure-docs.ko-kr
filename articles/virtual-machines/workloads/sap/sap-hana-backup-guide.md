@@ -4,20 +4,20 @@ description: Azure 가상 머신의 SAP HANA에 대한 두 가지 주요 백업 
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ums.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 07/05/2018
-ms.author: rclaus
-ms.openlocfilehash: 05a4b8e8034e1c354a4209244694aeb2fc2c6007
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.author: hermannd
+ms.openlocfilehash: 8de83cbb7060e6ca5390720a4a241be71bb9dc92
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70078758"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617438"
 ---
 # <a name="backup-guide-for-sap-hana-on-azure-virtual-machines"></a>Azure Virtual Machines의 SAP HANA Backup 가이드
 
@@ -30,11 +30,11 @@ Azure 가상 머신에서 실행되는 SAP HANA에 대한 백업 가이드에서
 - Azure Linux Virtual Machine의 파일 시스템에 HANA 백업([파일 수준의 SAP HANA Azure Backup](sap-hana-backup-file-level.md) 참조)
 - 수동으로 Azure Storage Blob 스냅샷 기능을 사용하는 스토리지 스냅샷 또는 Azure Backup 서비스를 기반으로 한 HANA 백업([스토리지 스냅샷에 기반한 SAP HANA 백업](sap-hana-backup-storage-snapshots.md) 참조)
 
-SAP HANA는 타사 백업 도구에서 SAP HANA와 직접 통합할 수 있게 하는 백업 API를 제공합니다. (이 내용은 이 가이드의 범위를 벗어납니다.) 현재 이 API를 기반으로 하여 SAP HANA와 Azure Backup 서비스를 직접 통합할 수는 없습니다.
+SAP HANA는 타사 백업 도구에서 SAP HANA와 직접 통합할 수 있게 하는 백업 API를 제공합니다. (이 가이드의 범위에 포함 되지 않음) 현재이 API에 따라 Azure Backup 서비스를 사용할 수 있는 SAP HANA의 직접적인 통합은 없습니다.
 
 SAP HANA는 Azure M-Series와 같은 다양한 Azure VM 유형에서 공식적으로 지원됩니다. SAP HANA 인증 Azure VM의 전체 목록을 보려면 [Find Certified IaaS Platforms](https://www.sap.com/dmc/exp/2014-09-02-hana-hardware/enEN/iaas.html#categories=Microsoft%20Azure)(공인 IaaS 플랫폼 찾기)를 확인하세요. 이 문서는 Azure의 SAP HANA에 대한 새 제품이 출시됨에 따라 업데이트될 예정입니다.
 
-또한 Azure에서 사용할 수 있는 SAP HANA 하이브리드 솔루션도 있으며, 이 경우 SAP HANA는 물리적 서버에서 가상화되지 않은 상태로 실행됩니다. 그러나 이 SAP HANA Azure 백업 가이드에서는 SAP HANA가 &quot;큰 인스턴스&quot;에서 실행되는 것이 아니라 Azure VM에서 실행되는 순수한 Azure 환경을 다루고 있습니다. 스토리지 스냅샷을 기반으로 하는 &quot;큰 인스턴스&quot;에 대한이 백업 솔루션에 대한 자세한 내용은 [Azure의 SAP HANA(큰 인스턴스) 개요 및 아키텍처](hana-overview-architecture.md)를 참조하세요.
+또한 Azure에서 사용할 수 있는 SAP HANA 하이브리드 솔루션도 있으며, 이 경우 SAP HANA는 물리적 서버에서 가상화되지 않은 상태로 실행됩니다. 그러나이 SAP HANA Azure backup 가이드는 &quot;규모가 많은 인스턴스에서 실행 되는 SAP HANA 아닌 Azure VM에서 SAP HANA를 실행 하는 순수한 Azure 환경을 다룹니다. 저장소 스냅숏을 기반으로 하는 &quot;규모가 많은&quot; 인스턴스의이 백업 솔루션에 대 한 자세한 내용은 [Azure에서 SAP HANA (large instances) 개요 및 아키텍처](hana-overview-architecture.md) 를 참조&quot;.
 
 Azure에서 지원되는 SAP 제품에 대한 일반 정보는 [SAP Note 1928533](https://launchpad.support.sap.com/#/notes/1928533)에 있습니다.
 
@@ -54,7 +54,7 @@ Azure에서 지원되는 SAP 제품에 대한 일반 정보는 [SAP Note 1928533
 
 _&quot;보조 쪽에서 백업을 수행할 수 있을까요?_
 
-_아니요, 현재는 기본 쪽에서만 데이터 및 로그 백업을 수행할 수 있습니다. 자동 로그 백업을 사용하도록 설정된 경우 보조 쪽으로 인계한 후에 로그 백업이 자동으로 보조 쪽에 기록됩니다.&quot;_
+_아니요. 현재는 주 쪽 에서만 데이터 및 로그 백업을 수행할 수 있습니다. 자동 로그 백업을 사용 하는 경우 보조 쪽에 인수 후 로그 백업이 자동으로 기록 됩니다.&quot;_
 
 ## <a name="sap-resources-for-hana-backup"></a>HANA 백업을 위한 SAP 리소스
 
@@ -89,13 +89,13 @@ SAP에서는 HANA 백업과 스토리지 스냅샷을 비교하여 어느 한 �
 
 Azure에서 Azure Blob 스냅샷 기능이 파일 시스템 일관성을 보장하지 않는다는 사실을 알고 있어야 합니다([PowerShell과 함께 Blob 스냅샷 사용](https://blogs.msdn.microsoft.com/cie/2016/05/17/using-blob-snapshots-with-powershell/)(영문) 참조). 다음에 나오는 _스토리지 스냅샷을 만들 때의 SAP HANA 데이터 일관성_ 섹션에서는 이 기능과 관련된 몇 가지 고려 사항에 대해 설명합니다.
 
-또한이 문서에 설명 된 대로 blob 스냅숏을 사용 하 여 자주 작업 하는 경우 청구 의미를 이해 해야 합니다. [스냅숏이 요금을 계산 하는 방법을 이해](/rest/api/storageservices/understanding-how-snapshots-accrue-charges)하면&#39;Azure 가상 디스크를 사용 하는 것 처럼 분명 하지 않습니다.
+또한 [스냅샷 요금 청구 방법 이해](/rest/api/storageservices/understanding-how-snapshots-accrue-charges) 문서에서 설명한 대로 Blob 스냅샷을 자주 사용하는 경우 청구의 함축적 의미를 이해해야 합니다. 이는 Azure 가상 디스크를 사용하는 것만큼 명확하지 않기 때문입니다.
 
 ### <a name="sap-hana-data-consistency-when-taking-storage-snapshots"></a>스토리지 스냅샷을 만들 때의 SAP HANA 데이터 일관성
 
 스토리지 스냅샷을 만들 때 파일 시스템 및 애플리케이션 일관성은 복잡한 문제입니다. 문제를 방지하는 가장 쉬운 방법은 SAP HANA, 심지어는 전체 가상 컴퓨터를 종료하는 것입니다. 종료는 데모 또는 프로토타입, 심지어는 개발 시스템에서도 수행할 수 있지만, 프로덕션 시스템에서는 옵션이 아닙니다.
 
-Azure에서는 Azure Blob 스냅샷 기능이 파일 시스템 일관성을 보장하지 않는다는 사실을 명심해야 합니다. 그러나 하나의 가상 디스크만 있는 한 SAP HANA 스냅샷 기능을 사용하여 제대로 작동합니다. 이처럼 단일 디스크만 사용하는 경우에도 추가 항목을 확인해야 합니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883)에는 스토리지 스냅샷을 통한 SAP HANA 백업에 대한 중요한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용하면 일관성을 보장하기 위해 스토리지 스냅샷을 시작하기 전에 **xfs\_freeze**를 실행해야 합니다(**xfs\_freeze**에 대한 자세한 내용은 [xfs\_freeze(8) - Linux 매뉴얼 페이지](https://linux.die.net/man/8/xfs_freeze) 참조).
+Azure에서는 Azure Blob 스냅샷 기능이 파일 시스템 일관성을 보장하지 않는다는 사실을 명심해야 합니다. 그러나 하나의 가상 디스크만 있는 한 SAP HANA 스냅샷 기능을 사용하여 제대로 작동합니다. 이처럼 단일 디스크만 사용하는 경우에도 추가 항목을 확인해야 합니다. [SAP Note 2039883](https://launchpad.support.sap.com/#/notes/2039883)에는 스토리지 스냅샷을 통한 SAP HANA 백업에 대한 중요한 정보가 있습니다. 예를 들어 XFS 파일 시스템을 사용하면 일관성을 보장하기 위해 스토리지 스냅샷을 시작하기 전에 **xfs\_freeze**를 실행해야 합니다([xfs\_freeze](https://linux.die.net/man/8/xfs_freeze)에 대한 자세한 내용은 **xfs\_freeze(8) - Linux 매뉴얼 페이지** 참조).
 
 단일 파일 시스템이 여러 디스크/볼륨에 걸쳐 있는 경우 일관성 원칙은 더욱 어려워집니다. 예를 들어 mdadm 또는 LVM 및 스트라이핑을 사용합니다. 위에서 언급한 SAP Note에서 다음과 같이 설명하고 있습니다.
 
@@ -192,7 +192,7 @@ SAP HANA 백업 파일을 Azure Blob Storage 또는 Azure 파일 공유로 직�
 
 ### <a name="test-backup-size-estimation"></a>테스트 백업 크기 추정
 
-SAP HANA의 백업 크기를 추정하는 것은 중요합니다. 이 추정값은 파일 복사 중 병렬 처리로 인해 여러 백업 파일의 최대 백업 파일 크기를 정의하여 성능을 향상시키는 데 도움이 됩니다. (자세한 내용은 이 문서의 뒷부분에서 설명합니다.) 또한 전체 백업 또는 델타 백업(증분 또는 차등)을 수행할지 여부도 결정해야 합니다.
+SAP HANA의 백업 크기를 추정하는 것은 중요합니다. 이 추정값은 파일 복사 중 병렬 처리로 인해 여러 백업 파일의 최대 백업 파일 크기를 정의하여 성능을 향상시키는 데 도움이 됩니다. 이러한 세부 정보는이 문서의 뒷부분에 설명 되어 있습니다. 또한 전체 백업 또는 델타 백업 (증분 또는 차등)을 수행할지 여부를 결정 해야 합니다.
 
 다행히도 백업 파일의 크기를 추정하는 간단한 SQL 문(**select \* from M\_BACKUP\_SIZE\_ESTIMATIONS**)이 있습니다([데이터 Backup을 위해 파일 시스템에 필요한 공간 추정](https://help.sap.com/saphelp_hanaplatform/helpdata/en/7d/46337b7a9c4c708d965b65bc0f343c/content.htm)(영문) 참조).
 
@@ -212,7 +212,7 @@ HANA Studio 백업 콘솔을 사용하면 HANA 백업 파일의 최대 파일 �
 
 **파일 시스템에 SAP HANA 백업, 나중에 최종 백업 대상으로 백업 파일 복사**
 
-|솔루션                                           |장점                                 |단점                                  |
+|해결 방법                                           |장점                                 |단점                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |VM 디스크에서 HANA 백업 유지                      |추가 관리 작업 없음     |로컬 VM 디스크 공간 사용           |
 |Blob Storage에 백업 파일을 복사하는 blobxfer 도구 |여러 파일을 복사하는 병렬 처리, 멋진 Blob Storage를 사용하기 위한 선택 항목 | 추가 도구 유지 관리 및 사용자 지정 스크립팅 | 
@@ -225,7 +225,7 @@ HANA Studio 백업 콘솔을 사용하면 HANA 백업 파일의 최대 파일 �
 
 **스토리지 스냅샷에 기반한 SAP HANA 백업**
 
-|솔루션                                           |장점                                 |단점                                  |
+|해결 방법                                           |장점                                 |단점                                  |
 |---------------------------------------------------|-------------------------------------|--------------------------------------|
 |Azure Backup 서비스                               | Blob 스냅샷에 기반한 VM 백업 허용 | 파일 수준 복원을 사용하지 않을 경우 복원 프로세스를 위한 새 VM을 만들어야 하므로 새 SAP HANA 라이선스 키가 필요함|
 |수동 Blob 스냅샷                              | 고유한 VM ID를 변경하지 않고 특정 VM 디스크를 만들고 복원할 수 있는 유연성|고객이 모든 작업을 수동으로 수행해야 함|

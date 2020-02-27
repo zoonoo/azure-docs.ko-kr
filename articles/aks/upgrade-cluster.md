@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Service) 클러스터를 업그레이드하는
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 9acf08765ee42401229bc464b4513856127e9f66
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4520297e83f96f95b10ecafd5af52a913dc5f450
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592988"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621971"
 ---
 # <a name="upgrade-an-azure-kubernetes-service-aks-cluster"></a>AKS(Azure Kubernetes Service) 클러스터 업그레이드
 
@@ -22,7 +22,7 @@ AKS 클러스터의 수명 주기의 일환으로, 최신 Kubernetes 버전으�
 이 문서에서는 Azure CLI 버전 2.0.65 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
 > [!WARNING]
-> AKS 클러스터 업그레이드는 노드의 cordon 드레이닝을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다.  자세한 내용은 [할당량 늘리기](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request?branch=pr-en-us-83289) 를 참조 하세요.
+> AKS 클러스터 업그레이드는 노드의 cordon 드레이닝을 트리거합니다. 사용 가능한 계산 할당량이 낮은 경우 업그레이드가 실패할 수 있습니다. 자세한 내용은 [할당량 늘리기](https://docs.microsoft.com/azure/azure-portal/supportability/resource-manager-core-quotas-request) 를 참조 하세요.
 > 사용자 고유의 클러스터 autoscaler 배포를 실행 하는 경우 업그레이드 프로세스를 방해할 가능성이 있으므로 업그레이드 하는 동안이를 사용 하지 않도록 설정 하세요 (0 개의 복제본으로 크기를 조정할 수 있음). 관리 되는 autoscaler이이를 자동으로 처리 합니다. 
 
 ## <a name="check-for-available-aks-cluster-upgrades"></a>사용할 수 있는 AKS 클러스터 업그레이드를 위한 확인

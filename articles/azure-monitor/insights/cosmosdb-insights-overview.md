@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: 8e265b592bebfc506ae0116c955403dd1070ad3f
-ms.sourcegitcommit: 0b1a4101d575e28af0f0d161852b57d82c9b2a7e
+ms.openlocfilehash: dece5b0bb0508e2d83ee184e71ef0b4364d25ac8
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73166409"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622944"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 살펴보기 (미리 보기)
 
@@ -35,12 +35,39 @@ Azure Cosmos DB (미리 보기)에 대 한 Azure Monitor는 통합 된 대화형
 >[!NOTE]
 >이 기능에 액세스 하는 것은 무료로 제공 되며 [Azure Monitor 가격 책정 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명 된 대로 구성 하거나 사용 하도록 설정한 Azure Monitor 필수 기능에 대해서만 요금이 부과 됩니다.
 
+## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 작업 수준 메트릭 보기
 
-## <a name="accessing-azure-monitor-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 Azure Monitor 액세스
+1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
+
+1. 왼쪽 탐색 모음에서 **모니터** 를 선택 하 고 **메트릭**을 선택 합니다.
+
+   ![Azure Monitor의 메트릭 창](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
+
+1. **메트릭** 창에서 리소스 > **선택** 하 > 필요한 **구독**및 **리소스 그룹**을 선택 합니다. **리소스 종류**에 대해 **Azure Cosmos DB 계정**을 선택 하 고, 기존 Azure Cosmos 계정 중 하나를 선택 하 고, **적용**을 선택 합니다.
+
+   ![메트릭을 볼 Cosmos DB 계정 선택](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
+
+1. 다음으로 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 저장소, 대기 시간, 가용성, Cassandra 및 기타에 특정 한 메트릭을 선택할 수 있습니다. 이 목록에서 사용할 수 있는 모든 메트릭에 대해 자세히 알아보려면 [범주별 메트릭](../../cosmos-db/monitor-cosmos-db-reference.md) 문서를 참조 하세요. 이 예제에서는 **요청 단위** 및 **Avg** 를 집계 값으로 선택 하겠습니다.
+
+   이러한 세부 정보 외에도 메트릭의 **시간 범위** 와 **시간 세분성** 을 선택할 수 있습니다. 최대는 지난 30 일 동안의 메트릭을 볼 수 있습니다.  필터를 적용 하면 필터를 기반으로 차트가 표시 됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
+
+   ![Azure Portal에서 메트릭 선택](./media/cosmosdb-insights-overview/metric-types.png)
+
+### <a name="add-filters-to-metrics"></a>메트릭에 필터 추가
+
+특정 **CollectionName**, **DatabaseName**, **OperationType**, **Region**및 **StatusCode**에 의해 표시 되는 메트릭 및 차트를 필터링 할 수도 있습니다. 메트릭을 필터링 하려면 **필터 추가** 를 선택 하 고 **OperationType** 와 같은 필수 속성을 선택한 후 **쿼리**와 같은 값을 선택 합니다. 그러면 그래프는 선택한 기간에 대해 쿼리 작업에 사용 된 요청 단위를 표시 합니다. 저장 프로시저를 통해 실행 되는 작업은 기록 되지 않으므로 OperationType 메트릭 아래에서 사용할 수 없습니다.
+
+![메트릭 세분성을 선택 하는 필터 추가](./media/cosmosdb-insights-overview/add-metrics-filter.png)
+
+**분할 적용** 옵션을 사용 하 여 메트릭을 그룹화 할 수 있습니다. 예를 들어 다음 이미지에 표시 된 것 처럼 작업 유형별 요청 단위를 그룹화 하 고 모든 작업의 그래프를 한 번에 볼 수 있습니다.
+
+![분할 필터 적용 추가](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
+
+## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 사용률 및 성능 메트릭 보기
 
 모든 구독에서 저장소 계정의 사용률 및 성능을 보려면 다음 단계를 수행 합니다.
 
-1. [Azure portal](https://portal.azure.com)에 로그인합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 2. **모니터** 를 검색 하 고 **모니터**를 선택 합니다.
 
@@ -74,15 +101,15 @@ Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하
 
 ![HTTP 요청 유형별 분석 오류 스크린샷](./media/cosmosdb-insights-overview/failures.png)
 
-| 코드      |  설명       | 
+| 코드      |  Description       | 
 |-----------|:--------------------|
-| `200 OK`  | 다음 REST 작업 중 하나가 성공 했습니다. </br>-리소스를 가져옵니다. </br> -리소스에 추가 합니다. </br> -리소스에 게시 합니다. </br> -저장 프로시저를 실행 하기 위해 저장 프로시저 리소스에 게시 합니다.|
-| `201 Created` | 리소스를 만들기 위한 POST 작업이 성공 했습니다. |
-| `404 Not Found` | 더 이상 존재 하지 않는 리소스에 대 한 작업을 수행 하려고 합니다. 예를 들어 리소스가 이미 삭제 되었을 수 있습니다. |
+| `200 OK`  | 다음 REST 작업 중 하나가 정상적으로 완료되었습니다. </br>-리소스를 가져옵니다. </br> -리소스에 추가 합니다. </br> -리소스에 게시 합니다. </br> -저장 프로시저를 실행 하기 위해 저장 프로시저 리소스에 게시 합니다.|
+| `201 Created` | 리소스를 만들기 위한 POST 작업이 정상적으로 완료되었습니다. |
+| `404 Not Found` | 더 이상 없는 리소스에 대해 작업을 수행했습니다. 리소스가 이미 삭제된 경우를 예로 들 수 있습니다. |
 
 상태 코드의 전체 목록은 [AZURE COSMOS DB HTTP 상태 코드 문서](https://docs.microsoft.com/rest/api/cosmos-db/http-status-codes-for-cosmosdb)를 참조 하세요.
 
-### <a name="capacity"></a>용량 중심
+### <a name="capacity"></a>용량
 
 페이지 맨 위에 있는 **용량** 을 선택 하면 통합 문서 템플릿의 **용량** 부분이 열립니다. 사용자가 보유 한 문서 수, 시간에 따른 문서 증가, 데이터 사용, 남은 사용 가능한 저장소의 총 크기를 보여 줍니다.  이를 사용 하 여 잠재적 저장소 및 데이터 사용률 문제를 식별할 수 있습니다.
 
@@ -90,7 +117,7 @@ Azure Cosmos DB 리소스 중 하나 옆의 드롭다운 화살표를 선택 하
 
 개요 통합 문서와 마찬가지로 **구독** 열의 Azure Cosmos DB 리소스 옆에 있는 드롭다운을 선택 하면 데이터베이스를 구성 하는 개별 컨테이너의 분석 결과가 표시 됩니다.
 
-### <a name="operations"></a>운영 
+### <a name="operations"></a>작업 
 
 페이지 위쪽에서 **작업** 을 선택 하면 통합 문서 템플릿의 **작업** 부분이 열립니다. 요청 유형에 따라 세분화 된 요청을 볼 수 있는 기능을 제공 합니다. 
 

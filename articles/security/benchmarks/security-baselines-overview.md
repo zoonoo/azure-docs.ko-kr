@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/16/2019
 ms.author: mbaldwin
 ms.custom: security-baselines
-ms.openlocfilehash: 2114d9ecff5ee49c63d737cf13278fe45f1f9f73
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: c16d7247b781fea04cfa2d53b8854cff14e039c7
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589962"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616442"
 ---
 # <a name="overview-of-azure-security-baselines"></a>Azure 보안 기준 개요
 
@@ -28,4 +28,4 @@ Azure 서비스 보안 기준은 클라우드 중심 제어 영역에 중점을 
 - **책임**: 컨트롤의 구현을 담당 하는 사용자입니다. 가능한 시나리오는 고객 책임, Microsoft 책임 또는 공유 책임입니다.
 - **Azure Security Center 모니터링**: Azure Security Center에 의해 컨트롤이 모니터링 되는지 여부와 참조 링크를 포함 합니다.
 
-이 특정 서비스에 적용 되지 않는 권장 사항을 비롯 한 모든 권장 사항은 Azure 보안 벤치 마크가 각 서비스와 어떻게 관련 되는지에 대 한 전체 개요를 제공 하는 기준에 포함 되어 있습니다. 여러 가지 이유로 적용 되지 않는 컨트롤이 있을 수 있습니다. 예를 들어, IaaS/compute 중심 컨트롤 (예: OS 구성 관리와 관련 된 컨트롤)은 PaaS 서비스에 적용 되지 않을 수 있습니다.
+이 특정 서비스에 적용 되지 않는 권장 사항을 비롯 한 모든 권장 사항은 Azure 보안 벤치 마크가 각 서비스와 어떻게 관련 되는지에 대 한 전체 개요를 제공 하는 기준에 포함 되어 있습니다. 여러 가지 이유로 적용 되지 않는 컨트롤이 있을 수 있습니다. 예를 들어, IaaS/계산 중심 컨트롤 (예: OS 구성 관리와 관련 된 컨트롤)은 PaaS 서비스에 적용 되지 않을 수 있습니다.

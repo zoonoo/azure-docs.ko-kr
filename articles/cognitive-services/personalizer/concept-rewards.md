@@ -1,27 +1,22 @@
 ---
 title: 보상 점수 - Personalizer
-titleSuffix: Azure Cognitive Services
 description: 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 RewardActionID가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다. Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: personalizer
+ms.date: 02/20/2020
 ms.topic: conceptual
-ms.date: 10/24/2019
-ms.author: diberry
-ms.openlocfilehash: a47d6014e51dce81c9caf82f8624896c439f050d
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: 734e4d0fdcec25884f8535ec61ccd10569fa8890
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490890"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623775"
 ---
 # <a name="reward-scores-indicate-success-of-personalization"></a>보상 점수는 맞춤 설정의 성공을 나타냅니다.
 
 보상 점수는 사용자에 대한 맞춤 설정 선택 항목인 [RewardActionID](https://docs.microsoft.com/rest/api/cognitiveservices/personalizer/rank/rank#response)가 효율적으로 수행된 정도를 나타냅니다. 보상 점수의 값은 사용자 동작 관찰 기반의 비즈니스 논리에 따라 결정됩니다.
 
-Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다. 
+Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니다.
+
+Personalizer 리소스에 대 한 Azure Portal에서 기본 보상 점수를 구성 하 [는 방법](how-to-settings.md#configure-rewards-for-the-feedback-loop) 에 대해 알아봅니다.
 
 ## <a name="use-reward-api-to-send-reward-score-to-personalizer"></a>보상 API를 사용하여 Personalizer에 보상 점수 보내기
 
@@ -47,16 +42,16 @@ Personalizer는 보상을 평가하여 기계 학습 모델을 학습시킵니�
 
 보상 점수는 비즈니스 논리에서 계산해야 합니다. 점수는 다음과 같이 나타낼 수 있습니다.
 
-* 한 번 보낸 단일 숫자 
+* 한 번 보낸 단일 숫자
 * 즉시 보낸 점수(예: 0.8) 및 나중에 보낸 추가 점수(일반적으로 0.2)
 
 ## <a name="default-rewards"></a>기본 보상
 
 Rank(순위) 호출 이후의 기간인 [보상 대기 시간](#reward-wait-time) 내에 보상이 수신되지 않으면 Personalizer에서 **기본 보상**을 해당 Rank 이벤트에 암시적으로 적용합니다.
 
-## <a name="building-up-rewards-with-multiple-factors"></a>여러 요소를 사용하여 보상 작성  
+## <a name="building-up-rewards-with-multiple-factors"></a>여러 요소를 사용하여 보상 작성
 
-효과적인 개인 설정의 경우 여러 요소에 따라 보상 점수를 구축할 수 있습니다. 
+효과적인 개인 설정의 경우 여러 요소에 따라 보상 점수를 구축할 수 있습니다.
 
 예를 들어 다음 규칙을 적용하여 비디오 콘텐츠 목록을 개인에 맞게 설정할 수 있습니다.
 
@@ -93,8 +88,8 @@ Rank(순위) 호출 이후의 기간인 [보상 대기 시간](#reward-wait-time
 * **의도**하지 않은 결과를 고려 합니다. 윤리를 사용 하 여 책임이 있는 결과를 생성 하 [고 담당](ethics-responsible-use.md)하는 보상 함수를 만듭니다.
 
 * **증분 보상 사용**: 더 작은 사용자 동작에 대 한 부분 보상을 추가 하면 더 나은 보상을 Personalizer 수 있습니다. 이 증분 보상을 사용하면 알고리즘에서 최종적으로 원하는 동작에 사용자를 참여시키는 데 더 가까워지고 있음을 확인할 수 있습니다.
-    * 영화 목록을 표시하는 경우 사용자가 잠시 동안 자세한 정보를 보기 위해 마우스로 첫 번째 항목 위를 가리키면 일부 사용자가 참여했는지 확인할 수 있습니다. 이 동작은 0.1의 보상 점수로 계산될 수 있습니다. 
-    * 사용자가 페이지를 연 다음, 종료하는 경우 보상 점수는 0.2가 될 수 있습니다. 
+    * 영화 목록을 표시하는 경우 사용자가 잠시 동안 자세한 정보를 보기 위해 마우스로 첫 번째 항목 위를 가리키면 일부 사용자가 참여했는지 확인할 수 있습니다. 이 동작은 0.1의 보상 점수로 계산될 수 있습니다.
+    * 사용자가 페이지를 연 다음, 종료하는 경우 보상 점수는 0.2가 될 수 있습니다.
 
 ## <a name="reward-wait-time"></a>보상 대기 시간
 
@@ -106,12 +101,12 @@ Personalizer는 Rank 호출의 정보와 모델 학습을 위한 Reward 호출�
 
 더 나은 결과를 얻으려면 다음 추천 사항을 따릅니다.
 
-* 보상 대기 시간을 최대한 짧게 설정하는 한편, 사용자 피드백을 받을 수 있는 충분한 시간을 남겨 둡니다. 
+* 보상 대기 시간을 최대한 짧게 설정하는 한편, 사용자 피드백을 받을 수 있는 충분한 시간을 남겨 둡니다.
 
 * 피드백을 받는 데 필요한 시간보다 짧은 기간을 선택하지 않습니다. 예를 들어 사용자가 비디오를 1분 동안 시청한 후에 보상 중 일부가 들어오는 경우 실험 길이는 두 배 이상이어야 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-* [보충 학습](concepts-reinforcement-learning.md) 
+* [보충 학습](concepts-reinforcement-learning.md)
 * [순위 API 사용해 보기](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Rank/console)
 * [보상 API 사용해 보기](https://westus2.dev.cognitive.microsoft.com/docs/services/personalizer-api/operations/Reward)

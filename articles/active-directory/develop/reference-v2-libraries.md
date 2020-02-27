@@ -17,12 +17,12 @@ ms.date: 07/25/2019
 ms.author: negoe
 ms.reviewer: jmprieur, saeeda
 ms.custom: aaddev
-ms.openlocfilehash: 09d0def2ebd012670b9502f6f9b02ad18a02922d
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 9d2df175fa9d1ed33eb17ae85e01a4fd7a24e728
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160410"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611947"
 ---
 # <a name="microsoft-identity-platform-authentication-libraries"></a>Microsoft id 플랫폼 인증 라이브러리
 
@@ -93,7 +93,7 @@ Microsoft id 플랫폼 끝점을 사용 하는 라이브러리 목록은 다음 
 
 | 플랫폼 | 라이브러리 이름 | 테스트 버전 | 소스 코드 | 샘플 |
 |:---:|:---:|:---:|:---:|:---:|
-|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 버전 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-web-v2) |
+|![JavaScript](media/sample-v2-code/logo_js.png)|[Hello.js](https://adodson.com/hello.js/) | 버전 1.13.5 |[Hello.js](https://github.com/MrSwitch/hello.js) |[SPA](https://github.com/Azure-Samples/active-directory-javascript-graphapi-v2) |
 | ![Java](media/sample-v2-code/logo_java.png) | [Scribe Java](https://github.com/scribejava/scribejava) | [버전 3.2.0](https://github.com/scribejava/scribejava/releases/tag/scribejava-3.2.0) | [ScribeJava](https://github.com/scribejava/scribejava/) | |
 | ![Java](media/sample-v2-code/logo_java.png) | [Gluu Openid connect Connect 라이브러리](https://github.com/GluuFederation/oxAuth) | [버전 3.0.2](https://github.com/GluuFederation/oxAuth/releases/tag/3.0.2) | [Gluu Openid connect Connect 라이브러리](https://github.com/GluuFederation/oxAuth) | |
 | ![Python](media/sample-v2-code/logo_python.png) | [요청-OAuthlib](https://github.com/requests/requests-oauthlib) | [버전 1.2.0](https://github.com/requests/requests-oauthlib/releases/tag/v1.2.0) | [요청-OAuthlib](https://github.com/requests/requests-oauthlib) | |

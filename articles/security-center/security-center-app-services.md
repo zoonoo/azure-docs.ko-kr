@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 01/27/2019
 ms.author: memildin
-ms.openlocfilehash: c286efcfad78a8f7acf9974605d53ed3cc06a09e
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2d81e1a1218add504e1e35015276b6924da0e3e3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604539"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616477"
 ---
 # <a name="protect-your-azure-app-service-web-apps-and-apis"></a>Azure App Service 웹 앱 및 Api 보호
 
@@ -29,7 +29,7 @@ Azure App Service 계획에 대 한 고급 위협 방지를 사용 하도록 설
 
 App Service 계획을 사용 하도록 설정 하면 Security Center App Service 계획에 포함 된 리소스를 평가 하 고 해당 결과에 따라 보안 권장 사항을 생성 합니다. Security Center App Service를 실행 하는 VM 인스턴스와 관리 인터페이스를 보호 합니다. 또한 App Service에서 실행 중인 앱에서 송수신한 요청 및 응답을 모니터링합니다.
 
-Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다. Azure App Service의 위협 검색 경고 Security Center에 대 한 자세한 내용은 [클라우드 네이티브 컴퓨팅에 대 한 위협 감지](security-center-alerts-compute.md#azure-app-service-)를 참조 하세요.
+Security Center는 클라우드의 규모와 Azure에서 클라우드 공급자로의 표시 유형을 활용 하 여 일반적인 웹 앱 공격을 모니터링 합니다. 공격자가 정찰 단계에 있는 동안에도 응용 프로그램에 대 한 공격을 검색 하 고 새로운 공격을 식별할 수 Security Center. Azure native Security Center service로 서는이 PaaS의 기본 계산 노드를 포함 하는 호스트 기반 보안 분석을 제공 하는 고유한 위치에도 있으므로 이미 악용 된 웹 응용 프로그램에 대 한 공격을 검색할 Security Center 있습니다. 자세한 내용은 [Azure App Service에 대 한 위협 방지](threat-protection.md#app-services)를 참조 하세요.
 
 
 ## <a name="enabling-monitoring-and-protection-of-app-service"></a>App Service 모니터링 및 보호 사용

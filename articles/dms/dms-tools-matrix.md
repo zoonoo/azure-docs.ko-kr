@@ -2,21 +2,21 @@
 title: Azure Database Migration Service 도구 매트릭스
 description: 데이터베이스를 마이그레이션하고 마이그레이션 프로세스의 다양한 단계를 지원하는 데 사용할 수 있는 서비스 및 도구를 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: mvc
 ms.topic: article
-ms.date: 01/10/2020
-ms.openlocfilehash: 6259f365edeb3c3d94646a4b2ae019d0776dcc23
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.date: 02/20/2020
+ms.openlocfilehash: c64e9392173f2f329f6c95d4cf9f40614060066e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75860846"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651001"
 ---
 # <a name="services-and-tools-available-for-data-migration-scenarios"></a>데이터 마이그레이션 시나리오에 사용할 수 있는 서비스 및 도구
 
@@ -29,7 +29,7 @@ ms.locfileid: "75860846"
 
 ## <a name="business-justification-phase"></a>비즈니스 타당성 단계
 
-| 원본 | 대상 파악 | 감지<br/>인벤토리 | 대상 및 SKU<br/>권장 사항 | TCO/ROI<br/>비즈니스 사례 |
+| 원본 | 대상 | 감지<br/>인벤토리 | 대상 및 SKU<br/>권장 사항 | TCO/ROI<br/>비즈니스 사례 |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [MAP 도구 키트](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO 계산기](https://azure.microsoft.com/pricing/tco/calculator/) |
  SQL Server | Azure SQL DB MI | [MAP 도구 키트](https://msdn.microsoft.com/library/bb977556.aspx)<br/>[Azure Migrate](https://azure.microsoft.com/services/azure-migrate/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [TCO 계산기](https://azure.microsoft.com/pricing/tco/calculator/) |
@@ -47,14 +47,14 @@ ms.locfileid: "75860846"
 | PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) |  | [TCO 계산기](https://azure.microsoft.com/pricing/tco/calculator/) |
 | RDS PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 |  |  | [TCO 계산기](https://azure.microsoft.com/pricing/tco/calculator/) |
 | DB2 | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| 액세스 | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| 액세스 권한 | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP ASE | Azure SQL DB, MI, VM | [Azure Migrate](https://azure.microsoft.com/services/azure-migrate/) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | Azure SQL DB, MI, VM |  |  |  |
 | | | | | |
 
 ## <a name="pre-migration-phase"></a>마이그레이션 전 단계
 
-| 원본 | 대상 파악 | 앱 데이터 액세스<br/>계층 평가 | 데이터베이스<br/>평가 | 성능 중심<br/>평가 |
+| 원본 | 대상 | 앱 데이터 액세스<br/>계층 평가 | 데이터베이스<br/>평가 | 성능<br/>평가 |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Azure SQL DB MI | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017) | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DEA](https://www.microsoft.com/download/details.aspx?id=54090)<br/>[Cloudamize*](https://www.cloudamize.com/) |
@@ -72,14 +72,14 @@ ms.locfileid: "75860846"
 | PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 |  |  |  |
 | RDS PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 |  |  |  |
 | DB2 | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [ssma](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
-| 액세스 | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
+| 액세스 권한 | Azure SQL DB, MI, VM |  | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP ASE | Azure SQL DB, MI, VM | [DAMT](https://marketplace.visualstudio.com/items?itemName=ms-databasemigration.data-access-migration-toolkit) / [ssma](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |  |
 | Sybase-SAP IQ | Azure SQL DB, MI, VM |  | |  |
 | | | | | |
 
 ## <a name="migration-phase"></a>마이그레이션 단계
 
-| 원본 | 대상 파악 | 스키마 | 데이터<br/>라인인 | 데이터<br/>전환 |
+| 원본 | 대상 | 스키마 | data<br/>라인인 | data<br/>전환 |
 | --- | --- | --- | --- | --- |
 | SQL Server | Azure SQL DB | [DMA](https://docs.microsoft.com/sql/dma/dma-overview?view=sql-server-2017)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | SQL Server | Azure SQL DB MI | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/) | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Cloudamize*](https://www.cloudamize.com/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
@@ -97,14 +97,14 @@ ms.locfileid: "75860846"
 | PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 | [PG dump*](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | RDS PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 | [PG dump*](https://www.postgresql.org/docs/11/static/app-pgdump.html) |  | [DMS](https://azure.microsoft.com/services/database-migration/)<br/>[Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | DB2 | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
-| 액세스 | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
+| 액세스 권한 | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) |
 | Sybase-SAP ASE | Azure SQL DB, MI, VM | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [SSMA](https://docs.microsoft.com/sql/ssma/sql-server-migration-assistant?view=sql-server-2017) | [Attunity*](https://www.attunity.com/products/replicate/)<br/>[Striim*](https://www.striim.com/partners/striim-for-microsoft-azure/) |
 | Sybase-SAP IQ | Azure SQL DB, MI, VM | [Ispirer*](http://www.ispirer.com/solutions/migration-to-the-microsoft-technology-stack) | [Ispirer*](http://www.ispirer.com/solutions/migration-to-the-microsoft-technology-stack) | |
 | | | | | |
 
 ## <a name="post-migration-phase"></a>마이그레이션 후 단계
 
-| 원본 | 대상 파악 | 최적화 |
+| 원본 | 대상 | 최적화 |
 | --- | --- | --- |
 | SQL Server | Azure SQL DB | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
 | SQL Server | Azure SQL DB MI | [Cloud Atlas*](https://www.unifycloud.com/cloud-migration-tool/)<br/>[Cloudamize*](https://www.cloudamize.com/) |
@@ -122,7 +122,7 @@ ms.locfileid: "75860846"
 | PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 |  |
 | RDS PostgreSQL | PostgreSQL 용 Azure DB-<br/>단일 서버 |  |
 | DB2 | Azure SQL DB, MI, VM |  |
-| 액세스 | Azure SQL DB, MI, VM |  |
+| 액세스 권한 | Azure SQL DB, MI, VM |  |
 | Sybase-SAP ASE | Azure SQL DB, MI, VM |  |
 | Sybase-SAP IQ | Azure SQL DB, MI, VM |  |
 | | | |

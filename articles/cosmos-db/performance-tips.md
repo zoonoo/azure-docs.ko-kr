@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 01/15/2020
 ms.author: sngun
-ms.openlocfilehash: eec5ab6cdf4afd63db2e77046bb19436e600ece6
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dc9d10a6539c7fc3a7c5c8b3db290cc951c24883
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720999"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623328"
 ---
 # <a name="performance-tips-for-azure-cosmos-db-and-net"></a>Azure Cosmos DB 및 .NET에 대한 성능 팁
 
@@ -24,6 +24,35 @@ ms.locfileid: "76720999"
 Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크기가 조정되는 빠르고 유연한 분산 데이터베이스입니다. Azure Cosmos DB를 사용하여 데이터베이스의 크기를 조정하기 위해 주요 아키텍처를 변경하거나 복잡한 코드를 작성할 필요는 없습니다. 규모를 확장 및 축소하는 방법이 API 호출을 하나 만드는 것만큼 쉽습니다. 자세한 내용은 [컨테이너 처리량을 프로비전하는 방법](how-to-provision-container-throughput.md) 또는 [데이터베이스 처리량을 프로비전하는 방법](how-to-provision-database-throughput.md)을 참조하세요. 그러나 네트워크 호출을 통해 Azure Cosmos DB에 액세스하기 때문에 [SQL .NET SDK](sql-api-sdk-dotnet-standard.md)를 사용할 때 최대 성능을 얻기 위해 클라이언트 쪽에서 최적화 작업을 수행할 수 있습니다.
 
 "내 데이터베이스 성능을 향상시키는 방법"을 물으면 다음 옵션을 고려합니다.
+
+## <a name="hosting-recommendations"></a>호스팅 권장 사항
+
+1.  **쿼리를 많이 사용 하는 워크 로드의 경우 Linux 또는 Windows 32 호스트 처리 대신 Windows 64 비트를 사용 합니다.**
+
+    성능 향상을 위해 Windows 64 비트 호스트를 처리 하는 것이 좋습니다. SQL SDK는 로컬에서 쿼리를 구문 분석 하 고 최적화 하는 네이티브 ServiceInterop .dll을 포함 하며, Windows x64 플랫폼 에서만 지원 됩니다. ServiceInterop .dll을 사용할 수 없는 Linux 및 기타 지원 되지 않는 플랫폼의 경우에는 게이트웨이에 대 한 추가 네트워크 호출을 수행 하 여 최적화 된 쿼리를 가져옵니다. 다음과 같은 유형의 애플리케이션에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 애플리케이션 유형에 따라 다음 단계를 따르세요.
+
+    - 실행 가능한 응용 프로그램의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 [플랫폼 대상](https://docs.microsoft.com/visualstudio/ide/how-to-configure-projects-to-target-platforms?view=vs-2019) 을 x **64** 로 설정 하 여이 작업을 수행할 수 있습니다.
+
+    - VSTest 기반 테스트 프로젝트의 경우 **Visual Studio 테스트** 메뉴 옵션에서 ->테스트->테스트 설정**기본 프로세서 아키텍처 X64**를 선택하면 됩니다.
+
+    - 로컬로 배포된 ASP.NET 웹 애플리케이션의 경우 **도구**옵션->프로젝트 및 솔루션->웹 프로세스->에서 **웹 사이트 및 프로젝트에 64비트 버전의 IIS Express 사용**을 선택하면 됩니다.
+
+    - Azure에 배포된 ASP.NET 웹 애플리케이션에서는 Azure Portal의 **애플리케이션 설정**에서 **64비트 플랫폼**을 선택하면 됩니다.
+
+    > [!NOTE] 
+    > Visual studio는 모든 CPU에 새 프로젝트를 기본값으로 설정 합니다. X 64로 전환 하지 않도록 프로젝트를 x 64로 설정 하는 것이 좋습니다. X 86 전용 종속성이 추가 되 면 모든 CPU 프로젝트가 x 86으로 쉽게 전환할 수 있습니다.<br/>
+    > ServiceInterop .dll은 SDK dll이 실행 되는 것과 동일한 폴더에 있어야 합니다. 사용자가 수동으로 dll을 복사 하거나 사용자 지정 빌드/배포 시스템을 보유 하는 경우에만이 작업을 수행 해야 합니다.
+    
+2. **서버 쪽 가비지 수집 (GC) 설정**
+
+    경우에 따라 가비지 수집의 빈도를 줄이는 것이 도움이 될 수 있습니다. .NET에서 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 를 true로 설정합니다.
+
+3. **클라이언트 워크로드 규모 확장**
+
+    높은 처리량 수준에서 테스트하는 경우(&gt;50,000 RU/s) 머신의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 애플리케이션은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 애플리케이션을 확장하여 Azure Cosmos DB 계정을 계속 추가할 수 있습니다.
+
+    > [!NOTE] 
+    > 높은 CPU 사용량으로 인해 대기 시간 및 요청 시간 제한 예외가 발생할 수 있습니다.
 
 ## <a name="networking"></a>네트워킹
 <a id="direct-connection"></a>
@@ -96,6 +125,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
 
     ![Azure Cosmos DB 연결 정책 그림](./media/performance-tips/same-region.png)
    <a id="increase-threads"></a>
+
 4. **스레드/작업의 수 늘리기**
 
     Azure Cosmos DB 호출은 네트워크를 통해 수행되므로 클라이언트 애플리케이션이 요청 간에 대기하는 시간이 짧도록 요청의 병렬 처리 수준을 다양하게 지정해야 할 수 있습니다. 예를 들어 .NET의 [작업 병렬 라이브러리](https://msdn.microsoft.com//library/dd460717.aspx)를 사용하는 경우 Azure Cosmos DB를 읽거나 쓰는 작업을 대략 수백 개 만듭니다.
@@ -121,9 +151,11 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     각 DocumentClient 및 CosmosClient 인스턴스는 스레드로부터 안전 하 고 직접 모드에서 작동 하는 경우 효율적인 연결 관리와 주소 캐싱을 수행 합니다. SDK 클라이언트에서 효율적으로 연결을 관리 하 고 성능을 향상 시키려면 응용 프로그램의 수명 동안 AppDomain 당 단일 인스턴스를 사용 하는 것이 좋습니다.
 
    <a id="max-connection"></a>
+
 4. **Gateway 모드를 사용하는 경우 호스트당 System.Net MaxConnections 늘리기**
 
-    게이트웨이 모드를 사용하는 경우 Azure Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Azure Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections를 더 높은 값(100-1000)으로 설정해야 할 수도 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.   
+    게이트웨이 모드를 사용하는 경우 Azure Cosmos DB 요청은 HTTPS/REST를 통해 수행되며 호스트 이름 또는 IP 주소당 기본 연결 제한이 적용됩니다. 클라이언트 라이브러리가 Azure Cosmos DB에 대한 여러 동시 연결을 활용할 수 있도록 MaxConnections를 더 높은 값(100-1000)으로 설정해야 할 수도 있습니다. .NET SDK 1.8.0 이상에서 [ServicePointManager.DefaultConnectionLimit](https://msdn.microsoft.com/library/system.net.servicepointmanager.defaultconnectionlimit.aspx)의 기본값은 50이며, 이 값을 변경하려면 [Documents.Client.ConnectionPolicy.MaxConnectionLimit](https://msdn.microsoft.com/library/azure/microsoft.azure.documents.client.connectionpolicy.maxconnectionlimit.aspx)를 더 높은 값으로 설정할 수 있습니다.
+
 5. **분할된 컬렉션에 대한 병렬 쿼리 튜닝**
 
      SQL .NET SDK 버전 1.9.0 이상은 분할된 컬렉션을 병렬로 쿼리할 수 있는 병렬 쿼리를 지원합니다. 자세한 내용은 SDK 사용과 관련된 [코드 샘플](https://github.com/Azure/azure-documentdb-dotnet/blob/master/samples/code-samples/Queries/Program.cs)을 참조하세요. 병렬 쿼리는 해당 직렬 대응을 통해 쿼리 대기 시간 및 처리량을 개선하기 위해 설계되었습니다. 병렬 쿼리는 사용자가 사용자 지정 맞춤 요구 사항을 튜닝할 수 있는 다음과 같은 두 개의 매개 변수를 제공합니다. (a) MaxDegreeOfParallelism: 파티션의 최대 수를 제어한 다음 병렬로 쿼리될 수 있습니다. (b) MaxBufferedItemCount: 프리페치된 결과의 수를 제어합니다.
@@ -135,10 +167,8 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     (b) ***MaxBufferedItemCount 튜닝\:*** 결과의 현재 배치가 클라이언트에서 처리되는 반면 병렬 쿼리는 결과를 프리페치하도록 설계되었습니다. 프리페치는 쿼리의 전체 대기 시간 개선 사항에 도움이 됩니다. MaxBufferedItemCount는 프리페치된 결과의 수를 제한하는 매개 변수입니다. MaxBufferedItemCount를 반환된 결과의 예상 수(또는 더 높은 숫자)로 설정하면 쿼리가 프리페치의 최대 이점을 얻을 수 있습니다.
 
     사전 인출은 병렬 처리 수준에 관계 없이 동일한 방식으로 작동 하며 모든 파티션의 데이터에 대 한 단일 버퍼가 있습니다.  
-6. **서버 쪽 GC 켜기**
 
-    경우에 따라 가비지 수집의 빈도를 줄이는 것이 도움이 될 수 있습니다. .NET에서 [gcServer](https://msdn.microsoft.com/library/ms229357.aspx) 를 true로 설정합니다.
-7. **RetryAfter 간격으로 백오프 구현**
+6. **RetryAfter 간격으로 백오프 구현**
 
     성능 테스트 중에는 작은 비율의 요청이 제한될 때까지 로드를 늘려야 합니다. 제한될 경우 클라이언트 애플리케이션은 서버에서 지정한 재시도 간격 제한을 백오프해야 합니다. 백오프를 통해 재시도 간 기간을 최소화할 수 있습니다. 다시 시도 정책 지원은 SQL [.NET](sql-api-sdk-dotnet.md) 및 [Java](sql-api-sdk-java.md)의1.8.0 버전 이상, [Node.js](sql-api-sdk-node.md) 및 [Python](sql-api-sdk-python.md)의 1.9.0 버전 이상과 [.NET Core](sql-api-sdk-dotnet-core.md) SDK의 모든 지원 버전에 포함됩니다. 자세한 내용은 [RetryAfter](https://msdn.microsoft.com/library/microsoft.azure.documents.documentclientexception.retryafter.aspx)를 참조하세요.
     
@@ -147,16 +177,13 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     ResourceResponse<Document> readDocument = await this.readClient.ReadDocumentAsync(oldDocuments[i].SelfLink);
     readDocument.RequestDiagnosticsString 
     ```
-    
-8. **클라이언트 워크로드 규모 확장**
 
-    높은 처리량 수준에서 테스트하는 경우(&gt;50,000 RU/s) 머신의 CPU 또는 네트워크 사용률이 최대화되므로 클라이언트 애플리케이션은 병목 상태가 될 수 있습니다. 이 시점에 도달하면 여러 서버에 걸쳐 클라이언트 애플리케이션을 확장하여 Azure Cosmos DB 계정을 계속 추가할 수 있습니다.
-9. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
+7. **짧은 읽기 대기 시간 동안 문서 URI 캐시**
 
-    최상의 문서 읽기 성능이 필요할 때마다 문서 URI를 캐시합니다. 리소스를 만들 때 resourceid를 캐시하는 논리를 정의해야 합니다. Resourceid 기반 조회는 이름 기반 조회보다 빠르므로 이러한 값을 캐시하면 성능이 향상됩니다. 
+    최상의 문서 읽기 성능이 필요할 때마다 문서 URI를 캐시합니다. 리소스를 만들 때 리소스 ID를 캐시 하는 논리를 정의 해야 합니다. 리소스 ID 기반 조회는 이름 기반 조회 보다 빠르기 때문에 이러한 값을 캐시 하면 성능이 향상 됩니다. 
 
    <a id="tune-page-size"></a>
-10. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
+8. **성능 향상을 위해 쿼리/읽기 피드에 맞게 페이지 크기 조정**
 
    읽기 피드 기능을 사용하여 대량의 문서 읽기를 수행하거나(예: ReadDocumentFeedAsync) 또는 SQL 쿼리를 실행하면, 결과 집합이 너무 큰 경우 결과가 분할되어 반환됩니다. 기본적으로, 100개의 항목 또는 1MB 단위(둘 중 먼저 도달하는 단위)로 결과가 반환됩니다.
 
@@ -173,21 +200,9 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     
    쿼리가 실행 되 면 결과 데이터가 TCP 패킷 내에 전송 됩니다. `maxItemCount`값을 너무 낮게 지정 하면 TCP 패킷 내에서 데이터를 전송 하는 데 필요한 왕복 수가 높아서 성능에 영향을 줍니다. 따라서 `maxItemCount` 속성에 대해 설정할 값을 잘 모를 경우-1로 설정 하 고 SDK에서 기본값을 선택 하는 것이 가장 좋습니다. 
 
-11. **스레드/작업의 수 늘리기**
+9. **스레드/작업의 수 늘리기**
 
     네트워킹 섹션의 [스레드/작업의 수 늘리기](#increase-threads)를 참조하세요.
-
-12. **64비트 호스트 처리 사용**
-
-    SQL SDK는 SQL .NET SDK 버전 1.11.4 이상을 사용하는 경우 32비트 호스트 프로세스에서 작동합니다. 하지만 파티션 간 쿼리를 사용하는 경우 성능 향상을 위해 64비트 호스트를 처리하는 것이 좋습니다. 다음과 같은 유형의 애플리케이션에서는 32비트 호스트 프로세스를 기본값으로 사용하지만 64비트로 변경하려면 애플리케이션 유형에 따라 다음 단계를 따르세요.
-
-    - 실행 가능한 애플리케이션의 경우 **프로젝트 속성** 창의 **빌드** 탭에서 **32비트 선호** 옵션의 선택을 취소하면 됩니다.
-
-    - VSTest 기반 테스트 프로젝트의 경우 **Visual Studio 테스트** 메뉴 옵션에서 ->테스트->테스트 설정**기본 프로세서 아키텍처 X64**를 선택하면 됩니다.
-
-    - 로컬로 배포된 ASP.NET 웹 애플리케이션의 경우 **도구**옵션->프로젝트 및 솔루션->웹 프로세스->에서 **웹 사이트 및 프로젝트에 64비트 버전의 IIS Express 사용**을 선택하면 됩니다.
-
-    - Azure에 배포된 ASP.NET 웹 애플리케이션에서는 Azure Portal의 **애플리케이션 설정**에서 **64비트 플랫폼**을 선택하면 됩니다.
 
 ## <a name="indexing-policy"></a>인덱싱 정책
  
@@ -247,7 +262,7 @@ Azure Cosmos DB는 보장된 대기 시간 및 처리량으로 매끄럽게 크�
     자동화된 재시도 동작은 대부분의 애플리케이션에 대한 복원력 및 유용성을 개선하는 데 도움이 되는 반면, 성능 벤치마크 수행 시 특히 대기 시간을 측정할 때 방해가 될 수 있습니다.  실험이 서버 제한에 도달하고 클라이언트 SDK를 자동으로 재시도하는 경우 클라이언트 관찰 대기 시간이 급증합니다. 성능 실험 중 대기 시간 급증을 방지하려면, 각 작업에 의해 반환된 비용을 측정하고 요청이 예약된 요청 속도 이하로 작동하고 있는지 확인합니다. 자세한 내용은 [요청 단위](request-units.md)를 참조하세요.
 3. **처리량을 높이기 위해 문서 크기를 줄이도록 설계**
 
-    주어진 작업의 요청 비용(예: 요청 처리 비용)는 문서 크기와 직접 관련이 있습니다. 큰 문서에서 작업하는 경우 작은 문서 작업에 비해 비용이 많이 듭니다.
+    지정 된 작업의 요청 요금 (즉, 요청 처리 비용)은 문서 크기와 직접적인 상관 관계가 있습니다. 큰 문서에서 작업하는 경우 작은 문서 작업에 비해 비용이 많이 듭니다.
 
 ## <a name="next-steps"></a>다음 단계
 몇 개의 클라이언트 컴퓨터에서 고성능 시나리오에 대한 Azure Cosmos DB를 평가하는 데 사용된 애플리케이션 예제는 [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.

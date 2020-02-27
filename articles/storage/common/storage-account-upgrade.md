@@ -6,25 +6,25 @@ services: storage
 author: tamram
 ms.service: storage
 ms.topic: how-to
-ms.date: 12/04/2019
+ms.date: 02/25/2019
 ms.author: tamram
-ms.openlocfilehash: eb3523ca55e67d7a26ae608da8963dbf6124f2f7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 42cef26143eaeb49c4aa80dc5e1b05eb7be943cc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75975843"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616837"
 ---
 # <a name="upgrade-to-a-general-purpose-v2-storage-account"></a>범용 v2 스토리지 계정으로 업그레이드
 
 범용 v2 스토리지 계정은 최신 Azure Storage 기능을 지원하고 모든 범용 v1의 기능 및 Blob Storage 계정을 통합합니다. 범용 v2 계정은 대부분의 스토리지 시나리오에 권장됩니다. 범용 v2 계정은 업계 경쟁력 있는 트랜잭션 가격 뿐만 아니라 Azure Storage에 대해서도 가장 낮은 기가바이트당 용량 가격을 제공합니다. 범용 v2 계정은 핫, 쿨 또는 보관 사이에서 핫 또는 쿨 및 blob 수준 계층화의 기본 계정 액세스 계층을 지원 합니다.
 
-범용 v1 또는 Blob Storage 계정에서 범용 v2 스토리지 계정으로 간단히 업그레이드할 수 있습니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다.
+범용 v1 또는 Blob storage 계정에서 범용 v2 저장소 계정으로 업그레이드 하는 것은 간단 합니다. Azure Portal, PowerShell 또는 Azure CLI를 사용하여 업그레이드할 수 있습니다. 범용 v2 저장소 계정으로 업그레이드 하는 것과 관련 하 여 가동 중지 시간 또는 데이터 손실 위험이 없습니다. 계정 업그레이드는 계정 유형을 변경 하는 간단한 Azure Resource Manager 작업을 통해 수행 됩니다.
 
 > [!IMPORTANT]
 > 범용 v1 또는 Blob storage 계정을 범용 v2로 업그레이드 하는 것은 영구적 이며 실행 취소할 수 없습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. 스토리지 계정으로 이동합니다.
@@ -35,7 +35,7 @@ ms.locfileid: "75975843"
 
     ![업그레이드 계정 종류](../blobs/media/storage-blob-account-upgrade/upgrade-to-gpv2-account.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
@@ -46,7 +46,7 @@ PowerShell을 사용하여 범용 v1 계정을 업그레이드 v2 계정으로 �
 ```powershell
 Set-AzStorageAccount -ResourceGroupName <resource-group> -AccountName <storage-account> -UpgradeToStorageV2 -AccessTier <Hot/Cool>
 ```
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI를 사용하여 범용 v1 계정을 범용 v2 계정으로 업그레이드하려면 먼저 최신 버전의 Azure CLI를 설치합니다. CLI 설치에 대한 자세한 내용은 [Azure CLI 2.0 설치](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조하세요.
 

@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/27/2019
 ms.author: zarhoads
-ms.openlocfilehash: 3fe4de2b8b85e603bc200b27fa15c67f6cc05dd4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 9c414572e1c3b2f046ae9a14139885e9927ab3bb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595164"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622178"
 ---
 # <a name="use-a-standard-sku-load-balancer-in-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)에서 표준 SKU 부하 분산 장치 사용
 
@@ -39,7 +39,7 @@ CLI를 로컬로 설치 하 고 사용 하도록 선택 하는 경우이 문서�
 
 예를 들어 클러스터를 마이그레이션하기 위한 파란색/녹색 배포를 수행 하는 것이 일반적인 방법입니다. 클러스터의 `load-balancer-sku` 유형은 클러스터 만들기 시간에만 정의할 수 있습니다. 그러나 *기본 sku* 부하 분산 장치 *는 표준 sku ip 주소가 필요 하므로* *표준 sku* 부하 분산 장치와 호환 되지 않는 *기본 sku* ip 주소를 사용 합니다. Load Balancer Sku 업그레이드로 클러스터를 마이그레이션하는 경우 호환 되는 IP 주소 SKU를 사용 하는 새 IP 주소가 필요 합니다.
 
-클러스터를 마이그레이션하는 방법에 대 한 자세한 내용은 [마이그레이션 고려 사항에](acs-aks-migration.md) 대 한 설명서를 참조 하 여 마이그레이션할 때 고려해 야 할 중요 항목의 목록을 확인 하세요. AKS에서 표준 SKU 부하 분산 장치를 사용 하는 경우 아래 제한 사항에 유의 해야 하는 중요 한 동작이 있습니다.
+클러스터를 마이그레이션하는 방법에 대 한 자세한 내용은 [마이그레이션 고려 사항에](aks-migration.md) 대 한 설명서를 참조 하 여 마이그레이션할 때 고려해 야 할 중요 항목의 목록을 확인 하세요. AKS에서 표준 SKU 부하 분산 장치를 사용 하는 경우 아래 제한 사항에 유의 해야 하는 중요 한 동작이 있습니다.
 
 ### <a name="limitations"></a>제한 사항
 

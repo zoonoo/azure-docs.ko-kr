@@ -11,12 +11,12 @@ ms.topic: quickstart
 ms.date: 02/10/2020
 ms.author: erhopf
 zone_pivot_groups: programming-languages-set-one
-ms.openlocfilehash: 14407102f77c6cae7b8680485610293796807034
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3be05a6c4005b79a3fcde6a71e663f5f70d4d61e
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118798"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525178"
 ---
 # <a name="quickstart-use-the-translator-text-api-to-translate-text"></a>빠른 시작: Translator Text API를 사용하여 텍스트 번역
 
@@ -25,33 +25,23 @@ ms.locfileid: "77118798"
 이 빠른 시작에는Translator Text 리소스와 함께 [Azure Cognitive Services 계정](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account)이 필요합니다. 계정이 없는 경우 [평가판](https://azure.microsoft.com/try/cognitive-services/)을 사용하여 구독 키를 가져올 수 있습니다.
 
 ::: zone pivot="programming-language-csharp"
-
 [!INCLUDE [C# quickstart](includes/translate-csharp.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-java"
-
-[!INCLUDE [Java quickstart](includes/translate-java.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-python"
-
-[!INCLUDE [Python quickstart](includes/translate-python.md)]
-
-::: zone-end
-
-::: zone pivot="programming-language-nodejs"
-
-[!INCLUDE [Node.js quickstart](includes/translate-nodejs.md)]
-
 ::: zone-end
 
 ::: zone pivot="programming-language-go"
-
 [!INCLUDE [Go quickstart](includes/translate-go.md)]
+::: zone-end
 
+::: zone pivot="programming-language-java"
+[!INCLUDE [Java quickstart](includes/translate-java.md)]
+::: zone-end
+
+::: zone pivot="programming-language-javascript"
+[!INCLUDE [Node.js quickstart](includes/translate-nodejs.md)]
+::: zone-end
+
+::: zone pivot="programming-language-python"
+[!INCLUDE [Python quickstart](includes/translate-python.md)]
 ::: zone-end
 
 ## <a name="see-also"></a>참고 항목

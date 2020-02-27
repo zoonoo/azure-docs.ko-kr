@@ -3,8 +3,8 @@ title: Azure에서 SAP 다중 SID 구성 만들기 | Microsoft Docs
 description: Windows 가상 머신의 고가용성 SAP NetWeaver 다중 SID 구성 가이드
 services: virtual-machines-windows, virtual-network, storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/05/2017
-ms.author: rclaus
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: ff01bd0d6586cf75dcfdb7277c34120c6ec22894
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: d7938f7db22f004a0bf6cdf2e22dc8e103896719
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75647495"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617390"
 ---
 # <a name="create-an-sap-netweaver-multi-sid-configuration"></a>SAP NetWeaver 다중 SID 구성 만들기
 
@@ -55,7 +55,7 @@ SAP 배포를 사용 하는 경우 [Windows vm에서 고가용성 Sap NetWeaver 
 
 [!INCLUDE [updated-for-az](../../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 다이어그램에 표시 된 것 처럼, [Windows vm에서 고가용성 Sap NetWeaver 가이드][sap-ha-guide] 에 설명 된 대로 하나의 SAP ascs/SCS 인스턴스에 사용 되는 WSFC 클러스터를 이미 구성 했습니다.
 
 ![고가용성 SAP ASCS/SCS 인스턴스][sap-ha-guide-figure-6001]

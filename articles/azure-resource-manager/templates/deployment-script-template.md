@@ -7,12 +7,12 @@ ms.service: azure-resource-manager
 ms.topic: conceptual
 ms.date: 02/24/2020
 ms.author: jgao
-ms.openlocfilehash: 19ef5a08b66b8d1a09ddf9a6b73a3856f745485d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586709"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616310"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -40,7 +40,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - **대상 리소스 그룹에 대 한 참가자의 역할이 있는 사용자 할당 관리 id**입니다. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행 하려면 추가 권한을 부여 해야 합니다. 예를 들어 새 리소스 그룹을 만들려는 경우 구독 수준에 id를 할당 합니다.
 
@@ -77,7 +77,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 
 - **Azure PowerShell 버전 3.0.0, 2.8.0 또는 합니다** 또는 **Azure CLI 버전 2.0.80, 2.0.79, 2.0.78 또는 2.0.77**입니다. 템플릿을 배포 하는 데 이러한 버전이 필요 하지 않습니다. 그러나 이러한 버전은 배포 스크립트를 로컬로 테스트 하는 데 필요 합니다. [Azure PowerShell 모듈 설치](/powershell/azure/install-az-ps)를 참조하세요. 미리 구성 된 Docker 이미지를 사용할 수 있습니다.  [개발 환경 구성](#configure-development-environment)을 참조 하세요.
 
-## <a name="sample-template"></a>샘플 템플릿
+## <a name="sample-templates"></a>샘플 템플릿
 
 다음 json은 예입니다.  최신 템플릿 스키마는 [여기](/azure/templates/microsoft.resources/deploymentscripts)에서 찾을 수 있습니다.
 
@@ -130,6 +130,15 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 - **Cleanuppreference 설정**입니다. 스크립트 실행이 터미널 상태가 될 때 배포 리소스 정리의 기본 설정을 지정 합니다. 기본 설정은 **항상**입니다. 즉, 터미널 상태 (성공, 실패, 취소 됨)에도 불구 하 고 리소스를 삭제 합니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 - **보존 기간**: 배포 스크립트 실행이 터미널 상태에 도달한 후 서비스에서 배포 스크립트 리소스를 유지 하는 간격을 지정 합니다. 이 기간이 만료 되 면 배포 스크립트 리소스가 삭제 됩니다. 기간은 [ISO 8601 패턴](https://en.wikipedia.org/wiki/ISO_8601)을 기반으로 합니다. 기본값은 7 일을 의미 하는 **P1D**입니다. 이 속성은 cleanupPreference 설정이 *Onexpiration*로 설정 된 경우에 사용 됩니다. *Onexpiration* 속성이 현재 활성화 되어 있지 않습니다. 자세한 내용은 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조하세요.
 
+### <a name="additional-samples"></a>추가 샘플
+
+- [키 자격 증명 모음에 인증서 만들기 및 할당](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)
+
+- [사용자 할당 관리 id를 만들어 리소스 그룹에 할당 하 고 배포 스크립트를 실행](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault-mi.json)합니다.
+
+> [!NOTE]
+> 사용자 할당 id를 만들고 사용 권한을 미리 부여 하는 것이 좋습니다. 배포 스크립트를 실행 하는 동일한 템플릿에서 id를 만들고 사용 권한을 부여 하는 경우 로그인 및 사용 권한 관련 오류가 발생할 수 있습니다. 사용 권한이 적용 되려면 약간의 시간이 걸립니다.
+
 ## <a name="use-inline-scripts"></a>인라인 스크립트 사용
 
 다음 템플릿에는 `Microsoft.Resources/deploymentScripts` 유형을 사용 하 여 정의 된 리소스가 하나 있습니다.
@@ -139,7 +148,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 > [!NOTE]
 > 인라인 배포 스크립트는 큰따옴표로 묶여 있으므로 배포 스크립트 내의 문자열을 작은따옴표로 묶어야 합니다. PowerShell의 이스케이프 문자는 **&#92;** 입니다. 이전 JSON 샘플에 표시 된 대로 문자열 대체를 사용 하는 것을 고려할 수도 있습니다. Name 매개 변수의 기본값을 참조 하세요.
 
-스크립트는 하나의 매개 변수를 사용 하 고 매개 변수 값을 출력 합니다. **Deploymentscriptoutputs** 는 출력을 저장 하는 데 사용 됩니다.  출력 섹션에서 **값** 줄은 저장 된 값에 액세스 하는 방법을 보여 줍니다. `Write-Output`은 디버깅 목적으로 사용 됩니다. 출력 파일에 액세스 하는 방법에 대 한 자세한 내용은 [배포 스크립트 디버그](#debug-deployment-scripts)를 참조 하세요.  속성 설명은 [샘플 템플릿](#sample-template)을 참조 하세요.
+스크립트는 하나의 매개 변수를 사용 하 고 매개 변수 값을 출력 합니다. **Deploymentscriptoutputs** 는 출력을 저장 하는 데 사용 됩니다.  출력 섹션에서 **값** 줄은 저장 된 값에 액세스 하는 방법을 보여 줍니다. `Write-Output`은 디버깅 목적으로 사용 됩니다. 출력 파일에 액세스 하는 방법에 대 한 자세한 내용은 [배포 스크립트 디버그](#debug-deployment-scripts)를 참조 하세요.  속성 설명은 [샘플 템플릿](#sample-templates)을 참조 하세요.
 
 스크립트를 실행 하려면 **시도** 를 선택 하 여 Azure Cloud Shell을 열고 다음 코드를 셸 창에 붙여넣습니다.
 
@@ -161,7 +170,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 다음은 그 예입니다.
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 예를 들면 다음과 같습니다.
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -217,7 +226,6 @@ PowerShell 배포 스크립트와는 달리 CLI/bash 지원에서는 스크립�
 
 배포 스크립트에서 [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) 변수를 사용 하 여 PowerShell이 종료 되지 않는 오류에 응답 하는 방식을 제어할 수 있습니다. 배포 스크립트 엔진이 값을 설정/변경 하지 않습니다.  $ErrorActionPreference에 대해 설정한 값에도 불구 하 고, 스크립트에서 오류가 발생할 경우 배포 스크립트에서 리소스 프로 비전 상태를 *Failed* 로 설정 합니다.
-
 
 ## <a name="debug-deployment-scripts"></a>배포 스크립트 디버그
 

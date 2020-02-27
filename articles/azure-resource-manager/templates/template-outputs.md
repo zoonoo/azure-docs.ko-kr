@@ -2,13 +2,13 @@
 title: 템플릿의 출력
 description: Azure Resource Manager 템플릿에서 출력 값을 정의 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 09/05/2019
-ms.openlocfilehash: 7244e1ac0eff973d550a2bae8a70fa5055ca2248
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/25/2020
+ms.openlocfilehash: ec96b45cdc5ccf488d46c2d8da03caf16d002dfa
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75483922"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622852"
 ---
 # <a name="outputs-in-azure-resource-manager-template"></a>Azure Resource Manager 템플릿의 출력
 
@@ -43,6 +43,24 @@ ms.locfileid: "75483922"
 
 조건부 출력의 간단한 예는 [조건부 출력 템플릿](https://github.com/bmoore-msft/AzureRM-Samples/blob/master/conditional-output/azuredeploy.json)을 참조 하세요.
 
+## <a name="dynamic-number-of-outputs"></a>동적 출력 수
+
+일부 시나리오에서는 템플릿을 만들 때 반환 해야 하는 값의 인스턴스 수를 알 수 없습니다. **Copy** 요소를 사용 하 여 변수 수의 값을 반환할 수 있습니다.
+
+```json
+"outputs": {
+  "storageEndpoints": {
+    "type": "array",
+    "copy": {
+      "count": "[parameters('storageCount')]",
+      "input": "[reference(concat(copyIndex(), variables('baseName'))).primaryEndpoints.blob]"
+    }
+  }
+}
+```
+
+자세한 내용은 [Azure Resource Manager 템플릿에서 출력 반복](copy-outputs.md)을 참조 하세요.
+
 ## <a name="linked-templates"></a>연결된 템플릿
 
 연결 된 템플릿에서 출력 값을 검색 하려면 부모 템플릿에서 [reference](template-functions-resource.md#reference) 함수를 사용 합니다. 부모 템플릿의 구문은 다음과 같습니다.
@@ -69,7 +87,7 @@ ms.locfileid: "75483922"
 
 배포 기록에서 출력 값을 가져오려면 스크립트를 사용할 수 있습니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 (Get-AzResourceGroupDeployment `
@@ -77,7 +95,7 @@ ms.locfileid: "75483922"
   -Name <deployment-name>).Outputs.resourceID.value
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group deployment show \

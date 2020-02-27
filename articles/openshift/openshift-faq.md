@@ -6,12 +6,12 @@ ms.author: jzim
 ms.service: container-service
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 5901be713f686f0c7213449a775c86b9e346fe12
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: f468cb294d79c44f92ef95437c0d88639a78b9a1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275399"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619496"
 ---
 # <a name="azure-red-hat-openshift-faq"></a>Azure Red Hat OpenShift FAQ
 
@@ -23,7 +23,7 @@ Azure Red Hat OpenShift가 지원 되는 글로벌 지역 목록은 지원 되�
 
 ## <a name="can-i-deploy-a-cluster-into-an-existing-virtual-network"></a>클러스터를 기존 가상 네트워크에 배포할 수 있나요?
 
-아닙니다. 그러나 피어 링을 통해 Azure Red Hat OpenShift 클러스터를 기존 VNET에 연결할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 클러스터의 가상 네트워크 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 을 참조 하세요.
+No. 그러나 피어 링을 통해 Azure Red Hat OpenShift 클러스터를 기존 VNET에 연결할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 클러스터의 가상 네트워크 연결](tutorial-create-cluster.md#optional-connect-the-clusters-virtual-network-to-an-existing-virtual-network) 을 참조 하세요.
 
 ## <a name="what-cluster-operations-are-available"></a>사용할 수 있는 클러스터 작업은 무엇 인가요?
 
@@ -61,13 +61,25 @@ Docker 레지스트리는 `https://docker-registry.apps.<clustername>.<region>.a
 
 예. Azure ad 응용 프로그램을 구성 하 여 클러스터에 로그인 할 수 있는 Azure AD 사용자를 제한할 수 있습니다. 자세한 내용은 [방법: 사용자 집합으로 앱 제한](https://docs.microsoft.com/azure/active-directory/develop/howto-restrict-your-app-to-a-set-of-users) 을 참조 하세요.
 
+## <a name="can-i-restrict-users-from-creating-projects"></a>사용자가 프로젝트를 만들지 못하게 제한할 수 있나요?
+
+예. Azure Red Hat OpenShift 관리자로 클러스터에 로그인 하 고 다음 명령을 실행 합니다.
+
+```
+oc adm policy \
+    remove-cluster-role-from-group self-provisioner \
+    system:authenticated:oauth
+```
+
+자세한 내용은 [셀프 프로 비전 비활성화](https://docs.openshift.com/container-platform/3.11/admin_guide/managing_projects.html#disabling-self-provisioning)의 openshift 설명서를 참조 하세요.
+
 ## <a name="can-a-cluster-have-compute-nodes-across-multiple-azure-regions"></a>클러스터가 여러 Azure 지역에 계산 노드를 가질 수 있나요?
 
-아닙니다. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 시작 되어야 합니다.
+No. Azure Red Hat OpenShift 클러스터의 모든 노드는 동일한 Azure 지역에서 시작 되어야 합니다.
 
 ## <a name="are-master-and-infrastructure-nodes-abstracted-away-as-they-are-with-azure-kubernetes-service-aks"></a>AKS (Azure Kubernetes Service)를 사용 하는 경우 마스터 및 인프라 노드가 추출 되나요?
 
-아닙니다. 클러스터 마스터를 비롯 한 모든 리소스는 고객 구독에서 실행 됩니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
+No. 클러스터 마스터를 비롯 한 모든 리소스는 고객 구독에서 실행 됩니다. 이러한 유형의 리소스는 읽기 전용 리소스 그룹에 배치 됩니다.
 
 ## <a name="is-open-service-broker-for-azure-osba-supported"></a>OSBA (Open Service Broker for Azure)가 지원 되나요?
 

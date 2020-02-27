@@ -10,12 +10,12 @@ ms.subservice: qna-maker
 ms.topic: conceptual
 ms.date: 08/20/2019
 ms.author: diberry
-ms.openlocfilehash: a31076d17ebaf8020fe4b3f82594b98a7c3bde74
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: f920a789f1ec631c5d70863b10d8364b3eb81b6c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977457"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650472"
 ---
 # <a name="create-a-business-continuity-plan-for-your-qna-maker-service"></a>QnA Maker 서비스를 위한 비즈니스 연속성 계획 만들기
 
@@ -25,7 +25,7 @@ ms.locfileid: "74977457"
 
 위에 표시된 것처럼 대략적인 아이디어는 다음과 같습니다.
 
-1. [Azure 쌍을 이루는 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에서 두 개의 병렬 [QnA Maker 서비스](../How-To/set-up-qnamaker-service-azure.md)를 설정합니다.
+1. [Azure 쌍을 이루는 지역](../How-To/set-up-qnamaker-service-azure.md)에서 두 개의 병렬 [QnA Maker 서비스](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)를 설정합니다.
 
 2. 기본 및 보조 Azure 검색 인덱스를 동기화 된 상태로 유지 합니다. Azure 인덱스를 백업 하는 방법을 보려면 [여기](https://github.com/pchoudhari/QnAMakerBackupRestore) 에서 GitHub 샘플을 사용 하세요.
 
@@ -40,4 +40,4 @@ ms.locfileid: "74977457"
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [QnA Maker 배포를 위한 용량 선택](../Tutorials/choosing-capacity-qnamaker-deployment.md)
+> [Capactiy 선택](./improve-knowledge-base.md)

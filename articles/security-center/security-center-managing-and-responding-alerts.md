@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 203e3718cedca693dc029a4ba20a86ca50ab3e32
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603851"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615978"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
@@ -65,19 +65,27 @@ ms.locfileid: "77603851"
     > [!NOTE]
     >일부 경우에는 원본 IP 주소를 사용할 수 없습니다. 일부 Windows 보안 이벤트 로그에는 IP 주소가 포함 되지 않습니다.
 
-1. Security Center에서 제안 하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
+1. Security Center에서 제안 하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 
+
+    경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
 
     다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
     
-    * [IaaS Vm 및 서버 경고](security-center-alerts-iaas.md)
-    * [기본 계산 경고](security-center-alerts-compute.md)
-    * [데이터 서비스 경고](security-center-alerts-data-services.md)
-    
+    * [IaaS Windows 컴퓨터에 대 한 경고](threat-protection.md#windows-machines)
+    * [IaaS Linux 컴퓨터에 대 한 경고](threat-protection.md#linux-machines)
+    * [Azure App Service에 대 한 경고](threat-protection.md#app-services)
+    * [Azure 컨테이너에 대 한 경고](threat-protection.md#azure-containers)
+    * [SQL Database 및 SQL Data Warehouse에 대 한 경고](threat-protection.md#data-sql)
+    * [Azure Storage에 대 한 경고](threat-protection.md#azure-storage)
+    * [Cosmos DB에 대 한 경고](threat-protection.md#cosmos-db)
+
     다음 항목에서는 azure에 배포 된 리소스에 대 한 추가 보호 계층을 적용 하기 위해 Security Center Azure 인프라와 통합 하 여 수집 하는 다양 한 원격 분석을 사용 하는 방법에 대해 설명 합니다.
     
-    * [서비스 계층 경고](security-center-alerts-service-layer.md)
-    * [Azure WAF 및 Azure DDoS Protection에 대 한 위협 감지](security-center-alerts-integration.md)
-    
+    * [Azure 관리 계층 (Azure Resource Manager)에 대 한 경고 (미리 보기)](threat-protection.md#management-layer)
+    * [Azure Key Vault에 대 한 경고 (미리 보기)](threat-protection.md#azure-keyvault)
+    * [Azure 네트워크 계층에 대 한 경고](threat-protection.md#network-layer)
+    * [다른 서비스의 경고](threat-protection.md#alerts-other)    
+
 ## <a name="see-also"></a>참고 항목
 
 이 문서에서는 보안 센터에서 보안 정책을 구성하는 방법을 배웠습니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.

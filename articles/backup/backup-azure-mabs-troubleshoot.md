@@ -4,12 +4,12 @@ description: Azure Backup Server 설치, 등록 및 애플리케이션 워크로
 ms.reviewer: srinathv
 ms.topic: troubleshooting
 ms.date: 07/05/2019
-ms.openlocfilehash: 3a83c496191baaebc30f6fe0aedda790827644cb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 018a6cee3f00531752684b12f4988cac174d3d26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605754"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617583"
 ---
 # <a name="troubleshoot-azure-backup-server"></a>Azure Backup Server 문제 해결
 
@@ -32,7 +32,7 @@ MABS (Microsoft Azure Backup 서버) 문제 해결을 시작 하기 전에 아�
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 자격 증명 모음에 등록 | 잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. | 권장 작업: <br> <ul><li> 자격 증명 모음에서 최신 자격 증명 파일을 다운로드하고 다시 시도합니다. <br>또는</li> <li> 위의 작업이 효과가 없으면 자격 증명을 다른 로컬 디렉터리에 다운로드하거나 새 자격 증명 모음을 만듭니다. <br>또는</li> <li> [이 블로그](https://azure.microsoft.com/blog/troubleshooting-common-configuration-issues-with-azure-backup/)에 설명된 대로 날짜 및 시간 설정을 업데이트해 봅니다. <br>또는</li> <li> \windows\temp에 있는 파일 수가 65,000개를 초과하는지 확인합니다. 오래된 파일을 다른 위치에 이동하거나 임시 폴더의 항목을 삭제합니다. <br>또는</li> <li> 인증서의 상태를 확인합니다. <br> a. 제어판에서 **컴퓨터 인증서 관리**를 엽니다. <br> b. **개인** 노드 및 해당 자식 노드 **인증서**를 확장합니다.<br> 다.  인증서 **Microsoft Azure Tools**를 제거합니다. <br> d. Azure Backup 클라이언트에서 등록을 다시 시도합니다. <br> 또는 </li> <li> 그룹 정책이 구현되어 있는지 확인합니다. </li></ul> |
+| 자격 증명 모음에 등록 | 잘못된 자격 증명 모음이 제공되었습니다. 파일이 손상되었거나 복구 서비스와 연결된 최신 자격 증명이 없습니다. | 권장 작업: <br> <ul><li> 자격 증명 모음에서 최신 자격 증명 파일을 다운로드하고 다시 시도합니다. <br>또는</li> <li> 위의 작업이 효과가 없으면 자격 증명을 다른 로컬 디렉터리에 다운로드하거나 새 자격 증명 모음을 만듭니다. <br>또는</li> <li> [이 문서](https://docs.microsoft.com/azure/backup/backup-azure-mars-troubleshoot#invalid-vault-credentials-provided)에 설명 된 대로 날짜 및 시간 설정을 업데이트 해 보세요. <br>또는</li> <li> \windows\temp에 있는 파일 수가 65,000개를 초과하는지 확인합니다. 오래된 파일을 다른 위치에 이동하거나 임시 폴더의 항목을 삭제합니다. <br>또는</li> <li> 인증서의 상태를 확인합니다. <br> a. 제어판에서 **컴퓨터 인증서 관리**를 엽니다. <br> b. **개인** 노드 및 해당 자식 노드 **인증서**를 확장합니다.<br> 다.  인증서 **Microsoft Azure Tools**를 제거합니다. <br> d. Azure Backup 클라이언트에서 등록을 다시 시도합니다. <br> 또는 </li> <li> 그룹 정책이 구현되어 있는지 확인합니다. </li></ul> |
 
 ## <a name="replica-is-inconsistent"></a>복제본이 불일치
 
@@ -62,7 +62,7 @@ MABS (Microsoft Azure Backup 서버) 문제 해결을 시작 하기 전에 아�
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호된 서버에 에이전트 푸시 | \<ServerName>에서 DPM 에이전트 코디네이터 서비스와 통신 오류로 인해 에이전트 작업에 실패했습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 트러스트되지 않은 도메인에서 컴퓨터를 연결하는 경우 [이 단계](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757801(v=sc.12))를 따릅니다. <br> 또는 </li><li> 트러스트된 도메인에서 컴퓨터를 연결하는 경우 [이 블로그](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)에 간략히 설명된 단계에 따라 문제를 해결합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12))에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
+| 보호된 서버에 에이전트 푸시 | \<ServerName>에서 DPM 에이전트 코디네이터 서비스와 통신 오류로 인해 에이전트 작업에 실패했습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <ul><li> 트러스트되지 않은 도메인에서 컴퓨터를 연결하는 경우 [이 단계](https://docs.microsoft.com/system-center/dpm/back-up-machines-in-workgroups-and-untrusted-domains?view=sc-dpm-2019)를 따릅니다. <br> 또는 </li><li> 트러스트된 도메인에서 컴퓨터를 연결하는 경우 [이 블로그](https://techcommunity.microsoft.com/t5/system-center-blog/data-protection-manager-agent-network-troubleshooting/ba-p/344726)에 간략히 설명된 단계에 따라 문제를 해결합니다. <br>또는</li><li> 문제 해결 단계로 바이러스 백신을 사용하지 않도록 설정해 봅니다. 문제가 해결되면 [이 문서](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh757911(v=sc.12))에 제안된 대로 바이러스 백신 설정을 수정합니다.</li></ul> |
 
 ## <a name="setup-could-not-update-registry-metadata"></a>설치 프로그램이 레지스트리 메타데이터를 업데이트할 수 없습니다.
 
@@ -75,7 +75,7 @@ MABS (Microsoft Azure Backup 서버) 문제 해결을 시작 하기 전에 아�
 
 | 작업(Operation) | 오류 세부 정보 | 해결 방법 |
 | --- | --- | --- |
-| 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758186(v=sc.12))에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
+| 보호된 서버에 에이전트 푸시 | 서버에 대해 지정된 자격 증명이 잘못되었습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br> [이 문서](https://docs.microsoft.com/system-center/dpm/deploy-dpm-protection-agent?view=sc-dpm-2019)에 지정된 대로 프로덕션 서버에 보호 에이전트를 수동으로 설치합니다.|
 | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다(ID: 100050). | Azure Backup Agent가 Azure Backup 서비스에 연결할 수 없습니다. | **제품에 표시된 권장 작업이 효과가 없으면 다음 단계를 수행합니다.** <br>1. 관리자 권한 프롬프트에서 다음 명령을 실행 합니다. **psexec-i-s "C:\Program Files\Internet Explorer\iexplore.exe**. 그러면 Internet Explorer 창이 열립니다. <br/> 2. **도구** > **인터넷 옵션** > **LAN 설정** > **연결** 로 이동 합니다. <br/> 3. 프록시 서버를 사용 하도록 설정을 변경 합니다. 그런 다음 프록시 서버 세부 정보를 제공합니다.<br/> 4. 컴퓨터의 인터넷 액세스가 제한 된 경우 컴퓨터 또는 프록시의 방화벽 설정에서 이러한 [url](backup-configure-vault.md#verify-internet-access) 및 [IP 주소](backup-configure-vault.md#verify-internet-access)를 허용 하는지 확인 합니다.|
 | Azure Backup Agent 설치 실패 | Microsoft Azure Recovery Services 설치에 실패했습니다. 시스템에 Microsoft Azure Recovery Services 설치로 인한 모든 변경 사항은 롤백되었습니다. (ID: 4024) | Azure 에이전트를 수동으로 설치합니다.
 

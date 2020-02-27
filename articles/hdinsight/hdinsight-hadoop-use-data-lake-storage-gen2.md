@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/03/2020
-ms.openlocfilehash: aeb86823ddb25bbe0340630b55360806faef59e9
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.date: 02/20/2020
+ms.openlocfilehash: d711cc7e58fb055eda62cfc364a5552a7d10f7bd
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77186877"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623133"
 ---
 # <a name="use-azure-data-lake-storage-gen2-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 Azure Data Lake Storage Gen2 사용
 
@@ -82,20 +82,18 @@ Azure Data Lake Storage Gen2 스토리지 계정을 만듭니다.
     ![RBAC 역할을 할당하는 방법을 보여주는 스크린샷](./media/hdinsight-hadoop-use-data-lake-storage-gen2/add-rbac-role3-window.png)
 
 1. **저장**을 선택합니다. 선택한 사용자 할당 id는 이제 선택한 역할 아래에 나열 됩니다.
-1. 이 초기 설정이 완료되면 포털을 통해 클러스터를 만들 수 있습니다. 클러스터가 스토리지 계정과 동일한 Azure 영역에 있어야 합니다. 클러스터 만들기 메뉴의 **스토리지** 섹션에서 다음 옵션을 선택합니다.
+1. 이 초기 설정이 완료되면 포털을 통해 클러스터를 만들 수 있습니다. 클러스터가 스토리지 계정과 동일한 Azure 영역에 있어야 합니다. 클러스터 만들기 메뉴의 **저장소** 탭에서 다음 옵션을 선택 합니다.
 
     * **기본 저장소 형식**으로 **Azure Data Lake Storage Gen2**를 선택 합니다.
-    * **저장소 계정 선택**에서 새로 만든 Data Lake Storage Gen2 Storage 계정을 검색 하 여 선택 합니다.
+    * **기본 저장소 계정**에서 새로 만든 Data Lake Storage Gen2 Storage 계정을 검색 하 여 선택 합니다.
 
-        ![Azure HDInsight에서 Data Lake Storage Gen2를 사용하기 위한 스토리지 설정](./media/hdinsight-hadoop-use-data-lake-storage-gen2/primary-storage-type-adls-gen2.png)
+    * **Id**에서 새로 만든 사용자 할당 관리 id를 선택 합니다.
 
-    * **Id**에서 올바른 구독과 새로 만든 사용자 할당 관리 id를 선택 합니다.
+        ![Azure HDInsight에서 Data Lake Storage Gen2를 사용하기 위한 스토리지 설정](./media/hdinsight-hadoop-use-data-lake-storage-gen2/azure-portal-cluster-storage-gentwo.png)
 
-        ![HDInsight에서 Data Lake Storage Gen2 사용을 위한 id 설정](./media/hdinsight-hadoop-use-data-lake-storage-gen2/managed-identity-cluster-creation.png)
-
-> [!NOTE]
-> * 보조 Data Lake Storage Gen2 계정을 추가 하려면 저장소 계정 수준에서 앞서 만든 관리 되는 id를 추가 하려는 새 Data Lake Storage Gen2 저장소 계정에 할당 하면 됩니다. HDInsight에서 "추가 저장소 계정" 블레이드를 통해 보조 Data Lake Storage Gen2 계정을 추가 하는 것은 지원 되지 않습니다.
-> * HDInsight에서 사용 하는 Azure storage 계정에서 RA-GRS 또는 ZRS를 사용 하도록 설정할 수 있습니다. 그러나 RA-GRS 또는 RA-ZRS 보조 끝점에 대 한 클러스터를 만드는 것은 지원 되지 않습니다.
+    > [!NOTE]
+    > * 보조 Data Lake Storage Gen2 계정을 추가 하려면 저장소 계정 수준에서 앞서 만든 관리 되는 id를 추가 하려는 새 Data Lake Storage Gen2 저장소 계정에 할당 하면 됩니다. HDInsight에서 "추가 저장소 계정" 블레이드를 통해 보조 Data Lake Storage Gen2 계정을 추가 하는 것은 지원 되지 않습니다.
+    > * HDInsight에서 사용 하는 Azure storage 계정에서 RA-GRS 또는 ZRS를 사용 하도록 설정할 수 있습니다. 그러나 RA-GRS 또는 RA-ZRS 보조 끝점에 대 한 클러스터를 만드는 것은 지원 되지 않습니다.
 
 
 ## <a name="create-a-cluster-with-data-lake-storage-gen2-through-the-azure-cli"></a>Azure CLI를 통해 Data Lake Storage Gen2를 사용 하 여 클러스터 만들기
@@ -159,7 +157,7 @@ Azure Data Lake Storage Gen2를 사용 하 여 HDInsight 클러스터를 만드�
 
 Data Lake Storage Gen2에서는 RBAC (역할 기반 액세스 제어) 및 POSIX와 같은 액세스 제어 목록 (Acl)을 모두 지 원하는 액세스 제어 모델을 사용 합니다. Data Lake Storage Gen1는 데이터에 대 한 액세스를 제어 하기 위한 액세스 제어 목록만 지원 합니다.
 
-RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스 (예: Azure storage 계정)로 제한 됩니다. Azure Storage 및 Data Lake Storage Gen2에 대해서도이 메커니즘은 파일 시스템 리소스로 확장 되었습니다.
+RBAC는 역할 할당을 사용 하 여 Azure 리소스에 대 한 사용자, 그룹 및 서비스 사용자에 게 사용 권한 집합을 효과적으로 적용 합니다. 일반적으로 이러한 Azure 리소스는 최상위 리소스(예: Azure Storage 계정)로 제한됩니다. Azure Storage 및 Data Lake Storage Gen2에 대해서도이 메커니즘은 파일 시스템 리소스로 확장 되었습니다.
 
  RBAC를 사용 하는 파일 사용 권한에 대 한 자세한 내용은 [AZURE rbac (역할 기반 액세스 제어)](../storage/blobs/data-lake-storage-access-control.md#azure-role-based-access-control-rbac)를 참조 하세요.
 
@@ -205,7 +203,7 @@ Azure 서비스에는 두 가지 유형의 관리 id 인 시스템 할당 및 �
 
 #### <a name="a-few-hdfs-commands"></a>몇 개의 hdfs 명령
 
-1. 로컬 저장소에서 간단한 파일을 만듭니다.
+1. 로컬 저장소에 파일을 만듭니다.
 
     ```bash
     touch testFile.txt

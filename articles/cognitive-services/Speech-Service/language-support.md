@@ -8,15 +8,15 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 02/19/2020
+ms.date: 02/25/2020
 ms.author: dapine
 ms.custom: seodec18
-ms.openlocfilehash: 86224508b9f24906abce157b92a77c0a2f24d882
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 13d12bfbf64af9e19b66e63c88c9d7e0534571f3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605722"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617275"
 ---
 # <a name="language-and-region-support-for-the-speech-service"></a>음성 서비스에 대 한 언어 및 지역 지원
 
@@ -37,8 +37,8 @@ https://cris.ai -> Click on Adaptation Data -> scroll down to section "Pronuncia
  Locale | 언어 | 지원됨 | 사용자 지정
 ------|------------|-----------|-------------
 `ar-AE` | 아랍어 (아랍에미리트) | yes | 예
-`ar-BH` | Arabic (Bahrain) | yes | 언어 모델
-`ar-EG` | 아랍어(이집트), 현대 표준 | yes | 언어 모델
+`ar-BH` | 아랍어 (바레인), 최신 표준 | yes | 언어 모델
+`ar-EG` | 아랍어(이집트) | yes | 언어 모델
 `ar-KW` | 아랍어(쿠웨이트) | yes | 예
 `ar-QA` | 아랍어(카타르) | yes | 예
 `ar-SA` | 아랍어(사우디아라비아) | yes | 예

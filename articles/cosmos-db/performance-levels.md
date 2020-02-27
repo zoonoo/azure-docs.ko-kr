@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 06/04/2018
 ms.author: sngun
-ms.openlocfilehash: 06fa98ae4acc2252d8866858ed0e2194ed84ff79
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 40735f91e2ca58cc42f723c7993686d92f0e5ff0
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60928293"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623339"
 ---
 # <a name="retiring-the-s1-s2-and-s3-performance-levels"></a>S1, S2 및 S3 성능 수준 사용 중지
 
@@ -26,7 +26,7 @@ ms.locfileid: "60928293"
 - [내 데이터에 중단 없이 액세스하려면 어떻게 해야 합니까?](#uninterrupted-access)
 - [마이그레이션하면 내 컬렉션이 어떻게 변경됩니까?](#collection-change)
 - [단일 파티션 컬렉션으로 마이그레이션하면 요금 청구는 어떻게 변경됩니까?](#billing-change)
-- [스토리지 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?](#more-storage-needed)
+- [20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?](#more-storage-needed)
 - [계획된 마이그레이션 이전에 S1, S2 및 S3 성능 수준을 변경할 수 있습니까?](#change-before)
 - [S1, S2, S3 성능 수준에서 단일 파티션 컬렉션으로 마이그레이션하려면 어떻게 해야 합니까?](#migrate-diy)
 - [EA 고객에게 미치는 영향은?](#ea-customer)
@@ -45,9 +45,9 @@ S1, S2 및 S3 성능 수준은 표준 Azure Cosmos DB 제품이 제공하는 유
 
 |   |분할된 컬렉션|단일 파티션 컬렉션|S1|S2|S3|
 |---|---|---|---|---|---|
-|최대 처리량|Unlimited|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
+|최대 처리량|제한 없음|10,000RU/s|250RU/s|1,000RU/s|2,500RU/s|
 |최소 처리량|2,500RU/s|400RU/s|250RU/s|1,000RU/s|2,500RU/s|
-|최대 스토리지|Unlimited|10 GB|10GB|10GB|10 GB|
+|최대 스토리지|제한 없음|20GB|20GB|20GB|20GB|
 |가격(월별)|처리량: $6/100RU/s<br><br>스토리지: $0.25/GB|처리량: $6/100RU/s<br><br>스토리지: $0.25/GB|$25(미화)|$50(미화)|$100(미화)|
 
 EA 고객입니까? 그렇다면 [EA 고객에게 미치는 영향은?](#ea-customer)을 참조하세요.
@@ -80,9 +80,9 @@ S3 컬렉션이 있는 경우 2,500RU/s 처리량의 단일 파티션 컬렉션�
 
 <a name="more-storage-needed"></a>
 
-## <a name="what-if-i-need-more-than-10-gb-of-storage"></a>스토리지 용량이 10GB 이상 필요한 경우 어떻게 해야 합니까?
+## <a name="what-if-i-need-more-than-20-gb-of-storage"></a>20gb 이상의 저장소를 필요로 한다면 어떻게 되나요?
 
-S1, S2 또는 S3 성능 수준 컬렉션 또는 단일 파티션 컬렉션이 있든 간에 모두 10GB 스토리지를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용하여 거의 무제한 스토리지가 있는 분할된 컬렉션으로 데이터를 마이그레이션할 수 있습니다. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
+컬렉션에 S1, S2 또는 S3 성능 수준이 있거나 단일 파티션 컬렉션이 있는지에 관계 없이 모두 20gb의 저장소를 사용할 수 있는 경우 Azure Cosmos DB 데이터 마이그레이션 도구를 사용 하 여 데이터를 가상으로 분할 된 컬렉션으로 마이그레이션할 수 있습니다. 무제한 저장소. 분할된 컬렉션의 이점에 대한 자세한 내용은 [Azure Cosmos DB의 분할 및 크기 조정](sql-api-partition-data.md)을 참조하세요. 
 
 <a name="change-before"></a>
 

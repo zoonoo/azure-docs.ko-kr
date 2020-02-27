@@ -7,15 +7,18 @@ author: divyaswarnkar
 ms.author: divswa
 ms.reviewer: jonfan, estfan, logicappspm
 ms.topic: article
-ms.date: 08/22/2019
-ms.openlocfilehash: 9f72edecc07c34a0f176e52f6b70644f9ceb16e0
-ms.sourcegitcommit: ff9688050000593146b509a5da18fbf64e24fbeb
+ms.date: 02/27/2020
+ms.openlocfilehash: 0ce813e91750db3cdfa1e651a68fbb82d593eb32
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75666706"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650568"
 ---
 # <a name="exchange-as2-messages-for-b2b-enterprise-integration-in-azure-logic-apps-with-enterprise-integration-pack"></a>엔터프라이즈 통합 팩이 포함된 Azure Logic Apps에서 B2B 엔터프라이즈 통합용 AS2 메시지 교환
+
+> [!IMPORTANT]
+> 원래 AS2 커넥터는 더 이상 사용 되지 않으므로 **as2 (v2)** 커넥터를 대신 사용 해야 합니다. 이 버전은 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임으로 기본 사용 되며, 처리량 및 메시지 크기 측면에서 상당한 성능 향상을 제공 합니다. 또한 native v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
 
 Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 하기 위한 트리거와 작업을 제공 하는 AS2 커넥터를 사용할 수 있습니다. 예를 들어 메시지를 전송할 때 보안 및 안정성을 설정 하려면 다음 작업을 사용할 수 있습니다.
 
@@ -46,9 +49,6 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 이 문서에서는 기존 논리 앱에 AS2 인코딩 및 디코딩 작업을 추가 하는 방법을 보여 줍니다.
 
-> [!IMPORTANT]
-> 원래 AS2 커넥터는 더 이상 사용 되지 않으므로 **as2 (v2)** 커넥터를 대신 사용 해야 합니다. 이 버전은 원래 버전과 동일한 기능을 제공 하 고, Logic Apps 런타임으로 기본 사용 되며, 처리량 및 메시지 크기 측면에서 상당한 성능 향상을 제공 합니다. 또한 native v2 커넥터를 사용할 경우 통합 계정에 대 한 연결을 만들 필요가 없습니다. 대신, 필수 구성 요소에 설명 된 대로 커넥터를 사용 하려는 논리 앱에 통합 계정을 연결 해야 합니다.
-
 ## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 아직 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
@@ -63,9 +63,9 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 * 인증서 관리에 [Azure Key Vault](../key-vault/key-vault-overview.md) 를 사용 하는 경우 자격 증명 모음 키에서 **암호화** 및 **암호 해독** 작업을 허용 하는지 확인 합니다. 그렇지 않으면 인코딩 및 디코딩 작업이 실패 합니다.
 
-  Azure Portal에서 주요 자격 증명 모음으로 이동 하 고, 자격 증명 모음 키의 허용 되는 **작업**을 확인 하 고, **암호화** 및 **암호 해독** 작업이 선택 되어 있는지 확인 합니다.
+  Azure Portal에서 키 자격 증명 모음의 키로 이동 하 고, 키의 **허용 된 작업**을 검토 하 고, **암호화** 및 **암호 해독** 작업이 선택 되었는지 확인 합니다. 예를 들면 다음과 같습니다.
 
-  ![자격 증명 모음 키 작업 확인](media/logic-apps-enterprise-integration-as2/vault-key-permitted-operations.png)
+  ![자격 증명 모음 키 작업 확인](media/logic-apps-enterprise-integration-as2/key-vault-permitted-operations.png)
 
 <a name="encode"></a>
 
@@ -81,16 +81,19 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 1. 이제 이러한 속성에 대 한 정보를 제공 합니다.
 
-   | 속성 | Description |
+   | 속성 | 설명 |
    |----------|-------------|
    | **인코딩할 메시지** | 메시지 페이로드 |
    | **AS2 원본** | AS2 규약에서 지정한 메시지 보낸 사람의 식별자입니다. |
    | **AS2 to** | AS2 규약에서 지정한 메시지 수신기의 식별자입니다. |
    |||
 
-   예:
+   예를 들면 다음과 같습니다.
 
    ![메시지 인코딩 속성](./media/logic-apps-enterprise-integration-as2/as2-message-encoding-details.png)
+
+> [!TIP]
+> 서명 되거나 암호화 된 메시지를 보낼 때 문제가 발생 하면 다른 SHA256 알고리즘 형식을 사용해 보세요. AS2 사양은 SHA256 형식에 대 한 정보를 제공 하지 않으므로 각 공급자는 고유한 구현 또는 형식을 사용 합니다.
 
 <a name="decode"></a>
 
@@ -116,8 +119,11 @@ Azure Logic Apps에서 AS2 메시지를 사용 하려면 as2 통신을 관리 �
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI (이전의 Swagger) 파일에 설명 된 대로 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](/connectors/as2/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 작업 및 제한과 같이이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/as2/)를 참조 하세요. 
+
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 원래 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-[엔터프라이즈 통합 팩](logic-apps-enterprise-integration-overview.md) 에 대 한 자세한 정보
+* 다른 [Logic Apps 커넥터](../connectors/apis-list.md)에 대해 알아봅니다.

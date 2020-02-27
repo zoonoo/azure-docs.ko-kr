@@ -1,19 +1,19 @@
 ---
 title: 경고에 대한 근본 원인 분석 수행 - Azure | Microsoft Docs
 description: 이 자습서에서는 Azure Time Series Insights를 사용하여 경고에 대한 근본 원인 분석을 수행하는 방법을 알아봅니다.
-author: aditidugar
-ms.author: adugar
+author: Philmea
+ms.author: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 11/20/2018
 ms.topic: tutorial
 ms.custom: mvc
-ms.openlocfilehash: 70d29359d4a4bcf9f5badbbf0c553d7bed88a02b
-ms.sourcegitcommit: 022cf0f3f6a227e09ea1120b09a7f4638c78b3e2
+ms.openlocfilehash: c3cb940583677d813873c07fbfa679fdcc1dff59
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2018
-ms.locfileid: "52284568"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565471"
 ---
 # <a name="tutorial-conduct-a-root-cause-analysis-on-an-alert"></a>자습서: 경고에 대한 근본 원인 분석 수행
 
@@ -21,7 +21,7 @@ ms.locfileid: "52284568"
 
 이 자습서에서는 위치, 고도, 속도 및 화물 온도 원격 분석을 전송하는 두 개의 시뮬레이션된 배달 트럭 디바이스를 사용합니다. 트럭은 Contoso라는 조직에서 관리하고 원격 모니터링 솔루션 가속기에 연결됩니다. Contoso 기사의 경우 트럭 중 하나(delivery-truck-02)가 온도 저하 경고를 기록한 이유를 이해해야 합니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 >[!div class="checklist"]
 > * 대시보드에서 디바이스 필터링
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="choose-the-devices-to-display"></a>표시할 디바이스 선택
 
-**대시보드** 페이지에 표시할 연결된 장치를 선택하려면 필터를 사용합니다. **트럭** 장치만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
+**대시보드** 페이지에 표시할 연결된 디바이스를 선택하려면 필터를 사용합니다. **트럭** 디바이스만 표시하려면 필터 드롭다운 목록에서 기본 제공 **트럭** 필터를 선택합니다.
 
 [![대시보드의 트럭에 대한 필터](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-inline.png)](./media/iot-accelerators-remote-monitoring-root-cause-analysis/filter-trucks-expanded.png#lightbox)
 
@@ -101,4 +101,4 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 이 자습서에서는 원격 모니터링 솔루션 가속기와 함께 Time Series Insights 탐색기를 사용하여 경고의 근본 원인을 진단하는 방법을 보여 줍니다. 솔루션 가속기를 사용하여 연결된 디바이스의 문제를 확인하고 해결하는 방법을 알아보려면 다음 자습서를 계속 진행하세요.
 
 > [!div class="nextstepaction"]
-> [장치 경고를 사용하여 모니터링 솔루션에 연결된 장치의 문제를 확인 및 해결](iot-accelerators-remote-monitoring-maintain.md)
+> [디바이스 경고를 사용하여 모니터링 솔루션에 연결된 디바이스의 문제를 확인 및 해결](iot-accelerators-remote-monitoring-maintain.md)

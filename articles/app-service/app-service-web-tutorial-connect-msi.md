@@ -4,13 +4,13 @@ description: 관리 ID를 사용하여 데이터베이스 연결을 보다 안�
 ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/18/2019
-ms.custom: mvc
-ms.openlocfilehash: 53dc6291d699ce08e08d3504bfcd63a525eb9196
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.custom: mvc, cli-validate
+ms.openlocfilehash: b57ee458b857db5692f34e51f388ca8374a3c03b
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671186"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524396"
 ---
 # <a name="tutorial-secure-azure-sql-database-connection-from-app-service-using-a-managed-identity"></a>자습서: 관리 ID를 사용하여 App Service에서 Azure SQL Database 연결 보호
 
@@ -41,7 +41,7 @@ ms.locfileid: "74671186"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서는 [자습서: SQL Database를 사용하여 Azure에서 ASP.NET 앱 빌드](app-service-web-tutorial-dotnet-sqldatabase.md) 또는 [자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드](app-service-web-tutorial-dotnetcore-sqldb.md)에서 중단한 곳에서 이어집니다. 아직 수행하지 않은 경우 두 자습서 중 하나를 먼저 수행합니다. 또는 SQL Database를 사용하여 해당 .NET 앱에 맞게 단계를 조정할 수 있습니다.
 

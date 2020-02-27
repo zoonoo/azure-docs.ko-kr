@@ -3,8 +3,8 @@ title: Azure(대규모 인스턴스)의 SAP HANA 용어 알아보기 | Microsoft
 description: Azure(대규모 인스턴스)의 SAP HANA에 대한 용어를 살펴볼 수 있습니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/21/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: e9719f1a081da688501e6dbea0fc1b865168077c
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 6785ae821f701121185f0064c6317c69d50191ab
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591220"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617058"
 ---
 # <a name="know-the-terms"></a>용어 알아보기
 

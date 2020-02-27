@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/04/2020
 ms.author: Zhchia
-ms.openlocfilehash: 0ca9ed8781a13f9ab5e949e0e5f019a851dc75f4
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1404854e054c8fc4967ba863486969b8a87db526
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057484"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621522"
 ---
 # <a name="tutorial-configure-insight4grc-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 Insight4GRC 구성
 
@@ -90,7 +90,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 
     ![프로 비전 탭](common/provisioning-automatic.png)
 
-5. **관리자 자격 증명** 섹션 아래에서 Insight4GRC admin 자격 증명 및 사용자 이름을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Insight4GRC에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Insight4GRC 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
+5. **관리자 자격 증명** 섹션 아래에서 **테 넌 트 URL**에 scim 끝점 url을 입력 합니다. 끝점 URL은 `https://<Insight4GRC Domain Name>.insight4grc.com/public/api/scim/v2 ` 형식 이어야 합니다. 여기서 **Insight4GRC 도메인 Name** 은 이전 단계에서 검색 한 값입니다. 이전에 **비밀 토큰**에서 검색 된 전달자 토큰 값을 입력 합니다. **연결 테스트** 를 클릭 하 여 Azure AD가 Insight4GRC에 연결할 수 있는지 확인 합니다. 연결에 실패 하면 Insight4GRC 계정에 관리자 권한이 있는지 확인 하 고 다시 시도 합니다.
 
     ![프로비전](./media/insight4grc-provisioning-tutorial/provisioning.png)
 

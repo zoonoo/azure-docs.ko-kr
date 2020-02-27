@@ -5,14 +5,14 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/09/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 8fe38870f593dd57d8e4dad5601ea404e99c3d10
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 39b7e94747f556b61f661968f7126d122156d9cf
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031563"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622007"
 ---
 # <a name="autoscaling-and-zone-redundant-application-gateway-v2"></a>자동 크기 조정 및 영역 중복 Application Gateway v2 
 
@@ -26,8 +26,8 @@ Application Gateway 및 WAF (웹 응용 프로그램 방화벽)는 Standard_v2 �
   영역 중복성은 Azure 영역을 사용할 수 있는 경우에만 사용할 수 있습니다. 다른 지역에서는 다른 모든 기능이 지원 됩니다. 자세한 내용은 [Azure에서 가용성 영역이란?](../availability-zones/az-overview.md#services-support-by-region)을 참조하세요.
 - **정적 vip**: APPLICATION GATEWAY v2 SKU는 정적 vip 형식을 독점적으로 지원 합니다. 이렇게 하면 응용 프로그램 게이트웨이와 연결 된 VIP가 다시 시작 된 후에도 배포의 수명 주기 동안 변경 되지 않습니다.  V1에는 정적 VIP가 없으므로 응용 프로그램 게이트웨이를 통해 App Services 하려면 도메인 이름 라우팅에 대 한 IP 주소 대신 응용 프로그램 게이트웨이 URL을 사용 해야 합니다.
 - **헤더 재작성**: Application Gateway를 사용 하면 v2 SKU를 사용 하 여 HTTP 요청 및 응답 헤더를 추가, 제거 또는 업데이트할 수 있습니다. 자세한 내용은 [Application Gateway를 사용 하 여 HTTP 헤더 다시 작성](rewrite-http-headers.md) 을 참조 하세요.
-- **Key Vault 통합 (미리 보기)** : Application Gateway V2는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault (공개 미리 보기)와의 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하는 SSL 종료](key-vault-certs.md)를 참조 하십시오.
-- **Azure Kubernetes Service 수신 컨트롤러 (미리 보기)** : Application Gateway V2 수신 컨트롤러를 사용 하면 Azure 애플리케이션 게이트웨이를 AKS CLUSTER 라는 AKS (Azure Kubernetes Service)에 대 한 수신으로 사용할 수 있습니다. 자세한 내용은 [설명서 페이지](https://azure.github.io/application-gateway-kubernetes-ingress/)를 참조 하세요.
+- **Key Vault 통합**: Application Gateway V2는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대해 Key Vault와의 통합을 지원 합니다. 자세한 내용은 [Key Vault 인증서를 사용 하는 SSL 종료](key-vault-certs.md)를 참조 하십시오.
+- **Azure Kubernetes Service 수신 컨트롤러**: Application Gateway V2 수신 컨트롤러를 사용 하면 Azure 애플리케이션 게이트웨이를 AKS CLUSTER 라는 AKS (Azure Kubernetes Service)에 대 한 수신으로 사용할 수 있습니다. 자세한 내용은 [Application Gateway 수신 컨트롤러 란?](ingress-controller-overview.md)을 참조 하세요.
 - **성능 향상**: v2 Sku는 표준/WAF sku와 비교해 서 최대 5 배 더 나은 SSL 오프 로드 성능을 제공 합니다.
 - **더 빠른 배포 및 업데이트 시간** V2 SKU는 표준/WAF SKU와 비교 하 여 더 빠른 배포 및 업데이트 시간을 제공 합니다. 여기에는 WAF 구성 변경 내용도 포함 됩니다.
 

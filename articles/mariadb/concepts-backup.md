@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 333e51782fd0dd88b3e8747fb831b841a22c8e6c
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 02/25/2020
+ms.openlocfilehash: 3e10c23aaaef6315e072348d879d5f077e16382a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74773093"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623668"
 ---
 # <a name="backup-and-restore-in-azure-database-for-mariadb"></a>Azure Database for MariaDB의 백업 및 복원
 
@@ -20,6 +20,8 @@ Azure Database for MariaDB는 자동으로 서버 백업을 만들어 사용자�
 ## <a name="backups"></a>Backup
 
 Azure Database for MariaDB는 전체, 차등 및 트랜잭션 로그 백업을 수행합니다. 이러한 백업을 사용하면 서버를 구성된 백업 보존 기간 내의 특정 시점으로 복원할 수 있습니다. 기본 백업 보존 기간은 7일입니다. 필요에 따라 최대 35일까지 구성할 수 있습니다. 모든 백업은 AES 256비트 암호화를 사용하여 암호화됩니다.
+
+이러한 백업 파일은 내보낼 수 없습니다. 백업은 Azure Database for MariaDB의 복원 작업에만 사용할 수 있습니다. [Mysqldump](howto-migrate-dump-restore.md) 를 사용 하 여 데이터베이스를 복사할 수 있습니다.
 
 ### <a name="backup-frequency"></a>Backup 주기
 
@@ -54,7 +56,7 @@ Azure Database for MariaDB에서 복원을 수행하면 원래 서버의 백업�
 > [!IMPORTANT]
 > 삭제된 서버는 복원할 수 **없습니다**. 서버를 삭제하면 서버에 속하는 모든 데이터베이스도 삭제되고 복구할 수 없습니다. 배포 후에 실수로 인한 삭제 또는 예기치 않은 변경에서 서버 리소스를 보호하려면 관리자는 [관리 잠금](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-lock-resources)을 활용할 수 있습니다.
 
-### <a name="point-in-time-restore"></a>특정 시점 복원
+### <a name="point-in-time-restore"></a>지정 시간 복원
 
 백업 중복 옵션과는 별도로 백업 보존 기간 내의 특정 시점으로 복원을 수행할 수 있습니다. 새 서버가 원본 서버와 동일한 Azure 지역에 만들어집니다. 이 경우 가격 책정 계층, 컴퓨팅 세대, vCore 수, 스토리지 크기, 백업 보존 기간 및 백업 중복 옵션에 대한 원래 서버의 구성으로 만들어집니다.
 
@@ -62,7 +64,7 @@ Azure Database for MariaDB에서 복원을 수행하면 원래 서버의 백업�
 
 마지막 5분 내의 특정 시점으로 복원하려면, 다음 트랜잭션 로그 백업이 완료될 때까지 기다려야 할 수도 있습니다.
 
-### <a name="geo-restore"></a>지역 복원
+### <a name="geo-restore"></a>지리적 복원
 
 지역 중복 백업을 위해 서버를 구성한 경우 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 지역 복원은 서버가 호스팅되는 지역에 사고가 발생하여 서버를 사용할 수 없는 경우에 대비한 기본 복구 옵션입니다. 지역에서 발생한 대규모 사고로 인해 데이터베이스 애플리케이션을 사용할 수 없는 경우 지역 중복 백업에서 다른 지역에 있는 서버로 서버를 복원할 수 있습니다. 백업을 수행할 때와 다른 지역으로 복제할 때 사이에 지연이 있습니다. 재해가 발생한 경우 최대 1시간 동안의 데이터가 손실되므로 이 지연은 최대 1시간일 수 있습니다.
 
