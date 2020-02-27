@@ -10,12 +10,12 @@ ms.author: shipatel
 author: shivp950
 ms.reviewer: larryfr
 ms.date: 11/04/2019
-ms.openlocfilehash: 0da5fe56bd56d360cd8052976bdde0cdc910c9a5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 49ee00d43820d5aeb50e44cff1b6c5a448b4ce81
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904273"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623910"
 ---
 # <a name="create-event-driven-machine-learning-workflows-preview"></a>이벤트 기반 기계 학습 워크플로 만들기 (미리 보기)
 
@@ -25,15 +25,15 @@ ms.locfileid: "76904273"
 
 Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사용할 수 있습니다.
 
-* 재 학습을 위한 파이프라인 트리거
+* 실행 완료 시 전자 메일 보내기
+* 모델을 등록 한 후 azure function 사용
 * Azure Machine Learning에서 다양 한 끝점으로 이벤트 스트리밍
+* 드리프트가 검색 되 면 ML 파이프라인 트리거
 
 ## <a name="prerequisites"></a>필수 조건
-
 * Azure Machine Learning 작업 영역에 대 한 참가자 또는 소유자 액세스는 이벤트를 만들 수 있습니다.
-* 웹 후크 또는 이벤트 허브와 같은 이벤트 처리기 끝점을 선택 합니다. 자세한 내용은 [이벤트 처리기](https://docs.microsoft.com/azure/event-grid/event-handlers)를 참조 하세요. 
 
-## <a name="configure-machine-learning-events-using-the-azure-portal"></a>Azure Portal를 사용 하 여 machine learning 이벤트 구성
+### <a name="configure-eventgrid-using-the-azure-portal"></a>Azure Portal를 사용 하 여 EventGrid 구성
 
 1. [Azure Portal](https://portal.azure.com) 를 열고 Azure Machine Learning 작업 영역으로 이동 합니다.
 
@@ -51,7 +51,7 @@ Event Grid를 사용 하 여 다음과 같은 일반적인 시나리오를 사�
 
 선택 항목을 확인 한 후 __만들기__를 클릭 합니다. 구성 후 이러한 이벤트는 끝점으로 푸시됩니다.
 
-## <a name="set-up-azure-event-grid-using-cli"></a>CLI를 사용 하 여 Azure Event Grid 설정
+### <a name="configure-eventgrid-using-the-cli"></a>CLI를 사용 하 여 EventGrid 구성
 
 최신 [Azure CLI](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest)를 설치 하거나 Azure 구독의 일부로 제공 되는 Azure Cloud Shell를 사용할 수 있습니다.
 
@@ -61,7 +61,7 @@ Event Grid 확장을 설치 하려면 CLI에서 다음 명령을 사용 합니�
 az add extension --name eventgrid
 ```
 
-다음 예제에서는 Azure 구독을 선택한 다음 Azure Machine Learning에 대 한 새 이벤트 구독을 만드는 방법을 보여 줍니다.
+다음 예제에서는 Azure 구독을 선택 하 고 Azure Machine Learning에 대 한 새 이벤트 구독을 만드는 방법을 보여 줍니다.
 
 ```azurecli-interactive
 # Select the Azure subscription that contains the workspace
@@ -77,6 +77,12 @@ az eventgrid event-subscription create \
 ```
 
 ## <a name="sample-scenarios"></a>샘플 시나리오
+
+### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Azure Functions를 사용 하 여 태그를 기반으로 모델 배포
+
+Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속성과 같이 배포를 피벗할 수 있는 매개 변수가 포함 되어 있습니다. 모델 등록 이벤트는 끝점을 트리거할 수 있으며 Azure 함수를 사용 하 여 해당 매개 변수의 값을 기반으로 모델을 배포할 수 있습니다.
+
+예제는 [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) 리포지토리를 참조 하 고 **추가 정보** 파일의 단계를 따릅니다.
 
 ### <a name="use-a-logic-app-to-send-email-alerts"></a>논리 앱을 사용 하 여 전자 메일 알림 보내기
 
@@ -158,12 +164,6 @@ az eventgrid event-subscription create \
 
 ![작업 영역 보기](./media/how-to-use-event-grid/view-in-workspace.png)
 
-
-### <a name="use-azure-functions-to-deploy-a-model-based-on-tags"></a>Azure Functions를 사용 하 여 태그를 기반으로 모델 배포
-
-Azure Machine Learning 모델 개체에는 모델 이름, 버전, 태그 및 속성과 같이 배포를 피벗할 수 있는 매개 변수가 포함 되어 있습니다. 모델 등록 이벤트는 끝점을 트리거할 수 있으며 Azure 함수를 사용 하 여 해당 매개 변수의 값을 기반으로 모델을 배포할 수 있습니다.
-
-예제는 [https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid](https://github.com/Azure-Samples/MachineLearningSamples-NoCodeDeploymentTriggeredByEventGrid) 리포지토리를 참조 하 고 **추가 정보** 파일의 단계를 따릅니다.
 
 ## <a name="next-steps"></a>다음 단계
 

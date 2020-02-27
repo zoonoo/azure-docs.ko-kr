@@ -5,14 +5,14 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 01/10/2020
+ms.date: 02/25/2020
 ms.author: cherylmc
-ms.openlocfilehash: b98fb4044028ec9b335dc314732da04d18a3e2f9
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: b26947f2dd25f950b2d69d58321582a503aea83d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894952"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619805"
 ---
 # <a name="configure-a-vnet-to-vnet-vpn-gateway-connection-by-using-the-azure-portal"></a>Azure Portal을 사용하여 VNet-VNet 간 VPN Gateway 연결 구성
 
@@ -103,7 +103,7 @@ VNet-VNet 통신을 다중 사이트 구성과 결합할 수 있습니다. 이�
    - **주소 공간**: *10.41.0.0/16*을 입력 합니다.
    - **구독**: 사용 하려는 구독을 선택 합니다.
    - **리소스 그룹**: *TestRG4*을 입력 합니다.
-   - **위치**: **미국 서부**를 선택합니다.
+   - **위치**: **미국 서 부**를 선택 합니다.
    - **서브넷** 
       - **이름**: *프런트 엔드*를 입력 합니다.
       - **주소 범위**: *10.41.0.0/24*를 입력 합니다.
@@ -183,7 +183,7 @@ Azure Portal에서 가상 네트워크 게이트웨이를 찾습니다. **가상
 
 데이터 흐름이 시작되면 **데이터 입력** 및 **데이터 출력** 값이 보입니다.
 
-![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "Essentials")
+![Essentials](./media/vpn-gateway-howto-vnet-vnet-resource-manager-portal/essentials.png "기본 정보")
 
 ## <a name="add-additional-connections"></a>연결 추가
 

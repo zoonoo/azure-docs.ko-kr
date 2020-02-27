@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows-sql-server
 ms.workload: iaas-sql-server
 ms.date: 10/09/2019
 ms.author: mathoma
-ms.openlocfilehash: 57dc7bb98bf4c2f733be0f2c94e17481a429be6d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: b2d49eeadf068cbaacaa5e147f38025c55f33ff4
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906793"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651364"
 ---
 # <a name="configure-a-sql-server-failover-cluster-instance-with-premium-file-share-on-azure-virtual-machines"></a>Azure virtual machines에서 프리미엄 파일 공유를 사용 하 여 SQL Server 장애 조치 (failover) 클러스터 인스턴스 구성
 
@@ -149,11 +149,11 @@ Filestream은 프리미엄 파일 공유를 사용 하는 장애 조치 (failove
 
    1. **다음**을 선택 하 고 **제거**를 선택 합니다.
 
-1. <a name="ports"></a>방화벽 포트를 엽니다.
+1. <span id="ports"></span> 방화벽 포트를 엽니다.  
 
    각 가상 컴퓨터의 Windows 방화벽에서 이러한 포트를 엽니다.
 
-   | 용도 | TCP 포트 | 메모
+   | 목적 | TCP 포트 | 참고
    | ------ | ------ | ------
    | SQL Server | 1433 | SQL Server의 기본 인스턴스에 대한 표준 포트입니다. 갤러리에서 이미지를 사용한 경우 이 포트는 자동으로 열립니다.
    | 상태 프로브 | 59999 | 모든 공개 TCP 포트입니다. 이후 단계에서 이 포트를 사용하려면 부하 분산 장치 [상태 프로브](#probe) 및 클러스터를 구성합니다.
@@ -369,7 +369,7 @@ Azure 가상 머신에서 클러스터는 한 번에 하나의 클러스터 노�
 
 1. **추가**를 선택합니다.
 
-1. **상태 프로브 추가** 블레이드에서 다음 상태 프로브 <a name="probe"> </a>매개 변수를 설정 합니다.
+1. **상태 프로브 추가** 블레이드에서 다음 상태 프로브 <span id="probe"></span> 매개 변수를 설정 합니다.
 
    - **이름**: 상태 프로브의 이름입니다.
    - **프로토콜**: TCP입니다.
@@ -422,7 +422,7 @@ PowerShell에서 클러스터 프로브 포트 매개 변수를 설정합니다.
 
    - `<SQL Server FCI IP Address Resource Name>`: SQL Server FCI IP 주소 리소스 이름입니다. **장애 조치(Failover) 클러스터 관리자** > **역할**의 SQL Server Fci 역할 아래에서 **서버 이름**아래에 있는 IP 주소 리소스를 마우스 오른쪽 단추로 클릭 하 고 **속성**을 선택 합니다. 올바른 값은 **일반** 탭의 **이름** 아래에 있습니다.
 
-   - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 `<SQL Server FCI IP Address Resource Name>`이 있는 동일한 속성 페이지의 **장애 조치(Failover) 클러스터 관리자**에서 확인할 수 있습니다.  
+   - `<ILBIP>`: ILB IP 주소입니다. 이 주소는 Azure Portal에서 ILB 프런트 엔드 주소로 구성됩니다. 또한 SQL Server FCI IP 주소입니다. 이 주소는 **이 있는 동일한 속성 페이지의** 장애 조치(Failover) 클러스터 관리자`<SQL Server FCI IP Address Resource Name>`에서 확인할 수 있습니다.  
 
    - `<nnnnn>`: 부하 분산 장치 상태 프로브에서 구성한 프로브 포트입니다. 사용하지 않는 모든 TCP 포트는 유효합니다.
 

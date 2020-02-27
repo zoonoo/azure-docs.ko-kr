@@ -4,14 +4,14 @@ description: Azure HPC 캐시를 사용 하기 위한 필수 구성 요소
 author: ekpgh
 ms.service: hpc-cache
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/20/2020
 ms.author: rohogue
-ms.openlocfilehash: 135c231f84d95ea2418fab4647d715473378e41c
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 40d282ad30a800a5e5a36a8d2211ec8da7ce63ec
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251960"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651069"
 ---
 # <a name="prerequisites-for-azure-hpc-cache"></a>Azure HPC 캐시의 필수 구성 요소
 
@@ -95,7 +95,9 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 > [!NOTE]
 > 캐시에 NFS 저장소 시스템에 대 한 액세스 권한이 없으면 저장소 대상 만들기가 실패 합니다.
 
-* **네트워크 연결:** Azure HPC 캐시는 캐시 서브넷과 NFS 시스템의 데이터 센터 간에 고대역폭 네트워크 액세스가 필요 합니다. [Express](https://docs.microsoft.com/azure/expressroute/) 경로 또는 유사한 액세스를 사용 하는 것이 좋습니다. VPN을 사용 하는 경우 대량 패킷이 차단 되지 않도록 1350에서 클램프 TCP MSS를 사용 하도록 구성 해야 할 수 있습니다.
+[NAS 구성 문제 해결 및 NFS 저장소 대상 문제](troubleshoot-nas.md)에 대 한 자세한 정보가 포함 되어 있습니다.
+
+* **네트워크 연결:** Azure HPC 캐시는 캐시 서브넷과 NFS 시스템의 데이터 센터 간에 고대역폭 네트워크 액세스가 필요 합니다. [Express](https://docs.microsoft.com/azure/expressroute/) 경로 또는 유사한 액세스를 사용 하는 것이 좋습니다. VPN을 사용 하는 경우 대량 패킷이 차단 되지 않도록 1350에서 클램프 TCP MSS를 사용 하도록 구성 해야 할 수 있습니다. Vpn 설정 문제 해결에 대 한 추가 도움말은 [vpn 패킷 크기 제한](troubleshoot-nas.md#adjust-vpn-packet-size-restrictions) 을 참조 하세요.
 
 * **포트 액세스:** 캐시는 저장소 시스템의 특정 TCP/UDP 포트에 액세스 해야 합니다. 저장소 유형에 따라 서로 다른 포트 요구 사항이 있습니다.
 
@@ -109,6 +111,8 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
     rpcinfo -p <storage_IP> |egrep "100000\s+4\s+tcp|100005\s+3\s+tcp|100003\s+3\s+tcp|100024\s+1\s+tcp|100021\s+4\s+tcp"| awk '{print $4 "/" $3 " " $5}'|column -t
     ```
 
+  ``rpcinfo`` 쿼리에서 반환 된 모든 포트가 Azure HPC 캐시의 서브넷에서 무제한 트래픽을 허용 하는지 확인 합니다.
+
   * `rpcinfo` 명령으로 반환 되는 포트 외에도 일반적으로 사용 되는 포트에서 인바운드 및 아웃 바운드 트래픽을 허용 하는지 확인 합니다.
 
     | 프로토콜 | 포트  | 서비스  |
@@ -121,16 +125,20 @@ NFS 저장소 시스템을 사용 하는 경우 (예: 온-프레미스 하드웨
 
   * 방화벽 설정을 확인 하 여 필요한 모든 포트에서 트래픽을 허용 하는지 확인 합니다. 데이터 센터의 온-프레미스 방화벽 뿐만 아니라 Azure에서 사용 되는 방화벽을 확인 해야 합니다.
 
-* **디렉터리 액세스:** 저장소 시스템에서 `showmount` 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고, 여러 개의 탑재에서 동일한 하위 디렉터리 (파일 충돌 위험)에 액세스 하지 않는지 확인 합니다.
+* **디렉터리 액세스:** 저장소 시스템에서 `showmount` 명령을 사용 하도록 설정 합니다. Azure HPC 캐시는이 명령을 사용 하 여 저장소 대상 구성이 유효한 내보내기를 가리키는지 확인 하 고 여러 탑재에서 동일한 하위 디렉터리에 액세스 하지 않도록 합니다 (파일 충돌 위험).
 
   > [!NOTE]
   > NFS 저장소 시스템에서 NetApp의 ONTAP 9.2 운영 체제를 사용 하는 경우 **`showmount`사용 하지 마십시오** . [Microsoft 서비스 및 지원 서비스](hpc-cache-support-ticket.md) 에 도움을 요청 하세요.
+
+  NFS 저장소 대상 [문제 해결 문서의](troubleshoot-nas.md#enable-export-listing)디렉터리 목록 액세스에 대해 자세히 알아보세요.
 
 * **루트 액세스:** 캐시는 사용자 ID가 0 인 백 엔드 시스템에 연결 됩니다. 저장소 시스템에서 다음 설정을 확인 합니다.
   
   * `no_root_squash`을 사용하도록 설정합니다. 이 옵션을 사용 하면 원격 루트 사용자가 루트 소유의 파일에 액세스할 수 있습니다.
 
   * 정책 내보내기를 선택 하 여 캐시 서브넷의 루트 액세스에 대 한 제한을 포함 하지 않는지 확인 합니다.
+
+  * 저장소에 다른 내보내기의 하위 디렉터리인 내보내기가 있는 경우 경로의 최하위 세그먼트에 대 한 루트 액세스 권한이 캐시에 있는지 확인 합니다. 자세한 내용은 NFS 저장소 대상 문제 해결 문서의 [디렉터리 경로에 대 한 루트 액세스](troubleshoot-nas.md#allow-root-access-on-directory-paths) 를 참조 하세요.
 
 * NFS 백 엔드 저장소는 호환 되는 하드웨어/소프트웨어 플랫폼 이어야 합니다. 자세한 내용은 Azure HPC 캐시 팀에 문의 하세요.
 

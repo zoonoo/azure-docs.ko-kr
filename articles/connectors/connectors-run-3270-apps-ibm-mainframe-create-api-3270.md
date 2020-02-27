@@ -9,19 +9,19 @@ ms.reviewer: estfan, valthom
 ms.topic: article
 ms.date: 03/06/2019
 tags: connectors
-ms.openlocfilehash: 309cf59c4b27c2a5906acfc519edd5306dece2d5
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: a9d3d0287e7839d6396553d532ba6f293fb19b68
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74789242"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647668"
 ---
 # <a name="integrate-3270-screen-driven-apps-on-ibm-mainframes-with-azure-by-using-azure-logic-apps-and-ibm-3270-connector"></a>Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 IBM 메인프레임에서 3270 화면 기반 앱을 Azure와 통합
 
 > [!NOTE]
 > 이 커넥터는 [*공개 미리 보기*](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)상태입니다. 
 
-Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 일반적으로 3270 에뮬레이터 화면을 탐색 하 여 구동 하는 IBM 메인프레임 앱에 액세스 하 고 실행할 수 있습니다. 이렇게 하면 Azure Logic Apps를 사용 하 여 자동화 된 워크플로를 만들어 IBM 메인프레임 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 시스템과 통합할 수 있습니다. 커넥터는 TN3270 프로토콜을 사용 하 여 IBM 메인프레임과 통신 하 고 Azure Government 및 Azure 중국 21Vianet을 제외 하 고 모든 Azure Logic Apps 지역에서 사용할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+Azure Logic Apps 및 IBM 3270 커넥터를 사용 하 여 일반적으로 3270 에뮬레이터 화면을 탐색 하 여 구동 하는 IBM 메인프레임 앱에 액세스 하 고 실행할 수 있습니다. 이렇게 하면 Azure Logic Apps를 사용 하 여 자동화 된 워크플로를 만들어 IBM 메인프레임 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 시스템과 통합할 수 있습니다. 커넥터는 TN3270 프로토콜을 사용 하 여 IBM 메인프레임과 통신 하 고 Azure Government 및 Azure 중국 21Vianet을 제외 하 고 모든 Azure Logic Apps 지역에서 사용할 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 이 문서에서는 3270 커넥터 사용에 대 한 다음과 같은 측면을 설명 합니다. 
 
@@ -39,9 +39,9 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 디자인 도구에서 메타 데이터 파일을 생성 한 후에는 해당 파일을 Azure의 통합 계정에 추가 합니다. 이렇게 하면 논리 앱에서 3270 커넥터 작업을 추가할 때 앱의 메타 데이터에 액세스할 수 있습니다. 커넥터는 통합 계정에서 메타 데이터 파일을 읽고, 3270 화면에서 탐색을 처리 하 고, 3270 커넥터 작업에 대 한 매개 변수를 동적으로 표시 합니다. 그런 다음 호스트 응용 프로그램에 데이터를 제공할 수 있으며 커넥터가 결과를 논리 앱에 반환 합니다. 이렇게 하면 레거시 앱을 Azure, Microsoft 및 기타 앱, 서비스 및 Azure Logic Apps 지원 되는 시스템과 통합할 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * [논리 앱 만드는 방법](../logic-apps/quickstart-create-first-logic-app-workflow.md)에 관한 기본 지식
 
@@ -184,9 +184,9 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
    | 계획 유형 | 설명 |
    |-----------|-------------|
-   | **프로세스** | 독립 실행형 또는 결합 된 계획 |
+   | **처리** | 독립 실행형 또는 결합 된 계획 |
    | **연결** | 연결 계획의 경우 |
-   | **케이블** | 연결 끊기 계획의 경우 |
+   | **연결 끊기** | 연결 끊기 계획의 경우 |
    |||
 
 1. **호스트 화면** 창에서 캡처된 축소판 그림을 **탐색** 창의 탐색 계획 화면으로 끌어 옵니다.
@@ -218,13 +218,13 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 또한 이러한 단계를 반복 하지만 오류를 표시 하는 화면을 캡처할 수 있도록 잘못 된 데이터를 입력 하는 것으로 가정 합니다. 캡처한 화면은 다음과 같습니다.
 
-* 메시지-10
+* MSG-10
 * CICS 시작
-* Empty
+* 비어 있음
 * WBGB_1 (입력)
 * WBGB_2 (오류)
 * Empty_1
-* 메시지-10_1
+* MSG-10_1
 
 여기에는 많은 화면이 고유 이름이 제공 되지만 일부 화면은 동일한 화면 (예: "MSG-10" 및 "Empty")입니다. 반복 되는 화면의 경우 계획에서 해당 화면에 대해 인스턴스를 하나만 사용 합니다. 다음은 독립 실행형 계획, 연결 계획, 연결 끊기 계획 및 결합 된 계획이 어떻게 표시 되는지 보여 주는 예입니다.
 
@@ -345,7 +345,7 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 작업을 추가 하려는 마지막 단계에서 **새 단계**를 선택 하 고 **작업 추가**를 선택 합니다. 
 
@@ -358,33 +358,33 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 1. 연결이 아직 없으면 연결에 필요한 정보를 제공 하 고 **만들기**를 선택 합니다.
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
-   | **연결 이름** | yes | <*connection-name*> | 연결의 이름 |
-   | **통합 계정 ID** | yes | <*integration-account-name*> | 통합 계정의 이름 |
-   | **통합 계정 SAS URL** | yes | <*통합-계정-SAS URL*> | 통합 계정의 SAS (공유 액세스 서명) URL은 Azure Portal의 통합 계정 설정에서 생성할 수 있습니다. <p>1. 통합 계정 메뉴의 **설정**에서 **콜백 URL**을 선택 합니다. <br>2. 오른쪽 창에서 **생성 된 콜백 URL** 값을 복사 합니다. |
-   | **서버** | yes | <*TN3270*> | TN3270 서비스에 대 한 서버 이름 |
-   | **포트** | 아닙니다. | <*TN3270*> | TN3270 서버에서 사용 하는 포트입니다. 이 값을 비워 두면 커넥터가 `23`를 기본값으로 사용 합니다. |
-   | **장치 유형** | 아닙니다. | <*IBM-터미널 모델*> | 에뮬레이션할 IBM 터미널의 모델 이름 또는 번호입니다. 이 값을 비워 두면 커넥터에서 기본값을 사용 합니다. |
-   | **코드 페이지** | 아닙니다. | <*코드-페이지 번호*> | 호스트의 코드 페이지 번호입니다. 이 값을 비워 두면 커넥터가 `37`를 기본값으로 사용 합니다. |
-   | **논리 단위 이름** | 아닙니다. | <*논리 단위 이름*> | 호스트에서 요청할 특정 논리 단위 이름입니다. |
-   | **SSL 사용?** | 아닙니다. | 설정 또는 해제 | SSL 암호화를 설정하거나 해제합니다. |
-   | **호스트 ssl 인증서의 유효성을 검사 하 시겠습니까?** | 아닙니다. | 설정 또는 해제 | 서버 인증서에 대 한 유효성 검사를 설정 하거나 해제 합니다. |
+   | **연결 이름** | 예 | <*connection-name*> | 연결의 이름 |
+   | **통합 계정 ID** | 예 | <*integration-account-name*> | 통합 계정의 이름 |
+   | **통합 계정 SAS URL** | 예 | <*통합-계정-SAS URL*> | 통합 계정의 SAS (공유 액세스 서명) URL은 Azure Portal의 통합 계정 설정에서 생성할 수 있습니다. <p>1. 통합 계정 메뉴의 **설정**에서 **콜백 URL**을 선택 합니다. <br>2. 오른쪽 창에서 **생성 된 콜백 URL** 값을 복사 합니다. |
+   | **Server** | 예 | <*TN3270*> | TN3270 서비스에 대 한 서버 이름 |
+   | **포트** | 아니요 | <*TN3270*> | TN3270 서버에서 사용 하는 포트입니다. 이 값을 비워 두면 커넥터가 `23`를 기본값으로 사용 합니다. |
+   | **장치 유형** | 아니요 | <*IBM-터미널 모델*> | 에뮬레이션할 IBM 터미널의 모델 이름 또는 번호입니다. 이 값을 비워 두면 커넥터에서 기본값을 사용 합니다. |
+   | **코드 페이지** | 아니요 | <*코드-페이지 번호*> | 호스트의 코드 페이지 번호입니다. 이 값을 비워 두면 커넥터가 `37`를 기본값으로 사용 합니다. |
+   | **논리 단위 이름** | 아니요 | <*논리 단위 이름*> | 호스트에서 요청할 특정 논리 단위 이름입니다. |
+   | **SSL 사용?** | 아니요 | 설정 또는 해제 | SSL 암호화를 설정하거나 해제합니다. |
+   | **호스트 ssl 인증서의 유효성을 검사 하 시겠습니까?** | 아니요 | 설정 또는 해제 | 서버 인증서에 대 한 유효성 검사를 설정 하거나 해제 합니다. |
    ||||
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    ![연결 속성](./media/connectors-create-api-3270/connection-properties.png)
 
 1. 작업에 필요한 정보를 제공 합니다.
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | 설명 |
    |----------|----------|-------|-------------|
-   | **Hidx 이름** | yes | <*HIDX*> | 사용 하려는 3270 HIDX 파일을 선택 합니다. |
-   | **메서드 이름** | yes | <*메서드 이름*> | HIDX 파일에서 사용 하려는 메서드를 선택 합니다. 메서드를 선택한 후에는 **새 매개 변수 추가** 목록이 표시 되므로 해당 메서드와 함께 사용할 매개 변수를 선택할 수 있습니다. |
+   | **Hidx 이름** | 예 | <*HIDX*> | 사용 하려는 3270 HIDX 파일을 선택 합니다. |
+   | **메서드 이름** | 예 | <*메서드 이름*> | HIDX 파일에서 사용 하려는 메서드를 선택 합니다. 메서드를 선택한 후에는 **새 매개 변수 추가** 목록이 표시 되므로 해당 메서드와 함께 사용할 매개 변수를 선택할 수 있습니다. |
    ||||
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    **HIDX 파일 선택**
 
@@ -409,7 +409,10 @@ IBM 메인프레임에서 앱에 액세스 하려면 일반적으로 "녹색 화
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI (이전의 Swagger) 설명에서 설명 하는 트리거, 작업 및 제한에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지를 참조](/connectors/si3270/)하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/si3270/)를 참조 하세요.
+
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

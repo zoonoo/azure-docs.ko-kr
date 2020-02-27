@@ -12,12 +12,12 @@ ms.date: 02/24/2020
 ms.author: marsma
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 7ccc5fe314d49ea65aaa8750937170ab79a8c04f
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 5ec83857ebabc92bf86f9f84a43746a0e561218a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77581466"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647592"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -43,7 +43,7 @@ SAML을 사용 하 여 두 가지 비 배타 코어 시나리오 요약:
 | 응용 프로그램은 인증을 완료 하는 데 SAML 어설션이 필요 합니다. | **Azure AD B2C는 IdP (id 공급자) 역할을 합니다.**<br />Azure AD B2C는 응용 프로그램에 대 한 SAML IdP 역할을 합니다. | 이 문서의 내용: |
 | 내 사용자는 ADFS, Salesforce 또는 Shibboleth와 같은 SAML 호환 id 공급자를 사용 하는 single sign-on이 필요 합니다.  | **Azure AD B2C SP (서비스 공급자) 역할을 합니다.**<br />Azure AD B2C는 SAML id 공급자에 연결할 때 서비스 공급자 역할을 합니다. 응용 프로그램과 SAML id 공급자 간의 페더레이션 프록시입니다.  | <ul><li>[사용자 지정 정책을 사용 하 여 SAML IdP ADFS로 로그인 설정](identity-provider-adfs2016-custom.md)</li><li>[사용자 지정 정책을 사용 하 여 Salesforce SAML 공급자로 로그인 설정](identity-provider-salesforce-custom.md)</li></ul> |
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Azure AD B2C에서 사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료 합니다. 이 문서에서 설명 하는 사용자 지정 정책 시작 팩의 *Socialandlocalaccounts* 사용자 지정 정책이 필요 합니다.
 * SAML (Security Assertion Markup Language) 프로토콜에 대 한 기본적인 이해
@@ -276,7 +276,6 @@ Azure AD B2C policy IDP 메타 데이터는 saml 프로토콜에서 SAML id 공�
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들면 *SAMLApp1*입니다.
 1. **지원 되는 계정 유형**에서 **이 조직 디렉터리에만 계정** 을 선택 합니다.
 1. **URI 리디렉션**에서 **웹**을 선택 하 고 `https://localhost`를 입력 합니다. 이 값은 나중에 응용 프로그램 등록의 매니페스트에서 수정할 수 있습니다.
-1. **Openid connect 및 offline_access 권한에 대해 관리자 동의 부여를**선택 합니다.
 1. **등록**을 선택합니다.
 
 ### <a name="42-update-the-app-manifest"></a>4.2 응용 프로그램 매니페스트 업데이트
@@ -338,7 +337,7 @@ SAML 테스트 응용 프로그램을 사용 하는이 자습서의 경우 `logo
 일반적으로 다음 중 일부 또는 모두 필요 합니다.
 
 * **메타 데이터**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name/Samlp/metadata`
-* **발급자**: `https://tenant-name.onmicrosoft.com/policy-name`
+* **발급자**: `https://tenant-name.b2clogin.com/tenant-name.onmicrosoft.com/policy-name`
 * **로그인 Url/saml 끝점/Saml Url**: 메타 데이터 파일에서 값을 확인 합니다.
 * **Certificate**: 개인 키가 없는 *B2C_1A_SamlIdpCert*입니다. 인증서의 공개 키를 가져오려면:
 

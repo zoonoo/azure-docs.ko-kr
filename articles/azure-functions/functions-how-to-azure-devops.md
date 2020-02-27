@@ -1,16 +1,16 @@
 ---
 title: Azure DevOps를 사용 하 여 지속적으로 함수 앱 코드 업데이트
 description: Azure Functions를 대상으로 하는 Azure DevOps 파이프라인을 설정 하는 방법을 알아봅니다.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 04/18/2019
-ms.author: aelnably
-ms.openlocfilehash: e6ea7edb16aa28428754cbe920e1d350aded0cff
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.author: cshoe
+ms.openlocfilehash: 1d627329a6d5f4c283a4480c1b0b1077a8e856cf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834033"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649945"
 ---
 # <a name="continuous-delivery-by-using-azure-devops"></a>Azure DevOps를 사용한 지속적인 업데이트
 
@@ -29,7 +29,7 @@ YAML 기반 파이프라인을 만들려면 먼저 앱을 빌드한 다음 앱�
 
 Azure Pipelines에서 앱을 빌드하는 방법은 앱의 프로그래밍 언어에 따라 달라 집니다. 각 언어에는 배포 아티팩트를 만드는 특정 빌드 단계가 있습니다. 배포 아티팩트는 Azure에서 함수 앱을 배포 하는 데 사용 됩니다.
 
-# <a name="ctabcsharp"></a>[C\#](#tab/csharp)
+# <a name="c"></a>[C\#](#tab/csharp)
 
 다음 샘플을 사용 하 여 .NET 앱을 빌드하는 YAML 파일을 만들 수 있습니다.
 
@@ -60,7 +60,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 샘플을 사용 하 여 JavaScript 앱을 빌드하는 YAML 파일을 만들 수 있습니다.
 
@@ -88,7 +88,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 샘플 중 하나를 사용 하 여 특정 Python 버전용 앱을 빌드하는 YAML 파일을 만들 수 있습니다. Python은 Linux에서 실행 되는 함수 앱에 대해서만 지원 됩니다.
 
@@ -150,7 +150,7 @@ steps:
     artifactName: 'drop'
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 다음 샘플을 사용 하 여 PowerShell 앱을 패키징하는 YAML 파일을 만들 수 있습니다. PowerShell은 Windows Azure Functions 에서만 지원 됩니다.
 

@@ -10,12 +10,12 @@ ms.topic: include
 ms.custom: include file
 ms.date: 02/08/2020
 ms.author: diberry
-ms.openlocfilehash: fdbabc6620aaf7458350492cf3922ff910e66b89
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: f3a1a33b2fe859839deec587191b3b3a319c0cf8
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77112331"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77495137"
 ---
 이 cURL 기반 빠른 시작에서는 기술 자료에서 답변을 가져오는 과정을 안내합니다.
 
@@ -445,9 +445,8 @@ JSON 응답은 게시된 기술 자료 쿼리와 동일한 스키마를 사용�
     ```bash
     curl -X POST https://replace-with-your-resource-name.azurewebsites.net/qnamaker/knowledgebases/replace-with-your-knowledge-base-id/generateAnswer -H "Authorization: EndpointKey replace-with-your-endpoint-key" -H "Content-type: application/json" -d "{'question':'size', 'scoreThreshold':60.00}"
     ```
-    ```
 
-    The returned JSON found the answer.
+    반환된 JSON에서 대답을 찾았습니다.
 
     ```json
     {

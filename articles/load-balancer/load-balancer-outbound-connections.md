@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 56c48e9a64ec1fd000f98a20d5005305f522ff41
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a6b0ebf811d662046d1a9a89fb75a0ab137569c3
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500662"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616543"
 ---
 # <a name="outbound-connections-in-azure"></a>Azure에서 아웃바운드 연결
 
@@ -34,13 +34,13 @@ Azure에서는 SNAT(원본 네트워크 주소 변환)를 사용하여 이 기�
 여러 개의 [아웃바운드 시나리오](#scenarios)가 있습니다. 필요에 따라 이러한 시나리오를 결합할 수 있습니다. 주의 깊게 살펴보고 배포 모델 및 애플리케이션 시나리오에 적용되는 기능, 제약 조건 및 패턴을 이해합니다. [시나리오 관리](#snatexhaust) 지침을 검토합니다.
 
 >[!IMPORTANT] 
->표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에는 내부 표준 Load Balancer를 사용 하는 경우 아웃 바운드 연결을 만드는 작업이 포함 됩니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다.  전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
+>표준 Load Balancer 및 표준 공용 IP는 아웃바웃드 연결에 새로운 기능 및 서로 다른 동작을 도입합니다.  이는 기본 SKU와 동일하지 않습니다.  표준 SKU로 작업하는 경우 아웃바운드 연결을 하려는 경우 표준 공용 IP 주소 또는 표준 공용 Load Balancer를 사용하여 명시적으로 정의해야 합니다.  여기에는 내부 표준 Load Balancer를 사용 하는 경우 아웃 바운드 연결을 만드는 작업이 포함 됩니다.  표준 공용 Load Balancer에서 항상 아웃바운드 규칙을 사용하는 것이 좋습니다.  [시나리오 3](#defaultsnat)은 표준 SKU에서 사용할 수 없습니다.  즉, 내부 표준 Load Balancer를 사용하는 경우 아웃바운드 연결을 원하면 백 엔드 풀의 VM에 대한 아웃바운드 연결을 만드는 단계를 수행해야 합니다.  아웃바운드 연결, 단일 독립 실행형 VM, 가용성 세트의 모든 VM의 컨텍스트에서 VMSS의 모든 인스턴스는 그룹으로 작동합니다. 즉, 가용성 세트의 단일 VM을 표준 SKU와 연결하면 개별 인스턴스가 직접 표준 SKU와 연결되지 않더라도 해당 가용성 세트 내의 모든 VM 인스턴스는 이제 표준 SKU에 연결된 것처럼 동일한 규칙에 따라 작동합니다. 부하 분산 장치에 여러 네트워크 인터페이스 카드가 연결 된 독립 실행형 VM의 경우에도이 동작이 관찰 됩니다. 하나의 NIC를 독립 실행형으로 추가 하는 경우 동일한 동작이 발생 합니다. 전반적인 개념을 이해하고 SKU 간 차이점에 대해 [표준 Load Balancer](load-balancer-standard-overview.md)를 검토하고 [아웃바운드 규칙](load-balancer-outbound-rules-overview.md)을 검토하려면 이 전체 문서를 검토합니다.  아웃바운드 규칙을 사용하면 아웃바운드 연결의 모든 측면에 대해 정밀하게 제어할 수 있습니다.
 
 ## <a name="scenarios"></a>시나리오 개요
 
 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview)를 사용하는 경우 Azure Load Balancer 및 관련 리소스가 명시적으로 정의됩니다.  현재 Azure는 Azure Resource Manager 리소스에 대한 아웃바운드 연결을 달성할 수 있는 세 가지 방법을 제공합니다. 
 
-| SKU | 시나리오 | 방법 | IP 프로토콜 | Description |
+| SKU | 시나리오 | 방법 | IP 프로토콜 | 설명 |
 | --- | --- | --- | --- | --- |
 | 표준, 기본 | [1. 인스턴스 수준 공용 IP 주소를 사용 하는 VM (Load Balancer 포함 또는 포함 안 함)](#ilpip) | SNAT, 포트 가장 사용 안 함 | TCP, UDP, ICMP, ESP | Azure는 인스턴스 NIC의 IP 구성에 할당된 공용 IP를 사용합니다. 인스턴스에 있는 모든 삭제 포트를 사용할 수 있습니다. 표준 Load Balancer 사용 하는 경우 공용 IP가 가상 컴퓨터에 할당 되 면 [아웃 바운드 규칙이](load-balancer-outbound-rules-overview.md) 지원 되지 않습니다. |
 | 표준, 기본 | [2. VM과 연결 된 공용 Load Balancer (인스턴스에 공용 IP 주소 없음)](#lb) | Load Balancer 프런트 엔드를 사용하여 포트를 가장하는(PAT) SNAT | TCP, UDP |Azure는 공용 Load Balancer 프런트 엔드의 공용 IP 주소를 여러 개인 IP 주소와 공유합니다. Azure는 프런트 엔드의 삭제 포트를 PAT에 사용합니다. 아웃 바운드 연결을 명시적으로 정의 하려면 [아웃 바운드 규칙](load-balancer-outbound-rules-overview.md) 을 사용 해야 합니다. |

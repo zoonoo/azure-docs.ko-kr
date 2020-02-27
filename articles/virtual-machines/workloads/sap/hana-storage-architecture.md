@@ -3,8 +3,8 @@ title: Azure(대규모 인스턴스)의 SAP HANA에 대한 스토리지 아키�
 description: Azure(대규모 인스턴스)에서 SAP HANA를 배포하는 방법에 대한 스토리지 아키텍처입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 02/20/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 1d25201c8195fa6c4c36e159904b5b71a20a45ea
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a12c454906d6c6ff702b7f635a91361bbe3994c1
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598496"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616881"
 ---
 # <a name="sap-hana-large-instances-storage-architecture"></a>SAP HANA(대규모 인스턴스) 스토리지 아키텍처
 

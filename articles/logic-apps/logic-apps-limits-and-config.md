@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 02/20/2020
-ms.openlocfilehash: 059894d441897bd89be525abcc7e1c7ab6ba23e7
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 514ead43159b416752f968da3883e644fb0ccc2f
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485049"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650898"
 ---
 # <a name="limits-and-configuration-information-for-azure-logic-apps"></a>Azure Logic Apps에 대한 제한 및 구성 정보
 
@@ -149,11 +149,13 @@ Azure Logic Apps는 게이트웨이를 통해 삽입 및 업데이트를 포함 
 | 인바운드 요청 | 120초 <br>(2 분) | 240 초 <br>(4 분) | 인바운드 요청의 예에는 요청 트리거와 webhook 트리거에서 받은 호출이 포함 됩니다. <p><p>**참고**: 원래 호출자가 응답을 얻으려면 다른 논리 앱을 중첩 된 워크플로로 호출 하지 않는 한 응답의 모든 단계가 한도 내에 완료 되어야 합니다. 자세한 내용은 [논리 앱 호출, 트리거 또는 중첩](../logic-apps/logic-apps-http-endpoint.md)을 참조하세요. |
 |||||
 
+<a name="message-size-limits"></a>
+
 #### <a name="message-size"></a>메시지 크기
 
 | 속성 | 다중 테 넌 트 제한 | 통합 서비스 환경 제한 | 메모 |
 |------|--------------------|---------------------------------------|-------|
-| 메시지 크기 | 100MB | 200MB | 이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
+| 메시지 크기 | 100MB | 200MB | ISE-레이블이 지정 된 커넥터는 ise가 아닌 커넥터 제한이 아니라 ISE 제한을 사용 합니다. <p><p>이 제한을 해결하려면 [청킹이 있는 대용량 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조하세요. 그러나 일부 커넥터 및 API는 청킹 또는 기본 제한을 지원하지 않을 수 있습니다. |
 | 청킹이 있는 메시지 크기 | 1 GB | 5GB | 이 제한은 기본적으로 청크 분할을 지원하거나 런타임 구성에서 청크 분할을 사용하도록 설정하는 작업에 적용됩니다. <p>통합 서비스 환경의 경우 Logic Apps 엔진은이 제한을 지원 하지만 커넥터에는 엔진 제한까지 자체 청크 제한이 있습니다. 예를 들어 [Azure Blob Storage 커넥터의 API 참조](https://docs.microsoft.com/connectors/azureblob/)를 참조 하세요. 청크에 대 한 자세한 내용은 [청크를 사용 하 여 큼 메시지 처리](../logic-apps/logic-apps-handle-large-messages.md)를 참조 하세요. |
 |||||
 

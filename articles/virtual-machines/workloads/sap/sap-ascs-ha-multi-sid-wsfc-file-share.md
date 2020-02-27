@@ -3,8 +3,8 @@ title: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 �
 description: Azure에서 Windows Server 장애 조치(Failover) 클러스터링 및 파일 공유를 사용하는 SAP ASCS/SCS 인스턴스를 위한 다중 SID 고가용성
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -14,14 +14,14 @@ ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 02/03/2019
-ms.author: rclaus
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5638d71748c485c593dde8d9876400a40821ca28
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 2c12372dbc47548755c0680b0acb7a93360a0987
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75643154"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617476"
 ---
 [1928533]:https://launchpad.support.sap.com/#/notes/1928533
 [1999351]:https://launchpad.support.sap.com/#/notes/1999351
@@ -217,7 +217,7 @@ SAP를 배포한 경우 내부 부하 분산 장치를 사용하여 SAP 중앙 �
 
 부하 분산 장치 제한에 대 한 자세한 내용은 [네트워킹 제한: Azure Resource Manager][networking-limits-azure-resource-manager]의 "부하 분산 장치당 개인 프런트 엔드 IP" 섹션을 참조 하세요. 또한 Azure 부하 분산 장치의 기본 SKU 대신 [Azure 표준 Load Balancer SKU](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones) 사용도 고려하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 다이어그램처럼 **파일 공유**를 사용하는 한 SAP ASCS/SCS 인스턴스에 사용되는 WSFC 클러스터가 이미 구성되어 있어야 합니다.
 
@@ -246,7 +246,7 @@ _**그림 2:** 두 클러스터에 SAP 다중 SID 구성_
 
 ### <a name="prepare-the-infrastructure-on-the-domain-controller"></a>도메인 컨트롤러에서 인프라 준비
 
-예를 들어 \<SID2> = PR2를 사용하여 **\<Domain>\SAP_\<SID2>_GlobalAdmin** 도메인 그룹을 만듭니다. 도메인 그룹 이름은 \<Domain>\SAP_PR2_GlobalAdmin입니다.
+예를 들어 **SID2> = PR2를 사용하여 \<\<Domain>\SAP_** SID2>_GlobalAdmin\< 도메인 그룹을 만듭니다. 도메인 그룹 이름은 \<Domain>\SAP_PR2_GlobalAdmin입니다.
 
 ### <a name="prepare-the-infrastructure-on-the-ascsscs-cluster"></a>ASCS/SCS 클러스터에서 인프라 준비
 
@@ -326,7 +326,7 @@ Set-Acl $UsrSAPFolder $Acl -Verbose
 
 ### <a name="prepare-the-infrastructure-on-the-sofs-cluster-by-using-a-different-sap-global-host"></a>다른 SAP 글로벌 호스트를 사용하여 SOFS 클러스터에서 인프라 준비
 
-두 번째 SOFS를 구성할 수 있습니다(예를 들어 두 번째 **\<SID2>** 에 대해 **\<SAPGlobalHost2>** 및 다른 **Volume2**를 사용하여 두 번째 SOFS 클러스터 역할 구성).
+두 번째 SOFS를 구성할 수 있습니다(예를 들어 두 번째 **\<SID2>** 에 대해SAPGlobalHost2> **및 다른 \<Volume2**를 사용하여 두 번째 SOFS 클러스터 역할 구성).
 
 ![그림 4: 다중 SID SOFS가 SAP 글로벌 호스트 이름 2와 같음][sap-ha-guide-figure-8015]
 
@@ -393,7 +393,7 @@ $Acl.SetAccessRule($Ar)
 Set-Acl $UsrSAPFolder $Acl -Verbose
 ```
 
-두 번째 SAP\<SID2>에 대해 *\<SAPGlobalHost2>* 호스트 이름을 사용하여 Volume2에 SAPMNT 파일 공유를 만들려면 장애 조치(Failover) 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작합니다.
+두 번째 SAP*SID2>에 대해 \<* SAPGlobalHost2>\< 호스트 이름을 사용하여 Volume2에 SAPMNT 파일 공유를 만들려면 장애 조치(Failover) 클러스터 관리자에서 **파일 공유 추가** 마법사를 시작합니다.
 
 **saoglobal2** SOFS 클러스터 그룹을 마우스 오른쪽 단추로 클릭하고 **파일 공유 추가**를 선택합니다.
 

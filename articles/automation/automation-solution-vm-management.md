@@ -3,14 +3,14 @@ title: 작업 시간 외 VM 시작/중지 솔루션
 description: 이 VM 관리 솔루션은 일정에 따라 Azure Resource Manager 가상 컴퓨터를 시작 및 중지 하 고 Azure Monitor 로그에서 사전에 모니터링 합니다.
 services: automation
 ms.subservice: process-automation
-ms.date: 12/04/2019
+ms.date: 02/25/2020
 ms.topic: conceptual
-ms.openlocfilehash: 37fee7f96a27942a1295cb8c2315fedffc5bdefe
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: cbf181b9a6d3860854c7b61cca0e6c50810cced9
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030164"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616057"
 ---
 # <a name="startstop-vms-during-off-hours-solution-in-azure-automation"></a>Automation의 작업 시간 외 VM 시작/중지 솔루션
 
@@ -105,7 +105,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 
 2. 선택한 솔루션에 대한 **작업 시간 외 VM 시작/중지** 페이지에서 요약 정보를 검토한 다음, **만들기**를 클릭합니다.
 
-   ![Azure Portal](media/automation-solution-vm-management/azure-portal-01.png)
+   ![Azure 포털](media/automation-solution-vm-management/azure-portal-01.png)
 
 3. **솔루션 추가** 페이지가 나타납니다. Automation 구독으로 솔루션을 가져오려면 솔루션을 구성하라는 메시지가 표시됩니다.
 
@@ -174,7 +174,7 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. ACTION 매개 변수를 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 *True*로 설정하여 **ScheduledStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
 
@@ -195,40 +195,10 @@ VM 시작/중지 솔루션에 별도의 Automation 계정을 사용 하는 것�
 #### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
 
 1. 양의 정수 값이 포함된 **sequencestart** 및 **sequencestop** 태그를 **VMList** 매개 변수에 추가하려는 VM에 추가합니다.
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 **True**로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
+1. ACTION 매개 변수를 **start**로 설정하고, **VMList** 매개 변수에 쉼표로 구분된 VM 목록을 추가한 다음, WHATIF 매개 변수를 *True*로 설정하여 **SequencedStartStop_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
 1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
 1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
 1. 작업을 미리 보고 프로덕션 VM에 대해 구현하기 전에 필요한 변경을 수행합니다. 준비가 되면 매개 변수를 **False**로 설정하여 monitoring-and-diagnostics/monitoring-action-groupsrunbook을 수동으로 실행하거나 Automation 일정 **Sequenced-StartVM** 및 **Sequenced-StopVM**이 지정된 일정에 따라 자동으로 실행되도록 할 수 있습니다.
-
-### <a name="scenario-3-startstop-automatically-based-on-cpu-utilization"></a>시나리오 3: CPU 사용률에 따라 자동으로 시작/중지
-
-이 솔루션은 구독에서 가상 머신 실행에 필요한 비용을 관리하는 데 도움을 줄 수 있습니다. 사용량이 많지 않은 기간 동안에 사용되지 않는 Azure VM을 평가하고, 프로세서 사용률이 x% 이하일 경우(예: 몇 시간 후) 자동으로 종료하도록 합니다.
-
-기본적으로 솔루션은 CPU 백분율 메트릭을 평가하고 평균 사용률이 5% 이하인지 파악하도록 미리 구성됩니다. 이 시나리오는 다음 변수를 통해 제어되며, 기본값이 요구 사항을 충족하지 않는 경우 수정할 수 있습니다.
-
-- External_AutoStop_MetricName
-- External_AutoStop_Threshold
-- External_AutoStop_TimeAggregationOperator
-- External_AutoStop_TimeWindow
-
-구독 및 리소스 그룹 또는 특정 VM 목록 중 하나로만 작업 대상을 지정할 수 있습니다.
-
-#### <a name="target-the-stop-action-against-a-subscription-and-resource-group"></a>중지 작업의 대상으로 구독 및 리소스 그룹 지정
-
-1. 대상 VM을 지정하도록 **External_Stop_ResourceGroupNames** 및 **External_ExcludeVMNames** 변수를 구성합니다.
-1. **Schedule_AutoStop_CreateAlert_Parent** 일정을 사용하도록 설정하고 업데이트합니다.
-1. ACTION 매개 변수를 **start**로 설정하고 WHATIF 매개 변수를 **True**로 설정하여 **AutoStop_CreateAlert_Parent** Runbook을 실행하면 변경 내용을 미리 볼 수 있습니다.
-
-#### <a name="target-the-start-and-stop-action-by-vm-list"></a>VM 목록별로 시작 및 중지 작업의 대상 지정
-
-1. ACTION 매개 변수를 **start**로 설정하고, *VMList* 매개 변수에 쉼표로 구분된 VM 목록을 추가하고, WHATIF 매개 변수를 **True**로 설정하여 **AutoStop_CreateAlert_Parent** Runbook을 실행합니다. 변경 사항을 미리 봅니다.
-1. 쉼표로 구분된 VM 목록(VM1, VM2, VM3)을 사용하여 **External_ExcludeVMNames** 매개 변수를 구성합니다.
-1. 이 시나리오는 **External_Start_ResourceGroupNames** 및 **External_Stop_ResourceGroupnames** 변수를 고려하지 않습니다. 이 시나리오의 경우 고유한 Automation 일정을 만들어야 합니다. 자세한 내용은 [Azure Automation에서 Runbook 예약](../automation/automation-schedules.md)을 참조하세요.
-
-CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 일정 중 하나를 사용하도록 설정하여 시작해야 합니다.
-
-- 구독 및 리소스 그룹으로 시작 작업 대상 지정. **Scheduled-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 1](#scenario-1-startstop-vms-on-a-schedule)의 단계를 참조하세요.
-- 구독, 리소스 그룹 및 태그별로 시작 작업 대상 지정. **Sequenced-StartVM** 일정을 테스트하고 사용하도록 설정하려면 [시나리오 2](#scenario-2-startstop-vms-in-sequence-by-using-tags)의 단계를 참조하세요.
 
 ## <a name="solution-components"></a>솔루션 구성 요소
 
@@ -243,7 +213,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 모든 부모 Runbook에는 _WhatIf_ 매개 변수가 포함됩니다. 이 매개 변수가 **True**로 설정되면 _WhatIf_는 _WhatIf_ 매개 변수 없이 실행될 때 Runbook이 수행하는 정확한 동작에 대한 자세한 설명을 지원하며, 올바른 VM이 대상으로 지정되었는지 확인합니다. Runbook은 _WhatIf_ 매개 변수가 **False**로 설정된 경우에만 정의된 작업을 수행합니다.
 
-|Runbook | 매개 변수 | Description|
+|Runbook | 매개 변수 | 설명|
 | --- | --- | ---|
 |AutoStop_CreateAlert_Child | VMObject <br> AlertAction <br> WebHookURI | 부모 Runbook에서 호출됩니다. 이 Runbook은 AutoStop 시나리오에서 리소스 기준으로 경고를 만듭니다.|
 |AutoStop_CreateAlert_Parent | VMList<br> WhatIf: True 또는 False  | 대상 구독 또는 리소스 그룹에서 VM에 대해 Azure 경고 규칙을 만들거나 업데이트합니다. <br> VMList: 쉼표로 구분된 VM 목록입니다. 예: _vm1, vm2, vm3_.<br> *WhatIf*는 Runbook 논리를 실행하지 않고 유효성을 검사합니다.|
@@ -258,7 +228,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 다음 표에는 Automation 계정에서 만든 변수가 나열되어 있습니다. **External** 접두사가 붙은 변수만 수정합니다. 변수의 접두사를 **Internal**로 수정하면 원치 않는 결과로 이어집니다.
 
-|변수 | Description|
+|Variable | 설명|
 |---------|------------|
 |External_AutoStop_Condition | 경고를 트리거하기 전에 조건을 구성하는 데 필요한 조건부 연산자입니다. 사용 가능한 값은 **GreaterThan**, **GreaterThanOrEqual**, **LessThan** 및 **LessThanOrEqual**입니다.|
 |External_AutoStop_Description | CPU %가 임계값을 초과하는 경우 VM을 중지하도록 경고합니다.|
@@ -283,7 +253,7 @@ CPU 사용량에 따라 VM을 중지하는 일정을 만들었으므로 다음 �
 
 일정 작업이 겹칠 수 있기 때문에 모든 일정을 사용하도록 설정해서는 안 됩니다. 그에 맞게 수행하고 수정할 최적화를 결정하는 것이 가장 좋습니다. 추가 설명을 보려면 개요 섹션에서 예제 시나리오를 참조하세요.
 
-|일정 이름 | 빈도 | Description|
+|일정 이름 | 빈도 | 설명|
 |--- | --- | ---|
 |Schedule_AutoStop_CreateAlert_Parent | 8시간마다 | AutoStop_CreateAlert_Parent Runbook을 8시간 간격으로 실행합니다. 그러면 Azure Automation 변수에서 External_Start_ResourceGroupNames, External_Stop_ResourceGroupNames 및 External_ExcludeVMNames에서 VM 기반 값이 중지됩니다. 또는 VMList 매개 변수를 사용하여 쉼표로 구분된 VM 목록을 지정할 수 있습니다.|
 |Scheduled_StopVM | 사용자 정의, 매일 | 매일 지정된 시간에 _Stop_ 매개 변수를 사용하여 Scheduled_Parent Runbook이 실행됩니다. 자산 변수에 의해 정의 된 규칙을 충족 하는 모든 Vm이 자동으로 중지 됩니다. 관련 일정, 예약 된 **StartVM**을 사용 하도록 설정 합니다.|
@@ -297,7 +267,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 ### <a name="job-logs"></a>작업 로그
 
-|속성 | Description|
+|속성 | 설명|
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobLogs입니다.|
@@ -318,7 +288,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 ### <a name="job-streams"></a>작업 스트림
 
-|속성 | Description|
+|속성 | 설명|
 |----------|----------|
 |Caller |  작업을 시작한 사람입니다. 가능한 값은 전자 메일 주소 또는 예약된 작업의 시스템입니다.|
 |범주 | 데이터 유형의 분류입니다. Automation의 경우 값은 JobStreams입니다.|
@@ -341,7 +311,7 @@ Automation은 Log Analytics 작업 영역에 작업 로그 및 작업 스트림�
 
 다음 테이블은 이 솔루션에 의해 수집된 작업 레코드에 대한 샘플 로그 검색을 제공합니다.
 
-|쿼리 | Description|
+|Query | 설명|
 |----------|----------|
 |성공적으로 완료된 ScheduledStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "ScheduledStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" )  <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|
 |성공적으로 완료된 SequencedStartStop_Parent Runbook에 대한 작업을 찾습니다. | <code>search Category == "JobLogs" <br>&#124;  where ( RunbookName_s == "SequencedStartStop_Parent" ) <br>&#124;  where ( ResultType == "Completed" ) <br>&#124;  summarize AggregatedValue = count() by ResultType, bin(TimeGenerated, 1h) <br>&#124;  sort by TimeGenerated desc</code>|

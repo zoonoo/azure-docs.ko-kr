@@ -2,14 +2,14 @@
 title: 문제 해결-Personalizer
 description: 이 문서에는 Personalizer에 대 한 자주 묻는 질문에 대 한 답변이 포함 되어 있습니다.
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: fec403da7f54098dbf197d14f3b16afd30bf5efc
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77469547"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650523"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer 문제 해결
 
@@ -32,6 +32,19 @@ ms.locfileid: "77469547"
 </details>
 
 ## <a name="learning-loop"></a>학습 루프
+
+<details>
+<summary>
+<b>학습 루프가 Personalizer 없이 시스템에 100% 일치 하지 않습니다. 어떻게 할까요? 문제를 해결 하 시겠습니까?</b></summary>
+
+**답변**: 학습 루프를 사용 하 여 목표를 달성 하지 못한 이유는 다음과 같습니다.
+* Rank API 호출로 전송 된 기능이 부족 합니다.
+* 전송 된 기능의 버그 (예: 타임 스탬프와 같은 집계할 수 없는 기능 데이터를 순위 API에 보내기)
+* 이벤트에 대 한 보상 API에 보상 데이터를 전송 하지 않는 등 루프 처리를 사용 하는 버그
+
+이 문제를 해결 하려면 루프로 전송 된 기능을 변경 하 여 처리를 변경 하거나 보상의 응답 품질을 정확 하 게 평가 해야 합니다.
+
+</details>
 
 <details>
 <summary>
@@ -91,7 +104,7 @@ ms.locfileid: "77469547"
 <details>
 <summary><b>학습 정책을 가져올 어떻게 할까요? 있나요?</b></summary>
 
-**답변**: [학습 정책 개념](concept-active-learning.md#understand-learning-policy-settings) 및 새 학습 정책을 [적용 하는 방법](how-to-learning-policy.md) 에 대해 자세히 알아보세요. 학습 정책을 선택 하지 않으려면 현재 이벤트를 기반으로 하 여 학습 정책을 제안 하기 위해 [오프 라인 평가](how-to-offline-evaluation.md) 를 사용할 수 있습니다.
+**답변**: [학습 정책 개념](concept-active-learning.md#understand-learning-policy-settings) 및 새 학습 정책을 [적용 하는 방법](how-to-manage-model.md) 에 대해 자세히 알아보세요. 학습 정책을 선택 하지 않으려면 현재 이벤트를 기반으로 하 여 학습 정책을 제안 하기 위해 [오프 라인 평가](how-to-offline-evaluation.md) 를 사용할 수 있습니다.
 
 </details>
 

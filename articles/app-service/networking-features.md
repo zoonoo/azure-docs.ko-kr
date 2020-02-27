@@ -4,15 +4,15 @@ description: Azure App Service의 네트워크 기능 및 보안 또는 기능�
 author: ccompy
 ms.assetid: 5c61eed1-1ad1-4191-9f71-906d610ee5b7
 ms.topic: article
-ms.date: 05/28/2019
+ms.date: 02/27/2019
 ms.author: ccompy
 ms.custom: seodec18
-ms.openlocfilehash: 208bf37bfcdf0f86fad11611279d1b4e642fb18a
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 0fd904b15a830e2b261057a11d1a8f3a4d584fe1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74971760"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649229"
 ---
 # <a name="app-service-networking-features"></a>App Service 네트워킹 기능
 
@@ -28,7 +28,7 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 |---------------------|-------------------|
 | 앱 할당 주소 | 하이브리드 연결 |
 | 액세스 제한 | 게이트웨이 필요 VNet 통합 |
-| 서비스 엔드포인트 | VNet 통합 (미리 보기) |
+| 서비스 엔드포인트 | VNet 통합 |
 
 별도로 언급 하지 않는 한 모든 기능을 함께 사용할 수 있습니다. 다양 한 문제를 해결 하는 기능을 혼합할 수 있습니다.
 
@@ -41,10 +41,10 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 | 앱에 대 한 IP 기반 SSL 요구 사항 지원 | 앱 할당 주소 |
 | 공유 안 함, 앱에 대 한 전용 인바운드 주소 | 앱 할당 주소 |
 | 잘 정의 된 주소 집합에서 앱에 대 한 액세스 제한 | 액세스 제한 |
-| 내 VNet의 개인 Ip에서 내 앱 노출 | ILB ASE </br> 서비스 끝점으로 Application Gateway |
+| 내 VNet의 개인 Ip에서 내 앱 노출 | ILB ASE </br> 서비스 엔드포인트가 있는 애플리케이션 게이트웨이 |
 | VNet의 리소스에서 내 앱에 대 한 액세스 제한 | 서비스 엔드포인트 </br> ILB ASE |
 | 내 VNet의 개인 IP에서 내 앱 노출 | ILB ASE </br> 서비스 끝점을 사용 하는 Application Gateway에서 인바운드에 대 한 개인 IP |
-| WAF를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 서비스 끝점으로 Application Gateway </br> 액세스 제한이 있는 Azure Front 도어 |
+| WAF를 사용 하 여 내 앱 보호 | Application Gateway + ILB ASE </br> 서비스 엔드포인트가 있는 애플리케이션 게이트웨이 </br> 액세스 제한이 있는 Azure Front 도어 |
 | 다른 지역의 내 앱에 트래픽 부하 분산 | 액세스 제한이 있는 Azure Front 도어 | 
 | 동일한 지역에서 트래픽 부하 분산 | [서비스 끝점으로 Application Gateway][appgwserviceendpoints] | 
 
@@ -56,7 +56,9 @@ Azure App Service 분산 시스템입니다. 들어오는 HTTP/HTTPS 요청을 �
 | 다른 지역의 Azure Virtual Network에 있는 리소스에 액세스 | 게이트웨이 필요 VNet 통합 </br> ASE 및 VNet 피어 링 |
 | 서비스 끝점으로 보안이 유지 되는 리소스에 액세스 | VNet 통합 </br> ASE |
 | Azure에 연결 되지 않은 개인 네트워크의 리소스에 액세스 | 하이브리드 연결 |
-| Express 경로 회로에서 리소스 액세스 | VNet 통합 (지금은 RFC 1918 주소로 제한 됨) </br> ASE | 
+| Express 경로 회로에서 리소스 액세스 | VNet 통합 </br> ASE | 
+| 웹 앱에서 아웃 바운드 트래픽 보호 | VNet 통합 및 네트워크 보안 그룹 </br> ASE | 
+| 웹 앱에서 아웃 바운드 트래픽 라우팅 | VNet 통합 및 경로 테이블 </br> ASE | 
 
 
 ### <a name="default-networking-behavior"></a>기본 네트워킹 동작
@@ -146,15 +148,17 @@ VNet 통합 기능 App Service 필요한 게이트웨이를 사용 하면 앱에
 
 ### <a name="vnet-integration"></a>VNet 통합
 
-게이트웨이 필수 VNet 통합 기능은 매우 유용 하지만 Express 경로에서 리소스에 대 한 액세스를 아직 해결 하지 않습니다. Express 경로 연결을 통해 연결 해야 하는 경우 앱이 서비스 끝점 보안 서비스를 호출할 수 있어야 합니다. 이러한 추가 요구 사항을 모두 해결 하기 위해 다른 VNet 통합 기능이 추가 되었습니다. 새 VNet 통합 기능을 사용 하면 동일한 지역의 리소스 관리자 VNet에 있는 서브넷에 앱 백 엔드를 추가할 수 있습니다. 이 기능은 이미 VNet에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능을 사용하여 다음과 같이 할 수 있습니다.
+게이트웨이 필수 VNet 통합 기능은 매우 유용 하지만 Express 경로에서 리소스에 대 한 액세스를 아직 해결 하지 않습니다. Express 경로 연결을 통해 연결 해야 하는 경우 앱이 서비스 끝점 보안 서비스를 호출할 수 있어야 합니다. 이러한 추가 요구 사항을 모두 해결 하기 위해 다른 VNet 통합 기능이 추가 되었습니다. 새 VNet 통합 기능을 사용 하면 동일한 지역의 리소스 관리자 VNet에 있는 서브넷에 앱 백 엔드를 추가할 수 있습니다. 이 기능은 이미 VNet에 있는 App Service Environment에서 사용할 수 없습니다. 이 기능을 통해 다음을 수행할 수 있습니다.
 
 * 동일한 지역에서 리소스 관리자 Vnet의 리소스에 액세스
 * 서비스 끝점으로 보안이 유지 되는 리소스에 액세스 
 * Express 경로 또는 VPN 연결을 통해 액세스할 수 있는 리소스에 액세스
+* 모든 아웃 바운드 트래픽 보안 
+* 모든 아웃 바운드 트래픽을 강제로 터널링 합니다. 
 
 ![VNet 통합](media/networking-features/vnet-integration.png)
 
-이 기능은 미리 보기 상태 이며 프로덕션 워크 로드에 사용할 수 없습니다. 이 기능에 대해 자세히 알아보려면 [App Service VNet 통합][vnetintegration]에 대 한 문서를 참조 하세요.
+이 기능에 대해 자세히 알아보려면 [App Service VNet 통합][vnetintegration]에 대 한 문서를 참조 하세요.
 
 ## <a name="app-service-environment"></a>App Service 환경 
 

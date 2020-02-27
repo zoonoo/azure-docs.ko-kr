@@ -1,16 +1,16 @@
 ---
 title: GitHub 작업을 사용 하 여 Azure Functions에서 코드 업데이트 수행
 description: Github 작업을 사용 하 여 GitHub에서 Azure Functions 프로젝트를 빌드하고 배포 하는 워크플로를 정의 하는 방법을 알아봅니다.
-author: ahmedelnably
+author: craigshoemaker
 ms.topic: conceptual
 ms.date: 09/16/2019
-ms.author: aelnably
-ms.openlocfilehash: c34847577b7e83228fafad431f541497be9a21ae
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.author: cshoe
+ms.openlocfilehash: dd74fd5c38e5a8800d2092afc1db1b412b126861
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75769152"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649911"
 ---
 # <a name="continuous-delivery-by-using-github-action"></a>GitHub 작업을 사용 하 여 지속적인 배달
 
@@ -69,7 +69,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 환경 설정은 언어별 게시 설정 작업을 사용 하 여 수행 됩니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예제에서는 `actions/setup-node` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
@@ -84,7 +84,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         node-version: '10.x'
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예제에서는 `actions/setup-python` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
@@ -99,7 +99,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         python-version: 3.6
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 `actions/setup-dotnet` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
@@ -114,7 +114,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         dotnet-version: '2.2.300'
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 다음 예제에서는 `actions/setup-java` 작업을 사용 하 여 환경을 설정 하는 워크플로의 일부를 보여 줍니다.
 
@@ -138,7 +138,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
 
 다음 예제에서는 언어별 함수 앱을 빌드하는 워크플로의 일부를 보여 줍니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 ```yaml
     - name: 'Run npm'
@@ -153,7 +153,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```yaml
     - name: 'Run pip'
@@ -167,7 +167,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ```yaml
     - name: 'Run dotnet build'
@@ -180,7 +180,7 @@ az ad sp create-for-rbac --name "myApp" --role contributor --scopes /subscriptio
         popd
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```yaml
     - name: 'Run mvn'

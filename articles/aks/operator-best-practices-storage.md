@@ -4,12 +4,12 @@ description: AKS(Azure Kubernetes Services)의 스토리지, 데이터 암호화
 services: container-service
 ms.topic: conceptual
 ms.date: 5/6/2019
-ms.openlocfilehash: 6521655ded45f0a1d15c3ec40a44993d757b8854
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: a58a42f65472a9c4b495e0cb964eefa40bf82041
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594671"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649622"
 ---
 # <a name="best-practices-for-storage-and-backups-in-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Services)의 스토리지 및 백업 모범 사례
 
@@ -33,9 +33,9 @@ AKS(Azure Kubernetes Services)에서 클러스터를 만들고 관리할 때 애
 
 | 사용 사례 | 볼륨 플러그 인 | 한 번 읽기/쓰기 | 여러 번 읽기 전용 | 여러 번 읽기/쓰기 | Windows Server 컨테이너 지원 |
 |----------|---------------|-----------------|----------------|-----------------|--------------------|
-| 공유 구성       | Azure 파일   | yes | yes | yes | yes |
-| 구조화된 앱 데이터        | Azure 디스크   | yes | 예  | 예  | yes |
-| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse (미리 보기)][blobfuse] | yes | yes | yes | 예 |
+| 공유 구성       | Azure 파일   | 예 | 예 | 예 | 예 |
+| 구조화된 앱 데이터        | Azure 디스크   | 예 | 아니요  | 아니요  | 예 |
+| 구조화되지 않은 데이터, 파일 시스템 작업 | [BlobFuse][blobfuse] | 예 | 예 | 예 | 아니요 |
 
 AKS에서 볼륨용으로 제공되는 두 가지 기본 유형의 스토리지는 Azure 디스크 또는 Azure 파일에서 지원됩니다. 보안을 강화하기 위해 두 가지 유형의 스토리지는 미사용 데이터를 암호화하는 Azure SSE(스토리지 서비스 암호화)를 기본적으로 사용합니다. 현재 AKS 노드 수준에서 Azure Disk Encryption을 사용하여 디스크를 암호화할 수 없습니다.
 

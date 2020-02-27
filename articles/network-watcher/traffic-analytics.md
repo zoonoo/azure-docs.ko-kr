@@ -12,12 +12,12 @@ ms.workload: infrastructure-services
 ms.date: 06/15/2018
 ms.author: damendo
 ms.reviewer: vinigam
-ms.openlocfilehash: e53bd3deae5ccd7339c7a6d491dc4ff0da44a277
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 47d9508c891d2b4fe74b42114783b02c58e8c91f
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77426227"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619998"
 ---
 # <a name="traffic-analytics"></a>트래픽 분석
 
@@ -115,16 +115,16 @@ Log Analytics 작업 영역이 다음 지역에 있어야 합니다.
 * US Gov 버지니아
 * 중국 동부 2
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 ### <a name="user-access-requirements"></a>사용자 액세스 요구 사항
 
 계정은 다음 Azure [기본 제공 역할](../role-based-access-control/built-in-roles.md?toc=%2fazure%2fnetwork-watcher%2ftoc.json) 중 하나의 구성원이어야 합니다.
 
-|배포 모델   | 역할                   |
+|배포 모델   | Role                   |
 |---------          |---------               |
 |리소스 관리자   | 소유자                  |
-|                   | 참가자            |
+|                   | Contributor            |
 |                   | 판독기                 |
 |                   | 네트워크 참가자    |
 
@@ -201,7 +201,7 @@ Azure PowerShell에서 [AzNetworkWatcherConfigFlowLog](/powershell/module/az.net
 
 ## <a name="view-traffic-analytics"></a>트래픽 분석 보기
 
-포털의 왼쪽에서 **모든 서비스**를 선택한 다음, *필터* 상자에 **모니터**를 입력합니다. 검색 결과에 **모니터**가 표시되면 모니터를 선택합니다. 트래픽 분석 및 그 기능을 탐색하려면 **Network Watcher**, **트래픽 분석**을 차례로 선택합니다.
+트래픽 분석 보려면 포털 검색 표시줄에서 **Network Watcher** 를 검색 합니다. Network Watcher 내에서 트래픽 분석과 해당 기능을 탐색 하려면 왼쪽 메뉴에서 **트래픽 분석** 를 선택 합니다. 
 
 ![트래픽 분석 대시보드에 액세스](./media/traffic-analytics/accessing-the-traffic-analytics-dashboard.png)
 

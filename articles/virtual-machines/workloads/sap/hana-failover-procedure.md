@@ -4,7 +4,7 @@ description: Azure (Large Instances)에서 SAP HANA에 대 한 재해 복구 사
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 04/22/2019
 ms.author: saghorpa
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 40511aac29182dafbe01408960376589198ceb64
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 3fe3ee79318ab9fdc9f2c0e9585051439b76b5cf
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151924"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617149"
 ---
 # <a name="disaster-recovery-failover-procedure"></a>재해 복구 장애 조치(failover) 프로시저
 
@@ -64,7 +64,7 @@ DR 사이트로 장애 조치 (failover) 하는 경우 다음과 같은 두 가�
    
    b. 선택한 백업 ID에 해당하는 스냅샷 또는 스토리지 스냅샷 이름이 재해 복구 볼륨에 복원됩니다.
    
-   c. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
+   다. 복원 후에는 재해 복구 볼륨을 재해 복구 지역의 HANA 대규모 인스턴스 단위에 탑재할 수 있습니다.
       
 1. 재해 복구 볼륨을 재해 복구 사이트의 HANA 대규모 인스턴스 단위에 탑재하십시오. 
 1. 유휴 SAP HANA 프로덕션 인스턴스를 시작합니다.

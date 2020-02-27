@@ -14,12 +14,12 @@ ms.tgt_pltfrm: multiple
 ms.date: 10/10/2019
 ms.author: ryanwi
 ms.reviewer: tomfitz
-ms.openlocfilehash: c6c07c48bf94b50d46a50a47f57857fdd15a0e8e
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 8e428732fb49d27e3991071b87abee53b6e375b2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76697254"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648397"
 ---
 # <a name="how-to-use-azure-powershell-to-create-a-service-principal-with-a-certificate"></a>방법: Azure PowerShell을 사용하여 인증서로 서비스 주체 만들기
 
@@ -50,7 +50,7 @@ ms.locfileid: "76697254"
 
 ## <a name="create-service-principal-with-self-signed-certificate"></a>자체 서명된 인증서를 사용하여 서비스 주체 만들기
 
-다음 예제는 간단한 시나리오를 다룹니다. [AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 를 사용 하 여 자체 서명 된 인증서로 서비스 주체를 만들고 [new-azurermroleassignment](/powershell/module/az.resources/new-azroleassignment) 를 사용 하 여 [읽기 권한자](/azure/role-based-access-control/built-in-roles#reader) 역할을 서비스 주체에 할당 합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
+다음 예제는 간단한 시나리오를 다룹니다. [AzADServicePrincipal](/powershell/module/az.resources/new-azadserviceprincipal) 를 사용 하 여 자체 서명 된 인증서로 서비스 주체를 만들고 [AzRoleAssignment](/powershell/module/az.resources/new-azroleassignment) 를 사용 하 여 [읽기 권한자](/azure/role-based-access-control/built-in-roles#reader) 역할을 서비스 주체에 할당 합니다. 역할 할당의 범위가 현재 선택된 Azure 구독에 지정됩니다. 다른 구독을 선택하려면 [Set-AzContext](/powershell/module/Az.Accounts/Set-AzContext)를 사용합니다.
 
 > [!NOTE]
 > New-selfsignedcertificate cmdlet 및 PKI 모듈은 현재 PowerShell Core에서 지원 되지 않습니다. 

@@ -2,21 +2,21 @@
 title: 마이그레이션 작업 모니터링-Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 마이그레이션 작업을 모니터링하는 방법을 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 03/12/2019
-ms.openlocfilehash: b3ba634ddb084b5637d0a0c97c0ac4ff72193c1d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 31b49cdd9e0e5569981b2a0b0c6efcab7239e019
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437925"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648515"
 ---
 # <a name="monitor-migration-activity-using-the-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 마이그레이션 작업 모니터링
 이 문서에서는 데이터베이스 수준 및 테이블 수준 모두에서 마이그레이션의 진행률을 모니터링하는 방법을 알아봅니다.
@@ -63,7 +63,7 @@ ms.locfileid: "75437925"
       <td>DMS 파이프라인이 실행 중이며 마이그레이션을 수행하고 있습니다.</td>
     </tr>
     <tr>
-      <td>전체</td>
+      <td>완료</td>
       <td>마이그레이션이 완료되었습니다.</td>
     </tr>
     <tr>
@@ -108,7 +108,7 @@ ms.locfileid: "75437925"
 
 다음 테이블에서는 테이블 수준 세부 사항에 표시된 필드를 설명합니다.
 
-| 필드 이름        | Description       |
+| 필드 이름        | 설명       |
 | ------------- | ------------- |
 | **완료된 전체 부하**      | 전체 데이터 로드를 완료한 테이블의 수입니다. |
 | **전체 부하 큐 대기**      | 전체 부하에 대한 큐에 대기 중인 테이블 수입니다.      |
@@ -129,7 +129,7 @@ ms.locfileid: "75437925"
 
 다음 테이블은 테이블 수준 마이그레이션 진행률에 표시된 필드를 설명합니다.
 
-| 필드 이름        | Description       |
+| 필드 이름        | 설명       |
 | ------------- | ------------- |
 | **상태 - 동기화 중**      | 지속적인 동기화가 실행 중입니다. |
 | **삽입**      | 대상에 적용된 행의 CDC 삽입 수입니다.      |

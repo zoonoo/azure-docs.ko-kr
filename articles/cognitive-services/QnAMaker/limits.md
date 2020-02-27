@@ -3,12 +3,12 @@ title: 한도 및 경계 - QnA Maker
 description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한이 있습니다. 테스트 및 게시하기 위해서는 기술 자료를 그러한 제한 내로 유지하는 것이 중요합니다.
 ms.topic: article
 ms.date: 02/14/2020
-ms.openlocfilehash: 7fdf45a4a22f6d9ffe123f5998592739402be55f
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77252011"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650370"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -37,7 +37,7 @@ ms.locfileid: "77252011"
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|형식|최대 파일 크기 (MB)|
+|서식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|
@@ -55,7 +55,7 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="metadata-limits"></a>메타데이터 제한
 
-메타 데이터는 소문자로 저장 되 고 비교 됩니다.
+메타 데이터는 `product:windows 10`와 같은 텍스트 기반 키: 값 쌍으로 제공 됩니다. 소문자에서 저장 되 고 비교 됩니다.
 
 ### <a name="by-azure-cognitive-search-pricing-tier"></a>Azure Cognitive Search 가격 책정 계층
 
@@ -71,8 +71,8 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 |항목|허용 되는 문자|Regex 패턴 일치|최대 문자|
 |--|--|--|--|
-|속성|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` (밑줄)|`^[a-zA-Z0-9_]+$`|100|
-|값|제외한 모든 항목 허용<br>`:` (콜론)<br>`|` (수직 파이프)|`^[^:|]+$`|500|
+|이름 (키)|수 있습니다<br>영숫자 (문자와 숫자)<br>`_` (밑줄)<br> 공백을 포함 하지 않아야 합니다.|`^[a-zA-Z0-9_]+$`|100|
+|값|제외한 모든 항목 허용<br>`:` (콜론)<br>`|` (수직 파이프)<br>하나의 값만 허용 됩니다.|`^[^:|]+$`|500|
 |||||
 
 ## <a name="knowledge-base-content-limits"></a>기술 자료 콘텐츠 제한
@@ -103,4 +103,4 @@ URL 페이지에서 QnAs를 추출 하기 위해 크롤링할 수 있는 딥 링
 
 ## <a name="next-steps"></a>다음 단계
 
-[서비스 가격 책정 계층](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker)을 변경 하는 시기 및 방법에 대해 알아봅니다.
+[서비스 가격 책정 계층](How-To/set-up-qnamaker-service-azure.md#upgrade-qna-maker-sku)을 변경 하는 시기 및 방법에 대해 알아봅니다.

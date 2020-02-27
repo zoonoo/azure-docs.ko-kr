@@ -8,12 +8,12 @@ ms.reviewer: jasonh
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 11/22/2019
-ms.openlocfilehash: 025a31c08ac97783ddf1a608c2899eadd9b89725
-ms.sourcegitcommit: c31dbf646682c0f9d731f8df8cfd43d36a041f85
+ms.openlocfilehash: be331f36a6305b05ce83a2b2d5fdfb73a154ce3d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/27/2019
-ms.locfileid: "74561764"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623111"
 ---
 # <a name="use-apache-hive-as-an-extract-transform-and-load-etl-tool"></a>Apache Hive를 ETL(추출, 변환 및 로드) 도구로 사용
 
@@ -81,7 +81,7 @@ ETL 모델은 일반적으로 다음 작업을 수행하려는 경우에 사용�
 
 * 스트림 데이터나 외부 원본의 반구조화 또는 구조화되지 않은 대량의 데이터를 기존 데이터베이스 또는 정보 시스템으로 로드합니다.
 * 클러스터를 통한 둘 이상의 변환 패스를 사용하여 데이터를 로드하기 전에 정리, 변환 및 유효성 검사를 수행합니다.
-* 정기적으로 업데이트되는 보고서 및 시각화 요소를 생성합니다.  예를 들어, 보고서가 너무 길어서 낮 동안 생성할 수 없는 경우 밤에 실행되도록 보고서를 예약할 수 있습니다.  Azure Scheduler 및 PowerShell을 사용하여 Hive 쿼리를 자동으로 실행할 수 있습니다.
+* 정기적으로 업데이트되는 보고서 및 시각화 요소를 생성합니다. 예를 들어, 보고서가 너무 길어서 낮 동안 생성할 수 없는 경우 밤에 실행되도록 보고서를 예약할 수 있습니다. Hive 쿼리를 자동으로 실행 하기 위해 [Azure Logic Apps](../../logic-apps/logic-apps-overview.md) 및 PowerShell을 사용할 수 있습니다.
 
 데이터의 대상이 데이터베이스가 아닌 경우 쿼리 내에서 적절 한 형식으로 파일을 생성할 수 있습니다 (예: CSV). 그런 후 이 파일을 Excel 또는 Power BI로 가져올 수 있습니다.
 

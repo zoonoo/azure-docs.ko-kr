@@ -3,14 +3,14 @@ author: mmacy
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
-ms.date: 02/12/2020
+ms.date: 02/26/2020
 ms.author: marsma
-ms.openlocfilehash: 9612abbe078ab8d9e8c10c2da923a9a9b233d094
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 4cf8eba9632c51ce9b5bcc42feae2446348890c2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77373085"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77651708"
 ---
 ## <a name="use-custom-page-content"></a>사용자 지정 페이지 내용 사용
 
@@ -46,7 +46,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 
 다음 표에서는 Azure AD B2C에서 제공 하는 기본 페이지 콘텐츠를 나열 합니다. 파일을 다운로드 하 여 고유한 사용자 지정 페이지를 만들기 위한 시작 지점으로 사용 합니다.
 
-| 기본 페이지 | Description | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
+| 기본 페이지 | 설명 | 콘텐츠 정의 ID<br/>(사용자 지정 정책에만 해당) |
 |:-----------------------|:--------|-------------|
 | [exception. html](https://login.microsoftonline.com/static/tenant/default/exception.cshtml) | **오류 페이지**입니다. 예외 또는 오류가 발생하면 이 페이지가 표시됩니다. | *api.error* |
 | [selfasserted.html](https://login.microsoftonline.com/static/tenant/default/selfAsserted.cshtml) |  **자체 어설션된 페이지**. 이 파일은 소셜 계정 등록 페이지, 로컬 계정 등록 페이지, 로컬 계정 로그인 페이지, 암호 다시 설정 등의 사용자 지정 페이지 콘텐츠로 사용 합니다. 양식에는 텍스트 입력란, 암호 입력란, 라디오 단추, 단일 선택 드롭다운 상자 및 다중 선택 확인란과 같이 다양한 입력 컨트롤이 포함될 수 있습니다. | api. *localaccountsignin*, *localaccountsignup* , *localaccountpasswordreset*, *selfasserted* |
@@ -61,7 +61,7 @@ Azure AD B2C는 [CORS (원본 간 리소스 공유)](https://www.w3.org/TR/cors/
 ## <a name="guidelines-for-using-custom-page-content"></a>사용자 지정 페이지 콘텐츠 사용에 대 한 지침
 
 - HTML 파일에 미디어, CSS 및 JavaScript 파일과 같은 외부 리소스를 포함 하는 경우 절대 URL을 사용 합니다.
-- HTML 태그에 `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어 합니다. `data-preload=true`를 사용 하면 페이지가 사용자에 게 표시 되기 전에 생성 됩니다. 이 특성을 사용 하면 스타일이 지정 되지 않은 HTML이 사용자에 게 표시 되지 않고 CSS 파일을 미리 로드 하 여 페이지를 "깜박임" 할 수 없습니다. 다음 HTML 코드 조각에서는 `data-preload` 태그를 사용 하는 방법을 보여 줍니다.
+- [페이지 레이아웃 버전](../articles/active-directory-b2c/page-layout.md) 1.2.0 이상을 사용 하 여 HTML 태그에 `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다. `data-preload=true`를 사용 하면 페이지가 사용자에 게 표시 되기 전에 생성 됩니다. 이 특성을 사용 하면 스타일이 지정 되지 않은 HTML이 사용자에 게 표시 되지 않고 CSS 파일을 미리 로드 하 여 페이지를 "깜박임" 할 수 없습니다. 다음 HTML 코드 조각에서는 `data-preload` 태그를 사용 하는 방법을 보여 줍니다.
   ```HTML
   <link href="https://path-to-your-file/sample.css" rel="stylesheet" type="text/css" data-preload="true"/>
   ```

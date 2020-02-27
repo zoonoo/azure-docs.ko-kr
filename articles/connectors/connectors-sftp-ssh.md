@@ -8,16 +8,16 @@ ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
 ms.date: 06/18/2019
 tags: connectors
-ms.openlocfilehash: 54a1d1183ac16f5ec3db5477cda75c6e1a776b3d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74786890"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647651"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
-[SSH(Secure Shell)](https://www.ssh.com/ssh/protocol/) 프로토콜을 사용하여 [SFTP(보안 파일 전송 프로토콜)](https://www.ssh.com/ssh/sftp/) 서버에서 파일을 모니터링, 만들기, 전송 및 수신하는 작업을 자동화하려면 Azure Logic Apps 및 SFTP-SSH 커넥터를 사용하여 통합 워크플로를 빌드하고 자동화할 수 있습니다. SFTP는 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다. 다음은 자동화할 수 있는 몇 가지 예제 작업입니다.
+[SSH(Secure Shell)](https://www.ssh.com/ssh/sftp/) 프로토콜을 사용하여 [SFTP(보안 파일 전송 프로토콜)](https://www.ssh.com/ssh/protocol/) 서버에서 파일을 모니터링, 만들기, 전송 및 수신하는 작업을 자동화하려면 Azure Logic Apps 및 SFTP-SSH 커넥터를 사용하여 통합 워크플로를 빌드하고 자동화할 수 있습니다. SFTP는 신뢰할 수 있는 데이터 스트림을 통해 파일 액세스, 파일 전송 및 파일 관리를 제공하는 네트워크 프로토콜입니다. 다음은 자동화할 수 있는 몇 가지 예제 작업입니다.
 
 * 파일이 추가되거나 변경될 때 모니터링합니다.
 * 파일 가져오기/만들기/복사/이름 바꾸기/업데이트/나열/삭제를 수행합니다.
@@ -25,11 +25,11 @@ ms.locfileid: "74786890"
 * 파일 콘텐츠 및 메타데이터를 가져옵니다.
 * 보관을 폴더로 추출합니다.
 
-SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토하세요.
+SFTP 서버에서 이벤트를 모니터링하는 트리거를 사용하고 다른 작업에서 출력을 사용하도록 할 수 있습니다. SFTP 서버에서 다양한 작업을 수행하는 작업을 사용할 수 있습니다. 또한 논리 앱의 다른 작업에서 SFTP 작업의 출력을 사용하도록 할 수 있습니다. 예를 들어 정기적으로 SFTP 서버에서 파일을 검색하는 경우 Office 365 Outlook 커넥터 또는 Outlook.com 커넥터를 사용하여 해당 파일 및 해당 콘텐츠에 대한 이메일 경고를 보낼 수 있습니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다.
 
 SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 뒷부분에 있는 [sftp-ssh와 Sftp 비교](#comparison) 섹션을 검토 하세요.
 
-## <a name="limits"></a>Limits
+## <a name="limits"></a>제한
 
 * 기본적으로 SFTP-SSH 작업은 1gb *또는 작은* 파일을 읽거나 쓸 수 있습니다. 15MB 보다 큰 파일을 처리 하기 위해 SFTP-SSH 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. 단, 파일 복사 작업은 파일 복사 작업의 경우를 제외 하 고는 15mb 파일만 처리할 수 있습니다. **파일 콘텐츠 가져오기** 작업은 메시지 청크를 암시적으로 사용 합니다.
 
@@ -57,9 +57,9 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 * *최대 1시간 동안* SFTP 서버에 대한 연결을 캐시합니다. 그러면 서버에 대한 연결에서 시도 수가 감소하며 성능이 개선됩니다. 이 캐싱 동작에 대한 기간을 설정하려면 SFTP 서버의 SSH 구성에서 [**ClientAliveInterval**](https://man.openbsd.org/sshd_config#ClientAliveInterval) 속성을 편집합니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 논리 앱에서 SFTP 계정에 액세스하도록 하는 SFTP 서버 주소 및 계정 자격 증명 SSH 프라이빗 키 및 SSH 프라이빗 키 암호에 대한 액세스도 필요합니다. 대량 파일을 업로드할 때 청크를 사용 하려면 SFTP 서버의 루트 폴더에 대 한 읽기 및 쓰기 권한이 모두 필요 합니다. 그렇지 않으면 "401 권한 없음" 오류가 발생 합니다.
 
@@ -84,7 +84,7 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴링 이후 변경 된 파일을 찾는 방식으로 작동 합니다. 일부 도구를 통해 파일을 변경하는 경우 타임스탬프를 유지할 수 있습니다. 이러한 경우 트리거가 작동할 수 있도록 이 기능을 사용하지 않도록 설정해야 합니다. 아래에는 몇 가지 일반적인 설정이 나와 있습니다.
 
-| SFTP 클라이언트 | 실행력 |
+| SFTP 클라이언트 | 작업 |
 |-------------|--------|
 | Winscp | **옵션** > **기본 설정** > **전송** > **편집** > **타임스탬프 보존** > **사용 안 함**으로 이동 |
 | FileZilla | **전송** > **전송된 파일의 타임스탬프 보존** > **사용 안 함**으로 이동 |
@@ -108,7 +108,7 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    `puttygen <path-to-private-key-file-in-PuTTY-format> -O private-openssh -o <path-to-private-key-file-in-OpenSSH-format>`
 
-   다음은 그 예입니다.
+   예를 들면 다음과 같습니다.
 
    `puttygen /tmp/sftp/my-private-key-putty.ppk -O private-openssh -o /tmp/sftp/my-private-key-openssh.pem`
 
@@ -134,11 +134,11 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 빈 논리 앱의 경우 검색 상자에서 필터로 “sftp ssh”를 입력합니다. 트리거 목록에서 원하는 트리거를 선택합니다.
 
-   또는
+   -또는-
 
    기존 논리 앱의 경우 작업을 추가하려는 마지막 단계에서 **새 단계**를 선택합니다. 검색 상자에서 필터로 “sftp ssh”를 입력합니다. 작업 목록에서 원하는 작업을 선택합니다.
 
@@ -158,13 +158,13 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
    1. **편집** > **복사**를 선택합니다.
 
-   1. 추가한 SFTP-SSH 트리거 또는 작업에서 **SSH 프라이빗 키** 속성으로 복사한 *전체* 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
+   1. 추가한 SFTP-SSH 트리거 또는 작업에서 *SSH 프라이빗 키* 속성으로 복사한 **전체** 키를 붙여넣습니다. 이는 여러 줄을 지원합니다.  키를 ***붙여넣었는지 확인합니다***. ***키를 수동으로 입력하거나 편집하지 마십시오***.
 
 1. 연결 세부 정보 입력이 완료되면 **만들기**를 선택합니다.
 
 1. 이제 선택한 트리거 또는 작업에 대해 필요한 세부 정보를 제공하고 논리 앱의 워크플로를 계속 빌드합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 <a name="file-added-modified"></a>
 
@@ -182,7 +182,10 @@ SFTP-a s s-SSH 트리거는 SFTP 파일 시스템을 폴링하고 마지막 폴�
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/sftpconnector/)를 참조하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/sftpwithssh/)를 참조 하세요.
+
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

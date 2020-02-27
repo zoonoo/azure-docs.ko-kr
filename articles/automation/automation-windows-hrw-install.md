@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 12/10/2019
 ms.topic: conceptual
-ms.openlocfilehash: a6d2e2d912f176a88dc993803d750e37cff1acb6
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 9f3e06f66996be4a2b43b64e6100c62a2fa41381
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77443667"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649962"
 ---
 # <a name="deploy-a-windows-hybrid-runbook-worker"></a>Windows Hybrid Runbook Worker 배포
 
@@ -19,6 +19,9 @@ Azure Automation의 Hybrid Runbook Worker 기능을 사용하여 역할을 호�
 Runbook Worker를 성공적으로 배포한 후에는 [Hybrid Runbook Worker에서 Runbook 실행](automation-hrw-run-runbooks.md)을 검토하여 온-프레미스 데이터 센터 또는 다른 클라우드 환경의 프로세스를 자동화하도록 Runbook을 구성하는 방법을 알아봅니다.
 
 [!INCLUDE [azure-monitor-log-analytics-rebrand](../../includes/azure-monitor-log-analytics-rebrand.md)]
+
+>[!NOTE]
+>이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="windows-hybrid-runbook-worker-installation-and-configuration"></a>Windows Hybrid Runbook Worker 설치 및 구성
 
@@ -50,8 +53,9 @@ Hybrid Runbook Worker에 대한 상세한 네트워킹 요구 사항은 [네트�
 
 ### <a name="server-onboarding-for-management-with-automation-dsc"></a>자동화 DSC를 사용 하 여 관리를 위한 서버 온 보 딩
 
-DSC를 통한 관리를 위한 온보드에 대한 정보는 [Azure Automation DSC를 통한 관리를 위한 컴퓨터 온보드](automation-dsc-onboarding.md)를 참조하세요.
-[업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 Windows 컴퓨터가이 솔루션에 포함 된 runbook을 지원 하기 위한 Hybrid Runbook Worker 자동으로 구성 됩니다. 그러나 Automation 계정에서 이미 정의한 모든 Hybrid Worker 그룹에 등록되지 않았습니다. 
+DSC를 통한 관리를 위한 온 보 딩 서버에 대 한 자세한 내용은 DSC를 사용 [Azure Automation 하 여 관리용 컴퓨터 온 보 딩](automation-dsc-onboarding.md)을 참조 하세요.
+
+[업데이트 관리 솔루션](../operations-management-suite/oms-solution-update-management.md)을 사용 하도록 설정 하면 Log Analytics 작업 영역에 연결 된 모든 Windows 컴퓨터가이 솔루션에 포함 된 runbook을 지원 하기 위한 Hybrid Runbook Worker 자동으로 구성 됩니다. 그러나 Automation 계정에서 이미 정의한 모든 Hybrid Worker 그룹에 등록되지 않았습니다.
 
 ### <a name="adding-the-computer-to-a-hybrid-runbook-worker-group"></a>Hybrid Runbook Worker 그룹에 컴퓨터 추가
 
@@ -65,19 +69,17 @@ DSC를 통한 관리를 위한 온보드에 대한 정보는 [Azure Automation D
 
 Hybrid Runbook Worker 역할을 실행하는 컴퓨터에서 직접 또는 사용자 환경의 다른 컴퓨터에서 [PowerShell 갤러리](https://www.powershellgallery.com/packages/New-OnPremiseHybridWorker)의 새로 OnPremiseHybridWorker.ps1 스크립트를 다운로드합니다. 스크립트를 작업자에 복사합니다. New-OnPremiseHybridWorker.ps1 스크립트에는 실행 중 다음 매개 변수가 필요합니다.
 
-   * *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름
-   * *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름. 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다.
-   * *SubscriptionID* (필수): Automation 계정이 있는 AZURE 구독 ID입니다.
-   * *TenantID* (선택 사항): Automation 계정과 연결 된 테 넌 트 조직의 식별자입니다.
-   * *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름 Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
-   * *Automationaccountname* (필수): Automation 계정의 이름입니다.
-   * *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름
-   * *자격 증명* (선택 사항): Azure 환경에 로그인 할 때 사용할 자격 증명입니다.
+* *AAResourceGroupName*(필수): Automation 계정과 연결된 리소스 그룹의 이름
+* *OMSResourceGroupName*(선택 사항): Log Analytics 작업 영역에 대한 리소스 그룹의 이름. 이 리소스 그룹을 지정하지 않으면 *AAResourceGroupName*을 사용합니다.
+* *SubscriptionID* (필수): Automation 계정이 있는 AZURE 구독 ID입니다.
+* *TenantID* (선택 사항): Automation 계정과 연결 된 테 넌 트 조직의 식별자입니다.
+* *WorkspaceName*(선택 사항): Log Analytics 작업 영역 이름 Log Analytics 작업 영역이 없는 경우 스크립트에서 하나를 만들어 구성합니다.
+* *Automationaccountname* (필수): Automation 계정의 이름입니다.
+* *HybridGroupName*(필수): 이 시나리오를 지원하는 Runbook에 대한 대상으로 지정할 Hybrid Runbook Worker 그룹의 이름
+* *자격 증명* (선택 사항): Azure 환경에 로그인 할 때 사용할 자격 증명입니다.
   
-   > [!NOTE]
-   > 솔루션을 사용하도록 설정할 때 특정 Azure 지역에서만 Log Analytics 작업 영역 및 Automation 계정을 연결할 수 있습니다.
-   >
-   > 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
+> [!NOTE]
+> 솔루션을 사용 하도록 설정 하는 경우 Log Analytics 작업 영역 및 Automation 계정을 연결 하는 데 특정 영역만 지원 됩니다. 지원 되는 매핑 쌍 목록은 [Automation 계정 및 Log Analytics 작업 영역에 대 한 지역 매핑](how-to/region-mappings.md)을 참조 하세요.
 
 ### <a name="2-open-windows-powershell-command-line-shell"></a>2. Windows PowerShell 명령줄 셸을 엽니다.
 

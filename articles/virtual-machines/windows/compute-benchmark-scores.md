@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: e2faf3ad7ed41c14745337414703d9fb0db54152
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 14e2cdd5d4a1662e86a055165fdd15a38d29225b
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651052"
 ---
 # <a name="compute-benchmark-scores-for-windows-vms"></a>Windows VM의 컴퓨팅 벤치마크 점수
 다음 SPECInt 벤치 마크 점수는 Windows Server를 실행 하는 Azure Vm 선택에 대 한 계산 성능을 보여 줍니다. [Linux VM](../linux/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
@@ -51,6 +51,8 @@ ms.locfileid: "74033567"
 | Standard_A8m_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 10 | 104.5 | 5.1 | 
 | Standard_A8m_v2 | 8 | 2 | Intel(R) Xeon(R) CPU E5-2660 0 @ 2.20GHz | 13 | 111.6 | 2.3 | 
 
+참고: Av2 시리즈 Vm은 다양 한 하드웨어 유형 및 프로세서 (위에 표시 된 것 처럼)에 배포할 수 있습니다. Av2 시리즈 Vm에는 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 크기는 배포 된 하드웨어에 관계 없이 실행 중인 인스턴스에 대해 상대적으로 일관 된 프로세서 성능을 제공 하도록 제한 됩니다. 그러나 최신 프로세서 최적화를 활용 하는 소프트웨어의 경우 프로세서 유형에 따라 더 많은 변형이 표시 될 수 있습니다.
+
 ## <a name="b---burstable"></a>B-기병 양성소
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
@@ -63,6 +65,10 @@ ms.locfileid: "74033567"
 | Standard_B4ms | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 43 | 28.3 | 0.7 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 3 | 42.0 | 0.0 | 
 | Standard_B8ms | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 25 | 41.4 | 0.9 | 
+
+참고: B 시리즈 Vm은 서로 간에 안정 된 성능 요구 사항이 있는 워크 로드를 위한 것입니다. VM 인스턴스는 기준선 보다 작은 값을 사용 하는 경우 크레딧을 누적 합니다. VM에 크레딧이 누적 되 면 VM은 최대 100%를 사용 하 여 기준선 위로 버스트 하 여 짧은 CPU 버스트 요구 사항을 충족할 수 있습니다. 버스트 시간은 VM 크기 및 시간 기능에 해당 하는 사용 가능한 크레딧을 따라 달라 집니다.  
+
+SPEC Int는 일반적으로 사용 가능한 버스트 크레딧을 모두 사용 하는 매우 긴 실행 테스트입니다.  따라서 위의 숫자는 실행 간에 누적 된 버스트 시간을 반영할 수도 있지만 VM의 기준 성능에 더 가깝습니다.  Short, 버스 티, 워크 로드 (B 시리즈에서 일반)는 일반적으로 Ds v3 시리즈의 성능에 가깝습니다.
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 컴퓨팅 + Premium Storage
 | 크기 | vCPU | NUMA 노드 | CPU | 실행 | 평균 기본 요금 | StdDev | 
@@ -102,7 +108,7 @@ ms.locfileid: "74033567"
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 33 | 63.9 | 1.7 | 
 | Standard_DS2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 32 | 66.6 | 4.8 | 
 | Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 15 | 125.5 | 3.2 | 
-| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 130.1 | 4.3. | 
+| Standard_DS3_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 47 | 130.1 | 4.3 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 23 | 235.7 | 6.6 | 
 | Standard_DS4_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 34 | 249.4 | 2.8 | 
 | Standard_DS5_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 11 | 414.9 | 5.1 | 
@@ -121,7 +127,7 @@ ms.locfileid: "74033567"
 | Standard_DS13_v2 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 23 | 248.0 | 2.2 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 17 | 65.2 | 3.1 | 
 | Standard_DS13-2_v2 | 2 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 15 | 72.8 | 3.8 | 
-| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3. | 
+| Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 24 | 126.1 | 4.3 | 
 | Standard_DS13-4_v2 | 4 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 27 | 133.3 | 2.8 | 
 | Standard_DS14_v2 | 16 | 1 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 22 | 469.5 | 6.9 | 
 | Standard_DS14_v2 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 16 | 456.6 | 7.3 | 
@@ -263,7 +269,7 @@ ms.locfileid: "74033567"
 | ---- | ----: | ---------: | --- | ---: | ------------: | -----: | 
 | Standard_H8 | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 31 | 296.1 | 1.4 | 
 | Standard_H8m | 8 | 1 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 34 | 295.1 | 1.5 | 
-| Standard_H16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 563.5 | 4.3. | 
+| Standard_H16 | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 563.5 | 4.3 | 
 | Standard_H16m | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 19 | 562.9 | 3.3 | 
 | Standard_H16mr | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 18 | 563.6 | 3.7 | 
 | Standard_H16r | 16 | 2 | Intel(R) Xeon(R) CPU E5-2667 v3 @ 3.20GHz | 17 | 562.2 | 4.2 | 

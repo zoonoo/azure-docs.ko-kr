@@ -5,34 +5,34 @@ author: vhorne
 ms.service: web-application-firewall
 ms.topic: article
 services: web-application-firewall
-ms.date: 08/21/2019
+ms.date: 02/26/2020
 ms.author: victorh
-ms.openlocfilehash: 831d0876c67aa36248a54f3935e5ce7884c736ef
-ms.sourcegitcommit: dbde4aed5a3188d6b4244ff7220f2f75fce65ada
+ms.openlocfilehash: b034159c3d12927f6425b3dc3c5b5609af9b0b76
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74186617"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649367"
 ---
 # <a name="configure-a-web-application-firewall-rate-limit-rule-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 웹 응용 프로그램 방화벽 요금 제한 규칙 구성
-Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit 규칙은 1 분 동안 단일 클라이언트 IP에서 허용 되는 요청 수를 제어 합니다.
-이 문서에서는 Azure PowerShell를 사용 하 여 단일 클라이언트에서 */promo 모션* 을 포함 하는 웹 응용 프로그램에 대 한 단일 클라이언트에서 허용 되는 요청 수를 제어 하는 waf rate limit 규칙을 구성 하는 방법을 보여 줍니다.
+Azure Front 도어의 Azure 웹 응용 프로그램 방화벽 (WAF) rate limit 규칙은 1 분 동안 클라이언트에서 허용 되는 요청 수를 제어 합니다.
+이 문서에서는 Azure PowerShell를 사용 하 여 URL에서 */s프로 모션* 을 포함 하는 웹 응용 프로그램에 대해 클라이언트에서 허용 되는 요청 수를 제어 하는 waf rate limit 규칙을 구성 하는 방법을 보여 줍니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>선행 조건
+## <a name="prerequisites"></a>필수 조건
 속도 제한 정책 설정을 시작 하기 전에 PowerShell 환경을 설정 하 고 전면 도어 프로필을 만듭니다.
 ### <a name="set-up-your-powershell-environment"></a>PowerShell 환경 설정
 Azure PowerShell은 Azure 리소스를 관리하기 위해 [Azure Resource Manager](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-overview) 모델을 사용하는 cmdlet 집합을 제공합니다. 
 
 로컬 머신에 [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview) 설치하고 모든 PowerShell 세션에서 사용할 수 있습니다. 페이지의 지침에 따라 Azure 자격 증명을 사용 하 여 로그인 하 고 Az PowerShell module을 설치 합니다.
 
-#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>로그인용 대화형 대화 상자를 사용하여 Azure에 연결
+#### <a name="connect-to-azure-with-an-interactive-dialog-for-sign-in"></a>로그인을 위해 대화형 대화 상자를 사용 하 여 Azure에 연결
 ```
 Connect-AzAccount
 
 ```
-Front Door 모듈을 설치하기 전에 현재 버전의 PowerShellGet을 설치했는지 확인합니다. 아래 명령을 실행하여 PowerShell을 다시 엽니다.
+Front 도어 모듈을 설치 하기 전에 현재 PowerShellGet 버전이 설치 되어 있는지 확인 합니다. 다음 명령을 실행 하 고 PowerShell을 다시 엽니다.
 
 ```
 Install-Module PowerShellGet -Force -AllowClobber

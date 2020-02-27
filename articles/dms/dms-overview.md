@@ -3,19 +3,19 @@ title: Azure Database Migration Service란 무엇인가요?
 description: 많은 데이터베이스 소스에서 Azure 데이터 플랫폼으로의 원활한 마이그레이션을 제공 하는 Azure Database Migration Service의 개요입니다.
 services: database-migration
 author: pochiraju
-ms.author: jtoland
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.topic: article
-ms.date: 06/01/2019
-ms.openlocfilehash: d573378bc5e729eb75b6c3b51d3671492f7f98f1
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/20/2020
+ms.openlocfilehash: 8607f1a687f2979c37c67099874288c6c5ead164
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209378"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647495"
 ---
 # <a name="what-is-azure-database-migration-service"></a>Azure Database Migration Service란 무엇인가요?
 

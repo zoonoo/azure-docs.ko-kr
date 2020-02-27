@@ -3,22 +3,22 @@ title: Azure(대규모 인스턴스)의 SAP HANA 크기 조정 | Microsoft Docs
 description: Azure(대규모 인스턴스)에서 SAP HANA에 대한 크기 조정입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 09/04/2018
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: f2540a0f9ea702ff620ccd4b68208cbb2e70aafd
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 404f8318816edcc2cfd1c50ca42304ff6ec93039
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101138"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616905"
 ---
 # <a name="sizing"></a>크기 조정
 
@@ -26,7 +26,7 @@ HANA 대규모 인스턴스에 대한 크기 조정은 일반적으로 HANA에 �
 
 - [SAP Note #1793345 - HANA에서 SAP Suite에 대한 크기 조정](https://launchpad.support.sap.com/#/notes/1793345)
 - [SAP Note #1872170 - Suite on HANA 및 S/4 HANA 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/1872170)
-- [SAP Note #2121330-FAQ: HANA 크기 조정 보고서 SAP BW](https://launchpad.support.sap.com/#/notes/2121330)
+- [SAP Note #2121330 - FAQ: SAP BW on HANA 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/2121330)
 - [SAP Note #1736976 - BW on HANA에 대한 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/1736976)
 - [SAP Note #2296290 - BW on HANA에 대한 새 크기 조정 보고서](https://launchpad.support.sap.com/#/notes/2296290)
 

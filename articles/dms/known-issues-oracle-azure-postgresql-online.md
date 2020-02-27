@@ -3,21 +3,21 @@ title: '알려진 문제: Oracle에서 Azure Database for PostgreSQL로 마이�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 Oracle에서 Azure Database for PostgreSQL 단일 서버로의 온라인 마이그레이션과의 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 11/05/2019
-ms.openlocfilehash: 0a1f46698ddb966c315d08a794dd710a74295f97
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 6ab1050290119a53ee0fb674e6939938a3b855e0
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437808"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648601"
 ---
 # <a name="known-issuesmigration-limitations-with-online-migrations-from-oracle-to-azure-db-for-postgresql-single-server"></a>Oracle의 온라인 마이그레이션과 PostgreSQL 용 Azure DB-단일 서버에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -48,7 +48,7 @@ Azure Database Migration Service는 Azure Database for PostgreSQL 단일 서버 
 - SDO_GEOMETRY
 - 중첩 테이블
 - 사용자 정의 데이터 형식
-- 메모
+- 참고
 - 가상 열
 - ROWID 열을 기반으로 구체화 된 뷰
 

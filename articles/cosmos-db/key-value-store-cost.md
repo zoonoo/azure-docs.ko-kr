@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 08/23/2019
 ms.author: sngun
 ms.custom: seodec18
-ms.openlocfilehash: 3a79db11ff05bcc9d18619c7f508a9864c17c3b8
-ms.sourcegitcommit: dcf3e03ef228fcbdaf0c83ae1ec2ba996a4b1892
+ms.openlocfilehash: 5b2ee8b5bf19f16d7f7f04e9515fe591db7132f1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/23/2019
-ms.locfileid: "70012805"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647514"
 ---
 # <a name="azure-cosmos-db-as-a-key-value-store--cost-overview"></a>키 값 저장소로 Azure Cosmos DB-비용 개요
 
@@ -26,7 +26,7 @@ Azure Cosmos DB 성능은 [요청 단위](request-units.md) (r u/초)로 표현 
 
 전역적으로 분산 된 데이터베이스 시스템으로 Cosmos DB는 대기 시간, 처리량, 일관성 및 고가용성을 포괄 하는 포괄적인 Sla를 제공 하는 유일한 Azure 서비스입니다. 프로 비전 하는 처리량은 Cosmos 계정과 연결 된 각 지역에 적용 됩니다. 읽기의 경우 Cosmos DB는 선택 가능한 여러 개의 잘 정의된 [일관성 수준](consistency-levels.md)을 제공합니다. 
 
-다음 표에서는 크기 1kb 및 100 Kb 데이터 항목을 기반으로 읽기 및 쓰기 작업을 수행 하는 데 필요한 RUs의 수를 보여 줍니다.
+다음 표에서는 기본 자동 인덱싱이 해제 된 크기 1kb 및 100 Kb의 데이터 항목을 기반으로 읽기 및 쓰기 작업을 수행 하는 데 필요한 RUs의 수를 보여 줍니다. 
 
 |항목 크기|1 읽기|1 쓰기|
 |-------------|------|-------|

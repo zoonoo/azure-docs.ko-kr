@@ -2,15 +2,15 @@
 title: 자습서 - 템플릿에 리소스 추가
 description: 첫 번째 Azure Resource Manager 템플릿을 만드는 단계를 설명합니다. 템플릿 파일 구문 및 스토리지 계정을 배포하는 방법에 대해 알아봅니다.
 author: mumian
-ms.date: 10/04/2019
+ms.date: 02/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 8686b15501e267ab23efe654d28a3e67369a8d03
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: af571b6503f04c809b62c530f6d6254082b838be
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765581"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586685"
 ---
 # <a name="tutorial-add-a-resource-to-your-resource-manager-template"></a>자습서: Resource Manager 템플릿에 리소스 추가
 
@@ -26,7 +26,10 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 기존 템플릿에 스토리지 계정 정의를 추가하려면 다음 예제에 강조 표시되어 있는 JSON을 살펴보세요. 템플릿의 섹션을 복사하는 대신 전체 파일을 복사하고 해당 내용으로 템플릿을 바꿉니다.
 
-**{provide-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다. 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. **store1**을 접두사로 사용하고 이니셜과 오늘 날짜를 추가하는 이름 지정 패턴을 시도해 볼 수 있습니다. 예를 들어 **store1abc09092019**와 같은 이름을 사용할 수 있습니다.
+**{provide-unique-name}** 을 고유한 스토리지 계정 이름으로 바꿉니다.
+
+> [!IMPORTANT]
+> 스토리지 계정 이름은 Azure 내에서 고유해야 합니다. 이름에는 소문자 또는 숫자만 사용할 수 있습니다. 24자 이하여야 합니다. **store1**을 접두사로 사용하고 이니셜과 오늘 날짜를 추가하는 이름 지정 패턴을 시도해 볼 수 있습니다. 예를 들어 **store1abc09092019**와 같은 이름을 사용할 수 있습니다.
 
 :::code language="json" source="~/resourcemanager-templates/get-started-with-templates/add-storage/azuredeploy.json" range="1-19" highlight="5-17":::
 
@@ -58,7 +61,7 @@ Resource Manager Tools 확장이 포함된 Visual Studio Code 및 Azure PowerShe
 
 리소스 그룹을 만들지 않은 경우 [리소스 그룹 만들기](template-tutorial-create-first-template.md#create-resource-group)를 참조하세요. 이 예제에서는 [첫 번째 자습서](template-tutorial-create-first-template.md#deploy-template)에 표시된 대로 **templateFile** 변수를 템플릿 파일의 경로로 설정했다고 가정합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell
 New-AzResourceGroupDeployment `
@@ -67,7 +70,7 @@ New-AzResourceGroupDeployment `
   -TemplateFile $templateFile
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli
 az group deployment create \

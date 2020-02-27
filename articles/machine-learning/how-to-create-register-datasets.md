@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 0bfaef72be23f148c01e02e910b11128cec1659e
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 6b6d63d956f46587d89edf1b080f1bb9bd3ca67e
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77116728"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649093"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -32,7 +32,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -76,7 +76,7 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 SDK를 통해 또는 Azure Machine Learning studio를 사용 하 여 TabularDatasets를 만들 수 있습니다. 
 
-`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다.
+`TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다. 
 
 ```Python
 from azureml.core import Workspace, Datastore, Dataset
@@ -96,7 +96,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-기본적으로 TabularDataset를 만들면 열 데이터 형식이 자동으로 유추 됩니다. 유추 된 형식이 예상과 일치 하지 않는 경우에는 다음 코드를 사용 하 여 열 형식을 지정할 수 있습니다. [지원 되는 데이터 형식에 대해 자세히 알아볼](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)수도 있습니다.
+기본적으로 TabularDataset를 만들면 열 데이터 형식이 자동으로 유추 됩니다. 유추 된 형식이 예상과 일치 하지 않는 경우에는 다음 코드를 사용 하 여 열 형식을 지정할 수 있습니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 `validate=False` 매개 변수를 포함 하 고 `from_delimited_files()` 메서드에서 `infer_column_types=False` 합니다. 이렇게 하면 초기 유효성 검사를 무시 하 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다. [지원 되는 데이터 형식에 대해 자세히 알아볼](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)수도 있습니다.
+
+> [!NOTE] 
+>`infer_column_type` 매개 변수는 분리 된 파일에서 만든 데이터 집합에만 적용 됩니다. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -109,7 +112,7 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|남은|Pclass|속성|성|Age|SibSp|Parch|Ticket|택시|Cabin|Embarked
+| |PassengerId|남은|Pclass|이름|성|처리 기간|SibSp|Parch|Ticket|택시|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
@@ -149,7 +152,7 @@ data_slice = dataset.time_recent(timedelta(weeks=1, days=1))
 
 #### <a name="create-a-filedataset"></a>FileDataset 만들기
 
-`FileDatasetFactory` 클래스에 대 한 [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 사용 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다.
+`FileDatasetFactory` 클래스에 대 한 [`from_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.filedatasetfactory?view=azure-ml-py#from-files-path--validate-true-) 메서드를 사용 하 여 모든 형식의 파일을 로드 하 고 등록 되지 않은 filedataset을 만듭니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 `from_files()` 메서드에서 매개 변수 `validate =False` 설정 합니다. 이렇게 하면 초기 유효성 검사 단계가 무시 되 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다.
 
 ```Python
 # create a FileDataset pointing to files in 'animals' folder and its subfolders recursively

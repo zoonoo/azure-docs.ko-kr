@@ -4,12 +4,12 @@ description: AKS (개인 Azure Kubernetes Service) 클러스터를 만드는 방
 services: container-service
 ms.topic: article
 ms.date: 2/21/2020
-ms.openlocfilehash: e59dccbcc7514f12e148bfb2f771593a53e85dc5
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4b4ba130d9ff63291abdd46617b0692e844a60bf
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594569"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649510"
 ---
 # <a name="create-a-private-azure-kubernetes-service-cluster-preview"></a>개인 Azure Kubernetes Service 클러스터 만들기 (미리 보기)
 
@@ -23,7 +23,7 @@ ms.locfileid: "77594569"
 > * [AKS 지원 정책](support-policies.md)
 > * [Azure 지원 FAQ](faq.md)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure CLI 버전 2.0.77 이상 및 Azure CLI AKS Preview 확장 버전 0.4.18
 
@@ -55,6 +55,18 @@ ms.locfileid: "77594569"
 * 미국 서부 2
 * 미국 동부 2
 
+## <a name="currently-supported-availability-zones"></a>현재 지원 가용성 영역
+
+* 미국 중부
+* 미국 동부
+* 미국 동부 2
+* 프랑스 중부
+* 일본 동부
+* 북유럽
+* 동남아시아
+* 영국 남부
+* 서유럽
+* 미국 서부 2
 
 ## <a name="install-the-latest-azure-cli-aks-preview-extension"></a>최신 Azure CLI AKS Preview 확장을 설치 합니다.
 
@@ -115,6 +127,7 @@ az aks create \
 > Docker 브리지 주소 CIDR (172.17.0.1/16)이 서브넷 CIDR과 충돌 하는 경우 Docker 브리지 주소를 적절 하 게 변경 합니다.
 
 ## <a name="connect-to-the-private-cluster"></a>개인 클러스터에 연결
+
 API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트워크에서 Azure VM (가상 머신)을 만들고 API 서버에 연결 해야 합니다. 이렇게 하려면 다음을 수행합니다.
 
 1. 클러스터에 연결 하기 위한 자격 증명을 가져옵니다.
@@ -131,8 +144,8 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트�
     
      a. Azure Portal에서 MC_ * 리소스 그룹으로 이동 합니다.  
      b. 개인 DNS 영역을 선택 합니다.   
-     다. 왼쪽 창에서 **Virtual network** 링크를 선택 합니다.  
-     d. VM의 가상 네트워크를 개인 DNS 영역에 추가 하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있게 되는 데 몇 분 정도 걸립니다.  
+     c. 왼쪽 창에서 **Virtual network** 링크를 선택 합니다.  
+     . VM의 가상 네트워크를 개인 DNS 영역에 추가 하는 새 링크를 만듭니다. DNS 영역 링크를 사용할 수 있게 되는 데 몇 분 정도 걸립니다.  
      e. Azure Portal에서 MC_ * 리소스 그룹으로 돌아갑니다.  
      f. 오른쪽 창에서 가상 네트워크를 선택 합니다. 가상 네트워크 이름은 *aks-\** 형식으로 되어 있습니다.  
      g. 왼쪽 창에서 **피어 링**을 선택 합니다.  
@@ -148,7 +161,8 @@ API 서버 끝점에 공용 IP 주소가 없습니다. 따라서 가상 네트�
 * 사용자 지정 DNS 서버를 사용 하려면 DNS를 사용 하 여이 IP 168.63.129.16 전달 되는 AD 서버를 배포 합니다.
 
 ## <a name="limitations"></a>제한 사항 
-* 가용성 영역는 현재 미국 동부 2 및 미국 서 부 2 지역 에서만 지원 됩니다.
+* IP 권한이 부여 된 범위는 개인 api 서버 끝점에 적용할 수 없으며 공용 API 서버에만 적용 됩니다.
+* 현재 특정 지역에 대해 지원 되는 가용성 영역이 문서의 시작 부분을 참조 하세요. 
 * [Azure 개인 링크 서비스 제한은][private-link-service] 현재 동일한 가상 네트워크에서 지원 되지 않는 개인 클러스터, Azure 개인 끝점 및 가상 네트워크 서비스 끝점에 적용 됩니다.
 * 개인 Azure 가상 네트워크에서 개인 Azure Container Instances (ACI)를 spin 개인 클러스터의 가상 노드가 지원 되지 않음
 * 개인 클러스터와 함께 기본 제공 되는 Azure DevOps 통합을 지원 하지 않습니다.

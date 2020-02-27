@@ -4,7 +4,7 @@ description: Azure VM에서 SAP S/4HANA 또는 BW/4HANA 배포
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/15/2016
 ms.author: hermannd
-ms.openlocfilehash: 2fa68d9dc3052263b5354086ee802cc31fa35ace
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: c110a4e0429ba52e01c472097a2241f91d504cf5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101451"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616199"
 ---
 # <a name="deploy-sap-s4hana-or-bw4hana-on-azure"></a>Azure에서 SAP S/4HANA 또는 BW/4HANA 배포
 이 문서에서는 SAP CAL(SAP 클라우드 어플라이언스 라이브러리) 3.0을 통해 Azure에서 S/4HANA를 배포하는 방법을 설명합니다. BW/4HANA와 같은 다른 SAP HANA 기반 솔루션을 배포하려면 동일한 단계를 수행합니다.
@@ -117,7 +117,7 @@ SAP CAL의 **솔루션** 페이지에서 솔루션을 배포해 보겠습니다.
 
     c. Azure **지역**을 선택합니다. SAP CAL은 지역을 제안합니다. 다른 Azure 지역이 필요하고 SAP CAL 구독이 없는 경우 SAP로 CAL 구독을 주문해야 합니다.
 
-    d. 8자 또는 9자로 솔루션에 대한 마스터 **암호**를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
+    . 8자 또는 9자로 솔루션에 대한 마스터 **암호**를 입력합니다. 암호는 다양한 구성 요소의 관리자에서 사용됩니다.
 
    ![SAP CAL 기본 모드: 인스턴스 만들기](./media/cal-s4h/s4h-pic10a.png)
 

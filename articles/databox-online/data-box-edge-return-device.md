@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 07/19/2019
+ms.date: 02/26/2020
 ms.author: alkohli
-ms.openlocfilehash: a5fee604a529e9ca6153f6c189f199577ae65426
-ms.sourcegitcommit: 4b647be06d677151eb9db7dccc2bd7a8379e5871
+ms.openlocfilehash: 521277b2eed7edfba016f6a80e8f877decfb0ac5
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/19/2019
-ms.locfileid: "68356153"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651103"
 ---
 # <a name="return-or-replace-your-azure-data-box-edge-device"></a>Azure Data Box Edge 장치 반환 또는 교체
 
@@ -47,7 +47,7 @@ ms.locfileid: "68356153"
 
 다시 설정 하면 장치 데이터 디스크에서 데이터가 지워집니다. 이 프로세스는 장치에 있는 데이터의 양에 따라 약 30-40 분이 소요 됩니다.
 
-또는 장치의 PowerShell 인터페이스에 연결 하 고 `Reset-HcsAppliance` cmdlet을 사용 하 여 데이터 디스크에서 데이터를 지웁니다. 자세한 내용은 [장치 다시 설정](data-box-edge-connect-powershell-interface.md#reset-your-device)을 참조 하세요.
+또는 장치의 PowerShell 인터페이스에 연결 하 고 `Reset-HcsAppliance` cmdlet을 사용 하 여 데이터 디스크에서 데이터를 지울 수 있습니다. 자세한 내용은 [장치 다시 설정](data-box-edge-connect-powershell-interface.md#reset-your-device)을 참조 하세요.
 
 > [!NOTE]
 > - 새 장치를 교환 하거나 새 장치를 업그레이드 하는 경우 새 장치를 받은 후에만 장치를 초기화 하는 것이 좋습니다.
@@ -72,7 +72,7 @@ ms.locfileid: "68356153"
 3. 전원 케이블을 분리 하 고 장치에서 모든 네트워크 케이블을 제거 합니다.
 4. 자신의 상자 또는 Azure에서 받은 빈 상자를 사용 하 여 배송 패키지를 준비 합니다. 장치와 함께 제공 된 장치 및 전원 코드를 상자에 배치 합니다.
 5. 접사 패키지의 Azure에서 받은 배송 레이블을 제공 합니다.
-6. 해당 지역 운송업체에서 픽업하도록 예약합니다. 장치를 미국에서 반환 하는 경우에는 캐리어가 UPS입니다. 픽업을 예약하려면 다음을 수행합니다.
+6. 해당 지역 운송업체에서 픽업하도록 예약합니다. 장치를 미국에서 반환 하는 경우에는 캐리어가 UPS 또는 FedEx 수 있습니다. UPS를 사용 하 여 픽업을 예약 하려면:
 
     1. 로컬 UPS(국가별 무료 전화 번호)에 전화합니다.
     2. 호출에서 인쇄 된 레이블에 표시 된 것 처럼 역 배송 추적 번호를 인용 합니다.

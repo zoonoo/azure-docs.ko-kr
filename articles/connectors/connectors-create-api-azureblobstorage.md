@@ -7,12 +7,12 @@ ms.reviewer: klam, logicappspm
 ms.topic: conceptual
 ms.date: 02/21/2020
 tags: connectors
-ms.openlocfilehash: 2e2fea90f125cae6de44afbc82dd749a421ff3e2
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: eb943bfe36be10d1e95d569a5c1bf48563e909c1
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566015"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650864"
 ---
 # <a name="create-and-manage-blobs-in-azure-blob-storage-by-using-azure-logic-apps"></a>Azure Logic Apps를 사용 하 여 Azure Blob Storage에서 blob 만들기 및 관리
 
@@ -37,7 +37,7 @@ Azure 웹 사이트에서 업데이트되는 도구가 있다고 가정해 보�
 
   * 전체 파일을 읽고 청크를 암시적으로 사용 하는 Azure Blob Storage **Blob 콘텐츠 가져오기** 작업을 사용 하 여 트리거를 수행 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
@@ -121,13 +121,13 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 1. 연결을 만들지 묻는 메시지가 표시 되 면 다음 정보를 제공 합니다.
 
-   | 속성 | 필수 | 값 | 설명 |
+   | 속성 | 필수 | 값 | Description |
    |----------|----------|-------|-------------|
-   | **연결 이름** | 예 | <*connection-name*> | 연결에 만들 이름 |
-   | **Storage 계정** | 예 | <*storage-account*> | 목록에서 스토리지 계정을 선택합니다. |
+   | **연결 이름** | yes | <*connection-name*> | 연결에 만들 이름 |
+   | **Storage 계정** | yes | <*storage-account*> | 목록에서 스토리지 계정을 선택합니다. |
    ||||
 
-   예를 들면 다음과 같습니다.
+   다음은 그 예입니다.
 
    ![Azure Blob storage 계정 연결 만들기](./media/connectors-create-api-azureblobstorage/create-storage-account-connection.png) 
 
@@ -137,7 +137,10 @@ Azure Logic Apps에서 [작업](../logic-apps/logic-apps-overview.md#logic-app-c
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 Open API (이전의 Swagger) 파일에 설명 된 대로 트리거, 작업 및 제한과 같은 기술 세부 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조 하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/azureblobconnector/)를 참조 하세요.
+
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 <a name="storage-firewalls"></a>
 

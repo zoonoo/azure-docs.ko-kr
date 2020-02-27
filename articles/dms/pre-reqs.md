@@ -2,21 +2,21 @@
 title: Azure Database Migration Service에 대 한 필수 구성 요소
 description: Azure Database Migration Service를 사용하여 데이터베이스 마이그레이션을 수행하기 위한 필수 구성 요소의 개요를 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 7ba317da9524c322d47fe57a866d429ff8f7e952
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/25/2020
+ms.openlocfilehash: 89cb63630e3dbe953ed3f4fd8796d01ba0d36067
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75748728"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651494"
 ---
 # <a name="overview-of-prerequisites-for-using-the-azure-database-migration-service"></a>Azure Database Migration Service 사용을 위한 필수 구성 요소 개요
 
@@ -35,18 +35,25 @@ Azure Database Migration Service 사용과 관련된 필구 구성 요소는 다
 * 문서 [서버 네트워크 프로토콜 사용 또는 사용 안 함](https://docs.microsoft.com/sql/database-engine/configure-windows/enable-or-disable-a-server-network-protocol#SSMSProcedure)의 지침을 수행하여 SQL Server Express를 설치하는 동안 기본적으로 사용 안 함으로 설정되어 있는 TCP/IP 프로토콜을 사용하도록 설정합니다.
 
     > [!IMPORTANT]
-    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 가상 networt 설정에 액세스할 수 있어야 합니다. 따라서 DMS의 인스턴스를 만드는 사용자에 게는 구독 수준에서 사용 권한이 필요 합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행 합니다.
+    > Azure Database Migration Service 인스턴스를 만들려면 일반적으로 동일한 리소스 그룹 내에 있지 않은 가상 네트워크 설정에 대 한 액세스가 필요 합니다. 따라서 DMS의 인스턴스를 만드는 사용자에 게는 구독 수준에서 사용 권한이 필요 합니다. 필요에 따라 할당할 수 있는 필수 역할을 만들려면 다음 스크립트를 실행 합니다.
     >
     > ```
     >
     > $readerActions = `
-    > "Microsoft.DataMigration/services/*/read", `
-    > "Microsoft.Network/networkInterfaces/ipConfigurations/read"
+    > "Microsoft.Network/networkInterfaces/ipConfigurations/read", `
+    > "Microsoft.DataMigration/*/read", `
+    > "Microsoft.Resources/subscriptions/resourceGroups/read"
     >
     > $writerActions = `
     > "Microsoft.DataMigration/services/*/write", `
     > "Microsoft.DataMigration/services/*/delete", `
-    > "Microsoft.DataMigration/services/*/action"
+    > "Microsoft.DataMigration/services/*/action", `
+    > "Microsoft.Network/virtualNetworks/subnets/join/action", `
+    > "Microsoft.Network/virtualNetworks/write", `
+    > "Microsoft.Network/virtualNetworks/read", `
+    > "Microsoft.Resources/deployments/validate/action", `
+    > "Microsoft.Resources/deployments/*/read", `
+    > "Microsoft.Resources/deployments/*/write"
     >
     > $writerActions += $readerActions
     >
@@ -116,7 +123,7 @@ Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Data
 
    > [!NOTE]
    > Azure Database Migration Service를 사용하여 SQL Server에서 Azure SQL Database로 마이그레이션을 수행하기 위해 필요한 전체 필수 구성 요소 목록은 [SQL Server를 Azure SQL Database로 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-sql-server-to-azure-sql) 자습서를 참조하세요.
-   > 
+   >
 
 ## <a name="prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance"></a>Azure SQL Database 관리 되는 인스턴스로 SQL Server 마이그레이션하기 위한 필수 구성 요소
 

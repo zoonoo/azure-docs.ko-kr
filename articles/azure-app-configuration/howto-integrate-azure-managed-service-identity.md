@@ -1,38 +1,39 @@
 ---
-title: Azure 관리 ID와 통합
-description: Azure 관리 되는 id를 사용 하 여 Azure 앱 구성에 인증 하 고 액세스 하는 방법을 알아봅니다.
+title: Azure 관리 되는 id를 사용 하 여 인증
+titleSuffix: Azure App Configuration
+description: Azure 관리 되는 id를 사용 하 여 Azure 앱 구성에 인증
 ms.service: azure-app-configuration
 author: lisaguthrie
 ms.topic: conceptual
-ms.date: 12/29/2019
+ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 2cdeb0d513230cac5d03f85f2189f15c818798fd
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500397"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619456"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure Managed Identities와 통합
 
-Azure Active Directory [관리 ID](https://docs.microsoft.com/azure/active-directory/managed-identities-azure-resources/overview)를 사용하면 클라우드 애플리케이션에 대한 비밀 관리를 간소화할 수 있습니다. 관리 되는 id를 사용 하 여 코드는 실행 되는 Azure 서비스에 대해 생성 된 서비스 주체를 사용할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
+Azure Active Directory [관리 되는 id는](../active-directory/managed-identities-azure-resources/overview.md) 클라우드 응용 프로그램에 대 한 비밀 관리를 간소화 합니다. 관리 되는 id를 사용 하 여 코드는 실행 되는 Azure 서비스에 대해 만든 서비스 주체를 사용할 수 있습니다. Azure Key Vault 또는 로컬 연결 문자열에 저장된 별도의 자격 증명 대신 관리 ID를 사용합니다. 
 
-Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 관리 되는 id 지원이 기본적으로 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 이 URL은 비밀을 공개하지 않으면서 코드에 직접 포함시킬 수 있습니다.
+Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라이언트 라이브러리에는 관리 되는 id 지원이 기본적으로 제공 됩니다. 이를 반드시 사용할 필요는 없지만 관리 되는 id를 사용 하면 암호를 포함 하는 액세스 토큰이 필요 하지 않습니다. 코드는 서비스 끝점만 사용 하 여 앱 구성 저장소에 액세스할 수 있습니다. 비밀을 노출 하지 않고 코드에이 URL을 직접 포함할 수 있습니다.
 
-이 자습서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 진행하기 전에 먼저 [App Configuration을 사용하여 ASP.NET Core 앱 만들기](./quickstart-aspnet-core-app.md)를 완료합니다.
+이 문서에서는 관리 되는 id를 활용 하 여 앱 구성에 액세스 하는 방법을 보여 줍니다. 빠른 시작에 소개된 웹앱을 기반으로 합니다. 계속 하기 전에 먼저 [앱 구성을 사용 하 여 ASP.NET Core 앱을 만듭니다](./quickstart-aspnet-core-app.md) .
 
-또한이 자습서에서는 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 관리 되는 단일 id를 사용 하 여 Key Vault 및 앱 구성의 구성 값에서 모두 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
+또한이 문서에서는 관리 되는 id를 앱 구성의 Key Vault 참조와 함께 사용할 수 있는 방법을 보여 줍니다. 관리 되는 단일 id를 사용 하 여 Key Vault 및 앱 구성의 구성 값에서 모두 원활 하 게 액세스할 수 있습니다. 이 기능을 탐색 하려면 먼저 [ASP.NET Core를 사용 하 여 Key Vault 참조 사용](./use-key-vault-references-dotnet-core.md) 을 완료 합니다.
 
 이 자습서의 단계는 임의의 코드 편집기를 사용하여 수행할 수 있습니다. [Visual Studio Code](https://code.visualstudio.com/)는 Windows, macOS 및 Linux 플랫폼에서 사용할 수 있는 훌륭한 옵션입니다.
 
-이 자습서에서는 다음 작업 방법을 알아봅니다.
+이 문서에서는 다음 방법을 설명합니다.
 
 > [!div class="checklist"]
 > * App Configuration에 대한 관리 ID 액세스 권한을 부여합니다.
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 > * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 

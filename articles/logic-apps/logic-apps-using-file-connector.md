@@ -8,16 +8,16 @@ ms.author: deli
 ms.reviewer: klam, estfan, logicappspm
 ms.topic: article
 ms.date: 01/13/2019
-ms.openlocfilehash: bc2067dbde1e99619fb6e384be4e70f606c8518d
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: 2a00405a2100c3e565ca4f8ea4149540a5199b43
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74792777"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651409"
 ---
 # <a name="connect-to-on-premises-file-systems-with-azure-logic-apps"></a>Azure Logic Apps를 사용하여 온-프레미스 파일 시스템에 연결
 
-파일 시스템 커넥터 및 Azure Logic Apps를 사용하면 다음과 같이 온-프레미스 파일 공유에 파일을 만들어서 관리하는 자동화된 작업 및 워크플로를 만들 수 있습니다.  
+Azure Logic Apps 및 파일 시스템 커넥터를 사용 하 여 온-프레미스 파일 공유에서 파일을 만들고 관리 하는 자동화 된 작업 및 워크플로를 만들 수 있습니다. 예를 들면 다음과 같습니다.
 
 - 파일 만들기, 가져오기, 추가, 업데이트 및 삭제를 수행합니다.
 - 폴더 또는 루트 폴더의 파일을 나열합니다.
@@ -25,9 +25,9 @@ ms.locfileid: "74792777"
 
 이 문서에서는 [Dropbox에 업로드된 파일을 파일 공유에 복사한 후 이메일 보내기] 예제 시나리오에서 설명한 것처럼, 온-프레미스 파일 시스템에 연결하는 방법을 보여줍니다. 온-프레미스 시스템에 안전하게 연결하고 액세스할 수 있도록 논리 앱은 [온-프레미스 데이터 게이트웨이](../logic-apps/logic-apps-gateway-connection.md)를 사용합니다. 논리 앱을 처음 접하는 경우 [Azure Logic Apps란?](../logic-apps/logic-apps-overview.md)을 검토합니다. 커넥터 관련 기술 정보는 [파일 시스템 커넥터 참조](/connectors/filesystem/)를 참조 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 Azure 계정에 등록](https://azure.microsoft.com/free/)합니다.
 
 * 논리 앱을 파일 시스템 서버 같은 온-프레미스 시스템에 연결하려면 먼저 [온-프레미스 데이터 게이트웨이를 설치 및 설정](../logic-apps/logic-apps-gateway-install.md)해야 합니다. 이런 방식으로 논리 앱에서 파일 시스템 연결을 만들 때 게이트웨이 설치를 사용하도록 지정할 수 있습니다.
 
@@ -43,7 +43,7 @@ ms.locfileid: "74792777"
 
 [!INCLUDE [Create connection general intro](../../includes/connectors-create-connection-general-intro.md)]
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인하고, 아직 열리지 않은 경우 Logic App Designer에서 논리 앱을 엽니다.
 
 1. 검색 상자에 필터로 "dropbox"를 입력합니다. 트리거 목록에서 **파일을 만들 때** 트리거를 선택합니다.
 
@@ -65,14 +65,14 @@ ms.locfileid: "74792777"
 
    ![연결 만들기](media/logic-apps-using-file-connector/file-system-connection.png)
 
-   | 자산 | 필수 | Value | 설명 |
+   | 속성 | 필수 | 값 | 설명 |
    | -------- | -------- | ----- | ----------- |
-   | **연결 이름** | yes | <*connection-name*> | 연결에 사용하려는 이름 |
-   | **루트 폴더** | yes | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
-   | **인증 유형** | 아닙니다. | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) |
-   | **사용자 이름** | yes | <*domain*>\\<*username*> | 파일 시스템이 있는 컴퓨터의 사용자 이름 |
-   | **암호** | yes | <*your-password*> | 파일 시스템이 있는 컴퓨터의 암호 |
-   | **gateway** | yes | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 |
+   | **연결 이름** | 예 | <*connection-name*> | 연결에 사용하려는 이름 |
+   | **루트 폴더** | 예 | <*root-folder-name*> | 온-프레미스 데이터 게이트웨이가 설치된 컴퓨터의 로컬 폴더나 컴퓨터가 액세스할 수 있는 네트워크 공유용 폴더 등의 위치에 온-프레미스 데이터 게이트웨이를 설치한 경우 파일 시스템용 루트 폴더입니다. <p>예: `\\PublicShare\\DropboxFiles` <p>루트 폴더는 모든 파일 관련 작업의 상대 경로에 사용되는 기본 상위 폴더입니다. |
+   | **인증 유형** | 아니요 | <*auth-type*> | 파일 시스템에 사용되는 인증 유형(예: **Windows**) |
+   | **사용자 이름** | 예 | <*domain*>\\<*username*> | 파일 시스템이 있는 컴퓨터의 사용자 이름 |
+   | **암호** | 예 | <*your-password*> | 파일 시스템이 있는 컴퓨터의 암호 |
+   | **gateway** | 예 | <*installed-gateway-name*> | 이전에 설치된 게이트웨이의 이름 |
    |||||
 
 1. 작업을 완료하면 **만들기**를 선택합니다.
@@ -93,7 +93,10 @@ ms.locfileid: "74792777"
 
 ## <a name="connector-reference"></a>커넥터 참조
 
-커넥터의 OpenAPI(이전의 Swagger) 설명서에 설명된 트리거, 작업 및 제한에 대한 기술 정보는 커넥터의 [참조 페이지](/connectors/fileconnector/)를 참조하세요.
+커넥터의 Swagger 파일에 설명 된 대로 트리거, 작업 및 제한과 같은이 커넥터에 대 한 자세한 기술 정보는 [커넥터의 참조 페이지](https://docs.microsoft.com/connectors/fileconnector/)를 참조 하세요.
+
+> [!NOTE]
+> [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

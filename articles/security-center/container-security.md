@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: c18751d315af6da1a4b2f06aaca28c84746b7be5
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470771"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615340"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -65,7 +65,7 @@ AKS는 클러스터의 보안 상태에 대 한 보안 제어 및 가시성을 �
 
 Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
-호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 감지](https://docs.microsoft.com/azure/security-center/security-center-alerts-compute#azure-containers-)를 참조 하세요.
+호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 방지](threat-protection.md#azure-containers)를 참조 하세요.
 
 
 ## <a name="container-security-faq"></a>컨테이너 보안 FAQ

@@ -8,12 +8,12 @@ ms.assetid: 2fa5ee6b-51a6-4237-805f-518e6c57d11b
 ms.topic: article
 ms.date: 10/30/2018
 ms.author: genli
-ms.openlocfilehash: 598fdd5e3682226253ef8f2611ede2bbeba596f7
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: afa3b0f3ed345ccc7f4c627ec485351838ab2bee
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190434"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649281"
 ---
 # <a name="configuration-and-management-faqs-for-web-apps-in-azure"></a>Azure의 Web Apps에 대한 구성 및 관리 FAQ
 
@@ -199,7 +199,7 @@ Azure 웹앱을 Azure ExpressRoute에 연결된 가상 네트워크에 연결하
 
 현재 App Service 웹앱을 정적 라우팅(정책 기반) 게이트웨이가 있는 가상 네트워크에 연결하는 기능은 지원되지 않습니다. 대상 가상 네트워크가 이미 있는 경우 동적 라우팅 게이트웨이와의 지점 및 사이트 간 VPN을 사용하도록 설정해야 해당 가상 네트워크를 웹앱에 연결할 수 있습니다. 게이트웨이가 정적 라우팅으로 설정되면 지점 및 사이트 간 VPN을 사용하도록 설정할 수 없습니다. 
 
-자세한 내용은 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md#getting-started)을 참조하세요.
+자세한 내용은 [Azure 가상 네트워크에 앱 통합](web-sites-integrate-with-vnet.md)을 참조하세요.
 
 ## <a name="in-my-app-service-environment-why-can-i-create-only-one-app-service-plan-even-though-i-have-two-workers-available"></a>내 App Service Environment에서 두 명의 작업자를 사용할 수 있는데 하나의 App Service 계획만 만들 수 있는 이유는 무엇인가요?
 

@@ -5,12 +5,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 08/06/2019
 ms.custom: seodec18
-ms.openlocfilehash: 7f444ad9b32ca5da923ce5ac711c9947971c4d1e
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 28dc5131366c54db30e9233ea1061cc9bc7a54ce
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74672009"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500084"
 ---
 # <a name="tutorial-build-an-aspnet-core-and-sql-database-app-in-azure-app-service"></a>자습서: Azure App Service에서 ASP.NET Core 및 SQL Database 앱 빌드
 
@@ -34,7 +34,7 @@ ms.locfileid: "74672009"
 
 [!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -403,7 +403,7 @@ ASP.NET Core 로그를 사용자 지정하는 방법은 [ASP.NET Core에서 로�
 
 ![Azure Portal에서 App Services 선택](./media/app-service-web-tutorial-dotnetcore-sqldb/app-services.png)
 
-**App Services** 페이지에서 Azure 앱의 이름을 선택합니다.
+**App Service** 페이지에서 Azure 앱의 이름을 선택합니다.
 
 ![Azure 앱에 대한 포털 탐색](./media/app-service-web-tutorial-dotnetcore-sqldb/access-portal.png)
 

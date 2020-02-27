@@ -3,21 +3,21 @@ title: 'PowerShell: SQL 관리 되는 인스턴스로 SQL Server 마이그레이
 titleSuffix: Azure Database Migration Service
 description: Azure PowerShell 및 Azure Database Migration Service를 사용 하 여 온-프레미스 SQL Server Azure SQL Database 관리 되는 인스턴스로 마이그레이션하는 방법에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 01/08/2020
-ms.openlocfilehash: 3b434bc8a495f47f7fb2de8429069283821cf397
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.date: 02/20/2020
+ms.openlocfilehash: 9ea9f55681b93e79eec836f5808d2c6feaa6bb29
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75746619"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650727"
 ---
 # <a name="migrate-sql-server-to-sql-database-managed-instance-with-powershell--azure-database-migration-service"></a>PowerShell &를 사용 하 여 SQL Server SQL Database 관리 되는 인스턴스로 마이그레이션 Azure Database Migration Service
 
@@ -35,7 +35,7 @@ ms.locfileid: "75746619"
 
 이 문서에는 온라인 및 오프 라인 마이그레이션을 모두 수행 하는 방법에 대 한 세부 정보가 포함 되어 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이러한 단계를 완료하려면 다음이 필요합니다.
 
@@ -110,7 +110,7 @@ Azure Database Migration Service 인스턴스를 만든 후 마이그레이션 �
 * *ServerType*. SQL, Oracle 또는 MySQL 등 요청된 데이터베이스 연결 유형입니다. SQL Server 및 Azure SQL에 대해 SQL을 사용합니다.
 * *DataSource*. SQL Server 인스턴스 또는 Azure SQL Database 인스턴스의 이름 또는 IP입니다.
 * *AuthType*. 연결에 대한 인증 유형이며 SqlAuthentication 또는 WindowsAuthentication일 수 있습니다.
-* *TrustServerCertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 `$true` 또는 `$false`수 있습니다.
+* *Trustservercertificate*. 이 매개 변수는 신뢰의 유효성을 검사 하기 위해 인증서 체인을 우회 하는 동안 채널이 암호화 되는지 여부를 나타내는 값을 설정 합니다. 값은 `$true` 또는 `$false`수 있습니다.
 
 다음 예에서는 SQL 인증을 사용 하 여 *MySourceSQLServer* 라는 원본 SQL Server에 대 한 연결 정보 개체를 만듭니다.
 

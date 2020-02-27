@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 06/17/2019
-ms.openlocfilehash: b73810b37020bf01c1088f194bd426e93fd95d2c
-ms.sourcegitcommit: a19bee057c57cd2c2cd23126ac862bd8f89f50f5
+ms.date: 02/25/2020
+ms.openlocfilehash: 593f80583067d28292701353c8a6a62d81282614
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71180775"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650829"
 ---
 # <a name="compare-storage-options-for-use-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에 사용할 스토리지 옵션 비교
 
@@ -26,36 +26,39 @@ HDInsight 클러스터를 만들 때 몇 가지 Azure storage 서비스 중에�
 
 다음 표에서는 다양 한 버전의 HDInsight에서 지원 되는 Azure Storage 서비스를 요약 합니다.
 
-| 스토리지 서비스 | 계정 형식 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
+| 저장소 서비스 | 계정 유형 | 네임 스페이스 형식 | 지원되는 서비스 | 지원되는 성능 계층 | 지원되는 액세스 계층 | HDInsight 버전 | 클러스터 유형 |
 |---|---|---|---|---|---|---|---|
-|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
+|Azure Data Lake Storage Gen2| 범용 V2 | 계층 구조 (파일 시스템) | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | Spark 2.1을 제외한 모든 |
 |Azure Storage| 범용 V2 | Object | Blob | Standard | 핫, 쿨, 보관 | 3.6 이상 | 모두 |
-|Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 사항 없음 | 모두 | 모두 |
+|Azure Storage| 범용 V1 | Object | Blob | Standard | 해당 없음 | 모두 | 모두 |
 |Azure Storage| Blob Storage * * | Object | 블록 Blob | Standard | 핫, 쿨, 보관 | 모두 | 모두 |
-|Azure Data Lake Storage Gen1| 해당 사항 없음 | 계층 구조 (파일 시스템) | 해당 사항 없음 | 해당 사항 없음 | 해당 사항 없음 | 3.6만 해당 | HBase를 제외한 모든 |
+|Azure Data Lake Storage Gen1| 해당 없음 | 계층 구조 (파일 시스템) | 해당 없음 | 해당 없음 | 해당 없음 | 3.6만 해당 | HBase를 제외한 모든 |
 
 \* * HDInsight 클러스터의 경우에는 보조 저장소 계정만 BlobStorage 유형이 될 수 있으며 페이지 Blob은 지원 되는 저장소 옵션이 아닙니다.
 
 Azure Storage 계정 유형에 대 한 자세한 내용은 [Azure Storage 계정 개요](../storage/common/storage-account-overview.md) 를 참조 하세요.
 
-Azure Storage 액세스 계층에 대 한 자세한 내용은 Azure [Blob Storage를 참조 하세요. 프리미엄 (미리 보기), 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md)
+Azure Storage 액세스 계층에 대 한 자세한 내용은 [Azure Blob storage: 프리미엄 (미리 보기), 핫, 쿨 및 보관 저장소 계층](../storage/blobs/storage-blob-storage-tiers.md) 을 참조 하세요.
 
 기본 및 선택적 보조 저장소에 대해 서로 다른 서비스 조합을 사용 하 여 클러스터를 만들 수 있습니다. 다음 표에는 HDInsight에서 현재 지원 되는 클러스터 저장소 구성이 요약 되어 있습니다.
 
 | HDInsight 버전 | 기본 저장소 | 보조 저장소 | 지원됨 |
 |---|---|---|---|
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 아니요 |
-| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2 * | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 아니요 |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | 예 |
-| 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | 예 |
-| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 아니요 |
-| 4.0 | Data Lake Storage Gen1 | 임의의 값 | 아니요 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen2 | 예 |
+| 3.6 & 4.0 | 범용 V1, 범용 V2 | Data Lake Storage Gen1 | yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | Data Lake Storage Gen2 | yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 * | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
+| 3.6 & 4.0 | Data Lake Storage Gen2 | Data Lake Storage Gen1 | 예 |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen1 | yes |
+| 3.6 | Data Lake Storage Gen1 | 범용 V1, 범용 V2, BlobStorage (블록 Blob) | yes |
+| 3.6 | Data Lake Storage Gen1 | Data Lake Storage Gen2 | 예 |
+| 4.0 | Data Lake Storage Gen1 | 모두 | 예 |
 
 \* = 클러스터 액세스에 동일한 관리 되는 id를 사용 하도록 모두 설정 되어 있는 한 하나 또는 여러 개의 Data Lake Storage Gen2 계정일 수 있습니다.
+
+> [!Note] 
+> Data Lake Storage Gen2 기본 저장소는 Spark 2.1 클러스터에 대해 지원 되지 않습니다. 
 
 ## <a name="use-azure-data-lake-storage-gen2-with-apache-hadoop-in-azure-hdinsight"></a>Azure HDInsight의 Apache Hadoop에서 Azure Data Lake Storage Gen2 사용
 
@@ -65,15 +68,15 @@ Azure Data Lake Storage Gen2에 대한 자세한 내용은 [Azure Data Lake Stor
 
 ### <a name="core-functionality-of-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2의 핵심 기능
 
-* **Hadoop과 호환되는 액세스:** Azure Data Lake Storage Gen2에서는 HDFS(Hadoop 분산 파일 시스템)에서와 마찬가지로 데이터를 관리하고 액세스할 수 있습니다. ABFS(Azure Blob Filesystem) 드라이버는 Azure HDInsight 및 Azure Databricks를 포함한 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. ABFS를 사용하여 Data Lake Storage Gen2에 저장된 데이터에 액세스합니다.
+* **Hadoop과 호환 되는 액세스:** Azure Data Lake Storage Gen2에서는 Hadoop 분산 파일 시스템 (HDFS)를 사용 하는 것 처럼 데이터를 관리 하 고 액세스할 수 있습니다. ABFS(Azure Blob Filesystem) 드라이버는 Azure HDInsight 및 Azure Databricks를 포함한 모든 Apache Hadoop 환경 내에서 사용할 수 있습니다. ABFS를 사용하여 Data Lake Storage Gen2에 저장된 데이터에 액세스합니다.
 
-* **POSIX 권한 상위 세트:** Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원합니다. 설정은 관리 도구 또는 Apache Hive 및 Apache Spark와 같은 프레임워크를 통해 구성할 수 있습니다.
+* **POSIX 권한 상위 집합:** Data Lake Gen2의 보안 모델은 Data Lake Storage Gen2와 관련 된 몇 가지 추가 세분성과 함께 ACL 및 POSIX 권한을 지원 합니다. 설정은 관리 도구 또는 Apache Hive 및 Apache Spark와 같은 프레임워크를 통해 구성할 수 있습니다.
 
-* **비용 효과:** Data Lake Storage Gen2는 낮은 비용의 스토리지 용량 및 트랜잭션을 제공합니다. Azure Blob 스토리지 수명 주기와 같은 기능을 사용하면 데이터가 수명 주기를 통해 이동함에 따라 청구 요금을 조정하여 비용을 절감할 수 있습니다.
+* **비용 효율성:** Data Lake Storage Gen2는 저렴 한 저장소 용량 및 트랜잭션을 제공 합니다. Azure Blob 스토리지 수명 주기와 같은 기능을 사용하면 데이터가 수명 주기를 통해 이동함에 따라 청구 요금을 조정하여 비용을 절감할 수 있습니다.
 
-* **Blob 스토리지 도구, 프레임워크 및 앱과의 호환성:** Data Lake Storage Gen2는 Blob 스토리지를 위한 다양한 도구, 프레임워크 및 애플리케이션을 계속 사용합니다.
+* **Blob storage 도구, 프레임 워크 및 앱과의 호환성:** Data Lake Storage Gen2는 Blob 저장소에 대 한 다양 한 도구, 프레임 워크 및 응용 프로그램을 계속 해 서 사용할 수 있습니다.
 
-* **최적화된 드라이버:** ABFS 드라이버는 빅 데이터 분석을 위해 특별히 최적화되었습니다. 해당 REST API는 DFS(분산 파일 시스템) 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
+* **최적화 된 드라이버:** ABFS 드라이버는 빅 데이터 분석을 위해 특별히 최적화 되어 있습니다. 해당 REST API는 DFS(분산 파일 시스템) 엔드포인트(dfs.core.windows.net)를 통해 표시됩니다.
 
 ### <a name="whats-new-for-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen2의 새로운 기능
 
@@ -89,7 +92,7 @@ Apache Hadoop 애플리케이션은 기본적으로 로컬 디스크 스토리�
 
 이전에 Hadoop 파일 시스템 드라이버는 모든 파일 시스템 작업을 클라이언트 쪽에서 Azure Storage REST API 호출로 변환한 다음, 이 REST API를 호출했습니다. 그러나 이러한 클라이언트 쪽 변환으로 인해 파일 이름 바꾸기와 같은 단일 파일 시스템 작업에 대해 여러 번의 REST API가 호출되었습니다. ABFS는 일부 Hadoop 파일 시스템 논리를 클라이언트 쪽에서 서버 쪽으로 이동했습니다. Azure Data Lake Storage Gen2 API는 이제 Blob API와 동시에 실행됩니다. 일반적인 Hadoop 파일 시스템 작업이 한 번의 REST API 호출로 실행될 수 있으므로 이 마이그레이션은 성능을 향상시킵니다.
 
-자세한 내용은 [ABFS(Azure Blob 파일 시스템) 드라이버: Hadoop 전용 Azure Storage 드라이버](../storage/blobs/data-lake-storage-abfs-driver.md)를 참조하세요.
+자세한 내용은 [Azure Blob 파일 시스템 드라이버 (ABFS): Hadoop 용 전용 Azure Storage 드라이버](../storage/blobs/data-lake-storage-abfs-driver.md)를 참조 하세요.
 
 #### <a name="uri-scheme-for-azure-data-lake-storage-gen-2"></a>Azure Data Lake Storage Gen 2의 URI 체계 
 
@@ -123,7 +126,7 @@ Azure Storage는 HDInsight와 매끄럽게 통합되는 강력한 범용 스토�
 
 기본 클러스터 저장소 및 비즈니스 데이터에 별도의 저장소 컨테이너를 사용 하 여 고유한 비즈니스 데이터에서 HDInsight 로그와 임시 파일을 분리 하는 것이 좋습니다. 또한 응용 프로그램 및 시스템 로그를 포함 하는 기본 blob 컨테이너를 삭제 하 여 저장소 비용을 줄이는 것이 좋습니다. 컨테이너를 삭제하기 전에 이러한 로그를 검색해야 합니다.
 
-**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight가 저장소에 액세스할 수 있도록 신뢰할 수 있는 **Microsoft 서비스 허용** 예외를 사용 하도록 설정 해야 합니다. 계정일.
+**선택한 네트워크**에 대 한 **방화벽 및 가상 네트워크** 제한 사항을 사용 하 여 저장소 계정을 보호 하도록 선택 하는 경우 HDInsight에서 저장소 계정에 액세스할 수 있도록 예외를 신뢰할 수 있는 **Microsoft 서비스 허용** 으로 설정 해야 합니다.
 
 ### <a name="hdinsight-storage-architecture"></a>HDInsight 스토리지 아키텍처
 
@@ -141,18 +144,18 @@ HDInsight를 통해 Azure Storage의 데이터에 액세스할 수도 있습니�
 
 HDInsight 클러스터와 Azure Storage 계정을 사용하는 경우 다음 원칙을 고려하세요.
 
-* **클러스터에 연결된 스토리지 계정의 컨테이너**: 계정 이름과 키는 만들기 중 클러스터와 연결되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
+* **클러스터에 연결된 스토리지 계정의 컨테이너:** 계정 이름과 키는 만들기 중 클러스터와 연결되므로 사용자는 이러한 컨테이너의 Blob에 대한 모든 권한을 보유합니다.
 
-* **클러스터에 연결되지 *않은* 스토리지 계정의 공용 컨테이너 또는 공용 Blob:** 컨테이너의 Blob에 대한 읽기 전용 권한을 가집니다.
+* **클러스터에 연결 *되지* 않은 저장소 계정의 공용 컨테이너 또는 공용 blob:** 컨테이너의 blob에 대 한 읽기 전용 권한이 있습니다.
   
   > [!NOTE]  
   > 공용 컨테이너를 사용하면 해당 컨테이너에서 사용할 수 있는 모든 Blob 목록 및 컨테이너 메타데이터를 가져올 수 있습니다. 공용 Blob을 사용하면 정확한 URL을 아는 경우에만 Blob에 액세스할 수 있습니다. 자세한 내용은 [컨테이너 및 Blob에 대한 익명 읽기 권한 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조하세요.
 
-* **클러스터에 연결되지 *않은* 스토리지 계정의 프라이빗 컨테이너:** WebHCat 작업을 제출할 때 스토리지 계정을 정의하지 않는 경우 컨테이너의 Blob에 액세스할 수 없습니다. 
+* **클러스터에 연결 *되지* 않은 저장소 계정의 개인 컨테이너:** WebHCat 작업을 제출할 때 저장소 계정을 정의 하지 않는 한 컨테이너의 blob에 액세스할 수 없습니다. 
 
 만들기 프로세스에서 정의된 스토리지 계정과 해당 키는 클러스터 노드의 %HADOOP_HOME%/conf/core-site.xml에 저장됩니다. 기본적으로 HDInsight는 core-site.xml 파일에 정의된 스토리지 계정을 사용합니다. [Apache Ambari](./hdinsight-hadoop-manage-ambari.md)를 사용하여 이 설정을 수정할 수 있습니다.
 
-Apache Hive, MapReduce, Apache Hadoop 스트리밍 및 Apache Pig를 비롯한 여러 WebHCat 작업은 스토리지 계정 및 메타데이터 설명을 포함할 수 있습니다. (이 방식은 현재 메타데이터가 아닌 스토리지 계정이 있는 Pig에 적합합니다.) 자세한 내용은 [대체 스토리지 계정 및 Metastore와 HDInsight 클러스터 사용](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조하세요.
+Apache Hive, MapReduce, Apache Hadoop 스트리밍 및 Apache Pig를 비롯한 여러 WebHCat 작업은 스토리지 계정 및 메타데이터 설명을 포함할 수 있습니다. (현재는 저장소 계정이 있지만 메타 데이터에 대 한 Pig에는 적용 되지 않습니다.) 자세한 내용은 [대체 저장소 계정 및 metastore를 사용 하 여 HDInsight 클러스터 사용](https://social.technet.microsoft.com/wiki/contents/articles/23256.using-an-hdinsight-cluster-with-alternate-storage-accounts-and-metastores.aspx)을 참조 하세요.
 
 구조적 및 비구조적 데이터에 대한 Blob을 사용할 수 있습니다. Blob 컨테이너는 키/값 쌍으로 데이터를 저장하며, 디렉터리 계층 구조는 없습니다. 그러나 파일이 디렉터리 구조 내에 저장된 것처럼 보이도록 키 이름에 슬래시 문자(/)를 포함할 수 있습니다. 예를 들어, Blob 키는 `input/log1.txt`일 수 있습니다. 실제로 `input` 디렉터리는 없지만 키 이름에 슬래시 문자가 있으므로 키가 파일 경로처럼 보입니다.
 
@@ -163,13 +166,13 @@ HDFS 대신 Azure Storage에 데이터를 저장할 때 다음과 같은 몇 가
 
 * **데이터 다시 사용 및 공유:** HDFS의 데이터는 컴퓨팅 클러스터 내에 있습니다. 컴퓨팅 클러스터에 액세스할 수 있는 애플리케이션만 HDFS API를 통해 데이터를 사용할 수 있습니다. 반대로, Azure Storage의 데이터는 HDFS API 또는 Blob 스토리지 REST API를 통해 액세스할 수 있습니다. 이러한 정렬 방식 때문에 데이터의 생성과 소비에 더 많은 애플리케이션(기타 HDInsight 클러스터 포함)과 도구를 사용할 수 있습니다.
 
-* **데이터 보관:** Azure Storage에 데이터를 저장하면 사용자 데이터를 손실하지 않고 컴퓨팅에 사용되는 HDInsight 클러스터를 안전하게 삭제할 수 있습니다.
+* **데이터 보관:** 데이터가 Azure Storage에 저장 되 면 계산에 사용 되는 HDInsight 클러스터를 사용자 데이터 손실 없이 안전 하 게 삭제할 수 있습니다.
 
-* **데이터 스토리지 비용:** 데이터를 장기간 저장하는 경우 DFS에 저장하는 것이 Azure 스토리지에 저장하는 것보다 비용이 많이 드는데, 이는 컴퓨팅 클러스터의 비용이 Azure 스토리지의 비용보다 비싸기 때문입니다. 또한 컴퓨팅 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
+* **데이터 저장소 비용:** 컴퓨터에 데이터를 저장 하는 것 보다 데이터를 DFS에 저장 하는 것이 계산 클러스터의 비용이 Azure Storage 비용 보다 높기 때문에 데이터를 Azure Storage에 저장 하는 것 보다 비용이 많이 듭니다. 또한 컴퓨팅 클러스터를 생성할 때마다 데이터를 다시 로드할 필요가 없기 때문에 데이터 로드 비용도 절약됩니다.
 
-* **탄력적인 규모 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 크기 조정은 클러스터에 대해 만드는 노드의 수에 따라 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡해질 수 있습니다.
+* **탄력적인 확장:** HDFS는 확장된 파일 시스템을 제공하지만, 확장은 클러스터에 대해 만드는 노드의 수에 의해 결정됩니다. 규모를 변경하는 것이 Azure Storage에서 자동으로 수행되는 탄력적인 확장 기능에 의존하는 것보다 더 복잡해질 수 있습니다.
 
-* **지역 복제:** Azure Storage를 지역에서 복제할 수 있습니다. 지역에서 복제는 지리적 복구와 데이터 중복 기능을 제공하지만, 지역에서 복제된 위치에 대한 장애 조치(failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 신중하게 선택해야 하며, 추가 비용을 감수할 만큼 가치 있는 데이터에만 사용하는 것이 좋습니다.
+* **지역에서 복제:** Azure Storage 지역에서 복제할 수 있습니다. 지역에서 복제는 지리적 복구와 데이터 중복 기능을 제공하지만, 지역에서 복제된 위치에 대한 장애 조치(failover)는 성능에 심각한 영향을 미치게 되며 추가 비용을 발생시킬 수 있습니다. 따라서 지역에서 복제 기능은 신중하게 선택해야 하며, 추가 비용을 감수할 만큼 가치 있는 데이터에만 사용하는 것이 좋습니다.
 
 특정 MapReduce 작업과 패키지는 Azure Storage에 전혀 저장하고 싶지 않을 만한 중간 결과를 생성할 수 있습니다. 그런 경우에는 로컬 HDFS에 데이터를 저장하도록 선택할 수 있습니다. HDInsight는 Hive 작업 및 기타 프로세스에서 생성되는 이러한 중간 결과 중 일부에 DFS를 사용합니다.
 
@@ -200,7 +203,7 @@ Data Lake Storage Gen1은 무제한 스토리지를 제공하며 분석에 대�
 
 Data Lake Storage Gen1은 많은 양의 데이터에 대한 쿼리 및 분석을 위해 대규모 처리 능력이 필요한 대규모 분석 시스템을 실행할 수 있도록 제작되었습니다. 데이터 레이크는 몇 개의 개별 스토리지 서버에 파일의 일부분을 배포합니다. 데이터를 분석하는 경우 이러한 설정은 파일을 동시에 읽을 때의 읽기 처리량을 향상시킵니다.
 
-### <a name="readiness-for-enterprise-highly-available-and-secure"></a>엔터프라이즈를 위한 준비: 고가용성 및 보안
+### <a name="readiness-for-enterprise-highly-available-and-secure"></a>엔터프라이즈 준비: 항상 사용 가능 하 고 안전
 
 Data Lake Storage Gen1은 업계 표준 가용성과 안정성을 제공합니다. 데이터 자산은 모든 예기치 않은 오류로부터 보호하도록 중복 복사본을 만들어 영구적으로 저장됩니다. 기업에서는 기존 데이터 플랫폼의 중요한 부분으로 솔루션에서 Data Lake Storage Gen1을 사용할 수 있습니다.
 
@@ -212,13 +215,13 @@ Data Lake Storage Gen1은 사전 변환 없이 모든 데이터를 원시 형식
 
 데이터에 대한 Data Lake Storage Gen1 컨테이너는 기본적으로 폴더 및 파일입니다. SDK, Azure Portal 및 Azure Powershell을 사용하여 저장된 데이터에서 작동합니다. 이러한 인터페이스 및 적절한 컨테이너를 사용하여 저장소에 데이터를 저장하는 한 모든 종류의 데이터를 저장할 수 있습니다. Data Lake Storage Gen1은 저장하는 데이터의 형식에 따라 데이터의 특수한 처리를 수행하지 않습니다.
 
-## <a name="DataLakeStoreSecurity"></a>Data Lake Storage Gen1의 데이터 보안
+## <a name="DataLakeStoreSecurity">Data Lake Storage Gen1의 데이터 보안</a>
 Data Lake Storage Gen1은 인증을 위해 Azure Active Directory를 사용하고 데이터에 대한 액세스를 관리하기 위해 ACL(액세스 제어 목록)을 사용합니다.
 
 | **기능** | **설명** |
 | --- | --- |
 | 인증 |Data Lake Storage Gen1은 Data Lake Storage Gen1에 저장된 모든 데이터에 대한 ID 및 액세스 관리를 위해 Azure Active Directory(Azure AD)와 통합합니다. 이러한 통합으로 인해 Data Lake Storage Gen1은 모든 Azure AD 기능의 이점을 얻습니다. 이러한 기능에는 다단계 인증, 조건부 액세스, 역할 기반 액세스 제어, 응용 프로그램 사용 모니터링, 보안 모니터링 및 경고 등이 포함 됩니다. Data Lake Storage Gen1은 REST 인터페이스에서 인증을 위한 OAuth 2.0 프로토콜을 지원합니다. [Azure Active Directory를 사용하여 Azure Data Lake Storage Gen1에 인증](../data-lake-store/data-lakes-store-authentication-using-azure-active-directory.md)을 참조하세요.|
-| 액세스 제어 |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
+| Access Control |Data Lake Storage Gen1은 WebHDFS 프로토콜에 의해 노출되는 POSIX 스타일 권한을 지원하여 액세스 제어를 제공합니다. ACL은 루트 폴더, 하위 폴더 및 개별 파일에서도 사용할 수 있습니다. Data Lake Storage Gen1의 컨텍스트에서 ACL 작동 방식에 대한 자세한 내용은 [Data Lake Storage Gen1의 액세스 제어](../data-lake-store/data-lake-store-access-control.md)를 참조하세요. |
 | 암호화 |또한 Data Lake Storage Gen1은 계정에 저장된 데이터에 대한 암호화를 제공합니다. Data Lake Storage Gen1 계정을 만드는 동안 암호화 설정을 지정합니다. 암호화된 데이터 또는 암호화 없음을 선택할 수 있습니다. 자세한 내용은 [Data Lake Storage Gen1의 암호화](../data-lake-store/data-lake-store-encryption.md)를 참조하세요. 암호화 관련 구성을 제공하는 방법에 대한 자세한 내용은 [Azure Portal을 사용하여 Azure Data Lake Storage Gen1 시작](../data-lake-store/data-lake-store-get-started-portal.md)을 참조하세요. |
 
 Data Lake Storage Gen1의 데이터 보안 방법에 대해 자세히 알아보려면 [Azure Data Lake Storage Gen1에 저장된 데이터 보안](../data-lake-store/data-lake-store-secure-data.md)을 참조하세요.

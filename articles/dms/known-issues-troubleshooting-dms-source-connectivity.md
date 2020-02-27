@@ -3,21 +3,21 @@ title: 원본 데이터베이스 연결 문제
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 원본 데이터베이스에 연결 하는 것과 관련 된 알려진 문제/오류 문제를 해결 하는 방법에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
 ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
-ms.date: 06/28/2019
-ms.openlocfilehash: b697faeded4177381f70ebb9d1f93d928b25d7b1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: 332f612e1ffe57fc4edd90b1fe4c6a5ea5a2904a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437802"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649178"
 ---
 # <a name="troubleshoot-dms-errors-when-connecting-to-source-databases"></a>원본 데이터베이스에 연결할 때 DMS 오류 문제 해결
 
@@ -29,7 +29,7 @@ ms.locfileid: "75437802"
 
 | 오류         | 원인 및 문제 해결 세부 정보 |
 | ------------- | ------------- |
-| SQL 연결에 실패 했습니다. SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오.<br> | 이 오류는 서비스가 원본 서버를 찾을 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [동적 포트나 명명 된 인스턴스를 사용 하는 경우 원본 SQL Server에 연결 오류](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance)문서를 참조 하세요. |
+| SQL 연결에 실패 했습니다. SQL Server에 연결을 설정하는 중에 네트워크 또는 인스턴스 관련 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오.<br> | 이 오류는 서비스가 원본 서버를 찾을 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [동적 포트나 명명 된 인스턴스를 사용 하는 경우 원본 SQL Server에 연결 오류](https://docs.microsoft.com/azure/dms/known-issues-troubleshooting-dms#error-connecting-to-source-sql-server-when-using-dynamic-port-or-named-instance)문서를 참조 하세요. |
 | **오류 53** -SQL 연결에 실패 했습니다. (오류 코드 1, 2, 5, 53, 233, 258, 1225, 11001)<br><br> | 이 오류는 서비스가 원본 서버에 연결할 수 없는 경우에 발생 합니다. 문제를 해결 하려면 다음 리소스를 참조 한 후 다시 시도 하십시오. <br><br>  [연결 문제를 해결 하기 위한 대화형 사용자 가이드](https://support.microsoft.com/help/4009936/solving-connectivity-errors-to-sql-server)<br><br> [Azure SQL Database로 SQL Server 마이그레이션하기 위한 필수 구성 요소](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-azure-sql-database) <br><br> [Azure SQL Database 관리 되는 인스턴스로 SQL Server 마이그레이션하기 위한 필수 구성 요소](https://docs.microsoft.com/azure/dms/pre-reqs#prerequisites-for-migrating-sql-server-to-an-azure-sql-database-managed-instance) |
 | **오류 18456** -로그인이 실패 했습니다.<br> | 서비스에서 제공 된 T-sql 자격 증명을 사용 하 여 원본 데이터베이스에 연결할 수 없는 경우이 오류가 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 를 참조할 수 있으며 다시 시도할 수도 있습니다. |
 | 잘못 된 AccountName 값 '{0}'이 (가) 제공 되었습니다. AccountName에 필요한 형식은 DomainName\UserName입니다.<br> | 이 오류는 사용자가 Windows 인증을 선택 하지만 사용자 이름을 잘못 된 형식으로 제공 하는 경우에 발생 합니다. 문제를 해결 하려면 Windows 인증에 대 한 올바른 형식으로 사용자 이름을 제공 하거나 **SQL 인증**을 선택 합니다. |
@@ -71,9 +71,9 @@ ms.locfileid: "75437802"
 
 | 오류         | 원인 및 문제 해결 세부 정보 |
 | ------------- | ------------- |
-| **오류 53** -SQL 연결에 실패 했습니다. SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: 명명 된 파이프 공급자, 오류: 40-SQL Server에 대 한 연결을 열 수 없습니다. | 이 오류는 서비스가 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
+| **오류 53** -SQL 연결에 실패 했습니다. SQL Server에 연결을 설정하는 중에 네트워크 또는 인스턴스 관련 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: 명명 된 파이프 공급자, 오류: 40-SQL Server에 대 한 연결을 열 수 없습니다. | 이 오류는 서비스가 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
 | **오류 18456** -로그인이 실패 했습니다. 사용자 ' {user} '이 (가) 로그인 하지 못했습니다. | 이 오류는 제공 된 T-sql 자격 증명을 사용 하 여 서비스에서 원본 데이터베이스에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 입력 한 자격 증명을 확인 합니다. 또한이 표 아래의 참고에 나열 된 문제 해결 문서 또는 [MSSQLSERVER_18456](https://docs.microsoft.com/sql/relational-databases/errors-events/mssqlserver-18456-database-engine-error?view=sql-server-2017) 를 참조 하 고 다시 시도할 수 있습니다. |
-| **오류 87** -연결 문자열이 잘못 되었습니다. SQL Server에 연결을 설정하는 동안 네트워크 관련 또는 인스턴스 특정 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: SQL 네트워크 인터페이스, 오류: 25-연결 문자열이 잘못 되었습니다.) | 이 오류는 연결 문자열이 잘못 되어 서비스에서 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 제공 된 연결 문자열을 확인 합니다. 문제가 계속 되 면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
+| **오류 87** -연결 문자열이 잘못 되었습니다. SQL Server에 연결을 설정하는 중에 네트워크 또는 인스턴스 관련 오류가 발생했습니다. 서버를 찾을 수 없거나 액세스할 수 없습니다. 인스턴스 이름이 올바른지와 SQL Server가 원격 연결을 허용 하도록 구성 되어 있는지 확인 하십시오. (공급자: SQL 네트워크 인터페이스, 오류: 25-연결 문자열이 잘못 되었습니다.) | 이 오류는 연결 문자열이 잘못 되어 서비스에서 원본 서버에 연결할 수 없는 경우에 발생 합니다. 이 문제를 해결 하려면 제공 된 연결 문자열을 확인 합니다. 문제가 계속 되 면이 표 아래의 참고에 나열 된 문제 해결 문서를 참조 한 후 다시 시도 하세요. |
 | **오류-서버 인증서를 신뢰할 수 없습니다.** 서버에 성공적으로 연결되었지만 로그인 중 오류가 발생했습니다. (공급자: SSL 공급자, 오류: 0-인증서 체인이 신뢰 되지 않는 기관에서 발급 되었습니다.) | 이 오류는 사용 된 인증서를 신뢰할 수 없는 경우에 발생 합니다. 문제를 해결 하려면 신뢰할 수 있는 인증서를 찾은 다음 서버에서 사용 하도록 설정 해야 합니다. 또는 연결 하는 동안 인증서 신뢰 옵션을 선택할 수 있습니다. 사용 된 인증서에 대해 잘 알고 있고 신뢰 하는 경우에만이 작업을 수행 하세요. <br> 자체 서명 된 인증서를 사용 하 여 암호화 된 SSL 연결은 강력한 보안을 제공 하지 않으며 메시지 가로채기 (man-in-the-middle) 공격에 취약 합니다. 프로덕션 환경이 나 인터넷에 연결 된 서버에서 자체 서명 된 인증서를 사용 하 여 SSL을 사용 하지 마세요. <br> 자세한 내용은 [MICROSOFT SQL SERVER DB 인스턴스](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/SQLServer.Concepts.General.SSL.Using.html) 를 사용 하 여 SSL을 사용 하거나 [자습서: DMS를 사용 하 여 Azure로 RDS SQL Server 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites)을 참조 하세요. |
 | **오류 300** -사용자에 게 필요한 권한이 없습니다. 개체 ' {SERVER} ', 데이터베이스 ' {database} '에 대 한 VIEW SERVER STATE 권한이 거부 되었습니다. | 이 오류는 사용자에 게 마이그레이션을 수행할 수 있는 권한이 없는 경우에 발생 합니다. 이 문제를 해결 하려면 [서버 권한 부여-transact-sql](https://docs.microsoft.com/sql/t-sql/statements/grant-server-permissions-transact-sql?view=sql-server-2017) 또는 [자습서: DMS를 사용 하 여 Azure로 RDS SQL Server 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-rds-sql-server-azure-sql-and-managed-instance-online#prerequisites) 을 참조 하세요. |
 

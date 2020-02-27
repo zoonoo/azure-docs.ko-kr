@@ -1,6 +1,6 @@
 ---
-title: SQL Server 2014 Azure Virtual Machines의 자동화된 Backup | Microsoft Docs
-description: Azure에서 실행되는 SQL Server 2014 VMs의 자동화된 Backup 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VM에만 적용됩니다.
+title: SQL Server 2014 Azure Virtual Machines에 대 한 자동화 된 백업
+description: Azure에서 실행되는 SQL Server 2014 VMs의 자동화된 Backup 기능에 대해 설명합니다. 이 문서는 Resource Manager를 사용하는 VMs에만 적용됩니다.
 services: virtual-machines-windows
 documentationcenter: na
 author: MashaMSFT
@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 05/03/2018
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: fdb7d9ed5164171407443596de256df02cb7e8de
-ms.sourcegitcommit: 76b48a22257a2244024f05eb9fe8aa6182daf7e2
+ms.openlocfilehash: c7dea85d8de17a0f65e6e73b5b5fbe619d464d3d
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74790592"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650341"
 ---
 # <a name="automated-backup-for-sql-server-2014-virtual-machines-resource-manager"></a>SQL Server 2014 Virtual Machines의 자동화된 Backup(Resource Manager)
 
@@ -31,7 +31,7 @@ ms.locfileid: "74790592"
 
 [!INCLUDE [learn-about-deployment-models](../../../../includes/learn-about-deployment-models-rm-include.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 자동화된 Backup을 사용하려면 다음 필수 조건을 고려하세요.
 
 **운영 체제**:
@@ -64,19 +64,16 @@ ms.locfileid: "74790592"
 | --- | --- | --- |
 | **자동화된 Backup** | 사용/사용 안 함(사용 안 함) | SQL Server 2014 Standard 또는 Enterprise를 실행하는 Azure VM에 대해 자동화된 Backup을 사용하거나 사용하지 않도록 설정합니다. |
 | **보존 기간** | 1-30일(30일) | 백업 보존 기간(일 수)입니다. |
-| **Storage 계정** | Azure Storage 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
+| **Storage 계정** | Azure 저장소 계정 | Cloud Shell은 Azure File Storage를 활용하여 세션 간에 파일을 유지합니다. 모든 백업 파일을 저장하려면 컨테이너를 이 위치에 만듭니다. 백업 파일 명명 규칙에는 날짜, 시간 및 컴퓨터 이름이 포함됩니다. |
 | **암호화** | 사용/사용 안 함(사용 안 함) | 암호화 사용 여부를 설정합니다. 암호화를 사용하면 백업을 복원하는 데 사용되는 인증서가 동일한 명명 규칙을 사용하여 동일한 `automaticbackup` 컨테이너에 지정한 스토리지 계정에 배치됩니다. 암호가 변경되면 해당 암호를 사용하여 새 인증서가 생성되지만 이전 인증서도 이전 백업의 복원을 위해 유지됩니다. |
 | **암호** | 암호 텍스트 | 암호화 키의 암호입니다. 암호화를 사용하는 경우에만 필요합니다. 암호화된 백업을 복원하기 위해서는 올바른 암호 및 백업을 수행할 때 사용한 인증서가 있어야 합니다. |
 
-## <a name="configure-in-the-portal"></a>포털 구성
-
-Azure Portal을 사용하여 프로비전 중에 또는 기존 SQL Server 2014 VMs에 대해 자동화된 Backup을 구성할 수 있습니다.
 
 ## <a name="configure-new-vms"></a>새 VM 구성
 
 Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server 2014 Virtual Machine을 만들 때 자동화된 Backup을 구성합니다.
 
-**SQL Server 설정** 탭에서 **자동화 된 백업** 으로 스크롤하고 **사용**을 선택 합니다. 또한 보존 기간 및 저장소 계정을 지정 하 고, 암호화를 사용 하도록 설정 하 고, 시스템 데이터베이스를 백업 하 고, 백업 일정을 구성할 수 있습니다.  다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
+**SQL Server 설정** 탭에서 **자동화 된 백업** 으로 스크롤하고 **사용**을 선택 합니다. 다음 Azure Portal 스크린샷은 **SQL 자동화된 백업** 설정을 보여 줍니다.
 
 ![Azure Portal에서 SQL 자동화된 Backup 구성](./media/virtual-machines-windows-sql-automated-backup/azure-sql-arm-autobackup.png)
 
@@ -84,23 +81,25 @@ Azure Portal을 사용하여 Resource Manager 배포 모델에서 새 SQL Server
 
 [!INCLUDE [windows-virtual-machines-sql-use-new-management-blade](../../../../includes/windows-virtual-machines-sql-new-resource.md)]
 
-기존 SQL Server 가상 컴퓨터의 경우 [SQL 가상 컴퓨터 리소스로](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 이동한 후 **백업**을 선택 합니다. 
+기존 SQL Server 가상 컴퓨터의 경우 자동화 된 백업을 사용 하거나 사용 하지 않도록 설정 하 고, 보존 기간을 변경 하 고, 저장소 계정을 지정 하 고, Azure Portal에서 암호화를 사용 하도록 설정할 수 있습니다. 
+
+SQL Server 2014 가상 컴퓨터에 대 한 [SQL 가상 컴퓨터 리소스로](virtual-machines-windows-sql-manage-portal.md#access-the-sql-virtual-machines-resource) 이동한 후 **백업**을 선택 합니다. 
 
 ![기존 VM에 대한 SQL 자동화된 Backup](./media/virtual-machines-windows-sql-automated-backup/azure-sql-rm-autobackup-existing-vms.png)
 
 완료 되 면 **백업** 페이지의 아래쪽에서 **적용** 단추를 선택 하 여 변경 내용을 저장 합니다.
 
-처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성될 때까지 몇 분 정도 기다리세요. 그 후 Azure 포털에는 새 설정이 반영됩니다.
+처음으로 자동화된 Backup을 사용 설정할 경우 Azure에서 백그라운드로 SQL Server IaaS 에이전트를 구성합니다. 이 시간 동안에는 구성된 자동화된 Backup이 Azure Portal에 표시되지 않을 수 있습니다. 에이전트가 설치 및 구성 될 때까지 몇 분 정도 기다립니다. 그 후 Azure Portal에는 새 설정이 반영됩니다.
 
 > [!NOTE]
 > 또한 템플릿을 사용하여 자동화된 Backup을 구성할 수 있습니다. 자세한 내용은 [자동화된 Backup에 대한 Azure 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-vm-sql-existing-autobackup-update)을 참조하세요.
 
-## <a name="configure-with-powershell"></a>PowerShell로 구성
+## <a name="configure-with-powershell"></a>PowerShell을 사용하여 구성
 
 PowerShell을 사용하여 자동화된 Backup을 구성할 수도 있습니다. 시작하기 전에 다음을 수행해야 합니다.
 
 - [최신 Azure PowerShell을 다운로드하여 설치합니다](https://aka.ms/webpi-azps).
-- Windows PowerShell을 열고 **Connect-AzAccount** 명령을 사용하여 계정에 연결합니다.
+- Windows PowerShell을 열고 **Connect-AzAccount** 명령을 사용하여 계정에 연결합니다. 
 
 [!INCLUDE [updated-for-az.md](../../../../includes/updated-for-az.md)]
 
@@ -270,7 +269,7 @@ SQL Server 2014에서 자동화된 백업을 모니터링하려면 두 가지 �
 다른 옵션은 기본 제공 데이터베이스 메일 기능을 알림에 활용하는 것입니다.
 
 1. [msdb.smart_admin.sp_set_parameter](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/managed-backup-sp-set-parameter-transact-sql) 저장 프로시저를 호출하여 **SSMBackup2WANotificationEmailIds** 매개 변수에 메일 주소를 할당합니다. 
-1. [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)가 Azure VM에서 메일을 보낼 수 있도록 설정합니다.
+1. [SendGrid](../../../sendgrid-dotnet-how-to-send-email.md)가 Azure VM에서 이메일을 보낼 수 있도록 설정합니다.
 1. SMTP 서버 및 사용자 이름을 사용하여 데이터베이스 메일을 구성합니다. SQL Server Management Studio 또는 Transact-SQL 명령을 통해 데이터베이스 메일을 구성할 수 있습니다. 자세한 내용은 [데이터베이스 메일](https://docs.microsoft.com/sql/relational-databases/database-mail/database-mail)을 참조하세요.
 1. [데이터베이스 메일을 사용하도록 SQL Server 에이전트를 구성](https://docs.microsoft.com/sql/relational-databases/database-mail/configure-sql-server-agent-mail-to-use-database-mail)합니다.
 1. 로컬 VM 방화벽과 VM에 대한 네트워크 보안 그룹 둘 다에서 SMTP 포트가 허용되는지 확인합니다.
