@@ -3,12 +3,12 @@ title: Azure Service Fabric 클러스터 만들기
 description: Azure Resource Manager를 사용하여 Azure에 보안 Service Fabric 클러스터를 설정하는 방법에 대해 알아봅니다.  기본 템플릿을 사용하거나 사용자 고유의 클러스터 템플릿을 사용하여 클러스터를 만들 수 있습니다.
 ms.topic: conceptual
 ms.date: 08/16/2018
-ms.openlocfilehash: 935f67c25f4a2aee7d06be7591dbe7576c87806e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8cf14230f3abd37d91f1ec369f597ee594876100
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75349864"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624123"
 ---
 # <a name="create-a-service-fabric-cluster-using-azure-resource-manager"></a>Azure Resource Manager를 사용하여 Service Fabric 클러스터 만들기 
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "75349864"
 * [Azure CLI 버전 2.0 이상][azure-CLI]
 
 Service Fabric 모듈에 대한 참조 설명서를 여기에서 찾을 수 있습니다.
-* [Az.ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
+* [Az. ServiceFabric](https://docs.microsoft.com/powershell/module/az.servicefabric)
 * [az SF CLI module](https://docs.microsoft.com/cli/azure/sf?view=azure-cli-latest)
 
 ### <a name="sign-in-to-azure"></a>Azure에 로그인
@@ -262,7 +262,7 @@ $parameterFilePath="c:\mytemplates\mytemplate.json"
 $templateFilePath="c:\mytemplates\mytemplateparm.json"
 $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
-New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretId -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
+New-AzServiceFabricCluster -ResourceGroupName $resourceGroupName -SecretIdentifier $secretID -TemplateFile $templateFilePath -ParameterFile $parameterFilePath 
 ```
 
 Azure CLI를 사용하여 클러스터 배포
@@ -271,11 +271,11 @@ Azure CLI를 사용하여 클러스터 배포
 declare $resourceGroupName = "testRG"
 declare $parameterFilePath="c:\mytemplates\mytemplate.json"
 declare $templateFilePath="c:\mytemplates\mytemplateparm.json"
-declare $secertId="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
+declare $secretID="https://test1.vault.azure.net:443/secrets/testcertificate4/55ec7c4dc61a462bbc645ffc9b4b225f"
 
 az sf cluster create --resource-group $resourceGroupName --location $resourceGroupLocation  \
-    --secret-identifier az $secretID  \
-    --template-file $templateFilePath --parameter-file $parametersFilePath 
+    --secret-identifier $secretID  \
+    --template-file $templateFilePath --parameter-file $parameterFilePath 
 ```
 
 ## <a name="next-steps"></a>다음 단계

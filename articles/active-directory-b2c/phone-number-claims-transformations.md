@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 02/14/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: c5beef98f03c52ca022a7ab8047d3b392755c0bf
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77212196"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620641"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Azure AD B2C에서 전화 번호 클레임 변환 정의
 
@@ -26,14 +26,44 @@ ms.locfileid: "77212196"
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="convertphonenumberclaimtostring"></a>ConvertPhoneNumberClaimToString
+
+`phoneNumber` 데이터 형식을 `string` 데이터 형식으로 변환 합니다.
+
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| ---- | ----------------------- | --------- | ----- |
+| InputClaim | phoneNumber | phoneNumber |  문자열로 변환할 ClaimType입니다. |
+| OutputClaim | phoneNumberString | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
+
+이 예제에서 `phoneNumber` 값 형식의 cellPhoneNumber 클레임은 값 형식이 `string`인 "휴대폰 클레임"으로 변환 됩니다.
+
+```XML
+<ClaimsTransformation Id="PhoneNumberToString" TransformationMethod="ConvertPhoneNumberClaimToString">
+  <InputClaims>
+    <InputClaim ClaimTypeReferenceId="cellPhoneNumber" TransformationClaimType="phoneNumber" />
+  </InputClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="cellPhone" TransformationClaimType="phoneNumberString" />
+  </OutputClaims>
+</ClaimsTransformation>
+```
+
+### <a name="example"></a>예제
+
+- 입력 클레임:
+  - **phoneNumber**: + 11234567890 (phoneNumber)
+- 출력 클레임:
+  - **phoneNumberString**: + 11234567890 (string)
+
+
 ## <a name="convertstringtophonenumberclaim"></a>ConvertStringToPhoneNumberClaim
 
-이 클레임은 전화 번호의 형식에 대 한 유효성을 검사 합니다. 유효한 형식이 면 Azure AD B2C에서 사용 하는 표준 형식으로 변경 합니다. 제공 된 전화 번호의 형식이 잘못 된 경우 오류 메시지가 반환 됩니다.
+이 클레임 변환은 전화 번호의 형식에 대 한 유효성을 검사 합니다. 유효한 형식이 면 Azure AD B2C에서 사용 하는 표준 형식으로 변경 합니다. 제공 된 전화 번호의 형식이 잘못 된 경우 오류 메시지가 반환 됩니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumberString | 문자열 |  전화 번호에 대 한 문자열 클레임입니다. 전화 번호는 국제 형식 이어야 하며 앞에 "+"와 국가 코드를 사용 하 여 완료 해야 합니다. 입력 클레임 `country` 제공 되는 경우 전화 번호는 지역 형식 (국가 코드 제외)입니다. |
-| InputClaim | country | 문자열 | 필드 ISO3166 형식의 전화 번호에 대 한 국가 코드에 대 한 문자열 클레임입니다 (2 자 ISO-3166 국가 코드). |
+| InputClaim | phoneNumberString | string |  전화 번호에 대 한 문자열 클레임입니다. 전화 번호는 국제 형식 이어야 하며 앞에 "+"와 국가 코드를 사용 하 여 완료 해야 합니다. 입력 클레임 `country` 제공 되는 경우 전화 번호는 지역 형식 (국가 코드 제외)입니다. |
+| InputClaim | country | string | 필드 ISO3166 형식의 전화 번호에 대 한 국가 코드에 대 한 문자열 클레임입니다 (2 자 ISO-3166 국가 코드). |
 | OutputClaim | outputClaim | phoneNumber | 이 클레임 변환의 결과입니다. |
 
 **ConvertStringToPhoneNumberClaim** 클레임 변환은 항상 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 또는 [디스플레이 컨트롤](display-controls.md)에 의해 호출 되는 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 실행 됩니다. **UserMessageIfClaimsTransformationInvalidPhoneNumber** 자체 어설션된 기술 프로필 메타 데이터는 사용자에 게 표시 되는 오류 메시지를 제어 합니다.
@@ -68,29 +98,30 @@ ms.locfileid: "77212196"
 ### <a name="example-1"></a>예 1
 
 - 입력 클레임:
-  - **phoneNumberString**: 045 456-7890
+  - **phoneNumberString**: 033 456-7890
   - **국가**: 진한
 - 출력 클레임:
-  - **Outputclaim**: + 450546148120
+  - **Outputclaim**: + 450334567890
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 - 입력 클레임:
   - **phoneNumberString**: + 1 (123) 456-7890
 - 출력 클레임: 
   - **Outputclaim**: + 11234567890
 
+
 ## <a name="getnationalnumberandcountrycodefromphonenumberstring"></a>GetNationalNumberAndCountryCodeFromPhoneNumberString
 
 입력 클레임에서 국가 코드와 국가 번호를 추출 하 고, 제공 된 전화 번호가 올바르지 않은 경우 필요에 따라 예외를 throw 합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | phoneNumber | 문자열 | 전화 번호의 문자열 클레임입니다. 전화 번호는 국제 형식 이어야 하며 앞에 "+"와 국가 코드를 사용 하 여 완료 해야 합니다. |
-| InputParameter | throwExceptionOnFailure | boolean | 필드 전화 번호가 잘못 된 경우 예외가 throw 되는지 여부를 나타내는 매개 변수입니다. 기본값은 False입니다. |
-| InputParameter | countryCodeType | 문자열 | 필드 출력 클레임의 국가 코드 형식을 나타내는 매개 변수입니다. 사용 가능한 값은 **Callingcode** (국가에 대 한 국제 호출 코드 (예: + 1) 또는 **ISO3166** (2 자 ISO-3166 country 코드)입니다. |
-| OutputClaim | nationalNumber | 문자열 | 전화 번호의 국가별 번호에 대 한 문자열 클레임입니다. |
-| OutputClaim | countryCode | 문자열 | 전화 번호의 국가 코드에 대 한 문자열 클레임입니다. |
+| InputClaim | phoneNumber | string | 전화 번호의 문자열 클레임입니다. 전화 번호는 국제 형식 이어야 하며 앞에 "+"와 국가 코드를 사용 하 여 완료 해야 합니다. |
+| InputParameter | throwExceptionOnFailure | boolean | 필드 전화 번호가 잘못 된 경우 예외가 throw 되는지 여부를 나타내는 매개 변수입니다. 기본값은 false입니다. |
+| InputParameter | countryCodeType | string | 필드 출력 클레임의 국가 코드 형식을 나타내는 매개 변수입니다. 사용 가능한 값은 **Callingcode** (국가에 대 한 국제 호출 코드 (예: + 1) 또는 **ISO3166** (2 자 ISO-3166 country 코드)입니다. |
+| OutputClaim | nationalNumber | string | 전화 번호의 국가별 번호에 대 한 문자열 클레임입니다. |
+| OutputClaim | countryCode | string | 전화 번호의 국가 코드에 대 한 문자열 클레임입니다. |
 
 
 **GetNationalNumberAndCountryCodeFromPhoneNumberString** 클레임 변환이 [자체 어설션된 기술 프로필](self-asserted-technical-profile.md) 또는 [디스플레이 제어 작업](display-controls.md#display-control-actions)에 의해 호출 되는 [유효성 검사 기술 프로필](validation-technical-profile.md) 에서 실행 되는 경우 **UserMessageIfPhoneNumberParseFailure** 자체 어설션된 기술 프로필 메타 데이터는 사용자에 게 표시 되는 오류 메시지를 제어 합니다.
@@ -139,7 +170,7 @@ ms.locfileid: "77212196"
   - **nationalNumber**: 1234567890
   - **countryCode**: DE
 
-### <a name="example-2"></a>예제 2
+### <a name="example-2"></a>예 2
 
 - 입력 클레임:
   - **phoneNumber**: + 49 (123) 456-7890

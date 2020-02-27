@@ -15,12 +15,12 @@ ms.workload: identity
 ms.date: 10/30/2019
 ms.author: jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: b2d388160c6ca744b10c17bda17c59e22940f98b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 7f1010949a72f95ef2836c43666e6cea9281e04d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76775250"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611899"
 ---
 # <a name="daemon-app-that-calls-web-apis---acquire-a-token"></a>웹 Api를 호출 하는 디먼 앱-토큰 획득
 
@@ -30,14 +30,14 @@ ms.locfileid: "76775250"
 
 클라이언트 자격 증명 흐름에 대해 요청할 범위는 리소스 이름 뒤에 `/.default`입니다. 이 표기법은 응용 프로그램을 등록 하는 동안 정적으로 선언 된 *응용 프로그램 수준 권한을* 사용 하도록 Azure Active Directory (Azure AD)에 지시 합니다. 또한 이러한 API 권한은 테 넌 트 관리자가 부여 해야 합니다.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 ```csharp
 ResourceId = "someAppIDURI";
 var scopes = new [] {  ResourceId+"/.default"};
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 MSAL Python에서 구성 파일은 다음 코드 조각과 같습니다.
 
@@ -47,7 +47,7 @@ MSAL Python에서 구성 파일은 다음 코드 조각과 같습니다.
 }
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 ```Java
 final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default";
@@ -67,7 +67,7 @@ final static String GRAPH_DEFAULT_SCOPE = "https://graph.microsoft.com/.default"
 
 앱에 대 한 토큰을 얻으려면 플랫폼에 따라 `AcquireTokenForClient` 또는 이와 동등한 기능을 사용 합니다.
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 ```csharp
 using Microsoft.Identity.Client;
@@ -96,7 +96,7 @@ catch (MsalServiceException ex) when (ex.Message.Contains("AADSTS70011"))
 }
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 ```Python
 # The pattern to acquire a token looks like this.
@@ -120,29 +120,53 @@ else:
     print(result.get("correlation_id"))  # You might need this when reporting a bug.
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 이 코드는 [Msal Java dev 샘플](https://github.com/AzureAD/microsoft-authentication-library-for-java/blob/dev/src/samples/confidential-client/)에서 추출 됩니다.
 
 ```Java
-ClientCredentialParameters clientCredentialParam = ClientCredentialParameters.builder(
-        Collections.singleton(GRAPH_DEFAULT_SCOPE))
-        .build();
+private static IAuthenticationResult acquireToken() throws Exception {
 
-CompletableFuture<IAuthenticationResult> future = app.acquireToken(clientCredentialParam);
+     // Load token cache from file and initialize token cache aspect. The token cache will have
+     // dummy data, so the acquireTokenSilently call will fail.
+     TokenCacheAspect tokenCacheAspect = new TokenCacheAspect("sample_cache.json");
 
-BiConsumer<IAuthenticationResult, Throwable> processAuthResult = (res, ex) -> {
-    if (ex != null) {
-        System.out.println("Oops! We have an exception - " + ex.getMessage());
-    }
-    System.out.println("Returned ok - " + res);
-    System.out.println("ID Token - " + res.idToken());
+     IClientCredential credential = ClientCredentialFactory.createFromSecret(CLIENT_SECRET);
+     ConfidentialClientApplication cca =
+             ConfidentialClientApplication
+                     .builder(CLIENT_ID, credential)
+                     .authority(AUTHORITY)
+                     .setTokenCacheAccessAspect(tokenCacheAspect)
+                     .build();
 
-    /* Call a protected API with res.accessToken() */
-};
+     IAuthenticationResult result;
+     try {
+         SilentParameters silentParameters =
+                 SilentParameters
+                         .builder(SCOPE)
+                         .build();
 
-future.whenCompleteAsync(processAuthResult);
-future.join();
+         // try to acquire token silently. This call will fail since the token cache does not
+         // have a token for the application you are requesting an access token for
+         result = cca.acquireTokenSilently(silentParameters).join();
+     } catch (Exception ex) {
+         if (ex.getCause() instanceof MsalException) {
+
+             ClientCredentialParameters parameters =
+                     ClientCredentialParameters
+                             .builder(SCOPE)
+                             .build();
+
+             // Try to acquire a token. If successful, you should see
+             // the token information printed out to console
+             result = cca.acquireToken(parameters).join();
+         } else {
+             // Handle other exceptions accordingly
+             throw ex;
+         }
+     }
+     return result;
+ }
 ```
 
 ---
@@ -211,17 +235,17 @@ Content: {
 
 ## <a name="next-steps"></a>다음 단계
 
-# <a name="nettabdotnet"></a>[.NET](#tab/dotnet)
+# <a name="net"></a>[.NET](#tab/dotnet)
 
 > [!div class="nextstepaction"]
 > [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=dotnet)
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 > [!div class="nextstepaction"]
 > [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=python)
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 > [!div class="nextstepaction"]
 > [디먼 앱-web API 호출](https://docs.microsoft.com/azure/active-directory/develop/scenario-daemon-call-api?tabs=java)

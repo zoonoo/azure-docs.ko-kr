@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/26/2019
 ms.author: iainfou
-ms.openlocfilehash: 9dc7e6341f77fc17ae26f34ea029b3eb5414dcbc
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 58749e4518f6fa73c8641ce38483c101576047aa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705310"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614089"
 ---
 # <a name="create-a-group-managed-service-account-gmsa-in-azure-ad-domain-services"></a>Azure AD Domain Services에서 그룹 관리 서비스 계정 (gMSA) 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "74705310"
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
@@ -65,32 +65,32 @@ Azure AD DS 관리 되는 도메인은 Microsoft에서 잠그고 관리할 수 �
 > [!TIP]
 > 이러한 단계를 완료 하 여 gMSA를 만들려면 [관리 VM을 사용][tutorial-create-management-vm]합니다. 이 관리 VM에는 필수 AD PowerShell cmdlet 및 관리 되는 도메인에 대 한 연결이 이미 있어야 합니다.
 
-다음 예제에서는 *aadds.contoso.com*이라는 Azure AD DS 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
+다음 예제에서는 *aaddscontoso.com*이라는 Azure AD DS 관리 되는 도메인에 *myNewOU* 이라는 사용자 지정 OU를 만듭니다. 사용자 고유의 OU 및 관리 되는 도메인 이름 사용:
 
 ```powershell
-New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=contoso,DC=COM"
+New-ADOrganizationalUnit -Name "myNewOU" -Path "DC=aaddscontoso,DC=COM"
 ```
 
 이제 [uninstall-adserviceaccount][New-ADServiceAccount] cmdlet을 사용 하 여 gMSA를 만듭니다. 다음 예제 매개 변수가 정의 되어 있습니다.
 
 * **-Name** 은 *WebFarmSvc* 로 설정 됩니다.
 * **-Path** 매개 변수는 이전 단계에서 만든 gMSA에 대 한 사용자 지정 OU를 지정 합니다.
-* *WebFarmSvc.aadds.contoso.com* 에 대 한 DNS 항목 및 서비스 주체 이름 설정
-* *CONTOSO-SERVER $* 의 보안 주체는 id를 사용 하 여 암호를 검색할 수 있습니다.
+* *WebFarmSvc.aaddscontoso.com* 에 대 한 DNS 항목 및 서비스 주체 이름 설정
+* *Aaddscontoso-SERVER $* 의 보안 주체는 id를 사용 하 여 암호를 검색할 수 있습니다.
 
 고유한 이름과 도메인 이름을 지정 합니다.
 
 ```powershell
 New-ADServiceAccount -Name WebFarmSvc `
-    -DNSHostName WebFarmSvc.aadds.contoso.com `
-    -Path "OU=MYNEWOU,DC=contoso,DC=com" `
+    -DNSHostName WebFarmSvc.aaddscontoso.com `
+    -Path "OU=MYNEWOU,DC=aaddscontoso,DC=com" `
     -KerberosEncryptionType AES128, AES256 `
     -ManagedPasswordIntervalInDays 30 `
-    -ServicePrincipalNames http/WebFarmSvc.aadds.contoso.com/aadds.contoso.com, `
-        http/WebFarmSvc.aadds.contoso.com/contoso, `
-        http/WebFarmSvc/aadds.contoso.com, `
-        http/WebFarmSvc/contoso `
-    -PrincipalsAllowedToRetrieveManagedPassword CONTOSO-SERVER$
+    -ServicePrincipalNames http/WebFarmSvc.aaddscontoso.com/aaddscontoso.com, `
+        http/WebFarmSvc.aaddscontoso.com/aaddscontoso, `
+        http/WebFarmSvc/aaddscontoso.com, `
+        http/WebFarmSvc/aaddscontoso `
+    -PrincipalsAllowedToRetrieveManagedPassword AADDSCONTOSO-SERVER$
 ```
 
 이제 필요에 따라 gMSA를 사용 하도록 응용 프로그램 및 서비스를 구성할 수 있습니다.

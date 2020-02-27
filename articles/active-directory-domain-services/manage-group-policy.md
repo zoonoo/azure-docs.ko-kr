@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 32020341c7ac3bf33082ba365f053a613dcdffc2
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 74d9aa8228e841b17313fb3c15efe459ccd7339a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705091"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613576"
 ---
 # <a name="administer-group-policy-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 그룹 정책 관리
 
@@ -34,7 +34,7 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 자습서를 완료 하 여 [Azure Active Directory Domain Services 인스턴스를 만들고 구성][create-azure-ad-ds-instance]합니다.
 * Azure AD DS 관리 되는 도메인에 가입 된 Windows Server 관리 VM입니다.
@@ -50,10 +50,10 @@ Azure Active Directory Domain Services (Azure AD DS)의 사용자 및 컴퓨터 
 
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
 1. VM에 로그인하면 **서버 관리자**가 기본적으로 열립니다. 그렇지 않은 경우 **시작** 메뉴에서 **서버 관리자**를 선택합니다.
-1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
-1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
+1. *서버 관리자* 창의 **대시보드** 창에서 **역할 및 기능 추가**를 선택합니다.
+1. **역할 및 기능 추가 마법사**의 *시작하기 전에* 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.aadds.contoso.com*)을 선택 하 고 **다음**을 선택 합니다.
+1. **서버 선택** 페이지에서 서버 풀의 현재 VM (예: *myvm.aaddscontoso.com*)을 선택 하 고 **다음**을 선택 합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **그룹 정책 관리** 기능을 선택합니다.
 
@@ -76,7 +76,7 @@ Azure AD DS 관리 되는 도메인의 사용자 및 컴퓨터에 대 한 기본
 
 Azure AD DS 관리 되는 도메인에는 두 개의 기본 제공 Gpo (그룹 정책 개체)가 있습니다. *Aaddc 컴퓨터* 컨테이너와 *Aaddc 사용자* 컨테이너에 대 한 하나는 1입니다. 이러한 Gpo를 사용자 지정 하 여 Azure AD DS 관리 되는 도메인 내에서 필요에 따라 그룹 정책을 구성할 수 있습니다.
 
-1. **그룹 정책 관리** 콘솔에서 **포리스트: aadds.contoso.com** 노드를 확장 합니다. 그런 다음 **도메인** 노드를 확장 합니다.
+1. **그룹 정책 관리** 콘솔에서 **포리스트: aaddscontoso.com** 노드를 확장 합니다. 그런 다음 **도메인** 노드를 확장 합니다.
 
     *Aaddc 컴퓨터* 와 *Aaddc 사용자*에 대 한 두 개의 기본 제공 컨테이너가 있습니다. 이러한 각 컨테이너에는 기본 GPO가 적용 됩니다.
 

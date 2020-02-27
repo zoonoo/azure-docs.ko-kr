@@ -3,12 +3,12 @@ title: Azure Backup Server를 사용 하 여 워크 로드 백업
 description: 이 문서에서는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 워크 로드를 보호 하 고 백업 하기 위해 환경을 준비 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.openlocfilehash: e601328a09ece54eb1c678310f76c7999c69f24c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: dd506668f9d75523ff7494bccb2979bf0785990d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586430"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617623"
 ---
 # <a name="install-and-upgrade-azure-backup-server"></a>Azure Backup Server 설치 및 업그레이드
 
@@ -56,7 +56,7 @@ Azure에서 기본 서버를 실행하지 않을 경우 Hyper-V VM, VMware VM �
 | Windows Server 2019 |64비트 |Standard, Datacenter, Essentials |
 | Windows Server 2016 및 최신 SP |64비트 |Standard, Datacenter, Essentials  |
 
-Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/dn891438(v=sc.12)) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
+Windows Server 중복 제거를 사용하여 DPM 스토리지를 중복 제거할 수 있습니다. [DPM 및 중복 제거](https://docs.microsoft.com/system-center/dpm/deduplicate-dpm-storage?view=sc-dpm-2019) 가 Hyper-V VM에 배포될 때 함께 작동하는 방법에 대해 자세히 알아보세요.
 
 > [!NOTE]
 > Azure Backup Server는 단일 용도의 전용 서버에서 실행하도록 설계되었습니다. Azure Backup Server를 다음 항목에 설치할 수 없습니다.
@@ -359,7 +359,7 @@ Azure 구독을 *만료됨* 또는 *프로비전 해제됨* 상태에서 *활성
 
 ## <a name="next-steps"></a>다음 단계
 
-[DPM에 대 한 환경 준비](https://docs.microsoft.com/previous-versions/system-center/system-center-2012-R2/hh758176(v=sc.12))에 대 한 자세한 정보를 여기에서 볼 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 다양한 작업을 수행하는 데 일련의 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)을 사용할 수 있습니다.
+[DPM에 대 한 환경 준비](https://docs.microsoft.com/system-center/dpm/prepare-environment-for-dpm?view=sc-dpm-2019)에 대 한 자세한 정보를 여기에서 볼 수 있습니다. 또한 여기에는 Azure Backup 서버를 배포 및 사용하는 데 지원되는 구성에 대한 정보도 포함되어 있습니다. 다양한 작업을 수행하는 데 일련의 [PowerShell cmdlet](https://docs.microsoft.com/powershell/module/dataprotectionmanager/?view=systemcenter-ps-2016)을 사용할 수 있습니다.
 
 Microsoft Azure Backup 서버를 사용하여 워크로드 보호를 더 깊이 이해하려면 다음 문서를 사용할 수 있습니다.
 

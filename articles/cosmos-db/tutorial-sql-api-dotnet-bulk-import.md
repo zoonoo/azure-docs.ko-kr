@@ -7,12 +7,12 @@ ms.service: cosmos-db
 ms.topic: tutorial
 ms.date: 11/04/2019
 ms.reviewer: sngun
-ms.openlocfilehash: 79771e082a4a6ffae15f33f636b0300e93bcdaba
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 40dd7066d959b56f4554ea9d0390e8b1eb41e77f
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896272"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587569"
 ---
 # <a name="bulk-import-data-to-azure-cosmos-db-sql-api-account-by-using-the-net-sdk"></a>.NET SDK를 사용하여 Azure Cosmos DB SQL API 계정으로 데이터 대량 가져오기
 
@@ -27,7 +27,7 @@ ms.locfileid: "74896272"
 > * 대량 지원을 사용하도록 설정한 Azure Cosmos 계정에 연결
 > * 동시 만들기 작업을 통해 데이터 가져오기 수행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서의 지침을 따르기 전에 다음 리소스가 있는지 확인하세요.
 
@@ -39,7 +39,7 @@ ms.locfileid: "74896272"
 
 ## <a name="step-1-create-an-azure-cosmos-db-account"></a>1단계: Azure Cosmos DB 계정 만들기
 
-Azure Portal에서 [Azure Cosmos DB SQL API 계정을 만들거나](create-cosmosdb-resources-portal.md) [Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용하여 계정을 만들 수 있습니다.
+Azure Portal에서 [Azure Cosmos DB SQL API 계정을 만들거나](create-cosmosdb-resources-portal.md)[Azure Cosmos DB 에뮬레이터](local-emulator.md)를 사용하여 계정을 만들 수 있습니다.
 
 ## <a name="step-2-set-up-your-net-project"></a>2단계: .NET 프로젝트 설정
 
@@ -120,13 +120,13 @@ Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬�
 
 `Main` 메서드 내에 다음 코드를 추가하여 CosmosClient 개체를 초기화합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=CreateClient)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="CreateClient":::
 
 대량 실행을 사용하도록 설정하면 CosmosClient는 내부적으로 동시 작업을 단일 서비스 호출로 그룹화합니다. 이러한 방식으로 여러 파티션에 서비스 호출을 분산하고 마지막으로 개별 결과를 원래 호출자에게 할당하여 처리량 사용률을 최적화합니다.
 
 그런 다음, 컨테이너를 만들어 모든 항목을 저장할 수 있습니다.  `/pk`를 파티션 키로 정의하고, 프로비저닝된 처리량을 50000 RU/s로 정의하고, 모든 필드를 제외하여 쓰기 처리량을 최적화하는 사용자 지정 인덱싱 정책을 정의합니다. CosmosClient 초기화 문 뒤에 다음 코드를 추가합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Initialize)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Initialize":::
 
 ## <a name="step-6-populate-a-list-of-concurrent-tasks"></a>6단계: 동시 작업 목록 채우기
 
@@ -141,22 +141,22 @@ Azure Cosmos DB 에뮬레이터를 사용하는 경우 [이 문서에서 에뮬�
 
 저장하려는 항목의 정의를 지정합니다. `Program.cs` 파일 내에 `Item` 클래스를 정의해야 합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Model)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Model":::
 
 다음으로 `Program` 클래스 내에 도우미 함수를 만듭니다. 이 도우미 함수는 삽입하도록 정의한 항목 수를 가져오고 임의의 데이터를 생성합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Bogus)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Bogus":::
 
 항목을 읽고 `System.Text.Json` 클래스를 사용하여 스트림 인스턴스로 serialize합니다. 자동 생성된 데이터의 특성 때문에 데이터를 스트림으로 serialize합니다. 항목 인스턴스를 직접 사용할 수도 있지만 스트림으로 변환하면 CosmosClient에서 스트림 API의 성능을 활용할 수 있습니다. 일반적으로 파티션 키를 알고 있으면 데이터를 직접 사용할 수 있습니다. 
 
 
 데이터를 스트림 인스턴스로 변환하려면 `Main` 메서드 내에서 컨테이너를 만든 직후에 다음 코드를 추가합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=Operations)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="Operations":::
 
 그런 다음, 데이터 스트림을 사용하여 동시 작업을 만들고 작업 목록을 채워 컨테이너에 항목을 삽입합니다. 이 작업을 수행하려면 `Program` 클래스에 다음 코드를 추가합니다.
 
-[!code-csharp[Main](~/cosmos-dotnet-bulk-import/src/Program.cs?name=ConcurrentTasks)]
+:::code language="csharp" source="~/cosmos-dotnet-bulk-import/src/Program.cs" id="ConcurrentTasks":::
 
 이러한 모든 동시 시점 작업은 소개 섹션에 설명된 대로 대량으로 함께 실행됩니다.
 

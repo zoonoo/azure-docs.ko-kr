@@ -4,7 +4,7 @@ description: Azure (Large Instances)의 SAP HANA에 SAP HANA를 설치 하는 �
 services: virtual-machines-linux
 documentationcenter: ''
 author: hermanndms
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 01/16/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c08036f16cd30a1c10963accd8d486d77c9683ee
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: ca59305b22fcf1e81ef518612910731cb6edea5d
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264172"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617085"
 ---
 # <a name="how-to-install-and-configure-sap-hana-large-instances-on-azure"></a>Azure의 SAP HANA(대규모 인스턴스)를 설치하고 구성하는 방법
 
@@ -134,7 +134,7 @@ Azure 가상 네트워크를 설계하고 해당 가상 네트워크를 HANA 대
 
 아키텍처의 이더넷 세부 정보에 대한 자세한 내용은 [HLI 지원 시나리오](hana-supported-scenario.md)를 참조하세요.
 
-## <a name="storage"></a>Storage
+## <a name="storage"></a>스토리지
 
 Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권장 지침을 통해 Azure `service management`에서 SAP HANA에 의해 구성 됩니다. 이 지침은 [SAP HANA 스토리지 요구 사항](https://go.sap.com/documents/2015/03/74cdb554-5a7c-0010-82c7-eda71af511fa.html) 백서에 나와 있습니다. 
 
@@ -144,8 +144,8 @@ Azure (Large Instances)의 SAP HANA에 대 한 저장소 레이아웃은 SAP 권
 
 | 스토리지 사용 | 탑재 이름 | 볼륨 이름 | 
 | --- | --- | ---|
-| HANA data | /hana/data/SID/mnt0000\<m> | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
-| HANA log | /hana/log/SID/mnt0000\<m> | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
+| HANA data | /hana/data/SID/mnt0000\<m > | 스토리지 IP:/hana_data_SID_mnt00001_tenant_vol |
+| HANA log | /hana/log/SID/mnt0000\<m > | 스토리지 IP:/hana_log_SID_mnt00001_tenant_vol |
 | HANA log backup | /hana/log/backups | 스토리지 IP:/hana_log_backups_SID_mnt00001_tenant_vol |
 | HANA shared | /hana/shared/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/shared |
 | usr/sap | /usr/sap/SID | 스토리지 IP:/hana_shared_SID_mnt00001_tenant_vol/usr_sap |

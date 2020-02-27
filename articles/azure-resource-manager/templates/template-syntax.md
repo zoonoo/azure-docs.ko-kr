@@ -2,13 +2,13 @@
 title: 템플릿 구조 및 구문
 description: 선언적 JSON 구문을 사용하여 Azure Resource Manager 템플릿의 구조 및 속성을 설명합니다.
 ms.topic: conceptual
-ms.date: 11/12/2019
-ms.openlocfilehash: 9cd602644ecf803e97254189cfc157d60713cc6c
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/25/2020
+ms.openlocfilehash: 08c688da3e812a4a67070c926cf11512bfc60667
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209463"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77622891"
 ---
 # <a name="understand-the-structure-and-syntax-of-azure-resource-manager-templates"></a>Azure Resource Manager 템플릿의 구조 및 구문 이해
 
@@ -260,10 +260,14 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 
 ```json
 "outputs": {
-  "<output-name>" : {
+  "<output-name>": {
     "condition": "<boolean-value-whether-to-output-value>",
-    "type" : "<type-of-output-value>",
-    "value": "<output-value-expression>"
+    "type": "<type-of-output-value>",
+    "value": "<output-value-expression>",
+    "copy": {
+      "count": <number-of-iterations>,
+      "input": <values-for-the-variable>
+    }
   }
 }
 ```
@@ -273,7 +277,8 @@ Outputs 섹션에서, 배포에서 반환되는 값을 지정합니다. 일반�
 | 출력-이름 |yes |출력 값의 이름입니다. 유효한 JavaScript 식별자여야 합니다. |
 | condition(조건) |예 | 이 출력 값의 반환 여부를 나타내는 부울 값입니다. `true`이면 해당 값이 배포의 출력에 포함됩니다. `false`이면 이 배포에 대한 출력 값을 건너뜁니다. 지정하지 않으면 기본값은 `true`입니다. |
 | type |yes |출력 값의 유형입니다. 출력 값은 템플릿 입력 매개 변수와 동일한 유형을 지원합니다. 출력 유형에 대해 **securestring** 을 지정 하는 경우 값은 배포 기록에 표시 되지 않으며 다른 템플릿에서 검색할 수 없습니다. 둘 이상의 템플릿에서 비밀 값을 사용 하려면 Key Vault에 비밀을 저장 하 고 매개 변수 파일에서 비밀을 참조 합니다. 자세한 내용은 [Azure Key Vault를 사용하여 배포 중에 보안 매개 변수 값 전달](key-vault-parameter.md)을 참조하세요. |
-| 값 |yes |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. |
+| 값 |예 |출력 값으로 계산되어 반환되는 템플릿 언어 식입니다. **값** 또는 **복사**를 지정 합니다. |
+| copy |예 | 출력에 대해 둘 이상의 값을 반환 하는 데 사용 됩니다. **값** 또는 **복사**를 지정 합니다. 자세한 내용은 [Azure Resource Manager 템플릿에서 출력 반복](copy-outputs.md)을 참조 하세요. |
 
 출력을 사용 하는 방법에 대 한 예제는 [Azure Resource Manager 템플릿의 출력](template-outputs.md)을 참조 하세요.
 
@@ -379,7 +384,7 @@ Visual Studio Code에서 [Azure Resource Manager 도구 확장](use-vs-code-to-c
 
 ## <a name="multi-line-strings"></a>여러 줄 문자열
 
-문자열을 여러 줄로 나눌 수 있습니다. 예를 들어 위치 속성 및 다음 JSON 예제의 주석 중 하나입니다.
+문자열을 여러 줄로 나눌 수 있습니다. 예를 들어, 다음 JSON 예제에서 위치 속성 및 주석 중 하나를 참조 하세요.
 
 ```json
 {

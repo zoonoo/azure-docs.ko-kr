@@ -13,12 +13,12 @@ ms.date: 09/14/2019
 ms.author: shoatman
 ms.custom: aaddev
 ms.reviewer: shoatman
-ms.openlocfilehash: a0f0f3be1647c820591923a094ef7fce86ab9672
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: d0497ad68e7b29e6d8c83dd860ba8f509e229579
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76699447"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611872"
 ---
 # <a name="accounts--tenant-profiles-android"></a>계정 및 테넌트 프로필(Android)
 
@@ -52,7 +52,7 @@ Microsoft id 플랫폼의 계정은 다음으로 구성 됩니다.
 
 ## <a name="account-overview-diagram"></a>계정 개요 다이어그램
 
-![계정 개요 다이어그램](./media/accounts-overview/accounts-overview.png)
+![계정 개요 다이어그램](./media/accounts-overview/accounts-overview.svg)
 
 위의 다이어그램:
 
@@ -97,7 +97,7 @@ IAccount account = app.getAccount("<tom@live.com woodgrovebank user object id>")
 MSAL은 액세스 토큰을 요청 하는 것 외에도 항상 각 테 넌 트의 ID 토큰을 요청 합니다. 이를 위해 항상 다음 범위를 요청 합니다.
 
 - openid
-- 프로필
+- profile(프로필)
 
 ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`는 계정에 대 한 이름/값 쌍 이며, 요청을 수행 하는 데 사용 됩니다.
 
@@ -105,7 +105,7 @@ ID 토큰에는 클레임 목록이 포함 되어 있습니다. `Claims`는 계�
 
 계정이 여러 조직에서 구성원 또는 게스트가 될 수 있지만, MSAL은 서비스를 쿼리하여 해당 계정이 구성원 인 테 넌 트 목록을 가져옵니다. 대신, MSAL은 생성 된 토큰 요청의 결과로 계정이 있는 테 넌 트 목록을 작성 합니다.
 
-계정 개체에 노출 되는 클레임은 항상 계정에 대 한 ' home 테 넌 트 '/{authority}의 클레임입니다. 해당 계정이 홈 테 넌 트에 대 한 토큰을 요청 하는 데 사용 되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  예:
+계정 개체에 노출 되는 클레임은 항상 계정에 대 한 ' home 테 넌 트 '/{authority}의 클레임입니다. 해당 계정이 홈 테 넌 트에 대 한 토큰을 요청 하는 데 사용 되지 않은 경우 MSAL은 계정 개체를 통해 클레임을 제공할 수 없습니다.  예를 들면 다음과 같습니다.
 
 ```java
 // Psuedo Code
@@ -125,7 +125,7 @@ String issuer = account.getClaims().get("iss"); // The tenant specific authority
 
 ### <a name="access-tenant-profile-claims"></a>테 넌 트 프로필 클레임 액세스
 
-다른 테 넌 트에 표시 되는 계정에 대 한 클레임에 액세스 하려면 먼저 계정 개체를 `IMultiTenantAccount`로 캐스팅 해야 합니다. 모든 계정은 다중 테 넌 트 일 수 있지만 MSAL을 통해 사용할 수 있는 테 넌 트 프로필 수는 현재 계정을 사용 하 여 토큰을 요청한 테 넌 트를 기반으로 합니다.  예:
+다른 테 넌 트에 표시 되는 계정에 대 한 클레임에 액세스 하려면 먼저 계정 개체를 `IMultiTenantAccount`로 캐스팅 해야 합니다. 모든 계정은 다중 테 넌 트 일 수 있지만 MSAL을 통해 사용할 수 있는 테 넌 트 프로필 수는 현재 계정을 사용 하 여 토큰을 요청한 테 넌 트를 기반으로 합니다.  예를 들면 다음과 같습니다.
 
 ```java
 // Psuedo Code
@@ -140,7 +140,7 @@ multiTenantAccount.getTenantProfiles().get("tenantid for contoso").getClaims().g
 
 계정에 대 한 새로 고침 토큰은 B2C 정책 간에 공유 되지 않습니다. 따라서 토큰을 사용 하는 Single Sign-On를 사용할 수 없습니다. 이는 Single Sign-On 가능 하지 않음을 의미 하지 않습니다. Single Sign-On을 사용 하도록 설정 하는 데 쿠키를 사용할 수 있는 대화형 환경을 사용 해야 Single Sign-On 의미 합니다.
 
-즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 계정을 사용 하 여 `acquireTokenSilent`를 사용 하 여 토큰을 요청 하려는 경우 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예:
+즉, MSAL의 경우 다른 B2C 정책을 사용 하 여 토큰을 획득 하는 경우 이러한 토큰은 각각 고유한 식별자를 가진 별도의 계정으로 취급 됩니다. 계정을 사용 하 여 `acquireTokenSilent`를 사용 하 여 토큰을 요청 하려는 경우 토큰 요청에 사용 하는 정책과 일치 하는 계정 목록에서 계정을 선택 해야 합니다. 예를 들면 다음과 같습니다.
 
 ```java
 // Get Account For Policy

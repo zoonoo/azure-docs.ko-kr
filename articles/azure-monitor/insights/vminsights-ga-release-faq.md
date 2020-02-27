@@ -7,12 +7,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/31/2020
-ms.openlocfilehash: 673cda4005d9c985d8d6ee5ef1d28a3d8c241ac0
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 883f24e529f9479f0c6ee6597c1324a0089ece7b
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482887"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620373"
 ---
 # <a name="azure-monitor-for-vms-generally-available-ga-frequently-asked-questions"></a>GA (VM용 Azure Monitor 일반 공급) 질문과 대답
 
@@ -25,8 +25,6 @@ ms.locfileid: "77482887"
 이 업그레이드를 통해 VM용 Azure Monitor 성능 데이터는 [컨테이너에 대 한 Azure Monitor](container-insights-overview.md)와 동일한 *InsightsMetrics* 테이블에 저장 되므로 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 또한 이전에 사용한 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수 있습니다. 
 
 이제 성능 보기에서 *InsightsMetrics* 테이블에 저장 하는 데이터를 사용 하 고 있습니다.  작업 영역에서 최신 VMInsights 솔루션을 사용 하도록 아직 업그레이드 하지 않은 경우 차트가 더 이상 정보를 표시 하지 않습니다.  아래에 설명 된 것 처럼 **시작** 페이지에서 업그레이드할 수 있습니다.
-
-이 업그레이드를 통해 VM용 Azure Monitor 성능 데이터는 [컨테이너에 대 한 Azure Monitor](container-insights-overview.md) 와 동일한 *InsightsMetrics* 테이블에 저장 되므로 두 데이터 집합을 보다 쉽게 쿼리할 수 있습니다. 이전에 사용 된 테이블에 저장할 수 없는 다양 한 데이터 집합을 저장할 수도 있습니다. 
 
 기존 고객에 게 업그레이드를 요청 하면 워크플로의 중단이 발생 합니다. 따라서 GA 이후에는 공개 미리 보기에서이 작업을 수행 하도록 선택 했습니다.
 

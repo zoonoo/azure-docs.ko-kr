@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/10/2020
+ms.date: 02/26/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 2a0a786d3e2135467c7279c76bae273bff0ba2d0
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149510"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620603"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 
@@ -33,13 +33,13 @@ ms.locfileid: "77149510"
 
 - 모든 페이지
   - 내게 필요한 옵션 수정
-  - 이제 HTML 태그에 `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
+  - 이제 [HTML 태그에](custom-policy-ui-customization.md#guidelines-for-using-custom-page-content) `data-preload="true"` 특성을 추가 하 여 CSS 및 JavaScript에 대 한 로드 순서를 제어할 수 있습니다.
     - 연결 된 CSS 파일을 HTML 템플릿과 동시에 로드 하 여 파일 로드 사이에 ' 깜박임 ' 하지 않도록 합니다.
     - 페이지를 로드 하기 전에 `script` 태그를 가져오고 실행 하는 순서를 제어 합니다.
   - 이제 전자 메일 필드가 `type=email` 되 고 모바일 키보드가 올바른 제안을 제공 합니다.
   - Chrome 변환 지원
 - 통합 및 자체 어설션된 페이지
-  - 이제 사용자 이름/전자 메일 및 암호 필드는 `form` HTML 요소를 사용 하 여 Microsoft Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
+  - 이제 사용자 이름/전자 메일 및 암호 필드는 `form` HTML 요소를 사용 하 여 Edge 및 Internet Explorer (IE)가이 정보를 제대로 저장할 수 있도록 합니다.
 
 ## <a name="110"></a>1.1.0
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/6/2019
 ms.author: iainfou
-ms.openlocfilehash: c0fcb8c2c5f9afa7fabe2ffa63a715ec24aa4a26
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c6e4e6a45fbbeab64184d8ae4b0684ba055d7735
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73720524"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613975"
 ---
 # <a name="deploy-azure-ad-application-proxy-for-secure-access-to-internal-applications-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인의 내부 응용 프로그램에 안전 하 게 액세스할 수 있도록 Azure AD 응용 프로그램 프록시 배포
 
@@ -35,7 +35,7 @@ Azure AD 응용 프로그램 프록시를 처음 사용 하 고 자세히 알아
 * 활성화된 Azure 구독.
     * Azure 구독이 없는 경우 [계정을 만듭니다](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 * 온-프레미스 디렉터리 또는 클라우드 전용 디렉터리와 동기화되어 구독과 연결된 Azure Active Directory 테넌트
-    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant] [Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
+    * 필요한 경우 [Azure Active Directory 테넌트를 만들거나][create-azure-ad-tenant][Azure 구독을 계정에 연결합니다][associate-azure-ad-tenant].
     * **Azure AD Premium 라이선스** 는 Azure AD 응용 프로그램 프록시를 사용 하는 데 필요 합니다.
 * Azure AD 테넌트에서 사용하도록 설정되고 구성된 Azure Active Directory Domain Services 관리되는 도메인
     * 필요한 경우 [Azure Active Directory Domain Services 인스턴스를 만들고 구성합니다][create-azure-ad-ds-instance].
@@ -74,7 +74,7 @@ Azure AD 응용 프로그램 프록시 커넥터로 VM을 사용할 준비가 �
         > [!NOTE]
         > 커넥터를 등록 하는 데 사용 되는 전역 관리자 계정은 응용 프로그램 프록시 서비스를 사용 하도록 설정 하는 동일한 디렉터리에 속해야 합니다.
         >
-        > 예를 들어 Azure AD 도메인이 *contoso.com*인 경우 전역 관리자는 `admin@contoso.com` 되거나 해당 도메인의 다른 유효한 별칭 이어야 합니다.
+        > 예를 들어 Azure AD 도메인이 *aaddscontoso.com*인 경우 전역 관리자는 `admin@aaddscontoso.com` 되거나 해당 도메인의 다른 유효한 별칭 이어야 합니다.
 
    * 커넥터를 설치 하는 VM에 대해 Internet Explorer 보안 강화 구성이 설정 된 경우 등록 화면이 차단 될 수 있습니다. 액세스를 허용 하려면 오류 메시지의 지침에 따라 설치 하는 동안 Internet Explorer 보안 강화를 해제 합니다.
    * 커넥터 등록이 실패 하는 경우 [응용 프로그램 프록시 문제 해결](../active-directory/manage-apps/application-proxy-troubleshoot.md)을 참조 하세요.
@@ -99,16 +99,16 @@ IWA (Windows 통합 인증)를 사용 하 여 응용 프로그램에 Single Sign
 
 [Get ADComputer][Get-ADComputer] 를 사용 하 여 Azure AD 응용 프로그램 프록시 커넥터가 설치 된 컴퓨터에 대 한 설정을 검색 합니다. 도메인에 가입 된 관리 VM에서 *AZURE AD DC administrators* 그룹의 구성원 인 사용자 계정으로 로그인 한 후 다음 cmdlet을 실행 합니다.
 
-다음 예에서는 *appproxy.contoso.com*라는 컴퓨터 계정에 대 한 정보를 가져옵니다. 이전 단계에서 구성 된 Azure AD 응용 프로그램 프록시 VM에 대 한 고유한 컴퓨터 이름을 제공 합니다.
+다음 예에서는 *appproxy.aaddscontoso.com*라는 컴퓨터 계정에 대 한 정보를 가져옵니다. 이전 단계에서 구성 된 Azure AD 응용 프로그램 프록시 VM에 대 한 고유한 컴퓨터 이름을 제공 합니다.
 
 ```powershell
-$ImpersonatingAccount = Get-ADComputer -Identity appproxy.contoso.com
+$ImpersonatingAccount = Get-ADComputer -Identity appproxy.aaddscontoso.com
 ```
 
-Azure AD 응용 프로그램 프록시 앱을 실행 하는 각 응용 프로그램 서버에 대해 [집합-ADComputer][Set-ADComputer] PowerShell cmdlet을 사용 하 여 리소스 기반 kcd를 구성 합니다. 다음 예제에서는 Azure AD 응용 프로그램 프록시 커넥터에 *appserver.contoso.com* 컴퓨터를 사용할 수 있는 권한이 부여 됩니다.
+Azure AD 응용 프로그램 프록시 앱을 실행 하는 각 응용 프로그램 서버에 대해 [집합-ADComputer][Set-ADComputer] PowerShell cmdlet을 사용 하 여 리소스 기반 kcd를 구성 합니다. 다음 예제에서는 Azure AD 응용 프로그램 프록시 커넥터에 *appserver.aaddscontoso.com* 컴퓨터를 사용할 수 있는 권한이 부여 됩니다.
 
 ```powershell
-Set-ADComputer appserver.contoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
+Set-ADComputer appserver.aaddscontoso.com -PrincipalsAllowedToDelegateToAccount $ImpersonatingAccount
 ```
 
 여러 Azure AD 응용 프로그램 프록시 커넥터를 배포 하는 경우 각 커넥터 인스턴스에 대해 리소스 기반 KCD를 구성 해야 합니다.

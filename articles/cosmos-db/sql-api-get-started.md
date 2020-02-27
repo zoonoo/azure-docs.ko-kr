@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: kirankk
-ms.openlocfilehash: 78b88f4e4e60d1f79263bfd9d7dfaf0cabc70de6
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ba8b097dc852ba97d4223ba09f78d1f2cdb568e0
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74173899"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587450"
 ---
 # <a name="tutorial-build-a-net-console-app-to-manage-data-in-azure-cosmos-db-sql-api-account"></a>자습서: .NET 콘솔 앱을 빌드하여 Azure Cosmos DB SQL API 계정에서 데이터 관리
 
@@ -44,7 +44,7 @@ Azure Cosmos DB SQL API 시작 자습서를 시작합니다. 이 자습서를 �
 
 이제 시작하겠습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * 활성 Azure 계정. 계정이 없는 경우 [무료 계정](https://azure.microsoft.com/free/)에 등록할 수 있습니다.
 
@@ -146,7 +146,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. 다음 코드를 추가하여 **Main** 메서드에서 **GetStartedDemoAsync** 비동기 작업을 실행합니다. **Main** 메서드가 예외를 catch하고 콘솔에 씁니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=Main)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="Main":::
 
 1. F5 키를 선택하여 애플리케이션을 실행합니다.
 
@@ -160,7 +160,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. `CreateDatabaseAsync` 메서드를 복사하여 `GetStartedDemoAsync` 메서드 아래에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateDatabaseAsync&highlight=7)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateDatabaseAsync":::
 
     `CreateDatabaseAsync`는 `databaseId` 필드에서 지정된 ID가 있는 데이터베이스가 없으면, ID가 `FamilyDatabase`인 새 데이터베이스를 만듭니다.
 
@@ -281,7 +281,7 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. `CreateContainerAsync` 메서드를 복사하여 `CreateDatabaseAsync` 메서드 아래에 붙여넣습니다. `CreateContainerAsync`는 ID가 `FamilyContainer`인 컨테이너가 없으면 `LastName` 속성으로 분할된 `containerId` 필드에서 지정된 ID를 사용하여 해당 컨테이너를 새로 만듭니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=CreateContainerAsync&highlight=9)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="CreateContainerAsync&highlight":::
 
 1. CosmosClient를 인스턴스화한 아래 코드를 복사하여 붙여넣어 방금 추가한 **CreateContainer** 메서드를 호출합니다.
 
@@ -313,11 +313,13 @@ Azure Cosmos DB 계정을 만들어 보겠습니다. 사용할 계정이 이미 
 
 1. `Family`, `Parent`, `Child`, `Pet` 및 `Address` 클래스를 복사하여 `Family.cs`에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Family.cs":::
+
 
 1. *Program.cs*로 돌아가서 `CreateContainerAsync` 메서드 뒤에 `AddItemsToContainerAsync` 메서드를 추가합니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=AddItemsToContainerAsync)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="AddItemsToContainerAsync":::
+
 
     이 코드는 ID가 같은 항목이 존재하는지 확인합니다. *Andersen Family*와 *Wakefield Family*에 대해 하나씩 두 개의 항목을 삽입하겠습니다.
 
@@ -346,7 +348,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 1. `QueryItemsAsync` 메서드를 복사하여 `AddItemsToContainerAsync` 메서드 뒤에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=QueryItemsAsync&highlight=10-11,17-18)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="QueryItemsAsync":::
 
 1. 호출을 ``GetStartedDemoAsync`` 메서드의 ``QueryItemsAsync``에 추가합니다.
 
@@ -374,7 +376,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 1. `ReplaceFamilyItemAsync` 메서드를 복사하여 `QueryItemsAsync` 메서드 뒤에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=ReplaceFamilyItemAsync&highlight=15)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="ReplaceFamilyItemAsync":::
 
 1. 호출을 `GetStartedDemoAsync` 메서드의 `ReplaceFamilyItemAsync`에 추가합니다.
 
@@ -403,7 +405,7 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 1. `DeleteFamilyItemAsync` 메서드를 복사하여 `ReplaceFamilyItemAsync` 메서드 뒤에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteFamilyItemAsync&highlight=10)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteFamilyItemAsync":::
 
 1. 호출을 `GetStartedDemoAsync` 메서드의 `DeleteFamilyItemAsync`에 추가합니다.
 
@@ -433,11 +435,11 @@ Azure Cosmos DB는 각 컨테이너에 저장된 JSON 문서에 대해 다양한
 
 1. `DeleteDatabaseAndCleanupAsync` 메서드를 복사하여 `DeleteFamilyItemAsync` 메서드 뒤에 붙여넣습니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=DeleteDatabaseAndCleanupAsync)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="DeleteDatabaseAndCleanupAsync":::
 
 1. 호출을 ``GetStartedDemoAsync`` 메서드의 ``DeleteDatabaseAndCleanupAsync``에 추가합니다.
 
-    [!code-csharp[](~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs?name=GetStartedDemoAsync&highlight=14)]
+    :::code language="csharp" source="~/cosmos-dotnet-getting-started/CosmosGettingStartedTutorial/Program.cs" id="GetStartedDemoAsync":::
 
 1. F5 키를 선택하여 애플리케이션을 실행합니다.
 
@@ -492,7 +494,7 @@ Visual Studio에서 Azure Cosmos DB .NET SDK에 대한 참조를 복원하려면
 
 ## <a name="next-steps"></a>다음 단계
 
-* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? 단계별 지침은 [자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발](sql-api-dotnet-application.md)을 참조하세요.
+* 보다 복잡한 ASP.NET MVC 자습서가 필요하신가요? [자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발](sql-api-dotnet-application.md)을 참조하세요.
 * Azure Cosmos DB를 사용하여 규모 및 성능 테스트를 수행하시겠습니까? [Azure Cosmos DB를 사용한 성능 및 규모 테스트](performance-testing.md)를 참조하세요.
 * Azure Cosmos DB 요청, 사용량 및 스토리지를 모니터링하는 방법을 알아보려면 [Azure Cosmos DB에서 성능 및 스토리지 메트릭 모니터링](monitor-accounts.md)을 참조하세요.
 * 샘플 데이터 세트에 대해 쿼리를 실행하려면 [Query Playground](https://www.documentdb.com/sql/demo)를 참조하세요.

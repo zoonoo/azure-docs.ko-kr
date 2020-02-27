@@ -8,12 +8,12 @@ author: spelluru
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: spelluru
-ms.openlocfilehash: 50d12a0aba9018b1ecb30c018249e8f94ebe6d95
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 43e626355feaf1e51fc840f82506c559a1859b84
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75903281"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621997"
 ---
 # <a name="configure-customer-managed-keys-for-encrypting-azure-event-hubs-data-at-rest-by-using-the-azure-portal"></a>Azure Portal를 사용 하 여 미사용 Azure Event Hubs 데이터를 암호화 하기 위한 고객 관리 키 구성
 Azure Event Hubs는 Azure SSE (Azure Storage 서비스 암호화)를 사용 하 여 미사용 데이터의 암호화를 제공 합니다. Event Hubs는 Azure Storage를 사용 하 여 데이터를 저장 하 고, 기본적으로 Azure Storage와 함께 저장 되는 모든 데이터는 Microsoft 관리 키를 사용 하 여 암호화 됩니다. 
@@ -99,7 +99,7 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 ## <a name="log-schema"></a>로그 스키마 
 모든 로그는 JSON(JavaScript Object Notation) 형식으로 저장됩니다. 각 항목에는 다음 표에 설명 된 형식을 사용 하는 문자열 필드가 있습니다. 
 
-| 이름 | Description |
+| 속성 | Description |
 | ---- | ----------- | 
 | TaskName | 실패한 작업에 대한 설명입니다. |
 | ActivityId | 추적에 사용 되는 내부 ID입니다. |
@@ -144,12 +144,268 @@ BYOK 사용 네임 스페이스에 대 한 진단 로그를 설정 하면 고객
 }
 ```
 
+## <a name="use-resource-manager-template-to-enable-encryption"></a>리소스 관리자 템플릿을 사용 하 여 암호화 사용
+이 섹션에서는 **Azure Resource Manager 템플릿을**사용 하 여 다음 작업을 수행 하는 방법을 보여 줍니다. 
+
+1. 관리 서비스 id를 사용 하 여 **Event Hubs 네임 스페이스** 를 만듭니다.
+2. 주요 자격 **증명 모음** 을 만들고 키 자격 증명 모음에 대 한 서비스 id 액세스 권한을 부여 합니다. 
+3. 키 자격 증명 모음 정보 (키/값)를 사용 하 여 Event Hubs 네임 스페이스를 업데이트 합니다. 
+
+
+### <a name="create-an-event-hubs-cluster-and-namespace-with-managed-service-identity"></a>관리 서비스 id를 사용 하 여 Event Hubs 클러스터 및 네임 스페이스 만들기
+이 섹션에서는 Azure Resource Manager 템플릿 및 PowerShell을 사용 하 여 관리 서비스 id를 사용 하 여 Azure Event Hubs 네임 스페이스를 만드는 방법을 보여 줍니다. 
+
+1. 관리 서비스 id를 사용 하 여 Event Hubs 네임 스페이스를 만드는 Azure Resource Manager 템플릿을 만듭니다. 파일 이름: **CreateEventHubClusterAndNamespace**: 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/clusters",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('clusterName')]",
+             "location":"[parameters('location')]",
+             "sku":{
+                "name":"Dedicated",
+                "capacity":1
+             }
+          },
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             },
+             "dependsOn":[
+                "[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]"
+             ]
+          }
+       ],
+       "outputs":{
+          "EventHubNamespaceId":{
+             "type":"string",
+             "value":"[resourceId('Microsoft.EventHub/namespaces',parameters('namespaceName'))]"
+          }
+       }
+    }
+    ```
+2. : **CreateEventHubClusterAndNamespaceParams**라는 템플릿 매개 변수 파일을 만듭니다. 
+
+    > [!NOTE]
+    > 다음 값을 바꿉니다. 
+    > - `<EventHubsClusterName>`-Event Hubs 클러스터의 이름    
+    > - `<EventHubsNamespaceName>`-Event Hubs 네임 스페이스의 이름입니다.
+    > - `<Location>`-Event Hubs 네임 스페이스의 위치
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          }
+       }
+    }
+    
+    ```
+3. 다음 PowerShell 명령을 실행 하 여 템플릿을 배포 하 Event Hubs 네임 스페이스를 만듭니다. 그런 다음 나중에 사용할 Event Hubs 네임 스페이스의 ID를 검색 합니다. 명령을 실행 하기 전에 `{MyRG}`을 리소스 그룹의 이름으로 바꿉니다.  
+
+    ```powershell
+    $outputs = New-AzResourceGroupDeployment -Name CreateEventHubClusterAndNamespace -ResourceGroupName {MyRG} -TemplateFile ./CreateEventHubClusterAndNamespace.json -TemplateParameterFile ./CreateEventHubClusterAndNamespaceParams.json
+
+    $EventHubNamespaceId = $outputs.Outputs["eventHubNamespaceId"].value
+    ```
+ 
+### <a name="grant-event-hubs-namespace-identity-access-to-key-vault"></a>Key vault에 Event Hubs 네임 스페이스 id 액세스 권한 부여
+
+1. 다음 명령을 실행 하 여 **보호 제거** 및 **일시 삭제** 를 사용 하는 주요 자격 증명 모음을 만듭니다. 
+
+    ```powershell
+    New-AzureRmKeyVault -Name {keyVaultName} -ResourceGroupName {RGName}  -Location {location} -EnableSoftDelete -EnablePurgeProtection    
+    ```     
+    
+    또는    
+    
+    다음 명령을 실행 하 여 **기존 주요 자격 증명 모음**을 업데이트 합니다. 명령을 실행 하기 전에 리소스 그룹 및 주요 자격 증명 모음 이름에 대 한 값을 지정 합니다. 
+    
+    ```powershell
+    ($updatedKeyVault = Get-AzureRmResource -ResourceId (Get-AzureRmKeyVault -ResourceGroupName {RGName} -VaultName {keyVaultName}).ResourceId).Properties| Add-Member -MemberType "NoteProperty" -Name "enableSoftDelete" -Value "true"-Force | Add-Member -MemberType "NoteProperty" -Name "enablePurgeProtection" -Value "true" -Force
+    ``` 
+2. Event Hubs 네임 스페이스의 관리 id가 key vault의 키 값에 액세스할 수 있도록 키 자격 증명 모음 액세스 정책을 설정 합니다. 이전 섹션에서 Event Hubs 네임 스페이스의 ID를 사용 합니다. 
+
+    ```powershell
+    $identity = (Get-AzureRmResource -ResourceId $EventHubNamespaceId -ExpandProperties).Identity
+    
+    Set-AzureRmKeyVaultAccessPolicy -VaultName {keyVaultName} -ResourceGroupName {RGName} -ObjectId $identity.PrincipalId -PermissionsToKeys get,wrapKey,unwrapKey,list
+    ```
+
+### <a name="encrypt-data-in-event-hubs-namespace-with-customer-managed-key-from-key-vault"></a>Key vault에서 고객 관리 키를 사용 하 여 Event Hubs 네임 스페이스의 데이터 암호화
+지금까지 다음 단계를 완료 했습니다. 
+
+1. 관리 id를 사용 하 여 프리미엄 네임 스페이스를 만들었습니다.
+2. 주요 자격 증명 모음을 만들고 관리 id에 키 자격 증명 모음에 대 한 액세스 권한을 부여 합니다. 
+
+이 단계에서는 키 자격 증명 모음 정보를 사용 하 여 Event Hubs 네임 스페이스를 업데이트 합니다. 
+
+1. 다음 내용으로 **CreateEventHubClusterAndNamespace** 이라는 json 파일을 만듭니다. 
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentTemplate.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Event Hub cluster."
+             }
+          },
+          "namespaceName":{
+             "type":"string",
+             "metadata":{
+                "description":"Name for the Namespace to be created in cluster."
+             }
+          },
+          "location":{
+             "type":"string",
+             "defaultValue":"[resourceGroup().location]",
+             "metadata":{
+                "description":"Specifies the Azure location for all resources."
+             }
+          },
+          "keyVaultUri":{
+             "type":"string",
+             "metadata":{
+                "description":"URI of the KeyVault."
+             }
+          },
+          "keyName":{
+             "type":"string",
+             "metadata":{
+                "description":"KeyName."
+             }
+          }
+       },
+       "resources":[
+          {
+             "type":"Microsoft.EventHub/namespaces",
+             "apiVersion":"2018-01-01-preview",
+             "name":"[parameters('namespaceName')]",
+             "location":"[parameters('location')]",
+             "identity":{
+                "type":"SystemAssigned"
+             },
+             "sku":{
+                "name":"Standard",
+                "tier":"Standard",
+                "capacity":1
+             },
+             "properties":{
+                "isAutoInflateEnabled":false,
+                "maximumThroughputUnits":0,
+                "clusterArmId":"[resourceId('Microsoft.EventHub/clusters', parameters('clusterName'))]",
+                "encryption":{
+                   "keySource":"Microsoft.KeyVault",
+                   "keyVaultProperties":[
+                      {
+                         "keyName":"[parameters('keyName')]",
+                         "keyVaultUri":"[parameters('keyVaultUri')]"
+                      }
+                   ]
+                }
+             }
+          }
+       ]
+    }
+    ``` 
+
+2. 템플릿 매개 변수 파일을 만듭니다. **UpdateEventHubClusterAndNamespaceParams**. 
+
+    > [!NOTE]
+    > 다음 값을 바꿉니다. 
+    > - `<EventHubsClusterName>`-Event Hubs 클러스터의 이름입니다.        
+    > - `<EventHubsNamespaceName>`-Event Hubs 네임 스페이스의 이름입니다.
+    > - `<Location>`-Event Hubs 네임 스페이스의 위치
+    > - `<KeyVaultName>`-키 자격 증명 모음의 이름
+    > - `<KeyName>`-키 자격 증명 모음에 있는 키의 이름입니다.
+
+    ```json
+    {
+       "$schema":"https://schema.management.azure.com/schemas/2015-01-01/deploymentParameters.json#",
+       "contentVersion":"1.0.0.0",
+       "parameters":{
+          "clusterName":{
+             "value":"<EventHubsClusterName>"
+          },
+          "namespaceName":{
+             "value":"<EventHubsNamespaceName>"
+          },
+          "location":{
+             "value":"<Location>"
+          },
+          "keyName":{
+             "value":"<KeyName>"
+          },
+          "keyVaultUri":{
+             "value":"https://<KeyVaultName>.vault.azure.net"
+          }
+       }
+    }
+    ```             
+3. 다음 PowerShell 명령을 실행 하 여 리소스 관리자 템플릿을 배포 합니다. 명령을 실행 하기 전에 `{MyRG}`을 리소스 그룹의 이름으로 바꿉니다. 
+
+    ```powershell
+    New-AzResourceGroupDeployment -Name UpdateEventHubNamespaceWithEncryption -ResourceGroupName {MyRG} -TemplateFile ./UpdateEventHubClusterAndNamespace.json -TemplateParameterFile ./UpdateEventHubClusterAndNamespaceParams.json 
+    ```
+
 ## <a name="troubleshoot"></a>문제 해결
 모범 사례로, 이전 섹션에 표시 된 것과 같이 항상 로그를 사용 하도록 설정 합니다. BYOK 암호화를 사용 하는 경우 활동을 추적 하는 데 도움이 됩니다. 문제의 범위를 지정 하는 데에도 도움이 됩니다.
 
 BYOK 암호화를 사용 하는 경우 다음은 일반적인 오류 코드입니다.
 
-| 실행력 | 오류 코드 | 데이터의 결과 상태 |
+| 작업 | 오류 코드 | 데이터의 결과 상태 |
 | ------ | ---------- | ----------------------- | 
 | 키 자격 증명 모음에서 래핑/래핑 해제 권한 제거 | 403 |    액세스할 수 없음 |
 | 줄 바꿈/래핑 해제 권한이 부여 된 AAD 사용자에서 AAD 역할 멤버 자격 제거 | 403 |  액세스할 수 없음 |

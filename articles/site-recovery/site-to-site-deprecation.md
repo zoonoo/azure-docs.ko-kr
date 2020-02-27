@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 29a939452d9b90bd8afda7db4e115d10956ee5e5
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77606634"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623609"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Azure Site Recovery를 사용 하 여 고객이 관리 하는 사이트 (VMM) 간의 재해 복구 사용 중단
 
@@ -26,9 +26,9 @@ Site Recovery를 사용 하 여 System Center Virtual Machine Manager (SCVMM)에
 
 ## <a name="what-changes-should-you-expect"></a>어떤 변경이 필요한가?
 
-- 11 월 2019 부터는 이러한 시나리오에 대해 새로운 사용자 온-보드를 사용할 수 없습니다. 장애 조치, 테스트 장애 조치, 모니터링 등을 비롯 한 **기존 복제 및 관리 작업** 에 **는 영향을 주지**않습니다.
+- 2020 년 3 월부터 Hyper-v Vm에 대 한 사이트 간 복제의 예정 된 기능을 사용 하 여 전자 메일 통신 & Azure Portal 알림을 받게 됩니다. 사용 중단은 3 월 2023에 예정 되어 있습니다.
 
-- 기존 구성이 있는 경우에는 새 VMMs를 등록할 수 없습니다.
+- 기존 구성이 있는 경우 설정에 영향을 주지 않습니다.
 
 - 고객이 대체 방법을 사용 하지 않는 한 시나리오를 사용 하지 않으면 기존 복제가 중단 될 수 있습니다. 고객은 Azure Portal에서 Azure Site Recovery 환경을 통해 DR 관련 작업을 보거나 관리 하거나 수행할 수 없습니다.
  

@@ -7,14 +7,14 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 02/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 543227ac9c07207112177dfaccbd00723b61a314
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 8d3f4294a5c8b09a132d56cd72ccb36ce766e0dd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566401"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616714"
 ---
-# <a name="upgrade-azure-internal-load-balancer-from-basic-sku-to-standard-sku"></a>Azure 내부 Load Balancer를 기본 SKU에서 표준 SKU로 업그레이드
+# <a name="upgrade-azure-internal-load-balancer--no-outbound-connection-required"></a>Azure 내부 Load Balancer 업그레이드-아웃 바운드 연결이 필요 하지 않음
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요.
 
 업그레이드에는 두 단계가 있습니다.
@@ -28,12 +28,12 @@ ms.locfileid: "77566401"
 
 다음을 수행 하는 Azure PowerShell 스크립트를 사용할 수 있습니다.
 
-* 지정 된 리소스 그룹 및 위치에 표준 내부 SKU Load Balancer을 만듭니다.
-* 기본 SKU 내부 Load Balancer의 구성을 새로 만든 표준 내부 Load Balancer에 원활 하 게 복사 합니다.
+* 지정 하는 위치에 표준 내부 SKU Load Balancer을 만듭니다. [아웃 바운드 연결은](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 표준 내부 Load Balancer에서 제공 되지 않습니다.
+* 기본 SKU Load Balancer의 구성을 새로 만든 표준 Load Balancer에 원활 하 게 복사 합니다.
 
 ### <a name="caveatslimitations"></a>Caveats\Limitations
 
-* 스크립트는 내부 Load Balancer 업그레이드만 지원 합니다. 내부 기본 Load Balancer 업그레이드의 경우 아웃 바운드 연결을 원하지 않는 경우 표준 내부 Load Balancer을 만들고 아웃 바운드 연결이 필요한 경우 표준 내부 Load Balancer 및 표준 내부 Load Balancer를 만듭니다.
+* 스크립트는 아웃 바운드 연결이 필요 하지 않은 내부 Load Balancer 업그레이드만 지원 합니다. 일부 Vm에 대 한 [아웃 바운드 연결이](https://docs.microsoft.com/azure/load-balancer/load-balancer-outbound-connections) 필요한 경우에는이 [페이지](upgrade-InternalBasic-To-PublicStandard.md) 에서 지침을 참조 하세요. 
 * 표준 Load Balancer에 새 공용 주소가 있습니다. 기존 기본 Load Balancer와 연결 된 IP 주소는 Sku가 다르기 때문에 표준 Load Balancer로 원활 하 게 이동할 수 없습니다.
 * 표준 부하 분산 장치를 다른 지역에 만든 경우 이전 지역의 기존 Vm을 새로 만든 표준 Load Balancer에 연결할 수 없습니다. 이 제한 사항을 해결 하려면 새 지역에 새 VM을 만들어야 합니다.
 * Load Balancer 프런트 엔드 IP 구성 또는 백 엔드 풀이 없는 경우 스크립트를 실행 하는 동안 오류가 발생할 수 있습니다. 비어 있지 않은지 확인 하세요.

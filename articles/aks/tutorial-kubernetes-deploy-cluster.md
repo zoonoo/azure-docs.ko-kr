@@ -2,18 +2,15 @@
 title: Azure의 Kubernertes 자습서 - 클러스터 배포
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 AKS 클러스터를 만들고 kubectl을 사용하여 Kubernetes 마스터 노드에 연결합니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
-ms.date: 12/19/2018
-ms.author: mlearned
+ms.date: 02/25/2020
 ms.custom: mvc
-ms.openlocfilehash: 130cb973f2de1de0d4c4636a4752a06e22edf65b
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 1e977d927a301bee4be6cf3856114692542981b4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932555"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621212"
 ---
 # <a name="tutorial-deploy-an-azure-kubernetes-service-aks-cluster"></a>자습서: AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -76,7 +73,7 @@ az aks get-credentials --resource-group myResourceGroup --name myAKSCluster
 $ kubectl get nodes
 
 NAME                       STATUS   ROLES   AGE   VERSION
-aks-nodepool1-12345678-0   Ready    agent   32m   v1.13.10
+aks-nodepool1-12345678-0   Ready    agent   32m   v1.14.8
 ```
 
 ## <a name="next-steps"></a>다음 단계

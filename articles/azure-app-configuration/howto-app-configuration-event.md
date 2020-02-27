@@ -1,30 +1,26 @@
 ---
-title: '자습서: Azure App Configuration을 사용하여 웹 엔드포인트로 이벤트 전송'
-titleSuffix: Azure App Configuration
-description: 이 자습서에서는 웹 엔드포인트에 키-값 수정 이벤트를 보내도록 Azure App Configuration 이벤트 구독을 설정하는 방법을 알아봅니다.
+title: Azure 앱 구성을 사용 하 여 웹 끝점으로 이벤트 전송
+description: Azure 앱 구성 이벤트 구독을 사용 하 여 웹 끝점에 키-값 수정 이벤트를 보내는 방법에 대해 알아봅니다.
 services: azure-app-configuration
-documentationcenter: ''
-author: jimmyca
-editor: ''
+author: lisaguthrie
 ms.assetid: ''
 ms.service: azure-app-configuration
 ms.devlang: csharp
-ms.topic: tutorial
-ms.date: 05/30/2019
+ms.topic: how-to
+ms.date: 02/25/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 2a80f931f2060d421483b9e26940985091c9bb5c
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
-ms.translationtype: HT
+ms.openlocfilehash: 93700af5e7fb3a4a1253424996ed04532c01f88c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76899689"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619600"
 ---
-# <a name="quickstart-route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
+# <a name="route-azure-app-configuration-events-to-a-web-endpoint-with-azure-cli"></a>Azure CLI를 사용하여 Azure App Configuration 이벤트를 웹 엔드포인트로 라우팅
 
-이 빠른 시작에서는 웹 엔드포인트에 키-값 수정 이벤트를 보내도록 Azure App Configuration 이벤트 구독을 설정하는 방법을 알아봅니다. Azure App Configuration 사용자는 키-값이 수정될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 webhook, Azure Functions, Azure Storage 큐 또는 Azure Event Grid에서 지원되는 다른 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
+이 문서에서는 키-값 수정 이벤트를 웹 끝점으로 보내기 위해 Azure 앱 구성 이벤트 구독을 설정 하는 방법에 대해 알아봅니다. Azure 앱 구성 사용자는 키 값이 수정 될 때마다 내보내지는 이벤트를 구독할 수 있습니다. 이러한 이벤트는 웹 후크, Azure Functions, Azure Storage 큐 또는 Azure Event Grid에서 지원 되는 기타 모든 이벤트 처리기를 트리거할 수 있습니다. 일반적으로 이벤트 데이터를 처리하고 작업을 수행하는 엔드포인트에 이벤트를 보냅니다. 그러나 이 문서를 간소화하기 위해 메시지를 수집하고 표시하는 웹앱에 이벤트를 보냅니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/). Azure Cloud Shell을 사용할 수도 있습니다.
 
@@ -40,21 +36,22 @@ Event Grid 토픽은 Azure 리소스이며 Azure 리소스 그룹에 배치해�
 
 [az group create](/cli/azure/group) 명령을 사용하여 리소스 그룹을 만듭니다. 
 
-다음 예에서는 *westus* 위치에 `<resource_group_name>`이라는 리소스 그룹을 만듭니다.  `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
+다음 예에서는 `<resource_group_name>`westus*위치에*이라는 리소스 그룹을 만듭니다.  `<resource_group_name>`을 리소스 그룹의 고유한 이름으로 바꿉니다.
 
 ```azurecli-interactive
 az group create --name <resource_group_name> --location westus
 ```
 
-## <a name="create-an-app-configuration"></a>App Configuration 만들기
+## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
-`<appconfig_name>`을 App Configuration의 고유한 이름으로 바꾸고, `<resource_group_name>`을 이전에 만든 리소스 그룹으로 바꿉니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
+`<appconfig_name>`를 구성 저장소의 고유한 이름으로 바꾸고,을 이전에 만든 리소스 그룹에 `<resource_group_name>` 합니다. 이름은 DNS 이름으로 사용되므로 고유해야 합니다.
 
 ```azurecli-interactive
 az appconfig create \
   --name <appconfig_name> \
   --location westus \
-  --resource-group <resource_group_name>
+  --resource-group <resource_group_name> \
+  --sku free
 ```
 
 ## <a name="create-a-message-endpoint"></a>메시지 엔드포인트 만들기
@@ -78,7 +75,7 @@ az group deployment create \
 
 [!INCLUDE [event-grid-register-provider-cli.md](../../includes/event-grid-register-provider-cli.md)]
 
-## <a name="subscribe-to-your-app-configuration"></a>App Configuration 구독
+## <a name="subscribe-to-your-app-configuration-store"></a>앱 구성 저장소 구독
 
 항목을 구독하여 Event Grid에 추적하려는 이벤트와 해당 이벤트를 보낼 위치를 알립니다. 다음 예제에서는 앞에서 만든 App Configuration을 구독하고, 웹앱의 URL을 이벤트 알림에 대한 엔드포인트로 전달합니다. `<event_subscription_name>`을 이벤트 구독의 이름으로 바꿉니다. `<resource_group_name>` 및 `<appconfig_name>`에는 앞에서 만든 값을 사용합니다.
 
@@ -122,7 +119,6 @@ az appconfig kv set --name <appconfig_name> --key Foo --value Bar --yes
   "dataVersion": "1",
   "metadataVersion": "1"
 }]
-
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

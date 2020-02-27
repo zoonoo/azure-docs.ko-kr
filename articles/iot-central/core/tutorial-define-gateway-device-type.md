@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: peterpr
-ms.openlocfilehash: 8020abf3f8ab153d0143ff50d837ebcfbf5bdfba
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: ec84d3804c24766c6344e9909ba10089e186599c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423735"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623450"
 ---
 # <a name="define-a-new-iot-gateway-device-type-in-your-azure-iot-central-application"></a>Azure IoT Central 애플리케이션에서 새 IoT 게이트웨이 디바이스 유형 정의
 
@@ -207,4 +207,4 @@ ms.locfileid: "77423735"
 다음으로, 다음을 수행할 수 있습니다.
 
 > [!div class="nextstepaction"]
-> [디바이스 연결](tutorial-connect-pnp-device.md)
+> [디바이스 연결](tutorial-connect-device.md)

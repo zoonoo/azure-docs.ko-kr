@@ -4,7 +4,7 @@ description: Azure의 Linux 가상 머신에 SAP 소프트웨어를 배포하는
 services: virtual-machines-linux,virtual-machines-windows
 documentationcenter: ''
 author: MSSedusch
-manager: gwallace
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 09/16/2019
 ms.author: sedusch
-ms.openlocfilehash: e7a61cc64ae72adfcbeb347ddd076065ccc3a321
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: 19dc9f25cc7355eb540b68f009a77b1ca1e5fb86
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75645857"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614890"
 ---
 # <a name="azure-virtual-machines-deployment-for-sap-netweaver"></a>SAP NetWeaver에 대한 Azure Virtual Machines 배포
 
@@ -321,7 +321,7 @@ Azure Virtual Machines는 긴 조달 주기 없이 최소한의 시간 안에 �
 
 SAP 소프트웨어 배포를 위해 Azure Virtual Machines를 설정하려면 여러 단계와 리소스가 필요합니다. 시작하기 전에 Azure에서 가상 머신에 SAP 소프트웨어를 설치하기 위한 필수 구성 요소를 충족하는지 확인합니다.
 
-### <a name="local-computer"></a>수집
+### <a name="local-computer"></a>로컬 컴퓨터
 
 Windows 또는 Linux VM을 관리하려면 PowerShell 스크립트와 Azure Portal을 사용해야 합니다. 두 가지 도구 모두 Windows 7 또는 이후 버전의 Windows 실행하는 로컬 컴퓨터가 필요합니다. Linux VM만 관리하려는 경우 이 작업에 Linux 컴퓨터를 사용하려면 Azure CLI를 사용할 수 있습니다.
 
@@ -692,7 +692,7 @@ Azure VM 에이전트에 대한 자세한 내용은 다음 리소스를 참조�
 
 디스크가 이미 업로드 되 고 Azure에 정의 된 경우 ( [SAP NetWeaver에 대 한 azure Virtual Machines 계획 및 구현][planning-guide]참조) 다음 몇 섹션에서 설명 하는 작업을 수행 합니다.
 
-#### <a name="create-a-virtual-machine"></a>가상 머신 만들기
+#### <a name="create-a-virtual-machine"></a>가상 컴퓨터 만들기
 
 Azure Portal를 통해 개인 OS 디스크를 사용 하 여 배포를 만들려면 [Azure-빠른 시작-템플릿 GitHub 리포지토리에서][azure-quickstart-templates-github]게시 된 SAP 템플릿을 사용 합니다. 또한 PowerShell을 사용하여 가상 머신을 직접 만들 수도 있습니다.
 
@@ -912,7 +912,7 @@ Windows에서 프록시를 구성하기 위해 거치는 단계는 Linux에서 �
 
   \\etc\\regionserverclnt.cfg에 나열된 IP 주소에 대한 경로도 추가해야 합니다. 다음 그림은 예를 보여 줍니다.
 
-  ![터널링 적용][deployment-guide-figure-50]
+  ![강제 터널링][deployment-guide-figure-50]
 
 
 * **RHEL**
@@ -1036,7 +1036,7 @@ Azure VM을 배포 하 고 SAP 용 관련 Azure 확장을 설정한 후 확장�
 
 1. Azure Virtual Machine에 로그인합니다(관리자 계정 사용은 필요하지 않음).
 1. 명령 프롬프트 창을 엽니다.
-1. 명령 프롬프트에서 디렉터리를 SAP: C:\\패키지\\플러그\\인에 대 한 Azure 확장의 설치 폴더로 변경 합니다. AzureEnhancedMonitoring\\&lt;\\
+1. 명령 프롬프트에서 디렉터리를 SAP: C:\\패키지\\플러그\\인에 대 한 Azure 확장의 설치 폴더로 변경 합니다. AzureEnhancedMonitoring\\&lt;>\\
 
    확장 경로에 있는 *버전이* 다를 수 있습니다. 설치 폴더에 여러 버전의 확장에 대 한 폴더가 표시 되는 경우 AzureEnhancedMonitoring Windows 서비스의 구성을 확인 한 다음 *실행 파일의 경로로*지정 된 폴더로 전환 합니다.
 
@@ -1089,7 +1089,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
    **예상 결과**: 오류가 **없는** 한 줄을 반환합니다. 예: **3;config;Error;;0;0;none;0;1456416792;tst-servercs;**
 
-   다. `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`을 실행합니다.
+   c. `more /var/lib/AzureEnhancedMonitor/LatestErrorRecord`을 실행합니다.
 
    **예상 결과**: 빈 상태로 반환하거나 존재하지 않습니다.
 
@@ -1121,7 +1121,7 @@ Azperflib.exe 출력은 SAP용 Azure 성능 카운터가 모두 채워진 상태
 
    b.  `dump ccm`을 실행합니다.
 
-   다.  **Virtualization_Configuration\Enhanced Monitoring Access** 메트릭이 **true**인지 여부를 확인합니다.
+   c.  **Virtualization_Configuration\Enhanced Monitoring Access** 메트릭이 **true**인지 여부를 확인합니다.
 
 SAP NetWeaver ABAP 애플리케이션 서버가 이미 설치된 경우 트랜잭션 ST06을 열고 고급 모니터링이 사용하도록 설정되어 있는지 여부를 확인합니다.
 

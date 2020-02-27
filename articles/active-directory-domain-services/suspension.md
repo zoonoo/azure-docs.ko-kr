@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 106cd870a8ba52917ecabe6266bbb2c376296d79
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: 8a82d2ad3e79633bb930348c6162996e961c4306
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704270"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612971"
 ---
 # <a name="understand-the-health-states-and-resolve-suspended-domains-in-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에서 성능 상태를 이해 하 고 일시 중단 된 도메인을 해결 합니다.
 
@@ -34,7 +34,7 @@ Azure AD DS 관리 되는 도메인은 다음 상태 중 하나일 수 있습니
 
 * [실행 중](#running-state)
 * [주의가 필요 함](#needs-attention-state)
-* [일시](#suspended-state)
+* [일시 중지됨](#suspended-state)
 * [삭제됨](#deleted-state)
 
 ## <a name="running-state"></a>실행 상태
@@ -96,7 +96,7 @@ Azure Portal의 Azure AD DS 상태 페이지에는 도메인이 일시 중단 �
 *일시 중단* 된 상태에 있는 Azure AD DS 관리 되는 도메인의 상태를 복원 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다.
-1. 목록에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 하 고 **상태**를 선택 합니다.
+1. 목록에서 Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 하 고 **상태**를 선택 합니다.
 1. 일시 중단 원인에 따라 경고 (예: *AADDS503* 또는 *AADDS504*)를 선택 합니다.
 1. 경고에 제공 된 해상도 링크를 선택 하 고 단계에 따라 문제를 해결 합니다.
 

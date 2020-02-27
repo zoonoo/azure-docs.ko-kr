@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: b2a1bcedcc459a21bbc8a461ba9c8d9a8d65aebe
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 7e0e904b182a57a51b5d76f0acebc13bce5902b2
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132199"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612925"
 ---
 # <a name="how-objects-and-credentials-are-synchronized-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에서 개체 및 자격 증명을 동기화 하는 방법
 
@@ -38,7 +38,7 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 
 다음 표에서는 몇 가지 일반적인 특성 및 Azure AD DS에 동기화 되는 방법을 보여 줍니다.
 
-| Azure AD DS의 특성 | 원본 | 참고 |
+| Azure AD DS의 특성 | 원본 | 메모 |
 |:--- |:--- |:--- |
 | UPN | Azure AD 테 넌 트의 사용자 *UPN* 특성 | Azure AD 테 넌 트의 UPN 특성은 Azure AD DS와 동일 하 게 동기화 됩니다. Azure AD DS 관리 되는 도메인에 로그인 하는 가장 신뢰할 수 있는 방법은 UPN을 사용 하는 것입니다. |
 | SAMAccountName | Azure AD 테 넌 트의 사용자 *mailNickname* 특성 또는 자동 생성 | *SAMAccountName* 특성은 Azure AD 테 넌 트의 *mailNickname* 특성을 기반으로 합니다. 여러 사용자 계정이 동일한 *mailNickname* 특성을 사용 하는 경우 *SAMAccountName* 이 자동으로 생성 됩니다. 사용자의 *mailNickname* 또는 *UPN* 접두사가 20 자 보다 길면 *samaccountname 특성의* 20 자 제한을 충족 하도록 *samaccountname* 이 자동으로 생성 됩니다. |
@@ -47,9 +47,9 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 | 사용자 및 그룹에 대한 SID 기록 | 온-프레미스 기본 사용자 및 그룹 SID | Azure AD DS의 사용자 및 그룹에 대 한 *SidHistory* 특성은 온-프레미스 AD DS 환경에서 해당 하는 기본 사용자 또는 그룹 SID와 일치 하도록 설정 됩니다. 이 기능을 통해 온-프레미스 응용 프로그램의 리프트 앤 시프트는 리소스를 다시 사용 하지 않아도 되기 때문에 Azure AD DS 더 쉽게 수행할 수 있습니다. |
 
 > [!TIP]
-> **UPN 형식을 사용 하 여 관리 되는 도메인에 로그인 합니다** . `CONTOSO\driley`와 같은 *SAMAccountName* 특성은 Azure AD DS 관리 되는 도메인의 일부 사용자 계정에 대해 자동으로 생성 될 수 있습니다. 사용자의 자동 생성 된 *SAMAccountName* 은 UPN 접두사와 다를 수 있으므로 항상 신뢰할 수 있는 방식으로 로그인 할 수 없습니다.
+> **UPN 형식을 사용 하 여 관리 되는 도메인에 로그인 합니다** . `AADDSCONTOSO\driley`와 같은 *SAMAccountName* 특성은 Azure AD DS 관리 되는 도메인의 일부 사용자 계정에 대해 자동으로 생성 될 수 있습니다. 사용자의 자동 생성 된 *SAMAccountName* 은 UPN 접두사와 다를 수 있으므로 항상 신뢰할 수 있는 방식으로 로그인 할 수 없습니다.
 >
-> 예를 들어 여러 사용자가 동일한 *mailNickname* 특성을가지고 있거나 사용자에 게 너무 긴 UPN 접두사가 있는 경우 해당 사용자에 대 한 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. `driley@contoso.com`와 같은 UPN 형식을 사용 하 여 Azure AD DS 관리 되는 도메인에 안정적으로 로그인 합니다.
+> 예를 들어 여러 사용자가 동일한 *mailNickname* 특성을가지고 있거나 사용자에 게 너무 긴 UPN 접두사가 있는 경우 해당 사용자에 대 한 *SAMAccountName* 이 자동으로 생성 될 수 있습니다. `driley@aaddscontoso.com`와 같은 UPN 형식을 사용 하 여 Azure AD DS 관리 되는 도메인에 안정적으로 로그인 합니다.
 
 ### <a name="attribute-mapping-for-user-accounts"></a>사용자 계정에 대한 특성 매핑
 
@@ -65,7 +65,7 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 | facsimileTelephoneNumber |facsimileTelephoneNumber |
 | givenName |givenName |
 | jobTitle |title |
-| 메일 |메일 |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | mailNickname |SAMAccountName (경우에 따라 자동으로 생성 될 수 있음) |
 | mobile |mobile |
@@ -89,7 +89,7 @@ Azure Active Directory Domain Services (AD DS) 관리 되는 도메인의 개체
 |:--- |:--- |
 | displayName |displayName |
 | displayName |SAMAccountName (경우에 따라 자동으로 생성 될 수 있음) |
-| 메일 |메일 |
+| mail |mail |
 | mailNickname |msDS-AzureADMailNickname |
 | objectid |msDS-AzureADObjectId |
 | onPremiseSecurityIdentifier |sidHistory |

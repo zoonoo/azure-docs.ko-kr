@@ -5,13 +5,13 @@ author: jan-eng
 ms.author: janeng
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 10eacb9cc1ca4641396212ec9564308d7ef74c3a
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.date: 02/25/2020
+ms.openlocfilehash: 384207f1afdb027ec90a71cbbfe5356d10d87319
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484675"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619507"
 ---
 # <a name="azure-database-for-mysql-pricing-tiers"></a>Azure Database for MySQL 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10 GB |
+| vCore 메모리 | 2GB | 5GB | 10GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -48,7 +48,7 @@ Azure Database for MySQL 서버는 기본, 범용 및 메모리 최적화의 세
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
-| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
+| IOPS | Variable |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
 > 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 한국 중부 지역에서 최대 16TB 및 2만 IOPS의 저장소를 지원 합니다. , 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부.
@@ -85,7 +85,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ## <a name="backup"></a>Backup
 
-서비스에서 서버 백업을 자동으로 수행합니다. 최소 백업 보존 기간은 7일입니다. 보존 기간은 최대 35일까지 설정할 수 있습니다. 보존 기간은 서버 수명 기간 동안 언제든지 조정할 수 있습니다. 로컬 중복 백업과 지역 중복 백업 중에서 선택할 수 있습니다. 지역 중복 백업은 서버가 만들어진 지역의 [쌍으로 연결된 지역](https://docs.microsoft.com/azure/best-practices-availability-paired-regions)에도 저장됩니다. 이 중복성은 재해 발생 시 일정 수준의 보호를 제공합니다. 또한 지역 중복 백업을 통해 서비스를 사용할 수 있는 다른 Azure 지역으로 서버를 복원할 수 있습니다. 서버가 만들어진 후 두 개의 백업 스토리지 옵션 간에 변경할 수 없습니다.
+서비스에서 서버 백업을 자동으로 수행합니다. 7 일에서 35 일 사이의 보존 기간을 선택할 수 있습니다. 범용 및 메모리 액세스에 최적화 된 서버는 백업에 대 한 지역 중복 저장소를 선택할 수 있습니다. 개념에 대 한 자세한 내용은 [개념 문서를 참조](concepts-backup.md)하세요.
 
 ## <a name="scale-resources"></a>리소스 크기 조정
 

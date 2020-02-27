@@ -8,12 +8,12 @@ ms.topic: include
 ms.date: 10/06/2019
 ms.author: mbaldwin
 ms.custom: include file
-ms.openlocfilehash: 398da52ba424c08bd1bbdc6f02641109e136f45c
-ms.sourcegitcommit: 77bfc067c8cdc856f0ee4bfde9f84437c73a6141
+ms.openlocfilehash: 0aa62a76727f6f913c277100d8c5b36ed1b00110
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/16/2019
-ms.locfileid: "72511500"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77618497"
 ---
 ## <a name="create-a-resource-group"></a>리소스 그룹 만들기
 
@@ -115,12 +115,12 @@ Azure 플랫폼은 VM을 부팅하고 볼륨을 해독할 수 있도록 Key Vaul
      Set-AzKeyVaultAccessPolicy -VaultName "<your-unique-keyvault-name>" -ResourceGroupName "MyResourceGroup" -EnabledForTemplateDeployment
      ```
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 1. 키 자격 증명 모음을 선택 하 고 **액세스 정책**으로 이동한 다음 **고급 액세스 정책을 클릭 하 여 표시**합니다.
 2. **볼륨 암호화를 위해 Azure Disk Encryption에 대한 액세스 사용**이라는 레이블이 있는 상자를 선택합니다.
 3. 필요한 경우 **배포를 위해 Azure Virtual Machines에 대한 액세스 사용** 및/또는 **템플릿 배포를 위해 Azure Resource Manager에 대한 액세스 사용**을 선택합니다. 
-4. 페이지 맨 아래에 있는 **저장**을 참조하세요.
+4. **저장**을 클릭합니다.
 
     ![Azure 키 자격 증명 모음에 대한 고급 액세스 정책](../articles/virtual-machines/media/disk-encryption/keyvault-portal-fig4.png)
 
@@ -151,7 +151,7 @@ Azure CLI [az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest
 az keyvault key create --name "myKEK" --vault-name "<your-unique-keyvault-name>" --kty RSA-HSM
 ```
 
-. 대신 Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용 하 여 개인 키를 가져올 수 있습니다.
+대신 Azure CLI [az keyvault key import](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-import) 명령을 사용 하 여 개인 키를 가져올 수 있습니다.
 
 두 경우 모두 Azure CLI [az vm encryption enable](/cli/azure/vm/encryption?view=azure-cli-latest#az-vm-encryption-enable) --KEK 매개 변수에 대 한 이름을 제공 합니다. 
 

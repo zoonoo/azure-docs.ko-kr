@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8700421551af227f158abaa38d5f96c8e2987ba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603396"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616380"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -39,9 +39,9 @@ ms.locfileid: "77603396"
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|Standard|
-|[가상 컴퓨터 동작 분석 위협 검색 경고](security-center-alerts-iaas.md)|✔|✔|✔|권장 사항 (무료) 위협 검색 (표준)|
+|[가상 컴퓨터 동작 분석 위협 검색 경고](threat-protection.md)|✔|✔|✔|권장 사항 (무료) 위협 검색 (표준)|
 |[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[네트워크 기반 위협 검색 경고](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[네트워크 기반 위협 검색 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -67,7 +67,7 @@ ms.locfileid: "77603396"
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|Standard|
 |[가상 컴퓨터 동작 분석 위협 검색 경고](security-center-alerts-iaas.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
 |[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[네트워크 기반 위협 검색 경고](security-center-alerts-service-layer.md#azure-network-layer)|✔|✔|-|Standard|
+|[네트워크 기반 위협 검색 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -95,15 +95,15 @@ ms.locfileid: "77603396"
 
 이러한 각 보호에 대 한 권장 사항이 생성 되는 경우에 대 한 자세한 내용은 [Endpoint Protection 평가 및 권장 사항](security-center-endpoint-protection.md)을 참조 하세요.
 
-| 엔드포인트 보호| 플랫폼 | Security Center 설치 | Security Center 검색 |
+| Endpoint Protection| 플랫폼 | Security Center 설치 | Security Center 검색 |
 |------|------|-----|-----|
-| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| yes |
-| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | yes |
-| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 예 | yes |
-| Symantec v12.1.1100+| Windows Server 제품군  | 예 | yes |
-| McAfee v10+ | Windows Server 제품군  | 예 | yes |
-| McAfee v10+ | Linux 서버 제품군  | 예 | 예 **\*** |
-| Sophos V9 +| Linux 서버 제품군  | 예 | 예 **\***  |
+| Windows Defender(Microsoft 맬웨어 방지 프로그램)| Windows Server 2016| 아니오, OS에 기본 제공| 예 |
+| System Center Endpoint Protection(Microsoft 맬웨어 방지 프로그램) | Windows Server 2012 R2, 2012, 2008 R2(아래 참고 참조) | 확장을 통해 | 예 |
+| 추세 마이크로 – 모든 버전 * | Windows Server 제품군  | 아니요 | 예 |
+| Symantec v12.1.1100+| Windows Server 제품군  | 아니요 | 예 |
+| McAfee v10+ | Windows Server 제품군  | 아니요 | 예 |
+| McAfee v10+ | Linux 서버 제품군  | 아니요 | 예 **\*** |
+| Sophos V9 +| Linux 서버 제품군  | 아니요 | 예 **\***  |
 
  **\*** 현재는 보호 된 구독과 연결 된 Log Analytics 작업 영역 에서만 검사 상태와 지원 데이터를 사용할 수 있습니다. Azure Security Center 포털에는 반영 되지 않습니다.
 
@@ -116,9 +116,9 @@ ms.locfileid: "77603396"
 
 Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니다.
 
-|서비스|권장 사항 (무료)|위협 검색 경고 (표준)|취약성 평가 (표준)|
+|Service|권장 사항 (무료)|위협 검색 경고 (표준)|취약성 평가 (표준)|
 |----|:----:|:----:|:----:|
-|SQL Database|✔|✔|✔|
+|SQL 데이터베이스|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
 |Azure Kubernetes Service|✔|✔|-|
 |Azure Database for PostgreSQL *|✔|✔|-|

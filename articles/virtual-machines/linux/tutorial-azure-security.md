@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 06/11/2018
 ms.author: cynthn
 ms.custom: mvc
-ms.openlocfilehash: 4046aac5e8362bf315eca11d9cd96a6e862e2c55
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 5c5a8bc06c676121c20f6e1f83a26dd9343e6847
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74034599"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605529"
 ---
 # <a name="tutorial-use-azure-security-center-to-monitor-linux-virtual-machines"></a>자습서: Azure Security Center를 사용하여 Linux 가상 머신 모니터링
 
@@ -123,7 +123,7 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 ![RDP 공격](./media/tutorial-azure-security/rdp-attack.png)
 
 ## <a name="next-steps"></a>다음 단계
-이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 Azure Security Center를 설정한 다음 Security Center에서 VM을 검토했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 데이터 수집 설정
@@ -134,5 +134,5 @@ Security Center에서는 리소스 구성 권장 사항 외에도 위협 검색 
 Jenkins, GitHub 및 Docker를 사용하여 CI/CD 파이프라인을 만드는 방법에 대해 알아보려면 다음 자습서로 진행합니다.
 
 > [!div class="nextstepaction"]
-> [Jenkins, GitHub 및 Docker를 사용하여 CI/CD 인프라 만들기](tutorial-jenkins-github-docker-cicd.md)
+> [Jenkins, GitHub 및 Docker를 사용하여 CI/CD 인프라 만들기](../../jenkins/tutorial-jenkins-github-docker-cicd.md)
 

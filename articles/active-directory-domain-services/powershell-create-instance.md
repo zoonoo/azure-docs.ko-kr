@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/05/2019
 ms.author: iainfou
-ms.openlocfilehash: dddbc15a80fe741b9ad1634aac18cb13819dc235
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: ee85002aea962dfa675ac6c09a6bfbaeba8e9e79
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74704422"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613226"
 ---
 # <a name="enable-azure-active-directory-domain-services-using-powershell"></a>PowerShell을 사용하여 Azure Active Directory Domain Services 사용
 
@@ -26,7 +26,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 [!INCLUDE [updated-for-az.md](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
@@ -64,7 +64,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 *AAD DC 관리자* 그룹을 만든 상태에서 [add-azureadgroupmember][Add-AzureADGroupMember] cmdlet을 사용 하 여 그룹에 사용자를 추가 합니다. 먼저 [AzureADGroup][Get-AzureADGroup] cmdlet을 사용 하 여 *AAD DC ADMINISTRATORS* 그룹 개체 Id를 가져온 다음 [get-azureaduser][Get-AzureADUser] cmdlet을 사용 하 여 원하는 사용자의 개체 id를 가져옵니다.
 
-다음 예에서는 `admin@contoso.onmicrosoft.com`UPN을 사용 하는 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
+다음 예에서는 `admin@aaddscontoso.onmicrosoft.com`UPN을 사용 하는 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -74,7 +74,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,7 +128,7 @@ $Vnet= New-AzVirtualNetwork `
 
 ## <a name="create-an-azure-ad-ds-managed-domain"></a>Azure AD DS 관리 되는 도메인 만들기
 
-이제 Azure AD DS 관리 되는 도메인을 만들어 보겠습니다. Azure 구독 ID를 설정 하 고 관리 되는 도메인의 이름 (예: *aadds.contoso.com*)을 입력 합니다. [AzSubscription][Get-AzSubscription] cmdlet을 사용 하 여 구독 ID를 가져올 수 있습니다.
+이제 Azure AD DS 관리 되는 도메인을 만들어 보겠습니다. Azure 구독 ID를 설정 하 고 관리 되는 도메인의 이름 (예: *aaddscontoso.com*)을 입력 합니다. [AzSubscription][Get-AzSubscription] cmdlet을 사용 하 여 구독 ID를 가져올 수 있습니다.
 
 가용성 영역을 지원하는 지역을 선택하면 Azure AD DS 리소스가 추가 중복성을 위해 여러 영역에 배포됩니다.
 
@@ -138,7 +138,7 @@ Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없�
 
 ```powershell
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "aadds.contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Enable Azure AD Domain Services for the directory.
 New-AzResource -ResourceId "/subscriptions/$AzureSubscriptionId/resourceGroups/$ResourceGroupName/providers/Microsoft.AAD/DomainServices/$ManagedDomainName" `
@@ -167,12 +167,12 @@ Azure Portal Azure AD DS 관리 되는 도메인이 프로 비전을 완료 한 
 
 ```powershell
 # Change the following values to match your deployment.
-$AaddsAdminUserUpn = "admin@contoso.onmicrosoft.com"
+$AaddsAdminUserUpn = "admin@aaddscontoso.onmicrosoft.com"
 $ResourceGroupName = "myResourceGroup"
 $VnetName = "myVnet"
 $AzureLocation = "westus"
 $AzureSubscriptionId = "YOUR_AZURE_SUBSCRIPTION_ID"
-$ManagedDomainName = "aadds.contoso.com"
+$ManagedDomainName = "aaddscontoso.com"
 
 # Connect to your Azure AD directory.
 Connect-AzureAD

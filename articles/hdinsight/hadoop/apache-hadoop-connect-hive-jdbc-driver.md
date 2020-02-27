@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive,hdiseo17may2017
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 016107248399e84b7a82a656c9d590c3cbe0cdbe
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 7d1a77800093ae01bc4eb1e1269d1e9a60f9ce26
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77466929"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616667"
 ---
 # <a name="query-apache-hive-through-the-jdbc-driver-in-hdinsight"></a>HDInsight에서 JDBC 드라이버를 통해 Apache Hive 쿼리
 
@@ -23,7 +23,7 @@ Java 애플리케이션에서 JDBC 드라이버를 사용하여 Azure HDInsight�
 
 Hive JDBC 인터페이스에 대한 자세한 내용은 [HiveJDBCInterface](https://cwiki.apache.org/confluence/display/Hive/HiveJDBCInterface)를 참조하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * HDInsight Hadoop 클러스터. 만들려면 [Azure HDInsight 시작](apache-hadoop-linux-tutorial-get-started.md)을 참조하세요. 서비스 HiveServer2 실행 중인지 확인 합니다.
 * [JDK (Java Developer Kit) 버전 11](https://www.oracle.com/technetwork/java/javase/downloads/jdk11-downloads-5066655.html) 이상
@@ -36,6 +36,18 @@ Azure의 HDInsight 클러스터에 대 한 JDBC 연결은 포트 443을 통해 �
     jdbc:hive2://CLUSTERNAME.azurehdinsight.net:443/default;transportMode=http;ssl=true;httpPath=/hive2
 
 `CLUSTERNAME`을 HDInsight 클러스터 이름으로 바꿉니다.
+
+또는 **AMBARI UI > Hive > Configs > 고급**을 통해 연결을 가져올 수 있습니다.
+
+![Ambari를 통해 JDBC 연결 문자열 가져오기](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-get-connection-string-through-ambari.png)
+
+### <a name="host-name-in-connection-string"></a>연결 문자열의 호스트 이름
+
+연결 문자열의 호스트 이름 ' CLUSTERNAME.azurehdinsight.net '은 (는) 클러스터 URL과 동일 합니다. Azure Portal를 통해 가져올 수 있습니다. 
+
+### <a name="port-in-connection-string"></a>연결 문자열의 포트
+
+**포트 443** 을 사용 하 여 Azure 가상 네트워크 외부의 일부 위치에서 클러스터에 연결할 수 있습니다. HDInsight는 관리 되는 서비스입니다. 즉, 클러스터에 대 한 모든 연결이 보안 게이트웨이를 통해 관리 됩니다. 이러한 포트는 외부에 노출 되지 않으므로 포트 10001 또는 1만에서 직접 HiveServer 2에 연결할 수 없습니다. 
 
 ## <a name="authentication"></a>인증
 
@@ -73,7 +85,7 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 | 값 |
     |---|---|
-    |속성|Hive|
+    |이름|Hive|
     |URL 예|jdbc: hive2:/localhost: 443/default; Mode = http; ssl = true, httpPath =/hive2|
     |추가 클래스 경로|**추가** 단추를 사용 하 여 앞에서 다운로드 한 모든 jar 파일을 추가 합니다.|
     |클래스 이름|HiveDriver입니다.|
@@ -90,11 +102,11 @@ SQuirreL SQL은 HDInsight 클러스터와 함께 Hive 쿼리를 원격으로 실
 
     |속성 |값 |
     |---|---|
-    |속성|HDInsight의 Hive|
+    |이름|HDInsight의 Hive|
     |드라이버|드롭다운을 사용 하 여 **Hive** 드라이버를 선택 합니다.|
     |URL|jdbc: hive2://CLUSTERNAME.azurehdinsight.net: 443/default; Mode = http; ssl = true; httpPath =/hive2. **CLUSTERNAME**을 HDInsight 클러스터의 이름으로 바꿉니다.|
     |사용자 이름|HDInsight 클러스터의 클러스터 로그인 계정 이름입니다. 기본값은 **admin**입니다.|
-    |암호|클러스터 로그인 계정의 암호입니다.|
+    |Password|클러스터 로그인 계정의 암호입니다.|
 
     ![매개 변수를 사용 하 여 별칭 추가 대화 상자](./media/apache-hadoop-connect-hive-jdbc-driver/hdinsight-addalias-dialog.png)
 
@@ -138,6 +150,15 @@ at java.util.concurrent.FutureTask.get(FutureTask.java:206)
 1. SQuirreL를 종료 하 고 시스템에 SQuirreL이 설치 된 디렉터리로 이동 합니다 (`C:\Program Files\squirrel-sql-4.0.0\lib`. SquirreL 디렉터리의 `lib` 디렉터리에서 기존 common-codec.jar 파일을 HDInsight 클러스터에서 다운로드한 파일로 바꿉니다.
 
 1. SQuirreL을 다시 시작합니다. HDInsight에서 Hive에 연결할 때 오류가 더 이상 발생하지 않아야 합니다.
+
+### <a name="connection-disconnected-by-hdinsight"></a>HDInsight에서 연결 끊기
+
+**증상**: JDBC/ODBC를 통해 대량의 데이터 (예: 여러 gb)를 다운로드 하려고 하면 다운로드 하는 동안 HDInsight에서 예기치 않게 연결을 끊습니다. 
+
+**원인**:이 오류는 게이트웨이 노드에 대 한 제한으로 인해 발생 합니다. JDBC/ODBC에서 데이터를 가져올 때 모든 데이터는 게이트웨이 노드를 통과 해야 합니다. 그러나 게이트웨이는 대량의 데이터를 다운로드 하도록 설계 되지 않았으므로 트래픽을 처리할 수 없는 경우 게이트웨이가 연결을 닫을 수 있습니다.
+
+**해결**방법: JDBC/ODBC 드라이버를 사용 하 여 대량의 데이터를 다운로드 하지 마세요. 대신 blob 저장소에서 직접 데이터를 복사 합니다.
+
 
 ## <a name="next-steps"></a>다음 단계
 

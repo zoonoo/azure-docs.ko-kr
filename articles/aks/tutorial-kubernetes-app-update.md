@@ -2,24 +2,21 @@
 title: Azure의 Kubernetes 자습서 - 애플리케이션 업데이트
 description: 이 AKS(Azure Kubernetes Service) 자습서에서는 새 버전의 애플리케이션 코드를 사용하여 기존 애플리케이션 배포를 AKS로 업데이트하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: tutorial
 ms.date: 12/19/2018
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: b645fc9f67229d087a5d1655f733e2f3e50d4471
-ms.sourcegitcommit: 6a42dd4b746f3e6de69f7ad0107cc7ad654e39ae
+ms.openlocfilehash: d5457d790cd3c95bb23ec0c517097b443a2389ed
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/07/2019
-ms.locfileid: "67614389"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77593379"
 ---
 # <a name="tutorial-update-an-application-in-azure-kubernetes-service-aks"></a>자습서: AKS(Azure Kubernetes Service)에서 애플리케이션 업데이트
 
 Kubernetes에서 애플리케이션을 배포한 후 새 컨테이너 이미지 또는 이미지 버전을 지정하여 해당 애플리케이션을 업데이트할 수 있습니다. 배포의 일부분만 동시에 업데이트되도록 업데이트가 스테이징됩니다. 이처럼 스테이징 업데이트가 수행되므로 업데이트 중에도 애플리케이션을 계속 실행할 수 있습니다. 또한 배포 오류가 발생하는 경우에는 롤백 메커니즘도 제공됩니다.
 
-이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 다음 방법에 대해 알아봅니다.
+이 자습서(전체 7부 중 6부)에서는 샘플 Azure 투표 앱을 업데이트합니다. 다음 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 애플리케이션 코드 업데이트
@@ -88,7 +85,7 @@ docker tag azure-vote-front <acrLoginServer>/azure-vote-front:v2
 이제 [docker push][docker-push]를 사용하여 레지스트리에 이미지를 업로드합니다. `<acrLoginServer>`를 ACR 로그인 서버 이름으로 바꿉니다.
 
 > [!NOTE]
-> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. 예: `az acr login --name <azure container registry name>`
+> ACR 레지스트리로 푸시하는 데 문제가 있는 경우 여전히 로그인되어 있는지 확인합니다. [Azure Container Registry 만들기](tutorial-kubernetes-prepare-acr.md#create-an-azure-container-registry) 단계에서 생성한 Azure Container Registry의 이름을 사용하여 [az acr login][az-acr-login] 명령을 실행합니다. `az acr login --name <azure container registry name>`)을 입력합니다.
 
 ```console
 docker push <acrLoginServer>/azure-vote-front:v2
@@ -152,7 +149,7 @@ kubectl get service azure-vote-front
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 애플리케이션을 업데이트하고 AKS 클러스터에 배포했습니다. 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 애플리케이션을 업데이트하고 AKS 클러스터에 배포했습니다. 구체적으로 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 프런트 엔드 애플리케이션 코드 업데이트

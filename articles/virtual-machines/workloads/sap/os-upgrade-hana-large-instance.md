@@ -4,7 +4,7 @@ description: SAP HANA on Azure(대형 인스턴스)에 대한 운영 체제 업�
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/04/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 0275d30f2314073af07eced224ade47c49e580c1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 83b86b9bc5c09cc9f97a320e3019ddea68434309
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425379"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616468"
 ---
 # <a name="operating-system-upgrade"></a>운영 체제 업그레이드
 이 문서에서는 HANA 대형 인스턴스에서 운영 체제 업그레이드에 대한 세부 정보를 설명합니다.
