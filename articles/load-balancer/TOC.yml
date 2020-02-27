@@ -62,10 +62,14 @@
       href: load-balancer-security-controls.md
 - name: 방법
   items:
-    - name: 기본 공용 Load Balancer를 표준 공용 Load Balancer로 업그레이드
-      href: upgrade-basic-standard.md
-    - name: 기본 내부 Load Balancer를 표준 내부 Load Balancer로 업그레이드
-      href: upgrade-basicInternal-standard.md
+    - name: 기본 Load Balancer를 표준 Load Balancer로 업그레이드
+      items:
+        - name: 기본 퍼블릭 Load Balancer 업그레이드
+          href: upgrade-basic-standard.md
+        - name: 기본 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요 없음
+          href: upgrade-basicInternal-standard.md
+        - name: 기본 내부 Load Balancer 업그레이드 - 아웃바운드 연결 필요
+          href: upgrade-InternalBasic-To-PublicStandard.md
     - name: 아웃바운드 규칙 구성
       items:
         - name: Azure portal

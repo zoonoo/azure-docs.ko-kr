@@ -69,7 +69,7 @@
               href: ./hdinsight-hadoop-create-linux-clusters-portal.md
             - name: 템플릿을 사용하여 클러스터 만들기
               href: ./hdinsight-hadoop-create-linux-clusters-arm-templates.md
-            - name: 명령줄을 사용하여 클러스터 만들기
+            - name: Azure CLI를 사용하여 클러스터 만들기
               href: ./hdinsight-hadoop-create-linux-clusters-azure-cli.md
             - name: PowerShell을 사용하여 클러스터 만들기
               href: ./hdinsight-hadoop-create-linux-clusters-azure-powershell.md

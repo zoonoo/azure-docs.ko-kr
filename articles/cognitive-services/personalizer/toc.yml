@@ -23,9 +23,11 @@
     - name: Personalizer의 작동 원리
       href: how-personalizer-works.md
       displayName: 'rank, reward, api, explore, exploit, score, design, research, loop, action, context, feature, JSON, event, inactive, model'
-    - name: Personalizer는 어디서 사용할 수 있나요?
+    - name: Personalizer를 사용하는 위치
       href: where-can-you-use-personalizer.md
       displayName: 'checklist, considerations, effectiveness, recommendation engine'
+    - name: 용어
+      href: terminology.md
     - name: 윤리 및 사용 책임
       href: ethics-responsible-use.md
       displayName: 'best practice, design'
@@ -34,9 +36,11 @@
         - name: 기능 작업 및 컨텍스트
           href: concepts-features.md
           displayName: 'action, context, feature, namespace, JSON, best practice, set, ID, guid, event id,'
-        - name: 활성 및 비활성 이벤트
+        - name: 학습 정책
           href: concept-active-learning.md
           displayName: 'active, inactive'
+        - name: 활성 및 비활성 이벤트
+          href: concept-active-inactive-events.md
         - name: 보상
           href: concept-rewards.md
           displayName: 'reward, wait time, default reward'
@@ -56,15 +60,15 @@
       href: concepts-scalability-performance.md
 - name: 방법 가이드
   items:
-    - name: Personalizer 만들기 및 구성
+    - name: Personalizer 리소스 만들기
+      href: how-to-create-resource.md
+    - name: 학습 루프 구성
       href: how-to-settings.md
       displayName: 'azure, portal, settings, evaluation, offline, policy, export, model, configure'
-    - name: 학습 정책 관리
-      href: how-to-learning-policy.md
-    - name: 분석
-      items:
-        - name: 오프라인 평가
-          href: how-to-offline-evaluation.md
+    - name: 모델 및 학습 설정 관리
+      href: how-to-manage-model.md
+    - name: 오프라인 평가를 사용하여 분석
+      href: how-to-offline-evaluation.md
 - name: 참조
   items:
     - name: 샘플

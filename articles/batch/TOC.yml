@@ -59,6 +59,8 @@
       href: high-availability-disaster-recovery.md
     - name: 작업 런타임 환경 변수
       href: batch-compute-node-environment-variables.md
+    - name: Azure 정책과 Batch 통합
+      href: batch-integration-policies.md
 - name: 방법 가이드
   items:
     - name: Batch 계정 관리

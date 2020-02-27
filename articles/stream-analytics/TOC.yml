@@ -195,6 +195,8 @@
           href: setup-cicd-vs-code.md
         - name: 작업 탐색
           href: visual-studio-code-explore-jobs.md
+        - name: JobConfig.json 필드
+          href: job-config-json.md
     - name: 문제 해결
       items:
         - name: 입력

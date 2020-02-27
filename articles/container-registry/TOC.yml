@@ -141,15 +141,17 @@
       items:
         - name: 컨테이너 이미지 빌드 자동화
           items:
-            - name: 원본 컨텍스트에서 빌드
+            - name: 1 - 원본 컨텍스트에서 빌드
               href: container-registry-tutorial-quick-task.md
-            - name: 코드 커밋 시 빌드
+            - name: 2a - 코드 커밋 시 빌드
               href: container-registry-tutorial-build-task.md
-            - name: 코드 커밋 시 다단계 작업 실행
+            - name: 2b - 코드 커밋 시 다단계 작업 실행
               href: container-registry-tutorial-multistep-task.md
-            - name: 기본 이미지 업데이트 시 빌드
+            - name: 3a - 기본 이미지 업데이트 시 빌드
               href: container-registry-tutorial-base-image-update.md
-            - name: 작업 예약
+            - name: 3b - 프라이빗 기본 이미지 업데이트 시 빌드
+              href: container-registry-tutorial-private-base-image-update.md
+            - name: 4 - 일정에 따라 빌드
               href: container-registry-tasks-scheduled.md
     - name: 샘플
       expanded: false
@@ -160,6 +162,8 @@
       items:
         - name: 다단계 작업
           href: container-registry-tasks-multi-step.md
+        - name: 기본 이미지 업데이트
+          href: container-registry-tasks-base-images.md
     - name: 방법 가이드
       expanded: false
       items:

@@ -1,0 +1,63 @@
+### YamlMime:Landing
+title: Azure Mobile Apps 설명서
+summary: Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android 또는 Windows 앱 또는 Xamarin이나 Cordova를 사용하는 교차 플랫폼 앱을 빌드하고 호스팅하는 방법에 대해 알아봅니다.
+metadata:
+  title: Azure Mobile Apps 설명서
+  description: Azure App Service에서 Mobile Apps을 사용하여 네이티브 iOS, Android 또는 Windows 앱 또는 Xamarin이나 Cordova를 사용하는 교차 플랫폼 앱을 빌드하고 호스팅하는 방법에 대해 알아봅니다.
+  ms.topic: landing-page
+  ms.service: app-service-mobile
+  author: georgewallace
+  ms.author: gwallace
+  manager: gwallace
+  ms.date: 02/19/2020
+  ms.openlocfilehash: 024d1588a0897a6f312f25fa83c7e58f4e30aec2
+  ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 02/26/2020
+  ms.locfileid: "77617655"
+landingContent:
+- title: 개요
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Mobile Apps란?
+      url: app-service-mobile-value-prop.md
+    - text: App Service 계획
+      url: ../app-service/overview-hosting-plans.md
+    - text: App Service 비디오 라이브러리
+      url: https://azure.microsoft.com/documentation/videos/index/?services=app-service
+- title: 빠른 시작
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Android 앱 만들기
+      url: app-service-mobile-android-get-started.md
+    - text: Apache Cordova 앱 만들기
+      url: app-service-mobile-cordova-get-started.md
+    - text: iOS 앱 만들기
+      url: app-service-mobile-ios-get-started.md
+    - text: Windows 앱 만들기
+      url: app-service-mobile-windows-store-dotnet-get-started.md
+    - text: Xamarin.Android 앱 만들기
+      url: app-service-mobile-xamarin-android-get-started.md
+    - text: Xamarin.iOS 앱 만들기
+      url: app-service-mobile-xamarin-ios-get-started.md
+    - text: Xamarin.Forms 앱 만들기
+      url: app-service-mobile-xamarin-forms-get-started.md
+- title: 참조
+  linkLists:
+  - linkListType: reference
+    links:
+    - text: .NET 백 엔드 SDK
+      url: /dotnet/api/overview/azure/mobile
+    - text: Node.js 백 엔드 SDK
+      url: https://azure.github.io/azure-mobile-apps-node/
+    - text: Android 클라이언트 SDK
+      url: https://azure.github.io/azure-mobile-apps-android-client/
+    - text: iOS 클라이언트 SDK
+      url: https://azure.github.io/azure-mobile-apps-ios-client/
+    - text: JavaScript/Cordova 클라이언트 SDK
+      url: https://azure.github.io/azure-mobile-apps-js-client/
+    - text: Windows/Xamarin 클라이언트 SDK
+      url: /dotnet/api/overview/azure/mobileapps/client

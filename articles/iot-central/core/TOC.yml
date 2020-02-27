@@ -21,6 +21,8 @@
   items:
     - name: 연결
       items:
+        - name: 디바이스 연결
+          href: tutorial-connect-device.md
         - name: 플러그 앤 플레이(미리 보기) 디바이스 연결
           href: tutorial-connect-pnp-device.md
         - name: 게이트웨이 디바이스 템플릿 만들기
