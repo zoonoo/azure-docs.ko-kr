@@ -7,18 +7,18 @@ ms.date: 09/30/2019
 ms.custom: seodec18
 experimental: false
 experiment_id: a231f2b4-2625-4d
-ms.openlocfilehash: 91494cc9c1e3a1fc159702bdbb7f68a4423b604c
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 3fcc4d9d33637cd61f5621cc95788e9de8ffaec6
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671356"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77500106"
 ---
 # <a name="create-a-nodejs-web-app-in-azure"></a>Azure에서 Node.js 웹앱 만들기 
 
 Azure App Service는 확장성 높은 자체 패치 웹 호스팅 서비스를 제공합니다. 이 빠른 시작에서는 Node.js 앱을 Azure App Service에 배포하는 방법을 보여줍니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure 계정이 없는 경우 지금 200달러의 Azure 크레딧으로 체험 계정에 [지금 가입](https://azure.microsoft.com/free/?utm_source=campaign&utm_campaign=vscode-tutorial-app-service-extension&mktingSource=vscode-tutorial-app-service-extension)하여 서비스 조합을 사용해 볼 수 있습니다.
 
@@ -108,7 +108,7 @@ code .
 ![웹앱에 배포](containers/media/quickstart-nodejs/deploy.png)
 
 > [!TIP]
-> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 **명령 팔레트**(Ctrl+Shift+P)에서 배포할 수도 있습니다.
+> '웹앱에 배포'를 입력하고 **Azure App Service: 웹앱에 배포** 명령을 실행하여 명령 팔레트(Ctrl+Shift+P)에서 배포할 수도 있습니다.
 
 1. 현재 열려 있는 `myExpressApp` 디렉터리를 선택합니다.
 
