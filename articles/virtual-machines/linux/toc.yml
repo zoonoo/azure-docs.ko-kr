@@ -42,9 +42,9 @@
     - name: 13 - VM 보안 관리
       href: tutorial-azure-security.md
     - name: 14a - Jenkins로 빌드
-      href: tutorial-jenkins-github-docker-cicd.md
+      href: ../../jenkins/tutorial-jenkins-github-docker-cicd.md
     - name: 14b - Azure DevOps와 Jenkins 통합
-      href: tutorial-build-deploy-jenkins.md
+      href: ../../jenkins/tutorial-build-deploy-jenkins.md
     - name: 15a - Azure의 IaaS 및 PaaS용 DevOps
       href: tutorial-devops-azure-pipelines-classic.md
     - name: 15b - Azure Pipelines를 사용한 CI/CD(YAML)
@@ -91,8 +91,8 @@
               href: ../av2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: B-시리즈 버스터블
               href: ../sizes-b-series-burstable.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-            - name: DC 시리즈
-              href: ../dc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: DCv2 시리즈
+              href: ../dcv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Dv2 및 DSv2 시리즈
               href: ../dv2-dsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: Dv3 및 Dsv3 시리즈
@@ -534,7 +534,7 @@
             - name: VM 에이전트를 사용하여 크기 조정
               href: ../../jenkins/jenkins-azure-vm-agents.md
             - name: Storage에 아티팩트 게시
-              href: ../../storage/common/storage-java-jenkins-continuous-integration-solution.md
+              href: ../../jenkins/storage-java-jenkins-continuous-integration-solution.md
             - name: Jenkins 보안
               href: 'https://jenkins.io/blog/2017/04/20/secure-jenkins-on-azure/'
     - name: 컨테이너 실행

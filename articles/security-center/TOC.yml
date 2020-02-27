@@ -181,6 +181,20 @@
   items:
     - name: REST API
       href: 'https://docs.microsoft.com/rest/api/securitycenter/'
+    - name: Azure Security Center에 대한 FAQ
+      items:
+        - name: 일반적인 질문
+          href: faq-general.md
+        - name: 대금 청구 관련 질문
+          href: faq-billing.md
+        - name: 권한 질문
+          href: faq-permissions.md
+        - name: 데이터 수집 및 에이전트 질문
+          href: faq-data-collection-agents.md
+        - name: Virtual Machines 질문
+          href: faq-vms.md
+        - name: Azure Log Analytics 기존 사용자
+          href: faq-azure-monitor-logs.md
     - name: 릴리스 정보
       href: 'https://azure.microsoft.com/updates/?product=security-center'
     - name: 기능 및 API 사용 중지(2019년 7월)
@@ -195,8 +209,6 @@
       href: security-center-privacy.md
     - name: IoT용 Azure Security Center 설명서
       href: 'https://docs.microsoft.com/azure/asc-for-iot/'
-    - name: FAQ
-      href: security-center-faq.md
     - name: Azure 보안 설명서
       href: /azure/security/
     - name: Azure 업데이트

@@ -148,6 +148,8 @@
           href: live-event-states-billing.md
         - name: 대기 시간
           href: live-event-latency.md
+        - name: 라이브 이벤트 오류 코드
+          href: live-event-error-codes.md
     - name: 모니터링
       items:
         - name: Event Grid를 사용하는 이벤트
@@ -175,6 +177,8 @@
           items:
             - name: 스트리밍 엔드포인트 오류 코드
               href: streaming-endpoint-error-codes.md
+            - name: 라이브 이벤트 오류 코드
+              href: live-event-error-codes.md
             - name: 작업 오류 코드
               href: job-error-codes.md
     - name: v2에서 v3로의 마이그레이션 지침
@@ -325,6 +329,8 @@
       items:
         - name: 스트리밍 엔드포인트 오류 코드
           href: streaming-endpoint-error-codes.md
+        - name: 라이브 이벤트 오류 코드
+          href: live-event-error-codes.md
         - name: 작업 오류 코드
           href: job-error-codes.md
 - name: 리소스

@@ -120,6 +120,11 @@
       href: sap-deployment-checklist.md
     - name: Azure에서 SAP NetWeaver 계획 및 구현
       href: planning-guide.md
+      items:
+        - name: Azure 가상 머신의 SAP 워크로드 지원 시나리오
+          href: sap-planning-supported-configurations.md
+        - name: Azure 배포를 지원하는 SAP 소프트웨어
+          href: sap-supported-product-on-azure.md
     - name: SAP NetWeaver 배포 가이드
       href: deployment-guide.md
     - name: SAP 워크로드에 대한 DBMS 배포 가이드

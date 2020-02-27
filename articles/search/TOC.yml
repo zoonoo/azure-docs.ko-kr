@@ -109,6 +109,8 @@
           href: search-capacity-planning.md
         - name: 성능 확장
           href: search-performance-optimization.md
+        - name: 지역 간 서비스 이동
+          href: search-howto-move-across-regions.md
         - name: 다중 테넌트 아키텍처
           href: search-modeling-multitenant-saas-applications.md
     - name: 보안

@@ -697,6 +697,9 @@
     - name: Site Recovery
       tocHref: /azure/site-recovery/
       topicHref: /azure/site-recovery/
+    - name: 사이트 안정성 엔지니어링
+      tocHref: /azure/site-reliability-engineering/
+      topicHref: /azure/site-reliability-engineering/
     - name: Synapse Analytics
       tocHref: /azure/sql-data-warehouse/
       topicHref: /azure/sql-data-warehouse/
