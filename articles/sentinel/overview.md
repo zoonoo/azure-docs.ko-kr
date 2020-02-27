@@ -3,7 +3,7 @@ title: Azure Sentinel이란? | Microsoft Docs
 description: Azure Sentinel, 주요 기능 및 작동 방법에 대해 알아봅니다.
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: 10cce91a-421b-4959-acdf-7177d261f6f2
@@ -15,13 +15,13 @@ ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
-ms.author: rkarlin
-ms.openlocfilehash: 5f3a8fa7b9619958db1d7213236e27d00b417c54
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.author: yelevin
+ms.openlocfilehash: 7d0f246a96072a6e433b0762256467f1c20a45fe
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939122"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77581721"
 ---
 # <a name="what-is-azure-sentinel"></a>Azure Sentinel이란?
 

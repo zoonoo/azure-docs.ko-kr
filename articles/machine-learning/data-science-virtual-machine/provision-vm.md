@@ -1,5 +1,6 @@
 ---
-title: '빠른 시작: Windows DSVM 만들기'
+title: '빠른 시작: Windows Data Science Virtual Machine 만들기'
+titleSuffix: Azure Data Science Virtual Machine
 description: 분석 및 기계 학습을 수행하기 위해 Azure에서 데이터 과학 Virtual Machine 구성 및 만들기
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,12 +8,12 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 12/31/2019
-ms.openlocfilehash: f498c2cd6906d1966ab5dfd1f7547686163fe2ce
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 1fdf8eae5d19a2d43499d1984f4dea834d8a61d8
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75611920"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77525875"
 ---
 # <a name="quickstart-set-up-the-data-science-virtual-machine-for-windows"></a>빠른 시작: Windows용 Data Science Virtual Machine 설정
 

@@ -1,17 +1,17 @@
 ---
 title: Kubernetes에서 애플리케이션 개발
 services: azure-dev-spaces
-ms.date: 07/08/2019
+ms.date: 02/20/2020
 ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces 및 명령줄을 사용하여 Azure Kubernetes Service에서 애플리케이션을 개발하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 553c316587d27e0921fbbbf78b02ddb048532c43
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 2d3a498d72264d3084e45202b7daa99806d45ce3
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75867243"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602620"
 ---
 # <a name="quickstart-develop-an-application-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Azure Dev Spaces에서 애플리케이션 개발 - Azure Dev Spaces
 이 가이드에서는 다음을 수행하는 방법을 배우게 됩니다.
@@ -30,7 +30,7 @@ ms.locfileid: "75867243"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정
@@ -76,7 +76,7 @@ Azure Dev Spaces에서 애플리케이션을 실행하려면 Dockerfile 및 Helm
 `azds prep` 명령을 사용하여 Kubernetes에서 애플리케이션을 실행하는 데 필요한 Docker 및 Helm 차트 자산을 생성합니다.
 
 ```cmd
-azds prep --public
+azds prep --enable-ingress
 ```
 
 *dev-spaces/samples/nodejs/getting-started/webfrontend* 디렉터리에서 `prep` 명령을 실행하여 Docker 및 Helm 차트 자산을 올바르게 생성해야 합니다.

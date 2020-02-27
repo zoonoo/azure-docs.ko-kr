@@ -11,14 +11,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/18/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: 1bdd6552c3d418d761ffaf1df4ebb769421693f5
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484998"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589439"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Virtual Network NAT(공개 미리 보기)란?
 
@@ -140,9 +140,6 @@ Azure Monitor에 공개되는 다차원 메트릭을 통해 NAT 작업을 모니
 
 공개 미리 보기에 참여할 수 있도록 구독을 등록해야 합니다.  2단계 참여 프로세스가 필요하며, 아래에는 Azure CLI 및 Azure PowerShell에 대한 지침이 나와 있습니다.  활성화하는 데 몇 분 정도 걸릴 수 있습니다.
 
-> [!IMPORTANT]
-> 구독에서 Virtual Network NAT [미리 보기를 사용하도록 설정](./nat-overview.md#enable-preview)되면 https://aka.ms/natportal 을 사용하여 포털에 액세스합니다.
-
 ### <a name="azure-cli"></a>Azure CLI
 
 1. 공개 미리 보기에 대한 구독 등록
@@ -168,7 +165,7 @@ Azure Monitor에 공개되는 다차원 메트릭을 통해 NAT 작업을 모니
 2. 등록 활성화
 
     ```azurepowershell-interactive
-      Register-AzProviderFeature -ProviderNamespace Microsoft.Network
+      Register-AzResourceProvider -ProviderNamespace Microsoft.Network
     ```
 
 ## <a name="pricing"></a>가격 책정
@@ -197,7 +194,6 @@ NAT는 일반적인 지원 채널을 통해 지원됩니다.
 
 - NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다.   기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
 - IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.
-- 서브넷 또는 NIC의 NSG는 NAT를 사용하는 퍼블릭 엔드포인트로 나가는 아웃바운드 흐름에 적용되지 않습니다.
 - NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
 - NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 

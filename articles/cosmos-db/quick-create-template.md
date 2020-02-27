@@ -7,12 +7,12 @@ tags: azure-resource-manager
 ms.service: cosmos-db
 ms.topic: quickstart
 ms.date: 01/21/2020
-ms.openlocfilehash: 12c2b0b089702b9e56ae099abbefd85769bc1d21
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: 1203e1ebe42d95ec57a3ea884591ba262dc95c1a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76549546"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587909"
 ---
 # <a name="quickstart-create-an-azure-cosmos-db-and-a-container-by-using-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 Azure Cosmos DB 및 컨테이너 만들기
 
@@ -34,7 +34,7 @@ Azure 구독 또는 Azure Cosmos DB 체험 계정
 
 이 빠른 시작에 사용되는 템플릿은 [Azure 빠른 시작 템플릿](https://azure.microsoft.com/resources/templates/101-cosmosdb-create/)에서 나온 것입니다.
 
-[!code-json[<Resource Manager template create Azure Cosmos DB>](~/quickstart-templates/101-cosmosdb-create/azuredeploy.json)]
+:::code language="json" source="~/quickstart-templates/101-cosmosdb-create/azuredeploy.json":::
 
 템플릿에 정의된 세 가지 Azure 리소스는 다음과 같습니다.
 
@@ -78,7 +78,7 @@ Azure Portal은 템플릿을 배포하는데 사용됩니다. Azure Portal 외�
 
 Azure Portal을 사용하여 Azure Cosmos 계정, 데이터베이스 및 컨테이너를 확인하거나, 다음 Azure CLI 또는 Azure PowerShell 스크립트를 사용하여 만들어진 비밀을 나열할 수 있습니다.
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter your Azure Cosmos account name:" &&
@@ -88,7 +88,7 @@ read resourcegroupName &&
 az cosmosdb show -g $resourcegroupName -n $cosmosAccountName
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your Azure Cosmos account exists"
@@ -103,7 +103,7 @@ $resourceGroupName = Read-Host -Prompt "Enter the resource group name where your
 후속 빠른 시작 및 자습서를 계속 진행하려는 경우 이러한 리소스를 그대로 유지하는 것이 좋습니다.
 더 이상 필요하지 않은 경우 리소스 그룹을 삭제합니다. 그러면 해당 Azure Cosmos 계정 및 관련 리소스가 삭제됩니다. Azure CLI 또는 Azure PowerShell을 사용하여 리소스 그룹을 삭제하려면:
 
-# <a name="clitabcli"></a>[CLI](#tab/CLI)
+# <a name="cli"></a>[CLI](#tab/CLI)
 
 ```azurecli-interactive
 echo "Enter the Resource Group name:" &&
@@ -112,7 +112,7 @@ az group delete --name $resourceGroupName &&
 echo "Press [ENTER] to continue ..."
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/PowerShell)
+# <a name="powershell"></a>[PowerShell](#tab/PowerShell)
 
 ```azurepowershell-interactive
 $resourceGroupName = Read-Host -Prompt "Enter the Resource Group name"

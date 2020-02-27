@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: fda0e8072984a25b33731a775780231538e92e3d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 106085c4c528e42d4f559b92585be2f4e0a2f98a
+ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898687"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77498659"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -57,7 +57,7 @@ ms.locfileid: "76898687"
 1. *.csproj* 파일을 엽니다.
 1. 다음 예제처럼 `UserSecretsId` 요소를 추가하고, 값을 해당 값으로 바꿉니다(일반적으로 GUID).
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
 
@@ -73,7 +73,7 @@ ms.locfileid: "76898687"
 
     </Project>
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```xml
     <Project Sdk="Microsoft.NET.Sdk.Web">
     
@@ -89,14 +89,14 @@ ms.locfileid: "76898687"
 
 1. 다음 명령을 실행하여 `Microsoft.Azure.AppConfiguration.AspNetCore` 및 `Microsoft.FeatureManagement.AspNetCore` NuGet 패키지에 대한 참조를 추가합니다.
 
-    ```
-    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore --version 3.0.0-preview-011100002-1192
+    ```dotnetcli
+    dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
     dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
     ```
 
 1. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.
 
-    ```
+    ```dotnetcli
     dotnet restore
     ```
 
@@ -106,7 +106,7 @@ ms.locfileid: "76898687"
 
     이 명령은 *.csproj* 파일이 있는 동일한 디렉터리에서 실행해야 합니다.
 
-    ```
+    ```dotnetcli
     dotnet user-secrets set ConnectionStrings:AppConfig <your_connection_string>
     ```
 
@@ -119,7 +119,7 @@ ms.locfileid: "76898687"
     > [!IMPORTANT]
     > .NET Core 3.0에서 `CreateHostBuilder`는 `CreateWebHostBuilder`를 대체합니다.  사용자 환경에 따라 올바른 구문을 선택합니다.
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     
     ```csharp
     public static IWebHostBuilder CreateWebHostBuilder(string[] args) =>
@@ -135,7 +135,7 @@ ms.locfileid: "76898687"
             .UseStartup<Startup>();
     ```
 
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     
     ```csharp
     public static IHostBuilder CreateHostBuilder(string[] args) =>
@@ -161,7 +161,7 @@ ms.locfileid: "76898687"
 
 1. `services.AddFeatureManagement()` 메서드를 호출하여 기능 플래그 지원을 추가하도록 `ConfigureServices` 메서드를 업데이트합니다. 필요에 따라 `services.AddFeatureFilter<FilterType>()`을 호출하여 기능 플래그에 사용할 필터를 포함할 수 있습니다 :
 
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void ConfigureServices(IServiceCollection services)
     {
@@ -169,7 +169,7 @@ ms.locfileid: "76898687"
         services.AddFeatureManagement();
     }
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```csharp    
     public void ConfigureServices(IServiceCollection services)
     {
@@ -181,7 +181,7 @@ ms.locfileid: "76898687"
 
 1. `Configure` 메서드를 업데이트하여 ASP.NET Core 웹앱이 요청을 계속 수신하는 동안 반복된 간격으로 기능 플래그 값을 새로 고칠 수 있는 미들웨어를 추가합니다.
     
-    #### <a name="net-core-2xtabcore2x"></a>[.NET Core 2.x](#tab/core2x)
+    #### <a name="net-core-2x"></a>[.NET Core 2.x](#tab/core2x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {
@@ -193,7 +193,7 @@ ms.locfileid: "76898687"
             {
                 app.UseExceptionHandler("/Home/Error");
             }
-            
+
             app.UseStaticFiles();
             app.UseCookiePolicy();
             app.UseAzureAppConfiguration();
@@ -205,7 +205,7 @@ ms.locfileid: "76898687"
             });
     }
     ```
-    #### <a name="net-core-3xtabcore3x"></a>[.NET Core 3.x](#tab/core3x)
+    #### <a name="net-core-3x"></a>[.NET Core 3.x](#tab/core3x)
     ```csharp
     public void Configure(IApplicationBuilder app, IHostingEnvironment env)
     {

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.date: 10/09/2019
 ms.author: sagonzal
 ms.custom: aaddev, scenarios:getting-started, languages:Java
-ms.openlocfilehash: 3e1369901e259af6722d9e5a14fababac80f1d02
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 59c2b3b910a9585362643bfcf7cdf9fa2df977bc
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77160562"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77611993"
 ---
 # <a name="quickstart-add-sign-in-with-microsoft-to-a-java-web-app"></a>빠른 시작: Java 웹앱에 Microsoft로 로그인 추가
 
@@ -97,6 +97,7 @@ ms.locfileid: "77160562"
     aad.secretKey=Enter_the_Client_Secret_Here
     aad.redirectUriSignin=https://localhost:8080/msal4jsample/secure/aad
     aad.redirectUriGraph=https://localhost:8080/msal4jsample/graph/me
+    aad.msGraphEndpointHost="https://graph.microsoft.com/"
     ```
 
     > [!div renderon="docs"]
@@ -109,13 +110,13 @@ ms.locfileid: "77160562"
  1. Localhost와 함께 https를 사용하려면 server.ssl.key 속성을 입력합니다. 자체 서명된 인증서를 생성하려면 JRE에 포함된 keytool 유틸리티를 사용합니다.
 
    ```
-   Example: 
+   Example:
    keytool -genkeypair -alias testCert -keyalg RSA -storetype PKCS12 -keystore keystore.p12 -storepass password
 
    server.ssl.key-store-type=PKCS12  
    server.ssl.key-store=classpath:keystore.p12  
    server.ssl.key-store-password=password  
-   server.ssl.key-alias=testCert 
+   server.ssl.key-alias=testCert
    ```
 
    생성된 키 저장소 파일을 "resources" 폴더에 배치합니다.

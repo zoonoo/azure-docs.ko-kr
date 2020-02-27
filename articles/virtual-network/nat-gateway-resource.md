@@ -12,14 +12,14 @@ ms.devlang: na
 ms.topic: overview
 ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
-ms.date: 02/19/2020
+ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: a118d560541595e26c80547dd641968c518aa353
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9d9033689472fbc462eefd3d31c2b36a19add81a
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485015"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589473"
 ---
 # <a name="designing-virtual-networks-with-nat-gateway-resources-public-preview"></a>NAT 게이트웨이 리소스를 사용하여 가상 네트워크 설계(공개 미리 보기)
 
@@ -35,9 +35,6 @@ NAT 게이트웨이 리소스는 [Virtual Network NAT](nat-overview.md)의 일�
 
 >[!NOTE] 
 >Virtual Network NAT는 현재 공개 미리 보기로 제공됩니다. 현재 제한된 [지역](nat-overview.md#region-availability) 세트에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.comsupport/legal/preview-supplemental-terms)을 참조하세요.
-
-> [!IMPORTANT]
-> 구독에서 Virtual Network NAT [미리 보기를 사용하도록 설정](./nat-overview.md#enable-preview)되면 https://aka.ms/natportal 을 사용하여 포털에 액세스합니다.
 
 ## <a name="how-to-deploy-nat"></a>NAT를 배포하는 방법
 
@@ -339,7 +336,6 @@ SNAT 포트는 5초 후에 동일한 대상 IP 주소 및 대상 포트에 다�
 
 - NAT는 표준 SKU 공용 IP, 공용 IP 접두사 및 부하 분산 장치 리소스와 호환됩니다.   기본 리소스(예: 기본 부하 분산 장치) 및 이러한 리소스에서 파생된 제품은 NAT와 호환되지 않습니다.  기본 리소스는 NAT에서 구성되지 않은 서브넷에 배치해야 합니다.
 - IPv4 주소 패밀리가 지원됩니다.  IPv6 주소 패밀리는 NAT와 상호 작용하지 않습니다.
-- 서브넷 또는 NIC의 NSG는 NAT를 사용하는 퍼블릭 엔드포인트로 나가는 아웃바운드 흐름에 적용되지 않습니다.
 - NAT를 사용하는 경우 NSG 흐름 로깅이 지원되지 않습니다.
 - NAT는 여러 가상 네트워크에 걸쳐 있을 수 없습니다.
 

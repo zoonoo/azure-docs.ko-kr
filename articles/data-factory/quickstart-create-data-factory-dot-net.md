@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 06/24/2019
 ms.author: jingwang
-ms.openlocfilehash: 71a256b0350742f0e7a7b95519fafff5bc32f58b
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a2b775afcd9e603a11b560bb7c42d6cf76be9b34
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928783"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77597918"
 ---
 # <a name="quickstart-create-a-data-factory-and-pipeline-using-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 데이터 팩터리 및 파이프라인 만들기
 
@@ -48,7 +48,7 @@ ms.locfileid: "74928783"
 1. [Azure Active Directory 애플리케이션 만들기](../active-directory/develop/howto-create-service-principal-portal.md#create-an-azure-active-directory-application)에서 이 자습서에서 만드는 .NET 애플리케이션을 나타내는 애플리케이션을 만듭니다. sign-on URL의 경우 (`https://contoso.org/exampleapp`)에 보이는 더미 URL을 제공할 수 있습니다.
 2. [로그인을 위한 값 가져오기](../active-directory/develop/howto-create-service-principal-portal.md#get-values-for-signing-in)에서 **애플리케이션 ID** 및 **테넌트 ID**를 가져온 후 이 자습서의 뒷부분에서 사용하게 되므로 이러한 값을 적어둡니다. 
 3. [인증서 및 비밀](../active-directory/develop/howto-create-service-principal-portal.md#certificates-and-secrets)에서 **인증 키**를 가져오고 이 자습서의 뒷부분에서 사용하게 되므로 이 값을 적어둡니다.
-4. [역할에 애플리케이션 할당](../active-directory/develop/howto-create-service-principal-portal.md#assign-the-application-to-a-role)에서 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
+4. [역할에 애플리케이션 할당](../active-directory/develop/howto-create-service-principal-portal.md#assign-a-role-to-the-application)에서 애플리케이션이 구독에 데이터 팩터리를 생성할 수 있도록 구독 수준에서 애플리케이션을 **참여자** 역할에 할당합니다.
 
 ## <a name="create-a-visual-studio-project"></a>Visual Studio 프로젝트 만들기
 
@@ -72,7 +72,7 @@ ms.locfileid: "74928783"
 
 ## <a name="create-a-data-factory-client"></a>데이터 팩터리 클라이언트 만들기
 
-1. **Program.cs**를 열고 다음 문을 포함시켜서 네임스페이스에 대한 참조를 추가합니다.
+1. **Program.cs**를 열고 다음 문을 포함하여 네임스페이스에 대한 참조를 추가합니다.
 
     ```csharp
     using System;

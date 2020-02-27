@@ -5,12 +5,12 @@ ms.assetid: 6feac128-c728-4491-8b79-962da9a40788
 ms.topic: quickstart
 ms.date: 03/27/2019
 ms.custom: seodec18
-ms.openlocfilehash: feab990f1d9b0e26ff134a7232a358fd2bca7cc2
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 7608c10f2d101a3c24209a5e09bccc6dc31401ca
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74687540"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77524107"
 ---
 # <a name="create-a-php-app-in-app-service-on-linux"></a>Linux의 App Service에서 PHP 앱 만들기
 
@@ -26,7 +26,7 @@ Mac, Windows 또는 Linux 컴퓨터를 사용하여 이 문서의 단계를 수�
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 빠른 시작을 완료하려면 다음이 필요합니다.
 
@@ -148,7 +148,7 @@ git push azure master
 
 ![Azure 앱에 대한 포털 탐색](./media/quickstart-php/php-docs-hello-world-app-service-list.png)
 
-앱의 개요 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
+앱의 [개요] 페이지가 표시됩니다. 여기에서 찾아보기, 중지, 시작, 다시 시작, 삭제와 같은 기본 관리 작업을 수행할 수 있습니다.
 
 ![Azure Portal의 App Service 페이지](media/quickstart-php/php-docs-hello-world-app-service-detail.png)
 

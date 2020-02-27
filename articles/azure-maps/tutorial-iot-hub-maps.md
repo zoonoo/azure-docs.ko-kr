@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: a49f641561aa7a293628e914c964020145e0ae62
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f0367a195ca0aa5f26ff0819b00c50fabae1d271
+ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
 ms.translationtype: HT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486434"
+ms.locfileid: "77505830"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -157,7 +157,7 @@ IoT Hub에 연결하려면 디바이스를 등록해야 합니다. 디바이스�
 
 3. 디바이스의 **기본 연결 문자열**을 저장합니다. 나중의 단계에서 자리 표시자를 이 연결 문자열로 바꾸는 데 사용해야 합니다.
 
-    ![디바이스 추가](./media/tutorial-iot-hub-maps/connectionString.png)
+    ![디바이스 추가](./media/tutorial-iot-hub-maps/connection-string.png)
 
 ## <a name="upload-geofence"></a>지오펜스 업로드
 

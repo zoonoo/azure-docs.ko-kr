@@ -2,18 +2,15 @@
 title: 빠른 시작 - AKS(Azure Kubernetes Service) 클러스터 만들기
 description: Azure Resource Manager 템플릿을 사용하여 Kubernetes 클러스터를 신속하고 만들고 AKS(Azure Kubernetes Service)에 애플리케이션을 배포하는 방법을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: quickstart
 ms.date: 04/19/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: 307074618cae75ba57be219b4f975e2aec279682
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
+ms.openlocfilehash: 5fe82dbce2069b0ae1a88599d020f4ba6b116027
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72255507"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595306"
 ---
 # <a name="quickstart-deploy-an-azure-kubernetes-service-aks-cluster-using-an-azure-resource-manager-template"></a>빠른 시작: Azure Resource Manager 템플릿을 사용하여 AKS(Azure Kubernetes Service) 클러스터 배포
 
@@ -29,7 +26,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 CLI를 로컬에 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.61 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][azure-cli-install]를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Resource Manager 템플릿을 사용하여 AKS 클러스터를 만들려면 SSH 공개 키와 Azure Active Directory 서비스 주체를 제공합니다. 이러한 리소스가 필요한 경우 다음 섹션을 참조하세요. 그렇지 않으면 [AKS 클러스터 만들기](#create-an-aks-cluster) 섹션으로 건너뜁니다.
 

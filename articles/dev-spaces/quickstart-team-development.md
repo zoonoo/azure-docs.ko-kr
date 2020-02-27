@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 및 마이크로서비스를 사용하여 Kubernetes 개발 팀을 수행하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1b36cf30574c0c9892a0383bee7e2f914bc9feac
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1f087225fc594b7c6469c4988ea1bf93ec558a71
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482397"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605275"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces
 
@@ -35,7 +35,7 @@ ms.locfileid: "77482397"
 
 ```cmd
 az group create --name MyResourceGroup --location eastus
-az aks create -g MyResourceGroup -n MyAKS --location eastus --disable-rbac --generate-ssh-keys
+az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
 
 ## <a name="enable-azure-dev-spaces-on-your-aks-cluster"></a>AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정

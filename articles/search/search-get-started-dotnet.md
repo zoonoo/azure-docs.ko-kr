@@ -9,12 +9,12 @@ ms.service: cognitive-search
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 02/10/2020
-ms.openlocfilehash: e9f43f729fc9e08054cd160b82945ee4bcd5821c
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 3d0006a3c77050c1bb21a0da8d6be51e659f933d
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121654"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589218"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-c-using-the-net-sdk"></a>빠른 시작: .NET SDK를 사용하여 C#에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -215,7 +215,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
     namespace AzureSearchQuickstart
     {
-        class Program
+        class Program {
             // Demonstrates index delete, create, load, and query
             // Commented-out code is uncommented in later steps
             static void Main(string[] args)

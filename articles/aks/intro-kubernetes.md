@@ -2,18 +2,15 @@
 title: Azure Kubernetes Service 소개
 description: Azure에서 컨테이너 기반 애플리케이션을 배포 및 관리하는 Azure Kubernetes Service의 기능 및 이점을 알아봅니다.
 services: container-service
-author: mlearned
-ms.service: container-service
 ms.topic: overview
 ms.date: 05/06/2019
-ms.author: mlearned
 ms.custom: mvc
-ms.openlocfilehash: c98e67d174c3c8b7fc426e1dd2c5ebafd6760969
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: f78b65169899107bcd4626bbed65bd4fddd8af43
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76932599"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77595453"
 ---
 # <a name="azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)
 
