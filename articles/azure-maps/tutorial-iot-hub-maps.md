@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: 48d148256fe69bbdfd188f1d8472c2de80b0fa64
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a49f641561aa7a293628e914c964020145e0ae62
+ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208372"
+ms.lasthandoff: 02/20/2020
+ms.locfileid: "77486434"
 ---
 # <a name="tutorial-implement-iot-spatial-analytics-using-azure-maps"></a>자습서: Azure Maps를 사용하여 IoT 공간 분석 구현
 
@@ -116,9 +116,9 @@ Azure Maps 공간 분석에 기반한 비즈니스 논리를 구현하려면 만
 
 ### <a name="create-a-storage-account"></a>스토리지 계정 만들기
 
-이벤트 데이터를 기록하기 위해 범용 **v2storage** 계정을 "ContosoRental" 리소스 그룹에 만들어 데이터를 Blob으로 저장합니다. 스토리지 계정을 만들려면 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)의 지침을 따릅니다. 다음으로, Blob을 저장할 컨테이너를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
+이벤트 데이터를 기록하려면 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공하는 범용 **v2storage**를 만듭니다.  데이터를 Blob으로 저장하려면 이 스토리지 계정을 "ContosoRental" 리소스 그룹에 배치해야 합니다. 스토리지 계정을 만들려면 [스토리지 계정 만들기](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account?toc=%2Fazure%2Fstorage%2Fblobs%2Ftoc.json&tabs=azure-portal)의 지침을 따릅니다. 다음으로, Blob을 저장할 컨테이너를 만들어야 합니다. 이렇게 하려면 다음 단계를 수행합니다.
 
-1. 스토리지 계정에서 [컨테이너]로 이동합니다.
+1. "스토리지 계정 - Blob, 파일, 테이블, 큐"에서 [컨테이너]로 이동합니다.
 
     ![Blob](./media/tutorial-iot-hub-maps/blobs.png)
 
@@ -155,6 +155,9 @@ IoT Hub에 연결하려면 디바이스를 등록해야 합니다. 디바이스�
     
     ![디바이스 등록](./media/tutorial-iot-hub-maps/register-device.png)
 
+3. 디바이스의 **기본 연결 문자열**을 저장합니다. 나중의 단계에서 자리 표시자를 이 연결 문자열로 바꾸는 데 사용해야 합니다.
+
+    ![디바이스 추가](./media/tutorial-iot-hub-maps/connectionString.png)
 
 ## <a name="upload-geofence"></a>지오펜스 업로드
 
@@ -188,7 +191,7 @@ Postman 앱을 열고, 아래의 단계에 따라 Azure Maps 데이터 업로드
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0
    ```
 
-6. 상태 URI를 복사하고, 해당 값이 Azure Maps 계정 구독 키인 `subscription-key` 매개 변수를 이 상태 URI에 추가합니다. 상태 URI 형식은 아래와 같습니다.
+6. 상태 URI를 복사하고 `subscription-key` 매개 변수를 추가합니다. Azure Maps 계정 구독 키 값을 `subscription-key` 매개 변수에 할당합니다. 상태 URI 형식은 아래와 동일하지만 `{Subscription-key}`를 구독 키로 바꿔야 합니다.
 
    ```HTTP
    https://atlas.microsoft.com/mapData/{uploadStatusId}/status?api-version=1.0&subscription-key={Subscription-key}
@@ -218,7 +221,7 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 
     ![리소스 만들기](./media/tutorial-iot-hub-maps/create-resource.png)
 
-2. **함수 앱** 만들기 페이지에서 함수 앱의 이름을 지정합니다. **리소스 그룹**에서 **기존 항목 사용**을 선택하고, 드롭다운 목록에서 "ContosoRental"을 선택합니다. 런타임 스택으로 ".NET Core"를 선택합니다. **스토리지**에서 **기존 항목 사용**을 선택하고, 드롭다운 목록에서 "contosorentaldata"를 선택한 다음, **검토 + 만들기**를 선택합니다.
+2. **함수 앱** 만들기 페이지에서 함수 앱의 이름을 지정합니다. **리소스 그룹**에서 **기존 항목 사용**을 선택하고, 드롭다운 목록에서 "ContosoRental"을 선택합니다. 런타임 스택으로 ".NET Core"를 선택합니다. **호스팅** 아래에서 **스토리지 계정**에 대해 이전 단계의 스토리지 계정 이름을 선택합니다. 이전 단계에서 스토리지 계정의 이름을 **v2storage**로 지정했습니다.  그런 다음, **검토+만들기**를 선택합니다.
     
     ![앱 만들기](./media/tutorial-iot-hub-maps/rental-app.png)
 
@@ -233,10 +236,12 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
 5. **Azure Event Grid 트리거**가 있는 템플릿을 선택합니다. 메시지가 표시되면 확장을 설치하고, 함수 이름을 지정하고, **만들기**를 선택합니다.
 
     ![함수 템플릿](./media/tutorial-iot-hub-maps/eventgrid-funct.png)
+    
+    **Azure Event Hub 트리거**와 **Azure Event Grid 트리거**의 아이콘은 비슷합니다. **Azure Event Grid 트리거**를 선택했는지 확인하세요.
 
-6. [C# 코드](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx)를 함수에 복사하고, **저장**을 클릭합니다.
+6. [C# 코드](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/blob/master/src/Azure%20Function/run.csx)를 함수에 복사합니다.
  
-7. C# 스크립트에서 다음 매개 변수를 바꿉니다.
+7. C# 스크립트에서 다음 매개 변수를 바꿉니다. **저장**을 클릭합니다. **실행**은 아직 클릭하지 마세요.
     * **SUBSCRIPTION_KEY**를 Azure Maps 계정 기본 구독 키로 바꿉니다.
     * **UDID**를 업로드한 지오펜스의 udId로 바꿉니다. 
     * 스크립트의 **CreateBlobAsync** 함수에서 이벤트당 Blob을 데이터 스토리지 계정에 만듭니다. **ACCESS_KEY**, **ACCOUNT_NAME** 및 **STORAGE_CONTAINER_NAME**을 스토리지 계정의 액세스 키, 계정 이름 및 데이터 스토리지 컨테이너로 바꿉니다.
@@ -245,7 +250,7 @@ Azure Functions는 컴퓨팅 인프라를 명시적으로 프로비저닝하거�
     
     ![Event Grid 추가](./media/tutorial-iot-hub-maps/add-egs.png)
 
-11. 구독 세부 정보를 채우고, **이벤트 구독 세부 정보** 아래에서 구독 이름을 지정하고, 이벤트 스키마에 대해 "Event Grid 스키마"를 선택합니다. **토픽 세부 정보**에서 토픽 형식으로 "Azure IoT Hub 계정"을 선택합니다. 리소스 그룹을 만드는 데 사용한 것과 동일한 구독을 선택하고, "리소스 그룹"으로 "ContosoRental"을 선택합니다. "리소스"로 만든 IoT Hub를 선택합니다. 이벤트 유형으로 **디바이스 원격 분석**을 선택합니다. 이러한 옵션이 선택되면 "항목 종류"가 "IoT Hub"로 자동으로 변경됩니다.
+11. 구독 세부 정보를 작성하고, **이벤트 구독 정보** 아래에서 이벤트 구독 이름을 지정합니다. 이벤트 스키마에 대해 "Event Grid 스키마"를 선택합니다. **토픽 세부 정보**에서 토픽 형식으로 "Azure IoT Hub 계정"을 선택합니다. 리소스 그룹을 만드는 데 사용한 것과 동일한 구독을 선택하고, "리소스 그룹"으로 "ContosoRental"을 선택합니다. "리소스"로 만든 IoT Hub를 선택합니다. 이벤트 유형으로 **디바이스 원격 분석**을 선택합니다. 이러한 옵션이 선택되면 "항목 종류"가 "IoT Hub"로 자동으로 변경됩니다.
 
     ![Event Grid 구독](./media/tutorial-iot-hub-maps/af-egs.png)
  
@@ -263,7 +268,7 @@ Event Grid 구독이 Azure Function에 추가되면 IoT Hub의 **메시지 라�
 
 ## <a name="send-telemetry-data-to-iot-hub"></a>IoT Hub에 원격 분석 데이터 보내기
 
-Azure Function이 시작되어 실행되면 이제 원격 분석 데이터를 IoT Hub에 보내 Event Grid로 라우팅할 수 있습니다. C# 애플리케이션을 사용하여 렌터카의 차량 내부 디바이스에 대한 위치 데이터를 시뮬레이션해 봅시다. 애플리케이션을 실행하려면 개발 머신에서 .NET Core SDK 2.1.0 이상이 필요합니다. 아래의 단계에 따라 시뮬레이션된 원격 분석 데이터를 IoT Hub에 보냅니다.
+Azure Function이 시작되어 실행되면 이제 원격 분석 데이터를 IoT Hub에 보내 Event Grid로 라우팅할 수 있습니다. C# 애플리케이션을 사용하여 렌터카의 차량 내부 디바이스에 대한 위치 데이터를 시뮬레이션해 보겠습니다. 애플리케이션을 실행하려면 개발 머신에서 .NET Core SDK 2.1.0 이상이 필요합니다. 아래의 단계에 따라 시뮬레이션된 원격 분석 데이터를 IoT Hub에 보냅니다.
 
 1. [rentalCarSimulation](https://github.com/Azure-Samples/iothub-to-azure-maps-geofencing/tree/master/src/rentalCarSimulation) C# 프로젝트를 다운로드합니다. 
 

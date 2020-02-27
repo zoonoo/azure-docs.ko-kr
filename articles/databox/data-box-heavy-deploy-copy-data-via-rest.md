@@ -1,5 +1,5 @@
 ---
-title: REST API를 통해 Azure Data Box Blob Heavy 스토리지로 데이터를 복사하기 위한 자습서 | Microsoft Docs
+title: '자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사'
 description: REST API를 통해 Azure Data Box Heavy Blob 스토리지에 데이터를 복사하는 방법 알아보기
 services: databox
 author: alkohli
@@ -8,25 +8,25 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc48acbadaef56958587dc79be377b76a21fdc0
-ms.sourcegitcommit: c62a68ed80289d0daada860b837c31625b0fa0f0
+ms.openlocfilehash: 43f6404a483cad8377e70591f5454180f0dd07a6
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73606289"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560340"
 ---
 # <a name="tutorial-copy-data-to-azure-data-box-blob-storage-via-rest-apis"></a>자습서: REST API를 통해 Azure Data Box Blob 스토리지에 데이터 복사  
 
 이 자습서에서는 *http* 또는 *https*를 사용한 REST API를 통해 Azure Data Box Blob 스토리지에 연결하는 절차를 설명합니다. 연결한 후에는 데이터를 Data Box Blob 스토리지에 복사하는 데 필요한 단계에 대해서 설명합니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 
@@ -138,7 +138,7 @@ HTTPS를 통해 Data Box Blob 스토리지에 액세스하려면 디바이스의
 Ubuntu 및 Debian 같은 여러 배포판은 `update-ca-certificates` 명령을 사용합니다.  
 
 - `.crt` 확장명이 포함되도록 Base64 인코딩 인증서 파일의 이름을 바꾸고 `/usr/local/share/ca-certificates directory`에 복사합니다.
-- `update-ca-certificates`명령을 실행합니다.
+- `update-ca-certificates` 명령을 실행합니다.
 
 RHEL, Fedora 및 CentOS의 최신 버전은 `update-ca-trust` 명령을 사용합니다.
 
@@ -241,7 +241,7 @@ AzCopy를 사용하여 마지막 수정 시간을 기반으로 파일을 업로�
 이 자습서에서는 Azure Data Box 항목에 대해 다음과 같은 내용을 알아보았습니다.
 
 > [!div class="checklist"]
-> * 필수 조건
+> * 사전 요구 사항
 > * *http* 또는 *https*를 통해 Data Box Blob 스토리지에 연결
 > * Data Box Heavy에 데이터 복사
 

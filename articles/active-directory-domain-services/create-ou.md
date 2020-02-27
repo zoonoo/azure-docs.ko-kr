@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: iainfou
-ms.openlocfilehash: 4db6ad83c44e0c811df0a3b91a473861e4e1ab87
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 7abbdf03e85f425f65a45e6640b82529c2b9c84f
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367149"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614058"
 ---
 # <a name="create-an-organizational-unit-ou-in-an-azure-ad-domain-services-managed-domain"></a>Azure AD Domain Services 관리 되는 도메인에 OU (조직 구성 단위) 만들기
 
@@ -66,11 +66,11 @@ Azure AD DS 관리 되는 도메인에서 사용자 지정 Ou를 만들 때 사�
 1. 관리 VM에 로그인 합니다. Azure Portal를 사용 하 여 연결 하는 방법에 대 한 단계는 [Windows SERVER VM에 연결][connect-windows-server-vm]을 참조 하세요.
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. Ou를 만들고 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
+1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 
     ![Active Directory 관리 센터에서 Azure AD DS 관리 되는 도메인을 선택 합니다.](./media/active-directory-domain-services-admin-guide/create-ou-adac-overview.png)
 
-1. **작업** 창은 Active Directory 관리 센터 오른쪽에 표시 됩니다. *Aadds.contoso.com*와 같은 도메인에서 **새로 만들기 > 조직 구성 단위**를 선택 합니다.
+1. **작업** 창은 Active Directory 관리 센터 오른쪽에 표시 됩니다. *Aaddscontoso.com*와 같은 도메인에서 **새로 만들기 > 조직 구성 단위**를 선택 합니다.
 
     ![Active Directory 관리 센터에서 새 OU를 만드는 옵션을 선택 합니다.](./media/active-directory-domain-services-admin-guide/create-ou-adac-new-ou.png)
 

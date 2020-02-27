@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 7c65e1f871fdab2c925f7a5e6747ad23fe8952d9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 4a5aba6f8a357f33fd921ee12aac7e45f9b581ff
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512779"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613339"
 ---
 # <a name="virtual-network-design-considerations-and-configuration-options-for-azure-ad-domain-services"></a>Azure AD Domain Services에 대 한 가상 네트워크 디자인 고려 사항 및 구성 옵션
 
@@ -60,7 +60,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 다음 방법 중 하나를 사용 하 여 다른 Azure 가상 네트워크에서 호스트 되는 응용 프로그램 작업을 연결할 수 있습니다.
 
 * 가상 네트워크 피어링
-* VPN(가상 사설망)
+* VPN (가상 사설망)
 
 ### <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -70,7 +70,7 @@ Azure AD DS 관리 되는 도메인은 Azure virtual network의 서브넷에 연
 
 자세한 내용은 [Azure 가상 네트워크 피어 링 개요](../virtual-network/virtual-network-peering-overview.md)를 참조 하세요.
 
-### <a name="virtual-private-networking-vpn"></a>VPN(가상 사설망)
+### <a name="virtual-private-networking-vpn"></a>VPN (가상 사설망)
 
 가상 네트워크를 온-프레미스 사이트 위치에 구성할 수 있는 것과 동일한 방식으로 가상 네트워크를 다른 가상 네트워크 (VNet 간)에 연결할 수 있습니다. 두 연결 모두 VPN gateway를 사용 하 여 IPsec/IKE를 통한 보안 터널을 만듭니다. 이 연결 모델을 사용 하면 azure 가상 네트워크에 Azure AD DS를 배포한 후 온-프레미스 위치 또는 다른 클라우드를 연결할 수 있습니다.
 
@@ -105,12 +105,12 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 
 다음 네트워크 보안 그룹 규칙은 Azure AD DS에서 인증 및 관리 서비스를 제공 하는 데 필요 합니다. Azure AD DS 관리 되는 도메인이 배포 되는 가상 네트워크 서브넷에 대해 이러한 네트워크 보안 그룹 규칙을 편집 하거나 삭제 하지 마세요.
 
-| 포트 번호 | 프로토콜 | 원본                             | 대상 | 실행력 | 필수 | 용도 |
+| 포트 번호 | 프로토콜 | 원본                             | 대상 | 작업 | 필수 | 목적 |
 |:-----------:|:--------:|:----------------------------------:|:-----------:|:------:|:--------:|:--------|
-| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | Azure AD 테 넌 트와 동기화. |
-| 3389        | TCP      | CorpNetSaw                         | 모두         | 허용  | 예      | 도메인 관리. |
-| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | 허용  | 예      | 도메인 관리. |
-| 636         | TCP      | 모두                                | 모두         | 허용  | 아닙니다.       | 보안 LDAP (LDAPS)를 구성 하는 경우에만 사용할 수 있습니다. |
+| 443         | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | yes      | Azure AD 테 넌 트와 동기화. |
+| 3389        | TCP      | CorpNetSaw                         | 모두         | Allow  | yes      | 도메인 관리. |
+| 5986        | TCP      | AzureActiveDirectoryDomainServices | 모두         | Allow  | yes      | 도메인 관리. |
+| 636         | TCP      | 모두                                | 모두         | Allow  | 예       | 보안 LDAP (LDAPS)를 구성 하는 경우에만 사용할 수 있습니다. |
 
 > [!WARNING]
 > 이러한 네트워크 리소스 및 구성은 수동으로 편집 하지 마세요. 잘못 구성 된 네트워크 보안 그룹 또는 사용자 정의 경로 테이블을 Azure AD DS이 배포 된 서브넷과 연결 하면 Microsoft에서 도메인을 서비스 하 고 관리 하는 기능을 방해할 수 있습니다. Azure AD 테 넌 트와 Azure AD DS 관리 되는 도메인 간의 동기화도 중단 됩니다.
@@ -146,7 +146,7 @@ Azure AD DS 관리 되는 도메인은 배포 중에 일부 네트워킹 리소�
 
 ## <a name="user-defined-routes"></a>사용자 정의 경로
 
-사용자 정의 경로는 기본적으로 생성 되지 않으며 Azure AD DS 올바르게 작동 하지 않습니다. 경로 테이블을 사용 해야 하는 경우 *0.0.0.0* 경로를 변경 하지 마십시오. 이 경로를 변경 하면 Azure AD Domain Services 중단 될 수 있습니다.
+사용자 정의 경로는 기본적으로 생성 되지 않으며 Azure AD DS 올바르게 작동 하지 않습니다. 경로 테이블을 사용 해야 하는 경우 *0.0.0.0* 경로를 변경 하지 마십시오. 이 경로를 변경 하면 Azure AD Domain Services 중단 되 고 관리 되는 도메인을 지원 되지 않는 상태로 전환 합니다.
 
 또한 해당 Azure 서비스 태그에 포함 된 IP 주소에서 Azure AD Domain Services 서브넷으로 인바운드 트래픽을 라우팅합니다. 서비스 태그 및 관련 IP 주소에 대 한 자세한 내용은 [AZURE Ip 범위 및 서비스 태그-공용 클라우드](https://www.microsoft.com/en-us/download/details.aspx?id=56519)를 참조 하세요.
 

@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f0719542eb693e52f9a7996e28699b7425b0e0fe
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: fa1cba2d791cd40a46f8ad182c123a726143faec
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509141"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614257"
 ---
 # <a name="check-the-health-of-an-azure-active-directory-domain-services-managed-domain"></a>Azure Active Directory Domain Services 관리 되는 도메인의 상태를 확인 합니다.
 
@@ -29,7 +29,7 @@ Azure Active Directory Domain Services (Azure AD DS)는 관리 되는 도메인�
 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인의 상태를 볼 수 있습니다. 마지막 백업 시간 및 Azure AD와의 동기화에 대 한 정보는 관리 되는 도메인의 상태 문제를 나타내는 경고와 함께 볼 수 있습니다. Azure AD DS 관리 되는 도메인의 상태를 확인 하려면 다음 단계를 완료 합니다.
 
 1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다.
-1. Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
+1. Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. Azure AD DS 리소스 창의 왼쪽에서 **상태**를 선택 합니다. 다음 예제 스크린샷에서는 정상적인 Azure AD DS 관리 되는 도메인과 마지막 백업 및 Azure AD 동기화의 상태를 보여 줍니다.
 
     ![상태 페이지 개요 Azure Active Directory Domain Services 상태를 보여 주는 Azure Portal](./media/check-health/health-page.png)

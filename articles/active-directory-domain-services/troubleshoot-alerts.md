@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: article
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 0bb02e6436bf9c9ebb9e54efa73aeed03ab44f3e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c83caf31e25ae2212ed120e77e017ac3849898e8
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512667"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612902"
 ---
 # <a name="known-issues-common-alerts-and-resolutions-in-azure-active-directory-domain-services"></a>알려진 문제: Azure Active Directory Domain Services 일반적인 경고 및 해결 방법
 
@@ -30,7 +30,7 @@ ms.locfileid: "76512667"
 
 *관리 되는 도메인과 연결 된 Azure AD 디렉터리가 삭제 되었을 수 있습니다. 관리 되는 도메인은 더 이상 지원 되지 않는 구성입니다. Microsoft는 관리 되는 도메인을 모니터링, 관리, 패치 및 동기화 할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 이 오류는 일반적으로 Azure 구독을 새 Azure AD 디렉터리로 이동 하 고 Azure AD DS와 연결 된 이전 Azure AD 디렉터리를 삭제 한 경우에 발생 합니다.
 
@@ -42,7 +42,7 @@ ms.locfileid: "76512667"
 
 *Azure AD Domain Services를 Azure AD B2B 디렉터리에서 사용 가능하게 설정할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS는 Azure AD 디렉터리와 자동으로 동기화 됩니다. Azure AD 디렉터리가 B2C에 대해 구성 된 경우 Azure AD DS를 배포 하 고 동기화 할 수 없습니다.
 
@@ -60,7 +60,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 *Azure AD Domain Services 사용 하도록 설정한 가상 네트워크에 대 한 IP 주소 범위가 공용 IP 범위에 있습니다. Azure AD Domain Services은 개인 IP 주소 범위를 가진 가상 네트워크에서 사용 하도록 설정 해야 합니다. 이 구성은 관리 되는 도메인을 모니터링, 관리, 패치, 동기화 하는 Microsoft의 기능에 영향을 줍니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 시작 하기 전에 [개인 IP v4 주소 공간](https://en.wikipedia.org/wiki/Private_network#Private_IPv4_address_spaces)을 이해 하 고 있는지 확인 합니다.
 
@@ -88,7 +88,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 *관리 되는 도메인과 연결 된 Azure 구독이 삭제 되었습니다.  제대로 작동 하려면 활성 구독이 필요 Azure AD Domain Services.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 수 없습니다. Azure AD DS 관리 되는 도메인에 연결 된 Azure 구독이 삭제 된 경우 Azure 구독 및 Azure AD DS 관리 되는 도메인을 다시 만들어야 합니다.
 
@@ -102,7 +102,7 @@ Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 �
 
 *관리 되는 도메인과 연결 된 Azure 구독이 활성 상태가 아닙니다.  제대로 작동 하려면 활성 구독이 필요 Azure AD Domain Services.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS에는 활성 구독이 필요 합니다. Azure AD DS 관리 되는 도메인이 연결 된 Azure 구독이 활성 상태가 아닌 경우 갱신 하 여 구독을 다시 활성화 해야 합니다.
 
@@ -117,7 +117,7 @@ Azure AD DS에는 활성 구독이 필요 합니다. Azure AD DS 관리 되는 �
 
 *Azure AD Domain Services에서 사용 하는 구독이 다른 디렉터리로 이동 되었습니다. Azure AD Domain Services 제대로 작동 하려면 동일한 디렉터리에 활성 구독이 있어야 합니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 수 없습니다. Azure AD DS 관리 되는 도메인에 연결 된 Azure 구독이 이동 된 경우 구독을 이전 디렉터리로 다시 이동 하거나 기존 디렉터리에서 [관리 되는 도메인을 삭제](delete-aadds.md) 하 고 [선택한 구독에서 대체 Azure AD DS 관리 되는 도메인을 만듭니다](tutorial-create-instance.md).
 
@@ -127,13 +127,13 @@ Azure AD DS에는 활성 구독이 필요 하며 다른 구독으로 이동할 �
 
 *관리 되는 도메인에 사용 되는 리소스가 삭제 되었습니다. 이 리소스는 Azure AD Domain Services 제대로 작동 하는 데 필요 합니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS는 공용 IP 주소, 가상 네트워크 인터페이스, 부하 분산 장치 등 제대로 작동 하는 추가 리소스를 만듭니다. 이러한 리소스 중 하나라도 삭제 되 면 관리 되는 도메인은 지원 되지 않는 상태가 되며 도메인이 관리 되지 않습니다. 이러한 리소스에 대 한 자세한 내용은 [Azure AD DS에서 사용 하는 네트워크 리소스](network-considerations.md#network-resources-used-by-azure-ad-ds)를 참조 하세요.
 
 이 경고는 이러한 필수 리소스 중 하나를 삭제할 때 생성 됩니다. 리소스가 4 시간 이내에 삭제 된 경우 Azure 플랫폼에서 삭제 된 리소스를 자동으로 다시 만들 수 있습니다. 다음 단계에서는 리소스 삭제에 대 한 상태 및 타임 스탬프를 확인 하는 방법을 간략하게 설명 합니다.
 
-1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다. Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
+1. Azure Portal에서 **도메인 서비스**를 검색 하 고 선택 합니다. Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. 왼쪽 탐색 영역에서 **상태**를 선택 합니다.
 1. 상태 페이지에서 ID *AADDS109*를 사용 하 여 경고를 선택 합니다.
 1. 경고에는 처음 발견 된 타임 스탬프가 있습니다. 해당 타임 스탬프가 4 시간 이전인 경우 Azure 플랫폼에서 자동으로 리소스를 다시 만들고 경고를 자체적으로 해결할 수 있습니다.
@@ -146,7 +146,7 @@ Azure AD DS는 공용 IP 주소, 가상 네트워크 인터페이스, 부하 분
 
 *Azure AD Domain Services의 배포에 선택된 서브넷이 꽉 차서 만들어야 하는 추가 도메인 컨트롤러에 사용할 수 있는 공간이 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 IP 주소가 충분 해야 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
 
@@ -158,7 +158,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 *도메인에 서비스를 사용 하는 데 사용 하 Azure AD Domain Services는 서비스 주체는 Azure 구독에서 리소스를 관리할 수 있는 권한이 없습니다. 서비스 사용자는 관리 되는 도메인을 서비스 하기 위한 권한을 얻어야 합니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 자동으로 생성 된 일부 서비스 주체는 Azure AD DS 관리 되는 도메인에 대 한 리소스를 관리 하 고 만드는 데 사용 됩니다. 이러한 서비스 사용자 중 한 명에 대 한 액세스 권한이 변경 되 면 도메인은 리소스를 올바르게 관리할 수 없습니다. 다음 단계에서는 서비스 주체에 대 한 액세스 권한을 이해 하 고 부여 하는 방법을 보여 줍니다.
 
@@ -171,7 +171,7 @@ Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리�
 
 *이 도메인에 있는 가상 네트워크의 서브넷에 IP 주소가 충분 하지 않은 것으로 확인 되었습니다. Azure AD Domain Services 사용 하도록 설정 된 서브넷 내에서 사용 가능한 IP 주소가 두 개 이상 필요 합니다. 서브넷 내에 최소 3-5의 예비 IP 주소가 있는 것이 좋습니다. 이는 서브넷 내에 다른 가상 컴퓨터를 배포 하 여 사용 가능한 IP 주소 수가 고갈 되었거나 서브넷에서 사용 가능한 IP 주소 수가 제한 된 경우에 발생할 수 있습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 Azure AD DS의 가상 네트워크 서브넷에는 자동으로 생성 된 리소스에 대 한 충분 한 IP 주소가 필요 합니다. 이 IP 주소 공간에는 유지 관리 이벤트가 있는 경우 대체 리소스를 만들어야 하는 필요성이 포함 됩니다. 사용 가능한 IP 주소가 부족 하 게 되는 위험을 최소화 하려면 Azure AD DS와 동일한 가상 네트워크 서브넷에 자체 Vm과 같은 추가 리소스를 배포 하지 마세요.
 
@@ -194,7 +194,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 *Azure AD Domain Services에서 사용되는 리소스가 예기치 않은 상태로 발견되었으며 복구할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 Azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 다시 만듭니다. Azure AD DS 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [azure 지원 요청을 여세요][azure-support] .
 
@@ -204,7 +204,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 *Azure AD Domain Services의 배포를 위해 선택한 서브넷이 유효하지 않아 사용할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 이 오류는 복구할 수 없습니다. 이 경고를 해결 하려면 [기존 Azure AD DS 관리 되는 도메인을 삭제](delete-aadds.md) 하 고 다시 만듭니다. Azure AD DS 관리 되는 도메인을 삭제 하는 데 문제가 있으면 추가 문제 해결 지원을 위해 [azure 지원 요청을 여세요][azure-support] .
 
@@ -214,7 +214,7 @@ Azure AD DS 관리 되는 도메인의 상태는 2 시간 내에 자동으로 �
 
 *대상 범위가 잠겨 관리되는 도메인에 사용되는 하나 이상의 네트워크 리소스를 사용할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 변경 또는 삭제를 방지 하기 위해 Azure 리소스에 리소스 잠금을 적용할 수 있습니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 리소스 잠금이 일부 Azure AD DS 구성 요소에 적용 되는 경우 Azure 플랫폼은 해당 관리 작업을 수행할 수 없습니다.
 
@@ -229,7 +229,7 @@ Azure AD DS 구성 요소에 대 한 리소스 잠금을 확인 하 고 제거 �
 
 *정책 제한으로 인해 관리되는 도메인에 사용되는 하나 이상의 네트워크 리소스를 사용할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 정책은 허용 되는 구성 작업을 제어 하는 Azure 리소스 및 리소스 그룹에 적용 됩니다. Azure AD DS는 관리 되는 서비스 이므로 Azure 플랫폼에서 구성 변경을 수행 하는 기능이 필요 합니다. 일부 Azure AD DS 구성 요소에 정책이 적용 되는 경우 Azure 플랫폼은 관리 작업을 수행 하지 못할 수 있습니다.
 
@@ -244,7 +244,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 *관리 되는 도메인은 [date]에서 Azure AD와 마지막으로 동기화 되었습니다. 사용자가 관리 되는 도메인에 로그인 할 수 없거나 그룹 구성원이 Azure AD와 동기화 되지 않았을 수 있습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 관리 되는 도메인의 구성에서 문제를 나타내는 모든 경고에 대해 [Azure AD DS 상태를 확인 합니다](check-health.md) . 네트워크 구성 문제로 인해 Azure AD에서 동기화가 차단 될 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 성공적으로 완료 되었는지 확인 합니다.
 
@@ -259,7 +259,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 *관리되는 도메인은 마지막으로 [date]에 백업되었습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 [Azure AD DS 상태에서](check-health.md) 관리 되는 도메인의 구성에 문제가 있음을 나타내는 경고를 확인 합니다. 네트워크 구성과 관련 된 문제는 Azure 플랫폼이 백업을 성공적으로 수행 하지 못하도록 차단할 수 있습니다. 구성 문제를 나타내는 경고를 해결할 수 있는 경우 2 시간 동안 기다렸다가 동기화가 성공적으로 완료 되었는지 확인 합니다.
 
@@ -269,7 +269,7 @@ Azure AD DS 구성 요소에서 적용 된 정책을 확인 하 고 업데이트
 
 *해당 도메인과 연결된 Azure 구독이 활성 상태가 아니기 때문에 관리되는 도메인은 일시 중단됩니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 > [!WARNING]
 > Azure AD DS 관리 되는 도메인이 오랫동안 일시 중단 된 경우 삭제 될 위험이 있습니다. 가능한 한 빨리 일시 중단의 원인을 해결 합니다. 자세한 내용은 [Azure AD DS의 일시 중단 된 상태 이해](suspension.md)를 참조 하세요.
@@ -287,7 +287,7 @@ Azure AD DS에는 활성 구독이 필요 합니다. Azure AD DS 관리 되는 �
 
 *잘못 된 구성으로 인해 관리 되는 도메인이 일시 중단 되었습니다. 서비스에서 오랜 시간 동안 관리 되는 도메인에 대 한 도메인 컨트롤러를 관리, 패치 또는 업데이트할 수 없습니다.*
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 > [!WARNING]
 > Azure AD DS 관리 되는 도메인이 오랫동안 일시 중단 된 경우 삭제 될 위험이 있습니다. 가능한 한 빨리 일시 중단의 원인을 해결 합니다. 자세한 내용은 [Azure AD DS의 일시 중단 된 상태 이해](suspension.md)를 참조 하세요.

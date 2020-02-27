@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/31/2020
 ms.author: iainfou
-ms.openlocfilehash: 46557d802222190c0ed82f6243dd2a9b997ecaa5
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 18395f2b839aef88491f71aeed660eb2ce011e2c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76960569"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614231"
 ---
 # <a name="change-the-sku-for-an-existing-azure-ad-domain-services-managed-domain"></a>기존 Azure AD Domain Services 관리 되는 도메인에 대 한 SKU 변경
 
@@ -46,7 +46,7 @@ Azure Active Directory Domain Services (Azure AD DS)에서 사용할 수 있는 
 
 Azure Portal를 사용 하 여 Azure AD DS 관리 되는 도메인에 대 한 SKU를 변경 하려면 다음 단계를 완료 합니다.
 
-1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 목록에서 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다.
+1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 목록에서 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. Azure AD DS 페이지의 왼쪽에 있는 메뉴에서 **설정 > SKU**를 선택 합니다.
 
     ![Azure Portal에서 Azure AD DS 관리 되는 도메인에 대 한 SKU 메뉴 옵션을 선택 합니다.](media/change-sku/overview-change-sku.png)

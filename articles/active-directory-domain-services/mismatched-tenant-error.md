@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/27/2019
 ms.author: iainfou
-ms.openlocfilehash: 601574cc2a478dc53a261cfcb074e43a556dd4c0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 76dc964b7fe7f5e8acfcfb03b2e89bebb2caa176
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979506"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613392"
 ---
 # <a name="resolve-mismatched-directory-errors-for-existing-azure-ad-domain-services-managed-domains"></a>기존 Azure AD Domain Services로 관리되는 도메인의 디렉터리 불일치 문제 해결
 
@@ -26,7 +26,7 @@ Azure Active Directory Domain Services (Azure AD DS) 관리 되는 도메인에 
 
 ## <a name="what-causes-this-error"></a>이 오류의 원인은 무엇 인가요?
 
-Azure AD DS 관리 되는 도메인 및 가상 네트워크가 서로 다른 두 Azure AD 테 넌 트에 속할 경우 디렉터리 불일치 오류가 발생 합니다. 예를 들어 Contoso의 Azure AD 테 넌 트에서 실행 되는 *aadds.contoso.com* 라는 azure AD DS 관리 되는 도메인이 있을 수 있습니다. 그러나 관리 되는 도메인에 대 한 Azure 가상 네트워크는 Fabrikam Azure AD 테 넌 트의 일부입니다.
+Azure AD DS 관리 되는 도메인 및 가상 네트워크가 서로 다른 두 Azure AD 테 넌 트에 속할 경우 디렉터리 불일치 오류가 발생 합니다. 예를 들어 Contoso의 Azure AD 테 넌 트에서 실행 되는 *aaddscontoso.com* 라는 azure AD DS 관리 되는 도메인이 있을 수 있습니다. 그러나 관리 되는 도메인에 대 한 Azure 가상 네트워크는 Fabrikam Azure AD 테 넌 트의 일부입니다.
 
 Azure는 RBAC (역할 기반 액세스 제어)를 사용 하 여 리소스에 대 한 액세스를 제한 합니다. Azure AD 테 넌 트에서 Azure AD DS를 사용 하도록 설정 하면 자격 증명 해시가 관리 되는 도메인에 동기화 됩니다. 이 작업을 수행 하려면 Azure AD 디렉터리의 테 넌 트 관리자 여야 하며 자격 증명에 대 한 액세스를 제어 해야 합니다. Azure 가상 네트워크에 리소스를 배포 하 고 트래픽을 제어 하려면 Azure AD DS를 배포 하는 가상 네트워크에 대 한 관리 권한이 있어야 합니다.
 

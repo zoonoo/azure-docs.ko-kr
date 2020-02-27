@@ -6,12 +6,12 @@ ms.author: mjbrown
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/12/2019
-ms.openlocfilehash: 39eacbb9a87fa18cc6ef92e319fbfbd3e415337b
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 236ae017832d5d613d0bf9fc948d16a7218d2269
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77525518"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621938"
 ---
 # <a name="provision-throughput-on-containers-and-databases"></a>컨테이너 및 데이터베이스에 대한 처리량 프로비전
 
@@ -108,7 +108,7 @@ Sdk를 사용 하 여 프로그래밍 방식으로 컨테이너 또는 데이터
 |특정 컨테이너에 할당 또는 제공되는 RU|보장되지 않습니다. 지정된 컨테이너에 할당되는 RU는 속성에 따라 다릅니다. 속성은 처리량, 워크로드 분산 및 컨테이너 수를 공유하는 컨테이너 파티션 키의 선택 항목일 수 있습니다. |컨테이너에 구성된 모든 RU는 컨테이너에만 배타적으로 예약됩니다.|
 |컨테이너의 최대 스토리지|무제한.|무제한.|
 |컨테이너의 논리 파티션당 최대 처리량|10K RU|10K RU|
-|컨테이너의 논리 파티션당 최대 스토리지(데이터 + 인덱스)|10 GB|10 GB|
+|컨테이너의 논리 파티션당 최대 스토리지(데이터 + 인덱스)|20GB|20GB|
 
 ## <a name="next-steps"></a>다음 단계
 

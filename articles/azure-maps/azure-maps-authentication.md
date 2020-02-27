@@ -9,16 +9,19 @@ ms.service: azure-maps
 services: azure-maps
 manager: philmea
 ms.custom: mvc
-ms.openlocfilehash: ee8b166077c64ae5e0f2cce18ee0bc77e8c996f4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 171219c001f43137a52f29b282fb1705b3d836aa
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210126"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77649826"
 ---
 # <a name="authentication-with-azure-maps"></a>Azure Maps 인증
 
 Azure Maps는 공유 키 인증과 Azure Active Directory 인증 이라는 두 가지 요청 인증 방법을 지원 합니다. 이 문서에서는 Azure Maps 서비스의 구현을 안내 하는 데 도움이 되는 이러한 인증 방법을 설명 합니다.
+
+> [!NOTE]
+> Azure Maps와의 보안 통신을 개선 하기 위해 이제 TLS (Transport Layer Security) 1.2를 지원 하 고 TLS 1.0 및 1.1에 대 한 지원을 중단 하 고 있습니다. 서비스 중단을 방지 하려면 **2020 2 년 4 월 2 일 이전에 TLS 1.2을 사용 하도록 서버 및 응용 프로그램을 업데이트**합니다.  현재 TLS 1.x를 사용 하는 경우 tls 1.2 준비 상태를 평가 하 고 [tls 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)에 설명 된 테스트를 사용 하 여 마이그레이션 계획을 개발 합니다.
 
 ## <a name="shared-key-authentication"></a>공유 키 인증
 

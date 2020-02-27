@@ -7,23 +7,18 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 49129bede62e456cf2807cc879b7fc5e1793b65b
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424952"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623297"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
 스트리밍 수집은 가변 볼륨 데이터의 수집 시간이 10 초 미만인 낮은 대기 시간이 필요한 시나리오를 대상으로 합니다. 하나 이상의 데이터베이스에서 여러 테이블의 작업 처리를 최적화 하는 데 사용 됩니다. 하나 이상의 데이터베이스에서 각 테이블에 대 한 데이터 스트림이 상대적으로 작으며 (초당 몇 개의 레코드) 전체 데이터 수집 볼륨이 많은 경우 (초당 수천 개의 레코드)
 
 데이터 양이 테이블당 초당 1mb 이상 증가 하는 경우 스트리밍 수집 대신 클래식 (bulk) 수집을 사용 합니다. 수집의 다양 한 방법에 대 한 자세한 내용은 [데이터 수집 개요](/azure/data-explorer/ingest-data-overview) 를 참조 하세요.
-
-> [!NOTE]
-> 스트리밍 수집은 다음 기능을 지원 하지 않습니다.
-> * [데이터베이스 커서](/azure/kusto/management/databasecursor).
-> * [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -32,6 +27,9 @@ ms.locfileid: "77424952"
 * [Azure 데이터 탐색기 클러스터 및 데이터베이스](create-cluster-database-portal.md) 만들기
 
 ## <a name="enable-streaming-ingestion-on-your-cluster"></a>클러스터에서 스트리밍 수집 사용
+
+> [!WARNING]
+> 스트리밍 수집을 사용 하도록 설정 하기 전에 [제한 사항을](#limitations) 검토 하세요.
 
 1. Azure Portal에서 Azure Data Explorer 클러스터로 이동합니다. **설정**에서 **구성**을 선택 합니다. 
 1. **구성** 창에서 **켜기** 를 선택 하 여 **스트리밍**수집을 사용 하도록 설정 합니다.
@@ -49,8 +47,9 @@ ms.locfileid: "77424952"
 
 지원 되는 스트리밍 수집 형식은 다음 두 가지입니다.
 
-* 데이터 원본으로 사용 되는 [이벤트 허브](/azure/data-explorer/ingest-data-event-hub)
-* 사용자 지정 수집을 사용 하려면 Azure 데이터 탐색기 클라이언트 라이브러리 중 하나를 사용 하는 응용 프로그램을 작성 해야 합니다. 샘플 응용 프로그램에 대 한 [스트리밍 수집 샘플](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) 을 참조 하세요.
+
+* 데이터 원본으로 사용 되는 [**이벤트 허브**](/azure/data-explorer/ingest-data-event-hub)
+* **사용자 지정** 수집을 사용 하려면 Azure 데이터 탐색기 클라이언트 라이브러리 중 하나를 사용 하는 응용 프로그램을 작성 해야 합니다. 샘플 응용 프로그램에 대 한 [스트리밍 수집 샘플](https://github.com/Azure/azure-kusto-samples-dotnet/tree/master/client/StreamingIngestionSample) 을 참조 하세요.
 
 ### <a name="choose-the-appropriate-streaming-ingestion-type"></a>적절 한 스트리밍 수집 유형 선택
 
@@ -78,6 +77,10 @@ ms.locfileid: "77424952"
 * 테이블 생성 및 수정과 수집 매핑 등의 스키마 업데이트는 스트리밍 수집 서비스에 대해 최대 5 분이 걸릴 수 있습니다.
 * 데이터가 스트리밍을 통해 수집 않는 경우에도 클러스터에서 스트리밍 수집을 사용 하도록 설정 하면에서 클러스터 컴퓨터의 로컬 SSD 디스크의 일부를 사용 하 여 수집 데이터를 스트리밍하 고 핫 캐시에 사용할 수 있는 저장소를 줄입니다.
 * 스트리밍 수집 데이터에 [익스텐트 태그](/azure/kusto/management/extents-overview.md#extent-tagging) 를 설정할 수 없습니다.
+
+스트리밍 수집은 다음 기능을 지원 하지 않습니다.
+* [데이터베이스 커서](/azure/kusto/management/databasecursor).
+* [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

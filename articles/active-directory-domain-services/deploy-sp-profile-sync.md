@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: f51744d79d34b734c9cc24cf72785a076a91a4f5
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 9d983015927d2635f69a327a9c5b168056542519
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76509056"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613859"
 ---
 # <a name="configure-azure-active-directory-domain-services-to-support-user-profile-synchronization-for-sharepoint-server"></a>SharePoint Server에 대 한 사용자 프로필 동기화를 지원 하도록 Azure Active Directory Domain Services 구성
 
@@ -62,7 +62,7 @@ Azure AD DS management VM에서 다음 단계를 완료 합니다.
 
 1. 시작 화면에서 **관리 도구**를 선택 합니다. [관리 VM을 만드는][tutorial-create-management-vm]자습서에 설치 된 사용 가능한 관리 도구 목록이 표시 됩니다.
 1. 그룹 멤버 자격을 관리 하려면 관리 도구 목록에서 **Active Directory 관리 센터** 을 선택 합니다.
-1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aadds.contoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
+1. 왼쪽 창에서 Azure AD DS 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다. 기존 Ou 및 리소스 목록이 표시 됩니다.
 1. **사용자** OU를 선택 하 고 *AAD DC 서비스 계정* 보안 그룹을 선택 합니다.
 1. **멤버**를 선택 하 고 **추가 ...** 를 선택 합니다.
 1. SharePoint 서비스 계정의 이름을 입력 하 고 **확인**을 선택 합니다. 다음 예제에서 SharePoint 서비스 계정의 이름은 *spadmin*입니다.

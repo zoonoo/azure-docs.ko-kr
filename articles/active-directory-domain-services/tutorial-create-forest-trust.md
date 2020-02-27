@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 3637a11724c1f0bab049077c5abbd817e168bd44
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 5620d1cdc7dc71bdac17057b9a13a74150b12d5c
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931226"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612523"
 ---
 # <a name="tutorial-create-an-outbound-forest-trust-to-an-on-premises-domain-in-azure-active-directory-domain-services-preview"></a>자습서: Azure Active Directory Domain Services (미리 보기)에서 온-프레미스 도메인에 아웃 바운드 포리스트 트러스트 만들기
 
@@ -33,7 +33,7 @@ ms.locfileid: "76931226"
 
 Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https://azure.microsoft.com/free/?WT.mc_id=A261C142F).
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하는 데 필요한 리소스와 권한은 다음과 같습니다.
 
@@ -89,7 +89,7 @@ Azure AD DS에서 포리스트 트러스트를 구성 하기 전에 Azure 및 �
    > [!NOTE]
    > **트러스트** 메뉴 옵션이 표시 되지 않으면 *포리스트 유형의* **속성** 에서를 선택 합니다. *리소스* 포리스트만 트러스트를 만들 수 있습니다. 포리스트 유형이 *사용자*인 경우 트러스트를 만들 수 없습니다. 현재 Azure AD DS 관리 되는 도메인의 포리스트 유형을 변경할 수 있는 방법은 없습니다. 리소스 포리스트로 관리 되는 도메인을 삭제 하 고 다시 만들어야 합니다.
 
-1. Azure AD DS 도메인 이름에 이름 (예: *aadds.contoso.com*)을 입력 하 고 **다음** 을 선택 합니다.
+1. Azure AD DS 도메인 이름에 이름 (예: *aaddscontoso.com*)을 입력 하 고 **다음** 을 선택 합니다.
 1. **포리스트 트러스트**를 만드는 옵션을 선택한 다음 **단방향 (받는** 트러스트)을 만듭니다.
 1. **이 도메인**에 대해서만 트러스트를 만들도록 선택 합니다. 다음 단계에서는 Azure AD DS 관리 되는 도메인에 대 한 Azure Portal에서 트러스트를 만듭니다.
 1. **포리스트 수준 인증**을 사용 하도록 선택한 다음, 트러스트 암호를 입력 하 고 확인 합니다. 다음 섹션의 Azure Portal에도 동일한 암호를 입력 합니다.
@@ -102,7 +102,7 @@ Azure AD DS에서 포리스트 트러스트를 구성 하기 전에 Azure 및 �
 
 Azure Portal에서 Azure AD DS 관리 되는 도메인에 대 한 아웃 바운드 트러스트를 만들려면 다음 단계를 완료 합니다.
 
-1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택한 다음 관리 되는 도메인 (예: *aadds.contoso.com* )을 선택 합니다.
+1. Azure Portal에서 **Azure AD Domain Services**를 검색 하 고 선택한 다음 관리 되는 도메인 (예: *aaddscontoso.com* )을 선택 합니다.
 1. Azure AD DS 관리 되는 도메인의 왼쪽에 있는 메뉴에서 **트러스트**를 선택 하 고 **+ 트러스트 추가** 를 선택 합니다.
 1. 트러스트를 식별 하는 표시 이름, 온-프레미스의 신뢰할 수 있는 포리스트 DNS 이름 (예: *onprem.contoso.com* )을 입력 합니다.
 1. 이전 섹션에서 온-프레미스 AD DS 도메인에 대 한 인바운드 포리스트 트러스트를 구성할 때 사용한 것과 동일한 트러스트 암호를 제공 합니다.
@@ -194,7 +194,7 @@ Azure AD DS 리소스 포리스트에 연결 된 Windows Server VM을 사용 하
 #### <a name="validate-cross-forest-authentication-to-a-resource"></a>리소스에 대 한 크로스 포리스트 인증의 유효성 검사
 
 1. 온-프레미스 Active Directory의 사용자 계정을 사용 하 여 온-프레미스 Active Directory에 가입 된 Windows 컴퓨터에 로그인 합니다.
-1. **Windows 탐색기**를 사용 하 여 정규화 된 호스트 이름 및 공유 (예: `\\fs1.aadds.contoso.com\CrossforestShare`)를 사용 하 여 만든 공유에 연결 합니다.
+1. **Windows 탐색기**를 사용 하 여 정규화 된 호스트 이름 및 공유 (예: `\\fs1.aaddscontoso.com\CrossforestShare`)를 사용 하 여 만든 공유에 연결 합니다.
 1. 쓰기 권한의 유효성을 검사 하려면 폴더에서 마우스 오른쪽 단추를 선택 하 고 **새로 만들기**를 선택한 다음 **텍스트 문서**를 선택 합니다. 기본 이름 **새 텍스트 문서**를 사용 합니다.
 
     쓰기 권한이 올바르게 설정 된 경우 새 텍스트 문서가 만들어집니다. 다음 단계에서는 파일을 적절 하 게 열고, 편집 하 고, 삭제 합니다.

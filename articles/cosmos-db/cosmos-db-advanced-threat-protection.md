@@ -8,12 +8,12 @@ ms.custom: seodec18
 ms.author: memildin
 author: memildin
 manager: rkarlin
-ms.openlocfilehash: 5cea2f1dac50744c974917347b4428bc39aa737d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bcc1c6ffe7cdec4aed325a67969235ae993a5109
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75445538"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614841"
 ---
 # <a name="advanced-threat-protection-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Advanced Threat Protection (미리 보기)
 
@@ -101,11 +101,11 @@ Azure Cosmos DB 작업에 대 한 예외가 발생할 경우 의심 스러운 �
 
 또한 경고 세부 정보 및 권장 조치를 사용 하 여 전자 메일 알림이 전송 됩니다. 다음 그림은 경고 전자 메일의 예를 보여 줍니다.
 
- ![경고 세부 정보](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
+ ![경고 정보](./media/cosmos-db-advanced-threat-protection/cosmos-db-alert.png)
 
 ## <a name="cosmos-db-atp-alerts"></a>ATP 경고 Cosmos DB
 
- Azure Cosmos DB 계정을 모니터링할 때 생성 되는 경고 목록을 보려면 Security Center 설명서의 [Cosmos DB 경고](../security-center/security-center-alerts-data-services.md#cosmos-db) 섹션을 참조 하십시오.
+ Azure Cosmos DB 계정을 모니터링할 때 생성 되는 경고 목록을 보려면 Azure Security Center 설명서의 [Cosmos DB 경고](https://docs.microsoft.com/azure/security-center/alerts-reference#alerts-azurecosmos) 섹션을 참조 하십시오.
 
 ## <a name="next-steps"></a>다음 단계
 

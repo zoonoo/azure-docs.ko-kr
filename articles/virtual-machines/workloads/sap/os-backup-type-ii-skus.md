@@ -4,7 +4,7 @@ description: Azure (대량 인스턴스) 형식 II Sku에서 SAP HANA에 대 한
 services: virtual-machines-linux
 documentationcenter: ''
 author: saghorpa
-manager: gwallace
+manager: juergent
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
@@ -13,12 +13,12 @@ ms.workload: infrastructure
 ms.date: 07/12/2019
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 046daed4f548d24010c3d3bef177cee8cf24a55e
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 100e1b974e54d8c0065194bc7beb18f458011434
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70098730"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77616877"
 ---
 # <a name="os-backup-and-restore-for-type-ii-skus-of-revision-3-stamps"></a>수정 버전 3 스탬프의 유형 II Sku에 대 한 OS 백업 및 복원
 
@@ -31,7 +31,7 @@ ms.locfileid: "70098730"
 >[!NOTE]
 >OS 백업 스크립트는 서버에 미리 설치되어 있는 ReaR 소프트웨어를 사용합니다.  
 
-Microsoft `Service Management` 팀에서 프로 비전을 완료 한 후에는 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업 하는 두 개의 백업 일정으로 구성 됩니다. 다음 명령을 사용 하 여 백업 작업의 일정을 확인할 수 있습니다.
+Microsoft `Service Management` 팀에서 프로 비전을 완료 한 후 기본적으로 서버는 운영 체제의 파일 시스템 수준을 백업 하는 두 개의 백업 일정으로 구성 됩니다. 다음 명령을 사용 하 여 백업 작업의 일정을 확인할 수 있습니다.
 ```
 #crontab –l
 ```
@@ -86,7 +86,7 @@ ReaR(Relax-and-Recover) 패키지는 HANA 큰 인스턴스의 **형식 II SKU**�
 ```
 #yum install rear -y
 ```
-ReaR 도구를 구성하려면 *file /etc/rear/local.conf*에서 **OUTPUT_URL** 및 **BACKUP_URL** 매개 변수를 업데이트해야 합니다.
+ReaR 도구를 구성하려면 **file /etc/rear/local.conf**에서 **OUTPUT_URL** 및 *BACKUP_URL* 매개 변수를 업데이트해야 합니다.
 ```
 OUTPUT=ISO
 ISO_MKISOFS_BIN=/usr/bin/ebiso
@@ -99,4 +99,4 @@ EXCLUDE_VG=( vgHANA-data-HC2 vgHANA-data-HC3 vgHANA-log-HC2 vgHANA-log-HC3 vgHAN
 BACKUP_PROG_EXCLUDE=("${BACKUP_PROG_EXCLUDE[@]}" '/media' '/var/tmp/*' '/var/crash' '/hana' '/usr/sap'  ‘/proc’)
 ```
 
-다음 스크린샷은 전체 백업의 복원을 보여 줍니다. ![RearToolConfiguration.PNG](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)
+다음 스크린샷은 전체 백업 복원 ![RearToolConfiguration를 보여 줍니다](media/HowToHLI/OSBackupTypeIISKUs/RearToolConfiguration.PNG)

@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 04/09/2018
 ms.author: cynthn
 ms.reviewer: davberg
-ms.openlocfilehash: 234c4b0493a4f03ed89162318090d57621740cb0
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 6662f109f9a8227ec45d44a730abc91ebcd8dd70
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036702"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650847"
 ---
 # <a name="compute-benchmark-scores-for-linux-vms"></a>Linux VM의 컴퓨팅 벤치마크 점수
 다음 CoreMark 벤치마크 점수는 Ubuntu를 실행하는 Azure의 고성능 VM 라인업에 대한 컴퓨팅 성능을 보여 줍니다. [Windows Vm](../windows/compute-benchmark-scores.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)에 대해 Compute 벤치마크 점수를 사용할 수도 있습니다.
@@ -52,6 +52,8 @@ ms.locfileid: "74036702"
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 62.9 | 49838 | 633 | 1.27% | 182 |
 | Standard_A8m_v2 | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 62.9 | 49,123 | 2483 | 5.05% | 259 |
 
+참고: Av2 시리즈 Vm은 다양 한 하드웨어 유형 및 프로세서 (위에 표시 된 것 처럼)에 배포할 수 있습니다. Av2 시리즈 Vm에는 개발 및 테스트와 같은 항목 수준 작업에 가장 적합 한 CPU 성능 및 메모리 구성이 있습니다. 크기는 배포 된 하드웨어에 관계 없이 실행 중인 인스턴스에 대해 상대적으로 일관 된 프로세서 성능을 제공 하도록 제한 됩니다. 그러나 최신 프로세서 최적화를 활용 하는 소프트웨어의 경우 프로세서 유형에 따라 더 많은 변형이 표시 될 수 있습니다.
+
 ## <a name="b---burstable"></a>B-기병 양성소
 (오전 3/15/2019 12:27:08 시 pbi 3897709)
 
@@ -69,6 +71,10 @@ ms.locfileid: "74036702"
 | Standard_B4ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 4 | 1 | 15.7 | 54051 | 1,260 | 2.33% | 672 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v3 @ 2.40GHz | 8 | 1 | 31.4 | 111929 | 1562 | 1.40% | 35 |
 | Standard_B8ms | Intel(R) Xeon(R) CPU E5-2673 v4 @ 2.30GHz | 8 | 1 | 31.4 | 109537 | 1354 | 1.24% | 665 |
+
+참고: B 시리즈 Vm은 서로 간에 안정 된 성능 요구 사항이 있는 워크 로드를 위한 것입니다. VM 인스턴스는 기준선 보다 작은 값을 사용 하는 경우 크레딧을 누적 합니다. VM에 크레딧이 누적 되 면 VM은 최대 100%를 사용 하 여 기준선 위로 버스트 하 여 짧은 CPU 버스트 요구 사항을 충족할 수 있습니다. 버스트 시간은 VM 크기 및 시간 기능에 해당 하는 사용 가능한 크레딧을 따라 달라 집니다.  
+
+CoreMark는 일반적으로 사용 가능한 버스트 크레딧 내에서 완료 되는 짧은 실행 테스트입니다.  따라서 일반적으로 위의 숫자는 VM의 버스트 성능을 나타내므로 일반적으로 버스 티, 워크 로드 (B 시리즈의 일반적인 기능) 성능이 일반적으로 표시 되는 것을 반영 합니다.
 
 ## <a name="dsv3---general-compute--premium-storage"></a>DSv3 - 일반 컴퓨팅 + Premium Storage
 (3/12/2019 6:52:03 PM pbi 3897709)

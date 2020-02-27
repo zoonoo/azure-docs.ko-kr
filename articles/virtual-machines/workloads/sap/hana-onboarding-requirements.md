@@ -3,22 +3,22 @@ title: Azure(대규모 인스턴스)의 SAP HANA에 대한 온보딩 요구 사�
 description: Azure(대규모 인스턴스)에서 SAP HANA에 대한 온보딩 요구 사항입니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: RicksterCDN
-manager: gwallace
+author: msjuergent
+manager: bburns
 editor: ''
 ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 01/31/2019
-ms.author: saghorpa
+ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 99ad334a526b269879034dcc0e1cd0b1b22f1f7f
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: 141a75a75a214ff4a6f136df7570d6e81f7f4e82
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70101187"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77617013"
 ---
 # <a name="onboarding-requirements"></a>온보딩 요구 사항
 
@@ -32,7 +32,7 @@ ms.locfileid: "70101187"
 
 **네트워크 연결**
 
-- Azure에 대한 온-프레미스 간 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 최소한 1Gbps 연결을 주문해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객은 온-프레미스와 Azure 간의 Express 경로 링크 외에 추가 비용이 발생 하지 않습니다.
+- 온-프레미스와 Azure 간의 ExpressRoute: 온-프레미스 데이터 센터를 Azure에 연결하려면 ISP에서 1Gbps 이상의 연결을 요청해야 합니다. HANA 대규모 인스턴스 단위와 Azure 간 연결에도 ExpressRoute 기술을 사용합니다. HANA 대규모 인스턴스 장치와 Azure 간의 ExpressRoute 연결은 이 특정 ExpressRoute 회로의 모든 데이터 수신 및 송신 요금을 포함하여 HANA 대규모 인스턴스 장치의 가격에 포함됩니다. 따라서 고객은 온-프레미스와 Azure 간의 Express 경로 링크 외에 추가 비용이 발생 하지 않습니다.
 
 **운영 체제**
 
@@ -50,7 +50,7 @@ ms.locfileid: "70101187"
 - Azure에서 VM에 배포된 Red Hat 구독 관리자. Red Hat 구독 관리자는 Red Hat에서 SAP HANA on Azure(대규모 인스턴스)를 등록하고 하나씩 업데이트할 수 있는 기능을 제공합니다. (Azure 대규모 인스턴스 스탬프에 배포된 테넌트 내에서는 인터넷에 직접 액세스할 수 없습니다.)
 - SAP를 사용하려면 Linux 공급자와도 지원 계약을 체결해야 합니다. 이 요구 사항은 HANA 대규모 인스턴스 솔루션 또는 Azure에서 Linux를 실행한다는 사실로 인해 제거되지 않습니다. 일부 Linux Azure 갤러리 이미지와 달리, HANA 대규모 인스턴스의 솔루션 제품에는 서비스 요금이 *포함되지 않습니다*. Linux 배포자와의 지원 계약과 관련하여 SAP의 요구 사항을 충족시키는 것은 사용자의 책임입니다. 
    - SUSE Linux의 경우 [SAP Note #1984787 - SUSE Linux Enterprise Server 12: 설치 정보](https://launchpad.support.sap.com/#/notes/1984787) 및 [SAP Note #1056161 - SAP 애플리케이션에 대한 SUSE 우선 지원](https://launchpad.support.sap.com/#/notes/1056161)에서 지원 계약의 요구 사항을 살펴보세요.
-   - Red Hat Linux의 경우 HANA 대규모 인스턴스의 운영 체제에 대한 지원 및 서비스 업데이트가 포함된 올바른 구독 수준을 있어야 합니다. Red Hat에서는 SAP 솔루션용 Red Hat Enterprise Linux 구독을 권장합니다. [https://access.redhat.com/solutions/3082481](https://access.redhat.com/solutions/3082481 ) 을 참조하세요. 
+   - Red Hat Linux의 경우 HANA 대규모 인스턴스의 운영 체제에 대한 지원 및 서비스 업데이트가 포함된 올바른 구독 수준을 있어야 합니다. Red Hat에서는 SAP 솔루션용 Red Hat Enterprise Linux 구독을 권장합니다. https://access.redhat.com/solutions/3082481을 참조하세요. 
 
 Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [SAP Note #2235581](https://launchpad.support.sap.com/#/notes/2235581)을 참조하세요.
 
@@ -61,7 +61,7 @@ Linux 버전이 다른 여러 SAP HANA 버전에 대한 지원 매트릭스는 [
 > 유형 II 단위의 경우 SLES 12 SP2 OS 버전만 지원됩니다. 
 
 
-**데이터베이스 백업**
+**Database**
 
 - SAP HANA에 대한 라이선스 및 소프트웨어 설치 구성 요소(플랫폼 및 Enterprise 버전).
 

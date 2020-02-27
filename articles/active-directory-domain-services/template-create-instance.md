@@ -10,12 +10,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/14/2020
 ms.author: iainfou
-ms.openlocfilehash: e63f330d463be21905467869474527fdf9d6abff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 2daadb539bc08df37f15c187866b735e45309288
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030199"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612788"
 ---
 # <a name="create-an-azure-active-directory-domain-services-managed-domain-using-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용 하 여 관리 되는 Azure Active Directory Domain Services 도메인 만들기
 
@@ -23,7 +23,7 @@ Azure AD DS(Azure Active Directory Domain Services)는 Windows Server Active Dir
 
 이 문서에서는 Azure Resource Manager 템플릿을 사용 하 여 Azure AD DS를 사용 하도록 설정 하는 방법을 보여 줍니다. 지원 리소스는 Azure PowerShell을 사용 하 여 생성 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 완료 하려면 다음 리소스가 필요 합니다.
 
@@ -45,17 +45,17 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 * **라우팅할 라우팅할 없는 도메인 접미사:** 일반적으로 *contoso*와 같이 라우팅할 수 없는 도메인 이름 접미사를 사용 하지 않는 것이 좋습니다. *.local* 접미사는 라우팅할 수 없으며, DNS 확인에서 문제가 발생할 수 있습니다.
 
 > [!TIP]
-> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 도메인 이름에 대한 고유한 접두사를 포함하는 것이 좋습니다. 예를 들어 DNS 루트 이름이 *contoso.com*인 경우 사용자 지정 도메인 이름이 *corp.contoso.com* 또는 *ds.contoso.com*인 Azure AD DS 관리형 도메인을 만듭니다. 온-프레미스 AD DS 환경을 사용하는 하이브리드 환경에서 이러한 접두사는 이미 사용 중일 수 있습니다. Azure AD DS에 대한 고유한 접두사를 사용합니다.
+> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 이름 공간과 별도의 도메인 이름을 사용 하는 것이 좋습니다.
 >
-> Azure AD DS 관리형 도메인에 대해 루트 DNS 이름을 사용할 수 있지만, 환경의 다른 서비스에 대해 일부 추가적인 DNS 레코드를 만들어야 할 수도 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
+> 예를 들어 기존 DNS 이름 공간이 *contoso.com*인 경우 *aaddscontoso.com*의 사용자 지정 도메인 이름을 사용 하 여 Azure AD DS 관리 되는 도메인을 만듭니다. 보안 LDAP를 사용 해야 하는 경우 필요한 인증서를 생성 하려면이 사용자 지정 도메인 이름을 등록 하 고 소유 해야 합니다.
 >
-> 이러한 자습서 및 방법 문서에서 *aadds.contoso.com*의 사용자 지정 도메인은 간단한 예제로 사용됩니다. 모든 명령에서 고유한 접두사를 포함할 수 있는 자신만의 고유한 도메인 이름을 지정합니다.
+> 사용자 환경에 있는 다른 서비스에 대 한 추가 DNS 레코드를 만들거나 사용자 환경의 기존 DNS 이름 공간 간에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
-> 자세한 내용은 [도메인에 대한 명명 접두사 선택][naming-prefix]을 참조하세요.
+> 이러한 자습서 및 방법 문서에서 *aaddscontoso.com* 의 사용자 지정 도메인은 간단한 예제로 사용 됩니다. 모든 명령에서 고유한 도메인 이름을 지정 합니다.
 
 다음 DNS 이름 제한도 적용됩니다.
 
-* **도메인 접두사 제한:** 15 자 보다 긴 접두사를 사용 하 여 관리 되는 도메인을 만들 수 없습니다. 지정한 도메인 이름의 접두사(예: *contoso.com* 도메인 이름의 *contoso*)는 15자 이하의 문자여야 합니다.
+* **도메인 접두사 제한:** 15 자 보다 긴 접두사를 사용 하 여 관리 되는 도메인을 만들 수 없습니다. 지정 된 도메인 이름의 접두사 (예: *aaddscontoso.com* 도메인 이름의 *aaddscontoso* )에는 15 자 이하의 문자가 포함 되어야 합니다.
 * **네트워크 이름 충돌:** 관리 되는 도메인에 대 한 DNS 도메인 이름이 이미 가상 네트워크에 존재 해서는 안 됩니다. 특히 이름 충돌이 발생할 수 있는 다음 시나리오를 확인하세요.
     * Azure 가상 네트워크에 동일한 DNS 도메인 이름의 Active Directory 도메인이 이미 있는 경우
     * 관리되는 도메인을 사용하도록 설정하려는 가상 네트워크에 온-프레미스 네트워크와의 VPN 연결이 있는 경우. 이 시나리오에서는 온-프레미스 네트워크에 동일한 DNS 도메인 이름을 가진 도메인이 없는지 확인합니다.
@@ -88,7 +88,7 @@ New-AzureADGroup -DisplayName "AAD DC Administrators" `
 
 *AAD DC 관리자* 그룹을 만든 상태에서 [add-azureadgroupmember][Add-AzureADGroupMember] cmdlet을 사용 하 여 그룹에 사용자를 추가 합니다. 먼저 [AzureADGroup][Get-AzureADGroup] cmdlet을 사용 하 여 *AAD DC ADMINISTRATORS* 그룹 개체 Id를 가져온 다음 [get-azureaduser][Get-AzureADUser] cmdlet을 사용 하 여 원하는 사용자의 개체 id를 가져옵니다.
 
-다음 예에서는 `admin@contoso.onmicrosoft.com`UPN을 사용 하는 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
+다음 예에서는 `admin@aaddscontoso.onmicrosoft.com`UPN을 사용 하는 계정의 사용자 개체 ID입니다. 이 사용자 계정을 *AAD DC 관리자* 그룹에 추가 하려는 사용자의 UPN으로 바꿉니다.
 
 ```powershell
 # First, retrieve the object ID of the newly created 'AAD DC Administrators' group.
@@ -98,7 +98,7 @@ $GroupObjectId = Get-AzureADGroup `
 
 # Now, retrieve the object ID of the user you'd like to add to the group.
 $UserObjectId = Get-AzureADUser `
-  -Filter "UserPrincipalName eq 'admin@contoso.onmicrosoft.com'" | `
+  -Filter "UserPrincipalName eq 'admin@aaddscontoso.onmicrosoft.com'" | `
   Select-Object ObjectId
 
 # Add the user to the 'AAD DC Administrators' group.
@@ -128,12 +128,12 @@ Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없�
 | notificationSettings    | Azure AD DS 관리 되는 도메인에서 경고가 생성 되 면 전자 메일 알림을 보낼 수 있습니다. <br />Azure 테 넌 트의 *전역 관리자* 와 *AAD DC administrators* 그룹의 구성원은 이러한 알림에 대해 *사용 하도록 설정할* 수 있습니다.<br /> 필요한 경우 주의가 필요한 경고가 있는 경우 알림을 받을 받는 사람을 더 추가할 수 있습니다.|
 | domainConfigurationType | 기본적으로 Azure AD DS 관리형 도메인은 *사용자* 포리스트로 생성됩니다. 이 유형의 포리스트는 온-프레미스 AD DS 환경에서 만든 모든 사용자 계정을 포함하여 Azure AD의 모든 개체를 동기화합니다. 사용자 포리스트를 만들기 위해 *Domainconfiguration* 값을 지정할 필요가 없습니다.<br /> *리소스* 포리스트는 Azure AD에서 직접 만든 사용자와 그룹만 동기화합니다. 리소스 포리스트는 현재 미리 보기로 제공됩니다. 리소스 포리스트를 만들려면이 값을 *ResourceTrusting* 로 설정 합니다.<br />온-프레미스 AD DS 도메인을 사용하여 포리스트 트러스트를 만드는 방법 및 사용하는 이유를 비롯하여 *리소스* 포리스트에 대한 자세한 내용은 [Azure AD DS 리소스 포리스트 개요][resource-forests]를 참조하세요.|
 
-다음 압축 매개 변수 정의는 이러한 값을 선언 하는 방법을 보여 줍니다. Azure AD의 모든 사용자가 Azure AD DS 관리 되는 도메인에 동기화 되는 *aadds.contoso.com* 라는 사용자 포리스트가 생성 됩니다.
+다음 압축 매개 변수 정의는 이러한 값을 선언 하는 방법을 보여 줍니다. Azure AD의 모든 사용자가 Azure AD DS 관리 되는 도메인에 동기화 되는 *aaddscontoso.com* 라는 사용자 포리스트가 생성 됩니다.
 
 ```json
 "parameters": {
     "domainName": {
-        "value": "aadds.contoso.com"
+        "value": "aaddscontoso.com"
     },
     "filteredSync": {
         "value": "Disabled"
@@ -176,7 +176,7 @@ Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없�
 
 ## <a name="create-a-managed-domain-using-sample-template"></a>샘플 템플릿을 사용 하 여 관리 되는 도메인 만들기
 
-다음 전체 리소스 관리자 샘플 템플릿은 Azure AD DS 관리 되는 도메인 및 지원 되는 가상 네트워크, 서브넷 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙은 관리 되는 도메인의 보안을 유지 하 고 트래픽이 올바르게 흐를 수 있는지 확인 하는 데 필요 합니다. DNS 이름이 *aadds.contoso.com* 인 사용자 포리스트가 생성 되 고 모든 사용자가 Azure AD에서 동기화 됩니다.
+다음 전체 리소스 관리자 샘플 템플릿은 Azure AD DS 관리 되는 도메인 및 지원 되는 가상 네트워크, 서브넷 및 네트워크 보안 그룹 규칙을 만듭니다. 네트워크 보안 그룹 규칙은 관리 되는 도메인의 보안을 유지 하 고 트래픽이 올바르게 흐를 수 있는지 확인 하는 데 필요 합니다. DNS 이름이 *aaddscontoso.com* 인 사용자 포리스트가 생성 되 고 모든 사용자가 Azure AD에서 동기화 됩니다.
 
 ```json
 {
@@ -190,7 +190,7 @@ Azure AD DS를 영역 간에 배포하기 위해 구성해야 할 항목은 없�
             "value": "FullySynced"
         },
         "domainName": {
-            "value": "aadds.contoso.com"
+            "value": "aaddscontoso.com"
         },
         "filteredSync": {
             "value": "Disabled"

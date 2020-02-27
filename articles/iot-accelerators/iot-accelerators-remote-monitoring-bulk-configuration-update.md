@@ -1,19 +1,19 @@
 ---
 title: 원격 모니터링에 연결된 디바이스 일괄 관리 - Azure | Microsoft Docs
 description: 이 자습서에서는 원격 모니터링 솔루션에 연결된 디바이스를 일괄적으로 관리하는 방법을 알아봅니다.
-author: aditidugar
+author: Philmea
 manager: philmea
 ms.service: iot-accelerators
 services: iot-accelerators
 ms.topic: tutorial
 ms.date: 11/29/2018
-ms.author: adugar
-ms.openlocfilehash: 8ba2d4eca3287efc746c0d4902b6bcc4bd0c796e
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.author: philmea
+ms.openlocfilehash: eaca93ac8a4e8c660be9618aefb27921a4e0a2eb
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980540"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565581"
 ---
 # <a name="tutorial-manage-your-connected-devices-in-bulk"></a>자습서: 연결된 디바이스 일괄 관리
 

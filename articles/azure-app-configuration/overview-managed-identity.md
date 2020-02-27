@@ -3,16 +3,16 @@ title: Azure 앱 구성을 사용 하 여 관리 되는 id 구성
 description: Azure 앱 구성에서 관리 id가 작동 하는 방법 및 관리 id를 구성 하는 방법에 대해 알아봅니다.
 author: jpconnock
 ms.topic: article
-ms.date: 02/18/2020
+ms.date: 02/25/2020
 ms.author: jeconnoc
 ms.reviewer: lcozzens
 ms.service: azure-app-configuration
-ms.openlocfilehash: 751b10c0d80412671028e85debb2dcd4422c8459
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: fe66466395a100221e6a3cdebdef870bdf195afc
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493151"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623036"
 ---
 # <a name="how-to-use-managed-identities-for-azure-app-configuration"></a>Azure 앱 구성에 관리 id를 사용 하는 방법
 

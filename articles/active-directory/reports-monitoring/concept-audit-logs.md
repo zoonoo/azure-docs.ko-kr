@@ -17,12 +17,12 @@ ms.date: 07/17/2019
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 49b49949c1765c3cb1598d728e21479c65037930
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: ad399fc24b2cdfbdc51e7feccba2c05786216b19
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76714484"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648428"
 ---
 # <a name="audit-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 감사 작업 보고서 
 
@@ -41,11 +41,11 @@ Azure AD(Azure Active Directory) 보고서를 통해 사용자 환경의 작동 
  
 ## <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
-* **보안 관리자**, **보안 읽기 권한자**, **보고서 구독자** 또는 **전역 관리자** 역할의 사용자
+* **보안 관리자**, **보안 읽기 권한자**, **보고서 구독자** , **전역 읽기 권한자** 또는 **전역 관리자** 역할의 사용자
 
 ## <a name="audit-logs"></a>감사 로그
 
-Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스하려면 **Azure Active Directory**의 **활동** 섹션에서 **감사 로그**를 선택합니다. 감사 로그의 대기 시간은 최대 1 시간 일 수 있으므로 작업을 완료 한 후에 감사 작업 데이터가 포털에 표시 되는 데 시간이 오래 걸릴 수 있습니다.
+Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 제공합니다. 감사 보고서에 액세스 하려면 **Azure Active Directory**의 **모니터링** 섹션에서 **감사 로그** 를 선택 합니다. 감사 로그의 대기 시간은 최대 1 시간 일 수 있으므로 작업을 완료 한 후에 감사 작업 데이터가 포털에 표시 되는 데 시간이 오래 걸릴 수 있습니다.
 
 
 
@@ -77,7 +77,7 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 
 다음 필드에서 감사 데이터를 필터링할 수 있습니다.
 
-- 서비스
+- Service
 - 범주
 - 작업
 - 상태
@@ -90,16 +90,20 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 **서비스** 필터를 사용 하면 다음 서비스의 드롭다운 목록에서 선택할 수 있습니다.
 
 - 모두
+- AAD 관리 UX
 - 액세스 검토
-- 계정 프로비전 
-- 응용 프로그램 SSO
+- 계정 프로비전
+- 애플리케이션 프록시
 - 인증 방법
 - B2C
 - 조건부 액세스
 - 핵심 디렉터리
 - 자격 관리
+- 하이브리드 인증
 - ID 보호
 - 사용자 초대
+- MIM 서비스
+- MyApps
 - PIM
 - 셀프 서비스 그룹 관리
 - 셀프 서비스 암호 관리
@@ -113,12 +117,16 @@ Azure AD 감사 로그는 규정 준수를 위한 시스템 활동의 기록을 
 - 인증
 - 권한 부여
 - 연락처
-- 디바이스
+- 장치
 - DeviceConfiguration
 - DirectoryManagement
 - EntitlementManagement
 - GroupManagement
+- KerberosDomain
+- KeyManagement
+- 레이블
 - 기타
+- PermissionGrantPolicy
 - 정책
 - ResourceManagement
 - RoleManagement
@@ -131,17 +139,16 @@ Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있�
 **상태** 필터를 사용 하면 감사 작업 상태를 기준으로 필터링 할 수 있습니다. 상태는 다음 중 하나일 수 있습니다.
 
 - 모두
-- Success
+- 성공
 - 실패
 
-**대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 
+**대상** 필터를 사용 하면 이름 또는 UPN (사용자 계정 이름)을 기준으로 특정 대상을 검색할 수 있습니다. 대상 이름 및 UPN은 대/소문자를 구분 합니다. 
 
-**시작** 필터를 사용 하 여 행위자의 이름이 나 UPN (universal principal name)을 정의할 수 있습니다. 이름 및 UPN은 대/소문자를 구분 합니다.
+**시작** 필터를 사용 하 여 행위자의 이름 또는 UPN (universal principal name)이 시작 되는 항목을 정의할 수 있습니다. 이름 및 UPN은 대/소문자를 구분 합니다.
 
 **날짜 범위** 필터를 사용 하면 반환 된 데이터에 대 한 기간을 정의할 수 있습니다.  
 가능한 값은 다음과 같습니다.
 
-- 1개월
 - 7 일
 - 24시간
 - 사용자 지정
@@ -179,11 +186,11 @@ Graph API를 사용 하 여 모든 감사 활동의 목록을 가져올 수 있�
 
 - 어떤 라이선스가 그룹 또는 사용자에 할당되었나요?
 
-사용자와 관련 된 감사 데이터만 검토 하려는 경우에는 **사용자** 탭의 **작업** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주로 **Usermanagement** 가 있습니다.
+사용자와 관련 된 감사 데이터만 검토 하려는 경우에는 **사용자** 탭의 **모니터링** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주로 **Usermanagement** 가 있습니다.
 
 ![감사 로그](./media/concept-audit-logs/users.png "감사 로그")
 
-그룹과 관련 된 감사 데이터만 검토 하려는 경우 **그룹** 탭의 **작업** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주의 **Groupmanagement** 가 있습니다.
+그룹과 관련 된 감사 데이터만 검토 하려는 경우 **그룹** 탭의 **모니터링** 섹션에 있는 **감사 로그** 에서 필터링 된 보기를 찾을 수 있습니다. 이 진입점에는 미리 선택 된 범주의 **Groupmanagement** 가 있습니다.
 
 ![감사 로그](./media/concept-audit-logs/groups.png "감사 로그")
 

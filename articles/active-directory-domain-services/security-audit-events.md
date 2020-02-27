@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 42ab32e80ef0a1a7f3c02d8a8eedbb8ab13c4b88
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 89fa2297c50b6f28045f6f934092de3fd5d6c879
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132244"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77613063"
 ---
 # <a name="enable-security-audits-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 보안 감사 사용
 
@@ -33,7 +33,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 
 다음 감사 이벤트 범주를 사용할 수 있습니다.
 
-| 감사 범주 이름 | 설명 |
+| 감사 범주 이름 | Description |
 |:---|:---|
 | 계정 로그온|감사는 도메인 컨트롤러 또는 로컬 SAM (보안 계정 관리자)의 계정 데이터를 인증 하려고 시도 합니다.</p>로그온 및 로그 오프 정책 설정 및 이벤트 트랙은 특정 컴퓨터에 대 한 액세스를 시도 합니다. 이 범주의 설정 및 이벤트는 사용 되는 계정 데이터베이스에 중점을 둡니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[자격 증명 유효성 검사 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-credential-validation)</li><li>[Kerberos 인증 서비스 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-authentication-service)</li><li>[Kerberos 서비스 티켓 작업 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kerberos-service-ticket-operations)</li><li>[기타 로그온/로그 오프 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-logonlogoff-events)</li></ul>|
 | 계정 관리|사용자 및 컴퓨터 계정 및 그룹에 대 한 변경 내용을 감사 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[응용 프로그램 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-group-management)</li><li>[컴퓨터 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-computer-account-management)</li><li>[배포 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-distribution-group-management)</li><li>[다른 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-account-management-events)</li><li>[보안 그룹 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-group-management)</li><li>[사용자 계정 관리 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-user-account-management)</li></ul>|
@@ -43,7 +43,7 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 |개체 액세스| 감사는 네트워크 또는 컴퓨터에서 특정 개체 또는 개체 유형에 액세스를 시도 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[생성 된 감사 응용 프로그램](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-application-generated)</li><li>[인증 서비스 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-certification-services)</li><li>[세부 파일 공유 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-detailed-file-share)</li><li>[감사 파일 공유](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-share)</li><li>[파일 시스템 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-file-system)</li><li>[감사 필터링 플랫폼 연결](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-connection)</li><li>[감사 필터링 플랫폼 패킷 삭제](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-packet-drop)</li><li>[핸들 조작 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-handle-manipulation)</li><li>[커널 개체 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-kernel-object)</li><li>[기타 개체 액세스 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-object-access-events)</li><li>[감사 레지스트리](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-registry)</li><li>[이동식 저장소 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-removable-storage)</li><li>[SAM 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sam)</li><li>[중앙 액세스 정책 준비 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-central-access-policy-staging)</li></ul>|
 |정책 변경|로컬 시스템 또는 네트워크에서 중요 보안 정책 변경을 감사 합니다. 정책은 일반적으로 관리자가 네트워크 리소스의 보안을 유지 하도록 설정 됩니다. 변경 내용을 모니터링 하거나 이러한 정책을 변경 하려는 시도는 네트워크에 대 한 보안 관리의 중요 한 측면이 될 수 있습니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[감사 정책 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-audit-policy-change)</li><li>[인증 정책 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authentication-policy-change)</li><li>[권한 부여 정책 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-authorization-policy-change)</li><li>[감사 필터링 플랫폼 정책 변경](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-filtering-platform-policy-change)</li><li>[Audit MPSSVC 규칙 수준 정책 변경](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-mpssvc-rule-level-policy-change)</li><li>[다른 정책 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-policy-change-events)</li></ul>|
 |권한 사용| 하나 이상의 시스템에서 특정 사용 권한의 사용을 감사 합니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[중요 하지 않은 권한 사용 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-non-sensitive-privilege-use)</li><li>[중요 한 권한 사용 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-sensitive-privilege-use)</li><li>[기타 권한 사용 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-privilege-use-events)</li></ul>|
-|System| 다른 범주에 포함 되지 않은 컴퓨터에 대 한 시스템 수준 변경을 감사 하 고 보안에 영향을 미칠 수 있습니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[IPsec 드라이버 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[기타 시스템 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[보안 상태 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[보안 시스템 확장 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[시스템 무결성 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
+|시스템| 다른 범주에 포함 되지 않은 컴퓨터에 대 한 시스템 수준 변경을 감사 하 고 보안에 영향을 미칠 수 있습니다. 이 범주에는 다음과 같은 하위 범주가 포함 됩니다.<ul><li>[IPsec 드라이버 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-ipsec-driver)</li><li>[기타 시스템 이벤트 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-other-system-events)</li><li>[보안 상태 변경 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-state-change)</li><li>[보안 시스템 확장 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-security-system-extension)</li><li>[시스템 무결성 감사](https://docs.microsoft.com/windows/security/threat-protection/auditing/audit-system-integrity)</li></ul>|
 
 ## <a name="event-ids-per-category"></a>범주별 이벤트 Id
 
@@ -53,10 +53,10 @@ Azure AD DS 보안 감사는 기존의 AD DS 도메인 컨트롤러에 대 한 �
 |:---|:---|
 |계정 로그온 보안|4767, 4774, 4775, 4776, 4777|
 |계정 관리 보안|4720, 4722, 4723, 4724, 4725, 4726, 4727, 4728, 4729, 4730, 4731, 4732, 4733, 4734, 4735, 4737, 4738, 4740, 4741, 4742, 4743, 4754, 4755, 4756, 4757, 4758, 4764, 4765, 4766, 4780, 4781, 4782, 4793, 4798, 4799, 5376, 5377|
-|세부 정보 추적 보안|없음|
+|세부 정보 추적 보안|None|
 |DS 액세스 보안|5136, 5137, 5138, 5139, 5141|
 |로그온/로그 오프 보안|4624, 4625, 4634, 4647, 4648, 4672, 4675, 4964|
-|개체 액세스 보안|없음|
+|개체 액세스 보안|None|
 |정책 변경 보안|4670, 4703, 4704, 4705, 4706, 4707, 4713, 4715, 4716, 4717, 4718, 4719, 4739, 4864, 4865, 4866, 4867, 4904, 4906, 4911, 4912|
 |권한 사용 보안|4985|
 |시스템 보안|4612, 4621|
@@ -84,7 +84,7 @@ Azure Portal를 사용 하 여 Azure AD DS 보안 감사 이벤트를 사용 하
 > Azure AD DS 보안 감사는 소급 되지 않습니다. 과거에는 이벤트를 검색 하거나 재생할 수 없습니다. Azure AD DS는 보안 감사를 사용 하도록 설정한 후에 발생 하는 이벤트만 보낼 수 있습니다.
 
 1. [https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
-1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리되는 도메인(예: *aadds.contoso.com*)을 선택합니다.
+1. Azure Portal 맨 위에서 **Azure AD Domain Services**를 검색 하 고 선택 합니다. 관리 되는 도메인 (예: *aaddscontoso.com*)을 선택 합니다.
 1. Azure AD DS 창의 왼쪽에서 **진단 설정** 을 선택 합니다.
 1. 진단이 기본적으로 구성 되지 않습니다. 시작 하려면 **진단 설정 추가**를 선택 합니다.
 

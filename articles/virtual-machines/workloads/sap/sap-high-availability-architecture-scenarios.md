@@ -1,10 +1,10 @@
 ---
-title: SAP NetWeaver에 대한 Azure Virtual Machines 고가용성 아키텍처 및 시나리오 | Microsoft Docs
+title: SAP NetWeaver에 대 한 Azure Vm HA 아키텍처 및 시나리오 | Microsoft Docs
 description: Azure Virtual Machines의 SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 services: virtual-machines-windows,virtual-network,storage
 documentationcenter: saponazure
-author: goraco
-manager: gwallace
+author: rdeltcheva
+manager: juergent
 editor: ''
 tags: azure-resource-manager
 keywords: ''
@@ -13,15 +13,15 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 01/21/2019
-ms.author: rclaus
+ms.date: 02/25/2020
+ms.author: radeltch
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c04726bf3b4166255ada7c9f1252be0471dcc761
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: b974869d1462f449e8a241a5925ef345170b493a
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76291484"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623866"
 ---
 # <a name="high-availability-architecture-and-scenarios-for-sap-netweaver"></a>SAP NetWeaver에 대한 고가용성 아키텍처 및 시나리오
 
@@ -249,7 +249,7 @@ Azure의 SAP 고가용성은 다음 세 가지 유형으로 구분할 수 있습
 
 * **SAP 애플리케이션 고가용성**: 
 
-    완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예:
+    완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예를 들면 다음과 같습니다.
     * 이중화 SAP 애플리케이션 서버
     * 고유한 구성 요소 SAP ASCS/SCS 인스턴스 또는 DBMS(데이터베이스 관리 시스템)과 같은 SPOF(단일 실패 지점) 구성 요소를 예로 들 수 있습니다.
 
@@ -267,7 +267,7 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 
 (가용성 서비스 #1/100) * (가용성 서비스 #2/100) * (가용성 서비스 #3/100) \*…
 
-예:
+예를 들면 다음과 같습니다.
 
 (99.95/100) * (99.9/100) * (99.9/100) = 0.9975 또는 전체 가용성 99.75%
 
@@ -289,7 +289,7 @@ Windows의 경우와 달리 Linux용 sapinst 통합 SAP 고가용성 구성은 �
 
 
 ### <a name="azure-availability-zones"></a>Azure 가용성 영역
-Azure는 다른 [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/) 전체에서 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)의 개념을 롤아웃하는 중입니다. 가용성 영역이 제공되는 Azure 지역에서 Azure 지역에 전원, 냉각 및 네트워크 공급이 독립적인 여러 데이터 센터가 있습니다. 단일 Azure 지역 내 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에서 애플리케이션을 배포할 수 있도록 하기 위함입니다. 전원 및/또는 네트워크의 문제가 하나의 가용성 영역 인프라에만 영향을 준다고 가정하면, Azure 지역 내 애플리케이션 배포는 계속 완벽하게 작동합니다. 하나의 영역에서 일부 VM이 다소 손실될 수 있으므로 결과적으로 일부 용량이 감소합니다. 하지만 다른 두 영역의 VM은 여전히 작동하고 실행됩니다. 영역을 제공하는 Azure 지역은 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 나열됩니다.
+Azure는 다른 [Azure 지역](https://docs.microsoft.com/azure/availability-zones/az-overview) 전체에서 [Azure 가용성 영역](https://azure.microsoft.com/global-infrastructure/regions/)의 개념을 롤아웃하는 중입니다. 가용성 영역이 제공되는 Azure 지역에서 Azure 지역에 전원, 냉각 및 네트워크 공급이 독립적인 여러 데이터 센터가 있습니다. 단일 Azure 지역 내 다른 영역을 제공하는 이유는 제공되는 2-3개 가용성 영역에서 애플리케이션을 배포할 수 있도록 하기 위함입니다. 전원 및/또는 네트워크의 문제가 하나의 가용성 영역 인프라에만 영향을 준다고 가정하면, Azure 지역 내 애플리케이션 배포는 계속 완벽하게 작동합니다. 하나의 영역에서 일부 VM이 다소 손실될 수 있으므로 결과적으로 일부 용량이 감소합니다. 하지만 다른 두 영역의 VM은 여전히 작동하고 실행됩니다. 영역을 제공하는 Azure 지역은 [Azure 가용성 영역](https://docs.microsoft.com/azure/availability-zones/az-overview)에 나열됩니다.
 
 가용성 영역을 사용하여 고려할 일부 사항이 있습니다. 고려 사항 목록은 다음과 같습니다.
 
@@ -334,7 +334,7 @@ Linux에서 WSFC 또는 Pacemaker와 같은 기능을 사용하지 않기로 결
 
 ## <a name="baed0eb3-c662-4405-b114-24c10a62954e"></a> Azure IaaS의 SAP 애플리케이션 고가용성
 
-완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예:
+완전한 SAP 시스템 고가용성을 달성하려면 모든 중요 SAP 시스템 구성 요소를 보호해야 합니다. 예를 들면 다음과 같습니다.
   * 이중화 SAP 애플리케이션 서버
   * 고유한 구성 요소 SAP ASCS/SCS 인스턴스 또는 DBMS(데이터베이스 관리 시스템)과 같은 SPOF(단일 실패 지점) 구성 요소를 예로 들 수 있습니다.
 
@@ -391,6 +391,8 @@ WSFC 솔루션을 사용하여 SAP ASCS/SCS 인스턴스를 보호할 수 있습
 
 * **파일 공유를 사용 하 여 SAP ASCS/scs 인스턴스 클러스터링**:이 아키텍처에 대 한 자세한 내용은 [파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 sap ascs/scs 인스턴스 클러스터링][sap-high-availability-guide-wsfc-file-share]을 참조 하세요.
 
+* **ANF smb 공유를 사용 하 여 SAP ASCS/scs 인스턴스 클러스터링**:이 아키텍처에 대 한 자세한 내용은 [anf smb 파일 공유를 사용 하 여 Windows 장애 조치 (failover) 클러스터에서 sap ascs/Scs 인스턴스 클러스터 클러스터](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-windows-netapp-files-smb)를 참조 하세요.
+
 ### <a name="high-availability-architecture-for-an-sap-ascsscs-instance-on-linux"></a>Linux의 SAP ASCS/SCS 인스턴스에 대한 고가용성 아키텍처
 
 > ![Linux][Logo_Linux] Linux
@@ -404,13 +406,20 @@ Red Hat 클러스터 프레임워크를 사용한 SAP ASCS/SCS 인스턴스 클�
 
 > ![Windows][Logo_Windows] Windows
 > 
-> 현재 다중 SID는 WSFC와만 지원됩니다. 다중 SID는 파일 공유 및 공유 디스크를 사용하여 지원됩니다.
+> 다중 SID는 파일 공유 및 공유 디스크를 사용 하 여 WSFC에서 지원 됩니다.
 > 
-> 다중 SID 고가용성 아키텍처에 대한 자세한 내용은 다음을 참조하세요.
+> Windows의 다중 SID 고가용성 아키텍처에 대 한 자세한 내용은 다음을 참조 하세요.
 
 * [Windows Server 장애 조치 (Failover) 클러스터링 및 파일 공유에 대 한 SAP ASCS/SCS 인스턴스 다중 SID 고가용성][sap-ascs-ha-multi-sid-wsfc-file-share]
 
 * [Windows Server 장애 조치 (Failover) 클러스터링 및 공유 디스크에 대 한 SAP ASCS/SCS 인스턴스 다중 SID 고가용성][sap-ascs-ha-multi-sid-wsfc-shared-disk]
+
+> ![Linux][Logo_Linux] Linux
+> 
+> 다중 SID 클러스터링은 SAP ASCS/ERS에 대 한 Linux Pacemaker 클러스터에서 지원 되며 동일한 클러스터에서 **5 개의** sap sid로 제한 됩니다.
+> Linux의 다중 SID 고가용성 아키텍처에 대 한 자세한 내용은 다음을 참조 하세요.
+
+* [SLES for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-multi-sid)
 
 ### <a name="high-availability-dbms-instance"></a>고가용성 DBMS 인스턴스
 

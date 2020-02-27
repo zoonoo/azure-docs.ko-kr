@@ -12,12 +12,12 @@ ms.date: 10/22/2019
 ms.author: ryanwi
 ms.reviewer: hirsin
 ms.custom: aaddev, identityplatformtop40, fasttrack-edit
-ms.openlocfilehash: 7d596292a823b4d912204f5cfbe8623ab7429fa3
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 06a3ef7677d52ebb0d835dfed2f47fc66870f0ec
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161395"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77620895"
 ---
 # <a name="microsoft-identity-platform-access-tokens"></a>Microsoft id 플랫폼 액세스 토큰
 
@@ -70,7 +70,7 @@ JWT는 세 부분으로 분할됩니다.
 
 ### <a name="header-claims"></a>헤더 클레임
 
-|클레임 | 형식 | Description |
+|클레임 | 서식 | 설명 |
 |--------|--------|-------------|
 | `typ` | 문자열 - 항상 "JWT" | 토큰이 JWT임을 나타냅니다.|
 | `nonce` | String | 토큰 재생 공격으로부터 보호하기 위해 사용되는 고유 식별자입니다. 리소스에서 이 값을 기록하면 재생을 방지할 수 있습니다. |
@@ -80,7 +80,7 @@ JWT는 세 부분으로 분할됩니다.
 
 ### <a name="payload-claims"></a>페이로드 클레임
 
-| 클레임 | 형식 | Description |
+| 클레임 | 서식 | 설명 |
 |-----|--------|-------------|
 | `aud` | 문자열, 앱 ID URI | 토큰의 의도한 수신자를 식별합니다. Id 토큰에서 대상 그룹은 앱의 응용 프로그램 ID 이며 Azure Portal에서 앱에 할당 됩니다. 앱은 이 값의 유효성을 검사하고 값이 일치하지 않을 경우 토큰을 거부해야 합니다. |
 | `iss` | 문자열, STS URI | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스) 및 사용자가 인증된 Azure AD 테넌트를 식별합니다. 발급된 토큰은 v2.0 토큰이며(`ver` 클레임 참조), URI는 `/v2.0`에서 종료됩니다. 사용자가 Microsoft 계정의 소비자 사용자임을 나타내는 GUID는 `9188040d-6c67-4c5b-b112-36a304b66dad`입니다. 앱은 클레임의 GUID 부분을 사용하여 앱에 로그인할 수 있는 테넌트 집합을 제한할 수 있습니다(해당되는 경우). |
@@ -138,7 +138,7 @@ JWT는 세 부분으로 분할됩니다.
 
 다음 클레임은 (해당 하는 경우) v 1.0 토큰에 포함 되지만, 기본적으로 v2.0 토큰에는 포함 되지 않습니다. V 2.0을 사용 하 고 이러한 클레임 중 하나가 필요한 경우 [선택적 클레임](active-directory-optional-claims.md)을 사용 하 여 요청 합니다.
 
-| 클레임 | 형식 | Description |
+| 클레임 | 서식 | 설명 |
 |-----|--------|-------------|
 | `ipaddr`| String | 사용자가 인증된 IP 주소입니다. |
 | `onprem_sid`| 문자열, [SID 형식](https://docs.microsoft.com/windows/desktop/SecAuthZ/sid-components) | 사용자에게 온-프레미스 인증이 있는 경우 이 클레임이 해당 SID를 제공합니다. 레거시 애플리케이션에서 권한 부여에 `onprem_sid`를 사용할 수 있습니다.|
@@ -154,7 +154,7 @@ JWT는 세 부분으로 분할됩니다.
 
 Microsoft id는 응용 프로그램과 관련이 있을 수 있는 다양 한 방법으로 인증할 수 있습니다. `amr` 클레임은 암호 및 Authenticator 앱을 모두 사용하는 인증을 위해 여러 항목(예: `["mfa", "rsa", "pwd"]`)을 포함할 수 있는 배열입니다.
 
-| 값 | Description |
+| 값 | 설명 |
 |-----|-------------|
 | `pwd` | 암호 인증으로, 사용자의 Microsoft 암호 또는 앱의 클라이언트 비밀 중 하나입니다. |
 | `rsa` | 인증은 [Microsoft Authenticator 앱](https://aka.ms/AA2kvvu) 등을 사용하여 RSA 키 증명을 기반으로 수행되었습니다. 여기에는 서비스 소유의 X509 인증서를 사용 하 여 자체 서명 된 JWT에서 인증이 수행 된 경우이 포함 됩니다. |
@@ -178,7 +178,7 @@ Azure AD 미들웨어에는 액세스 토큰의 유효성을 검사하는 기본
 
 JWT에는 `.` 문자로 구분된 세 개의 세그먼트가 포함되어 있습니다. 첫 번째 세그먼트는 **헤더**, 두 번째 세그먼트는 **본문**, 세 번째 세그먼트는 **서명**이라고 합니다. 서명 세그먼트는 앱이 신뢰할 수 있도록 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다.
 
-Azure AD에서 발급된 토큰은 RSA 256 등의 업계 표준 비대칭 암호화 알고리즘을 사용하여 서명됩니다. JWT의 헤더에는 토큰 서명에 사용된 키 및 암호화 방법에 대한 정보가 들어 있습니다.
+Azure AD에서 발급 한 토큰은 RS256와 같은 업계 표준 비대칭 암호화 알고리즘을 사용 하 여 서명 됩니다. JWT의 헤더에는 토큰 서명에 사용된 키 및 암호화 방법에 대한 정보가 들어 있습니다.
 
 ```json
 {

@@ -8,12 +8,12 @@ ms.date: 02/10/2020
 ms.author: tisande
 ms.subservice: cosmosdb-sql
 ms.reviewer: sngun
-ms.openlocfilehash: aae11facd2fea5413b2996b3088cb2edc23f0dc1
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 0dd3cb12c52e23a0a8acd57bf401ba68acfb9925
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424935"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623700"
 ---
 # <a name="troubleshoot-query-issues-when-using-azure-cosmos-db"></a>Azure Cosmos DB를 사용 하는 경우 쿼리 문제 해결
 
@@ -22,6 +22,20 @@ ms.locfileid: "77424935"
 쿼리 최적화를 광범위 하 게 분류 하 여 쿼리 최적화의 비용을 줄이고 대기 시간을 줄이는 최적화를 Azure Cosmos DB 수 있습니다. 쿼리의 작업량을 줄여 대기 시간을 거의 줄일 수 있습니다.
 
 이 문서에서는 [영양](https://github.com/CosmosDB/labs/blob/master/dotnet/setup/NutritionData.json) 데이터 집합을 사용 하 여 다시 만들 수 있는 예제를 사용 합니다.
+
+## <a name="important"></a>중요
+
+- 최상의 성능을 위해 [성능 팁](performance-tips.md)을 따르세요.
+    > [!NOTE] 
+    > 성능 향상을 위해 Windows 64 비트 호스트를 처리 하는 것이 좋습니다. SQL SDK는 로컬에서 쿼리를 구문 분석 하 고 최적화 하는 네이티브 ServiceInterop .dll을 포함 하며, Windows x64 플랫폼 에서만 지원 됩니다. ServiceInterop .dll을 사용할 수 없는 linux 및 기타 지원 되지 않는 플랫폼의 경우에는 게이트웨이에 대 한 추가 네트워크 호출을 수행 하 여 최적화 된 쿼리를 가져옵니다. 
+- Cosmos DB 쿼리는 최소 항목 수를 지원 하지 않습니다.
+    - 코드는 0에서 최대까지 항목 수 사이의 페이지 크기를 처리 해야 합니다.
+    - 페이지의 항목 수는 알림 없이 변경 될 수 있으며 변경 될 수 있습니다.
+- 빈 페이지는 쿼리에 필요 하며 언제 든 지 표시할 수 있습니다. 
+    - 빈 페이지가 Sdk에 표시 되는 이유는 쿼리를 취소할 수 있는 기회를 제공 하는 것입니다. 또한 SDK가 여러 네트워크 호출을 수행 하 고 있음을 명확히 알 수 있습니다.
+    - 실제 파티션이 Cosmos DB 분할 되므로 기존 작업에 빈 페이지가 표시 될 수 있습니다. 현재 첫 번째 파티션에는 빈 페이지를 발생 시키는 0 개의 결과가 있습니다.
+    - 쿼리가 백 엔드에서 문서를 검색 하는 데 어느 정도 시간이 걸리므로 쿼리가 선점 백 엔드에서 쿼리를 검색 하는 데 문제가 발생 합니다. 쿼리를 보다 우선 하는 Cosmos DB 경우 쿼리를 계속할 수 있도록 하는 연속 토큰을 반환 합니다. 
+- 쿼리를 완전히 드레이닝 해야 합니다. SDK 샘플을 살펴보고 `FeedIterator.HasMoreResults`에서 while 루프를 사용 하 여 전체 쿼리를 드레이닝 합니다.
 
 ### <a name="obtaining-query-metrics"></a>쿼리 메트릭 가져오기:
 
@@ -144,7 +158,7 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 }
 ```
 
-**작업 요금:** 409.51 r u s
+**작업 요금:** 409.51 RUs
 
 ### <a name="optimized"></a>최적화됨
 
@@ -163,7 +177,7 @@ SELECT * FROM c WHERE c.description = "Malabar spinach, cooked"
 }
 ```
 
-**작업 요금:** 2.98 r u s
+**작업 요금:** 2.98 RUs
 
 쓰기 가용성 또는 성능에 영향을 주지 않고 언제 든 지 인덱싱 정책에 추가 속성을 추가할 수 있습니다. 인덱스에 새 속성을 추가 하는 경우이 속성을 사용 하는 쿼리는 사용 가능한 새 인덱스를 즉시 활용 합니다. 쿼리를 작성 하는 동안 새 인덱스를 활용 합니다. 따라서 인덱스 다시 작성이 진행 중일 때 쿼리 결과가 일치 하지 않을 수 있습니다. 새 속성이 인덱싱되는 경우에는 인덱스를 다시 작성 하는 동안 기존 인덱스만 활용 하는 쿼리는 영향을 받지 않습니다. [인덱스 변환 진행률을 추적할](https://docs.microsoft.com/azure/cosmos-db/how-to-manage-indexing-policy#use-the-net-sdk-v3)수 있습니다.
 
@@ -217,7 +231,7 @@ SELECT * FROM c WHERE c.foodGroup = "Soups, Sauces, and Gravies" ORDER BY c._ts 
 }
 ```
 
-**작업 요금:** 44.28 r u s
+**작업 요금:** 44.28 RUs
 
 ### <a name="optimized"></a>최적화됨
 
@@ -257,7 +271,7 @@ ORDER BY c.foodGroup, c._ts ASC
 
 ```
 
-**작업 요금:** 8.86 r u s
+**작업 요금:** 8.86 RUs
 
 ## <a name="optimize-join-expressions-by-using-a-subquery"></a>하위 쿼리를 사용 하 여 조인 식 최적화
 다중 값 하위 쿼리는 `WHERE` 절의 모든 크로스 조인이 아니라 각 select-many 식 뒤에 조건자를 푸시하여 `JOIN` 식을 최적화할 수 있습니다.
@@ -274,7 +288,7 @@ WHERE t.name = 'infant formula' AND (n.nutritionValue > 0
 AND n.nutritionValue < 10) AND s.amount > 1
 ```
 
-**작업 요금:** 167.62 r u s
+**작업 요금:** 167.62 RUs
 
 이 쿼리의 경우 인덱스는 "infant formula" 라는 이름의 태그가 있는 모든 문서와 일치 하 고, 0 보다 크고 nutritionValue 1 보다 큰 값을 제공 합니다. 여기에서 `JOIN` 식은 필터를 적용 하기 전에 일치 하는 각 문서에 대 한 태그, nutrients 및 배열 항목의 모든 항목에 대 한 교차곱을 수행 합니다. 그런 다음 `WHERE` 절은 각 `<c, t, n, s>` 튜플에 필터 조건자를 적용 합니다.
 
@@ -290,7 +304,7 @@ JOIN (SELECT VALUE n FROM n IN c.nutrients WHERE n.nutritionValue > 0 AND n.nutr
 JOIN (SELECT VALUE s FROM s IN c.servings WHERE s.amount > 1)
 ```
 
-**작업 요금:** 22.17 r u s
+**작업 요금:** 22.17 RUs
 
 태그 배열의 한 항목만 필터와 일치 하 고 nutrients 및 servings 배열 모두에 대해 5 개의 항목이 있다고 가정 합니다. 그러면 `JOIN` 식은 첫 번째 쿼리의 1000 항목과 달리 1 x 1 x 5 x 5 = 25 개 항목으로 확장 됩니다.
 

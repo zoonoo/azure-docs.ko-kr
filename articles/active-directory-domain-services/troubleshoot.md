@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 2c6f594b16aac40abf885e0d058c7aba48d32f9c
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76512626"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612727"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 오류 및 문제 해결 단계
 
@@ -30,7 +30,7 @@ Azure AD DS을 사용 하도록 설정 하는 데 문제가 있는 경우 다음
 
 | **샘플 오류 메시지** | **해결 방법** |
 | --- |:--- |
-| *Contoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
+| *Addscontoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.* |[가상 네트워크에서 도메인 이름 충돌](troubleshoot.md#domain-name-conflict) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. 서비스에 ' Azure AD Domain Services Sync ' 응용 프로그램에 대 한 적절 한 권한이 없습니다. ' Azure AD Domain Services Sync ' 라는 응용 프로그램을 삭제 한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 해 보세요.* |[도메인 서비스에 Azure AD Domain Services 동기화 응용 프로그램에 대 한 적절 한 권한이 없습니다.](troubleshoot.md#inadequate-permissions) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. Azure AD 테 넌 트의 도메인 서비스 응용 프로그램에 도메인 서비스를 사용 하도록 설정 하는 데 필요한 권한이 없습니다. 응용 프로그램 식별자 d87dcbc6-a371-462e-88e3-28ad15ec4e64를 사용 하 여 응용 프로그램을 삭제 한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 합니다.* |[Azure AD 테 넌 트에서 도메인 서비스 응용 프로그램이 제대로 구성 되지 않았습니다.](troubleshoot.md#invalid-configuration) |
 | *이 Azure AD 테 넌 트에서 도메인 서비스를 사용 하도록 설정할 수 없습니다. Azure AD 테 넌 트에서 Microsoft Azure AD 응용 프로그램을 사용할 수 없습니다. 응용 프로그램 식별자 00000002-0000-0000-c000-000000000000를 사용 하 여 응용 프로그램을 사용 하도록 설정한 다음 Azure AD 테 넌 트에 대해 도메인 서비스를 사용 하도록 설정 합니다.* |[Azure AD 테넌트에서 Microsoft Graph 애플리케이션을 사용할 수 없음](troubleshoot.md#microsoft-graph-disabled) |
@@ -39,11 +39,11 @@ Azure AD DS을 사용 하도록 설정 하는 데 문제가 있는 경우 다음
 
 **오류 메시지**
 
-*Contoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.*
+*Aaddscontoso.com 이름이이 네트워크에서 이미 사용 중입니다. 사용 하지 않는 이름을 지정 하십시오.*
 
 **해결 방법**
 
-동일 하거나 피어 링 가상 네트워크에 동일한 도메인 이름을 사용 하는 기존 AD DS 환경이 없는지 확인 합니다. 예를 들어 Azure Vm에서 실행 되는 *contoso.com* 라는 AD DS 도메인이 있을 수 있습니다. 가상 네트워크에서 동일한 도메인 이름 *contoso.com* 를 사용 하 여 Azure AD DS 관리 되는 도메인을 사용 하도록 설정 하려고 하면 요청 된 작업이 실패 합니다.
+동일 하거나 피어 링 가상 네트워크에 동일한 도메인 이름을 사용 하는 기존 AD DS 환경이 없는지 확인 합니다. 예를 들어 Azure Vm에서 실행 되는 *aaddscontoso.com* 라는 AD DS 도메인이 있을 수 있습니다. 가상 네트워크에서 동일한 도메인 이름 *aaddscontoso.com* 를 사용 하 여 Azure AD DS 관리 되는 도메인을 사용 하도록 설정 하려고 하면 요청 된 작업이 실패 합니다.
 
 이 오류는 가상 네트워크의 도메인 이름에 대 한 이름 충돌 때문에 발생 합니다. DNS 조회는 기존 AD DS 환경이 요청 된 도메인 이름에 응답 하는지 확인 합니다. 이 오류를 해결 하려면 다른 이름을 사용 하 여 Azure AD DS 관리 되는 도메인을 설정 하거나 기존 AD DS 도메인의 프로 비전을 해제 한 후 다시 시도 하 여 Azure AD DS을 사용 하도록 설정 합니다.
 
@@ -128,9 +128,9 @@ if ($sp -ne $null)
 
 Azure AD 테 넌 트에서 하나 이상의 사용자가 Azure AD DS 관리 되는 도메인에 로그인 할 수 없는 경우 다음 문제 해결 단계를 완료 합니다.
 
-* **자격 증명 형식** -UPN 형식을 사용 하 여 `dee@contoso.onmicrosoft.com`와 같은 자격 증명을 지정 합니다. UPN 형식은 Azure AD DS에서 자격 증명을 지정 하는 데 권장 되는 방법입니다. 이 UPN이 Azure AD에서 올바르게 구성 되어 있는지 확인 합니다.
+* **자격 증명 형식** -UPN 형식을 사용 하 여 `dee@aaddscontoso.onmicrosoft.com`와 같은 자격 증명을 지정 합니다. UPN 형식은 Azure AD DS에서 자격 증명을 지정 하는 데 권장 되는 방법입니다. 이 UPN이 Azure AD에서 올바르게 구성 되어 있는지 확인 합니다.
 
-    사용자의 계정에 대 한 *SAMAccountName* (예: *CONTOSO\driley* )은 테 넌 트에서 동일한 upn 접두사를 사용 하는 여러 사용자가 있거나 upn 접두사가 너무 긴 경우 자동으로 생성 될 수 있습니다. 따라서 계정에 대 한 *SAMAccountName* 형식은 사용자의 온-프레미스 도메인에서 사용 하거나 사용 하는 것과 다를 수 있습니다.
+    사용자의 계정에 대 한 *SAMAccountName* (예: *AADDSCONTOSO\driley* )은 테 넌 트에서 동일한 upn 접두사를 사용 하는 여러 사용자가 있거나 upn 접두사가 너무 긴 경우 자동으로 생성 될 수 있습니다. 따라서 계정에 대 한 *SAMAccountName* 형식은 사용자의 온-프레미스 도메인에서 사용 하거나 사용 하는 것과 다를 수 있습니다.
 
 * **암호 동기화** - [Azure AD Connect를 사용 하 여][hybrid-phs] [클라우드 전용 사용자][cloud-only-passwords] 또는 하이브리드 환경에 대해 암호 동기화를 사용 하도록 설정 했는지 확인 합니다.
     * **하이브리드 동기화 된 계정:** 영향을 받는 사용자 계정이 온-프레미스 디렉터리에서 동기화 되는 경우 다음 영역을 확인 합니다.

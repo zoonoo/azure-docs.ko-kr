@@ -1,24 +1,24 @@
 ---
-title: 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인
+title: 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 (미리 보기)
 titleSuffix: Azure AD B2C
-description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램 사용자의 휴대폰에 문자 메시지의 일회용 암호를 보내는 방법에 대해 알아봅니다.
+description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램 사용자의 휴대폰으로 문자 메시지의 OTP (일회성 암호)를 보냅니다.
 services: active-directory-b2c
 author: mmacy
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/17/2019
+ms.date: 02/25/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8cb0340d9e04db2bfbf088bce9505351d7588cd9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840335"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77647521"
 ---
-# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c"></a>Azure AD B2C에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
+# <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Azure AD B2C (미리 보기)에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 
 Azure Active Directory B2C (Azure AD B2C)의 전화 등록 및 로그인을 사용 하면 문자 메시지에서 휴대폰으로 전송 되는 OTP (일회용 암호)를 사용 하 여 사용자가 응용 프로그램에 등록 하 고 로그인 할 수 있습니다. 일회용 암호를 통해 사용자가 암호를 잊어버리거나 암호를 손상 시킬 수 있는 위험을 최소화할 수 있습니다.
 
@@ -26,7 +26,13 @@ Azure Active Directory B2C (Azure AD B2C)의 전화 등록 및 로그인을 사�
 
 [!INCLUDE [b2c-public-preview-feature](../../includes/active-directory-b2c-public-preview.md)]
 
+## <a name="pricing"></a>가격
+
+SMS 문자 메시지를 사용 하 여 사용자에 게 일회용 암호를 보내고, 전송 된 각 메시지에 대해 요금이 청구 될 수 있습니다. 가격 책정 정보는 [Azure Active Directory B2C 가격 책정](https://azure.microsoft.com/pricing/details/active-directory-b2c/)의 **별도 요금** 섹션을 참조 하세요.
+
 ## <a name="prerequisites"></a>필수 조건
+
+OTP를 설정 하기 전에 다음 리소스를 준비 해야 합니다.
 
 * [Azure AD B2C 테넌트](tutorial-create-tenant.md)
 * 테 넌 트에 [등록 된 웹 응용 프로그램](tutorial-register-applications.md)
@@ -69,6 +75,22 @@ Azure AD B2C 테 넌 트와 함께 작동 하도록 전화 등록 및 로그인 
 1. **회신 Url 선택**에서 `https://jwt.ms`을 선택 합니다.
 1. **지금 실행** 을 선택 하 고 전자 메일 주소 또는 전화 번호를 사용 하 여 등록 합니다.
 1. **지금 실행** 을 선택 하 고 동일한 계정으로 로그인 하 여 구성이 올바른지 확인 합니다.
+
+## <a name="get-user-account-by-phone-number"></a>전화 번호로 사용자 계정 가져오기
+
+전화 번호를 사용 하 여 등록 하지만 복구 전자 메일 주소를 제공 하지 않는 사용자는 전화 번호를 로그인 이름으로 사용 하 여 Azure AD B2C 디렉터리에 기록 됩니다. 사용자가 전화 번호를 변경 하려는 경우 지원 센터 또는 지원 팀은 먼저 자신의 계정을 찾은 다음 전화 번호를 업데이트 해야 합니다.
+
+[Microsoft Graph](manage-user-accounts-graph-api.md)를 사용 하 여 전화 번호 (로그인 이름)로 사용자를 찾을 수 있습니다.
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+{phone number}' and c/issuer eq '{tenant name}.onmicrosoft.com')
+```
+
+예를 들면 다음과 같습니다.
+
+```http
+GET https://graph.microsoft.com/v1.0/users?$filter=identities/any(c:c/issuerAssignedId eq '+450334567890' and c/issuer eq 'contosob2c.onmicrosoft.com')
+```
 
 ## <a name="next-steps"></a>다음 단계
 

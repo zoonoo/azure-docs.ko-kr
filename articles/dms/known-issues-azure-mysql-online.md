@@ -3,8 +3,8 @@ title: '알려진 문제: Azure Database for MySQL에 대 한 온라인 마이�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service 사용 시 Azure Database for MySQL에 대 한 온라인 마이그레이션과의 알려진 문제 및 마이그레이션 제한 사항에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -13,13 +13,13 @@ ms.custom:
 - seo-lt-2019
 - seo-dt-2019
 ms.topic: article
-ms.date: 11/08/2019
-ms.openlocfilehash: 905a14bd78d120e27ebc4d44ede86e9f0e3783cf
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 02/20/2020
+ms.openlocfilehash: afbff1c0b001d00f2791a869850729171782701c
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75437852"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650251"
 ---
 # <a name="online-migration-issues--limitations-to-azure-db-for-mysql-with-azure-database-migration-service"></a>Azure Database Migration Service에서 MySQL 용 Azure DB에 대 한 제한 사항을 & 온라인 마이그레이션 문제
 
@@ -126,7 +126,7 @@ AWS RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션을 
 - 다음 DDL은 지원되지 않습니다.
   - 모든 파티션 DDL
   - 테이블 삭제
-  - 테이블 이름 변경
+  - 테이블 이름 바꾸기
 - *alter table <table_name> add column <column_name>* 문을 사용하여 열을 테이블의 시작 또는 중간에 추가하는 것은 지원되지 않습니다. *alter table <table_name> add column <column_name>* 은 열을 테이블의 끝에 추가합니다.
 - 열 데이터의 일부에서만 생성된 인덱스는 지원되지 않습니다. 다음 문은 열 데이터의 일부만 사용하여 인덱스를 만드는 예제입니다.
 

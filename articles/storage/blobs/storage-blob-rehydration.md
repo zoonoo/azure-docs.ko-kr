@@ -9,12 +9,12 @@ ms.service: storage
 ms.subservice: blobs
 ms.topic: conceptual
 ms.reviewer: hux
-ms.openlocfilehash: 1c06c1d0403e526e1ed58a193cfe9b57bb9fe561
-ms.sourcegitcommit: 5b073caafebaf80dc1774b66483136ac342f7808
+ms.openlocfilehash: 0a7012d9daa808933a51ac05862a8a9aa4cfcf77
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75780245"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614793"
 ---
 # <a name="rehydrate-blob-data-from-the-archive-tier"></a>보관 계층에서 blob 데이터 리하이드레이션
 
@@ -51,7 +51,7 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프 라인으로 간�
 ## <a name="quickstart-scenarios"></a>빠른 시작 시나리오
 
 ### <a name="rehydrate-an-archive-blob-to-an-online-tier"></a>온라인 계층에 보관 blob 리하이드레이션
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
 1. Azure Portal에서 **모든 리소스**를 검색 하 고 선택 합니다.
@@ -70,14 +70,14 @@ Blob이 보관 액세스 계층에 있는 동안에는 오프 라인으로 간�
 
 ![저장소 계정 계층 변경](media/storage-tiers/blob-access-tier.png)
 
-# <a name="powershelltabazure-powershell"></a>[Powershell](#tab/azure-powershell)
+# <a name="powershell"></a>[Powershell](#tab/azure-powershell)
 다음 PowerShell 스크립트를 사용 하 여 보관 blob의 blob 계층을 변경할 수 있습니다. `$rgName` 변수는 리소스 그룹 이름으로 초기화 해야 합니다. `$accountName` 변수는 저장소 계정 이름으로 초기화 해야 합니다. `$containerName` 변수는 컨테이너 이름으로 초기화 해야 합니다. `$blobName` 변수는 blob 이름으로 초기화 해야 합니다. 
 ```powershell
 #Initialize the following with your resource group, storage account, container, and blob names
 $rgName = ""
 $accountName = ""
 $containerName = ""
-$blobName == ""
+$blobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName
@@ -99,8 +99,8 @@ $rgName = ""
 $accountName = ""
 $srcContainerName = ""
 $destContainerName = ""
-$srcBlobName == ""
-$destBlobName == ""
+$srcBlobName = ""
+$destBlobName = ""
 
 #Select the storage account and get the context
 $storageAccount =Get-AzStorageAccount -ResourceGroupName $rgName -Name $accountName

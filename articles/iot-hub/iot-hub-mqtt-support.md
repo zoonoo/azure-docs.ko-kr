@@ -7,12 +7,12 @@ services: iot-hub
 ms.topic: conceptual
 ms.date: 10/12/2018
 ms.author: robinsh
-ms.openlocfilehash: 694697be85b61ad2d59a0a4be1ced3581873cb77
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 2b200692610302bb135982e5419dcda36d5cfe60
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111745"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77648498"
 ---
 # <a name="communicate-with-your-iot-hub-using-the-mqtt-protocol"></a>MQTT 프로토콜을 사용하여 IoT 허브와 통신
 
@@ -73,11 +73,11 @@ device_client = IoTHubDeviceClient.create_from_connection_string(deviceConnectio
 
 |언어  |기본 keep-alive 간격  |구성 가능 여부  |
 |---------|---------|---------|
-|Node.js     |   180 초      |     예    |
-|Java     |    230 초     |     예    |
+|Node.js     |   180 초      |     아니요    |
+|Java     |    230 초     |     아니요    |
 |C     | 240 초 |  [예](https://github.com/Azure/azure-iot-sdk-c/blob/master/doc/Iothub_sdk_options.md#mqtt-transport)   |
 |C#     | 300초 |  [예](https://github.com/Azure/azure-iot-sdk-csharp/blob/master/iothub/device/src/Transport/Mqtt/MqttTransportSettings.cs#L89)   |
-|Python (V2)   | 60초 |  예   |
+|Python (V2)   | 60초 |  아니요   |
 
 [Mqtt 사양을](http://docs.oasis-open.org/mqtt/mqtt/v3.1.1/os/mqtt-v3.1.1-os.html#_Toc398718081)따라 IoT Hub의 keep-alive ping 간격은 클라이언트 연결 유지 값의 1.5 배입니다. 그러나 모든 Azure 서비스가 Azure 부하 분산 장치 TCP 유휴 시간 제한 (29.45 분)에 바인딩되기 때문에 IoT Hub는 최대 서버 쪽 제한 시간을 29.45 분 (1767 초)으로 제한 합니다. 
 
@@ -161,28 +161,27 @@ MQTT 연결 및 분리 패킷의 경우, IoT Hub는 **작업 모니터링** 채�
 
 **Windows의 경우:**
 
-• TelemetryMQTTWin32: 원격 분석 메시지를 Azure IoT hub에 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다.
+* TelemetryMQTTWin32: 원격 분석 메시지를 Azure IoT hub에 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다.
 
-• SubscribeMQTTWin32: Windows 컴퓨터에서 지정 된 IoT hub의 이벤트를 구독 하는 코드를 포함 합니다.
+* SubscribeMQTTWin32: Windows 컴퓨터에서 지정 된 IoT hub의 이벤트를 구독 하는 코드를 포함 합니다.
 
-• DeviceTwinMQTTWin32: Windows 컴퓨터의 Azure IoT hub에서 장치의 장치 쌍 이벤트를 쿼리하고 구독 하는 코드를 포함 합니다.
+* DeviceTwinMQTTWin32: Windows 컴퓨터의 Azure IoT hub에서 장치의 장치 쌍 이벤트를 쿼리하고 구독 하는 코드를 포함 합니다.
 
-• PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
+* PnPMQTTWin32: IoT 플러그 & Play preview 장치 기능을 사용 하 여 Azure IoT hub에 원격 분석 메시지를 전송 하 고, Windows 컴퓨터에서 빌드하고 실행 하는 코드를 포함 합니다. IoT 플러그인에 대 한 자세한 내용은 [여기](https://docs.microsoft.com/azure/iot-pnp/overview-iot-plug-and-play) 에서 &.
 
 **Linux의 경우:**
 
-• MQTTLinux: Linux에서 실행할 코드 및 빌드 스크립트를 포함 합니다 (WSL, Ubuntu 및 Raspbian는 지금까지 테스트 됨).
+* MQTTLinux: Linux에서 실행할 코드 및 빌드 스크립트를 포함 합니다 (WSL, Ubuntu 및 Raspbian는 지금까지 테스트 됨).
 
-• LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
+* LinuxConsoleVS2019: 동일한 코드를 포함 하지만 WSL (Windows Linux sub system)을 대상으로 하는 VS2019 프로젝트에 포함 됩니다. 이 프로젝트를 사용 하 여 Visual Studio의 단계별 Linux에서 실행 되는 코드를 디버그할 수 있습니다.
 
 **Mosquitto_pub:**
 
-•이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
+이 폴더에는 Mosquitto.org에서 제공 하는 mosquitto_pub 유틸리티 도구로 사용 되는 두 개의 샘플 명령이 있습니다.
 
-Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 보냅니다.
+* Mosquitto_sendmessage: 장치 역할을 하는 Azure IoT hub에 간단한 문자 메시지를 보냅니다.
 
-Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합니다.
-
+* Mosquitto_subscribe: Azure IoT hub에서 발생 하는 이벤트를 확인 합니다.
 
 ## <a name="using-the-mqtt-protocol-directly-as-a-module"></a>MQTT 프로토콜 직접 사용(모듈로)
 
@@ -287,7 +286,7 @@ client.connect(iot_hub_name+".azure-devices.net", port=8883)
 
 ## <a name="sending-device-to-cloud-messages"></a>디바이스-클라우드 메시지 보내기
 
-성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 다음은 그 예입니다.
+성공적인 연결을 구축한 후 디바이스는 `devices/{device_id}/messages/events/` 또는 `devices/{device_id}/messages/events/{property_bag}`를 **토픽 이름**으로 사용하여 IoT Hub에 메시지를 보낼 수 있습니다. `{property_bag}` 요소는 URL 인코딩 형식의 속성을 추가하여 메시지를 보내는 디바이스를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```text
 RFC 2396-encoded(<PropertyName1>)=RFC 2396-encoded(<PropertyValue1>)&RFC 2396-encoded(<PropertyName2>)=RFC 2396-encoded(<PropertyValue2>)…
@@ -340,9 +339,9 @@ IoT Hub는 **토픽 이름이** `devices/{device_id}/messages/devicebound/`또�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
-| 204 | 성공(반환되는 콘텐츠 없음) |
+| 200 | 성공 |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
 | 5** | 서버 오류 |
 
@@ -360,7 +359,7 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 3. 그러면 서비스에서는 항목 `$iothub/twin/res/{status}/?$rid={request id}`에 대해 보고된 속성 컬렉션의 새 ETag 값을 포함하는 응답 메시지를 보냅니다. 이 응답 메시지는 동일한 **요청 ID**를 요청으로 사용합니다.
 
-요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 구성원은 디바이스 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 다음은 그 예입니다.
+요청 메시지 본문은 보고된 속성에 대한 새 값을 포함하는 JSON 문서를 포함합니다. JSON 문서의 각 구성원은 디바이스 쌍의 문서에 있는 해당 구성원을 업데이트하거나 추가합니다. `null`로 설정된 구성원은 포함하는 개체에서 구성원을 삭제합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -371,9 +370,9 @@ reported 속성을 업데이트하기 위해 디바이스는 지정된 MQTT 토�
 
 가능한 상태 코드:
 
-|상태 | Description |
+|상태 | 설명 |
 | ----- | ----------- |
-| 200 | Success |
+| 204 | 성공(반환되는 콘텐츠 없음) |
 | 400 | 잘못된 요청. 형식이 잘못된 JSON |
 | 429 | [IoT Hub 제한](iot-hub-devguide-quotas-throttling.md) 마다 너무 많은 요청 (제한 됨) |
 | 5** | 서버 오류 |
@@ -398,7 +397,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 
 ## <a name="receiving-desired-properties-update-notifications"></a>desired 속성 업데이트 알림 수신
 
-디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 다음은 그 예입니다.
+디바이스가 연결되면 IoT Hub는 `$iothub/twin/PATCH/properties/desired/?$version={new version}` 항목에 알림을 보내는데 여기에는 솔루션 백 엔드에 의해 수행된 업데이트 콘텐츠가 포함됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -408,7 +407,7 @@ client.publish("$iothub/twin/PATCH/properties/reported/?$rid=" +
 }
 ```
 
-속성 업데이트의 경우 `null` 값은 JSON 개체 구성원이 삭제되고 있음을 의미합니다. 또한 `$version`은 쌍에 포함된 원하는 속성 섹션의 새 버전을 나타냅니다.
+속성 업데이트의 경우 `null` 값은 JSON 개체 멤버가 삭제 되 고 있음을 의미 합니다. 또한 `$version`은 쌍에 포함된 원하는 속성 섹션의 새 버전을 나타냅니다.
 
 > [!IMPORTANT]
 > IoT Hub는 디바이스가 연결된 경우에만 변경 알림을 생성하여 원하는 속성을 IoT Hub와 장치 앱 간에 동기화 된 상태로 유지 하기 위해 장치 다시 연결 [흐름](iot-hub-devguide-device-twins.md#device-reconnection-flow) 을 구현 해야 합니다.

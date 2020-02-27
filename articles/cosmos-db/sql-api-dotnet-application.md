@@ -8,12 +8,12 @@ ms.devlang: dotnet
 ms.topic: tutorial
 ms.date: 11/05/2019
 ms.author: sngun
-ms.openlocfilehash: b0da9f2f2d14c0487e61c1927b5456d09052cff3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6af5f4c3ab028f8f0c6945eba86ec79dd6027680
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75444923"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587467"
 ---
 # <a name="tutorial-develop-an-aspnet-core-mvc-web-application-with-azure-cosmos-db-by-using-net-sdk"></a>자습서: .NET SDK를 사용하여 Azure Cosmos DB를 통해 ASP.NET Core MVC 웹 애플리케이션 개발
 
@@ -110,7 +110,7 @@ Azure Cosmos 계정을 만들어 보겠습니다. Azure Cosmos DB SQL API 계정
 
 1. *Item.cs* 클래스의 내용을 다음 코드로 바꿉니다.
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Models/Item.cs":::
 
 Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니다. `JsonProperty` 특성을 사용하여 JSON에서 개체를 직렬화 및 역직렬화하는 방법을 제어할 수 있습니다. `Item` 클래스는 `JsonProperty` 특성을 보여 줍니다. 이 코드는 JSON으로 이동하는 속성 이름의 형식을 제어합니다. `Completed` .NET 속성의 이름도 변경합니다.
 
@@ -183,7 +183,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. *ItemController.cs*의 내용을 다음 코드로 바꿉니다.
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Controllers/ItemController.cs":::
 
 **ValidateAntiForgeryToken** 특성은 여기서 교차 사이트 요청 위조 공격으로부터 이 애플리케이션을 보호하는 데 사용됩니다. 보기는 이 위조 방지 토큰에서도 작동해야 합니다. 자세한 내용과 예제는 [ASP.NET MVC 애플리케이션에서 CSRF(교차 사이트 요청 위조) 공격 방지][Preventing Cross-Site Request Forgery]를 참조하세요. [GitHub][GitHub] 에서 제공하는 소스 코드에는 완벽하게 구현되어 있습니다.
 
@@ -203,11 +203,11 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. *CosmosDBService.cs*의 내용을 다음 코드로 바꿉니다.
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/CosmosDbService.cs":::
 
 1. 위의 두 단계를 반복하지만, 이번에는 *ICosmosDBService* 이름과 다음 코드를 사용합니다.
 
-   [!code-csharp[Main](~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs)]
+   :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Services/ICosmosDbService.cs":::
 
 1. **ConfigureServices** 처리기에서 다음 줄을 추가합니다.
 
@@ -219,7 +219,7 @@ Azure Cosmos DB는 JSON을 사용하여 데이터를 이동하고 저장합니�
 
 1. 구성을 읽고 클라이언트를 초기화하는 다음 **InitializeCosmosClientInstanceAsync** 메서드를 동일한 파일 내에 추가합니다.
 
-    [!code-csharp[](~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs?name=InitializeCosmosClientInstanceAsync)]
+    :::code language="csharp" source="~/samples-cosmosdb-dotnet-core-web-app/src/Startup.cs" id="InitializeCosmosClientInstanceAsync":::
 
 1. 프로젝트의 *appsettings.json* 파일에서 구성을 정의합니다. 이 파일을 열고, **CosmosDb**라는 섹션을 추가합니다.
 
