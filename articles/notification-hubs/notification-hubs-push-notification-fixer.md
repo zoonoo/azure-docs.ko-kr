@@ -12,16 +12,16 @@ ms.workload: mobile
 ms.tgt_pltfrm: NA
 ms.devlang: multiple
 ms.topic: article
-ms.date: 04/04/2019
+ms.date: 02/25/2020
 ms.author: sethm
 ms.reviewer: jowargo
 ms.lastreviewed: 04/04/2019
-ms.openlocfilehash: 3c84277603420567485b5199cdd2fa63ee3a2654
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1f3c16e6fe1855cf7882d83e620c70d15ce3cb92
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75378384"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657586"
 ---
 # <a name="diagnose-dropped-notifications-in-azure-notification-hubs"></a>Azure Notification Hubs에서 삭제 된 알림 진단
 
@@ -41,7 +41,7 @@ Azure Notification Hubs에 대 한 일반적인 질문은 응용 프로그램의
 
 다음 섹션에서는 일반적인 것부터 드물게 알림이 삭제 될 수 있는 시나리오를 살펴봅니다.
 
-## <a name="notification-hubs-misconfiguration"></a>Notification Hubs 구성 오류 ##
+## <a name="notification-hubs-misconfiguration"></a>Notification Hubs 구성 오류
 
 각 푸시 알림 서비스에 알림을 보내려면 Notification Hubs는 응용 프로그램의 컨텍스트에서 자신을 인증 해야 합니다. 대상 플랫폼의 알림 서비스 (Microsoft, Apple, Google 등)를 사용 하 여 개발자 계정을 만들어야 합니다. 그런 다음 대상 PNS 작업 하는 데 사용 하는 토큰 또는 키를 가져오는 OS에 응용 프로그램을 등록 해야 합니다.
 
@@ -54,19 +54,20 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
 ### <a name="notification-hub-name-location"></a>알림 허브 이름 위치
 
 다음 위치에서 알림 허브 이름(오타 없이)이 동일한지 확인합니다.
-   * 클라이언트에서 등록 하는 위치
-   * 백 엔드에서 알림을 보내는 위치
-   * 푸시 알림 서비스 자격 증명을 구성한 위치
+
+* 클라이언트에서 등록 하는 위치
+* 백 엔드에서 알림을 보내는 위치
+* 푸시 알림 서비스 자격 증명을 구성한 위치
 
 클라이언트 및 응용 프로그램 백 엔드에서 올바른 공유 액세스 서명 구성 문자열을 사용 하는지 확인 합니다. 일반적으로 클라이언트에서 **DefaultListenSharedAccessSignature** 를 사용 하 고 응용 프로그램 백 엔드에서 **Defaultfullsharedaccesssignature** 를 사용 해야 합니다. 그러면 Notification Hubs에 알림을 보낼 수 있는 권한이 부여 됩니다.
 
-### <a name="apn-configuration"></a>APN 구성 ###
+### <a name="apn-configuration"></a>APN 구성
 
 두 개의 다른 허브를 유지 해야 합니다. 하나는 프로덕션 용 이며 다른 하나는 테스트용입니다. 샌드박스 환경에서 사용 하는 인증서를 프로덕션 환경에서 사용 하는 인증서/허브와는 다른 허브에 업로드 해야 합니다. 같은 허브에 다른 종류의 인증서를 업로드하지 마세요. 그러면 알림이 실패 합니다.
 
 실수로 다른 유형의 인증서를 동일한 허브에 업로드 하는 경우 허브를 삭제 하 고 새 허브를 사용 하 여 새로 시작 해야 합니다. 어떤 이유로 든 허브를 삭제할 수 없는 경우 허브에서 기존 등록을 모두 삭제 해야 합니다.
 
-### <a name="fcm-configuration"></a>FCM 구성 ###
+### <a name="fcm-configuration"></a>FCM 구성
 
 1. Firebase에서 가져온 *서버 키* 가 Azure Portal에 등록 한 서버 키와 일치 하는지 확인 합니다.
 
@@ -76,9 +77,9 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
 
    ![Firebase 프로젝트 ID][1]
 
-## <a name="application-issues"></a>애플리케이션 문제 ##
+## <a name="application-issues"></a>애플리케이션 문제
 
-### <a name="tags-and-tag-expressions"></a>태그 및 태그 식 ###
+### <a name="tags-and-tag-expressions"></a>태그 및 태그 식
 
 태그 또는 태그 식을 사용 하 여 대상 그룹을 분할 하는 경우 알림을 보낼 때 대상을 찾을 수 없습니다. 이 오류는 송신 호출에서 지정 된 태그 또는 태그 식을 기반으로 합니다.
 
@@ -86,11 +87,11 @@ Azure Portal에 플랫폼 자격 증명을 추가해야 합니다. 장치에 도
 
 예를 들어 Notification Hubs를 사용 하는 모든 등록이 "정치" 태그를 사용 한다고 가정 합니다. 그런 다음 "스포츠" 태그가 포함 된 알림을 보내면 모든 장치로 알림이 전송 되지 않습니다. 복합 사례에는 "태그 A" *또는* "태그 b"를 사용 하 여 등록 한 태그 식이 포함 될 수 있지만, "tag a & & 태그 b"를 대상으로 지정 했습니다. 이 문서의 뒷부분에 있는 자체 진단 팁 섹션에서는 등록과 해당 태그를 검토 하는 방법을 보여 줍니다.
 
-### <a name="template-issues"></a>템플릿 문제 ###
+### <a name="template-issues"></a>템플릿 문제
 
 템플릿을 사용하는 경우 [템플릿]에 설명된 지침을 따릅니다.
 
-### <a name="invalid-registrations"></a>잘못 된 등록 ###
+### <a name="invalid-registrations"></a>잘못 된 등록
 
 알림 허브가 올바르게 구성 되었고 태그 또는 태그 식이 올바르게 사용 된 경우 유효한 대상이 발견 됩니다. 이러한 대상에 알림을 보내야 합니다. 그런 다음 Notification Hubs가 여러 일괄 처리 프로세스를 병렬로 시작합니다. 각 일괄 처리는 등록 집합에 메시지를 보냅니다.
 
@@ -121,13 +122,13 @@ Notification Hubs를 사용 하면 제네릭 SendNotification API를 사용 하 
 
 Notification Hubs에서 삭제 된 알림의 근본 원인을 진단 하는 경로는 다음과 같습니다.
 
-### <a name="verify-credentials"></a>자격 증명 확인 ###
+### <a name="verify-credentials"></a>자격 증명 확인
 
-#### <a name="push-notification-service-developer-portal"></a>푸시 알림 서비스 개발자 포털 ####
+#### <a name="push-notification-service-developer-portal"></a>푸시 알림 서비스 개발자 포털
 
 각 푸시 알림 서비스 개발자 포털(APNs, FCM, Windows Notification Service 등)에서 자격 증명을 확인합니다. 자세한 내용은 [자습서: Azure Notification Hubs를 사용 하 여 유니버설 Windows 플랫폼 앱에 알림 보내기](https://docs.microsoft.com/azure/notification-hubs/notification-hubs-windows-store-dotnet-get-started-wns-push-notification)를 참조 하세요.
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal
 
 푸시 알림 서비스 개발자 포털에서 얻은 자격 증명과 자격 증명을 검토 하 고 일치 시키려면 Azure Portal의 **액세스 정책** 탭으로 이동 합니다.
 
@@ -135,46 +136,48 @@ Notification Hubs에서 삭제 된 알림의 근본 원인을 진단 하는 경�
 
 ### <a name="verify-registrations"></a>등록 확인
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 Visual Studio에서 서버 탐색기 통해 Azure에 연결 하 여 Notification Hubs를 비롯 한 여러 Azure 서비스를 보고 관리할 수 있습니다. 이 바로 가기는 개발/테스트 환경에 주로 유용 합니다.
 
 ![Visual Studio 서버 Explorer][9]
 
+![서버 탐색기](media/notification-hubs-push-notification-fixer/vsserverexplorer2.png)
+
 허브의 모든 등록을 보고 관리할 수 있습니다. 등록은 플랫폼, 네이티브 또는 템플릿 등록, 태그, 푸시 알림 서비스 식별자, 등록 ID 및 만료 날짜를 기준으로 분류 될 수 있습니다. 또한 이 페이지에서 등록을 편집할 수 있습니다. 태그를 편집 하는 데 특히 유용 합니다.
 
 **서버 탐색기**에서 알림 허브를 마우스 오른쪽 단추로 클릭 하 고 **진단**을 선택 합니다. 
 
-![Visual Studio 서버 탐색기: 진단 메뉴](./media/notification-hubs-diagnosing/diagnose-menu.png)
+![Visual Studio 서버 탐색기: 진단 메뉴](./media/notification-hubs-push-notification-fixer/diagnose-menu.png)
 
 다음 페이지가 표시 됩니다.
 
-![Visual Studio: 진단 페이지](./media/notification-hubs-diagnosing/diagnose-page.png)
+![Visual Studio: 진단 페이지](./media/notification-hubs-push-notification-fixer/diagnose-page.png)
 
 **장치 등록** 페이지로 전환 합니다.
 
-![Visual Studio: 장치 등록](./media/notification-hubs-diagnosing/VSRegistrations.png)
+![Visual Studio: 장치 등록](./media/notification-hubs-push-notification-fixer/VSRegistrations.png)
 
 **테스트 보내기** 페이지를 사용 하 여 테스트 알림 메시지를 보낼 수 있습니다.
 
-![Visual Studio: 테스트 보내기](./media/notification-hubs-diagnosing/test-send-vs.png)
+![Visual Studio: 테스트 보내기](./media/notification-hubs-push-notification-fixer/test-send-vs.png)
 
 > [!NOTE]
 > Visual Studio를 사용 하 여 개발/테스트 중에만 등록 수를 제한 하 여 등록을 편집 합니다. 등록을 대량으로 편집 해야 하 [는 경우 방법: 대량 등록 내보내기 및 수정](https://msdn.microsoft.com/library/dn790624.aspx)에 설명 된 등록 내보내기 및 가져오기 기능을 사용 하는 것이 좋습니다.
 
-#### <a name="service-bus-explorer"></a>Service Bus 탐색기 ####
+#### <a name="service-bus-explorer"></a>Service Bus 탐색기
 
 많은 고객이 [Service Bus 탐색기](https://github.com/paolosalvatori/ServiceBusExplorer) 를 사용 하 여 notification hubs를 보고 관리할 수 있습니다. Service Bus 탐색기는 오픈 소스 프로젝트입니다. 
 
 ### <a name="verify-message-notifications"></a>알림 메시지 확인
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal
 
 서비스 백 엔드를 실행하지 않고 클라이언트에 테스트 알림을 보내려면 **지원 + 문제 해결**에서 **테스트 보내기**를 선택합니다.
 
 ![Azure의 테스트 보내기 기능][7]
 
-#### <a name="visual-studio"></a>Visual Studio ####
+#### <a name="visual-studio"></a>Visual Studio
 
 Visual Studio에서 테스트 알림을 보낼 수도 있습니다.
 
@@ -188,7 +191,7 @@ Visual Studio 서버 탐색기에서 Notification Hubs를 사용하는 방법에
 
 ### <a name="debug-failed-notifications-and-review-notification-outcome"></a>실패한 알림 디버그 및 알림 결과 검토
 
-#### <a name="enabletestsend-property"></a>EnableTestSend 속성 ####
+#### <a name="enabletestsend-property"></a>EnableTestSend 속성
 
 Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대기 됩니다. Notification Hubs는 올바른 대상을 결정한 후 푸시 알림 서비스에 알림을 보냅니다. REST API 또는 클라이언트 Sdk 중 하나를 사용 하는 경우 보내기 호출을 반환 하는 것은 메시지가 Notification Hubs를 사용 하 여 큐에 대기 한다는 것만을 의미 합니다. 궁극적으로는 Notification Hubs 푸시 알림 서비스에 알림을 보낼 때 발생 하는 상황에 대 한 통찰력을 제공 하지 않습니다.
 
@@ -196,13 +199,13 @@ Notification Hubs를 통해 알림을 보낼 때 알림은 처음에 큐에 대�
 
 푸시 알림 서비스 오류에 대한 정보를 얻으려면 [EnableTestSend] 속성을 사용합니다. 이 속성은 포털 또는 Visual Studio 클라이언트에서 테스트 메시지를 보낼 때 자동으로 활성화됩니다. 이 속성을 사용 하 여 자세한 디버깅 정보 및 Api를 통해 볼 수도 있습니다. 현재 이 속성은 .NET SDK에서 사용할 수 있습니다. 결국 모든 클라이언트 Sdk에 추가 됩니다.
 
-REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 예:
+REST 호출에 `EnableTestSend` 속성을 사용하려면 송신 호출 끝에 *test*라는 쿼리 문자열 매개 변수를 추가합니다. 다음은 그 예입니다.
 
 ```text
 https://mynamespace.servicebus.windows.net/mynotificationhub/messages?api-version=2013-10&test
 ```
 
-#### <a name="net-sdk-example"></a>.NET SDK 예제 ####
+#### <a name="net-sdk-example"></a>.NET SDK 예제
 
 다음은 .NET SDK를 사용하여 네이티브 팝업(토스트 알림) 알림을 보내는 예제입니다.
 
@@ -214,7 +217,7 @@ Console.WriteLine(result.State);
 
 실행 마지막에 `result.State`가 간단히 `Enqueued`를 명시합니다. 결과는 푸시 알림에 발생 한 상황에 대 한 통찰력을 제공 하지 않습니다.
 
-다음으로 `EnableTestSend` 부울 속성을 사용할 수 있습니다. `NotificationHubClient`를 초기화할 때 `EnableTestSend` 속성을 사용하여 알림을 보낼 때 발생하는 푸시 알림 서비스 오류에 대한 자세한 상태를 가져올 수 있습니다. 푸시 알림 서비스에 알림을 배달 하기 위해 먼저 Notification Hubs 필요 하기 때문에 send 호출은 반환 시간이 더 오래 걸립니다.
+다음으로 `EnableTestSend` 부울 속성을 사용할 수 있습니다. `EnableTestSend`를 초기화할 때 `NotificationHubClient` 속성을 사용하여 알림을 보낼 때 발생하는 푸시 알림 서비스 오류에 대한 자세한 상태를 가져올 수 있습니다. 푸시 알림 서비스에 알림을 배달 하기 위해 먼저 Notification Hubs 필요 하기 때문에 send 호출은 반환 시간이 더 오래 걸립니다.
 
 ```csharp
     bool enableTestSend = true;
@@ -229,7 +232,7 @@ Console.WriteLine(result.State);
     }
 ```
 
-#### <a name="sample-output"></a>샘플 출력 ####
+#### <a name="sample-output"></a>샘플 출력
 
 ```text
 DetailedStateAvailable
@@ -243,9 +246,9 @@ The Token obtained from the Token Provider is wrong
 > [!NOTE]
 > `EnableTestSend` 속성 사용은 철저하게 제한됩니다. 이 옵션은 개발/테스트 환경 및 제한 된 등록 집합 에서만 사용 합니다. 디버그 알림은 10 개의 장치로만 전송 됩니다. 또한 분당 10 분 마다 디버그 전송 처리에 제한이 있습니다.
 
-### <a name="review-telemetry"></a>원격 분석 검토 ###
+### <a name="review-telemetry"></a>원격 분석 검토
 
-#### <a name="azure-portal"></a>Azure Portal ####
+#### <a name="azure-portal"></a>Azure portal
 
 포털에서 알림 허브의 모든 활동에 대한 간략한 개요를 확인할 수 있습니다.
 
@@ -261,7 +264,7 @@ The Token obtained from the Token Provider is wrong
 
 4. 알림 허브에 대한 인증 설정이 올바르지 않으면 **PNS 인증 오류**가 나타납니다. 푸시 알림 서비스 자격 증명을 확인 하는 것이 좋습니다.
 
-#### <a name="programmatic-access"></a>프로그래밍 방식 액세스 ####
+#### <a name="programmatic-access"></a>프로그래밍 방식 액세스
 
 프로그래밍 방식 액세스에 대 한 자세한 내용은 [프로그래밍 방식 액세스](https://docs.microsoft.com/previous-versions/azure/azure-services/dn458823(v=azure.100))를 참조 하세요.
 
@@ -271,16 +274,16 @@ The Token obtained from the Token Provider is wrong
 > 원격 분석 관련 기능을 사용 하려면 먼저 Azure Portal에서 표준 서비스 계층을 사용 하 고 있는지 확인 합니다.  
 
 <!-- IMAGES -->
-[0]: ./media/notification-hubs-diagnosing/Architecture.png
-[1]: ./media/notification-hubs-diagnosing/FCMConfigure.png
-[3]: ./media/notification-hubs-diagnosing/FCMServerKey.png
+[0]: ./media/notification-hubs-push-notification-fixer/Architecture.png
+[1]: ./media/notification-hubs-push-notification-fixer/FCMConfigure.png
+[3]: ./media/notification-hubs-push-notification-fixer/FCMServerKey.png
 [4]: ../../includes/media/notification-hubs-portal-create-new-hub/notification-hubs-connection-strings-portal.png
-[5]: ./media/notification-hubs-diagnosing/PortalDashboard.png
-[6]: ./media/notification-hubs-diagnosing/PortalAnalytics.png
+[5]: ./media/notification-hubs-push-notification-fixer/PortalDashboard.png
+[6]: ./media/notification-hubs-push-notification-fixer/PortalAnalytics.png
 [7]: ./media/notification-hubs-ios-get-started/notification-hubs-test-send.png
-[8]: ./media/notification-hubs-diagnosing/VSRegistrations.png
-[9]: ./media/notification-hubs-diagnosing/VSServerExplorer.png
-[10]: ./media/notification-hubs-diagnosing/VSTestNotification.png
+[8]: ./media/notification-hubs-push-notification-fixer/VSRegistrations.png
+[9]: ./media/notification-hubs-push-notification-fixer/vsserverexplorer.png
+[10]: ./media/notification-hubs-push-notification-fixer/VSTestNotification.png
 
 <!-- LINKS -->
 [Notification Hubs 개요]: notification-hubs-push-notification-overview.md

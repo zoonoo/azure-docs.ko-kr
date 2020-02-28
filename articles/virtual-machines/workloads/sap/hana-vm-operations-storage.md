@@ -12,15 +12,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
-ms.date: 02/13/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 4cc4db9ffcb700d4b65a7f5c21d258e9af52d164
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 155498aeaea30bf2da1d5aa0dbcb322aeb43bbdd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598530"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661297"
 ---
 # <a name="sap-hana-azure-virtual-machine-storage-configurations"></a>SAP HANA Azure 가상 머신 스토리지 구성
 
@@ -35,6 +35,10 @@ Azure는 SAP HANA를 실행 하는 Azure Vm에 적합 한 다양 한 유형의 �
 Azure는 Azure Standard 및 Premium Storage에서 VHD를 위한 두 가지 배포 방법을 제공합니다. 전반적인 시나리오에서 가능하다면 [Azure Managed Disks](https://azure.microsoft.com/services/managed-disks/) 배포를 활용하세요. 
 
 IOPS 및 스토리지 처리량에서 스토리지 유형 및 해당 SLA의 목록을 보려면 [관리 디스크에 대한 Azure 설명서](https://azure.microsoft.com/pricing/details/managed-disks/)를 참조하세요.
+
+> [!IMPORTANT]
+> 선택한 Azure storage 유형과는 독립적으로 해당 저장소에 사용 되는 파일 시스템을 SAP에서 특정 운영 체제 및 DBMS에 대해 지원 해야 합니다. [SAP support note #405827](https://launchpad.support.sap.com/#/notes/405827) 에는 SAP HANA를 포함 하 여 다양 한 운영 체제 및 데이터베이스에 대해 지원 되는 파일 시스템이 나와 있습니다. 이는 모든 작업에 대해 읽기 및 쓰기를 위해 액세스할 수 SAP HANA 모든 볼륨에 적용 됩니다. 특히 SAP HANA 위해 Azure에서 NFS를 사용 하는 경우이 문서의 뒷부분에서 설명한 대로 NFS 버전의 추가 제한이 적용 됩니다. 
+
 
 서로 다른 저장소 형식에 대 한 최소 SAP HANA의 인증 된 조건은 다음과 같습니다. 
 

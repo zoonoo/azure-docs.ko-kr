@@ -3,17 +3,16 @@ title: Azure Monitor 리소스 로그의 형식 변경 준비
 description: 2018 년 11 월 1 일에 추가 blob을 사용 하도록 Azure 리소스 로그가 이동 되었습니다.
 author: johnkemnetz
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/06/2018
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 09a5d95ead9f294d54a7491734b11c7247353444
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: b90b6f8eabbda229fbed4dcef6a5d863ea721faf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74894512"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659138"
 ---
 # <a name="prepare-for-format-change-to-azure-monitor-platform-logs-archived-to-a-storage-account"></a>저장소 계정에 보관 된 Azure Monitor 플랫폼 로그의 형식 변경 준비
 

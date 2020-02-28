@@ -10,12 +10,12 @@ ms.subservice: develop
 ms.custom: aaddev
 ms.service: active-directory
 ms.reviewer: lenalepa, manrath
-ms.openlocfilehash: 1367bf32eea58b828c00ee23a59a32a2fec699ab
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 8fdc64632be8b5fcb3dca8de2ee833fef25719fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76983098"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656741"
 ---
 # <a name="redirect-urireply-url-restrictions-and-limitations"></a>리디렉션 URI/회신 URL 제한 및 제한 사항
 
@@ -54,7 +54,7 @@ Azure AD 응용 프로그램 모델은 개인 Microsoft 계정과 회사 또는 
 > [!NOTE]
 > 개발자는 새로운 [앱 등록](https://go.microsoft.com/fwlink/?linkid=2083908) 환경에서 UI에 와일드 카드 uri를 추가할 수 없습니다. 회사 또는 학교 계정에 로그인 하는 앱에 대 한 시키려면 와일드 카드 URI 추가는 앱 매니페스트 편집기를 통해서만 지원 됩니다. 앞으로 새 앱은 리디렉션 URI에서 와일드 카드를 사용할 수 없습니다. 그러나 리디렉션 Uri에 와일드 카드가 포함 된 이전 앱은 계속 작동 합니다.
 
-시나리오에 허용 되는 최대 제한 보다 더 많은 리디렉션 Uri가 필요한 경우 와일드 카드 리디렉션 URI를 추가 하는 대신 다음 방법 중 하나를 고려 합니다.
+시나리오에 허용 되는 최대 제한 보다 더 많은 리디렉션 Uri가 필요한 경우 와일드 카드 리디렉션 URI를 추가 하는 대신 다음 방법을 고려 합니다.
 
 ### <a name="use-a-state-parameter"></a>State 매개 변수 사용
 
@@ -70,10 +70,6 @@ Azure AD 응용 프로그램 모델은 개인 Microsoft 계정과 회사 또는 
 
 > [!NOTE]
 > 이 접근 방식을 통해 손상 된 클라이언트는 상태 매개 변수에 전송 된 추가 매개 변수를 수정할 수 있으므로 사용자를 다른 URL (RFC 6819에 설명 된 [개방형 리디렉터 위협](https://tools.ietf.org/html/rfc6819#section-4.2.4) )으로 리디렉션합니다. 따라서 클라이언트는 상태를 암호화 하거나 토큰에 대해 리디렉션 URI에서 도메인 이름을 확인 하는 등의 다른 방법으로 상태를 확인 하 여 이러한 매개 변수를 보호 해야 합니다.
-
-### <a name="add-redirect-uris-to-service-principals"></a>서비스 사용자에 게 리디렉션 Uri 추가
-
-또 다른 방법은 모든 Azure AD 테 넌 트에서 앱 등록을 나타내는 [서비스 주체](app-objects-and-service-principals.md#application-and-service-principal-relationship) 에 리디렉션 uri를 추가 하는 것입니다. 상태 매개 변수를 사용할 수 없거나 시나리오에서 지원 되는 모든 새 테 넌 트의 앱 등록에 새 리디렉션 Uri를 추가 해야 하는 경우이 방법을 사용할 수 있습니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

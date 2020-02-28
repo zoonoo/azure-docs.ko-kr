@@ -4,20 +4,19 @@ description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 19fd8c108e8075d30ca494ca75d52952849c284a
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 4d9f6e48722f01970a90a3a1d8d8b58b5d939774
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872845"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658271"
 ---
-# <a name="interactive-workbooks"></a>대화형 Workbooks
+# <a name="interactive-workbooks"></a>대화형 통합 문서
 
 통합 문서를 사용 하면 작성자가 소비자를 위한 대화형 보고서 및 환경을 만들 수 있습니다. 대화형 작업은 여러 가지 방법으로 지원 됩니다.
 

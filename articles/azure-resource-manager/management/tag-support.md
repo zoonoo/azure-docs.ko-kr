@@ -2,13 +2,13 @@
 title: 리소스에 대 한 태그 지원
 description: 태그를 지원하는 Azure 리소스 종류를 보여 줍니다. 모든 Azure 서비스에 대한 세부 정보를 제공합니다.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 09dd71ef8c3ac4803a988dffbdca47116c967a0e
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 6100c667c7df0b3e1740777565d260af9fa818a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207930"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657576"
 ---
 # <a name="tag-support-for-azure-resources"></a>Azure 리소스에 대한 태그 지원
 이 문서에서는 리소스 종류가 [태그](tag-resources.md)를 지원하는지 여부를 설명합니다. **태그 지원** 이라는 열은 리소스 형식에 태그에 대 한 속성이 있는지 여부를 나타냅니다. **비용 보고서에서 태그** 레이블이 지정 된 열은 리소스 종류가 태그를 비용 보고서에 전달 하는지 여부를 나타냅니다. [Cost Management 비용 분석](../../cost-management-billing/costs/quick-acm-cost-analysis.md#understanding-grouping-and-filtering-options) 및 [Azure 청구 송장 및 일간 사용 현황 데이터](../../cost-management-billing/manage/download-azure-invoice-daily-usage-date.md)에서 태그를 기준으로 비용을 볼 수 있습니다.
@@ -116,8 +116,8 @@ ms.locfileid: "77207930"
 > - [Microsoft 마이그레이션](#microsoftmigrate)
 > - [MixedReality](#microsoftmixedreality)
 > - [Microsoft NetApp](#microsoftnetapp)
-> - [Microsoft. 전자 필기장](#microsoftnotebooks)
 > - [Microsoft 네트워크](#microsoftnetwork)
+> - [Microsoft. 전자 필기장](#microsoftnotebooks)
 > - [Microsoft.NotificationHubs](#microsoftnotificationhubs)
 > - [Microsoft ObjectStore](#microsoftobjectstore)
 > - [Microsoft. OffAzure](#microsoftoffazure)
@@ -136,7 +136,6 @@ ms.locfileid: "77207930"
 > - [Microsoft ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft SecurityGraph](#microsoftsecuritygraph)
@@ -292,6 +291,9 @@ ms.locfileid: "77207930"
 > | automationAccounts | yes | yes |
 > | automationAccounts/구성 | yes | yes |
 > | automationAccounts/job | 예 | 예 |
+> | automationAccounts/privateEndpointConnectionProxies | 예 | 예 |
+> | automationAccounts/privateEndpointConnections | 예 | 예 |
+> | automationAccounts/privateLinkResources | 예 | 예 |
 > | automationAccounts/runbook | yes | yes |
 > | automationAccounts/softwareUpdateConfigurations | 예 | 예 |
 > | automationAccounts/웹 후크 | 예 | 예 |
@@ -711,6 +713,7 @@ ms.locfileid: "77207930"
 > | 레지스트리/importImage | 예 | 예 |
 > | 레지스트리/privateEndpointConnectionProxies | 예 | 예 |
 > | 레지스트리/privateEndpointConnectionProxies/유효성 검사 | 예 | 예 |
+> | 레지스트리/privateEndpointConnections | 예 | 예 |
 > | 레지스트리/privateLinkResources | 예 | 예 |
 > | 레지스트리/queueBuild | 예 | 예 |
 > | 레지스트리/regenerateCredential | 예 | 예 |
@@ -1052,6 +1055,7 @@ ms.locfileid: "77207930"
 > | 네임 스페이스/a s p 채널 | 예 | 예 |
 > | 파트너 등록 | yes | yes |
 > | 항목 항목 | yes | yes |
+> | 항목 토픽/eventSubscriptions | 예 | 예 |
 > | systemTopics | yes | yes |
 > | systemTopics/eventSubscriptions | 예 | 예 |
 > | topics | yes | yes |
@@ -1288,6 +1292,7 @@ ms.locfileid: "77207930"
 > | ------------- | ----------- | ----------- |
 > | getEntities | 예 | 예 |
 > | managementGroups | 예 | 예 |
+> | managementGroups/settings | 예 | 예 |
 > | 리소스 | 예 | 예 |
 > | startTenantBackfill | 예 | 예 |
 > | tenantBackfillStatus | 예 | 예 |
@@ -1395,15 +1400,7 @@ ms.locfileid: "77207930"
 > | netAppAccounts | yes | 예 |
 > | netAppAccounts/capacityPools | yes | 예 |
 > | netAppAccounts/capacityPools/볼륨 | yes | 예 |
-> | netAppAccounts/capacityPools/볼륨/mountTargets | yes | 예 |
-> | netAppAccounts/capacityPools/볼륨/스냅숏 | yes | 예 |
-
-## <a name="microsoftnotebooks"></a>Microsoft. 전자 필기장
-
-> [!div class="mx-tableFixed"]
-> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | NotebookProxies | 예 | 예 |
+> | netAppAccounts/capacityPools/볼륨/스냅숏 | 예 | 예 |
 
 ## <a name="microsoftnetwork"></a>Microsoft.Network
 
@@ -1495,6 +1492,13 @@ ms.locfileid: "77207930"
 > Azure Front 도어 서비스의 경우 리소스를 만들 때 태그를 적용할 수 있지만, 태그를 업데이트 하거나 추가 하는 기능은 현재 지원 되지 않습니다.
 
 
+## <a name="microsoftnotebooks"></a>Microsoft. 전자 필기장
+
+> [!div class="mx-tableFixed"]
+> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
+> | ------------- | ----------- | ----------- |
+> | NotebookProxies | 예 | 예 |
+
 ## <a name="microsoftnotificationhubs"></a>Microsoft.NotificationHubs
 
 > [!div class="mx-tableFixed"]
@@ -1556,6 +1560,7 @@ ms.locfileid: "77207930"
 > | legacyPeerings | 예 | 예 |
 > | peerAsns | 예 | 예 |
 > | 피어 링 | yes | yes |
+> | peeringServiceCountries | 예 | 예 |
 > | peeringServiceProviders | 예 | 예 |
 > | peeringServices | yes | yes |
 
@@ -1680,13 +1685,6 @@ ms.locfileid: "77207930"
 > | ------------- | ----------- | ----------- |
 > | 애플리케이션 | yes | yes |
 > | saasresources | 예 | 예 |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
-> | ------------- | ----------- | ----------- |
-> | jobcollections | yes | yes |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2026,6 +2024,7 @@ ms.locfileid: "77207930"
 > | 리소스 유형 | 태그 지원 | 비용 보고서의 태그 |
 > | ------------- | ----------- | ----------- |
 > | devices | yes | yes |
+> | registeredSubscriptions | 예 | 예 |
 > | 판매 | 예 | 예 |
 > | 공급 업체/sku | 예 | 예 |
 > | 공급 업체/vnfs | 예 | 예 |

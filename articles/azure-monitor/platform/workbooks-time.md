@@ -4,18 +4,17 @@ description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: 1d1ee243fa9df8a77a6ce80ecb9d8e5336e8b19b
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 380b8a7ce286ab06b6935bf63bf3a0e82f371c2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872760"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658016"
 ---
 # <a name="workbook-time-parameters"></a>통합 문서 시간 매개 변수
 
@@ -62,7 +61,7 @@ ms.locfileid: "74872760"
 4. 텍스트 컨트롤에 텍스트가 표시 됩니다. _선택한 시간 범위는 최근 24 시간입니다_ .
 
 ## <a name="time-parameter-options"></a>시간 매개 변수 옵션
-| 매개 변수를 포함해야 합니다. | 설명 | 예제 |
+| 매개 변수 | 설명 | 예제 |
 | ------------- |:-------------|:-------------|
 | `{TimeRange}` | 시간 범위 레이블 | 최근 24시간 |
 | `{TimeRange:label}` | 시간 범위 레이블 | 최근 24시간 |

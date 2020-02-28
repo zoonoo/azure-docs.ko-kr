@@ -4,18 +4,17 @@ description: Azure Resource Manager 템플릿을 통해 배포 된 미리 작성
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: e3d29beab7b1d82f73c706897af9650b68be11f5
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 2c2d70d1c945e700a3fa42609f8aa0e1607ba77c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872913"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658407"
 ---
 # <a name="programmatically-manage-workbooks"></a>프로그래밍 방식으로 통합 문서 관리
 
@@ -100,7 +99,7 @@ ms.locfileid: "74872913"
 
 ### <a name="template-parameters"></a>템플릿 매개 변수
 
-| 매개 변수를 포함해야 합니다. | 설명 |
+| 매개 변수 | 설명 |
 | :------------- |:-------------|
 | `workbookDisplayName` | 갤러리 또는 저장 된 목록에 사용 되는 통합 문서의 이름입니다. 리소스 그룹 및 원본 범위에서 고유 해야 합니다. |
 | `workbookType` | 통합 문서가 표시 되는 갤러리입니다. 지원 되는 값에는 통합 문서, `tsg`, Azure Monitor 등이 있습니다. |

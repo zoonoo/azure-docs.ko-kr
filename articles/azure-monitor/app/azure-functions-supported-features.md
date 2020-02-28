@@ -1,19 +1,17 @@
 ---
 title: Azure 애플리케이션 Insights-지원 되는 Azure Functions 기능
 description: Azure Functions에 대한 Application Insights 지원 기능
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: reference
 author: TimothyMothra
 ms.author: tilee
 ms.date: 4/23/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 807dde08d6ae88054524cb9e397d36db41324482
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: cf0c97fd65f9966bf42fa22e2c8f92263952cb7a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484573"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655653"
 ---
 # <a name="application-insights-for-azure-functions-supported-features"></a>Azure Functions에 대한 Application Insights 지원 기능
 

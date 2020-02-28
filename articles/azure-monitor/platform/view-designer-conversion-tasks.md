@@ -3,16 +3,15 @@ title: 통합 문서에 대 한 뷰 디자이너 변환 일반적인 작업 Azur
 description: ''
 author: austonli
 ms.author: aul
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 ms.date: 02/07/2020
-ms.openlocfilehash: 444535f0fcc96685a9562a8f9536c0a2c2998946
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 5559dac916262998d621b40757398088ec613609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77171541"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658747"
 ---
 # <a name="view-designer-to-workbooks-conversion-common-tasks"></a>통합 문서에 대 한 뷰 디자이너 변환 일반적인 작업
 [뷰 디자이너](view-designer.md) 는 Azure Monitor 기능으로, 차트, 목록 및 타임 라인을 사용 하 여 Log Analytics 작업 영역에서 데이터를 시각화 하는 데 도움이 되는 사용자 지정 보기를 만들 수 있습니다. 이러한 기능은 추가 기능을 제공 하는 통합 문서로 단계적으로 교체 됩니다. 이 문서에서는 보기를 통합 문서로 변환 하는 일반적인 작업에 대해 자세히 설명 합니다.

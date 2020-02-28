@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에 Operations Manager 연결 | Microsoft Docs
 description: System Center Operations Manager의 기존 투자를 유지 관리하고 Log Analytics로 확장된 기능을 사용하려면 작업 영역으로 Operations Manager를 통합할 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/13/2019
-ms.openlocfilehash: 5dc9412c7884eb62795fd04240f6cfa7d103e3be
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 92b6737f48d8d8704f461c9adac92284b323b05f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363662"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659410"
 ---
 # <a name="connect-operations-manager-to-azure-monitor"></a>Azure Monitor에 Operations Manager 연결
 
@@ -34,7 +33,7 @@ Operations Manager 관리 그룹에 보고 하는 에이전트는 작업 영역�
 
 IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 허용하지 않을 경우 Log Analytics 게이트웨이에 연결하여 구성 정보를 받고 사용하도록 설정한 솔루션에 따라 수집된 데이터를 보내도록 관리 서버를 구성할 수 있습니다. Operations Manager 관리 그룹을 구성 하 여 Log Analytics 게이트웨이를 통해 Azure Monitor으로 통신 하도록 구성 하는 방법에 대 한 자세한 내용 및 단계는 [Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 컴퓨터 연결](../../azure-monitor/platform/gateway.md)을 참조 하세요.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작에 앞서 다음 요구 사항을 검토합니다.
 
@@ -73,15 +72,15 @@ IT 보안 정책이 네트워크의 컴퓨터가 인터넷에 연결하도록 �
 |리소스 | 포트 번호| HTTP 검사 무시|  
 |---------|------|-----------------------|  
 |**에이전트**|||  
-|\*.ods.opinsights.azure.com| 443 |예|  
-|\*.oms.opinsights.azure.com| 443|예|  
-|\*.blob.core.windows.net| 443|예|  
-|\*.azure-automation.net| 443|예|  
+|\*.ods.opinsights.azure.com| 443 |yes|  
+|\*.oms.opinsights.azure.com| 443|yes|  
+|\*.blob.core.windows.net| 443|yes|  
+|\*.azure-automation.net| 443|yes|  
 |**관리 서버**|||  
 |\*.service.opinsights.azure.com| 443||  
-|\*.blob.core.windows.net| 443| 예|  
-|\*.ods.opinsights.azure.com| 443| 예|  
-|\* .azure-automation.net | 443| 예|  
+|\*.blob.core.windows.net| 443| yes|  
+|\*.ods.opinsights.azure.com| 443| yes|  
+|\* .azure-automation.net | 443| yes|  
 |**콘솔 Operations Manager Azure Monitor**|||  
 |service.systemcenteradvisor.com| 443||  
 |\*.service.opinsights.azure.com| 443||  
@@ -164,7 +163,7 @@ Log Analytics 작업 영역과 통합을 구성한 후 Log Analytics와의 연�
 연결이 생성 되 고 로그 데이터를 수집 하 고 보고 하는 에이전트를 구성 하 고 Azure Monitor 다음 구성이 관리 그룹에 적용 되며 반드시 순서 대로 적용 되는 것은 아닙니다.
 
 * 실행 계정 **Microsoft.SystemCenter.Advisor.RunAsAccount.Certificate** 가 만들어집니다. 이 계정은 실행 프로필 **Microsoft System Center Advisor Run As Profile Blob**과 연결되고 두 개의 클래스 **수집 서버** 및 **Operations Manager 관리 그룹**을 대상으로 합니다.
-* 두 개의 커넥터가 생성됩니다.  첫 번째 이름은 **Microsoft.SystemCenter.Advisor.DataConnector** Azure Monitor에 관리 그룹의 모든 클래스의 인스턴스에서 생성 된 모든 경고를 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
+* 두 개의 커넥터가 생성됩니다.  첫 번째는 **SystemCenter** 로 이름이 지정 되 고 관리 그룹의 모든 클래스 인스턴스에서 생성 된 모든 경고를 Azure Monitor 전달 하는 구독을 사용 하 여 자동으로 구성 됩니다. 두 번째 커넥터는 **Advisor 커넥터**이며, Azure Monitor 및 데이터 공유와의 통신을 담당 합니다.
 * 관리 그룹에서 데이터를 수집하도록 선택한 에이전트 및 그룹은 **Microsoft System Center Advisor 모니터링 서버 그룹**에 추가됩니다.
 
 ## <a name="management-pack-updates"></a>관리 팩 업데이트

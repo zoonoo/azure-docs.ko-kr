@@ -1,18 +1,15 @@
 ---
 title: Azure Monitor와 통합 하는 파트너
 description: Azure Monitor의 파트너와, 파트너 통합을 위한 설명서에 액세스하는 방법을 살펴봅니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 03/14/2019
-ms.openlocfilehash: e111bcdde9381e8e418e7027d8294aa7dad7e39d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40ba4c4f0a90d5bca03afea67302a5dbb77de027
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023874"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659461"
 ---
 # <a name="azure-monitor-partner-integrations"></a>Azure Monitor 파트너 통합
 
@@ -89,7 +86,7 @@ Dynatrace OneAgent는 Azure 확장 메커니즘을 통해 Azure VM 및 App Servi
 
 [설명서로 이동 합니다.][dynatrace-doc]
 
-## <a name="elastic"></a>탄력성
+## <a name="elastic"></a>Elastic
 
 ![탄력적 로고](./media/partners/elastic.png)
 
@@ -140,7 +137,7 @@ NextGen SIEM의 선두 LogRhythm는 6 대륙의 조직이 신속 하 게 검색 
 
 마이크로 포커스 **작업 브리지** 는 모든 하이브리드 it 리소스 (모든 장치, 운영 체제, 데이터베이스, 응용 프로그램 또는 서비스)를 실행 하는 위치와 관계 없이 모든 데이터 형식 (이벤트, 메트릭, 로그 및 종속성)에 적용 합니다. 심층 응용 프로그램 상태 분석과 결합 된 서비스 품질 모니터링의 고유한 조합을 제공 하며, Microsoft Azure 서비스에 대 한 포괄적인 성능 및 가용성 모니터링을 포함 합니다. 작업 브리지를 사용 하면 비즈니스 및 IT 관련자 모두가 이해할 수 있는 모든 장치에서 브라우저를 통해 사용할 수 있는 단일 창을 제공할 수 있습니다.
 
-자세히 알아보기
+자세한 정보
 - [OB Suite 개요](https://www.microfocus.com/products/operations-bridge-suite/overview)
 - [다운로드](https://marketplace.microfocus.com/itom/content/obm-management-pack-for-microsoft-azure)
 - [SiteScope](https://docs.microfocus.com/itom/SiteScope:2019.05/MSAzureMonitor) -SiteScope은 작업 브리지 제품군의 구성 요소입니다.
@@ -247,7 +244,7 @@ Sumo Logic은 안전한 클라우드 기반, 머신 데이터 분석 서비스�
 
 ![Turbonomic 로고](./media/partners/Turbonomic.png)
 
-Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드 자동화를 제공합니다. Turbonomic은 애플리케이션이 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
+Turbonomic은 성능, 비용 및 규정 준수를 실시간으로 동시에 최적화하여 하이브리드 클라우드에 대한 워크로드를 자동화합니다. Turbonomic은 애플리케이션이 IaaS 및 PaaS 계층에 대한 컴퓨팅, 스토리지 및 네트워크 전체에서 해당 SLA를 제공하는 데 필요한 리소스를 계속해서 얻고 불필요한 리소스가 할당되지 않도록 자산을 지속적으로 최적화하여 조직이 해당 Azure 자산을 탄력적으로 활용할 수 있도록 지원합니다. 조직은 마이그레이션을 시뮬레이션하고 워크로드의 규모를 적절히 조정하고 데이터 센터 리소스를 사용 중지하여, 예산을 초과하지 않고 적시에 Azure로 책임감 있게 마이그레이션할 수 있을 뿐 아니라 성능과 준수도 유지할 수 있습니다. Turbonomic은 API 기반으로, Azure 및 온-프레미스에서 에이전트 없는 VM으로 실행됩니다.
 
 [자세한 정보][turbonomic-doc]
 

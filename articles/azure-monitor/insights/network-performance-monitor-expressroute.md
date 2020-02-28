@@ -1,20 +1,19 @@
 ---
 title: Azure Log Analytics의 네트워크 성능 모니터 솔루션 | Microsoft Docs
 description: 네트워크 성능 모니터의 ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 11/27/2018
-ms.openlocfilehash: 5383402816eddba4c631c240585723b7c7119cef
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 6ac610d7dcf9849b6b439741957684867b9d01aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898892"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660753"
 ---
-# <a name="expressroute-monitor"></a>ExpressRoute 모니터링
+# <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
 [네트워크 성능 모니터](network-performance-monitor.md)의 Azure ExpressRoute 모니터 기능을 사용하여 Azure ExpressRoute를 통한 지사와 Azure 간의 엔드투엔드 연결 및 성능을 모니터링할 수 있습니다. 주요 이점은 다음과 같습니다. 
 
@@ -22,7 +21,7 @@ ms.locfileid: "72898892"
 - ExpressRoute에 대한 회로, 피어링 및 Azure Virtual Network 수준에서 대역폭 사용률, 손실 및 대기 시간 추적
 - ExpressRoute 회로의 네트워크 토폴로지 검색
 
-![ExpressRoute 모니터링](media/network-performance-monitor-expressroute/expressroute-intro.png)
+![ExpressRoute 모니터](media/network-performance-monitor-expressroute/expressroute-intro.png)
 
 ## <a name="configuration"></a>구성 
 네트워크 성능 모니터에 대한 구성을 열려면 [네트워크 성능 모니터 솔루션](network-performance-monitor.md)을 열고 **구성**을 선택합니다.
@@ -110,7 +109,7 @@ NSG에 대한 자세한 내용은  [네트워크 보안 그룹](../../virtual-
 
 알림 코드를 확인하고 **LogAnalytics**를 통해 알림 코드에 대한 경고를 설정할 수 있습니다. **NPM 진단** 페이지에서 트리거된 모든 진단 메시지에 대한 설명을 확인할 수 있습니다.
 
-| 알림 코드(로그) | 설명 |
+| 알림 코드(로그) | Description |
 | --- | --- |
 | 5501 | ExpressRoute 회로의 보조 연결을 통해 트래버스할 수 없음 |
 | 5502 | ExpressRoute 회로의 기본 연결을 통해 트래버스할 수 없음 |

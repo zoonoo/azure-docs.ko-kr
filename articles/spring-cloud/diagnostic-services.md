@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: fc1f81c616dc6ee664bb5be924f2a1586646d16d
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76279169"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662130"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -114,7 +114,7 @@ Log Analytics에서 사용 되는 쿼리 언어에 대 한 자세한 내용은 [
 1. 응용 프로그램 로그를 검토 하려면 **insights-logs-applicationconsole**이라는 컨테이너를 검색 합니다.
 1. 응용 프로그램 메트릭을 검토 하려면 **pt1m**이라는 컨테이너를 검색 합니다.
 
-저장소 계정에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Azure Storage에서 진단 데이터 저장 및 보기](https://docs.microsoft.com/azure/azure-monitor/platform/diagnostics-extension-to-storage)를 참조 하세요.
+저장소 계정에 진단 정보를 보내는 방법에 대 한 자세한 내용은 [Azure Storage에서 진단 데이터 저장 및 보기](../storage/common/storage-introduction.md)를 참조 하세요.
 
 ### <a name="use-your-event-hub"></a>이벤트 허브 사용
 

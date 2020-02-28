@@ -3,12 +3,12 @@ title: 이미지 잠그기
 description: 컨테이너 이미지 또는 리포지토리에 대 한 특성을 설정 하 여 Azure container registry에서 삭제 하거나 덮어쓸 수 없습니다.
 ms.topic: article
 ms.date: 09/30/2019
-ms.openlocfilehash: 93a99f65d5bb21d696ce24365e7c819d2c34a8b0
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: da84767523bb6d948b71b1c1ad2ddaffb628354a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75972925"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659699"
 ---
 # <a name="lock-a-container-image-in-an-azure-container-registry"></a>Azure container registry에서 컨테이너 이미지 잠그기
 
@@ -44,7 +44,7 @@ Azure container registry에서 이미지 버전 또는 리포지토리를 잠가
 
 ```azurecli
 az acr repository show \
-    --name myregistry --repository myrepo
+    --name myregistry --repository myrepo \
     --output jsonc
 ```
 

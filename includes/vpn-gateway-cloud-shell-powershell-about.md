@@ -8,15 +8,13 @@ ms.topic: include
 ms.date: 02/10/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 35463c2b74e0a20a65239e7bf0d0ab08a866ad71
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: c81a67d129ee5558c129040e7b7ff2cad2e04fd7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77149170"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660495"
 ---
 [!INCLUDE [cloudshell powershell](vpn-gateway-cloud-shell-powershell.md)]
 
 [!INCLUDE [powershell locally](vpn-gateway-powershell-locally.md)]
-
-Azure CloudShell을 사용 하는 경우 사용자 계정에 자동으로 연결 되며 AzAccount 명령을 실행할 필요가 없습니다. PowerShell을 로컬로 실행 하는 경우 상승 된 권한으로 PowerShell 콘솔을 열고 `Connect-AzAccount` 명령을 사용 하 여 Azure에 연결 합니다.

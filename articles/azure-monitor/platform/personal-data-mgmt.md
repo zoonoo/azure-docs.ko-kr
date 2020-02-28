@@ -1,18 +1,17 @@
 ---
 title: Azure Log Analytics에 저장된 개인 데이터에 대한 지침 | Microsoft Docs
 description: 이 문서에서는 Azure Log Analytics에 저장된 개인 데이터를 관리하고 이를 식별하고 제거하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/18/2018
-ms.openlocfilehash: 7f8b40094b30a01e4189bcf04d4c194e5b0b4285
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a720627e1783d2e29ef180b7855132ea59444cab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75394746"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659233"
 ---
 # <a name="guidance-for-personal-data-stored-in-log-analytics-and-application-insights"></a>Log Analytics 및 Application Insights에 저장된 개인 데이터에 대한 지침
 
@@ -84,7 +83,7 @@ Log Analytics는 스키마를 데이터에 지정하는 동안 모든 필드를 
 > [!IMPORTANT]
 >  대부분의 제거 작업이 SLA 보다 훨씬 더 빠르게 완료 될 수 있지만 **제거 작업의 완료에 대 한 공식 SLA** 는 사용 되는 데이터 플랫폼에 미치는 영향 때문에 30 일 후에 설정 됩니다. 이는 자동화 된 프로세스입니다. 작업을 더 빠르게 처리 하도록 요청할 수 있는 방법은 없습니다.
 
-### <a name="delete"></a>삭제
+### <a name="delete"></a>DELETE
 
 > [!WARNING]
 > Log Analytics에서 삭제하는 작업은 파괴적이고 되돌릴 수 없습니다! 실행에 각별히 주의하세요.
@@ -103,7 +102,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="log-data"></a>로그 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/loganalytics/workspaces%202015-03-20/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다. 
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예:
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
 
     ```
     x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/Microsoft.OperationalInsights/workspaces/[WorkspaceName]/operations/purge-[PurgeOperationId]?api-version=2015-03-20
@@ -115,7 +114,7 @@ Azure Resource Manager 역할이 할당되면 두 개의 새 API 경로를 사�
 #### <a name="application-data"></a>애플리케이션 데이터
 
 * [게시 제거](https://docs.microsoft.com/rest/api/application-insights/components/purge) - 삭제할 데이터의 매개 변수를 지정하는 개체를 사용하고 참조 GUID를 반환합니다.
-* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 예:
+* GET 상태 가져오기 - POST 제거 호출은 제거 API의 상태를 결정하기 위해 호출할 수 있는 URL이 포함된 'x-ms-status-location' 헤더를 반환합니다. 다음은 그 예입니다.
 
    ```
    x-ms-status-location: https://management.azure.com/subscriptions/[SubscriptionId]/resourceGroups/[ResourceGroupName]/providers/microsoft.insights/components/[ComponentName]/operations/purge-[PurgeOperationId]?api-version=2015-05-01

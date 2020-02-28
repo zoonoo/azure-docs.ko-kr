@@ -4,17 +4,16 @@ description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합
 author: mrbullwinkle
 manager: carmonm
 services: azure-monitor
-ms.service: azure-monitor
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: cf11ce3a77fb47b7d8586ef56141a72cd0a10c2e
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 29e675f3ae35df9211f58d45ad8450566d67a588
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872862"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658237"
 ---
 # <a name="azure-monitor-workbooks"></a>Azure Monitor 통합 문서
 
@@ -40,7 +39,7 @@ ms.locfileid: "74872862"
 
 통합 문서는 데이터를 시각화 하기 위한 풍부한 기능 집합을 제공 합니다. 각 시각화 유형의 자세한 예는 아래 예제 링크를 참조할 수 있습니다.
 
-* [Text](workbooks-visualizations.md#text)
+* [텍스트](workbooks-visualizations.md#text)
 * [차트](workbooks-visualizations.md#charts)
 * [배경](workbooks-visualizations.md#grids)
 * [타일](workbooks-visualizations.md#tiles)

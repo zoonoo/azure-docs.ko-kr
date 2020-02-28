@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 구조 | Microsoft Docs
 description: Azure Monitor에서 로그 데이터를 검색하려면 로그 쿼리가 필요합니다.  이 문서는 Azure Monitor에서 새 로그 쿼리가 어떻게 사용되는지를 설명하고 새로 만들기 전에 이해해야 하는 개념을 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 6ce8470da6b444cedb7bff1d14bcc6448b52fe94
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1d647ba7e8d4f0e29252dfff95099e39bab87895
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893640"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662079"
 ---
 # <a name="structure-of-azure-monitor-logs"></a>Azure Monitor 로그의 구조
 [로그 쿼리](log-query-overview.md) 를 사용 하 여 데이터에 대 한 정보를 신속 하 게 파악 하는 기능은 Azure Monitor의 강력한 기능입니다. 효율적이 고 유용한 쿼리를 만들려면 원하는 데이터의 위치와 구성 방법 등의 몇 가지 기본 개념을 이해 해야 합니다. 이 문서에서는 시작 하는 데 필요한 기본 개념을 제공 합니다.
@@ -53,7 +52,7 @@ Application Insights에서 응용 프로그램을 만들 때 해당 응용 프�
 
 Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램에는 고정 테이블 집합이 있습니다. 응용 프로그램에 쓰도록 다른 데이터 원본을 구성할 수 없으므로 추가 테이블을 만들 수 없습니다. 
 
-| Table | 설명 | 
+| 테이블 | Description | 
 |:---|:---|
 | availabilityResults | 가용성 테스트의 요약 데이터입니다. |
 | browserTimings      | 들어오는 데이터를 처리 하는 데 걸린 시간과 같은 클라이언트 성능에 대 한 데이터입니다. |
@@ -73,7 +72,7 @@ Log Analytics 작업 영역과 달리 Application Insights 응용 프로그램�
 ## <a name="standard-properties"></a>표준 속성
 Azure Monitor 로그의 각 테이블에는 자체 스키마가 있지만 모든 테이블에서 공유 하는 표준 속성은 있습니다. 각 항목에 대 한 자세한 내용은 [Azure Monitor 로그의 표준 속성](../platform/log-standard-properties.md) 을 참조 하세요.
 
-| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | 설명 |
+| Log Analytics 작업 영역 | 응용 프로그램 Application Insights | Description |
 |:---|:---|:---|
 | TimeGenerated | timestamp  | 레코드를 만든 날짜와 시간입니다. |
 | Type          | itemType   | 레코드가 검색 된 테이블의 이름입니다. |

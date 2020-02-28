@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 DNS 분석 솔루션 | Microsoft Docs
 description: Azure Monitor의 DNS 분석 솔루션을 설정 및 사용하여 보안, 성능 및 작업 관련 정보를 DNS 인프라에 수집합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2018
-ms.openlocfilehash: bca77db3452aecb31852c4c50e7754c7777fc458
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2471c29f559df5c347c62ceb4c7fd9b4ae1e5eec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971270"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657336"
 ---
 # <a name="gather-insights-about-your-dns-infrastructure-with-the-dns-analytics-preview-solution"></a>DNS 분석 미리 보기 솔루션으로 DNS 인프라에 대한 정보 수집
 
@@ -36,10 +35,10 @@ DNS 분석은 다음을 수행하는 데 도움을 줍니다.
 
 | **연결된 원본** | **지원** | **설명** |
 | --- | --- | --- |
-| [Windows 에이전트](../platform/agent-windows.md) | 예 | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
-| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 아닙니다. | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
-| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | 예 | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
-| [Azure Storage 계정](../platform/collect-azure-metrics-logs.md) | 아닙니다. | Azure Storage가 솔루션에서 사용되지 않습니다. |
+| [Windows 에이전트](../platform/agent-windows.md) | yes | 솔루션이 Windows 에이전트에서 DNS 정보를 수집합니다. |
+| [Linux 에이전트](../learn/quick-collect-linux-computer.md) | 예 | 솔루션이 직접 Linux 에이전트에서 DNS 정보를 수집하지 않습니다. |
+| [System Center Operations Manager 관리 그룹](../platform/om-agents.md) | yes | 솔루션이 연결된 Operations Manager 관리 그룹의 에이전트에서 DNS 정보를 수집합니다. Operations Manager 에이전트에서 Azure Monitor로 직접 연결은 필요하지 않습니다. 데이터는 관리 그룹에서 Log Analytics 작업 영역으로 전달됩니다. |
+| [Azure Storage 계정](../platform/collect-azure-metrics-logs.md) | 예 | Azure Storage가 솔루션에서 사용되지 않습니다. |
 
 ### <a name="data-collection-details"></a>데이터 수집 세부 정보
 
@@ -180,7 +179,7 @@ DNS 타일에는 데이터가 수집되는 DNS 서버 수가 포함됩니다. �
 
 1. 누락 된 DNS 조회 데이터-이 문제를 해결 하려면 구성를 다시 설정 하거나 포털에서 구성 페이지를 한 번만 로드 하십시오. 다시 설정 하려면 설정을 다른 값으로 변경한 다음 다시 원래 값으로 변경 하 고 구성을 저장 합니다.
 
-## <a name="feedback"></a>피드백
+## <a name="feedback"></a>사용자 의견
 
 사용자 의견을 제공 하려면 [Log Analytics UserVoice 페이지](https://aka.ms/dnsanalyticsuservoice) 를 방문 하 여 작업할 DNS 분석 기능에 대 한 아이디어를 게시 하세요. 
 

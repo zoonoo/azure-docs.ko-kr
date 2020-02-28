@@ -5,25 +5,25 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: hdinsightactive
 ms.topic: conceptual
-ms.date: 07/23/2019
-ms.openlocfilehash: 1e6a21e8bf9c284c83af09885aa66b612b52ad7c
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.custom: hdinsightactive
+ms.date: 02/25/2020
+ms.openlocfilehash: 30664d533215cb49fa6f436ec4cf88fa319c3300
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76044719"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659869"
 ---
 # <a name="plan-a-virtual-network-for-azure-hdinsight"></a>Azure HDInsight에 대 한 가상 네트워크 계획
 
-이 문서에서는 azure HDInsight에서 [Azure Virtual network](../virtual-network/virtual-networks-overview.md) 를 사용 하는 방법에 대 한 배경 정보를 제공 합니다. 또한 HDInsight 클러스터에 대 한 가상 네트워크를 구현 하기 위해 수행 해야 하는 디자인 및 구현 결정에 대해 설명 합니다. 계획 단계가 완료 되 면 [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 계속할 수 있습니다. 네트워크 보안 그룹 및 사용자 정의 경로를 올바르게 구성 하는 데 필요한 HDInsight 관리 IP 주소에 대 한 자세한 내용은 [hdinsight 관리 ip 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
+이 문서에서는 Azure HDInsight와 함께 [azure vnet (가상 네트워크](../virtual-network/virtual-networks-overview.md) )를 사용 하는 방법에 대 한 배경 정보를 제공 합니다. 또한 HDInsight 클러스터에 대 한 가상 네트워크를 구현 하기 위해 수행 해야 하는 디자인 및 구현 결정에 대해 설명 합니다. 계획 단계가 완료 되 면 [Azure HDInsight 클러스터에 대 한 가상 네트워크 만들기](hdinsight-create-virtual-network.md)를 계속할 수 있습니다. NSGs (네트워크 보안 그룹) 및 사용자 정의 경로를 올바르게 구성 하는 데 필요한 HDInsight 관리 IP 주소에 대 한 자세한 내용은 [hdinsight 관리 ip 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
 
 Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
 * 온-프레미스 네트워크에서 HDInsight에 직접 연결합니다.
 * Azure Virtual Network에서 데이터 저장소에 HDInsight를 연결합니다.
-* 인터넷을 통해 공개적으로 사용할 수 없는 [Apache Hadoop](https://hadoop.apache.org/) 서비스에 직접 액세스합니다. 예: [Apache Kafka](https://kafka.apache.org/) API 또는 [Apache HBase](https://hbase.apache.org/) Java API.
+* 인터넷을 통해 공개적으로 사용할 수 없는 Apache Hadoop 서비스에 직접 액세스 합니다. 예를 들어 Apache Kafka Api 또는 Apache HBase Java API가 있습니다.
 
 > [!IMPORTANT]
 > VNET에서 HDInsight 클러스터를 만들면 Nic, 부하 분산 장치 등의 몇 가지 네트워킹 리소스가 생성 됩니다. 클러스터가 VNET에서 올바르게 작동 하는 데 필요 하므로 이러한 네트워킹 리소스를 삭제 **하지** 마세요.
@@ -36,7 +36,7 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 
 * 기존 가상 네트워크에 HDInsight 설치해야 하나요? 아니면 새 네트워크를 만드나요?
 
-    기존 가상 네트워크를 사용하는 경우 HDInsight를 설치하기 전에 네트워크 구성을 수정해야 할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 HDInsight 추가](#existingvnet) 섹션을 참조하세요.
+    기존 가상 네트워크를 사용 하는 경우 HDInsight를 설치 하기 전에 네트워크 구성을 수정 해야 할 수 있습니다. 자세한 내용은 [기존 가상 네트워크에 HDInsight 추가](#existingvnet) 섹션을 참조하세요.
 
 * HDInsight가 들어 있는 가상 네트워크를 다른 가상 네트워크 또는 온-프레미스 네트워크에 연결하시겠습니까?
 
@@ -64,19 +64,19 @@ Azure Virtual Network를 사용하면 다음 시나리오가 가능합니다.
 2. 가상 네트워크 내부 또는 외부로 트래픽을 제한하기 위해 네트워크 보안 그룹, 사용자 정의 경로 또는 Virtual Network 어플라이언스를 사용하나요?
 
     관리 서비스로 HDInsight를 사용하려면 Azure 데이터 센터에서 여러 IP 주소에 대한 무제한 액세스가 필요합니다. 이러한 IP 주소와의 통신을 허용하려면 기존의 모든 네트워크 보안 그룹 또는 사용자 정의 경로를 업데이트합니다.
-    
-    HDInsight는 다양한 포트를 사용하는 여러 서비스를 호스팅합니다. 이 포트로의 트래픽을 차단하지 마세요. 가상 어플라이언스 방화벽을 통과하도록 허용할 포트 목록은 보안 섹션을 참조하세요.
-    
+
+    HDInsight는 다양한 포트를 사용하는 여러 서비스를 호스팅합니다. 이러한 포트에 대 한 트래픽을 차단 하지 않습니다. 가상 어플라이언스 방화벽을 통과하도록 허용할 포트 목록은 보안 섹션을 참조하세요.
+
     기존 보안 구성을 찾으려면 다음 Azure PowerShell 또는 Azure CLI 명령을 사용합니다.
 
     * 네트워크 보안 그룹
 
         `RESOURCEGROUP`를 가상 네트워크를 포함 하는 리소스 그룹의 이름으로 바꾸고 다음 명령을 입력 합니다.
-    
+
         ```powershell
         Get-AzNetworkSecurityGroup -ResourceGroupName  "RESOURCEGROUP"
         ```
-    
+
         ```azurecli
         az network nsg list --resource-group RESOURCEGROUP
         ```
@@ -125,7 +125,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 
     이러한 두 노드는 내부 DNS 이름을 사용하여 서로 직접 통신하고 HDInsight의 다른 노드와 통신할 수 있습니다.
 
-기본 이름 확인에서는 HDInsight가 가상 네트워크에 조인된 네트워크에 있는 리소스 이름을 확인하도록 허용하지 __않습니다__. 예를 들어 온-프레미스 네트워크를 가상 네트워크에 조인하는 것이 일반적입니다. 기본 이름 확인만으로는, HDInsight가 이름으로 온-프레미스 네트워크의 리소스에 액세스할 수 없습니다. 반대도 마찬가지입니다. 온-프레미스 네트워크의 리소스는 이름으로 가상 네트워크의 리소스에 액세스할 수 없습니다.
+기본 이름 확인에서는 HDInsight가 가상 네트워크에 조인된 네트워크에 있는 리소스 이름을 확인하도록 허용하지 __않습니다__. 예를 들어 온-프레미스 네트워크를 가상 네트워크에 연결 하는 것이 일반적입니다. 기본 이름 확인과 함께 HDInsight는 이름으로 온-프레미스 네트워크의 리소스에 액세스할 수 없습니다. 반대의 경우도 마찬가지입니다. 온-프레미스 네트워크의 리소스는 가상 네트워크의 리소스를 이름으로 액세스할 수 없습니다.
 
 > [!WARNING]  
 > 사용자 지정 DNS 서버를 만들고 이 서버를 사용하도록 가상 네트워크를 구성한 후 HDInsight 클러스터를 만들어야 합니다.
@@ -141,7 +141,7 @@ Azure는 가상 네트워크에 설치된 Azure 서비스에 대한 이름 확�
 4. DNS 서버 간에 전달을 구성합니다. 구성은 원격 네트워크의 유형에 따라 달라집니다.
 
    * 원격 네트워크가 온-프레미스 네트워크인 경우 다음과 같이 DNS를 구성합니다.
-        
+
      * __사용자 지정 DNS(가상 네트워크에서)__ :
 
          * 가상 네트워크의 DNS 접미사에 대한 요청을 Azure 재귀 확인자(168.63.129.16)에 전달합니다. Azure에서 가상 네트워크의 리소스에 대한 요청을 처리합니다.
@@ -235,12 +235,12 @@ HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법�
 
 #### <a name="forced-tunneling-to-on-premises"></a>온-프레미스로 강제 터널링
 
-강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight는 온-프레미스 네트워크에 대 한 트래픽 강제 터널링을 지원 __하지__ 않습니다. 
+강제 터널링은 서브넷의 모든 트래픽이 특정 네트워크 또는 위치(예: 온-프레미스 네트워크)로 적용되는 사용자 정의 라우팅 구성입니다. HDInsight는 온-프레미스 네트워크에 대 한 트래픽 강제 터널링을 지원 __하지__ 않습니다.
 
 ## <a id="hdinsight-ip"></a> 필수 IP 주소
 
 네트워크 보안 그룹 또는 사용자 정의 경로를 사용 하 여 트래픽을 제어 하는 경우 [HDInsight 관리 IP 주소](hdinsight-management-ip-addresses.md)를 참조 하세요.
-    
+
 ## <a id="hdinsight-ports"></a> 필수 포트
 
 **방화벽**을 사용하여 특정 포트 외부에서 클러스터에 액세스하려는 경우 시나리오에 필요한 포트에서 트래픽을 허용해야 합니다. 기본적으로 이전 섹션에서 설명한 대로 Azure 관리 트래픽이 443 포트의 클러스터에 도달하도록 허용되어 있는 한 특별한 포트를 허용 목록에 추가할 필요는 없습니다.
@@ -251,13 +251,16 @@ HDInsight 클러스터에서 아웃 바운드 트래픽을 제어 하는 방법�
 
 ## <a name="load-balancing"></a>부하 분산
 
-HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 형식은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/concepts-limitations.md#skus) 에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
+HDInsight 클러스터를 만들 때 부하 분산 장치도 만들어집니다. 이 부하 분산 장치의 유형은 특정 제약 조건이 있는 [기본 SKU 수준](../load-balancer/concepts-limitations.md#skus)에 있습니다. 이러한 제약 조건 중 하나는 서로 다른 지역에 두 개의 가상 네트워크가 있는 경우 기본 부하 분산 장치에 연결할 수 없다는 것입니다. 자세한 내용은 [가상 네트워크 FAQ: 글로벌 vnet 피어 링의 제약 조건](../virtual-network/virtual-networks-faq.md#what-are-the-constraints-related-to-global-vnet-peering-and-load-balancers)을 참조 하세요.
 
 ## <a name="transport-layer-security"></a>Transport Layer Security(전송 계층 보안)
 
 `https://<clustername>.azurehdinsight.net` 공용 클러스터 끝점을 통해 클러스터에 대 한 연결은 클러스터 게이트웨이 노드를 통해 프록시 됩니다. 이러한 연결은 TLS 라는 프로토콜을 사용 하 여 보호 됩니다. 게이트웨이에서 더 높은 버전의 TLS를 적용 하면 이러한 연결의 보안이 향상 됩니다. 최신 버전의 TLS를 사용 해야 하는 이유에 대 한 자세한 내용은 [tls 1.0 문제 해결](https://docs.microsoft.com/security/solving-tls1-problem)을 참조 하세요.
 
-배포 시 resource manager 템플릿에서 *Minsupportedtlsversion* 속성을 사용 하 여 HDInsight 클러스터의 게이트웨이 노드에서 지원 되는 최소 TLS 버전을 제어할 수 있습니다. 샘플 템플릿은 [HDInsight 최소 TLS 1.2 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls)을 참조 하세요. 이 속성은 "1.0", "1.1" 및 "1.2"의 세 가지 값을 지원 합니다 .이는 각각 TLS 1.0 +, TLS 1.1 + 및 TLS 1.2 +에 해당 합니다. 기본적으로이 속성을 지정 하지 않으면 Azure HDInsight 클러스터는 공용 HTTPS 끝점에서 TLS 1.2 연결을 허용 하 고 이전 버전과의 호환성을 위해 이전 버전을 허용 합니다. 결국 HDInsight는 모든 게이트웨이 노드 연결에 TLS 1.2 이상을 적용 합니다.
+기본적으로 Azure HDInsight 클러스터는 공용 HTTPS 끝점에 대 한 TLS 1.2 연결 및 이전 버전과의 호환성을 위한 이전 버전을 허용 합니다. Azure Portal 또는 resource manager 템플릿을 사용 하 여 클러스터를 만드는 동안 게이트웨이 노드에서 지원 되는 최소 TLS 버전을 제어할 수 있습니다. 포털의 경우 클러스터를 만드는 동안 **보안 + 네트워킹** 탭에서 TLS 버전을 선택 합니다. 배포 시 resource manager 템플릿의 경우 **Minsupportedtlsversion** 속성을 사용 합니다. 샘플 템플릿은 [HDInsight 최소 TLS 1.2 빠른 시작 템플릿](https://github.com/Azure/azure-quickstart-templates/tree/master/101-hdinsight-minimum-tls)을 참조 하세요. 이 속성은 "1.0", "1.1" 및 "1.2"의 세 가지 값을 지원 합니다 .이는 각각 TLS 1.0 +, TLS 1.1 + 및 TLS 1.2 +에 해당 합니다.
+
+> [!IMPORTANT]
+> 2020 년 6 월 30 일부 터 Azure HDInsight는 모든 HTTPS 연결에 TLS 1.2 이상 버전을 적용 합니다. 모든 클라이언트에서 TLS 1.2 이상 버전을 처리할 수 있도록 준비 하는 것이 좋습니다. 자세한 내용은 [Azure HDINSIGHT TLS 1.2 적용](https://azure.microsoft.com/updates/azure-hdinsight-tls-12-enforcement/)을 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

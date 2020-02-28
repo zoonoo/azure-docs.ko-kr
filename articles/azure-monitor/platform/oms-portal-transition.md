@@ -1,18 +1,17 @@
 ---
 title: Azure로 이동하는 OMS 포털 | Microsoft Docs
 description: OMS 포털은 Azure Portal로 이동하면서 모든 기능이 종료되고 있습니다. 이 문서는 이 전환에 대해 자세한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/22/2019
-ms.openlocfilehash: 170973d15b5f49021a0507bdd2fd6a2632777d48
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 680cd9b44cc447f9bdea38cb9d04fc661fba9c79
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932144"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659257"
 ---
 # <a name="oms-portal-moving-to-azure"></a>Azure로 이동하는 OMS 포털
 
@@ -33,7 +32,7 @@ Azure Portal은 모든 Azure 서비스의 허브이며, 리소스 고정을 위�
 - [OMS 모바일 앱](#oms-mobile-app)은 사용되지 않습니다. 
 - [NSG 솔루션](#azure-network-security-group-analytics)은 트래픽 분석 솔루션을 통해 사용 가능한 향상된 기능으로 대체되고 있습니다.
 - System Center Operations Manager에서 Log Analytics로의 새로운 연결에는 [업데이트된 관리 팩](#system-center-operations-manager)이 필요합니다.
-- [업데이트 관리](../../automation/automation-update-management.md)에 대한 변경 내용의 세부 정보는 [OMS 업데이트 배포를 Azure로 마이그레이션](../../automation/migrate-oms-update-deployments.md)을 참조하세요.
+- [업데이트 관리](../../automation/migrate-oms-update-deployments.md)에 대한 변경 내용의 세부 정보는 [OMS 업데이트 배포를 Azure로 마이그레이션](../../automation/automation-update-management.md)을 참조하세요.
 
 
 ## <a name="what-should-i-do-now"></a>이제 어떻게 해야 하나요?
@@ -59,8 +58,8 @@ Azure Portal에 이미 적절한 액세스 권한이 있을 수 있으며 이 �
 
 | OMS 포털 사용 권한 | Azure 역할 |
 |:---|:---|
-| ReadOnly | Log Analytics 읽기 권한자 |
-| 기여자 | Log Analytics 기여자 |
+| ReadOnly | Log Analytics 독자 |
+| 참가자 | Log Analytics 참가자 |
 | 관리자 | 소유자 | 
  
 

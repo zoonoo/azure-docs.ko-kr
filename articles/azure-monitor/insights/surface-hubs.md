@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor로 Surface Hub 모니터링 Microsoft Docs
 description: Surface Hub 솔루션으로 Surface Hub 상태를 추적하여 Surface Hub가 사용되고 있는 방식을 파악합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2018
-ms.openlocfilehash: 32ac14a06230341d21ff1b14a33cbcdd0992e4fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7999735bf2d182b2811d01172adcfc89cba27dc8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400889"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662504"
 ---
 # <a name="monitor-surface-hubs-with-azure-monitor-to-track-their-health"></a>Azure Monitor로 Surface Hub를 모니터링하여 상태 추적
 

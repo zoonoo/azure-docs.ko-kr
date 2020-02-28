@@ -1,18 +1,14 @@
 ---
 title: Azure App Services 성능 모니터링 | Microsoft Docs
 description: Azure App Services에 대한 애플리케이션 성능 모니터링입니다. 차트 로드 및 응답 시간, 종속성 정보 및 성능에 대 한 경고를 설정 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/11/2019
-ms.openlocfilehash: 3ca9cbf2e282e3f67af3c5da470a3d81e6055f98
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 03d332af182f8f40ede634fbd563f7b064751f32
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189581"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655808"
 ---
 # <a name="monitor-azure-app-service-performance"></a>Azure App Service 성능 모니터링
 
@@ -39,7 +35,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
 ## <a name="enable-agent-based-monitoring"></a>에이전트 기반 모니터링 사용
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 > [!NOTE]
 > APPINSIGHTS_JAVASCRIPT_ENABLED와 urlCompression의 조합은 지원 되지 않습니다. 자세한 내용은 [문제 해결 섹션](https://docs.microsoft.com/azure/azure-monitor/app/azure-web-apps#troubleshooting)의 설명을 참조 하세요.
@@ -75,7 +71,7 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     * 지원 되는 적응 샘플링 원격 분석 프로세서 설정 목록에 대해서는 [코드](https://github.com/Microsoft/ApplicationInsights-dotnet/blob/master/src/ServerTelemetryChannel/AdaptiveSamplingTelemetryProcessor.cs) 및 [관련 설명서](https://docs.microsoft.com/azure/azure-monitor/app/sampling)를 참조할 수 있습니다.
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 다음 버전의 .NET Core가 지원 됩니다. ASP.NET Core 2.0, ASP.NET Core 2.1, ASP.NET Core 2.2, ASP.NET Core 3.0
 
@@ -96,15 +92,15 @@ Azure 앱 Services 호스팅된 응용 프로그램에 대해 응용 프로그�
 
     ![플랫폼별 옵션 선택](./media/azure-web-apps/choose-options-new-net-core.png)
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 App Service 웹 앱 내에서 **설정** > Application Insights > **사용**을 **선택** 합니다. Node.js 에이전트 기반 모니터링은 현재 미리 보기 상태입니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Java App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/확장 기반 모니터링을 지원 하지 않습니다. Java 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [수동으로 응용 프로그램을 계측](https://docs.microsoft.com/azure/azure-monitor/app/java-get-started)해야 합니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/확장 기반 모니터링을 지원 하지 않습니다. Python 응용 프로그램에 대 한 모니터링을 사용 하도록 설정 하려면 [수동으로 응용 프로그램을 계측](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python)해야 합니다.
 
@@ -112,7 +108,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ## <a name="enable-client-side-monitoring"></a>클라이언트 쪽 모니터링 사용
 
-# <a name="nettabnet"></a>[.NET](#tab/net)
+# <a name="net"></a>[.NET](#tab/net)
 
 클라이언트 쪽 모니터링이 ASP.NET에 대해 옵트인 (opt in) 됩니다. 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면:
 
@@ -129,7 +125,7 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 클라이언트 쪽 모니터링을 사용 하지 않도록 설정 하려면 응용 프로그램 설정에서 연결 된 키 값 쌍을 제거 하거나 값을 false로 설정 합니다.
 
-# <a name="net-coretabnetcore"></a>[.NET Core](#tab/netcore)
+# <a name="net-core"></a>[.NET Core](#tab/netcore)
 
 클라이언트 쪽 모니터링은 앱 설정 ' APPINSIGHTS_JAVASCRIPT_ENABLED '이 있는지 여부에 관계 없이 **권장 컬렉션이**있는 .net Core 앱에 대해 **기본적으로 사용 하도록 설정** 됩니다.
 
@@ -146,15 +142,15 @@ Python App Service 기반 웹 응용 프로그램은 현재 자동 에이전트/
 
 ![응용 프로그램 설정 UI의 스크린샷](./media/azure-web-apps/appinsights-javascript-disabled.png)
 
-# <a name="nodejstabnodejs"></a>[Node.JS](#tab/nodejs)
+# <a name="nodejs"></a>[Node.JS](#tab/nodejs)
 
 Node.js 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 Java 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 사용 하도록 설정 하려면 [클라이언트 쪽 JAVASCRIPT SDK를 응용 프로그램에 수동으로 추가](https://docs.microsoft.com/azure/azure-monitor/app/javascript)해야 합니다.
 

@@ -3,16 +3,16 @@ title: 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 �
 description: Azure Backup의 보안 기능을 사용 하 여 백업을 더 안전 하 게 만드는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/13/2019
-ms.openlocfilehash: 20cf322dec0827c00b15a62bf4f7695fc4ed0992
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 3435b9455af3362cdce2dceb20e183a8b05a15dd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705499"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660838"
 ---
 # <a name="security-features-to-help-protect-cloud-workloads-that-use-azure-backup"></a>Azure Backup를 사용 하는 클라우드 워크 로드를 보호 하는 데 도움이 되는 보안 기능
 
-맬웨어, 랜섬웨어 및 침입 같은 보안 문제에 대한 우려가 증가하고 있습니다. 이 보안 문제는 비용과 데이터 측면 모두에서 지출이 클 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다.
+맬웨어, 랜섬웨어 및 침입과 같은 보안 문제에 대한 우려는 증가하고 있습니다. 이러한 보안 문제는 돈과 데이터 측면 모두에서 비용이 많이 들 수 있습니다. 이러한 공격 으로부터 보호 하기 위해 Azure Backup는 삭제 후에도 백업 데이터를 보호 하는 데 도움이 되는 보안 기능을 제공 합니다.
 
 이러한 기능 중 하나는 일시 삭제입니다. 일시 삭제를 사용 하는 경우 악성 행위자가 VM의 백업 (또는 실수로 삭제 됨)을 삭제 하더라도 백업 데이터는 14 일 동안 보존 되므로 데이터 손실 없이 해당 백업 항목을 복구할 수 있습니다. "일시 삭제" 상태의 백업 데이터에 대 한 14 일의 추가 보존은 고객에 게 비용을 부과 하지 않습니다. 또한 Azure는 데이터를 더욱 안전 하 게 보호 하기 위해 [저장소 서비스 암호화](https://docs.microsoft.com/azure/storage/common/storage-service-encryption) 를 사용 하 여 미사용 백업 된 데이터를 모두 암호화 합니다.
 
@@ -133,7 +133,7 @@ AppVM1           Undelete             Completed            12/5/2019 12:47:28 PM
 
 ## <a name="disabling-soft-delete"></a>일시 삭제 사용 안 함
 
-일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다. 백업 관리자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 모두 삭제 하면 복원 기능 없이 즉시 제거 됩니다. 일시 삭제 된 상태에서이 기능을 사용 하지 않도록 설정 된 백업 데이터는 일시 삭제 된 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
+일시 삭제는 새로 만든 자격 증명 모음에 대해 기본적으로 사용 하도록 설정 되어 실수로 또는 악의적 삭제 로부터 백업 데이터를 보호 합니다.  이 기능을 사용 하지 않도록 설정 하는 것은 권장 되지 않습니다. 일시 삭제를 사용 하지 않도록 설정 해야 하는 유일한 경우는 보호 된 항목을 새 자격 증명 모음으로 이동할 계획인 경우이 고, 테스트 환경에서와 같이 삭제 하 고 다시 보호 하기 전에 14 일 동안 기다릴 수 없는 경우입니다. 자격 증명 모음 소유자만이 기능을 사용 하지 않도록 설정할 수 있습니다. 이 기능을 사용 하지 않도록 설정 하면 보호 된 항목을 나중에 삭제할 때마다 복원 기능 없이 즉시 제거 됩니다. 이 기능을 사용 하지 않도록 설정 하기 전에 일시 삭제 된 상태에 있는 백업 데이터는 14 일 동안 일시 삭제 상태로 유지 됩니다. 이러한 항목을 즉시 영구적으로 삭제 하려면 삭제를 취소 하 고 삭제 한 후 영구적으로 삭제 해야 합니다.
 
 ### <a name="disabling-soft-delete-using-azure-portal"></a>Azure Portal를 사용 하 여 일시 삭제 사용 안 함
 
@@ -277,7 +277,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 자세한 내용은 [역할 기반 Access Control를 사용 하 여 Azure Backup 복구 지점의 관리](https://docs.microsoft.com/azure/backup/backup-rbac-rs-vault)를 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="for-soft-delete"></a>일시 삭제의 경우
 
@@ -311,7 +311,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 #### <a name="can-i-delete-the-data-earlier-than-the-14-days-soft-delete-period-after-deletion"></a>삭제 후 14 일 일시 삭제 기간 보다 이전 데이터를 삭제할 수 있나요?
 
-아닙니다. 일시 삭제 된 항목은 강제로 삭제할 수 없으며 14 일이 지나면 자동으로 삭제 됩니다. 이 보안 기능은 백업 된 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하기 위해 사용 됩니다.  VM에서 다른 작업을 수행 하기 전에 14 일 동안 기다려야 합니다.  일시 삭제 된 항목은 요금이 청구 되지 않습니다.  일시 삭제 하도록 표시 된 Vm을 14 일 이내에 새 자격 증명 모음으로 다시 보호 해야 하는 경우 Microsoft 지원에 문의 하세요.
+아니요. 일시 삭제 된 항목은 강제로 삭제할 수 없으며 14 일이 지나면 자동으로 삭제 됩니다. 이 보안 기능은 백업 된 데이터를 실수로 또는 악의적으로 삭제 하지 않도록 보호 하기 위해 사용 됩니다.  VM에서 다른 작업을 수행 하기 전에 14 일 동안 기다려야 합니다.  일시 삭제 된 항목은 요금이 청구 되지 않습니다.  일시 삭제 하도록 표시 된 Vm을 14 일 이내에 새 자격 증명 모음으로 다시 보호 해야 하는 경우 Microsoft 지원에 문의 하세요.
 
 #### <a name="can-soft-delete-operations-be-performed-in-powershell-or-cli"></a>PowerShell 또는 CLI에서 일시 삭제 작업을 수행할 수 있나요?
 
@@ -319,7 +319,7 @@ Recovery services 자격 증명 모음에 사용 되는 저장소 계정은 격�
 
 #### <a name="is-soft-delete-supported-for-other-cloud-workloads-like-sql-server-in-azure-vms-and-sap-hana-in-azure-vms"></a>Azure vm의 SQL Server 및 Azure Vm의 SAP HANA 같은 다른 클라우드 워크 로드에 대해 일시 삭제가 지원 되나요?
 
-아닙니다. 현재 일시 삭제는 Azure virtual machines에 대해서만 지원 됩니다.
+아니요. 현재 일시 삭제는 Azure virtual machines에 대해서만 지원 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 
