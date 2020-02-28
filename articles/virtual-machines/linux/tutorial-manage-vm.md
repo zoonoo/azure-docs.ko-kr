@@ -227,7 +227,7 @@ az vm list-vm-resize-options --resource-group myResourceGroupVM --name myVM --qu
 az vm resize --resource-group myResourceGroupVM --name myVM --size Standard_DS4_v2
 ```
 
-원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업 전에 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
+원하는 크기가 현재 클러스터에 없는 경우 크기 조정 작업이 일어날 수 있기 때문에 미리 VM 할당을 취소해야 합니다. [az vm deallocate]( /cli/azure/vm) 명령을 사용하여 VM을 중지하고 할당을 취소합니다. 참고로 VM의 전원이 다시 켜지면 임시 디스크의 모든 데이터가 제거됩니다. 고정 IP 주소를 사용하지 않는 한 공용 IP 주소도 변경됩니다. 
 
 ```azurecli-interactive 
 az vm deallocate --resource-group myResourceGroupVM --name myVM

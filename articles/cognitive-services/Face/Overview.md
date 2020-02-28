@@ -53,7 +53,7 @@ Find Similar API는 대상 얼굴을 후보 얼굴 세트와 비교하여 대상
 
 ## <a name="face-grouping"></a>얼굴 그룹화
 
-Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹으로 나눕니다. 각 그룹은 원래 얼굴 집합의 비연속 적절한 하위 집합입니다. 그룹의 모든 얼굴은 동일한 사람에게 속할 가능성이 큽니다. 한 사람에 대해 여러 개의 다른 그룹이 있을 수 있습니다. 예를 들어 그룹은 식과 같은 다른 요소로 구분됩니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 참조 설명서를 참조하세요.
+Group API는 알 수 없는 얼굴 집합을 유사성에 따라 여러 그룹으로 나눕니다. 각 그룹은 원래 얼굴 집합의 비연속 적절한 하위 집합입니다. 그룹의 모든 얼굴은 동일한 사람에게 속할 가능성이 큽니다. 한 사람에 대해 여러 개의 다른 그룹이 있을 수 있습니다. 예를 들어 그룹은 표정과 같은 다른 요소로 구분됩니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Group API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f30395238) 참조 설명서를 참조하세요.
 
 ## <a name="person-identification"></a>사람 식별
 

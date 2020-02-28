@@ -149,7 +149,7 @@ Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을
 
 ## <a name="simulate-first-boot-sequence-for-the-device"></a>디바이스에 대한 첫 번째 부팅 시퀀스 시뮬레이션
 
-이 섹션에서는 샘플 코드가 [AMQP(고급 메시지 큐 프로토콜)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)를 사용하도록 구성하여 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보냅니다. 이 부팅 시퀀스를 사용하면 디바이스를 인식하고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당합니다.
+이 섹션에서는 샘플 코드가 [AMQP(고급 메시지 큐 프로토콜)](https://wikipedia.org/wiki/Advanced_Message_Queuing_Protocol)를 사용하도록 구성하여 디바이스의 부팅 시퀀스를 Device Provisioning Service 인스턴스에 보냅니다. 이 부팅 시퀀스를 사용하면 디바이스가 인식되고 Device Provisioning Service 인스턴스에 연결된 IoT Hub에 할당됩니다.
 
 1. Azure Portal에서 Device Provisioning 서비스에 대한 **개요** 탭을 선택하고 **_ID 범위_** 값을 복사합니다.
 
