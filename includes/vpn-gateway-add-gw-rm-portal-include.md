@@ -5,19 +5,19 @@ services: vpn-gateway
 author: cherylmc
 ms.service: vpn-gateway
 ms.topic: include
-ms.date: 10/04/2019
+ms.date: 02/26/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 12c28969ed00a1370b90e06e9d57cd666c50ea29
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: f1d4c50766fea5f4c562dc6a9661945713a41f53
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523345"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654822"
 ---
 1. [Azure Portal](https://portal.azure.com) 메뉴에서 **리소스 만들기**를 선택 합니다. 
 
-   ![Azure Portal에서 리소스 만들기](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
+   ![Azure Portal에서 리소스를 만듭니다.](./media/vpn-gateway-add-gw-rm-portal-include/azure-portal-create-resource.png)
 2. **Marketplace 검색** 필드에 ' Virtual Network Gateway '를 입력 합니다. 검색 결과에서 **가상 네트워크 게이트웨이**를 찾아서 항목을 클릭합니다. **가상 네트워크 게이트웨이** 페이지에서 **만들기**를 클릭 합니다. 그러면 **가상 네트워크 게이트웨이 만들기** 페이지가 열립니다.
 
    ![가상 네트워크 게이트웨이 만들기 페이지 필드](./media/vpn-gateway-add-gw-rm-portal-include/p2sgw.png "가상 네트워크 게이트웨이 만들기 페이지 필드")
@@ -34,7 +34,7 @@ ms.locfileid: "73523345"
 
    - **이름**: 게이트웨이 이름을 지정합니다. 게이트웨이 이름 지정은 게이트웨이 서브넷의 이름을 지정 하는 것과 동일 하지 않습니다. 만드는 게이트웨이 개체의 이름입니다.
    - **지역**:이 리소스를 만들려는 지역을 선택 합니다. 게이트웨이의 지역은 가상 네트워크와 동일 해야 합니다.
-   - **게이트웨이 유형**: **VPN**을 선택합니다. VPN 게이트웨이는 가상 네트워크 게이트웨이 유형 **VPN**을 사용합니다. 
+   - **게이트웨이 유형**: **VPN**을 선택합니다. VPN 게이트웨이는 가상 네트워크 게이트웨이 유형 **VPN**을 사용합니다.
    - **VPN 유형**: 구성에 대해 지정된 VPN 유형을 선택합니다. 대부분의 구성에는 경로 기반 VPN 유형이 필요합니다.
    - **SKU**: 드롭다운에서 게이트웨이 SKU를 선택합니다. 드롭다운에 나열되는 SKU는 선택하는 VPN 유형에 따라 달라집니다. 게이트웨이 SKU에 대한 자세한 내용은 [게이트웨이 SKU](../articles/vpn-gateway/vpn-gateway-about-vpn-gateway-settings.md#gwsku)를 참조하세요.
 

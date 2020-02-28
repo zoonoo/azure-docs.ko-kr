@@ -1,14 +1,14 @@
 ---
 title: ServiceNow를 사용 하 여 Azure 서비스 상태 경고 보내기
 description: 서비스 상태 이벤트에 대한 개인 설정 알림을 ServiceNow 인스턴스로 가져옵니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/10/2019
-ms.openlocfilehash: f332b1e0e188797da172b4ae63f6e5ef1a97e59c
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 3daae05aabff571010d043cf5602847e95ea29f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551610"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654106"
 ---
 # <a name="send-azure-service-health-alerts-with-servicenow-using-webhooks"></a>웹 후크를 사용 하 여 ServiceNow로 Azure 서비스 상태 경고 보내기
 
@@ -36,7 +36,7 @@ ms.locfileid: "75551610"
 
     ![ServiceNow에서 "리소스 탭"](./media/webhook-alerts/servicenow-resources-tab.png)
 
-1.  새 리소스 `event`의 **이름**을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
+1.  새 리소스 **의** 이름`event`을 지정하고 **HTTP 메서드**를 `POST`로 변경합니다.
 
 1.  **스크립트** 섹션에서 다음 JavaScript 코드를 추가합니다.
 

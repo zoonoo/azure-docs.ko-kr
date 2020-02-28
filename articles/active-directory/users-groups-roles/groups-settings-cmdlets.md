@@ -14,12 +14,12 @@ ms.author: curtand
 ms.reviewer: krbain
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 7b5d74c7c599f31694a68e7582a6447af8471508
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: a727cd57e470f248321011d505f8037808f64298
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76984951"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656877"
 ---
 # <a name="azure-active-directory-cmdlets-for-configuring-group-settings"></a>그룹 설정을 구성하는 Azure Active Directory cmdlets
 
@@ -28,7 +28,7 @@ ms.locfileid: "76984951"
 > [!IMPORTANT]
 > 일부 설정에는 Azure Active Directory Premium P1 라이선스가 필요합니다. 자세한 내용은 [템플릿 설정](#template-settings) 표를 참조하세요.
 
-관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면 [Set-MSOLCompanySettings](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)에 설명된 대로 `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`를 설정하세요.
+관리자가 아닌 사용자가 보안 그룹을 만들지 못하게 방지하려면  `Set-MsolCompanySettings -UsersPermissionToCreateGroupsEnabled $False`Set-MSOLCompanySettings[에 설명된 대로](https://docs.microsoft.com/powershell/module/msonline/set-msolcompanysettings?view=azureadps-1.0)를 설정하세요.
 
 Office 365 그룹 설정은 설정 개체와 SettingsTemplate 개체를 사용하여 구성됩니다. 처음에는 디렉터리가 기본 설정으로 구성되어 있으므로 디렉터리에 설정 개체가 표시되지 않습니다. 기본 설정을 변경하려면 설정 템플릿을 사용하여 새 설정 개체를 만들어야 합니다. 설정 템플릿은 Microsoft가 정의합니다. 여러 종류의 설정 템플릿이 있습니다. 디렉터리에 대한 Office 365 그룹 설정을 구성하려면 "Group.Unified" 템플릿을 사용하세요. 단일 그룹의 Office 365 그룹 설정을 구성하려면 "Group.Unified.Guest" 템플릿을 사용하세요. 이 템플릿은 Office 365 그룹에 대한 게스트 액세스 관리에 사용됩니다. 
 
@@ -63,7 +63,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```
    이 cmdlet을 호출하면 사용할 수 있는 모든 템플릿이 반환됩니다.
   
-   ```powershell
+   ``` PowerShell
    Id                                   DisplayName         Description
    --                                   -----------         -----------
    62375ab9-6b52-47ed-826b-58e47e0e304b Group.Unified       ...
@@ -77,7 +77,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
   
    ```powershell
    $TemplateId = (Get-AzureADDirectorySettingTemplate | where { $_.DisplayName -eq "Group.Unified" }).Id
-   $Template = Get-AzureADDirectorySettingTemplate -Id $TemplateId
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value $TemplateId -EQ
    ```
 3. 다음에는 위 템플릿에 기초하여 새 설정 개체를 만듭니다.
   
@@ -171,7 +171,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```
 2. 디렉터리 수준에서 그룹에 대 한 게스트 정책을 설정 하려면 그룹이 필요 합니다. 통합 템플릿
    ```powershell
-   $Template = Get-AzureADDirectorySettingTemplate -Id 62375ab9-6b52-47ed-826b-58e47e0e304b
+   $Template = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "62375ab9-6b52-47ed-826b-58e47e0e304b" -EQ
    ```
 3. 다음에는 위 템플릿에 기초하여 새 설정 개체를 만듭니다.
   
@@ -262,7 +262,7 @@ PowerShell 명령을 실행 하기 전에 Windows PowerShell 용 Azure Active Di
    ```
 2. Groups.Unified.Guest 템플릿에 대한 템플릿 개체를 검색합니다.
    ```powershell
-   $Template1 = Get-AzureADDirectorySettingTemplate -Id 08d542b9-071f-4e16-94b0-74abb372e3d9
+   $Template1 = Get-AzureADDirectorySettingTemplate | where -Property Id -Value "08d542b9-071f-4e16-94b0-74abb372e3d9" -EQ
    ```
 3. 템플릿으로 새로운 설정 개체를 만듭니다.
    ```powershell

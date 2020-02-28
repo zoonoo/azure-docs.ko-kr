@@ -6,13 +6,13 @@ ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
-ms.date: 10/03/2019
-ms.openlocfilehash: 5cc54c95759ba1490f498305f05cc49a4411686d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.date: 02/26/2020
+ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74930324"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655069"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>데이터 흐름 조회 변환 Azure Data Factory 매핑
 
@@ -36,9 +36,19 @@ ms.locfileid: "74930324"
 
 ## <a name="first-or-last-value"></a>첫 번째 또는 마지막 값
 
-조회와 일치 하는 항목이 여러 개 있는 경우 첫 번째 또는 마지막 일치 항목 중 하나를 선택 하 여 일치 하는 여러 행을 줄일 수 있습니다. 조회 후 집계 변환을 사용 하 여이 작업을 수행할 수 있습니다.
+조회 변환은 왼쪽 우선 외부 조인으로 구현 됩니다. 조회와 일치 하는 항목이 여러 개 있는 경우 일치 하는 첫 번째 행, 마지막 일치 또는 임의 행을 선택 하 여 일치 하는 여러 행을 줄일 수 있습니다.
 
-이 경우 ```PickFirst``` 라는 집계 변환을 사용 하 여 조회 일치 항목에서 첫 번째 값을 선택 합니다.
+### <a name="option-1"></a>옵션 1
+
+![단일 행 조회](media/data-flow/singlerowlookup.png "단일 행 조회")
+
+* 여러 행 일치: 단일 행 일치를 반환 하려면 비워 둡니다.
+* 일치 기준: 첫 번째, 마지막 또는 모든 일치를 선택 합니다.
+* 정렬 조건: 첫 번째 또는 마지막을 선택 하는 경우 ADF는 첫 번째 및 마지막에 있는 논리가 있도록 데이터를 정렬 해야 합니다.
+
+### <a name="option-2"></a>옵션 2
+
+조회 후 집계 변환을 사용 하 여이 작업을 수행할 수도 있습니다. 이 경우 ```PickFirst``` 라는 집계 변환을 사용 하 여 조회 일치 항목에서 첫 번째 값을 선택 합니다.
 
 ![조회 집계](media/data-flow/lookup333.png "조회 집계")
 
@@ -48,7 +58,7 @@ ms.locfileid: "74930324"
 
 Data Factory에서 데이터 흐름은 스케일 아웃 Spark 환경에서 실행 됩니다. 데이터 집합을 작업자 노드 메모리 공간에 맞출 수 있는 경우 조회 성능을 최적화할 수 있습니다.
 
-![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 참가")
+![브로드캐스트 조인](media/data-flow/broadcast.png "브로드캐스트 조인")
 
 ### <a name="broadcast-join"></a>브로드캐스트 조인
 

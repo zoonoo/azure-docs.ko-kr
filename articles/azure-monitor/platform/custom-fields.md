@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 사용자 지정 필드 (미리 보기) | Microsoft Docs
 description: Azure Monitor의 사용자 지정 필드 기능을 사용 하면 수집 된 레코드의 속성에 추가 되는 Log Analytics 작업 영역의 레코드에서 고유한 검색 가능 필드를 만들 수 있습니다.  이 문서는 사용자 지정 필드를 만드는 프로세스를 설명하고 샘플 이벤트에 대한 자세한 연습을 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/23/2019
-ms.openlocfilehash: 880d3ffa9914a8fc6f27edce06c5d353d7903db4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfb0a73631564c96a4af745fe9d7540a3a84f9c3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396876"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655364"
 ---
 # <a name="create-custom-fields-in-a-log-analytics-workspace-in-azure-monitor-preview"></a>Azure Monitor (미리 보기)에서 Log Analytics 작업 영역에 사용자 지정 필드 만들기
 

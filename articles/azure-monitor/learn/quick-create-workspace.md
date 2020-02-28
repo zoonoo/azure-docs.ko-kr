@@ -1,18 +1,17 @@
 ---
 title: Azure Portal에서 Log Analytics 작업 영역 만들기 | Microsoft Docs
 description: Azure Portal에서 Log Analytics 작업 영역을 만들어서 클라우드 및 온-프레미스 환경에서 관리 솔루션 및 데이터 수집을 사용하는 방법에 대해 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/12/2019
-ms.openlocfilehash: bc8162a157cee10deeb8bf3f1e62a53fbdd30d0e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3c2e9d5634916c3713b7e3380c0496611d8f60a6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513442"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656282"
 ---
 # <a name="create-a-log-analytics-workspace-in-the-azure-portal"></a>Azure Portal에서 Log Analytics 작업 영역 만들기
 **Log Analytics 작업 영역** 메뉴를 사용하여 Azure Portal에서 Log Analytics 작업 영역을 만듭니다. Log Analytics 작업 영역은 Azure Monitor 로그 데이터에 대한 고유한 환경입니다. 각 작업 영역에는 자체 데이터 리포지토리 및 구성이 있으며 데이터 원본 및 솔루션은 특정 작업 영역에 데이터를 저장하도록 구성됩니다. 다음 원본에서 데이터를 수집하려는 경우 Log Analytics 작업 영역이 필요합니다.
@@ -33,14 +32,14 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 ## <a name="sign-in-to-azure-portal"></a>Azure Portal에 로그인
 [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다. 
 
-## <a name="create-a-workspace"></a>작업 영역 생성
+## <a name="create-a-workspace"></a>작업 영역 만들기
 1. Azure Portal에서 **모든 서비스**를 클릭합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.
 
-    ![Azure Portal](media/quick-create-workspace/azure-portal-01.png)
+    ![Azure portal](media/quick-create-workspace/azure-portal-01.png)
   
 2. **추가**를 클릭한 후 다음 항목에 대한 선택 항목을 선택합니다.
 
-   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 이 이름은 모든 Azure Monitor 구독에서 전역적으로 고유 해야 합니다.
+   * 새 **Log Analytics 작업 영역**의 이름(예: *DefaultLAWorkspace*)을 지정합니다. 이 이름은 모든 Azure Monitor 구독에서 전역적으로 고유해야 합니다.
    * 기본으로 선택된 값이 적절하지 않으면 드롭다운 목록에서 선택하여 연결할 **구독**을 선택합니다.
    * **리소스 그룹**의 경우 이미 설정된 기존 리소스 그룹을 사용하도록 선택하거나 새 리소스 그룹을 만듭니다.  
    * 사용 가능한 **위치**를 선택합니다.  자세한 내용은 [에서 사용할 수 있는 Log Analytics 지역을](https://azure.microsoft.com/regions/services/) 확인 하 고 **제품 검색** 필드에서 Azure Monitor를 검색 합니다.  

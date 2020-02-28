@@ -1,14 +1,14 @@
 ---
 title: Azure Service Health 알림이란?
 description: 서비스 상태 알림을 통해 Microsoft Azure에서 게시한 서비스 상태 메시지를 볼 수 있습니다.
-ms.topic: article
+ms.topic: conceptual
 ms.date: 4/12/2018
-ms.openlocfilehash: f2d79dc920129241c801c75cc9009b3ba8f34b78
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e40538ac98bbc7b79311d4fb0da7568d56a84e18
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451564"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77653971"
 ---
 # <a name="view-service-health-notifications-by-using-the-azure-portal"></a>Azure Portal을 사용하여 서비스 상태 알림 보기
 

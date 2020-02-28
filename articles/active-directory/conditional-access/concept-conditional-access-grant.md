@@ -5,18 +5,18 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: conditional-access
 ms.topic: conceptual
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: joflore
 author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: calebb
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: e5df7eedcd92d338d3f741f7092ff6ef73f3442d
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: d3df906936cc4e47ee1f43adb0fcbaa0e8c04b0f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585886"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656316"
 ---
 # <a name="conditional-access-grant"></a>조건부 액세스: Grant
 
@@ -55,7 +55,7 @@ Block은 적절 한 정보를 사용 하 여 wielded 해야 하는 강력한 컨
 
 Microsoft Intune를 배포한 조직은 장치에서 반환 된 정보를 사용 하 여 특정 규정 준수 요구 사항을 충족 하는 장치를 식별할 수 있습니다. 이 정책 준수 정보는 Intune에서 Azure AD로 전달 되며, 조건부 액세스는 리소스에 대 한 액세스를 부여 하거나 차단 하는 결정을 내릴 수 있습니다. 규정 준수 정책에 대 한 자세한 내용은 Intune을 [사용 하 여 조직의 리소스에 대 한 액세스를 허용 하는 장치에 대 한 규칙 설정](https://docs.microsoft.com/intune/protect/device-compliance-get-started)문서를 참조 하세요.
 
-장치는 Intune (장치 OS의 경우) 또는 타사 MDM system for Windows 10 장치에서 준수로 표시 될 수 있습니다. Windows 10 이외의 디바이스 OS 유형에 대한 타사 MDM 시스템은 지원되지 않습니다.
+장치는 Intune (장치 OS의 경우) 또는 타사 MDM system for Windows 10 장치에서 준수로 표시 될 수 있습니다. Jamf pro는 유일 하 게 지원 되는 타사 MDM 시스템입니다. 통합에 대 한 자세한 내용은 [Jamf Pro를 Intune과 통합](/intune/protect/conditional-access-integrate-jamf)하 여 준수 문서를 참조 하세요.
 
 장치가 준수 상태로 표시 되기 전에 Azure AD에 등록 되어 있어야 합니다. 장치 등록에 대 한 자세한 내용은 [장치 Id 정의](../devices/overview.md)문서에서 찾을 수 있습니다.
 

@@ -1,18 +1,17 @@
 ---
 title: Azure의 네트워크 성능 모니터 | Microsoft Docs
 description: Azure의 네트워크 성능 모니터를 사용하면 네트워크 성능을 거의 실시간으로 모니터링하여 네트워크 성능 병목을 감지하고 위치를 찾을 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: vinynigam
 ms.author: vinigam
 ms.date: 02/20/2018
-ms.openlocfilehash: 396652e3f8a0a8d9e18effb94a48a362054dde96
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cb906f6b3cf333e3fb3a24a934e5d9f11fc10cda
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75403155"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654480"
 ---
 # <a name="network-performance-monitor-solution-in-azure"></a>Azure의 네트워크 성능 모니터 솔루션
 
@@ -136,7 +135,7 @@ ExpressRoute 모니터가 지원되는 지역 목록은 [설명서](https://docs
     
 이러한 회로 및 피어 링에 대 한 모니터링은 처음에는 사용할 수 없는 상태입니다. 모니터링할 각 리소스를 선택 하 고 오른쪽의 자세히 보기에서 모니터링을 구성 합니다. **저장** 을 선택하여 구성을 저장합니다. 자세히 알아보려면 ExpressRoute 모니터링 구성"을 참조하세요. 
 
-설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 **개요** 타일에 *솔루션에 추가 구성이 필요합니다.* 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
+설치가 완료된 후 데이터를 채우는 데 30분~1시간이 소요됩니다. 이 솔루션이 네트워크에서 데이터를 집계하는 동안 네트워크 성능 모니터 *개요* 타일에 **솔루션에 추가 구성이 필요합니다.** 라는 메시지가 표시됩니다. 데이터가 수집되고 인덱싱되면 **개요** 타일이 변경되고, 네트워크 상태를 요약으로 알려줍니다. 그런 다음, Log Analytics 에이전트가 설치된 노드 및 환경에서 검색된 서브넷에 대한 모니터링을 편집할 수 있습니다.
 
 #### <a name="edit-monitoring-settings-for-subnets-and-nodes"></a>서브넷 및 노드에 대한 모니터링 설정 편집 
 
@@ -280,7 +279,7 @@ Azure Portal를 통해 경고를 만드는 NPM 사용자 인 경우:
 
 가격 책정에 대한 정보는 [온라인](network-performance-monitor-pricing-faq.md)으로 지원됩니다.
 
-## <a name="provide-feedback"></a>피드백 제공하기 
+## <a name="provide-feedback"></a>피드백 제공 
 
 * **UserVoice:** 개발되기를 바라는 네트워크 성능 모니터 기능에 대한 아이디어를 게시할 수 있습니다. [UserVoice 페이지](https://feedback.azure.com/forums/267889-log-analytics/category/188146-network-monitoring)를 방문하세요. 
 

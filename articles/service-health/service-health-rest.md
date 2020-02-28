@@ -1,15 +1,14 @@
 ---
 title: REST API를 사용하여 Azure 리소스 상태 이벤트 가져오기 | Microsoft Docs
 description: Azure REST API를 사용하여 Azure 리소스의 상태 이벤트를 가져오는 방법을 설명합니다.
-ms.custom: REST
-ms.topic: article
+ms.topic: conceptual
 ms.date: 06/06/2017
-ms.openlocfilehash: 353bd65b0466902e450e38677a350a177a1d602c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6964a6c4e85c38d532b12e730a02c4df73be76e5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75451385"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654004"
 ---
 # <a name="get-resource-health-using-the-rest-api"></a>REST API를 사용하여 리소스 상태 가져오기 
 
@@ -19,7 +18,7 @@ REST API에 대한 전체 참조 설명서 및 추가 샘플은 [Azure Monitor R
 
 ## <a name="build-the-request"></a>요청 빌드
 
-`2018-05-16` 및 `2018-06-20` 사이의 시간 범위에서 구독에 대한 상태 이벤트를 나열하려면 다음 `GET` HTTP 요청을 사용합니다.
+`GET` 및 `2018-05-16` 사이의 시간 범위에서 구독에 대한 상태 이벤트를 나열하려면 다음 `2018-06-20` HTTP 요청을 사용합니다.
 
 ```http
 https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft.insights/eventtypes/management/values?api-version=2015-04-01&%24filter=eventTimestamp%20ge%20'2018-05-16T04%3A36%3A37.6407898Z'%20and%20eventTimestamp%20le%20'2018-06-20T04%3A36%3A37.6407898Z'
@@ -32,11 +31,11 @@ https://management.azure.com/subscriptions/{subscription-id}/providers/microsoft
 |요청 헤더|Description|  
 |--------------------|-----------------|  
 |*Content-Type:*|필수 사항입니다. `application/json`로 설정합니다.|  
-|*권한 부여*|필수 사항입니다. 을 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정 합니다. |  
+|*권한 부여*|필수 사항입니다. 유효한 `Bearer` [액세스 토큰](/rest/api/azure/#authorization-code-grant-interactive-clients)으로 설정합니다. |  
 
 ### <a name="uri-parameters"></a>URI 매개 변수
 
-| 이름 | Description |
+| 속성 | Description |
 | :--- | :---------- |
 | subscriptionId | Azure 구독을 식별하는 구독 ID입니다. 구독이 여러 개인 경우 [여러 구독으로 작업](https://docs.microsoft.com/cli/azure/manage-azure-subscriptions-azure-cli?view=azure-cli-latest)을 참조합니다. |
 | api-version | 요청에 사용할 API 버전입니다.<br /><br /> 이 문서에서는 위 URL에 포함되어 있는 api-version `2015-04-01`을 다룹니다.  |

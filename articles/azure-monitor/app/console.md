@@ -1,19 +1,15 @@
 ---
 title: 콘솔 애플리케이션용 Azure Application Insights | Microsoft Docs
 description: 애플리케이션의 가용성, 성능 및 사용 현황을 모니터링합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
 ms.reviewer: lmolkova
-ms.openlocfilehash: c8c71fa3798b7c56550b742a8b19c83336bb6ddf
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: baaea0f8055eeff0314fcf5fde00729ea8091d12
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889144"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655432"
 ---
 # <a name="application-insights-for-net-console-applications"></a>.NET 콘솔 애플리케이션용 Application Insights
 
@@ -52,7 +48,7 @@ telemetryClient.TrackTrace("Hello World!");
 
 ### <a name="using-config-file"></a>구성 파일 사용
 
-기본적으로 Application Insights SDK는 `TelemetryConfiguration`을 만들 때 작업 디렉터리에서 `ApplicationInsights.config` 파일을 찾습니다.
+기본적으로 Application Insights SDK는 `ApplicationInsights.config`을 만들 때 작업 디렉터리에서 `TelemetryConfiguration` 파일을 찾습니다.
 
 ```csharp
 TelemetryConfiguration config = TelemetryConfiguration.Active; // Reads ApplicationInsights.config file if present

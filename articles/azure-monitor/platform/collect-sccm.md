@@ -1,28 +1,27 @@
 ---
 title: Azure Monitor에 Configuration Manager 연결 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor의 작업 영역에 Configuration Manager 연결 하 고 데이터 분석을 시작 하는 단계를 보여 줍니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/28/2019
-ms.openlocfilehash: 5b5af034b116ec1cdcefc811630683c9f560c840
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 3140c0de6fbe090e3d040202cd581c455f03b6d6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513666"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655259"
 ---
 # <a name="connect-configuration-manager-to-azure-monitor"></a>Azure Monitor에 Configuration Manager 연결
 Microsoft 끝점 Configuration Manager 환경을 Azure Monitor에 연결 하 여 장치 컬렉션 데이터를 동기화 하 고 Azure Monitor 및 Azure Automation에서 이러한 컬렉션을 참조할 수 있습니다.  
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Monitor Configuration Manager 현재 분기, 버전 1606 이상을 지원 합니다.
 
 >[!NOTE]
->Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능은 사용하기 전에 활성화해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options)을 참조하세요.
+>Log Analytics 작업 영역을 사용 하 여 Configuration Manager 연결 하는 기능은 선택 사항이 며 기본적으로 사용 하도록 설정 되어 있지 않습니다. 이 기능을 사용 하려면 먼저이 기능을 사용 하도록 설정 해야 합니다. 자세한 내용은 [업데이트에서 선택적 기능 사용](https://docs.microsoft.com/configmgr/core/servers/manage/install-in-console-updates#bkmk_options)을 참조 하세요.
 
 ## <a name="configuration-overview"></a>구성 개요
 
@@ -80,8 +79,8 @@ Configuration Manager 서비스 연결 지점 사이트 시스템 역할을 호�
 
 4. Azure 서비스 마법사의 Azure 서비스 페이지에서 다음을 수행 합니다.
 
-    1. Configuration Manager의 개체 **이름**을 지정합니다.
-    2. 서비스를 식별하는 데 도움이 되도록 선택적 **설명**을 지정합니다.
+    1. Configuration Manager 개체의 **이름을** 지정 합니다.
+    2. 서비스를 식별 하는 데 도움이 되는 **설명** (선택 사항)을 지정 합니다.
     3. Azure 서비스 **OMS 커넥터**를 선택 합니다.
 
     >[!NOTE]

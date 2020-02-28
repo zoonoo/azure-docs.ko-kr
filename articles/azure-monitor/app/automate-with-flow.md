@@ -1,18 +1,14 @@
 ---
 title: Microsoft Flow를 사용하여 Azure Application Insights 프로세스 자동화
 description: Microsoft Flow를 통해 Application Insights 커넥터를 사용하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/29/2019
-ms.openlocfilehash: 7d9c966051c2756d7936fa079a0aac68e694425d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7566ae87f92707180b09d50eb6e5eeccedae85b9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407536"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655094"
 ---
 # <a name="automate-azure-application-insights-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Application Insights 프로세스 자동화
 

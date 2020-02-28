@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: jairoc
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6c8e94a1b15ad8cd55019f9351c82f58130e472d
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: e09de5911ca0946bfcbcb77d1ad4131c8feac9f0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420612"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654667"
 ---
 # <a name="manage-device-identities-using-the-azure-portal"></a>Azure Portal를 사용 하 여 장치 id 관리
 
@@ -29,15 +29,10 @@ Azure Active Directory (Azure AD)의 장치 id 관리를 사용 하 여 사용�
 
 ## <a name="manage-device-identities"></a>디바이스 ID 관리
 
-Azure AD 포털은 장치 id를 관리 하는 중앙의 장소를 제공 합니다. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices)를 사용하거나 다음 수동 단계를 수행하여 이 위치로 이동할 수 있습니다.
+Azure AD 포털은 장치 id를 관리 하는 중앙의 장소를 제공 합니다. [직접 링크](https://portal.azure.com/#blade/Microsoft_AAD_IAM/DevicesMenuBlade/Devices) 를 사용 하거나 다음을 수행 하 여이 위치에 액세스할 수 있습니다.
 
-1. 관리자 권한으로 [Azure Portal](https://portal.azure.com)에 로그인합니다.
-
-2. **Azure Active Directory** 를 검색 하 고 선택 하거나 **홈** 페이지에서 선택 합니다.
-
-3. **관리** 섹션에서 **디바이스**를 클릭합니다.
-
-   ![디바이스 설정 구성](./media/device-management-azure-portal/74.png)
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. **Azure Active Directory** > **장치로**이동 합니다.
 
 **디바이스** 페이지에서 다음을 수행할 수 있습니다.
 
@@ -50,9 +45,7 @@ Azure AD 포털은 장치 id를 관리 하는 중앙의 장소를 제공 합니�
 
 Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure AD에 [등록 하거나 조인](overview.md) 해야 합니다. 관리자는 디바이스 설정을 구성하여 디바이스 등록 및 조인 프로세스를 구체적으로 조정할 수 있습니다.
 
-![디바이스 설정 구성](./media/device-management-azure-portal/22.png)
-
-디바이스 설정 페이지에서 다음을 구성할 수 있습니다.
+장치 설정 페이지에서 장치 id와 관련 된 설정을 구성할 수 있습니다.
 
 ![Intune 디바이스 관리](./media/device-management-azure-portal/21.png)
 
@@ -63,7 +56,7 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 
 - **Azure AD 조인 디바이스의 추가 로컬 관리자** - 디바이스에서 로컬 관리자 권한이 부여된 사용자를 선택할 수 있습니다. 여기에 추가한 사용자는 Azure AD의 *디바이스 관리자* 역할에 추가됩니다. Azure AD의 전역 관리자 및 디바이스 소유자에게는 기본적으로 로컬 관리자 권한이 부여됩니다. 이 옵션은 Azure AD Premium 또는 EMS(Enterprise Mobility Suite) 등의 제품을 통해 사용할 수 있는 프리미엄 버전 기능입니다.
 - **사용자가 AZURE ad에 장치를 등록할 수 있음** -Windows 10 개인, IOS, Android 및 macos 장치를 azure ad에 등록할 수 있도록이 설정을 구성 해야 합니다. **없음**을 선택 하는 경우 장치는 Azure AD에 등록할 수 없습니다. Office 365용 Microsoft Intune 또는 MDM(모바일 디바이스 관리)에 등록하려면 먼저 디바이스를 등록해야 합니다. 이러한 서비스 중 하나를 구성한 경우 **모두**가 선택되고 **없음**은 사용할 수 없습니다.
-- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **아니요**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 
+- **장치를 연결 하려면 Multi-factor Auth 필요** -사용자가 Azure AD에 장치를 연결 하기 위해 추가 인증 요소를 제공 해야 하는지 여부를 선택할 수 있습니다. 기본값은 **No**입니다. 그러나 디바이스를 등록하는 경우 Multi-Factor Authentication을 사용하는 것이 좋습니다. 이 서비스에 대해 Multi-Factor Authentication을 사용하도록 설정하기 전에 디바이스를 등록하는 사용자에 대해 Multi-Factor Authentication을 구성해야 합니다. 다양한 Azure Multi-Factor Authentication 서비스에 대한 자세한 내용은 [Azure Multi-Factor Authentication 시작](../authentication/concept-mfa-whichversion.md)을 참조하세요. 
 
 > [!NOTE]
 > **장치에 연결 하기 위한 Multi-factor Auth 필요** 설정은 azure ad에 가입 된 장치 또는 azure ad에 등록 된 장치에 적용 됩니다. 하이브리드 Azure AD 조인 장치에는이 설정이 적용 되지 않습니다.
@@ -81,12 +74,7 @@ Azure AD 포털을 사용 하 여 장치 id를 관리 하려면 장치를 Azure 
 두 가지 옵션으로 등록 및 조인된 디바이스를 찾을 수 있습니다.
 
 - **디바이스** 페이지의 **관리** 섹션에 있는 **모든 디바이스**  
-
-   ![모든 디바이스](./media/device-management-azure-portal/41.png)
-
 - **사용자** 페이지의 **관리** 섹션에 있는 **디바이스**
-
-   ![모든 디바이스](./media/device-management-azure-portal/43.png)
 
 두 옵션 모두에서 다음과 같은 보기가 표시될 수입니다.
 
@@ -131,7 +119,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
    ![Intune 디바이스 관리](./media/device-management-azure-portal/32.png)
 
-**설명**
+**설명:**
 
 - 장치를 사용 하거나 사용 하지 않도록 설정 하려면 Azure AD의 전역 관리자 또는 클라우드 장치 관리자 여야 합니다. 
 - 장치를 사용 하지 않도록 설정 하면 장치가 Azure AD를 사용 하 여 성공적으로 인증 되지 않으므로 장치가 장치 CA에 의해 보호 되거나 WH4B 자격 증명을 사용 하 여 보호 되는 Azure AD 리소스에 액세스할 수 없게 됩니다.
@@ -149,7 +137,7 @@ Intune 관리자인 경우 **Microsoft Intune**으로 표시된 디바이스를 
 
    ![디바이스 삭제](./media/device-management-azure-portal/34.png)
 
-**설명**
+**설명:**
 
 - 디바이스를 삭제하려면 Azure AD에서 글로벌 관리자 또는 Intune 관리자여야 합니다.
 - 디바이스 삭제:
@@ -191,11 +179,9 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 - 디바이스 설정 변경
 - 디바이스 삭제 또는 업데이트 등의 디바이스 작업
 
-감사 데이터에 대한 진입점은 **디바이스** 페이지의 **작업** 섹션에 있는 ***감사 로그**입니다.
+감사 데이터에 대한 진입점은 **디바이스** 페이지의 **작업** 섹션에 있는 **감사 로그**입니다.
 
-![감사 로그](./media/device-management-azure-portal/61.png)
-
-감사 로그에는 다음 항목을 보여 주는 기본 목록 보기가 있습니다.
+감사 로그에는 다음을 보여 주는 기본 목록 보기가 있습니다.
 
 - 발생 날짜와 시간
 - 대상
@@ -212,7 +198,7 @@ BitLocker 키를 보거나 복사하려면, 디바이스의 소유자 또는 다
 
 - Category
 - 활동 리소스 종류
-- 활동
+- 작업
 - 날짜 범위
 - 대상
 - 초기자(작업자)

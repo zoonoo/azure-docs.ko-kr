@@ -1,18 +1,16 @@
 ---
 title: Azure Monitor에서 응용 프로그램 변경 분석을 사용 하 여 웹 앱 문제 찾기 | Microsoft Docs
 description: Azure Monitor에서 응용 프로그램 변경 분석을 사용 하 여 Azure App Service에서 라이브 사이트의 응용 프로그램 문제를 해결할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cawams
 ms.author: cawa
 ms.date: 05/07/2019
-ms.openlocfilehash: f2602dbee12f82c32ab3a3c2ec0566d8dfbeaa83
-ms.sourcegitcommit: 0eb0673e7dd9ca21525001a1cab6ad1c54f2e929
+ms.openlocfilehash: 143f55a02a856b536172bd5fc2bac15903a228b9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77211825"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655687"
 ---
 # <a name="use-application-change-analysis-preview-in-azure-monitor"></a>Azure Monitor에서 응용 프로그램 변경 분석 (미리 보기) 사용
 

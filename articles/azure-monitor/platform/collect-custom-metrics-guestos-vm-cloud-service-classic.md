@@ -3,17 +3,16 @@ title: Azure Monitor 메트릭 데이터베이스에 클래식 Cloud Services �
 description: Azure 클래식 Cloud Services에 대 한 게스트 OS 성능 메트릭을 Azure Monitor 메트릭 저장소에 전송 하는 프로세스를 설명 합니다.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/09/2019
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: fb13bb7ec2de2633796aecb5216ae8b9e2574a57
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3b390ffa20cf3cf79b8fb6311ad05b2978bd5d24
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75971201"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655800"
 ---
 # <a name="send-guest-os-metrics-to-the-azure-monitor-metric-store-classic-cloud-services"></a>Azure Monitor 메트릭 저장소의 클래식 Cloud Services에 게스트 OS 메트릭 보내기 
 
@@ -27,7 +26,7 @@ Azure Monitor [진단 확장](diagnostics-extension-overview.md)을 사용하여
 
 이 문서에서 설명하는 프로세스는 Azure Cloud Services의 성능 카운터에서만 작동합니다. 다른 사용자 지정 메트릭에서는 작동하지 않습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독의 [서비스 관리자 또는 공동 관리자](../../cost-management-billing/manage/add-change-subscription-administrator.md)여야 합니다. 
 

@@ -13,16 +13,16 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 12/09/2019
+ms.date: 02/26/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 256194d8b0b5e6b08210e9338d945774603ac328
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ffb2ff87eb78ed4088225f832b6df55726196493
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75429806"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656631"
 ---
 # <a name="sign-in-activity-reports-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 로그인 작업 보고서
 
@@ -37,7 +37,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 이 문서에서는 로그인 보고서의 개요를 제공 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 ### <a name="who-can-access-the-data"></a>데이터에 액세스할 수 있는 사용자는 누구인가요?
 
@@ -47,7 +47,7 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ### <a name="what-azure-ad-license-do-you-need-to-access-sign-in-activity"></a>로그인 작업에 액세스하는 데 필요한 Azure AD 라이선스는 무엇인가요?
 
-* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. Azure Active Directory 버전을 업그레이드 하려면 [Azure Active Directory Premium 시작](../fundamentals/active-directory-get-started-premium.md) 을 참조 하세요. 업그레이드 하기 전에 데이터 작업 없이 프리미엄 라이선스로 업그레이드 한 후 데이터가 보고서에 표시 되는 데 몇 일이 걸릴 수 있습니다.
+* 모든 로그인 활동 보고서를 보려면 테넌트에 이와 관련된 Azure AD Premium 라이선스가 있어야 합니다. [Azure Active Directory Premium 시작하기](../fundamentals/active-directory-get-started-premium.md)를 참조하여 Azure Active Directory 버전을 업그레이드하세요. 업그레이드 하기 전에 데이터 작업 없이 프리미엄 라이선스로 업그레이드 한 후 데이터가 보고서에 표시 되는 데 몇 일이 걸릴 수 있습니다.
 
 ## <a name="sign-ins-report"></a>로그인 보고서
 
@@ -105,55 +105,86 @@ Azure AD(Azure Active Directory)의 보고 아키텍처는 다음 구성 요소�
 
 ![로그인 활동](./media/concept-sign-ins/04.png "로그인 작업")
 
-**사용자** 필터를 사용하면 관심 있는 사용자의 이름이나 UPN(사용자 계정 이름)을 지정할 수 있습니다.
+**요청 id** -관심 있는 요청의 ID입니다.
 
-**애플리케이션** 필터를 사용하면 관심 있는 애플리케이션의 이름을 지정할 수 있습니다.
+**사용자** -관심 있는 사용자의 이름 또는 UPN (사용자 계정 이름)입니다.
 
-**로그인 상태** 필터를 사용하면 다음을 선택할 수 있습니다.
+**응용 프로그램** -대상 응용 프로그램의 이름입니다.
+ 
+**상태** -관심 있는 로그인 상태:
 
-- 전체
 - Success
+
 - 실패
 
-**조건부 액세스** 필터를 사용하면 로그인에 대한 CA 정책 상태를 선택할 수 있습니다.
+- 장애가
 
-- 전체
-- 적용되지 않음
+
+**Ip 주소** -테 넌 트에 연결 하는 데 사용 되는 장치의 ip 주소입니다.
+
+**위치** -연결이 시작 된 위치입니다.
+
+- City
+
+- 시/도
+
+- 국가/지역
+
+
+**리소스** -로그인에 사용 되는 서비스의 이름입니다.
+
+
+**리소스 id** -로그인에 사용 되는 서비스의 id입니다.
+
+
+**클라이언트 앱** -테 넌 트에 연결 하는 데 사용 되는 클라이언트 앱의 유형입니다.
+
+![클라이언트 앱 필터](./media/concept-sign-ins/client-app-filter.png)
+
+
+|속성|최신 인증|Description|
+|---|:-:|---|
+|인증 된 SMTP| |POP 및 IMAP 클라이언트에서 전자 메일 메시지를 보내는 데 사용 됩니다.|
+|자동 검색| |Outlook 및 EAS 클라이언트에서 Exchange Online의 사서함을 찾아 연결 하는 데 사용 됩니다.|
+|Exchange ActiveSync| |이 필터는 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.|
+|브라우저|![확인](./media/concept-sign-ins/check.png)|웹 브라우저를 사용 하 여 사용자의 모든 로그인 시도를 표시 합니다.|
+|Exchange ActiveSync| | Exchange ActiceSync를 사용 하 여 Exchange Online에 연결 하는 클라이언트 앱이 있는 사용자의 모든 로그인 시도를 표시 합니다.|
+|Exchange Online PowerShell| |원격 PowerShell을 사용 하 여 Exchange Online에 연결 하는 데 사용 됩니다. Exchange Online PowerShell에 대 한 기본 인증을 차단 하는 경우 Exchange Online PowerShell 모듈을 사용 하 여 연결 해야 합니다. 지침은 [multi-factor authentication을 사용 하 여 Exchange Online PowerShell에 연결](https://docs.microsoft.com/powershell/exchange/exchange-online/connect-to-exchange-online-powershell/mfa-connect-to-exchange-online-powershell)을 참조 하세요.|
+|Exchange 웹 서비스| |Outlook, Mac 용 Outlook 및 타사 앱에서 사용 하는 프로그래밍 인터페이스입니다.|
+|IMAP4| |전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.|
+|HTTP를 통한 MAPI| |Outlook 2010 이상에서 사용 됩니다.|
+|모바일 앱 및 데스크톱 클라이언트|![확인](./media/concept-sign-ins/check.png)|모바일 앱 및 데스크톱 클라이언트를 사용 하는 사용자의 로그인 시도를 모두 표시 합니다.|
+|오프 라인 주소록| |Outlook에서 다운로드 하 여 사용 하는 주소 목록 컬렉션의 복사본입니다.|
+|Outlook Anywhere (RPC over HTTP)| |Outlook 2016 이전 버전에서 사용 됩니다.|
+|Outlook 서비스| |Windows 10 용 메일 및 일정 앱에서 사용 됩니다.|
+|POP3| |POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.|
+|보고 웹 서비스| |Exchange Online에서 보고서 데이터를 검색 하는 데 사용 됩니다.|
+|기타 클라이언트| |클라이언트 앱이 포함 되어 있지 않거나 알 수 없는 사용자의 로그인 시도를 모두 표시 합니다.|
+
+
+
+**운영** 체제-테 넌 트에 로그온 하는 데 사용 되는 장치에서 실행 중인 운영 체제입니다. 
+
+
+**장치 브라우저** -브라우저에서 연결이 시작 된 경우이 필드를 사용 하 여 브라우저 이름을 기준으로 필터링 할 수 있습니다.
+
+
+**상관 관계 id** -활동의 상관 관계 id입니다.
+
+
+**조건부 액세스** -적용 된 조건부 액세스 규칙의 상태
+
+- 적용되지 않음 
+
 - Success
+
 - 실패
 
-**날짜** 필터를 사용하면 반환되는 데이터의 시간 범위를 정의할 수 있습니다.  
-가능한 값은 다음과 같습니다.
 
-- 1달
-- 7일
-- 24시간
-- 사용자 지정 시간 간격
 
-사용자 지정 시간 범위를 선택하면 시작 시간과 종료 시간을 구성할 수 있습니다.
 
-로그인 보기에 다른 필드를 추가할 경우 이러한 필드가 자동으로 필터 목록에 추가됩니다. 예를 들어 **클라이언트 앱** 필드를 목록에 추가하면 다음 필드를 설정할 수 있는 또 다른 필터 옵션이 제공됩니다.  
-![로그인 활동](./media/concept-sign-ins/12.png "로그인 작업")
 
-- **브라우저**  
-    이 필터는 브라우저 흐름을 사용 하 여 로그인을 시도 하는 모든 이벤트를 표시 합니다.
-- **Exchange ActiveSync (지원 됨)**  
-    이 필터는 iOS, Android, Windows Phone 등의 지원 되는 플랫폼에서 EAS (Exchange ActiveSync) 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.
-- **Exchange ActiveSync (지원 되지 않음)**  
-    이 필터는 Linux 배포판과 같은 지원 되지 않는 플랫폼에서 EAS 프로토콜이 시도 된 모든 로그인 시도를 표시 합니다.
-- **Mobile Apps 및 데스크톱 클라이언트** 이 필터는 브라우저 흐름을 사용 하지 않는 모든 로그인 시도를 표시 합니다. 예를 들어 모든 프로토콜을 사용 하는 모든 플랫폼에서 모바일 앱을 사용 하거나 Windows 또는 MacOS의 Office와 같은 데스크톱 클라이언트 앱에서 모바일 앱을 선택 합니다.
-  
-- **기타 클라이언트**
-    - **IMAP**  
-        전자 메일을 검색 하는 데 IMAP를 사용 하는 레거시 메일 클라이언트입니다.
-    - **MAPI**  
-        ADAL을 사용 하 고 MAPI를 사용 하는 Office 2013.
-    - **이전 Office 클라이언트**  
-        ADAL이 사용 하도록 설정 되어 있지 않고 ADAL이 사용 하지 않도록 설정 된 경우 MAPI 또는 Office 2016를 사용 하는 기본 구성의 office 2013입니다.
-    - **POP**  
-        POP3를 사용 하 여 전자 메일을 검색 하는 레거시 메일 클라이언트입니다.
-    - **SMTP**  
-        SMTP를 사용 하 여 전자 메일을 보내는 레거시 메일 클라이언트입니다.
+
 
 ## <a name="download-sign-in-activities"></a>로그인 활동 다운로드
 
@@ -199,7 +230,7 @@ Azure AD와 Azure Portal는 모두 로그인 데이터를 위한 추가 진입�
 - Client
 - 위치
 - IP 주소
-- 날짜
+- Date
 - 필요한 MFA
 - 로그인 상태
 

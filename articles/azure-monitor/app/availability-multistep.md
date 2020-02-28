@@ -1,28 +1,24 @@
 ---
 title: 다단계 웹 테스트를 사용 하 여 모니터링-Azure 애플리케이션 정보
 description: Azure 애플리케이션 Insights를 사용 하 여 웹 응용 프로그램을 모니터링 하도록 다단계 웹 테스트 설정
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/23/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 8e630f324a7a0ebdfcc74941e760b80fabefa8d3
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 3b8baad127b16a1bd9d071d0c3d4df68da8c3304
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928961"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655943"
 ---
-# <a name="multi-step-web-tests"></a>다단계 웹 테스트
+# <a name="multi-step-web-tests"></a>다중 단계 웹 테스트
 
 다단계 웹 테스트를 통해 웹 사이트와의 상호 작용 및 Url의 기록 된 시퀀스를 모니터링할 수 있습니다. 이 문서에서는 Visual Studio Enterprise를 사용 하 여 다단계 웹 테스트를 만드는 과정을 안내 합니다.
 
 > [!NOTE]
 > 다단계 웹 테스트는 Visual Studio webtest 파일에 따라 달라 집니다. Visual Studio 2019은 웹 테스트 기능을 사용 하는 마지막 버전 이라고 [발표](https://devblogs.microsoft.com/devops/cloud-based-load-testing-service-eol/) 되었습니다. 새 기능이 추가 되는 것은 아니지만 Visual Studio 2019의 웹 테스트 기능은 현재 지원 되며 제품의 지원 수명 주기 동안 계속 지원 됩니다. Azure Monitor 제품 팀은 [여기](https://github.com/MicrosoftDocs/azure-docs/issues/26050#issuecomment-468814101)에서 다중 단계 가용성 테스트의 미래와 관련 된 질문을 해결 했습니다.  
 
-## <a name="pre-requisites"></a>필수 조건
+## <a name="pre-requisites"></a>필수 구성 요소
 
 * Visual Studio 2017 Enterprise 이상
 * Visual Studio 웹 성능 및 부하 테스트 도구.
@@ -108,7 +104,7 @@ Visual Studio 웹 테스트를 만드는 방법에 대 한 지침은 [공식 Vis
 
 **SAML 인증**
 
-|속성 이름| 설명|
+|속성 이름| Description|
 |----|-----|
 | 대상 Uri | SAML 토큰에 대 한 대상 URI입니다.  Acs 네임 스페이스 및 호스트 이름을 포함 하 여 ACS (Access Control Service)에 대 한 URI입니다. |
 | 인증서 암호 | 포함 된 개인 키에 대 한 액세스 권한을 부여 하는 클라이언트 인증서의 암호입니다. |

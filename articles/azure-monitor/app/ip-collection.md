@@ -1,18 +1,14 @@
 ---
 title: Azure 애플리케이션 Insights IP 주소 컬렉션 | Microsoft Docs
 description: Azure 애플리케이션 정보를 사용 하 여 IP 주소 및 지리적 위치를 처리 하는 방법 이해
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2019
-ms.openlocfilehash: 5a647dda21855f754754f76682e5c00443eaac55
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 969061ec89ddd0f13caa675bc324207c6c5d8843
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432598"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656520"
 ---
 # <a name="geolocation-and-ip-address-handling"></a>지리적 위치 및 IP 주소 처리
 

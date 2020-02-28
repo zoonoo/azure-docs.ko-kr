@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: cpendle
-ms.openlocfilehash: a6c1e14e332f6081111d2a58a30702093b99a876
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: c9d5c2efc14dec5beee0eaf81a4f628421ef3d49
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198244"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657047"
 ---
 # <a name="glossary"></a>용어
 
@@ -47,9 +47,9 @@ ms.locfileid: "77198244"
 
 <a name="asynchronous-request"></a>**비동기 요청**: 연결을 열고 비동기 요청에 대 한 식별자를 반환 하는 서버에 요청을 한 다음 연결을 닫는 HTTP 요청입니다. 서버는 요청을 계속 처리하고 사용자는 식별자를 사용하여 상태를 확인할 수 있습니다. 요청 처리가 완료되면 사용자가 응답을 다운로드할 수 있습니다. 이 유형의 요청은 장기 실행 프로세스에 사용 됩니다.
 
-<a name="autocomplete"></a>**자동 완성**: 응용 프로그램의 기능은 사용자가 입력 하는 나머지 단어를 예측 합니다. 
+<a name="autocomplete"></a>**자동 완성**: 사용자가 입력 하는 나머지 단어를 예측 하는 응용 프로그램의 기능입니다. 
 
-<a name="autosuggest"></a>**Autosuggest**: 응용 프로그램의 기능으로, 사용자가 입력 하는 내용에 대 한 논리적 가능성을 예측 합니다.
+<a name="autosuggest"></a>**Autosuggest**: 사용자가 입력 하는 내용에 대 한 논리적 가능성을 예측 하는 응용 프로그램의 기능입니다.
 
 <a name="azure-location-based-services-lbs"></a>**Azure Location Based Services (이란)** : 미리 보기 상태인 Azure Maps의 이전 이름입니다.
 

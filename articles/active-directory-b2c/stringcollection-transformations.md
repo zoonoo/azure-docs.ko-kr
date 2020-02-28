@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 8f91db91eff3320691a5979d9453bf515ccd59a2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: e3ce7ff633f41ccfe6faa3cc1dba1020e74459aa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982299"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656095"
 ---
 # <a name="stringcollection-claims-transformations"></a>StringCollection 클레임 변환
 
@@ -26,13 +26,13 @@ ms.locfileid: "76982299"
 
 ## <a name="additemtostringcollection"></a>AddItemToStringCollection
 
-새 stringCollection 클레임에 문자열 클레임을 추가합니다.
+새 고유 값 stringCollection 클레임에 문자열 클레임을 추가 합니다. 
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | 항목 | 문자열 | 출력 클레임에 추가할 ClaimType입니다. |
 | InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
-| OutputClaim | collection | stringCollection | 이 ClaimsTransformation을 호출한 후 생성되는 ClaimType입니다. |
+| OutputClaim | collection | stringCollection | 이 클레임 변환 후에 생성 된 ClaimType이 입력 클레임에 지정 된 값을 사용 하 여 호출 된 경우 |
 
 신규 또는 기존 stringCollection에 문자열을 추가하려면 이 클레임 변환을 사용합니다. 이 클레임 변환은 일반적으로 **AAD-UserWriteUsingAlternativeSecurityId** 기술 프로필에서 사용됩니다. 새 소셜 계정을 만들기 전에 **CreateOtherMailsFromEmail** 클레임 변환은 ClaimType을 읽고 값을 **otherMails** ClaimType에 추가합니다.
 
@@ -50,7 +50,7 @@ ms.locfileid: "76982299"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **collection**: ["someone@outlook.com"]
@@ -60,13 +60,13 @@ ms.locfileid: "76982299"
 
 ## <a name="addparametertostringcollection"></a>AddParameterToStringCollection
 
-새 stringCollection 클레임에 문자열 매개 변수를 추가합니다.
+새 고유 값 stringCollection 클레임에 문자열 매개 변수를 추가 합니다.
 
 | 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | collection | stringCollection | [선택 사항] 지정하는 경우 클레임 변환에서 이 컬렉션의 항목을 복사한 다음 출력 컬렉션 클레임 끝에 추가합니다. |
 | InputParameter | 항목 | 문자열 | 출력 클레임에 추가할 값입니다. |
-| OutputClaim | collection | stringCollection | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다. |
+| OutputClaim | collection | stringCollection | 입력 매개 변수에 지정된 값을 사용하여 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다. |
 
 신규 또는 기존 stringCollection에 문자열 값을 추가하려면 이 클레임 변환을 사용합니다. 다음 예제에서는 상수 전자 메일 주소(admin@contoso.com)를 **otherMails** 클레임에 추가합니다.
 
@@ -84,7 +84,7 @@ ms.locfileid: "76982299"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **collection**: ["someone@outlook.com"]
@@ -115,7 +115,7 @@ ms.locfileid: "76982299"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **collection**: ["someone@outlook.com", "someone@contoso.com"]

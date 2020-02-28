@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 데이터 시각화 | Microsoft Docs
 description: Azure Monitor에 저장된 메트릭 및 로그 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/24/2018
-ms.openlocfilehash: c350cb1f8e7343f6d8e7a416aa0bba71388eaa86
-ms.sourcegitcommit: b4f201a633775fee96c7e13e176946f6e0e5dd85
+ms.openlocfilehash: 7bace6ff6eb7dd1c02e4907e338fc0be9d66471c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/18/2019
-ms.locfileid: "72597829"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657812"
 ---
 # <a name="visualizing-data-from-azure-monitor"></a>Azure Monitor의 데이터 시각화
 이 문서에서는 Azure Monitor에 저장된 로그 및 메트릭 데이터를 시각화하는 데 사용할 수 있는 방법을 요약해서 보여 줍니다.

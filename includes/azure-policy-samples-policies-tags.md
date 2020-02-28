@@ -2,17 +2,17 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: dacoulte
-ms.openlocfilehash: 21f4e4234025ab4b9bb14a1e1338aa4b748ef1a6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: f9a5a4c86404b6df36f3bb6988451e8dcae046fd
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495146"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77780485"
 ---
 |속성 |Description |효과 |버전 |원본 |
-|---|---|---|---|
+|---|---|---|---|---|
 |[리소스 그룹에 태그 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F726aca4c-86e9-4b04-b0c5-073027359532) |이 태그를 누락하는 리소스 그룹을 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 기존 리소스 그룹은 수정 작업을 트리거하여 수정할 수 있습니다. 태그가 다른 값으로 존재하는 경우 변경되지 않습니다. |수정 |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_ResourceGroup_Modify.json)
 |[리소스에 태그 추가](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F4f9dc7db-30c1-420c-b61a-e1d640128d26) |이 태그를 누락하는 리소스를 만들거나 업데이트할 때 지정된 태그 및 값을 추가합니다. 기존 리소스는 수정 작업을 트리거하여 수정할 수 있습니다. 태그가 다른 값으로 존재하는 경우 변경되지 않습니다. 리소스 그룹에 대한 태그는 수정하지 않습니다. |수정 |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddTag_Modify.json)
 |[리소스 그룹에 태그 추가 또는 바꾸기](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2Fd157c373-a6c4-483d-aaad-570756956268) |리소스 그룹을 만들거나 업데이트할 때 지정된 태그 및 값을 추가하거나 바꿉니다. 기존 리소스 그룹은 수정 작업을 트리거하여 수정할 수 있습니다. |수정 |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Tags/AddOrReplaceTag_ResourceGroup_Modify.json)

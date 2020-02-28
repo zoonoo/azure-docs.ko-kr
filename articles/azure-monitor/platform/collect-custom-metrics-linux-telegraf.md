@@ -3,17 +3,16 @@ title: InfluxData Telegraf agent를 사용 하 여 Linux VM에 대 한 사용자
 description: Azure에서 Linux VM에 InfluxData Telegraf 에이전트를 배포 하 고 Azure Monitor에 메트릭을 게시 하도록 에이전트를 구성 하는 방법에 대 한 지침을 설명 합니다.
 author: anirudhcavale
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 09/24/2018
 ms.author: ancav
 ms.subservice: metrics
-ms.openlocfilehash: 365330aa445bcf8e5b1aec575d5e646d533ceaf7
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 0ed9144116c1d716124025ef0aae39e7783c5934
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901327"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655466"
 ---
 # <a name="collect-custom-metrics-for-a-linux-vm-with-the-influxdata-telegraf-agent"></a>InfluxData Telegraf 에이전트를 사용하여 Linux VM에 대한 사용자 지정 메트릭 수집
 

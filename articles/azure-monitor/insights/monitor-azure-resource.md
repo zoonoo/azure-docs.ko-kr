@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor를 사용 하 여 Azure 리소스 모니터링 | Microsoft Docs
 description: Azure Monitor를 사용 하 여 Azure에서 리소스의 모니터링 데이터를 수집 하 고 분석 하는 방법을 설명 합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/08/2019
-ms.openlocfilehash: b092b037cc10671e89f18af287b52f8ad1c0060e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 01d188e0e39888297ff8d6a57129a3a17e1654fe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747301"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654922"
 ---
 # <a name="monitoring-azure-resources-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure 리소스 모니터링
 Azure 리소스를 사용 하는 중요 한 응용 프로그램 및 비즈니스 프로세스를 사용 하는 경우 해당 리소스의 가용성, 성능 및 작업을 모니터링 하려고 합니다. 이 문서에서는 Azure 리소스에서 생성 되는 모니터링 데이터와 Azure Monitor 기능을 사용 하 여이 데이터를 분석 하 고 경고 하는 방법에 대해 설명 합니다.
@@ -91,7 +90,7 @@ Azure Monitor 로그에 데이터를 수집 하려면 Log Analytics 작업 영�
  Azure Portal의 리소스 메뉴에서 대부분의 Azure 리소스에 대 한 모니터링 데이터에 액세스할 수 있습니다. 이를 통해 표준 Azure Monitor 도구를 사용 하 여 단일 리소스의 데이터에 액세스할 수 있습니다. 일부 Azure 서비스는 다른 옵션을 제공 하므로 추가 정보는 해당 서비스에 대 한 설명서를 참조 해야 합니다. **Azure Monitor** 메뉴를 사용 하 여 모니터링 되는 모든 리소스의 데이터를 분석할 수 있습니다. 
 
 ### <a name="overview"></a>개요
-대부분의 서비스에는 **개요** 페이지에 대 한 모니터링 데이터가 포함 되어 해당 작업에 대 한 간략 한 보기를 제공 합니다. 이는 일반적으로 Azure Monitor 메트릭에 저장 된 플랫폼 메트릭의 하위 집합을 기반으로 합니다. 다른 모니터링 옵션은 일반적으로 서비스의 **모니터링** 섹션에서 사용할 수 있습니다. 메뉴의 새로운 기능에 대한 짧은 동영상을 보세요.
+많은 서비스가 작업을 한눈에 파악할 수 있도록 **개요** 페이지에 모니터링 데이터를 포함할 것입니다. 개요는 일반적으로 Azure Monitor 메트릭에 저장된 플랫폼 메트릭의 하위 세트를 기반으로 합니다. 다른 모니터링 옵션은 일반적으로 서비스의 **모니터링** 섹션에서 사용할 수 있습니다. 메뉴)를 선택합니다.
 
 ![개요 페이지](media/monitor-azure-resource/overview-page.png)
 
@@ -101,7 +100,7 @@ Azure Monitor 로그에 데이터를 수집 하려면 Log Analytics 작업 영�
 
 서비스에 Azure Monitor 정보가 있는 경우 각 리소스 메뉴의 **모니터링** 에서 액세스할 수 있습니다. **Azure Monitor** 메뉴에서 모든 정보 및 솔루션에 액세스 합니다.
 
-![인사이트](media/monitor-azure-resource/insights.png)
+![자세한 정보](media/monitor-azure-resource/insights.png)
 
 ### <a name="metrics"></a>메트릭
 대부분의 서비스에 대 한 **메트릭** 메뉴 항목에서 사용할 수 있는 [메트릭 탐색기](../platform/metrics-getting-started.md) 를 사용 하 여 Azure Portal에서 메트릭을 분석 합니다. 이 도구를 사용 하면 개별 메트릭에 대해 작업 하거나 여러 개를 결합 하 여 상관 관계 및 추세를 식별할 수 있습니다. 

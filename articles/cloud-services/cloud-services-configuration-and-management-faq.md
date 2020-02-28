@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/23/2018
 ms.author: genli
-ms.openlocfilehash: 4ca8c18d448297cc2d2e2249a1dbbe04ecccd092
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 40abd048b047bbece79b7c05d36a1fb189a4f28d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77019420"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656928"
 ---
 # <a name="configuration-and-management-issues-for-azure-cloud-services-frequently-asked-questions-faqs"></a>Azure Cloud Services의 구성 및 관리 문제: FAQ(질문과 대답)
 
@@ -50,7 +50,7 @@ ms.locfileid: "77019420"
 - [Azure 기본 IPS/IDS와 DDoS에서 제공하는 기능이란?](#what-are-the-features-and-capabilities-that-azure-basic-ipsids-and-ddos-provides)
 - [Cloud Services VM에서 HTTP/2를 사용하려면 어떻게 해야 하나요?](#how-to-enable-http2-on-cloud-services-vm)
 
-**권한**
+**사용 권한**
 
 - [Microsoft 내부 엔지니어는 권한이 없어도 클라우드 서비스 인스턴스에 RDP가 가능한가요?](#can-microsoft-internal-engineers-remote-desktop-to-cloud-service-instances-without-permission)
 - [RDP 파일을 사용 하 여 클라우드 서비스 VM에 대 한 원격 데스크톱을 만들 수 없습니다. 다음 오류가 발생 했습니다. 인증 오류가 발생 했습니다 (코드: 0x80004005).](#i-cannot-remote-desktop-to-cloud-service-vm--by-using-the-rdp-file-i-get-following-error-an-authentication-error-has-occurred-code-0x80004005)
@@ -137,7 +137,7 @@ Csdef 및 cscfg 업로드 위치에 대해 Blob나 로컬을 선택할 수 있�
 * 로컬 리소스에 대한 할당량 제한을 늘립니다.
 
 자세한 내용은 다음 문서를 참조하세요.
-* [Azure Storage에서 진단 데이터 저장 및 보기](cloud-services-dotnet-diagnostics-storage.md)
+* [Azure Storage에서 진단 데이터 저장 및 보기](/azure/storage/common/storage-introduction)
 * [클라우드 서비스에서 IIS 로그 작성 중지](https://blogs.msdn.microsoft.com/cie/2013/12/21/iis-logs-stops-writing-in-cloud-service/)
 
 ### <a name="how-do-i-enable-wad-logging-for-cloud-services"></a>Cloud Services에 대해 WAD 로깅을 활성화하려면 어떻게 할까요?
@@ -212,7 +212,7 @@ Windows 10 및 Windows Server 2016은 클라이언트와 서버 쪽 모두에서
 
 자세한 내용은 [IIS에서 HTTP/2](https://blogs.iis.net/davidso/http2)를 참조하세요.
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 ### <a name="how-can-i-implement-role-based-access-for-cloud-services"></a>Cloud Services에 역할 기반 액세스를 구현하려면 어떻게 할까요?
 Cloud Services는 Azure Resource Manager 기반 서비스가 아니므로 RBAC(역할 기반 액세스 제어) 모델을 지원하지 않습니다.
@@ -231,7 +231,7 @@ Azure Active Directory에 조인된 컴퓨터에서 RDP 파일을 사용하는 �
 1. 다운로드한 RDP 파일을 마우스 오른쪽 단추로 클릭한 다음 **편집**을 선택합니다.
 2. 사용자 이름 앞에 "&#92;"을 접두사로 추가합니다. 예를 들어 **username** 대신 **.\username**을 사용합니다.
 
-## <a name="scaling"></a>크기 조정
+## <a name="scaling"></a>확장
 
 ### <a name="i-cannot-scale-beyond-x-instances"></a>X 인스턴스 이상 확장할 수 없습니다.
 사용자의 Azure 구독은 사용할 수 있는 코어 수를 제한합니다. 사용 가능한 모든 코어를 사용하는 경우 크기 조정은 작동하지 않습니다. 예를 들어 100개의 코어 제한이 있으면 클라우드 서비스에 대한 100개의 A1 크기 가상 머신 인스턴스나 50개의 A2 크기 가상 머신 인스턴스를 생성할 수 있습니다.

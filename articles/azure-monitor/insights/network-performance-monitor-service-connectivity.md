@@ -1,18 +1,17 @@
 ---
 title: 네트워크 성능 모니터 솔루션 서비스 연결-Azure Log Analytics
 description: 네트워크 성능 모니터에서 서비스 연결 모니터 기능을 사용하여 열린 TCP 포트가 있는 모든 엔드포인트에 대한 네트워크 연결을 모니터링합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: abshamsft
 ms.author: absha
 ms.date: 02/20/2018
-ms.openlocfilehash: 11975a86b5d9135b42dd51bdd787c2f76cabe259
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 93f3820b7cf1db85b9ff4cd514fe22efc75a90d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75551508"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654548"
 ---
 # <a name="service-connectivity-monitor"></a>서비스 연결 모니터
 

@@ -1,19 +1,15 @@
 ---
 title: ApplicationInsights.config 참조 - Azure | Microsoft Docs
 description: 데이터 수집 모듈을 사용하거나 사용하지 않도록 설정하고 성능 카운터 및 기타 매개 변수를 추가합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/22/2019
 ms.reviewer: olegan
-ms.openlocfilehash: f7f32cc7f160a7ac9253b60e8c0c13926c110ac2
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b2c407036277b17c0f8c08f3261c932a6dc66624
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75407096"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655484"
 ---
 # <a name="configuring-the-application-insights-sdk-with-applicationinsightsconfig-or-xml"></a>ApplicationInsights.config 또는 .xml로 Application Insights SDK 구성
 Application Insights .NET SDK는 NuGet 패키지의 숫자로 구성됩니다. [코어 패키지](https://www.nuget.org/packages/Microsoft.ApplicationInsights) Application Insights에 원격 분석을 보내는 경우에 API를 제공합니다. [추가 패키지](https://www.nuget.org/packages?q=Microsoft.ApplicationInsights)는 해당 컨텍스트 및 애플리케이션에서 원격 분석을 자동으로 추적하기 위해 원격 분석 *모듈* 및 *이니셜라이저*를 제공합니다. 구성 파일을 조정 하 여 원격 분석 모듈 및 이니셜라이저를 사용 하거나 사용 하지 않도록 설정 하 고 그 중 일부에 대 한 매개 변수를 설정할 수 있습니다.
@@ -110,9 +106,9 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
 
 * `AccountIdTelemetryInitializer` 는 AccountId 속성을 설정합니다.
 * `AuthenticatedUserIdTelemetryInitializer`는 JavaScript SDK에서 설정한 AuthenticatedUserId 속성을 설정합니다.
-* `AzureRoleEnvironmentTelemetryInitializer`은 `RoleName` 및 Azure 런타임 환경에서 추출된 정보를 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트에 대한 `RoleInstance` 속성을 업데이트합니다.
-* `BuildInfoConfigComponentVersionTelemetryInitializer`은 MS 빌드에 의해 생성된 `BuildInfo.config` 파일로부터 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Component` 컨텍스트의 `Version` 속성을 업데이트합니다.
-* `ClientIpHeaderTelemetryInitializer`은 `X-Forwarded-For` HTTP 헤더 기반의 모든 원격 분석 항목의 `Location` 컨텍스트의 `Ip` 속성을 업데이트합니다.
+* `AzureRoleEnvironmentTelemetryInitializer`은 `RoleName` 및 Azure 런타임 환경에서 추출된 정보를 사용하여 모든 원격 분석 항목에 대해 `RoleInstance` 컨텍스트에 대한 `Device` 속성을 업데이트합니다.
+* `BuildInfoConfigComponentVersionTelemetryInitializer`은 MS 빌드에 의해 생성된 `Version` 파일로부터 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Component` 컨텍스트의 `BuildInfo.config` 속성을 업데이트합니다.
+* `ClientIpHeaderTelemetryInitializer`은 `Ip` HTTP 헤더 기반의 모든 원격 분석 항목의 `Location` 컨텍스트의 `X-Forwarded-For` 속성을 업데이트합니다.
 * `DeviceTelemetryInitializer`은 모든 원격 분석 항목에 대한 `Device` 컨텍스트의 다음 속성을 업데이트합니다.
   * `Type`은 "PC"로 설정됩니다.
   * `Id`은 웹 애플리케이션이 실행되고 있는 컴퓨터의 도메인 이름으로 설정됩니다.
@@ -120,14 +116,14 @@ Microsoft.ApplicationInsights 패키지는 SDK의 [코어 API](https://msdn.micr
   * `Model`은 WMI를 사용하여 `Win32_ComputerSystem.Model` 필드에서 추출된 값으로 설정됩니다.
   * `NetworkType`은 `NetworkInterface`에서 추출된 값으로 설정됩니다.
   * `Language`은 `CurrentCulture`의 이름으로 설정됩니다.
-* `DomainNameRoleInstanceTelemetryInitializer`은 웹 애플리케이션이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `Device` 컨텍스트의 `RoleInstance` 속성을 업데이트합니다.
-* `OperationNameTelemetryInitializer`은 `RequestTelemetry`의 `Name` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Operation` 컨텍스트의 `Name` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
-* `OperationIdTelemetryInitializer` 또는 `OperationCorrelationTelemetryInitializer`는 자동으로 생성된 `RequestTelemetry.Id`를 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `Operation.Id` 컨텍스트 속성을 업데이트합니다.
-* `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 ApplicationInsights JavaScript 계측 코드에 의해 제공된 `ai_session` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `Id` 속성을 업데이트합니다.
+* `DomainNameRoleInstanceTelemetryInitializer`은 웹 애플리케이션이 실행되는 컴퓨터의 도메인 이름을 사용하여 모든 원격 분석 항목에 대해 `RoleInstance` 컨텍스트의 `Device` 속성을 업데이트합니다.
+* `OperationNameTelemetryInitializer`은 `Name`의 `RequestTelemetry` 속성과 HTTP 메서드를 기반으로 한 모든 원격 분석 아이템의 `Name` 컨텍스트의 `Operation` 속성을 업데이트뿐만 아니라 ASP.NET MVC 컨트롤러와 요청을 처리하는 데 작업을 불러옵니다.
+* `OperationIdTelemetryInitializer` 또는 `OperationCorrelationTelemetryInitializer`는 자동으로 생성된 `Operation.Id`를 사용하여 요청을 처리하는 동안 추적된 모든 원격 분석 항목의 `RequestTelemetry.Id` 컨텍스트 속성을 업데이트합니다.
+* `SessionTelemetryInitializer`은 사용자의 브라우저에서 실행되는 ApplicationInsights JavaScript 계측 코드에 의해 제공된 `Id` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `Session` 컨텍스트의 `ai_session` 속성을 업데이트합니다.
 * `SyntheticTelemetryInitializer` 또는 `SyntheticUserAgentTelemetryInitializer`는 가용성 테스트 또는 검색 엔진 봇과 같은 가상 원본에서 요청을 처리하는 경우, 모든 원격 분석 항목의 `User`, `Session` 및 `Operation` 컨텍스트 속성을 업데이트합니다. 기본적으로 [메트릭 탐색기](../../azure-monitor/app/metrics-explorer.md) 는 가상 원격 분석을 표시하지 않습니다.
 
     `<Filters>` 는 요청의 식별 속성을 설정합니다.
-* `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `ai_user` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `User` 컨텍스트의 `Id` 및 `AcquisitionDate`속성을 업데이트합니다.
+* `UserTelemetryInitializer`은 사용자의 브라우저에서 실행되는 Application insights JavaScript 계측 코드에 의해 제공된 `Id` 쿠키의 추출된 값을 사용하여 모든 원격 분석 항목에 대한 `AcquisitionDate` 컨텍스트의 `User` 및 `ai_user`속성을 업데이트합니다.
 * `WebTestTelemetryInitializer`은 [가용성 테스트](../../azure-monitor/app/monitor-web-app-availability.md)에서 제공 되는 HTTP 요청에 대 한 사용자 ID, 세션 ID 및 가상 원본 속성을 설정 합니다.
   `<Filters>` 는 요청의 식별 속성을 설정합니다.
 

@@ -1,18 +1,17 @@
 ---
 title: Azure 네트워크 성능 모니터의 가격 책정 FAQ | Microsoft Docs
 description: 질문과 대답 - Azure 네트워크 성능 모니터
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: agummadi
 ms.author: agummadi
 ms.date: 04/02/2018
-ms.openlocfilehash: 3d69637c2851764363209ed8dfbe8c24c636ffba
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: c5a80c7ff6d08ce601a6c2bbb0db0ef866d3b425
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72898782"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654395"
 ---
 # <a name="pricing-changes-for-azure-network-performance-monitor"></a>Azure 네트워크 성능 모니터에 대한 가격 책정 변경
 
@@ -48,7 +47,7 @@ NPM의 청구는 사용량 및 소비량의 두 가지 구성 요소를 기준�
 
 **두 개의 서브넷 (A와 B)이 있고 각 서브넷에 여러 에이전트가 있습니다. 성능 모니터는 서브넷 A에 있는 모든 에이전트에서 서브넷 B의 모든 에이전트로 연결을 모니터링 합니다. 서브넷 간 연결의 수에 따라 요금이 청구 되나요?**
 
-아닙니다. 요금을 청구하기 위해 서브넷 A에서 서브넷 B로의 모든 연결은 하나의 서브넷 링크로 그룹화됩니다. 그리고 단일 연결에 대한 요금이 청구됩니다. 성능 모니터는 각 서브넷에 있는 다양한 에이전트 간의 연결을 계속 모니터링하게 됩니다.
+아니요. 요금을 청구하기 위해 서브넷 A에서 서브넷 B로의 모든 연결은 하나의 서브넷 링크로 그룹화됩니다. 그리고 단일 연결에 대한 요금이 청구됩니다. 성능 모니터는 각 서브넷에 있는 다양한 에이전트 간의 연결을 계속 모니터링하게 됩니다.
 
 **서브넷 링크를 모니터링하기 위한 요금은 얼마인가요?**
 
@@ -59,7 +58,7 @@ NPM의 청구는 사용량 및 소비량의 두 가지 구성 요소를 기준�
 수집 요금 (Azure Monitor, 처리 및 인덱싱의 Log Analytics 작업 영역에 데이터 업로드)은 데이터 수집 섹션의 Log Analytics에 대 한 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/log-analytics/) 에서 확인할 수 있습니다. 데이터 보존(즉, 첫 번째 달 이후 고객의 옵션에 의해 유지된 데이터) 요금은 데이터 보존 섹션의 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/log-analytics/)에서 확인할 수 있습니다.
 
 
-## <a name="expressroute-monitor"></a>ExpressRoute 모니터링
+## <a name="expressroute-monitor"></a>ExpressRoute 모니터
 
 **ExpressRoute 모니터의 사용에 대한 요금은 얼마인가요?**
 
@@ -94,7 +93,7 @@ ExpressRoute가 프라이빗 피어링 연결을 모니터링할 때 생성되�
 
 더 높은 백분위(앞의 표에서)에 속하는 고객은 일반적으로 온-프레미스 네트워크에 몇 가지 유리한 지점에서 해당 회로를 모니터링합니다. 또한 여러 에이전트는 네트워크에서 더 깊이, 서비스 공급자 에지 라우터에서 더 멀리 배치됩니다. 종종 에이전트는 데이터 센터의 여러 사용자 사이트, 분기 및 랙에 배치됩니다.
 
-## <a name="service-endpoint-monitor"></a>서비스 엔드포인트 모니터링
+## <a name="service-endpoint-monitor"></a>서비스 엔드포인트 모니터
 
 **서비스 엔드포인트 모니터의 사용에 대한 요금은 얼마인가요?**
 
