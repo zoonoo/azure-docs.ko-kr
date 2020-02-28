@@ -27,14 +27,8 @@
           href: quickstarts/ruby.md
     - name: SDK
       items:
-        - name: 'C#'
-          href: web-search-sdk-quickstart.md
-        - name: Java
-          href: web-sdk-java-quickstart.md
-        - name: Node.js
-          href: web-search-sdk-node-quickstart.md
-        - name: Python
-          href: web-sdk-python-quickstart.md
+        - name: Bing Web Search 클라이언트 라이브러리
+          href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: 단일 페이지 웹앱 빌드
@@ -67,7 +61,7 @@
       href: search-responses.md
     - name: 제한 요청
       href: throttling-requests.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Web Search API v7
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference'
@@ -97,7 +91,7 @@
       href: 'https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api'
     - name: Bing Web Search 엔드포인트
       href: web-search-endpoints.md
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/search-api/web/'
     - name: 국가별 가용성
       href: 'https://azure.microsoft.com/global-infrastructure/services/'

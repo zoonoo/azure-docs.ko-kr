@@ -123,6 +123,8 @@
           href: large-number-tasks.md
         - name: 작업 및 태스크 오류 확인
           href: batch-job-task-error-checking.md
+        - name: 배치 서비스 오류 감지 및 처리
+          href: batch-retry-after-errors.md
     - name: 리소스 파일 만들기
       href: resource-files.md
     - name: 작업 및 태스크 출력 유지

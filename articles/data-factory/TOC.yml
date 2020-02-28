@@ -515,6 +515,8 @@
           href: data-flow-unpivot.md
         - name: 시간 범위
           href: data-flow-window.md
+        - name: 평면화(flatten)
+          href: data-flow-flatten.md
     - name: 매개 변수화
       items:
         - name: 연결된 서비스 매개 변수화

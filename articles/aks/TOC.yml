@@ -105,8 +105,8 @@
               href: developer-best-practices-pod-security.md
     - name: 할당량 및 국가별 제한
       href: quotas-skus-regions.md
-    - name: ACS에서 AKS로 마이그레이션
-      href: acs-aks-migration.md
+    - name: AKS로 마이그레이션
+      href: aks-migration.md
     - name: 지원되는 Kubernetes 버전
       href: supported-kubernetes-versions.md
     - name: 호스트 OS의 보안 강화

@@ -10,12 +10,12 @@ metadata:
   author: ekpgh
   ms.author: rohogue
   ms.date: 11/07/2019
-  ms.openlocfilehash: 07a161066cdea57d42050986bc9e16d98a9310a6
-  ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+  ms.openlocfilehash: 3cee41dd9cb4852eab884345404ba89eff8d9d91
+  ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/19/2019
-  ms.locfileid: "74166497"
+  ms.lasthandoff: 02/27/2020
+  ms.locfileid: "77651035"
 landingContent:
 - title: Azure HPC Cache 정보
   linkLists:
@@ -53,7 +53,11 @@ landingContent:
       url: hpc-cache-edit-storage.md
     - text: 방화벽 설정을 해결하여 Blob 스토리지 대상 생성
       url: hpc-cache-blob-firewall-fix.md
+    - text: NFS 스토리지 대상 생성 문제 해결
+      url: troubleshoot-nas.md
   - linkListType: concept
     links:
     - text: 지역 가동 중단에서 복구
       url: hpc-region-recovery.md
+    - text: Azure NetApp Files 스토리지 대상 사용
+      url: hpc-cache-netapp.md

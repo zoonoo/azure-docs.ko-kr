@@ -10,7 +10,7 @@
       href: hpc-cache-namespace.md
 - name: 방법 가이드
   items:
-    - name: 필수 조건
+    - name: 사전 요구 사항
       href: hpc-cache-prereqs.md
     - name: 캐시 만들기
       href: hpc-cache-create.md
@@ -42,6 +42,8 @@
       href: hpc-cache-support-ticket.md
     - name: Blob 스토리지 계정 방화벽 설정 해결
       href: hpc-cache-blob-firewall-fix.md
+    - name: NFS 스토리지 대상 생성 문제 해결
+      href: troubleshoot-nas.md
     - name: 지역 가동 중단에서 복구
       href: hpc-region-recovery.md
     - name: Azure HPC Cache에서 Azure NetApp Files 사용
