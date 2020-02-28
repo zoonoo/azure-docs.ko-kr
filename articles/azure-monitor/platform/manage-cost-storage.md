@@ -14,12 +14,12 @@ ms.topic: conceptual
 ms.date: 11/05/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 8c4169ccfb35b74b92ea4996cbc779bac35d6ccb
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: dc784fa2dd5317932294af6e9c9d36dcce7d32f1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715869"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672075"
 ---
 # <a name="manage-usage-and-costs-with-azure-monitor-logs"></a>Azure Monitor 로그를 사용 하 여 사용량 및 비용 관리
 
@@ -208,123 +208,120 @@ armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/
 
 사용량이 높은 원인은 다음과 같습니다.
 - Log Analytics 작업 영역에 데이터를 전송 하는 데 필요한 노드가 더 많이 있습니다.
-- Log Analytics 작업 영역으로 전송 되는 것 보다 많은 데이터가 필요 합니다.
+- Log Analytics 작업 영역으로 전송 되는 것 보다 더 많은 데이터가 필요 합니다 (기존 솔루션에 대 한 구성 변경 또는 새 솔루션을 사용 하기 시작 하기 때문에).
 
 ## <a name="understanding-nodes-sending-data"></a>데이터를 보내는 노드 이해
 
-지난 달에 매일 하트 비트를 보고 하는 컴퓨터 수를 이해 하려면 다음을 사용 합니다.
+지난 달에 매일 에이전트에서 하트 비트를 보고 하는 노드 수를 이해 하려면 다음을 사용 합니다.
 
 ```kusto
-Heartbeat | where TimeGenerated > startofday(ago(31d))
-| summarize dcount(Computer) by bin(TimeGenerated, 1d)    
+Heartbeat 
+| where TimeGenerated > startofday(ago(31d))
+| summarize nodes = dcount(Computer) by bin(TimeGenerated, 1d)    
 | render timechart
 ```
-
-작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 노드로 청구 되는 컴퓨터 목록을 가져오려면 **청구 된 데이터 형식을** 보내는 노드 (일부 데이터 형식은 무료)를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 을 사용 하 고 정규화 된 도메인 이름의 맨 왼쪽 필드를 사용 합니다. 그러면 청구 된 데이터가 있는 컴퓨터의 목록이 반환 됩니다.
+표시 되는 데이터를 보내는 노드 수 가져오기는 다음을 사용 하 여 확인할 수 있습니다. 
 
 ```kusto
 union withsource = tt * 
-| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize nodes = dcount(computerName)
+```
+
+데이터를 전송 하는 노드 목록 및 각 데이터를 전송 하는 데이터의 양을 가져오려면 다음 쿼리를 사용할 수 있습니다.
+
+```kusto
+union withsource = tt * 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
 | where computerName != ""
 | summarize TotalVolumeBytes=sum(_BilledSize) by computerName
 ```
 
-표시 되는 청구 가능한 노드 수는 다음과 같이 예상할 수 있습니다. 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName)
-```
-
 > [!NOTE]
 > 여러 데이터 형식을 검색할 경우 비용이 많이 들기 때문에 이러한 `union withsource = tt *` 쿼리는 자주 사용하지 않도록 합니다. 이 쿼리는 컴퓨터별 정보를 사용 데이터 형식으로 쿼리 하는 이전 방법을 대체 합니다.  
 
-실제로 청구 되는 항목에 대 한 보다 정확한 계산은 청구 되는 데이터 형식을 전송 하는 시간당 컴퓨터 수를 가져오는 것입니다. (노드당 레거시 가격 책정 계층의 작업 영역에서는 Log Analytics 시간 단위로 요금이 청구 되어야 하는 노드 수를 계산 합니다.) 
-
-```kusto
-union withsource = tt * 
-| where _IsBillable == true 
-| extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| where computerName != ""
-| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
-```
-
 ## <a name="understanding-ingested-data-volume"></a>수집 데이터 볼륨 이해
 
-**사용량 및 예상 비용** 페이지에서 *솔루션당 데이터 수집* 차트는 전송된 총 데이터 양과 각 솔루션이 전송하는 데이터 양을 보여 줍니다. 이를 통해 전체 데이터 사용량(또는 특정 솔루션에 의한 사용량)이 증가하는지, 고정적인지, 감소하는지 여부의 추세를 판단할 수 있습니다. 이를 생성하는 데 사용되는 쿼리는 다음과 같습니다.
+**사용량 및 예상 비용** 페이지에서 *솔루션당 데이터 수집* 차트는 전송된 총 데이터 양과 각 솔루션이 전송하는 데이터 양을 보여 줍니다. 이를 통해 전체 데이터 사용량(또는 특정 솔루션에 의한 사용량)이 증가하는지, 고정적인지, 감소하는지 여부의 추세를 판단할 수 있습니다. 
+
+### <a name="data-volume-by-solution"></a>솔루션별 데이터 볼륨
+
+해결 방법으로 청구 가능한 데이터 볼륨을 보는 데 사용 되는 쿼리는
 
 ```kusto
-Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+Usage 
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution | render barchart
 ```
 
-여기서 “where IsBillable = true” 절은 수집 비용이 없는 특정 솔루션에서 데이터 형식을 필터링합니다. 
+절 `where IsBillable = true` 수집 요금이 없는 특정 솔루션의 데이터 형식을 필터링 합니다. 
 
-데이터 추세를 보다 자세히 조사하여 특정 데이터 형식을 발견할 수 있습니다(예: IIS 로그로 인한 데이터를 연구하려는 경우).
+### <a name="data-volume-by-type"></a>유형별 데이터 볼륨
+
+데이터 유형별 데이터 추세를 확인 하기 위해 더 자세히 살펴볼 수 있습니다.
 
 ```kusto
 Usage | where TimeGenerated > startofday(ago(31d))| where IsBillable == true
-| where DataType == "W3CIISLog"
-| summarize TotalVolumeGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), Solution| render barchart
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) / 1000. by bin(TimeGenerated, 1d), DataType | render barchart
+```
+
+또는 솔루션을 기준으로 테이블을 표시 하 고 지난 달에 유형을 입력 합니다.
+
+```kusto
+Usage 
+| where TimeGenerated > startofday(ago(31d))
+| where IsBillable == true
+| summarize BillableDataGB = sum(Quantity) by Solution, DataType
+| sort by Solution asc, DataType asc
 ```
 
 ### <a name="data-volume-by-computer"></a>컴퓨터별 데이터 볼륨
 
-컴퓨터당 수집 청구 가능 이벤트의 **크기** 를 확인 하려면 바이트 단위로 크기를 제공 하는 `_BilledSize` [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
+`Usage` 데이터 형식은 completer 수준에 정보를 포함 하지 않습니다. 컴퓨터당 수집 데이터의 **크기** 를 확인 하려면 바이트 단위로 크기를 제공 하는 `_BilledSize` [속성](log-standard-properties.md#_billedsize)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize Bytes=sum(_BilledSize) by  computerName | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by  computerName | sort by Bytes nulls last
 ```
 
 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 은 수집 데이터가 요금을 부과 하는지 여부를 지정 합니다.
 
-컴퓨터별 수집 **청구** 가능 이벤트 수를 확인 하려면 다음을 사용 합니다. 
+컴퓨터별 수집 청구 가능 이벤트 **수** 를 확인 하려면 다음을 사용 합니다. 
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | extend computerName = tolower(tostring(split(Computer, '.')[0]))
-| summarize eventCount=count() by computerName  | sort by eventCount nulls last
-```
-
-특정 컴퓨터로 데이터를 전송하는 청구 가능 데이터 형식 수를 확인하려면 다음을 사용합니다.
-
-```kusto
-union withsource = tt *
-| where Computer == "computer name"
-| where _IsBillable == true 
-| summarize count() by tt | sort by count_ nulls last
+| summarize eventCount = count() by computerName  | sort by eventCount nulls last
 ```
 
 ### <a name="data-volume-by-azure-resource-resource-group-or-subscription"></a>Azure 리소스, 리소스 그룹 또는 구독에의 한 데이터 볼륨
 
-Azure에서 호스트 되는 노드의 데이터의 __경우 수집에__대 한 청구 가능 이벤트의 **크기** 를 가져올 수 있습니다 .이 속성은 리소스의 전체 경로를 제공 하는 _ResourceId [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
+Azure에서 호스트 되는 노드의 데이터의 경우 __수집 데이터의__ **크기** 를 가져올 수 있습니다 .이 속성은 리소스의 전체 경로를 제공 하는 _ResourceId [속성](log-standard-properties.md#_resourceid)을 사용 합니다.
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
-| summarize Bytes=sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by _ResourceId | sort by Bytes nulls last
 ```
 
-Azure에서 호스트 되는 노드의 데이터에 대해 수집 속성을 다음과 같이 구문 `_ResourceId` 분석 하는 __azure 구독 당__청구 가능한 이벤트의 **크기** 를 가져올 수 있습니다.
+Azure에서 호스트 되는 노드의 데이터의 경우 __azure 구독 당__수집 데이터의 **크기** 를 가져올 수 있으며, `_ResourceId` 속성을 다음과 같이 구문 분석 합니다.
 
 ```kusto
 union withsource = tt * 
 | where _IsBillable == true 
 | parse tolower(_ResourceId) with "/subscriptions/" subscriptionId "/resourcegroups/" 
     resourceGroup "/providers/" provider "/" resourceType "/" resourceName   
-| summarize Bytes=sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
+| summarize BillableDataBytes = sum(_BilledSize) by subscriptionId | sort by Bytes nulls last
 ```
 
 `resourceGroup` `subscriptionId` 변경 하면 Azure 리소스 그룹별 청구 가능한 수집 데이터 볼륨이 표시 됩니다. 
-
 
 > [!NOTE]
 > 사용량 데이터 형식의 일부 필드가 여전히 스키마에 있지만 더 이상 사용되지 않으며 해당 값은 더 이상 채워지지 않습니다. 이는 **컴퓨터**일 뿐 아니라 수집과 관련된 필드(**TotalBatches**, **BatchesWithinSla**, **BatchesOutsideSla**, **BatchesCapped** 및 **AverageProcessingTimeMs**)이기도 합니다.
@@ -358,9 +355,21 @@ union withsource = tt *
 | 보안 이벤트            | [일반 또는 최소한의 보안 이벤트](https://docs.microsoft.com/azure/security-center/security-center-enable-data-collection#data-collection-tier)를 선택합니다. <br> 보안 감사 정책을 변경하여 필요한 이벤트만을 수집합니다. 특히, 다음 항목에 대한 이벤트를 수집할 필요를 검토합니다. <br> - [감사 필터링 플랫폼](https://technet.microsoft.com/library/dd772749(WS.10).aspx) <br> - [감사 레지스트리](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941614(v%3dws.10))<br> - [감사 파일 시스템](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772661(v%3dws.10))<br> - [감사 커널 개체](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd941615(v%3dws.10))<br> - [감사 핸들 조작](https://docs.microsoft.com/previous-versions/windows/it-pro/windows-server-2008-R2-and-2008/dd772626(v%3dws.10))<br> - 이동식 저장소 감사 |
 | 성능 카운터       | [성능 카운터 구성](data-sources-performance-counters.md)을 다음과 같이 변경합니다. <br> - 컬렉션의 빈도 감소 <br> - 성능 카운터의 수 감소 |
 | 이벤트 로그                 | [이벤트 로그 구성](data-sources-windows-events.md)을 다음과 같이 변경합니다. <br> - 수집된 이벤트 로그의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 수준 이벤트를 수집하지 않습니다. |
-| Syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
+| syslog                     | [syslog 구성](data-sources-syslog.md)을 다음과 같이 변경합니다. <br> - 수집된 기능의 수 감소 <br> - 필수 이벤트 수준만 수집 예를 들어 *정보* 및 *디버그* 수준 이벤트를 수집하지 않습니다. |
 | AzureDiagnostics           | 다음 작업을 수행하도록 리소스 로그 컬렉션을 변경합니다. <br> - Log Analytics로 보내는 리소스 송신 로그의 수 축소 <br> - 필요한 로그만 수집 |
 | 솔루션을 사용하지 않는 컴퓨터의 솔루션 데이터 | [솔루션 대상](../insights/solution-targeting.md)을 사용하여 필수 그룹의 컴퓨터에서 데이터를 수집합니다. |
+
+### <a name="getting-nodes-as-billed-in-the-per-node-pricing-tier"></a>노드 당 가격 책정 계층에서 청구 되는 노드 가져오기
+
+작업 영역이 레거시 노드당 가격 책정 계층에 있는 경우 노드로 청구 되는 컴퓨터 목록을 가져오려면 **청구 된 데이터 형식을** 보내는 노드 (일부 데이터 형식은 무료)를 찾습니다. 이렇게 하려면 `_IsBillable` [속성](log-standard-properties.md#_isbillable) 을 사용 하 고 정규화 된 도메인 이름의 맨 왼쪽 필드를 사용 합니다. 시간당 요금이 청구 되는 컴퓨터의 수를 반환 합니다 (노드를 계산 하 고 청구 하는 세분성).
+
+```kusto
+union withsource = tt * 
+| where _IsBillable == true 
+| extend computerName = tolower(tostring(split(Computer, '.')[0]))
+| where computerName != ""
+| summarize billableNodes=dcount(computerName) by bin(TimeGenerated, 1h) | sort by TimeGenerated asc
+```
 
 ### <a name="getting-security-and-automation-node-counts"></a>보안 및 자동화 노드 수 가져오기
 

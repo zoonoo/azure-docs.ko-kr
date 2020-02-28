@@ -1,24 +1,22 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. InstrumentationEngine를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 796c2cc669e238499223d233cf4ddcf740af7c95
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b3f298ac31cc584cd16553186359c87f69f27aad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899717"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671360"
 ---
 # <a name="application-insights-agent-api-enable-instrumentationengine"></a>Application Insights 에이전트 API: InstrumentationEngine
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 일부 레지스트리 키를 설정 하 여 계측 엔진을 사용 하도록 설정 합니다.
 변경 내용을 적용 하려면 IIS를 다시 시작 하십시오.
@@ -37,16 +35,16 @@ ms.locfileid: "72899717"
 > - 이 cmdlet을 사용 하려면 라이선스 및 개인 정보 취급 방침을 검토 하 고 동의 해야 합니다.
 > - 계측 엔진은 추가 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```powershell
 PS C:\> Enable-InstrumentationEngine
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**선택** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**(선택 사항)** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 ### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.

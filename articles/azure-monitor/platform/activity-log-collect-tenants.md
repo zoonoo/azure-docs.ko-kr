@@ -1,18 +1,17 @@
 ---
 title: Azure 테 넌 트 전체에서 Azure 활동 로그를 Log Analytics 작업 영역으로 수집 | Microsoft Docs
 description: Event Hubs 및 Logic Apps를 사용 하 여 Azure 활동 로그에서 데이터를 수집 하 고 다른 테 넌 트의 Azure Monitor Log Analytics 작업 영역으로 보냅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/06/2019
-ms.openlocfilehash: e3b368f8a59d201f70bfad05125ed59b4b8551c5
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 52bf8b955ef4dc9cfae7fd74fbad0df744609196
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530003"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669270"
 ---
 # <a name="collect-azure-activity-logs-into-azure-monitor-across-azure-active-directory-tenants-legacy"></a>Azure 활동 로그를 Azure Active Directory 테 넌 트 간에 Azure Monitor으로 수집 (레거시)
 
@@ -127,7 +126,7 @@ Logic App을 만들기 전에 이전 단계에서 다음 정보가 있는지 확
 
    |설정 | Description  |
    |:---|:---|
-   | 이름           | Logic App의 고유 이름입니다. |
+   | 속성           | Logic App의 고유 이름입니다. |
    | Subscription   | Logic App이 포함될 Azure 구독을 선택합니다. |
    | 리소스 그룹 | 기존 Azure 리소스 그룹을 선택하거나 Logic App에 사용할 리소스 그룹을 새로 만듭니다. |
    | 위치       | 논리 앱을 배포하기 위한 데이터 센터 지역을 선택합니다. |

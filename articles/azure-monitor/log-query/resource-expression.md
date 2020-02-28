@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리의 resource () 식 | Microsoft Docs
 description: 리소스 식은 여러 리소스에서 데이터를 검색 하기 위해 리소스 중심 Azure Monitor 로그 쿼리에서 사용 됩니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/10/2018
-ms.openlocfilehash: 370b2547c9e726ab4f5ebc4dd732cc0bfa17f760
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 2a729caefe698b13833098ba48df9d4bfbd97356
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933023"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665702"
 ---
 # <a name="resource-expression-in-azure-monitor-log-query"></a>Azure Monitor 로그 쿼리의 resource () 식
 
@@ -27,18 +26,18 @@ ms.locfileid: "72933023"
 
 - *식별자*: 리소스의 리소스 ID입니다.
 
-| 식별자 | 설명 | 예제
+| ID | Description | 예제
 |:---|:---|:---|
 | 리소스 | 리소스에 대 한 데이터를 포함 합니다. | 리소스 ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm") |
 | 리소스 그룹 또는 구독 | 리소스 및 리소스에 포함 된 모든 리소스에 대 한 데이터를 포함 합니다.  | 리소스 ("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup) |
 
 
-## <a name="notes"></a>참고
+## <a name="notes"></a>메모
 
 * 리소스에 대 한 읽기 권한이 있어야 합니다.
 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```Kusto
 union (Heartbeat),(resource("/subscriptions/xxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/resourcesgroups/myresourcegroup/providers/microsoft.compute/virtualmachines/myvm").Heartbeat) | summarize count() by _ResourceId, TenantId

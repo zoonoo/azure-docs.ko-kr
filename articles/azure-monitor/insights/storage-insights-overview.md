@@ -1,18 +1,17 @@
 ---
 title: 저장소에 대 한 Azure Monitor를 사용 하 여 Azure Storage 서비스 모니터링 (미리 보기) | Microsoft Docs
 description: 이 문서에서는 저장소 관리자에 게 Azure Storage 계정에 대 한 성능 및 사용 문제를 신속 하 게 이해 하는 저장소 기능을 제공 하는 Azure Monitor에 대해 설명 합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/15/2019
-ms.openlocfilehash: 790d6ad9fb26253697ea36b402799d3eb488ca47
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f23be7e764ad180a23c76abb7f9bb2218fd61e4c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401143"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662522"
 ---
 # <a name="monitoring-your-storage-service-with-azure-monitor-for-storage-preview"></a>저장소에 대 한 Azure Monitor를 사용 하 여 저장소 서비스 모니터링 (미리 보기)
 

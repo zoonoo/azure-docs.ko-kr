@@ -1,18 +1,14 @@
 ---
 title: 웹 앱 성능 모니터링-Azure 애플리케이션 정보
 description: devOps 주기에 Application Insights를 적용하는 방법
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/21/2018
-ms.openlocfilehash: 1396bc86971941fdf8c6559df71a4c47f58a899c
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 24095aade80022d1e1ebb38357971512bfc873c0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928814"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669695"
 ---
 # <a name="deep-diagnostics-for-web-apps-and-services-with-application-insights"></a>Application Insights로 웹앱 및 서비스 심층 진단
 ## <a name="why-do-i-need-application-insights"></a>Application Insights가 필요한 이유는 무엇일까요?
@@ -51,7 +47,7 @@ Application Insights는 실행 중인 웹앱을 모니터링합니다. 오류와
 * 근본적 원인은 무엇인가? 오류의 원인은 구성 요소인가, 종속성인가? 통신 문제인가?
 * 얼마나 많은 사용자가 영향을 받았는가? 해결해야 할 문제가 둘 이상이라면, 그 중에서 가장 중요한 문제는 무엇인가?
 
-## <a name="what-is-application-insights"></a>Application Insights란 무엇인가요?
+## <a name="what-is-application-insights"></a>Application Insights란?
 ![Application Insights의 기본 워크플로](./media/devops/020.png)
 
 1. Application Insights는 앱이 실행되는 동안 이를 계측하고 원격 분석을 전송합니다. Application Insights SDK를 앱에 빌드하거나 런타임에 계측을 적용할 수 있습니다. Application Insights SDK를 빌드하는 방법은 일반 모듈에 원격 분석을 추가할 수 있으므로 더욱 유연합니다.
@@ -108,10 +104,10 @@ Samtec 고객은 다음과 같이 말했습니다. "최근 기능 컷오버를 �
 
 ![라이브 실패 이벤트](./media/devops/002-live-stream-failures.png)
 
-## <a name="application-map"></a>Application Map
+## <a name="application-map"></a>애플리케이션 맵
 애플리케이션 맵은 애플리케이션 토폴로지를 자동으로 검색하고 그 위에 성능 정보를 배치하여, 배포된 환경 전반에 걸쳐 성능 병목 현상 및 문제가 있는 흐름을 쉽게 파악할 수 있도록 합니다. Azure 서비스에서 애플리케이션 종속성을 검색할 수도 있습니다. 문제가 코드 관련인지 종속성 관련인지 분류하고, 한 곳에서부터 관련 진단 항목까지 파고들 수 있습니다. 예를 들어, SQL 계층에서 성능이 저하되어 애플리케이션에 오류가 발생할 수 있습니다. 애플리케이션 맵을 사용하면 SQL Index Advisor 또는 Query Insights 환경을 즉시 확인하고 자세히 살펴볼 수 있습니다.
 
-![Application Map](./media/devops/0050.png)
+![애플리케이션 맵](./media/devops/0050.png)
 
 ## <a name="application-insights-analytics"></a>Application Insights 분석
 [Analytics](../../azure-monitor/app/analytics.md)를 사용하면 SQL과 유사한 강력한 언어로 임의의 쿼리를 작성할 수 있습니다.  다양한 관점을 연결하고 서비스 성능과 비즈니스 메트릭, 고객 경험을 연관시킬 수 있는 올바른 질문을 던질 수 있으므로 전체 앱 스택 진단이 손쉬워집니다. 

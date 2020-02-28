@@ -1,24 +1,22 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoring를 사용 합니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
+description: 에이전트 API 참조를 Application Insights 합니다. Enable-ApplicationInsightsMonitoring. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: dccd7e617174bef4a85cb6293cbcc459542310f9
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 8bbdc96a49fffc91f80d24a9eb0926766f86ee16
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899701"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671310"
 ---
 # <a name="application-insights-agent-api-enable-applicationinsightsmonitoring"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoring
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 대상 컴퓨터에서 IIS 앱에 대 한 코드 없는 연결 모니터링을 사용 하도록 설정 합니다.
 
@@ -37,7 +35,7 @@ IIS를 다시 시작 하 여 변경 내용을 적용 합니다.
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한 및 관리자 권한으로 실행 정책이 있는 PowerShell 세션이 필요 합니다. 자세한 내용은 [관리자 권한으로 실행 정책으로 PowerShell 실행](status-monitor-v2-detailed-instructions.md#run-powershell-as-admin-with-an-elevated-execution-policy)을 참조 하세요.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="example-with-a-single-instrumentation-key"></a>단일 계측 키를 사용 하는 예제
 이 예제에서는 현재 컴퓨터의 모든 앱에 단일 계측 키가 할당 됩니다.
@@ -50,9 +48,9 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKey xxxxxxxx-xxxx-x
 이 예제에서:
 - `MachineFilter`은 `'.*'` 와일드 카드를 사용 하 여 현재 컴퓨터와 일치 합니다.
 - `AppFilter='WebAppExclude'` `null` 계측 키를 제공 합니다. 지정 된 앱은 계측 되지 않습니다.
-- `AppFilter='WebAppOne'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
-- `AppFilter='WebAppTwo'`은 지정 된 앱에 고유한 계측 키를 할당 합니다.
-- 마지막으로 `AppFilter`은 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 일치 시키고 기본 계측 키를 할당 합니다.
+- `AppFilter='WebAppOne'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- `AppFilter='WebAppTwo'` 지정 된 앱에 고유한 계측 키를 할당 합니다.
+- 마지막으로 `AppFilter`는 `'.*'` 와일드 카드를 사용 하 여 이전 규칙과 일치 하지 않는 모든 웹 앱을 일치 시키고 기본 계측 키를 할당 합니다.
 - 가독성을 위해 공백을 추가 합니다.
 
 ```powershell
@@ -65,7 +63,7 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 ```
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 ### <a name="-instrumentationkey"></a>-InstrumentationKey
 **필수** 이 매개 변수를 사용 하 여 대상 컴퓨터의 모든 앱에서 사용할 단일 계측 키를 제공 합니다.
@@ -91,12 +89,12 @@ PS C:\> Enable-ApplicationInsightsMonitoring -InstrumentationKeyMap
 
 
 ### <a name="-enableinstrumentationengine"></a>-EnableInstrumentationEngine
-**선택** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
+**(선택 사항)** 이 스위치를 사용 하 여 계측 엔진에서 관리 되는 프로세스를 실행 하는 동안 발생 하는 상황에 대 한 이벤트 및 메시지를 수집할 수 있도록 합니다. 이러한 이벤트 및 메시지에는 종속성 결과 코드, HTTP 동사 및 SQL 명령 텍스트가 포함 됩니다.
 
 계측 엔진은 오버 헤드를 추가 하며 기본적으로 해제 되어 있습니다.
 
 ### <a name="-acceptlicense"></a>-AcceptLicense
-**선택** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
+**(선택 사항)** 이 스위치를 사용 하 여 헤드리스 설치에서 라이선스 및 개인 정보 취급 방침에 동의 합니다.
 
 ### <a name="-ignoresharedconfig"></a>-IgnoreSharedConfig
 웹 서버 클러스터가 있는 경우 [공유 구성을](https://docs.microsoft.com/iis/web-hosting/configuring-servers-in-the-windows-web-platform/shared-configuration_211)사용할 수 있습니다.

@@ -7,20 +7,21 @@ ms.service: load-balancer
 ms.topic: article
 ms.date: 01/23/2020
 ms.author: irenehua
-ms.openlocfilehash: 83cac961eb3cd700451f16c684c64185b35e9bd3
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: a4c8b029b199915cce9a417430e67675a03d327f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616745"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659954"
 ---
 # <a name="upgrade-azure-public-load-balancer"></a>Azure Public Load Balancer 업그레이드
 [Azure 표준 Load Balancer](load-balancer-overview.md) 는 영역 중복성을 통해 다양 한 기능 및 고가용성 집합을 제공 합니다. Load Balancer SKU에 대 한 자세한 내용은 [비교 표](https://docs.microsoft.com/azure/load-balancer/concepts-limitations#skus)를 참조 하세요.
 
-업그레이드에는 두 단계가 있습니다.
+업그레이드에는 세 가지 단계가 있습니다.
 
 1. 구성 마이그레이션
 2. 표준 Load Balancer 백 엔드 풀에 Vm 추가
+3. 아웃 바운드 연결에 대 한 부하 분산 장치에서 아웃 바운드 규칙 만들기
 
 이 문서에서는 구성 마이그레이션을 다룹니다. Vm을 백 엔드 풀에 추가 하는 것은 특정 환경에 따라 달라질 수 있습니다. 그러나 일부 고급 일반 권장 사항이 [제공 됩니다](#add-vms-to-backend-pools-of-standard-load-balancer).
 
@@ -64,7 +65,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 일부 Azure Az 모듈이 설치 되어 있고 제거할 수 없는 경우 (또는 제거 하지 않으려는 경우) 스크립트 다운로드 링크의 **수동 다운로드** 탭을 사용 하 여 스크립트를 수동으로 다운로드할 수 있습니다. 이 스크립트는 원시 nupkg 파일로 다운로드 됩니다. 이 nupkg 파일에서 스크립트를 설치 하려면 [수동 패키지 다운로드](/powershell/scripting/gallery/how-to/working-with-packages/manual-download)를 참조 하세요.
 
-스크립트를 실행하려면 다음과 같이 하십시오.
+스크립트를 실행하려면
 
 1. `Connect-AzAccount`를 사용 하 여 Azure에 연결 합니다.
 
@@ -82,7 +83,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
     **예제**
 
    ```azurepowershell
-   ./AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
+   AzurePublicLBUpgrade.ps1 -oldRgName "test_publicUpgrade_rg" -oldLBName "LBForPublic" -newrgName "test_userInput3_rg" -newlocation "centralus" -newLbName "LBForUpgrade"
    ```
 
 ### <a name="add-vms-to-backend-pools-of-standard-load-balancer"></a>표준 Load Balancer 백 엔드 풀에 Vm 추가
@@ -109,6 +110,12 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 * **새로 만든 표준 공용 Load Balancer의 백 엔드 풀에 추가할 새 vm을 만듭니다**.
     * VM을 만들고 표준 Load Balancer와 연결 하는 방법에 대 한 자세한 지침은 [여기](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal#create-virtual-machines)에서 찾을 수 있습니다.
 
+### <a name="create-an-outbound-rule-for-outbound-connection"></a>아웃 바운드 연결에 대 한 아웃 바운드 규칙 만들기
+
+[지침](https://docs.microsoft.com/azure/load-balancer/configure-load-balancer-outbound-portal#create-outbound-rule-configuration) 에 따라 아웃 바운드 규칙을 만들 수 있습니다.
+* 아웃 바운드 NAT를 처음부터 정의 합니다.
+* 기존 아웃 바운드 NAT의 동작을 확장 하 고 조정 합니다.
+
 ## <a name="common-questions"></a>일반적인 질문
 
 ### <a name="are-there-any-limitations-with-the-azure-powershell-script-to-migrate-the-configuration-from-v1-to-v2"></a>V1에서 v 2로 구성을 마이그레이션하기 위한 Azure PowerShell 스크립트에 제한이 있나요?
@@ -117,7 +124,7 @@ Azure Az 모듈이 설치 되어 있는지 확인 하려면 `Get-InstalledModule
 
 ### <a name="does-the-azure-powershell-script-also-switch-over-the-traffic-from-my-basic-load-balancer-to-the-newly-created-standard-load-balancer"></a>또한 Azure PowerShell 스크립트는 기본 Load Balancer에서 새로 만든 표준 Load Balancer으로 트래픽을 전환 하나요?
 
-No. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
+아니요. Azure PowerShell 스크립트는 구성만 마이그레이션합니다. 실제 트래픽 마이그레이션은 사용자의 책임 이며 컨트롤에 있습니다.
 
 ### <a name="i-ran-into-some-issues-with-using-this-script-how-can-i-get-help"></a>이 스크립트를 사용 하는 경우 몇 가지 문제가 발생 했습니다. 도움을 받으려면 어떻게 해야 하나요?
   

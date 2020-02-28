@@ -3,17 +3,16 @@ title: Azure Monitor 메트릭 차트 문제 해결
 description: 메트릭 차트 만들기, 사용자 지정 또는 해석 관련 문제 해결
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 04/23/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 072e62d89e8febc4837c10874398daea3b8114ed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e1ad4e53596b8228bdef5beb18aa250a9512c49f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75974862"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659665"
 ---
 # <a name="troubleshooting-metrics-charts"></a>메트릭 차트 문제 해결
 
@@ -29,7 +28,7 @@ Azure 메트릭 탐색기에서 차트 만들기, 사용자 지정 또는 해석
 
 1. 올바른 리소스 그룹을 선택했는지 확인합니다.
     > [!WARNING]
-    > 최상의 성능을 위해 먼저 메트릭 탐색기를 열 때 **리소스 그룹** 드롭다운에서 미리 선택 된 리소스 그룹이 없습니다. 리소스를 보려면 그룹을 하나 이상 선택해야 합니다.
+    > 최상의 성능을 얻을 수 있도록 메트릭 탐색기를 처음으로 열 때 **리소스 그룹** 드롭다운에서 리소스 그룹이 미리 선택되어 있지 않습니다. 리소스를 보려면 그룹을 하나 이상 선택해야 합니다.
 
 ## <a name="chart-shows-no-data"></a>차트에 데이터가 표시 되지 않음
 
@@ -80,7 +79,7 @@ Azure의 메트릭 액세스는 [RBAC(역할 기반 액세스 제어)](../../rol
 ## <a name="chart-shows-dashed-line"></a>차트가 파선을 표시 합니다.
 
 Azure 메트릭 차트는 파선 스타일을 사용 하 여 두 개의 알려진 시간 그레인 데이터 요소 사이에 누락 된 값 ("null 값"이 라고도 함)이 있음을 표시 합니다. 예를 들어 시간 선택기에서 "1 분" 시간 세분성을 선택 했지만 메트릭이 07:26, 07:27, 07:29 및 07:30에 보고 된 경우 (두 번째와 세 번째 데이터 요소 사이의 분 간격을 확인) 파선은 07:27 및 07:29에 연결 하 고 실선은 연결 됩니다. 다른 모든 데이터 요소 메트릭이 **count** 및 **sum** 집계를 사용 하는 경우 파선은 0으로 떨어집니다. **Avg**, **min** 또는 **max** 집계의 경우 파선은 가장 가까운 두 개의 알려진 데이터 요소를 연결 합니다. 또한 차트의 맨 오른쪽 또는 맨 왼쪽에서 데이터가 누락된 경우 파선은 데이터 요소가 누락된 방향으로 확장합니다.
-  ![metric image](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
+  ![메트릭 이미지](./media/metrics-troubleshoot/missing-data-point-line-chart.png)
 
 **해결 방법:** 이 동작은 의도 된 것입니다. 누락된 데이터 요소를 식별하는 데 유용합니다. 꺾은선형 차트는 고밀도 메트릭의 추세를 시각화 하는 데 탁월한 선택 이지만 특히 시간 corelating 값이 중요 한 경우에는 스파스 값이 있는 메트릭에 대해 해석 하기 어려울 수 있습니다. 파선은 이러한 차트를 보다 쉽게 읽을 수 있지만, 차트가 여전히 불명확한 경우 다른 차트 유형을 사용하여 메트릭을 보는 방안을 고려해야 합니다. 예를 들어 동일한 메트릭에 대 한 분산 그림 차트에서는 값이 누락 된 경우에만 점을 시각화 하 여 각 시간 수준을 명확 하 게 보여 줍니다. ![메트릭 이미지](./media/metrics-troubleshoot/missing-data-point-scatter-chart.png)
 

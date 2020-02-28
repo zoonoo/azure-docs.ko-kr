@@ -1,19 +1,17 @@
 ---
 title: 활동 Azure 애플리케이션 정보를 추적 하기 위한 사용자 컨텍스트 Id
 description: Application Insights에서 각각에 고유하고 영구적인 ID 문자열을 할당하여 사용자가 서비스를 통해 이동하는 방식을 추적합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 01/03/2019
 ms.reviewer: abgreg;mbullwin
-ms.openlocfilehash: ee26aeff87f56ec09bced6029154c5152f26750d
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: beb5a0f7ad3733aaf12b0880af4fba23a705a7e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432292"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670936"
 ---
 # <a name="send-user-context-ids-to-enable-usage-experiences-in-azure-application-insights"></a>Azure Application Insights에서 사용 환경을 활성화하도록 사용자 컨텍스트 ID 보내기
 
@@ -32,7 +30,7 @@ Application Insights를 사용하면 제품 사용 현황 도구 집합을 통�
 - 세션: 세션 ID를 포함합니다.
 
 > [!NOTE]
-> Application Insights를 사용하여 사용자 활동을 추적하는 수동 단계를 대략적으로 설명하는 고급 문서입니다. 많은 웹 애플리케이션에서 [클라이언트/브라우저 쪽 JavaScript SDK](../../azure-monitor/app/website-monitoring.md )와 함께 기본 서버 쪽으로 SDK를 사용하면 사용자 활동을 충분히 자동으로 추적 가능하므로 **이러한 단계가 필요하지 않을 수 있습니다**. 서버 쪽 SDK 외에 [클라이언트 쪽 모니터링](../../azure-monitor/app/website-monitoring.md )을 구성하지 않은 경우, 먼저 이러한 기능을 구성하고, 테스트를 통해 사용자 동작 분석 도구가 예상대로 작동하는지 확인합니다.
+> Application Insights를 사용하여 사용자 활동을 추적하는 수동 단계를 대략적으로 설명하는 고급 문서입니다. 많은 웹 애플리케이션에서 **클라이언트/브라우저 쪽 JavaScript SDK**와 함께 기본 서버 쪽으로 SDK를 사용하면 사용자 활동을 충분히 자동으로 추적 가능하므로 [이러한 단계가 필요하지 않을 수 있습니다](../../azure-monitor/app/website-monitoring.md ). 서버 쪽 SDK 외에 [클라이언트 쪽 모니터링](../../azure-monitor/app/website-monitoring.md )을 구성하지 않은 경우, 먼저 이러한 기능을 구성하고, 테스트를 통해 사용자 동작 분석 도구가 예상대로 작동하는지 확인합니다.
 
 ## <a name="choosing-user-ids"></a>사용자 ID 선택
 

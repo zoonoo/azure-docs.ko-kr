@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/22/2017
 ms.author: damendo
-ms.openlocfilehash: f231a5339b9c696b2a427b0713118d4b46e30277
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a7f30a5a70f71ff958d9b222d2a9e21d03d85e06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670766"
 ---
 # <a name="introduction-to-flow-logging-for-network-security-groups"></a>네트워크 보안 그룹에 대한 흐름 로깅 소개
 
@@ -33,11 +33,7 @@ https://{storageAccountName}.blob.core.windows.net/insights-logs-networksecurity
 ```
 [트래픽 분석](traffic-analytics.md)을 사용하여 흐름 로그를 분석하고 네트워크 트래픽에 대한 인사이트를 얻을 수 있습니다.
 
-다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 로그 보존 정책은 1 일에서 365 일로 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 영구적으로 보관됩니다.
-
-> [!NOTE] 
-> NSG 흐름 로깅과 함께 보존 정책 기능을 사용하면 대량의 스토리지 작업이 파생되고 관련 비용이 발생할 수 있습니다. 보존 정책 기능이 필요하지 않은 경우 이 값을 0으로 설정하는 것이 좋습니다.
-
+다른 로그에서 보듯이 흐름 로그에 동일한 보존 정책을 적용합니다. 로그 보존 정책은 1 일에서 365 일로 설정할 수 있습니다. 보존 정책을 설정하지 않으면 로그는 계속 유지됩니다.
 
 ## <a name="log-file"></a>로그 파일
 

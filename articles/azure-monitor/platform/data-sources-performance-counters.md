@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 성능 카운터 수집 및 분석 | Microsoft Docs
 description: 성능 카운터는 Windows 및 Linux 에이전트에서 성능을 분석하기 위해 Azure Monitor에 의해 수집됩니다.  이 문서는 Windows 및 Linux 에이전트에 대한 성능 카운터 컬렉션을 구성하는 방법과, 작업 영역에 저장하는 방식에 대한 자세한 내용과, Azure Portal에서 분석하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 624996c86423bf486111fde8743117ea888862e7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d1a972a1d89066b961f2dcc28fba830e3a04ebc1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363832"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670545"
 ---
 # <a name="windows-and-linux-performance-data-sources-in-azure-monitor"></a>Azure Monitor의 Windows 및 Linux 성능 데이터 원본
 Windows와 Linux의 성능 카운터는 하드웨어 구성 요소, 운영 체제 및 애플리케이션의 성능에 대한 정보를 자세히 제공합니다.  Azure Monitor는 장기적인 분석 및 보고를 위한 성능 데이터 집계는 물론 거의 실시간에 가까운(NRT) 분석을 위해 빈번한 간격으로 성능 카운터를 수집할 수 있습니다.
@@ -120,10 +119,10 @@ Azure Portal을 사용하여 Linux 성능 카운터를 구성하는 대신 Linux
 | 물리적 디스크 | Avg. Disk sec/Transfer |
 | 물리적 디스크 | Avg. Disk sec/Write |
 | 물리적 디스크 | 물리적 디스크 바이트/초 |
-| 프로세스 | Pct 권한이 부여된 시간 |
-| 프로세스 | Pct 사용자 시간 |
-| 프로세스 | 사용된 메모리 KB |
-| 프로세스 | 가상 공유 메모리 |
+| Process | Pct 권한이 부여된 시간 |
+| Process | Pct 사용자 시간 |
+| Process | 사용된 메모리 KB |
+| Process | 가상 공유 메모리 |
 | 프로세서 | % DPC 시간 |
 | 프로세서 | % 유휴 시간 |
 | 프로세서 | % 인터럽트 시간 |

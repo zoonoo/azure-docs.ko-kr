@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights에서 어떻게 할까요? | Microsoft Docs
 description: Application Insights의 FAQ
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/04/2017
-ms.openlocfilehash: 61bd5898c494018a2bacbd894d4dc2aac97f53b4
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: 5b65087c361911f0714723c315e0b7f7e9bb74e6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928413"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663860"
 ---
 # <a name="how-do-i--in-application-insights"></a>Application Insights에서 어떻게 할까요?
 ## <a name="get-an-email-when-"></a>전자 메일을 받는 경우
@@ -39,7 +35,7 @@ ms.locfileid: "73928413"
 
     telemetry.TrackMetric("Alarm", 10);
 
-또는
+또는:
 
     var measurements = new Dictionary<string,double>();
     measurements ["Alarm"] = 10;
@@ -91,7 +87,7 @@ ms.locfileid: "73928413"
 #### <a name="dashboard-with-data-from-other-sources-and-application-insights"></a>다른 원본 및 Application Insights의 데이터가 표시된 대시보드
 * [Power BI에 원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
 
-or
+또는
 
 * SharePoint를 대시보드로 사용하여 SharePoint 웹 파트에 데이터를 표시 합니다. [연속 내보내기 및 Stream Analytics를 사용하여 SQL로 내보냅니다](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md).  PowerView를 사용하여 데이터베이스를 검사하고 PowerView에 대한 SharePoint 웹 파트를 만듭니다.
 
@@ -100,7 +96,7 @@ or
 ### <a name="filter-out-anonymous-or-authenticated-users"></a>익명 또는 인증된 사용자 필터링
 사용자가 로그인 하는 경우 [인증 된 사용자 ID](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users)를 설정할 수 있습니다. 이 작업은 자동으로 수행되지 않습니다.
 
-그런 다음 다음을 수행할 수 있습니다.
+그런 다음 아래의 작업을 수행할 수 있습니다.
 
 * 특정 사용자 Id 검색
 

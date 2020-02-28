@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: helohr
-ms.openlocfilehash: 47e38d79e8aa4656b8164c94b4ef439bf431e01d
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: af5ab05cb772909cd36e2e6bfe1c100a5b83841c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77049660"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660039"
 ---
 # <a name="linux-support"></a>Linux 지원
 
@@ -21,6 +21,9 @@ Windows 가상 데스크톱에 대 한 Linux SDK를 사용 하 여 독립 실행
 ## <a name="what-is-the-linux-sdk"></a>Linux SDK 란 무엇 인가요?
 
 SDK Api를 사용 하 여 리소스 피드를 검색 하 고, 데스크톱 또는 원격 응용 프로그램 세션에 연결 하 고, 자사 클라이언트에서 지 원하는 대부분의 리디렉션을 사용할 수 있습니다.
+
+> [!NOTE]
+> SDK는 현재 개발 중입니다. SDK를 사용할 수 있는 경우이 문서에 액세스 하는 지침이 포함 된이 문서를 업데이트 합니다.
 
 ### <a name="supported-linux-distributions"></a>지원 되는 Linux 배포판
 
@@ -54,8 +57,6 @@ Windows 가상 데스크톱에 대 한 Linux 클라이언트를 개발 하려면
 2. 사용 가능한 자사 클라이언트를 테스트 하 여 Windows 가상 데스크톱 사용자 환경에 익숙해질 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
-
-SDK는 현재 개발 중입니다. SDK를 사용할 수 있는 경우이 문서에 액세스 하는 지침이 포함 된이 문서를 업데이트 합니다.
 
 다음 클라이언트에 대 한 설명서를 확인 하세요.
 

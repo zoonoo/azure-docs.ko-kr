@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights에서 SQL로 내보내기 | Microsoft Docs
 description: Stream Analytics를 사용하여 Application Insights 데이터를 SQL로 계속 내보냅니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/11/2017
-ms.openlocfilehash: 41efcbc7b70395302858638a9f44f3cbba27bf9a
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 3ef0420cdab64f11b699fd4031ed2b0134f18609
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678260"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663694"
 ---
 # <a name="walkthrough-export-to-sql-from-application-insights-using-stream-analytics"></a>연습: Stream Analytics를 사용하여 Application Insights에서 SQL로 내보내기
 이 문서에서는 [연속 내보내기][export] 및 [Azure Stream Analytics](https://azure.microsoft.com/services/stream-analytics/)를 사용 하 여 [Azure 애플리케이션 Insights][start] 에서 Azure SQL database로 원격 분석 데이터를 이동 하는 방법을 보여 줍니다. 
@@ -26,7 +22,7 @@ ms.locfileid: "72678260"
 이 예제에서는 페이지 보기 데이터를 사용하지만, 동일한 패턴을 사용자 지정 이벤트 및 예외와 같은 다른 데이터 형식으로 쉽게 확장할 수 있습니다. 
 
 ## <a name="add-application-insights-to-your-application"></a>애플리케이션에 Application Insights 추가
-시작하려면:
+시작하기:
 
 1. [웹 페이지용 Application Insights를 설치합니다](../../azure-monitor/app/javascript.md). 
    
@@ -166,7 +162,7 @@ CREATE CLUSTERED INDEX [pvTblIdx] ON [dbo].[PageViewsTable]
 이 예제에서:
 
 * `webapplication27`은 Application Insights 리소스의 이름으로, **모두 소문자**입니다. 
-* `1234...`은 **대시를 제거한** Application Insights 리소스의 계측 키입니다. 
+* `1234...`은 **대시를 제거한**Application Insights 리소스의 계측 키입니다. 
 * `PageViews` 는 분석하려는 데이터의 형식입니다. 사용 가능한 형식은 연속 내보내기에 설정한 필터에 따라 다릅니다. 내보낸 데이터를 검사하여 사용 가능한 다른 형식을 확인하고 [데이터 모델 내보내기](../../azure-monitor/app/export-data-model.md)를 참조합니다.
 * `/{date}/{time}` 은 문자로 기록된 패턴입니다.
 

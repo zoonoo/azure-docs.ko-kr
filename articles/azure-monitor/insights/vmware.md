@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 VMware 모니터링 솔루션 Microsoft Docs
 description: VMware 모니터링 솔루션으로 로그를 관리하고 ESXi 호스트를 모니터링하는 방법을 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/04/2018
-ms.openlocfilehash: ac735c9131ebe7b7273d93a927cb4d4a8be24508
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c1622ef16155206d779c6d703fc7da568d233e7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399202"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664782"
 ---
 # <a name="vmware-monitoring-deprecated-solution-in-azure-monitor"></a>Azure Monitor에서 VMware 모니터링 (사용 되지 않음) 솔루션
 
@@ -51,14 +50,14 @@ ESXi 호스트로부터 모든 syslog 데이터를 수신하는 Linux 운영 체
     ![vspherefwproperties](./media/vmware/vsphere3.png)  
 1. vSphere 콘솔에서 해당 syslog가 제대로 설정되어 있는지 확인합니다. ESXi 호스트에서 포트가 **1514**로 구성되어 있는지 확인합니다.
 1. Linux용 Log Analytics 에이전트를 다운로드하여 Linux 서버에 설치합니다. 자세한 내용은 [Linux용 Log Analytics 에이전트 설명서](https://github.com/Microsoft/OMS-Agent-for-Linux)를 참조하세요.
-1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 예:
+1. Linux용 Log Analytics 에이전트를 설치한 후 /etc/opt/microsoft/omsagent/sysconf/omsagent.d 디렉터리로 이동하고, vmware_esxi.conf 파일을 /etc/opt/microsoft/omsagent/conf/omsagent.d 디렉터리에 복사한 후, 해당 파일의 소유자/그룹 및 사용 권한을 변경합니다. 다음은 그 예입니다.
 
     ```
     sudo cp /etc/opt/microsoft/omsagent/sysconf/omsagent.d/vmware_esxi.conf /etc/opt/microsoft/omsagent/conf/omsagent.d
    sudo chown omsagent:omiusers /etc/opt/microsoft/omsagent/conf/omsagent.d/vmware_esxi.conf
     ```
 1. `sudo /opt/microsoft/omsagent/bin/service_control restart`를 실행하여 Linux용 Log Analytics 에이전트를 다시 시작합니다.
-1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 예:
+1. ESXi 호스트에서 `nc` 명령을 사용하여 Linux 서버와 ESXi 호스트 간의 연결을 테스트합니다. 다음은 그 예입니다.
 
     ```
     [root@ESXiHost:~] nc -z 123.456.789.101 1514
@@ -159,12 +158,12 @@ ESXi 호스트마다 가상 머신을 만들고 삭제할 수 있습니다. 이�
 #### <a name="create-alerts-from-queries"></a>쿼리에서 경고 만들기
 쿼리를 만든 후에는 특정 이벤트가 발생할 때 경고하도록 이 쿼리를 사용하는 것이 좋습니다. 경고를 생성하는 방법에 대한 내용은 [Log Analytics의 경고](../platform/alerts-overview.md)를 참조하세요. 경고 쿼리 및 기타 쿼리의 예제에 대해서는 [Monitor VMware using Log Analytics](https://blogs.technet.microsoft.com/msoms/2016/06/15/monitor-vmware-using-oms-log-analytics)(Log Analytics를 사용하여 VMware 모니터링) 블로그 게시물을 참조하세요.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="what-do-i-need-to-do-on-the-esxi-host-setting-what-impact-will-it-have-on-my-current-environment"></a>ESXi 호스트 설정에서 수행해야 하는 작업은 무엇입니까? 현재 환경에 미치는 영향은 무엇입니까?
 이 솔루션은 기본 ESXi 호스트 Syslog 전달 메커니즘을 사용합니다. ESXi 호스트에 추가 Microsoft 소프트웨어가 없어도 로그를 캡처할 수 있습니다. 기존 환경에 미치는 영향이 적습니다. 그러나 ESXI 기능인 syslog 전달을 설정해야 합니다.
 
 ### <a name="do-i-need-to-restart-my-esxi-host"></a>ESXi 호스트를 다시 시작해야 합니까?
-아닙니다. 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
+아니요. 이 프로세스는 호스트를 다시 시작하지 않아도 됩니다. vSphere에서 syslog을 제대로 업데이트하지 못하는 경우가 있습니다. 이 경우 ESXi 호스트에 로그온하여 syslog를 다시 로드하세요. 호스트를 다시 시작할 필요가 없으므로 이 프로세스는 사용자 환경에 방해가 되지 않습니다.
 
 ### <a name="can-i-increase-or-decrease-the-volume-of-log-data-sent-to-log-analytics"></a>Log Analytics로 전송되는 로그 데이터의 양을 늘리거나 줄일 수 있나요?
 예. vsphere에서 ESXi 호스트 로그 수준 설정을 사용하면 됩니다. 로그 수집은 *정보* 수준을 기반으로 합니다. 따라서 VM 만들기 또는 삭제를 감사하려면 호스트에서 *정보* 수준을 유지해야 합니다. 자세한 내용은 [VMware 기술 자료](https://kb.vmware.com/selfservice/microsites/search.do?&cmd=displayKC&externalId=1017658)를 참조하세요.

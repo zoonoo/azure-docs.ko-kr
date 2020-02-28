@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 뷰의 필터 | Microsoft Docs
 description: 사용자는 Azure Monitor 뷰의 필터를 사용 하 여 뷰 자체를 수정 하지 않고 특정 속성의 값을 기준으로 뷰의 데이터를 필터링 할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/22/2018
-ms.openlocfilehash: 03950c7c87f659c5d1c032b5d3c1f74d136697c7
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: b4840ed30eb1f6dc8d6e6cef47da17807f9644d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72931979"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658577"
 ---
 # <a name="filters-in-azure-monitor-views"></a>Azure Monitor 뷰의 필터
 사용자는 [Azure Monitor 뷰의](view-designer.md) **필터** 를 사용 하 여 뷰 자체를 수정 하지 않고 특정 속성의 값을 기준으로 뷰의 데이터를 필터링 할 수 있습니다.  예를 들어, 보기의 사용자가 특정 컴퓨터 또는 컴퓨터 집합의 데이터에 대한 보기를 필터링하도록 허용할 수 있습니다.  단일 보기에 여러 필터를 만들어서 사용자가 여러 속성별로 필터링하도록 허용할 수 있습니다.  이 문서에서는 필터를 사용하여 사용자 지정 보기에 추가하는 방법을 설명합니다.
@@ -32,25 +31,25 @@ ms.locfileid: "72931979"
 
 ## <a name="creating-a-filter"></a>필터 만들기
 
-[보기를 편집](view-designer.md)할 때 **필터** 탭에서 필터를 만듭니다.  필터는 보기에 대해 전역적이며 보기에서 모든 부분에 적용됩니다.  
+**보기를 편집**할 때 [필터](view-designer.md) 탭에서 필터를 만듭니다.  필터는 보기에 대해 전역적이며 보기에서 모든 부분에 적용됩니다.  
 
 ![필터 설정](media/view-designer-filters/filters-settings.png)
 
 다음 표에서는 필터의 설정을 설명합니다.
 
-| 설정 | 설명 |
+| 설정 | Description |
 |:---|:---|
 | 필드 이름 | 필터링에 사용되는 필드의 이름입니다.  이 필드는 **값에 대 한 쿼리의**요약 필드와 일치 해야 합니다. |
 | 값에 대한 쿼리 | 쿼리를 실행하여 사용자에 대한 필터 드롭다운을 채웁니다.  이 쿼리는 [요약](/azure/kusto/query/summarizeoperator) 또는 [distinct](/azure/kusto/query/distinctoperator) 를 사용 하 여 특정 필드에 고유한 값을 제공 해야 하며 **필드 이름과**일치 해야 합니다.  [정렬](/azure/kusto/query/sortoperator)을 사용하여 사용자에게 표시되는 값을 정렬할 수 있습니다. |
 | 태그 | 필터를 지원하는 쿼리에서 사용되는 필터의 이름은 사용자에게도 표시됩니다. |
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 다음 표에는 몇 가지 공통 필터가 포함되어 있습니다.  
 
 | 필드 이름 | 값에 대한 쿼리 | 태그 |
 |:--|:--|:--|
-| 컴퓨터   | 하트비트 &#124; 고유한 컴퓨터 &#124; 컴퓨터 오름차순 정렬 | 컴퓨터 |
+| Computer   | 하트비트 &#124; 고유한 컴퓨터 &#124; 컴퓨터 오름차순 정렬 | 컴퓨터 |
 | EventLevelName | 이벤트 &#124; 고유한 EventLevelName | 심각도 |
 | SeverityLevel | Syslog &#124; 고유한 SeverityLevel | 심각도 |
 | SvcChangeType | ConfigurationChange &#124; 고유한 svcChangeType | ChangeType |

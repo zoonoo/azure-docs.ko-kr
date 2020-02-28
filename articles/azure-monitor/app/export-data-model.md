@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights 데이터 모델 | Microsoft Docs
 description: JSON의 연속 내보내기에서 내보내고 필터로 사용하는 속성을 설명합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/08/2019
-ms.openlocfilehash: 8f84e3179a6f949e4a322a2218736fc9ebe60442
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: e4dd2310169476e54c06083fee11b2e4cccecd8d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677904"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663878"
 ---
 # <a name="application-insights-export-data-model"></a>Application Insights 데이터 모델 내보내기
 이 테이블은 [Application Insights](../../azure-monitor/app/app-insights-overview.md) SDK에서 포털로 전송된 원격 분석의 속성을 나열합니다.
@@ -109,12 +105,12 @@ ms.locfileid: "72677904"
 ## <a name="context"></a>Context
 모든 유형의 원격 분석에는 컨텍스트 섹션이 함께 제공됩니다. 이러한 모든 필드가 모든 데이터 요소와 함께 전송되는 것은 아닙니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | context.custom.dimensions [0] |object [ ] |사용자 지정 속성 매개 변수에 의해 설정되는 키-값 문자열 쌍입니다. 키 최대 길이가 100이고, 값 최대 길이가 1024입니다. 100개 이상의 고유 값, 속성을 검색할 수 있지만 구분에 사용할 수 없습니다. ikey당 최대 키는 200개입니다. |
 | context.custom.metrics [0] |object [ ] |사용자 지정 측정 매개 변수 및 TrackMetrics에 의해 설정된 키-값 쌍입니다. 키 최대 길이가 100이고, 값은 숫자가 될 수 있습니다. |
 | context.data.eventTime |문자열 |UTC |
-| context.data.isSynthetic |부울 |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
+| context.data.isSynthetic |boolean |요청이 봇 또는 웹 테스트에서 들어오는 것 같습니다. |
 | context.data.samplingRate |number |포털에 전송되는 SDK에 의해 생성된 원격 분석의 비율입니다. 범위는 0.0-100.0입니다. |
 | context.device |object |클라이언트 디바이스 |
 | context.device.browser |문자열 |IE, Chrome, ... |
@@ -141,14 +137,14 @@ ms.locfileid: "72677904"
 | context.operation.name |문자열 |URL 또는 요청 이름 |
 | context.operation.parentId |문자열 |중첩된 관련 항목을 허용합니다. |
 | context.session.id |문자열 |동일한 소스의 작업 그룹 ID입니다. 30분 동안 작업이 없으면 세션이 끝난 것입니다. |
-| context.session.isFirst |부울 | |
+| context.session.isFirst |boolean | |
 | context.user.accountAcquisitionDate |문자열 | |
 | context.user.accountId |문자열 | |
 | context.user.anonAcquisitionDate |문자열 | |
 | context.user.anonId |문자열 | |
 | context.user.authAcquisitionDate |문자열 |[인증된 사용자](../../azure-monitor/app/api-custom-events-metrics.md#authenticated-users) |
 | context.user.authId |문자열 | |
-| context.user.isAuthenticated |부울 | |
+| context.user.isAuthenticated |boolean | |
 | context.user.storeRegion |문자열 | |
 | internal.data.documentVersion |문자열 | |
 | internal.data.id |문자열 | 항목이 Application Insights에 수집된 경우 할당된 고유 ID |
@@ -156,9 +152,9 @@ ms.locfileid: "72677904"
 ## <a name="events"></a>이벤트
 [TrackEvent()](../../azure-monitor/app/api-custom-events-metrics.md#trackevent)에 의해 생성된 사용자 지정 이벤트입니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| event [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| event [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | event [0] name |문자열 |이벤트 이름입니다.  최대 길이 250 |
 | event [0] url |문자열 | |
 | event [0] urlData.base |문자열 | |
@@ -167,16 +163,16 @@ ms.locfileid: "72677904"
 ## <a name="exceptions"></a>예외
 서버 및 브라우저의 [예외](../../azure-monitor/app/asp-net-exceptions.md) 를 보고합니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | basicException [0] assembly |문자열 | |
-| basicException [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| basicException [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | basicException [0] exceptionGroup |문자열 | |
 | basicException [0] exceptionType |문자열 | |
 | basicException [0] failedUserCodeMethod |문자열 | |
 | basicException [0] failedUserCodeAssembly |문자열 | |
 | basicException [0] handledAt |문자열 | |
-| basicException [0] hasFullStack |부울 | |
+| basicException [0] hasFullStack |boolean | |
 | basicException [0] id |문자열 | |
 | basicException [0] method |문자열 | |
 | basicException [0] message |문자열 |예외 메시지입니다. 최대 길이 10000 |
@@ -187,8 +183,8 @@ ms.locfileid: "72677904"
 | basicException [0] outerId |문자열 | |
 | basicException [0] parsedStack [0] assembly |문자열 | |
 | basicException [0] parsedStack [0] fileName |문자열 | |
-| basicException [0] parsedStack [0] level |정수 | |
-| basicException [0] parsedStack [0] line |정수 | |
+| basicException [0] parsedStack [0] level |integer | |
+| basicException [0] parsedStack [0] line |integer | |
 | basicException [0] parsedStack [0] method |문자열 | |
 | basicException [0] stack |문자열 |최대 길이 10000 |
 | basicException [0] typeName |문자열 | |
@@ -196,7 +192,7 @@ ms.locfileid: "72677904"
 ## <a name="trace-messages"></a>추적 메시지
 [TrackTrace](../../azure-monitor/app/api-custom-events-metrics.md#tracktrace) 및 [로깅 어댑터](../../azure-monitor/app/asp-net-trace-logs.md)에서 전송합니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | message [0] loggerName |문자열 | |
 | message [0] parameters |문자열 | |
@@ -206,18 +202,18 @@ ms.locfileid: "72677904"
 ## <a name="remote-dependency"></a>원격 종속성
 TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](../../azure-monitor/app/asp-net-dependencies.md) 과 브라우저의 AJAX 호출 성능 및 사용을 보고하는 데 사용됩니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| remoteDependency [0] async |부울 | |
+| remoteDependency [0] async |boolean | |
 | remoteDependency [0] baseName |문자열 | |
 | remoteDependency [0] commandName |문자열 |예를 들어 "홈/인덱스" |
-| remoteDependency [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| remoteDependency [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | remoteDependency [0] dependencyTypeName |문자열 |HTTP, SQL, ... |
 | remoteDependency [0] durationMetric.value |number |호출부터 종속성의 응답 완료까지 걸리는 시간 |
 | remoteDependency [0] id |문자열 | |
 | remoteDependency [0] name |문자열 |Url. 최대 길이 250 |
 | remoteDependency [0] resultCode |문자열 |HTTP 종속성에서 |
-| remoteDependency [0] success |부울 | |
+| remoteDependency [0] success |boolean | |
 | remoteDependency [0] type |문자열 |Http, Sql,... |
 | remoteDependency [0] url |문자열 |최대 길이 2000 |
 | remoteDependency [0] urlData.base |문자열 |최대 길이 2000 |
@@ -227,14 +223,14 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 ## <a name="requests"></a>요청
 [TrackRequest](../../azure-monitor/app/api-custom-events-metrics.md#trackrequest)에서 전송합니다. 표준 모듈이 서버에서 측정된 서버 응답 시간을 보고하는 데 사용됩니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| request [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| request [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | request [0] durationMetric.value |number |요청부터 응답까지 걸리는 시간입니다. 1e7 == 1s |
 | request [0] id |문자열 |작업 ID |
 | request [0] name |문자열 |GET/POST + url 기본입니다.  최대 길이 250 |
-| request [0] responseCode |정수 |클라이언트에 보낸 HTTP 응답 |
-| request [0] success |부울 |기본값 == (responseCode &lt; 400) |
+| request [0] responseCode |integer |클라이언트에 보낸 HTTP 응답 |
+| request [0] success |boolean |기본값 == (responseCode &lt; 400) |
 | request [0] url |문자열 |호스트를 포함하지 않음 |
 | request [0] urlData.base |문자열 | |
 | request [0] urlData.hashTag |문자열 | |
@@ -245,14 +241,14 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 
 컨텍스트 값은 클라이언트 OS 및 브라우저 버전을 표시합니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| clientPerformance [0] clientProcess.value |정수 |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
+| clientPerformance [0] clientProcess.value |integer |HTML 수신 완료부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] name |문자열 | |
-| clientPerformance [0] networkConnection.value |정수 |네트워크 연결을 설정하는 데 걸리는 시간입니다. |
-| clientPerformance [0] receiveRequest.value |정수 |요청 전송 완료부터 HTML 응답 수신까지 걸리는 시간입니다. |
-| clientPerformance [0] sendRequest.value |정수 |HTTP 요청을 전송하는 데 걸리는 시간입니다. |
-| clientPerformance [0] total.value |정수 |요청 전송 시작부터 페이지 표시까지 걸리는 시간입니다. |
+| clientPerformance [0] networkConnection.value |integer |네트워크 연결을 설정하는 데 걸리는 시간입니다. |
+| clientPerformance [0] receiveRequest.value |integer |요청 전송 완료부터 HTML 응답 수신까지 걸리는 시간입니다. |
+| clientPerformance [0] sendRequest.value |integer |HTTP 요청을 전송하는 데 걸리는 시간입니다. |
+| clientPerformance [0] total.value |integer |요청 전송 시작부터 페이지 표시까지 걸리는 시간입니다. |
 | clientPerformance [0] url |문자열 |이 요청의 URL |
 | clientPerformance [0] urlData.base |문자열 | |
 | clientPerformance [0] urlData.hashTag |문자열 | |
@@ -262,10 +258,10 @@ TrackDependency에서 전송합니다. 서버의 [종속성에 대한 호출](..
 ## <a name="page-views"></a>페이지 보기
 trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events-metrics.md#page-views)에서 전송
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
-| view [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
-| view [0] durationMetric.value |정수 |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
+| view [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| view [0] durationMetric.value |integer |필요에 따라 trackPageView()에서 또는 startTrackPage() - stopTrackPage()에 의해 설정한 값입니다. clientPerformance 값과 다릅니다. |
 | view [0] name |문자열 |페이지 제목입니다.  최대 길이 250 |
 | view [0] url |문자열 | |
 | view [0] urlData.base |문자열 | |
@@ -275,13 +271,13 @@ trackPageView() 또는 [stopTrackPage](../../azure-monitor/app/api-custom-events
 ## <a name="availability"></a>가용성
 [가용성 웹 테스트](../../azure-monitor/app/monitor-web-app-availability.md)를 보고합니다.
 
-| path | Type | 참고 |
+| 경로 | Type | 메모 |
 | --- | --- | --- |
 | availability [0] availabilityMetric.name |문자열 |availability |
 | availability [0] availabilityMetric.value |number |1.0 또는 0.0 |
-| availability [0] count |정수 |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
+| availability [0] count |integer |100/([샘플링](../../azure-monitor/app/sampling.md) 속도) 예: 4 =&gt; 25%. |
 | availability [0] dataSizeMetric.name |문자열 | |
-| availability [0] dataSizeMetric.value |정수 | |
+| availability [0] dataSizeMetric.value |integer | |
 | availability [0] durationMetric.name |문자열 | |
 | availability [0] durationMetric.value |number |테스트 기간 1e7==1s |
 | availability [0] message |문자열 |오류 진단 |

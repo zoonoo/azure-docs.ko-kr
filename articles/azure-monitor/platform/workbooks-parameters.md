@@ -4,18 +4,17 @@ description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합
 services: azure-monitor
 author: mrbullwinkle
 manager: carmonm
-ms.service: azure-monitor
 ms.workload: tbd
 ms.tgt_pltfrm: ibiza
 ms.topic: conceptual
 ms.date: 10/23/2019
 ms.author: mbullwin
-ms.openlocfilehash: f3a7e47d1e6ac0018c8695751ba2ea5091ddbfe8
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: 3e7dda85f1f890d5ae0eb4722c3e028b373fdcab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872828"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658220"
 ---
 # <a name="workbook-parameters"></a>통합 문서 매개 변수
 

@@ -12,14 +12,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/21/2020
+ms.date: 02/26/2020
 ms.author: radeltch
-ms.openlocfilehash: 8f2de656473d52c7a40bef83237bf2aed563e111
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 94dc0b5da348989c60922fdd8c95e3e22d2b4a83
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566168"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661246"
 ---
 # <a name="azure-virtual-machines-high-availability-for-sap-netweaver-on-red-hat-enterprise-linux"></a>Red Hat Enterprise Linux의 SAP NetWeaver에 대한 Azure Virtual Machines 고가용성
 
@@ -85,9 +85,6 @@ SAP NetWeaver의 가용성을 높이려면 공유 스토리지가 필요합니�
 ![SAP NetWeaver 고가용성 개요](./media/high-availability-guide-rhel/ha-rhel.png)
 
 SAP NetWeaver ASCS, SAP NetWeaver SCS, SAP NetWeaver ERS 및 SAP HANA 데이터베이스는 가상 호스트 이름 및 가상 IP 주소를 사용합니다. Azure에서는 가상 IP 주소를 사용하려면 부하 분산 장치가 필요합니다. [표준 부하 분산 장치](https://docs.microsoft.com/azure/load-balancer/quickstart-load-balancer-standard-public-portal)를 사용 하는 것이 좋습니다. 아래 목록에서는(A)SCS 및 ERS 부하 분산 장치에 대한 구성이 나와 있습니다.
-
-> [!IMPORTANT]
-> Azure Vm에서 게스트 운영 체제로 Red Hat Linux를 사용 하는 SAP ASCS/ERS의 다중 SID 클러스터링은 **지원 되지 않습니다**. 다중 SID 클러스터링은 하나의 Pacemaker 클러스터에서 서로 다른 Sid를 사용 하 여 여러 SAP ASCS/ERS 인스턴스를 설치 하는 방법을 설명 합니다.
 
 ### <a name="ascs"></a>(A)SCS
 
@@ -178,7 +175,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -196,7 +193,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -207,7 +204,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
 1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -215,7 +212,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -225,7 +222,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 가상 머신 추가 클릭
          1. 이전에 만든 가용성 집합 선택
          1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS ERS에 대한 백 엔드 풀 만들기
          * 위의 단계를 반복하여 ERS에 대한 백 엔드 풀을 만듭니다(예: **nw1-aers-backend**).
    1. 상태 프로브 만들기
@@ -233,7 +230,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -244,7 +241,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인을 클릭합니다.
+         1. 확인 클릭
       1. ASCS에 대한 추가 포트
          * ASCS의 경우 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
       1. ASCS ERS에 대한 추가 포트
@@ -1053,6 +1050,7 @@ Azure Marketplace에는 새 가상 머신을 배포하는 데 사용할 수 있�
 
 ## <a name="next-steps"></a>다음 단계
 
+* [RHEL for SAP applications의 Azure Vm에 대 한 HA-다중 SID 가이드](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid)
 * [SAP 용 Azure Virtual Machines 계획 및 구현][planning-guide]
 * [SAP 용 Azure Virtual Machines 배포][deployment-guide]
 * [SAP 용 Azure Virtual Machines DBMS 배포][dbms-guide]

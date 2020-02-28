@@ -1,19 +1,18 @@
 ---
 title: Azure에서 관리 솔루션 파일 만들기 | Microsoft Docs
 description: 관리 솔루션은 고객이 Azure 환경에 추가할 수 있는 패키지된 관리 시나리오를 제공합니다.  이 문서에서는 자체 환경에 사용할 관리 솔루션 또는 고객에게 제공할 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/09/2018
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d583f47a9c83abb1119262a2a6b70292cfa4ab69
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 999177f821b98adfa015520252bd3323d0892533
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977686"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662540"
 ---
 # <a name="creating-a-management-solution-file-in-azure-preview"></a>Azure에서 관리 솔루션 파일 만들기(Preview)
 > [!NOTE]
@@ -77,7 +76,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 >
 >
 
-| 매개 변수 | 유형 | Description |
+| 매개 변수 | Type | Description |
 |:--- |:--- |:--- |
 | accountName |문자열 |Azure Automation 계정 이름입니다. |
 | pricingTier |문자열 |Log Analytics 작업 영역 및 Azure Automation 계정의 가격 책정 계층입니다. |
@@ -125,7 +124,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 **parameters('매개 변수 이름')** 구문을 사용하여 솔루션의 다른 요소에 있는 매개 변수 값을 참조할 수 있습니다.  예를 들어 작업 영역 이름에 액세스하려면 **parameters('workspaceName')** 을 사용합니다.
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 [Variables](../../azure-resource-manager/templates/template-syntax.md#variables)는 관리 솔루션의 나머지 부분에 사용할 값입니다.  이러한 값은 솔루션을 설치하는 사용자에게 노출되지 않습니다.  작성자가 솔루션을 만드는 동안 여러 번 사용할지도 모르는 값을 관리할 수 있는 단일 위치를 제공하는 것이 이러한 값의 목적입니다. 솔루션 관련 값을 **resources** 요소로 하드 코드하지 않고 해당 값을 변수에 포함해야 합니다.  이렇게 하면 코드를 더 쉽게 읽을 수 있고 이후 버전에서 이들 값을 쉽게 변경할 수 있습니다.
 
 다음은 솔루션에 일반적인 매개 변수를 사용한 **variables** 요소의 예입니다.
@@ -159,7 +158,7 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 
 
 ### <a name="dependencies"></a>종속성
-**dependsOn** 요소는 다른 리소스에 대한 [종속성](../../azure-resource-manager/templates/define-resource-dependency.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](solutions-resources-automation.md#automation-jobs)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](solutions-resources-automation.md#runbooks)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
+**dependsOn** 요소는 다른 리소스에 대한 [종속성](../../azure-resource-manager/templates/define-resource-dependency.md)을 지정합니다.  솔루션이 설치될 때 모든 리소스의 종속성이 만들어진 후에야 리소스가 만들어지지 않습니다.  예를 들어 솔루션이 [작업 리소스](solutions-resources-automation.md#runbooks)를 사용하여 설치될 경우 솔루션에서 [Runbook을 시작](solutions-resources-automation.md#automation-jobs)할 수 있습니다.  작업이 만들어지기 전에 runbook이 만들어지도록 작업 리소스는 runbook 리소스에 종속됩니다.
 
 ### <a name="log-analytics-workspace-and-automation-account"></a>Log Analytics 작업 영역 및 Automation 계정
 관리 솔루션은 뷰를 포함하는 [Log Analytics 작업 영역](../../azure-monitor/platform/manage-access.md)과 Runbook 및 관련 리소스를 포함하는 [Automation 계정](../../automation/automation-security-overview.md#automation-account-overview)이 필요합니다.  이러한 항목은 솔루션의 리소스가 만들어지기 전에 제공되어야 하며 솔루션 자체에 정의될 수 없습니다.  사용자는 솔루션을 배포할 때 [작업 영역과 계정을 지정](solutions.md#log-analytics-workspace-and-automation-account)하지만, 작성자는 다음 사항을 고려해야 합니다.
@@ -211,9 +210,9 @@ Azure의 관리 솔루션은 [Resource Manager 템플릿](../../azure-resource-m
 | referencedResources |솔루션을 제거해도 함께 제거되면 안 되는 솔루션의 리소스 목록입니다. |
 | containedResources |솔루션을 제거하면 함께 제거되어야 하는 솔루션의 리소스 목록입니다. |
 
-위의 예제는 runbook, 일정, 보기가 포함된 솔루션과 관련됩니다.  일정 및 runbook은 **properties** 요소에서 *참조*되므로 솔루션이 제거될 때 제거되지 않습니다.  보기는 *포함*되어 있으므로 솔루션을 제거하면 함께 제거됩니다.
+위의 예제는 runbook, 일정, 보기가 포함된 솔루션과 관련됩니다.  일정 및 runbook은 *properties* 요소에서 **참조**되므로 솔루션이 제거될 때 제거되지 않습니다.  보기는 *포함*되어 있으므로 솔루션을 제거하면 함께 제거됩니다.
 
-### <a name="plan"></a>요금제
+### <a name="plan"></a>계획
 솔루션 리소스의 **plan** 엔터티는 테이블의 속성을 가집니다.
 
 | 속성 | Description |

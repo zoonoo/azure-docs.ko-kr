@@ -3,17 +3,16 @@ title: Azure Monitor 메트릭 차트 예제
 description: Azure Monitor 데이터를 시각화하는 방법을 알아봅니다.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/29/2019
 ms.author: vitalyg
 ms.subservice: metrics
-ms.openlocfilehash: 8cc653b8e5d2c239243bf6a09955b10011c7408b
-ms.sourcegitcommit: 36eb583994af0f25a04df29573ee44fbe13bd06e
+ms.openlocfilehash: 1aaeb853a67b36a21a09db57e015029d10cd0c36
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74538975"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660873"
 ---
 # <a name="metric-chart-examples"></a>메트릭 차트 예 
 

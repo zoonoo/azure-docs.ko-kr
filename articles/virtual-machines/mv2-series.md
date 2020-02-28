@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: caa80443a189874bfd699dba412fb749c8711556
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 03e8baa5f0286652ee500a06382c0a45e6f0ec52
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493398"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77655670"
 ---
 # <a name="mv2-series"></a>Mv2 시리즈
 
@@ -33,7 +33,7 @@ Premium Storage 캐싱: 지원 됨
 | Standard_M416ms_v2<sup>1, 2</sup> | 416 | 11400 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
 | Standard_M416s_v2<sup>1, 2</sup> | 416 | 5700 | 8192 | 64 | 25만/1600 (14080) | 8만/2000 | 8/32000 |
 
-<sup>1</sup> Mv2 시리즈 vm은 2 세대 전용입니다. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](/linux/generation-2.md) 을 참조 하세요.
+<sup>1</sup> Mv2 시리즈 vm은 2 세대 전용입니다. Linux를 사용 하는 경우 이미지를 찾고 선택 하는 방법에 대 한 지침은 [Azure의 2 세대 vm에 대 한 지원](./linux/generation-2.md) 을 참조 하세요.
 
 <sup>2</sup> M416ms_v2 및 M416s_v2 크기에 대해서는 다음 이미지만 지원 됩니다. "GEN2: SUSE LINUX ENTERPRISE SERVER (SLES) 12 SP4 For SAP Applications"를 참조 하십시오.
 

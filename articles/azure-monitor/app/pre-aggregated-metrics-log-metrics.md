@@ -1,19 +1,17 @@
 ---
 title: Azure Application Insights의 로그 기반 및 사전 집계 메트릭 | Microsoft Docs
 description: Azure Application Insights에서 로그 기반과 사전 집계 메트릭을 사용하는 이유 비교
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: vgorbenko
 ms.author: vitalyg
 ms.date: 09/18/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 384e3c9032b324ee92762db9156c628a05e5e862
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 65abc9c7153aaf2973d5927400e27467066098f9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406585"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669763"
 ---
 # <a name="log-based-and-pre-aggregated-metrics-in-application-insights"></a>Azure Application Insights의 로그 기반 및 사전 집계 메트릭
 

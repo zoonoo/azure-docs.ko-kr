@@ -1,24 +1,23 @@
 ---
 title: VM용 Azure Monitor(미리 보기)의 알려진 문제 | Microsoft Docs
 description: 이 문서에서는 Azure VM 운영 체제의 상태, 애플리케이션 종속성 검색 및 성능 모니터링을 결합하는 Azure의 솔루션인 VM용 Azure Monitor의 알려진 문제를 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 04/02/2019
-ms.openlocfilehash: b59e2d1897557b47bcfeafbc17141f869e2f192e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 711b3707d536c4858578817589670edf0f467b64
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450688"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670732"
 ---
 # <a name="known-issues-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)의 알려진 문제
 
 이 문서에서는 Azure VM 운영 체제의 상태, 애플리케이션 구성 요소 검색 및 성능 모니터링을 결합하는 Azure의 솔루션인 VM용 Azure Monitor의 알려진 문제를 설명합니다. 
 
-## <a name="health"></a>보건 
+## <a name="health"></a>상태 
 현재 상태 기능 릴리스의 알려진 문제는 다음과 같습니다.
 
 - 제거하거나 삭제한 Azure VM은 얼마 동안 VM 목록 보기에 표시됩니다. 또한 제거하거나 삭제한 VM의 상태를 클릭하면 **상태 진단** 보기가 열리고 로딩 루프가 시작됩니다. 삭제한 VM의 이름을 선택하면 VM이 삭제되었다는 내용의 메시지가 포함된 창이 열립니다.

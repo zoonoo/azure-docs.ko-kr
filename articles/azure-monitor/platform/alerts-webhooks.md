@@ -2,20 +2,19 @@
 title: Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
 description: Azure 메트릭 경고를 다른 비 Azure 시스템으로 다시 라우팅하는 방법을 알아봅니다.
 author: harelbr
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: harelbr
 ms.topic: conceptual
 ms.date: 04/03/2017
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: fd4bf2d404a7152da04e72d323f463c18167f5bf
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 27510871f9a022cb27c6b03b812ce1d37b47312c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705516"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665071"
 ---
 # <a name="call-a-webhook-with-a-classic-metric-alert-in-azure-monitor"></a>Azure Monitor에서 클래식 메트릭 경고를 사용 하 여 webhook 호출
+
 웹후크를 사용하면 사후 처리 또는 사용자 지정 작업을 위해 Azure 경고 알림을 다른 시스템으로 라우팅할 수 있습니다. SMS 메시지 보내기, 버그 기록, 채팅/메시징 서비스를 통한 팀 알림 또는 다양한 다른 작업 수행 등을 처리하는 서비스에 라우팅하도록 웹후크를 경고에 사용할 수 있습니다. 
 
 이 아티클에서는 Azure 메트릭 경고에 웹후크를 설정하는 방법을 설명합니다. 웹후크에 대한 HTTP POST의 페이로드 형태도 보여 줍니다. Azure 활동 로그 경고(이벤트에 대한 경고)에 대한 설정과 스키마에 대한 자세한 내용은 [Azure 활동 로그 경고에서 웹후크 호출](alerts-log-webhook.md)을 참조하세요.
@@ -93,10 +92,10 @@ POST 작업에는 모든 메트릭 기반 경고에 대해 다음과 같은 JSON
 | resourceId |Y | |영향을 받는 리소스의 리소스 ID입니다. |
 | resourceRegion |Y | |영향을 받는 리소스의 지역 또는 위치입니다. |
 | portalLink |Y | |포털 리소스 요약 페이지에 대한 직접 링크입니다. |
-| properties |N |선택 사항 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
+| properties |N |옵션 |이벤트에 대한 세부 정보를 포함하는 키/값 쌍의 집합입니다. `Dictionary<String, String>`)을 입력합니다. 속성 필드는 선택 사항입니다. 사용자 지정 UI 또는 논리 앱 기반 워크플로에서 페이로드를 통해 전달될 수 있는 키/값 쌍을 입력할 수 있습니다. 사용자 지정 속성을 웹후크에 다시 전달할 대체 방법은 웹후크 URI 자체를 통하는 것입니다(쿼리 매개 변수로). |
 
 > [!NOTE]
-> [Azure Monitor REST API](https://msdn.microsoft.com/library/azure/dn933805.aspx)를 사용하여 **properties** 필드만 설정할 수 있습니다.
+> **Azure Monitor REST API**를 사용하여 [properties](https://msdn.microsoft.com/library/azure/dn933805.aspx) 필드만 설정할 수 있습니다.
 >
 >
 

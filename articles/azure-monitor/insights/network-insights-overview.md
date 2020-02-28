@@ -1,18 +1,17 @@
 ---
 title: 네트워크에 대 한 Azure Monitor (미리 보기)
 description: 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 하는 네트워크 Azure Monitor에 대 한 간략 한 개요입니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/07/2019
-ms.openlocfilehash: 3bb92b85779366081349dab777be67e063469678
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: 0f5b2fbd13cb9658e255fde727e115df748aaed9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73840055"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654871"
 ---
 # <a name="azure-monitor-for-networks-preview"></a>네트워크에 대 한 Azure Monitor (미리 보기)
 네트워크에 대 한 Azure Monitor는 구성 없이 배포 된 모든 네트워크 리소스에 대 한 상태 및 메트릭의 포괄적인 보기를 제공 합니다. 고급 검색 기능을 사용 하면 호스트 된 웹 사이트 이름을 간단히 검색 하 여 웹 사이트를 호스트 하는 리소스를 식별 하는 등의 시나리오를 통해 리소스 종속성을 식별할 수 있습니다.

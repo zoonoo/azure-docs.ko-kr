@@ -1,18 +1,14 @@
 ---
 title: Application Insights에서 원격 분석 연속 내보내기 | Microsoft Docs
 description: Microsoft Azure에서 스토리지에 진단 및 사용량 데이터를 내보내고 여기에서 다운로드합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/25/2019
-ms.openlocfilehash: 6504661c2df66bda81af03a6364703b4b10f7485
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 33158919980514b70c3b0e438691427a34eed834
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72819546"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663916"
 ---
 # <a name="export-telemetry-from-application-insights"></a>Application Insights에서 원격 분석 내보내기
 표준 보존 기간 보다 오랫동안 원격 분석을 유지하시겠습니까? 또는 일부 특수한 방식으로 처리하시겠습니까? 그렇다면 연속 내보내기가 적합합니다. Application Insights 포털에 표시되는 이벤트는 JSON 형식으로 Microsoft Azure에서 스토리지로 내보낼 수 있습니다. 여기에서 데이터를 다운로드 하 고 처리 하는 데 필요한 모든 코드를 작성할 수 있습니다.  
@@ -158,7 +154,7 @@ Where
 
 더 큰 규모에서는 [HDInsight](https://azure.microsoft.com/services/hdinsight/) (클라우드의 Hadoop 클러스터)를 고려합니다. HDInsight는 빅 데이터에 대한 다양한 관리 분석 기술을 제공하므로 이를 사용하여 Application Insights에서 내보낸 데이터를 처리할 수 있습니다.
 
-## <a name="q--a"></a>질문과 답변
+## <a name="q--a"></a>질문과 대답
 * *하지만 원하는 모든 것은 차트의 일회성 다운로드입니다.*  
 
     예, 수행할 수 있습니다. 탭 위쪽에서 **데이터 내보내기**를 클릭 합니다.
@@ -173,7 +169,7 @@ Where
     아니요. 죄송합니다. 우리의 내보내기 엔진은 현재 Azure Storage에서만 작동합니다.  
 * *내 저장소에 보관하는 데이터량에 제한이 있나요?*
 
-    아닙니다. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. Windows에서 Azure File Storage 시작문서의 지침에 따라 Azure 파일 공유를 만듭니다. 사용자가 이용하는 스토리지 크기는 사용자가 제어하기 나름입니다.  
+    아니요. 내보내기를 삭제할 때까지 푸싱한 데이터를 유지합니다. {1}Windows에서 Azure File Storage 시작{2}문서의 지침에 따라 Azure 파일 공유를 만듭니다. 사용자가 이용하는 스토리지 크기는 사용자가 제어하기 나름입니다.  
 * *스토리지에서 몇 개의 BLOB를 볼 수 있나요?*
 
   * 내보내려고 선택한 모든 데이터 형식에 대해 새 blob(데이터 파일이 사용 가능한 경우)이 매 분마다 만들어 집니다.

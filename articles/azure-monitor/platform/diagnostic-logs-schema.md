@@ -1,18 +1,15 @@
 ---
 title: Azure 리소스 로그에서 지원 되는 서비스 및 스키마
 description: Azure 리소스 로그에 대해 지원 되는 서비스 및 이벤트 스키마를 이해 합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: reference
 ms.date: 10/22/2019
-author: rboucher
-ms.author: robb
-ms.openlocfilehash: 044c453152d44420d5e78855751a2680698e89f3
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: de102c5dc4104aafc44b87b14aeea0b30cb7c083
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120148"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670392"
 ---
 # <a name="supported-services-schemas-and-categories-for-azure-resource-logs"></a>Azure 리소스 로그에 대해 지원 되는 서비스, 스키마 및 범주
 
@@ -25,24 +22,24 @@ ms.locfileid: "76120148"
 
 ## <a name="top-level-resource-logs-schema"></a>최상위 리소스 로그 스키마
 
-| 이름 | 필수/선택 | Description |
+| 속성 | 필수/선택 | Description |
 |---|---|---|
 | time | 필수 | 이벤트의 타임스탬프(UTC)입니다. |
 | resourceId | 필수 | 이벤트를 내보낸 리소스의 리소스 ID입니다. 테넌트 서비스의 경우 /tenants/tenant-id/providers/provider-name의 형태입니다. |
 | tenantId | 테넌트 로그에 필요 | 이 이벤트가 연결된 Active Directory 테넌트의 테넌트 ID입니다. 이 속성은 테넌트 수준 로그에만 사용되며 리소스 수준 로그에는 나타나지 않습니다. |
 | operationName | 필수 | 이 이벤트가 나타내는 작업의 이름입니다. 이벤트가 RBAC 작업을 나타내는 경우, RBAC 작업 이름입니다(예: Microsoft.Storage/storageAccounts/blobServices/blobs/Read). 실제로 문서화된 리소스 관리자 작업은 아니지만, 일반적으로 리소스 관리자 작업 형태로 모델링됩니다(`Microsoft.<providerName>/<resourceType>/<subtype>/<Write/Read/Delete/Action>`). |
-| operationVersion | 선택 사항 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
+| operationVersion | 옵션 | operationName이 API를 사용하여 수행된 경우, 작업과 연결된 api-version입니다(예: `http://myservice.windowsazure.net/object?api-version=2016-06-01`). 이 작업에 해당하는 API가 없으면, 버전은 작업과 연결된 속성이 나중에 변경될 경우, 해당 작업의 버전을 나타냅니다. |
 | category | 필수 | 이벤트의 로그 범주입니다. 범주는 특정 리소스에 대해 로그를 사용하거나 사용하지 않도록 설정할 수 있는 세분성입니다. 이벤트의 속성 Blob에 표시되는 속성은 특정 로그 범주 및 리소스 종류 내에서 동일합니다. 일반적인 로그 범주는 “감사”, “작동”, “실행” 및 “요청”입니다. |
-| resultType | 선택 사항 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
-| resultSignature | 선택 사항 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
-| resultDescription | 선택 사항 | 이 작업에 대한 정적 텍스트 설명입니다(예: “스토리지 파일 가져오기”). |
-| durationMS | 선택 사항 | 밀리초 단위의 작업 기간입니다. |
-| callerIpAddress | 선택 사항 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
-| correlationId | 선택 사항 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
-| ID | 선택 사항 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
-| 수준 | 선택 사항 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
-| 위치 | 선택 사항 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
-| properties | 선택 사항 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
+| resultType | 옵션 | 이벤트의 상태입니다. 일반적인 값으로 시작됨, 진행 중, 성공, 실패, 활성 및 확인됨이 있습니다. |
+| resultSignature | 옵션 | 이벤트의 하위 상태입니다. 이 작업이 REST API 호출에 해당하는 경우, 해당 REST 호출의 HTTP 상태 코드입니다. |
+| resultDescription | 옵션 | 이 작업에 대한 정적 텍스트 설명입니다(예: “스토리지 파일 가져오기”). |
+| durationMS | 옵션 | 밀리초 단위의 작업 기간입니다. |
+| callerIpAddress | 옵션 | 작업이 공개적으로 사용 가능한 IP 주소가 있는 엔터티에서 시작된 API 호출에 해당하는 경우, 호출자 IP 주소입니다. |
+| correlationId | 옵션 | 관련 이벤트 집합을 그룹화하는 데 사용되는 GUID입니다. 일반적으로, 두 이벤트의 operationName이 같고 상태가 다른(예: “시작됨” 및 “성공”) 경우, 동일한 상관 관계 ID를 공유합니다. 이벤트 간의 다른 관계를 나타낼 수도 있습니다. |
+| ID | 옵션 | 작업을 수행한 사용자 또는 애플리케이션의 ID를 설명하는 JSON Blob입니다. 일반적으로 활성 디렉터리의 클레임/JWT 토큰 및 권한 부여가 포함됩니다. |
+| Level | 옵션 | 이벤트의 심각도 수준입니다. 정보, 경고, 오류 또는 위험 중 하나여야 합니다. |
+| 위치 | 옵션 | 이벤트를 내보내는 리소스의 지역입니다(예: “미국 동부” 또는 “프랑스 남부”). |
+| properties | 옵션 | 이 특정 범주의 이벤트와 관련된 확장 속성입니다. 모든 사용자 지정/고유 속성은 스키마의 “파트 B”에 넣어야 합니다. |
 
 ## <a name="service-specific-schemas-for-resource-logs"></a>리소스 로그의 서비스별 스키마
 리소스 진단 로그의 스키마는 리소스 및 로그 범주에 따라 달라집니다. 이 목록에는 사용 가능한 리소스 로그와 서비스 및 범주 관련 스키마 (사용 가능한 경우)에 대 한 링크를 만드는 모든 서비스가 표시 됩니다.
@@ -89,7 +86,7 @@ ms.locfileid: "76120148"
 
 일부 범주는 특정 유형의 리소스에 대해서만 지원 될 수 있습니다. 일부 형식으로 제공 되는 모든 목록입니다.  예를 들어, 모든 유형의 데이터베이스에는 Microsoft .Sql/servers/databases 범주를 사용할 수 없습니다. 자세한 내용은 [SQL Database 진단 로깅에 대 한 정보](../../sql-database/sql-database-metrics-diag-logging.md)를 참조 하세요. 
 
-|리소스 형식|범주|범주 표시 이름|
+|리소스 종류|Category|범주 표시 이름|
 |---|---|---|
 |Microsoft AAD/domainServices|SystemSecurity|SystemSecurity|
 |Microsoft AAD/domainServices|AccountManagement|AccountManagement|
@@ -155,19 +152,19 @@ ms.locfileid: "76120148"
 |Microsoft.DBforPostgreSQL/serversv2|PostgreSQLLogs|PostgreSQL 서버 로그|
 |Microsoft.DBforPostgreSQL/serversv2|QueryStoreRuntimeStatistics|PostgreSQL 쿼리 저장소 런타임 통계|
 |Microsoft.DBforPostgreSQL/serversv2|QueryStoreWaitStatistics|PostgreSQL 쿼리 저장소 대기 통계|
-|Microsoft DesktopVirtualization/작업 영역|Checkpoint|Checkpoint|
-|Microsoft DesktopVirtualization/작업 영역|오류|오류|
+|Microsoft DesktopVirtualization/작업 영역|검사점|검사점|
+|Microsoft DesktopVirtualization/작업 영역|Error|Error|
 |Microsoft DesktopVirtualization/작업 영역|관리|관리|
 |Microsoft DesktopVirtualization/작업 영역|피드|피드|
-|Microsoft DesktopVirtualization/applicationGroups|Checkpoint|Checkpoint|
-|Microsoft DesktopVirtualization/applicationGroups|오류|오류|
+|Microsoft DesktopVirtualization/applicationGroups|검사점|검사점|
+|Microsoft DesktopVirtualization/applicationGroups|Error|Error|
 |Microsoft DesktopVirtualization/applicationGroups|관리|관리|
-|Microsoft DesktopVirtualization/hostPools|Checkpoint|Checkpoint|
-|Microsoft DesktopVirtualization/hostPools|오류|오류|
+|Microsoft DesktopVirtualization/hostPools|검사점|검사점|
+|Microsoft DesktopVirtualization/hostPools|Error|Error|
 |Microsoft DesktopVirtualization/hostPools|관리|관리|
 |Microsoft DesktopVirtualization/hostPools|연결|연결|
 |Microsoft DesktopVirtualization/hostPools|HostRegistration|HostRegistration|
-|Microsoft.Devices/IotHubs|연결|연결|
+|Microsoft.Devices/IotHubs|Connections|Connections|
 |Microsoft.Devices/IotHubs|DeviceTelemetry|디바이스 원격 분석|
 |Microsoft.Devices/IotHubs|C2DCommands|C2D 명령|
 |Microsoft.Devices/IotHubs|DeviceIdentityOperations|디바이스 ID 작업|
@@ -300,7 +297,7 @@ ms.locfileid: "76120148"
 |Microsoft.Storage/storageAccounts/queueServices|StorageDelete|StorageDelete|
 |Microsoft.StreamAnalytics/streamingjobs|실행|실행|
 |Microsoft.StreamAnalytics/streamingjobs|작성|작성|
-|microsoft 웹/hostingenvironments|AppServiceEnvironmentPlatformLogs|App Service Environment 플랫폼 로그|
+|microsoft 웹/hostingenvironments|Appservice환경 Platformlogs|App Service Environment 플랫폼 로그|
 |microsoft.web/sites|FunctionAppLogs|함수 응용 프로그램 로그|
 |microsoft.web/sites|AppServiceHTTPLogs|HTTP 로그|
 |microsoft.web/sites|AppServiceConsoleLogs|App Service 콘솔 로그|

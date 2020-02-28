@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights에서 Power BI로 내보내기 | Microsoft Docs
 description: 분석 쿼리를 Power BI에서 표시할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/10/2018
-ms.openlocfilehash: 3ec20f82bc12b60e5b88a02bb92a4a0ada4dcae7
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 0e17ca6e07ec76f0a7a1cb04f7aa13619fb9970c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73668020"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664000"
 ---
 # <a name="feed-power-bi-from-application-insights"></a>Application Insights에서 Power BI 공급
 [Power BI](https://www.powerbi.com/)는 데이터 분석과 통찰력 공유에 도움이 되는 비즈니스 도구 제품군입니다. 모든 디바이스에서 풍부한 대시보드를 사용할 수 있습니다. [Azure Application Insights](../../azure-monitor/app/app-insights-overview.md)의 Analytics 쿼리를 포함하여 다양한 원본의 데이터를 포함할 수 있습니다.
@@ -123,7 +119,7 @@ Application Insights 쿼리를 가져오려면 데스크톱 버전의 Power BI�
 
 ### <a name="get-the-adapter"></a>어댑터 가져오기
 1. [Power BI](https://app.powerbi.com/)에 로그인합니다.
-2. **데이터 가져오기** ![왼쪽 하단 모서리의 데이터 가져오기 아이콘 스크린샷](./media/export-power-bi/001.png), **서비스**를 엽니다.
+2. 왼쪽 아래 모퉁이](./media/export-power-bi/001.png)**서비스**에서 GetData 아이콘의 **데이터 가져오기** ![스크린샷을 엽니다.
 
     ![Application Insights 데이터 원본에서 가져오기 스크린샷](./media/export-power-bi/002.png)
 

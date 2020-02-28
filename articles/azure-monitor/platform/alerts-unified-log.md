@@ -2,18 +2,16 @@
 title: Azure Monitor의 로그 경고
 description: Azure Alerts에 대해 지정한 분석 쿼리 조건이 충족될 경우 이메일, 알림, 웹 사이트 URL 호출(웹후크) 또는 자동화가 트리거됩니다.
 author: yanivlavi
-services: monitoring
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 5/31/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: b8cae9f7c43098b713d0d5d8f74e46cb0386600c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: a6abf4665c27771497037da35f85bb540e6e904e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75396487"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665224"
 ---
 # <a name="log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고
 
@@ -134,7 +132,7 @@ ms.locfileid: "75396487"
 아래 간격 마다 Azure alerts 시스템은 *Contoso-로그 경고*의 조건을 평가 합니다.
 
 
-| 시간    | 로그 검색 쿼리에서 반환 된 레코드의 개수 | 로그 조건 평가 | 결과 
+| Time    | 로그 검색 쿼리에서 반환 된 레코드의 개수 | 로그 조건 평가 | 결과 
 | ------- | ----------| ----------| ------- 
 | 오후 1:05 | 0 개 레코드 | 0은 0 > 하지 않으므로 FALSE입니다. |  경고가 발생 하지 않습니다. 작업은 호출 되지 않습니다.
 | 오후 1:10 | 2 개 레코드 | 2 > 0)  | 경고가 발생 하 고 라는 동작 그룹이 있습니다. 경고 상태가 활성입니다.
@@ -162,7 +160,7 @@ ms.locfileid: "75396487"
 [레거시 Log Analytics API](api-alerts.md)를 사용하여 경고 규칙에 대한 청구를 위해 생성된 숨겨진 scheduleQueryRules 리소스를 제거하려면 사용자가 다음 중 하나를 수행하면 됩니다.
 
 - 사용자가 [Log Analytics 작업 영역에서 경고 규칙에 대한 API 기본 설정을 전환](../../azure-monitor/platform/alerts-log-api-switch.md)할 수 있으며 경고 규칙이 손실되거나 Azure Resource Manager 호환 [scheduledQueryRules API](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules)로 모니터링이 이동하지 않습니다. 따라서 청구를 위해 숨겨진 의사 경고 규칙을 만들 필요가 없습니다.
-- API 기본 설정을 전환하지 않으려면 사용자가 [레거시 Log Analytics API](api-alerts.md)를 사용하여 원래 일정과 경고 작업을 **삭제**하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
+- API 기본 설정을 전환하지 않으려면 사용자가 **레거시 Log Analytics API**를 사용하여 원래 일정과 경고 작업을 [삭제](api-alerts.md)하거나 [Azure Portal에서 원래 로그 경고 규칙](../../azure-monitor/platform/alerts-log.md#view--manage-log-alerts-in-azure-portal)을 제거해야 합니다.
 
 또한 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 경고 규칙을 청구 하기 위해 만든 숨겨진 scheduleQueryRules 리소스의 경우 PUT과 같은 수정 작업은 실패 합니다. `microsoft.insights/scheduledqueryrules` 형식 의사 규칙은 [레거시 LOG ANALYTICS API](api-alerts.md)를 사용 하 여 만든 경고 규칙의 요금을 청구 하기 위한 것입니다. 모든 경고 규칙 수정은 [레거시 LOG ANALYTICS api](api-alerts.md) 를 사용 하 여 수행 해야 합니다. 또는 사용자가 대신 [scheduledQueryRules api](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules) 를 사용 하도록 [경고 규칙에 대 한 API 기본 설정을 전환할](../../azure-monitor/platform/alerts-log-api-switch.md) 수 있습니다.
 

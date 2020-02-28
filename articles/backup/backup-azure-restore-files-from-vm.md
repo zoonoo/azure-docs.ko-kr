@@ -3,12 +3,12 @@ title: Azure VM 백업에서 파일 및 폴더 복구
 description: 이 문서에서는 Azure 가상 컴퓨터 복구 지점에서 파일 및 폴더를 복구 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 03/01/2019
-ms.openlocfilehash: 4565929b5475e2348685fbec77b596b65ed73fd6
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: d80fb1060eca766305ecbfffe151d975472f8b3c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114331"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660923"
 ---
 # <a name="recover-files-from-azure-virtual-machine-backup"></a>Azure Virtual Machine 백업에서 파일 복구
 
@@ -206,7 +206,7 @@ Linux에서 파일을 복원하는 데 사용하는 컴퓨터의 OS는 보호된
   - <https://pod01-rec2.geo-name.backup.windowsazure.cn> (Azure 중국 21Vianet의 경우)
   - <https://pod01-rec2.geo-name.backup.windowsazure.us>(Azure 미국 정부의 경우)
   - <https://pod01-rec2.geo-name.backup.windowsazure.de>(Azure 독일의 경우)
-- 아웃바운드 포트 3260
+- 아웃 바운드 포트 53 (DNS), 443, 3260
 
 > [!NOTE]
 >

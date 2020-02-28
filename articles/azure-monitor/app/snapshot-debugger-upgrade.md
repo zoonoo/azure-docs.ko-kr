@@ -1,19 +1,17 @@
 ---
 title: Azure 애플리케이션 Insights 스냅숏 디버거 업그레이드
 description: Azure 앱 Services의 최신 버전 또는 Nuget 패키지를 통해 .NET 앱 용 스냅숏 디버거를 업그레이드 하는 방법
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: pharring
 ms.author: pharring
 ms.date: 03/28/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: d246fb36cc56a90faaf00c5b47ba69580a9c8a5d
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: 6991db6055ca8556adff67f194bac0f4aa04cb06
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74927183"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671395"
 ---
 # <a name="upgrading-the-snapshot-debugger"></a>스냅숏 디버거 업그레이드
 
@@ -27,7 +25,7 @@ Microsoft는 사용자의 데이터에 가장 적합 한 보안을 제공 하기
 
 사이트 확장을 사용 하 여 스냅숏 디버거를 사용 하도록 설정한 경우 다음 절차를 사용 하 여 업그레이드할 수 있습니다.
 
-1. Azure 포털에 로그인합니다.
+1. Azure Portal에 로그인합니다.
 2. Application Insights 및 스냅숏 디버거를 사용 하는 리소스로 이동 합니다. 예를 들어 웹 앱의 경우 App Service 리소스로 이동 합니다.
 
    ![DiagService01 이라는 개별 App Service 리소스의 스크린샷](./media/snapshot-debugger-upgrade/app-service-resource.png)
@@ -57,7 +55,7 @@ Microsoft는 사용자의 데이터에 가장 적합 한 보안을 제공 하기
     > [!NOTE]
     > 업그레이드 프로세스의 일부로 사이트가 다시 시작 됩니다.
 
-   ![App Service 모니터링 프롬프트 적용의 스크린샷 텍스트 상자에 "응용 프로그램 설정에 변경 내용을 적용 하 고 Application Insights 리소스를 웹 앱에 연결 하는 도구를 설치 합니다. 메시지가 표시 됩니다. 그러면 사이트가 다시 시작 됩니다. "활성 컨트롤러를 다시 시작하면 장치는 수동 컨트롤러에 장애 조치합니다.](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
+   ![App Service 모니터링 프롬프트 적용의 스크린샷 텍스트 상자에 "응용 프로그램 설정에 변경 내용을 적용 하 고 Application Insights 리소스를 웹 앱에 연결 하는 도구를 설치 합니다. 메시지가 표시 됩니다. 그러면 사이트가 다시 시작 됩니다. 계속하시겠습니까?”](./media/snapshot-debugger-upgrade/apply-monitoring-settings.png)
 
 9. **예** 를 클릭 하 여 변경 내용을 적용 하 고 프로세스가 완료 될 때까지 기다립니다.
 

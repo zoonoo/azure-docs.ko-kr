@@ -1,18 +1,17 @@
 ---
 title: 고객 관리 키 구성 Azure Monitor
 description: CMK (고객이 관리 하는 키)를 구성 하 여 Azure Key Vault 키를 사용 하 여 Log Analytics 작업 영역의 데이터를 암호화 하는 방법에 대 한 정보 및 단계입니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 2ea77be0a7aabefaf8f6ed9a5bd841ea1fdda263
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620319"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663950"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -95,7 +94,7 @@ CMK 구성 Application Insights 3 단계와 6 단계에 대 한 부록 콘텐츠
 > [!IMPORTANT]
 > 모든 API 요청은 요청 헤더에 전달자 권한 부여 토큰을 포함 해야 합니다.
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```rst
 GET
@@ -461,7 +460,7 @@ Key Vault에서 키를 업데이트 하 고 *클러스터* 리소스 *에서 새
 
   **응답**
 
-  200 OK
+  200 정상
 
 
 ## <a name="appendix"></a>부록

@@ -1,18 +1,17 @@
 ---
 title: Azure Log Analytics의 IT Service Management Connector와의 연결 지원 | Microsoft Docs
 description: 이 문서에서는 ITSM 제품/서비스를 Azure Monitor의 ITSMC(IT 서비스 관리 커넥터)와 연결하여 ITSM 작업 항목을 중앙에서 모니터링하고 관리하는 방법에 대한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: a4b8e1ca245d90018647577f338ed0833cbaf324
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: c6cad29b6cc392746a2e56323302521302835b2f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990286"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665870"
 ---
 # <a name="connect-itsm-productsservices-with-it-service-management-connector"></a>ITSM 제품/서비스를 IT Service Management Connector에 연결
 이 문서에서는 ITSM 제품/서비스와 Log Analytics의 ITSMC(IT 서비스 관리 커넥터) 사이 연결을 구성하여 사용자의 작업 항목을 중앙에서 관리하는 방법에 대한 정보를 제공합니다. ITSMC에 대한 자세한 내용은 [개요](../../azure-monitor/platform/itsmc-overview.md)를 참조하세요.
@@ -32,7 +31,7 @@ ms.locfileid: "76990286"
 
 다음 섹션에서는 System Center Service Manager 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -177,7 +176,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 섹션에서는 ServiceNow 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 다음 필수 조건이 충족되는지 확인합니다.
 - ITSMC가 설치되어 있습니다. 자세한 내용은 [IT Service Management Connector 솔루션 추가](../../azure-monitor/platform/itsmc-overview.md#adding-the-it-service-management-connector-solution)를 참조하세요.
 - ServiceNow 지원 버전: 뉴욕, 마드리드, 런던, Kingston, 자카르타, 이스탄불, 헬싱키, Geneva.
@@ -195,7 +194,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
     - [Geneva에 대해 OAuth 설정](https://docs.servicenow.com/bundle/geneva-servicenow-platform/page/administer/security/task/t_SettingUpOAuth.html)
 
 
-- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아보기](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
+- Microsoft Log Analytics 통합용 사용자 앱(ServiceNow 앱)을 설치합니다. [자세히 알아봅니다](https://store.servicenow.com/sn_appstore_store.do#!/store/application/ab0265b2dbd53200d36cdc50cf961980/1.0.1 ).
 - 설치된 사용자 앱에 대한 통합 사용자 역할을 만듭니다. 통합 사용자 역할을 만드는 방법에 대한 자세한 내용은 [여기](#create-integration-user-role-in-servicenow-app)에 나와 있습니다.
 
 ### <a name="connection-procedure"></a>**연결 절차**
@@ -283,7 +282,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 다음 섹션에서는 Provance 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 조건이 충족되는지 확인합니다.
 
@@ -336,7 +335,7 @@ Service Manager에 대해 ITSM 웹앱을 설정하려면 다음을 수행합니�
 
 다음 섹션에서는 Cherwell 제품을 Azure의 ITSMC에 연결하는 방법을 자세히 설명합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 다음 필수 조건이 충족되는지 확인합니다.
 

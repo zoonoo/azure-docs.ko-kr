@@ -1,18 +1,17 @@
 ---
 title: Azure의 모니터링 솔루션 인벤토리 | Microsoft Docs
 description: Azure Monitor의 모니터링 솔루션은 특정 문제 영역을 중심으로 피벗된 메트릭을 제공하는 논리, 시각화 및 데이터 취득 규칙의 컬렉션입니다.  이 문서에서는 Microsoft에서 제공 하는 모니터링 솔루션의 목록과 해당 방법 및 데이터 수집 빈도에 대 한 세부 정보를 제공 합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/26/2018
-ms.openlocfilehash: 9b0140b843d7da1b892463bff7d6014a3f9584ad
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7b88d957bce45bf518fc77584f1691de8010459a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75402017"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663133"
 ---
 # <a name="inventory-and-data-collection-details-for-monitoring-solutions-in-azure"></a>Azure의 모니터링 솔루션에 대 한 인벤토리 및 데이터 수집 세부 정보
 [모니터링 솔루션](solutions.md) 은 Azure의 서비스를 활용 하 여 특정 응용 프로그램 또는 서비스의 작업에 대 한 추가 통찰력을 제공 합니다. 모니터링 솔루션은 일반적으로 로그 데이터를 수집하고, 수집된 데이터를 분석하기 위한 쿼리 및 보기를 제공합니다. 사용하는 애플리케이션 및 서비스의 Azure Monitor에 모니터링 솔루션을 추가할 수 있습니다. 관리 솔루션은 일반적으로 무료로 제공되지만 데이터 수집 시 사용 요금이 발생할 수 있습니다.
@@ -39,15 +38,15 @@ ms.locfileid: "75402017"
 | **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | --- | --- | --- | --- | --- | --- | --- | --- |
 | [활동 로그 분석](../platform/activity-log-collect.md) | Azure | | | | | | 알림 시 |
-| [AD 평가](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7일 |
+| [AD 평가](ad-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
 | [AD 복제 상태](ad-replication-status.md) |Windows |&#8226; |&#8226; | | |&#8226; |5일 |
 | [에이전트 상태](solution-agenthealth.md) | Windows 및 Linux | &#8226; | &#8226; | | | &#8226; | 1분 |
 | [경고 관리](../platform/alert-management-solution.md)(Nagios) |Linux |&#8226; | | | | |도착 시 |
 | [경고 관리](../platform/alert-management-solution.md)(Zabbix) |Linux |&#8226; | | | | |1분 |
 | [경고 관리](../platform/alert-management-solution.md)(Operations Manager) |Windows | |&#8226; | |&#8226; |&#8226; |3분 |
-| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | n/a |
+| [Azure Site Recovery](../../site-recovery/site-recovery-overview.md) | Azure | | | | | | 해당 없음 |
 | [Application Insights 커넥터(사용되지 않음)](../platform/app-insights-connector.md) | Azure | | | |  |  | 알림 시 |
-| [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | n/a |
+| [Automation Hybrid Worker](../../automation/automation-hybrid-runbook-worker.md) | Windows | &#8226; | &#8226; |  |  |  | 해당 없음 |
 | [Azure Application Gateway 분석](azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
 | **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | [Azure 네트워크 보안 그룹 분석(사용되지 않음)](azure-networking-analytics.md) | Azure |  |  |  |  |  | 알림 시 |
@@ -64,7 +63,7 @@ ms.locfileid: "75402017"
 | **모니터링 솔루션** | **플랫폼** | **Microsoft 모니터링 에이전트** | **Operations Manager 에이전트** | **Azure Storage** | **Operations Manager 필요 여부** | **관리 그룹을 통해 전송되는 Operations Manager 에이전트 데이터** | **수집 빈도** |
 | [Service Fabric Analytics](../../service-fabric/service-fabric-diagnostics-oms-setup.md) |Windows | | |&#8226; | | |5분 |
 | [서비스 맵](service-map.md) | Windows 및 Linux | &#8226; | &#8226; |  |  |  | 15초 |
-| [SQL 평가](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7일 |
+| [SQL 평가](sql-assessment.md) |Windows |&#8226; |&#8226; | | |&#8226; |7 일 |
 | [SurfaceHub](surface-hubs.md) |Windows |&#8226; | | | | |도착 시 |
 | [System Center Operations Manager 평가(미리 보기)](scom-assessment.md) | Windows | &#8226; | &#8226; |  |  | &#8226; | 7일 |
 | [업데이트 관리](../../automation/automation-update-management.md) | Windows |&#8226; |&#8226; | | |&#8226; |하루에 최소 2회 및 업데이트를 설치하고 15분 후 |

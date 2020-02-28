@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 경고에 대해 자발적 마이그레이션 도구가 작동 하는 방식을 이해 합니다.
 description: 경고 마이그레이션 도구의 작동 원리를 이해 하 고 문제를 해결 합니다.
-author: yalavi
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/10/2019
 ms.author: yalavi
+author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 493fa4ac51bf593b7856b236c5d861ec029769d3
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 8cc77d13567910797cd519ac193b848f3ea434da
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680684"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665275"
 ---
 # <a name="understand-how-the-migration-tool-works"></a>마이그레이션 도구의 작동 원리 이해
 
@@ -93,7 +92,7 @@ ms.locfileid: "75680684"
 - 관찰 된 읽기 대기 시간
 - 관찰 된 쓰기 대기 시간
 - 서비스 가용성
-- Storage 용량
+- 스토리지 용량
 - 제한 된 요청
 - 총 요청 수
 
@@ -135,7 +134,7 @@ Http 2xx, Http 3xx, Http 400, Http 401, 내부 서버 오류, 서비스 가용�
 
 Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 다음과 같은 메트릭이 다음과 같이 동등한 메트릭에 매핑됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | AnonymousAuthorizationError| "ResponseType" = "AuthorizationError" 및 "Authentication" = "Anonymous" 차원이 포함 된 트랜잭션 메트릭| |
 | AnonymousClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 및 "Authentication" = "Anonymous" 인 트랜잭션 메트릭 | |
@@ -147,7 +146,7 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 | AuthorizationError | 차원이 "ResponseType" = "AuthorizationError" 인 트랜잭션 메트릭 | |
 | AverageE2ELatency | SuccessE2ELatency | |
 | AverageServerLatency | SuccessServerLatency | |
-| 용량 중심 | BlobCapacity | ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
+| 용량 | BlobCapacity | ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
 | ClientOtherError | 차원이 "ResponseType" = "ClientOtherError" 인 트랜잭션 메트릭  | |
 | ClientTimeoutError | 차원이 "ResponseType" = "ClientTimeOutError" 인 트랜잭션 메트릭 | |
 | ContainerCount | ContainerCount | ' Last ' 대신 ' average ' `aggregationType`를 사용 합니다. 메트릭은 Blob 서비스에만 적용 됩니다. |
@@ -172,7 +171,7 @@ Blob, 테이블, 파일 및 큐와 같은 저장소 계정 서비스의 경우 �
 
 Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | availability.availabilityMetric.value | availabilityResults/availabilityPercentage|   |
 | availability.durationMetric.value | availabilityResults/duration| 원래 임계값을 1000에 곱하여 클래식 메트릭의 단위는 초 단위이 고 새 임계값은 밀리초 단위입니다.  |
@@ -202,7 +201,7 @@ Application Insights에 대해 다음과 같은 메트릭이 표시 됩니다.
 
 Cosmos DB에 대해 다음과 같은 메트릭이 표시 됩니다.
 
-| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 의견|
+| 클래식 경고의 메트릭 | 새 경고에 해당 하는 메트릭 | 주석|
 |--------------------------|---------------------------------|---------|
 | AvailableStorage     |AvailableStorage|   |
 | 데이터 크기 | DataUsage| |

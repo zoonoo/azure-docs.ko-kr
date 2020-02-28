@@ -3,17 +3,16 @@ title: Azure platform logs 개요 | Microsoft Docs
 description: Azure 리소스 작업에 대 한 풍부 하 고 빈번한 데이터를 제공 하는 Azure Monitor 로그의 개요입니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/19/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 5f02368bfb0c084691376300980d4cdee0d9b3be
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: 89de6b3737c8a1e91832aba8f749078806b64e90
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530887"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659323"
 ---
 # <a name="overview-of-azure-platform-logs"></a>Azure platform 로그 개요
 플랫폼 로그는 Azure 리소스 및 해당 리소스가 종속 된 Azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 보존 하기 위해 특정 플랫폼 로그를 하나 이상의 대상으로 전달 하도록 구성 해야 하는 경우에도 자동으로 생성 됩니다. 이 문서에서는 제공 하는 정보와 수집 및 분석을 위해 구성 하는 방법을 비롯 하 여 플랫폼 로그의 개요를 제공 합니다.
@@ -39,7 +38,7 @@ ms.locfileid: "75530887"
 다양 한 Azure 플랫폼 로그를 보고 분석 하는 다양 한 옵션이 있습니다.
 
 - Azure Portal에서 활동 로그를 보고 PowerShell 및 CLI에서 이벤트에 액세스 합니다. 자세한 내용은 [Azure 활동 로그 이벤트 보기 및 검색](activity-log-view.md) 을 참조 하세요. 
-- Azure Portal에서 Azure Active Directory 보안 및 작업 보고서를 봅니다. [Azure Active Directory 보고서 란?을](../../active-directory/reports-monitoring/overview-reports.md) 참조 하세요.  참조하세요.
+- Azure Portal에서 Azure Active Directory 보안 및 작업 보고서를 봅니다. [Azure Active Directory 보고서 란?을](../../active-directory/reports-monitoring/overview-reports.md) 참조 하세요.  을 참조 하세요.
 - 리소스 로그는 지원 되는 Azure 리소스에 의해 자동으로 생성 되지만 [대상](#destinations)에 전송 하지 않는 한 볼 수 없습니다. 
 
 ## <a name="destinations"></a>Destinations

@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기 | Microsoft Docs
 description: 로그 데이터를 여러 다른 방법으로 표시하기 위한 Azure Monitor의 다양한 시각화에 대해 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: ca60ed68277486ca5ed7d7d90ad72506a4844936
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8a515f01bfa9f8ec579c51b806c997d79b629250
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398075"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670324"
 ---
 # <a name="creating-charts-and-diagrams-from-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리에서 차트 및 다이어그램 만들기
 
@@ -34,7 +33,7 @@ Heartbeat
 
 기본적으로 결과는 테이블로 표시됩니다.
 
-![Table](media/charts/table-display.png)
+![테이블](media/charts/table-display.png)
 
 더 나은 보기를표시 하려면 **차트**를 선택하고 **원형** 옵션을 선택하여 결과를 시각화합니다.
 
@@ -70,7 +69,7 @@ Perf
 ![참조선](media/charts/charts-and-diagrams-multiSeriesThreshold.png)
 
 ## <a name="multiple-dimensions"></a>여러 차원
-`summarize`의 `by` 절에 포함된 여러 식은 결과에 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
+`by`의 `summarize` 절에 포함된 여러 식은 결과에 값의 각 조합에 대해 하나씩 여러 행을 만듭니다.
 
 ```Kusto
 SecurityEvent

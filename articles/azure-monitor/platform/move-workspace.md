@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 Log Analytics 작업 영역 이동 | Microsoft Docs
 description: Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동 하는 방법에 대해 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/13/2019
-ms.openlocfilehash: 4baa65ca5dda6b266cd6c739225ebd01d011268c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9213ddf034e725f6e31c9280d47bd13e4703b3f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980094"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77659495"
 ---
 # <a name="move-a-log-analytics-workspace-to-different-subscription-or-resource-group"></a>Log Analytics 작업 영역을 다른 구독 또는 리소스 그룹으로 이동
 
@@ -35,7 +34,7 @@ ms.locfileid: "75980094"
 Automation 계정 연결을 해제 하기 전에 제거 해야 하는 솔루션은 다음과 같습니다.
 
 - 업데이트 관리
-- 변경 추적
+- 변경 내용 추적
 - 작업이 없는 동안 VM 시작/중지
 
 
@@ -82,7 +81,7 @@ Remove-AzResource -ResourceType 'Microsoft.OperationsManagement/solutions' -Reso
 
 ## <a name="move-your-workspace"></a>작업 영역 이동
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 다음 절차에 따라 Azure Portal를 사용 하 여 작업 영역을 이동할 수 있습니다.
 
 1. **Log Analytics 작업 영역** 메뉴를 열고 작업 영역을 선택 합니다.

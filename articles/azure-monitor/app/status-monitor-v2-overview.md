@@ -1,18 +1,16 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 개요 | Microsoft Docs
 description: Application Insights 에이전트에 대 한 개요입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 09/16/2019
-ms.openlocfilehash: 61c3721745550b43aea730d0bcd2230b0435ff53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 4a240bc62816a46bc37108777a8b081b74047738
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899607"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671174"
 ---
 # <a name="deploy-azure-monitor-application-insights-agent-for-on-premises-servers"></a>온-프레미스 서버에 대 한 Azure Monitor Application Insights 에이전트 배포
 
@@ -28,12 +26,12 @@ Application Insights 에이전트 (이전의 명명 된 상태 모니터 V2)는 
 
 ## <a name="powershell-gallery"></a>PowerShell 갤러리
 
-Application Insights 에이전트는 https://www.powershellgallery.com/packages/Az.ApplicationMonitor 에 있습니다.
+Application Insights 에이전트는 https://www.powershellgallery.com/packages/Az.ApplicationMonitor에 있습니다.
 
 ![PowerShell 갤러리](https://img.shields.io/powershellgallery/v/Az.ApplicationMonitor.svg?color=Blue&label=Current%20Version&logo=PowerShell&style=for-the-badge)
 
 
-## <a name="instructions"></a>지침
+## <a name="instructions"></a>Instructions
 - 간결한 코드 샘플을 가져오려면 [시작 지침](status-monitor-v2-get-started.md) 을 참조 하세요.
 - 시작 하는 방법에 대 한 심층 [정보는 자세한 지침](status-monitor-v2-detailed-instructions.md) 을 참조 하세요.
 

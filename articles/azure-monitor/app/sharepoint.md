@@ -1,18 +1,14 @@
 ---
 title: Application Insights를 사용하여 SharePoint 사이트 모니터링
 description: 새 계측 키를 사용하여 새 애플리케이션 모니터링 시작
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/11/2018
-ms.openlocfilehash: 041368d6310aca2183c7acbfe49d57d7e9683765
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 395e8d667985318f4a084428c6fd4c395ee8b956
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77048339"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671446"
 ---
 # <a name="monitor-a-sharepoint-site-with-application-insights"></a>Application Insights를 사용하여 SharePoint 사이트 모니터링
 Azure Application Insights는 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다. 여기에서는 SharePoint 사이트에 맞게 설정하는 방법을 알아봅니다.

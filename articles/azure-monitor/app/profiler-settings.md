@@ -1,24 +1,22 @@
 ---
 title: Azure Application Insights Profiler 설정 창 사용 | Microsoft Docs
 description: Profiler 상태 보기 및 프로파일링 세션 시작
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: b383ef8c92325b0ad6561bee9b654c78e4054338
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f66a23c0562ec9f1987bd119a45b7b767f2dfe46
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820482"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671633"
 ---
 # <a name="configure-application-insights-profiler"></a>Application Insights Profiler 구성
 
 ## <a name="updated-profiler-agent"></a>업데이트 된 프로파일러 에이전트
-트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 \DiagnosticServices (예: https://yourwebsite.scm.azurewebsites.net/diagnosticservices )의 끝에 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
+트리거 기능은 버전 2.6 이상의 프로파일러 에이전트 에서만 작동 합니다. Azure App Service를 실행 하는 경우 에이전트가 자동으로 업데이트 됩니다. 웹 사이트의 Kudu URL로 이동 하 고 \DiagnosticServices (예: https://yourwebsite.scm.azurewebsites.net/diagnosticservices)의 끝에 추가 하는 경우 실행 중인 에이전트의 버전을 확인할 수 있습니다. Application Insights Profiler Webjob의 버전은 2.6 이상 이어야 합니다. 웹 앱을 다시 시작 하 여 업그레이드를 강제로 수행할 수 있습니다. 
 
 VM 또는 클라우드 서비스에서 프로파일러를 실행 하는 경우 Windows Azure 진단 (WAD) 확장 버전 16.0.4 이상이 설치 되어 있어야 합니다. VM에 로그온 하 여 WAD의 버전을 확인 하 고이 디렉터리를 찾을 수 있습니다. C:\Packages\Plugins\Microsoft.Azure.Diagnostics.IaaSDiagnostics\1.16.0.4. 디렉터리 이름은 설치 된 WAD의 버전입니다. 새 버전을 사용할 수 있게 되 면 Azure VM 에이전트가 자동으로 WAD를 업데이트 합니다.
 
@@ -54,8 +52,8 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 |-|-|
 설정/해제 단추 | On:이 트리거에서 프로파일러를 시작할 수 있습니다. Off:이 트리거에서 프로파일러를 시작 하지 않습니다.
 메모리 임계값 | 이 메모리 비율을 사용 중인 경우 프로파일러가 시작 됩니다.
-기간 | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
-시간이 | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
+Duration | 트리거될 때 프로파일러가 실행 되는 시간을 설정 합니다.
+Cooldown | 프로파일러가 트리거된 후 메모리 또는 CPU 사용량을 다시 확인 하기 전에 프로파일러가 대기 하는 시간을 설정 합니다.
 
 ## <a name="recent-profiling-sessions"></a>최근 프로 파일링 세션
 페이지의이 섹션에서는 최근 프로 파일링 세션에 대 한 정보를 보여 줍니다. 프로 파일링 세션은 프로파일러 에이전트가 응용 프로그램을 호스팅하는 컴퓨터 중 하나에서 프로필을 가져오는 기간을 나타냅니다. 행 중 하나를 클릭 하 여 세션에서 프로필을 열 수 있습니다. 각 세션에 대해 다음을 보여 줍니다.
@@ -65,7 +63,7 @@ Azure 애플리케이션 Insights Profiler 설정 창을 열려면 Application I
 트리거한 사람 | 트리거, 지금 프로 파일링 또는 기본 샘플링을 통해 세션이 시작 된 방법입니다. 
 앱 이름 | 프로 파일링 된 응용 프로그램의 이름입니다.
 컴퓨터 인스턴스 | 프로파일러 에이전트가 실행 되는 컴퓨터의 이름입니다.
-Timestamp | 프로필을 캡처한 시간입니다.
+타임스탬프 | 프로필을 캡처한 시간입니다.
 Tracee | 개별 요청에 연결 된 추적 수입니다.
 CPU % | 프로파일러가 실행 되는 동안 사용 된 CPU의 백분율입니다.
 Ram | 프로파일러가 실행 되는 동안 사용 된 메모리의 비율입니다.

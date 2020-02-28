@@ -2,17 +2,16 @@
 title: 자발적 마이그레이션 도구를 사용 하 여 Azure Monitor에서 클래식 경고 마이그레이션
 description: 자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙을 마이그레이션하는 방법에 대해 알아봅니다.
 author: yanivlavi
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: c4ebb2e9572f1dcc9ade548a55fc44d7441e5a79
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 537d84639523a74cbd9403d4ad25c34a798b7061
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705584"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665105"
 ---
 # <a name="use-the-voluntary-migration-tool-to-migrate-your-classic-alert-rules"></a>자발적 마이그레이션 도구를 사용 하 여 클래식 경고 규칙 마이그레이션
 
@@ -77,7 +76,7 @@ Azure Portal에서 클래식 경고 규칙의 마이그레이션을 트리거하
 
 1. 마이그레이션이 완료 되거나 사용자의 조치가 필요한 경우 앞에서 제공한 주소로 전자 메일을 받게 됩니다. 포털의 마이그레이션 방문 페이지에서 상태를 주기적으로 확인할 수도 있습니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="why-is-my-subscription-listed-as-not-ready-for-migration"></a>내 구독이 마이그레이션 준비 되지 않은 것으로 표시 되는 이유는 무엇 인가요?
 

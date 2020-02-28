@@ -9,14 +9,14 @@ editor: ''
 ms.service: media-services
 ms.workload: ''
 ms.topic: reference
-ms.date: 01/07/2020
+ms.date: 02/25/2020
 ms.author: juliako
-ms.openlocfilehash: b1c094689c7669f03d5355be7a77b1836c90974c
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: d4a206bbddedfe9f23a943df27c6ac4b5fe17e8a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750864"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665752"
 ---
 # <a name="azure-event-grid-schemas-for-media-services-events"></a>Media Services 이벤트에 대한 Azure Event Grid 스키마
 
@@ -134,7 +134,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | previousState | 문자열 | 이벤트 전의 작업 상태입니다. |
 | state | 문자열 | 이 이벤트에서 알리는 직업의 새로운 상태입니다. 예를 들어 "예약 됨: 작업을 시작할 준비가 되었습니다." 또는 "완료 됨: 작업이 완료 되었습니다."와 같은 작업을 수행할 수 있습니다.|
@@ -204,7 +204,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | outputs | Array | 작업 출력을 가져옵니다.|
 
@@ -320,7 +320,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -328,18 +328,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
 | resultCode | 문자열 | 연결이 거부된 이유입니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-결과 코드는 다음과 같습니다.
-
-| 결과 코드 | Description |
-| ----------- | ----------- |
-| MPE_RTMP_APPID_AUTH_FAILURE | 잘못된 수집 URL입니다. |
-| MPE_INGEST_ENCODER_CONNECTION_DENIED | 인코더 IP가 IP 허용 목록에 구성되어 있지 않습니다. |
-| MPE_INGEST_RTMP_SETDATAFRAME_NOT_RECEIVED | 인코더에서 스트림에 대한 메타데이터를 보내지 않았습니다. |
-| MPE_INGEST_CODEC_NOT_SUPPORTED | 지정된 코덱이 지원되지 않습니다. |
-| MPE_INGEST_DESCRIPTION_INFO_NOT_RECEIVED | 해당 스트림에 대한 헤더를 받기 전에 조각을 받았습니다. |
-| MPE_INGEST_MEDIA_QUALITIES_EXCEEDED | 지정된 품질의 수가 최대 허용 한도를 초과합니다. |
-| MPE_INGEST_BITRATE_AGGREGATED_EXCEEDED | 집계된 비트 전송률이 최대 허용 한도를 초과합니다. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 RTMP 인코더에서 유효하지 않습니다. |
+[라이브 이벤트 오류 코드](live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 ### <a name="liveeventencoderconnected"></a>LiveEventEncoderConnected
 
@@ -367,7 +356,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 제공해야 합니다. |
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |
@@ -401,7 +390,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | streamId | 문자열 | 스트림 또는 연결에 대한 식별자입니다. 인코더 또는 고객이 이 ID를 수집 URL에 추가해야 합니다. |  
 | ingestUrl | 문자열 | 라이브 이벤트에서 제공하는 수집 URL입니다. |  
@@ -409,14 +398,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 | encoderPort | 문자열 | 이 스트림이 발생한 인코더의 포트입니다. |
 | resultCode | 문자열 | 인코더 연결이 끊어진 이유입니다. 정상적인 연결 끊기이거나 오류일 수 있습니다. 결과 코드는 다음 표에 나와 있습니다. |
 
-오류 결과 코드는 다음과 같습니다.
-
-| 결과 코드 | Description |
-| ----------- | ----------- |
-| MPE_RTMP_SESSION_IDLE_TIMEOUT | 허용된 시간 한도 동안 유휴 상태가 된 후 RTMP 세션 시간이 초과되었습니다. |
-| MPE_RTMP_FLV_TAG_TIMESTAMP_INVALID | 비디오 또는 오디오 FLVTag에 대한 타임스탬프가 RTMP 인코더에서 유효하지 않습니다. |
-| MPE_CAPACITY_LIMIT_REACHED | 데이터를 너무 빨리 보내는 인코더입니다. |
-| 알 수 없는 오류 코드 | 이러한 오류 코드는 메모리 오류에서 해시 맵의 중복 항목에 이르기까지 다양할 수 있습니다. |
+[라이브 이벤트 오류 코드](live-event-error-codes.md)에서 오류 결과 코드를 찾을 수 있습니다.
 
 정상적인 연결 끊기 결과 코드는 다음과 같습니다.
 
@@ -458,7 +440,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다. |
@@ -498,7 +480,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -537,7 +519,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | minLastTimestamp | 문자열 | 모든 트랙(오디오 또는 비디오) 중에서 마지막 타임스탬프의 최솟값입니다. |
 | typeOfTrackWithMinLastTimestamp | 문자열 | 마지막 타임스탬프가 최소인 트랙 유형(오디오 또는 비디오)입니다. |
@@ -573,7 +555,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | firstTimestamp | 문자열 | 비디오 유형의 트랙/품질 수준 중 하나에 대해 받은 타임스탬프입니다. |
 | firstDuration | 문자열 | 첫 번째 타임스탬프가 있는 데이터 청크의 기간입니다. |
@@ -615,7 +597,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -659,7 +641,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 데이터 개체의 속성은 다음과 같습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | trackType | 문자열 | 트랙 유형입니다(예: Audio/Video). |
 | trackName | 문자열 | 트랙의 이름입니다(인코더에서 제공하거나, RTMP의 경우 서버에서 *TrackType_Bitrate* 형식으로 생성함). |
@@ -673,7 +655,7 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 이벤트에는 다음과 같은 최상위 데이터가 있습니다.
 
-| 속성 | 유형 | Description |
+| 속성 | Type | Description |
 | -------- | ---- | ----------- |
 | 토픽 | 문자열 | EventGrid 항목입니다. 이 속성에는 Media Services 계정에 대한 리소스 ID가 있습니다. |
 | subject | 문자열 | Media Services 계정에 속한 Media Services 채널에 대한 리소스 경로입니다. topic과 subject를 연결하면 작업에 대한 리소스 ID가 제공됩니다. |
@@ -692,3 +674,4 @@ Media Services는 아래에 설명된 **라이브** 이벤트 유형도 내보�
 
 - [미디어 서비스 이벤트를 포함하는 EventGrid .NET SDK](https://www.nuget.org/packages/Microsoft.Azure.EventGrid/)
 - [Media Services 이벤트의 정의](https://github.com/Azure/azure-rest-api-specs/blob/master/specification/eventgrid/data-plane/Microsoft.Media/stable/2018-01-01/MediaServices.json)
+- [라이브 이벤트 오류 코드](live-event-error-codes.md)

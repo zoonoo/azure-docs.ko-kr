@@ -3,17 +3,16 @@ title: Azure 애플리케이션 Insights 로그 기반 메트릭 | Microsoft Doc
 description: 이 문서에는 지원 되는 집계 및 차원이 포함 된 Azure 애플리케이션 Insights 메트릭이 나열 됩니다. 로그 기반 메트릭에 대 한 세부 정보에는 기본 Kusto 쿼리 문이 포함 됩니다.
 author: vgorbenko
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 07/03/2019
 ms.author: vitalyg
 ms.subservice: application-insights
-ms.openlocfilehash: 847c56faae61483813286c46190764327e287783
-ms.sourcegitcommit: cf36df8406d94c7b7b78a3aabc8c0b163226e1bc
+ms.openlocfilehash: 12bc51e800ef5ccd4ad3c72d3860fb22bac5b749
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/09/2019
-ms.locfileid: "73887247"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664918"
 ---
 # <a name="application-insights-log-based-metrics"></a>로그 기반 메트릭 Application Insights
 
@@ -99,7 +98,7 @@ availabilityResults
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -115,7 +114,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -131,7 +130,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -147,7 +146,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -163,7 +162,7 @@ browserTimings
 
 |측정 단위|지원 되는 집계|미리 집계 된 차원|
 |---|---|---|
-|밀리초|평균, 최소값, 최대값|없음|
+|밀리초|평균, 최소값, 최대값|None|
 
 ```Kusto
 browserTimings
@@ -183,9 +182,9 @@ browserTimings
 
 이 메트릭은 브라우저에서 실행 중인 응용 프로그램 코드에서 throw 된 예외 수를 반영 합니다. ```trackException()``` Application Insights API 호출로 추적 되는 예외만 메트릭에 포함 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고 사항|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 exceptions
@@ -198,9 +197,9 @@ exceptions
 
 실패 한 종속성 호출 수입니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고 사항|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
-|개수|개수|없음|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
+|개수|개수|None|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
 ```Kusto
 dependencies
@@ -213,7 +212,7 @@ dependencies
 
 Application Insights에 대 한 예외를 기록할 때마다 SDK의 지 수 [예외 () 메서드가](../../azure-monitor/app/api-custom-events-metrics.md#trackexception) 호출 됩니다. 예외 메트릭에는 로깅된 예외의 수가 표시 됩니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고 사항|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스, 장치 유형|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -227,7 +226,7 @@ exceptions
 
 *실패로*표시 된 추적 된 서버 요청 수입니다. 기본적으로 Application Insights SDK는 HTTP 응답 코드 5xx 또는 4xx를 반환한 각 서버 요청을 실패 한 요청으로 자동으로 표시 합니다. [사용자 지정 원격 분석 이니셜라이저에서](../../azure-monitor/app/api-filtering-sampling.md#addmodify-properties-itelemetryinitializer)요청 원격 분석 항목의 *success* 속성을 수정 하 여이 논리를 사용자 지정할 수 있습니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고 사항|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 인스턴스, 클라우드 역할 이름, 실제 또는 가상 트래픽, 요청 성능, 응답 코드|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 
@@ -242,7 +241,7 @@ requests
 
 이 메트릭은 서버 예외의 수를 표시 합니다.
 
-|측정 단위|지원 되는 집계|미리 집계 된 차원|참고 사항|
+|측정 단위|지원 되는 집계|미리 집계 된 차원|메모|
 |---|---|---|---|
 |개수|개수|클라우드 역할 이름, 클라우드 역할 인스턴스|로그 기반 버전은 **Sum** 집계를 사용 합니다.|
 

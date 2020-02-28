@@ -1,18 +1,14 @@
 ---
 title: Application Insights에서 이벤트 카운터 | Microsoft Docs
 description: Application Insights에서 시스템 및 사용자 지정 .NET/.NET Core 카운터를 모니터링 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/20/2019
-ms.openlocfilehash: 5a47f5c2f9c9d4e22e8205853d85214997a2bea7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2094c012e86131073fc66be4f2ac2fb2e81ef4c1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406913"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663592"
 ---
 # <a name="eventcounters-introduction"></a>EventCounters 소개
 
@@ -28,7 +24,7 @@ Application Insights는 새로 릴리스된 nuget 패키지의 일부인 `EventC
 
 .NET Core 3.0에서 실행 되는 앱의 경우 다음 카운터가 SDK에 의해 자동으로 수집 됩니다. 카운터 이름은 "Category | 형식이 됩니다. Counter ".
 
-|범주 | 카운터|
+|Category | 카운터|
 |---------------|-------|
 |`System.Runtime` | `cpu-usage` |
 |`System.Runtime` | `working-set` |
@@ -130,7 +126,7 @@ customMetrics
 ## <a name="alerts"></a>경고
 다른 메트릭과 마찬가지로 이벤트 카운터가 지정한 한도를 벗어나면 경고를 [설정할](../../azure-monitor/app/alerts.md) 수 있습니다. [경고] 창을 열고 [경고 추가]를 클릭합니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="can-i-see-eventcounters-in-live-metrics"></a>라이브 메트릭의 EventCounters를 볼 수 있나요?
 

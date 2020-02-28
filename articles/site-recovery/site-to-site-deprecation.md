@@ -8,12 +8,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 02/25/2020
 ms.author: rajanaki
-ms.openlocfilehash: 68d975a1b8bb8d47011bb292d3cf897956b31712
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 208177d10e9002fafe2495710da229541a11a43e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623609"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661673"
 ---
 # <a name="deprecation-of-disaster-recovery-between-customer-managed-sites-with-vmm-using-azure-site-recovery"></a>Azure Site Recovery를 사용 하 여 고객이 관리 하는 사이트 (VMM) 간의 재해 복구 사용 중단
 
@@ -36,10 +36,8 @@ Site Recovery를 사용 하 여 System Center Virtual Machine Manager (SCVMM)에
 
 다음은 시나리오가 더 이상 사용 되지 않는 경우 고객이 DR 전략에 영향을 주지 않도록 하기 위해 선택할 수 있는 대안입니다. 
 
-- 옵션 1 (권장): [hyper-v 호스트에서 vm에 대 한 DR 대상으로 Azure 사용을 시작](hyper-v-azure-tutorial.md)하도록 선택 합니다.
+- 옵션 1 (권장): [DR 대상으로 Azure를 사용 하 여 시작](hyper-v-vmm-azure-tutorial.md)하도록 선택 합니다.
 
-    > [!IMPORTANT]
-    > 온-프레미스 환경에는 여전히 SCVMMM이 있지만 Hyper-v 호스트에 대 한 참조로 ASR를 구성 합니다.
 
 - 옵션 2: 기본 [Hyper-v 복제본 솔루션](https://docs.microsoft.com/windows-server/virtualization/hyper-v/manage/set-up-hyper-v-replica)을 사용 하 여 사이트 간 복제를 계속 하도록 선택 하지만 Azure Portal에서 Azure Site Recovery를 사용 하 여 DR 구성을 관리할 수는 없습니다. 
 
@@ -50,15 +48,11 @@ Site Recovery를 사용 하 여 System Center Virtual Machine Manager (SCVMM)에
 
 1. [VMMs와 연결 된 모든 가상 머신의 보호를 사용 하지 않도록 설정](site-recovery-manage-registration-and-protection.md#disable-protection-for-a-hyper-v-virtual-machine-replicating-to-secondary-vmm-server-using-the-system-center-vmm-to-vmm-scenario)합니다. **복제 사용 안 함 및 제거** 옵션을 사용 하거나 언급 된 스크립트를 실행 하 여 온-프레미스의 복제 설정이 정리 되었는지 확인 합니다. 
 
-2. [모든 VMM 서버 등록 취소](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server)
+2. [모든 VMM 서버](site-recovery-manage-registration-and-protection.md#unregister-a-vmm-server) 를 사이트 간 복제 구성에서 등록 취소 합니다.
 
 3. Vm의 복제를 사용 하도록 설정 하기 위해 [Azure 리소스를 준비](tutorial-prepare-azure-for-hyperv.md) 합니다.
 4. [온-프레미스 Hyper-v 서버 준비](hyper-v-prepare-on-premises-tutorial.md)
-
-> [!IMPORTANT]
-> VMM 준비의 단계를 실행할 필요가 없습니다.
-
-5. [Vm에 대 한 복제 설정](hyper-v-azure-tutorial.md)
+5. [VMM 클라우드에서 Vm에 대 한 복제 설정](hyper-v-vmm-azure-tutorial.md)
 6. 선택 사항 이지만 권장 사항: [DR 드릴 실행](tutorial-dr-drill-azure.md)
 
 Hyper-v 복제본 사용의 옵션 2로 이동 하도록 선택 하는 경우 다음 단계를 실행 합니다.

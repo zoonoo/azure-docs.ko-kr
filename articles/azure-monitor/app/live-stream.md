@@ -1,19 +1,15 @@
 ---
 title: 라이브 메트릭 스트림로 진단-Azure 애플리케이션 Insights
 description: 사용자 지정 메트릭으로 웹앱을 실시간으로 모니터링하고 오류, 추적 및 이벤트의 라이브 피드를 통해 문제를 진단할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/22/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 00fae22b91b2ad68392a21a29df3c2aec6bf5c5e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ea0d786d0b8b96941d791bcc8e92fad9a869c5f3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406742"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670103"
 ---
 # <a name="live-metrics-stream-monitor--diagnose-with-1-second-latency"></a>라이브 메트릭 스트림: 1초 대기 시간으로 모니터링 및 진단
 
@@ -45,7 +41,7 @@ ms.locfileid: "75406742"
 
 4. 필터에 고객 이름과 같은 중요한 데이터를 사용할 경우 [컨트롤 채널을 보호](#secure-the-control-channel)합니다.
 
-### <a name="no-data-check-your-server-firewall"></a>데이터가 없으세요? 서버 방화벽을 확인합니다.
+### <a name="no-data-check-your-server-firewall"></a>데이터가 없나요? 서버 방화벽을 확인합니다.
 
 [라이브 메트릭 스트림의 나가는 포트](../../azure-monitor/app/ip-addresses.md#outgoing-ports)가 서버의 방화벽에서 열려 있는지 확인합니다.
 
@@ -56,7 +52,7 @@ ms.locfileid: "75406742"
 |대기 시간|데이터가 1초 내에 표시됨|몇 분에 걸쳐 집계됨|
 |보존 없음|데이터가 차트에 있는 동안 지속된 후 삭제됨|[데이터가 90일 동안 유지됨](../../azure-monitor/app/data-retention-privacy.md#how-long-is-the-data-kept)|
 |주문형|라이브 메트릭을 여는 동안 데이터가 스트리밍됨|SDK가 설치되고 사용될 때마다 데이터가 전송됨|
-|체험판|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
+|무료|라이브 스트림 데이터 무료|[가격 책정](../../azure-monitor/app/pricing.md)에 따라 다름
 |샘플링|선택한 모든 메트릭 및 카운터가 전송되고 오류 및 스택 추적이 샘플링되며 TelemetryProcessors가 적용되지 않음|이벤트가 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)될 수 있음|
 |컨트롤 채널|필터 제어 신호가 SDK로 전송되며 이 채널을 보호하는 것이 좋습니다.|한 가지 방법은 포털에 대 한 통신입니다.|
 
@@ -204,7 +200,7 @@ services.ConfigureTelemetryModule<QuickPulseTelemetryModule> ((module, o) => mod
 
 ## <a name="troubleshooting"></a>문제 해결
 
-데이터가 없으세요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
+데이터가 없나요? 응용 프로그램이 보호 된 네트워크에 있는 경우: 라이브 메트릭 스트림 다른 Application Insights 원격 분석과 다른 IP 주소를 사용 합니다. 방화벽에서 [해당 포트](../../azure-monitor/app/ip-addresses.md)가 열려 있는지 확인합니다.
 
 ## <a name="next-steps"></a>다음 단계
 * [Application Insights를 사용하여 사용량 모니터링](../../azure-monitor/app/usage-overview.md)

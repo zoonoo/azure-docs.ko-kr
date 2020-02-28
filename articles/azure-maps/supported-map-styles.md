@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: timlt
-ms.openlocfilehash: 9cdfd0d029057e36e010203b7c35a5aafee4b574
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: a65f20e04603403a1d3a180e364626d5b4440661
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77208287"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664518"
 ---
 # <a name="azure-maps-supported-map-styles"></a>Azure Maps에서 지원되는 지도 스타일
 Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타일을 지원합니다.
@@ -52,7 +52,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 ## <a name="satellite_road_labels"></a>satellite_road_labels
 이 지도 스타일은 위성 및 항공 이미지 위에 겹쳐진 도로 및 레이블의 하이브리드입니다.
 
-![satellite_road_labels 지도 스타일](./media/supported-map-styles/satellite_road_labels.png)
+![satellite_road_labels 지도 스타일](./media/supported-map-styles/satellite-road-labels.png)
 
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
@@ -61,7 +61,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 ## <a name="grayscale_dark"></a>grayscale_dark
 **짙은 회색조**는 도로 지도 스타일의 어두운 버전입니다.
 
-![gray_scale 지도 스타일](./media/supported-map-styles/grayscale_dark.png)
+![gray_scale 지도 스타일](./media/supported-map-styles/grayscale-dark.png)
 
 **적용 가능한 API:**
 * [지도 이미지](https://docs.microsoft.com/rest/api/maps/render/getmapimage)
@@ -73,7 +73,7 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 ## <a name="grayscale_light"></a>grayscale_light
 **회색조 라이트** 는도로 지도 스타일의 조명 버전입니다.
 
-![회색조 연한 지도 스타일](./media/supported-map-styles/grayscale_light.png)
+![회색조 연한 지도 스타일](./media/supported-map-styles/grayscale-light.png)
 
 **적용 가능한 API:**
 * 웹 SDK 맵 컨트롤
@@ -99,6 +99,14 @@ Azure Maps는 아래 설명된 대로 여러 가지 기본 제공 지도 스타�
 * 웹 SDK 맵 컨트롤
 * Android 맵 컨트롤
 
+## <a name="high_contrast_dark"></a>high_contrast_dark
+
+**high_contrast_dark** 는 다른 스타일 보다 대비가 높은 짙은 지도 스타일입니다.
+
+![고대비 어둡게 지도 스타일](./media/supported-map-styles/high-contrast-dark.png)
+
+**적용 가능한 API:**
+* 웹 SDK 맵 컨트롤
 
 ## <a name="next-steps"></a>다음 단계
 

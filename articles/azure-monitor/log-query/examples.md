@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리 예제 | Microsoft Docs
 description: Kusto 쿼리 언어를 사용한 Azure Monitor의 로그 쿼리 예제입니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/01/2019
-ms.openlocfilehash: 8850aef8b5d45f236385551a1455e6fe7b540340
-ms.sourcegitcommit: b2fb32ae73b12cf2d180e6e4ffffa13a31aa4c6f
+ms.openlocfilehash: 9bfadf55e4f68bb7188b27e4ef5bc03e3955f375
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/05/2019
-ms.locfileid: "73614454"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662051"
 ---
 # <a name="azure-monitor-log-query-examples"></a>Azure Monitor 로그 쿼리 예제
 이 문서에는 [Kusto 쿼리 언어](log-query-overview.md)를 사용하여 Azure Monitor에서 여러 형식의 로그 데이터를 검색하는 [쿼리](/azure/kusto/query/)의 다양한 예제가 포함되어 있습니다. 여기서 소개하는 예제에서는 여러 가지 방법으로 데이터를 통합하고 분석하므로, 이러한 샘플을 활용하면 고유한 요구 사항을 충족하는 데 사용할 수 있는 여러 전략을 파악할 수 있습니다.  

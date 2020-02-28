@@ -1,20 +1,16 @@
 ---
 title: Azure Application Insights의 원격 분석 샘플링 | Microsoft Docs
 description: 제어에서 원격 분석의 양을 유지하는 방법입니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/17/2020
 ms.reviewer: vitalyg
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 9fda3bb0188a2030572ee686ff5a942aca61ea36
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: fc9db23f7733f97ca207e834d4543fbdb1b9db5c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989980"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671497"
 ---
 # <a name="sampling-in-application-insights"></a>Application Insights의 샘플링
 
@@ -38,10 +34,10 @@ ms.locfileid: "76989980"
 |-|-|-|-|
 | ASP.NET | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
 | ASP.NET Core | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-aspnet-core-applications) | [예](#configuring-fixed-rate-sampling-for-aspnet-core-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Azure Function | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 아닙니다. | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Java | 아닙니다. | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| Python | 아닙니다. | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
-| 나머지 | 아닙니다. | 아닙니다. | [예](#ingestion-sampling) |
+| Azure 기능 | [예 (기본적으로 설정)](#configuring-adaptive-sampling-for-azure-functions) | 예 | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Java | 예 | [예](#configuring-fixed-rate-sampling-for-java-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| Python | 예 | [예](#configuring-fixed-rate-sampling-for-opencensus-python-applications) | 다른 샘플링이 적용 되지 않는 경우에만 |
+| 나머지 | 예 | 예 | [예](#ingestion-sampling) |
 
 > [!NOTE]
 > 이 페이지의 대부분에 대 한 정보는 Application Insights Sdk의 현재 버전에 적용 됩니다. 이전 버전의 Sdk에 대 한 자세한 내용은 [아래 섹션을 참조](#older-sdk-versions)하세요.
@@ -353,7 +349,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env, Telemetr
 > 메트릭 내보내기에서 고정 률 샘플링을 사용할 수 없습니다. 즉, 사용자 지정 메트릭은 샘플링을 구성할 수 없는 유일한 원격 분석 유형입니다. 메트릭 내보내기는 추적 하는 모든 원격 분석을 보냅니다.
 
 #### <a name="fixed-rate-sampling-for-tracing"></a>추적을 위한 고정 률 샘플링 ####
-`Tracer` 구성의 일부로 `sampler`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 `ProbabilitySampler` 사용 됩니다. `ProbabilitySampler`는 기본적으로 1/10000의 속도로 사용 됩니다. 즉, 1만 요청 중 하나가 Application Insights으로 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
+`sampler` 구성의 일부로 `Tracer`를 지정할 수 있습니다. 명시적 샘플러를 제공 하지 않으면 기본적으로 `ProbabilitySampler` 사용 됩니다. `ProbabilitySampler`는 기본적으로 1/10000의 속도로 사용 됩니다. 즉, 1만 요청 중 하나가 Application Insights으로 전송 됩니다. 샘플링 속도를 지정하려면 아래를 참조하세요.
 
 샘플링 비율을 지정 하려면 `Tracer`에서 샘플링 비율이 0.0과 1.0 사이인 샘플러를 지정 하는지 확인 합니다. 샘플링 률 1.0은 100%를 나타내므로 모든 요청은 Application Insights에 대 한 원격 분석으로 전송 됩니다.
 
@@ -486,7 +482,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 근사치의 정확도는 주로 구성된 샘플링 비율에 따라 다릅니다. 또한 아주 많은 사용자에게서 많은 양의 일반적으로 비슷한 요청을 처리하는 애플리케이션에 대해 정확도가 증가합니다. 반면에 상당한 부하가 있을 때 작동하지 않는 애플리케이션의 경우 이러한 애플리케이션이 일반적으로 할당량 내에 있으면서 제한에서 데이터 손실이 발생하지 않고 해당 원격 분석을 모두 보낼 수 있기에 샘플링은 필요하지 않습니다. 
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 *ASP.NET 및 ASP.NET Core Sdk의 기본 샘플링 동작은 무엇 인가요?*
 
@@ -510,7 +506,7 @@ union requests,dependencies,pageViews,browserTimings,exceptions,traces
 
 *원격 분석을 두 번 이상 샘플링할 수 있나요?*
 
-* 아닙니다. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다.
+* 아니요. 항목이 이미 샘플링 된 경우 샘플링 고려 사항에서 항목을 무시 SamplingTelemetryProcessors. 수집 샘플링의 경우에도 마찬가지입니다. SDK 자체에서 이미 샘플링 된 항목에는 샘플링을 적용 하지 않습니다.
 
 *샘플링은 왜 간단히 "각 원격 분석 형식의 X 퍼센트를 수집"하지 않습니까?*
 

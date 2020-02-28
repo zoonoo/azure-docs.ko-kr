@@ -1,18 +1,16 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 상세 지침 | Microsoft Docs
 description: Application Insights 에이전트를 시작 하는 방법에 대 한 자세한 지침입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 3b053b7876494a3b2e6f392850c0323b56b1c3ec
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: cd5ca5039b537859d5b31c901ed1f93877ecb629
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230261"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671208"
 ---
 # <a name="application-insights-agent-formerly-named-status-monitor-v2-detailed-instructions"></a>Application Insights 에이전트 (이전의 이름이 지정 된 상태 모니터 v2): 자세한 지침
 
@@ -36,7 +34,7 @@ https://docs.microsoft.com/powershell/module/microsoft.powershell.security/set-e
 )정보를 참조 하세요.
 - 명령: `Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope Process`.
 - 선택적 매개 변수:
-    - `-Force`. 확인 메시지를 무시 합니다.
+    - `-Force`입니다. 확인 메시지를 무시 합니다.
 
 **예제 오류**
 
@@ -86,8 +84,8 @@ SerializationVersion           1.1.0.1
     - 참조: [install-packageprovider](https://docs.microsoft.com/powershell/module/packagemanagement/install-packageprovider?view=powershell-6).
     - 명령: `Install-PackageProvider -Name NuGet -MinimumVersion 2.8.5.201`.
     - 선택적 매개 변수:
-        - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-Force`. 확인 메시지를 무시 합니다.
+        - `-Proxy`입니다. 요청에 대 한 프록시 서버를 지정 합니다.
+        - `-Force`입니다. 확인 메시지를 무시 합니다.
     
     NuGet이 설정 되지 않은 경우이 메시지가 표시 됩니다.
         
@@ -104,7 +102,7 @@ SerializationVersion           1.1.0.1
     - 참조: [set-psrepository](https://docs.microsoft.com/powershell/module/powershellget/set-psrepository?view=powershell-6).
     - 명령: `Set-PSRepository -Name "PSGallery" -InstallationPolicy Trusted`.
     - 선택적 매개 변수:
-        - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
+        - `-Proxy`입니다. 요청에 대 한 프록시 서버를 지정 합니다.
 
     PowerShell 갤러리 신뢰할 수 없는 경우이 메시지가 표시 됩니다.
 
@@ -121,8 +119,8 @@ SerializationVersion           1.1.0.1
     - 참조: [PowerShellGet을 설치](/powershell/scripting/gallery/installing-psget)합니다.
     - 명령: `Install-Module -Name PowerShellGet`.
     - 선택적 매개 변수:
-        - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-Force`. "이미 설치 됨" 경고를 무시 하 고 최신 버전을 설치 합니다.
+        - `-Proxy`입니다. 요청에 대 한 프록시 서버를 지정 합니다.
+        - `-Force`입니다. "이미 설치 됨" 경고를 무시 하 고 최신 버전을 설치 합니다.
 
     최신 버전의 PowerShellGet을 사용 하지 않는 경우이 오류가 표시 됩니다.
     
@@ -145,10 +143,10 @@ SerializationVersion           1.1.0.1
     - 참조: [Install-Module](https://docs.microsoft.com/powershell/module/powershellget/install-module?view=powershell-6).
     - 명령: `Install-Module -Name Az.ApplicationMonitor`.
     - 선택적 매개 변수:
-        - `-Proxy`. 요청에 대 한 프록시 서버를 지정 합니다.
-        - `-AllowPrerelease`. 알파 및 베타 릴리스를 설치할 수 있습니다.
-        - `-AcceptLicense`. "라이선스 수락" 프롬프트를 무시 합니다.
-        - `-Force`. "신뢰할 수 없는 리포지토리" 경고를 무시 합니다.
+        - `-Proxy`입니다. 요청에 대 한 프록시 서버를 지정 합니다.
+        - `-AllowPrerelease`입니다. 알파 및 베타 릴리스를 설치할 수 있습니다.
+        - `-AcceptLicense`입니다. "라이선스 수락" 프롬프트를 무시 합니다.
+        - `-Force`입니다. "신뢰할 수 없는 리포지토리" 경고를 무시 합니다.
 
 ## <a name="download-and-install-the-module-manually-offline-option"></a>수동으로 모듈 다운로드 및 설치 (오프 라인 옵션)
 
@@ -156,7 +154,7 @@ SerializationVersion           1.1.0.1
 
 ### <a name="manually-download-the-latest-nupkg-file"></a>최신 nupkg 파일 수동으로 다운로드
 
-1. https://www.powershellgallery.com/packages/Az.ApplicationMonitor로 이동합니다.
+1. [https://editor.swagger.io](https://www.powershellgallery.com/packages/Az.ApplicationMonitor) 로 이동합니다.
 2. **버전 기록** 테이블에서 파일의 최신 버전을 선택 합니다.
 3. **설치 옵션**아래에서 **수동 다운로드**를 선택 합니다.
 

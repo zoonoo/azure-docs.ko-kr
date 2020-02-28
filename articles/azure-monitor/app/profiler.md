@@ -1,19 +1,17 @@
 ---
 title: Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링 | Microsoft Docs
 description: Application Insights Profiler를 사용하여 Azure App Service에 라이브 앱을 프로파일링합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: d463732fc8e8f488851a57fe520f138b101eb6cf
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: ba9a2aca73dbdb8de298b68670fd6ab16f810a4d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899951"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671545"
 ---
 # <a name="profile-live-azure-app-service-apps-with-application-insights"></a>Application Insights를 사용하여 라이브 Azure App Service 앱 프로파일링
 
@@ -45,7 +43,7 @@ Application Insights Profiler App Services 런타임의 일부로 미리 설치 
 Azure App Service에 대 한 앱 설정을 만들어 Application Insights Profiler를 사용 하도록 설정할 수 있습니다. 위에 표시 된 옵션을 사용 하는 페이지는 이러한 앱 설정을 만듭니다. 그러나 템플릿이나 다른 방법을 사용 하 여 이러한 설정의 생성을 자동화할 수 있습니다. 이러한 설정은 Application Insights 리소스가 Azure App Service와 다른 구독에 있는 경우에도 작동 합니다.
 프로파일러를 사용 하도록 설정 하는 데 필요한 설정은 다음과 같습니다.
 
-|앱 설정    | Value    |
+|앱 설정    | 값    |
 |---------------|----------|
 |APPINSIGHTS_INSTRUMENTATIONKEY         | Application Insights 리소스의 iKey    |
 |APPINSIGHTS_PROFILERFEATURE_VERSION | 1.0.0 |
@@ -71,7 +69,7 @@ Azure App Service에 대 한 앱 설정을 만들어 Application Insights Profil
 
 성능 문제를 가능한 한 빨리 검색하려면 모든 앱에서 Profiler를 사용하도록 설정하는 것이 좋습니다.
 
-WebDeploy를 사용 하 여 웹 응용 프로그램에 변경 내용을 배포 하는 경우 Profiler의 파일을 삭제할 수 있습니다. 배포 하는 동안 App_Data 폴더가 삭제 되는 것을 제외 하 여 삭제를 방지할 수 있습니다. 
+WebDeploy를 사용 하 여 웹 응용 프로그램에 변경 내용을 배포 하는 경우 Profiler의 파일을 삭제할 수 있습니다. 배포 하는 동안 삭제 되지 않도록 App_Data 폴더를 제외 하 여 삭제를 방지할 수 있습니다. 
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -1,24 +1,20 @@
 ---
 title: Azure Application Insights를 사용하는 OpenCensus Go 추적 | Microsoft Docs
 description: OpenCensus Go 추적을 로컬 전달자 및 Application Insights와 통합하는 지침을 제공합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 09/15/2018
-ms.openlocfilehash: ef67801fee574ae43d83af650d6b715e12426c7e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ddb8dfbf14f2c75e4d16693076e56a711d8861ad
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432553"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669984"
 ---
 # <a name="collect-distributed-traces-from-go-preview"></a>Go(미리 보기)에서 분산 추적 수집
 
 이제 Application Insights는 [OpenCensus](https://opencensus.io) 및 새로운 [로컬 전달자](./opencensus-local-forwarder.md)와의 통합을 통해 Go 애플리케이션의 분산 추적을 지원합니다. 이 문서에서는 Go에 대해 OpenCensus를 설정하고 추적 데이터를 Application Insights로 가져오는 프로세스를 단계별로 안내합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure 구독이 필요합니다.
 - Go를 설치해야 합니다. 이 문서에서는 버전 1.11 [Go 다운로드](https://golang.org/dl/)를 사용합니다.
@@ -208,7 +204,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
     하나의 메서드 호출만 추적했으므로 애플리케이션 맵은 흥미롭지 않습니다. 하지만 애플리케이션은 훨씬 분산된 애플리케이션을 시각화하도록 확장될 수 있습니다.
 
-   ![Application Map](media/opencensus-go/application-map.png)
+   ![애플리케이션 맵](media/opencensus-go/application-map.png)
 
 4. **성능 조사**를 선택하여 자세한 성능 분석을 수행하고 성능 저하의 근본 원인을 확인합니다.
 

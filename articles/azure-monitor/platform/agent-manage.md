@@ -1,18 +1,16 @@
 ---
-title: Azure Log Analytics 에이전트 관리 | Microsoft Docs
+title: Azure Log Analytics 에이전트 관리
 description: 이 문서에서는 컴퓨터에 배포 된 Log Analytics Windows 또는 Linux 에이전트의 수명 주기 동안 일반적으로 수행 하는 다양 한 관리 작업에 대해 설명 합니다.
-ms.service: azure-monitor
-ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/14/2019
-ms.openlocfilehash: 7e9725c2a33bd63b7ce6751f346da17eb68fe6f7
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4d0ceacd37748e9761903d02fd7e052d70b10e15
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75364784"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668692"
 ---
 # <a name="managing-and-maintaining-the-log-analytics-agent-for-windows-and-linux"></a>Windows 및 Linux용 Log Analytics 에이전트 관리 및 유지 관리
 
@@ -22,7 +20,7 @@ Azure Monitor에서 Log Analytics Windows 또는 Linux 에이전트의 초기 �
 
 Windows 및 Linux 용 Log Analytics 에이전트는 VM이 실행 되는 배포 시나리오 및 환경에 따라 수동으로 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. 다음 메서드를 사용 하 여 에이전트를 업그레이드할 수 있습니다.
 
-| 환경 | 설치 방법 | 업그레이드 방법 |
+| Environment | 설치 방법 | 업그레이드 방법 |
 |--------|----------|-------------|
 | Azure VM | Windows/Linux 용 Log Analytics 에이전트 VM 확장 | *AutoUpgradeMinorVersion* 속성을 **false**로 설정 하 여 옵트아웃 (opt out) 하도록 Azure Resource Manager 템플릿을 구성 하지 않은 경우 에이전트는 기본적으로 자동으로 업그레이드 됩니다. |
 | 사용자 지정 Azure VM 이미지 | Windows/Linux 용 Log Analytics 에이전트 수동 설치 | Vm을 최신 버전으로 업데이트 하려면 Windows installer 패키지를 실행 하는 명령줄 이나 Linux 자동 압축 풀기 및 설치 가능 셸 스크립트 번들에서 수행 해야 합니다.|
@@ -58,7 +56,7 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 4. **Microsoft Monitoring Agent 설정** 대화 상자에서 **동의** 함을 클릭 하 여 사용권 계약에 동의 합니다.
 
-5. **Microsoft Monitoring Agent 설치** 대화 상자에서 **업그레이드**를 클릭합니다. 상태 페이지에 업그레이드 진행률이 표시됩니다.
+5. **Microsoft Monitoring Agent 설치** 대화 상자에서 **업그레이드**를 클릭 합니다. 상태 페이지에 업그레이드 진행률이 표시됩니다.
 
 6. **Microsoft Monitoring Agent 구성이 성공적으로 완료** 된 경우 페이지가 표시 되 면 **마침**을 클릭 합니다.
 
@@ -68,7 +66,7 @@ Windows VM의 에이전트를 Log Analytics VM 확장을 사용 하 여 설치 �
 
 2. 에이전트 설치 파일을 추출하려면 관리자 권한 명령 프롬프트에서 `MMASetup-<platform>.exe /c`를 실행합니다. 그러면 파일을 추출할 경로를 묻은 메시지가 표시됩니다. `MMASetup-<platform>.exe /c /t:<Full Path>` 인수를 전달하여 경로를 지정할 수도 있습니다.
 
-3. 다음 명령을 실행합니다. 여기에서 D:\는 업그레이드 로그 파일의 위치입니다.
+3. 다음 명령을 실행 합니다. 여기서 D:\ 업그레이드 로그 파일의 위치입니다.
 
     ```dos
     setup.exe /qn /l*v D:\logs\AgentUpgrade.log AcceptEndUserLicenseAgreement=1

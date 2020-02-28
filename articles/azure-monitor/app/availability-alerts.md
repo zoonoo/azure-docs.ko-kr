@@ -1,19 +1,17 @@
 ---
 title: Azure 애플리케이션 Insights를 사용 하 여 가용성 경고 설정 | Microsoft Docs
 description: Application Insights에서 웹 테스트를 설정합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: a1637ac82c33c2a541bcec9f2848a248c29d56ca
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: e0c1a93ef663762bec199abc5aa7eabbc821168d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77654956"
 ---
 # <a name="availability-alerts"></a>가용성 경고
 
@@ -26,7 +24,7 @@ ms.locfileid: "74872675"
 ![환경 만들기](./media/availability-alerts/create-test.png)
 
 > [!NOTE]
->  [새로 통합된 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 사용하여 경고 규칙 심각도 및 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups)이 포함된 알림 기본 설정은 경고 환경에서 구성**되어야 합니다**. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
+>  [새 통합 경고](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-overview-unified-alerts)를 사용 하면 경고 환경에서 [작업 그룹](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) 을 포함 하는 경고 규칙 심각도 및 알림 기본 설정을 구성 **해야** 합니다. 다음 단계 없이도 포털 내 알림을 받게 됩니다.
 
 1. 가용성 테스트를 저장한 후 세부 정보 탭에서 방금 만든 테스트 옆에 있는 줄임표를 클릭합니다. "경고 편집"을 클릭합니다.
 
