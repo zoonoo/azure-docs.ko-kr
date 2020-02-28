@@ -1,24 +1,22 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoring를 사용 하지 않습니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
+description: 에이전트 API 참조를 Application Insights 합니다. Disable-ApplicationInsightsMonitoring. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: e30b9757600bbc4a9baf3db00534e3457a6574a5
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 0678186012678a68fa80a23685f8b346c8c5b859
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899780"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671293"
 ---
 # <a name="application-insights-agent-api-disable-applicationinsightsmonitoring"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoring
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 대상 컴퓨터에서 모니터링을 사용 하지 않도록 설정 합니다.
 이 cmdlet은 IIS Applicationhost.config의 편집 내용을 제거 하 고 레지스트리 키를 제거 합니다.
@@ -26,13 +24,13 @@ ms.locfileid: "72899780"
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ```powershell
 PS C:\> Disable-ApplicationInsightsMonitoring
 ```
 
-## <a name="parameters"></a>parameters 
+## <a name="parameters"></a>매개 변수 
 
 ### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 표시 합니다.

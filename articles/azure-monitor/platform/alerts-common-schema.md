@@ -1,18 +1,15 @@
 ---
 title: Azure monitor 경고에 대 한 일반적인 경고 스키마
 description: 일반적인 경고 스키마 이해, 사용 해야 하는 이유 및 사용 방법
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
+ms.subservice: alerts
 ms.date: 03/14/2019
-ms.openlocfilehash: ff5c0d96bd4bc87f36a69ca7e8014e118ac7b7bf
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 1445e8cf38b2694146fc8749ba5e77f2297de969
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72552461"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668182"
 ---
 # <a name="common-alert-schema"></a>일반 경고 스키마
 
@@ -34,10 +31,10 @@ ms.locfileid: "72552461"
 
 일반적인 경고 스키마는 주로 경고 알림에 생성 됩니다. 표시 되는 향상 된 기능은 다음과 같습니다.
 
-| 실행력 | 향상된 기능|
+| 작업 | 개선 사항|
 |:---|:---|
-| SMS | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
-| 이메일 | 일관 되 고 자세한 전자 메일 템플릿으로, 문제를 한눈에 쉽게 진단할 수 있습니다. 포함 된 딥-포털의 경고 인스턴스와 영향을 받는 리소스에 대 한 링크를 통해 신속 하 게 재구성 프로세스로 이동할 수 있습니다. |
+| sms | 모든 경고 유형에 대 한 일관 된 SMS 템플릿입니다. |
+| Email | 일관 되 고 자세한 전자 메일 템플릿으로, 문제를 한눈에 쉽게 진단할 수 있습니다. 포함 된 딥-포털의 경고 인스턴스와 영향을 받는 리소스에 대 한 링크를 통해 신속 하 게 재구성 프로세스로 이동할 수 있습니다. |
 | 웹 후크/논리 앱/a p i/Azure 함수/자동화 Runbook | 모든 경고 유형에 대해 일관 된 JSON 구조를 사용 하 여 다양 한 경고 유형에 서 통합을 쉽게 빌드할 수 있습니다. |
 
 새 스키마를 사용 하 여 Azure Portal 및 Azure 모바일 앱에 대 한 보다 다양 한 경고 소비 환경을 제공할 수도 있습니다. 

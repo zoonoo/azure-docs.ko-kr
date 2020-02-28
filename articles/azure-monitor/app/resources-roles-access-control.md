@@ -1,25 +1,21 @@
 ---
 title: Azure Application Insights에서 리소스, 역할 및 액세스 제어 | Microsoft Docs
 description: 조직 Insights의 소유자, 참여자 및 읽기 권한자입니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/14/2019
-ms.openlocfilehash: 28eb7e490890b46a4025a6cf62e13b364bd7b6dd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 617134c523148e713f7d34b46e0fbf6ae862591f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432355"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671531"
 ---
 # <a name="resources-roles-and-access-control-in-application-insights"></a>Application Insights에서 리소스, 역할 및 액세스 제어
 
 [Microsoft Azure에서 역할 기반 액세스 제어](../../role-based-access-control/role-assignments-portal.md)를 사용 하 여 Azure [Application Insights][start]에서 데이터에 대 한 읽기 및 업데이트 액세스를 제어할 수 있습니다.
 
 > [!IMPORTANT]
-> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아보기](#access).
+> 리소스 자체가 아닌 애플리케이션 리소스가 속한 **리소스 그룹 또는 구독** 의 사용자에게 액세스 권한을 할당합니다. **Application Insights 구성 요소 기여자** 역할을 할당합니다. 이렇게 하면 애플리케이션 리소스와 함께 웹 테스트 및 경고에 대한 액세스를 통합적으로 제어할 수 있습니다. [자세히 알아봅니다](#access).
 
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]

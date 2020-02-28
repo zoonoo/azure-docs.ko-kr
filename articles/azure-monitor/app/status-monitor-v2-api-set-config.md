@@ -1,18 +1,16 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. Set-ApplicationInsightsMonitoringConfig. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 45dcd2374fc5be40f86d403f8daccf4a6f1d6997
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 1226b3e10adf786ed3335844a5d3f4e530911705
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77189435"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671242"
 ---
 # <a name="application-insights-agent-api-set-applicationinsightsmonitoringconfig"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringConfig
 

@@ -1,18 +1,16 @@
 ---
 title: Application Insights를 사용 하 여 AKS (Azure Kubernetes Service) 또는 기타 Kubernetes 호스팅된 응용 프로그램 모니터링-Azure Monitor | Microsoft Docs
 description: Azure Monitor는 Kubernetes 클러스터에서 service 메시 기술 인 Istio를 사용 하 여 Kubernetes 호스팅된 응용 프로그램에 대 한 응용 프로그램 모니터링을 제공 합니다. 이렇게 하면 클러스터에서 실행 중인 pod에서 들어오고 나가는 요청과 관련 된 원격 분석을 Application Insights 수집할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: tokaplan
 ms.author: alkaplan
 ms.date: 04/25/2019
-ms.openlocfilehash: a7821db85d4218cbccb6c10f12ecbc624f2702fe
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15c75d4add9615df6c42aa6121557659e54354d0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432514"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666789"
 ---
 # <a name="zero-instrumentation-application-monitoring-for-kubernetes-hosted-applications"></a>Kubernetes 호스팅된 응용 프로그램에 대 한 제로 계측 응용 프로그램 모니터링
 
@@ -26,7 +24,7 @@ Azure Monitor은 이제 Kubernetes 호스팅된 앱에 대 한 기본 응용 프
 > [!NOTE]
 > 이는 Kubernetes에서 응용 프로그램 모니터링을 수행 하는 다양 한 방법 중 하나입니다. 또한 서비스 메시 없이 [APPLICATION INSIGHTS SDK](../../azure-monitor/azure-monitor-app-hub.yml) 를 사용 하 여 Kubernetes에서 호스트 되는 모든 앱을 계측할 수 있습니다. SDK를 사용 하 여 응용 프로그램을 계측 하지 않고 Kubernetes를 모니터링 하려면 아래 방법을 사용할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Kubernetes 클러스터](https://docs.microsoft.com/azure/aks/concepts-clusters-workloads)입니다.
 - *Kubectl*를 실행 하는 클러스터에 대 한 콘솔 액세스
@@ -41,7 +39,7 @@ Kubernetes 호스트 된 앱에 대해 제로 계측 응용 프로그램 모니�
 - [라이브 스트림 메트릭](../../azure-monitor/app/live-stream.md)
 - [대시보드](../../azure-monitor/app/overview-dashboard.md)
 - [메트릭 탐색기](../../azure-monitor/platform/metrics-getting-started.md)
-- [Distributed-tracing](../../azure-monitor/app/distributed-tracing.md)
+- [분산-추적](../../azure-monitor/app/distributed-tracing.md)
 - [종단 간 트랜잭션 모니터링](../../azure-monitor/learn/tutorial-performance.md#identify-slow-server-operations)
 
 ## <a name="installation-steps"></a>설치 단계
@@ -74,7 +72,7 @@ kubectl label namespace <my-app-namespace> istio-injection=enabled
 
 1. [ *Application Insights 어댑터* 릴리스](https://github.com/Microsoft/Application-Insights-Istio-Adapter/releases/)를 다운로드 하 고 압축을 풉니다.
 2. 릴리스 폴더 안에 있는 */src/kubernetes/* 로 이동 합니다.
-3. Edit *application-insights-istio-mixer-adapter-deployment.yaml*
+3. *응용 프로그램 편집-정보-istio-믹서-배포. yaml*
     - *ISTIO_MIXER_PLUGIN_AI_INSTRUMENTATIONKEY* 환경 변수의 값을 편집 하 여 원격 분석을 포함 하는 Azure Portal에 Application Insights 리소스의 계측 키를 포함 합니다.
     - 필요한 경우 *ISTIO_MIXER_PLUGIN_WATCHLIST_NAMESPACES* 환경 변수의 값을 편집 하 여 모니터링을 사용 하도록 설정할 쉼표로 구분 된 네임 스페이스 목록을 포함 합니다. 모든 네임 스페이스를 모니터링 하려면 비워 둡니다.
 4. 다음을 실행 하 여 *src/kubernetes/* 아래에 있는 *모든* yaml 파일을 적용 합니다 (여전히 */src/kubernetes/* 안에 있어야 함).

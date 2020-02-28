@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리의 집계 | Microsoft Docs
 description: 데이터를 분석하는 유용한 방법을 제공하는 Azure Monitor 로그 쿼리의 집계 함수에 대해 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 86b84e76b4716c1fddda23a6d52c65c0700c5663
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: d164c53e7e2be55f3cede389901a256ba388808d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900424"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670307"
 ---
 # <a name="aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 집계
 
@@ -84,9 +83,9 @@ Heartbeat
 |RemoteIPCountry  | distinct_computers  |
 ------------------|---------------------|
 |미국    | 19                  |
-|캐나다           | 3                   |
+|Canada           | 3                   |
 |아일랜드          | 0                   |
-|영국   | 0                   |
+|United Kingdom   | 0                   |
 |네덜란드      | 2                   |
 
 

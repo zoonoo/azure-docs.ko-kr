@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링 | Microsoft Docs
 description: Active Directory 복제 상태 솔루션 팩은 Active Directory 환경에서 복제 실패가 있는지를 정기적으로 모니터링합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/24/2018
-ms.openlocfilehash: 31e6d0c8b374bd494ae8fda36f4f38aabb1ac96b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: bfc9572e8b21692a386c510ffd3409c571eff8f4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667179"
 ---
 # <a name="monitor-active-directory-replication-status-with-azure-monitor"></a>Azure Monitor를 사용하여 Active Directory 복제 상태 모니터링
 
@@ -27,7 +26,7 @@ AD 복제 상태 솔루션은 복제 오류에 대 한 Active Directory 환경�
 ## <a name="installing-and-configuring-the-solution"></a>솔루션 설치 및 구성
 다음 정보를 사용하여 솔루션을 설치하고 구성합니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 * AD 복제 상태 솔루션에는 Windows 용 Log Analytics 에이전트 (Microsoft Monitoring Agent (MMA) 라고도 함)가 설치 된 각 컴퓨터에 지원 되는 버전의 .NET Framework 4.6.2 이상이 설치 되어 있어야 합니다.  에이전트는 System Center 2016-Operations Manager, Operations Manager 2012 R2 및 Azure Monitor에서 사용 됩니다.
 * 이 솔루션은 Windows Server 2008 및 2008 R2, Windows Server 2012 및 2012 R2 및 Windows Server 2016을 실행하는 도메인 컨트롤러를 지원합니다.

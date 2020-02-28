@@ -1,18 +1,14 @@
 ---
 title: Windows 데스크톱 앱의 사용량 및 성능 모니터링
 description: Application Insights를 사용하여 Windows 데스크톱 앱의 사용량 및 성능을 분석합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/29/2019
-ms.openlocfilehash: a9dfc32a0f33db5639d5f74667a90a248dc358a1
-ms.sourcegitcommit: 87efc325493b1cae546e4cc4b89d9a5e3df94d31
+ms.openlocfilehash: 8234b9ba2c92fc64cfa8f598db99954e00caab45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/29/2019
-ms.locfileid: "73052466"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670834"
 ---
 # <a name="monitoring-usage-and-performance-in-classic-windows-desktop-apps"></a>클래식 Windows 데스크톱 앱에서 사용량 및 성능 모니터링
 
@@ -24,7 +20,7 @@ ms.locfileid: "73052466"
 3. Visual Studio에서 앱 프로젝트의 NuGet 패키지를 편집하고 Microsoft.ApplicationInsights.WindowsServer를 추가합니다. (또는 표준 원격 분석 수집 모듈 없이 API를 사용하려면 Microsoft.ApplicationInsights를 선택합니다.)
 4. 코드에서 계측 키를 설정합니다.
    
-    `TelemetryConfiguration.Active.InstrumentationKey = "` *키* `";`
+    *키* `";` `TelemetryConfiguration.Active.InstrumentationKey = "`
    
     또는 ApplicationInsights.config에서(표준 원격 분석 패키지 중 하나를 설치한 경우).
    

@@ -1,19 +1,17 @@
 ---
 title: Azure Application Insights 사용 코호트 | Microsoft Docs
 description: 공통점이 있는 다양한 사용자, 세션, 이벤트 또는 작업의 집합을 분석합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 04/10/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 27b57477712c61fc97ae31ac353647896cca18af
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0c552e8f3e732c49da02b2f5704fb9cf312fb3e8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406312"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671089"
 ---
 # <a name="application-insights-cohorts"></a>Application Insights 코호트
 
@@ -122,7 +120,7 @@ ms.locfileid: "75406312"
 
 4. 코호트를 저장하고 이름을 지정합니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 _특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용자 도구에서이 코 호트를 비교 하 여 해당 국가/지역에 대 한 필터를 설정 하기만 하면 다른 결과가 표시 됩니다. 굳이?_
 
@@ -131,7 +129,7 @@ _특정 국가/지역에서 코 호트 사용자를 정의 했습니다. 사용�
 * 코호트 버전은 현재 시간 범위에서 영국으로부터 하나 이상의 이벤트를 전송한 사용자의 모든 이벤트를 표시합니다. 국가 또는 지역별로 분할하면 많은 국가와 지역이 표시될 수 있습니다.
 * 필터 버전은 영국의 이벤트만 표시합니다. 하지만 국가 또는 지역별로 분할해도 영국만 표시됩니다.
 
-## <a name="learn-more"></a>자세히 알아보기
+## <a name="learn-more"></a>자세한 정보
 
 * [분석 쿼리 언어](https://go.microsoft.com/fwlink/?linkid=856587)
 * [사용자, 세션, 이벤트](usage-segmentation.md)

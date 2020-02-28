@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor로 리소스 쿼리 | Microsoft Docs
 description: 이 문서에서는 구독의 여러 작업 영역과 특정 App Insights 앱에서 리소스를 쿼리하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/05/2019
-ms.openlocfilehash: 0eaaf1157bf49068958bc07d17a23fc31dd99de0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 4740034bd970f42833125fa43bfdf72f710ac147
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365498"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670273"
 ---
 # <a name="perform-cross-resource-log-queries-in-azure-monitor"></a>Azure Monitor에서 리소스 간 로그 쿼리 수행  
 
@@ -53,7 +52,7 @@ ms.locfileid: "75365498"
 
 * Azure Resource ID – Azure에서 정의한 작업 영역의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다.  작업 영역의 형: */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/workspaces/componentName*.  
 
-    예:
+    다음은 그 예입니다.
     ``` 
     workspace("/subscriptions/e427519-5645-8x4e-1v67-3b84b59a1985/resourcegroups/ContosoAzureHQ/providers/Microsoft.OperationalInsights/workspaces/contosoretail-it").Update | count
     ```
@@ -84,7 +83,7 @@ Application Insights에서 애플리케이션 식별은 *app(Identifier)* 식으
 
 * Azure Resource ID – Azure에서 정의한 앱의 고유 ID입니다. 리소스 이름이 모호한 경우 리소스 ID를 사용합니다. 형식은 */subscriptions/subscriptionId/resourcegroups/resourceGroup/providers/microsoft.OperationalInsights/components/componentName*입니다.  
 
-    예:
+    다음은 그 예입니다.
     ```
     app("/subscriptions/b459b4f6-912x-46d5-9cb1-b43069212ab4/resourcegroups/Fabrikam/providers/microsoft.insights/components/fabrikamapp").requests | count
     ```
@@ -104,7 +103,7 @@ union Update, workspace("contosoretail-it").Update, workspace("b459b4u5-912x-46d
 ## <a name="using-cross-resource-query-for-multiple-resources"></a>여러 리소스에 리소스 간 쿼리 사용
 리소스 간 쿼리를 사용하여 여러 Log Analytics 작업 영역 및 Application Insights 리소스에서 데이터의 상관 관계를 지정하는 경우 쿼리는 복잡하고 유지 관리하기 어려워질 수 있습니다. [Azure Monitor 로그 쿼리의 함수](functions.md)를 활용하여 쿼리 리소스 범위에서 쿼리 논리를 분리합니다. 이는 쿼리 구조를 간소화합니다. 다음 예제에서는 여러 Application Insights 리소스를 모니터링하고 애플리케이션 이름으로 실패한 요청의 수를 시각화하는 방법을 보여줍니다. 
 
-Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 _applicationsScoping_을 사용하여 [함수로 쿼리를 저장합니다](functions.md#create-a-function).
+Application Insights 리소스의 범위를 참조하는 다음과 같은 쿼리를 만듭니다. `withsource= SourceApp` 명령은 로그를 전송한 애플리케이션 이름을 지정하는 열을 추가합니다. 별칭 [applicationsScoping](functions.md#create-a-function)을 사용하여 _함수로 쿼리를 저장합니다_.
 
 ```Kusto
 // crossResource function that scopes my Application Insights resources

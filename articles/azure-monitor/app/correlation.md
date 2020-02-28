@@ -1,19 +1,17 @@
 ---
 title: Azure Application Insights 원격 분석 상관 관계 | Microsoft 문서
 description: Application Insights 원격 분석 상관 관계
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 06/07/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: bc73dfb1c4dc77abe0bd135ecf572fa05ddf6322
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 06897fffda490cdfcbb2a9cf6f55c7945e8afda0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951329"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672058"
 ---
 # <a name="telemetry-correlation-in-application-insights"></a>Application Insights의 원격 분석 상관 관계
 
@@ -47,7 +45,7 @@ Application Insights는 분산 원격 분석 상관 관계에 대한 [데이터 
 
 결과에서 모든 원격 분석 항목은 루트 `operation_Id`를 공유합니다. 페이지에서 Ajax 호출이 수행 될 때 새 고유 ID (`qJSXU`)는 종속성 원격 분석에 할당 되며 페이지 보기의 ID는 `operation_ParentId`사용 됩니다. 그러면 서버 요청에서 Ajax ID를 `operation_ParentId`로 사용합니다.
 
-| itemType   | 이름                      | ID           | operation_ParentId | operation_Id |
+| itemType   | name                      | ID           | operation_ParentId | operation_Id |
 |------------|---------------------------|--------------|--------------------|--------------|
 | pageView   | Stock page                |              | STYz               | STYz         |
 | dependency | GET /Home/Stock           | qJSXU        | STYz               | STYz         |
@@ -208,9 +206,9 @@ public void ConfigureServices(IServiceCollection services)
 |------------------------------------   |-------------------------------------------------  |
 | `Request`, `PageView`                 | `Span`(`span.kind = server` 사용)                  |
 | `Dependency`                          | `Span`(`span.kind = client` 사용)                  |
-| `Request` 및 `Dependency`의 `Id`    | `SpanId`                                          |
+| `Id` 및 `Request`의 `Dependency`    | `SpanId`                                          |
 | `Operation_Id`                        | `TraceId`                                         |
-| `Operation_ParentId`                  | `ChildOf` 유형의 `Reference`(상위 범위)   |
+| `Operation_ParentId`                  | `Reference` 유형의 `ChildOf`(상위 범위)   |
 
 자세한 내용은 [Application Insights 원격 분석 데이터 모델](../../azure-monitor/app/data-model.md)을 참조 하세요.
 
@@ -267,7 +265,7 @@ Azure Monitor 전송 된 요청 항목을 살펴보면 추적 헤더 정보를 �
 
 `operation_ParentId` 필드는 `<trace-id>.<parent-id>`형식으로 되어 있으며, `trace-id`와 `parent-id` 모두 요청에서 전달 된 추적 헤더에서 가져옵니다.
 
-### <a name="log-correlation"></a>로그 상관관계
+### <a name="log-correlation"></a>로그 상관 관계
 
 OpenCensus Python을 사용 하면 로그 레코드에 추적 ID, 범위 ID 및 샘플링 플래그를 추가 하 여 로그의 상관 관계를 지정할 수 있습니다. OpenCensus [로깅 통합](https://pypi.org/project/opencensus-ext-logging/)을 설치 하 여 이러한 특성을 추가 합니다. 다음 특성은 Python `LogRecord` 개체 `traceId`, `spanId`및 `traceSampled`에 추가 됩니다. 이는 통합 후에 생성 된로 거에 대해서만 적용 됩니다.
 

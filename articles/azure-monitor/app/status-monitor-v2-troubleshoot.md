@@ -1,18 +1,16 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 문제 해결 및 알려진 문제 | Microsoft Docs
 description: Application Insights 에이전트 및 문제 해결 예제에 대 한 알려진 문제입니다. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. 온-프레미스, Vm 또는 Azure에서 호스트 되는 ASP.NET 웹 앱에서 작동 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 30172bf65be52ba1ddd2b9127c3e2b5a284d48dc
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 217629ba5c386557455cc2d2b8bd47f85fa8f84e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899583"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671157"
 ---
 # <a name="troubleshooting-application-insights-agent-formerly-named-status-monitor-v2"></a>Application Insights 에이전트 문제 해결 (이전에 명명 된 상태 모니터 v2)
 
@@ -26,9 +24,9 @@ ms.locfileid: "72899583"
 
 이러한 Dll이 bin 디렉터리에 있는 경우 모니터링이 실패할 수 있습니다.
 
-- Microsoft ApplicationInsights .dll
-- TelemetryCorrelation.
-- DiagnosticSource.
+- Microsoft.ApplicationInsights.dll
+- Microsoft.AspNet.TelemetryCorrelation.dll
+- System.Diagnostics.DiagnosticSource.dll
 
 이러한 Dll 중 일부는 앱에서 사용 하지 않는 경우에도 Visual Studio 기본 앱 템플릿에 포함 되어 있습니다.
 문제 해결 도구를 사용 하 여 증상 동작을 확인할 수 있습니다.
@@ -133,14 +131,14 @@ Cmdlet          Start-ApplicationInsightsMonitoringTrace           0.4.0      Az
 
 ### <a name="collect-etw-logs-by-using-perfview"></a>PerfView를 사용 하 여 ETW 로그 수집
 
-#### <a name="setup"></a>설정
+#### <a name="setup"></a>설치 프로그램
 
 1. [GitHub](https://github.com/Microsoft/perfview/releases)에서 Perfview PerfView64를 다운로드 합니다.
 2. PerfView64를 시작 합니다.
-3. **고급 옵션**을 확장 합니다.
+3. **고급 옵션**을 확장합니다.
 4. 다음 확인란의 선택을 취소 합니다.
-    - **우편번호**
-    - **결합**
+    - **Zip**
+    - **병합**
     - **.NET 기호 컬렉션**
 5. 이러한 **추가 공급자**를 설정 합니다. `61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,925fa42b-9ef6-5fa7-10b8-56449d7a2040,f7d60e07-e910-5aca-bdd2-9de45b46c560,7c739bb9-7861-412e-ba50-bf30d95eae36,61f6ca3b-4b5f-5602-fa60-759a2a2d1fbd,323adc25-e39b-5c87-8658-2c1af1a92dc5,252e28f4-43f9-5771-197a-e8c7e750a984`
 

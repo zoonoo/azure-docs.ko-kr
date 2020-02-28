@@ -11,12 +11,12 @@ ms.date: 11/12/2019
 ms.author: rortloff
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 305b17a9118bddac53b19462cb8c3be887395311
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: c715b2328f66c58fa744235c8762b31fd0b30d1f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74923592"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669492"
 ---
 # <a name="manage-compute-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 컴퓨팅 관리
 Azure SQL Data Warehouse에서 컴퓨팅 리소스를 관리하는 방법에 대해 알아봅니다. 데이터 웨어하우스를 일시 중지하여 비용을 절약하거나 성능 요구 사항에 맞게 데이터 웨어하우스의 크기를 조정합니다. 
@@ -31,7 +31,7 @@ SQL Data Warehouse는 스토리지와 컴퓨팅을 분리하여 각각의 성능
 
 SQL Data Warehouse는 크기 조정 작업을 수행하기 위해 먼저 들어오는 모든 쿼리를 종료한 다음, 트랜잭션을 롤백하여 일관된 상태를 보장합니다. 크기 조정은 트랜잭션 롤백이 완료된 후에만 수행됩니다. 크기 조정 작업의 경우 시스템은 스토리지 계층을 컴퓨팅 노드에서 분리하고, 컴퓨팅 노드를 추가한 다음, 스토리지 계층을 컴퓨팅 계층에 다시 연결합니다. 각 데이터 웨어하우스는 컴퓨팅 노드에 고르게 배포되어 60개의 배포로 저장됩니다. 컴퓨팅 노드를 더 추가할수록 컴퓨팅 능력이 더 많이 추가됩니다. 컴퓨팅 노드 수가 늘어나면 컴퓨팅 노드당 배포 수가 줄어들어 쿼리에 대한 컴퓨팅 능력이 더 많이 제공됩니다. 마찬가지로, 데이터 웨어하우스 단위를 줄이면 컴퓨팅 노드 수가 줄어들어 쿼리에 대한 컴퓨팅 리소스가 줄어듭니다.
 
-다음 표에서는 데이터 웨어하우스 단위를 변경할 때 컴퓨팅 노드당 배포 수가 변경되는 방식을 보여 줍니다.  6,000DWU는 60개 컴퓨팅 노드를 제공하며, 100DWU보다 훨씬 높은 쿼리 성능을 달성합니다. 
+다음 표에서는 데이터 웨어하우스 단위를 변경할 때 컴퓨팅 노드당 배포 수가 변경되는 방식을 보여 줍니다.  DW30000c는 60 계산 노드를 제공 하 고 DW100c 보다 훨씬 더 높은 쿼리 성능을 제공 합니다. 
 
 | DWU(데이터 웨어하우스 단위)  | \#의 컴퓨팅 노드 | 노드당 배포 수 \# |
 | -------- | ---------------- | -------------------------- |
@@ -114,7 +114,7 @@ SQL Data Warehouse를 일시 중지하거나 크기를 조정하는 경우 일�
 데이터 웨어하우스 상태를 확인하려면 [PowerShell](quickstart-scale-compute-powershell.md#check-data-warehouse-state) 또는 [T-SQL](quickstart-scale-compute-tsql.md#check-data-warehouse-state) 빠른 시작을 참조하세요. 또한 [REST API](sql-data-warehouse-manage-compute-rest-api.md#check-database-state)를 사용하여 데이터 웨어하우스 상태를 확인할 수도 있습니다.
 
 
-## <a name="permissions"></a>권한
+## <a name="permissions"></a>사용 권한
 
 데이터 웨어하우스 크기를 조정하려면 [ALTER DATABASE](/sql/t-sql/statements/alter-database-azure-sql-data-warehouse)에서 설명하는 권한이 필요합니다.  일시 중지하고 다시 시작하려면 [SQL DB 참가자](../role-based-access-control/built-in-roles.md#sql-db-contributor) 권한, 특히 Microsoft.Sql/servers/databases/action이 필요합니다.
 

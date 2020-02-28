@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights에서 Search 사용 | Microsoft Docs
 description: 웹앱에서 전송된 원시 원격 분석을 검색하고 필터링합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/30/2019
-ms.openlocfilehash: 77cd0a8d0c1a93e7dc1db931e987a172d31978ef
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 8039a55784f63030f330d6c1e2061e99b8b63bbf
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678008"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669678"
 ---
 # <a name="using-search-in-application-insights"></a>Application Insights에서 Search 사용
 
@@ -96,7 +92,7 @@ Search 창은 웹 포털과 비슷한 기능을 제공합니다.
 
 하위 문자열이 아닌 전체 단어를 검색합니다. 인용 부호를 사용하여 특수 문자를 묶습니다.
 
-| string | 찾을 수 *없음* | 있음 |
+| String | 찾을 수 *없음* | 있음 |
 | --- | --- | --- |
 | HomeController.About |`home`<br/>`controller`<br/>`out` | `homecontroller`<br/>`about`<br/>`"homecontroller.about"`|
 |미국|`Uni`<br/>`ted`|`united`<br/>`states`<br/>`united AND states`<br/>`"united states"`

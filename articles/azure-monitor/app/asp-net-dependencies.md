@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights의 종속성 추적 | Microsoft Docs
 description: Application Insights를 사용 하 여 온-프레미스 또는 Microsoft Azure 웹 응용 프로그램에서 종속성 호출을 모니터링 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/25/2019
-ms.openlocfilehash: 5b37ce1ba3d8a9d56cb2204c9db89d0e47d9996e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8fb1550a3f1d4b3336384139b049b60e23e648d7
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666244"
 ---
 # <a name="dependency-tracking-in-azure-application-insights"></a>Azure 애플리케이션 Insights에서 종속성 추적 
 
@@ -20,7 +16,7 @@ ms.locfileid: "76277675"
 
 ## <a name="automatically-tracked-dependencies"></a>자동으로 추적 되는 종속성
 
-.NET 및 .NET Core 용 Application Insights Sdk는 종속성을 자동으로 수집 하는 원격 분석 모듈인 `DependencyTrackingTelemetryModule`와 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다.`DependencyTrackingTelemetryModule` 는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget  패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용 하는 경우 자동으로 가져옵니다.
+.NET 및 .NET Core 용 Application Insights Sdk는 종속성을 자동으로 수집 하는 원격 분석 모듈인 `DependencyTrackingTelemetryModule`와 함께 제공 됩니다. 이 종속성 컬렉션은 연결 된 공식 문서에 따라 구성 된 경우 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 및 [ASP.NET Core](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 응용 프로그램에 대해 자동으로 사용 하도록 설정 됩니다. `DependencyTrackingTelemetryModule`는 [이](https://www.nuget.org/packages/Microsoft.ApplicationInsights.DependencyCollector/) nuget 패키지로 제공 되며 nuget 패키지 `Microsoft.ApplicationInsights.Web` 또는 `Microsoft.ApplicationInsights.AspNetCore`중 하나를 사용할 때 자동으로 가져옵니다.
 
  `DependencyTrackingTelemetryModule`는 현재 다음 종속성을 자동으로 추적 합니다.
 
@@ -101,7 +97,7 @@ ASP.NET 응용 프로그램의 경우 응용 프로그램 계측 엔진을 필�
 | Azure 웹앱 |웹 앱 제어판에서 [Application Insights 블레이드를 열고](../../azure-monitor/app/azure-web-apps.md) .NET에서 SQL 명령을 사용 하도록 설정 합니다. |
 | IIS 서버 (Azure VM, 온-프레미스 등) | 상태 모니터 PowerShell 모듈을 사용 하 여 [계측 엔진을 설치](../../azure-monitor/app/status-monitor-v2-api-enable-instrumentation-engine.md) 하 고 IIS를 다시 시작 합니다. |
 | Azure 클라우드 서비스 | [StatusMonitor를 설치 하기 위한 시작 작업](../../azure-monitor/app/cloudservices.md#set-up-status-monitor-to-collect-full-sql-queries-optional) 추가 <br> 응용 프로그램은 [ASP.NET](https://docs.microsoft.com/azure/azure-monitor/app/asp-net) 또는 [ASP.NET Core 응용 프로그램](https://docs.microsoft.com/azure/azure-monitor/app/asp-net-core) 에 대 한 NuGet 패키지를 설치 하 여 빌드 시에 applicationinsights SDK로 등록 됩니다. |
-| IIS Express | 지원하지 않음
+| IIS Express | 지원되지 않음
 
 위의 경우 계측 엔진의 유효성을 검사 하는 올바른 방법은 수집 된 `DependencyTelemetry`의 SDK 버전이 ' rddp ' 인지 확인 하는 것입니다. ' rdddsd ' 또는 ' rddf '은 종속성이 DiagnosticSource 또는 EventSource 콜백을 통해 수집 되므로 전체 SQL 쿼리가 캡처되지 않습니다.
 
@@ -182,7 +178,7 @@ ASP.NET 응용 프로그램의 경우 응용 프로그램 계측 엔진을 필�
       on operation_Id
 ```
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="how-does-automatic-dependency-collector-report-failed-calls-to-dependencies"></a>*자동 종속성 수집기에서 종속성에 대 한 실패 한 호출을 보고 하는 방법*
 

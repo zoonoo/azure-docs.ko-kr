@@ -1,18 +1,17 @@
 ---
 title: Azure Log Analytics에서 데이터 확인 및 분석 | Microsoft Docs
 description: Log Analytics 로그 검색 사용자가 Azure Monitor 로그 쿼리 환경을 사용하도록 지원합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/16/2019
-ms.openlocfilehash: a8d0469d57901f53d8e615f800b5d804944163fa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cc7fc94162ed101d06fbbbc4722867be46987b6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398152"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670137"
 ---
 # <a name="transition-from-log-analytics-log-search-to-azure-monitor-logs"></a>Log Analytics 로그 검색에서 Azure Monitor 로그로 전환
 Log Analytics의 로그 검색은 Azure Monitor 로그를 분석하기 위한 새로운 환경으로 바뀌었습니다. 로그 검색 페이지는 이제 Azure Portal의 **Log Analytics 작업 영역**에 있는 **로그(클래식)** 메뉴 항목을 통해 계속 액세스할 수 있지만 이 페이지는 2019년 2월 15일에 제거될 예정입니다. 이 문서에서는 두 환경 간의 차이점을 설명하여 로그 검색에서 전환할 수 있도록 지원합니다. 
@@ -40,7 +39,7 @@ Azure Monitor 로그의 테이블 보기에서 사용자 지정 필드를 추출
 
 ![로그 검색 저장](media/log-search-transition/save-search-log-search.png)
 
-Azure Monitor 로그에서 현재 쿼리를 저장하려면 **저장**을 선택합니다. **다른 이름으로 저장**을 _함수_로 변경하고 **함수 별칭**을 제공하여 [함수](functions.md)를 만듭니다. [컴퓨터 그룹](../platform/computer-groups.md)에 대한 함수 별칭을 사용하려면 _이 쿼리를 컴퓨터 그룹으로 저장_을 선택합니다.
+Azure Monitor 로그에서 현재 쿼리를 저장하려면 **저장**을 선택합니다. **다른 이름으로 저장**을 _함수_로 변경하고 **함수 별칭**을 제공하여 [함수](functions.md)를 만듭니다. _컴퓨터 그룹_에 대한 함수 별칭을 사용하려면 [이 쿼리를 컴퓨터 그룹으로 저장](../platform/computer-groups.md)을 선택합니다.
 
 ![로그 쿼리 저장](media/log-search-transition/save-query-logs.png)
 
@@ -59,7 +58,7 @@ Azure Monitor 로그에서 이러한 기록을 반환하도록 쿼리를 수정�
 ![Azure Monitor 로그 드릴다운](media/log-search-transition/drilldown-logs.png)
 
 ## <a name="take-action"></a>작업 수행
-로그 검색에서 **작업 수행**을 선택하여 검색 결과에서 [Runbook을 시작](take-action.md)할 수 있습니다.
+로그 검색에서 [작업 수행](take-action.md)을 선택하여 검색 결과에서 **Runbook을 시작**할 수 있습니다.
 
 ![작업 수행](media/log-search-transition/take-action-log-search.png)
 

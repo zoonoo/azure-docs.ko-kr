@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor를 사용하여 연속 모니터링 | Microsoft Docs
 description: Azure Monitor를 사용하여 전체 워크플로에서 연속 모니터링을 사용하도록 설정하는 특정 단계를 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/12/2018
-ms.openlocfilehash: 7dc8001d74ea026625d7496fb84053b4e9109dce
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b9ca8a703ed8a84148abd23e90114402d8806bd6
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406147"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667196"
 ---
 # <a name="continuous-monitoring-with-azure-monitor"></a>Azure Monitor를 사용하여 연속 모니터링
 
@@ -29,7 +28,7 @@ ms.locfileid: "75406147"
 - [Azure DevOps Projects](../devops-project/overview.md)는 기존 코드와 Git 리포지토리가 포함된 간소화된 환경을 제공하거나 샘플 애플리케이션 중 하나를 선택하여 Azure에 CI(연속 통합) 및 CD(지속적인 업데이트) 파이프라인을 만듭니다.
 - [DevOps 릴리스 파이프라인의 연속 모니터링](../azure-monitor/app/continuous-monitoring.md)을 사용하면 모니터링 데이터를 기반으로 배포를 제어 또는 롤백할 수 있습니다.
 - [상태 모니터](../azure-monitor/app/monitor-performance-live-website-now.md)를 사용하면 코드를 수정하거나 다시 배포하지 않고도 Azure Application Insights를 사용하여 Windows에서 라이브 .NET 앱을 계측할 수 있습니다.
-- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../azure-monitor/learn/quick-monitor-portal.md), [Java](../azure-monitor/app/java-get-started.md), [Node.js](../azure-monitor/learn/nodejs-quick-start.md) 또는 [기타 프로그래밍 언어](../azure-monitor/app/platforms.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../azure-monitor/app/app-insights-overview.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
+- 애플리케이션의 코드에 액세스할 수 있는 경우 [.NET](../azure-monitor/app/app-insights-overview.md), [Java](../azure-monitor/learn/quick-monitor-portal.md), [Node.js](../azure-monitor/app/java-get-started.md) 또는 [기타 프로그래밍 언어](../azure-monitor/learn/nodejs-quick-start.md)용 Azure Monitor Application Insights SDK를 설치하여 [Application Insights](../azure-monitor/app/platforms.md)를 통해 전체 모니터링을 사용하도록 설정합니다. 이렇게 하면 애플리케이션 및 비즈니스에 관련된 사용자 지정 이벤트, 메트릭 또는 페이지 보기를 지정할 수 있습니다.
 
 
 
@@ -67,7 +66,7 @@ ms.locfileid: "75406147"
 
 - 로그 및 메트릭을 기반으로 [Azure Monitor에서 경고](../azure-monitor/platform/alerts-overview.md)를 만들어 예측 가능한 오류 상태를 식별합니다. 실제 위험 조건을 나타내고 가양성을 줄이고자 하는 모든 경고를 실행 가능하도록 설정해야 합니다. [동적 임계값](platform/alerts-dynamic-thresholds.md)을 사용하여 고유한 정적 임계값을 정의하는 대신 메트릭 데이터에서 기준선을 자동으로 계산합니다. 
 - 관리자에게 알리는 가장 효과적인 수단을 사용하도록 경고 작업을 정의합니다. 사용 가능한 [알림 작업](platform/action-groups.md#create-an-action-group-by-using-the-azure-portal)은 SMS, 메일, 푸시 알림 또는 음성 통화입니다.
-- 고급 작업을 사용하여 [웹후크](platform/activity-log-alerts-webhook.md)를 통해 [ITSM 도구에 연결](platform/itsmc-overview.md)하거나 기타 경고 관리 시스템에 연결합니다.
+- 고급 작업을 사용하여 [웹후크](platform/itsmc-overview.md)를 통해 [ITSM 도구에 연결](platform/activity-log-alerts-webhook.md)하거나 기타 경고 관리 시스템에 연결합니다.
 - 웹후크를 사용하여 경고에서 시작될 수 있는 [Azure Automation Runbook](../automation/automation-webhooks.md) 또는 [Logic Apps](/connectors/custom-connectors/create-webhook-trigger)와 함께 경고에서 식별된 상황도 수정합니다. 
 - [자동 크기 조정](../azure-monitor/learn/tutorial-autoscale-performance-schedule.md)을 사용하여 수집된 메트릭을 기반으로 컴퓨팅 리소스를 동적으로 늘리고 줄입니다.
 

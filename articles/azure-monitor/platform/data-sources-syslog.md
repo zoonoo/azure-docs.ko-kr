@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 Syslog 메시지 수집 및 분석 | Microsoft Docs
 description: Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 이 문서에서는 Log Analytics의 Syslog 메시지 수집을 구성하는 방법을 설명하고, 생성되는 레코드에 대한 자세한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/22/2019
-ms.openlocfilehash: ffc6c48a6b49edded97570fd1ac421933b5f6b72
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d68a8d6d28d79c50a92cd2d18df2abab26c30ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670494"
 ---
 # <a name="syslog-data-sources-in-azure-monitor"></a>Azure Monitor의 Syslog 데이터 원본
 Syslog는 Linux에 공통되는 이벤트 로깅 프로토콜입니다. 애플리케이션은 로컬 컴퓨터에 저장되거나 Syslog 수집기에 배달될 수 있는 메시지를 전송합니다. Linux용 Log Analytics 에이전트를 설치하면 에이전트에 메시지를 전달하도록 로컬 Syslog 디먼이 구성됩니다. 그러면 에이전트는 레코드가 만들어진 Azure Monitor로 해당 메시지를 보냅니다.  
@@ -211,7 +210,7 @@ Syslog 레코드는 **Syslog** 형식이며, 다음 표의 속성이 있습니�
 
 | 쿼리 | Description |
 |:--- |:--- |
-| Syslog |모든 Syslog입니다. |
+| syslog |모든 Syslog입니다. |
 | Syslog &#124; where SeverityLevel == "error" |심각도가 오류인 모든 Syslog 레코드입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Computer |컴퓨터별 Syslog 레코드 수입니다. |
 | Syslog &#124; summarize AggregatedValue = count() by Facility |기능별 Syslog 레코드 수입니다. |

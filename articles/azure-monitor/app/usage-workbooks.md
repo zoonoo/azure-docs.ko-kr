@@ -1,19 +1,17 @@
 ---
 title: Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기 | Microsoft docs
 description: 미리 빌드되고 사용자 지정 매개 변수가 있는 통합 문서를 사용하여 복잡한 보고 간소화
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 8e14b065132e648f9c800655cfe69e5a2ec80c41
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 15543f7f761c707e8eff8e0cc0a0e4532475ddf8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432264"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671004"
 ---
 # <a name="create-interactive-reports-with-azure-monitor-workbooks"></a>Azure Monitor 통합 문서를 사용하여 대화형 보고서 만들기
 
@@ -72,7 +70,7 @@ ms.locfileid: "75432264"
 
 * 사용 현황의 감소와 동일한 기간 동안 사이트에서 throw한 예외의 수는?
 * 일부 페이지를 보는 사용자에 대한 페이지 로드 시간의 분포는 무엇이었습니까?
-* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 이 질문은 사이트 기능의 각기 다른 하위 집합을 사용하는 사용자 클러스터가 있는지 여부를 파악하는 데 유용할 수 있습니다([Kusto 쿼리 언어](/azure/kusto/query/)에서는 `kind=leftanti` 한정자와 함께 `join` 연산자 사용).
+* 사이트의 일부 페이지 집합을 봤지만 다른 일부 페이지 집합을 보지 않은 사용자의 수는? 이 질문은 사이트 기능의 각기 다른 하위 집합을 사용하는 사용자 클러스터가 있는지 여부를 파악하는 데 유용할 수 있습니다(`join`Kusto 쿼리 언어`kind=leftanti`에서는 [ 한정자와 함께 ](/azure/kusto/query/) 연산자 사용).
 
 또한 통합 문서를 시작한 애플리케이션의 컨텍스트에서만 쿼리하도록 제한되지 않습니다. 해당 리소스에 대한 액세스 권한이 있다면 Log Analytics 작업 영역뿐만 아니라 여러 Application Insights 모니터링 앱 간에 쿼리를 수행할 수 있습니다.
 
@@ -91,7 +89,7 @@ union app('app01').requests, app('app02').requests, requests
 
 ### <a name="advanced-analytic-query-settings"></a>고급 분석 쿼리 설정
 
-각 섹션에는 **매개 변수 추가** 단추의 오른쪽에 있는 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/005-settings.png) 설정 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
+각 섹션에는 ![매개 변수 추가](./media/usage-workbooks/005-settings.png) 단추의 오른쪽에 있는 **Application Insights 통합 문서 섹션 편집 컨트롤** 설정 아이콘을 통해 액세스할 수 있는 고유한 고급 설정이 있습니다.
 
 ![Application Insights 통합 문서 섹션 편집 컨트롤](./media/usage-workbooks/0006-settings-expanded.png)
 

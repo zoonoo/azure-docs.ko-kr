@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights의 스마트 감지 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 자동 심층 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 02/07/2019
-ms.openlocfilehash: ae9af5721e53277f6c939840721ca50ea67ca51e
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: e232295f9da2a2ae8f3c6fafdd1dc33a42e92e69
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72818822"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671803"
 ---
 # <a name="smart-detection-in-application-insights"></a>Application Insights의 스마트 감지
  스마트 검색은 웹 응용 프로그램에서 잠재적인 성능 문제 및 오류 비정상에 대해 자동으로 경고 합니다. 앱에서 [Application Insights](../../azure-monitor/app/app-insights-overview.md)로 보내는 원격 분석의 사전 분석을 수행합니다. 실패율이나 클라이언트 또는 서버 성능의 비정상적인 패턴이 갑자기 증가하는 경우 경고가 발생합니다. 이 기능에는 구성이 필요하지 않습니다. 애플리케이션에서 충분한 원격 분석을 보내는 경우 작동합니다.
@@ -22,7 +18,7 @@ ms.locfileid: "72818822"
 ## <a name="review-your-smart-detections"></a>스마트 감지 검토
 두 가지 방법으로 자동 관리 검색을 검색할 수 있습니다.
 
-* Application Insights에서 **전자 메일을 받습니다**. 일반적인 예는 다음과 같습니다.
+* **전자 메일을 받습니다** . 일반적인 예는 다음과 같습니다.
   
     ![전자 메일 경고](./media/proactive-diagnostics/03.png)
   

@@ -1,18 +1,16 @@
 ---
 title: OpenCensus Python을 사용 하 여 Azure 애플리케이션 정보에서 종속성 추적 | Microsoft Docs
 description: OpenCensus Python을 통해 Python 앱에 대 한 종속성 호출을 모니터링 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lzchen
 ms.author: lechen
 ms.date: 10/15/2019
-ms.openlocfilehash: 6217798f8175e7ecc1c1ec4068d7765444e4d2a2
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: e400669fd96518adead74a81fc332767c5f9b23b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368280"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669933"
 ---
 # <a name="track-dependencies-with-opencensus-python"></a>OpenCensus Python으로 종속성 추적
 

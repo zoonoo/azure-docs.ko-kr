@@ -1,18 +1,14 @@
 ---
 title: 사용자 지정 이벤트 및 메트릭용 Application Insights API | Microsoft Docs
 description: 디바이스 또는 데스크톱 앱, 웹 페이지, 서비스에 코드를 몇 줄 삽입하여 사용 및 진단 문제를 추적할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/27/2019
-ms.openlocfilehash: 2136ab9a6d0cef7ad5650c8414f9a17b78498abc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 74736966013581296483d1444f4ab2b8a35bbd98
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432679"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666499"
 ---
 # <a name="application-insights-api-for-custom-events-and-metrics"></a>사용자 지정 이벤트 및 메트릭용 Application Insights API
 
@@ -22,7 +18,7 @@ ms.locfileid: "75432679"
 
 핵심 API는 `GetMetric`(.NET만 해당)과 같은 사소한 차이를 제외하고 모든 플랫폼에서 동일합니다.
 
-| 방법 | 사용 대상 |
+| 메서드 | 사용 대상 |
 | --- | --- |
 | [`TrackPageView`](#page-views) |페이지, 화면, 블레이드 또는 양식. |
 | [`TrackEvent`](#trackevent) |사용자 작업 및 기타 이벤트. 사용자 동작을 추적하거나 성능을 모니터링하는 데 사용됩니다. |
@@ -152,7 +148,7 @@ telemetry.trackEvent({name: "WinGame"});
 
 ## <a name="getmetric"></a>GetMetric
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 *C#*
 
@@ -250,9 +246,9 @@ Application Insights로 메트릭을 보내려면 `TrackMetric(..)` API를 사�
 
 * 단일 값. 애플리케이션에서 측정을 수행할 때마다 Application Insights에 해당 값을 보냅니다. 예를 들어 컨테이너의 항목 수를 설명하는 메트릭이 있다고 가정합니다. 특정 기간 동안 먼저 컨테이너에 3개 항목을 추가한 다음 2개 항목을 제거합니다. 따라서 `TrackMetric`을 두 번 호출합니다. 처음에는 값 `3`을 전달하고 그 다음에는 값 `-2`를 전달합니다. Application Insights는 두 값을 자동으로 저장합니다.
 
-* 집계. 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
+* 집계 메트릭을 사용하여 작업하는 경우 모든 단일 측정값은 거의 유용하지 않습니다. 대신 특정 기간 동안 발생한 내용의 요약이 중요합니다. 이러한 요약을 _집계_라고 합니다. 위의 예에서는 해당 기간에 대한 집계 메트릭 합계는 `1`이고 메트릭 값의 개수는 `2`입니다. 집계 방법을 사용할 때는 `TrackMetric`을 기간당 한 번만 호출하고 집계 값을 보냅니다. 이렇게 하면 모든 관련 정보를 수집하는 동안 더 적은 데이터 요소를 Application Insights로 보냄으로써 비용 및 성능 오버헤드를 상당히 줄일 수 있기 때문에 권장되는 방법입니다.
 
-### <a name="examples"></a>예시
+### <a name="examples"></a>예
 
 #### <a name="single-values"></a>단일 값
 
@@ -501,7 +497,7 @@ catch (ex)
 SDK에서 대부분의 예외를 자동으로 catch하므로 항상 TrackException을 명시적으로 호출할 필요는 없습니다.
 
 * ASP.NET: [예외를 catch하는 코드 작성](../../azure-monitor/app/asp-net-exceptions.md).
-* Java EE: [예외가 자동으로 catch 됩니다](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
+* Java EE: [예외가 자동으로 catch됨](../../azure-monitor/app/java-get-started.md#exceptions-and-request-failures).
 * JavaScript: 예외가 자동으로 catch됨. 자동 수집을 사용하지 않도록 설정하려면 웹 페이지에 삽입하는 코드 조각에 다음 한 줄을 추가합니다.
 
 ```javascript
@@ -522,7 +518,7 @@ exceptions
 | summarize sum(itemCount) by type
 ```
 
-대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예:
+대부분의 중요한 스택 정보는 이미 별도 변수로 추출되지만 좀 더 자세한 정보를 위해 `details` 구조를 분리할 수 있습니다. 이 구조는 동적이므로 원하는 유형으로 결과를 캐스트해야 합니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```kusto
 exceptions
@@ -574,18 +570,18 @@ trackTrace(message: string, properties?: {[string]:string}, severityLevel?: Seve
 
 메서드 출입 같은 진단 이벤트를 기록합니다.
 
- 매개 변수 | Description
+ 매개 변수 | 설명
 ---|---
 `message` | 진단 데이터입니다. 이름보다 훨씬 길어질 수 있습니다.
-`properties` | 문자열을 문자열로 매핑: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties) 하는 데 사용 되는 추가 데이터입니다. 기본적으로 비어 있습니다.
-`severityLevel` | 지원 되는 값: [SeverityLevel](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
+`properties` | 문자열 대 문자열의 맵: 포털에서 [예외를 필터링](https://azure.microsoft.com/documentation/articles/app-insights-api-custom-events-metrics/#properties)하는 데 사용되는 추가 데이터입니다. 기본적으로 비어 있습니다.
+`severityLevel` | 지원되는 값: [SeverityLevel.ts](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/shared/AppInsightsCommon/src/Interfaces/Contracts/Generated/SeverityLevel.ts)
 
 메시지 내용을 검색할 수 있지만 속성 값과는 달리 필터링할 수는 없습니다.
 
 `message`의 크기 제한이 속성의 크기 제한보다 훨씬 높습니다.
 TrackTrace의 장점은 메시지에 상대적으로 긴 데이터를 넣을 수 있습니다. 예를 들어, POST 데이터를 인코딩할 수 있습니다.  
 
-또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예:
+또한 메시지에 심각도 수준을 추가할 수 있습니다. 또 다른 원격 분석처럼, 다른 추적 집합에 대해 필터링 또는 검색하는 데 도움이 되는 속성 값을 추가할 수 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 *C#*
 
@@ -1005,7 +1001,7 @@ gameTelemetry.TrackEvent({name: "WinGame"});
 
 *JavaScript 웹 클라이언트의 경우* JavaScript 원격 분석 이니셜라이저를 사용합니다.
 
-표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면*[`ITelemetryInitializer`를 구현합니다](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
+표준 컬렉션 모듈의 데이터를 포함하여 *모든 원격 분석에 속성을 추가하려면* [`ITelemetryInitializer`를 구현합니다](../../azure-monitor/app/api-filtering-sampling.md#add-properties).
 
 ## <a name="sampling-filtering-and-processing-telemetry"></a>원격 분석 샘플링, 필터링 및 처리
 
@@ -1037,7 +1033,7 @@ TelemetryConfiguration.Active.DisableTelemetry = true;
 telemetry.getConfiguration().setTrackingDisabled(true);
 ```
 
-선택한 표준 수집기 (예: 성능 카운터, HTTP 요청 또는 종속성)를 *사용 하지 않도록 설정*하려면 [applicationinsights .config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제 하거나 주석으로 처리 합니다. 예를 들어 사용자 고유의 자체 요청 데이터를 전송 하려는 경우이 작업을 수행할 수 있습니다.
+*선택한 표준 수집기(예: 성능 카운터, HTTP 요청 또는 종속성)를 사용하지 않도록 설정*하려면 [ApplicationInsights.config](../../azure-monitor/app/configuration-with-applicationinsights-config.md)에서 관련 줄을 삭제하거나 주석으로 처리합니다. 사용자 고유의 TrackRequest 데이터를 전송하려는 경우를 예로 들 수 있습니다.
 
 *Node.JS*
 
@@ -1148,7 +1144,7 @@ var appInsights = window.appInsights || function(config){ ...
 
 ## <a name="telemetrycontext"></a>TelemetryContext
 
-TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예:
+TelemetryClient에는 컨텍스트 속성이 있고, 이 속성은 모든 원격 분석 데이터와 함께 전송되는 값을 포함하고 있습니다. 일반적으로 표준 원격 분석 모듈에 의해 설정되지만 사용자가 직접 설정할 수도 있습니다. 예를 들어 다음과 같은 가치를 제공해야 합니다.
 
 ```csharp
 telemetry.Context.Operation.Name = "MyOperationName";
@@ -1158,14 +1154,14 @@ telemetry.Context.Operation.Name = "MyOperationName";
 
 * **Component**: 앱 및 앱 버전입니다.
 * **Device**: 앱이 실행되는 디바이스에 대한 데이터입니다. (웹앱에서 원격 분석이 전송되는 서버 또는 클라이언트 디바이스입니다.)
-* **InstrumentationKey**: 원격 분석이 표시 되는 Azure의 Application Insights 리소스입니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
+* **InstrumentationKey**: Azure에서 원격 분석이 표시되는 Application Insights 리소스입니다. 일반적으로 ApplicationInsights.config에서 선택합니다.
 * **Location**: 디바이스의 지리적 위치입니다.
 * **Operation**: 웹앱에서 현재 HTTP 요청입니다. 다른 유형의 앱에서는 이 값을 설정하여 이벤트를 그룹화할 수 있습니다.
-  * **ID**: 진단 검색의 이벤트를 검사할 때 관련 항목을 찾을 수 있도록 여러 이벤트의 상관 관계를 생성 하는 생성 된 값입니다.
+  * **ID**: 진단 검색의 이벤트를 검사할 때 관련 항목을 찾을 수 있도록 여러 이벤트를 상호 연결하는 생성된 값입니다.
   * **Name**: 식별자이며, 일반적으로 HTTP 요청의 URL입니다.
   * **SyntheticSource**: null이거나 비어 있지 않다면 요청의 원본이 로봇 또는 웹 테스트로 확인되었음을 나타내는 문자열입니다. 기본적으로 메트릭 탐색기의 계산에서 제외됩니다.
 * **Properties**: 모든 원격 분석 데이터와 함께 전송되는 속성입니다. 개별 Track* 호출에서 재정의될 수 있습니다.
-* **Session**: 사용자의 세션입니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
+* **세션**: 사용자의 세션입니다. ID는 생성된 값으로 설정되며, 사용자가 잠시 동안 비활성 상태이면 값이 변경됩니다.
 * **User**: 사용자 정보입니다.
 
 ## <a name="limits"></a>제한
@@ -1193,11 +1189,11 @@ telemetry.Context.Operation.Name = "MyOperationName";
 * [JavaScript SDK](https://github.com/Microsoft/ApplicationInsights-JS)
 
 
-## <a name="questions"></a>문의 사항
+## <a name="questions"></a>질문
 
 * *Track_() 호출에서 발생할 수 있는 예외는 무엇인가요?*
 
-    없음. try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
+    없음 try-catch 절에 래핑할 필요가 없습니다. SDK에 문제가 발생하는 경우 디버그 콘솔 출력에 메시지를 작성하고 메시지가 완료되는 경우 진단 검색에 표시됩니다.
 * *포털에서 데이터를 가져오는 REST API가 있나요?*
 
     예, [데이터 액세스 API](https://dev.applicationinsights.io/)가 있습니다. 데이터를 추출하는 다른 방법에는 [Analytics에서 Power BI로 내보내기](../../azure-monitor/app/export-power-bi.md ) 및 [연속 내보내기](../../azure-monitor/app/export-telemetry.md)가 있습니다.

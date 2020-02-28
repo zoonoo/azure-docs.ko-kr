@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리 | Microsoft Docs
 description: Azure Monitor에서 로그 쿼리를 작성하는 방법을 알아보기 위한 리소스 참조입니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/11/2019
-ms.openlocfilehash: 7c6530416f0eb6b822b6f5f3eb53f59aeae05d53
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: fc943ac3cf82d22a58d0ba3390ad8d9bbee6a4c9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894345"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669390"
 ---
 # <a name="azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리
 Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor 로그 쿼리는 동일한 Kusto 쿼리 언어의 한 버전을 사용합니다. [Kusto 쿼리 언어 문서](/azure/kusto/query)에는 언어에 대한 모든 세부 정보가 나와 있으며, Azure Monitor 로그 쿼리 작성을 위한 주요 리소스로 참조해야 합니다. 이 페이지에는 쿼리를 작성하는 방법 및 Azure Monitor 언어 구현과의 차이점을 알아보기 위한 다른 리소스의 링크가 나와 있습니다.
@@ -36,7 +35,7 @@ Azure Monitor 로그는 Azure Data Explorer에서 빌드되고, Azure Monitor �
 - [Azure Monitor에서 리소스 간 로그 쿼리 수행](../../azure-monitor/log-query/cross-workspace-query.md)에서는 여러 Log Analytics 작업 영역 및 Application Insights 애플리케이션의 데이터를 사용하는 로그 쿼리를 작성하는 방법을 설명합니다.
 
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 - [Azure Monitor 로그 쿼리 예제](examples.md)에서는 Azure Monitor 로그 데이터를 사용하는 예제 쿼리를 제공합니다.
 

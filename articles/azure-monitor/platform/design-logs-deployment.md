@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 배포 디자인 | Microsoft Docs
 description: 이 문서에서는 Azure Monitor 작업 영역을 배포 하기 위해 준비 하는 고객에 대 한 고려 사항 및 권장 사항을 설명 합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/20/2019
-ms.openlocfilehash: f2d530792e1a6f598dbf2ed66889c01cc43467ed
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: e493b07814821496f941a4b81402ba0b49acbede
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77162245"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670460"
 ---
 # <a name="designing-your-azure-monitor-logs-deployment"></a>Azure Monitor 로그 배포 디자인
 

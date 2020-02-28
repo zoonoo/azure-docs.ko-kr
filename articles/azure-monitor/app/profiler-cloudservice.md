@@ -1,23 +1,21 @@
 ---
 title: Application Insights를 사용하여 라이브 Azure Cloud Services 프로파일링 | Microsoft Docs
 description: Azure Cloud Services에 대해 Application Insights Profiler를 사용하도록 설정합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 682711d7681e3646ae14686b01542bc5d7432179
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3fbeb1120e97a884135cd4622a49ef97fd43e58e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820504"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671667"
 ---
 # <a name="profile-live-azure-cloud-services-with-application-insights"></a>Application Insights로 라이브 Azure Cloud Services 프로파일링
 
-또한 다음과 같은 서비스에서 Application Insights Profiler를 배포할 수도 있습니다.
+다음과 같은 서비스에 Application Insights Profiler를 배포할 수도 있습니다.
 * [Azure App Service](profiler.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Service Fabric 애플리케이션](profiler-servicefabric.md?toc=/azure/azure-monitor/toc.json)
 * [Azure Virtual Machines](profiler-vm.md?toc=/azure/azure-monitor/toc.json)
@@ -39,7 +37,7 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
 
 1. Azure 진단 확장을 구성 하 여 프로파일러를 사용 하도록 설정 합니다.
 
-    a. 애플리케이션 역할에 대한 [Azure Diagnostics](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics)*diagnostics.wadcfgx* 파일을 다음과 같이 찾습니다.  
+    a. 다음과 같이 응용 프로그램 역할에 대 한 [Azure 진단](https://docs.microsoft.com/azure/monitoring-and-diagnostics/azure-diagnostics) *diagnostics.wadcfgx* 파일을 찾습니다.  
 
       ![진단 구성 파일의 위치](./media/profiler-cloudservice/cloudservice-solutionexplorer.png)  
 
@@ -65,7 +63,7 @@ Application Insights Profiler는 Azure Diagnostics 확장과 함께 설치됩니
     > * ApplicationInsights 싱크에 사용되는 키 
     > * ApplicationInsightsProfiler 싱크에 사용되는 키 
     >
-    > *ServiceConfiguration.\*.cscfg* 파일의 `ApplicationInsights` 싱크에 사용되는 실제 계측 키 값을 찾을 수 있습니다. 
+    > `ApplicationInsights`ServiceConfiguration. *.cscfg\* 파일의*  싱크에 사용되는 실제 계측 키 값을 찾을 수 있습니다. 
     > Visual Studio 15.5 Azure SDK 릴리스 후에는 애플리케이션과 ApplicationInsightsProfiler 싱크에 사용되는 계측 키만 서로 일치하면 됩니다.
 
 1. 새 진단 구성을 사용하여 서비스를 배포하면 서비스에서 실행되도록 Application Insights Profiler가 구성됩니다.

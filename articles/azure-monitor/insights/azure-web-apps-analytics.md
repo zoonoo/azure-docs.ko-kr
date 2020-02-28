@@ -1,18 +1,17 @@
 ---
 title: Azure Web Apps 분석 데이터 보기 | Microsoft Docs
 description: Azure Web Apps 분석 솔루션을 사용하여 모든 Azure Web Apps 리소스의 다양한 메트릭을 수집함으로써 Azure Web Apps에 대한 자세한 정보를 얻을 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 07/02/2018
-ms.openlocfilehash: 999b461447578fd6273cf5d16c9d354cca4ff985
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 93d378e334d2f6443ac8a59c9022501d3023a2a4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406043"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666916"
 ---
 # <a name="view-analytic-data-for-metrics-across-all-your-azure-web-app-resources"></a>모든 Azure Web Apps 리소스의 메트릭에 대한 분석 데이터 보기
 

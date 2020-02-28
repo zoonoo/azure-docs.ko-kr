@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 로그 쿼리 최적화
 description: Azure Monitor에서 로그 쿼리를 최적화 하기 위한 모범 사례입니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/25/2019
-ms.openlocfilehash: 521fd84e79196439ea220bd7ffa7cc6d0750f045
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 19b0ce154fc19015f7faa17e339c9df259206365
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
 ms.lasthandoff: 02/27/2020
-ms.locfileid: "77648838"
+ms.locfileid: "77670817"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -231,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 다음은 그 예입니다.
 
 ```Kusto
 Perf

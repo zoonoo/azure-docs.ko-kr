@@ -1,18 +1,17 @@
 ---
 title: Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 description: Azure 이벤트 허브로 데이터를 전송 하는 Azure Monitor에서 진단 확장을 구성 하 여 Azure 외부의 위치로 전달 합니다.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/18/2020
-ms.openlocfilehash: 573a56c537e48687e310acff8639c50d0d0c6e3d
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 5e5034e99d37d3681192c2ad066f28acd1c4aeeb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467966"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672534"
 ---
 # <a name="send-data-from-windows-azure-diagnostics-extension-to-azure-event-hubs"></a>Microsoft Azure 진단 확장에서 Azure Event Hubs로 데이터 전송
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure virtual machines 및 기타 계산 리소스의 작업 부하를 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Azure WAD (Microsoft Azure 진단 확장)에서 azure [Event Hubs](https://azure.microsoft.com/services/event-hubs/) 로 데이터를 전송 하 여 azure 외부의 위치로 전달 하는 방법을 설명 합니다.

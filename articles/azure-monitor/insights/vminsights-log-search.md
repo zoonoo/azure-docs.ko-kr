@@ -1,18 +1,17 @@
 ---
 title: VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기) | Microsoft Docs
 description: VM용 Azure Monitor 솔루션은에 대 한 메트릭 및 로그 데이터를 수집 하 고이 문서에서는 레코드에 대해 설명 하 고 샘플 쿼리를 포함 합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: 690c7ba04cf849d973295a6ec27eaa38f9b807c3
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e679345669d0954008e46f48d986930038a84c10
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399328"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670715"
 ---
 # <a name="how-to-query-logs-from-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor에서 로그를 쿼리하는 방법(미리 보기)
 
@@ -52,7 +51,7 @@ VM용 Azure Monitor 성능 및 연결 메트릭, 컴퓨터 및 프로세스 인�
 |:--|:--|
 |Direction |연결 방향으로 값은 *인바운드* 또는 *아웃바운드*입니다. |
 |컴퓨터 |컴퓨터 FQDN |
-|프로세스 |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
+|Process |연결을 시작/수락하는 프로세스 또는 프로세스 그룹의 ID입니다. |
 |SourceIp |원본의 IP 주소 |
 |DestinationIp |대상의 IP 주소 |
 |DestinationPort |대상의 포트 번호 |
@@ -131,9 +130,9 @@ VMBoundPort의 모든 레코드는 다음 필드로 식별 됩니다.
 
 | 속성 | Description |
 |:--|:--|
-|프로세스 | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
+|Process | 포트가 연결 된 프로세스 (또는 프로세스 그룹)의 id입니다.|
 |Ip | 포트 IP 주소 (와일드 카드 IP 일 수 있음, *0.0.0.0*) |
-|Port |포트 번호 |
+|포트 |포트 번호 |
 |프로토콜 | 프로토콜입니다.  예: *tcp* 또는 *udp* (현재 *tcp* 만 지원 됨)|
  
 Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다. 이 속성을 사용 하 여 시간에 따라 특정 포트에 대 한 레코드를 신속 하 게 찾을 수 있습니다. 
@@ -227,7 +226,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |Computer | 컴퓨터 FQDN | 
 |AgentId | Log Analytics 에이전트의 고유 ID |
 |컴퓨터 | ServiceMap 통해 노출 되는 컴퓨터에 대 한 Azure Resource Manager 리소스의 이름입니다. *M-{guid}* 형식입니다. 여기서 *guid* 는 AgentId와 동일한 guid입니다. | 
-|프로세스 | 서비스 맵 프로세스의 고유 식별자입니다. *P-{GUID}* 형식입니다. 
+|Process | 서비스 맵 프로세스의 고유 식별자입니다. *P-{GUID}* 형식입니다. 
 |ExecutableName | 프로세스 실행 파일의 이름 | 
 |DisplayName | 프로세스 표시 이름 |
 |역할 | 프로세스 역할: *webserver*, *Microsoft.windows.appserver.2008*, *databaseserver*, *ldapserver*, *smbServer* |
@@ -243,7 +242,7 @@ Id는 위의 5 개 필드에서 파생 되며 PortId 속성에 저장 됩니다.
 |ExecutablePath |실행 파일의 경로입니다. |
 |명령줄 | 명령줄 |
 |WorkingDirectory | 작업 디렉터리 |
-|서비스 | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
+|Services | 프로세스가 실행 되 고 있는 서비스의 배열입니다. |
 |UserName | 프로세스를 실행 중인 계정 |
 |UserDomain | 프로세스를 실행 중인 도메인 |
 |_ResourceId | 작업 영역 내 프로세스에 대한 고유 식별자 |

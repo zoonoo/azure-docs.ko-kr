@@ -1,22 +1,20 @@
 ---
 title: Azure Monitor의 활동 로그 경고
 description: 활동 로그에서 특정 이벤트가 발생하면 SMS, 웹후크, SMS 및 메일 등을 통해 알림을 받습니다.
-ms.service: azure-monitor
 ms.subservice: alerts
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 09/17/2018
-ms.openlocfilehash: c42f72800a93de714f0cc126939a28a8a6b5fce4
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 26ecfdb33b92c91010af63ec14089dd148d6bad0
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669016"
 ---
-# <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고 
+# <a name="alerts-on-activity-log"></a>활동 로그에 대한 경고
 
 ## <a name="overview"></a>개요
+
 활동 로그 경고는 경고에 지정 된 조건과 일치 하는 새 [활동 로그 이벤트가](activity-log-schema.md) 발생할 때 활성화 되는 경고입니다. [Azure 활동 로그](platform-logs-overview.md)에 기록 된 이벤트의 순서와 볼륨에 따라 경고 규칙이 실행 됩니다. 활동 로그 경고 규칙은 Azure 리소스 이므로 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 이 문서에서는 활동 로그 경고에 대한 개념을 소개합니다. 활동 로그 경고 규칙을 만들거나 사용 하는 방법에 대 한 자세한 내용은 [활동 로그 경고 만들기 및 관리](alerts-activity-log.md)를 참조 하세요.
 
 > [!NOTE]
@@ -50,7 +48,7 @@ ms.locfileid: "75747532"
 > [!NOTE]
 > 한 구독에서, 단일 리소스, 리소스 그룹의 모든 리소스 또는 전체 구독 수준 범위의 활동에 대해 최대 100개의 경고 규칙을 만들 수 있습니다.
 
-활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음과 같은 기능이 가능합니다.
+활동 로그 경고가 활성화되면 작업 그룹을 사용하여 작업 또는 알림을 생성합니다. 작업 그룹은 이메일 주소, 웹후크 URL 또는 SMS 전화 번호와 같은 알림 수신자의 재사용 가능한 집합입니다. 수신자를 여러 경고에서 참조하여 알림 채널을 집중화하고 그룹화할 수 있습니다. 활동 로그 경고를 정의하는 경우 두 가지 옵션이 있습니다. 다음을 수행할 수 있습니다.
 
 * 활동 로그 경고에서 기존 작업 그룹을 사용합니다.
 * 새 작업 그룹을 만듭니다.

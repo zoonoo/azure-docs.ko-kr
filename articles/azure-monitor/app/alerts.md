@@ -1,21 +1,19 @@
 ---
-title: Azure Application Insights에서 경고 설정 | Microsoft Docs
+title: Azure 애플리케이션 Insights에서 경고 설정
 description: 느린 응답 시간, 예외 및 웹앱의 기타 성능 또는 사용 변경에 대한 알림을 받습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/23/2019
 ms.reviewer: lagayhar
-ms.openlocfilehash: a21e2676d1b03472c58e2f95095a1a59d00b16be
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.subservice: alerts
+ms.openlocfilehash: 80759c94d7cc5b60b6e38a34b85fb64c3c18fd2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678401"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666720"
 ---
 # <a name="set-alerts-in-application-insights"></a>Application Insights에서 경고 설정
+
 [Azure 애플리케이션 Insights][start] 는 웹 앱에서 성능 또는 사용 메트릭의 변화에 대해 경고할 수 있습니다. 
 
 Application Insights [은 다양 한 플랫폼][platforms] 에서 라이브 앱을 모니터링 하 여 성능 문제를 진단 하 고 사용 패턴을 이해 하는 데 도움을 줍니다.
@@ -24,10 +22,11 @@ Application Insights [은 다양 한 플랫폼][platforms] 에서 라이브 앱�
 
 * [**메트릭 경고**](../../azure-monitor/platform/alerts-metric-overview.md) 는 메트릭이 응답 시간, 예외 수, CPU 사용량 또는 페이지 보기와 같은 일정 기간의 임계값을 초과 하는 경우를 알려 줍니다.
 * [**로그 경고**](../../azure-monitor/platform/alerts-unified-log.md) 는 경고 신호가 사용자 지정 Kusto 쿼리를 기반으로 하는 경고를 설명 하는 데 사용 됩니다.
-* [**웹 테스트**][availability] 는 사이트를 인터넷에서 사용할 수 없거나 느리게 응답 하는 경우 사용자에 게 알려줍니다. [자세히 알아보기][availability].
+* [**웹 테스트**][availability] 는 사이트를 인터넷에서 사용할 수 없거나 느리게 응답 하는 경우 사용자에 게 알려줍니다. [자세히 알아봅니다][availability].
 * [**사전 진단**](../../azure-monitor/app/proactive-diagnostics.md)은 비정상적인 성능 패턴에 대해 알려 주기 위해 자동으로 구성됩니다.
 
 ## <a name="set-a-metric-alert"></a>메트릭 경고 설정
+
 경고 규칙 탭을 열고 추가 단추를 사용 합니다.
 
 ![경고 규칙 탭에서 경고 추가를 선택 합니다. 측정할 리소스로 앱을 설정하고, 경고의 이름을 입력하고, 메트릭을 선택합니다.](./media/alerts/01-set-metric.png)
@@ -164,12 +163,12 @@ Application Insights [은 다양 한 플랫폼][platforms] 에서 라이브 앱�
 
 * 클래식 경고 알림에는 특정 수신자를 사용하는 것이 좋습니다.
 
-* Application Insights 메트릭(가용성 메트릭 포함)에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 구독에서 owner, contributor 또는 reader 역할의 사용자에게 경고가 전송됩니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 ‘모든’ 사용자가 범위에 포함되며 알림을 받습니다.
+* Application Insights 메트릭(가용성 메트릭 포함)에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 구독에서 owner, contributor 또는 reader 역할의 사용자에게 경고가 전송됩니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 _모든_ 사용자가 범위에 포함되며 알림을 받습니다.
 
 > [!NOTE]
 > 현재 **대량/그룹** 확인란 옵션을 사용하고 있고 사용 안 함으로 설정하는 경우에는 변경 내용을 되돌릴 수 없습니다.
 
-역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 기여자/소유자/읽기 권한자 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 이메일 알림을 구성할 수 있습니다.
+역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
 
 ## <a name="automation"></a>Automation
 * [PowerShell을 사용하여 경고 설정 자동화](../../azure-monitor/app/powershell-alerts.md)

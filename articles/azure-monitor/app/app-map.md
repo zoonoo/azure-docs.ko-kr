@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights의 애플리케이션 맵 | Microsoft Docs
 description: 애플리케이션 맵을 사용하여 복잡한 애플리케이션 토폴로지 모니터링
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/15/2019
 ms.reviewer: sdash
-ms.openlocfilehash: cc7d58f0557e620c273043af8ffb2e8ec4d8ec87
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: dce2fdbe7e0c390309be38d2ebab4c73dbb4ed2e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485151"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77666278"
 ---
 # <a name="application-map-triage-distributed-applications"></a>애플리케이션 맵: 분산 애플리케이션 심사
 

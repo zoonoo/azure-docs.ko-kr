@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 에이전트 데이터 원본 구성 | Microsoft Docs
 description: 데이터 원본은 Azure Monitor가 에이전트 및 기타 연결된 원본에서 수집하는 로그 데이터를 정의합니다.  이 문서에서는 Azure Monitor에서 데이터 원본을 사용하는 방법에 대한 개념을 제공하고, 데이터 원본을 구성하는 방법을 자세히 설명하며, 사용 가능한 여러 데이터 원본을 요약합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: f7960adca1c3665dbf8737cb10a898c58b1542ec
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: aec3fe2386ce916c556f6da295a8554fff140259
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932828"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668777"
 ---
 # <a name="agent-data-sources-in-azure-monitor"></a>Azure Monitor의 에이전트 데이터 원본
 Azure Monitor가 에이전트에서 수집하는 데이터는 구성한 데이터 원본에 의해 정의됩니다.  에이전트의 데이터는 레코드 세트를 사용하여 [로그 데이터](data-platform-logs.md)로 저장됩니다.  각 데이터 원본은 각각 고유한 속성 집합이 있는 특정 유형의 레코드를 만듭니다.

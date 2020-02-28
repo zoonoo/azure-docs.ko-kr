@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고 | Microsoft Docs
 description: Azure Application Insights를 통해 Azure Cloud Services에서 시작 오류, 충돌 및 역할 재활용 루프와 같은 문제 모니터링
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/07/2018
 ms.reviewer: harelbr
-ms.openlocfilehash: b4404f033f5bdf221590e155640e4c0442601e18
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 997c5e063c4181a597520e60e2a7669401b9677d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820640"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669746"
 ---
 # <a name="alert-on-issues-in-azure-cloud-services-using-the-azure-diagnostics-integration-with-azure-application-insights"></a>Azure Application Insights와 Azure Diagnostics 통합을 사용하여 Azure Cloud Services의 문제에 대한 경고
 

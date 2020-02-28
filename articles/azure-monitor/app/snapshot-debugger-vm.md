@@ -1,23 +1,21 @@
 ---
 title: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거 사용 Microsoft Docs
 description: Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: brahmnes
 ms.author: bfung
 ms.date: 03/07/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 98ceeeb8efb11e2caeffadeb48270c419cc7e430
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 194a2da23c8fb405c492df8f6ee173cc97fde4ec
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899807"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671346"
 ---
 # <a name="enable-snapshot-debugger-for-net-apps-in-azure-service-fabric-cloud-service-and-virtual-machines"></a>Azure Service Fabric, 클라우드 서비스 및 Virtual Machines에서 .NET 앱에 대 한 스냅숏 디버거를 사용 하도록 설정
 
-ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실행 되 [는 경우 Application Insights 포털 페이지를 통해 스냅숏 디버거를 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 것이 좋습니다. 그러나 응용 프로그램에 사용자 지정 된 스냅숏 디버거 구성 또는 .NET core의 미리 보기 버전이 필요한 경우에는 Application Insights 포털을 통해 사용 하도록 설정 하는 지침 ***과 함께*** 이 지침을 따라야 합니다. [ 페이지](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json).
+ASP.NET 또는 ASP.NET core 응용 프로그램이 Azure App Service에서 실행 되 [는 경우 Application Insights 포털 페이지를 통해 스냅숏 디버거를 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 것이 좋습니다. 그러나 응용 프로그램에 사용자 지정 된 스냅숏 디버거 구성 또는 .NET core의 미리 보기 버전이 필요한 경우에는 [Application Insights 포털 페이지를 통해 사용 하도록 설정](snapshot-debugger-appservice.md?toc=/azure/azure-monitor/toc.json)하는 지침 ***과 함께*** 이 지침을 따라야 합니다.
 
 응용 프로그램이 Azure Service Fabric, 클라우드 서비스, Virtual Machines 또는 온-프레미스 컴퓨터에서 실행 되는 경우 다음 지침을 따라야 합니다. 
     

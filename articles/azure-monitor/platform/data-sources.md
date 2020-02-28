@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 데이터 원본 | Microsoft Docs
 description: Azure 리소스 및 리소스에서 실행되는 애플리케이션의 성능과 상태를 모니터링할 수 있는 데이터를 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 12/19/2019
-ms.openlocfilehash: d429a21f409afc9780b3cd90d16d46b4f4671912
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: b2ec9fd70d1eb64c5968de0312941bfbc98d3033
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77467354"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670528"
 ---
 # <a name="sources-of-monitoring-data-for-azure-monitor"></a>Azure Monitor에 대 한 모니터링 데이터의 원본
 Azure Monitor는 [로그](data-platform-logs.md) 및 [메트릭을](data-platform-metrics.md)포함 하는 [일반적인 모니터링 데이터 플랫폼](data-platform.md) 을 기반으로 합니다. 이 플랫폼에 데이터를 수집 하면 Azure Monitor의 공통 도구 집합을 사용 하 여 여러 리소스의 데이터를 함께 분석할 수 있습니다. 모니터링 데이터는 특정 시나리오를 지원 하기 위해 다른 위치로 전송 될 수도 있으며, 일부 리소스는 로그 나 메트릭에 수집 되기 전에 다른 위치에 기록 될 수 있습니다.

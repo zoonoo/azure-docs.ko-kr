@@ -1,19 +1,17 @@
 ---
 title: 스마트 검색 알림 변경-Azure 애플리케이션 정보
 description: 스마트 검색에서 기본 알림 받는 사람으로 변경 합니다. 스마트 검색을 통해 추적 원격 분석에서 비정상적인 패턴에 대 한 Azure 애플리케이션 정보로 응용 프로그램 추적을 모니터링할 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: harelbr
 ms.author: harelbr
 ms.date: 03/13/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 493deea89586347d5847895acd5eb73a866f84ac
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: f73e5bbdd8585b3367e529a8fa00630042e56cac
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432444"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671786"
 ---
 # <a name="smart-detection-e-mail-notification-change"></a>스마트 검색 메일 알림 변경
 
@@ -21,11 +19,11 @@ ms.locfileid: "75432444"
 
 ## <a name="what-is-changing"></a>변경되는 내용
 
-현재 스마트 검색 메일 알림은 기본적으로 ‘Subscription Owner’, ‘Subscription Contributor’ 및 ‘Subscription Reader’ 역할에 전송됩니다. 모니터링에 적극적으로 참여하지 않는 사용자가 해당 역할에 포함되는 경우가 많으며, 이로 인해 많은 사용자가 불필요하게 알림을 받게 됩니다. 이 환경을 개선하기 위해 메일 알림이 기본적으로 [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할로만 이동하도록 변경됩니다.
+현재 스마트 검색 메일 알림은 기본적으로 ‘Subscription Owner’, ‘Subscription Contributor’ 및 ‘Subscription Reader’ 역할에 전송됩니다. 모니터링에 적극적으로 참여하지 않는 사용자가 이러한 역할에 포함되는 경우가 많으며, 이로 인해 많은 사용자가 불필요하게 알림을 수신하게 됩니다. 이 환경을 개선하기 위해 메일 알림이 기본적으로 [Monitoring Reader](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-reader) 및 [Monitoring Contributor](https://docs.microsoft.com/azure/role-based-access-control/built-in-roles#monitoring-contributor) 역할로만 이동하도록 변경됩니다.
 
 ## <a name="scope-of-this-change"></a>이 변경의 범위
 
-이 변경 사항은 다음을 제외한 모든 스마트 검색 규칙에 적용됩니다.
+이 변경은 다음을 제외한 모든 스마트 검색 규칙에 영향을 줍니다.
 
 * 미리 보기로 표시된 스마트 검색 규칙. 이러한 스마트 검색 규칙은 현재 메일 알림을 지원하지 않습니다.
 

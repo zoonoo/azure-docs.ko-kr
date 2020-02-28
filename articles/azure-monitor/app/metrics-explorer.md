@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights에서 메트릭 탐색 | Microsoft Docs
 description: 메트릭 탐색기에 차트를 해석하는 방법 및 메트릭 탐색기 블레이드를 사용자 지정하는 방법입니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/22/2019
-ms.openlocfilehash: b0831ff500ba4cbe71dae6251fd960f6c96c0fe5
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: f85a8fe79e7f4f820d7c0e5b942730305e892095
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820795"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670171"
 ---
 # <a name="exploring-metrics-in-application-insights"></a>Application Insights에서 메트릭 탐색
 [Application Insights][start] 메트릭은 응용 프로그램의 원격 분석에서 전송 된 측정 된 값 및 이벤트 수입니다. 성능 문제를 감지하고 애플리케이션 사용 방식의 추세를 볼 수 있습니다. 다양한 표준 메트릭이 있으며 사용자 고유의 사용자 지정 메트릭 및 이벤트를 만들 수도 있습니다.
@@ -179,7 +175,7 @@ Application Insights 포털 어디에나 메트릭 차트가 있습니다. 대�
 ### <a name="power-bi"></a>Power BI
 보다 풍부한 데이터 보기를 사용하려는 경우 [Power BI를 내보낼](https://blogs.msdn.com/b/powerbi/archive/2015/11/04/explore-your-application-insights-data-with-power-bi.aspx)수 있습니다.
 
-## <a name="analytics"></a>분석기능
+## <a name="analytics"></a>분석
 [분석](../../azure-monitor/app/analytics.md) 은 강력한 쿼리 언어를 사용하여 원격 분석을 분석하는 더욱 유용한 방법입니다. 메트릭의 결과를 결합하거나 계산하려는 경우 또는 앱의 최근 성능을 면밀히 조사하려는 경우에 사용합니다. 
 
 메트릭 차트에서 분석 아이콘을 클릭하여 해당하는 분석 쿼리를 직접 가져올 수 있습니다.

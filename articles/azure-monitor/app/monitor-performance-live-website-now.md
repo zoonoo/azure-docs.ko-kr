@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights로 라이브 ASP.NET 웹앱 모니터링 | Microsoft Docs
 description: 다시 배포하지 않고 웹 사이트의 성능을 모니터링합니다. 온-프레미스 또는 VM에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 08/26/2019
-ms.openlocfilehash: ac238ae5715e09b2e64737801a862d89852ec9d9
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 63d632df61548d15a1e0a606cf2e198207faf341
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820759"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670052"
 ---
 # <a name="instrument-web-apps-at-runtime-with-application-insights-codeless-attach"></a>Application Insights 코드 없는 Attach를 사용 하 여 런타임 시 웹 앱 계측
 
@@ -47,10 +43,10 @@ Application Insights를 .NET 웹 애플리케이션에 적용하는 두 가지 �
 | [자세한 예외 정보](../../azure-monitor/app/asp-net-exceptions.md) | |yes |
 | [종속성 진단](../../azure-monitor/app/asp-net-dependencies.md) |.NET 4.6+, 간단히 |예, 전체 세부 정보: 결과 코드, SQL 명령 텍스트, HTTP 동사|
 | [시스템 성능 카운터](../../azure-monitor/app/performance-counters.md) |yes |yes |
-| [사용자 지정 원격 분석에 대 한 API][api] |yes |아닙니다. |
-| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |yes |아닙니다. |
-| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |yes |아닙니다. |
-| 코드를 다시 빌드해야 함 |yes | 아닙니다. |
+| [사용자 지정 원격 분석에 대 한 API][api] |yes |예 |
+| [추적 로그 통합](../../azure-monitor/app/asp-net-trace-logs.md) |yes |예 |
+| [페이지 보기 및 사용자 데이터](../../azure-monitor/app/javascript.md) |yes |예 |
+| 코드를 다시 빌드해야 함 |yes | 예 |
 
 
 
@@ -235,14 +231,14 @@ IIS 서버에서 PowerShell을 사용하여 모니터링을 시작하고 중지�
 `Stop-ApplicationInsightsMonitoring [-Name appName | -All]`
 
 * `-Name` IIS에서 앱의 이름
-* `-All` `SdkState==EnabledAfterDeployment`인 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다.
+* `-All``SdkState==EnabledAfterDeployment`인 이 IIS 서버에서 모든 앱에 대한 모니터링을 중지합니다.
 * 지정된 앱의 모니터링을 중지하고 계측을 제거합니다. 실행 시 상태 모니터링 도구 또는 Start-ApplicationInsightsApplication을 사용하여 계측된 앱에서 작동합니다. (`SdkState==EnabledAfterDeployment`)
 * ApplicationInsightsApplication을 반환합니다.
 
 `Update-ApplicationInsightsMonitoring -Name appName [-InstrumentationKey "0000000-0000-000-000-0000"`]
 
 * `-Name`: IIS에서 웹앱의 이름
-* `-InstrumentationKey` (선택 사항) 이를 사용 하 여 앱의 원격 분석이 전송 되는 리소스를 변경 합니다.
+* `-InstrumentationKey` (옵션) 이를 사용 하 여 앱의 원격 분석이 전송 되는 리소스를 변경 합니다.
 * 이 cmdlet은:
   * 최근에 이 컴퓨터에 다운로드된 SDK 버전으로 명명된 앱을 업그레이드합니다. (`SdkState==EnabledAfterDeployment`인 경우에만 작동)
   * 계측 키를 제공하는 경우 명명된 앱은 해당 키가 있는 리소스에 원격 분석을 전송하도록 다시 구성됩니다. ( `SdkState != Disabled`인 경우 작동)
@@ -302,7 +298,7 @@ Application Insights SDK 버전 2.4은 [.net 4.0을 지원 하기 위한 최신 
  * 종속성 호출(.NET 4.5); 종속성 호출(.NET 4.6)에 값을 반환합니다.
  * 예외 스택 추적 값
 
-[자세한 정보](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
+[자세히 알아보기](https://apmtips.com/blog/2016/11/18/how-application-insights-status-monitor-not-monitors-dependencies/)
 
 ## <a name="video"></a>비디오
 

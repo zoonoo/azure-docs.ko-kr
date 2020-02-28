@@ -1,19 +1,15 @@
 ---
 title: Azure 애플리케이션 Insights .NET SDK를 사용 하 여 사용자 지정 작업 추적
 description: Azure Application Insights .NET SDK를 통한 사용자 지정 작업 추적
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/26/2019
 ms.reviewer: sergkanz
-ms.openlocfilehash: 7b92a386d691e15975f18de169d7924b82ec5c5f
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 31c1fb366e7b109ea1fa4977d8e2f908e766e0f2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951346"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671820"
 ---
 # <a name="track-custom-operations-with-application-insights-net-sdk"></a>Application Insights .NET SDK를 통한 사용자 지정 작업 추적
 
@@ -173,7 +169,7 @@ public async Task Enqueue(string payload)
 }
 ```
 
-#### <a name="process"></a>프로세스
+#### <a name="process"></a>Process
 ```csharp
 public async Task Process(BrokeredMessage message)
 {
@@ -217,7 +213,7 @@ ASP.NET 및 ASP.NET Core 응용 프로그램에서 기본적으로 구성 되며
 #### <a name="enqueue"></a>큐에 넣기
 Storage 큐는 HTTP API를 지원하므로 큐를 통한 모든 작업은 Application Insights에서 자동으로 추적됩니다. 대부분의 경우 이 계측으로 충분합니다. 그러나 생산자 추적과 소비자 쪽 추적 사이의 상관 관계를 지정하려면 상관 관계에 대한 HTTP 프로토콜에서 수행하는 것과 비슷한 일부 상관 관계 컨텍스트를 전달해야 합니다. 
 
-이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음과 같은 기능이 가능합니다.
+이 예제는 `Enqueue` 작업을 추적하는 방법을 보여 줍니다. 다음을 수행할 수 있습니다.
 
  - **상관 관계 지정 재시도(있는 경우)** : 모든 작업에는 `Enqueue` 작업인 하나의 공통 부모가 있습니다. 그렇지 않으면 들어오는 요청의 자식으로 추적됩니다. 큐에 대한 논리적 요청이 여러 개 있으면 재시도가 발생한 호출을 찾는 것이 어려울 수 있습니다.
  - **스토리지 상관 관계 지정 로그(필요한 경우)** : Application Insights 원격 분석과의 상관 관계가 지정됩니다.
@@ -268,7 +264,7 @@ public async Task Enqueue(CloudQueue queue, string message)
 애플리케이션 보고서에서 원격 분석의 양을 줄이거나 다른 이유로 `Enqueue` 작업을 추적하지 않으려면 `Activity` API를 직접 사용합니다.
 
 - Application Insights 작업을 시작하는 대신 새 `Activity`를 만듭니다(및 시작합니다). 작업 이름을 제외한 모든 속성을 *지정하지 않아도 됩니다*.
-- `operation.Telemetry.Id` 대신 메시지 페이로드에 `yourActivity.Id`를 직렬화합니다. 또한 `Activity.Current.Id`도 사용할 수 있습니다.
+- `yourActivity.Id` 대신 메시지 페이로드에 `operation.Telemetry.Id`를 직렬화합니다. 또한 `Activity.Current.Id`을 사용할 수 있습니다.
 
 
 #### <a name="dequeue"></a>큐에서 제거
@@ -304,7 +300,7 @@ public async Task<MessagePayload> Dequeue(CloudQueue queue)
 }
 ```
 
-#### <a name="process"></a>프로세스
+#### <a name="process"></a>Process
 
 다음 예제에서 들어오는 메시지는 들어오는 HTTP 요청과 비슷한 방식으로 추적됩니다.
 
@@ -394,7 +390,7 @@ async Task BackgroundTask()
 
 이 예제에서 `telemetryClient.StartOperation`은 `DependencyTelemetry`를 만들고 상관 컨텍스트를 채웁니다. 작업을 예약한 들어오는 요청으로 만들어진 부모 작업이 있다고 가정해 보겠습니다. 들어오는 요청과 동일한 비동기 제어 흐름에서 `BackgroundTask`가 시작되는 한 해당 부모 작업과 상관 관계가 지정됩니다. `BackgroundTask` 및 모든 중첩된 원격 분석 항목은 요청이 종료된 후에도 원인이 된 요청과의 상관 관계가 자동으로 지정됩니다.
 
-연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `BackgroundTask`에서 만들어진 `DependencyTelemetry` 사이의 상관 관계가 지정됩니다.
+연결된 작업(`Activity`)이 없는 백그라운드 스레드에서 작업이 시작되면 `BackgroundTask`에는 부모가 없습니다. 그러나 중첩된 작업이 있을 수 있습니다. 이 작업에서 보고되는 모든 원격 분석 항목과 `DependencyTelemetry`에서 만들어진 `BackgroundTask` 사이의 상관 관계가 지정됩니다.
 
 ## <a name="outgoing-dependencies-tracking"></a>나가는 종속성 추적
 사용자 고유의 종속성 종류 또는 Application Insights에서 지원하지 않는 작업을 추적할 수 있습니다.
@@ -403,7 +399,7 @@ Service Bus 큐의 `Enqueue` 메서드 또는 Azure Storage 큐는 이러한 사
 
 사용자 지정 종속성 추적을 위한 일반적인 방법은 다음과 같습니다.
 
-- 상관 관계 및 일부 다른 속성(시작 타임스탬프, 기간)에 필요한 `DependencyTelemetry` 속성을 채우는 `TelemetryClient.StartOperation`(확장) 메서드를 호출합니다.
+- 상관 관계 및 일부 다른 속성(시작 타임스탬프, 기간)에 필요한 `TelemetryClient.StartOperation` 속성을 채우는 `DependencyTelemetry`(확장) 메서드를 호출합니다.
 - 이름 및 기타 필요한 컨텍스트와 같이 `DependencyTelemetry`에서 다른 사용자 지정 속성을 설정합니다.
 - 종속성을 호출하고 기다립니다.
 - 완료되면 `StopOperation`을 통해 작업을 중지합니다.
@@ -429,7 +425,7 @@ public async Task RunMyTaskAsync()
 
 작업을 삭제하면 작업이 중지되므로 `StopOperation`을 호출하는 대신 수행할 수 있습니다.
 
-*경고*: 일부 경우에 처리되지 않은 예외는 `finally`가 호출되는 것을 [방지](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally)하므로 작업은 추적되지 않을 수 있습니다.
+*경고*: 경우에 따라 예외가 발생 하지 않을 [`finally` 수 있으므로](https://docs.microsoft.com/dotnet/csharp/language-reference/keywords/try-finally) 작업이 추적 되지 않을 수 있습니다.
 
 ### <a name="parallel-operations-processing-and-tracking"></a>병렬 작업 처리 및 추적
 

@@ -1,19 +1,15 @@
 ---
 title: 스마트 감지 - 성능 이상 | Microsoft Docs
 description: Application Insights는 앱 원격 분석의 스마트 분석을 수행하여 잠재적 성능 문제에 대해 경고합니다. 이 기능에는 설정이 필요하지 않습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/04/2017
 ms.reviewer: antonfr
-ms.openlocfilehash: b9a95bb2ee6ab137e974b46e24738ca5194f3bd2
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 3d8de08605d3dd693eb74a84a29c2efa6cad669a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820575"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671735"
 ---
 # <a name="smart-detection---performance-anomalies"></a>스마트 감지 - 성능 이상
 
@@ -64,7 +60,7 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 ## <a name="faq"></a>FAQ
 
 * *그렇다면, 내 데이터를 확인하나요?*
-  * 아닙니다. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
+  * 아니요. 서비스는 완전 자동입니다. 사용자는 알림만 받게 됩니다. 사용자의 데이터는 [프라이빗](../../azure-monitor/app/data-retention-privacy.md)입니다.
 * *Application Insights를 통해 수집되는 모든 데이터를 분석하나요?*
   * 현재는 암호화되지 않습니다. 현재는 요청 응답 시간, 종속성 응답 시간 및 페이지 로드 시간을 분석합니다. 추가 메트릭에 대한 분석은 현재 서비스를 위해 작업 중입니다.
 
@@ -75,12 +71,12 @@ Application Insights가 애플리케이션 성능이 다음과 같은 방식 중
 
   * 아직은 가능하지 않지만 다음 작업은 가능합니다.
     * 메트릭 임계값을 초과할 때 알리도록 [경고를 설정](../../azure-monitor/app/alerts.md)할 수 있습니다.
-    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md), [PowerBI](../../azure-monitor/app/export-power-bi.md )에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-telemetry.md).
+    * 직접 분석할 수 있는 [데이터베이스](../../azure-monitor/app/export-telemetry.md), [PowerBI](../../azure-monitor/app/code-sample-export-sql-stream-analytics.md)에 [원격 분석을 내보냅니다](../../azure-monitor/app/export-power-bi.md ).
 * *얼마나 자주 분석합니까?*
 
   * 원격 분석 데이터에 대한 분석은 전날부터 매일 실행됩니다(UTC 표준 시간대로 하루 종일).
 * 이것이 *메트릭 경고[를 대신하나요](../../azure-monitor/app/alerts.md)?*
-  * 아닙니다.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
+  * 아니요.  비정상이라고 간주할만한 동작을 모두 감지한다고 커밋할 수 없습니다.
 
 
 * *알림에 대한 응답으로 아무 작업도 수행하지 않을 경우 미리 알림이 제공되나요?*

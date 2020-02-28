@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights를 사용하여 Node.js 서비스 모니터링 | Microsoft Docs
 description: Application Insights를 사용하여 Node.js 서비스의 성능을 모니터링하고 문제를 진단합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 81f63380c041ae743a2b38e6ba89558b83e7497a
-ms.sourcegitcommit: 8e271271cd8c1434b4254862ef96f52a5a9567fb
+ms.openlocfilehash: 320ec62e642155002e42c59d4656f51673249eb1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72820713"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670018"
 ---
 # <a name="monitor-your-nodejs-services-and-apps-with-application-insights"></a>Application Insights를 사용하여 Node.js 서비스 및 앱 모니터링
 
@@ -28,7 +24,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 
 앱 또는 서비스에 대한 모니터링을 설정하려면 다음 작업을 완료합니다.
 
-### <a name="prerequisites"></a>전제 조건
+### <a name="prerequisites"></a>사전 요구 사항
 
 시작 하기 전에 Azure 구독이 있는지 확인 하거나 [무료로 새로 가져오세요][azure-free-offer]. 조직에 이미 Azure 구독이 있는 경우 관리자는 [다음 지침][add-aad-user] 에 따라 사용자를 추가할 수 있습니다.
 
@@ -39,7 +35,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
 ### <a name="resource"></a> Application Insights 리소스 설정
 
 
-1. [Azure portal][portal]에 로그인합니다.
+1. [Azure Portal][portal]에 로그인합니다.
 2. **리소스 만들기** > **개발자 도구** > **Application Insights**를 선택합니다. 리소스에는 원격 분석 데이터를 수신하기 위한 엔드포인트, 이 데이터 스토리지, 저장된 보고서 및 대시보드, 규칙 및 경고 구성이 포함됩니다.
 
 3. 리소스 만들기 페이지의 **애플리케이션 유형** 상자에서 **Node.js Application**을 선택합니다. 앱 유형에 따라 생성되는 기본 대시보드 및 보고서가 결정됩니다. (모든 Application Insights 리소스는 모든 언어 및 플랫폼에서 데이터를 수집할 수 있습니다.)
@@ -68,7 +64,7 @@ TelemetryClient API를 사용하여 앱 및 시스템의 추가적인 여러 측
    appInsights.start();
    ```
    
-   ikey를 `setup()` 또는 `new appInsights.TelemetryClient()`에 수동으로 전달하는 대신 APPINSIGHTS\_INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
+   ikey를 \_ 또는 `setup()`에 수동으로 전달하는 대신 APPINSIGHTS`new appInsights.TelemetryClient()`INSTRUMENTATIONKEY 환경 변수를 통해 제공할 수도 있습니다. 이렇게 하면 ikey가 커밋된 소스 코드의 영향을 받지 않으며 다른 환경에 다른 ikey를 지정할 수 있습니다.
 
    추가 구성 옵션의 경우 다음 섹션을 참조하세요.
 
@@ -88,7 +84,7 @@ SDK는 Node.js 런타임 및 일부 일반적인 타사 모듈에 대한 원격 
 
 ![조사 섹션](./media/nodejs/007-investigate-pane.png)
 
-#### <a name="no-data"></a>데이터가 없으세요?
+#### <a name="no-data"></a>데이터가 없나요?
 
 SDK는 제출할 데이터를 일괄 처리하기 때문에 항목이 포털에 표시될 때까지 지연될 수 있습니다. 리소스에 데이터가 보이지 않으면 다음 해결 방법 중 몇 가지를 시도해 보세요.
 

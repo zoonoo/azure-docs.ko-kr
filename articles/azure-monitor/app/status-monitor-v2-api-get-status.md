@@ -1,24 +1,22 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
-description: 에이전트 API 참조를 Application Insights 합니다. ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
+description: 에이전트 API 참조를 Application Insights 합니다. Get-ApplicationInsightsMonitoringStatus. 웹 사이트를 다시 배포 하지 않고 웹 사이트 성능을 모니터링 합니다. VM 또는 Azure의 온-프레미스에서 호스트되는 ASP.NET 웹앱으로 작업합니다.
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: 9b1010404cb876ed818dd54cf527987c6cf0ffe0
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 159dab4a228c822ef62c45c9ccceff638a9bea45
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899682"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671259"
 ---
 # <a name="application-insights-agent-api-get-applicationinsightsmonitoringstatus"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringStatus
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 이 cmdlet은 상태 모니터에 대 한 문제 해결 정보를 제공 합니다.
 이 cmdlet을 사용 하 여 PowerShell 모듈의 모니터링 상태와 버전을 조사 하 고 실행 중인 프로세스를 검사할 수 있습니다.
@@ -27,7 +25,7 @@ ms.locfileid: "72899682"
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="example-application-status"></a>예: 응용 프로그램 상태
 
@@ -77,7 +75,7 @@ AppAlreadyInstrumented : true
 
 ### <a name="example-powershell-module-information"></a>예: PowerShell 모듈 정보
 
-현재 모듈에 대 한 정보를 표시 하려면 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule` 명령을 실행 합니다.
+명령 `Get-ApplicationInsightsMonitoringStatus -PowerShellModule`를 실행 하 여 현재 모듈에 대 한 정보를 표시 합니다.
 
 ```
 PS C:\> Get-ApplicationInsightsMonitoringStatus -PowerShellModule
@@ -167,7 +165,7 @@ listdlls64.exe -accepteula w3wp
 0x000000000ad60000  0x108000  C:\Windows\TEMP\2.4.0.0.Microsoft.ApplicationInsights.Extensions.Intercept_x64.dll
 ```
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 ### <a name="no-parameters"></a>(매개 변수 없음)
 
@@ -177,24 +175,24 @@ listdlls64.exe -accepteula w3wp
 
 
 ### <a name="-powershellmodule"></a>-PowerShellModule
-**옵션**. 이 스위치를 사용 하 여 모니터링에 필요한 Dll의 버전 번호와 경로를 보고 합니다.
+**선택 사항**. 이 스위치를 사용 하 여 모니터링에 필요한 Dll의 버전 번호와 경로를 보고 합니다.
 Application Insights SDK를 포함 하 여 DLL의 버전을 식별 해야 하는 경우이 옵션을 사용 합니다.
 
 ### <a name="-inspectprocess"></a>-InspectProcess
 
-**옵션**. 이 스위치를 사용 하 여 IIS가 실행 중인지 여부를 보고 합니다.
+**선택 사항**. 이 스위치를 사용 하 여 IIS가 실행 중인지 여부를 보고 합니다.
 또한 필요한 Dll이 IIS 런타임에 로드 되는지 확인 하기 위해 외부 도구도 다운로드 합니다.
 
 
 어떤 이유로 든이 프로세스가 실패 하는 경우 다음 명령을 수동으로 실행할 수 있습니다.
-- iisreset/status
-- [handle64](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp.exe | findstr/I "InstrumentationEngine AI. Applicationinsights.config
+- iisreset.exe /status
+- [handle64](https://docs.microsoft.com/sysinternals/downloads/handle) -p w3wp.exe | findstr/I "InstrumentationEngine AI. ApplicationInsights"
 - [listdlls64](https://docs.microsoft.com/sysinternals/downloads/listdlls) w3wp.exe | findstr/I "InstrumentationEngine AI ApplicationInsights"
 
 
 ### <a name="-force"></a>-Force
 
-**옵션**. InspectProcess에만 사용 됩니다. 이 스위치를 사용 하 여 추가 도구가 다운로드 되기 전에 표시 되는 사용자 프롬프트를 건너뛸 수 있습니다.
+**선택 사항**. InspectProcess에만 사용 됩니다. 이 스위치를 사용 하 여 추가 도구가 다운로드 되기 전에 표시 되는 사용자 프롬프트를 건너뛸 수 있습니다.
 
 
 ## <a name="next-steps"></a>다음 단계

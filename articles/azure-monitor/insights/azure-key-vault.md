@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 Azure Key Vault 솔루션 Microsoft Docs
 description: Azure Monitor에서 Azure Key Vault 솔루션을 사용 하 여 Azure Key Vault 로그를 검토할 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/27/2019
-ms.openlocfilehash: 8d9c5f63a00179903c0920912aba642311a354e7
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 7a2becf8cb43568383c324bb9f4f5b2e7b844268
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74889110"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667146"
 ---
 # <a name="azure-key-vault-analytics-solution-in-azure-monitor"></a>Azure Monitor의 Azure Key Vault 분석 솔루션
 
@@ -95,9 +94,9 @@ Azure Blob Storage에 로그를 작성하지 않아도 되며 데이터 수집�
     로그 검색 페이지에서, 시간별 결과, 자세한 결과 및 로그 검색 기록을 볼 수 있습니다. 패싯으로 필터링하여 결과 범위를 좁힐 수 있습니다.
 
 ## <a name="azure-monitor-log-records"></a>Azure Monitor 로그 레코드
-Azure Key Vault 솔루션은 Azure Diagnostics에서 [AuditEvent logs](../../key-vault/key-vault-logging.md)에서 수집된 **KeyVaults** 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
+Azure Key Vault 솔루션은 Azure Diagnostics에서 **AuditEvent logs**에서 수집된 [KeyVaults](../../key-vault/key-vault-logging.md) 형식의 레코드를 분석합니다.  이러한 레코드의 속성은 다음 표에 있습니다.  
 
-| 자산 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | `Type` |*AzureDiagnostics* |
 | `SourceSystem` |*Azure* |

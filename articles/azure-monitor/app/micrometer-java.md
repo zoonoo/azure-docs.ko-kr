@@ -1,18 +1,16 @@
 ---
 title: Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 description: Micrometer를 Application Insights Spring Boot 및 Spring Boot 이외 애플리케이션에 사용하기 위한 단계별 가이드입니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 11/01/2018
-ms.openlocfilehash: c9f1c6f6742f36d376668422f9c37c6c5a2228a4
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: dd04087db32f0bbfa75dafa7e12c355e5ab7b515
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74872998"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670069"
 ---
 # <a name="how-to-use-micrometer-with-azure-application-insights-java-sdk"></a>Azure Application Insights Java SDK에 Micrometer를 사용하는 방법
 Micrometer 애플리케이션 모니터링은 JVM 기반 애플리케이션 코드의 메트릭을 측정하며, 자주 사용하는 모니터링 시스템으로 데이터를 내보낼 수 있습니다. 이 문서에서는 Spring Boot 및 Spring Boot 이외 애플리케이션 모두에 대해 Application Insights에 Micrometer를 사용하는 방법을 안내합니다.

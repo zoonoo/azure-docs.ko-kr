@@ -1,18 +1,17 @@
 ---
 title: Microsoft Flow를 사용하여 Azure Monitor 로그 프로세스 자동화
 description: Microsoft Flow를 통해 Azure Log Analytics 커넥터를 사용하여 반복 가능한 프로세스를 신속하게 자동화하는 방법을 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/29/2017
-ms.openlocfilehash: a6097d38d3335be356ca75f5a9d0eadeed414b03
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 92f0d2916b0f28760f7d028ee3e6dc0be37c32d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166945"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672313"
 ---
 # <a name="automate-azure-monitor-log-processes-with-the-connector-for-microsoft-flow"></a>Microsoft Flow용 커넥터를 사용하여 Azure Monitor 로그 프로세스 자동화
 [Microsoft Flow](https://ms.flow.microsoft.com)를 사용하면 다양한 서비스에 수백 가지 작업을 통해 자동화된 워크플로를 만들 수 있습니다. 한 작업의 출력을 서로 다른 서비스 간의 통합을 만들 수 있는 다른 작업에 대한 입력으로 사용할 수 있습니다.  Microsoft Flow에 대한 Azure Log Analytics 커넥터를 사용하면 Azure Monitor에서 Log Analytics 작업 영역에서 로그 쿼리로 검색한 데이터를 포함하는 워크플로를 빌드할 수 있습니다.

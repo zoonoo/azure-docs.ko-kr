@@ -1,22 +1,20 @@
 ---
 title: Azure Monitor에서 활동 로그 경고 만들기, 보기 및 관리
 description: Azure Portal, Azure Resource Manager 템플릿 및 Azure PowerShell를 사용 하 여 활동 로그 경고를 만듭니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
+ms.subservice: alerts
 ms.date: 06/25/2019
-ms.openlocfilehash: 4835f1034149a015963569a0b1fc5f9195e3cfca
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 9791ebaadeb1ee724692a9e1a0d61aff5cbae6a3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969529"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668488"
 ---
 # <a name="create-view-and-manage-activity-log-alerts-by-using-azure-monitor"></a>Azure Monitor를 사용 하 여 활동 로그 경고 만들기, 보기 및 관리  
 
 ## <a name="overview"></a>개요
+
 활동 로그 경고는 경고에 지정된 조건과 일치하는 새 활동 로그 이벤트가 발생할 때 활성화되는 경고입니다.
 
 이러한 경고는 Azure 리소스에 대 한 것 이며 Azure Resource Manager 템플릿을 사용 하 여 만들 수 있습니다. 또한 Azure Portal에서 생성, 업데이트 또는 삭제할 수 있습니다. 일반적으로 Azure 구독의 리소스에 대 한 특정 변경이 발생할 때 알림을 수신 하는 활동 로그 경고를 만듭니다. 경고는 일반적으로 특정 리소스 그룹 또는 리소스로 범위가 지정 됩니다. 예를 들어 샘플 리소스 그룹 **myProductionResourceGroup** 의 가상 머신이 삭제 되 면 알림이 표시 되도록 할 수 있습니다. 또는 구독에서 사용자에 게 새 역할이 할당 된 경우 알림이 표시 될 수도 있습니다.
@@ -31,14 +29,13 @@ ms.locfileid: "75969529"
 - 경고 구성 JSON에는 "anyOf" 조건 또는 중첩 조건이 없습니다. 기본적으로 "allOf" 또는 "anyOf" 조건이 추가로 포함 되지 않은 하나의 "allOf" 조건만 허용 됩니다.
 - 범주가 "관리" 인 경우 경고에서 앞의 조건 중 하나 이상을 지정 해야 합니다. 활동 로그에서 이벤트가 생성될 때마다 활성화되는 경고를 만들 필요는 없습니다.
 
-
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 
 Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정할 수 있습니다. 이 환경은 관심 있는 특정 이벤트에 대 한 원활한 경고 생성을 보장 하기 위해 Azure 활동 로그와 통합 됩니다.
 
 ### <a name="create-with-the-azure-portal"></a>Azure Portal를 사용 하 여 만들기
 
-다음 절차를 사용합니다.
+다음 절차를 사용 합니다.
 
 1. Azure Portal에서 **모니터** > **경고**를 선택 합니다.
 2. **경고** 창의 왼쪽 위 모서리에서 **새 경고 규칙** 을 선택 합니다.
@@ -92,7 +89,7 @@ Azure Portal를 사용 하 여 활동 로그 경고 규칙을 만들고 수정�
 5. **작업 그룹** 아래의 드롭다운 메뉴에서 이 새 경고 규칙에 할당할 작업 그룹을 지정합니다. 또는 [새 작업 그룹을 만들고](../../azure-monitor/platform/action-groups.md) 새 규칙에 할당 합니다. 새 그룹을 만들려면 **+ 새 그룹**을 선택 합니다.
 
 6. 규칙을 만든 후에 설정 하려면 규칙을 만들 **때 규칙 사용** 옵션에 대해 **예** 를 선택 합니다.
-7. **경고 규칙 만들기**를 선택합니다.
+7. **경고 규칙 만들기**를 선택 합니다.
 
     활동 로그에 대 한 새 경고 규칙이 생성 되 고 창의 오른쪽 위 모퉁이에 확인 메시지가 표시 됩니다.
 

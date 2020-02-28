@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 모니터링할 내용
 description: Azure Monitor에서 모니터링 하는 모든 서비스 및 기타 리소스에 대 한 참조입니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/17/2020
-ms.openlocfilehash: 055ba8b5050aef639bbe6527292a18c8b405065a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3cd330e9c4ceba2feeb7a74cafe9f094fd03d690
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620267"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669117"
 ---
 # <a name="what-is-monitored-by-azure-monitor"></a>Azure Monitor에서 모니터링 되는 항목
 이 문서에서는 Azure Monitor에 의해 모니터링 되는 다양 한 응용 프로그램 및 서비스에 대해 설명 합니다. 
@@ -24,7 +23,7 @@ ms.locfileid: "77620267"
 
 Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정 모니터링 환경을 제공 합니다. 로그 및 메트릭을 수집 하 고 분석 합니다.
 
-| 인사이트 | 설명 |
+| 인사이트 | Description |
 |:---|:---|
 | [Application Insights](app/app-insights-overview.md) | 모든 플랫폼에서 라이브 웹 응용 프로그램을 모니터링 하는 확장 가능한 APM (응용 프로그램 성능 관리) 서비스입니다. |
 | [컨테이너 Azure Monitor](insights/container-insights-overview.md) | AKS (Azure Kubernetes Service)에서 호스트 되는 Azure Container Instances 또는 관리 되는 Kubernetes 클러스터에 배포 된 컨테이너 워크 로드의 성능을 모니터링 합니다. |
@@ -38,7 +37,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 
 솔루션은 특정 응용 프로그램이 나 서비스에 대해 사용자 지정 된 로그 쿼리 및 보기를 기반으로 합니다. 로그를 수집 및 분석 하 고, 정보를 통해 시간에 따라 더 이상 사용 되지 않습니다.
 
-| 솔루션 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [에이전트 상태](insights/solution-agenthealth.md) | Log Analytics 에이전트의 상태와 구성을 분석 합니다. |
 | [경고 관리](platform/alert-management-solution.md) | System Center Operations Manager, Nagios 또는 Zabbix에서 수집 된 경고를 분석 합니다. |
@@ -53,127 +52,127 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 - 로그-서비스는 Azure Monitor 로그에 대 한 플랫폼 로그 및 메트릭을 수집할 수 있는 진단 설정을 지원 합니다.
 - 통찰력-서비스에 대 한 사용자 지정 모니터링 환경을 제공 하는 서비스에 대 한 통찰력을 제공 합니다.
 
-| Service | 메트릭 | 로그 | 인사이트 | 참고 |
+| 서비스 | 메트릭 | 로그 | 인사이트 | 메모 |
 |:---|:---|:---|:---|:---|
-|Active Directory | 아니요 | 예 | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
-|Active Directory B2C | 아니요 | 아니요 | 아니요 |  |
-|Active Directory Domain Services | 아니요 | 예 | 아니요 |  |
-|활동 로그 | 아니요 | 예 | 아니요 | |
-|고급 위협 보호 | 아니요 | 아니요 | 아니요 |  |
-|Advisor | 아니요 | 아니요 | 아니요 |  |
-|AI 작성기 | 아니요 | 아니요 | 아니요 |  |
-|Analysis Services | 예 | 예 | 아니요 |  |
-|FHIR 용 API | 아니요 | 아니요 | 아니요 |  |
-|API Management | 예 | 예 | 아니요 |  |
-|App Service | 예 | 예 | 아니요 |  |
-|AppConfig | 아니요 | 아니요 | 아니요 |  |
-|Application Gateway | 예 | 예 | 아니요 |  |
-|증명 서비스 | 아니요 | 아니요 | 아니요 |  |
-|자동화 | 예 | 예 | 아니요 |  |
-|Azure Service Manager (RDFE) | 아니요 | 아니요 | 아니요 |  |
-|Backup | 아니요 | 예 | 아니요 |  |
-|Bastion | 아니요 | 아니요 | 아니요 |  |
-|Batch | 예 | 예 | 아니요 |  |
-|Batch AI | 아니요 | 아니요 | 아니요 |  |
-|Blockchain Service | 아니요 | 예 | 아니요 |  |
-|Blueprints | 아니요 | 아니요 | 아니요 |  |
-|Bot 서비스 | 아니요 | 아니요 | 아니요 |  |
-|Cloud Services | 예 | 예 | 아니요 | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다.  |
-|Cloud Shell | 아니요 | 아니요 | 아니요 |  |
-|Cognitive Services | 예 | 예 | 아니요 |  |
-|Container Instances | 예 | 아니요 | 아니요 |  |
-|Container Registry | 예 | 예 | 아니요 |  |
-|CDN(콘텐츠 배달 네트워크) | 아니요 | 예 | 아니요 |  |
-|Cosmos DB | 예 | 예 | [예](insights/cosmosdb-insights-overview.md) |  |
-|Cost Management | 아니요 | 아니요 | 아니요 |  |
-|Data Box | 아니요 | 아니요 | 아니요 |  |
-|Data Catalog Gen2 | 아니요 | 아니요 | 아니요 |  |
-|데이터 탐색기 | 예 | 예 | 아니요 |  |
-|Data Factory | 예 | 예 | 아니요 |  |
-|Data Factory v2 | 아니요 | 예 | 아니요 |  |
-|데이터 공유 | 아니요 | 아니요 | 아니요 |  |
-|MariaDB 용 데이터베이스 | 예 | 예 | 아니요 |  |
-|MySQL 용 데이터베이스 | 예 | 예 | 아니요 |  |
-|PostgreSQL 용 데이터베이스 | 예 | 예 | 아니요 |  |
-|Database Migration Service | 아니요 | 아니요 | 아니요 |  |
-|Databricks | 아니요 | 예 | 아니요 |  |
-|DDoS Protection | 예 | 예 | 아니요 |  |
-|DevOps | 아니요 | 아니요 | 아니요 |  |
-|DNS | 예 | 아니요 | 아니요 |  |
-|도메인 이름 | 아니요 | 아니요 | 아니요 |  |
-|않으면 | 아니요 | 아니요 | 아니요 |  |
-|Dynamics 365 고객 참여 | 아니요 | 아니요 | 아니요 |  |
-|Dynamics 365 재무 및 작업 | 아니요 | 아니요 | 아니요 |  |
-|Event Grid | 예 | 아니요 | 아니요 |  |
-|Event Hubs | 예 | 예 | 아니요 |  |
-|ExpressRoute | 예 | 예 | 아니요 |  |
-|방화벽 | 예 | 예 | 아니요 |  |
-|Front Door | 예 | 예 | 아니요 |  |
-|함수 | 예 | 예 | 아니요 |  |
-|HDInsight | 아니요 | 예 | 아니요 |  |
-|HPC 캐시 | 아니요 | 아니요 | 아니요 |  |
-|Information Protection | 아니요 | 예 | 아니요 |  |
-|Intune | 아니요 | 예 | 아니요 |  |
-|IoT Central | 아니요 | 아니요 | 아니요 |  |
-|IoT Hub | 예 | 예 | 아니요 |  |
-|Key Vault | 예 | 예 | 아니요 |  |
-|AKS(Azure Kubernetes Service) | 아니요 | 아니요 | [예](insights/container-insights-overview.md)  |  |
-|Load Balancer | 예 | 예 | 아니요 |  |
-|Logic Apps | 예 | 예 | 아니요 |  |
-|Machine Learning Service | 아니요 | 아니요 | 아니요 |  |
-|Managed Applications  | 아니요 | 아니요 | 아니요 |  |
-|지도  | 아니요 | 아니요 | 아니요 |  |
-|Media Services | 예 | 예 | 아니요 |  |
-|Microsoft Flow | 아니요 | 아니요 | 아니요 |  |
-|Microsoft에서 관리 하는 데스크톱 | 아니요 | 아니요 | 아니요 |  |
-|Microsoft PowerApps | 아니요 | 아니요 | 아니요 |  |
-|Microsoft 소셜 참여 | 아니요 | 아니요 | 아니요 |  |
-|Microsoft Stream | 예 | 예 | 아니요 |  |
-|마이그레이션 | 아니요 | 아니요 | 아니요 |  |
-|다단계 인증 | 아니요 | 예 | 아니요 |  |
-|Network Watcher | 예 | 예 | 아니요 |  |
-|알림 허브 | 예 | 아니요 | 아니요 |  |
-|공개 데이터 세트 | 아니요 | 아니요 | 아니요 |  |
-|정책 | 아니요 | 아니요 | 아니요 |  |
-|Power BI | 예 | 예 | 아니요 |  |
-|Power BI Embedded | 아니요 | 아니요 | 아니요 |  |
-|Private Link | 아니요 | 아니요 | 아니요 |  |
-|프로젝트 스풀 통신 플랫폼 | 아니요 | 아니요 | 아니요 |  |
-|Red Hat OpenShift | 아니요 | 아니요 | 아니요 |  |
-|Redis Cache | 예 | 예 | 아니요 |  |
-|Resource Graph | 아니요 | 아니요 | 아니요 |  |
-|리소스 관리자 | 아니요 | 아니요 | 아니요 |  |
-|소매점 검색 – Bing | 아니요 | 아니요 | 아니요 |  |
-|검색 | 예 | 예 | 아니요 |  |
-|Service Bus | 예 | 예 | 아니요 |  |
-|Service Fabric | 아니요 | 예 | 아니요 | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다.  |
-|등록 포털 | 아니요 | 아니요 | 아니요 |  |
-|Site Recovery | 아니요 | 예 | 아니요 |  |
-|스프링 클라우드 서비스 | 아니요 | 아니요 | 아니요 |  |
-|SQL Data Warehouse | 예 | 예 | 아니요 |  |
-|SQL 데이터베이스 | 예 | 예 | 아니요 |  |
-|SQL Server Stretch Database | 예 | 예 | 아니요 |  |
-|스택 | 아니요 | 아니요 | 아니요 |  |
-|스토리지 | 예 | 아니요 | [예](insights/storage-insights-overview.md) |  |
-|저장소 캐시 | 아니요 | 아니요 | 아니요 |  |
-|저장소 동기화 서비스 | 아니요 | 아니요 | 아니요 |  |
-|Stream Analytics | 예 | 예 | 아니요 |  |
-|Time Series Insights | 예 | 예 | 아니요 |  |
-|TINA | 아니요 | 아니요 | 아니요 |  |
-|Traffic Manager | 예 | 예 | 아니요 |  |
-|유니버설 인쇄 | 아니요 | 아니요 | 아니요 |  |
-|Virtual Machine Scale Sets | 아니요 | 예 | [예](insights/vminsights-overview.md) | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다. |
-|가상 컴퓨터 | 예 | 예 | [예](insights/vminsights-overview.md) | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다. |
-|Virtual Network | 예 | 예 | [예](insights/network-insights-overview.md) |  |
-|Virtual Network-NSG 흐름 로그 | 아니요 | 예 | 아니요 |  |
-|VPN Gateway | 예 | 예 | 아니요 |  |
-|Windows Virtual Desktop | 아니요 | 아니요 | 아니요 |  |
+|Active Directory | 예 | yes | [예](../active-directory/reports-monitoring/howto-use-azure-monitor-workbooks.md) |  |
+|Active Directory B2C | 예 | 예 | 예 |  |
+|Active Directory Domain Services | 예 | yes | 예 |  |
+|활동 로그 | 예 | yes | 예 | |
+|고급 위협 보호 | 예 | 예 | 예 |  |
+|Advisor | 예 | 예 | 예 |  |
+|AI 작성기 | 예 | 예 | 예 |  |
+|Analysis Services | yes | yes | 예 |  |
+|FHIR 용 API | 예 | 예 | 예 |  |
+|API Management | yes | yes | 예 |  |
+|App Service | yes | yes | 예 |  |
+|AppConfig | 예 | 예 | 예 |  |
+|Application Gateway | yes | yes | 예 |  |
+|증명 서비스 | 예 | 예 | 예 |  |
+|Automation | yes | yes | 예 |  |
+|Azure Service Manager (RDFE) | 예 | 예 | 예 |  |
+|Backup | 예 | yes | 예 |  |
+|Bastion | 예 | 예 | 예 |  |
+|Batch | yes | yes | 예 |  |
+|Batch AI | 예 | 예 | 예 |  |
+|Blockchain Service | 예 | yes | 예 |  |
+|Blueprints | 예 | 예 | 예 |  |
+|Bot 서비스 | 예 | 예 | 예 |  |
+|Cloud Services | yes | yes | 예 | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다.  |
+|Cloud Shell | 예 | 예 | 예 |  |
+|Cognitive Services | yes | yes | 예 |  |
+|Container Instances | yes | 예 | 예 |  |
+|Container Registry | yes | yes | 예 |  |
+|CDN(콘텐츠 배달 네트워크) | 예 | yes | 예 |  |
+|Cosmos DB | yes | yes | [예](insights/cosmosdb-insights-overview.md) |  |
+|Cost Management | 예 | 예 | 예 |  |
+|Data Box | 예 | 예 | 예 |  |
+|Data Catalog Gen2 | 예 | 예 | 예 |  |
+|데이터 탐색기 | yes | yes | 예 |  |
+|Data Factory | yes | yes | 예 |  |
+|Data Factory v2 | 예 | yes | 예 |  |
+|데이터 공유 | 예 | 예 | 예 |  |
+|MariaDB 용 데이터베이스 | yes | yes | 예 |  |
+|MySQL 용 데이터베이스 | yes | yes | 예 |  |
+|PostgreSQL 용 데이터베이스 | yes | yes | 예 |  |
+|Database Migration Service | 예 | 예 | 예 |  |
+|Databricks | 예 | yes | 예 |  |
+|DDoS Protection | yes | yes | 예 |  |
+|DevOps | 예 | 예 | 예 |  |
+|DNS | yes | 예 | 예 |  |
+|도메인 이름 | 예 | 예 | 예 |  |
+|않으면 | 예 | 예 | 예 |  |
+|Dynamics 365 고객 참여 | 예 | 예 | 예 |  |
+|Dynamics 365 재무 및 작업 | 예 | 예 | 예 |  |
+|Event Grid | yes | 예 | 예 |  |
+|Event Hubs | yes | yes | 예 |  |
+|ExpressRoute | yes | yes | 예 |  |
+|방화벽 | yes | yes | 예 |  |
+|Front Door | yes | yes | 예 |  |
+|Functions | yes | yes | 예 |  |
+|HDInsight | 예 | yes | 예 |  |
+|HPC 캐시 | 예 | 예 | 예 |  |
+|Information Protection | 예 | yes | 예 |  |
+|Intune | 예 | yes | 예 |  |
+|IoT Central | 예 | 예 | 예 |  |
+|IoT Hub | yes | yes | 예 |  |
+|Key Vault | yes | yes | 예 |  |
+|AKS(Azure Kubernetes Service) | 예 | 예 | [예](insights/container-insights-overview.md)  |  |
+|Load Balancer | yes | yes | 예 |  |
+|Logic Apps | yes | yes | 예 |  |
+|Machine Learning Service | 예 | 예 | 예 |  |
+|Managed Applications  | 예 | 예 | 예 |  |
+|지도  | 예 | 예 | 예 |  |
+|Media Services | yes | yes | 예 |  |
+|Microsoft Flow | 예 | 예 | 예 |  |
+|Microsoft에서 관리 하는 데스크톱 | 예 | 예 | 예 |  |
+|Microsoft PowerApps | 예 | 예 | 예 |  |
+|Microsoft 소셜 참여 | 예 | 예 | 예 |  |
+|Microsoft Stream | yes | yes | 예 |  |
+|마이그레이션 | 예 | 예 | 예 |  |
+|Multi-Factor Authentication | 예 | yes | 예 |  |
+|Network Watcher | yes | yes | 예 |  |
+|Notification Hubs | yes | 예 | 예 |  |
+|공개 데이터 세트 | 예 | 예 | 예 |  |
+|정책 | 예 | 예 | 예 |  |
+|Power BI | yes | yes | 예 |  |
+|Power BI Embedded | 예 | 예 | 예 |  |
+|Private Link | 예 | 예 | 예 |  |
+|프로젝트 스풀 통신 플랫폼 | 예 | 예 | 예 |  |
+|Red Hat OpenShift | 예 | 예 | 예 |  |
+|Redis Cache | yes | yes | 예 |  |
+|Resource Graph | 예 | 예 | 예 |  |
+|리소스 관리자 | 예 | 예 | 예 |  |
+|소매점 검색 – Bing | 예 | 예 | 예 |  |
+|검색 | yes | yes | 예 |  |
+|Service Bus | yes | yes | 예 |  |
+|Service Fabric | 예 | yes | 예 | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다.  |
+|등록 포털 | 예 | 예 | 예 |  |
+|Site Recovery | 예 | yes | 예 |  |
+|스프링 클라우드 서비스 | 예 | 예 | 예 |  |
+|SQL Data Warehouse | yes | yes | 예 |  |
+|SQL Database | yes | yes | 예 |  |
+|SQL Server Stretch Database | yes | yes | 예 |  |
+|스택 | 예 | 예 | 예 |  |
+|스토리지 | yes | 예 | [예](insights/storage-insights-overview.md) |  |
+|저장소 캐시 | 예 | 예 | 예 |  |
+|저장소 동기화 서비스 | 예 | 예 | 예 |  |
+|Stream Analytics | yes | yes | 예 |  |
+|Time Series Insights | yes | yes | 예 |  |
+|TINA | 예 | 예 | 예 |  |
+|Traffic Manager | yes | yes | 예 |  |
+|유니버설 인쇄 | 예 | 예 | 예 |  |
+|Virtual Machine Scale Sets | 예 | yes | [예](insights/vminsights-overview.md) | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다. |
+|Virtual Machines | yes | yes | [예](insights/vminsights-overview.md) | 에이전트가 게스트 운영 체제 및 워크플로를 모니터링 하는 데 필요 합니다. |
+|Virtual Network | yes | yes | [예](insights/network-insights-overview.md) |  |
+|Virtual Network-NSG 흐름 로그 | 예 | yes | 예 |  |
+|VPN Gateway | yes | yes | 예 |  |
+|Windows Virtual Desktop | 예 | 예 | 예 |  |
 
 
 ## <a name="product-integrations"></a>제품 통합
 다음 표의 서비스 및 솔루션은 Azure Monitor에 의해 수집 된 다른 로그 데이터를 사용 하 여 분석할 수 있도록 해당 데이터를 Log Analytics 작업 영역에 저장 합니다.
 
-| 제품/서비스 | 설명 |
+| 제품/서비스 | Description |
 |:---|:---|
 | [Azure Automation](/azure/automation/) | Windows 및 Linux 컴퓨터에서 운영 체제 업데이트를 관리 하 고 변경 내용을 추적 합니다. [변경 내용 추적](../automation/change-tracking.md) 및 [업데이트 관리](../automation/automation-update-management.md)를 참조 하세요. |
 | [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/) | 문서와 전자 메일을 분류 하 고 필요에 따라 보호 합니다. [Azure Information Protection에 대 한 중앙 보고를](https://docs.microsoft.com/azure/information-protection/reports-aip#configure-a-log-analytics-workspace-for-the-reports)참조 하세요. |
@@ -195,7 +194,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 ## <a name="other-solutions"></a>기타 솔루션
 다른 솔루션은 다양 한 응용 프로그램 및 서비스를 모니터링 하는 데 사용할 수 있지만, 활성 개발은 중지 되었으며 일부 지역에서는 사용 하지 못할 수 있습니다. Azure Log Analytics 데이터 수집 서비스 수준 계약에 포함 됩니다.
 
-| 솔루션 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [상태 검사 Active Directory](insights/ad-assessment.md) | Active Directory 환경의 위험 및 상태를 평가 합니다. |
 | [Active Directory 복제 상태](insights/ad-replication-status.md) | 복제 오류에 대 한 Active Directory 환경을 정기적으로 모니터링 합니다. |
@@ -210,7 +209,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 
 ## <a name="third-party-integration"></a>타사 통합
 
-| 솔루션 | 설명 |
+| 해결 방법 | Description |
 |:---|:---|
 | [ITSM](platform/itsmc-overview.md) | ITSMC(IT 서비스 관리 커넥터)를 사용하면 Azure와 지원되는 ITSM(IT 서비스 관리) 제품/서비스를 연결할 수 있습니다.  |
 
@@ -220,7 +219,7 @@ Insights는 특정 응용 프로그램 및 서비스에 대 한 사용자 지정
 
 | 리소스 | 방법 |
 |:---|:---|
-| 응용 프로그램 | Application Insights를 사용 하 여 Azure 외부에서 웹 응용 프로그램을 모니터링 합니다. [Application Insights 란?을](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)참조 하세요. |
+| 애플리케이션 | Application Insights를 사용 하 여 Azure 외부에서 웹 응용 프로그램을 모니터링 합니다. [Application Insights 란?을](https://docs.microsoft.com/azure/azure-monitor/app/app-insights-overview)참조 하세요. |
 | 가상 머신 | Log Analytics 에이전트를 사용 하 여 다른 클라우드 환경 또는 온-프레미스에 있는 가상 머신의 게스트 운영 체제에서 데이터를 수집 합니다. [Log Analytics 에이전트를 사용 하 여 로그 데이터 수집](platform/log-analytics-agent.md)을 참조 하세요. |
 | REST API 클라이언트 | 별도의 Api를 사용 하 여 REST API 클라이언트의 Azure Monitor 로그 및 메트릭에 데이터를 쓸 수 있습니다. 로그에 대 한 [HTTP 데이터 수집기 API를 사용 하 여 Azure Monitor에 로그 데이터 보내기](platform/data-collector-api.md) 및 메트릭에 대 한 [REST API를 사용 하 여 Azure 리소스에 대 한 사용자 지정 메트릭을 Azure Monitor 메트릭 저장소에 전송](platform/metrics-store-custom-rest-api.md) 을 참조 하세요. |
 

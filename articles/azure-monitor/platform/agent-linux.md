@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에 Linux 컴퓨터 연결 | Microsoft Docs
 description: 이 문서에서는 다른 클라우드 또는 온-프레미스에서 호스트 되는 Linux 컴퓨터를 Linux 용 Log Analytics 에이전트와 Azure Monitor 연결 하는 방법을 설명 합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: mgoedtel
 ms.author: magoedte
 ms.date: 01/21/2020
-ms.openlocfilehash: 15334f0c58f602a2728e3daa6645b957dfcd7129
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 40c279a4beee9fbebe2de7f272fe51d9039f071c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290328"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668709"
 ---
 # <a name="connect-linux-computers-to-azure-monitor"></a>Azure Monitor에 Linux 컴퓨터 연결
 
@@ -70,7 +69,7 @@ Linux용 Log Analytics 에이전트를 설치하기 전에 Log Analytics 작업 
 
 5. **작업 영역 ID** 및 **기본 키**의 오른쪽에 값이 있습니다. 두 항목을 복사하여 선호하는 편집기에 붙여넣습니다.
 
-## <a name="install-the-agent-manually"></a>수동으로 에이전트 설치
+## <a name="install-the-agent-manually"></a>에이전트 수동 설치
 
 Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능한 셸 스크립트 번들로 제공 됩니다. 이 번들은 각 에이전트 구성 요소에 대한 Debian 및 RPM 패키지를 포함하며, 직접 설치되거나 압축이 풀린 후에 개별 패키지를 검색하는 데 사용될 수 있습니다. 하나의 번들은 x64 및 x86 아키텍처용으로 제공 됩니다. 
 
@@ -94,7 +93,7 @@ Linux 용 Log Analytics 에이전트는 자동 압축 풀기 및 설치 가능�
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy address>:<proxy port> -w <workspace id> -s <shared key>
     ```
 
-    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 예: 
+    인증이 필요한 경우 사용자 이름 및 암호를 지정 해야 합니다. 다음은 그 예입니다. 
     
     ```
     sudo sh ./omsagent-*.universal.x64.sh --upgrade -p https://<proxy user>:<proxy password>@<proxy address>:<proxy port> -w <workspace id> -s <shared key>

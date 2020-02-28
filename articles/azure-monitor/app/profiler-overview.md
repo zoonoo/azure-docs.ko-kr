@@ -1,19 +1,17 @@
 ---
 title: Application Insights Profiler를 사용 하 여 Azure에서 프로덕션 앱 프로 파일링
 description: 적은 공간의 프로파일러를 사용하여 웹 서버 코드에서 실행 부하 과다 경로를 식별합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 64e7cc0afa4051836d38c885dff0bc0a0e0b08c6
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: ce952bd248640d03fcff43284707614577df8469
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74922088"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671650"
 ---
 # <a name="profile-production-applications-in-azure-with-application-insights"></a>Application Insights를 사용하여 Azure에서 프로덕션 애플리케이션 프로파일링
 ## <a name="enable-application-insights-profiler-for-your-application"></a>애플리케이션에 대해 Application Insights Profiler 사용
@@ -32,7 +30,7 @@ Profiler를 사용하도록 설정해도 추적이 표시되지 않으면 [문�
 
 ## <a name="view-profiler-data"></a>Profiler 데이터 보기
 
-Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요청을 적극적으로 처리해야 합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안 [**Profiler 설정** 창](profiler-settings.md)에서 **지금 프로파일링** 단추를 선택합니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 애플리케이션이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
+Profiler가 추적을 업로드하도록 하기 위해 애플리케이션은 요청을 적극적으로 처리해야 합니다. 실험을 수행하는 경우 [Application Insights 성능 테스트](https://docs.microsoft.com/vsts/load-test/app-service-web-app-performance-test)를 사용하여 웹앱에 요청을 생성할 수 있습니다. Profiler를 새로 사용하도록 설정한 경우 짧은 부하 테스트를 실행할 수 있습니다. 부하 테스트를 실행하는 동안Profiler 설정[ 창**에서** 지금 프로파일링](profiler-settings.md) 단추를 선택합니다. Profiler는 실행되면 1시간 간격으로 2분 동안 무작위로 프로파일링을 수행합니다. 애플리케이션이 지속적인 요청 스트림을 처리하는 경우 Profiler는 매시간 추적을 업로드합니다.
 
 애플리케이션이 트래픽을 수신하고 Profiler가 추적을 업로드하면 사용자가 확인할 수 있는 추적이 생성됩니다. 이 프로세스는 최대 5~10분이 걸릴 수 있습니다. 추적을 보려면 **성능** 창에서 **작업 수행**을 선택한 후 **Profiler 추적** 단추를 선택합니다.
 

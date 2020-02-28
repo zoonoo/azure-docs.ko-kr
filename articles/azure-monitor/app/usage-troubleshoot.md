@@ -1,19 +1,17 @@
 ---
 title: 사용자 분석 도구 문제 해결-Azure 애플리케이션 정보
 description: 문제 해결 가이드 - Application Insights를 사용하여 사이트 및 앱 사용량 현황 분석
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 07/11/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: aa540cdaef1af3016d87ab93768ceb30802cef0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8d2e573f34895207a455838b5fc64f95560943d2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432287"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670919"
 ---
 # <a name="troubleshoot-user-behavior-analytics-tools-in-application-insights"></a>Application Insights에서 사용자 동작 분석 도구 문제 해결
 [Application Insights의 사용자 동작 분석 도구](usage-overview.md)에서 [사용자, 세션, 이벤트](usage-segmentation.md), [유입 경로](usage-funnels.md), [사용자 흐름](usage-flows.md), [재방문 주기](usage-retention.md) 또는 코호트에 대해 질문이 있으신가요? 다음은 몇 가지 대답입니다.
@@ -50,6 +48,6 @@ Application Insights의 모든 원격 분석 이벤트에는 표준 속성 중 2
 
 * [사용자 동작 분석 도구 개요](usage-overview.md)
 
-## <a name="get-help"></a>도움 받기
+## <a name="get-help"></a>도움말 보기
 * [스택 오버플로](https://stackoverflow.com/questions/tagged/ms-application-insights)
 

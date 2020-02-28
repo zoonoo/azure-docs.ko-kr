@@ -1,18 +1,17 @@
 ---
 title: 하이브리드 환경에 대해 Azure Monitor (미리 보기) 사용 Microsoft Docs
 description: 이 문서에서는 하나 이상의 가상 머신을 포함 하는 하이브리드 클라우드 환경에 대 한 VM용 Azure Monitor를 사용 하도록 설정 하는 방법을 설명 합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0afc67bf6d9e997ef615ecadc6836b36ed73e2ea
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bd44eebf8aceaf7fe32cf8cf1b1152db32acb344
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969675"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669627"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-a-hybrid-environment"></a>하이브리드 환경에 대 한 VM용 Azure Monitor (미리 보기) 사용
 
@@ -20,7 +19,7 @@ ms.locfileid: "75969675"
 
 이 문서에서는 데이터 센터 또는 다른 클라우드 환경에서 호스트 되는 가상 컴퓨터 또는 물리적 컴퓨터에 대해 VM용 Azure Monitor (미리 보기)를 사용 하도록 설정 하는 방법을 설명 합니다. 이 프로세스가 끝나면 사용자 환경에서 가상 컴퓨터 모니터링을 시작 하 고 성능 또는 가용성 문제가 발생 하 고 있는지 확인 하 게 됩니다.
 
-시작 하기 전에 [필수 구성 요소](vminsights-enable-overview.md) 를 검토 하 고 구독과 리소스가 요구 사항을 충족 하는지 확인 해야 합니다. [Log Analytics Linux 및 Windows 에이전트](../../log-analytics/log-analytics-agent-overview.md)에 대한 요구 사항 및 배포 방법을 검토합니다.
+시작하려면 먼저 [사전 요구 사항](vminsights-enable-overview.md)을 검토하고 구독 및 리소스에서 요구 사항을 충족하는지 확인해야 합니다. [Log Analytics Linux 및 Windows 에이전트](../../log-analytics/log-analytics-agent-overview.md)에 대한 요구 사항 및 배포 방법을 검토합니다.
 
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
 
@@ -107,7 +106,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sudo sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-## <a name="desired-state-configuration"></a>필요한 상태 구성
+## <a name="desired-state-configuration"></a>Desired State Configuration
 
 DSC(필요한 상태 구성)를 통해 Dependency Agent를 배포하려면 xPSDesiredStateConfiguration 모듈을 다음과 같은 코드와 함께 사용할 수 있습니다.
 

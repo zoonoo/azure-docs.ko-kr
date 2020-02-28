@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights 원격 분석 데이터 모델 - 이벤트 원격 분석 | Microsoft Docs
 description: 이벤트 원격 분석을 위한 Azure Application Insights 데이터 모델
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 04/25/2017
 ms.reviewer: sergkanz
-ms.openlocfilehash: 620983fb2174fe7f32a61503b0b87e8e7ce0c330
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: bd8b2581f7642f6825aaf0d1b51c8e94d4333d33
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72678142"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671885"
 ---
 # <a name="event-telemetry-application-insights-data-model"></a>이벤트 원격 분석: Application Insights 데이터 모델
 
@@ -21,7 +17,7 @@ ms.locfileid: "72678142"
 
 의미상 이벤트는 요청과 상호 관련되거나 그렇지 않을 수 있습니다. 하지만 제대로 사용될 경우 이벤트 원격 분석은 요청이나 추적보다 더 중요합니다. 이벤트는 비즈니스 원격 분석을 나타내며, 별도의 덜 공격적인 [샘플링](../../azure-monitor/app/api-filtering-sampling.md)의 대상이어야 합니다.
 
-## <a name="name"></a>name
+## <a name="name"></a>속성
 
 이벤트 이름입니다. 적절한 그룹화 및 유용한 메트릭을 허용하려면 적은 수의 별도 이벤트 이름을 생성하도록 애플리케이션을 제한합니다. 예를 들어 생성된 이벤트 인스턴스마다 별도의 이름을 사용하지 않습니다.
 

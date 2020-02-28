@@ -1,19 +1,17 @@
 ---
 title: Azure 애플리케이션 Insights Profiler를 사용 하 여 문제 해결
 description: 이 문서에는 Application Insights Profiler를 사용하도록 설정하거나 사용하는 데 문제가 있는 개발자에게 도움이 되는 문제 해결 단계 및 정보가 나와 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: cweining
 ms.author: cweining
 ms.date: 08/06/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: 2bac317d6a3a5c6895a3cea4dae22694b603cabf
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: f284d4dfbe550c357f81c01fa0a66aa9878b6c1e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024027"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671565"
 ---
 # <a name="troubleshoot-problems-enabling-or-viewing-application-insights-profiler"></a>Application Insights Profiler를 사용하도록 설정하거나 볼 때 발생하는 문제 해결
 
@@ -51,7 +49,7 @@ Profiler는 Application Insights 리소스에 추적 메시지 및 사용자 지
 * 앱이 .NET Framework 4.6에서 실행 중인지 확인합니다.
 * 웹앱이 ASP.NET Core 애플리케이션인 경우 ASP.NET Core 2.0 이상을 실행해야 합니다.
 * 확인하려는 데이터가 생성된 지 2주 이상 지난 경우에는 시간 필터의 범위를 제한한 후에 다시 시도해 봅니다. 추적은 7일 후에 삭제됩니다.
-* 프록시 또는 방화벽이 https://gateway.azureserviceprofiler.net 에 대한 액세스를 차단하지 않았는지 확인합니다.
+* 프록시 또는 방화벽이 https://gateway.azureserviceprofiler.net에 대한 액세스를 차단하지 않았는지 확인합니다.
 * 프로파일러는 무료 또는 공유 app service 계획에서 지원 되지 않습니다. 이러한 계획 중 하나를 사용 하는 경우 기본 계획 중 하나로 확장을 시도 하 고 프로파일러가 작업을 시작 해야 합니다.
 
 ### <a id="double-counting"></a>병렬 스레드에서 이중 계산

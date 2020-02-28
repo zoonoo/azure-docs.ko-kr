@@ -1,18 +1,17 @@
 ---
 title: Log Analytics 작업 영역에서 Azure 활동 로그 수집 및 분석 | Microsoft Docs
 description: Azure Monitor 로그에서 Azure 활동 로그를 수집 하 고 모니터링 솔루션을 사용 하 여 모든 Azure 구독에서 Azure 활동 로그를 분석 하 고 검색 합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/30/2019
-ms.openlocfilehash: 2bf2f012e553e08a1eb829f93d9af0f0e74f638b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 044f974d83eba098820639e67412110329d5ad7d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977650"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668981"
 ---
 # <a name="collect-and-analyze-azure-activity-logs-in-log-analytics-workspace-in-azure-monitor"></a>Azure Monitor의 Log Analytics 작업 영역에서 Azure 활동 로그를 수집 하 고 분석 합니다.
 

@@ -1,19 +1,15 @@
 ---
 title: Azure Application Insights 트랜잭션 진단 | Microsoft Docs
 description: Application Insights 엔드투엔드 트랜잭션 진단
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 01/19/2018
 ms.reviewer: sdash
-ms.openlocfilehash: 1ed3713fe4a6c9403be13f444d0409af459a1e70
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 39c4c51a1bc84e06efac3674b1ee5b487f9e6729
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899565"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671140"
 ---
 # <a name="unified-cross-component-transaction-diagnostics"></a>통합된 구성 요소 간 트랜잭션 진단
 
@@ -98,4 +94,4 @@ ms.locfileid: "72899565"
 
 *새 환경에서 대부분의 관련 항목 쿼리가 누락되는 이유는 무엇인가요?*
 
-의도적인 작동입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.
+이것은 의도적인 것입니다. 모든 구성 요소에서 관련된 모든 항목은 이미 왼쪽(위쪽 및 아래쪽 섹션)에서 사용할 수 있습니다. 새 환경에는 왼쪽에서 다루지 않는 두 개의 관련 항목, 즉 이 이벤트 전후 5분의 모든 원격 분석 및 사용자 타임라인이 있습니다.

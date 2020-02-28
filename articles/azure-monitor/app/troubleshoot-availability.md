@@ -1,19 +1,17 @@
 ---
 title: Azure 애플리케이션 Insights 가용성 테스트 문제 해결 | Microsoft Docs
 description: Azure 애플리케이션 Insights에서 웹 테스트 문제를 해결 합니다. 웹 사이트가 사용할 수 없게 되거나 느리게 응답하는 경우 알림이 제공됩니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 09/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: 71c16fa005710bb5816ec69716573b79fcae620a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: f135aa6c0a4a55f8a42fd858572cc811e25b27c5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899537"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671106"
 ---
 # <a name="troubleshooting"></a>문제 해결
 
@@ -48,7 +46,7 @@ ms.locfileid: "72899537"
 > [!NOTE]
 > HTTP 헤더의 유효성 검사가 완화된 브라우저에서는 URL이 실패하지 않을 수 있습니다. 이 문제에 대한 자세한 설명은 http://mehdi.me/a-tale-of-debugging-the-linkedin-api-net-and-http-protocol-violations/ 블로그 게시물을 참조하세요.  
 
-## <a name="common-troubleshooting-questions"></a>일반 문제 해결 질문
+## <a name="common-troubleshooting-questions"></a>일반적인 문제 해결 질문
 
 ### <a name="site-looks-okay-but-i-see-test-failures-why-is-application-insights-alerting-me"></a>사이트가 양호 하지만 테스트 오류가 표시 되나요? Application Insights 경고가 표시 되는 이유는 무엇 인가요?
 
@@ -83,7 +81,7 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 ### <a name="can-i-call-code-from-my-web-test"></a>웹 테스트에서 코드를 호출할 수 있나요?
 
-아닙니다. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
+아니요. 테스트 단계는 .webtest 파일에 포함되어야 합니다. 또한 다른 웹 테스트를 호출하거나 루프를 사용할 수 없습니다. 그러나 몇 가지 유용한 플러그 인이 있습니다.
 
 
 ### <a name="is-there-a-difference-between-web-tests-and-availability-tests"></a>"웹 테스트"와 "가용성 테스트"의 차이가 있나요?
@@ -121,12 +119,12 @@ webhook 알림을 수신하는 애플리케이션이 사용 가능하며 webhook
 
 * Y 위치에서 X에서 발생한 오류에 대한 경고의 경우 **대량/그룹** 확인란 옵션을 사용하도록 설정하면 관리자/공동 관리자 역할의 사용자에게 경고가 전송됩니다.  기본적으로 _구독_에 대한 _모든_ 관리자는 알림을 받게 됩니다.
 
-* 가용성 메트릭에 대 한 경고의 경우 **대량/그룹** 확인란 옵션을 사용 하도록 설정 하면 구독에서 소유자, 참가자 또는 읽기 권한자 역할이 있는 사용자에 게 보냅니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 ‘모든’ 사용자가 범위에 포함되며 알림을 받습니다. 
+* 가용성 메트릭에 대 한 경고의 경우 **대량/그룹** 확인란 옵션을 사용 하도록 설정 하면 구독에서 소유자, 참가자 또는 읽기 권한자 역할이 있는 사용자에 게 보냅니다. 실제로 구독의 Application Insights 리소스에 대한 액세스 권한이 있는 _모든_ 사용자가 범위에 포함되며 알림을 받습니다. 
 
 > [!NOTE]
 > 현재 **대량/그룹** 확인란 옵션을 사용하고 있고 사용 안 함으로 설정하는 경우에는 변경 내용을 되돌릴 수 없습니다.
 
-역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 기여자/소유자/읽기 권한자 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 이메일 알림을 구성할 수 있습니다.
+역할에 따라 사용자에게 알려야 하는 경우 새 경고 환경/거의 실시간 경고를 사용합니다. [작업 그룹](../platform/action-groups.md)을 사용하면 contributor/owner/reader 역할(단일 옵션으로 결합되지 않음)의 사용자에 대해 메일 알림을 구성할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

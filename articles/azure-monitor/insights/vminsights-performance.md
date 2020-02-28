@@ -1,18 +1,17 @@
 ---
 title: VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법 | Microsoft Docs
 description: 성능은 Windows 및 Linux 시스템의 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑하는 VM의 Azure Monitor 기능입니다. 이 문서에서는 다양한 시나리오에서 이 기능을 사용하는 방법에 대해 자세하게 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/15/2019
-ms.openlocfilehash: 0d679675758b736455c66066f3df4cb9ea43fdea
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 245d5c0fb0a54a6d129a193deaa9445bc8fefbfb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399288"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670698"
 ---
 # <a name="how-to-chart-performance-with-azure-monitor-for-vms-preview"></a>VM용 Azure Monitor(미리 보기)를 사용하여 성능을 차트로 표시하는 방법
 

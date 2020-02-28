@@ -1,18 +1,15 @@
 ---
 title: Azure Monitor 경고에 대 한 작업 규칙
 description: Azure Monitor의 작업 규칙 및 구성 및 관리 방법 이해
-ms.service: azure-monitor
-ms.subservice: alerts
 ms.topic: conceptual
-author: anantr
-ms.author: robb
 ms.date: 04/25/2019
-ms.openlocfilehash: e9de7a1fe4cee16cd1d22ba764ab9eccdf3979fd
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.subservice: alerts
+ms.openlocfilehash: 42f8d9cd30caa48376cda049f6404aa897a6866c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74767690"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668471"
 ---
 # <a name="action-rules-preview"></a>작업 규칙 (미리 보기)
 
@@ -82,7 +79,7 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 
 그런 다음 경고 비 표시 또는 작업 그룹 지원에 대 한 작업 규칙을 구성 합니다. 둘 다 선택할 수는 없습니다. 구성은 이전에 정의 된 범위 및 필터와 일치 하는 모든 경고 인스턴스에서 작동 합니다.
 
-#### <a name="suppression"></a>Iss
+#### <a name="suppression"></a>비표시
 
 표시 안 함 **을 선택 하**는 경우 작업 및 알림의 표시 안 함 기간을 구성 합니다. 다음 옵션 중 하나를 선택합니다.
 * **지금부터 (항상)** : 모든 알림을 무기한 표시 하지 않습니다.
@@ -103,9 +100,9 @@ Azure Monitor의 **경고** 방문 페이지에서 **작업 관리** 를 선택 
 ### <a name="action-rule-details"></a>작업 규칙 세부 정보
 
 마지막으로, 작업 규칙에 대 한 다음 세부 정보를 구성 합니다.
-* name
+* 속성
 * 저장 된 리소스 그룹
-* 설명 
+* Description 
 
 ## <a name="example-scenarios"></a>예제 시나리오
 

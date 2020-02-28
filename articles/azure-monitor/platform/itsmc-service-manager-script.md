@@ -1,18 +1,17 @@
 ---
 title: Azure에서 IT Service Management Connector에 연결할 Service Manager 웹앱을 만드는 자동화 스크립트 | Microsoft Docs
 description: 자동화 스크립트를 사용하여 Azure의 IT Service Management Connector에 연결하고 ITSM 작업 항목을 중앙에서 모니터링 및 관리하는 Service Manager 웹앱을 만듭니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 01/23/2018
-ms.openlocfilehash: a97ea4d505d17d1d5fb2f2035fb23f3fce94aebe
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: f224e58905e2989caf16259e383726595c0206d5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990932"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672194"
 ---
 # <a name="create-service-manager-web-app-using-the-automated-script"></a>자동화 스크립트를 사용하여 Service Manager 웹앱 만들기
 
@@ -33,7 +32,7 @@ ms.locfileid: "76990932"
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
  Windows Management Framework 5.0 이상
 Windows 10에는 기본적으로 5.1 버전이 있습니다. [여기](https://www.microsoft.com/download/details.aspx?id=50395)에서 이 Framework를 다운로드할 수도 있습니다.

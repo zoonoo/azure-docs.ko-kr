@@ -1,19 +1,15 @@
 ---
 title: Application Insights로 앱 상태 및 사용 현황 모니터링
 description: Application Insights를 시작합니다. 온-프레미스 또는 Microsoft Azure 웹 애플리케이션의 사용량, 가용성 및 성능을 분석합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/10/2018
 ms.reviewer: sdash
-ms.openlocfilehash: ebf6fa6d3dac6c63dfaa349a77a08bc81d402ef8
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: e398f23559729580ae4ad8b6507c2f09328052b5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899290"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670902"
 ---
 # <a name="monitor-performance-in-web-applications"></a>웹 애플리케이션의 성능 모니터링
 

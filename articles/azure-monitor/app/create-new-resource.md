@@ -1,18 +1,14 @@
 ---
 title: 새 Azure Application Insights 리소스 만들기 | Microsoft Docs
 description: 새 라이브 애플리케이션에 대한 Application Insights 모니터링을 수동으로 설정합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 12/02/2019
-ms.openlocfilehash: 1ba6d6e1774db4e9c95b107e1482a0c6ce532bb5
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 090c983dcca101557f8dec479d1267275d24908b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432624"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672041"
 ---
 # <a name="create-an-application-insights-resource"></a>Application Insights 리소스 만들기
 
@@ -68,7 +64,7 @@ New-AzApplicationInsights [-ResourceGroupName] <String> [-Name] <String> [-Locat
  [-Tag <Hashtable>] [-DefaultProfile <IAzureContextContainer>] [-WhatIf] [-Confirm] [<CommonParameters>]
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```powershell
 New-AzApplicationInsights -Kind java -ResourceGroupName testgroup -Name test1027 -location eastus
@@ -119,7 +115,7 @@ az monitor app-insights component create --app
                                          [--tags]
 ```
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```azurecli
 az monitor app-insights component create --app demoApp --location westus2 --kind web -g demoRg --application-type web

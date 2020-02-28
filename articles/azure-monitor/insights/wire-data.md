@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 실시간 데이터 솔루션 Microsoft Docs
 description: Wire Data는 Log Analytics 에이전트를 사용한 컴퓨터의 통합 네트워크 및 성능 데이터입니다. 네트워크 데이터는 데이터를 상호 연결할 수 있도록 로그 데이터와 결합됩니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/03/2018
-ms.openlocfilehash: 031a09203ab2ab2bcfcdf4352e975c1374446c25
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ee7a2f49641eb0cfe1f8a4bffb44c7f8642408fa
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365804"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670647"
 ---
 # <a name="wire-data-20-preview-solution-in-azure-monitor"></a>Azure Monitor에서 Wire Data 2.0 (미리 보기) 솔루션
 
@@ -29,7 +28,7 @@ Log Analytics 에이전트 외에 Wire Data 솔루션은 IT 인프라에서 컴�
 
 기본적으로 Azure Monitor는 Windows 및 Linux에 기본 제공 된 카운터의 CPU, 메모리, 디스크 및 네트워크 성능 데이터에 대 한 데이터를 기록 하 고 지정할 수 있는 다른 성능 카운터를 기록 합니다. 컴퓨터에 사용되는 서브넷 및 애플리케이션 수준 프로토콜을 포함하여 네트워크 및 기타 데이터 수집이 에이전트별로 실시간으로 이루어집니다.  실시간 데이터는 TCP 전송 계층으로 내려가지 않고 애플리케이션 수준에서 네트워크 데이터를 확인합니다.  이 솔루션은 개별 Ack 및 SYNs를 확인 하지 않습니다.  핸드셰이크가 완료 되 면 라이브 연결로 간주 되 고 연결 된 것으로 표시 됩니다. 해당 연결은 양쪽에서 소켓이 열려 있고 데이터를 앞뒤로 전달할 수 있음을 동의할 경우 실시간 상태를 유지합니다.  한쪽이 연결을 닫으면 연결이 Disconnected로 표시 됩니다.  따라서 성공적으로 완료된 패킷의 대역폭만 계산하며 재전송된 패킷 또는 실패한 패킷 수는 보고하지 않습니다.
 
-[Cisco의 NetFlow 프로토콜](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html)과 함께 [sFlow](http://www.sflow.org/) 또는 다른 소프트웨어를 사용한 경우 실시간 데이터에서 볼 통계 및 데이터는 익숙하게 느껴집니다.
+[Cisco의 NetFlow 프로토콜](http://www.sflow.org/)과 함께 [sFlow](https://www.cisco.com/c/en/us/products/collateral/ios-nx-os-software/ios-netflow/prod_white_paper0900aecd80406232.html) 또는 다른 소프트웨어를 사용한 경우 실시간 데이터에서 볼 통계 및 데이터는 익숙하게 느껴집니다.
 
 기본 제공 로그 검색 쿼리 유형 중 일부는 다음과 같습니다.
 
@@ -54,10 +53,10 @@ Wire Data는 Microsoft 종속성 에이전트에서 해당 데이터를 가져�
 
 | **연결된 원본** | **지원됨** | **설명** |
 | --- | --- | --- |
-| Windows 에이전트 | 예 | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
-| Linux 에이전트 | 예 | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
-| System Center Operations Manager 관리 그룹 | 예 | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
-| Azure Storage 계정 | 아닙니다. | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
+| Windows 에이전트 | yes | Wire Data는 Windows 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다. <br><br> [Windows용 Log Analytics 에이전트](../platform/agent-windows.md) 외에도 Windows 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
+| Linux 에이전트 | yes | Wire Data는 Linux 에이전트 컴퓨터에서 데이터를 분석하고 수집합니다.<br><br> [Linux용 Log Analytics 에이전트](../learn/quick-collect-linux-computer.md) 외에도 Linux 에이전트에는 Microsoft Dependency Agent가 필요합니다. 운영 체제 버전의 전체 목록은 [지원되는 운영 체제](vminsights-enable-overview.md#supported-operating-systems)를 참조하세요. |
+| System Center Operations Manager 관리 그룹 | yes | Wire Data는 연결된 [System Center Operations Manager 관리 그룹](../platform/om-agents.md)의 Windows 및 Linux 에이전트에서 데이터를 분석하고 수집합니다. <br><br> System Center Operations Manager 에이전트 컴퓨터에서 Azure Monitor 직접 연결 해야 합니다. |
+| Azure Storage 계정 | 예 | Wire Data는 에이전트 컴퓨터에서 데이터를 수집하므로 Azure Storage에서 수집할 데이터는 없습니다. |
 
 Windows에서는 Microsoft Monitoring Agent (MMA)를 사용 하 여 데이터를 수집 하 고 전송 하기 위해 System Center Operations Manager와 Azure Monitor 모두 사용 합니다. 에이전트는 컨텍스트에 따라 System Center Operations Manager 에이전트, Log Analytics 에이전트, MMA 또는 직접 에이전트라고 합니다. System Center Operations Manager 및 Azure Monitor는 MMA의 약간 다른 버전을 제공 합니다. 이러한 버전은 각각 System Center Operations Manager, Azure Monitor 또는 양쪽 모두에 보고할 수 있습니다.
 
@@ -74,7 +73,7 @@ Azure Monitor에 연결 된 관리 그룹이 있는 System Center Operations Man
 
 Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 경우 Log Analytics 게이트웨이를 사용 하 여 Azure Monitor에 연결 하도록 Log Analytics 에이전트를 구성 해야 합니다. [Microsoft 다운로드 센터](https://www.microsoft.com/download/details.aspx?id=52666)에서 Log Analytics 게이트웨이를 다운로드할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - [Insight and Analytics](https://www.microsoft.com/cloud-platform/operations-management-suite-pricing) 솔루션 제품이 필요합니다.
 - 이전 버전의 Wire Data 솔루션을 사용하는 경우 먼저 이전 버전을 제거해야 합니다. 그러나 원래 Wire Data 솔루션을 통해 캡처된 모든 데이터는 Wire Data 2.0 및 로그 검색에서 계속 사용할 수 있습니다.
@@ -97,7 +96,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 #### <a name="windows-desktop"></a>Windows 데스크톱
 
 - Windows 10 1803
-- Windows 10
+- 윈도우 10
 - Windows 8.1
 - Windows 8
 - Windows 7
@@ -134,7 +133,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 | OS 버전 | 커널 버전 |
 |:--|:--|
-| Ubuntu 18.04 | kernel 4.15.\*<br>4.18* |
+| Ubuntu 18.04 | 커널 4.15.\*<br>4.18* |
 | Ubuntu 16.04.3 | kernel 4.15.* |
 | 16.04 | 4.4.\*<br>4.8.\*<br>4.10.\*<br>4.11.\*<br>4.13.\* |
 | 14.04 | 3.13.\*<br>4.4.\* |
@@ -154,7 +153,7 @@ Windows 또는 Linux 컴퓨터에서 서비스에 직접 연결할 수 없는 �
 
 ### <a name="dependency-agent-downloads"></a>종속성 에이전트 다운로드
 
-| File | OS | 버전 | SHA-256 |
+| 파일 | OS | 버전 | SHA-256 |
 |:--|:--|:--|:--|
 | [InstallDependencyAgent-Windows.exe](https://aka.ms/dependencyagentwindows) | Windows | 9.7.4 | A111B92AB6CF28EB68B696C60FE51F980BFDFF78C36A900575E17083972989E0 |
 | [InstallDependencyAgent-Linux64.bin](https://aka.ms/dependencyagentlinux) | Linux | 9.7.4 | AB58F3DB8B1C3DEE7512690E5A65F1DFC41B43831543B5C040FCCE8390F2282C |
@@ -256,7 +255,7 @@ wget --content-disposition https://aka.ms/dependencyagentlinux -O InstallDepende
 sh InstallDependencyAgent-Linux64.bin -s
 ```
 
-### <a name="desired-state-configuration"></a>필요한 상태 구성
+### <a name="desired-state-configuration"></a>Desired State Configuration
 
 필요한 상태 구성을 통해 종속성 에이전트를 배포 하려면 xPSDesiredStateConfiguration 모듈과 다음과 같은 약간의 코드를 사용할 수 있습니다.
 

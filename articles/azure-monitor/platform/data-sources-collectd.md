@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 CollectD의 데이터 수집 | Microsoft Docs
 description: CollectD는 주기적으로 애플리케이션의 데이터 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다.  이 문서에서는 Azure Monitor에서 CollectD의 데이터를 수집하는 방법에 대한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/27/2018
-ms.openlocfilehash: 277e6c9736266b64fd717b719dc740525047ae88
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b8c09d4ac5d0856eb0d448a1cabd9adc567850c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75395881"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670613"
 ---
 # <a name="collect-data-from-collectd-on-linux-agents-in-azure-monitor"></a>Azure Monitor에서 Linux 에이전트의 CollectD에서 데이터 수집
 [CollectD](https://collectd.org/)는 주기적으로 애플리케이션의 성능 메트릭 및 시스템 수준 정보를 수집하는 오픈 소스 Linux 디먼입니다. 예제 애플리케이션은 JVM(Java Virtual Machine), MySQL 서버 및 Nginx를 포함합니다. 이 문서에서는 Azure Monitor에서 CollectD의 성능 데이터를 수집하는 방법에 대한 정보를 제공합니다.
@@ -109,12 +108,12 @@ Linux용 Log Analytics 에이전트에서 이미 수집된 인프라 메트릭�
 | CollectD 메트릭 필드 | Azure Monitor 필드 |
 |:--|:--|
 | `host` | Computer |
-| `plugin` | 없음 |
+| `plugin` | None |
 | `plugin_instance` | 인스턴스 이름<br>**plugin_instance**가 *null*인 경우 InstanceName=" *_Total*" |
 | `type` | ObjectName |
 | `type_instance` | CounterName<br>**type_instance**가 *null*인 경우 CounterName=**비어 있음** |
 | `dsnames[]` | CounterName |
-| `dstypes` | 없음 |
+| `dstypes` | None |
 | `values[]` | CounterValue |
 
 ## <a name="next-steps"></a>다음 단계

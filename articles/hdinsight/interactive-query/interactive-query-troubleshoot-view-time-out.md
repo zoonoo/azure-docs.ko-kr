@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 07/30/2019
-ms.openlocfilehash: 6b4050918251d35a460d232dddc0c3113f163ec8
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: f00f70e674ac0b83b737d6b2a4bf9d20400736fc
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75895075"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672024"
 ---
 # <a name="scenario-apache-hive-view-times-out-when-fetching-a-query-result-in-azure-hdinsight"></a>시나리오: Azure HDInsight에서 쿼리 결과를 인출 하는 동안 Apache Hive 뷰 시간 초과
 
@@ -31,14 +31,14 @@ java.util.concurrent.TimeoutException: deadline passed
 
 Hive 뷰 기본 시간 제한 값은 실행 중인 쿼리에 적합 하지 않을 수 있습니다. 지정 된 기간이 너무 짧아서 Hive 뷰에서 쿼리 결과를 가져올 수 없습니다.
 
-## <a name="resolution"></a>해상도
+## <a name="resolution"></a>해결 방법
 
 `/etc/ambari-server/conf/ambari.properties`에서 다음 속성을 설정 하 여 Apache Ambari Hive 뷰 시간 제한을 늘립니다.
 
 ```
 views.ambari.request.read.timeout.millis=300000
 views.request.read.timeout.millis=300000
-views.ambari.hive<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
+views.ambari.hive.<HIVE_VIEW_INSTANCE_NAME>.result.fetch.timeout=300000
 ```
 
 `HIVE_VIEW_INSTANCE_NAME` 값은 Hive 뷰 URL의 끝에 있습니다.

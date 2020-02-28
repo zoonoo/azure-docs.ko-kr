@@ -9,12 +9,12 @@ ms.service: hdinsight
 ms.custom: hdinsightactive
 ms.topic: conceptual
 ms.date: 01/28/2020
-ms.openlocfilehash: 8c9e13a61f5fcb3b7eb170b2b1110195d725c3ce
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: ea960a92aee1c9447bb12d27cffdc42de9fd907a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493164"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672126"
 ---
 # <a name="use-apache-pig-with-apache-hadoop-on-hdinsight"></a>HDInsight에서 Apache Hadoop과 함께 Apache Pig 사용
 
@@ -92,9 +92,9 @@ SSIS 용 Azure 기능 팩에 대 한 자세한 내용은 [여기][ssispack]를 �
 Scalding을 사용하여 HDInsight와 함께 Pig를 사용하는 방법을 살펴보았으므로 이제 다음 링크를 사용하여 Azure HDInsight로 작업하는 다른 방법을 알아봅니다.
 
 * [HDInsight에 데이터 업로드](hdinsight-upload-data.md)
-* [HDInsight에서 Apache Hive 사용](/hadoop/hdinsight-use-hive.md)
+* [HDInsight에서 Apache Hive 사용](./hadoop/hdinsight-use-hive.md)
 * [HDInsight에서 Apache Sqoop 사용](hdinsight-use-sqoop.md)
-* [HDInsight에서 MapReduce 작업 사용](/hadoop/hdinsight-use-mapreduce.md)
+* [HDInsight에서 MapReduce 작업 사용](./hadoop/hdinsight-use-mapreduce.md)
 
 [apachepig-home]: https://pig.apache.org/
 [putty]: https://www.chiark.greenend.org.uk/~sgtatham/putty/download.html

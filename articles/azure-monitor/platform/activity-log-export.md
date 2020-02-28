@@ -3,17 +3,16 @@ title: Azure 활동 로그 내보내기
 description: Azure 활동 로그를 저장소로 내보내서 azure 외부에서 내보내기 위해 azure Event Hubs를 보관 합니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 01/23/2020
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 1c2047fc4b92ecd5776cb835a2f2138c25f5cb65
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: edaa585ffb3448a80b021aa924a9d654ac829931
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845474"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668964"
 ---
 # <a name="export-azure-activity-log-to-storage-or-azure-event-hubs"></a>Azure 활동 로그를 storage 또는 Azure Event Hubs로 내보내기
 
@@ -31,9 +30,9 @@ Azure [활동 로그](platform-logs-overview.md) 는 azure 구독에서 발생 �
 * **타사 로깅 및 원격 분석 시스템으로 스트림**: 시간이 지나면서 Azure Event Hubs 스트리밍은 활동 로그를 타사 SIEM 및 로그 분석 솔루션으로 파이핑하기 위한 메커니즘이 되고 있습니다.
 * **사용자 지정 원격 분석 및 로깅 플랫폼 빌드**: 사용자 지정 빌드 원격 분석 플랫폼이 이미 있거나 플랫폼 빌드에 대해 생각하고 있는 경우 Event Hubs의 확장성 높은 게시-구독 특성을 통해 활동 로그를 유연하게 수집할 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-### <a name="storage-account"></a>Storage 계정
+### <a name="storage-account"></a>스토리지 계정
 활동 로그를 보관 하는 경우 [저장소 계정을 만들어야](../../storage/common/storage-account-create.md) 합니다 (아직 없는 경우). 모니터링 데이터에 대 한 액세스를 더 잘 제어할 수 있도록 다른 모니터링 되지 않는 데이터가 저장 되어 있는 기존 저장소 계정을 사용해 서는 안 됩니다. 그러나 저장소 계정에 로그 및 메트릭을 보관 하는 경우에도 동일한 저장소 계정을 사용 하 여 모든 모니터링 데이터를 중앙 위치에 유지 하도록 선택할 수 있습니다.
 
 설정을 구성하는 사용자가 두 구독에 대한 적절한 RBAC 액세스를 가진 경우 스토리지 계정은 로그를 내보내는 구독과 동일한 구독을 가지고 있지 않아도 됩니다. 
@@ -105,7 +104,7 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
 
 1. `Get-AzLogProfile`를 사용하여 로그 프로필이 있는지 확인합니다.  로그 프로필이 있는 경우 *name* 속성을 적어둡니다.
 
-1. *name* 속성의 값을 사용하여 로그 프로필을 제거하려면 `Remove-AzLogProfile`을 사용합니다.
+1. `Remove-AzLogProfile`name*속성의 값을 사용하여 로그 프로필을 제거하려면*을 사용합니다.
 
     ```powershell
     # For example, if the log profile name is 'default'
@@ -120,12 +119,12 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
 
     | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | 이름 |예 |로그 프로필의 이름입니다. |
-    | StorageAccountId |아닙니다. |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
-    | serviceBusRuleId |아닙니다. |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다. |
-    | 위치 |예 |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
-    | RetentionInDays |예 |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
-    | 범주 |아닙니다. |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
+    | 속성 |yes |로그 프로필의 이름입니다. |
+    | StorageAccountId |예 |활동 로그를 저장 해야 하는 저장소 계정의 리소스 ID입니다. |
+    | serviceBusRuleId |예 |이벤트 허브를 만들 Service Bus 네임스페이스의 Service Bus 규칙 ID입니다. `{service bus resource ID}/authorizationrules/{key name}`형식의 문자열입니다. |
+    | 위치 |yes |활동 로그 이벤트를 수집할 쉼표로 구분된 지역 목록입니다. |
+    | RetentionInDays |yes |저장소 계정에서 이벤트를 보존 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한 저장합니다. |
+    | Category |예 |수집할 쉼표로 구분된 이벤트 범주 목록입니다. 가능한 값은 _쓰기_, _삭제_및 _동작_입니다. |
 
 ### <a name="example-script"></a>예제 스크립트
 다음은 저장소 계정 및 이벤트 허브 모두에 활동 로그를 기록 하는 로그 프로필을 만드는 샘플 PowerShell 스크립트입니다.
@@ -154,7 +153,7 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
 로그 프로필이 이미 있으면 먼저 기존 로그 프로필을 제거한 다음, 새 로그 프로필을 생성해야 합니다.
 
 1. `az monitor log-profiles list`를 사용하여 로그 프로필이 있는지 확인합니다.
-2. *name* 속성의 값을 사용하여 로그 프로필을 제거하려면 `az monitor log-profiles delete --name "<log profile name>`을 사용합니다.
+2. `az monitor log-profiles delete --name "<log profile name>`name*속성의 값을 사용하여 로그 프로필을 제거하려면*을 사용합니다.
 3. `az monitor log-profiles create`를 사용하여 새 로그 프로필을 만듭니다.
 
    ```azurecli-interactive
@@ -163,12 +162,12 @@ Azure Portal에서 **이벤트 허브로 내보내기** 옵션을 사용 하 여
 
     | 속성 | 필수 | Description |
     | --- | --- | --- |
-    | name |예 |로그 프로필의 이름입니다. |
-    | storage-account-id |예 |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
-    | 위치 |예 |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
-    | 일 |예 |이벤트를 유지 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한(영원히) 저장합니다.  0 인 경우 enabled 매개 변수를 false로 설정 해야 합니다. |
-    |사용 | 예 |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
-    | 범주 |예 |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
+    | name |yes |로그 프로필의 이름입니다. |
+    | storage-account-id |yes |활동 로그를 저장할 Storage 계정의 리소스 ID입니다. |
+    | 위치 |yes |활동 로그 이벤트를 수집할 공백으로 구분된 지역 목록입니다. `az account list-locations --query [].name`을 사용하여 구독에 대한 모든 지역 목록을 볼 수 있습니다. |
+    | 일 |yes |이벤트를 유지 해야 하는 기간 (일)입니다 (1에서 365 사이). 0 값은 로그를 무기한(영원히) 저장합니다.  0 인 경우 enabled 매개 변수를 false로 설정 해야 합니다. |
+    |사용 | yes |True 또는 False입니다.  보존 정책을 사용하거나 비활성화하는 데 사용합니다.  True이면 일 매개 변수 0보다 큰 값이어야 합니다.
+    | 범주 |yes |수집해야 할 공백으로 구분된 이벤트 범주 목록입니다. 가능한 값은 쓰기, 삭제 및 작업입니다. |
 
 
 

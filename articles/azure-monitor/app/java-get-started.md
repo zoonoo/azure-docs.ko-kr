@@ -1,18 +1,16 @@
 ---
 title: '빠른 시작: Azure 애플리케이션 Insights를 사용 하는 Java 웹 앱 분석'
 description: 'Application Insights를 사용하여 Java 웹앱에 대한 애플리케이션 성능 모니터링. '
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 05/24/2019
-ms.openlocfilehash: abc16f8e1fdc6b81634b926eeb287e5d03efdc40
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 484d4e8df8a8fdceed62a65858126a16d028121e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963685"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670086"
 ---
 # <a name="quickstart-get-started-with-application-insights-in-a-java-web-project"></a>빠른 시작: Java 웹 프로젝트에서 Application Insights 시작
 
@@ -20,9 +18,9 @@ ms.locfileid: "76963685"
 
 Application Insights는 라이브 응용 프로그램의 성능 및 사용을 이해 하는 데 도움이 되는 웹 개발자를 위한 확장 가능한 분석 서비스입니다. Application Insights는 Linux, Unix 또는 Windows에서 실행되는 Java 앱을 지원합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* 활성 구독을 포함 하는 Azure 계정. [계정을 무료로 만드세요](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
+* 활성 구독이 있는 Azure 계정. [체험 계정을 만듭니다](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio).
 * 작동 하는 Java 응용 프로그램입니다.
 
 ## <a name="get-an-application-insights-instrumentation-key"></a>Application Insights 계측 키 가져오기
@@ -38,7 +36,7 @@ Application Insights는 라이브 응용 프로그램의 성능 및 사용을 �
 
 *프로젝트 형식을 선택 합니다.*
 
-# <a name="maventabmaven"></a>[Maven](#tab/maven)
+# <a name="maven"></a>[Maven](#tab/maven)
 
 프로젝트에서 빌드에 Maven를 사용 하도록 이미 설정 되어 있는 경우 다음 코드를 *pom .xml* 파일에 병합 합니다.
 
@@ -56,7 +54,7 @@ Application Insights는 라이브 응용 프로그램의 성능 및 사용을 �
     </dependencies>
 ```
 
-# <a name="gradletabgradle"></a>[Gradle](#tab/gradle)
+# <a name="gradle"></a>[Gradle](#tab/gradle)
 
 빌드에 Gradle를 사용 하도록 프로젝트를 이미 설정한 경우에는 *Gradle* 파일에 다음 코드를 병합 합니다.
 
@@ -70,13 +68,13 @@ Application Insights는 라이브 응용 프로그램의 성능 및 사용을 �
     }
 ```
 
-# <a name="other-typestabother"></a>[기타 형식](#tab/other)
+# <a name="other-types"></a>[기타 형식](#tab/other)
 
 [최신 버전](https://github.com/Microsoft/ApplicationInsights-Java/releases/latest)을 다운로드하고 필요한 파일을 프로젝트에 복사하여 이전 버전을 교체합니다.
 
 ---
 
-### <a name="questions"></a>문의 사항
+### <a name="questions"></a>질문
 * *`-web-auto`, `-web` 및 `-core` 구성 요소 간의 관계는 무엇 인가요?*
   * `applicationinsights-web-auto`는 런타임에 Application Insights 서블릿 필터를 자동으로 등록 하 여 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 합니다.
   * 또한 `applicationinsights-web`는 HTTP 서블릿 요청 수와 응답 시간을 추적 하는 메트릭을 제공 하지만 응용 프로그램에서 Application Insights 서블릿 필터를 수동으로 등록 해야 합니다.
@@ -302,7 +300,7 @@ Application Insights는 일정한 간격으로 웹 사이트를 테스트하여 
 
 [가용성 웹 테스트를 설정 하는 방법에 대해 자세히 알아보세요.][availability]
 
-## <a name="questions-problems"></a>질문이 있으시나요? 문제가 있으신가요?
+## <a name="questions-problems"></a>질문이 있으십니까? 문제가 있습니까?
 [Java 문제 해결](java-troubleshoot.md)
 
 ## <a name="next-steps"></a>다음 단계
