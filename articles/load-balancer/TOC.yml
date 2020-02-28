@@ -150,7 +150,7 @@
 - name: 리소스
   items:
     - name: Microsoft Learn을 통해 기술 쌓기
-      href: /learn/browse/?products=azure-virtual-machines
+      href: /learn/browse/?products=azure-load-balancer
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=networking'
     - name: Azure Load Balancer 피드백
