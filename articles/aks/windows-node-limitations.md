@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 Windows Server 노드 풀 및 
 services: container-service
 ms.topic: article
 ms.date: 05/31/2019
-ms.openlocfilehash: 6d951652e3522b7ff926b72a3916bffe97575054
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 157f890c65efd0de9fa7d8d7aa5cb43b4a902dfa
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592496"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615654"
 ---
 # <a name="current-limitations-for-windows-server-node-pools-and-application-workloads-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Windows Server 노드 풀 및 응용 프로그램 작업에 대 한 현재 제한 사항
 
@@ -51,9 +51,9 @@ AKS 클러스터의 마스터 노드 (제어 평면)는 AKS 서비스에서 호�
 
 Windows 노드 풀을 사용 하는 AKS 클러스터는 Azure CNI (고급) 네트워킹 모델을 사용 해야 합니다. Kubenet (기본) 네트워킹은 지원 되지 않습니다. 네트워크 모델의 차이점에 대 한 자세한 내용은 [AKS의 응용 프로그램에 대 한 네트워크 개념][azure-network-models]을 참조 하세요. -Azure CNI 네트워크 모델에는 IP 주소 관리에 대 한 추가 계획 및 고려 사항이 필요 합니다. Azure CNI를 계획 하 고 구현 하는 방법에 대 한 자세한 내용은 [AKS에서 AZURE cni 네트워킹 구성][configure-azure-cni]을 참조 하세요.
 
-## <a name="can-i-change-the-min--of-pods-per-node"></a>노드당 pod의 수를 변경할 수 있나요?
+## <a name="can-i-change-the-max--of-pods-per-node"></a>최대를 변경할 수 있습니다. 노드당 pod 수?
 
-클러스터의 안정성을 보장 하기 위해 현재 최소 30 pod 설정 해야 하는 요구 사항입니다.
+클러스터의 안정성을 보장 하기 위해 현재는 최대 30 pod으로 설정 해야 합니다.
 
 ## <a name="how-do-patch-my-windows-nodes"></a>Windows 노드를 패치 하는 방법
 
