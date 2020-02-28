@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor (미리 보기)의 간단한 로그 환경 | Microsoft Docs
 description: 단순 로그 환경에서는 KQL와 직접 상호 작용 하지 않고도 Azure Monitor에서 기본 쿼리를 만들 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/12/2019
-ms.openlocfilehash: 0b8b23d5d355614bf74b1b22c6a8443b9a2f9391
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 59bcb42edaf7d46498a3514b4f1c919c6e8cc0c4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72932980"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660260"
 ---
 # <a name="simple-logs-experience-in-azure-monitor-preview"></a>Azure Monitor의 간단한 로그 환경 (미리 보기)
 Azure Monitor KQL 언어를 사용 하 여 [로그 쿼리](log-query-overview.md) 를 만들기 위한 [다양 한 환경을](get-started-portal.md) 제공 합니다. KQL의 전체 성능이 필요 하지 않을 수 있으며 기본 쿼리 요구 사항에 대 한 간단한 환경을 선호 합니다. 간단한 로그 환경에서는 KQL와 직접 상호 작용 하지 않고도 기본 쿼리를 만들 수 있습니다. 보다 정교한 쿼리가 필요 하므로 간단한 로그를 KQL에 대 한 학습 도구로 사용할 수도 있습니다.

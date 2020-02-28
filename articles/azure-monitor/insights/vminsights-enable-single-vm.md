@@ -1,18 +1,17 @@
 ---
 title: 평가를 위해 VM용 Azure Monitor (미리 보기) 사용 Microsoft Docs
 description: 단일 Azure 가상 머신 또는 가상 머신 확장 집합에서 VM용 Azure Monitor를 평가 하는 방법에 대해 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/14/2019
-ms.openlocfilehash: c77fabf0220ecfcb889ce7cb71fa075fde27226f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3b79eaeed420426fe79b2b6caf19ba1d1be61939
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75400587"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664614"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-for-evaluation"></a>평가를 위해 VM용 Azure Monitor (미리 보기) 사용
 

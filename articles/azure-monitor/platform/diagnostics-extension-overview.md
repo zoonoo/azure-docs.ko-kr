@@ -1,18 +1,17 @@
 ---
 title: Azure 진단 확장 개요
 description: 클라우드 서비스, 가상 머신 및 서비스 패브릭에서 디버깅, 성능 측정, 모니터링, 트래픽 분석을 위해 Azure 진단 사용
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: d9db4b4c8e6d82f29d227b9f8afe528e000c651e
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 6cb514312db525ffd2ccf9f7b70968daaa94f322
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468000"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672381"
 ---
 # <a name="azure-diagnostics-extension-overview"></a>Azure 진단 확장 개요
 Azure 진단 확장은 가상 컴퓨터를 포함 하 여 Azure 계산 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집 하는 [Azure Monitor의 에이전트](agents-overview.md) 입니다. 이 문서에서는 지 원하는 특정 기능 및 설치 및 구성 옵션을 포함 하 여 Azure 진단 확장에 대 한 개요를 제공 합니다. 
@@ -86,7 +85,7 @@ Azure Storage의 테이블에 데이터를 씁니다. 다음 표의 싱크를 �
 
 
 ## <a name="installation-and-configuration"></a>설치 및 구성
-진단 확장은 Azure에서 [가상 컴퓨터 확장](/virtual-machines/extensions/overview) 으로 구현 되므로 리소스 관리자 템플릿, POWERSHELL 및 CLI를 사용 하 여 동일한 설치 옵션을 지원 합니다. 가상 머신 확장 설치 및 유지 관리에 대 한 일반적인 내용은 Windows 용 가상 [머신 확장 및 기능](/virtual-machines/extensions/features-windows) 및 [Linux 용 가상 머신](/virtual-machines/extensions/features-linux) 확장 및 기능을 참조 하세요.
+진단 확장은 Azure에서 [가상 컴퓨터 확장](../../virtual-machines/extensions/overview.md) 으로 구현 되므로 리소스 관리자 템플릿, POWERSHELL 및 CLI를 사용 하 여 동일한 설치 옵션을 지원 합니다. 가상 머신 확장 설치 및 유지 관리에 대 한 일반적인 내용은 Windows 용 가상 [머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md) 및 [Linux 용 가상 머신](../../virtual-machines/extensions/features-linux.md) 확장 및 기능을 참조 하세요.
 
 가상 컴퓨터 메뉴의 **모니터링** 섹션에 있는 **진단 설정** 아래 Azure Portal에 Windows 및 Linux 진단 확장을 모두 설치 하 고 구성할 수도 있습니다.
 

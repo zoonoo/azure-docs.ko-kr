@@ -1,18 +1,14 @@
 ---
 title: PowerShell을 사용하여 Application Insights에서 경고 설정 | Microsoft Docs
 description: Application Insights의 구성을 자동화하여 메트릭 변경 사항에 대한 전자 메일을 받습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 10/31/2016
-ms.openlocfilehash: cf03fa0055710dde86a0f74cd58344575494faf1
-ms.sourcegitcommit: a10074461cf112a00fec7e14ba700435173cd3ef
+ms.openlocfilehash: c19cb43d08b44b55c786e750e64a83e6f0c67381
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73928575"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669848"
 ---
 # <a name="use-powershell-to-set-alerts-in-application-insights"></a>PowerShell을 사용하여 Application Insights에서 경고 설정
 
@@ -60,7 +56,7 @@ Azure PowerShell을 시작하고 [구독에 연결](/powershell/azure/overview)�
 
 
 
-## <a name="example-1"></a>예제 1
+## <a name="example-1"></a>예 1
 HTTP 요청에 대한 서버의 응답이 5분 이상 평균 1초보다 느린 경우 전자 메일로 알립니다. Application Insights 리소스의 이름이 IceCreamWebApp이며 리소스 그룹 Fabrikam 내에 있습니다. 제가 Azure 구독의 소유자입니다.
 
 GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
@@ -76,7 +72,7 @@ GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
      -SendEmailToServiceOwners `
      -Location "East US" -RuleType Metric
 
-## <a name="example-2"></a>예 2
+## <a name="example-2"></a>예제 2
 [TrackMetric()](../../azure-monitor/app/api-custom-events-metrics.md#trackmetric)을 사용하여 "salesPerHour"라는 메트릭을 보고하는 애플리케이션이 있습니다. 24시간 이상 평균 "salesPerHour"가 100 미만으로 떨어지는 경우 동료에게 전자 메일을 보냅니다.
 
     Add-AzMetricAlertRule -Name "poor sales" `
@@ -93,7 +89,7 @@ GUID는 구독 ID입니다(애플리케이션의 계측 키 아님).
 TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개 변수](../../azure-monitor/app/api-custom-events-metrics.md#properties) 를 사용하여 보고된 메트릭에도 동일한 규칙을 사용할 수 있습니다.
 
 ## <a name="metric-names"></a>메트릭 이름
-| 메트릭 이름 | 화면 이름 | 설명 |
+| 메트릭 이름 | 화면 이름 | Description |
 | --- | --- | --- |
 | `basicExceptionBrowser.count` |브라우저 예외 |브라우저에서 발생한 확인할 수 없는 예외의 개수입니다. |
 | `basicExceptionServer.count` |서버 예외 |앱에서 발생한 처리되지 않은 예외의 개수입니다. |
@@ -122,7 +118,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 
 | 메트릭 그룹 | 수집기 모듈 |
 | --- | --- |
-| basicExceptionBrowser,<br/>clientPerformance,<br/>view |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
+| basicExceptionBrowser,<br/>clientPerformance,<br/>뷰 |[브라우저 JavaScript](../../azure-monitor/app/javascript.md) |
 | performanceCounter |[성능](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | remoteDependencyFailed |[종속성](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
 | request,<br/>requestFailed |[서버 요청](../../azure-monitor/app/configuration-with-applicationinsights-config.md) |
@@ -130,7 +126,7 @@ TrackEvent 또는 trackPageView와 같은 다른 추적 호출의 [측정 매개
 ## <a name="webhooks"></a>Webhook
 [경고에 대한 응답을 자동화](../../azure-monitor/platform/alerts-webhooks.md)할 수 있습니다. 경고가 발생한 경우 Azure에서 사용자가 선택한 웹 주소를 호출합니다.
 
-## <a name="see-also"></a>참고 항목:
+## <a name="see-also"></a>참고 항목
 * [Application Insights를 구성하는 스크립트](https://docs.microsoft.com/azure/azure-monitor/app/create-new-resource#creating-a-resource-automatically)
 * [서식 파일에서 Application Insights 및 웹 테스트 리소스 만들기](powershell.md)
 * [Application Insights에 Microsoft Azure Diagnostics 결합 자동화](powershell-azure-diagnostics.md)

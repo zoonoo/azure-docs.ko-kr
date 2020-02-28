@@ -7,12 +7,12 @@ ms.reviewer: gabil
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: d0c9fe9ebd040ee59ae8717e95fd1911eaef61be
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: ff7420619cffc2287ab8ff6332df605d56329549
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77560459"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664136"
 ---
 # <a name="manage-cluster-horizontal-scaling-scale-out-in-azure-data-explorer-to-accommodate-changing-demand"></a>변경 수요에 맞게 Azure 데이터 탐색기의 클러스터 수평적 크기 조정 (규모 확장) 관리
 
@@ -59,13 +59,14 @@ Azure 데이터 탐색기 클러스터의 크기를 조정 하는 데는 두 가
 * 클러스터 인스턴스 수가 사용자가 정의한 최대 인스턴스 수를 벗어났습니다.
 * 캐시 사용률은 한 시간 이상에 대해 높습니다.
 * CPU는 한 시간 이상에 대해 높습니다.
+* 수집 사용률은 한 시간 이상에 대해 높습니다.
 
 > [!NOTE]
 > Scale out 논리는 현재 수집 사용률 메트릭을 고려 하지 않습니다. 이 메트릭이 사용 사례에 중요 한 경우 [사용자 지정 자동 크기 조정](#custom-autoscale)을 사용 합니다.
 
 **규모 확장**
 
-클러스터가 미달 사용 상태에 도달 하는 경우 비용을 절감 하지만 성능을 유지 합니다. 여러 메트릭을 사용 하 여 클러스터에서 크기를 조정 하는 것이 안전한 지 확인 합니다. 다음 규칙은 규모 조정이 수행 되기 7 일 동안 매일 평가 됩니다.
+클러스터가 미달 사용 상태에 도달 하는 경우 비용을 절감 하지만 성능을 유지 합니다. 여러 메트릭을 사용 하 여 클러스터에서 크기를 조정 하는 것이 안전한 지 확인 합니다. 다음 규칙은 scale in이 수행 되기 전에 6 시간 마다 계산 됩니다.
 * 인스턴스 수가 정의 된 최소 인스턴스 수를 2 이상 초과 합니다.
 * 리소스가 오버 로드 되지 않도록 하려면 scale in이 수행 되기 전에 다음 메트릭을 확인 해야 합니다. 
     * 캐시 사용률은 높지 않습니다.

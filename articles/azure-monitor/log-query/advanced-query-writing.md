@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 고급 쿼리 | Microsoft Docs
 description: 이 문서에서는 Analytics 포털을 사용하여 Azure Monitor에서 쿼리를 작성하는 것에 대한 자습서를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/15/2018
-ms.openlocfilehash: 8895224bef037c8c3f8b28a6085359837478d924
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: 3d228c62cd2d1bcb7f4515cd698186e2ebcbe929
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894511"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670290"
 ---
 # <a name="writing-advanced-queries-in-azure-monitor"></a>Azure Monitor에서 고급 쿼리 작성
 

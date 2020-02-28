@@ -1,19 +1,18 @@
 ---
 title: Azure에서 관리 솔루션 빌드 | Microsoft Docs
 description: 관리 솔루션에는 고객이 Log Analytics 작업 영역에 추가할 수 있는 Azure의 패키지된 관리 시나리오가 포함되어 있습니다.  이 문서에서는 자체 환경에 사용할 관리 솔루션 또는 고객에게 제공할 관리 솔루션을 만드는 방법에 대해 자세히 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/20/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 5465c177cf174ebf8d6b7d4f43c5387bce3adb70
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f1605597c7716ba6a896c7ecdae968f07d66027b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969691"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663218"
 ---
 # <a name="design-and-build-a-management-solution-in-azure-preview"></a>Azure에서 관리 솔루션 디자인 및 빌드(Preview)
 > [!NOTE]
@@ -60,7 +59,7 @@ Log Analytics의 보기는 Log Analytics 리포지토리의 데이터를 시각�
 
 
 ## <a name="create-solution-file"></a>솔루션 파일 만들기
-솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스]( solutions-solution-file.md#solution-resource)를 포함하는 [Resource Manager 템플릿](../../azure-resource-manager/templates/template-syntax.md)에 솔루션 구성 요소를 구현합니다.  
+솔루션에 포함될 구성 요소를 구성하고 테스트하면 [솔루션 파일을 만들 수 있습니다]( solutions-solution-file.md).  파일의 다른 리소스와 관계가 있는 [솔루션 리소스](../../azure-resource-manager/templates/template-syntax.md)를 포함하는 [Resource Manager 템플릿]( solutions-solution-file.md#solution-resource)에 솔루션 구성 요소를 구현합니다.  
 
 
 ## <a name="test-your-solution"></a>솔루션 테스트

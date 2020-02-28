@@ -3,17 +3,16 @@ title: Azure 활동 로그 이벤트 스키마
 description: Azure 활동 로그의 각 범주에 대 한 이벤트 스키마를 설명 합니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: reference
 ms.date: 12/04/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 272b71fe5fddea9299e5d660484fcbb3eb367d58
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ccbb4175701c3535b790f25c9ed522911dda6707
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749473"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668845"
 ---
 # <a name="azure-activity-log-event-schema"></a>Azure 활동 로그 이벤트 스키마
 Azure [활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 각 범주에 대 한 이벤트 스키마를 설명 합니다. 
@@ -790,12 +789,12 @@ Azure 활동 로그를 저장소 계정 또는 이벤트 허브로 스트리밍�
 | resultType | status.value | |
 | resultSignature | substatus.value | |
 | resultDescription | description |  |
-| durationMS | N/A | 항상 0 |
+| durationMS | 해당 없음 | 항상 0 |
 | callerIpAddress | httpRequest.clientIpAddress |  |
 | correlationId | correlationId |  |
 | ID | 클레임 및 권한 부여 속성 |  |
-| 수준 | 수준 |  |
-| 위치 | N/A | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
+| Level | Level |  |
+| 위치 | 해당 없음 | 이벤트가 처리된 위치입니다. *이는 리소스의 위치가 아니라 이벤트를 처리 하는 위치입니다. 이 속성은 향후 업데이트에서 제거 될 예정입니다.* |
 | 속성 | properties.eventProperties |  |
 | properties.eventCategory | category | properties.eventCategory가 없을 경우, category는 “Administrative”입니다. |
 | properties.eventName | eventName |  |

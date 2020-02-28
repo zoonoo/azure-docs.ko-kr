@@ -2,18 +2,16 @@
 title: Azure Monitor를 사용 하 여 로그 경고 만들기, 보기 및 관리 Microsoft Docs
 description: Azure Monitor를 사용 하 여 Azure에서 로그 경고 규칙을 작성 하 고, 보고, 관리할 수 있습니다.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 07/29/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 525e8d2ffcd673f47cf30699de2572b35fc3b314
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: 96b1bd86576f8cf34428eb60e2d3f476312311c1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76290278"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667859"
 ---
 # <a name="create-view-and-manage-log-alerts-using-azure-monitor"></a>Azure Monitor를 사용하여 로그 경고 만들기, 보기 및 관리
 
@@ -52,7 +50,7 @@ ms.locfileid: "76290278"
    > 로그 경고 만들기의 경우 진행하기 전에 선택한 리소스에 대해 사용 가능한 **로그** 신호를 확인합니다.
    >  ![리소스 선택](media/alerts-log/Alert-SelectResourceLog.png)
 
-1. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본이고 신호 유형이 **로그**인지 확인한 다음, 적절한 **리소스가** 선택되면 *완료*를 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 *Log Analytics* 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 **사용자 지정 로그 검색** 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
+1. *로그 경고*: **리소스 종류**가 *Log Analytics* 또는 *Application Insights*와 같은 분석 원본이고 신호 유형이 **로그**인지 확인한 다음, 적절한 **리소스가** 선택되면 *완료*를 클릭합니다. 다음으로 **조건 추가** 단추를 사용하여 리소스 및 **Log Analytics** 또는 *Application Insights*와 같은 선택된 로그 모니터 서비스에 대한 신호 목록 *사용자 지정 로그 검색* 옵션에서 사용할 수 있는 신호 옵션 목록을 봅니다.
 
    ![리소스 선택 - 사용자 지정 로그 검색](media/alerts-log/AlertsPreviewResourceSelectionLog.png)
 
@@ -131,7 +129,7 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 
 ### <a name="sample-log-alert-creation-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 샘플 로그 경고 만들기
 
-다음은 변수로 샘플 데이터 세트가 있는 [결과 유형 로그 경고 수](alerts-unified-log.md#number-of-results-alert-rules)의 표준 로그 검색 쿼리를 사용하여 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
+다음은 변수로 샘플 데이터 세트가 있는 [결과 유형 로그 경고 수](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)의 표준 로그 검색 쿼리를 사용하여 [예약된 쿼리 규칙 만들기](alerts-unified-log.md#number-of-results-alert-rules) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 {
@@ -207,7 +205,7 @@ Azure Monitor의 로그 경고는 리소스 유형 `Microsoft.Insights/scheduled
 
 ### <a name="log-alert-with-cross-resource-query-using-azure-resource-template"></a>Azure 리소스 템플릿을 사용하여 리소스 간 쿼리를 통해 로그 경고
 
-다음은 변수로 샘플 데이터 세트가 있는 [메트릭 측정 유형 로그 경고](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules)의 [리소스 간 로그 검색 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 사용하여 [예약된 쿼리 규칙 만들기](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate) 기반 리소스 템플릿에 대한 구조입니다.
+다음은 변수로 샘플 데이터 세트가 있는 [메트릭 측정 유형 로그 경고](https://docs.microsoft.com/rest/api/monitor/scheduledqueryrules/createorupdate)의 [리소스 간 로그 검색 쿼리](../../azure-monitor/log-query/cross-workspace-query.md)를 사용하여 [예약된 쿼리 규칙 만들기](../../azure-monitor/platform/alerts-unified-log.md#metric-measurement-alert-rules) 기반 리소스 템플릿에 대한 구조입니다.
 
 ```json
 

@@ -2,13 +2,13 @@
 title: 전체 모드 삭제
 description: 리소스 종류가 Azure Resource Manager 템플릿에서 전체 모드 삭제를 처리하는 방법을 보여줍니다.
 ms.topic: conceptual
-ms.date: 02/13/2020
-ms.openlocfilehash: 80d2ee356e3bc15a178862c453bf7f1ab8d66c77
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 02/26/2020
+ms.openlocfilehash: 5f797974212636460306c6a17869d6b8380545ab
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207811"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664409"
 ---
 # <a name="deletion-of-azure-resources-for-complete-mode-deployments"></a>완료 모드 배포를 위한 Azure 리소스의 삭제
 
@@ -141,7 +141,6 @@ ms.locfileid: "77207811"
 > - [Microsoft ResourceHealth](#microsoftresourcehealth)
 > - [Microsoft.Resources](#microsoftresources)
 > - [Microsoft SaaS](#microsoftsaas)
-> - [Microsoft.Scheduler](#microsoftscheduler)
 > - [Microsoft.Search](#microsoftsearch)
 > - [Microsoft.Security](#microsoftsecurity)
 > - [Microsoft SecurityGraph](#microsoftsecuritygraph)
@@ -297,6 +296,9 @@ ms.locfileid: "77207811"
 > | automationAccounts | yes |
 > | automationAccounts/구성 | yes |
 > | automationAccounts/job | 예 |
+> | automationAccounts/privateEndpointConnectionProxies | 예 |
+> | automationAccounts/privateEndpointConnections | 예 |
+> | automationAccounts/privateLinkResources | 예 |
 > | automationAccounts/runbook | yes |
 > | automationAccounts/softwareUpdateConfigurations | 예 |
 > | automationAccounts/웹 후크 | 예 |
@@ -716,6 +718,7 @@ ms.locfileid: "77207811"
 > | 레지스트리/importImage | 예 |
 > | 레지스트리/privateEndpointConnectionProxies | 예 |
 > | 레지스트리/privateEndpointConnectionProxies/유효성 검사 | 예 |
+> | 레지스트리/privateEndpointConnections | 예 |
 > | 레지스트리/privateLinkResources | 예 |
 > | 레지스트리/queueBuild | 예 |
 > | 레지스트리/regenerateCredential | 예 |
@@ -1057,6 +1060,7 @@ ms.locfileid: "77207811"
 > | 네임 스페이스/a s p 채널 | 예 |
 > | 파트너 등록 | yes |
 > | 항목 항목 | yes |
+> | 항목 토픽/eventSubscriptions | 예 |
 > | systemTopics | yes |
 > | systemTopics/eventSubscriptions | 예 |
 > | topics | yes |
@@ -1293,6 +1297,7 @@ ms.locfileid: "77207811"
 > | ------------- | ----------- |
 > | getEntities | 예 |
 > | managementGroups | 예 |
+> | managementGroups/settings | 예 |
 > | 리소스 | 예 |
 > | startTenantBackfill | 예 |
 > | tenantBackfillStatus | 예 |
@@ -1554,6 +1559,7 @@ ms.locfileid: "77207811"
 > | legacyPeerings | 예 |
 > | peerAsns | 예 |
 > | 피어 링 | yes |
+> | peeringServiceCountries | 예 |
 > | peeringServiceProviders | 예 |
 > | peeringServices | yes |
 
@@ -1678,13 +1684,6 @@ ms.locfileid: "77207811"
 > | ------------- | ----------- |
 > | 애플리케이션 | yes |
 > | saasresources | 예 |
-
-## <a name="microsoftscheduler"></a>Microsoft.Scheduler
-
-> [!div class="mx-tableFixed"]
-> | 리소스 유형 | 전체 모드 삭제 |
-> | ------------- | ----------- |
-> | jobcollections | yes |
 
 ## <a name="microsoftsearch"></a>Microsoft.Search
 
@@ -2015,6 +2014,7 @@ ms.locfileid: "77207811"
 > | 리소스 유형 | 전체 모드 삭제 |
 > | ------------- | ----------- |
 > | devices | yes |
+> | registeredSubscriptions | 예 |
 > | 판매 | 예 |
 > | 공급 업체/sku | 예 |
 > | 공급 업체/vnfs | 예 |

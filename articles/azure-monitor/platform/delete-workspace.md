@@ -1,18 +1,17 @@
 ---
 title: Azure Log Analytics 작업 영역 삭제 및 복구 | Microsoft Docs
 description: 개인 구독에서 작업 영역을 만들었거나 작업 영역 모델을 재구성한 경우 Log Analytics 작업 영역을 삭제하는 방법을 알아봅니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/14/2020
-ms.openlocfilehash: 038cfe04193b734bd26ed0ffd4dec5ae9b267c22
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 6f50450702c9ecdc1c1d910514d94e0a759176b8
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901265"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670477"
 ---
 # <a name="delete-and-restore-azure-log-analytics-workspace"></a>Azure Log Analytics 작업 영역 삭제 및 복원
 
@@ -44,7 +43,7 @@ Log Analytics 작업 영역을 삭제 하면 해당 데이터 및 연결 된 에
 
 [PowerShell](https://docs.microsoft.com/powershell/module/azurerm.operationalinsights/remove-azurermoperationalinsightsworkspace?view=azurermps-6.13.0), [REST API](https://docs.microsoft.com/rest/api/loganalytics/workspaces/delete)또는 [Azure Portal](https://portal.azure.com)를 사용 하 여 작업 영역을 삭제할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. 로그인 하려면 [Azure Portal](https://portal.azure.com)으로 이동 합니다. 
 2. Azure Portal에서 **모든 서비스**를 선택합니다. 리소스 목록에서 **Log Analytics**를 입력합니다. 입력을 시작하면 입력한 내용을 바탕으로 목록이 필터링됩니다. **Log Analytics 작업 영역**을 선택합니다.

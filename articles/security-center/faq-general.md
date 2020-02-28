@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/25/2020
 ms.author: memildin
-ms.openlocfilehash: b13e5e0000cdd8e33f459400cc4c24d107ccaba3
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f9043ae1414b63f25583d52100774f3e87754a74
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604800"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661842"
 ---
 # <a name="faq---general-questions-about-azure-security-center"></a>FAQ-Azure Security Center에 대 한 일반적인 질문
 
@@ -38,16 +38,17 @@ Azure Security Center에서는 다음과 같은 Azure 리소스를 모니터링�
 * 가상 머신(VM)( [Cloud Services](../cloud-services/cloud-services-choose-me.md)포함)
 * 가상 머신 크기 집합
 * Azure Virtual Networks
+* 컨테이너
 * Azure SQL 서비스
 * Azure Storage 계정
 * Azure Web Apps([App Service Environment](../app-service/environment/intro.md))
 * VM 및 App Service Environment에서 웹 애플리케이션 방화벽 같이 Azure 구독과 통합된 파트너 솔루션
 
-또한 Azure 외의 컴퓨터 (온-프레미스 포함)도 Azure Security Center에서 모니터링할 수 있습니다 ( [Windows 컴퓨터](./quick-onboard-windows-computer.md) 및 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 모두 지원 됨).
+또한 Azure 외의 컴퓨터 (온-프레미스 포함)도 Azure Security Center에서 모니터링할 수 있습니다. [Windows 컴퓨터](./quick-onboard-windows-computer.md) 및 [Linux 컴퓨터](./quick-onboard-linux-computer.md) 모두 지원 됩니다.
 
 
 ## <a name="how-can-i-see-the-current-security-state-of-my-azure-resources"></a>내 Azure 리소스의 현재 보안 상태를 확인하려면 어떻게 해야 하나요?
-**Security Center 개요** 페이지에는 계산, 네트워킹, 저장소 & 데이터 및 응용 프로그램 별로 분류 된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 잠재적 보안 취약성이 식별되었는지 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
+**Security Center 개요** 페이지에는 계산, 네트워킹, 저장소 & 데이터 및 응용 프로그램 별로 분류 된 환경의 전반적인 보안 상태를 보여 줍니다. 각 리소스 종류에는 식별 된 보안 취약성을 나타내는 표시기가 있습니다. 각 타일을 클릭하면 구독의 리소스 인벤토리와 함께 Security Center에서 식별하는 보안 문제 목록이 표시됩니다.
 
 
 

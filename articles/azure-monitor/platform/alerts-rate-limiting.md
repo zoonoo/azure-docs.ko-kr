@@ -2,27 +2,25 @@
 title: SMS, 메일, Azure 앱 푸시 알림 및 웹후크에 대한 속도 제한
 description: 작업 그룹에서 가능한 SMS, 메일, Azure 앱 푸시 또는 웹후크 알림의 수를 Azure에서 제한하는 방법을 알아봅니다.
 author: dkamstra
-services: azure-monitor
-ms.service: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 3/12/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: 11fd6a2c58671cc5d0bcf0593239eb9e62aca834
-ms.sourcegitcommit: 41ca82b5f95d2e07b0c7f9025b912daf0ab21909
+ms.openlocfilehash: 066fcac24571c8e982784a3845a010525ff9088a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60346651"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665530"
 ---
 # <a name="rate-limiting-for-voice-sms-emails-azure-app-push-notifications-and-webhook-posts"></a>음성, SMS, 이메일, Azure 앱 푸시 알림 및 웹후크 게시물에 대한 속도 제한
 속도 제한은 특정 전화 번호, 이메일 주소 또는 디바이스로 너무 많이 전송될 때 발생하는 알림의 일시 중단입니다. 속도를 제한하면 경고를 관리하고 실행할 수 있게 됩니다.
 
 속도 제한 임계값은 다음과 같습니다.
 
-- **SMS**: 5분마다 SMS 1개 이하.
-- **음성**: 5분마다 음성 1개 이하.
-- **메일**: 시간당 메일 100개 이하.
+- **SMS**: 5분마다 SMS 1개 이하
+- **음성**: 5분마다 음성 1개 이하
+- **Email**: 시간 당 이메일 100개 이하.
  
   다른 작업은 속도 제한이 없습니다.
 

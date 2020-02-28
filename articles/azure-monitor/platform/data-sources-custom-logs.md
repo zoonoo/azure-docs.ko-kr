@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 사용자 지정 로그 수집 | Microsoft Docs
 description: Azure Monitor는 Windows와 Linux 컴퓨터의 텍스트 파일에서 이벤트를 수집할 수 있습니다.  이 문서는 새 사용자 지정 로그를 정의하는 방법을 설명하고 Azure Monitor에서 만드는 레코드에 대한 자세한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 09/26/2019
-ms.openlocfilehash: 6d85ada428ab448bd8e96545999ca038e532a32b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 1e889aaef7cd01cd743e8063a8a1dd5138ba9d0e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450656"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670596"
 ---
 # <a name="custom-logs-in-azure-monitor"></a>Azure Monitor의 사용자 지정 로그
 
@@ -102,7 +101,7 @@ Azure Monitor가 사용자 지정 로그에서 수집을 시작하면, 해당 �
 > RawData 속성이 쿼리에 없으면, 브라우저를 닫았다가 다시 열어야 합니다.
 
 ### <a name="step-6-parse-the-custom-log-entries"></a>6단계. 사용자 지정 로그 항목 구문 분석
-전체 로그 항목은 **RawData**라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 각 레코드의 개별 속성으로 분리하려는 경우가 많습니다. **RawData**를 여러 속성으로 구문 분석하기 위한 옵션은 [Azure Monitor에서 텍스트 데이터 구문 분석](../log-query/parse-text.md)을 참조하세요.
+전체 로그 항목은 **RawData**라는 하나의 속성에 저장됩니다.  각 항목에 포함된 다양한 종류의 정보를 각 레코드의 개별 속성으로 분리하려는 경우가 많습니다. [RawData](../log-query/parse-text.md)를 여러 속성으로 구문 분석하기 위한 옵션은 **Azure Monitor에서 텍스트 데이터 구문 분석**을 참조하세요.
 
 ## <a name="removing-a-custom-log"></a>사용자 지정 로그 제거
 Azure Portal에서 다음 프로세스를 사용하여 이전에 정의한 사용자 지정 로그를 제거합니다.

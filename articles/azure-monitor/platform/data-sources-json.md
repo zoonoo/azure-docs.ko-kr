@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 사용자 지정 JSON 데이터 수집 | Microsoft Docs
 description: Linux용 Log Analytics 에이전트를 사용하여 Azure Monitor로 사용자 지정 JSON 데이터 원본을 수집할 수 있습니다.  이러한 사용자 지정 데이터 원본은 curl 또는 FluentD의 300+ 플러그 인의 하나와 같은 JSON을 반환하는 간단한 스크립트일 수 있습니다. 이 문서에서는 이 데이터 수집에 필요한 구성을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 11/28/2018
-ms.openlocfilehash: 3e636fef31951e172f57c715ac7e080b35a978bd
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 49eb3fa22bc9afffb9e93f3152cdc00323b76d41
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450618"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662164"
 ---
 # <a name="collecting-custom-json-data-sources-with-the-log-analytics-agent-for-linux-in-azure-monitor"></a>Azure Monitor에서 Linux용 Log Analytics 에이전트를 사용하여 사용자 지정 JSON 데이터 원본 수집
 [!INCLUDE [log-analytics-agent-note](../../../includes/log-analytics-agent-note.md)]
@@ -29,7 +28,7 @@ Linux용 Log Analytics 에이전트를 사용하여 [Azure Monitor](data-platfor
 
 Azure Monitor에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플러그 인에서 FluentD 태그의 시작 부분에 추가합니다.
 
-예를 들어 다음은 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`에서 별도 구성 파일 `exec-json.conf`입니다.  FluentD 플러그 인 `exec`를 사용하여 30초마다 curl 명령을 실행합니다.  이 명령의 출력은 JSON 출력 플러그 인을 통해 수집됩니다.
+예를 들어 다음은 `exec-json.conf`에서 별도 구성 파일 `/etc/opt/microsoft/omsagent/<workspace id>/conf/omsagent.d/`입니다.  FluentD 플러그 인 `exec`를 사용하여 30초마다 curl 명령을 실행합니다.  이 명령의 출력은 JSON 출력 플러그 인을 통해 수집됩니다.
 
 ```
 <source>
@@ -83,7 +82,7 @@ Azure Monitor에서 JSON 데이터를 수집하려면 `oms.api.`를 입력 플�
 ## <a name="output"></a>출력
 `<FLUENTD_TAG>_CL`의 레코드 형식으로 Azure Monitor에 데이터가 수집됩니다.
 
-예를 들어 `tomcat_CL`의 레코드 형식으로 Azure Monitor에 사용자 지정 태그 `tag oms.api.tomcat`이 수집됩니다.  다음 로그 쿼리로 이 형식의 모든 레코드를 검색할 수 있습니다.
+예를 들어 `tag oms.api.tomcat`의 레코드 형식으로 Azure Monitor에 사용자 지정 태그 `tomcat_CL`이 수집됩니다.  다음 로그 쿼리로 이 형식의 모든 레코드를 검색할 수 있습니다.
 
     Type=tomcat_CL
 

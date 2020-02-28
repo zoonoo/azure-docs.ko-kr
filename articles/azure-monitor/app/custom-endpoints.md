@@ -1,18 +1,14 @@
 ---
 title: Azure 애플리케이션 Insights 기본 SDK 끝점 재정의
 description: Azure Government 같은 영역에 대 한 기본 Azure Monitor Application Insights SDK 끝점을 수정 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/26/2019
-ms.openlocfilehash: c04b793512eccf6aaff7d3ed3cc65efdd3dfc303
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3aa18a6b96458533c3dc53f3f420ed264b298a3e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432581"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671990"
 ---
 # <a name="application-insights-overriding-default-endpoints"></a>기본 끝점 재정의 Application Insights
 
@@ -197,9 +193,9 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 |지역 |  엔드포인트 이름 | 값 |
 |-----------------|:------------|:-------------|
-| Azure China | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
-| Azure China | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
-| Azure China | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
+| Azure 중국 | 원격 분석 채널 | `https://dc.applicationinsights.azure.cn/v2/track` |
+| Azure 중국 | QuickPulse (라이브 메트릭) |`https://live.applicationinsights.azure.cn/QuickPulseService.svc` |
+| Azure 중국 | 프로필 쿼리 |`https://dc.applicationinsights.azure.cn/api/profiles/{0}/appId`  |
 | Azure Government | 원격 분석 채널 |`https://dc.applicationinsights.us/v2/track` |
 | Azure Government | QuickPulse (라이브 메트릭) |`https://quickpulse.applicationinsights.us/QuickPulseService.svc` |
 | Azure Government | 프로필 쿼리 |`https://dc.applicationinsights.us/api/profiles/{0}/appId` |
@@ -209,7 +205,7 @@ Live Metrics Endpoint: "QuickPulse_Endpoint_Address"
 
 |지역 |  엔드포인트 이름 | 값 |
 |-----------------|:------------|:-------------|
-| Azure China | REST API | `api.applicationinsights.azure.cn` |
+| Azure 중국 | REST API | `api.applicationinsights.azure.cn` |
 | Azure Government | REST API | `api.applicationinsights.us`|
 
 > [!NOTE]

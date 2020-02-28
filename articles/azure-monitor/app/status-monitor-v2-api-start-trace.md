@@ -1,24 +1,22 @@
 ---
 title: Azure 애플리케이션 Insights 에이전트 API 참조
 description: 에이전트 API 참조를 Application Insights 합니다. 시작-추적. 상태 모니터 및 Application Insights SDK에서 ETW 로그를 수집 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: TimothyMothra
 ms.author: tilee
 ms.date: 04/23/2019
-ms.openlocfilehash: c97315b3a215f10e5b8f9533bf09fa5ac30ee16f
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: b9680101f1a22dd6d9c1617c8afc13a10ad1c594
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72899662"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671225"
 ---
 # <a name="application-insights-agent-api-start-applicationinsightsmonitoringtrace"></a>Application Insights 에이전트 API: ApplicationInsightsMonitoringTrace
 
 이 문서에서는 [Az. ApplicationMonitor PowerShell 모듈](https://www.powershellgallery.com/packages/Az.ApplicationMonitor/)의 멤버인 cmdlet에 대해 설명 합니다.
 
-## <a name="description"></a>설명
+## <a name="description"></a>Description
 
 코드 없는 attach 런타임에서 [ETW 이벤트](https://docs.microsoft.com/windows/desktop/etw/event-tracing-portal) 를 수집 합니다. 이 cmdlet은 [Perfview](https://github.com/microsoft/perfview)를 실행 하는 대신 사용할 수 있습니다.
 
@@ -29,7 +27,7 @@ ms.locfileid: "72899662"
 > [!IMPORTANT] 
 > 이 cmdlet을 사용 하려면 관리자 권한이 있는 PowerShell 세션이 있어야 합니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 ### <a name="how-to-collect-events"></a>이벤트를 수집 하는 방법
 
@@ -38,9 +36,9 @@ ms.locfileid: "72899662"
 코드 없는 attach 런타임은 IIS가 시작 될 때와 응용 프로그램이 시작 될 때 ETW 이벤트를 내보냅니다.
 
 이러한 이벤트를 수집 하려면:
-1. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /stop`을 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
+1. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /stop`를 실행 하 여 IIS 및 모든 웹 앱을 해제 합니다.
 2. 이 cmdlet 실행
-3. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /start`을 실행 하 여 IIS를 시작 합니다.
+3. 관리자 권한이 있는 cmd 콘솔에서 `iisreset /start`를 실행 하 여 IIS를 시작 합니다.
 4. 앱으로 이동 해 보세요.
 5. 앱 로드가 완료 되 면 수동으로 중지 (`Ctrl + C`) 하거나 시간 초과를 기다릴 수 있습니다.
 
@@ -53,20 +51,20 @@ ms.locfileid: "72899662"
 4. 기본적으로 스위치를 지정 하지 않으면 두 이벤트 유형이 모두 수집 됩니다.
 
 
-## <a name="parameters"></a>parameters
+## <a name="parameters"></a>매개 변수
 
 ### <a name="-maxdurationinminutes"></a>-MaxDurationInMinutes
-**선택** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
+**(선택 사항)** 이 매개 변수를 사용 하 여이 스크립트에서 이벤트를 수집 하는 기간을 설정 합니다. 기본값은 5분입니다.
 
 ### <a name="-logdirectory"></a>-LogDirectory
-**선택** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
+**(선택 사항)** 이 스위치를 사용 하 여 ETL 파일의 출력 디렉터리를 설정 합니다. 기본적으로이 파일은 PowerShell 모듈 디렉터리에 생성 됩니다. 전체 경로는 스크립트를 실행 하는 동안 표시 됩니다.
 
 
 ### <a name="-collectsdkevents"></a>-CollectSdkEvents
-**선택** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
+**(선택 사항)** 이 스위치를 사용 하 여 Application Insights SDK 이벤트를 수집 합니다.
 
 ### <a name="-collectredfieldevents"></a>-CollectRedfieldEvents
-**선택** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
+**(선택 사항)** 이 스위치를 사용 하 여 상태 모니터 및 Redfield 런타임에서 이벤트를 수집 합니다.
 
 ### <a name="-verbose"></a>-Verbose
 **일반 매개 변수입니다.** 이 스위치를 사용 하 여 자세한 로그를 출력 합니다.
@@ -110,7 +108,7 @@ Timeout Reached. Stopping...
 
 추가 문제 해결:
 
-- https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot 에서 추가 문제 해결 단계를 검토 합니다.
+- https://docs.microsoft.com/azure/azure-monitor/app/status-monitor-v2-troubleshoot에서 추가 문제 해결 단계를 검토 합니다.
 - [API 참조](status-monitor-v2-overview.md#powershell-api-reference) 를 검토 하 여 누락 된 매개 변수에 대해 알아보세요.
 - 추가 도움이 필요 하면 [GitHub](https://github.com/Microsoft/ApplicationInsights-Home/issues)에서 문의할 수 있습니다.
 

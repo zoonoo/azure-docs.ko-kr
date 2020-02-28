@@ -2,18 +2,17 @@
 title: Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 description: Resource Manager 템플릿을 사용하여 메트릭 경고를 만드는 방법에 대해 알아봅니다.
 author: harelbr
+ms.author: harelbr
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 2/24/2020
-ms.author: harelbr
 ms.subservice: alerts
-ms.openlocfilehash: 2f2940496682372b0d00d2b419aa941dcedd533c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 2f6e9cd4e7a035e6555b2241613cb9c46c3be550
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586532"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664839"
 ---
 # <a name="create-a-metric-alert-with-a-resource-manager-template"></a>Resource Manager 템플릿을 사용하여 메트릭 경고 만들기
 

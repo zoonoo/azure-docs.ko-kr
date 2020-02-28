@@ -1,18 +1,17 @@
 ---
 title: 논리 앱 및 runbook을 업데이트 하 여 클래식 경고 마이그레이션 Azure Monitor 준비
-author: yanivlavi
 description: 자발적 마이그레이션을 준비 하기 위해 웹 후크, 논리 앱 및 runbook을 수정 하는 방법에 대해 알아봅니다.
-ms.service: azure-monitor
+author: yanivlavi
+ms.author: yalavi
 ms.topic: conceptual
 ms.date: 03/19/2018
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 58ba95ff60ddccf909578a673110c870caf57376
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 9219e105acb98424939030af76b526d475585619
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705567"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665595"
 ---
 # <a name="prepare-your-logic-apps-and-runbooks-for-migration-of-classic-alert-rules"></a>기존 경고 규칙의 마이그레이션을 위해 논리 앱 및 runbook 준비
 
@@ -31,7 +30,7 @@ ms.locfileid: "76705567"
 
 |         |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|REST API     | [microsoft.insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft.insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
+|REST API     | [microsoft insights/alertrules](https://docs.microsoft.com/rest/api/monitor/alertrules)         | [microsoft insights/metricalerts](https://docs.microsoft.com/rest/api/monitor/metricalerts)       |
 |Azure CLI     | [az monitor alert](https://docs.microsoft.com/cli/azure/monitor/alert?view=azure-cli-latest)        | [az monitor 메트릭 경고](https://docs.microsoft.com/cli/azure/monitor/metrics/alert?view=azure-cli-latest)        |
 |PowerShell      | [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrule)       |  [참조](https://docs.microsoft.com/powershell/module/az.monitor/add-azmetricalertrulev2)    |
 | Azure Resource Manager 템플릿 | [클래식 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-enable-template)|[새 메트릭 경고의 경우](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-metric-create-templates)|
@@ -44,26 +43,26 @@ ms.locfileid: "76705567"
 
 |  |클래식 경고  |새 메트릭 경고 |
 |---------|---------|---------|
-|경고가 활성화 또는 해결 되었습니까?    | **status**       | **data.status** |
-|경고에 대 한 컨텍스트 정보     | **context**        | **data.context**        |
-|경고가 활성화 되거나 해결 된 타임 스탬프입니다.     | **context.timestamp**       | **data.context.timestamp**        |
+|경고가 활성화 또는 해결 되었습니까?    | **status**       | **데이터. 상태** |
+|경고에 대 한 컨텍스트 정보     | **context**        | **데이터. 컨텍스트**        |
+|경고가 활성화 되거나 해결 된 타임 스탬프입니다.     | **context. timestamp**       | **data. context. timestamp**        |
 | 경고 규칙 ID | **context.id** | **data.context.id** |
 | 경고 규칙 이름 | **context.name** | **data.context.name** |
-| 경고 규칙에 대 한 설명 | **context.description** | **data.context.description** |
-| 경고 규칙 조건 | **context.condition** | **data.context.condition** |
-| 메트릭 이름 | **context.condition.metricName** | **data.context.condition.allOf[0].metricName** |
+| 경고 규칙에 대 한 설명 | **컨텍스트입니다. 설명** | **데이터. 컨텍스트 설명** |
+| 경고 규칙 조건 | **context. 조건** | **data. context. 조건** |
+| 메트릭 이름 | **metricName** | **metricName [0]..** |
 | 시간 집계 (평가 기간 동안 메트릭이 집계 되는 방법)| **컨텍스트별. timeAggregation** | **컨텍스트별. timeAggregation** |
-| 평가 기간 | **context.condition.windowSize** | **data.context.condition.windowSize** |
-| 연산자 (집계 된 메트릭 값을 임계값과 비교 하는 방법) | **context.condition.operator** | **data.context.condition.operator** |
-| 임계값 | **context.condition.threshold** | **data.context.condition.allOf[0].threshold** |
-| 메트릭 값 | **context.condition.metricValue** | **data.context.condition.allOf[0].metricValue** |
-| 구독 ID | **context.subscriptionId** | **data.context.subscriptionId** |
-| 영향을 받는 리소스의 리소스 그룹 | **context.resourceGroup** | **data.context.resourceGroup** |
-| 영향을 받는 리소스의 이름 | **context.resourceName** | **data.context.resourceName** |
-| 영향을 받는 리소스의 유형입니다. | **context.resourceType** | **data.context.resourceType** |
-| 영향을 받는 리소스의 리소스 ID | **context.resourceId** | **data.context.resourceId** |
-| 포털 리소스 요약 페이지에 대 한 직접 링크 | **context.portalLink** | **data.context.portalLink** |
-| 웹 후크 또는 논리 앱에 전달할 사용자 지정 페이로드 필드 | **properties** | **data.properties** |
+| 평가 기간 | **windowSize** | **windowSize.** |
+| 연산자 (집계 된 메트릭 값을 임계값과 비교 하는 방법) | **컨텍스트별. 연산자** | **data. condition. 연산자** |
+| 임계값 | **컨텍스트별. threshold** | **data. context. condition. allOf [0]. threshold** |
+| 메트릭 값 | **metricValue** | **metricValue [0]..** |
+| 구독 ID | **context. subscriptionId** | **데이터. context. subscriptionId** |
+| 영향을 받는 리소스의 리소스 그룹 | **컨텍스트별. resourceGroup** | **데이터. 컨텍스트와 resourceGroup** |
+| 영향을 받는 리소스의 이름 | **Context.resourcename** | **data. Context.resourcename** |
+| 영향을 받는 리소스의 유형입니다. | **컨텍스트별. resourceType** | **데이터. 컨텍스트 resourceType** |
+| 영향을 받는 리소스의 리소스 ID | **컨텍스트별. resourceId** | **데이터. 컨텍스트 resourceId** |
+| 포털 리소스 요약 페이지에 대 한 직접 링크 | **portalLink** | **portalLink** |
+| 웹 후크 또는 논리 앱에 전달할 사용자 지정 페이로드 필드 | **properties** | **데이터. 속성** |
 
 페이로드는 볼 수 있는 것과 유사 합니다. 다음 섹션에서 다음을 제공 합니다.
 

@@ -1,19 +1,18 @@
 ---
 title: Azure Monitor 리소스 그룹 인사이트 | Microsoft Docs
 description: Azure Monitor를 사용하여 리소스 그룹 수준에서 분산 애플리케이션 및 서비스의 상태 및 성능 이해
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: NumberByColors
 ms.author: daviste
 ms.date: 09/19/2018
 ms.reviewer: mbullwin
-ms.openlocfilehash: fba94a5e723bfbc2719b3b4cf5cd130eda382276
-ms.sourcegitcommit: ae461c90cada1231f496bf442ee0c4dcdb6396bc
+ms.openlocfilehash: 6d97e40bf2bf2298fb53609621db8ff2c6f1038f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/17/2019
-ms.locfileid: "72553980"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663541"
 ---
 # <a name="monitor-resource-groups-with-azure-monitor-preview"></a>Azure Monitor(미리 보기)를 사용하여 리소스 그룹 모니터링
 

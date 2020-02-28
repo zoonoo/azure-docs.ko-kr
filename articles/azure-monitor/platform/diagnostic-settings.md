@@ -3,17 +3,16 @@ title: Azure에서 로그 및 메트릭을 수집 하는 진단 설정 만들기
 description: Azure 플랫폼 로그를 Azure Monitor 로그, Azure storage 또는 Azure Event Hubs에 전달 하는 진단 설정을 만듭니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/18/2019
 ms.author: bwren
 ms.subservice: logs
-ms.openlocfilehash: 22932121b97c1b0fe91c46b5eea0222a022a4e61
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: fb2f9ff5af68575d9f9d29e9a6aca83d603395b3
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751078"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672415"
 ---
 # <a name="create-diagnostic-setting-to-collect-platform-logs-and-metrics-in-azure"></a>Azure에서 플랫폼 로그 및 메트릭을 수집 하는 진단 설정 만들기
 Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 로그](platform-logs-overview.md) 는 azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 대 한 자세한 진단 및 감사 정보를 제공 합니다. 이 문서에서는 플랫폼 로그를 다른 대상으로 보내기 위한 진단 설정을 만들고 구성 하는 방법에 대해 자세히 설명 합니다.
@@ -23,10 +22,10 @@ Azure 활동 로그 및 리소스 로그를 포함 하 여 azure의 [플랫폼 �
 
 각 Azure 리소스에는 다음을 정의 하는 자체 진단 설정이 필요 합니다.
 
-- 설정에 정의된 대상으로 전송되는 로그 및 메트릭 데이터의 범주. 사용 가능한 범주는 리소스 유형에 따라 달라집니다.
-- 로그를 보낼 하나 이상의 대상. 현재 대상에는 Log Analytics 작업 영역, Event Hubs 및 Azure Storage가 포함됩니다.
+- 설정에 정의 된 대상에 전송 된 로그 및 메트릭 데이터의 범주입니다. 사용 가능한 범주는 리소스 유형에 따라 달라 집니다.
+- 로그를 보낼 하나 이상의 대상입니다. 현재 대상 Log Analytics 작업 영역, Event Hubs 및 Azure Storage를 포함 합니다.
  
-단일 진단 설정은 각 대상 중 하나만 정의할 수 있습니다. 데이터를 2개 이상의 특정 대상 유형(예: 두 개의 다른 Log Analytics 작업 영역) 으로 보내려면 여러 개의 설정을 만듭니다. 각 리소스는 진단 설정을 5개까지 포함할 수 있습니다.
+단일 진단 설정은 각 대상 중 하나만 정의할 수 있습니다. 데이터를 특정 대상 유형 (예: 두 개의 다른 Log Analytics 작업 영역) 중 하나 이상으로 전송 하려면 여러 설정을 만듭니다. 각 리소스는 진단 설정을 5 개까지 포함할 수 있습니다.
 
 
 > [!NOTE]
@@ -58,7 +57,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
 
         ![진단 설정](media/diagnostic-settings/menu-activity-log.png)
 
-2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가**를 클릭 합니다.
+2. 선택한 리소스에 설정이 없는 경우, 설정을 만들라는 메시지가 표시됩니다. **진단 설정 추가**를 클릭합니다.
 
    ![진단 설정 추가 - 기존 설정 없음](media/diagnostic-settings/add-setting.png)
 
@@ -72,7 +71,7 @@ Azure Monitor 메뉴 또는 리소스의 메뉴에서 Azure Portal 진단 설정
     | 설정 | Description |
     |:---|:---|
     | Log Analytics 작업 영역 | 작업 영역의 이름입니다. |
-    | Storage 계정 | 저장소 계정의 이름입니다. |
+    | 스토리지 계정 | 저장소 계정의 이름입니다. |
     | 이벤트 허브 네임스페이스 | 이벤트 허브가 생성 되는 네임 스페이스 (처음으로 로그를 스트리밍하는 경우) 또는 스트리밍되는 경우 (해당 로그 범주를이 네임 스페이스로 스트리밍하는 리소스가 이미 있는 경우).
     | 이벤트 허브 이름 | 선택적으로 이벤트 허브 이름을 지정 하 여 모든 데이터를 설정으로 보냅니다. 이름을 지정 하지 않으면 각 로그 범주에 대해 이벤트 허브가 생성 됩니다. 여러 범주를 전송 하는 경우 생성 되는 이벤트 허브 수를 제한 하는 이름을 지정할 수 있습니다. 자세한 내용은 [Azure Event Hubs 할당량 및 제한을](../../event-hubs/event-hubs-quotas.md) 참조 하세요. |
     | 이벤트 허브 정책 이름 | 스트리밍 메커니즘이 포함 하는 사용 권한을 정의 합니다. |

@@ -1,18 +1,14 @@
 ---
 title: Azure Application Insights로 ASP.NET에 대한 웹앱 분석 설정 | Microsoft Docs
 description: Azure 또는 온-프레미스에 호스트되는 ASP.NET 웹 사이트에 대한 성능, 가용성 및 사용자 동작 분석을 구성합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/08/2019
-ms.openlocfilehash: a72bb5dd02776fe8410bb515e4e17a292d12048f
-ms.sourcegitcommit: 1bd2207c69a0c45076848a094292735faa012d22
+ms.openlocfilehash: 0843d6c04bf6fc9bab07207072990fb3fb8f1844
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/21/2019
-ms.locfileid: "72677666"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665921"
 ---
 # <a name="set-up-application-insights-for-your-aspnet-website"></a>ASP.NET 웹 사이트용 Application Insights 설정
 
@@ -20,7 +16,7 @@ ms.locfileid: "72677666"
 
 Visual Studio에서 설치 프로그램을 몇 번만 클릭하면 됩니다. 원격 분석의 양을 제한하여 비용 부담을 피할 수 있는 옵션이 있습니다. 이 기능을 사용 하면 사용자가 많지 않은 사이트를 실험 하 고 디버그 하거나 모니터링할 수 있습니다. 프로덕션 사이트를 먼저 모니터링하려고 결정하는 경우 나중에 제한을 쉽게 늘릴 수 있습니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 Application Insights를 ASP.NET 웹 사이트에 추가하려면 다음을 수행해야 합니다.
 
 - 다음 워크 로드를 사용 하 여 [Windows 용 Visual Studio 2019](https://www.visualstudio.com/downloads/) 을 설치 합니다.
@@ -34,7 +30,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 > [!IMPORTANT]
 > 이 예제의 스크린샷은 Visual Studio 2017 버전 15.9.9 이상을 기반으로 합니다. Application Insights를 추가 하는 환경은 Visual Studio의 버전 및 ASP.NET 템플릿 형식에 따라 달라 집니다. 이전 버전에는 "Configure Application Insights"와 같은 대체 텍스트가 있을 수 있습니다.
 
-솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고  >  **추가** 를 선택**Application Insights 원격 분석**
+솔루션 탐색기에서 웹 앱 이름을 마우스 오른쪽 단추로 클릭 하 고 > **추가** 를 선택 **Application Insights 원격 분석**
 
 ![Application Insights 구성이 강조 표시된 솔루션 탐색기 스크린샷](./media/asp-net/add-telemetry-new.png)
 
@@ -54,7 +50,7 @@ Application Insights 구성 화면:
 
 ![Application Insights에 앱 등록 페이지의 스크린샷](./media/asp-net/00005-register-ed.png)
 
- **프로젝트**  > **NuGet 패키지 관리**  > **패키지 원본: nuget.org** > Application Insights SDK의 안정적인 최신 릴리스가 있는지 확인 합니다.
+ **프로젝트** > **NuGet 패키지 관리** > **패키지 원본: nuget.org** > Application Insights SDK의 안정적인 최신 릴리스가 있는지 확인 합니다.
 
  원격 분석이 디버깅 중 및 앱을 게시한 후에 [Azure Portal](https://portal.azure.com)로 전송됩니다.
 > [!NOTE]
@@ -110,7 +106,7 @@ IIS 서버 또는 Azure에 앱을 게시합니다. [라이브 메트릭 스트�
 
 ## <a name="land"></a> 모든 설정을 완료했습니다.
 
-축하합니다. 앱에 Application Insight 패키지를 설치하고, Azure의 Application Insights 서비스로 원격 분석을 보내도록 구성했습니다.
+축하합니다! 앱에 Application Insight 패키지를 설치하고, Azure의 Application Insights 서비스로 원격 분석을 보내도록 구성했습니다.
 
 앱의 원격 분석을 받는 Azure 리소스는 *계측 키*로 식별됩니다. 이 키는 ApplicationInsights.config 파일에서 찾을 수 있습니다.
 

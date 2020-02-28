@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor의 Azure 네트워킹 분석 솔루션 Microsoft Docs
 description: Azure Monitor에서 Azure 네트워킹 분석 솔루션을 사용 하 여 Azure 네트워크 보안 그룹 로그 및 Azure 애플리케이션 게이트웨이 로그를 검토할 수 있습니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 06/21/2018
-ms.openlocfilehash: 5cce4ccd3acd9df896f6c28bd010a92ed4ec1a7a
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 1045f86db5e1a9ed1979a266937974045e401e27
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74893317"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667095"
 ---
 # <a name="azure-networking-monitoring-solutions-in-azure-monitor"></a>Azure Monitor의 Azure 네트워킹 모니터링 솔루션
 
@@ -113,7 +112,7 @@ Set-AzDiagnosticSetting -ResourceId $gateway.ResourceId  -WorkspaceId $workspace
 ### <a name="use-azure-application-gateway-analytics"></a>Azure Application Gateway 분석 사용
 ![Azure Application Gateway 분석 타일 이미지](media/azure-networking-analytics/log-analytics-appgateway-tile.png)
 
-[개요]에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
+개요에서 **Azure Application Gateway 분석** 타일을 클릭한 후 로그 요약을 확인한 후 다음 범주에 대한 세부 정보를 파악할 수 있습니다.
 
 * Application Gateway 액세스 로그
   * Application Gateway 액세스 로그에 대한 클라이언트 및 서버 오류
@@ -213,7 +212,7 @@ Set-AzDiagnosticSetting -ResourceId $nsg.ResourceId  -WorkspaceId $workspaceId -
 3. 새 데이터 형식을 사용하도록 저장된 쿼리, 대시보드 또는 경고를 업데이트합니다.
    + 형식은 AzureDiagnostics로 변경합니다. ResourceType을 사용하여 Azure 네트워킹 로그로 필터링할 수 있습니다.
 
-     | 다음 위치 대신 | 사용: |
+     | 다음 식을 사용하는 대신 | 사용: |
      | --- | --- |
      | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayAccess" | AzureDiagnostics &#124; where ResourceType = = "applicationgateways" 및 OperationName = = "Applicationgaccess" |
      | NetworkApplicationgateways &#124; where OperationName=="ApplicationGatewayPerformance" | AzureDiagnostics &#124; where ResourceType = = "applicationgateways" 및 OperationName = = "Applicationgperformance" |

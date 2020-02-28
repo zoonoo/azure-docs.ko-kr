@@ -1,14 +1,14 @@
 ---
 title: 정책 정의 구조에 대한 세부 정보
 description: 정책 정의를 사용 하 여 조직의 Azure 리소스에 대 한 규칙을 설정 하는 방법을 설명 합니다.
-ms.date: 11/26/2019
+ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1e90009a0c34bf166a18659a19988ea5a0c9ab07
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ade659637f1be6cc58cebae760c5e1b753f3830f
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587127"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670783"
 ---
 # <a name="azure-policy-definition-structure"></a>Azure Policy 정의 구조
 
@@ -716,6 +716,9 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
 
 그룹을 단일 항목으로 작업할 수 있기 때문에 이니셔티브를 사용하면 여러 관련 정책 정의를 그룹화할 수 있어 할당 및 관리를 간소화합니다. 예를 들어 관련 태그 지정 정책 정의를 단일 이니셔티브로 그룹화할 수 있습니다. 각 정책을 개별적으로 할당하는 대신 이니셔티브를 적용합니다.
 
+> [!NOTE]
+> 이니셔티브를 할당 한 후에는 initative 수준 매개 변수를 변경할 수 없습니다. 이로 인해 매개 변수를 정의할 때 **defaultValue** 를 설정 하는 것이 좋습니다.
+
 다음 예제에서는 두 태그 `costCenter`과 `productName`를 처리하기 위한 이니셔티브를 만드는 방법을 보여 줍니다. 기본 태그 값을 적용하려면 두 가지 기본 제공 정책을 사용합니다.
 
 ```json
@@ -729,13 +732,15 @@ Azure Policy는 다음과 같은 유형의 효과를 지원 합니다.
                 "type": "String",
                 "metadata": {
                     "description": "required value for Cost Center tag"
-                }
+                },
+                "defaultValue": "DefaultCostCenter"
             },
             "productNameValue": {
                 "type": "String",
                 "metadata": {
                     "description": "required value for product Name tag"
-                }
+                },
+                "defaultValue": "DefaultProduct"
             }
         },
         "policyDefinitions": [{

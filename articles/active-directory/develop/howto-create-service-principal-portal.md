@@ -8,16 +8,16 @@ manager: CelesteDG
 ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
-ms.date: 10/14/2019
+ms.date: 02/26/2020
 ms.author: ryanwi
 ms.reviewer: tomfitz
 ms.custom: aaddev, seoapril2019, identityplatformtop40
-ms.openlocfilehash: 2283f4f3cf1d31f0d67e01e1a63ee20557ef5633
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: c5f65adfe401f2f6e99234d08b8e8dabeff7d5db
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591577"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77656395"
 ---
 # <a name="how-to-use-the-portal-to-create-an-azure-ad-application-and-service-principal-that-can-access-resources"></a>방법: 포털을 사용하여 리소스에 액세스할 수 있는 Azure AD 애플리케이션 및 서비스 주체 만들기
 
@@ -85,7 +85,7 @@ Azure AD 애플리케이션 및 서비스 주체를 만들었습니다.
 
 ### <a name="upload-a-certificate"></a>인증서 업로드
 
-기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 테스트 목적으로 자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 자체 서명 된 인증서를 만듭니다. 
+기존 인증서가 있는 경우이 인증서를 사용할 수 있습니다.  필요에 따라 *테스트 목적 으로만*자체 서명 된 인증서를 만들 수 있습니다. PowerShell을 열고 다음 매개 변수를 사용 하 여 [new-selfsignedcertificate](/powershell/module/pkiclient/new-selfsignedcertificate) 를 실행 하 여 컴퓨터의 사용자 인증서 저장소에 자체 서명 된 인증서를 만듭니다. 
 
 ```powershell
 $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocation "Cert:\CurrentUser\My"  -KeyExportPolicy Exportable -KeySpec Signature
@@ -93,8 +93,18 @@ $cert=New-SelfSignedCertificate -Subject "CN=DaemonConsoleCert" -CertStoreLocati
 
 Windows 제어판에서 액세스할 수 있는 [사용자 인증서](/dotnet/framework/wcf/feature-details/how-to-view-certificates-with-the-mmc-snap-in) MMC 스냅인 관리를 사용 하 여이 인증서를 파일로 내보냅니다.
 
+1. **시작** 메뉴에서 **실행** 을 선택한 다음 **certmgr.exe**를 입력 합니다.
+
+   현재 사용자에 대 한 인증서 관리자 도구가 표시 됩니다.
+
+1. 인증서를 보려면 왼쪽 창에서 **인증서-현재 사용자** 아래에 있는 **개인** 디렉터리를 확장 합니다.
+1. 만든 인증서를 마우스 오른쪽 단추로 클릭 하 고 **모든 작업-> 내보내기**를 선택 합니다.
+1. 인증서 내보내기 마법사를 따릅니다.  개인 키를 내보내고 인증서 파일에 대 한 암호를 지정 하 고 파일로 내보냅니다.
+
 인증서를 업로드 하려면:
 
+1. **Azure Active Directory**를 선택합니다.
+1. Azure AD의 **앱 등록**에서 애플리케이션을 선택합니다.
 1. **인증서 및 비밀**을 선택합니다.
 1. **인증서 업로드** 를 선택 하 고 인증서 (기존 인증서 또는 내보낸 자체 서명 된 인증서)를 선택 합니다.
 
@@ -146,15 +156,21 @@ Azure 구독에서 계정에는 AD 앱에 역할을 할당 하기 위한 `Micros
 
 Azure 구독 권한을 확인하려면
 
-1. 오른쪽 위 모서리에서 계정을 선택 하 고 **...-> 내 사용 권한**을 선택 합니다.
+1. **구독**을 검색 하 고 선택 하거나 **홈** 페이지에서 **구독** 을 선택 합니다.
 
-   ![계정 및 사용자 권한 선택](./media/howto-create-service-principal-portal/select-my-permissions.png)
+   ![검색](./media/howto-create-service-principal-portal/select-subscription.png)
 
-1. 드롭다운 목록에서 서비스 주체를 만들려는 구독을 선택합니다. 그런 다음, **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
+1. 에서 서비스 사용자를 만들려는 구독을 선택 합니다.
+
+   ![할당을 위한 구독 선택](./media/howto-create-service-principal-portal/select-one-subscription.png)
+
+   찾고 있는 구독이 표시되지 않으면 **전역 구독 필터**를 선택합니다. 포털에 대해 원하는 구독이 선택되었는지 확인합니다.
+
+1. **내 사용 권한**을 선택합니다. 그런 다음, **이 구독에 대한 전체 액세스 세부 정보를 보려면 여기를 클릭합니다.** 를 선택합니다.
 
    ![서비스 사용자를 만들려는 구독을 선택 합니다.](./media/howto-create-service-principal-portal/view-details.png)
 
-1. **역할** 할당을 선택 하 여 할당 된 역할을 확인 하 고, AD 앱에 역할을 할당할 수 있는 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에 게 소유자 역할이 할당 됩니다. 즉, 사용자에 게 적절 한 권한이 있음을 의미 합니다.
+1. **역할** 할당에서 **보기** 를 선택 하 여 할당 된 역할을 확인 하 고, AD 앱에 역할을 할당할 수 있는 적절 한 권한이 있는지 확인 합니다. 이러한 권한이 없으면 구독 관리자에게 사용자 액세스 관리자 역할에 사용자를 추가할 것을 요청합니다. 다음 이미지에서 사용자에 게 소유자 역할이 할당 됩니다. 즉, 사용자에 게 적절 한 권한이 있음을 의미 합니다.
 
    ![이 예제에서는 사용자에 게 소유자 역할이 할당 된 것을 보여 줍니다.](./media/howto-create-service-principal-portal/view-user-role.png)
 

@@ -1,19 +1,18 @@
 ---
 title: 관리 솔루션의 Azure Automation 리소스 | Microsoft Docs
 description: 관리 솔루션에는 일반적으로 모니터링 데이터를 수집하고 처리하는 등의 프로세스를 자동화하기 위한 Azure Automation의 runbook이 포함됩니다.  이 문서에서는 솔루션에 runbook과 관련 리소스를 포함하는 방법을 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 05/24/2017
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: d55af7354ea7d78263e55872e257a2814ebe4130
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8ef9f27546e9db95d5a41769e1b5bc7bc0c2f851
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75401813"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663065"
 ---
 # <a name="adding-azure-automation-resources-to-a-management-solution-preview"></a>관리 솔루션에 Azure Automation 리소스 추가(미리 보기)
 > [!NOTE]
@@ -26,7 +25,7 @@ ms.locfileid: "75401813"
 > 이 문서의 샘플에는 관리 솔루션에 필요하거나 공통적이며 [Azure의 관리 솔루션 디자인 및 빌드]( solutions-creating.md)에서 설명한 매개 변수와 변수가 사용 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 문서에서는 이미 다음 정보에 대해 잘 알고 있다고 가정합니다.
 
 - 방법: [관리 솔루션 만들기]( solutions-creating.md)
@@ -196,7 +195,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 | description |일정에 대한 선택적 설명입니다. |
 | startTime |일정 시작 시간을 DateTime 개체로 지정합니다. 적합한 DateTime으로 변환될 수 있는 경우 문자열을 제공할 수 있습니다. |
 | isEnabled |일정 사용 여부를 지정합니다. |
-| interval |일정 간격의 유형입니다.<br><br>일<br>시간 |
+| interval |일정 간격의 유형입니다.<br><br>일<br>hour |
 | frequency |특정 기간(일 또는 시간) 내에 일정이 실행되는 빈도입니다. |
 
 일정에는 현재 시간보다 큰 값을 가진 시작 시간이 있어야 합니다.  변수를 설치할 시기를 알 수 없으므로 해당 변수에 이 값을 제공할 수 없습니다.
@@ -241,7 +240,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 
 
-## <a name="variables"></a>변수
+## <a name="variables"></a>variables
 [Azure Automation 변수](../../automation/automation-variables.md)의 형식은 **Microsoft.Automation/automationAccounts/variables**이며, 다음과 같은 구조를 가집니다.  여기에는 일반 변수 및 매개 변수가 포함되어 있으므로 이 코드 조각을 복사하여 솔루션 파일에 붙여넣고 매개 변수 이름을 변경할 수 있습니다.
 
     {
@@ -273,7 +272,7 @@ Azure Automation에서 Runbook을 시작하면 자동화 작업이 만들어집�
 
 변수에 대한 초기 값을 설정하는 경우 올바른 데이터 형식으로 구성해야 합니다.  다음 표에서는 허용 가능한 여러 데이터 형식과 해당 구문을 제공합니다.  JSON의 값에서는 항상 특수 문자를 인용 부호로 묶고 전체 값도 인용 부호로 묶어야 합니다.  예를 들어 문자열 값은 따옴표로 묶고(이스케이프 문자(\\) 사용), 숫자 값은 하나의 인용 부호 세트로 묶어야 합니다.
 
-| 데이터 형식 | Description | 예 | 결과 값 |
+| 데이터 형식 | Description | 예제 | 결과 값 |
 |:--|:--|:--|:--|
 | 문자열   | 값을 큰따옴표로 묶습니다.  | "\"Hello world\"" | "Hello world" |
 | numeric  | 작은따옴표가 있는 숫자 값| "64" | 64 |

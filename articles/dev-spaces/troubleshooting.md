@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: b926e651200a4ab23306b0ec2443cb64400b8f7b
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 061f812e7567d96bba092ebc9625756c14c46940
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605256"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662470"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -484,3 +484,14 @@ Kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용 �
 
 * `az aks use-dev-spaces -g <resource group name> -n <cluster name>`를 사용 하 여 현재 컨텍스트를 업데이트 합니다. 이 명령을 사용 하도록 설정 하지 않은 경우에도 AKS 클러스터에 대 한 Azure Dev Spaces를 사용할 수 있습니다. 또는 `kubectl config use-context <cluster name>`를 사용 하 여 현재 컨텍스트를 업데이트할 수 있습니다.
 * `az account show`를 사용 하 여 대상으로 지정 하는 현재 Azure 구독을 표시 하 고 올바른지 확인 합니다. `az account set`를 사용 하 여 대상으로 지정 하는 구독을 변경할 수 있습니다.
+
+### <a name="error-using-dev-spaces-after-rotating-aks-certificates"></a>AKS 인증서를 회전 한 후 Dev 공간을 사용 하는 동안 오류 발생
+
+[AKS 클러스터에서 인증서를 회전](../aks/certificate-rotation.md)한 후 `azds space list` 및 `azds up`와 같은 특정 작업은 실패 합니다. 또한 클러스터에서 인증서를 회전 한 후 Azure Dev Spaces 컨트롤러에서 인증서를 새로 고쳐야 합니다.
+
+이 문제를 해결 하려면 `az aks get-credentials`를 사용 하 여 *kubeconfig* 에 업데이트 된 인증서가 있는지 확인 하 고 `azds controller refresh-credentials` 명령을 실행 합니다. 다음은 그 예입니다.
+
+```azurecli
+az aks get-credentials -g <resource group name> -n <cluster name>
+azds controller refresh-credentials -g <resource group name> -n <cluster name>
+```

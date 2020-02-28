@@ -1,19 +1,15 @@
 ---
 title: Azure 애플리케이션 Insights의 원격 분석 채널 | Microsoft Docs
 description: .NET 및 .NET Core 용 Azure 애플리케이션 Insights Sdk에서 원격 분석 채널을 사용자 지정 하는 방법입니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 05/14/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: cef35ae5cb2b66385332a3b1f9ebe177ea26a3e4
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9c292246f947e4d3a364f79b31fe7a1deebd33d9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406369"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671123"
 ---
 # <a name="telemetry-channels-in-application-insights"></a>Application Insights의 원격 분석 채널
 
@@ -138,7 +134,7 @@ TelemetryConfiguration.Active.TelemetryChannel = serverTelemetryChannel;
 
 동기 플러시를 수행 해야 하는 경우 `InMemoryChannel`를 사용 하는 것이 좋습니다.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 ### <a name="does-the-application-insights-channel-guarantee-telemetry-delivery-if-not-what-are-the-scenarios-in-which-telemetry-can-be-lost"></a>Application Insights 채널은 원격 분석 배달을 보장 하나요? 그렇지 않은 경우 원격 분석이 손실 될 수 있는 시나리오는 무엇입니까?
 

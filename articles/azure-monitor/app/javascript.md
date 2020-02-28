@@ -1,18 +1,16 @@
 ---
 title: JavaScript 웹 앱에 대 한 Azure 애플리케이션 정보
 description: 페이지 보기 및 세션 수, 웹 클라이언트 데이터, SPA (단일 페이지 응용 프로그램)를 가져오고 사용 패턴을 추적 합니다. JavaScript 웹 페이지의 예외 및 성능 문제를 감지합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: c98feda62b7e5de5551b02d6189a1142ca8c5f88
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 00e8cdbbd765d6baf83f64848030d08d6e712ca1
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76276774"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661348"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -63,7 +61,7 @@ var sdkInstance="appInsightsSDK";window[sdkInstance]="appInsights";var aiName=wi
 
 ### <a name="sending-telemetry-to-the-azure-portal"></a>Azure Portal 원격 분석 보내기
 
-기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 해당 지역은 다음과 같습니다.
+기본적으로 JavaScript SDK Application Insights는 응용 프로그램의 상태와 기본 사용자 환경을 결정 하는 데 도움이 되는 여러 원격 분석 항목을 자동으로 수집 합니다. 이러한 개체는 다음과 같습니다.
 
 - 에 대 한 정보를 포함 하 여 앱의 Catch 되지 않은 **예외**
     - 스택 추적
@@ -100,7 +98,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 ## <a name="configuration"></a>구성
 대부분의 구성 필드의 이름은 기본적으로 false로 설정 될 수 있습니다. `instrumentationKey`를 제외 하 고 모든 필드는 선택 사항입니다.
 
-| 이름 | 기본값 | Description |
+| 속성 | 기본값 | Description |
 |------|---------|-------------|
 | instrumentationKey | null | **필수**<br>Azure Portal에서 가져온 계측 키입니다. |
 | accountId | null | 앱이 사용자를 계정으로 그룹화 하는 경우 계정 ID (선택 사항)입니다. 공백, 쉼표, 세미콜론, 같음 또는 세로 막대가 없습니다. |
@@ -167,7 +165,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/browser.png)
 
-### <a name="performance"></a>성능 중심 
+### <a name="performance"></a>성능 
 
 ![](./media/javascript/performance-operations.png)
 
@@ -175,7 +173,7 @@ appInsights.trackTrace({message: 'this message will not be sent'}); // Not sent
 
 ![](./media/javascript/performance-dependencies.png)
 
-### <a name="analytics"></a>분석기능 
+### <a name="analytics"></a>분석 
 
 JavaScript SDK에 의해 수집 된 원격 분석을 쿼리하려면 **로그 (분석)에서 보기** 단추를 선택 합니다. `client_Type == "Browser"``where` 문을 추가 하면 JavaScript SDK의 데이터만 볼 수 있고 다른 Sdk에서 수집한 서버 쪽 원격 분석은 제외 됩니다.
  
@@ -209,7 +207,7 @@ npm i --save @microsoft/applicationinsights-web-basic
 ```
 이 버전은 최소한의 기능과 기능을 제공 하며, 적합 한 것으로 빌드에 의존 합니다. 예를 들어 autocollection (catch 되지 않은 예외, AJAX 등)을 수행 합니다. `trackTrace`, `trackException`등의 특정 원격 분석 유형을 전송 하는 Api는이 버전에 포함 되지 않으므로 고유한 래퍼를 제공 해야 합니다. 유일 하 게 사용할 수 있는 API는 `track`입니다. [샘플](https://github.com/Azure-Samples/applicationinsights-web-sample1/blob/master/testlightsku.html) 은 여기에 있습니다.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 실행 가능한 예제는 [Application Insights JAVASCRIPT SDK 샘플](https://github.com/topics/applicationinsights-js-demo) 을 참조 하세요.
 

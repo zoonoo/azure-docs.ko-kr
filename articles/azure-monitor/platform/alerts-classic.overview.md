@@ -1,18 +1,15 @@
 ---
 title: Microsoft Azure 및 Azure Monitor의 클래식 경고 개요
 description: 클래식 경고는 더 이상 사용되지 않습니다. 경고를 통해 Azure 리소스 메트릭, 이벤트 또는 로그를 모니터링하고 사용자가 지정한 조건에 부합하면 알림을 받을 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: ''
 ms.topic: conceptual
-author: rboucher
-ms.author: robb
 ms.date: 05/19/2018
-ms.openlocfilehash: 2d150006fb4638d3efb15111013d17e43c8b125e
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.subservice: alerts
+ms.openlocfilehash: 098efd3075c6b099bdfc925cb4f09163f83532a5
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747011"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668269"
 ---
 # <a name="what-are-classic-alerts-in-microsoft-azure"></a>Microsoft Azure의 클래식 경고란?
 

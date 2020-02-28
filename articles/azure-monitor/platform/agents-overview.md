@@ -2,18 +2,17 @@
 title: Azure 모니터링 에이전트 개요 | Microsoft Docs
 description: 이 문서에서는 Azure 또는 하이브리드 환경에서 호스팅되는 가상 머신의 모니터링을 지원하는 사용 가능한 Azure 에이전트에 대한 자세한 개요를 제공합니다.
 services: azure-monitor
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: e3385234433a292ce146c9aed25ecfeb1095d79a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: a7e6a3a299df8112fe4fbcf457516894c1766b8c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616123"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668522"
 ---
 # <a name="overview-of-azure-monitor-agents"></a>Azure Monitor 에이전트 개요
 
@@ -33,7 +32,7 @@ ms.locfileid: "77616123"
 | | 진단<br>확장 (WAD) | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|
 | 지원 되는 환경 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | 
-| 에이전트 요구 사항  | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
+| 에이전트 요구 사항  | None | None | Log Analytics 에이전트가 필요 합니다. |
 | 수집되는 데이터 | 이벤트 로그<br>ETW 이벤트<br>성능<br>파일 기반 로그<br>IIS 로그<br>.NET 앱 로그<br>크래시 덤프<br>에이전트 진단 로그 | 이벤트 로그<br>성능<IIS logs><br>파일 기반 로그<br>인사이트 및 솔루션<br>기타 서비스 | 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
 | 데이터 전송 대상 | Azure Storage<br>Azure Monitor 메트릭<br>이벤트 허브 | Azure Monitor 로그 | Azure Monitor 로그 |
 
@@ -43,8 +42,8 @@ ms.locfileid: "77616123"
 | | 진단<br>확장 (꼬마) | Telegraf<br>에이전트 | Log Analytics<br>에이전트 | 종속성<br>에이전트 |
 |:---|:---|:---|:---|:---|
 | 지원 되는 환경 | Azure | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 | Azure<br>기타 클라우드<br>온-프레미스 |
-| 에이전트 요구 사항  | 없음 | 없음 | 없음 | Log Analytics 에이전트가 필요 합니다. |
-| 수집되는 데이터 | Syslog<br>성능 | 성능 | Syslog<br>성능| 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
+| 에이전트 요구 사항  | None | None | None | Log Analytics 에이전트가 필요 합니다. |
+| 수집되는 데이터 | syslog<br>성능 | 성능 | syslog<br>성능| 프로세스 세부 정보 및 종속성<br>네트워크 연결 메트릭 |
 | 데이터 전송 대상 | Azure Storage<br>이벤트 허브 | Azure Monitor 메트릭 | Azure Monitor 로그 | Azure Monitor 로그 |
 
 ## <a name="log-analytics-agent"></a>Log Analytics 에이전트

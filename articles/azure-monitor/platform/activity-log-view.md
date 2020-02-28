@@ -3,23 +3,22 @@ title: Azure Monitor에서 Azure 활동 로그 이벤트 보기
 description: Azure Monitor에서 Azure 활동 로그를 보고 PowerShell, CLI 및 REST API를 사용 하 여 검색 합니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/07/2019
 ms.author: johnkem
 ms.subservice: logs
-ms.openlocfilehash: 46d26aa5dccd32438b2028e21eaa94f7993944d1
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 9df7593a9fd191d3a734fba5e81fb1aecba08345
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749509"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668828"
 ---
 # <a name="view-and-retrieve-azure-activity-log-events"></a>Azure 활동 로그 이벤트 보기 및 검색
 
 [Azure 활동 로그](platform-logs-overview.md) 는 azure에서 발생 한 구독 수준 이벤트에 대 한 통찰력을 제공 합니다. 이 문서에서는 활동 로그 이벤트를 보고 검색 하는 다양 한 방법에 대 한 세부 정보를 제공 합니다.
 
-## <a name="azure-portal"></a>Azure Portal
+## <a name="azure-portal"></a>Azure portal
 Azure Portal **모니터** 메뉴의 모든 리소스에 대 한 활동 로그를 봅니다. 해당 리소스의 메뉴에 있는 **활동 로그** 옵션에서 특정 리소스에 대 한 활동 로그를 봅니다.
 
 ![활동 로그 보기](./media/activity-logs-overview/view-activity-log.png)
@@ -40,7 +39,7 @@ Azure Portal **모니터** 메뉴의 모든 리소스에 대 한 활동 로그�
 ## <a name="categories-in-the-activity-log"></a>활동 로그의 범주
 활동 로그의 각 이벤트에는 다음 표에 설명 된 특정 범주가 있습니다. 이러한 범주의 스키마에 대한 전체 정보는 [Azure Activity Log 이벤트 스키마](activity-log-schema.md)를 참조하세요. 
 
-| 범주 | Description |
+| Category | Description |
 |:---|:---|
 | 관리 | 리소스 관리자을 통해 수행 되는 모든 만들기, 업데이트, 삭제 및 동작 작업의 레코드를 포함 합니다. 관리 이벤트의 예로는 _가상 머신 만들기_ 및 _네트워크 보안 그룹 삭제_가 있습니다.<br><br>리소스 관리자를 사용 하 여 사용자 또는 응용 프로그램에서 수행 하는 모든 작업은 특정 리소스 종류에 대 한 작업으로 모델링 됩니다. 작업 유형이 _쓰기_, _삭제_또는 _작업_인 경우 해당 작업의 시작 및 성공 또는 실패의 레코드가 관리 범주에 기록 됩니다. 관리 이벤트에는 구독에서 역할 기반 액세스 제어에 대 한 변경 내용도 포함 됩니다. |
 | 서비스 상태 | Azure에서 발생 한 모든 서비스 상태 인시던트의 레코드를 포함 합니다. 미국 동부에서 Service Health 이벤트 SQL Azure의 예로는 _가동 중지 시간이 발생_합니다. <br><br>Service Health 이벤트는 _작업 필요_, _지원 복구_, _인시던트_, _유지 관리_, _정보_또는 _보안_의 여섯 가지 형태로 제공 됩니다. 이러한 이벤트는 이벤트의 영향을 받는 구독에 리소스가 있는 경우에만 생성 됩니다.
@@ -174,7 +173,7 @@ GET https://management.azure.com/subscriptions/089bd33f-d4ec-47fe-8ba5-0753aa5c5
 ## <a name="activity-logs-analytics-monitoring-solution"></a>활동 로그 분석 모니터링 솔루션
 Azure Log Analytics 모니터링 솔루션에는 Log Analytics 작업 영역에서 활동 로그 레코드를 분석 하기 위한 여러 로그 쿼리 및 뷰가 포함 되어 있습니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 구독에 대 한 활동 로그를 Log Analytics 작업 영역에 보내려면 진단 설정을 만들어야 합니다. [Azure Monitor의 Log Analytics 작업 영역에서 Azure platform Logs 수집을](resource-logs-collect-workspace.md)참조 하세요.
 
 ### <a name="install-the-solution"></a>솔루션 설치

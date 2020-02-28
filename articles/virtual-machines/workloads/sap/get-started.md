@@ -13,15 +13,15 @@ ms.service: virtual-machines-linux
 ms.topic: article
 ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
-ms.date: 02/25/2020
+ms.date: 02/26/2020
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: c9d287d5bfc091fcbbff46095da5458fa08de73d
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 5b9e7e165998e1e4c45379fb5a8ca22edc194efe
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77624163"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661382"
 ---
 # <a name="use-azure-to-host-and-run-sap-workload-scenarios"></a>Azure를 사용 하 여 SAP 워크 로드 시나리오 호스트 및 실행
 
@@ -117,6 +117,10 @@ SAP 구성 요소에 Azure 서비스를 통합 하는 방법에 대 한 자세�
 
 
 ## <a name="change-log"></a>변경 로그
+- 02/26/2020: azure에서 HANA에 대 한 파일 시스템 선택을 명시 하기 위해 [azure 가상 머신 저장소 구성 SAP HANA](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/hana-vm-operations-storage) 변경
+- 02/25/2020: [sap에 대해 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) 를 변경 하 여 RHEL 다중 SID 가이드에서 Azure VM의 sap NetWeaver에 대 한 HA 링크를 포함 합니다.
+- 02/26/2020: sap 응용 프로그램에 대해 [SLES의 azure](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse)vm에서 sap nw에 대 한 고가용성 변경, sap [응용 프로그램용 SLES의 AZURE VM에서 sap nw](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-suse-netapp-files)의 고가용성, sap NetWeaver에 대 한 azure [vm](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel) 고가용성, [Azure NetApp Files RHEL on에 대](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-netapp-files) 한 azure vm 고가용성 (영문)
+- 02/26/2020: [RHEL 다중 sid 가이드의 Azure vm에서 SAP NetWeaver에 대 한 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/high-availability-guide-rhel-multi-sid) 릴리스 가이드 SUSE 다중 sid 클러스터 가이드에 대 한 링크 추가
 - 02/25/2020: SAP에서 최신 HA 아티클에 대 한 링크를 추가 하 [는 고가용성 아키텍처 및 시나리오](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/sap-high-availability-architecture-scenarios) 변경
 - 02/25/2020: 표준 Azure 부하 분산 장치를 사용 하 여 공용 끝점에 대 한 액세스를 설명 하는 문서를 가리키도록 [Pacemaker로 SUSE Linux Enterprise Server의 Azure vm에서 IBM DB2 LUW의 고가용성](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms-guide-ha-ibm) 을 변경 합니다.
 - 02/21/2020: sap [ASE Azure VIRTUAL MACHINES sap 워크 로드에 대 한 DBMS 배포](https://docs.microsoft.com/azure/virtual-machines/workloads/sap/dbms_guide_sapase) 아티클의 수정이 완료 되었습니다.

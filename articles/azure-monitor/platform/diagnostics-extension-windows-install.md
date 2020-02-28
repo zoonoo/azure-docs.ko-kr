@@ -3,22 +3,21 @@ title: Microsoft Azure 진단 확장 설치 및 구성 (WAD)
 description: 사용할 수 있는 여러 도구 중 하나를 사용 하 여 볼 수 있도록 Azure Storage 계정에서 Azure 진단 데이터를 수집 하는 방법을 알아봅니다.
 services: azure-monitor
 author: bwren
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: bwren
-ms.openlocfilehash: 5b3cc4cbaa663b7932609e85c544378a7cca69ef
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 929ab4109eb8d0e90b6c561a2135c0b7dd4205bb
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472688"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672262"
 ---
 # <a name="install-and-configure-windows-azure-diagnostics-extension-wad"></a>Microsoft Azure 진단 확장 설치 및 구성 (WAD)
 Azure 진단 확장은 게스트 운영 체제에서 모니터링 데이터를 수집 하 고 Azure virtual machines 및 기타 계산 리소스의 작업 부하를 수집 하는 Azure Monitor의 에이전트입니다. 이 문서에서는 Windows 진단 확장 설치 및 구성에 대 한 자세한 내용 및 Azure Storage 계정에 데이터가 저장 되는 방법에 대 한 설명을 제공 합니다.
 
-진단 확장은 Azure에서 [가상 컴퓨터 확장](/virtual-machines/extensions/overview) 으로 구현 되므로 리소스 관리자 템플릿, POWERSHELL 및 CLI를 사용 하 여 동일한 설치 옵션을 지원 합니다. 가상 머신 확장 설치 및 유지 관리에 대 한 자세한 내용은 [Windows 용 가상 머신 확장 및 기능](/virtual-machines/extensions/features-windows) 을 참조 하세요.
+진단 확장은 Azure에서 [가상 컴퓨터 확장](../../virtual-machines/extensions/overview.md) 으로 구현 되므로 리소스 관리자 템플릿, POWERSHELL 및 CLI를 사용 하 여 동일한 설치 옵션을 지원 합니다. 가상 머신 확장 설치 및 유지 관리에 대 한 자세한 내용은 [Windows 용 가상 머신 확장 및 기능](../../virtual-machines/extensions/features-windows.md) 을 참조 하세요.
 
 ## <a name="install-with-azure-portal"></a>Azure Portal를 사용 하 여 설치
 Azure Portal에서 개별 가상 컴퓨터에 진단 확장을 설치 하 고 구성할 수 있습니다. 그러면 구성에서 직접 작업 하는 것과는 반대로 인터페이스를 제공 합니다. 진단 확장을 사용 하도록 설정 하면 가장 일반적인 성능 카운터 및 이벤트와 함께 기본 구성이 자동으로 사용 됩니다. 특정 요구 사항에 따라이 기본 구성을 수정할 수 있습니다.

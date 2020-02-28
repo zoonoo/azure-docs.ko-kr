@@ -3,17 +3,16 @@ title: 리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정
 description: 리소스 관리자 템플릿을 사용 하 여 진단 설정을 만들어 Azure Monitor 로그, Azure storage 또는 Azure Event Hubs에 Azure platform logs를 전달 합니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: bwren
 ms.subservice: ''
-ms.openlocfilehash: 2a171ae89e8314684eddf29f78b9b09bc52f9c9b
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: a2569ca3f998030680bd7dbd872d71ccd372a25d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977549"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672432"
 ---
 # <a name="create-diagnostic-setting-in-azure-using-a-resource-manager-template"></a>리소스 관리자 템플릿을 사용 하 여 Azure에서 진단 설정 만들기
 의 [진단 설정](diagnostic-settings.md) Azure Monitor azure 리소스 및 해당 리소스가 종속 된 azure 플랫폼에 의해 수집 되는 [플랫폼 로그](platform-logs-overview.md) 를 보낼 위치를 지정 합니다. 이 문서에서는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/templates/template-syntax.md) 사용 하 여 다른 대상에 플랫폼 로그를 수집 하는 진단 설정을 만들고 구성 하는 방법에 대 한 자세한 내용과 예제를 제공 합니다.
@@ -69,7 +68,7 @@ PowerShell 및 CLI를 비롯 한 유효한 메서드를 사용 하 여 리소스
 
 
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 다음은 이벤트 허브, 저장소 계정 및 Log Analytics 작업 영역으로 리소스 로그를 스트리밍할 수 있도록 하는 자동 크기 조정 설정에 대 한 진단 설정을 만드는 예입니다.
 
 ```json

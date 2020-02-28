@@ -1,18 +1,16 @@
 ---
 title: Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 description: 이 문서에서는 동작 트리거 함수에 지정 된 구성에 따라 주기적으로 실행 되는 지 수 ()를 사용 하 여 Azure 함수를 만드는 방법을 설명 합니다. 이 테스트의 결과는 Application Insights 리소스로 전송 되며, 여기서 가용성 결과 데이터를 쿼리하고 경고할 수 있습니다. 사용자 지정 된 테스트를 통해 포털 UI를 사용 하 여 보다 복잡 한 가용성 테스트를 작성 하거나, Azure VNET 내부에서 앱을 모니터링 하거나, 끝점 주소를 변경 하거나, 지역에서 사용할 수 없는 경우 가용성 테스트를 만들 수 있습니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
 author: morgangrobin
 ms.author: mogrobin
 ms.date: 11/22/2019
-ms.openlocfilehash: c7a8ffb9873fd70353f38bb2b2bbfdb584992377
-ms.sourcegitcommit: 6c01e4f82e19f9e423c3aaeaf801a29a517e97a0
+ms.openlocfilehash: 476d66c51c10a5fcfb3cb0319c47b3338d28812c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74815726"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77665802"
 ---
 # <a name="create-and-run-custom-availability-tests-using-azure-functions"></a>Azure Functions를 사용 하 여 사용자 지정 가용성 테스트 만들기 및 실행
 
@@ -39,7 +37,7 @@ ms.locfileid: "74815726"
     - 기본적으로 Azure Functions 응용 프로그램을 만들 때 Application Insights 리소스를 만들게 됩니다.
     - [Azure Functions 리소스 및 타이머 트리거 함수를 만드는](https://docs.microsoft.com/azure/azure-functions/functions-create-scheduled-function) 방법에 대 한 지침을 따르세요 (정리 전 중지).
 
-## <a name="sample-code"></a>샘플 코드
+## <a name="sample-code"></a>예제 코드
 
 아래 코드를 실행. csx 파일에 복사 합니다. 이렇게 하면 기존 코드가 바뀝니다. 이렇게 하려면 Azure Functions 응용 프로그램으로 이동 하 여 왼쪽에서 타이머 트리거 함수를 선택 합니다.
 

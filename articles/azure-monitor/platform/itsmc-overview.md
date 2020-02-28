@@ -1,18 +1,17 @@
 ---
 title: Azure Log Analytics의 IT Service Management Connector | Microsoft Docs
 description: 이 문서에서는 ITSMC(IT 서비스 관리 커넥터)의 개요 및 이 솔루션을 사용하여 Azure Log Analytics의 ITSM 작업 항목을 중앙에서 모니터링하고 관리하며 모든 문제를 신속하게 해결하는 방법에 대한 정보를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: nolavime
 ms.author: v-jysur
 ms.date: 05/24/2018
-ms.openlocfilehash: 68aff01ea541a24be1f8d526fecbb6a9d2c30086
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 50bab4c26046059b993c19a030a8f840ae336ef2
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76990677"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672228"
 ---
 # <a name="connect-azure-to-itsm-tools-using-it-service-management-connector"></a>IT 서비스 관리 커넥터를 사용하여 ITSM 도구에 Azure 연결
 
@@ -152,7 +151,7 @@ Azure 경고 규칙을 만들거나 편집할 때는 ITSM 작업이 있는 작�
 
 또한 서비스 맵 솔루션 내에서 영향 받는 컴퓨터에 대해 동기화된 인시던트를 시각화할 수 있습니다.
 
-서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아보기](../../azure-monitor/insights/service-map.md).
+서비스 맵은 Windows 및 Linux 시스템에서 애플리케이션 구성 요소를 자동으로 검색하고 서비스 간 통신을 매핑합니다. 따라서 생각처럼 중요한 서비스를 제공하는 상호 연결된 시스템으로 서버를 볼 수 있습니다. 서비스 맵은 서버, 프로세스 및 에이전트 설치 이외에 구성이 필요 없는 TCP 연결 아키텍처의 포트 간 연결을 보여 줍니다. [자세히 알아봅니다](../../azure-monitor/insights/service-map.md).
 
 서비스 맵 솔루션을 사용하는 경우 다음 예와 같이 ITSM 솔루션에서 만들어진 서비스 데스크 항목을 볼 수 있습니다.
 
@@ -179,7 +178,7 @@ ServiceDeskWorkItemType_s="Incident"
 
 - ServiceDeskConnectionName
 - 서비스 데스크 ID
-- 상태
+- 시스템 상태
 - 긴급도
 - 영향
 - 우선 순위
@@ -189,7 +188,7 @@ ServiceDeskWorkItemType_s="Incident"
 - 종결한 사람
 - 원본
 - 할당 대상
-- 범주
+- Category
 - 제목
 - Description
 - 만든 날짜
@@ -211,9 +210,9 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 - 원본
 - 할당 대상
 - 제목
-- 유형
-- 범주
-- 상태
+- Type
+- Category
+- 시스템 상태
 - 에스컬레이션
 - 충돌 상태
 - 긴급도
@@ -236,8 +235,8 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics 필드 | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 수 |
-| IncidentState_s | 상태 |
+| ServiceDeskId_s| Number |
+| IncidentState_s | 시스템 상태 |
 | Urgency_s |긴급도 |
 | Impact_s |영향|
 | Priority_s | 우선 순위 |
@@ -246,7 +245,7 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 | ClosedBy_s  | 종결한 사람 |
 | Source_s| 연락처 유형 |
 | AssignedTo_s | 할당 대상  |
-| Category_s | 범주 |
+| Category_s | Category |
 | Title_s|  간단한 설명 |
 | Description_s|  메모 |
 | CreatedDate_t|  열림 |
@@ -258,14 +257,14 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 | Log Analytics | ServiceNow 필드 |
 |:--- |:--- |
-| ServiceDeskId_s| 수 |
+| ServiceDeskId_s| Number |
 | CreatedBy_s | 요청자 |
 | ClosedBy_s | 종결한 사람 |
 | AssignedTo_s | 할당 대상  |
 | Title_s|  간단한 설명 |
-| Type_s|  유형 |
-| Category_s|  범주 |
-| CRState_s|  상태|
+| Type_s|  Type |
+| Category_s|  Category |
+| CRState_s|  시스템 상태|
 | Urgency_s|  긴급도 |
 | Priority_s| 우선 순위|
 | Risk_s| 위험|
@@ -295,11 +294,11 @@ ServiceDeskWorkItemType_s="ChangeRequest"
 
 ## <a name="troubleshoot-service-manager-web-app-deployment"></a>Service Manager 웹앱 배포 문제 해결
 1.  웹앱 배포 문제가 발생한 경우 구독에 리소스 생성/배포 권한이 있는지 확인합니다.
-2.  [스크립트](itsmc-service-manager-script.md)를 실행할 때 **"개체 참조가 개체의 인스턴스로 설정되지 않았습니다."** 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
+2.  **스크립트**를 실행할 때 ["개체 참조가 개체의 인스턴스로 설정되지 않았습니다."](itsmc-service-manager-script.md) 오류가 발생하는 경우 **사용자 구성** 섹션에서 유효한 값을 입력했는지 확인합니다.
 3.  Service Bus Relay 네임스페이스 만들기에 실패한 경우 구독에 필요한 리소스 공급자가 등록되어 있는지 확인합니다. 등록되지 않은 경우 Azure Portal에서 수동으로 서비스 버스 릴레이 네임스페이스를 만듭니다. Azure Portal에서 [하이브리드 연결을 만드는](../../azure-monitor/platform/itsmc-connections.md#configure-the-hybrid-connection) 동안 만들 수도 있습니다.
 
 
-## <a name="contact-us"></a>문의하기
+## <a name="contact-us"></a>문의처
 
 IT Service Management Connector에 대해 질문이나 의견이 있는 경우 [omsitsmfeedback@microsoft.com](mailto:omsitsmfeedback@microsoft.com)으로 문의하세요.
 

@@ -1,18 +1,14 @@
 ---
 title: 추적 심각도 비율의 저하-Azure 애플리케이션 정보
 description: 스마트 감지를 사용 하 여 추적 원격 분석에서 비정상적인 패턴에 대 한 Azure 애플리케이션 정보로 응용 프로그램 추적을 모니터링 합니다.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 11/27/2017
-ms.openlocfilehash: b51cb66b59589c9b58d9115dfa6cefce0a20f3c0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 30bdd30ac9c49bb79a3c48bae8149ec761756dd4
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75432409"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77671684"
 ---
 # <a name="degradation-in-trace-severity-ratio-preview"></a>추적 심각도 비율의 저하(미리 보기)
 

@@ -1,19 +1,15 @@
 ---
 title: Azure 애플리케이션 Insights를 사용 하 여 성능 및 부하 테스트 | Microsoft Docs
 description: Azure 애플리케이션 Insights를 사용 하 여 성능 및 부하 테스트 설정
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 06/19/2019
 ms.reviewer: sdash
-ms.openlocfilehash: db23fae6bb15e851d22e54b323428c061f55b34f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 0bfb60b876add70be6cbcd3d726fb3317a8dfcf9
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75406560"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669865"
 ---
 # <a name="performance-testing"></a>성능 테스트
 
@@ -38,7 +34,7 @@ Azure Portal에서 **리소스 만들기** > **개발자 도구** > **Applicatio
 
 기본 성능 테스트를 만들려면 테스트 형식의 **수동 테스트** 를 선택 하 고 테스트에 필요한 설정을 입력 합니다.
 
-|설정| 최댓값
+|설정| 최 댓 값
 |----------|------------|
 | 사용자 부하 | 20,000 |
 | 기간 (분)  | 60 |  

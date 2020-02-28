@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor에서 이벤트에 대해 IIS 및 테이블 저장소에 대 한 blob 저장소 사용 | Microsoft Docs
 description: 테이블 저장소 또는 blob 저장소에 기록 된 IIS 로그에 진단 정보를 기록 하는 Azure 서비스에 대 한 로그를 읽을 수 Azure Monitor.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/14/2020
-ms.openlocfilehash: 7edf778dc2429cc1054d1550a513d7461f8e7928
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 44368ab90abd189c6a8a0792494828c87142eb20
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472558"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672398"
 ---
 # <a name="collect-data-from-azure-diagnostics-extension-to-azure-monitor-logs"></a>Azure 진단 확장에서 Azure Monitor 로그로 데이터 수집
 Azure 진단 확장은 가상 컴퓨터를 포함 하 여 Azure 계산 리소스의 게스트 운영 체제에서 모니터링 데이터를 수집 하는 [Azure Monitor의 에이전트](agents-overview.md) 입니다. 이 문서에서는 Azure Storage에서 진단 확장을 통해 수집 된 데이터를 Azure Monitor 로그에 수집 하는 방법을 설명 합니다.

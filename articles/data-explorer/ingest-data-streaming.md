@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 4a0593ccd6bdf37520e73ba8ed421ec4b10ea52c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623297"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664935"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -76,7 +76,7 @@ ms.locfileid: "77623297"
 * 수집 요청당 데이터 크기 제한은 4mb입니다.
 * 테이블 생성 및 수정과 수집 매핑 등의 스키마 업데이트는 스트리밍 수집 서비스에 대해 최대 5 분이 걸릴 수 있습니다.
 * 데이터가 스트리밍을 통해 수집 않는 경우에도 클러스터에서 스트리밍 수집을 사용 하도록 설정 하면에서 클러스터 컴퓨터의 로컬 SSD 디스크의 일부를 사용 하 여 수집 데이터를 스트리밍하 고 핫 캐시에 사용할 수 있는 저장소를 줄입니다.
-* 스트리밍 수집 데이터에 [익스텐트 태그](/azure/kusto/management/extents-overview.md#extent-tagging) 를 설정할 수 없습니다.
+* 스트리밍 수집 데이터에 [익스텐트 태그](/azure/kusto/management/extents-overview#extent-tagging) 를 설정할 수 없습니다.
 
 스트리밍 수집은 다음 기능을 지원 하지 않습니다.
 * [데이터베이스 커서](/azure/kusto/management/databasecursor).

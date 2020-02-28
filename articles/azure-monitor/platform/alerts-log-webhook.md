@@ -2,18 +2,17 @@
 title: Azure alerts의 로그 경고에 대 한 웹 후크 작업
 description: 이 문서에서는 Log Analytics 작업 영역 또는 Application Insights를 사용 하 여 로그 경고 규칙을 만드는 방법, 경고에서 데이터를 HTTP webhook로 푸시하는 방법 및 가능한 여러 사용자 지정 항목에 대해 설명 합니다.
 author: yanivlavi
+ms.author: yalavi
 services: monitoring
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 06/25/2019
-ms.author: yalavi
 ms.subservice: alerts
-ms.openlocfilehash: 3a072ae64104f8fded49ff6a00f5b58902c39903
-ms.sourcegitcommit: 15e3bfbde9d0d7ad00b5d186867ec933c60cebe6
+ms.openlocfilehash: 7b1956ad2bf9bf38ba9edc4c7234078557564071
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/03/2019
-ms.locfileid: "71838582"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77667706"
 ---
 # <a name="webhook-actions-for-log-alert-rules"></a>로그 경고 규칙에 대한 웹후크 작업
 [Azure에서 로그 경고가 생성 되](alerts-log.md)면 [작업 그룹을 사용](action-groups.md) 하 여 하나 이상의 작업을 수행 하는 옵션을 구성할 수 있습니다. 이 문서에서는 사용 가능한 다양 한 웹 후크 작업을 설명 하 고 사용자 지정 JSON 기반 webhook를 구성 하는 방법을 보여 줍니다.
@@ -27,7 +26,7 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 
 웹후크 작업에는 다음 표의 속성이 필요합니다.
 
-| 속성 | 설명 |
+| 속성 | Description |
 |:--- |:--- |
 | **Webhook URL** |웹후크의 URL입니다. |
 | **사용자 지정 JSON 페이로드** |경고를 만드는 동안이 옵션을 선택 하면 웹 후크에 보낼 사용자 지정 페이로드입니다. 자세한 내용은 [로그 경고 관리](alerts-log.md)를 참조 하세요.|
@@ -38,14 +37,14 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 웹 후크에는 데이터가 외부 서비스로 전송 되는 JSON으로 형식이 지정 된 URL 및 페이로드가 포함 됩니다. 기본적으로 페이로드는 다음 표의 값을 포함합니다. 이 페이로드를 자신만의 사용자 지정 페이로드로 바꾸도록 선택할 수 있습니다. 이 경우 각 매개 변수에 대 한 테이블의 변수를 사용 하 여 사용자 지정 페이로드에 값을 포함 합니다.
 
 
-| 매개 변수 | 변수 | 설명 |
+| 매개 변수 | 변수 | Description |
 |:--- |:--- |:--- |
 | *AlertRuleName* |#alertrulename |경고 규칙의 이름입니다. |
 | *Severity* |#severity |실행된 로그 경고에 대해 설정된 심각도입니다. |
 | *AlertThresholdOperator* |#thresholdoperator |보다 큼 또는 보다 작음을 사용 하는 경고 규칙에 대 한 임계값 연산자입니다. |
 | *AlertThresholdValue* |#thresholdvalue |경고 규칙에 대한 임계값입니다. |
 | *LinkToSearchResults* |#linktosearchresults |경고를 만든 쿼리에서 레코드를 반환 하는 분석 포털에 대 한 링크입니다. |
-| *ResultCount* |#searchresultcount |검색 결과의 레코드 수입니다. |
+| *된 resultcount가* |#searchresultcount |검색 결과의 레코드 수입니다. |
 | *검색 간격 종료 시간* |#searchintervalendtimeutc |UTC 형식의 쿼리에 대 한 종료 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. |
 | *검색 간격* |#searchinterval |경고 규칙에 대 한 시간 창에 HH: mm: ss 형식을 사용 합니다. |
 | *검색 간격 StartTime* |#searchintervalstarttimeutc |UTC 형식의 쿼리 시작 시간 (mm/dd/yyyy HH: mm: ss AM/PM 형식)입니다. 
@@ -53,7 +52,7 @@ Webhook 작업을 사용 하면 단일 HTTP POST 요청을 통해 외부 프로�
 | *SearchResults* |"IncludeSearchResults": true|"IncludeSearchResults": true가 사용자 지정 JSON 웹 후크 정의에 최상위 속성으로 추가 된 경우 쿼리를 통해 JSON 테이블로 반환 되는 레코드는 처음 1000 레코드로 제한 됩니다. |
 | *경고 유형*| #alerttype | [메트릭 측정](alerts-unified-log.md#metric-measurement-alert-rules) 또는 [결과 수](alerts-unified-log.md#number-of-results-alert-rules)로 구성 된 로그 경고 규칙의 유형입니다.|
 | *WorkspaceID* |#workspaceid |Log Analytics 작업 영역의 ID입니다. |
-| *응용 프로그램 ID* |#applicationid |Application Insights 앱의 ID입니다. |
+| *애플리케이션 ID* |#applicationid |Application Insights 앱의 ID입니다. |
 | *구독 ID* |#subscriptionid |사용 되는 Azure 구독의 ID입니다. 
 
 > [!NOTE]

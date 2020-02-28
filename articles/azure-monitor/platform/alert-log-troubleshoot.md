@@ -2,18 +2,16 @@
 title: Azure Monitor에서 로그 경고 문제 해결 | Microsoft Docs
 description: Azure의 로그 경고 규칙에 대 한 일반적인 문제, 오류 및 해결 방법입니다.
 author: yanivlavi
-services: azure-monitor
-ms.service: azure-monitor
-ms.topic: conceptual
-ms.date: 10/29/2018
 ms.author: yalavi
+ms.topic: conceptual
 ms.subservice: alerts
-ms.openlocfilehash: aa2f3481b63c98ec23e1db8213939278684a4cd6
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.date: 10/29/2018
+ms.openlocfilehash: acb9784b745fa90fc9cd264162930020e6d64751
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977634"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77668505"
 ---
 # <a name="troubleshoot-log-alerts-in-azure-monitor"></a>Azure Monitor의 로그 경고 문제 해결  
 

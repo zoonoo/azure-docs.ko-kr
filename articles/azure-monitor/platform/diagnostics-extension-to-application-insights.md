@@ -1,18 +1,17 @@
 ---
 title: Azure 진단 데이터를 Application Insights으로 보내기
 description: Application Insights에 데이터를 보내도록 Azure Diagnostics 공용 구성을 업데이트 합니다.
-ms.service: azure-monitor
 ms.subservice: diagnostic-extension
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 03/19/2016
-ms.openlocfilehash: b89e7d93113990e032f526d1f32e4e6acddffa75
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 80d971abd248ca8253a374b488c693ea9aa2ea3b
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450573"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77672330"
 ---
 # <a name="send-cloud-service-virtual-machine-or-service-fabric-diagnostic-data-to-application-insights"></a>Application Insights에 클라우드 서비스, Virtual Machine 또는 Service Fabric 데이터 보내기
 클라우드 서비스, Virtual Machines, Virtual Machine Scale Sets 및 Service Fabric은 모두 Azure Diagnostics 확장을 사용하여 데이터를 수집합니다.  Azure 진단은 데이터를 Azure Storage 테이블에 보냅니다.  그러나 Azure Diagnostics 확장 1.5 이상을 사용하여 다른 위치에 데이터의 하위 세트나 전체를 파이핑할 수 있습니다.
@@ -68,8 +67,8 @@ Application Insights에 대한 싱크 예제 구성:
     - *loglevel* 특성을 사용하면 채널이 허용하는 로그 수준을 지정할 수 있습니다. 정보가 많은 순서대로 사용 가능한 로그 수준은 다음과 같습니다.
         - 자세히
         - 정보
-        - 경고
-        - 오류
+        - Warning
+        - Error
         - 위험
 
 채널은 필터처럼 작동하고 채널을 사용하면 대상 싱크에 보내는 특정 로그 수준을 선택할 수 있습니다. 예를 들어 자세한 정보 표시 로그를 수집하고 스토리지에 보내지만 오류만을 싱크에 보낼 수 있습니다.

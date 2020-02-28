@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 로그 쿼리의 고급 집계 | Microsoft Docs
 description: Azure Monitor 로그 쿼리를 사용할 수 있는 고급 집계 옵션 중 일부를 설명합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 08/16/2018
-ms.openlocfilehash: 882582191b5794e3978d955dfa9bded294064037
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: e5dc290a40342e0797001dde6cab90e12dd5cf39
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398304"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77662181"
 ---
 # <a name="advanced-aggregations-in-azure-monitor-log-queries"></a>Azure Monitor 로그 쿼리의 고급 집계
 
@@ -39,7 +38,7 @@ Event
 | computer2 | [326,105,302,301,300,102] |
 | ... | ... |
 
-`makelist`는 데이터가 전달된 순서로 목록을 생성합니다. 이벤트를 가장 오래된 것부터 최신 순서로 정렬하려면 order 문에 `desc` 대신 `asc`를 사용합니다. 
+`makelist`는 데이터가 전달된 순서로 목록을 생성합니다. 이벤트를 가장 오래된 것부터 최신 순서로 정렬하려면 order 문에 `asc` 대신 `desc`를 사용합니다. 
 
 고유 값 목록만 만들어도 유용합니다. 이것을 _집합_이라고 하며, `makeset`을 사용하여 생성할 수 있습니다.
 
@@ -122,7 +121,7 @@ Heartbeat
 | summarize count() by Category, bin(TimeGenerated, 1h)
 ```
 
-| 범주 | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |
@@ -138,7 +137,7 @@ Heartbeat
 | make-series count() default=0 on TimeGenerated in range(ago(1d), now(), 1h) by Category 
 ```
 
-| 범주 | count_ | TimeGenerated |
+| Category | count_ | TimeGenerated |
 |---|---|---|
 | 직접 에이전트 | [15,60,0,55,60,57,60,...] | ["2017-06-06T17:00:00.0000000Z","2017-06-06T18:00:00.0000000Z","2017-06-06T19:00:00.0000000Z","2017-06-06T20:00:00.0000000Z","2017-06-06T21:00:00.0000000Z",...] |
 | ... | ... | ... |
@@ -152,7 +151,7 @@ Heartbeat
 | project Category, TimeGenerated, count_
 ```
 
-| 범주 | TimeGenerated | count_ |
+| Category | TimeGenerated | count_ |
 |--------------|----------------------|--------|
 | 직접 에이전트 | 2017-06-06T17:00:00Z | 15 |
 | 직접 에이전트 | 2017-06-06T18:00:00Z | 60 |

@@ -1,18 +1,17 @@
 ---
 title: Azure에서 Office 365 관리 솔루션 | Microsoft Docs
 description: 이 문서에서는 Azure에서 Office 365 솔루션을 구성하고 사용하는 방법에 대해 자세히 설명합니다.  또한 Azure Monitor에서 작성되는 Office 365 레코드에 대해서도 자세히 설명합니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 01/08/2019
-ms.openlocfilehash: 96d0124941f9f2daa1e1b2d1d254b0b767ffb395
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 0018ae55ab74e691577a34a397c15355587e0fac
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111556"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77663263"
 ---
 # <a name="office-365-management-solution-in-azure-preview"></a>Azure에서 Office 365 관리 솔루션(미리 보기)
 

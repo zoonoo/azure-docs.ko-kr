@@ -1,18 +1,14 @@
 ---
 title: Linux에서 Java 웹앱 성능 모니터링 - Azure | Microsoft Docs
 description: Application Insights용 CollectD 플러그 인을 통해 Java 웹 사이트의 확장된 애플리케이션 성능 모니터링.
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: conceptual
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 03/14/2019
-ms.openlocfilehash: 47e5e9dd81174b79e149ba29eec725c8c17eb1a6
-ms.sourcegitcommit: 98ce5583e376943aaa9773bf8efe0b324a55e58c
+ms.openlocfilehash: 687f97c305bffdfb408feb314ccded4f93ac574a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/30/2019
-ms.locfileid: "73176399"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77660736"
 ---
 # <a name="collectd-linux-performance-metrics-in-application-insights"></a>collectd: Application Insights에서 Linux 성능 메트릭
 
@@ -101,11 +97,11 @@ Application Insights 리소스에서 메트릭을 열고 [차트를 추가][metr
 | 지시문 | 영향 |
 | --- | --- |
 | `Exclude disk` |`disk` 플러그인에 의해 수집된 모든 데이터를 제외 |
-| `Exclude disk:read,write` |`disk` 플러그인에서 `read`과 `write`라고 명명된 원본을 제외합니다. |
+| `Exclude disk:read,write` |`read` 플러그인에서 `write`과 `disk`라고 명명된 원본을 제외합니다. |
 
 새 줄을 포함한 별도 지시문입니다.
 
-## <a name="problems"></a>문제가 있으신가요?
+## <a name="problems"></a>문제가 있습니까?
 *포털에 데이터가 표시되지 않습니다.*
 
 * [검색][diagnostic] 을 열어 원시 이벤트가 도착 했는지 확인 합니다. 때로는 메트릭 탐색기에 나타날 때 시간이 오래 걸립니다.
