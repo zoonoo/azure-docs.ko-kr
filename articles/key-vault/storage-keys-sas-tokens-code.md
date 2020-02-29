@@ -3,16 +3,17 @@ title: Azure Key Vault 관리 스토리지 계정 - PowerShell 버전
 description: 관리 되는 storage 계정 기능은 Azure Key Vault와 Azure storage 계정 간에 원활한 통합을 제공 합니다.
 ms.topic: conceptual
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/10/2019
-ms.openlocfilehash: 75561c643c2b8881e4b390be885b77f2fff4971d
-ms.sourcegitcommit: 2d9a9079dd0a701b4bbe7289e8126a167cfcb450
+ms.openlocfilehash: cbd7bd034c5cbbdf5308ec660a96dc52a9a2b310
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/29/2019
-ms.locfileid: "71673464"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78200705"
 ---
 # <a name="fetch-shared-access-signature-tokens-in-code"></a>코드에서 공유 액세스 서명 토큰 가져오기
 

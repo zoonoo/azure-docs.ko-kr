@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하 여 암호 변경 구성
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 사용자가 암호를 변경할 수 있게 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6bb4b762fead279bcc8492cb902e2059d7cfc68c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2c351f8a95110a32c53c68c5eb6095918578bc5b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848942"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189177"
 ---
 # <a name="configure-password-change-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 변경 구성
 
@@ -24,7 +24,7 @@ ms.locfileid: "76848942"
 
 Azure Active Directory B2C (Azure AD B2C)에서 로컬 계정을 사용 하 여 로그인 한 사용자가 전자 메일 확인으로 신뢰성을 증명 하지 않고도 자신의 암호를 변경할 수 있도록 설정할 수 있습니다. 사용자가 암호 변경 흐름에 도달하는 시점에 세션이 만료되는 경우 다시 로그인하라는 메시지가 표시됩니다. 이 문서에서는 [사용자 지정 정책](custom-policy-overview.md)에서 암호 변경을 구성하는 방법을 보여 줍니다. 사용자 흐름에 대한 [셀프 서비스 암호 재설정](user-flow-self-service-password-reset.md)을 구성할 수도 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>전제 조건
 
 [Active Directory B2C에서 사용자 지정 정책을 사용하여 시작하기](custom-policy-get-started.md)에 있는 단계를 완료합니다.
 

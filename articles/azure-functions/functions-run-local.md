@@ -5,12 +5,12 @@ ms.assetid: 242736be-ec66-4114-924b-31795fd18884
 ms.topic: conceptual
 ms.date: 03/13/2019
 ms.custom: 80e4ff38-5174-43
-ms.openlocfilehash: 0b15b35f6fc83097e94f7d69815a163a0e98a228
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559c9ee237f95f9d175aaefb487131466700e899
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77523274"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190792"
 ---
 # <a name="work-with-azure-functions-core-tools"></a>Azure Functions 핵심 도구 작업
 
@@ -463,7 +463,7 @@ Azure Functions Core Tools는 [Zip](functions-deployment-technologies.md#zip-dep
 
 프로젝트 폴더는 게시 하지 않아야 하는 언어별 파일 및 디렉터리를 포함할 수 있습니다. 제외 된 항목은 루트 프로젝트 폴더의 funcignore 파일에 나열 됩니다.     
 
-### <a name="project-file-deployment"></a>배포 (프로젝트 파일)
+### <a name="project-file-deployment"></a>프로젝트 파일 배포
 
 Azure의 함수 앱에 로컬 코드를 게시 하려면 `publish` 명령을 사용 합니다.
 
@@ -500,7 +500,7 @@ func azure functionapp publish <FunctionAppName>
 | **`--no-build`** | .NET 클래스 라이브러리 함수를 빌드하지 않습니다. |
 | **`--dotnet-cli-params`** | 컴파일된 C#(.csproj) 함수를 게시할 때 Core Tools는 'dotnet build --output bin/publish'를 호출합니다. 이 명령으로 전달하는 모든 매개 변수는 명령줄에 추가됩니다. |
 
-### <a name="deployment-custom-container"></a>배포 (사용자 지정 컨테이너)
+### <a name="deploy-custom-container"></a>사용자 지정 컨테이너 배포
 
 Azure Functions를 사용 하 여 [사용자 지정 Docker 컨테이너](functions-deployment-technologies.md#docker-container)에 함수 프로젝트를 배포할 수 있습니다. 자세한 내용은 [사용자 지정 이미지를 사용하여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md)를 참조하세요. 사용자 지정 컨테이너에는 Dockerfile이 있어야 합니다. Dockerfile을 사용 하 여 앱을 만들려면 `func init`에서--dockerfile 옵션을 사용 합니다.
 
