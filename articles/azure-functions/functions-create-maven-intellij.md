@@ -6,12 +6,12 @@ ms.topic: conceptual
 ms.date: 07/01/2018
 ms.author: jehollan
 ms.custom: mvc, devcenter
-ms.openlocfilehash: 1d3dd0f4f1da4d3815d4d879dd13ed5882f39e8f
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 46044d4c6dd65944291aff157229be0abc60d3d7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74230718"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913245"
 ---
 # <a name="create-your-first-azure-function-with-java-and-intellij"></a>Java 및 IntelliJ를 사용 하 여 첫 번째 Azure function 만들기
 
@@ -48,7 +48,7 @@ Java 및 IntelliJ를 사용하여 함수를 개발하려면 다음 소프트웨�
     - _ArtifactId_: azure-functions-archetype
     - _버전_: ![
     [중앙 리포지토리에서](https://mvnrepository.com/artifact/com.microsoft.azure/azure-functions-archetype) 최신 버전 **1.22** 을 사용 하 여 원형에서 IntelliJ 아이디어로 Maven 프로젝트를 만듭니다](media/functions-create-first-java-intellij/functions-create-intellij.png)  
-1. **확인**을 선택하고 **다음**을 선택합니다.
+1. **확인**선택하고 **다음**을 선택합니다.
 1. 현재 프로젝트에 대한 세부 정보를 입력하고 **완료**를 선택합니다.
 
 Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만듭니다. 프로젝트에서 생성된 코드는 HTTP 트리거 요청의 본문을 에코하는 간단한 [HTTP 트리거](/azure/azure-functions/functions-bindings-http-webhook) 함수입니다.
@@ -80,8 +80,6 @@ Maven은 이름이 _ArtifactId_ 값인 새 폴더에 프로젝트 파일을 만�
 1. **(+)** 를 선택하여 **원격**을 추가합니다.
 1. _이름_ 및 _설정_ 필드를 완료한 다음, **확인**을 선택하여 구성을 저장합니다.
 1. 설정이 끝나면 **디버그 < 원격 구성 이름 >** 를 선택하거나 키보드에서 Shift+F9를 눌러 디버깅을 시작합니다.
-
-   ![IntelliJ에서 함수 디버깅](media/functions-create-first-java-intellij/debug-configuration-intellij.png)
 
 1. 디버깅이 끝나면 디버거 및 실행 중인 프로세스를 중지합니다. 한 번에 하나의 함수 호스트만 활성화되고 로컬로 실행될 수 있습니다.
 

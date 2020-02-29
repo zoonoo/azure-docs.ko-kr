@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: c87673fef0079ff1b04b0840da0434b090cda67c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 03e6c2ecbf8fa0c5f71218d29b67cb03cdf3d5db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153658"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916798"
 ---
 # <a name="two-class-neural-network-module"></a>2 클래스 신경망 모듈
 
@@ -42,7 +42,9 @@ ms.locfileid: "77153658"
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.  
+    -   **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.
+
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.  
 
 3.  **숨겨진 계층 사양의**경우 만들 네트워크 아키텍처의 유형을 선택 합니다.  
   

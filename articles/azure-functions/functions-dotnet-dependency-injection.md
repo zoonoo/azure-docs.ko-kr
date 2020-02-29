@@ -6,12 +6,12 @@ ms.topic: reference
 ms.date: 09/05/2019
 ms.author: cshoe
 ms.reviewer: jehollan
-ms.openlocfilehash: a17ff15e71251e781cd30c33a5616af85e4f4eb9
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 1aff2815144f776b351e92d8945b267d1451f9f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76260086"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915710"
 ---
 # <a name="use-dependency-injection-in-net-azure-functions"></a>.NET Azure Functions에서 종속성 주입 사용
 
@@ -25,7 +25,7 @@ Azure Functions는 클래스와 해당 종속성 간의 [IoC (제어 반전)](ht
 
 종속성 주입을 사용 하려면 먼저 다음 NuGet 패키지를 설치 해야 합니다.
 
-- [Microsoft.Azure.Functions.Extensions](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
+- [Microsoft. Azure. 확장명](https://www.nuget.org/packages/Microsoft.Azure.Functions.Extensions/)
 
 - 1\.0.28 [패키지](https://www.nuget.org/packages/Microsoft.NET.Sdk.Functions/) 버전 이상 (영문)
 
@@ -130,16 +130,16 @@ GitHub의 [다른 서비스 수명 샘플](https://aka.ms/functions/di-sample) �
 
 > [!WARNING]
 > - 환경에서 제공 하는 서비스와 충돌 하는 서비스를 등록 하므로 서비스 컬렉션에 `AddApplicationInsightsTelemetry()`를 추가 하지 마세요.
-> - 기본 제공 Application Insights 기능을 사용 하는 경우 사용자 고유의 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록 하지 마십시오.
+> - 기본 제공 Application Insights 기능을 사용 하는 경우 사용자 고유의 `TelemetryConfiguration` 또는 `TelemetryClient`를 등록 하지 마십시오. 사용자 고유의 `TelemetryClient` 인스턴스를 구성 해야 하는 경우 [모니터 Azure Functions](./functions-monitoring.md#version-2x-and-later-2)에 표시 된 대로 삽입 된 `TelemetryConfiguration`를 통해 하나를 만듭니다.
 
 ## <a name="function-app-provided-services"></a>함수 앱 제공 서비스
 
 함수 호스트는 많은 서비스를 등록 합니다. 다음 서비스는 응용 프로그램에서 종속성으로 사용 하기에 안전 합니다.
 
-|서비스 유형|수명|Description|
+|서비스 유형|수명|설명|
 |--|--|--|
-|`Microsoft.Extensions.Configuration.IConfiguration`|Singleton|런타임 구성|
-|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|Singleton|호스트 인스턴스의 ID를 제공 해야 합니다.|
+|`Microsoft.Extensions.Configuration.IConfiguration`|단일|런타임 구성|
+|`Microsoft.Azure.WebJobs.Host.Executors.IHostIdProvider`|단일|호스트 인스턴스의 ID를 제공 해야 합니다.|
 
 종속성을 적용 하려는 다른 서비스가 있는 경우 [문제를 만들어 GitHub에서 제안](https://github.com/azure/azure-functions-host)합니다.
 
@@ -208,7 +208,7 @@ public class HttpTrigger
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 참고 자료를 참조하십시오.
 
 - [함수 앱을 모니터링 하는 방법](functions-monitoring.md)
 - [함수에 대 한 모범 사례](functions-best-practices.md)

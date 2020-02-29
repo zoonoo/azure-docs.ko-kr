@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: 5d0035e7c87806012d13117ae5335b7de5f3c99d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: ac67ef64ca4850c6e805b5314ace856114d889a7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132294"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917233"
 ---
 # <a name="common-use-cases-and-scenarios-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 사용 사례 및 시나리오
 
@@ -97,7 +97,7 @@ Contoso는이 응용 프로그램을 Azure로 마이그레이션하고 현재이
 
 Azure AD DS를 사용 하 여 Azure에 배포 된 원격 데스크톱 서버에 관리 되는 도메인 서비스를 제공할 수 있습니다. 이 배포 시나리오에 대 한 자세한 내용은 [Azure AD Domain Services을 RDS 배포와 통합 하는 방법][windows-rds]을 참조 하세요.
 
-## <a name="domain-joined-hdinsight-clusters-preview"></a>도메인에 가입 된 HDInsight 클러스터 (미리 보기)
+## <a name="domain-joined-hdinsight-clusters"></a>도메인에 가입된 HDInsight 클러스터
 
 Apache 레인저를 사용 하도록 설정 하 여 Azure AD DS 관리 되는 도메인에 가입 된 Azure HDInsight 클러스터를 설정할 수 있습니다. Apache 레인저를 통해 Hive 정책을 만들고 적용할 수 있으며, Excel 또는 Tableau와 같은 ODBC 기반 도구를 사용 하 여 데이터 과학자 같은 사용자가 Hive에 연결할 수 있습니다. 도메인에 가입 된 HDInsight에 HBase, Spark 및 스톰과 같은 다른 워크 로드를 추가 하는 작업을 계속 합니다.
 

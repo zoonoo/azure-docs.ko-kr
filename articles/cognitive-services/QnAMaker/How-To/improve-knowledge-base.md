@@ -8,51 +8,21 @@ services: cognitive-services
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/28/2020
+ms.date: 02/27/2020
 ms.author: diberry
-ms.openlocfilehash: cadbf5fa88db7d5e524cb7e075745c03a844f750
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: dea2bf3b34ca336f3932dd85bf587184ab6881db
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901695"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914996"
 ---
 # <a name="use-active-learning-to-improve-your-knowledge-base"></a>활성 학습을 사용하여 기술 자료 개선
 
-활성 학습을 사용하면 사용자가 제출한 정보에 따라 질문과 대답 쌍에 대체 질문을 제안하여 기술 자료 품질을 개선할 수 있습니다. 이 제안을 검토한 다음 기존 질문에 추가하거나 거부합니다.
+[활성 학습](../Concepts/active-learning-suggestions.md) 을 사용 하면 질문 및 답변 쌍에 대 한 사용자 제출에 따라 대체 질문을 제안 하 여 기술 자료의 품질을 향상 시킬 수 있습니다. 이 제안을 검토한 다음 기존 질문에 추가하거나 거부합니다.
 
 기술 자료가 자동으로 변경되지는 않습니다. 모든 변경 내용을 적용 하려면 제안에 동의 해야 합니다. 해당 제안과 질문을 수락해도 기존 질문이 변경되거나 제거되지는 않습니다.
 
-## <a name="what-is-active-learning"></a>활성 학습 이란?
-
-QnA Maker는 암시적/명시적 피드백을 사용하여 새로운 질문 변형을 학습합니다.
-
-* [암시적 피드백](#how-qna-makers-implicit-feedback-works) – ranker은 사용자 질문에 매우 가까운 점수와 함께 여러 답변이 있는 경우이를 이해 하 고이를 사용자 의견으로 간주 합니다. 이렇게 하려면 아무것도 수행할 필요가 없습니다.
-* [명시적 피드백](#how-you-give-explicit-feedback-with-the-train-api) – 기술 자료에서 점수가 약간 변형 된 여러 답변이 반환 되는 경우 클라이언트 응용 프로그램은 사용자에 게 정확한 질문을 묻습니다. 사용자의 명시적인 피드백이 [학습 API](#train-api)를 사용 하 여 QnA Maker 전송 됩니다.
-
-두 방법 모두 클러스터링 된 유사한 쿼리를 사용 하 여 ranker를 제공 합니다.
-
-## <a name="how-active-learning-works"></a>활성 학습의 작동 방식
-
-활성 학습은 QnA Maker에서 반환 하는 가장 많은 답변의 점수를 기준으로 트리거됩니다. 점수 차이가 작은 범위 내에 있는 경우 쿼리는 가능한 각 QnA 쌍에 대 한 가능한 제안 (대체 질문)으로 간주 됩니다. 특정 QnA 쌍에 대해 제안 된 질문을 수락한 후에는 다른 쌍에 대해 거부 됩니다. 제안을 수락한 후 저장 하 고 학습 해야 합니다.
-
-엔드포인트가 적절한 수와 종류의 사용량 쿼리를 수신하면 활성 학습에서는 가능한 최적의 제안을 제공합니다. 5 개 이상의 유사한 쿼리가 클러스터링 되 면 30 분 마다 QnA Maker 기술 자료 디자이너에 게 허용 하거나 거부할 사용자 기반 질문을 제안 합니다. 모든 제안은 유사성을 기준으로 클러스터되며, 최종 사용자가 특정 쿼리를 전송한 빈도에 따라 대체 질문의 상위 제안이 표시됩니다.
-
-QnA Maker 포털에서 질문이 제안 되 면 해당 제안을 검토 하 고 수락 하거나 거부 해야 합니다. 제안을 관리 하는 API가 없습니다.
-
-## <a name="how-qna-makers-implicit-feedback-works"></a>QnA Maker의 암시적 피드백 작동 방법
-
-QnA Maker의 암시적 피드백은 알고리즘을 사용 하 여 점수의 유사성을 확인 한 다음 활성 학습 제안을 만듭니다. 점수 범위를 결정하는 알고리즘은 단순한 계산이 아닙니다. 다음 예제의 범위는 수정 되지 않지만 알고리즘의 영향을 이해 하기 위한 지침으로 사용 되어야 합니다.
-
-질문의 점수 신뢰도가 80% 등으로 높은 경우 활성 학습용으로 간주되는 점수의 범위도 넓어집니다(대략 10% 이내). 반면 신뢰도 점수가 40% 등으로 낮아지면 점수 범위도 좁아집니다(대략 4% 이내).
-
-## <a name="how-you-give-explicit-feedback-with-the-train-api"></a>학습 API를 사용 하 여 명시적 피드백을 제공 하는 방법
-
-어떤 답이 가장 적합 한지에 대 한 명시적인 피드백을 QnA Maker 하는 것이 중요 합니다. 가장 좋은 답은 다음과 같이 결정 됩니다.
-
-* 사용자 의견. 답변 중 하나를 선택 합니다.
-* 허용 가능한 점수 범위를 결정 하는 등의 비즈니스 논리
-* 사용자 피드백과 비즈니스 논리의 조합입니다.
 
 ## <a name="upgrade-your-runtime-version-to-use-active-learning"></a>런타임 버전을 업그레이드 하 여 활성 학습 사용
 
@@ -187,21 +157,21 @@ Content-Type: application/json
 {"feedbackRecords": [{"userId": "1","userQuestion": "<question-text>","qnaId": 1}]}
 ```
 
-|HTTP 요청 속성|이름|유형|용도|
+|HTTP 요청 속성|이름|형식|목적|
 |--|--|--|--|
-|URL 경로 매개 변수|기술 자료 ID|문자열|기술 자료를 위한 GUID입니다.|
-|사용자 지정 하위 도메인|QnAMaker 리소스 이름|문자열|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. `host`으로 나열 됩니다.|
-|헤더|콘텐츠 형식|문자열|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
-|헤더|권한 부여|문자열|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
+|URL 경로 매개 변수|기술 자료 ID|string|기술 자료를 위한 GUID입니다.|
+|사용자 지정 하위 도메인|QnAMaker 리소스 이름|string|리소스 이름은 QnA Maker에 대 한 사용자 지정 하위 도메인으로 사용 됩니다. 이 기능은 기술 자료를 게시 한 후 설정 페이지에서 사용할 수 있습니다. `host`으로 나열 됩니다.|
+|헤더|Content-Type|string|API로 전송되는 본문의 미디어 유형입니다. 기본값은 `application/json`입니다.|
+|헤더|권한 부여|string|엔드포인트 키(EndpointKey xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx)입니다.|
 |본문 게시|JSON 개체|JSON|학습 피드백|
 
 JSON 본문에는 다음과 같은 몇 가지 설정이 있습니다.
 
-|JSON 본문 속성|유형|용도|
+|JSON 본문 속성|형식|목적|
 |--|--|--|--|
 |`feedbackRecords`|array|사용자 의견 목록입니다.|
-|`userId`|문자열|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
-|`userQuestion`|문자열|사용자 쿼리의 정확한 텍스트입니다. 필수 사항입니다.|
+|`userId`|string|제안 된 질문을 수락 하는 사람의 사용자 ID입니다. 사용자 ID 형식은 사용자에 게 있습니다. 예를 들어, 전자 메일 주소는 아키텍처에서 유효한 사용자 ID가 될 수 있습니다. (선택 사항)|
+|`userQuestion`|string|사용자 쿼리의 정확한 텍스트입니다. 필수입니다.|
 |`qnaID`|number|[Generateanswer 응답](metadata-generateanswer-usage.md#generateanswer-response-properties)에 있는 질문의 ID입니다. |
 
 예제 JSON 본문은 다음과 같습니다.

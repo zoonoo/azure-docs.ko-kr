@@ -13,20 +13,20 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/19/2019
 ms.author: memildin
-ms.openlocfilehash: db74415d3c6c5f6636a150d212bc2bc3d790fbec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: be26a9d4c66412518079de303ac0764d979c3e7c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686394"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912055"
 ---
 # <a name="onboarding-to-azure-security-center-standard-for-enhanced-security"></a>보안 개선을 위해 Azure Security Center 표준 계층으로 온보딩
 Security Center 표준 계층으로 업그레이드하면 하이브리드 클라우드 작업을 위해 강화된 보안 관리 및 위협 방지 기능을 활용할 수 있습니다. 표준 평가판을 사용해 볼 수 있습니다. 자세한 내용은 Security Center [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요.
 
-Security Center 표준 계층에는 다음 기능이 포함됩니다.
+Security Center 표준 계층에는 다음이 포함 됩니다.
 
 - **하이브리드 보안** – 모든 온-프레미스 및 클라우드 작업에 걸쳐 보안을 통합 확인할 수 있습니다. 또한 보안 정책을 적용하고 하이브리드 클라우드 작업의 보안을 지속적으로 평가하여 보안 표준을 준수할 수 있습니다. 뿐만 아니라 방화벽 및 기타 파트너 솔루션을 포함한 다양한 소스에서 보안 데이터를 수집, 검색 및 분석할 수 있습니다.
-- **고급 위협 검색** - 고급 분석 및 Microsoft Intelligent Security Graph를 사용하여 갈수록 발전하는 사이버 공격을 효율적으로 대응할 수 있습니다. 기본 제공 행동 분석 및 Machine Learning을 활용하여 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
+- **보안 경고** -고급 분석 및 Microsoft Intelligent Security Graph를 사용 하 여 진화 하는 사이버 공격에 대 한 경계를 가져옵니다. 기본 제공 행동 분석 및 Machine Learning을 활용하여 공격 및 제로 데이 익스플로잇을 식별할 수 있습니다. 또한 네트워크, 컴퓨터 및 클라우스 서비스에서 들어오는 공격 및 위반 후 활동을 모니터링할 수 있습니다. 대화형 도구 및 상황에 맞는 위협 인텔리전스를 사용하면 조사를 손쉽게 수행할 수 있습니다.
 - **액세스 및 애플리케이션 컨트롤** - Machine Learning을 통해 제공되며 특정 작업에 맞게 조정되는 허용 목록 권장 사항을 적용하여 맬웨어 및 기타 원치 않는 애플리케이션을 차단할 수 있습니다. Azure VM의 관리 포트에 대한 제어되는 Just-In-Time 액세스를 사용하여 네트워크 공격에 대한 취약성을 낮춤으로써 무차별 암호 대입 공격(brute force attack) 및 기타 네트워크 공격에 대한 노출을 크게 줄일 수 있습니다.
 
 ## <a name="detecting-unprotected-resources"></a>보호되지 않는 리소스 검색
@@ -40,7 +40,7 @@ Security Center에서는 Security Center 표준 계층이 적용되지 않은 �
 >
 
 ## <a name="upgrade-an-azure-subscription-or-workspace"></a>Azure 구독 또는 작업 영역 업그레이드
-구독 또는 작업 영역을 표준으로 업그레이드하려면:
+구독 또는 작업 영역을 표준으로 업그레이드 하려면 다음을 수행 합니다.
 1. Security Center 주 메뉴에서 **시작하기**를 선택합니다.
   ![시작](./media/security-center-onboarding/get-started.png)
 2. **업그레이드** 아래에 Security Center가 온보딩할 수 있는 구독 및 작업 영역을 나열합니다. 

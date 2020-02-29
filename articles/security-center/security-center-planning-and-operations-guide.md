@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 09/10/2019
 ms.author: memildin
-ms.openlocfilehash: 039a30d23c45471d88132f544c11df813fb4b8e6
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 63b947a27c3aa24b42252bf33febd031f7caefbf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603744"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920673"
 ---
 # <a name="azure-security-center-planning-and-operations-guide"></a>Azure Security Center 계획 및 작업 가이드
 이 가이드는 IT (정보 기술) 전문가, IT 설계자, 정보 보안 분석가 및 클라우드 관리자가 Azure Security Center 사용을 계획 하는 데 사용 됩니다.
@@ -38,9 +38,9 @@ ms.locfileid: "77603744"
 ## <a name="security-roles-and-access-controls"></a>보안 역할 및 액세스 제어
 조직의 규모와 구조에 따라, 여러 개인과 팀이 보안 센터를 통해 서로 다른 보안 관련 업무를 수행할 수 있습니다. 다음 다이어그램에는 가상의 사용자와 그 역할 및 보안 책임의 예가 나와 있습니다.
 
-![역할](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
+![Roles](./media/security-center-planning-and-operations-guide/security-center-planning-and-operations-guide-fig01-new.png)
 
-이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 다음은 그 예입니다.
+이러한 개인들은 보안 센터를 통해 다양한 책임에 부합할 수 있습니다. 예를 들면 다음과 같습니다.
 
 **Jeff(워크로드 소유자)**
 
@@ -179,7 +179,7 @@ Security Center 개요는 모든 Azure 리소스 및 연결된 모든 비 Azure 
 
 모든 권장 사항을 해결한 후에는 해결된 모든 리소스에 대해 **방지** 섹션이 녹색이어야 합니다. 이 시점에서는 리소스 보안 상태와 권장 사항 타일에서의 변경 사항을 기준으로 조치를 취하면 되므로 지속적인 모니터링이 더 용이해집니다.
 
-**감지** 섹션은 더 대응적인 부분으로, 지금 발생 중이거나 과거에 발생하여 Security Center 컨트롤과 타사 시스템에서 감지된 문제와 관련한 경고입니다. 보안 경고 타일은 매일 확인된 위협 감지의 수를 나타내는 막대 그래프와, 여러 심각도 카테고리(낮음, 중간, 높음) 간의 분포를 표시합니다. 보안 경고에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 읽어보세요.
+**감지** 섹션은 더 대응적인 부분으로, 지금 발생 중이거나 과거에 발생하여 Security Center 컨트롤과 타사 시스템에서 감지된 문제와 관련한 경고입니다. 보안 경고 타일에는 각 날짜에 발견 된 경고의 수를 나타내는 막대 그래프와 다양 한 심각도 범주 (낮음, 중간, 높음) 사이의 분포가 표시 됩니다. 보안 경고에 대한 자세한 내용은 [Azure Security Center에서 보안 경고 관리 및 대응](security-center-managing-and-responding-alerts.md)을 읽어보세요.
 
 [위협 인텔리전스](https://docs.microsoft.com/azure/security-center/security-center-threat-intel) 옵션을 일별 보안 작업의 일부로 방문할 계획입니다. 거기에서 특정 컴퓨터가 봇네트의 일부인지 식별하는 등 환경에 대한 보안 위협을 식별할 수 있습니다.
 
@@ -211,7 +211,7 @@ Azure 환경에 새 리소스(VM, SQL DB)를 추가하면 보안 센터가 자�
 
 
 ## <a name="incident-response"></a>사고 대응
-보안 센터는 위협이 발생하면 감지하여 사용자에게 경고합니다. 조직에서는 새 보안 경고를 모니터링하고 필요에 따라 조치를 통해 추가적인 조사를 수행하거나 공격에 대처해야 합니다. Security Center 위협 검색의 작동 방식에 대 한 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
+보안 센터는 위협이 발생하면 감지하여 사용자에게 경고합니다. 조직에서는 새 보안 경고를 모니터링하고 필요에 따라 조치를 통해 추가적인 조사를 수행하거나 공격에 대처해야 합니다. Security Center threat protection의 작동 방식에 대 한 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
 
 이 문서가 인시던트 대응 계획을 직접 작성하는 데 도움을 주려는 목적은 아니지만 인시던트 대응 단계에 대한 기반으로 클라우드 수명 주기에 Microsoft Azure 보안 응답을 사용합니다. 단계는 다음 다이어그램에 나와 있습니다.
 

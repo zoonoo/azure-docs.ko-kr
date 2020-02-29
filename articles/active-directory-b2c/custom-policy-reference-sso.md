@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 09/10/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: ee32b13820cb50fc1649672b78b34e7e293d65b5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849085"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912548"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -35,65 +35,124 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 * ExternalLoginSSOSessionProvider
 * SamlSSOSessionProvider
 
-기술 프로필의 `<UseTechnicalProfileForSessionManagement ReferenceId=“{ID}" />` 요소를 사용하여 SSO 관리 클래스를 지정합니다.
+기술 프로필의 `<UseTechnicalProfileForSessionManagement ReferenceId="{ID}" />` 요소를 사용하여 SSO 관리 클래스를 지정합니다.
 
-## <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+## <a name="input-claims"></a>입력 클레임
 
-이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다.
+`InputClaims` 요소가 비어 있거나 없습니다. 
 
-## <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+## <a name="persisted-claims"></a>지속형 클레임
 
-세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. DefaultSSOSessionProvider를 사용하여 세션에 클레임을 저장하는 경우 애플리케이션에 반환되거나 이후 단계의 사전 조건에 사용되어야 하는 모든 클레임이 해당 세션에 저장되어 있거나 디렉터리에 있는 사용자 프로필에서의 읽기로 확대되는지 확인해야 합니다. 이렇게 하면 인증 과정이 누락된 클레임에서도 실패하지 않게 됩니다.
+응용 프로그램에 반환 되거나 후속 단계에서 사전 조건에서 사용 되어야 하는 클레임은 세션에 저장 되거나 디렉터리의 사용자 프로필에서 읽은 후에 야 합니다. 지속형 클레임을 사용 하면 인증 경험 누락 된 클레임에서 실패 하지 않습니다. 세션에서 클레임을 추가하려면 기술 프로필의 `<PersistedClaims>` 요소를 사용합니다. 세션을 다시 채우는 데 공급자를 사용하는 경우 유지되는 클레임은 클레임 모음에 추가됩니다. 
+
+## <a name="output-claims"></a>출력 클레임
+
+`<OutputClaims>`는 세션에서 클레임을 검색 하는 데 사용 됩니다.
+
+## <a name="session-providers"></a>세션 공급자
+
+### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
+
+이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다. 다음 `SM-Noop` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다.  
+
+```XML
+<TechnicalProfile Id="SM-Noop">
+  <DisplayName>Noop Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.NoopSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+</TechnicalProfile>
+```
+
+### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
+
+세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 다음 `SM-AAD` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다. 
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <PersistedClaims>
-        <PersistedClaim ClaimTypeReferenceId="objectId" />
-        <PersistedClaim ClaimTypeReferenceId="newUser" />
-        <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
-    </PersistedClaims>
-    <OutputClaims>
-        <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true" />
-    </OutputClaims>
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="objectId" />
+    <PersistedClaim ClaimTypeReferenceId="signInName" />
+    <PersistedClaim ClaimTypeReferenceId="authenticationSource" />
+    <PersistedClaim ClaimTypeReferenceId="identityProvider" />
+    <PersistedClaim ClaimTypeReferenceId="newUser" />
+    <PersistedClaim ClaimTypeReferenceId="executed-SelfAsserted-Input" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="objectIdFromSession" DefaultValue="true"/>
+  </OutputClaims>
 </TechnicalProfile>
 ```
 
-세션에서 클레임을 추가하려면 기술 프로필의 `<PersistedClaims>` 요소를 사용합니다. 세션을 다시 채우는 데 공급자를 사용하는 경우 유지되는 클레임은 클레임 모음에 추가됩니다. `<OutputClaims>`는 세션에서 클레임을 검색하는 데 사용됩니다.
+다음 `SM-MFA` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`에 포함 되어 있습니다. 이 기술 프로필은 multi-factor authentication 세션을 관리 합니다. 
 
-## <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+```XML
+<TechnicalProfile Id="SM-MFA">
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.DefaultSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="Verified.strongAuthenticationPhoneNumber" />
+  </PersistedClaims>
+  <OutputClaims>
+    <OutputClaim ClaimTypeReferenceId="isActiveMFASession" DefaultValue="true"/>
+  </OutputClaims>
+</TechnicalProfile>
+```
 
-이 공급자는 "ID 공급자 선택" 화면을 무시하는 데 사용됩니다. 일반적으로 Facebook 등의 외부 ID 공급자에 구성된 기술 프로필에서 참조됩니다.
+### <a name="externalloginssosessionprovider"></a>ExternalLoginSSOSessionProvider
+
+이 공급자는 "id 공급자 선택" 화면을 표시 하지 않는 데 사용 됩니다. 일반적으로 Facebook 등의 외부 ID 공급자에 구성된 기술 프로필에서 참조됩니다. 다음 `SM-SocialLogin` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다.
 
 ```XML
 <TechnicalProfile Id="SM-SocialLogin">
-    <DisplayName>Session Mananagement Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <DisplayName>Session Mananagement Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.ExternalLoginSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="AlwaysFetchClaimsFromProvider">true</Item>
+  </Metadata>
+  <PersistedClaims>
+    <PersistedClaim ClaimTypeReferenceId="AlternativeSecurityId" />
+  </PersistedClaims>
 </TechnicalProfile>
 ```
 
-## <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+#### <a name="metadata"></a>메타데이터
+        
+| 특성 | 필수 | 설명|
+| --- | --- | --- |
+| AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 
-이 공급자는 앱과 외부 SAML ID 공급자 간의 Azure AD B2C SAML 세션을 관리하는 데 사용됩니다.
+### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
+
+이 공급자는 신뢰 당사자 응용 프로그램 또는 페더레이션된 SAML id 공급자 간의 Azure AD B2C SAML 세션을 관리 하는 데 사용 됩니다. SSO 공급자를 사용 하 여 SAML id 공급자 세션을 저장 하는 경우 `IncludeSessionIndex` 및 `RegisterServiceProviders`을 `false`으로 설정 해야 합니다. 다음 `SM-Saml-idp` 기술 프로필은 [SAML 기술 프로필](saml-technical-profile.md)에 사용 됩니다.
 
 ```XML
-<TechnicalProfile Id="SM-Reflector-SAML">
-    <DisplayName>Session Management Provider</DisplayName>
-    <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
-    <Metadata>
-        <Item Key="IncludeSessionIndex">false</Item>
-        <Item Key="RegisterServiceProviders">false</Item>
-    </Metadata>
+<TechnicalProfile Id="SM-Saml-idp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+  <Metadata>
+    <Item Key="IncludeSessionIndex">false</Item>
+    <Item Key="RegisterServiceProviders">false</Item>
+  </Metadata>
 </TechnicalProfile>
 ```
 
-기술 프로필에는 두 개의 메타데이터 항목이 있습니다.
+B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `IncludeSessionIndex` 및 `RegisterServiceProviders`를 `true`으로 설정 해야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
+ 
+다음 `SM-Saml-idp` 기술 프로필은 [SAML 발급자 기술 프로필](connect-with-saml-service-providers.md) 에 사용 됩니다.
 
-| 항목 | 기본값 | 가능한 값 | Description
-| --- | --- | --- | --- |
-| IncludeSessionIndex | true | true/false | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. |
-| RegisterServiceProviders | true | true/false | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. |
+```XML
+<TechnicalProfile Id="SM-Saml-sp">
+  <DisplayName>Session Management Provider</DisplayName>
+  <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null"/>
+</TechnicalProfile>
+```
+#### <a name="metadata"></a>메타데이터
+        
+| 특성 | 필수 | 설명|
+| --- | --- | --- |
+| IncludeSessionIndex | 아니요 | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
+| RegisterServiceProviders | 아니요 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
 
-SAML ID 공급자 세션을 저장하는 데 공급자를 사용하는 경우 위의 항목은 둘 다 false여야 합니다. B2C SAML 세션을 저장하는 데 공급자를 사용하는 경우 위의 항목은 true이거나 기본값이 true인 경우 생략되어야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
+
 

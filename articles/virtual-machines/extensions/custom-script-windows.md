@@ -10,12 +10,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 05/02/2019
 ms.author: robreed
-ms.openlocfilehash: 80b13cb9a926837604e2a10fed75b976ba3393b6
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: bf4c7e9fc623ad7dc74b6da943232d5c558d43a4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934912"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920266"
 ---
 # <a name="custom-script-extension-for-windows"></a>Windows용 사용자 지정 스크립트 확장
 
@@ -42,7 +42,7 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 
 스크립트가 로컬 서버에 있는 경우에도 추가 방화벽이 필요 하며 네트워크 보안 그룹 포트를 열어야 할 수 있습니다.
 
-### <a name="tips-and-tricks"></a>팁과 요령
+### <a name="tips-and-tricks"></a>유용한 정보
 
 * 이 확장에 대 한 최대 실패율은 스크립트에서 구문 오류가 발생 하 여 스크립트가 오류 없이 실행 되는지 테스트 하 고 스크립트에 추가 로깅을 설정 하 여 실패 한 위치를 쉽게 찾을 수 있기 때문입니다.
 * Idempotent 스크립트를 작성 합니다. 이렇게 하면 실수로 다시 실행 되는 경우 시스템 변경이 발생 하지 않습니다.
@@ -113,14 +113,14 @@ GitHub 또는 Azure Storage와 같은 외부에서 스크립트를 다운로드 
 | 이름 | 값/예제 | 데이터 형식 |
 | ---- | ---- | ---- |
 | apiVersion | 2015-06-15 | date |
-| publisher | Microsoft.Compute | 문자열 |
-| type | CustomScriptExtension | 문자열 |
+| publisher | Microsoft.Compute | string |
+| 형식 | CustomScriptExtension | string |
 | typeHandlerVersion | 1.10 | int |
 | fileUris(예) | https://raw.githubusercontent.com/Microsoft/dotnet-core-sample-templates/master/dotnet-core-music-windows/scripts/configure-music-app.ps1 | array |
 | timestamp(예) | 123456789 | 32비트 정수 |
-| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | 문자열 |
-| storageAccountName(예) | examplestorageacct | 문자열 |
-| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | 문자열 |
+| commandToExecute(예) | powershell -ExecutionPolicy Unrestricted -File configure-music-app.ps1 | string |
+| storageAccountName(예) | examplestorageacct | string |
+| storageAccountKey(예) | TmJK/1N3AbAZ3q/+hOXoi/l73zOqsaxXDhqa9Y83/v5UpXQp2DQIBuv2Tifp60cE/OaHsJZmQZ7teQfczQj8hg== | string |
 | Microsoft.managedidentity (예:) | {} 또는 {"clientId": "31b403aa-c364-4240-a7ff-d85fb6cd7232"} 또는 {"objectId": "12dd289c-0583-46e5-b9b4-115d5c19ef4b"} | json 개체 |
 
 >[!NOTE]
@@ -165,7 +165,7 @@ CustomScript (버전 1.10 이상)는 "fileUris" 설정에 제공 된 Url에서 �
 
 대상 VM/VMSS에서 사용자 할당 id를 사용 하려면 관리 id의 클라이언트 ID 또는 개체 ID를 사용 하 여 "microsoft.managedidentity" 필드를 구성 합니다.
 
-> 예시:
+> 예제:
 >
 > ```json
 > {
@@ -274,9 +274,11 @@ The response content cannot be parsed because the Internet Explorer engine is no
 
 ## <a name="classic-vms"></a>클래식 VM
 
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 클래식 Vm에서 사용자 지정 스크립트 확장을 배포 하려면 Azure Portal 또는 클래식 Azure PowerShell cmdlet을 사용할 수 있습니다.
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure 포털
 
 클래식 VM 리소스로 이동 합니다. **설정**아래에서 **확장** 을 선택 합니다.
 
@@ -328,7 +330,7 @@ C:\Packages\Plugins\Microsoft.Compute.CustomScriptExtension\1.*\Downloads\<n>
 
 `commandToExecute` 명령을 실행하는 경우 확장에서 이 디렉터리(예: `...\Downloads\2`)를 현재 작업 디렉터리로 설정합니다. 이 프로세스로 `fileURIs` 속성을 통해 다운로드된 파일을 배치하는 상대 경로를 사용할 수 있습니다. 예제는 아래 테이블을 참조하세요.
 
-시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예:
+시간이 지남에 따라 절대 다운로드 경로가 달라질 수 있으므로 가능한 경우 `commandToExecute` 문자열에서 상대 스크립트/파일 경로를 옵트인하는 것이 좋습니다. 예를 들면 다음과 같습니다.
 
 ```json
 "commandToExecute": "powershell.exe . . . -File \"./scripts/myscript.ps1\""

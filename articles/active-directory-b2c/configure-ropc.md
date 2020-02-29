@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/30/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 03ff564848298d31c8bf92169d9e5f66d024d711
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 1d17f9af5700df5458cc4373dfc5cd8fb7774f91
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74949187"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912405"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-ad-b2c"></a>Azure AD B2C에서 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -24,16 +24,7 @@ ROPC(리소스 소유자 암호 자격 증명) 흐름은 신뢰 당사자라고�
 
 [!INCLUDE [active-directory-b2c-public-preview](../../includes/active-directory-b2c-public-preview.md)]
 
-Azure Active Directory B2C (Azure AD B2C)에서 지원 되는 옵션은 다음과 같습니다.
-
-- **네이티브 클라이언트**: 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다. 장치는 Android 및 iOS와 같은 네이티브 운영 체제에서 실행 되는 모바일 응용 프로그램 일 수 있습니다.
-- **공용 클라이언트 흐름**: 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 애플리케이션의 자격 증명은 전송되지 않습니다.
-- **새 클레임 추가**: ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다.
-
-지원되지 않는 흐름은 다음과 같습니다.
-
-- **서버 간**: ID 보호 시스템은 상호 작용의 일부인 호출자(네이티브 클라이언트)에서 수집한 신뢰할 수 있는 IP 주소가 필요합니다. 서버 쪽 API 호출에서는 서버의 IP 주소만 사용됩니다. 실패한 인증의 동적 임계값을 초과하면 ID 보호 시스템에서 반복되는 IP 주소를 공격자로 식별할 수 있습니다.
-- **기밀 클라이언트 흐름**: 애플리케이션 클라이언트 ID의 유효성은 검사하지만 애플리케이션 비밀의 유효성은 검사하지 않습니다.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ##  <a name="create-a-resource-owner-user-flow"></a>리소스 소유자 사용자 흐름 만들기
 
@@ -42,7 +33,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 지원 되는 옵션은 다음�
 3. **사용자 흐름**을 클릭하고 **새 사용자 흐름**을 선택합니다.
 4. **모두** 탭을 클릭 하 고 **ropc를 사용 하 여 로그인**을 선택 합니다.
 5. *ROPC_Auth*와 같은 사용자 흐름에 사용할 이름을 입력합니다.
-6. **애플리케이션 클레임**에서 **자세히 보기**를 클릭합니다.
+6. **애플리케이션 클레임**에서 **자세히 표시**를 클릭합니다.
 7. 표시 이름, 이메일 주소 및 ID 공급 기업과 같은 애플리케이션에 필요한 애플리케이션 클레임을 선택합니다.
 8. **확인**을 선택하고 **만들기**를 선택합니다.
 9. **사용자 흐름 실행**을 클릭합니다.
@@ -65,12 +56,12 @@ Azure Active Directory B2C (Azure AD B2C)에서 지원 되는 옵션은 다음�
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 키 | Value |
+| Key | 값 |
 | --- | ----- |
 | username | leadiocl@outlook.com |
-| 암호 | Passxword1 |
-| grant_type | 암호 |
-| scope | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
+| password | Passxword1 |
+| grant_type | password |
+| 범위 | openid \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> offline_access |
 | client_id | \<bef2222d56-552f-4a5b-b90a-1988a7d634c3> |
 | response_type | 토큰 id_token |
 
@@ -105,7 +96,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 
 `https://yourtenant.b2clogin.com/<yourtenant.onmicrosoft.com>/oauth2/v2.0/token?p=B2C_1_ROPC_Auth`
 
-| 키 | Value |
+| Key | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

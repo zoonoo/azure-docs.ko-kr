@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/11/2020
 ms.author: jushiman
-ms.openlocfilehash: dce01cb8ed6043193878551207eeca3d573f9d4d
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 8b1acb4676d97ff16410543828493428059ad0fb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672483"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919892"
 ---
 # <a name="support-for-generation-2-vms-on-azure"></a>Azure의 2 세대 Vm에 대 한 지원
 
@@ -33,18 +33,18 @@ ms.locfileid: "77672483"
 1 세대 Vm은 Azure의 모든 VM 크기에서 지원 됩니다 (Mv2 시리즈 Vm은 제외). 이제 Azure는 다음과 같은 선택한 VM 시리즈에 대 한 2 세대 지원을 제공 합니다.
 
 * [B 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/b-series-burstable)
-* [DC 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dc-series)
-* [Dsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv2-series) 및 [Dsv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-general#dsv3-series-1)
-* [Esv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#esv3-series)
-* [Fsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-compute#fsv2-series-1)
+* [DC 시리즈](../dcv2-series.md)
+* [DSv2 시리즈](../dv2-dsv2-series.md) 및 [Dsv3 시리즈](../dv3-dsv3-series.md)
+* [Esv3 시리즈](../ev3-esv3-series.md)
+* [Fsv2 시리즈](../fsv2-series.md)
 * [GS 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#gs-series)
-* [HB-시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hb-series)
-* [HC 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-hpc#hc-series)
-* [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-storage#lsv2-series)
-* [Mv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)
-* [NCv2 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv2-series) 및 [NCv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#ncv3-series)
-* [ND 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nd-series)
-* [NVv3 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu#nvv3-series--1)
+* [HB-시리즈](../hb-series.md)
+* [HC 시리즈](../hc-series.md)
+* [Ls 시리즈](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-previous-gen#ls-series) 및 [Lsv2 시리즈](../lsv2-series.md)
+* [Mv2 시리즈](../mv2-series.md)
+* [NCv2 시리즈](../ncv2-series.md) 및 [NCv3 시리즈](../ncv3-series.md)
+* [ND 시리즈](../nd-series.md)
+* [NVv3 시리즈](../nvv3-series.md)
 
 > [!NOTE]
 > Mv2 시리즈는 2 세대 VM 이미지와 독점적으로 작동 하므로 Mv2 시리즈 Vm에 대 한 2 세대 VM 이미지 사용은 일반적으로 사용할 수 있습니다. 1 세대 VM 이미지는 Mv2 시리즈 Vm에서 지원 되지 않습니다. 
@@ -54,7 +54,7 @@ ms.locfileid: "77672483"
 2 세대 Vm은 다음 Marketplace 이미지를 지원 합니다.
 
 * Windows Server 2019, 2016, 2012 R2, 2012
-* 윈도우 10
+* Windows 10
 * SUSE Linux Enterprise Server 15 SP1
 * SUSE Linux Enterprise Server 12 SP4
 * Ubuntu Server 16.04, 18.04, 19.04, 19.10 
@@ -86,7 +86,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 ### <a name="generation-1-vs-generation-2-capabilities"></a>1 세대와 2 세대의 기능 비교
 
-| 기능 | 1세대 | 2세대 |
+| Capability | 1세대 | 2세대 |
 |------------|--------------|--------------|
 | OS 디스크 > 2tb                    | :x:                | :heavy_check_mark: |
 | 사용자 지정 디스크/이미지/스왑 OS         | :heavy_check_mark: | :heavy_check_mark: |
@@ -102,7 +102,7 @@ Azure는 현재 온-프레미스 Hyper-v에서 2 세대 Vm에 대해 지 원하�
 
 Azure Portal 또는 Azure CLI에서는 UEFI 부팅을 지 원하는 Marketplace 이미지에서 2 세대 Vm을 만들 수 있습니다.
 
-#### <a name="azure-portal"></a>Azure portal
+#### <a name="azure-portal"></a>Azure 포털
 
 Azure Portal에서 2 세대 (Gen2) VM을 만드는 단계는 다음과 같습니다.
 
@@ -157,7 +157,7 @@ OS로 Windows Server 2012를 사용 하 여 VM을 만드는 경우 1 세대 (BIO
     예. 하지만 모든 지역에서 [2 세대 VM 크기](#generation-2-vm-sizes) 를 사용할 수 있는 것은 아닙니다. 2 세대 VM의 가용성은 VM 크기의 가용성에 따라 달라 집니다.
 
 * **1 세대 및 2 세대 Vm 간에 가격 차이가 있나요?**  
-    아니요.
+    No.
 
 * **온-프레미스 2 세대 VM의 .vhd 파일이 있습니다. 이 .vhd 파일을 사용 하 여 Azure에서 2 세대 VM을 만들 수 있나요?**
   예, 2 세대 .vhd 파일을 Azure로 가져와서이를 사용 하 여 2 세대 VM을 만들 수 있습니다. 이렇게 하려면 다음 단계를 사용 합니다.

@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 11/07/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 684e4a410ac8624066c897b4078ea4044a965357
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f331a537c80628a386525e29743807a70a163f0d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848916"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914324"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -48,11 +48,11 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 사용자가 ADFS 계정을 사용하여 로그인하도록 하려는 경우 Azure AD B2C가 엔드포인트를 통해 통신할 수 있는 클레임 공급자로 계정을 정의해야 합니다. 엔드포인트는 Azure AD B2C에서 사용하는 일련의 클레임을 제공하여 특정 사용자가 인증했는지 확인합니다.
 
-정책의 확장 파일에서 **ClaimsProviders** 요소에 ADFS 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다.
+정책의 확장 파일에서 **ClaimsProviders** 요소에 ADFS 계정을 추가하여 해당 계정을 클레임 공급자로 정의할 수 있습니다. 자세한 내용은 [SAML 기술 프로필 정의](saml-technical-profile.md)를 참조 하세요.
 
 1. *TrustFrameworkExtensions.xml*을 엽니다.
-2. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
-3. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
+1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
+1. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
 
     ```xml
     <ClaimsProvider>
@@ -87,14 +87,33 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
             <OutputClaimsTransformation ReferenceId="CreateAlternativeSecurityId"/>
             <OutputClaimsTransformation ReferenceId="CreateSubjectClaimFromAlternativeSecurityId"/>
           </OutputClaimsTransformations>
-          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Noop"/>
+          <UseTechnicalProfileForSessionManagement ReferenceId="SM-Saml-idp"/>
         </TechnicalProfile>
       </TechnicalProfiles>
     </ClaimsProvider>
     ```
 
-4. `your-ADFS-domain`은 ADFS 도메인의 이름으로 바꾸고 **identityProvider** 출력 클레임의 값은 DNS(도메인을 나타내는 임의 값)로 바꿉니다.
-5. 파일을 저장합니다.
+1. `your-ADFS-domain`은 ADFS 도메인의 이름으로 바꾸고 **identityProvider** 출력 클레임의 값은 DNS(도메인을 나타내는 임의 값)로 바꿉니다.
+
+1. `<ClaimsProviders>` 섹션을 찾아 다음 XML 코드 조각을 추가 합니다. 정책에 이미 기술 프로필 `SM-Saml-idp` 포함 되어 있는 경우 다음 단계로 건너뜁니다. 자세한 내용은 [Single Sign-On 세션 관리](custom-policy-reference-sso.md)를 참조 하세요.
+
+    ```XML
+    <ClaimsProvider>
+      <DisplayName>Session Management</DisplayName>
+      <TechnicalProfiles>
+        <TechnicalProfile Id="SM-Saml-idp">
+          <DisplayName>Session Management Provider</DisplayName>
+          <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
+          <Metadata>
+            <Item Key="IncludeSessionIndex">false</Item>
+            <Item Key="RegisterServiceProviders">false</Item>
+          </Metadata>
+        </TechnicalProfile>
+      </TechnicalProfiles>
+    </ClaimsProvider>
+    ```
+
+1. 파일을 저장합니다.
 
 ### <a name="upload-the-extension-file-for-verification"></a>확인을 위한 확장 파일 업로드
 
@@ -113,7 +132,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 이제 ID 공급자는 설정되었지만 등록 또는 로그인 화면에서 사용할 수는 없는 상태입니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 ADFS ID 공급자도 포함하도록 수정합니다.
 
 1. 시작 팩에서 *TrustFrameworkBase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
+2. **이 포함된** UserJourney`Id="SignUpOrSignIn"` 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInADFS`)을 입력합니다.
@@ -122,7 +141,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 **ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. ADFS 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
 
-1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
+1. 만든 사용자 경험에서 **이 포함된** OrchestrationStep`Order="1"` 요소를 찾습니다.
 2. **ClaimsProviderSelections** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `ContosoExchange`)으로 설정합니다.
 
     ```XML
@@ -133,7 +152,7 @@ Azure AD B2C 테넌트에 인증서를 저장해야 합니다.
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 여기서는 Azure AD B2C가 ADFS 계정과 통신하여 토큰을 수신하는 작업을 연결합니다.
 
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
+1. 사용자 경험에서 **가 포함된** OrchestrationStep`Order="2"`을 찾습니다.
 2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
@@ -167,7 +186,7 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 4. **데이터 원본 선택** 페이지에서 **Import data about the relying party publish online or on a local network**(신뢰 당사자 온라인 또는 로컬 네트워크 게시에 대한 정보 가져오기)를 선택하고 Azure AD B2C 메타데이터 URL을 제공한 후 **다음**을 클릭합니다.
 5. **표시 이름 지정** 페이지에서 **표시 이름**을 입력하고 **메모** 아래에 이 신뢰 당사자 트러스트에 대한 설명을 입력한 후 **다음**을 클릭합니다.
 6. **액세스 제어 정책 선택** 페이지에서 정책을 선택하고 **다음**을 클릭합니다.
-7. **트러스트 추가 준비 완료** 페이지에서 설정을 검토하고 **다음**을 클릭하여 신뢰 당사자 트러스트 정보를 저장합니다.
+7. **트러스트 추가 준비 완료** 페이지에서 설정을 검토한 후 **다음**을 클릭하여 신뢰 당사자 트러스트 정보를 저장합니다.
 8. **마침** 페이지에서 **닫기**를 클릭하면 이 작업이 **클레임 규칙 편집** 대화 상자를 자동으로 표시합니다.
 9. **규칙 추가**를 선택합니다.
 10. **클레임 규칙 템플릿**에서 **LDAP 특성을 클레임으로 전송**을 선택합니다.
@@ -175,10 +194,10 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
 
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
-    | User-Principal-Name | userPrincipalName |
+    | 사용자 보안 주체 이름 | userPrincipalName |
     | Surname | family_name |
     | Given-Name | given_name |
-    | E-Mail-Address | 이메일 |
+    | E-Mail-Address | 전자 메일 |
     | Display-Name | name |
 
     이러한 이름은 나가는 클레임 유형 드롭다운에서 표시 되지 않습니다. 수동으로 입력 해야 합니다. (드롭다운은 실제로 편집 가능 합니다.)

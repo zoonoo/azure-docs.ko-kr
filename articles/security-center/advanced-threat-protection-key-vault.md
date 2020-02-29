@@ -1,5 +1,5 @@
 ---
-title: Azure Key Vault에 대한 고급 위협 방지 설정
+title: Azure Key Vault에 대 한 위협 방지
 description: 이 문서에서는 Azure Key Vault에 대 한 고급 위협 방지를 설정 하는 방법을 설명 Azure Security Center
 services: security-center
 author: memildin
@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: memildin
-ms.openlocfilehash: 3ca3026a259e7f23bbfa01398a96cbdbfae1321c
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 449096590df6145c9f80dcf2c97726931909a2ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623991"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914809"
 ---
 # <a name="threat-protection-for-azure-key-vault-preview"></a>Azure Key Vault에 대 한 위협 방지 (미리 보기)
 

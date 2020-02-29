@@ -1,14 +1,14 @@
 ---
 title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 청사진의 잠금 옵션에 대해 알아봅니다.
-ms.date: 04/24/2019
+ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: e042a4d117e28a2fd2228ce36f1be98a1da31e91
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77057348"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919875"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -33,6 +33,56 @@ ms.locfileid: "77057348"
 일반적으로 구독에서 ‘소유자’ 역할과 같은 RBAC([역할 기반 액세스 제어](../../../role-based-access-control/overview.md)) 구독이 있는 사용자는 리소스를 변경하거나 삭제할 수 있습니다. Blueprint가 배포된 할당의 일부로 잠금을 적용하는 경우는 여기에 해당하지 않습니다. 할당이 **읽기 전용** 또는 **삭제 안 함** 옵션으로 설정된 경우에는 구독 소유자여도 보호된 리소스에서 차단된 작업을 수행할 수 없습니다.
 
 이 보안 조치는 정의된 청사진과 해당 청사진을 통해 생성하려는 환경을 실수로/프로그래밍 방식으로 삭제하거나 변경하는 상황을 방지하여 일관성을 유지합니다.
+
+### <a name="assign-at-management-group"></a>관리 그룹에서 할당
+
+구독 소유자가 청사진 할당을 제거 하지 못하도록 방지 하는 추가 옵션은 청사진을 관리 그룹에 할당 하는 것입니다. 이 시나리오에서는 관리 그룹 **소유자** 에게만 청사진 할당을 제거 하는 데 필요한 권한이 있습니다.
+
+구독 대신 관리 그룹에 청사진을 할당 하기 위해 REST API 호출은 다음과 같이 변경 됩니다.
+
+```http
+PUT https://management.azure.com/providers/Microsoft.Management/managementGroups/{assignmentMG}/providers/Microsoft.Blueprint/blueprintAssignments/{assignmentName}?api-version=2018-11-01-preview
+```
+
+`{assignmentMG}`에 의해 정의 된 관리 그룹은 관리 그룹 계층 구조 내에 있거나 청사진 정의가 저장 된 관리 그룹 이어야 합니다.
+
+청사진 할당의 요청 본문은 다음과 같습니다.
+
+```json
+{
+    "identity": {
+        "type": "SystemAssigned"
+    },
+    "location": "eastus",
+    "properties": {
+        "description": "enforce pre-defined simpleBlueprint to this XXXXXXXX subscription.",
+        "blueprintId": "/providers/Microsoft.Management/managementGroups/{blueprintMG}/providers/Microsoft.Blueprint/blueprints/simpleBlueprint",
+        "scope": "/subscriptions/{targetSubscriptionId}",
+        "parameters": {
+            "storageAccountType": {
+                "value": "Standard_LRS"
+            },
+            "costCenter": {
+                "value": "Contoso/Online/Shopping/Production"
+            },
+            "owners": {
+                "value": [
+                    "johnDoe@contoso.com",
+                    "johnsteam@contoso.com"
+                ]
+            }
+        },
+        "resourceGroups": {
+            "storageRG": {
+                "name": "defaultRG",
+                "location": "eastus"
+            }
+        }
+    }
+}
+```
+
+이 요청 본문의 주요 차이점과 구독에 할당 되는 항목은 `properties.scope` 속성입니다. 이 필수 속성은 청사진 할당이 적용 되는 구독으로 설정 되어야 합니다. 구독은 청사진 할당이 저장 된 관리 그룹 계층의 직계 자식 이어야 합니다.
 
 ## <a name="removing-locking-states"></a>잠금 상태 제거
 
@@ -61,7 +111,7 @@ ms.locfileid: "77057348"
 
 ## <a name="exclude-a-principal-from-a-deny-assignment"></a>거부 할당에서 보안 주체 제외
 
-일부 디자인 또는 보안 시나리오에서는 청사진 할당이 만드는 [거부 할당](../../../role-based-access-control/deny-assignments.md) 에서 보안 주체를 제외 해야 할 수 있습니다. 이 작업은 [할당을 만들](/rest/api/blueprints/assignments/createorupdate)때 **Locks** 속성의 **excludedPrincipals** 배열에 최대 5 개의 값을 추가 하 여 REST API에서 수행 됩니다. 다음은 **excludedPrincipals**를 포함 하는 요청 본문의 예입니다.
+일부 디자인 또는 보안 시나리오에서는 청사진 할당이 만드는 [거부 할당](../../../role-based-access-control/deny-assignments.md) 에서 보안 주체를 제외 해야 할 수 있습니다. 이 단계는 [할당을 만들](/rest/api/blueprints/assignments/createorupdate)때 **Locks** 속성의 **excludedPrincipals** 배열에 최대 5 개의 값을 추가 하 여 REST API에서 수행 됩니다. 다음 할당 정의는 **excludedPrincipals**을 포함 하는 요청 본문의 예입니다.
 
 ```json
 {

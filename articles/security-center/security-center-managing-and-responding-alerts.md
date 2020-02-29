@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/27/2019
 ms.author: memildin
-ms.openlocfilehash: 5c199d074a6655ad14a0c66925e4302f70424970
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 834a097eb77cc7de2d0a3643bf1499ff7517ddb0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615978"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912276"
 ---
 # <a name="manage-and-respond-to-security-alerts-in-azure-security-center"></a>Azure Security Center에서 보안 경고 관리 및 대응
 
@@ -67,7 +67,7 @@ ms.locfileid: "77615978"
 
 1. Security Center에서 제안 하는 수정 단계는 보안 경고에 따라 다릅니다. 각 경고에 대해 다음을 수행 합니다. 
 
-    경우에 따라 위협 검색 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
+    일부 경우에는 보안 경고를 완화 하기 위해 다른 Azure 컨트롤 또는 서비스를 사용 하 여 권장 되는 수정 사항을 구현 해야 할 수 있습니다. 
 
     다음 항목에서는 리소스 유형에 따라 다양 한 경고를 안내 합니다.
     

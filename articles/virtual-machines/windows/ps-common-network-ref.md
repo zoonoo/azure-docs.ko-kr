@@ -14,16 +14,16 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 07/17/2017
 ms.author: cynthn
-ms.openlocfilehash: 3abde706ddff297094c7fbb1579b534894b349d2
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: b9debe04759772ef51946dc99943ec4eff6f61dd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74032928"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911834"
 ---
 # <a name="common-powershell-commands-for-azure-virtual-networks"></a>Azure Virtual Networks에 대한 공통 PowerShell 명령
 
-가상 컴퓨터를 만들려는 경우, [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 를 만들거나 VM을 추가할 수 있는 기존 가상 네트워크에 대해 알아야 합니다. 일반적으로 VM을 만들 때 이 문서에 설명된 리소스를 만드는 것이 좋습니다.
+가상 머신을 만들려는 경우, [가상 네트워크](../../virtual-network/virtual-networks-overview.md) 를 만들거나 VM을 추가할 수 있는 기존 가상 네트워크에 대해 알아야 합니다. 일반적으로 VM을 만들 때 이 문서에 설명된 리소스를 만드는 것이 좋습니다.
 
 최신 버전의 Azure PowerShell 설치, 구독 선택, 자신의 계정에 로그인하는 방법에 대해서는 [Azure PowerShell 설치 및 구성 방법](/powershell/azure/overview)을 참조하세요.
 
@@ -34,7 +34,7 @@ ms.locfileid: "74032928"
 
 ## <a name="create-network-resources"></a>네트워크 리소스 만들기
 
-| Task | 명령 |
+| 작업 | 명령 |
 | ---- | ------- |
 | 서브넷 구성 만들기 |$subnet1 = [New-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetworksubnetconfig) -Name "mySubnet1" -AddressPrefix XX.X.X.X/XX<BR>$subnet2 = New-AzVirtualNetworkSubnetConfig -Name "mySubnet2" -AddressPrefix XX.X.X.X/XX<BR><BR>일반적인 네트워크는 [인터넷 연결 부하 분산 장치](../../load-balancer/load-balancer-internet-overview.md)에 대한 서브넷 및 [내부 부하 분산 장치](../../load-balancer/load-balancer-internal-overview.md)에 대한 별도 서브넷을 가질 수도 있습니다. |
 | 가상 네트워크 만들기 |$vnet = [New-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/new-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup -Location $location -AddressPrefix XX.X.X.X/XX -Subnet $subnet1, $subnet2 |
@@ -50,7 +50,7 @@ ms.locfileid: "74032928"
 
 ## <a name="get-information-about-network-resources"></a>네트워크 리소스에 대한 정보 가져오기
 
-| Task | 명령 |
+| 작업 | 명령 |
 | ---- | ------- |
 | 가상 네트워크 나열 |[Get-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/get-azvirtualnetwork) -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹의 모든 가상 네트워크를 나열합니다. |
 | 가상 네트워크에 대한 정보 가져오기 |Get-AzVirtualNetwork -Name "myVNet" -ResourceGroupName $myResourceGroup |
@@ -64,7 +64,7 @@ ms.locfileid: "74032928"
 
 ## <a name="manage-network-resources"></a>네트워크 리소스 관리
 
-| Task | 명령 |
+| 작업 | 명령 |
 | ---- | ------- |
 | 가상 네트워크에 서브넷 추가 |[Add-AzVirtualNetworkSubnetConfig](https://docs.microsoft.com/powershell/module/az.network/add-azvirtualnetworksubnetconfig) -AddressPrefix XX.X.X.X/XX -Name "mySubnet1" -VirtualNetwork $vnet<BR><BR>기존 가상 네트워크에 서브넷을 추가합니다. $vnet 값은 Get-AzVirtualNetwork에서 반환되는 개체를 나타냅니다. |
 | 가상 네트워크 삭제 |[Remove-AzVirtualNetwork](https://docs.microsoft.com/powershell/module/az.network/remove-azvirtualnetwork) -Name "myVNet" -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹에서 지정된 가상 네트워크를 제거합니다. |
@@ -73,6 +73,6 @@ ms.locfileid: "74032928"
 | 공용 IP 주소 삭제 |[Remove-AzPublicIpAddress](https://docs.microsoft.com/powershell/module/az.network/remove-azpublicipaddress)-Name "myIPAddress" -ResourceGroupName $myResourceGroup<BR><BR>리소스 그룹에서 지정된 공용 IP 주소를 제거합니다. |
 
 ## <a name="next-steps"></a>다음 단계
-* [VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
-* [여러 네트워크 인터페이스를 사용하여 VM 만들기](../../virtual-network/virtual-network-deploy-multinic-classic-ps.md)를 할 수 있는 방법을 알아봅니다.
+[VM 만들기](../virtual-machines-windows-ps-create.md?toc=%2fazure%2fvirtual-machines%2fwindows%2ftoc.json)를 할 때 방금 만든 네트워크 인터페이스를 사용합니다.
+
 

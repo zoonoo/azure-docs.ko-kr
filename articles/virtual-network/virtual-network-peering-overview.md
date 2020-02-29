@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 11/15/2019
 ms.author: anavin
-ms.openlocfilehash: e47c7d7c4e982604814b227544a98bb301a20105
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 5fb54e812e72b9393ffdf632085d0f32ab8b1988
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980097"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918362"
 ---
 # <a name="virtual-network-peering"></a>가상 네트워크 피어링
 
@@ -101,10 +101,10 @@ Azure Network Watcher를 사용 하 여 피어 링 가상 네트워크의 가상
 
 가상 네트워크 피어 링 연결을 사용 하는 수신 및 송신 트래픽에 대 한 명목 요금이 부과 됩니다. 자세한 내용은 [Virtual Network 가격 책정](https://azure.microsoft.com/pricing/details/virtual-network)을 참조 하세요.
 
-게이트웨이 전송은 가상 네트워크가 피어 링 가상 네트워크에서 VPN/Express 경로 게이트웨이를 활용할 수 있도록 하는 피어 링 속성입니다. 게이트웨이 전송은 크로스-프레미스와 네트워크 간 연결 모두에 대해 작동 합니다. 피어 링 가상 네트워크에서 게이트웨이에 대 한 트래픽 (수신 또는 송신)에는 가상 네트워크 피어 링 요금이 발생 합니다. 자세한 내용은 VPN gateway 요금에 대 한 [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway/) 및 express 경로 게이트웨이 요금에 대 한 Express 경로 게이트웨이 가격 책정을 참조 VPN Gateway 하세요.
+게이트웨이 전송은 가상 네트워크가 피어 링 가상 네트워크에서 VPN/Express 경로 게이트웨이를 활용할 수 있도록 하는 피어 링 속성입니다. 게이트웨이 전송은 크로스-프레미스와 네트워크 간 연결 모두에 대해 작동 합니다. 피어 링 가상 네트워크에서 게이트웨이 (수신 또는 송신)에 대 한 트래픽은 스포크 VNet (또는 비 게이트웨이 VNet)에 대 한 가상 네트워크 피어 링 요금이 발생 합니다. 자세한 내용은 VPN gateway 요금에 대 한 [가격 책정](https://azure.microsoft.com/pricing/details/vpn-gateway/) 및 express 경로 게이트웨이 요금에 대 한 Express 경로 게이트웨이 가격 책정을 참조 VPN Gateway 하세요.
 
 >[!NOTE]
-> 이 문서의 이전 버전에서는 가상 네트워크 피어 링 요금이 게이트웨이 전송에 적용 되지 않습니다. 이제 가격 책정 페이지에 따라 정확한 가격이 반영 됩니다.
+> 이전 버전의이 문서에서는 가상 네트워크 피어 링 요금이 게이트웨이 전송에서 스포크 VNet (또는 비 게이트웨이 VNet)에 적용 되지 않습니다. 이제 가격 책정 페이지에 따라 정확한 가격이 반영 됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -10,12 +10,12 @@ ms.date: 10/01/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.subservice: common
-ms.openlocfilehash: b49b3187f9178012131d793a7762ae470b0ea540
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: f5c6125b850062450516e7fc0b19c2e0d5d6f577
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75965711"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916067"
 ---
 # <a name="call-rest-api-operations-with-shared-key-authorization"></a>공유 키 인증을 사용 하 여 REST API 작업 호출
 
@@ -25,7 +25,7 @@ ms.locfileid: "75965711"
 
 샘플 응용 프로그램은 저장소 계정에 대 한 blob 컨테이너를 나열 합니다. 이 문서의 코드를 사용해 보려면 다음 항목이 필요합니다.
 
-- **Azure 개발** 워크로드를 사용하여 [Visual Studio 2019](https://www.visualstudio.com/visual-studio-homepage-vs.aspx)를 설치합니다.
+- [Azure 개발](https://www.visualstudio.com/visual-studio-homepage-vs.aspx) 워크로드를 사용하여 **Visual Studio 2019**를 설치합니다.
 
 - Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -175,7 +175,7 @@ httpRequestMessage.Headers.Authorization = AzureStorageAuthenticationHelper.GetA
 }
 ```
 
-SendAsync 호출을 만들 때 [Fiddler](https://www.telerik.com/fiddler) 같은 네트워크 감지기를 실행하면 요청 및 응답 정보를 볼 수 있습니다. 살펴보겠습니다. 스토리지 계정의 이름은 *contosorest*입니다.
+SendAsync 호출을 만들 때 [Fiddler](https://www.telerik.com/fiddler) 같은 네트워크 감지기를 실행하면 요청 및 응답 정보를 볼 수 있습니다. 살펴보도록 하죠. 스토리지 계정의 이름은 *contosorest*입니다.
 
 **요청:**
 
@@ -410,7 +410,7 @@ internal static AuthenticationHeaderValue GetAuthorizationHeader(
 
     // This is the actual header that will be added to the list of request headers.
     AuthenticationHeaderValue authHV = new AuthenticationHeaderValue("SharedKey",
-        storageAccountName + ":" + Convert.ToBase64String(SHA256.ComputeHash(SignatureBytes)));
+        storageAccountName + ":" + signature);
     return authHV;
 }
 ```
@@ -572,4 +572,4 @@ Content-Length: 1135
 - [BLOB 서비스 REST API](/rest/api/storageservices/blob-service-rest-api)
 - [파일 서비스 REST API](/rest/api/storageservices/file-service-rest-api)
 - [큐 서비스 REST API](/rest/api/storageservices/queue-service-rest-api)
-- [Table Service REST API](/rest/api/storageservices/table-service-rest-api)
+- [테이블 서비스 REST API](/rest/api/storageservices/table-service-rest-api)

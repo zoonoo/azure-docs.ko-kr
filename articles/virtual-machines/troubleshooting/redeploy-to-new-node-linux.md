@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: d8096a14bf2abc0b06b7ab7c3d340a313b1cd24c
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 2c4152ec5e67761ce9be9a81bfbf39e1591787da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71057295"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913517"
 ---
 # <a name="redeploy-linux-virtual-machine-to-new-azure-node"></a>새 Azure 노드로 Linux 가상 머신 다시 배포
 Azure에서 Linux VM(가상 머신)에 대한 SSH 또는 애플리케이션 액세스 문제를 해결하는 데 어려움이 있는 경우 VM을 다시 배포하는 것이 도움이 될 수 있습니다. VM을 다시 배포하면 VM이 Azure 인프라 내의 새 노드로 이동된 다음 전원이 다시 켜집니다. 모든 구성 옵션 및 관련 리소스는 그대로 유지됩니다. 이 문서에서는 Azure CLI 또는 Azure 포털을 사용하여 VM을 다시 배포하는 방법을 보여 줍니다.
@@ -37,6 +37,10 @@ az vm redeploy --resource-group myResourceGroup --name myVM
 ```
 
 ## <a name="use-the-azure-classic-cli"></a>Azure 클래식 CLI 사용
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
+
 최신 [Azure 클래식 CLI](../../cli-install-nodejs.md)를 설치하고 Azure 계정에 로그인합니다. Resource Manager 모드(`azure config mode arm`)에 있는지 확인합니다.
 
 다음 예제에서는 리소스 그룹 *myResourceGroup*에서 *myVM*이라는 VM을 다시 배포합니다.

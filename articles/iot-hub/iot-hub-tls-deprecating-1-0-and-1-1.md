@@ -7,12 +7,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 12/16/2019
-ms.openlocfilehash: 95733f579740f2928cda917eec0023bf00d53076
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 8e2f8fd7f99c359949b02959cc442f2f3d3ebfff
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76722786"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912157"
 ---
 # <a name="deprecation-of-tls-10-and-11-in-iot-hub-and-device-provisioning-service"></a>IoT Hub 및 장치 프로 비전 서비스에서 TLS 1.0 및 1.1의 사용 중단
 
@@ -25,12 +25,12 @@ ms.locfileid: "76722786"
 
 ## <a name="supported-ciphers"></a>지원 되는 암호화
 
-TLS 핸드셰이크 중에는 다음 암호화만 허용 됩니다.
+TLS 핸드셰이크에서 사용 되는 다양 한 암호의 가용성에 대 한 타임 라인은 다음과 같습니다.
 
-* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384
-* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256
-* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384
+* TLS_ECDHE_RSA_WITH_AES_128_CBC_SHA256 (현재 지원 됨)
+* TLS_ECDHE_RSA_WITH_AES_256_CBC_SHA384 (2020의 하반기에서 지원 됨)
+* TLS_ECDHE_RSA_WITH_AES_128_GCM_SHA256 (2020의 하반기에서 지원 됨)
+* TLS_ECDHE_RSA_WITH_AES_256_GCM_SHA384 (2020의 하반기에서 지원 됨)
 
 
 ## <a name="customer-feedback"></a>고객 의견

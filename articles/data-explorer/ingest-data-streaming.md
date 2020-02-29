@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: 89772bea818a0ebb57135990b3a04fcb559e2716
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77664935"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921099"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -20,7 +20,7 @@ ms.locfileid: "77664935"
 
 데이터 양이 테이블당 초당 1mb 이상 증가 하는 경우 스트리밍 수집 대신 클래식 (bulk) 수집을 사용 합니다. 수집의 다양 한 방법에 대 한 자세한 내용은 [데이터 수집 개요](/azure/data-explorer/ingest-data-overview) 를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [웹 UI](https://dataexplorer.azure.com/)에 로그인 합니다.
@@ -80,7 +80,7 @@ ms.locfileid: "77664935"
 
 스트리밍 수집은 다음 기능을 지원 하지 않습니다.
 * [데이터베이스 커서](/azure/kusto/management/databasecursor).
-* [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/tables#create-ingestion-mapping) 데이터 매핑만 지원 됩니다. 
+* [데이터 매핑](/azure/kusto/management/mappings). [미리 만든](/azure/kusto/management/create-ingestion-mapping-command) 데이터 매핑만 지원 됩니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

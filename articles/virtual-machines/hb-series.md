@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 124bdecac900655ed8f6ad0aaaa51fadf342f2c6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 600f10e81742e9bb66c800b747fd7b2dc062754d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492839"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164834"
 ---
 # <a name="hb-series"></a>HB 시리즈
 
@@ -23,6 +23,10 @@ ACU: 199-216
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원됨
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 | 크기 | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

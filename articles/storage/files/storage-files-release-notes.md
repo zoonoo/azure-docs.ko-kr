@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.date: 12/13/2019
 ms.author: wgries
 ms.subservice: files
-ms.openlocfilehash: d0e830aaca4f952f75c220b4f482ce831883b058
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51b7b37466ae8a6988ee4bfa85a054fb42d23124
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905579"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920759"
 ---
 # <a name="release-notes-for-the-azure-file-sync-agent"></a>Azure 파일 동기화 에이전트에 대한 릴리스 정보
 Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연성, 성능 및 호환성을 희생하지 않고 Azure Files에서 조직의 파일 공유를 중앙 집중화할 수 있습니다. Windows Server 설치는 Azure 파일 공유의 빠른 캐시로 변환됩니다. 로컬로 데이터에 액세스하기 위해 Windows Server에서 사용할 수 있는 모든 프로토콜을 사용할 수 있습니다(SMB, NFS 및 FTPS 포함). 전 세계에서 필요한 만큼 많은 캐시를 가질 수 있습니다.
@@ -28,16 +28,16 @@ Azure 파일 동기화를 사용하여 온-프레미스 파일 서버의 유연�
 | 12 월 2019 업데이트 롤업- [KB4522360](https://support.microsoft.com/help/4522360)| 9.1.0.0 | 2019년 12월 12일 | 지원됨 |
 | V9 릴리스- [KB4522359](https://support.microsoft.com/help/4522359)| 9.0.0.0 | 2019 년 12 월 2 일 | 지원됨 |
 | V8 릴리스- [KB4511224](https://support.microsoft.com/help/4511224)| 8.0.0.0 | 2019년 10월 8일 | 지원됨 |
-| 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019년 7월 24일 | 지원됨 |
+| 7 월 2019 업데이트 롤업- [KB4490497](https://support.microsoft.com/help/4490497)| 7.2.0.0 | 2019 년 7 월 24 일 | 지원됨 |
 | 7 월 2019 업데이트 롤업- [KB4490496](https://support.microsoft.com/help/4490496)| 7.1.0.0 | 2019 년 7 월 12 일 | 지원됨 |
 | V7 릴리스- [KB4490495](https://support.microsoft.com/help/4490495)| 7.0.0.0 | 2019 년 6 월 19 일 | 지원됨 |
 | 6 월 2019 업데이트 롤업- [KB4489739](https://support.microsoft.com/help/4489739)| 6.3.0.0 | 2019 년 6 월 27 일 | 지원됨 |
 | 6 월 2019 업데이트 롤업- [KB4489738](https://support.microsoft.com/help/4489738)| 6.2.0.0 | June 13, 2019 | 지원됨 |
 | 2019 년 5 월 업데이트 롤업- [KB4489737](https://support.microsoft.com/help/4489737)| 6.1.0.0 | 2019 년 5 월 7 일 | 지원됨 |
 | V6 릴리스- [KB4489736](https://support.microsoft.com/help/4489736)| 6.0.0.0 | 2019 년 4 월 21 일 | 지원됨 |
-| 4 월 2019 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 4 월 4 일 | 지원 됨-에이전트 버전이 2020 년 2 월 12 일에 만료 됩니다. |
-| 3 월 2019 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원 됨-에이전트 버전이 2020 년 2 월 12 일에 만료 됩니다. |
-| V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원 됨-에이전트 버전이 2020 년 2 월 12 일에 만료 됩니다. |
+| 4 월 2019 업데이트 롤업- [KB4481061](https://support.microsoft.com/help/4481061)| 5.2.0.0 | 2019 4 월 4 일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
+| 3 월 2019 업데이트 롤업- [KB4481060](https://support.microsoft.com/help/4481060)| 5.1.0.0 | 2019 년 3 월 7 일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
+| V5 릴리스 - [KB4459989](https://support.microsoft.com/help/4459989)| 5.0.2.0 | 2019년 2월 12일 | 지원 됨-에이전트 버전이 2020 년 3 월 18 일에 만료 됩니다. |
 | V4 릴리스 | 4.0.1.0 - 4.3.0.0 | N/A | 지원 되지 않음-2019 년 11 월 6 일에 에이전트 버전이 만료 됨 |
 | V3 릴리스 | 은 3.1.0.0-v3.4.0.0 | N/A | 지원 되지 않음-에이전트 버전이 8 월 19 일에 만료 됨-2019 |
 | GA 에이전트 | 1.1.0.0 - 3.0.13.0 | N/A | 미지원 - 2018년 10월 1일에 에이전트 버전 만료 |
@@ -234,7 +234,7 @@ Windows Server와 함께 Azure 파일 동기화 에이전트를 설치하고 구
 ### <a name="improvements-and-issues-that-are-fixed"></a>개선 사항 및 해결된 문제
 
 - 더 큰 파일 공유 크기 지원
-    - 대규모 Azure 파일 공유의 미리 보기를 사용 하 여 파일 동기화에 대 한 지원 제한을 늘립니다. 이 첫 번째 단계에서는 Azure File Sync 현재 단일 동기화 네임 스페이스에서 최대 25tb 및 5000만 파일을 지원 합니다. 대량 파일 공유 미리 보기에 적용 하려면이 양식 https://aka.ms/azurefilesatscalesurvey 을 입력 합니다. 
+    - 대규모 Azure 파일 공유의 미리 보기를 사용 하 여 파일 동기화에 대 한 지원 제한을 늘립니다. 이 첫 번째 단계에서는 Azure File Sync 현재 단일 동기화 네임 스페이스에서 최대 25tb 및 5000만 파일을 지원 합니다. 대량 파일 공유 미리 보기에 적용 하려면이 양식 https://aka.ms/azurefilesatscalesurvey을 입력 합니다. 
 - 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정 지원
     - 이제 Azure File Sync에서 저장소 계정에 대 한 방화벽 및 가상 네트워크 설정을 지원 합니다. 방화벽 및 가상 네트워크 설정에서 작동 하도록 배포를 구성 하려면 [방화벽 및 가상 네트워크 설정 구성](https://docs.microsoft.com/azure/storage/files/storage-sync-files-deployment-guide?tabs=azure-portal#configure-firewall-and-virtual-network-settings)을 참조 하세요.
 - Azure 파일 공유에서 변경 된 파일을 즉시 동기화 하는 PowerShell cmdlet

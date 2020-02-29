@@ -3,7 +3,7 @@ title: Azure VM 크기-GPU | Microsoft Docs
 description: Azure의 가상 컴퓨터에 사용할 수 있는 다양 한 GPU 최적화 크기를 나열 합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: vikancha
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: e7e9ff795f7f639686b9f629dacb6f0752c20732
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 7e1e0d488844a94bd0be2b91398678e620295729
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660209"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913585"
 ---
 # <a name="gpu-optimized-virtual-machine-sizes"></a>GPU 최적화 가상 머신 크기
 

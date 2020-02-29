@@ -2,17 +2,17 @@
 title: Dav4 및 Dasv4 시리즈-Azure Virtual Machines
 description: Dav4 및 Dasv4 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: f371281e4072902f9946eb9fd107b68a1e4bf4f6
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 809843bddc4216df4dab44330172d36778248b1a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493879"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162182"
 ---
 # <a name="dav4-and-dasv4-series"></a>Dav4 및 Dasv4 시리즈
 
@@ -25,6 +25,10 @@ ACU: 230-260
 Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 Dav4 시리즈 크기는 3.35 GHz의 승격 된 최대 빈도를 달성할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Dav4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 임시 저장소의 조합을 제공 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Dasv4 크기를 사용 합니다. Dasv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Dav4 시리즈와 동일 합니다.
 
@@ -48,6 +52,10 @@ ACU: 230-260
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 Dasv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Dasv4 시리즈 크기는 대부분의 프로덕션 워크 로드에 대 한 vCPU, 메모리 및 임시 저장소의 조합을 제공 합니다.
 

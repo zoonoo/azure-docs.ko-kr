@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 09/03/2018
 ms.author: cshoe
-ms.openlocfilehash: dbc2e08ab131c591d8857e1cf88b5c9f91db9610
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: edeafb5730f06dac22fd9919ca42ea388d5fd0f6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425241"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915625"
 ---
 # <a name="azure-table-storage-bindings-for-azure-functions"></a>Azure Functions의 Azure Table Storage 바인딩
 
@@ -36,7 +36,7 @@ Table Storage 바인딩은 [Microsoft.Azure.WebJobs.Extensions.Storage](https://
 
 Azure Table Storage 입력 바인딩을 사용하여 Azure Storage 계정에서 테이블을 읽을 수 있습니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 ### <a name="one-entity"></a>하나의 엔터티
 
@@ -143,7 +143,7 @@ CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Sto
 
 `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 ### <a name="one-entity"></a>하나의 엔터티
 
@@ -310,7 +310,7 @@ CloudTable을 사용하는 방법에 대한 자세한 내용은 [Azure Table Sto
 `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 코드](functions-reference-node.md)에서 테이블 입력 바인딩을 보여줍니다. 함수는 큐 트리거를 사용하여 단일 테이블 행을 읽습니다. 
 
@@ -352,7 +352,7 @@ module.exports = function (context, myQueueItem) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 단일 테이블 행 
 
@@ -401,21 +401,72 @@ def main(req: func.HttpRequest, messageJSON) -> func.HttpResponse:
     return func.HttpResponse(f"Table row: {messageJSON}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
-다음 예는 Table Storage의 지정된 파티션에 있는 총 항목 수를 반환하는 HTTP 트리거 함수를 보여줍니다.
+다음 예에서는 테이블 저장소의 지정 된 파티션에 있는 person 개체의 목록을 반환 하는 HTTP 트리거 함수를 보여 줍니다. 이 예에서는 http 경로에서 파티션 키를 추출 하 고 tableName과 연결을 함수 설정에서 추출 합니다. 
 
 ```java
-@FunctionName("getallcount")
-public int run(
-   @HttpTrigger(name = "req",
-                 methods = {HttpMethod.GET},
-                 authLevel = AuthorizationLevel.ANONYMOUS) Object dummyShouldNotBeUsed,
-   @TableInput(name = "items",
-                tableName = "mytablename",  partitionKey = "myparkey",
-                connection = "myconnvarname") MyItem[] items
-) {
-    return items.length;
+public class Person {
+    private String PartitionKey;
+    private String RowKey;
+    private String Name;
+
+    public String getPartitionKey() { return this.PartitionKey; }
+    public void setPartitionKey(String key) { this.PartitionKey = key; }
+    public String getRowKey() { return this.RowKey; }
+    public void setRowKey(String key) { this.RowKey = key; }
+    public String getName() { return this.Name; }
+    public void setName(String name) { this.Name = name; }
+}
+
+@FunctionName("getPersonsByPartitionKey")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="persons/{partitionKey}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("partitionKey") String partitionKey,
+        @TableInput(name="persons", partitionKey="{partitionKey}", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with partition key: " + partitionKey);
+
+    return persons;
+}
+```
+
+TableInput 주석은 다음 예제와 같이 요청의 json 본문에서 바인딩을 추출할 수도 있습니다.
+
+```java
+@FunctionName("GetPersonsByKeysFromRequest")
+public HttpResponseMessage get(
+        @HttpTrigger(name = "getPerson", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="query") HttpRequestMessage<Optional<String>> request,
+        @TableInput(name="persons", partitionKey="{partitionKey}", rowKey = "{rowKey}", tableName="%MyTableName%", connection="MyConnectionString") Person person,
+        final ExecutionContext context) {
+
+    if (person == null) {
+        return request.createResponseBuilder(HttpStatus.NOT_FOUND)
+                    .body("Person not found.")
+                    .build();
+    }
+
+    return request.createResponseBuilder(HttpStatus.OK)
+                    .header("Content-Type", "application/json")
+                    .body(person)
+                    .build();
+}
+```
+
+다음 예에서는 필터를 사용 하 여 Azure 테이블의 특정 이름을 가진 사람을 쿼리하고 가능한 일치 항목 수를 10 개 결과로 제한 합니다.
+
+```java
+@FunctionName("getPersonsByName")
+public Person[] get(
+        @HttpTrigger(name = "getPersons", methods = {HttpMethod.GET}, authLevel = AuthorizationLevel.FUNCTION, route="filter/{name}") HttpRequestMessage<Optional<String>> request,
+        @BindingName("name") String name,
+        @TableInput(name="persons", filter="Name eq '{name}'", take = "10", tableName="%MyTableName%", connection="MyConnectionString") Person[] persons,
+        final ExecutionContext context) {
+
+    context.getLogger().info("Got query for person related to persons with name: " + name);
+
+    return persons;
 }
 ```
 
@@ -423,7 +474,7 @@ public int run(
 
 ## <a name="input---attributes-and-annotations"></a>입력-특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
  [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서는 다음 특성을 사용하여 테이블 입력 바인딩을 구성합니다.
 
@@ -481,19 +532,19 @@ public int run(
 * 클래스에 적용된 `StorageAccount` 특성
 * 함수 앱의 기본 스토리지 계정("AzureWebJobsStorage" 앱 설정)
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 값이 Table Storage에서 제공되는 매개 변수에 대한 `@TableInput` 주석을 사용합니다.  `Optional<T>`을 사용하여 원시 Java 형식, POJO 또는 null 허용 값으로 이 주석을 사용할 수 있습니다.
 
@@ -503,7 +554,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *function.json* 파일 및 `Table` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `in`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -519,7 +570,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="input---usage"></a>입력 - 사용
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 * **에서 한 행을 읽습니다.**
 
@@ -532,7 +583,7 @@ Python에서 특성을 지원 하지 않습니다.
   > [!NOTE]
   > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 * **에서 한 행을 읽습니다.**
 
@@ -545,15 +596,15 @@ Python에서 특성을 지원 하지 않습니다.
   > [!NOTE]
   > `IQueryable`은 [Functions v2 런타임](functions-versions.md)에서 지원되지 않습니다. 대신 Azure Storage SDK를 사용하여 테이블을 읽는 [CloudTable paramName 메서드 매개 변수를 사용](https://stackoverflow.com/questions/48922485/binding-to-table-storage-in-v2-azure-functions-using-cloudtable)합니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `filter` 및 `take` 속성을 설정합니다. `partitionKey` 또는 `rowKey`를 설정하지 않습니다. `context.bindings.<BINDING_NAME>`을 사용하여 입력 테이블 엔터티(또는 여러 엔터티)에 액세스합니다. 역직렬화된 개체는 `RowKey` 및 `PartitionKey` 속성을 가집니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 테이블 데이터는 JSON 문자열로 함수에 전달 됩니다. 입력 [예제](#input)에 표시 된 대로 `json.loads`를 호출 하 여 메시지를 역직렬화 합니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Tableinput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableinput) 특성은 함수를 트리거한 테이블 행에 대 한 액세스를 제공 합니다.
 
@@ -566,7 +617,7 @@ Azure Table Storage 출력 바인딩을 사용하여 Azure Storage 계정에서 
 > [!NOTE]
 > 이 출력 바인딩은 기존 엔터티 업데이트를 지원하지 않습니다. `TableOperation.Replace`Azure Storage SDK[에서 ](../cosmos-db/tutorial-develop-table-dotnet.md#delete-an-entity) 작업을 사용하여 기존 엔터티를 업데이트합니다.
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용하는 [C# 함수](functions-dotnet-class-library.md)를 보여줍니다. 
 
@@ -590,7 +641,7 @@ public class TableStorage
 }
 ```
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [C# 스크립트](functions-reference-csharp.md) 코드에서 테이블 출력 바인딩을 보여줍니다. 함수는 여러 테이블 엔터티를 씁니다.
 
@@ -645,7 +696,7 @@ public class Person
 
 ```
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 다음 예에서는 바인딩을 사용하는 *function.json* 파일 및 [JavaScript 함수](functions-reference-node.md)에서 테이블 출력 바인딩을 보여줍니다. 함수는 여러 테이블 엔터티를 씁니다.
 
@@ -692,7 +743,7 @@ module.exports = function (context) {
 };
 ```
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 다음 예에서는 Table storage 출력 바인딩을 사용 하는 방법을 보여 줍니다. `table` 바인딩은 `name`, `tableName`, `partitionKey`및 `connection`에 값을 할당 하 여 *함수 json* 에서 구성 됩니다.
 
@@ -751,7 +802,7 @@ def main(req: func.HttpRequest, message: func.Out[str]) -> func.HttpResponse:
     return func.HttpResponse(f"Message created with the rowKey: {rowKey}")
 ```
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 다음 예제에서는 단일 테이블 행을 쓰기 위해 HTTP 트리거를 사용 하는 Java 함수를 보여 줍니다.
 
@@ -768,7 +819,8 @@ public class Person {
     public String getName() {return this.Name;}
     public void setName(String name) {this.Name = name; }
 }
-    public class AddPerson {
+
+public class AddPerson {
 
     @FunctionName("addPerson")
     public HttpResponseMessage get(
@@ -831,7 +883,7 @@ public class AddPersons {
 
 ## <a name="output---attributes-and-annotations"></a>출력-특성 및 주석
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 [C# 클래스 라이브러리](functions-dotnet-class-library.md)에서 [TableAttribute](https://github.com/Azure/azure-webjobs-sdk/blob/master/src/Microsoft.Azure.WebJobs.Extensions.Storage/Tables/TableAttribute.cs)를 사용합니다.
 
@@ -865,19 +917,19 @@ public static MyPoco TableOutput(
 
 `StorageAccount` 특성을 사용하여 클래스, 메서드 또는 매개 변수 수준에서 스토리지 계정을 지정합니다. 자세한 내용은 [입력 - 특성](#input---attributes-and-annotations)을 참조하세요.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 스크립트에서 C# 특성을 지원 하지 않습니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 JavaScript에서는 특성을 지원 하지 않습니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 Python에서 특성을 지원 하지 않습니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Java 함수 런타임 라이브러리](/java/api/overview/azure/functions/runtime)에서 매개 변수에 대 한 [tableoutput](https://github.com/Azure/azure-functions-java-library/blob/master/src/main/java/com/microsoft/azure/functions/annotation/TableOutput.java/) 주석을 사용 하 여 테이블 저장소에 값을 씁니다.
 
@@ -889,7 +941,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 다음 표에서는 *function.json* 파일 및 `Table` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 |**type** | 해당 없음 | `table`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다.|
 |**direction** | 해당 없음 | `out`로 설정해야 합니다. 이 속성은 사용자가 Azure Portal에서 바인딩을 만들 때 자동으로 설정됩니다. |
@@ -903,23 +955,23 @@ Python에서 특성을 지원 하지 않습니다.
 
 ## <a name="output---usage"></a>출력 - 사용
 
-# <a name="ctabcsharp"></a>[C#](#tab/csharp)
+# <a name="c"></a>[C#](#tab/csharp)
 
 메서드 매개 변수 `ICollector<T> paramName` `IAsyncCollector<T> paramName` 사용 하 여 출력 테이블 엔터티에 액세스 하 고 `T` `PartitionKey` 및 `RowKey` 속성을 포함 합니다. 이러한 속성에는 `ITableEntity`를 구현 하거나 `TableEntity`를 상속 하는 경우가 많습니다.
 
 또는 Azure Storage SDK를 사용 하 여 `CloudTable` 메서드 매개 변수를 사용 하 여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="c-scripttabcsharp-script"></a>[C#스크립트도](#tab/csharp-script)
+# <a name="c-script"></a>[C#스크립트도](#tab/csharp-script)
 
 메서드 매개 변수 `ICollector<T> paramName` `IAsyncCollector<T> paramName` 사용 하 여 출력 테이블 엔터티에 액세스 하 고 `T` `PartitionKey` 및 `RowKey` 속성을 포함 합니다. 이러한 속성에는 `ITableEntity`를 구현 하거나 `TableEntity`를 상속 하는 경우가 많습니다. `paramName` 값은 *함수 json*의 `name` 속성에 지정 됩니다.
 
 또는 Azure Storage SDK를 사용 하 여 `CloudTable` 메서드 매개 변수를 사용 하 여 테이블에 쓸 수 있습니다. `CloudTable`에 바인딩하려고 하면 오류 메시지가 표시되는 경우 [올바른 Storage SDK 버전](#azure-storage-sdk-version-in-functions-1x)에 대한 참조가 있는지 확인합니다.
 
-# <a name="javascripttabjavascript"></a>[JavaScript](#tab/javascript)
+# <a name="javascript"></a>[JavaScript](#tab/javascript)
 
 `context.bindings.<name>`를 사용 하 여 출력 이벤트에 액세스 합니다. 여기서 `<name>`는 *함수. json*의 `name` 속성에 지정 된 값입니다.
 
-# <a name="pythontabpython"></a>[Python](#tab/python)
+# <a name="python"></a>[Python](#tab/python)
 
 함수에서 테이블 저장소 행 메시지를 출력 하는 두 가지 옵션은 다음과 같습니다.
 
@@ -927,7 +979,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 - **명령적**: [Out](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python) 형식으로 선언 된 매개 변수의 [set](https://docs.microsoft.com/python/api/azure-functions/azure.functions.out?view=azure-python#set-val--t-----none) 메서드에 값을 전달 합니다. `set` 전달 되는 값은 이벤트 허브 메시지로 유지 됩니다.
 
-# <a name="javatabjava"></a>[Java](#tab/java)
+# <a name="java"></a>[Java](#tab/java)
 
 [Tablestorageoutput](https://docs.microsoft.com/java/api/com.microsoft.azure.functions.annotation.tableoutput?view=azure-java-stablet) 주석을 사용 하 여 함수에서 테이블 저장소 행을 출력 하는 두 가지 옵션이 있습니다.
 
@@ -941,7 +993,7 @@ Python에서 특성을 지원 하지 않습니다.
 
 | 바인딩 | 참조 |
 |---|---|
-| 테이블 | [테이블 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
+| Table | [테이블 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/table-service-error-codes) |
 | Blob, 테이블, 큐 | [스토리지 오류 코드](https://docs.microsoft.com/rest/api/storageservices/fileservices/common-rest-api-error-codes) |
 | Blob, 테이블, 큐 | [문제 해결](https://docs.microsoft.com/rest/api/storageservices/fileservices/troubleshooting-api-operations) |
 

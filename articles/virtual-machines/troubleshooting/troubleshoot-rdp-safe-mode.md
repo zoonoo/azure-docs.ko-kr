@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 11/13/2018
 ms.author: genli
-ms.openlocfilehash: 14cd43f7bd7965b755eca14e5914c64e2ec8e044
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 7bc2c0f472a03c3f069a889c360bea9017a780f2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981301"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918209"
 ---
 #  <a name="cannot-rdp-to-a-vm-because-the-vm-boots-into-safe-mode"></a>VM이 안전 모드로 부팅되어 VM에 RDP로 연결할 수 없음
 
 이 문서에서는 VM이 안전 모드로 부팅하도록 구성되어 Azure Windows VM(Virtual Machines)에 연결할 수 없는 문제 해결 방법을 보여줍니다.
 
-> [!NOTE]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 

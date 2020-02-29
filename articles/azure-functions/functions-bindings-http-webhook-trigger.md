@@ -5,12 +5,12 @@ author: craigshoemaker
 ms.topic: reference
 ms.date: 02/21/2020
 ms.author: cshoe
-ms.openlocfilehash: a2adf59a542f695b7845e1a871c0b297b0790fec
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 045f3ccdc8dc09bf657ab39ce15a0d0524c73fcb
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77672160"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162965"
 ---
 # <a name="azure-functions-http-trigger"></a>Azure Functions HTTP 트리거
 
@@ -479,7 +479,7 @@ public HttpResponseMessage<String> HttpTrigger(
 
 다음 표에서는 *function.json* 파일 및 `HttpTrigger` 특성에 설정된 바인딩 구성 속성을 설명합니다.
 
-|function.json 속성 | 특성 속성 |Description|
+|function.json 속성 | 특성 속성 |설명|
 |---------|---------|----------------------|
 | **type** | 해당 없음| 필수 - `httpTrigger`으로 설정해야 합니다. |
 | **direction** | 해당 없음| 필수 - `in`으로 설정해야 합니다. |
@@ -749,7 +749,7 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 
 ## <a name="authorization-keys"></a>권한 부여 키
 
-함수에서는 키를 사용해 개발 중에 HTTP 함수 엔드포인트 액세스를 더 어렵게 만들 수 있습니다.  표준 HTTP 트리거의 경우 요청에 이러한 API 키가 있어야 할 수 있습니다. 
+함수에서는 키를 사용해 개발 중에 HTTP 함수 엔드포인트 액세스를 더 어렵게 만들 수 있습니다.  HTTP 트리거 함수에 대 한 HTTP 권한 부여 수준이 `anonymous`로 설정 되어 있지 않으면 요청에 API 키를 포함 해야 합니다. 
 
 > [!IMPORTANT]
 > 키가 있으면 개발 중에 HTTP 엔드포인트를 난독 처리할 수는 있지만, 프로덕션 환경에서 HTTP 트리거를 보호할 수는 없습니다. 자세히 알아보려면 [프로덕션 환경에서 HTTP 엔드포인트 보호](#secure-an-http-endpoint-in-production)를 참조하세요.
@@ -757,14 +757,19 @@ public static void Run(JObject input, ClaimsPrincipal principal, ILogger log)
 > [!NOTE]
 > Functions 1.x 런타임에서는 웹후크 공급자가 키를 사용하여 공급자가 지원하는 항목에 따라 다양한 방식으로 요청에 권한을 부여할 수 있습니다. 여기에 대해서는 [웹후크 및 키](#webhooks-and-keys)에서 다룹니다. 버전 2.x 이상의 함수 런타임에는 웹 후크 공급자에 대 한 기본 제공 지원이 포함 되지 않습니다.
 
-다음과 같이 두 가지 유형의 키가 있습니다.
+#### <a name="authorization-scopes-function-level"></a>권한 부여 범위 (함수 수준)
 
-* **호스트 키**: 함수 앱 내의 모든 함수에서 공유합니다. API 키로 사용되면 이 키를 통해 함수 앱 내의 모든 함수에 액세스할 수 있습니다.
-* **function 키**: 정의된 특정 함수에만 적용됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
+함수 수준 키에 대 한 두 가지 권한 부여 범위는 다음과 같습니다.
+
+* **Function**: 이러한 키는 정의 된 특정 함수에만 적용 됩니다. API 키로 사용되면 이 키를 통해 해당 함수에만 액세스할 수 있습니다.
+
+* **호스트**: 호스트 범위가 포함 된 키는 함수 앱 내의 모든 함수에 액세스 하는 데 사용할 수 있습니다. API 키로 사용되면 이 키를 통해 함수 앱 내의 모든 함수에 액세스할 수 있습니다. 
 
 각 키의 이름은 참조될 수 있도록 지정되며 함수 및 호스트 수준에서는 "default"라는 기본 키가 있습니다. function 키는 호스트 키보다 우선합니다. 두 키가 동일한 이름으로 정의되면 항상 함수 키가 사용됩니다.
 
-각 함수 앱에는 특수 **마스터 키**도 있습니다. 이 키는 런타임 API에 대한 관리자 권한을 제공하는 `_master` 호스트 키입니다. 이 키를 취소할 수 없습니다. 권한 부여 수준 `admin`을 설정하는 경우 요청은 마스터 키를 사용해야 하며, 다른 키를 사용하는 경우 권한 부여가 실패합니다.
+#### <a name="master-key-admin-level"></a>마스터 키 (관리자 수준) 
+
+각 함수 앱에는 `_master`이라는 관리 수준 호스트 키도 있습니다. 마스터 키는 응용 프로그램의 모든 기능에 대 한 호스트 수준 액세스를 제공 하는 것 외에도 런타임 REST Api에 대 한 관리 액세스를 제공 합니다. 이 키를 취소할 수 없습니다. 권한 부여 수준 `admin`을 설정하는 경우 요청은 마스터 키를 사용해야 하며, 다른 키를 사용하는 경우 권한 부여가 실패합니다.
 
 > [!CAUTION]  
 > 함수 앱에서는 마스터 키를 통해 높은 권한이 부여되므로, 이 키를 제3자와 공유하거나 네이티브 클라이언트 애플리케이션에 배포해서는 안 됩니다. 따라서 관리자 권한 부여 수준을 선택할 때는 주의해야 합니다.

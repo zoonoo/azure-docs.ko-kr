@@ -2,17 +2,17 @@
 title: NC 시리즈-Azure Virtual Machines
 description: NC 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: ddd529510ed2eb2080956c26a0ce20c50c2242eb
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: eab7dfe79aa5cdf234c8bc9472387214f7df3563
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661106"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164528"
 ---
 # <a name="nc-series"></a>NC 시리즈
 
@@ -21,6 +21,10 @@ NC 시리즈 Vm은 [NVIDIA Tesla K80](https://www.nvidia.com/content/dam/en-zz/S
 Premium Storage: 지원되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|

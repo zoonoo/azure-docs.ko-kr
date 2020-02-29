@@ -4,12 +4,12 @@ description: 이 문서에서는 백업 및 복구 지점이 저장 되는 Recov
 ms.reviewer: sogup
 ms.topic: conceptual
 ms.date: 05/30/2019
-ms.openlocfilehash: 682bf26c1485bd9e2ae288a6947e9ad573463069
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: eb7dcb4038260b1edac57a2163a1c0eae29ee452
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705465"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920113"
 ---
 # <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
@@ -85,10 +85,10 @@ Azure Backup는 자격 증명 모음에 대 한 저장소를 자동으로 처리
 이 프로세스의 경우 저장소 수준에 따라 가격 책정이 영향을 미칩니다.
 
 >[!NOTE]
->시작하기 전에
+>시작하기 전 주의 사항
 >
 >- 지원 되는 관리 되는 형식 및 지역 목록은 [지원 매트릭스](backup-support-matrix.md#cross-region-restore) 를 검토 하세요.
->- CRR (지역 간 복원) 기능은 현재 WCUS 지역 에서만 사용할 수 있습니다.
+>- CRR (지역 간 복원) 기능은 현재 미국 서 부, 미국 서 부 2, 오스트레일리아 동부 및 오스트레일리아 남동쪽 지역 에서만 사용할 수 있습니다. 
 >- CRR은 GRS 자격 증명 모음에 대 한 자격 증명 모음 수준 옵트인 기능입니다 (기본적으로 해제 됨).
 >- 이 기능에 대 한 구독을 등록 하려면 다음 명령을 사용 하세요.<br>
 >  `Register-AzProviderFeature -FeatureName CrossRegionRestore -ProviderNamespace Microsoft.RecoveryServices`

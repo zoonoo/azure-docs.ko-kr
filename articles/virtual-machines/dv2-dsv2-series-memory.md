@@ -2,17 +2,17 @@
 title: 메모리 액세스에 최적화 된 Dv2 및 DSv2 시리즈 Vm-Azure Virtual Machines
 description: Dv2 및 DSv2 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 1ba13733fdf5cf8aa83cbf71a23d013bf4ae90d4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 66e415070e60676df5602078aff50c7b68920f1e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493788"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914044"
 ---
 # <a name="memory-optimized-dv2-and-dsv2-series"></a>메모리 액세스에 최적화 된 Dv2 및 Dsv2 시리즈
 

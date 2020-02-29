@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 089fcc89f330e47a09187b5338176bf23fd801bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603759"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921303"
 ---
 # <a name="supported-platforms"></a>지원 플랫폼 
 
@@ -126,4 +126,4 @@ Azure Stack에 있는 Virtual Machines에 대 한 보호도 지원 됩니다. Az
 - [Security Center에서 데이터를 관리 하 고 보호](security-center-data-security.md)하는 방법을 알아봅니다.
 - [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
 - 다양 한 [클라우드 환경에 사용할 수 있는 기능](security-center-services.md)에 대해 알아봅니다.
-- [Azure Security Center에서 vm & 서버에 대 한 위협 검색](security-center-alerts-iaas.md)에 대해 자세히 알아보세요.
+- [Azure Security Center의 Windows 및 Linux 컴퓨터에 대 한 위협 방지](threat-protection.md#windows-machines)에 대해 자세히 알아보세요.

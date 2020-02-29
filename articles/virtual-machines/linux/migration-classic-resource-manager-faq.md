@@ -14,14 +14,19 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 99879c45f8988f9db5fdb5a7ed656a1cc24ea321
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 239d9f21d9ec4c051600e0722c4b70f63699b968
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121945"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912575"
 ---
 # <a name="frequently-asked-questions-about-classic-to-azure-resource-manager-migration"></a>클래식에서 Azure Resource Manager 마이그레이션에 대한 질문과 대답
+
+> [!IMPORTANT]
+> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+
+
 [!INCLUDE [virtual-machines-common-migration-faq](../../../includes/virtual-machines-common-classic-resource-manager-migration-faq.md)]
 
 ## <a name="next-steps"></a>다음 단계

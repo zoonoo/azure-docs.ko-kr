@@ -1,5 +1,6 @@
 ---
-title: 사용자 지정 정책 시작-Azure Active Directory B2C
+title: 사용자 지정 정책 시작
+titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 시작 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
 author: mmacy
@@ -7,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 10/18/2019
+ms.date: 02/28/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 5a0e5846dd541e4997c271aee180b3790efa16e9
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 04978b561e3b0057318d08146f344411dec55ee4
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114040"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161672"
 ---
 # <a name="get-started-with-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책 시작
 
@@ -23,11 +24,11 @@ ms.locfileid: "77114040"
 
 [사용자 지정 정책은](custom-policy-overview.md) Azure Active Directory B2C (Azure AD B2C) 테 넌 트의 동작을 정의 하는 구성 파일입니다. 이 문서에서는 전자 메일 주소와 암호를 사용한 로콜 계정 등록 또는 로그인을 지원하는 사용자 지정 정책을 만듭니다. ID 공급자를 추가하기 위한 환경도 준비합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 - 아직 없는 경우 Azure 구독에 연결 된 [Azure AD B2C 테 넌 트를 만듭니다](tutorial-create-tenant.md) .
 - Azure AD B2C와 통신할 수 있도록 만든 테 넌 트에 [응용 프로그램을 등록](tutorial-register-applications.md) 합니다.
-- Facebook [계정을 사용 하 여 등록 및 로그인 설정](identity-provider-facebook.md) 의 단계를 완료 하 여 facebook 응용 프로그램을 구성 합니다.
+- Facebook [계정을 사용 하 여 등록 및 로그인 설정](identity-provider-facebook.md) 의 단계를 완료 하 여 facebook 응용 프로그램을 구성 합니다. Facebook 응용 프로그램은 사용자 지정 정책을 사용 하는 데 필요 하지 않지만이 연습에서는 사용자 지정 정책에서 소셜 로그인을 사용 하도록 설정 하는 방법을 보여 줍니다.
 
 ## <a name="add-signing-and-encryption-keys"></a>서명 및 암호화 키 추가
 
@@ -75,7 +76,7 @@ Azure AD B2C 테 넌 트에서 이러한 두 응용 프로그램을 한 번만 �
 
 Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록 (레거시)** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure Portal에서 **Azure Active Directory**를 검색하고 선택합니다.
@@ -86,7 +87,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 1. **로그온 URL**에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com`을 입력합니다. 여기서 `your-tenant-name`은 Azure AD B2C 테넌트 도메인 이름입니다. 이제 모든 URL은 [b2clogin.com](b2clogin.md)을 사용해야 합니다.
 1. **만들기**를 선택합니다. 생성된 애플리케이션 ID를 복사한 후 나중에 사용할 수 있도록 저장합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
 1. **이름**에 `IdentityExperienceFramework`를 입력합니다.
@@ -110,7 +111,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 
 ### <a name="register-the-proxyidentityexperienceframework-application"></a>ProxyIdentityExperienceFramework 애플리케이션 등록
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. **앱 등록 (레거시)** 에서 **새 응용 프로그램 등록**을 선택 합니다.
 1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
@@ -122,7 +123,7 @@ Azure AD B2C 테 넌 트에 응용 프로그램을 등록 하려면 **앱 등록
 1. **IdentityExperienceFramework 액세스** 옆의 확인란을 선택한 다음 **선택**, **완료**를 차례로 클릭합니다.
 1. **권한 부여**를 선택 하 고 **예**를 선택 하 여 확인 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **앱 등록(미리 보기)** 을 선택한 다음, **새 등록**을 선택합니다.
 1. **이름**에 `ProxyIdentityExperienceFramework`를 입력합니다.
@@ -221,6 +222,8 @@ GitHub에서 사용자 지정 정책 시작 팩을 가져온 다음, Azure AD B2
 1. 동일한 계정으로 로그인하여 올바르게 구성되었는지 확인합니다.
 
 ## <a name="add-facebook-as-an-identity-provider"></a>Facebook을 ID 공급자로 추가
+
+[필수 구성 요소](#prerequisites)에 설명 된 대로 사용자 지정 정책을 사용 하는 데 Facebook이 필요 *하지* 는 않지만 여기서는 사용자 지정 정책에서 페더레이션된 소셜 로그인을 사용 하도록 설정 하는 방법을 설명 하는 데 사용 됩니다.
 
 1. `SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** 파일에서 `client_id` 값을 Facebook 응용 프로그램 ID로 바꿉니다.
 

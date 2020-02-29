@@ -1,5 +1,5 @@
 ---
-title: Windows Server에 대한 Azure Hybrid Benefit
+title: Windows Server용 Azure Hybrid Benefit
 description: Azure에 온-프레미스 라이선스를 가져오기 위해 Windows Software Assurance 혜택을 최대화하는 방법에 대해 알아봅니다.
 services: virtual-machines-windows
 documentationcenter: ''
@@ -13,28 +13,26 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 4/22/2018
 ms.author: xujing
-ms.openlocfilehash: d6e3d4d059e464795c712af1226d8202d00bfd74
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 470e38c21a250273216f93eb38a5334a4bb581e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461163"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911793"
 ---
-# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server에 대한 Azure Hybrid Benefit
+# <a name="azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit
 Software Assurance 고객은 Windows Server용 Azure Hybrid Benefit을 통해 온-프레미스 Windows Server 라이선스를 사용하고 Azure에서 Windows 가상 머신을 실행하여 비용을 절감할 수 있습니다. Windows OS를 사용하여 새 가상 머신을 배포하려면 Windows Server용 Azure Hybrid Benefit을 사용할 수 있습니다. 이 문서에서는 Windows Server용 Azure 하이브리드 혜택을 통해 새 VM을 배포하는 방법과 기존 실행 VM을 업데이트하는 방법에 대한 단계를 살펴봅니다. Windows Server용 Azure Hybrid Benefit 라이선스 및 비용 절감에 대한 자세한 내용은 [Windows Server용 Azure Hybrid Benefit 라이선스 페이지](https://azure.microsoft.com/pricing/hybrid-use-benefit/)를 참조하세요.
 
-> [!Important]
-> 각 2개 프로세서 라이선스 또는 각 16코어 라이선스 집합이 있으면 최대 8코어 인스턴스 두 개 또는 최대 16코어 인스턴스 한 개를 받을 수 있습니다. Standard Edition 라이선스에 대한 Azure Hybrid Benefit은 온-프레미스 또는 Azure에서 한 번만 사용할 수 있습니다. Datacenter Edition 혜택은 온-프레미스와 Azure 모두에서 동시에 사용할 수 있습니다.
->
+각 2개 프로세서 라이선스 또는 각 16코어 라이선스 집합이 있으면 최대 8코어 인스턴스 두 개 또는 최대 16코어 인스턴스 한 개를 받을 수 있습니다. Standard Edition 라이선스에 대한 Azure Hybrid Benefit은 온-프레미스 또는 Azure에서 한 번만 사용할 수 있습니다. Datacenter Edition 혜택은 온-프레미스와 Azure 모두에서 동시에 사용할 수 있습니다.
 
-> [!Important]
-> Windows Server OS를 실행하는 모든 VM을 통해 Windows Server용 Azure Hybrid Benefit의 사용은 SQL Server 또는 타사 마켓플레이스 소프트웨어와 같은 추가 소프트웨어가 포함된 VM을 포함하여 모든 지역에서 지원됩니다. 
->
+Windows Server OS를 실행하는 모든 VM을 통해 Windows Server용 Azure Hybrid Benefit의 사용은 SQL Server 또는 타사 마켓플레이스 소프트웨어와 같은 추가 소프트웨어가 포함된 VM을 포함하여 모든 지역에서 지원됩니다. 
 
-> [!NOTE]
-> 클래식 Vm의 경우 온-프레미스 사용자 지정 이미지에서 새 VM 배포만 지원 됩니다. 이 문서에서 지원되는 기능을 활용하려면 먼저 클래식 VM을 리소스 관리자 모델로 마이그레이션해야 합니다.
->
 
+## <a name="classic-vms"></a>클래식 VM
+
+클래식 Vm의 경우 온-프레미스 사용자 지정 이미지에서 새 VM 배포만 지원 됩니다. 이 문서에서 지원되는 기능을 활용하려면 먼저 클래식 VM을 리소스 관리자 모델로 마이그레이션해야 합니다.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
  
 
 ## <a name="ways-to-use-azure-hybrid-benefit-for-windows-server"></a>Windows Server용 Azure Hybrid Benefit 사용 방법

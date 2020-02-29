@@ -13,18 +13,18 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/28/2018
 ms.author: memildin
-ms.openlocfilehash: 10e1081c7a91c65c21ffcb3da66930fb7c6e73bb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: f8b4063d87fa9a89dccd42eddea644609bd6ff27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77603457"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921252"
 ---
 # <a name="azure-security-center-threat-intelligence-report"></a>Azure Security Center 위협 인텔리전스 보고서
 이 문서에서는 Azure Security Center 위협 인텔리전스 보고서를 사용하여 보안 경고를 생성한 위협에 관한 자세한 정보를 확인하는 방식에 대해 설명합니다.
 
 ## <a name="what-is-a-threat-intelligence-report"></a>위협 인텔리전스 보고서란?
-Security Center 위협 감지는 Azure 리소스, 네트워크 및 연결된 파트너 솔루션의 보안 정보를 모니터링함으로써 작동합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
+Security Center 위협 방지는 Azure 리소스, 네트워크 및 연결 된 파트너 솔루션의 보안 정보를 모니터링 하는 방식으로 작동 합니다. 위협을 식별하도록 종종 여러 소스의 정보를 상호 연결하는 이 정보를 분석합니다. 자세한 내용은 [Azure Security Center 검색 하 고 위협에 대응 하는 방법](security-center-alerts-overview.md#detect-threats)을 참조 하세요.
 
 Security Center에서 위협을 식별하면 [보안 경고](security-center-managing-and-responding-alerts.md)를 트리거하며, 여기에는 수정 제안을 포함하여 특정 이벤트와 관련된 자세한 정보가 포함되어 있습니다. 인시던트 대응 팀이 위협을 조사하고 수정하도록 지원하기 위해 Security Center에는 아래와 같은 정보를 비롯하여 감지된 위협에 대한 정보가 포함된 위협 인텔리전스 보고서가 있습니다.
 

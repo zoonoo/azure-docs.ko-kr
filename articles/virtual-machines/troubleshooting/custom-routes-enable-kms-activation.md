@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 12/20/2018
 ms.author: genli
-ms.openlocfilehash: 47ff8870df7c89ee2ab3e48e064e31aa581f65f0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 90034a56fcf5211059d37270e12391249f7a16b5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73748639"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920164"
 ---
 # <a name="windows-activation-fails-in-forced-tunneling-scenario"></a>강제 터널링 시나리오에서 Windows 정품 인증 실패
 
@@ -32,7 +32,7 @@ Azure Virtual Network 서브넷에서 [강제 터널링](../../vpn-gateway/vpn-g
 
 Azure Windows VM은 Windows 정품 인증을 위해 Azure KMS 서버에 연결해야 합니다. 이러한 정품 인증을 위해서는 Azure 공용 IP 주소에서 정품 인증 요청을 수행해야 합니다. 강제 터널링 시나리오에서는 정품 인증 요청이 Azure 공용 IP 주소가 아닌 온-프레미스 네트워크에서 수행되므로 정품 인증에 실패합니다.
 
-## <a name="solution"></a>해결 방법
+## <a name="solution"></a>솔루션
 
 이 문제를 해결하려면 Azure 사용자 지정 경로를 사용하여 정품 인증 트래픽을 Azure KMS 서버로 보냅니다.
 
@@ -84,6 +84,8 @@ Azure 글로벌 클라우드용 KMS 서버의 IP 주소는 23.102.135.246입니�
 4. Windows 정품 인증을 시도하여 문제가 해결되었는지 확인합니다.
 
 ### <a name="for-classic-vms"></a>클래식 VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 1. Azure PowerShell을 연 다음, [Azure 구독에 로그인](https://docs.microsoft.com/powershell/azure/authenticate-azureps)합니다.
 2. 다음 명령을 실행합니다.

@@ -9,13 +9,13 @@ ms.reviewer: nibaccam
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
-ms.date: 01/06/2020
-ms.openlocfilehash: cb76c7d7804a7d39e8a18c7a4cf41e9b4e0a7593
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.date: 02/27/2020
+ms.openlocfilehash: 0cb76884fd46a45bb45fa3e29a03a6f9dbd0250b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623648"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920300"
 ---
 # <a name="reuse-environments-for-training-and-deployment-by-using-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 학습 및 배포를 위한 환경 재사용
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -33,7 +33,7 @@ ms.locfileid: "77623648"
 
 Azure Machine Learning에서 환경의 작동 방식에 대 한 개략적인 개요는 [ML 환경 이란?](concept-environments.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [Python 용 AZURE MACHINE LEARNING SDK](https://docs.microsoft.com/python/api/overview/azure/ml/install?view=azure-ml-py)
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)
@@ -246,10 +246,20 @@ myenv.docker.enabled = True
 # Specify custom Docker base image and registry, if you don't want to use the defaults
 myenv.docker.base_image="your_base-image"
 myenv.docker.base_image_registry="your_registry_location"
-# Alternatively, you can specify the contents of dockerfile of your base image
-with open("docker_file_of_your_base_image", "r") as f:
-    dockerfile_contents_of_your_base_image=f.read()
-myenv.docker.base_dockerfile=dockerfile_contents_of_your_base_image 
+```
+
+또는 사용자 지정 Dockerfile을 지정할 수 있습니다. Docker ```FROM``` 명령을 사용 하 여 Azure Machine Learning 기본 이미지 중 하나에서 시작한 후 고유한 사용자 지정 단계를 추가 하는 것이 가장 간단 합니다. 비 Python 패키지를 종속성으로 설치 해야 하는 경우이 방법을 사용 합니다.
+
+```python
+# Specify docker steps as a string. Alternatively, load the string from a file.
+dockerfile = r"""
+FROM mcr.microsoft.com/azureml/base:intelmpi2018.3-ubuntu16.04
+RUN echo "Hello from custom container!"
+"""
+
+# Set base image to None, because the image is defined by dockerfile.
+myenv.docker.base_image = None
+myenv.docker.base_dockerfile = dockerfile
 ```
 
 > [!NOTE]

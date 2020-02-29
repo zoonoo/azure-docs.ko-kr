@@ -1,22 +1,14 @@
 ---
 title: 기술 자료 수명 주기 - QnA Maker
-titleSuffix: Azure Cognitive Services
 description: QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다.
-services: cognitive-services
-author: diberry
-manager: nitinme
-ms.service: cognitive-services
-ms.subservice: qna-maker
 ms.topic: conceptual
-ms.date: 01/27/2020
-ms.author: diberry
-ms.custom: seodec18
-ms.openlocfilehash: b1978e45a7554358ddd948879143411f89e4c1b2
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 02/27/2020
+ms.openlocfilehash: 98fbd81baa717c981486f33cfb2b3a608cec27c7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843408"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914955"
 ---
 # <a name="knowledge-base-lifecycle-in-qna-maker"></a>QnA Maker의 기술 자료 수명 주기
 QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데이터 수집으로 구성된 반복 주기에서 가장 잘 학습합니다.
@@ -24,7 +16,7 @@ QnA Maker는 모델 변경, 발언 예제, 게시, 엔드포인트 쿼리의 데
 ![제작 주기](../media/qnamaker-concepts-lifecycle/kb-lifecycle.png)
 
 ## <a name="creating-a-qna-maker-knowledge-base"></a>QnA Maker 기술 자료 만들기
-QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 사용자 쿼리와 가장 일치하는 답변을 제공합니다. 기술 자료 만들기는 질문, 답변, 관련 메타데이터의 콘텐츠 리포지토리를 설정하는 일회성 작업입니다. FAQ 페이지, 제품 설명서 또는 구조화된 Q-A 쌍 같은 기존 콘텐츠를 크롤링하여 기술 자료를 만들 수 있습니다. [기술 자료 만들기](../quickstarts/create-publish-knowledge-base.md)에 대해 알아보세요.
+QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 사용자 쿼리와 가장 일치하는 답변을 제공합니다. 기술 자료를 만드는 작업은 질문, 답변 및 관련 메타 데이터의 콘텐츠 리포지토리를 설정 하는 일회성 작업입니다. FAQ 페이지, 제품 설명서 또는 구조화된 Q-A 쌍 같은 기존 콘텐츠를 크롤링하여 기술 자료를 만들 수 있습니다. [기술 자료 만들기](../quickstarts/create-publish-knowledge-base.md)에 대해 알아보세요.
 
 ## <a name="testing-and-updating-the-knowledge-base"></a>기술 자료 테스트 및 업데이트
 
@@ -87,4 +79,4 @@ QnA Maker KB(기술 자료) 엔드포인트는 KB의 콘텐츠를 기반으로 �
 ## <a name="next-steps"></a>다음 단계
 
 > [!div class="nextstepaction"]
-> [신뢰도 점수](./confidence-score.md)
+> [활성 학습 제안](./active-learning-suggestions.md)

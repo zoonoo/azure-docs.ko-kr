@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 1f609c33ea474508eb107c0df9993c2ba3483660
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77087035"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920946"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "77087035"
 > * 모델을 웹 서비스로 배포
 > * 웹 서비스를 사용 하 여 데이터 점수 매기기
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -68,7 +68,7 @@ git clone https://github.com/microsoft/MLOps.git
 리포지토리에는 학습 된 모델을 웹 서비스로 배포 하는 데 사용 되는 다음 파일이 포함 되어 있습니다.
 
 * `aciDeploymentConfig.yml`: __배포 구성__ 파일입니다. 이 파일은 모델에 필요한 호스팅 환경을 정의 합니다.
-* `inferenceConfig.yml`: 유추 configuration__ 파일입니다. 이 파일은 서비스에서 모델을 사용 하 여 데이터의 점수를 매기는 데 사용 하는 소프트웨어 환경을 정의 합니다.
+* `inferenceConfig.yml`: __유추 구성__ 파일입니다. 이 파일은 서비스에서 모델을 사용 하 여 데이터의 점수를 매기는 데 사용 하는 소프트웨어 환경을 정의 합니다.
 * `score.py`: 들어오는 데이터를 수락 하 고 모델을 사용 하 여 점수를 지정한 다음 응답을 반환 하는 python 스크립트입니다.
 * `scoring-env.yml`: 모델 및 `score.py` 스크립트를 실행 하는 데 필요한 conda 종속성입니다.
 * `testdata.json`: 배포 된 웹 서비스를 테스트 하는 데 사용할 수 있는 데이터 파일입니다.

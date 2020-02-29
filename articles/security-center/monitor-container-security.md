@@ -8,12 +8,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: memildin
-ms.openlocfilehash: d208629ee29bb9102f16fcb1d541677bd4a4d5fa
-ms.sourcegitcommit: dfa543fad47cb2df5a574931ba57d40d6a47daef
+ms.openlocfilehash: 330cbc3f28f5e549d5a21417c3d7ccc1e5444769
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77431567"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919535"
 ---
 # <a name="monitoring-the-security-of-your-containers"></a>컨테이너의 보안 모니터링
 
@@ -29,7 +29,7 @@ Azure Security Center는 컨테이너 보안의 다음 세 가지 측면을 다�
 
 - **Azure Kubernetes 서비스 클러스터 강화** Security Center-Azure Kubernetes service 클러스터의 구성에서 취약점을 발견할 경우 권장 사항을 제공 합니다. 나타날 수 있는 특정 권장 사항에 대 한 자세한 내용은 [Kubernetes 서비스 권장 사항](recommendations-reference.md#recs-containers)을 참조 하세요.
 
-- **런타임 보호** -Security Center 표준 가격 책정 계층을 사용할 경우 컨테이너 화 된 환경에 대 한 실시간 위협 검색을 받게 됩니다. Security Center는 호스트 및 AKS 클러스터 수준에서 의심 스러운 활동에 대 한 경고를 생성 합니다. 나타날 수 있는 관련 보안 경고에 대 한 자세한 내용은 경고 참조 테이블의 [Azure Kubernetes 서비스 클러스터](alerts-reference.md#alerts-akscluster) 및 [컨테이너에 대 한 경고-호스트 수준](alerts-reference.md#alerts-containerhost) 섹션을 참조 하십시오.
+- **런타임 보호** -Security Center 표준 가격 책정 계층을 사용할 경우 컨테이너 화 된 환경에 대 한 실시간 위협 방지를 사용할 수 있습니다. Security Center는 호스트 및 AKS 클러스터 수준에서 의심 스러운 활동에 대 한 경고를 생성 합니다. 나타날 수 있는 관련 보안 경고에 대 한 자세한 내용은 경고 참조 테이블의 [Azure Kubernetes 서비스 클러스터](alerts-reference.md#alerts-akscluster) 및 [컨테이너에 대 한 경고-호스트 수준](alerts-reference.md#alerts-containerhost) 섹션을 참조 하십시오.
 
 ## <a name="scanning-your-arm-based-container-registries-for-vulnerabilities"></a>취약성에 대 한 ARM 기반 컨테이너 레지스트리 검색 
 

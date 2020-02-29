@@ -2,17 +2,17 @@
 title: Eav4 시리즈 및 Easv4-Azure Virtual Machines
 description: Eav4 및 Easv4 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: migerdes
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 96cd7b4f4627e7c0335df9c745d8193a3dac7044
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e05a2b97a25ce4cab7d619f4b62d405765cb08db
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493775"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164392"
 ---
 # <a name="eav4-and-easv4-series"></a>Eav4 및 Easv4 시리즈
 
@@ -25,6 +25,10 @@ ACU: 230-260
 Premium Storage: 지원 되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 Eav4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Eav4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다. 데이터 디스크 스토리지는 가상 머신과 별도로 비용이 청구됩니다. 프리미엄 SSD를 사용 하려면 Easv4 시리즈 크기를 사용 합니다. Easv4 크기에 대 한 가격 책정 및 요금 청구 기준은 Eav3 시리즈와 동일 합니다.
 
@@ -49,6 +53,10 @@ ACU: 230-260
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 Easv4 시리즈 크기는 3.35 GHz의 승격 된 최대 주파수를 실현 하 고 프리미엄 SSD를 사용할 수 있는 2.35 Ghz AMD EPYC<sup>TM</sup> 7452 프로세서를 기반으로 합니다. Easv4 시리즈 크기는 메모리를 많이 사용 하는 엔터프라이즈 응용 프로그램에 적합 합니다.
 

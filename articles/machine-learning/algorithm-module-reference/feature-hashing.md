@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 09/01/2019
-ms.openlocfilehash: 4340ee4ed1edda8590726151e07eec45c0751ed6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 6ba53793e57be67e2954af870dfa4248fca465ec
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152264"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912208"
 ---
 # <a name="feature-hashing-module-reference"></a>기능 해싱 모듈 참조
 
@@ -111,7 +111,7 @@ ms.locfileid: "77152264"
 
 변환 된 데이터 집합을 만든 후 모델 학습 모듈에 대 한 입력으로 사용할 수 있습니다.
  
-### <a name="best-practices"></a>모범 사례
+## <a name="best-practices"></a>모범 사례
 
 다음 모범 사례는 기능 해싱 모듈을 최대한 활용 하는 데 도움이 될 수 있습니다.
 

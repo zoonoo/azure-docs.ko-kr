@@ -2,17 +2,17 @@
 title: NCv2 시리즈-Azure Virtual Machines
 description: NCv2 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 4ea199cdc75732ff3af730fa79530399e4372ebd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: f4a382e422fd56e754d8014bfb4f0f0af1a3ec77
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661042"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163984"
 ---
 # <a name="ncv2-series"></a>NCv2 시리즈
 
@@ -23,6 +23,10 @@ NC24rs v2 구성은 긴밀하게 결합된 병렬 컴퓨팅 작업에 최적화�
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 > [!IMPORTANT]
 > 이 VM 시리즈의 경우 구독에서 vCPU (코어) 할당량은 초기에 각 지역에서 0으로 설정 됩니다. [사용 가능한 지역](https://azure.microsoft.com/regions/services/)에서이 시리즈에 대 한 [vcpu 할당량 증가를 요청](../azure-supportability/resource-manager-core-quotas-request.md) 합니다.

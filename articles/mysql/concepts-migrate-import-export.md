@@ -5,24 +5,24 @@ author: ajlam
 ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 8cf0b88ddc24bfc6bc293dd62416417f1eec3a06
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 83b0a69e063e9427c726216ef873f5a1c97f9582
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770954"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163729"
 ---
 # <a name="migrate-your-mysql-database-by-using-import-and-export"></a>가져오기 및 내보내기를 사용하여 MySQL 데이터베이스 마이그레이션
 이 문서에서는 MySQL Workbench를 사용하여 Azure Database for MySQL 서버로 데이터를 가져오고 내보내는 두 가지 일반적인 방법을 설명합니다. 
 
 ## <a name="before-you-begin"></a>시작하기 전에
-이 방법 가이드를 단계별로 실행하려면 다음을 수행해야 합니다.
+이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Portal을 사용하여 Azure Database for MySQL 서버 만들기](quickstart-create-mysql-server-database-using-azure-portal.md)를 따르는 Azure Database for MySQL 서버
-- [다운로드된](https://dev.mysql.com/downloads/workbench/) MySQL Workbench 또는 가져오기 및 내보내기를 위한 다른 MySQL 도구
+- MySQL 워크 벤치 [Mysql 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 mysql 도구로 가져오기/내보내기를 수행할 수 있습니다.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL Workbench, Toad 또는 Navicat과 같은 일반 도구를 사용하여 원격으로 연결하고 MySQL용 Azure 데이터베이스에서 데이터를 가져오거나 내보냅니다. 
+MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MySQL에 가져오거나 내보냅니다. 
 
 인터넷에 연결된 클라이언트 컴퓨터에서 이러한 도구를 사용하여 Azure Database for MySQL에 연결합니다. [Azure Database for MySQL에서 SSL 연결 구성](concepts-ssl-connection-security.md)에 설명된 대로 최상의 보안을 위해 SSL 암호화 연결을 사용합니다.
 
@@ -42,7 +42,7 @@ MySQL Workbench에 연결 정보를 추가합니다.
 ## <a name="determine-when-to-use-import-and-export-techniques-instead-of-a-dump-and-restore"></a>덤프 및 복원 대신 가져오기 및 내보내기 기술을 사용할 시기 결정
 MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데이터베이스에 데이터베이스를 가져오고 내보낼 수 있습니다. 다른 시나리오에서는 [덤프 및 복원](concepts-migrate-dump-restore.md) 방법을 대신 사용하는 것이 유용할 수 있습니다. 
 
-- 기존 MySQL 데이터베이스에서 Azure MySQL 데이터베이스로 가져오도록 몇 가지 테이블을 선택적으로 선택해야 할 때 가져오기 및 내보내기 기술을 사용하는 것이 좋습니다.  이렇게 하면 시간과 리소스를 절약하도록 마이그레이션에서 불필요한 테이블을 생략할 수 있습니다. 예를 들어 [mysqlpump](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables)로 `--include-tables` 또는 `--exclude-tables` 스위치를 사용하고 [mysqldump](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables) 덤프로 `--tables` 스위치를 사용합니다.
+- 기존 MySQL 데이터베이스에서 Azure MySQL 데이터베이스로 가져오도록 몇 가지 테이블을 선택적으로 선택해야 할 때 가져오기 및 내보내기 기술을 사용하는 것이 좋습니다.  이렇게 하면 시간과 리소스를 절약하도록 마이그레이션에서 불필요한 테이블을 생략할 수 있습니다. 예를 들어 `--include-tables`mysqlpump`--exclude-tables`로 [ 또는 ](https://dev.mysql.com/doc/refman/5.7/en/mysqlpump.html#option_mysqlpump_include-tables) 스위치를 사용하고 `--tables`mysqldump[ 덤프로 ](https://dev.mysql.com/doc/refman/5.7/en/mysqldump.html#option_mysqldump_tables) 스위치를 사용합니다.
 - 테이블 이외의 다른 데이터베이스 개체를 이동할 때 해당 개체를 명시적으로 만듭니다. 마이그레이션하려는 제약 조건(기본 키, 외래 키, 인덱스), 뷰, 함수, 프로시저, 트리거 및 다른 모든 데이터베이스 개체를 포함합니다.
 - MySQL 데이터베이스 이외의 외부 데이터 원본에서 데이터를 마이그레이션하는 경우 플랫 파일을 만들고 [mysqlimport](https://dev.mysql.com/doc/refman/5.7/en/mysqlimport.html)를 사용하여 가져옵니다.
 
@@ -58,7 +58,7 @@ MySQL 도구를 사용하여 다음과 같은 시나리오에서 Azure MySQL 데
 -   데이터를 로드하기 전에 클러스터형 인덱스 및 기본 키를 만듭니다. 기본 키 순서로 데이터를 로드합니다. 
 -   데이터가 로드될 때까지 보조 인덱스의 생성을 지연합니다. 로드한 후 모든 보조 인덱스를 만듭니다. 
 -   로드하기 전에 외래 키 제약 조건을 비활성화합니다. 외래 키 검사 비활성화는 상당한 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
--   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
+-   데이터를 병렬로 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
 -   적절한 경우 분할된 테이블을 사용합니다.
 
 ## <a name="import-and-export-by-using-mysql-workbench"></a>MySQL Workbench를 사용하여 내보내기 및 가져오기
@@ -83,7 +83,7 @@ MySQL Workbench에는 데이터 내보내기 및 가져오기 방법이 2가지 
 다음 예제에서는 CSV 파일에서 테이블을 가져옵니다.
 1. 가져올 데이터베이스의 테이블을 마우스 오른쪽 단추로 클릭합니다. 
 2. 가져올 CSV 파일을 찾아서 선택한 후 **다음**을 클릭합니다. 
-3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음**을 누릅니다.
+3. 대상 테이블(신규 또는 기존)을 선택하고 **가져오기 전에 테이블 자르기** 확인란을 선택하거나 선택 취소합니다. **다음**을 클릭합니다.
 4. 가져올 인코딩 및 열을 선택한 후 **다음**을 클릭합니다. 
 5. **데이터 가져오기** 페이지에서 **다음**을 클릭합니다. 마법사는 그에 따라 데이터를 가져옵니다.
 

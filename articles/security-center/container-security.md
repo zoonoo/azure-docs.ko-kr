@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: 62728f5b66825eb6698e37bb7ad3adbad831b465
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: cd9907d041562d23bc487de319a17d36b68db6f3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615340"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916120"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -61,9 +61,9 @@ AKS는 클러스터의 보안 상태에 대 한 보안 제어 및 가시성을 �
 
 이 기능에 대해 나타날 수 있는 관련 Security Center 권장 사항에 대 한 자세한 내용은 권장 사항 참조 표의 [컨테이너 섹션](recommendations-reference.md#recs-containers) 을 참조 하십시오.
 
-## <a name="run-time-protection---real-time-threat-detection"></a>런타임 보호-실시간 위협 감지
+## <a name="run-time-protection---real-time-threat-protection"></a>런타임 보호-실시간 위협 방지
 
-Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 감지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+Security Center는 컨테이너 화 된 환경에 대 한 실시간 위협 방지 기능을 제공 하 고 의심 스러운 활동에 대 한 경고를 생성 합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
 호스트 및 AKS 클러스터 수준에서 위협을 검색 합니다. 자세한 내용은 [Azure 컨테이너에 대 한 위협 방지](threat-protection.md#azure-containers)를 참조 하세요.
 

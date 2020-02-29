@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 02/27/2020
 ms.author: radeltch
-ms.openlocfilehash: 493414d6e903dba02f126c10c2f4d6a34e0b1549
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: ac8ffba279fac338f3d28cec2f0d671be740150e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661226"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164749"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-with-azure-netapp-files-for-sap-applications"></a>SAP 응용 프로그램용 Azure NetApp Files를 사용 하 SUSE Linux Enterprise Server의 Azure Vm에서 SAP NetWeaver에 대 한 고가용성
 
@@ -164,7 +164,7 @@ Azure NetApp 파일은 여러 [azure 지역](https://azure.microsoft.com/global-
    
 이 예제에서는 Azure NetApp Files를 사용 하는 방법을 보여 주기 위해 모든 SAP Netweaver 파일 시스템에 대 한 Azure NetApp Files를 사용 했습니다. NFS를 통해 탑재 하지 않아도 되는 SAP 파일 시스템을 [Azure disk storage](https://docs.microsoft.com/azure/virtual-machines/windows/disks-types#premium-ssd) 로 배포할 수도 있습니다. 이 예제에서 <b>a-e는</b> Azure NetApp Files에 있어야 하 고 <b>f-g</b> (즉,/usr/sap/<b></b><b>qas</b>/d<b>03</b><b>)를 Azure</b>disk storage로 배포할 수 있습니다. 
 
-### <a name="important-considerations"></a>중요 고려 사항
+### <a name="important-considerations"></a>중요한 고려 사항
 
 SAP Netweaver on SUSE 고가용성 아키텍처에 대 한 Azure NetApp Files 고려 하는 경우 다음과 같은 중요 한 사항을 고려해 야 합니다.
 
@@ -249,7 +249,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
          1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대 한 IP 주소 10.1.1.21
          * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
@@ -265,7 +265,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대 한 포트 621**01**
             * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
    1. 부하 분산 규칙
@@ -276,7 +276,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **lb. QAS. ERS**)
 1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -284,7 +284,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름을 입력 합니다 (예: **프런트 엔드). QAS. ASCS**)
          1. 할당을 정적으로 설정 하 고 IP 주소를 입력 합니다 (예: **10.1.1.20**).
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대 한 IP 주소 10.1.1.21
          * "A"에서 위의 단계를 반복 하 여 **10.1.1.21** 및 프런트 엔드와 같은 사람에 대 한 IP 주소를 만듭니다 **. QAS. ERS**)
    1. 백 엔드 풀 만들기
@@ -294,13 +294,13 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 가상 머신 추가 클릭
          1. ASCS에 대해 이전에 만든 가용성 집합을 선택 합니다. 
          1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
    1. 상태 프로브 만들기
       1. 포트: 620**00**(ASCS용)
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브 (예: 상태)의 이름을 입력 합니다 **. QAS. ASCS**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대 한 포트 621**01**
             * "C"에서 위의 단계를 반복 하 여 해당 ERS에 대 한 상태 프로브를 만듭니다 (예: 621**01** 및 **health). QAS. ERS**)
    1. 부하 분산 규칙
@@ -311,7 +311,7 @@ NFSv 4.1 프로토콜을 사용 하 Azure NetApp Files 볼륨을 사용 하는 �
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS에 대한 추가 포트
          * "D"에서 위의 단계를 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 및 TCP (ascs)에 대해 반복 합니다.
       1. ASCS ERS에 대한 추가 포트
@@ -679,14 +679,14 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
    
@@ -708,14 +708,14 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ASCS<b>00</b>_<b>anftstsapvh</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000
    
    sudo crm configure primitive rsc_sap_<b>QAS</b>_ERS<b>01</b> SAPInstance \
     operations \$id=rsc_sap_<b>QAS</b>_ERS<b>01</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b> START_PROFILE="/sapmnt/<b>QAS</b>/profile/<b>QAS</b>_ERS<b>01</b>_<b>anftstsapers</b>" AUTOMATIC_RECOVER=false IS_ERS=true
    
    sudo crm configure modgroup g-<b>QAS</b>_ASCS add rsc_sap_<b>QAS</b>_ASCS<b>00</b>

@@ -8,18 +8,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 04/18/2017
 ms.author: cynthn
-ms.openlocfilehash: 899f453ef67fd094578e946c1cdd9ca4d427bf79
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: ad213cc02f707609a837ea66b79e51c6f2a617f8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77122460"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919773"
 ---
 # <a name="azure-classic-cli-commands"></a>Azure 클래식 CLI 명령 
 
-> [!IMPORTANT]
-> 이 항목에서는 Azure 클래식 CLI를 설치하는 방법을 설명합니다. 클래식 CLI는 사용되지 않으므로 클래식 배포 모델과 함께만 사용해야 합니다.
-> 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/)를 사용 합니다.
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
+
+이 항목에서는 Azure 클래식 CLI를 설치하는 방법을 설명합니다. 클래식 CLI는 사용되지 않으므로 클래식 배포 모델과 함께만 사용해야 합니다. 다른 모든 배포의 경우 [Azure CLI](https://docs.microsoft.com/cli/azure/)를 사용 합니다.
 
 이 문서에서는 Azure 리소스를 만들고 관리 하는 데 일반적으로 사용 하는 Azure CLI CLI (명령줄 인터페이스) 명령에 대 한 구문 및 옵션을 제공 합니다. 전체 참조는 아니며 CLI 버전에서 약간 다른 명령 또는 매개 변수를 표시할 수도 있습니다. 
 
@@ -1696,7 +1696,7 @@ Azure 구독 정보는 도구에서 계정에 연결하는 데 사용됩니다.
 
     tag show [options] [name]
 
-## <a name="virtual-machines"></a>Virtual Machines
+## <a name="virtual-machines"></a>가상 컴퓨터
 **VM 만들기**
 
     vm create [options] <resource-group> <name> <location> <os-type>

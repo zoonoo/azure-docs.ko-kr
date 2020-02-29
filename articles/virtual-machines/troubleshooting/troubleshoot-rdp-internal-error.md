@@ -12,18 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/22/2018
 ms.author: genli
-ms.openlocfilehash: be0f61b1458fa8bd63d85669c7956a789892996a
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8046e4f42db50db15c840a13b95ae1f3620a8c7f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981321"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918260"
 ---
 #  <a name="an-internal-error-occurs-when-you-try-to-connect-to-an-azure-vm-through-remote-desktop"></a>원격 데스크톱을 통해 Azure VM에 연결하려고 할 때 내부 오류 발생
 
 이 문서에서는 Microsoft Azure에서 VM(가상 머신)에 연결하려고 할 때 발생할 수 있는 오류에 대해 설명합니다.
-> [!NOTE]
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 배포 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
+
 
 ## <a name="symptoms"></a>증상
 

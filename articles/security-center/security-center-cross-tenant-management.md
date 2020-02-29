@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/11/2019
 ms.author: memildin
-ms.openlocfilehash: 482154a37334b056719a18355f87b467d4fe95c7
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 2aeb2ab4cfb4ed5e8652638aaced320cc7119d3e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604246"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919484"
 ---
 # <a name="cross-tenant-management-in-security-center"></a>Security Center의 교차 테 넌 트 관리
 
@@ -50,7 +50,7 @@ ms.locfileid: "77604246"
 - **권장 사항**수정: 한 번에 다양 한 테 넌 트의 많은 리소스에 대 한 [권장](security-center-recommendations.md) 사항을 모니터링 하 고 수정 합니다. 그런 다음 모든 테 넌 트에 가장 높은 위험을 제시 하는 취약성을 즉시 다룰 수 있습니다.
 - **경고 관리**: 다른 테 넌 트 전체에서 [경고](security-center-alerts-overview.md) 를 검색 합니다. 조치 가능한 [수정 단계](security-center-managing-and-responding-alerts.md)를 준수 하지 않는 리소스에 대 한 조치를 취합니다.
 
-- **고급 클라우드 방어 기능 및 기타 기능 관리**: [JIT (just-in-time) VM 액세스](security-center-just-in-time.md), [적응 네트워크 강화](security-center-adaptive-network-hardening.md), [적응 응용 프로그램 제어](security-center-adaptive-application.md)등의 다양 한 위협 검색 및 보호 서비스를 관리 합니다.
+- **고급 클라우드 방어 기능 및 기타 관리**: [JIT (just-in-time) VM 액세스](security-center-just-in-time.md), [적응 네트워크 강화](security-center-adaptive-network-hardening.md), [적응 응용 프로그램 제어](security-center-adaptive-application.md)등의 다양 한 위협 방지 서비스를 관리 합니다.
  
 ## <a name="next-steps"></a>다음 단계
 이 문서에서는 Security Center에서 교차 테 넌 트 관리를 작동 하는 방법을 설명 합니다. 보안 센터에 대한 자세한 내용은 다음을 참조하세요.

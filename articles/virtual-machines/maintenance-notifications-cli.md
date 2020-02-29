@@ -7,12 +7,12 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: 5750d7cc6219714849aaf3e47b23708b54eefab1
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 4ad57c1c71a51f948bd405a5487a1e27e36bfff7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77115718"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920895"
 ---
 # <a name="handling-planned-maintenance-notifications-using-the-azure-cli"></a>Azure CLI를 사용 하 여 계획 된 유지 관리 알림 처리
 
@@ -36,6 +36,7 @@ az vm perform-maintenance -g myResourceGroup -n myVM
 
 ## <a name="classic-deployments"></a>클래식 배포
 
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 클래식 배포 모델을 사용하여 배포된 레거시 VM이 아직 있는 경우 Azure 클래식 CLI를 사용하여 VM을 쿼리하고 유지 관리를 시작할 수 있습니다.
 

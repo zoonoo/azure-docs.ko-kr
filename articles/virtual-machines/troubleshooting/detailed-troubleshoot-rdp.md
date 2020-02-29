@@ -15,12 +15,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: ee2fb3757b0e3a7015a98f4e04084fd9c6a4850d
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ea448b87f9e6954abecead2934bfb7f4ed04a9c5
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75747550"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920147"
 ---
 # <a name="detailed-troubleshooting-steps-for-remote-desktop-connection-issues-to-windows-vms-in-azure"></a>Azure의 Windows VM에 대한 원격 데스크톱 연결 문제의 자세한 문제 해결 단계
 이 문서에서는 Windows 기반 Azure 가상 머신에 대한 복잡한 원격 데스크톱 오류를 진단 및 해결하는 자세한 문제 해결 단계를 제공합니다.
@@ -38,7 +38,7 @@ ms.locfileid: "75747550"
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_0.png)
 
-진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예:
+진행하기 전에 마지막으로 VM에 대한 원격 데스크톱 연결을 성공한 이후로 변경된 사항을 마음속으로 생각해보는 것이 도움이 될 수 있습니다. 예를 들면 다음과 같습니다.
 
 * VM 또는 VM을 포함하는 클라우드 서비스의 공용 IP 주소(가상 IP 주소 [VIP](https://en.wikipedia.org/wiki/Virtual_IP_address)라고도 함)가 변경되었습니다. DNS 클라이언트 캐시에 DNS 이름에 대해 등록된 *이전 IP 주소* 가 있으므로 RDP 오류가 발생할 수 있습니다. DNS 클라이언트 캐시를 플러시하고 VM 연결을 다시 시도하세요. 또는 새 VIP와 직접 연결을 시도하세요.
 * Azure Portal에서 생성된 연결을 사용하는 대신, 타사 애플리케이션을 사용하여 원격 데스크톱 연결을 관리하고 있습니다. 애플리케이션 구성에 원격 데스크톱 트래픽에 대한 올바른 TCP 포트가 포함되어 있는지 확인합니다. [Azure Portal](https://portal.azure.com)에서 VM의 설정 &gt; 엔드포인트를 클릭하여 클래식 가상 컴퓨터에 대한 이 포트를 확인할 수 있습니다.
@@ -92,6 +92,9 @@ ms.locfileid: "75747550"
 네트워크 관리자와 협력하여 인터넷과 HTTPS 기반 원격 데스크톱의 연결을 허용하도록 조직 인트라넷 에지 디바이스 설정을 수정합니다.
 
 ## <a name="source-3-cloud-service-endpoint-and-acl"></a>발생지 3: 클라우드 서비스 엔드포인트 및 ACL
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 클래식 배포 모델을 사용하여 만든 VM의 경우 동일한 클라우드 서비스 또는 가상 네트워크에 있는 다른 Azure VM이 사용자의 Azure VM으로 원격 데스크톱 연결을 설정할 수 있는지 확인합니다.
 
 ![](./media/detailed-troubleshoot-rdp/tshootrdp_3.png)
@@ -143,7 +146,7 @@ $vmName="<Name of the target virtual machine>"
 .\InstallWinRMCertAzureVM.ps1 -SubscriptionName $subscr -ServiceName $serviceName -Name $vmName
 ```
 
-*Get-AzureSubscription* 명령 표시의 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다. **Get-AzureVM** 명령 표시의 *ServiceName* 열에서 가상 머신의 클라우드 서비스 이름을 가져올 수 있습니다.
+*Get-AzureSubscription* 명령 표시의 **SubscriptionName** 속성에서 올바른 구독 이름을 가져올 수 있습니다. *Get-AzureVM* 명령 표시의 **ServiceName** 열에서 가상 머신의 클라우드 서비스 이름을 가져올 수 있습니다.
 
 새 인증서가 있는지 확인합니다. 현재 사용자에 대한 인증서 스냅인을 열고 **Trusted Root Certification Authorities\Certificates** 폴더를 살펴봅니다. 인증서 발급 대상 열에 클라우드 서비스의 DNS 이름을 가진 인증서가 표시되어야 합니다(예: cloudservice4testing.cloudapp.net).
 

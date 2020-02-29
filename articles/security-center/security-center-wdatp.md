@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: 46b9fe5c6a038aa98cf8df64c40bf8ea1747efec
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73663601"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918158"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -95,12 +95,14 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 
 무해 한 Microsoft Defender ATP 테스트 경고를 생성 하려면:
 
-1. 원격 데스크톱을 사용하여 Windows Server 2012 R2 VM 또는 Windows Server 2016 VM에 액세스합니다. 명령 프롬프트 창을 엽니다.
+1. ' C:\test-MDATP-test ' 폴더를 만듭니다.
 
-2. 다음 명령을 복사하여 프롬프트에서 실행합니다. 명령 프롬프트 창이 자동으로 닫힙니다.
+1. 원격 데스크톱을 사용하여 Windows Server 2012 R2 VM 또는 Windows Server 2016 VM에 액세스합니다. 명령줄 창을 엽니다.
+
+1. 다음 명령을 복사하여 프롬프트에서 실행합니다. 명령 프롬프트 창이 자동으로 닫힙니다.
 
     ```
-    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-WDATP-test\\invoice.exe'); Start-Process 'C:\\test-WDATP-test\\invoice.exe'
+    powershell.exe -NoExit -ExecutionPolicy Bypass -WindowStyle Hidden (New-Object System.Net.WebClient).DownloadFile('http://127.0.0.1/1.exe', 'C:\\test-MDATP-test\\invoice.exe'); Start-Process 'C:\\test-MDATP-test\\invoice.exe'
     ```
 
    ![위의 명령을 입력한 명령 프롬프트 창](media/security-center-wdatp/image4.jpeg)

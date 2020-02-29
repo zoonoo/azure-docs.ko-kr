@@ -14,14 +14,17 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 11f897852ce820e666d7403f42735b2ee3bdd73b
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 11889bd6df0bcc9564c17fdaacc333df1d418660
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084818"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918339"
 ---
 # <a name="use-azure-media-analytics-to-convert-text-content-in-video-files-into-digital-text"></a>Azure 미디어 분석을 사용하여 비디오 파일의 텍스트 콘텐츠를 디지털 텍스트로 변환  
+
+> [!NOTE]
+> **Azure 미디어 OCR** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
 
 ## <a name="overview"></a>개요
 비디오 파일에서 텍스트 콘텐츠를 추출하고 편집 및 검색 가능한 디지털 텍스트를 생성해야 할 경우 Azure 미디어 분석 OCR(광학 문자 인식)을 사용하는 것이 좋습니다. 이 Azure 미디어 프로세서는 비디오 파일의 텍스트 콘텐츠를 검색하고 사용할 수 있는 텍스트 파일을 생성합니다. OCR을 사용하면 미디어의 비디오 신호에서 의미 있는 메타데이터를 자동으로 추출할 수 있습니다.
@@ -107,20 +110,20 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 | 요소 | 설명 |
 | --- | --- |
 | 시간 간격 |동영상의 초당 "틱" |
-| Offset |타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항상 0입니다. |
+| 오프셋 |타임스탬프의 시간 오프셋 동영상 API 버전 1.0에서는 항상 0입니다. |
 | 프레임 속도 |동영상의 초당 프레임 수 |
 | width |픽셀 단위의 동영상 너비 |
-| height |픽셀 단위의 동영상 높이 |
-| Fragments |메타데이터가 청크되는 시간 기반 비디오 청크 배열 |
-| start |"틱" 단위의 조각 시작 시간 |
+| 높이 |픽셀 단위의 동영상 높이 |
+| 조각 |메타데이터가 청크되는 시간 기반 비디오 청크 배열 |
+| 시작 |"틱" 단위의 조각 시작 시간 |
 | duration |"틱" 단위의 조각 길이 |
 | interval |지정된 조각 내의 각 이벤트 간격 |
-| events |영역을 포함하는 배열 |
-| 영역(region) |검색된 단어 또는 구를 나타내는 개체 |
+| 이벤트 |영역을 포함하는 배열 |
+| region |검색된 단어 또는 구를 나타내는 개체 |
 | language |지역 내에서 검색된 텍스트의 언어 |
-| orientation |지역 내에서 검색된 텍스트의 방향 |
-| lines |지역 내에서 검색된 텍스트의 줄 배열 |
-| text |실제 텍스트 |
+| 방향(orientation) |지역 내에서 검색된 텍스트의 방향 |
+| 선 |지역 내에서 검색된 텍스트의 줄 배열 |
+| 텍스트 |실제 텍스트 |
 
 ### <a name="json-output-example"></a>JSON 출력 예제
 다음 출력 예제는 일반 동영상 정보 및 몇 가지 동영상 조각을 포함합니다. 모든 동영상 조각에는 OCR MP에 의해 언어 및 텍스트 방향에 따라 검색되는 모든 영역이 포함됩니다. 또한 이러한 영역에는 이 영역의 모든 단어 줄과 이 줄에 포함된 줄의 텍스트, 줄의 위치 및 모든 단어 정보(단어 내용, 위치 및 신뢰도)가 들어 있습니다. 다음 예제에서는 줄 내에 주석을 추가합니다.
@@ -192,7 +195,7 @@ OCR 미디어 프로세서의 출력은 JSON 파일입니다.
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
 using System;

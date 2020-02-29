@@ -14,16 +14,19 @@ ms.tgt_pltfrm: vm-multiple
 ms.topic: article
 ms.date: 04/20/2018
 ms.author: akjosh
-ms.openlocfilehash: a9f99d418d572c14a7cdd7975483cf39f0707cba
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: cffd2eab3a616b4d16d847d0f2e1a26655f40459
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74072996"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919926"
 ---
 # <a name="how-to-install-and-configure-trend-micro-deep-security-as-a-service-on-a-windows-vm"></a>Windows VM에 Trend Micro Deep Security as a Service를 설치하고 구성하는 방법
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 [!INCLUDE [virtual-machines-extensions-deprecation-statement](../../../includes/virtual-machines-extensions-deprecation-statement.md)]
-이 문서에서는 Windows Server가 실행되는 새 VM(가상 컴퓨터) 또는 기존 VM에서 Trend Micro Deep Security as a Service를 설치 및 구성하는 방법을 보여 줍니다. Deep Security as a Service는 맬웨어 방지 보호, 방화벽, 침입 방지 시스템 및 무결성 모니터링을 포함합니다.
+이 문서에서는 Windows Server가 실행되는 새 VM(가상 머신) 또는 기존 VM에서 Trend Micro Deep Security as a Service를 설치 및 구성하는 방법을 보여 줍니다. Deep Security as a Service는 맬웨어 방지 보호, 방화벽, 침입 방지 시스템 및 무결성 모니터링을 포함합니다.
 
 이 클라이언트는 VM 에이전트를 통해 보안 확장 프로그램으로 설치됩니다. VM 에이전트는 Azure Portal에서 자동으로 생성되므로 새 가상 컴퓨터에서 Deep Security Agent를 설치합니다.
 
@@ -33,7 +36,7 @@ Azure Portal, Azure CLI 또는 PowerShell을 사용하여 만든 기존 VM에는
 
 ## <a name="install-the-deep-security-agent-on-a-new-vm"></a>새 VM에 Deep Security Agent 설치
 
-[Marketplace](https://portal.azure.com)의 이미지를 사용하여 가상 머신을 만드는 경우 **Azure Portal**에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 컴퓨터를 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
+[Marketplace](https://portal.azure.com)의 이미지를 사용하여 가상 머신을 만드는 경우 **Azure Portal**에서 Trend Micro 보안 확장을 설치할 수 있습니다. 포털을 사용하면 단일 가상 머신을 만들 때 Trend Micro의 보호 기능을 쉽게 추가할 수 있습니다.
 
 **Marketplace**의 항목을 사용하면 가상 머신 설치에 도움이 되는 마법사가 열립니다. 마법사의 세 번째 패널인 **설정** 블레이드를 사용하여 Trend Micro 보안 확장을 설치합니다.  일반적인 지침은 [Azure Portal에서 Windows를 실행하는 가상 머신 만들기](../windows/classic/tutorial.md)를 참조하세요.
 
@@ -82,7 +85,7 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 * [지침](https://go.microsoft.com/fwlink/?LinkId=404099)
 
 ## <a name="additional-resources"></a>추가 리소스
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]
 
 [Azure VM 확장 및 기능]
 
@@ -92,5 +95,5 @@ VM 에이전트가 설치되어 있는 경우 다음 명령을 실행합니다.
 [3]: ./media/trend/SecurityAgentDetails.png
 
 <!-- Link references -->
-[Windows Server를 실행하는 가상 컴퓨터에 로그온하는 방법]:../windows/classic/connect-logon.md
+[Windows Server를 실행하는 가상 머신에 로그온하는 방법]:../windows/classic/connect-logon.md
 [Azure VM 확장 및 기능]: https://go.microsoft.com/fwlink/p/?linkid=390493&clcid=0x409

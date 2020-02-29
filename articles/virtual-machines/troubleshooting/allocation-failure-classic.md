@@ -12,14 +12,16 @@ ms.service: virtual-machines
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: d43176e04337c2faf7be0bea682428056bc4ab46
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: 20e64e5225987a8045e406a0e8fcae098c580c61
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71059188"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913381"
 ---
 # <a name="troubleshooting-steps-specific-to-allocation-failure-scenarios-in-the-classic-deployment-model"></a>클래식 배포 모델의 할당 오류 시나리오와 관련된 문제 해결 단계
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 다음은 할당 요청이 고정되도록 하는 일반적인 할당 시나리오입니다. 이 문서의 뒷 부분에서 각 시나리오에 대해 자세히 알아봅니다.
 
@@ -116,7 +118,7 @@ New_General* 또는 New_VMSizeNotSupported\*
 
 **클러스터 고정의 원인**
 
-지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 따라서 선호도 그룹에 배치 된 계산 리소스는 다음과 같은 제약 조건에 의해 바인딩됩니다. 선호도 그룹 (v m/서비스 근접) "섹션을 나열 합니다. 컴퓨팅 리소스는 한 개의 클러스터에 연결됩니다.
+지역 가상 네트워크가 도입되기 전에는 가상 네트워크를 선호도 그룹과 연결해야 했습니다. 그 결과 선호도 그룹에 배치된 컴퓨팅 리소스가 위의 "할당 시나리오: 선호도 그룹(VM/서비스 근접성)" 섹션의 설명처럼 동일한 제약 조건에 바인딩되었습니다. 컴퓨팅 리소스는 한 개의 클러스터에 연결됩니다.
 
 **해결 방법**
 

@@ -8,12 +8,12 @@ ms.service: iot-hub
 services: iot-hub
 ms.topic: conceptual
 ms.date: 03/15/2018
-ms.openlocfilehash: d4a51a44b48e94669e92a9d525c1b0966df53c18
-ms.sourcegitcommit: 5d6c8231eba03b78277328619b027d6852d57520
+ms.openlocfilehash: 3a7254cc9de89a297811792b4dd64b4b669ba8e4
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68964126"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921041"
 ---
 # <a name="send-cloud-to-device-messages-from-an-iot-hub"></a>IoT hub에서 클라우드-장치 메시지 보내기
 
@@ -41,7 +41,7 @@ IoT hub 서비스는 장치에 메시지를 보내면 서비스는 메시지 상
 
 * 메시지를 *거부* 합니다. 그러면 IoT Hub가 *배달 못* 한 편지 상태로 설정 됩니다. MQTT (메시지 큐 원격 분석 전송) 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 거부할 수 없습니다.
 
-* 메시지를 *중단* 하면 IoT hub는 상태를 큐에 넣은 상태로 설정 하 여 메시지를 큐에 다시 넣습니다. MQTT 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 중단할 수 없습니다.
+* 메시지를 *중단* 하면 IoT hub는 상태를 *큐에 넣은*상태로 설정 하 여 메시지를 큐에 다시 넣습니다. MQTT 프로토콜을 통해 연결 하는 장치는 클라우드-장치 메시지를 중단할 수 없습니다.
 
 스레드가 IoT hub에 알리지 않고 메시지를 처리 하지 못할 수 있습니다. 이 경우 표시 제한 시간 (또는 *잠금* 제한 시간) 후 메시지가 *표시* 되지 *않는* 상태에서 *큐* 에 넣은 상태로 자동 전환 됩니다. 이 제한 시간 값은 1 분 이며 변경할 수 없습니다.
 
@@ -75,16 +75,16 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 | Ack 속성 값 | 동작 |
 | ------------ | -------- |
-| 없음     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
-| 긍정 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
-| 양수 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| none     | IoT hub가 피드백 메시지를 생성 하지 않습니다 (기본 동작). |
+| 양수 | 클라우드-장치 메시지가 *완료* 된 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
+| 부정 | 클라우드-장치 메시지가 *배달 못* 한 메시지 상태에 도달 하면 IoT hub가 피드백 메시지를 생성 합니다. |
 | 전체     | IoT hub는 어떤 경우 든 피드백 메시지를 생성 합니다. |
 
 **Ack** 값이 *full*인 경우 피드백 메시지를 받지 못하면 피드백 메시지가 만료 되었음을 의미 합니다. 서비스는 원본 메시지에서 발생한 상황을 알지 못합니다. 실제로 서비스는 만료되기 전에 피드백을 처리할 수 있는지 확인해야 합니다. 최대 만료 시간은 2 일 이며, 오류가 발생 하는 경우 서비스를 다시 실행 하는 시간을 유지 합니다.
 
 [끝점](iot-hub-devguide-endpoints.md)에 설명 된 대로 IoT hub는 서비스 지향 끝점 ( */messages/servicebound/feedback*)을 통해 피드백을 메시지로 전달 합니다. 피드백 수신을 위한 의미 체계는 클라우드-디바이스 메시지의 경우와 같습니다. 가능한 경우 메시지 피드백은 다음 형식으로 단일 메시지에서 일괄 처리됩니다.
 
-| 속성     | Description |
+| 속성     | 설명 |
 | ------------ | ----------- |
 | EnqueuedTime | 허브에서 피드백 메시지를 받은 시간을 나타내는 타임 스탬프입니다. |
 | UserId       | `{iot hub name}` |
@@ -92,13 +92,13 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 본문은 각각 다음과 같은 속성이 있는 레코드의 JSON으로 직렬화된 배열입니다.
 
-| 속성           | Description |
+| 속성           | 설명 |
 | ------------------ | ----------- |
 | EnqueuedTimeUtc    | 메시지의 결과가 발생 한 시간을 나타내는 타임 스탬프입니다. 예를 들어 허브에서 피드백 메시지를 받았거나 원래 메시지는 만료 됩니다. |
 | OriginalMessageId  | 이 피드백 정보가 관련 된 클라우드-장치 메시지의 *MessageId* |
-| StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *성공* <br/> *종료* <br/> *DeliveryCountExceeded* <br/> *되었으므로* <br/> *삭제* |
+| StatusCode         | IoT hub에서 생성 된 피드백 메시지에 사용 되는 필수 문자열: <br/> *Success* <br/> *종료* <br/> *DeliveryCountExceeded* <br/> *되었으므로* <br/> *삭제* |
 | 설명        | *StatusCode* 에 대 한 문자열 값 |
-| DeviceID           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
+| deviceId           | 이 피드백 부분이 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceId* 입니다. |
 | DeviceGenerationId | 이 의견의 일부가 관련 된 클라우드-장치 메시지의 대상 장치에 대 한 *DeviceGenerationId* 입니다. |
 
 클라우드-장치 메시지에서 해당 피드백과 원래 메시지의 상관 관계를 지정 하려면 서비스에서 *MessageId*를 지정 해야 합니다.
@@ -134,12 +134,36 @@ IoT hub의 **최대 배달 횟수** 속성은 *큐* 에 대기 중인 상태와 
 
 | 속성                  | 설명 | 범위 및 기본값 |
 | ------------------------- | ----------- | ----------------- |
-| defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | 최대 2 일 (최소 1 분) ISO_8601 간격 기본 1시간 |
-| maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본 10 |
-| feedback.ttlAsIso8601     | 서비스 바인딩된 피드백 메시지의 보존 | 최대 2 일 (최소 1 분) ISO_8601 간격 기본 1시간 |
-| feedback.maxDeliveryCount | 피드백 큐의 최대 배달 횟수 | 1 ~ 100; 기본 100 |
+| defaultTtlAsIso8601       | 클라우드-장치 메시지에 대 한 기본 TTL | ISO_8601 간격은 최대 2 일 (최소 1 분)입니다. 기본값: 1 시간 |
+| maxDeliveryCount          | 클라우드-장치 단위 큐의 최대 배달 횟수 | 1 ~ 100; 기본값: 10 |
+| feedback.ttlAsIso8601     | 서비스 바인딩된 피드백 메시지의 보존 | ISO_8601 간격은 최대 2 일 (최소 1 분)입니다. 기본값: 1 시간 |
+| feedback.maxDeliveryCount | 피드백 큐의 최대 배달 횟수 | 1 ~ 100; 기본값: 10 |
+| lockDurationAsIso8601 | 피드백 큐의 최대 배달 횟수 | ISO_8601 간격은 5 초에서 300 초 (최소 5 초) 사이입니다. 기본값: 60 초 |
 
-이러한 구성 옵션을 설정하는 방법에 대한 자세한 내용은 [IoT Hub 만들기](iot-hub-create-through-portal.md)를 참조하세요.
+다음 방법 중 하나로 구성 옵션을 설정할 수 있습니다.
+
+* **Azure Portal**: IoT Hub의 **설정** 에서 **기본 제공 끝점** 을 선택 하 고 **클라우드-장치 메시징**을 확장 합니다. **MaxDeliveryCount** 및 **lockDurationAsIso8601** 속성 설정은 현재 Azure Portal에서 지원 되지 않습니다.
+
+    ![포털에서 클라우드-장치 메시지에 대 한 구성 옵션 설정](./media/iot-hub-devguide-messages-c2d/c2d-configuration-portal.png)
+
+* **Azure CLI**: [az iot hub update](https://docs.microsoft.com/cli/azure/iot/hub?view=azure-cli-latest#az-iot-hub-update) 명령을 사용 합니다.
+
+    ```azurecli
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.defaultTtlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.ttlAsIso8601=PT1H0M0S
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.maxDeliveryCount=10
+
+    az iot hub update --name {your IoT hub name} \
+        --set properties.cloudToDevice.feedback.lockDurationAsIso8601=PT0H1M0S
+    ```
 
 ## <a name="next-steps"></a>다음 단계
 

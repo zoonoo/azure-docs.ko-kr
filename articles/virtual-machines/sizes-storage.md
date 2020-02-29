@@ -3,7 +3,7 @@ title: Azure VM 크기-저장소 | Microsoft Docs
 description: Azure의 가상 컴퓨터에 사용할 수 있는 다양 한 저장소 최적화 크기를 나열 합니다. 이 시리즈의 크기에 대 한 저장소 처리량 및 네트워크 대역폭 뿐만 아니라 vCPUs, 데이터 디스크 및 Nic의 수에 대 한 정보를 나열 합니다.
 services: virtual-machines
 documentationcenter: ''
-author: jonbeck7
+author: sasha-melamed
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.topic: article
 ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: jonbeck
-ms.openlocfilehash: 17cceb04d3d6e559cd6f2b49674f6d408a0650a4
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5a611dc288fc18a14f6000689f9f9b49d4b3feb8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492995"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913339"
 ---
 # <a name="storage-optimized-virtual-machine-sizes"></a>스토리지 최적화 가상 컴퓨터 크기
 

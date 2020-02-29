@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: conceptual
 ms.date: 01/06/2020
 ms.author: brendm
-ms.openlocfilehash: 90ff59bb76bceaacc7b0528ed0461b76832dc7fd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 544de1b4ac46a58d533f71a46266807a3b93820a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77662130"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920045"
 ---
 # <a name="analyze-logs-and-metrics-with-diagnostics-settings"></a>진단 설정을 사용 하 여 로그 및 메트릭 분석
 
@@ -25,14 +25,14 @@ Azure 스프링 클라우드의 진단 기능을 사용 하 여 다음 서비스
 
 ## <a name="logs"></a>로그
 
-|로그 | Description |
+|로그 | 설명 |
 |----|----|
 | **ApplicationConsole** | 모든 고객 응용 프로그램의 콘솔 로그입니다. | 
 | **SystemLogs** | 현재이 범주에는 [스프링 클라우드 구성 서버](https://cloud.spring.io/spring-cloud-config/reference/html/#_spring_cloud_config_server) 로그만 있습니다. |
 
 ## <a name="metrics"></a>메트릭
 
-메트릭의 전체 목록은 [스프링 클라우드 메트릭](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options) 을 참조 하세요.
+메트릭의 전체 목록은 [스프링 클라우드 메트릭](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-metrics-options)을 참조 하세요.
 
 시작 하려면 이러한 서비스 중 하나를 사용 하도록 설정 하 여 데이터를 수신 합니다. Log Analytics를 구성 하는 방법에 대 한 자세한 내용은 [Azure Monitor에서 Log Analytics 시작](../azure-monitor/log-query/get-started-portal.md)을 참조 하세요. 
 

@@ -4,12 +4,12 @@ description: 앱에 대해 미리 작성 된 ASP.NET Core 컨테이너를 구성
 ms.devlang: dotnet
 ms.topic: article
 ms.date: 08/13/2019
-ms.openlocfilehash: cab99b9d20ce8a3190eb9aa59650dab32fca324d
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 30cd6ad1b5516eb3bc7e858ae364a88ace1b93b3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75768421"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917633"
 ---
 # <a name="configure-a-linux-aspnet-core-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux ASP.NET Core 앱 구성
 
@@ -38,6 +38,28 @@ az webapp list-runtimes --linux | grep DOTNETCORE
 ```azurecli-interactive
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "DOTNETCORE|2.1"
 ```
+
+## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
+
+빌드 자동화가 설정 된 상태에서 Git 또는 zip 패키지를 사용 하 여 앱을 배포 하는 경우 App Service 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+
+1. `PRE_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+1. `dotnet restore`를 실행 하 여 NuGet 종속성을 복원 합니다.
+1. `dotnet publish`를 실행 하 여 프로덕션을 위한 이진 파일을 빌드합니다.
+1. `POST_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+
+`PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`은 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행 하려면 `PRE_BUILD_COMMAND`를 정의 합니다. 빌드 후 명령을 실행 하려면 `POST_BUILD_COMMAND`를 정의 합니다.
+
+다음 예에서는 일련의 명령에 대 한 두 변수를 쉼표로 구분 하 여 지정 합니다.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+빌드 자동화를 사용자 지정 하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조 하세요.
+
+App Service를 실행 하 고 Linux에서 ASP.NET Core 앱을 빌드하는 방법에 대 한 자세한 내용은 [Oryx 설명서: .Net Core 앱이 검색 되 고 빌드되는 방법](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/dotnetcore.md)을 참조 하세요.
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
@@ -72,7 +94,7 @@ namespace SomeNamespace
 
 ## <a name="get-detailed-exceptions-page"></a>자세한 예외 페이지 가져오기
 
-ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 메시지가 표시됩니다. App Service에서 자세한 예외 페이지를 표시 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 추가 합니다.
+ASP.NET 앱이 Visual Studio 디버거에서 예외를 생성 하는 경우 브라우저는 자세한 예외 페이지를 표시 하지만 해당 페이지가 일반 **HTTP 500** 오류로 대체 되거나 **요청을 처리 하는 동안 오류가 발생 한 App Service 합니다.** 않습니다. App Service에서 자세한 예외 페이지를 표시 하려면 <a target="_blank" href="https://shell.azure.com" >Cloud Shell</a>에서 다음 명령을 실행 하 여 앱에 `ASPNETCORE_ENVIRONMENT` 앱 설정을 추가 합니다.
 
 ```azurecli-interactive
 az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings ASPNETCORE_ENVIRONMENT="Development"
@@ -82,7 +104,7 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 사용자 요청이 암호화 되었는지 여부를 응용 프로그램 논리에서 알고 있어야 하는 경우 *Startup.cs*에서 전달 된 헤더 미들웨어를 구성 합니다.
 
-- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions)를 사용하여 미들웨어를 구성 합니다.
+- `Startup.ConfigureServices`에서 `X-Forwarded-For` 및 `X-Forwarded-Proto` 헤더를 전달 하도록 [ForwardedHeadersOptions](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersoptions) 를 사용 하 여 미들웨어를 구성 합니다.
 - 미들웨어가 App Service 부하 분산 장치를 신뢰할 수 있도록 개인 IP 주소 범위를 알려진 네트워크에 추가 합니다.
 - 다른 미들웨어를 호출 하기 전에 `Startup.Configure`에서 [UseForwardedHeaders](https://docs.microsoft.com/dotnet/api/microsoft.aspnetcore.builder.forwardedheadersextensions.useforwardedheaders) 메서드를 호출 합니다.
 
@@ -113,7 +135,7 @@ public void Configure(IApplicationBuilder app, IHostingEnvironment env)
 }
 ```
 
-자세한 내용은 [프록시 서버 및 부하 분산 장치를 사용하도록 ASP.NET Core 구성](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)을 참조하세요.
+자세한 내용은 [프록시 서버 및 부하 분산 장치를 사용 하도록 ASP.NET Core 구성](https://docs.microsoft.com/aspnet/core/host-and-deploy/proxy-load-balancer)을 참조 하세요.
 
 ## <a name="deploy-multi-project-solutions"></a>다중 프로젝트 솔루션 배포
 

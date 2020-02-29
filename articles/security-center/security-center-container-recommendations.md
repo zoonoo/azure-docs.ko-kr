@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/20/2018
 ms.author: memildin
-ms.openlocfilehash: b8b8b05f703a3eb05936ca95e2047a13650914cf
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: b1e1402f58b103570d6a98a5f9a01c8168abf749
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77604271"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912364"
 ---
 # <a name="understand-azure-security-center-container-recommendations"></a>Azure Security Center 컨테이너 권장 사항 이해
 
@@ -35,14 +35,14 @@ Azure Security Center는 컨테이너를 보호하기 위한 다음과 같은 �
 
     ![컨테이너 탭](./media/security-center-container-recommendations/container-cis-benchmark.png)
 
-- **실시간 컨테이너 위협 검색**<br> Security Center는 AuditD 구성 요소를 사용하여 Linux 컴퓨터의 컨테이너에 대 한 실시간 위협 검색을 제공합니다. 경고는 호스트의 권한 있는 컨테이너 생성, Docker 컨테이너 내에서 실행 중인 SSH(Secure Shell) 서버의 표시 또는 암호화 마이너 사용과 같은 여러 의심스러운 Docker 활동을 식별합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
+- **실시간 컨테이너 위협 방지**<br> Security Center는 AuditD 구성 요소를 사용 하는 Linux 컴퓨터의 컨테이너에 대 한 실시간 위협 방지 기능을 제공 합니다. 경고는 호스트의 권한 있는 컨테이너 생성, Docker 컨테이너 내에서 실행 중인 SSH(Secure Shell) 서버의 표시 또는 암호화 마이너 사용과 같은 여러 의심스러운 Docker 활동을 식별합니다. 이 정보를 사용하여 보안 문제를 신속하게 수정하고 컨테이너의 보안을 강화할 수 있습니다.
 
     ![컨테이너 탭](./media/security-center-container-recommendations/docker-threat-detection.png)
 
 ## <a name="recommendations"></a>권장 사항
 IaaS Linux 머신에 호스트된 사용 가능한 컨테이너와 해당 Docker 구성의 보안 평가를 이해하는 데 도움이 되는 아래 테이블을 참조하세요.
 
-| 권장 | Description | 재구성 |
+| 권장 구성 | 설명 | 재구성 |
 | --- | --- | --- |
 |컨테이너 보안 구성에서 취약성 수정 |구성 모범 사례를 기반으로 컨테이너 보안 구성에서 취약성을 해결합니다.| 컨테이너 보안 구성에서 취약성을 해결하려면<br>1. 실패 한 규칙의 목록을 검토 합니다.<br>2. 지정 된 지침에 따라 각 규칙을 수정 합니다.|
 

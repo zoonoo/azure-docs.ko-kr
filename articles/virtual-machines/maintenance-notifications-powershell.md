@@ -7,18 +7,18 @@ ms.workload: infrastructure-services
 ms.topic: article
 ms.date: 11/19/2019
 ms.author: shants
-ms.openlocfilehash: c23a06c502bd43b52cb35220b711084c7c8c1c7a
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: b23c210d7c8a9f1d42e6e1b46e0f7f81bda857b2
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121845"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916085"
 ---
 # <a name="handling-planned-maintenance-using-powershell"></a>PowerShell을 사용 하 여 계획 된 유지 관리 처리
 
 **이 문서는 Linux 및 Windows를 실행 하는 가상 컴퓨터에 적용 됩니다.**
 
-Azure Powershell을 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 [ 매개 변수를 사용하는 경우 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` cmdlet에서 확인할 수 있습니다.
+Azure PowerShell를 사용 하 여 Vm이 [유지 관리](maintenance-notifications.md)되도록 예약 된 시기를 확인할 수 있습니다. 계획된 유지 관리 정보는 [ 매개 변수를 사용하는 경우 ](https://docs.microsoft.com/powershell/module/az.compute/get-azvm)Get-AzVM`-status` cmdlet에서 확인할 수 있습니다.
   
 유지 관리 정보는 계획된 유지 관리가 있는 경우에만 반환됩니다. VM에 영향을 미치는 유지 관리가 예약되지 않은 경우 cmdlet은 유지 관리 정보를 반환하지 않습니다. 
 
@@ -29,7 +29,7 @@ Get-AzVM -ResourceGroupName myResourceGroup -Name myVM -Status
 
 MaintenanceRedeployStatus의 다음과 같은 속성이 반환됩니다. 
 
-| 값 | Description   |
+| 값 | 설명   |
 |-------|---------------|
 | IsCustomerInitiatedMaintenanceAllowed | 이번에 VM에서 유지 관리를 시작할 수 있는지 여부를 나타냅니다. |
 | PreMaintenanceWindowStartTime         | VM에서 유지 관리를 시작할 수 있을 때 유지 관리 셀프 서비스 기간의 시작 시간입니다. |
@@ -83,6 +83,8 @@ Restart-AzVM -PerformMaintenance -name $vm.Name -ResourceGroupName $rg.ResourceG
 ```
 
 ## <a name="classic-deployments"></a>클래식 배포
+
+[!INCLUDE [classic-vm-deprecation](../../includes/classic-vm-deprecation.md)]
 
 클래식 배포 모델을 사용하여 배포된 레거시 VM이 아직 있는 경우 PowerShell을 사용하여 VM을 쿼리하고 유지 관리를 시작할 수 있습니다.
 

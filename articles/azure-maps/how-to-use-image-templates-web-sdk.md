@@ -10,10 +10,10 @@ services: azure-maps
 manager: cpendleton
 ms.custom: codepen
 ms.openlocfilehash: f3b1141ea3c3c8e33b8a2ae12c22b6962a90d32b
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 02/28/2020
 ms.locfileid: "77198227"
 ---
 # <a name="how-to-use-image-templates"></a>이미지 템플릿을 사용하는 방법
@@ -108,15 +108,15 @@ map.imageSprite.createFromTemplate('myTemplatedIcon', 'marker-flat', 'teal', '#f
 
 응용 프로그램에서 아이콘이 다른 아이콘을 사용 하거나 추가 이미지 템플릿을 추가 하는 모듈을 만드는 경우 Azure Maps 웹 SDK에서 이러한 아이콘을 쉽게 추가 하 고 검색할 수 있습니다. `atlas` 네임 스페이스에서 다음 정적 함수를 사용 합니다.
 
-| 속성 | 반환 형식 | Description | 
+| 이름 | 반환 유형 | 설명 | 
 |-|-|-|
 | `addImageTemplate(templateName: string, template: string, override: boolean)` | | Atlas 네임 스페이스에 사용자 지정 SVG 이미지 템플릿을 추가 합니다. |
-|  `getImageTemplate(templateName: string, scale?: number)`| 문자열 | 이름으로 SVG 템플릿을 검색 합니다. |
+|  `getImageTemplate(templateName: string, scale?: number)`| string | 이름으로 SVG 템플릿을 검색 합니다. |
 | `getAllImageTemplateNames()` | string[] |  이름으로 SVG 템플릿을 검색 합니다. |
 
 SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 
-| 자리 표시자 | Description |
+| 자리 표시자 | 설명 |
 |-|-|
 | `{color}` | 기본 색입니다. | 
 | `{secondaryColor}` | 보조 색입니다. | 
@@ -154,7 +154,7 @@ SVG 이미지 템플릿은 다음 자리 표시자 값을 지원 합니다.
 | 육각형 | 육각형-굵고 | 육각형-둥근 모양 | 육각형-굵고 |
 | ![육각형 아이콘](./media/image-templates/hexagon.png) | ![육각형-굵은 아이콘](./media/image-templates/hexagon-thick.png) | ![육각형 모양 아이콘](./media/image-templates/hexagon-rounded.png) | ![육각형-굵은 아이콘](./media/image-templates/hexagon-rounded-thick.png) |
 ||||
-| 고정 | 핀 반올림 | 둥근 사각형 | 둥근 사각형-굵고 |
+| pin | 핀 반올림 | 둥근 사각형 | 둥근 사각형-굵고 |
 | ![고정 아이콘](./media/image-templates/pin.png) | ![핀 둥근 모양 아이콘](./media/image-templates/pin-round.png) | ![둥근 사각형 아이콘](./media/image-templates/rounded-square.png) | ![둥근 사각형-굵은 아이콘](./media/image-templates/rounded-square-thick.png) |
 ||||
 | 위쪽 화살표 | 화살표-위쪽-씬 | 차량 ||

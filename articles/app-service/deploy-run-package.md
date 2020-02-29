@@ -3,12 +3,12 @@ title: ZIP 패키지에서 앱 실행
 description: 원자성을 사용 하 여 앱의 ZIP 패키지를 배포 합니다. ZIP 배포 프로세스 중에 앱의 동작에 대 한 예측 가능성과 안정성을 향상 시킵니다.
 ms.topic: article
 ms.date: 01/14/2020
-ms.openlocfilehash: 5cc909d79b3f5ea2b4c6a3da12bc7250addbe00c
-ms.sourcegitcommit: 49e14e0d19a18b75fd83de6c16ccee2594592355
+ms.openlocfilehash: 316ada7700a5cf45ee90f515336039702bab48c0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/14/2020
-ms.locfileid: "75945839"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920725"
 ---
 # <a name="run-your-app-in-azure-app-service-directly-from-a-zip-package"></a>ZIP 패키지에서 직접 Azure App Service에서 앱 실행
 
@@ -41,7 +41,7 @@ az webapp config appsettings set --resource-group <group-name> --name <app-name>
 
 ## <a name="run-the-package"></a>패키지 실행
 
-App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예:
+App Service에서 패키지를 실행 하는 가장 쉬운 방법은 Azure CLI [az webapp deployment source config-zip](/cli/azure/webapp/deployment/source?view=azure-cli-latest#az-webapp-deployment-source-config-zip) command를 사용 하는 것입니다. 예를 들면 다음과 같습니다.
 
 ```azurecli-interactive
 az webapp deployment source config-zip --resource-group <group-name> --name <app-name> --src <filename>.zip
@@ -62,6 +62,33 @@ az webapp config appsettings set --name <app-name> --resource-group <resource-gr
 ```
 
 Blob storage에 동일한 이름의 업데이트 된 패키지를 게시 하는 경우 업데이트 된 패키지가 App Service에 로드 되도록 앱을 다시 시작 해야 합니다.
+
+### <a name="use-key-vault-references"></a>Key Vault 참조 사용
+
+보안을 강화 하려면 외부 URL과 함께 Key Vault 참조를 사용할 수 있습니다. 이렇게 하면 암호화 되지 않은 상태로 유지 되며 비밀 관리 및 회전에 대 한 Key Vault 활용할 수 있습니다. 연결 된 SAS 키를 쉽게 회전할 수 있도록 Azure Blob storage를 사용 하는 것이 좋습니다. Azure Blob storage는 미사용 데이터를 암호화 하 여 App Service에 배포 되지 않을 때 응용 프로그램 데이터를 안전 하 게 유지 합니다.
+
+1. Azure Key Vault를 만듭니다.
+
+    ```azurecli
+    az keyvault create --name "Contoso-Vault" --resource-group <group-name> --location eastus
+    ```
+
+1. Key Vault에서 외부 URL을 암호로 추가 합니다.
+
+    ```azurecli
+    az keyvault secret set --vault-name "Contoso-Vault" --name "external-url" --value "<insert-your-URL>"
+    ```
+
+1. `WEBSITE_RUN_FROM_PACKAGE` 앱 설정을 만들고 외부 URL에 대 한 Key Vault 참조로 값을 설정 합니다.
+
+    ```azurecli
+    az webapp config appsettings set --settings WEBSITE_RUN_FROM_PACKAGE="@Microsoft.KeyVault(SecretUri=https://Contoso-Vault.vault.azure.net/secrets/external-url/<secret-version>"
+    ```
+
+자세한 내용은 다음 문서를 참조 하세요.
+
+- [App Service에 대 한 참조 Key Vault](app-service-key-vault-references.md)
+- [휴지 상태의 데이터에 대 한 암호화 Azure Storage](../storage/common/storage-service-encryption.md)
 
 ## <a name="troubleshooting"></a>문제 해결
 

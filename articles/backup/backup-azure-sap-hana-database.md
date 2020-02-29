@@ -3,12 +3,12 @@ title: Azure Backup를 사용 하 여 Azure에 SAP HANA 데이터베이스 백�
 description: 이 문서에서는 Azure Backup 서비스를 사용 하 여 Azure virtual machines에 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 11/12/2019
-ms.openlocfilehash: dd4c6fc0e018f3fc8f2a2029ef8a90cdc305e2c2
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: a5fd09e0e487d103e8bd78964c11b572a62e28fa
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76765525"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164613"
 ---
 # <a name="back-up-sap-hana-databases-in-azure-vms"></a>Azure VM에서 SAP HANA 데이터베이스 백업
 
@@ -30,7 +30,7 @@ SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표) 및 장기 보�
 
 ## <a name="prerequisites"></a>필수 조건
 
-백업할 데이터베이스를 설정 하려면 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [권한 설정](tutorial-backup-sap-hana-db.md#setting-up-permissions) 섹션을 참조 하세요.
+백업에 대 한 데이터베이스를 설정 하려면 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [사전 등록 스크립트에서 수행](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 하는 작업 섹션을 참조 하세요.
 
 ### <a name="set-up-network-connectivity"></a>네트워크 연결 설정
 
@@ -89,23 +89,6 @@ NSG 서비스 태그 사용 | 범위 변경이 자동으로 병합되어 관리�
 Azure Firewall FQDN 태그 사용 | 필요한 FQDN이 자동으로 관리되어 관리가 더 쉬움 | Azure Firewall하고만 함께 사용할 수 있음
 HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제어가 허용됨 <br/><br/> VM에 대한 인터넷 액세스의 단일 지점 <br/><br/> Azure IP 주소 변경이 적용되지 않음 | 프록시 소프트웨어로 VM을 실행하기 위해 추가 비용이 있음
 
-## <a name="onboard-to-the-public-preview"></a>공개 미리 보기에 온보딩
-
-다음과 같이 공개 미리 보기에 온보딩합니다.
-
-* 포털에서 [이 문서에 따라](https://docs.microsoft.com/azure/azure-resource-manager/resource-manager-register-provider-errors#solution-3---azure-portal) 구독 ID를 Recovery Services 공급자에 등록합니다.
-* PowerShell의 ' Az ' 모듈에 대해이 cmdlet을 실행 합니다. 그러면 "등록됨"으로 완료됩니다.
-
-    ```powershell
-    Register-AzProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-* PowerShell에서 ' AzureRM ' 모듈을 사용 하는 경우이 cmdlet을 실행 합니다. 그러면 "등록됨"으로 완료됩니다.
-
-    ```powershell
-    Register-AzureRmProviderFeature -FeatureName "HanaBackup" –ProviderNamespace Microsoft.RecoveryServices
-    ```
-    
-
 [!INCLUDE [How to create a Recovery Services vault](../../includes/backup-create-rs-vault.md)]
 
 ## <a name="discover-the-databases"></a>데이터베이스 검색
@@ -130,7 +113,7 @@ HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제
 
 1. 2 단계에서 **백업 구성**을 클릭 합니다.
 
-    ![Backup 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
+    ![백업 구성](./media/backup-azure-sap-hana-database/configure-backup.png)
 2. **백업할 항목 선택**에서 보호 하려는 모든 데이터베이스 > **확인**을 선택 합니다.
 
     ![백업할 항목 선택](./media/backup-azure-sap-hana-database/select-items.png)
@@ -201,7 +184,7 @@ HTTP 프록시 사용 | 스토리지 URL에 대한 프록시의 세부적인 제
 
 1. 자격 증명 모음 메뉴에서 **백업 항목**을 클릭합니다.
 2. **백업 항목**에서 SAP HANA 데이터베이스를 실행 하는 VM을 선택 하 고 **지금 Backup**을 클릭 합니다.
-3. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 후 **OK**를 클릭합니다.
+3. **지금 백업**에서 달력 컨트롤을 사용 하 여 복구 지점을 유지할 마지막 날을 선택 합니다. 그런 다음 **확인**을 클릭합니다.
 4. 포털 알림을 모니터링합니다. 자격 증명 모음 대시보드 > **백업 작업** > **진행 중**에서 작업 진행률을 모니터링할 수 있습니다. 데이터베이스의 크기에 따라 초기 백업을 만드는 데 시간이 걸릴 수 있습니다.
 
 ## <a name="run-sap-hana-studio-backup-on-a-database-with-azure-backup-enabled"></a>Azure Backup 사용 하도록 설정 된 데이터베이스에서 SAP HANA Studio 백업 실행

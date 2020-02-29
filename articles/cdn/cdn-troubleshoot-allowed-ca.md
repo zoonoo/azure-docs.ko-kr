@@ -15,19 +15,19 @@ ms.topic: article
 ms.date: 10/18/2018
 ms.author: magattus
 ms.custom: mvc
-ms.openlocfilehash: 5462502514a3e327913122fe99fd699856891216
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: 7b71611d43bc2d4de4c3e609462906c44fba0443
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74083113"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919977"
 ---
 # <a name="allowed-certificate-authorities-for-enabling-custom-https-on-azure-cdn"></a>Azure CDN에서 사용자 지정 HTTPS를 사용하기 위해 허용되는 인증 기관
 
-**Microsoft Azure CDN Standard** 엔드포인트의 Azure CDN(Content Delivery Network) 사용자 지정 도메인의 경우 [고유의 인증서를 사용하여 HTTPS를 활성화](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates)하려면 허용되는 CA(인증 기관)를 사용하여 SSL 인증서를 만들어야 합니다. 그렇지 않고 허용되지 않는 CA 또는 자체 서명 인증서를 사용할 경우 요청이 거부됩니다.
+Azure Content Delivery Network (CDN) 사용자 지정 도메인에 대 한 [자체 인증서를 사용 하 여 HTTPS 기능을 사용 하도록 설정 하는](cdn-custom-ssl.md?tabs=option-2-enable-https-with-your-own-certificate#ssl-certificates) 경우 특정 인증서 요구 사항을 충족 해야 합니다. **Microsoft 프로필의 Azure CDN 표준** 에는 다음 목록에 승인 된 CA (인증 기관) 중 하나의 인증서가 필요 합니다. 승인 되지 않은 CA의 인증서 또는 자체 서명 된 인증서를 사용 하는 경우 요청이 거부 됩니다. **Verizon의 Azure CDN 표준과** **Verizon의 Azure CDN Premium** 프로필은 유효한 CA의 모든 유효한 인증서를 허용 합니다.
 
 > [!NOTE]
-> 고유한 인증서를 사용하여 사용자 지정 HTTPS를 활성화하는 옵션은 **Microsoft Azure CDN Standard** 프로필에만 사용할 수 있습니다. 
+> 사용자 고유의 인증서를 사용 하 여 사용자 지정 도메인 HTTPS 기능을 사용 하도록 설정 하는 옵션은 **Akamai의 Azure CDN Standard** 프로필에 사용할 수 *없습니다* . 
 >
 
 [!INCLUDE [cdn-front-door-allowed-ca](../../includes/cdn-front-door-allowed-ca.md)]

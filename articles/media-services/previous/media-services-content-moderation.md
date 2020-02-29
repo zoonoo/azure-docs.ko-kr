@@ -14,17 +14,20 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 03/14/2019
 ms.author: sajagtap
-ms.openlocfilehash: a8560df6120dd773e13dbfc7427d9a16e6f6c83b
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 83fe7867a3128ac82597c028452863a1ad681ace
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74896009"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914333"
 ---
 # <a name="use-azure-media-content-moderator-to-detect-possible-adult-and-racy-content"></a>Azure Media Content Moderator를 사용하여 가능한 성인/외설 콘텐츠 검색 
 
+> [!NOTE]
+> **Azure 미디어 Content Moderator** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+
 ## <a name="overview"></a>개요
-**Azure Media Content Moderator** MP(미디어 프로세서)를 통해 비디오에 컴퓨터 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하고 싶을 수 있습니다.
+**Azure Media Content Moderator** MP(미디어 프로세서)를 통해 비디오에 컴퓨터 지원 조정을 사용할 수 있습니다. 예를 들어 휴먼 조정 팀이 비디오에서 혹시라도 있을 수 있는 성인/외설 콘텐츠를 검색하고 플래그가 지정된 콘텐츠를 검토하게 하는 것이 좋습니다.
 
 **Azure Media Content Moderator** MP는 현재 미리 보기 상태입니다.
 
@@ -46,12 +49,12 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 | 요소 | 설명 |
 | --- | --- |
-| 버전 |Content Moderator 버전입니다. |
+| version |Content Moderator 버전입니다. |
 | timescale |동영상의 초당 "틱"입니다. |
-| offset |타임스탬프의 시간 오프셋입니다. Video API 버전 1.0에서 이 값은 항상 0입니다. 이 값은 나중에 변경할 수 있습니다. |
+| 오프셋 |타임스탬프의 시간 오프셋입니다. Video API 버전 1.0에서 이 값은 항상 0입니다. 이 값은 나중에 변경할 수 있습니다. |
 | framerate |동영상의 초당 프레임 수입니다. |
 | width |출력 비디오 프레임의 너비(픽셀)입니다.|
-| height |출력 비디오 프레임의 높이(픽셀)입니다.|
+| 높이 |출력 비디오 프레임의 높이(픽셀)입니다.|
 | totalDuration |입력 비디오의 기간(“틱”)입니다. |
 | [fragments](#fragments-json-elements) |메타데이터는 조각이라고 하는 다른 세그먼트로 청크 분할됩니다. 각 조각은 시작, 기간, 간격 번호 및 이벤트가 포함된 자동 검색된 스크린샷입니다. |
 
@@ -68,7 +71,7 @@ JSON 형식의 조정된 출력에는 자동 검색된 스크린샷 및 키 프�
 
 |요소|설명|
 |---|---|
-| reviewRecommended | **adultScore** 또는 **racyScore**가 내부 임계값을 초과하는지 여부에 따라 `true` 또는 `false`입니다. |
+| reviewRecommended | `true`adultScore`false` 또는 **racyScore**가 내부 임계값을 초과하는지 여부에 따라 **또는**입니다. |
 | adultScore | 가능한 성인 콘텐츠에 대한 신뢰도 점수로, 0.00에서 0.99 사이입니다. |
 | racyScore | 가능한 외설 콘텐츠에 대한 신뢰도 점수로, 0.00에서 0.99 사이입니다. |
 | index | 첫 번째 프레임 인덱스에서 마지막 프레임 인덱스 사이의 프레임 인덱스입니다. |
@@ -220,10 +223,10 @@ The following example of a Content Moderator JSON output was truncated.
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

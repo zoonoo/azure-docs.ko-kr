@@ -6,12 +6,12 @@ ms.suite: integration
 ms.reviewer: klam, logicappspm
 ms.topic: article
 ms.date: 08/01/2019
-ms.openlocfilehash: 662f8c2a4184e858d33dc40effed363ef3ec17e5
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 95bfa7b1918da09e4f5913eeb2b57c290b093efe
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76904965"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78162384"
 ---
 # <a name="deploy-azure-resource-manager-templates-for-azure-logic-apps"></a>Azure Logic Apps에 대 한 Azure Resource Manager 템플릿 배포
 
@@ -22,7 +22,7 @@ ms.locfileid: "76904965"
 * [Azure PowerShell](#powershell)
 * [Azure CLI](#cli)
 * [Azure 리소스 관리자 REST API](../azure-resource-manager/templates/deploy-rest.md)
-* [Azure DevOps Azure Pipelines](#azure-pipelines)
+* [Azure DevOps](#azure-pipelines)
 
 <a name="portal"></a>
 
@@ -96,6 +96,7 @@ Azure Pipelines를 사용 하는 Azure Resource Manager 템플릿의 CI/CD에 �
 * [샘플: Azure Logic Apps에서 Azure Storage 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-azure-storage-accounts-from-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure DevOps에서 Azure Logic Apps에 대 한 함수 앱 작업 설정 및 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/set-up-an-azure-function-app-action-for-azure-logic-apps-and-deploy-with-azure-devops-pipelines/)
 * [샘플: Azure Logic Apps에서 통합 계정에 연결 하 고 Azure DevOps에서 Azure Pipelines를 사용 하 여 배포](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-deployment-samples/connect-to-an-integration-account-from-azure-logic-apps-and-deploy-by-using-azure-devops-pipelines/)
+* [샘플: Azure Logic Apps를 사용 하 여 Azure Pipelines 오케스트레이션](https://docs.microsoft.com/samples/azure-samples/azure-logic-apps-pipeline-orchestration/azure-devops-orchestration-with-logic-apps/)
 
 Azure Pipelines 사용에 대 한 일반적인 개략적인 단계는 다음과 같습니다.
 

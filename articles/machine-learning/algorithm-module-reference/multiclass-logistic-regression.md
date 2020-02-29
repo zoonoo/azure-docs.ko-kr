@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: a697c1e43ccd486f8c98399ea9065902bd247f7d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 40193a2547959b44c5753cfcc6ccad9344ab9486
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152145"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920436"
 ---
 # <a name="multiclass-logistic-regression-module"></a>다중 클래스 로지스틱 회귀 모듈
 
@@ -40,7 +40,7 @@ ms.locfileid: "77152145"
 
     + **단일 매개 변수**: 모델을 구성 하는 방법을 알고 있으며 특정 값 집합을 인수로 제공 하는 경우이 옵션을 사용 합니다.
 
-    + **매개 변수 범위**: 최적의 매개 변수를 잘 모르는 상태에서 매개 변수 스윕을 사용 하려는 경우이 옵션을 사용 합니다.
+    + **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.  
 
 3. **최적화 허용 오차**에 대 한 임계값을 지정 합니다. 반복 간의 개선 수준이 임계값보다 낮으면 알고리즘이 중지되며 현재 모델이 반환됩니다.
 

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f94427ddfbdc19836cd177fd642987aaaeedf1ee
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 653b12ddd54c5ec9e4e7dd23a323f34460daa962
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152094"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920419"
 ---
 # <a name="multiclass-neural-network-module"></a>다중 클래스 신경망 모듈
 
@@ -46,7 +46,7 @@ ms.locfileid: "77152094"
 
     - **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.
 
-    
+    - **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.  
 
 3. **숨겨진 계층 사양**: 만들 네트워크 아키텍처의 유형을 선택 합니다.
 

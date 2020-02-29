@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.topic: troubleshooting
 ms.date: 11/01/2018
 ms.author: genli
-ms.openlocfilehash: 2baa82bda1f92fe81bb0db69b84e6865b2709e42
-ms.sourcegitcommit: ca359c0c2dd7a0229f73ba11a690e3384d198f40
+ms.openlocfilehash: cdbaeb5a97beba342bc471e75d1b07be0d0141ae
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/17/2019
-ms.locfileid: "71058046"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921414"
 ---
 # <a name="troubleshoot-deploying-windows-virtual-machine-issues-in-azure"></a>Azure에서 Windows 가상 머신 배포 문제 해결
 
@@ -31,7 +31,7 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 [!INCLUDE [virtual-machines-windows-troubleshoot-deploy-vm-top](../../../includes/virtual-machines-windows-troubleshoot-deploy-vm-top.md)]
 
 ## <a name="the-cluster-cannot-support-the-requested-vm-size"></a>클러스터가 요청된 VM 크기를 지원할 수 없습니다.
-\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<속성 supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 더 작은 VM 크기를 사용하여 요청을 다시 시도합니다.
 - 요청한 VM의 크기를 변경할 수 없으면:
     - 가용성 집합의 VM을 모두 중지합니다. **리소스 그룹** > 사용자의 리소스 그룹 > **리소스** > 사용자의 가용성 집합 > **Virtual Machines** > 사용자의 가상 머신 > **중지**를 클릭합니다.
@@ -40,7 +40,7 @@ Azure의 VM(가상 머신) 배포 문제를 해결하려면 일반적인 오류 
 
 
 ## <a name="the-cluster-does-not-have-free-resources"></a>클러스터에 여유 리소스가 없습니다.
-\<properties supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
+\<속성 supportTopicIds = "123456789" resourceTags = "windows" productPesIds = "1234, 5678"/>
 - 요청을 나중에 다시 시도하세요.
 - 새 VM이 다른 가용성 집합의 일부가 될 수 있다면
     - 동일한 지역의 다른 가용성 집합에 VM을 만듭니다.
@@ -62,7 +62,7 @@ Azure 하이브리드 사용 혜택을 사용하여 Windows 가상 머신을 배
 
 • 사용자 지정 VM을 업로드하거나 Resource Manager 템플릿 또는 Azure PowerShell을 사용하여 배포합니다.
 
-자세한 내용은 다음 리소스를 참조하십시오.
+자세한 내용은 다음 참고 자료를 참조하십시오.
 
  - [Azure 하이브리드 사용 혜택 개요](https://azure.microsoft.com/pricing/hybrid-use-benefit/)
 
@@ -106,6 +106,8 @@ Windows Server 2016 또는 Windows Server 2012 R2를 실행하는 Azure N 시리
 VM을 실행하면 해당 VM이 실제 서버에 배포됩니다. Azure 지역의 물리적 서버는 일반적인 실제 하드웨어의 클러스터에서 그룹화됩니다. VM을 다른 하드웨어 클러스터에 이동해야 하는 VM 크기 조정은 VM을 배포하는 데 사용되는 배포 모델에 따라 달라집니다.
 
 - 클래식 배포 모델에서 배포된 VM의 경우 클라우드 서비스 배포를 제거하고 다시 배포하여 다른 크기 제품군의 크기로 VM을 변경해야 합니다.
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 - Resource Manager 배포 모델에서 배포된 VM의 경우 가용성 집합에 있는 VM의 크기를 변경하기 전에 모든 VM을 중지해야 합니다.
 

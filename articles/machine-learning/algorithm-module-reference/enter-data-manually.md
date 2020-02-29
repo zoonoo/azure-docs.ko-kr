@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 61c3dde49d4cd298fb3a0f19dc1d8c00e54977af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152349"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917478"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 입력 모듈
 
@@ -36,13 +36,13 @@ ms.locfileid: "77152349"
   
 2.  **DataFormat**의 경우 다음 옵션 중 하나를 선택 합니다. 이러한 옵션은 사용자가 제공 하는 데이터를 구문 분석 해야 하는 방법을 결정 합니다. 각 형식에 대 한 요구 사항은 크게 다르므로 관련 항목을 참조 하십시오.  
   
-    -   **Arff**입니다. Weka에서 사용 되는 특성 관계 파일 형식입니다.   
+    -   **Arff**: weka에서 사용 되는 특성 관계 파일 형식입니다.   
   
-    -   **CSV**. 쉼표로 구분 된 값 형식입니다. 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.  
+    -   **CSV**: 쉼표로 구분 된 값 형식입니다. 자세한 내용은 [CSV로 변환](./convert-to-csv.md)을 참조 하세요.  
   
-    -   **SVMLight**. Vowpal Wabbit 및 기타 기계 학습 프레임 워크에서 사용 하는 형식입니다.  
+    -   **SVMLight**: Vowpal Wabbit 및 기타 기계 학습 프레임 워크에서 사용 하는 형식입니다.  
   
-    -   **TSV**. 탭으로 구분 된 값 형식입니다.
+    -   **TSV**: 탭으로 구분 된 값 형식입니다.
 
      형식을 선택 하 고 형식 사양을 만족 하는 데이터를 제공 하지 않는 경우 런타임 오류가 발생 합니다.
   

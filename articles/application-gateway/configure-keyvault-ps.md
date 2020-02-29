@@ -6,18 +6,18 @@ services: application-gateway
 author: vhorne
 ms.service: application-gateway
 ms.topic: article
-ms.date: 11/14/2019
+ms.date: 02/27/2020
 ms.author: victorh
-ms.openlocfilehash: 746e9f08a75ece18199d5a72bb532873be787f50
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 2f7eafc6fc1533bd837fae60dd3b9673f6f97aa8
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77592275"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913024"
 ---
 # <a name="configure-ssl-termination-with-key-vault-certificates-by-using-azure-powershell"></a>Azure PowerShell를 사용 하 여 Key Vault 인증서로 SSL 종료 구성
 
-[Azure Key Vault](../key-vault/key-vault-overview.md) 는 암호, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault (공개 미리 보기)와의 통합을 지원 합니다. 이 지원은 Application Gateway의 v2 SKU로 제한 됩니다.
+[Azure Key Vault](../key-vault/key-vault-overview.md) 는 암호, 키 및 SSL 인증서를 보호 하는 데 사용할 수 있는 플랫폼 관리 암호 저장소입니다. Azure 애플리케이션 Gateway는 HTTPS 사용 수신기에 연결 된 서버 인증서에 대 한 Key Vault와의 통합을 지원 합니다. 이 지원은 Application Gateway v2 SKU로 제한 됩니다.
 
 자세한 내용은 [Key Vault 인증서를 사용 하는 SSL 종료](key-vault-certs.md)를 참조 하십시오.
 
@@ -27,7 +27,7 @@ ms.locfileid: "77592275"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 시작 하기 전에 ManagedServiceIdentity 모듈이 설치 되어 있어야 합니다.
 

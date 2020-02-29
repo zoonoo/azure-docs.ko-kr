@@ -1,32 +1,32 @@
 ---
 title: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 description: 자동 크기 조정 구성을 사용 하 여 인스턴스 수를 관리 하는 Azure 가상 머신 확장 집합에서 사용자 지정 확장 정책을 사용 하는 방법을 알아봅니다.
-author: avverma
+services: virtual-machine-scale-sets
+author: avirishuv
+manager: vashan
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.workload: infrastructure-services
 ms.tgt_pltfrm: vm
 ms.topic: conceptual
-ms.date: 10/11/2019
+ms.date: 02/26/2020
 ms.author: avverma
-ms.openlocfilehash: 8e51ebab36d75d1c9512446ee0370f7359a72551
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ffcdaf76bdd08ee5505ddbeff6a6698e231b6171
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271758"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919841"
 ---
-# <a name="preview-use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>미리 보기: Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
+# <a name="use-custom-scale-in-policies-with-azure-virtual-machine-scale-sets"></a>Azure 가상 머신 확장 집합에 사용자 지정 확장 정책 사용
 
-가상 머신 확장 집합 배포는 플랫폼 및 사용자 정의 사용자 지정 메트릭을 포함 하 여 메트릭 배열에 따라 확장 또는 축소할 수 있습니다. 스케일 아웃은 확장 집합 모델을 기반으로 새 Virtual Machines을 만들지만 확장 집합 워크 로드가 진화 함에 따라 구성 및/또는 기능이 다를 수 있는 실행 중인 가상 컴퓨터에는 규모 확장에 영향을 줍니다. 
+가상 머신 확장 집합 배포는 플랫폼 및 사용자 정의 사용자 지정 메트릭을 포함 하 여 메트릭 배열에 따라 확장 또는 축소할 수 있습니다. 스케일 아웃은 확장 집합 모델을 기반으로 새 가상 컴퓨터를 만들지만 확장 집합의 워크 로드가 진화 함에 따라 구성 및/또는 기능이 다를 수 있는 실행 중인 가상 컴퓨터에는 확장이 적용 됩니다. 
 
-규모 확장 정책 기능은 사용자에 게 가상 컴퓨터의 크기를 조정 하는 순서를 구성 하는 방법을 제공 합니다. 미리 보기에는 다음과 같은 세 가지 규모의 구성이 도입 되었습니다. 
+규모 확장 정책 기능을 통해 사용자는 다음과 같은 세 가지 규모의 구성으로 가상 컴퓨터를 확장 하는 순서를 구성할 수 있습니다. 
 
-1. 기본값
+1. 기본
 2. NewestVM
 3. OldestVM
-
-***이 미리 보기 기능은 서비스 수준 계약 없이 제공 되며 프로덕션 워크 로드에는 권장 되지 않습니다.***
 
 ### <a name="default-scale-in-policy"></a>기본 규모 조정 정책
 
@@ -54,6 +54,17 @@ ms.locfileid: "76271758"
 
 다음과 같은 방법으로 가상 머신 확장 집합 모델에 대 한 확장 정책을 정의할 수 있습니다.
 
+### <a name="azure-portal"></a>Azure 포털
+ 
+다음 단계는 새 확장 집합을 만들 때 확장 정책을 정의 합니다. 
+ 
+1. **가상 머신 확장 집합**으로 이동 합니다.
+1. **+ 추가** 를 선택 하 여 새 확장 집합을 만듭니다.
+1. **크기 조정** 탭으로 이동 합니다. 
+1. **크기 조정 정책** 섹션을 찾습니다.
+1. 드롭다운에서 확장 정책을 선택 합니다.
+1. 새 확장 집합 만들기를 완료 한 후 **검토 + 만들기** 단추를 선택 합니다.
+
 ### <a name="using-api"></a>API 사용
 
 API 2019-03-01를 사용 하 여 가상 머신 확장 집합에 대 한 배치를 실행 합니다.
@@ -70,6 +81,33 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 } 
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+리소스 그룹을 만든 다음, 확장 정책을 *Oldestvm*으로 설정 하 여 새 확장 집합을 만듭니다.
+
+```azurepowershell-interactive
+New-AzResourceGroup -ResourceGroupName "myResourceGroup" -Location "<VMSS location>"
+New-AzVmss `
+  -ResourceGroupName "myResourceGroup" `
+  -Location "<VMSS location>" `
+  -VMScaleSetName "myScaleSet" `
+  -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+다음 예에서는 새 확장 집합을 만드는 동안 확장 정책을 추가 합니다. 먼저 리소스 그룹을 만든 다음, 확장 정책을 사용 하 여 새 확장 집합을 *Oldestvm*으로 만듭니다. 
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>템플릿 사용
@@ -94,6 +132,15 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 규모 확장 정책을 수정 하는 것은 규모 확장 정책을 적용 하는 것과 동일한 프로세스를 따릅니다. 예를 들어 위의 예제에서 ' OldestVM '의 정책을 ' NewestVM '로 변경 하려면 다음을 수행 합니다.
 
+### <a name="azure-portal"></a>Azure 포털
+
+Azure Portal를 통해 기존 확장 집합의 확장 정책을 수정할 수 있습니다. 
+ 
+1. 기존 가상 머신 확장 집합의 왼쪽에 있는 메뉴에서 **크기 조정** 을 선택 합니다.
+1. **크기 조정 정책** 탭을 선택 합니다.
+1. 드롭다운에서 확장 정책을 선택 합니다.
+1. 완료 되 면 **저장**을 선택 합니다. 
+
 ### <a name="using-api"></a>API 사용
 
 API 2019-03-01를 사용 하 여 가상 머신 확장 집합에 대 한 배치를 실행 합니다.
@@ -110,6 +157,27 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
         } 
     }    
 }
+```
+### <a name="azure-powershell"></a>Azure PowerShell
+
+기존 확장 집합의 규모 확장 정책을 업데이트 합니다.
+
+```azurepowershell-interactive
+Update-AzVmss `
+ -ResourceGroupName "myResourceGroup" `
+ -VMScaleSetName "myScaleSet" `
+ -ScaleInPolicy “OldestVM”
+```
+
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+기존 확장 집합의 규모 확장 정책을 업데이트 하는 예는 다음과 같습니다. 
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --scale-in-policy OldestVM
 ```
 
 ### <a name="using-template"></a>템플릿 사용
@@ -143,7 +211,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 | 이벤트                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| 초기               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | 규모 확장              | 3, 4, 5, 10            | ***2***, 6, 9, 11      | 1, 7, 8                | 영역 3에 가장 오래 된 VM이 있는 경우에도 영역 1와 2 중에서 선택 합니다. 해당 영역에서 가장 오래 된 VM 인 영역 2 V M 2에서 삭제 합니다.   |
 | 규모 확장              | ***3***, 4, 5, 10      | 6, 9, 11               | 1, 7, 8                | 영역 3에 가장 오래 된 VM이 있는 경우에도 영역 1을 선택 합니다. 해당 영역에서 가장 오래 된 VM 인 영역 1 V M 3에서 삭제 합니다.                  |
 | 규모 확장              | 4, 5, 10               | 6, 9, 11               | ***1***, 7, 8          | 영역의 균형이 조정 됩니다. 크기 집합에서 가장 오래 된 VM 이므로 영역 3 VM1에서 삭제 합니다.                                               |
@@ -157,7 +225,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 | 이벤트                 | 영역 1의 인스턴스 Id  | 영역 2의 인스턴스 Id  | 영역 3의 인스턴스 Id  | 선택 영역 확장                                                                                                               |
 |-----------------------|------------------------|------------------------|------------------------|----------------------------------------------------------------------------------------------------------------------------------|
-| Initial               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
+| 초기               | 3, 4, 5, 10            | 2, 6, 9, 11            | 1, 7, 8                |                                                                                                                                  |
 | 규모 확장              | 3, 4, 5, 10            | 2, 6, 9, ***11***      | 1, 7, 8                | 영역 1와 2 중에서 선택 합니다. 영역 2에서 VM11는 두 영역에 있는 최신 VM 이므로 삭제 합니다.                                |
 | 규모 확장              | 3, 4, 5, ***10***      | 2, 6, 9                | 1, 7, 8                | 다른 두 영역 보다 더 많은 Vm이 있으므로 영역 1을 선택 합니다. 영역 1에서 VM10을 삭제 합니다 .이는 해당 영역에서 최신 VM입니다.          |
 | 규모 확장              | 3, 4, 5                | 2, 6, ***9***          | 1, 7, 8                | 영역의 균형이 조정 됩니다. 크기 집합의 최신 VM 이므로 영역 2 VM9에서 삭제 합니다.                                                |
@@ -169,7 +237,7 @@ https://management.azure.com/subscriptions/<sub-id>/resourceGroups/<myRG>/provid
 
 ## <a name="troubleshoot"></a>문제 해결
 
-1. ' 속성 ' 형식의 개체에서 ' scaleInPolicy ' 멤버를 찾을 수 없습니다. 라는 오류 메시지와 함께 ' BadRequest ' 오류가 발생 하는 경우 scaleInPolicy를 사용 하도록 설정 하지 못했습니다. 가상 머신 확장 집합에 사용 되는 API 버전을 확인 하세요. 이 미리 보기에는 API 버전 2019-03-01 이상이 필요 합니다.
+1. ' 속성 ' 형식의 개체에서 ' scaleInPolicy ' 멤버를 찾을 수 없습니다. 라는 오류 메시지와 함께 ' BadRequest ' 오류가 발생 하는 경우 scaleInPolicy를 사용 하도록 설정 하지 못했습니다. 가상 머신 확장 집합에 사용 되는 API 버전을 확인 하세요. 이 기능을 수행 하려면 API 버전 2019-03-01 이상이 필요 합니다.
 
 2. 규모 확장을 위해 Vm을 잘못 선택 하는 것은 위의 예를 참조 하세요. 가상 머신 확장 집합이 영역 배포 인 경우 확장 정책은 먼저 불균형 영역에 적용 된 후 영역에 분산 된 후에 확장 집합 전체에 적용 됩니다. 규모의 순서가 위의 예제와 일치 하지 않는 경우 문제 해결을 위해 가상 머신 확장 집합 팀을 사용 하 여 쿼리를 발생 시킵니다.
 

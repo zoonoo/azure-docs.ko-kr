@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/10/2019
-ms.openlocfilehash: 075216cf7d67aa4d5a04f34a7ae3444a078b4c62
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.date: 02/22/2020
+ms.openlocfilehash: 1778ba543e070bbffbbc8579b280373d834492fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76313912"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920803"
 ---
 # <a name="train-svd-recommender"></a>SVD 추천 학습
 
-이 문서에서는 Azure Machine Learning designer에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
+이 문서에서는 Azure Machine Learning 디자이너 (미리 보기)에서 학습 .SVD 추천 모듈을 사용 하는 방법을 설명 합니다. 이 모듈을 사용 하 여 .SVD (단일 값 분해) 알고리즘을 기반으로 추천 모델을 학습 합니다.  
 
 학습 .SVD 추천 모듈은 사용자-항목-등급 삼중 쌍의 데이터 집합을 읽습니다. 학습 된 .SVD 추천를 반환 합니다. 그런 다음 [점수 .Svd 추천](score-svd-recommender.md) 모듈을 사용 하 여 학습 된 모델을 사용 하 여 등급을 예측 하거나 권장 구성을 생성할 수 있습니다.  
 
@@ -48,16 +48,13 @@ ms.locfileid: "76313912"
 + 두 번째 열에는 항목 식별자가 포함 됩니다.
 + 세 번째 열은 사용자-항목 쌍의 등급을 포함 합니다. 등급 값은 숫자 형식 이어야 합니다.  
 
-Azure Machine Learning 디자이너의 **식당 등급** 데이터 집합 ( **저장 된 데이터 집합** 및 **샘플**선택)은 예상 되는 형식을 보여 줍니다.
+Azure Machine Learning 디자이너 ( **데이터 집합** 및 **샘플**)의 **영화 등급** 데이터 집합은 필요한 형식을 보여 줍니다.
 
-|userID|placeID|rating|
-|------------|-------------|------------|
-|U1077|135085|2|
-|U1077|135038|2|
+![영화 등급](media/module/movie-ratings-dataset.png)
 
-이 샘플에서는 단일 사용자가 두 식당의 등급을 매긴 것을 볼 수 있습니다. 
+이 샘플에서는 단일 사용자가 여러 영화를 평가한 것을 볼 수 있습니다. 
 
-### <a name="train-the-model"></a>모델 교육
+### <a name="train-the-model"></a>모델 학습
 
 1.  Designer에서 .SVD 추천 모듈을 파이프라인에 추가 하 고 학습 데이터에 연결 합니다.  
    

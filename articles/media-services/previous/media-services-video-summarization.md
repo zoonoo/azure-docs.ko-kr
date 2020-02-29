@@ -15,15 +15,18 @@ ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
 ms.reviewer: milanga
-ms.openlocfilehash: da397c180b6ccaf91084a0ec22210c7bcc88a5dc
-ms.sourcegitcommit: a22cb7e641c6187315f0c6de9eb3734895d31b9d
+ms.openlocfilehash: a79e718c04f81b1552d63ab98b6dcd6bb428fb50
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74084808"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918337"
 ---
 # <a name="use-azure-media-video-thumbnails-to-create-a-video-summarization"></a>Azure 미디어 비디오 미리 보기를 사용하여 비디오 요약 만들기  
- 
+
+> [!NOTE]
+> **Azure Media Video Thumbnails** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
+
 ## <a name="overview"></a>개요
 
 **Azure 미디어 비디오 미리 보기** MP(미디어 프로세서)를 사용하여 긴 비디오의 요약만 미리 보려는 고객에게 유용한 비디오 요약을 만들 수 있습니다. 예를 들어 고객은 미리 보기를 가리키면 나타나는 짧은 "요약 비디오"를 원할 수 있습니다. 구성 기본 설정을 통해 **Azure 미디어 비디오 미리 보기** 의 매개 변수를 조정하면 MP의 강력한 장면 감지 및 연결 기술을 사용하여 알고리즘 방식으로 설명이 포함된 하위 클립을 생성할 수 있습니다.  
@@ -106,7 +109,7 @@ Azure 미디어 비디오 미리 보기 미디어 프로세서에서 수행할 �
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
     using System;

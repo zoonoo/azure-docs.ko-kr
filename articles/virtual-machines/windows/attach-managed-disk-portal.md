@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 02/06/2020
 ms.author: rogarana
 ms.subservice: disks
-ms.openlocfilehash: 8b651d6e5ca9262d38f5bfb9e10c404e2614809e
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 0fe04941821de2ac6e4e873e8d073c3e9b9d9508
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77055671"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919382"
 ---
 # <a name="attach-a-managed-data-disk-to-a-windows-vm-by-using-the-azure-portal"></a>Azure Portal을 사용하여 Windows VM에 관리되는 데이터 디스크 연결
 
@@ -48,4 +48,4 @@ ms.locfileid: "77055671"
 ## <a name="next-steps"></a>다음 단계
 
 - 또한 [PowerShell을 사용하여 데이터 디스크를 연결](attach-disk-ps.md)할 수 있습니다.
-- 애플리케이션이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)할 수 있습니다.
+- 애플리케이션이 데이터를 저장하는 데 *D:* 드라이브를 사용해야 하면 [Windows 임시 디스크의 드라이브 문자를 변경](change-drive-letter.md)할 수 있습니다.

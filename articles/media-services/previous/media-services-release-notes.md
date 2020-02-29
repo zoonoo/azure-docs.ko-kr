@@ -13,26 +13,26 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: cfe5ea47ad2cbed7bd2779ee535d7bef447475e5
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 91578b5c840f589f3e49737b71e63f4d5e82a126
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500354"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919654"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
 Azure Media Services에 대한 이 릴리스 정보에는 이전 릴리스 이후의 변경 내용과 알려진 문제가 요약되어 있습니다.
 
 > [!NOTE]
-> Media Services v 2에 새로운 기능이 추가 되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
+> Media Services v2에는 새로운 기능이 추가되지 않습니다. <br/>[Media Services v3](https://docs.microsoft.com/azure/media-services/latest/)의 최신 버전을 확인하세요. 또한 [v2에서 v3로 마이그레이션 지침](../latest/migrate-from-v2-to-v3.md) 을 참조 하세요.
 
 Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문제를 해결하기 위해 노력하고 있습니다. 문제를 보고하거나 질문이 있는 경우 [Azure Media Services MSDN 포럼]에서 게시물을 제출하세요. 
 
 ## <a name="a-idissuesknown-issues"></a>알려진 문제 <a id="issues"/>
 ### <a name="a-idgeneral_issuesmedia-services-general-issues"></a><a id="general_issues"/>Media Services 관련 일반 문제
 
-| 문제 | Description |
+| 문제 | 설명 |
 | --- | --- |
 | REST API에 다양한 일반 HTTP 헤더가 제공되지 않습니다. |REST API를 사용하여 Media Services 애플리케이션을 개발하는 경우 CLIENT-REQUEST-ID, REQUEST-ID, RETURN-CLIENT-REQUEST-ID를 비롯한 몇 가지 일반 HTTP 헤더 필드가 지원되지 않습니다. 이 헤더는 이후 업데이트에서 추가될 예정입니다. |
 | 퍼센트 인코딩은 허용되지 않습니다. |Media Services는 스트리밍 콘텐츠의 URL을 작성할 때 속성의 값을 사용합니다(예: `http://{AMSAccount}.origin.mediaservices.windows.net/{GUID}/{IAssetFile.Name}/streamingParameters`). 이러한 이유로 퍼센트 인코딩은 허용되지 않습니다. 이름 속성 값에는 !* '();:@&=+$,/?%#[]"와 같은 [퍼센트 인코딩 예약 문자](https://en.wikipedia.org/wiki/Percent-encoding#Percent-encoding_reserved_characters)를 사용할 수 없습니다. 또한 파일 이름 확장명에는 "." 하나만 사용할 수 있습니다. |
@@ -45,6 +45,10 @@ Azure 팀은 고객의 의견을 수렴하여 고객에게 영향을 주는 문�
 
 ## <a name="a-idrest_version_historyrest-api-version-history"></a><a id="rest_version_history"/>REST API 버전 기록
 Media Services REST API 버전 기록에 대한 자세한 내용은 [Azure Media Services REST API 참조]를 참조하세요.
+
+## <a name="february-2020"></a>2020년 2월
+
+일부 분석 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
 
 ## <a name="september-2019"></a>2019년 9월
 
@@ -472,7 +476,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
 * 여러 스토리지 계정을 미디어 서비스 계정에 연결할 수 있는 기능 
     * StorageAccount
     * Asset.StorageAccountName 및 Asset.StorageAccount
-* Job.Priority를 업데이트하는 기능 
+* Job.Priority를 업데이트할 수 있는 기능 
 * 알림 관련 엔터티 및 속성: 
     * JobNotificationSubscription
     * NotificationEndPoint

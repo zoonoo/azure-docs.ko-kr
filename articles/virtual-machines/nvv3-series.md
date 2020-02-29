@@ -2,17 +2,17 @@
 title: NVv3 시리즈-Azure Virtual Machines
 description: NVv3 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: a353abe8cdedb01138c8b633750b90bd9870e5d2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 42c11ed41ca4d84f1acf137bbb681a2dbe24dfe2
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666882"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161910"
 ---
 # <a name="nvv3-series"></a>NVv3 시리즈
 
@@ -22,7 +22,11 @@ NVv3 인스턴스의 각 GPU는 그리드 라이선스로 제공 됩니다. 이 
 
 Premium Storage 캐싱: 지원 됨
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
+
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 | 가상 워크스테이션 | 가상 응용 프로그램 |
 |---|---|---|---|---|---|---|---|---|---|---|
 | Standard_NV12s_v3 |12 | 112 | 320  | 1 | 8  | 12 | 20000/200 | 4 | 1 | 25  |
 | Standard_NV24s_v3 |24 | 224 | 640  | 2 | 16 | 24 | 40000/400 | 8 | 2 | 50  |

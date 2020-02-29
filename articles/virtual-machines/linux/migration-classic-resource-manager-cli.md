@@ -14,14 +14,18 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 02/06/2020
 ms.author: tagore
-ms.openlocfilehash: 43be6947b464a18cc29edc5a578fd8879b70bacf
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 5fbbaffea6b50e65e7e54992d1801945abb80b33
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153182"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914826"
 ---
 # <a name="migrate-iaas-resources-from-classic-to-azure-resource-manager-by-using-azure-cli"></a>Azure CLI를 사용하여 클래식에서 Azure Resource Manager로 IaaS 리소스 마이그레이션
+
+> [!IMPORTANT]
+> 현재 IaaS Vm의 90%가 [Azure Resource Manager](https://azure.microsoft.com/features/resource-manager/)를 사용 하 고 있습니다. 2020 년 2 월 28 일부 터 클래식 Vm은 더 이상 사용 되지 않으며 2023 년 3 월 1 일에 완전히 사용 중지 됩니다. 이 사용 중단 및 [영향](https://docs.microsoft.com/azure/virtual-machines/classic-vm-deprecation#how-does-this-affect-me)에 대 한 [자세한 내용을 알아보세요]( https://aka.ms/classicvmretirement) .
+
 이러한 단계에서는 Azure CLI(명령줄 인터페이스) 명령을 사용하여 클래식 배포 모델의 laaS(Infrastructure as a Service) 리소스를 Azure Resource Manager 배포 모델로 마이그레이션하는 방법을 보여 줍니다. 이 문서는 [Azure 클래식 CLI](../../cli-install-nodejs.md)가 필요합니다. Azure CLI는 Azure Resource Manager 리소스에만 적용할 수 있으므로 이 마이그레이션에 사용할 수 없습니다.
 
 > [!NOTE]

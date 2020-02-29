@@ -3,12 +3,12 @@ title: SAP HANA 데이터베이스 백업 오류 문제 해결
 description: Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 하는 경우 발생할 수 있는 일반적인 오류를 해결 하는 방법을 설명 합니다.
 ms.topic: troubleshooting
 ms.date: 11/7/2019
-ms.openlocfilehash: 04f9bafba0ca490b33a0daf3c3725e57d81bcc7e
-ms.sourcegitcommit: 2c59a05cb3975bede8134bc23e27db5e1f4eaa45
+ms.openlocfilehash: 8872cfe87df9b8d0553d777f72fe7102d08dea4d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/05/2020
-ms.locfileid: "75664601"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916866"
 ---
 # <a name="troubleshoot-backup-of-sap-hana-databases-on-azure"></a>Azure에서 SAP HANA 데이터베이스의 백업 문제 해결
 
@@ -16,9 +16,16 @@ ms.locfileid: "75664601"
 
 ## <a name="prerequisites-and-permissions"></a>필수 조건 및 권한
 
-백업을 구성 하기 전에 [필수 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 및 [권한 설정](tutorial-backup-sap-hana-db.md#setting-up-permissions) 섹션을 참조 하세요.
+백업을 구성 하기 전에 [사전 등록 스크립트에서 수행](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 하는 [필수 구성 요소 및 구성 요소](tutorial-backup-sap-hana-db.md#prerequisites) 를 참조 하세요.
 
 ## <a name="common-user-errors"></a>일반 사용자 오류
+
+### <a name="usererrorhanainternalrolenotpresent"></a>UserErrorHANAInternalRoleNotPresent
+
+| **오류 메시지**      | <span style="font-weight:normal">Azure backup에는 백업을 수행 하는 데 필요한 역할 권한이 없습니다.</span>    |
+| ---------------------- | ------------------------------------------------------------ |
+| **가능한 원인**    | 역할을 덮어쓸 수 있습니다.                          |
+| **권장 작업** | 이 문제를 해결 하려면 **DB 검색** 창에서 스크립트를 실행 하거나 [여기](https://aka.ms/scriptforpermsonhana)에서 다운로드 합니다. 또는 워크 로드 백업 사용자 (AZUREWLBACKUPHANAUSER)에 ' SAP_INTERNAL_HANA_SUPPORT ' 역할을 추가 합니다. |
 
 ### <a name="usererrorinopeninghanaodbcconnection"></a>UserErrorInOpeningHanaOdbcConnection
 

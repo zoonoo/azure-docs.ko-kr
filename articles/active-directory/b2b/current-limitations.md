@@ -11,11 +11,11 @@ author: msmimart
 manager: celestedg
 ms.reviewer: elisolMS
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 1717897261404a2ab8df723c280c9be6a2dacea4
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: b45277c89193c51f70836bcef8a21636fc9c7973
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
+ms.lasthandoff: 02/28/2020
 ms.locfileid: "77196136"
 ---
 # <a name="limitations-of-azure-ad-b2b-collaboration"></a>Azure AD B2B 협업의 제한 사항
@@ -32,22 +32,6 @@ Azure AD B2B에는 Azure AD 서비스 디렉터리 제한이 적용됩니다. �
 
 ## <a name="national-clouds"></a>국가별 클라우드
 [국가별 클라우드](https://docs.microsoft.com/azure/active-directory/develop/authentication-national-cloud) 는 실제로 격리 된 Azure 인스턴스입니다. B2B 공동 작업은 국가별 클라우드 경계에서 지원 되지 않습니다. 예를 들어 Azure 테 넌 트가 공용 글로벌 클라우드에 있는 경우 해당 계정이 국가 클라우드에 있는 사용자를 초대할 수 없습니다. 사용자와 공동 작업을 하려면 다른 전자 메일 주소를 요청 하거나 디렉터리에서 구성원 사용자 계정을 만들어야 합니다.
-
-## <a name="azure-us-government-clouds"></a>Azure 미국 정부 클라우드
-Azure 미국 정부 클라우드 내에서 B2B 공동 작업은 현재 Azure 미국 정부 클라우드 내에 있고 B2B 공동 작업을 지 원하는 테 넌 트 간에만 지원 됩니다. Azure US 정부 클라우드의 일부가 아니거나 아직 B2B 공동 작업을 지원 하지 않는 테 넌 트에 사용자를 초대 하는 경우 초대가 실패 하거나 사용자가 초대를 교환할 수 없습니다. 기타 제한 사항에 대 한 자세한 내용은 [Azure Active Directory Premium P1 및 P2 변형](https://docs.microsoft.com/azure/azure-government/documentation-government-services-securityandidentity#azure-active-directory-premium-p1-and-p2)을 참조 하세요.
-
-### <a name="how-can-i-tell-if-b2b-collaboration-is-available-in-my-azure-us-government-tenant"></a>Azure US 정부 테 넌 트에서 B2B 공동 작업을 사용할 수 있는지 어떻게 알 수 있나요?
-Azure 미국 정부 클라우드 테 넌 트가 B2B 공동 작업을 지원 하는지 확인 하려면 다음을 수행 합니다.
-
-1. 브라우저에서 다음 URL로 이동 하 여 *&lt;tenantname&gt;* 에 대 한 테 넌 트 이름을 대체 합니다.
-
-   `https://login.microsoftonline.com/<tenantname>/v2.0/.well-known/openid-configuration`
-
-2. JSON 응답에서 `"tenant_region_scope"`를 찾습니다.
-
-   - `"tenant_region_scope":"USGOV”` 표시 되는 경우 B2B가 지원 됩니다.
-   - `"tenant_region_scope":"USG"` 표시 되는 경우 B2B는 지원 되지 않습니다.
- 
 
 ## <a name="next-steps"></a>다음 단계
 

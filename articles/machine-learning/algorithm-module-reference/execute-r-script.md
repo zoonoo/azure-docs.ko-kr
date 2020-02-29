@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: 4991fe9fb06d0a49da3e0404f0362c85f15571af
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: d39ac40e8e29c7ff90e2accc3a519449571c1d58
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152298"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917410"
 ---
 # <a name="execute-r-script"></a>R 스크립트 실행
 
@@ -130,6 +130,8 @@ azureml_main <- function(dataframe1, dataframe2){
 **R 스크립트 실행** 모듈은 여러 출력을 반환할 수 있지만 r 데이터 프레임으로 제공 되어야 합니다. 데이터 프레임은 디자이너에서 다른 모듈과의 호환성을 위해 자동으로 데이터 집합으로 변환 됩니다.
 
 R의 표준 메시지 및 오류는 모듈의 로그로 반환 됩니다.
+
+R 스크립트에서 결과를 인쇄 해야 하는 경우 모듈의 오른쪽 패널에 있는 **출력 + 로그** 탭의 **70_driver_log** 에서 인쇄 된 결과를 찾을 수 있습니다.
 
 ## <a name="sample-scripts"></a>샘플 스크립트
 

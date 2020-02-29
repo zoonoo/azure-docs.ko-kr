@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 71f15d959bf9d42e67cd7c35ca91d6cd2caa718d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 7787a765bf48adc15f4675c6c03ff3d04fa388c6
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152468"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918498"
 ---
 # <a name="add-rows-module"></a>행 추가 모듈
 
@@ -32,7 +32,7 @@ ms.locfileid: "77152468"
 
 두 데이터 집합의 행을 연결 하려면 행에 정확히 동일한 스키마가 있어야 합니다. 즉, 열에 동일한 수의 열과 동일한 데이터 형식이 있습니다.
 
-1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환**의 **조작** 범주에서 찾을 수 있습니다.
+1.  **행 추가** 모듈을 파이프라인으로 끌어 **데이터 변환**아래에서 찾을 수 있습니다.
 
 2. 두 입력 포트에 데이터 집합을 연결합니다. 추가할 데이터 집합이 두 번째(오른쪽) 포트에 연결되어야 합니다. 
   

@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 11/19/2019
-ms.openlocfilehash: 6e2fa96584570e5837c4367c8be4701b7398fb0f
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/19/2020
+ms.openlocfilehash: 9606768288cc74afc24491149eb471944f45e2dc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152213"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921167"
 ---
 # <a name="module-k-means-clustering"></a>모듈: K-클러스터링을 의미 합니다.
 
@@ -107,11 +107,11 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
   
     -   담당자 **모드 만들기** 를 **단일 매개 변수로**설정한 경우에는 태그가 지정 된 데이터 집합을 추가 하 고 [클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용 하 여 모델을 학습 합니다.  
   
-### <a name="results"></a>결과
+## <a name="results"></a>결과
 
 모델을 구성 하 고 학습 한 후 점수를 생성 하는 데 사용할 수 있는 모델을 사용할 수 있습니다. 그러나 여러 가지 방법으로 모델을 학습 하 고 여러 가지 방법으로 결과를 보고 사용할 수 있습니다. 
 
-#### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>작업 영역에서 모델의 스냅숏 캡처
+### <a name="capture-a-snapshot-of-the-model-in-your-workspace"></a>작업 영역에서 모델의 스냅숏 캡처
 
 [클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용한 경우:
 
@@ -121,7 +121,7 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
 
 저장 된 모델은 모델을 저장할 때의 학습 데이터를 나타냅니다. 나중에 파이프라인에서 사용 되는 학습 데이터를 업데이트 하는 경우 저장 된 모델은 업데이트 되지 않습니다. 
 
-#### <a name="see-the-clustering-result-dataset"></a>클러스터링 결과 데이터 집합을 참조 하세요. 
+### <a name="see-the-clustering-result-dataset"></a>클러스터링 결과 데이터 집합을 참조 하세요. 
 
 [클러스터링 모델 학습](train-clustering-model.md) 모듈을 사용한 경우:
 
@@ -142,3 +142,7 @@ K-가장 간단 하 고 알려진 *자율* 학습 알고리즘 중 하나입니�
 -   여러 모델을 만들거나, 메트릭을 변경 하거나, 더 많은 반복 합니다.  
   
 일반적으로 클러스터링 모델을 사용 하면 지정 된 구성으로 인해 로컬로 최적화 된 클러스터 집합이 생성 될 수 있습니다. 즉, 모델에 의해 반환 되는 클러스터 집합은 현재 데이터 요소에만 해당 하 고 다른 데이터에는 일반화할 수 없습니다. 다른 초기 구성을 사용 하는 경우에는 K 의미의 방법이 서로 다른 상위 구성을 찾을 수 있습니다. 
+
+## <a name="next-steps"></a>다음 단계
+
+Azure Machine Learning [사용할 수 있는 모듈 집합](module-reference.md) 을 참조 하세요. 

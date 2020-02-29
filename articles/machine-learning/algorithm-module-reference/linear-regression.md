@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: f3cb583a3594b14266249ef80f8c49633c1df1de
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: cd634c41a1d6e3d9846e8299dd281b52beb77130
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152196"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912792"
 ---
 # <a name="linear-regression-module"></a>선형 회귀 모듈
 이 문서에서는 Azure Machine Learning designer (미리 보기)의 모듈을 설명 합니다.
@@ -51,17 +51,15 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 이 모듈은 다양 한 옵션을 사용 하 여 회귀 모델을 맞춤 하는 두 가지 방법을 지원 합니다.
 
-+ [온라인 그라데이션 디센더를 사용 하 여 회귀 모델 만들기](#bkmk_GradientDescent)
++ [일반적으로 최소 제곱을 사용 하 여 회귀 모델 맞추기](#create-a-regression-model-using-ordinary-least-squares)
+
+    작은 데이터 집합의 경우에는 최소 제곱을 선택 하는 것이 가장 좋습니다. 그러면 Excel에 비슷한 결과가 표시 됩니다.
+    
++ [온라인 그라데이션 디센더를 사용 하 여 회귀 모델 만들기](#create-a-regression-model-using-online-gradient-descent)
 
     기울기 하강은 더욱 복잡하며 변수의 수에 비해 학습 데이터가 너무 적은 모델에 더욱 적합한 손실 함수입니다.
 
-
-
-+ [일반적으로 최소 제곱을 사용 하 여 회귀 모델 맞추기](#bkmk_OrdinaryLeastSquares)
-
-    작은 데이터 집합의 경우에는 최소 제곱을 선택 하는 것이 가장 좋습니다. 그러면 Excel에 비슷한 결과가 표시 됩니다.
-
-## <a name="bkmk_OrdinaryLeastSquares"></a>일반적으로 최소 제곱을 사용 하 여 회귀 모델 만들기
+### <a name="create-a-regression-model-using-ordinary-least-squares"></a>일반적으로 최소 제곱을 사용 하 여 회귀 모델 만들기
 
 1. 디자이너에서 **선형 회귀 모델** 모듈을 파이프라인에 추가 합니다.
 
@@ -86,7 +84,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 8. 파이프라인을 실행합니다.
 
-## <a name="results-for-ordinary-least-squares-model"></a>일반적으로 최소 제곱 모델에 대 한 결과
+### <a name="results-for-ordinary-least-squares-model"></a>일반적으로 최소 제곱 모델에 대 한 결과
 
 학습 완료 후:
 
@@ -94,7 +92,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 + 예측을 만들려면 학습 된 모델을 새 값의 데이터 집합과 함께 [모델 점수 매기기](./score-model.md) 모듈에 연결 합니다. 
 
 
-## <a name="bkmk_GradientDescent"></a>온라인 그라데이션 디센더를 사용 하 여 회귀 모델 만들기
+### <a name="create-a-regression-model-using-online-gradient-descent"></a>온라인 그라데이션 디센더를 사용 하 여 회귀 모델 만들기
 
 1. 디자이너에서 **선형 회귀 모델** 모듈을 파이프라인에 추가 합니다.
 
@@ -105,6 +103,8 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 3. 담당자 **만들기 모드**의 경우 미리 정의 된 매개 변수 집합을 사용 하 여 모델을 학습 시킬 것인지 또는 매개 변수 비우기를 사용 하 여 모델을 최적화할지 여부를 지정 합니다.
 
     + **단일 매개 변수**: 선형 회귀 네트워크를 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.
+    
+    + **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.  
 
    
 4. **학습 률**에 대해 추계 그라데이션 하강 최적화 프로그램의 초기 학습 률을 지정 합니다.
@@ -133,7 +133,7 @@ Azure Machine Learning는 선형 회귀 외에도 다양 한 회귀 모델을 �
 
 13. 파이프라인을 실행합니다.
 
-## <a name="results-for-online-gradient-descent"></a>온라인 그라데이션 하강 결과
+### <a name="results-for-online-gradient-descent"></a>온라인 그라데이션 하강 결과
 
 학습 완료 후:
 

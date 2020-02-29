@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/23/2018
 ms.author: genli
-ms.openlocfilehash: 92c4a40de7e35d0580fe407e36305a50ad68094c
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 4b314fbdb9cbc0c0b797cbee8e92ee4702bbea81
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981780"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919467"
 ---
 # <a name="remote-desktop-services-isnt-starting-on-an-azure-vm"></a>Azure VM에서 원격 데스크톱 서비스가 시작되지 않음
 
 이 문서에서는 Azure VM(가상 머신)에 연결할 때 및 원격 데스크톱 서비스 또는 TermService가 시작되지 않거나 시작에 실패하는 경우 문제를 해결하는 방법에 대해 설명합니다.
 
-> [!NOTE]  
-> Azure에는 리소스를 만들고 작업하기 위한 [Azure Resource Manager 및 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용에 대해 설명합니다. 이 모델은 클래식 배포 모델 대신 새 배포에 사용하는 것이 좋습니다.
 
 ## <a name="symptoms"></a>증상
 
@@ -65,7 +63,7 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 ### <a name="use-serial-console"></a>직렬 콘솔 사용
 
-1. **지원 및 문제 해결** > **직렬 콘솔**을 선택하여 [직렬 콘솔](serial-console-windows.md)에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
+1. [지원 및 문제 해결](serial-console-windows.md)직렬 콘솔 > 을 선택하여 **직렬 콘솔**에 액세스합니다. VM에서 기능을 사용하도록 설정하면 VM을 성공적으로 연결할 수 있습니다.
 
 2. CMD 인스턴스에 대한 새 채널을 만듭니다. **CMD**를 입력하여 채널을 시작하고 채널 이름을 가져옵니다.
 
@@ -221,6 +219,6 @@ VM에 연결하려고 시도할 때 다음과 같은 상황이 발생합니다.
 
 4. [OS 디스크를 분리하고 VM을 다시 만듭니다](../windows/troubleshoot-recovery-disks-portal.md). 그런 다음, 문제가 해결되었는지 확인합니다.
 
-## <a name="need-help-contact-support"></a>도움이 필요하세요? 고객 지원
+## <a name="need-help-contact-support"></a>도움 필요 시 기술 지원 서비스에 문의하십시오.
 
 추가 도움이 필요한 경우 [지원에 문의](https://portal.azure.com/?#blade/Microsoft_Azure_Support/HelpAndSupportBlade)하여 문제를 해결하세요.

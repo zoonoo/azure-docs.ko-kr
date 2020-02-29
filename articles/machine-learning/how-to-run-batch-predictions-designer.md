@@ -8,17 +8,17 @@ ms.subservice: core
 ms.topic: how-to
 ms.author: peterlu
 author: peterclu
-ms.date: 01/13/2020
+ms.date: 02/24/2020
 ms.custom: Ignite2019
-ms.openlocfilehash: 95a3c1b892cacd802f359fdc03de74fa60a1e118
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: fdda35d3a617a30169748f4f6b42c8726e7e3512
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77138100"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920691"
 ---
-# <a name="run-batch-predictions-using-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="run-batch-predictions-using-azure-machine-learning-designer-preview"></a>Azure Machine Learning 디자이너를 사용하여 일괄 처리 예측 실행(미리 보기)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 이 문서에서는 디자이너를 사용 하 여 일괄 처리 예측 파이프라인을 만드는 방법에 대해 알아봅니다. 일괄 처리 예측을 사용 하면 모든 HTTP 라이브러리에서 트리거할 수 있는 웹 서비스를 사용 하 여 요청 시 대량 데이터 집합의 점수를 지속적으로 지정할 수 있습니다.
 

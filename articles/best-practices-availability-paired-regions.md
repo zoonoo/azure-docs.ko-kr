@@ -7,12 +7,12 @@ ms.service: multiple
 ms.topic: article
 ms.date: 07/01/2019
 ms.author: raynew
-ms.openlocfilehash: b71048412f5715fd1b8ef3edf742716916672bd5
-ms.sourcegitcommit: bc7725874a1502aa4c069fc1804f1f249f4fa5f7
+ms.openlocfilehash: c1e14db9dafc8b03acbeb1c6b97e5ac0e27cb0fd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73718754"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163051"
 ---
 # <a name="business-continuity-and-disaster-recovery-bcdr-azure-paired-regions"></a>BCDR(무중단 업무 방식 및 재해 복구): Azure 쌍을 이루는 지역
 
@@ -23,6 +23,9 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 각 Azure 지역은 동일한 지리적 위치 내의 다른 지역과 쌍을 이루어 함께 지역 쌍을 만듭니다. 예외는 브라질 남부이며, 지리적 위치 외부에 있는 지역과 쌍을 이루고 있습니다. 지역 쌍 전체에서 Azure는 한 번에 하나의 쌍을 이루는 지역만 업데이트하도록 플랫폼 업데이트(계획된 유지 관리)를 직렬화합니다. 여러 지역에 영향을 주는 중단의 경우 각 쌍에서 하나 이상의 지역에 복구 우선 순위가 지정됩니다.
 
 ![AzureGeography](./media/best-practices-availability-paired-regions/GeoRegionDataCenter.png)
+
+> [!NOTE]
+> 할당 된 Azure 지역 쌍은 수정할 수 없습니다.
 
 그림 1 - Azure 지역 쌍
 
@@ -35,19 +38,19 @@ Azure는 전 세계 여러 지역에서 작동합니다. Azure 지리적 위치�
 | 캐나다 |캐나다 중부 |캐나다 동부 |
 | 중국 |중국 북부 |중국 동부|
 | 중국 |중국 북부 2 |중국 동부 2|
-| 유럽 |북유럽(아일랜드) |서유럽(네덜란드) |
-| 프랑스 |프랑스 중부|프랑스 남부|
-| 독일 |독일 중부 |독일 북동부 |
+| 유럽 |유럽 북부 (아일랜드) |유럽 서부 (네덜란드) |
+| France |프랑스 중부|프랑스 남부|
+| Germany |독일 중부 |독일 북동부 |
 | 인도 |인도 중부 |인도 남부 |
 | 인도 |인도 서부 |인도 남부 |
-| 일본 |일본 동부 |일본 서부 |
-| 한국 |한국 중부 |한국 남부 |
+| Japan |일본 동부 |일본 서부 |
+| Korea |한국 중부 |한국 남부 |
 | 북아메리카 |미국 동부 |미국 서부 |
 | 북아메리카 |미국 동부 2 |미국 중부 |
 | 북아메리카 |미국 중북부 |미국 중남부 |
 | 북아메리카 |미국 서부 2 |미국 중서부 
-| 남아프리카 | 남아프리카 북부 | 남아프리카 서부
-| 영국 |영국 서부 |영국 남부 |
+| 남아프리카 공화국 | 남아프리카 북부 | 남아프리카 서부
+| UK |영국 서부 |영국 남부 |
 | 아랍에미리트 | 아랍에미리트 북부 | 아랍에미리트 중부
 | 미국 국방부 |US DoD 동부 |US DoD 중부 |
 | 미국 정부 |US Gov 애리조나 |US Gov 텍사스 |
@@ -75,13 +78,13 @@ Azure의 격리 및 가용성 정책을 활용하려면 지역 쌍 간에 BCDR(�
 ## <a name="cross-region-activities"></a>지역 간 활동
 그림 2 참조
 
-![IaaS](./media/best-practices-availability-paired-regions/1Green.png)**Azure Compute(IaaS)** – 재해 중에 다른 지역의 리소스를 사용할 수 있도록 사전에 추가 컴퓨팅 리소스를 프로비전해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)을 참조하세요.
+iaas **(Azure Compute)** ![iaas](./media/best-practices-availability-paired-regions/1Green.png)-재해 중에 다른 지역에서 리소스를 사용할 수 있도록 사전에 추가 계산 리소스를 프로 비전 해야 합니다. 자세한 내용은 [Azure 복원력 기술 지침](https://github.com/uglide/azure-content/blob/master/articles/resiliency/resiliency-technical-guidance.md)을 참조하세요.
 
 ![저장소](./media/best-practices-availability-paired-regions/2Green.png) **Azure Storage** -managed disks를 사용 하는 경우 Azure Backup를 사용 하 여 [지역 간 백업](https://docs.microsoft.com/azure/architecture/resiliency/recovery-loss-azure-region#virtual-machines) 에 대해 알아보고 Azure Site Recovery를 사용 하 여 한 지역에서 다른 지역으로 [vm을 복제](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-tutorial-enable-replication) 합니다. 저장소 계정을 사용 하는 경우 Azure Storage 계정을 만들 때 기본적으로 지역 중복 저장소 (GRS)가 구성 됩니다. GRS를 사용하면 주 지역 및 쌍을 이루는 지역에서 각각 세 번씩 데이터가 자동으로 복제됩니다. 자세한 내용은 [Azure Storage 중복 옵션](storage/common/storage-redundancy.md)을 참조하세요.
 
-![Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** – With Azure SQL Database 지역에서 복제 기능을 사용하면 전 세계 모든 지역으로의 트랜잭션 비동기 복제를 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오에서 이러한 리소스를 쌍을 이루는 지역에 배포하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
+Azure SQL](./media/best-practices-availability-paired-regions/3Green.png) **Azure SQL Database** ![-Azure SQL Database 지역에서 복제를 사용 하 여 트랜잭션의 비동기 복제를 전 세계 지역으로 구성할 수 있습니다. 그러나 대부분의 재해 복구 시나리오의 경우 쌍을 이루는 지역에 이러한 리소스를 배포 하는 것이 좋습니다. 자세한 내용은 [Azure SQL Database의 지역에서 복제](sql-database/sql-database-geo-replication-overview.md)를 참조하세요.
 
-![Resource Manager](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** - Resource Manager는 본질적으로 지역 간 구성 요소의 논리적 격리를 제공합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
+![리소스 관리자](./media/best-practices-availability-paired-regions/4Green.png) **Azure Resource Manager** -기본적 리소스 관리자으로 지역 간 구성 요소의 논리적 격리를 제공 합니다. 따라서 하나의 지역에서 발생한 논리적 오류가 다른 지역에 영향을 줄 가능성이 거의 없습니다.
 
 ## <a name="benefits-of-paired-regions"></a>쌍을 이루는 지역의 이점
 그림 2 참조  

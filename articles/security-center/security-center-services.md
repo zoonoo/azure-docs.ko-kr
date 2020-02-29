@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/05/2020
 ms.author: memildin
-ms.openlocfilehash: 8d905da733ea0573b91b289da43684ed8083c804
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 14c54028dacb545532b540ae8ff79fc3dc5356bc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616380"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921269"
 ---
 # <a name="supported-features-available-in-azure-security-center"></a>Azure Security Center에서 사용할 수 있는 지원 되는 기능
 
@@ -38,10 +38,10 @@ ms.locfileid: "77616380"
 |||||||||
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
-|[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|Standard|
-|[가상 컴퓨터 동작 분석 위협 검색 경고](threat-protection.md)|✔|✔|✔|권장 사항 (무료) 위협 검색 (표준)|
-|[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
-|[네트워크 기반 위협 검색 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[Microsoft Defender ATP 통합](security-center-wdatp.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|Standard|
+|[가상 컴퓨터 동작 분석 (및 보안 경고)](threat-protection.md)|✔|✔|✔|권장 사항 (무료) </br></br> 보안 경고 (표준)|
+|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|✔|✔|✔|Standard|
+|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -50,7 +50,7 @@ ms.locfileid: "77616380"
 |[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |적응형 네트워크 제어|✔|✔|-|Standard|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|-|-|-|Standard|
+|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|-|-|-|Standard|
 |누락 된 OS 패치 평가|✔|✔|✔|무료|
 |보안 잘못 평가|✔|✔|✔|무료|
 |[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|✔|✔|✔|무료|
@@ -65,9 +65,9 @@ ms.locfileid: "77616380"
 |----|:----:|:----:|:----:|:----:|:----:|:----:|:----:|
 ||**Azure Virtual Machines**|**Azure Virtual Machine Scale Sets**|**비 Azure 컴퓨터**|**가격**
 |[Microsoft Defender ATP 통합](security-center-wdatp.md)|-|-|-|Standard|
-|[가상 컴퓨터 동작 분석 위협 검색 경고](security-center-alerts-iaas.md)|✔(지원되는 버전에서만)|✔(지원되는 버전에서만)|✔|권장 사항 (무료) 위협 검색 (표준)|
-|[Fileless 위협 검색 경고](alerts-reference.md#alerts-windows)|-|-|-|Standard|
-|[네트워크 기반 위협 검색 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
+|[가상 컴퓨터 동작 분석 (및 보안 경고)](security-center-alerts-iaas.md)|✔</br>(지원 되는 버전)|✔</br>(지원 되는 버전)|✔|권장 사항 (무료) </br></br> 보안 경고 (표준)|
+|[Fileless 보안 경고](alerts-reference.md#alerts-windows)|-|-|-|Standard|
+|[네트워크 기반 보안 경고](threat-protection.md#network-layer)|✔|✔|-|Standard|
 |[Just-in-time VM 액세스](security-center-just-in-time.md)|✔|-|-|Standard|
 |[기본 취약성 평가](built-in-vulnerability-assessment.md)|✔|-|-|Standard|
 |[파일 무결성 모니터링](security-center-file-integrity-monitoring.md)|✔|✔|✔|Standard|
@@ -76,7 +76,7 @@ ms.locfileid: "77616380"
 |[적응 네트워크 강화](security-center-adaptive-network-hardening.md)|✔|-|-|Standard|
 |적응형 네트워크 제어|✔|✔|-|Standard|
 |[규정 준수 대시보드 & 보고서](security-center-compliance-dashboard.md)|✔|✔|✔|Standard|
-|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 감지|✔|✔|✔|Standard|
+|Docker에서 호스트 되는 IaaS 컨테이너의 권장 사항 및 위협 방지|✔|✔|✔|Standard|
 |누락 된 OS 패치 평가|✔|✔|✔|무료|
 |보안 잘못 평가|✔|✔|✔|무료|
 |[Endpoint protection 평가](security-center-services.md#supported-endpoint-protection-solutions-)|-|-|-|무료|
@@ -116,7 +116,7 @@ ms.locfileid: "77616380"
 
 Azure Security Center에서 지 원하는 PaaS 리소스는 다음과 같습니다.
 
-|Service|권장 사항 (무료)|위협 검색 경고 (표준)|취약성 평가 (표준)|
+|Service|권장 사항 (무료)|보안 경고 (표준)|취약성 평가 (표준)|
 |----|:----:|:----:|:----:|
 |SQL 데이터베이스|✔|✔|✔|
 |Azure Container Registry|-|-|✔|
@@ -158,6 +158,5 @@ Azure AD (\*\* Azure Active Directory 권장 사항은 표준 구독에 대해�
 - [Security Center에서 데이터를 관리 하 고 보호](security-center-data-security.md)하는 방법을 알아봅니다.
 - [디자인 고려 사항을 계획하고 이해하여 Azure Security Center를 채택](security-center-planning-and-operations-guide.md)하는 방법을 알아봅니다.
 - [Security center를 지 원하는 플랫폼](security-center-os-coverage.md)을 검토 합니다.
-- [Azure Security Center에서 vm & 서버에 대 한 위협 검색](security-center-alerts-iaas.md)에 대해 자세히 알아보세요.
+- [Azure Security Center의 Windows 및 Linux 컴퓨터에 대 한 위협 방지](threat-protection.md#windows-machines)에 대해 자세히 알아보세요.
 - [Azure Security Center에 대 한 질문과 대답](faq-general.md)을 찾습니다.
-- [Azure 보안 및 규정 준수에 관한 블로그 게시물](https://blogs.msdn.com/b/azuresecurity/)을 찾아봅니다.

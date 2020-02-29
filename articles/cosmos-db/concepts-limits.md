@@ -6,12 +6,12 @@ ms.author: abpai
 ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 08/05/2019
-ms.openlocfilehash: 5681efc202df511745532e4a314e88b319e9880a
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 99f255d9991b51897ee31671835dabb5f3e359fd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623397"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916509"
 ---
 # <a name="azure-cosmos-db-service-quotas"></a>Azure Cosmos DB 서비스 할당량
 
@@ -168,6 +168,9 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 | --- | --- |
 | 최대 MongoDB 쿼리 메모리 크기 | 40 M B |
 | MongoDB 작업에 대 한 최대 실행 시간| 30초 |
+| 서버 쪽 연결 닫기에 대 한 유휴 연결 시간 제한 * | 30분 |
+
+\* [Azure LoadBalancer의 기본 시간 제한은 4 분](../load-balancer/load-balancer-tcp-idle-timeout.md#tcp-idle-timeout)이므로 클라이언트 응용 프로그램에서 드라이버 설정의 유휴 연결 시간 제한을 2-3 분으로 설정 하는 것이 좋습니다.  이 시간 초과는 클라이언트 컴퓨터와 Azure Cosmos DB 간의 중간 부하 분산 장치에서 유휴 연결을 닫지 않도록 합니다.
 
 ## <a name="try-cosmos-db-free-limits"></a>무료 제한을 Cosmos DB 사용해 보세요.
 
@@ -180,7 +183,7 @@ Cosmos DB은 MongoDB에 대해 작성 된 응용 프로그램에 대 한 MongoDB
 | 구독 당 최대 컨테이너 (MongoDB API) | 3 |
 | 컨테이너 당 최대 처리량 | 5,000 |
 | 공유 처리량 데이터베이스당 최대 처리량 | 20000 |
-| 계정 당 최대 총 저장소 | 10 GB |
+| 계정 당 최대 총 저장소 | 10GB |
 
 Cosmos DB는 미국 중부, 서유럽, 동남 아시아 지역 에서만 글로벌 배포를 지원 합니다. 시도 Azure Cosmos DB 계정에 대해 Azure 지원 티켓을 만들 수 없습니다. 그러나 기존 지원 계획이 있는 구독자에 대 한 지원이 제공 됩니다.
 

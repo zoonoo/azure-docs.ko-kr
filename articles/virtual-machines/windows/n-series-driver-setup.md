@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 09/24/2018
 ms.author: cynthn
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 9f6286f0a9c15b8089ff5ce9d6f3879b40aceaef
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 631266f983886e3ca34d609b425f8a71b808b39f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74033155"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919399"
 ---
 # <a name="install-nvidia-gpu-drivers-on-n-series-vms-running-windows"></a>Windows를 실행하는 N 시리즈 VM의 NVIDIA GPU 드라이버 설치 
 
@@ -51,7 +51,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 함께 설치된 명�
 
 1. 명령 프롬프트를 열고 **C:\Program Files\NVIDIA Corporation\NVSMI** 디렉터리로 변경합니다.
 
-2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보가 표시된 것과 다를 수 있습니다.
+2. `nvidia-smi`을 실행합니다. 드라이버가 설치된 경우 다음과 유사한 출력이 표시됩니다. 현재 VM에서 GPU 작업을 실행 중이지 않으면 **GPU-Util**에 **0%** 가 표시됩니다. 드라이버 버전 및 GPU 세부 정보는 표시된 것과 다를 수 있습니다.
 
 ![NVIDIA 디바이스 상태](./media/n-series-driver-setup/smi.png)  
 
@@ -63,7 +63,7 @@ GPU 디바이스 상태를 쿼리하려면 드라이버와 함께 설치된 명�
   ```powershell
   Set-AzVMExtension -ResourceGroupName "myResourceGroup" -Location "westus" -VMName "myVM" -ExtensionName "HpcVmDrivers" -Publisher "Microsoft.HpcCompute" -Type "HpcVmDrivers" -TypeHandlerVersion "1.1"
   ```
-  자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md?toc=%2fazure%2fvirtual-machines%2fwindows%2fclassic%2ftoc.json)을 참조하세요.
+  자세한 내용은 [Windows용 가상 머신 확장 및 기능](extensions-features.md)을 참조하세요.
 
 RDMA 네트워크는 [Microsoft MPI](https://docs.microsoft.com/message-passing-interface/microsoft-mpi) 또는 Intel MPI 5.x를 사용하여 실행되는 애플리케이션에 대한 MPI(Message Passing Interface) 트래픽을 지원합니다. 
 

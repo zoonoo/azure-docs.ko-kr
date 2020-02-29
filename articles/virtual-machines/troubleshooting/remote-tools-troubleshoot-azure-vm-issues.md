@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.devlang: azurecli
 ms.date: 01/11/2018
 ms.author: delhan
-ms.openlocfilehash: 3f028431fcd4b338d2e610ce1828a02b753c4d32
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: b86b1a2d8a49554cc3df99e0a32a2c0ccaacb560
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483710"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920011"
 ---
 # <a name="use-remote-tools-to-troubleshoot-azure-vm-issues"></a>원격 도구를 사용하여 Azure VM 문제 해결
 
@@ -60,6 +60,9 @@ psexec \\<computer>-u user -s cmd
 저장소 계정에 스크립트를 업로드 하 고 자체 컨테이너를 생성 합니다. 그런 다음, VM에 연결된 컴퓨터의 Azure PowerShell에서 다음 스크립트를 실행합니다.
 
 ### <a name="for-classic-deployment-model-vms"></a>클래식 배포 모델 Vm의 경우
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 
 ```powershell
 #Set up the basic variables.

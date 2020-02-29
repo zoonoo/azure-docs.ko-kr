@@ -8,20 +8,28 @@ ms.topic: include
 ms.date: 02/06/2020
 ms.author: tagore
 ms.custom: include file
-ms.openlocfilehash: c923dfed24253ce2e3551c13a457f19d155a1e40
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: a9c045162e650b4468fb53676e367d2c658bf7cc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77068405"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912576"
 ---
+## <a name="what-is-the-time-required-for-migration"></a>마이그레이션에 필요한 시간은 어떻게 되나요?
+
+마이그레이션의 계획 및 실행은 아키텍처의 복잡성에 따라 달라 지 며 몇 개월이 걸릴 수 있습니다.  
+
+## <a name="what-is-the-definition-of-a-new-customer-on-iaas-vms-classic"></a>IaaS Vm (클래식)에 대 한 새 고객의 정의는 무엇 인가요?
+
+Febrauary 2020 (사용 중단을 시작 하기 전 한 달) 동안 구독에 IaaS Vm (클래식)이 없는 고객은 새 고객으로 간주 됩니다. 
+
 ## <a name="does-this-migration-plan-affect-any-of-my-existing-services-or-applications-that-run-on-azure-virtual-machines"></a>이 마이그레이션 계획이 Azure 가상 머신에서 실행되는 기존 서비스 또는 애플리케이션에 영향을 미치나요? 
 
-아니요. VM(클래식)은 일반 공급 제품에서 완전하게 지원되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다.
+IaaS Vm의 2023 년 3 월 1 일까 지 (클래식) IaaS Vm (클래식)은 일반 공급에서 완전히 지원 되는 서비스입니다. 이러한 리소스를 사용하여 Microsoft Azure에서 작업 공간을 확장할 수 있습니다. 2023 년 3 월 1 일부 터 이러한 Vm은 완전히 사용 중지 되며 활성 또는 할당 된 Vm이 중지 & 할당 취소 됩니다. Cloud Services (클래식), Storage 계정 (클래식) 등과 같은 다른 클래식 리소스에는 영향을 주지 않습니다.   
 
 ## <a name="what-happens-to-my-vms-if-i-dont-plan-on-migrating-in-the-near-future"></a>가까운 미래에 마이그레이션할 계획이 없는 경우 내 VM은 어떻게 됩니까? 
 
-Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없으며 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. Resource Manager의 IaaS로 구현된 [몇 가지 개선 사항](../articles/azure-resource-manager/management/deployment-models.md)을 살펴볼 것을 권장합니다.
+2023 년 3 월 1 일부 터 IaaS Vm (클래식)은 완전히 사용 중지 되며 활성 또는 할당 된 Vm이 중지 & 할당 취소 됩니다. 비즈니스 영향을 방지 하기 위해 현재 마이그레이션 계획을 시작 하 고 2023 년 3 월 1 일 이전에 완료 하는 것이 매우 recomment. 기존 클래식 Api Cloud Services 및 리소스 모델을 사용 중단 하지 않습니다. 보다 편리한 마이그레이션을 위해 Resource Manager 배포 모델에서 사용할 수 있는 고급 기능을 고려하고 있습니다. 이러한 리소스를 Azure Resource Manager로 마이그레이션하도록 계획을 시작 하는 것이 좋습니다. 
 
 ## <a name="what-does-this-migration-plan-mean-for-my-existing-tooling"></a>이 마이그레이션 계획으로 기존 도구는 어떻게 되나요? 
 
@@ -37,11 +45,11 @@ Microsoft는 기존 클래식 API와 리소스 모델을 중단할 계획이 없
 
 ## <a name="can-i-roll-back-my-migration-if-the-commit-operation-fails"></a>커밋 작업이 실패한 경우 마이그레이션을 롤백할 수 있나요? 
 
-커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생 하면 지원 티켓을 만들거나 [Microsoft Q & a](https://docs.microsoft.com/answers/index.html)에 포럼 게시물을 만드세요.
+커밋 작업이 실패한 경우 마이그레이션을 중단할 수 없습니다. 커밋 작업을 포함한 모든 마이그레이션 작업은 idempotent 상태입니다. 따라서 짧은 기간 이후 작업을 다시 시도해보는 것이 좋습니다. 그래도 오류가 발생 하면 지원 티켓을 만듭니다.
 
 ## <a name="do-i-have-to-buy-another-express-route-circuit-if-i-have-to-use-iaas-under-resource-manager"></a>Resource Manager에서 IaaS를 활용해야 할 경우 다른 Express 경로 회로를 구매해야 하나요? 
 
-아니요. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
+No. 최근에 [클래식에서 Resource Manager 배포 모델로의 ExpressRoute 회로 이동](../articles/expressroute/expressroute-move.md)을 사용하도록 설정했습니다. 이미 ExpressRoute 회로가 있는 경우 새로 구입하지 않아도 됩니다.
 
 ## <a name="what-if-i-had-configured-role-based-access-control-policies-for-my-classic-iaas-resources"></a>클래식 IaaS 리소스에 대해 역할 기반 Access Control 정책을 구성한 경우 어떻게 되나요? 
 

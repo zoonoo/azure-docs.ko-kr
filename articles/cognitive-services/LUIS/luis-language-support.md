@@ -11,12 +11,12 @@ ms.subservice: language-understanding
 ms.topic: conceptual
 ms.date: 12/09/2019
 ms.author: diberry
-ms.openlocfilehash: f6b95f76af4c83459ac81ff1703d8588f649326c
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 4b6d954d06f09bef5240bddc4860ddbc83513d69
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74970545"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916594"
 ---
 # <a name="language-and-region-support-for-luis"></a>LUIS에 대한 언어 및 지역 지원
 
@@ -30,7 +30,7 @@ LUIS는 서비스 내에 다양한 기능을 포함합니다. 모든 기능이 �
 
 LUIS는 발화를 다음 언어로 이해합니다.
 
-| 언어 |Locale  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
+| 언어 |로캘  |  미리 빌드된 도메인 | 미리 빌드된 엔터티 | 구 목록 권장 사항 | \**[Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/text-analytics-supported-languages)<br>(감정 및<br>키워드)|
 |--|--|:--:|:--:|:--:|:--:|
 | 미국 영어 |`en-US` | ✔ | ✔  |✔|✔|
 | 아랍어 (미리 보기-최신 표준 아랍어) |`ar-AR`|-|-|-|-|
@@ -43,7 +43,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 | 이탈리아어 |`it-IT` |✔| ✔ |✔|✔|
 | *[일본어](#japanese-support-notes) |`ja-JP` |✔| ✔ |✔|주요 구문만|
 | 한국어 |`ko-KR` |✔|   -   |-|주요 구문만|
-| 포르투갈어 (브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
+| 포르투갈어(브라질) |`pt-BR` |✔| ✔ |✔ |일부 하위 문화권은 아님|
 | 스페인어(스페인) |`es-ES` |✔| ✔ |✔|✔|
 | 스페인어(멕시코)|`es-MX` |-|  -   |✔|✔|
 | 터키어 | `tr-TR` |✔|-|-|감정만|
@@ -61,7 +61,7 @@ LUIS는 발화를 다음 언어로 이해합니다.
 [!INCLUDE [Text Analytics support notes](includes/text-analytics-support-notes.md)]
 
 ### <a name="speech-api-supported-languages"></a>Speech API 지원되는 언어
-Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/Speech/api-reference-rest/supportedlanguages##interactive-and-dictation-mode)를 참조하세요.
+Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](../speech-service/speech-to-text.md)를 참조하세요.
 
 ### <a name="bing-spell-check-supported-languages"></a>Bing Spell Check 지원되는 언어
 지원되는 언어 및 상태 목록은 Bing Spell Check [지원되는 언어](https://docs.microsoft.com/azure/cognitive-services/bing-spell-check/bing-spell-check-supported-languages)를 참조하세요.
@@ -90,7 +90,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 |이탈리아어|✔||||
 |일본어||||✔|
 |한국어||✔||✔|
-|포르투갈어 (브라질)|✔||||
+|포르투갈어(브라질)|✔||||
 |스페인어(es-ES)|✔||||
 |스페인어(es-MX)|✔||||
 
@@ -98,7 +98,7 @@ Speech 받아쓰기 모드 언어에 대해서는 Speech [지원되는 언어](h
 
 다음 문화권에는 사용자 지정 토크 버전이 있습니다.
 
-|문화권|버전|용도|
+|문화권|버전|목적|
 |--|--|--|
 |독일어<br>`de-de`|1.0.0|복합 단어를 단일 구성 요소로 분할 하는 기계 학습 기반 토크 토큰화를 사용 하 여 단어를 분할 합니다.<br>사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우 `Ich fahre einen kranken wagen`됩니다. `kranken` 및 `wagen`를 다른 엔터티로 독립적으로 표시할 수 있습니다.|
 |독일어<br>`de-de`|1.0.2|단어를 공백으로 분할 하 여 단어를 토큰화.<br> 사용자가 utterance으로 `Ich fahre einen krankenwagen` 입력 하는 경우에는 단일 토큰으로 유지 됩니다. 따라서 `krankenwagen` 단일 엔터티로 표시 됩니다. |

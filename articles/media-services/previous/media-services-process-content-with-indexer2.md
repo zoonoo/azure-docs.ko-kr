@@ -14,17 +14,17 @@ ms.topic: article
 ms.date: 09/22/2019
 ms.author: juliako
 ms.reviewer: adsolank
-ms.openlocfilehash: 9c463095612b1540cc593b17a0e52bfd24db30d2
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c24218dc116803ca0e0a1f166b7b54b24fc4d5ef
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514496"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163797"
 ---
 # <a name="indexing-media-files-with-azure-media-indexer-2-preview"></a>Azure Media Indexer 2 미리 보기를 사용하여 미디어 파일 인덱싱
 
 > [!NOTE]
-> [Azure Media Indexer 2](media-services-process-content-with-indexer2.md) 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는이 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
+> **Azure Media Indexer 2** 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는이 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요. [Azure Media Services Video Indexer](https://docs.microsoft.com/azure/media-services/video-indexer/) 이 레거시 미디어 프로세서를 대체 합니다. 자세한 내용은 [Azure Media Indexer에서 마이그레이션 및 Azure Media Indexer 2에서 Azure Media Services Video Indexer로 마이그레이션](migrate-indexer-v1-v2.md)을 참조 하세요.
 
 **Azure Media Indexer 2 미리 보기** MP(미디어 프로세서)를 사용하여 미디어 파일과 콘텐츠를 검색 가능하도록 설정할 수 있으며 선택 캡션 트랙을 생성할 수 있습니다. [Azure Media Indexer 2 미리 보기](media-services-index-content.md)는 이전 버전의 **Azure Media Indexer**에 비해 보다 빠른 인덱싱을 수행하고 더 광범위한 언어 지원을 제공합니다. 지원되는 언어는 영어, 스페인어, 프랑스어, 독일어, 이탈리아어, 중국어(북경어, 간체), 포르투갈어, 아랍어, 러시아어, 일본어 등입니다.
 
@@ -121,7 +121,7 @@ Azure Media Indexer 2 미리 보기는 다음 언어에 대한 음성-텍스트�
 
 개발 환경을 설정하고 [.NET을 사용한 Media Services 환경](media-services-dotnet-how-to-use.md)에 설명된 대로 연결 정보를 사용하여 app.config 파일을 채웁니다. 
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 
 ```csharp
 using System;
@@ -294,10 +294,10 @@ namespace IndexContent
 ## <a name="media-services-learning-paths"></a>Media Services 학습 경로
 [!INCLUDE [media-services-learning-paths-include](../../../includes/media-services-learning-paths-include.md)]
 
-## <a name="provide-feedback"></a>피드백 제공하기
+## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="related-links"></a>관련된 링크
+## <a name="related-links"></a>관련 링크
 [Azure Media Services 분석 개요](media-services-analytics-overview.md)
 
 [Azure 미디어 분석 데모](https://azuremedialabs.azurewebsites.net/demos/Analytics.html)

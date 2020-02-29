@@ -2,17 +2,17 @@
 title: Dv3 및 Dsv3 시리즈-Azure Virtual Machines
 description: Dv3 및 Dsv3 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: db50cadee4aeb618e85e977ca02f4fa6ff203d4b
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 9ea5811fa20ea4866655de74d79ff3905ba03f16
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493762"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164409"
 ---
 # <a name="dv3-and-dsv3-series"></a>Dv3 및 Dsv3 시리즈
 
@@ -33,6 +33,10 @@ ACU: 160-190
 Premium Storage: 지원되지 않음
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 임시 저장소 처리량: IOPS/읽기 MBps/쓰기 MBps | 최대 Nic/네트워크 대역폭 |
 |---|---|---|---|---|---|---|
@@ -55,6 +59,10 @@ ACU: 160-190
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps (GiB의 캐시 크기) | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 Nic/예상 네트워크 대역폭 (Mbps) |
 |---|---|---|---|---|---|---|---|

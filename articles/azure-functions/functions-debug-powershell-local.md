@@ -6,18 +6,16 @@ ms.topic: conceptual
 ms.date: 04/22/2019
 ms.author: tyleonha
 ms.reviewer: glenga
-ms.openlocfilehash: 36d15858e1fb535189891303a89b00021027f1e8
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 133e89bd9187ae5e48fa208b407678760d31adfd
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74227030"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163763"
 ---
 # <a name="debug-powershell-azure-functions-locally"></a>로컬로 PowerShell Azure Functions 디버그
 
 Azure Functions를 통해 PowerShell 스크립트로 함수를 개발할 수 있습니다.
-
-[!INCLUDE [functions-powershell-preview-note](../../includes/functions-powershell-preview-note.md)]
 
 다음 표준 개발 도구를 사용 하 여 PowerShell 스크립트와 마찬가지로 PowerShell 함수를 로컬로 디버그할 수 있습니다.
 
@@ -120,7 +118,7 @@ PowerShell 파일이 열려 있으면 창의 오른쪽 아래에 녹색으로 �
 
 **디버그** 창을 선택한 다음 **PowerShell 함수에 연결**합니다.
 
-![디버거로](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
+![디버거](https://user-images.githubusercontent.com/2644648/56166073-8a7b3780-5f89-11e9-85ce-36ed38e221a2.png)
 
 F5 키를 눌러 디버깅을 시작할 수도 있습니다.
 
@@ -131,7 +129,7 @@ F5 키를 눌러 디버깅을 시작할 수도 있습니다.
 * Powershell 디버거를 함수 런타임 내의 PowerShell runspace에 연결 합니다.
 
 >[!NOTE]
-> Visual Studio Code에서 올바른 디버깅 환경을 보장 하려면 PSWorkerInProcConcurrencyUpperBound가 1로 설정 되어 있는지 확인 해야 합니다. 이 값이 기본값입니다.
+> Visual Studio Code에서 올바른 디버깅 환경을 보장 하려면 PSWorkerInProcConcurrencyUpperBound가 1로 설정 되어 있는지 확인 해야 합니다. 이것이 기본값입니다.
 
 함수 앱을 실행 하는 경우 HTTP 트리거된 함수를 호출 하는 별도의 PowerShell 콘솔이 필요 합니다.
 

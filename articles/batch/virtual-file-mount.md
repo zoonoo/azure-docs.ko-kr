@@ -11,12 +11,12 @@ ms.tgt_pltfrm: na
 ms.topic: article
 ms.date: 08/13/2019
 ms.author: labrenne
-ms.openlocfilehash: a22117505dff35f9b92e3dd3c91dc8540557b218
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: bdf0b3bfc955d8a2e2ce1b363c8699ca719b957c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77023041"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919008"
 ---
 # <a name="mount-a-virtual-file-system-on-a-batch-pool"></a>Batch 풀에 가상 파일 시스템 탑재
 
@@ -54,7 +54,7 @@ ms.locfileid: "77023041"
 > [!IMPORTANT]
 > 풀에 탑재 된 파일 시스템의 최대 수는 10 개입니다. 자세한 내용은 [Batch 서비스 할당량 및 제한](batch-quota-limit.md#other-limits) 을 참조 하세요.
 
-## <a name="examples"></a>예시
+## <a name="examples"></a>예
 
 다음 코드 예제에서는 계산 노드 풀에 다양 한 파일 공유를 탑재 하는 방법을 보여 줍니다.
 
@@ -88,9 +88,6 @@ new PoolAddParameter
 또 다른 옵션은 [blobfuse](../storage/blobs/storage-how-to-mount-container-linux.md)를 통해 Azure Blob storage를 사용 하는 것입니다. Blob 파일 시스템을 탑재 하려면 저장소 계정에 대 한 `AccountKey` 또는 `SasKey` 필요 합니다. 이러한 키를 가져오는 방법에 대 한 자세한 내용은 [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)또는 [SAS (공유 액세스 서명) 사용](../storage/common/storage-dotnet-shared-access-signature-part-1.md)을 참조 하세요. Blobfuse를 사용 하는 방법에 대 한 자세한 내용은 blobfuse [문제 해결 FAQ](https://github.com/Azure/azure-storage-fuse/wiki/3.-Troubleshoot-FAQ)를 참조 하세요. Blobfuse 탑재 된 디렉터리에 대 한 기본 액세스 권한을 얻으려면 **관리자 권한**으로 작업을 실행 합니다. Blobfuse는 사용자 공간에서 디렉터리를 탑재 하 고 풀을 만들 때 루트로 탑재 됩니다. Linux에서는 모든 **관리자** 작업이 루트입니다. 퓨즈 모듈의 모든 옵션은 [퓨즈 참조 페이지](https://manpages.ubuntu.com/manpages/xenial/man8/mount.fuse.8.html)에 설명 되어 있습니다.
 
 문제 해결 가이드 외에도 blobfuse 리포지토리의 GitHub 문제는 현재 blobfuse 문제 및 해결 방법을 확인 하는 데 유용한 방법입니다. 자세한 내용은 [blobfuse 문제](https://github.com/Azure/azure-storage-fuse/issues)를 참조 하세요.
-
-> [!NOTE]
-> Blobfuse는 현재 Debian에서 지원 되지 않습니다. 자세한 내용은 [지원 되는 sku](#supported-skus) 를 참조 하세요.
 
 ```csharp
 new PoolAddParameter
@@ -170,11 +167,12 @@ new PoolAddParameter
 
 ## <a name="supported-skus"></a>지원되는 SKU
 
-| 게시자 | 제품 | SKU | Azure Files 공유 | Blobfuse | NFS 탑재 | CIFS 탑재 |
+| 게시자 | 제안 | SKU | Azure Files 공유 | Blobfuse | NFS 탑재 | CIFS 탑재 |
 |---|---|---|---|---|---|---|
-| batch | rendering-centos73 | 렌더링 | :heavy_check_mark: <br>참고: CentOS 7.7와 호환 됩니다.</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
+| 일괄 처리 | rendering-centos73 | 렌더링(rendering) | :heavy_check_mark: <br>참고: CentOS 7.7와 호환 됩니다.</br>| :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | Canonical | UbuntuServer | 16.04-LTS, 18.04-LTS | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
-| Credativ | Debian | 8, 9 | :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 8| :heavy_check_mark: | :x: | :heavy_check_mark: | :heavy_check_mark: |
+| Credativ | Debian | 9 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-ads | linux-data-science-vm | linuxdsvm | :heavy_check_mark: <br>참고: CentOS 7.4와 호환 됩니다. </br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container | 7.6 | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |
 | microsoft-azure-batch | centos-container-rdma | 7.4 | :heavy_check_mark: <br>참고: A_8 또는 9 저장소를 지원 합니다.</br> | :heavy_check_mark: | :heavy_check_mark: | :heavy_check_mark: |

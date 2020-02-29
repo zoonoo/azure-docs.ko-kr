@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 97095e4802373a1dd3f7b795c2fe567b778d2d5e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: d1e93c18b13e7171274eda2a7e8d07eefbefb592
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153828"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920385"
 ---
 # <a name="neural-network-regression-module"></a>신경망 회귀 모듈
 
@@ -56,7 +56,9 @@ ms.locfileid: "77153828"
   
 2. **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.  
+    -   **단일 매개 변수**: 모델을 구성 하려는 방법을 이미 알고 있는 경우이 옵션을 선택 합니다.
+
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.   
 
 3.  **숨겨진 계층 사양**에서 **전체 연결 된 사례**를 선택 합니다. 이 옵션은 신경망 회귀 모델에 대 한 기본 신경망 아키텍처를 사용 하 여 모델을 만듭니다. 여기에는 다음과 같은 특성이 있습니다.  
   
@@ -72,7 +74,6 @@ ms.locfileid: "77153828"
 
 6.  **학습 반복 횟수**에 대해 알고리즘이 학습 사례를 처리 하는 최대 횟수를 지정 합니다.
 
-7.  \* * 초기 학습 가중치 지름의 경우 학습 프로세스를 시작할 때 노드 가중치를 결정 하는 값을 입력 합니다.
 
 8.  **모멘텀**의 경우 학습 중에 이전 반복의 노드에 대 한 가중치로 적용할 값을 입력 합니다.
 

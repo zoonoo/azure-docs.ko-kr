@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: 4766f22cd84b2aab00f6dcc4064dbeea8018f694
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 7b5569738721038beadc78d94c81393803b6d36a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77564979"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920589"
 ---
 # <a name="scenarios-and-availability-of-media-services-features-across-datacenters"></a>시나리오 및 데이터 센터에서 Media Services 기능의 사용 가용성
 
@@ -202,6 +202,9 @@ AMS에서는 두 가지 주문형 인코더인 **Media Encoder Standard** 및 **
 ### <a name="analytics-media-processors"></a>분석 미디어 프로세서
 
 미디어 분석은 조직과 기업이 비디오 파일에서 실질적인 통찰력을 끌어내기 쉽도록 만드는 언어 및 시각 구성 요소 모음입니다. 자세한 내용은 [Azure Media Services 분석 개요](media-services-analytics-overview.md)를 참조하세요.
+
+> [!NOTE]
+> 일부 분석 미디어 프로세서는 사용 중지 됩니다. 사용 중지 날짜는 [레거시 구성 요소](legacy-components.md) 항목을 참조 하세요.
 
 #### <a name="availability"></a>가용성
 

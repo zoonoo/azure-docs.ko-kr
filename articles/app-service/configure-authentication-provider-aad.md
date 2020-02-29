@@ -5,12 +5,12 @@ ms.assetid: 6ec6a46c-bce4-47aa-b8a3-e133baef22eb
 ms.topic: article
 ms.date: 09/03/2019
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 69959418c52eb7324efe19ca41481e426b822ab4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 717336e0ddfe99c96afda4861f4de1239ee949bf
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842363"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913211"
 ---
 # <a name="configure-your-app-service-app-to-use-azure-ad-login"></a>Azure AD 로그인을 사용 하도록 App Service 앱 구성
 
@@ -25,6 +25,9 @@ ms.locfileid: "76842363"
 - 별도의 배포 슬롯에 별도의 앱 등록을 사용 하 여 환경 간의 사용 권한 공유를 방지 합니다. 새 코드를 테스트할 때이 방법을 통해 문제가 프로덕션 앱에 영향을 주는 것을 방지할 수 있습니다.
 
 ## <a name="express"> </a>Express 설정을 사용 하 여 구성
+
+> [!NOTE]
+> 정부 클라우드에는 **Express** 옵션을 사용할 수 없습니다. 
 
 1. [Azure Portal]에서 **App Services**를 검색 하 고 선택한 다음, 앱을 선택 합니다.
 2. 왼쪽 탐색 영역에서 **인증/권한 부여** > **를**선택 합니다.
@@ -90,7 +93,7 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 1. **인증 공급자**에서 **Azure Active Directory**를 선택합니다.
 1. **관리 모드**에서 **고급** 을 선택 하 고 다음 표에 따라 App Service 인증을 구성 합니다.
 
-    |필드|Description|
+    |필드|설명|
     |-|-|
     |클라이언트 ID| 앱 등록의 **응용 프로그램 (클라이언트) ID** 를 사용 합니다. |
     |발급자 ID| `https://login.microsoftonline.com/<tenant-id>`를 사용 하 *\<테 넌 트 id >* 를 앱 등록의 **디렉터리 (테 넌 트) id** 로 바꿉니다. |
@@ -101,7 +104,7 @@ App Service 앱을 구성 하는 경우 다음 정보가 필요 합니다.
 
 이제 App Service 앱에서 인증에 Azure Active Directory를 사용할 준비가 되었습니다.
 
-## <a name="configure-a-native-client-application"></a>네이티브 클라이언트 애플리케이션 구성
+## <a name="configure-a-native-client-application"></a>네이티브 클라이언트 응용 프로그램 구성
 
 **Active Directory 인증 라이브러리**와 같은 클라이언트 라이브러리를 사용 하 여 인증을 허용 하도록 네이티브 클라이언트를 등록할 수 있습니다.
 

@@ -12,19 +12,17 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/09/2018
 ms.author: genli
-ms.openlocfilehash: e8e4bed052ec5b70c441a3ae76f3409c307299e5
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 8a47131cb4f19cce1664eafa50c67ab1a1171e67
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981428"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919433"
 ---
 # <a name="azure-vm-startup-is-stuck-at-windows-update"></a>Azure VM 시작이 Windows 업데이트에서 중단되는 경우
 
 이 문서에서는 VM(Virtual Machine)이 시작 중에 Windows 업데이트 단계에서 중단되는 경우 문제를 해결하도록 도와 줍니다. 
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 리소스 관리자 배포 모델 사용에 대해 설명합니다. 클래식 배포 모델을 사용하는 대신 새 배포에 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상
 

@@ -7,18 +7,22 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: amverma
-ms.openlocfilehash: ad5fb1098f88a253252dad43c9da51b5d9f11237
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: eea649610ca53ccbb98b5ca361555280dcd3dafe
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492826"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164800"
 ---
 # <a name="hbv2-series"></a>HBv2 시리즈
 
 HBv2 시리즈 Vm은 유체 dynamics, 유한 요소 분석 및 저수지 시뮬레이션 등 메모리 대역폭을 기반으로 하는 응용 프로그램에 최적화 되어 있습니다. HBv2 Vm 기능 120 AMD EPYC 7742 프로세서 코어, CPU 코어 당 4gb RAM 및 동시 다중 스레딩은 없습니다. 각 HBv2 VM은 최대 340 g b/초 메모리 대역폭을 제공 하 고 최대 4 테라플롭 FP64 compute를 제공 합니다.
 
 Premium Storage: 지원됨
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 | 크기 | vCPU | 프로세서 | 메모리(GB) | 메모리 대역폭 (GB/초) | 기본 CPU 빈도 (GHz) | 모든 코어 빈도 (GHz, 최고) | 단일 코어 빈도 (GHz, 최고) | RDMA 성능 (Gb/s) | MPI 지원 | 임시 저장소 (GB) | 최대 데이터 디스크 수 | 최대 이더넷 Nic |
 | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- | --- |

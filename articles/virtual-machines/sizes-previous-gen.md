@@ -3,7 +3,7 @@ title: Azure Linux VM 크기 - 이전 세대 | Microsoft Docs
 description: Azure에서 Linux 가상 머신에 사용할 수 있는 크기의 이전 세대를 나열합니다. 이 시리즈의 크기에 대한 스토리지 처리량 및 네트워크 대역폭뿐만 아니라 vCPU, 데이터 디스크 및 NIC의 수에 대한 정보를 제공합니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: jonbeck7
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/20/2020
 ms.author: jonbeck
-ms.openlocfilehash: 2d54c39577a359499cf6dc3aca84cebc4fa6e206
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 700847c041a5b9111414d6b43ff734d83b1ca49f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77598020"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913466"
 ---
 # <a name="previous-generations-of-virtual-machine-sizes"></a>이전 세대의 가상 머신 크기
 
@@ -75,7 +75,7 @@ NVv2 시리즈 가상 머신은 [NVIDIA Tesla M60](https://images.nvidia.com/con
 
 NVv2 인스턴스의 각 GPU에는 GRID 라이선스가 함께 제공됩니다. 이 라이선스가 있으면 NV 인스턴스를 단일 사용자를 위한 가상 워크스테이션으로 유연하게 사용하거나, 25명의 동시 사용자가 가상 애플리케이션 시나리오를 위해 VM에 연결할 수 있습니다.
 
-| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 애플리케이션 |
+| 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | GPU | GPU 메모리: GiB | 최대 데이터 디스크 수 | 최대 NIC 수 | 가상 워크스테이션 | 가상 응용 프로그램 |
 |---|---|---|---|---|---|---|---|---|---|
 | Standard_NV6s_v2  | 6  | 112 | 320  | 1 | 8  | 12 | 4 | 1 | 25  |
 | Standard_NV12s_v2 | 12 | 224 | 640  | 2 | 16 | 24 | 8 | 2 | 50  |

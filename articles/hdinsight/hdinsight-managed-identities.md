@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/20/2019
-ms.openlocfilehash: 236f79c9060a0d6fdcb0f558373d02f32eba7abb
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: c2b590e623062d5d5ae39261b3b5fa5a37a39122
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905610"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919223"
 ---
 # <a name="managed-identities-in-azure-hdinsight"></a>Azure HDInsight에서 관리 되는 id
 
@@ -21,7 +21,7 @@ ms.locfileid: "76905610"
 
 관리 id는 azure AD domain services에 액세스 하거나 필요한 경우 Azure Data Lake Storage Gen2에서 파일에 액세스 하는 데 사용 됩니다.
 
-관리 id에는 사용자 할당 및 시스템 할당 이라는 두 가지 유형이 있습니다. Azure HDInsight는 사용자 할당 관리 id를 사용 합니다. 사용자 할당 관리 id는 독립 실행형 Azure 리소스로 만들어지므로 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 반면, 시스템 할당 관리 id는 Azure AD에서 생성 된 다음 특정 Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다. 그런 다음 해당 시스템 할당 관리 id의 수명은 사용 하도록 설정 된 서비스 인스턴스의 수명에 연결 됩니다.
+관리 id에는 사용자 할당 및 시스템 할당 이라는 두 가지 유형이 있습니다. Azure HDInsight는 사용자 할당 관리 id만 지원 합니다. HDInsight는 시스템 할당 관리 id를 지원 하지 않습니다. 사용자 할당 관리 id는 독립 실행형 Azure 리소스로 만들어지므로 하나 이상의 Azure 서비스 인스턴스에 할당할 수 있습니다. 반면, 시스템 할당 관리 id는 Azure AD에서 생성 된 다음 특정 Azure 서비스 인스턴스에서 직접 사용 하도록 설정 됩니다. 그런 다음 해당 시스템 할당 관리 id의 수명은 사용 하도록 설정 된 서비스 인스턴스의 수명에 연결 됩니다.
 
 ## <a name="hdinsight-managed-identity-implementation"></a>HDInsight 관리 id 구현
 

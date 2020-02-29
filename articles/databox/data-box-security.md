@@ -5,15 +5,15 @@ services: databox
 author: alkohli
 ms.service: databox
 ms.subservice: pod
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 09/23/2019
 ms.author: alkohli
-ms.openlocfilehash: 678bef1b18d60679be6c296a1fd7beef42f721b7
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
-ms.translationtype: HT
+ms.openlocfilehash: 21b05631f1c225c9c4b1f7c65d18588900850b8e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71203832"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77911733"
 ---
 # <a name="azure-data-box-security-and-data-protection"></a>Azure Data Box 보안 및 데이터 보호
 
@@ -78,13 +78,13 @@ Azure Data Box는 서비스의 다음 주요 인스턴스에서 개인 정보를
 
 - **주문 세부 정보** – 주문이 만들어지면 사용자의 배송 주소, 이메일, 연락처 정보가 Azure Portal에 저장됩니다. 저장되는 정보는 다음과 같습니다.
 
-  - 담당자 이름
+  - 연락처 이름
   - 전화 번호
   - Email
   - 주소
-  - City
+  - 구/군/시
   - 우편 번호
-  - 시스템 상태
+  - 상태
   - 국가/시/도/지역
   - 운송업체 계정 번호
   - 배송 추적 번호

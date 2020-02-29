@@ -12,12 +12,12 @@ ms.tgt_pltfrm: vm-windows
 ms.topic: troubleshooting
 ms.date: 11/16/2018
 ms.author: genli
-ms.openlocfilehash: a809cabd2ace1b18af6c93dc54348137e9ba5750
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: a8bd12d98b76d5848753987c4f7bcb76d4e2266d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749913"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921575"
 ---
 # <a name="how-to-reset-network-interface-for-azure-windows-vm"></a>Windows Azure VM에 대한 네트워크 인터페이스를 다시 설정하는 방법 
 
@@ -71,6 +71,8 @@ ms.locfileid: "75749913"
 3. 컴퓨터에 RDP를 시도합니다.  성공할 경우 개인 IP 주소를 원래대로 변경할 수 있습니다(원하는 경우). 그렇지 않은 경우 현재 상태를 유지할 수 있습니다.
 
 ### <a name="for-classic-vms"></a>클래식 VM
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
 
 네트워크 인터페이스를 다시 설정하려면 다음 단계를 따르세요.
 

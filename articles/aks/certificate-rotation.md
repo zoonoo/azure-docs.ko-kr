@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: zarhoads
-ms.openlocfilehash: 02bfdbc840065558003b249e1e3ea52f46ec64d6
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 3c22f63b7085c7ab8d6b54e383528568dc9c12e7
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596270"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917036"
 ---
 # <a name="rotate-certificates-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 인증서 회전
 
@@ -65,7 +65,7 @@ az aks rotate-certs -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME
 > [!IMPORTANT]
 > `az aks rotate-certs`를 완료 하는 데 최대 30 분 정도 걸릴 수 있습니다. 완료 하기 전에 명령이 실패 하는 경우 `az aks show`를 사용 하 여 클러스터의 상태가 *인증서 회전*인지 확인 합니다. 클러스터가 실패 상태인 경우 `az aks rotate-certs`를 다시 실행 하 여 인증서를 다시 회전 합니다.
 
-`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  다음은 그 예입니다.
+`kubectl` 명령을 실행 하 여 이전 인증서가 더 이상 유효 하지 않은지 확인 합니다. `kubectl`에서 사용 하는 인증서를 업데이트 하지 않았으므로 오류가 표시 됩니다.  예를 들면 다음과 같습니다.
 
 ```console
 $ kubectl get no
@@ -78,11 +78,14 @@ Unable to connect to the server: x509: certificate signed by unknown authority (
 az aks get-credentials -g $RESOURCE_GROUP_NAME -n $CLUSTER_NAME --overwrite-existing
 ```
 
-`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 다음은 그 예입니다.
+`kubectl` 명령을 실행 하 여 인증서가 업데이트 되었는지 확인 합니다. 그러면이 작업이 성공적으로 수행 됩니다. 예를 들면 다음과 같습니다.
 
 ```console
 kubectl get no
 ```
+
+> [!NOTE]
+> [Azure Dev Spaces][dev-spaces]와 같이 AKS을 기반으로 실행 되는 서비스가 있는 경우 [해당 서비스와 관련 된 인증서도 업데이트][dev-spaces-rotate] 해야 할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -94,3 +97,5 @@ kubectl get no
 [az-extension-add]: /cli/azure/extension#az-extension-add
 [az-extension-update]: /cli/azure/extension#az-extension-update
 [aks-best-practices-security-upgrades]: operator-best-practices-cluster-security.md
+[dev-spaces]: https://docs.microsoft.com/azure/dev-spaces/
+[dev-spaces-rotate]: ../dev-spaces/troubleshooting.md#error-using-dev-spaces-after-rotating-aks-certificates
