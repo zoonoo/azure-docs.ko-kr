@@ -5,14 +5,14 @@ services: event-grid
 author: spelluru
 ms.service: event-grid
 ms.topic: conceptual
-ms.date: 05/15/2019
+ms.date: 02/27/2020
 ms.author: spelluru
-ms.openlocfilehash: 483b8251bf17eaa5fe7aa7cbd86299575535725d
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: dda2fd98c4c0d330059156a5ec00baa97ffaf627
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74170068"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921065"
 ---
 # <a name="event-grid-message-delivery-and-retry"></a>Event Grid 메시지 배달 및 다시 시도
 
@@ -26,12 +26,33 @@ Event Grid는 기본적으로 각 이벤트를 구독자에 게 개별적으로 
 
 일괄 배달에는 두 가지 설정이 있습니다.
 
-* **일괄 처리당 최대 이벤트** 수는 일괄 처리당 배달 되 Event Grid 최대 이벤트 수입니다. 이 수는 절대로 초과할 수 없지만 게시 시 다른 이벤트를 사용할 수 없는 경우에는 더 작은 이벤트를 전달할 수 있습니다. 사용할 수 있는 이벤트의 수를 줄이면 일괄 처리를 만들기 위해 이벤트를 지연 하지 않습니다 Event Grid 합니다. 1에서 5000 사이 여야 합니다.
-* **기본 배치 크기 (kb)** 는 일괄 처리 크기의 대상 상한 (킬로바이트)입니다. 최대 이벤트와 마찬가지로 게시할 때 더 많은 이벤트를 사용할 수 없는 경우 일괄 처리 크기가 더 작아질 수 있습니다. 단일 이벤트가 기본 설정 된 크기 보다 큰 *경우* 일괄 처리가 기본 일괄 처리 크기 보다 클 수 있습니다. 예를 들어 기본 설정 된 크기가 4kb이 고 Event Grid 10gb 이벤트가 푸시되는 경우에도 10mbps 이벤트는 삭제 되지 않고 자체 일괄 처리로 배달 됩니다.
+* **일괄 처리당 최대 이벤트** 수-일괄 처리당 제공 되 Event Grid 최대 이벤트 수입니다. 이 수는 절대로 초과할 수 없지만 게시 시 다른 이벤트를 사용할 수 없는 경우에는 더 작은 이벤트를 전달할 수 있습니다. 사용할 수 있는 이벤트의 수를 줄이면 일괄 처리를 만들기 위해 이벤트를 지연 하지 않습니다 Event Grid 합니다. 1에서 5000 사이 여야 합니다.
+* **기본 배치 크기 (kb)** 입니다. 일괄 처리 크기의 대상 상한 (kb)입니다. 최대 이벤트와 마찬가지로 게시할 때 더 많은 이벤트를 사용할 수 없는 경우 일괄 처리 크기가 더 작아질 수 있습니다. 단일 이벤트가 기본 설정 된 크기 보다 큰 *경우* 일괄 처리가 기본 일괄 처리 크기 보다 클 수 있습니다. 예를 들어 기본 설정 된 크기가 4kb이 고 Event Grid 10gb 이벤트가 푸시되는 경우에도 10mbps 이벤트는 삭제 되지 않고 자체 일괄 처리로 배달 됩니다.
 
 포털, CLI, PowerShell 또는 Sdk를 통해 이벤트 구독 별로 구성 된의 일괄 처리 배달
 
+### <a name="azure-portal"></a>Azure Portal: 
 ![일괄 처리 배달 설정](./media/delivery-and-retry/batch-settings.png)
+
+### <a name="azure-cli"></a>Azure CLI
+이벤트 구독을 만들 때 다음 매개 변수를 사용 합니다. 
+
+- **일괄 처리당 최대 이벤트** 수-일괄 처리의 최대 이벤트 수입니다. 1에서 5000 사이의 숫자 여야 합니다.
+- **기본 설정-일괄 처리 크기** (kb)입니다. 1에서 1024 사이의 숫자 여야 합니다.
+
+```azurecli
+storageid=$(az storage account show --name <storage_account_name> --resource-group <resource_group_name> --query id --output tsv)
+endpoint=https://$sitename.azurewebsites.net/api/updates
+
+az eventgrid event-subscription create \
+  --resource-id $storageid \
+  --name <event_subscription_name> \
+  --endpoint $endpoint \
+  --max-events-per-batch 1000 \
+  --preferred-batch-size-in-kilobytes 512
+```
+
+Event Grid에서 Azure CLI를 사용 하는 방법에 대 한 자세한 내용은 Azure CLI를 사용 하 여 [웹 끝점으로 저장소 이벤트 라우팅](../storage/blobs/storage-blob-event-quickstart.md)을 참조 하세요.
 
 ## <a name="retry-schedule-and-duration"></a>예약 및 기간 재시도
 
@@ -82,7 +103,7 @@ Event Grid는 HTTP 응답 코드를 사용하여 이벤트의 수신을 승인�
 
 Event Grid는 다음 HTTP **응답 코드만 성공한 배달으로 간주 합니다** . 다른 모든 상태 코드는 실패 한 배달으로 간주 되며 적절 하 게 다시 시도 하거나 deadlettered 됩니다. 성공적인 상태 코드를 수신 하면 배달이 완료 된 것으로 간주 Event Grid.
 
-- 200 정상
+- 200 OK
 - 201 생성됨
 - 202 수락됨
 - 203 신뢰할 수 없는 정보
@@ -92,16 +113,16 @@ Event Grid는 다음 HTTP **응답 코드만 성공한 배달으로 간주 합�
 
 위의 집합 (200-204)에 없는 다른 모든 코드는 실패로 간주 되며 다시 시도 됩니다. 일부는 아래에 설명 된 특정 다시 시도 정책을 포함 하 고 나머지는 표준 지 수 백오프 모델을 따릅니다. Event Grid 아키텍처의 병렬 특성으로 인해 재시도 동작은 비결 정적 이기 때문에 다시 시도 해야 합니다. 
 
-| status code | 다시 시도 동작 |
+| 상태 코드 | 다시 시도 동작 |
 | ------------|----------------|
 | 400 잘못된 요청 | 5 분 이상 후 다시 시도 (배달 못한 편지를 설치 하면 즉시 배달 못한 편지) |
-| 401 권한 없음 | 5 분 이상 후 다시 시도 |
+| 401 권한이 없음 | 5 분 이상 후 다시 시도 |
 | 403 사용할 수 없음 | 5 분 이상 후 다시 시도 |
 | 404 찾을 수 없음 | 5 분 이상 후 다시 시도 |
 | 408 요청 시간 초과 | 2 분 이상 후 다시 시도 |
 | 413 요청 엔터티가 너무 큼 | 10 초 이상 후 다시 시도 (배달 못한 편지를 설치 하면 즉시 배달 못한 편지) |
 | 503 서비스를 사용할 수 없음 | 30 초 이상 후 다시 시도 |
-| 기타 모든 항목 | 10 초 이상 후 다시 시도 |
+| 모든 기타 항목 | 10 초 이상 후 다시 시도 |
 
 
 ## <a name="next-steps"></a>다음 단계

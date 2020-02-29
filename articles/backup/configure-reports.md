@@ -3,12 +3,12 @@ title: Azure Backup 보고서 구성
 description: Log Analytics 및 Azure 통합 문서를 사용 하 여 Azure Backup에 대 한 보고서 구성 및 보기
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.openlocfilehash: cefe81e53e89b8d7903469e836f3c5d2665febea
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 651d1383f0f292895ed95c91bafd5206d4f04c2c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77582707"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161204"
 ---
 # <a name="configure-azure-backup-reports"></a>Azure Backup 보고서 구성
 
@@ -47,6 +47,9 @@ Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설
 
 또한 Azure Backup는 지정 된 범위의 모든 자격 증명 모음에 대 한 진단 설정 구성을 자동화 하는 기본 제공 Azure Policy 제공 합니다. 이 정책을 사용 하는 방법에 대해 알아보려면 다음 문서를 참조 하세요. [대규모로 자격 증명 모음 진단 설정 구성](https://docs.microsoft.com/azure/backup/azure-policy-configure-diagnostics)
 
+> [!NOTE]
+> 진단을 구성 하 고 나면 초기 데이터 푸시를 완료 하는 데 최대 24 시간이 걸릴 수 있습니다. 데이터를 LA 작업 영역으로 이동 하 고 나면 보고서에 데이터를 즉시 표시 하지 못할 수 있습니다. 현재 부분에 대 한 데이터가 보고서에 표시 되지 않기 때문입니다 (자세한 내용은 [여기](https://docs.microsoft.com/azure/backup/configure-reports#conventions-used-in-backup-reports)참조). 따라서 Log Analytics에 데이터를 보내도록 자격 증명 모음을 구성한 후 2 일 후에 보고서 보기를 시작 하는 것이 좋습니다.
+
 3. **Azure Portal에 대 한 보고서 보기:**
 
 데이터를 LA에 보내도록 자격 증명 모음을 구성한 후에는 자격 증명 모음 블레이드로 이동 하 고 **Backup reports** 메뉴 항목을 클릭 하 여 백업 보고서를 봅니다. 
@@ -56,7 +59,8 @@ Recovery Services 자격 증명 모음의 모니터링 섹션에서 **진단 설
 이 링크를 클릭 하면 백업 보고서 통합 문서가 열립니다.
 
 > [!NOTE]
-> 현재 보고서의 초기 로드는 최대 1 분 정도 걸릴 수 있습니다.
+> * 현재 보고서의 초기 로드는 최대 1 분 정도 걸릴 수 있습니다.
+> * Recovery Services 자격 증명 모음은 단지 백업 보고서의 진입점입니다. 백업 보고서 통합 문서가 자격 증명 모음의 블레이드에서 열리면 해당 하는 LA 작업 영역 집합을 선택 하 여 모든 자격 증명 모음에서 집계 된 데이터를 볼 수 있습니다.
 
 다음은 보고서에 포함 된 다양 한 탭에 대 한 설명입니다.
 

@@ -1,23 +1,23 @@
 ---
-title: Azure Machine Learning designer를 사용 하 여 모델 다시 학습
+title: Azure Machine Learning designer를 사용 하 여 모델 다시 학습 (미리 보기)
 titleSuffix: Azure Machine Learning
-description: Azure Machine Learning designer에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
+description: Azure Machine Learning designer (미리 보기)에서 게시 된 파이프라인으로 모델을 다시 학습 하는 방법에 대해 알아봅니다.
 services: machine-learning
 ms.service: machine-learning
 ms.subservice: core
 ms.topic: how-to
-ms.author: peterlu
-author: peterclu
-ms.date: 12/15/2019
-ms.openlocfilehash: d1382da739fd8ca56d4cc53c2c302331bdfbf1c3
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.author: keli19
+author: likebupt
+ms.date: 02/24/2020
+ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76311872"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921602"
 ---
-# <a name="retrain-models-with-azure-machine-learning-designer"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습
-[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
+# <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습 (미리 보기)
+[!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
 
 이 방법에서는 Azure Machine Learning 디자이너를 사용 하 여 Machine Learning 모델을 다시 학습 하는 방법에 대해 알아봅니다. 게시 된 파이프라인을 사용 하 여 재 학습을 위한 기계 학습 워크플로를 자동화 하는 방법을 알아보세요.
 
@@ -69,11 +69,11 @@ ms.locfileid: "76311872"
 
 1. **모델 학습** 모듈을 선택합니다.
 
-1. 설정 창에서 **출력**을 선택 합니다.
+1. 설정 창에서 **출력 + 로그**를 선택 합니다.
 
-1. 모델을 다운로드 하려면 **Trained_model** 을 선택 합니다.
+1. **출력 보기** 아이콘을 클릭 하 고 팝업 창의 지침에 따라 학습 된 모델을 찾습니다.
 
-![학습 된 모델을 다운로드 하는 방법을 보여 주는 스크린샷](./media/how-to-retrain-designer/download-model.png)
+![학습 된 모델을 다운로드 하는 방법을 보여 주는 스크린샷](./media/how-to-retrain-designer/trained-model-view-output.png)
 
 ## <a name="create-a-pipeline-parameter"></a>파이프라인 매개 변수 만들기
 
@@ -101,7 +101,7 @@ ms.locfileid: "76311872"
 
 1. **게시**를 선택합니다.
 
-## <a name="retrain-your-model"></a>모델 다시 학습시키기
+## <a name="retrain-your-model"></a>모델 다시 학습
 
 이제 게시 된 학습 파이프라인이 있으므로이를 사용 하 여 새 데이터를 사용 하 여 모델을 다시 학습 수 있습니다. 포털에서 또는 프로그래밍 방식으로 파이프라인 끝점에서 실행을 제출할 수 있습니다.
 

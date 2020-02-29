@@ -3,12 +3,12 @@ title: Azure Functions 런타임 버전 개요
 description: Azure Functions는 여러 버전의 런타임을 지원합니다. 버전 간 차이점과 적합한 버전을 선택하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 21722d66129224038df20a0a1ef2bff989221224
-ms.sourcegitcommit: 163be411e7cd9c79da3a3b38ac3e0af48d551182
+ms.openlocfilehash: 21a7b25087efd5d4adf2154c935636c263df9afd
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77539504"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919756"
 ---
 # <a name="azure-functions-runtime-versions-overview"></a>Azure Functions 런타임 버전 개요
 
@@ -58,7 +58,7 @@ Azure Functions 1.x 실험적 언어는 새 모델을 사용할 수 없으므로
 
 버전 2.x에서 다음과 같은 사항이 변경되었습니다.
 
-* HTTP 엔드포인트를 호출하기 위한 키는 항상 Azure Blob Storage에 암호화된 상태로 저장됩니다. 버전 1.x에서 키는 기본적으로 Azure File Storage에 저장되었습니다. 앱을 버전 1.x에서 버전 2.x로 업그레이드할 때 파일 스토리지에 있는 기존 암호가 다시 설정됩니다.
+* HTTP 엔드포인트를 호출하기 위한 키는 항상 Azure Blob Storage에 암호화된 상태로 저장됩니다. 버전 1.x에서는 키가 기본적으로 Azure File storage에 저장 되었습니다. 앱을 버전 1.x에서 버전 2.x로 업그레이드할 때 파일 스토리지에 있는 기존 암호가 다시 설정됩니다.
 
 * 버전 2.x 런타임에서는 웹후크 공급자가 기본적으로 지원되지 않습니다. 성능 향상을 위해 이렇게 변경되었습니다. HTTP 트리거를 여전히 웹후크에 대한 엔드포인트로 사용할 수 있습니다.
 
@@ -182,7 +182,7 @@ Visual Studio Code 개발의 경우 설치된 도구의 버전과 일치하도�
 </configuration>
 ```
 
-## <a name="bindings"></a>바인딩
+## <a name="bindings"></a>Bindings
 
 버전 2.x부터 런타임은 다음과 같은 이점을 제공 하는 새로운 [바인딩 확장성 모델](https://github.com/Azure/azure-webjobs-sdk-extensions/wiki/Binding-Extensions-Overview) 을 사용 합니다.
 
@@ -202,7 +202,7 @@ HTTP 및 타이머 트리거를 제외하고 모든 바인딩은 명시적으로
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 참고 자료를 참조하십시오.
 
 * [Azure Functions를 로컬에서 코딩 및 테스트](functions-run-local.md)
 * [Azure Functions 런타임 버전을 대상으로 지정하는 방법](set-runtime-version.md)

@@ -12,24 +12,22 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 10/08/2018
 ms.author: genli
-ms.openlocfilehash: 590505d954d52ebec9f8a5c344d6e750f11ef677
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 54ba87b681a055bb46b81ca81d2bcdd103491f27
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75981360"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921456"
 ---
 # <a name="windows-shows-critical-service-failed-on-blue-screen-when-booting-an-azure-vm"></a>Azure VM을 부팅할 때 Windows에서 블루 스크린에 "CRITICAL SERVICE FAILED"가 표시됨
 이 문서에서는 Microsoft Azure에서 Windows VM(가상 머신)을 부팅할 때 발생할 수 있는 "CRITICAL SERVICE FAILED" 오류에 대해 설명합니다. 그리고 해당 문제를 해결할 수 있는 문제 해결 단계를 제공합니다. 
 
-> [!NOTE] 
-> Azure에는 리소스를 만들고 작업하는 [Resource Manager와 클래식](../../azure-resource-manager/management/deployment-models.md)이라는 두 가지 배포 모델이 있습니다. 이 문서에서는 Resource Manager 배포 모델 사용을 설명하고 있으며, 새로운 배포에 대해 클래식 배포 모델 대신 이 모델을 사용하는 것이 좋습니다.
 
 ## <a name="symptom"></a>증상 
 
 Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)에서 부트 스크린샷을 확인하면 블루 스크린에 다음 오류 메시지 중 하나가 표시됩니다.
 
-- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 https://windows.com/stopcode 를 참조하세요. 지원 담당자에게 연락하는 경우 다음 정보를 제공하세요. 중지 코드: CRITICAL SERVICE FAILED" 
+- "PC에 문제가 생겨 다시 시작해야 합니다. 다시 시작할 수 있습니다. 이 문제와 가능한 수정 사항에 대한 자세한 내용은 https://windows.com/stopcode를 참조하세요. 지원 담당자에게 연락하는 경우 다음 정보를 제공하세요. 중지 코드: CRITICAL SERVICE FAILED" 
 - "PC에 문제가 생겨 다시 시작해야 합니다. 일부 오류 정보를 수집하고 있습니다. 그런 다음 자동으로 다시 시작합니다. 자세한 내용을 보려면 나중에 온라인에서 이 오류를 검색할 수 있습니다. RITICAL_SERVICE_FAILED"
 
 ## <a name="cause"></a>원인
@@ -118,7 +116,7 @@ Windows VM이 시작되지 않습니다. [부트 진단](./boot-diagnostics.md)�
 
     CrashDumpEnabled = 2
 7.  **BROKENSYSTEM**을 선택합니다. 메뉴에서 **파일** > **Hive 언로드**를 선택합니다.
-8.  디버그 모드로 부팅되도록 BCD 설정을 수정합니다. 이렇게 하려면 관리자 권한 명령 프롬프트에서 다음 명령을 사용합니다.
+8.  디버그 모드로 부팅되도록 BCD 설정을 수정합니다. 관리자 권한 명령 프롬프트에서 다음 명령을 실행합니다.
 
     ```cmd
     REM Setup some debugging flags on the boot manager

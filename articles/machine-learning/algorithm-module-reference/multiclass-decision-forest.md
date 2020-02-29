@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 47cea412489693cedb05bd8a94a914b1757b8058
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1f7aaeaf5d1537e0e5a427ad994f7e31e43fee3
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152162"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921371"
 ---
 # <a name="multiclass-decision-forest-module"></a>다중 클래스 의사 결정 포리스트 모듈
 
@@ -55,6 +55,7 @@ Azure Machine Learning의 의사 결정 포리스트 분류자는 의사 결정 
 
     + **단일 매개 변수**: 모델을 구성 하는 방법을 알고 있는 경우이 옵션을 선택 하 고 값 집합을 인수로 제공 합니다.
 
+    + **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.   
 
 5. **의사 결정 트리 수**: 앙상블에서 만들 수 있는 최대 의사 결정 트리 수를 입력 합니다. 더 많은 의사 결정 트리를 만들어 잠재적으로 더 나은 검사를 얻을 수 있지만 학습 시간이 늘어날 수 있습니다.
 

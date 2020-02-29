@@ -6,12 +6,12 @@ ms.service: storage
 ms.topic: conceptual
 ms.date: 02/23/2020
 ms.author: rogarana
-ms.openlocfilehash: 9bda3331bc27f387bd05ea0fcd29e7badf6d6a02
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 419f0506751ddc328539eafa52507b0dd0739c79
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77651086"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921558"
 ---
 # <a name="enable-active-directory-authentication-over-smb-for-azure-file-shares"></a>Azure 파일 공유에 대해 SMB를 통한 Active Directory 인증 사용
 
@@ -34,7 +34,7 @@ SMB를 통해 Azure 파일 공유에 AD를 사용 하도록 설정 하면 AD 도
 
 표준 [RBAC (역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 모델을 통해 공유 수준 파일 권한을 적용 하려면 azure 파일 공유에 액세스 하는 데 사용 되는 ad Id를 azure AD에 동기화 해야 합니다. 기존 파일 서버에서 전달 되는 파일/디렉터리의 [Windows 스타일 dacl](https://docs.microsoft.com/previous-versions/technet-magazine/cc161041(v=msdn.10)?redirectedfrom=MSDN) 은 유지 되 고 적용 됩니다. 이 기능은 엔터프라이즈 AD 도메인 인프라와의 원활한 통합을 제공 합니다. 온-프레미스 파일 서버를 Azure 파일 공유로 바꾸면 기존 사용자가 사용 중인 자격 증명을 변경 하지 않고 Single Sign-On 환경을 사용 하 여 현재 클라이언트에서 Azure 파일 공유에 액세스할 수 있습니다.  
  
-## <a name="prerequisites"></a>사전 요구 사항 
+## <a name="prerequisites"></a>필수 조건 
 
 Azure 파일 공유에 대 한 AD 인증을 사용 하도록 설정 하기 전에 다음 필수 구성 요소를 완료 했는지 확인 합니다. 
 
@@ -62,7 +62,7 @@ Azure 파일 공유에 대 한 AD 인증을 사용 하도록 설정 하기 전�
 
 ## <a name="regional-availability"></a>국가별 가용성
 
-Azure Files AD 인증은 [대부분의 공용 지역](https://azure.microsoft.com/global-infrastructure/regions/)에서 사용할 수 있으며, 아직에서 사용할 수 없는 지역의 하위 집합은 다음과 같습니다.
+Azure Files AD 인증 (미리 보기)은 다음을 제외 하 고 [대부분의 공개 지역](https://azure.microsoft.com/global-infrastructure/regions/) 에서 사용할 수 있습니다.
 
 - 미국 서부
 - 미국 서부 2
@@ -130,7 +130,7 @@ Connect-AzAccount
 Select-AzSubscription -SubscriptionId "<your-subscription-id-here>"
 
 #Register the target storage account with your active directory environment under the target OU
-join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationUnitName "<ou-name-here>"
+join-AzStorageAccountForAuth -ResourceGroupName "<resource-group-name-here>" -Name "<storage-account-name-here>" -DomainAccountType "<ServiceLogonAccount|ComputerAccount>" -OrganizationalUnitName "<ou-name-here>"
 ```
 
 다음 설명에서는 `join-AzStorageAccountForAuth` cmdlet이 실행 될 때 수행 되는 모든 동작을 요약 합니다. 명령을 사용 하지 않으려는 경우 다음 단계를 수동으로 수행할 수 있습니다.
@@ -152,7 +152,7 @@ OU에서 암호 만료를 적용 하는 경우 Azure 파일 공유에 액세스�
 
 새로 만든 계정의 SID를 유지 하 고 다음 단계에 필요 합니다.
 
-##### <a name="c-enable-the-feature-on-your-storage-account"></a>다. 저장소 계정에서 기능을 사용 하도록 설정
+##### <a name="c-enable-the-feature-on-your-storage-account"></a>c. 저장소 계정에서 기능을 사용 하도록 설정
 
 그런 다음 스크립트는 저장소 계정에서이 기능을 사용 하도록 설정 합니다. 이 설치를 수동으로 수행 하려면 다음 명령에서 도메인 속성에 대 한 구성 세부 정보를 제공 하 고 실행 합니다. 다음 명령에 필요한 저장소 계정 SID는 AD에서 만든 id의 SID입니다 (위의 섹션 b).
 

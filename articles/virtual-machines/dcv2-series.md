@@ -2,17 +2,17 @@
 title: DC 시리즈-Azure Virtual Machines
 description: DC 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: joelpelley
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: c4e141b7854925f5d12afce19481a6e9c2f8dd1d
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 41b08a921b4cc71275c216e86e89e49b59fc950a
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77599224"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163746"
 ---
 # <a name="preview-dcv2-series"></a>미리 보기: DCv2 시리즈
 
@@ -24,6 +24,10 @@ DCv2 시리즈는 공용 클라우드에서 처리 되는 동안 데이터 및 �
 Premium Storage: 지원 됨 *
 
 Premium Storage 캐싱: 지원 됨 *
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 \* Standard_DC8_v2 제외
 

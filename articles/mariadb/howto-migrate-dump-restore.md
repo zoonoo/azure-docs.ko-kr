@@ -5,13 +5,13 @@ author: ajlam
 ms.author: andrela
 ms.service: mariadb
 ms.topic: conceptual
-ms.date: 12/02/2019
-ms.openlocfilehash: 660b39a063496eb6566d51dbef2c914499dc70c9
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.date: 2/27/2020
+ms.openlocfilehash: 72735e83af97fde8377e27daa45501704ef5a3c8
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74776008"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164545"
 ---
 # <a name="migrate-your-mariadb-database-to-azure-database-for-mariadb-using-dump-and-restore"></a>덤프 및 복원을 사용하여 MariaDB Database를 Azure Database for MariaDB로 마이그레이션
 이 문서에서는 Azure Database for MariaDB에서 데이터베이스를 백업 및 복원하는 2가지 일반적인 방법에 대해 설명
@@ -22,10 +22,10 @@ ms.locfileid: "74776008"
 이 방법 가이드를 단계별로 실행하려면 다음이 필요합니다.
 - [Azure Database for MariaDB 서버 만들기 - Azure Portal](quickstart-create-mariadb-server-database-using-azure-portal.md)
 - [mysqldump](https://mariadb.com/kb/en/library/mysqldump/) 명령줄 유틸리티가 컴퓨터에 설치되어 있어야 함
-- 명령 덤프 및 복원을 수행할 MySQL Workbench [MySQL Workbench 다운로드](https://dev.mysql.com/downloads/workbench/), Toad, Navicat 또는 타사 MySQL 도구
+- MySQL 워크 벤치 [Mysql 워크 벤치 다운로드](https://dev.mysql.com/downloads/workbench/) 또는 다른 타사 MySQL 도구를 통해 덤프 및 복원 명령을 수행할 수 있습니다.
 
 ## <a name="use-common-tools"></a>일반 도구 사용
-MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 및 도구를 사용하여 Azure Database for MariaDB에 원격으로 연결하고 데이터를 복원합니다. 인터넷에 연결된 클라이언트 머신에서 이러한 도구를 사용하여 Azure Database for MariaDB에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용하려면 [Azure Database for MariaDB에서 SSL 연결 구성](concepts-ssl-connection-security.md)도 참조하세요. Azure Database for MariaDB로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
+MySQL 워크 벤치 또는 mysqldump와 같은 일반적인 유틸리티와 도구를 사용 하 여 데이터를 원격으로 연결 하 고 Azure Database for MariaDB에 복원 합니다. 인터넷에 연결된 클라이언트 머신에서 이러한 도구를 사용하여 Azure Database for MariaDB에 연결합니다. 최상의 보안을 위해 SSL 암호화 연결을 사용하려면 [Azure Database for MariaDB에서 SSL 연결 구성](concepts-ssl-connection-security.md)도 참조하세요. Azure Database for MariaDB로 마이그레이션할 때 덤프 파일을 특수한 클라우드 위치로 이동할 필요가 없습니다. 
 
 ## <a name="common-uses-for-dump-and-restore"></a>덤프 및 복원을 위한 일반적인 사용
 몇 가지 일반적인 시나리오에서 mysqldump 및 mysqlpump와 같은 MySQL 유틸리티를 사용하여 데이터베이스를 Azure Database for MariaDB로 덤프 및 로드할 수 있습니다. 
@@ -49,7 +49,7 @@ MySQL Workbench, mysqldump, Toad 또는 Navicat과 같은 일반 유틸리티 �
 -  데이터가 기본 키 순서로 스크립팅되도록 데이터베이스를 덤프할 때 mysqldump에서 `order-by-primary` 옵션을 사용합니다.
 -   로드 전에 외래 키 제약 조건을 비활성화하려면 데이터를 덤프할 때 mysqldump에서 `disable-keys` 옵션을 사용합니다. 외래 키 검사 비활성화는 성능 향상을 제공합니다. 제약 조건을 활성화하고 참조 무결성을 확인하도록 로드 후 데이터를 확인합니다.
 -   적절한 경우 분할된 테이블을 사용합니다.
--   병렬로 데이터를 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
+-   데이터를 병렬로 로드합니다. 리소스 제한에 도달하도록 하는 너무 많은 병렬 처리를 피하고 Azure Portal에서 사용할 수 있는 메트릭을 사용하여 리소스를 모니터링합니다. 
 -   테이블 데이터가 로드된 후 인덱스 생성이 발생하도록 데이터베이스를 덤프할 때 mysqlpump에서 `defer-table-indexes` 옵션을 사용합니다.
 -   Azure blob/저장소에 백업 파일을 복사하고, 인터넷을 통해 복원을 수행할 때보다 훨씬 더 빨리 수행할 수 있는 위치에서 복원을 수행합니다.
 
@@ -66,7 +66,7 @@ $ mysqldump --opt -u [uname] -p[pass] [dbname] > [backupfile.sql]
 - [backupfile.sql] 데이터베이스 백업의 파일 이름 
 - [-opt] mysqldump 옵션 
 
-예를 들어 사용자 이름이 'testuser'이고 암호가 없는 MariaDB 서버에서 'testdb'라는 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb_backup.sql`이라는 파일로 `testdb` 데이터베이스를 백업합니다. 
+예를 들어 사용자 이름이 'testuser'이고 암호가 없는 MariaDB 서버에서 'testdb'라는 데이터베이스를 파일 testdb_backup.sql에 백업하려면 다음 명령을 사용합니다. 명령은 데이터베이스를 다시 만드는 데 필요한 모든 SQL 문을 포함하는 `testdb`이라는 파일로 `testdb_backup.sql` 데이터베이스를 백업합니다. 
 
 ```bash
 $ mysqldump -u root -p testdb > testdb_backup.sql
@@ -81,7 +81,7 @@ $ mysqldump -u root -p --databases testdb1 testdb3 testdb5 > testdb135_backup.sq
 ```
 
 ## <a name="create-a-database-on-the-target-server"></a>대상 서버에서 데이터베이스 만들기
-데이터를 마이그레이션하려는 대상 Azure Database for MariaDB 서버에서 빈 데이터베이스를 만듭니다. MySQL Workbench, Toad 또는 Navicat과 같은 도구를 사용하여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
+데이터를 마이그레이션하려는 대상 Azure Database for MariaDB 서버에서 빈 데이터베이스를 만듭니다. MySQL 워크 벤치와 같은 도구를 사용 하 여 데이터베이스를 만듭니다. 이 데이터베이스는 덤프된 데이터를 포함하는 데이터베이스와 이름이 같을 수 있고 다른 이름의 데이터베이스를 만들 수도 있습니다.
 
 연결하려면 Azure Database for MariaDB의 **개요**에서 연결 정보를 찾습니다.
 

@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 10/31/2018
 ms.author: genli
-ms.openlocfilehash: 1bf023dc886481354306a763a0f9c56286c57e05
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: e94ffb3d34082745c3d7ca86cfda2b93c0ed08da
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749872"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919416"
 ---
 # <a name="understand-a-system-reboot-for-azure-vm"></a>Azure VM에 대한 시스템 다시 부팅 이해
 
@@ -30,10 +30,7 @@ Azure에서 실행되는 애플리케이션이 VM 재부팅 및 가동 중지 �
 
 애플리케이션에 이러한 수준의 중복성을 제공하기 위해 여러 개의 VM을 가용성 집합으로 그룹화하는 것이 좋습니다. 이 구성은 계획된 유지 관리 또는 계획되지 않은 유지 관리 이벤트 중에 적어도 하나의 VM을 사용할 수 있고 99.95% [Azure SLA](https://azure.microsoft.com/support/legal/sla/virtual-machines/v1_5/)가 충족되도록 합니다.
 
-사용 가능성 집합에 대한 자세한 내용은 다음 문서를 참조하세요.
-
-- [VM의 가용성 관리](../windows/manage-availability.md)
-- [VM의 가용성 구성](../windows/classic/configure-availability.md)
+가용성 집합에 대 한 자세한 내용은 [vm의 가용성 관리](../windows/manage-availability.md) 를 참조 하세요.
 
 ## <a name="resource-health-information"></a>Resource Health 정보
 

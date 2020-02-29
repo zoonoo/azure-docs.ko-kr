@@ -7,12 +7,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/26/2020
-ms.openlocfilehash: aa71f7d2f3b277ca34e1e5fea76ada6adf93e573
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 2216e1bf058eef486dbfefba24d52bdc6bdb232f
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77655069"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164681"
 ---
 # <a name="azure-data-factory-mapping-data-flow-lookup-transformation"></a>데이터 흐름 조회 변환 Azure Data Factory 매핑
 
@@ -45,6 +45,9 @@ ms.locfileid: "77655069"
 * 여러 행 일치: 단일 행 일치를 반환 하려면 비워 둡니다.
 * 일치 기준: 첫 번째, 마지막 또는 모든 일치를 선택 합니다.
 * 정렬 조건: 첫 번째 또는 마지막을 선택 하는 경우 ADF는 첫 번째 및 마지막에 있는 논리가 있도록 데이터를 정렬 해야 합니다.
+
+> [!NOTE]
+> 조회에서 다시 가져올 값을 제어 해야 하는 경우 단일 행 선택기에 첫 번째 또는 마지막 옵션만 사용 합니다. "Any" 또는 여러 행 조회를 사용 하면 더 빠르게 수행 됩니다.
 
 ### <a name="option-2"></a>옵션 2
 

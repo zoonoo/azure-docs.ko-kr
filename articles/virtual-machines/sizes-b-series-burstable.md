@@ -8,12 +8,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: ayshak
-ms.openlocfilehash: a22964b0bfa4e6a46e3c9f31195ea0a6add82646
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5121ef8eb3123d830233e91968c69b331d255bd0
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493645"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161083"
 ---
 # <a name="b-series-burstable-virtual-machine-sizes"></a>B-시리즈 버스터블 가상 머신 크기
 
@@ -24,6 +24,10 @@ B 시리즈는 다음과 같은 VM 크기를 제공 합니다.
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 되지 않음
+
+실시간 마이그레이션: 지원 됨
+
+메모리 보존 업데이트: 지원 됨
 
 | 크기 | vCPU | 메모리: GiB | 임시 스토리지(SSD) GiB | VM의 CPU 기준 성능 | VM의 CPU 최대 성능 | 초기 크레딧 | 크레딧 적립/시간 | 최대 적립 크레딧 | 최대 데이터 디스크 수 | 최대 캐시 및 임시 저장소 처리량: IOPS/MBps | 최대 캐시 되지 않은 디스크 처리량: IOPS/MBps | 최대 NIC 수 |
 |---|---|---|---|---|---|---|---|---|---|---|---|---|
@@ -54,7 +58,7 @@ B16 특징:
 
 ![시간별 트래픽 데이터 차트](./media/b-series-burstable/office-workload.png)
 
-| 시나리오 | Time | CPU 사용량 (%) | 누적 크레딧<sup>1</sup> | 크레딧을 사용할 수 있음 |
+| 시나리오 | 시간 | CPU 사용량 (%) | 누적 크레딧<sup>1</sup> | 크레딧을 사용할 수 있음 |
 | --- | --- | --- | --- | --- |
 | B16ms 배포 | 배포 | 배포  | 480 (초기 크레딧) | 480 |
 | 트래픽 없음 | 0:00 | 0 | 162 | 642 |

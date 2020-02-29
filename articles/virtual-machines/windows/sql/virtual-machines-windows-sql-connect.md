@@ -14,12 +14,12 @@ ms.workload: iaas-sql-server
 ms.date: 12/12/2017
 ms.author: mathoma
 ms.reviewer: jroth
-ms.openlocfilehash: ae5c4cdd76f164d13da349c355a30d8b6dc83058
-ms.sourcegitcommit: 44e85b95baf7dfb9e92fb38f03c2a1bc31765415
+ms.openlocfilehash: deb337d989a3658e909cefa7a9ab028e37792562
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/28/2019
-ms.locfileid: "70102095"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918379"
 ---
 # <a name="connect-to-a-sql-server-virtual-machine-on-azure"></a>Azure에서 SQL Server 가상 머신에 연결
 
@@ -41,8 +41,8 @@ Azure Portal에서 SQL Server VM을 프로비전하는 경우 **SQL 연결**의 
 
 | 옵션 | 설명 |
 |---|---|
-| **공개** | 인터넷을 통해 SQL Server에 연결 |
-| **전용** | 동일한 가상 네트워크의 SQL Server에 연결 |
+| **공용** | 인터넷을 통해 SQL Server에 연결 |
+| **프라이빗** | 동일한 가상 네트워크의 SQL Server에 연결 |
 | **로컬** | 동일한 가상 머신의 SQL Server에 로컬로 연결 | 
 
 다음 섹션은 **공용** 및 **프라이빗** 옵션을 자세히 설명합니다.
@@ -79,7 +79,7 @@ Server=sqlvmlabel.eastus.cloudapp.azure.com,1500;Integrated Security=false;User 
 포털에서 **SQL 연결** 형식에 대해 **프라이빗**을 선택하는 경우 Azure는 대부분의 설정을 **공용**과 동일하게 구성합니다. 한 가지 차이점은 SQL Server 포트(기본값 1433)에서 외부 트래픽을 허용하는 네트워크 보안 그룹 규칙이 없다는 점입니다.
 
 > [!IMPORTANT]
-> SQL Server Developer 및 Express 버전용 가상 컴퓨터 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
+> SQL Server Developer 및 Express 버전용 가상 머신 이미지는 자동으로 TCP/IP 프로토콜을 사용하지 않습니다. Developer 및 Express 버전의 경우 VM을 만든 후에 SQL Server 구성 관리자를 사용하여 [수동으로 TCP/IP 프로토콜을 사용](#manualtcp)해야 합니다.
 
 프라이빗 연결은 종종 여러 가지 시나리오를 활성화하는 [Virtual Network](../../../virtual-network/virtual-networks-overview.md)와 함께 사용됩니다. VM이 다른 리소스 그룹에 있더라도 동일한 가상 네트워크의 VM에 연결할 수 있습니다. 또한 [사이트 간 VPN](../../../vpn-gateway/vpn-gateway-howto-site-to-site-resource-manager-portal.md)을 통해 온-프레미스 네트워크와 컴퓨터에 VM을 연결하는 하이브리드 아키텍처를 만들 수 있습니다.
 
@@ -123,7 +123,7 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 [!INCLUDE [Connect to SQL Server VM with remote desktop](../../../../includes/virtual-machines-sql-server-connection-tcp-protocol.md)]
 
-## <a name="connect-with-ssms"></a>SSMS로 연결
+## <a name="connect-with-ssms"></a>SSMS를 사용하여 연결
 
 다음 단계에서는 Azure VM에 대한 선택적 DNS 레이블을 만든 다음 SSMS(SQL Server Management Studio)와 연결하는 방법을 보여 줍니다.
 
@@ -137,7 +137,7 @@ SQL Server 연결 설정을 변경할 때 Azure는 SQL Server Developer 및 Expr
 
 | 요구 사항 | 설명 |
 |---|---|
-| [SQL Server 인증 모드 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/change-server-authentication-mode#SSMSProcedure) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
+| [SQL Server 인증 모드 사용](/sql/database-engine/configure-windows/change-server-authentication-mode#use-ssms) | Virtual Network에 Active Directory를 구성하지 않은 경우 원격으로 VM에 연결하는 데 SQL Server 인증이 필요합니다. |
 | [SQL 로그인 만들기](https://docs.microsoft.com/sql/relational-databases/security/authentication-access/create-a-login) | SQL 인증을 사용하는 경우 대상 데이터베이스에 대한 권한이 있는 사용자 이름과 암호를 사용하는 SQL 로그인이 필요합니다. |
 | [TCP/IP 프로토콜 사용](#manualtcp) | SQL Server에서 TCP를 통한 연결을 허용해야 합니다. |
 | [SQL Server 포트에 방화벽 규칙 사용](https://docs.microsoft.com/sql/database-engine/configure-windows/configure-a-windows-firewall-for-database-engine-access) | VM의 방화벽은 SQL Server 포트에서 인바운드 트래픽을 허용해야 합니다(기본값 1433). |

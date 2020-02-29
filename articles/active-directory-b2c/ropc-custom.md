@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 12/06/2018
+ms.date: 02/27/2020
 ms.author: marsma
 ms.subservice: B2C
-ms.openlocfilehash: 95601735064451a91530907e5e6b59f579ff0e28
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: df6f8ce22e8215a0727db7f69e0f6e5c3f5fc9e0
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840267"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77917393"
 ---
 # <a name="configure-the-resource-owner-password-credentials-flow-in-azure-active-directory-b2c-using-a-custom-policy"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 리소스 소유자 암호 자격 증명 흐름 구성
 
@@ -24,17 +24,7 @@ ms.locfileid: "76840267"
 
 Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자격 증명 (ROPC) 흐름은 OAuth 표준 인증 흐름입니다. 이 흐름에서 신뢰 당사자라고도 하는 애플리케이션은 토큰에 유효한 자격 증명을 교환합니다. 자격 증명에는 사용자 ID 및 암호가 포함됩니다. 반환되는 토큰은 ID 토큰, 액세스 토큰 및 새로 고침 토큰입니다.
 
-다음 옵션은 ROPC 흐름에서 지원됩니다.
-
-- **네이티브 클라이언트** - 코드가 사용자 쪽 디바이스에서 실행될 때 인증 중에 사용자 상호 작용이 발생합니다.
-- **공용 클라이언트 흐름** – 애플리케이션에서 수집한 사용자 자격 증명만 API 호출에서 전송됩니다. 애플리케이션의 자격 증명은 전송되지 않습니다.
-- **새 클레임 추가** - ID 토큰 콘텐츠를 변경하여 새 클레임을 추가할 수 있습니다.
-
-지원되지 않는 흐름은 다음과 같습니다.
-
-- **서버 간** - ID 보호 시스템은 상호 작용의 일부인 호출자(네이티브 클라이언트)에서 수집한 신뢰할 수 있는 IP 주소가 필요합니다. 서버 쪽 API 호출에서는 서버의 IP 주소만 사용됩니다. 너무 많은 로그인이 실패하는 경우 ID 보호 시스템은 반복되는 IP 주소를 공격자로 간주할 수 있습니다.
-- **단일 페이지 애플리케이션** - 주로 JavaScript에 작성되는 프런트 엔드 애플리케이션입니다. 애플리케이션은 대체로 AngularJS, Ember.js 또는 Durandal과 같은 프레임워크를 사용하여 작성됩니다.
-- **기밀 클라이언트 흐름** - 애플리케이션 클라이언트 ID의 유효성은 검사하지만 애플리케이션 비밀의 유효성은 검사하지 않습니다.
+[!INCLUDE [active-directory-b2c-ropc-notes](../../includes/active-directory-b2c-ropc-notes.md)]
 
 ## <a name="prerequisites"></a>필수 조건
 
@@ -96,7 +86,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
     </ClaimsTransformations>
     ```
 
-4. `Local Account SignIn`의 **DisplayName**이 있는 **ClaimsProvider** 요소를 찾아 다음 기술 프로필을 추가합니다.
+4. **의** DisplayName**이 있는** ClaimsProvider`Local Account SignIn` 요소를 찾아 다음 기술 프로필을 추가합니다.
 
     ```XML
     <TechnicalProfile Id="ResourceOwnerPasswordCredentials-OAUTH2">
@@ -261,12 +251,12 @@ Azure Active Directory B2C (Azure AD B2C)에서 리소스 소유자 암호 자�
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | 값 |
+| Key | 값 |
 | --- | ----- |
-| 사용자 이름 | `user-account` |
+| username | `user-account` |
 | password | `password1` |
 | grant_type | password |
-| scope | openid `application-id` offline_access |
+| 범위 | openid `application-id` offline_access |
 | client_id | `application-id` |
 | response_type | 토큰 id_token |
 
@@ -306,7 +296,7 @@ offline-access의 성공적인 응답은 다음 예제와 같습니다.
 - `your-tenant-name`은 Azure AD B2C 테넌트의 이름으로 바꿉니다.
 - `B2C_1A_ROPC_Auth`를 리소스 소유자 암호 자격 증명 정책의 전체 이름으로 바꿉니다.
 
-| 키 | 값 |
+| Key | 값 |
 | --- | ----- |
 | grant_type | refresh_token |
 | response_type | id_token |

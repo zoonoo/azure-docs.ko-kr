@@ -5,19 +5,19 @@ services: active-directory
 ms.service: active-directory
 ms.subservice: B2B
 ms.topic: conceptual
-ms.date: 08/07/2019
+ms.date: 02/27/2019
 ms.author: mimart
 author: msmimart
 manager: celestedg
 ms.reviewer: mal
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 036c8361af3f6631b6151782fa18495542d2e3f6
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: a6187fa9f274c6d00c1c9872a1b27268ac91295e
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888883"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161489"
 ---
 # <a name="direct-federation-with-ad-fs-and-third-party-providers-for-guest-users-preview"></a>게스트 사용자를 위한 AD FS 및 타사 공급자와의 직접 페더레이션 (미리 보기)
 |     |
@@ -64,7 +64,11 @@ Id 공급자 설정에서 메타 데이터 URL을 지정 하는 경우 Azure AD�
 
 ### <a name="limit-on-federation-relationships"></a>페더레이션 관계에 대 한 제한
 현재 최대 1000 페더레이션 관계가 지원 됩니다. 이 제한에는 [내부 페더레이션](https://docs.microsoft.com/powershell/module/msonline/set-msoldomainfederationsettings?view=azureadps-1.0) 및 직접 페더레이션을 모두 포함 됩니다.
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+
+### <a name="limit-on-multiple-domains"></a>여러 도메인에 대 한 제한
+현재는 동일한 테 넌 트의 여러 도메인이 있는 직접 페더레이션을 지원 하지 않습니다.
+
+## <a name="frequently-asked-questions"></a>질문과 대답
 ### <a name="can-i-set-up-direct-federation-with-a-domain-for-which-an-unmanaged-email-verified-tenant-exists"></a>관리 되지 않는 (전자 메일 확인) 테 넌 트가 존재 하는 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있나요? 
 예. 도메인을 확인 하지 않은 상태에서 테 넌 트가 [관리자 인수](../users-groups-roles/domains-admin-takeover.md)하지 않은 경우 해당 도메인을 사용 하 여 직접 페더레이션을 설정할 수 있습니다. 관리 되지 않거나 전자 메일 확인 됨은 사용자가 B2B 초대를 교환 현재 존재 하지 않는 도메인을 사용 하 여 Azure AD에 대 한 셀프 서비스 등록을 수행 하는 경우에 생성 됩니다. 이러한 도메인으로 직접 페더레이션을 설정할 수 있습니다. Azure Portal 또는 PowerShell을 통해 DNS 확인 도메인으로 직접 페더레이션을 설정 하려고 하면 오류가 표시 됩니다.
 ### <a name="if-direct-federation-and-email-one-time-passcode-authentication-are-both-enabled-which-method-takes-precedence"></a>직접 페더레이션 및 전자 메일 일회용 암호 인증을 둘 다 사용 하도록 설정 하는 경우 어떤 방법이 우선적으로 적용 되나요?
@@ -90,16 +94,16 @@ Azure AD B2B는 아래 나열 된 특정 요구 사항과 함께 SAML 프로토�
 
 IdP의 SAML 2.0 응답에 필요한 특성:
 
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |AssertionConsumerService     |`https://login.microsoftonline.com/login.srf`         |
-|대상     |`urn:federation:MicrosoftOnline`         |
+|대상 그룹     |`urn:federation:MicrosoftOnline`         |
 |발급자     |파트너 IdP의 발급자 URI (예: `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 
 IdP에서 발급 한 SAML 2.0 토큰에 필요한 클레임:
 
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |NameID 형식     |`urn:oasis:names:tc:SAML:2.0:nameid-format:persistent`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |
@@ -116,15 +120,15 @@ Azure AD B2B는 아래 나열 된 몇 가지 특정 요구 사항과 함께 WS-�
 
 IdP의 WS-급지됨 메시지에 필요한 특성:
  
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |PassiveRequestorEndpoint     |`https://login.microsoftonline.com/login.srf`         |
-|대상     |`urn:federation:MicrosoftOnline`         |
+|대상 그룹     |`urn:federation:MicrosoftOnline`         |
 |발급자     |파트너 IdP의 발급자 URI (예: `http://www.example.com/exk10l6w90DHM0yi...`         |
 
 IdP에서 발급 한 WS-급지됨 토큰에 필요한 클레임:
 
-|attribute  |값  |
+|특성  |값  |
 |---------|---------|
 |ImmutableID     |`http://schemas.microsoft.com/LiveID/Federation/2008/05/ImmutableID`         |
 |emailaddress     |`http://schemas.xmlsoap.org/ws/2005/05/identity/claims/emailaddress`         |

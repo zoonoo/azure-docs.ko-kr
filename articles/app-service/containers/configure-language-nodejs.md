@@ -1,15 +1,15 @@
 ---
 title: Node.js 앱 구성
-description: 앱에 대해 미리 작성 된 node.js 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
+description: 앱에 대해 미리 작성 된 node.js 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: nodejs
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: 6cf60472307a378d2fd4258a9777152344a11ded
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 45d7d141bc2ab85ab33be455fc3da5570b0e7f51
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74670283"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920028"
 ---
 # <a name="configure-a-linux-nodejs-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux node.js 앱 구성
 
@@ -44,6 +44,32 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 > [!NOTE]
 > 프로젝트의 `package.json`에서 node.js 버전을 설정 해야 합니다. 배포 엔진은 지원 되는 node.js 버전을 모두 포함 하는 별도의 컨테이너에서 실행 됩니다.
 
+## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
+
+빌드 자동화가 설정 된 상태에서 Git 또는 zip 패키지를 사용 하 여 앱을 배포 하는 경우 App Service 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
+
+1. `PRE_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+1. Npm `preinstall` 및 `postinstall` 스크립트를 포함 하 고 `devDependencies`도 설치 하는 플래그 없이 `npm install`를 실행 합니다.
+1. 빌드 스크립트가 *package. json*에 지정 된 경우 `npm run build`를 실행 합니다.
+1. 빌드 인 경우 `npm run build:azure`를 실행 합니다 *. json*에 azure 스크립트가 지정 되어 있습니다.
+1. `POST_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+
+> [!NOTE]
+> [Npm 문서](https://docs.npmjs.com/misc/scripts)에 설명 된 대로 `prebuild` 및 `postbuild` 스크립트는 각각 지정 된 경우 `build`전후에 실행 됩니다. `preinstall` 및 `postinstall` 각각 `install`전후에 실행 됩니다.
+
+`PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`은 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행 하려면 `PRE_BUILD_COMMAND`를 정의 합니다. 빌드 후 명령을 실행 하려면 `POST_BUILD_COMMAND`를 정의 합니다.
+
+다음 예에서는 일련의 명령에 대 한 두 변수를 쉼표로 구분 하 여 지정 합니다.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
+```
+
+빌드 자동화를 사용자 지정 하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조 하세요.
+
+App Service 실행 하 고 Linux에서 node.js 앱을 빌드하는 방법에 대 한 자세한 내용은 [Oryx 설명서: node.js 앱이 검색 되 고 빌드되는 방법](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/nodejs.md)을 참조 하세요.
+
 ## <a name="configure-nodejs-server"></a>Node.js 서버 구성
 
 Node.js 컨테이너는 프로덕션 프로세스 관리자 인 [PM2](https://pm2.keymetrics.io/)와 함께 제공 됩니다. PM2 또는 NPM를 사용 하거나 사용자 지정 명령을 사용 하 여 시작 하도록 앱을 구성할 수 있습니다.
@@ -62,7 +88,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ### <a name="run-npm-start"></a>Npm start 실행
 
-`npm start`를 사용 하 여 앱을 시작 하려면 `start` 스크립트가 *package. json* 파일에 있는지 확인 하면 됩니다. 다음은 그 예입니다.
+`npm start`를 사용 하 여 앱을 시작 하려면 `start` 스크립트가 *package. json* 파일에 있는지 확인 하면 됩니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -110,7 +136,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 PM2, * .yml 또는 *.yaml*을 사용 하 여 실행 하는 경우를 제외 하 고, [에서 실행](#run-with-pm2)하도록 구성 하는 경우에는 [Visual Studio Code](https://code.visualstudio.com/) 에서 원격으로 node.js 앱을 디버그할 수 있습니다.
 
-대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 응용 프로그램을 *process. json* 파일 (기본 또는 사용자 지정)로 실행 하는 경우 json 루트에 `script` 속성이 있어야 합니다. 다음은 그 예입니다.
+대부분의 경우에는 앱에 대 한 추가 구성이 필요 하지 않습니다. 응용 프로그램을 *process. json* 파일 (기본 또는 사용자 지정)로 실행 하는 경우 json 루트에 `script` 속성이 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```json
 {
@@ -128,7 +154,7 @@ Azure 탐색기에서 디버그할 앱을 찾아 마우스 오른쪽 단추로 �
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서 앱 코드 외부에 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 node.js 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `NODE_ENV`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 node.js 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `NODE_ENV`에 액세스하려면 다음 코드를 사용합니다.
 
 ```javascript
 process.env.NODE_ENV
@@ -138,7 +164,7 @@ process.env.NODE_ENV
 
 기본적으로 Kudu는 node.js 앱을 인식할 때 `npm install --production`를 실행 합니다. 앱이 Grunt, Bower 또는 Gulp와 같은 인기 있는 자동화 도구를 필요로 하는 경우이를 실행 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script) 를 제공 해야 합니다.
 
-이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면 이러한 도구를 패키지의 종속성에 추가 해야 합니다 *.* 다음은 그 예입니다.
+이러한 도구를 실행 하기 위해 리포지토리를 사용 하도록 설정 하려면 이러한 도구를 패키지의 종속성에 추가 해야 합니다 *.* 예를 들면 다음과 같습니다.
 
 ```json
 "dependencies": {
@@ -217,7 +243,7 @@ fi
 
 App Service에서, [SSL 종료](https://wikipedia.org/wiki/TLS_termination_proxy)는 네트워크 부하 분산 장치에서 발생하므로 모든 HTTPS 요청은 암호화되지 않은 HTTP 요청으로 앱에 도달합니다. 앱 논리에서 사용자 요청의 암호화 여부를 확인해야 하는 경우 `X-Forwarded-Proto` 헤더를 검사합니다.
 
-인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)에서는 [트러스트 프록시](https://expressjs.com/guide/behind-proxies.html)를 사용할 수 있습니다. 다음은 그 예입니다.
+인기 있는 웹 프레임워크를 사용하여 표준 앱 패턴의 `X-Forwarded-*` 정보에 액세스할 수 있습니다. [Express](https://expressjs.com/)에서는 [트러스트 프록시](https://expressjs.com/guide/behind-proxies.html)를 사용할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```javascript
 app.set('trust proxy', 1)
@@ -240,7 +266,7 @@ if (req.secure) {
 작업 중인 node.js 앱이 App Service에서 다르게 동작 하거나 오류가 발생 하는 경우 다음을 시도 합니다.
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
-- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 다음은 그 예입니다.
+- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
     - *Package. json*에 따라 프로덕션 모드 (`dependencies` `devDependencies`)에 대해 서로 다른 패키지를 설치할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 다른 방식으로 정적 파일을 배포할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 실행 되는 경우 사용자 지정 시작 스크립트를 사용할 수 있습니다.

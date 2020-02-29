@@ -3,18 +3,18 @@ title: Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: a1be572d6462ed8f8a86db0f5cbfeaaa37c219ab
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 188cef6bc9771f779e3e9c7f7f5fe246e929b68a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586566"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918515"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 
 SAP HANA 데이터베이스는 낮은 RPO (복구 지점 목표)와 신속한 RTO (복구 시간 목표)를 필요로 하는 중요 업무용 워크 로드입니다. 이제 [Azure Backup](https://docs.microsoft.com/azure/backup/backup-overview)를 사용 하 여 [Azure vm에서 실행 되는 SAP HANA 데이터베이스를 백업할](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db) 수 있습니다.
 
-Azure Backup은 SAP에서 제공 하는 [Backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) 로, SAP HANA의 기본 api를 활용 하 여 네이티브 백업 지원을 제공 합니다. Azure Backup에서 제공 하는이 제품은 Azure Backup의 **제로 인프라** 백업에 맞게 조정 되므로 백업 인프라를 배포 및 관리할 필요가 없습니다. 이제 Azure Vm에서 실행 되는 SAP HANA 데이터베이스 (이제는[M 시리즈 vm](https://docs.microsoft.com/azure/virtual-machines/windows/sizes-memory) 도 지원 됨)를 원활 하 게 백업 하 고 복원할 수 있으며 Azure Backup에서 제공 하는 엔터프라이즈 관리 기능을 활용할 수 있습니다.
+Azure Backup은 SAP에서 제공 하는 [Backint](https://www.sap.com/dmc/exp/2013_09_adpd/enEN/#/d/solutions?id=8f3fd455-a2d7-4086-aa28-51d8870acaa5) 로, SAP HANA의 기본 api를 활용 하 여 네이티브 백업 지원을 제공 합니다. Azure Backup에서 제공 하는이 제품은 Azure Backup의 **제로 인프라** 백업에 맞게 조정 되므로 백업 인프라를 배포 및 관리할 필요가 없습니다. 이제 Azure Vm에서 실행 되는 SAP HANA 데이터베이스 (이제는[M 시리즈 vm](../virtual-machines/m-series.md) 도 지원 됨)를 원활 하 게 백업 하 고 복원할 수 있으며 Azure Backup에서 제공 하는 엔터프라이즈 관리 기능을 활용할 수 있습니다.
 
 ## <a name="added-value"></a>추가 된 값
 

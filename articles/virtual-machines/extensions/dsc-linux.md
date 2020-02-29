@@ -13,12 +13,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 06/12/2018
 ms.author: robreed
-ms.openlocfilehash: 102433b88ffb140cae46433be1c0edef90857e6d
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 2f04b5ecb2019a77bbb38e97c3869cc0a9447955
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75969944"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921524"
 ---
 # <a name="dsc-extension-for-linux-microsoftostcextensionsdscforlinux"></a>Linux 용 DSC 확장 (Microsoft. OSTCExtensions. DSCForLinux)
 
@@ -44,7 +44,7 @@ DSCForLinux 확장은 Microsoft에서 게시 및 지원 합니다. 확장은 OMI
 
 DSC Linux 확장은 다음을 제외한 모든 [Azure 보증 Linux 배포판](/azure/virtual-machines/linux/endorsed-distros)을 지원합니다.
 
-| 유통 | 버전 |
+| 분포 | 버전 |
 |---|---|
 | Debian | 모든 버전 |
 | Ubuntu| 18.04 |
@@ -290,6 +290,9 @@ Azure Resource Manager 템플릿에 대 한 자세한 내용은 [Azure Resource 
 DSCForLinux 확장을 배포 하기 전에 섹션 3의 다른 시나리오에 따라 `public.json` 및 `protected.json`를 구성 합니다.
 
 #### <a name="classic"></a>클래식
+
+[!INCLUDE [classic-vm-deprecation](../../../includes/classic-vm-deprecation.md)]
+
 클래식 배포 모드는 Azure 서비스 관리 모드 라고도 합니다. 다음을 실행하여 클래식 모드로 전환할 수 있습니다.
 ```
 $ azure config mode asm
@@ -306,7 +309,7 @@ $ azure vm extension set <vm-name> DSCForLinux Microsoft.OSTCExtensions <version
 $ azure vm extension list
 ```
 
-#### <a name="resource-manager"></a>Resource Manager
+#### <a name="resource-manager"></a>리소스 관리자
 다음을 실행하여 Azure Resource Manager 모드로 전환할 수 있습니다.
 ```
 $ azure config mode arm
@@ -363,7 +366,7 @@ Set-AzureVMExtension -ExtensionName $extensionName -VM $vm -Publisher $publisher
   -PublicConfiguration $publicConfig | Update-AzureVM
 ```
 
-#### <a name="resource-manager"></a>Resource Manager
+#### <a name="resource-manager"></a>리소스 관리자
 
 다음을 실행 하 여 Azure Resource Manager 모드에서 Azure 계정에 로그인 할 수 있습니다.
 

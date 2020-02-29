@@ -1,15 +1,15 @@
 ---
 title: PHP 앱 구성
-description: 앱에 대해 미리 작성 된 PHP 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
+description: 앱에 대해 미리 작성 된 PHP 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: a3de4769193d95a3ef483924c4d65c4fa1cc9f8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671847"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77913874"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux PHP 앱 구성
 
@@ -39,52 +39,26 @@ az webapp list-runtimes --linux | grep PHP
 az webapp config set --name <app-name> --resource-group <resource-group-name> --linux-fx-version "PHP|7.2"
 ```
 
-## <a name="run-composer"></a>작성기 실행
+## <a name="customize-build-automation"></a>빌드 자동화 사용자 지정
 
-기본적으로 Kudu는 [작성기](https://getcomposer.org/)를 실행 하지 않습니다. Kudu 배포 중에 작성기 자동화를 사용 하도록 설정 하려면 [사용자 지정 배포 스크립트](https://github.com/projectkudu/kudu/wiki/Custom-Deployment-Script)를 제공 해야 합니다.
+빌드 자동화가 설정 된 상태에서 Git 또는 zip 패키지를 사용 하 여 앱을 배포 하는 경우 App Service 다음 시퀀스를 통해 자동화 단계를 빌드합니다.
 
-로컬 터미널 창에서 디렉터리를 리포지토리 루트로 변경 합니다. [명령줄 설치 단계](https://getcomposer.org/download/) 에 따라 *작성기. phar*를 다운로드 합니다.
+1. `PRE_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
+1. `php composer.phar install`을 실행합니다.
+1. `POST_BUILD_SCRIPT_PATH`에 지정 된 경우 사용자 지정 스크립트를 실행 합니다.
 
-다음 명령을 실행합니다.
+`PRE_BUILD_COMMAND` 및 `POST_BUILD_COMMAND`은 기본적으로 비어 있는 환경 변수입니다. 빌드 전 명령을 실행 하려면 `PRE_BUILD_COMMAND`를 정의 합니다. 빌드 후 명령을 실행 하려면 `POST_BUILD_COMMAND`를 정의 합니다.
 
-```bash
-npm install kuduscript -g
-kuduscript --php --scriptType bash --suppressPrompt
+다음 예에서는 일련의 명령에 대 한 두 변수를 쉼표로 구분 하 여 지정 합니다.
+
+```azurecli-interactive
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings PRE_BUILD_COMMAND="echo foo, scripts/prebuild.sh"
+az webapp config appsettings set --name <app-name> --resource-group <resource-group-name> --settings POST_BUILD_COMMAND="echo foo, scripts/postbuild.sh"
 ```
 
-이제 리포지토리 루트에는 deploy.sh와 함께 두 개의 새 파일이 있습니다. *phar*: *. 배포* 및. 이러한 파일은 App Service의 Windows 및 Linux 버전 모두에서 작동 합니다.
+빌드 자동화를 사용자 지정 하는 추가 환경 변수는 [Oryx 구성](https://github.com/microsoft/Oryx/blob/master/doc/configuration.md)을 참조 하세요.
 
-*Deploy.sh* 를 열고 `Deployment` 섹션을 찾습니다. 전체 섹션을 다음 코드로 바꿉니다.
-
-```bash
-##################################################################################################################################
-# Deployment
-# ----------
-
-echo PHP deployment
-
-# 1. KuduSync
-if [[ "$IN_PLACE_DEPLOYMENT" -ne "1" ]]; then
-  "$KUDU_SYNC_CMD" -v 50 -f "$DEPLOYMENT_SOURCE" -t "$DEPLOYMENT_TARGET" -n "$NEXT_MANIFEST_PATH" -p "$PREVIOUS_MANIFEST_PATH" -i ".git;.hg;.deployment;deploy.sh"
-  exitWithMessageOnError "Kudu Sync failed"
-fi
-
-# 3. Initialize Composer Config
-initializeDeploymentConfig
-
-# 4. Use composer
-echo "$DEPLOYMENT_TARGET"
-if [ -e "$DEPLOYMENT_TARGET/composer.json" ]; then
-  echo "Found composer.json"
-  pushd "$DEPLOYMENT_TARGET"
-  php composer.phar install $COMPOSER_ARGS
-  exitWithMessageOnError "Composer install failed"
-  popd
-fi
-##################################################################################################################################
-```
-
-모든 변경 내용을 커밋하고 코드를 다시 배포 합니다. 이제 작성기는 배포 자동화의 일부로 실행 됩니다.
+App Service 실행 하 고 Linux에서 PHP 앱을 빌드하는 방법에 대 한 자세한 내용은 [Oryx 설명서: php 앱이 검색 및 빌드되는 방법](https://github.com/microsoft/Oryx/blob/master/doc/runtimes/php.md)을 참조 하세요.
 
 ## <a name="customize-start-up"></a>시작 사용자 지정
 
@@ -96,7 +70,7 @@ az webapp config set --resource-group <resource-group-name> --name <app-name> --
 
 ## <a name="access-environment-variables"></a>환경 변수 액세스
 
-App Service에서 앱 코드 외부에 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 [getenv ()](https://secure.php.net/manual/function.getenv.php) 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `DB_HOST`에 액세스하려면 다음 코드를 사용합니다.
+App Service에서, 앱 코드 외부에서 [앱 설정](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)을 지정할 수 있습니다. 그런 다음 표준 [getenv ()](https://secure.php.net/manual/function.getenv.php) 패턴을 사용 하 여 액세스할 수 있습니다. 예를 들어 앱 설정 `DB_HOST`에 액세스하려면 다음 코드를 사용합니다.
 
 ```php
 getenv("DB_HOST")
@@ -142,7 +116,7 @@ PHP 설치를 변경 해야 하는 경우 다음 단계에 따라 [php 지시문
 
 PHP_INI_USER, PHP_INI_PERDIR 및 PHP_INI_ALL 지시문을 사용자 지정 하려면 ( [PHP 지시문](https://www.php.net/manual/ini.list.php)참조) 앱의 루트 디렉터리에 *.htaccess* 파일을 추가 합니다.
 
-*.Htaccess* 파일에서 `php_value <directive-name> <value>` 구문을 사용 하 여 지시문을 추가 합니다. 다음은 그 예입니다.
+*.Htaccess* 파일에서 `php_value <directive-name> <value>` 구문을 사용 하 여 지시문을 추가 합니다. 예를 들면 다음과 같습니다.
 
 ```
 php_value upload_max_filesize 1000M
@@ -224,7 +198,7 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 작동 하는 PHP 앱이 App Service에서 다르게 동작 하거나 오류가 발생 하는 경우 다음을 시도 합니다.
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
-- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 다음은 그 예입니다.
+- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
     - *작성기. json*에 따라 프로덕션 모드 (`require` `require-dev`)에 대해 서로 다른 패키지를 설치할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 다른 방식으로 정적 파일을 배포할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 실행 되는 경우 사용자 지정 시작 스크립트를 사용할 수 있습니다.

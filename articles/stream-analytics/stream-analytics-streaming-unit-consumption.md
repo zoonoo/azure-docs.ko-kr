@@ -6,13 +6,13 @@ ms.author: jeanb
 ms.reviewer: mamccrea
 ms.service: stream-analytics
 ms.topic: conceptual
-ms.date: 10/28/2019
-ms.openlocfilehash: dd7579c97e2166e2822ee5674bbcd5a8ad64d2c7
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.date: 02/27/2020
+ms.openlocfilehash: 397e455c8b6a1097e2a32473036e1acd2bbdf2eb
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201495"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921150"
 ---
 # <a name="understand-and-adjust-streaming-units"></a>스트리밍 단위 이해 및 조정
 
@@ -32,7 +32,7 @@ Azure Stream Analytics 작업은 대기 시간이 짧은 스트리밍 처리를 
     ![Azure Portal Stream Analytics 작업 구성][img.stream.analytics.preview.portal.settings.scale]
     
 4. 슬라이더를 사용하여 작업에 대한 SU를 설정합니다. 특정 SU 설정으로 제한되는 것을 확인합니다. 
-5. 작업을 실행 하는 경우에도 작업에 할당 되는 SUs의 수를 변경할 수 있습니다. 작업에서 [분할 되지 않은 출력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) 을 사용 하거나 [값에 따라 다른 파티션이 있는 다단계 쿼리를](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)사용 하는 경우에는이 작업을 수행할 수 없습니다. 작업이 실행 중일 때이 설정을 변경 하려면 작업에도 최소 6 개의 su가 있어야 합니다. 작업이 실행 중일 때 SU 값 집합에서 선택 하는 것으로 제한 될 수도 있습니다. 
+5. 작업을 실행 하는 경우에도 작업에 할당 되는 SUs의 수를 변경할 수 있습니다. 작업에서 [분할 되지 않은 출력](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#query-using-non-partitioned-output) 을 사용 하거나 [값에 따라 다른 파티션이 있는 다단계 쿼리를](https://docs.microsoft.com/azure/stream-analytics/stream-analytics-parallelization#multi-step-query-with-different-partition-by-values)사용 하는 경우에는이 작업을 수행할 수 없습니다. 작업이 실행 중일 때 SU 값 집합에서 선택 하는 것으로 제한 될 수도 있습니다. 
 
 ## <a name="monitor-job-performance"></a>작업 성능 모니터링
 Azure Portal을 사용하여 작업 처리량을 추적할 수 있습니다.

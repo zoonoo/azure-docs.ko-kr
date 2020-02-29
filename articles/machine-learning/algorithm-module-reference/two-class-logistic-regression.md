@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 541d1001f8b5881f2773f795d7bd849704cbd796
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: b1afd99a569de96e9075b4b5b6eff902abd8642e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77153692"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77916764"
 ---
 # <a name="two-class-logistic-regression-module"></a>2 클래스 로지스틱 회귀 모듈
 
@@ -41,6 +41,8 @@ ms.locfileid: "77153692"
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
     -   **단일 매개 변수**: 모델을 구성 하는 방법을 아는 경우 특정 값 집합을 인수로 제공할 수 있습니다.  
+
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르는 경우 [Model hyperparameters 조정](tune-model-hyperparameters.md) 모듈을 사용 하 여 최적의 매개 변수를 찾을 수 있습니다. 특정 범위의 값을 제공 하 고, 강사는 여러 설정 조합을 반복 하 여 최상의 결과를 생성 하는 값의 조합을 결정 합니다.
   
 3.  **최적화 허용 오차**의 경우 모델을 최적화할 때 사용할 임계값을 지정 합니다. 반복 간의 개선 사항이 지정 된 임계값 아래로 떨어지면 알고리즘이 솔루션에서 수렴 된 것으로 간주 되 고 학습은 중지 됩니다.  
   

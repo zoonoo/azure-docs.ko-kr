@@ -1,31 +1,41 @@
 ---
 title: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
 description: Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림을 사용 하도록 설정 하는 방법을 알아봅니다.
-author: shandilvarun
+author: avirishuv
 tags: azure-resource-manager
 ms.service: virtual-machine-scale-sets
 ms.topic: conceptual
-ms.date: 08/27/2019
-ms.author: vashan
-ms.openlocfilehash: a1b1e07fa0622ae25d8086ec65827816ec52a5ce
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.date: 02/26/2020
+ms.author: avverma
+ms.openlocfilehash: 6023e9bf7539b79446d0135ba731b61be166dd6e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76271746"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919824"
 ---
-# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances-preview"></a>Azure 가상 머신 확장 집합 인스턴스 (미리 보기)에 대 한 종료 알림
-확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. Preview 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연 시간은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.
+# <a name="terminate-notification-for-azure-virtual-machine-scale-set-instances"></a>Azure 가상 머신 확장 집합 인스턴스에 대 한 종료 알림
+확장 집합 인스턴스는 인스턴스 종료 알림을 수신 하도록 옵트인 (opt in) 하 고 미리 정의 된 지연 시간 제한을 종료 작업으로 설정할 수 있습니다. 종료 알림은 다시 부팅 및 다시 배포와 같은 작업에 대 한 알림을 제공 하는 Azure Metadata Service – [Scheduled Events](../virtual-machines/windows/scheduled-events.md)를 통해 전송 됩니다. 솔루션은 Scheduled Events 목록에 또 다른 이벤트 (종료 – 종료)를 추가 하 고, terminate 이벤트의 연결 된 지연은 확장 집합 모델 구성에서 사용자에 의해 지정 된 지연 제한에 따라 달라 집니다.
 
 기능에 등록 되 면 인스턴스를 삭제 하기 전에 확장 집합 인스턴스는 지정 된 제한 시간이 만료 될 때까지 기다릴 필요가 없습니다. 종료 알림을 받은 후에는 언제 든 지 종료 시간 제한이 만료 되기 전에 인스턴스를 삭제 하도록 선택할 수 있습니다.
 
-> [!IMPORTANT]
-> 확장 집합 인스턴스에 대 한 종료 알림은 현재 공개 미리 보기로 제공 됩니다. 아래에 설명 된 공개 미리 보기 기능을 사용 하는 데는 옵트인 절차가 필요 하지 않습니다.
-> 이 미리 보기 버전은 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다.
-> 자세한 내용은 [Microsoft Azure Preview에 대한 추가 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)을 참조하세요.
-
 ## <a name="enable-terminate-notifications"></a>종료 알림 사용
 아래 예제에 설명 된 대로 확장 집합 인스턴스에서 종료 알림을 사용 하도록 설정 하는 방법에는 여러 가지가 있습니다.
+
+### <a name="azure-portal"></a>Azure 포털
+
+다음 단계는 새 확장 집합을 만들 때 종료 알림을 사용 하도록 설정 합니다. 
+
+1. **가상 머신 확장 집합**으로 이동 합니다.
+1. **+ 추가** 를 선택 하 여 새 확장 집합을 만듭니다.
+1. **관리** 탭으로 이동 합니다. 
+1. **인스턴스 종료** 섹션을 찾습니다.
+1. **인스턴스 종료 알림** **에서 켜기**를 선택 합니다.
+1. **종료 지연 (분)** 의 경우 원하는 기본 시간 제한을 설정 합니다.
+1. 새 확장 집합 만들기를 완료 한 후 **검토 + 만들기** 단추를 선택 합니다. 
+
+> [!NOTE]
+> Azure Portal에서 기존 확장 집합에 대 한 종료 알림을 설정할 수 없습니다.
 
 ### <a name="rest-api"></a>REST API
 
@@ -59,22 +69,19 @@ PUT on `/subscriptions/{subscriptionId}/resourceGroups/{resourceGroupName}/provi
 >확장 집합 인스턴스에 대 한 종료 알림은 API 버전 2019-03-01 이상 에서만 사용할 수 있습니다.
 
 ### <a name="azure-powershell"></a>Azure PowerShell
-새 확장 집합을 만들 때 [AzVmss](/powershell/module/az.compute/new-azvmss) cmdlet을 사용 하 여 확장 집합에 종료 알림을 사용 하도록 설정할 수 있습니다.
+새 확장 집합을 만들 때 [AzVmssConfig](/powershell/module/az.compute/new-azvmssconfig) cmdlet을 사용 하 여 확장 집합에 종료 알림을 사용 하도록 설정할 수 있습니다.
+
+이 샘플 스크립트는 구성 파일을 사용 하 여 확장 집합 및 연결 된 리소스를 만드는 과정을 안내 합니다. [전체 가상 머신 확장 집합을 만듭니다](./scripts/powershell-sample-create-complete-scale-set.md). 크기 집합을 만들기 위한 구성 개체에 *TerminateScheduledEvents* 및 *TerminateScheduledEventNotBeforeTimeoutInMinutes* 매개 변수를 추가 하 여 구성 종료 알림을 제공할 수 있습니다. 다음 예에서는 지연 시간 제한이 10 분인 기능을 사용 하도록 설정 합니다.
 
 ```azurepowershell-interactive
-New-AzVmss `
-  -ResourceGroupName "myResourceGroup" `
-  -Location "EastUS" `
-  -VMScaleSetName "myScaleSet" `
-  -VirtualNetworkName "myVnet" `
-  -SubnetName "mySubnet" `
-  -PublicIpAddressName "myPublicIPAddress" `
-  -LoadBalancerName "myLoadBalancer" `
+New-AzVmssConfig `
+  -Location "VMSSLocation" `
+  -SkuCapacity 2 `
+  -SkuName "Standard_DS2" `
   -UpgradePolicyMode "Automatic" `
-  -TerminateScheduledEvents
+  -TerminateScheduledEvents $true `
+  -TerminateScheduledEventNotBeforeTimeoutInMinutes 10
 ```
-
-위의 예제에서는 5 분의 기본 시간 제한을 사용 하 여 종료 알림이 설정 된 새 확장 집합을 만듭니다. 새 확장 집합을 만들 때 *TerminateScheduledEvents* 매개 변수에는 값이 필요 하지 않습니다. 제한 시간 값을 변경 하려면 *TerminateScheduledEventNotBeforeTimeoutInMinutes* 매개 변수를 통해 원하는 시간 제한을 지정 합니다.
 
 [AzVmss](/powershell/module/az.compute/update-azvmss) cmdlet을 사용 하 여 기존 확장 집합에 대 한 종료 알림을 사용 하도록 설정 합니다.
 
@@ -89,6 +96,33 @@ Update-AzVmss `
 
 확장 집합 모델에서 예약 된 이벤트를 사용 하도록 설정 하 고 제한 시간을 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.
 
+### <a name="azure-cli-20"></a>Azure CLI 2.0
+
+다음 예는 새 확장 집합을 만드는 동안 종료 알림을 사용 하도록 설정 하는 것입니다.
+
+```azurecli-interactive
+az group create --name <myResourceGroup> --location <VMSSLocation>
+az vmss create \
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --image UbuntuLTS \
+  --admin-username <azureuser> \
+  --generate-ssh-keys \
+  --terminate-notification-time 10
+```
+
+위의 예제에서는 먼저 리소스 그룹을 만든 다음 10 분의 기본 시간 제한에 대해 terminate 알림이 설정 된 새 확장 집합을 만듭니다.
+
+다음 예는 기존 확장 집합에서 종료 알림을 사용 하도록 설정 하는 것입니다.
+
+```azurecli-interactive
+az vmss update \  
+  --resource-group <myResourceGroup> \
+  --name <myVMScaleSet> \
+  --enable-terminate-notification true \
+  --terminate-notification-time 10
+```
+
 ## <a name="get-terminate-notifications"></a>종료 알림 가져오기
 
 종료 알림은 Azure Metadata Service [Scheduled Events](../virtual-machines/windows/scheduled-events.md)을 통해 전달 됩니다. Azure 메타데이터 서비스는 VM 내에서 액세스할 수 있는 REST 엔드포인트를 사용하여 Virtual Machines 실행에 대한 정보를 공개합니다. 이 정보는 VM 외부에 노출 되지 않도록 라우팅할 수 없는 IP를 통해 사용할 수 있습니다.
@@ -100,8 +134,8 @@ Update-AzVmss `
 ### <a name="endpoint-discovery"></a>끝점 검색
 VNET 사용 Vm의 경우 Metadata Service는 라우팅 불가능 한 고정 IP 169.254.169.254에서 사용할 수 있습니다.
 
-이 미리 보기에 대 한 최신 버전의 Scheduled Events에 대 한 전체 끝점은 다음과 같습니다.
-> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 '
+예약된 이벤트의 최신 버전에 대한 전체 엔드포인트는 다음과 같습니다.
+> 'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="query-response"></a>쿼리 응답
 응답에는 예약된 이벤트의 배열이 포함됩니다. 빈 배열은 현재 예약된 이벤트가 없음을 의미합니다.
@@ -122,7 +156,7 @@ VNET 사용 Vm의 경우 Metadata Service는 라우팅 불가능 한 고정 IP 1
     ]
 }
 ```
-DocumentIncarnation은 ETag로, 이벤트 페이로드가 지난 번 쿼리 후 변경되었는지 검사하는 간편한 방법을 제공합니다.
+*DocumentIncarnation* 은 ETag 이며 마지막 쿼리 이후 이벤트 페이로드가 변경 되었는지 여부를 확인 하는 쉬운 방법을 제공 합니다.
 
 위의 각 필드에 대 한 자세한 내용은 [Windows](../virtual-machines/windows/scheduled-events.md#event-properties) 및 [Linux](../virtual-machines/linux/scheduled-events.md#event-properties)에 대 한 Scheduled Events 설명서를 참조 하세요.
 
@@ -147,18 +181,18 @@ POST 요청 본문에 필요한 json은 다음과 같습니다. 요청에 StartR
 ## <a name="tips-and-best-practices"></a>팁과 모범 사례
 -   ' 삭제 ' 작업에 대 한 알림만 종료 – 확장 집합에서 *scheduledEventsProfile* 을 사용 하도록 설정한 경우 모든 삭제 작업 (수동 삭제 또는 자동 크기 조정 시작 된 확장)에서 종료 이벤트를 생성 합니다. 다시 부팅, 이미지로 다시 설치, 다시 배포 및 중지/할당 취소와 같은 다른 작업은 종료 이벤트를 생성 하지 않습니다. 우선 순위가 낮은 Vm에 대해서는 종료 알림을 사용 하도록 설정할 수 없습니다.
 -   시간 제한에 대 한 필수 대기 없음 – 이벤트를 받은 후 이벤트의 *NotBefore* 시간이 만료 되기 전에 언제 든 지 terminate 작업을 시작할 수 있습니다.
--   제한 시간에 필수 삭제 – 미리 보기는 이벤트가 생성 된 후 시간 제한 값을 확장 하는 기능을 제공 하지 않습니다. 제한 시간이 만료 되 면 보류 중인 종료 이벤트가 처리 되 고 VM이 삭제 됩니다.
+-   제한 시간에 필수 삭제 – 이벤트가 생성 된 후 시간 제한 값을 확장 하는 기능이 없습니다. 제한 시간이 만료 되 면 보류 중인 종료 이벤트가 처리 되 고 VM이 삭제 됩니다.
 -   수정 가능한 시간 제한 값 – 인스턴스를 삭제 하기 전에 언제 든 지 확장 집합 모델에서 *notBeforeTimeout* 속성을 수정 하 고 VM 인스턴스를 최신 모델로 업데이트 하 여 시간 제한 값을 수정할 수 있습니다.
 -   보류 중인 삭제 모두 승인 – 승인 되지 않은 VM_1에 보류 중인 삭제가 있고 VM_2에서 다른 terminate 이벤트를 승인한 경우 VM_1에 대 한 terminate 이벤트가 승인 되거나 해당 시간 제한이 경과할 때까지 VM_2 삭제 되지 않습니다. VM_1에 대 한 terminate 이벤트를 승인 하면 VM_1 및 VM_2 모두 삭제 됩니다.
 -   모든 동시 삭제 승인 – 위의 예제를 확장 하 고 VM_1 및 VM_2 동일한 *NotBefore* 시간이 있는 경우에는 종료 이벤트를 모두 승인 하거나 시간 제한이 만료 되기 전에 VM을 모두 삭제 하지 않아야 합니다.
 
 ## <a name="troubleshoot"></a>문제 해결
 ### <a name="failure-to-enable-scheduledeventsprofile"></a>ScheduledEventsProfile를 사용 하도록 설정 하지 못했습니다.
-"VirtualMachineProfile ' 형식의 개체에서 ' scheduledEventsProfile ' 멤버를 찾을 수 없습니다." 라는 오류 메시지와 함께 ' BadRequest ' 오류가 표시 되 면 확장 집합 작업에 사용 된 API 버전을 확인 합니다. 이 미리 보기에는 Compute API 버전 **2019-03-01** 이상이 필요 합니다.
+"VirtualMachineProfile ' 형식의 개체에서 ' scheduledEventsProfile ' 멤버를 찾을 수 없습니다." 라는 오류 메시지와 함께 ' BadRequest ' 오류가 표시 되 면 확장 집합 작업에 사용 된 API 버전을 확인 합니다. 계산 API 버전 **2019-03-01** 이상이 필요 합니다. 
 
 ### <a name="failure-to-get-terminate-events"></a>종료 이벤트를 가져오지 못했습니다.
 Scheduled Events를 통해 **종료** 이벤트를 가져오지 않는 경우 이벤트를 가져오는 데 사용 된 API 버전을 확인 합니다. 종료 이벤트에 Metadata Service API 버전 **2019-01-01** 이상이 필요 합니다.
->'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01 '
+>'http://169.254.169.254/metadata/scheduledevents?api-version=2019-01-01'
 
 ### <a name="getting-terminate-event-with-incorrect-notbefore-time"></a>NotBefore 시간이 잘못 된 Terminate 이벤트를 가져오는 중  
 크기 집합 모델에서 *scheduledEventsProfile* 를 사용 하도록 설정 하 고 *notBeforeTimeout*를 설정한 후 변경 내용을 반영 하도록 개별 인스턴스를 [최신 모델로](virtual-machine-scale-sets-upgrade-scale-set.md#how-to-bring-vms-up-to-date-with-the-latest-scale-set-model) 업데이트 합니다.

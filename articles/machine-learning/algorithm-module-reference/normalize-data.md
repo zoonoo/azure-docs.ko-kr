@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 8eb54e232478ae24e1efb49a8ad43dc827aa2b6a
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 2cf0efb24a10da602ac0c26276a081342776cdcc
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150683"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920402"
 ---
 # <a name="normalize-data-module"></a>데이터 정규화 모듈
 
@@ -104,7 +104,7 @@ ms.locfileid: "77150683"
 
 - 동일한 정규화 방법을 다른 데이터 집합에 적용할 수 있도록 변환을 저장 하려면 모듈을 선택 하 고 오른쪽 패널의 **출력** 탭 아래에서 **데이터 집합 등록** 을 선택 합니다.
 
-    그런 다음 왼쪽 탐색 창의 **변환** 그룹에서 저장 된 변환을 로드 하 고 [/Apply 변환을](apply-transformation.md)사용 하 여 동일한 스키마를 사용 하는 데이터 집합에 적용할 수 있습니다.  
+    그런 다음 왼쪽 탐색 창의 **변환** 그룹에서 저장 된 변환을 로드 하 고 [변환 적용](apply-transformation.md)을 사용 하 여 동일한 스키마를 가진 데이터 집합에 적용할 수 있습니다.  
 
 
 ## <a name="next-steps"></a>다음 단계

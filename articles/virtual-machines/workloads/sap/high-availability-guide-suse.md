@@ -13,14 +13,14 @@ ms.service: virtual-machines-windows
 ms.topic: article
 ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
-ms.date: 02/26/2020
+ms.date: 02/27/2020
 ms.author: radeltch
-ms.openlocfilehash: e5bd704abcb25cbd3fe0717c4e080595e04fe6d1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 34f03dbfc2311903c6bc8df0292eccc143ff05de
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661164"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164715"
 ---
 # <a name="high-availability-for-sap-netweaver-on-azure-vms-on-suse-linux-enterprise-server-for-sap-applications"></a>SAP 애플리케이션용 SUSE Linux Enterprise Server의 Azure VM에 있는 SAP NetWeaver에 대한 고가용성
 
@@ -182,7 +182,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -200,7 +200,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -211,7 +211,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. **HA 포트** 선택
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
          * 위의 단계를 반복 하 여 ERS에 대 한 부하 분산 규칙을 만듭니다 (예: **n w 1**).
 1. 또는 시나리오에 기본 부하 분산 장치 (내부)가 필요한 경우 다음 단계를 수행 합니다.  
    1. 프런트 엔드 IP 주소 만들기
@@ -219,7 +219,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 부하 분산 장치 열기, 프런트 엔드 IP 풀 선택 및 추가 클릭
          1. 새 프런트 엔드 IP 풀의 이름 입력(예: **nw1-ascs-frontend**)
          1. 할당을 정적으로 설정하고 IP 주소 입력(예: **10.0.0.7**)
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. IP 주소: 10.0.0.8(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 IP 주소를 만듭니다(예: **10.0.0.8** 및 **nw1-aers-backend**).
    1. 백 엔드 풀 만들기
@@ -229,7 +229,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 가상 머신 추가 클릭
          1. 이전에 만든 가용성 집합 선택
          1. (A)SCS 클러스터의 가상 머신 선택
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS ERS에 대한 백 엔드 풀 만들기
          * 위의 단계를 반복하여 ERS에 대한 백 엔드 풀을 만듭니다(예: **nw1-aers-backend**).
    1. 상태 프로브 만들기
@@ -237,7 +237,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 부하 분산 장치를 열고 상태 프로브를 선택한 다음 추가 클릭
          1. 새 상태 프로브의 이름 입력(예: **nw1-ascs-hp**)
          1. 프로토콜로 TCP를 선택하고, 620**00** 포트를 선택한 다음, 간격은 5, 비정상 임계값은 2로 유지
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. 포트: 621**02**(ASCS ERS용)
          * 위의 단계를 반복하여 ERS에 대한 상태 프로브를 만듭니다(예: 621**02** 및 **nw1-aers-hp**).
    1. 부하 분산 규칙
@@ -248,7 +248,7 @@ GitHub에서 빠른 시작 템플릿 중 하나를 사용하여 필요한 모든
          1. 프로토콜로 **TCP**를 유지하고. 포트로 **3200** 입력
          1. 유휴 상태 시간 제한을 30분으로 증가
          1. **부동 IP를 사용하도록 설정**
-         1. 확인 클릭
+         1. 확인을 클릭합니다.
       1. ASCS에 대한 추가 포트
          * ASCS의 경우 36**00**, 39**00**, 81**00**, 5**00**13, 5**00**14, 5**00**16 포트 및 TCP에 대해 위의 단계를 반복합니다.
       1. ASCS ERS에 대한 추가 포트
@@ -585,14 +585,14 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000 failure-timeout=60 migration-threshold=1 priority=10
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true \
     meta priority=1000
    
@@ -614,14 +614,14 @@ ENSA1 (큐에 넣기 서버 1 아키텍처)를 사용 하는 경우 다음과 �
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ASCS<b>00</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ASCS<b>00</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ASCS<b>00</b>_<b>nw1-ascs</b>" \
     AUTOMATIC_RECOVER=false \
     meta resource-stickiness=5000
    
    sudo crm configure primitive rsc_sap_<b>NW1</b>_ERS<b>02</b> SAPInstance \
     operations \$id=rsc_sap_<b>NW1</b>_ERS<b>02</b>-operations \
-    op monitor interval=11 timeout=60 on_fail=restart \
+    op monitor interval=11 timeout=60 on-fail=restart \
     params InstanceName=<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b> START_PROFILE="/sapmnt/<b>NW1</b>/profile/<b>NW1</b>_ERS<b>02</b>_<b>nw1-aers</b>" AUTOMATIC_RECOVER=false IS_ERS=true 
    
    sudo crm configure modgroup g-<b>NW1</b>_ASCS add rsc_sap_<b>NW1</b>_ASCS<b>00</b>

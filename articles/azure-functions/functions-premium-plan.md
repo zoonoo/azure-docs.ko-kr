@@ -5,12 +5,12 @@ author: jeffhollan
 ms.topic: conceptual
 ms.date: 10/16/2019
 ms.author: jehollan
-ms.openlocfilehash: cf70124f2e310dd62fd32de0e17edb40c047a318
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 19c136c7f312d800b76aa60f2cab6e8da992591c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615672"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161570"
 ---
 # <a name="azure-functions-premium-plan"></a>Azure Functions 프리미엄 계획
 
@@ -109,29 +109,30 @@ az resource update -g <resource_group> -n <premium_plan_name> --set properties.m
 |오스트레일리아 중부 2| ✔<sup>1</sup> | |
 |오스트레일리아 동부| ✔ | ✔<sup>1</sup> |
 |오스트레일리아 남동부 | ✔ | ✔<sup>1</sup> |
-|브라질 남부| ✔<sup>2</sup> |  |
+|브라질 남부| ✔<sup>2</sup> | ✔<sup>1</sup> |
 |캐나다 중부| ✔ | ✔<sup>1</sup> |
-|미국 중부| ✔ |  |
-|동아시아| ✔ |  |
+|미국 중부| ✔ | ✔<sup>1</sup> |
+|동아시아| ✔ | ✔<sup>1</sup> |
 |미국 동부 | ✔ | ✔<sup>1</sup> |
 |미국 동부 2| ✔ | ✔<sup>1</sup> |
-|프랑스 중부| ✔ |  |
+|프랑스 중부| ✔ | ✔<sup>1</sup> |
 |독일 중서부| ✔ | |
 |일본 동부| ✔ | ✔<sup>1</sup> |
 |일본 서부| ✔ | ✔<sup>1</sup> |
 |한국 중부| ✔ | ✔<sup>1</sup> |
-|미국 중북부| ✔ |  |
+|미국 중북부| ✔ | ✔<sup>1</sup> |
 |북유럽| ✔ | ✔<sup>1</sup> |
+|노르웨이 동부| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |미국 중남부| ✔ | ✔<sup>1</sup> |
 |인도 남부 | ✔ | |
 |동남아시아| ✔ | ✔<sup>1</sup> |
 |영국 남부| ✔ | ✔<sup>1</sup> |
-|영국 서부| ✔ |  |
+|영국 서부| ✔ | ✔<sup>1</sup> |
 |서유럽| ✔ | ✔<sup>1</sup> |
-|인도 서부| ✔ |  |
-|미국 중서부| | ✔<sup>1</sup> |
+|인도 서부| ✔ | ✔<sup>1</sup> |
+|미국 중서부| ✔<sup>1</sup> | ✔<sup>1</sup> |
 |미국 서부| ✔ | ✔<sup>1</sup> |
-|미국 서부 2| ✔ |  |
+|미국 서부 2| ✔ | ✔<sup>1</sup> |
 
 <sup>1</sup> 최대 확장은 20 개 인스턴스로 제한 됩니다.  
 <sup>2</sup> 최대 확장은 60 인스턴스로 제한 됩니다.

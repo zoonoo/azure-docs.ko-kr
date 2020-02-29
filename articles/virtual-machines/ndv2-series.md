@@ -2,17 +2,17 @@
 title: NDv2 시리즈-Azure Virtual Machines
 description: NDv2 시리즈 Vm에 대 한 사양입니다.
 services: virtual-machines
-author: jonbeck7
+author: vikancha
 ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: 2d38b69e468f766d21a38bda1c2da3daae50d900
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: c4f2a8deed256af54ffd4331210fdfc89b0f4e49
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663711"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161944"
 ---
 # <a name="updated-ndv2-series-preview"></a>업데이트 된 NDv2 시리즈 (미리 보기)
 
@@ -39,6 +39,10 @@ NDv2는 계산에 강한 확장 (VM 당 활용 8 Gpu) 및 규모 확장 (여러 
 Premium Storage: 지원됨
 
 Premium Storage 캐싱: 지원 됨
+
+실시간 마이그레이션: 지원 되지 않음
+
+메모리 보존 업데이트: 지원 되지 않음
 
 InfiniBand: 지원 됨
 

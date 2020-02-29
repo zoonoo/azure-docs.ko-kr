@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure-services
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: a53a27a92b393c38d1f49efbd50d91fa1a2e9657
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 712626345e10ab0e4290ac91b0f121ff6960303e
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77597697"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920572"
 ---
 # <a name="red-hat-enterprise-linux-bring-your-own-subscription-gold-images-in-azure"></a>Azure에서 사용자 고유의 구독 골드 이미지를 가져오는 Red Hat Enterprise Linux
 
@@ -41,6 +41,9 @@ RHEL (Red Hat Enterprise Linux) 이미지는 PAYG (종 량 제) 또는 사용자
 - 이미지의 자격이 부여 되지 않으므로, 구독 관리자를 사용 하 여 Red Hat에서 직접 업데이트를 가져오기 위해 Vm을 등록 하 고 구독 해야 합니다.
 
 - 현재는 BYOS와 Linux 이미지에 대 한 PAYG 청구 모델 간을 동적으로 전환할 수 없습니다. 청구 모델을 전환 하려면 각 이미지에서 VM을 다시 배포 해야 합니다.
+
+>[!NOTE]
+> 2 세대 RHEL BYOS 이미지는 현재 marketplace 제품을 통해 사용할 수 없습니다. Gen 2 RHEL BYOS 이미지를 필요로 하는 경우 Red Hat 구독 관리의 그림 액세스 대시보드를 방문 하세요. 자세한 내용은 [Red Hat 설명서](https://access.redhat.com/articles/4847681)에서 확인할 수 있습니다.
 
 ## <a name="requirements-and-conditions-to-access-the-red-hat-gold-images"></a>Red Hat 골드 이미지에 액세스 하기 위한 요구 사항 및 조건
 

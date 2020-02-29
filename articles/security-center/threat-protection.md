@@ -10,12 +10,12 @@ ms.service: security-center
 ms.topic: conceptual
 ms.date: 08/25/2019
 ms.author: memildin
-ms.openlocfilehash: 7d078fb93f933320d13bfeb768b27923748b1262
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 8bd66b602201dbbb47a1fdba879c52a8ac441762
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623943"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77921643"
 ---
 # <a name="threat-protection-in-azure-security-center"></a>Azure Security Center에서 위협 방지
 
@@ -113,7 +113,7 @@ Security Center는 다음과 같은 다양 한 수준에서 위협 방지 기능
     컨테이너 화 된 환경의 보안을 보다 심층적으로 파악 하기 위해 에이전트는 컨테이너 관련 분석을 모니터링 합니다. 권한 있는 컨테이너 만들기, API 서버에 대 한 의심 스러운 액세스 및 Docker 컨테이너 내에서 실행 되는 SSH (Secure Shell) 서버와 같은 이벤트에 대 한 경고를 트리거합니다.
 
     >[!IMPORTANT]
-    > 호스트에 에이전트를 설치 하지 않도록 선택한 경우 위협 검색 혜택 및 경고의 하위 집합만 받게 됩니다. 네트워크 분석과 악의적인 서버와의 통신과 관련 된 경고를 계속 받을 수 있습니다.
+    > 호스트에 에이전트를 설치 하지 않도록 선택 하는 경우 위협 방지 혜택 및 보안 경고의 하위 집합만 받게 됩니다. 네트워크 분석과 악의적인 서버와의 통신과 관련 된 경고를 계속 받을 수 있습니다.
 
     호스트 수준 경고 목록은 [경고의 참조 테이블](alerts-reference.md#alerts-containerhost)을 참조 하세요.
 
@@ -240,7 +240,7 @@ Azure Resource Manager (미리 보기) 경고 목록은 [경고의 참조 테이
 
 
 >[!NOTE]
-> 이전 분석의 일부는 Microsoft Cloud App Security에 의해 제공 됩니다. 이러한 분석을 활용 하려면 Cloud App Security 라이선스를 활성화 해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용 하도록 설정 됩니다. 사용 하지 않도록 설정 하려면:
+> 이전 분석의 일부는 Microsoft Cloud App Security에 의해 제공 됩니다. 이러한 분석을 활용 하려면 Cloud App Security 라이선스를 활성화 해야 합니다. Cloud App Security 라이선스가 있는 경우 이러한 경고는 기본적으로 사용 하도록 설정 됩니다. 경고를 사용 하지 않도록 설정 하려면:
 >
 > 1. **Security Center** 블레이드에서 **보안 정책**을 선택 합니다. 변경 하려는 구독에 대해 **설정 편집**을 선택 합니다.
 > 2. **위협 검색**을 선택 합니다.

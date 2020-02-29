@@ -3,12 +3,12 @@ title: Azure Migrate의 일반적인 질문-검색, 평가 및 종속성 분석
 description: Azure Migrate에서 검색, 평가 및 종속성 분석에 대 한 일반적인 질문에 대 한 답변을 얻습니다.
 ms.topic: conceptual
 ms.date: 02/17/2020
-ms.openlocfilehash: 179be4f5b39806c717e94789c9fe52842d2a07d8
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 6db521791e5ebb846585d4e0e823ba20d178d54a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589235"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918549"
 ---
 # <a name="common-questions-about-discovery-assessment-and-dependency-analysis"></a>검색, 평가 및 종속성 분석에 대 한 일반적인 질문
 
@@ -77,7 +77,7 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 > Azure Government에서 종속성 시각화를 사용할 수 없습니다.
 
 ## <a name="do-i-pay-for-dependency-visualization"></a>종속성 시각화에 대해 비용을 지불 하나요?
-아니요. Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/azure-migrate/).
+No. Azure Migrate 가격 책정에 대해 [자세히 알아봅니다](https://azure.microsoft.com/pricing/details/azure-migrate/).
 
 ## <a name="what-do-i-install-for-dependency-visualization"></a>종속성 시각화에는 무엇을 설치 해야 하나요?
 
@@ -100,7 +100,7 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 
 ## <a name="can-i-automate--mmadependency-agent-installation"></a>MMA/종속성 에이전트 설치를 자동화할 수 있나요?
 
-이 [스크립트를 사용 하 여 종속성 에이전트를 설치](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)합니다. 명령줄 또는 자동화를 사용 하 여 [MMA을 설치 하려면 다음 지침을](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent) 따르세요. MMA의 경우 [이 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)를 사용 합니다.
+이 [스크립트를 사용 하 여 종속성 에이전트를 설치](../azure-monitor/insights/vminsights-enable-hybrid-cloud.md#installation-script-examples)합니다. 명령줄 또는 자동화를 사용 하 여 [MMA을 설치 하려면 다음 지침을](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration) 따르세요. MMA의 경우 [이 스크립트](https://gallery.technet.microsoft.com/scriptcenter/Install-OMS-Agent-with-2c9c99ab)를 사용 합니다.
 
 스크립트 외에도 Microsoft Endpoint Configuration Manager 및 [Intigua](https://www.intigua.com/getting-started-intigua-for-azure-migration) 와 같은 배포 도구를 사용 하 여 에이전트를 배포할 수 있습니다.
 
@@ -111,7 +111,7 @@ Azure Migrate 어플라이언스는 온-프레미스 환경에 대 한 정보를
 - [MMA에서 지 원하는 Linux 운영 체제](https://docs.microsoft.com/azure/log-analytics/log-analytics-concept-hybrid#supported-linux-operating-systems)목록을 봅니다.
 
 ## <a name="can-i-visualize-dependencies-for-more-than-an-hour"></a>1 시간 이상 종속성을 시각화할 수 있나요?
-아니요. 최대 1 시간 동안 종속성을 시각화할 수 있습니다. 기록의 특정 날짜로 다시 이동할 수 있습니다 .이 날짜는 한 달에 다시 표시 되지만 시각화의 최대 기간은 1 시간입니다. 예를 들어 종속성 맵의 기간을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 종속성을 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.
+No. 최대 1 시간 동안 종속성을 시각화할 수 있습니다. 기록의 특정 날짜로 다시 이동할 수 있습니다 .이 날짜는 한 달에 다시 표시 되지만 시각화의 최대 기간은 1 시간입니다. 예를 들어 종속성 맵의 기간을 사용 하 여 어제 종속성을 볼 수 있지만 1 시간 동안만 종속성을 볼 수 있습니다. 그러나 Azure Monitor 로그를 사용 하 여 더 긴 기간 동안 [종속성 데이터를 쿼리할](https://docs.microsoft.com/azure/migrate/how-to-create-group-machine-dependencies) 수 있습니다.
 
 ## <a name="can-visualize-dependencies-for-groups-of-more-than-10-vms"></a>10 개 이상의 Vm 그룹에 대 한 종속성을 시각화할 수 있나요?
 최대 10 개의 Vm을 포함 하는 그룹에 대 한 [종속성을 시각화할](https://docs.microsoft.com/azure/migrate/how-to-create-group-dependencies) 수 있습니다. 10 개 이상의 Vm이 포함 된 그룹이 있는 경우 그룹을 더 작은 그룹으로 분할 한 다음 종속성을 시각화 하는 것이 좋습니다.

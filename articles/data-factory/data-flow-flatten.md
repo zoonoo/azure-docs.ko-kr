@@ -1,17 +1,17 @@
 ---
 title: 데이터 흐름 평면화 변환 매핑
-description: Azure data factory 매핑 데이터 흐름 평면화 변환
+description: Azure Data Factory 매핑 데이터 흐름 평면화 변환
 author: kromerm
 ms.author: makromer
 ms.service: data-factory
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 435d2469be8eb572caa02e381d84ae4e9ac32f4b
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 415a093fd8a8fbe27e1d240b061548e18f2ca6b6
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77674845"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78164732"
 ---
 # <a name="azure-data-factory-flatten-transformation"></a>Azure Data Factory 평면화 변환
 
@@ -29,7 +29,7 @@ ms.locfileid: "77674845"
 
 ## <a name="unroll-root"></a>언 롤 루트
 
-기본적으로 ADF는 위에서 선택한 언 롤 배열의 구조를 평면화 합니다. 또는 계층의 다른 부분을 선택 하 여 언 롤 수 있습니다.
+기본적으로 ADF는 위에서 선택한 언 롤 배열의 구조를 평면화 합니다. 또는 계층의 다른 부분을 선택 하 여 언 롤 수 있습니다. "언 롤 root"는 선택적 설정입니다.
 
 ## <a name="input-columns"></a>입력 열
 

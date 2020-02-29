@@ -10,12 +10,12 @@ ms.reviewer: jmartens
 ms.author: peterlu
 author: peterclu
 ms.date: 11/12/2019
-ms.openlocfilehash: 6498717f5d542be228483b9c323dbd8f3ca2ff00
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.openlocfilehash: 621188b3901bdea1a7ae50ac49c0e6f625a3e79a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251926"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915778"
 ---
 # <a name="monitor-and-collect-data-from-ml-web-service-endpoints"></a>ML 웹 서비스 끝점에서 데이터 모니터링 및 수집
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "77251926"
 [Azure 애플리케이션 Insights에 대해 자세히 알아보세요](../azure-monitor/app/app-insights-overview.md). 
 
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -43,39 +43,6 @@ ms.locfileid: "77251926"
 
 웹 서비스 메타 데이터 및 모델의 예측에 해당 하는 서비스에 대 한 메타 데이터 및 응답은 메시지 `"model_data_collection"`의 Azure 애플리케이션 Insights 추적에 기록 됩니다. 이 데이터에 액세스 하거나 더 긴 보존 또는 추가 처리를 위해 저장소 계정에 대 한 [연속 내보내기를](https://docs.microsoft.com/azure/azure-monitor/app/export-telemetry) 설정 하기 위해 Azure 애플리케이션 Insights를 직접 쿼리할 수 있습니다. 모델 데이터는 Azure Machine Learning에서 레이블 지정, 재 학습, explainability, 데이터 분석 또는 기타 사용을 설정 하는 데 사용할 수 있습니다. 
 
-## <a name="use-the-azure-portal-to-configure"></a>Azure Portal를 사용 하 여 구성
-
-Azure Portal에서 Azure 애플리케이션 Insights를 사용 하거나 사용 하지 않도록 설정할 수 있습니다. 
-
-1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
-
-1. **배포** 탭에서 Azure 애플리케이션 Insights를 사용 하도록 설정 하려는 서비스를 선택 합니다.
-
-   [![배포 탭의 서비스 목록](./media/how-to-enable-app-insights/Deployments.PNG)](././media/how-to-enable-app-insights/Deployments.PNG#lightbox)
-
-3. **편집** 선택
-
-   [![편집 단추](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-4. **고급 설정**에서 **Appinsights 진단 사용** 확인란을 선택 합니다.
-
-   [![진단을 사용하도록 설정하기 위한 확인란을 선택함](./media/how-to-enable-app-insights/AdvancedSettings.png)](././media/how-to-enable-app-insights/AdvancedSettings.png#lightbox)
-
-1. 화면 맨 아래에 있는 **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
-
-### <a name="disable"></a>사용 안 함
-
-1. [Azure Portal](https://portal.azure.com)에서 작업 영역을 엽니다.
-1. **배포**를 선택 하 고 서비스를 선택한 다음 **편집** 을 선택 합니다.
-
-   [![편집 단추 사용](././media/how-to-enable-app-insights/Edit.PNG)](./././media/how-to-enable-app-insights/Edit.PNG#lightbox)
-
-1. **고급 설정**에서 **Appinsights 진단 사용** 확인란의 선택을 취소 합니다.
-
-   [![진단을 사용하도록 설정하기 위한 확인란을 선택 취소함](./media/how-to-enable-app-insights/uncheck.png)](././media/how-to-enable-app-insights/uncheck.png#lightbox)
-
-1. 화면 맨 아래에 있는 **업데이트** 를 선택 하 여 변경 내용을 적용 합니다.
- 
 ## <a name="use-python-sdk-to-configure"></a>Python SDK를 사용 하 여 구성 
 
 ### <a name="update-a-deployed-service"></a>배포된 서비스 업데이트

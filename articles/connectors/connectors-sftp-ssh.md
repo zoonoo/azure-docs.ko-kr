@@ -6,14 +6,14 @@ ms.suite: integration
 author: divyaswarnkar
 ms.reviewer: estfan, klam, logicappspm
 ms.topic: article
-ms.date: 06/18/2019
+ms.date: 02/28/2020
 tags: connectors
-ms.openlocfilehash: 3370eea8909f30563babcf2a84f727ba51f67e29
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e7a0791cc2bca672e7fde142650ad25e7e8ab58b
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647651"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78161877"
 ---
 # <a name="monitor-create-and-manage-sftp-files-by-using-ssh-and-azure-logic-apps"></a>SSH 및 Azure Logic Apps를 사용하여 SFTP 파일 모니터링, 만들기 및 관리
 
@@ -31,7 +31,28 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 
 ## <a name="limits"></a>제한
 
-* 기본적으로 SFTP-SSH 작업은 1gb *또는 작은* 파일을 읽거나 쓸 수 있습니다. 15MB 보다 큰 파일을 처리 하기 위해 SFTP-SSH 작업은 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 지원 합니다. 단, 파일 복사 작업은 파일 복사 작업의 경우를 제외 하 고는 15mb 파일만 처리할 수 있습니다. **파일 콘텐츠 가져오기** 작업은 메시지 청크를 암시적으로 사용 합니다.
+* SFTP- [청크](../logic-apps/logic-apps-handle-large-messages.md) 를 지 원하는 ssh 작업은 최대 1gb의 파일을 처리할 수 있지만 청크를 지원 하지 않는 파일은 최대 50 MB까지 처리할 수 있습니다. 기본 청크 크기는 250MB 이지만이 크기는 네트워크 대기 시간, 서버 응답 시간 등의 요소에 따라 5mb에서 시작 하 여 최대 50까지 점진적으로 증가 하 여 변경할 수 있습니다.
+
+  > [!NOTE]
+  > [Ise (통합 서비스 환경](../logic-apps/connect-virtual-network-vnet-isolated-environment-overview.md))의 논리 앱의 경우이 커넥터의 ise 레이블 버전은 [ise 메시지 제한을](../logic-apps/logic-apps-limits-and-config.md#message-size-limits) 대신 사용 합니다.
+
+  청크 크기는 연결과 관련이 있습니다. 즉, 청크를 지 원하는 작업과 청크를 지원 하지 않는 작업에 대해 동일한 연결을 사용할 수 있습니다. 이 경우 청크를 지원 하지 않는 작업의 청크 크기는 5mb에서 50 MB 사이입니다. 다음 표에서는 청크를 지 원하는 SFTP-SSH 작업을 보여 줍니다.
+
+  | 작업 | 청크 지원 |
+  |--------|------------------|
+  | **파일 복사** | 아니요 |
+  | **파일 만들기** | 예 |
+  | **폴더 만들기** | 해당 없음 |
+  | **파일 삭제** | 해당 없음 |
+  | **폴더에 보관 추출** | 해당 없음 |
+  | **파일 콘텐츠 가져오기** | 예 |
+  | **경로를 사용하여 파일 콘텐츠 가져오기** | 예 |
+  | **파일 메타데이터 가져오기** | 해당 없음 |
+  | **경로를 사용하여 파일 메타데이터 가져오기** | 해당 없음 |
+  | **폴더의 파일 나열** | 해당 없음 |
+  | **파일 이름 바꾸기** | 해당 없음 |
+  | **파일 업데이트** | 아니요 |
+  |||
 
 * SFTP-SSH 트리거는 청크를 지원 하지 않습니다. 파일 콘텐츠를 요청 하는 경우 트리거는 15MB 미만의 파일만 선택 합니다. 64MB 보다 큰 파일을 가져오려면 대신 다음 패턴을 따릅니다.
 
@@ -46,10 +67,6 @@ SFTP-SSH 커넥터와 SFTP 커넥터 간의 차이점을 보려면이 항목의 
 다음은 SFTP-SSH 커넥터와 SFTP 커넥터 간의 다른 주요 차이점입니다. 여기에서 SFTP-SSH 커넥터는 다음과 같은 기능을 갖습니다.
 
 * 는 .NET을 지 원하는 SSH (open source Secure Shell) 라이브러리인 [SSH.NET library](https://github.com/sshnet/SSH.NET)를 사용 합니다.
-
-* 기본적으로 SFTP-SSH 작업은 1gb *또는 작은* 파일을 읽거나 쓸 수 있습니다.
-
-  15MB 보다 큰 파일을 처리 하기 위해 SFTP-SSH 작업에서 [메시지 청크](../logic-apps/logic-apps-handle-large-messages.md)를 사용할 수 있습니다. 그러나 파일 복사 작업은 메시지 청크를 지원 하지 않기 때문에 15MB 파일만 지원 합니다. SFTP-SSH 트리거는 청크를 지원 하지 않습니다. 용량이 많은 파일을 업로드 하려면 SFTP 서버의 루트 폴더에 대 한 읽기 및 쓰기 권한이 모두 필요 합니다.
 
 * SFTP 서버의 지정된 경로에 폴더를 만드는 **폴더 만들기** 작업을 제공합니다.
 

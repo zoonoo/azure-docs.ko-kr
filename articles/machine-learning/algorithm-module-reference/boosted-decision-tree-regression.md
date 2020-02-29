@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: reference
 author: likebupt
 ms.author: keli19
-ms.date: 10/22/2019
-ms.openlocfilehash: 5298655437e04736e56193c443b8a770ea929606
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.date: 02/22/2020
+ms.openlocfilehash: 10821639fb26af935326bda0bff7895105da675c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152417"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77919960"
 ---
 # <a name="boosted-decision-tree-regression-module"></a>승격 된 의사 결정 트리 회귀 모듈
 
@@ -54,7 +54,9 @@ ms.locfileid: "77152417"
   
 2.  **강사 모드 만들기** 옵션을 설정 하 여 모델을 학습 하는 방법을 지정 합니다.  
   
-    -   **단일 매개 변수**: 모델을 구성 하는 방법을 알고 있으며 특정 값 집합을 인수로 제공 하는 경우이 옵션을 선택 합니다.  
+    -   **단일 매개 변수**: 모델을 구성 하는 방법을 알고 있으며 특정 값 집합을 인수로 제공 하는 경우이 옵션을 선택 합니다. 
+     
+    -   **매개 변수 범위**: 가장 적합 한 매개 변수를 잘 모르겠으면 매개 변수 스윕을 실행 하려는 경우이 옵션을 선택 합니다. 반복할 값의 범위를 선택 하 고 [모델 조정 하이퍼 매개 변수 변수](tune-model-hyperparameters.md) 는 제공 된 모든 설정의 가능한 조합에 대해 반복 하 여 최적의 결과를 생성 하는 하이퍼 매개 변수를 결정 합니다.    
    
   
 3. **트리 당 최대 리프 수**: 모든 트리에서 만들 수 있는 터미널 노드 (리프)의 최대 수를 표시 합니다.  
@@ -75,7 +77,6 @@ ms.locfileid: "77152417"
 
     기본적으로 임의 초기값은 0으로 설정 됩니다. 즉, 시스템 클록에서 초기 초기값을 가져옵니다.
   
-8. **알 수 없는 범주 수준 허용**: 학습 및 유효성 검사 집합에 알 수 없는 값에 대 한 그룹을 만들려면이 옵션을 선택 합니다. 이 옵션의 선택을 취소 하면 모델에서 학습 데이터에 포함 된 값만 수락할 수 있습니다. 알려진 값에 대 한 모델의 정확도가 떨어질 수 있지만 새 (알 수 없는) 값에 대해 더 나은 예측을 제공할 수 있습니다.
 
 9. 학습 데이터 집합 및 학습 모듈 중 하나를 추가 합니다.
 
