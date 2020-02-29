@@ -1,24 +1,24 @@
 ---
 title: 워크로드 격리
-description: Azure SQL Data Warehouse에서 작업 그룹을 사용 하 여 워크 로드 격리를 설정 하기 위한 지침입니다.
+description: Azure Synapse Analytics에서 작업 그룹을 사용 하 여 워크 로드 격리를 설정 하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/23/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 86390132be0440b197b680803e5b6032670a7d1c
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 6b3047eb600c3d5808993c3646f718ca25824962
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721033"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192679"
 ---
-# <a name="sql-data-warehouse-workload-group-isolation-preview"></a>작업 그룹 격리 SQL Data Warehouse (미리 보기)
+# <a name="azure-synapse-analytics-workload-group-isolation-preview"></a>Azure Synapse Analytics 작업 그룹 격리 (미리 보기)
 
 이 문서에서는 작업 그룹을 사용 하 여 작업 격리를 구성 하 고, 리소스를 포함 하 고, 쿼리 실행을 위한 런타임 규칙을 적용 하는 방법을 설명 합니다.
 

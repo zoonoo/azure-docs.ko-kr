@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 나이 제한 사용 | Microsoft Docs
 description: 애플리케이션을 사용하여 미성년자를 식별하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1fc63b222fd2f08bb4b5596d58f825c8f6b1910e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 56cbeb8e8fe21f4b39c2f5c6af43e83ae330e5d5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836239"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189976"
 ---
 # <a name="enable-age-gating-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 나이 제한 사용
 
@@ -31,10 +31,10 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 
 나이 제한에는 두 개의 나이 값이 포함됩니다. 즉, 누군가가 더 이상 미성년자로 간주되지 않는 나이와 보호자의 동의를 받아야 하는 미성년자의 나이입니다. 다음 표에는 미성년자 및 보호자의 동의가 필요한 미성년자를 정의하는 데 사용되는 나이 규칙이 나와 있습니다.
 
-| 국가/지역 | 국가/지역 이름 | 보호자의 동의가 필요한 미성년자의 나이 | 미성년자의 나이 |
+| Country/Region | 국가/지역 이름 | 보호자의 동의가 필요한 미성년자의 나이 | 미성년자의 나이 |
 | -------------- | ------------------- | ----------------- | --------- |
-| 기본값 | 없음 | 없음 | 18 |
-| AE | 아랍에미리트 | 없음 | 21 |
+| 기본 | 없음 | 없음 | 18 |
+| AE | 아랍 에미리트 연합국 | 없음 | 21 |
 | AT | 오스트리아 | 14 | 18 |
 | BE | 벨기에 | 14 | 18 |
 | BG | 불가리아 | 16 | 18 |
@@ -42,24 +42,24 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 | CM | 카메룬 | 없음 | 21 |
 | CY | 키프로스 | 16 | 18 |
 | CZ | 체코 공화국 | 16 | 18 |
-| DE | 독일 | 16 | 18 |
+| 독일어 | Germany | 16 | 18 |
 | DK | 덴마크 | 16 | 18 |
 | EE | 에스토니아 | 16 | 18 |
 | EG | 이집트 | 없음 | 21 |
-| ES | 스페인 | 13 | 18 |
-| FR | 프랑스 | 16 | 18 |
+| 스페인어 | 스페인 | 13 | 18 |
+| 프랑스어 | France | 16 | 18 |
 | GB | 영국 | 13 | 18 |
 | GR | 그리스 | 16 | 18 |
 | HR | 크로아티아 | 16 | 18 |
 | HU | 헝가리 | 16 | 18 |
 | IE | 아일랜드 | 13 | 18 |
-| IT | 이탈리아 | 16 | 18 |
+| 이탈리아어 | 이탈리아 | 16 | 18 |
 | KR | 한국 | 14 | 18 |
 | LT | 리투아니아 | 16 | 18 |
 | LU | 룩셈부르크 | 16 | 18 |
 | LV | 라트비아 | 16 | 18 |
 | MT | 몰타 | 16 | 18 |
-| 해당 없음 | 나미비아 | 없음 | 21 |
+| NA | 나미비아 | 없음 | 21 |
 | NL | 네덜란드 | 16 | 18 |
 | PL | 폴란드 | 13 | 18 |
 | PT | 포르투갈 | 16 | 18 |
@@ -70,8 +70,8 @@ Azure AD B2C는 사용자가 입력하는 정보를 사용하여 미성년자인
 | SK | 슬로바키아 | 16 | 18 |
 | TD | 차드 | 없음 | 21 |
 | TH | 태국 | 없음 | 20 |
-| TW | 대만 | 없음 | 20 |
-| 미국 | 미국 | 13 | 18 |
+| 대만어 | 대만 | 없음 | 20 |
+| US | 미국 | 13 | 18 |
 
 ## <a name="age-gating-options"></a>나이 게이팅 옵션
 

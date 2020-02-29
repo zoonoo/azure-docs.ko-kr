@@ -9,13 +9,13 @@ ms.topic: conceptual
 ms.reviewer: jmartens
 author: cartacioS
 ms.author: sacartac
-ms.date: 11/04/2019
-ms.openlocfilehash: 2ef3cbc83cd67647709a53fee2c32b444c5d86f4
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.date: 02/28/2020
+ms.openlocfilehash: 9739c0a6b66099a2bebb1d42922d8653a92e650b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77526130"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190350"
 ---
 # <a name="what-is-automated-machine-learning"></a>자동화된 Machine Learning이란?
 
@@ -83,7 +83,7 @@ ms.locfileid: "77526130"
 
 자동화 된 모든 기계 학습 실험에서 데이터는 알고리즘의 성능을 향상 시킬 수 있도록 자동으로 확장 되거나 정규화 됩니다.  모델 학습 중에는 다음 크기 조정 또는 정규화 기술 중 하나가 각 모델에 적용 됩니다.
 
-|&nbsp;정규화&nbsp;&크기 조정| Description |
+|&nbsp;정규화&nbsp;&크기 조정| 설명 |
 | ------------- | ------------- |
 | [StandardScaleWrapper](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.StandardScaler.html)  | 단위 분산의 평균 및 크기 조정을 제거 하 여 기능 표준화  |
 | [MinMaxScalar](https://scikit-learn.org/stable/modules/generated/sklearn.preprocessing.MinMaxScaler.html)  | 해당 열의 최소값과 최대값을 기준으로 각 기능의 크기를 조정 하 여 기능을 변환 합니다.  |
@@ -142,7 +142,7 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 | 모델 | 학습 정확도 | 테스트 정확도 |
 |-------|----------------|---------------|
 | A | 99.9% | 95% |
-| b | 87% | 87% |
+| B | 87% | 87% |
 | C | 99.9% | 45% |
 
 모델 **A**를 고려 하 여 보이지 않는 데이터의 테스트 정확도가 학습 정확도 보다 낮으면 모델이 과도 하 게 조정 되는 일반적인 오해 있습니다. 그러나 테스트 정확도는 항상 학습 정확도 보다 작아야 하 고, 과도 하 게 일치 하는 것과 적절 한 일치에 대 한 차이는 *얼마나* 정확 하지 않습니다. 
@@ -150,6 +150,14 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 모델 **a** 와 **B**를 비교할 때 모델 **a** 는 테스트 정확도가 높기 때문에 더 나은 모델입니다. 테스트 정확도가 95%에서 약간 낮은 경우에는 오버 맞춤을 제안 하는 것이 중요 한 차이가 아닙니다. 학습 및 테스트 정확도는 서로 가까이 있으므로 모델 **B** 를 선택 하지 않는 것이 좋습니다.
 
 모델 **C** 는 오버 맞춤의 명확한 사례를 나타냅니다. 학습 정확도는 매우 높고 테스트 정확도는 많지 않습니다. 이러한 구분은 주관적 이지만 문제 및 데이터에 대 한 지식 및 크고 많을는 허용 되는 오류에 대 한 정보를 제공 합니다. 
+
+## <a name="classification--regression"></a>분류 & 회귀
+
+분류 및 회귀는 가장 일반적인 유형의 기계 학습 작업입니다. 두 가지 모두 모델에서 학습 데이터를 사용 하는 방법을 학습 하 고 이러한 학습를 새 데이터에 적용 하는 감독 학습의 유형입니다. Azure Machine Learning는 분류를 위한 심층 신경망 텍스트 featurizers와 같은 이러한 작업에 대해 특별히 featurizations을 제공 합니다. [기능화 옵션](how-to-create-portal-experiments.md#featurization)에 대해 자세히 알아보세요. 
+
+분류 모델의 주요 목표는 학습 데이터의 학습을 기반으로 새 데이터를 넣을 범주를 예측 하는 것입니다. 일반적인 분류 예에는 사기 감지, 필기 인식 및 개체 검색이 포함 됩니다.  [자동화 된 machine learning을 사용 하 여 분류](tutorial-train-models-with-aml.md)의 예제를 자세히 알아보고 확인 하세요.
+
+예측 된 출력 값이 범주에 해당 하는 분류와는 달리 회귀 모델은 독립 예측 변수을 기반으로 숫자 출력 값을 예측 합니다. 회귀에서 목표는 한 변수가 다른 변수에 영향을 주는 방식을 예측 하 여 해당 하는 예측 변수 간의 관계를 설정 하는 데 도움을 주는 것입니다. 예를 들어, 가스 주행, 안전 등급 등의 기능을 기반으로 하는 자동차 가격입니다. [자동화 된 기계 학습을 사용 하 여](tutorial-auto-train-models.md)자세한 정보 및 재발 예를 확인 하세요.
 
 ## <a name="time-series-forecasting"></a>시계열 예측
 
@@ -193,7 +201,7 @@ CV (교차 유효성 검사)는 전체 학습 데이터의 여러 하위 집합�
 
 또한 자동화 된 ML 실행은 다음 차트를 자동으로 생성 하며,이를 통해 모델 분류의 정확성을 이해 하 고 불균형 데이터의 영향을 받을 수 있는 모델을 식별할 수 있습니다.
 
-차트| Description
+차트| 설명
 ---|---
 [혼동 행렬](how-to-understand-automated-ml.md#confusion-matrix)| 데이터의 실제 레이블에 대해 올바르게 분류 된 레이블을 평가 합니다. 
 [전체 자릿수-회수](how-to-understand-automated-ml.md#precision-recall-chart)| 데이터의 찾은 레이블 인스턴스 비율에 대해 올바른 레이블의 비율을 평가 합니다. 

@@ -3,31 +3,31 @@ title: Twitter 계정을 사용 하 여 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Twitter 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8b316fdb185c8a9c78e1a0c9be5f7d57b809141c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: bd538529756270053351e4c2d85f5761b198eeff
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849605"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187885"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-twitter-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Twitter 계정으로 등록 설정 및 로그인
 
-## <a name="create-an-application"></a>애플리케이션 만들기
+## <a name="create-an-application"></a>응용 프로그램 만들기
 
 Azure AD B2C에서 ID 공급자로 Twitter를 사용하려면 Twitter 애플리케이션을 만들어야 합니다. Twitter 계정이 아직 없는 경우 [https://twitter.com/signup](https://twitter.com/signup)에서 등록할 수 있습니다.
 
 1. Twitter 계정 자격 증명을 사용하여 [Twitter 개발자](https://developer.twitter.com/en/apps) 웹 사이트에 로그인합니다.
 1. **앱 만들기**를 선택합니다.
 1. **앱 이름**과 **애플리케이션 설명**을 입력합니다.
-1. **웹 사이트 URL**에 `https://your-tenant.b2clogin.com`을 입력합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. https://contosob2c.b2clogin.com )을 입력합니다.
+1. **웹 사이트 URL**에 `https://your-tenant.b2clogin.com`을 입력합니다. `your-tenant`을 테넌트 이름으로 바꿉니다. https://contosob2c.b2clogin.com)을 입력합니다.
 1. **Callback URL**(콜백 URL)에 `https://your-tenant.b2clogin.com/your-tenant.onmicrosoft.com/your-user-flow-Id/oauth1/authresp`를 입력합니다. `your-tenant`는 실제 테넌트 이름으로, `your-user-flow-Id`는 사용자 흐름의 식별자로 바꿉니다. `b2c_1A_signup_signin_twitter`)을 입력합니다. Azure AD B2C에 대문자를 사용 하 여 정의한 경우에도 모든 소문자를 사용 하 여 테 넌 트 이름 및 사용자 흐름 id를 입력 해야 합니다.
 1. 페이지 맨 아래에서 약관을 읽고 동의한 다음 **만들기**를 선택합니다.
 1. **앱 세부 정보** 페이지에서 **편집 > 세부 정보 편집**을 선택하고 **Twitter로 로그인 사용**의 확인란을 선택한 후 **저장**을 선택합니다.

@@ -1,26 +1,26 @@
 ---
 title: 데이터 로드 모범 사례
-description: Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
+description: SQL Analytics에 데이터를 로드 하기 위한 권장 사항 및 성능 최적화
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: load-data
-ms.date: 08/08/2019
+ms.date: 02/04/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 01bb53488bf63f32d2bae804e4844400a7fd2d31
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d59a66b25b55572865f297436331971434d831c3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686106"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199889"
 ---
-# <a name="best-practices-for-loading-data-into-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에 데이터를 로드하는 모범 사례
+# <a name="best-practices-for-loading-data-for-data-warehousing"></a>데이터 웨어하우징에 대 한 데이터 로드에 대 한 모범 사례
 
-Azure SQL Data Warehouse를 사용하여 데이터를 로드하기 위한 권장 사항 및 성능 최적화입니다.
+데이터 로드에 대 한 권장 사항 및 성능 최적화
 
 ## <a name="preparing-data-in-azure-storage"></a>Azure Storage에 데이터 준비
 
@@ -36,9 +36,9 @@ PolyBase는 1,000,000바이트 이상의 데이터를 포함하는 행을 로드
 
 ## <a name="running-loads-with-enough-compute"></a>충분한 컴퓨팅 리소스로 로드 실행
 
-로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량의 로드 작업이 예상되는 경우 로드 전에 데이터 웨어하우스 확장을 고려하는 것이 좋습니다.
+로드 속도를 가장 빠르게 하려면 로드 작업을 한 번에 하나만 실행합니다. 이것이 가능하지 않은 경우 동시에 실행하는 로드 수를 최소화합니다. 대량 로드 작업을 원하는 경우 로드 하기 전에 SQL 풀을 확장 하는 것이 좋습니다.
 
-적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 특정 리소스 클래스에 각 로드 사용자를 할당합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
+적절한 컴퓨팅 리소스가 포함된 로드를 실행하려면 부하를 실행하기 위해 지정된 로드 사용자를 만듭니다. 각 로드 사용자를 특정 리소스 클래스 또는 작업 그룹에 할당 합니다. 부하를 실행 하려면 로드 하는 사용자 중 하나로 로그인 한 후 로드를 실행 합니다. 사용자의 리소스 클래스를 사용하여 부하를 실행합니다.  이 메서드는 현재 리소스 클래스 요구 사항에 맞게 사용자의 리소스 클래스를 변경하는 것보다 더 간단합니다.
 
 ### <a name="example-of-creating-a-loading-user"></a>로드 사용자를 만드는 예제
 
@@ -75,11 +75,11 @@ StaticRC20 리소스 클래스에 대 한 리소스를 사용 하 여 부하를 
 
 사용자_A 및 사용자_B는 이제 다른 부서의 스키마에서 차단되었습니다.
 
-## <a name="loading-to-a-staging-table"></a>준비 테이블에 로드
+## <a name="loading-to-a-staging-table"></a>스테이징 테이블에 로드
 
-데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 준비 테이블에 로드합니다.  준비 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
+데이터를 데이터 웨어하우스 테이블로 이동하는 로딩 속도를 가장 빠르게 만들려면 데이터를 스테이징 테이블에 로드합니다.  스테이징 테이블을 힙으로 정의하고 배포 옵션에 라운드 로빈을 사용합니다. 
 
-로드는 먼저 데이터를 준비 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 준비 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 준비 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
+로드는 먼저 데이터를 스테이징 테이블로 로드한 다음 프로덕션 데이터 웨어하우스 테이블에 삽입하는 2단계 프로세스로 간주하는 것이 좋습니다. 프로덕션 테이블이 해시 배포를 사용하는 경우 해시 배포를 사용하여 스테이징 테이블을 정의하면 로드하고 삽입하는 총 시간이 더 빠를 수 있습니다. 스테이징 테이블로 로드하는 데 시간이 더 걸리지만 프로덕션 테이블에 행을 삽입하는 두 번째 단계에서는 배포에서 데이터 이동이 발생하지 않습니다.
 
 ## <a name="loading-to-a-columnstore-index"></a>columnstore 인덱스에 로드
 
@@ -89,7 +89,7 @@ columnstore 인덱스는 고품질 행 그룹으로 데이터를 압축하기 �
 - 새로운 행 그룹을 완전히 채울 수 있는 충분한 행을 로드합니다. 대량 로드 중에는 행 수가 1,048,576이 될 때마다 전체 열 그룹으로 직접 columnstore에 압축됩니다. 로드하는 행 수가 102,400 미만인 경우에는 B-트리 인덱스에 행이 보유되는 deltastore에 행을 보냅니다. 너무 적은 행을 로드한 경우 모두 deltastore로 이동하여 columnstore 형식으로 즉시 압축되지 않을 수 있습니다.
 
 ## <a name="increase-batch-size-when-using-sqlbulkcopy-api-or-bcp"></a>SQLBulkCopy API 또는 BCP를 사용 하는 경우 일괄 처리 크기 늘리기
-앞서 설명한 것 처럼 PolyBase를 사용 하 여 로드 하면 SQL Data Warehouse를 통해 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 
+앞서 설명한 것 처럼 PolyBase를 사용 하 여 로드 하면 SQL Data Warehouse를 통해 가장 높은 처리량이 제공 됩니다. PolyBase를 사용 하 여 로드 하 고 SQLBulkCopy API (또는 BCP)를 사용 해야 하는 경우 처리량 향상을 위해 일괄 처리 크기를 늘려야 합니다. 좋은 방법은 100,000 개 행에서 100,000 개 사이의 일괄 처리 크기입니다.
 
 ## <a name="handling-loading-failures"></a>로드 처리 실패
 

@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c90dc7877bced8a4ceececc04b8e3d1ebdcbfe44
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 79c24eb078cc3de764ecc1c814e5b8772777eab6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74968632"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199498"
 ---
 # <a name="use-playready-andor-widevine-dynamic-common-encryption"></a>PlayReady 및/또는 Widevine 동적 일반 암호화 사용
 
@@ -35,7 +35,7 @@ Media Services는 PlayReady와 Widevine DRM 라이선스를 제공하는 서비�
 
 또한 다음 Media Services 파트너를 사용하여 Widevine 라이선스를 제공할 수 있습니다. 
 
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -605,7 +605,7 @@ namespace DynamicEncryptionWithDRM
 }
 ```
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

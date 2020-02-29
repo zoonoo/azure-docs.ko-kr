@@ -12,16 +12,16 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 05/08/2019
+ms.date: 02/27/2020
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f250d4593c8dac8007590245e1b774b95d8fa786
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: bc76f8edc8520ca50cd4c9527b037d99d24ce63c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75767945"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190503"
 ---
 # <a name="prerequisites-for-azure-ad-connect"></a>Azure AD Connect에 대한 필수 조건
 이 항목에서는 Azure AD Connect에 대한 필수 조건 및 하드웨어 요구 사항을 설명합니다.
@@ -67,7 +67,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 
 * 도메인에 가입 된 서버에 Azure AD Connect를 배포 하 고 도메인 관리자 또는 엄격 하 게 제어 되는 다른 보안 그룹에 대 한 관리 액세스를 제한 합니다
 
-자세한 내용은 다음을 참조하세요. 
+자세히 알아보려면 다음을 참조하십시오. 
 
 * [관리자 그룹 보안](https://docs.microsoft.com/windows-server/identity/ad-ds/plan/security-best-practices/appendix-g--securing-administrators-groups-in-active-directory)
 
@@ -81,13 +81,13 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 * Azure AD Connect는 ID 데이터를 저장하기 위한 SQL Server 데이터베이스가 필요합니다. 기본적으로 SQL Server 2012 Express LocalDB(SQL Server Express의 라이트 버전)가 설치됩니다. SQL Server Express는 약 100,000개의 개체를 관리할 수 있는 10GB의 용량을 제공합니다. 더 큰 볼륨의 디렉터리 개체 관리가 필요한 경우 설치 마법사가 SQL Server의 다른 설치를 가리키도록 해야 합니다. SQL Server 설치의 유형은 [Azure AD Connect의 성능](https://docs.microsoft.com/azure/active-directory/hybrid/plan-connect-performance-factors#sql-database-factors)에 영향을 줄 수 있습니다.
 * 다른 SQL Server 설치를 사용 하는 경우 다음 요구 사항이 적용 됩니다.
   * Azure AD Connect는 2012 (최신 서비스 팩 포함)의 모든 버전 Microsoft SQL Server를 SQL Server 2019로 지원 합니다. Microsoft Azure SQL Database는 데이터베이스로 **지원되지 않습니다** .
-  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 \_CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은 **지원되지 않습니다**.
+  * 대/소문자를 구분하지 않는 SQL 데이터 정렬을 사용해야 합니다. 이러한 데이터 정렬은 이름에 \_CI_를 사용하여 식별됩니다. 이름에 **CS_를 사용하여 식별되는 대/소문자 구분 데이터 정렬을 사용하는 것은** 지원되지 않습니다\_.
   * SQL 인스턴스당 동기화 엔진을 한 개만 사용할 수 있습니다. SQL 인스턴스를 FIM/MIM 동기화, DirSync 또는 Azure AD Sync와 공유하는 것은 **지원되지 않습니다**.
 
-### <a name="accounts"></a>계정
+### <a name="accounts"></a>Accounts
 * 통합하려는 Azure AD 테넌트에 대한 Azure AD 전역 관리자 계정. 이 계정은 **학교 또는 조직 계정**이어야 하며 **Microsoft 계정**이 될 수 없습니다.
-* Express 설정을 사용하거나 DirSync에서 업그레이드하는 경우 온-프레미스 Active Directory에 대한 엔터프라이즈 관리자 계정이 있어야 합니다.
-* [Active Directory의 계정](reference-connect-accounts-permissions.md) - 사용자 지정 설정 설치 경로 또는 온-프레미스 Active Directory의 엔터프라이즈 관리자 계정을 사용하는 경우
+* [Express 설정을](reference-connect-accounts-permissions.md#express-settings-installation) 사용 하거나 DirSync에서 업그레이드 하는 경우 온-프레미스 Active Directory에 대 한 엔터프라이즈 관리자 계정이 있어야 합니다.
+* 사용자 지정 설정 설치 경로를 사용 하는 경우 [Active Directory의 계정](reference-connect-accounts-permissions.md#custom-installation-settings) 을 참조 하세요.
 
 ### <a name="connectivity"></a>연결
 * Azure AD Connect 서버는 인트라넷 및 인터넷에 대해 DNS 확인을 해야 합니다. DNS 서버는 온-프레미스 Active Directory와 Azure AD 엔드포인트 모두에 대해 이름을 확인할 수 있어야 합니다.
@@ -137,7 +137,7 @@ Azure AD Connect를 설치하기 전에 필요한 몇 가지 사항이 있습니
 Azure AD Connect는 Microsoft PowerShell 및 .NET Framework 4.5.1에 따라 다릅니다. 서버에 이 버전 이상을 설치해야 합니다. Windows Server 버전에 따라 다음을 수행합니다.
 
 * Windows Server 2012R2
-  * Microsoft PowerShell은 기본적으로 설치되므로 아무런 작업도 필요하지 않습니다.
+  * Microsoft PowerShell은 기본적으로 설치되므로 사용자가 조치할 필요는 없습니다.
   * .NET Framework 4.5.1 이후 릴리스는 Windows 업데이트를 통해 제공됩니다. 제어판에서 Windows Server에 최신 업데이트를 설치했는지 확인합니다.
 * Windows Server 2012
   * 최신 버전의 Microsoft PowerShell은 **Windows Management Framework 4.0**에서 사용할 수 있으며 이는 [Microsoft 다운로드 센터](https://www.microsoft.com/downloads)에서 찾을 수 있습니다.

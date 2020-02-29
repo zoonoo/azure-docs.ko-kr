@@ -3,20 +3,20 @@ title: BuildingBlocks
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 BuildingBlocks 요소를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 87157980a352f9665852c78a94dcfc227c08b487
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: cf9c333af48e1c148dcd20ccf5ce91b284bd728b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367557"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189874"
 ---
 # <a name="buildingblocks"></a>BuildingBlocks
 

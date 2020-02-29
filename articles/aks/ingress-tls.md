@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service) 클러스터에서 자동 TLS 인증
 services: container-service
 ms.topic: article
 ms.date: 01/29/2020
-ms.openlocfilehash: 6b465aeb08f14e48249be9587e5fdee1f4b08ba4
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 6f497ee3edd5ee831c091a5a50629df81673acea
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595538"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191319"
 ---
 # <a name="create-an-https-ingress-controller-on-azure-kubernetes-service-aks"></a>AKS(Azure Kubernetes Service)에 HTTPS 수신 컨트롤러 만들기
 
@@ -17,7 +17,7 @@ ms.locfileid: "77595538"
 
 이 문서에서는 AKS (Azure Kubernetes Service) 클러스터에 [NGINX 수신 컨트롤러][nginx-ingress] 를 배포 하는 방법을 보여 줍니다. [인증서 관리자][cert-manager] 프로젝트는 [Let의 암호화][lets-encrypt] 인증서를 자동으로 생성 하 고 구성 하는 데 사용 됩니다. 마지막으로, 두 애플리케이션이 AKS 클러스터에서 실행되며 단일 IP 주소를 통해 각 애플리케이션에 액세스할 수 있습니다.
 
-다음도 가능합니다.
+또한 다음을 수행할 수도 있습니다.
 
 - [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]
@@ -25,7 +25,7 @@ ms.locfileid: "77595538"
 - [사용자 고유의 TLS 인증서를 사용 하는 수신 컨트롤러 만들기][aks-ingress-own-tls]
 - [Let의 암호화를 사용 하 여 고정 공용 IP 주소를 사용 하는 TLS 인증서를 자동으로 생성 하는 수신 컨트롤러를 만듭니다.][aks-ingress-static-tls]
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -70,8 +70,8 @@ helm install nginx stable/nginx-ingress \
 $ kubectl get service -l app=nginx-ingress --namespace ingress-basic
 
 NAME                                             TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)                      AGE
-billowing-kitten-nginx-ingress-controller        LoadBalancer   10.0.182.160   MY_EXTERNAL_IP  80:30920/TCP,443:30426/TCP   20m
-billowing-kitten-nginx-ingress-default-backend   ClusterIP      10.0.255.77    <none>          80/TCP                       20m
+nginx-ingress-controller                         LoadBalancer   10.0.182.160   MY_EXTERNAL_IP  80:30920/TCP,443:30426/TCP   20m
+nginx-ingress-default-backend                    ClusterIP      10.0.255.77    <none>          80/TCP                       20m
 ```
 
 수신 규칙은 아직 생성되지 않았습니다. 공용 IP 주소로 이동하면, NGINX 수신 컨트롤러의 기본 404 페이지가 표시됩니다.
@@ -116,10 +116,10 @@ NGINX 수신 컨트롤러는 TLS 종료를 지원합니다. HTTPS에 대한 인�
 
 ```console
 # Install the CustomResourceDefinition resources separately
-kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.12/deploy/manifests/00-crds.yaml --namespace ingress-basic
+kubectl apply --validate=false -f https://raw.githubusercontent.com/jetstack/cert-manager/release-0.13/deploy/manifests/00-crds.yaml
 
 # Label the ingress-basic namespace to disable resource validation
-kubectl label namespace ingress-basic certmanager.k8s.io/disable-validation=true
+kubectl label namespace ingress-basic cert-manager.io/disable-validation=true
 
 # Add the Jetstack Helm repository
 helm repo add jetstack https://charts.jetstack.io
@@ -128,7 +128,11 @@ helm repo add jetstack https://charts.jetstack.io
 helm repo update
 
 # Install the cert-manager Helm chart
-helm install cert-manager --namespace ingress-basic --version v0.12.0 jetstack/cert-manager --set ingressShim.defaultIssuerName=letsencrypt --set ingressShim.defaultIssuerKind=ClusterIssuer
+helm install \
+  cert-manager \
+  --namespace ingress-basic \
+  --version v0.13.0 \
+  jetstack/cert-manager
 ```
 
 인증서 관리자 구성에 대 한 자세한 내용은 [인증서 관리자 프로젝트][cert-manager]를 참조 하세요.
@@ -302,14 +306,14 @@ $ helm list --namespace ingress-basic
 NAME                    NAMESPACE       REVISION        UPDATED                                 STATUS          CHART                   APP VERSION
 aks-helloworld          ingress-basic   1               2020-01-15 10:24:32.054871 -0600 CST    deployed        aks-helloworld-0.1.0               
 aks-helloworld-two      ingress-basic   1               2020-01-15 10:24:37.671667 -0600 CST    deployed        aks-helloworld-0.1.0               
-cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.12.0    v0.12.0    
+cert-manager            ingress-basic   1               2020-01-15 10:23:36.515514 -0600 CST    deployed        cert-manager-v0.13.0    v0.13.0    
 nginx                   ingress-basic   1               2020-01-15 10:09:45.982693 -0600 CST    deployed        nginx-ingress-1.29.1    0.27.0  
 ```
 
 `helm delete` 명령으로 해당 릴리스를 삭제합니다. 다음 예제는 NGINX 수신 배포와 두 개의 샘플 AKS Hello World 앱을 삭제합니다.
 
 ```
-$ helm delete aks-helloworld aks-helloworld-two cert-manager nginx --namespace ingress-basic
+$ helm uninstall aks-helloworld aks-helloworld-two cert-manager nginx --namespace ingress-basic
 
 release "aks-helloworld" uninstalled
 release "aks-helloworld-two" uninstalled
@@ -343,7 +347,7 @@ kubectl delete namespace ingress-basic
 - [NGINX 수신 컨트롤러][nginx-ingress]
 - [인증서-관리자][cert-manager]
 
-다음도 가능합니다.
+또한 다음을 수행할 수도 있습니다.
 
 - [외부 네트워크 연결을 사용 하 여 기본 수신 컨트롤러 만들기][aks-ingress-basic]
 - [HTTP 응용 프로그램 라우팅 추가 기능 사용][aks-http-app-routing]

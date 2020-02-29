@@ -1,6 +1,6 @@
 ---
 title: '자습서: Azure Functions을 사용 하 여 계산 관리'
-description: Azure Functions를 사용하여 데이터 웨어하우스의 컴퓨팅을 관리하는 방법에 대해 설명합니다.
+description: Azure 함수를 사용 하 여 Azure Synapse Analytics에서 SQL 풀의 계산을 관리 하는 방법입니다.
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -10,29 +10,29 @@ ms.subservice: consume
 ms.date: 04/27/2018
 ms.author: jrasnick
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: bc350ed092c063dcc7eca479f064114be9eb28f5
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: a08c2c3c0167f0d82fe901e19b02db22b0ad56c5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693008"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193239"
 ---
-# <a name="use-azure-functions-to-manage-compute-resources-in-azure-sql-data-warehouse"></a>Azure Functions를 사용하여 Azure SQL Data Warehouse에서 컴퓨팅 리소스 관리
+# <a name="use-azure-functions-to-manage-compute-resources-in-azure-synapse-analytics-sql-pool"></a>Azure Functions를 사용 하 여 Azure Synapse Analytics SQL 풀에서 계산 리소스 관리
 
-이 자습서에서는 Azure Functions를 사용하여 Azure SQL Data Warehouse에서 데이터 웨어하우스의 컴퓨팅 리소스를 관리합니다.
+이 자습서에서는 Azure Functions를 사용 하 여 Azure Synapse Analytics의 SQL 풀에 대 한 계산 리소스를 관리 합니다.
 
-SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우스 인스턴스와 동일한 구독에 속한 참가자 액세스 권한으로 [서비스 사용자 계정](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal)을 만들어야 합니다. 
+SQL 풀에서 Azure 함수 앱를 사용 하려면 SQL 풀 인스턴스와 동일한 구독에서 참가자 액세스 권한이 있는 [서비스 사용자 계정을](https://docs.microsoft.com/azure/azure-resource-manager/resource-group-create-service-principal-portal) 만들어야 합니다. 
 
 ## <a name="deploy-timer-based-scaling-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 타이머 기반 크기 조정 배포
 
 템플릿을 배포하려면 다음 정보가 필요합니다.
 
-- SQL DW 인스턴스가 속한 리소스 그룹의 이름
-- SQL DW 인스턴스가 속한 논리 서버의 이름
-- SQL DW 인스턴스의 이름
+- SQL 풀 인스턴스가 있는 리소스 그룹의 이름입니다.
+- SQL 풀 인스턴스가 있는 논리 서버의 이름
+- SQL 풀 인스턴스의 이름입니다.
 - Azure Active Directory의 테넌트 ID(디렉터리 ID)
-- 구독 ID 
+- 등록 ID 
 - 서비스 사용자 애플리케이션 ID
 - 서비스 사용자 비밀 키
 
@@ -119,17 +119,17 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 5. 다음과 같이 작업 변수를 원하는 동작으로 설정합니다.
 
    ```javascript
-   // Resume the data warehouse instance
+   // Resume the SQL pool instance
    var operation = {
        "operationType": "ResumeDw"
    }
 
-   // Pause the data warehouse instance
+   // Pause the SQL pool instance
    var operation = {
        "operationType": "PauseDw"
    }
 
-   // Scale the data warehouse instance to DW600
+   // Scale the SQL pool instance to DW600
    var operation = {
        "operationType": "ScaleDw",
        "ServiceLevelObjective": "DW600"
@@ -141,11 +141,11 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 이 섹션에서는 일시 중지, 다시 시작 및 크기 조정에 대한 더 복잡한 일정 계획에 필요한 사항을 간략하게 보여 줍니다.
 
-### <a name="example-1"></a>예제 1:
+### <a name="example-1"></a>예 1:
 
 매일 오전 8시에 DW600으로 강화하고 오후 8시에 DW200으로 규모 축소합니다.
 
-| 함수  | 일정     | 작업                                |
+| 함수  | 일정     | 연산                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW600"}` |
 | Function2 | 0 0 20 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW200"}` |
@@ -154,7 +154,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 매일 오전 8시에 DW1000으로 강화하고, 오후 4시에 규모를 DW600으로 한 번 축소하고, 오후 10시에 DW200으로 축소합니다.
 
-| 함수  | 일정     | 작업                                |
+| 함수  | 일정     | 연산                                |
 | :-------- | :----------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * *  | `var operation = {"operationType": "ScaleDw",  "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * * | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -164,7 +164,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 평일 오전 8시에 DW1000으로 강화하고, 오후 4시에 DW600으로 규모 축소합니다. 금요일 오후 11시에 일시 중지하고 월요일 오전 7시에 다시 시작합니다.
 
-| 함수  | 일정       | 작업                                |
+| 함수  | 일정       | 연산                                |
 | :-------- | :------------- | :--------------------------------------- |
 | Function1 | 0 0 8 * * 1-5  | `var operation = {"operationType": "ScaleDw",    "ServiceLevelObjective": "DW1000"}` |
 | Function2 | 0 0 16 * * 1-5 | `var operation = {"operationType": "ScaleDw", "ServiceLevelObjective": "DW600"}` |
@@ -177,7 +177,7 @@ SQL Data Warehouse에 Azure 함수 앱을 사용하려면 데이터 웨어하우
 
 [타이머 트리거](../azure-functions/functions-create-scheduled-function.md) Azure 함수에 대해 자세히 알아봅니다.
 
-SQL Data Warehouse [샘플 리포지토리](https://github.com/Microsoft/sql-data-warehouse-samples)를 확인합니다.
+SQL 풀 [샘플 리포지토리](https://github.com/Microsoft/sql-data-warehouse-samples)를 체크 아웃 합니다.
 
 
 

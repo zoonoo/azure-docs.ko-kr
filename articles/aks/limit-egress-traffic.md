@@ -4,12 +4,12 @@ description: Azure Kubernetes 서비스 (AKS)에서 송신 트래픽을 제어 �
 services: container-service
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: a76f4eb8680d07193feb29450fdba7bb2a710a68
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d69921ce23e961879fea6be68838f86bfcc703d0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77595011"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191302"
 ---
 # <a name="control-egress-traffic-for-cluster-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 클러스터 노드에 대 한 송신 트래픽 제어
 
@@ -20,7 +20,7 @@ ms.locfileid: "77595011"
 > [!IMPORTANT]
 > 이 문서에서는 AKS 서브넷에서 나가는 트래픽을 잠그는 방법에 대해서만 설명 합니다. AKS에는 수신 요구 사항이 없습니다.  NSGs (네트워크 보안 그룹) 및 방화벽을 사용 하는 내부 서브넷 트래픽을 차단 하는 것은 지원 되지 않습니다. 클러스터 내에서 트래픽을 제어 하 고 차단 하려면 [네트워크 정책을][network-policy]사용 합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 Azure CLI 버전 2.0.66 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
@@ -62,7 +62,7 @@ AKS 클러스터에는 다음과 같은 아웃 바운드 포트/네트워크 규
 
 - Azure 글로벌
 
-| FQDN                       | 포트      | 사용      |
+| FQDN                       | 포트      | 기능      |
 |----------------------------|-----------|----------|
 | *. hcp.\<위치\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | *. 실행.\<위치\>. azmk8s.io | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
@@ -76,7 +76,7 @@ AKS 클러스터에는 다음과 같은 아웃 바운드 포트/네트워크 규
 
 - Azure China 21Vianet
 
-| FQDN                       | 포트      | 사용      |
+| FQDN                       | 포트      | 기능      |
 |----------------------------|-----------|----------|
 | *. hcp.\<위치\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | *. 실행.\<위치\>. cx.prod.service.azk8s.cn | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
@@ -90,7 +90,7 @@ AKS 클러스터에는 다음과 같은 아웃 바운드 포트/네트워크 규
 
 - Azure Government
 
-| FQDN                       | 포트      | 사용      |
+| FQDN                       | 포트      | 기능      |
 |----------------------------|-----------|----------|
 | *. hcp.\<위치\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
 | *. 실행.\<위치\>. cx.aks.containerservice.azure.us | HTTPS:443, TCP:22, TCP:9000 | 이 주소는 API 서버 끝점입니다. *\<location\>* 을 AKS 클러스터가 배포 된 지역으로 바꿉니다. |
@@ -108,7 +108,7 @@ AKS 클러스터에는 다음과 같은 아웃 바운드 포트/네트워크 규
 
 AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그램 규칙을 권장 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | security.ubuntu.com, azure.archive.ubuntu.com, changelogs.ubuntu.com | HTTP:80   | 이 주소를 통해 Linux 클러스터 노드가 필요한 보안 패치와 업데이트를 다운로드할 수 있습니다. |
 
@@ -116,7 +116,7 @@ AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그�
 
 다음 FQDN/응용 프로그램 규칙은 GPU를 사용 하는 AKS 클러스터에 필요 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | nvidia.github.io | HTTPS:443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
 | us.download.nvidia.com | HTTPS:443 | 이 주소는 GPU 기반 노드에 대 한 올바른 드라이버 설치 및 작업에 사용 됩니다. |
@@ -126,7 +126,7 @@ AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그�
 
 컨테이너에 대해 Azure Monitor를 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | dc.services.visualstudio.com | HTTPS:443  | Azure Monitor를 사용 하 여 올바른 메트릭 및 모니터링 원격 분석을 위한 것입니다. |
 | *.ods.opinsights.azure.com    | HTTPS:443 | 수집 log analytics 데이터에 대 한 Azure Monitor에 사용 됩니다. |
@@ -138,12 +138,12 @@ AKS 클러스터가 올바르게 작동 하려면 다음 FQDN/응용 프로그�
 
 Azure Dev Spaces 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | 이 주소는 linux 알파인 및 기타 Azure Dev Spaces 이미지를 가져오는 데 사용 됩니다. |
 | gcr.io | HTTP: 443 | 이 주소는 투구/tiller 이미지를 가져오는 데 사용 됩니다. |
 | storage.googleapis.com | HTTP: 443 | 이 주소는 투구/tiller 이미지를 가져오는 데 사용 됩니다. |
-| azds-<guid>.<location>azds.io | HTTPS:443 | 컨트롤러에 대 한 Azure Dev Spaces 백 엔드 서비스와 통신 하는 데 사용 됩니다. 정확한 FQDN 은% USERPROFILE%\.azds\settings.json의 "dataplaneFqdn"에서 찾을 수 있습니다. |
+| azds\<guid\>입니다.\<위치\>. azds.io | HTTPS:443 | 컨트롤러에 대 한 Azure Dev Spaces 백 엔드 서비스와 통신 하는 데 사용 됩니다. 정확한 FQDN 은% USERPROFILE%\.azds\settings.json의 "dataplaneFqdn"에서 찾을 수 있습니다. |
 
 ## <a name="required-addresses-and-ports-for-aks-clusters-with-azure-policy-in-public-preview-enabled"></a>Azure Policy (공개 미리 보기) 사용으로 설정 된 AKS 클러스터에 대 한 필수 주소 및 포트
 
@@ -152,11 +152,11 @@ Azure Dev Spaces 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/
 
 Azure Policy 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/application 규칙이 필요 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | gov-prod-policy-data.trafficmanager.net | HTTPS:443 | 이 주소는 Azure Policy에 대 한 올바른 작업에 사용 됩니다. (현재 AKS의 미리 보기 상태) |
 | raw.githubusercontent.com | HTTPS:443 | 이 주소는 Azure Policy의 올바른 작동을 보장 하기 위해 GitHub에서 기본 제공 정책을 가져오는 데 사용 됩니다. (현재 AKS의 미리 보기 상태) |
-| \* .gk.<location>azmk8s.io | HTTPS:443 | 감사 결과를 얻기 위해 마스터 서버에서 실행 되는 게이트 키퍼 감사 끝점과 통신 하는 Azure policy 추가 기능입니다. |
+| \* .gk.\<위치\>. azmk8s.io | HTTPS:443   | 감사 결과를 얻기 위해 마스터 서버에서 실행 되는 게이트 키퍼 감사 끝점과 통신 하는 Azure policy 추가 기능입니다. |
 | dc.services.visualstudio.com | HTTPS:443 | Application insights 끝점에 원격 분석 데이터를 전송 하는 Azure policy 추가 기능입니다. |
 
 ## <a name="required-by-windows-server-based-nodes-in-public-preview-enabled"></a>Windows Server 기반 노드 (공개 미리 보기) 사용에 필요 합니다.
@@ -166,7 +166,7 @@ Azure Policy 사용 하도록 설정 된 AKS 클러스터에는 다음 FQDN/appl
 
 Windows Server 기반 AKS 클러스터에는 다음과 같은 FQDN/응용 프로그램 규칙이 필요 합니다.
 
-| FQDN                                    | 포트      | 사용      |
+| FQDN                                    | 포트      | 기능      |
 |-----------------------------------------|-----------|----------|
 | onegetcdn.azureedge.net, winlayers.blob.core.windows.net, winlayers.cdn.mscr.io, go.microsoft.com | HTTPS:443 | Windows 관련 이진 파일을 설치 하려면 |
 | mp.microsoft.com,<span></span>msftconnecttest.com, ctldl.windowsupdate.com | HTTP:80 | Windows 관련 이진 파일을 설치 하려면 |

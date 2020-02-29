@@ -3,20 +3,20 @@ title: Openid connect Connect를 사용 하 여 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IdP (Openid connect Connect identity provider)를 사용 하 여 등록 및 로그인을 설정 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a7896e0385978c4221edc233c931bad720c60f8a
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c72abf79f0a420309ebe229673be9439fd99b74c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847603"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188259"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-openid-connect-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 OpenID Connect를 통한 등록 및 로그인 설정
 
@@ -55,7 +55,7 @@ ms.locfileid: "76847603"
 
 응답 모드는 사용자 지정 ID 공급자에서 Azure AD B2C로 데이터를 다시 보내는 데 사용해야 하는 메서드를 정의합니다. 다음 응답 모드를 사용할 수 있습니다.
 
-* `form_post`: 최상의 보안을 위해 이 응답 모드를 사용하는 것이 좋습니다. 응답이 `application/x-www-form-urlencoded` 형식을 사용하여 본문에서 인코딩되는 코드 또는 토큰으로 HTTP `POST` 메서드를 통해 전송됩니다.
+* `form_post`: 최상의 보안을 위해 이 응답 모드를 사용하는 것이 좋습니다. 응답이 `POST` 형식을 사용하여 본문에서 인코딩되는 코드 또는 토큰으로 HTTP `application/x-www-form-urlencoded` 메서드를 통해 전송됩니다.
 * `query`: 코드 또는 토큰이 쿼리 매개 변수로 반환됩니다.
 
 ## <a name="domain-hint"></a>도메인 힌트

@@ -3,20 +3,20 @@ title: 클레임 교환을 유효성 검사로 REST API
 titleSuffix: Azure AD B2C
 description: RESTful services와 상호 작용 하는 Azure AD B2C 사용자 경험을 만들기 위한 연습입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/21/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 209cddcc8648f7d396f048057bb4367e2ae9f66c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 7100498d99068941bcd7ca48b6cbcaa271fbb095
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846615"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189075"
 ---
 # <a name="walkthrough-integrate-rest-api-claims-exchanges-in-your-azure-ad-b2c-user-journey-as-validation-on-user-input"></a>연습: Azure AD B2C 사용자 경험에서 REST API 클레임 교환을 사용자 입력에 대한 유효성 검사로 통합
 

@@ -3,20 +3,20 @@ title: 사용자 지정 정책에 대 한 개발자 정보
 titleSuffix: Azure AD B2C
 description: 사용자 지정 정책으로 Azure AD B2C를 구성 및 유지 관리하는 개발자를 위한 정보
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/12/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 6439393b72eb724ca017edc17ce7a7c36c275fca
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: ee3b5bd3278412949074b77f9d1c53d63a467280
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77166955"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189398"
 ---
 # <a name="developer-notes-for-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C의 사용자 지정 정책에 대 한 개발자 정보
 
@@ -61,7 +61,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="identity-providers-tokens-protocols"></a>ID 공급자, 토큰, 프로토콜
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | IDP-OpenIDConnect |  |  | X | 예: Google +.  |
 | IDP-OAUTH2 |  |  | X | 예: Facebook.  |
@@ -78,7 +78,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="component-support"></a>구성 요소 지원
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Multi Factor Authentication |  |  | X |  |
 | 로컬 디렉터리로서의 Azure Active Directory |  |  | X |  |
@@ -89,7 +89,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="content-definition"></a>콘텐츠 정의
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | 오류 페이지, api.error |  |  | X |  |
 | IDP 선택 페이지, api.idpselections |  |  | X |  |
@@ -105,7 +105,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="app-ief-integration"></a>App-IEF 통합
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | 쿼리 문자열 매개 변수 domain_hint |  |  | X | 클레임으로 사용할 수 있으며 IDP에 전달 될 수 있습니다. |
 | 쿼리 문자열 매개 변수 login_hint |  |  | X | 클레임으로 사용할 수 있으며 IDP에 전달 될 수 있습니다. |
@@ -115,7 +115,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="session-management"></a>세션 관리
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | SSO 세션 공급자 |  |  | X |  |
 | 외부 로그인 세션 공급자 |  |  | X |  |
@@ -124,7 +124,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="security"></a>보안
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 |-------- | :-----------: | :-------: | :--: | ----- |
 | 정책 키 - 생성, 수동, 업로드 |  |  | X |  |
 | 정책 키 - RSA/Cert, 비밀 |  |  | X |  |
@@ -132,7 +132,7 @@ Azure Active Directory B2C의 사용자 지정 정책 구성이 이제 일반 �
 
 ### <a name="developer-interface"></a>개발자 인터페이스
 
-| 기능 | 개발 | 미리 보기 | GA | 메모 |
+| 기능 | 개발 | 미리 보기 | GA | 참고 |
 | ------- | :-----------: | :-------: | :--: | ----- |
 | Azure Portal-IEF UX |  |  | X |  |
 | Application Insights UserJourney 로그 |  | X |  | 개발 하는 동안 문제를 해결 하는 데 사용 됩니다.  |

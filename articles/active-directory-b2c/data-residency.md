@@ -3,20 +3,20 @@ title: 지역 가용성 및 데이터 상주
 titleSuffix: Azure AD B2C
 description: 지역 가용성, 데이터 상주 및 Azure Active Directory B2C 미리 보기 테 넌 트에 대 한 정보입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/26/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 532136be69356b634959a762f4eeb1c1c4af5a82
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 3df0f581d0d2a1e5ca02202b4eeaede5a1dd5362
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849176"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188852"
 ---
 # <a name="azure-active-directory-b2c-region-availability--data-residency"></a>Azure Active Directory B2C: 지역 가용성 및 데이터 상주
 
@@ -28,7 +28,7 @@ Azure AD B2C는 **미국, 유럽 또는 아시아 태평양**의 **데이터 상
 
 [데이터 상주](#data-residency)는 사용자 데이터가 저장된 위치를 나타냅니다.
 
-## <a name="region-availability"></a>리전 가용성
+## <a name="region-availability"></a>지역 가용성
 
 Azure AD B2C는 Azure 퍼블릭 클라우드를 통해 전 세계에서 사용할 수 있습니다.
 

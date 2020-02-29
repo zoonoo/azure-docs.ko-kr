@@ -3,20 +3,20 @@ title: 사용자 지정 정책에 대 한 JSON 클레임 변환 예제
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 JSON 클레임 변환 예입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 56c46b8f2804e37544c94ec2d6ced7e8879b1ffa
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: ad8fcf578ae1c89856a9d7929af0aec813cb4082
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75367130"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187596"
 ---
 # <a name="json-claims-transformations"></a>JSON 클레임 변환
 
@@ -28,11 +28,11 @@ ms.locfileid: "75367130"
 
 클레임 값 또는 상수를 사용 하 여 JSON 문자열을 생성 합니다. 점 표기법 다음의 경로 문자열은 JSON 문자열에 데이터를 삽입할 위치를 나타내는 데 사용 됩니다. 점으로 분할 한 후에는 모든 정수가 JSON 배열의 인덱스로 해석 되 고 비 정수는 JSON 개체의 인덱스로 해석 됩니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | 점 표기법 다음에 나오는 문자열 | 문자열 | 클레임 값이 삽입 될 JSON의 JsonPath입니다. |
-| InputParameter | 점 표기법 다음에 나오는 문자열 | 문자열 | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
-| OutputClaim | outputClaim | 문자열 | 생성 된 JSON 문자열입니다. |
+| InputClaim | 점 표기법 다음에 나오는 문자열 | string | 클레임 값이 삽입 될 JSON의 JsonPath입니다. |
+| InputParameter | 점 표기법 다음에 나오는 문자열 | string | 상수 문자열 값이 삽입 될 JSON의 JsonPath입니다. |
+| OutputClaim | outputClaim | string | 생성 된 JSON 문자열입니다. |
 
 다음 예제에서는 "email" 및 "otp"의 클레임 값 및 상수 문자열을 기반으로 하는 JSON 문자열을 생성 합니다.
 
@@ -53,7 +53,7 @@ ms.locfileid: "75367130"
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 다음 클레임 변환은 SendGrid (타사 전자 메일 공급자)로 전송 되는 요청의 본문으로 사용할 JSON 문자열 클레임을 출력 합니다. JSON 개체의 구조는 InputParameters의 점 표기법과 InputClaims의 TransformationClaimTypes Id로 정의 됩니다. 점 표기법의 숫자는 배열을 의미 합니다. 값은 InputClaims의 값과 InputParameters ' "Value" 속성에서 제공 됩니다.
 
@@ -94,11 +94,11 @@ ms.locfileid: "75367130"
 
 JSON 데이터에서 지정된 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | 문자열 | 클레임 변환에서 항목을 가져오는 데 사용하는 ClaimType입니다. |
-| InputParameter | claimToExtract | 문자열 | 추출할 JSON 요소의 이름입니다. |
-| OutputClaim | extractedClaim | 문자열 | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다(_claimToExtract_ 입력 매개 변수에 지정된 요소 값). |
+| InputClaim | inputJson | string | 클레임 변환에서 항목을 가져오는 데 사용하는 ClaimType입니다. |
+| InputParameter | claimToExtract | string | 추출할 JSON 요소의 이름입니다. |
+| OutputClaim | extractedClaim | string | 이 클레임 변환을 호출하고 나면 생성되는 ClaimType입니다(_claimToExtract_ 입력 매개 변수에 지정된 요소 값). |
 
 다음 예제에서는 클레임 변환이 JSON 데이터에서 `emailAddress` 요소를 추출했습니다. `{"emailAddress": "someone@example.com", "displayName": "Someone"}`
 
@@ -116,7 +116,7 @@ JSON 데이터에서 지정된 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone"}
@@ -130,13 +130,13 @@ JSON 데이터에서 지정된 요소를 가져옵니다.
 
 JSON 데이터에서 지정된 요소의 목록을 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | jsonSourceClaim | 문자열 | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
+| InputClaim | jsonSourceClaim | string | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
 | InputParameter | errorOnMissingClaims | boolean | 클레임 중 하나가 없으면 오류를 throw할지 여부를 지정합니다. |
-| InputParameter | includeEmptyClaims | 문자열 | 빈 클레임을 포함할지 여부를 지정합니다. |
-| InputParameter | jsonSourceKeyName | 문자열 | 요소 키 이름입니다. |
-| InputParameter | jsonSourceValueName | 문자열 | 요소 값 이름입니다. |
+| InputParameter | includeEmptyClaims | string | 빈 클레임을 포함할지 여부를 지정합니다. |
+| InputParameter | jsonSourceKeyName | string | 요소 키 이름입니다. |
+| InputParameter | jsonSourceValueName | string | 요소 값 이름입니다. |
 | OutputClaim | 컬렉션 | string, int, boolean, datetime |추출할 클레임 목록입니다. 클레임 이름은 _jsonSourceClaim_ 입력 클레임에 지정된 이름과 같아야 합니다. |
 
 다음 예제에서 클레임 변환은 JSON 데이터에서 email(string), displayName(string), membershipNum(int), active(boolean) 및 birthdate(datetime) 클레임을 추출합니다.
@@ -184,10 +184,10 @@ JSON 데이터에서 지정된 요소의 목록을 가져옵니다.
 
 JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJson | 문자열 | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
-| InputParameter | claimToExtract | 문자열 | 추출할 JSON 요소의 이름입니다. |
+| InputClaim | inputJson | string | 클레임 변환에서 클레임을 가져오는 데 사용하는 ClaimType입니다. |
+| InputParameter | claimToExtract | string | 추출할 JSON 요소의 이름입니다. |
 | OutputClaim | extractedClaim | long | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(_claimToExtract_ 입력 매개 변수에 지정된 요소 값). |
 
 다음 예제에서는 클레임 변환이 JSON 데이터에서 `id` 요소를 추출합니다.
@@ -214,7 +214,7 @@ JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **inputJson**: {"emailAddress": "someone@example.com", "displayName": "Someone", "id" : 6353399}
@@ -227,10 +227,10 @@ JSON 데이터에서 지정된 숫자 (long) 요소를 가져옵니다.
 
 JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | inputJsonClaim | 문자열 | 클레임 변환에서 JSON 배열의 항목을 가져오는 데 사용하는 ClaimType입니다. |
-| OutputClaim | extractedClaim | 문자열 | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 배열의 첫 번째 요소). |
+| InputClaim | inputJsonClaim | string | 클레임 변환에서 JSON 배열의 항목을 가져오는 데 사용하는 ClaimType입니다. |
+| OutputClaim | extractedClaim | string | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 배열의 첫 번째 요소). |
 
 다음 예제에서는 클레임 변환이 JSON 배열의 첫 번째 요소(전자 메일 주소)를 추출합니다. `["someone@example.com", "Someone", 6353399]`
 
@@ -245,7 +245,7 @@ JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 </ClaimsTransformation>
 ```
 
-### <a name="example"></a>예
+### <a name="example"></a>예제
 
 - 입력 클레임:
   - **inputJsonClaim**: ["someone@example.com", "Someone", 6353399]
@@ -256,10 +256,10 @@ JSON 데이터 배열에서 첫 번째 요소를 가져옵니다.
 
 XML 데이터를 JSON 형식으로 변환합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
+| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
-| InputClaim | Xml | 문자열 | 클레임 변환에서 데이터를 XML에서 JSON 형식으로 변환하는 데 사용하는 ClaimType입니다. |
-| OutputClaim | json : | 문자열 | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 형식의 데이터). |
+| InputClaim | xml | string | 클레임 변환에서 데이터를 XML에서 JSON 형식으로 변환하는 데 사용하는 ClaimType입니다. |
+| OutputClaim | json : | string | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType입니다(JSON 형식의 데이터). |
 
 ```XML
 <ClaimsTransformation Id="ConvertXmlToJson" TransformationMethod="XmlStringToJsonString">
@@ -274,7 +274,7 @@ XML 데이터를 JSON 형식으로 변환합니다.
 
 다음 예제에서는 클레임 변환이 다음 XML 데이터를 JSON 형식으로 변환합니다.
 
-#### <a name="example"></a>예
+#### <a name="example"></a>예제
 입력 클레임:
 
 ```XML

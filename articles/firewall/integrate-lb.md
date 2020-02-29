@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: article
-ms.date: 11/19/2019
+ms.date: 02/28/2020
 ms.author: victorh
-ms.openlocfilehash: 91f34d06532b2d7f56d293df40939212a4f3d68c
-ms.sourcegitcommit: 4821b7b644d251593e211b150fcafa430c1accf0
+ms.openlocfilehash: ab9a500d9535b55702b8baff15f8cc47e6ac2c86
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74167066"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196721"
 ---
 # <a name="integrate-azure-firewall-with-azure-standard-load-balancer"></a>Azure 표준 Load Balancer에 Azure Firewall 통합
 
@@ -28,7 +28,7 @@ Azure Load Balancer에 대한 자세한 내용은 [Azure Load Balancer란?](../l
 
 ### <a name="asymmetric-routing"></a>비대칭 라우팅
 
-비대칭 라우팅은 패킷이 대상에 대한 하나의 경로를 사용하고, 원본으로 돌아갈 때는 다른 경로를 사용하는 문제입니다. 이 문제는 서브넷에 방화벽의 개인 IP 주소로 가는 기본 경로가 있을 때 사용자가 공용 부하 분산 장치를 사용하는 경우에 발생합니다. 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태를 저장하고 이러한 연결된 세션을 인식하지 않으므로 반환 패킷을 삭제합니다.
+비대칭 라우팅은 패킷이 대상에 대한 하나의 경로를 사용하고, 원본으로 돌아갈 때는 다른 경로를 사용하는 문제입니다. 이 문제는 서브넷에 방화벽의 개인 IP 주소로 가는 기본 경로가 있을 때 사용자가 공용 부하 분산 장치를 사용하는 경우에 발생합니다. 이 경우 들어오는 부하 분산 장치 트래픽은 해당 공용 IP 주소를 통해 수신되지만 반환 경로는 방화벽의 개인 IP 주소를 거칩니다. 방화벽은 상태 저장 이므로 방화벽에서 설정 된 세션을 인식 하지 못하기 때문에 반환 하는 패킷을 삭제 합니다.
 
 ### <a name="fix-the-routing-issue"></a>라우팅 문제 해결
 
@@ -39,9 +39,23 @@ Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallS
 
 ![비대칭 라우팅](media/integrate-lb/Firewall-LB-asymmetric.png)
 
-예를 들어, 다음 경로는 공용 IP 주소 13.86.122.41 및 개인 IP 주소 10.3.1.4에서 방화벽용으로 사용됩니다.
+### <a name="route-table-example"></a>경로 테이블 예
 
-![경로 테이블](media/integrate-lb/route-table.png)
+예를 들어, 공용 IP 주소 20.185.97.136 및 개인 IP 주소 10.0.1.4에서 방화벽에 대 한 경로는 다음과 같습니다.
+
+> [!div class="mx-imgBorder"]
+> ![경로 테이블](media/integrate-lb/route-table.png)
+
+### <a name="nat-rule-example"></a>NAT 규칙 예제
+
+다음 예제에서 NAT 규칙은 20.185.97.136에 대 한 RDP 트래픽을 20.42.98.220의 부하 분산 장치에 대 한 방화벽으로 변환 합니다.
+
+> [!div class="mx-imgBorder"]
+> NAT 규칙을 ![](media/integrate-lb/nat-rule-02.png)
+
+### <a name="health-probes"></a>상태 프로브
+
+포트 80 또는 HTTP/HTTPS 프로브에 TCP 상태 프로브를 사용 하는 경우 부하 분산 장치 풀의 호스트에서 웹 서비스를 실행 해야 합니다.
 
 ## <a name="internal-load-balancer"></a>내부 부하 분산 장치
 
@@ -56,6 +70,8 @@ Azure Firewall을 서브넷에 배포할 때 한 가지 단계는 AzureFirewallS
 부하 분산 시나리오의 보안을 강화하려면 NSG(네트워크 보안 그룹)를 사용할 수 있습니다.
 
 예를 들어, 부하 분산된 가상 머신이 있는 백 엔드 서브넷에 NSG를 만들 수 있습니다. 방화벽 IP 주소/포트에서 발생하는 수신 트래픽을 허용합니다.
+
+![네트워크 보안 그룹](media/integrate-lb/nsg-01.png)
 
 NSG에 대한 자세한 내용은 [보안 그룹](../virtual-network/security-overview.md)을 참조하세요.
 

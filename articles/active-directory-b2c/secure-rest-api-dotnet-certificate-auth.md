@@ -3,20 +3,20 @@ title: 클라이언트 인증서를 사용 하 여 RESTful 서비스 보호
 titleSuffix: Azure AD B2C
 description: 클라이언트 인증서를 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b6f4c24bb5587ca67fd2de0d8aad2c6f5218a41b
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 98606443707c183a15a4bacd26646c3eac6c8a69
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848513"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186916"
 ---
 # <a name="secure-your-restful-service-by-using-client-certificates"></a>클라이언트 인증서를 사용하여 RESTful 서비스 보호
 
@@ -76,7 +76,7 @@ ms.locfileid: "76848513"
 
 1. 작업 디렉터리에서 *TrustFrameworkExtensions.xml* 확장 정책 파일을 엽니다.
 
-2. `Id="REST-API-SignUp"`이 포함된 `<TechnicalProfile>` 노드를 검색합니다.
+2. `<TechnicalProfile>`이 포함된 `Id="REST-API-SignUp"` 노드를 검색합니다.
 
 3. `<Metadata>` 요소를 찾습니다.
 
@@ -163,7 +163,7 @@ Azure AD B2C에서 RESTful 서비스에 전송한 클라이언트 인증서는 �
 >클라이언트 인증서 인증을 위해 Azure App Service를 구성하는 방법에 대한 자세한 내용은 [웹앱에 TLS 상호 인증 구성](https://docs.microsoft.com/azure/app-service-web/app-service-web-configure-tls-mutual-auth)을 참조하세요.
 
 ### <a name="61-add-application-settings-to-your-projects-webconfig-file"></a>6.1 프로젝트의 web.config 파일에 애플리케이션 설정 추가
-앞서 만든 Visual Studio 프로젝트에서 `appSettings` 요소 뒤에 *web.config* 파일에 다음 애플리케이션 설정을 추가합니다.
+앞서 만든 Visual Studio 프로젝트에서 *요소 뒤에*web.config`appSettings` 파일에 다음 애플리케이션 설정을 추가합니다.
 
 ```XML
 <add key="ClientCertificate:Subject" value="CN=Subject name" />

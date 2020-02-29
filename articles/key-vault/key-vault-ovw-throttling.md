@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 12/02/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 28e79dffb206e8a62410bf3b4e0e239879b51224
-ms.sourcegitcommit: 5aefc96fd34c141275af31874700edbb829436bb
+ms.openlocfilehash: 6c4923e86f8678458d6301503043413fb8a5629b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/04/2019
-ms.locfileid: "74806680"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197371"
 ---
 # <a name="azure-key-vault-throttling-guidance"></a>Azure Key Vault 제한 지침
 
@@ -40,7 +41,7 @@ Key Vault는 원래 [Azure Key Vault 서비스 제한](key-vault-service-limits.
 
 | 자격 증명 모음 이름 | 자격 증명 모음 지역 | 개체 유형 (비밀, 키 또는 인증서) | 작업 * | 키 유형 | 키 길이 또는 곡선 | HSM 키 인가요?| 안정적인 상태 RPS 필요 | 최고 RPS 필요 |
 |--|--|--|--|--|--|--|--|--|
-| https://mykeyvault.vault.azure.net/ | | 키 | 로그인 | EC | P-256 | 아닙니다. | 200 | 1000 |
+| https://mykeyvault.vault.azure.net/ | | Key | 로그인 | EC | P-256 | 아니요 | 200 | 1000 |
 
 가능한 값의 전체 목록은 \* [Azure Key Vault 작업](/rest/api/keyvault/key-operations)을 참조 하세요.
 

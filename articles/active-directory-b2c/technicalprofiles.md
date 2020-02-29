@@ -3,20 +3,20 @@ title: TechnicalProfiles
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책의 TechnicalProfiles 요소를 지정합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 5dc9bc56ac717d355f0fb0ebcc482430662378ca
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: d4dbe5a62e69f4c30d55fa1318ca79c06640a10f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425610"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186746"
 ---
 # <a name="technicalprofiles"></a>TechnicalProfiles
 
@@ -75,17 +75,17 @@ ms.locfileid: "77425610"
 
 **TechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 |---------|---------|---------|
-| Id | yes | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile**입니다. |
+| Id | 예 | 기술 프로필의 고유 식별자입니다. 정책 파일의 다른 요소에서 이 식별자를 사용하여 기술 프로필을 참조할 수 있습니다. 예를 들어 **OrchestrationSteps** 및 **ValidationTechnicalProfile**입니다. |
 
 **TechnicalProfile**에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 도메인 | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
+| Domain | 0:1 | 기술 프로필의 도메인 이름입니다. 예를 들어 기술 프로필이 Facebook ID 공급자를 지정하는 경우 도메인 이름은 Facebook.com입니다. |
 | DisplayName | 1:1 | 사용자에게 표시할 수 있는 기술 프로필의 이름입니다. |
-| Description | 0:1 | 사용자에게 표시할 수 있는 기술 프로필에 대한 설명입니다. |
+| 설명 | 0:1 | 사용자에게 표시할 수 있는 기술 프로필에 대한 설명입니다. |
 | 프로토콜 | 0:1 | 다른 당사자와의 통신에 사용되는 프로토콜입니다. |
 | 메타데이터 | 0:1 | 트랜잭션 과정에서 엔드포인트와 통신하기 위해 프로토콜에서 사용하는 키/값 쌍의 컬렉션입니다. |
 | InputTokenFormat | 0:1 | 입력 토큰의 형식입니다. 가능한 값은 `JSON`, `JWT`, `SAML11` 또는 `SAML2`입니다. `JWT` 값은 IETF 사양을 기준으로 JSON Web Token을 나타냅니다. `SAML11` 값은 OASIS 사양을 기준으로 SAML 1.1 보안 토큰을 나타냅니다.  `SAML2` 값은 OASIS 사양을 기준으로 SAML 2.0 보안 토큰을 나타냅니다. |
@@ -109,16 +109,16 @@ ms.locfileid: "77425610"
 
 **Protocol** 요소에는 다음과 같은 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 속성 | yes | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`또는 `None`입니다. |
-| Handler | 예 | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
+| 이름 | 예 | 기술 프로필의 일부로 사용되는 Azure AD B2C에서 지원하는 유효한 프로토콜의 이름입니다. 가능한 값은 `OAuth1`, `OAuth2`, `SAML2`, `OpenIdConnect`, `Proprietary`또는 `None`입니다. |
+| Handler | 아니요 | 프로토콜 이름이 `Proprietary`로 설정된 경우 Azure AD B2C에서 프로토콜 처리기를 확인하는 데 사용하는 어셈블리의 정규화된 이름을 지정합니다. |
 
 ## <a name="metadata"></a>메타데이터
 
 **Metadata** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | 항목 | 0:n | 기술 프로필과 관련된 메타데이터입니다. 기술 프로필 유형마다 다른 메타데이터 항목 집합이 있습니다. 자세한 내용은 기술 프로필 유형 섹션을 참조하세요. |
 
@@ -126,32 +126,32 @@ ms.locfileid: "77425610"
 
 **Metadata** 요소의 **Item** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 키 | yes | 메타데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
+| Key | 예 | 메타 데이터 키입니다. 메타데이터 항목 목록은 각 기술 프로필 유형을 참조하세요. |
 
 ## <a name="cryptographickeys"></a>CryptographicKeys
 
 **CryptographicKeys** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| 키 | 1:n | 이 기술 프로필에서 사용되는 암호화 키입니다. |
+| Key | 1:n | 이 기술 프로필에서 사용되는 암호화 키입니다. |
 
-### <a name="key"></a>키
+### <a name="key"></a>Key
 
 **Key** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| Id | 예 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
-| StorageReferenceId | yes | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
+| Id | 아니요 | 정책 파일의 다른 요소에서 참조되는 특정 키 쌍의 고유 식별자입니다. |
+| StorageReferenceId | 예 | 정책 파일의 다른 요소에서 참조되는 스토리지 키 컨테이너의 식별자입니다. |
 
 ## <a name="inputclaimstransformations"></a>InputClaimsTransformations
 
 **InputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -159,15 +159,15 @@ ms.locfileid: "77425610"
 
 **InputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
 ## <a name="inputclaims"></a>InputClaims
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -175,17 +175,17 @@ ms.locfileid: "77425610"
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 예 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="displayclaims"></a>DisplayClaims
 
 **DisplayClaims** 요소에는 다음 요소가 포함 됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | DisplayClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -195,11 +195,11 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **DisplayClaim** 요소는 다음 특성을 포함 합니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DisplayControlReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
-| 필수 | 예 | 표시 클레임이 필요한 지 여부를 나타냅니다. |
+| ClaimTypeReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DisplayControlReferenceId | 아니요 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의 되어 있는 [표시 컨트롤](display-controls.md) 의 식별자입니다. |
+| 필수 | 아니요 | 표시 클레임이 필요한 지 여부를 나타냅니다. |
 
 **DisplayClaim** `ClaimTypeReferenceId` 또는 `DisplayControlReferenceId`를 지정 해야 합니다.
 
@@ -207,7 +207,7 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **PersistedClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | PersistedClaim | 1:n | 저장할 클레임 유형입니다. |
 
@@ -215,17 +215,17 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **PersistedClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 예 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
-| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="outputclaims"></a>OutputClaims
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 1:n | 필요한 출력 클레임 유형입니다. |
 
@@ -233,18 +233,18 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimTypeReferenceId | yes | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
-| DefaultValue | 예 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
-|AlwaysUseDefaultValue |예 |기본값을 강제로 사용합니다.  |
-| PartnerClaimType | 예 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
+| ClaimTypeReferenceId | 예 | 정책 파일 또는 부모 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| DefaultValue | 아니요 | ClaimTypeReferenceId로 표시된 클레임이 없는 경우 결과 클레임이 기술 프로필에서 InputClaim로 사용될 수 있도록 클레임을 만드는 데 사용할 기본값입니다. |
+|AlwaysUseDefaultValue |아니요 |기본값을 강제로 사용합니다.  |
+| PartnerClaimType | 아니요 | 지정한 정책 클레임 유형이 매핑되는 외부 파트너의 클레임 유형 식별자입니다. PartnerClaimType 특성이 지정되지 않은 경우 지정한 정책 클레임 유형이 동일한 이름의 파트너 클레임 유형에 매핑됩니다. 클레임 유형 이름이 다른 당사자와 다른 경우에 이 속성을 사용합니다. 예를 들어 첫 번째 클레임 이름은 ‘givenName’이고 파트너는 first_name’이라는 클레임을 사용합니다. |
 
 ## <a name="outputclaimstransformations"></a>OutputClaimsTransformations
 
 **OutputClaimsTransformations** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaimsTransformation | 1:n | 클레임 공급자 또는 신뢰 당사자에게 클레임이 전송되기 전에 실행해야 하는 클레임 변환의 식별자입니다. 클레임 변환을 사용하여 기존 ClaimsSchema 클레임을 수정하거나 새 클레임을 생성할 수 있습니다. |
 
@@ -252,15 +252,15 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **OutputClaimsTransformation** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 클레임 변환의 식별자입니다. |
 
 ## <a name="validationtechnicalprofiles"></a>ValidationTechnicalProfiles
 
 **ValidationTechnicalProfiles** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조 기술 프로필의 일부 또는 모든 출력 클레임 유효성을 검사하는 데 사용되는 기술 프로필의 식별자입니다. 참조된 기술 프로필의 모든 입력 클레임이 참조 기술 프로필의 출력 클레임에 표시되어야 합니다. |
 
@@ -268,33 +268,33 @@ DislayClaims 기능은 현재 **미리 보기**상태입니다.
 
 **ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ## <a name="subjectnaminginfo"></a>SubjectNamingInfo
 
 **SubjectNamingInfo**에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ClaimType | yes | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
+| ClaimType | 예 | 정책 파일의 ClaimsSchema 섹션에 이미 정의된 클레임 유형의 식별자입니다. |
 
 ## <a name="includetechnicalprofile"></a>IncludeTechnicalProfile
 
 **IncludeTechnicalProfile** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ## <a name="usetechnicalprofileforsessionmanagement"></a>UseTechnicalProfileForSessionManagement
 
 **UseTechnicalProfileForSessionManagement** 요소에는 다음 특성이 포함됩니다.
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
+| ReferenceId | 예 | 정책 파일 또는 부모 정책 파일에 이미 정의된 기술 프로필의 식별자입니다. |
 
 ## <a name="enabledforuserjourneys"></a>EnabledForUserJourneys
 

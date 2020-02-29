@@ -3,20 +3,20 @@ title: Azure AD B2C에서 지 원하는 응용 프로그램 유형
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/24/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ec97f986c4472f793c2d38ded2a1c6873b1ee08d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: e8328db12bde531c2e27936c09247611ff1a3583
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77482788"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190146"
 ---
 # <a name="application-types-that-can-be-used-in-active-directory-b2c"></a>Active Directory B2C에서 사용할 수 있는 응용 프로그램 유형
 
@@ -40,7 +40,7 @@ Azure AD B2C로 전송 되는 각 요청은 **사용자 흐름** (기본 제공 
 
 이러한 단계는 빌드 중인 애플리케이션의 유형에 따라 약간씩 다를 수 있습니다.
 
-## <a name="web-applications"></a>웹 애플리케이션
+## <a name="web-applications"></a>웹 응용 프로그램
 
 서버에서 호스트되며 브라우저를 통해 액세스하는 웹 애플리케이션(.NET, PHP, Java, Ruby, Python, Node.js 등)의 경우, Azure AD B2C는 모든 사용자 환경에 [OpenID Connect](protocols-overview.md)를 지원합니다. OpenID Connect의 Azure AD B2C 구현에서 웹 애플리케이션은 Azure AD로 인증 요청을 발급하여 사용자 환경을 시작합니다. 요청의 결과는 `id_token`입니다. 이 보안 토큰은 사용자의 ID를 나타냅니다. 또한 클레임 형태로 사용자에 대한 정보를 제공합니다.
 

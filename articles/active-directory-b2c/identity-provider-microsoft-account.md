@@ -3,20 +3,20 @@ title: Microsoft 계정을 사용 하 여 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C를 사용 하 여 응용 프로그램에서 Microsoft 계정을 사용 하 여 고객에 게 등록 및 로그인을 제공 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f023fea4340fed6fa50defb3797c776a51bad5f4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 25784eb161a860398b0741d1d20375cabd1c4eca
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849553"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188021"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-microsoft-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Microsoft 계정으로 등록 설정 및 로그인
 

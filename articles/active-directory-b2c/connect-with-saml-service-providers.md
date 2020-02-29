@@ -3,21 +3,21 @@ title: Azure AD B2C를 응용 프로그램에 대 한 SAML IdP 구성
 title-suffix: Azure AD B2C
 description: 응용 프로그램 (서비스 공급자)에 SAML 프로토콜 어설션을 제공 하도록 Azure AD B2C를 구성 하는 방법입니다. Azure AD B2C는 SAML 응용 프로그램에 대 한 단일 id 공급자 (IdP) 역할을 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: be7d798d96e61d1d753e130c5e4ad6a479f391fc
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 1c362cd2924de73b2e40e634fe554ff1526e09d8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912243"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189653"
 ---
 # <a name="register-a-saml-application-in-azure-ad-b2c"></a>Azure AD B2C에서 SAML 응용 프로그램 등록
 
@@ -63,7 +63,7 @@ SAML 서비스 공급자와 연결 된 메타 데이터 끝점이 아직 없는 
 
 ## <a name="1-set-up-certificates"></a>1. 인증서 설정
 
-서비스 공급자와 Azure AD B2C 간의 트러스트 관계를 구축 하려면 X509 인증서 및 해당 개인 키를 제공 해야 합니다.
+서비스 공급자와 Azure AD B2C 간의 트러스트 관계를 작성 하려면 웹 앱 X509 인증서를 제공 해야 합니다.
 
 * **서비스 공급자 인증서**
   * 개인 키가 있는 인증서를 웹 앱에 저장 합니다. 이 인증서는 서비스 공급자가 Azure AD B2C에 전송 된 SAML 요청에 서명 하는 데 사용 됩니다. Azure AD B2C는 서명의 유효성을 검사 하기 위해 서비스 공급자 메타 데이터에서 공개 키를 읽습니다.

@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: cfac28c4a759cee66c932c7b8cfea053c9c4f505
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75921791"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190707"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -22,25 +22,9 @@ Azure Functions는 Python 스크립트에서 입력을 처리 하 고 출력을 
 
 트리거와 바인딩의 데이터는 *함수 json* 파일에 정의 된 `name` 속성을 사용 하 여 메서드 특성을 통해 함수에 바인딩됩니다. 예를 들어, 아래 _함수인 json_ 은 `req`라는 HTTP 요청에 의해 트리거되는 간단한 함수를 설명 합니다.
 
-```json
-{
-  "bindings": [
-    {
-      "name": "req",
-      "direction": "in",
-      "type": "httpTrigger",
-      "authLevel": "anonymous"
-    },
-    {
-      "name": "$return",
-      "direction": "out",
-      "type": "http"
-    }
-  ]
-}
-```
+:::code language="son" source="~/functions-quickstart-templates/Functions.Templates/Templates/HttpTrigger-Python/function.json":::
 
-`__init__.py` 파일에는 다음 함수 코드가 포함되어 있습니다.
+이 정의에 따라 함수 코드를 포함 하는 `__init__.py` 파일은 다음 예제와 같습니다.
 
 ```python
 def main(req):
@@ -174,11 +158,11 @@ def main(req: func.HttpRequest,
 함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 AzureWebJobsStorage 앱 설정에 있는 연결 문자열로,이는 함수 앱에서 사용 하는 것과 동일한 저장소 계정입니다.
 
 
-## <a name="outputs"></a>outputs
+## <a name="outputs"></a>Outputs
 
 출력은 반환 값 및 출력 매개 변수 둘 다로 표현될 수 있습니다. 출력이 하나만 있는 경우 반환 값을 사용하는 것이 좋습니다. 다중 출력의 경우 출력 매개 변수를 사용해야 합니다.
 
-함수의 반환 값을 출력 바인딩의 값으로 사용하려면 바인딩의 `name` 속성을 `function.json`의 `$return`으로 설정해야 합니다.
+함수의 반환 값을 출력 바인딩의 값으로 사용하려면 바인딩의 `name` 속성을 `$return`의 `function.json`으로 설정해야 합니다.
 
 여러 출력을 생성 하려면 [`azure.functions.Out`](/python/api/azure-functions/azure.functions.out?view=azure-python) 인터페이스에서 제공 하는 `set()` 메서드를 사용 하 여 값을 바인딩에 할당 합니다. 예를 들어 다음 함수는 메시지를 큐로 푸시하고 HTTP 응답도 반환할 수 있습니다.
 
@@ -236,7 +220,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 방법                 | Description                                |
+| 메서드                 | 설명                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | **`error(_message_)`**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -248,7 +232,7 @@ def main(req):
 
 ## <a name="http-trigger-and-bindings"></a>HTTP 트리거 및 바인딩
 
-HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명 된 매개 변수와 일치 해야 합니다. 이전 예제에서는 바인딩 이름 `req`를 사용 합니다. 이 매개 변수는 [HttpRequest] 개체 이며 [HttpResponse] 개체가 반환 됩니다.
+HTTP 트리거는 함수인 jon file에 정의 되어 있습니다. 바인딩의 `name`은 함수의 명명 된 매개 변수와 일치 해야 합니다. 이전 예제에서는 바인딩 이름 `req`를 사용 합니다. 이 매개 변수는 [HttpRequest] 개체 이며 [httpresponse.cache] 개체가 반환 됩니다.
 
 [HttpRequest] 개체에서 요청 헤더, 쿼리 매개 변수, 경로 매개 변수 및 메시지 본문을 가져올 수 있습니다. 
 
@@ -278,7 +262,7 @@ def main(req: func.HttpRequest) -> func.HttpResponse:
 
 이 함수에서 `name` 쿼리 매개 변수의 값은 [HttpRequest] 개체의 `params` 매개 변수에서 가져옵니다. JSON으로 인코딩된 메시지 본문은 `get_json` 메서드를 사용 하 여 읽습니다. 
 
-마찬가지로 반환 된 [HttpResponse] 개체의 응답 메시지에 대 한 `status_code` 및 `headers`를 설정할 수 있습니다.
+마찬가지로 반환 된 [httpresponse.cache] 개체의 응답 메시지에 대 한 `status_code` 및 `headers`를 설정할 수 있습니다.
 
 ## <a name="scaling-and-concurrency"></a>크기 조정 및 동시성
 
@@ -322,7 +306,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
 
-예:
+예를 들면 다음과 같습니다.
 
 ```python
 import azure.functions
@@ -344,7 +328,7 @@ def main(req: azure.functions.HttpRequest,
 `invocation_id`  
 현재 함수 호출의 ID입니다.
 
-## <a name="global-variables"></a>글로벌 변수
+## <a name="global-variables"></a>전역 변수
 
 나중에 실행 하기 위해 앱의 상태를 유지 하는 것은 보장 되지 않습니다. 그러나 Azure Functions 런타임은 동일한 앱을 여러 번 실행 하는 경우에도 동일한 프로세스를 다시 사용할 수도 있습니다. 비용이 많이 드는 계산 결과를 캐시 하려면 전역 변수로 선언 합니다. 
 
@@ -452,7 +436,7 @@ func azure functionapp publish <APP_NAME> --no-build
 
 `<APP_NAME>`을 Azure의 함수 앱 이름으로 바꾸어야 합니다.
 
-## <a name="unit-testing"></a>단위 테스트
+## <a name="unit-testing"></a>유닛 테스트
 
 Python으로 작성 된 함수는 표준 테스트 프레임 워크를 사용 하 여 다른 Python 코드와 같이 테스트할 수 있습니다. 대부분의 바인딩에서 `azure.functions` 패키지에서 적절 한 클래스의 인스턴스를 만들어 모의 입력 개체를 만들 수 있습니다. [`azure.functions`](https://pypi.org/project/azure-functions/) 패키지는 즉시 사용할 수 없으므로 위의 [패키지 관리](#package-management) 섹션에 설명 된 대로 `requirements.txt` 파일을 통해 설치 해야 합니다. 
 
@@ -582,7 +566,7 @@ class TestFunction(unittest.TestCase):
             'msg body: test',
         )
 ```
-## <a name="temporary-files"></a>임시 파일을 선택합니다
+## <a name="temporary-files"></a>임시 파일
 
 `tempfile.gettempdir()` 메서드는 Linux에서 `/tmp`된 임시 폴더를 반환 합니다. 응용 프로그램은이 디렉터리를 사용 하 여 생성 되 고 실행 중에 함수에서 사용 하는 임시 파일을 저장할 수 있습니다. 
 
@@ -610,7 +594,7 @@ from os import listdir
 
 모든 알려진 문제 및 기능 요청은 [GitHub 문제](https://github.com/Azure/azure-functions-python-worker/issues) 목록을 사용하여 추적됩니다. 문제가 발생하여 GitHub에서 해당 문제를 찾을 수 없는 경우 새 문제를 열고 해당 문제에 대한 자세한 설명을 제공해 주세요.
 
-### <a name="cross-origin-resource-sharing"></a>크로스-원본 자원 공유
+### <a name="cross-origin-resource-sharing"></a>교차 원본 자원 공유
 
 Azure Functions는 CORS (원본 간 리소스 공유)를 지원 합니다. CORS는 [포털](functions-how-to-use-azure-function-app-settings.md#cors) 및 [Azure CLI](/cli/azure/functionapp/cors)를 통해 구성 됩니다. CORS 허용 원본 목록은 함수 앱 수준에서 적용 됩니다. CORS를 사용 하면 응답에 `Access-Control-Allow-Origin` 헤더가 포함 됩니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](functions-how-to-use-azure-function-app-settings.md#cors)를 참조하십시오.
 
@@ -645,7 +629,7 @@ OPTIONS HTTP 메서드를 지원 하도록 함수인 json도 업데이트 해야
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 리소스를 참조하세요.
+자세한 내용은 다음 참고 자료를 참조하십시오.
 
 * [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)
@@ -657,4 +641,4 @@ OPTIONS HTTP 메서드를 지원 하도록 함수인 json도 업데이트 해야
 
 
 [HttpRequest]: /python/api/azure-functions/azure.functions.httprequest?view=azure-python
-[HttpResponse]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python
+[Httpresponse.cache]: /python/api/azure-functions/azure.functions.httpresponse?view=azure-python

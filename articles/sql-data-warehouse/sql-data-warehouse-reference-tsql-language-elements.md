@@ -1,6 +1,6 @@
 ---
 title: T-SQL 언어 요소
-description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
+description: SQL Analytics에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 06/13/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 02f463e12547ba64a05e04988d9c192bba4f6a27
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: edd77d711654a7f2793eb3c08b93e85fc0a89e8f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692518"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198425"
 ---
-# <a name="t-sql-language-elements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소
-Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명서 링크입니다.
+# <a name="t-sql-language-elements-supported-in-sql-analytics"></a>SQL Analytics에서 지원 되는 t-sql 언어 요소
+SQL Analytics에서 지원 되는 T-sql 언어 요소에 대 한 설명서 링크입니다.
 
 ## <a name="core-elements"></a>핵심 요소
 * [구문 규칙](/sql/t-sql/language-elements/transact-sql-syntax-conventions-transact-sql)
@@ -29,18 +29,18 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [설명](https://msdn.microsoft.com/library/ms181627.aspx)
 * [상수](https://msdn.microsoft.com/library/ms179899.aspx)
 * [데이터 형식](https://msdn.microsoft.com/library/ms187752.aspx)
-* [실행](https://msdn.microsoft.com/library/ms188332.aspx)
+* [EXECUTE](https://msdn.microsoft.com/library/ms188332.aspx)
 * [식](https://msdn.microsoft.com/library/ms190286.aspx)
 * [KILL](https://msdn.microsoft.com/library/ms173730.aspx)
 * [IDENTITY 속성 해결 방법](https://msdn.microsoft.com/library/ms186775.aspx)
-* [인쇄](https://msdn.microsoft.com/library/ms176047.aspx)
-* [사용](https://msdn.microsoft.com/library/ms188366.aspx)
+* [PRINT](https://msdn.microsoft.com/library/ms176047.aspx)
+* [USE](https://msdn.microsoft.com/library/ms188366.aspx)
 
 ## <a name="batches-control-of-flow-and-variables"></a>일괄 처리, 흐름 제어 및 변수
-* [시작... 끝](https://msdn.microsoft.com/library/ms190487.aspx)
-* [나누기](https://msdn.microsoft.com/library/ms181271.aspx)
+* [BEGIN...END](https://msdn.microsoft.com/library/ms190487.aspx)
+* [BREAK](https://msdn.microsoft.com/library/ms181271.aspx)
 * [선언 @local_variable](https://msdn.microsoft.com/library/ms188927.aspx)
-* [다음과 같은 경우...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
+* [IF...ELSE](https://msdn.microsoft.com/library/ms182717.aspx)
 * [RAISERROR](https://msdn.microsoft.com/library/ms178592.aspx)
 * [SET@local_variable](https://msdn.microsoft.com/library/ms189484.aspx)
 * [THROW](https://msdn.microsoft.com/library/ee677615.aspx)
@@ -48,16 +48,16 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [WHILE](https://msdn.microsoft.com/library/ms178642.aspx)
 
 ## <a name="operators"></a>연산자
-* [+ (추가)](https://msdn.microsoft.com/library/ms178565.aspx)
-* [+ (문자열 연결)](https://msdn.microsoft.com/library/ms177561.aspx)
-* [- (음수)](https://msdn.microsoft.com/library/ms189480.aspx)
-* [- (빼기)](https://msdn.microsoft.com/library/ms189518.aspx)
-* [* (곱하기)](https://msdn.microsoft.com/library/ms176019.aspx)
-* [/ (나누기)](https://msdn.microsoft.com/library/ms175009.aspx)
-* [모듈로](https://msdn.microsoft.com/library/ms190279.aspx)
+* [+(더하기)](https://msdn.microsoft.com/library/ms178565.aspx)
+* [+(문자열 연결)](https://msdn.microsoft.com/library/ms177561.aspx)
+* [-(음수)](https://msdn.microsoft.com/library/ms189480.aspx)
+* [-(빼기)](https://msdn.microsoft.com/library/ms189518.aspx)
+* [*(곱하기)](https://msdn.microsoft.com/library/ms176019.aspx)
+* [/(나누기)](https://msdn.microsoft.com/library/ms175009.aspx)
+* [나머지](https://msdn.microsoft.com/library/ms190279.aspx)
 
 ## <a name="wildcard-characters-to-match"></a>일치하는 와일드 카드 문자
-* [= (같음)](https://msdn.microsoft.com/library/ms175118.aspx)
+* [=(같음)](https://msdn.microsoft.com/library/ms175118.aspx)
 * [> (다음보다 큼)](https://msdn.microsoft.com/library/ms178590.aspx)
 * [< (다음보다 적음)](https://msdn.microsoft.com/library/ms179873.aspx)
 * [>= (다음보다 크거나 다음과 같음)](https://msdn.microsoft.com/library/ms181567.aspx)
@@ -65,24 +65,24 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [<> (다음과 같지 않음)](https://msdn.microsoft.com/library/ms176020.aspx)
 * [!= (다음과 같지 않음)](https://msdn.microsoft.com/library/ms190296.aspx)
 * [및](https://msdn.microsoft.com/library/ms188372.aspx)
-* [사이](https://msdn.microsoft.com/library/ms187922.aspx)
-* [존재](https://msdn.microsoft.com/library/ms188336.aspx)
+* [BETWEEN](https://msdn.microsoft.com/library/ms187922.aspx)
+* [EXISTS](https://msdn.microsoft.com/library/ms188336.aspx)
 * [IN](https://msdn.microsoft.com/library/ms177682.aspx)
 * [NULL이 [아님]](https://msdn.microsoft.com/library/ms188795.aspx)
-* [마찬가지로](https://msdn.microsoft.com/library/ms179859.aspx)
+* [LIKE](https://msdn.microsoft.com/library/ms179859.aspx)
 * [다음이 아님](https://msdn.microsoft.com/library/ms189455.aspx)
-* [또는](https://msdn.microsoft.com/library/ms188361.aspx)
+* [OR](https://msdn.microsoft.com/library/ms188361.aspx)
 
 ### <a name="bitwise-operators"></a>비트 연산자
-* [& (비트 AND)](https://msdn.microsoft.com/library/ms174965.aspx)
-* [| (비트 OR)](https://msdn.microsoft.com/library/ms186714.aspx)
+* [&(비트 단위 AND)](https://msdn.microsoft.com/library/ms174965.aspx)
+* [|(비트 OR)](https://msdn.microsoft.com/library/ms186714.aspx)
 * [^ (비트 단독 OR)](https://msdn.microsoft.com/library/ms190277.aspx)
-* [~ (비트 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
-* [^= (비트 단독 OR 같음)](https://msdn.microsoft.com/library/cc627413.aspx)
-* [|= (비트 OR 같음)](https://msdn.microsoft.com/library/cc627409.aspx)
-* [&= (비트 AND 같음)](https://msdn.microsoft.com/library/cc627427.aspx)
+* [~(비트 단위 NOT)](https://msdn.microsoft.com/library/ms173468.aspx)
+* [^=(배타적 비트 단위 OR EQUALS)](https://msdn.microsoft.com/library/cc627413.aspx)
+* [|=(비트 단위 OR EQUALS)](https://msdn.microsoft.com/library/cc627409.aspx)
+* [&=(비트 단위 AND EQUALS)](https://msdn.microsoft.com/library/cc627427.aspx)
 
-## <a name="functions"></a>Functions
+## <a name="functions"></a>함수
 * [@@DATEFIRST](https://msdn.microsoft.com/library/ms187766.aspx)
 * [@@ERROR](https://msdn.microsoft.com/library/ms188790.aspx)
 * [@@LANGUAGE](https://msdn.microsoft.com/library/ms177557.aspx)
@@ -108,7 +108,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [CONCAT](https://msdn.microsoft.com/library/hh231515.aspx)
 * [COS](https://msdn.microsoft.com/library/ms188919.aspx)
 * [COT](https://msdn.microsoft.com/library/ms188921.aspx)
-* [개수](https://msdn.microsoft.com/library/ms175997.aspx)
+* [COUNT](https://msdn.microsoft.com/library/ms175997.aspx)
 * [COUNT_BIG](https://msdn.microsoft.com/library/ms190317.aspx)
 * [CUME_DIST](https://msdn.microsoft.com/library/hh231078.aspx)
 * [CURRENT_TIMESTAMP](https://msdn.microsoft.com/library/ms188751.aspx)
@@ -126,9 +126,9 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [DAY](https://msdn.microsoft.com/library/ms176052.aspx)
 * [DB_ID](https://msdn.microsoft.com/library/ms186274.aspx)
 * [DB_NAME](https://msdn.microsoft.com/library/ms189753.aspx)
-* [각도](https://msdn.microsoft.com/library/ms178566.aspx)
+* [DEGREES](https://msdn.microsoft.com/library/ms178566.aspx)
 * [DENSE_RANK](https://msdn.microsoft.com/library/ms173825.aspx)
-* [차이점](https://msdn.microsoft.com/library/ms188753.aspx)
+* [DIFFERENCE](https://msdn.microsoft.com/library/ms188753.aspx)
 * [EOMONTH](https://msdn.microsoft.com/library/hh213020.aspx)
 * [ERROR_MESSAGE](https://msdn.microsoft.com/library/ms190358.aspx)
 * [ERROR_NUMBER](https://msdn.microsoft.com/library/ms175069.aspx)
@@ -149,15 +149,15 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [LAG](https://msdn.microsoft.com/library/hh231256.aspx)
 * [LAST_VALUE](https://msdn.microsoft.com/library/hh231517.aspx)
 * [LEAD](https://msdn.microsoft.com/library/hh213125.aspx)
-* [왼쪽](https://msdn.microsoft.com/library/ms177601.aspx)
+* [LEFT](https://msdn.microsoft.com/library/ms177601.aspx)
 * [LEN](https://msdn.microsoft.com/library/ms190329.aspx)
-* [로그](https://msdn.microsoft.com/library/ms190319.aspx)
+* [LOG](https://msdn.microsoft.com/library/ms190319.aspx)
 * [LOG10](https://msdn.microsoft.com/library/ms175121.aspx)
-* [낮은](https://msdn.microsoft.com/library/ms174400.aspx)
+* [LOWER](https://msdn.microsoft.com/library/ms174400.aspx)
 * [LTRIM](https://msdn.microsoft.com/library/ms177827.aspx)
-* [최대](https://msdn.microsoft.com/library/ms187751.aspx)
-* [최소](https://msdn.microsoft.com/library/ms179916.aspx)
-* [월](https://msdn.microsoft.com/library/ms187813.aspx)
+* [MAX](https://msdn.microsoft.com/library/ms187751.aspx)
+* [MIN](https://msdn.microsoft.com/library/ms179916.aspx)
+* [MONTH](https://msdn.microsoft.com/library/ms187813.aspx)
 * [NCHAR](https://msdn.microsoft.com/library/ms182673.aspx)
 * [NTILE](https://msdn.microsoft.com/library/ms175126.aspx)
 * [NULLIF](https://msdn.microsoft.com/library/ms177562.aspx)
@@ -173,37 +173,37 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [PERCENTILE_DISC](https://msdn.microsoft.com/library/hh231327.aspx)
 * [PERCENT_RANK](https://msdn.microsoft.com/library/hh213573.aspx)
 * [PI](https://msdn.microsoft.com/library/ms189512.aspx)
-* [전원](https://msdn.microsoft.com/library/ms174276.aspx)
+* [POWER](https://msdn.microsoft.com/library/ms174276.aspx)
 * [QUOTENAME](https://msdn.microsoft.com/library/ms176114.aspx)
-* [라디안](https://msdn.microsoft.com/library/ms189742.aspx)
+* [RADIANS](https://msdn.microsoft.com/library/ms189742.aspx)
 * [RAND](https://msdn.microsoft.com/library/ms177610.aspx)
 * [RANK](https://msdn.microsoft.com/library/ms176102.aspx)
-* [바꾸기](https://msdn.microsoft.com/library/ms186862.aspx)
-* [복제](https://msdn.microsoft.com/library/ms174383.aspx)
-* [역방향](https://msdn.microsoft.com/library/ms180040.aspx)
-* [오른쪽](https://msdn.microsoft.com/library/ms177532.aspx)
-* [반올림](https://msdn.microsoft.com/library/ms175003.aspx)
+* [REPLACE](https://msdn.microsoft.com/library/ms186862.aspx)
+* [REPLICATE](https://msdn.microsoft.com/library/ms174383.aspx)
+* [REVERSE](https://msdn.microsoft.com/library/ms180040.aspx)
+* [RIGHT](https://msdn.microsoft.com/library/ms177532.aspx)
+* [ROUND](https://msdn.microsoft.com/library/ms175003.aspx)
 * [ROW_NUMBER](https://msdn.microsoft.com/library/ms186734.aspx)
 * [RTRIM](https://msdn.microsoft.com/library/ms178660.aspx)
 * [SCHEMA_ID](https://msdn.microsoft.com/library/ms188797.aspx)
 * [SCHEMA_NAME](https://msdn.microsoft.com/library/ms175068.aspx)
 * [SERVERPROPERTY](https://msdn.microsoft.com/library/ms174396.aspx)
 * [SESSION_USER](https://msdn.microsoft.com/library/ms177587.aspx)
-* [로그인](https://msdn.microsoft.com/library/ms188420.aspx)
+* [SIGN](https://msdn.microsoft.com/library/ms188420.aspx)
 * [SIN](https://msdn.microsoft.com/library/ms188377.aspx)
 * [SMALLDATETIMEFROMPARTS](https://msdn.microsoft.com/library/hh213396.aspx)
 * [SOUNDEX](https://msdn.microsoft.com/library/ms187384.aspx)
-* [공간](https://msdn.microsoft.com/library/ms187950.aspx)
+* [SPACE](https://msdn.microsoft.com/library/ms187950.aspx)
 * [SQL_VARIANT_PROPERTY](https://msdn.microsoft.com/library/ms178550.aspx)
 * [SQRT](https://msdn.microsoft.com/library/ms176108.aspx)
-* [정사각형](https://msdn.microsoft.com/library/ms173569.aspx)
+* [SQUARE](https://msdn.microsoft.com/library/ms173569.aspx)
 * [STATS_DATE](https://msdn.microsoft.com/library/ms190330.aspx)
 * [STDEV](https://msdn.microsoft.com/library/ms190474.aspx)
 * [STDEVP](https://msdn.microsoft.com/library/ms176080.aspx)
 * [STR](https://msdn.microsoft.com/library/ms189527.aspx)
 * [STUFF](https://msdn.microsoft.com/library/ms188043.aspx)
-* [하위 문자열](https://msdn.microsoft.com/library/ms187748.aspx)
-* [합계](https://msdn.microsoft.com/library/ms187810.aspx)
+* [SUBSTRING](https://msdn.microsoft.com/library/ms187748.aspx)
+* [SUM](https://msdn.microsoft.com/library/ms187810.aspx)
 * [SUSER_SNAME](https://msdn.microsoft.com/library/ms174427.aspx)
 * [SWITCHOFFSET](https://msdn.microsoft.com/library/bb677244.aspx)
 * [SYSDATETIME](https://msdn.microsoft.com/library/bb630353.aspx)
@@ -217,22 +217,22 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [TYPE_ID](https://msdn.microsoft.com/library/ms181628.aspx)
 * [TYPE_NAME](https://msdn.microsoft.com/library/ms189750.aspx)
 * [TYPEPROPERTY](https://msdn.microsoft.com/library/ms188419.aspx)
-* [유니코드](https://msdn.microsoft.com/library/ms180059.aspx)
-* [위](https://msdn.microsoft.com/library/ms180055.aspx)
-* [사용자](https://msdn.microsoft.com/library/ms186738.aspx)
+* [UNICODE](https://msdn.microsoft.com/library/ms180059.aspx)
+* [UPPER](https://msdn.microsoft.com/library/ms180055.aspx)
+* [USER](https://msdn.microsoft.com/library/ms186738.aspx)
 * [USER_NAME](https://msdn.microsoft.com/library/ms188014.aspx)
 * [VAR](https://msdn.microsoft.com/library/ms186290.aspx)
 * [VARP](https://msdn.microsoft.com/library/ms188735.aspx)
-* [연도](https://msdn.microsoft.com/library/ms186313.aspx)
+* [YEAR](https://msdn.microsoft.com/library/ms186313.aspx)
 * [XACT_STATE](https://msdn.microsoft.com/library/ms189797.aspx)
 
 ## <a name="transactions"></a>트랜잭션
 * [트랜잭션](https://msdn.microsoft.com/library/mt204031.aspx)
 
 ## <a name="diagnostic-sessions"></a>진단 세션
-* [진단 세션 만들기](https://msdn.microsoft.com/library/mt204029.aspx)
+* [CREATE DIAGNOSTICS SESSION](https://msdn.microsoft.com/library/mt204029.aspx)
 
-## <a name="procedures"></a>프로시저
+## <a name="procedures"></a>절차
 * [sp_addrolemember](https://msdn.microsoft.com/library/ms187750.aspx)
 * [sp_columns](https://msdn.microsoft.com/library/ms176077.aspx)
 * [sp_configure](https://msdn.microsoft.com/library/ms188787.aspx)
@@ -278,5 +278,5 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 언어 요소에 대한 설명
 * [SET XACT_ABORT](https://msdn.microsoft.com/library/ms188792.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참고 정보는 [Microsoft Azure SQL Data Warehouse의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Azure SQL Data Warehouse의 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)를 참조합니다.
+자세한 참조 정보는 sql [analytics의 t-sql 문](sql-data-warehouse-reference-tsql-statements.md)및 [Sql analytics의 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)를 참조 하세요.
 

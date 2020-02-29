@@ -6,20 +6,21 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 9f88af7027f6c907b5b55eb9aac545d98e2fbb7a
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: b9ff80275cc89dde0db215856c2e134c4b273020
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70880840"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199736"
 ---
 # <a name="monitor-and-manage-certificate-creation"></a>인증서 만들기 모니터링 및 관리
-적용 대상: Azure
+Azure에 적용합니다.
 
-다음 
+지원되는 
 
 이 문서에 설명된 시나리오는 / 작업은 다음과 같습니다.
 
@@ -87,7 +88,7 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 ### <a name="request"></a>요청
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -122,7 +123,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -154,7 +155,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -193,7 +194,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>요청
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 GET `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -292,12 +293,12 @@ StatusCode: 403, ReasonPhrase: 'Forbidden'
 
 |메서드|요청 URI|
 |------------|-----------------|
-|PATCH|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
+|패치|`https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}`|
 
 ### <a name="request"></a>요청
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 PATCH `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -337,7 +338,7 @@ StatusCode: 200, ReasonPhrase: 'OK'
 ### <a name="request"></a>요청
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}&request_id=a76827a18b63421c917da80f28e9913d"`
 
-또는
+OR
 
 DELETE `“https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api-version={api-version}"`
 
@@ -413,9 +414,9 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1/pending?api
 
 ```
 
-|요소 이름|필수|형식|버전|Description|
+|요소 이름|필수|형식|버전|설명|
 |------------------|--------------|----------|-------------|-----------------|
-|x5c|예|배열|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
+|x5c|예|array|\<소개 버전>|기본 64 문자열 배열로 X509 인증서 체인|
 
 ### <a name="response"></a>응답
 
@@ -475,5 +476,5 @@ Location: “https://mykeyvault.vault.azure.net/certificates/mycert1?api-version
 
 ```
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

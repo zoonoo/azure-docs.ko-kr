@@ -3,20 +3,20 @@ title: 응용 프로그램 및 Api를 b2clogin.com로 마이그레이션
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 리디렉션 URL에 b2clogin.com을 사용하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa1e6d8705cf4aed975ed0940087f243a06a9019
-ms.sourcegitcommit: ef568f562fbb05b4bd023fe2454f9da931adf39a
+ms.openlocfilehash: 64b440054795670b99a22e37dec7188f3e1cd74c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/17/2020
-ms.locfileid: "77372688"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189993"
 ---
 # <a name="set-redirect-urls-to-b2clogincom-for-azure-active-directory-b2c"></a>Azure Active Directory B2C의 리디렉션 URL을 b2clogin.com으로 설정
 
@@ -58,7 +58,7 @@ B2clogin.com 리디렉션 Url에 사용할 수 있는 두 가지 형식이 있�
 https://{your-tenant-name}.b2clogin.com/{your-tenant-id}/oauth2/authresp
 ```
 
-두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 다음은 그 예입니다.
+두 번째 옵션은 `your-tenant-name.onmicrosoft.com`형식으로 테 넌 트 도메인 이름을 사용 합니다. 예를 들면 다음과 같습니다.
 
 ```
 https://{your-tenant-name}.b2clogin.com/{your-tenant-name}.onmicrosoft.com/oauth2/authresp

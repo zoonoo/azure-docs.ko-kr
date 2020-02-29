@@ -3,20 +3,20 @@ title: Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 titleSuffix: Azure AD B2C
 description: 위임 된 리소스 관리를 사용 하 여 Azure Monitor로 Azure AD B2C 이벤트를 기록 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.date: 02/10/2020
-ms.openlocfilehash: 6f7f0252a6377397ccaccdc44c9c8561da7c9d29
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: acba378badb41324b2124b84833407da920a0e00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77121388"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190061"
 ---
 # <a name="monitor-azure-ad-b2c-with-azure-monitor"></a>Azure Monitor를 사용 하 여 Azure AD B2C 모니터링
 
@@ -30,7 +30,7 @@ Azure Monitor를 사용 하 여 Azure Active Directory B2C (Azure AD B2C) 로그
 
 ![Azure Monitor](./media/azure-monitor/azure-monitor-flow.png)
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 문서의 단계를 완료 하려면 Azure PowerShell 모듈을 사용 하 여 Azure Resource Manager 템플릿을 배포 합니다.
 
@@ -234,7 +234,7 @@ Azure Portal에서 [진단 설정을 만들](../active-directory/reports-monitor
 1. 아직 없는 경우 설정 이름을 지정 합니다.
 1. 로그를 보낼 각 대상에 대 한 확인란을 선택 합니다. **구성** 을 선택 하 여 다음 표에 설명 된 대로 설정을 지정 합니다.
 
-    | 설정 | Description |
+    | 설정 | 설명 |
     |:---|:---|
     | 스토리지 계정에 보관 | 저장소 계정의 이름입니다. |
     | 이벤트 허브로 스트림 | 이벤트 허브가 생성 되는 네임 스페이스 (처음으로 로그를 스트리밍하는 경우) 또는 스트리밍되는 경우 (해당 로그 범주를이 네임 스페이스로 스트리밍하는 리소스가 이미 있는 경우).

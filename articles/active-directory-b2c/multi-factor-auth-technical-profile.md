@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 Azure MFA 기술 프로필
 titleSuffix: Azure AD B2C
 description: Azure AD B2C의 MFA (Azure Multi-Factor Authentication) 기술 프로필에 대 한 사용자 지정 정책 참조입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a8aaea6b2afb4d89e6e667edba0eeba2f4ddcca8
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 05851dba9de06b5dfba2da4f455fbaf5e9376d08
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75480217"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184284"
 ---
 # <a name="define-an-azure-mfa-technical-profile-in-an-azure-ad-b2c-custom-policy"></a>Azure AD B2C 사용자 지정 정책에서 Azure MFA 기술 프로필 정의
 
@@ -53,12 +53,12 @@ Web.TPEngine.Providers.AzureMfaProtocolProvider, Web.TPEngine, Version=1.0.0.0, 
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필수 | Description |
+| ClaimReferenceId | 필수 | 설명 |
 | --------- | -------- | ----------- |
 | userPrincipalName | 예 | 전화 번호를 소유 하는 사용자의 식별자입니다. |
 | phoneNumber | 예 | SMS 코드를 보낼 전화 번호입니다. |
-| companyName | 아닙니다. |SMS의 회사 이름입니다. 제공 하지 않으면 응용 프로그램 이름이 사용 됩니다. |
-| locale | 아닙니다. | SMS의 로캘입니다. 제공 하지 않으면 사용자의 브라우저 로캘이 사용 됩니다. |
+| companyName | 아니요 |SMS의 회사 이름입니다. 제공 하지 않으면 응용 프로그램 이름이 사용 됩니다. |
+| 로캘(locale) | 아니요 | SMS의 로캘입니다. 제공 하지 않으면 사용자의 브라우저 로캘이 사용 됩니다. |
 
 **InputClaimsTransformations** 요소는 Azure MFA 서비스로 보내기 전에 입력 클레임을 수정 하거나 새 항목을 생성 하는 데 사용 되는 **InputClaimsTransformation** 요소의 컬렉션을 포함할 수 있습니다.
 
@@ -70,16 +70,16 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 ### <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업 | 예 | **OneWaySMS**이어야 합니다.  |
-| Usermessageifin유효한 형식 | 아닙니다. | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 지정 오류 메시지 |
-| UserMessageIfCouldntSendSms | 아닙니다. | 제공 된 전화 번호에 SMS를 사용할 수 없는 경우 사용자 지정 오류 메시지 |
-| UserMessageIfServerError | 아닙니다. | 서버에 내부 오류가 발생 한 경우 사용자 지정 오류 메시지 |
+| 연산 | 예 | **OneWaySMS**이어야 합니다.  |
+| Usermessageifin유효한 형식 | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 지정 오류 메시지 |
+| UserMessageIfCouldntSendSms | 아니요 | 제공 된 전화 번호에 SMS를 사용할 수 없는 경우 사용자 지정 오류 메시지 |
+| UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 지정 오류 메시지 |
 
 ### <a name="return-an-error-message"></a>오류 메시지 반환
 
-[메타 데이터](#metadata)에 설명 된 대로 사용자에 게 표시 되는 오류 메시지를 사용자 지정 하 여 다른 오류 사례를 확인할 수 있습니다. 이러한 메시지는 로캘에 접두사로 추가 하 여 지역화할 수 있습니다. 예:
+[메타 데이터](#metadata)에 설명 된 대로 사용자에 게 표시 되는 오류 메시지를 사용자 지정 하 여 다른 오류 사례를 확인할 수 있습니다. 이러한 메시지는 로캘에 접두사로 추가 하 여 지역화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```XML
 <Item Key="en.UserMessageIfInvalidFormat">Invalid phone number.</Item>
@@ -115,7 +115,7 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 **Inputclaims** 요소는 Azure MFA로 보낼 클레임 목록을 포함 합니다. 클레임의 이름을 MFA 기술 프로필에 정의 된 이름에 매핑할 수도 있습니다.
 
-| ClaimReferenceId | 필수 | Description |
+| ClaimReferenceId | 필수 | 설명 |
 | --------- | -------- | ----------- | ----------- |
 | phoneNumber| 예 | 이전에 코드를 전송 하는 데 사용한 것과 동일한 전화 번호입니다. 전화 확인 세션을 찾는 데도 사용 됩니다. |
 | verificationCode  | 예 | 사용자가 제공 하는 확인 코드를 확인 합니다. |
@@ -130,18 +130,18 @@ Azure MFA 프로토콜 공급자는 **outputclaims**반환 되지 않으므로 �
 
 ## <a name="metadata"></a>메타데이터
 
-| attribute | 필수 | Description |
+| 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| 작업 | 예 | **확인** 해야 함 |
-| Usermessageifin유효한 형식 | 아닙니다. | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 지정 오류 메시지 |
-| UserMessageIfWrongCodeEntered | 아닙니다. | 확인을 위해 입력 한 코드가 잘못 된 경우 사용자 지정 오류 메시지 |
-| UserMessageIfMaxAllowedCodeRetryReached | 아닙니다. | 사용자가 확인 코드를 너무 많이 시도 하는 경우 사용자 지정 오류 메시지 |
-| UserMessageIfThrottled | 아닙니다. | 사용자가 제한 되는 경우 사용자 지정 오류 메시지 |
-| UserMessageIfServerError | 아닙니다. | 서버에 내부 오류가 발생 한 경우 사용자 지정 오류 메시지 |
+| 연산 | 예 | **확인** 해야 함 |
+| Usermessageifin유효한 형식 | 아니요 | 제공 된 전화 번호가 올바른 전화 번호가 아닌 경우 사용자 지정 오류 메시지 |
+| UserMessageIfWrongCodeEntered | 아니요 | 확인을 위해 입력 한 코드가 잘못 된 경우 사용자 지정 오류 메시지 |
+| UserMessageIfMaxAllowedCodeRetryReached | 아니요 | 사용자가 확인 코드를 너무 많이 시도 하는 경우 사용자 지정 오류 메시지 |
+| UserMessageIfThrottled | 아니요 | 사용자가 제한 되는 경우 사용자 지정 오류 메시지 |
+| UserMessageIfServerError | 아니요 | 서버에 내부 오류가 발생 한 경우 사용자 지정 오류 메시지 |
 
 ### <a name="return-an-error-message"></a>오류 메시지 반환
 
-[메타 데이터](#metadata)에 설명 된 대로 사용자에 게 표시 되는 오류 메시지를 사용자 지정 하 여 다른 오류 사례를 확인할 수 있습니다. 이러한 메시지는 로캘에 접두사로 추가 하 여 지역화할 수 있습니다. 예:
+[메타 데이터](#metadata)에 설명 된 대로 사용자에 게 표시 되는 오류 메시지를 사용자 지정 하 여 다른 오류 사례를 확인할 수 있습니다. 이러한 메시지는 로캘에 접두사로 추가 하 여 지역화할 수 있습니다. 예를 들면 다음과 같습니다.
 
 ```XML
 <Item Key="en.UserMessageIfWrongCodeEntered">Wrong code has been entered.</Item>

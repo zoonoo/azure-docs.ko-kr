@@ -1,20 +1,20 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 0ab9302909f86ff4559ece217f8d702710733691
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.author: mimart
+ms.openlocfilehash: 31d4b65c6cd6a3dfe3cb779022329f338436c69b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75368007"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184358"
 ---
 Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
@@ -27,7 +27,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 1. **만들기**를 선택합니다.
 1. **등록 된 앱** 개요 페이지에 표시 되는 **응용 프로그램 ID** 를 기록 합니다. 이후 단계에서이 값을 사용 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.

@@ -2,20 +2,20 @@
 title: Azure Portal에서 소비자 사용자 계정 Azure AD B2C 만들기 & 삭제
 description: Azure Portal를 사용 하 여 Azure AD B2C 디렉터리에서 소비자 사용자를 만들고 삭제 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/09/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d96db5cf062da1b2e8badd80a9a00620b724fd4
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: c8fad8b5bd2dccba36c0c6888712fa806f3cbfc8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840420"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187222"
 ---
 # <a name="use-the-azure-portal-to-create-and-delete-consumer-users-in-azure-ad-b2c"></a>Azure Portal를 사용 하 여에서 소비자 사용자를 만들고 삭제 Azure AD B2C
 
@@ -29,7 +29,7 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에서 수동으로 소비
 
 [Azure AD B2C의 사용자 계정 개요](user-overview.md)에 설명 된 대로 Azure AD B2C 디렉터리에서 만들 수 있는 사용자 계정에는 다음 세 가지 유형이 있습니다.
 
-* Work
+* 작업
 * 게스트
 * 소비자
 

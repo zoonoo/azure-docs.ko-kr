@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하 여 암호 복잡성 구성
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 요구 사항을 구성하는 방법입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 12/13/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d0caa029bd33da499db23f218b2392344c4585ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2de1130e28b5071913e4cf3632c3fe4407597a98
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849072"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189143"
 ---
 # <a name="configure-password-complexity-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 암호 복잡성 구성
 
@@ -32,7 +32,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 계정을 만들 때 사용자�
 
 1. 시작 팩과 함께 다운로드한 *SignUpOrSignIn.xml* 파일을 복사하고 이름을 *SingUpOrSignInPasswordComplexity.xml*로 변경합니다.
 2. *SingUpOrSignInPasswordComplexity.xml* 파일을 열고 **PolicyId** 및 **PublicPolicyUri**를 새 정책 이름으로 변경합니다. 예를 들면, *B2C_1A_signup_signin_password_complexity*입니다.
-3. `newPassword` 및 `reenterPassword`의 식별자를 사용하여 다음 **ClaimType** 요소를 추가합니다.
+3. **및**의 식별자를 사용하여 다음 `newPassword`ClaimType`reenterPassword` 요소를 추가합니다.
 
     ```XML
     <ClaimsSchema>

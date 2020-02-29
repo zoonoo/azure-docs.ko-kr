@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/18/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 7f32664f4bb9407d915b7909f9ecdeebe96bd551
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 03ad504258dd9448753f37402067a0da3e0a2c00
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75771941"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197643"
 ---
 # <a name="azure-key-vault-basic-concepts"></a>Azure Key Vault 기본 개념
 
@@ -54,7 +55,7 @@ Key Vault를 사용 하 여 작업을 수행 하려면 먼저 해당 작업을 �
 
 다음 표에서 키 자격 증명 모음이 개발자와 보안 관리자의 요구를 충족하도록 도와주는 방법을 더 잘 이해할 수 있습니다.
 
-| 역할 | 문제 설명 | Azure Key Vault로 해결됨 |
+| Role | 문제 설명 | Azure Key Vault로 해결됨 |
 | --- | --- | --- |
 | Azure 애플리케이션용 개발자 |"서명 및 암호화를 위해 키를 사용 하는 Azure 용 응용 프로그램을 작성 하려고 합니다. 그러나 이러한 키는 지리적으로 분산 된 응용 프로그램에 적합 하도록 내 응용 프로그램에서 외부에 있게 하려고 합니다. <br/><br/>직접 코드를 작성하지 않고도 이러한 키와 비밀을 보호하려고 합니다. 또한 이러한 키와 비밀을 내 애플리케이션에서 최적의 성능으로 사용할 수 있게 하려고 합니다." |√ 키를 자격 증명 모음에 저장하고 필요할 때 URI로 호출합니다.<br/><br/> √ Azure에서는 업계 표준 알고리즘, 키 길이 및 하드웨어 보안 모듈을 사용하여 키를 보호합니다.<br/><br/> √ 애플리케이션과 동일한 Azure 데이터 센터에 상주하는 HSM에서 키를 처리합니다. 이 방법은 온-프레미스와 같이 별도의 위치에 있는 키보다 안정성이 뛰어나 대기 시간이 줄어 듭니다. |
 | SaaS(Software as a Service) 개발자 |"내 고객의 테넌트 키와 암호에 대한 책임 또는 잠재적인 법적 책임을 원하지 않습니다. <br/><br/>핵심 소프트웨어 기능을 제공하는 일에 최선을 다해 집중할 수 있도록 고객이 키를 소유하고 관리하기를 원합니다." |√ 고객은 Azure에서 고유한 키를 가져오고 관리할 수 있습니다. SaaS 응용 프로그램에서 고객의 키를 사용 하 여 암호화 작업을 수행 해야 하는 경우 Key Vault는 응용 프로그램을 대신 하 여 이러한 작업을 수행 합니다. 애플리케이션에서 고객의 키를 표시하지 않습니다. |

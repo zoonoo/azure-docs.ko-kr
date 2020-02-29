@@ -2,20 +2,20 @@
 title: 토큰 개요-Azure Active Directory B2C
 description: Azure Active Directory B2C에서 사용 되는 토큰에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/27/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 543a3558333933e9d8d6262c76c1e6e9419be877
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: cbbd083a6b62733d71c316af95dffaa188b28955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848188"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186491"
 ---
 # <a name="overview-of-tokens-in-azure-active-directory-b2c"></a>Azure Active Directory B2C 토큰 개요
 
@@ -50,9 +50,9 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 
 다음 표에서는 Azure AD B2C에서 발급 한 ID 토큰 및 액세스 토큰에서 예측할 수 있는 클레임을 나열 합니다.
 
-| 이름 | 클레임 | 예제 값 | Description |
+| 이름 | 클레임 | 예제 값 | 설명 |
 | ---- | ----- | ------------- | ----------- |
-| 대상 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 토큰의 의도한 수신자를 식별합니다. Azure AD B2C 대상 사용자는 응용 프로그램 ID입니다. 응용 프로그램은이 값의 유효성을 검사 하 고 일치 하지 않는 경우 토큰을 거부 해야 합니다. 대상은 리소스와 동의어입니다. |
+| 대상 그룹 | `aud` | `90c0fe63-bcf2-44d5-8fb7-b8bbc0b29dc6` | 토큰의 의도한 수신자를 식별합니다. Azure AD B2C 대상 사용자는 응용 프로그램 ID입니다. 응용 프로그램은이 값의 유효성을 검사 하 고 일치 하지 않는 경우 토큰을 거부 해야 합니다. 대상은 리소스와 동의어입니다. |
 | 발급자 | `iss` |`https://{tenant}.b2clogin.com/775527ff-9a37-4307-8b3d-cc311f58d925/v2.0/` | 토큰을 생성하고 반환하는 STS(보안 토큰 서비스)를 식별합니다. 또한 사용자가 인증 된 디렉터리를 식별 합니다. 응용 프로그램은 발급자 클레임의 유효성을 검사 하 여 토큰이 적절 한 끝점에서 제공 되었는지 확인 해야 합니다. |
 | 발급 시간 | `iat` | `1438535543` | epoch 시간으로 표시된, 토큰이 발급된 시간입니다. |
 | 만료 시간 | `exp` | `1438539443` | epoch 시간으로 표시된, 토큰이 무효화되는 시간입니다. 응용 프로그램은이 클레임을 사용 하 여 토큰 수명의 유효성을 확인 해야 합니다. |
@@ -61,8 +61,8 @@ ID 토큰의 클레임은 특정 순서로 반환 되지 않습니다. 언제 �
 | 코드 해시 | `c_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | OAuth 2.0 인증 코드와 함께 토큰이 발급 된 경우에만 ID 토큰에 포함 된 코드 해시입니다. 코드 해시는 인증 코드의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행 하는 방법에 대 한 자세한 내용은 [Openid connect Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html)을 참조 하세요.  |
 | 액세스 토큰 해시 | `at_hash` | `SGCPtt01wxwfgnYZy2VJtQ` | 토큰이 OAuth 2.0 액세스 토큰과 함께 발급 된 경우에만 ID 토큰에 포함 된 액세스 토큰 해시입니다. 액세스 토큰 해시는 액세스 토큰의 신뢰성이 유효한지 검사하는 데 사용할 수 있습니다. 이 유효성 검사를 수행 하는 방법에 대 한 자세한 내용은 [Openid connect Connect 사양](https://openid.net/specs/openid-connect-core-1_0.html) 을 참조 하세요.  |
 | nonce | `nonce` | `12345` | nonce는 토큰 재생 공격을 완화하는 데 사용된 전략입니다. 응용 프로그램은 `nonce` 쿼리 매개 변수를 사용 하 여 권한 부여 요청에서 nonce를 지정할 수 있습니다. 요청에 제공한 값은 ID 토큰의 `nonce` 클레임 에서만 수정 되지 않은 상태로 내보내집니다. 이 클레임을 통해 응용 프로그램은 요청에 지정 된 값에 대해 값을 확인할 수 있습니다. 응용 프로그램은 ID 토큰 유효성 검사 프로세스 중에이 유효성 검사를 수행 해야 합니다. |
-| 제목 | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 응용 프로그램의 사용자와 같이 토큰이 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. |
-| 인증 컨텍스트 클래스 참조 | `acr` | 적용되지 않음 | 이전 정책 에서만 사용 됩니다. |
+| Subject | `sub` | `884408e1-2918-4cz0-b12d-3aa027d7563b` | 응용 프로그램의 사용자와 같이 토큰이 정보를 어설션하는 보안 주체입니다. 이 값은 변경할 수 없으며 재할당 또는 재사용할 수 없습니다. 예를 들어 리소스 액세스에 토큰을 사용할 때 이 값을 사용하면 안전하게 인증 검사를 수행할 수 있습니다. 기본적으로 주체 클레임은 디렉터리에 있는 사용자의 개체 ID로 채워집니다. |
+| 인증 컨텍스트 클래스 참조 | `acr` | 해당 사항 없음 | 이전 정책 에서만 사용 됩니다. |
 | 보안 프레임워크 정책 | `tfp` | `b2c_1_signupsignin1` | ID 토큰을 획득 하는 데 사용 된 정책의 이름입니다. |
 | 인증 시간 | `auth_time` | `1438535543` | 사용자가 마지막으로 자격 증명을 입력 한 시간으로, epoch 시간으로 표시 됩니다. 이 인증에는 새 로그인, SSO (Single Sign-On) 세션 또는 다른 로그인 유형이 있습니다. `auth_time`는 응용 프로그램 (또는 사용자)이 Azure AD B2C에 대 한 인증 시도를 마지막으로 시작한 시간입니다. 인증에 사용 되는 메서드는 차별화 되지 않습니다. |
 | 범위 | `scp` | `Read`| 액세스 토큰에 대 한 리소스에 부여 된 권한입니다. 부여 된 여러 사용 권한은 공백으로 구분 됩니다. |

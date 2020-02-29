@@ -1,5 +1,5 @@
 ---
-title: 관리 되는 인스턴스-특정 시점 복원
+title: 관리 되는 인스턴스-특정 시점 복원 (PITR)
 description: 관리 되는 인스턴스의 SQL 데이터베이스를 이전 시점으로 복원 합니다.
 services: sql-database
 ms.service: sql-database
@@ -11,12 +11,12 @@ author: jovanpop-msft
 ms.author: jovanpop
 ms.reviewer: sstein, carlrab, mathoma
 ms.date: 08/25/2019
-ms.openlocfilehash: 9ed694ec524c4e3e033c3139735e8e079141ec4a
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 27f465e6864d0ff639e825c8a816d86648bd8853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76515125"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197524"
 ---
 # <a name="restore-a-sql-database-in-a-managed-instance-to-a-previous-point-in-time"></a>관리 되는 인스턴스의 SQL 데이터베이스를 이전 시점으로 복원
 
@@ -24,22 +24,18 @@ PITR (지정 시간 복원)을 사용 하 여 과거의 특정 시점에서 다�
 
 특정 시점 복원은 오류로 인 한 인시던트, 잘못 로드 된 데이터 또는 중요 한 데이터 삭제와 같은 복구 시나리오에서 유용 합니다. 테스트 또는 감사에만 사용할 수도 있습니다. 백업 파일은 데이터베이스 설정에 따라 7 일에서 35 일 동안 유지 됩니다.
 
-지정 시간 복원은 다음을 수행할 수 있습니다.
+지정 시간 복원은 데이터베이스를 복원할 수 있습니다.
 
-- 기존 데이터베이스에서 데이터베이스를 복원 합니다.
-- 삭제 된 데이터베이스에서 데이터베이스를 복원 합니다.
-
-관리 되는 인스턴스의 경우 지정 시간 복원도 다음을 수행할 수 있습니다.
-
-- 동일한 관리 되는 인스턴스로 데이터베이스를 복원 합니다.
-- 다른 관리 되는 인스턴스로 데이터베이스를 복원 합니다.
-
-> [!NOTE]
-> 전체 관리 되는 인스턴스의 지정 시간 복원은 가능 하지 않습니다. 이 문서에서는 관리 되는 인스턴스에서 호스팅되는 데이터베이스의 지정 시간 복원과 같은 작업을 설명 합니다.
+- 기존 데이터베이스를 기반으로 합니다.
+- 삭제 된 데이터베이스에서
+- 동일한 관리 되는 인스턴스 또는 다른 관리 되는 인스턴스로 
 
 ## <a name="limitations"></a>제한 사항
 
-하나의 관리 되는 인스턴스에서 다른 인스턴스로 복원 하는 경우 두 인스턴스는 동일한 구독 및 지역에 있어야 합니다. 지역 간 및 구독 간 복원은 현재 지원 되지 않습니다.
+관리 되는 인스턴스에 대 한 특정 시점 복원에는 다음과 같은 제한 사항이 있습니다.
+
+- 하나의 관리 되는 인스턴스에서 다른 인스턴스로 복원 하는 경우 두 인스턴스는 동일한 구독 및 지역에 있어야 합니다. 지역 간 및 구독 간 복원은 현재 지원 되지 않습니다.
+- 전체 관리 되는 인스턴스의 지정 시간 복원은 가능 하지 않습니다. 이 문서에서는 관리 되는 인스턴스에서 호스팅되는 데이터베이스의 지정 시간 복원과 같은 작업을 설명 합니다.
 
 > [!WARNING]
 > 관리 되는 인스턴스의 저장소 크기를 알고 있어야 합니다. 복원할 데이터의 크기에 따라 인스턴스 저장소가 부족 한 것일 수 있습니다. 복원 된 데이터를 저장할 공간이 충분 하지 않은 경우에는 다른 방법을 사용 합니다.
@@ -48,15 +44,15 @@ PITR (지정 시간 복원)을 사용 하 여 과거의 특정 시점에서 다�
 
 |           |기존 DB를 동일한 관리 되는 인스턴스로 복원| 기존 DB를 다른 관리 되는 인스턴스로 복원|삭제 된 DB를 동일한 관리 되는 인스턴스로 복원|삭제 된 DB를 다른 관리 되는 인스턴스로 복원|
 |:----------|:----------|:----------|:----------|:----------|
-|**Azure Portal**| 예|아닙니다. |아닙니다.|아닙니다.|
-|**Azure CLI**|예 |예 |아닙니다.|아닙니다.|
+|**Azure Portal**| 예|아니요 |예|아니요|
+|**Azure CLI**|예 |예 |아니요|아니요|
 |**PowerShell**| 예|예 |예|예|
 
 ## <a name="restore-an-existing-database"></a>기존 데이터베이스 복원
 
-Azure Portal, Powershell 또는 Azure CLI를 사용 하 여 기존 데이터베이스를 동일한 인스턴스로 복원 합니다. 다른 인스턴스로 데이터베이스를 복원 하려면 대상 관리 되는 인스턴스 및 리소스 그룹에 대 한 속성을 지정할 수 있도록 Powershell 또는 Azure CLI를 사용 합니다. 이러한 매개 변수를 지정 하지 않으면 기본적으로 데이터베이스가 기존 인스턴스로 복원 됩니다. Azure Portal는 현재 다른 인스턴스로의 복원을 지원 하지 않습니다.
+Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 기존 데이터베이스를 동일한 인스턴스로 복원 합니다. 다른 인스턴스로 데이터베이스를 복원 하려면 대상 관리 되는 인스턴스 및 리소스 그룹에 대 한 속성을 지정할 수 있도록 PowerShell 또는 Azure CLI를 사용 합니다. 이러한 매개 변수를 지정 하지 않으면 기본적으로 데이터베이스가 기존 인스턴스로 복원 됩니다. Azure Portal는 현재 다른 인스턴스로의 복원을 지원 하지 않습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다. 
 2. 관리 되는 인스턴스로 이동 하 여 복원 하려는 데이터베이스를 선택 합니다.
@@ -67,7 +63,7 @@ Azure Portal, Powershell 또는 Azure CLI를 사용 하 여 기존 데이터베�
 4. **복원** 페이지에서 데이터베이스를 복원할 날짜 및 시간에 대 한 지점을 선택 합니다.
 5. **확인** 을 선택 하 여 데이터베이스를 복원 합니다. 이 작업은 복원 프로세스를 시작 합니다. 그러면 새 데이터베이스가 만들어지고 지정 된 시점의 원래 데이터베이스의 데이터로 채워집니다. 복구 프로세스에 대 한 자세한 내용은 [복구 시간](sql-database-recovery-using-backups.md#recovery-time)을 참조 하세요.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 Azure PowerShell 아직 설치 하지 않은 경우 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps)를 참조 하세요.
 
@@ -92,7 +88,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
                               -TargetInstanceDatabaseName $targetDatabase `
 ```
 
-다른 관리 되는 인스턴스로 데이터베이스를 복원 하려면 대상 리소스 그룹 및 관리 되는 인스턴스의 이름도 지정 해야 합니다.  
+다른 관리 되는 인스턴스로 데이터베이스를 복원 하려면 대상 리소스 그룹 및 대상 관리 되는 인스턴스의 이름도 지정 해야 합니다.  
 
 ```powershell-interactive
 $targetResourceGroupName = "<Resource group of target managed instance>"
@@ -110,7 +106,7 @@ Restore-AzSqlInstanceDatabase -FromPointInTimeBackup `
 
 자세한 내용은 [AzSqlInstanceDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqlinstancedatabase)를 참조 하세요.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure CLI 아직 설치 되지 않은 경우 [Azure CLI 설치](/cli/azure/install-azure-cli?view=azure-cli-latest)를 참조 하세요.
 
@@ -136,9 +132,18 @@ az sql midb restore -g mygroupname --mi myinstancename -n mymanageddbname |
 
 ## <a name="restore-a-deleted-database"></a>삭제된 데이터베이스 복원
 
-삭제 된 데이터베이스 복원은 PowerShell 또는 Azure Portal을 사용 하 여 수행할 수 있습니다. [Azure portal](https://docs.microsoft.com/azure/sql-database/sql-database-recovery-using-backups#managed-instance-database-1)에서이 작업을 수행 하려면이 문서를 사용 하세요. 동일한 인스턴스 또는 다른 인스턴스로 데이터베이스를 복원할 수 있습니다.
+PowerShell 또는 Azure Portal를 사용 하 여 삭제 된 데이터베이스를 복원할 수 있습니다. 삭제 된 데이터베이스를 동일한 인스턴스로 복원 하려면 Azure Portal 또는 PowerShell 중 하나를 사용 합니다. 삭제 된 데이터베이스를 다른 인스턴스로 복원 하려면 PowerShell을 사용 합니다. 
 
-PowerShell을 사용 하 여 삭제 된 데이터베이스를 복원 하려면 다음 명령에서 매개 변수의 값을 지정 합니다. 그런 다음 명령을 실행 합니다.
+### <a name="portal"></a>포털 
+
+
+Azure Portal를 사용 하 여 관리 되는 데이터베이스를 복구 하려면 관리 되는 인스턴스 개요 페이지를 열고 **삭제 된 데이터베이스**를 선택 합니다. 복원 하려는 삭제 된 데이터베이스를 선택 하 고 백업에서 복원 된 데이터로 생성 될 새 데이터베이스의 이름을 입력 합니다.
+
+  ![삭제 된 Azure SQL 인스턴스 데이터베이스 복원의 스크린샷](./media/sql-database-recovery-using-backups/restore-deleted-sql-managed-instance-annotated.png)
+
+### <a name="powershell"></a>PowerShell
+
+동일한 인스턴스에 데이터베이스를 복원 하려면 매개 변수 값을 업데이트 한 후 다음 PowerShell 명령을 실행 합니다. 
 
 ```powershell-interactive
 $subscriptionId = "<Subscription ID>"
@@ -148,30 +153,33 @@ Select-AzSubscription -SubscriptionId $subscriptionId
 $resourceGroupName = "<Resource group name>"
 $managedInstanceName = "<Managed instance name>"
 $deletedDatabaseName = "<Source database name>"
+$targetDatabaseName = "<target database name>"
 
-$deleted_db = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
-            -InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName 
+$deletedDatabase = Get-AzSqlDeletedInstanceDatabaseBackup -ResourceGroupName $resourceGroupName `
+-InstanceName $managedInstanceName -DatabaseName $deletedDatabaseName
 
-$pointInTime = "2018-06-27T08:51:39.3882806Z"
-$properties = New-Object System.Object
-$properties | Add-Member -type NoteProperty -name CreateMode -Value "PointInTimeRestore"
-$properties | Add-Member -type NoteProperty -name RestorePointInTime -Value $pointInTime
-$properties | Add-Member -type NoteProperty -name RestorableDroppedDatabaseId -Value $deleted_db.Id
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName
 ```
 
-삭제 된 데이터베이스를 다른 인스턴스로 복원 하려면 리소스 그룹 및 관리 되는 인스턴스의 이름을 변경 합니다. 또한 location 매개 변수가 리소스 그룹 및 관리 되는 인스턴스의 위치와 일치 하는지 확인 합니다.
+다른 관리 되는 인스턴스로 데이터베이스를 복원 하려면 대상 리소스 그룹 및 대상 관리 되는 인스턴스의 이름도 지정 해야 합니다.
 
 ```powershell-interactive
-$resourceGroupName = "<Second resource group name>"
-$managedInstanceName = "<Second managed instance name>"
+$targetResourceGroupName = "<Resource group of target managed instance>"
+$targetInstanceName = "<Target managed instance name>"
 
-$location = "West Europe"
-
-$restoredDBName = "WorldWideImportersPITR"
-$resource_id = "subscriptions/$subscriptionId/resourceGroups/$resourceGroupName/providers/Microsoft.Sql/managedInstances/$managedInstanceName/databases/$restoredDBName"
-
-New-AzResource -Location $location -Properties $properties `
-        -ResourceId $resource_id -ApiVersion "2017-03-01-preview" -Force
+Restore-AzSqlinstanceDatabase -Name $deletedDatabase.Name `
+   -InstanceName $deletedDatabase.ManagedInstanceName `
+   -ResourceGroupName $deletedDatabase.ResourceGroupName `
+   -DeletionDate $deletedDatabase.DeletionDate `
+   -PointInTime UTCDateTime `
+   -TargetInstanceDatabaseName $targetDatabaseName `
+   -TargetResourceGroupName $targetResourceGroupName `
+   -TargetInstanceName $targetInstanceName 
 ```
 
 ## <a name="overwrite-an-existing-database"></a>기존 데이터베이스 덮어쓰기
@@ -191,21 +199,21 @@ Azure Portal, PowerShell 또는 Azure CLI를 사용 하 여 데이터베이스�
 DROP DATABASE WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your database in the managed instance:
+다음 방법 중 하나를 사용 하 여 관리 되는 인스턴스의 데이터베이스에 연결 합니다.
 
-- [SSMS/Azure Data Studio via an Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Azure 가상 머신을 통한 SSMS/Azure Data Studio](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [지점 및 사이트 간](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [공용 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
-In the Azure portal, select the database from the managed instance, and then select **Delete**.
+Azure Portal에서 관리 되는 인스턴스에서 데이터베이스를 선택 하 고 **삭제**를 선택 합니다.
 
-   ![Delete a database by using the Azure portal](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
+   ![Azure Portal를 사용 하 여 데이터베이스 삭제](media/sql-database-managed-instance-point-in-time-restore/delete-database-from-mi.png)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
-Use the following PowerShell command to drop an existing database from a managed instance:
+다음 PowerShell 명령을 사용 하 여 관리 되는 인스턴스에서 기존 데이터베이스를 삭제 합니다.
 
 ```powershell
 $resourceGroupName = "<Resource group name>"
@@ -215,9 +223,9 @@ $databaseName = "<Source database>"
 Remove-AzSqlInstanceDatabase -Name $databaseName -InstanceName $managedInstanceName -ResourceGroupName $resourceGroupName
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
-Use the following Azure CLI command to drop an existing database from a managed instance:
+다음 Azure CLI 명령을 사용 하 여 관리 되는 인스턴스에서 기존 데이터베이스를 삭제할 수 있습니다.
 
 ```azurecli-interactive
 az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
@@ -225,20 +233,20 @@ az sql midb delete -g mygroupname --mi myinstancename -n mymanageddbname
 
 ---
 
-### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>Alter the new database name to match the original database name
+### <a name="alter-the-new-database-name-to-match-the-original-database-name"></a>새 데이터베이스 이름을 원래 데이터베이스 이름과 일치 하도록 변경 합니다.
 
-Connect directly to the managed instance and start SQL Server Management Studio. Then, run the following Transact-SQL (T-SQL) query. The query will change the name of the restored database to that of the dropped database that you intend to overwrite.
+관리 되는 인스턴스에 직접 연결 하 고 SQL Server Management Studio를 시작 합니다. 그런 다음 Transact-sql (T-sql) 쿼리를 실행 합니다. 이 쿼리는 복원 된 데이터베이스의 이름을 덮어쓰려고 하는 삭제 된 데이터베이스의 이름으로 변경 합니다.
 
 ```sql
 ALTER DATABASE WorldWideImportersPITR MODIFY NAME = WorldWideImporters;
 ```
 
-Use one of the following methods to connect to your database in the managed instance:
+다음 방법 중 하나를 사용 하 여 관리 되는 인스턴스의 데이터베이스에 연결 합니다.
 
-- [Azure virtual machine](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
+- [Azure 가상 머신](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-vm)
 - [지점 및 사이트 간](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-configure-p2s)
 - [공용 엔드포인트](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-public-endpoint-configure)
 
 ## <a name="next-steps"></a>다음 단계
 
-Learn about [automated backups](sql-database-automated-backups.md).
+자동화 된 [백업](sql-database-automated-backups.md)에 대해 알아봅니다.

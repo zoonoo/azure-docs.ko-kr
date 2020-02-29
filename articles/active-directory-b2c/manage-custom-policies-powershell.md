@@ -2,20 +2,20 @@
 title: PowerShell을 사용 하 여 사용자 지정 정책 관리
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 사용자 지정 정책을 프로그래밍 방식으로 관리 하려면 Azure Active Directory (Azure AD) PowerShell cmdlet을 사용 합니다. PowerShell을 사용 하 여 사용자 지정 정책을 만들고, 읽고, 업데이트 하 고, 삭제 합니다.
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e29bb245ed0fc79a6f72688dc6e4d044f2828c45
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: ebf0cfffa410d8dfe2f0e0b42a0fee0c16106fde
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463129"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187409"
 ---
 # <a name="manage-azure-ad-b2c-custom-policies-with-azure-powershell"></a>Azure PowerShell를 사용 하 여 Azure AD B2C 사용자 지정 정책 관리
 

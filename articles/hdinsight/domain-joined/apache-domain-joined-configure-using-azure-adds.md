@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: seodec18
 ms.date: 02/03/2020
-ms.openlocfilehash: a3a23e2adb60b2b0fd5f4a5e790990ce2ad85fa9
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: cf239cbf69f3816e5ec03e07e2bd5fe370308f22
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77031168"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196861"
 ---
 # <a name="enterprise-security-package-configurations-with-azure-active-directory-domain-services-in-hdinsight"></a>HDInsight에서 Azure Active Directory Domain Services를 사용 하 여 Enterprise Security Package 구성
 
@@ -132,4 +132,4 @@ ESP를 사용 하 여 HDInsight 클러스터를 만들 때 다음 매개 변수�
 ## <a name="next-steps"></a>다음 단계
 
 * Hive 정책 구성 및 Hive 쿼리 실행에 대한 내용은 [ESP가 포함된 HDInsight 클러스터에 대한 Apache Hive 정책 구성](apache-domain-joined-run-hive.md)을 참조하세요.
-* SSH를 사용하여 ESP로 HDInsight 클러스터에 연결하는 방법은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Apache Hadoop과 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* SSH를 사용하여 ESP로 HDInsight 클러스터에 연결하는 방법은 [Linux, Unix 또는 OS X의 HDInsight에서 Linux 기반 Apache Hadoop과 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight)을 참조하세요.
