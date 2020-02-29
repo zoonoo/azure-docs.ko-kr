@@ -3,20 +3,20 @@ title: Application Insights를 사용 하 여 사용자 지정 정책 문제 해
 titleSuffix: Azure AD B2C
 description: Application Insights를 설정 하 여 사용자 지정 정책의 실행을 추적 하는 방법
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3aeef1614f22563e0fd348c5bc6ae7ff1e7b0b03
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 403dbe6106cb7a1d277ba672112d2bc45dbc2987
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848149"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186270"
 ---
 # <a name="collect-azure-active-directory-b2c-logs-with-application-insights"></a>Application Insights를 사용 하 여 Azure Active Directory B2C 로그 수집
 
@@ -61,7 +61,7 @@ ms.locfileid: "76848149"
     * `ClientEnabled="true"`는 추적 페이지 보기 및 클라이언트 쪽 오류에 대 한 ApplicationInsights 클라이언트 쪽 스크립트를 보냅니다. Application Insights 포털의 **Browsertimings** 테이블에서 볼 수 있습니다. `ClientEnabled= "true"`를 설정 하 여 페이지 스크립트에 Application Insights를 추가 하 고 페이지 로드 및 AJAX 호출의 타이밍, 브라우저 예외 및 AJAX 오류에 대 한 세부 정보, 사용자 및 세션 수를 가져옵니다. 이 필드는 **선택 사항이**며 기본적으로 `false`로 설정 됩니다.
     * `ServerEnabled="true"`는 Application Insights에 기존 UserJourneyRecorder JSON을 사용자 지정 이벤트로 보냅니다.
 
-    예:
+    예를 들면 다음과 같습니다.
 
     ```XML
     <TrustFrameworkPolicy
@@ -93,7 +93,7 @@ Application Insights에서 새 로그를 볼 수 있으려면 일반적으로 5 
 
 로그를 확인 하는 데 사용할 수 있는 쿼리 목록은 다음과 같습니다.
 
-| 쿼리 | Description |
+| Query | 설명 |
 |---------------------|--------------------|
 `traces` | Azure AD B2C에서 생성된 모든 로그를 참조하세요. |
 `traces | where timestamp > ago(1d)` | 마지막 날에 Azure AD B2C에서 생성된 모든 로그를 참조하세요.

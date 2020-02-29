@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/06/2019
-ms.openlocfilehash: 81bc632f1061f0ee73d2295cafa5f7a8472d20ee
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.date: 02/26/2020
+ms.openlocfilehash: 2c6495454e5ba2449d4b3c74a096681f74610813
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74951805"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199464"
 ---
 # <a name="manage-azure-hdinsight-clusters-using-azure-cli"></a>Azure CLI를 사용 하 여 Azure HDInsight 클러스터 관리
 
@@ -23,7 +23,7 @@ ms.locfileid: "74951805"
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>필수 조건
 
 * Azure CLI. Azure CLI를 설치하지 않은 경우 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)에 나온 단계를 참조하세요.
 
@@ -82,15 +82,15 @@ az group delete --name RESOURCE_GROUP_NAME
 
 ## <a name="scale-clusters"></a>클러스터 크기 조정
 
-지정 된 HDInsight 클러스터의 크기를 지정 된 크기로 조정 하려면 [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 를 사용 합니다. `RESOURCE_GROUP_NAME`를 대체 하 여 아래 명령을 편집 하 고 관련 정보를 `CLUSTER_NAME` 합니다. `TARGET_INSTANCE_COUNT`를 클러스터에 필요한 작업자 노드 수로 바꿉니다. 클러스터 크기 조정에 대 한 자세한 내용은 [HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md)을 참조 하세요. 다음 명령을 입력합니다.
+지정 된 HDInsight 클러스터의 크기를 지정 된 크기로 조정 하려면 [az hdinsight resize](https://docs.microsoft.com/cli/azure/hdinsight?view=azure-cli-latest#az-hdinsight-resize) 를 사용 합니다. `RESOURCE_GROUP_NAME`를 대체 하 여 아래 명령을 편집 하 고 관련 정보를 `CLUSTER_NAME` 합니다. `WORKERNODE_COUNT`를 클러스터에 필요한 작업자 노드 수로 바꿉니다. 클러스터 크기 조정에 대 한 자세한 내용은 [HDInsight 클러스터 크기 조정](./hdinsight-scaling-best-practices.md)을 참조 하세요. 다음 명령을 입력합니다.
 
 ```azurecli-interactive
-az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --target-instance-count TARGET_INSTANCE_COUNT
+az hdinsight resize --resource-group RESOURCE_GROUP_NAME --name CLUSTER_NAME --workernode-count WORKERNODE_COUNT
 ```
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 다양 한 HDInsight 클러스터 관리 작업을 수행 하는 방법을 알아보았습니다. 자세한 내용은 다음 문서를 참조하세요.
+이 문서에서는 다양 한 HDInsight 클러스터 관리 작업을 수행 하는 방법을 알아보았습니다. 자세히 알아보려면 다음 아티클을 참조하세요.
 
 * [Azure Portal을 사용하여 HDInsight의 Apache Hadoop 클러스터 관리](hdinsight-administer-use-portal-linux.md)
 * [Azure PowerShell를 사용 하 여 HDInsight 관리](hdinsight-administer-use-powershell.md)

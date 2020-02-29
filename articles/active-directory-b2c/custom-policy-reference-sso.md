@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하는 Single sign-on 세션 관리
 titleSuffix: Azure AD B2C
 description: Azure AD B2C에서 사용자 지정 정책을 사용하여 SSO 세션을 관리하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b905591266b90e5bba83e7c74b27e7f6b3cab610
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77912548"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189109"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -39,11 +39,11 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ## <a name="input-claims"></a>입력 클레임
 
-`InputClaims` 요소가 비어 있거나 없습니다. 
+`InputClaims` 요소가 비어 있거나 없습니다.
 
 ## <a name="persisted-claims"></a>지속형 클레임
 
-응용 프로그램에 반환 되거나 후속 단계에서 사전 조건에서 사용 되어야 하는 클레임은 세션에 저장 되거나 디렉터리의 사용자 프로필에서 읽은 후에 야 합니다. 지속형 클레임을 사용 하면 인증 경험 누락 된 클레임에서 실패 하지 않습니다. 세션에서 클레임을 추가하려면 기술 프로필의 `<PersistedClaims>` 요소를 사용합니다. 세션을 다시 채우는 데 공급자를 사용하는 경우 유지되는 클레임은 클레임 모음에 추가됩니다. 
+응용 프로그램에 반환 되거나 후속 단계에서 사전 조건에서 사용 되어야 하는 클레임은 세션에 저장 되거나 디렉터리의 사용자 프로필에서 읽은 후에 야 합니다. 지속형 클레임을 사용 하면 인증 경험 누락 된 클레임에서 실패 하지 않습니다. 세션에서 클레임을 추가하려면 기술 프로필의 `<PersistedClaims>` 요소를 사용합니다. 세션을 다시 채우는 데 공급자를 사용하는 경우 유지되는 클레임은 클레임 모음에 추가됩니다.
 
 ## <a name="output-claims"></a>출력 클레임
 
@@ -53,7 +53,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ### <a name="noopssosessionprovider"></a>NoopSSOSessionProvider
 
-이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다. 다음 `SM-Noop` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다.  
+이름이 지정하는 대로 이 공급자는 아무 작업도 수행하지 않습니다. 특정 기술 프로필에 대한 SSO 동작을 무시하기 위해 이 공급자를 사용할 수 있습니다. 다음 `SM-Noop` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다.
 
 ```XML
 <TechnicalProfile Id="SM-Noop">
@@ -64,7 +64,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 ### <a name="defaultssosessionprovider"></a>DefaultSSOSessionProvider
 
-세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 다음 `SM-AAD` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다. 
+세션에서 클레임을 저장하는 데 이 공급자를 사용할 수 있습니다. 이 공급자는 로컬 계정을 관리하기 위해 사용되는 기술 프로필에서 일반적으로 참조됩니다. 다음 `SM-AAD` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack)에 포함 되어 있습니다.
 
 ```XML
 <TechnicalProfile Id="SM-AAD">
@@ -84,7 +84,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 </TechnicalProfile>
 ```
 
-다음 `SM-MFA` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`에 포함 되어 있습니다. 이 기술 프로필은 multi-factor authentication 세션을 관리 합니다. 
+다음 `SM-MFA` 기술 프로필은 [사용자 지정 정책 시작 팩](custom-policy-get-started.md#custom-policy-starter-pack) `SocialAndLocalAccountsWithMfa`에 포함 되어 있습니다. 이 기술 프로필은 multi-factor authentication 세션을 관리 합니다.
 
 ```XML
 <TechnicalProfile Id="SM-MFA">
@@ -117,7 +117,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 ```
 
 #### <a name="metadata"></a>메타데이터
-        
+
 | 특성 | 필수 | 설명|
 | --- | --- | --- |
 | AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
@@ -138,7 +138,7 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 ```
 
 B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `IncludeSessionIndex` 및 `RegisterServiceProviders`를 `true`으로 설정 해야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
- 
+
 다음 `SM-Saml-idp` 기술 프로필은 [SAML 발급자 기술 프로필](connect-with-saml-service-providers.md) 에 사용 됩니다.
 
 ```XML
@@ -148,7 +148,7 @@ B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `IncludeS
 </TechnicalProfile>
 ```
 #### <a name="metadata"></a>메타데이터
-        
+
 | 특성 | 필수 | 설명|
 | --- | --- | --- |
 | IncludeSessionIndex | 아니요 | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|

@@ -9,14 +9,14 @@ ms.workload: big-compute
 ms.topic: article
 ms.date: 02/13/2020
 ms.author: lahugh
-ms.openlocfilehash: 14cbacf43e83dc768e9a85620df131533b746671
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 0134e7d92ddca9bd3b45abaf642f33de9d209b33
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77463103"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192305"
 ---
-# <a name="securely-access-key-vault-with-batch"></a>일괄 처리를 사용 하 여 Key Vault 안전 하 게 액세스
+# <a name="securely-access-key-vault-with-batch"></a>Batch를 사용하여 Key Vault에 안전하게 액세스
 
 이 문서에서는 Azure Key Vault에 저장 된 자격 증명에 안전 하 게 액세스 하도록 Batch 노드를 설정 하는 방법을 알아봅니다. Key Vault에서 관리자 자격 증명을 입력 한 다음, 스크립트에서 Key Vault 액세스 하기 위한 자격 증명을 하드 코딩 하는 점이 없습니다. 이 솔루션은 일괄 처리 노드에 Key Vault에 대 한 액세스 권한을 부여 하는 인증서를 사용 하는 것입니다. 몇 가지 단계를 수행 하 여 Batch를 위한 보안 키 저장소를 구현할 수 있습니다.
 
@@ -40,7 +40,7 @@ cd C:\Program Files (x86)\Windows Kits\10\bin\x64
 그런 다음 `makecert` 도구를 사용 하 여 `batchcertificate.cer` 및 `batchcertificate.pvk`라는 자체 서명 된 인증서 파일을 만듭니다. 사용 되는 CN (일반 이름)은이 응용 프로그램에 중요 하지 않지만 인증서를 사용 하는 대상을 알려 주는 것이 좋습니다.
 
 ```console
-makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
+makecert -sv batchcertificate.pvk -n "cn=batch.cert.mydomain.org" batchcertificate.cer -b 09/23/2019 -e 09/23/2019 -r -pe -a sha256 -len 2048
 ```
 
 일괄 처리에 `.pfx` 파일이 필요 합니다. [Pvk2pfx](https://docs.microsoft.com/windows-hardware/drivers/devtest/pvk2pfx) 도구를 사용 하 여 `makecert`에서 만든 `.cer` 및 `.pvk` 파일을 단일 `.pfx` 파일로 변환할 수 있습니다.

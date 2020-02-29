@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C에서 사용자 지정 정책 문제 해결
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용하는 경우 오류를 해결하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/13/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b9a0e370643d7f2a19e6ca1629b6b522bfa396b9
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 2f65e98cec04991fe9edef1b81bcb3ecc3d93d76
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848136"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186366"
 ---
 # <a name="troubleshoot-azure-ad-b2c-custom-policies-and-identity-experience-framework"></a>Azure AD B2C 사용자 지정 정책 및 Identity Experience Framework 문제 해결
 
@@ -64,7 +64,7 @@ XML 규칙 검토가 도움이 될 수도 있습니다. Azure AD B2C는 검색�
 
 * 클라이언트 브라우저와 Azure AD B2C 간의 메시지 교환을 추적하려면 [Fiddler](https://www.telerik.com/fiddler)를 사용합니다. 오케스트레이션 단계에서 사용자 환경이 실패한 위치를 확인하는 데 도움이 될 수 있습니다.
 
-* [개발 모드](troubleshoot-with-application-insights.md)에서 **Application Insights**를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자 디렉터리 및 기타 서비스 (예: Azure Multi-Factor Authentication)와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다.
+* **개발 모드**에서 [Application Insights](troubleshoot-with-application-insights.md)를 사용하여 Identity Experience Framework 사용자 환경의 활동을 추적합니다. **개발 모드**에서는 id 공급자, API 기반 서비스, Azure AD B2C 사용자 디렉터리 및 기타 서비스 (예: Azure Multi-Factor Authentication)와 같은 기술 프로필에 정의 된 다양 한 클레임 공급자와 Id 경험 프레임 워크 간의 클레임 교환을 관찰할 수 있습니다.
 
 ## <a name="recommended-practices"></a>권장 사례
 

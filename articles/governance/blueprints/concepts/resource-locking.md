@@ -3,12 +3,12 @@ title: 리소스 잠금 이해
 description: 청사진을 할당할 때 리소스를 보호 하기 위해 Azure 청사진의 잠금 옵션에 대해 알아봅니다.
 ms.date: 02/27/2020
 ms.topic: conceptual
-ms.openlocfilehash: 1491af0ddfb0f6f5fbea322bd00dc9838c155983
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: b810e8d4ddd263f9e651704d1bf9b785ce0202db
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919875"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199702"
 ---
 # <a name="understand-resource-locking-in-azure-blueprints"></a>Azure Blueprints의 리소스 잠금 이해
 
@@ -83,6 +83,9 @@ PUT https://management.azure.com/providers/Microsoft.Management/managementGroups
 ```
 
 이 요청 본문의 주요 차이점과 구독에 할당 되는 항목은 `properties.scope` 속성입니다. 이 필수 속성은 청사진 할당이 적용 되는 구독으로 설정 되어야 합니다. 구독은 청사진 할당이 저장 된 관리 그룹 계층의 직계 자식 이어야 합니다.
+
+> [!NOTE]
+> 관리 그룹 범위에 할당 된 청사진은 여전히 구독 수준 청사진 할당으로 작동 합니다. 유일한 차이점은 구독 소유자가 할당 및 연관 된 잠금을 제거 하지 못하도록 청사진 할당을 저장 하는 위치입니다.
 
 ## <a name="removing-locking-states"></a>잠금 상태 제거
 

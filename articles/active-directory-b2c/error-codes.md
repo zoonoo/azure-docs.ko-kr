@@ -3,20 +3,20 @@ title: 오류 코드 참조
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C 서비스에서 반환할 수 있는 오류 코드 목록입니다.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: troubleshooting
 ms.date: 01/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: c48f7bdd51c9b8c173ee0ebed72ed8c7f4fb51fc
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 5b09b3c19ab1c5b23e56e25afc1d9631cd1caa68
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75735080"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188667"
 ---
 # <a name="error-codes-azure-active-directory-b2c"></a>오류 코드: Azure Active Directory B2C
 
@@ -46,7 +46,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90031` | '{0}' 정책은 기본 사용자 경험을 지정 하지 않습니다. 정책 또는 부모가 신뢰 당사자 섹션의 일부로 기본 사용자 경험을 지정 하는지 확인 합니다. |
 | `AADB2C90035` | 서비스를 일시적으로 사용할 수 없습니다. 몇 분 후에 다시 시도 하세요. |
 | `AADB2C90036` | 요청에 사용자를 게시 로그 아웃으로 리디렉션하는 URI가 포함 되어 있지 않습니다. Post_logout_redirect_uri 매개 변수 필드에 URI를 지정 합니다. |
-| `AADB2C90037` | 이 요청을 처리하는 동안 오류가 발생했습니다. 액세스 하려는 사이트의 관리자에 게 문의 하세요. |
+| `AADB2C90037` | 메시지를 처리하는 동안 오류가 발생했습니다. 액세스 하려는 사이트의 관리자에 게 문의 하세요. |
 | `AADB2C90039` | 요청에 클라이언트 어설션이 포함 되어 있지만 '{1}' 테 넌 트의 제공 된 정책 '{0}'에 RelyingPartyPolicy의 client_secret 없습니다. |
 | `AADB2C90040` | 사용자 경험 '{0}'에는 클레임 보내기 단계가 포함 되어 있지 않습니다. |
 | `AADB2C90043` | 요청에 포함 된 프롬프트에 잘못 된 값이 포함 되어 있습니다. ' None ', ' 로그인 ' ', ' 동의가 ' 또는 ' select_account '가 필요 합니다. |
@@ -58,10 +58,10 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90052` | 잘못된 사용자 이름 또는 암호 |
 | `AADB2C90053` | 지정 된 자격 증명을 가진 사용자를 찾을 수 없습니다. |
 | `AADB2C90054` | 잘못된 사용자 이름 또는 암호 |
-| `AADB2C90055` | 요청에 제공 된 '{0}' 범위는 'https://example.com/calendar.read '와 같은 리소스를 지정 해야 합니다. |
+| `AADB2C90055` | 요청에 제공 된 '{0}' 범위는 'https://example.com/calendar.read'와 같은 리소스를 지정 해야 합니다. |
 | `AADB2C90057` | 제공 된 응용 프로그램이 OAuth 암시적 흐름을 허용 하도록 구성 되어 있지 않습니다. |
 | `AADB2C90058` | 제공 된 응용 프로그램이 공용 클라이언트를 허용 하도록 구성 되어 있지 않습니다. |
-| `AADB2C90067` | 사후 로그 아웃 리디렉션 URI '{0}'의 형식이 잘못 되었습니다. 'https://example.com/return '와 같은 https 기반 URL을 지정 하거나 native client의 경우 IETF native client URI ' urn: ietf: wg: oauth: 2.0: oob '를 사용 합니다. |
+| `AADB2C90067` | 사후 로그 아웃 리디렉션 URI '{0}'의 형식이 잘못 되었습니다. 'https://example.com/return'와 같은 https 기반 URL을 지정 하거나 native client의 경우 IETF native client URI ' urn: ietf: wg: oauth: 2.0: oob '를 사용 합니다. |
 | `AADB2C90068` | ID가 '{0}' 인 제공 된 응용 프로그램이이 서비스에 대해 유효 하지 않습니다. B2C 포털을 통해 만든 응용 프로그램을 사용 하 고 다시 시도 하세요. |
 | `AADB2C90075` | '{1}' 단계에 지정 된 클레임 교환 '{0}'이 (가) '{2}' 코드와 '{3}' 이유와 함께 HTTP 오류 응답을 반환 했습니다. |
 | `AADB2C90077` | 사용자에 게 기존 세션이 없고 요청 프롬프트 매개 변수의 값이 '{0}'입니다. |
@@ -145,7 +145,7 @@ Azure Active Directory B2C 서비스에서 다음 오류를 반환할 수 있습
 | `AADB2C90289` | Id 공급자에 연결 하는 동안 오류가 발생 했습니다. 나중에 다시 시도하세요. |
 | `AADB2C90296` | 응용 프로그램이 올바르게 구성 되지 않았습니다. 액세스 하려는 사이트의 관리자에 게 문의 하세요. |
 | `AADB2C99005` | 요청에 잘못 된 문자 '{0}'이 (가) 포함 된 잘못 된 범위 매개 변수가 있습니다. |
-| `AADB2C99006` | Azure AD B2C 앱 id가 '{0}' 인 확장 앱을 찾을 수 없습니다. 자세한 내용은 https://go.microsoft.com/fwlink/?linkid=851224 를 참조 하세요. |
+| `AADB2C99006` | Azure AD B2C 앱 id가 '{0}' 인 확장 앱을 찾을 수 없습니다. 자세한 내용은 https://go.microsoft.com/fwlink/?linkid=851224를 참조 하세요. |
 | `AADB2C99011` | 메타 데이터 값 '{0}'이 (가) 정책 '{2}'의 TechnicalProfile '{1}'에 지정 되지 않았습니다. |
 | `AADB2C99013` | 제공 된 grant_type [{0}] 및 token_type [{1}] 조합은 지원 되지 않습니다. |
 | `AADB2C99015` | '{2}' 테 넌 트의 '{1}' 정책에서 '{0}' 프로필은 리소스 소유자 암호 자격 증명 흐름에 필요한 모든 InputClaims 누락 되었습니다. |

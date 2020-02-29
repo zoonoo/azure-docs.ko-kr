@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하 여 SAML id 공급자로 ADFS 추�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 SAML 프로토콜 및 사용자 지정 정책을 사용하 여 ADFS 2016 설정
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f331a537c80628a386525e29743807a70a163f0d
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: bfe39d9528927f995d14772e07e02b2a0528e5e0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77914324"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188531"
 ---
 # <a name="add-adfs-as-a-saml-identity-provider-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 SAML ID 공급자로 ADFS 추가
 
@@ -195,7 +195,7 @@ https://your-tenant-name.b2clogin.com/your-tenant-name/your-policy/samlp/metadat
     | LDAP 특성 | 나가는 클레임 형식 |
     | -------------- | ------------------- |
     | 사용자 보안 주체 이름 | userPrincipalName |
-    | Surname | family_name |
+    | 성 | family_name |
     | Given-Name | given_name |
     | E-Mail-Address | 전자 메일 |
     | Display-Name | name |

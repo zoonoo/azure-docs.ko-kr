@@ -15,16 +15,16 @@ ms.date: 12/02/2019
 ms.subservice: hybrid
 ms.author: billmath
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: d3786386f75f4b85fe89562254eab63471de6cb2
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: f09b2fc685881aa8a7bd87b6a855c657af9ef43d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75549400"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190316"
 ---
 # <a name="azure-ad-connect-cloud-provisioning-agent-automatic-upgrade"></a>Azure AD Connect 클라우드 프로 비전 에이전트: 자동 업그레이드
 
-자동 업그레이드 기능을 사용 하면 Azure Active Directory (Azure AD) Connect 클라우드 프로 비전 에이전트 설치를 항상 최신 상태로 유지 해야 합니다. 이 기능은 기본적으로 사용 하도록 설정 되어 있으므로 사용 하지 않도록 설정할 수 없습니다.
+자동 업그레이드 기능을 사용 하면 Azure Active Directory (Azure AD) Connect 클라우드 프로 비전 에이전트 설치를 항상 최신 상태로 유지 해야 합니다.
 
 에이전트는 "Program files\Azure AD Connect 프로 비전 Agent\AADConnectProvisioningAgent.exe"에 설치 되어 있습니다.
 

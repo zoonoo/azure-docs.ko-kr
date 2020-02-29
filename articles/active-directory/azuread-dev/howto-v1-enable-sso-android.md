@@ -15,12 +15,12 @@ ms.date: 09/24/2018
 ms.author: ryanwi
 ms.reviewer: brandwe, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 37055d9b59d49091261109e3553f99bcc03d8e14
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 48c28831d1fbbfc4fe78ebe12e5a158a8259cf44
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77164579"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190299"
 ---
 # <a name="how-to-enable-cross-app-sso-on-android-using-adal"></a>방법: ADAL을 사용하여 Android에서 앱 간 SSO를 사용하도록 설정
 
@@ -32,7 +32,7 @@ Microsoft의 ID 플랫폼을 SDK와 함께 사용하여 사용자 고유의 앱 
 
 이 방법에서는 고객에게 SSO를 제공하도록 애플리케이션 내에서 SDK를 구성하는 방법을 알아보겠습니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 이 방법에서는 다음 작업을 수행하는 방법을 알고 있다고 가정합니다.
 
@@ -60,7 +60,7 @@ Android에서 계정 선택기는 사용자에게 덜 방해가 되는 애플리
 
 #### <a name="how-microsoft-ensures-the-application-is-valid"></a>Microsoft가 애플리케이션이 유효한지 확인하는 방식
 
-브로커를 호출하는 애플리케이션의 ID를 확인하는 것은 브로커 지원 로그인에서 제공된 보안에 중요합니다. iOS와 Android는 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 “스푸핑”하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수 있습니다. 런타임 시 Microsoft가 적절한 애플리케이션과 항상 통신하고 있음을 확인하려면 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. **개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다.** 이 사용자 지정 redirectURI는 애플리케이션의 인증서 지문을 포함하고 Google Play 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 Android 운영 체제에 브로커를 호출한 인증서 지문을 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 인증서 지문을 제공합니다. 애플리케이션의 인증서 지문이 등록하는 동안 개발자가 제공한 인증서 지문과 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스가 거부됩니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
+Broker를 호출 하는 응용 프로그램의 id를 확인 해야 하는 이유는 broker 보조 로그인에 제공 되는 보안에 중요 합니다. iOS와 Android는 제공된 애플리케이션에만 유효한 고유한 식별자를 적용하지 않으므로 악의적 애플리케이션은 합법적인 애플리케이션의 ID를 “스푸핑”하고 합법적인 애플리케이션을 의미하는 토큰을 받을 수 있습니다. 런타임 시 Microsoft가 적절한 애플리케이션과 항상 통신하고 있음을 확인하려면 Microsoft에 해당 애플리케이션을 등록할 때 개발자에게 사용자 지정 redirectURI를 요청합니다. **개발자가 이 리디렉션 URI를 만드는 방법은 아래에 자세히 설명되어 있습니다.** 이 사용자 지정 redirectURI는 애플리케이션의 인증서 지문을 포함하고 Google Play 스토어에서 애플리케이션에 고유하도록 보장됩니다. 애플리케이션이 브로커를 호출하면 브로커는 Android 운영 체제에 브로커를 호출한 인증서 지문을 제공하도록 요청합니다. 브로커는 ID 시스템에 대한 호출에서 Microsoft에 이 인증서 지문을 제공합니다. 애플리케이션의 인증서 지문이 등록하는 동안 개발자가 제공한 인증서 지문과 일치하지 않는 경우 애플리케이션이 요청하는 리소스를 위한 토큰에 대한 액세스가 거부됩니다. 이러한 확인을 통해 개발자가 등록한 애플리케이션만 토큰을 받습니다.
 
 조정된 SSO 로그인은 다음과 같은 이점이 있습니다.
 

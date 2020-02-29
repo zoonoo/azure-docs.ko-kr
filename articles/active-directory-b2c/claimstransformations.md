@@ -2,20 +2,20 @@
 title: ClaimsTransformations - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 ID 경험 프레임워크 스키마에 포함된 ClaimsTransformations 요소의 정의에 대해 설명합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 66c94f08638895c85836fda37c3ae61f3857ee51
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e71d521dce40f6a8ec81286fcc95dc97bf10078c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76836703"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189739"
 ---
 # <a name="claimstransformations"></a>ClaimsTransformations
 
@@ -35,7 +35,7 @@ ms.locfileid: "76836703"
 
 **ClaimsTransformation** 요소는 다음 특성을 포함 합니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- |-------- | ----------- |
 | Id |예 | 클레임 변환을 고유하게 식별하는 데 사용되는 식별자입니다. 정책의 다른 XML 요소에서 식별자를 참조합니다. |
 | TransformationMethod | 예 | 클레임 변환에서 사용할 변환 메서드입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -51,7 +51,7 @@ ms.locfileid: "76836703"
   </InputClaims>
   <InputParameters>
     ...
-  </InputParameters>                
+  </InputParameters>
   <OutputClaims>
     ...
   </OutputClaims>
@@ -59,17 +59,17 @@ ms.locfileid: "76836703"
 ```
 
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | -------- | ----------- |
 | InputClaims | 0:1 | 클레임 변환의 입력으로 가져올 클레임 유형을 지정하는 **InputClaim** 요소 목록입니다. 이러한 각 요소는 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조를 포함합니다. |
-| InputParameters | 0:1 | 클레임 변환에 대한 입력으로 제공되는 **InputParameter** 요소 목록입니다.  
+| InputParameters | 0:1 | 클레임 변환에 대한 입력으로 제공되는 **InputParameter** 요소 목록입니다.
 | OutputClaims | 0:1 | ClaimsTransformation을 호출하고 나면 생성되는 클레임 유형을 지정하는 **OutputClaim** 요소 목록입니다. 이러한 각 요소는 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조를 포함합니다. |
 
 ### <a name="inputclaims"></a>InputClaims
 
 **InputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputClaim | 1:n | 필요한 입력 클레임 유형입니다. |
 
@@ -77,7 +77,7 @@ ms.locfileid: "76836703"
 
 **InputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- | ----------- | ----------- |
 | ClaimTypeReferenceId |예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다. |
 | TransformationClaimType |예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -86,13 +86,13 @@ ms.locfileid: "76836703"
 
 **InputParameters** 요소에는 다음과 같은 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | InputParameter | 1:n | 필요한 입력 매개 변수니다. |
 
 #### <a name="inputparameter"></a>InputParameter
 
-| attribute | 필수 |Description |
+| 특성 | 필수 |설명 |
 | --------- | ----------- |----------- |
 | Id | 예 | 클레임 변환 메서드의 매개 변수에 대한 참조인 식별자입니다. 각 클레임 변환 메서드에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 클레임 변환 표를 참조하세요. |
 | DataType | 예 | 사용자 지정 정책 XML 스키마의 DataType 열거에 따른 String, Boolean, Int, DateTime 등의 매개 변수 데이터 형식입니다. 이 형식은 산술 연산을 정확하게 수행하는 데 사용됩니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
@@ -102,22 +102,22 @@ ms.locfileid: "76836703"
 
 **OutputClaims** 요소에는 다음 요소가 포함됩니다.
 
-| 요소 | 발생 수 | Description |
+| 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
 | OutputClaim | 0:n | 필요한 출력 클레임 유형입니다. |
 
-#### <a name="outputclaim"></a>OutputClaim 
+#### <a name="outputclaim"></a>OutputClaim
 
 **OutputClaim** 요소에는 다음 특성이 포함됩니다.
 
-| attribute |필수 | Description |
+| 특성 |필수 | 설명 |
 | --------- | ----------- |----------- |
 | ClaimTypeReferenceId | 예 | 정책의 ClaimsSchema 섹션에 이미 정의되어 있는 ClaimType에 대한 참조입니다.
 | TransformationClaimType | 예 | 변환 클레임 유형을 참조하는 식별자입니다. 각 클레임 변환에는 고유한 값이 있습니다. 사용 가능한 값의 전체 목록은 [클레임 변환 참조](#claims-transformations-reference)를 참조하세요. |
- 
+
 입력 클레임과 출력 클레임의 유형(문자열, 부울 등)이 같은 경우에는 같은 입력 클레임을 출력 클레임으로 사용할 수 있습니다. 이 경우 클레임 변환에서 입력 클레임이 출력값으로 변경됩니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 사용자가 동의한 서비스 약관의 마지막 버전을 저장하는 경우를 예로 들어 보겠습니다. 그러면 서비스 약관을 업데이트할 때 사용자에게 새 버전 동의 여부를 질문할 수 있습니다. 다음 예에서 **HasTOSVersionChanged** 클레임 변환은 **TOSVersion** 클레임의 값을 **LastTOSAcceptedVersion** 클레임의 값과 비교한 다음 부울 **TOSVersionChanged** 클레임을 반환합니다.
 

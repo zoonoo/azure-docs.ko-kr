@@ -1,23 +1,23 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 02/12/2020
-ms.author: marsma
-ms.openlocfilehash: e5201dfee83ec5360e55533e923e2b55c24c09d9
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.author: mimart
+ms.openlocfilehash: bf8b9370abc58902d9c751505f633dee852210a6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492930"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184357"
 ---
 #### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. 등록 된 **앱** 개요 페이지에서 **설정**을 선택 합니다.
 1. **API 액세스**에서 **필요한 권한**을 선택 합니다.
 1. **Microsoft Graph**를 선택합니다.
-1. **응용 프로그램 사용 권한**에서 관리 응용 프로그램에 부여할 사용 권한의 확인란을 선택 합니다. 다음은 그 예입니다.
+1. **응용 프로그램 사용 권한**에서 관리 응용 프로그램에 부여할 사용 권한의 확인란을 선택 합니다. 예를 들면 다음과 같습니다.
     * **모든 감사 로그 데이터 읽기**: 디렉터리의 감사 로그를 읽을 수 있도록이 권한을 선택 합니다.
     * **디렉터리 데이터 읽기 및 쓰기**: 사용자 마이그레이션 또는 사용자 관리 시나리오에 대해이 권한을 선택 합니다.
     * **조직의 신뢰 프레임 워크 정책 읽기 및 쓰기**: CI/CD (연속 통합/지속적인 업데이트) 시나리오에 대 한이 사용 권한을 선택 합니다. 예를 들어 Azure Pipelines를 사용 하는 사용자 지정 정책 배포가 있습니다.
@@ -30,7 +30,7 @@ ms.locfileid: "77492930"
 1. **구성된 사용 권한** 아래에서 **권한 추가**를 선택합니다.
 1. **Microsoft api** 탭을 선택 하 고 **Microsoft Graph**를 선택 합니다.
 1. **애플리케이션 권한**을 선택합니다.
-1. 적절 한 권한 그룹을 확장 하 고 관리 응용 프로그램에 부여할 권한의 확인란을 선택 합니다. 다음은 그 예입니다.
+1. 적절 한 권한 그룹을 확장 하 고 관리 응용 프로그램에 부여할 권한의 확인란을 선택 합니다. 예를 들면 다음과 같습니다.
     * **감사 로그** > **감사 로그**: 디렉터리의 감사 로그를 읽습니다.
     * **디렉터리** > **directory. ReadWrite. All**: 사용자 마이그레이션 또는 사용자 관리 시나리오에 사용 됩니다.
     * **정책** > **policy. ReadWrite. trustframework**: 연속 통합/지속적인 업데이트 (CI/CD) 시나리오를 위한 것입니다. 예를 들어 Azure Pipelines를 사용 하는 사용자 지정 정책 배포가 있습니다.

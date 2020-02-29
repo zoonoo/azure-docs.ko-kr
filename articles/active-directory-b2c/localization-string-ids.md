@@ -2,20 +2,20 @@
 title: 지역화 문자열 ID - Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C의 사용자 지정 정책에서 api.signuporsignin의 ID를 사용하여 콘텐츠 정의의 ID를 지정하는 방법을 설명합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: cd5e543a6d5dc2b59847a78bd925be68f8cdde25
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 3af62a75228959478a80c2628307fff2b47c3c4a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982860"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187494"
 ---
 # <a name="localization-string-ids"></a>지역화 문자열 ID
 
@@ -30,24 +30,24 @@ ID가 `api.signuporsignin`인 콘텐츠 정의에 사용되는 ID는 다음과 �
 | ID | 기본값 |
 | -- | ------------- |
 | **local_intro_email** | 기존 계정으로 로그인 |
-| **logonIdentifier_email** | 메일 주소 |
+| **logonIdentifier_email** | Email Address |
 | **requiredField_email** | 이메일을 입력하세요. |
 | **invalid_email** | 올바른 이메일 주소를 입력하세요. |
 | **email_pattern** | ^ [A-za-z0-9.! # $% & ' ' *+/=? ^ _\`{\|} ~-] + @ [a-za-z0-9-] + (?:\\. [ A-za-z0-9-] +)* $ |
 | **local_intro_username** | 사용자 이름으로 로그인 |
 | **logonIdentifier_username** | 사용자 이름 |
 | **requiredField_username** | 사용자 이름을 입력하세요. |
-| **password** | 암호 |
+| **password** | Password |
 | **requiredField_password** | 암호를 입력하세요. |
 | **invalid_password** | 입력한 암호의 형식이 잘못되었습니다. |
 | **forgotpassword_link** | 암호를 잊으셨습니까? |
-| **createaccount_intro** | 계정이 없으세요? |
+| **createaccount_intro** | 아직 계정이 없으세요? |
 | **createaccount_link** | 지금 등록하세요. |
-| **divider_title** | 또는 |
+| **divider_title** | OR |
 | **cancel_message** | 사용자가 암호를 잊음 |
 | **button_signin** | 로그인 |
 | **social_intro** | 소셜 계정으로 로그인 |
-  **remember_me** |로그인 유지|
+  **remember_me** |로그인 상태 유지|
 | **unknown_error** | 로그인하는 동안 문제가 발생했습니다. 나중에 다시 시도하세요. |
 
 다음 예제에서는 등록 또는 로그인 페이지의 몇 가지 사용자 인터페이스 요소 사용 방법을 보여 줍니다.
@@ -98,7 +98,7 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | ID | 기본값 |
 | -- | ------------- |
 | **ver_sent** | 확인 코드를 보낸 대상: |
-| **ver_but_default** | 기본값 |
+| **ver_but_default** | 기본 |
 | **cancel_message** | 사용자가 자체 어설션된 정보의 입력을 취소함 |
 | **preloader_alt** | 기다려 주세요. |
 | **ver_but_send** | 확인 코드 보내기 |
@@ -115,12 +115,12 @@ ID 공급자의 ID는 사용자 경험 **ClaimsExchange** 요소에서 구성됩
 | **error_requiredFieldMissing** | 필수 필드가 누락되어 있습니다. 모든 필수 필드를 작성하고 다시 시도하세요. |
 | **initial_intro** | 다음 세부 정보를 제공하세요. |
 | **ver_but_resend** | 새 코드 전송 |
-| **button_continue** | Create |
+| **button_continue** | 만들기 |
 | **error_passwordEntryMismatch** | 암호 입력 필드가 일치하지 않습니다. 두 필드에 같은 암호를 입력하고 다시 시도하세요. |
 | **ver_incorrect_format** | 잘못된 형식 |
 | **ver_but_edit** | 이메일 변경 |
 | **ver_but_verify** | 코드 확인 |
-| **alert_no** | 아닙니다. |
+| **alert_no** | 아니요 |
 | **ver_info_msg** | 받은 편지함으로 확인 코드를 보냈습니다. 확인 코드를 아래 입력란에 복사하세요. |
 | **day** | 일 |
 | **ver_fail_throttled** | 이 이메일 주소를 확인해 달라는 요청이 너무 많습니다. 잠시 기다렸다가 다시 시도하세요. |

@@ -3,20 +3,20 @@ title: 클레임 추가 및 사용자 지정 정책에서 사용자 입력 사�
 titleSuffix: Azure AD B2C
 description: 사용자 입력을 사용자 지정하고 Azure Active Directory B2C의 등록 또는 로그인 경험에 클레임을 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: ebbc0c8ac067635d31714468f1aee047b3683eb0
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 737f373fb71494492f633d3297463cbef797f3d6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846979"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189551"
 ---
 #  <a name="add-claims-and-customize-user-input-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 클레임 추가 및 사용자 지정 정책을 사용하여 사용자 입력 사용자 지정
 
@@ -114,7 +114,7 @@ ms.locfileid: "76846979"
 
 ### <a name="add-the-claim-to-the-user-journey"></a>사용자 경험에 클레임 추가
 
-1. TrustFrameworkBase 정책 파일에 있는 `LocalAccountSignUpWithLogonEmail` 기술 프로필에 클레임을 `<OutputClaim ClaimTypeReferenceId="city"/>`로 추가합니다. 이 기술 프로필은 SelfAssertedAttributeProvider를 사용합니다.
+1. TrustFrameworkBase 정책 파일에 있는 `<OutputClaim ClaimTypeReferenceId="city"/>` 기술 프로필에 클레임을 `LocalAccountSignUpWithLogonEmail`로 추가합니다. 이 기술 프로필은 SelfAssertedAttributeProvider를 사용합니다.
 
     ```xml
     <TechnicalProfile Id="LocalAccountSignUpWithLogonEmail">

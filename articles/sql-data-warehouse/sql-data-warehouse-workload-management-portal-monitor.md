@@ -7,24 +7,24 @@ manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: fd9bd846beba718cb305907d4d0c5a613d2ef816
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.custom: azure-synapse
+ms.openlocfilehash: 69a200d4fda940f072960da9224f84a22db51647
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76029935"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193801"
 ---
 # <a name="azure-synapse-analytics--workload-management-portal-monitoring-preview"></a>Azure Synapse Analytics – 워크 로드 관리 포털 모니터링 (미리 보기)
-이 문서에서는 [작업 그룹](sql-data-warehouse-workload-isolation.md#workload-groups) 리소스 사용률 및 쿼리 작업을 모니터링 하는 방법을 설명 합니다. Azure 메트릭 탐색기 구성 하는 방법에 대 한 자세한 내용은 [azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md) 문서를 참조 하세요.  시스템 리소스 사용량을 모니터링 하는 방법에 대 한 자세한 내용은 Azure SQL Data Warehouse 모니터링 설명서의 [리소스 사용률](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) 섹션을 참조 하십시오.
+이 문서에서는 [작업 그룹](sql-data-warehouse-workload-isolation.md#workload-groups) 리소스 사용률 및 쿼리 작업을 모니터링 하는 방법을 설명 합니다. Azure 메트릭 탐색기 구성 하는 방법에 대 한 자세한 내용은 [azure 메트릭 탐색기 시작](../azure-monitor/platform/metrics-getting-started.md) 문서를 참조 하세요.  시스템 리소스 사용량을 모니터링 하는 방법에 대 한 자세한 내용은 Azure Synapse Analytics 모니터링 설명서의 [리소스 사용률](sql-data-warehouse-concept-resource-utilization-query-activity.md#resource-utilization) 섹션을 참조 하세요.
 워크 로드 관리를 모니터링 하기 위해 제공 되는 작업 그룹 메트릭에는 리소스 할당과 쿼리 작업 이라는 두 가지 범주가 있습니다.  이러한 메트릭은 작업 그룹별로 분할 하 고 필터링 할 수 있습니다.  시스템 정의 (리소스 클래스 작업 그룹) 또는 사용자 정의 ( [작업 그룹 구문 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 를 사용 하 여 사용자가 만듦)에 따라 메트릭을 분할 하 고 필터링 할 수 있습니다.
 
 ## <a name="workload-management-metric-definitions"></a>워크 로드 관리 메트릭 정의
 
-|메트릭 이름                    |Description  |집계 형식 |
+|메트릭 이름                    |설명  |집계 형식 |
 |-------------------------------|-------------|-----------------|
 |유효 캡 리소스 비율 | *유효 캡 리소스 백분율* 은 작업 그룹에서 액세스할 수 있는 리소스의 비율에 대 한 하드 제한이 며, 다른 작업 그룹에 할당 된 *유효 최소 리소스 비율* 을 고려 합니다. [작업 그룹 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 `CAP_PERCENTAGE_RESOURCE` 매개 변수를 사용 하 여 *유효 캡 리소스 백분율* 메트릭이 구성 됩니다.  유효한 값은 여기에 설명 되어 있습니다.<br><br>예를 들어 작업 그룹 `DataLoads` `CAP_PERCENTAGE_RESOURCE` = 100을 사용 하 여 생성 되 고, 다른 작업 그룹이 유효 min 리소스 비율 25%로 생성 된 경우 `DataLoads` 작업 그룹의 *유효 cap 리소스 비율은* 75%가 됩니다.<br><br>*유효 캡 리소스 백분율* 은 작업 그룹이 달성할 수 있는 동시성의 상한 (따라서 잠재적 처리량)을 결정 합니다.  *유효한 cap 리소스 비율* 메트릭에 의해 현재 보고 되는 것 보다 더 많은 처리량이 필요한 경우 `CAP_PERCENTAGE_RESOURCE`를 늘리거나 다른 작업 그룹의 `MIN_PERCENTAGE_RESOURCE`를 줄이거나 인스턴스를 확장 하 여 더 많은 리소스를 추가 합니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`을 줄이면 동시성이 증가 하지만 전반적인 처리량은 증가 하지 않을 수 있습니다.| 최소, 평균, 최대 |
 |유효 min 리소스 백분율 |*유효 min resource percent* 는 서비스 수준 최소를 고려 하 여 작업 그룹에 대해 예약 되 고 격리 된 리소스의 최소 비율입니다.  [작업 그룹 만들기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest) 구문에서 `MIN_PERCENTAGE_RESOURCE` 매개 변수를 사용 하 여 유효 min 리소스 백분율 메트릭이 구성 됩니다.  유효한 값은 [여기](https://docs.microsoft.com/sql/t-sql/statements/create-workload-group-transact-sql?view=azure-sqldw-latest#effective-values)에 설명 되어 있습니다.<br><br>이 메트릭이 필터링 되지 않고 분할 되지 않은 경우 Sum 집계 유형을 사용 하 여 시스템에 구성 된 총 워크 로드 격리를 모니터링 합니다.<br><br>*유효 min 리소스 백분율* 은 작업 그룹이 달성할 수 있는 보장 된 동시성의 하한값 (따라서 처리량이 보장 되는 처리량)을 결정 합니다.  현재 *min resource percent* 메트릭에 의해 보고 되는 것 이상의 추가 보장 된 리소스가 필요한 경우 작업 그룹에 대해 구성 된 `MIN_PERCENTAGE_RESOURCE` 매개 변수를 늘립니다.  `REQUEST_MIN_RESOURCE_GRANT_PERCENT`을 줄이면 동시성이 증가 하지만 전반적인 처리량은 증가 하지 않을 수 있습니다. |최소, 평균, 최대|

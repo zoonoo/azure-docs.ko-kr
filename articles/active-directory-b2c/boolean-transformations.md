@@ -3,20 +3,20 @@ title: 사용자 지정 정책에 대 한 부울 클레임 변환 예제
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 부울 클레임 변환 예입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/03/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 130fca4d5894316e7684270ff9d6361e9d9f9dd3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620831"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189944"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 
@@ -116,7 +116,7 @@ ms.locfileid: "77620831"
 
 ## <a name="comparebooleanclaimtovalue"></a>CompareBooleanClaimToValue
 
-클레임의 부울 값이 `true` 또는 `false`와 같은지 확인 하 고 압축 결과를 반환 합니다. 
+클레임의 부울 값이 `true` 또는 `false`와 같은지 확인 하 고 압축 결과를 반환 합니다.
 
 | 항목 | TransformationClaimType  | 데이터 형식  | 참고 |
 | ---- | ------------------------ | ---------- | ----- |
@@ -148,7 +148,7 @@ ms.locfileid: "77620831"
 - 입력 매개 변수:
     - **valueToCompareTo**: true
 - 출력 클레임:
-    - **compareResult**: false 
+    - **compareResult**: false
 
 
 

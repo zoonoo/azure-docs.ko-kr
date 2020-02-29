@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하 여 LinkedIn 계정으로 로그인
 titleSuffix: Azure AD B2C
 description: 사용자 지정 정책을 사용 하 여 Azure Active Directory B2C에서 LinkedIn 계정으로 로그인을 설정 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/25/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: f4ad74104d34e7e2c3f4d6aafc05b36574f8e287
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 80bd1b65d04ea49fc742033e1850d95a85021c9f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847434"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188174"
 ---
 # <a name="set-up-sign-in-with-a-linkedin-account-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 LinkedIn 계정으로 로그인하도록 설정
 
@@ -30,7 +30,7 @@ ms.locfileid: "76847434"
 - LinkedIn 계정-아직 없는 경우 [계정을 만듭니다](https://www.linkedin.com/start/join).
 - LinkedIn 페이지-다음 섹션에서 만든 LinkedIn 응용 프로그램과 연결할 [Linkedin 페이지가](https://www.linkedin.com/help/linkedin/answer/710/creating-a-linkedin-company-page) 필요 합니다.
 
-## <a name="create-an-application"></a>애플리케이션 만들기
+## <a name="create-an-application"></a>응용 프로그램 만들기
 
 Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 애플리케이션을 만들어야 합니다.
 
@@ -77,7 +77,7 @@ Azure AD B2C에서 ID 공급자로 LinkedIn을 사용하려면 LinkedIn 애플�
 
 정책 확장 파일의 **ClaimsProviders** 요소에 LinkedIn 계정을 추가 하 여 해당 계정을 클레임 공급자로 정의 합니다.
 
-1. 편집기에서 *Socialandlocalaccounts/ **trustframeworkextensions.xml*** 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
+1. 편집기에서 *Socialandlocalaccounts/* * trustframeworkextensions.xml** * 파일을 엽니다. 이 파일은 필수 구성 요소 중 하나의 일부로 다운로드 한 [사용자 지정 정책 시작 팩][starter-pack] 에 있습니다.
 1. **ClaimsProviders** 요소를 찾습니다. 해당 요소가 없으면 루트 요소 아래에 추가합니다.
 1. 다음과 같이 새 **ClaimsProvider**를 추가합니다.
 
@@ -185,7 +185,7 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 이 시점에서 id 공급자가 설정 되었지만 등록 또는 로그인 화면에는 제공 되지 않습니다. ID 공급자를 사용할 수 있게 하려면 기존 템플릿 사용자 경험의 복제본을 만든 다음 LinkedIn ID 공급자도 포함하도록 수정합니다.
 
 1. 시작 팩에서 *trustframeworkbase.xml* 파일을 엽니다.
-2. `Id="SignUpOrSignIn"`이 포함된 **UserJourney** 요소를 찾아서 전체 콘텐츠를 복사합니다.
+2. **이 포함된** UserJourney`Id="SignUpOrSignIn"` 요소를 찾아서 전체 콘텐츠를 복사합니다.
 3. *TrustFrameworkExtensions.xml*을 열어 **UserJourneys** 요소를 찾습니다. 요소가 존재하지 않는 경우 추가합니다.
 4. 이전 단계에서 복사한 **UserJourney** 요소의 전체 콘텐츠를 **UserJourneys** 요소의 자식으로 붙여넣습니다.
 5. 사용자 경험 ID의 이름을 바꿉니다. `SignUpSignInLinkedIn`)을 입력합니다.
@@ -194,7 +194,7 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 
 **ClaimsProviderSelection** 요소는 등록 또는 로그인 화면의 ID 공급자 단추와 비슷합니다. LinkedIn 계정에 **ClaimsProviderSelection** 요소를 추가하면 사용자가 페이지를 열 때 새 단추가 표시됩니다.
 
-1. 만든 사용자 경험에서 `Order="1"`이 포함된 **OrchestrationStep** 요소를 찾습니다.
+1. 만든 사용자 경험에서 **이 포함된** OrchestrationStep`Order="1"` 요소를 찾습니다.
 2. **ClaimsProviderSelections** 아래에 다음 요소를 추가합니다. **TargetClaimsExchangeId** 값을 적절한 값(예: `LinkedInExchange`)으로 설정합니다.
 
     ```XML
@@ -205,7 +205,7 @@ LinkedIn 기술 프로필을 사용 하려면 **ExtractGivenNameFromLinkedInResp
 
 이제 단추가 준비되었으므로 동작에 연결해야 합니다. 이 경우에는 Azure AD B2C가 LinkedIn 계정과 통신하여 토큰을 받는 작업을 연결합니다.
 
-1. 사용자 경험에서 `Order="2"`가 포함된 **OrchestrationStep**을 찾습니다.
+1. 사용자 경험에서 **가 포함된** OrchestrationStep`Order="2"`을 찾습니다.
 2. 다음 **ClaimsExchange** 요소를 추가합니다. ID에는 **TargetClaimsExchangeId**에 사용한 것과 같은 값을 사용해야 합니다.
 
     ```XML
@@ -246,7 +246,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <Item Key="scope">r_emailaddress r_basicprofile</Item>
 ```
 
-아래와 같이 변경합니다.
+끝:
 
 ```XML
 <Item Key="ClaimsEndpoint">https://api.linkedin.com/v2/me</Item>
@@ -272,7 +272,7 @@ LinkedIn [은 최근에 해당 api를 v1.0에서 v 2.0으로 업데이트 했습
 <OutputClaim ClaimTypeReferenceId="surname" PartnerClaimType="lastName" />
 ```
 
-아래와 같이 변경합니다.
+끝:
 
 ```XML
 <OutputClaim ClaimTypeReferenceId="givenName" PartnerClaimType="firstName.localized" />

@@ -1,25 +1,28 @@
 ---
-title: 실시간으로 Azure 스프링 클라우드 앱 로그 스트림
+title: 실시간으로 Azure Spring Cloud 앱 로그 스트림
 description: 로그 스트리밍을 사용 하 여 응용 프로그램 로그를 즉시 보는 방법
 author: MikeDodaro
 ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: how-to
 ms.date: 01/14/2019
-ms.openlocfilehash: 27978d367ded7a31d73949cd675ae9e6f8cb887c
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: fc208a3542528fb4554a365a02e13c2da3055cf2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264002"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192203"
 ---
-# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure 스프링 클라우드 앱 로그 스트림
+# <a name="stream-azure-spring-cloud-app-logs-in-real-time"></a>실시간으로 Azure Spring Cloud 앱 로그 스트림
 Azure 스프링 클라우드를 사용 하면 Azure CLI의 로그 스트리밍을 통해 문제 해결을 위한 실시간 응용 프로그램 콘솔 로그를 가져올 수 있습니다. [진단 설정을 사용 하 여 로그 및 메트릭을 분석할](./diagnostic-services.md)수도 있습니다.
 
 ## <a name="prerequisites"></a>필수 조건
 
 * 스프링 클라우드, 최소 버전 0.2.0에 대 한 [Azure CLI 확장](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-quickstart-launch-app-cli#install-the-azure-cli-extension) 을 설치 합니다.
 * 응용 프로그램을 실행 하는 **Azure 스프링 클라우드의** 인스턴스 (예: [스프링 클라우드 앱](./spring-cloud-quickstart-launch-app-cli.md)).
+
+> [!NOTE]
+>  ASC CLI 확장은 버전 0.2.0에서 0.2.1로 업데이트 됩니다. 이 변경 내용은 로그 스트리밍에 대 한 명령 구문에 영향을 줍니다. `az spring-cloud app log tail`은 `az spring-cloud app logs`으로 바뀝니다. 다음 명령은 `az spring-cloud app log tail` 이후 릴리스에서 더 이상 사용 되지 않습니다. 버전 0.2.0를 사용 하는 경우 0.2.1로 업그레이드할 수 있습니다. 먼저 `az extension remove -n spring-cloud`명령을 사용 하 여 이전 버전을 제거 합니다.  그런 다음 `az extension add -n spring-cloud`명령으로 0.2.1를 설치 합니다.
 
 ## <a name="use-cli-to-tail-logs"></a>CLI를 사용 하 여 비상 로그
 
@@ -33,7 +36,7 @@ az configure --defaults spring-cloud=<service instance name>
 ### <a name="tail-log-for-app-with-single-instance"></a>단일 인스턴스를 사용 하는 앱에 대 한 비상 로그
 Auth service 라는 앱에 인스턴스가 하나만 있는 경우 다음 명령을 사용 하 여 앱 인스턴스의 로그를 볼 수 있습니다.
 ```
-az spring-cloud app log tail -n auth-service
+az spring-cloud app logs -n auth-service
 ```
 로그를 반환 합니다.
 ```
@@ -66,7 +69,7 @@ auth-service-default-12-75cc4577fc-n25mh  Running   UP
 그런 다음 옵션 `-i/--instance` 옵션을 사용 하 여 앱 인스턴스의 로그를 스트리밍할 수 있습니다.
 
 ```
-az spring-cloud app log tail -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
+az spring-cloud app logs -n auth-service -i auth-service-default-12-75cc4577fc-pw7hb
 ```
 
 Azure Portal에서 앱 인스턴스의 세부 정보를 가져올 수도 있습니다.  Azure 스프링 클라우드 서비스의 왼쪽 탐색 창에서 **앱** 을 선택한 후 **앱 인스턴스**를 선택 합니다.
@@ -75,11 +78,11 @@ Azure Portal에서 앱 인스턴스의 세부 정보를 가져올 수도 있습�
 기본적으로 `az spring-cloud ap log tail`는 응용 프로그램 콘솔로 스트리밍되는 기존 로그만 인쇄 한 후 종료 됩니다. 새 로그를 스트리밍하려면-f (--follow)를 추가 합니다.  
 
 ```
-az spring-cloud app log tail -n auth-service -f
+az spring-cloud app logs -n auth-service -f
 ``` 
 지원 되는 모든 로깅 옵션을 확인 하려면:
 ``` 
-az spring-cloud app log tail -h 
+az spring-cloud app logs -h 
 ```
 
 ## <a name="next-steps"></a>다음 단계

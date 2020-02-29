@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: ambapat
-ms.openlocfilehash: d22231541a7fe29d4517985742d4bf88dc4c3fa7
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eac3850cfa0684bd1751cf7b88b4ff8e92667293
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980448"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197439"
 ---
 # <a name="secure-access-to-a-key-vault"></a>Key vault에 대한 액세스 보안
 
@@ -51,7 +52,7 @@ Azure 구독에 Key Vault을 만들 때 해당 구독의 Azure AD 테넌트에 �
 
 다음 표에서는 관리 및 데이터 평면에 대한 엔드포인트를 보여 줍니다.
 
-| 액세스&nbsp;평면 | 액세스 엔드포인트 | 운영 | 액세스&nbsp;제어 메커니즘 |
+| 액세스&nbsp;평면 | 액세스 엔드포인트 | 작업 | 액세스&nbsp;제어 메커니즘 |
 | --- | --- | --- | --- |
 | 관리 평면 | **전역:**<br> management.azure.com:443<br><br> **Azure China 21Vianet:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 | Key Vault 만들기, 읽기, 업데이트 및 삭제<br><br>Key Vault 액세스 정책 설정<br><br>Key Vault 태그 설정 | Azure Resource Manager RBAC |
 | 데이터 평면 | **전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure China 21Vianet:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 | 키: 암호 해독, 암호화,<br> 래핑 취소, 래핑, 확인, 서명,<br> 가져오기, 나열, 업데이트, 만들기,<br> 가져오기, 삭제, 백업, 복원<br><br> 비밀: 가져오기, 나열, 설정, 삭제 | Key Vault 액세스 정책 |
@@ -87,7 +88,7 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 
 [Azure Key Vault에 대한 가상 네트워크 서비스 엔드포인트](key-vault-overview-vnet-service-endpoints.md)를 사용하여 데이터 평면 액세스를 제어할 수 있습니다. 추가 보안 계층에 대한 [방화벽 및 가상 네트워크 규칙](key-vault-network-security.md)을 구성할 수 있습니다.
 
-## <a name="example"></a>예
+## <a name="example"></a>예제
 
 이 예제에서는 TLS/SSL에 인증서를 사용 하는 응용 프로그램을 개발 하 고, Azure Storage 데이터를 저장 하 고, 서명 작업을 위한 RSA 2048 비트 키를 개발 합니다. 애플리케이션은 Azure VM(Virtual Machine)(또는 가상 머신 확장 집합)에서 실행됩니다. Key Vault를 사용하여 애플리케이션 비밀을 저장할 수 있습니다. 애플리케이션이 Azure AD에서 인증을 받는 데 사용하는 부트스트랩 인증서를 저장할 수 있습니다.
 
@@ -123,12 +124,12 @@ Key Vault의 키 또는 비밀에 대해 특정 작업을 실행하기 위해 �
 
 다음 표에서는 역할과 애플리케이션에 대한 액세스 권한을 요약해서 설명합니다.
 
-| 역할 | 관리 평면 사용 권한 | 데이터 평면 사용 권한 |
+| Role | 관리 평면 사용 권한 | 데이터 평면 사용 권한 |
 | --- | --- | --- |
 | 보안 팀 | Key Vault 참가자 | 키: 백업, 만들기, 삭제, 권한 가져오기, 가져오기, 목록 표시, 복원<br>비밀: 모든 작업 |
 | 개발자 및&nbsp;운영자 | Key Vault 배포 권한<br><br> **참고**:이 사용 권한을 통해 배포 된 vm이 키 자격 증명 모음에서 암호를 가져올 수 있습니다. | 없음 |
 | 감사자 | 없음 | 키: 목록 표시<br>암호: 목록 표시<br><br> **참고**:이 사용 권한을 통해 감사자는 로그에서 내보내지 않은 키와 비밀에 대 한 특성 (태그, 활성화 날짜, 만료 날짜)을 검사할 수 있습니다. |
-| 애플리케이션 | 없음 | 키: 로그인<br>암호: 권한 가져오기 |
+| 응용 프로그램 | 없음 | 키: 로그인<br>암호: 권한 가져오기 |
 
 이 세 가지 팀 역할은 Key Vault 사용 권한과 함께 다른 리소스에 대한 액세스 권한이 필요합니다. VM(또는 Azure App Service의 Web Apps 기능)을 배포하려면 개발자와 운영자는 해당 리소스 형식에 대한 `Contributor` 액세스 권한이 필요합니다. 감사자에게는 Key Vault 로그를 저장할 스토리지 계정에 대한 읽기 액세스 권한이 필요합니다.
 

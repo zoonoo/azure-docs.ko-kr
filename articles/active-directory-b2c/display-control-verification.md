@@ -3,20 +3,20 @@ title: 표시 컨트롤을 사용 하 여 클레임 확인
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 표시 하는 컨트롤을 사용 하 여 사용자 지정 정책에서 제공 하는 사용자 경험의 클레임을 확인 하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 12/10/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 4d7deb02e28734eb2b4c42bad566fdfd0d380682
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: ff2a8ad05e26ea31fc8100d4000171313881f4e1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75479086"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188786"
 ---
 # <a name="verification-display-control"></a>확인 표시 컨트롤
 

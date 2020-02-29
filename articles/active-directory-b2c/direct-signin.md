@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C를 사용하여 직접 로그인 설정 | Microsoft Docs
 description: 로그인 이름을 미리 채우거나 소셜 ID 공급자에 직접 리디렉션하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 06/18/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8c0f3d8f3f49001e1326688ccc794e19d1148e5d
-ms.sourcegitcommit: fa45c2bcd1b32bc8dd54a5dc8bc206d2fe23d5fb
+ms.openlocfilehash: 9a02ad3ea43ae9d91489417bc314e3c23d54a958
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/12/2019
-ms.locfileid: "67846901"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188769"
 ---
 # <a name="set-up-direct-sign-in-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 직접 로그인 설정
 
@@ -51,7 +51,7 @@ Facebook, LinkedIn 또는 Google 등과 같은 소셜 계정을 포함하도록 
 
 ![URL에 강조 표시 된 domain_hint 쿼리 매개 변수를 사용 하 여 로그인 페이지 등록](./media/direct-signin/domain-hint.png)
 
-사용자 지정 정책을 사용하는 경우 `<ClaimsProvider>`의 `<Domain>domain name</Domain>` XML 요소를 사용하여 도메인 이름을 구성할 수 있습니다.
+사용자 지정 정책을 사용하는 경우 `<Domain>domain name</Domain>`의 `<ClaimsProvider>` XML 요소를 사용하여 도메인 이름을 구성할 수 있습니다.
 
 ```xml
 <ClaimsProvider>

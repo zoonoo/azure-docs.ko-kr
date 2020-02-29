@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 통해 액세스 토큰을 앱에 전달
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 응용 프로그램에 대 한 사용자 지정 정책을 통해 OAuth 2.0 id 공급자의 액세스 토큰을 클레임으로 전달 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/17/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 697c904f98ea29395d5c4e95abe27556c06bb479
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ff5ef8f742914129d868152814d84d2112267c09
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76839094"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187797"
 ---
 # <a name="pass-an-access-token-through-a-custom-policy-to-your-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 애플리케이션으로 액세스 토큰의 사용자 지정 정책 통과
 
@@ -30,7 +30,7 @@ Azure AD B2C에서는 [OAuth 2.0](authorization-code-flow.md) 및 [OpenID Connec
 
 ## <a name="add-the-claim-elements"></a>클레임 요소 추가
 
-1. TrustframeworkExtensions.xml 파일을 열고 `identityProviderAccessToken` 식별자를 사용하여 다음 **ClaimType** 요소를 **ClaimsSchema** 요소에 추가합니다.
+1. TrustframeworkExtensions.xml 파일을 열고 *식별자를 사용하여 다음*ClaimType**요소를**ClaimsSchema`identityProviderAccessToken` 요소에 추가합니다.
 
     ```XML
     <BuildingBlocks>
@@ -62,7 +62,7 @@ Azure AD B2C에서는 [OAuth 2.0](authorization-code-flow.md) 및 [OpenID Connec
     ```
 
 3. TrustframeworkExtensions.xml 파일을 저장합니다.
-4. 신뢰 당사자 정책 파일(예: SignUpOrSignIn.xml)을 열고 **OutputClaim** 요소를 **TechnicalProfile**에 추가합니다.
+4. 신뢰 당사자 정책 파일(예: SignUpOrSignIn.xml)을 열고 *OutputClaim* 요소를 **TechnicalProfile**에 추가합니다.
 
     ```XML
     <RelyingParty>

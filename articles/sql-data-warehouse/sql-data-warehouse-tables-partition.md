@@ -1,6 +1,6 @@
 ---
 title: 테이블 분할
-description: Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
+description: SQL Analytics에서 테이블 파티션을 사용 하기 위한 권장 사항 및 예제
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,24 +10,24 @@ ms.subservice: development
 ms.date: 03/18/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 7ec313094a9ebc05f966e0c49f44284909ca778f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 25485502ff1ae6858ee7d0f840c22940dc3ab9b5
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685411"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192152"
 ---
-# <a name="partitioning-tables-in-sql-data-warehouse"></a>SQL Data Warehouse의 테이블 분할
-Azure SQL Data Warehouse의 테이블 파티션을 사용하기 위한 권장 사항 및 예제
+# <a name="partitioning-tables-in-sql-analytics"></a>SQL Analytics의 테이블 분할
+SQL Analytics에서 테이블 파티션을 사용 하는 방법에 대 한 권장 사항 및 예제입니다.
 
 ## <a name="what-are-table-partitions"></a>테이블 파티션이란?
-테이블 파티션을 사용하면 데이터를 더 작은 데이터 그룹으로 나눌 수 있습니다. 대부분의 경우 테이블 파티션은 날짜 열에 만들어집니다. 분할은 클러스터형 columnstore, 클러스터형 인덱스 및 힙을 포함하는 모든 SQL Data Warehouse 테이블 형식에서 지원됩니다. 또한 해시 또는 라운드 로빈 배포를 비롯한 모든 배포 유형에서도 분할이 지원됩니다.  
+테이블 파티션을 사용하면 데이터를 더 작은 데이터 그룹으로 나눌 수 있습니다. 대부분의 경우 테이블 파티션은 날짜 열에 만들어집니다. 분할은 모든 SQL 분석 테이블 형식에서 지원 됩니다. 클러스터형 columnstore, 클러스터형 인덱스 및 힙을 포함 합니다. 또한 해시 또는 라운드 로빈 배포를 비롯한 모든 배포 유형에서도 분할이 지원됩니다.  
 
 분할은 데이터 유지 관리 및 쿼리 성능에 도움이 될 수 있습니다. 분할이 이러한 두 가지 측면 모두에 효과적인지 아니면 한 가지 측면에만 효과적인지는 데이터의 로드 방식, 동일한 열이 두 가지 용도로 사용될 수 있는지에 따라 좌우됩니다. 분할은 한 열에 대해서만 수행할 수 있기 때문입니다.
 
 ### <a name="benefits-to-loads"></a>로드에 대한 이점
-Microsoft Azure SQL Data Warehouse에서 분할이 가져오는 주요 이점은 파티션 삭제, 전환 및 병합을 사용하여 데이터 로드의 효율성과 성능을 향상시킨다는 것입니다. 대부분의 경우 데이터는 데이터가 데이터베이스에 로드되는 순서에 밀접하게 관련된 날짜 열에서 분할됩니다. 파티션을 사용하여 데이터를 유지 관리할 때의 가장 큰 장점 중 하나는 트랜잭션 로깅이 방지된다는 것입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
+SQL Analytics에서 분할의 주요 장점은 파티션 삭제, 전환 및 병합을 사용 하 여 데이터 로드의 효율성과 성능을 향상 시키는 것입니다. 대부분의 경우 데이터는 데이터가 데이터베이스에 로드되는 순서에 밀접하게 관련된 날짜 열에서 분할됩니다. 파티션을 사용하여 데이터를 유지 관리할 때의 가장 큰 장점 중 하나는 트랜잭션 로깅이 방지된다는 것입니다. 단순히 데이터를 삽입, 업데이트 또는 삭제하는 것이 생각과 노력이 거의 필요하지 않은 가장 간단한 방법일 수 있지만, 로드 프로세스 중에 분할을 사용하면 성능을 크기 향상시킬 수 있습니다.
 
 파티션 전환을 사용하여 테이블 섹션을 빠르게 제거하거나 바꿀 수 있습니다.  예를 들어 판매 팩트 테이블은 지난 36개월 동안의 데이터만 포함할 수 있습니다. 매월 말에 가장 오래된 달의 판매 데이터는 테이블에서 삭제됩니다.  이 데이터는 delete 문을 사용하여 가장 오래된 월의 데이터를 삭제하는 방식으로 삭제할 수 있습니다. 그러나 delete 문을 사용하여 행별로 대량의 데이터를 삭제하는 데 시간이 오래 걸릴 수 있으며, 문제가 있는 경우 롤백하는 데 시간이 오래 걸리는 대형 트랜잭션이 발생할 위험도 높아집니다. 좀 더 최적의 접근 방법은 데이터의 가장 오래된 파티션을 삭제하는 것입니다. 개별 행을 삭제하는 데는 몇 시간이 걸리지만 전체 파티션을 삭제하는 데는 몇 초면 충분합니다.
 
@@ -37,10 +37,10 @@ Microsoft Azure SQL Data Warehouse에서 분할이 가져오는 주요 이점은
 ## <a name="sizing-partitions"></a>파티션 크기 조정
 일부 시나리오에서 분할을 사용하여 성능을 향상시킬 수 있지만 **너무 많은** 파티션이 있는 테이블을 만들면 경우에 따라 성능이 저하될 수 있습니다.  특히 클러스터형 columnstore 테이블에서 이러한 점이 우려됩니다. 분할이 도움이 되려면 분할을 사용하는 시기 및 만들려는 파티션 수를 이해하는 것이 중요합니다. 파티션 수가 너무 많은 경우와 관련해서는 엄격한 규칙이 없지만 데이터 및 동시에 로드하는 파티션 수에 따라 달라집니다. 성공적인 파티션 구성표에는 일반적으로 수천 개가 아닌 수십 개에서 수백 개의 파티션이 있습니다.
 
-**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다. 클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다. 파티션이 생성되기 전에 SQL Data Warehouse는 미리 각 테이블을 60개의 분산된 데이터베이스로 나눕니다. 백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다. 이 예제에서 사용 판매 팩트 테이블이 36개의 월별 파티션을 포함하고 SQL Data Warehouse에 60개의 배포판이 있다면 판매 팩트 테이블은 모든 달이 채워지는 경우 매월 6천만 개의 행 또는 21억 개의 행을 포함합니다. 테이블이 파티션당 권장되는 최소 행 수보다 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다. 자세한 내용은 [인덱싱](sql-data-warehouse-tables-index.md) 문서를 참조하세요. 여기에는 클러스터 columnstore 인덱스의 품질을 평가할 수 있는 쿼리가 포함되어 있습니다.
+**클러스터형 columnstore** 테이블에서 파티션을 만들 때 각 파티션에 얼마나 많은 행 수를 둘지 고려하는 것은 중요합니다. 클러스터형 columnstore 테이블에 대한 최적의 압축 및 성능을 고려할 때, 배포 및 파티션당 최소 1백만 개의 행이 필요합니다. 파티션이 만들어지기 전에 SQL Analytics는 이미 각 테이블을 60 분산 데이터베이스로 나눕니다. 백그라운드에서 생성된 배포 외에, 테이블에 분할이 추가됩니다. 이 예를 사용 하 여 sales 팩트 테이블에 36 개의 월별 파티션이 포함 된 경우 SQL Analytics 데이터베이스에 60 분포가 있으면 sales 팩트 테이블에는 월간 6000만 행 또는 모든 월이 채워질 때 21억 행이 포함 되어야 합니다. 테이블이 파티션당 권장되는 최소 행 수보다 적은 행을 포함하면 파티션당 행 수를 늘리기 위해 더 적은 수의 파티션을 사용할 것을 고려해야 합니다. 자세한 내용은 [인덱싱](sql-data-warehouse-tables-index.md) 문서를 참조하세요. 여기에는 클러스터 columnstore 인덱스의 품질을 평가할 수 있는 쿼리가 포함되어 있습니다.
 
 ## <a name="syntax-differences-from-sql-server"></a>SQL Server와의 구문 차이
-SQL Data Warehouse는 SQL Server보다 간단하게 파티션을 정의하는 방법을 소개합니다. 파티션 함수 및 구성표는 SQL Server에서는 사용되지만 SQL Data Warehouse에서는 사용되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 SQL Data Warehouse는 테이블당 하나의 파티션 열(범위가 지정된 파티션)을 지원합니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes)를 참조하세요.
+SQL Analytics는 SQL Server 보다 간단한 파티션을 정의 하는 방법을 소개 합니다. 분할 함수 및 스키마는 SQL Server에 있으므로 SQL Analytics에서 사용 되지 않습니다. 대신 분할된 열 및 경계 지점을 식별하기만 하면 됩니다. 분할의 구문은 SQL Server와 약간 다르지만 기본 개념은 동일합니다. SQL Server 및 SQL 분석은 테이블 마다 하나의 파티션 열을 지원 하며이는 원거리 파티션이 될 수 있습니다. 분할에 대한 자세한 내용은 [분할된 테이블 및 인덱스](/sql/relational-databases/partitions/partitioned-tables-and-indexes)를 참조하세요.
 
 다음 예제에서는 [CREATE TABLE](/sql/t-sql/statements/create-table-azure-sql-data-warehouse) 문을 사용하여 OrderDateKey 열에서 FactInternetSales 테이블을 분할합니다.
 
@@ -69,12 +69,12 @@ WITH
 ```
 
 ## <a name="migrating-partitioning-from-sql-server"></a>SQL Server에서 분할 마이그레이션
-SQL Server 파티션 정의를 SQL Data Warehouse에 마이그레이션하려면
+SQL Server 파티션 정의를 SQL Analytics로 마이그레이션하려면 다음을 수행 하면 됩니다.
 
 - SQL Server [파티션 구성표](/sql/t-sql/statements/create-partition-scheme-transact-sql)를 제거합니다.
 - [파티션 함수](/sql/t-sql/statements/create-partition-function-transact-sql) 정의를 CREATE TABLE에 추가합니다.
 
-SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. Microsoft Azure SQL Data Warehouse에서 동일한 분할 세분성이 사용될 경우 파티션당 행 수가 60의 배율로 줄어듭니다.  
+SQL Server 인스턴스에서 분할된 테이블을 마이그레이션하는 경우 다음 SQL이 각 파티션에 있는 행의 수를 파악하는 데 도움이 될 수 있습니다. SQL Analytics에서 동일한 분할 세분성이 사용 되는 경우 파티션당 행 수가 60의 비율로 감소 한다는 점에 유의 하세요.  
 
 ```sql
 -- Partition information for a SQL Server Database
@@ -111,7 +111,7 @@ GROUP BY    s.[name]
 ```
 
 ## <a name="partition-switching"></a>파티션 전환
-SQL Data Warehouse는 파티션 분할, 병합 및 전환을 지원합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) 문을 사용하여 실행됩니다.
+SQL Analytics는 파티션 분할, 병합 및 전환을 지원 합니다. 이러한 각 함수는 [ALTER TABLE](/sql/t-sql/statements/alter-table-transact-sql) 문을 사용하여 실행됩니다.
 
 두 테이블 간에 파티션을 전환하려면 파티션을 각 해당 경계에 맞추고 테이블 정의와 일치하는지 확인해야 합니다. Check 제약 조건은 테이블에 있는 값의 범위를 적용하는 데 사용할 수 없으므로 원본 테이블은 대상 테이블과 동일한 파티션 경계를 포함해야 합니다. 파티션 경계가 동일하지 않으면 파티션 전환은 파티션 메타데이터가 동기화되지 않아서 실패합니다.
 
@@ -171,7 +171,7 @@ WHERE t.[name] = 'FactInternetSales'
 ALTER TABLE FactInternetSales SPLIT RANGE (20010101);
 ```
 
-파티션이 비어 있어 Msg 35346, 수준 15, 상태 1, 44행 ALTER PARTITION 문의 SPLIT 절이 실패했습니다. Columnstore 인덱스가 테이블에 있는 경우 빈 파티션만 분할할 수 있습니다. ALTER PARTITION 문을 실행한 다음 ALTER PARTITION 완료된 후에 Columnstore 인덱스를 다시 작성하기 전에 Columnstore 인덱스를 비활성화하는 것이 좋습니다.
+파티션이 비어 있어 Msg 35346, 수준 15, 상태 1, 44행 ALTER PARTITION 문의 SPLIT 절이 실패했습니다. 테이블에 columnstore 인덱스가 있는 경우에는 빈 파티션만 분할할 수 있습니다. ALTER PARTITION 문을 실행한 다음 ALTER PARTITION 완료된 후에 Columnstore 인덱스를 다시 작성하기 전에 Columnstore 인덱스를 비활성화하는 것이 좋습니다.
 
 그러나 `CTAS`를 사용하여 데이터를 저장할 새 테이블을 만들 수 있습니다.
 
@@ -226,8 +226,8 @@ ALTER TABLE dbo.FactInternetSales_20000101_20010101 SWITCH PARTITION 2 TO dbo.Fa
 UPDATE STATISTICS [dbo].[FactInternetSales];
 ```
 
-### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 단계로 데이터를 포함 하는 파티션으로 새 데이터 로드
-파티션 전환을 사용 하 여 파티션에 데이터를 로드 하는 것은 새 데이터의 스위치를 사용자에 게 표시 되지 않는 테이블의 새 데이터를 준비 하는 편리한 방법입니다.  사용 중인 시스템에서 파티션 전환과 관련 된 잠금 경합을 처리 하는 것이 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 필요한 `ALTER TABLE` 사용 됩니다.  그런 다음 새 데이터를 전환 하는 데 다른 `ALTER TABLE` 필요 했습니다.  SQL Data Warehouse에서 `TRUNCATE_TARGET` 옵션은 `ALTER TABLE` 명령에서 지원 됩니다.  `TRUNCATE_TARGET` `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은 `CTAS`를 사용 하 여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예제입니다.
+### <a name="load-new-data-into-partitions-that-contain-data-in-one-step"></a>한 번에 데이터를 포함하는 파티션으로 새 데이터를 로드
+파티션 전환을 사용하여 파티션에 데이터를 로드하는 것은 새 데이터의 스위치를 사용자가 볼 수 없는 테이블의 새 데이터를 스테이징하는 편리한 방법입니다.  바쁜 시스템에서 파티션 전환과 관련된 잠금 경합을 처리하는 것은 어려울 수 있습니다.  파티션의 기존 데이터를 지우려면 데이터를 전환 하는 데 필요한 `ALTER TABLE` 사용 됩니다.  그런 다음 새 데이터를 전환 하는 데 다른 `ALTER TABLE` 필요 했습니다.  SQL Analytics에서 `TRUNCATE_TARGET` 옵션은 `ALTER TABLE` 명령에서 지원 됩니다.  `TRUNCATE_TARGET` `ALTER TABLE` 명령은 파티션의 기존 데이터를 새 데이터로 덮어씁니다.  다음은 `CTAS`를 사용 하 여 기존 데이터로 새 테이블을 만들고 새 데이터를 삽입 한 다음 모든 데이터를 다시 대상 테이블로 전환 하 여 기존 데이터를 덮어쓰는 예제입니다.
 
 ```sql
 CREATE TABLE [dbo].[FactInternetSales_NewSales]
@@ -328,7 +328,7 @@ ALTER TABLE dbo.FactInternetSales_NewSales SWITCH PARTITION 2 TO dbo.FactInterne
     DROP TABLE #partitions;
     ```
 
-이 방법으로 소스 제어의 코드는 정적으로 유지되며 파티션 경계 값은 동적이 될 수 있습니다. 시간이 지남에 따라 웨어하우스가 발전됩니다.
+이 방법을 사용 하는 경우 소스 제어의 코드는 정적으로 유지 되 고 분할 경계 값은 동적이 될 수 있습니다. 시간이 지남에 따라 데이터베이스와 진화 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 테이블 개발에 대한 자세한 내용은 [테이블 개요](sql-data-warehouse-tables-overview.md)에 대한 문서를 참조하세요.

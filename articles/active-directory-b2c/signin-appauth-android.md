@@ -3,20 +3,20 @@ title: Android 응용 프로그램에서 토큰 획득
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 AppAuth를 사용 하 여 사용자 id를 관리 하 고 사용자를 인증 하는 Android 앱을 만드는 방법입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 11/30/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: aa8731329c141ab1390510180233ff93e606ef94
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 31ad373b1544fc601a9c37e05e324a9c1dfb3f73
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848409"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183785"
 ---
 # <a name="sign-in-using-an-android-application-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Android 애플리케이션을 사용하여 로그인
 
@@ -33,7 +33,7 @@ OAuth2 또는 OpenID Connect를 처음 접하는 경우 이 샘플 구성 대부
 
 Azure AD B2C를 사용하기 전에 디렉터리 또는 테넌트를 만들어야 합니다. 디렉터리는 모든 사용자, 앱, 그룹 등을 위한 컨테이너입니다. 디렉터리가 없는 경우 계속하기 전에 [B2C 디렉터리를 만듭니다](tutorial-create-tenant.md) .
 
-## <a name="create-an-application"></a>애플리케이션 만들기
+## <a name="create-an-application"></a>응용 프로그램 만들기
 
 다음으로 Azure AD B2C 테 넌 트에 응용 프로그램을 등록 합니다. 이를 통해 Azure AD는 앱과 안전 하 게 통신 하는 데 필요한 정보를 제공 합니다.
 

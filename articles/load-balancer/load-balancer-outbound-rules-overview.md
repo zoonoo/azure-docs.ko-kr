@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 7/17/2019
 ms.author: allensu
-ms.openlocfilehash: 316b28faa458b03431cb48f02a8087116415b061
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: d35241850d60e82b79bba0384f60c40e3ecd6427
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74075895"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192526"
 ---
 # <a name="load-balancer-outbound-rules"></a>Load Balancer 아웃바운드 규칙
 
@@ -34,7 +34,7 @@ Azure Load Balancer는 가상 네트워크에서 인바운드 연결 외에도 �
 - [아웃바운드 SNAT 포트](load-balancer-outbound-connections.md#snat)를 할당해야 하는 방법
 - 아웃바운드 변환을 제공하는 프로토콜
 - 아웃바운드 연결 유휴 시간 제한에 사용할 기간(4-120분)
-- 유휴 시간 제한 시 TCP 재설정을 보낼지 여부(공개 미리 보기에서) 
+- 유휴 시간 제한 시 TCP 재설정을 보낼지 여부
 
 아웃바운드 규칙은 [아웃바운드 연결](load-balancer-outbound-connections.md#lb) 문서에서 설명한 [시나리오 2](load-balancer-outbound-connections.md)를 확장하며 시나리오 우선 순위는 그대로 유지됩니다.
 
@@ -95,7 +95,7 @@ VM당 10,000개의 SNAT 포트를 할당하려면 다음 매개 변수를 사용
 
           "idleTimeoutInMinutes": 60
 
-### <a name="tcprst"></a> <a name="tcpreset"></a> 유휴 시간 제한 시 TCP 재설정 사용(미리 보기)
+### <a name="tcprst"></a><a name="tcpreset"></a> 유휴 시간 제한 시 TCP 다시 설정 사용
 
 Load Balancer의 기본 동작은 아웃바운드 유휴 시간 제한에 도달하는 경우 흐름을 자동으로 삭제하는 것입니다.  enableTCPReset 매개 변수를 사용하면 예측 가능한 애플리케이션 동작을 사용하도록 설정하고 아웃바운드 유휴 시간 제한 시간을 초과할 때 양방향 TCP 재설정(TCP RST)을 보낼지 여부를 제어할 수 있습니다. 
 
@@ -103,7 +103,7 @@ Load Balancer의 기본 동작은 아웃바운드 유휴 시간 제한에 도달
 
            "enableTcpReset": true
 
-지역 가용성을 포함한 자세한 내용은 [유휴 시간 제한 시 TCP 재설정(미리 보기)](https://aka.ms/lbtcpreset)을 검토하세요.
+지역 가용성을 비롯 한 세부 정보는 [유휴 시간 제한에서 TCP 다시 설정](https://aka.ms/lbtcpreset) 을 검토 합니다.
 
 ### <a name="proto"></a> 단일 규칙으로 TCP 및 UDP 전송 프로토콜을 모두 지원
 
