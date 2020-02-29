@@ -1,31 +1,31 @@
 ---
 title: 관리 효율성 및 모니터링-쿼리 작업, 리소스 사용률
-description: Azure SQL Data Warehouse를 관리하고 모니터링하는 데 사용할 수 있는 기능에 대해 알아봅니다. Azure Portal과 DMV(Dynamic Management Views)를 사용하여 데이터 웨어하우스의 쿼리 작업 및 리소스 사용률을 이해합니다.
+description: Azure Synapse Analytics를 관리 하 고 모니터링 하는 데 사용할 수 있는 기능에 대해 알아봅니다. Azure Portal과 DMV(Dynamic Management Views)를 사용하여 데이터 웨어하우스의 쿼리 작업 및 리소스 사용률을 이해합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 01/14/2020
+ms.date: 02/04/2020
 ms.author: kevin
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 366d170a4caf9ee7428b68d71f910c65356038ff
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 47f142a19ac470fb29e9542941cd94a6b29ce240
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76024528"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195926"
 ---
-# <a name="monitoring-resource-utilization-and-query-activity-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 리소스 사용률 및 쿼리 작업 모니터링
-Azure SQL Data Warehouse는 Azure Portal 내에 다양한 모니터링 환경을 제공하여 데이터 웨어하우스 워크로드에 대한 인사이트를 제공합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털에서는 OMS (Operations Management Suite) 및 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합 하 여 데이터 웨어하우스 뿐만 아니라 전체 Azure 분석에 대해 전체적인 모니터링 환경을 제공할 수 있습니다. 통합 모니터링 환경을 위한 플랫폼입니다. 이 문서에서는 SQL Data Warehouse를 사용하여 분석 플랫폼을 최적화하고 관리하는 데 사용할 수 있는 모니터링 기능에 대해 설명합니다. 
+# <a name="monitoring-resource-utilization-and-query-activity-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 사용률 및 쿼리 작업 모니터링
+Azure Synapse Analytics는 데이터 웨어하우스 워크 로드에 대 한 통찰력을 제공 하기 위해 Azure Portal 내에서 풍부한 모니터링 환경을 제공 합니다. 데이터 웨어하우스를 모니터링할 때는 구성 가능한 보존 기간, 경고, 권장 사항, 메트릭과 로그용 사용자 지정 가능한 차트 및 대시보드를 제공하는 도구인 Azure Portal을 사용하는 것이 좋습니다. 또한 포털에서는 OMS (Operations Management Suite) 및 Azure Monitor (로그)와 같은 다른 Azure 모니터링 서비스와 통합 하 여 데이터 웨어하우스 뿐만 아니라 전체 Azure 분석에 대해 전체적인 모니터링 환경을 제공할 수 있습니다. 통합 모니터링 환경을 위한 플랫폼입니다. 이 설명서에서는 SQL Analytics를 사용 하 여 분석 플랫폼을 최적화 하 고 관리 하는 데 사용할 수 있는 모니터링 기능에 대해 설명 합니다. 
 
 ## <a name="resource-utilization"></a>리소스 사용률 
-SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
+SQL Analytics의 Azure Portal에서 다음 메트릭을 사용할 수 있습니다. 이러한 메트릭은 [Azure Monitor](https://docs.microsoft.com/azure/azure-monitor/platform/data-collection#metrics)를 통해 나타납니다.
 
 
-| 메트릭 이름             | Description                                                  | 집계 형식 |
+| 메트릭 이름             | 설명                                                  | 집계 형식 |
 | ----------------------- | ------------------------------------------------------------ | ---------------- |
 | CPU 비율          | 데이터 웨어하우스에 대한 모든 노드에서의 CPU 사용률      | 평균, 최소값, 최대값    |
 | 데이터 IO 비율      | 데이터 웨어하우스에 대한 모든 노드에서의 IO 사용률       | 평균, 최소값, 최대값    |
@@ -49,12 +49,12 @@ SQL Data Warehouse용 Azure Portal에서 다음 메트릭을 사용할 수 있�
 
 
 ## <a name="query-activity"></a>쿼리 작업
-T-SQL을 통해 SQL Data Warehouse를 모니터링할 때의 프로그래밍 방식 환경을 위해 서비스에서 일단의 DMV(Dynamic Management Views)를 제공합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
+T-sql을 통해 SQL Analytics를 모니터링할 때의 프로그래밍 경험을 위해 서비스는 Dmv (동적 관리 뷰) 집합을 제공 합니다. 이러한 보기는 워크로드로 인한 성능 병목 상태를 적극적으로 해결하고 식별할 때 유용합니다.
 
-SQL Data Warehouse에서 제공하는 DMV 목록을 보려면 [이 설명서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)를 참조하세요. 
+SQL Analytics에서 제공 하는 Dmv 목록을 보려면이 [설명서](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-system-views#sql-data-warehouse-dynamic-management-views-dmvs)를 참조 하세요. 
 
 ## <a name="metrics-and-diagnostics-logging"></a>메트릭 및 진단 로깅
-메트릭 및 로그는 모두 Azure Monitor 특히 [Azure Monitor 로그](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소에 내보낼 수 있으며 [로그 쿼리](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL Data Warehouse의 로그 대기 시간은 약 10~15분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 문서를 참조하세요.
+메트릭 및 로그는 Azure Monitor, 특히 [Azure Monitor logs](https://docs.microsoft.com/azure/log-analytics/log-analytics-overview) 구성 요소로 내보낼 수 있으며 [로그 쿼리](https://docs.microsoft.com/azure/log-analytics/log-analytics-tutorial-viewdata)를 통해 프로그래밍 방식으로 액세스할 수 있습니다. SQL Analytics의 로그 대기 시간은 약 10-15 분입니다. 대기 시간에 영향을 주는 요인에 대한 자세한 내용은 다음 문서를 참조하세요.
 
 
 ## <a name="next-steps"></a>다음 단계

@@ -3,20 +3,20 @@ title: '자습서: 응용 프로그램 등록'
 titleSuffix: Azure AD B2C
 description: Azure Portal를 사용하여 Azure Active Directory B2C에서 웹 애플리케이션을 등록하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 10/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: dbb689182a45367061ae129304a98a8ee9962051
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: a688f5e75f7513d0ea4308b751f87f75a2c9510a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840114"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183094"
 ---
 # <a name="tutorial-register-an-application-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에 응용 프로그램 등록
 
@@ -38,7 +38,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
@@ -57,7 +57,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 1. **만들기** 를 선택 하 여 응용 프로그램 등록을 완료 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 포털 도구 모음에서 **디렉터리 + 구독** 아이콘을 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
@@ -90,13 +90,13 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 
 응용 프로그램이 액세스 토큰에 대 한 인증 코드를 교환 하는 경우 응용 프로그램 암호를 만들어야 합니다.
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. **응용 프로그램 Azure AD B2C** 페이지에서 사용자가 만든 응용 프로그램을 선택 합니다 (예: *webapp1*).
 1. **키** 를 선택 하 고 **키 생성**을 선택 합니다.
 1. **저장**을 선택하여 키를 확인합니다. **앱 키** 값을 기록해 둡니다. 응용 프로그램 코드에서이 값을 응용 프로그램 암호로 사용 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **Azure AD B2C-앱 등록 (미리 보기)** 페이지에서 만든 응용 프로그램을 선택 합니다 (예: *webapp1*).
 1. **관리**에서 **인증서 및 암호**를 선택합니다.

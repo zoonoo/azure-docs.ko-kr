@@ -3,20 +3,20 @@ title: 사용자 지정 정책으로 다중 테 넌 트 Azure AD에 대 한 로�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 다중 테 넌 트 Azure AD id 공급자를 추가 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/10/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 9d8d13ec955867eb574b5f0d782727d6ff8d063a
-ms.sourcegitcommit: 323c3f2e518caed5ca4dd31151e5dee95b8a1578
+ms.openlocfilehash: 9ad51e113a752e0692cb377a83d4819b4e284bb7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77111552"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188446"
 ---
 # <a name="set-up-sign-in-for-multi-tenant-azure-active-directory-using-custom-policies-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 다중 테넌트 Azure Active Directory에 대한 로그인 설정
 
@@ -24,7 +24,7 @@ ms.locfileid: "77111552"
 
 이 문서에서는 Azure AD B2C의 [사용자 지정 정책](custom-policy-overview.md)을 통해 Azure AD(Azure Active Directory)에 다중 테넌트 엔드포인트를 사용하여 사용자 로그인을 활성화하는 방법을 설명합니다. 이렇게 하면 여러 Azure AD 테 넌 트의 사용자가 각 테 넌 트에 대해 id 공급자를 구성 하지 않고도 Azure AD B2C를 사용 하 여 로그인 할 수 있습니다. 그러나 이러한 테넌트의 게스트 멤버는 로그인할 수 **없습니다**. 이렇게 하려면 [각 테넌트를 개별적으로 구성](identity-provider-azure-ad-single-tenant-custom.md)해야 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 [Azure Active Directory B2C에서 사용자 지정 정책을 사용하여 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
@@ -147,7 +147,7 @@ Azure AD에서 `family_name` 및 `given_name` 클레임을 가져오려는 경�
 
 유효한 토큰 발급자 목록을 업데이트하고 로그인할 수 있는 특정 Azure AD 테넌트 사용자 목록으로 액세스를 제한해야 합니다.
 
-값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`와 유사 합니다. 여기서 `your-tenant`은 Azure AD 테 넌 트 이름입니다. 다음은 그 예입니다.
+값을 얻으려면 사용자가 로그인 할 각 Azure AD 테 넌 트에 대 한 Openid connect Connect 검색 메타 데이터를 확인 합니다. 메타 데이터 URL의 형식은 `https://login.microsoftonline.com/your-tenant/v2.0/.well-known/openid-configuration`와 유사 합니다. 여기서 `your-tenant`은 Azure AD 테 넌 트 이름입니다. 예를 들면 다음과 같습니다.
 
 `https://login.microsoftonline.com/fabrikam.onmicrosoft.com/v2.0/.well-known/openid-configuration`
 

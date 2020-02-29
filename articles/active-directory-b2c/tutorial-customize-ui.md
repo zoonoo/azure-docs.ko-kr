@@ -3,20 +3,20 @@ title: '자습서: 사용자 인터페이스 사용자 지정'
 titleSuffix: Azure AD B2C
 description: Azure Portal를 사용 하 여 Azure Active Directory B2C에서 응용 프로그램의 UI (사용자 인터페이스)를 사용자 지정 하는 방법을 알아봅니다.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/01/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 1b0ad7049375cb20d2daa0e6f920b680d03530a5
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: b2b2bc8dd4e60348553228b8b418df252a8c426a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840131"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186253"
 ---
 # <a name="tutorial-customize-the-interface-of-user-experiences-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 환경의 인터페이스 사용자 지정
 
@@ -48,7 +48,7 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 3. Azure Portal의 왼쪽 상단 모서리에서 모든 서비스를 선택하고 **스토리지 계정**을 검색하여 선택합니다.
 4. **추가**를 선택합니다.
 5. **리소스 그룹** 아래에서 **새로 만들기**를 선택하고 새 리소스 그룹의 이름을 입력한 다음, **확인**을 클릭합니다.
-6. 스토리지 계정의 이름을 입력합니다. 선택하는 이름은 Azure 전체에서 고유해야 하고, 3~24자 사이여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
+6. 저장소 계정의 이름을 입력합니다. 선택하는 이름은 Azure 전체에서 고유해야 하고, 3~24자 사이여야 하고, 숫자 및 소문자만 포함할 수 있습니다.
 7. 스토리지 계정의 위치를 선택하거나 기본 위치를 적용합니다.
 8. 다른 모든 기본값을 적용하고 **검토 + 만들기**를 선택한 다음, **만들기**를 클릭합니다.
 9. 스토리지 계정을 만든 후 **리소스로 이동**을 선택합니다.
@@ -75,7 +75,7 @@ Azure Storage 계정 및 컨테이너를 만든 다음, 기본 HTML 및 CSS 파�
 
 ### <a name="create-the-customization-files"></a>사용자 지정 파일 만들기
 
-등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 `api`인 **div** 요소가 있어야 합니다. `<div id="api"></div>`)을 입력합니다. Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
+등록 환경의 UI를 사용자 지정하려면 간단한 HTML 및 CSS 파일을 만드는 것으로 시작합니다. 원하는 방식으로 HTML을 구성할 수 있지만 식별자가 **인** div`api` 요소가 있어야 합니다. `<div id="api"></div>`)을 입력합니다. Azure AD B2C는 페이지가 표시될 때 `api` 컨테이너에 요소를 삽입합니다.
 
 1. 로컬 폴더에서 다음 파일을 만들고 `your-storage-account`를 스토리지 계정 이름으로 변경하고 `your-container`를 생성된 컨테이너의 이름으로 변경해야 합니다. `https://store1.blob.core.windows.net/b2c/style.css`)을 입력합니다.
 

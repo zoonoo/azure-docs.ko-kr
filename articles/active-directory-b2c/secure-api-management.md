@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C를 사용 하 여 Azure API Management API 보안 유지
 description: Azure Active Directory B2C에서 발급 한 액세스 토큰을 사용 하 여 Azure API Management API 끝점의 보안을 유지 하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 942c565c885d59a14d64e7ec06beee0354e7c4ca
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.openlocfilehash: 00938d831e70289b24acb599b81016aa6e564d78
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641631"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186933"
 ---
 # <a name="secure-an-azure-api-management-api-with-azure-ad-b2c"></a>Azure AD B2C를 사용 하 여 Azure API Management API 보호
 
@@ -37,19 +37,19 @@ Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 �
 
 현재 **응용 프로그램** 환경 또는 새로운 통합 **앱 등록 (미리 보기)** 환경을 사용 하 여 응용 프로그램 ID를 가져올 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **관리**에서 **응용 프로그램**을 선택 합니다.
 1. *Webapp1* 또는 이전에 만든 다른 응용 프로그램의 **응용 프로그램 ID** 열에 값을 기록 합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록 (미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
-1. [Azure 포털](https://portal.azure.com)에 로그인합니다.
-1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택 하 고 Azure AD B2C 테 넌 트가 포함 된 디렉터리를 선택 합니다.
-1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택 합니다. 또는 **모든 서비스** 를 선택 하 고 **Azure AD B2C**을 검색 하 고 선택 합니다.
+1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
+1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
+1. 왼쪽 메뉴에서 **Azure AD B2C**를 선택합니다. 또는 **모든 서비스**를 선택하고 **Azure AD B2C**를 검색하여 선택합니다.
 1. **앱 등록 (미리 보기)** 를 선택 하 고 **소유 하는 응용 프로그램** 탭을 선택 합니다.
 1. *Webapp1* 또는 이전에 만든 다른 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 열에 값을 기록 합니다.
 
@@ -61,7 +61,7 @@ Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 �
 
 1. [Azure Portal](https://portal.azure.com)에서 Azure AD B2C 테 넌 트로 이동 합니다.
 1. **정책**에서 **사용자 흐름 (정책)** 을 선택 합니다.
-1. 기존 정책 (예: *B2C_1_signupsignin1*)을 선택 하 고 **사용자 흐름 실행**을 선택 합니다.
+1. *B2C_1_signupsignin1*예를 들어 기존 정책을 선택한 다음 **사용자 흐름 실행**을 선택 합니다.
 1. 페이지 맨 위 근처의 **사용자 흐름 실행** 제목 아래에 표시 되는 하이퍼링크에 URL을 기록 합니다. 이 URL은 사용자 흐름에 대 한 Openid connect 연결의 잘 알려진 검색 엔드포인트 이며, Azure API Management에서 인바운드 정책을 구성할 때 다음 섹션에서 사용 합니다.
 
     ![Azure Portal에서 지금 실행 페이지의 잘 알려진 URI 하이퍼링크](media/secure-apim-with-b2c-token/portal-01-policy-link.png)
@@ -73,7 +73,7 @@ Azure API Management에서 Azure AD B2C를 사용 하 여 API를 보호 하는 �
 
     Azure API Management에서 API를 구성 하는 경우 다음 섹션에서이 값을 사용 합니다.
 
-이제 다음 섹션인 Openid connect 연결의 잘 알려진 구성 끝점 URL 및 발급자 URI에 사용 하기 위해 기록 된 두 개의 Url이 있어야 합니다. 예:
+이제 다음 섹션인 Openid connect 연결의 잘 알려진 구성 끝점 URL 및 발급자 URI에 사용 하기 위해 기록 된 두 개의 Url이 있어야 합니다. 예를 들면 다음과 같습니다.
 
 ```
 https://yourb2ctenant.b2clogin.com/yourb2ctenant.onmicrosoft.com/v2.0/.well-known/openid-configuration?p=B2C_1_signupsignin1
@@ -154,13 +154,13 @@ API를 호출 하려면 Azure AD B2C에서 발급 한 액세스 토큰과 APIM �
 
 액세스 토큰 및 APIM 구독 키가 기록 되 면 API에 대 한 보안 액세스를 올바르게 구성 했는지 테스트할 준비가 되었습니다.
 
-1. [Postman](https://www.getpostman.com/)에서 새 `GET` 요청을 만듭니다. 요청 URL에 대 한 필수 구성 요소 중 하나로 게시 한 API의 스피커 목록 끝점을 지정 합니다. 예:
+1. [Postman](https://www.getpostman.com/)에서 새 `GET` 요청을 만듭니다. 요청 URL에 대 한 필수 구성 요소 중 하나로 게시 한 API의 스피커 목록 끝점을 지정 합니다. 예를 들면 다음과 같습니다.
 
     `https://contosoapim.azure-api.net/conference/speakers`
 
 1. 다음 헤더를 추가 합니다.
 
-    | 키 | 값 |
+    | Key | 값 |
     | --- | ----- |
     | `Authorization` | 앞에서 기록한 토큰 값으로, `Bearer ` 접두사가 붙습니다 ("전달자" 뒤에 공백 포함). |
     | `Ocp-Apim-Subscription-Key` | 이전에 기록한 APIM 구독 키 |

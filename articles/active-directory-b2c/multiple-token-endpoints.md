@@ -3,20 +3,20 @@ title: OWIN 기반 웹 Api를 b2clogin.com로 마이그레이션
 titleSuffix: Azure AD B2C
 description: 응용 프로그램을 b2clogin.com로 마이그레이션하는 동안 .NET web API를 사용 하 여 여러 토큰 발급자가 발급 한 토큰을 지 원하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 07/31/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: e6a92d12e7f2f24289aafa7e4a9acc9edccbd34c
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 5daf88e746ea803f345c79bd31d656f2615b6754
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840403"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184097"
 ---
 # <a name="migrate-an-owin-based-web-api-to-b2clogincom"></a>OWIN 기반 web API를 b2clogin.com로 마이그레이션
 
@@ -73,7 +73,7 @@ https://your-b2c-tenant.b2clogin.com/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx/v2.0/
 1. `issuer` 값 기록
 1. 다른 도메인에 대해 4-6 단계를 수행 합니다 (예: *login.microsoftonline.com* ).
 
-## <a name="get-the-sample-code"></a>샘플 코드 가져오기
+## <a name="get-the-sample-code"></a>샘플 코드 다운로드
 
 이제 두 토큰 끝점 Uri가 모두 있으므로 코드를 업데이트 하 여 두 끝점이 모두 유효한 발급자 임을 지정 해야 합니다. 예제를 살펴보려면 샘플 응용 프로그램을 다운로드 하거나 복제 한 다음 두 끝점을 모두 유효한 발급자로 지원 하도록 샘플을 업데이트 합니다.
 

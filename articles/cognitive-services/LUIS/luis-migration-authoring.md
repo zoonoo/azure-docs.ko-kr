@@ -9,14 +9,14 @@ ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
 ms.topic: conceptual
-ms.date: 12/05/2019
+ms.date: 02/28/2020
 ms.author: diberry
-ms.openlocfilehash: 6e1005e3d9c3769de3249f3244d65a656edc963e
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: ec6f9592a4c149be382fab66cca27d929644d988
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74891748"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194512"
 ---
 # <a name="migrate-to-an-azure-resource-authoring-key"></a>Azure 리소스 제작 키로 마이그레이션
 
@@ -80,7 +80,7 @@ Azure 구독이 없는 경우 [등록](https://azure.microsoft.com/free/)합니�
 
 _LUIS 포털_의 **관리-> Azure 리소스** 페이지에서 더 많은 제작 리소스를 만들고 할당할 수 있습니다.
 
-_Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [참가자 액세스 추가](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource) 를 참조 하세요.
+_Azure Portal_, 해당 리소스에 대 한 **Access Control (IAM)** 페이지에서 제작 리소스에 참가자를 추가할 수 있습니다. 자세한 내용은 [참가자 액세스 추가](luis-migration-authoring-steps.md#after-the-migration-process-add-contributors-to-your-authoring-resource)를 참조 하세요.
 
 |포털|용도|
 |--|--|
@@ -104,12 +104,20 @@ LUIS의 모든 사용자는 협력자/contributors를 포함 하 여 마이그�
 
 마이그레이션 프로세스 후 소유 하는 모든 앱은 LUIS 포털의 **내 앱** 페이지에서 사용할 수 있습니다.
 
-## <a name="troubleshooting"></a>문제 해결
+## <a name="troubleshooting-the-migration-process-for-luis-authoring"></a>LUIS 작성을 위한 마이그레이션 프로세스 문제 해결
 
-* LUIS 제작 키는 마이그레이션 프로세스가 완료 된 후에만 LUIS 포털에 표시 됩니다. LUIS CLI를 사용 하는 등 제작 키를 만드는 경우에도 사용자는 마이그레이션 프로세스를 완료 해야 합니다.
+* LUIS 제작 키는 마이그레이션 프로세스가 완료 된 후에만 LUIS 포털에 표시 됩니다. LUIS CLI를 사용 하는 등 제작 키를 만드는 경우에도 사용자는 LUIS 포털에서 마이그레이션 프로세스를 완료 해야 합니다.
 * 마이그레이션된 사용자가 azure 리소스에서 마이그레이션되지 않은 사용자를 참가자로 추가 하는 경우 마이그레이션되지 않는 사용자는 마이그레이션하지 않으면 앱에 액세스할 수 없습니다.
-* 마이그레이션되지 않은 사용자가 앱에 대 한 소유자가 아니지만 다른 사용자가 소유 하 고 소유자가 마이그레이션 프로세스를 수행 하는 경우이 사용자는 앱에 대 한 액세스 권한을 갖도록 마이그레이션해야 합니다.
+* 마이그레이션되지 않은 사용자가 앱에 대 한 소유자가 아니지만 다른 앱의 협력자 이며 소유자가 마이그레이션 프로세스를 수행한 경우이 사용자는 앱에 대 한 액세스 권한을 보유 하도록 마이그레이션해야 합니다.
 * 마이그레이션되지 않은 사용자가 해당 앱에 다른 마이그레이션된 사용자를 협력자로 추가한 경우 마이그레이션된 사용자를 앱에 협력자로 추가할 수 없게 되므로 오류가 발생 합니다. 그러면 마이그레이션되지 않은 사용자가 마이그레이션 프로세스를 진행 하 고 azure 리소스를 만들고 마이그레이션된 사용자를 해당 리소스에 참가자로 추가 해야 합니다.
+
+마이그레이션 프로세스 중에 다음과 같은 오류가 표시 됩니다.
+* 구독에서 Cognitive Services 리소스를 만들 수 있는 권한을 부여 하지 않습니다.
+* 마이그레이션은 응용 프로그램 런타임에 부정적인 영향을 줍니다. 마이그레이션할 때 모든 협력자가 앱에서 제거 되 고 다른 앱의 협력자로 제거 됩니다. 이 프로세스는 할당 한 키도 제거 됨을 의미 합니다. 다른 앱에서 키를 할당 한 경우 마이그레이션이 차단 됩니다. 마이그레이션하기 전에 안전 하 게 할당 한 키를 제거 합니다. 할당 한 키가 런타임에 사용 되지 않는 것을 알고 있는 경우 마이그레이션 진행을 위해이 키를 제거 해야 합니다.
+
+다음 URL 형식을 사용 하 여 앱의 Azure 리소스 목록에 액세스 합니다.
+
+`https://www.luis.ai/applications/REPLACE-WITH-YOUR-APP-ID/versions/REPLACE-WITH-YOUR-VERSION-ID/manage/resources`
 
 ## <a name="next-steps"></a>다음 단계
 

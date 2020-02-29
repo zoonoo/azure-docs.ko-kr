@@ -1,6 +1,6 @@
 ---
-title: 삭제된 데이터 웨어하우스 복원
-description: 삭제 된 Azure SQL Data Warehouse 복원에 대 한 지침입니다.
+title: 삭제 된 SQL 풀 복원
+description: 삭제 된 SQL 풀을 복원 하는 방법에 대 한 지침입니다.
 services: sql-data-warehouse
 author: anumjs
 manager: craigg
@@ -11,26 +11,26 @@ ms.date: 08/29/2018
 ms.author: anjangsh
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: e508eff3b322b49a6dc50d818c8bcccc3e924ff2
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 34851203432b7e2daf44e840e45275de76bc3b3a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759674"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196638"
 ---
-# <a name="restore-a-deleted-azure-sql-data-warehouse"></a>삭제 된 Azure SQL Data Warehouse 복원
+# <a name="restore-a-deleted-sql-pool-using-azure-synapse-analytics"></a>Azure Synapse Analytics를 사용 하 여 삭제 된 SQL 풀 복원
 
-이 문서에서는 Azure Portal 및 PowerShell을 사용 하 여 삭제 된 SQL Data Warehouse를 복원 하는 방법을 알아봅니다.
+이 문서에서는 Azure Portal 또는 PowerShell을 사용 하 여 SQL을 복원 하는 방법을 알아봅니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-**DTU 용량을 확인합니다.** 각 SQL Data Warehouse는 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다.  SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
+**DTU 용량을 확인합니다.** 각 SQL 풀은 기본 DTU 할당량이 있는 SQL server (예: myserver.database.windows.net)에서 호스팅됩니다.  SQL server에 복원 중인 데이터베이스에 대 한 DTU 할당량이 충분히 남아 있는지 확인 합니다. 필요한 DTU를 계산하거나 더 많은 DTU를 요청하는 방법을 알아보려면 [DTU 할당량 변경 요청](sql-data-warehouse-get-started-create-support-ticket.md)을 참조합니다.
 
 ## <a name="restore-a-deleted-data-warehouse-through-powershell"></a>PowerShell을 통해 삭제 된 데이터 웨어하우스 복원
 
-삭제 된 SQL Data Warehouse를 복원 하려면 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet을 사용 합니다. 해당 논리 서버도 삭제 된 경우 해당 데이터 웨어하우스를 복원할 수 없습니다.
+삭제 된 SQL 풀을 복원 하려면 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/restore-azsqldatabase) cmdlet을 사용 합니다. 해당 논리 서버도 삭제 된 경우 해당 데이터 웨어하우스를 복원할 수 없습니다.
 
 1. 시작 하기 전에 [Azure PowerShell을 설치](https://docs.microsoft.com/powershell/azure/overview)해야 합니다.
 2. PowerShell을 엽니다.
@@ -86,5 +86,5 @@ $RestoredDatabase.status
     ![데이터베이스 이름 지정](./media/sql-data-warehouse-restore-deleted-dw/restoring-deleted-21.png)
 
 ## <a name="next-steps"></a>다음 단계
-- [기존 데이터 웨어하우스 복원](sql-data-warehouse-restore-active-paused-dw.md)
-- [지역 백업 데이터 웨어하우스에서 복원](sql-data-warehouse-restore-from-geo-backup.md)
+- [기존 SQL 풀 복원](sql-data-warehouse-restore-active-paused-dw.md)
+- [지역 백업 SQL 풀에서 복원](sql-data-warehouse-restore-from-geo-backup.md)

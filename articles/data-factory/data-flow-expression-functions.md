@@ -9,12 +9,12 @@ ms.service: data-factory
 ms.topic: conceptual
 ms.custom: seo-lt-2019
 ms.date: 02/15/2019
-ms.openlocfilehash: 5492850944b04ea4b4d30dd206e7b297b34c075c
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 8e607a4447448ee0e822dbee721b701d677d4f63
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77062849"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197456"
 ---
 # <a name="data-transformation-expressions-in-mapping-data-flow"></a>데이터 흐름 매핑의 데이터 변환 식 
 
@@ -142,7 +142,7 @@ ___
 ___
 ### <code>currentDate</code>에 대 한 지문을 계산할 수 있습니다 
 <code><b>currentDate([<i>&lt;value1&gt;</i> : string]) => date</b></code><br/><br/>
-이 작업 실행이 시작되는 현재 날짜를 가져옵니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 로컬 표준 시간대가 기본값으로 사용 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html * ``currentDate() == toDate('2250-12-31') -> false``
+이 작업 실행이 시작되는 현재 날짜를 가져옵니다. 'GMT', 'PST', 'UTC', 'America/Cayman' 형태로 선택적 표준 시간대를 제공할 수 있습니다. 로컬 표준 시간대가 기본값으로 사용 됩니다. 사용 가능한 형식에 대 한 자세한 내용은 Java의 SimpleDateFormat를 참조 하세요. (https://docs.oracle.com/javase/8/docs/api/java/text/SimpleDateFormat.html) * ``currentDate() == toDate('2250-12-31') -> false``
 * ``currentDate('PST')  == toDate('2250-12-31') -> false``
 * ``currentDate('America/New_York')  == toDate('2250-12-31') -> false``
 ___

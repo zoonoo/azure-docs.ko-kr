@@ -1,6 +1,6 @@
 ---
-title: PowerShell cmdlet
-description: 데이터베이스를 일시 중지하고 다시 시작하는 방법을 포함하여 Azure SQL Data Warehouse용 PowerShell cmdlet을 확인합니다.
+title: PowerShell & REST Api
+description: 데이터베이스를 일시 중지 하 고 다시 시작 하는 방법을 포함 하 여 Azure Synapse Analytics SQL 풀의 상위 PowerShell cmdlet을 찾습니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,19 +11,21 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: c5f85f102d72ac2e4a0315109748d48573f49407
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: c0c8b1e9b7526bd45d037f053715613b53ec163f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721186"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198459"
 ---
-# <a name="powershell-cmdlets-and-rest-apis-for-sql-data-warehouse"></a>SQL Data Warehouse용 PowerShell cmdlet 및 REST API
-많은 SQL Data Warehouse 관리 작업을 Azure PowerShell cmdlet 또는 REST API를 사용하여 관리할 수 있습니다.  다음은 PowerShell 명령을 사용하여 SQL Data Warehouse의 일반적인 작업을 자동화하는 방법에 대한 몇 가지 예제입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리](sql-data-warehouse-manage-compute-rest-api.md)문서를 참조하세요.
+# <a name="powershell--rest-apis-for-azure-synapse-analytics-sql-pool"></a>Azure Synapse Analytics 용 PowerShell & REST Api SQL 풀
+
+Azure PowerShell cmdlet 또는 REST Api를 사용 하 여 많은 Azure Synapse Analytics SQL 풀 관리 작업을 관리할 수 있습니다.  다음은 PowerShell 명령을 사용 하 여 SQL 풀에서 일반적인 작업을 자동화 하는 방법에 대 한 몇 가지 예입니다.  유용한 REST 예제는 [REST를 사용하여 확장성 관리](sql-data-warehouse-manage-compute-rest-api.md)문서를 참조하세요.
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
 ## <a name="get-started-with-azure-powershell-cmdlets"></a>Azure PowerShell Cmdlet 시작
+
 1. Windows PowerShell을 엽니다.
 2. PowerShell 프롬프트에서 다음 명령을 실행하여 Azure Resource Manager에 로그인하고 구독을 선택합니다.
    
@@ -33,12 +35,13 @@ ms.locfileid: "76721186"
     Select-AzSubscription -SubscriptionName "MySubscription"
     ```
 
-## <a name="pause-sql-data-warehouse-example"></a>SQL Data Warehouse 일시 중지 예제
-"Server01."라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1."이라는 Azure 리소스 그룹 내에 있습니다.
+## <a name="pause-data-warehouse-example"></a>데이터 웨어하우스 일시 중지 예제
+"Server01"라는 서버에서 호스트하는 "Database02"라는 데이터베이스를 일시 중지합니다.  서버는 "ResourceGroup1"이라는 Azure 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Suspend-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" –DatabaseName "Database02"
 ```
+
 변형으로,이 예제에서는 검색 된 개체를 [AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/suspend-azsqldatabase)로 파이프 합니다.  그 결과로 데이터베이스가 일시 중지됩니다. 마지막 명령은 결과를 보여 줍니다.
 
 ```Powershell
@@ -47,8 +50,9 @@ $resultDatabase = $database | Suspend-AzSqlDatabase
 $resultDatabase
 ```
 
-## <a name="start-sql-data-warehouse-example"></a>SQL Data Warehouse 시작 예제
-"Server01."이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1."이라는 리소스 그룹 내에 있습니다.
+## <a name="start-data-warehouse-example"></a>데이터 웨어하우스 시작 예제
+
+"Server01"이라는 서버에서 호스트하는 "Database02"라는 데이터베이스의 작동을 다시 시작합니다. 서버는 "ResourceGroup1"이라는 리소스 그룹 내에 있습니다.
 
 ```Powershell
 Resume-AzSqlDatabase –ResourceGroupName "ResourceGroup1" –ServerName "Server01" -DatabaseName "Database02"
@@ -67,7 +71,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 > 
 
 ## <a name="other-supported-powershell-cmdlets"></a>지원되는 기타 PowerShell cmdlet
-다음 PowerShell cmdlet은 Azure SQL Data Warehouse에서 지원됩니다.
+이러한 PowerShell cmdlet은 Azure Synapse Analytics 데이터 웨어하우스에서 지원 됩니다.
 
 * [Get-AzSqlDatabase](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldatabase)
 * [Get-AzSqlDeletedDatabaseBackup](https://docs.microsoft.com/powershell/module/az.sql/get-azsqldeleteddatabasebackup)
@@ -83,7 +87,7 @@ $resultDatabase = $database | Resume-AzSqlDatabase
 ## <a name="next-steps"></a>다음 단계
 더 많은 PowerShell 예제는 다음을 참조하세요.
 
-* [Powershell을 사용하여 SQL Data Warehouse 만들기](create-data-warehouse-powershell.md)
+* [PowerShell을 사용 하 여 데이터 웨어하우스 만들기](create-data-warehouse-powershell.md)
 * [데이터베이스 복원](sql-data-warehouse-restore-database-powershell.md)
 
-PowerShell을 사용 하 여 자동화할 수 있는 다른 작업은 [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/az.sql)을 참조 하세요. 일부 Azure SQL Database cmdlet은 Azure SQL Data Warehouse 지원 되지 않습니다.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대 한 작업](https://msdn.microsoft.com/library/azure/dn505719.aspx)을 참조 하세요.
+PowerShell을 사용 하 여 자동화할 수 있는 다른 작업은 [Azure SQL Database cmdlet](https://docs.microsoft.com/powershell/module/az.sql)을 참조 하세요. 모든 Azure SQL Database cmdlet이 Azure Synapse Analytics 데이터 웨어하우스에 대해 지원 되는 것은 아닙니다.  REST로 자동화할 수 있는 작업 목록은 [Azure SQL Database에 대 한 작업](/rest/api/sql/)을 참조 하세요.

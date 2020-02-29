@@ -12,12 +12,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 108d116500454605f33de201caffc11ae263f74c
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 6132aab98cc8145cb99cf153c64f20fbac00131c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74851505"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197008"
 ---
 # <a name="onboarding-and-installing"></a>온 보 딩 및 설치
 
@@ -30,24 +30,29 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 
 ## <a name="onboarding-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장을 온 보 딩
 
-- 다음 지원 서비스 중 하나를 사용 하는 경우 기술 계정 관리자에 게 문의 하 여 기존 시간을 구입 하거나 교환 하 여 확장에 대 한 액세스 권한을 얻으십시오.
-  - 통합 지원 고급 계층
-  - 통합 지원 성능 계층
-  - 개발자를 위한 프리미어 지원
-  - 파트너에 대 한 프리미어 지원
-  - Enterprise에 대 한 프리미어 지원
-- 다음 지원 서비스 중 하나가 있거나 Microsoft 지원 계획이 없는 경우 적격 지원 제공으로 업그레이드 해야 합니다.
-  - 파트너에 대한 Azure 지원
-  - Azure Basic 지원
-  - Azure 개발자 지원
-  - Azure 표준 지원
-  - Azure 전문가 지원
-  - 통합 지원 코어 계층
-- 적격 지원 제공 서비스를 구입 하려면 [지원 서비스 홈 페이지로](https://www.microsoft.com/enterprise/services/support)이동 하세요.
-- 지원 계약이 준비 되 면 기술 계정 관리자에 게 문의 하 여 필요한 모든 세부 정보를 수집 하는 데 도움을 받으세요.
+### <a name="interested-in-purchasing-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장을 구매 하는 데 관심이 있나요?
 
->[!NOTE]
->지원 계약이 없는 경우 타사 파트너를 활용 하 여 통합 지원 계획을 구입 하지 않고도 확장을 구매할 수 있는 파트너 구매 프로그램을 사용 하 고 있습니다. [메일을 보내주세요](mailto:mscahelp@microsoft.com?Subject=Microsoft%20Security%20Code%20Analysis%20Onboarding%20Request). 이 옵션에 관심이 있는 것을 알려주세요. 이 옵션을 사용할 수 있게 되 면 바로 관심을 가져 서 사용자에 게 다시 문의 합니다.
+다음 지원 서비스 중 하나를 사용 하는 경우 기술 계정 관리자에 게 문의 하 여 기존 시간을 구입 하거나 교환 하 여 확장에 대 한 액세스 권한을 얻으십시오.
+
+- 통합 지원 고급 계층
+- 통합 지원 성능 계층
+- 개발자를 위한 프리미어 지원
+- 파트너에 대 한 프리미어 지원
+- Enterprise에 대 한 프리미어 지원
+
+위에서 언급 한 지원 계약 중 하나가 없으면 파트너 중 하나에서 확장을 구입할 수 있습니다.
+
+**다음 단계:**
+
+아래 목록에서 파트너에 게 연락 하 여 Microsoft 보안 코드 분석 확장을 구매 하세요.
+
+>**귀사**
+
+- 영역-연락처 세부 정보: cloudsupport@zones.com
+
+### <a name="become-a-partner"></a>파트너 되기
+
+Microsoft 보안 코드 분석 팀은 파트너 규약에 대 한 프리미어 지원 파트너를 등록 합니다. 파트너는 Azure DevOps 고객이 확장을 구매 하려는 고객에 게 확장을 판매 하 여 보다 안전 하 게 개발할 수 있도록 지원 하지만 Microsoft와의 기업 지원 계약은 없습니다. 관심이 있는 파트너는 [여기](http://www.microsoftpartnersupport.com/msrd/opin)에서 등록할 수 있습니다.
 
 ## <a name="installing-the-microsoft-security-code-analysis-extension"></a>Microsoft 보안 코드 분석 확장 프로그램 설치
 
@@ -73,7 +78,7 @@ Microsoft 보안 코드 분석을 시작 하기 위한 필수 조건:
 1. **+** 를 선택 하 고 **작업 추가** 창으로 이동 합니다.
 1. 목록에서 또는 검색 상자를 사용 하 여 추가 하려는 빌드 작업을 찾습니다. **추가**를 선택합니다.
 1. 작업에 필요한 매개 변수를 지정 합니다.
-1. 새 빌드를 큐에 넣습니다.
+1. 새 빌드를 큐에 대기시킵니다.
    >[!NOTE]
    >파일 및 폴더 경로는 원본 리포지토리의 루트를 기준으로 합니다. 출력 파일과 폴더를 매개 변수로 지정 하는 경우 빌드 에이전트에서 정의한 공통 위치로 대체 됩니다.
 

@@ -11,16 +11,16 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: mathoma, carlrab, danil
 ms.date: 09/26/2019
-ms.openlocfilehash: 3b0b5b02fa8f369bdfa03726bd5649b70b7bbd48
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: b98331a9cdb359aeefac5db1546f3a15b54010ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74228041"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194487"
 ---
 # <a name="recover-an-azure-sql-database-by-using-automated-database-backups"></a>자동화 된 데이터베이스 백업을 사용 하 여 Azure SQL 데이터베이스 복구
 
-기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 수행할 수 있습니다.
+기본적으로 Azure SQL Database 백업은 지역 복제 blob 저장소 (RA-GRS 저장소 유형)에 저장 됩니다. [자동화 된 데이터베이스 백업을](sql-database-automated-backups.md)사용 하 여 데이터베이스 복구에 사용할 수 있는 옵션은 다음과 같습니다. 다음을 할 수 있습니다.
 
 - 보존 기간 내에 지정 된 특정 시점으로 복구 되는 동일한 SQL Database 서버에 새 데이터베이스를 만듭니다.
 - 삭제 된 데이터베이스에 대 한 삭제 시간으로 복구 된 동일한 SQL Database 서버에서 데이터베이스를 만듭니다.
@@ -126,16 +126,16 @@ PowerShell을 사용 하 여 Azure SQL Database 및 관리 되는 인스턴스�
 
 #### <a name="managed-instance-database"></a>관리 되는 인스턴스 데이터베이스
 
-삭제 된 인스턴스 데이터베이스를 복원 하는 방법을 보여 주는 샘플 PowerShell 스크립트는 [powershell을 사용 하 여 관리 되는 인스턴스에서 삭제 된 데이터베이스 복원](https://blogs.msdn.microsoft.com/sqlserverstorageengine/20../../recreate-dropped-database-on-azure-sql-managed-instance)을 참조 하세요. 
+삭제 된 인스턴스 데이터베이스를 복원 하는 방법을 보여 주는 샘플 PowerShell 스크립트는 [powershell을 사용 하 여 관리 되는 인스턴스에서 삭제 된 데이터베이스 복원](sql-database-managed-instance-point-in-time-restore.md#restore-a-deleted-database) 을 참조 하세요.
 
 > [!TIP]
 > 삭제 된 데이터베이스를 프로그래밍 방식으로 복원 하려면 [자동화 된 백업을 사용 하 여 프로그래밍 방식으로 복구 수행](sql-database-recovery-using-backups.md)을 참조 하세요.
 
-## <a name="geo-restore"></a>지역 복원
+## <a name="geo-restore"></a>지리적 복원
 
 가장 최근의 지역 복제 백업에서 Azure 지역에 있는 서버의 SQL 데이터베이스를 복원할 수 있습니다. 지역 복원에서는 지역에서 복제 된 백업을 원본으로 사용 합니다. 가동 중단으로 인해 데이터베이스 또는 데이터 센터에 액세스할 수 없는 경우에도 지역 복원을 요청할 수 있습니다.
 
-지역 복원은 호스팅 지역의 인시던트에 의해 데이터베이스를 사용할 수 없는 경우의 기본 복구 옵션입니다. 다른 지역에 있는 서버로 데이터베이스를 복원할 수 있습니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원 된 데이터베이스는 원본 데이터베이스의 최대 한 시간 뒤에 있을 수 있습니다. 다음 그림에서는 다른 지역에서 사용 가능한 마지막 백업 으로부터 데이터베이스 복원을 보여 줍니다.
+지역 복원은 호스팅 지역의 인시던트에 의해 데이터베이스를 사용할 수 없는 경우의 기본 복구 옵션입니다. 다른 지역의 서버에 데이터베이스를 복원할 수 있습니다. 백업을 만들 때와 다른 지역에 있는 Azure Blob으로 지역 복제하는 사이에 지연이 있습니다. 따라서 복원 된 데이터베이스는 원본 데이터베이스의 최대 한 시간 뒤에 있을 수 있습니다. 다음 그림에서는 다른 지역에서 사용 가능한 마지막 백업 으로부터 데이터베이스 복원을 보여 줍니다.
 
 ![지역 복원 그래픽](./media/sql-database-geo-restore/geo-restore-2.png)
 

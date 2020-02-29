@@ -7,13 +7,14 @@ ms.author: ambapat
 manager: rkarlin
 ms.date: 01/02/2019
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
-ms.openlocfilehash: b9c458b42f7436377d41cf5095d404dedbe0ffd1
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 47dc1a84fbc80925e5b65db8c03683f9f026271b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191601"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194991"
 ---
 # <a name="virtual-network-service-endpoints-for-azure-key-vault"></a>Azure Key Vault의 가상 네트워크 서비스 엔드포인트
 
@@ -69,7 +70,7 @@ Azure Key Vault의 가상 네트워크 서비스 엔드포인트를 사용하면
 |Exchange Online 및 SharePoint Online|[고객 키](/microsoft-365/compliance/customer-key-overview)를 사용하여 Azure Storage 서비스 암호화를 위한 고객 키에 대한 액세스를 허용합니다.|
 |Azure Information Protection|[Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection)을 위해 테넌트 키 액세스 허용|
 |Azure App Service|[Key Vault를 통해 Azure Web App 인증서를 배포합니다](https://azure.github.io/AppService/2016/05/24/Deploying-Azure-Web-App-Certificate-through-Key-Vault.html).|
-|Azure SQL Database|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
+|Azure SQL 데이터베이스|[Azure SQL Database 및 Data Warehouse에 대한 BYOK(Bring Your Own Key) 지원을 사용하여 투명한 데이터 암호화](../sql-database/transparent-data-encryption-byok-azure-sql.md?view=sql-server-2017&viewFallbackFrom=azuresqldb-current).|
 |Azure Storage|[Azure Key Vault의 고객 관리 키를 사용하여 Storage 서비스 암호화](../storage/common/storage-service-encryption-customer-managed-keys.md).|
 |Azure Data Lake Store|고객 관리 키를 사용하여 [Azure Data Lake Store의 데이터 암호화](../data-lake-store/data-lake-store-encryption.md).|
 |Azure Databricks|[빠르고 쉬우며 공동 작업이 가능한 Apache Spark 기반 분석 서비스](../azure-databricks/what-is-azure-databricks.md)|

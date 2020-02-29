@@ -1,32 +1,30 @@
 ---
-title: SQL Data Warehouse 권장 사항
-description: SQL Data Warehouse 권장 사항 및 생성 방식에 대해 설명
+title: SQL 분석 권장 사항
+description: SQL 분석 권장 사항 및 생성 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg-msft
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: manage
-ms.date: 11/05/2018
+ms.date: 02/05/2020
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 1a93339b99c6591ee9ed615c032d0eac58a372fe
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.custom: azure-synapse
+ms.openlocfilehash: 5471236c09737eeef2d4cb7542c245d3087e726c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73827497"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195960"
 ---
-# <a name="sql-data-warehouse-recommendations"></a>SQL Data Warehouse 권장 사항
+# <a name="sql-analytics-recommendations"></a>SQL 분석 권장 사항
 
-이 문서에서는 SQL Data Warehouse가 Azure Advisor를 통해 제공하는 권장 사항을 설명합니다.  
+이 문서에서는 Azure Advisor를 통해 제공 되는 SQL 분석 권장 사항을 설명 합니다.  
 
-SQL Data Warehouse는 데이터 웨어하우스가 지속적으로 성능에 최적화되도록 권장 사항을 제공합니다. 데이터 웨어하우스 권장 사항은 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations)와 긴밀하게 통합되어 [Azure Portal](https://aka.ms/Azureadvisor) 내에서 직접 모범 사례를 제공합니다. SQL Data Warehouse는 날마다 데이터 웨어하우스의 현재 상태를 분석하고, 원격 분석 데이터를 수집하고, 활성 워크로드에 대한 권장 사항을 표시합니다. 아래에는 지원되는 데이터 웨어하우스 권장 시나리오 및 권장 조치를 적용하는 방법이 설명되어 있습니다.
+SQL Analytics는 데이터 웨어하우스 작업이 성능에 대해 일관 되 게 최적화 되도록 권장 사항을 제공 합니다. 권장 사항은 [Azure Portal](https://aka.ms/Azureadvisor)내에서 직접 모범 사례를 제공 하기 위해 [Azure Advisor](https://docs.microsoft.com/azure/advisor/advisor-performance-recommendations) 와 긴밀 하 게 통합 됩니다. SQL Analytics는 일별 흐름에서 활성 워크 로드에 대 한 원격 분석 및 표면 권장 사항을 수집 합니다. 지원 되는 권장 사항을 적용 하는 방법은 아래에 설명 되어 있습니다.
 
-SQL Data Warehouse Advisor에 대한 피드백이 있거나 문제가 있는 경우 [sqldwadvisor@service.microsoft.com](mailto:sqldwadvisor@service.microsoft.com)으로 알려주세요.   
-
-[여기](https://aka.ms/Azureadvisor)를 클릭하여 현재 권장 사항을 확인하세요. 현재 이 기능은 Gen2 데이터 웨어하우스에만 적용됩니다. 
+지금 바로 [권장 사항을 확인할](https://aka.ms/Azureadvisor) 수 있습니다. 현재 이 기능은 Gen2 데이터 웨어하우스에만 적용됩니다. 
 
 ## <a name="data-skew"></a>데이터 기울이기
 
@@ -34,9 +32,9 @@ SQL Data Warehouse Advisor에 대한 피드백이 있거나 문제가 있는 경
 
 - [기울이기 식별 및 제거](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-distribute#how-to-tell-if-your-distribution-column-is-a-good-choice) 
 
-## <a name="no-or-outdated-statistics"></a>통계가 없거나 오래된 통계
+## <a name="no-or-outdated-statistics"></a>또는 오래 된 통계
 
-최적 통계가 아니면 SQL Data Warehouse 쿼리 최적화 프로그램이 최적이 아닌 쿼리 계획을 생성할 수 있으므로 쿼리 성능에 심각한 악영향을 미칠 수 있습니다. 다음 문서에서는 통계 생성 및 업데이트와 관련된 모범 사례를 설명합니다.
+최적이 아닌 통계가 있으면 SQL 쿼리 최적화 프로그램이 만족 스 럽 지 못한 쿼리 계획을 생성할 수 있기 때문에 쿼리 성능에 심각한 영향을 줄 수 있습니다. 다음 문서에서는 통계 생성 및 업데이트와 관련된 모범 사례를 설명합니다.
 
 - [테이블 통계 생성 및 업데이트](https://docs.microsoft.com/azure/sql-data-warehouse/sql-data-warehouse-tables-statistics)
 
@@ -47,7 +45,7 @@ SQL Data Warehouse Advisor에 대한 피드백이 있거나 문제가 있는 경
 복제된 테이블 권장 사항의 경우 Advisor는 다음과 같은 물리적 특징에 따라 테이블 후보를 검색합니다.
 
 - 복제 테이블 크기
-- 열 수
+- 열 개수
 - 테이블 배포 형식
 - 파티션 수
 

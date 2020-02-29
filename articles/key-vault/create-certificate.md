@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: certificates
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 26309bb9a7b9785dbac7f42b0c20de99bca10a17
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: c27cde85952ca6d982accddad59eceae76e3f1e8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76769236"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194460"
 ---
 # <a name="certificate-creation-methods"></a>인증서 생성 방법
 
@@ -79,7 +80,7 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 ## <a name="partnered-ca-providers"></a>파트너 CA 공급자
 인증서 만들기는 수동으로 또는 “Self” 발급자를 사용하여 완료할 수 있습니다. 또한 Key Vault는 인증서 생성을 단순화하기 위해 특정 발급자 공급자와도 파트너 관계를 맺습니다. 다음 유형의 인증서는 이러한 파트너 발급자 공급자를 통해 키 자격 증명 모음에 대해 순서를 지정할 수 있습니다.  
 
-|공급자|인증서 종류|  
+|공급자|인증서 유형|  
 |--------------|----------------------|  
 |DigiCert|Key Vault가 DigiCert를 통해 OV 또는 EV SSL 인증서 제공|
 |GlobalSign|Key Vault가 GlobalSign을 통해 OV 또는 EV SSL 인증서 제공|
@@ -90,6 +91,6 @@ KV 인증서 만들기 요청이 완료되면 보류 중인 개체의 상태가 
 
  권한 부여: 인증서/만들기 권한이 필요합니다.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
  - [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)
  - [인증서 생성 모니터링 및 관리](create-certificate-scenarios.md)

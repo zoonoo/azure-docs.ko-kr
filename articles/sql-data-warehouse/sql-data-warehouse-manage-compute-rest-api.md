@@ -1,6 +1,6 @@
 ---
 title: REST Api를 사용 하 여 일시 중지, 다시 시작, 크기 조정
-description: REST Api를 통해 Azure SQL Data Warehouse에서 계산 능력을 관리 합니다.
+description: REST Api를 통해 Azure Synapse Analytics 데이터 웨어하우스의 계산 능력을 관리 합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: implement
 ms.date: 03/29/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: f72b3fd1024a68a6f48d2e9e676fc7ca23bf2a4f
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: seo-lt-2019, azure-synapse
+ms.openlocfilehash: 4e3435fdaa505a73abf96b9463b061c623c192ad
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73686047"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199396"
 ---
 # <a name="rest-apis-for-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse용 REST API
-Azure SQL Data Warehouse에서 컴퓨팅을 관리하기 위한 REST API입니다.
+Azure Synapse Analytics 데이터 웨어하우스의 계산을 관리 하기 위한 REST Api입니다.
 
 ## <a name="scale-compute"></a>컴퓨팅 크기 조정
 데이터 웨어하우스 단위를 변경하려면 [데이터베이스 생성 또는 업데이트](/rest/api/sql/databases/createorupdate) REST API를 사용합니다. 다음 예제에서는 MyServer 서버에서 호스트되는 MySQLDW 데이터베이스에 대한 데이터 웨어하우스 단위를 DW1000으로 설정합니다. 서버는 이름이 ResourceGroup1인 Azure 리소스 그룹 내에 있습니다.
@@ -61,7 +61,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="get-maintenance-schedule"></a>유지 관리 일정 가져오기
-데이터 웨어하우스에 대해 설정 된 유지 관리 일정을 확인 합니다. 
+데이터 웨어하우스에 대해 설정된 유지 관리 일정을 확인합니다. 
 
 ```
 GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1
@@ -69,7 +69,7 @@ GET https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/
 ```
 
 ## <a name="set-maintenance-schedule"></a>유지 관리 일정 설정
-기존 데이터 웨어하우스에서 maintnenance 일정을 설정 하 고 업데이트 합니다.
+기존 데이터 웨어하우스에서 유지 관리 일정을 설정 하 고 업데이트 합니다.
 
 ```
 PUT https://management.azure.com/subscriptions/{subscription-id}/resourceGroups/{resource-group-name}/providers/Microsoft.Sql/servers/{server-name}/databases/{database-name}/maintenanceWindows/current?maintenanceWindowName=current&api-version=2017-10-01-preview HTTP/1.1

@@ -2,19 +2,19 @@
 title: Azure Compute-Linux 진단 확장
 description: Azure에서 실행 중인 Linux VM에서 메트릭 및 로그 이벤트를 수집하도록 Azure LAD(Linux 진단 확장)를 구성하는 방법입니다.
 services: virtual-machines-linux
-author: MicahMcKittrick-MSFT
+author: axayjo
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 12/13/2018
-ms.author: mimckitt
-ms.openlocfilehash: 5b4ddc177359a08aad404c78b5cc0793f8d80e93
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.author: akjosh
+ms.openlocfilehash: d9375d09219d2655bd9947c0953557f4a1bf8f3c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156525"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199617"
 ---
 # <a name="use-linux-diagnostic-extension-to-monitor-metrics-and-logs"></a>Linux 진단 확장을 사용하여 메트릭 및 로그 모니터링
 
@@ -55,7 +55,7 @@ Azure PowerShell cmdlet, Azure CLI 스크립트, ARM 템플릿 또는 Azure Port
 * **Azure CLI** 머신에 [Azure CLI 환경을 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)합니다.
 * wget 명령. 아직 없는 경우 `sudo apt-get install wget`을 실행합니다.
 * 데이터를 저장할 기존 Azure 구독 및 기존 스토리지 계정
-* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions 에 있습니다.
+* 지원되는 Linux 배포 목록은 https://github.com/Azure/azure-linux-extensions/tree/master/Diagnostic#supported-linux-distributions에 있습니다.
 
 ### <a name="sample-installation"></a>샘플 설치
 
@@ -94,80 +94,29 @@ az vm extension set --publisher Microsoft.Azure.Diagnostics --name LinuxDiagnost
 #### <a name="powershell-sample"></a>PowerShell 샘플
 
 ```Powershell
-// Set your Azure VM diagnostics variables correctly below - don't forget to replace the VMResourceID
+$storageAccountName = "yourStorageAccountName"
+$storageAccountResourceGroup = "yourStorageAccountResourceGroupName"
+$vmName = "yourVMName"
+$VMresourceGroup = "yourVMResourceGroupName"
 
-$SASKey = '<SASKeyForDiagStorageAccount>'
+# Get the VM object
+$vm = Get-AzVM -Name $vmName -ResourceGroupName $VMresourceGroup
 
-$ladCfg = "{
-'diagnosticMonitorConfiguration': {
-'performanceCounters': {
-'sinks': 'WADMetricEventHub,WADMetricJsonBlob',
-'performanceCounterConfiguration': [
-{
-'unit': 'Percent',
-'type': 'builtin',
-'counter': 'PercentProcessorTime',
-'counterSpecifier': '/builtin/Processor/PercentProcessorTime',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Aggregate CPU %utilization'
-}
-],
-'condition': 'IsAggregate=TRUE',
-'class': 'Processor'
-},
-{
-'unit': 'Bytes',
-'type': 'builtin',
-'counter': 'UsedSpace',
-'counterSpecifier': '/builtin/FileSystem/UsedSpace',
-'annotation': [
-{
-'locale': 'en-us',
-'displayName': 'Used disk space on /'
-}
-],
-'condition': 'Name='/'',
-'class': 'Filesystem'
-}
-]
-},
-'metrics': {
-'metricAggregation': [
-{
-'scheduledTransferPeriod': 'PT1H'
-},
-{
-'scheduledTransferPeriod': 'PT1M'
-}
-],
-'resourceId': '<VMResourceID>'
-},
-'eventVolume': 'Large',
-'syslogEvents': {
-'sinks': 'SyslogJsonBlob,LoggingEventHub',
-'syslogEventConfiguration': {
-'LOG_USER': 'LOG_INFO'
-}
-}
-}
-}"
-$ladCfg = [System.Convert]::ToBase64String([System.Text.Encoding]::UTF8.GetBytes($ladCfg))
-$perfCfg = "[
-{
-'query': 'SELECT PercentProcessorTime, PercentIdleTime FROM SCX_ProcessorStatisticalInformation WHERE Name='_TOTAL'',
-'table': 'LinuxCpu',
-'frequency': 60,
-'sinks': 'LinuxCpuJsonBlob'
-}
-]"
+# Get the public settings template from GitHub and update the templated values for storage account and resource ID
+$publicSettings = (Invoke-WebRequest -Uri https://raw.githubusercontent.com/Azure/azure-linux-extensions/master/Diagnostic/tests/lad_2_3_compatible_portal_pub_settings.json).Content
+$publicSettings = $publicSettings.Replace('__DIAGNOSTIC_STORAGE_ACCOUNT__', $storageAccountName)
+$publicSettings = $publicSettings.Replace('__VM_RESOURCE_ID__', $vm.Id)
 
-// Get the VM Resource
-Get-AzureRmVM -ResourceGroupName <RGName> -VMName <VMName>
+# If you have your own customized public settings, you can inline those rather than using the template above: $publicSettings = '{"ladCfg":  { ... },}'
 
-// Finally tell Azure to install and enable the extension
-Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -ResourceGroupName <RGName> -VMName <VMName> -Location <Location> -Name LinuxDiagnostic -Settings @{'StorageAccount'='<DiagStorageAccount>'; 'sampleRateInSeconds' = '15' ; 'ladCfg'=$ladCfg; 'perfCfg' = $perfCfg} -ProtectedSettings @{'storageAccountName' = '<DiagStorageAccount>'; 'storageAccountSasToken' = $SASKey } -TypeHandlerVersion 3.0
+# Generate a SAS token for the agent to use to authenticate with the storage account
+$sasToken = New-AzStorageAccountSASToken -Service Blob,Table -ResourceType Service,Container,Object -Permission "racwdlup" -Context (Get-AzStorageAccount -ResourceGroupName $storageAccountResourceGroup -AccountName $storageAccountName).Context
+
+# Build the protected settings (storage account SAS token)
+$protectedSettings="{'storageAccountName': '$storageAccountName', 'storageAccountSasToken': '$sasToken'}"
+
+# Finally install the extension with the settings built above
+Set-AzVMExtension -ResourceGroupName $VMresourceGroup -VMName $vmName -Location $vm.Location -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure.Diagnostics -Name LinuxDiagnostic -SettingString $publicSettings -ProtectedSettingString $protectedSettings -TypeHandlerVersion 3.0 
 ```
 
 ### <a name="updating-the-extension-settings"></a>확장 설정 업데이트
@@ -210,7 +159,7 @@ Set-AzureRmVMExtension -ExtensionType LinuxDiagnostic -Publisher Microsoft.Azure
 ---- | -----
 storageAccountName | 확장에 의해 데이터가 기록될 스토리지 계정의 이름입니다.
 storageAccountEndPoint | (선택 사항) 스토리지 계정이 있는 클라우드를 식별하는 엔드포인트입니다. 이 설정이 없는 경우 LAD는 Azure 퍼블릭 클라우드, `https://core.windows.net`으로 기본 설정됩니다. Azure Germany, Azure Government 또는 Azure China에서 스토리지 계정을 사용하려면 이 값을 적절하게 설정합니다.
-storageAccountSasToken | Blob service 및 Table service(`ss='bt'`)용으로, 컨테이너 및 개체(`srt='co'`)에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`sp='acluw'`)을 부여하는 [계정 SAS 토큰](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/)입니다. 앞에 물음표(?)를 포함하지 *마세요*.
+storageAccountSasToken | Blob service 및 Table service([)용으로, 컨테이너 및 개체(](https://azure.microsoft.com/blog/sas-update-account-sas-now-supports-all-storage-services/))에 적용할 수 있고, 추가, 생성, 나열, 업데이트 및 쓰기 권한(`ss='bt'`)을 부여하는 `srt='co'`계정 SAS 토큰`sp='acluw'`입니다. 앞에 물음표(?)를 포함하지 *마세요*.
 mdsdHttpProxy | (선택 사항) 지정된 스토리지 계정 및 엔드포인트에 연결할 확장을 사용하도록 설정하는 데 필요한 HTTP 프록시 정보입니다.
 sinksConfig | (선택 사항) 메트릭 및 이벤트를 전달할 수 있는 대체 대상의 세부 정보입니다. 확장에서 지원되는 각 데이터 싱크의 특정 세부 정보는 다음에 나오는 섹션에 설명되어 있습니다.
 
@@ -223,7 +172,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 1. 앞에서 설명한 대로 적절한 섹션을 만듭니다.
 1. "SAS 생성" 단추를 클릭합니다.
 
-![이미지](./media/diagnostics-linux/make_sas.png)
+![image](./media/diagnostics-linux/make_sas.png)
 
 생성된 SAS를 storageAccountSasToken 필드에 복사하고 앞의 물음표("?")를 제거합니다.
 
@@ -247,7 +196,7 @@ Azure Portal을 통해 필요한 SAS 토큰을 쉽게 생성할 수 있습니다
 요소 | 값
 ------- | -----
 name | 확장 구성의 다른 위치에서 이 싱크를 참조하는 데 사용되는 문자열입니다.
-type | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
+형식 | 정의 중인 싱크 유형입니다. 이 유형의 인스턴스에서 다른 값(있는 경우)을 결정합니다.
 
 Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 JsonBlob)을 지원합니다.
 
@@ -264,7 +213,7 @@ Linux 진단 확장 3.0 버전에서는 두 개의 싱크 유형(EventHub 및 Js
 ]
 ```
 
-"sasURL" 항목에는 SAS 토큰을 포함하여 데이터를 게시해야 하는 Event Hub에 대한 전체 URL이 포함됩니다. LAD는 클레임 보내기를 사용하도록 설정하는 SAS 명명 정책이 필요합니다. 예제:
+"sasURL" 항목에는 SAS 토큰을 포함하여 데이터를 게시해야 하는 Event Hub에 대한 전체 URL이 포함됩니다. LAD는 클레임 보내기를 사용하도록 설정하는 SAS 명명 정책이 필요합니다. 예를 들어
 
 * 호출된 Event Hubs 네임스페이스 만들기`contosohub`
 * `syslogmsgs`라는 네임스페이스에 Event Hub 만들기
@@ -382,20 +331,20 @@ performanceCounters 섹션에 지정된 메트릭 샘플은 15초마다 또는 �
 
 * 평균
 * minimum
-* maximum
+* 최대
 * 마지막으로 수집된 값
 * 집계를 계산하는 데 사용되는 원시 샘플 수
 
 요소 | 값
 ------- | -----
-sinks | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예: `"EHsink1, myjsonsink"`.
-type | 메트릭의 실제 공급자를 식별합니다.
+싱크 | (선택 사항) LAD가 집계된 메트릭 결과를 보내는 쉼표로 구분된 싱크 이름 목록입니다. 모든 집계된 메트릭은 나열된 각 싱크에 게시됩니다. [sinksConfig](#sinksconfig)를 참조하세요. 예: `"EHsink1, myjsonsink"`.
+형식 | 메트릭의 실제 공급자를 식별합니다.
 class | "counter"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counter | "class"와 함께 공급자의 네임스페이스 내에서 특정 메트릭을 식별합니다.
 counterSpecifier | Azure Metrics 네임스페이스 내에서 특정 메트릭을 식별합니다.
-condition(조건) | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
+조건 | (선택 사항) 메트릭이 적용되는 개체의 특정 인스턴스를 선택하거나 해당 개체의 모든 인스턴스에서 집계를 선택합니다. 자세한 내용은 `builtin` 메트릭 정의를 참조하세요.
 sampleRate | 이 메트릭의 원시 샘플이 수집되는 속도를 설정하는 IS 8601 간격입니다. 설정하지 않은 경우 컬렉션 간격은 [sampleRateInSeconds](#ladcfg) 값으로 설정됩니다. 지원되는 최소 샘플 속도는 15초(PT15S)입니다.
-단위 | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
+Unit | 문자열 "Count", "Bytes", "Seconds", "Percent", "CountPerSecond", "BytesPerSecond", "Millisecond" 중 하나여야 합니다. 메트릭에 대한 단위를 정의합니다. 수집된 데이터의 소비자는 수집된 데이터 값이 이 단위와 일치할 것으로 예상합니다. LAD는 이 필드를 무시합니다.
 displayName | Azure Metrics에서 이 데이터에 연결되는 레이블(연결된 로캘 설정에서 지정된 언어)입니다. LAD는 이 필드를 무시합니다.
 
 counterSpecifier는 임의의 식별자입니다. Azure Portal 차트 및 경고 기능과 같이 메트릭의 소비자는 counterSpecifier를 메트릭 또는 메트릭 인스턴스를 식별하는 "키"로 사용합니다. `builtin` 메트릭의 경우 `/builtin/`으로 시작하는 counterSpecifier 값을 사용하는 것이 좋습니다. 특정 메트릭 인스턴스를 수집하는 경우 counterSpecifier 값에 인스턴스 식별자를 연결하는 것이 좋습니다. 몇 가지 예는 다음과 같습니다.
@@ -434,7 +383,7 @@ syslogEventConfiguration 컬렉션에는 각각의 특정 syslog 기능별로 �
 
 요소 | 값
 ------- | -----
-sinks | 개별 로그 이벤트가 게시되는 쉼표로 구분된 싱크 이름 목록입니다. syslogEventConfiguration의 제한 사항과 일치하는 모든 로그 이벤트가 나열된 각 싱크에 게시됩니다. 예: "EHforsyslog"
+싱크 | 개별 로그 이벤트가 게시되는 쉼표로 구분된 싱크 이름 목록입니다. syslogEventConfiguration의 제한 사항과 일치하는 모든 로그 이벤트가 나열된 각 싱크에 게시됩니다. 예: "EHforsyslog"
 facilityName | syslog 기능 이름입니다(예: "LOG\_USER" 또는 "LOG\_LOCAL0"). 전체 목록은 [syslog 기본 페이지](http://man7.org/linux/man-pages/man3/syslog.3.html)의 "facility" 섹션을 참조하세요.
 minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO"). 전체 목록은 [syslog 기본 페이지](http://man7.org/linux/man-pages/man3/syslog.3.html)의 "level" 섹션을 참조하세요. 확장은 지정된 수준 이상으로 전송되는 이벤트를 캡처합니다.
 
@@ -463,11 +412,11 @@ minSeverity | syslog 심각도 수준입니다(예: "LOG\_ERR" 또는 "LOG\_INFO
 
 요소 | 값
 ------- | -----
-네임스페이스 | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
-Query | 실행될 OMI 쿼리입니다.
+namespace | (선택 사항) 실행해야 할 쿼리 내의 OMI 네임스페이스입니다. 지정되지 않은 경우 기본값은 [System Center 플랫폼 간 공급자](https://github.com/Microsoft/SCXcore)가 구현한 "root/scx"입니다.
+query | 실행될 OMI 쿼리입니다.
 테이블 | (선택 사항) 지정된 스토리지 계정의 Azure Storage 테이블입니다([보호 설정](#protected-settings) 참조).
 frequency | (선택 사항) 쿼리 실행 간격(초)입니다. 기본값은 300(5분)이고 최소값은 15초입니다.
-sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
+싱크 | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는 쉼표로 구분된 추가 싱크 이름 목록입니다. 이러한 원시 샘플의 집계는 확장 또는 Azure Metrics에서 계산되지 않습니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.
 
@@ -487,9 +436,9 @@ sinks | (선택 사항) 원시 샘플 메트릭 결과가 게시되어야 하는
 
 요소 | 값
 ------- | -----
-파일 | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
+file | 확인 및 캡처할 로그 파일의 전체 경로 이름입니다. 경로 이름은 단일 파일의 이름을 지정해야 합니다. 디렉터리 이름을 지정하거나 와일드카드를 포함할 수 없습니다.
 테이블 | (선택 사항) 보호되는 구성에서 지정된 대로, 파일의 “끝"에서 새 줄이 작성되고 지정된 스토리지 계정의 Azure Storage 테이블입니다.
-sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
+싱크 | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 싱크 이름 목록입니다.
 
 "table"이나 "sinks" 또는 둘 다 지정해야 합니다.
 
@@ -501,7 +450,7 @@ sinks | (선택 사항) 로그 줄이 전송되는 쉼표로 구분된 추가 �
 * 메모리
 * 네트워크
 * 파일 시스템
-* Disk
+* 디스크
 
 ### <a name="builtin-metrics-for-the-processor-class"></a>프로세서 클래스의 기본 제공 메트릭
 
@@ -564,9 +513,9 @@ TotalCollisions | 부팅 이후 네트워크 포트에서 보고되는 충돌 �
 
 counter | 의미
 ------- | -------
-FreeSpace | 사용 가능한 디스크 공간(바이트)
+사용 가능한 공간 | 사용 가능한 디스크 공간(바이트)
 UsedSpace | 사용된 디스크 공간(바이트)
-PercentFreeSpace | 사용 가능한 공간의 백분율
+PercentFreeSpace | 사용 가능한 공간 비율
 PercentUsedSpace | 사용된 공간의 백분율
 PercentFreeInodes | 사용하지 않은 inode의 백분율
 PercentUsedInodes | 모든 파일 시스템에서 합한 할당된(사용 중인) inode의 백분율
@@ -765,7 +714,7 @@ az vm extension set *resource_group_name* *vm_name* LinuxDiagnostic Microsoft.Az
 
 Azure Portal을 사용하여 성능 데이터를 보거나 경고를 설정합니다.
 
-![이미지](./media/diagnostics-linux/graph_metrics.png)
+![image](./media/diagnostics-linux/graph_metrics.png)
 
 `performanceCounters` 데이터는 항상 Azure Storage 테이블에 저장됩니다. Azure Storage API는 다양한 언어 및 플랫폼에 사용할 수 있습니다.
 
@@ -778,7 +727,7 @@ JsonBlob 싱크로 전송된 데이터는 [보호 설정](#protected-settings)�
 
 Microsoft Azure Storage Explorer의 이 스냅샷 세션은 테스트 VM에서 올바르게 구성된 LAD 3.0 확장에서 생성된 Azure Storage 테이블 및 컨테이너를 보여 줍니다. 이미지가 [샘플 LAD 3.0 구성](#an-example-lad-30-configuration)과 정확히 일치하지는 않습니다.
 
-![이미지](./media/diagnostics-linux/stg_explorer.png)
+![image](./media/diagnostics-linux/stg_explorer.png)
 
 EventHubs 엔드포인트에 게시된 메시지를 사용하는 방법에 대해 알아보려면 관련 [EventHubs 설명서](../../event-hubs/event-hubs-what-is-event-hubs.md)를 참조하세요.
 

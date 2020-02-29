@@ -13,12 +13,12 @@ ms.devlang: na
 ms.topic: conceptual
 ms.date: 04/19/2019
 ms.author: juliako
-ms.openlocfilehash: 54c32a87b5afdf165be8187c7189a11c106bbd8f
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 1c2d6287a89c7816c30cf26978859c07dba0251d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77562346"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197507"
 ---
 # <a name="azure-media-services-overview"></a>Azure Media Services 개요 
 
@@ -33,6 +33,15 @@ Microsoft AMS(Azure Media Services)는 개발자가 확장 가능한 미디어 �
 
 전체 Media Services를 사용하여 엔드투엔드 워크플로를 작성할 수 있습니다. 또한 워크플로의 일부에 타사 구성 요소를 사용하도록 선택할 수 있습니다. 예를 들어 타사 인코더를 사용하여 인코딩합니다. 그런 다음 Media Services를 사용하여 업로드, 보호, 패키징 및 배달합니다. 콘텐츠를 라이브로 스트리밍하고 주문형 콘텐츠를 배달하도록 선택할 수 있습니다. 
 
+
+## <a name="compliance-privacy-and-security"></a>규정 준수, 개인 정보 보호 및 보안
+
+중요 한 알림으로 Azure Media Services 사용 시 관련 법률을 준수 해야 하 고 다른 사용자의 권리를 위반 하거나 다른 사용자에 게 유해한 영향을 주는 방식으로 Media Services 또는 Azure 서비스를 사용 하지 못할 수 있습니다.
+
+Media Services에 대 한 비디오/이미지를 업로드 하기 전에, Media Services 및 Azure에서 데이터 사용, 처리 및 저장을 위해 법률에서 요구 하는 경우, 비디오/이미지에서 개인의 모든 필수 동의 (있는 경우)를 포함 하 여 비디오/이미지를 사용할 수 있는 적절 한 권한이 있어야 합니다. 일부 관할지에서는 생체 인식 데이터와 같은 특정 범주의 데이터를 온라인으로 처리 하 고 저장 하는 데 적합 한 법적 요구 사항을 적용할 수 있습니다. 특별 한 법적 요구 사항이 적용 되는 데이터의 처리 및 저장을 위해 Media Services 및 Azure를 사용 하기 전에 사용자에 게 적용 될 수 있는 이러한 법적 요구 사항을 준수 하는지 확인 해야 합니다.
+
+Media Services의 규정 준수, 개인 정보 보호 및 보안에 대 한 자세한 내용은 Microsoft [보안 센터](https://www.microsoft.com/trust-center/?rtc=1)를 참조 하세요. 데이터를 삭제 하는 방법을 비롯 하 여 Microsoft의 개인 정보 취급 방침, 데이터 처리 및 보존 방법에 대 한 자세한 내용은 Microsoft [개인 정보](https://privacy.microsoft.com/PrivacyStatement)취급 방침, [Online Services 약관](https://www.microsoft.com/licensing/product-licensing/products?rtc=1) ("OST") 및 [데이터 처리 추 록](https://www.microsoftvolumelicensing.com/DocumentSearch.aspx?Mode=3&DocumentTypeId=67) ("DPA")을 참조 하세요. Media Services를 사용 하 여 OST, DPA 및 개인정보 처리 방침의 범위에 동의 하는 것입니다.
+ 
 ## <a name="prerequisites"></a>필수 조건
 
 Azure Media Services 사용을 시작하려면 다음이 있어야 합니다.

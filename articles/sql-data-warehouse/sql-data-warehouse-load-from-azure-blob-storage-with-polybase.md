@@ -1,6 +1,6 @@
 ---
-title: Contoso Retail 데이터 로드
-description: PolyBase 및 T-sql 명령을 사용 하 여 Contoso Retail 데이터에서 Azure SQL 분석로 두 테이블을 로드 합니다.
+title: SQL 분석 데이터 웨어하우스로 Contoso retail 데이터 로드
+description: PolyBase 및 T-sql 명령을 사용 하 여 Contoso retail 데이터에서 Azure SQL 분석로 두 테이블을 로드 합니다.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -11,16 +11,16 @@ ms.date: 04/17/2018
 ms.author: kevin
 ms.reviewer: igorstan
 ms.custom: seo-lt-2019
-ms.openlocfilehash: af505d7614b527d6dc7e1ce54136578d67824cf9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 4da4ea54de5517864567583cc6853df40b4370a9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721169"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197303"
 ---
-# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>SQL 분석 데이터 웨어하우스로 Contoso Retail 데이터 로드
+# <a name="load-contoso-retail-data-to-a-sql-analytics-data-warehouse"></a>SQL 분석 데이터 웨어하우스로 Contoso retail 데이터 로드
 
-이 자습서에서는 PolyBase 및 T-sql 명령을 사용 하 여 Contoso Retail 데이터에서 두 테이블을 SQL 분석 데이터 웨어하우스로 로드 하는 방법을 알아봅니다. 
+이 자습서에서는 PolyBase 및 T-sql 명령을 사용 하 여 Contoso retail 데이터에서 두 테이블을 SQL 분석 데이터 웨어하우스로 로드 하는 방법을 알아봅니다. 
 
 이 자습서에서는 다음 작업을 수행합니다.
 
@@ -28,13 +28,16 @@ ms.locfileid: "76721169"
 2. 공용 데이터를 데이터베이스에 로드
 3. 로드가 완료 된 후에 최적화를 수행합니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
+
 이 자습서를 실행 하려면 SQL Analytics 데이터 웨어하우스가 이미 있는 Azure 계정이 필요 합니다. 프로 비전 된 데이터 웨어하우스가 없는 경우 [데이터 웨어하우스 만들기 및 서버 수준 방화벽 규칙 설정](create-data-warehouse-portal.md)을 참조 하세요.
 
-## <a name="1-configure-the-data-source"></a>1. 데이터 원본 구성
+## <a name="configure-the-data-source"></a>데이터 원본 구성
+
 PolyBase는 T-SQL 외부 개체를 사용하여 외부 데이터의 위치와 특성을 정의합니다. 외부 개체 정의는 SQL 분석 데이터 웨어하우스에 저장 됩니다. 데이터는 외부에 저장 됩니다.
 
-### <a name="11-create-a-credential"></a>1.1. 자격 증명 만들기
+## <a name="create-a-credential"></a>자격 증명 만들기
+
 Contoso 공용 데이터를 로드 하는 경우 **이 단계를 건너뜁니다** . 모든 사용자가 이미 액세스할 수 있으므로 공용 데이터에 대한 보안 액세스는 필요하지 않습니다.
 
 사용자 고유의 데이터를 로드 하기 위한 템플릿으로이 자습서를 사용 하는 경우 **이 단계를 건너뛰지 마십시오** . 자격 증명을 통해 데이터에 액세스 하려면 다음 스크립트를 사용 하 여 데이터베이스 범위 자격 증명을 만듭니다. 그런 다음 데이터 원본의 위치를 정의할 때이를 사용 합니다.
@@ -72,7 +75,8 @@ WITH (
 );
 ```
 
-### <a name="12-create-the-external-data-source"></a>1.2. 외부 데이터 원본 만들기
+## <a name="create-the-external-data-source"></a>외부 데이터 원본 만들기
+
 이 [CREATE EXTERNAL DATA SOURCE](https://docs.microsoft.com/sql/t-sql/statements/create-external-data-source-transact-sql?view=sql-server-ver15) 명령을 사용 하 여 데이터의 위치와 데이터 형식을 저장 합니다. 
 
 ```sql
@@ -87,9 +91,9 @@ WITH
 > [!IMPORTANT]
 > Azure Blob Storage 컨테이너를 공용으로 만들도록 선택하는 경우 데이터가 데이터 센터에서 떠날 때 데이터 소유자로서 귀하에게 데이터 송신 요금이 부과될 것임을 염두에 두어야 합니다. 
 > 
-> 
 
-## <a name="2-configure-data-format"></a>2. 데이터 형식 구성
+## <a name="configure-the-data-format"></a>데이터 형식 구성
+
 데이터는 Azure Blob Storage에 텍스트 파일로 저장되고 각 필드는 구분 기호로 구분됩니다. SSMS에서 다음 CREATE EXTERNAL FILE FORMAT 명령을 실행 하 여 텍스트 파일의 데이터 형식을 지정 합니다. Contoso 데이터는 압축되어 있지 않으며 파이프로 구분됩니다.
 
 ```sql
@@ -104,10 +108,10 @@ WITH
 );
 ``` 
 
-## <a name="3-create-the-external-tables"></a>3. 외부 테이블 만들기
+## <a name="create-the-external-tables"></a>외부 테이블 만들기
 이제 데이터 원본 및 파일 형식을 지정 했으므로 외부 테이블을 만들 준비가 되었습니다. 
 
-### <a name="31-create-a-schema-for-the-data"></a>3.1. 데이터에 대한 스키마를 만듭니다.
+## <a name="create-a-schema-for-the-data"></a>데이터에 대 한 스키마 만들기
 데이터베이스에 Contoso 데이터를 저장할 수 있는 위치를 만들려면 스키마를 생성합니다.
 
 ```sql
@@ -115,7 +119,8 @@ CREATE SCHEMA [asb]
 GO
 ```
 
-### <a name="32-create-the-external-tables"></a>3.2. 외부 테이블을 만듭니다.
+## <a name="create-the-external-tables"></a>외부 테이블 만들기
+
 DimProduct와 FactOnlineSales 외부 테이블을 만들려면 다음 스크립트를 실행합니다. 여기서 열 이름과 데이터 형식을 정의하고 Azure blob 저장소 파일의 형식과 위치에 바인딩합니다. 정의는 SQL 분석 데이터 웨어하우스에 저장 되 고 데이터는 계속 Azure Storage Blob에 저장 됩니다.
 
 **위치** 매개 변수는 Azure Storage Blob의 루트 폴더 아래에 있는 폴더입니다. 각 테이블은 서로 다른 폴더에 있습니다.
@@ -202,10 +207,11 @@ WITH
 ;
 ```
 
-## <a name="4-load-the-data"></a>4. 데이터를 로드 합니다.
+## <a name="load-the-data"></a>데이터 로드
 외부 데이터에 액세스 하는 방법에는 여러 가지가 있습니다.  외부 테이블에서 직접 데이터를 쿼리하거나 데이터 웨어하우스의 새 테이블에 데이터를 로드 하거나 기존 데이터 웨어하우스 테이블에 외부 데이터를 추가할 수 있습니다.  
 
-### <a name="41-create-a-new-schema"></a>4.1. 새 스키마를 만듭니다.
+###  <a name="create-a-new-schema"></a>새 스키마를 만듭니다.
+
 CTAS는 데이터가 포함된 새 테이블을 만듭니다.  먼저 contoso 데이터에 대한 스키마를 만듭니다.
 
 ```sql
@@ -213,12 +219,13 @@ CREATE SCHEMA [cso]
 GO
 ```
 
-### <a name="42-load-the-data-into-new-tables"></a>4.2. 데이터를 새 테이블에 로드합니다.
+### <a name="load-the-data-into-new-tables"></a>데이터를 새 테이블에 로드합니다.
+
 Azure blob storage에서 데이터 웨어하우스 테이블로 데이터를 로드 하려면 [SELECT (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse?view=aps-pdw-2016-au7) 문을 사용 하 여 CREATE TABLE 합니다. [Ctas](sql-data-warehouse-develop-ctas.md) 를 사용 하 여 로드 하면 직접 만든 강력한 형식의 외부 테이블을 활용 합니다. 새 테이블에 데이터를 로드 하려면 테이블당 하나의 CTAS 문을 사용 합니다. 
  
-CTAS는 새 테이블을 만들고 select 문의 결과와 함께 새 테이블을 정보표시합니다. CTAS는 select 문의 결과에 부합하는 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
+CTAS는 새 테이블을 만들고 select 문의 결과로 새 테이블을 채웁니다. CTAS는 select 문의 결과와 동일한 열과 데이터 형식을 가지도록 새 테이블을 정의합니다. 외부 테이블에서 모든 열을 선택하는 경우 새 테이블은 외부 테이블의 열과 데이터 형식의 복제본이 됩니다.
 
-이 예제에서는 차원과 해시 분산 테이블로서 팩트 테이블을 만듭니다. 
+이 예제에서는 해시 분산 테이블로 차원과 팩트 테이블을 만듭니다. 
 
 ```sql
 SELECT GETDATE();
@@ -228,7 +235,8 @@ CREATE TABLE [cso].[DimProduct]            WITH (DISTRIBUTION = HASH([ProductKey
 CREATE TABLE [cso].[FactOnlineSales]       WITH (DISTRIBUTION = HASH([ProductKey]  ) ) AS SELECT * FROM [asb].[FactOnlineSales]        OPTION (LABEL = 'CTAS : Load [cso].[FactOnlineSales]        ');
 ```
 
-### <a name="43-track-the-load-progress"></a>4.3 로드 진행률 추적
+### <a name="track-the-load-progress"></a>로드 진행률 추적
+
 DMV(동적 관리 뷰)를 사용하여 로드 진행률을 추적할 수 있습니다. 
 
 ```sql
@@ -264,7 +272,8 @@ ORDER BY
     gb_processed desc;
 ```
 
-## <a name="5-optimize-columnstore-compression"></a>5. columnstore 압축 최적화
+## <a name="optimize-columnstore-compression"></a>Columnstore 압축을 최적화합니다.
+
 기본적으로 SQL 분석 데이터 웨어하우스는 클러스터형 columnstore 인덱스로 테이블을 저장 합니다. 로드를 완료한 후 데이터 행 일부는 columnstore로 압축되지 않을 수 있습니다.  이에는 다양한 이유가 있을 수 있습니다. 자세한 내용은 [Columnstore 인덱스 관리](sql-data-warehouse-tables-index.md)를 참조하세요.
 
 로드 후 쿼리 성능과 columnstore 압축을 최적화하려면 모든 행을 압축하기 위해 columnstore 인덱스를 강제 적용할 테이블을 다시 빌드합니다. 
@@ -279,7 +288,8 @@ ALTER INDEX ALL ON [cso].[FactOnlineSales]          REBUILD;
 
 Columnstore 인덱스 유지 관리에 대한 자세한 내용은 [columnstore 인덱스 관리](sql-data-warehouse-tables-index.md) 문서를 참조하세요.
 
-## <a name="6-optimize-statistics"></a>6. 통계 최적화
+## <a name="optimize-statistics"></a>통계를 최적화합니다.
+
 로드 직후 단일 열 통계를 작성하는 것이 좋습니다. 쿼리 조건자에 특정 열이 사용되지 않을 것을 알고 있는 경우, 해당 열에서 통계 생성을 건너뛸 수 있습니다. 모든 열에 단일 열 통계를 만드는 경우 모든 통계를 다시 작성하는데 시간이 오래 걸릴 수 있습니다. 
 
 단일 열 통계를 모든 테이블의 모든 열에 대해 만들기로 결정한 경우 `prc_sqldw_create_stats`통계[ 문서에 저장된 프로시저 코드 샘플 ](sql-data-warehouse-tables-statistics.md)를 사용할 수 있습니다.
@@ -329,7 +339,7 @@ CREATE STATISTICS [stat_cso_FactOnlineSales_StoreKey] ON [cso].[FactOnlineSales]
 ```
 
 ## <a name="achievement-unlocked"></a>목표를 달성했습니다!
-SQL 분석 데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘 하셨습니다!
+데이터 웨어하우스에 공용 데이터를 성공적으로 로드 했습니다. 잘 하셨습니다!
 
 이제 테이블 쿼리를 시작 하 여 데이터를 탐색할 수 있습니다. 다음 쿼리를 실행 하 여 브랜드 별 총 판매량을 확인할 수 있습니다.
 

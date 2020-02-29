@@ -7,13 +7,13 @@ author: brjohnstmsft
 ms.author: brjohnst
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 11/04/2019
-ms.openlocfilehash: 7c94ad096cf7d0d01bf2076f6748b49cf4ae1bb4
-ms.sourcegitcommit: b050c7e5133badd131e46cab144dd5860ae8a98e
+ms.date: 02/28/2020
+ms.openlocfilehash: aa573e84fa9fff83bd6a894f516ce5f67b3afa79
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/23/2019
-ms.locfileid: "72794218"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78194345"
 ---
 # <a name="synonyms-in-azure-cognitive-search"></a>Azure Cognitive Search의 동의어
 
@@ -45,7 +45,7 @@ Azure Cognitive Search에서 동의어 지원은 사용자가 정의 하 고 서
 
 #### <a name="add-or-update-a-synonym-map-under-your-service-using-post-or-put"></a>POST 또는 PUT을 사용하여 서비스 아래에 동의어 맵을 추가하거나 업데이트합니다.
 
-동의어 맵은 POST 또는 PUT을 통해 서비스에 업로드됩니다. 각 규칙은 줄 바꿈 문자('\n')로 구분되어야 합니다. 무료 서비스에서는 동의어 맵당 최대 5,000개의 규칙을 정의하고 다른 모든 SKU에서는 10,000개의 규칙을 정의할 수 있습니다. 각 규칙에는 최대 20개의 확장이 있을 수 있습니다.
+동의어 맵은 POST 또는 PUT을 통해 서비스에 업로드됩니다. 각 규칙은 줄 바꿈 문자('\n')로 구분되어야 합니다. 무료 서비스에서 동의어 맵 당 최대 5000 개의 규칙을 정의 하 고 다른 모든 Sku에서 맵 당 2만 규칙을 정의할 수 있습니다. 각 규칙에는 최대 20개의 확장이 있을 수 있습니다.
 
 동의어 맵은 아래에 설명된 Apache Solr 형식이어야 합니다. 다른 형식의 기존 동의어 사전이 있어 이를 직접 사용하려는 경우 [UserVoice](https://feedback.azure.com/forums/263029-azure-search)에 알려 주세요.
 

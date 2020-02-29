@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 자체 어설션된 기술 프로필을 정의하는 방법을 설명합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/17/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8f2a86f72f16a23b0133601cfe41b9e636d8866d
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: e0a282be9b8a20c64cd3e74e7860a289baa5aec6
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425598"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183808"
 ---
 # <a name="define-a-self-asserted-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 자체 어설션된 기술 프로필 정의
 
@@ -198,7 +198,7 @@ ms.locfileid: "77425598"
 | setting.showCancelButton | 아니요 | 취소 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | setting.showContinueButton | 아니요 | 계속 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
 | 설정. showSignupLink <sup>2</sup>| 아니요 | 등록 단추를 표시합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다. |
-| forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.| 
+| forgotPasswordLinkLocation <sup>2</sup>| 아니요| 암호 찾기 링크를 표시 합니다. 가능한 값: `AfterInput` (기본값) 링크는 페이지 맨 아래에 표시 되거나 `None` 암호 찾기 링크를 제거 합니다.|
 | IncludeClaimResolvingInClaimsHandling  | 아니요 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |
 
 참고:

@@ -4,16 +4,17 @@ description: Storage 계정 키는 Azure storage 계정에 대 한 Azure Key Vau
 ms.topic: conceptual
 services: key-vault
 ms.service: key-vault
+ms.subservice: secrets
 author: msmbaldwin
 ms.author: mbaldwin
 manager: rkarlin
 ms.date: 09/18/2019
-ms.openlocfilehash: 880a85676ff7a0364431b33b90093298b12bffed
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 104f3423b07eaa3269ffccc054cd2f779bbdabf8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75980455"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199821"
 ---
 # <a name="manage-storage-account-keys-with-key-vault-and-the-azure-cli"></a>Key Vault 및 Azure CLI를 사용 하 여 저장소 계정 키 관리
 
@@ -44,8 +45,8 @@ Key Vault은 모든 Azure AD 테 넌 트에서 미리 등록 된 Microsoft 응�
 | 테넌트 | 클라우드 | 애플리케이션 UI |
 | --- | --- | --- |
 | Azure AD | Azure Government | `7e7c393b-45d0-48b1-a35e-2905ddf8183c` |
-| Azure AD | Azure 퍼블릭 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
-| 기타  | 모두 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| Azure AD | Azure 공용 | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
+| 기타  | Any | `cfa8b339-82a2-471a-a3c9-0fc0be7a4093` |
 
 ## <a name="prerequisites"></a>필수 조건
 

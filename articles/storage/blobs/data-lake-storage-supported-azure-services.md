@@ -8,18 +8,18 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: 71df31562971af8bcdb38be76894c1d0abeccc3f
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: cb68f1bc851a8573ddec01d1eee803135a11b067
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925580"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195363"
 ---
 # <a name="azure-services-that-support-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2를 지 원하는 Azure 서비스
 
 Azure 서비스를 사용 하 여 데이터를 수집 하 고 분석을 수행 하 고 시각적 표현을 만들 수 있습니다. 이 문서는 지원 되는 Azure 서비스의 목록을 제공 하 고, 지원 공개을 제공 하며, Azure Data Lake Storage Gen2에서 이러한 서비스를 사용 하는 데 도움이 되는 문서에 대 한 링크를 제공 합니다.
 
-## <a name="supportedazureservices"></a>지원 되는 Azure 서비스
+## <a name="supported-azure-services"></a>지원되는 Azure 서비스
 
 이 표에는 Azure Data Lake Storage Gen2에서 사용할 수 있는 Azure 서비스가 나열 되어 있습니다. 이러한 테이블에 표시 되는 항목은 지원이 계속 확장 될 때 시간이 지남에 따라 변경 됩니다.
 

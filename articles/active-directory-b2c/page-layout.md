@@ -3,20 +3,20 @@ title: 페이지 레이아웃 버전
 titleSuffix: Azure AD B2C
 description: 사용자 지정 정책에서 UI 사용자 지정을 위한 페이지 레이아웃 버전 기록입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/26/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b24e8cc5f6bb6213bf021362c5654afd4d5266fb
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 3d0cb06f84fdd96d099e05f55ba62c37cb1192c7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620603"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183978"
 ---
 # <a name="page-layout-versions"></a>페이지 레이아웃 버전
 

@@ -6,15 +6,16 @@ author: cawaMS
 manager: paulyuk
 editor: ''
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 07/17/2019
 ms.author: cawa
-ms.openlocfilehash: 8a85dd3d3d80a8c3988c7653eb74f403fdc54cd4
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 6bbadd0deb1b7b6fe1056ed7bb47dc3e666a7b9c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75772502"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197711"
 ---
 # <a name="securely-save-secret-application-settings-for-a-web-application"></a>웹 애플리케이션의 비밀 애플리케이션 설정을 안전하게 저장
 

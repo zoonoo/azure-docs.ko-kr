@@ -8,13 +8,13 @@ ms.subservice: core
 ms.topic: conceptual
 author: maxluk
 ms.author: maxluk
-ms.date: 11/08/2019
-ms.openlocfilehash: 9b6c21c31f3f4ec45307c245c373b9e1c1480cda
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.date: 02/27/2020
+ms.openlocfilehash: b6b7e47acdbc5bd059e17e512731bd09c8580798
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75537124"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195382"
 ---
 # <a name="visualize-experiment-runs-and-metrics-with-tensorboard-and-azure-machine-learning"></a>TensorBoard 및 Azure Machine Learning를 사용 하 여 실험 실행 및 메트릭 시각화
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -181,6 +181,10 @@ tb.start()
 # After your job completes, be sure to stop() the streaming otherwise it will continue to run. 
 tb.stop()
 ```
+
+>[!Note]
+ 이 예제에서는 TensorFlow을 사용 했지만 PyTorch 또는 체 이너 모델에서 TensorBoard를 쉽게 사용할 수 있습니다. TensorFlow는 TensorBoard를 실행 하는 컴퓨터에서 사용할 수 있어야 하지만 PyTorch 또는 체 이너 계산을 수행 하는 컴퓨터에서는 필요 하지 않습니다. 
+
 
 <a name="export"></a>
 

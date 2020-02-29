@@ -5,12 +5,12 @@ author: mikkelhegn
 ms.topic: conceptual
 ms.date: 02/23/2018
 ms.author: mikhegn
-ms.openlocfilehash: 33dfc91381b23bf1ac33bef5274e1098df411f4a
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: 0bca690fd585b288f15cbab21c1c951474390318
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75609845"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196982"
 ---
 # <a name="manage-applications-for-multiple-environments"></a>여러 환경에 대한 애플리케이션 관리
 
@@ -33,7 +33,7 @@ Azure Service Fabric 클러스터를 사용하면 하나의 컴퓨터에서 수�
 
 > [!NOTE]
 > 애플리케이션 및 서비스 매니페스트 파일의 모든 특성이 매개 변수를 지원하지는 않습니다.
-> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Azure DevOps에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens 와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
+> 해당 경우 배포 워크플로의 일부로 문자열을 대체해야 합니다. Azure DevOps에서는 토큰 바꾸기 https://marketplace.visualstudio.com/items?itemName=qetza.replacetokens와 같은 확장을 사용할 수 있고, Jenkins에서는 값을 바꾸는 스크립트 태스크를 실행할 수 있습니다.
 >
 
 ## <a name="specifying-parameters-during-application-creation"></a>애플리케이션 생성 중에 매개 변수 지정
@@ -42,7 +42,7 @@ Service Fabric에서 명명된 애플리케이션 인스턴스를 만들 때 매
 
   - PowerShell에서 [`New-ServiceFabricApplication`](https://docs.microsoft.com/powershell/module/servicefabric/new-servicefabricapplication?view=azureservicefabricps) cmdlet은 애플리케이션 매개 변수를 해시 테이블로 사용합니다.
   - sfctl를 사용하여 [`sfctl application create`](https://docs.microsoft.com/azure/service-fabric/service-fabric-sfctl-application#sfctl-application-create) 명령은 매개 변수를 JSON 문자열로 사용합니다. install.sh 스크립트는 sfctl을 사용합니다.
-  - Visual Studio에서는 애플리케이션 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Team Foundation Server를 사용하여 Visual Studio에서 게시할 때 사용됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
+  - Visual Studio에서는 애플리케이션 프로젝트의 Parameters 폴더에 매개 변수 파일 집합을 제공합니다. 이러한 매개 변수 파일은 Azure DevOps Services 또는 Azure DevOps Server를 사용 하 여 Visual Studio에서 게시할 때 사용 됩니다. Visual Studio에서 매개 변수 파일은 Deploy-fabricapplication.ps1 스크립트에 전달됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 다음 문서에서는 여기에 설명된 개념 중 일부를 사용하는 방법을 보여 줍니다.

@@ -7,21 +7,21 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 12/23/2019
-ms.openlocfilehash: aac5dc300009ec682ef1599ad654415f5c4ad190
-ms.sourcegitcommit: f0dfcdd6e9de64d5513adf3dd4fe62b26db15e8b
+ms.date: 02/28/2020
+ms.openlocfilehash: 6408689deec7de365ede86665a0eaeb0bd0de64b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/26/2019
-ms.locfileid: "75495067"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196572"
 ---
-# <a name="c-tutorial-combine-data-from-multiple-data-sources-in-one-azure-cognitive-search-index"></a>C#자습서: 하나의 Azure Cognitive Search 인덱스에 있는 여러 데이터 원본의 데이터 결합
+# <a name="tutorial-index-data-from-multiple-data-sources-in-c"></a>자습서:에서 여러 데이터 소스의 데이터 인덱싱C#
 
 Azure Cognitive Search는 데이터를 여러 데이터 원본에서 단일 결합형 검색 인덱스로 가져오고, 분석하고, 인덱싱할 수 있습니다. 이렇게 하면 정형 데이터가 텍스트, HTML 또는 JSON 문서와 같은 다른 원본의 비정형 데이터, 심지어 일반 텍스트 데이터를 사용하여 집계되는 상황을 지원합니다.
 
 이 자습서에서는 Azure Cosmos DB 데이터 원본의 호텔 데이터를 인덱싱하고, 이를 Azure Blob Storage 문서에서 가져온 호텔 객실 세부 정보와 병합하는 방법에 대해 설명합니다. 결과는 복잡한 데이터 형식이 포함된 결합형 호텔 검색 인덱스가 됩니다.
 
-이 자습서에서는 C#, Azure Cognitive Search용 .NET SDK 및 Azure Portal을 사용하여 다음 작업을 수행합니다.
+이 자습서에서는 C# 및 [.net SDK](https://aka.ms/search-sdk) 를 사용 하 여 다음 작업을 수행 합니다.
 
 > [!div class="checklist"]
 > * 샘플 데이터 업로드 및 데이터 원본 만들기
@@ -30,19 +30,19 @@ Azure Cognitive Search는 데이터를 여러 데이터 원본에서 단일 결�
 > * Azure Cosmos DB의 호텔 데이터 인덱싱
 > * Blob 스토리지의 호텔 객실 데이터 병합
 
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+
 ## <a name="prerequisites"></a>필수 조건
 
-이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
++ [Azure Cosmos DB](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal)
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Visual Studio 2019](https://visualstudio.microsoft.com/)
++ [기존 검색 서비스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) [만들기](search-create-service-portal.md) 또는 찾기 
 
-- [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다.
+> [!Note]
+> 이 자습서에서는 무료 서비스를 사용할 수 있습니다. 무료 검색 서비스는 세 개의 인덱스, 세 개의 인덱서 및 세 개의 데이터 원본으로 제한 합니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작 하기 전에 새 리소스를 수락 하는 서비스에 대 한 공간이 있는지 확인 합니다.
 
-- 샘플 호텔 데이터를 저장하기 위한 [Azure Cosmos DB 계정을 만듭니다](https://docs.microsoft.com/azure/cosmos-db/create-cosmosdb-resources-portal).
-
-- 샘플 대화방 데이터를 저장 하기 위한 [Azure storage 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account) .
-
-- IDE로 사용할 [Visual Studio 2019을 설치](https://visualstudio.microsoft.com/) 합니다.
-
-### <a name="install-the-project-from-github"></a>GitHub에서 프로젝트 설치
+## <a name="download-files"></a>파일 다운로드
 
 1. GitHub에서 [azure-search-dotnet-samples](https://github.com/Azure-Samples/azure-search-dotnet-samples) 샘플 리포지토리를 찾습니다.
 1. **복제 또는 다운로드**를 선택하고, 리포지토리의 프라이빗 로컬 복사본을 만듭니다.
@@ -92,7 +92,7 @@ Azure Cognitive Search 서비스와 상호 작용하려면 서비스 URL과 액�
 
 1. [Azure Portal](https://portal.azure.com)에 로그인 하 고, Azure storage 계정으로 이동 하 고, **blob**을 클릭 한 후 **+ 컨테이너**를 클릭 합니다.
 
-1. 샘플 호텔 객실 JSON 파일을 저장할 **hotel-rooms**라는 [Blob 컨테이너를 만듭니다](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal). 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
+1. 샘플 호텔 객실 JSON 파일을 저장할 [hotel-rooms](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)라는 **Blob 컨테이너를 만듭니다**. 유효한 값에 대한 공용 액세스 수준을 설정할 수 있습니다.
 
    ![Blob 컨테이너 만들기](media/tutorial-multiple-data-sources/blob-add-container.png "Blob 컨테이너 만들기")
 
@@ -340,13 +340,23 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고, **인덱스*
 
 목록에서 hotel-rooms-sample 인덱스를 클릭합니다. 인덱스에 대한 검색 탐색기 인터페이스가 표시됩니다. "Luxury"(특실)와 같은 용어에 대한 쿼리를 입력합니다. 결과에서 하나 이상의 문서가 표시되며, 이 문서에는 객실 배열에 객실 개체 목록이 표시되어 있습니다.
 
+## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
+
+개발의 초기 실험 단계에서 디자인 반복의 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제 하 고 코드에서 해당 개체를 다시 작성할 수 있도록 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+
+이 자습서의 샘플 코드는 기존 개체를 확인 하 고 삭제 하 여 코드를 다시 실행할 수 있도록 합니다.
+
+또한 포털을 사용 하 여 인덱스, 인덱서 및 데이터 원본을 삭제할 수 있습니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
+사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 모든 리소스 또는 리소스 그룹 링크를 사용 하 여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-JSON Blob을 인덱싱하는 데 사용할 수 있는 방법 및 옵션에는 여러 가지가 있습니다. 원본 데이터에 JSON 콘텐츠가 포함되어 있으면 이러한 옵션을 검토하여 시나리오에 가장 적합한 항목을 확인할 수 있습니다.
+이제 여러 소스의 데이터를 수집 개념을 잘 알고 있으므로 Cosmos DB부터 시작 하는 인덱서 구성을 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)
+> [Azure Cosmos DB 인덱서 구성](search-howto-index-cosmosdb.md)

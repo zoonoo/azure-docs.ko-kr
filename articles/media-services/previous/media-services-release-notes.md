@@ -13,12 +13,12 @@ ms.devlang: dotnet
 ms.topic: article
 ms.date: 10/01/2019
 ms.author: juliako
-ms.openlocfilehash: 91578b5c840f589f3e49737b71e63f4d5e82a126
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: a55ef4f814c0d13a6efbeeb8cd9a5565d2869432
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77919654"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183298"
 ---
 # <a name="azure-media-services-release-notes"></a>Azure Media Services 릴리스 정보
 
@@ -86,7 +86,7 @@ CMAF를 지원하는 Apple HLS(iOS 11+) 및 MPEG-DASH 플레이어에 대해 CMA
 
 이제 v2 API를 사용하면 Media Services를 사용하여 Web VTT 썸네일 스프라이트를 생성할 수 있습니다. 자세한 내용은 [썸네일 스프라이트 생성](generate-thumbnail-sprite.md)을 참조하세요.
 
-## <a name="july-2018"></a>2018년 7월
+## <a name="july-2018"></a>2018 년 7 월
 
 최신 서비스 릴리스에서는 작업이 실패할 때 서비스가 반환하는 오류 메시지가 두 개 이상의 줄로 분리되는 방식과 관련하여 서식이 약간 변경되었습니다.
 
@@ -212,7 +212,7 @@ Media Services에서 스트리밍 엔드포인트는 추가 배포를 위해 CDN
 ### <a name="azure-sdk-for-php"></a>PHP용 Azure SDK
 Azure SDK 팀은 Media Services에 대한 업데이트 및 새 기능을 포함하는 [PHP용 Azure SDK](https://github.com/Azure/azure-sdk-for-php) 패키지의 새 릴리스를 게시합니다. 특히 PHP용 Media Services SDK는 이제 최신 [Content Protection](media-services-content-protection-overview.md) 기능을 지원합니다. 이러한 기능은 토큰 제한을 포함하거나 없는 AES 및 DRM(PlayReady 및 Widevine)을 사용하는 동적 암호화입니다. 또한 [인코딩 단위](media-services-dotnet-encoding-units.md)의 크기 조정을 지원합니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 * 다음 [코드 샘플](https://github.com/Azure/azure-sdk-for-php/tree/master/examples/MediaServices)을 통해 신속하게 시작할 수 있습니다.
   * **vodworkflow_aes.php**: 이 PHP 파일은 AES-128 동적 암호화 및 키 배달 서비스를 사용하는 방법을 보여줍니다. [AES-128 동적 암호화 및 키 배달 서비스 사용](media-services-protect-with-aes128.md)에 설명된 .NET 샘플에 기반합니다.
@@ -232,7 +232,7 @@ Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인�
 
 ## <a id="september_changes_15"></a>2015년 9월 릴리스
 이제 Media Services에서는 Widevine 모듈식 DRM 기술을 사용하여 주문형 비디오와 라이브 스트림 둘 다를 보호하는 기능을 제공합니다. 다음과 같은 배달 서비스 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다.
-* [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/) 
+* [Axinom](https://www.axinom.com) 
 * [EZDRM](https://ezdrm.com/) 
 * [castLabs](https://castlabs.com/company/partners/azure/) 
 
@@ -251,7 +251,7 @@ Media Services는 이제 브라질 남부, 인도 서부, 인도 남부 및 인�
 자세한 내용은 [이 블로그](https://azure.microsoft.com/blog/azure-media-services-release-dynamic-manifest-composition-remove-hls-audio-only-track-and-hls-i-frame-track-support/)를 참조하세요.
 
 ## <a id="august_changes_15"></a>2015년 8월 릴리스
-* Java용 Media Services SDK 버전 0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 자세한 내용은 다음을 참조하세요.
+* Java용 Media Services SDK 버전 0.8.0 릴리스 및 새로운 샘플이 제공됩니다. 참조 항목:
     
 * Azure Media Player는 다중 오디오 스트림을 지원하도록 업데이트되었습니다. 자세한 내용은 [이 블로그 게시물](https://azure.microsoft.com/blog/2015/08/13/azure-media-player-update-with-multi-audio-stream-support/)에 게시해 주세요.
 
@@ -561,7 +561,7 @@ Media Services SDK 버전 3.0.0.0부터 [Azure AD Access Control Service](https:
   
     * 모든 메서드에 비동기 지원이 추가되었습니다.
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

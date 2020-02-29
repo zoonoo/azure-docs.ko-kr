@@ -1,30 +1,30 @@
 ---
 title: 워크로드 분석
-description: Azure SQL Data Warehouse의 워크로드에 대한 쿼리 우선 순위 지정 분석 기술.
+description: Azure Synapse Analytics에서 작업에 대 한 쿼리 우선 순위를 분석 하기 위한 기술입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 03/13/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 14e53c1ebe63fac0f7c8e29f66ee5aa0cb3b9526
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 9b1432c41e56c6e0bc3fd80f9c2dbb36374d9e2a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693124"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199998"
 ---
-# <a name="analyze-your-workload-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 워크로드 분석
+# <a name="analyze-your-workload-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 분석
 
-Azure SQL Data Warehouse에서 작업을 분석 하는 기술입니다.
+Azure Synapse Analytics에서 SQL 분석 작업을 분석 하는 기술입니다.
 
 ## <a name="resource-classes"></a>리소스 클래스
 
-SQL Data Warehouse는 리소스 클래스를 제공 하 여 시스템 리소스를 쿼리에 할당 합니다.  리소스 클래스에 대 한 자세한 내용은 [리소스 클래스 & 워크 로드 관리](resource-classes-for-workload-management.md)를 참조 하세요.  쿼리에 할당 된 리소스 클래스가 현재 사용할 수 있는 것 보다 많은 리소스를 필요로 하는 경우 쿼리가 대기 합니다.
+SQL Analytics는 쿼리를 위해 시스템 리소스를 할당 하는 리소스 클래스를 제공 합니다.  리소스 클래스에 대 한 자세한 내용은 [리소스 클래스 & 워크 로드 관리](resource-classes-for-workload-management.md)를 참조 하세요.  쿼리는 쿼리에 할당된 리소스 클래스가 현재 사용할 수 있는 것보다 더 많은 리소스가 필요한 경우 대기합니다.
 
 ## <a name="queued-query-detection-and-other-dmvs"></a>큐에 대기 중인 쿼리 검색 및 다른 DMV
 
@@ -63,12 +63,12 @@ WHERE   r.name IN ('mediumrc','largerc','xlargerc')
 ;
 ```
 
-SQL Data Warehouse에 다음과 같은 대기 형식이 있습니다.
+SQL Analytics에는 다음과 같은 대기 유형이 있습니다.
 
 * **LocalQueriesConcurrencyResourceType**: 동시성 슬롯 프레임워크 외부에 존재하는 쿼리. `SELECT @@VERSION` 과 같은 DMV 쿼리 및 시스템 함수는 로컬 쿼리의 예입니다.
 * **UserConcurrencyResourceType**: 동시성 슬롯 프레임워크 내에 존재하는 쿼리. 최종 사용자 테이블에 대한 쿼리는 이 리소스 형식을 사용하는 예를 나타냅니다.
 * **DmsConcurrencyResourceType**: 데이터 이동 작업으로 초래된 대기
-* **BackupConcurrencyResourceType**: 이 대기는 데이터베이스가 백업 중임을 나타냅니다. 이 리소스 유형에 대한 최대값은 1입니다. 여러 백업을 동시에 요청한 경우 다른 백업 요청은 큐에 저장됩니다. 일반적으로 10 분의 연속 스냅숏 간에 최소 시간을 권장 합니다. 
+* **BackupConcurrencyResourceType**: 이 대기는 데이터베이스가 백업 중임을 나타냅니다. 이 리소스 유형에 대한 최대값은 1입니다. 여러 개의 백업이 동시에 요청된 경우 다른 백업은 큐에 저장됩니다. 일반적으로 연속 스냅숏 간의 최소 시간은 10분이 좋습니다. 
 
 `sys.dm_pdw_waits` DMV는 요청이 대기 중인 리소스를 알아내는 데 사용할 수 있습니다.
 
@@ -107,7 +107,7 @@ WHERE    w.[session_id] <> SESSION_ID()
 ;
 ```
 
-`sys.dm_pdw_resource_waits` DMV는 지정 된 쿼리에 대 한 대기 정보를 표시 합니다. 리소스 대기 시간은 리소스가 제공 될 때까지 기다리는 시간을 측정 합니다. 신호 대기 시간은 기본 SQL 서버에서 CPU로 쿼리를 예약 하는 데 걸리는 시간입니다.
+`sys.dm_pdw_resource_waits` DMV는 지정 된 쿼리에 대 한 대기 정보를 표시 합니다. 리소스 대기 시간은 리소스가 제공될 때까지 기다리는 시간을 측정합니다. 신호 대기 시간은 기본 SQL server에서 CPU로 쿼리를 예약하는 데 걸리는 시간입니다.
 
 ```sql
 SELECT  [session_id]
@@ -153,4 +153,4 @@ FROM    sys.dm_pdw_wait_stats w
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.
+데이터베이스 사용자 및 보안을 관리 하는 방법에 대 한 자세한 내용은 [SQL Analytics에서 데이터베이스 보안](sql-data-warehouse-overview-manage-security.md)을 참조 하세요. 더 큰 리소스 클래스가 클러스터된 columnstore 인덱스 품질을 향상할 방법에 대한 자세한 내용은 [인덱스를 다시 빌드하여 세그먼트 품질 개선](sql-data-warehouse-tables-index.md#rebuilding-indexes-to-improve-segment-quality)을 참조하세요.

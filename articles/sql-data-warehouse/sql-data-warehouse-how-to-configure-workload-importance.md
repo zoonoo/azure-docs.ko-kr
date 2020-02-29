@@ -1,26 +1,26 @@
 ---
 title: 워크로드 중요도 구성
-description: 요청 수준 중요도를 설정 하는 방법에 대해 알아봅니다.
+description: Azure Synapse Analytics에서 요청 수준 중요도를 설정 하는 방법에 대해 알아봅니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.subservice: workload-management
 ms.topic: conceptual
-ms.date: 05/20/2019
+ms.date: 02/04/2020
 ms.author: rortloff
-ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 59ba4b936f6098b0d0b3f5e571f107af088206e0
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.reviewer: jrasnick
+ms.custom: azure-synapse
+ms.openlocfilehash: 8b2a4333717938edf9f3039e29e8df88cece7cc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73692700"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196801"
 ---
-# <a name="configure-workload-importance-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 작업 중요도 구성
+# <a name="configure-workload-importance-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 워크 로드 중요도 구성
 
-SQL Data Warehouse 중요도를 설정 하면 쿼리 예약에 영향을 줄 수 있습니다. 중요도가 더 높은 쿼리는 중요도가 낮은 쿼리 보다 먼저 실행 되도록 예약 됩니다. 쿼리에 중요도를 할당 하려면 작업 분류자를 만들어야 합니다.
+Azure Synapse에 대 한 SQL 분석의 중요도를 설정 하면 쿼리 예약에 영향을 줄 수 있습니다. 중요도가 더 높은 쿼리는 중요도가 낮은 쿼리 보다 먼저 실행 되도록 예약 됩니다. 쿼리에 중요도를 할당 하려면 작업 분류자를 만들어야 합니다.
 
 ## <a name="create-a-workload-classifier-with-importance"></a>중요도가 있는 작업 분류자 만들기
 
@@ -35,8 +35,8 @@ Select name from sys.sysusers
 ```sql
 CREATE WORKLOAD CLASSIFIER ExecReportsClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  above_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  above_normal);  
 
 ```
 
@@ -45,8 +45,8 @@ CREATE WORKLOAD CLASSIFIER ExecReportsClassifier 
 ```sql
 CREATE WORKLOAD CLASSIFIER AdhocClassifier  
     WITH (WORKLOAD_GROUP = 'xlargerc'
-                   ,MEMBERNAME        = 'name'  
-                   ,IMPORTANCE        =  below_normal);  
+         ,MEMBERNAME     = 'name'  
+         ,IMPORTANCE     =  below_normal);  
 ```
 
 ## <a name="next-steps"></a>다음 단계

@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 03/14/2019
 ms.author: willzhan
 ms.reviewer: Mingfeiy;rajputam;Juliako
-ms.openlocfilehash: 275fa173c5005c4d1609a858c8edb39b5c307c5e
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: 2ec3276b9b02c29b80d46e5fd31298c909857182
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74974617"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197167"
 ---
 # <a name="using-axinom-to-deliver-widevine-licenses-to-azure-media-services"></a>Axinom을 사용하여 Azure Media Services에 Widevine 라이선스 제공 
 > [!div class="op_single_selector"]
@@ -32,7 +32,7 @@ ms.locfileid: "74974617"
 ## <a name="overview"></a>개요
 Azure Media Services(AMS)에 Google Widevine 동적 보호가 추가되었습니다(자세한 내용은 [Mingfei의 블로그](https://azure.microsoft.com/blog/azure-media-services-adds-google-widevine-packaging-for-delivering-multi-drm-stream/) 참조). 또한 Azure Media Player(AMP)에도 Widevine 지원이 추가되었습니다(자세한 내용은 [AMP 문서](https://amp.azure.net/libs/amp/latest/docs/) 참조). 이는 MSE 및 EME가 포함된 현대식 브라우저에 대한 다중 원시 DRM(PlayReady 및 Widevine)를 가진 CENC로 보호되는 DASH 콘텐츠 합리화의 주요 성과입니다.
 
-Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](https://www.axinom.com/press/ibc-axinom-drm-6/), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
+Media Services .NET SDK 버전 3.5.2부터는 Media Services를 사용하여 Widevine 라이선스 템플릿을 구성하고 Widevine 라이선스를 얻을 수 있습니다. 또한 다음 AMS 파트너를 사용하여 Widevine 라이선스를 배달할 수 있습니다. [Axinom](https://www.axinom.com), [EZDRM](https://ezdrm.com/), [castLabs](https://castlabs.com/company/partners/azure/).
 
 이 문서에서는 Axinom에서 관리하는 Widevine 라이선스 서버를 통합하고 테스트하는 방법을 설명합니다. 구체적으로 다음 사항을 다룹니다.  
 
@@ -195,7 +195,7 @@ Axinom Widevine 라이선스 서버를 활용하는 미니 솔루션에는 다�
 | Widevine 라이선스 획득 URL |DASH 스트리밍에 대한 자산 배달 정책 구성에 사용해야 합니다([이](media-services-axinom-integration.md#content-protection) 섹션 참조). |
 | 콘텐츠 키 ID |JWT 토큰의 자격 부여 메시지 클레임 값의 일부로 포함되어야 합니다( [이](media-services-axinom-integration.md#jwt-token-generation) 섹션 참조). |
 
-## <a name="additional-notes"></a>추가적인 참고 사항
+## <a name="additional-notes"></a>추가 참고 사항
 
 * Widevine은 Google Inc.에서 제공하는 서비스로, Google Inc.의 서비스 약관 및 개인정보처리방침을 따릅니다.
 

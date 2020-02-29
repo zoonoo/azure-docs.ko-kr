@@ -12,21 +12,21 @@ ms.devlang: na
 ms.topic: reference
 ms.tgt_pltfrm: na
 ms.workload: identity
-ms.date: 02/04/2020
+ms.date: 02/26/2020
 ms.subservice: app-provisioning
 ms.author: chmutali
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 164d156be030aa4a177ea77ed61782780338abb0
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: 559bca4f5020cebe06be7f24f7af5ec2e94bec0e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522376"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183247"
 ---
 # <a name="azure-ad-connect-provisioning-agent-version-release-history"></a>Azure AD Connect 프로 비전 에이전트: 버전 릴리스 기록
 이 문서에서는 릴리스된 Azure Active Directory Connect 프로 비전 에이전트의 버전 및 기능을 나열 합니다. Azure AD 팀은 새로운 기능과 기능으로 프로 비전 에이전트를 정기적으로 업데이트 합니다. 프로 비전 에이전트는 새 버전이 릴리스되면 자동으로 업데이트 됩니다. 
 
-최신 기능과 버그 수정이 있는지 확인 하기 위해 에이전트에 대해 자동 업데이트를 사용 하도록 설정 하는 것이 좋습니다. Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합니다.
+Microsoft는 최신 에이전트 버전 및 이전 버전을 직접 지원 합니다.
 
 ## <a name="11960"></a>1.1.96.0
 

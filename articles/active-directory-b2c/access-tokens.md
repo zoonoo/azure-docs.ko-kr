@@ -2,20 +2,20 @@
 title: 액세스 토큰 요청-Azure Active Directory B2C | Microsoft Docs
 description: Azure Active Directory B2C에서 액세스 토큰을 요청 하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 04/16/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: d808bca17012d46d1c32658ec0069ca2e2e6a3ac
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 8358d3378ea892ebeef653bcb51243c9f1aa0b8d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76962036"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184420"
 ---
 # <a name="request-an-access-token-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 액세스 토큰 요청
 
@@ -111,7 +111,7 @@ grant_type=authorization_code
 }
 ```
 
-https://jwt.ms 를 사용 하 여 반환 된 액세스 토큰을 검사 하는 경우 다음 예제와 유사한 내용이 표시 되어야 합니다.
+https://jwt.ms를 사용 하 여 반환 된 액세스 토큰을 검사 하는 경우 다음 예제와 유사한 내용이 표시 되어야 합니다.
 
 ```JSON
 {

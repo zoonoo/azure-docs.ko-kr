@@ -1,6 +1,6 @@
 ---
 title: 투명 한 데이터 암호화 (T-sql)
-description: SQL Data Warehouse의 TDE (투명 한 데이터 암호화) (T-sql)
+description: Azure Synapse Analytics의 TDE (투명 한 데이터 암호화) (T-sql)
 services: sql-data-warehouse
 author: julieMSFT
 manager: craigg
@@ -11,12 +11,12 @@ ms.date: 04/30/2019
 ms.author: jrasnick
 ms.reviewer: rortloff
 ms.custom: seo-lt-2019
-ms.openlocfilehash: 4e7f4f31cd8b899e3fcf79568ea62830313936b9
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: bd6f40b8389284c1932a2f16a70060cd56e412fb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73822598"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195808"
 ---
 # <a name="get-started-with-transparent-data-encryption-tde"></a>투명한 데이터 암호화(TDE) 시작
 > [!div class="op_single_selector"]
@@ -31,7 +31,7 @@ ms.locfileid: "73822598"
 TDE(투명한 데이터 암호화)를 사용하려면 관리자 또는 dbmanager 역할의 멤버여야 합니다.
 
 ## <a name="enabling-encryption"></a>암호화 설정
-SQL Data Warehouse에 대한 TDE를 사용하려면 다음 단계를 따르세요.
+TDE를 사용 하도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 데이터베이스를 호스팅하는 서버의 **마스터** 데이터베이스에 연결
 2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
@@ -41,7 +41,7 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION ON;
 ```
 
 ## <a name="disabling-encryption"></a>암호화 비활성화
-SQL Data Warehouse에 대한 TDE를 사용하지 않으려면 다음 단계를 따르세요.
+TDE를 사용 하지 않도록 설정 하려면 다음 단계를 수행 합니다.
 
 1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **마스터** 데이터베이스에 연결
 2. 다음 문을 실행하여 데이터베이스를 암호화합니다.
@@ -51,12 +51,12 @@ ALTER DATABASE [AdventureWorks] SET ENCRYPTION OFF;
 ```
 
 > [!NOTE]
-> TDE 설정을 변경하기 전에 일시 중지된 SQL Data Warehouse를 다시 시작해야 합니다.
+> TDE 설정을 변경 하기 전에 일시 중지 된 SQL 풀을 다시 시작 해야 합니다.
 > 
 > 
 
 ## <a name="verifying-encryption"></a>암호화 확인
-SQL Data Warehouse에 대한 암호화 상태를 확인하려면 다음 단계를 따르세요.
+암호화 상태를 확인 하려면 다음 단계를 수행 합니다.
 
 1. 마스터 데이터베이스에서 *dbmanager* 역할의 관리자 또는 멤버인 로그인을 사용하여 **마스터** 또는 인스턴스 데이터베이스에 연결
 2. 다음 문을 실행하여 데이터베이스를 암호화합니다.

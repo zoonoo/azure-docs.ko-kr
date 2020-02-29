@@ -8,28 +8,28 @@ ms.topic: conceptual
 ms.date: 02/26/2020
 ms.author: normesta
 ms.reviewer: stewu
-ms.openlocfilehash: debc674184e6846128b0b8cff857c75a805e365a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 215244204aa58cc2fdedc639d48e01b514759694
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77925697"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196011"
 ---
-# <a name="blobstoragefeaturesavailableinazuredatalakestoragegen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능
+# <a name="blob-storage-features-available-in-azure-data-lake-storage-gen2"></a>Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob storage 기능
 
- [진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [Blob Storage 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md) 같은 Blob Storage 기능은 이제 계층 구조가 있는 계정으로 작동 합니다. 따라서 이러한 기능에 대 한 액세스를 잃지 않고 Blob storage 계정에서 계층적 네임 스페이스를 사용 하도록 설정할 수 있습니다.
+[진단 로깅](../common/storage-analytics-logging.md), [액세스 계층](storage-blob-storage-tiers.md)및 [Blob Storage 수명 주기 관리 정책과](storage-lifecycle-management-concepts.md) 같은 Blob Storage 기능은 이제 계층 구조가 있는 계정으로 작동 합니다. 따라서 이러한 기능에 대 한 액세스를 잃지 않고 Blob storage 계정에서 계층적 네임 스페이스를 사용 하도록 설정할 수 있습니다.
 
 이 표에는 Azure Data Lake Storage Gen2에서 사용할 수 있는 Blob 저장소 기능이 나열 되어 있습니다. 이러한 테이블에 표시 되는 항목은 지원이 계속 확장 될 때 시간이 지남에 따라 변경 됩니다.
 
-## <a name="supportedblobstoragefeatures"></a>지원 되는 Blob storage 기능
+## <a name="supported-blob-storage-features"></a>지원 되는 Blob storage 기능
 
 > [!NOTE]
 > 지원 수준은 Data Lake Storage Gen2에서 기능을 지 원하는 방법만을 나타냅니다.
 
-|Blob Storage 기능 |지원 수준 |관련 문서 |
+|Blob Storage 기능 |지원 수준 |관련 문서 |
 |---------------|-------------------|---|
-|핫 액세스 계층 |일반 공급|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
-|쿨 액세스 계층 |일반 공급|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
+|핫 액세스 계층|일반 공급|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
+|쿨 액세스 계층|일반 공급|[Azure Blob Storage: 핫, 쿨 및 보관 스토리지 계층](storage-blob-storage-tiers.md)|
 |이벤트|일반 공급|[Blob Storage 이벤트에 응답](storage-blob-event-overview.md)|
 |메트릭 (클래식)|일반 공급|[Azure Storage 분석 메트릭 (클래식)](../common/storage-analytics-metrics.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|
 |Azure Monitor의 메트릭|일반 공급|[Azure Monitor의 Azure Storage 메트릭](../common/storage-metrics-in-azure-monitor.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json)|

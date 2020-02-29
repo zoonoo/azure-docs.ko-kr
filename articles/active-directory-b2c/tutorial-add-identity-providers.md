@@ -3,20 +3,20 @@ title: '자습서: 앱에 id 공급자 추가'
 titleSuffix: Azure AD B2C
 description: Azure Portal을 사용하여 Azure Active Directory B2C의 애플리케이션에 ID 공급자를 추가하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 07/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bc02433be9ee7955b0e10ac659ee40e315e5a5e
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1f49061210ca8e3c106b0569f77a67d1f10757a1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840165"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183519"
 ---
 # <a name="tutorial-add-identity-providers-to-your-applications-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C의 응용 프로그램에 id 공급자 추가
 
@@ -77,7 +77,7 @@ Azure AD B2C의 ID 공급자로 Facebook 계정을 사용하려면 Facebook에�
 1. **표시 이름** 및 유효한 **연락처 전자 메일**을 제공합니다.
 1. **앱 ID 만들기**를 클릭합니다. Facebook 플랫폼 정책을 수용하고 온라인 보안 검사를 완료해야 합니다.
 1. **설정** > **기본**을 선택합니다.
-1. `Business and Pages` 등의 **범주**를 선택합니다. 이 값은 Facebook에 필요 하지만 Azure AD B2C에서 사용 되지 않습니다.
+1. **등의**범주`Business and Pages`를 선택합니다. 이 값은 Facebook에 필요 하지만 Azure AD B2C에서 사용 되지 않습니다.
 1. 페이지의 맨 아래에서 **플랫폼 추가**를 선택한 후 **웹 사이트**를 선택합니다.
 1. **사이트 URL**에 `https://your-tenant-name.b2clogin.com/`을 입력합니다. 여기서 `your-tenant-name`은 실제 테넌트의 이름으로 바꾸세요.
 1. **개인 정보 취급 방침 URL**의 URL(예: `http://www.contoso.com/`)을 입력합니다. 개인 정보 취급 방침 URL은 응용 프로그램에 대 한 개인 정보를 제공 하기 위해 유지 관리 하는 페이지입니다.

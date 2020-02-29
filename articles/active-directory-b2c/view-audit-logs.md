@@ -3,21 +3,21 @@ title: 감사 로그 액세스 및 검토
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 감사 로그를 프로그래밍 방식으로 액세스 하는 방법 및 Azure Portal.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.topic: conceptual
 ms.workload: identity
 ms.date: 02/20/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
 ms.custom: fasttrack-edit
-ms.openlocfilehash: 62a969519ebefaab919505d9c8faae830f55f4c6
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 83086fa2cb96eba423b9111134a0406d7256821f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505633"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185780"
 ---
 # <a name="accessing-azure-ad-b2c-audit-logs"></a>Azure AD B2C 감사 로그 액세스
 
@@ -32,12 +32,12 @@ Azure Active Directory B2C (Azure AD B2C)는 B2C 리소스, 발급 된 토큰 �
 
 감사 로그의 **B2C** 범주에는 다음 유형의 작업이 포함됩니다.
 
-|활동 유형 |Description  |
+|활동 유형 |설명  |
 |---------|---------|
-|권한 부여 |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
+|Authorization |B2C 리소스에 액세스 하는 사용자의 권한 부여와 관련 된 활동 (예: B2C 정책 목록에 액세스 하는 관리자)         |
 |디렉터리 |관리자가 Azure Portal를 사용 하 여 로그인 할 때 검색 되는 디렉터리 특성과 관련 된 작업입니다. |
-|애플리케이션 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
-|키 |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
+|응용 프로그램 | B2C 응용 프로그램에 대 한 만들기, 읽기, 업데이트 및 삭제 (CRUD) 작업을 수행 합니다. |
+|Key |B2C key 컨테이너에 저장 된 키에 대 한 CRUD 작업 |
 |리소스 |B2C 리소스에 대 한 CRUD 작업 예를 들면 정책 및 id 공급자가 있습니다.
 |인증 |사용자 자격 증명 및 토큰 발급의 유효성 검사|
 
@@ -51,9 +51,9 @@ Azure Portal의이 이미지 예제에서는 사용자가 외부 id 공급자 (�
 
 활동 세부 정보 패널에는 다음과 같은 관련 정보가 포함 되어 있습니다.
 
-|섹션|필드|Description|
+|섹션|필드|설명|
 |-------|-----|-----------|
-| 작업 | 속성 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
+| 작업 | 이름 | 발생 한 작업입니다. 예를 들어 *응용 프로그램에*대 한 Id_token를 실행 하 여 실제 사용자 로그인을 마칩니다. |
 | 초기자(작업자) | ObjectId | 사용자가 로그인 하는 B2C 응용 프로그램의 **개체 ID** 입니다. 이 식별자는 Azure Portal에 표시 되지 않지만 Microsoft Graph API를 통해 액세스할 수 있습니다. |
 | 초기자(작업자) | Spn | 사용자가 로그인 하는 B2C 응용 프로그램의 **응용 프로그램 ID** 입니다. |
 | 대상 | ObjectId | 로그인 중인 사용자의 **개체 ID** 입니다. |

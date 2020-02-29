@@ -1,17 +1,17 @@
 ---
-title: Azure Kubernetes Service & GitHub 작업
+title: Azure Kubernetes Service & GitHub 작업 (미리 보기)
 services: azure-dev-spaces
 ms.date: 02/04/2020
 ms.topic: conceptual
 description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service에서 직접 끌어오기 요청에 대 한 변경 내용을 검토 하 고 테스트 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 35050d0c9d1e6062866747dc8544d03574a8d8fe
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026101"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196555"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -29,9 +29,9 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 
 ## <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli-installed]
-* [투구 3이 설치][helm-installed]되었습니다.
+* [Helm 3이 설치되었습니다][helm-installed].
 * [Github 작업을 사용][github-actions-beta-signup]하는 github 계정.
 * AKS 클러스터에서 실행 되는 [Azure Dev Spaces 자전거 공유 샘플 응용 프로그램](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp/README.md) 입니다.
 
@@ -50,7 +50,7 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예:
+[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들면 다음과 같습니다.
 
 ```cmd
 az ad sp create-for-rbac --sdk-auth --skip-assignment

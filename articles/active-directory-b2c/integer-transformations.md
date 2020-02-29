@@ -3,20 +3,20 @@ title: 사용자 지정 정책에 대 한 정수 클레임 변환 예제
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 IEF (Identity Experience Framework) 스키마에 대 한 정수 클레임 변환 예입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 7295e03f0a0f94b3450b99acc4d10d6ff86c92e7
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: ece25e95bbbe9f1a1fa591c29ea9ffda0fefd369
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74948896"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187681"
 ---
 # <a name="integer-claims-transformations"></a>정수 클레임 변환
 
@@ -31,7 +31,7 @@ long 데이터 형식을 문자열 데이터 형식으로 변환합니다.
 | 항목 | TransformationClaimType | 데이터 형식 | 참고 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | long | 문자열로 변환할 ClaimType입니다. |
-| OutputClaim | outputClaim | 문자열 | 이 ClaimsTransformation이 호출된 후 생성되는 ClaimType입니다. |
+| OutputClaim | outputClaim | string | 이 ClaimsTransformation이 호출된 후에 생성되는 ClaimType입니다. |
 
 이 예제에서는 값 형식이 long인 `numericUserId` 클레임이 값 형식이 문자열인 `UserId` 클레임으로 변환됩니다.
 

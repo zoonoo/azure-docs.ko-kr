@@ -3,20 +3,20 @@ title: 사용자 지정 정책의 기술 프로필 개요
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 기술 프로필을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/11/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3b0e59912d740e30b0e29fb882542f1995ab6f54
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 48324d252e22ca898f923e1f0ad9b76df1c10861
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505663"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183655"
 ---
 # <a name="about-technical-profiles-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 기술 프로필 정보
 
@@ -40,7 +40,7 @@ ms.locfileid: "77505663"
 - [자체 어설션](self-asserted-technical-profile.md) - 사용자와 상호 작용합니다. 예를 들어, 로그인할 사용자의 자격 증명을 수집하고 등록 페이지 또는 암호 재설정을 렌더링합니다.
 - [세션 관리](custom-policy-reference-sso.md) - 여러 유형의 세션을 처리합니다.
 - [Application Insights](../azure-monitor/app/usage-overview.md)
-- 일회용 [암호](one-time-password-technical-profile.md) -일회용 암호의 생성 및 유효성 검사를 관리 하는 기능을 제공 합니다. 
+- 일회용 [암호](one-time-password-technical-profile.md) -일회용 암호의 생성 및 유효성 검사를 관리 하는 기능을 제공 합니다.
 
 ## <a name="technical-profile-flow"></a>기술 프로필 흐름
 
@@ -48,10 +48,10 @@ ms.locfileid: "77505663"
 
 ![기술 프로필 흐름을 보여 주는 다이어그램](./media/technical-profiles-overview/technical-profile-idp-saml-flow.png)
  
-1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 기술 프로필의 세션 상태를 복원 합니다. 
+1. Sso **(Single sign-on) 세션 관리** - [sso 세션 관리](custom-policy-reference-sso.md)를 사용 하 여 기술 프로필의 세션 상태를 복원 합니다.
 1. **입력 클레임 변환** -모든 입력 [클레임 변환](claimstransformations.md) 의 입력 클레임이 클레임 모음에서 선택 됩니다.  입력 클레임 변환의 출력 클레임이 후속 입력 클레임 변환의 입력 클레임이 될 수 있습니다.
 1. **입력 클레임** -클레임 모음에서 클레임을 선택 하 고 기술 프로필에 사용 됩니다. 예를 들어, [자체 어설션 기술 프로필](self-asserted-technical-profile.md)은 입력 클레임을 사용하여 사용자가 제공하는 출력 클레임을 미리 채웁니다. REST API 기술 프로필은 입력 클레임을 사용하여 입력 매개 변수를 REST API 엔드포인트에 보냅니다. Azure Active Directory는 입력 클레임을 고유 식별자로 사용하여 계정을 읽거나, 업데이트하거나, 삭제합니다.
-1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 다음은 그 예입니다.
+1. **기술 프로필 실행** - 기술 프로필이 클레임을 구성된 당사자와 교환합니다. 예를 들면 다음과 같습니다.
     - 사용자를 ID 공급자로 리디렉션하여 로그인을 완료합니다. 로그인에 성공하면 사용자가 다시 돌아가고 기술 프로필 실행이 계속됩니다.
     - 매개 변수를 InputClaims로 보내고 정보를 다시 OutputClaims로 가져오는 동안 REST API를 호출합니다.
     - 사용자 계정을 만들거나 업데이트합니다.
@@ -64,7 +64,7 @@ ms.locfileid: "77505663"
 
 ## <a name="technical-profile-inclusion"></a>기술 프로필 포함
 
-기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다.  `IncludeTechnicalProfile` 요소는 기술 프로필이 파생 되는 기본 기술 프로필에 대 한 참조입니다. 수준 수에는 제한이 없습니다. 
+기술 프로필에는 다른 기술 프로필을 포함 하 여 설정을 변경 하거나 새 기능을 추가할 수 있습니다.  `IncludeTechnicalProfile` 요소는 기술 프로필이 파생 되는 기본 기술 프로필에 대 한 참조입니다. 수준 수에는 제한이 없습니다.
 
 예를 들어, **AAD-UserReadUsingAlternativeSecurityId-NoError** 기술 프로필에는 **AAD-UserReadUsingAlternativeSecurityId**가 포함됩니다. 이 기술 프로필은 `RaiseErrorIfClaimsPrincipalDoesNotExist` 메타 데이터 항목을 `true`설정 하 고, 소셜 계정이 디렉터리에 없는 경우 오류를 발생 시킵니다. **UserReadUsingAlternativeSecurityId-NoError** 는이 동작을 재정의 하 고 해당 오류 메시지를 비활성화 합니다.
 

@@ -1,6 +1,6 @@
 ---
 title: 시스템 뷰
-description: Azure SQL Data Warehouse에서 지원되는 시스템 보기에 대한 설명서 링크입니다.
+description: SQL Analytics에서 지원 되는 시스템 뷰의 설명서에 대 한 링크입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,18 +10,18 @@ ms.subservice: query
 ms.date: 01/06/2020
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 36f0738dc478d7a1144527acb29118a7a99ef5ac
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.custom: azure-synapse
+ms.openlocfilehash: 694bb1d970f7f5c36b074e64ee41c3d34b55c482
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690776"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198306"
 ---
-# <a name="system-views-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 시스템 보기
-Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
+# <a name="system-views-supported-in-sql-analytics"></a>SQL Analytics에서 지원 되는 시스템 뷰
+SQL Analytics에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 
-## <a name="sql-data-warehouse-catalog-views"></a>SQL Data Warehouse 카탈로그 보기
+## <a name="sql-analytics-catalog-views"></a>SQL Analytics 카탈로그 뷰
 * [sys.pdw_column_distribution_properties](https://msdn.microsoft.com/library/mt204022.aspx)
 * [sys.pdw_distributions](https://msdn.microsoft.com/library/mt203892.aspx)
 * [sys.pdw_index_mappings](https://msdn.microsoft.com/library/mt203912.aspx)
@@ -65,8 +65,8 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [sys.dm_pdw_waits](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-waits-transact-sql)
 * [sys. dm_workload_management_workload_groups_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-workload-management-workload-group-stats-transact-sql) (미리 보기)
 
-## <a name="sql-server-dmvs-applicable-to-sql-data-warehouse"></a>SQL Data Warehouse에 적용 가능한 SQL Server DMV
-다음 DMV는 SQL Data Warehouse에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
+## <a name="sql-server-dmvs-applicable-to-sql-analytics"></a>SQL Analytics에 적용 가능한 SQL Server Dmv
+다음 Dmv는 SQL Analytics에 적용 될 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
 
 * [sys.database_service_objectives](https://msdn.microsoft.com/library/mt712619.aspx)
 * [sys.dm_operation_status](https://msdn.microsoft.com/library/dn270022.aspx)
@@ -145,17 +145,17 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [sys.types](https://msdn.microsoft.com/library/ms188021.aspx)
 * [sys.views](https://msdn.microsoft.com/library/ms190334.aspx)
 
-## <a name="sql-server-dmvs-available-in-sql-data-warehouse"></a>SQL Data Warehouse에서 사용할 수 있는 SQL Server DMV
-SQL Data Warehouse는 다양한 SQL Server 동적 관리 보기(DMV)를 표시합니다. 이 보기는 SQL Data Warehouse에서 쿼리한 경우 배포에서 실행되고 있는 SQL Database의 상태를 보고합니다.
+## <a name="sql-server-dmvs-available-in-sql-analytics"></a>SQL Analytics에서 사용할 수 있는 SQL Server Dmv
+SQL Analytics는 많은 SQL Server Dmv (동적 관리 뷰)를 제공 합니다. SQL Analytics에서 쿼리 된 이러한 보기는 배포에서 실행 되는 SQL 데이터베이스의 상태를 보고 합니다.
 
-SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어하우스)는 모두 동일한 시스템 보기를 사용합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다. 
+SQL Analytics 및 PDW (병렬 데이터 웨어하우스)는 동일한 시스템 뷰를 사용 합니다. 각 DMV에는 컴퓨팅 노드에 대한 식별자인 pdw_node_id라는 열이 있습니다. 
 
 > [!NOTE]
 > 이러한 보기를 사용하려면 다음 표와 같이 이름에 'pdw_nodes_'를 삽입합니다.
 > 
 > 
 
-| SQL Data Warehouse의 DMV 이름 | SQL Server Transact-SQL 문서|
+| SQL Analytics의 DMV 이름 | SQL Server Transact-SQL 문서|
 |:--- |:--- |
 | sys.dm_pdw_nodes_db_column_store_row_group_physical_stats | [sys.dm_db_column_store_row_group_physical_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql)| 
 | sys.dm_pdw_nodes_db_column_store_row_group_operational_stats | [sys.dm_db_column_store_row_group_operational_stats](/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-operational-stats-transact-sql)| 
@@ -217,8 +217,8 @@ SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어�
 | sys.dm_pdw_nodes_tran_session_transactions |[sys.dm_tran_session_transactions](https://msdn.microsoft.com/library/ms188739.aspx) |
 | sys.dm_pdw_nodes_tran_top_version_generators |[sys.dm_tran_top_version_generators](https://msdn.microsoft.com/library/ms188778.aspx) |
 
-## <a name="sql-server-2016-polybase-dmvs-available-in-sql-data-warehouse"></a>SQL Data Warehouse에서 사용할 수 있는 SQL Server 2016 PolyBase DMV
-다음 DMV는 SQL Data Warehouse에 적용할 수 있지만 **master** 데이터베이스에 연결하여 실행해야 합니다.
+## <a name="sql-server-2016-polybase-dmvs-available-in-sql-analytics"></a>SQL Analytics에서 사용할 수 있는 PolyBase Dmv SQL Server 2016
+다음 Dmv는 SQL Analytics에 적용 될 수 있지만 **master** 데이터베이스에 연결 하 여 실행 해야 합니다.
 
 * [sys.dm_exec_compute_node_errors](https://msdn.microsoft.com/library/mt146380.aspx)
 * [sys.dm_exec_compute_node_status](https://msdn.microsoft.com/library/mt146382.aspx)
@@ -243,4 +243,4 @@ SQL Data Warehouse와 Analytics Platform System의 PDW(병렬 데이터 웨어�
 * [VIEWS](https://msdn.microsoft.com/library/ms181381.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [Azure SQL Data Warehouse의 T-SQL 문](sql-data-warehouse-reference-tsql-statements.md) 및 [Azure SQL Data Warehouse의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조하세요.
+자세한 참조 정보는 sql [분석의 t-sql 문](sql-data-warehouse-reference-tsql-statements.md)및 [Sql analytics의 t-sql 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)를 참조 하세요.

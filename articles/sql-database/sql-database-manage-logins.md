@@ -1,6 +1,6 @@
 ---
 title: 로그인 및 사용자
-description: SQL Database 및 SQL Data Warehouse 보안 관리, 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리하는 방법에 대해 알아봅니다.
+description: 특히 서버 수준 보안 주체 계정을 통해 데이터베이스 액세스 및 로그인 보안을 관리 하는 방법에 대 한 SQL Database 및 Azure Synapse 보안 관리에 대해 알아봅니다.
 keywords: sql 데이터베이스 보안,데이터베이스 보안 관리,로그인 보안,데이터베이스 보안,데이터베이스 액세스
 services: sql-database
 ms.service: sql-database
@@ -11,20 +11,21 @@ ms.topic: conceptual
 author: VanMSFT
 ms.author: vanto
 ms.reviewer: carlrab
-ms.date: 03/26/2019
-ms.openlocfilehash: e9934f868fb62f9b1a19ef408dab69ab8a2c0e29
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.date: 02/06/2020
+tags: azure-synapse
+ms.openlocfilehash: 79a31e5b8e3433af7879fcde8597173f25bf96b7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74159155"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196963"
 ---
-# <a name="controlling-and-granting-database-access-to-sql-database-and-sql-data-warehouse"></a>SQL Database 및 SQL Data Warehouse에 대한 액세스 제어 및 권한 부여
+# <a name="controlling-and-granting-database-access-to-sql-database-and-azure-synapse-analytics"></a>SQL Database 및 Azure Synapse Analytics에 대 한 데이터베이스 액세스 제어 및 권한 부여
 
-방화벽 규칙이 구성된 후에는 관리자 계정 중 하나로, 데이터베이스 소유자로 또는 데이터베이스의 데이터베이스 사용자로 [SQL Database](sql-database-technical-overview.md) 및 [SQL Data Warehouse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md)에 연결할 수 있습니다.  
+방화벽 규칙을 구성 하 고 나면 Azure [SQL Database](sql-database-technical-overview.md) 및 [azure Synapse](../sql-data-warehouse/sql-data-warehouse-overview-what-is.md) 에 관리자 계정 중 하나, 데이터베이스 소유자 또는 데이터베이스의 데이터베이스 사용자로 연결할 수 있습니다.  
 
 > [!NOTE]  
-> 이 항목은 Azure SQL 서버 및 Azure SQL 서버에서 생성된 SQL Database와 SQL Data Warehouse 데이터베이스에 적용됩니다. 간단히 하기 위해 SQL Database는 SQL Database와 SQL Data Warehouse를 참조할 때 사용됩니다. 
+> 이 항목은 azure sql server에 적용 되며, Azure SQL server에 만든 SQL Database 및 Azure Synapse에 적용 됩니다. 간단히 하기 위해 SQL Database와 Azure Synapse를 둘 다 참조할 때 SQL Database 사용 됩니다.
 > [!TIP]
 > 자습서는 [Azure SQL Database 보안](sql-database-security-tutorial.md)을 참조하세요. 이 자습서는 **Azure SQL Database Managed Instance**에 적용되지 않습니다.
 
@@ -43,7 +44,7 @@ ms.locfileid: "74159155"
 
 - **Azure Active Directory 관리자**
 
-  하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 **반드시** 구성해야 합니다. Azure Active Directory 액세스 구성에 대한 자세한 내용은 [Azure Active Directory 인증을 사용하여 SQL Database 또는 SQL Data Warehouse에 연결](sql-database-aad-authentication.md) 및 [SQL Database 및 SQL Data Warehouse를 사용한 Azure AD MFA에 대한 SSMS 지원](sql-database-ssms-mfa-authentication.md)을 참조하세요.
+  하나의 Azure Active Directory 계정, 개인 또는 보안 그룹 계정을 관리자로 구성할 수도 있습니다. Azure AD 관리자를 구성하는 것은 선택 사항이지만, Azure AD 계정을 사용하여 SQL Database에 연결하려면 Azure AD 관리자를 **반드시** 구성해야 합니다. Azure Active Directory 액세스를 구성 하는 방법에 대 한 자세한 내용은 SQL Database 및 Azure Synapse를 사용 하 여 [AZURE AD MFA에 대 한 SSMS 지원과](sql-database-ssms-mfa-authentication.md) [Azure Active Directory 인증을 사용 하 여 SQL Database 또는 Azure Synapse에 연결](sql-database-aad-authentication.md) 을 참조 하세요.
 
 **서버 관리자** 와 **Azure AD 관리자** 계정에는 다음과 같은 특징이 있습니다.
 
@@ -60,7 +61,7 @@ ms.locfileid: "74159155"
 
 ### <a name="configuring-the-firewall"></a>방화벽 구성
 
-서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-single-database-get-started.md)을 통하거나[PowerShell](sql-database-powershell-samples.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가적인 서버 수준 IP 방화벽 규칙도 구성할 수 있습니다.
+서버 수준 방화벽을 개별 IP 주소 또는 범위로 구성하면 **SQL 서버 관리자** 및 **Azure Active Directory 관리자**는 master 데이터베이스와 모든 사용자 데이터베이스에 연결할 수 있습니다. 초기 서버 수준 방화벽은 [Azure Portal](sql-database-single-database-get-started.md)을 통하거나 [PowerShell](sql-database-powershell-samples.md) 또는 [REST API](https://msdn.microsoft.com/library/azure/dn505712.aspx)를 사용하여 구성할 수 있습니다. 연결이 설정되면 [Transact-SQL](sql-database-configure-firewall-settings.md)을 사용하여 추가적인 서버 수준 IP 방화벽 규칙도 구성할 수 있습니다.
 
 ### <a name="administrator-access-path"></a>관리자 액세스 경로
 
@@ -84,7 +85,7 @@ ms.locfileid: "74159155"
 
 SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이터베이스를 만들거나 로그인을 관리하는 권한을 부여하는 사용자 계정을 추가할 수 있도록 제한된 두 가지 관리 역할을 master 데이터베이스에 제공합니다.
 
-### <a name="database-creators"></a>데이터베이스 작성자
+### <a name="database-creators"></a>데이터베이스 작성자입니다.
 
 이러한 관리 역할 중 하나는 **dbmanager** 역할입니다. 이 역할의 멤버는 새 데이터베이스를 만들 수 있습니다. 이 역할을 사용하려면 `master` 데이터베이스에 사용자를 만든 다음 해당 사용자를 **dbmanager** 데이터베이스 역할에 추가합니다. 데이터베이스를 만들려면 사용자가 `master` 데이터베이스의 SQL Server 로그인을 기반으로 한 사용자이거나 Azure Active Directory 사용자를 기반으로 한 포함된 데이터베이스 사용자여야 합니다.
 
@@ -124,11 +125,11 @@ SQL Database는 앞에서 설명한 서버 수준 관리 역할 외에도 데이
 
 ### <a name="login-managers"></a>로그인 관리자
 
-다른 관리 역할은 로그인 관리자 역할입니다. 이 역할의 멤버는 master 데이터베이스에 새 로그인을 만들 수 있습니다. 원한다면 동일한 단계(로그인 및 사용자 만들기, 사용자를 **loginmanager** 역할에 추가)를 완료하여 사용자가 master에서 새 로그인을 만들 수 있도록 합니다. 일반적으로 Microsoft는 로그인 기반 사용자를 사용하는 대신 데이터베이스 수준에서 인증하는 포함된 데이터베이스 사용자를 사용할 것을 권장하므로 로그인이 필수는 아닙니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 데이터베이스를 이식 가능하게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
+다른 관리 역할은 로그인 관리자 역할입니다. 이 역할의 멤버는 master 데이터베이스에 새 로그인을 만들 수 있습니다. 원한다면 동일한 단계(로그인 및 사용자 만들기, 사용자를 **loginmanager** 역할에 추가)를 완료하여 사용자가 master에서 새 로그인을 만들 수 있도록 합니다. 일반적으로 Microsoft는 로그인 기반 사용자를 사용하는 대신 데이터베이스 수준에서 인증하는 포함된 데이터베이스 사용자를 사용할 것을 권장하므로 로그인이 필수는 아닙니다. 자세한 내용은 [포함된 데이터베이스 사용자 - 이식 가능한 데이터베이스 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조하세요.
 
 ## <a name="non-administrator-users"></a>비관리자 사용자
 
-일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함 된 데이터베이스 사용자 (Azure AD 인증용 환경을 구성한 경우) 또는 SQL Server 인증 포함 된 데이터베이스 사용자 또는 SQL Server 기반 SQL Server 인증 사용자 일 수 있습니다. 인증 로그인 (이전 단계에서 만들어짐) 자세한 내용은 [포함 된 데이터베이스 사용자-데이터베이스를 이식 가능 하 게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조 하세요. 
+일반적으로 비관리자 계정은 master 데이터베이스에 액세스할 필요가 없습니다. [CREATE USER(Transact-SQL)](https://msdn.microsoft.com/library/ms173463.aspx) 문을 사용하여 데이터베이스 수준에서 포함된 데이터베이스 사용자를 만듭니다. 사용자는 Azure Active Directory 인증 포함 된 데이터베이스 사용자 (Azure AD 인증용 환경을 구성한 경우) 또는 SQL Server 인증 포함 된 데이터베이스 사용자 또는 SQL Server 인증 로그인 (이전 단계에서 만든 SQL Server 인증 사용자)이 될 수 있습니다. 자세한 내용은 [포함 된 데이터베이스 사용자-데이터베이스를 이식 가능 하 게 만들기](https://msdn.microsoft.com/library/ff929188.aspx)를 참조 하세요. 
 
 사용자를 만들고 데이터베이스에 연결하려면 다음 예제와 유사한 문을 실행합니다.
 
@@ -151,7 +152,7 @@ Azure SQL Database에서는 `ALTER ROLE` 문을 사용합니다.
 ALTER ROLE db_owner ADD MEMBER Mary;
 ```
 
-Azure SQL Data Warehouse에서는 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용합니다.
+Azure Synapse에서 [EXEC sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)을 사용 합니다.
 ```sql
 EXEC sp_addrolemember 'db_owner', 'Mary';
 ```

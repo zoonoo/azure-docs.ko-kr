@@ -3,20 +3,20 @@ title: 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 (�
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C에서 사용자 지정 정책을 사용 하 여 응용 프로그램 사용자의 휴대폰으로 문자 메시지의 OTP (일회성 암호)를 보냅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 50e7d66fef67e2728c95790947393de8d58398c2
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: eadac0e973b361b1fdee63dcc9cfa848a0b2bacb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77647521"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183961"
 ---
 # <a name="set-up-phone-sign-up-and-sign-in-with-custom-policies-in-azure-ad-b2c-preview"></a>Azure AD B2C (미리 보기)에서 사용자 지정 정책을 사용 하 여 전화 등록 및 로그인 설정
 

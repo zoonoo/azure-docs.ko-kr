@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 전화 번호 클레임 변환
 titleSuffix: Azure AD B2C
 description: Azure AD B2C의 전화 번호 클레임 변환에 대 한 사용자 지정 정책 참조입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/26/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 34a6d15090cd13a775ad3faa694718ec58738471
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: bd26b2b475e293a1fda1b007289ba7c3eef35136
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77620641"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183937"
 ---
 # <a name="define-phone-number-claims-transformations-in-azure-ad-b2c"></a>Azure AD B2C에서 전화 번호 클레임 변환 정의
 
@@ -107,7 +107,7 @@ ms.locfileid: "77620641"
 
 - 입력 클레임:
   - **phoneNumberString**: + 1 (123) 456-7890
-- 출력 클레임: 
+- 출력 클레임:
   - **Outputclaim**: + 11234567890
 
 

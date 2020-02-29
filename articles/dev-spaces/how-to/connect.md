@@ -1,16 +1,16 @@
 ---
-title: AKS 클러스터에 개발 머신 연결
+title: 개발 머신을 AKS 클러스터에 연결(미리 보기)
 services: azure-dev-spaces
 ms.date: 11/04/2019
 ms.topic: conceptual
 description: Azure Dev Spaces를 사용 하 여 개발 컴퓨터를 AKS 클러스터에 연결 하는 방법을 알아봅니다.
 keywords: Azure Dev Spaces, Dev Spaces, Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
-ms.openlocfilehash: cba68702155475832930c791c3a7be014375ba04
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 13e6f16e66941be0ae463e8280827dc0b8183450
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770682"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196096"
 ---
 # <a name="connect-your-development-machine-to-an-aks-cluster-preview"></a>개발 머신을 AKS 클러스터에 연결(미리 보기)
 
@@ -27,7 +27,7 @@ Azure Dev Spaces 연결 된 AKS 클러스터와 개발 컴퓨터 간의 트래�
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 가이드에서는 [Azure Dev Spaces 자전거 공유 샘플 응용 프로그램](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) 을 사용 하 여 개발 컴퓨터를 AKS 클러스터에 연결 하는 방법을 보여 줍니다. [Azure Dev Spaces 자전거 공유 샘플 응용 프로그램 추가 정보](https://github.com/Azure/dev-spaces/blob/master/samples/BikeSharingApp/README.md) 의 지침에 따라 샘플 응용 프로그램을 실행 합니다. 또는 AKS 클러스터에 고유한 응용 프로그램이 있는 경우 아래 단계를 수행 하 여 고유한 서비스와 pod의 이름을 사용할 수 있습니다.
 
@@ -37,7 +37,7 @@ Azure Dev Spaces 연결 된 AKS 클러스터와 개발 컴퓨터 간의 트래�
 
 ### <a name="prerequisites"></a>필수 조건
 
-* Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+* Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli]
 * MacOS 또는 Windows 10에서 [Azure Dev Spaces][azds-vs-code] 확장을 설치 하 고 실행 하는 [Visual Studio Code][vs-code] .
 * [Azure Dev Spaces 자전거 공유 샘플 응용 프로그램](https://github.com/Azure/dev-spaces/tree/master/samples/BikeSharingApp) 또는 AKS 클러스터에서 실행 되는 자체 응용 프로그램입니다.
@@ -48,7 +48,7 @@ Visual Studio Code에서 개발 *-공백/샘플/BikeSharingApp/자전거* 를 �
 
 Azure Dev Spaces 확장을 사용 하려면 *보기* , *명령 팔레트*를 차례로 클릭 하 여 Visual Studio Code 명령 팔레트를 엽니다. `Azure Dev Spaces: Redirect` 입력을 시작 하 고 `Azure Dev Spaces: Redirect an existing Kubernetes service to my machine [Preview]`, `Azure Dev Spaces: Redirect an existing Kubernetes pod to my machine [Preview]`또는 `Azure Dev Spaces: Redirect a new Kubernetes pod to my machine [Preview]`를 클릭 합니다.
 
-![명령](../media/how-to-connect/connect-commands.png)
+![Commands](../media/how-to-connect/connect-commands.png)
 
 ### <a name="select-a-redirection-option"></a>리디렉션 옵션 선택
 
@@ -200,7 +200,7 @@ Azure Dev Spaces 상태 표시줄을 클릭 하 고 응용 프로그램의 공�
 
 *디버그*와 *디버깅 중지*를 차례로 클릭하여 디버거를 중지합니다. Azure Dev Spaces 상태 표시줄을 클릭 하 여 AKS 클러스터에서 연결을 끊습니다.
 
-## <a name="additional-configuration"></a>추가 구성
+## <a name="additional-configuration"></a>기타 고려 사항
 
 Azure Dev Spaces는 라우팅 트래픽을 처리 하 고 추가 구성 없이 환경 변수를 복제할 수 있습니다. AKS 클러스터의 컨테이너에 탑재 된 파일 (예: ConfigMap 파일)을 다운로드 해야 하는 경우 해당 파일을 개발 컴퓨터에 다운로드 하는 `azds-local.env`를 만들 수 있습니다.
 

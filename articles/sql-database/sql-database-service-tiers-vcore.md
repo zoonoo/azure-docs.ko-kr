@@ -9,12 +9,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: sashan, moslake, carlrab
 ms.date: 11/27/2019
-ms.openlocfilehash: 9b156193035d87472c462bae37e405e0317d8402
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: e53fb46b7c13e1feb0cc24663fb0782b4de06f2b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650302"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198034"
 ---
 # <a name="vcore-model-overview"></a>vCore 모델 개요
 
@@ -98,10 +98,11 @@ Fsv2 시리즈를 사용할 수 있는 지역의 경우 [Fsv2 시리즈 가용�
 |하드웨어 세대  |컴퓨팅  |메모리  |
 |:---------|:---------|:---------|
 |Gen4     |-Intel E5-2673 v3 (Haswell) 2.4 GHz 프로세서<br>-최대 24 개의 vCores 프로 비전 (1 개 Vcores = 1 실제 코어)  |-vCore 당 7GB<br>-최대 168 GB 프로 비전|
-|5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
+|5세대     |**프로비저닝된 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 80 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)<br><br>**서버리스 컴퓨팅**<br>-Intel E5-2673 v4 (Broadwell) 2.3 GHz 및 Intel SP-8160 (Skylake) * 프로세서<br>-최대 16 개의 Vcores 자동 확장 (1 개 Vcores = 1 개 하이퍼 스레드)|**프로비저닝된 컴퓨팅**<br>-vCore 당 5.1 GB<br>-최대 408 GB 프로 비전<br><br>**서버리스 컴퓨팅**<br>-VCore 당 최대 24gb까지 자동 확장<br>-최대 48 GB까지 자동 확장|
 |Fsv2 시리즈     |-Intel Xeon Platinum 8168 (SkyLake) 프로세서<br>-3.4 GHz의 모든 코어 터보 클록 속도와 3.7 g h z의 싱글 코어 터보 클록 속도를 모두 유지 합니다.<br>-72 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 1.9 GB<br>-136 GB 프로 비전|
 |M 시리즈     |-Intel Xeon E7-8890 v3 2.5 GHz 프로세서<br>-128 Vcores 프로 비전 (1 개 Vcores = 1 개 하이퍼 스레드)|-vCore 당 30GB<br>-3.7 TB 프로 비전|
 
+[dm_user_db_resource_governance](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-user-db-resource-governor-azure-sql-database) 동적 관리 뷰에서 \* Intel SP-8160 (Skylake) 프로세서를 사용 하는 Gen5 데이터베이스에 대 한 하드웨어 생성은 Gen6로 표시 됩니다. 모든 Gen5 데이터베이스에 대 한 리소스 제한은 프로세서 유형 (Broadwell 또는 Skylake)에 관계 없이 동일 합니다.
 
 리소스 제한에 대 한 자세한 내용은 [단일 데이터베이스에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-single-databases.md)또는 [탄력적 풀에 대 한 리소스 제한 (vcore)](sql-database-vcore-resource-limits-elastic-pools.md)을 참조 하세요.
 

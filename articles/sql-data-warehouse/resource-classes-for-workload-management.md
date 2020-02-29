@@ -1,30 +1,30 @@
 ---
 title: 워크로드 관리를 위한 리소스 클래스
-description: Azure SQL Data Warehouse의 쿼리에 대한 컴퓨팅 리소스 및 동시성 리소스를 관리하는 리소스 클래스 사용 지침입니다.
+description: 리소스 클래스를 사용 하 여 Azure Synapse Analytics에서 쿼리에 대 한 동시성 및 계산 리소스를 관리 하는 방법에 대 한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 12/04/2019
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 30d3c67a815d05a256717fc4447ae3687adb8146
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.custom: azure-synapse
+ms.openlocfilehash: c94b2a755d85bdf425980574b63d8fd74a232b19
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76548172"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195994"
 ---
-# <a name="workload-management-with-resource-classes-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 리소스 클래스로 워크로드 관리
+# <a name="workload-management-with-resource-classes-in-azure-synapse-analytics"></a>Azure Synapse Analytics에서 리소스 클래스를 사용 하 여 워크 로드 관리
 
-Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및 쿼리의 동시성을 관리하기 위한 지침입니다.  
+리소스 클래스를 사용 하 여 Azure Synapse에서 SQL Analytics 쿼리의 메모리 및 동시성을 관리 하는 방법에 대 한 지침입니다.  
 
 ## <a name="what-are-resource-classes"></a>리소스 클래스 정의
 
-쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.  리소스 클래스는 쿼리 실행을 위한 컴퓨팅 리소스와 동시성을 관리하는, Azure SQL Data Warehouse에 미리 결정된 리소스 제한입니다. 리소스 클래스를 통해 동시에 실행 되는 쿼리 수와 각 쿼리에 할당 된 계산 리소스에 대 한 제한을 설정 하 여 쿼리에 대 한 리소스를 구성할 수 있습니다.  메모리와 동시성 사이에는 상충 관계가 있습니다.
+쿼리의 성능 용량은 사용자의 리소스 클래스에 의해 결정됩니다.  리소스 클래스는 쿼리 실행을 위한 계산 리소스 및 동시성을 제어 하는 SQL Analytics의 미리 결정 된 리소스 제한입니다. 리소스 클래스를 통해 동시에 실행 되는 쿼리 수와 각 쿼리에 할당 된 계산 리소스에 대 한 제한을 설정 하 여 쿼리에 대 한 리소스를 구성할 수 있습니다.  메모리와 동시성 사이에는 상충 관계가 있습니다.
 
 - 리소스 클래스가 작을수록 쿼리당 최대 메모리가 줄어들고 동시성은 높아집니다.
 - 리소스 클래스가 클수록 쿼리당 최대 메모리가 증가 하지만 동시성이 줄어듭니다.
@@ -82,7 +82,7 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 
 기본적으로 각 사용자는 동적 리소스 클래스인 **smallrc**의 멤버입니다.
 
-서비스 관리자의 리소스 클래스는 smallrc에 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.  이 컨텍스트의 서비스 관리자는 새 서버를 사용하여 새 SQL Data Warehouse 인스턴스를 만들 때 "서버 관리자 로그인"에 대해 지정한 로그인입니다.
+서비스 관리자의 리소스 클래스는 smallrc에 고정되어 있고 변경할 수 없습니다.  서비스 관리자는 프로세스 프로비전 중에 만든 사용자입니다.  이 컨텍스트의 서비스 관리자는 새 서버를 사용 하 여 새 SQL Analytics 인스턴스를 만들 때 "서버 관리자 로그인"에 대해 지정 된 로그인입니다.
 
 > [!NOTE]
 > Active Directory 관리자로 정의된 사용자 또는 그룹은 서비스 관리자이기도 합니다.
@@ -101,7 +101,7 @@ Azure SQL Data Warehouse에서 리소스 클래스를 사용하여 메모리 및
 - SELECT(사용자 테이블을 쿼리하는 경우)
 - ALTER INDEX - REBUILD 또는 REORGANIZE
 - ALTER TABLE REBUILD
-- CREATE  INDEX
+- CREATE INDEX
 - CREATE CLUSTERED COLUMNSTORE INDEX
 - CREATE TABLE AS SELECT (CTAS)
 - 데이터 로드
@@ -141,9 +141,9 @@ Removed as these two are not confirmed / supported under SQL DW
 - REDISTRIBUTE
 -->
 
-## <a name="concurrency-slots"></a>동시성 슬롯 수
+## <a name="concurrency-slots"></a>동시성 슬롯
 
-동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료되면 해당 동시성 슬롯을 해제합니다.  
+동시성 슬롯은 쿼리 실행에 사용할 수 있는 리소스를 추적하는 편리한 방법입니다. 동시성 슬롯은 콘서트의 좌석이 제한되어 있으므로 좌석을 예약하기 위해 구매하는 티켓과 같습니다. 데이터 웨어하우스 당 동시성 슬롯의 총 수는 서비스 수준에 의해 결정됩니다. 쿼리를 실행하려면 먼저 충분한 동시성 슬롯을 예약할 수 있어야 합니다. 쿼리가 완료 되 면 동시성 슬롯을 해제 합니다.  
 
 - 10개의 동시성 슬롯으로 쿼리를 실행하면 2개의 동시성 슬롯으로 쿼리를 실행하는 것보다 5배 이상의 컴퓨팅 리소스에 액세스할 수 있습니다.
 - 각 쿼리에 10개의 동시성 슬롯이 필요하고 40개의 동시성 슬롯이 있는 경우에는 4개의 쿼리만 동시에 실행할 수 있습니다.
@@ -164,7 +164,7 @@ WHERE  name LIKE '%rc%' AND type_desc = 'DATABASE_ROLE';
 
 데이터베이스 역할에 사용자를 할당하여 리소스 클래스를 구현합니다. 사용자가 쿼리를 실행하면 사용자의 리소스 클래스를 사용하여 쿼리가 실행됩니다. 예를 들어 사용자가 staticrc10 데이터베이스 역할의 멤버인 경우 해당 쿼리는 적은 양의 메모리를 사용하여 실행됩니다. 데이터베이스 사용자가 xlargerc 또는 staticrc80 데이터베이스 역할의 멤버인 경우 해당 쿼리는 많은 양의 메모리를 사용하여 실행됩니다.
 
-사용자의 리소스 클래스를 높이려면 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용하여 큰 리소스 클래스의 데이터베이스 역할에 사용자를 추가합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 가져옵니다.
+사용자의 리소스 클래스를 늘리려면 [sp_addrolemember](https://docs.microsoft.com/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql) 를 사용 하 여 사용자를 대량 리소스 클래스의 데이터베이스 역할에 추가 합니다.  아래 코드는 largerc 데이터베이스 역할에 사용자를 추가합니다.  각 요청은 시스템 메모리의 22%를 가져옵니다.
 
 ```sql
 EXEC sp_addrolemember 'largerc', 'loaduser';
@@ -207,10 +207,10 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 
 일부 쿼리는 계산 집약적이고 일부는 그렇지 않습니다.  
 
-- 쿼리는 복잡하지만 높은 동시성을 요구하지 않는 경우 동적 리소스 클래스를 선택합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스가 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스 크기를 조정하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
+- 쿼리는 복잡하지만 높은 동시성을 요구하지 않는 경우 동적 리소스 클래스를 선택합니다.  예를 들어 매일 또는 매주 보고서를 생성하는 경우 리소스는 가끔 필요합니다. 보고서가 많은 양의 데이터를 처리하는 경우 데이터 웨어하우스를 확장하면 사용자의 기존 리소스 클래스에 더 많은 메모리를 제공할 수 있습니다.
 - 하루 중 리소스 요구 사항이 다른 경우 정적 리소스 클래스를 선택합니다. 예를 들어 데이터 웨어하우스가 여러 사용자에 의해 쿼리되는 경우에는 정적 리소스 클래스가 잘 작동합니다. 데이터 웨어하우스의 크기를 조정 하는 경우 사용자에 게 할당 된 메모리 양이 변경 되지 않습니다. 따라서 시스템에서 더 많은 쿼리를 동시에 실행할 수 있습니다.
 
-적절한 메모리 부여는 쿼리되는 데이터의 양, 테이블 스키마의 특성 및 다양한 조인, 선택 및 그룹 조건자 등의 많은 요인에 따라 달라집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않을 경우 메모리를 과도하게 할당해도 처리량은 괜찮습니다.
+적절한 메모리 부여는 쿼리되는 데이터의 양, 테이블 스키마의 특성 및 다양한 조인, 선택 및 그룹 조건자 등의 많은 요인에 따라 달라집니다. 일반적으로 더 많은 메모리를 할당하면 쿼리를 더 빠르게 완료할 수 있지만 전체적인 동시성은 떨어집니다. 동시성이 문제가 되지 않는 경우 메모리를 과도하게 할당해도 처리량에는 문제가 없습니다.
 
 성능을 튜닝하려면 다른 리소스 클래스를 사용합니다. 다음 섹션에서는 최상의 리소스 클래스를 파악하는 데 도움이 되는 저장 프로시저를 제공합니다.
 
@@ -240,9 +240,9 @@ EXEC sp_droprolemember 'largerc', 'loaduser';
 >
 >예를 들어 DW100c에서 사용할 수 있는 가장 높은 메모리 부여는 1gb이 고, 테이블 스키마의 너비는 1gb의 요구 사항을 충족할 만큼 충분 한 경우입니다.
 
-### <a name="usage-example"></a>사용 예제
+### <a name="usage-example"></a>사용 예
 
-구문  
+구문:  
 `EXEC dbo.prc_workload_management_by_DWU @DWU VARCHAR(7), @SCHEMA_NAME VARCHAR(128), @TABLE_NAME VARCHAR(128)`
   
 1. @DWU: NULL 매개 변수를 제공 하 여 DW DB에서 현재 DWU를 추출 하거나 ' DW100c ' 형식으로 지원 되는 DWU를 제공 합니다.
@@ -594,5 +594,5 @@ GO
 
 ## <a name="next-steps"></a>다음 단계
 
-데이터베이스 사용자 및 보안을 관리하는 방법에 대한 자세한 내용은 [SQL Data Warehouse에서 데이터베이스 보호](./sql-data-warehouse-overview-manage-security.md)를 참조하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상시키는 방법에 대한 자세한 내용은 [Columnstore 압축을 위한 메모리 최적화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
+데이터베이스 사용자 및 보안을 관리 하는 방법에 대 한 자세한 내용은 [SQL Analytics에서 데이터베이스 보안](./sql-data-warehouse-overview-manage-security.md)을 참조 하세요. 더 큰 리소스 클래스가 클러스터형 columnstore 인덱스 품질을 향상시키는 방법에 대한 자세한 내용은 [Columnstore 압축을 위한 메모리 최적화](sql-data-warehouse-memory-optimizations-for-columnstore-compression.md)를 참조하세요.
 

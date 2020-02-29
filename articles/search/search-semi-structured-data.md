@@ -1,5 +1,5 @@
 ---
-title: '자습서: JSON blob의 반 strutured 데이터 인덱싱'
+title: '자습서: JSON blob의 반 구조화 된 데이터 인덱싱'
 titleSuffix: Azure Cognitive Search
 description: Azure Cognitive Search REST API 및 Postman을 사용하여 반정형 Azure JSON Blob을 인덱싱하고 검색하는 방법을 알아봅니다.
 manager: nitinme
@@ -7,19 +7,19 @@ author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
 ms.topic: conceptual
-ms.date: 02/14/2020
-ms.openlocfilehash: 0603ad1fbecf33e5880fd7f18d35af51795f8e39
-ms.sourcegitcommit: 79cbd20a86cd6f516acc3912d973aef7bf8c66e4
+ms.date: 02/28/2020
+ms.openlocfilehash: f025b3357943014a6d9c6e331c47f019fe94c5bf
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77251994"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196946"
 ---
-# <a name="rest-tutorial-index-and-search-semi-structured-data-json-blobs-in-azure-cognitive-search"></a>REST 자습서: Azure에서 반 구조화 된 데이터 (JSON blob) 인덱싱 및 검색 Cognitive Search
+# <a name="tutorial-index-json-blobs-from-azure-storage-using-rest"></a>자습서: REST를 사용 하 여 Azure Storage에서 JSON blob 인덱싱
 
 Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexer](search-indexer-overview.md)를 사용하여 Azure Blob Storage의 JSON 문서와 어레이를 인덱싱할 수 있습니다. 반구조화된 데이터에는 데이터 내의 콘텐츠를 구분하는 태그 또는 표시가 포함되어 있습니다. 완전히 인덱싱해야 하는 비정형 데이터와 필드 단위를 기반으로 인덱싱할 수 있는 데이터 모델(예: 관계형 데이터베이스 스키마)을 준수하는 형식적 비정형 데이터의 차이를 구분합니다.
 
-이 자습서에서는 다음 작업을 수행하는 [Azure Cognitive Search REST API](https://docs.microsoft.com/rest/api/searchservice/) 및 REST 클라이언트를 사용합니다.
+이 자습서에서는 Postman 및 [SEARCH REST api](https://docs.microsoft.com/rest/api/searchservice/) 를 사용 하 여 다음 작업을 수행 합니다.
 
 > [!div class="checklist"]
 > * Azure Blob 컨테이너에 대한 Azure Cognitive Search 데이터 원본 구성
@@ -27,15 +27,18 @@ Azure Cognitive Search는 반정형 데이터를 읽는 방법을 아는 [indexe
 > * 컨테이너를 읽고 Azure Blob Storage에서 검색 가능한 콘텐츠를 추출하기 위한 인덱서 구성 및 실행
 > * 방금 만든 인덱스 검색
 
-## <a name="prerequisites"></a>사전 요구 사항
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다. 
+## <a name="prerequisites"></a>필수 조건
 
-[Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 자습서에서는 체험 서비스를 사용할 수 있습니다. 
++ [Azure Storage](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account)
++ [Postman 데스크톱 앱](https://www.getpostman.com/)
++ [기존 검색 서비스](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices) [만들기](search-create-service-portal.md) 또는 찾기 
 
-샘플 데이터를 저장하기 위한 [Azure 스토리지 계정을 만듭니다](https://docs.microsoft.com/azure/storage/common/storage-quickstart-create-account).
+> [!Note]
+> 이 자습서에서는 무료 서비스를 사용할 수 있습니다. 무료 검색 서비스는 세 개의 인덱스, 세 개의 인덱서 및 세 개의 데이터 원본으로 제한 합니다. 이 자습서에서는 각각을 하나씩 만듭니다. 시작 하기 전에 새 리소스를 수락 하는 서비스에 대 한 공간이 있는지 확인 합니다.
 
-요청을 Azure Cognitive Search에 보내는 [Postman 데스크톱 앱](https://www.getpostman.com/)을 가져옵니다.
+## <a name="download-files"></a>파일 다운로드
 
 [Clinical-trials-json.zip](https://github.com/Azure-Samples/storage-blob-integration-with-cdn-search-hdi/raw/master/clinical-trials-json.zip)에는 이 자습서에서 사용되는 데이터가 포함되어 있습니다. 다운로드하고 해당 폴더에 이 파일의 압축을 풉니다. [clinicaltrials.gov](https://clinicaltrials.gov/ct2/results)의 데이터는 이 자습서에서 사용하기 위해 JSON으로 변환됩니다.
 
@@ -81,7 +84,7 @@ Postman을 통해 데이터 원본, 인덱스 및 인덱서를 만들기 위해 
 
 REST 클라이언트에서 다음 세 가지 API 호출을 실행합니다.
 
-## <a name="create-a-data-source"></a>데이터 소스 만들기
+## <a name="create-a-data-source"></a>데이터 원본 만들기
 
 [데이터 원본 만들기 API](https://docs.microsoft.com/rest/api/searchservice/create-data-source) 는 인덱싱할 데이터를 지정 하는 Azure Cognitive Search 개체를 만듭니다.
 
@@ -279,17 +282,31 @@ Azure Portal에서 검색 서비스 **개요** 페이지를 열고 **인덱스**
 
   ![반구조화된 검색](media/search-semi-structured-data/metadatashort.png)
 
-직접 몇 가지 쿼리를 더 실험해 보고 싶다면 자유롭게 수행해 봅니다. 논리 연산자(and, or) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수 있습니다. 문자열 비교는 대/소문자를 구분합니다.
+직접 몇 가지 쿼리를 더 실험해 보고 싶다면 자유롭게 수행해 봅니다. 논리 연산자(and, or) 및 비교 연산자(eq, ne, gt, lt, ge, le)를 사용할 수 있습니다. 문자열 비교 대/소문자를 구분 하지 않습니다.
 
 `$filter` 매개 변수는 인덱스를 만들 때 필터링 가능으로 표시된 메타데이터에서만 작동합니다.
 
+## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
+
+개발의 초기 실험 단계에서 디자인 반복의 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제 하 고 코드에서 해당 개체를 다시 작성할 수 있도록 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+
+포털을 사용 하 여 인덱스, 인덱서 및 데이터 원본을 삭제할 수 있습니다. 또는 **DELETE** 를 사용 하 여 각 개체에 대 한 url을 제공 합니다. 다음 명령은 인덱서를 삭제합니다.
+
+```http
+DELETE https://[YOUR-SERVICE-NAME].search.windows.net/indexers/clinical-trials-json-indexer?api-version=2019-05-06
+```
+
+삭제 성공 시 상태 코드 204가 반환됩니다.
+
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 리소스 그룹을 삭제하여 이제 리소스 그룹 내의 모든 항목을 영구 삭제할 수 있습니다. 포털에서 리소스 그룹 이름은 Azure Cognitive Search 서비스의 개요 페이지에 있습니다.
+사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 모든 리소스 또는 리소스 그룹 링크를 사용 하 여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-JSON Blob을 인덱싱하는 데 사용할 수 있는 방법 및 옵션에는 여러 가지가 있습니다. 다음 단계로 다양한 옵션을 검토하고 테스트하여 자신의 시나리오에 가장 적합한 옵션을 알아보세요.
+이제 Azure Blob 인덱싱의 기본 사항에 익숙하고 인덱서 구성에 대해 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [Azure Cognitive Search Blob 인덱서를 사용하여 JSON Blob을 인덱싱하는 방법](search-howto-index-json-blobs.md)
+> [Azure Blob 저장소 인덱서 구성](search-howto-indexing-azure-blob-storage.md)

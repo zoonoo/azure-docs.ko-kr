@@ -1,6 +1,6 @@
 ---
 title: T-SQL 문
-description: Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
+description: SQL Analytics에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,16 +10,16 @@ ms.subservice: query
 ms.date: 05/01/2019
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 861675941693697a20da189edebe33d91918782c
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: d37e1b727829505940b77c7a82293f90050a87c0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685527"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198357"
 ---
-# <a name="t-sql-statements-supported-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse에서 지원되는 T-SQL 문
-Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크입니다.
+# <a name="t-sql-statements-supported-in-sql-analytics"></a>SQL Analytics에서 지원 되는 t-sql 문
+SQL Analytics에서 지원 되는 T-sql 문에 대 한 설명서에 대 한 링크입니다.
 
 ## <a name="data-definition-language-ddl-statements"></a>데이터 정의 언어(DDL) 문
 * [ALTER DATABASE](https://msdn.microsoft.com/library/mt204042.aspx)
@@ -30,12 +30,12 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [ALTER TABLE](https://msdn.microsoft.com/library/ms190273.aspx)
 * [CREATE COLUMNSTORE INDEX](https://msdn.microsoft.com/library/gg492153.aspx)
 * [CREATE DATABASE](https://msdn.microsoft.com/library/mt204021.aspx)
-* [데이터베이스 범위 자격 증명 만들기](https://msdn.microsoft.com/library/mt270260.aspx)
+* [CREATE DATABASE SCOPED CREDENTIAL](https://msdn.microsoft.com/library/mt270260.aspx)
 * [CREATE EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/dn935022.aspx)
 * [CREATE EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/dn935026.aspx)
 * [CREATE EXTERNAL TABLE](https://msdn.microsoft.com/library/dn935021.aspx)
 * [CREATE FUNCTION](https://msdn.microsoft.com/library/mt203952.aspx)
-* [CREATE INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
+* [CREATE  INDEX](https://msdn.microsoft.com/library/ms188783.aspx)
 * [구체화 된 뷰를 SELECT로 만들기](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) (미리 보기) 
 * [CREATE PROCEDURE](https://msdn.microsoft.com/library/ms187926.aspx)
 * [CREATE SCHEMA](https://msdn.microsoft.com/library/ms189462.aspx)
@@ -47,7 +47,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [DROP EXTERNAL DATA SOURCE](https://msdn.microsoft.com/library/mt146367.aspx)
 * [DROP EXTERNAL FILE FORMAT](https://msdn.microsoft.com/library/mt146379.aspx)
 * [DROP EXTERNAL TABLE](https://msdn.microsoft.com/library/mt130698.aspx)
-* [DROP INDEX](https://msdn.microsoft.com/library/ms176118.aspx)
+* [DROP  INDEX](https://msdn.microsoft.com/library/ms176118.aspx)
 * [DROP PROCEDURE](https://msdn.microsoft.com/library/ms174969.aspx)
 * [DROP STATISTICS](https://msdn.microsoft.com/library/ms175075.aspx)
 * [DROP TABLE](https://msdn.microsoft.com/library/ms173790.aspx)
@@ -55,7 +55,7 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [DROP VIEW](https://msdn.microsoft.com/library/ms173492.aspx)
 * [작업 분류자 삭제](/sql/t-sql/statements/drop-workload-classifier-transact-sql)
 * [RENAME](https://msdn.microsoft.com/library/mt631611.aspx)
-* [SET RESULT_SET_CACHING](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
+* [RESULT_SET_CACHING 설정](/sql/t-sql/statements/set-result-set-caching-transact-sql) 
 * [TRUNCATE TABLE](https://msdn.microsoft.com/library/ms177570.aspx)
 * [UPDATE STATISTICS](https://msdn.microsoft.com/library/ms187348.aspx)
 
@@ -120,4 +120,4 @@ Azure SQL Data Warehouse에서 지원되는 T-SQL 문에 대한 설명서 링크
 * [OPEN MASTER KEY](https://msdn.microsoft.com/library/ms174433.aspx)
 
 ## <a name="next-steps"></a>다음 단계
-자세한 참조 정보는 [Microsoft Azure SQL Data Warehouse의 T-SQL 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md) 및 [Azure SQL Data Warehouse의 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)를 참조하세요.
+자세한 참조 정보는 sql [analytics의 t-sql 언어 요소](sql-data-warehouse-reference-tsql-language-elements.md)및 [Sql analytics의 시스템 뷰](sql-data-warehouse-reference-tsql-system-views.md)를 참조 하세요.

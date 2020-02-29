@@ -2,20 +2,20 @@
 title: 자습서-사용자 흐름 만들기-Azure Active Directory B2C
 description: Azure Active Directory B2C에서 응용 프로그램에 등록, 로그인 및 사용자 프로필 편집을 사용 하도록 설정 하려면 Azure Portal에서 사용자 흐름을 만드는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: article
 ms.date: 06/07/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 21a3597a8c3675a060359b5e4feb9561e02f0149
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 51adbb74635f66ca86347b536dc2607566dcb725
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76840148"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183570"
 ---
 # <a name="tutorial-create-user-flows-in-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C에서 사용자 흐름 만들기
 

@@ -3,20 +3,20 @@ title: 사용자 마이그레이션 방법
 titleSuffix: Azure AD B2C
 description: 대량 가져오기 또는 원활한 마이그레이션 방법을 사용 하 여 다른 id 공급자의 사용자 계정을 Azure AD B2C로 마이그레이션합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 759379d99bbd422c43998997be1d52ecbf34966d
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 90ef9402e0891915be4ed6bb89573eced546c59a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484294"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183145"
 ---
 # <a name="migrate-users-to-azure-ad-b2c"></a>사용자를 Azure AD B2C으로 마이그레이션
 

@@ -3,20 +3,20 @@ title: Microsoft Graph를 사용 하 여 리소스 관리
 titleSuffix: Azure AD B2C
 description: 필요한 Graph API 권한이 부여 된 응용 프로그램을 등록 하 여 Microsoft Graph를 통해 Azure AD B2C 리소스를 관리할 준비를 합니다.
 services: B2C
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: bcddcf051e73381af35ca40e22c443c7b9ae30a7
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 32117d4bfcf0c0af94eced095b94ab0c1b6f88af
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77492943"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184356"
 ---
 # <a name="manage-azure-ad-b2c-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 관리
 

@@ -5,13 +5,13 @@ ms.subservice: logs
 ms.topic: conceptual
 author: bwren
 ms.author: bwren
-ms.date: 02/25/2019
-ms.openlocfilehash: 874fd0ccdd2fdf0a2e75412ae2da82abb736ff3f
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.date: 02/28/2019
+ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164579"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196657"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -256,6 +256,34 @@ Perf
     | summarize arg_max(TimeGenerated, *), min(TimeGenerated)   
 by Computer
 ) on Computer
+```
+
+이 오류에 대 한 또 다른 예는 여러 테이블에 대 한 [공용 구조체](/azure/kusto/query/unionoperator?pivots=azuremonitor) 바로 다음 시간 범위 필터링을 수행 하는 경우입니다. Union을 수행할 때 각 하위 쿼리는 범위를 지정 해야 합니다. [Let](/azure/kusto/query/letstatement) 문을 사용 하 여 범위 일관성을 보장할 수 있습니다.
+
+예를 들어 다음 쿼리는 지난 1 일 뿐만 아니라 *하트 비트* 및 *Perf* 테이블의 모든 데이터를 검색 합니다.
+
+```Kusto
+Heartbeat 
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| where TimeGenerated > ago(1d)
+| summarize min(TimeGenerated) by Computer
+```
+
+이 쿼리는 다음과 같이 수정 해야 합니다.
+
+```Kusto
+let MinTime = ago(1d);
+Heartbeat 
+| where TimeGenerated > MinTime
+| summarize arg_min(TimeGenerated,*) by Computer
+| union (
+    Perf 
+    | where TimeGenerated > MinTime
+    | summarize arg_min(TimeGenerated,*) by Computer) 
+| summarize min(TimeGenerated) by Computer
 ```
 
 측정은 항상 지정 된 실제 시간 보다 큽니다. 예를 들어, 쿼리에 대 한 필터가 7 일 이면 시스템은 7.5 또는 8.1 일을 검사할 수 있습니다. 이는 시스템에서 데이터를 가변 크기의 청크로 분할 하기 때문입니다. 모든 관련 레코드가 검색 되도록 하기 위해 여러 시간 및 하루 이상 처리할 수 있는 전체 파티션을 검색 합니다.

@@ -1,22 +1,22 @@
 ---
-title: 작업 관리
-description: Azure SQL Data Warehouse에서 작업 관리를 구현 하기 위한 지침입니다.
+title: 워크로드 관리
+description: Azure Synapse Analytics에서 워크 로드 관리를 구현 하기 위한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/13/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 287ad5467f9f3aac7eb8c9d7c19ea15c380c6879
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.custom: azure-synapse
+ms.openlocfilehash: 14ea742a40afff8105560f1003655004687c7c9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76935405"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197660"
 ---
 # <a name="what-is-workload-management"></a>워크로드 관리란?
 
@@ -36,11 +36,11 @@ ms.locfileid: "76935405"
 
 
 ## <a name="workload-management-concepts"></a>워크 로드 관리 개념
-이전에는 [리소스 클래스](resource-classes-for-workload-management.md)를 통해 SQL Data Warehouse에서 쿼리 성능을 관리 했습니다.  리소스 클래스는 역할 멤버 자격을 기반으로 쿼리에 메모리를 할당 하는 데 사용할 수 있습니다.  리소스 클래스에 대 한 주요 과제는 구성 된 후에는 작업을 제어 하는 거 버 넌 스 나 기능이 없다는 점입니다.  
+이전에는 Azure Synapse의 SQL 분석을 위해 [리소스 클래스](resource-classes-for-workload-management.md)를 통해 쿼리 성능을 관리 했습니다.  리소스 클래스는 역할 멤버 자격을 기반으로 쿼리에 메모리를 할당 하는 데 사용할 수 있습니다.  리소스 클래스에 대 한 주요 과제는 구성 된 후에는 작업을 제어 하는 거 버 넌 스 나 기능이 없다는 점입니다.  
 
 예를 들어 smallrc에 임시 사용자 역할 멤버 자격을 부여 하면 해당 사용자가 시스템에서 100%의 메모리를 소비할 수 있습니다.  리소스 클래스를 사용 하면 예약 하 고 중요 한 작업에 리소스를 사용할 수 있는지 확인할 방법이 없습니다.
 
-SQL Data Warehouse에 대 한 워크 로드 관리는 [작업 분류](sql-data-warehouse-workload-classification.md), [워크 로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)의 세 가지 상위 수준 개념으로 구성 됩니다.  이러한 기능을 통해 워크 로드에서 시스템 리소스를 활용 하는 방법을 보다 효과적으로 제어할 수 있습니다.
+Azure Synapse의 SQL Analytics 워크 로드 관리는 [작업 분류](sql-data-warehouse-workload-classification.md), [워크 로드 중요도](sql-data-warehouse-workload-importance.md) 및 [워크 로드 격리](sql-data-warehouse-workload-isolation.md)의 세 가지 상위 수준 개념으로 구성 됩니다.  이러한 기능을 통해 워크 로드에서 시스템 리소스를 활용 하는 방법을 보다 효과적으로 제어할 수 있습니다.
 
 작업 분류는 작업 그룹에 요청을 할당 하 고 중요도 수준을 설정 하는 개념입니다.  지금까지이 할당은 [sp_addrolemember](https://docs.microsoft.com/azure/sql-data-warehouse/resource-classes-for-workload-management#change-a-users-resource-class)를 사용 하 여 역할 멤버 자격을 통해 수행 되었습니다.  이제 [분류자 만들기 작업](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)을 통해이 작업을 수행할 수 있습니다.  분류 기능은 레이블, 세션, 요청을 분류 하는 시간 등 다양 한 옵션 집합을 제공 합니다.
 

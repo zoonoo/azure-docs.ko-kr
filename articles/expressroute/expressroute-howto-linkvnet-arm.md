@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 05/20/2018
 ms.author: ganesr
 ms.custom: seodec18
-ms.openlocfilehash: 22e235b16f834198f5edc2f9365d2b13e1e9c49f
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 2685b9b519eaac453726f4923c46f1604cbd4681
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74031726"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197830"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit"></a>Virtual Network를 ExpressRoute 회로에 연결
 > [!div class="op_single_selector"]
@@ -33,7 +33,7 @@ ms.locfileid: "74031726"
 * ExpressRoute 프리미엄 추가 기능을 사용하도록 설정하면 ExpressRoute 회로의 지역 외부에서 가상 네트워크를 연결하거나 ExpressRoute 회로에 많은 수의 가상 네트워크를 연결할 수 있습니다. 프리미엄 추가 기능에 대한 자세한 내용은 [FAQ](expressroute-faqs.md) 에서 확인하세요.
 
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 * 구성을 시작하기 전에 [필수 조건](expressroute-prerequisites.md), [라우팅 요구 사항](expressroute-routing.md) 및 [워크플로](expressroute-workflows.md)를 검토합니다.
 
@@ -58,7 +58,7 @@ $gw = Get-AzVirtualNetworkGateway -Name "ExpressRouteGw" -ResourceGroupName "MyR
 $connection = New-AzVirtualNetworkGatewayConnection -Name "ERConnection" -ResourceGroupName "MyRG" -Location "East US" -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독의 가상 네트워크를 회로에 연결
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
 큰 구름 안에 있는 각각의 작은 구름은 한 조직 내의 여러 부서에 속하는 구독을 나타내는 데 사용됩니다. 조직 내의 각 부서는 자체 구독을 사용하여 서비스를 배포하되, 단일 ExpressRoute 회로를 공유하여 온-프레미스 네트워크로 다시 연결할 수 있습니다. 단일 부서(이 예제에서는 IT)가 ExpressRoute 회로를 소유할 수 있습니다. 조직 내의 기타 구독도 ExpressRoute 회로를 사용할 수 있습니다.
@@ -179,15 +179,20 @@ Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connecti
 ## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
 Express 경로 회로가 [express 경로 직접](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath를 통해 온-프레미스 네트워크와 가상 네트워크 간에 초당 패킷 및 초당 연결과 같은 데이터 경로 성능을 향상 시킬 수 있습니다. 
 
-> [!NOTE] 
-> 이미 가상 네트워크에 연결 되어 있지만 FastPath를 사용 하도록 설정 하지 않은 경우 가상 네트워크 연결을 삭제 하 고 새 연결을 만들어야 합니다. 
-> 
->  
+**새 연결에서 FastPath 구성**
 
 ```azurepowershell-interactive 
 $circuit = Get-AzExpressRouteCircuit -Name "MyCircuit" -ResourceGroupName "MyRG" 
 $gw = Get-AzVirtualNetworkGateway -Name "MyGateway" -ResourceGroupName "MyRG" 
 $connection = New-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" -ExpressRouteGatewayBypass -VirtualNetworkGateway1 $gw -PeerId $circuit.Id -ConnectionType ExpressRoute -Location "MyLocation" 
+``` 
+
+**FastPath를 사용 하도록 기존 연결 업데이트**
+
+```azurepowershell-interactive 
+$connection = Get-AzVirtualNetworkGatewayConnection -Name "MyConnection" -ResourceGroupName "MyRG" 
+$connection.ExpressRouteGatewayBypass = $True
+Set-AzVirtualNetworkGatewayConnection -VirtualNetworkGatewayConnection $connection
 ``` 
 
 ## <a name="next-steps"></a>다음 단계

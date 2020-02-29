@@ -1,6 +1,6 @@
 ---
 title: Columnstore 인덱스 성능 향상
-description: 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘려 columnstore 인덱스가 각 행 그룹에 압축 되는 행 수를 최대화 합니다. Azure SQL Data Warehouse
+description: 각 행 그룹 내의 행 수를 최대화 하기 위해 메모리 요구 사항을 줄이거나 사용 가능한 메모리를 늘리십시오.
 services: sql-data-warehouse
 author: kevinvngo
 manager: craigg
@@ -10,17 +10,17 @@ ms.subservice: load-data
 ms.date: 03/22/2019
 ms.author: kevin
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: d5dba4e9a086502f638252a0ce2b16b4abeeb643
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.custom: azure-synapse
+ms.openlocfilehash: 11c0a168e4b2e8eac03eaebd37b208446082d1b4
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73685663"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197201"
 ---
 # <a name="maximizing-rowgroup-quality-for-columnstore"></a>columnstore의 행 그룹 품질 최대화
 
-행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘려서 columnstore 인덱스가 각 행 그룹에 압축 되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
+행 그룹 품질은 행 그룹의 행 수에 따라 결정됩니다. 사용 가능한 메모리를 늘리면 columnstore 인덱스가 각 행 그룹으로 압축되는 행 수를 최대화할 수 있습니다.  이 방법을 사용하여 columnstore 인덱스에 대한 압축 비율 및 쿼리 성능을 개선시킬 수 있습니다.
 
 ## <a name="why-the-rowgroup-size-matters"></a>행 그룹 크기가 중요한 이유
 columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 테이블을 검색하므로 각 행 그룹에서 행 수를 최대화하면 쿼리 성능이 향상됩니다. 행 그룹에 행 수가 많은 경우 데이터 압축이 향상되며 따라서 디스크에서 읽어올 데이터가 줄어듭니다.
@@ -34,13 +34,13 @@ columnstore 인덱스는 개별 행 그룹의 열 세그먼트를 검색하여 �
 
 대량 로드 또는 columnstore 인덱스 다시 작성 중에는 각 행 그룹에 대해 지정된 모든 행을 압축하기에 메모리가 부족할 수 있습니다. 메모리가 부족할 때 columnstore 인덱스는 columnstore로 압축이 성공할 수 있도록 행 그룹 크기를 자릅니다. 
 
-10,000개 이상의 행을 각 행 그룹으로 압축하기에 메모리가 부족한 경우 SQL Data Warehouse에서 오류를 생성합니다.
+1만 개 이상의 행을 각 행 그룹으로 압축 하기에 메모리가 부족 한 경우 오류가 생성 됩니다.
 
 대량 로드에 대한 자세한 내용은 [클러스터형 columnstore 인덱스로 대량 로드](https://msdn.microsoft.com/library/dn935008.aspx#Bulk )를 참조하세요.
 
 ## <a name="how-to-monitor-rowgroup-quality"></a>행 그룹 품질을 모니터링 하는 방법
 
-DMV _pdw_nodes_db_column_store_row_group_physical_stats ([_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) )에는의 행 수와 같은 유용한 정보를 노출 하는 SQL SQL Data Warehouse db와 일치 하는 뷰 정의가 포함 되어 있습니다. 행 그룹 및 트리밍 후 트리밍 이유. 다음 보기를 만들면 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
+DMV sys. dm_pdw_nodes_db_column_store_row_group_physical_stats ([dm_db_column_store_row_group_physical_stats](https://docs.microsoft.com/sql/relational-databases/system-dynamic-management-views/sys-dm-db-column-store-row-group-physical-stats-transact-sql) 는 SQL db와 일치 하는 뷰 정의를 포함 하 여 행 그룹의 행 수, 트리밍 시 트리밍 이유 등의 유용한 정보를 제공 합니다. 다음 뷰를 만들어 이 DMV를 간편하게 쿼리하여 행 그룹 잘라내기에 대한 정보를 가져올 수 있습니다.
 
 ```sql
 create view dbo.vCS_rg_physical_stats
@@ -81,15 +81,15 @@ To view an estimate of the memory requirements to compress a rowgroup of maximum
 한 개의 행 그룹을 압축하는 데 필요한 최대 메모리는 대략적으로 다음과 같습니다.
 
 - 72MB +
-- \#행 \* \#열 \* 8바이트 +
-- \#행 \* \#short-string-columns \* 32바이트 +
+- 8 바이트 + \* 행 \* \#열 \#
+- \#행 \* \#short 문자열 열 \* 32 바이트 +
 - 압축 사전인 경우 \#long-string-columns \* 16MB
 
 여기서 short-string-columns는 32바이트 이하의 문자열 데이터 형식을 사용하고 long-string-columns는 32바이트를 초과하는 문자열 데이터 형식을 사용합니다.
 
 긴 문자열은 텍스트 압축용으로 고안된 압축 방법으로 압축됩니다. 이 압축 방법은 *사전*을 사용하여 텍스트 패턴을 저장합니다. 사전의 최대 크기는 16MB입니다. 행 그룹에는 긴 문자열 각각에 대해 사전이 한 개만 있습니다.
 
-columnstore 메모리 요구 사항에 대한 자세한 내용은 [Azure SQL Data Warehouse 확장: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291) 비디오를 참조하세요.
+Columnstore 메모리 요구 사항에 대 한 자세한 내용은 [SQL 분석 크기 조정: 구성 및 지침](https://channel9.msdn.com/Events/Ignite/2016/BRK3291)비디오를 참조 하세요.
 
 ## <a name="ways-to-reduce-memory-requirements"></a>메모리 요구 사항을 줄이는 방법
 
@@ -109,7 +109,7 @@ columnstore 메모리 요구 사항에 대한 자세한 내용은 [Azure SQL Dat
 
 ### <a name="avoid-over-partitioning"></a>오버 분할 방지
 
-Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. SQL Data Warehouse에서는 데이터가 배포되고 각 배포가 분할되므로 파티션 수가 금방 증가합니다. 테이블에 너무 많은 파티션이 있으면 행 그룹을 채우기에 충분하지 않을 수 있습니다. 행이 부족하다고 해서 압축 중에 메모리 부족이 발생하지는 않지만 행 그룹에서 최적의 columnstore 쿼리 성능을 달성하지 못하게 됩니다.
+Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. Azure Synapse Analytics에서 데이터 웨어하우징의 경우 데이터가 분산 되 고 각 배포가 분할 되므로 파티션 수가 빠르게 증가 합니다. 테이블에 너무 많은 파티션이 있으면 행 그룹을 채우기에 충분하지 않을 수 있습니다. 행이 부족하다고 해서 압축 중에 메모리 부족이 발생하지는 않지만 행 그룹에서 최적의 columnstore 쿼리 성능을 달성하지 못하게 됩니다.
 
 오버 분할을 방지하는 다른 이유는 행을 분할된 테이블의 columnstore 인덱스에 로드하는 데 메모리 오버헤드가 있다는 점입니다. 로드하는 동안 많은 파티션이 들어오는 행을 수신할 수 있으며 각 파티션이 압축할 행을 충분히 포함할 때까지 행은 메모리에 보관됩니다. 너무 많은 파티션이 있으면 메모리 부족이 발생합니다.
 
@@ -117,7 +117,7 @@ Columnstore 인덱스는 파티션당 행 그룹을 하나 이상 만듭니다. 
 
 데이터베이스는 쿼리에서 모든 연산자 간 쿼리에 대한 메모리 부여를 공유합니다. 로드 쿼리에 복잡한 정렬 및 조인이 있는 경우 압축에 사용 가능한 메모리가 줄어듭니다.
 
-쿼리를 로드하는 데만 집중할 로드 쿼리를 디자인합니다. 데이터 변환을 실행해야 할 경우 로드 쿼리와 별도로 실행합니다. 예를 들어, 힙 테이블의 데이터를 준비하고 변환을 실행한 후 준비 테이블을 columnstore 인덱스에 로드합니다. 또한 데이터를 먼저 로드한 후 MPP 시스템을 사용하여 데이터를 변환할 수도 있습니다.
+쿼리를 로드하는 데만 집중할 로드 쿼리를 디자인합니다. 데이터 변환을 실행해야 할 경우 로드 쿼리와 별도로 실행합니다. 예를 들어, 힙 테이블의 데이터를 준비하고 변환을 실행한 후 스테이징 테이블을 columnstore 인덱스에 로드합니다. 또한 데이터를 먼저 로드한 후 MPP 시스템을 사용하여 데이터를 변환할 수도 있습니다.
 
 ### <a name="adjust-maxdop"></a>MAXDOP 조정
 
@@ -141,5 +141,4 @@ DWU 크기와 사용자 리소스 클래스를 함께 사용하여 사용자 쿼
 
 ## <a name="next-steps"></a>다음 단계
 
-SQL Data Warehouse의 성능을 향상시키기 위해 여러 가지 방법을 찾으려면 [성능 개요](sql-data-warehouse-overview-manage-user-queries.md)를 참조하세요.
-
+SQL Analytics의 성능을 향상 시킬 수 있는 다른 방법을 찾으려면 [성능 개요](sql-data-warehouse-overview-manage-user-queries.md)를 참조 하세요.

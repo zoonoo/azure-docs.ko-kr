@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 09/04/2019
 ms.author: mbaldwin
-ms.openlocfilehash: affa182145645b9a91801a9c6b38e682e6bd77ec
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 9bbbcc38116c5681e3b5c867690c296f60507ad1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720064"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196113"
 ---
 # <a name="about-keys-secrets-and-certificates"></a>키, 비밀 및 인증서 정보
 
@@ -69,7 +70,7 @@ Key Vault의 개체는 현재 식별자 또는 버전별 식별자를 사용하�
 
 `https://{keyvault-name}.vault.azure.net/{object-type}/{object-name}/{object-version}`  
 
-위치:  
+각 항목이 나타내는 의미는 다음과 같습니다.  
 
 |||  
 |-|-|  
@@ -330,7 +331,7 @@ Key Vault 인증서에 포함되는 특성은 다음과 같습니다.
 > [!Note] 
 > Key Vault 인증서가 만료되면 주소 지정 가능한 해당 키와 비밀이 작동하지 않게 됩니다.  
 
-#### <a name="tags"></a>태그들
+#### <a name="tags"></a>Tags
 
  클라이언트에서 지정하는 키 값 쌍의 사전이며, 키와 비밀의 태그와 비슷합니다.  
 
@@ -363,14 +364,14 @@ Key Vault 인증서를 처음부터 새로 만드는 경우 정책을 제공해�
 
 |**X509 키 사용 플래그**|**Key Vault 키 작업**|**기본 동작**|
 |----------|--------|--------|
-|DataEncipherment|encrypt, decrypt| 해당 없음 |
-|DecipherOnly|decrypt| 해당 없음  |
+|DataEncipherment|encrypt, decrypt| N/A |
+|DecipherOnly|decrypt| N/A  |
 |DigitalSignature|sign, verify| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|EncipherOnly|encrypt| 해당 없음 |
-|KeyCertSign|sign, verify|해당 없음|
+|EncipherOnly|encrypt| N/A |
+|KeyCertSign|sign, verify|N/A|
 |KeyEncipherment|wrapKey, unwrapKey| 인증서를 만들 때 사용하도록 지정하지 않은 Key Vault 기본값 | 
-|NonRepudiation|sign, verify| 해당 없음 |
-|crlsign|sign, verify| 해당 없음 |
+|NonRepudiation|sign, verify| N/A |
+|crlsign|sign, verify| N/A |
 
 ### <a name="certificate-issuer"></a>인증서 발급자
 
@@ -473,7 +474,7 @@ Key Vault는 Azure Storage 계정 키를 관리할 수 있습니다.
 
 자세한 내용은 [Key Vault REST API 참조의 스토리지 계정 작업](/rest/api/keyvault)을 참조하세요. 권한 설정에 대한 내용은 [자격 증명 모음 - 만들기 또는 업데이트](/rest/api/keyvault/vaults/createorupdate) 및 [자격 증명 모음 - 액세스 정책 업데이트](/rest/api/keyvault/vaults/updateaccesspolicy)를 참조하세요.
 
-## <a name="see-also"></a>참고 항목
+## <a name="see-also"></a>관련 항목
 
 - [인증, 요청 및 응답](authentication-requests-and-responses.md)
 - [Key Vault 개발자 가이드](/azure/key-vault/key-vault-developers-guide)

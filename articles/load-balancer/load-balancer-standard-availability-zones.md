@@ -13,82 +13,31 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 08/07/2019
 ms.author: allensu
-ms.openlocfilehash: 0d61ad33b97b97c3a45334704544d72809e56848
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 5a65982c5c13eb4e4273efcfd8d14910b0f35572
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76715264"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197150"
 ---
 # <a name="standard-load-balancer-and-availability-zones"></a>표준 Load Balancer 및 가용성 영역
 
 Azure 표준 Load Balancer는 [가용성 영역](../availability-zones/az-overview.md) 시나리오를 지원 합니다. 리소스를 영역에 맞추고 영역에 분산 하 여 종단 간 시나리오의 가용성을 최적화 하기 위해 표준 Load Balancer를 사용할 수 있습니다.  가용성 영역, 현재 가용성 영역을 지 원하는 지역 및 기타 관련 개념 및 제품에 대 한 지침은 [가용성 영역](../availability-zones/az-overview.md) 을 검토 하세요. 표준 Load Balancer와 함께 사용 가능 영역은 다양 한 시나리오를 만들 수 있는 광범위 하 고 유연한 기능 집합입니다.  이러한 [개념](#concepts)과 기본 시나리오 [디자인 지침](#design)을 이해하려면 이 문서를 검토하세요.
 
->[!IMPORTANT]
->지역별 관련 정보를 포함 하 여 관련 항목에 대 한 [가용성 영역](../availability-zones/az-overview.md) 를 검토 합니다.
-
 ## <a name="concepts"></a> Load Balancer에 적용된 가용성 영역 개념
 
-Load Balancer 리소스와 실제 인프라 사이에는 직접적인 관계가 없습니다. 따라서 Load Balancer를 만들어도 인스턴스가 만들어지지 않습니다. Load Balancer 리소스는 만들려는 시나리오를 달성하기 위해 Azure에서 미리 빌드된 다중 테넌트 인프라를 프로그래밍해야 하는 방법을 표현할 수 있는 개체입니다.  단일 Load Balancer 리소스가 여러 가용성 영역에서 인프라의 프로그래밍을 제어할 수 있는 반면, 영역 중복 서비스가 고객 관점에서 하나의 리소스로 표시 되기 때문에이는 가용성 영역의 컨텍스트에서 중요 합니다.  
-
-Load Balancer 리소스 자체는 지역이며 영역이 될 수 없습니다.  그리고 VNet과 서브넷은 항상 지역이며 영역이 될 수 없습니다. 구성할 수 있는 항목의 세분성은 프런트 엔드, 규칙 및 백 엔드 풀 정의의 각 구성에 의해 제한 됩니다.
-
+Load Balancer 리소스 자체는 지역이며 영역이 될 수 없습니다. 구성할 수 있는 항목의 세분성은 프런트 엔드, 규칙 및 백 엔드 풀 정의의 각 구성에 의해 제한 됩니다.
 가용성 영역의 컨텍스트에서 Load Balancer 규칙의 동작 및 속성은 영역 중복 또는 영역으로 설명 됩니다.  영역 중복 및 구역은 속성의 영역 조건(zonality)을 나타냅니다.  Load Balancer 컨텍스트에서 영역 중복은 항상 *여러 영역* 을 의미 하 고 영역에는 서비스를 *단일 영역*으로 격리 하는 것을 의미 합니다.
-
 공용 및 내부 Load Balancer 모두는 영역 중복 시나리오 및 영역 시나리오를 지원하며, 필요에 따라 둘 다 영역을 통해 트래픽을 보낼 수 있습니다(*영역 간 부하 분산*). 
 
 ### <a name="frontend"></a>프런트 엔드
 
 Load Balancer 프런트 엔드는 가상 네트워크 리소스의 서브넷 내에서 공용 IP 주소 리소스 또는 개인 IP 주소를 참조 하는 프런트 엔드 IP 구성입니다.  서비스가 노출되는 부하 분산된 엔드포인트를 형성합니다.
+Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있는 규칙을 동시에 포함할 수 있습니다. 공용 IP 리소스 또는 개인 IP 주소가 영역에 대해 보장 되는 경우 영역 조건을 (또는 그 부족)는 변경 되지 않습니다.  공용 IP 또는 개인 IP 주소 프런트 엔드의 영역 조건을를 변경 하거나 생략 하려면 적절 한 영역에 공용 IP를 다시 만들어야 합니다.  가용성 영역은 여러 프런트 엔드에 대 한 제약 조건을 변경 하지 않습니다 .이 기능에 대 한 자세한 내용은 [Load Balancer에 대해 여러 프런트 엔드](load-balancer-multivip-overview.md) 을 검토 합니다.
 
-Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있는 규칙을 동시에 포함할 수 있습니다. 
+#### <a name="zone-redundant"></a>영역 중복 
 
-공용 IP 리소스 또는 개인 IP 주소가 영역에 대해 보장 되는 경우 영역 조건을 (또는 그 부족)는 변경 되지 않습니다.  공용 IP 또는 개인 IP 주소 프런트 엔드의 영역 조건을를 변경 하거나 생략 하려면 적절 한 영역에 공용 IP를 다시 만들어야 합니다.  가용성 영역은 여러 프런트 엔드에 대 한 제약 조건을 변경 하지 않습니다 .이 기능에 대 한 자세한 내용은 [Load Balancer에 대해 여러 프런트 엔드](load-balancer-multivip-overview.md) 을 검토 합니다.
-
-#### <a name="zone-redundant-by-default"></a>기본으로서의 중복 영역
-
-가용성 영역이 있는 지역에서 표준 Load Balancer 프런트 엔드는 기본적으로 영역 중복입니다.  영역 중복은 모든 인바운드 또는 아웃 바운드 흐름이 단일 IP 주소를 사용 하 여 한 지역의 여러 가용성 영역에서 동시에 제공 됨을 의미 합니다. DNS 중복 구성표는 필요하지 않습니다. 단일 프런트 엔드 IP 주소는 영역 오류에 남아 있을 수 있으며 영역에 관계 없이 모든 (영향을 받지 않는) 백 엔드 풀 멤버에 연결 하는 데 사용할 수 있습니다. 하나 이상의 가용성 영역이 실패할 수 있으며, 지역에서 한 영역이 정상으로 유지 되는 한 데이터 경로가 생존 합니다. 프런트 엔드의 단일 IP 주소는 여러 가용성 영역에서 여러 독립 인프라 배포에 의해 동시에 제공 됩니다.  이는 비충돌 데이터 경로를 의미 하지 않지만 재시도 또는 재설정는 영역 오류의 영향을 받지 않는 다른 영역에서 성공 합니다.   
-
-다음 발췌는 공용 표준 Load Balancer에 사용할 영역 중복 공용 IP 주소를 공용 IP로 정의 하는 방법을 보여 주는 그림입니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-다음 발췌는 내부 표준 Load Balancer에 대해 영역 중복 프런트 엔드 IP 주소를 정의 하는 방법을 보여 주는 그림입니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zone_redundant_frontend",
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-위의 발췌는 전체 템플릿이 아니지만 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
+가용성 영역이 있는 지역에서 표준 Load Balancer 프런트 엔드는 영역 중복 될 수 있습니다.  영역 중복은 모든 인바운드 또는 아웃 바운드 흐름이 단일 IP 주소를 사용 하 여 한 지역의 여러 가용성 영역에서 동시에 제공 됨을 의미 합니다. DNS 중복 구성표는 필요하지 않습니다. 단일 프런트 엔드 IP 주소는 영역 오류에 남아 있을 수 있으며 영역에 관계 없이 모든 (영향을 받지 않는) 백 엔드 풀 멤버에 연결 하는 데 사용할 수 있습니다. 하나 이상의 가용성 영역이 실패할 수 있으며, 지역에서 한 영역이 정상으로 유지 되는 한 데이터 경로가 생존 합니다. 프런트 엔드의 단일 IP 주소는 여러 가용성 영역에서 여러 독립 인프라 배포에 의해 동시에 제공 됩니다.  이는 비충돌 데이터 경로를 의미 하지 않지만 재시도 또는 재설정는 영역 오류의 영향을 받지 않는 다른 영역에서 성공 합니다.   
 
 #### <a name="optional-zone-isolation"></a>선택적 영역 격리
 
@@ -101,49 +50,6 @@ Load Balancer 리소스는 영역 중복 및 영역 중복 프런트 엔드 있�
 공용 Load Balancer 프런트 엔드의 경우 각 규칙에서 사용 하는 프런트 엔드 IP 구성에서 참조 하는 공용 IP 리소스에 *영역* 매개 변수를 추가 합니다.
 
 내부 Load Balancer 프런트 엔드의 경우 내부 Load Balancer 프런트 엔드 IP 구성에 *zones* 매개 변수를 추가합니다. 영역 프런트 엔드는 Load Balancer에서 특정 영역에 대한 서브넷의 IP 주소를 보장하도록 합니다.
-
-다음 발췌는 가용성 영역 1에서 영역 표준 공용 IP 주소를 정의 하는 방법을 보여 주는 그림입니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/publicIPAddresses",
-            "name": "public_ip_standard",
-            "location": "region",
-            "zones": [ "1" ],
-            "sku":
-            {
-                "name": "Standard"
-            },
-```
-
-다음 발췌는 가용성 영역 1에서 내부 표준 Load Balancer 프런트 엔드를 정의 하는 방법을 보여 주는 그림입니다. 구성에서 기존 Resource Manager 템플릿을 사용하는 경우 이러한 템플릿에 **sku** 섹션을 추가합니다. 또한 자식 리소스에 대한 프런트 엔드 IP 구성에 **zones** 속성을 정의합니다.
-
-```json
-            "apiVersion": "2017-08-01",
-            "type": "Microsoft.Network/loadBalancers",
-            "name": "load_balancer_standard",
-            "location": "region",
-            "sku":
-            {
-                "name": "Standard"
-            },
-            "properties": {
-                "frontendIPConfigurations": [
-                    {
-                        "name": "zonal_frontend_in_az1",
-                        "zones": [ "1" ],
-                        "properties": {
-                            "subnet": {
-                                "Id": "[variables('subnetRef')]"
-                            },
-                            "privateIPAddress": "10.0.0.6",
-                            "privateIPAllocationMethod": "Static"
-                        }
-                    },
-                ],
-```
-
-위의 발췌는 전체 템플릿이 아니지만 가용성 영역 속성을 표현 하는 방법을 보여 주기 위한 것입니다.  이러한 문을 템플릿에 포함 해야 합니다.
 
 ### <a name="cross-zone-load-balancing"></a>영역 간 부하 분산
 
@@ -201,14 +107,6 @@ Load Balancer를 사용하면 단일 IP를 영역 중복 프런트 엔드로 간
   - 영역이 반환되면 애플리케이션에서 안전하게 수렴하는 방법을 이해하고 있습니까?
 
 [Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/) 을 검토 하 여 응용 프로그램의 복원 력을 오류 시나리오로 향상 시킵니다.
-
-### <a name="zonalityguidance"></a> 영역 중복 및 영역
-
-영역 중복은 영역을 구분 하지 않는 옵션 및 서비스에 대 한 단일 IP 주소를 사용 하는 동일한 복원 력 옵션으로 간단 하 게 제공할 수 있습니다.  이에 따라 복잡성을 줄일 수 있습니다.  영역 중복은 영역 간 이동성을 가지고 있으며 모든 영역의 리소스에서 안전하게 사용할 수도 있습니다.  또한 가용성 영역을 사용 하지 않는 지역에서 미래를 증명 하며, 지역에서 가용성 영역을 확보 한 후 필요한 변경 내용을 제한할 수 있습니다.  영역 중복 IP 주소 또는 프런트 엔드에 대 한 구성 구문은 가용성 영역이 없는 모든 지역에서 성공 합니다. 영역이 리소스의 zones: 속성 내에 지정 되지 않습니다.
-
-영역에 대 한 명시적 보증을 영역에 제공할 수 있으며 영역 상태와의 상태를 명시적으로 공유 합니다. 영역 IP 주소 프런트 엔드 또는 영역 내부 Load Balancer 프런트 엔드를 사용 하 여 Load Balancer 규칙을 만드는 것은 특히 연결 된 리소스가 동일한 영역에 있는 영역 가상 머신 인 경우에 적합할 수 있습니다.  또는 응용 프로그램에 리소스가 있는 영역에 대 한 명시적 지식이 필요한 경우에는 별도의 영역에서 명시적으로 가용성에 대해 설명 하고자 할 수 있습니다.  영역 전체에서 분산된 엔드투엔드 서비스에 대해 여러 영역 프런트 엔드를 공개하도록 선택할 수 있습니다(즉, 여러 영역 가상 머신 확장 집합에 대해 영역 프런트 엔드별).  그리고 영역 프런트 엔드가 공용 IP 주소인 경우, [Traffic Manager](../traffic-manager/traffic-manager-overview.md)를 사용하여 서비스를 공개하는 데 이러한 여러 영역 프런트 엔드를 사용할 수 있습니다.  또는 여러 영역 프런트 엔드를 사용하여 타사 모니터링 솔루션을 통해 영역별 상태 및 성능 정보를 얻고, 영역 중복 프런트 엔드를 사용하여 전체 서비스를 공개할 수 있습니다. 동일한 영역에 맞게 조정된 영역 프런트 엔드가 있는 영역 리소스만 처리하고, 영역 리소스에 잠재적으로 위험한 영역 간 시나리오는 방지해야 합니다.  영역 리소스는 가용성 영역이 존재 하는 영역에만 존재 합니다.
-
-서비스 아키텍처를 알지 못하면 다른 서비스보다 더 나은 선택이라는 일반적인 지침이 없습니다.  [Azure 클라우드 디자인 패턴](https://docs.microsoft.com/azure/architecture/patterns/) 을 검토 하 여 응용 프로그램의 복원 력을 오류 시나리오로 향상 시킵니다.
 
 ## <a name="next-steps"></a>다음 단계
 - [가용성 영역](../availability-zones/az-overview.md)에 대해 자세히 알아보기

@@ -1,6 +1,6 @@
 ---
 title: 분산 테이블 디자인 지침
-description: Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+description: SQL Analytics에서 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 services: sql-data-warehouse
 author: XiaoyuMSFT
 manager: craigg
@@ -10,23 +10,23 @@ ms.subservice: development
 ms.date: 04/17/2018
 ms.author: xiaoyul
 ms.reviewer: igorstan
-ms.custom: seo-lt-2019
-ms.openlocfilehash: 025c60485625a4ab4d2e29b1e81d8574f6187b93
-ms.sourcegitcommit: b1a8f3ab79c605684336c6e9a45ef2334200844b
+ms.custom: azure-synapse
+ms.openlocfilehash: 3a07dd6ccd5d0bf3440df21b2af4e67cbcf663c9
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74049126"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199447"
 ---
-# <a name="guidance-for-designing-distributed-tables-in-azure-sql-data-warehouse"></a>Azure SQL Data Warehouse의 분산 테이블 디자인 지침
-Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대한 권장 사항입니다.
+# <a name="guidance-for-designing-distributed-tables-in-sql-analytics"></a>SQL Analytics에서 분산 테이블 디자인에 대 한 지침
+SQL Analytics에서 해시 분산 테이블 및 라운드 로빈 분산 테이블 디자인에 대 한 권장 사항입니다.
 
-이 문서에서는 사용자가 SQL Data Warehouse의 데이터 배포 및 데이터 이동 개념에 익숙하다고 가정합니다.  자세한 내용은 [Azure SQL Data Warehouse-MPP (대규모 Parallel Processing) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요. 
+이 문서에서는 SQL Analytics의 데이터 배포 및 데이터 이동 개념에 대해 잘 알고 있다고 가정 합니다.  자세한 내용은 [SQL Analytics 대규모 병렬 처리 (MPP) 아키텍처](massively-parallel-processing-mpp-architecture.md)를 참조 하세요. 
 
 ## <a name="what-is-a-distributed-table"></a>분산 테이블이란?
 분산 테이블은 단일 테이블로 나타나지만 실제로는 행이 60개의 배포에 저장됩니다. 행은 해시 또는 라운드 로빈 알고리즘으로 분산됩니다.  
 
-이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택에 따라 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
+이 문서에서는 큰 팩트 테이블의 쿼리 성능을 향상시키는 **해시 분산 테이블**에 중점을 둡니다. **라운드 로빈 테이블**은 로드 속도를 향상시키는 데 유용합니다. 이러한 디자인 선택이 쿼리 및 로드 성능 향상에 상당한 영향을 미칩니다.
 
 또 다른 Table Storage 옵션은 모든 컴퓨팅 노드에서 작은 테이블을 복제하는 것입니다. 자세한 내용은 [복제된 테이블에 대한 디자인 지침](design-guidance-for-replicated-tables.md)을 참조하세요. 세 가지 옵션 중 빨리 선택하려면 [테이블 개요](sql-data-warehouse-tables-overview.md)의 분산 테이블을 참조하세요. 
 
@@ -34,7 +34,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 
 - 테이블이 얼마나 큰가요?   
 - 테이블을 얼마나 자주 새로 고치나요?   
-- 데이터 웨어하우스에 팩트 및 차원 테이블이 있나요?   
+- SQL Analytics 데이터베이스에 팩트 및 차원 테이블이 있나요?   
 
 
 ### <a name="hash-distributed"></a>해시 분산
@@ -42,7 +42,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 
 ![분산 테이블](media/sql-data-warehouse-distributed-data/hash-distributed-table.png "분산 테이블")  
 
-동일한 값은 항상 동일한 배포에 해시하므로 데이터 웨어하우스에는 행 위치에 대한 기본 제공 정보가 있습니다. SQL Data Warehouse는 이 정보를 사용해 쿼리 중 데이터 이동을 최소화하여 쿼리 성능을 향상시킵니다. 
+동일한 값은 항상 동일한 배포로 해시 되므로 SQL Analytics는 행 위치에 대 한 기본 제공 정보를 제공 합니다. SQL Analytics는 쿼리 중 데이터 이동을 최소화 하기 위해이 정보를 사용 하 여 쿼리 성능을 향상 시킵니다. 
 
 해시 분산 테이블은 별모양 스키마의 큰 팩트 테이블에 적합합니다. 행 수가 매우 많은 경우에도 여전히 높은 성능을 유지할 수 있습니다. 물론 분산 시스템이 제공하도록 디자인된 성능을 얻는 데 도움이 되는 디자인 고려 사항이 있습니다. 이 문서에 설명되어 있는 이러한 고려 사항 중 하나는 적합한 배포 열을 선택하는 것입니다. 
 
@@ -52,7 +52,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 - 테이블에 삽입, 업데이트 및 삭제 작업이 빈번합니다. 
 
 ### <a name="round-robin-distributed"></a>라운드 로빈 분산
-라운드 로빈 분산 테이블은 모든 배포에 테이블 행을 균일하게 배포합니다. 행은 배포에 무작위로 할당됩니다. 해시 분산 테이블과 달리 값이 동일한 행이 동일한 배포에 할당되지 않습니다. 
+라운드 로빈 분산 테이블은 모든 배포에 테이블 행을 균일하게 배포합니다. 행은 배포에 무작위로 할당됩니다. 해시 분산 테이블과 달리 값이 동일한 행은 동일한 배포에 할당된다는 보장은 없습니다. 
 
 결과적으로 경우에 따라 시스템은 쿼리를 해결하기 위해 먼저 데이터 이동 작업을 호출하여 데이터를 좀 더 나은 방식으로 구성해야 합니다.  이 추가 단계로 인해 쿼리 속도가 느려질 수 있습니다. 예를 들어 일반적으로 라운드 로빈 테이블을 조인하려면 행을 다시 섞어야 하므로 성능이 저하됩니다.
 
@@ -65,7 +65,7 @@ Azure SQL Data Warehouse의 해시 분산 테이블 및 라운드 로빈 분산 
 - 조인이 쿼리의 다른 조인보다 덜 중요한 경우
 - 테이블이 임시 준비 테이블인 경우
 
-[Azure SQL Data Warehouse에 뉴욕 택시 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) 자습서에서 라운드 로빈 준비 테이블로 데이터를 로드하는 예제를 제공합니다.
+[New 뉴욕 택시 데이터 로드](load-data-from-azure-blob-storage-using-polybase.md#load-the-data-into-your-data-warehouse) 자습서에서는 SQL Analytics에서 라운드 로빈 준비 테이블로 데이터를 로드 하는 예를 제공 합니다.
 
 
 ## <a name="choosing-a-distribution-column"></a>배포 열 선택
@@ -89,7 +89,7 @@ WITH
 ;
 ``` 
 
-배포 열의 값에 따라 행의 분산 방법이 결정되므로 배포 열을 선택하는 것은 중요한 디자인 결정 사항입니다. 최상의 선택은 여러 가지 요인에 따라 달라지며 일반적으로 장단점이 있습니다. 그러나 처음에 가장 적합한 열을 선택하지 않으면 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 다른 배포 열이 있는 테이블을 다시 만들 수 있습니다. 
+배포 열의 값에 따라 행의 분산 방법이 결정되므로 배포 열을 선택하는 것은 중요한 디자인 결정 사항입니다. 최상의 선택은 여러 가지 요인에 따라 달라지며 일반적으로 장단점이 있습니다. 그러나 처음에 가장 적합한 열을 선택하지 않은 경우 [CREATE TABLE AS SELECT (CTAS)](/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)를 사용하여 다른 배포 열이 있는 테이블을 다시 만들 수 있습니다. 
 
 ### <a name="choose-a-distribution-column-that-does-not-require-updates"></a>업데이트하지 않아도 되는 배포 열 선택
 행을 삭제하고 업데이트된 값으로 새 행을 삽입하지 않는 한 배포 열을 업데이트할 수 없습니다. 따라서 고정 값을 가진 열을 선택합니다. 
@@ -109,7 +109,7 @@ WITH
 
 ### <a name="choose-a-distribution-column-that-minimizes-data-movement"></a>데이터 이동을 최소화하는 배포 열 선택
 
-올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화하는 데 도움이 되는 배포 열을 선택하는 것이 SQL Data Warehouse의 성능을 최적화하기 위한 가장 중요한 전략 중 하나입니다.
+올바른 쿼리 결과를 얻기 위해 쿼리에서 데이터를 하나의 컴퓨팅 노드에서 다른 컴퓨팅 노드로 이동할 수 있습니다. 일반적으로 데이터 이동은 분산 테이블에서 쿼리 조인 및 집계 시에 발생합니다. 데이터 이동을 최소화 하는 데 도움이 되는 배포 열을 선택 하는 것은 SQL Analytics 데이터베이스의 성능을 최적화 하기 위한 가장 중요 한 전략 중 하나입니다.
 
 데이터 이동을 최소화하려면 다음과 같은 배포 열을 선택합니다.
 
@@ -137,7 +137,7 @@ DBCC PDW_SHOWSPACEUSED('dbo.FactInternetSales');
 데이터 기울이기가 10%가 넘는 테이블을 식별하려면:
 
 1. [테이블 개요](sql-data-warehouse-tables-overview.md#table-size-queries) 문서에 나온 dbo.vTableSizes 뷰를 만듭니다.  
-2. 다음 쿼리를 실행합니다.
+2. 다음과 같은 쿼리를 실행합니다.
 
 ```sql
 select *
@@ -168,7 +168,7 @@ order by two_part_name, row_count
 
 
 ## <a name="resolve-a-distribution-column-problem"></a>배포 열 문제 해결
-모든 경우의 데이터 기울이기를 해결할 필요는 없습니다. 데이터 분산은 데이터 기울이기 최소화와 데이터 이동 최소화 간의 적절한 균형을 찾는 문제입니다. 데이터 기울이기 및 데이터 이동 둘 다를 항상 최소화할 수 있는 것은 아닙니다. 데이터 이동을 최소화할 경우의 이점은 데이터 기울이기의 영향을 능가하는 경우도 있습니다.
+모든 경우의 데이터 기울이기를 해결할 필요는 없습니다. 데이터 분산은 데이터 기울이기 최소화와 데이터 이동 최소화 간의 적절한 균형을 찾는 문제입니다. 데이터 기울이기 및 데이터 이동 둘 다를 항상 최소화할 수 있는 것은 아닙니다. 데이터 이동을 최소화할 경우의 이점이 데이터 기울이기의 영향을 능가하는 경우도 있습니다.
 
 테이블의 데이터 오차를 해결해야 하는지 결정하려면 워크로드의 데이터 볼륨 및 쿼리를 최대한 이해해야 합니다. [쿼리 모니터링](sql-data-warehouse-manage-monitor.md) 문서의 단계를 사용하여 쿼리 성능에 대한 기울이기 영향을 모니터링할 수 있습니다. 특히 개별 배포에서 큰 쿼리가 완료되는 데 소요되는 시간을 확인합니다.
 
@@ -217,7 +217,7 @@ RENAME OBJECT [dbo].[FactInternetSales_CustomerKey] TO [FactInternetSales];
 
 분산 테이블을 만들려면 다음 문 중 하나를 사용합니다.
 
-- [CREATE TABLE(Azure SQL Data Warehouse)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
-- [CREATE TABLE AS SELECT(Azure SQL Data Warehouse](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
+- [CREATE TABLE (SQL 분석)](https://docs.microsoft.com/sql/t-sql/statements/create-table-azure-sql-data-warehouse)
+- [SELECT AS CREATE TABLE (SQL Analytics)](https://docs.microsoft.com/sql/t-sql/statements/create-table-as-select-azure-sql-data-warehouse)
 
 

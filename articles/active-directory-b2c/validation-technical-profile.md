@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 유효성 검사 기술 프로필 정의
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 유효성 검사 기술 프로필을 사용 하 여 클레임의 유효성을 검사 합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 09/10/2018
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: facef1e1288f2a64872efbf37a9a31fa05244a7e
-ms.sourcegitcommit: 5b9287976617f51d7ff9f8693c30f468b47c2141
+ms.openlocfilehash: 65a2eab05e7c475431602d9c2d3fc44b59bbc8f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/09/2019
-ms.locfileid: "74950802"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78185729"
 ---
 # <a name="define-a-validation-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C의 사용자 지정 정책에 유효성 검사 기술 프로필 정의
 
@@ -51,13 +51,13 @@ ms.locfileid: "74950802"
 | ------- | ----------- | ----------- |
 | ValidationTechnicalProfile | 1:n | 참조하는 기술 프로필의 출력 클레임 일부 또는 전부의 유효성을 검사하는 데 사용되는 기술 프로필입니다. |
 
-**ValidationTechnicalProfile** 요소에는 다음 특성이 포함됩니다.
+**ValidationTechnicalProfile** 요소에 포함되는 특성은 다음과 같습니다.
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| ReferenceId | yes | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
-|ContinueOnError|아닙니다.| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
-|ContinueOnSuccess | 아닙니다. | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
+| ReferenceId | 예 | 정책 또는 부모 정책에 이미 정의된 기술 프로필의 식별자입니다. |
+|ContinueOnError|아니요| 이 유효성 검사 기술 프로필에서 오류가 발생 하는 경우 후속 유효성 검사 기술 프로필의 유효성 검사를 계속할지 여부를 나타내는입니다. 가능한 값: `true` 또는 `false`(기본값, 추가 유효성 프로필의 처리가 중지되고 오류가 반환됨) |
+|ContinueOnSuccess | 아니요 | 이 유효성 검사 기술 프로필이 성공하는 경우 후속 유효성 검사 프로필의 유효성을 계속 검사할지 여부를 나타냅니다. 가능한 값은 `true` 또는 `false`입니다. 기본값은 `true`입니다. 즉 추가 유효성 검사 프로필의 처리가 계속됩니다. |
 
 **ValidationTechnicalProfile** 요소에 에 포함되는 요소는 다음과 같습니다.
 
@@ -69,15 +69,15 @@ ms.locfileid: "74950802"
 
 | 특성 | 필수 | 설명 |
 | --------- | -------- | ----------- |
-| `Type` | yes | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
-| `ExecuteActionsIf` | yes | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
+| `Type` | 예 | 사전 조건에 대해 수행할 검사 또는 쿼리의 유형입니다. 지정된 클레임이 사용자의 현재 클레임 집합에 있는 경우 작업을 수행하도록 보장하기 위해 `ClaimsExist`가 지정되거나, 지정된 클레임이 있고 해당 값이 지정된 값과 같은 경우 작업을 수행하도록 보장하기 위해 `ClaimEquals`가 지정됩니다. |
+| `ExecuteActionsIf` | 예 | 테스트가 true 또는 false인 경우 사전 조건의 작업을 수행해야 하는지 여부를 나타냅니다. |
 
 **Precondition** 요소에 포함되는 요소는 다음과 같습니다.
 
 | 요소 | 발생 수 | 설명 |
 | ------- | ----------- | ----------- |
-| Value | 1:n | 검사에 사용되는 데이터입니다. 이 검사 유형이 `ClaimsExist`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 검사 유형이 `ClaimEquals`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 한편 다른 값 요소에는 검사할 값이 포함됩니다.|
-| 실행력 | 1:1 | 오케스트레이션 단계 내의 사전 조건 검사가 true인 경우 수행해야 하는 작업입니다. **Action**의 값은 `SkipThisValidationTechnicalProfile`로 설정됩니다. 연결된 유효성 검사 기술 프로필을 실행하지 않도록 지정합니다. |
+| 값 | 1:n | 검사에 사용되는 데이터입니다. 이 검사 유형이 `ClaimsExist`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 검사 유형이 `ClaimEquals`인 경우 이 필드는 쿼리할 ClaimTypeReferenceId를 지정합니다. 한편 다른 값 요소에는 검사할 값이 포함됩니다.|
+| 작업 | 1:1 | 오케스트레이션 단계 내의 사전 조건 검사가 true인 경우 수행해야 하는 작업입니다. **Action**의 값은 `SkipThisValidationTechnicalProfile`로 설정됩니다. 연결된 유효성 검사 기술 프로필을 실행하지 않도록 지정합니다. |
 
 ### <a name="example"></a>예제
 

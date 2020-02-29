@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 01/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: b023b49955f642f1cafcb5f26ae67e657718bcd6
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: b84084dafe79a8caa9cdb70bc201f68834079845
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77148235"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196079"
 ---
 # <a name="authentication-requests-and-responses"></a>인증, 요청 및 응답
 
@@ -114,5 +115,5 @@ WWW-Authenticate: Bearer authorization="…", resource="…"
 
 -   리소스: 권한 부여 요청에 사용할 리소스의 이름 (https://vault.azure.net)입니다.  
 
-## <a name="see-also"></a>참고 항목  
+## <a name="see-also"></a>관련 항목  
  [키, 비밀 및 인증서에 대한 정보](about-keys-secrets-and-certificates.md)

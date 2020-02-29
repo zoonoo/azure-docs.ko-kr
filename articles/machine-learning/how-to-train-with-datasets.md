@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 09/25/2019
-ms.openlocfilehash: 2e48b47967e29a421a96bb09dd17b2cdcdbaff3c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: ece8ee77f57dc3252c70c3f8b49dcee72967dc9e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77580535"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198068"
 ---
 # <a name="train-with-datasets-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 집합으로 학습
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -29,11 +29,11 @@ ms.locfileid: "77580535"
 
 Azure Machine Learning 데이터 집합은 [평가기](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.estimator?view=azure-ml-py), 하이퍼 [드라이브](https://docs.microsoft.com/python/api/azureml-train-core/azureml.train.hyperdrive?view=azure-ml-py) 및 [Azure Machine Learning 파이프라인과](how-to-create-your-first-pipeline.md) [같은 Azure Machine Learning](https://docs.microsoft.com/python/api/azureml-core/azureml.core.scriptrun?view=azure-ml-py)교육 제품과 원활한 통합을 제공 합니다.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 데이터 집합을 만들고 학습 하려면 다음이 필요 합니다.
 
-* Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
+* Azure 구독. Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
 * [Azure Machine Learning 작업 영역](how-to-manage-workspace.md)입니다.
 
@@ -106,11 +106,28 @@ experiment_run.wait_for_completion(show_output=True)
 학습을 위해 계산 대상에서 데이터 파일을 사용할 수 있도록 하려면 [Filedataset](https://docs.microsoft.com/python/api/azureml-core/azureml.data.file_dataset.filedataset?view=azure-ml-py) 을 사용 하 여 참조 되는 파일을 탑재 하거나 다운로드 합니다.
 
 ### <a name="mount-vs-download"></a>탑재 및 다운로드
-데이터 집합을 탑재 하는 경우 데이터 집합에서 참조 하는 파일을 디렉터리 (탑재 지점)에 연결 하 여 계산 대상에서 사용할 수 있도록 합니다. 탑재는 Azure Machine Learning 계산, 가상 컴퓨터 및 HDInsight를 포함 하 여 Linux 기반 계산에 대해 지원 됩니다. 데이터 크기가 계산 디스크 크기를 초과 하거나 스크립트에서 데이터 집합의 일부를 로드 하는 경우에는 탑재를 권장 합니다. 디스크 크기 보다 큰 데이터 집합을 다운로드 하면 오류가 발생 하 고 탑재는 처리 시 스크립트에서 사용 하는 데이터의 일부만 로드 합니다. 
-
-데이터 집합을 다운로드 하면 데이터 집합에서 참조 하는 모든 파일이 계산 대상으로 다운로드 됩니다. 다운로드는 모든 계산 형식에 대해 지원 됩니다. 스크립트에서 데이터 집합에서 참조 하는 모든 파일을 처리 하 고 계산 디스크가 전체 데이터 집합에 적합 한 경우 storage 서비스에서 데이터를 스트리밍하는 오버 헤드를 방지 하기 위해를 다운로드 하는 것이 좋습니다.
 
 모든 형식의 파일을 탑재 하거나 다운로드 하는 것은 Azure Blob storage, Azure Files, Azure Data Lake Storage Gen1, Azure Data Lake Storage Gen2, Azure SQL Database 및 Azure Database for PostgreSQL에서 만든 데이터 집합에 대해 지원 됩니다. 
+
+데이터 집합을 탑재 하는 경우 데이터 집합에서 참조 하는 파일을 디렉터리 (탑재 지점)에 연결 하 여 계산 대상에서 사용할 수 있도록 합니다. 탑재는 Azure Machine Learning 계산, 가상 컴퓨터 및 HDInsight를 포함 하 여 Linux 기반 계산에 대해 지원 됩니다. 데이터 집합을 다운로드 하면 데이터 집합에서 참조 하는 모든 파일이 계산 대상으로 다운로드 됩니다. 다운로드는 모든 계산 형식에 대해 지원 됩니다. 
+
+스크립트가 데이터 집합에서 참조 하는 모든 파일을 처리 하 고 계산 디스크가 전체 데이터 집합에 적합 한 경우 storage 서비스에서 데이터를 스트리밍하는 오버 헤드를 방지 하기 위해를 다운로드 하는 것이 좋습니다. 데이터 크기가 계산 디스크 크기를 초과 하는 경우 다운로드를 수행할 수 없습니다. 이 시나리오에서는 스크립트에서 사용 하는 데이터 파일만 처리할 때 로드 되므로 탑재 하는 것이 좋습니다.
+
+다음 코드는에서 임시 디렉터리에 `dataset`를 탑재 `mounted_path`
+
+```python
+import tempfile
+mounted_path = tempfile.mkdtemp()
+
+# mount dataset onto the mounted_path of a Linux-based compute
+mount_context = dataset.mount(mounted_path)
+
+mount_context.start()
+
+import os
+print(os.listdir(mounted_path))
+print (mounted_path)
+```
 
 ### <a name="create-a-filedataset"></a>FileDataset 만들기
 
