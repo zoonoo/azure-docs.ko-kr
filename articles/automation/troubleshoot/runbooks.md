@@ -8,12 +8,12 @@ ms.date: 01/24/2019
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 571be831d337c71a084780da18b480cdd1e42d20
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: b7d876c7f865b8368451ea1b6cc96ade89a59aa8
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77365217"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190962"
 ---
 # <a name="troubleshoot-errors-with-runbooks"></a>Runbook으로 오류 해결
 
@@ -98,7 +98,7 @@ AzureRM 모듈 하나를 업데이트 한 후이 오류가 표시 되 면 모든
 The subscription named <subscription name> cannot be found.
 ```
 
-### <a name="error"></a>Error
+### <a name="error"></a>오류
 
 이 오류가 발생할 수 있는 경우는 다음과 같습니다.
 
@@ -471,7 +471,7 @@ PowerShell 엔진을 통해 Runbook에서 사용하는 cmdlet을 찾을 수 없�
 The job was evicted and subsequently reached a Stopped state. The job cannot continue running
 ```
 
-Azure Automation 내에서 프로세스를 "공평 분배" 방식으로 모니터링하므로 이 동작이 Azure 샌드박스에 설계되었습니다. 3시간을 초과하여 실행되면 공평 분배에서 Runbook을 자동으로 중지합니다. 공평 분배 시간 제한을 초과하는 Runbook의 상태는 Runbook 유형에 따라 다릅니다. PowerShell 및 Python Runbook은 **중지됨** 상태로 설정되며, PowerShell 워크플로 Runbook은 **실패** 상태로 설정됩니다.
+이 동작은 Azure Automation 내의 프로세스에 대 한 [공평 한 공유](../automation-runbook-execution.md#fair-share) 모니터링으로 인해 Azure 샌드박스에서 설계 되었습니다. 3 시간 이상 실행 되는 경우에는 자동으로 runbook이 중지 됩니다. 공평 공유 시간 제한을 초과 하는 runbook의 상태는 runbook 유형에 따라 다릅니다. PowerShell 및 Python Runbook은 **중지됨** 상태로 설정되며, PowerShell 워크플로 Runbook은 **실패** 상태로 설정됩니다.
 
 ### <a name="cause"></a>원인
 
@@ -481,7 +481,7 @@ Runbook이 Azure 샌드박스에서 공평 하 게 공유에서 허용 하는 3 
 
 권장되는 해결 방법 중 하나는 [Hybrid Runbook Worker](../automation-hrw-run-runbooks.md)에서 Runbook을 실행하는 것입니다.
 
-하이브리드 작업자는 Azure 샌드박스에 있는 [공평](../automation-runbook-execution.md#fair-share) 하 게 공유 3 시간 runbook 제한에 의해 제한 되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 다시 시작 동작을 지원 하도록 Hybrid Runbook Worker에서 실행 되는 runbook을 개발 해야 합니다.
+하이브리드 작업자는 Azure 샌드박스에 있는 3 시간 공평 공유 runbook 제한에 의해 제한 되지 않습니다. 예기치 않은 로컬 인프라 문제가 있는 경우 다시 시작 동작을 지원 하도록 Hybrid Runbook Worker에서 실행 되는 runbook을 개발 해야 합니다.
 
 또 다른 옵션은 [자식 Runbook](../automation-child-runbooks.md)을 만들어 Runbook을 최적화하는 것입니다. Runbook이 여러 데이터베이스의 데이터베이스 작업과 같이 여러 리소스에서 동일한 함수를 반복하는 경우 해당 함수를 자식 Runbook으로 이동할 수 있습니다. 이러한 자식 Runbook은 각각 개별 프로세스에서 병렬로 실행됩니다. 이 동작은 부모 Runbook이 완료되는 총 기간을 감소시킵니다.
 

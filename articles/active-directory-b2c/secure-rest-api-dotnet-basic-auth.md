@@ -3,20 +3,20 @@ title: HTTP 기본 인증을 사용 하 여 RESTful 서비스 보호
 titleSuffix: Azure AD B2C
 description: HTTP 기본 인증을 사용하여 Azure AD B2C에서 사용자 지정 REST API 클레임 교환 보호
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 09/25/2017
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 986ad1845fa2699bb3462dceb3865300a035cb71
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 505d92e33606dac327778cae179df44efbfdf853
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76848539"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183859"
 ---
 # <a name="secure-your-restful-services-by-using-http-basic-authentication"></a>HTTP 기본 인증을 사용하여 RESTful 서비스 보호
 
@@ -69,7 +69,7 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-13-add-an-authentication-middleware-class"></a>1\.3단계: 인증 미들웨어 클래스 추가
 
-*App_Start* 폴더 아래에 `ClientAuthMiddleware.cs` 클래스를 추가합니다. 이렇게 하려면 다음을 수행합니다.
+`ClientAuthMiddleware.cs`App_Start*폴더 아래에* 클래스를 추가합니다. 이를 수행하려면:
 
 1. *App_Start* 폴더를 마우스 오른쪽 단추로 클릭하고 **추가**를 선택한 후 **클래스**를 선택합니다.
 
@@ -193,8 +193,8 @@ PM> Install-Package Microsoft.Owin.Host.SystemWeb
 
 ### <a name="step-14-add-an-owin-startup-class"></a>1\.4단계: OWIN 시작 클래스 추가
 
-`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이렇게 하려면 다음을 수행합니다.
-1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** **추가** > 를 선택한 다음 **OWIN**을 검색합니다.
+`Startup.cs`라는 OWIN 시작 클래스를 API에 추가합니다. 이를 수행하려면:
+1. 프로젝트를 마우스 오른쪽 단추로 클릭하고 **새 항목** > 추가를 선택한 다음 **OWIN**을 검색합니다.
 
    ![Visual Studio의 새 항목 추가 대화 상자에서 OWIN 시작 클래스 만들기](./media/secure-rest-api-dotnet-basic-auth/rest-api-netfw-secure-basic-OWIN-startup.png)
 
@@ -278,7 +278,7 @@ Controllers\IdentityController.cs를 열고 `[Authorize]` 태그를 컨트롤러
 
 1. 작업 디렉터리에서 확장 정책 파일(TrustFrameworkExtensions.xml)을 엽니다.
 
-2. `Id="REST-API-SignUp"`이 포함된 `<TechnicalProfile>` 노드를 검색합니다.
+2. `<TechnicalProfile>`이 포함된 `Id="REST-API-SignUp"` 노드를 검색합니다.
 
 3. `<Metadata>` 요소를 찾습니다.
 

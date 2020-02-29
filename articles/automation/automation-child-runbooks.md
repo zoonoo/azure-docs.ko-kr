@@ -5,23 +5,23 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 6acf66e01c4f7b4bd2735687f542a0dbf472cfb4
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77500204"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191166"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
-다른 runbook에서 호출 하는 불연속 함수를 사용 하 여 재사용 가능한 모듈식 runbook을 작성 Azure Automation 하는 것이 좋습니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 자식 runbook을 호출 하는 두 가지 방법이 있으며 시나리오에 가장 적합 한 것을 확인할 수 있도록 이해 해야 하는 고유한 차이점이 있습니다.
+다른 runbook에서 호출 하는 불연속 함수를 사용 하 여 재사용 가능한 모듈식 runbook을 작성 Azure Automation 하는 것이 좋습니다. 부모 runbook은 하나 이상의 자식 runbook를 자주 호출하여 필요한 기능을 수행합니다. 자식 runbook을 호출 하는 방법에는 두 가지가 있으며 시나리오에 가장 적합 한 것을 결정 하기 위해 이해 해야 하는 고유한 차이점이 있습니다.
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
 
 ## <a name="invoking-a-child-runbook-using-inline-execution"></a>인라인 실행을 사용하여 자식 runbook 호출
 
-다른 runbook에서 runbook 인라인을 호출하려면 runbook의 이름을 사용하고 활동 또는 cmdlet을 사용하는 것처럼 정확하게 해당 매개 변수에 대한 값을 제공합니다.  같은 Automation 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 자식 runbook이 완료 될 때까지 대기한 다음 줄로 이동 하 고 출력은 부모에 직접 반환 됩니다.
+다른 runbook에서 인라인으로 runbook을 호출 하려면 활동이 나 cmdlet을 사용 하는 것 처럼 runbook의 이름을 사용 하 고 매개 변수에 대 한 값을 제공 합니다. 같은 Automation 계정에서 모든 runbook이 이런 방식으로 사용할 다른 모든 사용자에게 제공됩니다. 부모 runbook은 자식 runbook이 완료 될 때까지 대기한 다음 줄로 이동 하 고 출력은 부모에 직접 반환 됩니다.
 
 runbook 인라인을 호출하면 동일한 작업에서 부모 runbook으로 실행됩니다. 자식 runbook의 작업 기록에는 표시 되지 않습니다. 자식 runbook의 모든 예외와 스트림 출력은 부모와 연결 됩니다. 이 동작으로 인해 작업의 수를 줄이고 쉽게 추적 하 고 문제를 해결할 수 있습니다.
 
@@ -41,7 +41,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
 
-Runbook이 인라인 실행을 사용 하 여 그래픽 또는 PowerShell 워크플로 자식 runbook을 호출 하는 경우 runbook의 이름을 사용 합니다. 이름은 "로 시작 해야 합니다.\\"를 지정 하 여 스크립트를 로컬 디렉터리에 배치 합니다.
+Runbook이 인라인 실행을 사용 하 여 그래픽 또는 PowerShell 워크플로 자식 runbook을 호출 하는 경우 runbook의 이름을 사용 합니다. 스크립트를 로컬 디렉터리에 배치 하도록 지정 하려면 이름을\\으로 시작 해야 합니다 **.**
 
 ### <a name="example"></a>예제
 
@@ -64,17 +64,17 @@ $output = .\PS-ChildRunbook.ps1 –VM $vm –RepeatCount 2 –Restart $true
 > [!IMPORTANT]
 > Runbook이 *Wait* 매개 변수와 함께 **AzAutomationRunbook** cmdlet을 사용 하 여 자식 runbook을 호출 하 고 자식 runbook에서 개체 결과를 생성 하는 경우 작업에 오류가 발생할 수 있습니다. 이 오류를 해결 하려면 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) cmdlet을 사용 하 여 결과를 폴링하는 논리를 구현 하는 방법을 알아보려면 [개체 출력이 있는 자식 runbook](troubleshoot/runbooks.md#child-runbook-object) 을 참조 하세요.
 
-Windows PowerShell을 사용 하 [여 runbook을 시작 하려면](start-runbooks.md#start-a-runbook-with-powershell)에 설명 된 대로 **AzAutomationRunbook** 를 사용 하 여 runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 모드에서 cmdlet은 자식 runbook에 대해 자식 작업을 만들 때 작업 ID를 반환 합니다. 스크립트가 *Wait* 매개 변수를 지정 하 여 사용 하도록 설정 하는 다른 모드에서 cmdlet은 자식 작업이 완료 될 때까지 대기 하 고 자식 runbook의 출력을 반환 합니다.
+Windows PowerShell을 사용 하 [여 runbook을 시작 하려면](start-runbooks.md#start-a-runbook-with-powershell)에 설명 된 대로 **AzAutomationRunbook** 를 사용 하 여 runbook을 시작할 수 있습니다. 이 cmdlet에 사용할 두 가지 모드가 있습니다. 한 모드에서 cmdlet은 자식 runbook에 대해 작업을 만들 때 작업 ID를 반환 합니다. 스크립트가 *Wait* 매개 변수를 지정 하 여 사용 하도록 설정 하는 다른 모드에서 cmdlet은 자식 작업이 완료 될 때까지 대기 하 고 자식 runbook의 출력을 반환 합니다.
 
-Cmdlet을 사용 하 여 시작한 자식 runbook의 작업은 부모 runbook 작업과는 별도의 작업에서 실행 됩니다. 이 동작은 runbook을 인라인으로 시작 하는 것 보다 더 많은 작업을 수행 하 고 작업을 추적 하기가 더 어려워집니다. 부모는 각 runbook이 완료 될 때까지 기다리지 않고 비동기적으로 둘 이상의 자식 runbook을 시작할 수 있습니다. 자식 runbook을 인라인으로 호출 하는이 병렬 실행에서는 부모 runbook이 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용 해야 합니다.
+Cmdlet을 사용 하 여 시작한 자식 runbook의 작업은 부모 runbook 작업과는 별도로 실행 됩니다. 이 동작은 runbook을 인라인으로 시작 하는 것 보다 더 많은 작업을 수행 하 고 작업을 추적 하기가 더 어려워집니다. 부모는 각 runbook이 완료 될 때까지 기다리지 않고 비동기적으로 둘 이상의 자식 runbook을 시작할 수 있습니다. 자식 runbook을 인라인으로 호출 하는이 병렬 실행에서는 부모 runbook이 [parallel 키워드](automation-powershell-workflow.md#parallel-processing)를 사용 해야 합니다.
 
-시간 때문에 자식 runbook 출력이 부모 runbook으로 안정적으로 반환 되지 않습니다. 또한 $VerbosePreference, $WarningPreference 및 기타와 같은 변수는 자식 runbook으로 전파 되지 않을 수 있습니다. 이러한 문제를 방지 하기 위해 *대기* 매개 변수와 함께 **AzAutomationRunbook** 를 사용 하 여 별도의 자동화 작업으로 자식 runbook을 시작할 수 있습니다. 이 기술은 자식 runbook이 완료 될 때까지 부모 runbook을 차단 합니다.
+시간 때문에 자식 runbook 출력이 부모 runbook으로 안정적으로 반환 되지 않습니다. 또한 *$VerbosePreference*, *$WarningPreference*및 기타와 같은 변수는 자식 runbook으로 전파 되지 않을 수 있습니다. 이러한 문제를 방지 하기 위해 *대기* 매개 변수와 함께 **AzAutomationRunbook** 를 사용 하 여 별도의 자동화 작업으로 자식 runbook을 시작할 수 있습니다. 이 기술은 자식 runbook이 완료 될 때까지 부모 runbook을 차단 합니다.
 
 대기 상태에서 부모 runbook을 차단 하지 않으려면 *대기* 매개 변수 없이 **AzAutomationRunbook** 를 사용 하 여 자식 runbook을 시작할 수 있습니다. 이 경우 runbook에서 작업이 완료 될 때까지 대기 하려면 [AzAutomationJob](/powershell/module/az.automation/get-azautomationjob) 를 사용 해야 합니다. 또한 [AzAutomationJobOutput](/powershell/module/az.automation/get-azautomationjoboutput) 및 [AzAutomationJobOutputRecord](/powershell/module/az.automation/get-azautomationjoboutputrecord) 를 사용 하 여 결과를 검색 해야 합니다.
 
 [Runbook 매개 변수](start-runbooks.md#runbook-parameters)에서 설명한 대로 cmdlet으로 시작 하는 자식 runbook의 매개 변수는 해시 테이블로 제공 됩니다. 단순한 데이터 형식만 사용할 수 있습니다. runbook에 복잡한 데이터 형식을 가진 매개 변수가 있는 경우 인라인으로 호출해야 합니다.
 
-자식 Runbook을 별도 작업으로 시작할 때 구독 컨텍스트가 손실될 수 있습니다. 자식 runbook이 특정 Azure 구독에 대해 Az module cmdlet을 실행 하려면 부모 runbook과 독립적으로이 구독에 대해 자식 runbook을 인증 해야 합니다.
+자식 Runbook을 별도 작업으로 시작할 때 구독 컨텍스트가 손실될 수 있습니다. 자식 runbook이 특정 Azure 구독에 대해 Az module cmdlet을 실행 하려면 자식은 부모 runbook과 별개로이 구독에 인증 해야 합니다.
 
 동일한 Automation 계정 내의 작업이 둘 이상의 구독과 함께 작동 하는 경우 한 작업에서 구독을 선택 하면 현재 선택한 구독 컨텍스트가 다른 작업에 대해 변경 될 수 있습니다. 이러한 상황을 방지 하려면 각 runbook의 시작 부분에 `Disable-AzContextAutosave –Scope Process`를 사용 합니다. 이 작업을 수행하면 컨텍스트가 해당 runbook 실행에만 저장됩니다.
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 11/27/2019
-ms.openlocfilehash: ff612c43a058fce02bd801e15632c27979f22d17
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 90d7da9c8ddd8c9c595f2209dcc34e2f595acfd2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435864"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196929"
 ---
 # <a name="configure-apache-hive-policies-in-hdinsight-with-enterprise-security-package"></a>Enterprise Security Package를 사용하여 HDInsight에서 Apache Hive 정책 구성
 
@@ -55,11 +55,11 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기 hivesampletable-모두|
-    |Hive 데이터베이스|기본값|
+    |Hive 데이터베이스|default|
     |테이블|hivesampletable|
     |Hive 열|*|
     |사용자 선택|hiveuser1|
-    |권한|선택|
+    |권한|select|
 
     ![HDInsight ESP 레인저 Hive 정책 구성](./media/apache-domain-joined-run-hive/hdinsight-domain-joined-configure-ranger-policy.png).
 
@@ -73,27 +73,27 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
     |속성 |값 |
     |---|---|
     |정책 이름|읽기-hivesampletable-devicemake|
-    |Hive 데이터베이스|기본값|
+    |Hive 데이터베이스|default|
     |테이블|hivesampletable|
     |Hive 열|clientid, devicemake|
     |사용자 선택|hiveuser2|
-    |권한|선택|
+    |권한|select|
 
 ## <a name="create-hive-odbc-data-source"></a>Hive ODBC 데이터 원본 만들기
 
 [Hive ODBC 데이터 원본 만들기](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)에서 지침을 찾을 수 있습니다.  
 
- | 속성  |Description |
+ | 속성  |설명 |
  | --- | --- |
  | 데이터 원본 이름 | 데이터 원본에 이름 지정 |
- | 호스트 | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
- | Port | **443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+ | Host | CLUSTERNAME.azurehdinsight.net를 입력 합니다. 예를 들면 myHDICluster.azurehdinsight.net과 같습니다. |
+ | 포트 | **443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
  | 데이터베이스 | **기본값**을 사용합니다. |
  | Hive 서버 유형 | **Hive 서버 2** 선택 |
  | 메커니즘 | **Azure HDInsight Service** 선택 |
  | HTTP 경로 | 비워 둠 |
  | 사용자 이름 | hiveuser1@contoso158.onmicrosoft.com를 입력합니다. 다른 경우 도메인 이름을 업데이트 합니다. |
- | 암호 | hiveuser1의 암호를 입력합니다. |
+ | Password | hiveuser1의 암호를 입력합니다. |
 
 데이터 원본을 저장하기 전에 **테스트**를 클릭해야 합니다.
 
@@ -152,7 +152,7 @@ hiveruser1 및 hiveuser2를 만드는 방법에 대한 내용은 [ESP로 HDInsig
 
 * Enterprise Security Package가 포함된 HDInsight 클러스터 구성에 대한 내용은 [ESP가 포함된 HDInsight 클러스터 구성](apache-domain-joined-configure.md)을 참조하세요.
 * ESP가 포함된 HDInsight 클러스터를 관리하려면 [ESP가 포함된 HDInsight 클러스터 관리](apache-domain-joined-manage.md)를 참조하세요.
-* ESP가 포함된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#domainjoined)을 참조하세요.
+* ESP가 포함된 HDInsight 클러스터에서 SSH를 사용하여 Hive 쿼리를 실행하려면 [HDInsight와 함께 SSH 사용](../hdinsight-hadoop-linux-use-ssh-unix.md#authentication-domain-joined-hdinsight)을 참조하세요.
 * Hive JDBC를 사용하여 Hive를 연결하는 자세한 내용은 [Hive JDBC 드라이버를 사용하여 Azure HDInsight에서 Apache Hive에 연결](../hadoop/apache-hadoop-connect-hive-jdbc-driver.md)을 참조하세요.
 * Hive ODBC를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [Microsoft Hive ODBC 드라이브와 함께 Apache Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-hive-odbc-driver.md)을 참조하세요.
 * 파워 쿼리를 사용하여 Hadoop에 Excel을 연결하는 자세한 내용은 [파워 쿼리를 사용하여 Apache Hadoop에 Excel 연결](../hadoop/apache-hadoop-connect-excel-power-query.md)을 참조하세요.

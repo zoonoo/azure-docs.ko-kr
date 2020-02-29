@@ -1,22 +1,22 @@
 ---
 title: 고객 관리 TDE (투명 한 데이터 암호화)
-description: SQL Database 및 Data Warehouse에서 Azure Key Vault를 통해 BYOK(Bring Your Own Key)를 TDE(투명한 데이터 암호화)에 지원합니다. BYOK를 통한 TDE 개요, 이점, 작동 방법, 고려 사항 및 권장 사항을 설명합니다.
+description: Bring Your Own Key (BYOK) SQL Database 및 Azure Synapse에 대 한 Azure Key Vault TDE (투명한 데이터 암호화)를 지원 합니다. BYOK를 통한 TDE 개요, 이점, 작동 방법, 고려 사항 및 권장 사항을 설명합니다.
 services: sql-database
 ms.service: sql-database
 ms.subservice: security
-ms.custom: seo-lt-2019
+ms.custom: azure-synapse
 ms.devlang: ''
 ms.topic: conceptual
 author: jaszymas
 ms.author: jaszymas
 ms.reviewer: vanto
 ms.date: 02/12/2020
-ms.openlocfilehash: 8e91bb9223f3e6ccd4c76614d75db8591dbed045
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: a29466ad5b261e1e2ce818d7b4a18260e35caaec
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77201522"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192747"
 ---
 # <a name="azure-sql-transparent-data-encryption-with-customer-managed-key"></a>고객 관리 키를 사용 하는 Azure SQL 투명한 데이터 암호화
 
@@ -24,7 +24,7 @@ ms.locfileid: "77201522"
 
 이 시나리오에서 TDE 보호기 라는 DEK (데이터베이스 암호화 키)를 암호화 하는 데 사용 되는 키는 클라우드 기반 외부 키 관리 시스템으로, 고객이 소유 하 고 고객 관리 [Azure Key Vault (AKV)](https://docs.microsoft.com/azure/key-vault/key-vault-secure-your-key-vault)에 저장 된 고객 관리 비대칭 키입니다. Key Vault는 FIPS 140-2 수준 2 유효성 검사 된 Hsm (하드웨어 보안 모듈)에 의해 선택적으로 지원 되는 RSA 암호화 키에 대해 항상 사용 가능 하며 확장 가능한 보안 저장소입니다. 저장 된 키에 대 한 직접 액세스를 허용 하지 않지만 권한 있는 엔터티에 대 한 키를 사용 하 여 암호화/암호 해독 서비스를 제공 합니다. 키를 키 자격 증명 모음에 의해 생성 되거나, [프레미스 HSM 장치에서 키 자격 증명 모음으로 전송](https://docs.microsoft.com/azure/key-vault/key-vault-hsm-protected-keys)하거나 가져올 수 있습니다.
 
-Azure SQL Database 및 Azure SQL Data Warehouse의 경우 TDE 보호기는 논리 서버 수준에서 설정 되며 해당 서버와 연결 된 모든 암호화 된 데이터베이스에서 상속 됩니다. Azure SQL Managed Instance의 경우 TDE 보호기는 인스턴스 수준에서 설정 되 고 해당 인스턴스의 모든 암호화 된 데이터베이스에서 상속 됩니다. *서버* 라는 용어는 다르게 지정 되지 않는 한이 문서 전체에서 SQL Database 논리 서버와 관리 되는 인스턴스를 모두 나타냅니다.
+Azure SQL Database 및 Azure Synapse의 경우 TDE 보호기는 논리 서버 수준에서 설정 되며 해당 서버와 연결 된 모든 암호화 된 데이터베이스에서 상속 됩니다. Azure SQL Managed Instance의 경우 TDE 보호기는 인스턴스 수준에서 설정 되 고 해당 인스턴스의 모든 암호화 된 데이터베이스에서 상속 됩니다. *서버* 라는 용어는 다르게 지정 되지 않는 한이 문서 전체에서 SQL Database 논리 서버와 관리 되는 인스턴스를 모두 나타냅니다.
 
 > [!IMPORTANT]
 > 고객이 관리 하는 TDE를 사용 하 여 시작 하려는 서비스 관리 TDE를 사용 하는 경우 데이터를 전환 하는 동안 데이터는 암호화 된 상태로 유지 되며 가동 중지 또는 데이터베이스 파일의 다시 암호화는 발생 하지 않습니다. 서비스 관리 키에서 고객 관리 키로 전환 하는 경우에만 빠른 온라인 작업 인 DEK를 다시 암호화 해야 합니다.
@@ -163,7 +163,7 @@ Key Vault에서 TDE 보호기로 암호화 된 백업을 복원 하려면 대상
 
 이를 완화 하려면 대상 SQL Database 논리 서버에 대 한 [AzSqlServerKeyVaultKey](/powershell/module/az.sql/get-azsqlserverkeyvaultkey) cmdlet을 실행 하거나 대상 관리 인스턴스의 [AzSqlInstanceKeyVaultKey](/powershell/module/az.sql/get-azsqlinstancekeyvaultkey) 을 실행 하 여 사용 가능한 키 목록을 반환 하 고 누락 된 키를 식별 합니다. 모든 백업을 복원할 수 있도록 하려면 복원 대상 서버에 필요한 모든 키에 대 한 액세스 권한이 있는지 확인 합니다. 이러한 키는 TDE 보호기로 표시할 필요가 없습니다.
 
-SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL 데이터베이스 복구](sql-database-recovery-using-backups.md)를 참조하세요. SQL Data Warehouse 백업 복구에 대한 자세한 내용은 [Azure SQL Data Warehouse 복구](../sql-data-warehouse/backup-and-restore.md)를 참조하세요. 관리 되는 인스턴스를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: 데이터베이스를 Managed Instance 복원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) 을 참조 하세요.
+SQL Database 백업 복구에 대한 자세한 내용은 [Azure SQL 데이터베이스 복구](sql-database-recovery-using-backups.md)를 참조하세요. SQL 풀의 백업 복구에 대해 자세히 알아보려면 [Sql 풀 복구](../sql-data-warehouse/backup-and-restore.md)를 참조 하세요. 관리 되는 인스턴스를 사용 하는 SQL Server의 네이티브 백업/복원에 대 한 자세한 내용은 [빠른 시작: 데이터베이스를 Managed Instance 복원](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-get-started-restore) 을 참조 하세요.
 
 로그 파일에 대 한 추가 고려 사항: 백업 된 로그 파일은 회전 되 고 데이터베이스에서 새 TDE 보호기를 사용 하는 경우에도 원래 TDE 보호기를 사용 하 여 암호화 된 상태로 유지 됩니다.  복원할 때 데이터베이스를 복원하려면 두 키가 모두 필요합니다.  로그 파일이 Azure Key Vault에 저장 된 TDE 보호기를 사용 하는 경우 데이터베이스에서 서비스 관리 TDE를 사용 하도록 변경 했더라도 복원 시이 키가 필요 합니다.
 

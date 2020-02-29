@@ -8,18 +8,18 @@ ms.author: maheff
 ms.service: cognitive-search
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.openlocfilehash: 85fb709dfcca45b6ca8141c6d3de1941044f5ee5
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0c37f1ce2f173f4bf527e7cca30f010101b01720
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78163203"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190690"
 ---
 # <a name="tutorial-use-c-and-ai-to-generate-searchable-content-from-azure-blobs"></a>자습서: 및 C# AI를 사용 하 여 Azure blob에서 검색 가능한 콘텐츠 생성
 
 Azure Blob storage에 구조화 되지 않은 텍스트 또는 이미지가 있는 경우 [AI 보강 파이프라인](cognitive-search-concept-intro.md) 은 정보를 추출 하 고 전체 텍스트 검색 또는 지식 마이닝 시나리오에 유용한 새 콘텐츠를 만들 수 있습니다. 이 C# 자습서에서는 이미지에 OCR (광학 문자 인식)을 적용 하 고 자연어 처리를 수행 하 여 쿼리, 패싯 및 필터에서 활용할 수 있는 새 필드를 만듭니다.
 
-이 자습서에서는 및 C# [.net SDK](https://aka.ms/search-sdk) 를 사용 하 여 다음 작업을 수행 합니다.
+이 자습서에서는 C# 및 [.net SDK](https://aka.ms/search-sdk) 를 사용 하 여 다음 작업을 수행 합니다.
 
 > [!div class="checklist"]
 > * Azure Blob storage의 응용 프로그램 파일 및 이미지를 사용 하 여 시작 합니다.
@@ -929,11 +929,11 @@ catch (Exception e)
 
 ## <a name="reset-and-rerun"></a>다시 설정하고 다시 실행
 
-초기 개발 실험 단계에서 설계 반복에 대한 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제하고 코드에서 이를 다시 작성하도록 허용하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
+개발의 초기 실험 단계에서 디자인 반복의 가장 실용적인 방법은 Azure Cognitive Search에서 개체를 삭제 하 고 코드에서 해당 개체를 다시 작성할 수 있도록 하는 것입니다. 리소스 이름은 고유합니다. 개체를 삭제하면 동일한 이름을 사용하여 개체를 다시 만들 수 있습니다.
 
-이 자습서에서는 기존 인덱서와 인덱스를 확인하고 이미 있는 경우 해당 인덱스를 삭제하여 코드를 다시 실행할 수 있도록 했습니다.
+이 자습서의 샘플 코드는 기존 개체를 확인 하 고 삭제 하 여 코드를 다시 실행할 수 있도록 합니다.
 
-또한 포털을 사용하여 인덱스, 인덱서 및 기술 집합을 삭제할 수도 있습니다.
+포털을 사용 하 여 인덱스, 인덱서, 데이터 원본 및 기술력과를 삭제할 수도 있습니다.
 
 ## <a name="takeaways"></a>핵심 내용
 
@@ -945,11 +945,13 @@ catch (Exception e)
 
 ## <a name="clean-up-resources"></a>리소스 정리
 
-이 자습서를 마친 후 정리하는 가장 빠른 방법은 Azure Cognitive Search 서비스 및 Azure Blob Service를 포함하고 있는 리소스 그룹을 삭제하는 것입니다. 두 서비스를 동일한 그룹에 배치한 경우 리소스 그룹을 삭제하면 서비스와 이 자습서에서 만들고 저장한 콘텐츠를 포함하여 리소스 그룹에 들어 있는 모든 것이 영구적으로 삭제됩니다. 포털에서 리소스 그룹 이름은 각 서비스의 개요 페이지에 있습니다.
+사용자 고유의 구독에서 작업하는 경우 프로젝트의 끝에서 더 이상 필요하지 않은 리소스를 제거하는 것이 좋습니다. 계속 실행되는 리소스에는 요금이 부과될 수 있습니다. 리소스를 개별적으로 삭제하거나 리소스 그룹을 삭제하여 전체 리소스 세트를 삭제할 수 있습니다.
+
+왼쪽 탐색 창의 모든 리소스 또는 리소스 그룹 링크를 사용 하 여 포털에서 리소스를 찾고 관리할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 
-사용자 지정 기술을 사용하여 파이프라인을 사용자 지정 또는 확장합니다. 사용자 지정 기술을 만들어서 기술 집합에 추가하면 사용자가 직접 작성한 텍스트 또는 이미지 분석을 온보딩할 수 있습니다.
+이제 AI 보강 파이프라인의 모든 개체에 대해 잘 알고 있으므로 기술 정의와 개별 기술을 자세히 살펴보겠습니다.
 
 > [!div class="nextstepaction"]
-> [예: AI 보강에 대 한 사용자 지정 기술 만들기](cognitive-search-create-custom-skill-example.md)
+> [기술를 만드는 방법](cognitive-search-defining-skillset.md)

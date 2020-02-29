@@ -3,20 +3,20 @@ title: Microsoft Graph API를 사용 하 여 사용자 관리
 titleSuffix: Azure AD B2C
 description: Microsoft Graph API를 호출 하 고 프로세스를 자동화 하는 응용 프로그램 id를 사용 하 여 Azure AD B2C 테 넌 트의 사용자를 관리 하는 방법입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b53405d199072211304e21b681de646c4e41243c
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 8d65217a109a851275d3ba9205024f32bd182d4f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585631"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187319"
 ---
 # <a name="manage-azure-ad-b2c-user-accounts-with-microsoft-graph"></a>Microsoft Graph를 사용 하 여 Azure AD B2C 사용자 계정 관리
 
@@ -59,11 +59,11 @@ Microsoft Graph를 사용 하면 Microsoft Graph API에서 만들기, 읽기, �
 
 Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 [objectIdentity][graph-objectIdentity]형식의 user `identities` 특성에 저장 됩니다. `identities` 컬렉션은 사용자 계정에 로그인 하는 데 사용 되는 id 집합을 나타냅니다. 이 컬렉션을 통해 사용자는 연결 된 id를 사용 하 여 사용자 계정에 로그인 할 수 있습니다.
 
-| 속성   | Type |Description|
+| 속성   | 형식 |설명|
 |:---------------|:--------|:----------|
-|signInType|문자열| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`또는 원하는 다른 모든 형식입니다. 소셜 계정을 `federated`설정 해야 합니다.|
-|발급자|문자열|Id의 발급자를 지정 합니다. 로컬 계정 ( **signInType** 가 `federated`되지 않은 경우)의 경우이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예: `contoso.onmicrosoft.com`). 소셜 id (여기서 **signInType** 이 `federated`)의 경우 값은 발급자의 이름입니다 (예: `facebook.com`|
-|issuerAssignedId|문자열|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 이 `emailAddress` 또는 `userName`으로 설정 되 면 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress` (또는 `emailAddress1`와 같은 `emailAddress`로 시작) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName` (또는 다른 값), **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`**issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
+|signInType|string| 디렉터리에서 사용자 로그인 유형을 지정 합니다. 로컬 계정: `emailAddress`, `emailAddress1`, `emailAddress2`, `emailAddress3`, `userName`또는 원하는 다른 모든 형식입니다. 소셜 계정을 `federated`설정 해야 합니다.|
+|발급자|string|Id의 발급자를 지정 합니다. 로컬 계정 ( **signInType** 가 `federated`되지 않은 경우)의 경우이 속성은 로컬 B2C 테 넌 트 기본 도메인 이름입니다 (예: `contoso.onmicrosoft.com`). 소셜 id (여기서 **signInType** 이 `federated`)의 경우 값은 발급자의 이름입니다 (예: `facebook.com`|
+|issuerAssignedId|string|발급자에 의해 사용자에 게 할당 된 고유 식별자를 지정 합니다. **발급자** 와 **issuerAssignedId** 의 조합은 테 넌 트 내에서 고유 해야 합니다. 로컬 계정의 경우 **signInType** 이 `emailAddress` 또는 `userName`으로 설정 되 면 사용자의 로그인 이름을 나타냅니다.<br>**SignInType** 가로 설정 된 경우: <ul><li>`emailAddress` (또는 `emailAddress1`와 같은 `emailAddress`로 시작) **issuerAssignedId** 는 유효한 전자 메일 주소 여야 합니다.</li><li>`userName` (또는 다른 값), **issuerAssignedId** 는 [전자 메일 주소의 유효한 로컬 부분](https://tools.ietf.org/html/rfc3696#section-3) 이어야 합니다.</li><li>`federated`**issuerAssignedId** 는 페더레이션된 계정 고유 식별자를 나타냅니다.</li></ul>|
 
 페더레이션 id의 경우 id 공급자에 따라 **issuerAssignedId** 는 응용 프로그램 또는 개발 계정 별로 지정 된 사용자에 대 한 고유한 값입니다. 이전에 소셜 공급자나 동일한 개발 계정 내의 다른 응용 프로그램에서 할당 한 것과 동일한 응용 프로그램 ID를 사용 하 여 Azure AD B2C 정책을 구성 합니다.
 
@@ -94,7 +94,7 @@ Microsoft Graph API에서 로컬 및 페더레이션 id는 모두 [objectIdentit
 
 모든 고객 지향 응용 프로그램에는 수집할 정보에 대 한 고유한 요구 사항이 있습니다. Azure AD B2C 테 넌 트에는 지정 된 이름, 성, 도시 및 우편 번호와 같은 속성에 저장 되는 기본 제공 정보 집합이 제공 됩니다. Azure AD B2C를 사용 하 여 각 고객 계정에 저장 된 속성 집합을 확장할 수 있습니다. 사용자 지정 특성을 정의 하는 방법에 대 한 자세한 내용은 사용자 지정 [특성 (사용자 흐름)](user-flow-custom-attributes.md) 및 [사용자 지정 특성 (사용자 지정 정책)](custom-policy-custom-attributes.md)을 참조 하세요.
 
-Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트 하는 것을 지원 합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 다음은 그 예입니다.
+Microsoft Graph API는 확장 특성이 있는 사용자를 만들고 업데이트 하는 것을 지원 합니다. Graph API의 확장 특성은 `extension_ApplicationObjectID_attributename` 규칙을 사용하여 명명됩니다. 예를 들면 다음과 같습니다.
 
 ```JSON
 "extension_831374b3bd5041bfaa54263ec9e050fc_loyaltyNumber": "212342"

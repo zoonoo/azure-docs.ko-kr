@@ -9,12 +9,12 @@ ms.author: magoedte
 ms.date: 11/25/2019
 ms.topic: conceptual
 manager: carmonm
-ms.openlocfilehash: 4d804499116631be6f922f67f8b8f6c7063a6d5c
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.openlocfilehash: 137623e4c52d24061aec8ec11fca0fc02ca54c7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030730"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190979"
 ---
 # <a name="troubleshoot-hybrid-runbook-workers"></a>Hybrid Runbook Worker 문제 해결
 
@@ -54,7 +54,7 @@ Hybrid Runbook Worker를 실행 하는 컴퓨터는이 기능을 호스팅하도
 
 Hybrid Runbook Worker 기능을 실행 하는 컴퓨터가 최소 하드웨어 요구 사항을 충족 하는지 확인 합니다. 충족하는 경우 CPU 및 메모리 사용을 모니터링하여 Hybrid Runbook Worker 프로세스의 성능과 Windows 사이에 어떠한 상관 관계가 있는지 확인합니다. 모든 메모리 또는 CPU 압력은 리소스를 업그레이드 해야 함을 나타낼 수 있습니다. 또한 최소 요구 사항을 지 원하는 다른 계산 리소스를 선택 하 고 워크 로드 요구가 증가 하는 것으로 표시 되는 경우 크기를 조정할 수 있습니다.
 
-**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.* 라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 runbook에서 인증을 구성 하지 않았거나 Hybrid Worker 그룹에 대해 실행 자격 증명을 지정 하지 않았기 때문입니다. [Runbook 사용 권한](../automation-hrw-run-runbooks.md#runbook-permissions) 을 검토 하 여 runbook에 대 한 인증을 올바르게 구성 했는지 확인 합니다.
+**Microsoft-SMA** 이벤트 로그에 *Win32 프로세스가[4294967295] 코드와 함께 종료되었습니다.* 라고 설명하는 이벤트가 있는지 확인합니다. 이 오류의 원인은 runbook에서 인증을 구성 하지 않았거나 Hybrid Runbook Worker 그룹에 대해 실행 자격 증명을 지정 하지 않았기 때문입니다. Runbook에 대 한 인증을 올바르게 구성 했는지 확인 하려면 [Hybrid Runbook Worker에서](../automation-hrw-run-runbooks.md) Runbook을 실행 하는 runbook 사용 권한을 검토 합니다.
 
 ### <a name="no-cert-found"></a>시나리오: Hybrid Runbook Worker의 인증서 저장소에서 인증서를 찾을 수 없습니다.
 

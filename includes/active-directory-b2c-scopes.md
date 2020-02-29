@@ -1,18 +1,18 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: 59cf0b81363c724d709d85105525bece13743f26
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.author: mimart
+ms.openlocfilehash: 9d394b07ff17ab24305b2580efc8bedfc5e7d384
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73474838"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183388"
 ---
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. **애플리케이션**을 선택합니다.
 1. *webapi1* 애플리케이션을 선택하여 해당 **속성** 페이지를 엽니다.
@@ -21,7 +21,7 @@ ms.locfileid: "73474838"
 1. **범위**에 대해 `demo.write`를 입력하고, **설명**에 대해 `Write access to the web API`를 입력합니다.
 1. **저장**을 선택합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **앱 등록(미리 보기)** 를 선택합니다.
 1. *webapi1* 애플리케이션을 선택하여 해당 **개요** 페이지를 엽니다.

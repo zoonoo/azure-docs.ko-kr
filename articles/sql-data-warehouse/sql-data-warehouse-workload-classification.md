@@ -1,32 +1,32 @@
 ---
 title: 워크로드 분류
-description: 분류를 사용하여 동시성, 중요성, 관리 및 Azure SQL Data Warehouse의 쿼리에 대한 리소스를 계산하는 지침입니다.
+description: 분류를 사용 하 여 Azure Synapse Analytics에서 쿼리에 대 한 동시성, 중요도 및 계산 리소스를 관리 하는 방법에 대 한 지침입니다.
 services: sql-data-warehouse
 author: ronortloff
 manager: craigg
 ms.service: sql-data-warehouse
 ms.topic: conceptual
 ms.subservice: workload-management
-ms.date: 01/27/2020
+ms.date: 02/04/2020
 ms.author: rortloff
 ms.reviewer: jrasnick
-ms.custom: seo-lt-2019
-ms.openlocfilehash: ab7c8ba64057b4f27e00a2928a65de8eadc78c4b
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.custom: azure-synapse
+ms.openlocfilehash: f350885c2d25860c7dc83310534ca9d8c9d72555
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76768843"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191768"
 ---
-# <a name="azure-sql-data-warehouse-workload-classification"></a>Azure SQL Data Warehouse 작업 분류
+# <a name="azure-synapse-analytics-workload-classification"></a>Azure Synapse Analytics 워크 로드 분류
 
-이 문서는 들어오는 요청에 리소스 클래스와 중요도를 할당하는 SQL Data Warehouse 워크로드 분류 프로세스를 설명합니다.
+이 문서에서는 Azure Synapse에서 SQL Analytics를 사용 하 여 작업 그룹 및 들어오는 요청에 중요도를 할당 하는 작업 분류 프로세스를 설명 합니다.
 
 ## <a name="classification"></a>분류
 
 > [!Video https://www.youtube.com/embed/QcCRBAhoXpM]
 
-워크로드 관리 분류는 [리소스 클래스](resource-classes-for-workload-management.md#what-are-resource-classes) 및 [중요도](sql-data-warehouse-workload-importance.md) 할당을 통해 요청에 적용되는 워크로드 정책을 허용합니다.
+작업 관리 분류를 사용 하면 [리소스 클래스](resource-classes-for-workload-management.md#what-are-resource-classes) 및 [중요도](sql-data-warehouse-workload-importance.md)할당을 통해 작업 정책을 요청에 적용할 수 있습니다.
 
 데이터 웨어하우징 워크로드를 분류하는 방법은 많은 방법이 있지만, 가장 간단하고 일반적인 분류는 로드 및 쿼리입니다. Insert, update 및 delete 문을 사용하여 데이터를 로드합니다.  Select를 사용하여 데이터를 쿼리할 수 있습니다. 데이터 웨어하우징 솔루션은 더 높은 리소스 클래스에 더 많은 리소스를 할당하는 등의 로드 작업에 대한 워크로드 정책을 종종 가집니다. 로드 작업에 비해 낮은 중요도와 같은 쿼리에는 다른 워크로드 정책을 적용할 수 있습니다.
 
@@ -36,7 +36,7 @@ ms.locfileid: "76768843"
 
 ## <a name="classification-process"></a>분류 프로세스
 
-현재 SQL Data Warehouse의 분류는 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용하여 할당된 리소스 클래스가 해당 하는 역할에 사용자를 할당하여 이루어집니다. 리소스 클래스에 로그인을 넘어 요청을 특성화하는 기능은 이 기능으로 제한됩니다. 분류에 대한 다양한 메서드는 [CREATE WORKLOAD CLASSIFIER](/sql/t-sql/statements/create-workload-classifier-transact-sql) 구문으로 가능합니다.  이 구문을 사용 하면 사용자 SQL Data Warehouse `workload_group` 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다. 
+Azure Synapse의 SQL Analytics에 대 한 분류는 현재 [sp_addrolemember](/sql/relational-databases/system-stored-procedures/sp-addrolemember-transact-sql)를 사용 하 여 할당 된 해당 리소스 클래스가 있는 역할에 사용자를 할당 하 여 달성 됩니다. 리소스 클래스에 로그인을 넘어 요청을 특성화하는 기능은 이 기능으로 제한됩니다. 이제 [CREATE 워크 로드 분류자](/sql/t-sql/statements/create-workload-classifier-transact-sql) 구문을 사용 하 여 더 다양 한 분류 방법을 사용할 수 있습니다.  이 구문을 사용 하 여 SQL 분석 사용자는 `workload_group` 매개 변수를 통해 요청에 할당 된 시스템 리소스의 양과 중요도를 할당할 수 있습니다. 
 
 > [!NOTE]
 > 분류는 요청 별로 평가됩니다. 단일 세션의 여러 요청은 다르게 분류 될 수 있습니다.
@@ -45,7 +45,7 @@ ms.locfileid: "76768843"
 
 분류 프로세스의 일부로 할당 된 작업 그룹을 결정 하기 위해 가중치가 적용 됩니다.  가중치는 다음과 같습니다.
 
-|분류자 매개 변수 |무게   |
+|분류자 매개 변수 |Weight   |
 |---------------------|---------|
 |MEMBERNAME: 사용자      |64       |
 |MEMBERNAME: ROLE      |32       |
@@ -55,7 +55,7 @@ ms.locfileid: "76768843"
 
 `membername` 매개 변수는 필수입니다.  그러나 지정 된 membername가 데이터베이스 역할 대신 데이터베이스 사용자 인 경우 사용자의 가중치가 높아 분류자가 선택 됩니다.
 
-사용자가 여러 분류자에서 다른 리소스 클래스가 할당되거나 일치하는 여러 역할의 멤버인 경우, 사용자에게 가장 높은 리소스 클래스 할당이 제공됩니다.  이 동작은 기존 리소스 클래스 할당 동작과 일치합니다.
+사용자가 여러 분류자에서 일치하거나 할당된 다양한 리소스 클래스를 사용하는 여러 역할의 멤버인 경우, 사용자에게는 가장 높은 리소스 클래스 할당이 주어집니다.  이 동작은 기존 리소스 클래스 할당 동작과 일치합니다.
 
 ## <a name="system-classifiers"></a>시스템 분류자
 
@@ -76,7 +76,7 @@ SELECT * FROM sys.workload_management_workload_classifiers where classifier_id <
 - 새 분류 구문을 테스트 하기 위해 데이터베이스 역할 DBARole (DBAUser가 멤버인)에는 mediumrc 및 high 중요도에 매핑되는 분류자가 만들어집니다.
 - DBAUser가 로그인 하 여 쿼리를 실행 하면 쿼리가 largerc에 할당 됩니다. 사용자가 역할 멤버 자격보다 우선 순위가 높기 때문입니다.
 
-오분류 문제를 간단히 해결하려면, 워크로드 분류자를 만들때 리소스 클래스 역할 매핑을 제거하는 것이 좋습니다.  아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다.  [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql)를 실행하여 각 멤버 이름을 해당 리소스 클래스에서 반환합니다.
+오분류 문제를 간단히 해결하려면, 워크로드 분류자를 만들때 리소스 클래스 역할 매핑을 제거하는 것이 좋습니다.  아래 코드는 기존 리소스 클래스 역할 멤버 자격을 반환 합니다.  해당 하는 리소스 클래스에서 반환 된 각 멤버 이름에 대해 [sp_droprolemember](/sql/relational-databases/system-stored-procedures/sp-droprolemember-transact-sql) 를 실행 합니다.
 
 ```sql
 SELECT  r.name AS [Resource Class]
@@ -93,6 +93,6 @@ sp_droprolemember ‘[Resource Class]’, membername
 ## <a name="next-steps"></a>다음 단계
 
 - 분류자를 만드는 방법에 대 한 자세한 내용은 [워크 로드 분류자 만들기 (transact-sql)](https://docs.microsoft.com/sql/t-sql/statements/create-workload-classifier-transact-sql)를 참조 하세요.  
-- 와 [워크로드 분류자 만들기](quickstart-create-a-workload-classifier-tsql.md)를 참조하세요.
+- 워크 로드 분류자를 만드는 방법에 대 한 빠른 시작을 참조 하 여 [워크 로드 분류자를 만듭니다](quickstart-create-a-workload-classifier-tsql.md).
 - [작업 부하를 구성](sql-data-warehouse-how-to-configure-workload-importance.md) 하는 방법 문서 및 [워크 로드 관리를 관리 하 고 모니터링](sql-data-warehouse-how-to-manage-and-monitor-workload-importance.md)하는 방법 문서를 참조 하세요.
 - 쿼리 및 할당된 중요도를 보려면 [sys.dm_pdw_exec_requests](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql)를 참조하세요.

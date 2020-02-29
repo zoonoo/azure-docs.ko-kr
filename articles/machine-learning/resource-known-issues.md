@@ -10,12 +10,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: 771ae508aaa46167413c2e701d8193790198cb68
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 2522b31788df294c37db4326985edd6c85774561
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77565913"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191846"
 ---
 # <a name="known-issues-and-troubleshooting-azure-machine-learning"></a>알려진 문제 및 문제 해결 Azure Machine Learning
 
@@ -191,6 +191,14 @@ Azure Machine Learning SDK 위젯은 Databricks 노트북에서 HTML 위젯을 �
 
 ```
 displayHTML("<a href={} target='_blank'>Azure Portal: {}</a>".format(local_run.get_portal_url(), local_run.id))
+```
+
+### <a name="import-error-cannot-import-name-timedelta-from-pandas_libstslibs"></a>가져오기 오류: ' pandas _libs. tslibs '에서 ' Timedelta ' 이름을 가져올 수 없습니다.
+
+자동화 된 machine learning을 사용 하는 경우이 오류가 표시 되 면 노트북에서 다음 두 줄을 실행 합니다.
+```
+%sh rm -rf /databricks/python/lib/python3.7/site-packages/pandas-0.23.4.dist-info /databricks/python/lib/python3.7/site-packages/pandas
+%sh /databricks/python/bin/pip install pandas==0.23.4
 ```
 
 ### <a name="import-error-no-module-named-pandascoreindexes"></a>가져오기 오류: 이름이 ' pandas ' 인 모듈이 없습니다.

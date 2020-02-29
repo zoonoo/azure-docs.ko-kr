@@ -3,20 +3,20 @@ title: 사용자 지정 정책에서 해결 프로그램 클레임
 titleSuffix: Azure AD B2C
 description: Azure Active Directory B2C의 사용자 지정 정책에서 클레임 해결 프로그램을 사용 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 03/02/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 97e51331657c62094996f79483148f2f441e6a44
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 02277d2da2e431ac1cefdd9b018af4c25f7d5a9a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161604"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189840"
 ---
 # <a name="about-claim-resolvers-in-azure-active-directory-b2c-custom-policies"></a>Azure Active Directory B2C 사용자 지정 정책의 클레임 해결 프로그램 정보
 
@@ -117,9 +117,9 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 | {SAML: ForceAuthn} | SAML 요청의 `AuthnRequest` 요소에서 `ForceAuthN` 특성 값입니다. | True |
 | {SAML: ProviderName} | SAML 요청의 `AuthnRequest` 요소에서 `ProviderName` 특성 값입니다.| Contoso.com |
 
-## <a name="using-claim-resolvers"></a>클레임 해결 프로그램 사용 
+## <a name="using-claim-resolvers"></a>클레임 해결 프로그램 사용
 
-클레임 확인자는 다음 요소와 함께 사용할 수 있습니다. 
+클레임 확인자는 다음 요소와 함께 사용할 수 있습니다.
 
 | 항목 | 요소 | 설정 |
 | ----- | ----------------------- | --------|
@@ -135,7 +135,7 @@ OIDC 또는 OAuth2 요청의 일부로 포함된 모든 매개 변수 이름은 
 |[ContentDefinitionParameters](relyingparty.md#contentdefinitionparameters)| `Parameter` | |
 |[RelyingParty](relyingparty.md#technicalprofile) 기술 프로필| `OutputClaim`| 2 |
 
-설정: 
+설정:
 1. `IncludeClaimResolvingInClaimsHandling` 메타 데이터를 `true`으로 설정 해야 합니다.
 1. 입력 또는 출력 클레임 특성 `AlwaysUseDefaultValue` `true`으로 설정 해야 합니다.
 
@@ -195,7 +195,7 @@ Azure AD B2C를 사용 하면 HTML 콘텐츠 정의 끝점에 쿼리 문자열 �
 
 ### <a name="content-definition"></a>콘텐츠 정의
 
-[Contentdefinition](contentdefinitions.md) `LoadUri`에서 사용 되는 매개 변수를 기반으로 하 여 다른 위치에서 콘텐츠를 가져오기 위해 클레임 확인자를 보낼 수 있습니다. 
+[Contentdefinition](contentdefinitions.md) `LoadUri`에서 사용 되는 매개 변수를 기반으로 하 여 다른 위치에서 콘텐츠를 가져오기 위해 클레임 확인자를 보낼 수 있습니다.
 
 ```XML
 <ContentDefinition Id="api.signuporsignin">
@@ -224,7 +224,7 @@ Azure Application Insights 및 클레임 해결 프로그램을 사용하면 사
 
 ### <a name="relying-party-policy"></a>신뢰 당사자 정책
 
-[신뢰](relyingparty.md) 당사자 정책 기술 프로필에서는 JWT 내에서 테 넌 트 id 또는 상관 관계 id를 신뢰 당사자 응용 프로그램에 보낼 수 있습니다. 
+[신뢰](relyingparty.md) 당사자 정책 기술 프로필에서는 JWT 내에서 테 넌 트 id 또는 상관 관계 id를 신뢰 당사자 응용 프로그램에 보낼 수 있습니다.
 
 ```XML
 <RelyingParty>

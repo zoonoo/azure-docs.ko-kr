@@ -1,6 +1,6 @@
 ---
 title: Microsoft ID 플랫폼 인증 흐름 및 앱 시나리오 | Azure
-description: Microsoft ID 플랫폼의 인증 흐름 및 애플리케이션 시나리오에 대해 알아봅니다. ID를 인증하고, 토큰을 가져오고, 보호된 API를 호출할 수 있는 다양한 유형의 애플리케이션에 대해 알아봅니다.
+description: Id 인증, 토큰 획득 및 보호 된 Api 호출을 포함 하 여 Microsoft id 플랫폼용 응용 프로그램 시나리오에 대해 알아봅니다.
 services: active-directory
 author: jmprieur
 manager: CelesteDG
@@ -9,40 +9,41 @@ ms.service: active-directory
 ms.subservice: develop
 ms.topic: conceptual
 ms.workload: identity
-ms.date: 09/27/2019
+ms.date: 03/03/2020
 ms.author: jmprieur
 ms.custom: aaddev, identityplatformtop40, scenarios:getting-started
-ms.openlocfilehash: bdcc93fe84d2fded914f21dfa2a29d9e2a2ab449
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 89bafeb077fc83f4f3165d591006831bf8287875
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77161361"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190486"
 ---
 # <a name="authentication-flows-and-application-scenarios"></a>인증 흐름 및 애플리케이션 시나리오
 
-Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애플리케이션 아키텍처에 대한 인증을 지원합니다. 모든 아키텍처는 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md) 업계 표준 프로토콜을 기반으로 합니다.  [인증 라이브러리](reference-v2-libraries.md)를 사용하면 애플리케이션에서 ID를 인증하고 토큰을 획득하여 보호된 API에 액세스합니다.
+Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애플리케이션 아키텍처에 대한 인증을 지원합니다. 모든 아키텍처는 [OAuth 2.0 또는 OpenID Connect](active-directory-v2-protocols.md) 업계 표준 프로토콜을 기반으로 합니다.  [Microsoft id 플랫폼 인증 라이브러리](reference-v2-libraries.md)를 사용 하 여 응용 프로그램은 id를 인증 하 고 토큰을 획득 하 여 보호 된 api에 액세스 합니다.
 
-이 문서에서는 다양한 인증 흐름과 이러한 흐름이 사용되는 애플리케이션 시나리오에 대해 설명합니다. 이 문서에서는 다음 목록도 제공합니다.
+이 문서에서는 인증 흐름과이를 사용 하는 응용 프로그램 시나리오에 대해 설명 합니다.
+
 - [애플리케이션 시나리오 및 지원되는 인증 흐름](#scenarios-and-supported-authentication-flows)
 - [애플리케이션 시나리오 및 지원되는 플랫폼과 언어](#scenarios-and-supported-platforms-and-languages)
 
 ## <a name="application-categories"></a>애플리케이션 범주
 
-토큰은 다음과 같은 여러 유형의 애플리케이션에서 가져올 수 있습니다.
+토큰은 다음을 비롯 한 여러 유형의 응용 프로그램에서 가져올 수 있습니다.
 
 - 웹 앱
 - 모바일 앱
 - 데스크톱 앱
 - Web API
 
-또한 브라우저가 없거나 IoT에서 실행되는 디바이스에서 실행되는 앱에서도 가져올 수 있습니다.
+브라우저를 포함 하지 않거나 IoT에서 실행 중인 장치에서 실행 되는 앱에서 토큰을 가져올 수도 있습니다.
 
 애플리케이션은 다음 목록과 같이 분류할 수 있습니다.
 
 - [보호 된 리소스 및 클라이언트 응용 프로그램](#protected-resources-vs-client-applications): 웹 앱 또는 웹 api와 같은 리소스를 보호 하는 시나리오가 있습니다. 다른 시나리오는 보안 토큰을 가져와서 보호된 웹 API를 호출하는 것입니다.
-- 사용자 [또는 사용자가 없는](#with-users-or-without-users)사용자: 일부 시나리오에는 로그인 한 사용자가 포함 되지만, 디먼 시나리오와 같은 다른 시나리오에는 사용자가 포함 되지 않습니다.
-- [단일 페이지, 공용 클라이언트 및 기밀 클라이언트 응용 프로그램](#single-page-public-client-and-confidential-client-applications): 이러한 응용 프로그램 종류는 세 가지 범주의 응용 프로그램입니다. 각 라이브러리는 서로 다른 라이브러리와 개체에 사용됩니다.
+- 사용자 [또는 사용자가 없는](#with-users-or-without-users)사용자: 일부 시나리오에는 로그인 한 사용자가 포함 되지만 디먼 시나리오와 같은 다른 시나리오에는 사용자가 포함 되지 않습니다.
+- [단일 페이지, 공용 클라이언트 및 기밀 클라이언트 응용 프로그램](#single-page-public-client-and-confidential-client-applications): 이러한 유형은 세 가지 범주의 응용 프로그램입니다. 각 라이브러리는 서로 다른 라이브러리와 개체에 사용됩니다.
 - [로그인 대상](v2-supported-account-types.md#certain-authentication-flows-dont-support-all-the-account-types): 사용 가능한 인증 흐름은 로그인 대상 그룹에 따라 달라 집니다. 일부 흐름은 회사 또는 학교 계정에서만 사용할 수 있습니다. 그리고 일부는 회사/학교 계정과 개인 Microsoft 계정 모두에 사용할 수 있습니다. 허용되는 대상은 인증 흐름에 따라 다릅니다.
 - [지원 되는 OAuth 2.0 흐름](#scenarios-and-supported-authentication-flows): 인증 흐름은 토큰을 요청 하는 응용 프로그램 시나리오를 구현 하는 데 사용 됩니다. 애플리케이션 시나리오와 인증 흐름 간에는 일대일 매핑이 없습니다.
 - [지원 되는 플랫폼](#scenarios-and-supported-platforms-and-languages): 모든 플랫폼에서 모든 응용 프로그램 시나리오를 사용할 수 있는 것은 아닙니다.
@@ -51,7 +52,7 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 
 인증 시나리오에는 두 가지 작업이 포함됩니다.
 
-- **보호 된 WEB API에 대 한 보안 토큰 획득**: Microsoft 인증 라이브러리 (msal) 제품군에서 [인증 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 를 사용 하 여 토큰을 얻는 것이 좋습니다.
+- **보호 되는 WEB API에 대 한 보안 토큰 가져오기**: [microsoft에서 지 원하는 클라이언트 라이브러리](reference-v2-libraries.md#microsoft-supported-client-libraries) 를 사용 하 여 토큰을 획득 하는 것이 좋습니다 (특히, Msal (microsoft 인증 라이브러리) 제품군).
 - Web **api 또는 웹 앱 보호**: web api 또는 웹 앱 리소스를 보호 하는 한 가지 문제는 보안 토큰의 유효성을 검사 하는 것입니다. 일부 플랫폼의 경우 Microsoft에서 [미들웨어 라이브러리](reference-v2-libraries.md#microsoft-supported-server-middleware-libraries)를 제공합니다.
 
 ### <a name="with-users-or-without-users"></a>사용자 포함 또는 사용자 없음
@@ -68,25 +69,25 @@ Microsoft ID 플랫폼(v2.0) 엔드포인트는 다양한 종류의 최신 애�
 
 보안 토큰은 여러 애플리케이션 유형에서 가져올 수 있습니다. 이러한 애플리케이션은 다음 세 가지 범주로 구분됩니다.
 
-- **단일 페이지 응용 프로그램**: spas 라고도 하며, 브라우저에서 실행 되는 JavaScript 또는 TypeScript 앱에서 토큰을 가져오는 웹 앱입니다. 대부분의 최신 앱에는 기본적으로 JavaScript로 작성된 단일 페이지 애플리케이션 프런트 엔드가 있습니다. 애플리케이션은 종종 Angular, React 또는 Vue와 같은 프레임워크를 사용합니다. MSAL.js는 단일 페이지 애플리케이션을 지원하는 유일한 Microsoft 인증 라이브러리입니다.
+- **단일 페이지 응용 프로그램**: spas 라고도 하는 이러한 앱은 브라우저에서 실행 되는 JavaScript 또는 TypeScript 앱에서 토큰을 획득 하는 웹 앱입니다. 대부분의 최신 앱에는 기본적으로 JavaScript로 작성된 단일 페이지 애플리케이션 프런트 엔드가 있습니다. 애플리케이션은 종종 Angular, React 또는 Vue와 같은 프레임워크를 사용합니다. MSAL.js는 단일 페이지 애플리케이션을 지원하는 유일한 Microsoft 인증 라이브러리입니다.
 
 - **공용 클라이언트 응용 프로그램**: 이러한 응용 프로그램은 항상 사용자를 로그인 합니다.
   - 로그인한 사용자를 대신하여 웹 API를 호출하는 데스크톱 앱
   - 모바일 앱
   - 브라우저가 없는 디바이스에서 실행되는 앱(예: iOT에서 실행되는 앱)
 
-  이러한 앱은 MSAL [PublicClientApplication](msal-client-applications.md) 클래스로 표시됩니다.
+  이러한 앱은 MSAL [PublicClientApplication](/dotnet/api/microsoft.identity.client.publicclientapplication) 클래스로 표시됩니다. 자세한 내용은 [공용 클라이언트 및 기밀 클라이언트 응용 프로그램](msal-client-applications.md)을 참조 하세요.
 
 - **기밀 클라이언트 애플리케이션**:
   - 웹 API를 호출하는 웹앱
   - 웹 API를 호출하는 웹 API
   - 디먼 앱(Linux 디먼 또는 Windows 서비스와 같은 콘솔 서비스로 구현된 경우에도 해당)
 
-  이러한 유형의 앱은 [ConfidentialClientApplication](msal-client-applications.md) 클래스를 사용합니다.
+  이러한 유형의 앱은 [ConfidentialClientApplication](/dotnet/api/microsoft.identity.client.confidentialclientapplication) 클래스를 사용합니다. 자세한 내용은 [공용 클라이언트 및 기밀 클라이언트 응용 프로그램](msal-client-applications.md)을 참조 하세요.
 
 ## <a name="application-scenarios"></a>애플리케이션 시나리오
 
-Microsoft ID 플랫폼 엔드포인트는 다양한 종류의 앱 아키텍처에 대한 인증을 지원합니다.
+Microsoft id 플랫폼 끝점은 다양 한 응용 프로그램 아키텍처에 대 한 인증을 지원 합니다.
 
 - 단일 페이지 앱
 - 웹 앱
@@ -100,7 +101,9 @@ Microsoft ID 플랫폼 엔드포인트는 다양한 종류의 앱 아키텍처�
 
 ### <a name="a-single-page-application"></a>단일 페이지 애플리케이션
 
-많은 최신 웹앱은 JavaScript 또는 SPA 프레임워크(예: Angular, Vue.js 및 React.js)를 사용하여 작성된 클라이언트 쪽 단일 페이지 애플리케이션으로 빌드됩니다. 이러한 애플리케이션은 웹 브라우저에서 실행됩니다. 해당 인증 특성은 기존의 서버 쪽 웹앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다.
+많은 최신 웹 앱은 클라이언트 쪽 단일 페이지 응용 프로그램으로 빌드됩니다. 이러한 응용 프로그램에는 JavaScript를 사용 하는 응용 프로그램 또는 단일 페이지 응용 프로그램 프레임 워크 (예: 각도, Vue .js) 및 반응할. 이러한 애플리케이션은 웹 브라우저에서 실행됩니다.
+
+해당 인증 특성은 기존 서버 쪽 웹 앱과 다릅니다. Microsoft ID 플랫폼을 사용하면 단일 페이지 애플리케이션에서 사용자를 로그인하고 토큰을 가져와서 백 엔드 서비스 또는 웹 API에 액세스할 수 있습니다.
 
 ![단일 페이지 애플리케이션](media/scenarios/spa-app.svg)
 
@@ -134,17 +137,17 @@ Microsoft ID 플랫폼 엔드포인트는 다양한 종류의 앱 아키텍처�
 
 Windows 도메인에 조인되거나 Azure AD(Azure Active Directory)에서 조인한 컴퓨터에서 Windows에 호스팅된 애플리케이션을 사용할 수도 있습니다. 이러한 애플리케이션은 [Windows 통합 인증](https://aka.ms/msal-net-iwa)을 사용하여 토큰을 자동으로 가져올 수 있습니다.
 
-브라우저 없이 디바이스에서 실행되는 애플리케이션은 여전히 사용자를 대신하여 API를 호출할 수 있습니다. 인증하려면 사용자가 웹 브라우저를 사용하는 다른 디바이스에 로그인해야 합니다. 이 시나리오에서는 [디바이스 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용해야 합니다.
+브라우저 없이 디바이스에서 실행되는 애플리케이션은 여전히 사용자를 대신하여 API를 호출할 수 있습니다. 인증하려면 사용자가 웹 브라우저를 사용하는 다른 디바이스에 로그인해야 합니다. 이 시나리오에서는 [장치 코드 흐름](https://aka.ms/msal-net-device-code-flow)을 사용 해야 합니다.
 
 ![디바이스 코드 흐름](media/scenarios/device-code-flow-app.svg)
 
 이를 사용하지 않는 것이 좋지만, [사용자 이름/암호 흐름](https://aka.ms/msal-net-up)은 퍼블릭 클라이언트 애플리케이션에서 사용할 수 있습니다. 이 흐름은 여전히 DevOps와 같은 일부 시나리오에서 필요합니다.
 
-그러나 이러한 흐름을 사용하면 애플리케이션에 제약 조건이 적용됩니다. 예를 들어 이 흐름을 사용하는 애플리케이션에서는 다단계 인증 또는 조건부 액세스를 수행해야 하는 사용자가 로그인할 수 없습니다. 또한 애플리케이션에서 Single Sign-On의 이점을 누릴 수 없습니다.
+그러나이 흐름을 사용 하면 응용 프로그램이 제한 됩니다. 예를 들어 응용 프로그램은 multi-factor authentication 또는 조건부 액세스를 사용 해야 하는 사용자에 게 로그인 할 수 없습니다. 또한 애플리케이션에서 Single Sign-On의 이점을 누릴 수 없습니다.
 
 사용자 이름/암호 흐름을 사용하는 인증은 최신 인증 원칙에 위반되며, 레거시 용도로만 제공됩니다.
 
-데스크톱 앱에서 토큰 캐시를 영구적으로 유지하려면 [토큰 캐시 직렬화를 사용자 지정](https://aka.ms/msal-net-token-cache-serialization)해야 합니다. [이중 토큰 캐시 직렬화](https://aka.ms/msal-net-dual-cache-serialization)를 구현하면 이전 인증 라이브러리 세대의 이전 버전 및 이후 버전과 호환되는 토큰 캐시를 사용할 수 있습니다. 특정 라이브러리에는 .NET용 Azure AD 인증 라이브러리(ADAL.NET) 버전 3 및 4가 포함됩니다.
+데스크톱 앱에서 토큰 캐시를 유지 하려면 [토큰 캐시 serialization](https://aka.ms/msal-net-token-cache-serialization)을 사용자 지정 합니다. [이중 토큰 캐시 serialization](https://aka.ms/msal-net-dual-cache-serialization)을 구현 하 여 이전 버전과 호환 되는 토큰 캐시를 사용할 수 있습니다. 이러한 토큰은 이전 인증 라이브러리 생성을 지원 합니다. 특정 라이브러리에는 .NET용 Azure AD 인증 라이브러리(ADAL.NET) 버전 3 및 4가 포함됩니다.
 
 자세한 내용은 [웹 API를 호출하는 데스크톱 앱](scenario-desktop-overview.md)을 참조하세요.
 
@@ -156,16 +159,18 @@ Windows 도메인에 조인되거나 Azure AD(Azure Active Directory)에서 조�
 
 MSAL iOS 및 MSAL Android는 기본적으로 시스템 웹 브라우저를 사용합니다. 그러나 포함된 웹 보기를 대신 사용하도록 지시할 수 있습니다. 유니버설 Windows 플랫폼 (UWP), iOS 또는 Android 모바일 플랫폼에 종속 된 specificities 있습니다.
 
-디바이스 ID 또는 디바이스 등록과 관련된 조건부 액세스가 포함된 일부 시나리오에서는 [broker](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS)를 디바이스에 설치해야 합니다. broker의 예로는 Android의 Microsoft 회사 포털과 Android 및 iOS의 Microsoft Authenticator가 있습니다. 또한 MSAL은 이제 broker와 상호 작용할 수 있습니다.
-
-> [!NOTE]
-> Xamarin에서 MSAL.iOS, MSAL.Android 또는 MSAL.NET을 사용하는 모바일 앱에는 앱 보호 정책이 적용될 수 있습니다. 예를 들어 정책을 사용하면 사용자가 보호된 텍스트를 복사하지 못할 수 있습니다. 모바일 앱은 [Intune에서 관리](https://docs.microsoft.com/intune/app-sdk)하고, Intune에서 관리형 앱으로 인식합니다. [Intune 앱 SDK](https://docs.microsoft.com/intune/app-sdk-get-started)는 MSAL 라이브러리와는 별개이며, 자체적으로 Azure AD와 상호 작용합니다.
+장치 ID 또는 장치 등록과 관련 된 조건부 액세스를 포함 하는 시나리오와 같은 일부 시나리오에서는 장치에 broker를 설치 해야 합니다. broker의 예로는 Android의 Microsoft 회사 포털과 Android 및 iOS의 Microsoft Authenticator가 있습니다. 이제 MSAL에서 broker와 상호 작용할 수 있습니다. 자세한 내용은 [Android 및 iOS에서 Broker 활용](https://github.com/AzureAD/azure-activedirectory-library-for-dotnet/wiki/leveraging-brokers-on-Android-and-iOS)을 참조 하세요.
 
 자세한 내용은 [웹 API를 호출하는 모바일 앱](scenario-mobile-overview.md)을 참조하세요.
 
+> [!NOTE]
+> Xamarin에서 MSAL.iOS, MSAL.Android 또는 MSAL.NET을 사용하는 모바일 앱에는 앱 보호 정책이 적용될 수 있습니다. 예를 들어 정책을 사용하면 사용자가 보호된 텍스트를 복사하지 못할 수 있습니다. 모바일 앱은 Intune에서 관리 되 고 Intune에서 관리 되는 앱으로 인식 됩니다. 자세한 내용은 [Microsoft Intune APP SDK 개요](https://docs.microsoft.com/intune/app-sdk)를 참조 하세요.
+>
+> [Intune 앱 SDK](https://docs.microsoft.com/intune/app-sdk-get-started)는 MSAL 라이브러리와는 별개이며, 자체적으로 Azure AD와 상호 작용합니다.
+
 ### <a name="a-protected-web-api"></a>보호된 웹 API
 
-Microsoft ID 플랫폼 엔드포인트를 사용하여 앱의 RESTful Web API와 같은 웹 서비스를 보호할 수 있습니다. 보호된 웹 API는 API의 데이터를 보호하고 들어오는 요청을 인증하기 위해 액세스 토큰을 사용하여 호출됩니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
+Microsoft id 플랫폼 끝점을 사용 하 여 앱의 RESTful web API와 같은 웹 서비스를 보호할 수 있습니다. 보호 된 웹 API는 액세스 토큰을 사용 하 여 호출 됩니다. 토큰은 API의 데이터를 보호 하 고 들어오는 요청을 인증 합니다. 웹 API 호출자는 액세스 토큰을 HTTP 요청의 인증 헤더에 추가합니다.
 
 ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 액세스 토큰의 유효성을 검사해야 합니다. 이 유효성 검사를 위해 ASP.NET JWT 미들웨어를 사용합니다. 유효성 검사는 MSAL.NET이 아니라 [.NET용 IdentityModel 확장](https://github.com/AzureAD/azure-activedirectory-identitymodel-extensions-for-dotnet/wiki) 라이브러리에서 수행합니다.
 
@@ -173,7 +178,7 @@ ASP.NET 또는 ASP.NET Core 웹 API를 보호하려면 액세스 토큰의 유�
 
 ### <a name="a-web-api-calling-another-web-api-on-behalf-of-a-user"></a>사용자를 대신하여 다른 웹 API를 호출하는 웹 API
 
-ASP.NET 또는 ASP.NET Core 보호된 웹 API에서 사용자를 대신하여 다른 웹 API를 호출하려면 앱에서 다운스트림 웹 API에 대한 토큰을 가져와야 합니다. 이렇게 하려면 **ConfidentialClientApplication** 클래스의 [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) 메서드를 호출합니다. 이러한 호출을 서비스 간 호출이라고도 합니다. 다른 웹 API를 호출하는 웹 API는 사용자 지정 캐시 직렬화를 제공해야 합니다.
+ASP.NET 또는 ASP.NET Core 보호된 웹 API에서 사용자를 대신하여 다른 웹 API를 호출하려면 앱에서 다운스트림 웹 API에 대한 토큰을 가져와야 합니다. 토큰을 얻기 위해 앱은 **ConfidentialClientApplication** 클래스의 [AcquireTokenOnBehalfOf](https://aka.ms/msal-net-on-behalf-of) 메서드를 호출 합니다. 이러한 호출은 *서비스* 간 호출로도 이름이 지정 됩니다. 다른 웹 API를 호출하는 웹 API는 사용자 지정 캐시 직렬화를 제공해야 합니다.
 
   ![다른 웹 API를 호출하는 웹 API](media/scenarios/web-api.svg)
 
@@ -181,7 +186,7 @@ ASP.NET 또는 ASP.NET Core 보호된 웹 API에서 사용자를 대신하여 �
 
 ### <a name="a-daemon-app-calling-a-web-api-in-the-daemons-name"></a>디먼 이름으로 웹 API를 호출하는 디먼 앱
 
-장기 실행 프로세스가 있거나 사용자 상호 작용 없이 작동하는 앱에도 보안 웹 API에 액세스할 수 있는 방법이 필요합니다. 이러한 앱은 사용자의 위임된 ID 대신 앱의 ID를 사용하여 인증하고 토큰을 가져올 수 있습니다. 앱은 클라이언트 비밀 또는 인증서를 사용하여 해당 ID를 증명합니다.
+장기 실행 프로세스가 있거나 사용자 상호 작용 없이 작동하는 앱에도 보안 웹 API에 액세스할 수 있는 방법이 필요합니다. 이러한 앱은 앱의 id를 사용 하 여 인증 하 고 토큰을 가져올 수 있습니다. 앱은 클라이언트 비밀 또는 인증서를 사용하여 해당 ID를 증명합니다.
 
 MSAL **ConfidentialClientApplication** 클래스의 [클라이언트 자격 증명](https://aka.ms/msal-net-client-credentials) 획득 메서드를 사용하여 호출 앱에 대한 토큰을 획득하는 디먼 앱을 작성할 수 있습니다. 이러한 메서드를 사용하려면 호출 앱에서 비밀을 Azure AD에 등록해야 합니다. 그런 다음, 앱에서 이 비밀을 호출된 디먼과 공유합니다. 이러한 비밀의 예로는 애플리케이션 암호, 인증서 어설션 또는 클라이언트 어설션이 있습니다.
 
@@ -191,11 +196,11 @@ MSAL **ConfidentialClientApplication** 클래스의 [클라이언트 자격 증�
 
 ## <a name="scenarios-and-supported-authentication-flows"></a>시나리오 및 지원되는 인증 흐름
 
-토큰 획득과 관련된 시나리오는 [Microsoft ID 플랫폼 프로토콜](active-directory-v2-protocols.md)에서 자세히 설명한 대로 OAuth 2.0 인증 흐름에도 매핑됩니다.
+토큰 획득을 포함 하는 시나리오는 OAuth 2.0 인증 흐름에도 매핑됩니다. 자세한 내용은 [Microsoft id 플랫폼에서 OAuth 2.0 및 Openid connect Connect 프로토콜](active-directory-v2-protocols.md)을 참조 하세요.
 
 <table>
  <thead>
-  <tr><th>시나리오</th> <th>자세한 시나리오 연습</th> <th>OAuth 2.0 흐름 및 권한 부여</th> <th>사용자</th></tr>
+  <tr><th>시나리오</th> <th>자세한 시나리오 연습</th> <th>OAuth 2.0 흐름 및 권한 부여</th> <th>대상 그룹</th></tr>
  </thead>
  <tbody>
   <tr>
@@ -287,7 +292,10 @@ Microsoft 인증 라이브러리에서 지원하는 여러 플랫폼은 다음�
 - Java
 - Python
 
-다양한 언어를 사용하여 애플리케이션을 빌드할 수도 있습니다. 일부 애플리케이션 유형은 모든 플랫폼에서 사용할 수 없습니다.
+다양한 언어를 사용하여 애플리케이션을 빌드할 수도 있습니다.
+
+> [!NOTE]
+> 일부 응용 프로그램 유형은 모든 플랫폼에서 사용할 수 없습니다.
 
 다음 표의 Windows 열에서 .NET Core가 언급될 때마다 .NET Framework도 사용할 수 있습니다. 복잡한 표가 되지 않도록 후자는 생략되었습니다.
 
@@ -301,7 +309,8 @@ Microsoft 인증 라이브러리에서 지원하는 여러 플랫폼은 다음�
 | [디먼 앱](scenario-daemon-overview.md) <br/> [![디먼 앱](media/scenarios/daemon-app.svg)](scenario-daemon-overview.md) | ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png) MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 | [웹 API를 호출하는 웹 API](scenario-web-api-call-api-overview.md) <br/><br/> [![웹 API를 호출하는 웹 API](media/scenarios/web-api.svg)](scenario-web-api-call-api-overview.md) | ![ASP.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python| ![.NET Core](media/sample-v2-code/small_logo_NETcore.png)<br/>ASP.NET Core + MSAL.NET ![MSAL Java](media/sample-v2-code/small_logo_java.png)<br/>MSAL Java<br/>![MSAL Python](media/sample-v2-code/small_logo_python.png)<br/>MSAL Python
 
-[OS/언어별 Microsoft 지원 라이브러리](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)도 참조하세요.
+자세한 내용은 [Microsoft 지원 라이브러리 BY OS/language](reference-v2-libraries.md#microsoft-supported-libraries-by-os--language)를 참조 하세요.
 
 ## <a name="next-steps"></a>다음 단계
-[인증 기본 사항](authentication-scenarios.md) 및 [액세스 토큰](access-tokens.md)에 대해 자세히 알아보세요.
+
+[인증 기본 사항](authentication-scenarios.md) 및 [Microsoft id 플랫폼 액세스 토큰](access-tokens.md)에 대해 자세히 알아보세요.

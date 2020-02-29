@@ -6,13 +6,13 @@ ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
-ms.date: 11/01/2019
-ms.openlocfilehash: 55cddf5317938dea353517cde7260a1aa531d1df
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 02/28/2020
+ms.openlocfilehash: f496f6c06d36f817b0a933bdc68d5c53f308e3f2
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77061261"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192628"
 ---
 # <a name="use-azure-storage-with-azure-hdinsight-clusters"></a>Azure HDInsight 클러스터에서 Azure Storage 사용
 
@@ -38,7 +38,7 @@ Apache Hadoop은 기본 파일 시스템의 개념을 지원합니다. 기본 �
 > [!NOTE]  
 > 보관 액세스 계층은 몇 시간 검색 대기 시간이 있는 오프 라인 계층 이며 HDInsight에서 사용 하지 않는 것이 좋습니다. 자세한 내용은 [보관 액세스 계층](../storage/blobs/storage-blob-storage-tiers.md#archive-access-tier)을 참조하세요.
 
-## <a name="access-files-from-the-cluster"></a>클러스터에서 파일 액세스
+## <a name="access-files-from-within-cluster"></a>클러스터 내에서 파일 액세스
 
 HDInsight 클러스터에서 Data Lake Storage의 파일에 액세스할 수 있는 방법은 여러 가지입니다. URI 체계는 암호화되지 않은 액세스(*wasb:* 접두사가 있음)와 SSL로 암호화된 액세스(*wasbs*가 있음)를 제공합니다. Azure의 동일한 지역에 있는 데이터에 액세스하는 경우에도 가능하면 *wasbs*를 사용하는 것이 좋습니다.
 
@@ -122,6 +122,17 @@ LOCATION 'wasbs:///example/data/';
 LOCATION '/example/data/';
 ```
 
+## <a name="access-files-from-outside-cluster"></a>외부 클러스터에서 파일 액세스
+
+Microsoft에서는 Azure Storage와 함께 사용할 수 있는 다음과 같은 도구를 제공 합니다.
+
+| 도구 | Linux | OS X | Windows |
+| --- |:---:|:---:|:---:|
+| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
+| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
+| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
+| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
+
 ## <a name="identify-storage-path-from-ambari"></a>Ambari에서 저장소 경로를 식별 합니다.
 
 * 구성 된 기본 저장소의 전체 경로를 확인 하려면 다음으로 이동 합니다.
@@ -132,6 +143,8 @@ LOCATION '/example/data/';
 
     **HDFS** > **Configs** 를 입력 하 고 필터 입력 상자에 `blob.core.windows.net`을 입력 합니다.
 
+Ambari REST API를 사용 하 여 경로를 가져오려면 [기본 저장소 가져오기](./hdinsight-hadoop-manage-ambari-rest-api.md#get-the-default-storage)를 참조 하세요.
+
 ## <a name="blob-containers"></a>Blob 컨테이너
 
 Blob을 사용 하려면 먼저 [Azure Storage 계정을](../storage/common/storage-create-storage-account.md)만듭니다. 이 작업의 일부로 스토리지 계정이 만들어지는 Azure 지역을 지정합니다. 클러스터와 스토리지 계정은 동일한 지역에서 호스트되어야 합니다. Hive 메타스토어 SQL Server 데이터베이스 및 Apache Oozie 메타스토어 SQL Server 데이터베이스도 동일한 지역에 위치해야 합니다.
@@ -141,17 +154,6 @@ Blob을 사용 하려면 먼저 [Azure Storage 계정을](../storage/common/stor
 기본 Blob 컨테이너는 작업 기록 및 로그와 같은 클러스터 특정 정보를 저장합니다. 여러 HDInsight 클러스터의 기본 Blob 컨테이너를 공유하지 마세요. 이 경우 작업 기록이 손상될 수 있습니다. 각 클러스터에 대해 다른 컨테이너를 사용 하 고 기본 저장소 계정이 아닌 모든 관련 클러스터의 배포에 지정 된 연결 된 저장소 계정에 공유 데이터를 저장 하는 것이 좋습니다. 연결 된 저장소 계정 구성에 대 한 자세한 내용은 [HDInsight 클러스터 만들기](hdinsight-hadoop-provision-linux-clusters.md)를 참조 하세요. 그러나 원래 HDInsight 클러스터를 삭제한 후에 기본 스토리지 컨테이너를 다시 사용할 수 있습니다. HBase 클러스터의 경우 삭제 된 HBase 클러스터에서 사용 하는 기본 blob 컨테이너를 사용 하 여 새 HBase 클러스터를 만들어 HBase 테이블 스키마 및 데이터를 실제로 보관할 수 있습니다.
 
 [!INCLUDE [secure-transfer-enabled-storage-account](../../includes/hdinsight-secure-transfer.md)]
-
-## <a name="interacting-with-azure-storage"></a>Azure storage와 상호 작용
-
-Microsoft에서는 Azure Storage와 함께 사용할 수 있는 다음과 같은 도구를 제공 합니다.
-
-| 도구 | Linux | OS X | Windows |
-| --- |:---:|:---:|:---:|
-| [Azure Portal](../storage/blobs/storage-quickstart-blobs-portal.md) |✔ |✔ |✔ |
-| [Azure CLI](../storage/blobs/storage-quickstart-blobs-cli.md) |✔ |✔ |✔ |
-| [Azure PowerShell](../storage/blobs/storage-quickstart-blobs-powershell.md) | | |✔ |
-| [AZCopy](../storage/common/storage-use-azcopy-v10.md) |✔ | |✔ |
 
 ## <a name="use-additional-storage-accounts"></a>추가 스토리지 계정 사용
 
@@ -164,7 +166,7 @@ HDInsight 클러스터를 만드는 동안 클러스터와 연결할 Azure Stora
 
 이 문서에서는 HDInsight로 HDFS 호환 Azure Storage를 사용하는 방법을 알아보았습니다. 이제 장기적이고 확장성 있는 보관 데이터 취득 솔루션을 구축할 수 있으며, 저장된 구조적 및 비구조적 데이터 내부의 정보를 활용하는 데 HDInsight를 사용할 수 있습니다.
 
-자세한 내용은 다음을 참조하세요.
+참조 항목:
 
 * [Azure HDInsight 시작](hadoop/apache-hadoop-linux-tutorial-get-started.md)
 * [Azure Data Lake Storage 시작](../data-lake-store/data-lake-store-get-started-portal.md).

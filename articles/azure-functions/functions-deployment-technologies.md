@@ -6,12 +6,12 @@ ms.custom: vs-azure
 ms.topic: conceptual
 ms.date: 04/25/2019
 ms.author: gwallace
-ms.openlocfilehash: bfb7d3ad6f918d91061fa226ae2dbfcd7f27852d
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 43352117d149abbe41ba7bf49a1ffb68e46d2707
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210160"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190756"
 ---
 # <a name="deployment-technologies-in-azure-functions"></a>Azure Functions의 배포 기술
 
@@ -104,7 +104,7 @@ Azure Functions에서 사용할 수 있는 배포 방법은 다음과 같습니�
 
 Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에 푸시합니다. 필요에 따라 [패키지에서 실행](run-functions-from-deployment-package.md)을 시작 하도록 앱을 설정 하거나 [원격 빌드가](#remote-build) 발생 하도록 지정할 수 있습니다.
 
->__사용 방법:__ 즐겨 사용 하는 클라이언트 도구를 사용 하 여 배포: [Visual Studio Code](functions-create-first-function-vs-code.md#publish-the-project-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure), [Azure Functions Core Tools](functions-run-local.md)또는 [Azure CLI](functions-create-first-azure-function-azure-cli.md#deploy-the-function-app-project-to-azure)합니다. 기본적으로 이러한 도구는 zip 배포를 사용 하 고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. 핵심 도구와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build) 를 사용 하도록 설정 합니다. .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
+>__사용 방법:__ 즐겨 사용 하는 클라이언트 도구를 사용 하 여 배포 합니다. [Visual Studio Code](functions-develop-vs-code.md#publish-to-azure), [Visual Studio](functions-develop-vs.md#publish-to-azure)또는 [Azure Functions Core Tools](functions-run-local.md#project-file-deployment)를 사용 하 여 명령줄에서 배포 합니다. 기본적으로 이러한 도구는 zip 배포를 사용 하 고 [패키지에서 실행](run-functions-from-deployment-package.md)합니다. 핵심 도구와 Visual Studio Code 확장은 모두 Linux에 배포할 때 [원격 빌드](#remote-build) 를 사용 하도록 설정 합니다. .Zip 파일을 함수 앱에 수동으로 배포 하려면 [.zip 파일이 나 URL에서 배포](https://github.com/projectkudu/kudu/wiki/Deploying-from-a-zip-file-or-url)의 지침을 따르세요.
 
 >Zip 배포를 사용 하 여 배포 하는 경우 앱이 [패키지에서 실행](run-functions-from-deployment-package.md)되도록 설정할 수 있습니다. 패키지에서 실행 하려면 `WEBSITE_RUN_FROM_PACKAGE` 응용 프로그램 설정 값을 `1`로 설정 합니다. Zip 배포를 권장 합니다. 응용 프로그램에 대 한 로드 시간이 빨라지고, VS Code, Visual Studio 및 Azure CLI에 대 한 기본값입니다. 
 
@@ -114,7 +114,7 @@ Zip 배포를 사용 하 여 함수 앱을 포함 하는 .zip 파일을 Azure에
 
 함수 앱을 포함 하는 Linux 컨테이너 이미지를 배포할 수 있습니다.
 
->__사용 방법:__ 프리미엄 또는 전용 계획에서 Linux 함수 앱을 만들고 실행할 컨테이너 이미지를 지정 합니다. 다음 두 가지 방법으로 수행할 수 있습니다.
+>__사용 방법:__ 프리미엄 또는 전용 계획에서 Linux 함수 앱을 만들고 실행할 컨테이너 이미지를 지정 합니다. 이 작업은 두 가지 방법으로 수행할 수 있습니다.
 >
 >* Azure Portal에서 Azure App Service 계획에 Linux 함수 앱을 만듭니다. **게시**에서 **Docker 이미지**를 선택 하 고 컨테이너를 구성 합니다. 이미지가 호스트 되는 위치를 입력 합니다.
 >* Azure CLI를 사용 하 여 App Service 계획에서 Linux 함수 앱을 만듭니다. 방법을 알아보려면 [사용자 지정 이미지를 사용 하 여 Linux에서 함수 만들기](functions-create-function-linux-custom-image.md#create-supporting-azure-resources-for-your-function)를 참조 하세요.

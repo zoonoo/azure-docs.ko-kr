@@ -3,20 +3,20 @@ title: 사용자 지정 전자 메일 확인
 titleSuffix: Azure AD B2C
 description: Azure AD B2C 지원 응용 프로그램을 사용 하기 위해 등록할 때 고객에 게 전송 된 확인 전자 메일을 사용자 지정 하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
 ms.date: 02/05/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 2bda00924015bf5abc616b7c346eacfeda53c2ed
-ms.sourcegitcommit: 57669c5ae1abdb6bac3b1e816ea822e3dbf5b3e1
+ms.openlocfilehash: 32747e0e7bb1f979203fa886647712e0fd69faee
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/06/2020
-ms.locfileid: "77045948"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189534"
 ---
 # <a name="custom-email-verification-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 사용자 지정 전자 메일 확인
 

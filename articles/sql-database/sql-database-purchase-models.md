@@ -11,12 +11,12 @@ author: stevestein
 ms.author: sstein
 ms.reviewer: carlrab
 ms.date: 02/01/2020
-ms.openlocfilehash: 0b2eafeec27cb92ccb191ec902e8bf1d581a3b4a
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 20c93d214195f8fe389f4982e1d8b10998c7057d
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587297"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78192390"
 ---
 # <a name="choose-between-the-vcore-and-the-dtu-purchasing-models"></a>VCore와 DTU 구매 모델 중에서 선택 합니다.
 
@@ -100,9 +100,9 @@ DTU 기반 구매 모델에서 [단일 데이터베이스](sql-database-single-d
 
 워크 로드에서 사용 하는 리소스는 Azure 클라우드의 다른 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다. 마찬가지로 다른 작업에서 사용 하는 리소스는 SQL 데이터베이스에 사용할 수 있는 리소스에 영향을 주지 않습니다.
 
-![경계 상자](./media/sql-database-what-is-a-dtu/bounding-box.png)
+![경계 상자(bounding box)](./media/sql-database-what-is-a-dtu/bounding-box.png)
 
-Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 다음은 그 예입니다.
+Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터베이스에 할당 되는 상대 리소스를 이해 하는 데 가장 유용 합니다. 예를 들면 다음과 같습니다.
 
 - 데이터베이스의 계산 크기를 늘려서 Dtu를 두 배로 늘리면 해당 데이터베이스에서 사용할 수 있는 리소스 집합이 배가 됩니다.
 - 1750 dtu를 포함 하는 프리미엄 서비스 계층 P11 데이터베이스는 5 개의 dtu를 포함 하는 기본 서비스 계층 데이터베이스 보다 350 배 더 이상의 dtu 계산 기능을 제공 합니다.  
@@ -143,11 +143,25 @@ Dtu는 다양 한 계산 크기 및 서비스 계층에서 Azure SQL 데이터�
 
 풀은 리소스 사용률 평균이 낮고 비교적 드물게 사용률이 낮은 데이터베이스에 적합 합니다. 자세한 내용은 [SQL Database 탄력적 풀을 고려해 야 하는 경우](sql-database-elastic-pool.md)를 참조 하세요.
 
+### <a name="hardware-generations-in-the-dtu-based-purchasing-model"></a>DTU 기반 구매 모델의 하드웨어 생성
+
+DTU 기반 구매 모델에서 고객은 해당 데이터베이스에 사용 되는 하드웨어 생성을 선택할 수 없습니다. 지정 된 데이터베이스는 일반적으로 오랜 시간 동안 특정 하드웨어 세대에서 유지 되지만 (일반적으로 여러 달의 경우) 다른 하드웨어 생성으로 데이터베이스를 이동할 수 있는 특정 이벤트가 있습니다.
+
+예를 들어 데이터베이스를 다른 서비스 목표로 확장 또는 축소 하거나, 데이터 센터의 현재 인프라가 용량 제한에 도달 하거나, 현재 사용 중인 하드웨어가 현재 사용 되 고 있는 경우 다른 하드웨어 생성으로 이동할 수 있습니다. 수명 종료로 인해 서비스 해제 되었습니다.
+
+데이터베이스가 다른 하드웨어로 이동 되는 경우 작업 성능이 변경 될 수 있습니다. DTU 모델은 서비스 목표 (Dtu의 수)가 동일 하 게 유지 되는 한, 데이터베이스가 다른 하드웨어 생성으로 이동 하는 동안 [dtu 벤치 마크](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-dtu#dtu-benchmark) 워크 로드의 처리량 및 응답 시간이 동일 하 게 유지 되도록 보장 합니다. 
+
+그러나 Azure SQL Database에서 실행 되는 광범위 한 고객 워크 로드에서 동일한 서비스 목표에 대해 다른 하드웨어를 사용 하는 경우에는 더 많은 영향을 줄 수 있습니다. 다양 한 워크 로드에서 다양 한 하드웨어 구성 및 기능을 활용 합니다. 따라서 DTU 벤치 마크 이외의 워크 로드의 경우에는 데이터베이스가 하드웨어 생성 간에 이동 하는 경우 성능 차이를 확인할 수 있습니다.
+
+예를 들어 네트워크 대기 시간에 민감한 응용 프로그램은 Gen5에서 가속 네트워킹을 사용 하기 때문에 Gen5 하드웨어와 Gen4의 성능을 향상 시킬 수 있지만, 집약적 읽기 IO를 사용 하는 응용 프로그램은 Gen4 하드웨어 및 Gen5 Gen4에서 코어 비율 당 더 높은 메모리
+
+하드웨어 변경에 민감한 작업을 수행 하는 고객 또는 데이터베이스에 대 한 하드웨어 생성 선택을 제어 하려는 고객은 [Vcore](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore) 모델을 사용 하 여 데이터베이스를 만들고 크기를 조정 하는 동안 기본 설정 된 하드웨어 생성을 선택할 수 있습니다. VCore 모델에서는 [단일 데이터베이스](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-single-databases) 및 [탄력적 풀](https://docs.microsoft.com/azure/sql-database/sql-database-vcore-resource-limits-elastic-pools)모두에 대해 각 하드웨어 세대의 각 서비스 목표에 대 한 리소스 제한이 문서화 되어 있습니다. VCore 모델의 하드웨어 세대에 대 한 자세한 내용은 [하드웨어 생성](https://docs.microsoft.com/azure/sql-database/sql-database-service-tiers-vcore#hardware-generations)을 참조 하세요.
+
 ## <a name="frequently-asked-questions-faqs"></a>FAQ(질문과 대답)
 
 ### <a name="do-i-need-to-take-my-application-offline-to-convert-from-a-dtu-based-service-tier-to-a-vcore-based-service-tier"></a>DTU 기반 서비스 계층에서 vCore 기반 서비스 계층으로 변환 하려면 응용 프로그램을 오프 라인으로 전환 해야 하나요?
 
-아니요. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
+No. 응용 프로그램을 오프 라인으로 전환할 필요가 없습니다. 새 서비스 계층은 표준에서 프리미엄 서비스 계층으로 데이터베이스를 업그레이드 하는 기존 프로세스와 비슷한 간단한 온라인 변환 방법을 제공 합니다. Azure Portal, PowerShell, Azure CLI, T-sql 또는 REST API를 사용 하 여이 변환을 시작할 수 있습니다. [단일 데이터베이스 관리](sql-database-single-database-scale.md) 및 [탄력적 풀 관리](sql-database-elastic-pool.md)를 참조하세요.
 
 ### <a name="can-i-convert-a-database-from-a-service-tier-in-the-vcore-based-purchasing-model-to-a-service-tier-in-the-dtu-based-purchasing-model"></a>VCore 기반 구매 모델의 서비스 계층에서 DTU 기반 구매 모델의 서비스 계층으로 데이터베이스를 변환할 수 있나요?
 

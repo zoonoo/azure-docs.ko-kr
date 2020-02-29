@@ -10,12 +10,12 @@ ms.subservice: design
 ms.date: 11/04/2019
 ms.author: martinle
 ms.reviewer: igorstan
-ms.openlocfilehash: 1d808210861d971b2915206e7be0fe9b955616c5
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.openlocfilehash: 6e4b5bc6d30f6caa2809b7aa1e72be70ae12dbc1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76720319"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78193037"
 ---
 # <a name="azure-synapse-analytics-formerly-sql-dw-architecture"></a>Azure Synapse Analytics (이전의 SQL DW) 아키텍처 
 
@@ -25,7 +25,7 @@ Azure Synapse는 엔터프라이즈 데이터 웨어하우징과 빅 데이터 �
 - SQL Analytics: 완전 한 T-sql 기반 분석 
     - SQL 풀 (프로 비전 된 DWU 당 요금)-일반 공급
     - SQL 주문형(처리되는 TB당 요금 지불) – (미리 보기)
-- Spark: 밀접 하 게 통합 Apache Spark (미리 보기) 
+- Spark: 밀접 하 게 통합 Apache Spark (미리 보기)
 - 데이터 통합: 하이브리드 데이터 통합 (미리 보기)
 - 스튜디오: 통합 사용자 환경  (미리 보기)
 
@@ -54,7 +54,7 @@ SQL Analytics는 Azure Storage를 활용 하 여 사용자 데이터를 안전 �
 
 * Hash
 * 라운드 로빈
-* 복제
+* Replicate
 
 ### <a name="control-node"></a>제어 노드
 

@@ -9,30 +9,30 @@ ms.topic: how-to
 ms.date: 02/07/2020
 ms.author: tamram
 ms.subservice: common
-ms.openlocfilehash: 86aaebe652968a2ea33fd8e15f9de9c1dff31a30
-ms.sourcegitcommit: cfbea479cc065c6343e10c8b5f09424e9809092e
+ms.openlocfilehash: c2d1e8b4975be0657983192df00cc434da00a6f7
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/08/2020
-ms.locfileid: "77086955"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197728"
 ---
 # <a name="create-an-azure-storage-account"></a>Azure Storage 계정 만들기
 
-Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등, 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
+Azure Storage 계정에는 Blob, 파일, 큐, 테이블, 디스크 등 모든 Azure Storage 데이터 개체가 포함됩니다. 저장소 계정은 Azure Storage 데이터에 대한 고유한 네임 스페이스를 제공하며 전 세계 어디에서나 HTTP 또는 HTTPS를 통해 접근할 수 있게 합니다. Azure Storage 계정의 데이터는 내구성 및 고가용성을 제공하며 안전하고 대규모로 확장 가능합니다.
 
 이 방법 문서에서는 [Azure Portal](https://portal.azure.com/), [Azure PowerShell](https://docs.microsoft.com/powershell/azure/overview), [Azure CLI](https://docs.microsoft.com/cli/azure?view=azure-cli-latest)또는 [Azure Resource Manager 템플릿을](../../azure-resource-manager/management/overview.md)사용 하 여 저장소 계정을 만드는 방법에 대해 알아봅니다.  
 
 [!INCLUDE [updated-for-az](../../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
-없음
+None.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 PowerShell을 사용 하 여 Azure storage 계정을 만들려면 Azure PowerShell module Az version 0.7 이상을 설치 했는지 확인 합니다. 자세한 내용은 [Azure PowerShell Az Module 소개](/powershell/azure/new-azureps-module-az)를 참조 하세요.
 
@@ -44,7 +44,7 @@ Get-InstalledModule -Name "Az"
 
 Azure PowerShell을 설치 하거나 업그레이드 하려면 [Azure PowerShell 모듈 설치](/powershell/azure/install-Az-ps)를 참조 하세요.
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure에 로그인하고 다음 두 방법 중 하나로 Azure CLI 명령을 실행할 수 있습니다.
 
@@ -65,19 +65,19 @@ Azure Cloud Shell은 Azure Portal에서 직접 실행할 수 있는 평가판 Ba
 
 Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법 문서에서는 Azure CLI 버전 2.0.4 이상을 이상을 실행 해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
-없음
+None.
 
 ---
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 `Connect-AzAccount` 명령으로 Azure 구독에 로그인하고 화면의 지시에 따라 인증합니다.
 
@@ -85,7 +85,7 @@ Azure CLI를 로컬에서 설치하여 사용할 수도 있습니다. 이 방법
 Connect-AzAccount
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 Azure Cloud Shell를 시작 하려면 [Azure Portal](https://portal.azure.com)에 로그인 합니다.
 
@@ -95,9 +95,9 @@ CLI의 로컬 설치에 로그인 하려면 [az login](/cli/azure/reference-inde
 az login
 ```
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
-해당 없음
+N/A
 
 ---
 
@@ -109,11 +109,11 @@ az login
 
 **범용 v2** 저장소 계정은 모든 Azure Storage 서비스(Blob, 파일, 큐, 테이블 및 디스크)에 대한 액세스를 제공합니다. 여기에 설명 된 단계에서는 범용 v2 저장소 계정을 만들지만 모든 유형의 저장소 계정을 만드는 단계는 비슷합니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 [!INCLUDE [storage-create-account-portal-include](../../../includes/storage-create-account-portal-include.md)]
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 먼저 [New-AzResourceGroup](/powershell/module/az.resources/new-azresourcegroup) 명령을 사용하여 PowerShell을 통해 새 리소스 그룹을 만듭니다.
 
@@ -155,7 +155,7 @@ New-AzStorageAccount -ResourceGroupName $resourceGroup `
 |GZRS (지역 중복 저장소) (미리 보기)    |Standard_GZRS         |
 |읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS) (미리 보기)    |Standard_RAGZRS         |
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 먼저 [az group create](/cli/azure/group#az_group_create) 명령을 사용하여 Azure CLI를 통해 새 리소스 그룹을 만듭니다.
 
@@ -198,7 +198,7 @@ az storage account create \
 |GZRS (지역 중복 저장소) (미리 보기)    |Standard_GZRS         |
 |읽기 액세스 지리적 영역 중복 저장소 (RA-GZRS) (미리 보기)    |Standard_RAGZRS         |
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 Azure PowerShell 또는 Azure CLI를 사용하여 스토리지 계정을 만드는 Resource Manager 템플릿을 배포할 수 있습니다. 이 방법 문서에 사용 된 템플릿은 [Azure Resource Manager 빠른 시작 템플릿에서](https://azure.microsoft.com/resources/templates/101-storage-account-create/)사용 됩니다. 스크립트를 실행하려면 **사용해 보세요.** 를 선택하여 Azure Cloud Shell을 엽니다. 스크립트를 붙여넣으려면 셸을 마우스 오른쪽 단추로 클릭하고 **붙여넣기**를 선택합니다.
 
@@ -219,7 +219,10 @@ az group create --name $resourceGroupName --location "$location" &&
 az group deployment create --resource-group $resourceGroupName --template-file "https://raw.githubusercontent.com/Azure/azure-quickstart-templates/master/101-storage-account-create/azuredeploy.json"
 ```
 
-템플릿을 만드는 방법을 알아보려면 다음을 참조하세요.
+> [!NOTE]
+> 이 템플릿은 예제로만 사용 됩니다. 이 템플릿의 일부로 구성 되지 않은 많은 저장소 계정 설정이 있습니다. 예를 들어 [Azure Data Lake Storage](https://azure.microsoft.com/services/storage/data-lake-storage/)를 사용 하려는 경우 `StorageAccountPropertiesCreateParameters` 개체의 `isHnsEnabledad` 속성을 `true`로 설정 하 여이 템플릿을 수정 합니다. 
+
+이 템플릿을 수정 하거나 새 템플릿을 만드는 방법에 대 한 자세한 내용은 다음을 참조 하세요.
 
 - [Azure Resource Manager 설명서](/azure/azure-resource-manager/)
 - [스토리지 계정 템플릿 참조](/azure/templates/microsoft.storage/allversions).
@@ -233,12 +236,12 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 
 저장소 계정을 삭제 하면 계정의 모든 데이터를 포함 하 여 전체 계정이 삭제 되며 실행 취소할 수 없습니다.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 1. [Azure Portal](https://portal.azure.com)의 저장소 계정으로 이동 합니다.
 1. **삭제**를 클릭합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 저장소 계정을 삭제 하려면 [AzStorageAccount](/powershell/module/az.storage/remove-azstorageaccount) 명령을 사용 합니다.
 
@@ -246,7 +249,7 @@ az group deployment create --resource-group $resourceGroupName --template-file "
 Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-group>
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 저장소 계정을 삭제 하려면 [az storage account delete](/cli/azure/storage/account#az-storage-account-delete) 명령을 사용 합니다.
 
@@ -254,7 +257,7 @@ Remove-AzStorageAccount -Name <storage-account> -ResourceGroupName <resource-gro
 az storage account delete --name <storage-account> --resource-group <resource-group>
 ```
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 저장소 계정을 삭제 하려면 Azure PowerShell 또는 Azure CLI를 사용 합니다.
 
@@ -285,22 +288,22 @@ az storage account delete --name storageAccountName --resource-group resourceGro
 
 이 방법 문서에서는 범용 v2 standard storage 계정을 만들었습니다. 저장소 계정에서 blob을 업로드 하 고 다운로드 하는 방법을 알아보려면 Blob storage 빠른 시작 중 하나를 계속 진행 하세요.
 
-# <a name="portaltabazure-portal"></a>[포털](#tab/azure-portal)
+# <a name="portal"></a>[포털](#tab/azure-portal)
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 > [!div class="nextstepaction"]
 > [PowerShell을 통한 Blob 사용](../blobs/storage-quickstart-blobs-powershell.md)
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 > [!div class="nextstepaction"]
 > [Azure CLI를 통한 Blob 사용](../blobs/storage-quickstart-blobs-cli.md)
 
-# <a name="templatetabtemplate"></a>[템플릿](#tab/template)
+# <a name="template"></a>[템플릿](#tab/template)
 
 > [!div class="nextstepaction"]
 > [Azure Portal을 통한 Blob 사용](../blobs/storage-quickstart-blobs-portal.md)

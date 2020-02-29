@@ -3,20 +3,20 @@ title: Weibo 계정을 사용 하 여 등록 및 로그인 설정
 titleSuffix: Azure AD B2C
 description: 고객에게 Azure Active Directory B2C를 사용하여 애플리케이션에서 Weibo 계정으로 등록 및 로그인을 제공합니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 08/08/2019
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 3f84d1d33874ac70a21c9d596c6fa5a9e608bb84
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: e99b5717cdcc32d8fd138d1edf5fe1bd3283c70e
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76847395"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187902"
 ---
 # <a name="set-up-sign-up-and-sign-in-with-a-weibo-account-using-azure-active-directory-b2c"></a>Azure Active Directory B2C를 사용하여 Weibo 계정으로 등록 설정 및 로그인
 
@@ -44,7 +44,7 @@ Azure Active Directory B2C (Azure AD B2C)에서 Weibo 계정을 id 공급자로 
 1. **保存以上信息**(저장)을 선택합니다.
 1. **高级信息**(고급 정보)를 선택합니다.
 1. OAuth2.0 **授权设置**(리디렉션 URL)에 대한 필드 옆의 **编辑**(편집)을 선택합니다.
-1. OAuth2.0 **授权设置**(리디렉션 URL)에 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`를 입력합니다. 예를 들어 테넌트 이름이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`로 설정합니다.
+1. OAuth2.0 `https://your-tenant-name.b2clogin.com/your-tenant-name.onmicrosoft.com/oauth2/authresp`授权设置 **(리디렉션 URL)에** 를 입력합니다. 예를 들어 테넌트 이름이 contoso인 경우 URL을 `https://contoso.b2clogin.com/contoso.onmicrosoft.com/oauth2/authresp`로 설정합니다.
 1. **提交**(제출)을 선택합니다.
 
 ## <a name="configure-a-weibo-account-as-an-identity-provider"></a>Weibo 계정을 ID 공급자로 구성

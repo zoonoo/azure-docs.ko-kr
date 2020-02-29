@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-key-vault
 ms.service: key-vault
+ms.subservice: general
 ms.topic: conceptual
 ms.date: 03/07/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 654a9bb772c8a7426a335c98dfeca69515b9ce67
-ms.sourcegitcommit: 7c5a2a3068e5330b77f3c6738d6de1e03d3c3b7d
+ms.openlocfilehash: cb4bec8170466f0fc667b592d44b0858c41ccd84
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/11/2019
-ms.locfileid: "70881628"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184830"
 ---
 # <a name="best-practices-to-use-key-vault"></a>Key Vault 사용에 대 한 모범 사례
 
@@ -32,7 +33,7 @@ Azure Key Vault는 암호화 키와 비밀(예: 인증서, 연결 문자열 및 
 
 환경 별로 응용 프로그램당 자격 증명 모음을 사용 하는 것이 좋습니다 (개발, 프로덕션 전 및 프로덕션). 이를 통해 환경에서 비밀을 공유 하지 않으며 위반 시 위협이 줄어듭니다.
 
-## <a name="backup"></a>백업
+## <a name="backup"></a>Backup
 
 자격 증명 모음 내에서 개체의 업데이트/삭제/만들기에 대 한 [자격 증명 모음](https://blogs.technet.microsoft.com/kv/2018/07/20/announcing-backup-and-restore-of-keys-secrets-and-certificates/) 을 정기적으로 백업 해야 합니다.
 

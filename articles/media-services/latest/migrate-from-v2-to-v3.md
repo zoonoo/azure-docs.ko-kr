@@ -13,14 +13,14 @@ ms.devlang: multiple
 ms.topic: article
 ms.tgt_pltfrm: multiple
 ms.workload: media
-ms.date: 10/02/2019
+ms.date: 02/28/2020
 ms.author: juliako
-ms.openlocfilehash: dc3b122ab7f4a243f3a4ecd6f220caa00beb044e
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: 2a670c7bce113de8854b33e407c7de2236edd794
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505779"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197864"
 ---
 # <a name="migration-guidance-for-moving-from-media-services-v2-to-v3"></a>Media Services v2에서 v3로 이동하기 위한 마이그레이션 지침
 
@@ -77,7 +77,26 @@ ms.locfileid: "77505779"
 * 라이브 출력은 생성과 동시에 시작되고 삭제되면 중지됩니다. v2 API에서는 프로그램이 다르게 작동했습니다. 생성 후 시작해야 했습니다.
 * 작업에 대 한 정보를 가져오려면 작업이 만들어진 변환 이름을 알아야 합니다. 
 * V2에서 XML [입력](../previous/media-services-input-metadata-schema.md) 및 [출력](../previous/media-services-output-metadata-schema.md) 메타 데이터 파일은 인코딩 작업의 결과로 생성 됩니다. V3에서 메타 데이터 형식이 XML에서 JSON으로 변경 되었습니다. 
+* Media Services v 2에서는 IV (initialization vector)를 지정할 수 있습니다. Media Services v3에서는 FairPlay IV를 지정할 수 없습니다. 패키징 및 라이선스 배달 모두에 대해 Media Services를 사용 하는 고객에 게는 영향을 주지 않지만 타사 DRM 시스템을 사용 하 여 FairPlay 라이선스 (하이브리드 모드)를 제공할 때 문제가 될 수 있습니다. 이 경우 FairPlay IV는 cbcs-aapl 키 ID에서 파생 되 고 다음 수식을 사용 하 여 검색할 수 있다는 것을 알고 있어야 합니다.
 
+    ```
+    string cbcsIV =  Convert.ToBase64String(HexStringToByteArray(cbcsGuid.ToString().Replace("-", string.Empty)));
+    ```
+
+    다음과 같이 바꿉니다.
+
+    ``` 
+    public static byte[] HexStringToByteArray(string hex)
+    {
+        return Enumerable.Range(0, hex.Length)
+            .Where(x => x % 2 == 0)
+            .Select(x => Convert.ToByte(hex.Substring(x, 2), 16))
+            .ToArray();
+    }
+    ```
+
+    자세한 내용은 [라이브 및 VOD 작업 모두 C# 에 대 한 하이브리드 모드에서 Media Services v3의 Azure Functions 코드](https://github.com/Azure-Samples/media-services-v3-dotnet-core-functions-integration/tree/master/LiveAndVodDRMOperationsV3)를 참조 하세요.
+ 
 > [!NOTE]
 > [Media Services v3 리소스](media-services-apis-overview.md#naming-conventions)에 적용 되는 명명 규칙을 검토 합니다. [Blob 명명](assets-concept.md#naming)도 검토 합니다.
 

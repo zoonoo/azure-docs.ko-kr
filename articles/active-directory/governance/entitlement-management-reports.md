@@ -16,12 +16,12 @@ ms.date: 10/28/2019
 ms.author: ajburnle
 ms.reviewer: jocastel
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 819badb85e532275b4d5d6ca84c3e6e7fe527fa0
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c98a583e2aa8ac679842e16d1c0cc36811db90de
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75422562"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190588"
 ---
 # <a name="view-reports-and-logs-in-azure-ad-entitlement-management"></a>Azure AD 자격 관리에서 보고서 및 로그 보기
 
@@ -109,5 +109,6 @@ Azure AD가 새 요청을 받으면 **범주가** `EntitlementManagement` 되 �
 
 ## <a name="next-steps"></a>다음 단계
 
+- [보고서 및 로그 보관](entitlement-management-logs-and-reporting.md)
 - [Azure AD 자격 관리 문제 해결](entitlement-management-troubleshoot.md)
 - [일반적인 시나리오](entitlement-management-scenarios.md)

@@ -4,12 +4,12 @@ description: AKS (Azure Kubernetes Service)에서 kured를 사용 하 여 Linux 
 services: container-service
 ms.topic: article
 ms.date: 02/28/2019
-ms.openlocfilehash: b0bb7a3309cf1b56a5779b54b34310aa01f3e719
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 74b12c1bc6e2a88582cc357c8091b5590e6bf3cb
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594943"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78191285"
 ---
 # <a name="apply-security-and-kernel-updates-to-linux-nodes-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Linux 노드에 보안 및 커널 업데이트 적용
 
@@ -22,7 +22,7 @@ Windows Server 노드 (현재 미리 보기로 제공 되는 AKS)를 최신 상�
 > [!NOTE]
 > `Kured`는 Weaveworks에서 제공되는 오픈 소스 프로젝트입니다. AKS에서 이 프로젝트에 대한 지원은 최상의 노력을 기준으로 제공됩니다. #Weave-커뮤니티 여유 시간 채널에서 추가 지원을 찾을 수 있습니다.
 
-## <a name="before-you-begin"></a>시작하기 전에
+## <a name="before-you-begin"></a>시작하기 전 주의 사항
 
 이 문서에서는 기존 AKS 클러스터가 있다고 가정합니다. AKS 클러스터가 필요한 경우 [Azure CLI를 사용][aks-quickstart-cli] 하거나 [Azure Portal를 사용][aks-quickstart-portal]하 여 AKS 빠른 시작을 참조 하세요.
 
@@ -51,13 +51,23 @@ AKS에 클러스터를 *업그레이드*할 수 있는 추가 프로세스가 �
 
 ## <a name="deploy-kured-in-an-aks-cluster"></a>AKS 클러스터에서 kured 배포
 
-`kured` DaemonSet을 배포하려면 해당 GitHub 프로젝트 페이지에서 다음 샘플 YAML 매니페스트를 적용합니다. 이 매니페스트는 역할 및 클러스터 역할, 바인딩 및 서비스 계정을 만든 다음, AKS 클러스터 1.9 이상을 지원하는 `kured` 버전 1.1.0을 사용하여 DaemonSet을 배포합니다.
+`kured` DaemonSet를 배포 하려면 다음 공식 Kured 투구 차트를 설치 합니다. 그러면 역할 및 클러스터 역할, 바인딩 및 서비스 계정이 만들어지고 `kured`를 사용 하 여 DaemonSet가 배포 됩니다.
 
 ```console
-kubectl apply -f https://github.com/weaveworks/kured/releases/download/1.2.0/kured-1.2.0-dockerhub.yaml
+# Add the stable Helm repository
+helm repo add stable https://kubernetes-charts.storage.googleapis.com/
+
+# Update your local Helm chart repository cache
+helm repo update
+
+# Create a dedicated namespace where you would like to deploy kured into
+kubectl create namespace kured
+
+# Install kured in that namespace with Helm 3 (only on Linux nodes, kured is not working on Windows nodes)
+helm install kured stable/kured --namespace kured --set nodeSelector."beta\.kubernetes\.io/os"=linux
 ```
 
-Prometheus 또는 Slack과 통합과 같은 `kured`에 대한 추가 매개 변수를 구성할 수도 있습니다. 추가 구성 매개 변수에 대 한 자세한 내용은 [kured 설치 문서][kured-install]를 참조 하세요.
+Prometheus 또는 Slack과 통합과 같은 `kured`에 대한 추가 매개 변수를 구성할 수도 있습니다. 추가 구성 매개 변수에 대 한 자세한 내용은 [Kured 투구 차트][kured-install]를 참조 하세요.
 
 ## <a name="update-cluster-nodes"></a>클러스터 노드 업데이트
 
@@ -96,7 +106,7 @@ Windows Server 노드를 사용 하는 AKS 클러스터는 [AKS에서 노드 풀
 
 <!-- LINKS - external -->
 [kured]: https://github.com/weaveworks/kured
-[kured-install]: https://github.com/weaveworks/kured#installation
+[kured-install]: https://hub.helm.sh/charts/stable/kured
 [kubectl-get-nodes]: https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get
 
 <!-- LINKS - internal -->

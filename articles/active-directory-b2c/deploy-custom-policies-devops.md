@@ -3,20 +3,20 @@ title: Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
 titleSuffix: Azure AD B2C
 description: Azure DevOps Services에서 Azure Pipelines를 사용 하 여 CI/CD 파이프라인에 Azure AD B2C 사용자 지정 정책을 배포 하는 방법에 대해 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/14/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 8649537a2992ba11a2b664a9b36207e06c8b1274
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: b23b60ae49a4973fa04e6fa5f795f99536e32e7f
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498547"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78188752"
 ---
 # <a name="deploy-custom-policies-with-azure-pipelines"></a>Azure Pipelines를 사용 하 여 사용자 지정 정책 배포
 
@@ -31,7 +31,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 > [!IMPORTANT]
 > Azure 파이프라인을 사용 하 여 사용자 지정 정책 Azure AD B2C 관리는 현재 Microsoft Graph API `/beta` 끝점에서 사용할 수 있는 **미리 보기** 작업을 사용 합니다. 프로덕션 애플리케이션에서는 이러한 API의 사용이 지원되지 않습니다. 자세한 내용은 [Microsoft Graph REST API beta 끝점 참조](https://docs.microsoft.com/graph/api/overview?toc=./ref/toc.json&view=graph-rest-beta)를 참조 하세요.
 
-## <a name="prerequisites"></a>사전 요구 사항
+## <a name="prerequisites"></a>필수 조건
 
 * [B2C IEF 정책 관리자](../active-directory/users-groups-roles/directory-assign-admin-roles.md#b2c-ief-policy-administrator) 역할을 사용 하 여 디렉터리의 사용자에 대 한 [Azure AD B2C 테 넌 트](tutorial-create-tenant.md)및 자격 증명
 * 테 넌 트에 업로드 된 [사용자 지정 정책](custom-policy-get-started.md)
@@ -131,7 +131,7 @@ Azure Pipelines를 사용 하 여 Azure AD B2C 내에서 사용자 지정 정책
 1. **변수** 탭을 선택 합니다.
 1. **파이프라인 변수** 아래에 다음 변수를 추가 하 고 지정 된 대로 값을 설정 합니다.
 
-    | 속성 | 값 |
+    | 이름 | 값 |
     | ---- | ----- |
     | `clientId` | 이전에 등록 한 응용 프로그램의 **응용 프로그램 (클라이언트) ID** 입니다. |
     | `clientSecret` | 이전에 만든 **클라이언트 암호** 의 값입니다. <br /> 변수 유형을 **secret** (잠금 아이콘 선택)로 변경 합니다. |

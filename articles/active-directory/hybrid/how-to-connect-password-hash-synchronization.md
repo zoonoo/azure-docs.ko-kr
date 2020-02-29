@@ -9,18 +9,18 @@ ms.assetid: 05f16c3e-9d23-45dc-afca-3d0fa9dbf501
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
-ms.date: 04/02/2019
+ms.date: 02/26/2020
 ms.subservice: hybrid
 ms.author: billmath
 search.appverid:
 - MET150
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 405b2fb9d9b8ef3bce17a9370ac87592a3437026
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3f7d7c9af807120457b119e0be047c7a342b961
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585954"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78190537"
 ---
 # <a name="implement-password-hash-synchronization-with-azure-ad-connect-sync"></a>Azure AD Connect 동기화를 사용하여 암호 해시 동기화 구현
 이 문서에서는 온-프레미스 Active Directory 인스턴스에서 클라우드 기반 Azure Active Directory(Azure AD) 인스턴스로 사용자 암호를 동기화하는 데 필요한 정보를 제공합니다.
@@ -136,10 +136,10 @@ Azure AD에서 동기화 된 사용자에 대 한 임시 암호를 지원 하려
 `Set-ADSyncAADCompanyFeature  -ForcePasswordChangeOnLogOn $true`
 
 > [!NOTE]
-> 사용자가 다음에 로그온 할 때 자신의 암호를 변경 하도록 강제 하려면 암호를 변경 해야 합니다.  AD Connect는 강제로 암호 변경 플래그를 선택 하지 않습니다. 암호 해시 동기화 중에 발생 하는 검색 된 암호 변경을 보완 합니다.
+> 사용자가 다음에 로그온 할 때 자신의 암호를 변경 하도록 강제 하려면 암호를 변경 해야 합니다.  Azure AD Connect 암호 변경 플래그를 단독으로 선택 하지 않습니다. 암호 해시 동기화 중에 발생 하는 검색 된 암호 변경을 보완 합니다.
 
 > [!CAUTION]
-> Azure AD에서 SSPR (셀프 서비스 암호 재설정)를 사용 하도록 설정 하지 않은 경우 Azure AD에서 암호를 재설정 한 후 새 암호를 사용 하 여 Active Directory 로그인을 시도 하는 경우에는 새 암호가 유효 하지 않기 때문에 azure ad에서 사용자의 암호 재설정을 사용 하도록 설정 하는 것이 좋습니다 Active Directory . 테 넌 트에서 SSPR 및 비밀 번호 쓰기 저장을 사용 하도록 설정한 경우에만이 기능을 사용 해야 합니다.
+> 테 넌 트에서 SSPR 및 비밀 번호 쓰기 저장을 사용 하도록 설정한 경우에만이 기능을 사용 해야 합니다.  이는 사용자가 SSPR를 통해 암호를 변경 하는 경우 Active Directory에 동기화 됩니다.
 
 > [!NOTE]
 > 이 기능은 현재 공개 미리 보기 상태입니다.

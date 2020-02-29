@@ -10,28 +10,36 @@ ms.topic: conceptual
 ms.date: 09/06/2018
 ms.author: kevin
 ms.reviewer: igorstan
-ms.openlocfilehash: 924705b7ce1d324583077797714491bdf3fc5cc9
-ms.sourcegitcommit: f52ce6052c795035763dbba6de0b50ec17d7cd1d
+ms.custom: azure-synapse
+ms.openlocfilehash: 257b33802ea95138ef8149ef9302b14ca379e7ac
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/24/2020
-ms.locfileid: "76721220"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195568"
 ---
 # <a name="how-to-monitor-the-gen2-cache"></a>Gen2 캐시 모니터링 방법
-Gen2 스토리지 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다. 이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.  
+
+이 문서에서는 워크로드가 Gen2 캐시를 최적으로 활용하는지 판단하여 쿼리 성능을 모니터링하고 문제를 해결하는 방법에 대해 설명합니다.
+
+Gen2 스토리지 아키텍처는 Gen2 데이터 웨어하우스용으로 설계된 NVMe 기반의 SSD에 있는 캐시에 가장 자주 쿼리되는 columnstore 세그먼트를 자동으로 계층화합니다. 쿼리가 캐시에 있는 세그먼트를 검색하면 성능이 향상됩니다.
+ 
 ## <a name="troubleshoot-using-the-azure-portal"></a>Azure Portal을 사용하여 문제 해결
-Azure Monitor를 사용하여 Gen2 캐시 메트릭을 보고 쿼리 성능 문제를 해결할 수 있습니다. 먼저 Azure Portal로 이동하여 Azure Monitor를 클릭합니다.
 
-![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache_0.png)
+Azure Monitor를 사용하여 Gen2 캐시 메트릭을 보고 쿼리 성능 문제를 해결할 수 있습니다. 먼저 Azure Portal로 이동 하 여 **모니터**, **메트릭** 및 **+ 범위 선택**을 클릭 합니다.
 
-메트릭 단추를 선택 하 고 **구독**, **리소스** **그룹**, **리소스 종류**및 데이터 웨어하우스의 **리소스 이름을** 입력 합니다.
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-0.png)
 
-Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** 및 **캐시 사용 비율**입니다. 이러한 두 개의 메트릭을 표시하도록 Azure 메트릭 차트를 구성합니다.
+검색 및 드롭다운 막대를 사용 하 여 데이터 웨어하우스를 찾습니다. 그런 다음 적용을 선택 합니다.
 
-![캐시 메트릭](./media/sql-data-warehouse-cache-portal/cache_1.png)
+![Azure Monitor](./media/sql-data-warehouse-cache-portal/cache-1.png)
 
+Gen2 캐시 문제 해결에 대한 키 메트릭은 **캐시 적중 비율** 및 **캐시 사용 비율**입니다. **캐시 적중 비율** 을 선택한 다음 **메트릭 추가** 단추를 사용 하 여 **캐시 사용 백분율**을 추가 합니다. 
+
+![캐시 메트릭](./media/sql-data-warehouse-cache-portal/cache-2.png)
 
 ## <a name="cache-hit-and-used-percentage"></a>캐시 적중 및 사용 비율
+
 아래 매트릭스에서는 캐시 메트릭의 값에 따라 시나리오를 설명합니다.
 
 |                                | **높은 캐시 적중 비율** | **낮은 캐시 적중 비율** |
