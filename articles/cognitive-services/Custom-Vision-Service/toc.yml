@@ -1,9 +1,12 @@
 - name: Custom Vision Service 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Custom Vision이란?
       href: home.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 웹 포털 사용

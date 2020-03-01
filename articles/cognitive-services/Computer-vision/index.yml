@@ -1,9 +1,9 @@
 ### YamlMime:Landing
 title: Computer Vision 설명서
-summary: 클라우드 기반 Computer Vision API를 사용하면 개발자가 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자의 선택에 기반한 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서, 샘플을 통해 여러 가지 방법으로 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+summary: 클라우드 기반 Computer Vision API를 사용하면 개발자가 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자 선택에 따라 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서, 샘플을 통해 여러 가지 방법으로 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
 metadata:
   title: Computer Vision 설명서 - 빠른 시작, 자습서, API 참조 - Azure Cognitive Services | Microsoft Docs
-  description: 클라우드 기반 Computer Vision API를 사용하면 개발자가 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자의 선택에 기반한 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서, 샘플을 통해 여러 가지 방법으로 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
+  description: 클라우드 기반 Computer Vision API를 사용하면 개발자가 이미지를 처리하고 정보를 반환하는 고급 알고리즘에 액세스할 수 있습니다. 이미지를 업로드하거나 이미지 URL을 지정하면 Microsoft Computer Vision 알고리즘이 입력 및 사용자 선택에 따라 다양한 방식으로 시각적 콘텐츠를 분석할 수 있습니다. 빠른 시작, 자습서, 샘플을 통해 여러 가지 방법으로 시각적 콘텐츠를 분석하는 방법에 대해 알아봅니다.
   services: cognitive-services
   ms.service: cognitive-services
   ms.subservice: computer-vision
@@ -11,12 +11,12 @@ metadata:
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 10/01/2019
-  ms.openlocfilehash: b17796fe07f37931c4a4924c6d4daaa8399562d2
-  ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+  ms.openlocfilehash: e7c04f587f900342031f25210f6640b46fbc358b
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 11/06/2019
-  ms.locfileid: "73647835"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78207084"
 landingContent:
 - title: Computer Vision 정보
   linkLists:
@@ -24,6 +24,10 @@ landingContent:
     links:
     - text: Computer Vision이란?
       url: Home.md
+  - linkListType: whats-new
+    links:
+    - text: 새로운 기능
+      url: whats-new.md
   - linkListType: video
     links:
     - text: Computer Vision API를 사용하여 앱에 인텔리전스 통합
@@ -116,7 +120,7 @@ landingContent:
       url: quickstarts-sdk/node-sdk.md
     - text: Go SDK 사용
       url: quickstarts-sdk/go-sdk.md
-- title: 참고 자료
+- title: 참조
   linkLists:
   - linkListType: reference
     links:

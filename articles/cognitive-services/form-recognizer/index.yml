@@ -6,17 +6,17 @@ metadata:
   description: Azure Form Recognizer는 기계 학습 기술을 사용하여 양식 문서에서 키-값 쌍과 테이블 데이터를 식별하고 추출하는 인지 서비스입니다. 그런 다음, 원본 파일의 관계가 포함된 정형 데이터를 출력합니다. 자율 학습을 사용하면 수동으로 데이터 레이블을 지정하거나 집중적인 코딩 작업 없이도 모델이 레이아웃 및 필드 데이터를 이해할 수 있습니다. 수동으로 레이블이 지정된 데이터를 사용하여 감독된 학습을 수행할 수도 있습니다. 레이블이 지정된 데이터로 학습된 모델은 성능이 더 좋으며 더 복잡한 문서와 함께 사용할 수 있습니다.
   services: cognitive-services
   ms.service: cognitive-services
-  ms.subservice: form-recognizer
+  ms.subservice: forms-recognizer
   ms.topic: landing-page
   author: PatrickFarley
   ms.author: pafarley
   ms.date: 09/05/2019
-  ms.openlocfilehash: 1fe0aee8967a0072a7ae01abc5791e7a3fd0834d
-  ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
+  ms.openlocfilehash: de869fd9beb66a4122c1204648d17cff480e4b7f
+  ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 01/13/2020
-  ms.locfileid: "75921484"
+  ms.lasthandoff: 03/01/2020
+  ms.locfileid: "78206489"
 landingContent:
 - title: Form Recognizer 정보
   linkLists:

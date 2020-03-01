@@ -5,6 +5,8 @@
   items:
     - name: Computer Vision이란?
       href: Home.md
+    - name: 새로운 기능
+      href: whats-new.md
 - name: 빠른 시작
   items:
     - name: 클라이언트 SDK 사용
