@@ -5,17 +5,17 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 10/24/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: 7564d40aa9344288c0368818b0b6501dc22a5a27
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: a04df7ed283a17ddad6af87cf8215ff8d39a5079
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74705513"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202519"
 ---
-디스크 버스트는 현재 프리미엄 Ssd의 미리 보기 기능입니다. 버스트는 프리미엄 SSD 디스크 크기 < = 512 GiB (P20)에서 지원 됩니다. 이러한 디스크 크기는 최고 노력으로 버스트를 지원 하 고 신용 시스템을 활용 하 여 버스트를 관리 합니다. 크레딧을 디스크 크기에 대 한 프로 비전 된 성능 목표 미만이 될 때마다 버스트 버킷에 누적 되며, 목표를 초과 하는 트래픽 버스트 시 크레딧을 소비 합니다. 디스크 트래픽은 프로 비전 된 대상의 IOPS 및 대역폭 모두에 대해 추적 됩니다.
+디스크 버스트는 현재 프리미엄 Ssd의 미리 보기 기능입니다. 버스트는 프리미엄 SSD 디스크 크기 < = 512 GiB (P20)에서 지원 됩니다. 이러한 디스크 크기는 최고 노력으로 버스트를 지원 하 고 신용 시스템을 활용 하 여 버스트를 관리 합니다. 크레딧을 디스크 크기에 대 한 프로 비전 된 성능 목표 미만이 될 때마다 버스트 버킷에 누적 되며, 목표를 초과 하는 트래픽 버스트 시 크레딧을 소비 합니다. 디스크 트래픽은 프로 비전 된 대상의 IOPS 및 대역폭 모두에 대해 추적 됩니다. 디스크 버스트는 IOPS 또는 처리량에 대 한 VM (가상 머신) 크기 제한을 우회 하지 않습니다.
 
 디스크 버스트는이를 지 원하는 디스크 크기의 새 배포에서 기본적으로 사용 하도록 설정 됩니다. 디스크 버스트를 지 원하는 경우 기존 디스크 크기는 다음 방법 중 하나를 통해 버스트를 사용 하도록 설정할 수 있습니다.
 
@@ -34,7 +34,7 @@ ms.locfileid: "74705513"
 
 버스트 사양과 함께 버스트 지원을 제공 하는 디스크 크기는 아래 표에 요약 되어 있습니다.
 
-## <a name="regional-availability"></a>지역별 가용성
+## <a name="regional-availability"></a>국가별 가용성
 
 현재 디스크 버스트는 미국 서 부 지역 에서만 사용할 수 있습니다.
 

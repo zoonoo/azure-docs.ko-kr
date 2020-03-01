@@ -5,21 +5,21 @@ services: virtual-machines
 author: roygara
 ms.service: virtual-machines
 ms.topic: include
-ms.date: 05/14/2019
+ms.date: 02/28/2020
 ms.author: rogarana
 ms.custom: include file
-ms.openlocfilehash: a355307eef9f5ce1f833cfd7924f5efa234a0cd7
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: e145cf481dd165144b188e6205e4b78cc61359fd
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73523341"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78202541"
 ---
 ## <a name="premium-ssd"></a>프리미엄 SSD
 
 Azure 프리미엄 SSD는 IO(입출력) 집약적 워크로드가 있는 VM(가상 머신)에 대기 시간이 짧은 고성능 디스크를 지원합니다. 프리미엄 스토리지 디스크의 속도와 성능을 활용하기 위해 기존 VM 디스크를 프리미엄 SSD로 마이그레이션할 수 있습니다. 프리미엄 SSD는 중요 업무용 프로덕션 애플리케이션에 적합합니다. Premium Ssd는 프리미엄 저장소와 호환 되는 VM 시리즈에만 사용할 수 있습니다.
 
-프리미엄 저장소와 호환 되는 크기를 비롯 하 여 Windows 용 Azure에서 개별 VM 유형 및 크기에 대 한 자세한 내용은 [WINDOWS VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조 하세요. 프리미엄 저장소와 호환 되는 크기를 포함 하 여 Linux 용 Azure의 개별 VM 유형 및 크기에 대해 자세히 알아보려면 [LINUX VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조 하세요.
+프리미엄 저장소와 호환 되는 크기를 비롯 하 여 Windows 용 Azure에서 개별 VM 유형 및 크기에 대 한 자세한 내용은 [WINDOWS VM 크기](../articles/virtual-machines/windows/sizes.md)를 참조 하세요. 프리미엄 저장소와 호환 되는 크기를 포함 하 여 Linux 용 Azure의 개별 VM 유형 및 크기에 대해 자세히 알아보려면 [LINUX VM 크기](../articles/virtual-machines/linux/sizes.md)를 참조 하세요. 이러한 문서 중 하나에서 각 개별 VM 크기 문서를 확인 하 여 premium storage와 호환 되는지 확인 해야 합니다.
 
 ### <a name="disk-size"></a>디스크 크기
 [!INCLUDE [disk-storage-premium-ssd-sizes](disk-storage-premium-ssd-sizes.md)]
