@@ -29,6 +29,8 @@
       href: tutorial-r-doazureparallel.md
     - name: Batch 및 Functions를 사용하는 OCR
       href: tutorial-batch-functions.md
+    - name: Data Factory를 사용하는 Python 스크립트
+      href: tutorial-run-python-batch-azure-data-factory.md
 - name: 샘플
   items:
     - name: 코드 샘플

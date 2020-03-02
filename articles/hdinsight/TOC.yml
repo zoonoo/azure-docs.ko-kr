@@ -504,6 +504,8 @@
           href: ./kafka/apache-kafka-quickstart-resource-manager-template.md
     - name: 자습서
       items:
+        - name: Apache Kafka 클러스터 만들기 - Azure CLI
+          href: ./kafka/tutorial-cli-rest-proxy.md
         - name: Apache Kafka 생산자 및 소비자 API 사용
           href: ./kafka/apache-kafka-producer-consumer-api.md
         - name: Apache Kafka Streams API를 사용하여 앱 개발
@@ -548,8 +550,6 @@
               href: ./kafka/apache-kafka-mirroring.md
             - name: Apache Kafka 로그 분석
               href: ./kafka/apache-kafka-log-analytics-operations-management.md
-            - name: 사용자 고유 키 가져오기
-              href: ./kafka/apache-kafka-byok.md
             - name: SSL 암호화 및 인증
               href: ./kafka/apache-kafka-ssl-encryption-authentication.md
         - name: 문제 해결

@@ -3,14 +3,12 @@
 - name: 빠른 시작
   expanded: true
   items:
-    - name: Docker Marketplace 템플릿
-      href: 'https://azuremarketplace.microsoft.com/en-us/marketplace/apps/CanonicalandMSOpenTech.DockerOnUbuntuServer1404LTS'
+    - name: Docker를 사용하여 Ubuntu VM 배포
+      href: 'https://azure.microsoft.com/resources/templates/docker-simple-on-ubuntu/'
 - name: 자습서
   items:
     - name: Docker 및 PostgreSQL을 사용하는 Python 웹앱
       href: ../app-service/containers/tutorial-python-postgresql-app.md?toc=%2fazure%2fpostgresql%2ftoc.json
-    - name: Docker Swarm 및 Azure DevOps를 사용하는 CI/CD
-      href: /azure/container-service/container-service-docker-swarm-mode-setup-ci-cd-acs-engine
     - name: 'Docker, Jenkins 및 Linux를 사용하는 CI/CD'
       href: /azure/jenkins/tutorial-jenkins-github-docker-cicd
 - name: 방법 가이드

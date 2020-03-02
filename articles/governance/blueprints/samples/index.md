@@ -1,14 +1,14 @@
 ---
 title: 청사진 샘플 인덱스
 description: Azure 청사진을 사용하여 환경, 정책 및 Cloud Adoptions Framework 기반을 배포하기 위한 규정 준수 및 표준 샘플의 인덱스입니다.
-ms.date: 02/11/2020
+ms.date: 02/26/2020
 ms.topic: sample
-ms.openlocfilehash: 88dde10efefd8153eff9aa6ad2ea47a1e00e2c87
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 703c383f41cd833fb47ca489682258158f9fe179
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77150462"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196827"
 ---
 # <a name="azure-blueprints-samples"></a>Azure Blueprints 샘플
 
@@ -28,6 +28,7 @@ ms.locfileid: "77150462"
 | [ISO 27001](./iso27001/index.md) | ISO 27001 규정 준수를 위한 가드레일을 제공합니다. |
 | [ISO 27001 Shared Services](./iso27001-shared/index.md) | ISO 27001 증명에 도움이 되는 일련의 호환 인프라 패턴 및 정책 가드 레일을 제공합니다. |
 | [ISO 27001 App Service Environment/SQL Database 워크로드](./iso27001-ase-sql-workload/index.md) | [ISO 27001 Shared Services](./iso27001-shared/index.md) 청사진 샘플에 추가 인프라를 제공합니다. |
+| [미디어](./media/index.md) | Media MPAA를 준수하는 데 도움이 되는 정책 세트를 제공합니다. |
 | [NIST SP 800-53 R4](./nist-sp-800-53-rev4/index.md) | NIST SP 800-53 R4 규정 준수를 위한 가드레일을 제공합니다. |
 | [PCI-DSS v3.2.1](./pci-dss-3.2.1/index.md) | PCI-SS v3.2.1 규정 준수를 위한 일련의 정책을 제공합니다. |
 | [SWIFT CSP-CSCF v2020](./swift-2020/index.md) | SWIFT CSP-CSCF v2020 규정 준수를 지원합니다. |

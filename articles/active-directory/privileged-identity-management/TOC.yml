@@ -47,6 +47,8 @@
       items:
         - name: 기능 업데이트
           href: azure-ad-roles-features.md
+        - name: Azure AD 역할에 대한 PowerShell
+          href: powershell-for-azure-ad-roles.md
         - name: 역할 할당
           href: pim-how-to-add-role-to-user.md
         - name: 요청 승인

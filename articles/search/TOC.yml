@@ -35,7 +35,7 @@
       href: search-get-started-python.md
 - name: 자습서
   items:
-    - name: '첫 번째 C# 앱 만들기'
+    - name: 'C# 앱 만들기'
       items:
         - name: 1 - 기본 검색 페이지
           href: tutorial-csharp-create-first-app.md
@@ -47,13 +47,15 @@
           href: tutorial-csharp-facets.md
         - name: 5 - 결과 순서 지정 추가
           href: tutorial-csharp-orders.md
-    - name: Azure SQL Database 인덱싱
-      href: search-indexer-tutorial.md
-    - name: Azure JSON Blob 인덱싱
-      href: search-semi-structured-data.md
-    - name: 여러 Azure 데이터 소스 인덱싱
-      href: tutorial-multiple-data-sources.md
-    - name: AI로 보강(Cognitive Search)
+    - name: Azure 데이터 인덱싱
+      items:
+        - name: Azure SQL Database 인덱싱
+          href: search-indexer-tutorial.md
+        - name: Azure JSON Blob 인덱싱
+          href: search-semi-structured-data.md
+        - name: 여러 Azure 데이터 소스 인덱싱
+          href: tutorial-multiple-data-sources.md
+    - name: AI를 사용하여 콘텐츠 만들기
       items:
         - name: 'C#'
           href: cognitive-search-tutorial-blob-dotnet.md

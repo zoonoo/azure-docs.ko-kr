@@ -43,6 +43,8 @@
       href: active-directory-data-storage-australia-newzealand.md
     - name: Microsoft 365 Government의 새로운 기능
       href: whats-new-microsoft-365-government.md
+    - name: ADDS와 Azure AD 비교
+      href: active-directory-compare-azure-ad-to-ad.md
     - name: Azure AD 작업 참조
       items:
         - name: 소개

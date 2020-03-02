@@ -48,6 +48,8 @@
               href: entitlement-management-external-users.md
             - name: 보고서 및 로그 보기
               href: entitlement-management-reports.md
+            - name: 로그 및 보고 보관
+              href: entitlement-management-logs-and-reporting.md
             - name: 문제 해결
               href: entitlement-management-troubleshoot.md
         - name: 카탈로그 소유자

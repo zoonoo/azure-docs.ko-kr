@@ -375,6 +375,8 @@
           href: kube-advisor-tool.md
         - name: SSH 노드 액세스
           href: ssh.md
+        - name: Linux 성능 도구
+          href: troubleshoot-linux.md
 - name: 참조
   items:
     - name: Azure CLI

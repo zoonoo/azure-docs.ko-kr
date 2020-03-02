@@ -10,15 +10,15 @@ metadata:
   ms.topic: hub-page
   author: rolyon
   ms.author: rolyon
-  ms.date: 02/24/2020
+  ms.date: 02/27/2020
   featureFlags:
   - clicktale
-  ms.openlocfilehash: 9615b3df4c48ef073413ce0ecdec93264a0b9711
-  ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+  ms.openlocfilehash: 89c9b59a1f258e57adc98a917160d2ed2d6f4e33
+  ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
   ms.translationtype: HT
   ms.contentlocale: ko-KR
-  ms.lasthandoff: 02/26/2020
-  ms.locfileid: "77622623"
+  ms.lasthandoff: 02/28/2020
+  ms.locfileid: "78163916"
 highlightedContent:
   items:
   - title: Azure 개발자를 위한 시작 가이드
@@ -135,7 +135,6 @@ productDirectory:
     azureCategories:
     - featured
     - ai-machine-learning
-    - containers
     url: cognitive-services/index.yml
   - title: Computer Vision
     summary: 이미지에서 실용적인 정보를 추출
@@ -778,7 +777,6 @@ productDirectory:
     imageSrc: https://static.docs.com/ui/media/product/azure/active-directory-b2c.svg
     azureCategories:
     - identity
-    - security
     url: active-directory-b2c/index.yml
   - title: Azure Active Directory Domain Services
     summary: 도메인 컨트롤러를 사용하지 않고 도메인에 Azure 가상 머신 연결
@@ -849,7 +847,7 @@ productDirectory:
     - mobile
     - web
     url: azure-maps/index.yml
-  - title: Azure Sphere(미리 보기)
+  - title: Azure Sphere
     summary: MCU 기반 디바이스를 실리콘에서 클라우드로 안전하게 연결
     imageSrc: https://static.docs.com/ui/media/product/azure/sphere.svg
     azureCategories:
@@ -938,6 +936,12 @@ productDirectory:
     azureCategories:
     - management-and-governance
     url: azure-resource-manager/index.yml
+  - title: Azure 리소스 관리자 템플릿
+    summary: Resource Manager를 사용하여 모든 Azure 리소스에 대한 코드로 인프라 제공
+    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+    azureCategories:
+    - management-and-governance
+    url: azure-resource-manager/templates/index.yml
   - title: Azure Service Health
     summary: Azure 서비스의 이슈가 영향을 주는 경우에 살펴볼 수 있는 맞춤형 지침 및 지원
     imageSrc: https://static.docs.com/ui/media/product/azure/service-health.svg
@@ -964,7 +968,7 @@ productDirectory:
     - management-and-governance
     - migration
     url: cost-management-billing/index.yml
-  - title: Azure portal
+  - title: Microsoft Azure Portal
     summary: 모든 Azure 제품을 단일의 통합 콘솔에서 빌드하고, 관리하고 모니터링
     imageSrc: https://static.docs.com/ui/media/product/azure/azure.svg
     azureCategories:
@@ -1103,7 +1107,7 @@ productDirectory:
     azureCategories:
     - networking
     url: internet-analyzer/index.yml
-  - title: Azure Private Link(미리 보기)
+  - title: Azure Private Link
     summary: Azure 플랫폼에서 호스트되는 서비스에 대한 프라이빗 액세스, Microsoft 네트워크에 데이터 보관
     imageSrc: https://static.docs.com/ui/media/product/azure/private-link.svg
     azureCategories:
@@ -1263,6 +1267,9 @@ tools:
   - title: Azure CLI
     imageSrc: https://docs.microsoft.com/media/logos/logo_CLIgeneric.svg
     url: https://docs.microsoft.com/cli/azure/
+  - title: ARM 템플릿
+    imageSrc: https://static.docs.com/ui/media/product/azure/resource-groups.svg
+    url: azure-resource-manager/templates/index.yml
   - title: Jenkins
     imageSrc: https://docs.microsoft.com/media/logos/logo_jenkins.svg
     url: jenkins/index.yml
@@ -1272,9 +1279,6 @@ tools:
   - title: Ansible
     imageSrc: ./media/index/ansible.svg
     url: ansible/index.yml
-  - title: Chef
-    imageSrc: ./chef/media/Chef_Regular.svg
-    url: chef/index.yml
 additionalContent:
   sections:
   - title: 소버린 클라우드

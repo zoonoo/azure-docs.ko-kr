@@ -42,6 +42,8 @@
     - name: 'Flask를 사용하여 텍스트 번역, 감정 분석 및 음성 합성'
       maintainContext: true
       href: 'https://docs.microsoft.com/azure/cognitive-services/translator/tutorial-build-flask-app-translation-synthesis'
+    - name: Power Automate를 사용하여 Excel에서 정보 추출
+      href: tutorials/extract-excel-information.md
 - name: 방법 가이드
   items:
     - name: 텍스트 분석 API 호출

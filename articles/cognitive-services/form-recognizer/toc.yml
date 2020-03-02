@@ -1,6 +1,7 @@
 - name: Form Recognizer 설명서
   href: index.yml
 - name: 개요
+  expanded: true
   items:
     - name: Form Recognizer란?
       href: overview.md
@@ -45,6 +46,8 @@
   items:
     - name: 학습 데이터 세트 빌드
       href: build-training-data-set.md
+    - name: 샘플 레이블 지정 도구 배포
+      href: deploy-label-tool.md
     - name: 컨테이너 사용
       items:
         - name: 컨테이너 설치 및 실행

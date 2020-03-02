@@ -88,6 +88,8 @@
         - name: 개발 수명 주기
           href: Concepts/development-lifecycle-knowledge-base.md
           displayName: 'version control, test, index, publish, monitor usage, create'
+        - name: 활성 학습 제안으로 개선
+          href: Concepts/active-learning-suggestions.md
     - name: 기술 자료 쿼리
       items:
         - name: 답변 구하기
