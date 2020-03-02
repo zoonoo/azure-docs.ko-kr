@@ -366,6 +366,24 @@
           href: hybrid-use-benefit-licensing.md
         - name: Windows 10에 대해 다중 테넌트 호스팅 권한 사용
           href: windows-desktop-multitenant-hosting-deployment.md
+    - name: 클래식에서 Azure Resource Manager로 마이그레이션
+      items:
+        - name: 2023년 3월 1일부터 사용 중지
+          href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
+        - name: 개요
+          href: migration-classic-resource-manager-overview.md
+        - name: 마이그레이션에 대한 고찰
+          href: migration-classic-resource-manager-deep-dive.md
+        - name: 마이그레이션 계획
+          href: migration-classic-resource-manager-plan.md
+        - name: Powershell을 사용하여 마이그레이션
+          href: migration-classic-resource-manager-ps.md
+        - name: 일반적인 마이그레이션 오류
+          href: migration-classic-resource-manager-errors.md
+        - name: 마이그레이션을 위한 커뮤니티 도구
+          href: migration-classic-resource-manager-community-tools.md
+        - name: FAQ
+          href: migration-classic-resource-manager-faq.md
     - name: VM 보안
       items:
         - name: 권장 사항
@@ -677,7 +695,7 @@
           href: /azure/active-directory/managed-identities-azure-resources/qs-configure-sdk-windows-vm?context=azure/virtual-machines/windows/context/windows-vm-context
     - name: VM 확장 사용
       href: ../extensions/overview.md
-    - name: VM 이동 및 마이그레이션
+    - name: VM 이동
       items:
         - name: 구독 또는 리소스 그룹 변경
           href: move-vm.md
@@ -694,21 +712,6 @@
               href: aws-to-azure.md
             - name: Azure Site Recovery 사용
               href: ../../site-recovery/site-recovery-migrate-to-azure.md?toc=/azure/virtual-machines/windows/toc.json&bc=/azure/virtual-machines/windows/breadcrumb/toc.json
-        - name: 클래식에서 Azure Resource Manager로 마이그레이션
-          href: migration-classic-resource-manager-overview.md
-          items:
-            - name: 마이그레이션에 대한 고찰
-              href: migration-classic-resource-manager-deep-dive.md
-            - name: 마이그레이션 계획
-              href: migration-classic-resource-manager-plan.md
-            - name: Powershell을 사용하여 마이그레이션
-              href: migration-classic-resource-manager-ps.md
-            - name: 일반적인 마이그레이션 오류
-              href: migration-classic-resource-manager-errors.md
-            - name: 마이그레이션을 위한 커뮤니티 도구
-              href: migration-classic-resource-manager-community-tools.md
-            - name: FAQ
-              href: migration-classic-resource-manager-faq.md
 - name: 문제 해결
   href: ../troubleshooting/index.yml
 - name: 참조

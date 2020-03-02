@@ -46,6 +46,8 @@
       href: select-columns-transform.md
     - name: 데이터 세트의 열 선택
       href: select-columns-in-dataset.md
+    - name: 데이터 분할
+      href: split-data.md
 - name: 기능 선택
   items:
     - name: 필터 기반 기능 선택
@@ -142,5 +144,11 @@
       href: score-svd-recommender.md
     - name: SVD 추천 학습
       href: train-svd-recommender.md
+- name: 이상 감지
+  items:
+    - name: PCA 기반 변칙 검색
+      href: pca-based-anomaly-detection.md
+    - name: 변칙 검색 모델 학습
+      href: train-anomaly-detection-model.md
 - name: 모듈 오류 및 문제 해결
   href: designer-error-codes.md

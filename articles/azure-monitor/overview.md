@@ -20,11 +20,11 @@ Azure Monitor는 클라우드 및 온-프레미스 환경에서 원격 분석 �
 
 Azure Monitor에서 수행할 수 있는 작업에 대한 몇 가지 예는 다음과 같습니다.
 
-- [Application Insights](app/app-insights-overview.md)를 사용하여 애플리케이션 및 종속성 간의 문제를 검색하고 진단합니다.
+- [Application Insights](app/app-insights-overview.md)를 사용하여 애플리케이션 및 종속성 간의 문제를 감지하고 진단합니다.
 - 인프라 문제를 [VM용 Azure Monitor](insights/vminsights-overview.md) 및 [컨테이너용 Azure Monitor](insights/container-insights-overview.md)와 상호 연결합니다.
 - 문제 해결 및 심층 진단을 위해 [Log Analytics](log-query/log-query-overview.md)를 사용하여 모니터링 데이터를 드릴다운합니다.
 - [스마트 경고](platform/alerts-smartgroups-overview.md) 및 [자동 작업](platform/alerts-action-rules.md)을 사용하여 규모에 맞게 작업을 지원합니다.
-- Azure [대시보드](learn/tutorial-logs-dashboards.md) 및 [통합 문서](app/usage-workbooks.md)를 사용하여 시각화를 만듭니다.
+- Azure [대시보드](learn/tutorial-logs-dashboards.md) 및 [통합 문서](app/usage-workbooks.md)를 사용하여 시각화합니다.
 
 [!INCLUDE [azure-lighthouse-supported-service](../../includes/azure-lighthouse-supported-service.md)]
 
@@ -97,7 +97,7 @@ Azure Monitor의 [관리 솔루션](insights/solutions.md)은 특정 애플리�
 
 
 ### <a name="alerts"></a>경고
-[Azure Monitor의 경고](platform/alerts-overview.md)는 위험 조건을 사전에 알리고 잠재적으로 수정 작업을 시도합니다. 메트릭 기반의 경고 규칙은 숫자 값을 기반으로 거의 실시간에 가까운 경고를 제공합니다. 반면 로그 기반의 규칙은 여러 원본의 데이터 간에 복잡한 논리를 처리할 수 있습니다.
+[Azure Monitor의 경고](platform/alerts-overview.md)는 위험한 상황을 사전에 알리고 잠재적으로 조치를 취합니다. 메트릭 기반의 경고 규칙은 숫자 값을 기반으로 거의 실시간에 가까운 경고를 제공합니다. 반면 로그 기반의 규칙은 여러 원본의 데이터 간에 복잡한 논리를 처리할 수 있습니다.
 
 Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 간에 공유할 수 있는 작업을 포함하는 [작업 그룹](platform/action-groups.md)을 사용합니다. 요구 사항에 따라, 웹후크를 사용하여 경고가 외부 작업을 시작하도록 하거나 ITSM 도구와 통합하는 등의 작업을 작업 그룹이 수행할 수 있습니다.
 
@@ -117,7 +117,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 ![대시보드](media/overview/dashboard.png)
 
 ### <a name="views"></a>보기
-[뷰](../log-analytics/log-analytics-view-designer.md)는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
+[보](../log-analytics/log-analytics-view-designer.md)기는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
 
 ![보기](media/overview/view.png)
 
@@ -147,5 +147,5 @@ Azure Monitor를 다른 시스템과 통합하여 모니터링 데이터를 사�
 
 * Azure Monitor에서 수집한 데이터에 대한 [메트릭 및 로그](platform/data-platform.md).
 * 애플리케이션의 다양한 구성 요소가 원격 분석을 전송하는 방법에 대한 [데이터 원본](platform/data-sources.md).
-* 수집한 데이터를 분석하기 위한 [로그 쿼리](log-query/log-query-overview.md)
+* 수집한 데이터를 분석하기 위한 [로그 쿼리](log-query/log-query-overview.md).
 * 클라우드 애플리케이션 및 서비스 모니터링에 대한 [모범 사례](https://docs.microsoft.com/azure/architecture/best-practices/monitoring).

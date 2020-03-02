@@ -203,10 +203,14 @@
           href: app-service-web-restore-snapshots.md
         - name: 앱 복제
           href: app-service-web-app-cloning.md
-        - name: 리소스 이동
-          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
         - name: 삭제된 App Service 복원
           href: app-service-undelete.md
+    - name: 앱 이동
+      items:
+        - name: 영역 간 이동
+          href: manage-move-across-regions.md
+        - name: 구독 이동
+          href: '../azure-resource-manager/management/move-resource-group-and-subscription.md?toc=%2fazure%2fapp-service%2ftoc.json#app-service-limitations'
     - name: 백그라운드 작업 실행
       items:
         - name: WebJob 만들기
@@ -235,7 +239,7 @@
       href: /learn/browse/
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/app-service/'
     - name: 할당량 정보
       href: '../azure-resource-manager/management/azure-subscription-service-limits.md#app-service-limits'

@@ -50,6 +50,8 @@
       items:
         - name: 사용자 지정 규칙
           href: ./afds/waf-front-door-custom-rules.md
+        - name: 제외 목록
+          href: ./afds/waf-front-door-exclusion.md
         - name: 정책 설정
           href: ./afds/waf-front-door-policy-settings.md
         - name: 지역 필터링

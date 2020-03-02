@@ -54,11 +54,13 @@
         - name: 스토리지 계정
           href: storage-account-concept.md
           displayName: Storage side encryption
-    - name: 업로드
+    - name: 자산
       items:
         - name: 자산
           href: assets-concept.md
-          displayName: 'name, naming, file name'
+        - name: 자산 관리
+          href: manage-asset-concept.md
+          displayName: 'name, naming, file name, upload, output, download'
     - name: 파일 처리
       items:
         - name: Transform 및 Job
@@ -300,6 +302,8 @@
       items:
         - name: 자산 게시 - CLI
           href: cli-publish-asset.md
+        - name: 결과 다운로드
+          href: download-results-howto.md
         - name: 신호 설명 오디오
           href: signal-descriptive-audio-howto.md
 - name: 참조

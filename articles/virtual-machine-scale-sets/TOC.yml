@@ -247,11 +247,11 @@
           href: virtual-machine-scale-sets-networking.md
         - name: 자동 OS 업그레이드
           href: virtual-machine-scale-sets-automatic-upgrade.md
-        - name: 인스턴스 보호(미리 보기)
+        - name: 인스턴스 보호
           href: virtual-machine-scale-sets-instance-protection.md
-        - name: 규모 확장 정책(미리 보기)
+        - name: 규모 감축 정책
           href: virtual-machine-scale-sets-scale-in-policy.md
-        - name: 삭제 시 알림 종료(미리 보기)
+        - name: 삭제 시 알림 종료
           href: virtual-machine-scale-sets-terminate-notification.md
         - name: 공유 이미지 갤러리
           items:
@@ -300,7 +300,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/?category=compute'
-    - name: 가격
+    - name: 가격 책정
       items:
         - name: Linux
           href: 'https://azure.microsoft.com/pricing/details/virtual-machine-scale-sets/linux/'
