@@ -115,7 +115,7 @@ Windows Virtual Desktop은 고객이 사용자에게 제공하는 Windows 데스
 최적의 성능을 얻을 수 있도록 네트워크가 다음 요구 사항을 충족하는지 확인합니다.
 
 * 클라이언트의 네트워크와 호스트 풀이 배포된 Azure 지역 간의 RTT(왕복) 대기 시간이 150밀리초 미만이어야 합니다.
-* 데스크톱 및 앱을 호스팅하는 VM을 관리 서비스에 연결할 때 네트워크 트래픽이 국가/지역 경계 외부로 흐를 수 있습니다.
+* 데스크톱 및 앱을 호스팅하는 VM을 관리 서비스에 연결할 때 네트워크 트래픽이 국가/지역 경계를 벗어날 수 있습니다.
 * 네트워크 성능을 최적화하기 위해 세션 호스트의 VM을 관리 서비스와 동일한 Azure 지역에 배치하는 것이 좋습니다.
 
 ## <a name="supported-remote-desktop-clients"></a>지원되는 원격 데스크톱 클라이언트
@@ -145,14 +145,14 @@ Windows Virtual Desktop은 x86(32비트), Windows 10 Enterprise N 또는 Windows
 
 |운영 체제|Azure 이미지 갤러리|수동 VM 배포|Azure Resource Manager 템플릿 통합|Azure Marketplace에서 호스트 풀 프로비저닝|Windows Virtual Desktop 에이전트 업데이트|
 |--------------------------------------|:------:|:------:|:------:|:------:|:------:|
-|Windows 10 다중 세션, 버전 1903|yes|yes|yes|yes|자동|
-|Windows 10 다중 세션, 버전 1809|yes|yes|예|예|자동|
-|Windows 10 Enterprise, 버전 1903|yes|yes|yes|yes|자동|
-|Windows 10 Enterprise, 버전 1809|yes|yes|예|예|자동|
-|Windows 7 Enterprise|yes|yes|예|예|설명서|
-|Windows Server 2019|yes|yes|예|예|자동|
-|Windows Server 2016|yes|yes|yes|yes|자동|
-|Windows Server 2012 R2|yes|yes|예|예|자동|
+|Windows 10 다중 세션, 버전 1903|예|예|예|예|자동|
+|Windows 10 다중 세션, 버전 1809|예|예|예|예|자동|
+|Windows 10 Enterprise, 버전 1903|예|예|예|예|자동|
+|Windows 10 Enterprise, 버전 1809|예|예|예|예|자동|
+|Windows 7 Enterprise|예|예|예|예|설명서|
+|Windows Server 2019|예|예|예|예|자동|
+|Windows Server 2016|예|예|예|예|자동|
+|Windows Server 2012 R2|예|예|예|예|자동|
 
 ## <a name="next-steps"></a>다음 단계
 

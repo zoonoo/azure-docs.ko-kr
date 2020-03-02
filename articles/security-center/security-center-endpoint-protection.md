@@ -13,16 +13,16 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 12/29/2019
 ms.author: memildin
-ms.openlocfilehash: 899f4cba31afed812fa1643b925a38812308042e
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: dcf7df501665ea3885d00b9f7668a95cbbf02428
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552936"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208545"
 ---
 # <a name="endpoint-protection-assessment-and-recommendations-in-azure-security-center"></a>Azure Security Center의 Endpoint protection 평가 및 권장 사항
 
-Azure Security Center은 [지원 되](security-center-services.md#supported-endpoint-protection-solutions-) 는 버전의 Endpoint protection 솔루션에 대 한 상태 평가를 제공 합니다. 이 문서에서는 다음 두 가지 권장 사항을 생성 하기 위해 Security Center 하는 시나리오를 설명 합니다.
+Azure Security Center은 [지원 되](security-center-services.md#endpoint-supported) 는 버전의 Endpoint protection 솔루션에 대 한 상태 평가를 제공 합니다. 이 문서에서는 다음 두 가지 권장 사항을 생성 하기 위해 Security Center 하는 시나리오를 설명 합니다.
 
 * **가상 컴퓨터에 endpoint protection 솔루션 설치**
 * **컴퓨터에서 endpoint protection 상태 문제 해결**
@@ -79,7 +79,7 @@ Azure Security Center은 [지원 되](security-center-services.md#supported-endp
     
             **AntivirusSignatureAge**
 
-## <a name="trend-micro"></a>Trend Micro
+## <a name="trend-micro"></a>추세 마이크로
 
 * 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
     * **HKLM: \ SOFTWARE\TrendMicro\Deep 보안 에이전트가 있습니다.**
@@ -92,13 +92,13 @@ Azure Security Center은 [지원 되](security-center-services.md#supported-endp
 
 * **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 또는
 
 * **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\PRODUCTNAME = "Symantec Endpoint Protection"**
 
-* **HKLM:\Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
+* **HKLM: \ Software\Wow6432Node\Symantec\Symantec Endpoint Protection\CurrentVersion\public-opstate\ASRunningStatus = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 
@@ -123,9 +123,9 @@ Azure Security Center은 [지원 되](security-center-services.md#supported-endp
 
 다음 검사 중 하나가 충족 되지 않으면 **"가상 컴퓨터에 endpoint protection 솔루션 설치"** 를 권장 Security Center.
 
-* **HKLM:\SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
+* **HKLM: \ SOFTWARE\McAfee\Endpoint\AV\ProductVersion** exists
 
-* **HKLM:\SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
+* **HKLM: \ SOFTWARE\McAfee\AVSolution\MCSHIELDGLOBAL\GLOBAL\enableoas = 1**
 
 다음 검사 중 하나라도 충족 되지 않으면 **"컴퓨터에서 endpoint protection 상태 문제 해결"** 을 권장 Security Center.
 

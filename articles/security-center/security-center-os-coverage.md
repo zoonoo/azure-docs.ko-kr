@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 08/29/2019
 ms.author: memildin
-ms.openlocfilehash: 39e2deead1affd750d9a5e68985b02ebfe8e0efd
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: e13149ba802f0f8b9a565e0aabd86ae05167f18b
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921303"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208823"
 ---
 # <a name="supported-platforms"></a>지원 플랫폼 
 
@@ -35,7 +35,6 @@ Azure 구독에서 활성화 된 Azure 환경의 경우 Azure Security Center는
 
 > [!NOTE]
 > 전체 보안 기능 집합을 받으려면 [Log Analytics 에이전트가](../azure-monitor/platform/agents-overview.md#log-analytics-agent)있어야 합니다 .이 에이전트는 Azure Security Center에서 사용 하 고 [Azure Security Center에 데이터를 보내도록 올바르게 구성](security-center-enable-data-collection.md#manual-agent)되어 있어야 합니다.
-
 
 다음 섹션에서는 Azure Security Center에서 사용 되는 [Log Analytics 에이전트](../azure-monitor/platform/agents-overview.md#log-analytics-agent)를 실행할 수 있는 지원 되는 서버 운영 체제를 나열 합니다.
 
@@ -85,38 +84,6 @@ Azure Kubernetes (AKS), Azure Databricks 등의 일부 Azure 관리 되는 서�
 ### Cloud Services<a name="cloud-services"></a>
 
 클라우드 서비스에서 실행 되는 가상 컴퓨터도 지원 됩니다. 프로덕션 슬롯에서 실행되는 클라우드 서비스 웹 및 작업자 역할만 모니터링됩니다. 클라우드 서비스에 대한 자세한 내용은 [Azure Cloud Services 개요](../cloud-services/cloud-services-choose-me.md)를 참조하세요.
-
-## PaaS 서비스<a name="paas-services"></a>
-
-Azure Security Center에서 지 원하는 Azure PaaS 리소스는 다음과 같습니다.
-
-* SQL
-* PostGreSQL
-* MySQL
-* CosmosDB
-* 스토리지 계정
-* App Service
-* 함수
-* 클라우드 서비스
-* VNet
-* 서브넷
-* NIC
-* NSG
-* Batch 계정
-* Service fabric 계정
-* Automation 계정
-* 부하 분산 장치
-* 검색
-* Service Bus 네임스페이스
-* Stream Analytics
-* 이벤트 허브 네임스페이스
-* 논리 앱
-* Redis
-* Data Lake Analytics
-* Data Lake Store
-* 주요 자격 증명 모음
-
-위의 PaaS 리소스 목록에서 지원 되는 기능에 대해 자세히 알아보려면 [paas 서비스 지원 기능](security-center-services.md#paas-services)을 참조 하세요.
 
 Azure Stack에 있는 Virtual Machines에 대 한 보호도 지원 됩니다. Azure Stack와 Security Center의 통합에 대 한 자세한 내용은 [Security Center에 Azure Stack virtual machines](https://docs.microsoft.com/azure/security-center/quick-onboard-azure-stack)등록을 참조 하세요.
 

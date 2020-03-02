@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: yossi-y
 ms.author: yossiy
 ms.date: 02/24/2020
-ms.openlocfilehash: 6a999df6daf2fde5133143fe9b22a65d628ecfb2
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b3e110766b2e131330f3108b7938e9e5e01e48a4
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77663950"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208562"
 ---
 # <a name="azure-monitor-customer-managed-key-configuration"></a>고객 관리 키 구성 Azure Monitor 
 
@@ -184,7 +184,7 @@ Authorization: Bearer <token>
   "identity": {
     "type": "SystemAssigned",
     "tenantId": "tenant-id",
-    "principalId": "principal-Id"
+    "principalId": "principal-id"
     },
   "properties": {
     "provisioningState": "Succeeded",
@@ -198,10 +198,10 @@ Authorization: Bearer <token>
   }
 ```
 
-"principalId"는 *클러스터* 리소스에 대 한 관리 id 서비스에 의해 생성 되는 GUID입니다.
+"id"는 *클러스터* 리소스에 대 한 관리 id 서비스에 의해 생성 되는 GUID입니다.
 
 > [!IMPORTANT]
-> "클러스터 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
+> "보안 주체 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
 
 
 ### <a name="grant-key-vault-permissions"></a>Key Vault 권한 부여
@@ -213,7 +213,7 @@ Authorization: Bearer <token>
 Azure Portal에서 Key Vault을 열고 "액세스 정책"을 클릭 한 다음 "+ 액세스 정책 추가"를 클릭 하 여 다음 설정을 사용 하 여 새 정책을 만듭니다.
 
 - 키 사용 권한: ' 가져오기 ', ' 줄 바꿈 키 ' 및 ' 래핑 해제 키 ' 권한을 선택 합니다.
-- 보안 주체 선택: 이전 단계의 응답에서 반환 된 클러스터 id 값을 입력 합니다.
+- 보안 주체 선택: 이전 단계의 응답에서 반환 된 사용자 id 값을 입력 합니다.
 
 ![Key Vault 권한 부여](media/customer-managed-keys/grant-key-vault-permissions.png)
 
@@ -528,10 +528,10 @@ Content-type: application/json
   "location": "region-name"
 }
 ```
-"principalId"는 관리 되는 id 서비스에 의해 생성 된 GUID입니다.
+"보안 주체-id"는 관리 되는 id 서비스에 의해 생성 된 GUID입니다.
 
 > [!IMPORTANT]
-> "클러스터 id" 값은 다음 단계에서 필요 하므로 복사 하 고 유지 합니다.
+> 다음 단계에서 필요 하므로 "원칙 id" 값을 복사 하 여 유지 합니다.
 
 ### <a name="associate-a-component-to-a-cluster-resource-using-components---create-or-update-api"></a>구성 요소를 사용 하 여 *클러스터* 리소스에 구성 요소 연결 [-API 만들기 또는 업데이트](https://docs.microsoft.com/rest/api/application-insights/components/createorupdate)
 

@@ -116,7 +116,7 @@ Azure Monitor의 경고 규칙은 고유한 수신자 집합 및 여러 규칙 �
 
 ![대시보드](media/overview/dashboard.png)
 
-### <a name="views"></a>뷰
+### <a name="views"></a>보기
 [뷰](../log-analytics/log-analytics-view-designer.md)는 Azure Monitor의 로그 데이터를 시각적으로 표시합니다.  각 보기에는 중요한 데이터를 요약하는 목록 외에도 막대형 차트 및 꺾은선형 차트 같은 시각화 조합으로 드릴다운하는 단일 타일이 포함되어 있습니다.  모니터링 솔루션은 특정 애플리케이션에 대한 데이터를 요약하는 보기를 포함하며, 로그 쿼리에서 데이터를 표시하기 위해 자신만의 보기를 만들 수 있습니다. Azure Monitor의 다른 요소와 마찬가지로, 보기를 Azure 대시보드에 추가할 수 있습니다.
 
 ![보기](media/overview/view.png)

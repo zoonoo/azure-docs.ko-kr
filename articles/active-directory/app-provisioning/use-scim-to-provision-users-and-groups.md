@@ -11,17 +11,17 @@ ms.workload: identity
 ms.tgt_pltfrm: na
 ms.devlang: na
 ms.topic: conceptual
-ms.date: 02/18/2020
+ms.date: 03/01/2020
 ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 11e4768c5cf6df784c8f32aff2f884adfa6b68ab
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: a2fda5d1bdd00a601df363bd930e5f2f6d610c7f
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78204857"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208715"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -755,72 +755,7 @@ TLS 1.2 암호 그룹 최소 막대:
 이제 스키마를 desidned 하 고 Azure AD SCIM 구현을 이해 했으므로 SCIM 끝점 개발을 시작할 수 있습니다. 처음부터 시작 하 여 구현을 완전히 빌드하는 대신 SCIM 주석 uinty에서 게시 한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.  
 Azure AD 프로 비전 팀에서 게시 한 오픈 소스 .NET Core [참조 코드](https://aka.ms/SCIMReferenceCode) 는 개발을 시작할 수 있는 리소스 중 하나입니다. SCIM 끝점을 빌드한 후에는 테스트 하는 것이 좋습니다. 참조 코드의 일부로 제공 되는 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) 컬렉션을 사용 하거나 [위에서](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)제공 된 샘플 요청/응답을 통해 실행할 수 있습니다.  
 
-작동 방식은 다음과 같습니다.
-
-1. Azure AD는 아래에 설명 된 코드 샘플에 포함 된 Microsoft.systemforcrossdomainidentitymanagement 라는 CLI (공용 언어 인프라) 라이브러리를 제공 합니다. 시스템 통합 업체 및 개발자는이 라이브러리를 사용 하 여 Azure AD를 응용 프로그램의 id 저장소에 연결할 수 있는 SCIM 기반 웹 서비스 끝점을 만들고 배포할 수 있습니다.
-2. 매핑은 웹 서비스에서 구현되어 스키마에 애플리케이션에서 필요한 사용자 스키마 및 프로토콜에 표준화된 사용자 스키마를 매핑합니다. 
-3. 엔드포인트 URL은 애플리케이션 갤러리에서 사용자 지정 애플리케이션의 일부로 Azure AD에 등록됩니다.
-4. 사용자 및 그룹은 Azure AD에서 이 애플리케이션에 할당됩니다. 할당 되 면 대상 응용 프로그램에 동기화 되는 큐에 배치 됩니다. 큐를 처리하는 동기화 프로세스는 40분마다 실행됩니다.
-
-### <a name="code-samples"></a>코드 샘플
-
-이 프로세스를 더 쉽게 수행 하기 위해 SCIM 웹 서비스 끝점을 만들고 자동 프로 비전을 보여 주는 [코드 샘플이](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master) 제공 됩니다. 이 샘플은 사용자 및 그룹을 나타내는 쉼표로 구분 된 값의 행이 있는 파일을 유지 관리 하는 공급자입니다.
-
-**필수 구성 요소**
-
-* Visual Studio 2013 이상
-* [Azure SDK for .NET](https://azure.microsoft.com/downloads/)
-* ASP.NET framework 4.5를 SCIM 엔드포인트로 사용하도록 지원하는 Windows 컴퓨터입니다. 이 컴퓨터는 클라우드에서 액세스할 수 있어야 합니다.
-* [Azure AD Premium의 평가판 또는 사용이 허가된 버전의 Azure 구독](https://azure.microsoft.com/services/active-directory/)
-
-### <a name="getting-started"></a>시작
-
-Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트를 구현하는 가장 쉬운 방법은 쉼표로 구분된 값(CSV) 파일에 프로비전된 사용자를 출력하는 코드 샘플을 빌드하고 배포하는 것입니다.
-
-#### <a name="to-create-a-sample-scim-endpoint"></a>샘플 SCIM 엔드포인트를 만들려면
-
-1. [https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master](https://github.com/Azure/AzureAD-BYOA-Provisioning-Samples/tree/master)에서 코드 샘플 패키지를 다운로드합니다.
-1. 패키지의 압축을 풀고 C:\AzureAD-BYOA-Provisioning-Samples와 같은 위치에서 Windows 컴퓨터에 넣습니다.
-1. Visual Studio에서 이 폴더의 FileProvisioning\Host\FileProvisioningService.csproj 프로젝트를 시작합니다.
-1. **도구** > **NuGet 패키지 관리자** > **패키지 관리자 콘솔**을 선택 하 고 FileProvisioningService 프로젝트에 대해 다음 명령을 실행 하 여 솔루션 참조를 확인 합니다.
-
-   ```powershell
-    Update-Package -Reinstall
-   ```
-
-1. FileProvisioningService 프로젝트를 빌드합니다.
-1. Windows에서 명령 프롬프트 애플리케이션을 관리자 권한으로 시작하고, **cd** 명령을 사용하여 디렉터리를 **\AzureAD-BYOA-Provisioning-Samples\FileProvisioning\Host\bin\Debug** 폴더로 변경합니다.
-1. 다음 명령을 실행 하 여 `<ip-address>`를 Windows 컴퓨터의 IP 주소 또는 도메인 이름으로 바꿉니다.
-
-   ```
-    FileSvc.exe http://<ip-address>:9000 TargetFile.csv
-   ```
-
-1. Windows의 windows **설정** > **네트워크 & 인터넷 설정**에서 **windows 방화벽** > **고급 설정**을 선택 하 고 포트 9000에 대 한 인바운드 액세스를 허용 하는 **인바운드 규칙** 을 만듭니다.
-1. Windows 컴퓨터가 라우터 뒤에 있는 경우 라우터는 인터넷에 노출 되는 포트 9000과 Windows 컴퓨터의 포트 9000 사이에서 네트워크 액세스 변환을 실행 하도록 구성 해야 합니다. 이 구성은 Azure AD에서 클라우드의이 끝점에 액세스 하는 데 필요 합니다.
-
-#### <a name="to-register-the-sample-scim-endpoint-in-azure-ad"></a>Azure AD에서 샘플 SCIM 엔드포인트를 등록하려면
-
-1. [Azure Active Directory 포털](https://aad.portal.azure.com)에 로그인 합니다. 
-1. 왼쪽 창에서 **엔터프라이즈 응용 프로그램** 을 선택 합니다. 갤러리에서 추가 된 앱을 포함 하 여 구성 된 모든 앱의 목록이 표시 됩니다.
-1. **+ 새 응용 프로그램** > **모든** > **비 갤러리 응용 프로그램**을 선택 합니다.
-1. 응용 프로그램의 이름을 입력 하 고 **추가** 를 선택 하 여 앱 개체를 만듭니다. 만든 애플리케이션 개체는 SCIM 엔드포인트뿐 아니라 Single Sign-On을 프로비전하고 구현하려는 대상 앱을 나타내는 데 사용됩니다.
-1. 앱 관리 화면의 왼쪽 패널에서 **프로 비전** 을 선택 합니다.
-1. **프로비전 모드** 메뉴에서 **자동**을 선택합니다.    
-1. **테넌트 URL** 필드에 애플리케이션의 SCIM 엔드포인트 URL을 입력합니다. 예: https://api.contoso.com/scim/
-
-1. SCIM 엔드포인트에 Azure AD가 아닌 다른 발급자의 OAuth 전달자 토큰이 필요한 경우 필요한 OAuth 전달자 토큰을 **비밀 토큰** 필드(선택 사항)에 복사합니다. 이 필드를 비워 두면 Azure AD에 각 요청과 함께 Azure AD에서 발급 한 OAuth 전달자 토큰이 포함 됩니다. ID 공급자로 Azure AD를 사용하는 앱은 Azure AD에서 발급한 토큰의 유효성을 검사할 수 있습니다.
-1. **연결 테스트** 를 선택 하 Azure Active Directory scim 끝점에 연결을 시도 합니다. 이 시도가 실패 하면 오류 정보가 표시 됩니다.  
-
-    > [!NOTE]
-    > **테스트 연결**은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다.
-1. 응용 프로그램에 연결 하려는 시도가 성공 하면 **저장** 을 선택 하 여 관리자 자격 증명을 저장 합니다.
-1. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
-1. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. **사용자** 및 그룹 탭에서 할당 된 사용자 및 그룹만 동기화 하도록 **"할당 된 사용자 및 그룹만 동기화** (권장)"를 선택 합니다.
-1. 구성이 완료 되 면 **프로 비전 상태** 를 **켜기**로 설정 합니다.
-1. **저장** 을 선택 하 여 Azure AD 프로 비전 서비스를 시작 합니다.
-1. 할당 된 사용자 및 그룹만 동기화 하는 경우 (권장) **사용자 및 그룹** 탭을 선택 하 고 동기화 할 사용자 또는 그룹을 할당 해야 합니다. 초기 주기가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
-이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
+참고: 참조 코드는 SCIM 끝점 빌드를 시작 하는 데 도움을 주기 위한 것 이며 "있는 그대로" 제공 됩니다. 커뮤니티의 기여는 코드를 작성 하 고 유지 관리 하는 데 도움이 됩니다. 
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>4 단계: SCIM 끝점을 Azure AD SCIM 클라이언트와 통합
 

@@ -6,12 +6,12 @@ ms.author: janeng
 ms.service: postgresql
 ms.topic: conceptual
 ms.date: 02/25/2020
-ms.openlocfilehash: 635a66f0275d4df4f858bff61be80900dc58c6fb
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 2e5b01a271eb290229904fc98d1268760e01620d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164477"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208885"
 ---
 # <a name="pricing-tiers-in-azure-database-for-postgresql---single-server"></a>Azure Database for PostgreSQL-단일 서버에서 가격 책정 계층
 
@@ -21,7 +21,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 |:---|:----------|:--------------------|:---------------------|
 | 컴퓨팅 세대 | 4세대, 5세대 | 4세대, 5세대 | 5세대 |
 | vCore 수 | 1, 2 | 2, 4, 8, 16, 32, 64 |2, 4, 8, 16, 32 |
-| vCore 메모리 | 2GB | 5GB | 10GB |
+| vCore 메모리 | 2GB | 5GB | 10 GB |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 데이터베이스 백업 보존 기간 | 7-35일 | 7-35일 | 7-35일 |
 
@@ -48,7 +48,7 @@ Azure Database for PostgreSQL 서버는 기본, 범용 및 메모리 최적화�
 | 스토리지 유형 | 기본 저장소 | 범용 저장소 | 범용 저장소 |
 | 스토리지 크기 | 5GB-1TB | 5gb ~ 16TB | 5gb ~ 16TB |
 | 스토리지 증분 크기 | 1 GB | 1 GB | 1 GB |
-| IOPS | Variable |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
+| IOPS | 변수 |3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS | 3IOPS/GB<br/>최소 100IOPS<br/>최대 2만 IOPS |
 
 > [!NOTE]
 > 미국 동부, 미국 동부 2, 미국 중부, 미국 서 부, 미국 중 북부, 미국 중 북부, 유럽 서 부, 유럽 서부, 영국 남부, 영국 서부, 동남 아시아, 동아시아, 일본 동부, 일본 서 부, 한국 중부 지역에서 최대 16TB 및 2만 IOPS의 저장소를 지원 합니다. , 한국 남부, 오스트레일리아 동부, 오스트레일리아 남부 동부.
@@ -67,7 +67,7 @@ Azure Portal 또는 Azure CLI 명령을 사용하여 I/O 사용량을 모니터�
 
 ### <a name="reaching-the-storage-limit"></a>스토리지 제한에 도달
 
-5GB의 프로 비전 된 저장소 보다 작은 서버는 사용 가능한 저장소가 프로 비전 된 저장소 크기의 512 보다 작은 경우 읽기 전용으로 표시 됩니다. 프로 비전 된 저장소 크기 100 보다 작은 서버는 사용 가능한 저장소가 프로 비전 된 저장소 크기의 5% 미만인 경우 읽기 전용으로 표시 됩니다. 프로비전된 스토리지가 100GB보다 큰 서버는 사용 가능한 스토리지가 5GB 미만인 경우에만 읽기 전용으로 표시됩니다.
+100의 프로 비전 된 저장소 보다 작은 서버는 사용 가능한 저장소가 512MB 보다 작거나 프로 비전 된 저장소 크기의 5% 인 경우 읽기 전용으로 표시 됩니다. 프로비전된 스토리지가 100GB보다 큰 서버는 사용 가능한 스토리지가 5GB 미만인 경우에만 읽기 전용으로 표시됩니다.
 
 예를 들어 110 GB의 저장소를 프로 비전 하 고 실제 사용률이 105 g b를 초과 하는 경우 서버는 읽기 전용으로 표시 됩니다. 또는 5gb의 저장소를 프로 비전 한 경우 사용 가능한 저장소가 512 미만에 도달 하면 서버는 읽기 전용으로 표시 됩니다.
 

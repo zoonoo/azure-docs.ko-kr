@@ -7,13 +7,13 @@ ms.author: v-chjen
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 01/22/2020
-ms.openlocfilehash: 4cac2fcd16f779a6b31e36ca175801eedaa31d5d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.date: 02/28/2020
+ms.openlocfilehash: 9d06b34b459bf1d48aa293a889af57fb6192015d
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76705822"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208868"
 ---
 # <a name="create-a-new-saas-offer"></a>새 SaaS 제품 만들기
 
@@ -134,16 +134,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 테스트 드라이브를 사용 하도록 설정 하면 고객이 고정 기간 동안 제품을 사용해 볼 수 있도록 시연 환경을 구성 하 라는 메시지가 표시 됩니다. 
 
-### <a name="type-of-test-drive"></a>테스트 드라이브의 유형입니다.
-
-- **[Azure Resource Manager](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/azure-resource-manager-test-drive)** : 솔루션을 구성 하는 모든 Azure 리소스를 포함 하는 배포 템플릿입니다. 이 시나리오에 맞는 제품은 Azure 리소스만 사용 합니다.
-- **[Dynamics 365 For Business central](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-business-central-offer)** : Microsoft는 회사 중앙 엔터프라이즈 리소스 계획 시스템 (재무, 운영, 공급망, CRM 등)에 대해 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스트 하 고 유지 관리 합니다.  
-- **[Dynamics 365 For Customer engagement](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/dyn365ce/cpp-customer-engagement-offer)** : Microsoft는 고객 참여 시스템 (판매, 서비스, 프로젝트 서비스, 현장 서비스 등)에 대해 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스팅하고 유지 관리 합니다.  
-- **[운영에 대 한 Dynamics 365](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal-orig/cpp-dynamics-365-operations-offer)** : Microsoft는 재무 및 운영 enterprise 리소스 계획 시스템 (재무, 운영, 제조, 공급망 등)에 대 한 테스트 드라이브 서비스 (프로 비전 및 배포 포함)를 호스트 하 고 유지 관리 합니다. 
-- **[논리 앱](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/logic-app-test-drive)** : 모든 복합 솔루션 아키텍처를 포괄 하는 배포 템플릿입니다. 모든 사용자 지정 제품은이 유형의 테스트 드라이브를 사용 해야 합니다.
-- **[Power BI](https://docs.microsoft.com/power-bi/service-template-apps-overview)** : 사용자 지정 작성 된 대시보드에 대 한 포함 링크입니다. 대화형 Power BI 시각적 개체를 시연 하려는 제품은이 유형의 테스트 드라이브를 사용 해야 합니다. 포함된 Power BI URL만 업로드하면 됩니다.
-
-#### <a name="additional-test-drive-resources"></a>추가 테스트 드라이브 리소스
+#### <a name="test-drive-resources"></a>드라이브 리소스 테스트
 - [테스트 드라이브 기술 모범 사례](https://github.com/Azure/AzureTestDrive/wiki/Test-Drive-Best-Practices)
 - [테스트 드라이브 마케팅 모범 사례](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/test-drive/marketing-and-best-practices)
 - [시험 드라이브 개요 1 호출기](https://assetsprod.microsoft.com/mpn/azure-marketplace-appsource-test-drives.pdf)
@@ -165,7 +156,7 @@ CRM (고객 관계 관리) 시스템을 연결 하 여 고객 연락처 정보�
 
 이러한 필드를 완료 한 후 **저장** 을 선택 합니다.
 
-### <a name="category"></a>범주
+### <a name="category"></a>Category
 
 제품을 적절 한 마켓플레이스 검색 영역으로 그룹화 하는 데 사용 되는 최소 1 개 (1) 및 최대 3 개 범주를 선택 합니다. 제품 설명에서 제품이 이러한 범주를 어떻게 지원 하는지 확인 합니다.
 
@@ -183,7 +174,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 
 - **Microsoft 상업적 marketplace에 대 한 표준 계약을 사용 하나요?**
 
-고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft는 marketplace에서 트랜잭션을 용이 하 게 하는 Microsoft 상업적 marketplace에 대 한 표준 계약을 제공 합니다. 상업적 marketplace 게시자는 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며,이는 고객이 한 번만 심사 하 고 수락 하면 됩니다. 표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178 에서 찾을 수 있습니다.
+고객을 위한 조달 프로세스를 간소화 하 고 소프트웨어 공급 업체에 대 한 법적 복잡성을 줄이기 위해 Microsoft는 marketplace에서 트랜잭션을 용이 하 게 하는 Microsoft 상업적 marketplace에 대 한 표준 계약을 제공 합니다. 상업적 marketplace 게시자는 사용자 지정 약관을 만드는 대신 표준 계약에 따라 소프트웨어를 제공 하도록 선택할 수 있으며,이는 고객이 한 번만 심사 하 고 수락 하면 됩니다. 표준 계약은 https://go.microsoft.com/fwlink/?linkid=2041178에서 찾을 수 있습니다.
 
 "상용 marketplace에 대 한 표준 계약 사용" 확인란을 선택 하 여 사용자 고유의 사용자 지정 약관을 제공 하는 대신 표준 계약을 사용 하도록 선택할 수 있습니다.
 
@@ -212,7 +203,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 - **테 넌 트 id** (필수): 각 사용자 지정 수정은 최대 20 개의 테 넌 트 id를 대상으로 지정할 수 있습니다. 사용자 지정 수정 항목을 추가 하는 경우 하나 이상의 테 넌 트 ID를 제공 해야 합니다. 테 넌 트 ID는 Azure에서 고객을 식별 합니다. Portal.azure.com > Azure Active Directory > 속성으로 이동 하 여이 ID를 고객에 게 요청할 수 있습니다. 디렉터리 ID 값은 테 넌 트 ID (예: 50c464d3-4930-494c-963c-1e951d15360e)입니다. 사용자의 도메인 이름 URL을 사용 하 여 고객의 테 넌 트 ID를 조회할 수도 있습니다. [Microsoft Azure 및 Office 365 테 넌 트 id?](https://www.whatismytenantid.com)
 - **설명** (선택 사항): 필요에 따라 테 넌 트 ID에 대 한 친숙 한 설명을 제공 하 여, 수정으로 대상으로 하는 고객을 식별할 수 있습니다.
 
-#### <a name="terms-and-conditions"></a>조건
+#### <a name="terms-and-conditions"></a>사용 약관
 
 사용자 고유의 사용자 지정 사용 약관을 제공 하려는 경우 사용 약관 필드에 해당 조건을 입력 하도록 선택할 수 있습니다. 이 필드에는 최대 1만 자의 텍스트를 입력할 수 있습니다. 사용 약관에 더 긴 설명이 필요한 경우 사용 약관을 찾을 수 있는이 필드에 단일 URL 링크를 입력 합니다. 고객이 활성 링크로 표시 됩니다.
 
@@ -234,7 +225,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 - **이름** (필수): 여기에 정의 된 이름은 선택한 marketplace에서 제품의 제목으로 표시 됩니다. 이전 **새 제안** 항목에 따라 이름이 미리 채워집니다. 이름은 상표 일 수 있습니다. 이 클래스는 상표 및 저작권 기호가 아닌 경우에는이 모 지를 포함할 수 없으며 50 자로 제한 되어야 합니다.
 - **요약** (필수): marketplace 목록 검색 결과에 사용할 제품에 대 한 간단한 설명을 제공 합니다. 이 필드에는 최대 100 자의 텍스트를 입력할 수 있습니다.
 - **설명** (필수): marketplace 목록에 표시 되는 제품에 대 한 설명을 제공 합니다. 가치 제안, 주요 이점, 범주 또는 업계 연결, 앱 내 구매 기회, 필요한 공개 및 자세한 내용을 볼 수 있는 링크를 포함 하는 것이 좋습니다.
-이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)문서를 참조 하세요.
+이 필드에는 태그를 포함 하 여 최대 3000 자의 텍스트를 입력할 수 있습니다. 추가 팁은 [유용한 앱 설명 작성](https://docs.microsoft.com/windows/uwp/publish/write-a-great-app-description)문서를 참조 하세요.
 - **검색 키워드**: 고객이 marketplace에서 제품을 찾는 데 사용할 수 있는 최대 3 개의 검색 키워드를 입력 합니다.
 - **시작 지침** (필수): 잠재적 고객에 대해 앱 사용을 구성 하 고 시작 하는 방법을 설명 합니다.  이 빠른 시작에는 보다 자세한 온라인 설명서에 대 한 링크가 포함 될 수 있습니다. 이 필드에는 최대 3000 자의 텍스트를 입력할 수 있습니다.
 
@@ -290,7 +281,7 @@ Microsoft에서는 표준 계약 템플릿을 제공 합니다.
 #### <a name="files-and-images"></a>파일 및 이미지
 
 - **문서** (필수): 제품에 대 한 관련 마케팅 문서를 PDF 형식으로 추가 하 여 제품에 대 한 최소 1 개 (1) 및 최대 3 개의 문서를 제공 합니다.
-- **이미지** (선택 사항): 제품 로고 이미지가 marketplace 전체에 표시 될 수 있으며, 크기는 작음: 48 x 48 픽셀 _(필수),_ 보통: 90 x 90 픽셀, 크게: 216 x 216 픽셀 _(필수),_ 전체: 255 x 115 픽셀, 주인공: 815 x 290 픽셀입니다. 모든 이미지는에 있어야 합니다. PNG 형식입니다.
+- **이미지** (선택 사항): 제품 로고 이미지가 marketplace 전체에 표시 될 수 있으며,이 경우에는 작은: 48 x 48 픽셀 _(필수),_ 보통: 90 x 90 픽셀 _(_ 필수), Large: 216 x 216 픽셀 _(필수),_ 전체: 255 x 115 픽셀, 주인공: 815 x 290 픽셀의 크기가 필요 합니다. 모든 이미지는에 있어야 합니다. PNG 형식입니다.
 - **스크린샷** (필수): 제품을 보여 주는 스크린샷 추가 최대 5 개 (5)의 스크린샷에 추가 될 수 있으며 1280 x 720 픽셀에 크기를 지정 해야 합니다. 모든 이미지는에 있어야 합니다. PNG 형식입니다.
 - **비디오** (선택 사항): 제품을 보여 주는 비디오에 대 한 링크를 추가 합니다. 고객에게 제품과 함께 표시되는 YouTube 및/또는 Vimeo 동영상의 링크를 사용할 수 있습니다. 또한 비디오의 미리 보기 이미지를 입력 해야 합니다 .이 이미지는 PNG 형식의 1280 x 720 픽셀로 크기가 지정 됩니다. 제품 당 최대 4 개의 비디오를 표시할 수 있습니다.
 
@@ -389,7 +380,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 요금제에 대 한 가격을 미국 달러 (USD)로 설정 하 고 다른 시장 위치를 추가 하는 경우 새 시장의 가격은 현재 환율이 따라 계산 됩니다. 게시 하기 전에 항상 각 시장의 가격을 검토 해야 합니다. 변경 내용을 저장 한 후 "가격 (.xlsx) 내보내기" 링크를 사용 하 여 가격 책정을 검토할 수 있습니다.
 
-#### <a name="pricing"></a>가격 책정
+#### <a name="pricing"></a>가격
 
 - **가격 책정 모델**: 고정 요금 또는 좌석 기반
 
@@ -406,7 +397,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 - **가격**: 월 당 usd 또는 연간 usd
 
 현지 통화 (USD = 미국 달러)로 설정 된 가격은 설치 중 사용 가능한 현재 환율을 사용 하 여 선택한 모든 시장의 현지 통화로 변환 됩니다. 가격 책정 스프레드시트를 내보내고 각 시장에서 가격을 검토 하 여 게시 하기 전에 이러한 가격의 유효성을 검사 합니다. 개별 시장에서 사용자 지정 가격을 설정 하려면 가격 책정 스프레드시트를 수정 하 고 가져오세요. 이 가격을 확인 하 고 이러한 설정을 소유할 책임이 있습니다.
-*\*가격 책정 데이터를 내보낼 수 있도록 가격 책정 변경 내용을 먼저 저장 해야 합니다.*
+*가격 책정 데이터의 내보내기를 사용 하려면 먼저 가격 책정 변경 내용을 저장 해야 \*.*
 
 계획이 게시 된 후 변경 될 수 있는 사항에 대 한 몇 가지 제한 사항이 있으므로 게시 하기 전에 가격을 신중 하 게 검토 합니다.
 
@@ -418,7 +409,7 @@ Live 게시 전에 제품의 유효성을 검사 하는 데 도움이 되도록 
 
 모든 사용자 또는 선택한 특정 대상에 게 표시 되도록 각 계획을 구성 하는 옵션이 있습니다. Azure AD 테 넌 트 Id를 사용 하 여이 제한 된 대상 그룹의 멤버 자격을 할당할 수 있습니다.
 
-#### <a name="privacy"></a>개인 정보
+#### <a name="privacy"></a>개인 정보 보호
 
 - **이 계획은 개인 계획입니다** (선택 사항).
 

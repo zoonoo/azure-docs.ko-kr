@@ -9,12 +9,12 @@ ms.service: azure-maps
 services: azure-maps
 manager: timlt
 ms.custom: mvc
-ms.openlocfilehash: 57ad9992bec3f070366134d8dfbcdafa8f2e16d4
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: 1858b221418e6cc59c6441e0653299710b5c7e72
+ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77209854"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78208647"
 ---
 # <a name="getting-started-with-azure-maps-android-sdk"></a>Azure Maps Android SDK 시작
 
@@ -103,7 +103,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     </FrameLayout>
     ```
 
-4. **Mainactivity. java** 파일에서 다음을 수행 해야 합니다.
+4. **MainActivity.java** 파일에서 다음을 수행해야 합니다.
     
     * Azure Maps SDK에 대한 가져오기 추가
     * Azure Maps 인증 정보 설정
@@ -111,7 +111,7 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
 
     `setSubscriptionKey` 또는 `setAadProperties` 메서드를 사용 하 여 `AzureMaps` 클래스에 대 한 인증 정보를 전역적으로 설정 하면 모든 보기에 인증 정보를 추가할 필요가 없습니다. 
 
-    지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리 하기 위한 자체 수명 주기 방법이 포함 되어 있습니다. 이러한 수명 주기 메서드는 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램에서 맵 컨트롤의 수명 주기 메서드를 올바르게 호출 하려면 맵 컨트롤이 포함 된 활동에서 다음 수명 주기 메서드를 재정의 해야 합니다. 각 map 컨트롤 메서드를 호출 해야 합니다. 
+    지도 컨트롤에는 Android의 OpenGL 수명 주기를 관리하는 자체 수명 주기 메서드가 포함되어 있습니다. 이러한 수명 주기 메서드는 포함 하는 작업에서 직접 호출 해야 합니다. 응용 프로그램에서 맵 컨트롤의 수명 주기 메서드를 올바르게 호출 하려면 맵 컨트롤이 포함 된 활동에서 다음 수명 주기 메서드를 재정의 해야 합니다. 각 map 컨트롤 메서드를 호출 해야 합니다. 
 
     * onCreate (번들) 
     * onStart () 
@@ -127,7 +127,9 @@ Android Studio를 사용하면 컴퓨터에 가상 Android 디바이스를 설�
     ```java
     package com.example.myapplication;
 
-    import android.support.v7.app.AppCompatActivity;
+    //For older versions use: import android.support.v7.app.AppCompatActivity;
+    import androidx.appcompat.app.AppCompatActivity;
+
     import android.os.Bundle;
     import com.microsoft.azure.maps.mapcontrol.AzureMaps;
     import com.microsoft.azure.maps.mapcontrol.MapControl;
