@@ -35,7 +35,7 @@ Face 서비스는 이미지에서 사람의 얼굴을 감지하고 해당 위치
 
 ## <a name="face-verification"></a>얼굴 확인
 
-Verify API는 감지된 두 얼굴에 대한 인증 또는 하나의 얼굴 개체에 대한 하나의 감지된 얼굴에서 인증을 수행합니다. 실질적으로 두 얼굴이 같은 사람인지 여부를 평가합니다. 이 기능은 보안 시나리오에서 잠재적으로 유용합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
+Verify API는 감지된 두 얼굴 또는 한 얼굴로부터 하나의 얼굴 개체를 인증합니다. 실질적으로 두 얼굴이 같은 사람인지 여부를 평가합니다. 이 기능은 보안 시나리오에서 잠재적으로 유용합니다. 자세한 내용은 [얼굴 인식](concepts/face-recognition.md) 개념 가이드 또는 [Verify API](https://westus.dev.cognitive.microsoft.com/docs/services/563879b61984550e40cbbe8d/operations/563879b61984550f3039523a) 참조 설명서를 참조하세요.
 
 ## <a name="find-similar-faces"></a>유사 얼굴 찾기
 
