@@ -3,17 +3,16 @@ title: Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 
 description: Azure Monitor 경고를 처리하기 위해 논리 앱 작업을 만드는 방법에 대해 알아봅니다.
 author: dkamstra
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: conceptual
 ms.date: 07/18/2018
 ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: ad196f52935af4ab4aa7af1b80183161065d4b4b
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: MT
+ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75365025"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669134"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
@@ -285,7 +284,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 
       !["메트릭 경고 true 조건 게시 작업"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
 
-  1. **If false** 조건에서 메트릭 경고가 논리 앱의 예상과 일치 하지 않도록 Microsoft 팀 작업을 정의 합니다. JSON 페이로드를 포함합니다. `json()` 식에서 `triggerBody` 동적 콘텐츠를 참조하는 방법을 확인합니다.
+  1. **If false** 조건에서 메트릭 경고가 논리 앱의 예상과 일치 하지 않도록 Microsoft 팀 작업을 정의 합니다. JSON 페이로드를 포함합니다. `triggerBody` 식에서 `json()` 동적 콘텐츠를 참조하는 방법을 확인합니다.
 
       !["메트릭 경고 거짓 조건 게시 작업"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
 
