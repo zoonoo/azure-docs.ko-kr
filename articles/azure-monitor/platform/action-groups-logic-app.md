@@ -2,23 +2,23 @@
 title: Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 description: Azure Monitor 경고를 처리하기 위해 논리 앱 작업을 만드는 방법에 대해 알아봅니다.
 author: dkamstra
-services: azure-monitor
+ms.author: dukek
 ms.topic: conceptual
 ms.date: 07/18/2018
-ms.author: dukek
 ms.subservice: alerts
-ms.openlocfilehash: adc53ad1c75b3251c5672d9078062631b107cc87
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
-ms.translationtype: HT
+ms.openlocfilehash: 655a3acc44a1418778b37fbef85e5df75d042317
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669134"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206239"
 ---
 # <a name="how-to-trigger-complex-actions-with-azure-monitor-alerts"></a>Azure Monitor 경고를 사용하여 복잡한 작업을 트리거하는 방법
 
 이 문서에서는 경고가 발생한 경우 Microsoft Teams에 대화를 만들도록 논리 앱을 설정하고 트리거하는 방법을 보여 줍니다.
 
 ## <a name="overview"></a>개요
+
 Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/platform/action-groups.md)을 호출합니다. 작업 그룹을 사용하면 다른 사람들에게 경고를 알리도록 하나 이상의 작업을 트리거할 수 있으며, 수정도 가능합니다.
 
 일반적인 절차는 다음과 같습니다.
@@ -68,10 +68,10 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
                 "activityLog": {
                     "authorization": {
                     "action": "microsoft.insights/activityLogAlerts/write",
-                    "scope": "/subscriptions/�"
+                    "scope": "/subscriptions/…"
                     },
                     "channels": "Operation",
-                    "claims": "�",
+                    "claims": "…",
                     "caller": "logicappdemo@contoso.com",
                     "correlationId": "91ad2bac-1afa-4932-a2ce-2f8efd6765a3",
                     "description": "",
@@ -81,12 +81,12 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
                     "level": "Informational",
                     "operationName": "microsoft.insights/activityLogAlerts/write",
                     "operationId": "61f59fc8-1442-4c74-9f5f-937392a9723c",
-                    "resourceId": "/subscriptions/�",
+                    "resourceId": "/subscriptions/…",
                     "resourceGroupName": "LOGICAPP-DEMO",
                     "resourceProviderName": "microsoft.insights",
                     "status": "Succeeded",
                     "subStatus": "",
-                    "subscriptionId": "�",
+                    "subscriptionId": "…",
                     "submissionTimestamp": "2018-04-03T22:33:36.1068742+00:00",
                     "resourceType": "microsoft.insights/activityLogAlerts"
                 }
@@ -104,7 +104,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
     ![작업 추가](media/action-groups-logic-app/add-action.png "작업 추가")
 
-11. Microsoft Teams 커넥터를 검색하고 선택합니다. **Microsoft 팀이 메시지 게시** 작업을 선택 합니다.
+11. Microsoft Teams 커넥터를 검색하고 선택합니다. **Microsoft 팀-메시지 게시** 작업을 선택 합니다.
 
     ![Microsoft 팀 작업](media/action-groups-logic-app/microsoft-teams-actions.png "Microsoft 팀 작업")
 
@@ -128,7 +128,7 @@ Azure Monitor 경고가 트리거되면 [동작 그룹](../../azure-monitor/plat
 
 14. **Logic Apps 디자이너** 맨 위에서 **저장**을 선택하여 논리 앱을 저장합니다.
 
-15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) 를 참조 하 여 새로 만듭니다. 변경 내용을 저장 하는 것을 잊지 마세요.
+15. 기존 작업 그룹을 열고 논리 앱을 참조하는 작업을 추가합니다. 기존 작업 그룹이 없는 경우 [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/monitoring-and-diagnostics/monitoring-action-groups) 를 참조 하 여 새로 만듭니다. 변경 내용은 반드시 저장해야 합니다.
 
     ![작업 그룹 업데이트](media/action-groups-logic-app/update-action-group.png "작업 그룹 업데이트")
 
@@ -150,7 +150,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
                 "activityLog": {
                     "channels": "Admin",
                     "correlationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
-                    "description": "�",
+                    "description": "…",
                     "eventSource": "ServiceHealth",
                     "eventTimestamp": "2018-04-03T22:44:43.7467716+00:00",
                     "eventDataId": "9ce152f5-d435-ee31-2dce-104228486a6d",
@@ -158,23 +158,23 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
                     "operationName": "Microsoft.ServiceHealth/incident/action",
                     "operationId": "e416ed3c-8874-4ec8-bc6b-54e3c92a24d4",
                     "properties": {
-                        "title": "�",
-                        "service": "�",
+                        "title": "...",
+                        "service": "...",
                         "region": "Global",
-                        "communication": "�",
+                        "communication": "...",
                         "incidentType": "Incident",
-                        "trackingId": "�",
+                        "trackingId": "...",
                         "impactStartTime": "2018-03-22T21:40:00.0000000Z",
                         "impactMitigationTime": "2018-03-22T21:41:00.0000000Z",
                         "impactedServices": "[{"ImpactedRegions"}]",
-                        "defaultLanguageTitle": "�",
-                        "defaultLanguageContent": "�",
+                        "defaultLanguageTitle": "...",
+                        "defaultLanguageContent": "...",
                         "stage": "Active",
                         "communicationId": "11000001466525",
                         "version": "0.1.1"
                     },
                     "status": "Active",
-                    "subscriptionId": "�",
+                    "subscriptionId": "...",
                     "submissionTimestamp": "2018-04-03T22:44:50.8013523+00:00"
                 }
             },
@@ -237,7 +237,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
         "status": "Activated",
         "context": {
         "timestamp": "2018-04-09T19:00:07.7461615Z",
-        "id": "�",
+        "id": "...",
         "name": "TEST-VM CPU Utilization",
         "description": "",
         "conditionType": "SingleResourceMultipleMetricCriteria",
@@ -259,12 +259,12 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
             }
             ]
         },
-        "subscriptionId": "�",
+        "subscriptionId": "...",
         "resourceGroupName": "TEST",
         "resourceName": "test-vm",
         "resourceType": "Microsoft.Compute/virtualMachines",
-        "resourceId": "�",
-        "portalLink": "�"
+        "resourceId": "...",
+        "portalLink": "..."
         },
         "properties": {}
     }
@@ -284,7 +284,7 @@ Azure Service Health 항목은 작업 로그에 속해 있습니다. 경고 만�
 
       !["메트릭 경고 true 조건 게시 작업"](media/action-groups-logic-app/metric-alert-true-condition-post-action.png "메트릭 경고 true 조건 게시 작업")
 
-  1. **If false** 조건에서 메트릭 경고가 논리 앱의 예상과 일치 하지 않도록 Microsoft 팀 작업을 정의 합니다. JSON 페이로드를 포함합니다. `triggerBody` 식에서 `json()` 동적 콘텐츠를 참조하는 방법을 확인합니다.
+  1. **False** 조건에서 메트릭 경고가 논리 앱의 예상과 일치 하지 않는다는 것을 알리는 Microsoft 팀 작업을 정의 합니다. JSON 페이로드를 포함합니다. `triggerBody` 식에서 `json()` 동적 콘텐츠를 참조하는 방법을 확인합니다.
 
       !["메트릭 경고 거짓 조건 게시 작업"](media/action-groups-logic-app/metric-alert-false-condition-post-action.png "메트릭 경고 false 조건 게시 작업")
 
