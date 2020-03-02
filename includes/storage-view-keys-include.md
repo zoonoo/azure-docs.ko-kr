@@ -8,18 +8,18 @@ ms.topic: include
 ms.date: 11/06/2019
 ms.author: tamram
 ms.custom: include file
-ms.openlocfilehash: e3b3d944508a4261b78def0b3bee13f7395a8bf0
-ms.sourcegitcommit: 827248fa609243839aac3ff01ff40200c8c46966
+ms.openlocfilehash: 9333bb36971fc28a23a443e50d191abeef05b758
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/07/2019
-ms.locfileid: "73749012"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208224"
 ---
 Azure Portal에서 저장소 계정 액세스 키 또는 연결 문자열을 보고 복사 하려면:
 
 1. [Azure Portal](https://portal.azure.com)로 이동합니다.
 2. 스토리지 계정을 찾습니다.
-3. 스토리지 계정 개요의 **설정** 섹션에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
+3. **설정** 아래에서 **액세스 키**를 선택합니다. 계정 액세스 키는 물론 각 키의 전체 연결 문자열이 나타납니다.
 4. **key1** 아래에서 **키** 값을 찾고, **복사** 단추를 클릭하여 계정 키를 복사합니다.
 5. 또는 전체 연결 문자열을 복사할 수 있습니다. **key1** 아래에서 **연결 문자열** 값을 찾고, **복사** 단추를 클릭하여 연결 문자열을 복사합니다.
 

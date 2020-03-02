@@ -5,12 +5,12 @@ author: cgillum
 ms.topic: conceptual
 ms.date: 11/03/2019
 ms.author: azfuncdf
-ms.openlocfilehash: ee35f26f9433f6ab342c7dce105638122b9d7717
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 260811c4ae15b45de6f7bc1b22e3ed6dcea44259
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77486263"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204517"
 ---
 # <a name="performance-and-scale-in-durable-functions-azure-functions"></a>지속성 함수의 성능 및 크기 조정(Azure Functions)
 
@@ -220,7 +220,7 @@ Orchestrator 및 entity 함수에서 확장 세션의 구체적인 효과는 다
 
 ### <a name="orchestrator-function-replay"></a>오케스트레이터 함수 재생
 
-앞서 언급된 것처럼 오케스트레이터 함수는 **기록** 테이블의 콘텐츠를 사용하여 재생됩니다. 기본적으로 오케스트레이터 함수 코드는 메시지의 일괄 처리가 제어 큐에서 제거될 때마다 재생됩니다. 확장 세션을 사용 하도록 설정 하면 오 케 스트레이 터 함수 인스턴스가 메모리에 더 오래 유지 되 고 전체 기록 재생 없이 새 메시지를 처리할 수 있습니다.
+앞서 언급된 것처럼 오케스트레이터 함수는 **기록** 테이블의 콘텐츠를 사용하여 재생됩니다. 기본적으로 오케스트레이터 함수 코드는 메시지의 일괄 처리가 제어 큐에서 제거될 때마다 재생됩니다. 팬 아웃 및 팬 인 패턴을 사용 하 고 모든 작업이 완료 될 때까지 대기 하는 경우에도 (예: .NET의 `Task.WhenAll` 또는 JavaScript의 `context.df.Task.all`를 사용 하는 경우) 작업 응답의 일괄 처리가 시간에 따라 처리 될 때 발생 하는 재생 됩니다. 확장 세션을 사용 하도록 설정 하면 오 케 스트레이 터 함수 인스턴스가 메모리에 더 오래 유지 되 고 전체 기록 재생 없이 새 메시지를 처리할 수 있습니다.
 
 확장 세션의 성능 향상은 일반적으로 다음과 같은 경우에 관찰 됩니다.
 

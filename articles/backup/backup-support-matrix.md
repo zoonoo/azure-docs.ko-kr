@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: 15c2fdfbe63dd73e665a4bac01dd2cd1b1144949
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505855"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206659"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -35,7 +35,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 **자격 증명 모음 스토리지의 데이터 원본 수** | 최대 54400 GB Azure VM 백업에는 제한이 없습니다.
 **자격 증명 모음에 대한 백업 횟수** | **Azure vm:** 하루에 한 번<br/><br/>**DPM/MABS로 보호 되는 컴퓨터:** 하루에 두 번<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번
 **자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
-**자격 증명 모음 이동** | [자격 증명](https://review.docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) 모음은 구독 간에 이동 하거나 동일한 구독의 리소스 그룹 간에 이동할 수 있습니다. 그러나 하위 자격 증명 모음을 지역 간에 이동 하는 것은 지원 되지 않습니다.
+**자격 증명 모음 이동** | [자격 증명](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) 모음은 구독 간에 이동 하거나 동일한 구독의 리소스 그룹 간에 이동할 수 있습니다. 그러나 하위 자격 증명 모음을 지역 간에 이동 하는 것은 지원 되지 않습니다.
 **자격 증명 모음 간 데이터 이동** | 자격 증명 모음 간에 백업 데이터를 이동 하는 것은 지원 되지 않습니다.
 **자격 증명 모음 스토리지 유형 수정** | 백업을 저장 하기 전에 자격 증명 모음에 대 한 저장소 복제 유형 (지역 중복 저장소 또는 로컬 중복 저장소)을 수정할 수 있습니다. 자격 증명 모음에서 백업이 시작되면 복제 유형을 수정할 수 없습니다.
 

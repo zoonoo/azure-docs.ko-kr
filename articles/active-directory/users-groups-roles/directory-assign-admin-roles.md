@@ -9,17 +9,17 @@ ms.service: active-directory
 ms.workload: identity
 ms.subservice: users-groups-roles
 ms.topic: reference
-ms.date: 11/12/2019
+ms.date: 02/28/2020
 ms.author: curtand
 ms.reviewer: vincesm
 ms.custom: fasttrack-edit
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b813c1caa02ce3ffd3ab0579849dff47252e7d63
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d024382f816e98fb5cb83331dd417f0c41362bc4
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559167"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207050"
 ---
 # <a name="administrator-role-permissions-in-azure-active-directory"></a>Azure Active Directory에서 관리자 역할 사용 권한
 
@@ -29,7 +29,7 @@ Azure Active Directory (Azure AD)를 사용 하 여 제한 된 관리자에 게 
 
 전역 관리자 역할에 할당 된 사용자는 Azure AD 조직의 모든 관리 설정을 읽고 수정할 수 있습니다. 기본적으로 Azure 구독에 등록 하는 사람에 게는 Azure AD 조직에 대 한 전역 관리자 역할이 할당 됩니다. 전역 관리자 및 권한 있는 역할 관리자만 관리자 역할을 위임할 수 있습니다. 비즈니스에 대 한 위험을 줄이려면 조직에서 가능한 최소한의 사용자에 게이 역할을 할당 하는 것이 좋습니다.
 
-모범 사례로, 조직에서 5 명 미만의 사용자에 게이 역할을 할당 하는 것이 좋습니다. 조직의 전역 관리자 역할에 할당 된 사용자가 5 명 이상 있는 경우 사용을 줄이는 몇 가지 방법은 다음과 같습니다.
+모범 사례로, 조직에서 5 명 미만의 사용자에 게이 역할을 할당 하는 것이 좋습니다. 조직의 전역 관리자 역할에 할당 된 관리자가 5 명 이상인 경우 사용을 줄이는 몇 가지 방법은 다음과 같습니다.
 
 ### <a name="find-the-role-you-need"></a>필요한 역할 찾기
 
@@ -52,7 +52,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 이 역할의 사용자는 엔터프라이즈 애플리케이션, 애플리케이션 등록 및 애플리케이션 프록시 설정의 모든 측면을 만들고 관리할 수 있습니다. 이 역할에 할당 된 사용자는 새 응용 프로그램 등록 또는 엔터프라이즈 응용 프로그램을 만들 때 소유자로 추가 되지 않습니다.
 
 응용 프로그램 관리자는 응용 프로그램을 가장할 수 있는 응용 프로그램 자격 증명을 관리할 수 있습니다. 따라서이 역할에 할당 된 사용자는 Azure AD 역할에 할당 되지 않은 응용 프로그램 또는 다음 관리자 역할에만 할당 된 응용 프로그램의 응용 프로그램 자격 증명을 관리할 수 있습니다.
-* 응용 프로그램 관리자
+* 애플리케이션 관리자
 * 애플리케이션 개발자
 * 클라우드 애플리케이션 관리자
 * 디렉터리 읽기 권한자
@@ -79,7 +79,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 보고서 구독자
 
 > [!IMPORTANT]
-> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 예를 들면 다음과 같습니다.
+> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 자격 증명을 변경할 수 있습니다. 사용자의 자격 증명을 변경한다는 것은 사용자의 ID 및 사용 권한을 가정할 수 있음을 의미할 수 있습니다. 다음은 그 예입니다.
 >
 >- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 사용 권한이 부여되었을 수 있으며, 다른 위치에서는 인증 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 인증 관리자는 응용 프로그램 소유자의 id를 가정 하 고 응용 프로그램에 대 한 자격 증명을 업데이트 하 여 권한 있는 응용 프로그램의 id를 추가로 가정할 수 있습니다.
 >- Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
@@ -121,7 +121,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="billing-administrator"></a>[대금 청구 관리자](#billing-administrator-permissions)
 
-구매를 담당하고 구독 및 지원 티켓을 관리하고 서비스 상태를 모니터링합니다.
+구매, 구독 관리, 지원 티켓 관리 및 서비스 상태 모니터링을 수행할 수 있습니다.
 
 ### <a name="cloud-application-administrator"></a>[클라우드 애플리케이션 관리자](#cloud-application-administrator-permissions)
 
@@ -190,7 +190,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="directory-synchronization-accounts"></a>[디렉터리 동기화 계정](#directory-synchronization-accounts-permissions)
 
-사용 안 함. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
+사용하지 마십시오. 이 역할은 Azure AD Connect 서비스에 자동으로 할당되고 다른 사용에 적합하거나 지원되지 않습니다.
 
 ### <a name="directory-writers"></a>[디렉터리 작성기](#directory-writers-permissions)
 
@@ -219,7 +219,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="global-administrator--company-administrator"></a>[전역 관리자/회사 관리자](#company-administrator-permissions)
 
-이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 회사에 전역 관리자가 두 명 이상 있을 수도 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
+이 역할의 사용자는 Azure Active Directory의 모든 관리 기능뿐 아니라 Microsoft 365 보안 센터, Microsoft 365 규정 준수 센터, Exchange Online, SharePoint Online 및 비즈니스용 Skype Online과 같이 Azure Active Directory ID를 사용하는 서비스에도 액세스할 수 있습니다. Azure Active Directory 테넌트에 등록하는 사람이 전역 관리자가 됩니다. 회사에 여러 전역 관리자가 있을 수 있습니다. 전역 관리자는 모든 사용자 및 모든 다른 관리자의 암호를 다시 설정할 수 있습니다.
 
 > [!NOTE]
 > Microsoft Graph API 및 Azure AD PowerShell에서이 역할은 "회사 관리자"로 식별 됩니다. [Azure portal](https://portal.azure.com)에서는 "전역 관리자"입니다.
@@ -238,7 +238,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 >- [AZURE AD 포털](https://portal.azure.com/#blade/Microsoft_AAD_IAM/StartboardApplicationsMenuBlade/AllApps/menuId/) -전역 판독기는 엔터프라이즈 앱의 프로 비전 모드를 읽을 수 없습니다.
 >- [M365 관리 센터](https://admin.microsoft.com/Adminportal/Home#/homepage) -전역 판독기는 고객 lockbox 요청을 읽을 수 없습니다. M365 관리 센터의 왼쪽 창에 있는 **지원** 에서 **고객 lockbox 요청** 탭을 찾을 수 없습니다.
 >- [M365 Security center](https://security.microsoft.com/homepage) -전역 판독기는 민감도 및 보존 레이블을 읽을 수 없습니다. M365 Security center의 왼쪽 창에서 **민감도 레이블**, **보존 레이블**및 **레이블 분석** 탭을 찾을 수 없습니다.
->- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) -전역 판독기가 SCC 감사 로그를 읽을 수 없거나 콘텐츠 검색을 수행할 수 없습니다.
+>- [Office 보안 및 준수 센터](https://sip.protection.office.com/homepage) -전역 판독기는 SCC 감사 로그를 읽을 수 없거나, 콘텐츠 검색을 수행 하거나, 보안 점수를 볼 수 없습니다.
 >- [팀 관리 센터](https://admin.teams.microsoft.com) -전역 읽기 권한자는 **팀 수명 주기**, **분석 & 보고서**, **IP 전화 장치 관리** 및 **앱 카탈로그**를 읽을 수 없습니다.
 >- [PAM (Privileged Access Management)](https://docs.microsoft.com/office365/securitycompliance/privileged-access-management-overview) 은 전역 읽기 권한자 역할을 지원 하지 않습니다.
 >- [Azure Information Protection](https://docs.microsoft.com/azure/information-protection/what-is-information-protection) 전역 판독기는 [중앙 보고에](https://docs.microsoft.com/azure/information-protection/reports-aip) 만 지원 되며, Azure AD 조직은 [통합 레이블 지정 플랫폼](https://docs.microsoft.com/azure/information-protection/faqs#how-can-i-determine-if-my-tenant-is-on-the-unified-labeling-platform)에 있지 않을 때만 지원 됩니다.
@@ -265,7 +265,7 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 * 보고서 구독자
 
 > [!IMPORTANT]
-> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들면 다음과 같습니다.
+> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 다음은 그 예입니다.
 >
 >- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 기술 지원 팀 관리자에 권한이 부여되지 않습니다. 이 경로를 통해 기술 지원 팀 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
 >- Azure의 중요 한 구성 또는 개인 정보에 액세스할 수 있는 azure 구독 소유자입니다.
@@ -308,11 +308,11 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 ### <a name="partner-tier1-support"></a>[파트너 Tier1 지원](#partner-tier1-support-permissions)
 
-사용 안 함. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
+사용하지 마십시오. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
 
 ### <a name="partner-tier2-support"></a>[파트너 Tier2 지원](#partner-tier2-support-permissions)
 
-사용 안 함. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
+사용하지 마십시오. 이 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다. 이 역할은 적은 수의 Microsoft 전매 파트너에서 사용하기 위한 것으로 일반적인 용도로는 적합하지 않습니다.
 
 ### <a name="password-administrator"></a>[암호 관리자](#password-administrator-permissions)
 
@@ -449,10 +449,10 @@ Windows Defender ATP 및 EDR | 경고를 확인 하 고 조사 합니다. Window
 | --- | --- |
 |일반적인 사용 권한|<p>사용자 및 그룹 만들기</p><p>사용자 보기 만들기 및 관리</p><p>Office 지원 티켓 관리<p>암호 만료 정책 업데이트|
 |<p>모든 관리자를 포함한 모든 사용자에게</p>|<p>라이선스 관리</p><p>사용자 계정 이름을 제외한 모든 사용자 속성 관리</p>
-|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 다시 설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
+|비관리자 또는 다음의 제한된 관리자 역할의 사용자에만 적용:<ul><li>디렉터리 읽기 권한자<li>게스트 초대자<li>기술 지원팀 관리자<li>메시지 센터 읽기 권한자<li>보고서 구독자<li>사용자 관리자|<p>삭제 및 복원</p><p>사용 안 함 및 사용</p><p>새로 고침 토큰 무효화</p><p>사용자 계정 이름을 포함한 모든 사용자 속성 관리</p><p>암호 재설정</p><p>(FIDO) 디바이스 키 업데이트</p>|
 
 > [!IMPORTANT]
-> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 예를 들면 다음과 같습니다.
+> 이 역할의 사용자는 Azure Active Directory 내부 및 외부에 있는 중요한 프라이빗 정보 또는 중요한 구성에 대한 액세스 권한이 있을 수 있는 사용자의 암호를 변경할 수 있습니다. 사용자의 암호를 변경한다는 것은 사용자의 ID 및 권한을 가정할 수 있다는 것을 의미합니다. 다음은 그 예입니다.
 >
 >- 애플리케이션 등록 및 엔터프라이즈 애플리케이션 소유자: 소유한 앱의 자격 증명을 관리할 수 있습니다. 이러한 앱은 Azure AD에서 권한이 부여되었을 수 있으며, 다른 위치에서는 사용자 관리자에게 권한이 부여되지 않습니다. 이 경로를 통해 사용자 관리자는 애플리케이션 소유자의 ID를 가정하고, 애플리케이션의 자격 증명을 업데이트하여 권한 있는 애플리케이션의 ID를 추가로 가정할 수 있습니다.
 >- Azure 구독 소유자: Azure에서 중요한 프라이빗 정보 또는 중요한 구성에 액세스할 수 있습니다.
@@ -1012,7 +1012,7 @@ Exchange 제품의 모든 측면을 관리할 수 있습니다.
 | microsoft.aad.b2c/identityProviders/allTasks | Azure Active Directory B2C에서 id 공급자를 읽고 구성 합니다. |
 
 ### <a name="global-reader-permissions"></a>전역 판독기 권한
-전역 관리자가 편집할 수 있는 모든 항목을 읽을 수 있지만 편집할 수는 없습니다. 
+전역 관리자가 편집할 수 있는 모든 항목을 읽을 수 있지만 편집할 수는 없습니다.
 
 > [!NOTE]
 > 이 역할에는 Azure Active Directory 외부의 추가 권한이 있습니다. 자세한 내용은 위의 [역할 설명](#global-reader) 을 참조 하세요.
@@ -1689,8 +1689,8 @@ Microsoft Teams 서비스를 관리할 수 있습니다.
 
 그래프 displayName | Azure Portal 표시 이름 | directoryRoleTemplateId
 ----------------- | ------------------------- | -------------------------
-응용 프로그램 관리자 | 애플리케이션 관리자 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
-애플리케이션 개발자 | 응용 프로그램 개발자 | CF1C38E5-3621-4004-A7CB-879624DCED7C
+애플리케이션 관리자 | 애플리케이션 관리자 | 9B895D92-2CD3-44C7-9D02-A6AC2D5EA5C3
+애플리케이션 개발자 | 애플리케이션 개발자 | CF1C38E5-3621-4004-A7CB-879624DCED7C
 인증 관리자 | 인증 관리자 | c4e39bd9-1100-46d3-8c65-fb160da0071f
 Azure DevOps 관리자 | Azure DevOps 관리자 | e3973bdf-4987-49ae-837a-ba8e231c7286
 Azure Information Protection 관리자 | Azure Information Protection 관리자 | 7495fdc4-34c4-4d15-a289-98788ce399fd
@@ -1708,7 +1708,7 @@ B2C IEF 정책 관리자 | B2C IEF 정책 관리자 | 3edaf663-341e-4475-9f94-5c
 CRM 서비스 관리자 | Dynamics 365 관리자 | 44367163-eba1-44c3-98af-f5787879f96a
 고객 LockBox 액세스 승인자 | 고객 Lockbox 액세스 승인자 | 5c4f9dcd-47dc-4cf7-8c9a-9e4207cbfc91
 데스크톱 분석 관리자 | 데스크톱 분석 관리자 | 38a96431-2bdf-4b4c-8b6e-5d3d8abac1a4
-장치 관리자 | 장치 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
+디바이스 관리자 | 장치 관리자 | 9f06204d-73c1-4d4c-880a-6edb90606fd8
 디바이스 연결 | 장치 조인 | 9c094953-4995-41c8-84c8-3ebb9b32c93f
 디바이스 관리 | 장치 관리자 | 2b499bcd-da44-4968-8aec-78e1674fa64d
 디바이스 사용자 | 장치 사용자 | d405c6df-0af8-4e3b-95e4-4d06e542189e
@@ -1755,7 +1755,7 @@ Teams 서비스 관리자 | Teams 서비스 관리자 | 69091246-20e8-4a56-aa4d-
 
 다음 역할은 사용할 수 없습니다. 해당 역할은 사용되지 않으며 향후 Azure AD에서 제거됩니다.
 
-* 애드혹 라이선스 관리자
+* 임시 라이선스 관리자
 * 디바이스 연결
 * 디바이스 관리
 * 디바이스 사용자

@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: arvinh
 ms.custom: aaddev;it-pro;seohack1
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3dbe5871a78634d2866ec1a3d1455492762ff2aa
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 11e4768c5cf6df784c8f32aff2f884adfa6b68ab
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619236"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204857"
 ---
 # <a name="build-a-scim-endpoint-and-configure-user-provisioning-with-azure-active-directory-azure-ad"></a>SCIM 끝점을 빌드하고 Azure Active Directory (Azure AD)를 사용 하 여 사용자 프로 비전 구성
 
@@ -60,7 +60,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 |loginName|userName|userPrincipalName|
 |firstName|name.givenName|givenName|
 |lastName|이름. lastName|lastName|
-|회사 메일|전자 메일 [type eq "work"]. value|메일|
+|회사 메일|전자 메일 [type eq "work"]. value|Mail|
 |manager|manager|manager|
 |tag|urn: ietf: params: scim: 스키마: 확장: 2.0: CustomExtension: tag|extensionAttribute1|
 |상태|활성|Is소프트 삭제 (사용자에 게 저장 되지 않은 계산 값)|
@@ -106,7 +106,7 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Facsimile-TelephoneNumber |phoneNumbers[type eq "fax"].value |
 | givenName |name.givenName |
 | jobTitle |title |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |externalId |
 | manager |urn: ietf: params: scim: 스키마: 확장: enterprise: 2.0: User: manager |
 | mobile |phoneNumbers[type eq "mobile"].value |
@@ -124,9 +124,9 @@ SCIM 2.0 (RFC [7642](https://tools.ietf.org/html/rfc7642), [7643](https://tools.
 | Azure Active Directory 그룹 | urn:ietf:params:scim:schemas:core:2.0:Group |
 | --- | --- |
 | displayName |displayName |
-| 메일 |emails[type eq "work"].value |
+| mail |emails[type eq "work"].value |
 | mailNickname |displayName |
-| 멤버 |멤버 |
+| members |members |
 | objectId |externalId |
 | proxyAddresses |emails[type eq "other"].Value |
 
@@ -752,7 +752,8 @@ TLS 1.2 암호 그룹 최소 막대:
 
 ## <a name="step-3-build-a-scim-endpoint"></a>3 단계: SCIM 끝점 빌드
 
-Azure Active Directory와 인터페이스 하는 SCIM 웹 서비스를 만들어 거의 모든 응용 프로그램 또는 id 저장소에 대해 자동 사용자 프로 비전을 사용 하도록 설정할 수 있습니다.
+이제 스키마를 desidned 하 고 Azure AD SCIM 구현을 이해 했으므로 SCIM 끝점 개발을 시작할 수 있습니다. 처음부터 시작 하 여 구현을 완전히 빌드하는 대신 SCIM 주석 uinty에서 게시 한 여러 오픈 소스 SCIM 라이브러리를 사용할 수 있습니다.  
+Azure AD 프로 비전 팀에서 게시 한 오픈 소스 .NET Core [참조 코드](https://aka.ms/SCIMReferenceCode) 는 개발을 시작할 수 있는 리소스 중 하나입니다. SCIM 끝점을 빌드한 후에는 테스트 하는 것이 좋습니다. 참조 코드의 일부로 제공 되는 [postman 테스트](https://github.com/AzureAD/SCIMReferenceCode/wiki/Test-Your-SCIM-Endpoint) 컬렉션을 사용 하거나 [위에서](https://docs.microsoft.com/azure/active-directory/app-provisioning/use-scim-to-provision-users-and-groups#user-operations)제공 된 샘플 요청/응답을 통해 실행할 수 있습니다.  
 
 작동 방식은 다음과 같습니다.
 
@@ -813,582 +814,13 @@ Azure AD에서 프로비전 요청을 수락할 수 있는 SCIM 엔드포인트�
 
     > [!NOTE]
     > **테스트 연결**은 Azure AD 구성에서 선택된 일치하는 속성으로 임의 GUID를 사용하여 존재하지 않는 사용자의 SCIM 엔드포인트를 쿼리합니다. 예상되는 올바른 응답은 SCIM ListResponse 메시지가 비어 있는 HTTP 200 OK입니다.
-
 1. 응용 프로그램에 연결 하려는 시도가 성공 하면 **저장** 을 선택 하 여 관리자 자격 증명을 저장 합니다.
 1. **매핑** 섹션에는 선택 가능한 특성 매핑 집합이 두 개 있는데, 하나는 사용자 개체용이고 다른 하나는 그룹 개체용입니다. 각 특성 매핑을 선택하여 Azure Active Directory에서 앱으로 동기화되는 특성을 검토합니다. **일치** 속성으로 선택한 특성은 업데이트 작업 시 앱의 사용자와 그룹을 일치시키는 데 사용됩니다. 변경 내용을 커밋하려면 **저장**을 선택합니다.
 1. **설정** 아래의 **범위** 필드는 동기화되는 사용자 및 그룹을 정의합니다. **사용자** 및 그룹 탭에서 할당 된 사용자 및 그룹만 동기화 하도록 **"할당 된 사용자 및 그룹만 동기화** (권장)"를 선택 합니다.
 1. 구성이 완료 되 면 **프로 비전 상태** 를 **켜기**로 설정 합니다.
 1. **저장** 을 선택 하 여 Azure AD 프로 비전 서비스를 시작 합니다.
-1. 할당 된 사용자 및 그룹만 동기화 하는 경우 (권장) **사용자 및 그룹** 탭을 선택 하 고 동기화 할 사용자 또는 그룹을 할당 해야 합니다.
-
-초기 주기가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
-
+1. 할당 된 사용자 및 그룹만 동기화 하는 경우 (권장) **사용자 및 그룹** 탭을 선택 하 고 동기화 할 사용자 또는 그룹을 할당 해야 합니다. 초기 주기가 시작 되 면 왼쪽 패널에서 **감사 로그** 를 선택 하 여 앱의 프로 비전 서비스에서 수행 하는 모든 작업을 표시 하는 진행률을 모니터링할 수 있습니다. Azure AD 프로비저닝 로그를 읽는 방법에 대한 자세한 내용은 [자동 사용자 계정 프로비저닝에 대한 보고](check-status-user-account-provisioning.md)를 참조하세요.
 이 샘플을 확인하는 마지막 단계는 Windows 컴퓨터에서 \AzureAD-BYOA-Provisioning-Samples\ProvisioningAgent\bin\Debug 폴더에 TargetFile.csv 파일을 여는 것입니다. 프로비전 프로세스가 실행되면 이 파일은 할당되고 프로비전된 모든 사용자 및 그룹의 세부 사항을 표시합니다.
-
-### <a name="development-libraries"></a>개발 라이브러리
-
-SCIM 사양을 준수하는 웹 서비스를 개발하려면 먼저 개발 프로세스를 가속화하기 위해 Microsoft에서 제공하는 다음 라이브러리를 숙지합니다.
-
-* CLI(공용 언어 인프라) 라이브러리는 C#과 같은 해당 인프라에 따라 언어와 함께 사용하기 위해 제공됩니다. 이러한 라이브러리 중 하나인 Microsoft.systemforcrossdomainidentitymanagement는 다음 그림에 표시 된 것 처럼 Microsoft.systemforcrossdomainidentitymanagement 인터페이스를 선언 합니다. 라이브러리를 사용하는 개발자는 일반적으로 공급자로 참조될 수 있는 클래스를 사용하여 해당 인터페이스를 구현합니다. 라이브러리를 통해 개발자는 SCIM 사양을 준수 하는 웹 서비스를 배포할 수 있습니다. 웹 서비스는 인터넷 정보 서비스 내에서 또는 실행 가능한 CLI 어셈블리에서 호스팅될 수 있습니다. 요청은 공급자의 메서드에 대한 호출로 변환되며, 개발자에 의해 일부 ID 저장소에서 작동하도록 프로그래밍됩니다.
-  
-   ![분석: 공급자의 메서드에 대 한 호출로 변환 된 요청](media/use-scim-to-provision-users-and-groups/scim-figure-3.png)
-  
-* [기본 경로 처리기](https://expressjs.com/guide/routing.html)는 node.js 웹 서비스에 수행된(SCIM 사양에 정의된 대로) 호출을 나타내는 node.js 요청 개체를 구문 분석하는 데 사용할 수 있습니다.
-
-### <a name="building-a-custom-scim-endpoint"></a>사용자 지정 SCIM 끝점 빌드
-
-CLI 라이브러리를 사용 하는 개발자는 실행 가능한 CLI 어셈블리 내에서 또는 인터넷 정보 서비스 내에서 서비스를 호스트할 수 있습니다. 다음은 http://localhost:9000: 주소에 있는 실행 가능한 어셈블리 내에서 서비스를 호스트하기 위한 샘플 코드입니다. 
-
-```csharp
- private static void Main(string[] arguments)
- {
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IProvider and 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
-
- Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
-   new DevelopersMonitor();
- Microsoft.SystemForCrossDomainIdentityManagement.IProvider provider = 
-   new DevelopersProvider(arguments[1]);
- Microsoft.SystemForCrossDomainIdentityManagement.Service webService = null;
- try
- {
-     webService = new WebService(monitor, provider);
-     webService.Start("http://localhost:9000");
-
-     Console.ReadKey(true);
- }
- finally
- {
-     if (webService != null)
-     {
-         webService.Dispose();
-         webService = null;
-     }
- }
- }
-
- public class WebService : Microsoft.SystemForCrossDomainIdentityManagement.Service
- {
- private Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor;
- private Microsoft.SystemForCrossDomainIdentityManagement.IProvider provider;
-
- public WebService(
-   Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitoringBehavior, 
-   Microsoft.SystemForCrossDomainIdentityManagement.IProvider providerBehavior)
- {
-     this.monitor = monitoringBehavior;
-     this.provider = providerBehavior;
- }
-
- public override IMonitor MonitoringBehavior
- {
-     get
-     {
-         return this.monitor;
-     }
-
-     set
-     {
-         this.monitor = value;
-     }
- }
-
- public override IProvider ProviderBehavior
- {
-     get
-     {
-         return this.provider;
-     }
-
-     set
-     {
-         this.provider = value;
-     }
- }
- }
-```
-
-이 서비스에는 루트 인증 기관의 이름이 다음 중 하나인 HTTP 주소 및 서버 인증 인증서가 있어야 합니다. 
-
-* CNNIC
-* Comodo
-* CyberTrust
-* DigiCert
-* GeoTrust
-* GlobalSign
-* Go Daddy
-* VeriSign
-* WoSign
-
-서버 인증 인증서는 네트워크 셸 유틸리티를 사용하여 다음과 같이 Windows 호스트의 포트에 바인딩될 수 있습니다.
-
-```
-netsh http add sslcert ipport=0.0.0.0:443 certhash=0000000000003ed9cd0c315bbb6dc1c08da5e6 appid={00112233-4455-6677-8899-AABBCCDDEEFF}
-```
-
-여기서 appid 인수에 제공된 값은 임의의 GUID(Globally Unique Identifier)인 반면 certhash 인수에 제공된 값은 인증서의 지문입니다.  
-
-인터넷 정보 서비스 내에서 서비스를 호스팅하려면 개발자는 어셈블리의 기본 네임 스페이스에서 Startup 이라는 클래스를 사용 하 여 CLI 코드 라이브러리 어셈블리를 빌드합니다.  이러한 클래스의 샘플은 다음과 같습니다. 
-
-```csharp
- public class Startup
- {
- // Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter, 
- // Microsoft.SystemForCrossDomainIdentityManagement.IMonitor and  
- // Microsoft.SystemForCrossDomainIdentityManagement.Service are all defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Service.dll.  
-
- Microsoft.SystemForCrossDomainIdentityManagement.IWebApplicationStarter starter;
-
- public Startup()
- {
-     Microsoft.SystemForCrossDomainIdentityManagement.IMonitor monitor = 
-       new DevelopersMonitor();
-     Microsoft.SystemForCrossDomainIdentityManagement.IProvider provider = 
-       new DevelopersProvider();
-     this.starter = 
-       new Microsoft.SystemForCrossDomainIdentityManagement.WebApplicationStarter(
-         provider, 
-         monitor);
- }
-
- public void Configuration(
-   Owin.IAppBuilder builder) // Defined in Owin.dll.  
- {
-     this.starter.ConfigureApplication(builder);
- }
- }
-```
-
-### <a name="handling-endpoint-authentication"></a>엔드포인트 인증 처리
-
-Azure Active Directory에서 요청은 OAuth 2.0 전달자 토큰을 포함합니다.   요청을 수신 하는 모든 서비스는 Microsoft Graph API 서비스에 액세스 하기 위해 필요한 Azure Active Directory 테 넌 트에 대해 Azure Active Directory 되는 발급자를 인증 해야 합니다.  토큰에서 발급자는 "iss": "https://sts.windows.net/cbb1a5ac-f33b-45fa-9bf5-f37db0fed422/"와 같은 iss 클레임으로 식별 됩니다.  이 예에서 클레임 값 https://sts.windows.net의 기준 주소는 발급자로 Azure Active Directory를 식별 하는 반면, 상대 주소 세그먼트 cbb1a5ac-f33b-45fa-9bf5-f37db0fed422은 토큰이 발급 된 Azure Active Directory 테 넌 트의 고유 식별자입니다. 토큰의 대상은 갤러리에 있는 앱의 응용 프로그램 템플릿 ID가 됩니다. 모든 사용자 지정 앱의 응용 프로그램 템플릿 ID는 8adf8e6e-67b2-4cf2-a259-e3dc5476c621입니다. 갤러리의 각 앱에 대 한 응용 프로그램 템플릿 ID는 다릅니다. 갤러리 응용 프로그램의 응용 프로그램 템플릿 ID에 대 한 질문은 ProvisioningFeedback@microsoft.com에 문의 하세요. 단일 테 넌 트에 등록 된 각 응용 프로그램은 SCIM 요청과 동일한 `iss` 클레임을 받을 수 있습니다.
-
-   > [!NOTE]
-   > Azure AD에서 생성 된 토큰을 사용 하 여이 필드를 비워 두지 ***않는*** 것이 좋습니다. 이 옵션은 주로 테스트 목적으로 사용할 수 있습니다.
-
-SCIM 서비스를 빌드하기 위해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하는 개발자는 다음 단계에 따라 ActiveDirectory 패키지를 사용 하 여 Azure Active Directory에서 요청을 인증할 수 있습니다. 
-
-먼저 공급자에서 서비스를 시작할 때마다 호출 되는 메서드를 반환 하도록 하 여 Microsoft.systemforcrossdomainidentitymanagement 속성을 구현 합니다. 
-
-```csharp
-  public override Action<Owin.IAppBuilder, System.Web.Http.HttpConfiguration.HttpConfiguration> StartupBehavior
-  {
-    get
-    {
-      return this.OnServiceStartup;
-    }
-  }
-
-  private void OnServiceStartup(
-    Owin.IAppBuilder applicationBuilder,  // Defined in Owin.dll.  
-    System.Web.Http.HttpConfiguration configuration)  // Defined in System.Web.Http.dll.  
-  {
-  }
-```
-
-그런 다음, 해당 메서드에 다음 코드를 추가 하 여 Microsoft Graph API 서비스에 대 한 액세스를 위해 지정 된 테 넌 트에 대해 Azure Active Directory에서 발급 한 토큰을 포함 하 여 인증 된 서비스의 끝점에 대 한 요청을 수행 합니다. 
-
-```csharp
-  private void OnServiceStartup(
-    Owin.IAppBuilder applicationBuilder IAppBuilder applicationBuilder, 
-    System.Web.Http.HttpConfiguration HttpConfiguration configuration)
-  {
-    // IFilter is defined in System.Web.Http.dll.  
-    System.Web.Http.Filters.IFilter authorizationFilter = 
-      new System.Web.Http.AuthorizeAttribute(); // Defined in System.Web.Http.dll.configuration.Filters.Add(authorizationFilter);
-
-    // SystemIdentityModel.Tokens.TokenValidationParameters is defined in    
-    // System.IdentityModel.Token.Jwt.dll.
-    SystemIdentityModel.Tokens.TokenValidationParameters tokenValidationParameters =     
-      new TokenValidationParameters()
-      {
-        ValidAudience = "8adf8e6e-67b2-4cf2-a259-e3dc5476c621"
-      };
-
-    // WindowsAzureActiveDirectoryBearerAuthenticationOptions is defined in 
-    // Microsoft.Owin.Security.ActiveDirectory.dll
-    Microsoft.Owin.Security.ActiveDirectory.
-    WindowsAzureActiveDirectoryBearerAuthenticationOptions authenticationOptions =
-      new WindowsAzureActiveDirectoryBearerAuthenticationOptions()    {
-      TokenValidationParameters = tokenValidationParameters,
-      Tenant = "03F9FCBC-EA7B-46C2-8466-F81917F3C15E" // Substitute the appropriate tenant’s 
-                                                    // identifier for this one.  
-    };
-
-    applicationBuilder.UseWindowsAzureActiveDirectoryBearerAuthentication(authenticationOptions);
-  }
-```
-
-### <a name="handling-provisioning-and-deprovisioning-of-users"></a>사용자 프로 비전 및 프로 비전 해제 처리
-
-***예 1. 서비스에서 일치 하는 사용자를 쿼리 합니다.***
-
-Azure Active Directory는 externalId 특성 값이 Azure AD의 사용자 mailNickname 특성 값과 일치하는 사용자를 서비스에 쿼리합니다. 쿼리는이 예와 같은 HTTP (하이퍼텍스트 전송 프로토콜) 요청으로 표현 됩니다. 여기서 jyoung은 Azure Active Directory 사용자의 mailNickname 샘플입니다.
-
->[!NOTE]
-> 이는 예제에 불과합니다. 모든 사용자에 게 mailNickname 특성이 있고 사용자의 값이 디렉터리에서 고유 하지 않을 수 있습니다. 또한 일치에 사용 되는 특성 (이 경우 externalId)은 [AZURE AD 특성 매핑에서](customize-application-attributes.md)구성할 수 있습니다.
-
-```
-GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
- Authorization: Bearer ...
-```
-
-서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하 여 빌드된 경우 요청은 서비스 공급자의 쿼리 메서드 호출로 변환 됩니다.  해당 메서드의 서명은 다음과 같습니다. 
-
-```csharp
- // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
- // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
- // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Protocol.  
-
- System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]> Query(
-   Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
-   string correlationIdentifier);
-```
-
-Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이스의 정의는 다음과 같습니다. 
-
-```csharp
- public interface IQueryParameters: 
-   Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
- {
-     System.Collections.Generic.IReadOnlyCollection <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
-     { get; }
- }
-
- public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
- {
-   system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
-   { get; }
-   System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
-   { get; }
-   string SchemaIdentifier 
-   { get; }
- }
-```
-
-```
-    GET https://.../scim/Users?filter=externalId eq jyoung HTTP/1.1
-    Authorization: Bearer ...
-```
-
-서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 작성되면 요청이 서비스 공급자의 쿼리 메서드 호출로 번역됩니다.  해당 메서드의 서명은 다음과 같습니다. 
-
-```csharp
-  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-  // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
-  // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-  // Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters is defined in 
-  // Microsoft.SystemForCrossDomainIdentityManagement.Protocol.  
-
-  System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource[]>  Query(
-    Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters parameters, 
-    string correlationIdentifier);
-```
-
-Microsoft.SystemForCrossDomainIdentityManagement.IQueryParameters 인터페이스의 정의는 다음과 같습니다. 
-
-```csharp
-  public interface IQueryParameters: 
-    Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-  {
-      System.Collections.Generic.IReadOnlyCollection  <Microsoft.SystemForCrossDomainIdentityManagement.IFilter> AlternateFilters 
-      { get; }
-  }
-
-  public interface Microsoft.SystemForCrossDomainIdentityManagement.IRetrievalParameters
-  {
-    system.Collections.Generic.IReadOnlyCollection<string> ExcludedAttributePaths 
-    { get; }
-    System.Collections.Generic.IReadOnlyCollection<string> RequestedAttributePaths 
-    { get; }
-    string SchemaIdentifier 
-    { get; }
-  }
-
-  public interface Microsoft.SystemForCrossDomainIdentityManagement.IFilter
-  {
-      Microsoft.SystemForCrossDomainIdentityManagement.IFilter AdditionalFilter 
-        { get; set; }
-      string AttributePath 
-        { get; } 
-      Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator FilterOperator 
-        { get; }
-      string ComparisonValue 
-        { get; }
-  }
-
-  public enum Microsoft.SystemForCrossDomainIdentityManagement.ComparisonOperator
-  {
-      Equals
-  }
-```
-
-externalId 특성의 값이 지정된 사용자에 대한 다음 쿼리 샘플에서 쿼리 메서드에 전달된 인수의 값은 다음과 같습니다. 
-* parameters.AlternateFilters.Count: 1
-* parameters.AlternateFilters.ElementAt(0).AttributePath: "externalId"
-* parameters.AlternateFilters.ElementAt(0).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(0).ComparisonValue: "jyoung"
-* correlationIdentifier: System.Net.Http.HttpRequestMessage.GetOwinEnvironment["owin.RequestId"] 
-
-***예 2. 사용자 프로 비전***
-
-사용자의 mailNickname 특성 값과 일치 하는 externalId 특성 값이 있는 사용자에 대 한 웹 서비스에 대 한 쿼리에 대 한 응답이 사용자를 반환 하지 않는 경우 해당 서비스에서 해당 사용자에 해당 하는 사용자를 프로 비전 하도록 요청 Azure Active Directory 합니다. Azure Active Directory.  다음은 그러한 요청의 예제입니다. 
-
-```
- POST https://.../scim/Users HTTP/1.1
- Authorization: Bearer ...
- Content-type: application/scim+json
- {
-   "schemas":
-   [
-     "urn:ietf:params:scim:schemas:core:2.0:User",
-     "urn:ietf:params:scim:schemas:extension:enterprise:2.0User"],
-   "externalId":"jyoung",
-   "userName":"jyoung",
-   "active":true,
-   "addresses":null,
-   "displayName":"Joy Young",
-   "emails": [
-     {
-       "type":"work",
-       "value":"jyoung@Contoso.com",
-       "primary":true}],
-   "meta": {
-     "resourceType":"User"},
-    "name":{
-     "familyName":"Young",
-     "givenName":"Joy"},
-   "phoneNumbers":null,
-   "preferredLanguage":null,
-   "title":null,
-   "department":null,
-   "manager":null}
-```
-
-SCIM 서비스 구현에 대해 Microsoft에서 제공 하는 CLI 라이브러리는 해당 요청을 서비스 공급자의 Create 메서드에 대 한 호출로 변환 합니다.  만들기 메서드에는 다음 서명이 있습니다.
-
-```csharp
- // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
- // Microsoft.SystemForCrossDomainIdentityManagement.Resource is defined in 
- // Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
-
- System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> Create(
-   Microsoft.SystemForCrossDomainIdentityManagement.Resource resource, 
-   string correlationIdentifier);
-```
-
-사용자를 프로비전하는 요청에서 리소스 인수의 값은 Microsoft.SystemForCrossDomainIdentityManagement의 인스턴스입니다. Microsoft.SystemForCrossDomainIdentityManagement.Schemas 라이브러리에 정의된 Core2EnterpriseUser 클래스입니다.  사용자를 프로비전하는 요청이 성공하는 경우 메서드의 구현은 Microsoft.SystemForCrossDomainIdentityManagement의 인스턴스를 반환할 것으로 예상됩니다. 새로 프로비전된 사용자의 고유 식별자에 설정된 식별자 속성의 값을 가진 Core2EnterpriseUser 클래스입니다.  
-
-***예 3. 사용자의 현재 상태를 쿼리 합니다.*** 
-
-SCIM에 의해 제어되는 ID 저장소에 있는 것으로 알려진 사용자를 업데이트하기 위해 Azure Active Directory는 다음과 같은 요청으로 서비스에서 해당 사용자의 현재 상태를 요청합니다. 
-
-```
- GET ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
- Authorization: Bearer ...
-```
-
-SCIM 서비스 구현에 대해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하 여 빌드된 서비스에서 요청은 서비스 공급자의 검색 메서드에 대 한 호출로 변환 됩니다.  해당 검색 메서드의 서명은 다음과 같습니다.
-
-```csharp
- // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
- // Microsoft.SystemForCrossDomainIdentityManagement.Resource and 
- // Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
- // are defined in Microsoft.SystemForCrossDomainIdentityManagement.Schemas.  
- System.Threading.Tasks.Task<Microsoft.SystemForCrossDomainIdentityManagement.Resource> 
-    Retrieve(
-      Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters 
-        parameters, 
-        string correlationIdentifier);
-
- public interface 
-   Microsoft.SystemForCrossDomainIdentityManagement.IResourceRetrievalParameters:   
-     IRetrievalParameters
-     {
-       Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-         ResourceIdentifier 
-           { get; }
- }
- public interface Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier
- {
-     string Identifier 
-       { get; set; }
-     string Microsoft.SystemForCrossDomainIdentityManagement.SchemaIdentifier 
-       { get; set; }
- }
-```
-
-사용자의 현재 상태를 검색하는 요청 예제에서 매개 변수 인수 값으로 제공되는 개체의 속성 값은 다음과 같습니다. 
-  
-* 식별자: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-
-***예 4 업데이트할 참조 특성의 값을 쿼리 합니다.*** 
-
-참조 특성을 업데이트 하려면 Azure Active Directory 서비스를 쿼리하여 서비스에 의해 제어 되는 id 저장소에 있는 참조 특성의 현재 값이 Azure Active의 해당 특성 값과 이미 일치 하는지 확인 합니다. 디렉터리나. 사용자의 경우 현재 값이 이 방식으로 쿼리된 유일한 특성은 관리자 특성입니다. 특정 사용자 개체의 관리자 특성 값에 현재 특정 값이 있는지 여부를 결정하는 요청의 예는 다음과 같습니다. 
-
-서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공 하는 CLI 라이브러리를 사용 하 여 빌드된 경우 요청은 서비스 공급자의 쿼리 메서드 호출로 변환 됩니다. 매개 변수 인수의 값으로 제공되는 개체의 속성 값은 다음과 같습니다. 
-  
-* parameters.AlternateFilters.Count: 2
-* parameters.AlternateFilters.ElementAt(x).AttributePath: "ID"
-* parameters.AlternateFilters.ElementAt(x).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(x).ComparisonValue: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* parameters.AlternateFilters.ElementAt(y).AttributePath: "manager"
-* parameters.AlternateFilters.ElementAt(y).ComparisonOperator: ComparisonOperator.Equals
-* parameters.AlternateFilter.ElementAt(y).ComparisonValue: "2819c223-7f76-453a-919d-413861904646"
-* parameters.RequestedAttributePaths.ElementAt(0): "ID"
-* parameters.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-
-여기서는 인덱스 x의 값이 0이 고 인덱스 y의 값이 1 일 수 있습니다. 또는 x 값은 필터 쿼리 매개 변수 식의 순서에 따라 0이 될 수 있습니다.   
-
-***예 5. 사용자를 업데이트 하기 위해 Azure AD에서 SCIM 서비스로 요청*** 
-
-다음은 Azure Active Directory에서 SCIM 서비스로 사용자를 업데이트하는 요청의 예입니다. 
-
-```
-  PATCH ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-  Authorization: Bearer ...
-  Content-type: application/scim+json
-  {
-    "schemas": 
-    [
-      "urn:ietf:params:scim:api:messages:2.0:PatchOp"],
-    "Operations":
-    [
-      {
-        "op":"Add",
-        "path":"manager",
-        "value":
-          [
-            {
-              "$ref":"http://.../scim/Users/2819c223-7f76-453a-919d-413861904646",
-              "value":"2819c223-7f76-453a-919d-413861904646"}]}]}
-```
-
-SCIM 서비스 구현에 대한 Microsoft 공용 언어 인프라 라이브러리는 요청이 서비스 공급자의 업데이트 메서드에 호출을 요청하도록 번역됩니다. Update 메서드의 서명은 다음과 같습니다. 
-
-```csharp
-  // System.Threading.Tasks.Tasks and 
-  // System.Collections.Generic.IReadOnlyCollection<T>
-  // are defined in mscorlib.dll.  
-  // Microsoft.SystemForCrossDomainIdentityManagement.IPatch, 
-  // Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase, 
-  // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
-  // Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation, 
-  // Microsoft.SystemForCrossDomainIdentityManagement.OperationName, 
-  // Microsoft.SystemForCrossDomainIdentityManagement.IPath and 
-  // Microsoft.SystemForCrossDomainIdentityManagement.OperationValue 
-  // are all defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
-
-  System.Threading.Tasks.Task Update(
-    Microsoft.SystemForCrossDomainIdentityManagement.IPatch patch, 
-    string correlationIdentifier);
-
-  public interface Microsoft.SystemForCrossDomainIdentityManagement.IPatch
-  {
-  Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase 
-    PatchRequest 
-      { get; set; }
-  Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier 
-    ResourceIdentifier 
-      { get; set; }        
-  }
-
-  public class PatchRequest2: 
-    Microsoft.SystemForCrossDomainIdentityManagement.PatchRequestBase
-  {
-  public System.Collections.Generic.IReadOnlyCollection
-    <Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation> 
-      Operations
-      { get;}
-
-  public void AddOperation(
-    Microsoft.SystemForCrossDomainIdentityManagement.PatchOperation operation);
-  }
-
-  public class PatchOperation
-  {
-  public Microsoft.SystemForCrossDomainIdentityManagement.OperationName 
-    Name
-    { get; set; }
-
-  public Microsoft.SystemForCrossDomainIdentityManagement.IPath 
-    Path
-    { get; set; }
-
-  public System.Collections.Generic.IReadOnlyCollection
-    <Microsoft.SystemForCrossDomainIdentityManagement.OperationValue> Value
-    { get; }
-
-  public void AddValue(
-    Microsoft.SystemForCrossDomainIdentityManagement.OperationValue value);
-  }
-
-  public enum OperationName
-  {
-    Add,
-    Remove,
-    Replace
-  }
-
-  public interface IPath
-  {
-    string AttributePath { get; }
-    System.Collections.Generic.IReadOnlyCollection<IFilter> SubAttributes { get; }
-    Microsoft.SystemForCrossDomainIdentityManagement.IPath ValuePath { get; }
-  }
-
-  public class OperationValue
-  {
-    public string Reference
-    { get; set; }
-
-    public string Value
-    { get; set; }
-  }
-```
-
-사용자를 업데이트하는 요청의 예에서 패치 인수의 값으로 제공되는 개체는 다음과 같은 속성 값이 적용됩니다. 
-  
-* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* ResourceIdentifier.SchemaIdentifier:  "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
-* (PatchRequest as PatchRequest2).Operations.Count: 1
-* (PatchRequest as PatchRequest2).Operations.ElementAt(0).OperationName: OperationName.Add
-* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Path.AttributePath: "manager"
-* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.Count: 1
-* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Reference: http://.../scim/Users/2819c223-7f76-453a-919d-413861904646
-* (PatchRequest as PatchRequest2).Operations.ElementAt(0).Value.ElementAt(0).Value: 2819c223-7f76-453a-919d-413861904646
-
-***예 6. 사용자 프로 비전 해제***
-
-SCIM 서비스에 의해 제어 되는 id 저장소에서 사용자의 프로 비전을 해제 하기 위해 Azure AD는 다음과 같은 요청을 보냅니다.
-
-```
-  DELETE ~/scim/Users/54D382A4-2050-4C03-94D1-E769F1D15682 HTTP/1.1
-  Authorization: Bearer ...
-```
-
-서비스가 SCIM 서비스 구현에 대해 Microsoft에서 제공하는 공용 언어 인프라 라이브러리를 사용하여 작성되면 요청이 서비스 공급자의 삭제 메서드 호출로 번역됩니다.   해당 메서드에는 다음 서명이 있습니다. 
-
-```csharp
-  // System.Threading.Tasks.Tasks is defined in mscorlib.dll.  
-  // Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier, 
-  // is defined in Microsoft.SystemForCrossDomainIdentityManagement.Protocol. 
-  System.Threading.Tasks.Task Delete(
-    Microsoft.SystemForCrossDomainIdentityManagement.IResourceIdentifier  
-      resourceIdentifier, 
-    string correlationIdentifier);
-```
-
-ResourceIdentifier 인수의 값으로 제공 되는 개체에는 사용자 프로 비전을 해제 하는 요청 예제에서 다음과 같은 속성 값이 있습니다. 
-
-* ResourceIdentifier.Identifier: "54D382A4-2050-4C03-94D1-E769F1D15682"
-* ResourceIdentifier.SchemaIdentifier: "urn:ietf:params:scim:schemas:extension:enterprise:2.0:User"
 
 ## <a name="step-4-integrate-your-scim-endpoint-with-the-azure-ad-scim-client"></a>4 단계: SCIM 끝점을 Azure AD SCIM 클라이언트와 통합
 
@@ -1468,9 +900,11 @@ SCIM 사양에는 인증 및 권한 부여에 대 한 SCIM 관련 체계가 정�
 |권한 부여 방법|장점|단점|지원|
 |--|--|--|--|
 |사용자 이름 및 암호 (Azure AD에서 권장 되지 않거나 지원 되지 않음)|손쉬운 구현|안전 [하지 않음-Pa $ $word 중요 하지 않습니다](https://techcommunity.microsoft.com/t5/azure-active-directory-identity/your-pa-word-doesn-t-matter/ba-p/731984) .|갤러리 앱에 대 한 대/소문자를 기준으로 지원 됩니다. 비 갤러리 앱에 대해서는 지원 되지 않습니다.|
-|수명이 긴 전달자 토큰 (현재 Azure AD에서 지원 됨)|수명이 긴 토큰에는 사용자가 없어도 됩니다. 프로 비전을 설정할 때 관리자가 쉽게 사용할 수 있습니다.|수명이 긴 토큰은 전자 메일과 같은 안전 하지 않은 방법을 사용 하지 않고 관리자와 공유 하기 어려울 수 있습니다. |갤러리 및 비 갤러리 앱에 대해 지원 됩니다. |
-|OAuth 인증 코드 권한 부여 (현재 Azure AD에서 지원 됨)|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다.  책임 수준을 추가 하는 초기 권한 부여 중에는 실제 사용자가 있어야 합니다. |사용자가 있어야 합니다. 사용자가 조직을 떠나면 토큰이 유효 하지 않으므로 권한 부여를 다시 완료 해야 합니다.|갤러리 앱에 대해 지원 됩니다. 비 갤러리 앱에 대 한 지원이 진행 중입니다.|
-|OAuth 클라이언트 자격 증명 부여 (지원 되지 않음, microsoft 로드맵)|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다. 권한 부여 코드 grant와 클라이언트 자격 증명 부여는 모두 동일한 형식의 액세스 토큰을 만들기 때문에 이러한 메서드 간에 이동 하는 것은 API에 투명 합니다.  프로 비전은 완전히 자동화 될 수 있으며, 사용자 개입 없이 새 토큰을 자동으로 요청할 수 있습니다. ||갤러리 및 비 갤러리 앱에 대해서는 지원 되지 않습니다. 지원은 백로그에 있습니다.|
+|수명이 긴 전달자 토큰|수명이 긴 토큰에는 사용자가 없어도 됩니다. 프로 비전을 설정할 때 관리자가 쉽게 사용할 수 있습니다.|수명이 긴 토큰은 전자 메일과 같은 안전 하지 않은 방법을 사용 하지 않고 관리자와 공유 하기 어려울 수 있습니다. |갤러리 및 비 갤러리 앱에 대해 지원 됩니다. |
+|OAuth 인증 코드 부여|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다.  책임 수준을 추가 하는 초기 권한 부여 중에는 실제 사용자가 있어야 합니다. |사용자가 있어야 합니다. 사용자가 조직을 떠나면 토큰이 유효 하지 않으므로 권한 부여를 다시 완료 해야 합니다.|갤러리 앱에 대해 지원 됩니다. 비 갤러리 앱에 대 한 지원이 진행 중입니다.|
+|OAuth 클라이언트 자격 증명 부여|액세스 토큰은 암호 보다 수명이 짧고 수명이 긴 전달자 토큰에는 자동화 된 새로 고침 메커니즘이 있습니다. 권한 부여 코드 grant와 클라이언트 자격 증명 부여는 모두 동일한 형식의 액세스 토큰을 만들기 때문에 이러한 메서드 간에 이동 하는 것은 API에 투명 합니다.  프로 비전은 완전히 자동화 될 수 있으며, 사용자 개입 없이 새 토큰을 자동으로 요청할 수 있습니다. ||갤러리 및 비 갤러리 앱에 대해서는 지원 되지 않습니다. 지원은 백로그에 있습니다.|
+
+[!NOTE] Azure AD 프로 비전 구성 사용자 지정 앱 UI에서 토큰 필드를 비워 두지 않는 것이 좋습니다. 생성 된 토큰은 주로 테스트 목적으로 사용할 수 있습니다.
 
 **OAuth 인증 코드 부여 흐름:** 프로 비전 서비스는 [인증 코드 부여](https://tools.ietf.org/html/rfc6749#page-24)를 지원 합니다. 갤러리에서 앱 게시 요청을 제출 하 고 나면 팀에서 다음 정보를 수집 하는 작업을 수행 합니다.
 *  권한 부여 URL: 사용자 에이전트 리디렉션을 통해 리소스 소유자 로부터 인증을 얻기 위해 클라이언트에서 사용 하는 URL입니다. 사용자는 액세스 권한을 부여 하기 위해이 URL로 리디렉션됩니다. 

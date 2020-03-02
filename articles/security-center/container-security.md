@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/11/2020
 ms.author: memildin
-ms.openlocfilehash: cd9907d041562d23bc487de319a17d36b68db6f3
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 45ce8a808efc5b882c90f99875fdde661e292774
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77916120"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205979"
 ---
 # <a name="container-security-in-security-center"></a>Security Center의 컨테이너 보안
 
@@ -33,7 +33,7 @@ Azure Security Center는 컨테이너 보안을 위한 Azure 기본 솔루션입
 
 이러한 기능을 사용 하는 방법에 대 한 지침은 [컨테이너의 보안 모니터링](monitor-container-security.md)을 참조 하세요.
 
-## <a name="vulnerability-management---scanning-container-images-preview"></a>취약성 관리-컨테이너 이미지 검색 (미리 보기)
+## <a name="vulnerability-management---scanning-container-images"></a>취약성 관리-컨테이너 이미지 검색
 ARM 기반 Azure Container Registry를 모니터링 하려면 Security Center의 표준 계층 ( [가격 책정](/azure/security-center/security-center-pricing)참조)을 사용 하 고 있는지 확인 하세요. 그런 다음 선택적 컨테이너 레지스트리 번들을 사용 하도록 설정 합니다. 새 이미지가 푸시되 면 업계 최고의 취약점 검색 공급 업체 Qualys에서 스캐너를 사용 하 여 이미지를 검색 Security Center.
 
 Qualys 또는 Security Center에서 문제가 발견 되 면 Security Center 대시보드의 알림이 표시 됩니다. 모든 취약점에 대해 Security Center는 심각도 분류 및 문제 해결 방법에 대 한 지침과 함께 조치 가능한 권장 사항을 제공 합니다. 컨테이너에 대 한 Security Center 권장 사항에 대 한 자세한 내용은 권장 사항에 대 한 [참조 목록을](recommendations-reference.md#recs-containers)참조 하세요.

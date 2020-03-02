@@ -7,12 +7,12 @@ ms.topic: article
 ms.author: mbaldwin
 ms.date: 06/05/2019
 ms.custom: seodec18
-ms.openlocfilehash: 77b092920bff75c806ec78a933d23df546bf636a
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 45febcffed747f75b6c8b78c2e4b93a047f81b0a
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74036361"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205877"
 ---
 # <a name="azure-disk-encryption-for-iaas-vms-faq"></a>IaaS VM용 Azure Disk Encryption FAQ
 
@@ -100,7 +100,7 @@ Azure Disk Encryption의 경우 필수 구성 요소가 있습니다. Azure Acti
 
 ## <a name="can-i-apply-updates-to-a-linux-red-hat-vm-that-uses-the-yum-update"></a>yum 업데이트를 사용하는 Linux Red Hat VM에 업데이트를 적용할 수 있나요?
 
-예, Red Hat Linux VM에서 yum 업데이트를 수행할 수 있습니다.  자세한 내용은 [방화벽 뒤에 있는 Linux 패키지 관리](disk-encryption-troubleshooting.md#linux-package-management-behind-a-firewall)를 참조 하세요.
+예, Red Hat Linux VM에서 yum 업데이트를 수행할 수 있습니다.  자세한 내용은 [격리 된 네트워크에 대 한 Azure Disk Encryption](disk-encryption-isolated-network.md)를 참조 하세요.
 
 ## <a name="what-is-the-recommended-azure-disk-encryption-workflow-for-linux"></a>권장되는 Linux용 Azure Disk Encryption 워크플로는 무엇인가요?
 

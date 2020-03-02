@@ -4,12 +4,12 @@ description: Azure Backup를 사용 하 여 Azure Import/Export 서비스를 통
 ms.reviewer: saurse
 ms.topic: conceptual
 ms.date: 05/17/2018
-ms.openlocfilehash: 60295d1c534dbd1181533190df260ed4507ec11f
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1359616e074f36a1324a418d5b2c889076ced52d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78197127"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206761"
 ---
 # <a name="offline-backup-workflow-in-azure-backup"></a>Azure Backup의 오프 라인 백업 워크플로
 
@@ -42,7 +42,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
 
 [!INCLUDE [backup-upgrade-mars-agent.md](../../includes/backup-upgrade-mars-agent.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
   > [!NOTE]
   > 다음 필수 구성 요소 및 워크플로는 [최신 Azure Recovery Services 에이전트](https://aka.ms/azurebackup_agent)를 사용 하 여 파일 및 폴더의 오프 라인 백업에만 적용 됩니다. System Center DPM 또는 Azure Backup Server를 사용 하 여 작업에 대 한 오프 라인 백업을 수행 하려면 [dpm 및 Azure Backup Server에 대 한 오프 라인 백업 워크플로](backup-azure-backup-server-import-export-.md)를 참조 하세요.
@@ -116,7 +116,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
 
 *AzureOfflineBackupDiskPrep* 유틸리티는 가장 가까운 Azure 데이터 센터에 전송되는 SATA 드라이브를 준비합니다. 이 유틸리티는 다음 경로에 있는 Azure Backup 에이전트 설치 디렉터리에서 사용할 수 있습니다.
 
-    *\Microsoft Azure Recovery Services Agent\Utils\\*
+```*\Microsoft Azure Recovery Services Agent\Utils\\*```
 
 1. 디렉터리로 이동 하 여 *Azureofflinebackupdiskprep* 디렉터리를 SATA 드라이브가 연결 된 다른 컴퓨터로 복사 합니다. SATA 드라이브가 연결 된 컴퓨터에서 다음을 확인 합니다.
 
@@ -129,11 +129,11 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
      > [!IMPORTANT]
      > 원본 컴퓨터가 가상 머신인 경우 복사 컴퓨터는 원본 컴퓨터와 다른 물리적 서버 또는 클라이언트 컴퓨터여야 합니다.
 
-1. *Azureofflinebackupdiskprep* 유틸리티 디렉터리를 현재 디렉터리로 사용 하 여 복사 컴퓨터에서 관리자 권한 명령 프롬프트를 엽니다. 다음 명령을 실행합니다.
+1. *Azureofflinebackupdiskprep* 유틸리티 디렉터리를 현재 디렉터리로 사용 하 여 복사 컴퓨터에서 관리자 권한 명령 프롬프트를 엽니다. 다음 명령 실행:
 
     ```.\AzureOfflineBackupDiskPrep.exe s:<Staging Location Path>```
 
-    | 매개 변수 | 설명 |
+    | 매개 변수 | Description |
     | --- | --- |
     | s:&lt;*스테이징 위치 경로*&gt; |이 필수 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 스테이징 위치에 대 한 경로를 제공 하는 데 사용 됩니다. |
     | p:&lt;*PublishSettingsFile에 대한 경로*&gt; |이 선택적 입력은 "오프 라인 백업 시작" 섹션의 워크플로에 입력 한 Azure 게시 설정 파일의 경로를 제공 하는 데 사용 됩니다. |
@@ -144,7 +144,7 @@ Azure Backup 오프 라인 시드 프로세스는 [Azure Import/Export 서비스
 
 1. Azure에 전송하도록 준비하려는 탑재된 디스크에 대한 드라이브 문자를 후행 콜론 없이 입력합니다.
 1. 메시지가 표시될 때 드라이브의 서식에 대한 확인을 제공합니다.
-1. Azure 구독에 로그인 하 라는 메시지가 표시 됩니다. 자격 증명을 입력하십시오.
+1. Azure 구독에 로그인 하 라는 메시지가 표시 됩니다. 자격 증명을 입력합니다.
 
     ![Azure 구독 로그인](./media/backup-azure-backup-import-export/signindiskprep.png) <br/>
 

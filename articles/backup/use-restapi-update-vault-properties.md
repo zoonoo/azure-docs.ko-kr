@@ -1,15 +1,15 @@
 ---
-title: REST API를 사용 하 여 Recovery Services 자격 증명 모음 구성 속성 업데이트
+title: REST API를 사용 하 여 Recovery Services 자격 증명 모음 구성 업데이트
 description: 이 문서에서는 REST API를 사용 하 여 자격 증명 모음 구성을 업데이트 하는 방법을 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/06/2019
 ms.assetid: 9aafa5a0-1e57-4644-bf79-97124db27aa2
-ms.openlocfilehash: 3739f95e3962def9ab669970c48b2d1c546fdc0e
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 6cecbb18e0cd6f548e1688ef978f10dcee7d9fbc
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75390548"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78204500"
 ---
 # <a name="update-azure-recovery-services-vault-configurations-using-rest-api"></a>REST API를 사용 하 여 Azure Recovery Services 자격 증명 모음 구성 업데이트
 
@@ -43,7 +43,7 @@ GET https://management.azure.com/Subscriptions/00000000-0000-0000-0000-000000000
 
 ' GET ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 
@@ -83,12 +83,12 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 자세한 내용은 [REST API 설명서](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/update#request-body) 를 참조 하세요.
 
-|이름  |필수  |유형  |Description  |
+|속성  |필수  |Type  |Description  |
 |---------|---------|---------|---------|
 |eTag     |         |   String      |  선택적 eTag       |
 |위치     |  true       |String         |   리소스 위치      |
 |properties     |         | [VaultProperties](https://docs.microsoft.com/rest/api/recoveryservices/vaults/createorupdate#vaultproperties)        |  자격 증명 모음의 속성       |
-|tags     |         | 개체        |     리소스 태그    |
+|tags     |         | Object        |     리소스 태그    |
 
 #### <a name="example-request-body"></a>요청 본문 예제
 
@@ -107,7 +107,7 @@ PATCH https://management.azure.com/Subscriptions/00000000-0000-0000-0000-0000000
 
 ' PATCH ' 작업에 대 한 성공적인 응답은 다음과 같습니다.
 
-|이름  |유형  |Description  |
+|속성  |Type  |Description  |
 |---------|---------|---------|
 |200 정상     |   [BackupResourceVaultConfig](https://docs.microsoft.com/rest/api/backup/backupresourcevaultconfigs/get#backupresourcevaultconfigresource)      | 확인        |
 

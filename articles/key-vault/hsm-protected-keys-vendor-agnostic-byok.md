@@ -9,12 +9,12 @@ ms.service: key-vault
 ms.topic: conceptual
 ms.date: 02/17/2020
 ms.author: ambapat
-ms.openlocfilehash: 9b8f1065660ea8331853f8804e709134fe682ba7
-ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
+ms.openlocfilehash: 0e3246f9da202b54cc0d1285795c25cfafb678d8
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/23/2020
-ms.locfileid: "77566117"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207033"
 ---
 # <a name="import-hsm-protected-keys-to-key-vault-preview"></a>Key Vault로 HSM 보호 키 가져오기(미리 보기)
 
@@ -45,7 +45,7 @@ Azure Key Vault 사용 하는 경우 보증을 추가 하기 위해 HSM (하드�
 * KEK는 대상 키를 가져올 동일한 키 자격 증명 모음에 있어야 합니다.
 * BYOK 파일이 Key Vault에 업로드 되 면 Key Vault HSM은 KEK 개인 키를 사용 하 여 대상 키 자료를 해독 하 고 HSM 키로 가져옵니다. 이 작업은 Key Vault HSM 내에서 완전히 발생 합니다. 대상 키는 항상 HSM 보호 경계에 남아 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 다음 표에서는 Azure Key Vault BYOK를 사용 하기 위한 필수 구성 요소를 나열 합니다.
 
@@ -67,7 +67,7 @@ Azure Key Vault 사용 하는 경우 보증을 추가 하기 위해 HSM (하드�
 
 ## <a name="supported-key-types"></a>지원 되는 키 유형
 
-|키 이름|키 유형|키 크기|파생 위치|설명|
+|키 이름|키 유형|키 크기|원본|Description|
 |---|---|---|---|---|
 |키 교환 키 (KEK)|RSA| 2048 비트<br />3072 비트<br />4096 비트|Azure Key Vault HSM|Azure Key Vault에서 생성 된 HSM 지원 RSA 키 쌍|
 |대상 키|RSA|2048 비트<br />3072 비트<br />4096 비트|공급 업체 HSM|Azure Key Vault HSM으로 전송할 키입니다.|
@@ -89,6 +89,9 @@ KEK는 다음과 같아야 합니다.
 - RSA HSM 키 (2048 비트, 3072 비트 또는 4096 비트)
 - 대상 키를 가져오려는 동일한 키 자격 증명 모음에 생성 됩니다.
 - 허용 된 키 작업이 `import`로 설정 된 상태에서 만들어짐
+
+> [!NOTE]
+> KEK에는 유일 하 게 허용 되는 키 작업으로 ' 가져오기 '가 있어야 합니다. ' import '는 다른 모든 키 작업과 함께 사용할 수 없습니다.
 
 [Az keyvault key create](/cli/azure/keyvault/key?view=azure-cli-latest#az-keyvault-key-create) 명령을 사용 하 여 `import`로 설정 된 키 작업이 있는 KEK를 만듭니다. 다음 명령에서 반환 된 키 식별자 (`kid`)를 기록 합니다. [3 단계](#step-3-generate-and-prepare-your-key-for-transfer)에서 `kid` 값을 사용 합니다.
 
@@ -115,7 +118,7 @@ BYOK 파일을 연결 된 컴퓨터로 전송 합니다.
 > [!NOTE] 
 > RSA 1024 비트 키를 가져오는 것은 지원 되지 않습니다. 현재 EC (타원 Curve) 키 가져오기는 지원 되지 않습니다.
 > 
-> **알려진 문제**: Luna HSM에서 RSA 4k 대상 키를 가져오는 작업이 실패 합니다. 문제가 해결 되 면이 문서가 업데이트 됩니다.
+> **알려진 문제**: V7.4.0 Enet Luna HSM에서 RSA 4k 대상 키 가져오기는 펌웨어 이상 에서만 지원 됩니다.
 
 ### <a name="step-4-transfer-your-key-to-azure-key-vault"></a>4 단계: Azure Key Vault에 키 전송
 

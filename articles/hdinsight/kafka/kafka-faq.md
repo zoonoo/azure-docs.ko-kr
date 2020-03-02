@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 08/14/2019
-ms.openlocfilehash: c8d2ef0330a32d5cab88355cc749322ec3a5ea30
-ms.sourcegitcommit: ce4a99b493f8cf2d2fd4e29d9ba92f5f942a754c
+ms.openlocfilehash: ff4079263fd7afb02e132a798997687fad7e9961
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/28/2019
-ms.locfileid: "75530938"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206982"
 ---
 # <a name="frequently-asked-questions-about-apache-kafka-in-azure-hdinsight"></a>Azure HDInsight의 Apache Kafka에 대 한 질문과 대답
 
@@ -50,7 +50,7 @@ HDInsight Kafka 클러스터에는 다음 리소스가 포함 됩니다.
 
 ## <a name="is-my-data-encrypted-can-i-use-my-own-keys"></a>내 데이터가 암호화 되나요? 자신의 키를 사용할 수 있나요?
 
-관리 디스크의 모든 Kafka 메시지는 [SSE (Azure Storage 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용 하 여 암호화 됩니다. 데이터 전송 (예: 클라이언트에서 broker로 전송 되는 데이터 및 그 밖의 다른 방법)은 기본적으로 암호화 되지 않습니다. [자체에서 SSL을 설정](./apache-kafka-ssl-encryption-authentication.md)하 여 이러한 트래픽을 암호화할 수 있습니다. 또한 HDInsight를 사용 하 여 미사용 데이터를 암호화 하는 고유한 키를 관리할 수 있습니다. 자세한 내용은 [Azure HDInsight에서 Apache Kafka에 대 한 고유한 키 가져오기](apache-kafka-byok.md)를 참조 하세요.
+관리 디스크의 모든 Kafka 메시지는 [SSE (Azure Storage 서비스 암호화)](../../storage/common/storage-service-encryption.md)를 사용 하 여 암호화 됩니다. 데이터 전송 (예: 클라이언트에서 broker로 전송 되는 데이터 및 그 밖의 다른 방법)은 기본적으로 암호화 되지 않습니다. [자체에서 SSL을 설정](./apache-kafka-ssl-encryption-authentication.md)하 여 이러한 트래픽을 암호화할 수 있습니다. 또한 HDInsight를 사용 하 여 미사용 데이터를 암호화 하는 고유한 키를 관리할 수 있습니다. 자세한 내용은 [고객 관리 키 디스크 암호화](../disk-encryption.md)를 참조 하세요.
 
 ## <a name="how-do-i-connect-clients-to-my-cluster"></a>클러스터에 클라이언트를 연결 어떻게 할까요??
 

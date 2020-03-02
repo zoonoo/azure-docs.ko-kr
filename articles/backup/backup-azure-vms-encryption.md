@@ -3,12 +3,12 @@ title: 암호화 된 Azure Vm 백업 및 복원
 description: Azure Backup 서비스를 사용 하 여 암호화 된 Azure Vm을 백업 하 고 복원 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 04/03/2019
-ms.openlocfilehash: 3719f26211677a1b726d3c3dc1d217fb58db1fb2
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: a3976cc83f749b1abe00cef3f5bf867ffbc30ab6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77583177"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206693"
 ---
 # <a name="back-up-and-restore-encrypted-azure-vm"></a>암호화 된 Azure VM 백업 및 복원
 
@@ -30,7 +30,7 @@ Azure Backup은 Azure Disk Encryption (ADE)로 암호화 된 OS/데이터 디스
 **관리 되지 않는** | yes | yes
 **Managed**  | yes | yes
 
-- [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)및 [keks](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek/)에 대해 자세히 알아보세요.
+- [ADE](../security/azure-security-disk-encryption-overview.md), [Key Vault](../key-vault/key-vault-overview.md)및 [keks](https://docs.microsoft.com/azure/virtual-machine-scale-sets/disk-encryption-key-vault#set-up-a-key-encryption-key-kek)에 대해 자세히 알아보세요.
 - Azure VM 디스크 암호화에 대 한 [FAQ](../security/azure-security-disk-encryption-faq.md) 를 참조 하세요.
 
 ### <a name="limitations"></a>제한 사항

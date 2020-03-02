@@ -7,12 +7,12 @@ author: lisaguthrie
 ms.topic: conceptual
 ms.date: 2/25/2020
 ms.author: lcozzens
-ms.openlocfilehash: 66bf27c1b1e8349c1a0e822c457412fdfca58e82
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 957fef32702f35b4b509d829eba6a41914c4fc53
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619456"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205860"
 ---
 # <a name="integrate-with-azure-managed-identities"></a>Azure Managed Identities와 통합
 
@@ -33,7 +33,7 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
 > * App Configuration에 연결할 때 관리 ID를 사용하도록 앱을 구성합니다.
 > * 필요에 따라 앱 구성 Key Vault 참조를 통해 Key Vault에 연결할 때 관리 id를 사용 하도록 앱을 구성 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음 항목이 필요합니다.
 
@@ -143,10 +143,16 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
                     .ConfigureAppConfiguration((hostingContext, config) =>
                     {
                         var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>();
     ```
@@ -158,12 +164,18 @@ Azure 앱 구성과 해당 .NET Core, .NET Framework 및 Java 스프링 클라�
             Host.CreateDefaultBuilder(args)
             .ConfigureWebHostDefaults(webBuilder =>
             webBuilder.ConfigureAppConfiguration((hostingContext, config) =>
-            {
-                var settings = config.Build();
-                        AzureServiceTokenProvider azureServiceTokenProvider = new AzureServiceTokenProvider();
-                        KeyVaultClient kvClient = new KeyVaultClient(new KeyVaultClient.AuthenticationCallback(azureServiceTokenProvider.KeyVaultTokenCallback));
-                        
-                        config.AddAzureAppConfiguration(options => options.Connect(new Uri(settings["AppConfig:Endpoint"]), new ManagedIdentityCredential()).UseAzureKeyVault(kvClient));
+                    {
+                        var settings = config.Build();
+                        var credentials = new ManagedIdentityCredential();
+
+                        config.AddAzureAppConfiguration(options =>
+                        {
+                            options.Connect(new Uri(settings["AppConfig:Endpoint"]), credentials)
+                                    .ConfigureKeyVault(kv =>
+                                    {
+                                        kv.SetCredential(credentials);
+                                    });
+                        });
                     })
                     .UseStartup<Startup>());
     ```

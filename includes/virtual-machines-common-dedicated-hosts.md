@@ -8,19 +8,19 @@ ms.topic: include
 ms.date: 07/26/2019
 ms.author: cynthn
 ms.custom: include file
-ms.openlocfilehash: 934a4fdf7cabb89c4b98c7800252cb24d4e23abf
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 870d6f8441bf395ba0c02dccf8f3d1c6434410c6
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "77013673"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78208253"
 ---
 ## <a name="limitations"></a>제한 사항
 
 - 가상 머신 확장 집합은 현재 전용 호스트에서 지원 되지 않습니다.
 - DSv3, ESv3 및 Fsv2 VM 시리즈는 다음과 같이 지원 됩니다. 
 
-## <a name="benefits"></a>혜택 
+## <a name="benefits"></a>이점 
 
 전체 호스트를 예약 하면 다음과 같은 이점이 있습니다.
 
@@ -89,7 +89,7 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 
 무료 평가판 및 MSDN 구독에는 Azure 전용 호스트에 대 한 할당량이 없습니다.
 
-## <a name="pricing"></a>가격 책정
+## <a name="pricing"></a>가격
 
 배포 되는 Vm 수에 관계 없이 사용자는 전용 호스트 별로 요금이 청구 됩니다. 월간 명세서에는 새로운 청구 가능한 리소스 종류의 호스트가 표시 됩니다. 전용 호스트의 Vm은 여전히 문에 표시 되지만 가격은 0이 됩니다.
 
@@ -98,6 +98,8 @@ Azure에서 VM을 만들 때 VM에 사용할 전용 호스트를 선택할 수 �
 소프트웨어 라이선스, 저장소 및 네트워크 사용은 호스트 및 Vm에서 별도로 청구 됩니다. 이러한 청구 가능한 항목은 변경 되지 않습니다.
 
 자세한 내용은 [Azure 전용 호스트 가격](https://aka.ms/ADHPricing)을 참조 하세요.
+
+[Azure 전용 호스트의 예약 인스턴스] (.)를 사용 하 여 비용을 절감할 수도 있습니다. /articles/virtual-machines/prepay-dedicated-hosts-reserved-instances.md).
  
 ## <a name="vm-families-and-hardware-generations"></a>VM 제품군 및 하드웨어 세대
 

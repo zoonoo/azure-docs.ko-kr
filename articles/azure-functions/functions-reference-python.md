@@ -3,12 +3,12 @@ title: Azure Functions에 대한 Python 개발자 참조
 description: Python으로 함수를 개발하는 방법 이해
 ms.topic: article
 ms.date: 12/13/2019
-ms.openlocfilehash: 8ee13b59812e6a212fbafcf4ea6bfc171e735dc3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 1b94cb51bcb4e2634cdb04c389efbab44bb024bb
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78190707"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206336"
 ---
 # <a name="azure-functions-python-developer-guide"></a>Azure Functions Python 개발자 가이드
 
@@ -101,7 +101,7 @@ from __app__.SharedCode import myFirstHelperFunction
 from . import example
 ```
 
-Azure에서 함수 앱에 프로젝트를 배포할 때 *Functionapp* 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다. 프로젝트 폴더와 별도의 폴더에 있는 테스트를 유지 관리 하는 것이 좋습니다 (이 예제에서는 `tests`. 그러면 응용 프로그램에 테스트 코드를 배포할 수 있습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조 하십시오.
+Azure에서 함수 앱에 프로젝트를 배포할 때 주 프로젝트 ( *\_\_app\_\_* ) 폴더의 전체 콘텐츠는 패키지에 포함 되어야 하지만 폴더 자체에는 포함 되지 않아야 합니다. 프로젝트 폴더와 별도의 폴더에 있는 테스트를 유지 관리 하는 것이 좋습니다 (이 예제에서는 `tests`. 그러면 응용 프로그램에 테스트 코드를 배포할 수 있습니다. 자세한 내용은 [단위 테스트](#unit-testing)를 참조 하십시오.
 
 ## <a name="triggers-and-inputs"></a>트리거 및 입력
 
@@ -158,7 +158,7 @@ def main(req: func.HttpRequest,
 함수가 호출되면 HTTP 요청이 `req`로 함수에 전달됩니다. 항목은 경로 URL의 _ID_ 를 기반으로 Azure Blob Storage에서 검색 되 고 함수 본문에서 `obj` 사용할 수 있게 됩니다.  여기서 지정 된 저장소 계정은 AzureWebJobsStorage 앱 설정에 있는 연결 문자열로,이는 함수 앱에서 사용 하는 것과 동일한 저장소 계정입니다.
 
 
-## <a name="outputs"></a>Outputs
+## <a name="outputs"></a>outputs
 
 출력은 반환 값 및 출력 매개 변수 둘 다로 표현될 수 있습니다. 출력이 하나만 있는 경우 반환 값을 사용하는 것이 좋습니다. 다중 출력의 경우 출력 매개 변수를 사용해야 합니다.
 
@@ -220,7 +220,7 @@ def main(req):
 
 다양한 추적 수준에서 콘솔에 쓸 수 있는 추가 로깅 메서드가 제공됩니다.
 
-| 메서드                 | 설명                                |
+| 방법                 | Description                                |
 | ---------------------- | ------------------------------------------ |
 | **`critical(_message_)`**   | 루트 로거에 위험 수준의 메시지를 기록합니다.  |
 | **`error(_message_)`**   | 루트 로거에 오류 수준의 메시지를 기록합니다.    |
@@ -306,7 +306,7 @@ FUNCTIONS_WORKER_PROCESS_COUNT는 요구를 충족 하도록 응용 프로그램
 
 실행 중에 함수의 호출 컨텍스트를 가져오려면 시그니처에 [`context`](/python/api/azure-functions/azure.functions.context?view=azure-python) 인수를 포함 합니다. 
 
-예를 들면 다음과 같습니다.
+다음은 그 예입니다.
 
 ```python
 import azure.functions
@@ -594,7 +594,7 @@ from os import listdir
 
 모든 알려진 문제 및 기능 요청은 [GitHub 문제](https://github.com/Azure/azure-functions-python-worker/issues) 목록을 사용하여 추적됩니다. 문제가 발생하여 GitHub에서 해당 문제를 찾을 수 없는 경우 새 문제를 열고 해당 문제에 대한 자세한 설명을 제공해 주세요.
 
-### <a name="cross-origin-resource-sharing"></a>교차 원본 자원 공유
+### <a name="cross-origin-resource-sharing"></a>크로스-원본 자원 공유
 
 Azure Functions는 CORS (원본 간 리소스 공유)를 지원 합니다. CORS는 [포털](functions-how-to-use-azure-function-app-settings.md#cors) 및 [Azure CLI](/cli/azure/functionapp/cors)를 통해 구성 됩니다. CORS 허용 원본 목록은 함수 앱 수준에서 적용 됩니다. CORS를 사용 하면 응답에 `Access-Control-Allow-Origin` 헤더가 포함 됩니다. 자세한 내용은 [크로스-원본 자원 공유(CORS)](functions-how-to-use-azure-function-app-settings.md#cors)를 참조하십시오.
 
@@ -629,7 +629,7 @@ OPTIONS HTTP 메서드를 지원 하도록 함수인 json도 업데이트 해야
 
 ## <a name="next-steps"></a>다음 단계
 
-자세한 내용은 다음 참고 자료를 참조하십시오.
+자세한 내용은 다음 리소스를 참조하세요.
 
 * [Azure Functions 패키지 API 설명서](/python/api/azure-functions/azure.functions?view=azure-python)
 * [Azure Functions에 대한 모범 사례](functions-best-practices.md)

@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.date: 01/21/2020
-ms.openlocfilehash: 6ad583fdb880e36e6ac9c2dfda56bb68378ea598
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 87eb04b7323186175195babf6a602fa12d25176f
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76314007"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206710"
 ---
 # <a name="add-additional-storage-accounts-to-hdinsight"></a>HDInsight에 추가 스토리지 계정 추가
 
@@ -21,13 +21,13 @@ ms.locfileid: "76314007"
 > [!IMPORTANT]  
 > 이 문서의 정보는 클러스터를 만든 후 클러스터에 추가 저장소 계정을 추가 하는 방법에 대 한 것입니다. 클러스터를 만드는 동안 스토리지 계정을 추가하는 방법에 대한 자세한 내용은 [Apache Hadoop, Apache Spark, Apache Kafka 등으로 HDInsight에서 클러스터 설정](hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Hadoop 클러스터 [Linux에서 HDInsight 시작](./hadoop/apache-hadoop-linux-tutorial-get-started.md)을 참조하세요.
 * 저장소 계정 이름 및 키입니다. [저장소 계정 액세스 키 관리](../storage/common/storage-account-keys-manage.md)를 참조 하세요.
 * PowerShell을 사용 하는 경우 AZ module이 필요 합니다.  [Azure PowerShell 개요를](https://docs.microsoft.com/powershell/azure/overview)참조 하세요.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 처리 중에 스크립트는 다음 작업을 수행합니다.
 
@@ -46,7 +46,7 @@ ms.locfileid: "76314007"
 
 ## <a name="add-storage-account"></a>스토리지 계정 추가
 
-[스크립트 작업](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster) 을 사용 하 여 다음 사항을 고려 하 여 변경 내용을 적용 합니다.
+[스크립트 작업](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster) 을 사용 하 여 다음 사항을 고려 하 여 변경 내용을 적용 합니다.
 
 |속성 | 값 |
 |---|---|

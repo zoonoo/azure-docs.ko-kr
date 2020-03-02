@@ -3,12 +3,12 @@ title: Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 description: 이 문서에서는 Azure virtual machines에서 실행 되는 SAP HANA 데이터베이스를 백업 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 12/11/2019
-ms.openlocfilehash: 188cef6bc9771f779e3e9c7f7f5fe246e929b68a
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 53fd87f0de48d56d696abcf5484908060225cb3d
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918515"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207016"
 ---
 # <a name="about-sap-hana-database-backup-in-azure-vms"></a>Azure Vm에서 SAP HANA 데이터베이스 백업 정보
 
@@ -33,7 +33,7 @@ Azure Backup를 사용 하 여 SAP HANA 데이터베이스를 백업 및 복원 
 
 * 백업 프로세스는 Azure에서 [Recovery services 자격 증명 모음을 만드는](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#create-a-recovery-service-vault) 것부터 시작 됩니다. 이 자격 증명 모음은 시간에 따라 생성 된 백업 및 복구 위치를 저장 하는 데 사용 됩니다.
 * SAP HANA server를 실행 하는 Azure VM이 자격 증명 모음에 등록 되 고 백업할 데이터베이스가 [검색](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#discover-the-databases)됩니다. Azure Backup 서비스에서 데이터베이스를 검색할 수 있도록 하려면 HANA 서버에서 루트 사용자로 [preregistration 스크립트](https://aka.ms/scriptforpermsonhana) 를 실행 해야 합니다.
-* 이 스크립트는 **hdbuserstore**에 이름이 같은 **AZUREWLBACKUPHANAUSER** DB 사용자 및 해당 키를 만듭니다. 스크립트의 용도에 대 한 자세한 내용은 [사용 권한 설정 섹션](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#setting-up-permissions) 을 참조 하세요.
+* 이 스크립트는 **hdbuserstore**에 이름이 같은 **AZUREWLBACKUPHANAUSER** DB 사용자 및 해당 키를 만듭니다. 스크립트가 수행 하는 작업에 대해 자세히 알아보려면 [사전 등록 스크립트의 기능](tutorial-backup-sap-hana-db.md#what-the-pre-registration-script-does) 섹션을 참조 하세요.
 * Azure Backup Service는 이제 등록 된 SAP HANA 서버에 **HANA 용 Azure Backup 플러그 인** 을 설치 합니다.
 * Preregistration 스크립트에서 만든 **AZUREWLBACKUPHANAUSER** DB 사용자는 **HANA에 대 한 Azure Backup 플러그 인** 에서 모든 백업 및 복원 작업을 수행 하는 데 사용 됩니다. 이 스크립트를 실행 하지 않고 SAP HANA Db에 대 한 백업을 구성 하려고 하면 다음과 같은 오류가 표시 될 수 있습니다. **UserErrorHanaScriptNotRun**.
 * 검색 된 데이터베이스에 [백업을 구성](https://docs.microsoft.com/azure/backup/tutorial-backup-sap-hana-db#configure-backup) 하려면 필요한 백업 정책을 선택 하 고 백업을 사용 하도록 설정 합니다.

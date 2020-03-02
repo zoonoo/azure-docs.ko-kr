@@ -7,12 +7,12 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/20/2020
 ms.author: lahugh
-ms.openlocfilehash: d500f7a1f28eff1f638a244022226b0aa0e715cb
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: fd8f01f0fc7180d271404ffee4496ff9cbac7222
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78199600"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205928"
 ---
 # <a name="preview-dcv2-series"></a>미리 보기: DCv2 시리즈
 
@@ -41,7 +41,9 @@ Premium Storage 캐싱: 지원 됨 *
 | Standard_DC8_v2  | 8   | 32          | 400                    | 8              | 16000/128 (172)                                                         | 12800/192                                 | 2                                            |
 
 - DCv2 시리즈 Vm은 [2 세대 vm](./linux/generation-2.md#creating-a-generation-2-vm) 이며 `Gen2` 이미지만 지원 합니다.
-
+- 현재 영국 남부 에서만 사용할 수 있습니다.
+- 이전에 생성 된 기밀 계산 Vm: [DC 시리즈](sizes-previous-gen.md)
+- Azure Portal을 사용 하 여 DCv2 Vm 만들기 [Vm 만들기-포털](./linux/quick-create-portal.md)
 
 
 

@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/14/2020
-ms.openlocfilehash: 587de168a17c407abf3c2a7797969df013760a9f
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 1933db624dfef2ffa747ecb043be6730b6b884b5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76156644"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206557"
 ---
 # <a name="use-microsoft-cognitive-toolkit-deep-learning-model-with-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에서 Microsoft Cognitive 도구 키트 심층 학습 모델 사용
 
@@ -21,9 +21,9 @@ ms.locfileid: "76156644"
 
 1. 사용자 지정 스크립트를 실행하여 Azure HDInsight Spark 클러스터에 [Microsoft Cognitive Toolkit](https://docs.microsoft.com/cognitive-toolkit/)를 설치합니다.
 
-2. [Apache Spark](https://spark.apache.org/) 클러스터에 [Jupyter Notebook](https://jupyter.org/)을 업로드하여 [Spark Python API(PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)를 통해 Azure Blob Storage 계정의 파일에 학습된 Microsoft Cognitive Toolkit 딥러닝 모델을 적용하는 방법을 확인합니다.
+2. [Apache Spark](https://jupyter.org/) 클러스터에 [Jupyter Notebook](https://spark.apache.org/)을 업로드하여 [Spark Python API(PySpark)](https://spark.apache.org/docs/latest/api/python/index.html)를 통해 Azure Blob Storage 계정의 파일에 학습된 Microsoft Cognitive Toolkit 딥러닝 모델을 적용하는 방법을 확인합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * HDInsight의 Apache Spark. [Apache Spark 클러스터 만들기](./apache-spark-jupyter-spark-sql-use-portal.md)를 참조하세요.
 
@@ -56,15 +56,15 @@ ms.locfileid: "76156644"
 
 ### <a name="using-the-azure-portal"></a>Azure Portal 사용
 
-Azure Portal를 사용 하 여 스크립트 동작을 실행 하는 방법에 대 한 지침은 [스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)을 참조 하세요. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다. 스크립트 동작에는 다음 값을 사용 합니다.
+Azure Portal를 사용 하 여 스크립트 동작을 실행 하는 방법에 대 한 지침은 [스크립트 작업을 사용 하 여 HDInsight 클러스터 사용자 지정](../hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)을 참조 하세요. Microsoft Cognitive 도구 키트를 설치하려면 다음 입력을 제공해야 합니다. 스크립트 동작에는 다음 값을 사용 합니다.
 
 |속성 |값 |
 |---|---|
 |스크립트 유형|- 사용자 지정|
-|이름| MCT 설치|
+|속성| MCT 설치|
 |Bash 스크립트 URI|`https://raw.githubusercontent.com/Azure-Samples/hdinsight-pyspark-cntk-integration/master/cntk-install.sh`|
 |노드 유형:|헤드, 작업자|
-|매개 변수|없음|
+|매개 변수|None|
 
 ## <a name="upload-the-jupyter-notebook-to-azure-hdinsight-spark-cluster"></a>Azure HDInsight Spark 클러스터에 Jupyter 노트북 업로드
 

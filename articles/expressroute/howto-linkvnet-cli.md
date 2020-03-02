@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 05/21/2019
 ms.author: cherylmc
-ms.openlocfilehash: a8814030e6c4345227ec05ea1554104e0b21efbc
-ms.sourcegitcommit: a107430549622028fcd7730db84f61b0064bf52f
+ms.openlocfilehash: c80c667cb281168de6f11bbb6a536c01fefb7935
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/14/2019
-ms.locfileid: "74076550"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206965"
 ---
 # <a name="connect-a-virtual-network-to-an-expressroute-circuit-using-cli"></a>CLI를 사용하여 가상 네트워크를 ExpressRoute 회로에 연결
 
@@ -52,7 +52,7 @@ ms.locfileid: "74076550"
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
-## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독의 가상 네트워크를 회로에 연결
+## <a name="connect-a-virtual-network-in-a-different-subscription-to-a-circuit"></a>다른 구독에 있는 가상 네트워크를 회로에 연결
 
 여러 구독에서 ExpressRoute 회로를 공유할 수 있습니다. 아래 그림에는 여러 구독에서 ExpressRoute 회로에 대한 작업을 공유하는 방법의 간단한 계통도가 나와 있습니다.
 
@@ -155,15 +155,17 @@ az network vpn-connection update --name ERConnection --resource-group ExpressRou
 ## <a name="configure-expressroute-fastpath"></a>Express 경로 구성 
 Express 경로 회로가 [express 경로 다이렉트](expressroute-erdirect-about.md) 에 있고 가상 네트워크 게이트웨이가 Ultra Performance 또는 ErGw3AZ 인 경우 [express 경로 fastpath](expressroute-about-virtual-network-gateways.md) 를 사용 하도록 설정할 수 있습니다. FastPath는 초당 패킷 및 온-프레미스 네트워크와 가상 네트워크 간의 초당 연결과 같은 데이터 경로 preformance를 향상 시킵니다. 
 
-> [!NOTE] 
-> 이미 가상 네트워크에 연결 되어 있지만 FastPath를 사용 하도록 설정 하지 않은 경우 가상 네트워크 연결을 삭제 하 고 새 연결을 만들어야 합니다. 
-> 
->  
+**새 연결에서 FastPath 구성**
 
 ```azurecli
 az network vpn-connection create --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true --vnet-gateway1 VNet1GW --express-route-circuit2 MyCircuit
 ```
 
+**FastPath를 사용 하도록 기존 연결 업데이트**
+
+```azurecli
+az network vpn-connection update --name ERConnection --resource-group ExpressRouteResourceGroup --express-route-gateway-bypass true
+```
 
 ## <a name="next-steps"></a>다음 단계
 

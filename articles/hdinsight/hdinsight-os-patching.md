@@ -8,12 +8,12 @@ ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
 ms.date: 01/21/2020
-ms.openlocfilehash: 102ae56bb9dce2898c14bdc710420759a527a9e9
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: f8e694f658d6e9de04c92001214ecd5c32ff7753
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514700"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206863"
 ---
 # <a name="configure-the-os-patching-schedule-for-linux-based-hdinsight-clusters"></a>Linux 기반 HDInsight 클러스터에 대 한 OS 패치 일정 구성
 
@@ -69,5 +69,5 @@ Run 'do-release-upgrade' to upgrade it
 
 스크립트 동작 사용에 대 한 특정 단계는 [스크립트 작업을 사용 하 여 Linux 기반 HDInsight 클러스터 사용자 지정](hdinsight-hadoop-customize-cluster-linux.md)의 다음 섹션을 참조 하세요.
 
-- [클러스터를 만드는 동안 스크립트 작업 사용](hdinsight-hadoop-customize-cluster-linux.md#use-a-script-action-during-cluster-creation)
-- [실행 중인 클러스터에 스크립트 작업 적용](hdinsight-hadoop-customize-cluster-linux.md#apply-a-script-action-to-a-running-cluster)
+- [클러스터를 만드는 동안 스크립트 작업 사용](hdinsight-hadoop-customize-cluster-linux.md#script-action-during-cluster-creation)
+- [실행 중인 클러스터에 스크립트 작업 적용](hdinsight-hadoop-customize-cluster-linux.md#script-action-to-a-running-cluster)

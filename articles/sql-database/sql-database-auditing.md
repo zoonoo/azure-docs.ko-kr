@@ -10,12 +10,12 @@ ms.author: datrigan
 ms.reviewer: vanto
 ms.date: 02/11/2020
 ms.custom: azure-synapse
-ms.openlocfilehash: 70f37c70f685ee139db4b417c1c498f9eefb8205
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 27d65c7e6bbc0af20d01d91f1472433f3e7142a9
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78184760"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206609"
 ---
 # <a name="get-started-with-sql-database-auditing"></a>SQL 데이터베이스 감사 시작
 
@@ -93,13 +93,13 @@ SQL Database 감사를 사용하여 다음을 수행할 수 있습니다.
    
 ### <a id="audit-storage-destination">저장소 대상 감사</a>
 
-스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 다음 **확인**을 클릭합니다. 보존 기간 보다 오래 된 로그는 삭제 됩니다.
+스토리지 계정에 감사 로그 작성을 구성하려면 **스토리지**를 선택하고 **스토리지 세부 정보**를 엽니다. 로그를 저장할 Azure 스토리지 계정을 선택한 다음, 보존 기간을 선택합니다. 그런 후 **OK**를 클릭합니다. 보존 기간 보다 오래 된 로그는 삭제 됩니다.
 
    > [!IMPORTANT]
    > - 보존 기간의 기본값은 0 (보존 기간 제한 없음)입니다. 감사를 위해 저장소 계정을 구성할 때 **저장소 설정** 에서 **보존 (일)** 슬라이더를 이동 하 여이 값을 변경할 수 있습니다.
    > - 보존 기간을 0 (무제한 보존)에서 다른 값으로 변경 하는 경우 보존 값이 변경 된 후에 기록 된 로그에만 보존이 적용 됩니다 (보존 기간을 제한 없음으로 설정한 기간 동안 기록 된 로그는 다음 이후에도 유지 됨). 보존이 사용 됨)
 
-   ![저장소 계정](./media/sql-database-auditing-get-started/auditing_select_storage.png)
+   ![스토리지 계정 만들기](./media/sql-database-auditing-get-started/auditing_select_storage.png)
 
 가상 네트워크 또는 방화벽에서 저장소 계정을 구성 하려면 서버의 [Active Directory 관리자](https://docs.microsoft.com/azure/sql-database/sql-database-aad-authentication-configure?tabs=azure-powershell#provision-an-azure-active-directory-administrator-for-your-managed-instance) 가 필요 합니다. **신뢰할 수 있는 Microsoft 서비스에서 저장소 계정의이 저장소 계정에 액세스할 수 있도록 허용** 을 사용 하도록 설정 합니다. 또한 선택한 저장소 계정에 대 한 ' Microsoft. Authorization/roleAssignments/write ' 권한이 있어야 합니다.
 
@@ -116,22 +116,15 @@ Log Analytics 작업 영역에 감사 로그를 쓰도록 구성하려면 **Log 
 
 ### <a id="audit-event-hub-destination">이벤트 허브 대상 감사</a>
 
-< < < < < < < HEAD < < < < < < < HEAD = = = = = = =
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 > [!IMPORTANT]
 > 일시 중지 된 SQL 풀에서 감사를 사용 하도록 설정할 수 없습니다. 이 기능을 사용 하도록 설정 하려면 SQL 풀을 일시 중지 합니다.
 
 > [!WARNING]
 > SQL 풀이 있는 서버에서 감사를 사용 하도록 설정 하면 **sql 풀을 다시 시작 하 고 다시 일시 중지 하 여** 청구 요금이 발생할 수 있습니다.
-< < < < < < < HEAD = = = = = = = 이벤트 허브에 대 한 감사 로그 쓰기를 구성 하려면 **이벤트 허브 (미리 보기)** 를 선택 하 고 **이벤트 허브 세부 정보**를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인**을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
-   ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> <a name="bf6444e83361ab743aca04ae233c420e51ea1e03"></a>bf6444e83361ab743aca04ae233c420e51ea1e03
-=======
 이벤트 허브에 감사 로그 작성을 구성하려면 **이벤트 허브(미리 보기)** 를 선택하고 **이벤트 허브 세부 정보**를 엽니다. 로그가 작성될 이벤트 허브를 선택한 다음, **확인**을 클릭합니다. 이벤트 허브는 데이터베이스 및 서버와 동일한 지역에 있어야 합니다.
 
    ![Eventhub](./media/sql-database-auditing-get-started/auditing_select_event_hub.png)
->>>>>>> a8190987e07da4c5ced6de5f588d394ace4ca31d
 
 ## <a id="subheading-3"></a>감사 로그 및 보고서 분석
 

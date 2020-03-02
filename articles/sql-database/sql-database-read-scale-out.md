@@ -11,12 +11,12 @@ author: anosov1960
 ms.author: sashan
 ms.reviewer: sstein, carlrab
 ms.date: 06/03/2019
-ms.openlocfilehash: f111b19eb07c218a9f3250ef3ffdb8a97cf07542
-ms.sourcegitcommit: 4c831e768bb43e232de9738b363063590faa0472
+ms.openlocfilehash: 1a1b9907cd931716949d92d948a7d541fd2d5057
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/23/2019
-ms.locfileid: "74420720"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206948"
 ---
 # <a name="use-read-only-replicas-to-load-balance-read-only-query-workloads"></a>읽기 전용 복제본을 사용 하 여 읽기 전용 쿼리 작업 부하 분산
 
@@ -35,7 +35,7 @@ ms.locfileid: "74420720"
 SQL 연결 문자열의 `ApplicationIntent` 설정에 관계 없이 응용 프로그램이 주 복제본에 연결 되도록 하려면 데이터베이스를 만들 때 또는 구성을 변경할 때 읽기 확장을 명시적으로 해제 해야 합니다. 예를 들어 데이터베이스를 Standard 또는 범용 계층에서 Premium, 중요 비즈니스용 또는 Hyperscale 계층으로 업그레이드 하 고 모든 연결이 주 복제본으로 계속 진행 되도록 하려면 읽기 확장을 사용 하지 않도록 설정 합니다. 사용 하지 않도록 설정 하는 방법에 대 한 자세한 내용은 [읽기 확장 사용 및 사용 안 함](#enable-and-disable-read-scale-out)을 참조 하세요.
 
 > [!NOTE]
-> 쿼리 데이터 저장소, 확장 이벤트, SQL Profiler 및 감사 기능은 읽기 전용 복제본에서 지원 되지 않습니다.
+> 쿼리 데이터 저장소, 확장 이벤트 및 SQL Profiler 기능은 읽기 전용 복제본에서 지원 되지 않습니다.
 
 ## <a name="data-consistency"></a>데이터 일관성
 
@@ -89,7 +89,7 @@ SELECT DATABASEPROPERTYEX(DB_NAME(), 'Updateability')
 > [!NOTE]
 > 읽기 확장을 사용 하지 않도록 설정 하는 기능은 이전 버전과의 호환성을 위해 제공 됩니다.
 
-### <a name="azure-portal"></a>Azure 포털
+### <a name="azure-portal"></a>Azure portal
 
 데이터베이스 **구성** 블레이드에서 읽기 확장 설정을 관리할 수 있습니다.
 

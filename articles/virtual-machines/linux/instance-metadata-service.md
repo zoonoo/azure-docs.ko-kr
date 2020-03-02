@@ -14,12 +14,12 @@ ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: sukumari
 ms.reviewer: azmetadata
-ms.openlocfilehash: 22f50a6d5136eaff457c24864dae71261a20e13e
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: b0d4d1d13a329b0d95fcd0358f6141486b4435e5
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77615608"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205010"
 ---
 # <a name="azure-instance-metadata-service"></a>Azure Instance Metadata Service
 
@@ -36,7 +36,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 
 이 서비스는 일반 공급되는 Azure 지역에서 사용할 수 있습니다. 모든 API 버전을 모든 Azure 지역에서 사용할 수 있는 것은 아닙니다.
 
-영역                                        | 가용성                                 | 지원 버전
+영역                                        | 가용성                                 | 지원되는 버전
 -----------------------------------------------|-----------------------------------------------|-----------------
 [일반 공급되는 모든 글로벌 Azure 지역](https://azure.microsoft.com/regions/)     | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
 [Azure Government](https://azure.microsoft.com/overview/clouds/government/)              | 일반 공급 | 2017-04-02, 2017-08-01, 2017-12-01, 2018-02-01, 2018-04-02, 2018-10-01, 2019-02-01, 2019-03-11, 2019-04-30, 2019-06-01, 2019-06-04, 2019-08-01, 2019-08-15
@@ -50,7 +50,7 @@ Azure의 Instance Metadata Service는 [Azure Resource Manager](https://docs.micr
 Instance Metadata Service를 평가하려면 위 지역의 [Azure Resource Manager](https://docs.microsoft.com/rest/api/resources/) 또는 [Azure Portal](https://portal.azure.com)에서 VM을 만들고 아래 예제를 따릅니다.
 IMDS를 쿼리 하는 방법에 대 한 추가 예제는 [Azure 인스턴스 메타 데이터 샘플](https://github.com/microsoft/azureimds) 에서 찾을 수 있습니다.
 
-## <a name="usage"></a>사용법
+## <a name="usage"></a>사용
 
 ### <a name="versioning"></a>버전 관리
 
@@ -106,11 +106,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 
 API | 기본 데이터 형식 | 다른 형식
 --------|---------------------|--------------
-/instance | json : | 텍스트
+/instance | json : | text
 /scheduledevents | json : | none
 /attested | json : | none
 
-기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 예를 들면 다음과 같습니다.
+기본이 아닌 응답 형식에 액세스하려면 요청된 형식을 요청의 쿼리 문자열 매개 변수로 지정합니다. 다음은 그 예입니다.
 
 ```bash
 curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017-08-01&format=text"
@@ -124,13 +124,13 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2017
 Instance Metadata Service 엔드포인트는 라우팅이 불가능한 IP 주소에서 실행 중인 가상 머신 인스턴스 내부에서만 액세스할 수 있습니다. 또한 `X-Forwarded-For` 헤더가 포함된 모든 요청은 서비스에 의해 거부됩니다.
 실제 요청이 의도치 않은 리디렉션의 일환이 아니라 직접적으로 의도된 것이라는 것을 확인하기 위해 요청에 `Metadata: true` 헤더가 포함되어야 합니다.
 
-### <a name="error"></a>오류
+### <a name="error"></a>Error
 
-찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 예를 들면 다음과 같습니다.
+찾을 수 없는 데이터 요소 또는 형식이 잘못된 요청이 있으면 Instance Metadata Service는 표준 HTTP 오류를 반환합니다. 다음은 그 예입니다.
 
 HTTP 상태 코드 | 이유
 ----------------|-------
-200 OK |
+200 정상 |
 400 잘못된 요청 | 리프 노드를 쿼리할 때 `Metadata: true` 헤더가 없거나 형식이 누락 되었습니다.
 404 찾을 수 없음 | 요청된 요소가 없음
 405 메서드를 사용할 수 없음 | `GET` 요청만 지원 됩니다.
@@ -314,144 +314,11 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance?api-version=2019
 }
 ```
 
-#### <a name="retrieving-metadata-in-windows-virtual-machine"></a>Windows Virtual Machine에서 메타데이터 검색
-
-**요청**
-
-인스턴스 메타데이터는 Powershell 유틸리티 `curl`을 통해 Windows에서 검색할 수 있습니다. 
-
-```bash
-curl -H @{'Metadata'='true'} http://169.254.169.254/metadata/instance?api-version=2019-06-01 | select -ExpandProperty Content
-```
-
-또는 `Invoke-RestMethod` cmdlet을 통해 검색할 수 있습니다.
-
-```powershell
-
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI http://169.254.169.254/metadata/instance?api-version=2019-06-01 -Method get 
-```
-
-**응답**
-
-> [!NOTE]
-> 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
-
-```json
-{
-  "compute": {
-    "azEnvironment": "AzurePublicCloud",
-    "customData": "",
-    "location": "centralus",
-    "name": "negasonic",
-    "offer": "lampstack",
-    "osType": "Linux",
-    "placementGroupId": "",
-    "plan": {
-        "name": "5-6",
-        "product": "lampstack",
-        "publisher": "bitnami"
-    },
-    "platformFaultDomain": "0",
-    "platformUpdateDomain": "0",
-    "provider": "Microsoft.Compute",
-    "publicKeys": [],
-    "publisher": "bitnami",
-    "resourceGroupName": "myrg",
-    "resourceId": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/myrg/providers/Microsoft.Compute/virtualMachines/negasonic",
-    "sku": "5-6",
-    "storageProfile": {
-        "dataDisks": [
-          {
-            "caching": "None",
-            "createOption": "Empty",
-            "diskSizeGB": "1024",
-            "image": {
-              "uri": ""
-            },
-            "lun": "0",
-            "managedDisk": {
-              "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampledatadiskname",
-              "storageAccountType": "Standard_LRS"
-            },
-            "name": "exampledatadiskname",
-            "vhd": {
-              "uri": ""
-            },
-            "writeAcceleratorEnabled": "false"
-          }
-        ],
-        "imageReference": {
-          "id": "",
-          "offer": "UbuntuServer",
-          "publisher": "Canonical",
-          "sku": "16.04.0-LTS",
-          "version": "latest"
-        },
-        "osDisk": {
-          "caching": "ReadWrite",
-          "createOption": "FromImage",
-          "diskSizeGB": "30",
-          "diffDiskSettings": {
-            "option": "Local"
-          },
-          "encryptionSettings": {
-            "enabled": "false"
-          },
-          "image": {
-            "uri": ""
-          },
-          "managedDisk": {
-            "id": "/subscriptions/xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx/resourceGroups/macikgo-test-may-23/providers/Microsoft.Compute/disks/exampleosdiskname",
-            "storageAccountType": "Standard_LRS"
-          },
-          "name": "exampleosdiskname",
-          "osType": "Linux",
-          "vhd": {
-            "uri": ""
-          },
-          "writeAcceleratorEnabled": "false"
-        }
-    },
-    "subscriptionId": "xxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxx",
-    "tags": "Department:IT;Environment:Test;Role:WebRole",
-    "version": "7.1.1902271506",
-    "vmId": "13f56399-bd52-4150-9748-7190aae1ff21",
-    "vmScaleSetName": "",
-    "vmSize": "Standard_A1_v2",
-    "zone": "1"
-  },
-  "network": {
-    "interface": [
-      {
-        "ipv4": {
-          "ipAddress": [
-            {
-              "privateIpAddress": "10.0.1.4",
-              "publicIpAddress": "X.X.X.X"
-            }
-          ],
-          "subnet": [
-            {
-              "address": "10.0.1.0",
-              "prefix": "24"
-            }
-          ]
-        },
-        "ipv6": {
-          "ipAddress": []
-        },
-        "macAddress": "002248020E1E"
-      }
-    ]
-  }
-}
-```
-
 ## <a name="metadata-apis"></a>메타 데이터 Api
 
 메타 데이터 끝점을 통해 사용할 수 있는 Api는 다음과 같습니다.
 
-데이터 | 설명 | 도입된 버전
+data | Description | 도입된 버전
 -----|-------------|-----------------------
 attested | [증명된 데이터](#attested-data) 참조 | 2018-10-01
 ID | Azure 리소스에 대한 관리 ID입니다. [액세스 토큰 획득](../../active-directory/managed-identities-azure-resources/how-to-use-vm-token.md)을 참조하세요. | 2018-02-01
@@ -465,7 +332,7 @@ scheduledevents | [예정된 이벤트](scheduled-events.md) 참조 | 2017-08-01
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/계산을 통해 액세스 됩니다.
 
-데이터 | 설명 | 도입된 버전
+data | Description | 도입된 버전
 -----|-------------|-----------------------
 azEnvironment | VM이 실행 되는 Azure 환경 | 2018-10-01
 customData | 이 기능은 현재 사용 하지 않도록 설정 되어 있으며,이 설명서를 사용할 수 있게 되 면 업데이트 합니다. | 2019-02-01
@@ -477,7 +344,7 @@ placementGroupId | 가상 머신 확장 집합의 [배치 그룹](../../virtual-
 계획 | Azure Marketplace 이미지인 경우 VM에 대 한 이름, 제품 및 게시자를 포함 하는 [계획](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan) | 2018-04-02
 platformUpdateDomain |  VM을 실행 중인 [업데이트 도메인](manage-availability.md) | 2017-04-02
 platformFaultDomain | VM을 실행 중인 [장애 도메인](manage-availability.md) | 2017-04-02
-공급자(provider) | VM의 공급자 | 2018-10-01
+provider | VM의 공급자 | 2018-10-01
 publicKeys | VM 및 경로에 할당 된 [공개 키 컬렉션](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#sshpublickey) | 2018-04-02
 publisher | VM 이미지 게시자 | 2017-04-02
 resourceGroupName | Virtual Machine에 대한 [리소스 그룹](../../azure-resource-manager/management/overview.md) | 2017-08-01
@@ -487,18 +354,18 @@ storageProfile | [저장소 프로필](#storage-profile) 을 참조 하세요. |
 subscriptionId | Virtual Machine에 대한 Azure 구독 | 2017-08-01
 tags | Virtual Machine에 대한 [태그](../../azure-resource-manager/management/tag-resources.md)  | 2017-08-01
 tagsList | 프로그래밍 방식의 구문 분석을 용이 하 게 하기 위해 JSON 배열로 형식이 지정 된 태그  | 2019-06-04
-version | VM 이미지의 버전 | 2017-04-02
+버전 | VM 이미지의 버전 | 2017-04-02
 vmId | VM의 [고유 식별자](https://azure.microsoft.com/blog/accessing-and-using-azure-vm-unique-id/) | 2017-04-02
 vmScaleSetName | 가상 머신 확장 집합의 [가상 머신 확장 집합 이름](../../virtual-machine-scale-sets/virtual-machine-scale-sets-overview.md) | 2017-12-01
 vmSize | [VM 크기](sizes.md) | 2017-04-02
-영역(zone) | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
+영역 | 가상 머신의 [가용성 영역](../../availability-zones/az-overview.md) | 2017-12-01
 
 다음 네트워크 범주는 인스턴스 API를 통해 사용할 수 있습니다.
 
 > [!NOTE]
 > 메타 데이터 끝점을 통해 다음 범주는 인스턴스/네트워크/인터페이스를 통해 액세스 됩니다.
 
-데이터 | 설명 | 도입된 버전
+data | Description | 도입된 버전
 -----|-------------|-----------------------
 ipv4/privateIpAddress | VM의 로컬 IPv4 주소 | 2017-04-02
 ipv4/publicIpAddress | VM의 공용 IPv4 주소 | 2017-04-02
@@ -524,38 +391,6 @@ curl -H Metadata:true "http://169.254.169.254/metadata/attested/document?api-ver
 ```
 
 Api-version은 필수 필드입니다. 지원 되는 API 버전은 [서비스 가용성 섹션](#service-availability) 을 참조 하세요.
-Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMDS는 현재 UTC 타임 스탬프를 현재 위치의 값으로 반환 합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시 된 nonce 값이 반환 될 수 있습니다.
-
- **응답**
-
-> [!NOTE]
-> 응답은 JSON 문자열입니다. 다음 예제 응답은 가독성을 높이기 위해 적절히 인쇄되었습니다.
-
- ```json
-{
- "encoding":"pkcs7","signature":"MIIEEgYJKoZIhvcNAQcCoIIEAzCCA/8CAQExDzANBgkqhkiG9w0BAQsFADCBugYJKoZIhvcNAQcBoIGsBIGpeyJub25jZSI6IjEyMzQ1NjY3NjYiLCJwbGFuIjp7Im5hbWUiOiIiLCJwcm9kdWN0IjoiIiwicHVibGlzaGVyIjoiIn0sInRpbWVTdGFtcCI6eyJjcmVhdGVkT24iOiIxMS8yMC8xOCAyMjowNzozOSAtMDAwMCIsImV4cGlyZXNPbiI6IjExLzIwLzE4IDIyOjA4OjI0IC0wMDAwIn0sInZtSWQiOiIifaCCAj8wggI7MIIBpKADAgECAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBBAUAMCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tMB4XDTE4MTEyMDIxNTc1N1oXDTE4MTIyMDIxNTc1NlowKzEpMCcGA1UEAxMgdGVzdHN1YmRvbWFpbi5tZXRhZGF0YS5henVyZS5jb20wgZ8wDQYJKoZIhvcNAQEBBQADgY0AMIGJAoGBAML/tBo86ENWPzmXZ0kPkX5dY5QZ150mA8lommszE71x2sCLonzv4/UWk4H+jMMWRRwIea2CuQ5RhdWAHvKq6if4okKNt66fxm+YTVz9z0CTfCLmLT+nsdfOAsG1xZppEapC0Cd9vD6NCKyE8aYI1pliaeOnFjG0WvMY04uWz2MdAgMBAAGjYDBeMFwGA1UdAQRVMFOAENnYkHLa04Ut4Mpt7TkJFfyhLTArMSkwJwYDVQQDEyB0ZXN0c3ViZG9tYWluLm1ldGFkYXRhLmF6dXJlLmNvbYIQZ8VuSofHbJRAQNBNpiASdDANBgkqhkiG9w0BAQQFAAOBgQCLSM6aX5Bs1KHCJp4VQtxZPzXF71rVKCocHy3N9PTJQ9Fpnd+bYw2vSpQHg/AiG82WuDFpPReJvr7Pa938mZqW9HUOGjQKK2FYDTg6fXD8pkPdyghlX5boGWAMMrf7bFkup+lsT+n2tRw2wbNknO1tQ0wICtqy2VqzWwLi45RBwTGB6DCB5QIBATA/MCsxKTAnBgNVBAMTIHRlc3RzdWJkb21haW4ubWV0YWRhdGEuYXp1cmUuY29tAhBnxW5Kh8dslEBA0E2mIBJ0MA0GCSqGSIb3DQEBCwUAMA0GCSqGSIb3DQEBAQUABIGAld1BM/yYIqqv8SDE4kjQo3Ul/IKAVR8ETKcve5BAdGSNkTUooUGVniTXeuvDj5NkmazOaKZp9fEtByqqPOyw/nlXaZgOO44HDGiPUJ90xVYmfeK6p9RpJBu6kiKhnnYTelUk5u75phe5ZbMZfBhuPhXmYAdjc7Nmw97nx8NnprQ="
-}
-```
-
-서명 Blob은 [pkcs7](https://aka.ms/pkcs7)으로 서명된 버전의 문서입니다. 여기에는 로그인에 사용 되는 인증서가 vmId, sku, nonce, subscriptionId, 문서 생성 및 만료를 위한 타임 스탬프 및 이미지에 대 한 계획 정보와 함께 포함 되어 있습니다. 플랜 정보는 Azure Marketplace 이미지에 대해서만 채워집니다. 응답에서 추출한 인증서를 사용하여 응답이 유효하고 Azure에서 제공되는지 확인할 수 있습니다.
-
-#### <a name="retrieving-attested-metadata-in-windows-virtual-machine"></a>Windows 가상 머신에서 증명된 메타데이터 검색
-
- **요청**
-
-인스턴스 메타데이터는 Powershell 유틸리티 `curl`을 통해 Windows에서 검색할 수 있습니다.
-
- ```powershell
-curl -H @{'Metadata'='true'} "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" | select -ExpandProperty Content
-```
-
- 또는 `Invoke-RestMethod` cmdlet을 통해 검색할 수 있습니다.
-
- ```powershell
-Invoke-RestMethod -Headers @{"Metadata"="true"} -URI "http://169.254.169.254/metadata/attested/document?api-version=2018-10-01&nonce=1234567890" -Method get
-```
-
-Api-version은 필수 필드입니다. 지원 되는 API 버전은 서비스 가용성 섹션을 참조 하세요.
 Nonce는 선택적 10 자리 문자열입니다. 제공 되지 않은 경우 IMDS는 현재 UTC 타임 스탬프를 현재 위치의 값으로 반환 합니다. IMDS의 캐싱 메커니즘으로 인해 이전에 캐시 된 nonce 값이 반환 될 수 있습니다.
 
  **응답**
@@ -821,7 +656,7 @@ Verification successful
 }
 ```
 
-데이터 | 설명
+data | Description
 -----|------------
 nonce | 사용자가 요청과 함께 선택적 문자열을 제공했습니다. 요청에 nonce를 제공하지 않은 경우 현재 UTC 타임스탬프가 반환됩니다.
 계획 | Azure Marketplace 이미지의 VM에 대한 [플랜](https://docs.microsoft.com/rest/api/compute/virtualmachines/createorupdate#plan)에는 이름, 제품 및 게시자가 포함됩니다.
@@ -863,51 +698,6 @@ openssl verify -verbose -CAfile /etc/ssl/certs/Baltimore_CyberTrust_Root.pem -un
 
 유효성을 검사 하는 동안 네트워크 제약 조건으로 인해 중간 인증서를 다운로드할 수 없는 경우 중간 인증서를 고정할 수 있습니다. 그러나 Azure는 표준 PKI 방법에 따라 인증서를 롤오버 합니다. 롤아웃이 발생 하면 고정 된 인증서를 업데이트 해야 합니다. 중간 인증서 업데이트에 대 한 변경 사항이 계획 될 때마다 Azure 블로그가 업데이트 되 고 Azure 고객에 게 알림이 제공 됩니다. 중간 인증서는 [여기](https://www.microsoft.com/pki/mscorp/cps/default.htm)에서 찾을 수 있습니다. 각 지역에 대 한 중간 인증서는 다를 수 있습니다.
 
-### <a name="failover-clustering-in-windows-server"></a>Windows Server의 장애 조치(failover) 클러스터링
-
-특정 시나리오에서 장애 조치(failover) 클러스터링을 사용하여 Instance Metadata Service를 쿼리할 때 라우팅 테이블에 경로를 추가해야 합니다.
-
-1. 관리자 권한으로 명령 프롬프트를 엽니다.
-
-2. 다음 명령을 실행하고 IPv4 경로 테이블에 네트워크 대상의 인터페이스 주소(`0.0.0.0`)를 기록합니다.
-
-```bat
-route print
-```
-
-> [!NOTE]
-> 장애 조치(failover) 클러스터를 사용하는 Windows Server VM의 다음 예제 출력에는 간단히 나타내기 위해 IPv4 경로 테이블만 포함되어 있습니다.
-
-```bat
-IPv4 Route Table
-===========================================================================
-Active Routes:
-Network Destination        Netmask          Gateway       Interface  Metric
-          0.0.0.0          0.0.0.0         10.0.1.1        10.0.1.10    266
-         10.0.1.0  255.255.255.192         On-link         10.0.1.10    266
-        10.0.1.10  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.15  255.255.255.255         On-link         10.0.1.10    266
-        10.0.1.63  255.255.255.255         On-link         10.0.1.10    266
-        127.0.0.0        255.0.0.0         On-link         127.0.0.1    331
-        127.0.0.1  255.255.255.255         On-link         127.0.0.1    331
-  127.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-      169.254.0.0      255.255.0.0         On-link     169.254.1.156    271
-    169.254.1.156  255.255.255.255         On-link     169.254.1.156    271
-  169.254.255.255  255.255.255.255         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         127.0.0.1    331
-        224.0.0.0        240.0.0.0         On-link     169.254.1.156    271
-        224.0.0.0        240.0.0.0         On-link         10.0.1.10    266
-  255.255.255.255  255.255.255.255         On-link         127.0.0.1    331
-  255.255.255.255  255.255.255.255         On-link     169.254.1.156    271
-  255.255.255.255  255.255.255.255         On-link         10.0.1.10    266
-```
-
-1. 다음 명령을 실행하고 네트워크 대상의 인터페이스 주소(`0.0.0.0`)를 사용합니다(이 예제에서는 `10.0.1.10`).
-
-```bat
-route add 169.254.169.254/32 10.0.1.10 metric 1 -p
-```
-
 ### <a name="storage-profile"></a>스토리지 프로필
 
 Instance Metadata Service는 VM과 연결 된 저장소 디스크에 대 한 세부 정보를 제공할 수 있습니다. 이 데이터는 인스턴스/계산/storageProfile 끝점에서 찾을 수 있습니다.
@@ -916,23 +706,23 @@ VM의 저장소 프로필은 이미지 참조, OS 디스크 및 데이터 디스
 
 이미지 참조 개체에는 OS 이미지에 대 한 다음 정보가 포함 되어 있습니다.
 
-데이터    | 설명
+data    | Description
 --------|-----------------
 id      | 리소스 ID
 제품   | 플랫폼 또는 marketplace 이미지의 제안
 publisher | 이미지 게시자입니다.
 sku     | 이미지 sku
-version | 플랫폼 또는 marketplace 이미지의 버전
+버전 | 플랫폼 또는 marketplace 이미지의 버전
 
 OS 디스크 개체에는 VM에서 사용 하는 OS 디스크에 대 한 다음 정보가 포함 됩니다.
 
-데이터    | 설명
+data    | Description
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)
-image   | 원본 사용자 이미지 가상 하드 디스크
+이미지   | 원본 사용자 이미지 가상 하드 디스크
 lun     | 디스크의 논리 단위 번호
 managedDisk | 관리 디스크 매개 변수
 name    | 디스크 이름
@@ -941,14 +731,14 @@ writeAcceleratorEnabled | WriteAccelerator를 디스크에서 사용할 수 있�
 
 데이터 디스크 배열에는 VM에 연결 된 데이터 디스크 목록이 포함 됩니다. 각 데이터 디스크 개체에는 다음 정보가 포함 됩니다.
 
-데이터    | 설명
+data    | Description
 --------|-----------------
 캐싱 | 캐싱 요구 사항
 createOption | VM을 만드는 방법에 대 한 정보
 diffDiskSettings | 임시 디스크 설정
 diskSizeGB | 디스크 크기 (GB)
 \ 설정 | 디스크에 대 한 암호화 설정
-image   | 원본 사용자 이미지 가상 하드 디스크
+이미지   | 원본 사용자 이미지 가상 하드 디스크
 managedDisk | 관리 디스크 매개 변수
 name    | 디스크 이름
 osType  | 디스크에 포함 된 OS 유형
@@ -1029,7 +819,7 @@ curl -H Metadata:true "http://169.254.169.254/metadata/instance/compute/storageP
 언어 | 예제
 ---------|----------------
 Ruby     | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.rb
-이동  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
+Go  | https://github.com/Microsoft/azureimds/blob/master/imdssample.go
 Python   | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.py
 C++      | https://github.com/Microsoft/azureimds/blob/master/IMDSSample-windows.cpp
 C#       | https://github.com/Microsoft/azureimds/blob/master/IMDSSample.cs
@@ -1043,7 +833,7 @@ Puppet | https://github.com/keirans/azuremetadata
 
 ## <a name="faq"></a>FAQ
 
-1. `400 Bad Request, Required metadata header not specified` 오류가 발생했습니다. 이 반환 값을 통해
+1. `400 Bad Request, Required metadata header not specified` 오류가 발생했습니다. 무슨 의미인가요?
    * Instance Metadata Service에서는 `Metadata: true` 헤더를 요청에 포함시켜 전달해야 합니다. REST 호출에서 이 헤더를 전달하면 Instance Metadata Service에 액세스가 허용됩니다.
 2. VM에 대한 컴퓨팅 정보를 구할 수 없는 이유가 무엇인가요?
    * 현재 Instance Metadata Service는 Azure Resource Manager를 사용하여 만든 인스턴스만 지원합니다. 나중에 클라우드 서비스 VM에 대한 지원을 추가할 수 있습니다.

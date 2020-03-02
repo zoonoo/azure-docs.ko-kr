@@ -12,12 +12,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 09/24/2019
 ms.author: memildin
-ms.openlocfilehash: e735495038f0e5c28af31aa79a45c71225502b3c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 13852acb39a420e2f0da84e18bef4df823c1fa78
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77918158"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78206268"
 ---
 # <a name="microsoft-defender-advanced-threat-protection-with-azure-security-center"></a>Azure Security Center으로 Microsoft Defender Advanced Threat Protection
 
@@ -109,7 +109,7 @@ Microsoft Defender ATP 통합이 사용 하도록 설정 되어 있는지 확인
 
 3. 명령이 성공 하면 Azure Security Center 대시보드 및 Microsoft Defender ATP 포털에 새 경고가 표시 됩니다. 이 경고가 표시되려면 몇 분 정도 걸릴 수 있습니다.
 
-4. Security Center에서 경고를 검토하려면 **보안 경고** > **의심스러운 Powershell 명령줄**로 이동합니다.
+4. Security Center에서 경고를 검토 하려면 **보안 경고** > **의심 스러운 PowerShell 명령줄**로 이동 합니다.
 
 5. 조사 창에서 링크를 선택 하 여 Microsoft Defender ATP 포털로 이동 합니다.
 

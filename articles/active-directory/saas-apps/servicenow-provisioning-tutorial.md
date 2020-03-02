@@ -15,12 +15,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 12/10/2019
 ms.author: jeedes
-ms.openlocfilehash: 5e954de97e6573e330c42915b44bbc0c40abc54d
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: 9e93d4b3f1880f2ac56a32a7b85aa6801fb7c14e
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77063249"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205108"
 ---
 # <a name="tutorial-configure-servicenow-for-automatic-user-provisioning"></a>자습서: 자동 사용자 프로 비전을 위한 ServiceNow 구성
 
@@ -35,7 +35,7 @@ ms.locfileid: "77063249"
 > * ServiceNow에서 그룹 및 그룹 멤버 자격 프로 비전
 > * ServiceNow에 대 [한 Single sign-on](servicenow-tutorial.md) (권장)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에 설명된 시나리오에서는 사용자에게 이미 다음 필수 구성 요소가 있다고 가정합니다.
 
@@ -142,7 +142,7 @@ Azure AD 프로 비전 서비스를 사용 하면 응용 프로그램에 대 한
 * **EntryJoiningPropertyValueIsMissing:** [특성 매핑을](https://docs.microsoft.com/azure/active-directory/manage-apps/customize-application-attributes) 검토 하 여 일치 하는 특성을 식별 합니다. 이 값은 프로 비전 하려는 사용자 또는 그룹에 있어야 합니다. 
 * [SERVICENOW SOAP API](https://docs.servicenow.com/bundle/newyork-application-development/page/integrate/web-services-apis/reference/r_DirectWebServiceAPIFunctions.html) 를 검토 하 여 요구 사항 또는 제한 사항 (예: 사용자에 대 한 국가 코드를 지정 하는 형식)을 파악 합니다.
 * 일부 ServiceNow 배포에서는 Azure AD 프로 비전 서비스에 대 한 IP 범위를 허용 해야 합니다. Azure AD 프로 비전 서비스에 대 한 예약 된 IP 범위는 "AzureActiveDirectoryDomainServices [" 아래에서 찾을 수 있습니다](https://www.microsoft.com/download/details.aspx?id=56519) .
-* 현재 ServiceNow 정부 클라우드에 사용자를 프로 비전 하는 것은 지원 되지 않습니다.
+* 프로 비전 요청은 기본적으로 https://{-name}. 서비스-이제 .com/{table-name}으로 전송 됩니다. 사용자 지정 테 넌 트 URL이 필요한 경우 인스턴스 이름 필드에 전체 URL을 제공할 수 있습니다.
 
 ## <a name="additional-resources"></a>추가 리소스
 
