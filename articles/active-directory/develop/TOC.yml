@@ -405,6 +405,8 @@
           href: v2-admin-consent.md
         - name: 애플리케이션 동의 경험
           href: application-consent-experience.md
+    - name: 조건부 액세스
+      href: v2-conditional-access-dev-guide.md
     - name: 국가별 클라우드
       items:
         - name: 개요
