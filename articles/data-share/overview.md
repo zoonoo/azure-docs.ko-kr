@@ -6,12 +6,12 @@ ms.author: joanpo
 ms.service: data-share
 ms.topic: overview
 ms.date: 07/10/2019
-ms.openlocfilehash: d1bfad64175ad5b29e4ec158ebe8d8e982b8b100
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 363feda1409d2bb54e60d1b2168cba38f2a8a41c
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76964450"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621865"
 ---
 # <a name="what-is-azure-data-share"></a>Azure Data Share란?
 
@@ -23,7 +23,7 @@ Azure Data Share를 사용하면 조직에서 여러 고객 및 파트너와 간
 
 데이터 공급자는 데이터 공유에 대한 사용 약관을 지정하여 데이터를 처리하는 방법을 제어할 수 있습니다. 데이터 소비자는 데이터를 받기 전에 이러한 약관에 동의해야 합니다. 데이터 공급자는 데이터 소비자가 업데이트를 받는 빈도를 지정할 수 있습니다. 데이터 공급자는 언제든지 새 업데이트에 대한 액세스를 취소할 수 있습니다. 
 
-Azure Data Share는 타사의 데이터를 쉽게 결합하여 분석 및 AI 시나리오를 강화함으로써 인사이트를 향상시키는 데 도움이 됩니다. Azure 분석 도구의 기능을 쉽게 사용하여 Azure Data Share를 통해 공유 데이터를 준비, 처리 및 분석할 수 있습니다. 
+Azure Data Share는 타사의 데이터를 쉽게 결합하여 분석 및 AI 시나리오를 강화함으로써 인사이트를 향상시키는 데 도움이 됩니다. Azure 분석 도구의 강력한 기능을 쉽게 사용하여 Azure Data Share를 통해 공유 데이터를 준비, 처리 및 분석합니다. 
 
 데이터 공급자와 데이터 소비자 모두 Azure 구독이 있어야만 데이터를 공유하고 수신할 수 있습니다. Azure 구독이 아직 없는 경우 [체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 

@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 06/06/2019
 ms.author: memildin
-ms.openlocfilehash: 759cc3f22d8b57036bad48326ffec1d6fca42696
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 884f5ab6fa57b201e1a9105729bf96e10931dca1
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76939446"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604056"
 ---
 # <a name="what-is-azure-security-center"></a>Azure Security Center란?
 
@@ -81,7 +81,7 @@ Security Center에서 네트워크의 보안 상태를 지속적으로 모니터
 
 ![Security Center 네트워크 맵](media/security-center-intro/sc-net-map.png)
 
-Security Center에서는 **보안 점수**를 추가하여 보안 경고를 한층 더 쉽게 완화할 수 있도록 합니다. 이제 수신되는 각 권장 사항에 보안 점수가 연결되어, 각 권장 사항이 전반적인 보안 상태에 얼마나 중요한지 파악하는 데 도움이 됩니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
+Security Center에서는 **보안 점수**를 추가하여 보안 경고를 한 단계 더 쉽게 완화할 수 있습니다. 보안 점수는 이제 각 추천 사항이 전체 보안 상태에 대한 중요도를 파악하는 데 도움이 되는 각 추천 사항과 연결됩니다. 이는 **보안 작업의 우선 순위를 지정**하는 데 중요합니다.
 
 ![Security Center 보안 점수](media/security-center-intro/sc-secure-score.png)
 

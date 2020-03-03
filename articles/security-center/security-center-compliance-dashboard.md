@@ -13,19 +13,19 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 11/12/2019
 ms.author: memildin
-ms.openlocfilehash: 01c0f1199ab8c376fe5bb5e864f81a2730879ed1
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 1a6999c05c0b3dbaf572b376412f666c50c23df7
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74112324"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604445"
 ---
 # <a name="tutorial-improve-your-regulatory-compliance"></a>자습서: 규정 준수 개선
 ---
 
 Azure Security Center를 통해 **규정 준수 대시보드**를 사용하여 규정 준수 요구 사항을 충족하기 위한 프로세스를 간소화할 수 있습니다. 대시보드에서 Security Center는 Azure 환경의 지속적인 평가에 기반하여 준수 상태에 대한 인사이트를 제공합니다. Security Center는 보안 모범 사례에 따라 하이브리드 클라우드 환경에서 위험 요소를 분석합니다. 이러한 평가는 지원되는 표준 세트에서 준수 제어에 매핑됩니다. 규정 준수 대시보드를 통해 특정 표준 또는 규정의 컨텍스트에서 사용자 환경 내의 이러한 모든 평가의 상태를 확인할 수 있습니다. 권장 사항에 따라 작업하고 환경에서 위험 요소를 줄임에 따라 규정 준수 상태가 개선됩니다.
 
-이 자습서에서는 다음 방법을 알아봅니다.
+이 자습서에서는 다음 작업 방법을 배웁니다.
 
 -   규정 준수 대시보드를 사용하여 규정 준수를 평가합니다.
 
@@ -33,7 +33,7 @@ Azure Security Center를 통해 **규정 준수 대시보드**를 사용하여 �
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서에서 설명하는 기능을 단계별로 실행하려면 Security Center의 표준 가격 책정 계층이 있어야 합니다. 비용 없이 Security Center 표준을 사용해 볼 수 있습니다.
 자세한 내용은 [가격 책정 페이지](https://azure.microsoft.com/pricing/details/security-center/)를 참조하세요. [Security Center 표준에 Azure 구독 온보딩](https://docs.microsoft.com/azure/security-center/security-center-get-started) 빠른 시작을 통해 표준 계층으로 업그레이드하는 방법을 안내합니다.
@@ -62,7 +62,7 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
     이 보고서는 Security Center 평가 데이터를 기반으로 선택한 표준의 규정 준수 상태에 대한 요약 정보를 제공하며, 해당 표준의 컨트롤에 따라 구성됩니다. 이 보고서는 관련자와 공유할 수 있으며, 내부 및 외부 감사자에게 증거 자료를 제공할 수 있습니다.
 
-    ![다운로드](./media/security-center-compliance-dashboard/download-report.png)
+    ![다운로드로 사용 가능한 제품 설명서에서 데이터 공급자 설치 섹션을 참조하세요](./media/security-center-compliance-dashboard/download-report.png)
 
 ## <a name="improve-your-compliance-posture"></a>준수 상태 개선
 
@@ -103,6 +103,4 @@ Security Center는 지속적으로 리소스 구성을 평가하여 보안 문�
 
 -   [Azure Security Center에서 보안 권장 사항 관리](security-center-recommendations.md) - Azure 리소스 보호에 도움이 되도록 Azure Security Center에서 권장 사항을 사용하는 방법을 알아봅니다.
 
--   [Azure Security Center에서 보안 점수 개선](security-center-secure-score.md) - 보안 상태를 개선하기 위해 취약점 및 보안 권장 사항의 우선 순위를 지정하는 방법을 알아봅니다.
-
--   [Azure Security Center FAQ](security-center-faq.md) - 서비스 사용에 관한 질문과 대답을 찾습니다.
+-   [Azure Security Center에서 보안 점수 향상](security-center-secure-score.md) - 보안 상태를 최대한 향상시키기 위해 취약성 및 보안 추천 사항의 우선 순위를 지정하는 방법을 알아봅니다.

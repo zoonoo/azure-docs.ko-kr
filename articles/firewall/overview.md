@@ -6,15 +6,15 @@ ms.service: firewall
 services: firewall
 ms.topic: overview
 ms.custom: mvc
-ms.date: 02/19/2020
+ms.date: 02/26/2020
 ms.author: victorh
 Customer intent: As an administrator, I want to evaluate Azure Firewall so I can determine if I want to use it.
-ms.openlocfilehash: 2d931ed61cc3880a6158fd82f015e663ddb669c3
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 5f1672b53fa9bd8c8126fefd092e1be78a844ab9
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485287"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621841"
 ---
 # <a name="what-is-azure-firewall"></a>Azure Firewall이란?
 
@@ -79,7 +79,7 @@ FQDN 태그를 활용하면 방화벽을 통해 잘 알려진 Azure 서비스 �
 
 ## <a name="inbound-dnat-support"></a>인바운드 DNAT 지원
 
-방화벽 공용 IP 주소로 전송되는 인바운드 네트워크 트래픽은 변환(Destination Network Address Translation)된 다음 가상 네트워크의 개인 IP 주소로 필터링됩니다.
+방화벽 공용 IP 주소로의 인바운드 인터넷 네트워크 트래픽이 변환되고(Destination Network Address Translation), 가상 네트워크의 개인 IP 주소로 필터링됩니다.
 
 ## <a name="multiple-public-ip-addresses"></a>여러 공용 IP 주소
 

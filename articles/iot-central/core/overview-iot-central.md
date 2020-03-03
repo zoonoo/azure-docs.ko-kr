@@ -9,12 +9,12 @@ ms.service: iot-central
 services: iot-central
 ms.custom: mvc
 manager: timlt
-ms.openlocfilehash: a16ed6ac942dd4a9fa521cc813a92e6767a98328
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 71d595ecb3a6900da3df79651ee2dddda594b9de
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77024129"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589416"
 ---
 # <a name="what-is-azure-iot-central"></a>Azure IoT Central이란?
 
@@ -39,8 +39,12 @@ IoT Central은 엔터프라이즈급 IoT 솔루션의 개발, 관리 및 유지 
 - 작업은 복합 형식을 지원하지 않습니다.
 - 배열 스키마 형식은 지원되지 않습니다.
 - C 디바이스 SDK와 Node.js 디바이스 및 서비스 SDK만 지원됩니다.
-- 미국 및 유럽 지역에서만 사용할 수 있습니다.
+- 미국, 유럽, 아시아 태평양 및 오스트레일리아 지역에서만 사용할 수 있습니다.
 - 디바이스 기능 모델의 모든 인터페이스가 동일한 파일에 인라인으로 정의되어 있어야 합니다.
+- [IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 지원은 미리 보기에 있으며 선택한 지역에서만 지원됩니다.
+
+    > [!NOTE]
+    > IoT 플러그 앤 플레이 디바이스 지원을 통해 미리 보기 애플리케이션을 만들기 위해 액세스하려면 기술 지원에 문의하세요.
 
 ## <a name="personas"></a>가상 사용자
 

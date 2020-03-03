@@ -8,12 +8,12 @@ ms.date: 2/10/2020
 ms.topic: tutorial
 ms.service: iot-edge
 services: iot-edge
-ms.openlocfilehash: 5f576d28d30907f3834600d0a6a5c152025cf912
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a5c754373ba9437c631e62acbb5d6d246db4c862
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133459"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650761"
 ---
 # <a name="tutorial-train-and-deploy-an-azure-machine-learning-model"></a>자습서: Azure Machine Learning 모델 학습 및 배포
 
@@ -83,7 +83,7 @@ Azure Notebooks 프로젝트에 업로드한 파일을 검토해 보겠습니다
 * **01-turbofan\_regression.ipynb:** 이 Notebook에서는 Machine Learning Service 작업 영역을 사용하여 기계 학습 실험을 생성 및 실행합니다. 이 Notebook은 대략적으로 다음 단계를 수행합니다.
 
   1. 디바이스 도구에서 생성한 Azure Storage 계정에서 데이터를 다운로드합니다.
-  1. 학습용 데이터 및 분류자 광고 모델을 살펴보고 준비합니다.
+  1. 데이터를 검색하고 준비한 다음, 데이터를 사용하여 분류자 모델을 학습시킵니다.
   1. 테스트 데이터 세트(Test\_FD003.txt)를 사용하여 실험에서 모델을 평가합니다.
   1. Machine Learning Service 작업 영역에 최상의 분류자 모델을 게시합니다.
 

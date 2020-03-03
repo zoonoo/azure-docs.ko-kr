@@ -1,5 +1,5 @@
 ---
-title: 데이터 복사 서비스를 통해 Azure Data Box Heavy 디바이스에 데이터를 복사하기 위한 자습서 | Microsoft Docs
+title: '자습서: 데이터 복사 서비스를 통해 Azure Data Box Heavy에 데이터 복사'
 description: 이 자습서에서는 데이터 복사 서비스를 통해 Azure Data Box Heavy 디바이스로 데이터를 복사하는 방법을 알아봅니다.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: heavy
 ms.topic: tutorial
 ms.date: 07/03/2019
 ms.author: alkohli
-ms.openlocfilehash: adc28ea5f74ad16d4387d246ef73618a53ea26e1
-ms.sourcegitcommit: ccb9a7b7da48473362266f20950af190ae88c09b
+ms.openlocfilehash: 67547db53d2b9ce05838335ffcb5d789b77ecbbe
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 07/05/2019
-ms.locfileid: "67595822"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560223"
 ---
 # <a name="tutorial-use-the-data-copy-service-to-copy-data-into-azure-data-box-heavy-preview"></a>자습서: 데이터 복사 서비스를 사용하여 Azure Data Box Heavy로 데이터 복사(미리 보기)
 
@@ -24,12 +24,12 @@ ms.locfileid: "67595822"
 - NAS 환경에서 중간 호스트를 사용하지 못할 수도 있습니다.
 - 데이터의 수집 및 업로드에 몇 주가 소요되는 작은 파일 사용. 데이터 복사 서비스는 작은 파일에 대한 수집 및 업로드 시간을 대폭 단축시킵니다.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * Data Box Heavy에 데이터 복사
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 시작하기 전에 다음 사항을 확인합니다.
 

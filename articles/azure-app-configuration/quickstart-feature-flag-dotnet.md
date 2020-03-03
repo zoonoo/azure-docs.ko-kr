@@ -14,12 +14,12 @@ ms.tgt_pltfrm: .NET
 ms.workload: tbd
 ms.date: 10/21/2019
 ms.author: lcozzens
-ms.openlocfilehash: bdb00bfbadec68fa110f747858d264a2c34f8bd1
-ms.sourcegitcommit: 5bbe87cf121bf99184cc9840c7a07385f0d128ae
+ms.openlocfilehash: 5ea9749c07aadc7037e753160e9b053992bebae2
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76120872"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619295"
 ---
 # <a name="quickstart-add-feature-flags-to-a-net-framework-app"></a>빠른 시작: .NET Framework 앱에 기능 플래그 추가
 
@@ -31,11 +31,18 @@ ms.locfileid: "76120872"
 
 - Azure 구독 - [체험 구독 만들기](https://azure.microsoft.com/free/)
 - [Visual Studio 2019](https://visualstudio.microsoft.com/vs)
-- [.NET Framework 4.7.2](https://dotnet.microsoft.com/download)
+- [.NET Framework 4.8](https://dotnet.microsoft.com/download)
 
 ## <a name="create-an-app-configuration-store"></a>App Configuration 저장소 만들기
 
 [!INCLUDE [azure-app-configuration-create](../../includes/azure-app-configuration-create.md)]
+
+6. **기능 관리자** >  **+추가**를 선택하여 `Beta`라는 기능 플래그를 추가합니다.
+
+    > [!div class="mx-imgBorder"]
+    > ![Beta라는 기능 플래그 사용](media/add-beta-feature-flag.png)
+
+    지금은 `label`을 정의하지 않은 상태로 둡니다.
 
 ## <a name="create-a-net-console-app"></a>.NET 콘솔 앱 만들기
 
@@ -43,7 +50,7 @@ ms.locfileid: "76120872"
 
 1. **새 프로젝트 만들기**에서 **콘솔** 프로젝트 형식을 필터링하고 **콘솔 앱(.NET Framework)** 을 클릭합니다. **다음**을 클릭합니다.
 
-1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **Framework**에서 **.NET Framework 4.7.1** 이상을 선택합니다. **만들기**를 클릭합니다.
+1. **새 프로젝트 구성**에서 프로젝트 이름을 입력합니다. **프레임워크** 아래에서 **.NET Framework 4.8** 이상을 선택합니다. **만들기**를 클릭합니다.
 
 ## <a name="connect-to-an-app-configuration-store"></a>App Configuration 저장소에 연결
 
@@ -67,13 +74,8 @@ ms.locfileid: "76120872"
 1. 기능 플래그가 검색되도록 `UseFeatureFlags` 옵션을 지정하여 App Configuration에 연결하도록 `Main` 메서드를 업데이트합니다. 그런 다음, `Beta` 기능 플래그가 설정된 경우 메시지를 표시합니다.
 
     ```csharp
-        public static void Main(string[] args)
-        {
-            AsyncMain().Wait();
-        }
-
-        private static async Task AsyncMain()
-        {
+        public static async Task Main(string[] args)
+        {         
             IConfigurationRoot configuration = new ConfigurationBuilder()
                 .AddAzureAppConfiguration(options =>
                 {

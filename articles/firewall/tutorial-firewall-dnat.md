@@ -1,25 +1,25 @@
 ---
-title: 포털을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
+title: 포털에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
 description: 이 자습서에서는 Azure Portal을 사용하여 Azure Firewall DNAT를 배포하고 구성하는 방법을 알아봅니다.
 services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 11/19/2019
+ms.date: 02/26/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 2f390f3ad540a2a25055dfcc97cc3af1f22c2b73
-ms.sourcegitcommit: 8e31a82c6da2ee8dafa58ea58ca4a7dd3ceb6132
+ms.openlocfilehash: 1528087ced54ddcab2e3dd44b65fb3411cae3004
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/19/2019
-ms.locfileid: "74195727"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621779"
 ---
-# <a name="tutorial-filter-inbound-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall DNAT를 통해 인바운드 트래픽 필터링
+# <a name="tutorial-filter-inbound-internet-traffic-with-azure-firewall-dnat-using-the-azure-portal"></a>자습서: Azure Portal에서 Azure Firewall DNAT를 사용하여 인바운드 인터넷 트래픽 필터링
 
-서브넷에 대한 인바운드 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **Dnat**로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 및 포트를 프라이빗 IP 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
+서브넷에 대한 인바운드 인터넷 트래픽을 변환하고 필터링하도록 Azure Firewall DNAT(Destination Network Address Translation)를 구성할 수 있습니다. DNAT를 구성하면 NAT 규칙 컬렉션 작업이 **Dnat**로 설정됩니다. 그 후 NAT 규칙 컬렉션의 각 규칙을 사용하여 방화벽 공용 IP 및 포트를 프라이빗 IP 및 포트로 변환할 수 있습니다. DNAT 규칙은 해당 네트워크 규칙을 암시적으로 추가하여 변환된 트래픽을 허용합니다. 변환된 트래픽을 일치시키는 거부 규칙을 사용하여 네트워크 규칙 컬렉션을 명시적으로 추가함으로써 이 동작을 재정의할 수 있습니다. Azure Firewall 규칙 처리 논리에 대한 자세한 내용은 [Azure Firewall 규칙 처리 논리](rule-processing.md)를 참조하세요.
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 테스트 네트워크 환경 설정
@@ -62,7 +62,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
      방화벽은 이 서브넷에 있고 해당 서브넷 이름은 AzureFirewallSubnet이 **되어야** 합니다.
      > [!NOTE]
-     > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure 방화벽 FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
+     > AzureFirewallSubnet 서브넷의 크기는 /26입니다. 서브넷 크기에 대한 자세한 내용은 [Azure Firewall FAQ](firewall-faq.md#why-does-azure-firewall-need-a-26-subnet-size)를 참조하세요.
 
 10. **주소 범위**에 **10.0.1.0/26**을 입력합니다.
 11. 다른 기본 설정을 사용한 다음, **만들기**를 클릭합니다.
@@ -151,7 +151,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
    |설정  |값  |
    |---------|---------|
-   |Name     |FW-DNAT-test|
+   |속성     |FW-DNAT-test|
    |Subscription     |\<구독\>|
    |Resource group     |**기존 리소스 사용**: RG-DNAT-Test |
    |위치     |전에 사용한 동일한 위치 선택|
@@ -218,7 +218,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 테스트 네트워크 환경 설정

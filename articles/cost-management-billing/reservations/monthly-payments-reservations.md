@@ -5,14 +5,14 @@ author: bandersmsft
 ms.reviewer: yashar
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 2689bdeb003cec0050141374165142a62f9ea337
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 77d663fa01e24acf63acd68d0b8d7cf4cc741055
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200404"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587093"
 ---
 # <a name="purchase-reservations-with-monthly-payments"></a>월별 결제로 예약 구매
 
@@ -48,7 +48,7 @@ ms.locfileid: "77200404"
 
 지불한 금액은 API, 사용 현황 데이터를 사용하여 그리고 비용 분석에서 볼 수 있습니다. 매월 지불한 예약의 경우, 사용 현황 데이터 및 Reservation Charges API에 빈도 값이 **되풀이**로 표시됩니다. 선불 예약의 경우 이 값이 **한 번**으로 표시됩니다.
 
-비용 분석의 기본 보기에 월별 구매가 표시됩니다. **요금 유형**에 **구매** 필터를 적용하고 **빈도**에 **되풀이** 필터를 적용하면 모든 구매가 표시됩니다. 예약만 보려면 **예약**에 필터를 적용합니다.
+비용 분석의 기본 보기에 월별 구매가 표시됩니다. 모든 구매를 보려면 **구매** 필터를 **요금 유형**에 적용하고 **되풀이** 필터를 **빈도**에 적용합니다. 예약만 보려면 **예약**에 필터를 적용합니다.
 
 ![비용 분석에서 예약 구매 비용을 보여주는 예](./media/monthly-payments-reservations/cost-analysis.png)
 
@@ -62,7 +62,7 @@ ms.locfileid: "77200404"
 
 매월 지불하는 예약을 교환하는 경우에는, 새 구매의 총 수명 비용이 반환되는 예약에 대해 취소되는 남은 지불액보다 커야 합니다. 교환에 대한 다른 제한이나 수수료는 없습니다. 선불로 지불한 예약을 교환하여 매월 청구되는 새로운 예약을 구매할 수 있습니다. 단, 새 예약의 수명 값이 반환되는 예약에 대해 비례 배분된 값보다 커야 합니다.
 
-매월 지불하는 예약을 취소하는 경우에는, 취소되는 향후 확정된 지불액에 대해 취소 수수료가 적용될 수 있습니다. 확정된 남은 지불액은 $50,000USD 환불 한도가 될 때까지 누적됩니다.
+매월 지불하는 예약을 취소하는 경우 12%의 취소 수수료가 취소된 약정 지불 금액에 적용될 수 있습니다. 그러나 Microsoft는 현재 위약금을 부과하지 않습니다. 취소된 약정 지불 금액은 $50,000 환불 한도에 도달할 때까지 누적됩니다. 취소 위약금이 청구되는 경우 환불 한도에 영향을 주지 않습니다.
 
 교환 및 환불에 대한 자세한 내용은 [Azure Reservations의 셀프 서비스 교환 및 환불](exchange-and-refund-azure-reservations.md)을 참조하세요.
 

@@ -11,14 +11,14 @@ ms.topic: tutorial
 ms.tgt_pltfrm: na
 ms.workload: na
 ms.custom: seodec18
-ms.date: 12/20/2019
+ms.date: 02/20/2020
 ms.author: spelluru
-ms.openlocfilehash: b0b48fea308b385fd8c66bf87d708b1c51f7f495
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: d7b060a2b35ca41bf87b69be706284174d7b1012
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977343"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587161"
 ---
 # <a name="tutorial-process-apache-kafka-for-event-hubs-events-using-stream-analytics"></a>자습서: Stream 분석을 사용하여 Event Hubs 이벤트에 대한 Apache Kafka 처리 
 이 문서에서는 데이터를 Kafka 지원 Event Hubs로 스트리밍하고 Azure Stream Analytics를 사용하여 처리하는 방법을 보여줍니다. 다음 단계를 안내합니다. 
@@ -42,34 +42,10 @@ ms.locfileid: "75977343"
 
 
 ## <a name="create-a-kafka-enabled-event-hubs-namespace"></a>Kafka 지원 Event Hubs 네임스페이스 만들기
+**표준** 계층 Event Hubs 네임스페이스를 만들면 Kafka 엔드포인트를 네임스페이스에 사용하도록 자동으로 설정됩니다. Kafka 프로토콜을 사용하는 애플리케이션에서 표준 계층 Event Hubs로 이벤트를 스트리밍할 수 있습니다. [Azure Portal을 사용하여 이벤트 허브 만들기](event-hubs-create.md)의 단계별 지침에 따라 **표준** 계층 Event Hubs 네임스페이스를 만듭니다. 
 
-1. [Azure Portal](https://portal.azure.com)에 로그인하고, 화면 왼쪽 위에서 **리소스 만들기**를 클릭합니다.
-2. **Event Hubs**를 검색하고 아래 표시된 옵션을 선택합니다.
-    
-    ![포털에서 Event Hubs 검색](./media/event-hubs-kafka-stream-analytics/select-event-hubs.png) 
-3. **Event Hubs** 페이지에서 **만들기**를 선택합니다.
-4. **네임스페이스 만들기** 페이지에서 다음 작업을 수행합니다. 
-    1. 네임스페이스에 고유한 **이름**을 제공합니다. 
-    2. **가격 책정 계층**을 선택합니다. 
-    3. **Kafka 사용**을 선택합니다. 이 단계는 **중요한** 단계입니다. 
-    4. 이벤트 허브 네임스페이스를 만들려는 **구독**을 선택합니다. 
-    5. 새 **리소스 그룹**을 만들거나 기존 리소스 그룹을 선택합니다. 
-    6. **위치**를 선택합니다. 
-    7. **만들기**를 클릭합니다.
-    
-        ![네임스페이스 만들기](./media/event-hubs-kafka-stream-analytics/create-event-hub-namespace-page.png) 
-4. **알림 메시지**에서 **리소스 그룹 이름**을 선택합니다. 
-
-    ![네임스페이스 만들기](./media/event-hubs-kafka-stream-analytics/creation-station-message.png)
-1. 리소스 그룹에서 **이벤트 허브 네임스페이스**를 선택합니다. 
-2. 네임스페이스가 만들어지면 **설정**에서 **공유 액세스 정책**을 선택합니다.
-
-    ![공유 액세스 정책 클릭](./media/event-hubs-kafka-stream-analytics/shared-access-policies.png)
-5. 기본 **RootManageSharedAccessKey**를 선택하거나 새 정책을 추가할 수 있습니다. 정책 이름을 클릭하고 **연결 문자열**을 복사합니다. 연결 문자열을 사용하여 Kafka 클라이언트를 구성합니다. 
-    
-    ![정책 선택](./media/event-hubs-kafka-stream-analytics/connection-string.png)  
-
-이제 Kafka 프로토콜을 사용하는 애플리케이션에서 Event Hubs로 이벤트를 스트리밍할 수 있습니다.
+> [!NOTE]
+> Kafka용 Event Hubs는 **표준** 및 **전용** 계층에서만 사용할 수 있습니다. **기본** 계층은 Event Hubs에서 Kafka를 지원하지 않습니다.
 
 ## <a name="send-messages-with-kafka-in-event-hubs"></a>Event Hubs에서 Kafka로 메시지 보내기
 

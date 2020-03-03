@@ -6,16 +6,19 @@ ms.service: cosmos-db
 ms.topic: sample
 ms.date: 12/02/2019
 ms.author: mjbrown
-ms.openlocfilehash: 286b2fc349fc16a79dd3048a164f4c86924f0a1c
-ms.sourcegitcommit: 9405aad7e39efbd8fef6d0a3c8988c6bf8de94eb
+ms.openlocfilehash: ca93b4fa85f5ef3ab87d108242e9cbfbd12036ab
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74873576"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77521866"
 ---
 # <a name="azure-powershell-samples-for-azure-cosmos-db-mongodb-api"></a>Azure Cosmos DB에 대한 Azure PowerShell 샘플 - MongoDB API
 
 다음 표에는 MongoDB API용 Azure Cosmos DB를 위한 샘플 Azure PowerShell 스크립트에 대한 링크가 포함되어 있습니다.
+
+> [!NOTE]
+> 현재 PowerShell, CLI 및 Resource Manager 템플릿을 사용하여 Azure Cosmos DB의 API for MongoDB 3.2 버전 계정(즉, `*.documents.azure.com` 형식의 엔드포인트를 사용하는 계정)만 만들 수 있습니다. 3\.6 버전의 계정을 만들려면 Azure Portal을 대신 사용하세요.
 
 | | |
 |---|---|

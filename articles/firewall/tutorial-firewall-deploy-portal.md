@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 10/28/2019
+ms.date: 02/21/2020
 ms.author: victorh
 ms.custom: mvc
-ms.openlocfilehash: 38ee180fa59fec6619010a3ded1f6837a5ca5239
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: 064fcf618914bca31ad9e7e60c76df8f599cd8bf
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371342"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77558884"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 Azure Firewall 배포 및 구성
 
@@ -26,7 +26,7 @@ Azure 서브넷에서 아웃바운드 네트워크로의 액세스를 제어하�
 
 네트워크 트래픽은 서브넷 기본 게이트웨이처럼 방화벽에 네트워크 트래픽을 라우팅할 경우 구성된 방화벽 규칙에 종속됩니다.
 
-이 자습서에서는 배포가 용이하도록 세 개의 서브넷을 사용하여 간소화된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 권장되며 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
+이 자습서에서는 배포가 용이하도록 세 개의 서브넷을 사용하여 간소화된 단일 VNet을 만듭니다. 프로덕션 배포의 경우 [허브 및 스포크 모델](https://docs.microsoft.com/azure/architecture/reference-architectures/hybrid-networking/hub-spoke)이 추천됩니다. 방화벽은 자체 VNet에 있습니다. 워크로드 서버는 하나 이상의 서브넷이 있는 동일한 지역에서 피어링된 VNet에 있습니다.
 
 * **AzureFirewallSubnet** - 방화벽은 이 서브넷에 있습니다.
 * **워크로드-SN** - 워크로드 서버는 이 서브넷에 있습니다. 이 서브넷의 네트워크 트래픽은 방화벽을 통해 이동합니다.
@@ -60,7 +60,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. Azure Portal 메뉴에서 **리소스 그룹**을 선택하거나 검색하여 어느 페이지에서든 *리소스 그룹*을 선택합니다. 그런 다음, **추가**를 선택합니다.
 3. **리소스 그룹 이름**에 *Test-FW-RG*를 입력합니다.
 4. **구독**의 경우 사용자의 구독을 선택합니다.
-5. **리소스 그룹 위치**의 경우 위치를 선택합니다. 만든 모든 후속 리소스는 동일한 위치에 있어야 합니다.
+5. **리소스 그룹 위치**의 경우 위치를 선택합니다. 만드는 다른 모든 리소스는 동일한 위치에 있어야 합니다.
 6. **만들기**를 선택합니다.
 
 ### <a name="create-a-vnet"></a>VNet 만들기
@@ -193,10 +193,11 @@ VNet에 방화벽을 배포합니다.
 6. **우선 순위**에 **200**을 입력합니다.
 7. **동작**에 대해 **허용**을 선택합니다.
 8. **규칙**, **대상 FQDN** 아래에서 **이름**으로 **Allow-Google**을 입력합니다.
-9. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
-10. **Protocol:port**에 **http, https**를 입력합니다.
-11. **대상 FQDN**에 대해 **[www.google.com]\(www.google.com)** 을 입력합니다.
-12. **추가**를 선택합니다.
+9. **원본 유형**에 대해 **IP 주소**를 선택합니다.
+10. **원본**에 대해 **10.0.2.0/24**를 선택합니다.
+11. **Protocol:port**에 **http, https**를 입력합니다.
+12. **대상 FQDN**에 대해 **[www.google.com]\(www.google.com)** 을 입력합니다.
+13. **추가**를 선택합니다.
 
 Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 제공 규칙 컬렉션을 포함합니다. 이러한 FQDN은 플랫폼에 대해 특정적이며 다른 용도로 사용할 수 없습니다. 자세한 내용은 [인프라 FQDN](infrastructure-fqdns.md)을 참조하세요.
 
@@ -209,10 +210,11 @@ Azure Firewall은 기본적으로 허용되는 인프라 FQDN에 대한 기본 �
 3. **이름**에 **Net-Coll01**을 입력합니다.
 4. **우선 순위**에 **200**을 입력합니다.
 5. **동작**에 대해 **허용**을 선택합니다.
-6. **규칙** 아래에서 **이름**에 **Allow-DNS**를 입력합니다.
+6. **규칙**, **IP 주소** 아래에서 **이름**에 대해 **Allow-DNS**를 입력합니다.
 7. **프로토콜**로 **UDP**를 선택합니다.
-8. **원본 주소**에 **10.0.2.0/24**를 입력합니다.
-9. 대상 주소에 **209.244.0.3,209.244.0.4**를 입력합니다.
+9. **원본 유형**에 대해 **IP 주소**를 선택합니다.
+1. **원본**에 대해 **10.0.2.0/24**를 선택합니다.
+2. **대상 주소**에 대해 **209.244.0.3,209.244.0.4**를 입력합니다.
 
    이것들은 CenturyLink에서 작동하는 공용 DNS 서버입니다.
 1. **대상 포트**에 **53**을 입력합니다.

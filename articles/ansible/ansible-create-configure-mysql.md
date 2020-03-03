@@ -4,12 +4,12 @@ description: Ansible을 사용하여 Azure Database for MySQL 서버를 만들�
 keywords: Ansible, Azure, DevOps, Bash, 플레이북, MySQK, 데이터베이스
 ms.topic: tutorial
 ms.date: 04/30/2019
-ms.openlocfilehash: d8c8fd361f37a9cb961012807fe40b905c10c047
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: f068b3022c94466a20b524240dc293392b1f42ff
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74156536"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77603115"
 ---
 # <a name="tutorial-configure-databases-in-azure-database-for-mysql-using-ansible"></a>자습서: Ansible을 사용하여 Azure Database for MySQL에서 데이터베이스 구성
 
@@ -28,7 +28,7 @@ ms.locfileid: "74156536"
 > * 사용 가능한 MySQL 서버 쿼리
 > * 연결된 서버에 있는 모든 데이터베이스 나열
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 [!INCLUDE [open-source-devops-prereqs-azure-subscription.md](../../includes/open-source-devops-prereqs-azure-subscription.md)]
 [!INCLUDE [ansible-prereqs-cloudshell-use-or-vm-creation2.md](../../includes/ansible-prereqs-cloudshell-use-or-vm-creation2.md)]
@@ -51,12 +51,12 @@ ms.locfileid: "74156536"
         location: "{{ location }}"
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
 * `myResourceGroup`이라는 리소스 그룹이 생성됩니다.
 * 리소스 그룹이 `eastus` 위치에 생성됩니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook rg.yml
@@ -100,12 +100,12 @@ ansible-playbook rg.yml
         name: "{{ mysqldb_name }}"
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
 * `vars` 섹션에서 `mysqlserver_name` 값은 고유해야 합니다.
 * `vars` 섹션에서 `<server_admin_password>`를 암호로 바꿉니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook mysql_create.yml
@@ -141,13 +141,13 @@ ansible-playbook mysql_create.yml
           endIpAddress: "255.255.255.255"
 ```
 
-플레이 북을 실행하기 전에 다음 정보를 참조하세요.
+플레이북을 실행하기 전에 다음 정보를 참조하세요.
 
 * vars 섹션에서 `startIpAddress` 및 `endIpAddress`를 바꿉니다. 연결할 범위에 해당하는 IP 주소 범위를 사용합니다.
 * Azure Database for MySQL에 대한 연결은 포트 3306을 통해 통신합니다. 회사 네트워크 내에서 연결하려고 하면 3306 포트를 통한 아웃바운드 트래픽이 허용되지 않을 수 있습니다. 이 경우 IT 부서에서 3306 포트를 열지 않으면 서버에 연결할 수 없습니다.
 * 이 플레이북은 REST API를 직접 사용할 수 있는 `azure_rm_resource` 모듈을 사용합니다.
 
-`ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
+다음과 같이 `ansible-playbook` 명령을 사용하여 플레이북을 실행합니다.
 
 ```bash
 ansible-playbook mysql_firewall.yml

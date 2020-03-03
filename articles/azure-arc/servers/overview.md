@@ -7,14 +7,14 @@ ms.subservice: azure-arc-servers
 author: mgoedtel
 ms.author: magoedte
 keywords: Azure Automation, DSC, PowerShell, Desired State Configuration, 업데이트 관리, 변경 내용 추적, 인벤토리, Runbook, Python, 그래픽, 하이브리드
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: overview
-ms.openlocfilehash: 33681d5c9e296d7c292dabbd64560e3d95c45af2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 57b44db9c1bb9a607ad8478b7208df40441020c2
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190316"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77586243"
 ---
 # <a name="what-is-azure-arc-for-servers-preview"></a>서버용 Azure Arc(미리 보기)란?
 
@@ -49,8 +49,12 @@ Azure 외부에 호스팅되는 하이브리드 머신에 이 환경을 제공�
 
 Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및 Linux 운영 체제 버전은 다음과 같습니다. 
 
-- Windows Server 2012 R2 이상
+- Windows Server 2012 R2 이상(Windows Server Core 포함)
 - Ubuntu 16.04 및 18.04
+- CentOS Linux 7
+- SLES(SUSE Linux Enterprise Server) 15
+- Red Hat Enterprise Linux(RHEL) 7
+- Amazon Linux 7
 
 >[!NOTE]
 >이 Windows용 Connected Machine 에이전트의 미리 보기 릴리스는 영어를 사용하도록 구성된 Windows Server만 지원합니다.
@@ -65,6 +69,15 @@ Azure Connected Machine 에이전트를 공식적으로 지원하는 Windows 및
 ### <a name="azure-subscription-and-service-limits"></a>Azure 구독 및 서비스 한도
 
 서버용 Azure Arc(미리 보기)를 사용하여 머신을 구성하기 전에, Azure Resource Manager [구독 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#subscription-limits) 및 [리소스 그룹 한도](../../azure-resource-manager/management/azure-subscription-service-limits.md#resource-group-limits)를 검토하여 연결할 머신 수를 계획합니다.
+
+## <a name="tls-12-protocol"></a>TLS 1.2 프로토콜
+
+Azure로 전송되는 데이터의 보안을 보장하려면 TLS(전송 계층 보안) 1.2를 사용하도록 머신을 구성하는 것이 좋습니다. 이전 버전의 TLS/SSL(Secure Sockets Layer)은 취약한 것으로 나타났으며, 여전히 이전 버전과 호환되지만 **사용하지 않는 것이 좋습니다**. 
+
+|플랫폼/언어 | 지원 | 추가 정보 |
+| --- | --- | --- |
+|Linux | Linux 배포판은 TLS 1.2 지원에 대해 [OpenSSL](https://www.openssl.org)을 사용하는 경향이 있습니다. | [OpenSSL Changelog](https://www.openssl.org/news/changelog.html)를 확인하여 OpenSSL 버전이 지원되는지 확인합니다.|
+| Windows Server 2012 R2 이상 | 지원됨, 기본적으로 활성화됩니다. | [기본 설정](https://docs.microsoft.com/windows-server/security/tls/tls-registry-settings)을 여전히 사용하는지 확인하려면|
 
 ### <a name="networking-configuration"></a>네트워킹 구성
 
@@ -122,13 +135,19 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 
 ## <a name="connected-machine-agent"></a>Connected Machine 에이전트
 
-아래에 나열된 위치에서 Windows 및 Linux용 Azure Connected Machine 에이전트 패키지를 다운로드할 수 있습니다.
+Windows 및 Linux용 Azure Connected Machine 에이전트 패키지는 아래에 나열된 위치에서 다운로드할 수 있습니다.
 
 - Microsoft 다운로드 센터에서 [Windows 에이전트 Windows Installer 패키지](https://aka.ms/AzureConnectedMachineAgent)를 다운로드합니다.
 - Linux 에이전트 패키지는 선호하는 배포 패키지 형식(.RPM 또는 .DEB)을 사용하여 Microsoft [패키지 리포지토리](https://packages.microsoft.com/)를 통해 배포됩니다.
 
 >[!NOTE]
 >이 미리 보기 기간에는 Ubuntu 16.04 또는 18.04에 적합한 한 가지 패키지만 릴리스되었습니다.
+
+Windows 및 Linux용 Azure Connected Machine 에이전트는 요구 사항에 따라 수동 또는 자동으로 최신 릴리스로 업그레이드할 수 있습니다. Windows의 경우 Windows 업데이트를 사용하고, Ubuntu의 경우 [apt](https://help.ubuntu.com/lts/serverguide/apt.html) 명령줄 도구를 사용하여 에이전트를 자동으로 업데이트할 수 있습니다.
+
+### <a name="agent-status"></a>에이전트 상태
+
+Connected Machine 에이전트는 5분마다 정기적인 하트비트 메시지를 서비스에 보냅니다. 15분 동안 받지 못하면 머신이 오프라인으로 간주되고, 포털에서 상태가 자동으로 **연결되지 않음**으로 변경됩니다. Connected Machine 에이전트로부터 후속 하트비트 메시지를 받으면 상태가 자동으로 **연결됨**으로 변경됩니다.
 
 ## <a name="install-and-configure-agent"></a>에이전트 설치 및 구성
 
@@ -138,7 +157,6 @@ az provider register --namespace 'Microsoft.GuestConfiguration'
 |--------|-------------|
 | 대화형 | [Azure Portal에서 머신 연결](onboard-portal.md)의 단계에 따라 머신 한 대 또는 약간의 머신에 에이전트를 수동으로 설치합니다.<br> Azure Portal에서 스크립트를 생성하고 머신에서 실행하여 에이전트의 설치 및 구성 단계를 자동화할 수 있습니다.|
 | 대규모 | [서비스 주체를 사용하여 머신 연결](onboard-service-principal.md)의 지침에 따라 여러 머신의 에이전트를 설치하고 구성합니다.<br> 이 방법은 비 대화형으로 머신을 연결하는 서비스 주체를 만듭니다.|
-
 
 ## <a name="next-steps"></a>다음 단계
 

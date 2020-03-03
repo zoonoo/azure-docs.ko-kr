@@ -5,17 +5,17 @@ author: djpmsft
 ms.author: daperlov
 ms.service: data-factory
 ms.topic: tutorial
-ms.date: 02/06/2020
-ms.openlocfilehash: 1449b34a9bbeb5692d25a5f84c4ee38e6c4e0a33
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.date: 02/16/2020
+ms.openlocfilehash: 1d0264a0b7ac4e97d9a2811ba61ab64fcedd6fb9
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77460538"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77587552"
 ---
 # <a name="mapping-data-flow-video-tutorials"></a>데이터 흐름 매핑 비디오 자습서
 
-다음은 Azure Data Factory 팀에서 만든 매핑 데이터 흐름 자습서 비디오의 목록입니다.
+다음은 Azure Data Factory 팀에서 만든 매핑 데이터 흐름 자습서 비디오의 목록입니다. 
 
 제품이 지속적으로 업데이트되므로 현재 Azure Data Factory 사용자 환경에서 일부 기능이 추가되거나 다른 기능을 수행합니다.
 
@@ -32,6 +32,8 @@ ms.locfileid: "77460538"
 [데이터 미리 보기 빠른 작업](https://www.youtube.com/watch?v=CP0TnNmaLA0)
 
 [매핑 데이터 흐름 성능 모니터링 및 관리](https://www.youtube.com/watch?v=fktIWdJiqTk)
+
+[타이밍 벤치마크](http://youtu.be/6CSbWm4lRhw?hd=1)
 
 ## <a name="transformation-overviews"></a>변환 개요
 
@@ -100,6 +102,8 @@ ms.locfileid: "77460538"
 [시작 시간 줄이기](https://youtu.be/FFCbU4ujCiY?t=528)
 
 [SQL DB 성능](https://youtu.be/iyZT5CY3V_4)
+
+[로깅 및 감사](https://www.youtube.com/watch?v=UC__LOyuf8M)
 
 ## <a name="mapping-data-flow-scenarios"></a>매핑 데이터 흐름 시나리오
 

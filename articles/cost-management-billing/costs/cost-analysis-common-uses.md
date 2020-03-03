@@ -4,16 +4,16 @@ description: 이 문서에서는 Azure Cost Management에서 일반적인 비용
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
-ms.openlocfilehash: 2102e3af26c8f5c4ed85543bc19360a923d070f3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1d9a498185e76f9771ec98656b1cad914b0f3214
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199979"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77562584"
 ---
 # <a name="common-cost-analysis-uses"></a>일반적인 비용 분석 사용
 
@@ -83,6 +83,9 @@ Azure 서비스별 비용 보기는 비용이 가장 많이 드는 인프라 파
 ## <a name="view-monthly-ea-cost-breakdown"></a>월간 EA 비용 분석 보기
 
 EA 등록은 전체 조직에 대한 비용을 계산합니다. 시간에 따라 비용이 계산되고 청구서가 발부되는 방법을 이해하면 비용을 책임감 있게 관리할 수 있도록 적절한 관련자와 협력할 수 있습니다.
+
+비용은 활성 등록에 대해서만 표시됩니다. 등록(비활성)을 새 등록(활성)으로 이전한 경우 이전 등록에 대한 비용은 Cost Management에 표시되지 않습니다.
+
 
 1. Azure Portal에서 **Cost Management + 청구** > **개요**로 이동합니다.
 1. 현재 달의 **분석**을 클릭하고 금액 약정 번다운을 표시합니다.  

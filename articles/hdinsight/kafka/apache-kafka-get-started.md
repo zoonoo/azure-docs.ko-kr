@@ -5,21 +5,21 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.service: hdinsight
-ms.custom: mvc
 ms.topic: quickstart
-ms.date: 10/01/2019
-ms.openlocfilehash: 76360ec8de645d926daec0db878906c73d0da948
-ms.sourcegitcommit: f0f73c51441aeb04a5c21a6e3205b7f520f8b0e1
+ms.custom: mvc
+ms.date: 02/24/2020
+ms.openlocfilehash: 286b16d850b1c1c26069c50cd4045bf7f3dd3c14
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77030029"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623488"
 ---
 # <a name="quickstart-create-apache-kafka-cluster-in-azure-hdinsight-using-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure HDInsight에서 Apache Kafka 클러스터 만들기
 
-Apache Kafka는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다.
+[Apache Kafka](./apache-kafka-introduction.md)는 오픈 소스 분산형 스트리밍 플랫폼입니다. 게시-구독 메시지 큐와 유사한 기능을 제공하므로 메시지 브로커로 자주 사용됩니다.
 
-이 빠른 시작에서는 Azure Portal을 사용하여 [Apache Kafka](https://kafka.apache.org) 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Apache Kafka를 사용하여 메시지를 받거나 보내기 위해 제공되는 유틸리티를 사용하는 방법을 알아봅니다.
+이 빠른 시작에서는 Azure Portal을 사용하여 Apache Kafka 클러스터를 만드는 방법에 대해 알아봅니다. 또한 Apache Kafka를 사용하여 메시지를 받거나 보내기 위해 제공되는 유틸리티를 사용하는 방법을 알아봅니다. 사용 가능한 구성에 대한 자세한 설명은 [HDInsight에서 클러스터 설정](../hdinsight-hadoop-provision-linux-clusters.md)을 참조하세요. 포털을 사용하여 클러스터를 만드는 방법에 대한 자세한 내용은 [포털에서 클러스터 만들기](../hdinsight-hadoop-create-linux-clusters-portal.md)를 참조하세요.
 
 [!INCLUDE [delete-cluster-warning](../../../includes/hdinsight-delete-cluster-warning.md)]
 
@@ -33,23 +33,25 @@ SSH 클라이언트. 자세한 내용은 [SSH를 사용하여 HDInsight(Apache H
 
 ## <a name="create-an-apache-kafka-cluster"></a>Apache Kafka 클러스터 만들기
 
-HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행합니다.
+HDInsight에서 Apache Kafka 클러스터를 만들려면 다음 단계를 사용합니다.
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 
-1. 왼쪽 메뉴에서 **+ 리소스 만들기** > **Analytics** > **HDInsight**로 이동합니다.
+1. 위쪽 메뉴에서 **+ 리소스 만들기**를 선택합니다.
 
-    ![리소스 HDInsight를 만드는 Azure Portal](./media/apache-kafka-get-started/create-hdinsight-cluster.png)
+    ![리소스 HDInsight를 만드는 Azure Portal](./media/apache-kafka-get-started/azure-portal-create-resource.png)
 
-1. **기본 사항**에서 다음 값을 입력하거나 선택합니다.
+1. **분석** > **Azure HDInsight**를 차례로 선택하여  **HDInsight 클러스터 만들기** 페이지로 이동합니다.
+
+1. **기본** 탭에서 다음 정보를 제공합니다.
 
     |속성  |Description  |
     |---------|---------|
-    |Subscription    |  Azure 구독을 선택합니다. |
+    |Subscription    |  드롭다운 목록에서 클러스터에 사용할 Azure 구독을 선택합니다. |
     |Resource group     | 리소스 그룹을 만들거나 기존 리소스 그룹을 선택합니다.  리소스 그룹은 Azure 구성 요소의 컨테이너입니다.  이 경우 리소스 그룹에는 HDInsight 클러스터 및 종속 Azure Storage 계정이 포함되어 있습니다. |
-    |클러스터 이름   | Hadoop 클러스터에 사용할 이름을 입력합니다. HDInsight의 모든 클러스터는 동일한 DNS 네임스페이스를 공유하므로 이 이름은 고유해야 합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
-    |위치    | 클러스터를 만들려는 Azure 위치를 선택합니다.  성능 향상을 위해 가까운 곳을 선택합니다. |
-    |클러스터 유형| **클러스터 유형 선택**을 선택합니다. 그런 다음, 클러스터 유형으로 **Kafka**를 선택합니다.|
+    |클러스터 이름   | 전역적으로 고유한 이름을 입력합니다. 이름은 문자, 숫자 및 하이픈을 포함하여 최대 59자로 구성할 수 있습니다. 이름의 첫 번째 및 마지막 문자에는 하이픈을 사용할 수 없습니다. |
+    |지역    | 드롭다운 목록에서 클러스터를 만들 지역을 선택합니다.  더 나은 성능을 위해 가까운 지역을 선택합니다. |
+    |클러스터 유형| **클러스터 유형 선택**을 선택하여 목록을 엽니다. 목록에서 클러스터 유형으로 **Kafka**를 선택합니다.|
     |버전|클러스터 유형에 대한 기본 버전이 지정됩니다. 다른 버전을 지정하려면 드롭다운 목록에서 선택합니다.|
     |클러스터 로그인 사용자 이름 및 암호    | 기본 로그인 이름은 **admin**입니다. 암호는 10자 이상이어야 하며, 숫자, 대문자, 소문자 및 영숫자가 아닌 문자(' " ` 문자 제외\)를 각각 하나 이상 포함해야 합니다. "Pass@word1"과 같은 일반적인 암호를 **제공하지 않았는지** 확인합니다.|
     |SSH(보안 셸) 사용자 이름 | 기본 사용자 이름은 **sshuser**입니다.  SSH 사용자 이름에 다른 이름을 입력할 수 있습니다. |
@@ -100,15 +102,13 @@ HDInsight 클러스터에 Apache Kafka를 만들려면 다음 단계를 수행�
 
 ## <a name="connect-to-the-cluster"></a>클러스터에 연결
 
-1. Apache Kafka 클러스터의 기본 헤드 노드에 연결하려면 다음 명령을 사용합니다. `sshuser`를 SSH 사용자 이름으로 바꿉니다. `mykafka`를 Apache Kafka 클러스터의 이름으로 바꿉니다.
+1. [ssh command](../hdinsight-hadoop-linux-use-ssh-unix.md) 명령을 사용하여 클러스터에 연결합니다. CLUSTERNAME을 클러스터 이름으로 바꿔서 아래 명령을 편집하고, 다음 명령을 입력합니다.
 
-    ```bash
-    ssh sshuser@mykafka-ssh.azurehdinsight.net
+    ```cmd
+    ssh sshuser@CLUSTERNAME-ssh.azurehdinsight.net
     ```
 
-2. 클러스터에 처음 연결할 때 호스트의 신뢰성을 설정할 수 없다는 경고가 SSH 클라이언트에 표시될 수도 있습니다. 메시지가 표시되면 __예__ 를 입력한 다음, __Enter__ 키를 눌러 SSH 클라이언트의 신뢰할 수 있는 서버 목록에 호스트를 추가합니다.
-
-3. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
+1. 확인 메시지가 표시되면 SSH 사용자의 암호를 입력합니다.
 
     연결되면 다음 텍스트와 유사한 정보가 표시됩니다.
 
@@ -155,6 +155,7 @@ Kafka를 사용할 때는 *Apache Zookeeper* 및 *Broker* 호스트를 알고 �
     ```bash
     export clusterName=$(curl -u admin:$password -sS -G "http://headnodehost:8080/api/v1/clusters" | jq -r '.items[].Clusters.cluster_name')
     ```
+
     > [!Note]  
     > 클러스터 외부에서 이 프로세스를 수행하는 경우 클러스터 이름을 저장하는 다른 절차가 있습니다. Azure Portal에서 소문자로 클러스터 이름을 가져옵니다. 그런 다음, 다음 명령에서 `<clustername>`에 대한 클러스터 이름을 대체하고 `export clusterName='<clustername>'`을 실행합니다.
 
@@ -295,9 +296,7 @@ Azure Portal을 사용하여 리소스 그룹을 제거하려면:
 3. __리소스 그룹 삭제__ 를 선택한 다음 확인합니다.
 
 > [!WARNING]  
-> 클러스터가 만들어지면 HDInsight 클러스터 청구가 시작되고 클러스터가 삭제되면 중지됩니다. 분 단위로 청구되므로 더 이상 사용하지 않으면 항상 클러스터를 삭제해야 합니다.
->
-> HDInsight 클러스터의 Apache Kafka를 삭제하면 Kafka에 저장된 데이터가 모두 삭제됩니다.
+> HDInsight에서 Apache Kafka 클러스터를 삭제하면 Kafka에 저장된 모든 데이터가 삭제됩니다.
 
 ## <a name="next-steps"></a>다음 단계
 

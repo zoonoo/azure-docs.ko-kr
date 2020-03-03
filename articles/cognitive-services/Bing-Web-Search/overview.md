@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 12/05/2019
 ms.author: aahi
 ms.custom: seodec2018
-ms.openlocfilehash: 6615f166ced4a93115f9cbaae1c6ce5b57cf57bc
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: a7b2627b5837a124ebbcd76783bb49679cbe6313
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892994"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650285"
 ---
 # <a name="what-is-the-bing-web-search-api"></a>Bing Web Search API란?
 
@@ -30,7 +30,7 @@ Bing Web Search API는 사용자 쿼리에 즉각적인 답변을 제공하는 R
 
 Bing Web Search는 즉각적인 답변에 대한 액세스 권한만 주는 것이 아니라, 사용자의 검색 결과를 사용자 지정할 수 있는 추가 특성과 기능을 제공합니다.
 
-| 기능 | 설명 |
+| 기능 | Description |
 |---------|-------------|
 | [실시간 검색 용어 제안](../bing-autosuggest/get-suggested-search-terms.md) | Bing Autosuggest API를 통해 입력하는 대로 제안되는 검색 용어를 표시하여 애플리케이션 환경을 향상시킵니다. |
 | [콘텐츠 형식별 결과 필터링 및 제한](filter-answers.md) | 웹 페이지, 이미지, 비디오, 안전 검색 등에 대한 필터 및 쿼리 매개 변수를 사용하여 검색 결과를 사용자 지정하고 구체화합니다. |
@@ -40,7 +40,7 @@ Bing Web Search는 즉각적인 답변에 대한 액세스 권한만 주는 것�
 
 ## <a name="workflow"></a>워크플로
 
-Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 이 서비스는 [REST API](quickstarts/python.md) 또는 [Bing Web Search SDK](web-sdk-python-quickstart.md)를 사용하여 액세스할 수 있습니다.
+Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석할 수 있는 모든 프로그래밍 언어에서 쉽게 호출할 수 있습니다. 서비스는 [REST API](quickstarts/python.md) 또는 [Bing Web Search 클라이언트 라이브러리](./quickstarts/client-libraries.md)를 사용하여 액세스할 수 있습니다.
 
 1. Bing Search API에 대한 [Azure 리소스를 만듭니다](https://docs.microsoft.com/azure/cognitive-services/cognitive-services-apis-create-account). Azure 구독이 없는 경우 [체험 계정을 만들 수 있습니다](https://azure.microsoft.com/try/cognitive-services/?api=bing-web-search-api).  
 2. [Bing Web Search API에 요청을 보냅니다](quickstarts/python.md).
@@ -48,7 +48,7 @@ Bing Web Search API는 HTTP 요청을 수행하고 JSON 응답을 구문 분석�
 
 ## <a name="next-steps"></a>다음 단계
 
-* [Python 빠른 시작](quickstarts/python.md)을 사용하여 Bing Web Search API를 처음 호출합니다.  
+* [Python 빠른 시작](./quickstarts/client-libraries.md?pivots=programming-language-python)을 사용하여 Bing Web Search API를 처음 호출합니다.  
 * [단일 페이지 웹앱을 빌드](tutorial-bing-web-search-single-page-app.md)합니다.
 * [Web Search API v7 참조](https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-web-api-v7-reference) 설명서를 검토합니다.  
 * Bing Web Search에 대한 [사용 및 표시 요구 사항](UseAndDisplayRequirements.md)에 대해 자세히 알아봅니다.  

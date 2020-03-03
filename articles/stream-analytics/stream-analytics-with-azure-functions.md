@@ -7,12 +7,12 @@ ms.service: stream-analytics
 ms.topic: tutorial
 ms.custom: mvc
 ms.date: 01/27/2020
-ms.openlocfilehash: 1797654f290d751eb5c1cb65a77aaa7ca7a35aa1
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 837174b3ccc08a74583587cb9efd34f8f720aec5
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772884"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589456"
 ---
 # <a name="tutorial-run-azure-functions-from-azure-stream-analytics-jobs"></a>자습서: Azure Stream Analytics 작업에서 Azure Functions 실행 
 
@@ -191,11 +191,16 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 
 이벤트를 Azure Functions에 전송하는 동안 오류가 발생하면 Stream Analytics는 대부분의 작업을 다시 시도합니다. 모든 http 예외는 http 오류 413(엔터티가 너무 큼) 예외를 제외하고 성공할 때까지 다시 시도됩니다. 엔터티가 너무 큰 오류는 [정책 다시 시도 또는 삭제](stream-analytics-output-error-policy.md)가 적용되는 데이터 오류로 처리됩니다.
 
+> [!NOTE]
+> Stream Analytics에서 Azure Functions로의 HTTP 요청에 대한 시간 제한은 100초로 설정됩니다. Azure Functions 앱에서 일괄 처리하는 데 100초 넘게 걸리는 경우 Stream Analytics 오류가 발생합니다.
+
 ## <a name="known-issues"></a>알려진 문제
 
 Azure 포털에서 최대 일괄 처리 크기/최대 일괄 처리 수 값을 빈 값(기본값)으로 재설정하려고 시도하면, 저장할 때 값이 이전에 입력된 값으로 다시 변경됩니다. 이 경우 이러한 필드에 대해 기본값을 수동으로 입력하십시오.
 
-Azure Functions에서 [Http 라우팅](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)을 사용하는 것은 현재 Stream Analytics에서 지원하지 않습니다.
+Azure Functions에서 [HTTP 라우팅](https://docs.microsoft.com/sandbox/functions-recipes/routes?tabs=csharp)을 사용하는 것은 현재 Stream Analytics에서 지원되지 않습니다.
+
+가상 네트워크에서 호스팅되는 Azure Functions에 연결하기 위한 지원은 사용하도록 설정되지 않습니다.
 
 ## <a name="clean-up-resources"></a>리소스 정리
 

@@ -8,16 +8,16 @@ ms.author: rgarcia
 ms.date: 02/24/2019
 ms.topic: tutorial
 ms.service: azure-spatial-anchors
-ms.openlocfilehash: f0029fcf8e9efdea529212a7cca49cc8660c623f
-ms.sourcegitcommit: 653e9f61b24940561061bd65b2486e232e41ead4
+ms.openlocfilehash: 3b377f87bdba40c90cb3af6caef2c089d7b7de49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/21/2019
-ms.locfileid: "74276959"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77615488"
 ---
 # <a name="tutorial-share-azure-spatial-anchors-across-sessions-and-devices"></a>자습서: 세션 및 디바이스에서 Azure Spatial Anchors 공유
 
-이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 한 세션에서 앵커를 만든 다음, 동일한 디바이스나 다른 디바이스에서 이 세션을 찾는 방법을 알아봅니다. 동시에 같은 위치에 있는 여러 디바이스에서 동일한 앵커를 찾을 수도 있습니다.
+이 자습서에서는 [Azure Spatial Anchors](../overview.md)를 사용하여 한 세션에서 앵커를 만든 다음, 동일한 디바이스나 다른 디바이스에서 이 세션을 찾는 방법을 알아봅니다. 같은 위치에 있는 여러 디바이스에서 동시에 동일한 앵커를 찾을 수도 있습니다.
 
 ![지속성](./media/persistence.gif)
 
@@ -44,13 +44,13 @@ Azure Spatial Anchors는 시간이 지남에 따라 디바이스에서 위치를
 
 ## <a name="deploy-your-sharing-anchors-service"></a>공유 앵커 서비스 배포
 
-## <a name="visual-studiotabvs"></a>[Visual Studio](#tab/VS)
+## <a name="visual-studio"></a>[Visual Studio](#tab/VS)
 
 Visual Studio를 열고 `Sharing\SharingServiceSample` 폴더에서 프로젝트를 엽니다.
 
 [!INCLUDE [Publish Azure](../../../includes/spatial-anchors-publish-azure.md)]
 
-## <a name="visual-studio-codetabvsc"></a>[Visual Studio Code](#tab/VSC)
+## <a name="visual-studio-code"></a>[Visual Studio Code](#tab/VSC)
 
 VS Code에 서비스를 배포하기 전에 리소스 그룹 및 App Service 계획을 만들어야 합니다.
 
@@ -74,7 +74,7 @@ VS Code에 서비스를 배포하기 전에 리소스 그룹 및 App Service 계
 
 **호스팅 계획 구성** 대화 상자에서 다음 설정을 사용합니다.
 
-| 설정 | 제안 값 | 설명 |
+| 설정 | 제안 값 | Description |
 |-|-|-|
 |App Service 계획| MySharingServicePlan | App Service 플랜의 이름입니다. |
 | 위치 | 미국 서부 | 웹앱이 호스팅된 데이터 센터입니다. |
@@ -89,6 +89,12 @@ Visual Studio Code를 열고 `Sharing\SharingServiceSample` 폴더에서 프로�
 ## <a name="deploy-the-sample-app"></a>샘플 앱 배포
 
 [!INCLUDE [Run Share Anchors Sample](../../../includes/spatial-anchors-run-share-sample.md)]
+
+## <a name="troubleshooting"></a>문제 해결
+
+### <a name="unity-20193"></a>Unity 2019.3
+
+호환성이 손상되는 변경으로 인해 Unity 2019.3은 현재 지원되지 않습니다. Unity 2019.1 또는 2019.2를 사용하세요.
 
 [!INCLUDE [Clean-up section](../../../includes/clean-up-section-portal.md)]
 

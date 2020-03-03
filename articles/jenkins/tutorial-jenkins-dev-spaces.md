@@ -3,12 +3,12 @@ title: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 
 description: 지속적인 통합 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 9dba0307db8ebbf07422fd770ea336b2abc031bd
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74209662"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619992"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
@@ -26,7 +26,7 @@ Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필�
 
 이 자습서에서는 핵심 Azure 서비스, AKS, ACR, Azure Dev Spaces, Jenkins [파이프라인](https://jenkins.io/doc/book/pipeline/) 및 플러그 인, GitHub에 대해 중간 수준의 지식을 갖고 있다고 가정합니다. kubectl 및 Helm 같은 지원 도구에 대한 기본 지식이 있으면 도움이 됩니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 계정. Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -333,7 +333,7 @@ Jenkins 파이프라인 구성과 Jenkinsfile은 CI 파이프라인의 단계를
     }
 ```
 
-1. `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`를 변경하고 끌어오기 요청을 만듭니다. 예:
+1. `mywebapi/src/main/java/com/ms/sample/mywebapi/Application.java`를 변경하고 끌어오기 요청을 만듭니다. 다음은 그 예입니다.
 
     ```java
     public String index() {
@@ -409,16 +409,5 @@ az group delete -y --no-wait -n MyResourceGroup
 
 ## <a name="next-steps"></a>다음 단계
 
-이 문서에서는 Jenkins용 Azure Dev Spaces 플러그 인 및 Azure Container Registry 플러그 인을 사용하여 코드를 작성하고 개발 공간에 배포하는 방법을 알아보았습니다.
-
-다음 리소스 목록은 Azure Dev Spaces, ACR 작업 및 Jenkins와의 CI/CD에 대한 자세한 정보를 제공합니다.
-
-Azure Dev Spaces:
-* [Azure Dev Spaces 작동 및 구성 방식](https://docs.microsoft.com/azure/dev-spaces/how-dev-spaces-works)
-
-ACR 작업:
-* [ACR 작업을 사용하여 OS 및 프레임워크 패치 자동화](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-* [코드 커밋 시 자동 빌드](https://docs.microsoft.com/azure/container-registry/container-registry-tasks-overview)
-
-Azure에서 Jenkins와의 CI/CD:
-* [Jenkins 지속적인 배포](https://docs.microsoft.com/azure/aks/jenkins-continuous-deployment)
+> [!div class="nextstepaction"]
+> [Azure에서 Jenkins를 사용하는 CI/CD](jenkins-continuous-deployment.md)

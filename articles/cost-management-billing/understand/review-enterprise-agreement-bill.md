@@ -6,14 +6,14 @@ ms.reviewer: amberb
 tags: billing
 ms.service: cost-management-billing
 ms.topic: tutorial
-ms.date: 02/04/2020
+ms.date: 02/24/2020
 ms.author: banders
-ms.openlocfilehash: 1affe81228b491ea45f610d741d454fa38f2029a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 017f617bff14eb0c031c40240ca6c1ac62c9c941
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199112"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598224"
 ---
 # <a name="understand-your-azure-enterprise-agreement-bill"></a>Azure 기업계약 청구서 이해
 
@@ -55,7 +55,7 @@ ms.locfileid: "77199112"
     - Visual Studio Professional(연간)
 - **Marketplace 요금**: Azure Marketplace의 구매 및 사용량이 조직의 크레딧에 적용되지 않습니다. 따라서 Marketplace 요금에 대해서는 크레딧 잔액과 관계없이 청구서를 받게 됩니다. Enterprise Portal에서 엔터프라이즈 관리자는 Marketplace 구매를 사용하거나 사용하지 않도록 설정할 수 있습니다.
 
-청구서에는 모든 Azure 사용량, Marketplace 요금이 차례로 표시됩니다. 크레딧 잔액이 있는 경우 Azure 사용량에 적용됩니다.
+청구서에는 Azure 사용량 요금과 관련 비용이 먼저 표시되고, 그 다음에 마켓플레이스 요금이 표시됩니다. 크레딧 잔액이 있는 경우 Azure 사용량에 적용되며, Azure 사용량과 마켓플레이스 사용량이 아무런 비용 없이 청구서에 표시됩니다.
 
 Enterprise Portal의 **보고서** > **사용량 요약**에 표시된 총 결합 금액을 Azure 청구서와 비교합니다. **사용량 요약**의 금액에는 세금이 포함되어 있지 않습니다.
 

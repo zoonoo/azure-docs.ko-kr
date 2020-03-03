@@ -8,12 +8,12 @@ ms.subservice: cosmosdb-sql
 ms.devlang: dotnet
 ms.topic: quickstart
 ms.date: 01/05/2020
-ms.openlocfilehash: a933caf0b0033cdcd1f27d4f795ba6466f34072a
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.openlocfilehash: bc7e77cc498958b2f8f0c5b2d5ab2d59db97a235
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77210349"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560833"
 ---
 # <a name="quickstart-create-an-azure-cosmos-account-database-container-and-items-from-the-azure-portal"></a>빠른 시작: Azure Portal에서 Azure Cosmos 계정, 데이터베이스, 컨테이너 및 항목 만들기
 
@@ -100,6 +100,12 @@ Azure Portal에서 데이터 탐색기를 사용하여 데이터베이스와 컨
 ## <a name="clean-up-resources"></a>리소스 정리
 
 [!INCLUDE [cosmosdb-delete-resource-group](../../includes/cosmos-db-delete-resource-group.md)]
+
+데이터베이스만 삭제하고 나중에 Azure Cosmos 계정을 사용하려면 다음 단계에 따라 데이터베이스를 삭제할 수 있습니다.
+
+* Azure Cosmos 계정으로 이동합니다.
+* **데이터 탐색기**를 열고, 마우스 오른쪽 단추로 삭제할 데이터베이스를 클릭하고, **데이터베이스 삭제**를 선택합니다.
+* 데이터베이스 ID/데이터베이스 이름을 입력하여 삭제 작업을 확인합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 

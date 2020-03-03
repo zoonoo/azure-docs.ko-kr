@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: tutorial
 ms.date: 01/30/2020
-ms.openlocfilehash: de9ed700363bd6578ac49f0add0c48dc33356692
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 972f0aa1f6d05c3cc65c62c0991fad87ab4676c4
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76982609"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623625"
 ---
 # <a name="tutorial-predict-automobile-price-with-the-designer-preview"></a>자습서: 디자이너(미리 보기)를 사용하여 자동차 가격 예측
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -260,7 +260,7 @@ Enterprise 버전에 Azure Machine Learning 작업 영역이 있으면 [다음 �
 
 ## <a name="run-the-pipeline"></a>파이프라인 실행
 
-파이프라인이 모두 설정되었으니 파이프라인 실행을 제출할 수 있습니다.
+파이프라인이 모두 설정되었으므로 파이프라인 실행을 제출 제출하여 기계 학습 모델을 학습시킬 수 있습니다. 디자이너에서 파이프라인을 빌드하는 동안 언제든지 파이프라인 실행을 제출할 수 있습니다. 이를 통해 진행 중인 작업을 확인하고 파이프라인이 예상대로 작동하는지 확인할 수 있습니다.
 
 1. 캔버스 위쪽에서 **실행**을 선택합니다.
 

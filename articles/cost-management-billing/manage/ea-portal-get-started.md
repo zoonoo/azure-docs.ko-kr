@@ -3,16 +3,16 @@ title: Azure Enterprise Portal 시작
 description: 이 문서에서는 Azure EA(Azure 기업계약) 고객이 Azure Enterprise Portal을 사용하는 방법을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: e1c6eac81968ef6ecbc12ec52415c2aa9680f3e1
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: fa55eebe6d051addcb5249908fd52e7e6ce44f12
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200832"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598411"
 ---
 # <a name="get-started-with-the-azure-enterprise-portal"></a>Azure Enterprise Portal 시작
 
@@ -559,7 +559,7 @@ Azure EA 등록에서 필요한 만큼 부서를 만들 수 있습니다. 사용
 
 부서 및 구독을 만든 후에는 사용량 보고서에서 데이터를 볼 수 있습니다. 이 정보는 부서 수준에서 사용량을 추적하고 비용 및 지출을 관리하는 데 도움이 됩니다.
 
-Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Reporting API 설명서](https://ea.azure.com/helpdocs/reportingAPI)를 참조하세요.
+Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
 
 ### <a name="can-i-set-a-spending-quota-and-get-alerts-as-i-approach-my-limit"></a>지출 할당량을 설정하고 한도에 도달하면 경고를 받을 수 있나요?
 
@@ -571,7 +571,7 @@ Reporting API를 통해 사용량 데이터에 액세스할 수도 있습니다.
 
 _리소스 그룹_ 및 _태그_를 사용하는 경우 이 정보는 서비스 수준에서 추적되며, 세부 사용량 다운로드(CSV) 파일에서 이 정보에 액세스할 수 있습니다. Azure Enterprise Portal에서 [사용량 현황 보고서 다운로드](https://ea.azure.com/report/downloadusage)를 참조하세요.
 
-API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 Azure Enterprise Portal 설명서의 [Reporting API](https://ea.azure.com/helpdocs/reportingAPI)를 참조하세요.
+API를 통해 사용량에 액세스할 수도 있습니다. 자세한 내용 및 샘플 코드는 [Azure 엔터프라이즈 REST API](https://docs.microsoft.com/azure/cost-management-billing/manage/ea-portal-rest-apis)를 참조하세요.
 
 > [!NOTE]
 > Azure Resource Manager 작업을 지원하는 리소스에만 태그를 적용할 수 있습니다. 클래식 배포 모델을 통해(예: 클래식 포털을 통해) 가상 머신, 가상 네트워크 또는 스토리지를 만든 경우 해당 리소스에 태그를 적용할 수 없습니다. 태그를 지원하려면 Resource Manager를 통해 이러한 리소스를 다시 배포해야 합니다. 다른 모든 리소스는 태그 지정을 지원합니다.

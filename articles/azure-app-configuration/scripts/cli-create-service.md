@@ -1,23 +1,23 @@
 ---
 title: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 만들기
 titleSuffix: Azure App Configuration
-description: Azure CLI 스크립트 샘플 - Azure App Configuration 저장소 만들기
+description: Azure CLI 스크립트를 사용하여 Azure App Configuration 저장소를 만듭니다.
 services: azure-app-configuration
 author: lisaguthrie
 ms.service: azure-app-configuration
 ms.topic: sample
 ms.date: 01/24/2020
 ms.author: lcozzens
-ms.openlocfilehash: 11f3aec10aed0dc8bc0c9831d563dca2b0c1a6fb
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 667cf9545d87bd9277c59d066933710339b6c079
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468358"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77623076"
 ---
 # <a name="create-an-azure-app-configuration-store"></a>Azure App Configuration 저장소 만들기
 
-이 샘플 스크립트는 임의의 이름이 있는 새 리소스 그룹에 새 Azure App Configuration 인스턴스를 만듭니다.
+이 샘플 스크립트는 새 Azure App Configuration 인스턴스를 새 리소스 그룹에 만듭니다.
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
@@ -44,7 +44,9 @@ appConfigHostname=$(az appconfig create \
   --location eastus \
   --resource-group $myResourceGroupName \
   --query hostName \
-  -o tsv)
+  --sku free \
+  -o tsv
+  )
 
 # Get the AppConfig connection string 
 appConfigConnectionString=$(az appconfig credential list \

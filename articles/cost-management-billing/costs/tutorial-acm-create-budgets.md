@@ -4,17 +4,17 @@ description: 이 자습서는 사용자가 소비하는 Azure 서비스 비용�
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/10/2020
+ms.date: 02/23/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: adwise
 ms.custom: seodec18
-ms.openlocfilehash: 9900a2f7a41a6b35be75326b9412ec628328e39b
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 3b479f85475be6409a6fa6621357400e954d22c8
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132094"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77582394"
 ---
 # <a name="tutorial-create-and-manage-azure-budgets"></a>자습서: Azure 예산 만들기 및 관리
 
@@ -34,7 +34,7 @@ Cost Management의 예산을 통해 조직 책임을 계획하고 주도할 수 
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기
 > * PowerShell을 사용하여 예산 만들기 및 편집
-> * 예산 편집
+> * Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -160,6 +160,16 @@ $ActionGroupId = (Set-AzureRmActionGroup -ResourceGroupName YourResourceGroup -N
 
 New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -StartDate 2020-02-01 -TimeGrain Monthly -EndDate 2022-12-31 -ContactEmail test@test.com -NotificationKey Key1 -NotificationThreshold 0.8 -NotificationEnabled -ContactGroup $ActionGroupId
 ```
+## <a name="create-a-budget-with-an-azure-resource-manager-template"></a>Azure Resource Manager 템플릿을 사용하여 예산 만들기
+
+Azure Resource Manager 템플릿을 사용하여 예산을 만들 수 있습니다. 이 템플릿은 리소스 그룹에 속한 예산을 만드는 데 도움이 되며, 엔터프라이즈 계약 고객만 지원합니다.
+
+다음 이미지를 선택하고 Azure Portal에 로그인하여 템플릿을 엽니다.
+
+[![Azure에 예산 만들기 템플릿 배포](./media/tutorial-acm-create-budgets/deploy-to-azure.png)](https://portal.azure.com/#create/Microsoft.Template/uri/https%3a%2f%2fraw.githubusercontent.com%2fAzure%2fazure-quickstart-templates%2fmaster%2fcreate-budget%2fazuredeploy.json)
+
+모든 템플릿 매개 변수와 해당 설명의 목록을 보려면 [예산 만들기](https://azure.microsoft.com/resources/templates/create-budget/) 템플릿을 참조하세요.
+
 
 ## <a name="next-steps"></a>다음 단계
 
@@ -168,7 +178,7 @@ New-AzureRmConsumptionBudget -Amount 100 -Name TestPSBudget -Category Cost -Star
 > [!div class="checklist"]
 > * Azure Portal에서 예산 만들기
 > * PowerShell을 사용하여 예산 만들기 및 편집
-> * 예산 편집
+> * Azure Resource Manager 템플릿을 사용하여 예산 만들기
 
 비용 관리 데이터에 대한 되풀이 내보내기를 만들려면 다음 자습서로 진행합니다.
 

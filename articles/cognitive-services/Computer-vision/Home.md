@@ -11,12 +11,12 @@ ms.topic: overview
 ms.date: 01/27/2020
 ms.author: pafarley
 ms.custom: seodec18
-ms.openlocfilehash: 17dd428f79f66bc70da47527314ad43a27955c82
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: eb338c39ed3b1a095c1ad31e3f695e8d3fec0ed3
+ms.sourcegitcommit: f27b045f7425d1d639cf0ff4bcf4752bf4d962d2
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76772512"
+ms.lasthandoff: 02/23/2020
+ms.locfileid: "77565964"
 ---
 # <a name="what-is-computer-vision"></a>Computer Vision이란?
 
@@ -48,7 +48,7 @@ Computer Vision은 여러 DAM(디지털 자산 관리) 시나리오를 구현할
 
 ## <a name="extract-text-from-images"></a>이미지에서 텍스트 추출
 
-Computer Vision [Read](concept-recognizing-text.md#read-api) API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재 지원되는 언어는 영어뿐입니다.
+Computer Vision [Read](concept-recognizing-text.md#read-api) API를 사용하여 이미지에서 인쇄 및 필기 텍스트를 머신이 읽을 수 있는 문자 스트림으로 추출할 수 있습니다. Read API는 최신 모델을 사용하고, 여러 다른 표면 및 배경을 갖는 다양한 텍스트(예: 영수증, 포스터, 명함, 편지 및 화이트보드)에 사용할 수 있습니다. 현재 유일하게 지원되는 언어는 영어와 스페인어입니다.
 
 [OCR(광학 문자 인식)](concept-recognizing-text.md#ocr-optical-character-recognition-api) API를 사용하여 여러 언어로 인쇄된 텍스트를 추출할 수도 있습니다. 필요한 경우 OCR은 인식된 텍스트의 회전을 수정하고 각 단어에 대한 프레임 좌표를 제공합니다. OCR은 25개 언어를 지원하며, 인식된 텍스트의 언어를 자동으로 감지합니다.
 

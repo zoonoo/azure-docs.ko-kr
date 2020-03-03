@@ -1,21 +1,21 @@
 ---
-title: '자습서: Azure Event Grid를 사용하여 Key Vault 모니터링'
-description: '자습서: Azure Event Grid를 사용하여 Key Vault 이벤트 구독'
-services: media-services
+title: Azure Event Grid를 사용하여 Key Vault 모니터링
+description: Azure Event Grid를 사용하여 Key Vault 이벤트 구독
+services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
-ms.topic: tutorial
+ms.topic: conceptual
 ms.date: 11/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 5771af365b763d2152eea4ef4f662e08769b378c
-ms.sourcegitcommit: 2d3740e2670ff193f3e031c1e22dcd9e072d3ad9
+ms.openlocfilehash: 2424fbac3c95c1c60e6ef61cba53e481f4bb478a
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/16/2019
-ms.locfileid: "74133354"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77650744"
 ---
-# <a name="tutorial-monitoring-key-vault-with-azure-event-grid-preview"></a>자습서: Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)
+# <a name="monitoring-key-vault-with-azure-event-grid-preview"></a>Azure Event Grid를 사용하여 Key Vault 모니터링(미리 보기)
 
 Event Grid와 Key Vault 통합은 현재 미리 보기로 제공됩니다. Key Vault에 저장된 비밀의 상태가 변경되었을 때 사용자에게 알릴 수 있습니다. 상태 변경은 만료되려고 하는 비밀(30일 이내), 만료된 비밀 또는 사용 가능한 새 버전이 있는 비밀로 정의됩니다. 세 가지 비밀 유형(키, 인증서 및 비밀)에 대한 알림이 모두 지원됩니다.
 
@@ -27,10 +27,10 @@ Event Grid는 [이벤트 구독](../event-grid/concepts.md#event-subscriptions)�
 
 자세한 내용은 [Key Vault 이벤트 스키마](../event-grid/event-schema-key-vault.md)를 참조하세요.
 
-> [!NOTE]
-> 이벤트는 구독이 설정된 후에 생성된 비밀 버전(세 유형 모두)에 대해서만 트리거됩니다.
->
-> 기존 비밀의 경우 새 버전을 생성해야 합니다.
+> [!WARNING]
+> 알림 이벤트는 새 버전의 비밀, 키 및 인증서에서만 트리거되며, 이러한 알림을 받으려면 먼저 키 자격 증명 모음의 이벤트를 구독해야 합니다.
+> 
+> 인증서에 대해 지정한 정책에 따라 인증서가 자동으로 갱신되는 경우에만 인증서에 대한 알림 이벤트를 받을 수 있습니다.
 
 ## <a name="practices-for-consuming-events"></a>이벤트 사용에 관한 지침
 
@@ -46,6 +46,6 @@ Key Vault 이벤트를 처리하는 애플리케이션은 다음에 권장되는
 - [Azure Key Vault 개요](key-vault-overview.md)
 - [Azure Event Grid 개요](../event-grid/overview.md)
 - 방법: [Key Vault 이벤트를 Automation Runbook으로 라우팅(미리 보기)](event-grid-tutorial.md)합니다.
-- 방법: [Key Vault 비밀 변경 시 이메일 받기](event-grid-logicapps.md)
+- 방법: [키 자격 증명 모음 비밀 변경 시 이메일 받기](event-grid-logicapps.md)
 - [Azure Key Vault에 대한 Azure Event Grid 이벤트 스키마(미리 보기)](../event-grid/event-schema-key-vault.md)
 - [Azure Automation 개요](../automation/index.yml)

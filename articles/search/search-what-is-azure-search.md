@@ -6,14 +6,14 @@ manager: nitinme
 author: HeidiSteen
 ms.author: heidist
 ms.service: cognitive-search
-ms.topic: conceptual
+ms.topic: overview
 ms.date: 01/06/2020
-ms.openlocfilehash: 0d2fca7b46cd0392fe8e94c1371443e7fcebc2fd
-ms.sourcegitcommit: f34165bdfd27982bdae836d79b7290831a518f12
-ms.translationtype: MT
+ms.openlocfilehash: fee7c8eb73fe0bb7c9fd0bd9de9aa57bd8c40215
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/13/2020
-ms.locfileid: "75922492"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77580654"
 ---
 # <a name="what-is-azure-cognitive-search"></a>Azure Cognitive Search란?
 
@@ -54,8 +54,8 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 | AI&nbsp;보강&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;       | 기능 |
 |-------------------|----------|
 |인덱싱 중 AI 처리 | 이미지 및 텍스트 분석을 위한 [**AI 보강**](cognitive-search-concept-intro.md)은 인덱싱 파이프라인에 적용하여 원시 콘텐츠에서 텍스트 정보를 추출할 수 있습니다. [기본 제공 기술](cognitive-search-predefined-skills.md)의 몇 가지 예제에는 광학 문자 인식(스캔된 JPEG를 검색 가능하게 만듬), 엔터티 인식(조직, 이름 또는 위치 식별) 및 키 구문 인식이 포함됩니다. [사용자 정의 기술을 코딩](cognitive-search-create-custom-skill-example.md)하여 파이프라인에 연결수도 있습니다. |
-| 비 검색 시나리오에서 분석 및 사용을 위해 보강 콘텐츠 저장 | [**지식 저장소(미리 보기)** ](knowledge-store-concept-intro.md)는 AI 기반 인덱싱의 확장입니다. Azure 스토리지를 백 엔드로 사용하면 인덱싱 중에 만들어진 보강 내용을 저장할 수 있습니다. 이러한 아티팩트를 사용하면 보다 나은 기술을 디자인하거나, 확실하지 않은 또는 모호한 데이터로 도형 또는 구조체를 만들 수 있습니다. 특정 워크로드 또는 사용자를 대상으로 하는 이러한 구조체의 프로젝션을 만들 수 있습니다. 추출된 데이터를 직접 분석하거나 다른 앱에 로드할 수도 있습니다.<br/><br/> |
-| 캐시 된 콘텐츠 | [**증분 보강 (미리 보기)** ](cognitive-search-incremental-indexing-conceptual.md) 는 변경 되지 않는 파이프라인 부분에 대해 캐시 된 콘텐츠를 사용 하 여 파이프라인에 대 한 특정 편집에 의해 변경 되는 문서만 처리 하는 것으로 제한 합니다. |
+| 비검색 시나리오에서 분석하고 사용할 수 있도록 보강된 콘텐츠 저장 | [**지식 저장소(미리 보기)** ](knowledge-store-concept-intro.md)는 AI 기반 인덱싱의 확장입니다. Azure 스토리지를 백 엔드로 사용하면 인덱싱 중에 만들어진 보강 내용을 저장할 수 있습니다. 이러한 아티팩트를 사용하면 보다 나은 기술을 디자인하거나, 확실하지 않은 또는 모호한 데이터로 도형 또는 구조체를 만들 수 있습니다. 특정 워크로드 또는 사용자를 대상으로 하는 이러한 구조체의 프로젝션을 만들 수 있습니다. 추출된 데이터를 직접 분석하거나 다른 앱에 로드할 수도 있습니다.<br/><br/> |
+| 캐시된 콘텐츠 | [**증분 보강(미리 보기)** ](cognitive-search-incremental-indexing-conceptual.md)은 캐시된 콘텐츠를 변경되지 않는 파이프라인 부분에 사용하여 특정 편집으로 변경되는 문서로만 처리하도록 제한합니다. |
 
 | 데이터&nbsp;가져오기/인덱싱 | 기능 |
 |----------------------------------|----------|
@@ -68,8 +68,8 @@ Azure Cognitive Search가 적합한 애플리케이션 시나리오는 다음과
 |-------------------|----------|
 | 프로토타입 및 검사용 도구 | 포털에서 [**데이터 가져오기 마법사**](search-import-data-portal.md)를 사용하여 인덱서를 구성하고, 인덱스 디자이너를 사용하여 인덱스를 나타내고, [**검색 탐색기**](search-explorer.md)를 사용하여 쿼리를 테스트하고 점수 매기기 프로필을 구체화할 수 있습니다. 인덱스를 열어 해당 스키마를 볼 수도 있습니다. |
 | 모니터링 및 진단 | 포털에 항상 표시되는 단순한 메트릭 이상을 원하신다면 [**모니터링 기능을 사용하세요**](search-monitor-usage.md). 필요한 추가 구성 없이 포털 페이지에서 초당 쿼리 수, 대기 시간 및 제한에 대한 메트릭이 캡처되고 보고됩니다.|
-| 서버 쪽 암호화 | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmission-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. 필요에 따라 [**고객 관리형 암호화 키**](search-security-manage-encryption-keys.md)로 기본 암호화를 보완할 수 있습니다. Azure Key Vault에서 만들고 관리 하는 키는 Azure Cognitive Search에서 인덱스와 동의어 맵을 암호화 하는 데 사용 됩니다. |
-| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 올바르게 크기를 조정 하 [는 경우 Azure Cognitive Search는 99.9% SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완벽 하 게 관리 되 고 확장 가능한** 솔루션으로 Azure Cognitive Search에는 인프라 관리가 절대적으로 필요 하지 않습니다. 더 많은 문서 스토리지, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
+| 서버 쪽 암호화 | [**Microsoft 관리형 저장 데이터 암호화**](search-security-overview.md#encrypted-transmission-and-storage)는 내부 스토리지 레이어에 내장되어 있으며 취소할 수 없습니다. 필요에 따라 [**고객 관리형 암호화 키**](search-security-manage-encryption-keys.md)로 기본 암호화를 보완할 수 있습니다. Azure Key Vault에서 만들고 관리하는 키는 Azure Cognitive Search에서 인덱스와 동의어 맵을 암호화하는 데 사용됩니다. |
+| 인프라 | **가용성이 높은 플랫폼**은 매우 안정적인 검색 서비스 환경을 보장합니다. 크기가 적절하게 조정되면 [Azure Cognitive Search에서 99.9% SLA를 제공](https://azure.microsoft.com/support/legal/sla/search/v1_0/)합니다.<br/><br/> **완전 관리형 및 확장 가능**. 엔드투엔드 솔루션인 Azure Cognitive Search에는 인프라 관리가 전혀 필요하지 않습니다. 더 많은 문서 스토리지, 더 많은 쿼리 부하 또는 둘 모두를 처리할 수 있도록 두 가지 크기를 조정하여 요구 사항에 따라 서비스를 맞춤 구성할 수 있습니다.<br/><br/>|
 
 ## <a name="how-to-use-azure-cognitive-search"></a>Azure Cognitive Search를 사용하는 방법
 ### <a name="step-1-provision-service"></a>1단계: 서비스 프로비전
@@ -104,7 +104,7 @@ Azure Cognitive Search 서비스는 [Azure Portal](https://portal.azure.com/) �
 | 비교 대상 | 주요 차이점 |
 |-------------|-----------------|
 |Bing | [Bing Web Search API](https://docs.microsoft.com/azure/cognitive-services/bing-web-search/)는 Bing.com의 인덱스에서 일치하는 용어를 검색합니다. 인덱스는 HTML, XML 및 공개 사이트의 다른 웹 콘텐츠로 빌드됩니다. 동일한 기반의 [Bing Custom Search](https://docs.microsoft.com/azure/cognitive-services/bing-custom-search/)는 개별 웹 사이트에 적용되는 웹 콘텐츠 유형에 대해 동일한 크롤러 기술을 제공합니다.<br/><br/>Azure Cognitive Search는 종종 다양한 원본에서 사용자가 정의하고 사용자 소유의 데이터와 문서로 채워진 인덱스를 검색합니다. Azure Cognitive Search는 [인덱서](search-indexer-overview.md)를 통해 일부 데이터 원본에 대한 크롤러 기능을 갖추고 있지만, 인덱스 스키마를 준수하는 모든 JSON 문서를 통합형 단일 검색 가능한 리소스로 푸시할 수 있습니다. |
-|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 스토리지가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 많은 솔루션은 저장소 용 DBMS와 특수 한 검색 기능에 대 한 Azure Cognitive Search를 모두 사용 합니다.<br/><br/>DBMS 검색과 비교하여, Azure Cognitive Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 분류 정리, 어형)와 같은 특수화된 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Cognitive Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Cognitive Search는 데이터를 반전된 인덱스의 형태로 유지하지만 진정한 데이터 스토리지를 대체하는 경우는 거의 없습니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
+|데이터베이스 검색 | 많은 데이터베이스 플랫폼에는 기본 제공 검색 환경이 있습니다. SQL Server에는 [전체 텍스트 검색](https://docs.microsoft.com/sql/relational-databases/search/full-text-search) 환경이 있습니다. Cosmos DB 및 유사 기술에는 쿼리 가능한 인덱스가 있습니다. 검색 및 스토리지가 결합된 제품을 평가할 때는 어떤 방향으로 갈지 결정하기가 어려울 수 있습니다. 대부분의 솔루션은 둘 다 사용합니다. 즉, 스토리지에는 DBMS를 사용하고, 특수화된 검색 기능에는 Azure Cognitive Search를 사용합니다.<br/><br/>DBMS 검색과 비교하여, Azure Cognitive Search는 이기종 원본의 콘텐츠를 저장하고, 언어 인식 테스트 처리(형태소 분석, 분류 정리, 어형)와 같은 특수화된 텍스트 처리 기능을 [56개 언어](https://docs.microsoft.com/rest/api/searchservice/language-support)로 제공합니다. 또한 오타 자동 교정, [동의어](https://docs.microsoft.com/rest/api/searchservice/synonym-map-operations), [제안](https://docs.microsoft.com/rest/api/searchservice/suggestions), [채점 컨트롤](https://docs.microsoft.com/rest/api/searchservice/add-scoring-profiles-to-a-search-index), [패싯](https://docs.microsoft.com/azure/search/search-filters-facets) 및  [사용자 지정 토큰화](https://docs.microsoft.com/rest/api/searchservice/custom-analyzers-in-azure-search)도 지원합니다. Azure Cognitive Search의 [전체 텍스트 검색 엔진](search-lucene-query-architecture.md)은 정보 검색 업계 표준인 Apache Lucene을 기반으로 합니다. Azure Cognitive Search는 데이터를 반전된 인덱스의 형태로 유지하지만 진정한 데이터 스토리지를 대체하는 경우는 거의 없습니다. 자세한 내용은 이 [포럼 게시물](https://stackoverflow.com/questions/40101159/can-azure-search-be-used-as-a-primary-database-for-some-data)을 참조하세요. <br/><br/>리소스 사용률도 이 범주의 또 다른 변곡점입니다. 인덱싱 및 일부 쿼리 작업은 계산 집약적인 경우가 많습니다. DBMS에서 클라우드의 전용 솔루션으로 검색을 오프로딩하면 트랜잭션 처리를 위한 시스템 리소스가 보존됩니다. 또한 검색 과정을 외부에서 진행하면 규모를 쿼리 볼륨에 맞게 쉽게 조정할 수 있습니다.|
 |전용 검색 솔루션 | 광범위한 기능을 제공하는 전용 검색을 결정한 경우 온-프레미스 솔루션 또는 클라우드 서비스의 최종 범주 비교를 해야 합니다. 대다수의 검색 기술은 인덱싱 및 쿼리 파이프라인 제어, 풍부한 쿼리 및 필터링 구문에 대한 액세스, 순위 및 관련성 제어, 자체 주도형 및 지능형 검색 기능을 제공합니다. <br/><br/>클라우드 서비스는 최소한의 오버헤드 및 유지 관리, 규모 조정이 가능한 턴키 솔루션을 원하는 경우에 적합합니다. <br/><br/>클라우드 패러다임 내에서는 일부 공급자가 전체 텍스트 검색, 지리적 검색 및 특정 수준의 검색 입력 모호성을 처리하는 기능을 비롯하여 비슷한 기준 기능을 제공합니다. 일반적으로 이러한 기능은 [특수 기능](#feature-drilldown) 또는 자동 맞춤을 결정하는 API, 도구 및 관리의 전반적인 편리성 및 간편성을 나타냅니다. |
 
 주로 정보 검색 및 콘텐츠 탐색 모두에 대한 검색을 사용하는 앱의 경우 클라우드 공급자 중에서 Azure Cognitive Search는 Azure의 콘텐츠 저장소 및 데이터베이스에 대한 전체 텍스트 검색 워크로드에 가장 강력합니다. 
@@ -132,14 +132,14 @@ Azure Cognitive Search에서 가장 광범위한 기능을 활용할 수 있는 
 |[REST (영문)](/rest/api/searchservice/) | 모든 프로그래밍 플랫폼 및 언어(Xamarin, Java 및 JavaScript 포함)에서 지원하는 HTTP 명령|
 |[.NET SDK](search-howto-dotnet-sdk.md) | REST API에 대한 .NET 래퍼는 C# 및 .NET Framework를 대상으로 하는 다른 관리되는 코드 언어로 효율적인 코딩 제공 |
 
-## <a name="free-trial"></a>무료 평가판
+## <a name="free-trial"></a>평가판
 Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create-service-portal.md)할 수 있습니다.
 
 구독자가 아닌 경우 [Azure 계정을 무료로 개설](https://azure.microsoft.com/pricing/free-trial/?WT.mc_id=A261C142F)할 수 있습니다. 유료 Azure 서비스를 사용해볼 수 있는 크레딧이 제공됩니다. 크레딧이 소진되더라도 계정이 유지되므로 [무료 Azure 서비스](https://azure.microsoft.com/free/)를 계속 사용할 수 있습니다. 설정을 명시적으로 변경하여 결제를 요청하지 않는 한 신용 카드로 결제되지 않습니다.
 
-또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있음: MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
+또는 [MSDN 구독자 혜택을 활성화](https://azure.microsoft.com/pricing/member-offers/msdn-benefits-details/?WT.mc_id=A261C142F)할 수 있습니다. MSDN 구독은 유료 Azure 서비스에 사용할 수 있는 크레딧을 매달 제공합니다. 
 
-## <a name="how-to-get-started"></a>시작 방법
+## <a name="how-to-get-started"></a>시작하는 방법
 
 1. [무료 서비스](search-create-service-portal.md)를 만듭니다. 무료 서비스에서 모든 빠른 시작 및 자습서를 완료할 수 있습니다.
 
@@ -148,7 +148,7 @@ Azure 구독자는 [무료 계층에서 서비스를 프로비전](search-create
 3. .NET 또는 REST API 중 하나를 사용하는 코드로 진행합니다.
 
    + [.NET SDK를 사용하는 방법](search-howto-dotnet-sdk.md)에서는 관리 코드의 기본 워크플로를 설명합니다.  
-   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다. 이 빠른 시작을 사용 하 여 Postman 또는 Fiddler에서 REST Api를 호출할 수도 있습니다. [Azure COGNITIVE SEARCH Rest api를 살펴보세요](search-get-started-postman.md).
+   + [Get started with the REST API](https://github.com/Azure-Samples/search-rest-api-getting-started)(REST API 시작)에서는 REST API를 사용하여 같은 단계를 보여 줍니다. 이 빠른 시작을 사용하여 Postman 또는 Fiddler: [Azure Cognitive Search REST API 살펴보기](search-get-started-postman.md)
 
 ## <a name="watch-this-video"></a>이 동영상 시청
 

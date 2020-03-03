@@ -8,13 +8,13 @@ ms.author: heidist
 ms.devlang: nodejs
 ms.service: cognitive-search
 ms.topic: quickstart
-ms.date: 11/04/2019
-ms.openlocfilehash: fd8a053eb4ff0805b95dc11db4206e1dd2edb184
-ms.sourcegitcommit: dd0304e3a17ab36e02cf9148d5fe22deaac18118
+ms.date: 02/25/2020
+ms.openlocfilehash: cbef6029b93f134f95ee54aa87ce0dd65bcdf50d
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74406929"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77624004"
 ---
 # <a name="quickstart-create-an-azure-cognitive-search-index-in-nodejs-using-rest-apis"></a>빠른 시작: REST API를 사용하여 Node.js에서 Azure Cognitive Search 인덱스 만들기
 > [!div class="op_single_selector"]
@@ -29,21 +29,26 @@ Azure Cognitive Search 인덱스를 생성, 로드, 쿼리하는 Node.js 애플�
 
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 빠른 시작에서 사용되는 서비스, 도구 및 데이터는 다음과 같습니다.
+다음 소프트웨어와 서비스를 사용하여 이 빠른 시작을 빌드하고 테스트했습니다.
 
-+ [Node.js](https://nodejs.org).
-+ [NPM](https://www.npmjs.com)은 Node.js로 설치해야 합니다.
-+ 샘플 인덱스 구조 및 일치하는 문서는 이 문서 또는 [리포지토리의 **quickstart** 디렉터리](https://github.com/Azure-Samples/azure-search-javascript-samples/)에서 제공됩니다.
++ [Node.JS](https://nodejs.org)
+
++ Node.js에서 [NPM](https://www.npmjs.com)을 설치해야 합니다.
+
++ 인덱스 구조 샘플 및 일치하는 문서는 이 문서 또는 [리포지토리의 **quickstart** 디렉터리](https://github.com/Azure-Samples/azure-search-javascript-samples/)에서 제공됩니다.
+
 + [Azure Cognitive Search 서비스를 만들거나](search-create-service-portal.md) 현재 구독에서 [기존 서비스를 찾습니다](https://ms.portal.azure.com/#blade/HubsExtension/BrowseResourceBlade/resourceType/Microsoft.Search%2FsearchServices). 이 빠른 시작에서는 체험 서비스를 사용할 수 있습니다.
 
 권장:
 
 * [Visual Studio Code](https://code.visualstudio.com)
+
 * VSCode용 [Prettier](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode) 및 [ESLint](https://marketplace.visualstudio.com/items?itemName=dbaeumer.vscode-eslint) 확장입니다.
 
 <a name="get-service-info"></a>
+
 ## <a name="get-keys-and-urls"></a>키 및 URL 가져오기
 
 서비스를 호출하려면 모든 요청에서 URL 엔드포인트 및 액세스 키가 필요합니다. 검색 서비스는 둘 모두를 사용하여 작성되므로 Azure Cognitive Search를 구독에 추가한 경우 다음 단계에 따라 필요한 정보를 가져옵니다.
@@ -108,16 +113,17 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
       }
     }
     ```
-검색 서비스 데이터를 저장하는 **azure_search_config.json** 파일을 만듭니다.
 
-```json
-{
-    "serviceName" : "[SERVICE_NAME]",
-    "adminKey" : "[ADMIN_KEY]",
-    "queryKey" : "[QUERY_KEY]",
-    "indexName" : "hotels-quickstart"
-}
-```
+5. 검색 서비스 데이터를 저장하는 **azure_search_config.json** 파일을 만듭니다.
+
+    ```json
+    {
+        "serviceName" : "[SEARCH_SERVICE_NAME]",
+        "adminKey" : "[ADMIN_KEY]",
+        "queryKey" : "[QUERY_KEY]",
+        "indexName" : "hotels-quickstart"
+    }
+    ```
 
 `[SERVICE_NAME]` 값을 검색 서비스의 이름으로 바꿉니다. `[ADMIN_KEY]` 및 `[QUERY_KEY]`를 앞에서 기록한 키 값으로 바꿉니다. 
 
@@ -403,7 +409,7 @@ const AzureSearchClient = require('./AzureSearchClient.js');
 ```javascript
 function getAzureConfiguration() {
     const config = nconf.file({ file: 'azure_search_config.json' });
-    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME' ) {
+    if (config.get('serviceName') === '[SEARCH_SERVICE_NAME]' ) {
         throw new Error("You have not set the values in your azure_search_config.json file. Change them to match your search service's values.");
     }
     return config;
@@ -433,7 +439,7 @@ function sleep(ms) {
 const run = async () => {
     try {
         const cfg = getAzureConfiguration();
-        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get["serviceName"]);
+        const client = new AzureSearchClient(cfg.get("serviceName"), cfg.get("adminKey"), cfg.get("queryKey"), cfg.get("indexName));
         
         const exists = await client.indexExistsAsync();
         await exists ? client.deleteIndexAsync() : Promise.resolve();

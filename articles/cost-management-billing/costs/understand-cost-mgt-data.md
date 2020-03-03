@@ -4,17 +4,17 @@ description: 이 문서는 Azure Cost Management에 포함된 데이터와 이 �
 keywords: ''
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/21/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: micflan
 ms.custom: ''
-ms.openlocfilehash: 39f2aab72491ffdf2b583879181a247d3653647f
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 44953a3986b5c03afa9cc4668e2563c5c5cd6c46
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199894"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77560612"
 ---
 # <a name="understand-cost-management-data"></a>Cost Management 데이터 이해
 
@@ -135,9 +135,9 @@ Cost Management에 특정 태그가 표시되지 않는 경우 다음 사항을 
 - 태그 API를 Query 또는 UsageDetails와 함께 사용하여 현재 태그를 기준으로 모든 비용을 가져옵니다.
 
 
-**평가판을 종량제로 업그레이드**
+## <a name="free-trial-to-pay-as-you-go-upgrade"></a>평가판을 종량제로 업그레이드
 
-평가판 제품(044P)을 PAYG 제품(003P)으로 변환하는 고객은 평가판 기간 동안 사용량을 볼 수 있습니다. 그러나 변환 후에는 무료 트레일 사용량에 대한 가시성을 잃게 됩니다. 변환 후에는 PAYG 사용량과 비용도 Cost Management에 표시됩니다.
+평가판에서 종량제 가격으로 업그레이드한 후 체험 계층 서비스의 가용성에 대한 자세한 내용은 [Azure 체험 계정 FAQ](https://azure.microsoft.com/free/free-account-faq/)를 참조하세요.
 
 ## <a name="rated-usage-data-refresh-schedule"></a>평가된 사용량 데이터 새로 고침 일정
 
@@ -157,6 +157,17 @@ EA(기업계약) 구독 - 청구 월이 3월 31일에 종료되는 경우 예상
 ### <a name="rerated-data"></a>데이터 재평가
 
 [Cost Management API](../index.yml), Power BI 또는 Azure Portal을 사용하여 데이터를 검색하든 상관없이, 청구서가 마감되기 전에는 현재 청구 기간의 요금이 재평가되고 그에 따라 변경될 수 있습니다.
+
+## <a name="cost-rounding"></a>비용 반올림
+
+Cost Management에 표시되는 비용은 반올림됩니다. 쿼리 API에서 반환하는 비용은 반올림되지 않습니다. 다음은 그 예입니다.
+
+- Azure Portal의 비용 분석 - 요금은 표준 반올림 규칙을 사용하여 반올림됩니다. 즉 0.5보다 큰 값은 반올림되고, 그렇지 않으면 비용이 반올림됩니다. 값이 표시되는 경우에만 반올림이 수행됩니다. 데이터 처리 및 집계 중에는 반올림이 수행되지 않습니다. 예를 들어 비용 분석에서 집계하는 비용은 다음과 같습니다.
+  - 요금 1: $0.004
+  - 요금 2: $0.004
+  - 집계 요금이 렌더링됩니다. 0.004 + 0.004 = 0.008. 표시되는 요금은 $0.01입니다.
+- 쿼리 API - 요금은 소수점 이하 8자리까지 표시되며 반올림되지 않습니다.
+
 
 ## <a name="usage-data-update-frequency-varies"></a>사용량 데이터 업데이트 빈도 변동
 

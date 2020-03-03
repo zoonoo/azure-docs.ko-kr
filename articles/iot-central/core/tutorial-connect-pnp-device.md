@@ -8,16 +8,21 @@ ms.topic: tutorial
 ms.service: iot-central
 services: iot-central
 ms.custom: mvc
-ms.openlocfilehash: ca2ac62892d1c8d438cc37bffcbfede14058bc23
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 84db3996b49a95d1ef6a9f1e80299605cc31d669
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026376"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77602603"
 ---
 # <a name="tutorial-use-a-device-capability-model-to-create-an-iot-plug-and-play-preview-device-and-connect-it-to-your-iot-central-application"></a>자습서: 디바이스 기능 모델을 사용하여 IoT 플러그 앤 플레이(미리 보기) 디바이스를 만들고 및 IoT Central 애플리케이션에 연결
 
 _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기)](../../iot-pnp/overview-iot-plug-and-play.md) 디바이스의 기능을 설명합니다. 디바이스를 처음으로 연결할 때 IoT Central은 DCM을 사용하여 디바이스 템플릿을 만들고 디바이스를 시각화할 수 있습니다.
+
+[IoT 플러그 앤 플레이](../../iot-pnp/overview-iot-plug-and-play.md)에 대한 지원은 미리 보기에 있으며 선택한 지역에서만 지원됩니다.
+
+> [!NOTE]
+> IoT 플러그 앤 플레이 디바이스 지원을 통해 미리 보기 애플리케이션을 만들기 위해 액세스하려면 기술 지원에 문의하세요.
 
 이 자습서에서는 다음 작업 방법을 알아봅니다.
 
@@ -80,7 +85,7 @@ _DCM(디바이스 기능 모델)_ 은 [IoT 플러그 앤 플레이(미리 보기
 
 디바이스를 IoT Central 애플리케이션에 연결하려면 디바이스 키가 필요합니다. 디바이스 키를 생성하는 방법은 다음과 같습니다.
 
-1. [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작에서 **사용자 지정 앱 > 미리 보기 애플리케이션** 템플릿을 사용하여 만든 IoT Central 애플리케이션에 로그인합니다.
+1. [Azure IoT Central 애플리케이션 만들기](./quick-deploy-iot-central.md) 빠른 시작에서 **사용자 지정 애플리케이션** 템플릿을 사용하여 만든 IoT Central 애플리케이션에 로그인합니다.
 
 1. **관리** 페이지로 이동하여 **디바이스 연결**을 선택합니다.
 

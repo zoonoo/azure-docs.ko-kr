@@ -1,5 +1,6 @@
 ---
 title: '빠른 시작: CentOS Data Science Virtual Machine 만들기'
+titleSuffix: Azure Data Science Virtual Machine
 description: 분석 및 기계 학습을 수행하기 위해 Linux(CentOS)용 Data Science Virtual Machine을 구성하고 만듭니다.
 ms.service: machine-learning
 ms.subservice: data-science-vm
@@ -7,18 +8,18 @@ author: gvashishtha
 ms.author: gopalv
 ms.topic: quickstart
 ms.date: 09/13/2019
-ms.openlocfilehash: 1761673198b3d8ffc3740d64f525c9e70bda9e3e
-ms.sourcegitcommit: 8a717170b04df64bd1ddd521e899ac7749627350
+ms.openlocfilehash: 73541b31125ee6e99dc2351e26f6a564a1603487
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/23/2019
-ms.locfileid: "71204125"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526028"
 ---
 # <a name="quickstart-set-up-a-centos-linux-data-science-virtual-machine-in-azure"></a>빠른 시작: Azure에서 CentOS(Linux) Data Science Virtual Machine 설정
 
 CentOS 기반 Data Science Virtual Machine을 준비하고 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 CentOS Data Science Virtual Machine을 만들려면 **Azure 구독**이 있어야 합니다. [무료 구독을 만듭니다](https://azure.com/free).
 
@@ -33,7 +34,7 @@ CentOS Data Science Virtual Machine의 인스턴스를 만드는 단계는 다�
 
 1. 후속 창에서 **만들기**를 선택합니다.
 
-    [![](media/linux-dsvm-intro/create-centos.png "CentOS 머신을 만드는 단추")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
+    [![](media/linux-dsvm-intro/create-centos.png "Button to create a CentOS machine")](media/linux-dsvm-intro/create-centos-expanded.png#lightbox)
 
 1. "가상 머신 만들기" 블레이드로 리디렉션됩니다.
    
@@ -48,7 +49,7 @@ CentOS Data Science Virtual Machine의 인스턴스를 만드는 단계는 다�
        * **가상 머신 이름**: 가상 머신의 이름을 입력합니다. 입력한 대로 Azure Portal에 표시됩니다.
        * **지역**: 가장 적합한 데이터 센터를 선택합니다. 가장 빠른 네트워크 액세스를 위해 대부분의 데이터가 있거나 물리적 위치에 가장 가까운 데이터 센터입니다. [Azure 지역](https://azure.microsoft.com/global-infrastructure/regions/)에 대해 자세히 알아보세요.
        * **이미지**: 기본값을 그대로 둡니다.
-       * **크기**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
+       * **Size**: 일반 워크로드에 적합한 크기가 자동으로 채워집니다. [Azure의 Linux VM 크기](../../virtual-machines/linux/sizes.md)에 대해 자세히 읽어보세요.
        * **인증 형식**: 더 빨리 설치하려면 "암호"를 선택합니다. 
          
          > [!NOTE]

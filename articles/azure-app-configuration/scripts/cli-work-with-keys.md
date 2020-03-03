@@ -1,36 +1,34 @@
 ---
 title: Azure CLI 스크립트 샘플 - App Configuration 저장소에서 키 값 사용
 titleSuffix: Azure App Configuration
-description: Azure App Configuration 저장소에서 키 값 사용 정보 제공
+description: Azure CLI 스크립트를 사용하여 App Configuration 저장소에서 키 값을 만들고, 보고, 업데이트하고, 삭제합니다.
 services: azure-app-configuration
-documentationcenter: ''
 author: lisaguthrie
-manager: maiye
-editor: ''
 ms.service: azure-app-configuration
 ms.devlang: azurecli
 ms.topic: sample
-ms.tgt_pltfrm: na
-ms.workload: azure-app-configuration
-ms.date: 11/08/2019
+ms.date: 02/19/2020
 ms.author: lcozzens
-ms.custom: mvc
-ms.openlocfilehash: 931c2f738556404e2d58381f7152acb0613a057b
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 1a4edabe666a554ccd01d110f0f71226221dfc67
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77468171"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77523653"
 ---
 # <a name="work-with-key-values-in-an-azure-app-configuration-store"></a>Azure App Configuration 저장소에서 키 값 사용
 
-이 샘플 스크립트에서는 Azure App Configuration 저장소에서 새 키 값을 만들고, 모든 기존 키 값을 나열하고, 새로 만든 키 값을 업데이트하고, 마지막으로 이 값을 삭제합니다.
+이 샘플 스크립트는 다음 작업을 수행하는 방법을 보여 줍니다.
+* 새 키-값 쌍 만들기
+* 기존의 모든 키-값 쌍 나열
+* 새로 만든 키 값 업데이트
+* 새 키-값 쌍 삭제
 
 [!INCLUDE [quickstarts-free-trial-note](../../../includes/quickstarts-free-trial-note.md)]
 
 [!INCLUDE [cloud-shell-try-it.md](../../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택하는 경우 이 문서에서 Azure CLI 버전 2.0 이상을 실행해야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+이 문서에는 Azure CLI 버전 2.0 이상이 필요합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드가 필요한 경우, [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요. 
 
 ## <a name="sample-script"></a>샘플 스크립트
 
@@ -81,13 +79,13 @@ az appconfig kv list --name $appConfigName
 
 ## <a name="script-explanation"></a>스크립트 설명
 
-이 스크립트는 다음 명령을 사용하여 App Configuration 저장소에서 키 값을 작동합니다. 테이블에 있는 각 명령은 명령에 해당하는 문서에 연결됩니다.
+다음 표에는 샘플 스크립트에 사용되는 명령이 나와 있습니다. 
 
 | 명령 | 메모 |
 |---|---|
-| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | 키 값을 만들거나 업데이트합니다. |
-| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | App Configuration 저장소에서 키 값을 나열합니다. |
-| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | 키 값을 삭제합니다. |
+| [az appconfig kv set](/cli/azure/appconfig/kv#az-appconfig-kv-set) | 키-값 쌍을 만들거나 업데이트합니다. |
+| [az appconfig kv list](/cli/azure/appconfig/kv#az-appconfig-kv-list) | 키 값을 App Configuration 저장소에 나열합니다. |
+| [az appconfig kv delete](/cli/azure/appconfig/kv#az-appconfig-kv-delete) | 키-값 쌍을 삭제합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

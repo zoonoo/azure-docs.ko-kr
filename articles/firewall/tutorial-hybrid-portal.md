@@ -5,15 +5,15 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: tutorial
-ms.date: 01/18/2020
+ms.date: 02/21/2020
 ms.author: victorh
 customer intent: As an administrator, I want to control network access from an on-premises network to an Azure virtual network.
-ms.openlocfilehash: e9ca891d2d92b6760d37108b66afc54c81ac125c
-ms.sourcegitcommit: 6e87ddc3cc961945c2269b4c0c6edd39ea6a5414
+ms.openlocfilehash: 15901186194853aebf3b8222f271203161770380
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77442584"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561445"
 ---
 # <a name="tutorial-deploy-and-configure-azure-firewall-in-a-hybrid-network-using-the-azure-portal"></a>자습서: Azure Portal을 사용하여 하이브리드 네트워크에서 Azure Firewall 배포 및 구성
 
@@ -62,7 +62,7 @@ Azure PowerShell을 대신 사용하여 이 절차를 완료하려면 [Azure Pow
 >[!NOTE]
 >Azure Firewall에는 직접 인터넷 연결이 있어야 합니다. AzureFirewallSubnet이 BGP를 통해 온-프레미스 네트워크에 대한 기본 경로를 학습하는 경우 이 경로를 직접 인터넷 연결을 유지하기 위해 **Internet**으로 설정된 **NextHopType** 값을 통해 0.0.0.0/0 UDR로 재정의해야 합니다.
 >
->강제 터널링을 지원하도록 Azure Firewall을 구성할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
+>Azure Firewall은 강제 터널링을 지원하도록 구성할 수 있습니다. 자세한 내용은 [Azure Firewall 강제 터널링](forced-tunneling.md)을 참조하세요.
 
 >[!NOTE]
 >직접 피어링된 VNet 사이의 트래픽은 UDR이 기본 게이트웨이로 Azure Firewall을 가리키는 경우에도 직접 라우팅됩니다. 이 시나리오에서 서브넷 트래픽에 대한 서브넷을 방화벽으로 보내려면 UDR에 두 가지 서브넷에 명시적으로 지정된 대상 서브넷 네트워크 접두사가 포함되어 있어야 합니다.
@@ -179,9 +179,10 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 6. **동작**에 대해 **허용**을 선택합니다.
 6. **규칙** 아래에서 **이름**에 대해 **AllowWeb**을 입력합니다.
 7. **프로토콜**의 경우 **TCP**를 선택합니다.
-8. **원본 주소**에 대해 **192.168.1.0/24**를 입력합니다.
-9. [대상 주소]에 대해 **10.6.0.0/16**을 입력합니다.
-10. **대상 포트**에 대해 **80**을 입력합니다.
+8. **원본 유형**에 대해 **IP 주소**를 선택합니다.
+9. **원본**에 대해 **192.168.1.0/24**를 선택합니다.
+10. **대상 주소**에 대해 **10.6.0.0/16**을 입력합니다.
+11. **대상 포트**에 대해 **80**을 입력합니다.
 
 이제 RDP 트래픽을 허용하는 규칙을 추가합니다.
 
@@ -189,10 +190,11 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 1. **이름**에 대해 **AllowRDP**를 입력합니다.
 2. **프로토콜**의 경우 **TCP**를 선택합니다.
-3. **원본 주소**에 대해 **192.168.1.0/24**를 입력합니다.
-4. [대상 주소]에 대해 **10.6.0.0/16**을 입력합니다.
-5. **대상 포트**에 대해 **3389**를 입력합니다.
-6. **추가**를 선택합니다.
+3. **원본 유형**에 대해 **IP 주소**를 선택합니다.
+4. **원본**에 대해 **192.168.1.0/24**를 선택합니다.
+5. **대상 주소**에 대해 **10.6.0.0/16**을 입력합니다.
+6. **대상 포트**에 대해 **3389**를 입력합니다.
+7. **추가**를 선택합니다.
 
 ## <a name="create-and-connect-the-vpn-gateways"></a>VPN 게이트웨이 만들기 및 연결
 

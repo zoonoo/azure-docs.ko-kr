@@ -14,12 +14,12 @@ ms.custom:
 audience: ITPro
 manager: dcscontentpm
 ms.localizationpriority: high
-ms.openlocfilehash: dbe4cac64e324c1188ec5a01b4da3935a5d5b479
-ms.sourcegitcommit: f255f869c1dc451fd71e0cab340af629a1b5fb6b
+ms.openlocfilehash: e0d42a3ce1dd9deb5e73500371c367134ca852e1
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/16/2020
-ms.locfileid: "77371286"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77619955"
 ---
 # <a name="azure-kinect-dk-hardware-specifications"></a>Azure Kinect DK 하드웨어 사양
 
@@ -71,7 +71,7 @@ Azure Kinect DK는 [ISSCC 2018에 제시된 이미지 센서](https://docs.micro
 | WFOV Unbinned   | 1024 x 1024  | 120° x 120° | 0, 5, 15           | 0.25-2.21m      | 20.3ms        |
 | Passive IR      | 1024 x 1024  | 해당 없음       | 0, 5, 15, 30       | 해당 없음              | 1.6ms         |
 
-\*850nm에서 15-95% 반사율, 2.2 μW/cm<sup>2</sup>/nm, 임의 오류 표준 편차 ≤ 17mm, 일반 체계적 오류 < 11mm + 다중 경로 간섭을 사용하지 않는 거리의 0.1% 기준입니다. 개체 반사율에 따라 표시된 범위를 벗어나는 깊이가 제공됩니다.
+\*850nm에서 15-95% 반사율, 2.2 μW/cm<sup>2</sup>/nm, 임의 오류 표준 편차 ≤ 17mm, 일반 체계적 오류 < 11mm + 다중 경로 간섭을 사용하지 않는 거리의 0.1% 기준입니다. 위에 표시된 작동 범위 이외의 깊이가 제공될 수 있습니다. 개체의 반사율에 따라 달라집니다.
 
 ## <a name="color-camera-supported-operating-modes"></a>컬러 카메라 지원 작동 모드
 

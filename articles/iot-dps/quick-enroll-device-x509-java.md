@@ -9,36 +9,26 @@ ms.service: iot-dps
 services: iot-dps
 ms.devlang: java
 ms.custom: mvc
-ms.openlocfilehash: a2787a0d5f372562f32c4d8adca3ed195d1befd5
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 534956a53615cfafeffa611127bc8c3cc4493753
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77461971"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77604910"
 ---
 # <a name="quickstart-enroll-x509-devices-to-the-device-provisioning-service-using-java"></a>빠른 시작: Java를 사용하여 Device Provisioning Service에 X.509 디바이스 등록
 
 [!INCLUDE [iot-dps-selector-quick-enroll-device-x509](../../includes/iot-dps-selector-quick-enroll-device-x509.md)]
 
-이 빠른 시작에서는 Java를 사용하여 Azure IoT Hub Device Provisioning Service에 X.509 시뮬레이션된 디바이스 그룹을 프로그래밍 방식으로 등록하는 방법을 보여줍니다. 디바이스는 [등록 그룹](concepts-service.md#enrollment-group) 또는 [개별 등록](concepts-service.md#individual-enrollment)을 만들어 프로비전 서비스 인스턴스에 등록됩니다. 이 빠른 시작에는 두 가지 유형의 등록을 만드는 방법을 보여줍니다. 등록은 샘플 Java 애플리케이션의 도움으로 [Java Service SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 생성됩니다. 
-
-이 빠른 시작에서는 IoT 허브 및 Device Provisioning Service 인스턴스를 이미 만들었다고 예상합니다. 이러한 리소스를 아직 만들지 않은 경우 이 문서를 계속하기 전에 [Azure Portal을 사용하여 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md)을 완료합니다.
-
-Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 이 문서에서는 Windows 개발 컴퓨터를 사용하여 등록 프로세스를 안내합니다.
-
-[!INCLUDE [quickstarts-free-trial-note](../../includes/quickstarts-free-trial-note.md)]
+이 빠른 시작에서는 Java를 사용하여 X.509 시뮬레이션된 디바이스 그룹을 Azure IoT Hub Device Provisioning Service에 프로그래밍 방식으로 등록합니다. 디바이스는 등록 그룹 또는 개별 등록을 만들어 프로비저닝 서비스 인스턴스에 등록됩니다. 이 빠른 시작에서는 Java 서비스 SDK와 Java 애플리케이션 샘플을 사용하여 두 가지 유형의 등록을 만드는 방법을 보여 줍니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-* [Java SE Development Kit 8](https://aka.ms/azure-jdks)을 설치합니다.
-* [Maven 3](https://maven.apache.org/download.cgi)을 설치합니다. 다음을 실행하여 현재 Maven 버전을 확인할 수 있습니다.
-
-    ```cmd/sh
-    mvn --version
-    ```
-
-* [Git](https://git-scm.com/download/)를 설치합니다.
-
+- [Azure Portal에서 IoT Hub Device Provisioning Service 설정](./quick-setup-auto-provision.md) 완료
+- 활성 구독이 있는 Azure 계정. [체험 계정 만들기](https://azure.microsoft.com/free/?ref=microsoft.com&utm_source=microsoft.com&utm_medium=docs&utm_campaign=visualstudio)
+- [Java SE Development Kit 8](https://aka.ms/azure-jdks). 이 빠른 시작에서는 아래 [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 설치합니다. Windows와 Linux 모두에서 작동합니다. 이 빠른 시작에서는 Windows를 사용합니다.
+- [Maven 3](https://maven.apache.org/download.cgi)
+- [Git](https://git-scm.com/download/)
 
 <a id="javasample"></a>
 
@@ -51,7 +41,7 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 
 다음 단계에서는 X.509 디바이스에 대한 프로비전 세부 정보를 샘플 코드에 추가하는 방법을 보여줍니다. 
 
-1. 명령 프롬프트를 엽니다. Java 서비스 SDK를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
+1. 명령 프롬프트를 엽니다. [Java 서비스 SDK](https://azure.github.io/azure-iot-sdk-java/service/)를 사용하여 디바이스 등록 코드 샘플에 대한 GitHub 리포지토리를 복제합니다.
     
     ```cmd\sh
     git clone https://github.com/Azure/azure-iot-sdk-java.git --recursive
@@ -140,6 +130,13 @@ Java 서비스 SDK는 Windows 및 Linux 컴퓨터 모두에서 작동하지만, 
 <a id="runjavasample"></a>
 
 ## <a name="build-and-run-sample-group-enrollment"></a>샘플 그룹 등록 빌드 및 실행
+
+Azure IoT Device Provisioning 서비스는 다음과 같은 두 가지 등록을 지원합니다.
+
+- [등록 그룹](concepts-service.md#enrollment-group): 여러 관련 디바이스를 등록하는 데 사용됩니다.
+- [개별 등록](concepts-service.md#individual-enrollment): 단일 디바이스를 등록하는 데 사용됩니다.
+
+이 절차에서는 등록 그룹을 사용하지만, 다음 섹션에서는 개별 등록을 사용합니다.
 
 1. 명령 창을 열고 **_azure-iot-sdk-java/provisioning/provisioning-samples/service-enrollment-group-sample_** 폴더로 이동합니다.
 

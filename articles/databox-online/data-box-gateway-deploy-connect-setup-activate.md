@@ -1,5 +1,5 @@
 ---
-title: Azure Portal에서 Azure Data Box Gateway에 연결하고, 구성하고, 활성화 | Microsoft Docs
+title: Azure Portal에서 Azure Data Box Gateway 연결, 구성 및 활성화
 description: Data Box Gateway 배포에 대한 세 번째 자습서에서는 가상 디바이스에 연결하고, 설정하고, 활성화하는 방법을 안내합니다.
 services: databox
 author: alkohli
@@ -8,12 +8,12 @@ ms.subservice: gateway
 ms.topic: tutorial
 ms.date: 03/18/2019
 ms.author: alkohli
-ms.openlocfilehash: 898cb63f8868ce2abaee8784214322edf9a56997
-ms.sourcegitcommit: bf509e05e4b1dc5553b4483dfcc2221055fa80f2
+ms.openlocfilehash: 33333f8df1e4809a330815e34074d1bca556cd14
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 04/22/2019
-ms.locfileid: "60000320"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561836"
 ---
 # <a name="tutorial-connect-set-up-activate-azure-data-box-gateway"></a>자습서: Azure Data Box Gateway 연결, 설정 및 활성화
 
@@ -23,13 +23,13 @@ ms.locfileid: "60000320"
 
 설정 및 활성화 프로세스를 완료하는 데 10분 정도가 소요됩니다. 
 
-이 자습서에서는 다음 방법에 대해 알아봅니다.
+이 자습서에서는 다음 작업 방법을 알아봅니다.
 
 > [!div class="checklist"]
 > * 가상 디바이스에 연결
 > * 가상 디바이스 설정 및 활성화
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합니다.
 
@@ -134,7 +134,7 @@ Data Box Gateway를 구성하고 설정하기 전에 다음 사항을 확인합�
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 가상 디바이스에 연결

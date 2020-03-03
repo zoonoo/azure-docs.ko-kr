@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: text-analytics
 ms.topic: overview
-ms.date: 11/29/2019
+ms.date: 02/25/2020
 ms.author: aahi
-ms.openlocfilehash: 027e6ec829e9de9956451e48e5f9e1cdd749f9f7
-ms.sourcegitcommit: 48b7a50fc2d19c7382916cb2f591507b1c784ee5
+ms.openlocfilehash: 560f34d21a68cecc4950db5dcceb9c8ef7b05a49
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74689327"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77614420"
 ---
 # <a name="example-user-scenarios-for-the-text-analytics-api"></a>Text Analytics API의 예제 사용자 시나리오
 
@@ -29,7 +29,7 @@ Text Analytics API는 텍스트에 대한 고급 자연어 처리를 제공하�
 
 ## <a name="analyze-recorded-inbound-customer-calls"></a>녹음된 인바운드 고객 전화 분석
 
-Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [Github의](https://github.com/rlagh2/callcenteranalytics) 샘플 코드를 참조하세요.
+Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서비스 전화에서 인사이트를 추출합니다. 고객을 보다 정확하게 이해하고, 고객 서비스 추세를 강조 표시하고, 고객 참여를 유도할 수 있도록 결과를 Power BI 대시보드 또는 포털에 표시합니다. API 요청을 보고용 일괄 처리로 보내거나 작업을 위해 실시간으로 보냅니다. [GitHub](https://github.com/rlagh2/callcenteranalytics)의 샘플 코드를 참조하세요.
 
 ![감정 분석을 사용하여 고객 서비스 전화에서 인사이트를 획득하는 과정을 자동화하는 방법을 설명하는 이미지](media/use-cases/azure-inbound.svg)
 
@@ -44,6 +44,12 @@ Text to Speech, 감정 분석 및 핵심 구 추출을 사용하여 고객 서�
 제품의 twitter 또는 Facebook 페이지에 올라오는 사용자 제품 피드백을 모니터링합니다. 데이터를 사용하여 신제품 출시를 위해 고객 감정을 분석하고, 기능 및 기능 요청에 대한 핵심 구를 추출하고, 발생하는 고객 불만 사항을 해결합니다. 예제 [Microsoft Flow 템플릿](https://flow.microsoft.com/galleries/public/templates/2680d2227d074c4d901e36c66e68f6f9/run-sentiment-analysis-on-tweets-and-push-results-to-a-power-bi-dataset/)을 참조하세요.
 
 ![핵심 구 추출을 사용하여 소셜 미디어의 제품 및 회사 피드백을 모니터링하는 방법을 설명하는 이미지](media/use-cases/social-feed.svg)
+
+## <a name="classify-and-redact-documents-that-have-sensitive-information"></a>중요한 정보가 있는 문서 분류 및 수정
+
+명명된 엔터티 인식을 사용하여 문서에서 개인 정보와 중요한 정보를 식별합니다. 데이터를 사용하여 문서를 분류하거나 수정하여 안전하게 공유할 수 있습니다.
+
+![NER을 사용하여 개인 정보를 검색하고 문서를 분류 및 수정하는 방법을 설명하는 이미지](media/use-cases/sensitive-docs.jpg)
 
 ## <a name="next-steps"></a>다음 단계
 

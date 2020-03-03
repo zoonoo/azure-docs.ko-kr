@@ -13,12 +13,12 @@ ms.devlang: na
 ms.date: 01/24/2020
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 5454d2f80d1febccb0c57ecf2e80d930bb5cb761
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 21725e64bb359b2f11086baceb186605f010b796
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76988807"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561462"
 ---
 # <a name="tutorial-use-deployment-scripts-to-create-a-self-signed-certificate-preview"></a>자습서: 배포 스크립트를 사용하여 자체 서명된 인증서 만들기(미리 보기)
 
@@ -266,13 +266,13 @@ Azure Resource Manager 템플릿에서 배포 스크립트를 사용하는 방�
     * **timeout**: [ISO 8601 형식](https://en.wikipedia.org/wiki/ISO_8601)에 지정된 최대 허용 스크립트 실행 시간을 지정합니다. 기본값은 **P1D**입니다.
     * **arguments**: 매개 변수의 값을 지정합니다. 값은 공백으로 구분됩니다.
     * **scriptContent**: 스크립트 콘텐츠를 지정합니다. 외부 스크립트를 실행하려면 **primaryScriptURI**를 대신 사용합니다. 자세한 내용은 [외부 스크립트 사용](./deployment-script-template.md#use-external-scripts)을 참조하세요.
-        로컬 머신에서 스크립트를 테스트하는 경우에만 **$DeploymentScriptOutputs**를 선언해야 합니다. 이 변수를 선언하면 스크립트를 변경하지 않고도 로컬 머신과 deploymentScript 리소스에서 실행할 수 있습니다. $DeploymentScriptOutputs에 할당된 값은 배포에서 출력으로 사용할 수 있습니다. 자세한 내용은 [배포 스크립트에서 출력 작업](./deployment-script-template.md#work-with-outputs-from-deployment-scripts)을 참조하세요.
+        로컬 머신에서 스크립트를 테스트하는 경우에만 **$DeploymentScriptOutputs**를 선언해야 합니다. 이 변수를 선언하면 스크립트를 변경하지 않고도 로컬 머신과 deploymentScript 리소스에서 실행할 수 있습니다. $DeploymentScriptOutputs에 할당된 값은 배포에서 출력으로 사용할 수 있습니다. 자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
     * **cleanupPreference**: 배포 스크립트 리소스를 삭제할 시간에 대한 기본 설정을 지정합니다.  기본값은 **Always**(항상)이며, 이는 터미널 상태(성공, 실패, 취소됨)에도 불구하고 배포 스크립트 리소스가 삭제됨을 의미합니다. 이 자습서에서는 **OnSuccess**가 사용되므로 스크립트 실행 결과를 볼 수 있습니다.
     * **retentionInterval**: 서비스가 터미널 상태에 도달되면 스크립트 리소스를 유지하는 간격을 지정합니다. 이 기간이 만료되면 리소스가 삭제됩니다. 기간은 ISO 8601 패턴을 기반으로 합니다. 이 자습서에서는 하루를 의미하는 P1D를 사용합니다.  이 속성은 **cleanupPreference**가 **OnExpiration**으로 설정된 경우에 사용됩니다. 이 속성은 현재 사용하도록 설정되어 있지 않습니다.
 
     배포 스크립트에는 키 자격 증명 모음 이름, 인증서 이름 및 주체 이름의 세 가지 매개 변수가 사용됩니다.  인증서를 만든 다음, 인증서를 키 자격 증명 모음에 추가합니다.
 
-    **$DeploymentScriptOutputs**는 출력 값을 저장하는 데 사용됩니다.  자세한 내용은 [배포 스크립트에서 출력 작업](./deployment-script-template.md#work-with-outputs-from-deployment-scripts)을 참조하세요.
+    **$DeploymentScriptOutputs**는 출력 값을 저장하는 데 사용됩니다.  자세한 내용은 [PowerShell 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-powershell-script) 또는 [CLI 배포 스크립트의 출력 작업](./deployment-script-template.md#work-with-outputs-from-cli-script)을 참조하세요.
 
     완성된 템플릿은 [여기](https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-keyvault.json)서 찾을 수 있습니다.
 

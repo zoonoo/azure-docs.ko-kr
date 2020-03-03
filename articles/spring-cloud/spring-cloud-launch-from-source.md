@@ -6,12 +6,12 @@ ms.service: spring-cloud
 ms.topic: quickstart
 ms.date: 10/30/2019
 ms.author: brendm
-ms.openlocfilehash: 8edadbf946a28239ae4d28d56b3dccd77b451a71
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b506fdcdec1ae3e98c1a4afe9c5124e284ed4d99
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277150"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77589014"
 ---
 # <a name="quickstart-launch-your-spring-cloud-application-from-source-code"></a>빠른 시작: 소스 코드에서 Spring Cloud 애플리케이션 시작
 
@@ -62,10 +62,16 @@ az account list -o table
 az account set --subscription
 ```
 
-Azure CLI 창을 열고 다음 명령을 실행하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다. 여기서는 Azure Spring Cloud에 퍼블릭 도메인을 할당하는 작업도 설명합니다.
+Azure Spring Cloud 서비스를 포함할 리소스 그룹을 만듭니다. [Azure 리소스 그룹](../azure-resource-manager/management/overview.md)에 대해 자세히 알아볼 수 있습니다.
 
 ```azurecli
-    az spring-cloud create -n <resource name> -g <resource group name> --is-public true
+az group create --location eastus --name <resource group name>
+```
+
+다음 명령을 실행하여 Azure Spring Cloud의 인스턴스를 프로비저닝합니다. Azure Spring Cloud 서비스의 이름을 준비합니다. 이름은 4-32자 사이여야 하며, 소문자, 숫자 및 하이픈(-) 문자만 포함할 수 있습니다. 서비스 이름의 첫 글자는 문자여야 하며 마지막 문자는 문자 또는 숫자여야 합니다.
+
+```azurecli
+az spring-cloud create -n <resource name> -g <resource group name>
 ```
 
 서비스 인스턴스를 배포하는 데 약 5분이 걸립니다.

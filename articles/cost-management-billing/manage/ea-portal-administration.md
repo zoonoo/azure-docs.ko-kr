@@ -3,16 +3,16 @@ title: Azure EA Portal 관리
 description: 이 문서에서는 관리자가 Azure EA Portal에서 수행하는 일반적인 작업에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 02/24/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 142ef421599cef4083efdf8b9ed700d2baa152b3
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 1da26b3a1c028a49655b9089ac0119e3274e37a4
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199775"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77598394"
 ---
 # <a name="azure-ea-portal-administration"></a>Azure EA Portal 관리
 
@@ -118,6 +118,8 @@ Azure EA Portal을 통해 사용자가 계정 소유자로 추가되면 PAYG 개
 
 계정 양도는 계정 소유자를 한 등록계약에서 다른 등록계약으로 이동합니다. 계정 소유자의 모든 관련 구독은 대상 등록계약으로 이동됩니다. 이 작업은 다수의 활성 등록계약이 있고 선택한 계정 소유자를 이동하려는 경우에만 수행됩니다.
 
+이 섹션은 엔터프라이즈 관리자가 작업을 수행할 수 없는 경우에만 정보를 제공하기 위한 것입니다. 엔터프라이즈 계정을 새 등록 계약에 양도하려면 지원 요청이 필요합니다.
+
 엔터프라이즈 계정을 새 등록에 양도할 때 다음 사항을 염두에 두어야 합니다.
 
 - 요청에 지정된 계정만 양도됩니다. 모든 계정을 선택하면 모든 계정이 양도됩니다.
@@ -147,6 +149,8 @@ Azure EA Portal을 통해 사용자가 계정 소유자로 추가되면 PAYG 개
 - 현재 등록계약의 약정 기간이 끝났습니다.
 - 등록계약이 만료된/연장된 상태이며 새로운 계약이 협상되었습니다.
 - 다수의 등록계약이 있고 모든 계정과 청구 정보를 단일 등록계약에 통합하려고 합니다.
+
+이 섹션은 엔터프라이즈 관리자가 작업을 수행할 수 없는 경우에만 정보를 제공하기 위한 것입니다. 엔터프라이즈 등록계약을 새 등록계약에 양도하려면 지원 요청이 필요합니다.
 
 엔터프라이즈 등록 전체를 다른 등록에 양도해 달라고 요청하면 다음 작업이 수행됩니다.
 

@@ -6,12 +6,12 @@ ms.assetid: 01d6ca9f-ca3f-44fa-b0b9-7ffee115acd4
 ms.topic: overview
 ms.date: 01/16/2020
 ms.custom: H1Hack27Feb2017, mvc
-ms.openlocfilehash: 1cd7b3db92de339b7614a4271f9e6793cdf8f2ad
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: f0948cb58ba9403a34fbfd61ec43c29bed3440bc
+ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76292896"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77621013"
 ---
 # <a name="an-introduction-to-azure-functions"></a>Azure Functions 소개
 
@@ -19,7 +19,7 @@ Azure Functions를 사용하면 애플리케이션 인프라에 대한 걱정 �
 
 함수는 특정 이벤트 유형을 통해 "트리거"됩니다. [지원되는 트리거](./functions-triggers-bindings.md)에는 데이터 변경에 대한 응답, 메시지에 대한 응답, 일정에 따라 실행 또는 HTTP 요청의 결과가 포함됩니다.
 
-항상 수많은 서비스에 대해 직접 코딩할 수 있지만, 다른 서비스와의 통합은 바인딩을 사용하여 간소화됩니다. 바인딩을 사용하면 [매우 다양한 Azure 및 타사 서비스에 선언적으로 액세스](./functions-triggers-bindings.md)할 수 있습니다.
+항상 수많은 서비스에 대해 직접 코딩할 수 있지만, 다른 서비스와의 통합은 바인딩을 사용하여 간소화됩니다. 바인딩은 [매우 다양한 Azure 및 타사 서비스에 대한 선언적 액세스](./functions-triggers-bindings.md)를 제공합니다.
 
 ## <a name="features"></a>기능
 

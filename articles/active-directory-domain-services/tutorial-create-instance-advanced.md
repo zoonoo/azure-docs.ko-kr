@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 11/19/2019
 ms.author: iainfou
-ms.openlocfilehash: 5e969ed4f525d0b3d17339b9f9a6111ad81b0125
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: e3f09d4e2500b98a7ce68139cd97a04c0d60d73e
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931632"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612559"
 ---
 # <a name="tutorial-create-and-configure-an-azure-active-directory-domain-services-instance-with-advanced-configuration-options"></a>자습서: 고급 구성 옵션을 사용하여 Azure Active Directory Domain Services 인스턴스를 만들고 구성
 
@@ -69,17 +69,17 @@ Azure AD DS 인스턴스를 만드는 경우 DNS 이름을 지정해야 합니�
 * **라우팅할 수 없는 도메인 접미사:** 일반적으로 라우팅할 수 없는 도메인 이름 접미사(예: *contoso.local*)를 사용하지 않는 것이 좋습니다. *.local* 접미사는 라우팅할 수 없으며, DNS 확인에서 문제가 발생할 수 있습니다.
 
 > [!TIP]
-> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 도메인 이름에 대한 고유한 접두사를 포함하는 것이 좋습니다. 예를 들어 DNS 루트 이름이 *contoso.com*인 경우 사용자 지정 도메인 이름이 *corp.contoso.com* 또는 *ds.contoso.com*인 Azure AD DS 관리형 도메인을 만듭니다. 온-프레미스 AD DS 환경을 사용하는 하이브리드 환경에서 이러한 접두사는 이미 사용 중일 수 있습니다. Azure AD DS에 대한 고유한 접두사를 사용합니다.
+> 사용자 지정 도메인 이름을 만드는 경우 기존 DNS 네임스페이스를 주의해야 합니다. 기존 Azure 또는 온-프레미스 DNS 네임스페이스와 별도의 도메인 이름을 사용하는 것이 좋습니다.
 >
-> Azure AD DS 관리형 도메인에 대해 루트 DNS 이름을 사용할 수 있지만, 환경의 다른 서비스에 대해 일부 추가적인 DNS 레코드를 만들어야 할 수도 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
+> 예를 들어 기존 DNS 네임스페이스가 *contoso.com*인 경우 사용자 지정 도메인 이름이 *aaddscontoso.com*인 Azure AD DS 관리형 도메인을 만듭니다. 보안 LDAP을 사용해야 하는 경우 필요한 인증서를 생성하려면 이 사용자 지정 도메인 이름을 등록하고 소유해야 합니다.
 >
-> 이러한 자습서 및 방법 문서에서 *aadds.contoso.com*의 사용자 지정 도메인은 간단한 예제로 사용됩니다. 모든 명령에서 고유한 접두사를 포함할 수 있는 자신만의 고유한 도메인 이름을 지정합니다.
+> 환경의 다른 서비스에 대한 일부 추가 DNS 레코드를 만들거나 환경의 기존 DNS 네임스페이스 사이에 조건부 DNS 전달자를 만들어야 할 수 있습니다. 예를 들어 루트 DNS 이름을 사용 중인 사이트를 호스트하는 웹 서버를 실행하는 경우 추가 DNS 항목이 필요한 명명 충돌이 있을 수 있습니다.
 >
-> 자세한 내용은 [도메인에 대한 명명 접두사 선택][명명-접두사]를 참조하세요.
+> 이러한 자습서 및 방법 문서에서는 *aaddscontoso.com*의 사용자 지정 도메인이 간단한 예제로 사용됩니다. 모든 명령에서 사용자 고유의 도메인 이름을 지정하세요.
 
 다음 DNS 이름 제한도 적용됩니다.
 
-* **도메인 접두사 제한:** 접두사가 15자보다 긴 관리되는 도메인은 만들 수 없습니다. 지정한 도메인 이름의 접두사(예: *contoso.com* 도메인 이름의 *contoso*)는 15자 이하의 문자여야 합니다.
+* **도메인 접두사 제한:** 접두사가 15자보다 긴 관리되는 도메인은 만들 수 없습니다. 지정한 도메인 이름의 접두사(예: *aaddscontoso.com* 도메인 이름의 *aaddscontoso*)는 15자 이하여야 합니다.
 * **네트워크 이름 충돌:** 관리되는 도메인의 DNS 도메인 이름이 가상 네트워크에 존재하지 않아야 합니다. 특히 이름 충돌이 발생할 수 있는 다음 시나리오를 확인하세요.
     * Azure 가상 네트워크에 동일한 DNS 도메인 이름의 Active Directory 도메인이 이미 있는 경우
     * 관리되는 도메인을 사용하도록 설정하려는 가상 네트워크에 온-프레미스 네트워크와의 VPN 연결이 있는 경우. 이 시나리오에서는 온-프레미스 네트워크에 동일한 DNS 도메인 이름을 가진 도메인이 없는지 확인합니다.
@@ -170,7 +170,7 @@ Azure AD DS를 사용하면 Azure AD에서 사용할 수 있는 사용자와 그
 
     ![Azure Portal의 진행 중인 배포 알림](./media/tutorial-create-instance-advanced/deployment-in-progress.png)
 
-1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 Azure AD DS 인스턴스(예: *aadds.contoso.com*)를 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
+1. 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, Azure 리소스 목록에서 Azure AD DS 인스턴스(예: *aaddscontoso.com*)를 선택합니다. **개요** 탭에서 관리되는 도메인이 현재 *배포 중*임을 보여 줍니다. 관리되는 도메인은 완전히 프로비저닝될 때까지 구성할 수 없습니다.
 
     ![프로비저닝 중 상태의 Domain Services 상태](./media/tutorial-create-instance-advanced/provisioning-in-progress.png)
 

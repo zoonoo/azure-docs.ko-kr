@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: qna-maker
 ms.topic: overview
-ms.date: 11/22/2019
+ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 7bac2546ac35f5f188a6490c4d9ecb2b86d7bb2d
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 91a63e87e937eab4c02d2b86026aa09472cb15ef
+ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76843059"
+ms.lasthandoff: 02/22/2020
+ms.locfileid: "77561099"
 ---
 # <a name="what-is-the-qna-maker-service"></a>QnA Maker 서비스란?
 
@@ -77,6 +77,10 @@ QnA Maker는 기본 질문 및 대답 세트를 향상시키는 데 도움이 �
 ## <a name="development-lifecycle"></a>개발 수명 주기
 
 QnA Maker는 협업 권한과 함께 작성, 학습 및 게시를 제공하여 전체 개발 수명 주기에 통합합니다.
+
+> [!div class="mx-imgBorder"]
+> ![개발 주기의 개념 이미지](../media/qnamaker-overview-learnabout/development-cycle.png)
+
 
 ## <a name="how-do-i-start"></a>시작하는 방법
 

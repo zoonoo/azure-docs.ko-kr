@@ -7,12 +7,12 @@ ms.author: banders
 ms.date: 02/13/2020
 ms.service: cost-management-billing
 ms.topic: conceptual
-ms.openlocfilehash: 4e4b039b6ad6fad8a414fc9703309fa76853ef09
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 761f4345c591864b8158d7216d737ac287692252
+ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199673"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77651392"
 ---
 # <a name="link-a-partner-id-to-your-azure-accounts"></a>Azure 계정에 파트너 ID 연결
 
@@ -29,6 +29,8 @@ Microsoft 파트너는 고객이 Microsoft 제품을 사용하여 비즈니스 �
 - **디렉터리 계정**: 고객은 자신의 디렉터리에 사용자 계정을 만들고 RBAC 역할을 할당할 수 있습니다.
 
 - **서비스 주체**: 고객은 해당 디렉터리에서 조직의 앱 또는 스크립트를 추가하고 RBAC 역할을 할당할 수 있습니다. 앱 또는 스크립트의 ID를 서비스 주체라고 합니다.
+
+- **Azure Lighthouse**: 사용자가 테넌트 내에서 작업할 수 있도록 고객이 구독(또는 리소스 그룹)을 위임할 수 있습니다. 자세한 내용은 [Azure 위임 리소스 관리](https://docs.microsoft.com/azure/lighthouse/concepts/azure-delegated-resource-management)를 참조하세요.
 
 ## <a name="link-to-a-partner-id"></a>파트너 ID에 연결
 
@@ -154,3 +156,7 @@ C:\ az managementpartner delete --partner-id 12345
 **연결 파트너 ID는 Azure Stack과 작동하나요?**
 
 예, Azure Stack에 대한 파트너 ID를 연결할 수 있습니다.
+
+**회사에서 [Azure Lighthouse](https://docs.microsoft.com/azure/lighthouse/overview)를 사용하여 고객 리소스에 액세스하는 경우 내 파트너 ID를 어떻게 연결하나요?**
+
+[관리형 서비스 제품을 Azure Marketplace에 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)하여 고객을 Azure 위임 리소스 관리에 온보딩하면 MPN ID가 자동으로 연결됩니다. [Azure Resource Manager 템플릿을 배포하여 고객을 온보딩](https://docs.microsoft.com/azure/lighthouse/how-to/onboard-customer)하는 경우 MPN(Microsoft 파트너 네트워크) ID를 각 온보딩된 각 구독에 액세스할 수 있는 하나 이상의 사용자 계정과 연결해야 합니다. 이 작업은 서비스 공급자 테넌트에서 수행해야 합니다. 간단히 하기 위해, 테넌트에서 MPN ID와 연결된 서비스 주체 계정을 만들고 온보딩한 모든 고객에 대한 읽기 권한자 액세스 권한을 이 계정에 부여하는 것이 좋습니다.

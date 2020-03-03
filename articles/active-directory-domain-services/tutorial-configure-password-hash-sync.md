@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 02/10/2020
 ms.author: iainfou
-ms.openlocfilehash: deca7477c79fd2952bb57c0194202c382cd5279d
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: c2a751367a96c995a24457d0357aa6a2bfe987e5
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77132226"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612573"
 ---
 # <a name="tutorial-enable-password-synchronization-in-azure-active-directory-domain-services-for-hybrid-environments"></a>자습서: 하이브리드 환경을 위해 Azure Active Directory Domain Services에서 암호 동기화 활성화
 
@@ -68,7 +68,7 @@ Azure AD Connect를 설치하고 Azure AD와 동기화하도록 구성된 상태
 
     이 예제 스크린샷에서는 다음 커넥터가 사용됩니다.
 
-    * *contoso.onmicrosoft.com - AAD*라는 Azure AD 커넥터
+    * *aaddscontoso.onmicrosoft.com - AAD*라는 Azure AD 커넥터
     * *onprem.contoso.com*이라는 온-프레미스 AD DS 커넥터
 
 1. 다음 PowerShell 스크립트를 복사하여 Azure AD Connect가 설치된 컴퓨터에 붙여넣습니다. 이 스크립트는 레거시 암호 해시가 포함된 전체 암호 동기화를 트리거합니다. `$azureadConnector` 및 `$adConnector` 변수를 이전 단계의 커넥터 이름으로 업데이트합니다.

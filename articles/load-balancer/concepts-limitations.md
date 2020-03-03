@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 01/14/2020
 ms.author: allensu
-ms.openlocfilehash: 341bfddb86885df225874100400a854cf12120db
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: aab6a4de7be57df1f691861533a4528a0bcae571
+ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76757802"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77605661"
 ---
 # <a name="load-balancer-components-and-limitations"></a>Load Balancer 구성 요소 및 제한 사항
 Azure Load Balancer에는 해당 작업을 위한 몇 가지 주요 구성 요소가 포함되어 있습니다.  이러한 구성 요소는 Azure Portal, Azure CLI 또는 Azure PowerShell을 통해 구독에서 구성할 수 있습니다.  
@@ -73,9 +73,11 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
 다음 이미지는 해시 기반 배포를 표시합니다.
 
-  ![해시 기반 배포](./media/load-balancer-overview/load-balancer-distribution.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-distribution.svg" width="512" title="해시 기반 배포">
+</p>
 
-  *그림: 해시 기반 배포*
+  *그림: 해시 기반 배포 
 
 * **애플리케이션 독립성 및 투명성**: Load Balancer는 TCP 또는 UDP나 애플리케이션 계층과 직접 상호 작용하지 않습니다. 모든 TCP 또는 UDP 애플리케이션 시나리오를 지원할 수 있습니다. Load Balancer는 흐름을 종료하거나 시작하지 않으며, 흐름의 페이로드와 상호 작용하지 않고, 애플리케이션 계층 게이트웨이 함수를 제공하지 않습니다. 프로토콜 핸드셰이크는 항상 클라이언트와 백 엔드 풀 인스턴스 사이에서 직접 발생합니다. 인바운드 흐름에 대한 응답은 항상 가상 머신의 응답입니다. 흐름이 가상 머신에 도착하면 원래 원본 IP 주소도 유지됩니다.
   * 모든 엔드포인트는 VM에서만 응답합니다. 예를 들어, TCP 핸드셰이크는 항상 클라이언트와 선택한 백 엔드 VM 사이에서 발행합니다. 프런트 엔드에 요청에 대한 응답은 백 엔드 VM에서 생성한 응답입니다. 프런트 엔드에 대한 연결의 유효성을 성공적으로 확인하는 경우 최소 하나 이상의 백 엔드 가상 머신에 통합형 연결의 유효성을 검사하는 것입니다.
@@ -132,9 +134,11 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 
 다음 그림에서는 TCP 포트 80에 대해 3개의 퍼블릭 VM 간에 공유되는 웹 트래픽의 부하가 분산된 엔드포인트를 보여 줍니다. 이 세 대의 VM은 부하 분산 집합에 속합니다.
 
-![공용 Load Balancer 예](./media/load-balancer-overview/IC727496.png)
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer-http.svg" width="256" title="공용 부하 분산 장치">
+</p>
 
-*그림: 퍼블릭 Load Balancer를 사용하여 웹 트래픽 부하 분산*
+*그림: 퍼블릭 부하 분산 장치를 사용하여 웹 트래픽 분산*
 
 인터넷 클라이언트가 TCP 포트 80에서 웹앱의 퍼블릭 IP 주소에 웹 페이지 요청을 보냅니다. Azure Load Balancer는 부하 분산된 세트에 있는 3개 VM에 요청을 분산합니다. Load Balancer 알고리즘에 대한 자세한 내용은 [Load Balancer 개념](concepts-limitations.md#load-balancer-concepts)을 참조하세요.
 
@@ -151,7 +155,10 @@ Load Balancer는 TCP 및 UDP 애플리케이션에 대해 다음과 같은 기�
 * **다중 계층 애플리케이션의 경우**: 백 엔드 계층이 인터넷에 연결되어 있지 않은 인터넷 연결 다중 계층 애플리케이션의 부하 분산 백 엔드 계층에는 인터넷 연결 계층의 트래픽 부하 분산이 필요합니다. 다음 그림을 참조하세요.
 * **LOB(기간 업무) 애플리케이션의 경우**: 추가적인 부하 분산 장치 하드웨어 또는 소프트웨어 없이 Azure에서 호스트되는 LOB(기간 업무) 애플리케이션의 부하 분산. 이 시나리오는 트래픽 부하가 분산되는 컴퓨터 세트에 있는 온-프레미스 서버를 포함합니다.
 
-![내부 Load Balancer 예제](./media/load-balancer-overview/IC744147.png)
+
+<p align="center">
+  <img src="./media/load-balancer-overview/load-balancer.svg" width="256" title="공용 부하 분산 장치">
+</p>
 
 *그림: 퍼블릭 및 내부 Load Balancer를 둘 다 사용하여 다중 계층 애플리케이션 부하 분산*
 

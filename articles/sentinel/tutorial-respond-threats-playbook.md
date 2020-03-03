@@ -3,7 +3,7 @@ title: '자습서: Azure Sentinel에서 플레이북 실행'
 description: '자습서: 이 문서에서는 Azure Sentinel에서 플레이북을 실행하는 방법을 설명합니다.'
 services: sentinel
 documentationcenter: na
-author: rkarlin
+author: yelevin
 manager: rkarlin
 editor: ''
 ms.assetid: e4afc5c8-ffad-4169-8b73-98d00155fa5a
@@ -14,14 +14,14 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.date: 11/12/2019
-ms.author: rkarlin
-ms.openlocfilehash: 7e26e901fdee8cac79cfb55aa0999487e87b8a78
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.date: 02/18/2019
+ms.author: yelevin
+ms.openlocfilehash: f6adcb978dbe540d3bdd352089d4dde407d0fb4c
+ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74113915"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77585087"
 ---
 # <a name="tutorial-set-up-automated-threat-responses-in-azure-sentinel"></a>자습서: Azure Sentinel에서 자동화된 위협 응답 설정
 
@@ -64,7 +64,7 @@ ms.locfileid: "74113915"
 
    ![논리 앱](./media/tutorial-respond-threats-playbook/playbookimg.png)
 
-3. **Azure Sentinel - 플레이북(미리 보기)** 페이지에서 **추가** 단추를 클릭합니다.
+3. **Azure Sentinel - 플레이북** 페이지에서 **추가** 단추를 클릭합니다.
 
    ![논리 앱 만들기](./media/tutorial-respond-threats-playbook/create-playbook.png) 
 

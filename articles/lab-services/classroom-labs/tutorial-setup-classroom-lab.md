@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: e50d0772eaf706772aa89418a1ad25bf406945b5
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 166ec4db2a2891d25a1e80526f8c1bd9770f9eef
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134291"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77592223"
 ---
 # <a name="tutorial-set-up-a-classroom-lab"></a>자습서: 클래스룸 랩 설정 
 이 자습서에서는 클래스룸에서 학생이 사용할 가상 머신이 포함된 클래스룸 랩을 설정합니다.  
@@ -72,7 +72,7 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
     4. 템플릿 VM을 **중지**합니다.  
 
 ## <a name="publish-the-template-vm"></a>템플릿 VM 게시
-이 단계에서는 템플릿 VM을 게시합니다. 게시 프로세스는 기본적으로 템플릿 VM의 복사본인 랩 VM을 만듭니다. 
+이 단계에서는 템플릿 VM을 게시합니다. 템플릿 VM이 게시되면 Azure Lab Services에서 템플릿을 사용하여 VM을 랩에 만듭니다. 모든 가상 머신은 템플릿과 구성이 동일합니다.
 
 1. **템플릿** 페이지의 도구 모음에서 **게시**를 선택합니다. 
 
@@ -89,6 +89,9 @@ Azure Lab Services를 사용하는 일반적인 워크플로는 다음과 같습
 4. 게시가 완료될 때까지 기다린 다음, 왼쪽 메뉴에서 **가상 머신**을 선택하거나 **가상 머신** 타일을 선택하여 **가상 머신 풀** 페이지로 전환합니다. **할당되지 않음** 상태인 가상 머신이 보이는지 확인합니다. 이러한 VM은 아직 학생들에게 할당되지 않았습니다. **중지됨** 상태일 것입니다. 이 페이지에서 학생 VM을 시작하고, VM에 연결하고, VM을 중지하고, VM을 삭제할 수 있습니다. 이 페이지에서 VM을 시작할 수도 있고, 학생들이 VM을 시작하게 할 수도 있습니다. 
 
     ![중지됨 상태의 가상 머신](../media/tutorial-setup-classroom-lab/virtual-machines-stopped.png)   
+
+    > [!NOTE]
+    > 교육자가 학생 VM을 켜는 경우 학생에 대한 할당량에 영향을 주지 않습니다. 사용자에 대한 할당량은 사용자가 예약된 수업 시간 이외의 시간에 사용할 수 있는 랩 시간 수를 지정합니다. 할당량에 대한 자세한 내용은 [사용자에 대한 할당량 설정](how-to-configure-student-usage.md?#set-quotas-for-users)을 참조하세요.
 
 ## <a name="set-a-schedule-for-the-lab"></a>랩에 대한 일정 설정
 랩의 VM이 특정 시간에 자동으로 시작/중지되도록 랩에 예약된 이벤트를 만듭니다. 앞에서 지정한 사용자 할당량(기본값: 10시간)은 이 예약된 시간 이외의 시간으로 각 사용자에게 할당된 추가 시간입니다. 

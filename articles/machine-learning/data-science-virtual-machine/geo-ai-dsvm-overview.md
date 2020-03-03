@@ -1,5 +1,5 @@
 ---
-title: 지리적 AI DSVM이란?
+title: 지리적 AI Data Science Virtual Machine이란?
 titleSuffix: Azure Data Science Virtual Machine
 description: 지리적 AI Data Science Virtual Machine은 지리적 데이터 작업을 위한 ArcGIS Pro와 ML 및 AI 작업을 위한 Python, R 및 데이터 과학 도구 키트를 제공합니다.
 keywords: 심화 학습, AI, 데이터 과학 도구, 데이터 과학 가상 머신, 지리 공간적 분석
@@ -10,12 +10,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: overview
 ms.date: 03/05/2018
-ms.openlocfilehash: 7e2976596ca6b55ea57e00015e53b2721438e990
-ms.sourcegitcommit: 375b70d5f12fffbe7b6422512de445bad380fe1e
+ms.openlocfilehash: f5a094613b8722f96fccd1d1a6df359fa9b0ebd4
+ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74899914"
+ms.lasthandoff: 02/21/2020
+ms.locfileid: "77526064"
 ---
 # <a name="what-is-the-geo-artificial-intelligence-data-science-virtual-machine"></a>지리적 AI Data Science Virtual Machine이란?
 
@@ -45,4 +45,4 @@ Microsoft의 [DSVM(Data Science Virtual Machine)](overview.md)은 Azure에서 �
 다음 리소스의 지침에 따라 지리적 AI Data Science VM을 프로비저닝하고 사용합니다.
 
 * [지리적 AI 데이터 과학 VM 프로비전](provision-geo-ai-dsvm.md)
-* [지리적 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)
+* [지역 AI 데이터 과학 VM 사용](use-geo-ai-dsvm.md)

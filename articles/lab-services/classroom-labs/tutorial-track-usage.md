@@ -14,12 +14,12 @@ ms.topic: tutorial
 ms.custom: mvc
 ms.date: 02/10/2020
 ms.author: spelluru
-ms.openlocfilehash: 55c7e2f30324fe7878e38f1129c63c6e0c51a75f
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: a1a3e62646fedd468a02eac7b1a48d0b2d00fd74
+ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134858"
+ms.lasthandoff: 02/25/2020
+ms.locfileid: "77591985"
 ---
 # <a name="tutorial-track-usage-of-a-lab-in-azure-lab-service"></a>자습서: Azure Lab Services에서 랩 사용량 추적
 이 자습서에서는 랩 작성자/소유자가 랩 사용량을 추적하는 방법을 보여줍니다.
@@ -53,9 +53,12 @@ ms.locfileid: "77134858"
 ## <a name="manage-student-vms"></a>학생 VM 관리 
 이 페이지에서 **Status** 열 또는 도구 모음 목록에서 컨트롤을 사용하여 학생 VM을 시작, 중지 또는 다시 설정할 수 있습니다.
 
-![VM 컨트롤](../media/tutorial-track-usage/vm-controls.png)
+![VM 작업](../media/tutorial-track-usage/vm-controls.png)
 
 랩의 가상 머신 풀을 관리하는 방법에 대한 자세한 내용은 [가상 머신 풀 설정 및 관리](how-to-set-virtual-machine-passwords.md)를 참조하세요.
+
+> [!NOTE]
+> 교육자가 학생 VM을 켜는 경우 학생에 대한 할당량에 영향을 주지 않습니다. 사용자에 대한 할당량은 사용자가 예약된 수업 시간 이외의 시간에 사용할 수 있는 랩 시간 수를 지정합니다. 할당량에 대한 자세한 내용은 [사용자에 대한 할당량 설정](how-to-configure-student-usage.md?#set-quotas-for-users)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 클래스룸 랩에 대한 자세한 내용은 [방법 가이드](how-to-manage-lab-accounts.md)의 문서를 참조하세요.

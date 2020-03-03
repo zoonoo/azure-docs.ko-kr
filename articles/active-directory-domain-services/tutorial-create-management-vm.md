@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 73402420bdfee7fecbd7901deefe7f4314a76d51
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
+ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76931594"
+ms.lasthandoff: 02/26/2020
+ms.locfileid: "77612205"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -44,6 +44,8 @@ Azure 구독이 없는 경우 시작하기 전에 [계정을 만드세요](https
 * Azure AD DS 관리되는 도메인에 조인된 Windows Server VM
     * 필요한 경우 이전 자습서를 참조하여 [Windows Server VM을 만들어 관리되는 도메인에 조인시킵니다][create-join-windows-vm].
 * Azure AD 테넌트의 *Azure AD DC Administrators* 그룹에 속한 멤버인 사용자 계정
+* Azure AD DS 가상 네트워크에 배포된 Azure Bastion 호스트
+    * 필요한 경우 [Azure Bastion 호스트를 만듭니다][azure-bastion].
 
 ## <a name="sign-in-to-the-azure-portal"></a>Azure Portal에 로그인
 
@@ -84,16 +86,15 @@ Azure AD DS 관리되는 도메인이 잠겨 있으므로 도메인에서 특정
 시작하려면 다음과 같이 Windows Server VM에 연결합니다.
 
 1. Azure Portal의 왼쪽에서 **리소스 그룹**을 선택합니다. VM을 만든 리소스 그룹(예: *myResourceGroup*)을 선택한 다음, VM(예: *myVM*)을 선택합니다.
-1. VM의 **개요** 창에서 **연결**을 선택합니다.
+1. VM에 대한 **개요** 창에서 **연결**, **Bastion**을 차례로 선택합니다.
 
-    ![Azure Portal에서 Windows 가상 머신에 연결](./media/tutorial-create-management-vm/connect-vm.png)
+    ![Azure Portal에서 Bastion을 사용하여 Windows 가상 머신에 연결](./media/join-windows-vm/connect-to-vm.png)
 
-    또한 Azure Portal에서 SSL을 통해서만 액세스할 수 있도록 [Azure Bastion 호스트(현재 미리 보기)를 만들어 사용][azure-bastion]할 수도 있습니다.
+1. VM에 대한 자격 증명을 입력한 다음, **연결**을 선택합니다.
 
-1. *RDP 파일 다운로드* 옵션을 선택합니다. 이 RDP 파일을 웹 브라우저에 저장합니다.
-1. VM에 연결하려면 다운로드한 RDP 파일을 엽니다. 메시지가 표시되면 **연결**을 선택합니다.
-1. *Azure AD DC Administrators* 그룹에 속한 사용자의 자격 증명(예:  *contoso\dee*)을 입력합니다.
-1. 로그인 프로세스 중에 인증서 경고가 표시되면 **예** 또는 **계속**을 선택하여 연결합니다.
+   ![Azure Portal에서 Bastion 호스트를 통해 연결](./media/join-windows-vm/connect-to-bastion.png)
+
+필요한 경우 웹 브라우저에서 Bastion 연결을 표시할 팝업을 열도록 허용합니다. VM에 연결하는 데 몇 초 정도 걸립니다.
 
 ## <a name="install-active-directory-administrative-tools"></a>Active Directory 관리 도구 설치
 
@@ -105,7 +106,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
 1. **서버 관리자** 창의 *대시보드* 창에서 **역할 및 기능 추가**를 선택합니다.
 1. *역할 및 기능 추가 마법사*의 **시작하기 전에** 페이지에서 **다음**을 선택합니다.
 1. *설치 유형*에서 **역할 기반 또는 기능 기반 설치** 옵션을 선택한 상태로 두고, **다음**을 선택합니다.
-1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aadds.contoso.com*), **다음**을 차례로 선택합니다.
+1. **서버 선택** 페이지의 서버 풀에서 현재 VM(예: *myvm.aaddscontoso.com*), **다음**을 차례로 선택합니다.
 1. **서버 역할** 페이지에서 **다음**을 클릭합니다.
 1. **기능** 페이지에서 **원격 서버 관리 도구** 노드, **역할 관리 도구** 노드를 차례로 펼칩니다.
 
@@ -125,7 +126,7 @@ Active Directory 관리 도구를 도메인 조인 VM에 설치하려면 다음 
     ![서버에 설치된 관리 도구 목록](./media/tutorial-create-management-vm/list-admin-tools.png)
 
 1. **Active Directory 관리 센터**를 선택합니다.
-1. Azure AD DS 관리형 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aadds.contoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
+1. Azure AD DS 관리형 도메인을 검색하려면 왼쪽 창에서 도메인 이름(예: *aaddscontoso.com*)을 선택합니다. *AADDC Computers* 및 *AADDC Users*라는 두 개의 컨테이너가 목록 위쪽에 있습니다.
 
     ![Azure AD DS 관리되는 도메인의 사용 가능한 컨테이너 부분 나열](./media/tutorial-create-management-vm/active-directory-administrative-center.png)
 
