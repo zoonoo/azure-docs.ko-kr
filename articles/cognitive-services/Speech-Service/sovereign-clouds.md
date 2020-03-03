@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 1/14/2020
 ms.author: cbasoglu
-ms.openlocfilehash: 00617fc09f471eaf3dc13a5aa691c4aab2e1e2ec
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: b41967033b00144ca5bd52ce23cf8aabcea6749e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77424918"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228095"
 ---
 # <a name="speech-services-with-sovereign-clouds"></a>소 버린 클라우드를 사용 하는 음성 서비스
 
@@ -56,7 +56,7 @@ ms.locfileid: "77424918"
 - SpeechSDK의 TTS: *config FromHost ("https[]()://chinaeast2.tts.speech.azure.cn", "\<키\>");*
 - 인증 토큰: https[]()://chinaeast2.api.cognitive.azure.cn/sts/v1.0/issueToken
 - Azure Portal: https://portal.azure.cn
-- Custom Speech 포털: https://chinaeast2.cris.azure.cn/Home/CustomSpeech
+- Custom Speech 포털: https://speech.azure.cn/CustomSpeech
 - 사용 가능한 Sku: S0
 - 지원되는 기능:
   - 음성 텍스트 변환
