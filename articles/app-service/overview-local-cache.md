@@ -6,17 +6,17 @@ ms.assetid: e34d405e-c5d4-46ad-9b26-2a1eda86ce80
 ms.topic: article
 ms.date: 03/04/2016
 ms.custom: seodec18
-ms.openlocfilehash: 87c95d8bbf199f232eca5475f4d8f0c64427a198
-ms.sourcegitcommit: a100e3d8b0697768e15cbec11242e3f4b0e156d3
+ms.openlocfilehash: 1945730acaddb0c1c7ee1b28eeb926635efad643
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/06/2020
-ms.locfileid: "75680888"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227885"
 ---
 # <a name="azure-app-service-local-cache-overview"></a>Azure App Service 로컬 캐시 개요
 
 > [!NOTE]
-> 로컬 캐시는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같은 컨테이너화된 App Service 앱 또는 함수 앱에서 지원되지 않습니다.
+> [Windows 컨테이너](app-service-web-get-started-windows-container.md) 또는 [Linux의 App Service](containers/app-service-linux-intro.md)와 같이 함수 앱 또는 컨테이너 화 된 App Service 앱에서 로컬 캐시는 지원 되지 않습니다.
 
 
 Azure App Service의 콘텐츠는 Azure Storage에 저장되며 영구적 방식으로 콘텐츠 공유로 표시됩니다. 이 디자인은 다양한 앱으로 작업하기 위한 것이며, 다음과 같은 특성을 가집니다.  
@@ -88,13 +88,13 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ## <a name="best-practices-for-using-app-service-local-cache"></a>App Service 로컬 캐시 사용에 대한 모범 사례
 로컬 캐시는 [스테이징 환경](../app-service/deploy-staging-slots.md) 기능과 함께 사용하는 것이 좋습니다.
 
-* 값이 `Always`인 *고정* 앱 설정 `WEBSITE_LOCAL_CACHE_OPTION`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.
+* 값이 *인* 고정`WEBSITE_LOCAL_CACHE_OPTION` 앱 설정 `Always`을 **프로덕션** 슬롯에 추가합니다. `WEBSITE_LOCAL_CACHE_SIZEINMB`를 사용하는 경우 이것도 프로덕션 슬롯에 고정 설정으로 추가합니다.
 * **스테이징** 슬롯을 만들고 사용자의 스테이징 슬롯에 게시합니다. 스테이징 슬롯은 프로덕션 슬롯에 대한 로컬 캐시의 이점을 활용하지만 일반적으로 스테이징 중 원활한 빌드-배포-테스트 수명 주기를 지원하기 위해 로컬 캐시를 사용하지는 않습니다.
 * 스테이징 슬롯에 대해 사이트를 테스트합니다.  
 * 준비가 되면 스테이징 슬롯과 프로덕션 슬롯 간의 [교환 작업](../app-service/deploy-staging-slots.md#Swap)을 실행합니다.  
 * 고정 설정은 이름 순이며, 슬롯에 고정됩니다. 스테이징 슬롯이 프로덕션으로 교환되면 로컬 캐시 앱 설정을 상속합니다. 새로 교환된 프로덕션 슬롯은 몇 분 후 로컬 캐시에 대해 실행되며, 교환 후 슬롯 준비의 일부로 준비됩니다. 따라서 슬롯 교환이 완료되면 프로덕션 슬롯이 로컬 캐시에 대해 실행됩니다.
 
-## <a name="frequently-asked-questions-faq"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions-faq"></a>질문과 대답(FAQ)
 
 ### <a name="how-can-i-tell-if-local-cache-applies-to-my-app"></a>내 앱에 로컬 캐시가 적용되는지 어떻게 알 수 있나요?
 앱에 높은 성능의 안정적인 콘텐츠 저장소가 필요하지만 콘텐츠 저장소를 사용하여 런타임에 중요한 데이터를 기록하지 않고 총 크기가 2GB 미만인 경우에는 적용할 수 있습니다. /site 및 /siteextensions 폴더의 총 크기를 확인하려면 사이트 확장 "Azure Web Apps 디스크 사용량"을 사용하면 됩니다.
@@ -102,7 +102,7 @@ Azure App Service 로컬 캐시 기능은 콘텐츠의 웹 역할 보기를 제�
 ### <a name="how-can-i-tell-if-my-site-has-switched-to-using-local-cache"></a>사이트가 로컬 캐시를 사용하도록 전환되었는지 어떻게 알 수 있나요?
 스테이징 환경에서 로컬 캐시 기능을 사용하는 경우 로컬 캐시가 준비될 때까지 교환 작업이 완료되지 않습니다. 사이트가 로컬 캐시에 대해 실행되고 있는지 알아보려면 작업자 프로세스 환경 변수 `WEBSITE_LOCALCACHE_READY`를 확인하세요. [작업자 프로세스 환경 변수](https://github.com/projectkudu/kudu/wiki/Process-Threads-list-and-minidump-gcdump-diagsession#process-environment-variable) 페이지의 지침을 사용하여 여러 인스턴스에서 작업자 프로세스 환경 변수에 액세스할 수 있습니다.  
 
-### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 그 이유는 무엇입니까?
+### <a name="i-just-published-new-changes-but-my-app-does-not-seem-to-have-them-why"></a>방금 새 변경 내용을 게시했지만 앱에 없는 것 같습니다. 그 이유는
 앱에서 로컬 캐시를 사용하는 경우 최신 변경 내용을 가져오려면 사이트를 다시 시작해야 합니다. 프로덕션 사이트에 변경 내용을 게시하고 싶지 않으신가요? 이전 모범 사례 섹션에서 슬롯 옵션을 참조하세요.
 
 ### <a name="where-are-my-logs"></a>내 로그는 어디에 있나요?

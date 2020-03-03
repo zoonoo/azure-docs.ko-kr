@@ -15,12 +15,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: amverma
 ms.reviewer: jonbeck
-ms.openlocfilehash: a5b0eb0c8bd56a28889945480e95b6413dc9b4dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: b900a95df00ccdd0ad9b5bee3887364195c7d1c2
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77660022"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226724"
 ---
 # <a name="high-performance-compute-vm-sizes"></a>고성능 컴퓨팅 VM 크기
 
@@ -46,6 +46,10 @@ Azure H 시리즈 Vm (가상 머신)은 다양 한 실제 HPC 워크 로드에 �
   
 - **가상 네트워크** - Azure [가상 네트워크](https://azure.microsoft.com/documentation/services/virtual-network/) 는 계산 집약적 인스턴스를 사용할 필요가 없습니다. 하지만 많은 배포에서 온-프레미스 리소스에 액세스해야 하는 경우 적어도 클라우드 기반 Azure 가상 네트워크 또는 사이트 간 연결이 필요합니다. 필요한 경우 인스턴스를 배포할 새 가상 네트워크를 만듭니다. 선호도 그룹에서 가상 네트워크에 계산 집약적 VM을 추가하는 것은 지원되지 않습니다.
 - **크기 조정** - 특수한 하드웨어로 인해 동일한 크기의 제품군(H 시리즈 또는 계산 집약적 A 시리즈) 내에서만 계산 집약적 인스턴스의 크기를 조정할 수 있습니다. 예를 들어 H 시리즈 VM 크기는 한 H 시리즈에서 다른 H 시리즈로만 조정할 수 있습니다. 또한 계산 집약적이지 않은 크기에서 계산 집약적 크기로 조정하는 것은 지원되지 않습니다.  
+
+> [!NOTE]
+> A8 – A11 Vm은 3/2021에서 사용 중지 될 예정입니다. 자세한 내용은 [HPC 마이그레이션 가이드](https://azure.microsoft.com/resources/hpc-migration-guide/)를 참조 하세요.
+
 ## <a name="rdma-capable-instances"></a>RDMA 지원 인스턴스
 
 계산 집약적 인스턴스 (A8, A9, H16r, H16mr, HB 및 HC)의 하위 집합에는 RDMA (원격 직접 메모리 액세스) 연결을 위한 네트워크 인터페이스가 있습니다. NC24rs 구성 (NC24rs_v2 및 NC24rs_v3)과 같이 ' r '로 지정 된 N 시리즈 크기를 선택 하면 RDMA도 가능 합니다. 이 인터페이스는 다른 VM 크기에서 사용할 수 있는 표준 Azure 네트워크 인터페이스 외에 추가로 사용됩니다.
@@ -78,7 +82,7 @@ A8 및 A9 인스턴스의 특정 배포에서 HpcVmDrivers 확장이 자동으�
   } 
   ```
 
-  다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 vm 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치 합니다.
+  다음 명령은 *Myresourcegroup*이라는 리소스 그룹에 배포 된 *myvmss* 라는 기존 가상 머신 확장 집합의 모든 RDMA 지원 vm에 최신 버전 1.0 InfiniBandDriverWindows 확장을 설치 합니다.
 
   ```powershell
   $VMSS = Get-AzVmss -ResourceGroupName "myResourceGroup" -VMScaleSetName "myVMSS"
@@ -99,7 +103,7 @@ Azure에서는 다음을 비롯한 RDMA 네트워크를 사용하여 통신할 �
 
 - **Virtual machine scale sets** -가상 머신 확장 집합에서 배포를 단일 배치 그룹으로 제한 해야 합니다. 예를 들어, Resource Manager 템플릿에서 `singlePlacementGroup` 속성을 `true`로 설정합니다. 
 
-- **가상 컴퓨터 간의 mpi** -Mpi 통신이 vm (가상 컴퓨터) 간에 필요한 경우 vm이 동일한 가용성 집합 또는 가상 컴퓨터의 동일한 확장 집합에 있는지 확인 합니다.
+- **가상 머신 간의 mpi** -가상 머신 (vm) 간에 mpi 통신이 필요한 경우 vm이 동일한 가용성 집합 또는 가상 머신 같은 확장 집합에 있는지 확인 합니다.
 
 - **Azure CycleCloud** - [Azure CycleCloud](/azure/cyclecloud/)에서 HPC 클러스터를 만들어서 Windows 노드에서 MPI 작업을 실행합니다.
 

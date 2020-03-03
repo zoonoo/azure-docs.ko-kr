@@ -11,12 +11,12 @@ author: srdan-bozovic-msft
 ms.author: srbozovi
 ms.reviewer: sstein, bonova, carlrab
 ms.date: 04/16/2019
-ms.openlocfilehash: 1b5a48a686a238d724680e806daaed431107ec72
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: ec1430e7dd79378473cce9dbb77bedecd14600c8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894815"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228278"
 ---
 # <a name="connectivity-architecture-for-a-managed-instance-in-azure-sql-database"></a>Azure SQL Database에서 관리 되는 인스턴스의 연결 아키텍처
 
@@ -103,24 +103,24 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="mandatory-inbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 인바운드 보안 규칙 
 
-| 이름       |Port                        |프로토콜|원본           |대상|실행력|
+| 속성       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|관리  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |허용 |
-|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |허용 |
-|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI SUBNET  |허용 |
-|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
-|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |허용 |
+|관리  |9000, 9003, 1438, 1440, 1452|TCP     |SqlManagement    |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |CorpnetSaw       |MI SUBNET  |Allow |
+|            |9000, 9003                  |TCP     |65.55.188.0/24, 167.220.0.0/16, 131.107.0.0/16, 94.245.87.0/24|MI SUBNET  |Allow |
+|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하는 필수 아웃 바운드 보안 규칙 
 
-| 이름       |Port          |프로토콜|원본           |대상|실행력|
+| 속성       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |허용 |
-|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
+|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
 
 ### <a name="user-defined-routes-with-service-aided-subnet-configuration"></a>서비스 관련 서브넷 구성을 사용 하 여 사용자 정의 경로 
 
-|이름|주소 접두사|다음 홉|
+|속성|주소 접두사|다음 홉|
 |----|--------------|-------|
 |서브넷-vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|인터넷|
@@ -277,7 +277,7 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 |mi-216-220-208-20-nexthop-internet|216.220.208.0/20|인터넷|
 ||||
 
-\* MI 서브넷은 10. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
+\* MI 서브넷은 x. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
 
 또한 경로 테이블에 항목을 추가 하 여 가상 네트워크 게이트웨이 또는 NVA (가상 네트워크 어플라이언스)를 통해 온-프레미스 개인 IP 범위를 대상으로 하는 트래픽을 라우팅할 수 있습니다.
 
@@ -298,23 +298,23 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="mandatory-inbound-security-rules"></a>필수 인바운드 보안 규칙
 
-| 이름       |Port                        |프로토콜|원본           |대상|실행력|
+| 속성       |포트                        |프로토콜|원본           |대상|작업|
 |------------|----------------------------|--------|-----------------|-----------|------|
-|관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |허용 |
-|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |허용 |
-|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |허용 |
+|관리  |9000, 9003, 1438, 1440, 1452|TCP     |모두              |MI SUBNET  |Allow |
+|mi_subnet   |모두                         |모두     |MI SUBNET        |MI SUBNET  |Allow |
+|health_probe|모두                         |모두     |AzureLoadBalancer|MI SUBNET  |Allow |
 
 ### <a name="mandatory-outbound-security-rules"></a>필수 아웃바운드 보안 규칙
 
-| 이름       |Port          |프로토콜|원본           |대상|실행력|
+| 속성       |포트          |프로토콜|원본           |대상|작업|
 |------------|--------------|--------|-----------------|-----------|------|
-|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |허용 |
-|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |허용 |
+|관리  |443, 12000    |TCP     |MI SUBNET        |AzureCloud |Allow |
+|mi_subnet   |모두           |모두     |MI SUBNET        |MI SUBNET  |Allow |
 
 > [!IMPORTANT]
 > 포트 9000, 9003, 1438, 1440, 1452 및 포트 443, 12000에 대해 아웃 바운드 규칙 1 개에 대 한 인바운드 규칙이 하나만 있는지 확인 합니다. 각 포트에 대해 인바운드 및 아웃 바운드 규칙을 개별적으로 구성 하는 경우 Azure Resource Manager 배포를 통한 Managed Instance 프로비저닝이 실패 합니다. 이러한 포트가 별도의 규칙에 있는 경우 배포에 실패 하 고 오류 코드가 나타납니다 `VnetSubnetConflictWithIntendedPolicy`
 
-\* MI 서브넷은 10. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
+\* MI 서브넷은 x. x. x/y 형식으로 된 서브넷의 IP 주소 범위를 참조 합니다. 이 정보는 Azure Portal의 서브넷 속성에서 찾을 수 있습니다.
 
 > [!IMPORTANT]
 > 필요한 인바운드 보안 규칙이 포트 9000, 9003, 1438, 1440 및 1452에 있는 _모든_ 원본의 트래픽을 허용 하지만 이러한 포트는 기본 제공 방화벽으로 보호 됩니다. 자세한 내용은 [관리 끝점 주소 확인](sql-database-managed-instance-find-management-endpoint-ip-address.md)을 참조 하세요.
@@ -323,7 +323,7 @@ Microsoft는 관리 끝점을 사용 하 여 관리 되는 인스턴스를 관�
 
 ### <a name="user-defined-routes"></a>사용자 정의 경로
 
-|이름|주소 접두사|다음 홉|
+|속성|주소 접두사|다음 홉|
 |----|--------------|-------|
 |subnet_to_vnetlocal|MI SUBNET|가상 네트워크|
 |mi-13-64-11-nexthop-internet|13.64.0.0/11|인터넷|

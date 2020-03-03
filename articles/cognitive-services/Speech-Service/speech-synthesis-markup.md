@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: c4a27db8bec6dbbd2f1b2be8acfdd034d45d37d5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77561923"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228063"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -55,7 +55,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `version` | 문서 태그를 해석 하는 데 사용 되는 SSML 사양의 버전을 나타냅니다. 현재 버전은 1.0입니다. | 필수 |
 | `xml:lang` | 루트 문서의 언어를 지정 합니다. 값에는 소문자, 2 자 언어 코드 (예: `en`) 또는 언어 코드와 대문자 (`en-US`)가 포함 될 수 있습니다. | 필수 |
@@ -75,7 +75,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -98,7 +98,7 @@ SSML를 사용 하는 동안에는 따옴표, 아포스트로피 및 대괄호�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `name` | 텍스트 음성 변환 출력에 사용 되는 음성을 식별 합니다. 지원 되는 음성의 전체 목록은 [언어 지원](language-support.md#text-to-speech)을 참조 하세요. | 필수 |
 
@@ -207,13 +207,13 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `type` | 말하기 스타일을 지정 합니다. 현재 말하는 스타일은 음성 전용입니다. | 신경망의 말하기 스타일을 조정 하는 경우에 필요 합니다. `mstts:express-as`사용 하는 경우 형식을 제공 해야 합니다. 잘못 된 값을 제공 하는 경우이 요소는 무시 됩니다. |
 
 이 표를 사용 하 여 각 신경망에 대해 지원 되는 말하는 스타일을 결정 합니다.
 
-| 음성 | 형식 | 설명 |
+| 음성 | Type | Description |
 |-------|------|-------------|
 | `en-US-JessaNeural` | `type="cheerful"` | 긍정적이 고 행복 한 emotion 표현 |
 | | `type="empathy"` | 신경쓰지의 의미를 표현 하 고 이해 합니다. |
@@ -254,12 +254,12 @@ speechConfig!.setPropertyTo(
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>none</li><li>x-weak</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-strong</li></ul> | 선택 사항 |
-| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및 `500` | 선택 사항 |
+| `strength` | 다음 값 중 하나를 사용 하 여 일시 중지의 상대 기간을 지정 합니다.<ul><li>none</li><li>x-weak</li><li>약</li><li>보통 (기본값)</li><li>강력</li><li>x-strong</li></ul> | 옵션 |
+| `time` | 일시 중지의 절대 기간 (초 또는 밀리초)을 지정 합니다. 유효한 값의 예는 `2s` 및 `500` | 옵션 |
 
-| 강도가 | 설명 |
+| 강도가 | Description |
 |----------|-------------|
 | 없음 또는 제공 된 값이 없는 경우 | 0 밀리초 |
 | x-weak | 250 밀리초 |
@@ -325,9 +325,9 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `alphabet` | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>ipa &ndash; 국제 발음 영문자</li><li>sapi &ndash; Speech API Phone 집합</li><li>ups &ndash; 범용 전화 집합</li></ul>알파벳은 요소의 음소 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요. | 선택 사항 |
+| `alphabet` | `ph` 특성에서 문자열의 발음을 synthesizing 때 사용할 발음 문자를 지정 합니다. 영문자를 지정 하는 문자열은 소문자로 지정 해야 합니다. 지정할 수 있는 알파벳은 다음과 같습니다.<ul><li>ipa &ndash; 국제 발음 영문자</li><li>sapi &ndash; Speech API Phone 집합</li><li>ups &ndash; 범용 전화 집합</li></ul>알파벳은 요소의 음소 적용 됩니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요. | 옵션 |
 | `ph` | `phoneme` 요소에서 단어의 발음을 지정 하는 전화를 포함 하는 문자열입니다. 지정 된 문자열이 인식할 수 없는 휴대폰을 포함 하는 경우 TTS (텍스트 음성 변환) 서비스는 전체 SSML 문서를 거부 하 고 문서에 지정 된 음성 출력을 생성 하지 않습니다. | 음소를 사용 하는 경우 필수입니다. |
 
 **예**
@@ -348,6 +348,103 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 </speak>
 ```
 
+## <a name="use-custom-lexicon-to-improve-pronunciation"></a>사용자 지정 어휘를 사용 하 여 발음 향상
+
+경우에 따라 TTS는 회사 또는 외국 이름과 같은 단어를 정확 하 게 발음 하지 않습니다. 개발자는 `phoneme` 및 `sub` 태그를 사용 하 여 SSML에서 이러한 엔터티를 읽거나 `lexicon` 태그를 사용 하 여 사용자 지정 어휘를 참조 하 여 여러 엔터티를 읽을 수 있도록 정의할 수 있습니다.
+
+**구문**
+
+```XML
+<lexicon uri="string"/>
+```
+
+**특성**
+
+| attribute | Description | 필수/선택 |
+|-----------|-------------|---------------------|
+| `uri` | 외부 j 문서의 주소입니다. | 필수 사항입니다. |
+
+**사용 현황**
+
+1 단계: 사용자 지정 어휘 정의 
+
+.Xml 또는. j 파일로 저장 된 사용자 지정 사전 항목 목록으로 엔터티 읽기를 정의할 수 있습니다.
+
+**예제**
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="ipa" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias>By the way</alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme> 
+    <phoneme> bɛˈniːnji</phoneme>
+  </lexeme>
+</lexicon>
+```
+
+각 `lexeme` 요소는 어휘 집 항목입니다. `grapheme` `lexeme`orthograph를 설명 하는 텍스트를 포함 합니다. `alias`로 제공 되는 폼을 제공할 수 있습니다. `phoneme` 요소에 전화 문자열을 제공할 수 있습니다.
+
+`lexicon` 요소에 `lexeme` 요소가 하나 이상 포함 되어 있습니다. 각 `lexeme` 요소는 하나 이상의 `grapheme` 요소와 하나 이상의 `grapheme`, `alais`및 `phoneme` 요소를 포함 합니다. `grapheme` 요소는 <a href="https://www.w3.org/TR/pronunciation-lexicon/#term-Orthography" target="_blank">orthography <span class="docon docon-navigate-external x-hidden-focus"> </span> </a>를 설명 하는 텍스트를 포함 합니다. `alias` 요소는 머리글자어 또는 축약 된 단어의 발음을 나타내는 데 사용 됩니다. `phoneme` 요소는 `lexeme`를 발음 하는 방법을 설명 하는 텍스트를 제공 합니다.
+
+사용자 지정 어휘 파일에 대 한 자세한 내용은 W3C 웹 사이트의 [j (발음 어휘 사양) 버전 1.0](https://www.w3.org/TR/pronunciation-lexicon/) 을 참조 하세요.
+
+2 단계: 온라인 단계에서 만든 사용자 지정 사전 파일을 업로드 하 고, 어디에 나 저장할 수 있으며, [Azure Blob Storage](https://docs.microsoft.com/azure/storage/blobs/storage-quickstart-blobs-portal)와 같은 Microsoft Azure에 저장 하는 것이 좋습니다.
+
+3 단계: SSML의 사용자 지정 어휘 파일 참조
+
+```xml
+<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" 
+          xmlns:mstts="http://www.w3.org/2001/mstts" 
+          xml:lang="en-US">
+<lexicon uri="http://www.example.com/customlexicon.xml"/>
+BTW, we will be there probably 8:00 tomorrow morning.
+Could you help leave a message to Robert Benigni for me?
+</speak>
+```
+"만들었으므로"는 "방법으로" 읽습니다. "Benigni"는 제공 된 IPA "bɛ ˈ ni ː nji"로 읽습니다.  
+
+**제한 사항**
+- 파일 크기: 사용자 지정 사전 파일 크기 최대 제한은 100KB이 크기를 초과 하면 합성 요청이 실패 합니다.
+- 어휘 집 캐시 새로 고침: 사용자 지정 어휘는 처음 로드 될 때 TTS 서비스에서 키로 URI를 사용 하 여 캐시 됩니다. 동일한 URI를 사용 하는 어휘는 15 분 이내에 다시 로드 되지 않으므로 사용자 지정 어휘 변화는 최대 15 분이 지나야 적용 됩니다.
+
+**SAPI 전화 집합**
+
+위의 샘플에서는 IPA (국제 음성 협회) 전화 번호 집합을 사용 합니다. IPA가 국제 표준 이기 때문에 개발자가 IPA를 사용 하는 것이 좋습니다. 
+
+IPA를 기억할 수 없는 것으로 간주 하 여 Microsoft는 7 개 언어 (`en-US`, `fr-FR`, `de-DE`, `es-ES`, `ja-JP`, `zh-CN`및 `zh-TW`)에 대해 SAPI 전화 번호 집합을 정의 합니다. 자세한 내용은 [Phonetic 영문자 참조](https://msdn.microsoft.com/library/hh362879(v=office.14).aspx)를 참조 하세요.
+
+아래와 같이 사용자 지정 lexicons에서 SAPI 휴대폰을 사용할 수 있습니다. **Sapi**를 사용 하 여 영문자 값을 설정 합니다.
+
+```xml
+<?xml version="1.0" encoding="UTF-16"?>
+<lexicon version="1.0" 
+      xmlns="http://www.w3.org/2005/01/pronunciation-lexicon"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" 
+      xsi:schemaLocation="http://www.w3.org/2005/01/pronunciation-lexicon 
+        http://www.w3.org/TR/2007/CR-pronunciation-lexicon-20071212/pls.xsd"
+      alphabet="sapi" xml:lang="en-US">
+  <lexeme>
+    <grapheme>BTW</grapheme> 
+    <alias> By the way </alias> 
+  </lexeme>
+  <lexeme>
+    <grapheme> Benigni </grapheme>
+    <phoneme> b eh 1 - n iy - n y iy </phoneme>
+  </lexeme>
+</lexicon>
+```
+
+자세한 SAPI 알파벳에 대 한 자세한 내용은 [Sapi 알파벳 참조](sapi-phoneset-usage.md)를 참조 하세요.
+
 ## <a name="adjust-prosody"></a>Prosody 조정
 
 `prosody` 요소는 텍스트 음성 변환 출력에 대 한 피치, countour, 범위, 요율, 기간 및 볼륨에 대 한 변경 내용을 지정 하는 데 사용 됩니다. `prosody` 요소에는 텍스트와 다음 요소가 포함 될 수 있습니다. `audio`, `break`, `p`, `phoneme`, `prosody`, `say-as`, `sub`및 `s`.
@@ -362,14 +459,14 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
-| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-high</li><li>default</li></ul></li></ul>. | 선택 사항 |
-| `contour` | 외형선은 신경망에 대해 지원 되지 않습니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 예를 들면 다음과 같습니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치의 상대 값 또는 열거형 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (`pitch`참조). | 선택 사항 |
-| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `pitch`를 설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 `range` 표현할 수 있습니다. | 선택 사항 |
-| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 `rate` 표현할 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-slow</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>default</li></ul></li></ul> | 선택 사항 |
-| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | 선택 사항 |
-| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest*까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-soft</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-loud</li><li>default</li></ul></li></ul> | 선택 사항 |
+| `pitch` | 텍스트의 기준선 피치를 나타냅니다. 다음과 같이 피치를 표현할 수 있습니다.<ul><li>숫자로 표시 되 고 그 뒤에 "Hz" (Hz)가 표시 되는 절대값입니다. 예: 600 Hz.</li><li>간격을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예: + 80 Hz 또는-2st. "St"는 변경 단위가 표준 diatonic 크기에 대 한 반음 (절반 단계의 절반) 임을 나타냅니다.</li><li>상수 값:<ul><li>x-낮음</li><li>low</li><li>중간</li><li>high</li><li>x-high</li><li>기본값</li></ul></li></ul>. | 옵션 |
+| `contour` | 외형선은 신경망에 대해 지원 되지 않습니다. 컨투어는 피치의 변화를 나타냅니다. 이러한 변경 내용은 음성 출력에서 지정 된 시간 위치의 대상 배열로 표시 됩니다. 각 대상은 매개 변수 쌍 집합으로 정의 됩니다. 다음은 그 예입니다. <br/><br/>`<prosody contour="(0%,+20Hz) (10%,-2st) (40%,+10Hz)">`<br/><br/>각 매개 변수 집합의 첫 번째 값은 피치 변경의 위치를 텍스트 기간의 백분율로 지정 합니다. 두 번째 값은 피치의 상대 값 또는 열거형 값을 사용 하 여 피치를 발생 시키거나 낮출 크기를 지정 합니다 (`pitch`참조). | 옵션 |
+| `range` | 텍스트의 피치 범위를 나타내는 값입니다. `pitch`를 설명 하는 데 사용 되는 것과 동일한 절대값, 상대 값 또는 열거형 값을 사용 하 여 `range` 표현할 수 있습니다. | 옵션 |
+| `rate` | 텍스트의 읽어주기 율을 나타냅니다. 다음과 같이 `rate` 표현할 수 있습니다.<ul><li>기본값의 승수 역할을 하는 숫자로 표시 되는 상대 값입니다. 예를 들어 값이 *1* 이면 비율이 변경 되지 않습니다. 값이 *0.5* 이면 나누어이 발생 합니다. 값이 *3* 이면 tripling이 발생 합니다.</li><li>상수 값:<ul><li>x-slow</li><li>slow</li><li>중간</li><li>빠르지</li><li>x-빠름</li><li>기본값</li></ul></li></ul> | 옵션 |
+| `duration` | TTS (음성 합성) 서비스가 텍스트를 읽는 동안 경과 해야 하는 기간 (초 또는 밀리초)입니다. 예를 들면 *2 s* 또는 *18ms*입니다. | 옵션 |
+| `volume` | 말하는 음성의 볼륨 수준을 나타냅니다. 볼륨을 다음과 같이 나타낼 수 있습니다.<ul><li>*Quietest* 에서 *loudest*까지 0.0 ~ 100.0 범위의 숫자로 표현 된 절대값입니다. 예를 들면 75입니다. 기본값은 100.0입니다.</li><li>볼륨을 변경할 양을 지정 하는 "+" 또는 "-" 앞에 오는 숫자로 표시 되는 상대 값입니다. 예를 들면 + 10 또는-5.5입니다.</li><li>상수 값:<ul><li>무음</li><li>x-soft</li><li>유동적</li><li>중간</li><li>큰 성문</li><li>x-loud</li><li>기본값</li></ul></li></ul> | 옵션 |
 
 ### <a name="change-speaking-rate"></a>말하기 속도 변경
 
@@ -445,11 +542,11 @@ Phonetic 영문자는 문자, 숫자 또는 문자로 구성 된 전화로 구�
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `interpret-as` | 요소 텍스트의 콘텐츠 형식을 나타냅니다. 형식 목록은 아래 표를 참조 하세요. | 필수 |
-| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 선택 사항 |
-| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. `detail`에 대해 정의 된 표준 값이 없습니다. | 선택 사항 |
+| `format` | 모호한 형식이 있을 수 있는 콘텐츠 형식에 대 한 요소 텍스트의 정확한 서식 지정에 대 한 추가 정보를 제공 합니다. SSML은이를 사용 하는 내용 유형에 대 한 형식을 정의 합니다 (아래 표 참조). | 옵션 |
+| `detail` | 읽을 세부 정보 수준을 나타냅니다. 예를 들어이 특성은 음성 합성 엔진이 문장 부호를 발음 하도록 요청할 수 있습니다. `detail`에 대해 정의 된 표준 값이 없습니다. | 옵션 |
 
 <!-- I don't understand the last sentence. Don't we know which one Cortana uses? -->
 
@@ -507,7 +604,7 @@ SSML 문서에 포함 된 오디오는 다음 요구 사항을 충족 해야 합
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 audio 요소를 사용 하는 경우 필요 합니다. |
 
@@ -543,12 +640,12 @@ SSML 문서 당 배경 오디오 파일은 하나만 허용 됩니다. 그러나
 
 **특성**
 
-| 특성 | 설명 | 필수/선택 |
+| attribute | Description | 필수/선택 |
 |-----------|-------------|---------------------|
 | `src` | 배경 오디오 파일의 위치/URL을 지정 합니다. | SSML 문서에서 배경 오디오를 사용 하는 경우 필요 합니다. |
-| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 값: `100` 포함 `0` 합니다. 기본값은 `1`입니다. | 선택 사항 |
-| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 `0`입니다 .이 값은 페이드 인이 아닌 것과 같습니다. **허용**되는 값: `10000` 포함 `0` 합니다.  | 선택 사항 |
-| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 `0`입니다 .이 값은 페이드 아웃 하지 않는 것과 같습니다. **허용**되는 값: `10000` 포함 `0` 합니다.  | 선택 사항 |
+| `volume` | 배경 오디오 파일의 볼륨을 지정 합니다. **허용**되는 값: `100` 포함 `0` 합니다. 기본값은 `1`입니다. | 옵션 |
+| `fadein` | 백그라운드 오디오를 "페이드 인" 하는 시간을 밀리초로 지정 합니다. 기본값은 `0`입니다 .이 값은 페이드 인이 아닌 것과 같습니다. **허용**되는 값: `10000` 포함 `0` 합니다.  | 옵션 |
+| `fadeout` | 배경 오디오 페이드 아웃 기간 (밀리초)을 지정 합니다. 기본값은 `0`입니다 .이 값은 페이드 아웃 하지 않는 것과 같습니다. **허용**되는 값: `10000` 포함 `0` 합니다.  | 옵션 |
 
 **예제**
 

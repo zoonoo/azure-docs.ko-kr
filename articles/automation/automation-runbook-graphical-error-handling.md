@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: dec715ec6741f4429d8b1d4f620ef3cb82d4c1d3
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 153df77c030180402b1e30bc456d681c232c390b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649979"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226530"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -20,7 +20,7 @@ Azure Automation 그래픽 runbook에 대해 고려할 주요 디자인 원칙�
 
 그래픽 runbook은 실행 문제를 처리 하는 오류 처리 코드를 포함 해야 합니다. 활동의 출력에 대 한 유효성을 검사 하거나 오류를 처리 하려면 PowerShell 코드 활동을 사용 하 여 활동의 출력 링크에서 조건부 논리를 정의 하거나 다른 메서드를 적용 합니다.
 
-Azure Automation 그래픽 runbook은 오류 처리를 포함하는 기능으로 개선되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 향상 된 프로세스를 통해 runbook에서 오류를 포착 하 고 실현 되거나 예기치 않은 상태를 관리할 수 있습니다. 
+Azure Automation 그래픽 runbook은 오류 처리를 포함 하는 기능으로 개선 되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 향상 된 프로세스를 통해 runbook에서 오류를 포착 하 고 실현 되거나 예기치 않은 상태를 관리할 수 있습니다. 
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
@@ -50,11 +50,11 @@ Runbook을 실행 하는 동안 발생할 수 있는 PowerShell 오류의 유형
 
 한 가지 해결 방법은 runbook에서 1 단계를 처리 하는 활동을 가리키는 오류 링크를 포함 하는 것입니다. 예를 들어 runbook은 [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/az.automation/start-azautomationrunbook?view=azps-3.5.0) cmdlet과 같은 2 단계에 대 한 작업에 **쓰기-경고** cmdlet을 연결할 수 있습니다.
 
-앞에서 제안 된 지침에 따라 이러한 두 활동을 별도의 오류 처리 runbook에 배치 하 여 많은 runbook에서 사용 하기 위해이 동작을 일반화할 수도 있습니다. 원래 runbook이이 오류 처리 runbook을 호출 하기 전에 해당 데이터에서 사용자 지정 메시지를 생성 한 다음 오류 처리 runbook에 매개 변수로 전달할 수 있습니다.
+또한 이러한 두 활동을 별도의 오류 처리 runbook에 배치 하 여 많은 runbook에서 사용 하기 위해이 동작을 일반화할 수 있습니다. 원래 runbook이이 오류 처리 runbook을 호출 하기 전에 해당 데이터에서 사용자 지정 메시지를 생성 한 다음 오류 처리 runbook에 매개 변수로 전달할 수 있습니다.
 
 ## <a name="how-to-use-error-handling"></a>오류 처리 사용 방법
 
-Runbook의 각 작업에는 예외를 종료 되지 않는 오류로 전환 하는 구성 설정이 있습니다. 기본적으로 이 설정은 사용하지 않도록 설정되어 있습니다. Runbook에서 오류를 처리 하는 모든 작업에 대해이 설정을 사용 하는 것이 좋습니다. 이 구성을 사용 하도록 설정 하면 runbook에서 오류 링크를 사용 하 여 작업의 종료 오류 및 종료 되지 않는 오류를 모두 종료 하지 않는 오류로 처리 합니다.  
+Runbook의 각 작업에는 예외를 종료 되지 않는 오류로 전환 하는 구성 설정이 있습니다. 이 설정은 기본적으로 사용하지 않도록 설정됩니다. Runbook에서 오류를 처리 하는 모든 작업에 대해이 설정을 사용 하는 것이 좋습니다. 이 설정은 runbook에서 오류 링크를 사용 하 여 작업의 종료 오류와 종료 되지 않는 오류를 모두 처리 하지 않도록 합니다.  
 
 구성 설정을 사용 하도록 설정한 후 runbook에서 오류를 처리 하는 작업을 만들도록 합니다. 활동에서 오류를 생성 하는 경우 나가는 오류 링크를 따릅니다. 활동에서 일반 출력을 생성 하는 경우에도 일반 링크는 따르지 않습니다.<br><br> ![Automation runbook 오류 링크 예제](media/automation-runbook-graphical-error-handling/error-link-example.png)
 
@@ -62,10 +62,10 @@ Runbook의 각 작업에는 예외를 종료 되지 않는 오류로 전환 하�
 
 **Get AutomationVariable** 작업과 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0) cmdlet은 예외를 오류로 변환 하도록 구성 됩니다. 변수를 가져오거나 VM을 시작 하는 데 문제가 있는 경우 코드에서 오류를 생성 합니다.<br><br> ![Automation runbook 오류-처리 작업 설정을](media/automation-runbook-graphical-error-handling/activity-blade-convertexception-option.png)합니다.
 
-오류 링크는 이러한 활동에서 단일 **오류 관리** 코드 활동으로 흐릅니다. 이 활동은 *Throw* 키워드를 사용 하 여 처리 `$Error.Exception.Message`를 중지 하 고 현재 예외를 설명 하는 메시지를 가져오는 간단한 PowerShell 식으로 구성 됩니다.<br><br> ![Automation runbook 오류 처리 코드 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
+오류 링크는 이러한 활동에서 단일 **오류 관리** 코드 활동으로 흐릅니다. 이 활동은 **throw** 키워드를 사용 하 여 처리 `$Error.Exception.Message`를 중지 하 고 현재 예외를 설명 하는 메시지를 가져오는 간단한 PowerShell 식으로 구성 됩니다.<br><br> ![Automation runbook 오류 처리 코드 예제](media/automation-runbook-graphical-error-handling/runbook-example-error-handling-code.png)
 
 ## <a name="next-steps"></a>다음 단계
 
-* 그래픽 runbook의 링크 및 링크 유형에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md#links-and-workflow)을 참조하세요.
+* 그래픽 runbook의 링크 및 링크 형식에 대해 자세히 알아보려면 [Azure Automation의 그래픽 작성](automation-graphical-authoring-intro.md#links-and-workflow)을 참조 하세요.
 
 * Runbook 실행, runbook 작업 모니터링 및 기타 기술 세부 정보에 대 한 자세한 내용은 [Azure Automation에서 runbook 실행](automation-runbook-execution.md)을 참조 하세요.

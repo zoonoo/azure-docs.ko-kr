@@ -1,15 +1,15 @@
 ---
 title: 문제 해결-Personalizer
 description: 이 문서에는 Personalizer에 대 한 자주 묻는 질문에 대 한 답변이 포함 되어 있습니다.
-ms.topic: conceptual
+ms.topic: troubleshooting
 ms.date: 02/26/2020
 ms.author: diberry
-ms.openlocfilehash: 432b33243bdb38cf359d4fea1a336500eb244464
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 39db920b663ace12f2fc6ca35f9082a791da1541
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650523"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228029"
 ---
 # <a name="personalizer-troubleshooting"></a>Personalizer 문제 해결
 

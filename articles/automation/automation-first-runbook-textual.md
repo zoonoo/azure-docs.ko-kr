@@ -6,12 +6,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 09/24/2018
 ms.topic: conceptual
-ms.openlocfilehash: b96860afd649f33936ee8dd2954e6873f908a369
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 4c816ade5ae6b416ba716433f385b75e1b32eb92
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605064"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226501"
 ---
 # <a name="my-first-powershell-workflow-runbook"></a>내 첫 번째 PowerShell 워크플로 Runbook
 
@@ -36,21 +36,21 @@ ms.locfileid: "77605064"
 
 ## <a name="step-1---create-new-runbook"></a>1 단계-새 runbook 만들기
 
-먼저 "Hello World" 텍스트를 출력 하는 간단한 runbook을 만듭니다.
+먼저 **Hello World**라는 텍스트를 출력하는 간단한 Runbook을 만듭니다.
 
 1. Azure Portal에서 Automation 계정을 엽니다.
 
    Automation 계정 페이지는 이 계정의 리소스 간략히 보기를 제공합니다. 사용자에게는 이미 일부 자산이 있어야 합니다. 이러한 자산의 대부분은 새 Automation 계정에 자동으로 포함 되는 모듈입니다. 또한 구독과 연결 된 자격 증명 자산이 있어야 합니다.
  
 1. **프로세스 자동화** 아래에서 **runbook** 을 선택 하 여 runbook 목록을 엽니다.
-1. **+ Runbook 만들기를**선택 하 여 새 runbook을 만듭니다.
-1. Runbook에 "MyFirstRunbook" 라는 이름을 지정 합니다.
+1. **Runbook 만들기**를 선택 하 여 새 runbook을 만듭니다.
+1. Runbook 이름을 **MyFirstRunbook-Workflow**로 지정합니다.
 1. 이 경우 [PowerShell 워크플로 runbook](automation-runbook-types.md#powershell-workflow-runbooks)을 만듭니다. 따라서 **Runbook 형식**에 대해 **Powershell 워크플로** 를 선택 합니다.
 1. **만들기** 를 클릭하여 Runbook을 만들고 그래픽 편집기를 엽니다.
 
 ## <a name="step-2---add-code-to-the-runbook"></a>2단계 - Runbook에 코드 추가
 
-Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmdlet, runbook 및 자산을 선택 하 고 관련 매개 변수를 사용 하 여 runbook에 추가할 수 있습니다. 이 연습에서는 runbook에 직접 코드를 입력 합니다.
+Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmdlet, runbook 및 자산을 선택 하 고 관련 매개 변수를 사용 하 여 runbook에 추가할 수 있습니다. 이 자습서에서는 runbook에 직접 코드를 입력 합니다.
 
 1. Runbook은 현재 필수 **워크플로** 키워드, runbook의 이름 및 전체 워크플로를 포함 하는 중괄호를 사용 하 여 비어 있습니다.
 
@@ -79,9 +79,9 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 1. **시작** 을 클릭 하 여 테스트를 시작 합니다. 옵션을 테스트 합니다.
 1. [Runbook 작업이](automation-runbook-execution.md) 만들어지고 해당 상태가 창에 표시 됩니다.
 
-   작업 상태는 큐에 대기 중으로 시작 되며, 작업에서 클라우드의 runbook worker를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 작업 자가 작업을 클레임 할 때 상태가 시작 중으로 변경 됩니다. 마지막으로 runbook이 실제로 실행 되기 시작 하면 상태가 실행 중으로 바뀝니다.
+   작업 상태는 큐에 **대기**중으로 시작 되며, 작업에서 클라우드의 runbook worker를 사용할 수 있을 때까지 기다리고 있음을 나타냅니다. 작업 자가 작업을 클레임 할 때 상태가 **시작 중** 으로 변경 됩니다. 마지막으로 runbook이 실제로 실행 되기 시작 하면 상태가 **실행 중** 으로 바뀝니다.
 
-1. Runbook 작업이 완료 되 면 테스트 창에 해당 출력이 표시 됩니다. 이 경우 "Hello World"가 표시 됩니다.
+1. Runbook 작업이 완료 되 면 테스트 창에 해당 출력이 표시 됩니다. 이 경우에 **Hello World**가 표시됩니다.
 
    ![Hello World](media/automation-first-runbook-textual/test-output-hello-world.png)
 
@@ -92,8 +92,8 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 만든 runbook은 아직 초안 모드입니다. 프로덕션 환경에서 실행 하려면 먼저 게시 해야 합니다. Runbook을 게시하면 초안 버전으로 기존의 게시된 버전을 덮어씁니다. 이 경우에 Runbook을 방금 만들었으므로 아직 게시된 버전이 없습니다.
 
 1. **게시**를 클릭하여 Runbook을 게시한 다음 확인 메시지가 표시되면 **예**를 클릭합니다.
-1. **Runbook 창에서** runbook을 보려면 왼쪽으로 스크롤하고 **제작 상태** 값이 게시 됨으로 설정 되어 있는지 확인 합니다.
-1. 오른쪽으로 다시 스크롤하면 MyFirstRunbook의 창이 표시 됩니다.
+1. **Runbook 페이지에서** runbook을 보려면 왼쪽으로 스크롤하고 **제작 상태** 필드는 **게시**됨으로 설정 되어 있는지 확인 합니다.
+1. **MyFirstRunbook**에 대 한 페이지를 보려면 오른쪽으로 다시 스크롤합니다.
 
    위쪽의 옵션을 사용 하 여 runbook을 시작 하거나, 이후 시작 시간을 예약 하거나, HTTP 호출을 통해 runbook을 시작할 수 있도록 [webhook](automation-webhooks.md) 를 만들 수 있습니다.
 
@@ -107,17 +107,17 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-jobsummary.png)
 
-1. Runbook 상태가 완료 됨으로 표시 되 면 **출력**을 클릭 합니다. 출력 페이지가 열립니다. 여기에서 "Hello World" 메시지를 볼 수 있습니다.
+1. Runbook 상태가 **완료됨**으로 표시되면 **출력**을 클릭합니다. 출력 페이지가 열리고 **Hello World** 메시지를 볼 수 있습니다.
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-outputtile.png)
 
 1. 출력 페이지를 닫습니다.
 
-1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 "Hello World"만 표시 되어야 합니다. Runbook에서 기록 하는 경우 스트림 창에는 자세한 정보 및 오류 스트림과 같은 runbook 작업에 대 한 다른 스트림이 표시 될 수 있습니다.
+1. **모든 로그** 를 클릭하여 Runbook 작업에 대한 스트림 창을 엽니다. 출력 스트림에 **Hello World** 만 표시 되어야 합니다. Runbook에서 기록 하는 경우 스트림 창에는 자세한 정보 및 오류 스트림과 같은 runbook 작업에 대 한 다른 스트림이 표시 될 수 있습니다.
 
    ![작업 요약](media/automation-first-runbook-textual/job-pane-status-blade-alllogstile.png)
 
-1. MyFirstRunbook 페이지로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
+1. **MyFirstRunbook** 페이지로 돌아가려면 스트림 창 및 작업 창을 닫습니다.
 1. **리소스** 에서 **작업** 을 클릭 하 여이 Runbook에 대 한 작업 페이지를 엽니다. 이 페이지에는 runbook에서 만든 모든 작업이 나열 됩니다. 작업을 한 번만 실행 했으므로 하나의 작업만 표시 됩니다.
 
    ![교육](media/automation-first-runbook-textual/runbook-control-job-tile.png)
@@ -131,8 +131,8 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 >[!NOTE]
 >PowerShell runbook의 경우 **AzAccount** 및 **connect-azurermaccount** 는 **AzAccount**에 대 한 별칭입니다. 이러한 cmdlet을 사용 하거나 Automation 계정의 모듈을 최신 버전으로 [업데이트할](automation-update-azure-modules.md) 수 있습니다. 새 Automation 계정을 방금 만든 경우에도 모듈을 업데이트 해야 할 수 있습니다.
 
-1. MyFirstRunbook 페이지로 이동 하 여 **편집**을 클릭 하 여 텍스트 편집기를 엽니다.
-2. **쓰기 출력** 줄을 삭제 합니다.
+1. **MyFirstRunbook** 페이지로 이동 하 여 **편집**을 클릭 하 여 텍스트 편집기를 엽니다.
+2. `Write-Output` 줄을 삭제 합니다.
 3. 중괄호 사이의 빈 줄에 커서를 놓습니다.
 4. Automation 실행 계정을 사용 하 여 인증을 처리 하는 다음 코드를 입력 하거나 복사 하 여 붙여넣습니다.
 
@@ -154,7 +154,7 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 
 ## <a name="step-6---add-code-to-start-a-virtual-machine"></a>6단계 - 가상 머신을 시작하기 위한 코드 추가
 
-이제 Runbook에서 Azure 구독을 인증하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작 하는 명령을 추가 해 보겠습니다. Azure 구독에서 VM을 선택할 수 있으며, 지금은 runbook에서 해당 이름을 하드 코딩 합니다. 여러 구독에서 리소스를 관리 하는 경우 *AzContext* 매개 변수를 [AzContext](/powershell/module/az.accounts/get-azcontext) cmdlet과 함께 사용 해야 합니다.
+이제 runbook이 Azure 구독을 인증 하므로 리소스를 관리할 수 있습니다. 가상 머신을 시작 하는 명령을 추가 해 보겠습니다. Azure 구독에서 VM을 선택할 수 있으며, 지금은 runbook에서 해당 이름을 하드 코딩 합니다. 여러 구독에서 리소스를 관리 하는 경우 *AzContext* 매개 변수를 [AzContext](/powershell/module/az.accounts/get-azcontext) cmdlet과 함께 사용 해야 합니다.
 
 1. 아래와 같이 [new-azvm](https://docs.microsoft.com/powershell/module/Az.Compute/Start-AzVM?view=azps-3.5.0
 ) cmdlet에 대 한 호출을 입력 하 여 시작할 VM의 이름 및 리소스 그룹 이름을 제공 합니다. 
@@ -179,7 +179,7 @@ Runbook에 직접 코드를 입력 하거나 라이브러리 컨트롤에서 cmd
 
 ## <a name="step-7---add-an-input-parameter-to-the-runbook"></a>7 단계 - runbook에 입력 매개 변수를 추가 합니다.
 
-Runbook은 현재 runbook에 하드 코드 된 VM을 시작 합니다. Runbook이 시작 될 때 VM을 지정할 수 있는 경우 더 유용 합니다. Runbook에 입력 매개 변수를 추가 하 여 해당 기능을 제공 합니다.
+Runbook은 현재 runbook에 하드 코드 된 VM을 시작 합니다. Runbook이 시작 될 때 VM을 지정할 수 있는 경우 더 유용 합니다. Runbook에 입력 매개 변수를 추가 하 여 해당 기능을 제공 해 보겠습니다.
 
 1. *VMName* 및 *ResourceGroupName* 에 대 한 값을 runbook에 추가 하 고 아래와 같이 **new-azvm** cmdlet에 연결 된 변수를 사용 합니다.
 

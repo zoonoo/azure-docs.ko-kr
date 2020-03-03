@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/04/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4070b004ee791a433b5aeb9e3e0cdd9662fb0429
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 6a51e57bd2411c19dfd5e7740f9e918d0bd09e27
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191149"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226471"
 ---
 # <a name="runbook-execution-in-azure-automation"></a>Azure Automation에서 Runbook 실행
 
@@ -39,7 +39,7 @@ Hybrid Runbook Worker를 사용 하 여 역할을 호스트 하는 컴퓨터와 
 
 다음 표에서는 각각에 대해 나열 된 권장 실행 환경을 사용 하는 몇 가지 runbook 실행 태스크를 보여 줍니다.
 
-|작업|최선의 선택|참고|
+|Task|최선의 선택|메모|
 |---|---|---|
 |Azure 리소스와 통합|Azure 샌드박스|Azure에서 호스트 되는 인증은 더 간단 합니다. Azure VM에서 Hybrid Runbook Worker를 사용 하는 경우 [azure 리소스에 관리 되는 id](automation-hrw-run-runbooks.md#managed-identities-for-azure-resources)를 사용할 수 있습니다.|
 |Azure 리소스를 관리 하기 위한 최적의 성능 얻기|Azure 샌드박스|스크립트는 대기 시간이 짧은 동일한 환경에서 실행 됩니다.|
@@ -152,11 +152,11 @@ Start-AzAutomationRunbook `
 
 이 섹션에서는 runbook에서 예외 또는 일시적인 문제를 처리 하는 몇 가지 방법을 설명 합니다.
 
-#### <a name="erroractionpreference"></a>$ErrorActionPreference
+#### <a name="erroractionpreference"></a>ErrorActionPreference
 
-[$ErrorActionPreference](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 변수는 PowerShell이 종료 되지 않는 오류에 응답 하는 방법을 결정 합니다. 종료 오류는 항상 종료 되며 *$ErrorActionPreference*의 영향을 받지 않습니다.
+[Erroractionpreference 설정](/powershell/module/microsoft.powershell.core/about/about_preference_variables#erroractionpreference) 변수는 PowerShell이 종료 되지 않는 오류에 응답 하는 방법을 결정 합니다. 종료 오류는 항상 종료 되며 *Erroractionpreference 설정*의 영향을 받지 않습니다.
 
-Runbook에서 *$ErrorActionPreference*사용 하는 경우 **Get-Childitem** Cmdlet의 **pathnotfound** 와 같은 일반적인 종료 되지 않는 오류는 runbook이 완료 되지 않도록 중지 합니다. 다음 예에서는 *$ErrorActionPreference*를 사용 하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 **쓰기 출력** 명령이 실행 되지 않습니다.
+Runbook에서 *Erroractionpreference 설정을*사용 하는 경우 **Get-Childitem** Cmdlet의 **pathnotfound** 와 같은 일반적인 종료 되지 않는 오류는 runbook이 완료 되지 않도록 중지 합니다. 다음 예에서는 *Erroractionpreference 설정을*사용 하는 방법을 보여 줍니다. 스크립트를 중지 하면 최종 **쓰기 출력** 명령이 실행 되지 않습니다.
 
 ```powershell-interactive
 $ErrorActionPreference = 'Stop'
@@ -222,19 +222,19 @@ Azure 샌드박스에서 실행 되는 runbook에서 시작 된 PowerShell 작�
 
 다음 표에서는 작업에 사용할 수 있는 상태에 대해 설명 합니다.
 
-| 상태 | 설명 |
+| 상태 | Description |
 |:--- |:--- |
-| 완료 |작업이 완료되었습니다. |
+| Completed |작업이 완료되었습니다. |
 | 실패 |그래픽 또는 PowerShell 워크플로 runbook을 컴파일하지 못했습니다. PowerShell 스크립트 runbook을 시작 하지 못했거나 작업에서 예외가 발생 했습니다. [Azure Automation runbook 형식](automation-runbook-types.md)을 참조 하세요.|
 | Failed, waiting for resources |작업이 [공평 분배](#fair-share) 한도에 세 번 도달했기 때문에 실패했고 매번 동일한 검사점 또는 Runbook의 처음부터 시작되었습니다. |
-| 대기 |작업은 자동화 작업자의 리소스를 사용 하 여 시작할 수 있을 때까지 대기 중입니다. |
+| Queued |작업은 자동화 작업자의 리소스를 사용 하 여 시작할 수 있을 때까지 대기 중입니다. |
 | 시작 중 |작업이 작업자에게 지정되었으며 시스템이 작업을 시작하고 있습니다. |
 | Resuming |시스템이 일시 중단된 후 작업을 재개하는 중입니다. |
 | 실행 중 |작업이 실행 중입니다. |
 | Running, waiting for resources |작업이 공평 분배 한도에 도달 하 여 언로드 되었습니다. 잠시 후 마지막 검사점에서 작업이 다시 시작됩니다. |
 | 중지됨 |작업이 완료되기 전에 사용자에 의해 중지되었습니다. |
-| Stopping |시스템이 작업을 중지하는 중입니다. |
-| Suspended |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. Runbook에 검사점이 없으면 처음부터 시작 합니다. 검사점이 있으면 다시 시작되고 마지막 검사점에서 재개될 수 있습니다. 시스템은 예외가 발생 하는 경우에만 runbook을 일시 중단 합니다. 기본적으로 *Erroractionpreference 설정* 변수는 Continue로 설정 되며이는 작업이 오류 발생 시 **계속**실행 됨을 나타냅니다. 기본 설정 변수가 **Stop**으로 설정 된 경우에는 오류 발생 시 작업이 일시 중단 됩니다.  |
+| 중지 중 |시스템이 작업을 중지하는 중입니다. |
+| 일시 중단 |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 작업이 Runbook의 사용자, 시스템 또는 명령에 의해 일시 중단되었습니다. Runbook에 검사점이 없으면 처음부터 시작 합니다. 검사점이 있으면 다시 시작되고 마지막 검사점에서 재개될 수 있습니다. 시스템은 예외가 발생 하는 경우에만 runbook을 일시 중단 합니다. 기본적으로 *Erroractionpreference 설정* 변수는 Continue로 설정 되며이는 작업이 오류 발생 시 **계속**실행 됨을 나타냅니다. 기본 설정 변수가 **Stop**으로 설정 된 경우에는 오류 발생 시 작업이 일시 중단 됩니다.  |
 | Suspending |[그래픽 및 PowerShell 워크플로 runbook](automation-runbook-types.md) 에만 적용 됩니다. 시스템이 사용자의 요청에 따라 작업을 일시 중단하려고 합니다. Runbook의 다음 검사점에 도달해야만 Runbook을 일시 중단할 수 있습니다. 이미 마지막 검사점을 통과 한 경우 일시 중단 되기 전에 완료 됩니다. |
 
 ### <a name="viewing-job-status-from-the-azure-portal"></a>Azure Portal에서 작업 상태 보기

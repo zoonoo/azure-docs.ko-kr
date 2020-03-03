@@ -1,14 +1,14 @@
 ---
 title: 지원 되는 리소스 관리자 리소스 유형
 description: Azure 리소스 그래프에서 지원 되는 리소스 관리자 리소스 유형 목록 및 변경 기록을 제공 합니다.
-ms.date: 02/25/2020
+ms.date: 03/02/2020
 ms.topic: reference
-ms.openlocfilehash: dc08c4a33ec9e0c20b865ffa4d7c6ff9d5248e90
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 3d6ba89cbf5c35c2a06a214029971341c4184b41
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602565"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227332"
 ---
 # <a name="azure-resource-graph-table-and-resource-type-reference"></a>Azure 리소스 그래프 테이블 및 리소스 종류 참조
 
@@ -210,6 +210,7 @@ Azure 리소스 그래프는 [Azure Resource Manager](../../../azure-resource-ma
 - microsoft insights/metricalerts
 - microsoft insights/notificationgroups
 - microsoft insights/notificationrules
+- microsoft insights/privatelinkscopes
 - microsoft insights/scheduledqueryrules
 - microsoft insights/webtests
 - microsoft insights/통합 문서

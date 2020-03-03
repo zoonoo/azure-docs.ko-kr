@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: a46bdb47ee92a422d10aad5b41487530d23d1ec9
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 45c7fd5fd3737c21a03700b2e560944921a2558d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77484692"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228167"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -203,7 +203,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 ## <a name="c1partners"></a>추가 서비스 공급자를 통한 연결
 | **위치** | **Exchange** | **연결 공급자** |
 | --- | --- | --- |
-| **암스테르담** | 수준 3 통신, Interxion | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, Gulf Bridge 국제, Kalaam 텔레콤 바레인 Bics, MainOne, Nianet, POST 통신 룩셈부르크, Proximus, TDC Erhverv, 텔레콤 Italia 반짝, Telekom Deutschland GmbH, Telia |
+| **암스테르담** | 수준 3 통신, Interxion | BICS, CloudXpress, Eurofiber, Fastweb S. p. A, Gulf Bridge 국제, Kalaam 텔레콤 바레인 Bics, MainOne, Nianet, POST 통신 룩셈부르크, Proximus, ANN, TDC Erhverv, 텔레콤 Italia 반짝, Telekom Deutschland GmbH, Telia |
 | **애틀랜타** | Equinix| Ccs (crown 성
 | **케이프타운** | Teraco | MTN |
 | **시카고** | Equinix| Ccs (crown 성, 스펙트럼 Enterprise, Windstream |

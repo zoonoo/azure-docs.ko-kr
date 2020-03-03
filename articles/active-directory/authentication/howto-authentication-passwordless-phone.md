@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 60a7bf9690b4f50c771afc4745bbc2e5377adbba
-ms.sourcegitcommit: c38a1f55bed721aea4355a6d9289897a4ac769d2
+ms.openlocfilehash: 736a543a6f28697dd4f1ddf85317e97a87b86e78
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/05/2019
-ms.locfileid: "74848479"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227067"
 ---
 # <a name="enable-passwordless-sign-in-with-the-microsoft-authenticator-app-preview"></a>Microsoft Authenticator 앱 (미리 보기)을 사용 하 여 암호 없는 로그인 사용
 
@@ -29,7 +29,7 @@ ms.locfileid: "74848479"
 > [!NOTE]
 > 이 기능은 2017 년 3 월부터 Microsoft Authenticator 앱에 포함 되었으므로 디렉터리에 대해 정책을 사용 하도록 설정 하면 사용자가이 흐름을 즉시 발견할 수 있으며 정책에 의해 사용 하도록 설정 되지 않은 경우 오류 메시지가 표시 될 수 있습니다. 이러한 변화를 인지하고 사용자가 대비하도록 하세요.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Multi-Factor Authentication, 푸시 알림이 확인 방법으로 허용 됨 
 - iOS 8.0 이상 또는 Android 6.0 이상을 실행하는 디바이스에 설치된 최신 버전의 Microsoft Authenticator
@@ -93,6 +93,10 @@ ms.locfileid: "74848479"
 ### <a name="device-registration"></a>디바이스 등록
 
 이 새로운 강력한 자격 증명을 만들기 위한 필수 구성 요소 중 하나는 Microsoft Authenticator 앱이 설치 된 장치가 Azure AD 테 넌 트 내에 개별 사용자에 등록 되어야 한다는 것입니다. 현재 장치 등록 제한으로 인해 장치는 단일 테 넌 트에만 등록할 수 있습니다. 이 제한은 Microsoft Authenticator 앱에서 휴대폰 로그인에 대해 하나의 회사 또는 학교 계정만 설정할 수 있음을 의미합니다.
+
+### <a name="intune-mobile-application-management"></a>Intune 모바일 애플리케이션 관리 
+
+MAM (모바일 응용 프로그램 관리)이 필요한 정책에 적용 되는 최종 사용자는 Microsoft Authenticator 앱에서 암호 없는 자격 증명을 등록할 수 없습니다. 
 
 > [!NOTE]
 > 장치 등록은 장치 관리 또는 "MDM"과 동일 하지 않습니다. Azure AD 디렉터리에서 장치 ID와 사용자 ID를 함께 연결 합니다.  

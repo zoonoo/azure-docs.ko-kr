@@ -2,19 +2,17 @@
 title: 관리 그룹에 리소스 배포
 description: Azure Resource Manager 템플릿의 관리 그룹 범위에서 리소스를 배포 하는 방법을 설명 합니다.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 0419f3daca6845c6809c9f66e870fdf884a7193f
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.date: 03/02/2020
+ms.openlocfilehash: 3b2eeaf2c63a50cda1a32fee94c1e5b99822075d
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77117045"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228102"
 ---
 # <a name="create-resources-at-the-management-group-level"></a>관리 그룹 수준에서 리소스 만들기
 
 일반적으로 Azure 리소스는 Azure 구독의 리소스 그룹에 배포합니다. 그러나 관리 그룹 수준에서 리소스를 만들 수도 있습니다. 관리 그룹 수준 배포를 사용 하 여 [역할 기반 액세스 제어](../../role-based-access-control/overview.md) 할당 또는 [정책](../../governance/policy/overview.md)적용과 같은 해당 수준에서 적합 한 작업을 수행할 수 있습니다.
-
-현재 관리 그룹 수준에서 템플릿을 배포 하려면 REST API를 사용 해야 합니다.
 
 ## <a name="supported-resources"></a>지원되는 리소스
 
@@ -46,6 +44,15 @@ https://schema.management.azure.com/schemas/2019-08-01/managementGroupDeployment
 ## <a name="deployment-commands"></a>배포 명령
 
 관리 그룹 배포에 대 한 명령은 리소스 그룹 배포에 대 한 명령과 다릅니다.
+
+Azure PowerShell의 경우 [AzManagementGroupDeployment](/powershell/module/az.resources/new-azmanagementgroupdeployment)를 사용 합니다. 
+
+```azurepowershell-interactive
+New-AzManagementGroupDeployment `
+  -ManagementGroupId "myMG" `
+  -Location "West US" `
+  -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/management-level-deployment/azuredeploy.json
+```
 
 REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/resources/deployments/createorupdateatmanagementgroupscope)를 사용 합니다.
 
@@ -150,7 +157,7 @@ REST API의 경우, [관리 그룹 범위에서 배포-만들기](/rest/api/reso
 
 ## <a name="template-sample"></a>템플릿 샘플
 
-* 리소스 그룹, 정책 및 정책 할당을 만듭니다.  [여기](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json)를 참조하세요.
+* [리소스 그룹, 정책 및 정책 할당을 만듭니다](https://github.com/Azure/azure-docs-json-samples/blob/master/management-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>다음 단계
 

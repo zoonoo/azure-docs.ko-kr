@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: 4531e5d483508ca99722182f97c6a7aa0e0b68f3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: ec53c4b2f80fb095f58bee9c15ac5daafb8d59ef
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191115"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226250"
 ---
 # <a name="manage-runbooks-in-azure-automation"></a>Azure Automation에서 Runbook 관리
 
@@ -92,7 +92,7 @@ Import-AzAutomationRunbook -Name $runbookName -Path $scriptPath `
 
 ## <a name="test-a-runbook"></a>Runbook 테스트
 
-Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 생성 되지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream) 및 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시 됩니다. [자세한 정보 표시 스트림으로](automation-runbook-output-and-messages.md#message-streams) 의 메시지는 [$VerbosePreference 변수가](automation-runbook-output-and-messages.md#preference-variables) **Continue**로 설정 된 경우에만 출력 창에 표시 됩니다.
+Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며 해당 Runbook에서 수행하는 모든 작업이 완료됩니다. 작업 기록은 생성 되지 않지만 [출력](automation-runbook-output-and-messages.md#output-stream) 및 [경고 및 오류](automation-runbook-output-and-messages.md#message-streams) 스트림은 테스트 출력 창에 표시 됩니다. VerbosePreference 변수] (자동화-runbook-출력 및- # 기본 설정)가 **Continue**로 설정 된 경우에만 [자세한 정보 표시 스트림으로](automation-runbook-output-and-messages.md#message-streams) 메시지가 출력 창에 표시 됩니다.
 
 초안 버전을 실행하더라도 Runbook은 정상적으로 실행되며, 해당 환경의 리소스에 대해 모든 작업을 수행합니다. 이러한 이유로 비프로덕션 리소스에서만 Runbook을 테스트해야 합니다.
 
@@ -103,12 +103,12 @@ Runbook을 테스트할 때 [초안 버전](#publish-a-runbook) 이 실행되며
 1. Runbook에 매개 변수가 있는 경우 해당 매개 변수는 테스트에 사용할 값을 제공할 수 있는 왼쪽 창에 나열 됩니다.
 1. [Hybrid Runbook Worker](automation-hybrid-runbook-worker.md)에서 테스트를 실행 하려면 **실행 설정** 을 **Hybrid Worker** 로 변경 하 고 대상 그룹의 이름을 선택 합니다.  그렇지 않은 경우 기본 **Azure** 를 유지하여 클라우드에서 테스트를 실행합니다.
 1. **시작** 단추를 클릭 하 여 테스트를 시작 합니다.
-1. 출력 창 아래의 단추를 사용 하 여 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽](automation-runbook-types.md#graphical-runbooks) runbook을 테스트 하는 동안 중지 하거나 일시 중단할 수 있습니다. Runbook을 일시 중단하는 경우 일시 중단되기 전에 현재 작업이 완료됩니다. Runbook이 일시 중단되면 중지하거나 다시 시작할 수 있습니다.
+1. 출력 창 아래의 단추를 사용 하 여 [PowerShell 워크플로](automation-runbook-types.md#powershell-workflow-runbooks) 또는 [그래픽](automation-runbook-types.md#graphical-runbooks) runbook을 테스트 하는 동안 중지 하거나 일시 중단할 수 있습니다. Runbook을 일시 중단하는 경우 일시 중단하기 전에 현재 작업을 완료합니다. Runbook이 일시 중단되면 중지하거나 다시 시작할 수 있습니다.
 1. 출력 창에서 runbook의 출력을 검사 합니다.
 
 ## <a name="publish-a-runbook"></a>Runbook 게시
 
-새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다. Azure Automation의 각 runbook에는 초안 버전과 게시 된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 게시됨 버전은 초안 버전 변경 내용의 영향을 받지 않습니다. 초안 버전을 사용할 수 있도록 설정 해야 하는 경우 게시 하 여 현재 게시 된 버전을 초안 버전으로 덮어씁니다.
+새 Runbook을 만들거나 가져올 때는 게시해야 실행할 수 있습니다. Azure Automation의 각 runbook에는 초안 버전과 게시 된 버전이 있습니다. 게시된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 수 있도록 설정 해야 하는 경우 게시 하 여 현재 게시 된 버전을 초안 버전으로 덮어씁니다.
 
 ### <a name="publish-a-runbook-in-the-azure-portal"></a>Azure Portal에 runbook 게시
 

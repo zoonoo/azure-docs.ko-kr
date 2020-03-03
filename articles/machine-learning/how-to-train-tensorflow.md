@@ -1,5 +1,5 @@
 ---
-title: TensorFlow를 사용 하 여 신경망 학습
+title: TensorFlow 모델 학습 및 배포
 titleSuffix: Azure Machine Learning
 description: Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 교육 스크립트를 실행 하는 방법을 알아봅니다.
 services: machine-learning
@@ -10,12 +10,12 @@ ms.author: maxluk
 author: maxluk
 ms.date: 08/20/2019
 ms.custom: seodec18
-ms.openlocfilehash: a1c3e1948d53a168ce9a3e99cd932fa04e2fafc4
-ms.sourcegitcommit: d12880206cf9926af6aaf3bfafda1bc5b0ec7151
+ms.openlocfilehash: 2bbd81f3858aa78b9e0e2d610c0fdb0a67816c8e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/10/2020
-ms.locfileid: "77114376"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228310"
 ---
 # <a name="build-a-tensorflow-deep-learning-model-at-scale-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 대규모로 TensorFlow 심층 학습 모델 빌드
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -305,11 +305,11 @@ cluster_spec = tf.train.ClusterSpec(cluster)
 
 ```
 
-## <a name="deployment"></a>배포
+## <a name="deploy-a-tensorflow-model"></a>TensorFlow 모델 배포
 
 방금 등록 한 모델은 학습에 사용한 평가기에 관계 없이 Azure Machine Learning에서 등록 된 다른 모델과 정확히 동일한 방식으로 배포할 수 있습니다. 배포 방법에는 모델 등록에 대 한 섹션이 포함 되어 있지만 등록 된 모델이 이미 있기 때문에 배포에 대 한 [계산 대상을 직접 만드는](how-to-deploy-and-where.md#choose-a-compute-target) 것으로 건너뛸 수 있습니다.
 
-### <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
+## <a name="preview-no-code-model-deployment"></a>모드 코드 없는 모델 배포
 
 기존 배포 경로 대신 Tensorflow에 대 한 비 코드 배포 기능 (미리 보기)을 사용할 수도 있습니다. 위에 표시 된 대로 `model_framework`, `model_framework_version`및 `resource_configuration` 매개 변수를 사용 하 여 모델을 등록 하면 단순히 `deploy()` 정적 함수를 사용 하 여 모델을 배포할 수 있습니다.
 

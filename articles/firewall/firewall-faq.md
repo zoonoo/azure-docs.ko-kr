@@ -5,14 +5,14 @@ services: firewall
 author: vhorne
 ms.service: firewall
 ms.topic: conceptual
-ms.date: 02/26/2020
+ms.date: 03/02/2020
 ms.author: victorh
-ms.openlocfilehash: 4792c0bce7d9119f5198490d62f49f000e1567d3
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: dc5a05c672df1b4f9db764b58db93279c4be7570
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77621957"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227444"
 ---
 # <a name="azure-firewall-faq"></a>Azure Firewall FAQ
 
@@ -125,7 +125,7 @@ Azure 방화벽 서비스 제한의 경우 [azure 구독 및 서비스 제한, �
 
 ## <a name="does-azure-firewall-outbound-snat-between-private-networks"></a>개인 네트워크 간에 Azure 방화벽 아웃 바운드 SNAT
 
-Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)당 개인 ip 범위인 경우 SNAT 하지 않습니다. 조직에서 개인 네트워크에 대 한 공용 IP 주소 범위를 사용 하는 경우 Azure 방화벽은 AzureFirewallSubnet의 방화벽 개인 IP 주소 중 하나로 트래픽을 SNATs 합니다. 공용 IP 주소 범위를 SNAT **하지 않도록** Azure 방화벽을 구성할 수 있습니다. 자세한 내용은 [Azure 방화벽 SNAT 개인 IP 주소 범위](snat-private-range.md)를 참조 하세요.
+Azure 방화벽은 대상 IP 주소가 [IANA RFC 1918](https://tools.ietf.org/html/rfc1918)당 개인 ip 범위인 경우 SNAT 하지 않습니다. 조직에서 개인 네트워크에 대 한 공용 IP 주소 범위를 사용 하는 경우 Azure 방화벽은 AzureFirewallSubnet의 방화벽 개인 IP 주소 중 하나로 트래픽을 SNATs 합니다. 공용 IP 주소 범위를 SNAT하지 **않도록** Azure 방화벽을 구성할 수 있습니다. 자세한 내용은 [Azure Firewall SNAT 개인 IP 주소 범위](snat-private-range.md)를 참조하세요.
 
 ## <a name="is-forced-tunnelingchaining-to-a-network-virtual-appliance-supported"></a>강제 터널링/네트워크 가상 어플라이언스에 대 한 연결이 지원 되나요?
 
@@ -177,3 +177,25 @@ Azure 방화벽을 확장 하는 데 5 ~ 7 분이 걸립니다. 더 빠른 자�
 ## <a name="does-azure-firewall-allow-access-to-active-directory-by-default"></a>Azure 방화벽에서 기본적으로 Active Directory에 대 한 액세스를 허용 하나요?
 
 아니요. Azure 방화벽은 기본적으로 Active Directory 액세스를 차단 합니다. 액세스를 허용 하려면 AzureActiveDirectory service 태그를 구성 합니다. 자세한 내용은 [Azure 방화벽 서비스 태그](service-tags.md)를 참조 하세요.
+
+## <a name="can-i-exclude-a-fqdn-or-an-ip-address-from-azure-firewall-threat-intelligence-based-filtering"></a>Azure 방화벽 위협 인텔리전스 기반 필터링에서 FQDN 또는 IP 주소를 제외할 수 있나요?
+
+예, Azure PowerShell를 사용 하 여이 작업을 수행할 수 있습니다.
+
+```azurepowershell
+# Add a Threat Intelligence Whitelist to an Existing Azure Firewall
+
+## Create the Whitelist with both FQDN and IPAddresses
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist = New-AzFirewallThreatIntelWhitelist `
+   -FQDN @(“fqdn1”, “fqdn2”, …) -IpAddress @(“ip1”, “ip2”, …)
+
+## Or Update FQDNs and IpAddresses separately
+
+$fw = Get-AzFirewall -Name "Name_of_Firewall" -ResourceGroupName "Name_of_ResourceGroup"
+$fw.ThreatIntelWhitelist.FQDNs = @(“fqdn1”, “fqdn2”, …)
+$fw.ThreatIntelWhitelist.IpAddress = @(“ip1”, “ip2”, …)
+
+Set-AzFirewall -AzureFirewall $fw
+```

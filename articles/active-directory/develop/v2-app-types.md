@@ -17,12 +17,12 @@ ms.date: 04/06/2019
 ms.author: ryanwi
 ms.reviewer: saeeda, jmprieur
 ms.custom: aaddev
-ms.openlocfilehash: 8bfe668dc2eb4e0e00de34231f4c232f5240a82d
-ms.sourcegitcommit: af6847f555841e838f245ff92c38ae512261426a
+ms.openlocfilehash: 650e5fb5d0b2c5522a70944991e9e49037c3b4fa
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76700756"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226950"
 ---
 # <a name="application-types-for-microsoft-identity-platform"></a>Microsoft id 플랫폼용 응용 프로그램 종류
 
@@ -58,7 +58,7 @@ https://login.microsoftonline.com/common/oauth2/v2.0/token
 
 이 시나리오의 작동 방식을 확인 하려면 [Microsoft id 플랫폼 시작](v2-overview.md#getting-started) 섹션의 단일 페이지 앱 코드 샘플 중 하나를 사용해 보세요.
 
-## <a name="web-apps"></a>웹앱
+## <a name="web-apps"></a>웹 앱
 
 사용자가 브라우저를 통해 액세스하는 웹앱(.NET, PHP, Java, Ruby, Python, Node)의 경우 사용자 로그인에 [OpenID Connect](active-directory-v2-protocols.md)를 사용할 수 있습니다. OpenID Connect에서는 웹앱이 ID 토큰을 받습니다. ID 토큰은 사용자 ID를 확인하고 클레임 형태로 사용자 정보를 제공하는 보안 토큰입니다.
 
@@ -99,7 +99,7 @@ Accept: application/json
 ...
 ```
 
-Web API는 액세스 토큰을 사용하여 API 호출자의 ID를 확인하고 액세스 토큰에 인코딩된 클레임에서 호출자에 대한 정보를 추출합니다. Microsoft id 플랫폼 끝점에서 사용 되는 다양 한 토큰 형식에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md) 참조 및 [id_token 참조](id-tokens.md) 에서 제공 됩니다.
+Web API는 액세스 토큰을 사용하여 API 호출자의 ID를 확인하고 액세스 토큰에 인코딩된 클레임에서 호출자에 대한 정보를 추출합니다. Microsoft id 플랫폼 끝점에서 사용 되는 다양 한 토큰 형식에 대 한 자세한 내용은 [액세스 토큰](access-tokens.md) 참조 및 [id_token](id-tokens.md) 참조에서 제공 됩니다.
 
 Web API를 통해 사용자는 [범위](v2-permissions-and-consent.md)라고도 하는 사용 권한을 노출하여 특정 기능이나 데이터를 옵트인(opt-in)하거나 옵트아웃(opt-out)할 수 있습니다. 호출 앱이 범위에 대한 사용 권한을 얻으려면 사용자가 흐름 중 범위에 동의해야 합니다. Microsoft id 플랫폼 끝점은 사용자에 게 권한을 요청 하 고 Web API가 수신 하는 모든 액세스 토큰에 대 한 사용 권한을 기록 합니다. Web API는 각 호출에서 받은 액세스 토큰의 유효성을 검사하고 권한 부여 검사를 수행합니다.
 

@@ -2,13 +2,13 @@
 title: 구독에 리소스 배포
 description: Azure Resource Manager 템플릿에서 리소스 그룹을 만드는 방법을 설명합니다. 또한 Azure 구독 범위에서 리소스를 배포하는 방법도 보여 줍니다.
 ms.topic: conceptual
-ms.date: 02/10/2020
-ms.openlocfilehash: 50db0b4d46ff4e367411829aa75fa017a168372f
-ms.sourcegitcommit: 2823677304c10763c21bcb047df90f86339e476a
+ms.date: 03/02/2020
+ms.openlocfilehash: 2e747b7faa6e9766a577b472cc3e283d6223109e
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/14/2020
-ms.locfileid: "77207658"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228116"
 ---
 # <a name="create-resource-groups-and-resources-at-the-subscription-level"></a>구독 수준에서 리소스 그룹 및 리소스 만들기
 
@@ -20,6 +20,7 @@ ms.locfileid: "77207658"
 
 구독 수준에서 다음과 같은 리소스 유형을 배포할 수 있습니다.
 
+* [예산의](/azure/templates/microsoft.consumption/budgets)
 * [배포](/azure/templates/microsoft.resources/deployments)
 * [peerAsns](/azure/templates/microsoft.peering/peerasns)
 * [policyAssignments](/azure/templates/microsoft.authorization/policyassignments)
@@ -60,10 +61,10 @@ az deployment create \
 ```
 
 
-PowerShell 배포 명령의 경우 [New-AzDeployment](/powershell/module/az.resources/new-azdeployment)를 사용합니다. 다음 예제에서는 템플릿을 배포 하 여 리소스 그룹을 만듭니다.
+PowerShell 배포 명령에서 [AzDeployment](/powershell/module/az.resources/new-azdeployment) 또는 **AzSubscriptionDeployment**를 사용 합니다. 다음 예제에서는 템플릿을 배포 하 여 리소스 그룹을 만듭니다.
 
 ```azurepowershell-interactive
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name demoDeployment `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/emptyRG.json `
@@ -300,7 +301,7 @@ $definition = Get-AzPolicyDefinition | Where-Object { $_.Properties.DisplayName 
 $locations = @("westus", "westus2")
 $policyParams =@{listOfAllowedLocations = @{ value = $locations}}
 
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name policyassign `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policyassign.json `
@@ -366,7 +367,7 @@ az deployment create \
 PowerShell에서 이 템플릿을 배포하려면 다음 기능을 사용합니다.
 
 ```azurepowershell
-New-AzDeployment `
+New-AzSubscriptionDeployment `
   -Name definePolicy `
   -Location centralus `
   -TemplateUri https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/azure-resource-manager/policydefineandassign.json
@@ -374,8 +375,8 @@ New-AzDeployment `
 
 ## <a name="template-samples"></a>템플릿 샘플
 
-* 리소스 그룹을 만들고 잠그고 사용 권한을 부여 합니다. [여기](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)를 참조하세요.
-* 리소스 그룹, 정책 및 정책 할당을 만듭니다.  [여기](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json)를 참조하세요.
+* [리소스 그룹을 만들고 잠그고 사용 권한을 부여](https://github.com/Azure/azure-quickstart-templates/tree/master/subscription-level-deployments/create-rg-lock-role-assignment)합니다.
+* [리소스 그룹, 정책 및 정책 할당을 만듭니다](https://github.com/Azure/azure-docs-json-samples/blob/master/subscription-level-deployment/azuredeploy.json).
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,12 +5,12 @@ ms.topic: conceptual
 author: Dawgfan
 ms.author: mmcc
 ms.date: 09/20/2019
-ms.openlocfilehash: 00e8cdbbd765d6baf83f64848030d08d6e712ca1
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 600ca893e6d6b81fe24626a99cc1f6de80efb3e8
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77661348"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228140"
 ---
 # <a name="application-insights-for-web-pages"></a>웹 페이지용 Application Insights
 
@@ -214,10 +214,12 @@ npm i --save @microsoft/applicationinsights-web-basic
 ## <a name="upgrading-from-the-old-version-of-application-insights"></a>이전 버전의 Application Insights에서 업그레이드
 
 SDK V2 버전의 주요 변경 내용:
-- 더 나은 API 서명을 허용 하기 위해 trackPageView, 기능 예외 등의 일부 API 호출이 업데이트 되었습니다. IE8 또는 낮은 버전의 브라우저에서 실행 되는 것은 지원 되지 않습니다.
-- 원격 분석 봉투 (envelope)에는 데이터 스키마 업데이트로 인 한 필드 이름 및 구조 변경 내용이 있습니다.
+- 더 나은 API 서명을 허용 하기 위해 trackPageView 및 기능 예외와 같은 API 호출 중 일부는 업데이트 되었습니다. Internet Explorer 8 및 이전 버전의 브라우저에서를 실행 하는 것은 지원 되지 않습니다.
+- 데이터 스키마 업데이트로 인해 원격 분석 봉투 (envelope)에 필드 이름 및 구조 변경 내용이 있습니다.
 - `context.operation`을 `context.telemetryTrace`로 이동 했습니다. 일부 필드도 변경 되었습니다 (`operation.id` --> `telemetryTrace.traceID`).
-  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Util.newId()`를 사용 하 여이 작업을 수행할 수 있습니다.
+  - 현재 페이지 보기 ID (예: SPA 앱)를 수동으로 새로 고치려면 `appInsights.properties.context.telemetryTrace.traceID = Util.generateW3CId()`를 사용 합니다.
+    > [!NOTE]
+    > 이전에 `Util.newId()`사용한 추적 ID를 고유 하 게 유지 하려면 이제 `Util.generateW3CId()`를 사용 합니다. 결국 모두 작업 ID가 됩니다.
 
 현재 application insights PRODUCTION SDK (1.0.20)를 사용 하 고 새 SDK가 런타임에 작동 하는지 확인 하려는 경우 현재 SDK 로드 시나리오에 따라 URL을 업데이트 합니다.
 

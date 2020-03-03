@@ -4,16 +4,16 @@ description: Azure의 업데이트 관리 솔루션 문제를 해결 하 고 문
 services: automation
 author: mgoedtel
 ms.author: magoedte
-ms.date: 05/31/2019
+ms.date: 03/02/2020
 ms.topic: conceptual
 ms.service: automation
 manager: carmonm
-ms.openlocfilehash: 5ee1a20d4a3c46cab484b03b5fcc212a79d19047
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 1b0047cda3664759f4f1b6499c8a54ee22f98ab3
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76513272"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227460"
 ---
 # <a name="troubleshooting-issues-with-update-management"></a>업데이트 관리 문제 해결
 
@@ -24,6 +24,36 @@ Hybrid Worker 에이전트에 대 한 에이전트 문제 해결사를 사용 �
 VM (가상 컴퓨터)에서 솔루션을 등록 하는 동안 문제가 발생 하는 경우 로컬 컴퓨터의 **응용 프로그램 및 서비스 로그** 에서 이벤트 ID 4502 및 microsoft.enterprisemanagement.reporting.code를 포함 하는 이벤트 세부 정보를 포함 하는 이벤트에 대 한 **Operations Manager** 로그를 확인 합니다. **eventmessage**.
 
 다음 섹션에서는 특정 오류 메시지와 각각에 대 한 가능한 해결 방법을 중점적으로 설명 합니다. 다른 온 보 딩 문제는 [솔루션 등록 문제 해결](onboarding.md)을 참조 하세요.
+
+## <a name="scenario-superseded-update-indicated-as-missing-in-update-management"></a>시나리오: 교체 된 업데이트가 업데이트 관리에 누락 된 것으로 표시 됨
+
+### <a name="issue"></a>문제
+
+이전 업데이트는 대체 된 경우에도 Azure 계정에 누락 된 업데이트 관리 표시 됩니다. 대체 되는 업데이트는 동일한 취약성을 해결 하는 이후 업데이트를 사용할 수 있기 때문에 설치 하지 않아도 되는 업데이트입니다. 업데이트 관리 대체 되는 업데이트를 무시 하 고 대체 하는 업데이트를 위해 적용 되지 않습니다. 관련 문제에 대 한 자세한 내용은 [업데이트를 대체](https://docs.microsoft.com/windows/deployment/update/windows-update-troubleshooting#the-update-is-not-applicable-to-your-computer)합니다.
+
+### <a name="cause"></a>원인
+
+대체 된 업데이트가 해당 되지 않는 것으로 간주 될 수 있도록 올바르게 표시 되지 않습니다.
+
+### <a name="resolution"></a>해결 방법
+
+대체 된 업데이트가 100% 적용할 수 없게 되 면 해당 업데이트의 승인 상태를 **거부**됨으로 변경 해야 합니다. 모든 업데이트에 대해이 작업을 수행 하려면:
+
+1. Automation 계정에서 **업데이트 관리** 를 선택 하 여 컴퓨터 상태를 확인 합니다. [업데이트 평가 보기](../manage-update-multi.md#view-an-update-assessment)를 참조 하세요.
+
+2. 대체 되는 업데이트를 검사 하 여 100%가 적용 되지 않는지 확인 합니다. 
+
+3. 업데이트에 대 한 질문이 없으면 업데이트를 거부 됨으로 표시 합니다. 
+
+4. 컴퓨터를 선택 하 고 준수 열에서 준수를 강제로 다시 검사 합니다. [여러 컴퓨터에 대 한 업데이트 관리](../manage-update-multi.md)를 참조 하세요.
+
+5. 대체 된 다른 업데이트에 대해 위의 단계를 반복 합니다.
+
+6. 정리 마법사를 실행 하 여 거부 된 업데이트에서 파일을 삭제 합니다. 
+
+7. WSUS의 경우 대체 되는 모든 업데이트를 수동으로 정리 하 여 인프라를 새로 고칩니다.
+
+8. 정기적으로이 절차를 반복 하 여 표시 문제를 해결 하 고 업데이트 관리에 사용 되는 디스크 공간의 크기를 최소화 합니다.
 
 ## <a name="nologs"></a>시나리오: 컴퓨터가 포털에 표시 되지 않음 업데이트 관리
 
@@ -45,7 +75,7 @@ Hybrid Runbook Worker를 다시 등록 하 고 다시 설치 해야 할 수 있�
 
 작업 영역에 도달 하 여 추가 데이터 저장소를 방지 하는 할당량을 정의 했을 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 * OS에 따라 [Windows](update-agent-issues.md#troubleshoot-offline) 또는 [Linux](update-agent-issues-linux.md#troubleshoot-offline)에 대 한 문제 해결사를 실행 합니다.
 
@@ -86,7 +116,7 @@ Error details: Unable to register Automation Resource Provider for subscriptions
 
 자동화 리소스 공급자가 구독에 등록 되어 있지 않습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 자동화 리소스 공급자를 등록 하려면 Azure Portal에서 다음 단계를 수행 합니다.
 
@@ -113,7 +143,7 @@ The components for the 'Update Management' solution have been enabled, and now t
 - Automation 계정과의 통신이 차단 되 고 있습니다.
 - 등록 중인 VM이 MMA (Microsoft Monitoring Agent)로 sysprep 되지 않은 복제 된 컴퓨터에서 발생 했을 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 1. [네트워크 계획](../automation-hybrid-runbook-worker.md#network-planning) 으로 이동 하 여 업데이트 관리 작동 하는 데 허용 되어야 하는 주소 및 포트에 대해 알아봅니다.
 2. 복제 된 이미지를 사용 하는 경우:
@@ -136,7 +166,7 @@ The client has permission to perform action 'Microsoft.Compute/virtualMachines/w
 
 이 오류는 업데이트 배포에 포함 된 다른 테 넌 트에 Azure Vm이 있는 업데이트 배포를 만들 때 발생 합니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 다음 해결 방법을 사용 하 여 예약 된 항목을 가져옵니다. `-ForUpdate` 스위치와 함께 [AzureRmAutomationSchedule](/powershell/module/azurerm.automation/new-azurermautomationschedule) cmdlet을 사용 하 여 일정을 만들 수 있습니다. 그런 다음 [AzureRmAutomationSoftwareUpdateConfiguration](/powershell/module/azurerm.automation/new-azurermautomationsoftwareupdateconfiguration
 ) cmdlet을 사용 하 여 다른 테 넌 트의 컴퓨터를 `-NonAzureComputer` 매개 변수에 전달 합니다. 다음 예제에 이 작업을 수행하는 방법이 나와 있습니다.
@@ -161,7 +191,7 @@ New-AzureRmAutomationSoftwareUpdateConfiguration  -ResourceGroupName $rg -Automa
 
 Windows 업데이트은 여러 레지스트리 키로 수정할 수 있으며,이 중 하나는 다시 부팅 동작을 수정할 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 [다시 시작을 관리 하는 데 사용 되](/windows/deployment/update/waas-restart#registry-keys-used-to-manage-restart) 는 레지스트리 및 레지스트리 키를 [편집 하 여 자동 업데이트 구성](/windows/deployment/update/waas-wu-settings#configuring-automatic-updates-by-editing-the-registry) 에 나열 된 레지스트리 키를 검토 하 여 컴퓨터가 제대로 구성 되었는지 확인 합니다.
 
@@ -185,7 +215,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 * SourceComputerId를 변경한 MMA 업데이트 되었습니다.
 * Automation 계정에서 2000의 동시 작업 제한에 도달 하는 경우 업데이트 실행이 제한 되었습니다. 각 배포는 작업으로 간주 되며, 업데이트 배포의 각 컴퓨터는 작업으로 계산 됩니다. Automation 계정에서 현재 실행 되 고 있는 다른 모든 automation 작업 또는 업데이트 배포는 동시 작업 제한에 계산 됩니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 해당 하는 경우 업데이트 배포에 [동적 그룹](../automation-update-management-groups.md) 을 사용 합니다. 또한 다음 작업도 수행해야 합니다.
 
@@ -208,7 +238,7 @@ Failed to start the runbook. Check the parameters passed. RunbookName Patch-Micr
 
 Windows에서는 업데이트가 제공 되는 즉시 자동으로 설치 됩니다. 컴퓨터에 배포할 업데이트를 예약 하지 않은 경우이 동작으로 인해 혼란이 발생할 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 `HKEY_LOCAL_MACHINE\SOFTWARE\Policies\Microsoft\Windows\WindowsUpdate\AU` 레지스트리 키는 기본값 4: **자동 다운로드 및 설치**로 설정 됩니다.
 
@@ -230,7 +260,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 컴퓨터가 업데이트 관리의 다른 작업 영역에 이미 등록 되었습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 1. 컴퓨터에서 [업데이트 관리 아래의 포털에 표시 되지 않는](#nologs) 단계를 수행 하 여 컴퓨터가 올바른 작업 영역에 보고 하는지 확인 합니다.
 2. [Hybrid runbook 그룹을 삭제](../automation-hybrid-runbook-worker.md#remove-a-hybrid-worker-group)하 여 컴퓨터에서 오래 된 아티팩트를 정리한 후 다시 시도 하세요.
@@ -261,7 +291,7 @@ Access is denied. (Exception form HRESULT: 0x80070005(E_ACCESSDENIED))
 
 프록시, 게이트웨이 또는 방화벽에서 네트워크 통신을 차단 하 고 있을 수 있습니다. 
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 네트워킹을 검토 하 고 적절 한 포트 및 주소가 허용 되는지 확인 합니다. 업데이트 관리 및 Hybrid Runbook Worker에 필요한 포트 및 주소 목록은 [네트워크 요구 사항](../automation-hybrid-runbook-worker.md#network-planning) 을 참조 하세요.
 
@@ -279,7 +309,7 @@ Unable to Register Machine for Patch Management, Registration Failed with Except
 
 Hybrid Runbook Worker 자체 서명 된 인증서를 생성할 수 없습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 시스템 계정에 **C:\ProgramData\Microsoft\Crypto\RSA** 폴더에 대 한 읽기 권한이 있는지 확인 한 후 다시 시도 하십시오.
 
@@ -289,7 +319,7 @@ Hybrid Runbook Worker 자체 서명 된 인증서를 생성할 수 없습니다.
 
 업데이트에 대 한 기본 유지 관리 기간은 120 분입니다. 유지 관리 기간은 최대 6 시간 또는 360 분으로 늘릴 수 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 모든 실패 한 예약 업데이트 배포를 편집 하 고 유지 관리 기간을 늘립니다.
 
@@ -307,7 +337,7 @@ Hybrid Runbook Worker 자체 서명 된 인증서를 생성할 수 없습니다.
 
 업데이트 에이전트 (Windows의 Windows 업데이트 에이전트, Linux 배포용 패키지 관리자)가 올바르게 구성 되어 있지 않습니다. 업데이트 관리은 컴퓨터의 업데이트 에이전트를 사용 하 여 필요한 업데이트, 패치의 상태 및 배포 된 패치의 결과를 제공 합니다. 이 정보가 없으면 업데이트 관리는 필요한 패치를 제대로 보고할 수 없습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 컴퓨터에서 로컬로 업데이트를 수행 합니다. 이 작업이 실패 하면 일반적으로 업데이트 에이전트에 구성 오류가 있음을 의미 합니다.
 
@@ -355,7 +385,7 @@ HRESULT가 표시 되 면 빨간색으로 표시 된 예외를 두 번 클릭 �
 * 컴퓨터에 연결할 수 없습니다.
 * 업데이트에 해결 되지 않은 종속성이 있습니다.
 
-### <a name="resolution"></a>해상도
+### <a name="resolution"></a>해결 방법
 
 성공적으로 시작 된 후 업데이트를 실행 하는 동안 오류가 발생 하는 경우 실행 시 영향을 받는 컴퓨터에서 [작업 출력을 확인](../manage-update-multi.md#view-results-of-an-update-deployment) 합니다. 조사 하 고 조치를 취할 수 있는 특정 오류 메시지를 컴퓨터에서 찾을 수 있습니다. 업데이트 관리에서 업데이트 배포에 성공하려면 패키지 관리자가 정상 상태여야 합니다.
 

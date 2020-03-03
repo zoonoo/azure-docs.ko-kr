@@ -3,15 +3,15 @@ title: Microsoft Azure FXT Edge Filer 사양 | Microsoft Docs
 description: Azure FXT Edge Filer 하드웨어의 물리적 및 환경 사양
 author: ekpgh
 ms.service: fxt-edge-filer
-ms.topic: overview
+ms.topic: conceptual
 ms.date: 06/20/2019
 ms.author: rohogue
-ms.openlocfilehash: 90d56ad0cec3d187d4c7307f8c004b14c3860390
-ms.sourcegitcommit: 1c2659ab26619658799442a6e7604f3c66307a89
-ms.translationtype: HT
+ms.openlocfilehash: c06b0c79e01257eebf566b9752269cb88c072d8a
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/10/2019
-ms.locfileid: "72254699"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78227482"
 ---
 # <a name="azure-fxt-edge-filer-specifications"></a>Azure FXT Edge Filer 사양
 
@@ -37,7 +37,7 @@ ms.locfileid: "72254699"
 | 드라이브 번호    |  사용   |  사양 |
 |------------------|--------|-----------------|
 | 0, 1             | OS     | 480GB SATA SSD |
-| 2, 3, 4, 5, 6, 7, 8, 9 | Data   | FXT 6600: 3.2TB NVMe SSD <br> FXT 6400: 1.6TB NVMe SSD |
+| 2, 3, 4, 5, 6, 7, 8, 9 | data   | FXT 6600:3.2 TB NVMe SSD <br> FXT 6400:1.6 TB NVMe SSD |
 
 
 ## <a name="dimensions-and-weight"></a>크기 및 무게
@@ -144,11 +144,11 @@ Azure FXT Edge Filer 노드는 가변 속도 팬을 사용하므로 전원은 �
 | 고도                  | 최대 3048미터(10,000피트), 아래에 표시된 온도 출력 저하의 조건 | 최대 12,000미터(39,370피트) |
 
 > [!NOTE] 
-> **고도 온도 출력 저하:** 최대 온도는 950m(3,117피트) 위부터 1°C/300m(1°F/547피트)씩 감소합니다.
+> 고도 **온도 비 등급:** 최대 온도는 950 m (3117 ft) 위의 1 ° C/300 m (1 ° F/547 ft)으로 줄어듭니다.
 
 ### <a name="airflow-shock-and-vibration"></a>기류, 감전 및 진동 
 
-| 특성         | 사양 |
+| attribute         | 사양 |
 |-------------------|---------------|
 | 기류                    | 시스템의 공기는 앞에서 뒤로 흐릅니다. 압력이 낮고, 후면 배기가 설치된 시스템을 작동할 수 있어야 합니다. |
 | 충격, 작동         | 11밀리초 동안 6G(6개 방향으로 테스트됨) |

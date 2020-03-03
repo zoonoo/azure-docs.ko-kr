@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: jsimmons
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: f61ab87a3eb1bd4b81a8e67a182a4cb6a09aa069
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4a3eb121b68311084fd516c6abb7e00ad70eba8b
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75888950"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226828"
 ---
 # <a name="deploy-azure-ad-password-protection"></a>Azure AD 암호 보호 배포
 
@@ -106,6 +106,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
    * 이러한 각 서비스는 단일 포리스트에 대 한 암호 정책만 제공할 수 있습니다. 호스트 컴퓨터는 해당 포리스트의 도메인에 가입 되어 있어야 합니다. 루트 및 자식 도메인이 둘 다 지원 됩니다. 포리스트의 각 도메인에 있는 하나 이상의 DC와 암호 보호 컴퓨터 간에 네트워크 연결이 필요 합니다.
    * 테스트를 위해 도메인 컨트롤러에서 프록시 서비스를 실행할 수 있습니다. 그러나이 도메인 컨트롤러에는 인터넷 연결이 필요 하며,이는 보안에 문제가 될 수 있습니다. 이 구성은 테스트용 으로만 권장 됩니다.
    * 중복성을 위해 두 개 이상의 프록시 서버를 권장 합니다. [고가용성](howto-password-ban-bad-on-premises-deploy.md#high-availability)을 참조 하세요.
+   * 읽기 전용 도메인 컨트롤러에서 프록시 서비스를 실행 하는 것은 지원 되지 않습니다.
 
 1. `AzureADPasswordProtectionProxySetup.exe` 소프트웨어 설치 관리자를 사용 하 여 Azure AD 암호 보호 프록시 서비스를 설치 합니다.
    * 소프트웨어가 설치되면 다시 부팅할 필요가 없습니다. 소프트웨어 설치는 표준 MSI 절차를 사용하여 자동화할 수 있습니다. 예를 들면 다음과 같습니다.
@@ -124,7 +125,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    * 서비스가 실행 되 고 있는지 확인 하려면 다음 PowerShell 명령을 사용 합니다.
 
-      `Get-Service AzureADPasswordProtectionProxy | fl`에 대한 답변에 설명되어 있는 단계를 성공적으로 완료하면 활성화됩니다.
+      `Get-Service AzureADPasswordProtectionProxy | fl`입니다.
 
      결과는 "실행 중" **상태** 를 표시 합니다.
 
@@ -133,11 +134,11 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
      `Register-AzureADPasswordProtectionProxy`
 
-     이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다.
+     이 cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다. 또한 포리스트 루트 도메인에서 온-프레미스 Active Directory 도메인 관리자 권한이 필요 합니다. 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet도 실행 해야 합니다.
 
      프록시 서비스에 대해이 명령을 한 번 성공한 후에는 추가 호출이 성공 하지만 필요 하지 않습니다.
 
-      `Register-AzureADPasswordProtectionProxy` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 설명을 참조 하세요.
+      `Register-AzureADPasswordProtectionProxy` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 주석을 참조 하세요.
 
      * 대화형 인증 모드:
 
@@ -179,11 +180,11 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
    > 특정 Azure 테 넌 트에 대해이 cmdlet이 처음으로 실행 될 때 완료 되기 전에 매우 많은 지연이 발생할 수 있습니다. 오류가 보고 되지 않으면 이러한 지연에 대해 걱정 하지 마세요.
 
 1. 포리스트를 등록합니다.
-   * `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 해야 합니다.
+   * `Register-AzureADPasswordProtectionForest` PowerShell cmdlet을 사용 하 여 Azure와 통신 하는 데 필요한 자격 증명을 사용 하 여 온-프레미스 Active Directory 포리스트를 초기화 합니다.
 
       Cmdlet에는 Azure 테 넌 트에 대 한 전역 관리자 자격 증명이 필요 합니다.  또한 로컬 관리자 권한이 있는 계정을 사용 하 여이 cmdlet을 실행 해야 합니다. 또한 온-프레미스 Active Directory 엔터프라이즈 관리자 권한이 필요 합니다. 이 단계는 포리스트마다 한 번씩 실행됩니다.
 
-      `Register-AzureADPasswordProtectionForest` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 설명을 참조 하세요.
+      `Register-AzureADPasswordProtectionForest` cmdlet은 다음과 같은 세 가지 인증 모드를 지원 합니다. 처음 두 모드는 Azure Multi-Factor Authentication을 지원 하지만 세 번째 모드는 지원 하지 않습니다. 자세한 내용은 아래 주석을 참조 하세요.
 
      * 대화형 인증 모드:
 
@@ -266,7 +267,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
    프록시 서비스는 HTTP 프록시에 연결 하는 데 특정 자격 증명을 사용 하는 것을 지원 하지 않습니다.
 
 1. 선택 사항: 특정 포트에서 수신 하도록 암호 보호를 위한 프록시 서비스를 구성 합니다.
-   * 도메인 컨트롤러에서 암호를 보호 하기 위한 DC 에이전트 소프트웨어는 RPC over TCP를 사용 하 여 프록시 서비스와 통신 합니다. 기본적으로 프록시 서비스는 사용 가능한 동적 RPC 끝점에서 수신 합니다. 그러나 사용자 환경의 네트워킹 토폴로지 또는 방화벽 요구 사항으로 인해 필요한 경우 서비스를 특정 TCP 포트에서 수신 하도록 구성할 수 있습니다.
+   * 도메인 컨트롤러에서 암호를 보호 하기 위한 DC 에이전트 소프트웨어는 RPC over TCP를 사용 하 여 프록시 서비스와 통신 합니다. 기본적으로 프록시 서비스는 사용 가능한 동적 RPC 끝점에서 수신 합니다. 사용자 환경에서 네트워킹 토폴로지 또는 방화벽 요구 사항으로 인해 필요한 경우 특정 TCP 포트에서 수신 하도록 서비스를 구성할 수 있습니다.
       * </a><a id="static" />하 여 정적 포트에서 실행 되도록 서비스를 구성 하려면 `Set-AzureADPasswordProtectionProxyConfiguration` cmdlet을 사용 합니다.
 
          ```powershell
@@ -306,7 +307,7 @@ Azure AD 암호 보호에는 두 가지 필수 설치 관리자가 있습니다.
 
    도메인 컨트롤러가 아닌 컴퓨터에는 DC 에이전트 서비스를 설치할 수 있습니다. 이 경우 서비스가 시작 되어 실행 되지만 컴퓨터가 도메인 컨트롤러로 승격 될 때까지 비활성 상태로 유지 됩니다.
 
-   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 예:
+   표준 MSI 절차를 사용 하 여 소프트웨어 설치를 자동화할 수 있습니다. 다음은 그 예입니다.
 
    `msiexec.exe /i AzureADPasswordProtectionDCAgentSetup.msi /quiet /qn /norestart`
 
@@ -343,6 +344,8 @@ Azure AD 암호 보호를 여러 포리스트에 배포하기 위한 추가 요�
 ## <a name="read-only-domain-controllers"></a>읽기 전용 도메인 컨트롤러
 
 암호 변경/집합은 Rodc (읽기 전용 도메인 컨트롤러)에서 처리 및 유지 되지 않습니다. 이러한 도메인 컨트롤러는 쓰기 가능한 도메인 컨트롤러에 전달 됩니다. 따라서 Rodc에는 DC 에이전트 소프트웨어를 설치할 필요가 없습니다.
+
+읽기 전용 도메인 컨트롤러에서 프록시 서비스를 실행 하는 것은 지원 되지 않습니다.
 
 ## <a name="high-availability"></a>고가용성
 

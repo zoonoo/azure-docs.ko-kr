@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/27/2020
+ms.date: 03/02/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: a64af5d2b19b05ec9a5eda97c43e278cdfb8b4ff
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: bdea51c6cb53222f31a07906785a94073a0293a1
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189109"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78226796"
 ---
 # <a name="single-sign-on-session-management-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 Single Sign-On 세션 관리
 
@@ -118,26 +118,25 @@ Azure AD B2C는 사용할 수 있는 SSO 세션 공급자 수를 정의합니다
 
 #### <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명|
+| attribute | 필수 | Description|
 | --- | --- | --- |
-| AlwaysFetchClaimsFromProvider | 아니요 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
+| AlwaysFetchClaimsFromProvider | 예 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 
 ### <a name="samlssosessionprovider"></a>SamlSSOSessionProvider
 
-이 공급자는 신뢰 당사자 응용 프로그램 또는 페더레이션된 SAML id 공급자 간의 Azure AD B2C SAML 세션을 관리 하는 데 사용 됩니다. SSO 공급자를 사용 하 여 SAML id 공급자 세션을 저장 하는 경우 `IncludeSessionIndex` 및 `RegisterServiceProviders`을 `false`으로 설정 해야 합니다. 다음 `SM-Saml-idp` 기술 프로필은 [SAML 기술 프로필](saml-technical-profile.md)에 사용 됩니다.
+이 공급자는 신뢰 당사자 응용 프로그램 또는 페더레이션된 SAML id 공급자 간의 Azure AD B2C SAML 세션을 관리 하는 데 사용 됩니다. SSO 공급자를 사용 하 여 SAML id 공급자 세션을 저장 하는 경우 `RegisterServiceProviders`를 `false`으로 설정 해야 합니다. 다음 `SM-Saml-idp` 기술 프로필은 [SAML 기술 프로필](saml-technical-profile.md)에 사용 됩니다.
 
 ```XML
 <TechnicalProfile Id="SM-Saml-idp">
   <DisplayName>Session Management Provider</DisplayName>
   <Protocol Name="Proprietary" Handler="Web.TPEngine.SSO.SamlSSOSessionProvider, Web.TPEngine, Version=1.0.0.0, Culture=neutral, PublicKeyToken=null" />
   <Metadata>
-    <Item Key="IncludeSessionIndex">false</Item>
     <Item Key="RegisterServiceProviders">false</Item>
   </Metadata>
 </TechnicalProfile>
 ```
 
-B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `IncludeSessionIndex` 및 `RegisterServiceProviders`를 `true`으로 설정 해야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
+B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `RegisterServiceProviders`를 `true`으로 설정 해야 합니다. SAML 세션 로그아웃을 완료하는 데 `SessionIndex` 및 `NameID`가 필요합니다.
 
 다음 `SM-Saml-idp` 기술 프로필은 [SAML 발급자 기술 프로필](connect-with-saml-service-providers.md) 에 사용 됩니다.
 
@@ -149,10 +148,10 @@ B2C SAML 세션을 저장 하는 데 공급자를 사용 하는 경우 `IncludeS
 ```
 #### <a name="metadata"></a>메타데이터
 
-| 특성 | 필수 | 설명|
+| attribute | 필수 | Description|
 | --- | --- | --- |
-| IncludeSessionIndex | 아니요 | 공급자에게 세션 인덱스를 저장해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
-| RegisterServiceProviders | 아니요 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
+| IncludeSessionIndex | 예 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다.|
+| RegisterServiceProviders | 예 | 공급자가 어설션을 발급한 모든 SAML 서비스 공급자를 등록해야 함을 의미합니다. 가능한 값은 `true`(기본값) 또는 `false`입니다.|
 
 
 

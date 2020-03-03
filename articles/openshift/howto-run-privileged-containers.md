@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: 4241296a991283f14fbb294fdc059ecde58d6d75
-ms.sourcegitcommit: a460fdc19d6d7af6d2b5a4527e1b5c4e0c49942f
+ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
+ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77069663"
+ms.lasthandoff: 03/02/2020
+ms.locfileid: "78228243"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
 
@@ -121,12 +121,17 @@ Enforcers를 배포할 때 다음 필드를 설정 합니다.
 
 수정 하려는 기본 지침은 기본 [Sma 클라우드 배포 설명서](https://docs.paloaltonetworks.com/prisma/prisma-cloud/19-11/prisma-cloud-compute-edition-admin/install/install_openshift.html) 에서 확인할 수 있습니다.
 
-새 OpenShift 프로젝트 만들기를 시작 합니다.
+"설치 하는 방법"에 설명 된 대로 `twistcli` 도구를 설치 하 여 시작 합니다.
+
+새 OpenShift 프로젝트 만들기
 ```
 oc new-project twistlock
 ```
 
-"콘솔 설치" 섹션에서 설명서를 따라 할 수 있습니다 .이 섹션에서는 내부를 만드는 대신에 사용할 수 있습니다.
+선택적 섹션인 "개인 레지스트리에 대 한 대상 레지스트리를 푸시합니다." 섹션을 건너뜁니다. Azure Red Hat Openshift에서는 작동 하지 않습니다. 대신 온라인 레지스트리를 사용 하십시오.
+
+아래에 설명 된 수정 내용을 적용 하는 동안 공식 설명서를 따를 수 있습니다.
+"콘솔 설치" 섹션으로 시작 합니다.
 
 ### <a name="install-console"></a>콘솔 설치
 
