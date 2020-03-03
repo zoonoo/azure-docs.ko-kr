@@ -2,20 +2,20 @@
 title: Azure Active Directory B2C 로그인 상태 유지
 description: Azure Active Directory B2C에서 KMSI(로그인 유지)를 설정하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: conceptual
 ms.date: 02/27/2020
-ms.author: marsma
+ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 84ba68c97f69872e39121915a6edf23aa029fa75
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
-ms.translationtype: HT
+ms.openlocfilehash: 9a27487fa69888b02883c3d9a2151887f41afc45
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161689"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78189381"
 ---
 # <a name="enable-keep-me-signed-in-kmsi-in-azure-active-directory-b2c"></a>Azure Active Directory B2C에서 KMSI(로그인 유지) 사용
 
@@ -32,11 +32,11 @@ Azure Active Directory B2C (Azure AD B2C) 디렉터리에 로컬 계정이 있�
 - 로컬 계정 로그인을 허용 하도록 구성 된 Azure AD B2C 테 넌 트입니다. 외부 id 공급자 계정에는 KMSI가 지원 되지 않습니다.
 - [사용자 지정 정책 시작](custom-policy-get-started.md)의 단계를 완료합니다.
 
-## <a name="configure-the-page-identifier"></a>페이지 식별자 구성 
+## <a name="configure-the-page-identifier"></a>페이지 식별자 구성
 
 KMSI를 사용 하도록 설정 하려면 콘텐츠 정의 `DataUri` 요소를 [페이지 식별자](contentdefinitions.md#datauri) `unifiedssp` 및 [페이지 버전](page-layout.md) *1.1.0* 이상으로 설정 합니다.
 
-1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em> 합니다. 이 확장 파일은 사용자 지정 정책 시작 팩에 포함 된 정책 파일 중 하나로, 필수 구성 요소, [사용자 지정 정책 시작](custom-policy-get-started.md)에서 가져와야 합니다.
+1. 정책의 확장 파일을 엽니다. 예를 들어 <em>`SocialAndLocalAccounts/` **`TrustFrameworkExtensions.xml`** </em>  합니다. 이 확장 파일은 사용자 지정 정책 시작 팩에 포함 된 정책 파일 중 하나로, 필수 구성 요소, [사용자 지정 정책 시작](custom-policy-get-started.md)에서 가져와야 합니다.
 1. **BuildingBlocks** 요소를 검색합니다. 요소가 존재하지 않는 경우 추가합니다.
 1. 정책의 **BuildingBlocks** 요소에 **contentdefinitions** 요소를 추가 합니다.
 
@@ -51,7 +51,7 @@ KMSI를 사용 하도록 설정 하려면 콘텐츠 정의 `DataUri` 요소를 [
       </ContentDefinitions>
     </BuildingBlocks>
     ```
-    
+
 1. 확장 파일을 저장합니다.
 
 
@@ -73,13 +73,13 @@ KMSI를 사용 하도록 설정 하려면 콘텐츠 정의 `DataUri` 요소를 [
     ```
 
     - **Ssosession** -`SessionExpiryInSeconds` 및 `KeepAliveInDays`에 지정 된 시간에 따라 세션이 확장 되는 방법을 나타냅니다. `Rolling` 값 (기본값)은 사용자가 인증을 수행할 때마다 세션이 확장 됨을 나타냅니다. `Absolute` 값은 지정 된 기간이 지나면 사용자가 강제로 다시 인증 함을 나타냅니다.
- 
+
     - **SessionExpiryInSeconds** - *로그인 유지* 가 사용 하도록 설정 되어 있지 않거나 사용자가 *로그인 유지*를 선택 하지 않은 경우 세션 쿠키의 수명입니다. `SessionExpiryInSeconds` 전달 되거나 브라우저가 닫힌 후 세션이 만료 됩니다.
- 
+
     - **KeepAliveInDays** - *로그인 유지* 가 사용 되 고 사용자가 *로그인 유지*를 선택 하는 경우 세션 쿠키의 수명입니다.  `KeepAliveInDays` 값은 `SessionExpiryInSeconds` 값 보다 우선적으로 적용 되며 세션 만료 시간을 결정 합니다. 사용자가 브라우저를 닫고 나중에 다시 여는 경우 KeepAliveInDays 기간 내에 있는 동안에도 자동으로 로그인 할 수 있습니다.
-    
+
     자세한 내용은 [사용자 경험 동작](relyingparty.md#userjourneybehaviors)을 참조 하세요.
- 
+
 SessionExpiryInSeconds의 값을 짧은 기간 (1200 초)으로 설정 하는 것이 좋지만, KeepAliveInDays의 값은 다음 예제와 같이 상대적으로 긴 기간 (30 일)으로 설정할 수 있습니다.
 
 ```XML
