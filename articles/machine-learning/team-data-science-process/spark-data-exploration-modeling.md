@@ -584,7 +584,7 @@ SQL 쿼리를 사용하여 데이터를 샘플링합니다.
 
 * 정칙 로지스틱 회귀 
 * 임의 포리스트 모델
-* 그라데이션 향상 트리
+* 경사 부스팅 트리
 
 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
@@ -791,8 +791,8 @@ Area under ROC = 0.985297691373
 
 위의 셀을 실행하는 데 걸린 시간: 31.09초
 
-### <a name="gradient-boosting-trees-classification"></a>그라데이션 향상 트리 분류
-이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+### <a name="gradient-boosting-trees-classification"></a>경사 부스팅 트리 분류
+이 섹션의 코드에서는 NYC Taxi Trip 및 요금 데이터 세트에서 팁이 여정에 지불되었는지 여부를 예측하는 경사 부스팅 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
     #PREDICT WHETHER A TIP IS PAID OR NOT USING GRADIENT BOOSTING TREES
 
@@ -842,7 +842,7 @@ Area under ROC = 0.985297691373
 
 * 정칙 선형 회귀
 * 임의 포리스트
-* 그라데이션 향상 트리
+* 경사 부스팅 트리
 
 이러한 모델은 소개에서 설명했습니다. 코드 섹션을 빌드하는 각 모델은 다음과 같은 단계로 분할됩니다. 
 
@@ -961,8 +961,8 @@ R-sqr = 0.759661334921
 
 위의 셀을 실행하는 데 걸린 시간: 49.21초
 
-### <a name="gradient-boosting-trees-regression"></a>그라데이션 향상 트리 회귀
-이 섹션의 코드에서는 NYC Taxi Trip 데이터에서 팁 금액을 예측하는 그라데이션 향상 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
+### <a name="gradient-boosting-trees-regression"></a>경사 부스팅 트리 회귀
+이 섹션의 코드에서는 NYC Taxi Trip 데이터에서 팁 금액을 예측하는 경사 부스팅 트리 모델을 학습, 평가, 저장하는 방법을 보여줍니다.
 
 **학습 및 평가**
 

@@ -20,7 +20,7 @@ ms.locfileid: "76718551"
 ---
 # <a name="operationalize-spark-built-machine-learning-models"></a>Spark에서 만든 Machine Learning 모델 운영
 
-이 항목에서는 HDInsight Spark 클러스터에서 Python을 사용하여 저장된 Machine Learning 모델(ML)을 운영하는 방법을 보여줍니다. 이 항목에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 Machine Learning 모델을 로드하는 방법 및 WASB에도 저장된 데이터 세트를 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 점진적 향상 트리 모델을 포함합니다.
+이 항목에서는 HDInsight Spark 클러스터에서 Python을 사용하여 저장된 Machine Learning 모델(ML)을 운영하는 방법을 보여줍니다. 이 항목에서는 Spark MLlib를 사용하여 만들어진 Azure Blob Storage(WASB)에 저장된 Machine Learning 모델을 로드하는 방법 및 WASB에도 저장된 데이터 세트를 사용하여 해당 모델의 점수를 매기는 방법을 설명합니다. 입력 데이터를 전처리하고 MLlib 도구 키트의 인덱싱 및 인코딩 기능을 사용하여 기능을 변환하는 방법, 그리고 ML 모델에서 점수를 매기기 위한 입력으로 사용할 수 있는 레이블이 지정된 점수 데이터 개체를 만드는 방법을 보여 줍니다. 점수 매기기에 사용되는 모델은 선형 회귀, 로지스틱 회귀, 임의 포리스트 모델 및 경사 부스팅 트리 모델을 포함합니다.
 
 ## <a name="spark-clusters-and-jupyter-notebooks"></a>Spark 클러스터 및 Jupyter Notebook
 HDInsight Spark 1.6 클러스터 및 Spark 2.0 클러스터 사용을 위한 설정 단계 및 ML 모델을 운영하는 코드가 이 연습에 제공됩니다. 이러한 절차에 대한 코드가 Jupyter Notebook에도 제공됩니다.
@@ -440,8 +440,8 @@ Jupyter Notebook의 커널 및 제공되는 미리 정의된 "매직"에 대한 
 
 위의 셀을 실행하는 데 걸린 시간: 31.07초
 
-## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>분류 및 회귀 점진적 향상 트리 모델 점수 매기기
-이 섹션의 코드는 Azure Blob Storage에서 점진적 향상 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다. 
+## <a name="score-classification-and-regression-gradient-boosting-tree-models"></a>분류 및 회귀 경사 부스팅 트리 모델 점수 매기기
+이 섹션의 코드는 Azure Blob Storage에서 분류 및 회귀 경사 부스팅 트리 모델을 로드하고 표준 분류자 및 회귀 측정값을 사용하여 해당 성능의 점수를 매긴 다음 결과를 Blob Storage에 다시 저장하는 방법을 보여 줍니다. 
 
 **spark mllib** 는 연속 및 범주 기능을 모두 사용 하 여 이진 분류 및 회귀에 대해 gbts를 지원 합니다. 
 

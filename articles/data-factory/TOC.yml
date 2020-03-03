@@ -625,7 +625,7 @@
           href: solution-template-migration-s3-azure.md
         - name: 파일 이동
           href: solution-template-move-files.md
-        - name: Databricks를 사용하여 데이터 변환
+        - name: Azure Databricks를 통한 변환
           href: solution-template-databricks-notebook.md
     - name: 문제 해결 가이드
       items:

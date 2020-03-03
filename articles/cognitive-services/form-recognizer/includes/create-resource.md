@@ -5,14 +5,14 @@ ms.subservice: forms-recognizer
 ms.topic: include
 ms.date: 06/12/2019
 ms.author: pafarley
-ms.openlocfilehash: 0a4faad8bfe92a5389e0ee440aa3ccc404535955
-ms.sourcegitcommit: 7c18afdaf67442eeb537ae3574670541e471463d
+ms.openlocfilehash: 33624ab800bd1155b52efbc05f317122a99bb479
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77118071"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78205827"
 ---
-Azure Portal로 이동하여 [새 Form Recognizer 리소스를 만듭니다](https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer). **만들기** 창에서 다음 정보를 제공합니다.
+Azure Portal로 이동하여 <a href="https://ms.portal.azure.com/#create/Microsoft.CognitiveServicesFormRecognizer" title="새 Form Recognizer 리소스 만들기" target="_blank">새 Form Recognizer 리소스 <span class="docon docon-navigate-external x-hidden-focus"></span></a>를 만듭니다. **만들기** 창에서 다음 정보를 제공합니다.
 
 |    |    |
 |--|--|

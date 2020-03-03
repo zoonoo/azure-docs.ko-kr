@@ -19,6 +19,8 @@
           href: container-registry-get-started-powershell.md
         - name: Event Grid로 이벤트 보내기 - CLI
           href: container-registry-event-grid-quickstart.md
+        - name: Java 이미지 빌드 및 푸시 - CLI
+          href: container-registry-java-quickstart.md
     - name: 자습서
       expanded: false
       items:

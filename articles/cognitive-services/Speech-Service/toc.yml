@@ -193,6 +193,10 @@
           items:
             - name: Text-to-Speech REST API
               href: rest-text-to-speech.md
+        - name: 전화 사용량
+          items:
+            - name: SAPI(Speech API) 전화 사용량
+              href: sapi-phoneset-usage.md
     - name: 리소스
       items:
         - name: 텍스트 음성 변환 FAQ

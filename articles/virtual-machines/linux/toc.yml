@@ -130,26 +130,26 @@
               href: ../lsv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: 성능 최적화
               href: storage-performance.md
-        - name: 컴퓨팅 가속화
+        - name: GPU - 컴퓨팅 가속화
           items:
-            - name: GPU에 최적화
-              items:
-                - name: 개요
-                  href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NC 시리즈
-                  href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NCv2 시리즈
-                  href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NCv3 시리즈
-                  href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: ND 시리즈
-                  href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NDv2 시리즈
-                  href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NV 시리즈
-                  href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-                - name: NVv3 시리즈
-                  href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: 개요
+              href: ../sizes-gpu.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NC 시리즈
+              href: ../nc-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NCv2 시리즈
+              href: ../ncv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NCv3 시리즈
+              href: ../ncv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: ND 시리즈
+              href: ../nd-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NDv2 시리즈
+              href: ../ndv2-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NV 시리즈
+              href: ../nv-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NVv3 시리즈
+              href: ../nvv3-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
+            - name: NVv4 시리즈
+              href: ../nvv4-series.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
             - name: GPU 드라이버 설정
               href: n-series-driver-setup.md
         - name: 고성능 컴퓨팅
@@ -169,6 +169,8 @@
           items:
             - name: VM 선불
               href: prepay-reserved-vm-instances.md
+            - name: Dedicated Host 선불
+              href: ../prepay-dedicated-hosts-reserved-instances.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: Azure 예약이란?
               href: ../../billing/billing-save-compute-costs-reservations.md?toc=%2fazure%2fvirtual-machines%2flinux%2ftoc.json
             - name: VM 인스턴스 크기 유연성
@@ -276,7 +278,7 @@
       items:
         - name: 2023년 3월 1일부터 사용 중지
           href: ../classic-vm-deprecation.md?toc=/azure/virtual-machines/linux/toc.json&bc=/azure/virtual-machines/linux/breadcrumb/toc.json
-        - name: 개요
+        - name: 마이그레이션 개요
           href: migration-classic-resource-manager-overview.md
         - name: 마이그레이션에 대한 고찰
           href: migration-classic-resource-manager-deep-dive.md
@@ -310,6 +312,8 @@
               href: disk-encryption-key-vault.md
             - name: 디스크 암호화 샘플 스크립트
               href: disk-encryption-sample-scripts.md
+            - name: 격리된 네트워크에서 디스크 암호화
+              href: disk-encryption-isolated-network.md
             - name: 디스크 암호화 문제 해결
               href: disk-encryption-troubleshooting.md
             - name: 디스크 암호화 FAQ
