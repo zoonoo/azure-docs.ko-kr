@@ -7,12 +7,12 @@ author: hrasheed-msft
 ms.author: hrasheed
 ms.reviewer: jasonh
 ms.date: 08/20/2019
-ms.openlocfilehash: a0874826529b5c9ca5d6d4107fe820cd522d81d0
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.openlocfilehash: 4e46efaf17ae9bad5df6f1f61f401d3e6de58a85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75894044"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250230"
 ---
 # <a name="apache-zookeeper-server-fails-to-form-a-quorum-in-azure-hdinsight"></a>Apache ZooKeeper 서버가 Azure HDInsight에서 쿼럼을 형성 하지 못함
 
@@ -20,24 +20,31 @@ ms.locfileid: "75894044"
 
 ## <a name="issue"></a>문제
 
-Apache ZooKeeper 서버가 비정상으로 나타날 수 있습니다 .이는 리소스 관리자/이름 노드가 모두 대기 모드이 고, 단순 HDFS 작업이 작동 하지 않거나, `zkFailoverController` 중지 되 고 시작할 수 없는 경우, Yarn/Spark/Livy 작업이 사육 아웃 오류로 인해 실패 합니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
+Apache ZooKeeper 서버가 비정상으로 나타날 수 있습니다 .이는 리소스 관리자/이름 노드가 모두 대기 모드이 고, 단순 HDFS 작업이 작동 하지 않거나, `zkFailoverController` 중지 되 고 시작할 수 없는 경우, Yarn/Spark/Livy 작업이 사육 아웃 오류로 인해 실패 합니다. LLAP 디먼 보안 Spark 또는 대화형 Hive 클러스터에서 시작 하지 못할 수도 있습니다. 다음과 유사한 오류 메시지가 표시 될 수 있습니다.
 
 ```
 19/06/19 08:27:08 ERROR ZooKeeperStateStore: Fatal Zookeeper error. Shutting down Livy server.
 19/06/19 08:27:08 INFO LivyServer: Shutting down Livy server.
 ```
 
+/Var/log/zookeeper/zookeeper-zookeeper-server-\*의 모든 사육 사 호스트에 있는 사육 아웃 서버 로그에서 다음 오류가 표시 될 수도 있습니다.
+
+```
+2020-02-12 00:31:52,513 - ERROR [CommitProcessor:1:NIOServerCnxn@178] - Unexpected Exception:
+java.nio.channels.CancelledKeyException
+```
+
 ## <a name="cause"></a>원인
 
 스냅숏 파일의 볼륨이 크거나 스냅숏 파일이 손상 된 경우에는 사육 아웃 서버에서 쿼럼을 형성 하지 못하여,이로 인해 사육 사가 관련 서비스가 비정상 상태가 됩니다. 사육 아웃 서버는 데이터 디렉터리에서 이전 스냅숏 파일을 제거 하지 않고, 사용자가 온전성의 사육를 유지 관리 하기 위해 수행 해야 하는 정기적인 작업입니다. 자세한 내용은 [사육 사 장점 및 제한 사항](https://zookeeper.apache.org/doc/r3.3.5/zookeeperAdmin.html#sc_strengthsAndLimitations)을 참조 하세요.
 
-## <a name="resolution"></a>해상도
+## <a name="resolution"></a>해결 방법
 
-`/hadoop/zookeeper/version-2` 아웃 들 데이터 디렉터리를 확인 하 고 `/hadoop/hdinsight-zookeepe/version-2` 스냅숏 파일 크기가 큰지 확인 합니다. 규모가 많은 스냅숏이 있는 경우 다음 단계를 수행 합니다.
+`/hadoop/zookeeper/version-2` 아웃 들 데이터 디렉터리를 확인 하 고 `/hadoop/hdinsight-zookeeper/version-2` 스냅숏 파일 크기가 큰지 확인 합니다. 규모가 많은 스냅숏이 있는 경우 다음 단계를 수행 합니다.
 
-1. `/hadoop/zookeeper/version-2` 및 `/hadoop/hdinsight-zookeepe/version-2`에서 스냅숏을 백업 합니다.
+1. `/hadoop/zookeeper/version-2` 및 `/hadoop/hdinsight-zookeeper/version-2`에서 스냅숏을 백업 합니다.
 
-1. `/hadoop/zookeeper/version-2` 및 `/hadoop/hdinsight-zookeepe/version-2`에서 스냅숏을 정리 합니다.
+1. `/hadoop/zookeeper/version-2` 및 `/hadoop/hdinsight-zookeeper/version-2`에서 스냅숏을 정리 합니다.
 
 1. Apache Ambari UI에서 모든 사육 전 서버를 다시 시작 합니다.
 

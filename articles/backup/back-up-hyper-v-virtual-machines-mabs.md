@@ -3,12 +3,12 @@ title: MABS를 사용 하 여 Hyper-v 가상 머신 백업
 description: 이 문서에는 MABS (Microsoft Azure Backup 서버)를 사용 하 여 가상 컴퓨터를 백업 및 복구 하는 절차가 포함 되어 있습니다.
 ms.topic: conceptual
 ms.date: 07/18/2019
-ms.openlocfilehash: e23a3a5ad57e07f95958d8a21e091d663a5c1185
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 00d1dd04522c51e4d68450a7b8f25d7159d63724
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586515"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255060"
 ---
 # <a name="back-up-hyper-v-virtual-machines-with-azure-backup-server"></a>Azure Backup Server를 사용 하 여 Hyper-v 가상 컴퓨터 백업
 
@@ -171,7 +171,7 @@ MABS는 다음과 같이 VSS를 사용 하 여 백업을 수행 합니다. 이 �
 
 1. SQL Server Management Studio를 열고 MABS 데이터베이스를 호스팅하는 인스턴스에 연결 합니다.
 
-2. 다음 쿼리를 실행 합니다. `select * from tbl_SCH_ScheduleDefinition where JobDefinitionID='9B30D213-B836-4B9E-97C2-DB03C3EB39D7'`. 이 쿼리는 **ScheduleID**를 반환 합니다. 다음 단계에서 사용할 때이 ID를 확인 합니다.
+2. 다음 쿼리를 실행 합니다. `SELECT SCH.ScheduleId FROM tbl_JM_JobDefinition JD JOIN tbl_SCH_ScheduleDefinition SCH ON JD.JobDefinitionId = SCH.JobDefinitionId WHERE JD.Type = '282faac6-e3cb-4015-8c6d-4276fcca11d4' AND JD.IsDeleted = 0 AND SCH.IsDeleted = 0`. 이 쿼리는 **ScheduleID**를 반환 합니다. 다음 단계에서 사용할 때이 ID를 확인 합니다.
 
 3. SQL Server Management Studio에서 **SQL Server 에이전트**를 확장 한 다음 **작업**을 확장 합니다. 기록한 **ScheduleID** 를 마우스 오른쪽 단추로 클릭 하 고 **작업 시작 단계**를 선택 합니다.
 

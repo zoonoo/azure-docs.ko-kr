@@ -3,12 +3,12 @@ title: 컨테이너 그룹에 비밀 볼륨 탑재
 description: Container Instances에서 액세스할 수 있도록 중요한 정보를 저장하기 위해 비밀 볼륨을 탑재하는 방법을 알아봅니다.
 ms.topic: article
 ms.date: 07/19/2018
-ms.openlocfilehash: 7f212a5090923a7d7bf00fc8ac78299f2edcc9c1
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 913e3d147519bc73c3c57b8da383f9d373f3666d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533181"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249947"
 ---
 # <a name="mount-a-secret-volume-in-azure-container-instances"></a>Azure Container Instances에서 비밀 볼륨 탑재
 
@@ -21,7 +21,7 @@ ms.locfileid: "74533181"
 
 ## <a name="mount-secret-volume---azure-cli"></a>비밀 볼륨 탑재 - Azure CLI
 
-Azure CLI를 사용 하 여 하나 이상의 암호를 포함 하는 컨테이너를 배포 하려면 [az container create][az-container-create] 명령에 `--secrets` 및 `--secrets-mount-path` 매개 변수를 포함 합니다. 이 예제에서는 `/mnt/secrets`에서 두 비밀 "mysecret1" 및 "mysecret2"로 구성된 *비밀* 볼륨을 탑재합니다.
+Azure CLI를 사용 하 여 하나 이상의 암호를 포함 하는 컨테이너를 배포 하려면 [az container create][az-container-create] 명령에 `--secrets` 및 `--secrets-mount-path` 매개 변수를 포함 합니다. 이 예제에서는 *에서 두 비밀 "mysecret1" 및 "mysecret2"로 구성된* 비밀`/mnt/secrets` 볼륨을 탑재합니다.
 
 ```azurecli-interactive
 az container create \
@@ -34,8 +34,11 @@ az container create \
 
 다음 [az container exec][az-container-exec] 출력은 실행 중인 컨테이너에서 셸을 열고, 비밀 볼륨 내에 파일을 나열 하 고, 콘텐츠를 표시 하는 방법을 보여 줍니다.
 
-```console
-$ az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```azurecli
+az container exec --resource-group myResourceGroup --name secret-volume-demo --exec-command "/bin/sh"
+```
+
+```output
 /usr/src/app # ls -1 /mnt/secrets
 mysecret1
 mysecret2
@@ -53,7 +56,7 @@ Azure CLI 및 [YAML 템플릿](container-instances-multi-container-yaml.md)을 �
 
 YAML 템플릿을 사용하여 배포하는 경우 비밀 값은 템플릿에서 **Base64로 인코딩**되어야 합니다. 그러나 비밀 값은 컨테이너의 파일 내에서 일반 텍스트로 표시됩니다.
 
-다음 YAML 템플릿은 `/mnt/secrets`에서 *비밀* 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
+다음 YAML 템플릿은 *에서* 비밀`/mnt/secrets` 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
 
 ```yaml
 apiVersion: '2018-10-01'
@@ -97,9 +100,9 @@ CLI 및 YAML 배포 외에도, Azure [Resource Manager 템플릿](/azure/templat
 
 먼저 템플릿의 `volumes`컨테이너 그룹의 배열`properties` 섹션을 채웁니다. Resource Manager 템플릿을 사용하여 배포하는 경우 비밀 값은 템플릿에서 **Base64로 인코딩**되어야 합니다. 그러나 비밀 값은 컨테이너의 파일 내에서 일반 텍스트로 표시됩니다.
 
-다음으로 *secret* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `properties` 섹션에서 `volumeMounts` 배열을 채웁니다.
+다음으로 *secret* 볼륨을 탑재하려는 컨테이너 그룹에 있는 각 컨테이너의 경우 컨테이너 정의의 `volumeMounts` 섹션에서 `properties` 배열을 채웁니다.
 
-다음 Resource Manager 템플릿은 `/mnt/secrets`에서 *비밀* 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
+다음 Resource Manager 템플릿은 *에서* 비밀`/mnt/secrets` 볼륨을 탑재하는 컨테이너 하나가 포함된 컨테이너 그룹을 정의합니다. 비밀 볼륨에는 두 개의 비밀 "mysecret1" 및 "mysecret2"가 있습니다.
 
 <!-- https://github.com/Azure/azure-docs-json-samples/blob/master/container-instances/aci-deploy-volume-secret.json -->
 [!code-json[volume-secret](~/azure-docs-json-samples/container-instances/aci-deploy-volume-secret.json)]

@@ -3,7 +3,7 @@ title: Azure Virtual Machines 에이전트 개요
 description: Azure Virtual Machines 에이전트 개요
 services: virtual-machines-windows
 documentationcenter: virtual-machines
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure-services
 ms.date: 07/20/2019
 ms.author: akjosh
-ms.openlocfilehash: 24369ed547b811b212518193a2ae2f76ed197754
-ms.sourcegitcommit: 2a2af81e79a47510e7dea2efb9a8efb616da41f0
+ms.openlocfilehash: 3d9c178201ab0c22ed4eab9cf65f7d48e59e1359
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/17/2020
-ms.locfileid: "76264630"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246116"
 ---
 # <a name="azure-virtual-machine-agent-overview"></a>Azure Virtual Machines 에이전트 개요
 Microsoft Azure VM 에이전트(가상 머신 에이전트)는 Azure 패브릭 컨트롤러와 VM(가상 머신)의 상호 작용을 관리하는 안전하고 간단한 프로세스입니다. VM 에이전트는 Azure 가상 머신 확장을 설정하고 실행하는 데 기본적인 역할을 수행합니다. VM 확장을 사용하면 소프트웨어 설치 및 구성과 같은 VM의 배포 후 구성을 설정할 수 있습니다. 또한 VM 확장을 사용하면 VM의 관리 암호를 다시 설정하는 등의 복구 기능도 사용할 수 있습니다. Azure VM 에이전트가 없으면 VM 확장을 실행할 수 없습니다.
@@ -69,7 +69,7 @@ $vm.OSProfile.AllowExtensionOperations = $true
 $vm | Update-AzVM
 ```
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 - Windows VM 에이전트는 .Net Framework 4.0를 사용 하 여 Windows Server 2008 R2 (64 비트) 이상을 실행 해야 합니다. [Azure의 가상 머신 에이전트에 대 한 최소 버전 지원을](https://support.microsoft.com/en-us/help/4049215/extensions-and-virtual-machine-agent-minimum-version-support) 참조 하세요.
 
 - VM에 IP 주소 168.63.129.16에 대 한 액세스 권한이 있는지 확인 합니다. 자세한 내용은 [IP 주소 168.63.129.16?을](https://docs.microsoft.com/azure/virtual-network/what-is-ip-address-168-63-129-16)참조 하세요.

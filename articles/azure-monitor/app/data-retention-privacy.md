@@ -3,12 +3,12 @@ title: Azure Application Insights 데이터 보존 및 스토리지 | Microsoft 
 description: 보존 및 개인 정보 취급 방침
 ms.topic: conceptual
 ms.date: 09/29/2019
-ms.openlocfilehash: 0b266eb0674f6de7dfb20311bba95bc7f4697f61
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 30878eecf795c85713b9f09b8325b326416022b8
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669661"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254868"
 ---
 # <a name="data-collection-retention-and-storage-in-application-insights"></a>Application Insights의 데이터 수집, 보존 및 저장
 
@@ -170,6 +170,12 @@ services.AddSingleton(typeof(ITelemetryChannel), new ServerTelemetryChannel () {
 기본적으로 `%TEMP%/appInsights-node{INSTRUMENTATION KEY}`이(가) 데이터를 지속하는 데 사용됩니다. 이 폴더에 대한 액세스 권한은 현재 사용자 및 관리자로 제한됩니다. (여기서 [구현](https://github.com/Microsoft/ApplicationInsights-node.js/blob/develop/Library/Sender.ts) 참조)
 
 `appInsights-node`Sender.ts`Sender.TEMPDIR_PREFIX`에 있는 정적 변수 [의 런타임 값을 변경하여 폴더 접두사 ](https://github.com/Microsoft/ApplicationInsights-node.js/blob/7a1ecb91da5ea0febf5ceab13d6a4bf01a63933d/Library/Sender.ts#L384)을(를) 재정의할 수 있습니다.
+
+### <a name="javascript-browser"></a>JavaScript (브라우저)
+
+[HTML5 세션 저장소](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) 는 데이터를 유지 하는 데 사용 됩니다. `AI_buffer` 및 `AI_sent_buffer`의 두 버퍼가 사용 됩니다. 일괄 처리 되 고 전송 대기 중인 원격 분석은 `AI_buffer`에 저장 됩니다. 방금 보낸 원격 분석은 수집 서버가 성공적으로 수신 되었음을 응답할 때까지 `AI_sent_buffer`에 배치 됩니다. 원격 분석이 성공적으로 수신 되 면 모든 버퍼에서 제거 됩니다. 일시적인 오류 (예: 사용자가 네트워크 연결을 잃은 경우)의 경우 성공적으로 수신 될 때까지 또는 수집 서버에서 원격 분석을 사용할 수 없을 때 (예: 잘못 된 스키마 또는 너무 오래 된) 원격 분석을 `AI_buffer` 합니다.
+
+[`enableSessionStorageBuffer`](https://github.com/microsoft/ApplicationInsights-JS/blob/17ef50442f73fd02a758fbd74134933d92607ecf/legacy/JavaScript/JavaScriptSDK.Interfaces/IConfig.ts#L31) 을 `false`설정 하 여 원격 분석 버퍼를 사용 하지 않도록 설정할 수 있습니다. 세션 저장소가 꺼져 있으면 대신 로컬 배열이 영구적 저장소로 사용 됩니다. JavaScript SDK는 클라이언트 장치에서 실행 되기 때문에 사용자는 브라우저의 개발자 도구를 통해이 저장소 위치에 액세스할 수 있습니다.
 
 ### <a name="opencensus-python"></a>OpenCensus Python
 

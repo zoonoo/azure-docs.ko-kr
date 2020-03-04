@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: sandeo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: b7c4a0e64e1f08bb3e80eaf67937da10906bfce0
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: bae957eba627be7fa3b968585a03d28aa5b0af56
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77591611"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255011"
 ---
 # <a name="how-to-plan-your-hybrid-azure-active-directory-join-implementation"></a>방법: 하이브리드 Azure Active Directory 조인 구현 계획
 
@@ -79,6 +79,8 @@ Windows 데스크톱 운영 체제를 실행 하는 장치의 경우 지원 되�
 - 도메인 컨트롤러 (DC) 역할을 실행 하는 Windows Server에서는 하이브리드 Azure AD 조인이 지원 되지 않습니다.
 
 - 자격 증명 로밍 또는 사용자 프로필 로밍 또는 필수 프로필을 사용 하는 경우에는 Windows 하위 수준 장치에서 하이브리드 Azure AD 조인이 지원 되지 않습니다.
+
+- Server Core OS는 모든 유형의 장치 등록을 지원 하지 않습니다.
 
 ### <a name="os-imaging-considerations"></a>OS 이미징 고려 사항
 - 시스템 준비 도구 (Sysprep)를 사용 하 고 설치를 위해 **Windows 10 1809 이전** 이미지를 사용 하는 경우 azure Ad를 하이브리드 azure ad 조인으로 사용 하 여 이미 등록 된 장치에서 이미지를 만들지 않았는지 확인 합니다.

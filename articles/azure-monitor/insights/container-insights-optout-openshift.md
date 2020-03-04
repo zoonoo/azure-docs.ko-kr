@@ -3,12 +3,12 @@ title: Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 description: 이 문서는 컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터의 모니터링을 중지 하는 방법을 설명 합니다.
 ms.topic: conceptual
 ms.date: 11/21/2019
-ms.openlocfilehash: 97ca333f724dc4914dabda2912c4512a40520253
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: eff5203aeedd3c7ad283b55ba12f0e45a556460d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75977777"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250727"
 ---
 # <a name="how-to-stop-monitoring-your-azure-red-hat-openshift-cluster-with-azure-monitor-for-containers"></a>컨테이너에 대 한 Azure Monitor를 사용 하 여 Azure Red Hat OpenShift 클러스터 모니터링을 중지 하는 방법
 
@@ -104,7 +104,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 다음과 비슷한 메시지가 반환됩니다.
 
-```azurecli
+```output
 ProvisioningState       : Succeeded
 ```
 
@@ -122,7 +122,7 @@ New-AzResourceGroupDeployment -Name opt-out -ResourceGroupName <ResourceGroupNam
 
 구성 변경을 완료하려면 몇 분 정도 걸릴 수 있습니다. 완료되면 결과가 포함된 다음과 비슷한 메시지가 반환됩니다.
 
-```powershell
+```output
 ProvisioningState       : Succeeded
 ```
 

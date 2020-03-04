@@ -1,18 +1,16 @@
 ---
 title: PowerShell을 사용하여 앱 복제
 description: PowerShell을 사용하여 App Service 앱을 새 앱에 복제하는 방법을 알아봅니다. Traffic Manager 통합을 포함 하 여 다양 한 복제 시나리오가 적용 됩니다.
-author: ahmedelnably
 ms.assetid: f9a5cfa1-fbb0-41e6-95d1-75d457347a35
 ms.topic: article
 ms.date: 01/14/2016
-ms.author: aelnably
 ms.custom: seodec18
-ms.openlocfilehash: 332f7a562fc8c1d7b2bbebb0e596a068797c2ce3
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e7ad45ea4cb1049ed7eeb454162e23e81ed35019
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75967218"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255196"
 ---
 # <a name="azure-app-service-app-cloning-using-powershell"></a>PowerShell을 사용하여 Azure App Service 앱 복제
 
@@ -75,7 +73,7 @@ $destapp = New-AzWebApp -ResourceGroupName DestinationAzureResourceGroup -Name d
 ## <a name="cloning-an-existing-app-slot"></a>기존 앱 슬롯 복제
 시나리오: 앱의 기존 배포 슬롯을 새 앱 또는 새 슬롯에 복제 하려고 합니다. 새 앱은 원래 앱 슬롯과 동일한 지역이나 다른 지역에 있을 수 있습니다.
 
-원본 앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 `source-app`에 연결된 원본 앱 슬롯의 정보를 가져올 수 있습니다(이 경우 이름은 `source-appslot`임).
+원본 앱을 포함하는 리소스 그룹 이름을 알고 있으면 다음 PowerShell 명령을 사용하여 `source-appslot`에 연결된 원본 앱 슬롯의 정보를 가져올 수 있습니다(이 경우 이름은 `source-app`임).
 
 ```powershell
 $srcappslot = Get-AzWebAppSlot -ResourceGroupName SourceAzureResourceGroup -Name source-app -Slot source-appslot

@@ -3,7 +3,7 @@ title: Azure에서 Linux VHD 만들기 및 업로드
 description: Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 10/08/2018
 ms.author: mimckitt
-ms.openlocfilehash: ffa99c6ba0157eca133dc36ecbbb159b076b8bc0
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 7f2422df3a2449999e086e74e9446d125ffecbda
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155556"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251670"
 ---
 # <a name="information-for-non-endorsed-distributions"></a>비보증 배포에 대한 정보
 
@@ -194,7 +194,7 @@ Azure [Linux 에이전트](../extensions/agent-linux.md) 는 Azure에서 linux �
      logout
      ```  
    > [!NOTE]
-   > Virtualbox에서 `[Errno 5] Input/output error`라는 `waagent -force -deprovision`을 실행한 후에 다음 오류가 표시될 수 있습니다. 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
+   > Virtualbox에서 `waagent -force -deprovision`라는 `[Errno 5] Input/output error`을 실행한 후에 다음 오류가 표시될 수 있습니다. 이 오류 메시지는 중요하지 않으므로 무시할 수 있습니다.
 
 * 가상 머신을 종료하고 Azure에 VHD를 업로드합니다.
 

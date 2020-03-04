@@ -4,12 +4,12 @@ description: 앱에 대해 미리 작성 된 PHP 컨테이너를 구성 하는 �
 ms.devlang: php
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: e805487075499bd4e461a21fffb4c44156ce192b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: ad121d605e521704597471b446fa79cb43dfccc7
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77913874"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255843"
 ---
 # <a name="configure-a-linux-php-app-for-azure-app-service"></a>Azure App Service에 대 한 Linux PHP 앱 구성
 
@@ -116,7 +116,7 @@ PHP 설치를 변경 해야 하는 경우 다음 단계에 따라 [php 지시문
 
 PHP_INI_USER, PHP_INI_PERDIR 및 PHP_INI_ALL 지시문을 사용자 지정 하려면 ( [PHP 지시문](https://www.php.net/manual/ini.list.php)참조) 앱의 루트 디렉터리에 *.htaccess* 파일을 추가 합니다.
 
-*.Htaccess* 파일에서 `php_value <directive-name> <value>` 구문을 사용 하 여 지시문을 추가 합니다. 예를 들면 다음과 같습니다.
+*.Htaccess* 파일에서 `php_value <directive-name> <value>` 구문을 사용 하 여 지시문을 추가 합니다. 다음은 그 예입니다.
 
 ```
 php_value upload_max_filesize 1000M
@@ -198,21 +198,13 @@ zend_extension=/home/site/wwwroot/bin/xdebug.so
 작동 하는 PHP 앱이 App Service에서 다르게 동작 하거나 오류가 발생 하는 경우 다음을 시도 합니다.
 
 - [로그 스트림에 액세스](#access-diagnostic-logs)합니다.
-- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 예를 들면 다음과 같습니다.
+- 프로덕션 모드에서 로컬로 앱을 테스트 합니다. App Service 프로덕션 모드에서 node.js 앱을 실행 하므로 프로젝트가 프로덕션 모드에서 로컬로 예상 대로 작동 하는지 확인 해야 합니다. 다음은 그 예입니다.
     - *작성기. json*에 따라 프로덕션 모드 (`require` `require-dev`)에 대해 서로 다른 패키지를 설치할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 다른 방식으로 정적 파일을 배포할 수 있습니다.
     - 특정 웹 프레임 워크는 프로덕션 모드에서 실행 되는 경우 사용자 지정 시작 스크립트를 사용할 수 있습니다.
 - 디버그 모드의 App Service에서 앱을 실행 합니다. 예를 들어, [Laravel](https://meanjs.org/)에서 [`APP_DEBUG` 앱 설정을 `true`으로 설정 ](../configure-common.md?toc=%2fazure%2fapp-service%2fcontainers%2ftoc.json#configure-app-settings)하 여 프로덕션에서 디버그 메시지를 출력 하도록 앱을 구성할 수 있습니다.
 
-### <a name="robots933456"></a>robots933456
-
-컨테이너 로그에 다음 메시지가 표시 될 수 있습니다.
-
-```
-2019-04-08T14:07:56.641002476Z "-" - - [08/Apr/2019:14:07:56 +0000] "GET /robots933456.txt HTTP/1.1" 404 415 "-" "-"
-```
-
-이 메시지는 무시 해도 됩니다. `/robots933456.txt`는 컨테이너에서 요청을 처리할 수 있는지 여부를 확인 하는 데 사용 App Service는 더미 URL 경로입니다. 404 응답은 단순히 경로가 존재 하지 않는다는 것을 나타내지만 컨테이너가 정상 상태이 고 요청에 응답할 준비가 되었음을 App Service 수 있습니다.
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

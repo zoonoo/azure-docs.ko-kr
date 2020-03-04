@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 02/12/2020
 ms.author: yelevin
-ms.openlocfilehash: b00f9c9e7de9568a29d2b7a7f4ef84c022ef5679
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 43eba727b1dc724aae6eea3ec77de1363c5db73f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588164"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252508"
 ---
 # <a name="connect-data-from-office-365-logs"></a>Office 365 로그의 데이터 연결
 
@@ -33,9 +33,9 @@ ms.locfileid: "77588164"
 ## <a name="prerequisites"></a>사전 요구 사항
 
 - 테 넌 트의 전역 관리자 또는 보안 관리자 여야 합니다.
-- 테 넌 트에 Office 365 E3 또는 Office 365 E5 라이선스가 없는 경우 다음 프로세스 중 하나를 사용 하 여 테 넌 트에서 통합 감사를 사용 하도록 설정 해야 합니다.
+- 테 넌 트가 통합 감사를 사용 하도록 설정 되어 있어야 합니다. Office 365 E3 또는 E5 라이선스를 사용 하는 테 넌 트는 기본적으로 통합 감사를 사용 하도록 설정 되어 있습니다. <br>테 넌 트에 이러한 라이선스 중 하나가 없는 경우 다음 방법 중 하나를 사용 하 여 테 넌 트에서 통합 감사를 사용 하도록 설정 해야 합니다.
     - [Set AdminAuditLogConfig cmdlet을 사용 하](https://docs.microsoft.com/powershell/module/exchange/policy-and-compliance-audit/set-adminauditlogconfig?view=exchange-ps) 고 "UnifiedAuditLogIngestionEnabled" 매개 변수를 사용 하도록 설정 합니다.
-    - [또는 보안 및 준수 센터 UI를 사용](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin)합니다.
+    - [보안 및 준수 센터 UI 사용](https://docs.microsoft.com/office365/securitycompliance/search-the-audit-log-in-security-and-compliance#before-you-begin).
 
 ## <a name="connect-to-office-365"></a>Office 365에 연결
 

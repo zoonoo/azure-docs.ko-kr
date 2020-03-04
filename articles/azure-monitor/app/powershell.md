@@ -3,12 +3,12 @@ title: PowerShell 사용하여 Azure Application Insights 자동화 | Microsoft 
 description: Azure Resource Manager 템플릿을 사용 하 여 PowerShell에서 리소스, 경고 및 가용성 테스트 만들기 및 관리를 자동화 합니다.
 ms.topic: conceptual
 ms.date: 10/17/2019
-ms.openlocfilehash: 06fedb3d345cfe6790f7a19b88fbfdb36470638f
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9494b659b5b4357f3190c45d8cc72c4e130f0ecc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669814"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250774"
 ---
 #  <a name="manage-application-insights-resources-using-powershell"></a>PowerShell을 사용 하 여 Application Insights 리소스 관리
 
@@ -128,7 +128,7 @@ New-AzApplicationInsights -ResourceGroupName <resource group> -Name <resource na
             },
             "dailyQuotaResetTime": {
                 "type": "int",
-                "defaultValue": 24,
+                "defaultValue": 0,
                 "metadata": {
                     "description": "Enter daily quota reset hour in UTC (0 to 23). Values outside the range will get a random reset hour."
                 }
@@ -320,16 +320,30 @@ Set-ApplicationInsightsRetention `
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> | Format-List
 ```
 
-일일 상한 속성을 설정 하려면 동일한 cmdlet을 사용 합니다. 예를 들어 cap를 300 g b/일로 설정 하려면 
+일일 상한 속성을 설정 하려면 동일한 cmdlet을 사용 합니다. 예를 들어 cap를 300 g b/일로 설정 하려면
 
 ```PS
 Set-AzApplicationInsightsDailyCap -ResourceGroupName <resource group> -Name <resource name> -DailyCapGB 300
 ```
 
+[ARMClient](https://github.com/projectkudu/ARMClient) 를 사용 하 여 일일 상한 매개 변수를 가져오고 설정할 수도 있습니다.  현재 값을 가져오려면 다음을 사용 합니다.
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+## <a name="set-the-daily-cap-reset-time"></a>일일 상한 다시 설정 시간 설정
+
+일일 상한 다시 설정 시간을 설정 하려면 [ARMClient](https://github.com/projectkudu/ARMClient)를 사용 하면 됩니다. 다음은 `ARMClient`를 사용 하 여 다시 설정 된 시간을 새 시간 (이 예제에서는 12:00 UTC)으로 설정 하는 예제입니다.
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview "{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'ResetTime':12}}"
+```
+
 <a id="price"></a>
 ## <a name="set-the-pricing-plan"></a>가격 책정 계획 설정 
 
-현재 가격 책정 계획을 얻으려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다. 
+현재 가격 책정 계획을 얻으려면 [AzApplicationInsightsPricingPlan](https://docs.microsoft.com/powershell/module/az.applicationinsights/Set-AzApplicationInsightsPricingPlan) cmdlet을 사용 합니다.
 
 ```PS
 Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <resource name> | Format-List
@@ -350,10 +364,27 @@ Set-AzApplicationInsightsPricingPlan -ResourceGroupName <resource group> -Name <
                -appName myApp
 ```
 
+`priceCode`은 다음과 같이 정의 됩니다.
+
 |priceCode|계획|
 |---|---|
 |1|GB 당 (이전의 기본 계획 이라고 명명)|
 |2|노드당 (이전에는 엔터프라이즈 계획 이름)|
+
+마지막으로 [ARMClient](https://github.com/projectkudu/ARMClient) 를 사용 하 여 가격 책정 계획과 일일 상한 매개 변수를 가져오고 설정할 수 있습니다.  현재 값을 가져오려면 다음을 사용 합니다.
+
+```PS
+armclient GET /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+```
+
+다음을 사용 하 여 이러한 모든 매개 변수를 설정할 수 있습니다.
+
+```PS
+armclient PUT /subscriptions/00000000-0000-0000-0000-00000000000/resourceGroups/MyResourceGroupName/providers/microsoft.insights/components/MyResourceName/CurrentBillingFeatures?api-version=2018-05-01-preview
+"{'CurrentBillingFeatures':['Basic'],'DataVolumeCap':{'Cap':200,'ResetTime':12,'StopSendNotificationWhenHitCap':true,'WarningThreshold':90,'StopSendNotificationWhenHitThreshold':true}}"
+```
+
+일일 한도를 200 g b/일로 설정 하 고, 일일 캡 다시 설정 시간을 12:00 UTC로 구성 하 고, cap에 도달 하 여 경고 수준이 충족 되 면 전자 메일을 보내고, 경고 임계값을 cap의 90%로 설정 합니다.  
 
 ## <a name="add-a-metric-alert"></a>메트릭 경고 추가
 

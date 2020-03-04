@@ -12,12 +12,12 @@ ms.reviewer: jrasnick
 manager: craigg
 ms.custom: seo-lt-2019
 tags: azure-synapse
-ms.openlocfilehash: 80382359bb1125b7e2eba3eed86409494c1e0726
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 4811f24fb942689bddcc9d9d1bcb8c33d147c1af
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196198"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256011"
 ---
 # <a name="azure-synapse-analytics-release-notes"></a>Azure Synapse Analytics 릴리스 정보
 
@@ -76,9 +76,9 @@ ms.locfileid: "78196198"
 
 | 서비스 개선 사항 | 세부 정보 |
 | --- | --- |
-|**구체화 된 뷰 (미리 보기)**|구체화된 뷰는 뷰 정의 쿼리에서 반환되는 데이터를 유지하고 기본 테이블에서 데이터가 변경될 때 자동으로 업데이트됩니다. 간단한 유지 관리 작업을 제공하면서 복잡한 쿼리(일반적으로 조인 및 집계를 사용한 쿼리)의 성능을 향상시킵니다. 참조 항목: </br> [구체화 된 뷰를 SELECT &#40;transact-sql&#41; 로 만듭니다](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) - </br> - [ALTER 구체화 뷰 &#40;transact-sql&#41; ](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> [Sql Analytics에서 지원 되는 - t-sql 문](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
+|**구체화 된 뷰 (미리 보기)**|구체화된 뷰는 뷰 정의 쿼리에서 반환되는 데이터를 유지하고 기본 테이블에서 데이터가 변경될 때 자동으로 업데이트됩니다. 간단한 유지 관리 작업을 제공하면서 복잡한 쿼리(일반적으로 조인 및 집계를 사용한 쿼리)의 성능을 향상시킵니다. 자세한 내용은 다음을 참조하세요. </br> [구체화 된 뷰를 SELECT &#40;transact-sql&#41; 로 만듭니다](/sql/t-sql/statements/create-materialized-view-as-select-transact-sql?view=azure-sqldw-latest) - </br> - [ALTER 구체화 뷰 &#40;transact-sql&#41; ](/sql/t-sql/statements/alter-materialized-view-transact-sql?view=azure-sqldw-latest) </br> [Sql Analytics에서 지원 되는 - t-sql 문](/azure/sql-data-warehouse/sql-data-warehouse-reference-tsql-statements)|
 |**추가 T-sql 지원**|SQL Analytics에 대 한 T-sql 언어 노출 영역은 다음에 대 한 지원을 포함 하도록 확장 되었습니다. </br> [표준 시간대 - (transact-sql)](/sql/t-sql/queries/at-time-zone-transact-sql?view=azure-sqldw-latest)</br> - [STRING_AGG (transact-sql)](/sql/t-sql/functions/string-agg-transact-sql?view=azure-sqldw-latest)|
-|**결과 집합 캐싱 (미리 보기)**|이전에 발표 된 결과 집합 캐시를 관리 하기 위해 DBCC 명령이 추가 되었습니다. 참조 항목: </br> - [DBCC DROPRESULTSETCACHE &#40;transact-sql&#41; ](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;transact-sql&#41; ](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 또한 실행 된 쿼리가 결과 집합 캐시를 사용 하는 경우를 표시 하는 dm_pdw_exec_requests의 새 result_set_cache 열을 참조 하세요 [.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|이전에 발표 된 결과 집합 캐시를 관리 하기 위해 DBCC 명령이 추가 되었습니다. 자세한 내용은 다음을 참조하세요. </br> - [DBCC DROPRESULTSETCACHE &#40;transact-sql&#41; ](/sql/t-sql/database-console-commands/dbcc-dropresultsetcache-transact-sql?view=azure-sqldw-latest)  </br> - [DBCC SHOWRESULTCACHESPACEUSED &#40;transact-sql&#41; ](/sql/t-sql/database-console-commands/dbcc-showresultcachespaceused-transact-sql?view=azure-sqldw-latest) </br></br> 또한 실행 된 쿼리가 결과 집합 캐시를 사용 하는 경우를 표시 하는 dm_pdw_exec_requests의 새 result_set_cache 열을 참조 하세요 [.](/sql/relational-databases/system-dynamic-management-views/sys-dm-pdw-exec-requests-transact-sql?view=azure-sqldw-latest)|
 |**순서가 지정 된 클러스터형 columnstore 인덱스 (미리 보기)**|새 열 column_store_order_ordinal은 (는) [index_columns](/sql/relational-databases/system-catalog-views/sys-index-columns-transact-sql?view=azure-sqldw-latest) 에 추가 되어 순서가 지정 된 클러스터형 columnstore 인덱스의 열 순서를 식별 합니다.|
 
 ## <a name="may-2019"></a>2019년 5월
@@ -89,7 +89,7 @@ ms.locfileid: "78196198"
 |**현재 일반 공급 되는 워크 로드 중요도**|작업 관리 분류 및 중요도는 쿼리 실행 순서에 영향을 줄 수 있는 기능을 제공 합니다. 작업 중요도에 대 한 자세한 내용은 설명서의 [분류](sql-data-warehouse-workload-classification.md) 및 [중요도](sql-data-warehouse-workload-importance.md) 개요 문서를 참조 하세요. [워크 로드 분류자 문서 만들기](/sql/t-sql/statements/create-workload-classifier-transact-sql?view=azure-sqldw-latest) 도 확인 합니다.<br/><br/>아래 비디오에서 작업의 작업 중요도를 참조 하세요.<br/> -[워크 로드 관리 개념](https://www.youtube.com/embed/QcCRBAhoXpM)<br/> -[워크 로드 관리 시나리오](https://www.youtube.com/embed/_2rLMljOjw8)|
 |**추가 T-sql 지원**|SQL Analytics에 대 한 T-sql 언어 노출 영역은 다음에 대 한 지원을 포함 하도록 확장 되었습니다. </br> - [TRIM](/sql/t-sql/functions/trim-transact-sql?view=azure-sqldw-latest)|
 |**JSON 함수**|비즈니스 분석가는 이제 익숙한 T-sql 언어를 사용 하 여 다음과 같은 새로운 JSON 함수를 통해 JSON 데이터로 서식이 지정 된 문서를 쿼리하고 조작할 수 있습니다.</br> - [Isjson](/sql/t-sql/functions/isjson-transact-sql?view=azure-sqldw-latest)</br> - [JSON_VALUE](/sql/t-sql/functions/json-value-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_QUERY](/sql/t-sql/functions/json-query-transact-sql?view=azure-sqldw-latest)</br> -  [JSON_MODIFY](/sql/t-sql/functions/json-modify-transact-sql?view=azure-sqldw-latest)</br> - [OPENJSON](/sql/t-sql/functions/openjson-transact-sql?view=azure-sqldw-latest)|
-|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱은 비즈니스 분석가 및 보고 사용자에 대 한 정보를 파악 하는 동시에 쿼리 응답 시간을 단축 합니다. 참조 항목:</br> [ALTER database - (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> [ALTER DATABASE SET 옵션 - (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> [결과 집합 캐싱 설정 - (transact-sql)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (transact-sql)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys. 데이터베이스 (transact-sql)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
+|**결과 집합 캐싱 (미리 보기)**|결과 집합 캐싱은 비즈니스 분석가 및 보고 사용자에 대 한 정보를 파악 하는 동시에 쿼리 응답 시간을 단축 합니다. 자세한 내용은 다음을 참조하세요.</br> [ALTER database - (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql?view=azure-sqldw-latest)</br> [ALTER DATABASE SET 옵션 - (transact-sql)](/sql/t-sql/statements/alter-database-transact-sql-set-options?view=azure-sqldw-latest)</br> [결과 집합 캐싱 설정 - (transact-sql)](/sql/t-sql/statements/set-result-set-caching-transact-sql?view=azure-sqldw-latest)</br> - [SET 문 (transact-sql)](/sql/t-sql/statements/set-statements-transact-sql)</br> - [sys. 데이터베이스 (transact-sql)](/sql/relational-databases/system-catalog-views/sys-databases-transact-sql?view=azure-sqldw-latest)|
 |**순서가 지정 된 클러스터형 columnstore 인덱스 (미리 보기)**|Columnstore는 대량의 데이터를 저장 하 고 효율적으로 쿼리 하기 위한 핵심 수단이 됩니다. 각 테이블에 대해 들어오는 데이터를 행 그룹으로 나누고 행 그룹의 각 열이 디스크의 세그먼트를 형성 합니다.  순서가 지정 된 클러스터형 columnstore 인덱스는 효율적인 세그먼트 제거를 사용 하 여 쿼리 실행을 더욱 최적화 합니다.   자세한 내용은 다음을 참조 하세요.</br> -  [CREATE TABLE (SQL 분석)](/sql/t-sql/statements/create-table-azure-sql-data-warehouse?view=azure-sqldw-latest)</br> [CREATE COLUMNSTORE INDEX (transact-sql)](/sql/t-sql/statements/create-columnstore-index-transact-sql?view=azure-sqldw-latest)를 -  합니다.|
 
 ## <a name="march-2019"></a>2019년 3월
@@ -125,7 +125,7 @@ ms.locfileid: "78196198"
 
 | 설명서 개선 | 세부 정보 |
 | --- | --- |
-|없음 | |
+|none | |
 | | |
 
 ## <a name="december-2018"></a>2018년 12월
@@ -162,7 +162,7 @@ ms.locfileid: "78196198"
 
 ## <a name="more-information"></a>자세한 정보
 - [블로그-Azure Synapse 분석](https://azure.microsoft.com/blog/tag/azure-sql-data-warehouse/)
-- [고객 자문 팀 블로그](https://blogs.msdn.microsoft.com/sqlcat/tag/sql-dw/)
+- [고객 자문 팀 블로그](https://docs.microsoft.com/archive/blogs/sqlcat/)
 - [고객 성공 사례](https://azure.microsoft.com/case-studies/?service=sql-data-warehouse)
 - [Stack Overflow 포럼](https://stackoverflow.com/questions/tagged/azure-sqldw)
 - [Twitter](https://twitter.com/hashtag/SQLDW)

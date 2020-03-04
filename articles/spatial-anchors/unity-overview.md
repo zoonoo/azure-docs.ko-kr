@@ -8,12 +8,12 @@ services: azure-spatial-anchors
 ms.service: azure-spatial-anchors
 ms.date: 02/26/2020
 ms.topic: conceptual
-ms.openlocfilehash: 59cc3bd456ed969c40910a0e7d23295558f1cd6c
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: eea2d57c708bd3563625d6f9da19ac043b604888
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77675170"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246249"
 ---
 # <a name="building-in-unity-with-azure-spatial-anchors"></a>Azure 공간 앵커를 사용 하 여 Unity에서 빌드
 
@@ -21,12 +21,12 @@ ms.locfileid: "77675170"
 
 **HoloLens 용 Unity**
 
-[빠른 시작: Azure 공간 앵커를 사용 하는 Unity HoloLens 앱 만들기](/quickstarts/get-started-unity-hololens.md)
+[빠른 시작: Azure 공간 앵커를 사용 하는 Unity HoloLens 앱 만들기](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-hololens)
 
 **Android 용 Unity**
 
-[빠른 시작: Azure 공간 앵커를 사용 하는 Unity Android 앱 만들기](/quickstarts/get-started-unity-android.md)
+[빠른 시작: Azure 공간 앵커를 사용 하는 Unity Android 앱 만들기](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-android)
 
 **IOS 용 Unity**
 
-[빠른 시작: Azure 공간 앵커를 사용 하는 Unity iOS 앱 만들기](/quickstarts/get-started-unity-ios.md)
+[빠른 시작: Azure 공간 앵커를 사용 하는 Unity iOS 앱 만들기](https://docs.microsoft.com/azure/spatial-anchors/quickstarts/get-started-unity-ios)

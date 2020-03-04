@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 03/02/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: b24a08ee0367cc3dbb1c845854a0fbc91e0f1d2c
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4638b5bfc3ff31d0d2149e7ee227c46d3360a306
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78227077"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254984"
 ---
 # <a name="define-a-restful-technical-profile-in-an-azure-active-directory-b2c-custom-policy"></a>Azure Active Directory B2C 사용자 지정 정책에서 RESTful 기술 프로필 정의
 
@@ -127,7 +127,7 @@ REST API 기술 프로필을 사용 하면 복잡 한 JSON 페이로드를 끝�
 | AuthenticationType | yes | RESTful 클레임 공급자가 수행하는 인증 형식입니다. 가능한 값은 `None`, `Basic`, `Bearer` 또는 `ClientCertificate`입니다. `None` 값은 REST API가 익명이 아님을 나타냅니다. `Basic` 값은 REST API가 HTTP 기본 인증으로 보호됨을 나타냅니다. Azure AD B2C를 포함하여 확인된 사용자만 API에 액세스할 수 있습니다. `ClientCertificate` (권장) 값은 REST API 클라이언트 인증서 인증을 사용 하 여 액세스를 제한 함을 나타냅니다. Azure AD B2C와 같이 적절 한 인증서가 있는 서비스만 API에 액세스할 수 있습니다. `Bearer` 값은 REST API 클라이언트 OAuth2 전달자 토큰을 사용 하 여 액세스를 제한 함을 나타냅니다. |
 | AllowInsecureAuthInProduction| 예| `AuthenticationType`를 프로덕션 환경에서 `none`으로 설정할 수 있는지 여부를 나타냅니다 ( [TrustFrameworkPolicy](trustframeworkpolicy.md) 의`DeploymentMode`이 `Production`로 설정 되거나 지정 되지 않음). 가능한 값은 true 또는 false (기본값)입니다. |
 | SendClaimsIn | 예 | 입력 클레임이 RESTful 클레임 공급자에게 전송되는 방법을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 입력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 입력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 입력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 입력 클레임입니다. 각각에 의해 호출 되는 HTTP 동사는 다음과 같습니다.<br /><ul><li>`Body`: POST</li><li>`Form`: POST</li><li>`Header`: GET</li><li>`QueryString`: GET</li></ul> |
-| ClaimsFormat | 예 | 출력 클레임의 형식을 지정합니다. 가능한 값은 `Body`(기본값), `Form`, `Header` 또는 `QueryString`입니다. `Body` 값은 JSON 형식의 요청 본문에 전송되는 출력 클레임입니다. `Form` 값은 앰퍼샌드 '&'로 구분된 키 값 형식의 요청 본문에 전송되는 출력 클레임입니다. `Header` 값은 요청 헤더에 전송되는 출력 클레임입니다. `QueryString` 값은 요청 쿼리 문자열에 전송되는 출력 클레임입니다. |
+| ClaimsFormat | 예 | 현재 사용 되지 않습니다 .를 무시할 수 있습니다. |
 | ClaimUsedForRequestPayload| 예 | REST API 전송 될 페이로드를 포함 하는 문자열 클레임의 이름입니다. |
 | DebugMode | 예 | 디버그 모드에서 기술 프로필을 실행합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 디버그 모드에서 REST API는 자세한 정보를 반환할 수 있습니다. [오류 메시지 반환](#returning-error-message) 섹션을 참조 하세요. |
 | IncludeClaimResolvingInClaimsHandling  | 예 | 입력 및 출력 클레임의 경우 [클레임 확인](claim-resolver-overview.md) 이 기술 프로필에 포함 되는지 여부를 지정 합니다. 가능한 값은 `true`또는 `false` (기본값)입니다. 기술 프로필에서 클레임 해결 프로그램을 사용 하려면 `true`으로 설정 합니다. |

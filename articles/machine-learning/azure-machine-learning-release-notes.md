@@ -10,18 +10,56 @@ ms.author: jmartens
 author: j-martens
 ms.date: 01/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11b8ade765a2b1c1ee25421073983b96c34e5d15
-ms.sourcegitcommit: 6ee876c800da7a14464d276cd726a49b504c45c5
+ms.openlocfilehash: 6f244fc057638bc94a94c150d9333435c0197a74
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77462176"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249737"
 ---
 # <a name="azure-machine-learning-release-notes"></a>Azure Machine Learning 릴리스 정보
 
 이 문서에서는 Azure Machine Learning 릴리스에 대해 알아봅니다.  전체 SDK 참조 콘텐츠는 Azure Machine Learning의 [**Python 용 기본 SDK**](https://docs.microsoft.com/python/api/overview/azure/ml/intro?view=azure-ml-py) 참조 페이지를 참조 하세요.
 
 알려진 버그 및 해결 방법에 대해 알아 보려면 [알려진 문제 목록](resource-known-issues.md)을 참조하세요.
+
+## <a name="2020-03-02"></a>2020-03-02
+
+### <a name="azure-machine-learning-sdk-for-python-v112rc0"></a>Azure Machine Learning SDK for Python v 1.1.2 rc0
+
++ **버그 수정 및 향상 된 기능**
+  + **azureml-automl-core**
+    + Automl ONNX 모델에 대해 일괄 처리 모드 유추를 사용 하도록 설정 합니다 (여러 행을 한 번 사용).
+    + 데이터를 포함 하지 않거나 불규칙 한 데이터 요소를 포함 하는 데이터 집합의 빈도 검색 향상
+    + 주요 frequrncy 준수 하지 않는 데이터 요소를 제거 하는 기능이 추가 되었습니다.
+  + **azureml-automl-runtime**
+    + 학습 집합에 없는 그레인이 테스트 집합에 표시 되는 경우 발생 하는 오류와 관련 된 문제를 해결 했습니다.
+    + 예측 서비스의 점수를 매기는 동안 y_query 요구 사항이 제거 되었습니다.
+  + **azureml-mir**
+    + MirWebservice 클래스의 기능을 추가 하 여 액세스 토큰을 검색 합니다.
+  + **azureml-코어**
+    + 이제 배포 된 AzureML Webservices이 `INFO` 로깅을 기본값으로 합니다. 이는 배포 된 서비스에서 `AZUREML_LOG_LEVEL` 환경 변수를 설정 하 여 제어할 수 있습니다.
+    + 작업 영역에 등록 된 모든 데이터 집합을 반환 하는 `Dataset.get_all` 반복을 수정 합니다.
+    + 데이터 집합 생성 Api의 `path` 인수로 잘못 된 형식이 전달 되 면 오류 메시지를 개선 합니다.
+    + Python sdk는 검색 서비스를 사용 하 여 ' 파이프라인 ' 대신 ' api ' 끝점을 사용 합니다.
+    + 모든 SDK 호출에서 새 경로로 전환 합니다.
+    + ModelManagementService 호출을 새 통합 구조로 라우팅하는 변경
+      + 작업 영역 업데이트 메서드를 공개적으로 사용할 수 있게 되었습니다.
+      + 사용자가 이미지 빌드에 대 한 계산을 업데이트할 수 있도록 작업 영역 업데이트 메서드에서 image_build_compute 매개 변수를 추가 했습니다.
+    +  이전 프로 파일링 워크플로에 사용 중단 메시지를 추가 했습니다. 프로 파일링 cpu 및 메모리 제한 수정
+  + **azureml-해석**
+    + 업데이트 azureml-해석-커뮤니티 0.6. *
+  + **azureml-mlflow**
+    + 소 버린 클라우드에 대 한 지원을 azureml mlflow에 추가 합니다.
+  + **azureml 파이프라인-단계**
+    + `AutoMLStep` `azureml-pipeline-steps package`로 이동 했습니다. `azureml-train-automl-runtime`내에서 `AutoMLStep` 사용 되지 않습니다.
+  + **azureml-학습-자동 ml-클라이언트**
+    + 특정 패키지가 원격 실행 시 잘못 된 버전에 설치 될 수 있는 문제를 해결 했습니다.
+  + **azureml-학습-자동 ml-런타임**
+    + 원격 실행에서 빈도 감지와 관련 된 문제를 해결 했습니다.
+    + `AutoMLStep` `azureml-pipeline-steps package`로 이동 했습니다. `azureml-train-automl-runtime`내에서 `AutoMLStep` 사용 되지 않습니다.
+  + **azureml-교육-코어**
+    + `AutoMLStep` `azureml-pipeline-steps package`로 이동 했습니다. `azureml-train-automl-runtime`내에서 `AutoMLStep` 사용 되지 않습니다.
 
 ## <a name="2020-02-18"></a>2020-02-18
 

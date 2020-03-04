@@ -4,12 +4,12 @@ description: Azure Service Fabric Mesh에 대한 일반적인 질문과 대답�
 ms.author: pepogors
 ms.date: 4/23/2019
 ms.topic: troubleshooting
-ms.openlocfilehash: 3fe6289ad7616dec97706c2f1779a74c508a0f76
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 2a5c2ea63d162eb6fb78ab702e0519f8ac25dcc7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75461987"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252500"
 ---
 # <a name="commonly-asked-service-fabric-mesh-questions"></a>Service Fabric Mesh에 대한 일반적인 질문
 
@@ -44,10 +44,13 @@ Azure Service Fabric Mesh는 개발자가 가상 머신, 스토리지 또는 네
 
 이 경우 Azure CLI에서 `az mesh app show` 명령을 실행하여 시스템에서 배포를 종료한 것인지 확인할 수 있습니다. `"status": "Failed", "statusDetails": "Stopped resource due to max lifetime policies for an application during preview. Delete the resource to continue."`가 반환되는지 확인합니다. 
 
-예: 
+다음은 그 예입니다. 
 
-```cli
-~$ az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```azurecli
+az mesh app show --resource-group myResourceGroup --name helloWorldApp
+```
+
+```output
 {
   "debugParams": null,
   "description": "Service Fabric Mesh HelloWorld Application!",
@@ -104,7 +107,7 @@ Windows 10 2018년 4월 업데이트(버전 1803) 머신에서 개발하는 경�
 
 - 기본 컨테이너 이미지로 Windows Fall Creators 업데이트(버전 1709) 이상을 사용합니다.
 - 서비스 이름만 작동 하지 않는 경우 정규화 된 이름: ServiceName. ApplicationName을 시도 합니다.
-- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 예:
+- 서비스의 Docker 파일에 `EXPOSE <port>`를 추가합니다. 여기서 port는 서비스를 노출하는 포트입니다. 다음은 그 예입니다.
 
 ```Dockerfile
 EXPOSE 80

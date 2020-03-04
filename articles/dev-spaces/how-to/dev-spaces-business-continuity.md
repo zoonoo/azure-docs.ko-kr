@@ -8,12 +8,12 @@ ms.topic: conceptual
 description: Azure Dev Spaces 및 Azure Kubernetes 서비스를 사용 하 여 비즈니스 연속성을 제공 하 고 재해 복구를 준비 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
 manager: gwallace
-ms.openlocfilehash: 8a223e9610d2b243cd78bf8b674262d6438421a9
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 8561486bcf8524d309ba46fcbb4b4d3e180d7c72
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75438512"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252397"
 ---
 # <a name="business-continuity-and-disaster-recovery-in-azure-dev-spaces"></a>Azure Dev Spaces의 비즈니스 연속성 및 재해 복구
 
@@ -41,7 +41,7 @@ Azure Portal에서 각 클러스터의 속성 아래에 있는 **Dev Spaces** �
 
 명령줄에서 Dev Spaces를 사용하도록 설정할 수도 있습니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -57,7 +57,7 @@ Dev Spaces 사용 시에는 보통 Kubernetes 클러스터의 상위 개발 공�
 
 다음 CLI 명령을 사용하여 다른 클러스터를 선택합니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <new resource group name> -n <new cluster name>
 ```
 

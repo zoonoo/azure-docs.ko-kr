@@ -2,13 +2,13 @@
 title: 새 구독 또는 리소스 그룹으로 리소스 이동
 description: Azure Resource Manager를 사용하여 리소스를 새 리소스 그룹 또는 구독으로 이동합니다.
 ms.topic: conceptual
-ms.date: 11/08/2019
-ms.openlocfilehash: c91081ee25a3b98fa25b8b9b9047da186b22181b
-ms.sourcegitcommit: 8e9a6972196c5a752e9a0d021b715ca3b20a928f
+ms.date: 03/02/2020
+ms.openlocfilehash: 40432c55a7f7e289d2e5cbc8afe94847074e4ca8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75891347"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250160"
 ---
 # <a name="move-resources-to-a-new-resource-group-or-subscription"></a>새 리소스 그룹 또는 구독으로 리소스 이동
 
@@ -24,7 +24,7 @@ ms.locfileid: "75891347"
 
 1. 이동 하려는 리소스는 이동 작업을 지원 해야 합니다. 이동을 지 원하는 리소스 목록은 [리소스에 대 한 이동 작업 지원](move-support-resources.md)을 참조 하세요.
 
-1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이 나 요구 사항이 있습니다. 다음 서비스를 이동 하는 경우 이동 하기 전에 지침을 확인 하세요.
+1. 일부 서비스에는 리소스를 이동할 때 특정 제한 사항이 나 요구 사항이 있습니다. 다음 서비스를 이동 하는 경우 이동 하기 전에 지침을 확인 합니다.
 
    * [App Services 이동 지침](./move-limitations/app-service-move-limitations.md)
    * [Azure DevOps Services 이동 지침](/azure/devops/organizations/billing/change-azure-subscription?toc=/azure/azure-resource-manager/toc.json)
@@ -231,7 +231,7 @@ POST https://management.azure.com/subscriptions/{source-subscription-id}/resourc
 
 오류가 발생 하는 경우 [Azure 리소스를 새 리소스 그룹 또는 구독으로 이동 문제 해결](troubleshoot-move.md)을 참조 하세요.
 
-## <a name="frequently-asked-questions"></a>FAQ(질문과 대답)
+## <a name="frequently-asked-questions"></a>질문과 대답
 
 **질문: 일반적으로 몇 분 정도 걸리는 내 리소스 이동 작업은 거의 1 시간 동안 실행 되었습니다. 문제가 있나요?**
 

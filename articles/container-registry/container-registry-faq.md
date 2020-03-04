@@ -1,18 +1,18 @@
 ---
-title: FAQ(질문과 대답)
+title: 질문과 대답
 description: Azure Container Registry 서비스와 관련 된 faq (질문과 대답)
 author: sajayantony
 ms.topic: article
 ms.date: 07/02/2019
 ms.author: sajaya
-ms.openlocfilehash: 74863823f3e8ef32565e01981d3a742d696a8165
-ms.sourcegitcommit: f2149861c41eba7558649807bd662669574e9ce3
+ms.openlocfilehash: 699ee2c2c3b1a90231f24663619cc590aae9889d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75708311"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252074"
 ---
-# <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대해 자주 묻는 질문
+# <a name="frequently-asked-questions-about-azure-container-registry"></a>Azure Container Registry에 대 한 질문과 대답
 
 이 문서에서는 Azure Container Registry에 대 한 질문과 대답을 다룹니다.
 
@@ -114,13 +114,13 @@ ACR은 Docker 레지스트리 HTTP API v 2를 지원 합니다. Api는 `https://
 
 Bash에 있는 경우:
 
-```bash
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv  | xargs -I% az acr repository delete -n myRegistry -t myRepository@%
 ```
 
 Powershell의 경우:
 
-```powershell
+```azurecli
 az acr repository show-manifests -n myRegistry --repository myRepository --query "[?tags[0]==null].digest" -o tsv | %{ az acr repository delete -n myRegistry -t myRepository@$_ }
 ```
 
@@ -151,13 +151,13 @@ docker push myregistry.azurecr.io/1gb:latest
 
 Azure Portal에서 저장소 사용량이 증가 하거나 CLI를 사용 하 여 사용을 쿼리할 수 있습니다.
 
-```bash
+```azurecli
 az acr show-usage -n myregistry
 ```
 
 Azure CLI 또는 포털을 사용 하 여 이미지를 삭제 하 고 몇 분 후에 업데이트 된 사용 현황을 확인 합니다.
 
-```bash
+```azurecli
 az acr repository delete -n myregistry --image 1gb
 ```
 
@@ -186,9 +186,9 @@ az acr login -n MyRegistry
 최신 docker 클라이언트 (버전 18.03.0 이상)를 사용 하 여 TLS 1.2을 사용 하도록 설정 합니다. 
 
 > [!IMPORTANT]
-> 2020 년 1 월 13 일부 터 Azure Container Registry TLS 1.2을 사용 하려면 서버 및 응용 프로그램에서 모든 보안 연결이 필요 합니다. TLS 1.0 및 1.1에 대 한 지원은 사용이 중지 됩니다.
+> 2020년 1월 13일부터 Azure Container Registry는 TLS 1.2를 사용하기 위해 서버 및 애플리케이션의 모든 보안 연결이 필요합니다. TLS 1.0 및 1.1에 대한 지원이 중단됩니다.
 
-### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry는 콘텐츠 신뢰를 지원하나요?
+### <a name="does-azure-container-registry-support-content-trust"></a>Azure Container Registry 콘텐츠 신뢰를 지원 하나요?
 
 예, [Docker Notary](https://docs.docker.com/notary/getting_started/) 이 통합 되었으며 사용 하도록 설정할 수 있으므로 Azure Container Registry에서 신뢰할 수 있는 이미지를 사용할 수 있습니다. 자세한 내용은 [Azure Container Registry의 콘텐츠 신뢰](container-registry-content-trust.md)를 참조 하세요.
 
@@ -216,12 +216,12 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
   그런 다음 사용자에 게 `AcrPull` 또는 `AcrPush` 역할을 할당할 수 있습니다 (다음 예제에서는 `AcrPull`사용).
 
   ```azurecli
-    az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
-    ```
+  az role assignment create --scope resource_id --role AcrPull --assignee user@example.com
+  ```
 
   또는 해당 응용 프로그램 ID로 식별 되는 서비스 사용자에 게 역할을 할당 합니다.
 
-  ```
+  ```azurecli
   az role assignment create --scope resource_id --role AcrPull --assignee 00000000-0000-0000-0000-000000000000
   ```
 
@@ -239,9 +239,9 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
   az acr repository list -n myRegistry
   ```
 
- 이미지를 꺼내려면:
-    
-  ```azurecli
+* 이미지를 꺼내려면:
+
+  ```console
   docker pull myregistry.azurecr.io/hello-world
   ```
 
@@ -275,9 +275,10 @@ ACR은 다양 한 수준의 사용 권한을 제공 하는 [사용자 지정 역
  - `docker pull` 지속적으로 실패 하면 Docker 디먼에 문제가 있을 수 있습니다. 일반적으로 Docker 디먼을 다시 시작 하 여 문제를 완화할 수 있습니다. 
  - Docker 디먼을 다시 시작한 후에도이 문제가 계속 되 면이 문제는 컴퓨터의 네트워크 연결에 문제가 있을 수 있습니다. 컴퓨터의 일반 네트워크가 정상 상태 인지 확인 하려면 다음 명령을 실행 하 여 끝점 연결을 테스트 합니다. 이 연결 확인 명령을 포함 하는 최소 `az acr` 버전은 2.2.9입니다. 이전 버전을 사용 하는 경우 Azure CLI를 업그레이드 합니다.
  
-   ```azurecli
-    az acr check-health -n myRegistry
-    ```
+  ```azurecli
+  az acr check-health -n myRegistry
+  ```
+
  - 모든 Docker 클라이언트 작업에는 항상 다시 시도 메커니즘이 있어야 합니다.
 
 ### <a name="docker-pull-is-slow"></a>Docker 풀 속도가 느림
@@ -308,7 +309,7 @@ unauthorized: authentication required
 ```
 
 오류를 해결하려면:
-1. `--signature-verification=false` 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 예:
+1. `--signature-verification=false` 옵션을 Docker 디먼 구성 파일 `/etc/sysconfig/docker`에 추가 합니다. 다음은 그 예입니다.
 
   ```
   OPTIONS='--selinux-enabled --log-driver=journald --live-restore --signature-verification=false'
@@ -360,10 +361,10 @@ sudo service docker restart
 
 ### <a name="new-user-permissions-may-not-be-effective-immediately-after-updating"></a>업데이트 후 즉시 새 사용자 권한이 적용 되지 않을 수 있습니다.
 
-서비스 사용자에 게 새 권한 (새 역할)을 부여 하면 변경 내용이 즉시 적용 되지 않을 수 있습니다. 가능한 두 가지 이유는 다음과 같습니다.
+서비스 사용자에 게 새 권한 (새 역할)을 부여 하면 변경 내용이 즉시 적용 되지 않을 수 있습니다. 가능한 두 가지 원인은 다음과 같습니다.
 
 * Azure Active Directory 역할 할당 지연입니다. 일반적으로 속도가 빠르며 전파 지연으로 인해 몇 분 정도 걸릴 수 있습니다.
-* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10분이 걸릴 수 있습니다. 이를 완화 하려면 1 분 후에 동일한 사용자를 사용 하 여 다시 `docker logout` 다음 인증을 수행 하면 됩니다.
+* ACR 토큰 서버에 대 한 사용 권한 지연입니다. 최대 10 분 정도 걸릴 수 있습니다. 이를 완화 하려면 1 분 후에 동일한 사용자를 사용 하 여 다시 `docker logout` 다음 인증을 수행 하면 됩니다.
 
   ```bash
   docker logout myregistry.azurecr.io
@@ -437,7 +438,7 @@ Microsoft Edge/IE 브라우저를 사용 하는 경우 최대 100 개의 리포�
 
 ### <a name="how-do-i-collect-http-traces-on-windows"></a>Windows에서 http 추적을 수집 어떻게 할까요?
 
-#### <a name="prerequisites"></a>필수 조건
+#### <a name="prerequisites"></a>사전 요구 사항
 
 - Fiddler에서 https 암호 해독 사용: <https://docs.telerik.com/fiddler/Configure-Fiddler/Tasks/DecryptHTTPS>
 - Docker ui를 통해 프록시를 사용 하도록 Docker를 사용 하도록 설정: <https://docs.docker.com/docker-for-windows/#proxies>
@@ -491,10 +492,10 @@ az acr task list-runs -r $myregistry --run-status Running --query '[].runId' -o 
 
 | Git 서비스 | 원본 컨텍스트 | 수동 빌드 | Commit 트리거를 통한 자동 빌드 |
 |---|---|---|---|
-| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | 예 | 예 |
-| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | 예 | 예 |
-| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | 예 | 아닙니다. |
-| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | 예 | 아닙니다. |
+| GitHub | https://github.com/user/myapp-repo.git#mybranch:myfolder | yes | yes |
+| Azure Repos | https://dev.azure.com/user/myproject/_git/myapp-repo#mybranch:myfolder | yes | yes |
+| GitLab | https://gitlab.com/user/myapp-repo.git#mybranch:myfolder | yes | 예 |
+| BitBucket | https://user@bitbucket.org/user/mayapp-repo.git#mybranch:myfolder | yes | 예 |
 
 ## <a name="run-error-message-troubleshooting"></a>오류 메시지 실행 문제 해결
 

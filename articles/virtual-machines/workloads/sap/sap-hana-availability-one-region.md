@@ -15,12 +15,12 @@ ms.workload: infrastructure
 ms.date: 07/27/2018
 ms.author: juergent
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: a5e4f9853a68b7b4d8b97cc76032cfa88708c097
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: ef7161e653ec582708f242b67c643d960d75e27f
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76842685"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255469"
 ---
 # <a name="sap-hana-availability-within-one-azure-region"></a>단일 Azure 지역 내 SAP HANA 가용성
 이 문서에서는 한 Azure 지역 내의 여러 가용성 시나리오에 대해 설명합니다. Azure에는 전 세계에 걸쳐 많은 지역이 있습니다. Azure 지역 목록은 [Azure 지역](https://azure.microsoft.com/regions/)을 참조하세요. Azure 지역 내의 VM에 SAP HANA를 배포하는 경우 Microsoft는 HANA 인스턴스가 있는 단일 VM의 배포를 제공합니다. 가용성을 높이기 위해 HANA 시스템 복제를 가용성 용도로 사용하는 [Azure 가용성 집합](https://docs.microsoft.com/azure/virtual-machines/windows/tutorial-availability-sets) 내에 두 개의 HANA 인스턴스가 있는 두 개의 VM을 배포할 수 있습니다. 
@@ -108,7 +108,7 @@ SAP HANA 스케일 아웃 구성의 고가용성은 VM이 다시 가동될 때 A
 
 ### <a name="sap-hana-system-replication-with-automatic-failover"></a>자동 장애 조치가 있는 SAP HANA 시스템 복제
 
-한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](http://www.linux-ha.org/wiki/STONITH) 디바이스와 함께 [Pacemaker](http://www.linux-ha.org/wiki/Pacemaker) 프레임워크를 기반으로 합니다. 
+한 Azure 지역 내의 표준 및 가장 일반적인 가용성 구성에서는 SLES Linux를 실행하는 두 개의 Azure VM에 장애 조치 클러스터가 정의되어 있습니다. SLES Linux 클러스터는 [STONITH](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker) 디바이스와 함께 [Pacemaker](/azure/virtual-machines/workloads/sap/high-availability-guide-suse-pacemaker#create-azure-fence-agent-stonith-device) 프레임워크를 기반으로 합니다. 
 
 SAP HANA 측면에서 볼 때, 사용되는 복제 모드가 동기화되고 자동 장애 조치가 구성됩니다. 두 번째 VM에서 SAP HANA 인스턴스는 핫 대기 노드로 작동합니다. 대기 노드는 주 SAP HANA 인스턴스에서 변경 레코드의 동기 스트림을 받습니다. 트랜잭션이 HANA 주 노드에서 애플리케이션을 통해 커밋되면, 보조 SAP HANA 노드에서 커밋된 레코드를 받았음을 확인할 때까지 주 HANA 노드는 애플리케이션에 대한 커밋 확인을 기다립니다. SAP HANA는 두 개의 동기 복제 모드를 제공합니다. 이러한 두 동기 복제 모드에 대한 자세한 내용 및 차이점에 대한 설명은 [SAP HANA 시스템 복제에 대한 복제 모드](https://help.sap.com/viewer/6b94445c94ae495c83a19646e7c3fd56/2.0.02/en-US/c039a1a5b8824ecfa754b55e0caffc01.html) 문서를 읽어보세요.
 

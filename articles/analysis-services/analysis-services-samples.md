@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 743061c1e32d9ca86e90733dbfd66575d2085dbc
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: 2b5b95349b8a84cc8294dbcf9ab80eff8c7b86b9
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572299"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247834"
 ---
 # <a name="azure-analysis-services-samples"></a>Azure Analysis Services 샘플
 
@@ -26,6 +26,9 @@ GitHub의 [Analysis Services](https://github.com/Microsoft/Analysis-Services) �
 
 GitHub의 [Analysis Services용 Adventure Works](https://github.com/Microsoft/sql-server-samples/releases/tag/adventureworks-analysis-services)는 가장 일반적으로 사용되는 샘플 테이블 형식 모델 프로젝트입니다. VS 프로젝트 또는 완성된 샘플 테이블 형식 model 데이터베이스를 다운로드할 수 있습니다.
 
+## <a name="sample-database-on-azure"></a>Azure의 샘플 데이터베이스
+
+Azure Synapse Analytics (SQL Data Warehouse)는 프로 비전 된 리소스에 포함할 수 있는 샘플 AdventureWorksDW 데이터베이스를 제공 합니다. 자세히 알아보려면 [빠른 시작: Azure Synapse ANALYTICS SQL 풀 만들기 및 쿼리](/azure/sql-data-warehouse/create-data-warehouse-portal)를 참조 하세요.
 
 ## <a name="sample-databases-on-github"></a>GitHub의 샘플 데이터베이스
 

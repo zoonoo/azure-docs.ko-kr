@@ -7,17 +7,17 @@ ms.reviewer: orspodek
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 10/07/2019
-ms.openlocfilehash: 0accf502df3616a686a34fc6c96cb2cfc47e6db1
-ms.sourcegitcommit: 3d4917ed58603ab59d1902c5d8388b954147fe50
+ms.openlocfilehash: 03963f60cc364dd36ad55c0a28e92e3b585bb38d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74667821"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255073"
 ---
 # <a name="create-an-event-grid-data-connection-for-azure-data-explorer-by-using-c"></a>을 사용 하 여 Azure 데이터 탐색기에 대 한 Event Grid 데이터 연결 만들기C#
 
 > [!div class="op_single_selector"]
-> * [Portal](ingest-data-event-grid.md)
+> * [포털](ingest-data-event-grid.md)
 > * [C#](data-connection-event-grid-csharp.md)
 > * [Python](data-connection-event-grid-python.md)
 > * [Azure Resource Manager 템플릿](data-connection-event-grid-resource-manager.md)
@@ -25,9 +25,9 @@ ms.locfileid: "74667821"
 
 Azure 데이터 탐색기는 로그 및 원격 분석 데이터에 사용 가능한 빠르고 확장성이 우수한 데이터 탐색 서비스입니다. Azure 데이터 탐색기는 blob 컨테이너에 기록 된 Event Hubs, IoT Hub 및 blob에서 수집 (데이터 로드)을 제공 합니다. 이 문서에서는를 사용 C#하 여 Azure 데이터 탐색기에 대 한 Event Grid 데이터 연결을 만듭니다.
 
-## <a name="prerequisites"></a>전제 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Visual Studio 2019가 설치되지 않은 경우 **체험판** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드하고 사용할 수 있습니다. Visual Studio를 설정하는 동안 **Azure 개발**을 사용할 수 있는지 확인합니다.
+* Visual Studio 2019가 설치 되어 있지 않으면 **무료** [Visual Studio 2019 Community Edition](https://www.visualstudio.com/downloads/)을 다운로드 하 여 사용할 수 있습니다. Visual Studio를 설치하는 동안 **Azure 개발**을 사용하도록 설정합니다.
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [클러스터 및 데이터베이스](create-cluster-database-csharp.md) 만들기
 * [테이블 및 열 매핑](net-standard-ingest-data.md#create-a-table-on-your-test-cluster) 만들기
@@ -93,6 +93,38 @@ await kustoManagementClient.DataConnections.CreateOrUpdateAsync(resourceGroupNam
 | eventHubResourceId | *리소스 ID* | 이벤트를 보내도록 Event Grid 구성 된 이벤트 허브의 리소스 ID입니다. |
 | storageAccountResourceId | *리소스 ID* | 수집할 데이터를 보유 하는 저장소 계정의 리소스 ID입니다. |
 | consumerGroup | *$Default* | 이벤트 허브의 소비자 그룹입니다.|
-| location | *미국 중부* | 데이터 연결 리소스의 위치입니다.|
+| 위치 | *미국 중부* | 데이터 연결 리소스의 위치입니다.|
+
+## <a name="generate-sample-data"></a>샘플 데이터 생성
+
+Azure Data Explorer와 스토리지 계정이 연결되었으면 샘플 데이터를 만들어서 Blob Storage에 업로드할 수 있습니다.
+
+이 스크립트는 스토리지 계정에 새 컨테이너를 만들고, 해당 컨테이너에 기존 파일(Blob)을 업로드한 다음, 컨테이너의 Blob을 나열합니다.
+
+```csharp
+var azureStorageAccountConnectionString=<storage_account_connection_string>;
+
+var containerName=<container_name>;
+var blobName=<blob_name>;
+var localFileName=<file_to_upload>;
+
+// Creating the container
+var azureStorageAccount = CloudStorageAccount.Parse(azureStorageAccountConnectionString);
+var blobClient = azureStorageAccount.CreateCloudBlobClient();
+var container = blobClient.GetContainerReference(containerName);
+container.CreateIfNotExists();
+
+// Set metadata and upload file to blob
+var blob = container.GetBlockBlobReference(blobName);
+blob.Metadata.Add("rawSizeBytes", "4096‬"); // the uncompressed size is 4096 bytes
+blob.Metadata.Add("kustoIngestionMappingReference", "mapping_v2‬");
+blob.UploadFromFile(localFileName);
+
+// List blobs
+var blobs = container.ListBlobs();
+```
+
+> [!NOTE]
+> Azure 데이터 탐색기는 blob 사후 수집을 삭제 하지 않습니다. Blob 삭제를 관리 하려면 [Azure blob 저장소 수명 주기](https://docs.microsoft.com/azure/storage/blobs/storage-lifecycle-management-concepts?tabs=azure-portal) 를 사용 하 여 3 ~ 5 일간 blob을 유지 합니다.
 
 [!INCLUDE [data-explorer-data-connection-clean-resources-csharp](../../includes/data-explorer-data-connection-clean-resources-csharp.md)]

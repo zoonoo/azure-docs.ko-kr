@@ -9,12 +9,12 @@ ms.date: 09/25/2019
 ms.author: santoshc
 ms.reviewer: santoshc
 ms.subservice: common
-ms.openlocfilehash: 85b59c6549a62f7d9945f5739d1d0fde8c0fa3b8
-ms.sourcegitcommit: 76bc196464334a99510e33d836669d95d7f57643
+ms.openlocfilehash: 44d8a9e71b0415dc5dc7f5d31441bdc1e2aeb372
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77158913"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252655"
 ---
 # <a name="using-private-endpoints-for-azure-storage-preview"></a>Azure Storage에 대 한 개인 끝점 사용 (미리 보기)
 
@@ -136,4 +136,4 @@ StorageAccountA에 대 한 DNS 리소스 레코드는 개인 끝점을 호스트
 
 ### <a name="network-security-group-rules-for-subnets-with-private-endpoints"></a>전용 끝점을 사용 하는 서브넷에 대 한 네트워크 보안 그룹 규칙
 
-현재 개인 끝점을 사용 하는 서브넷에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙을 구성할 수 없습니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.
+현재 개인 끝점에 대 한 nsg ( [네트워크 보안 그룹](../../virtual-network/security-overview.md) ) 규칙 및 사용자 정의 경로를 구성할 수 없습니다. 개인 끝점을 호스트 하는 서브넷에 적용 된 NSG 규칙은 개인 끝점에 적용 됩니다. 이 문제에 대 한 제한 된 해결 방법은 원본 서브넷의 개인 끝점에 대 한 액세스 규칙을 구현 하는 것입니다. 단,이 방법에는 더 높은 관리 오버 헤드가 필요할 수 있습니다.

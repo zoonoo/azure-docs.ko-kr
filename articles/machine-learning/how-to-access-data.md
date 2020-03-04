@@ -11,12 +11,12 @@ author: likebupt
 ms.reviewer: nibaccam
 ms.date: 02/27/2020
 ms.custom: seodec18
-ms.openlocfilehash: 1db3679053edbbc2874c456b1c8db4a4f8e0dabd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 5527d58f140074279d6b9feac13803f29eb0bda5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78164878"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255782"
 ---
 # <a name="access-data-in-azure-storage-services"></a>Azure storage 서비스의 데이터에 액세스
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -25,7 +25,7 @@ ms.locfileid: "78164878"
 
 [이러한 Azure Storage 솔루션](#matrix)에서 데이터 저장소를 만들 수 있습니다. 지원 되지 않는 저장소 솔루션의 경우 machine learning 실험 중에 데이터 송신 비용을 절약 하려면 지원 되는 Azure Storage 솔루션으로 [데이터를 이동](#move) 하는 것이 좋습니다. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 필요한 사항:
 - Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. [Azure Machine Learning의 무료 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -35,7 +35,7 @@ ms.locfileid: "78164878"
 
 - Azure Machine Learning 작업 영역
   
-  [Azure Machine Learning 작업 영역을 만들거나](how-to-manage-workspace.md) Python SDK를 통해 기존 작업 영역을 사용 합니다.
+  [Azure Machine Learning 작업 영역을 만들거나](how-to-manage-workspace.md) Python SDK를 통해 기존 작업 영역을 사용 합니다. `Workspace` 및 `Datastore` 클래스를 가져오고 함수 `from_config()`를 사용 하 여 파일 `config.json`에서 구독 정보를 로드 합니다. 이는 기본적으로 현재 디렉터리에서 JSON 파일을 찾지만 `from_config(path="your/file/path")`를 사용 하 여 파일을 가리키도록 경로 매개 변수를 지정할 수도 있습니다.
 
    ```Python
    import azureml.core
@@ -272,7 +272,7 @@ run_config.source_directory_data_store = "workspaceblobstore"
 
 Azure Machine Learning에서는 모델을 사용 하 여 점수를 매기는 여러 가지 방법을 제공 합니다. 이러한 메서드 중 일부는 datastores에 대 한 액세스를 제공 하지 않습니다. 다음 표를 사용 하 여 점수 매기기 중에 데이터 저장소에 액세스할 수 있는 방법을 알아봅니다.
 
-| 방법 | 데이터 저장소 액세스 | 설명 |
+| 방법 | 데이터 저장소 액세스 | Description |
 | ----- | :-----: | ----- |
 | [일괄 처리 예측](how-to-use-parallel-run-step.md) | ✔ | 많은 양의 데이터를 비동기적으로 예측 합니다. |
 | [웹 서비스](how-to-deploy-and-where.md) | &nbsp; | 모델을 웹 서비스로 배포 합니다. |

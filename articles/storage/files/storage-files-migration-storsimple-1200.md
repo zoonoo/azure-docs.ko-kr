@@ -4,25 +4,19 @@ description: Azure File Sync로 StorSimple 1200 시리즈 가상 어플라이언
 author: fauhse
 ms.service: storage
 ms.topic: conceptual
-ms.date: 2/14/2020
+ms.date: 03/02/2020
 ms.author: fauhse
 ms.subservice: files
-ms.openlocfilehash: 815fda861748f1011eab22ef75fa7e933ca64c55
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 184101db34edbf5391b37c43770e8393316fe2fc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209481"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252669"
 ---
 # <a name="storsimple-1200-migration-to-azure-file-sync"></a>Azure File Sync로 StorSimple 1200 마이그레이션
 
-StorSimple 1200 시리즈는 온-프레미스 데이터 센터에서 실행 되는 가상 어플라이언스입니다.
-12 월 31 2022에 StorSimple 제품 라인의 발표 된 서비스 수명 주기를 사용 하 여이 가상 어플라이언스에 연결 된 클라우드 서비스의 작동이 중지 됩니다.
-
-충분 한 시간 동안 모든 StorSimple 장치를 마이그레이션해야 합니다.
-Azure File Sync은 StorSimple 제품 보다 더 많은 기능과 유연성이 있는 자연 스러운 후속 기술입니다.
-
-이 문서에서는 성공적인 마이그레이션에 대 한 필요한 배경 지식 및 마이그레이션 단계를 Azure File Sync으로 제공 합니다.
+StorSimple 1200 시리즈는 온-프레미스 데이터 센터에서 실행 되는 가상 어플라이언스입니다. 이 어플라이언스에서 Azure File Sync 환경으로 데이터를 마이그레이션할 수 있습니다. 이 문서에서는 성공적인 마이그레이션에 대 한 필요한 배경 지식 및 마이그레이션 단계를 Azure File Sync으로 제공 합니다.
 
 ## <a name="azure-file-sync"></a>Azure 파일 동기화
 

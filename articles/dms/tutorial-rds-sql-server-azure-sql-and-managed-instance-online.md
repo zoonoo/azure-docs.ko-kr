@@ -3,8 +3,8 @@ title: '자습서: SQL Database로 RDS SQL Server online 마이그레이션'
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 RDS SQL Server에서 Azure SQL Database 단일 데이터베이스 또는 관리 되는 인스턴스로 온라인 마이그레이션을 수행 하는 방법에 대해 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 52a6ee282e12f0ece5f16c1fa67c38f07f9d86e7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: db561761acbd5ff991f88cfd18cec8d4625336f2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751283"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255514"
 ---
 # <a name="tutorial-migrate-rds-sql-server-to-azure-sql-database-or-an-azure-sql-database-managed-instance-online-using-dms"></a>자습서: DMS를 사용 하 여 RDS SQL Server Azure SQL Database 또는 Azure SQL Database 관리 되는 인스턴스로 마이그레이션
 Azure Database Migration Service를 사용하여 가동 중지 시간을 최소화하면서 데이터베이스를 RDS SQL Server 인스턴스에서 [Azure SQL Database](https://docs.microsoft.com/azure/sql-database/) 또는 [Azure SQL Database 관리형 인스턴스](https://docs.microsoft.com/azure/sql-database/sql-database-managed-instance-index)로 마이그레이션할 수 있습니다. 이 자습서에서는 Azure Database Migration Service를 사용하여 SQL Server 2012 이상의 RDS SQL Server 인스턴스로 복원된 **Adventureworks2012** 데이터베이스를 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스로 마이그레이션합니다.
@@ -42,7 +42,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 문서에서는 RDS SQL Server에서 Azure SQL Database 또는 Azure SQL Database 관리형 인스턴스로의 온라인 마이그레이션에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [RDS SQL Server 데이터베이스](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/CHAP_GettingStarted.CreatingConnecting.SQLServer.html)를 만듭니다.

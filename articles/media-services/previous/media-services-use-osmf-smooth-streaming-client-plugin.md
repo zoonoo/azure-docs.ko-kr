@@ -14,12 +14,12 @@ ms.devlang: na
 ms.topic: article
 ms.date: 03/20/2019
 ms.author: juliako
-ms.openlocfilehash: c40d8b93a7487619cc94586c7e6b4cdc550435cd
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: 45a2829411ea4713df898c90be73792718160cd2
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "60825594"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255104"
 ---
 # <a name="how-to-use-the-microsoft-smooth-streaming-plugin-for-the-adobe-open-source-media-framework"></a>Adobe 오픈 소스 미디어 프레임워크용 Microsoft 부드러운 스트리밍 플러그 인을 사용하는 방법  
 ## <a name="overview"></a>개요
@@ -30,7 +30,7 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 * OSMF용 정적 부드러운 스트리밍 플러그 인(.swc)
 * OSMF용 동적 부드러운 스트리밍 플러그 인(.swf)
 
-이 문서는 OSMF 및 OSMF 플러그 인에 대한 실용적인 일반 지식을 가진 독자를 대상으로 합니다. OSMF에 대한 자세한 내용은 [OSMF 공식 사이트](http://osmf.org/)(영문)에 있는 설명서를 참조하십시오.
+이 문서에서는 독자에 게 OSMF 및 OSMF 플러그 인에 대 한 일반적인 작업 지식이 있다고 가정 합니다. OSMF에 대 한 자세한 내용은 [공식 osmf 사이트](http://osmf.org/)의 설명서를 참조 하세요.
 
 ### <a name="smooth-streaming-plugin-for-osmf-20"></a>OSMF용 부드러운 스트리밍 플러그 인 2.0
 이 플러그 인은 다음 기능을 통해 주문형 부드러운 스트리밍 콘텐츠의 로딩과 재생을 지원합니다.
@@ -47,7 +47,7 @@ SS for OSMF에는 두 가지 버전의 플러그 인이 포함됩니다.
 * 이 버전은 OSMF 2.0만 지원함
 
 ## <a name="supported-features-and-known-issues"></a>지원되는 기능 및 알려진 문제
-지원되는 기능, 지원되지 않는 기능 및 알려진 문제의 전체 목록은 [이 문서](https://download.microsoft.com/download/3/1/B/31B63D97-574E-4A8D-BF8D-170744181724/Smooth_Streaming_Plugin_for_OSMF.pdf)를 참조하세요.
+지원되는 기능, 지원되지 않는 기능 및 알려진 문제의 전체 목록은 [이 문서](https://azure.microsoft.com/blog/microsoft-adaptive-streaming-plugin-for-osmf-update/)를 참조하세요.
 
 ## <a name="loading-the-plugin"></a>플러그 인 로드
 OSMF 플러그 인은 정적으로(컴파일 시간에) 또는 동적으로(런타임에) 로드할 수 있습니다. OSMF용 부드러운 스트리밍 플러그 인 다운로드에는 동적 버전과 정적 버전이 모두 있습니다.
@@ -331,7 +331,7 @@ package {
 OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Playback)](http://osmf.org/strobe_mediaplayback.html)(영문)와 호환됩니다. SS for OSMF 플러그 인을 사용하여 SMP에 부드러운 스트리밍 콘텐츠 재생을 추가할 수 있습니다. 이렇게 하려면 다음 단계에 따라 "MSAdaptiveStreamingPlugin-v1.0.3-osmf2.0.swf"를 HTTP 로드용 웹 서버 아래에 복사합니다.
 
 1. [Strobe Media Playback 설정 페이지](http://osmf.org/dev/2.0gm/setup.html)(영문)로 이동합니다. 
-2. src를 부드러운 스트리밍 원본(예: http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest) )으로 설정합니다. 
+2. src를 부드러운 스트리밍 원본(예: http://devplatem.vo.msecnd.net/Sintel/Sintel_H264.ism/manifest))으로 설정합니다. 
 3. 원하는 대로 구성을 변경하고 Preview and Update를 클릭합니다.
    
    **참고** 콘텐츠 웹 서버에는 유효한 crossdomain.xml이 필요합니다. 
@@ -391,6 +391,6 @@ OSMF용 부드러운 스트리밍 동적 플러그 인은 [SMP(Strobe Media Play
 ## <a name="provide-feedback"></a>피드백 제공
 [!INCLUDE [media-services-user-voice-include](../../../includes/media-services-user-voice-include.md)]
 
-## <a name="see-also"></a>관련 항목
+## <a name="see-also"></a>참고 항목
 [OSMF용 Microsoft 적응 스트리밍 플러그 인 업데이트](https://azure.microsoft.com/blog/2014/10/27/microsoft-adaptive-streaming-plugin-for-osmf-update/) 
 

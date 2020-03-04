@@ -9,12 +9,12 @@ ms.tgt_pltfrm: vm-windows
 ms.workload: infrastructure
 ms.date: 01/09/2020
 ms.author: cynthn
-ms.openlocfilehash: 940f27612b26c5baace7a19d2212fa6d8899e6e5
-ms.sourcegitcommit: f53cd24ca41e878b411d7787bd8aa911da4bc4ec
+ms.openlocfilehash: ddd08f87fb7847a81b28b18c1dedc1c4f0a7a169
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75834906"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246207"
 ---
 # <a name="azure-dedicated-hosts"></a>Azure 전용 호스트
 
@@ -32,3 +32,5 @@ Azure 전용 호스트는 단일 Azure 구독 전용 가상 머신을 하나 이
 - 자세한 내용은 [전용 호스트](dedicated-hosts.md) 개요를 참조 하세요.
 
 - 영역에서 최대 복원 력을 위해 영역 및 장애 도메인을 모두 사용 하는 샘플 템플릿은 [여기](https://github.com/Azure/azure-quickstart-templates/blob/master/201-vm-dedicated-hosts/README.md)에 있습니다.
+
+- [Azure 전용 호스트의 예약 인스턴스](../prepay-dedicated-hosts-reserved-instances.md)를 사용 하 여 비용을 절감할 수도 있습니다.

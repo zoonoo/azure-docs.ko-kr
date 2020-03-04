@@ -10,12 +10,12 @@ services: time-series-insights
 ms.topic: conceptual
 ms.date: 02/10/2020
 ms.custom: seodec18
-ms.openlocfilehash: 44c942e43cd4be1d04f56e828e3e17c58713a706
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: 2f12cf303c58f0fa614c59ffe643c6c2ee5d2415
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559847"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246197"
 ---
 # <a name="data-storage-and-ingress-in-azure-time-series-insights-preview"></a>Azure Time Series Insights 미리 보기의 데이터 스토리지 및 수신
 
@@ -55,7 +55,7 @@ Azure Time Series Insights은 Azure IoT Hub 또는 Azure Event Hubs에서 보낸
 
 지원 되는 데이터 형식은 다음과 같습니다.
 
-| 데이터 형식 | 설명 |
+| 데이터 형식 | Description |
 |---|---|
 | **bool** | 두 상태 중 하나를 포함 하는 데이터 형식: `true` 또는 `false`. |
 | **dateTime** | 일반적으로 날짜와 시간으로 표시된 시간을 나타냅니다. [ISO 8601](https://www.iso.org/iso-8601-date-and-time-format.html) 형식으로 표현 됩니다. |
@@ -155,14 +155,14 @@ IoT Hub에서 장치를 만들면 파티션에 영구적으로 할당 됩니다.
 * [이벤트 허브 크기 조정](https://docs.microsoft.com/azure/event-hubs/event-hubs-scalability#throughput-units)
 * [이벤트 허브 파티션](https://docs.microsoft.com/azure/event-hubs/event-hubs-features#partitions)
 
-### <a name="data-storage"></a>데이터 저장소
+### <a name="data-storage"></a>데이터 스토리지
 
 Time Series Insights 미리 보기 *종 량* 제 (PAYG) SKU 환경을 만들 때 다음 두 가지 Azure 리소스를 만듭니다.
 
-* 웜 저장소에 대해 구성할 수 있는 Azure Time Series Insights 미리 보기 환경입니다.
+* 웜 데이터 저장소에 대해 구성할 수 있는 Azure Time Series Insights 미리 보기 환경입니다.
 * 콜드 데이터 저장소에 대 한 Azure Storage 범용 V1 blob 계정.
 
-웜 저장소의 데이터는 [시계열 쿼리](./time-series-insights-update-tsq.md) 및 [Azure Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md)를 통해서만 사용할 수 있습니다. 
+웜 저장소의 데이터는 [시계열 쿼리](./time-series-insights-update-tsq.md) 및 [Azure Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md)를 통해서만 사용할 수 있습니다. 웜 스토어는 Time Series Insights 환경을 만들 때 선택한 [보존 기간](./time-series-insights-update-plan.md#the-preview-environment) 내의 최근 데이터를 포함 합니다.
 
 Time Series Insights 미리 보기는 콜드 스토어 데이터를 [Parquet 파일 형식](#parquet-file-format-and-folder-structure)으로 Azure Blob storage에 저장 합니다. Time Series Insights 미리 보기는이 콜드 저장소 데이터를 독점적으로 관리 하지만 표준 Parquet 파일로 직접 읽을 수 있습니다.
 
@@ -186,12 +186,7 @@ Azure Blob 저장소에 대 한 자세한 설명은 [저장소 blob 소개](../s
 
 Azure Time Series Insights Preview PAYG 환경을 만들면 장기 콜드 스토어로 Azure Storage 범용 V1 blob 계정이 생성 됩니다.  
 
-Azure Time Series Insights 미리 보기는 Azure Storage 계정에서 각 이벤트의 복사본을 두 개까지 게시 합니다. 초기 복사본에는 수집 시간으로 정렬 된 이벤트가 있습니다. 해당 이벤트 순서는 **항상 유지** 되므로 다른 서비스가 시퀀싱 문제 없이 이벤트에 액세스할 수 있습니다. 
-
-> [!NOTE]
-> Spark, Hadoop 및 기타 친숙 한 도구를 사용 하 여 원시 Parquet 파일을 처리할 수도 있습니다. 
-
-Time Series Insights 미리 보기는 또한 Time Series Insights 쿼리를 최적화 하기 위해 Parquet 파일을 다시 분할 합니다. 이 다시 분할 데이터 복사본도 저장 됩니다. 
+Azure Time Series Insights 미리 보기는 Azure Storage 계정에서 각 이벤트의 최대 두 개의 복사본을 유지 합니다. 한 복사본은 수집 시간을 기준으로 정렬 된 이벤트를 저장 하 고 항상 시간 순서 시퀀스의 이벤트에 대 한 액세스를 허용 합니다. 시간이 지남에 따라 Time Series Insights 미리 보기는 성능 Time Series Insights 쿼리를 최적화 하기 위해 데이터의 다시 분할 복사본도 만듭니다. 
 
 공개 미리 보기 중에는 데이터가 Azure Storage 계정에 무기한 저장 됩니다.
 
@@ -199,15 +194,11 @@ Time Series Insights 미리 보기는 또한 Time Series Insights 쿼리를 최�
 
 쿼리 성능 및 데이터 가용성을 보장 하려면 미리 보기 Time Series Insights 미리 보기에서 만드는 blob을 편집 하거나 삭제 하지 마십시오.
 
-#### <a name="accessing-and-exporting-data-from-time-series-insights-preview"></a>Time Series Insights 미리 보기에서 데이터 액세스 및 내보내기
+#### <a name="accessing-time-series-insights-preview-cold-store-data"></a>콜드 스토어 데이터 Time Series Insights 미리 보기에 액세스 
 
-Time Series Insights 미리 보기 탐색기에 표시 되는 데이터에 액세스 하 여 다른 서비스와 함께 사용할 수 있습니다. 예를 들어 데이터를 사용 하 여 Power BI에서 보고서를 작성 하거나 Azure Machine Learning Studio를 사용 하 여 기계 학습 모델을 학습할 수 있습니다. 또는 사용자의 데이터를 사용 하 여 Jupyter 노트북에서 변환, 시각화 및 모델링할 수 있습니다.
+[Time Series Insights 미리 보기 탐색기](./time-series-insights-update-explorer.md) 및 [시계열 쿼리에서](./time-series-insights-update-tsq.md)데이터에 액세스 하는 것 외에도 콜드 저장소에 저장 된 Parquet 파일에서 직접 데이터에 액세스할 수 있습니다. 예를 들어 Jupyter 노트북에서 데이터를 읽고 변환 하 고 정리 하며,이를 사용 하 여 동일한 Spark 워크플로에서 Azure Machine Learning 모델을 학습 시킬 수 있습니다.
 
-다음과 같은 세 가지 일반적인 방법으로 데이터에 액세스할 수 있습니다.
-
-* Time Series Insights 미리 보기 탐색기 탐색기에서 CSV 파일로 데이터를 내보낼 수 있습니다. 자세한 내용은 [Time Series Insights Preview 탐색기](./time-series-insights-update-explorer.md)를 참조 하세요.
-* 이벤트 가져오기 쿼리를 사용 하 여 Time Series Insights 미리 보기 API를 사용 합니다. 이 API에 대 한 자세한 내용을 보려면 시계열 [쿼리](./time-series-insights-update-tsq.md)를 참조 하세요.
-* Azure Storage 계정에서 직접. Time Series Insights 미리 보기 데이터에 액세스 하는 데 사용 중인 계정에 대 한 읽기 권한이 필요 합니다. 자세한 내용은 [저장소 계정 리소스에 대 한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조 하세요.
+Azure Storage 계정에서 직접 데이터에 액세스 하려면 Time Series Insights 미리 보기 데이터를 저장 하는 데 사용 되는 계정에 대 한 읽기 권한이 있어야 합니다. 그런 다음 [Parquet 파일 형식](#parquet-file-format-and-folder-structure) 섹션에서 설명 하는 `PT=Time` 폴더에 있는 Parquet 파일의 작성 시간을 기준으로 선택한 데이터를 읽을 수 있습니다.  저장소 계정에 대 한 읽기 액세스를 사용 하도록 설정 하는 방법에 대 한 자세한 내용은 [저장소 계정 리소스에 대 한 액세스 관리](../storage/blobs/storage-manage-access-to-resources.md)를 참조 하세요.
 
 #### <a name="data-deletion"></a>데이터 삭제
 
@@ -215,21 +206,21 @@ Time Series Insights 미리 보기 파일을 삭제 하지 마세요. Time Serie
 
 ### <a name="parquet-file-format-and-folder-structure"></a>Parquet 파일 형식 및 폴더 구조
 
-Parquet는 효율적인 저장소 및 성능을 위해 설계 된 오픈 소스 칼럼 형식 파일 형식입니다. Time Series Insights 미리 보기는 다음과 같은 이유 때문에 Parquet를 사용 합니다. 규모에 따라 쿼리 성능을 위해 시계열 ID로 데이터를 분할 합니다.  
+Parquet는 효율적인 저장소 및 성능을 위해 설계 된 오픈 소스 칼럼 형식 파일 형식입니다. Time Series Insights 미리 보기에서는 Parquet를 사용 하 여 시계열 ID 기반 쿼리 성능을 대규모로 사용 하도록 설정 합니다.  
 
 Parquet 파일 형식에 대 한 자세한 내용은 [Parquet 설명서](https://parquet.apache.org/documentation/latest/)를 참조 하세요.
 
 Time Series Insights 미리 보기는 다음과 같이 데이터의 복사본을 저장 합니다.
 
-* 첫 번째 초기 복사본은 수집 시간을 기준으로 분할 되 고 거의 도착 하기 위해 데이터를 저장 합니다. 데이터는 `PT=Time` 폴더에 있습니다.
+* 첫 번째 초기 복사본은 수집 시간을 기준으로 분할 되 고 거의 도착 하기 위해 데이터를 저장 합니다. 이 데이터는 `PT=Time` 폴더에 있습니다.
 
   `V=1/PT=Time/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-* 두 번째 다시 분할 copy는 시계열 Id 그룹으로 분할 되 고 `PT=TsId` 폴더에 상주 합니다.
+* 두 번째 다시 분할 copy는 시계열 Id를 기준으로 그룹화 되 고 `PT=TsId` 폴더에 상주 합니다.
 
   `V=1/PT=TsId/Y=<YYYY>/M=<MM>/<YYYYMMDDHHMMSSfff>_<TSI_INTERNAL_SUFFIX>.parquet`
 
-두 경우 모두 time 값은 blob 작성 시간에 해당 합니다. `PT=Time` 폴더의 데이터는 그대로 유지 됩니다. `PT=TsId` 폴더의 데이터는 시간에 따른 쿼리에 최적화 되며 정적으로 유지 되지 않습니다.
+두 경우 모두 Parquet 파일의 time 속성은 blob 작성 시간에 해당 합니다. `PT=Time` 폴더의 데이터는 파일에 기록 된 후 변경 없이 유지 됩니다. `PT=TsId` 폴더의 데이터는 시간에 따른 쿼리에 최적화 되며 정적이 지 않습니다.
 
 > [!NOTE]
 > * `<YYYY>`은 네 자리 연도 표현으로 매핑됩니다.
@@ -239,10 +230,10 @@ Time Series Insights 미리 보기는 다음과 같이 데이터의 복사본을
 Time Series Insights 미리 보기 이벤트는 다음과 같이 Parquet 파일 내용에 매핑됩니다.
 
 * 각 이벤트는 단일 행에 매핑됩니다.
-* 모든 행에는 이벤트 타임 스탬프를 포함 하는 **타임 스탬프** 열이 포함 됩니다. 타임 스탬프 속성은 null 일 수 없습니다. 이벤트 원본에 타임 스탬프 속성이 지정 되지 않은 경우 **이벤트를 큐** 에 넣은 시간으로 기본 설정 됩니다. 타임 스탬프는 항상 UTC로 되어 있습니다.
-* 모든 행에는 Time Series Insights 환경을 만들 때 정의 된 시계열 ID 열이 포함 됩니다. 속성 이름에는 `_string` 접미사가 포함 됩니다.
+* 모든 행에는 이벤트 타임 스탬프를 포함 하는 **타임 스탬프** 열이 포함 됩니다. 타임 스탬프 속성은 null 일 수 없습니다. 이벤트 원본에 타임 스탬프 속성이 지정 되지 않은 경우이 **이벤트는 큐** 에 넣은 시간으로 기본 설정 됩니다. 저장 된 타임 스탬프는 항상 UTC로 되어 있습니다.
+* 모든 행에는 Time Series Insights 환경을 만들 때 정의 된 시계열 ID (TSID) 열이 포함 됩니다. TSID 속성 이름에는 `_string` 접미사가 포함 됩니다.
 * 원격 분석 데이터로 전송 되는 다른 모든 속성은 속성 형식에 따라 `_string` (문자열), `_bool` (부울), `_datetime` (datetime) 또는 `_double` (double)로 끝나는 열 이름에 매핑됩니다.
-* 이 매핑 구성표는 **V = 1**로 참조 되는 파일 형식의 첫 번째 버전에 적용 됩니다. 이 기능이 진화 함에 따라 이름이 증가할 수 있습니다.
+* 이 매핑 스키마는 파일 형식의 첫 번째 버전에 적용 되며, **V = 1** 로 참조 되 고 같은 이름의 기본 폴더에 저장 됩니다. 이 기능이 진화 함에 따라이 매핑 스키마가 변경 될 수 있으며 참조 이름이 증가 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

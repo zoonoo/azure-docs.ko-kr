@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive,hdiseo17may2017
-ms.date: 12/11/2019
-ms.openlocfilehash: 883192e1d041014c23445b7a2fa0ece45eb76f10
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.date: 03/02/2020
+ms.openlocfilehash: f356009197c0446efa2ea2d7f0e90040229df47b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75435823"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251062"
 ---
 # <a name="connect-excel-to-apache-hadoop-in-azure-hdinsight-with-the-microsoft-hive-odbc-driver"></a>Microsoft Hive ODBC 드라이버로 Azure HDInsight의 Apache Hadoop에 Excel 연결
 
@@ -23,7 +23,7 @@ Microsoft의 빅 데이터 솔루션은 Microsoft BI(비즈니스 인텔리전�
 
 Excel에서 Excel의 Microsoft 파워 쿼리 추가 기능을 사용 하 여 HDInsight 클러스터 및 기타 데이터 원본 (비 HDInsight) Hadoop 클러스터와 연결 된 데이터를 연결할 수도 있습니다. 파워 쿼리 설치 및 사용에 대 한 자세한 내용은 [파워 쿼리를 사용 하 여 HDInsight에 Excel 연결](../hdinsight-connect-excel-power-query.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서를 시작하기 전에 다음 항목이 있어야 합니다.
 
@@ -52,7 +52,7 @@ ODBC 드라이버를 사용할 응용 프로그램 버전과 일치 하는 [Micr
    | --- | --- |
    |  데이터 원본 이름 |데이터 원본에 이름 지정 |
    |  호스트 |`HDInsightClusterName.azurehdinsight.net`를 입력합니다. `myHDICluster.azurehdinsight.net`)을 입력합니다. 참고: 클라이언트 VM이 동일한 가상 네트워크에 피어 링 되는 한 `HDInsightClusterName-int.azurehdinsight.net` 지원 됩니다. |
-   |  Port |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
+   |  포트 |**443**을 사용합니다. (이 포트는 563에서 443으로 변경됨) |
    |  데이터베이스 |**기본값**을 사용합니다. |
    |  메커니즘 |**Windows Azure HDInsight Service**를 선택합니다. |
    |  사용자 이름 |HDInsight 클러스터 HTTP 사용자의 사용자 이름을 입력합니다. 기본 사용자 이름은 **admin**입니다. |

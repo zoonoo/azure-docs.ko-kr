@@ -3,8 +3,8 @@ title: '자습서: MongoDB에 대 한 MongoDB online을 Azure Cosmos DB API로 �
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 MongoDB 온-프레미스에서 Azure Cosmos DB API for MongoDB online으로 마이그레이션하는 방법에 대해 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 09/25/2019
-ms.openlocfilehash: 896ae35e1039548ea56967ff73d6a1781aa3c8a6
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 66375d83dca4edef17919e3b493d5e45be37cc40
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751386"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255614"
 ---
 # <a name="tutorial-migrate-mongodb-to-azure-cosmos-dbs-api-for-mongodb-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure Cosmos DB의 MongoDB 용 API online으로 MongoDB 마이그레이션
 
@@ -44,7 +44,7 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
 
 이 문서에서는 온라인 방식으로 MongoDB에서 Azure Cosmos DB의 MongoDB API로 마이그레이션하는 방법에 대해 설명합니다. 오프라인 마이그레이션은 [DMS를 사용하여 오프라인에서 MongoDB를 Azure Cosmos DB의 MongoDB API로 마이그레이션](tutorial-mongodb-cosmos-db.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -140,7 +140,7 @@ Azure Database Migration Service를 사용하여 데이터베이스를 MongoDB �
     원본에 연결하는 세 가지 모드가 있습니다.
    * **표준 모드** - 정규화된 도메인 이름이나 IP 주소, 포트 번호 및 연결 자격 증명을 수락합니다.
    * **연결 문자열 모드** - [연결 문자열 URI 형식](https://docs.mongodb.com/manual/reference/connection-string/) 문서에서 설명한 대로 MongoDB 연결 문자열을 수락합니다.
-   * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB [bsondump 도구](https://docs.mongodb.com/manual/reference/program/bsondump/)에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 **Blob이 BSON 덤프를 포함합니다**를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
+   * **Azure Storage의 데이터** - Blob 컨테이너 SAS URL을 수락합니다. MongoDB **bsondump 도구**에서 생성된 BSON 덤프가 Blob 컨테이너에 있는 경우 [Blob이 BSON 덤프를 포함합니다](https://docs.mongodb.com/manual/reference/program/bsondump/)를 선택하고, JSON 파일이 컨테이너에 있으면 이를 선택 취소합니다.
 
      이 옵션을 선택할 경우 해당 스토리지 계정 연결 문자열이 다음 형식으로 나타나는지 확인하세요.
 

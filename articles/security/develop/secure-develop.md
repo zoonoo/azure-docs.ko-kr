@@ -13,12 +13,12 @@ ms.assetid: 521180dc-2cc9-43f1-ae87-2701de7ca6b8
 ms.devlang: na
 ms.tgt_pltfrm: na
 ms.workload: na
-ms.openlocfilehash: 76219ec454fd105ed4bbf1a2fa0e922475d8dd1f
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 9d98660230e0ab9f4edcd9a7af8a3797106dd17a
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76834980"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255653"
 ---
 # <a name="develop-secure-applications-on-azure"></a>Azure에서 보안 애플리케이션 개발
 이 문서에서는 클라우드 용 응용 프로그램을 개발할 때 고려해 야 할 보안 작업 및 제어를 제공 합니다. Microsoft [SDL (보안 개발 수명 주기)](https://msdn.microsoft.com/library/windows/desktop/84aed186-1d75-4366-8e61-8d258746bopq.aspx) 의 구현 및 확인 단계 중에 고려해 야 하는 보안 질문 및 개념을 다룹니다. 목표는 보다 안전한 응용 프로그램을 개발 하는 데 사용할 수 있는 활동 및 Azure 서비스를 정의 하는 데 도움을 주는 것입니다.
@@ -99,7 +99,7 @@ Id 프레임 워크를 사용 하 여 암호 정책을 만들고 적용할 수 �
 
 응용 프로그램에서 [파일 업로드](https://www.owasp.org/index.php/Unrestricted_File_Upload)를 허용 하는 경우이 위험한 작업에 대해 수행할 수 있는 예방 조치를 고려 하십시오. 대부분의 공격에 대 한 첫 번째 단계는 공격을 받는 시스템에 악성 코드를 가져오는 것입니다. 파일 업로드를 사용 하면 공격자가이를 수행할 수 있습니다. OWASP는 파일의 유효성을 검사 하는 솔루션을 제공 하 여 업로드 하는 파일이 안전한 지 확인 합니다.
 
-맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 또는 microsoft 파트너의 endpoint protection 솔루션 ([Trend 마이크로](https://www.trendmicro.com/azure/), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)및 [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
+맬웨어 방지 보호는 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별 하 고 제거 하는 데 도움이 됩니다. [Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 또는 microsoft 파트너의 endpoint protection 솔루션 ([Trend 마이크로](https://www.trendmicro.com/azure/), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://docs.microsoft.com/windows/security/threat-protection/windows-defender-antivirus/windows-defender-antivirus-in-windows-10)및 [Endpoint Protection](https://docs.microsoft.com/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
 [Microsoft 맬웨어 방지 프로그램](../fundamentals/antimalware.md) 에는 실시간 보호, 예약 된 검색, 맬웨어 재구성, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 수집과 같은 기능이 포함 되어 있습니다. 배포 및 기본 제공 검색(경고 및 인시던트)을 용이하게 하기 위해 [Azure Security Center](../../security-center/security-center-partner-integration.md)와 Microsoft 맬웨어 방지 프로그램 및 파트너 솔루션을 통합할 수 있습니다.
 

@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 10/28/2019
 ms.author: barclayn
-ms.openlocfilehash: 6a775da59680004dadf0cec872057adfd5a16f49
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0a4daf61d6b791a01f5bfb18e6cfca8118b2f421
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749865"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255951"
 ---
 # <a name="security-best-practices-for-iaas-workloads-in-azure"></a>Azure의 IaaS 작업에 대한 보안 모범 사례
 이 문서에서는 VM 및 운영 체제에 대한 보안 모범 사례를 설명합니다.
@@ -68,7 +68,7 @@ VM에서 고가용성의 중요한 애플리케이션을 실행할 경우에는 
 가용성 집합은 해당 집합에 배치한 VM 리소스가 Azure 데이터 센터에 배포될 때 서로 간에 격리되도록 하기 위해 Azure에서 사용할 수 있는 논리적 그룹화입니다. Azure는 가용성 집합에 배치한 VM을 여러 물리적 서버, 컴퓨팅 랙, 스토리지 단위 및 네트워크 스위치에서 실행되도록 합니다. 하드웨어 또는 Azure 소프트웨어 오류가 발생할 경우 VM의 하위 집합에만 영향을 주는 한편 전체 애플리케이션은 고객이 계속 사용할 수 있습니다. 가용성 집합은 안정적인 클라우드 솔루션을 빌드하려고 할 때 필수적인 기능입니다.
 
 ## <a name="protect-against-malware"></a>맬웨어로부터 보호
-맬웨어 방지 보호를 설치하여 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거해야 합니다. [Microsoft Antimalware](antimalware.md) 또는 Microsoft 파트너의 엔드포인트 보호 솔루션([Trend Micro](https://help.deepsecurity.trendmicro.com/Welcome.html), [Symantec](https://www.symantec.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security) 및 [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
+맬웨어 방지 보호를 설치하여 바이러스, 스파이웨어 및 기타 악성 소프트웨어를 식별하고 제거해야 합니다. [Microsoft 맬웨어 방지 프로그램](antimalware.md) 또는 microsoft 파트너의 endpoint protection 솔루션 ([Trend 마이크로](https://help.deepsecurity.trendmicro.com/Welcome.html), [Broadcom](https://www.broadcom.com/products), [McAfee](https://www.mcafee.com/us/products.aspx), [Windows Defender](https://www.microsoft.com/windows/comprehensive-security)및 [System Center Endpoint Protection](/configmgr/protect/deploy-use/endpoint-protection))을 설치할 수 있습니다.
 
 Microsoft 맬웨어 방지 프로그램에는 실시간 보호, 예약된 검색, 맬웨어 치료, 서명 업데이트, 엔진 업데이트, 샘플 보고 및 제외 이벤트 컬렉션과 같은 기능이 포함됩니다. 프로덕션 환경과는 별도로 호스트되는 환경의 경우 VM 및 클라우드 서비스를 보호하는 데 맬웨어 방지 확장을 사용할 수 있습니다.
 

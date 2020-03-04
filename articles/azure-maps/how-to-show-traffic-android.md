@@ -8,20 +8,20 @@ ms.topic: conceptual
 ms.service: azure-maps
 services: azure-maps
 manager: philmea
-ms.openlocfilehash: 73f490ec069ff44929ca70f4ecf2ab3aca52934d
-ms.sourcegitcommit: 5192c04feaa3d1bd564efe957f200b7b1a93a381
+ms.openlocfilehash: 37de55d671bb19cfcd9fd494c2e76f658fc7db21
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78209351"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249490"
 ---
 # <a name="show-traffic-data-on-the-map-using-azure-maps-android-sdk"></a>Azure Maps Android SDK를 사용 하 여 지도에 트래픽 데이터 표시
 
-흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 이러한 트래픽 데이터를 모두 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
+흐름 데이터 및 인시던트 데이터는 맵에 표시 될 수 있는 두 가지 트래픽 데이터 유형입니다. 이 가이드에서는 두 가지 유형의 트래픽 데이터를 표시 하는 방법을 보여 줍니다. 인시던트 데이터는 생성,도로 클로저 및 사고와 같은 사물에 대 한 점 및 선 기반 데이터로 구성 됩니다. 흐름 데이터는 도로의 트래픽 흐름에 대 한 메트릭을 표시 합니다.
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
-맵에 트래픽을 표시 하려면 먼저 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
+맵에 트래픽을 표시 하려면 먼저 [Azure 계정을](quick-demo-map-app.md#create-an-account-with-azure-maps)만들고 [구독 키를 가져와야](quick-demo-map-app.md#get-the-primary-key-for-your-account)합니다. 그런 다음 [Azure Maps Android SDK](https://docs.microsoft.com/azure/azure-maps/how-to-use-android-map-control-library) 를 설치 하 고 맵을 로드 해야 합니다.
 
 ## <a name="incidents-traffic-data"></a>인시던트 트래픽 데이터 
 
@@ -38,7 +38,7 @@ protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
     mapControl.getMapAsync(map - > {
         map.setTraffic(incidents(true));
-}
+    }
 }
 ```
 
@@ -63,8 +63,9 @@ import static com.microsoft.azure.maps.mapcontrol.options.TrafficOptions.flow;
 ```java
 protected void onCreate(Bundle savedInstanceState) {
     super.onCreate(savedInstanceState);
-    mapControl.getMapAsync(map -> 
+    mapControl.getMapAsync(map -> {
         map.setTraffic(flow(TrafficFlow.RELATIVE)));
+    }
 }
 ```
 

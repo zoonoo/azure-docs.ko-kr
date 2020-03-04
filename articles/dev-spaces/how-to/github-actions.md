@@ -6,12 +6,12 @@ ms.topic: conceptual
 description: GitHub 작업 및 Azure Dev Spaces를 사용 하 여 Azure Kubernetes Service에서 직접 끌어오기 요청에 대 한 변경 내용을 검토 하 고 테스트 합니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, GitHub 작업, 투구, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: e2b6f47483d2c7b6c4970dac531bada1cecd279e
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 49715e38f36d4421b7327640ec8392a83b3c2996
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196555"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252369"
 ---
 # <a name="github-actions--azure-kubernetes-service-preview"></a>Azure Kubernetes Service & GitHub 작업 (미리 보기)
 
@@ -27,9 +27,9 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 > [!IMPORTANT]
 > 이 기능은 현재 미리 보기로 제공됩니다. [부속 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms/)에 동의하면 미리 보기를 사용할 수 있습니다. 이 기능의 몇 가지 측면은 일반 공급(GA) 전에 변경될 수 있습니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-* Azure 구독. Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
+* Azure 구독 Azure 구독이 없는 경우 [체험 계정](https://azure.microsoft.com/free)을 만들 수 있습니다.
 * [Azure CLI 설치][azure-cli-installed]
 * [Helm 3이 설치되었습니다][helm-installed].
 * [Github 작업을 사용][github-actions-beta-signup]하는 github 계정.
@@ -39,7 +39,7 @@ Azure Dev Spaces는 리포지토리의 주 분기에 끌어오기 요청을 병�
 
 ACR (Azure Container Registry) 만들기:
 
-```cmd
+```azurecli
 az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 ```
 
@@ -50,9 +50,9 @@ az acr create --resource-group MyResourceGroup --name <acrName> --sku Basic
 
 ## <a name="create-a-service-principal-for-authentication"></a>인증을 위한 서비스 주체 만들기
 
-[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 예를 들면 다음과 같습니다.
+[Az ad sp create-rbac][az-ad-sp-create-for-rbac] 를 사용 하 여 서비스 주체를 만듭니다. 다음은 그 예입니다.
 
-```cmd
+```azurecli
 az ad sp create-for-rbac --sdk-auth --skip-assignment
 ```
 
@@ -60,19 +60,19 @@ az ad sp create-for-rbac --sdk-auth --skip-assignment
 
 [Az aks show][az-aks-show] 를 사용 하 여 aks 클러스터의 *ID* 를 표시 합니다.
 
-```cmd
+```azurecli
 az aks show -g MyResourceGroup -n MyAKS  --query id
 ```
 
 [Az acr show][az-acr-show] 를 사용 하 여 Acr의 *ID* 를 표시 합니다.
 
-```cmd
+```azurecli
 az acr show --name <acrName> --query id
 ```
 
 [Az role 할당 create][az-role-assignment-create] 를 사용 하 여 AKS 클러스터에 대 한 *참가자* 액세스 및 ACR에 *acrpush* 액세스를 제공 합니다.
 
-```cmd
+```azurecli
 az role assignment create --assignee <ClientId> --scope <AKSId> --role Contributor
 az role assignment create --assignee <ClientId>  --scope <ACRId> --role AcrPush
 ```
@@ -158,7 +158,7 @@ git push origin bike-images
 
 ## <a name="clean-up-your-azure-resources"></a>Azure 리소스 정리
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

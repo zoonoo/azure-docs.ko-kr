@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 10/27/2019
-ms.openlocfilehash: d28db9907094a651835078f4459a985b9d15e589
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 9a900a2f2e950fe9b9846ebcc047d7c344284948
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77657387"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250671"
 ---
 # <a name="explore-azure-monitor-for-azure-cosmos-db-preview"></a>Azure Cosmos DB에 대 한 Azure Monitor 살펴보기 (미리 보기)
 
@@ -33,34 +33,6 @@ Azure Cosmos DB (미리 보기)에 대 한 Azure Monitor는 통합 된 대화형
 
 >[!NOTE]
 >이 기능에 액세스 하는 것은 무료로 제공 되며 [Azure Monitor 가격 책정 정보](https://azure.microsoft.com/pricing/details/monitor/) 페이지에 설명 된 대로 구성 하거나 사용 하도록 설정한 Azure Monitor 필수 기능에 대해서만 요금이 부과 됩니다.
-
-## <a name="view-operation-level-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 작업 수준 메트릭 보기
-
-1. [Azure Portal](https://portal.azure.com/)에 로그인합니다.
-
-1. 왼쪽 탐색 모음에서 **모니터** 를 선택 하 고 **메트릭**을 선택 합니다.
-
-   ![Azure Monitor의 메트릭 창](./media/cosmosdb-insights-overview/monitor-metrics-blade.png)
-
-1. **메트릭** 창에서 리소스 > **선택** 하 > 필요한 **구독**및 **리소스 그룹**을 선택 합니다. **리소스 종류**에 대해 **Azure Cosmos DB 계정**을 선택 하 고, 기존 Azure Cosmos 계정 중 하나를 선택 하 고, **적용**을 선택 합니다.
-
-   ![메트릭을 볼 Cosmos DB 계정 선택](./media/cosmosdb-insights-overview/select-cosmosdb-account.png)
-
-1. 다음으로 사용 가능한 메트릭 목록에서 메트릭을 선택할 수 있습니다. 요청 단위, 저장소, 대기 시간, 가용성, Cassandra 및 기타에 특정 한 메트릭을 선택할 수 있습니다. 이 목록에서 사용할 수 있는 모든 메트릭에 대해 자세히 알아보려면 [범주별 메트릭](../../cosmos-db/monitor-cosmos-db-reference.md) 문서를 참조 하세요. 이 예제에서는 **요청 단위** 및 **Avg** 를 집계 값으로 선택 하겠습니다.
-
-   이러한 세부 정보 외에도 메트릭의 **시간 범위** 와 **시간 세분성** 을 선택할 수 있습니다. 최대는 지난 30 일 동안의 메트릭을 볼 수 있습니다.  필터를 적용 하면 필터를 기반으로 차트가 표시 됩니다. 선택한 기간에 분당 사용한 평균 요청 단위 수를 볼 수 있습니다.  
-
-   ![Azure Portal에서 메트릭 선택](./media/cosmosdb-insights-overview/metric-types.png)
-
-### <a name="add-filters-to-metrics"></a>메트릭에 필터 추가
-
-특정 **CollectionName**, **DatabaseName**, **OperationType**, **Region**및 **StatusCode**에 의해 표시 되는 메트릭 및 차트를 필터링 할 수도 있습니다. 메트릭을 필터링 하려면 **필터 추가** 를 선택 하 고 **OperationType** 와 같은 필수 속성을 선택한 후 **쿼리**와 같은 값을 선택 합니다. 그러면 그래프는 선택한 기간에 대해 쿼리 작업에 사용 된 요청 단위를 표시 합니다. 저장 프로시저를 통해 실행 되는 작업은 기록 되지 않으므로 OperationType 메트릭 아래에서 사용할 수 없습니다.
-
-![메트릭 세분성을 선택 하는 필터 추가](./media/cosmosdb-insights-overview/add-metrics-filter.png)
-
-**분할 적용** 옵션을 사용 하 여 메트릭을 그룹화 할 수 있습니다. 예를 들어 다음 이미지에 표시 된 것 처럼 작업 유형별 요청 단위를 그룹화 하 고 모든 작업의 그래프를 한 번에 볼 수 있습니다.
-
-![분할 필터 적용 추가](./media/cosmosdb-insights-overview/apply-metrics-splitting.png)
 
 ## <a name="view-utilization-and-performance-metrics-for-azure-cosmos-db"></a>Azure Cosmos DB에 대 한 사용률 및 성능 메트릭 보기
 

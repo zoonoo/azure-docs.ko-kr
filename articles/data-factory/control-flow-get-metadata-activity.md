@@ -10,14 +10,14 @@ ms.assetid: 1c46ed69-4049-44ec-9b46-e90e964a4a8e
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 11/26/2019
+ms.date: 03/02/2020
 ms.author: jingwang
-ms.openlocfilehash: 9985997ff4bef727676232705297379ccfc179c5
-ms.sourcegitcommit: a5ebf5026d9967c4c4f92432698cb1f8651c03bb
+ms.openlocfilehash: a0c07aaf27825254f776a03b9b9ca2cbeddca02d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/08/2019
-ms.locfileid: "74928558"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250267"
 ---
 # <a name="get-metadata-activity-in-azure-data-factory"></a>Azure Data Factory에서 메타 데이터 가져오기 작업
 
@@ -33,7 +33,7 @@ ms.locfileid: "74928558"
 
 ## <a name="capabilities"></a>기능
 
-메타 데이터 가져오기 작업은 데이터 집합을 입력으로 사용 하 고 메타 데이터 정보를 출력으로 반환 합니다. 현재 다음 커넥터와 해당 하는 검색할 수 있는 메타 데이터가 지원 됩니다. 반환 되는 메타 데이터의 최대 크기는 1mb입니다.
+메타 데이터 가져오기 작업은 데이터 집합을 입력으로 사용 하 고 메타 데이터 정보를 출력으로 반환 합니다. 현재 다음 커넥터와 해당 하는 검색할 수 있는 메타 데이터가 지원 됩니다. 반환 되는 메타 데이터의 최대 크기는 2mb입니다.
 
 >[!NOTE]
 >자체 호스팅 integration runtime에서 메타 데이터 가져오기 작업을 실행 하는 경우 버전 3.6 이상에서 최신 기능이 지원 됩니다.
@@ -42,7 +42,7 @@ ms.locfileid: "74928558"
 
 **File Storage**
 
-| 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | size<br>(파일) | created<br>(파일/폴더) | lastModified<br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | structure<br/>(파일) | columnCount<br>(파일) | exists<br>(파일/폴더) |
+| 커넥터/메타데이터 | itemName<br>(파일/폴더) | itemType<br>(파일/폴더) | 크기<br>(파일) | created<br>(파일/폴더) | lastModified<br>(파일/폴더) |childItems<br>(폴더) |contentMD5<br>(파일) | structure<br/>(파일) | columnCount<br>(파일) | exists<br>(파일/폴더) |
 |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |:--- |
 | [Amazon S3](connector-amazon-simple-storage-service.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
 | [Google Cloud Storage](connector-google-cloud-storage.md) | √/√ | √/√ | √ | x/x | √/√* | √ | x | √ | √ | √/√* |
@@ -65,18 +65,18 @@ ms.locfileid: "74928558"
 |:--- |:--- |:--- |:--- |
 | [Azure SQL Database](connector-azure-sql-database.md) | √ | √ | √ |
 | [Azure SQL Database Managed Instance](connector-azure-sql-database-managed-instance.md) | √ | √ | √ |
-| [Azure SQL Data Warehouse](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
+| [Azure SQL 데이터 웨어하우스](connector-azure-sql-data-warehouse.md) | √ | √ | √ |
 | [SQL Server](connector-sql-server.md) | √ | √ | √ |
 
 ### <a name="metadata-options"></a>메타데이터 옵션
 
 메타 데이터 가져오기 작업 필드 목록에서 다음 메타 데이터 형식을 지정 하 여 해당 정보를 검색할 수 있습니다.
 
-| 메타데이터 유형 | 설명 |
+| 메타데이터 유형 | Description |
 |:--- |:--- |
 | itemName | 파일 또는 폴더의 이름입니다. |
 | itemType | 파일 또는 폴더의 형식입니다. 반환 된 값은 `File` 또는 `Folder`입니다. |
-| size | 파일의 크기 (바이트)입니다. 파일에만 적용 됩니다. |
+| 크기 | 파일의 크기 (바이트)입니다. 파일에만 적용 됩니다. |
 | created | 파일 또는 폴더를 만든 날짜/시간입니다. |
 | lastModified | 파일 또는 폴더를 마지막으로 수정한 날짜/시간입니다. |
 | childItems | 지정 된 폴더의 하위 폴더 및 파일 목록입니다. 폴더에만 적용 됩니다. 반환 된 값은 각 자식 항목의 이름과 형식 목록입니다. |
@@ -135,12 +135,12 @@ ms.locfileid: "74928558"
 
 현재, 메타 데이터 가져오기 작업은 다음과 같은 유형의 메타 데이터 정보를 반환할 수 있습니다.
 
-자산 | 설명 | 필수
+속성 | Description | 필수
 -------- | ----------- | --------
 fieldList | 필요한 메타 데이터 정보의 형식입니다. 지원 되는 메타 데이터에 대 한 자세한 내용은이 문서의 [메타 데이터 옵션](#metadata-options) 섹션을 참조 하세요. | yes 
-dataset | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | yes
-formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아닙니다.
-storeSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 아닙니다.
+데이터 세트 | 메타 데이터 가져오기 작업에서 메타 데이터를 검색할 참조 데이터 집합입니다. 지원 되는 커넥터에 대 한 자세한 내용은 [기능](#capabilities) 섹션을 참조 하세요. 데이터 집합 구문에 대 한 자세한 내용은 특정 커넥터 항목을 참조 하세요. | yes
+formatSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
+storeSettings | 서식 유형 데이터 집합을 사용 하는 경우 적용 합니다. | 예
 
 ## <a name="sample-output"></a>샘플 출력
 

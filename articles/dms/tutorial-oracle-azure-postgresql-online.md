@@ -3,8 +3,8 @@ title: '자습서: Oracle online을 Azure Database for PostgreSQL로 마이그�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 Oracle 온-프레미스 또는 가상 머신에서 Azure Database for PostgreSQL로의 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/24/2020
-ms.openlocfilehash: 956523e2b51795a4bc97c653dab8b408b06061f4
-ms.sourcegitcommit: b5d646969d7b665539beb18ed0dc6df87b7ba83d
+ms.openlocfilehash: 14db95adccf5118321bc763cbe599e19febc7eac
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/26/2020
-ms.locfileid: "76759912"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255572"
 ---
 # <a name="tutorial-migrate-oracle-to-azure-database-for-postgresql-online-using-dms-preview"></a>자습서: DMS (미리 보기)를 사용 하 여 Azure Database for PostgreSQL 온라인으로 Oracle 마이그레이션
 
@@ -43,12 +43,12 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 문서에서는 Oracle에서 Azure Database for PostgreSQL로의 온라인 마이그레이션을 수행하는 방법에 대해 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
 * [Oracle 11g 릴리스 2(Standard Edition, Standard Edition One 또는 Enterprise Edition)](https://www.oracle.com/technetwork/database/enterprise-edition/downloads/index.html)를 다운로드하여 설치합니다.
-* [여기](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002)에서 **HR** 샘플 데이터베이스를 다운로드합니다.
+* **여기**에서 [HR](https://docs.oracle.com/database/121/COMSC/installation.htm#COMSC00002) 샘플 데이터베이스를 다운로드합니다.
 * [Windows 또는 Linux에서 ora2pg](https://github.com/microsoft/DataMigrationTeam/blob/master/Whitepapers/Steps%20to%20Install%20ora2pg%20on%20Windows%20and%20Linux.pdf)를 다운로드 하 여 설치 합니다.
 * [Azure Database for PostgreSQL에서 인스턴스를 만듭니다](https://docs.microsoft.com/azure/postgresql/quickstart-create-server-database-portal).
 * 이 [문서](https://docs.microsoft.com/azure/postgresql/tutorial-design-database-using-azure-portal)의 지침을 사용하여 인스턴스에 연결하고 데이터베이스를 만듭니다.
@@ -186,7 +186,7 @@ ora2pg를 실행하여 각 데이터베이스 개체를 .sql 파일로 내보낼
 psql -f [FILENAME] -h [AzurePostgreConnection] -p 5432 -U [AzurePostgreUser] -d database 
 ```
 
-예:
+다음은 그 예입니다.
 
 ```
 psql -f %namespace%\schema\sequences\sequence.sql -h server1-server.postgres.database.azure.com -p 5432 -U username@server1-server -d database
@@ -206,7 +206,7 @@ Azure Database Migration Service는 PostgreSQL 테이블 스키마도 만들 수
 > [!IMPORTANT]
 > Azure Database Migration Service는 테이블 스키마만 만듭니다. 저장 프로시저, 패키지, 인덱스 등과 같은 다른 데이터베이스 개체는 생성되지 않습니다.
 
-또한, 전체 로드를 실행하려면 대상 데이터베이스에서 외래 키를 삭제해야 합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 [이 문서](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online)의 **샘플 스키마 마이그레이션** 섹션을 참조하세요. Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
+또한, 전체 로드를 실행하려면 대상 데이터베이스에서 외래 키를 삭제해야 합니다. 외래 키를 삭제하는 데 사용할 수 있는 스크립트는 **이 문서**의 [샘플 스키마 마이그레이션](https://docs.microsoft.com/azure/dms/tutorial-postgresql-azure-postgresql-online) 섹션을 참조하세요. Azure Database Migration Service를 사용하여 전체 로드 및 동기화를 실행합니다.
 
 ### <a name="when-the-postgresql-table-schema-already-exists"></a>PostgreSQL 테이블 스키마가 이미 있는 경우
 
@@ -231,7 +231,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 > [!IMPORTANT]
 > Azure Database Migration Service에서는 Azure Database Migration Service나 ora2pg와 같은 도구 중 하나만 사용하여(둘 다 사용하면 안 됨) 모든 테이블을 동일한 방식으로 만들어야 합니다.
 
-시작하려면:
+시작하기:
 
 1. 애플리케이션 요구 사항에 따라 대상 데이터베이스에 스키마를 만듭니다. 기본적으로 PostgreSQL 테이블 스키마와 열 이름은 소문자입니다. 반면에 Oracle 테이블 스키마와 열은 기본적으로 모두 대문자입니다.
 2. 스키마 선택 단계에서 대상 데이터베이스와 대상 스키마를 지정합니다.
@@ -239,7 +239,7 @@ Azure Database Migration Service에서 스키마가 생성되도록 하려면 �
 
     Oracle 원본의 스키마 이름과 Azure Database for PostgreSQL의 스키마 이름이 일치하면 Azure Database Migration Service는 *대상과 동일한 대/소문자를 사용하여 테이블 스키마를 생성*합니다.
 
-    예:
+    다음은 그 예입니다.
 
     | 원본 Oracle 스키마 | 대상 PostgreSQL Database.Schema | DMS 생성 schema.table.column |
     | ------------- | ------------- | ------------- |

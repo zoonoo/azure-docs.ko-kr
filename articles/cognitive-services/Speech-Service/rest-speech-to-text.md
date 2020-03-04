@@ -8,14 +8,14 @@ manager: nitinme
 ms.service: cognitive-services
 ms.subservice: speech-service
 ms.topic: conceptual
-ms.date: 12/09/2019
+ms.date: 03/03/2020
 ms.author: erhopf
-ms.openlocfilehash: 26fe995f45a97a5863bfc20fd1564df89124ed88
-ms.sourcegitcommit: bdf31d87bddd04382effbc36e0c465235d7a2947
+ms.openlocfilehash: 873898ce321100edbaa800d2436d0413c06ce175
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77168299"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255680"
 ---
 # <a name="speech-to-text-rest-api"></a>Speech-to-Text REST API
 
@@ -54,6 +54,7 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 | `language` | 인식되는 음성 언어를 식별합니다. [지원되는 언어](language-support.md#speech-to-text)를 참조하세요. | 필수 |
 | `format` | 결과 형식을 지정합니다. 허용되는 값은 `simple` 및 `detailed`입니다. simple 결과에는 `RecognitionStatus`, `DisplayText`, `Offset` 및 `Duration`이 포함됩니다. detailed 응답에는 신뢰도 값 및 4가지 다른 표현과 함께 여러 결과가 포함됩니다. 기본 설정은 `simple`입니다. | 옵션 |
 | `profanity` | 인식 결과에서 욕설의 처리 방법을 지정합니다. 허용 되는 값은 `masked`입니다 .이 경우 사용 금지를 별표로 대체 하는 `removed`, 결과의 모든 비속어를 제거 하는 `raw`또는 결과의 불경를 포함 하는입니다. 기본 설정은 `masked`입니다. | 옵션 |
+| `cid` | [Custom Speech 포털](how-to-custom-speech.md) 을 사용 하 여 사용자 지정 모델을 만드는 경우 **배포** 페이지에서 찾을 수 있는 **끝점 ID** 를 통해 사용자 지정 모델을 사용할 수 있습니다. `cid` 쿼리 문자열 매개 변수에 대 한 인수로 **끝점 ID** 를 사용 합니다. | 옵션 |
 
 ## <a name="request-headers"></a>헤더 요청
 
@@ -72,10 +73,10 @@ https://<REGION_IDENTIFIER>.stt.speech.microsoft.com/speech/recognition/conversa
 
 오디오는 HTTP `POST` 요청 본문에서 전송됩니다. 오디오는 이 테이블의 형식 중 하나여야 합니다.
 
-| 형식 | Codec | Bitrate | 샘플링 주기 |
-|--------|-------|---------|-------------|
-| WAV | PCM | 16비트 | 16kHz, mono |
-| OGG | OPUS | 16비트 | 16kHz, mono |
+| 형식 | Codec | Bitrate | 샘플링 주기  |
+|--------|-------|---------|--------------|
+| WAV    | PCM   | 16비트  | 16kHz, mono |
+| OGG    | OPUS  | 16비트  | 16kHz, mono |
 
 >[!NOTE]
 >위의 형식은 음성 서비스의 REST API 및 WebSocket을 통해 지원 됩니다. [음성 SDK](speech-sdk.md) 는 현재 [다른 형식](how-to-use-codec-compressed-audio-input-streams.md)뿐만 아니라 PCM 코덱으로 WAV 형식을 지원 합니다.
@@ -100,50 +101,43 @@ Expect: 100-continue
 
 | HTTP 상태 코드 | Description | 가능한 원인 |
 |------------------|-------------|-----------------|
-| 100 | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송으로 사용함) |
-| 200 | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
-| 400 | 잘못된 요청 | 지원 되지 않는 언어 코드, 잘못 된 오디오 파일 등은 제공 되지 않습니다. |
-| 401 | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
-| 403 | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
+| `100` | 계속 | 초기 요청이 수락되었습니다. 나머지 데이터의 전송을 계속합니다. (청크 분할 전송에 사용 됨) |
+| `200` | 확인 | 요청이 성공했습니다. 응답 본문이 JSON 개체입니다. |
+| `400` | 잘못된 요청 | 지원 되지 않는 언어 코드, 잘못 된 오디오 파일 등은 제공 되지 않습니다. |
+| `401` | 권한 없음 | 구독 키 또는 권한 부여 토큰이 지정된 지역에서 올바르지 않거나 엔드포인트가 올바르지 않습니다. |
+| `403` | 사용할 수 없음 | 구독 키 또는 권한 부여 토큰이 없습니다. |
 
 ## <a name="chunked-transfer"></a>청크 분할 전송
 
 청크 분할 전송 (`Transfer-Encoding: chunked`)을 통해 인식 대기 시간을 줄일 수 있습니다. 음성 서비스는 전송 되는 동안 오디오 파일의 처리를 시작할 수 있습니다. REST API는 부분 또는 중간 결과를 제공하지 않습니다.
 
-이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`는 적절한 REST 엔드포인트에 연결된 HTTPWebRequest 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
+이 코드 샘플은 오디오를 청크로 보내는 방법을 보여 줍니다. 오직 첫 번째 청크만 오디오 파일의 헤더를 포함해야 합니다. `request`은 적절 한 REST 끝점에 연결 된 `HttpWebRequest` 개체입니다. `audioFile`은 디스크에서 오디오 파일의 경로입니다.
 
 ```csharp
+var request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
+request.SendChunked = true;
+request.Accept = @"application/json;text/xml";
+request.Method = "POST";
+request.ProtocolVersion = HttpVersion.Version11;
+request.Host = host;
+request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
+request.Headers["Ocp-Apim-Subscription-Key"] = "YOUR_SUBSCRIPTION_KEY";
+request.AllowWriteStreamBuffering = false;
 
-    HttpWebRequest request = null;
-    request = (HttpWebRequest)HttpWebRequest.Create(requestUri);
-    request.SendChunked = true;
-    request.Accept = @"application/json;text/xml";
-    request.Method = "POST";
-    request.ProtocolVersion = HttpVersion.Version11;
-    request.Host = host;
-    request.ContentType = @"audio/wav; codecs=audio/pcm; samplerate=16000";
-    request.Headers["Ocp-Apim-Subscription-Key"] = args[1];
-    request.AllowWriteStreamBuffering = false;
-
-using (fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
+using (var fs = new FileStream(audioFile, FileMode.Open, FileAccess.Read))
 {
-    /*
-    * Open a request stream and write 1024 byte chunks in the stream one at a time.
-    */
+    // Open a request stream and write 1024 byte chunks in the stream one at a time.
     byte[] buffer = null;
     int bytesRead = 0;
-    using (Stream requestStream = request.GetRequestStream())
+    using (var requestStream = request.GetRequestStream())
     {
-        /*
-        * Read 1024 raw bytes from the input audio file.
-        */
+        // Read 1024 raw bytes from the input audio file.
         buffer = new Byte[checked((uint)Math.Min(1024, (int)fs.Length))];
         while ((bytesRead = fs.Read(buffer, 0, buffer.Length)) != 0)
         {
             requestStream.Write(buffer, 0, bytesRead);
         }
 
-        // Flush
         requestStream.Flush();
     }
 }

@@ -11,12 +11,12 @@ author: jpe316
 ms.reviewer: larryfr
 ms.date: 02/27/2020
 ms.custom: seoapril2019
-ms.openlocfilehash: d3353451057037e5f3fd94347a007a9d3b2c0e15
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 388f1cf0231d0a7eae7b059656186b067f537d2e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78193087"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250960"
 ---
 # <a name="deploy-models-with-azure-machine-learning"></a>Azure Machine Learning를 사용 하 여 모델 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -32,7 +32,7 @@ Azure 클라우드의 웹 서비스로 machine learning 모델을 배포 하거�
 
 배포 워크플로와 관련 된 개념에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 관리, 배포 및 모니터링](concept-model-management-and-deployment.md)을 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure Machine Learning 작업 영역 자세한 내용은 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 
@@ -159,12 +159,6 @@ Azure Machine Learning 외부에서 학습 한 모델을 사용 하는 방법에
 
 <a name="target"></a>
 
-## <a name="choose-a-compute-target"></a>계산 대상 선택
-
-다음 계산 대상 또는 계산 리소스를 사용 하 여 웹 서비스 배포를 호스트할 수 있습니다.
-
-[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
-
 ## <a name="single-versus-multi-model-endpoints"></a>단일 및 다중 모델 끝점
 Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록 지원 합니다.
 
@@ -172,9 +166,9 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
 
 단일 컨테이너 화 된 끝점 뒤에 여러 모델을 사용 하는 방법을 보여 주는 E2E 예제는 [다음 예제](https://github.com/Azure/MachineLearningNotebooks/tree/master/how-to-use-azureml/deployment/deploy-multi-model) 를 참조 하세요.
 
-## <a name="prepare-deployment-artifacts"></a>배포 아티팩트 준비
+## <a name="prepare-to-deploy"></a>배포 준비
 
-모델을 배포 하려면 다음이 필요 합니다.
+모델을 서비스로 배포 하려면 다음 구성 요소가 필요 합니다.
 
 * **소스 코드 종속성 & 항목 스크립트**입니다. 이 스크립트는 요청을 수락 하 고, 모델을 사용 하 여 요청 점수를 받은 후 결과를 반환 합니다.
 
@@ -187,11 +181,9 @@ Azure ML은 단일 끝점 뒤에 단일 또는 여러 모델을 배포 하도록
     >
     >   시나리오에 사용할 수 있는 대안은 [일괄 처리 예측](how-to-use-parallel-run-step.md)으로, 점수 매기기 중 데이터 저장소에 대 한 액세스를 제공 합니다.
 
-* **유추 환경**. 모델을 실행 하는 데 필요한 설치 된 패키지 종속성이 있는 기본 이미지입니다.
+* **유추 구성**. 유추 구성은 모델을 서비스로 실행 하는 데 필요한 환경 구성, 항목 스크립트 및 기타 구성 요소를 지정 합니다.
 
-* 배포 된 모델을 호스팅하는 계산 대상에 대 한 **배포 구성** 입니다. 이 구성에서는 모델을 실행 하는 데 필요한 메모리 및 CPU 요구 사항 등을 설명 합니다.
-
-이러한 항목은 *유추 구성* 및 *배포 구성*에 캡슐화 됩니다. 유추 구성은 입력 스크립트 및 기타 종속성을 참조 합니다. SDK를 사용 하 여 배포를 수행 하는 경우 이러한 구성을 프로그래밍 방식으로 정의 합니다. CLI를 사용 하는 경우 JSON 파일에서 정의 합니다.
+필요한 구성 요소가 있으면 모델을 배포 하 여 생성 되는 서비스를 프로 파일링 하 여 CPU 및 메모리 요구 사항을 이해할 수 있습니다.
 
 ### <a id="script"></a>1. 항목 스크립트 및 종속성 정의
 
@@ -267,33 +259,7 @@ model_path = Model.get_model_path('sklearn_mnist')
 * `pyspark`
 * 표준 Python 개체
 
-스키마 생성을 사용 하려면 Conda 환경 파일에 `inference-schema` 패키지를 포함 합니다. 이 패키지에 대 한 자세한 내용은 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)를 참조 하세요.
-
-##### <a name="example-dependencies-file"></a>예제 종속성 파일
-
-다음 YAML은 유추를 위한 Conda 종속성 파일의 예입니다. 버전 > = 1.0.45를 pip 종속성으로 지정 해야 합니다. 여기에는 모델을 웹 서비스로 호스트 하는 데 필요한 기능이 포함 되어 있기 때문입니다.
-
-```YAML
-name: project_environment
-dependencies:
-  - python=3.6.2
-  - scikit-learn=0.20.0
-  - pip:
-      # You must list azureml-defaults as a pip dependency
-    - azureml-defaults>=1.0.45
-    - inference-schema[numpy-support]
-```
-
-> [!IMPORTANT]
-> Conda와 pip (PyPi)를 통해 종속성을 사용할 수 있는 경우 일반적으로 Conda 패키지는 더 안정적으로 설치 하는 미리 빌드된 이진 파일과 함께 제공 되므로 Conda 버전을 사용 하는 것이 좋습니다.
->
-> 자세한 내용은 [Conda 및 Pip 이해](https://www.anaconda.com/understanding-conda-and-pip/)를 참조 하세요.
->
-> Conda를 통해 종속성을 사용할 수 있는지 확인 하려면 `conda search <package-name>` 명령을 사용 하거나 [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) 에서 패키지 인덱스를 사용 하 고 [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo)합니다.
-
-자동 스키마 생성을 사용 하려면 입력 스크립트가 `inference-schema` 패키지를 가져와야 합니다.
-
-`input_sample`에서 입력 및 출력 샘플 형식을 정의 하 고 웹 서비스에 대 한 요청 및 응답 형식을 나타내는 `output_sample` 변수를 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
+스키마 생성을 사용 하려면 종속성 파일에 `inference-schema` 패키지를 포함 합니다. 이 패키지에 대 한 자세한 내용은 [https://github.com/Azure/InferenceSchema](https://github.com/Azure/InferenceSchema)를 참조 하세요. `input_sample`에서 입력 및 출력 샘플 형식을 정의 하 고 웹 서비스에 대 한 요청 및 응답 형식을 나타내는 `output_sample` 변수를 정의 합니다. `run()` 함수에 대 한 입력 및 출력 함수 데코레이터에서 이러한 샘플을 사용 합니다. 다음 scikit 예제에서는 스키마 생성을 사용 합니다.
 
 ##### <a name="example-entry-script"></a>예제 항목 스크립트
 
@@ -485,24 +451,52 @@ def run(request):
 > pip install azureml-contrib-services
 > ```
 
-### <a name="2-define-your-inference-environment"></a>2. 유추 환경 정의
+### <a name="2-define-your-inference-configuration"></a>2. 유추 구성을 정의 합니다.
 
-유추 구성에서는 예측을 만들도록 모델을 구성 하는 방법을 설명 합니다. 이 구성은 입력 스크립트의 일부가 아닙니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
+유추 구성 모델을 포함 하는 웹 서비스를 설정 하는 방법을 설명 합니다. 입력 스크립트에 포함 되지 않습니다. 항목 스크립트를 참조 하 고 배포에 필요한 모든 리소스를 찾는 데 사용 됩니다. 나중에 모델을 배포할 때 사용 됩니다.
 
-유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의 합니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
+유추 구성은 Azure Machine Learning 환경을 사용 하 여 배포에 필요한 소프트웨어 종속성을 정의 합니다. 환경을 사용 하 여 교육 및 배포에 필요한 소프트웨어 종속성을 만들고, 관리 하 고, 재사용할 수 있습니다. 사용자 지정 종속성 파일에서 환경을 만들거나 큐 레이트 Azure Machine Learning 환경 중 하나를 사용할 수 있습니다. 다음 YAML은 유추를 위한 Conda 종속성 파일의 예입니다. 버전 > = 1.0.45를 pip 종속성으로 지정 해야 합니다. 여기에는 모델을 웹 서비스로 호스트 하는 데 필요한 기능이 포함 되어 있기 때문입니다. 자동 스키마 생성을 사용 하려면 항목 스크립트도 `inference-schema` 패키지를 가져와야 합니다.
+
+```YAML
+name: project_environment
+dependencies:
+  - python=3.6.2
+  - scikit-learn=0.20.0
+  - pip:
+      # You must list azureml-defaults as a pip dependency
+    - azureml-defaults>=1.0.45
+    - inference-schema[numpy-support]
+```
+
+> [!IMPORTANT]
+> Conda와 pip (PyPi)를 통해 종속성을 사용할 수 있는 경우 일반적으로 Conda 패키지는 더 안정적으로 설치 하는 미리 빌드된 이진 파일과 함께 제공 되므로 Conda 버전을 사용 하는 것이 좋습니다.
+>
+> 자세한 내용은 [Conda 및 Pip 이해](https://www.anaconda.com/understanding-conda-and-pip/)를 참조 하세요.
+>
+> Conda를 통해 종속성을 사용할 수 있는지 확인 하려면 `conda search <package-name>` 명령을 사용 하거나 [https://anaconda.org/anaconda/repo](https://anaconda.org/anaconda/repo) 에서 패키지 인덱스를 사용 하 고 [https://anaconda.org/conda-forge/repo](https://anaconda.org/conda-forge/repo)합니다.
+
+종속성 파일을 사용 하 여 환경 개체를 만들고 나중에 사용할 수 있도록 작업 영역에 저장할 수 있습니다.
+
+```python
+from azureml.core.environment import Environment
+
+
+myenv = Environment.from_conda_specification(name = 'myenv',
+                                             file_path = 'path-to-conda-specification-file'
+myenv.register(workspace=ws)
+```
+
+다음 예제에서는 작업 영역에서 환경을 로드 한 다음이를 유추 구성과 함께 사용 하는 방법을 보여 줍니다.
 
 ```python
 from azureml.core.environment import Environment
 from azureml.core.model import InferenceConfig
 
-myenv = Environment.get(workspace=ws, name="myenv", version="1")
-inference_config = InferenceConfig(entry_script="x/y/score.py",
+
+myenv = Environment.get(workspace=ws, name='myenv', version='1')
+inference_config = InferenceConfig(entry_script='path-to-score.py',
                                    environment=myenv)
 ```
-
-환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
-
-환경을 사용 하지 않고 종속성을 직접 지정할 수도 있습니다. 다음 예제에서는 Conda 파일에서 소프트웨어 종속성을 로드 하는 유추 구성을 만드는 방법을 보여 줍니다.
 
 환경에 대 한 자세한 내용은 [교육 및 배포를 위한 환경 만들기 및 관리](how-to-use-environments.md)를 참조 하세요.
 
@@ -510,7 +504,7 @@ inference_config = InferenceConfig(entry_script="x/y/score.py",
 
 유추 구성과 함께 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
-### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig의 CLI 예제
+#### <a name="cli-example-of-inferenceconfig"></a>InferenceConfig의 CLI 예제
 
 [!INCLUDE [inference config](../../includes/machine-learning-service-inference-config.md)]
 
@@ -528,7 +522,93 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 
 유추 구성과 함께 사용자 지정 Docker 이미지를 사용 하는 방법에 대 한 자세한 내용은 [사용자 지정 docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)을 참조 하세요.
 
-### <a name="3-define-your-deployment-configuration"></a>3. 배포 구성을 정의 합니다.
+### <a id="profilemodel"></a>3. 모델을 프로 파일링 하 여 리소스 사용률 확인
+
+모델을 등록 하 고 배포에 필요한 다른 구성 요소를 준비한 후에는 배포 된 서비스가 필요로 하는 CPU 및 메모리를 결정할 수 있습니다. 프로 파일링은 모델을 실행 하는 서비스를 테스트 하 고 CPU 사용량, 메모리 사용량, 응답 대기 시간 등의 정보를 반환 합니다. 또한 리소스 사용량에 따라 CPU 및 메모리에 대 한 권장 사항을 제공 합니다.
+
+모델을 프로 파일링 하려면 다음이 필요 합니다.
+* 등록 된 모델입니다.
+* 입력 스크립트 및 유추 환경 정의에 따라 유추 구성입니다.
+* 단일 열 표 형식 데이터 집합. 각 행에는 샘플 요청 데이터를 나타내는 문자열이 포함 됩니다.
+
+> [!IMPORTANT]
+> 이 시점에서 요청 데이터를 문자열로 간주 하는 서비스 프로 파일링만 지원 합니다. 예를 들어 문자열 직렬화 된 json, 텍스트, 문자열 직렬화 된 이미지 등이 있습니다. 데이터 집합 (문자열)의 각 행의 내용이 HTTP 요청의 본문에 배치 되 고 점수 매기기를 위해 모델을 캡슐화 하는 서비스로 전송 됩니다.
+
+다음은 들어오는 요청 데이터가 serialize 된 json을 포함할 것으로 예상 하는 서비스를 프로 파일링 하기 위해 입력 데이터 집합을 생성 하는 방법의 예입니다. 이 경우 동일한 요청 데이터 콘텐츠의 100 인스턴스를 기반으로 하는 데이터 집합을 만들었습니다. 실제 시나리오에서는 다양 한 입력을 포함 하는 큰 데이터 집합을 사용 하는 것이 좋습니다. 특히 모델 리소스 사용량/동작이 입력에 따라 달라 지는 경우입니다.
+
+```python
+import json
+from azureml.core import Datastore
+from azureml.core.dataset import Dataset
+from azureml.data import dataset_type_definitions
+
+input_json = {'data': [[1, 2, 3, 4, 5, 6, 7, 8, 9, 10],
+                       [10, 9, 8, 7, 6, 5, 4, 3, 2, 1]]}
+# create a string that can be utf-8 encoded and
+# put in the body of the request
+serialized_input_json = json.dumps(input_json)
+dataset_content = []
+for i in range(100):
+    dataset_content.append(serialized_input_json)
+dataset_content = '\n'.join(dataset_content)
+file_name = 'sample_request_data.txt'
+f = open(file_name, 'w')
+f.write(dataset_content)
+f.close()
+
+# upload the txt file created above to the Datastore and create a dataset from it
+data_store = Datastore.get_default(ws)
+data_store.upload_files(['./' + file_name], target_path='sample_request_data')
+datastore_path = [(data_store, 'sample_request_data' +'/' + file_name)]
+sample_request_data = Dataset.Tabular.from_delimited_files(
+    datastore_path, separator='\n',
+    infer_column_types=True,
+    header=dataset_type_definitions.PromoteHeadersBehavior.NO_HEADERS)
+sample_request_data = sample_request_data.register(workspace=ws,
+                                                   name='sample_request_data',
+                                                   create_new_version=True)
+```
+
+샘플 요청 데이터를 포함 하는 데이터 집합을 준비 했으면 유추 구성을 만듭니다. 유추 구성은 score.py 및 환경 정의를 기반으로 합니다. 다음 예제에서는 유추 구성을 만들고 프로 파일링을 실행 하는 방법을 보여 줍니다.
+
+```python
+from azureml.core.model import InferenceConfig, Model
+from azureml.core.dataset import Dataset
+
+
+model = Model(ws, id=model_id)
+inference_config = InferenceConfig(entry_script='path-to-score.py',
+                                   environment=myenv)
+input_dataset = Dataset.get_by_name(workspace=ws, name='sample_request_data')
+profile = Model.profile(ws,
+            'unique_name',
+            [model],
+            inference_config,
+            input_dataset=input_dataset)
+
+profile.wait_for_completion(True)
+
+# see the result
+details = profile.get_details()
+```
+
+다음 명령은 CLI를 사용 하 여 모델을 프로 파일링 하는 방법을 보여 줍니다.
+
+```azurecli-interactive
+az ml model profile -g <resource-group-name> -w <workspace-name> --inference-config-file <path-to-inf-config.json> -m <model-id> --idi <input-dataset-id> -n <unique-name>
+```
+
+## <a name="deploy-to-target"></a>대상에 배포
+
+배포에서는 유추 구성 배포 구성을 사용 하 여 모델을 배포 합니다. 배포 프로세스는 계산 대상에 관계 없이 유사 합니다. AKS 클러스터에 대 한 참조를 제공 해야 하기 때문에 AKS에 대 한 배포는 약간 다릅니다.
+
+### <a name="choose-a-compute-target"></a>계산 대상 선택
+
+다음 계산 대상 또는 계산 리소스를 사용 하 여 웹 서비스 배포를 호스트할 수 있습니다.
+
+[!INCLUDE [aml-compute-target-deploy](../../includes/aml-compute-target-deploy.md)]
+
+### <a name="define-your-deployment-configuration"></a>배포 구성 정의
 
 모델을 배포 하기 전에 배포 구성을 정의 해야 합니다. *배포 구성은 웹 서비스를 호스팅하는 계산 대상에만 적용 됩니다.* 예를 들어 모델을 로컬로 배포 하는 경우 서비스에서 요청을 수락 하는 포트를 지정 해야 합니다. 배포 구성은 입력 스크립트의 일부가 아닙니다. 모델 및 항목 스크립트를 호스팅할 계산 대상의 특성을 정의 하는 데 사용 됩니다.
 
@@ -547,10 +627,6 @@ az ml model deploy -n myservice -m mymodel:1 --ic inferenceconfig.json
 ```python
 from azureml.core.webservice import AciWebservice, AksWebservice, LocalWebservice
 ```
-
-## <a name="deploy-to-target"></a>대상에 배포
-
-배포에서는 유추 구성 배포 구성을 사용 하 여 모델을 배포 합니다. 배포 프로세스는 계산 대상에 관계 없이 유사 합니다. AKS 클러스터에 대 한 참조를 제공 해야 하기 때문에 AKS에 대 한 배포는 약간 다릅니다.
 
 ### <a name="securing-deployments-with-ssl"></a>SSL을 사용 하 여 배포 보안
 
@@ -591,13 +667,13 @@ az ml model deploy -m mymodel:1 --ic inferenceconfig.json --dc deploymentconfig.
 
 다음 표에서는 다양 한 서비스 상태에 대해 설명 합니다.
 
-| 웹 서비스 상태 | 설명 | 최종 상태?
+| 웹 서비스 상태 | Description | 최종 상태?
 | ----- | ----- | ----- |
-| 변환은 | 서비스의 배포를 진행 중입니다. | 아니요 |
-| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 아니요 |
-| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 아니요 |
-| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | 예 |
-| 정상 | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | 예 |
+| 변환은 | 서비스의 배포를 진행 중입니다. | 예 |
+| 비정상 | 서비스가 배포 되었지만 현재 연결할 수 없습니다.  | 예 |
+| 예약 불가능 | 리소스가 부족 하 여 지금은 서비스를 배포할 수 없습니다. | 예 |
+| 실패 | 오류 또는 충돌 때문에 서비스를 배포 하지 못했습니다. | yes |
+| Healthy | 서비스가 정상 상태 이며 끝점을 사용할 수 있습니다. | yes |
 
 ### <a id="notebookvm"></a>계산 인스턴스 웹 서비스 (개발/테스트)
 
@@ -958,7 +1034,7 @@ package = Model.package(ws, [model], inference_config)
 package.wait_for_creation(show_output=True)
 ```
 
-패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 예를 들면 다음과 같습니다. 
+패키지를 만든 후 `package.pull()`를 사용 하 여 이미지를 로컬 Docker 환경으로 끌어올 수 있습니다. 이 명령의 출력에 이미지 이름이 표시 됩니다. 다음은 그 예입니다. 
 
 `Status: Downloaded newer image for myworkspacef78fd10.azurecr.io/package:20190822181338`입니다. 
 
@@ -1076,7 +1152,7 @@ docker kill mycontainer
 * [사용자 지정 Docker 이미지를 사용 하 여 모델을 배포 하는 방법](how-to-deploy-custom-docker-image.md)
 * [배포 문제 해결](how-to-troubleshoot-deployment.md)
 * [SSL을 사용하여 Azure Machine Learning 웹 서비스 보호](how-to-secure-web-service.md)
-* [웹 서비스로 배포 된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)
+* [웹 서비스로 배포된 Azure Machine Learning 모델 사용](how-to-consume-web-service.md)
 * [Application Insights를 사용하여 Azure Machine Learning 모델 모니터링](how-to-enable-app-insights.md)
 * [프로덕션 환경에서 모델용 데이터 수집](how-to-enable-data-collection.md)
 

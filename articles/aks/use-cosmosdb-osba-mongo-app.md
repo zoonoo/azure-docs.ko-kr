@@ -8,12 +8,12 @@ ms.date: 01/25/2019
 ms.author: zarhoads
 ms.custom: mvc
 keywords: Cosmos DB, Open Service Broker, Open Service Broker for Azure
-ms.openlocfilehash: 3d0ab0b27d77e45d779227d30c5a8e4f824ba62a
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: ddaa3b9aa198bc142e1bcbcab6b7b1e028eff2aa
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76277698"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247930"
 ---
 # <a name="integrate-existing-mongodb-application-with-azure-cosmos-db-api-for-mongodb-and-open-service-broker-for-azure-osba"></a>기존 MongoDB 애플리케이션을 MongoDB용 Azure Cosmos DB API 및 OSBA(Open Service Broker for Azure)와 통합
 
@@ -21,7 +21,7 @@ Azure Cosmos DB는 전 세계에 배포된 다중 모델 데이터베이스 서�
 
 이 문서에서는 MongoDB 데이터베이스를 사용하는 기존 Java 애플리케이션을 가져오고, Open Service Broker for Azure를 통해 Cosmos DB 데이터베이스를 사용하도록 업데이트합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 진행하기 전에 다음을 수행해야 합니다.
     
@@ -191,7 +191,7 @@ java -jar -Dspring.profiles.active=mongodb build/libs/spring-music-1.0.jar
 
 AKS 클러스터에서 Azure Dev Spaces를 사용하도록 설정하려면 다음을 수행합니다.
 
-```cmd
+```azurecli
 az aks enable-addons --addons http_application_routing -g MyResourceGroup -n MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS
 ```
@@ -206,7 +206,7 @@ azds prep --public
 
 *Dockerfile*이라는 프로젝트의 루트에 다음 내용이 포함된 파일을 만듭니다.
 
-```Dockerfile
+```dockerfile
 FROM openjdk:8-jdk-alpine
 EXPOSE 8080
 WORKDIR /app

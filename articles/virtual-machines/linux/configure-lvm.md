@@ -3,7 +3,7 @@ title: Linux를 실행 하는 가상 머신에서 LVM 구성
 description: Azure에서 Linux에 LVM을 구성하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: na
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: tysonn
 tag: azure-service-management,azure-resource-manager
@@ -15,12 +15,12 @@ ms.topic: article
 ms.date: 09/27/2018
 ms.author: mimckitt
 ms.subservice: disks
-ms.openlocfilehash: 4fdb3af0433cc32aa7cdbee3c8ca9bdb85031135
-ms.sourcegitcommit: 05cdbb71b621c4dcc2ae2d92ca8c20f216ec9bc4
+ms.openlocfilehash: 2c245d56b0fa0a09da04b83db11391a9291d3856
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76045348"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251724"
 ---
 # <a name="configure-lvm-on-a-linux-vm-in-azure"></a>Azure에서 Linux VM에 LVM 구성
 이 문서에서는 Azure 가상 컴퓨터의 LVM(논리 볼륨 관리자)을 구성하는 방법을 설명합니다. Azure VM에서 OS 디스크 또는 데이터 디스크에 LVM을 사용할 수 있지만, 기본적으로 대부분의 클라우드 이미지는 OS 디스크에서 LVM이 구성되지 않습니다. 아래 단계에서는 데이터 디스크에 LVM을 구성하는 방법을 중점적으로 다룹니다.
@@ -144,7 +144,7 @@ LVM을 사용하여 단일 스토리지 볼륨에 여러 실제 디스크를 결
 
 5. (선택 사항) `/etc/fstab`의 Failsafe 부팅 매개 변수
    
-    많은 배포에는 `/etc/fstab` 파일에 추가할 수 있는 `nobootwait` 또는 `nofail` 탑재 매개 변수가 포함되어 있습니다. 이 매개 변수는 특정 파일 시스템 탑재 시 오류를 허용하며 Linux 시스템이 제대로 RAID 파일 시스템을 탑재할 수 없는 경우에도 계속 부팅되도록 합니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하십시오.
+    많은 배포에는 `nobootwait` 파일에 추가할 수 있는 `nofail` 또는 `/etc/fstab` 탑재 매개 변수가 포함되어 있습니다. 이 매개 변수는 특정 파일 시스템 탑재 시 오류를 허용하며 Linux 시스템이 제대로 RAID 파일 시스템을 탑재할 수 없는 경우에도 계속 부팅되도록 합니다. 이러한 매개 변수에 대한 자세한 내용은 배포 설명서를 참조하십시오.
    
     예제(Ubuntu):
 
@@ -157,7 +157,7 @@ LVM을 사용하여 단일 스토리지 볼륨에 여러 실제 디스크를 결
 
 Linux VM에서 TRIM 지원을 사용하는 두 가지 방법이 있습니다. 평소와 같이 권장되는 방법에 대해 배포에 확인하세요.
 
-- `/etc/fstab`에 `discard` 탑재 옵션을 사용합니다. 예:
+- `discard`에 `/etc/fstab` 탑재 옵션을 사용합니다. 예:
 
     ```bash 
     /dev/data-vg01/data-lv01  /data  ext4  defaults,discard  0  2

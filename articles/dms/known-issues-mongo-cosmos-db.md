@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 02/27/2020
-ms.openlocfilehash: 6cdca78d09c9ca128119a58cb4feaf66bad111bd
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 194da036260a78b27748dfc7f755212ab4f30b1e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78165037"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256024"
 ---
 # <a name="known-issuesmigration-limitations-with-migrations-from-mongodb-to-azure-cosmos-dbs-api-for-mongodb"></a>MongoDB에서 MongoDB 용 API Azure Cosmos DB로의 마이그레이션에 대 한 알려진 문제/마이그레이션 제한 사항
 
@@ -40,6 +40,8 @@ MongoDB에서 Cosmos DB의 MongoDB API로의 마이그레이션과 관련 된 �
 | 저장소 계정 연결 문자열에 SAS 정보가 없으므로 인증할 수 없습니다. | Storage 탐색기의 blob 컨테이너에서 SAS를 만들고 컨테이너 SAS 정보를 포함 하는 URL을 원본 정보 연결 문자열로 사용 합니다.<br><br> |
 
 ## <a name="using-an-unsupported-version-of-the-database"></a>지원 되지 않는 버전의 데이터베이스 사용
+
+* **증상**: 마이그레이션이 실패 합니다.
 
 | 원인         | 해결 방법 |
 | ------------- | ------------- |

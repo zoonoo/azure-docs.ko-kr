@@ -8,12 +8,12 @@ ms.service: application-gateway
 ms.topic: article
 ms.date: 11/15/2019
 ms.author: victorh
-ms.openlocfilehash: ff615507723b949105fc2b604d6bff869bdb33dc
-ms.sourcegitcommit: 598c5a280a002036b1a76aa6712f79d30110b98d
+ms.openlocfilehash: 41b2fb754f1d6ead3a7475ca146ab99758aa8134
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/15/2019
-ms.locfileid: "74108763"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246869"
 ---
 # <a name="create-an-application-gateway-with-http-to-https-redirection-using-the-azure-cli"></a>Azure CLI를 사용하여 HTTP 및 HTTPS 간의 리디렉션으로 애플리케이션 게이트웨이 만들기
 
@@ -26,25 +26,25 @@ Azure CLI를 사용하여 SSL 종료를 위한 인증서로 [애플리케이션 
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 찾으려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
+CLI를 로컬로 설치하여 사용하도록 선택한 경우 이 빠른 시작에서 Azure CLI 버전 2.0.4 이상을 실행해야 합니다. 버전을 확인하려면 `az --version`을 실행합니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치](/cli/azure/install-azure-cli)를 참조하세요.
 
 ## <a name="create-a-self-signed-certificate"></a>자체 서명된 인증서 만들기
 
 프로덕션에 사용하려면 신뢰할 수 있는 공급자가 서명한 유효한 인증서를 가져와야 합니다. 이 자습서에서는 openssl 명령을 사용하여 자체 서명된 인증서 및 pfx 파일을 만듭니다.
 
-```azurecli-interactive
+```console
 openssl req -x509 -sha256 -nodes -days 365 -newkey rsa:2048 -keyout privateKey.key -out appgwcert.crt
 ```
 
 인증서에 의미 있는 값을 입력합니다. 기본 값을 적용할 수 있습니다.
 
-```azurecli-interactive
+```console
 openssl pkcs12 -export -out appgwcert.pfx -inkey privateKey.key -in appgwcert.crt
 ```
 
@@ -208,7 +208,7 @@ az vmss extension set \
 
 애플리케이션 게이트웨이의 공용 IP 주소를 가져오려면 [az network public-ip show](/cli/azure/network/public-ip)를 사용합니다. 공용 IP 주소를 복사하여 브라우저의 주소 표시줄에 붙여넣습니다.
 
-```azurepowershell-interactive
+```azurecli-interactive
 az network public-ip show \
   --resource-group myResourceGroupAG \
   --name myAGPublicIPAddress \
@@ -224,13 +224,13 @@ az network public-ip show \
 
 ## <a name="next-steps"></a>다음 단계
 
-이 자습서에서는 다음을 수행하는 방법에 대해 알아보았습니다.
+이 자습서에서는 다음 작업 방법을 알아보았습니다.
 
 > [!div class="checklist"]
 > * 자체 서명된 인증서 만들기
 > * 네트워크 설정
 > * 인증서가 있는 애플리케이션 게이트웨이 만들기
 > * 수신기 및 리디렉션 규칙 추가
-> * 기본 백 엔드 풀로 가상 머신 확장 집합 만들기
+> * 기본 백 엔드 풀을 사용하여 가상 머신 확장 집합 만들기
 
 

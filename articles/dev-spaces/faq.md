@@ -5,12 +5,12 @@ ms.date: 01/28/2020
 ms.topic: conceptual
 description: Azure Dev Spaces에 대 한 일반적인 질문에 대 한 답변을 찾습니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 964fa9ec4948bf178c310af8e35913fda5f70c0f
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 285fdb7892d2da40dd50e025cb1dd7644ec17ae0
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76934175"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255720"
 ---
 # <a name="frequently-asked-questions-about-azure-dev-spaces"></a>Azure Dev Spaces에 대 한 질문과 대답
 
@@ -64,6 +64,14 @@ ms.locfileid: "76934175"
 ## <a name="can-i-use-azure-dev-spaces-on-aks-clusters-with-restricted-egress-traffic-for-cluster-nodes"></a>클러스터 노드에 대해 제한 된 송신 트래픽이 있는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
 
 예, 올바른 Fqdn이 허용 되 면 사용 하도록 설정 된 [클러스터 노드에 대해 제한 된 송신 트래픽을][aks-restrict-egress-traffic] 사용 하는 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있습니다. Azure Dev Spaces 사용 하도록 설정 된 클러스터 노드에 대해 제한 된 송신 트래픽이 있는 AKS 클러스터를 사용 하는 방법에 대 한 자세한 내용은 [여기](configure-networking.md#ingress-and-egress-network-traffic-requirements)에서 사용할 수 있습니다.
+
+## <a name="can-i-use-azure-dev-spaces-on-rbac-enabled-aks-clusters"></a>RBAC 지원 AKS 클러스터에서 Azure Dev Spaces를 사용할 수 있나요?
+
+예, RBAC를 사용 하거나 사용 하지 않고 AKS 클러스터에 대 한 Azure Dev Spaces를 사용할 수 있습니다.
+
+## <a name="what-happens-when-i-enable-ingress-for-project-in-visual-studio"></a>Visual Studio에서 프로젝트를 수신 하도록 설정 하면 어떻게 되나요?
+
+Visual Studio를 사용 하 여 프로젝트를 준비할 때 서비스에 대 한 수신을 사용 하도록 설정 하는 옵션이 있습니다. 수신을 사용 하도록 설정 하면 AKS 클러스터에서 실행 될 때 서비스에 액세스할 수 있는 공용 끝점이 생성 됩니다 (선택 사항). 수신을 사용 하지 않는 경우 서비스는 AKS 클러스터 내 에서만 액세스할 수 있습니다.
 
 [aks-auth-range]: ../aks/api-server-authorized-ip-ranges.md
 [aks-auth-range-create]: ../aks/api-server-authorized-ip-ranges.md#create-an-aks-cluster-with-api-server-authorized-ip-ranges-enabled

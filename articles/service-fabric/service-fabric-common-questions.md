@@ -4,12 +4,12 @@ description: 기능, 사용 사례 및 일반적인 시나리오를 비롯 하 �
 ms.topic: troubleshooting
 ms.date: 08/18/2017
 ms.author: pepogors
-ms.openlocfilehash: 17c1d05e119df8207c0599283f1d04b869e8297b
-ms.sourcegitcommit: 7221918fbe5385ceccf39dff9dd5a3817a0bd807
+ms.openlocfilehash: bf61858b446c1ac6d4a0210571fffaa721ad0166
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/21/2020
-ms.locfileid: "76293524"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254894"
 ---
 # <a name="commonly-asked-service-fabric-questions"></a>Service Fabric에 대해 자주 묻는 질문
 
@@ -22,7 +22,7 @@ Service Fabric으로 수행할 수 있는 작업 및 사용 방법에 대한 여
 
 ### <a name="how-do-i-roll-back-my-service-fabric-cluster-certificate"></a>Service Fabric 클러스터 인증서를 롤백하려면 어떻게 해야 하나요?
 
-애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [애플리케이션 업그레이드 매개 변수](https://review.docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
+애플리케이션 업그레이드를 롤백하려면 Service Fabric 클러스터 쿼럼에서 변경 내용을 커밋하기 전에 상태 오류를 감지해야 합니다. 감지된 변경 내용만 롤포워드할 수 있습니다. 모니터링되지 않은 주요 인증서 변경 내용이 있는 경우 고객 지원 서비스의 에스컬레이션 엔지니어가 클러스터를 복구해야 할 수도 있습니다.  [Service Fabric의 애플리케이션 업그레이드](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade?branch=master)는 [애플리케이션 업그레이드 매개 변수](https://docs.microsoft.com/azure/service-fabric/service-fabric-application-upgrade-parameters?branch=master)를 적용하고, 가동 중지 시간 0이라는 약속을 이행합니다.  Microsoft의 권장 애플리케이션 업그레이드 모니터링 모드에 따라, 업데이트 도메인을 통한 자동 진행은 상태 검사 통과를 기반으로 하며, 기본 서비스 업데이트가 실패하는 경우 자동으로 롤백됩니다.
  
 클러스터에서 여전히 Resource Manager 템플릿의 클래식 인증서 지문 속성을 사용하는 경우 최신 비밀 관리 기능을 활용할 수 있도록 [클러스터를 인증서 지문에서 일반 이름으로 변경](https://docs.microsoft.com/azure/service-fabric/service-fabric-cluster-change-cert-thumbprint-to-cn)하는 것이 좋습니다.
 
@@ -97,7 +97,7 @@ Microsoft는 환경 개선을 위해 노력하고 있지만 업그레이드에 �
 예.  자세한 내용은 [연결 된 데이터 디스크를 사용 하 여 클러스터 만들기](../virtual-machine-scale-sets/virtual-machine-scale-sets-attached-disks.md#create-a-service-fabric-cluster-with-attached-data-disks) 및 [Virtual Machine Scale Sets에 대 한 Azure Disk Encryption](../virtual-machine-scale-sets/disk-encryption-overview.md)를 참조 하세요.
 
 ### <a name="can-i-use-low-priority-vms-in-a-cluster-node-type-virtual-machine-scale-set"></a>클러스터 노드 형식(가상 머신 확장 집합)에서 우선 순위가 낮은 VM을 사용할 수 있나요?
-아닙니다. 우선 순위가 낮은 VM은 지원되지 않습니다. 
+아니요. 우선 순위가 낮은 VM은 지원되지 않습니다. 
 
 ### <a name="what-are-the-directories-and-processes-that-i-need-to-exclude-when-running-an-anti-virus-program-in-my-cluster"></a>클러스터에서 바이러스 백신 프로그램을 실행하는 경우 제외해야 하는 디렉터리 및 프로세스는 무엇입니까?
 

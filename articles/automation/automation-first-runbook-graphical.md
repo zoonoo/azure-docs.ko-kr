@@ -6,14 +6,14 @@ services: automation
 ms.subservice: process-automation
 ms.date: 04/13/2018
 ms.topic: conceptual
-ms.openlocfilehash: 351ed146511409fb4c6cc49705c7051b89ea0212
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b891c8a7bbb33e3a3f18adbbc723d4bc9aa99a3a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226494"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246457"
 ---
-# <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 runbook
+# <a name="my-first-graphical-runbook"></a>내 첫 번째 그래픽 Runbook
 
 > [!div class="op_single_selector"]
 > * [그래픽](automation-first-runbook-graphical.md)
@@ -22,7 +22,7 @@ ms.locfileid: "78226494"
 > * [Python](automation-first-runbook-textual-python2.md)
 > 
 
-이 자습서에서는 Azure Automation에서 [그래픽 runbook](automation-runbook-types.md#graphical-runbooks) 을 만드는 과정을 안내 합니다. Runbook 작업의 상태를 추적 하는 방법을 배우면 서 테스트 하 고 게시 하는 간단한 runbook으로 시작 합니다. 그런 다음 실제로 Azure 리소스를 관리 하도록 runbook을 수정 합니다 .이 경우에는 Azure 가상 컴퓨터를 시작 합니다. Runbook 매개 변수와 조건부 링크를 추가 하 여 runbook을 더욱 강력 하 게 만드는 자습서를 완료 합니다.
+이 자습서는 Azure Automation에서 [그래픽 Runbook](automation-runbook-types.md#graphical-runbooks)을 만드는 과정을 안내합니다. Runbook 작업의 상태를 추적 하는 방법을 배우면 서 테스트 하 고 게시 하는 간단한 runbook으로 시작 합니다. 그런 다음 실제로 Azure 리소스를 관리 하도록 runbook을 수정 합니다 .이 경우에는 Azure 가상 컴퓨터를 시작 합니다. Runbook 매개 변수와 조건부 링크를 추가 하 여 runbook을 더욱 강력 하 게 만드는 자습서를 완료 합니다.
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.

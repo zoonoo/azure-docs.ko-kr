@@ -11,12 +11,12 @@ author: MicrosoftGuyJFlo
 manager: daveba
 ms.reviewer: rogoya
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 73de446513915bbc5cba9d8b9cf23d08d18cc362
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 3139d39797c3bc576bb39f1438b7e6d3f37e3c5c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585988"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248857"
 ---
 # <a name="what-are-security-defaults"></a>보안 기본값 이란?
 
@@ -69,7 +69,7 @@ Multi-Factor Authentication 등록을 완료 한 후에는 다음 9 개의 Azure
 
 사용자가 클라우드 앱에 쉽게 액세스할 수 있도록 Azure AD는 레거시 인증을 비롯 한 다양 한 인증 프로토콜을 지원 합니다. *레거시 인증은* 다음의 인증 요청을 참조 하는 용어입니다.
 
-- 최신 인증을 사용 하지 않는 이전 Office 클라이언트 (예: Office 2010 클라이언트)
+- 최신 인증을 사용 하지 않는 클라이언트 (예: Office 2010 클라이언트)
 - IMAP, SMTP, POP3 등의 이전 메일 프로토콜을 사용 하는 모든 클라이언트
 
 현재 대부분의 손상 된 로그인 시도는 레거시 인증에서 제공 됩니다. 레거시 인증은 Multi-Factor Authentication을 지원 하지 않습니다. 디렉터리에서 Multi-Factor Authentication 정책을 사용 하도록 설정한 경우에도 공격자는 이전 프로토콜을 사용 하 여 인증 하 고 Multi-Factor Authentication을 무시할 수 있습니다. 

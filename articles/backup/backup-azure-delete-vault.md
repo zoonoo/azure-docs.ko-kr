@@ -3,12 +3,12 @@ title: Microsoft Azure Recovery Services 자격 증명 모음 삭제
 description: 이 문서에서는 종속성을 제거 하 고 MARS (Microsoft Azure Backup Recovery Services) 자격 증명 모음을 삭제 하는 방법에 대해 알아봅니다.
 ms.topic: conceptual
 ms.date: 09/20/2019
-ms.openlocfilehash: 172c632ae27c789f96e2e5cc1bdef492ef09f667
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 9ac9d0fd6411b512b319d02c94e86fa792243e0a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586464"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251425"
 ---
 # <a name="delete-an-azure-backup-recovery-services-vault"></a>Azure Backup Recovery Services 자격 증명 모음 삭제
 
@@ -286,7 +286,7 @@ Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세�
 
 - 보호를 중지 하 고 백업 데이터를 삭제 하려면
 
-    ```CLI
+    ```azurecli
     az backup protection disable --container-name
                              --item-name
                              [--delete-backup-data {false, true}]
@@ -301,7 +301,7 @@ Recovery services 자격 증명 모음 삭제에 [대해 자세히 알아보세�
 
 - 기존 Recovery services 자격 증명 모음을 삭제 합니다.
 
-    ```CLI
+    ```azurecli
     az backup vault delete [--force]
                        [--ids]
                        [--name]

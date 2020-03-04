@@ -10,12 +10,12 @@ ms.subservice: core
 ms.reviewer: trbye
 ms.topic: conceptual
 ms.date: 11/04/2019
-ms.openlocfilehash: f5bd6b741f85f35fe03c941ed09728354d6b3d2d
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 859f8a9c2bf644461c8945255de9f925b4e943f4
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76905707"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251858"
 ---
 # <a name="auto-train-a-time-series-forecast-model"></a>시계열 예측 모델 자동 학습
 [!INCLUDE [aml-applies-to-basic-enterprise-sku](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -57,7 +57,7 @@ ms.locfileid: "76905707"
 
 ARIMA (자동 회귀 Integrated 이동 평균)는 시계열 예측에 사용 되는 인기 있는 통계 방법입니다. 이 예측 기술은 데이터에서 주기 등의 추세에 대 한 증거를 표시 하는 단기 예측 시나리오에서 일반적으로 사용 됩니다 .이 시나리오는 예측할 수 없으며 모델 또는 예측 하기 어려울 수 있습니다. 자동 ARIMA는 데이터를 고정 된 데이터로 변환 하 여 일관 되 고 신뢰할 수 있는 결과를 수신 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure Machine Learning 작업 영역 작업 영역을 만들려면 [Azure Machine Learning 작업 영역 만들기](how-to-manage-workspace.md)를 참조 하세요.
 * 이 문서에서는 자동화 된 machine learning 실험을 설정 하는 방법에 대 한 기본 지식이 있다고 가정 합니다. [자습서](tutorial-auto-train-models.md) 또는 [방법에](how-to-configure-auto-train.md) 따라 기본적인 자동화 된 기계 학습 실험 디자인 패턴을 볼 수 있습니다.
@@ -178,13 +178,14 @@ best_run, fitted_model = local_run.get_output()
 ### <a name="configure-a-dnn-enable-forecasting-experiment"></a>DNN 구성 예측 실험 사용
 
 > [!NOTE]
-> 자동 Machine Learning 예측에 대 한 DNN 지원은 미리 보기 상태입니다.
+> 자동화 Machine Learning의 예측에 대 한 DNN 지원은 미리 보기 상태 이며 로컬 실행을 지원 하지 않습니다.
 
 예측을 위해 DNNs를 활용 하려면 AutoMLConfig의 `enable_dnn` 매개 변수를 true로 설정 해야 합니다. 
 
-DNNs를 사용 하려면 GPU Sku와 두 개 이상의 노드를 계산 대상으로 사용 하는 AML 계산 클러스터를 사용 하는 것이 좋습니다. 자세한 내용은 [AML 계산 설명서](how-to-set-up-training-targets.md#amlcompute)를 참조 하세요. Gpu를 포함 하는 VM 크기에 대 한 자세한 내용은 [gpu 최적화 가상 머신 크기](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu) 를 참조 하세요.
+GPU Sku와 최소 두 개 이상의 노드를 계산 대상으로 사용 하는 AML 계산 클러스터를 사용 하는 것이 좋습니다. DNN 교육이 완료 될 때까지 충분 한 시간을 허용 하려면 실험 시간 제한을 최소 몇 시간으로 설정 하는 것이 좋습니다.
+AML 계산 및 GPU를 포함 하는 VM 크기에 대 한 자세한 내용은 [Aml 계산 설명서](how-to-set-up-training-targets.md#amlcompute) 및 [gpu 최적화 가상 머신 크기 설명서](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-gpu)를 참조 하세요.
 
-DNN 교육이 완료 될 때까지 충분 한 시간을 허용 하려면 실험 시간 제한을 몇 시간 이상으로 설정 하는 것이 좋습니다.
+DNNs를 활용 하는 자세한 코드 예제는 [음료 프로덕션 예측 노트북](https://github.com/Azure/MachineLearningNotebooks/blob/master/how-to-use-azureml/automated-machine-learning/forecasting-beer-remote/auto-ml-forecasting-beer-remote.ipynb) 을 확인 하세요.
 
 ### <a name="view-feature-engineering-summary"></a>기능 엔지니어링 요약 보기
 

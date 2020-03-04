@@ -5,12 +5,12 @@ ms.reviewer: saurse
 ms.topic: troubleshooting
 ms.date: 07/05/2019
 ms.service: backup
-ms.openlocfilehash: 1ed0ce94074e3d0ed03c0a0dc4c276d71da7059b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: beb20518d1350335ceed285f4d5cd9da135132e5
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921014"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255741"
 ---
 # <a name="troubleshoot-azure-backup-failure-issues-with-the-agent-or-extension"></a>Azure Backup 오류 문제 해결: 에이전트 또는 확장 관련 문제
 
@@ -43,9 +43,7 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**
 
-**원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**
-
-**원인 5: [Vm 에이전트 구성 옵션이 설정 되지 않음 (Linux vm의 경우)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
+**원인 4: [Vm 에이전트 구성 옵션이 설정 되지 않음 (Linux vm의 경우)](#vm-agent-configuration-options-are-not-set-for-linux-vms)**
 
 ## <a name="usererrorvmprovisioningstatefailed---the-vm-is-in-failed-provisioning-state"></a>UserErrorVmProvisioningStateFailed-VM이 프로 비전 실패 상태에 있습니다.
 
@@ -86,10 +84,9 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 **오류 코드**: ExtensionSnapshotFailedNoNetwork<br>
 **오류 메시지**: 가상 머신에 네트워크 연결이 없으므로 스냅샷 작업이 실패했습니다.<br>
 
-Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.
+Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 완료 한 후 작업을 다시 시도 하세요.
 
-**원인 1: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**원인 2: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
+**[스냅숏 상태를 검색할 수 없거나 스냅숏을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
 
 ## <a name="ExtensionOperationFailed-vmsnapshot-extension-operation-failed"></a>ExtensionOperationFailedForManagedDisks-VMSnapshot 확장 작업이 실패 했습니다.
 
@@ -98,9 +95,8 @@ Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 V
 
 Azure Backup 서비스에 대 한 VM을 등록 하 고 예약 하면 Backup은 VM 백업 확장과 통신 하 여 작업을 시작 하 여 지정 시간 스냅숏을 수행 합니다. 다음 조건 중 하나라도 충족되지 못하면 스냅샷이 트리거되지 않을 수 있습니다. 스냅샷이 트리거되지 않으면 백업 실패가 발생할 수 있습니다. 다음 문제 해결 단계를 나열된 순서에 완료하고 작업을 다시 시도하세요.  
 **원인 1: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**원인 2: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 3: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
-**원인 4: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
+**원인 2: [에이전트가 VM에 설치 되어 있지만 응답 하지 않습니다 (Windows vm의 경우)](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms) .**  
+**원인 3: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**
 
 ## <a name="backupoperationfailed--backupoperationfailedv2---backup-fails-with-an-internal-error"></a>BackUpOperationFailed / BackUpOperationFailedV2 - 내부 오류가 발생하여 백업하지 못했습니다.
 
@@ -111,8 +107,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 **원인 1: [에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).](#the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms)**  
 **원인 2: [VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).](#the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms)**  
 **원인 3: [스냅샷 상태를 검색할 수 없거나 스냅샷을 만들 수 없습니다.](#the-snapshot-status-cannot-be-retrieved-or-a-snapshot-cannot-be-taken)**  
-**원인 4: [백업 확장을 업데이트 또는 로드할 수 없습니다.](#the-backup-extension-fails-to-update-or-load)**  
-**원인 5: 백업 서비스에 리소스 그룹 잠금으로 인해 이전 복원 지점은 삭제할 권한이 없습니다.** <br>
+**원인 4: [리소스 그룹 잠금으로 인해 Backup 서비스에 이전 복원 지점은 삭제할 수 있는 권한이](#remove_lock_from_the_recovery_point_resource_group) 없습니다.**<br>
 
 ## <a name="usererrorunsupporteddisksize---the-configured-disk-sizes-is-currently-not-supported-by-azure-backup"></a>UserErrorUnsupportedDiskSize-구성 된 디스크 크기는 현재 Azure Backup에서 지원 되지 않습니다.
 
@@ -150,7 +145,7 @@ Azure Backup 서비스에 대한 VM을 등록하고 예약하면 백업은 VM �
 
 ### <a name="the-agent-installed-in-the-vm-but-unresponsive-for-windows-vms"></a>에이전트가 VM에 설치되어 있지만 응답하지 않습니다(Windows VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에이전트를 다시 설치하면 최신 버전을 가져올 수 있습니다. 또한 서비스와의 통신을 다시 시작하는 데도 도움이 됩니다.
 
@@ -166,7 +161,7 @@ VM 에이전트가 손상되었거나 서비스가 중지되었습니다. VM 에
 
 ### <a name="the-agent-installed-in-the-vm-is-out-of-date-for-linux-vms"></a>VM에 설치된 에이전트가 최신이 아닙니다(Linux VM의 경우).
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 Linux VM에 대부분의 에이전트 관련 또는 확장 관련 오류는 이전 VM 에이전트에 영향을 주는 문제로 인해 발생합니다. 이 문제를 해결하려면 다음과 같은 일반 지침을 수행하세요.
 
@@ -204,34 +199,14 @@ VM 에이전트 구성 파일 옵션의 전체 목록을 보려면을 참조 하
 
 VM 백업은 기본 스토리지 계정에 대한 스냅샷 명령 실행을 사용합니다. 스토리지 계정에 액세스할 수 없거나 스냅샷 작업의 실행이 지연되기 때문에 백업이 실패할 수 있습니다.
 
-#### <a name="solution"></a>솔루션
+#### <a name="solution"></a>해결 방법
 
 다음 조건으로 인해 스냅샷 작업이 실패할 수 있습니다.
 
-| 원인 | 솔루션 |
+| 원인 | 해결 방법 |
 | --- | --- |
 | VM이 RDP(원격 데스크톱 프로토콜)에서 종료되므로 VM 상태가 잘못 보고됩니다. | RDP에서 VM을 종료하는 경우 VM 상태가 올바른지 여부를 확인하려면 포털을 확인합니다. 올바르지 않으면 VM 대시보드의 **종료** 옵션을 사용하여 포털에서 VM을 종료합니다. |
 | VM이 DHCP에서 호스트 또는 패브릭 주소를 가져올 수 없습니다. | IaaS VM 백업이 작동하려면 게스트 내에 DHCP를 사용하도록 설정되어야 합니다. VM이 DHCP 응답 245에서 호스트 또는 패브릭 주소를 가져올 수 없는 경우에는 어떠한 확장도 다운로드하거나 실행할 수 없습니다. 정적 개인 IP가 필요한 경우 **Azure Portal** 또는 **PowerShell** 을 통해 구성 하 고 VM 내의 DHCP 옵션이 사용 하도록 설정 되어 있는지 확인 해야 합니다. PowerShell을 사용 하 여 고정 IP 주소를 설정 하는 방법에 [대해 자세히 알아보세요](../virtual-network/virtual-networks-static-private-ip-arm-ps.md#change-the-allocation-method-for-a-private-ip-address-assigned-to-a-network-interface) .
-
-### <a name="the-backup-extension-fails-to-update-or-load"></a>백업 확장을 업데이트 또는 로드할 수 없습니다.
-
-확장을 로드할 수 없는 경우 스냅샷을 만들 수 없기 때문에 백업이 실패합니다.
-
-#### <a name="solution"></a>솔루션
-
-확장을 제거하여 강제로 VMSnapshot 확장을 다시 로드합니다. 다음 백업 시도 시 확장이 다시 로드됩니다.
-
-확장을 제거하려면
-
-1. [Azure Portal](https://portal.azure.com/)에서 백업 실패가 발생하는 VM으로 이동합니다.
-2. **설정**을 선택합니다.
-3. **확장**을 섡택합니다.
-4. **스냅숏 확장**을 선택 합니다.
-5. **제거**를 선택합니다.
-
-Linux VM의 경우 VMSnapshot 확장이 Azure Portal에 표시 되지 않으면 [Azure Linux 에이전트를 업데이트](../virtual-machines/linux/update-agent.md)한 후 백업을 실행 합니다.
-
-이러한 단계를 완료하면 다음 백업 동안 확장을 다시 설치해야 합니다.
 
 ### <a name="remove_lock_from_the_recovery_point_resource_group"></a>복구 지점 리소스 그룹에서 잠금 제거
 

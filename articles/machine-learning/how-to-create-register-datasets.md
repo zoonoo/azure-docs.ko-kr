@@ -11,12 +11,12 @@ author: MayMSFT
 manager: cgronlun
 ms.reviewer: nibaccam
 ms.date: 02/10/2020
-ms.openlocfilehash: 6b6d63d956f46587d89edf1b080f1bb9bd3ca67e
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 003924c42a1a7e428a3a11f21a4cfe782c12e859
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77649093"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255785"
 ---
 # <a name="create-azure-machine-learning-datasets"></a>Azure Machine Learning 데이터 집합 만들기
 
@@ -32,7 +32,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 * 데이터를 공유 하 고 다른 사용자와 공동 작업 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 데이터 집합을 만들고 작업 하려면 다음이 필요 합니다.
 
@@ -57,7 +57,7 @@ Azure Machine Learning 데이터 집합을 사용 하 여 다음을 수행할 �
 
 ## <a name="create-datasets"></a>데이터 세트 만들기
 
-데이터 집합을 만들면 데이터 원본 위치에 대 한 참조와 해당 메타 데이터의 복사본을 만듭니다. 데이터가 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않습니다. Python SDK 또는 작업 영역 방문 페이지 (미리 보기)를 사용 하 여 `TabularDataset` 및 `FileDataset` 데이터 집합을 모두 만들 수 있습니다.
+데이터 집합을 만들면 데이터 원본 위치에 대 한 참조와 해당 메타 데이터의 복사본을 만듭니다. 데이터가 기존 위치에 남아 있으므로 추가 저장소 비용이 발생 하지 않습니다. Python SDK 또는 https://ml.azure.com를 사용 하 여 `TabularDataset` 및 `FileDataset` 데이터 집합을 모두 만들 수 있습니다.
 
 Azure Machine Learning에서 데이터에 액세스할 수 있도록 하려면 [Azure 데이터 저장소](how-to-access-data.md) 또는 공용 웹 url의 경로에서 데이터 집합을 만들어야 합니다.
 
@@ -73,8 +73,6 @@ Python SDK를 사용 하 여 [Azure 데이터 저장소](how-to-access-data.md) 
 
 
 #### <a name="create-a-tabulardataset"></a>TabularDataset 만들기
-
-SDK를 통해 또는 Azure Machine Learning studio를 사용 하 여 TabularDatasets를 만들 수 있습니다. 
 
 `TabularDatasetFactory` 클래스의 [`from_delimited_files()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-delimited-files-path--validate-true--include-path-false--infer-column-types-true--set-column-types-none--separator------header-true--partition-format-none-) 메서드를 사용 하 여 .csv 또는. tsv 형식의 파일을 읽고 등록 되지 않은 TabularDataset를 만듭니다. 여러 파일에서 읽는 경우 결과는 하나의 테이블 형식 표현으로 집계 됩니다. 
 
@@ -96,10 +94,10 @@ datastore_paths = [(datastore, 'ather/2018/11.csv'),
 weather_ds = Dataset.Tabular.from_delimited_files(path=datastore_paths)
 ```
 
-기본적으로 TabularDataset를 만들면 열 데이터 형식이 자동으로 유추 됩니다. 유추 된 형식이 예상과 일치 하지 않는 경우에는 다음 코드를 사용 하 여 열 형식을 지정할 수 있습니다. 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 `validate=False` 매개 변수를 포함 하 고 `from_delimited_files()` 메서드에서 `infer_column_types=False` 합니다. 이렇게 하면 초기 유효성 검사를 무시 하 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다. [지원 되는 데이터 형식에 대해 자세히 알아볼](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)수도 있습니다.
+기본적으로 TabularDataset를 만들면 열 데이터 형식이 자동으로 유추 됩니다. 유추 된 형식이 예상과 일치 하지 않는 경우에는 다음 코드를 사용 하 여 열 형식을 지정할 수 있습니다. `infer_column_type` 매개 변수는 분리 된 파일에서 만든 데이터 집합에만 적용 됩니다. [지원 되는 데이터 형식에 대해 자세히 알아볼](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.datatype?view=azure-ml-py)수도 있습니다.
 
-> [!NOTE] 
->`infer_column_type` 매개 변수는 분리 된 파일에서 만든 데이터 집합에만 적용 됩니다. 
+> [!IMPORTANT] 
+> 저장소가 가상 네트워크 또는 방화벽 뒤에 있는 경우 SDK를 통해 데이터 집합 만들기만 지원 됩니다. 데이터 집합을 만들려면 `from_delimited_files()` 메서드에서 `validate=False` 및 `infer_column_types=False` 매개 변수를 포함 해야 합니다. 이렇게 하면 초기 유효성 검사를 무시 하 고 이러한 보안 파일에서 데이터 집합을 만들 수 있습니다. 
 
 ```Python
 from azureml.data.dataset_factory import DataType
@@ -112,11 +110,37 @@ titanic_ds = Dataset.Tabular.from_delimited_files(path=web_path, set_column_type
 titanic_ds.take(3).to_pandas_dataframe()
 ```
 
-| |PassengerId|남은|Pclass|이름|성|처리 기간|SibSp|Parch|Ticket|택시|Cabin|Embarked
+| |PassengerId|남은|Pclass|속성|성|Age|SibSp|Parch|Ticket|택시|Cabin|Embarked
 -|-----------|--------|------|----|---|---|-----|-----|------|----|-----|--------|
 0|1|False|3|Braund, Mr. Owen Harris|male|22.0|1|0|A/5 21171|7.2500||S
 1|2|True|1|Cumings, Mrs Bradley (Florence Briggs Th ...|female|38.0|1|0|PC 17599|71.2833|C85|C
 2|3|True|3|Heikkinen, 누락. Laina|female|26.0|0|0|STON/O2. 3101282|7.9250||S
+
+
+In memory pandas 데이터 프레임에서 데이터 집합을 만들려면 csv와 같은 로컬 파일에 데이터를 작성 하 고 해당 파일에서 데이터 집합을 만듭니다. 다음 코드에서는이 워크플로를 보여 줍니다.
+
+```python
+local_path = 'data/prepared.csv'
+dataframe.to_csv(local_path)
+upload the local file to a datastore on the cloud
+# azureml-core of version 1.0.72 or higher is required
+# azureml-dataprep[pandas] of version 1.1.34 or higher is required
+from azureml.core import Workspace, Dataset
+
+subscription_id = 'xxxxxxxxxxxxxxxxxxxxx'
+resource_group = 'xxxxxx'
+workspace_name = 'xxxxxxxxxxxxxxxx'
+
+workspace = Workspace(subscription_id, resource_group, workspace_name)
+
+# get the datastore to upload prepared data
+datastore = workspace.get_default_datastore()
+
+# upload the local file from src_dir to the target_path in datastore
+datastore.upload(src_dir='data', target_path='data')
+create a dataset referencing the cloud location
+dataset = Dataset.Tabular.from_delimited_files(datastore.path('data/prepared.csv'))
+```
 
 `TabularDatasetFactory` 클래스에 대 한 [`from_sql_query()`](https://docs.microsoft.com/python/api/azureml-core/azureml.data.dataset_factory.tabulardatasetfactory?view=azure-ml-py#from-sql-query-query--validate-true--set-column-types-none-) 메서드를 사용 하 여 Azure SQL Database를 읽습니다.
 

@@ -4,15 +4,15 @@ description: 확장을 사용 하 여 Azure Analysis Services 서버를 복제 �
 author: minewiskan
 ms.service: azure-analysis-services
 ms.topic: conceptual
-ms.date: 01/16/2020
+ms.date: 03/02/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: fd91701a20b8a760eadcafe6f93f9ba5857a1c9f
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 3ea304d038618fc428f20e7ad72b398f593d09a8
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76310189"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247984"
 ---
 # <a name="azure-analysis-services-scale-out"></a>Azure Analysis Services 규모 확장
 
@@ -30,7 +30,7 @@ ms.locfileid: "76310189"
 
 규모를 확장 하는 경우 새 쿼리 복제본을 쿼리 풀에 증분 추가 하는 데 최대 5 분이 걸릴 수 있습니다. 모든 새 쿼리 복제본을 실행 하는 동안 새 클라이언트 연결은 쿼리 풀의 여러 리소스에서 부하가 분산 됩니다. 기존 클라이언트 연결은 현재 연결되어 있는 리소스에서 변경되지 않습니다. 규모 감축 시 조정할 때 쿼리 풀에서 제거되는 쿼리 풀 리소스에 대한 기존 클라이언트 연결이 종료됩니다. 클라이언트는 나머지 쿼리 풀 리소스에 다시 연결할 수 있습니다.
 
-## <a name="how-it-works"></a>작동 원리
+## <a name="how-it-works"></a>작동 방법
 
 처음으로 규모 확장을 구성 하는 경우 주 서버의 model 데이터베이스가 새 쿼리 풀의 새 복제본과 *자동으로* 동기화 됩니다. 자동 동기화는 한 번만 발생 합니다. 자동 동기화를 수행 하는 동안 주 서버의 데이터 파일 (blob 저장소에 저장 된 상태로 암호화 됨)은 두 번째 위치에 복사 되 고 blob 저장소에 저장 된 상태로도 복사 됩니다. 그런 다음 쿼리 풀의 복제본은 두 번째 파일 집합의 데이터로 *하이드레이션* 됩니다. 
 
@@ -46,7 +46,7 @@ ms.locfileid: "76310189"
 
 * 주 서버에서 model 데이터베이스를 삭제할 때 쿼리 풀의 복제본에서 자동으로 삭제 되지 않습니다. [AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) PowerShell 명령을 사용 하 여 복제본의 공유 blob 저장소 위치에서 해당 데이터베이스의 파일/s를 제거한 다음 쿼리 풀의 복제본에서 model 데이터베이스를 삭제 하는 동기화 작업을 수행 해야 합니다. 모델 데이터베이스가 주 서버가 아닌 쿼리 풀의 복제본에 존재 하는지 확인 하려면 **풀 쿼리에서 처리 서버를 분리** 합니다. 설정이 **예**인지 확인 합니다. 그런 다음 SSMS를 사용 하 여 `:rw` 한정자를 통해 주 서버에 연결 하 여 데이터베이스가 있는지 확인 합니다. 그런 다음 `:rw` 한정자 없이 연결 하 여 쿼리 풀의 복제본에 연결 하 여 같은 데이터베이스도 있는지 확인 합니다. 데이터베이스가 쿼리 풀의 복제본에 있지만 주 서버에 있는 경우에는 동기화 작업을 실행 합니다.   
 
-* 주 서버에서 데이터베이스의 이름을 바꿀 때 데이터베이스가 복제본에 올바르게 동기화 되었는지 확인 하는 데 필요한 추가 단계가 있습니다. 이름을 바꾼 후에는 [Sync-AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 사용하여 동기화를 수행하고 이전 데이터베이스 이름을 사용하여 `-Database` 매개 변수를 지정합니다. 이 동기화는 복제본에서 이전 이름의 데이터베이스와 파일을 제거 합니다. 그런 다음 새 데이터베이스 이름을 사용 하 여 `-Database` 매개 변수를 지정 하 여 다른 동기화를 수행 합니다. 두 번째 동기화는 새로 명명 된 데이터베이스를 두 번째 파일 집합에 복사 하 고 모든 복제본을 하이드레이션 하며 나중 합니다. 이러한 동기화는 포털의 모델 동기화 명령을 사용 하 여 수행할 수 없습니다.
+* 주 서버에서 데이터베이스의 이름을 바꿀 때 데이터베이스가 복제본에 올바르게 동기화 되었는지 확인 하는 데 필요한 추가 단계가 있습니다. 이름을 바꾼 후에는 [AzAnalysisServicesInstance](https://docs.microsoft.com/powershell/module/az.analysisservices/sync-AzAnalysisServicesinstance) 명령을 사용 하 여 동기화를 수행 하 고 `-Database` 매개 변수를 이전 데이터베이스 이름과 함께 지정 합니다. 이 동기화는 복제본에서 이전 이름의 데이터베이스와 파일을 제거 합니다. 그런 다음 새 데이터베이스 이름을 사용 하 여 `-Database` 매개 변수를 지정 하 여 다른 동기화를 수행 합니다. 두 번째 동기화는 새로 명명 된 데이터베이스를 두 번째 파일 집합에 복사 하 고 모든 복제본을 하이드레이션 하며 나중 합니다. 이러한 동기화는 포털의 모델 동기화 명령을 사용 하 여 수행할 수 없습니다.
 
 ### <a name="synchronization-mode"></a>동기화 모드
 
@@ -74,19 +74,23 @@ SSMS를 사용 하 여 고급 속성에서 ReplicaSyncMode를 설정 합니다. 
 
 ## <a name="monitor-qpu-usage"></a>QPU 사용량 모니터링
 
-서버의 규모 확장이 필요한지 확인하려면 메트릭을 사용하여 Azure Portal에서 서버를 모니터링하십시오. QPU가 정기적으로 최대로 출력되는 지점까지 증가하는 경우 모델에 대한 쿼리 수가 계획의 QPU 한도를 초과하고 있음을 의미합니다. 쿼리 풀 작업 큐 길이 메트릭은 쿼리 스레드 풀 큐의 쿼리 수가 사용 가능한 QPU를 초과하면 증가합니다. 
+서버에 대 한 확장이 필요한 지 확인 하려면 메트릭을 사용 하 여 Azure Portal에서 [서버를 모니터링](analysis-services-monitor.md) 합니다. QPU가 정기적으로 최대로 출력되는 지점까지 증가하는 경우 모델에 대한 쿼리 수가 계획의 QPU 한도를 초과하고 있음을 의미합니다. 쿼리 풀 작업 큐 길이 메트릭은 쿼리 스레드 풀 큐의 쿼리 수가 사용 가능한 QPU를 초과하면 증가합니다. 
 
 관찰할 또 다른 좋은 메트릭은 ServerResourceType의 평균 QPU입니다. 이 메트릭은 주 서버에 대 한 평균 QPU를 쿼리 풀과 비교 합니다. 
 
 ![규모 확장 메트릭 쿼리](media/analysis-services-scale-out/aas-scale-out-monitor.png)
 
-### <a name="to-configure-qpu-by-serverresourcetype"></a>ServerResourceType에서 QPU을 구성 하려면
+**ServerResourceType에서 QPU을 구성 하려면**
+
 1. 메트릭 꺾은선형 차트에서 **메트릭 추가**를 클릭 합니다. 
 2. **리소스**에서 서버를 선택 하 고 **메트릭 네임 스페이스**에서 **Analysis Services 표준 메트릭**을 선택한 다음 **메트릭**에서 **QPU**를 선택 하 고 **집계**에서 **Avg**를 선택 합니다. 
 3. **분할 적용**을 클릭 합니다. 
 4. **값**에서 **serverresourcetype**를 선택 합니다.  
 
-자세한 내용은 [서버 메트릭 모니터링](analysis-services-monitor.md)을 참조하세요.
+### <a name="detailed-diagnostic-logging"></a>자세한 진단 로깅
+
+확장 된 서버 리소스의 자세한 진단을 보려면 Azure Monitor 로그를 사용 합니다. 로그를 사용 하면 Log Analytics 쿼리를 사용 하 여 서버 및 복제본 별로 QPU 및 메모리를 중단할 수 있습니다. 자세히 알아보려면 [Analysis Services 진단 로깅](analysis-services-logging.md#example-queries)의 예제 쿼리를 참조 하세요.
+
 
 ## <a name="configure-scale-out"></a>규모 확장 구성
 
@@ -94,7 +98,7 @@ SSMS를 사용 하 여 고급 속성에서 ReplicaSyncMode를 설정 합니다. 
 
 1. 포털에서 **확장**을 클릭 합니다. 슬라이더를 사용 하 여 쿼리 복제본 서버 수를 선택 합니다. 선택한 복제본 수는 기존 서버에 추가됩니다.  
 
-2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다. 기본 연결 문자열 (제외 `:rw`)을 사용 하는 클라이언트 [연결](#connections)은 쿼리 풀의 복제본으로 리디렉션됩니다. 
+2. 쿼리 서버에서 처리 서버를 제외하려면 **쿼리 풀에서 처리 서버 구분**에서 [예]를 선택합니다. 기본 연결 문자열 (`:rw`없음)을 사용 하는 클라이언트 [연결은](#connections) 쿼리 풀의 복제본으로 리디렉션됩니다. 
 
    ![규모 확장 슬라이더](media/analysis-services-scale-out/aas-scale-out-slider.png)
 
@@ -130,7 +134,7 @@ SSMS를 사용 하 여 고급 속성에서 ReplicaSyncMode를 설정 합니다. 
 |코드  |Description  |
 |---------|---------|
 |-1     |  올바르지 않음       |
-|0     | 복제 중        |
+|0     | Replicating        |
 |1     |  리하이드레이션       |
 |2     |   Completed       |
 |3     |   실패      |
@@ -152,7 +156,7 @@ PowerShell을 사용 하기 전에 [최신 Azure PowerShell 모듈을 설치 하
 
 자세한 내용은 [Az. microsoft.analysisservices.sharepoint.integration.dll 모듈을 사용 하 여 서비스 주체 사용](analysis-services-service-principal.md#azmodule)을 참조 하세요.
 
-## <a name="connections"></a>연결
+## <a name="connections"></a>Connections
 
 서버의 [개요] 페이지에는 두 개의 서버 이름이 있습니다. 서버에 대한 규모 확장을 아직 구성하지 않은 경우 두 서버 이름은 동일하게 작동합니다. 서버에 대한 규모 확장을 구성한 후에는 연결 형식에 따라 적절한 서버 이름을 지정해야 합니다. 
 

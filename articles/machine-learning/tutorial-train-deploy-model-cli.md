@@ -9,12 +9,12 @@ ms.service: machine-learning
 ms.subservice: core
 ms.topic: conceptual
 ms.date: 01/08/2019
-ms.openlocfilehash: 36d6b0cac0321c989fecbc5751d71c744cd83292
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 761011cba71c3907994616904cc854003abda7ee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77920946"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245128"
 ---
 # <a name="tutorial-train-and-deploy-a-model-from-the-cli"></a>자습서: CLI에서 모델 학습 및 배포
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -35,7 +35,7 @@ ms.locfileid: "77920946"
 > * 모델을 웹 서비스로 배포
 > * 웹 서비스를 사용 하 여 데이터 점수 매기기
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 없는 경우 시작하기 전에 체험 계정을 만듭니다. 지금 [Azure Machine Learning 평가판 또는 유료 버전](https://aka.ms/AMLFree)을 사용해 보세요.
 
@@ -381,7 +381,7 @@ az ml model deploy -n myservice -m "mymodel:1" --ic inferenceConfig.yml --dc aci
 
 `inferenceConfig.yml` 파일은 유추에 모델을 사용 하는 방법에 대 한 정보를 제공 합니다. 예를 들어, 항목 스크립트 (`score.py`) 및 소프트웨어 종속성을 참조 합니다. 
 
-이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-deployment-artifacts)를 참조 하세요.
+이 파일의 구조에 대 한 자세한 내용은 [유추 구성 스키마](reference-azure-machine-learning-cli.md#inference-configuration-schema)를 참조 하세요. 항목 스크립트에 대 한 자세한 내용은 [Azure Machine Learning를 사용 하 여 모델 배포](how-to-deploy-and-where.md#prepare-to-deploy)를 참조 하세요.
 
 `aciDeploymentConfig.yml`은 서비스를 호스트 하는 데 사용 되는 배포 환경을 설명 합니다. 배포 구성은 배포에 사용 하는 계산 형식에만 적용 됩니다. 이 경우 Azure Container Instance가 사용 됩니다. 자세한 내용은 [배포 구성 스키마](reference-azure-machine-learning-cli.md#deployment-configuration-schema)를 참조 하세요.
 

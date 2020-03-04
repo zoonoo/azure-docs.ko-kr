@@ -3,8 +3,8 @@ title: SQL 관리 되는 인스턴스 마이그레이션에 대 한 네트워크
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용 하 여 Azure SQL Database 관리 되는 인스턴스 마이그레이션의 원본 및 대상 구성에 대해 알아봅니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: 9a313ea798519273ce57961544ec5b37c4d9c5ca
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 48485b7ba0f846afa737454b092a6c1ee986b737
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749259"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254952"
 ---
 # <a name="network-topologies-for-azure-sql-db-managed-instance-migrations-using-azure-database-migration-service"></a>Azure Database Migration Service를 사용 하 여 Azure SQL DB Managed Instance 마이그레이션에 대 한 네트워크 토폴로지
 
@@ -77,18 +77,18 @@ Azure SQL Database Managed Instance가 온-프레미스 네트워크에 연결�
 
 | **이름**   | **포트** | **프로토콜** | **원본** | **대상** | **작업** |
 |------------|----------|--------------|------------|-----------------|------------|
-| DMS_subnet | 모두      | 모두          | DMS SUBNET | 모두             | 허용      |
+| DMS_subnet | 모두      | 모두          | DMS SUBNET | 모두             | Allow      |
 
 ## <a name="outbound-security-rules"></a>아웃바운드 보안 규칙
 
 | **이름**                  | **포트**                                              | **프로토콜** | **원본** | **대상**           | **작업** | **규칙이 필요한 이유**                                                                                                                                                                              |
 |---------------------------|-------------------------------------------------------|--------------|------------|---------------------------|------------|--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
-| 관리                | 443,9354                                              | TCP          | 모두        | 모두                       | 허용      | Service Bus 및 Azure blob storage를 통한 관리 평면 통신. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
-| 진단               | 12000                                                 | TCP          | 모두        | 모두                       | 허용      | DMS는 이 규칙을 사용하여 문제 해결을 위한 진단 정보를 수집합니다.                                                                                                                      |
-| SQL 원본 서버         | 1433(또는 SQL Server가 수신 대기 중인 TCP IP 포트) | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                                       |
-| SQL Server 명명된 인스턴스 | 1434                                                  | UDP          | 모두        | 온-프레미스 주소 공간 | 허용      | DMS의 SQL Server 명명된 인스턴스 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                        |
-| SMB 공유                 | 445                                                   | TCP          | 모두        | 온-프레미스 주소 공간 | 허용      | Azure SQL Database MI 및 Azure VM의 SQL Server로 마이그레이션할 데이터베이스 백업 파일을 저장하는 DMS용 SMB 네트워크 공유 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.) |
-| DMS_subnet                | 모두                                                   | 모두          | 모두        | DMS_Subnet                | 허용      |                                                                                                                                                                                                  |
+| 관리                | 443,9354                                              | TCP          | 모두        | 모두                       | Allow      | Service Bus 및 Azure blob storage를 통한 관리 평면 통신. <br/>(Microsoft 피어링을 사용하도록 설정한 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                             |
+| 진단               | 12000                                                 | TCP          | 모두        | 모두                       | Allow      | DMS는 이 규칙을 사용하여 문제 해결을 위한 진단 정보를 수집합니다.                                                                                                                      |
+| SQL 원본 서버         | 1433(또는 SQL Server가 수신 대기 중인 TCP IP 포트) | TCP          | 모두        | 온-프레미스 주소 공간 | Allow      | DMS의 SQL Server 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                                       |
+| SQL Server 명명된 인스턴스 | 1434                                                  | UDP          | 모두        | 온-프레미스 주소 공간 | Allow      | DMS의 SQL Server 명명된 인스턴스 원본 연결 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.)                                                                        |
+| SMB 공유                 | 445                                                   | TCP          | 모두        | 온-프레미스 주소 공간 | Allow      | Azure SQL Database MI 및 Azure VM의 SQL Server로 마이그레이션할 데이터베이스 백업 파일을 저장하는 DMS용 SMB 네트워크 공유 <br/>(사이트 간 연결이 있는 경우 이 규칙이 필요하지 않을 수 있습니다.) |
+| DMS_subnet                | 모두                                                   | 모두          | 모두        | DMS_Subnet                | Allow      |                                                                                                                                                                                                  |
 
 ## <a name="see-also"></a>참고 항목
 

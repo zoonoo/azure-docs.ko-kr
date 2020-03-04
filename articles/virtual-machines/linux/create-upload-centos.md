@@ -3,7 +3,7 @@ title: Azure에서 CentOS 기반 Linux VHD 만들기 및 업로드
 description: CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 ms.service: virtual-machines-linux
 ms.workload: infrastructure-services
@@ -11,14 +11,14 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 11/25/2019
 ms.author: mimckitt
-ms.openlocfilehash: a5a6dd7e451d3204c8ab2bd2eae95db93c2f0837
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: dff90df255d6b7e050fad9a278666f81fade500c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750236"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246134"
 ---
-# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>CentOS 기반 가상 머신을 Azure에 대해 준비
+# <a name="prepare-a-centos-based-virtual-machine-for-azure"></a>Azure용 CentOS 기반 가상 머신 준비
 
 CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크)를 만들고 업로드하는 방법에 대해 알아봅니다.
 
@@ -26,7 +26,7 @@ CentOS 기반 Linux 운영 체제가 포함된 Azure VHD(가상 하드 디스크
 * [Azure용 CentOS 7.0 이상 가상 머신 준비](#centos-70)
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서는 가상 하드 디스크에 CentOS 또는 그와 비슷한 파생 Linux 운영 체제를 이미 설치했다고 가정합니다. .vhd 파일을 만드는 여러 도구가 있습니다(예: Hyper-V와 같은 가상화 솔루션). 자세한 내용은 [Hyper-V 역할 설치 및 Virtual Machine 구성](https://technet.microsoft.com/library/hh846766.aspx)을 참조하십시오.
 

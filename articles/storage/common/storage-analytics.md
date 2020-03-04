@@ -8,16 +8,16 @@ ms.date: 03/03/2017
 ms.author: normesta
 ms.reviewer: fryu
 ms.subservice: common
-ms.openlocfilehash: efca3dad6d8bfadbc334067b0189d2bea5aef445
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 86b399879807e480176ee9a3ca3feaba1ec5dd85
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750513"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250875"
 ---
 # <a name="storage-analytics"></a>스토리지 분석
 
-Azure Storage 분석에서는 로깅을 수행하고 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고, 사용 추세를 분석하며, 스토리지 계정 문제를 진단할 수 있습니다.
+Azure Storage 분석은 로깅을 수행하며 Storage 계정에 대한 메트릭 데이터를 제공합니다. 이 데이터를 사용하여 요청을 추적하고 사용량 추세를 분석하며 스토리지 계정에 대한 문제를 진단할 수 있습니다.
 
 스토리지 분석을 사용하려면 모니터링할 각 서비스에 대해 스토리지 분석을 개별적으로 사용하도록 설정해야 합니다. [Azure Portal](https://portal.azure.com)에서 사용 하도록 설정할 수 있습니다. 자세한 내용은 [Azure Portal에서 저장소 계정 모니터링](storage-monitor-storage-account.md)을 참조 하세요. REST API 또는 클라이언트 라이브러리를 통해 프로그래밍 방식으로 스토리지 분석을 사용하도록 설정할 수도 있습니다. [Blob 서비스](/rest/api/storageservices/set-blob-service-properties)속성 설정, [큐 서비스 속성](/rest/api/storageservices/set-queue-service-properties)설정, [테이블 서비스 속성 설정](/rest/api/storageservices/set-table-service-properties)및 [파일 서비스 속성](/rest/api/storageservices/Get-File-Service-Properties) 설정 작업을 사용 하 여 각 서비스에 대해 스토리지 분석를 사용 하도록 설정 합니다.
 
@@ -42,7 +42,7 @@ Azure Storage 분석에서는 로깅을 수행하고 Storage 계정에 대한 �
 
 ### <a name="understanding-billable-requests"></a>청구 가능한 요청 이해
 
-계정의 스토리지 서비스에 대한 모든 요청에는 요금이 청구될 수도 있고 청구되지 않을 수도 있습니다. Storage 분석에서는 요청 처리 방법을 나타내는 상태 메시지를 포함하여 서비스에 대한 개별 요청을 기록합니다. 마찬가지로 서비스 및 해당 서비스의 API 작업에 대한 메트릭도 스토리지됩니다. 여기에는 특정 상태 메시지의 개수와 비율이 포함됩니다. 이러한 기능을 함께 사용하면 요금이 청구될 수 있는 요청을 분석하고 애플리케이션을 개선할 수 있으며 서비스에 대한 요청의 문제를 진단할 수 있습니다. 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://blogs.msdn.com/b/windowsazurestorage/archive/2010/07/09/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity.aspx)을 참조하세요.
+계정의 스토리지 서비스에 대한 모든 요청에는 요금이 청구될 수도 있고 청구되지 않을 수도 있습니다. Storage 분석에서는 요청 처리 방법을 나타내는 상태 메시지를 포함하여 서비스에 대한 개별 요청을 기록합니다. 마찬가지로 서비스 및 해당 서비스의 API 작업에 대한 메트릭도 스토리지됩니다. 여기에는 특정 상태 메시지의 개수와 비율이 포함됩니다. 이러한 기능을 함께 사용하면 요금이 청구될 수 있는 요청을 분석하고 애플리케이션을 개선할 수 있으며 서비스에 대한 요청의 문제를 진단할 수 있습니다. 청구에 대한 자세한 내용은 [Azure Storage 청구 이해 - 대역폭, 트랜잭션 및 용량](https://docs.microsoft.com/archive/blogs/windowsazurestorage/understanding-windows-azure-storage-billing-bandwidth-transactions-and-capacity)을 참조하세요.
 
 스토리지 분석 데이터를 확인할 때는 [스토리지 분석에서 기록한 작업 및 상태 메시지](/rest/api/storageservices/storage-analytics-logged-operations-and-status-messages) 토픽의 표를 통해 요금이 청구될 수 있는 요청을 확인할 수 있습니다. 그런 후에 실제 로그 및 메트릭 데이터를 상태 메시지와 비교하여 특정 요청에 대해 요금이 부과되었는지 파악할 수 있습니다. 또한 이전 항목의 표를 통해 스토리지 서비스 또는 개별 API 작업의 사용 가능 여부도 조사할 수 있습니다.
 

@@ -3,12 +3,12 @@ title: Azure Backup 지원 매트릭스
 description: Azure Backup 서비스에 대한 지원 설정 및 제한 사항에 대한 요약을 제공합니다.
 ms.topic: conceptual
 ms.date: 02/17/2019
-ms.openlocfilehash: dd4ec646c786ee686567aa137845e583a4cf47e3
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 788da5708178cfa533d4382a4a417cef73f46a5e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206659"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254903"
 ---
 # <a name="support-matrix-for-azure-backup"></a>Azure Backup에 대 한 지원 매트릭스
 
@@ -32,7 +32,7 @@ Azure Backup는 Recovery Services 자격 증명 모음을 사용 하 여 백업�
 --- | ---
 **구독의 자격 증명 모음 수** | 단일 구독에서 최대 500개의 Recovery Services 자격 증명 모음입니다.
 **자격 증명 모음의 머신 수** | 단일 자격 증명 모음에서 최대 1000 Azure Vm.<br/><br/> 최대 50대의 MABS 서버를 단일 자격 증명 모음에 등록할 수 있습니다.
-**자격 증명 모음 스토리지의 데이터 원본 수** | 최대 54400 GB Azure VM 백업에는 제한이 없습니다.
+**데이터 원본** | 개별 [데이터 원본의](https://docs.microsoft.com/azure/backup/backup-azure-backup-faq#how-is-the-data-source-size-determined) 최대 크기는 54400입니다. Azure VM 백업에는이 제한이 적용 되지 않습니다. 자격 증명 모음에 백업할 수 있는 총 데이터 양에 제한이 적용 되지 않습니다.
 **자격 증명 모음에 대한 백업 횟수** | **Azure vm:** 하루에 한 번<br/><br/>**DPM/MABS로 보호 되는 컴퓨터:** 하루에 두 번<br/><br/> **MARS 에이전트를 사용 하 여 직접 백업 하는 컴퓨터:** 하루에 3 번
 **자격 증명 모음 간 백업** | 백업은 한 지역 내에서 수행됩니다.<br/><br/> 백업할 VM이 포함된 각 Azure 지역에 자격 증명 모음이 있어야 합니다. 다른 지역으로 백업할 수 없습니다.
 **자격 증명 모음 이동** | [자격 증명](https://docs.microsoft.com/azure/backup/backup-azure-move-recovery-services-vault) 모음은 구독 간에 이동 하거나 동일한 구독의 리소스 그룹 간에 이동할 수 있습니다. 그러나 하위 자격 증명 모음을 지역 간에 이동 하는 것은 지원 되지 않습니다.
@@ -155,8 +155,6 @@ Azure Backup는 데이터 가용성 및 복원 력 기능을 강화 하는 지�
 | MARS 에이전트/온-프레미스 | 예                                                           | 해당 없음               |
 | SQL/SAP HANA          | 예                                                           | 해당 없음               |
 | AFS                    | 예                                                           | 해당 없음               |
-
-
 
 ## <a name="next-steps"></a>다음 단계
 

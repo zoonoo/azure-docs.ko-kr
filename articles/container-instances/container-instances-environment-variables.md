@@ -3,12 +3,12 @@ title: 컨테이너 인스턴스에서 환경 변수 설정
 description: Azure Container Instances에서 실행하는 컨테이너에서 환경 변수를 설정하는 방법 알아보기
 ms.topic: article
 ms.date: 04/17/2019
-ms.openlocfilehash: d12d3204740f2971216636f9f5dd6403b17ecbff
-ms.sourcegitcommit: 8cf199fbb3d7f36478a54700740eb2e9edb823e8
+ms.openlocfilehash: c3c76ba0c6131a8ab3de68c13c9dfddaf7e8749a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/25/2019
-ms.locfileid: "74483192"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252208"
 ---
 # <a name="set-environment-variables-in-container-instances"></a>컨테이너 인스턴스에서 환경 변수 설정
 
@@ -58,8 +58,8 @@ az container logs --resource-group myResourceGroup --name mycontainer2
 
 컨테이너의 출력은 환경 변수를 설정하여 두 번째 컨테이너의 스크립트 동작을 수정한 방법을 보여줍니다.
 
-```console
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer1
+**mycontainer2**
+```output
 [('the', 990),
  ('and', 702),
  ('of', 628),
@@ -70,8 +70,10 @@ azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name myc
  ('my', 441),
  ('in', 399),
  ('HAMLET', 386)]
+```
 
-azureuser@Azure:~$ az container logs --resource-group myResourceGroup --name mycontainer2
+**mycontainer2**
+```output
 [('CLAUDIUS', 120),
  ('POLONIUS', 113),
  ('GERTRUDE', 82),

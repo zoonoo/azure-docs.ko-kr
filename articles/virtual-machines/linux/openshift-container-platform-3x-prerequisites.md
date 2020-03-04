@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.workload: infrastructure
 ms.date: 10/23/2019
 ms.author: haroldw
-ms.openlocfilehash: 069561c4bed55bf6021b594d693e076ef8d313bd
-ms.sourcegitcommit: 49cf9786d3134517727ff1e656c4d8531bbbd332
+ms.openlocfilehash: 76e7a9aa9c0f17501885c8bd06c6997fdc8d2104
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74035467"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255684"
 ---
 # <a name="common-prerequisites-for-deploying-openshift-container-platform-311-in-azure"></a>Azure에서 OpenShift Container Platform 3.11을 배포 하기 위한 일반적인 필수 구성 요소
 
@@ -49,7 +49,7 @@ VM(가상 머신)은 Azure Resource Manager 템플릿을 통해 배포되기 때
 > * OpenShift 클러스터에 대한 SSH 키를 관리하는 키 자격 증명 모음을 만듭니다.
 > * Azure 클라우드 공급자가 사용할 서비스 주체를 만듭니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인 
 [az login](/cli/azure/reference-index) 명령으로 Azure 구독에 로그인하고 화면의 지시를 따르거나 **시도**를 클릭하여 Cloud Shell을 사용합니다.
@@ -102,9 +102,9 @@ OpenShift는 사용자 이름 및 암호 또는 서비스 주체를 사용하여
 
 [az ad sp create-for-rbac](/cli/azure/ad/sp)를 사용하여 서비스 주체를 만들고 OpenShift가 필요로 하는 자격 증명을 출력합니다.
 
-다음 예제에서는 서비스 주체를 만들고 openshiftrg라는 리소스 그룹에 대한 contributor 권한을 할당합니다.
+다음 예제에서는 서비스 주체를 만들고 *openshiftrg*이라는 리소스 그룹에 대 한 참가자 권한을 할당 합니다.
 
-먼저 openshiftrg라는 리소스 그룹을 만듭니다.
+먼저 *openshiftrg*이라는 리소스 그룹을 만듭니다.
 
 ```azurecli
 az group create -l eastus -n openshiftrg

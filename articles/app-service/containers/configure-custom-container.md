@@ -1,14 +1,14 @@
 ---
 title: 사용자 지정 Linux 컨테이너 구성
-description: Azure App Service에서 사용자 지정 Linux 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여 줍니다.
+description: Azure App Service에서 사용자 지정 Linux 컨테이너를 구성 하는 방법에 대해 알아봅니다. 이 문서에서는 가장 일반적인 구성 작업을 보여줍니다.
 ms.topic: article
 ms.date: 03/28/2019
-ms.openlocfilehash: d9d6311e69ba4e3893da81a16b06c8baed78cdcd
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: 6baa1fbd4932aa83a54081ff166dcae7f258fff9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671876"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255879"
 ---
 # <a name="configure-a-custom-linux-container-for-azure-app-service"></a>Azure App Service에 대 한 사용자 지정 Linux 컨테이너 구성
 
@@ -159,6 +159,8 @@ wordpress:
 ## <a name="configure-vnet-integration"></a>VNet 통합 구성
 
 VNet 통합에 사용자 지정 컨테이너를 사용 하려면 컨테이너를 추가로 구성 해야 할 수 있습니다. [Azure Virtual Network에 앱 통합](../web-sites-integrate-with-vnet.md)을 참조하세요.
+
+[!INCLUDE [robots933456](../../../includes/app-service-web-configure-robots933456.md)]
 
 ## <a name="next-steps"></a>다음 단계
 

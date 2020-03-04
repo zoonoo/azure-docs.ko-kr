@@ -11,12 +11,12 @@ ms.workload: identity
 ms.topic: conceptual
 ms.date: 01/21/2020
 ms.author: iainfou
-ms.openlocfilehash: 3cb57fae2b1c67ece321a294e56612f49358405a
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: c4b2dea05b459d6e9ae4eb086fa127d88a84a768
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612727"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249201"
 ---
 # <a name="common-errors-and-troubleshooting-steps-for-azure-active-directory-domain-services"></a>Azure Active Directory Domain Services에 대 한 일반적인 오류 및 문제 해결 단계
 
@@ -138,7 +138,7 @@ Azure AD 테 넌 트에서 하나 이상의 사용자가 Azure AD DS 관리 되�
       * [Azure AD Connect의 최신 권장 릴리스](https://www.microsoft.com/download/details.aspx?id=47594)를 배포 하거나 업데이트 했습니다.
       * [전체 동기화를 수행][hybrid-phs]하도록 Azure AD Connect를 구성 했습니다.
       * 디렉터리 크기에 따라 Azure AD DS에서 사용자 계정 및 자격 증명 해시를 사용 하는 데 다소 시간이 걸릴 수 있습니다. 관리 되는 도메인에 대해 인증을 시도 하기 전에 충분 한 시간 동안 기다려야 합니다.
-      * 이전 단계를 확인 한 후에도 문제가 지속 되 면 *Microsoft Azure AD 동기화 서비스*를 다시 시작 하십시오. [관리 VM][management-vm]에서 명령 프롬프트를 열고 다음 명령을 실행 합니다.
+      * 이전 단계를 확인 한 후에도 문제가 지속 되 면 *Microsoft Azure AD 동기화 서비스*를 다시 시작 하십시오. Azure AD Connect 서버에서 명령 프롬프트를 열고 다음 명령을 실행 합니다.
     
         ```console
         net stop 'Microsoft Azure AD Sync'

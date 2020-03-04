@@ -14,12 +14,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 09/30/2019
 ms.author: juliako
-ms.openlocfilehash: c1b72f2a84f8cafa1767639cae64fb420b0a997c
-ms.sourcegitcommit: 87781a4207c25c4831421c7309c03fce5fb5793f
+ms.openlocfilehash: e3937241724aab63f770ad56cbf96d2e1b45f00e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/23/2020
-ms.locfileid: "76546047"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251365"
 ---
 # <a name="live-events-and-live-outputs-in-media-services"></a>Media Services에서 라이브 이벤트 및 라이브 출력
 
@@ -34,7 +34,7 @@ Azure Media Services를 사용 하면 Azure 클라우드의 고객에 게 라이
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) 는 통과 또는 라이브 인코딩의 두 가지 유형 중 하나일 수 있습니다. 형식은 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
+[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents) 는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. 형식은 [LiveEventEncodingType](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventencodingtype)를 사용 하 여 만드는 동안 설정 됩니다.
 
 * **LiveEventEncodingType**: 온-프레미스 라이브 인코더가 다중 비트 전송률 스트림을 보냅니다. 수집 스트림은 추가 처리 없이 라이브 이벤트를 통과 합니다. 통과 모드 라고도 합니다.
 * **LiveEventEncodingType**: 온-프레미스 라이브 인코더는 단일 비트 전송률 스트림을 라이브 이벤트로 보내고 Media Services 여러 비트 전송률 스트림을 만듭니다. 기여 피드가 720p 이상 해상도 인 경우 **Default720p** 사전 설정은 6 가지 해상도/비트 전송률 쌍 집합을 인코딩합니다.
@@ -84,7 +84,7 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
     
 * 이벤트를 만들 때 실시간 화상 기능을 사용 하도록 선택할 수 있습니다. <br/> 기본적으로 실시간 기록을 사용할 수 없습니다. 라이브 이벤트 또는 연결 된 라이브 출력이 실행 되는 동안에는이 속성을 변경할 수 없습니다. 
 
-### <a name="naming-rules"></a>명명 규칙
+### <a name="naming-rules"></a>이름 지정 규칙
 
 * 최대 라이브 이벤트 이름은 32 자입니다.
 * 이름은 `^[a-zA-Z0-9]+(-*[a-zA-Z0-9])*$`[regex](https://docs.microsoft.com/dotnet/standard/base-types/regular-expression-language-quick-reference) 패턴을 따라야 합니다.
@@ -121,9 +121,9 @@ Live encoding을 사용 하는 경우, AAC/AVC 비디오 코덱 및 (AAC, He-aac
 
     |언어|베 니 티 URL 사용|액세스 토큰 설정|
     |---|---|---|
-    |REST|[properties.vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput.accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
-    |CLI|[--vanity-url](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--access-token](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
-    |.NET|[LiveEvent.VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput.AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
+    |REST (영문)|[vanityUrl](https://docs.microsoft.com/rest/api/media/liveevents/create#liveevent)|[LiveEventInput. accessToken](https://docs.microsoft.com/rest/api/media/liveevents/create#liveeventinput)|
+    |CLI|[--베 니 티](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#az-ams-live-event-create)|[--액세스 토큰](https://docs.microsoft.com/cli/azure/ams/live-event?view=azure-cli-latest#optional-parameters)|
+    |.NET|[라이브. VanityUrl](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveevent.vanityurl?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEvent_VanityUrl)|[LiveEventInput. AccessToken](https://docs.microsoft.com/dotnet/api/microsoft.azure.management.media.models.liveeventinput.accesstoken?view=azure-dotnet#Microsoft_Azure_Management_Media_Models_LiveEventInput_AccessToken)|
     
 ### <a name="live-ingest-url-naming-rules"></a>라이브 수집 URL 명명 규칙
 

@@ -6,14 +6,14 @@ author: alkohli
 ms.service: databox
 ms.subservice: edge
 ms.topic: article
-ms.date: 09/26/2019
+ms.date: 03/02/2020
 ms.author: alkohli
-ms.openlocfilehash: 9e1a7f7cd2643aae61e60d77ad74f4a08266a977
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: b646ee9b727d5adf4ec1c8b5c769b3d8f5c0fc1c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863600"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252043"
 ---
 # <a name="azure-data-box-edge-technical-specifications"></a>Azure Data Box Edge 기술 사양
 
@@ -47,11 +47,19 @@ Data Box Edge 장치에는 고성능 팬이 있는 2 개의 100-240 V 전원 공
 | 최대 출력 전원    | 750 W                     |
 | 빈도               | 50/60Hz                   |
 | 전압 범위 선택 | 자동 범위: 100-240 V AC |
-| 핫 플러그형           | 예                        |
+| 핫 플러그형           | yes                        |
 
 <!--## Power consumption statistics
 
 The following table lists the typical power consumption data (actual values may vary from the published) for the Data Box Edge device.-->
+
+## <a name="network-interface-specifications"></a>네트워크 인터페이스 사양
+
+장치에는 PORT1-PORT6의 6 개 네트워크 인터페이스가 Data Box Edge 있습니다.
+
+| 사양           | Description                 |
+|-------------------------|----------------------------|
+|  네트워크 인터페이스    | 1GbE 인터페이스 2개 - 1개는 관리용으로 사용자가 구성할 수 없으며 초기 설정에 사용됩니다. 다른 인터페이스는 사용자가 구성 가능하고 데이터 전송에 사용할 수 있으며, 기본적으로 DHCP입니다. <br>25GbE 인터페이스 2개 - 10GbE 인터페이스로도 작동할 수 있습니다. 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다. <br> 25GbE 인터페이스 2개 - 사용자는 이러한 데이터 인터페이스를 DHCP(기본값) 또는 정적으로 구성할 수 있습니다.                  |
 
 ## <a name="storage-specifications"></a>스토리지 사양
 
