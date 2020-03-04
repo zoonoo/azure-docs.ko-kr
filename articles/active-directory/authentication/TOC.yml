@@ -13,6 +13,8 @@
       href: tutorial-enable-azure-mfa.md
     - name: 온-프레미스에 암호 쓰기 저장 사용
       href: tutorial-enable-sspr-writeback.md
+    - name: 사용자 지정 금지 암호 목록 구성
+      href: tutorial-configure-custom-password-protection.md
     - name: Azure ID 보호 통합
       href: tutorial-risk-based-sspr-mfa.md
 - name: 개념
@@ -108,8 +110,6 @@
           href: howto-registration-mfa-sspr-combined-troubleshoot.md
     - name: Azure AD 암호 보호
       items:
-        - name: 금지된 암호 목록 구성
-          href: howto-password-ban-bad-configure.md
         - name: 온-프레미스 통합
           items:
             - name: Azure AD 암호 보호 배포

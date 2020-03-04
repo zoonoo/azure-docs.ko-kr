@@ -103,12 +103,14 @@
           href: live-event-cloud-dvr.md
         - name: 라이브 전사
           href: live-transcription.md
-        - name: 기능 비교
+        - name: 라이브 이벤트 유형 비교
           href: live-event-types-comparison.md
         - name: 상태 및 청구
           href: live-event-states-billing.md
         - name: 대기 시간
           href: live-event-latency.md
+        - name: 온-프레미스 인코더 파트너 되기
+          href: become-on-premises-encoder-partner.md
         - name: 라이브 이벤트 오류 코드
           href: live-event-error-codes.md
     - name: 패키징 및 제공

@@ -27,12 +27,8 @@
               href: call-endpoint-python.md
         - name: SDK)
           items:
-            - name: 'C# 사용'
-              href: sdk-csharp-quick-start.md
-            - name: Python 사용
-              href: sdk-python-quickstart.md
-            - name: Java 사용
-              href: sdk-java-quickstart.md
+            - name: Bing Custom Search 클라이언트 라이브러리
+              href: ./quickstarts/client-libraries.md
 - name: 자습서
   items:
     - name: Custom Search 웹 페이지 빌드
@@ -63,7 +59,7 @@
     - name: 검색 결과 페이징
       href: ../Bing-Web-Search/paging-search-results.md
       maintainContext: true
-- name: 참고 자료
+- name: 참조
   items:
     - name: Bing Custom Autosuggest API 참조
       href: 'https://docs.microsoft.com/rest/api/cognitiveservices-bingsearch/bing-custom-autosuggest-api-v7-reference'
@@ -94,7 +90,7 @@
           href: 'https://godoc.org/github.com/Azure/azure-sdk-for-go/services/cognitiveservices/v1.0/customimagesearch'
 - name: 리소스
   items:
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/cognitive-services/bing-custom-search/'
     - name: UserVoice
       href: 'https://cognitive.uservoice.com/forums/598147-bing-custom-search-api'
