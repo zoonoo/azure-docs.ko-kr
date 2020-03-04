@@ -84,7 +84,7 @@
             - name: 웹후크에서 Runbook 시작
               href: automation-webhooks.md
             - name: Runbook 입력 매개 변수 구성
-              href: automation-runbook-input-parameters.md
+              href: runbook-input-parameters.md
             - name: 자식 Runbook
               href: automation-child-runbooks.md
             - name: Azure Automation Runbook에 JSON 개체 전달

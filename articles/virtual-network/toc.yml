@@ -45,6 +45,12 @@
               href: nat-overview.md
             - name: 리소스
               href: nat-gateway-resource.md
+            - name: 메트릭 및 경고
+              href: nat-metrics.md
+            - name: 문제 해결
+              href: troubleshoot-nat.md
+        - name: 라우팅
+          href: virtual-networks-udr-overview.md
         - name: 백 엔드 연결 상호 운용성
           items:
             - name: 접두사 및 테스트 설정
@@ -75,20 +81,20 @@
           href: ipv6-public-ip-address-prefix.md
     - name: 보안
       items:
-        - name: DDoS 보호
-          href: ddos-protection-overview.md
-        - name: Kubernetes 네트워크 정책
-          href: kubernetes-network-policies.md
-        - name: 라우팅
-          href: virtual-networks-udr-overview.md
-        - name: 보안 그룹
+        - name: 네트워크 보안 그룹
           href: security-overview.md
+        - name: 애플리케이션 보안 그룹
+          href: application-security-groups.md
         - name: 서비스 태그
           href: service-tags-overview.md
         - name: 서비스 엔드포인트
           href: virtual-network-service-endpoints-overview.md
         - name: 서비스 엔드포인트 정책
           href: virtual-network-service-endpoint-policies-overview.md
+        - name: Kubernetes 네트워크 정책
+          href: kubernetes-network-policies.md
+        - name: DDoS 보호
+          href: ddos-protection-overview.md
         - name: 가상 네트워크 TAP
           href: virtual-network-tap-overview.md
     - name: 서브넷
@@ -131,6 +137,18 @@
               href: tutorial-create-validate-nat-gateway-powershell.md
             - name: NAT 게이트웨이 만들기 및 유효성 검사 - CLI
               href: tutorial-create-validate-nat-gateway-cli.md
+        - name: 네트워크 트래픽 라우팅
+          items:
+            - name: Azure portal
+              href: tutorial-create-route-table-portal.md
+            - name: Azure PowerShell
+              href: tutorial-create-route-table-powershell.md
+            - name: Azure CLI
+              href: tutorial-create-route-table-cli.md
+            - name: Ansible
+              href: /azure/ansible/ansible-create-configure-route-table
+            - name: 경로 테이블 관리
+              href: manage-route-table.md
         - name: NIC 관리
           href: virtual-network-network-interface.md
         - name: 가상 네트워크 관리
@@ -251,24 +269,12 @@
                   href: tutorial-restrict-network-access-to-resources-cli.md
             - name: 서비스 엔드포인트 정책 사용
               items:
-                - name: Azure Portal
+                - name: Azure portal
                   href: virtual-network-service-endpoint-policies-portal.md
                 - name: Azure PowerShell
                   href: virtual-network-service-endpoint-policies-powershell.md
                 - name: Azure CLI
                   href: virtual-network-service-endpoint-policies-cli.md
-        - name: 네트워크 트래픽 라우팅
-          items:
-            - name: Azure portal
-              href: tutorial-create-route-table-portal.md
-            - name: Azure PowerShell
-              href: tutorial-create-route-table-powershell.md
-            - name: Azure CLI
-              href: tutorial-create-route-table-cli.md
-            - name: Ansible
-              href: /azure/ansible/ansible-create-configure-route-table
-            - name: 경로 테이블 관리
-              href: manage-route-table.md
         - name: DDoS 보호 관리
           href: manage-ddos-protection.md
         - name: DDoS Protection 표준에 파트너 온보딩

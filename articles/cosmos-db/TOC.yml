@@ -136,7 +136,7 @@
           href: provision-throughput-autopilot.md
         - name: Autopilot FAQ
           href: autopilot-faq.md
-    - name: SQL 쿼리 참조
+    - name: SQL 쿼리(SQL query)
       items:
         - name: 시작
           displayName: 'sql query, query basics'
@@ -437,6 +437,9 @@
             - name: 지리 공간적 데이터 인덱스
               displayName: 'geospatial, spatial, index'
               href: sql-query-geospatial-index.md
+        - name: DateTime
+          displayName: 'datetime, date, time'
+          href: working-with-dates.md
         - name: 매개 변수가 있는 쿼리
           displayName: 'parameterized query, parameterized, parameter, parameters'
           href: sql-query-parameterized-queries.md
@@ -464,10 +467,6 @@
             - name: 인덱싱 정책
               displayName: 'consistent, none'
               href: index-policy.md
-        - name: 데이터 형식
-          items:
-            - name: DateTime
-              href: working-with-dates.md
         - name: TTL(Time to live)
           displayName: 'delete, delete data, ttl'
           href: time-to-live.md

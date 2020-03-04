@@ -8,13 +8,13 @@
   expanded: true
   items:
     - name: Jenkins 서버 만들기
-      href: install-jenkins-solution-template.md
+      href: install-solution-template-quickstart.md
 - name: 자습서
   items:
     - name: 1. 설치
       items:
         - name: Jenkins 서버 만들기
-          href: install-jenkins-solution-template.md
+          href: install-solution-template-tutorial.md
     - name: 2. 구성
       items:
         - name: Azure Container Instances를 사용하여 크기 조정

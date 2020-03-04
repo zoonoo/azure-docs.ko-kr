@@ -5,6 +5,7 @@
     - name: Azure Front Door Service란?
       href: front-door-overview.md
 - name: 빠른 시작
+  expanded: true
   items:
     - name: Front Door 만들기
       href: quickstart-create-front-door.md
@@ -68,7 +69,7 @@
   items:
     - name: Front Door FAQ
       href: front-door-faq.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: Azure CLI
       href: /cli/azure/ext/front-door/
@@ -80,7 +81,7 @@
   items:
     - name: Azure 로드맵
       href: 'https://azure.microsoft.com/roadmap/'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/frontdoor/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'

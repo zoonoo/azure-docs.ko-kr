@@ -20,7 +20,7 @@
       href: data-catalog-dsr.md
     - name: Azure 데이터 카탈로그 도입
       href: data-catalog-adopting-data-catalog.md
-    - name: 필수 조건
+    - name: 사전 요구 사항
       href: data-catalog-prerequisites.md
     - name: FAQ
       href: data-catalog-frequently-asked-questions.md
@@ -52,7 +52,7 @@
       href: data-catalog-how-to-view-related-data-assets.md
     - name: 문제 해결
       href: troubleshoot-policy-configuration.md
-- name: 참고 자료
+- name: 참조
   items:
     - name: 코드 샘플
       href: data-catalog-samples.md
@@ -70,7 +70,7 @@
       href: data-catalog-keyboard-shortcuts.md
     - name: MSDN 포럼
       href: 'https://social.msdn.microsoft.com/Forums/en-US/home?forum=azuredatacatalog'
-    - name: 가격
+    - name: 가격 책정
       href: 'https://azure.microsoft.com/pricing/details/data-catalog/'
     - name: 요금 계산기
       href: 'https://azure.microsoft.com/pricing/calculator/'
