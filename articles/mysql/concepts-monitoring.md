@@ -6,12 +6,12 @@ ms.author: andrela
 ms.service: mysql
 ms.topic: conceptual
 ms.date: 12/02/2019
-ms.openlocfilehash: ec99db9406c5c83cdcbf322c45cea40c6643ee8f
-ms.sourcegitcommit: 6bb98654e97d213c549b23ebb161bda4468a1997
+ms.openlocfilehash: e9ae19e503b6b54e881af3c6477f77ffa1c930b0
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74770886"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252608"
 ---
 # <a name="monitoring-in-azure-database-for-mysql"></a>Azure Database for MySQL에서 모니터링
 서버에 대한 데이터를 모니터링하면 워크로드에 대한 문제를 해결하고 최적화할 수 있습니다. Azure Database for MySQL은 서버의 동작에 대한 통찰력을 제공하는 다양한 메트릭을 제공합니다.
@@ -22,20 +22,20 @@ ms.locfileid: "74770886"
 ### <a name="list-of-metrics"></a>메트릭 목록
 Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다.
 
-|메트릭|메트릭 표시 이름|단위|설명|
+|메트릭|메트릭 표시 이름|단위|Description|
 |---|---|---|---|
 |cpu_percent|CPU 백분율|백분율|사용 중인 CPU의 비율|
 |memory_percent|메모리 백분율|백분율|사용 중인 메모리의 비율|
 |io_consumption_percent|IO 백분율|백분율|사용 중인 IO의 비율|
 |storage_percent|스토리지 비율|백분율|서버의 최대값을 초과하여 사용된 스토리지의 비율|
-|storage_used|사용된 스토리지|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
+|storage_used|스토리지 사용됨|바이트|사용 중인 스토리지의 양 서비스에서 사용되는 스토리지에는 데이터베이스 파일, 트랜잭션 로그 및 서버 로그가 포함될 수 있습니다.|
 |serverlog_storage_percent|서버 로그 스토리지 비율|백분율|서버의 최대 서버 로그 스토리지에서 사용된 서버 로그 스토리지의 백분율입니다.|
 |serverlog_storage_percent|사용된 서버 로그 스토리지|바이트|서버 로그 스토리지에서 사용된 크기입니다.|
 |serverlog_storage_limit|서버 로그 스토리지 제한|바이트|이 서버에 대한 서버 로그 스토리지의 최대 크기입니다.|
 |storage_limit|스토리지 제한|바이트|이 서버의 최대 스토리지|
-|active_connections|활성 연결|카운트|서버에 대한 활성 연결 수|
-|connections_failed|실패한 연결|카운트|서버에 대해 실패한 연결 수|
-|seconds_behind_master|복제 지연 시간(초)|카운트|마스터 서버에 대해 복제본 서버가 지연되는 시간(초)입니다.|
+|active_connections|활성 연결 수|개수|서버에 대한 활성 연결 수|
+|connections_failed|실패한 연결|개수|서버에 대해 실패한 연결 수|
+|seconds_behind_master|복제 지연 시간(초)|개수|마스터 서버에 대해 복제본 서버가 지연되는 시간(초)입니다.|
 |network_bytes_egress|네트워크 아웃|바이트|활성 연결을 통한 네트워크 출력의 크기입니다.|
 |network_bytes_ingress|네트워크 인|바이트|활성 연결을 통한 네트워크 입력의 크기입니다.|
 |backup_storage_used|사용된 백업 스토리지|바이트|사용된 백업 스토리지 양.|
@@ -52,13 +52,28 @@ Azure Database for MySQL에서는 다음 메트릭을 사용할 수 있습니다
 ## <a name="performance-recommendations"></a>성능 권장 사항
 [성능 권장 사항](concepts-performance-recommendations.md) 기능은 워크로드 성능을 향상시킬 수 있는 기회를 식별합니다. 성능 권장 사항은 워크 로드의 성능을 향상 시킬 수 있는 새 인덱스를 만들기 위한 권장 사항을 제공 합니다. 이 기능은 인덱스 권장 사항을 생성하기 위해 쿼리 저장소에서 보고한 스키마와 워크로드를 포함하여 다양한 데이터베이스 특성을 고려하고 있습니다. 성능 권장 사항이 구현되면 고객이 성능을 테스트하여 변경에 따른 영향을 평가해야 합니다.
 
-## <a name="service-health"></a>서비스 상태
-[Azure 서비스 상태](../service-health/overview.md) 는 구독에 있는 모든 서비스 상태 알림의 보기를 제공 합니다. 사용 하는 Azure 서비스 및 지역에 영향을 줄 수 있는 문제나 변경 사항이 있을 때 기본 통신 채널을 통해 알리도록 Service Health 경고를 설정할 수 있습니다.
+## <a name="planned-maintenance-notification"></a>계획 된 유지 관리 알림
 
-**계획 된 유지 관리** 이벤트 유형을 사용 하 여 Azure Database for MySQL에 대 한 예약 된 유지 관리 이벤트를 볼 수 있습니다. **서비스 상태 경고**를 만드는 방법을 알아보려면 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md) 문서를 참조 하세요.
+**계획 된 유지 관리 알림을** 통해 예정 된 예정 된 유지 관리에 대 한 경고를 Azure Database for MySQL 받을 수 있습니다. 이러한 알림은 [Service Health의](../service-health/overview.md) 계획 된 유지 관리와 통합 되어 있으므로 구독에 대해 예약 된 유지 관리 작업을 한 곳에서 모두 볼 수 있습니다. 또한 다양 한 리소스를 담당 하는 여러 연락처가 있을 수 있으므로 다양 한 리소스 그룹에 대 한 올바른 대상으로 알림을 확장 하는 데 도움이 됩니다. 이벤트 전에 예정 된 유지 관리 72 시간에 대 한 알림을 받게 됩니다.
+
+> [!Note]
+> 모든 이벤트에 대해 **계획 된 유지 관리 알림** 72 시간 통지를 제공 하려고 합니다. 그러나 중요 또는 보안 패치의 경우 알림이 이벤트에 더 가까이 전송 되거나 생략 될 수 있습니다.
+
+### <a name="to-receive-planned-maintenance-notification"></a>계획 된 유지 관리 알림을 받으려면
+
+1. [포털](https://portal.azure.com)에서 **서비스 상태**를 선택합니다.
+2. **경고** 섹션에서 **상태 경고**를 선택합니다.
+3. **+ 서비스 상태 경고 추가** 를 선택 하 고 필드를 입력 합니다.
+4. 필수 필드를 입력 합니다. 
+5. **이벤트 유형을**선택 하 고 **계획 된 유지 관리** 를 선택 하거나 **모두를 선택** 합니다.
+6. **작업 그룹** 에서 경고를 수신 하는 방법 (전자 메일 가져오기, 논리 앱 트리거 등)을 정의 합니다.  
+7. 규칙을 만들 때 규칙 사용이 예로 설정 되어 있는지 확인 합니다.
+8. 경고 **규칙 만들기** 를 선택 하 여 경고를 완료 합니다.
+
+**서비스 상태 경고**를 만드는 방법에 대 한 자세한 단계는 [서비스 알림에서 활동 로그 경고 만들기](../service-health/alerts-activity-log-service-notifications.md)를 참조 하세요.
 
 > [!IMPORTANT]
-> 계획 된 유지 관리 알림은 미국 동부 및 영국 남부에 대 한 미리 보기에서 사용할 수 있습니다.
+> 계획 된 유지 관리 알림이 현재 미리 보기 상태입니다.
 
 ## <a name="next-steps"></a>다음 단계
 - 메트릭에 대한 경고 생성에 대한 지침은 [경고를 설정하는 방법](howto-alert-on-metric.md)을 참조하세요.

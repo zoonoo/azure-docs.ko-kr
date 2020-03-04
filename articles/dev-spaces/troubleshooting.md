@@ -5,12 +5,12 @@ ms.date: 09/25/2019
 ms.topic: troubleshooting
 description: Azure Dev Spaces를 사용 하도록 설정 하 고 사용 하는 경우 일반적인 문제를 해결 하는 방법을 알아봅니다.
 keywords: 'Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s '
-ms.openlocfilehash: 2b5a6f14899ec41b1740563f4e8174f65aa679c7
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 0cf8eb7b07622a989bc78637b1601ba68b9b5f6f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78198000"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251116"
 ---
 # <a name="azure-dev-spaces-troubleshooting"></a>Azure Dev Spaces 문제 해결
 
@@ -18,7 +18,7 @@ ms.locfileid: "78198000"
 
 Azure Dev Spaces를 사용 하는 동안 문제가 발생 하는 경우 [Azure Dev Spaces GitHub 리포지토리에서 문제](https://github.com/Azure/dev-spaces/issues)를 만듭니다.
 
-## <a name="before-you-begin"></a>시작하기 전 주의 사항
+## <a name="before-you-begin"></a>시작하기 전에
 
 자세한 검토 로그를 만들면 더 효과적으로 문제를 해결하는 데 도움이 될 수 있습니다.
 
@@ -44,7 +44,7 @@ Azure Dev Spaces CLI를 사용 하 여 컨트롤러를 삭제 합니다. Visual 
 
 Azure Dev Spaces CLI를 설치 하지 않은 경우 먼저 다음 명령을 사용 하 여 설치할 수 있습니다. 그런 다음 컨트롤러를 삭제 합니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g <resource group name> -n <cluster name>
 ```
 
@@ -52,13 +52,13 @@ CLI 또는 Visual Studio에서 컨트롤러를 다시 만들 수 있습니다. �
 
 ### <a name="controller-create-failing-because-of-controller-name-length"></a>컨트롤러 이름 길이 때문에 컨트롤러를 만들지 못했습니다.
 
-Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 예를 들면 다음과 같습니다.
+Azure Dev Spaces 컨트롤러 이름은 31 자 보다 길 수 없습니다. AKS 클러스터에서 개발 공간을 사용 하도록 설정 하거나 컨트롤러를 만들 때 컨트롤러의 이름이 31 자를 초과 하는 경우 오류가 표시 됩니다. 다음은 그 예입니다.
 
 ```console
 Failed to create a Dev Spaces controller for cluster 'a-controller-name-that-is-way-too-long-aks-east-us': Azure Dev Spaces Controller name 'a-controller-name-that-is-way-too-long-aks-east-us' is invalid. Constraint(s) violated: Azure Dev Spaces Controller names can only be at most 31 characters long*
 ```
 
-이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 예를 들면 다음과 같습니다.
+이 문제를 해결 하려면 대체 이름으로 컨트롤러를 만듭니다. 다음은 그 예입니다.
 
 ```cmd
 azds controller create --name my-controller --target-name MyAKS --resource-group MyResourceGroup
@@ -80,8 +80,8 @@ AKS 클러스터에서 untainted 노드를 찾을 수 없습니다. *준비* 상
 
 Azure Dev Spaces CLI 업데이트가 설치 경로를 변경 했습니다. 2\.0.63 이전 버전의 Azure CLI 사용 하는 경우이 오류가 표시 될 수 있습니다. Azure CLI 버전을 표시 하려면 `az --version`를 사용 합니다.
 
-```bash
-$ az --version
+```azurecli
+az --version
 azure-cli                         2.0.60 *
 ...
 ```
@@ -159,7 +159,7 @@ Container image build failed
 
 프로젝트에서 특정 _Dockerfile_을 가리키도록 Azure Dev Spaces를 구성할 수 있습니다. Azure Dev Spaces가 컨테이너를 빌드하는 데 필요한 _Dockerfile_을 사용하지 않는 것 같으면 Azure Dev Spaces에서 사용할 Dockerfile을 명시적으로 지정해야 할 수 있습니다. 
 
-이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 예를 들면 다음과 같습니다.
+이 문제를 해결 하려면 프로젝트에 생성 Azure Dev Spaces _azds_ 파일을 엽니다. 업데이트 *구성: 개발: 빌드: dockerfile* 을 사용 하려는 dockerfile을 가리킵니다. 다음은 그 예입니다.
 
 ```yaml
 ...
@@ -206,13 +206,13 @@ install:
 
 서비스 코드를 시작하지 못하면 이 오류가 발생할 수 있습니다. 사용자 코드에 원인이 있는 경우가 많습니다. 더 많은 진단 정보를 얻으려면 서비스를 시작할 때 자세한 로깅을 사용 하도록 설정 합니다.
 
-명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 예를 들면 다음과 같습니다.
+명령줄에서 `--verbose` 사용 하 여 자세한 로깅을 사용 하도록 설정 합니다. `--output`를 사용 하 여 출력 형식을 지정할 수도 있습니다. 다음은 그 예입니다.
 
 ```cmd
 azds up --verbose --output json
 ```
 
-Visual Studio에서 다음을 수행합니다.
+Visual Studio에서
 
 1. **도구 > 옵션**을 열고 **프로젝트 및 솔루션** 아래에서 **빌드 및 실행**을 선택합니다.
 2. **MSBuild 프로젝트 빌드 출력 세부 정보 표시**의 설정을 **세부 내용** 또는 **진단**으로 변경합니다.
@@ -223,7 +223,7 @@ Visual Studio에서 다음을 수행합니다.
 
 이 클러스터와 연결된 Azure Dev Spaces 컨트롤러를 제거했다가 다시 만든 후 서비스를 다시 실행하려고 하면 ‘서비스를 시작할 수 없습니다.’라는 오류가 표시됩니다. 이 경우 자세한 정보 출력에 다음 텍스트가 포함됩니다.
 
-```cmd
+```output
 Installing Helm chart...
 Release "azds-33d46b-default-webapp1" does not exist. Installing it now.
 Error: release azds-33d46b-default-webapp1 failed: services "webapp1" already exists
@@ -329,21 +329,21 @@ Visual Studio Code 디버거를 실행할 때이 오류가 표시 될 수 있습
 1. `azds.exe`에 대 한% ProgramFiles%/Microsoft SDKs\Azure\Azure Dev Spaces CLI 위치를 확인 합니다. 위치가 있는 경우 해당 위치를 PATH 환경 변수에 추가합니다.
 2. `azds.exe` 설치 되지 않은 경우 다음 명령을 실행 합니다.
 
-    ```cmd
+    ```azurecli
     az aks use-dev-spaces -n <cluster-name> -g <resource-group>
     ```
 
 ### <a name="authorization-error-microsoftdevspacesregisteraction"></a>"Microsoft DevSpaces/register/action" 권한 부여 오류
 
-Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 예를 들면 다음과 같습니다.
+Azure Dev Spaces를 관리하려면 Azure 구독에서 ‘owner’ 또는 ‘contributor’ 액세스 권한이 있어야 합니다. Dev 공간을 관리 하려는 경우 연결 된 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 없으면 권한 부여 오류가 표시 될 수 있습니다. 다음은 그 예입니다.
 
-```console
+```output
 The client '<User email/Id>' with object id '<Guid>' does not have authorization to perform action 'Microsoft.DevSpaces/register/action' over scope '/subscriptions/<Subscription Id>'.
 ```
 
 이 문제를 해결 하려면 Azure 구독에 대 한 *소유자* 또는 *참가자* 액세스 권한이 있는 계정을 사용 하 여 `Microsoft.DevSpaces` 네임 스페이스를 수동으로 등록 합니다.
 
-```console
+```azurecli
 az provider register --namespace Microsoft.DevSpaces
 ```
 
@@ -359,7 +359,7 @@ kubectl get pods --all-namespaces --include-uninitialized
 
 이 문제를 해결 하려면 [Dev SPACES CLI를 최신 버전으로 업데이트](./how-to/upgrade-tools.md#update-the-dev-spaces-cli-extension-and-command-line-tools) 한 다음 Azure Dev Spaces 컨트롤러에서 *Azds initializerconfiguration* 을 삭제 합니다.
 
-```bash
+```azurecli
 az aks get-credentials --resource-group <resource group name> --name <cluster name>
 kubectl delete InitializerConfiguration azds
 ```
@@ -456,9 +456,12 @@ Azure Dev Spaces를 사용 하도록 설정 하려는 pod를 실행 하는 기�
 
 AKS 클러스터에서 기존 네임 스페이스에 대 한 Azure Dev Spaces를 사용 하도록 설정 하려면 `use-dev-spaces`를 실행 하 고 `kubectl`를 사용 하 여 해당 네임 스페이스의 모든 pod를 다시 시작 합니다.
 
-```console
+```azurecli
 az aks get-credentials --resource-group MyResourceGroup --name MyAKS
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space my-namespace --yes
+```
+
+```console
 kubectl -n my-namespace delete pod --all
 ```
 
@@ -468,7 +471,7 @@ Pod가 다시 시작 되 면 Azure Dev Spaces에서 기존 네임 스페이스 �
 
 클러스터 노드의 송신 트래픽이 제한 되는 AKS 클러스터에 대 한 Azure Dev Spaces를 사용 하도록 설정 하려면 다음 Fqdn을 허용 해야 합니다.
 
-| FQDN                                    | 포트      | 기능      |
+| FQDN                                    | 포트      | 사용      |
 |-----------------------------------------|-----------|----------|
 | cloudflare.docker.com | HTTPS:443 | Linux 알파인 및 기타 Azure Dev Spaces 이미지를 꺼내려면 |
 | gcr.io | HTTP: 443 | 투구/tiller 이미지를 꺼내려면|
@@ -488,7 +491,7 @@ Kubeconfig 파일이 Azure Dev Spaces 클라이언트 쪽 도구에서 사용 �
 
 [AKS 클러스터에서 인증서를 회전](../aks/certificate-rotation.md)한 후 `azds space list` 및 `azds up`와 같은 특정 작업은 실패 합니다. 또한 클러스터에서 인증서를 회전 한 후 Azure Dev Spaces 컨트롤러에서 인증서를 새로 고쳐야 합니다.
 
-이 문제를 해결 하려면 `az aks get-credentials`를 사용 하 여 *kubeconfig* 에 업데이트 된 인증서가 있는지 확인 하 고 `azds controller refresh-credentials` 명령을 실행 합니다. 예를 들면 다음과 같습니다.
+이 문제를 해결 하려면 `az aks get-credentials`를 사용 하 여 *kubeconfig* 에 업데이트 된 인증서가 있는지 확인 하 고 `azds controller refresh-credentials` 명령을 실행 합니다. 다음은 그 예입니다.
 
 ```azurecli
 az aks get-credentials -g <resource group name> -n <cluster name>

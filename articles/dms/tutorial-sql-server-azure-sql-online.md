@@ -3,8 +3,8 @@ title: '자습서: 온라인으로 SQL Server SQL 단일 데이터베이스 마�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 SQL Server 온-프레미스에서 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 온라인 마이그레이션을 수행하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/21/2020
-ms.openlocfilehash: 012e6eca13c2b1afe00343da98dd58ca1f683dd5
-ms.sourcegitcommit: a9b1f7d5111cb07e3462973eb607ff1e512bc407
+ms.openlocfilehash: 4fb8fbc0a0880d2e73839c4de3e1993dc86bd815
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76315102"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255283"
 ---
 # <a name="tutorial-migrate-sql-server-to-a-single-database-or-pooled-database-in-azure-sql-database-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure SQL Database online에서 단일 데이터베이스 또는 풀링된 데이터베이스로 SQL Server 마이그레이션
 
@@ -44,7 +44,7 @@ Azure Database Migration Service를 사용하여 가동 중지 시간을 최소�
 
 이 문서에서는 SQL Server에서 Azure SQL Database의 단일 데이터베이스 또는 풀링된 데이터베이스로 온라인 마이그레이션하는 방법을 설명합니다. 오프라인 마이그레이션의 경우 [DMS를 사용하여 Azure SQL Database로 SQL Server 오프라인 마이그레이션](tutorial-sql-server-to-azure-sql.md)을 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

@@ -5,14 +5,14 @@ services: vpn-gateway
 author: anzaman
 ms.service: vpn-gateway
 ms.topic: conceptual
-ms.date: 02/10/2020
+ms.date: 02/28/2020
 ms.author: alzam
-ms.openlocfilehash: 4b9678f72dd69db24b105d4b1d708928e29a09ba
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: fc48b0ae9cf4162b4b9abba14c6e909ca091fd23
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77134508"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251609"
 ---
 # <a name="configure-a-vpn-client-for-p2s-openvpn-protocol-connections-azure-ad-authentication"></a>P2S OpenVPN 프로토콜 연결용 VPN 클라이언트 구성: Azure AD 인증
 
@@ -28,7 +28,7 @@ ms.locfileid: "77134508"
 
 ### <a name="to-download-the-azure-vpn-client"></a>Azure VPN 클라이언트를 다운로드하려면,
 
-이 [링크](https://go.microsoft.com/fwlink/?linkid=2117554) 를 사용 하 여 Azure VPN 클라이언트를 다운로드 합니다.
+이 [링크](https://go.microsoft.com/fwlink/?linkid=2117554)를 사용하여 Azure VPN Client를 다운로드합니다.
 
 ### <a name="cert"></a>인증서 기반 클라이언트 프로필을 만들려면
 
@@ -50,43 +50,43 @@ ms.locfileid: "77134508"
 
 1. 내보내려는 VPN 클라이언트 프로필을 강조 표시 하 고 **...** 를 선택한 다음 **내보내기**를 선택 합니다.
 
-    ![export](./media/openvpn-azure-ad-client/export/export1.jpg)
+    ![내보내기](./media/openvpn-azure-ad-client/export/export1.jpg)
 
 2. 이 프로필을 저장 하려는 위치를 선택 하 고 파일 이름을 그대로 두고 **저장** 을 선택 하 여 xml 파일을 저장 합니다.
 
-    ![export](./media/openvpn-azure-ad-client/export/export2.jpg)
+    ![내보내기](./media/openvpn-azure-ad-client/export/export2.jpg)
 
 ### <a name="import"></a>클라이언트 프로필을 가져오려면,
 
 1. 페이지에서 **가져오기**를 선택합니다.
 
-    ![가져오기](./media/openvpn-azure-ad-client/import/import1.jpg)
+    ![수입](./media/openvpn-azure-ad-client/import/import1.jpg)
 
 2. 프로필 xml 파일을 찾아서 선택합니다. 파일이 선택된 상태에서 **열기**를 선택합니다.
 
-    ![가져오기](./media/openvpn-azure-ad-client/import/import2.jpg)
+    ![수입](./media/openvpn-azure-ad-client/import/import2.jpg)
 
 3. 프로필 이름을 지정하고, **저장**을 선택합니다.
 
-    ![가져오기](./media/openvpn-azure-ad-client/import/import3.jpg)
+    ![수입](./media/openvpn-azure-ad-client/import/import3.jpg)
 
 4. **연결**을 선택하여 VPN에 연결합니다.
 
-    ![가져오기](./media/openvpn-azure-ad-client/import/import4.jpg)
+    ![수입](./media/openvpn-azure-ad-client/import/import4.jpg)
 
 5. 연결되면 아이콘이 녹색으로 바뀌고 **연결됨**으로 표시됩니다.
 
-    ![가져오기](./media/openvpn-azure-ad-client/import/import5.jpg)
+    ![수입](./media/openvpn-azure-ad-client/import/import5.jpg)
 
 ### <a name="delete"></a>클라이언트 프로필을 삭제하려면,
 
 1. 삭제할 클라이언트 프로필 옆에 있는 줄임표를 선택 합니다. 그런 다음, **제거**를 선택합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete1.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete1.jpg)
 
 2. **제거**를 선택하여 삭제합니다.
 
-    ![삭제](./media/openvpn-azure-ad-client/delete/delete2.jpg)
+    ![delete](./media/openvpn-azure-ad-client/delete/delete2.jpg)
 
 ## <a name="connection"></a>연결 만들기
 
@@ -168,9 +168,26 @@ ms.locfileid: "77134508"
 </azvpnprofile>
 ```
 
+### <a name="how-do-i-add-custom-dns-servers-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 DNS 서버를 추가 어떻게 할까요??
+
+다운로드 한 프로필 XML 파일을 수정 하 고 **\<dnsservers >\<dnsserver > \</dnsserver >\</dnsservers >** 태그를 추가할 수 있습니다.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <dnsservers>
+        <dnsserver>x.x.x.x</dnsserver>
+        <dnsserver>y.y.y.y</dnsserver>
+    </dnsservers>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
 ### <a name="how-do-i-add-custom-routes-to-the-vpn-client"></a>VPN 클라이언트에 사용자 지정 경로를 추가 어떻게 할까요??
 
-다운로드 한 프로필 XML 파일을 수정 하 고 **\<경로 >\<includeroutes >\<** >\<mask > \<>\<>\<>\<> 태그를 추가할 수 있습니다.
+다운로드 한 프로필 XML 파일을 수정 하 고 **\<includeroutes >\<경로 >\<** >\<> \<>\<>\<>\<> 태그를 추가할 수 있습니다.
 
 ```
 <azvpnprofile>
@@ -181,6 +198,24 @@ ms.locfileid: "77134508"
             <destination>x.x.x.x</destination><mask>24</mask>
         </route>
     </includeroutes>
+    
+</clientconfig>
+</azvpnprofile>
+```
+
+### <a name="how-do-i-block-exclude-routes-from-the-vpn-client"></a>VPN 클라이언트에서 경로를 차단 (제외) 어떻게 할까요??
+
+다운로드 한 프로필 XML 파일을 수정 하 고 **\<excluderoutes >\<경로 >\<** >\<> \<>\<>\<>\<> 태그를 추가할 수 있습니다.
+
+```
+<azvpnprofile>
+<clientconfig>
+
+    <excluderoutes>
+        <route>
+            <destination>x.x.x.x</destination><mask>24</mask>
+        </route>
+    </excluderoutes>
     
 </clientconfig>
 </azvpnprofile>

@@ -7,12 +7,12 @@ ms.service: expressroute
 ms.topic: conceptual
 ms.date: 02/15/2020
 ms.author: cherylmc
-ms.openlocfilehash: 45c7fd5fd3737c21a03700b2e560944921a2558d
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 2bca7034780c4bfbbadd97558bf4b4891c7d6ec5
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228167"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251110"
 ---
 # <a name="expressroute-partners-and-peering-locations"></a>ExpressRoute 파트너 및 피어링 위치
 
@@ -58,7 +58,7 @@ Express 경로 위치 (예를 들어 피어 링 위치 또는 위치 면)는 MSE
 
 | **지역** | **Azure 지역** | **ExpressRoute 위치** |
 | --- | --- | --- |
-| **미국 정부 클라우드** |US Gov 애리조나, US Gov 아이오와, US Gov 텍사스, US Gov 버지니아, US DoD 중부, US DoD 동부  |시카고, 댈러스, 뉴욕, 피닉스, 샌안토니오, 시애틀, 실리콘밸리, 워싱턴 DC |
+| **미국 정부 클라우드** |US Gov 애리조나, US Gov 아이오와, US Gov 텍사스, US Gov 버지니아, US DoD 중부, US DoD 동부  |애틀랜타, 시카고, 달라스, 뉴욕, Phoenix, San Antonio, 시애틀, 실리콘 계곡, 워싱턴 DC |
 | **중국 동부** |중국 동부, 중국 동부2 |상하이, 상하이2 |
 | **중국 북부** |중국 북부, 중국 북부2 |베이징, 베이징2 |
 | **독일** |독일 중부, 독일 동부 |베를린, 프랑크푸르트 |
@@ -150,6 +150,7 @@ Azure 국가별 클라우드는 서로 격리 되며 전 세계 상용 Azure에�
 ### <a name="us-government-cloud"></a>미국 정부 클라우드
 | **위치** | **주소** | **로컬 Azure 지역**| **ER Direct** | **서비스 공급자** |
 | --- | --- | --- | --- | --- |
+| **애틀랜타** | [서-ix AT1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/atlanta-data-centers/at1/) | 해당 없음 | 10G, 100G | Equinix |
 | **시카고** | [서-ix CH1](https://www.equinix.com/locations/americas-colocation/united-states-colocation/chicago-data-centers/ch1/) | 해당 없음 | 10G, 100G | AT&T NetBond, Equinix, Level 3 Communications, Verizon |
 | **댈러스** | [서-ix DA3](https://www.equinix.com/locations/americas-colocation/united-states-colocation/dallas-data-centers/da3/) | 해당 없음 | 10G, 100G | Equinix, Megaport, Verizon |
 | **뉴욕** | [서-ix NY5](https://www.equinix.com/locations/americas-colocation/united-states-colocation/new-york-data-centers/ny5/) | 해당 없음 | 10G, 100G | Equinix, CenturyLink Cloud Connect, Verizon |

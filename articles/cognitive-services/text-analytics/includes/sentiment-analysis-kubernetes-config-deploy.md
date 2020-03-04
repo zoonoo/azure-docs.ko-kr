@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: bd93773e4d3c5e06bca752612dac6c563a2f5da1
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: 2a99f85cf861c0c36ffac136cdf1f792b40719b2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383459"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262271"
 ---
 ### <a name="deploy-the-sentiment-analysis-container-to-an-aks-cluster"></a>AKS 클러스터에 감정 분석 컨테이너 배포
 
@@ -44,7 +44,7 @@ ms.locfileid: "74383459"
 
 1. 선택한 텍스트 편집기를 엽니다. 이 예제에서는 Visual Studio Code를 사용 합니다.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -103,7 +103,7 @@ ms.locfileid: "74383459"
 
     명령에서 배포 구성을 성공적으로 적용 한 후에는 다음 출력과 비슷한 메시지가 표시 됩니다.
 
-    ```console
+    ```output
     deployment.apps "sentiment" created
     service "sentiment" created
     ```
@@ -115,7 +115,7 @@ ms.locfileid: "74383459"
 
     Pod의 실행 상태에 대 한 출력입니다.
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     sentiment-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "74383459"
 
     Pod에서 *감정* 서비스의 실행 상태에 대 한 출력입니다.
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     sentiment    LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

@@ -8,12 +8,12 @@ ms.service: iot-accelerators
 services: iot-accelerators
 ms.date: 03/08/2019
 ms.topic: conceptual
-ms.openlocfilehash: 5044f8b85e59911633a4ffab509efc000948144a
-ms.sourcegitcommit: d4dfbc34a1f03488e1b7bc5e711a11b72c717ada
+ms.openlocfilehash: bb8b23513738a6696d65bf7f06a741be2ada7a93
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 06/13/2019
-ms.locfileid: "65832588"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250246"
 ---
 # <a name="create-and-test-a-new-simulated-device"></a>시뮬레이트된 새 디바이스 만들기 및 테스트
 
@@ -30,7 +30,7 @@ ms.locfileid: "65832588"
 
 *속성*
 
-| Name                     | 값                      |
+| 속성                     | 값                      |
 | ------------------------ | --------------------------- |
 | 색                    | 흰색, 빨강, 파랑            |
 | 밝기               | 0~100                    |
@@ -40,7 +40,7 @@ ms.locfileid: "65832588"
 
 다음 표는 전구에서 데이터 스트림으로 클라우드에 보고하는 데이터를 보여 줍니다.
 
-| Name   | 값      |
+| 속성   | 값      |
 | ------ | ----------- |
 | 상태 | "켜짐", "꺼짐" |
 | 온도 | 화씨 도 |
@@ -53,7 +53,7 @@ ms.locfileid: "65832588"
 
 다음 표는 새 디바이스에서 지원하는 작업을 보여 줍니다.
 
-| Name        |
+| 속성        |
 | ----------- |
 | 켜짐   |
 | 꺼짐  |
@@ -62,7 +62,7 @@ ms.locfileid: "65832588"
 
 다음 표는 디바이스의 초기 상태를 보여 줍니다.
 
-| Name                     | 값 |
+| 속성                     | 값 |
 | ------------------------ | -------|
 | 초기 색상            | 흰색  |
 | 초기 밝기       | 75     |
@@ -72,11 +72,11 @@ ms.locfileid: "65832588"
 
 이 가이드의 수행 단계를 완료하려면 활성 Azure 구독이 필요합니다.
 
-Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F) 을 만듭니다.
+Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드를 수행하려면 다음이 필요합니다.
 
@@ -85,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [무료 계정](https:/
 * [C# for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=ms-vscode.csharp)
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../../articles/iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../../articles/cosmos-db/how-to-manage-database-account.md)에 대해 구성된 Cosmos DB 데이터베이스 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../../articles/cosmos-db/how-to-manage-database-account.md)에 대해 구성된 Cosmos DB 데이터베이스. 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
 
@@ -107,11 +107,11 @@ GitHub에서 [디바이스 시뮬레이션 마이크로 서비스](https://githu
 
 Visual Studio Code에서 **remote-monitoring-services-dotnet-master\storage-adapter** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-열기는 **storage-adapter/WebService/appsettings.ini** 파일 및 Cosmos DB 연결 문자열을 할당 합니다 **documentDBConnectionString** 변수입니다.
+**Storage-adapter/WebService/appsettings ini** 파일을 열고 **documentdbconnectionstring** 변수에 Cosmos DB 연결 문자열을 할당 합니다.
 
 마이크로 서비스를 로컬로 실행하려면 **디버그 > 디버그 시작**을 클릭합니다.
 
-Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) 이 주소로 이동 하면 상태가 이어야 합니다 "확인: 활성 및 양호 "입니다.
+Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대한 URL을 포함하여 실행 중인 마이크로 서비스에서 출력을 표시합니다. [http://127.0.0.1:9022/v1/status](http://127.0.0.1:9022/v1/status) 이 주소로 이동하면 상태는 "OK: 활성 및 양호"이어야 합니다.
 
 다음 단계를 완료하는 동안 Visual Studio Code의 이 인스턴스에서 실행되는 스토리지 어댑터 마이크로 서비스를 유지합니다.
 
@@ -424,7 +424,7 @@ Visual Studio Code에서 **터미널** 창은 웹 서비스 상태 확인에 대
 
 Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-simulation-dotnet-master** 폴더를 엽니다. **복원** 단추를 클릭하여 확인할 수 없는 종속성을 수정합니다.
 
-열기는 **WebService/appsettings.ini** 파일 및 Cosmos DB 연결 문자열을 할당 합니다 **documentdb_connstring** 변수 또한 다음과 같이 설정을 수정 하 고:
+**WebService/appsettings ini** 파일을 열고 **documentdb_connstring** 변수에 Cosmos DB 연결 문자열을 할당 하 고 다음과 같이 설정을 수정 합니다.
 
 ```ini
 device_models_folder = C:\temp\devicemodels\
@@ -446,7 +446,7 @@ Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비�
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

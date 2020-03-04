@@ -5,12 +5,12 @@ ms.date: 07/24/2019
 ms.topic: conceptual
 description: AKS 클러스터에 Azure Dev Spaces를 설치 하 고 클라이언트 쪽 도구를 설치 하는 방법에 대해 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 0fd4cce9d25922bea50963c4e87e110759673bbc
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: de4f91e3e0e0653519bb48db5e3e8a116e24cc78
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770631"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251997"
 ---
 # <a name="install-azure-dev-spaces-on-aks-and-the-client-side-tooling"></a>AKS 및 클라이언트 쪽 도구에 Azure Dev Spaces 설치
 
@@ -25,15 +25,13 @@ CLI를 사용 하 여 Dev Spaces를 설치 하려면 다음이 필요 합니다.
 
 `use-dev-spaces` 명령을 사용하여 AKS 클러스터에서 Dev Spaces를 사용하도록 설정하고 프롬프트의 지시를 따릅니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
 ```
 
 위의 명령은 *Myresourcegroup* 그룹의 *MyAKSCluster* 클러스터에서 개발 공간을 사용 하도록 설정 하 고 *기본* 개발 공간을 만듭니다.
 
-```cmd
-$ az aks use-dev-spaces -g myResourceGroup -n myAKSCluster
-
+```console
 'An Azure Dev Spaces Controller' will be created that targets resource 'myAKSCluster' in resource group 'myResourceGroup'. Continue? (y/N): y
 
 Creating and selecting Azure Dev Spaces Controller 'myAKSCluster' in resource group 'myResourceGroup' that targets resource 'myAKSCluster' in resource group 'myResourceGroup'...2m 24s

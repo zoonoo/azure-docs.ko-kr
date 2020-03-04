@@ -3,12 +3,12 @@ title: Windows 클러스터에 대해 디스크 암호화 사용
 description: 이 문서에서는 Azure Resource Manager의 Azure Key Vault를 사용 하 여 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화를 사용 하도록 설정 하는 방법을 설명 합니다.
 ms.topic: article
 ms.date: 03/22/2019
-ms.openlocfilehash: 24405c3c34bfd7b88932101c42a8d0fc96c90fa1
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: b08cdb63aa6f334c5a6f7c230b1624d232206c3b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614454"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251810"
 ---
 # <a name="enable-disk-encryption-for-azure-service-fabric-cluster-nodes-in-windows"></a>Windows에서 Azure Service Fabric 클러스터 노드에 대해 디스크 암호화 사용 
 > [!div class="op_single_selector"]
@@ -27,7 +27,7 @@ ms.locfileid: "75614454"
 
 [!INCLUDE [updated-for-az](../../includes/updated-for-az.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 **자체 등록** 
 
@@ -200,7 +200,7 @@ Disable-AzVmssDiskEncryption -ResourceGroupName $rgName -VMScaleSetName $VmssNam
 
 ```
 
-```CLI
+```azurecli
 
 az vmss encryption disable -g <resourceGroupName> -n <VMSS name>
 

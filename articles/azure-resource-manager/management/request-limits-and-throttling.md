@@ -1,15 +1,15 @@
 ---
-title: 요청 제한 및 제한
+title: 요청 제한
 description: 구독 한도에 도달할 때 Azure Resource Manager 요청에 제한을 사용하는 방법을 설명합니다.
 ms.topic: conceptual
 ms.date: 10/26/2019
 ms.custom: seodec18
-ms.openlocfilehash: 129ca3ba32d48345bde931c6bd2084c3da79be39
-ms.sourcegitcommit: 51ed913864f11e78a4a98599b55bbb036550d8a5
+ms.openlocfilehash: 43ccf4f2e8098f6577f18943c4ab4132884b66f2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/04/2020
-ms.locfileid: "75659375"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251334"
 ---
 # <a name="throttling-resource-manager-requests"></a>Resource Manager 요청 제한
 
@@ -25,7 +25,7 @@ ms.locfileid: "75659375"
 
 시간당 기본 제한 제한은 다음 표에 나와 있습니다.
 
-| 범위 | 운영 | 제한 |
+| 범위 | 작업 | 제한 |
 | ----- | ---------- | ------- |
 | Subscription | reads | 12000 |
 | Subscription | deletes | 15000 |
@@ -51,10 +51,10 @@ ms.locfileid: "75659375"
 
 Microsoft. Network 리소스 공급자는 다음과 같은 제한 제한을 적용 합니다.
 
-| 작업 | 제한 |
+| 작업(Operation) | 제한 |
 | --------- | ----- |
 | 쓰기/삭제 (PUT) | 5 분당 1000 |
-| 읽기(GET) | 5 분당 1만 |
+| 읽기 (GET) | 5 분당 1만 |
 
 ### <a name="compute-throttling"></a>계산 제한
 
@@ -162,7 +162,7 @@ az group list --verbose --debug
 
 그러면 다음 값을 포함하는 많은 값이 반환됩니다.
 
-```azurecli
+```output
 msrest.http_logger : Response status: 200
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'
@@ -182,7 +182,7 @@ az group create -n myresourcegroup --location westus --verbose --debug
 
 그러면 다음 값을 포함하는 많은 값이 반환됩니다.
 
-```azurecli
+```output
 msrest.http_logger : Response status: 201
 msrest.http_logger : Response headers:
 msrest.http_logger :     'Cache-Control': 'no-cache'

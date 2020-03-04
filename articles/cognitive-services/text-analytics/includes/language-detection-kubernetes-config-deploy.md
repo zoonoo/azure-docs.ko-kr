@@ -9,12 +9,12 @@ ms.service: cognitive-services
 ms.topic: include
 ms.date: 11/21/2019
 ms.author: dapine
-ms.openlocfilehash: c39df1e6af292d3774c6cba62663454bd2d8ad28
-ms.sourcegitcommit: f523c8a8557ade6c4db6be12d7a01e535ff32f32
+ms.openlocfilehash: addb044d82429a4471e7ecd302351dd7b7eada84
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/22/2019
-ms.locfileid: "74383489"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262722"
 ---
 ### <a name="deploy-the-language-detection-container-to-an-aks-cluster"></a>AKS 클러스터에 언어 감지 컨테이너 배포
 
@@ -32,7 +32,7 @@ ms.locfileid: "74383489"
 
     이 명령이 실행 되 면 다음과 유사한 메시지가 보고 됩니다.
 
-    ```console
+    ```output
     Merged "your-cluster-name" as current context in /home/username/.kube/config
     ```
 
@@ -44,7 +44,7 @@ ms.locfileid: "74383489"
 
 1. 선택한 텍스트 편집기를 엽니다. 이 예제에서는 Visual Studio Code를 사용 합니다.
 
-    ```azurecli
+    ```console
     code .
     ```
 
@@ -103,7 +103,7 @@ ms.locfileid: "74383489"
 
     명령에서 배포 구성을 성공적으로 적용 한 후에는 다음 출력과 비슷한 메시지가 표시 됩니다.
 
-    ```console
+    ```output
     deployment.apps "language" created
     service "language" created
     ```
@@ -115,7 +115,7 @@ ms.locfileid: "74383489"
 
     Pod의 실행 상태에 대 한 출력입니다.
 
-    ```console
+    ```output
     NAME                         READY     STATUS    RESTARTS   AGE
     language-5c9ccdf575-mf6k5   1/1       Running   0          1m
     ```
@@ -128,7 +128,7 @@ ms.locfileid: "74383489"
 
     Pod에서 *언어* 서비스의 실행 상태에 대 한 출력입니다.
 
-    ```console
+    ```output
     NAME         TYPE           CLUSTER-IP    EXTERNAL-IP      PORT(S)          AGE
     kubernetes   ClusterIP      10.0.0.1      <none>           443/TCP          2m
     language     LoadBalancer   10.0.100.64   168.61.156.180   5000:31234/TCP   2m

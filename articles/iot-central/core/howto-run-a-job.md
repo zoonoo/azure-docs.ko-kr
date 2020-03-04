@@ -5,15 +5,15 @@ ms.service: iot-central
 services: iot-central
 author: sarahhubbard
 ms.author: sahubbar
-ms.date: 07/08/2019
+ms.date: 03/03/2020
 ms.topic: conceptual
 manager: peterpr
-ms.openlocfilehash: 2dd1eddc841cc484957c2124de3419799c4e59b7
-ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
+ms.openlocfilehash: 8f982dbb10a15a1e02a62a97431cdd1b7015472c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/01/2020
-ms.locfileid: "78206819"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252232"
 ---
 # <a name="create-and-run-a-job-in-your-azure-iot-central-application"></a>Azure IoT Central 응용 프로그램에서 작업 만들기 및 실행
 
@@ -27,51 +27,40 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 2. **+ 새로** 만들기를 선택 하 여 새 작업을 만듭니다.
 
-    > [!div class="mx-imgBorder"]
-    > 새 작업을 만들 ![](./media/howto-run-a-job/createnewjob.png)
+    ![새 작업 만들기](./media/howto-run-a-job/createnewjob.png)
 
 3. 만들고 있는 작업을 식별 하는 이름 및 설명을 입력 합니다.
 
 4. 작업을 적용 하려는 대상 장치 그룹을 선택 합니다. **요약** 섹션에서 작업 구성이 적용 되는 장치 수를 확인할 수 있습니다.
 
-5. 그런 다음 구성할 작업 유형으로 **속성** 또는 **명령** 을 선택 합니다. **속성** 작업 구성을 설정 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령을**설정 하거나 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
+5. 다음으로 **클라우드 속성**, **속성** 또는 **명령** 중에서 구성할 작업 유형을 선택 합니다. **속성** 작업 구성을 설정 하려면 속성을 선택 하 고 새 값을 설정 합니다. **명령을**설정 하려면 실행할 명령을 선택 합니다. 속성 작업은 여러 속성을 설정할 수 있습니다.
 
-    > [!div class="mx-imgBorder"]
-    > 작업](./media/howto-run-a-job/configurejob.png) 구성 ![
+    ![작업 구성](./media/howto-run-a-job/configurejob.png)
 
-6. 장치를 선택한 후 **실행** 또는 **저장**을 선택 합니다. 이제 작업이 기본 **작업** 페이지에 표시 됩니다. 이 페이지에서 현재 실행 중인 작업과 이전에 실행 되거나 저장 된 작업의 기록을 볼 수 있습니다. 언제 든 지 저장 된 작업을 열어 계속 편집 하거나 실행할 수 있습니다.
+6. 작업을 만든 후 **실행** 또는 **저장**을 선택 합니다. 이제 작업이 기본 **작업** 페이지에 표시 됩니다. 이 페이지에서 현재 실행 중인 작업과 이전에 실행 되거나 저장 된 작업의 기록을 볼 수 있습니다. 언제 든 지 저장 된 작업을 열어 계속 편집 하거나 실행할 수 있습니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![작업 보기](./media/howto-run-a-job/viewjob.png)
+    ![작업 보기](./media/howto-run-a-job/viewjob.png)
 
     > [!NOTE]
     > 이전에 실행 한 작업에 대해 30 일 동안의 기록을 볼 수 있습니다.
 
 7. 작업에 대 한 개요를 보려면 목록에서 보려는 작업을 선택 합니다. 이 개요에는 작업 세부 정보, 장치 및 장치 상태 값이 포함 되어 있습니다. 이 개요에서 **작업 세부 정보 다운로드** 를 선택 하 여 장치 및 해당 상태 값을 비롯 한 작업 세부 정보의 CSV 파일을 다운로드할 수도 있습니다. 이 정보는 문제 해결에 유용할 수 있습니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![보기 장치 상태](./media/howto-run-a-job/downloaddetails.png)
+    ![디바이스 상태 보기](./media/howto-run-a-job/downloaddetails.png)
 
-### <a name="stop-a-running-job"></a>실행 중인 작업 중지
+### <a name="manage-a-job"></a>작업 관리
 
 실행 중인 작업 중 하나를 중지 하려면 해당 작업을 열고 **중지**를 선택 합니다. 작업이 중지 됨을 반영 하도록 작업 상태가 변경 됩니다. **요약** 섹션에는 완료 되었거나 실패 했거나 아직 보류 중인 장치가 표시 됩니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![Stop job](./media/howto-run-a-job/stopjob.png)
+현재 중지 된 작업을 실행 하려면 해당 작업을 선택한 다음 **실행**을 선택 합니다. 작업 상태가 반영 중으로 변경 되 면 작업이 이제 다시 실행 됩니다. **요약** 섹션은 최신 진행 상태로 계속 업데이트 됩니다.
 
-### <a name="run-a-stopped-job"></a>중지된 작업 실행
-
-현재 중지 된 작업을 실행 하려면 해당 작업을 선택한 다음 **실행**을 선택 합니다. 작업 상태가 반영 중으로 변경 되 면 작업이 이제 다시 실행 됩니다. **요약** 섹션은 최신 진행률으로 계속 업데이트 됩니다.
-
-    > [!div class="mx-imgBorder"]
-    > ![Resumed job](./media/howto-run-a-job/resumejob.png)
+![작업 관리](./media/howto-run-a-job/managejob.png)
 
 ## <a name="copy-a-job"></a>작업 복사
 
-기존 작업 중 하나를 복사 하려면 해당 작업을 열고 **복사**를 선택 합니다. 편집 하기 위해 작업 구성의 복사본이 열리고 작업 이름의 끝에 **복사가** 추가 됩니다. 새 작업을 저장 하거나 실행할 수 있습니다.
+기존 작업 중 하나를 복사 하려면 **작업** 페이지에서 해당 작업을 선택 하 고 **복사**를 선택 합니다. 편집 하기 위해 작업 구성의 복사본이 열리고 **복사** 는 작업 이름에 추가 됩니다. 새 작업을 저장 하거나 실행할 수 있습니다.
 
-    > [!div class="mx-imgBorder"]
-    > ![Copy job](./media/howto-run-a-job/copyjob.png)
+![복사 작업](./media/howto-run-a-job/copyjob.png)
 
 ## <a name="view-the-job-status"></a>작업 상태 확인
 
@@ -94,7 +83,7 @@ Microsoft Azure IoT Central에서는 작업을 사용하여 연결된 디바이�
 
 ### <a name="view-the-device-status"></a>디바이스 상태 확인
 
-작업 및 영향을 받는 모든 장치의 상태를 보려면 작업을 선택 합니다. 장치 목록과 해당 상태 값을 포함 하 여 작업 세부 정보를 포함 하는 CSV 파일을 다운로드 하려면 **작업 세부 정보 다운로드**를 선택 합니다. 각 장치 이름 옆에 다음 상태 메시지 중 하나가 표시 됩니다.
+작업 및 영향을 받는 모든 장치의 상태를 보려면 작업을 엽니다. 장치 목록과 해당 상태 값을 포함 하 여 작업 세부 정보를 포함 하는 CSV 파일을 다운로드 하려면 **작업 세부 정보 다운로드**를 선택 합니다. 각 장치 이름 옆에 다음 상태 메시지 중 하나가 표시 됩니다.
 
 | 상태 메시지       | 상태 의미                                                                |
 | -------------------- | ----------------------------------------------------------------------------- |

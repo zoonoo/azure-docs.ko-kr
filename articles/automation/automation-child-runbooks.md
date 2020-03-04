@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 01/17/2019
 ms.topic: conceptual
-ms.openlocfilehash: 34446f98bc593c8b78cfb4a9ceae2c5e6dc6aef3
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: 5527b96ddf6ccebb60ca8130e48f6aae87a3f715
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78191166"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246542"
 ---
 # <a name="child-runbooks-in-azure-automation"></a>Azure Automation의 자식 runbook
 
@@ -39,7 +39,7 @@ runbook이 게시되면 호출하는 모든 자식 runbook은 이미 게시되�
 
 게시 순서가 중요 한 경우
 
-Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 Runbook에서만 중요합니다.
+Runbook의 게시 순서는 PowerShell 워크플로 및 그래픽 PowerShell 워크플로 runbook에만 중요 합니다.
 
 Runbook이 인라인 실행을 사용 하 여 그래픽 또는 PowerShell 워크플로 자식 runbook을 호출 하는 경우 runbook의 이름을 사용 합니다. 스크립트를 로컬 디렉터리에 배치 하도록 지정 하려면 이름을\\으로 시작 해야 합니다 **.**
 

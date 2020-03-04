@@ -3,12 +3,12 @@ title: 리소스 그룹 & 구독 간 리소스 배포
 description: 배포 중에 둘 이상의 Azure 구독 및 리소스 그룹을 대상으로 지정하는 방법을 보여 줍니다.
 ms.topic: conceptual
 ms.date: 12/09/2019
-ms.openlocfilehash: 8f5fbd51456003059f6a32fc32b32194a936434a
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: 47573fedd7915d95d6ed98e3fd0aaf840331552b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76154213"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250614"
 ---
 # <a name="deploy-azure-resources-to-more-than-one-subscription-or-resource-group"></a>둘 이상의 구독 또는 리소스 그룹에 Azure 리소스 배포
 
@@ -119,7 +119,7 @@ ms.locfileid: "76154213"
 
 위의 템플릿을 테스트 하 고 결과를 확인 하려면 PowerShell 또는 Azure CLI를 사용 합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 두 개의 저장소 계정을 **동일한 구독의**두 리소스 그룹에 배포 하려면 다음을 사용 합니다.
 
@@ -162,7 +162,7 @@ New-AzResourceGroupDeployment `
   -secondSubscriptionID $secondSub
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 두 개의 저장소 계정을 **동일한 구독의**두 리소스 그룹에 배포 하려면 다음을 사용 합니다.
 
@@ -209,11 +209,11 @@ az group deployment create \
 
 다음 표에서는 함수가 부모 또는 포함 된 리소스 그룹 및 구독을 확인 하는지 여부를 보여 줍니다.
 
-| 템플릿 형식 | 범위 | 해상도 |
+| 템플릿 형식 | 범위 | 해결 방법 |
 | ------------- | ----- | ---------- |
 | 중첩        | outer (기본값) | 부모 리소스 그룹 |
 | 중첩        | inner | 하위 리소스 그룹 |
-| 연결됨        | N/A   | 하위 리소스 그룹 |
+| 연결됨        | 해당 없음   | 하위 리소스 그룹 |
 
 다음 [예제 템플릿](https://github.com/Azure/azure-docs-json-samples/blob/master/azure-resource-manager/crossresourcegroupproperties.json) 에서는 다음을 보여 줍니다.
 
@@ -317,7 +317,7 @@ az group deployment create \
 
 위의 템플릿을 테스트 하 고 결과를 확인 하려면 PowerShell 또는 Azure CLI를 사용 합니다.
 
-# <a name="powershelltabazure-powershell"></a>[PowerShell](#tab/azure-powershell)
+# <a name="powershell"></a>[PowerShell](#tab/azure-powershell)
 
 ```azurepowershell-interactive
 New-AzResourceGroup -Name parentGroup -Location southcentralus
@@ -340,7 +340,7 @@ New-AzResourceGroupDeployment `
  linkedRG         String                     Linked resource group is linkedgroup
 ```
 
-# <a name="azure-clitabazure-cli"></a>[Azure CLI](#tab/azure-cli)
+# <a name="azure-cli"></a>[Azure CLI](#tab/azure-cli)
 
 ```azurecli-interactive
 az group create --name parentGroup --location southcentralus
@@ -355,7 +355,7 @@ az group deployment create \
 
 위 예제의 출력은 다음과 같습니다.
 
-```azurecli
+```output
 "outputs": {
   "defaultScopeRG": {
     "type": "String",

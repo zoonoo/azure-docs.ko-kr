@@ -8,12 +8,12 @@ ms.topic: article
 ms.date: 02/25/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 3173fe010106963b9079bf151c92957735253e84
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: ddf011724f72a8a5eaf4e6398c28b28fffa5bfac
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76898747"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247000"
 ---
 # <a name="ssh-support-for-azure-app-service-on-linux"></a>Linux의 Azure App Service에 대한 SSH 지원
 
@@ -52,7 +52,7 @@ az webapp create-remote-connection --subscription <subscription-id> --resource-g
 
 명령 출력은 SSH 세션을 여는 데 필요한 정보를 제공합니다.
 
-```
+```output
 Port 21382 is open
 SSH is available { username: root, password: Docker! }
 Start your favorite client and connect to port 21382
@@ -60,20 +60,20 @@ Start your favorite client and connect to port 21382
 
 로컬 포트를 사용하여 사용자가 선택한 클라이언트를 통해 컨테이너가 있는 SSH 세션을 엽니다. 다음 예제에서는 기본 [ssh](https://ss64.com/bash/ssh.html) 명령을 사용합니다.
 
-```azurecli-interactive
+```bash
 ssh root@127.0.0.1 -p <port>
 ```
 
 메시지가 표시되면 `yes`을 입력하여 연결을 계속합니다. 그러면 암호를 입력하라는 메시지가 나타납니다. 앞부분에 표시된 `Docker!`을 사용합니다.
 
-```
+```output
 Warning: Permanently added '[127.0.0.1]:21382' (ECDSA) to the list of known hosts.
 root@127.0.0.1's password:
 ```
 
 인증되면 세션 시작 화면이 표시되어야 합니다.
 
-```
+```output
   _____
   /  _  \ __________ _________   ____
  /  /_\  \___   /  |  \_  __ \_/ __ \
@@ -89,7 +89,7 @@ A P P   S E R V I C E   O N   L I N U X
 
 [top](https://ss64.com/bash/top.html) 명령을 다시 실행합니다. 프로세스 목록에서 앱의 프로세스를 확인할 수 있어야 합니다. 아래 예제 출력에서는 `PID 263`이 있는 출력입니다.
 
-```
+```output
 Mem: 1578756K used, 127032K free, 8744K shrd, 201592K buff, 341348K cached
 CPU:   3% usr   3% sys   0% nic  92% idle   0% io   0% irq   0% sirq
 Load average: 0.07 0.04 0.08 4/765 45738

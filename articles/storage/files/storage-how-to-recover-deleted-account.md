@@ -1,6 +1,6 @@
 ---
-title: Azure Storage | Azure 파일 공유 사용 Microsoft Docs
-description: Windows 및 Windows Server에서 Azure 파일 공유를 사용하는 방법을 알아봅니다.
+title: 삭제 된 저장소 계정을 복구 하는 방법
+description: 삭제 된 저장소 계정을 복구 하는 방법 알아보기
 author: todmccoy
 manager: dcscontentpm
 ms.service: storage
@@ -10,12 +10,12 @@ ms.author: rogarana
 ms.subservice: files
 services: storage
 tags: ''
-ms.openlocfilehash: e1e581134b4e3821659c43bb7f55003239594bd9
-ms.sourcegitcommit: d6b68b907e5158b451239e4c09bb55eccb5fef89
+ms.openlocfilehash: 05465d4a03335ac607ba8981116c66fd6dac9416
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/20/2019
-ms.locfileid: "74233793"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252626"
 ---
 # <a name="how-to-recover-a-deleted-storage-account"></a>삭제 된 저장소 계정을 복구 하는 방법
 
@@ -25,12 +25,12 @@ Azure Storage는 자동화 된 복제본을 통해 데이터 복원 력을 제�
 
 | |LRS|ZRS|GRS|RA-GRS|
 |---|---|---|---|---|
-|저장소 계정 Azure Resource Manager|예|예|예|예|
-|Storage 계정 클래식|예|예|예|예|
+|저장소 계정 Azure Resource Manager|yes|yes|yes|yes|
+|Storage 계정 클래식|yes|yes|yes|yes|
 
 다음 정보를 수집 하 고 Microsoft 지원를 사용 하 여 지원 요청을 파일 합니다.
 
-* Storage 계정 이름
+* 스토리지 계정 이름
 * 삭제 날짜
 * 저장소 계정 영역
 * 저장소 계정은 어떻게 삭제 되었습니까?

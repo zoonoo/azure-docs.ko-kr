@@ -7,12 +7,12 @@ ms.service: site-recovery
 ms.topic: article
 ms.date: 04/08/2019
 ms.author: rochakm
-ms.openlocfilehash: 3f97975f09d846cd3277bb8a53a4ad922f1b5b69
-ms.sourcegitcommit: 3eb0cc8091c8e4ae4d537051c3265b92427537fe
+ms.openlocfilehash: 32d826f3c27cea3d0993c47e8562360315b7bd2e
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/11/2020
-ms.locfileid: "75902548"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78256039"
 ---
 # <a name="troubleshoot-azure-to-azure-vm-replication-errors"></a>Azure 간 VM 복제 오류 문제 해결
 
@@ -80,7 +80,7 @@ SUSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 1. Symantec 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 파일을 다운로드 합니다. 오류를 확인 하 고 네트워크 오류에 대 한 권장 조치를 따릅니다.
 
-    **# wget https://www.symantec.com/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem -O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
+    **# wget https://docs.broadcom.com/docs-and-downloads/content/dam/symantec/docs/other-resources/verisign-class-3-public-primary-certification-authority-g5-en.pem-O VeriSign_Class_3_Public_Primary_Certification_Authority_G5. pem**
 
 1. Baltimore 루트 CA 인증서가 있는지 확인 합니다.
 
@@ -88,7 +88,7 @@ SUSE Linux는 기호화 된 링크 (또는 *symlink*)를 사용 하 여 인증�
 
 1. Baltimore 루트 CA 인증서를 찾을 수 없는 경우 다음 명령을 실행 하 여 인증서를 다운로드 합니다.
 
-    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem -O Baltimore_CyberTrust_Root. pem**
+    **# wget https://www.digicert.com/CACerts/BaltimoreCyberTrustRoot.crt.pem-O Baltimore_CyberTrust_Root. pem**
 
 1. DigiCert_Global_Root_CA 인증서가 있는지 확인 합니다.
 
@@ -455,7 +455,7 @@ Linux GRUB 구성 파일 (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/grub2/
 
 - 파일/boot/grub2/grub.cfg
 
-  > linux   /boot/vmlinuz-3.12.49-11-default **root=/dev/sda2**  ${extra_cmdline} **resume=/dev/sda1** splash=silent quiet showopts
+  > linux/boot/vmlinuz-3.12.49-11-default **root =/dev/sda2** $ {extra_cmdline} **resume =/dev/sda1** 스플래시 = 자동 자동 showopts
 
 - 파일:/boot/grub/menu.lst
 
@@ -466,7 +466,7 @@ Linux GRUB 구성 파일 (/boot/grub/menu.lst ",/boot/grub/grub.cfg,/boot/grub2/
 
 각 장치 이름을 해당 하는 UUID로 바꿉니다.
 
-1. **Blkid** ***장치 이름***명령을 실행 하 여 장치의 UUID를 찾습니다. 예:
+1. **Blkid** ***장치 이름***명령을 실행 하 여 장치의 UUID를 찾습니다. 다음은 그 예입니다.
 
     ```
     blkid /dev/sda1

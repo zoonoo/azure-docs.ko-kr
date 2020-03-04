@@ -3,7 +3,7 @@ title: GitHub에서 Azure Linux 에이전트 업데이트
 description: Azure Linux VM의 Azure Linux 에이전트를 업데이트하는 방법을 알아봅니다.
 services: virtual-machines-linux
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: gwallace
 editor: ''
 tags: azure-resource-manager,azure-service-management
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: vm-linux
 ms.topic: article
 ms.date: 08/02/2017
 ms.author: mimckitt
-ms.openlocfilehash: 86ddda8537a4b61c5432072077c183ded2556624
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: e4489f7c810799ca8e89565fe698f398f942b089
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75973144"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251715"
 ---
 # <a name="how-to-update-the-azure-linux-agent-on-a-vm"></a>VM에서 Azure Linux 에이전트를 업데이트하는 방법
 
@@ -349,7 +349,7 @@ sudo systemctl restart walinuxagent.service
 
 ## <a name="oracle-linux-6-and-oracle-linux-7"></a>Oracle Linux 6 및 Oracle Linux 7
 
-Oracle Linux의 경우 `Addons` 리포지토리가 사용되도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 **[ol6_addons]** 또는 **[ol7_addons]** 아래에서 줄 `enabled=0`을 `enabled=1`로 변경하도록 선택합니다.
+Oracle Linux의 경우 `Addons` 리포지토리가 사용되도록 설정되었는지 확인합니다. 파일 `/etc/yum.repos.d/public-yum-ol6.repo`(Oracle Linux 6) 또는 파일 `/etc/yum.repos.d/public-yum-ol7.repo`(Oracle Linux)를 편집하고 이 파일의 `enabled=0`[ol6_addons]`enabled=1` 또는 **[ol7_addons]** 아래에서 줄 **을** 로 변경하도록 선택합니다.
 
 그런 다음 최신 버전의 Azure Linux 에이전트를 설치하려면 다음을 입력합니다.
 
@@ -387,7 +387,7 @@ enabled=1
 sudo yum update WALinuxAgent
 ```
 
-일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com 에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
+일반적으로는 이렇게만 하면 되지만 어떤 이유로든 https://github.com에서 직접 설치해야 하는 경우 다음 단계를 사용하세요.
 
 
 ## <a name="update-the-linux-agent-when-no-agent-package-exists-for-distribution"></a>배포에 대해 에이전트 패키지가 없는 경우 Linux 에이전트를 업데이트합니다.

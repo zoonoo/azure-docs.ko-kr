@@ -5,18 +5,18 @@ author: tfitzmac
 ms.topic: conceptual
 ms.date: 08/06/2019
 ms.author: tomfitz
-ms.openlocfilehash: fe6fbb2c27dcc18cca114e6d10cd382d376a27e2
-ms.sourcegitcommit: f788bc6bc524516f186386376ca6651ce80f334d
+ms.openlocfilehash: e2d075a58872f9337c7d1faa642a48047e2f9ddf
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/03/2020
-ms.locfileid: "75651307"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250186"
 ---
 # <a name="test-your-portal-interface-for-azure-managed-applications"></a>Azure Managed Applications에 대 한 포털 인터페이스 테스트
 
 관리 되는 응용 프로그램에 대 한 [createUiDefinition. json 파일을 만든](create-uidefinition-overview.md) 후 사용자 환경을 테스트 해야 합니다. 테스트를 간소화 하려면 포털에서 파일을 로드 하는 샌드박스 환경을 사용 합니다. 실제로 관리되는 애플리케이션을 배포할 필요는 없습니다. 샌드박스는 현재 전체 화면 포털 환경에서 사용자 인터페이스를 제공 합니다. 또는 인터페이스를 테스트 하는 데 스크립트를 사용할 수 있습니다. 두 방법은 모두 이 문서에 나와 있습니다. 샌드박스는 인터페이스를 미리 보는 데 권장 되는 방법입니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * **createUiDefinition.json** 파일. 이 파일이 없으면 [샘플 파일](https://github.com/Azure/azure-quickstart-templates/blob/master/100-marketplace-sample/createUiDefinition.json)을 복사 합니다.
 
@@ -68,7 +68,7 @@ PowerShell의 경우 다음을 사용합니다.
 
 Azure CLI의 경우
 
-```azurecli
+```bash
 ./sideload-createuidef.sh \
   -l southcentralus \
   -a .\100-Marketplace-Sample
@@ -84,7 +84,7 @@ PowerShell의 경우 다음을 사용합니다.
 
 Azure CLI의 경우
 
-```azurecli
+```bash
 ./sideload-createuidef.sh
 ```
 

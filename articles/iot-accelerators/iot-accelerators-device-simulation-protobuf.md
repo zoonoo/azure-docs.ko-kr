@@ -9,12 +9,12 @@ ms.topic: conceptual
 ms.custom: mvc
 ms.date: 11/06/2018
 ms.author: dobett
-ms.openlocfilehash: 79517ffd68c501203ea9c02f3a3276973d4a8a56
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: bc08cd5183bcaac6cb77ccb0938b07893f082862
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75982139"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250220"
 ---
 # <a name="serialize-telemetry-using-protocol-buffers"></a>프로토콜 버퍼를 사용하여 원격 분석 직렬화
 
@@ -32,7 +32,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 1. Protobuf 클래스 생성
 1. 로컬에서 테스트
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 방법 가이드의 단계를 수행하려면 다음이 필요합니다.
 
@@ -40,7 +40,7 @@ Protobuf는 데이터를 직렬화하기 위해 컴파일된 코드가 필요하
 * .NET Core [Mac, Linux 및 Windows용 .NET Core를 다운로드](https://www.microsoft.com/net/download)할 수 있습니다.
 * Postman [Mac, Windows 또는 Linux용 Postman](https://www.getpostman.com/apps)을 다운로드할 수 있습니다.
 * [Azure 구독에 배포된 IoT 허브](../iot-hub/iot-hub-create-through-portal.md) 이 가이드의 단계를 완료하려면 IoT 허브의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
-* SQL API를 사용하고 [강력한 일관성](../cosmos-db/manage-account.md)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/create-sql-api-dotnet.md#create-account). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
+* SQL API를 사용하고 [강력한 일관성](../cosmos-db/create-sql-api-dotnet.md#create-account)으로 구성되어 [Azure 구독에 배포된 Cosmos DB 데이터베이스](../cosmos-db/manage-account.md). 이 가이드의 단계를 완료하려면 Cosmos DB 데이터베이스의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 * [Azure 구독에 배포된 Azure 스토리지 계정](../storage/common/storage-account-create.md). 이 가이드의 단계를 완료하려면 스토리지 계정의 연결 문자열이 필요합니다. Azure Portal에서 연결 문자열을 가져올 수 있습니다.
 
 ## <a name="prepare-your-development-environment"></a>개발 환경 준비
@@ -145,7 +145,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 디바이스 모델이 있고 메시지 형식을 결정했으면 **proto** 파일을 만들 수 있습니다. **proto** 파일에서 다음을 추가합니다.
 
-* 디바이스 모델의 **ClassName** 속성과 일치하는 `csharp_namespace`
+* 디바이스 모델의 `csharp_namespace`ClassName**속성과 일치하는**
 * 직렬화할 각 데이터 구조에 대한 메시지
 * 메시지의 각 필드에 대한 이름 및 형식
 
@@ -174,7 +174,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 1. [GitHub에서 Protobuf 컴파일러를 다운로드](https://github.com/protocolbuffers/protobuf/releases/download/v3.4.0/protoc-3.4.0-win32.zip)합니다.
 
-1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 예:
+1. 컴파일러를 실행하여 소스 디렉터리, 대상 디렉터리 및 **proto** 파일의 이름을 지정합니다. 다음은 그 예입니다.
 
     ```cmd
     protoc -I c:\temp\device-simulation-dotnet-master\Services\Models\Protobuf\proto --csharp_out=C:\temp\device-simulation-dotnet-master\Services\Models\Protobuf assettracker.proto
@@ -206,7 +206,7 @@ Visual Studio Code의 새 인스턴스에 GitHub에서 다운로드한 **device-
 
 기본적으로 새 JSON 및 JS 디바이스 모델 파일은 빌드된 솔루션에 복사되지 않습니다. 명시적으로 포함해야 합니다.
 
-포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 예:
+포함하려는 각 파일에 대한 항목을 **services\services.csproj**에 추가합니다. 다음은 그 예입니다.
 
 ```xml
 <None Update="data\devicemodels\assettracker-01.json">
@@ -231,7 +231,7 @@ Visual Studio Code에서 **터미널** 창은 실행 중인 마이크로 서비�
 
 ```azurecli-interactive
 # Install the IoT extension if it's not already installed
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 
 # Monitor telemetry sent to your hub
 az iot hub monitor-events --hub-name device-simulation-test

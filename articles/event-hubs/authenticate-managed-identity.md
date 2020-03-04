@@ -9,12 +9,12 @@ manager: ''
 ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: spelluru
-ms.openlocfilehash: c5418f8c5e759ad0e5c388e0925fa724fe148797
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 672b663a9cab72d465ea00e0a5ade364eadbf64e
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368518"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251523"
 ---
 # <a name="authenticate-a-managed-identity-with-azure-active-directory-to-access-event-hubs-resources"></a>Event Hubs 리소스에 액세스 하기 위해 Azure Active Directory를 사용 하 여 관리 id 인증
 Azure Event Hubs [는 azure 리소스에 대 한 관리 id](../active-directory/managed-identities-azure-resources/overview.md)를 사용 하 여 Azure Active Directory (azure AD) 인증을 지원 합니다. Azure 리소스에 대 한 관리 id는 azure Virtual Machines (Vm), 함수 앱, Virtual Machine Scale Sets 및 기타 서비스에서 실행 되는 응용 프로그램의 Azure AD 자격 증명을 사용 하 여 Event Hubs 리소스에 대 한 액세스 권한을 부여할 수 있습니다 Azure 리소스에 대 한 관리 되는 id를 Azure AD 인증과 함께 사용 하 여 클라우드에서 실행 되는 응용 프로그램에 자격 증명을 저장 하지 않을 수 있습니다.
@@ -79,10 +79,13 @@ Event Hubs 리소스에 역할을 할당 하려면 Azure Portal에서 해당 리
 4. 이 id를 네임 스페이스 수준이 나 이벤트 허브 수준에서 **Event Hubs 데이터 소유자** 역할에 할당 합니다. 
 5. 웹 응용 프로그램을 실행 하 고, 네임 스페이스 이름 및 이벤트 허브 이름 및 메시지를 입력 하 고, **보내기**를 선택 합니다. 이벤트를 받으려면 **수신**을 선택 합니다. 
 
-#### <a name="azuremessagingeventhubs-latesttablatest"></a>[EventHubs (최신)](#tab/latest)
+#### <a name="azuremessagingeventhubs-latest"></a>[EventHubs (최신)](#tab/latest)
 이제 웹 응용 프로그램을 시작 하 고 브라우저가 샘플 aspx 페이지를 가리키도록 할 수 있습니다. [GitHub 리포지토리의](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)Event Hubs 리소스에서 데이터를 보내고 받는 샘플 웹 응용 프로그램을 찾을 수 있습니다.
 
-[NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)에서 최신 패키지를 설치 하 고 **EventHubConsumerClient**를 사용 하 여 **EventHubProducerClient** 및 수신 이벤트를 사용 하 여 Event Hubs에 이벤트를 보내기 시작 합니다.  
+[NuGet](https://www.nuget.org/packages/Azure.Messaging.EventHubs/)에서 최신 패키지를 설치 하 고 **EventHubConsumerClient**를 사용 하 여 **EventHubProducerClient** 및 수신 이벤트를 사용 하 여 Event Hubs에 이벤트를 보내기 시작 합니다. 
+
+> [!NOTE]
+> 관리 id를 사용 하 여 이벤트 허브에 이벤트를 게시 하는 Java 샘플은 [GitHub에서 Azure identity 샘플을 사용 하 여 이벤트 게시](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)를 참조 하세요.
 
 ```csharp
 protected async void btnSend_Click(object sender, EventArgs e)
@@ -127,7 +130,7 @@ protected async void btnReceive_Click(object sender, EventArgs e)
 }
 ```
 
-#### <a name="microsoftazureeventhubs-legacytabold"></a>[EventHubs (레거시)](#tab/old)
+#### <a name="microsoftazureeventhubs-legacy"></a>[EventHubs (레거시)](#tab/old)
 이제 웹 응용 프로그램을 시작 하 고 브라우저가 샘플 aspx 페이지를 가리키도록 할 수 있습니다. [GitHub 리포지토리의](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac/ManagedIdentityWebApp)Event Hubs 리소스에서 데이터를 보내고 받는 샘플 웹 응용 프로그램을 찾을 수 있습니다.
 
 [NuGet](https://www.nuget.org/packages/Microsoft.Azure.EventHubs/)에서 최신 패키지를 설치 하 고 다음 코드와 같이 EventHubClient를 사용 하 여 Event hubs에서 데이터를 보내고 받는 작업을 시작 합니다. 
@@ -141,11 +144,12 @@ var ehClient = EventHubClient.CreateWithManagedIdentity(new Uri($"sb://{EventHub
 Apache Kafka 응용 프로그램을 사용 하 여 관리 되는 id OAuth를 통해 Azure Event Hubs에서 메시지를 보내고 받을 수 있습니다. GitHub의 다음 샘플을 참조 하세요. [Kafka에 대 한 Event Hubs-관리 Id OAuth를 사용 하 여 메시지를 보내고 받습니다](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity).
 
 ## <a name="samples"></a>샘플
+- **EventHubs** 샘플
+    - [.NET](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
+    - [Java](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/eventhubs/azure-messaging-eventhubs/src/samples/java/com/azure/messaging/eventhubs)
 - [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Microsoft.Azure.EventHubs/Rbac). 
     
     이러한 샘플은 이전 **EventHubs** 라이브러리를 사용 하지만, 최신 **EventHubs** 라이브러리를 사용 하 여 쉽게 업데이트할 수 있습니다. 이전 라이브러리를 사용 하 여 샘플을 새 라이브러리로 이동 하려면 [EventHubs에서 EventHubs로 마이그레이션 가이드](https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/migration-guide-from-v4.md)를 참조 하세요.
-- [EventHubs 샘플](https://github.com/Azure/azure-event-hubs/tree/master/samples/DotNet/Azure.Messaging.EventHubs/ManagedIdentityWebApp)
-
     이 샘플은 최신 **EventHubs** 라이브러리를 사용 하도록 업데이트 되었습니다.
 - [Kafka에 대 한 Event Hubs-관리 id OAuth를 사용 하 여 메시지 보내기 및 받기](https://github.com/Azure/azure-event-hubs-for-kafka/tree/master/tutorials/oauth/java/managedidentity)
 

@@ -7,12 +7,12 @@ ms.service: private-link
 ms.topic: article
 ms.date: 09/16/2019
 ms.author: allensu
-ms.openlocfilehash: bb1913d77616869c889c464a41e8166b3a88b03c
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 8c76333d5a2be8a2c589dbe54389b023fef34854
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028879"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252523"
 ---
 # <a name="connect-privately-to-a-storage-account-using-azure-private-endpoint"></a>Azure 개인 끝점을 사용 하 여 전용 저장소 계정에 연결
 Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입니다. Vm (가상 머신)과 같은 Azure 리소스가 개인 링크 리소스와 개인적으로 통신할 수 있도록 합니다.
@@ -24,29 +24,27 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-[https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+[https://portal.azure.com](https://portal.azure.com) 에서 Azure Portal에 로그인합니다.
 
 ## <a name="create-a-vm"></a>VM 만들기
 이 섹션에서는 개인 링크 리소스 (이 예제에서는 저장소 계정)에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
 
-### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
 이 섹션에서는 개인 링크 리소스에 액세스 하는 데 사용 되는 VM을 호스트 하는 가상 네트워크 및 서브넷을 만듭니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
-1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+이 섹션에서는 단계에서 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **WestCentralUS**를 선택합니다.|
-    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-    |||
-1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<리소스 그룹 이름 >**  | myResourceGroup |
+| **\<가상 네트워크 이름 >** | myVirtualNetwork          |
+| **\<영역 이름 >**          | 미국 중서부      |
+| **\<IPv4-주소 공간 >**   | 10.1.0.0 \ 16          |
+| **\<서브넷-이름 >**          | mySubnet        |
+| **\<서브넷-주소 범위 >** | 10.1.0.0 \ 24          |
+
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 
 ### <a name="create-virtual-machine"></a>가상 머신 만들기
@@ -59,7 +57,7 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
@@ -107,11 +105,11 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     | **인스턴스 정보** |  |
     | 스토리지 계정 이름  | *Mystorageaccount*를 입력 합니다. 이 이름을 사용하는 경우 고유한 이름을 만듭니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
-    | 성능 중심| 기본값인 **표준**을 그대로 둡니다. |
+    | 성능| 기본값인 **표준**을 그대로 둡니다. |
     | 계정 종류 | 기본 **저장소 (범용 v2)** 를 그대로 둡니다. |
     | 복제 | **읽기 액세스 지역 중복 저장소 (RA-GRS)** 를 선택 합니다. |
     |||
@@ -125,13 +123,13 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.|
     |위치|**WestCentralUS**를 선택합니다.|
-    |이름|*myPrivateEndpoint*를 입력합니다.  |
+    |속성|*myPrivateEndpoint*를 입력합니다.  |
     |저장소 하위 리소스|기본 **Blob**을 그대로 둡니다. |
     | **네트워킹** |  |
     | 가상 네트워크  | 리소스 그룹 *Myresourcegroup*에서 *MyVirtualNetwork* 을 선택 합니다. |
-    | 서브넷 | *Mysubnet*을 선택 합니다. |
+    | 서브넷 | *mySubnet*을 선택합니다. |
     | **프라이빗 DNS 통합**|  |
     | 프라이빗 DNS 영역과 통합  | 기본값 **예**를 그대로 둡니다. |
     | 프라이빗 DNS 영역  | 기본값 **(New) privatelink.blob.core.windows.net**을 그대로 둡니다. |
@@ -202,9 +200,9 @@ Azure 개인 끝점은 Azure의 개인 링크에 대 한 기본 빌딩 블록입
 
 ## <a name="clean-up-resources"></a>리소스 정리 
 개인 끝점, 저장소 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다. 
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다. 
 2. **리소스 그룹 삭제**를 선택합니다. 
-3. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다. 
+3. *리소스 그룹 이름 입력*에 대해 **myResourceGroup**을 입력하고 **삭제**를 선택합니다. 
 
 ## <a name="next-steps"></a>다음 단계
 이 빠른 시작에서는 가상 네트워크와 저장소 계정 및 개인 끝점에서 VM을 만들었습니다. 인터넷에서 하나의 VM에 연결 하 고 개인 링크를 사용 하 여 저장소 계정에 안전 하 게 전달 했습니다. 개인 끝점에 대 한 자세한 내용은 [Azure 개인 끝점 이란?](private-endpoint-overview.md)을 참조 하세요.

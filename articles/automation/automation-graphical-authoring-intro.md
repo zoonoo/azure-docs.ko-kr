@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 7a0d94522e478a69f70167183e4c0d60d0d85060
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226544"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255991"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -25,7 +25,7 @@ Azure Automation의 모든 runbook은 Windows PowerShell 워크플로입니다. 
 
 ## <a name="overview-of-graphical-editor"></a>그래픽 편집기 개요
 
-그래픽 runbook을 만들거나 편집 하 여 Azure Portal에서 그래픽 편집기를 열 수 있습니다.
+그래픽 Runbook을 만들거나 편집하여 Azure 포털에서 그래픽 편집기를 열 수 있습니다.
 
 ![그래픽 작업 영역](media/automation-graphical-authoring-intro/runbook-graphical-editor.png)
 
@@ -163,7 +163,7 @@ $DateTimeStart
 
 ### <a name="start-of-activity"></a>작업 시작
 
-그래픽 runbook은 들어오는 링크가 없는 활동으로 시작 됩니다. Runbook의 시작 활동 역할을 하는 활동은 종종 하나 뿐입니다. 여러 활동에 들어오는 링크가 없는 경우 runbook은 병렬로 실행 하 여 시작 합니다. 각 활동이 완료되는 대로 링크에 따라 다른 활동을 실행합니다.
+그래픽 Runbook은 들어오는 링크가 없는 활동으로 시작됩니다. Runbook의 시작 활동 역할을 하는 활동은 종종 하나 뿐입니다. 여러 활동에 들어오는 링크가 없는 경우 runbook은 병렬로 실행 하 여 시작 합니다. 각 활동이 완료되는 대로 링크에 따라 다른 활동을 실행합니다.
 
 ### <a name="link-conditions"></a>링크 조건
 
@@ -241,7 +241,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ### <a name="checkpoints"></a>검사점
 
-작업에서 [검사점 Runbook](automation-powershell-workflow.md#checkpoints) 을 선택하여 그래픽 PowerShell 워크플로 Runbook에서 **검사점** 을 설정할 수 있습니다. 활동을 실행한 후에 검사점을 설정하게 됩니다.
+활동에서 **검사점 runbook** 을 선택 하 여 그래픽 PowerShell 워크플로 runbook에서 [검사점](automation-powershell-workflow.md#checkpoints) 을 설정할 수 있습니다. 활동을 실행한 후에 검사점을 설정하게 됩니다.
 
 ![검사점](media/automation-graphical-authoring-intro/set-checkpoint.png)
 
@@ -249,7 +249,7 @@ $ActivityOutput['Activity Label'].PropertyName
 
 ## <a name="runbook-input-and-output"></a>Runbook 입력 및 출력
 
-### < 이름-"runbook-입력" ></a>Runbook 입력
+### Runbook 입력<a name="runbook-input"></a>
 
 Runbook은 Azure Portal 또는 다른 runbook에서 runbook을 시작 하는 사용자의 입력이 필요 합니다 (현재 항목이 자식으로 사용 되는 경우). 예를 들어 가상 컴퓨터를 만드는 runbook의 경우 사용자는 runbook이 시작 될 때마다 가상 컴퓨터의 이름 및 기타 속성에 이러한 정보를 제공 해야 할 수 있습니다.
 
@@ -407,15 +407,15 @@ Runbook은 시작 및 각 검사점 후에 인증 해야 합니다. 따라서 **
 
 ![활동 출력](media/automation-graphical-authoring-intro/authentication-activity-output.png)
 
-## <a name="exporting-and-importing-a-graphical-runbook"></a>그래픽 runbook 내보내기 및 가져오기
+## <a name="exporting-and-importing-a-graphical-runbook"></a>그래픽 Runbook 내보내기 및 가져오기
 
-게시 된 버전의 그래픽 runbook만 내보낼 수 있습니다. Runbook이 아직 게시 되지 않은 경우 **내보내기** 단추를 사용할 수 없습니다. **내보내기** 단추를 클릭 하면 runbook이 로컬 컴퓨터에 다운로드 됩니다. 파일 이름은 **. graphrunbook** 확장의 runbook 이름과 일치 합니다.
+게시된 버전의 그래픽 Runbook만 내보낼 수 있습니다. Runbook이 아직 게시 되지 않은 경우 **내보내기** 단추를 사용할 수 없습니다. **내보내기** 단추를 클릭 하면 runbook이 로컬 컴퓨터에 다운로드 됩니다. 파일 이름은 **. graphrunbook** 확장의 runbook 이름과 일치 합니다.
 
-Runbook을 추가할 때 **가져오기** 옵션을 선택하여 그래픽 또는 그래픽 PowerShell 워크플로 Runbook 파일을 가져올 수 있습니다. 가져올 파일을 선택 하는 경우 동일한 이름을 유지 하거나 새 파일을 제공할 수 있습니다. **Runbook 유형** 필드는 선택한 파일을 평가 하 고 runbook 유형을 표시 합니다. 잘못 된 다른 형식을 선택 하려고 하면 그래픽 편집기에서 충돌이 발생할 수 있다는 메시지를 표시 하 고 변환 하는 동안 구문 오류가 발생할 수 있습니다.
+Runbook을 추가할 때 **가져오기** 옵션을 선택 하 여 그래픽 또는 그래픽 PowerShell 워크플로 runbook 파일을 가져올 수 있습니다. 가져올 파일을 선택 하는 경우 동일한 이름을 유지 하거나 새 파일을 제공할 수 있습니다. **Runbook 유형** 필드는 선택한 파일을 평가 하 고 runbook 유형을 표시 합니다. 잘못 된 다른 형식을 선택 하려고 하면 그래픽 편집기에서 충돌이 발생할 수 있다는 메시지를 표시 하 고 변환 하는 동안 구문 오류가 발생할 수 있습니다.
 
 ![Runbook 가져오기](media/automation-graphical-authoring-intro/runbook-import-revised20165.png)
 
-## <a name="testing-a-graphical-runbook"></a>그래픽 runbook 테스트
+## <a name="testing-a-graphical-runbook"></a>그래픽 Runbook 테스트
 
 Azure Automation의 각 그래픽 runbook에는 초안 버전과 게시 된 버전이 있습니다. 게시 된 버전만 실행할 수 있으며 초안 버전만 편집할 수 있습니다. 초안 버전을 변경해도 게시된 버전은 영향을 받지 않습니다. 초안 버전을 사용할 준비가 되 면 게시 하 여 현재 게시 된 버전을 초안 버전으로 덮어씁니다.
 
@@ -423,7 +423,7 @@ Azure Automation의 각 그래픽 runbook에는 초안 버전과 게시 된 버�
 
 편집을 위해 runbook을 열고 **테스트 창**을 클릭 하 여 그래픽 runbook에 대 한 테스트 컨트롤을 엽니다. 테스트 컨트롤에서 입력 매개 변수를 묻는 메시지를 표시 하 고 **시작**을 클릭 하 여 runbook을 시작할 수 있습니다.
 
-## <a name="publishing-a-graphical-runbook"></a>그래픽 runbook 게시
+## <a name="publishing-a-graphical-runbook"></a>그래픽 Runbook 게시
 
 편집용 runbook을 열고 **게시**를 클릭 하 여 그래픽 runbook을 게시 합니다. Runbook에 대 한 가능한 상태는 다음과 같습니다.
 

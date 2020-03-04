@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 153df77c030180402b1e30bc456d681c232c390b
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: 4f975af233973ce5fac75ca46e334af5d91e8edc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78226530"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246270"
 ---
 # <a name="error-handling-in-azure-automation-graphical-runbooks"></a>Azure Automation 그래픽 runbook의 오류 처리
 
@@ -20,7 +20,7 @@ Azure Automation 그래픽 runbook에 대해 고려할 주요 디자인 원칙�
 
 그래픽 runbook은 실행 문제를 처리 하는 오류 처리 코드를 포함 해야 합니다. 활동의 출력에 대 한 유효성을 검사 하거나 오류를 처리 하려면 PowerShell 코드 활동을 사용 하 여 활동의 출력 링크에서 조건부 논리를 정의 하거나 다른 메서드를 적용 합니다.
 
-Azure Automation 그래픽 runbook은 오류 처리를 포함 하는 기능으로 개선 되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 향상 된 프로세스를 통해 runbook에서 오류를 포착 하 고 실현 되거나 예기치 않은 상태를 관리할 수 있습니다. 
+Azure Automation 그래픽 runbook은 오류 처리를 포함하는 기능으로 개선되었습니다. 이제 예외를 종료되지 않는 오류로 전환하고 활동 간에 오류 링크를 만들 수 있습니다. 향상 된 프로세스를 통해 runbook에서 오류를 포착 하 고 실현 되거나 예기치 않은 상태를 관리할 수 있습니다. 
 
 >[!NOTE]
 >이 문서는 새 Azure PowerShell Az 모듈을 사용하도록 업데이트되었습니다. AzureRM 모듈은 적어도 2020년 12월까지 버그 수정을 수신할 예정이므로 계속 사용하셔도 됩니다. 새 Az 모듈 및 AzureRM 호환성에 대한 자세한 내용은 [새 Azure PowerShell Az 모듈 소개](https://docs.microsoft.com/powershell/azure/new-azureps-module-az?view=azps-3.5.0)를 참조하세요. Hybrid Runbook Worker에 대 한 Az module 설치 지침은 [Azure PowerShell 모듈 설치](https://docs.microsoft.com/powershell/azure/install-az-ps?view=azps-3.5.0)를 참조 하세요. Automation 계정의 경우 [Azure Automation에서 Azure PowerShell 모듈을 업데이트 하는 방법을](automation-update-azure-modules.md)사용 하 여 모듈을 최신 버전으로 업데이트할 수 있습니다.
@@ -66,6 +66,6 @@ Runbook의 각 작업에는 예외를 종료 되지 않는 오류로 전환 하�
 
 ## <a name="next-steps"></a>다음 단계
 
-* 그래픽 runbook의 링크 및 링크 형식에 대해 자세히 알아보려면 [Azure Automation의 그래픽 작성](automation-graphical-authoring-intro.md#links-and-workflow)을 참조 하세요.
+* 그래픽 runbook의 링크 및 링크 유형에 대해 자세히 알아보려면 [Azure Automation에서 그래픽 작성](automation-graphical-authoring-intro.md#links-and-workflow)을 참조하세요.
 
 * Runbook 실행, runbook 작업 모니터링 및 기타 기술 세부 정보에 대 한 자세한 내용은 [Azure Automation에서 runbook 실행](automation-runbook-execution.md)을 참조 하세요.

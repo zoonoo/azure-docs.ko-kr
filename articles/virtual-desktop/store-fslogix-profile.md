@@ -7,12 +7,12 @@ ms.service: virtual-desktop
 ms.topic: conceptual
 ms.date: 10/14/2019
 ms.author: helohr
-ms.openlocfilehash: fb473ec55ec6a5e93ba4ad22bf500414d54e4a5d
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 165e87b47deca2b7f175ec07b5c615ac25db0dd2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77367193"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251740"
 ---
 # <a name="storage-options-for-fslogix-profile-containers-in-windows-virtual-desktop"></a>Windows 가상 데스크톱의 FSLogix 프로필 컨테이너에 대 한 저장소 옵션
 
@@ -26,6 +26,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 
 |기능|Azure 파일|Azure NetApp Files|직접 스토리지 공간|
 |--------|-----------|------------------|---------------------|
+|사용 사례|범용 가상 컴퓨터|NetApp 온-프레미스에서의 Ultra 성능 또는 마이그레이션|플랫폼 간|
 |플랫폼 서비스|예, Azure 네이티브 솔루션|예, Azure 네이티브 솔루션|아니요, 자체 관리|
 |국가별 가용성|모든 지역|[영역 선택](https://azure.microsoft.com/global-infrastructure/services/?products=netapp&regions=all)|모든 지역|
 |중복|로컬 중복/영역 중복/지역 중복|로컬 중복|로컬 중복/영역 중복/지역 중복|
@@ -41,7 +42,7 @@ Windows 가상 데스크톱은 FSLogix 프로필 컨테이너를 권장 사용�
 |액세스 권한|클라우드, 온-프레미스 및 하이브리드 (Azure 파일 동기화)|클라우드, 온-프레미스 (Express 경로를 통해)|클라우드, 온-프레미스|
 |Backup|Azure backup 스냅숏 통합|Azure NetApp Files 스냅숏|Azure backup 스냅숏 통합|
 |보안 및 규정 준수|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|ISO 완료|[모든 Azure 지원 인증서](https://www.microsoft.com/trustcenter/compliance/complianceofferings)|
-|Azure Active Directory 통합|Azure Active Directory 및 Azure Active Directory Domain Services|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
+|Azure Active Directory 통합|[네이티브 Active Directory 및 Azure Active Directory Domain Services](https://docs.microsoft.com/azure/storage/files/storage-files-active-directory-overview)|[Azure Active Directory Domain Services 및 네이티브 Active Directory](../azure-netapp-files/azure-netapp-files-faqs.md#does-azure-netapp-files-support-azure-active-directory)|네이티브 Active Directory 또는 Azure Active Directory Domain Services 지원만|
 
 저장소 방법을 선택한 후 가격 계획에 대 한 자세한 내용은 [Windows 가상 데스크톱 가격 책정](https://azure.microsoft.com/pricing/details/virtual-desktop/) 을 확인 하세요.
 

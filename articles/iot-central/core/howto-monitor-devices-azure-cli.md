@@ -8,12 +8,12 @@ ms.topic: conceptual
 ms.service: iot-central
 services: iot-central
 manager: corywink
-ms.openlocfilehash: 3f18537b4b038844c9aa824593e354c23c792370
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 6af6f01449f2f43e6799ef6d7821b9d71b24e603
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77026784"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252343"
 ---
 # <a name="monitor-device-connectivity-using-azure-cli"></a>Azure CLI를 사용하여 디바이스 연결 모니터링
 
@@ -23,7 +23,7 @@ Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는
 
 [자세한 내용은 Azure CLI 확장 참조를 참조 하세요.](https://docs.microsoft.com/cli/azure/ext/azure-cli-iot-ext/iot/central)
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 + Azure CLI 설치 되어 있으며 버전 2.0.7 이상입니다. `az --version`를 실행 하 여 Azure CLI 버전을 확인 합니다. [Azure CLI 문서](https://docs.microsoft.com/cli/azure/install-azure-cli) 에서 설치 및 업데이트 하는 방법을 알아봅니다.
 + IoT Central 응용 프로그램에서 사용자로 추가 된 Azure의 회사 또는 학교 계정
@@ -33,16 +33,19 @@ Azure CLI IoT 확장을 사용 하 여 장치가 IoT Central으로 전송 하는
 명령줄에서 다음 명령을 실행하여 설치합니다.
 
 ```cmd/sh
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
-을 실행 하 여 확장의 버전을 확인 합니다. 
+다음을 실행 하 여 확장의 버전을 확인 합니다.
+
 ```cmd/sh
 az --version
 ```
-Azure-cli-iot ext 확장이 0.8.1 이상 인지 확인 해야 합니다. 그렇지 않으면를 실행 합니다.
+
+Azure-iot 확장이 0.8.1 이상 인지 확인 해야 합니다. 그렇지 않은 경우 다음을 실행 합니다.
+
 ```cmd/sh
-az extension update --name azure-cli-iot-ext
+az extension update --name azure-iot
 ```
 
 ## <a name="using-the-extension"></a>확장 사용

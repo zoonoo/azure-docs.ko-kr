@@ -14,12 +14,12 @@ ms.workload: big-compute
 ms.date: 12/05/2018
 ms.author: labrenne
 ms.custom: seodec18
-ms.openlocfilehash: 70c53ea9a8fc64615a9a493efc42405631a3f06d
-ms.sourcegitcommit: 21e33a0f3fda25c91e7670666c601ae3d422fb9c
+ms.openlocfilehash: 68d5976a5a79dbde88b7f80b02b39793ffc86de9
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/05/2020
-ms.locfileid: "77025166"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254851"
 ---
 # <a name="batch-metrics-alerts-and-logs-for-diagnostic-evaluation-and-monitoring"></a>진단 평가 및 모니터링을 위한 일괄 처리 메트릭, 경고 및 로그
 
@@ -49,7 +49,12 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 3. 하나 이상의 메트릭을 선택합니다. 원하는 경우 **구독**, **리소스 그룹**, **리소스 종류** 및 **리소스** 드롭다운 목록을 사용하여 추가 리소스 메트릭을 선택합니다.
     * 개수 기반 메트릭 (예: "전용 코어 수" 또는 "낮은 우선 순위 노드 수")의 경우 "Average" 집계를 사용 합니다. 이벤트 기반 메트릭 (예: "풀 크기 조정 완료 이벤트")의 경우 "Count" 집계를 사용 합니다.
 
-    ![일괄 처리 메트릭](media/batch-diagnostics/metrics-portal.png)
+> [!WARNING]
+> 차트 기간 동안 수신 된 모든 데이터 요소의 값을 더하는 "Sum" 집계를 사용 하지 마십시오.
+> 
+> 
+
+    ![Batch metrics](media/batch-diagnostics/metrics-portal.png)
 
 메트릭을 프로그래밍 방식으로 검색하려면 Azure Monitor API를 사용합니다. 예제는 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://azure.microsoft.com/resources/samples/monitor-dotnet-metrics-api/)을 참조하세요.
 
@@ -71,7 +76,7 @@ Azure Portal에서 배치 계정에 대한 메트릭을 봅니다. 기본적으�
 2. **모니터링**에서 **경고 규칙** > **메트릭 경고 추가**를 클릭합니다.
 3. 메트릭, 경고 조건(예: 메트릭이 일정 기간 동안 특정 값을 초과하는 경우) 및 하나 이상의 알림을 선택합니다.
 
-또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조하세요.
+또한 [REST API](https://docs.microsoft.com/rest/api/monitor/)를 사용하여 거의 실시간으로 경고를 구성할 수 있습니다. 자세한 내용은 [경고 개요](../azure-monitor/platform/alerts-overview.md)를 참조 하세요. 경고에 작업, 태스크 또는 풀 관련 정보를 포함 하려면 [Azure Monitor 경고를 사용 하 여 이벤트에 응답](../azure-monitor/learn/tutorial-response.md) 에서 검색 쿼리 정보를 참조 하세요.
 
 ## <a name="batch-diagnostics"></a>일괄 처리 진단
 
@@ -123,7 +128,7 @@ BATCHACCOUNTS/{Batch account name}/y={four-digit numeric year}/
 m={two-digit numeric month}/d={two-digit numeric day}/
 h={two-digit 24-hour clock hour}/m=00/PT1H.json
 ```
-예:
+예제:
 
 ```
 insights-metrics-pt1m/resourceId=/SUBSCRIPTIONS/XXXXXXXX-XXXX-XXXX-XXXX-XXXXXXXXXXXX/

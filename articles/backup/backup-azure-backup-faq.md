@@ -1,14 +1,14 @@
 ---
 title: 일반적인 질문에 대한 답변
-description: '다음의 일반적인 질문에 대한 답변: Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등을 포함하는 Azure Backup 기능 '
+description: 'Recovery Services 자격 증명 모음, 백업 대상, 작동 방식, 암호화 및 제한 등 Azure Backup 기능과 관련된 일반적인 질문에 대한 대답입니다. '
 ms.topic: conceptual
 ms.date: 07/07/2019
-ms.openlocfilehash: c8449ef27ca73cd6e0c2908ce4cbebea2c513dbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
-ms.translationtype: HT
+ms.openlocfilehash: db09a31154b680097b6b46e8f9e2cce2ad09d108
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75450085"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255033"
 ---
 # <a name="azure-backup---frequently-asked-questions"></a>Azure Backup - 질문과 대답
 
@@ -123,7 +123,7 @@ BMR/시스템 상태 |백업되는 컴퓨터의 각 개별 BMR 복사본 또는 
 
 ### <a name="is-there-a-limit-on-the-amount-of-data-backed-up-using-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음을 사용하여 백업되는 데이터의 양에 제한이 있나요?
 
-Recovery Services 자격 증명 모음을 사용하여 백업할 수 있는 데이터의 양에는 제한이 없습니다.
+Recovery Services 자격 증명 모음을 사용 하 여 백업할 수 있는 총 데이터 양에는 제한이 없습니다. Azure Vm 이외에 개별 데이터 원본 크기는 최대 54400 GB입니다. 제한에 대 한 자세한 내용은 [support matrix의 vault 제한 섹션](https://docs.microsoft.com/azure/backup/backup-support-matrix#vault-support)을 참조 하세요.
 
 ### <a name="why-is-the-size-of-the-data-transferred-to-the-recovery-services-vault-smaller-than-the-data-selected-for-backup"></a>Recovery Services 자격 증명 모음에 전송된 데이터가 백업을 위해 선택한 데이터의 크기보다 작은 이유는 무엇인가요?
 

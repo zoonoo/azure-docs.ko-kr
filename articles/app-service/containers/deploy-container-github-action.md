@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/25/2019
 ms.author: jafreebe
 ms.reviewer: ushan
-ms.openlocfilehash: f32ea2ae0be66259ff153c24bfd10e179fddbbe5
-ms.sourcegitcommit: dd3db8d8d31d0ebd3e34c34b4636af2e7540bd20
+ms.openlocfilehash: d5f175d887cec1d5b5e567d3f716e6492f4516dd
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/22/2020
-ms.locfileid: "77559031"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246964"
 ---
 # <a name="deploy-a-custom-container-to-app-service-using-github-actions"></a>GitHub 작업을 사용 하 여 App Service 사용자 지정 컨테이너 배포
 
@@ -40,12 +40,12 @@ az ad sp create-for-rbac --name "myApp" --role contributor \
                             --scopes /subscriptions/{subscription-id}/resourceGroups/{resource-group} \
                             --sdk-auth
                             
-  # Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
+# Replace {subscription-id}, {resource-group} with the subscription, resource group details of the WebApp
 ```
 
 출력은 아래와 같이 App Service 앱에 대 한 액세스를 제공 하는 역할 할당 자격 증명을 포함 하는 JSON 개체입니다. GitHub에서 인증 하려면이 JSON 개체를 복사 합니다.
 
- ```azurecli 
+ ```output 
   {
     "clientId": "<GUID>",
     "clientSecret": "<GUID>",

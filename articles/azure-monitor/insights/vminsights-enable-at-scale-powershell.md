@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 10/14/2019
-ms.openlocfilehash: 236d5a28b167e16c9614119a59fd8a99e012e9dd
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: e28a5dce4dda677ef4e5eb0ed08c42ec1f03c308
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77656554"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251448"
 ---
 # <a name="enable-azure-monitor-for-vms-preview-using-azure-powershell-or-resource-manager-templates"></a>Azure PowerShell 또는 리소스 관리자 템플릿을 사용 하 여 VM용 Azure Monitor (미리 보기) 사용
 
@@ -99,7 +99,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 
         구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
-        ```powershell
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -113,7 +113,7 @@ Azure CLI를 사용 하려면 먼저 CLI를 로컬로 설치 하 고 사용 해�
 
         구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
-        ```azurecli
+        ```output
         provisioningState       : Succeeded
         ```
 
@@ -154,7 +154,7 @@ New-AzResourceGroupDeployment -Name OnboardCluster -ResourceGroupName <ResourceG
 ```
 구성 변경을 완료 하는 데 몇 분 정도 걸릴 수 있습니다. 완료 되 면 다음과 유사한 메시지가 표시 되 고 결과가 포함 됩니다.
 
-```powershell
+```output
 provisioningState       : Succeeded
 ```
 
@@ -170,7 +170,7 @@ az group deployment create --resource-group <ResourceGroupName> --template-file 
 
 출력은 다음과 유사합니다.
 
-```azurecli
+```output
 provisioningState       : Succeeded
 ```
 

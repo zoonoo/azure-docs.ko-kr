@@ -1,19 +1,17 @@
 ---
 title: 스냅숏에서 앱 복원
 description: 스냅샷에서 앱을 복원하는 방법에 대해 알아봅니다. 자동 섀도 복사본을 사용 하 여 프리미엄 계층의 예기치 않은 데이터 손실 로부터 복구 합니다.
-author: ahmedelnably
 ms.assetid: 4164f9b5-f735-41c6-a2bb-71f15cdda417
 ms.topic: article
 ms.date: 04/04/2018
-ms.author: aelnably
 ms.reviewer: nicking
 ms.custom: seodec18
-ms.openlocfilehash: e5b48e05d6bd9a310b4527300126464c4b755c8d
-ms.sourcegitcommit: 265f1d6f3f4703daa8d0fc8a85cbd8acf0a17d30
+ms.openlocfilehash: b17a49535541c8f75f65cdbe9986a895427f3877
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/02/2019
-ms.locfileid: "74671149"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255142"
 ---
 # <a name="restore-an-app-in-azure-from-a-snapshot"></a>스냅샷에서 Azure의 앱 복원
 이 문서에서는 스냅샷에서 [Azure App Service](../app-service/overview.md)의 앱을 복원하는 방법을 설명합니다. 앱의 스냅샷 중 하나를 기반으로 이전 상태로 앱을 복원할 수 있습니다. 스냅샷 백업을 사용하도록 설정할 필요는 없으며 플랫폼이 데이터 복구를 위해 모든 앱의 스냅샷을 자동으로 저장합니다.
@@ -37,7 +35,7 @@ ms.locfileid: "74671149"
 
 ## <a name="restore-an-app-from-a-snapshot"></a>스냅샷에서 앱 복원
 
-1. [Azure Portal](https://portal.azure.com)에서 앱의 **설정** 페이지에서 **백업**을 클릭하여 **백업** 페이지를 표시합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원**을 클릭합니다.
+1. **Azure Portal**에서 앱의 [설정](https://portal.azure.com) 페이지에서 **백업**을 클릭하여 **백업** 페이지를 표시합니다. 그런 다음, **스냅샷(미리 보기)** 섹션에서 **복원**을 클릭합니다.
    
     ![](./media/app-service-web-restore-snapshots/1.png)
 

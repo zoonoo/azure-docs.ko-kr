@@ -7,16 +7,16 @@ ms.topic: conceptual
 ms.date: 10/31/2019
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 05ba1d97d4eba92f492289375f85425f8920510b
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 0f13f297facedceb50920c0f6afca63fe1df0b48
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75749755"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248059"
 ---
 # <a name="setup-diagnostic-logging"></a>진단 로깅 설정
 
-Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 진단 로그](../azure-monitor/platform/platform-logs-overview.md)에서 로그를 모니터링하여 [Azure Storage](https://azure.microsoft.com/services/storage/)로 전송하고, [Azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하고, [Azure Monitor 로그](../azure-monitor/azure-monitor-log-hub.md)로 내보낼 수 있습니다.
+Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법을 모니터링하는 것입니다. [Azure 리소스 로그](../azure-monitor/platform/platform-logs-overview.md)를 사용 하 여 로그를 모니터링 하 고 [Azure Storage](https://azure.microsoft.com/services/storage/)에 전송 하 고, [azure Event Hubs](https://azure.microsoft.com/services/event-hubs/)로 스트리밍하 고, 로그를 [Azure Monitor](../azure-monitor/azure-monitor-log-hub.md)으로 내보낼 수 있습니다.
 
 ![Storage, Event Hubs 또는 Azure Monitor 로그에 진단 로깅](./media/analysis-services-logging/aas-logging-overview.png)
 
@@ -42,10 +42,10 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 |쿼리     |   쿼리 종료      |
 |명령     |  명령 시작       |
 |명령     |  명령 종료       |
-|오류 및 경고     |   오류      |
+|오류 및 경고     |   Error      |
 |검색     |   검색 종료      |
 |알림     |    알림     |
-|Session     |  세션 초기화       |
+|세션     |  세션 초기화       |
 |잠금    |  교착 상태       |
 |쿼리 처리     |   VertiPaq SE 쿼리 시작      |
 |쿼리 처리     |   VertiPaq SE 쿼리 종료      |
@@ -70,7 +70,7 @@ Analysis Services 솔루션의 중요한 기능은 서버가 작동하는 방법
 
 ## <a name="setup-diagnostics-logging"></a>진단 로깅 설정
 
-### <a name="azure-portal"></a>Azure Portal
+### <a name="azure-portal"></a>Azure portal
 
 1. [Azure Portal](https://portal.azure.com) > 서버의 왼쪽 탐색 영역에서 **진단 로그**를 클릭한 다음 **진단 로그 켜기**를 클릭합니다.
 
@@ -215,7 +215,7 @@ window
 
 이 빠른 자습서에서는 Analysis Service 서버와 동일한 구독 및 리소스 그룹에서 스토리지 계정을 만듭니다. 그런 다음 AzDiagnosticSetting를 사용 하 여 진단 로깅을 설정 하 고 출력을 새 저장소 계정으로 보냅니다.
 
-### <a name="prerequisites"></a>필수 조건
+### <a name="prerequisites"></a>사전 요구 사항
 이 자습서를 완료하려면 다음 리소스가 필요합니다.
 
 * 기존 Azure Analysis Services 서버 서버 리소스를 만드는 방법에 대한 지침은 [Azure Portal에서 서버 만들기](analysis-services-create-server.md) 또는 [PowerShell을 사용하여 Azure Analysis Services 서버 만들기](analysis-services-create-powershell.md)를 참조하세요.

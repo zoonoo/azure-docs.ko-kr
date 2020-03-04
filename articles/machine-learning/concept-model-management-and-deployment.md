@@ -11,12 +11,12 @@ author: jpe316
 ms.author: jordane
 ms.date: 02/21/2020
 ms.custom: seodec18
-ms.openlocfilehash: 11a6a668b1028ba1640ef076606d4aeb4c3aae6e
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 82866d452289a29dcdcacc12db8048acb7a351ba
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589371"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250871"
 ---
 # <a name="mlops-model-management-deployment-and-monitoring-with-azure-machine-learning"></a>MLOps: Azure Machine Learning을 사용 하 여 모델 관리, 배포 및 모니터링
 
@@ -71,6 +71,11 @@ Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 �
 활성 배포에서 사용 중인 등록 된 모델은 삭제할 수 없습니다.
 자세한 내용은 [모델 배포](how-to-deploy-and-where.md#registermodel)의 모델 등록 섹션을 참조하세요.
 
+### <a name="profile-models"></a>모델 프로 파일링
+
+Azure Machine Learning은 모델을 배포할 때 생성 될 서비스의 CPU 및 메모리 요구 사항을 이해 하는 데 도움이 될 수 있습니다. 프로 파일링은 모델을 실행 하는 서비스를 테스트 하 고 CPU 사용량, 메모리 사용량, 응답 대기 시간 등의 정보를 반환 합니다. 또한 리소스 사용량에 따라 CPU 및 메모리 권장 사항을 제공 합니다.
+자세한 내용은 [모델 배포](how-to-deploy-and-where.md#profilemodel)의 프로 파일링 섹션을 참조 하세요.
+
 ### <a name="package-and-debug-models"></a>패키지 및 디버그 모델
 
 모델을 프로덕션 환경에 배포 하기 전에는 Docker 이미지로 패키지 됩니다. 대부분의 경우 이미지 생성은 배포 중에 백그라운드에서 자동으로 수행 됩니다. 이미지를 수동으로 지정할 수 있습니다.
@@ -78,10 +83,6 @@ Azure Machine Learning 환경을 사용 하면 프로젝트의 소프트웨어 �
 배포에 문제가 발생 하는 경우 문제 해결 및 디버깅을 위해 로컬 개발 환경에를 배포할 수 있습니다.
 
 자세한 내용은 [배포 모델](how-to-deploy-and-where.md#registermodel) 및 [배포 문제 해결](how-to-troubleshoot-deployment.md)을 참조 하세요.
-
-### <a name="validate-and-profile-models"></a>모델 유효성 검사 및 프로 파일링
-
-프로 파일링을 사용 하 여 모델을 배포할 때 사용할 이상적인 CPU 및 메모리 설정을 결정할 수 Azure Machine Learning. 모델 유효성 검사는 프로 파일링 프로세스에 제공 하는 데이터를 사용 하 여이 프로세스의 일부로 수행 됩니다.
 
 ### <a name="convert-and-optimize-models"></a>모델 변환 및 최적화
 

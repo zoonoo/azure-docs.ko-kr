@@ -10,12 +10,12 @@ ms.subservice: speech-service
 ms.topic: conceptual
 ms.date: 02/18/2020
 ms.author: dapine
-ms.openlocfilehash: 499770b664757ec0f3a0bd3b26e0de36007741b6
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: b39b8712f3e8b869d7dbe496dd30f0599aa4150d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228063"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254782"
 ---
 # <a name="improve-synthesis-with-speech-synthesis-markup-language-ssml"></a>SSML (음성 합성 마크업) 언어를 사용 하 여 합성 향상
 
@@ -195,6 +195,7 @@ speechConfig!.setPropertyTo(
 
 현재 이러한 신경망에 대해 말하는 스타일 조정을 지원 합니다.
 * `en-US-JessaNeural`
+* `pt-BR-FranciscaNeural`
 * `zh-CN-XiaoxiaoNeural`
 
 변경 내용은 문장 수준에서 적용 되며 스타일은 음성에 따라 다릅니다. 스타일이 지원 되지 않는 경우 서비스는 기본 중립 말하는 스타일로 음성을 반환 합니다.
@@ -220,6 +221,7 @@ speechConfig!.setPropertyTo(
 | | `type="chat"` | 편안 하 고 낮은 톤으로 말하기 |
 | | `type="newscast"` | 뉴스 브로드캐스트와 유사한 공식 톤을 나타냅니다. |
 | | `type="customerservice"` | 친숙 하 고 환자 방식으로 고객 서비스를 통해 말하기 |
+| `pt-BR-FranciscaNeural` | `type="cheerful"` | 긍정적이 고 행복 한 emotion 표현 |
 | `zh-CN-XiaoxiaoNeural` | `type="newscast"` | 뉴스 브로드캐스트와 유사한 공식 톤을 나타냅니다. |
 | | `type="sentiment"` | 터치 메시지 또는 스토리를 전달 합니다. |
 

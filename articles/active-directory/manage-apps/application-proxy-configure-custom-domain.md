@@ -16,12 +16,12 @@ ms.author: mimart
 ms.reviewer: harshja
 ms.custom: it-pro
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 6f1656d730d55d4c5ab7fb963e49a8057ad88c9f
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 80f8d66795971c6a5c84be7088387e63d7acd7a7
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77185531"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78248696"
 ---
 # <a name="configure-custom-domains-with-azure-ad-application-proxy"></a>Azure AD 응용 프로그램 프록시를 사용 하 여 사용자 지정 도메인 구성
 
@@ -130,9 +130,9 @@ Azure Active Directory 응용 프로그램 프록시를 통해 응용 프로그�
 
 와일드 카드가 외부 URL과 일치 하는 한 와일드 카드 인증서를 사용할 수 있습니다. 와일드 카드 [응용 프로그램](application-proxy-wildcard.md)에는 와일드 카드 인증서를 사용 해야 합니다. 인증서를 사용 하 여 하위 도메인에도 액세스 하려는 경우 하위 도메인 와일드 카드를 동일한 인증서의 주체 대체 이름으로 추가 해야 합니다. 예를 들어 adventure-works.com에 대 *\** 한 인증서는 주체 대체 이름으로 *apps.adventure-works.com를\** 추가 하지 않는 한 *apps.adventure-works.com에\** 대해 작동 하지 않습니다. 
 
-인증서 체인이 클라이언트 장치에 설치 되어 있는 경우 고유한 PKI (공개 키 인프라)에서 발급 한 인증서를 사용할 수 있습니다. Intune은 이러한 인증서를 관리 되는 장치에 배포할 수 있습니다. 관리 되지 않는 장치의 경우 이러한 인증서를 수동으로 설치 해야 합니다.
+인증서 체인이 클라이언트 장치에 설치 되어 있는 경우 고유한 PKI (공개 키 인프라)에서 발급 한 인증서를 사용할 수 있습니다. Intune은 이러한 인증서를 관리 되는 장치에 배포할 수 있습니다. 관리 되지 않는 장치의 경우 이러한 인증서를 수동으로 설치 해야 합니다. 
 
-개인 루트 CA는 사용 하지 않는 것이 좋습니다. 또한 개인 루트 CA를 클라이언트 컴퓨터에 푸시 해야 하므로 많은 과제가 발생 합니다. 
+개인 루트 CA를 클라이언트 컴퓨터에 푸시 해야 하 고 많은 문제를 일으킬 수 있으므로 개인 루트 ca를 사용 하지 않는 것이 좋습니다.
 
 ### <a name="certificate-management"></a>인증서 관리
 

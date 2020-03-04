@@ -8,12 +8,12 @@ ms.author: normesta
 ms.reviewer: dineshm
 ms.date: 05/29/2019
 ms.subservice: blobs
-ms.openlocfilehash: a35239354d23f75361d5577d6b7efc8254943147
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: e9e2fe92939088420f973c5ca112b5f59d07f212
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76906596"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252675"
 ---
 # <a name="static-website-hosting-in-azure-storage"></a>Azure Storage에서 정적 웹 사이트 호스팅
 
@@ -92,7 +92,13 @@ Azure Storage 기본적으로 지원 하기 때문에 사용자 지정 도메인
 > [!TIP]
 > Azure에서 도메인을 호스트 하는 것이 좋습니다. 자세한 내용은 [Azure DNS에서 도메인 호스팅](../../dns/dns-delegate-domain-azure-dns.md)을 참조 하세요.
 
-## <a name="pricing"></a>가격 책정
+## <a name="adding-http-headers"></a>HTTP 헤더 추가
+
+정적 웹 사이트 기능의 일부로 헤더를 구성할 수 있는 방법은 없습니다. 그러나 Azure CDN를 사용 하 여 헤더를 추가 하 고 헤더 값을 추가 (또는 덮어쓰기) 할 수 있습니다. [Azure CDN에 대 한 표준 규칙 엔진 참조를](https://docs.microsoft.com/azure/cdn/cdn-standard-rules-engine-reference)참조 하세요.
+
+캐싱을 제어 하는 데 헤더를 사용 하려는 경우 캐싱 [규칙을 사용 하 여 캐싱 동작 제어 Azure CDN](https://docs.microsoft.com/azure/cdn/cdn-caching-rules)를 참조 하세요.
+
+## <a name="pricing"></a>가격
 
 정적 웹 사이트 호스팅을 무료로 사용할 수 있습니다. 사이트에서 활용 하는 blob 저장소 및 운영 비용에 대해서만 요금이 청구 됩니다. Azure Blob Storage에 대한 가격의 자세한 내용은 [Azure Blob Storage 가격 책정 페이지](https://azure.microsoft.com/pricing/details/storage/blobs/)를 참조하세요.
 
@@ -105,7 +111,7 @@ Azure Storage 기본적으로 지원 하기 때문에 사용자 지정 도메인
 ## <a name="next-steps"></a>다음 단계
 
 * [Azure Storage에서 정적 웹 사이트를 호스팅합니다.](storage-blob-static-website-how-to.md)
-* [Azure Blob Storage 끝점에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
+* [Azure Blob Storage 엔드포인트에 사용자 지정 도메인 매핑](storage-custom-domain-name.md)
 * [Azure Functions](/azure/azure-functions/functions-overview)
 * [Azure App Service](/azure/app-service/overview)
 * [첫 번째 서버 없는 웹앱 빌드](https://docs.microsoft.com/azure/functions/tutorial-static-website-serverless-api-with-database)

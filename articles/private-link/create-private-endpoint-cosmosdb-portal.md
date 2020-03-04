@@ -6,12 +6,12 @@ ms.service: cosmos-db
 ms.topic: conceptual
 ms.date: 11/04/2019
 ms.author: allensu
-ms.openlocfilehash: 23e04bf651c199364f23bf36f327de94c709d643
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: b7a50a2dabc9503ca5dbdd3388e29cfc69963885
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76028583"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252593"
 ---
 # <a name="connect-privately-to-an-azure-cosmos-account-using-azure-private-link"></a>Azure 개인 링크를 사용 하 여 개인적으로 Azure Cosmos 계정에 연결
 
@@ -25,26 +25,22 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 ## <a name="create-a-vm"></a>VM 만들기
 
-### <a name="create-the-virtual-network"></a>가상 네트워크 만들기
+## <a name="virtual-network-and-parameters"></a>가상 네트워크 및 매개 변수
 
 이 섹션에서는 가상 네트워크와 개인 링크 리소스에 액세스 하는 데 사용 되는 VM을 호스트 하는 서브넷 (이 예제에서는 Azure Cosmos 계정)을 만듭니다.
 
-1. 화면의 왼쪽 위에서 **리소스 만들기** > **네트워킹** > **가상 네트워크**를 차례로 선택합니다.
+이 섹션에서는 단계에서 다음 매개 변수를 아래 정보로 바꾸어야 합니다.
 
-1. **가상 네트워크 만들기**에서 다음 정보를 입력하거나 선택합니다.
+| 매개 변수                   | 값                |
+|-----------------------------|----------------------|
+| **\<리소스 그룹 이름 >**  | myResourceGroup|
+| **\<가상 네트워크 이름 >** | myVirtualNetwork         |
+| **\<영역 이름 >**          | 미국 중서부     |
+| **\<IPv4-주소 공간 >**   | 10.1.0.0 \ 16          |
+| **\<서브넷-이름 >**          | mySubnet        |
+| **\<서브넷-주소 범위 >** | 10.1.0.0 \ 24          |
 
-    | 설정 | 값 |
-    | ------- | ----- |
-    | 이름 | *MyVirtualNetwork*를 입력합니다. |
-    | 주소 공간 | *10.1.0.0/16*을 입력합니다. |
-    | Subscription | 구독을 선택합니다.|
-    | 리소스 그룹 | **새로 만들기**를 선택하고 *myResourceGroup*을 입력한 다음, **확인**을 선택합니다. |
-    | 위치 | **WestCentralUS**를 선택합니다.|
-    | 서브넷 - 이름 | *mySubnet*을 입력합니다. |
-    | 서브넷 - 주소 범위 | *10.1.0.0/24*를 입력합니다. |
-    |||
-
-1. 나머지 항목은 기본값으로 유지하고 **만들기**를 선택합니다.
+[!INCLUDE [virtual-networks-create-new](../../includes/virtual-networks-create-new.md)]
 
 ### <a name="create-the-virtual-machine"></a>가상 머신 만들기
 
@@ -56,7 +52,7 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
     | ------- | ----- |
     | **프로젝트 정보** | |
     | Subscription | 구독을 선택합니다. |
-    | 리소스 그룹 | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
+    | Resource group | **myResourceGroup**을 선택합니다. 이전 섹션에서 만든 것입니다.  |
     | **인스턴스 정보** |  |
     | 가상 머신 이름 | *myVm*을 입력합니다. |
     | 지역 | **WestCentralUS**를 선택합니다. |
@@ -165,11 +161,11 @@ Azure Portal에 로그인 [합니다.](https://portal.azure.com)
 
 개인 끝점, Azure Cosmos 계정 및 VM을 사용 하 여 작업을 완료 하면 리소스 그룹 및 여기에 포함 된 모든 리소스를 삭제 합니다. 
 
-1. 포털 맨 위에 있는 **검색** 상자에 *myResourceGroup*을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다.
+1. 포털 맨 위에 있는 *검색* 상자에 **myResourceGroup**을 입력하고 검색 결과에서 *myResourceGroup*을 선택합니다.
 
 1. **리소스 그룹 삭제**를 선택합니다.
 
-1. **리소스 그룹 이름 입력**에 대해 *myResourceGroup*을 입력하고 **삭제**를 선택합니다.
+1. *리소스 그룹 이름 입력*에 대해 **myResourceGroup**을 입력하고 **삭제**를 선택합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -13,12 +13,12 @@ ms.devlang: ne
 ms.topic: article
 ms.date: 11/12/2019
 ms.author: juliako
-ms.openlocfilehash: 93005b181075ac671af6c8d73a3f2a06ed9eb0d8
-ms.sourcegitcommit: 5ab4f7a81d04a58f235071240718dfae3f1b370b
+ms.openlocfilehash: b366262ce7849658eb84444d873956c25ab38804
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/10/2019
-ms.locfileid: "74977746"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244655"
 ---
 # <a name="live-streaming-with-azure-media-services-v3"></a>Azure Media Services v3를 통한 라이브 스트리밍
 
@@ -52,7 +52,7 @@ Media Services를 사용 하 여 서비스에 전송 되는 기여 피드의 [MP
 
 ## <a name="live-event-types"></a>라이브 이벤트 유형
 
-[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트는 통과와 라이브 인코딩의 두 가지 유형 중 하나일 수 있습니다. Media Services v3의 라이브 스트리밍에 대 한 자세한 내용은 [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)을 참조 하세요.
+[라이브 이벤트](https://docs.microsoft.com/rest/api/media/liveevents)는 라이브 비디오 피드 수집 및 처리를 담당합니다. 라이브 이벤트는 *통과* (온-프레미스 라이브 인코더는 다중 비트 전송률 스트림) 또는 *라이브 인코딩* (온-프레미스 라이브 인코더가 단일 비트 전송률 스트림을 보냄)으로 설정할 수 있습니다. Media Services v3의 라이브 스트리밍에 대 한 자세한 내용은 [라이브 이벤트 및 라이브 출력](live-events-outputs-concept.md)을 참조 하세요.
 
 ### <a name="pass-through"></a>통과
 

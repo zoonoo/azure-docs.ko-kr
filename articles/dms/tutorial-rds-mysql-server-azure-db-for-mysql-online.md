@@ -3,8 +3,8 @@ title: '자습서: RDS MySQL online을 Azure Database for MySQL로 마이그레�
 titleSuffix: Azure Database Migration Service
 description: Azure Database Migration Service를 사용하여 RDS MySQL에서 Azure Database for MySQL로 온라인 마이그레이션하는 방법을 알아봅니다.
 services: dms
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: c34de48d0184057f42d1b779abee56e1fa9ac169
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 27002d1fc861d49e083fc294bcfbc7f51f7c1a12
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751294"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255158"
 ---
 # <a name="tutorial-migrate-rds-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용 하 여 Azure Database for MySQL 온라인으로 RDS MySQL 마이그레이션
 
@@ -42,7 +42,7 @@ Azure Database Migration Service를 사용하면 마이그레이션 중에 원�
 
 이 문서에서는 RDS MySQL 인스턴스에서 Azure Database for MySQL로 온라인 마이그레이션을 수행하는 방법을 설명합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 

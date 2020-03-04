@@ -6,12 +6,12 @@ author: reyang
 ms.author: reyang
 ms.date: 10/11/2019
 ms.reviewer: mbullwin
-ms.openlocfilehash: 7d27256f64e09a4d4ba3dbf1544eaec4715f6d88
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: a2b66cdc7a0704cd3560c0776a0ca5302dc689d2
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77669916"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250764"
 ---
 # <a name="set-up-azure-monitor-for-your-python-application-preview"></a>Python 응용 프로그램에 대 한 Azure Monitor 설정 (미리 보기)
 
@@ -132,11 +132,20 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
         main()
     ```
 
-4. 이제 Python 스크립트를 실행할 때 값을 입력 하 라는 메시지가 표시 되지만 값만 셸에 인쇄 됩니다. 만든 `SpanData` Azure Monitor으로 전송 됩니다. `dependencies`에서 내보낸 범위 데이터를 찾을 수 있습니다.
+4. 이제 Python 스크립트를 실행할 때 값을 입력 하 라는 메시지가 표시 되지만 값만 셸에 인쇄 됩니다. 만든 `SpanData` Azure Monitor으로 전송 됩니다. `dependencies`에서 내보낸 범위 데이터를 찾을 수 있습니다. 보내는 요청에 대 한 자세한 내용은 OpenCensus Python [종속성](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-dependency)을 참조 하세요.
+들어오는 요청에 대 한 자세한 내용은 OpenCensus Python [requests](https://docs.microsoft.com/azure/azure-monitor/app/opencensus-python-request)를 참조 하세요.
 
-5. OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications)을 참조 하세요.
+#### <a name="sampling"></a>샘플링
 
-6. 추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus [원격 분석 상관 관계](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)를 참조 하세요.
+OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications)을 참조 하세요.
+
+#### <a name="trace-correlation"></a>상관 관계 추적
+
+추적 데이터의 원격 분석 상관 관계에 대 한 자세한 내용은 OpenCensus Python [원격 분석 상관 관계](https://docs.microsoft.com/azure/azure-monitor/app/correlation#telemetry-correlation-in-opencensus-python)를 참조 하세요.
+
+#### <a name="modify-telemetry"></a>원격 분석 수정
+
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
 
 ### <a name="metrics"></a>메트릭
 
@@ -240,6 +249,32 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     ```
 
 4. 내보내기는 고정 된 간격으로 메트릭 데이터를 Azure Monitor 보냅니다. 기본값은 15 초 간격입니다. 단일 메트릭을 추적 하므로이 메트릭 데이터에 포함 된 값과 타임 스탬프를 포함 하는이 메트릭 데이터는 모든 간격으로 전송 됩니다. `customMetrics`에서 데이터를 찾을 수 있습니다.
+
+#### <a name="standard-metrics"></a>표준 메트릭
+
+기본적으로 메트릭 내보내기는 Azure Monitor에 표준 메트릭 집합을 보냅니다. `enable_standard_metrics` 플래그를 메트릭 내보내기의 생성자에서 `False`으로 설정 하 여이를 비활성화할 수 있습니다.
+
+    ```python
+    ...
+    exporter = metrics_exporter.new_metrics_exporter(
+      enable_standard_metrics=False,
+      connection_string='InstrumentationKey=<your-instrumentation-key-here>')
+    ...
+    ```
+다음은 현재 전송 되는 표준 메트릭의 목록입니다.
+
+- 사용 가능한 메모리 (바이트)
+- CPU 프로세서 시간 (백분율)
+- 들어오는 요청 빈도 (초당)
+- 들어오는 요청 평균 실행 시간 (밀리초)
+- 보내는 요청 빈도 (초당)
+- 프로세스 CPU 사용량 (백분율)
+- 프로세스 전용 바이트 (바이트)
+
+`performanceCounters`에서 이러한 메트릭을 볼 수 있어야 합니다. 들어오는 요청 률은 `customMetrics`아래에 있습니다.
+#### <a name="modify-telemetry"></a>원격 분석 수정
+
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
 
 ### <a name="logs"></a>로그
 
@@ -360,8 +395,17 @@ SDK는 세 가지 Azure Monitor 내보내기를 사용 하 여 Azure Monitor에 
     except Exception:
     logger.exception('Captured an exception.', extra=properties)
     ```
+#### <a name="sampling"></a>샘플링
 
-7. 추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)을 참조 하세요.
+OpenCensus 샘플링에 대 한 자세한 내용은 [OpenCensus의 샘플링](sampling.md#configuring-fixed-rate-sampling-for-opencensus-python-applications)을 참조 하세요.
+
+#### <a name="log-correlation"></a>로그 상관 관계
+
+추적 컨텍스트 데이터로 로그를 보강 하는 방법에 대 한 자세한 내용은 OpenCensus Python [logs integration](https://docs.microsoft.com/azure/azure-monitor/app/correlation#log-correlation)을 참조 하세요.
+
+#### <a name="modify-telemetry"></a>원격 분석 수정
+
+Azure Monitor로 보내기 전에 추적 된 원격 분석을 수정 하는 방법에 대 한 자세한 내용은 OpenCensus Python [원격 분석 프로세서](https://docs.microsoft.com/azure/azure-monitor/app/api-filtering-sampling#opencensus-python-telemetry-processors)를 참조 하세요.
 
 ## <a name="view-your-data-with-queries"></a>쿼리를 사용 하 여 데이터 보기
 

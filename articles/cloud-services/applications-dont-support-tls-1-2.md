@@ -3,7 +3,7 @@ title: TLS 1.2을 지원 하지 않는 응용 프로그램에 의해 발생 하�
 description: TLS 1.2을 지원 하지 않는 응용 프로그램에 의해 발생 하는 문제 해결
 services: cloud-services
 documentationcenter: ''
-author: MicahMcKittrick-MSFT
+author: mimckitt
 manager: vashan
 editor: ''
 tags: top-support-issue
@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: ''
 ms.date: 01/17/2020
 ms.author: tagore
-ms.openlocfilehash: 85fb87e23fa11781587572e836d1439dd813170e
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 161c24b4e751eea9477e9d338722629daa97e193
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77425037"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250447"
 ---
 # <a name="troubleshooting-applications-that-dont-support-tls-12"></a>TLS 1.2을 지원 하지 않는 응용 프로그램 문제 해결
 이 문서에서는 이전 TLS 프로토콜 (TLS 1.0 및 1.1)을 사용 하도록 설정 하 고 Windows Server 2019 클라우드 서비스 웹 및 작업자 역할에서 추가 프로토콜을 지 원하는 레거시 암호 그룹을 적용 하는 방법을 설명 합니다. 
