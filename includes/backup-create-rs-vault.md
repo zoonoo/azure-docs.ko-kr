@@ -9,16 +9,16 @@ ms.topic: include
 ms.date: 10/18/2018
 ms.author: dacurwin
 ms.custom: include file
-ms.openlocfilehash: 17ef8dd121c987c2771d274c8f0e6f9f199e386c
-ms.sourcegitcommit: fa6fe765e08aa2e015f2f8dbc2445664d63cc591
+ms.openlocfilehash: 6167774171affda7e5469d5852a79657a6da700d
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/01/2020
-ms.locfileid: "76938218"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78261984"
 ---
 ## <a name="create-a-recovery-services-vault"></a>Recovery Services 자격 증명 모음 만들기
 
-Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 백업과 복구 지점을 저장하는 엔터티입니다. Recovery Services 자격 증명 모음에는 보호된 가상 머신과 연결된 백업 정책도 포함됩니다.
+Recovery Services 자격 증명 모음은 시간에 따라 생성된 모든 복구 지점을 저장하는 스토리지 엔터티입니다. 또한 보호된 항목과 연결된 백업 정책도 포함합니다.
 
 Recovery Services 자격 증명 모음을 만들려면 다음 단계를 따릅니다.
 

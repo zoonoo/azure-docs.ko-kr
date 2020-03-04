@@ -5,15 +5,15 @@ services: bastion
 author: cherylmc
 ms.service: bastion
 ms.topic: include
-ms.date: 02/03/2020
+ms.date: 03/02/2020
 ms.author: cherylmc
 ms.custom: include file
-ms.openlocfilehash: 922e8a71a22db975685cb82bbd51a125c619ccf2
-ms.sourcegitcommit: 4f6a7a2572723b0405a21fea0894d34f9d5b8e12
+ms.openlocfilehash: 17d391a7e6b8ef0558fb73afe363cd96deb60a7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/04/2020
-ms.locfileid: "76989498"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262720"
 ---
 ### <a name="regions"></a>이용 가능한 지역은 어디인가요?
 
@@ -30,6 +30,9 @@ Azure Bastion을 사용하여 VM에 연결하는 경우 연결 중인 Azure Virt
 ### <a name="rdpssh"></a>RDP 또는 SSH 클라이언트가 필요하나요?
 
 Azure Portal에서 Azure 가상 머신에 RDP/SSH로 액세스할 때 RDP 또는 SSH 클라이언트가 필요하지 않습니다. [Azure Portal](https://portal.azure.com)을 사용하여 브라우저에서 직접 가상 머신에 대한RDP/SSH 액세스를 가져올 수 있습니다.
+
+### <a name="rdscal"></a>Azure Bastion이 Azure 호스팅 VM에 관리 용도로 액세스하는 경우 RDS CAL이 필요한가요?
+아니요. Azure Bastion이 관리 용도로만 Windows Server VM에 액세스하는 경우에는 [RDS CAL](https://www.microsoft.com/en-us/p/windows-server-remote-desktop-services-cal/dg7gmgf0dvsv?activetab=pivot:overviewtab)이 필요하지 않습니다.
 
 ### <a name="agent"></a>Azure 가상 머신에서 실행되는 에이전트가 필요하나요?
 
