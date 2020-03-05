@@ -8,12 +8,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: 00fc836f098f3c03afc9adebe2450f00750eb5ff
-ms.sourcegitcommit: 44c2a964fb8521f9961928f6f7457ae3ed362694
+ms.openlocfilehash: 4882206692c334d6ab6af28feb5d2cba5277eea1
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/12/2019
-ms.locfileid: "73954096"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303939"
 ---
 # <a name="move-azure-vms-to-another-region"></a>다른 지역으로 Azure VM 이동
 
@@ -34,7 +34,7 @@ ms.locfileid: "73954096"
 > [!NOTE]
 > 이 자습서에서는 Azure VM을 한 지역에서 다른 지역으로 그대로 이동하는 방법을 보여줍니다. 가용성 집합에 있는 VM을 다른 지역의 영역이 고정된 VM으로 이동하여 가용성을 개선해야 하는 경우에는 [가용성 영역으로 Azure VM 이동 자습서](move-azure-vms-avset-azone.md)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 이동하려는 Azure 지역에 Azure VM이 있는지 확인합니다.
 - 원하는 [원본 지역 - Azure 지역 조합이 지원되는지](https://docs.microsoft.com/azure/site-recovery/azure-to-azure-support-matrix#region-support) 확인하여 충분한 정보를 바탕으로 Azure 지역을 결정합니다.
@@ -73,7 +73,7 @@ ms.locfileid: "73954096"
     - [네트워크 보안 그룹](https://docs.microsoft.com/azure/virtual-network/manage-network-security-group)
     - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
     -  [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
-    - 그 외의 네트워킹 구성 요소는 [네트워킹 설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요.
+    - 그 외의 네트워킹 구성 요소는 [네트워킹 설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요.
 
 
 
@@ -111,7 +111,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 
 1. 자격 증명 모음으로 이동합니다. **설정** > **복제된 항목**에서 VM을 선택한 후 **장애 조치(failover)** 를 선택합니다.
 2. **장애 조치(failover)** 에서 **최신**을 선택합니다.
-3. **장애 조치(failover)를 시작하기 전에 컴퓨터 종료**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
+3. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다.
 4. 작업이 완료되면 VM이 예상대로 대상 Azure 지역에 표시되는지 확인합니다.
 
 
@@ -120,7 +120,7 @@ Site Recovery는 구독 및 리소스 그룹과 연관된 VM 목록을 검색합
 이동된 VM을 확인하고 장애 조치(failover) 지점으로 변경하거나 이전 지점으로 다시 이동해야 하는 경우 **복제된 항목**에서 마우스 오른쪽 단추로 VM > **복구 지점 변경**을 선택합니다. 이 단계에서는 다른 복구 지점을 지정하고이에 대한 장애 조치(failover)를 수행할 수 있는 옵션을 제공합니다. 
 
 
-## <a name="commit"></a>커밋 
+## <a name="commit"></a>Commit 
 
 이동된 VM을 확인하고 변경 내용을 커밋할 준비가 되면 **복제된 항목**에서 마우스 오른쪽 단추로 VM > **커밋**을 선택합니다. 이 단계로, 대상 Azure 지역으로 이동하는 프로세스가 끝났습니다. 커밋 작업이 완료될 때까지 기다립니다.
 

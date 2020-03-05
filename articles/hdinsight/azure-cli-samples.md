@@ -7,12 +7,12 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: sample
 ms.date: 09/23/2019
-ms.openlocfilehash: 7ce2160fa94653a1155daaef166b7fdbb9386e7e
-ms.sourcegitcommit: 3f22ae300425fb30be47992c7e46f0abc2e68478
+ms.openlocfilehash: cbbb38c645e56b2e7b8c70b437b1e5158b09a50b
+ms.sourcegitcommit: 1fa2bf6d3d91d9eaff4d083015e2175984c686da
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/25/2019
-ms.locfileid: "71266473"
+ms.lasthandoff: 03/01/2020
+ms.locfileid: "78207101"
 ---
 # <a name="azure-hdinsight-azure-cli-samples"></a>Azure HDInsight: Azure CLI 샘플
 
@@ -23,7 +23,7 @@ ms.locfileid: "71266473"
 
 이 문서에서는 일반적인 작업에 대한 샘플 스크립트를 제공합니다. 각 예제의 경우 적절한 값으로 변수를 업데이트한 다음, 명령을 실행합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure CLI. 단계는 [Azure CLI 설치](https://docs.microsoft.com/cli/azure/install-azure-cli)를 참조하세요.
 
@@ -90,7 +90,7 @@ az hdinsight create \
     --cluster-users-group-dns $groupDNS
 ```
 
-### <a name="create-a-kafka-cluster-with-disk-encryptionkafkaapache-kafka-byokmd"></a>[디스크 암호화](kafka/apache-kafka-byok.md)를 사용하여 Kafka 클러스터 만들기
+### <a name="create-a-kafka-cluster-with-disk-encryption"></a>[디스크 암호화](./disk-encryption.md)를 사용하여 Kafka 클러스터 만들기
 
 ```azurecli
 export clusterName=CLUSTERNAME

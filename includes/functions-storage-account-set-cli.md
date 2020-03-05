@@ -4,18 +4,18 @@ ms.service: azure-functions
 ms.topic: include
 ms.date: 09/26/2019
 ms.author: glenga
-ms.openlocfilehash: 07780c94960c581ce69e4fdd45b346c75ab8b098
-ms.sourcegitcommit: 1d0b37e2e32aad35cc012ba36200389e65b75c21
+ms.openlocfilehash: 4ace70abe0112e0fe27d177c02bcb697746c92cc
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/15/2019
-ms.locfileid: "72329538"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262590"
 ---
 ### <a name="set-the-storage-account-connection"></a>Storage 계정 연결 설정
 
 local.settings.json 파일을 열고, Storage 계정 연결 문자열인 `AzureWebJobsStorage` 값을 복사합니다. 다음 Bash 명령을 사용하여 `AZURE_STORAGE_CONNECTION_STRING` 환경 변수를 연결 문자열로 설정합니다.
 
-```azurecli-interactive
+```bash
 AZURE_STORAGE_CONNECTION_STRING="<STORAGE_CONNECTION_STRING>"
 ```
 

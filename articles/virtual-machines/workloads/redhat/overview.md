@@ -9,12 +9,12 @@ ms.workload: infrastructure-services
 ms.topic: overview
 ms.date: 02/10/2020
 ms.author: alsin
-ms.openlocfilehash: daba49e6861eb67fd07c6fcf618b2b2d6cdd8c89
-ms.sourcegitcommit: f718b98dfe37fc6599d3a2de3d70c168e29d5156
+ms.openlocfilehash: 424ef37885d685829a11d1864a72b043a562231c
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77133817"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920555"
 ---
 # <a name="red-hat-workloads-on-azure"></a>Azure의 Red Hat 워크로드
 Red Hat 워크로드는 Azure의 다양한 제품을 통해 지원됩니다. RHEL(Red Hat Enterprise Linux) 이미지는 RHUI(Red Hat Update Infrastructure)와 마찬가지로 RHEL 워크로드의 핵심입니다.
@@ -39,7 +39,7 @@ Azure는 Red Hat Gold 이미지도 제공합니다. 이러한 이미지는 기�
 > 이중 청구에 대한 참고 사항: 이중 청구는 사용자가 RHEL 구독 요금을 두 번 결제할 때 발생합니다. 고객이 구독 관리자를 사용하여 RHEL PAYG VM에 대한 자격을 연결할 때 주로 발생합니다. 예를 들어 구독 관리자를 사용하여 RHEL PAYG 이미지에 SAP 패키지에 대한 자격을 연결하는 고객은 PAYG 프리미엄 요금을 통해 한 번, SAP 구독을 통해 다시 한 번 요금을 결제하기 때문에 간접적으로 이중 청구됩니다. BYOS 이미지 사용자에게는 이 문제가 발생하지 않습니다.
 
 ### <a name="generation-2-images"></a>2세대 이미지
-2세대 VM은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)에 나와 있습니다. RHEL 이미지 관점에서의 주요 차이점은 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용하고 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용한다는 것입니다. 이를 통해 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](https://docs.microsoft.com/azure/virtual-machines/linux/sizes-memory#mv2-series)은 2세대 이미지에서만 실행됩니다.
+2세대 VM은 1세대 VM에 비해 몇 가지 최신 기능을 제공합니다. 자세한 내용은 [2세대 설명서](https://docs.microsoft.com/azure/virtual-machines/linux/generation-2)에 나와 있습니다. RHEL 이미지 관점에서의 주요 차이점은 2세대 VM이 BIOS 펌웨어 인터페이스 대신 UEFI를 사용하고 부팅 시 MBR(마스터 부트 레코드) 대신 GPT(GUID 파티션 테이블)를 사용한다는 것입니다. 이를 통해 2TB보다 큰 OS 디스크 크기를 사용할 수 있습니다. 또한 [Mv2 시리즈 VM](../../mv2-series.md)은 2세대 이미지에서만 실행됩니다.
 
 RHEL 2세대 이미지는 마켓플레이스에서 구입할 수 있습니다. Azure CLI를 사용하여 모든 이미지를 나열할 때 이미지 SKU에서 "gen2"를 찾고, VM 배포 프로세스의 "고급" 탭으로 이동하여 2세대 VM을 배포합니다.
 

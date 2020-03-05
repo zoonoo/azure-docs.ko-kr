@@ -10,12 +10,12 @@ ms.author: msangapu
 ms.custom: seo-python-october2019
 experimental: false
 experiment_id: 01a9132f-eaab-4c
-ms.openlocfilehash: 9a45353d3223844d828ffc4a8ac248a0ff68f781
-ms.sourcegitcommit: dbcc4569fde1bebb9df0a3ab6d4d3ff7f806d486
+ms.openlocfilehash: 68dc36ce96737fe8395280c3a833e359084d2fee
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "76030037"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78246847"
 ---
 # <a name="quickstart-create-a-python-app-in-azure-app-service-on-linux"></a>빠른 시작: Azure App Service on Linux에서 Python 앱 만들기
 
@@ -52,7 +52,7 @@ Azure CLI는 로컬 터미널에서 사용하여 명령줄에서 Azure 리소스
 
 Azure CLI에서 Azure 명령을 실행하려면 먼저 `az login` 명령을 사용하여 로그인해야 합니다. 이 명령은 로그인 정보를 수집하는 브라우저를 엽니다.
 
-```terminal
+```azurecli
 az login
 ```
 
@@ -63,7 +63,7 @@ az login
 샘플 코드를 포함하는 *python-docs-hello-world* 폴더에서 다음 `az webapp up` 명령을 실행합니다. `<app-name>`을 전역적으로 고유한 앱 이름(*유효한 문자는 `a-z`, `0-9`, `-`임*)으로 바꿉니다. `<location-name>`도 Azure 지역(예: **centralus**, **eastasia**, **westeurope**, **koreasouth**, **brazilsouth**, **centralindia** 등)으로 바꿉니다. (Azure 계정에 허용되는 지역 목록은 [`az account locations-list`](/cli/azure/appservice?view=azure-cli-latest.md#az-appservice-list-locations) 명령을 실행하여 검색할 수 있습니다.)
 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -110,7 +110,7 @@ Python 샘플 코드가 기본 제공 이미지를 사용하여 App Service에�
 
 터미널 창에서 아래 명령(운영 체제에 적합한 명령)을 사용하여 필요한 종속성을 설치하고 기본 제공 개발 서버를 시작합니다. 
 
-# <a name="bashtabbash"></a>[Bash](#tab/bash)
+# <a name="bash"></a>[Bash](#tab/bash)
 
 ```bash
 python3 -m venv venv
@@ -120,7 +120,7 @@ FLASK_APP=application.py
 flask run
 ```
 
-# <a name="powershelltabpowershell"></a>[PowerShell](#tab/powershell)
+# <a name="powershell"></a>[PowerShell](#tab/powershell)
 
 ```powershell
 py -3 -m venv env
@@ -130,7 +130,7 @@ Set-Item Env:FLASK_APP ".\application.py"
 flask run
 ```
 
-# <a name="cmdtabcmd"></a>[Cmd](#tab/cmd)
+# <a name="cmd"></a>[Cmd](#tab/cmd)
 
 ```cmd
 py -3 -m venv env
@@ -161,7 +161,7 @@ return "Hello Azure!"
 
 처음으로 앱을 배포할 때 사용한 것과 동일한 `az webapp up` 명령을 사용하되 `<app-name>`과 `<location-name>`을 이전에 사용한 것과 동일한 이름으로 바꿔서 앱을 재배포합니다. 
 
-```terminal
+```azurecli
 az webapp up --sku F1 -n <app-name> -l <location-name>
 ```
 
@@ -178,13 +178,13 @@ az webapp up --sku F1 -n <app-name> -l <location-name>
 
 먼저 터미널에서 다음 명령을 실행하여 컨테이너 로깅을 설정합니다. 이때 `<app-name>`은 앱 이름으로 바꾸고, `<resource-group-name>`은 사용한 `az webapp up` 명령의 출력에 표시된 리소스 그룹 이름(예: "appsvc_rg_Linux_centralus")으로 바꿉니다.
 
-```terminal
+```azurecli
 az webapp log config --name <app-name> --resource-group <resource-group-name> --docker-container-logging filesystem
 ```
 
 컨테이너 로깅이 설정되면 다음 명령을 실행하여 로그 스트림을 표시합니다.
 
-```terminal
+```azurecli
 az webapp log tail --name <app-name> --resource-group <resource-group-name>
 ```
 
@@ -221,7 +221,7 @@ App Service 메뉴는 앱 구성을 위한 다양한 페이지를 제공합니�
 
 이러한 리소스가 나중에 필요하지 않을 것으로 예상되면 다음 명령을 실행하여 리소스 그룹을 삭제합니다. 이때 `<resource-group-name>`은 `az webapp up` 명령의 출력에 표시된 리소스 그룹(예: "appsvc_rg_Linux_centralus")으로 바꿉니다. 이 명령을 완료하는 데 1분 정도 걸릴 수 있습니다.
 
-```terminal
+```azurecli
 az group delete -n <resource-group-name>
 ```
 

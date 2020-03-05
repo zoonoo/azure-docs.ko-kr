@@ -6,15 +6,15 @@
       href: load-balancer-overview.md
 - name: 빠른 시작
   items:
-    - name: 포털
+    - name: Load Balancer 만들기 - 포털
       href: quickstart-load-balancer-standard-public-portal.md
-    - name: Azure CLI
+    - name: Load Balancer 만들기 - Azure CLI
       href: quickstart-load-balancer-standard-public-cli.md
-    - name: Azure PowerShell
+    - name: Load Balancer 만들기 - PowerShell
       href: quickstart-create-standard-load-balancer-powershell.md
-    - name: Azure Resource Manager 템플릿
+    - name: Load Balancer 만들기 - 템플릿
       href: quickstart-load-balancer-standard-public-template.md
-      displayName: ARM
+  expanded: true
 - name: 자습서
   items:
     - name: VM에 내부 트래픽 부하 분산

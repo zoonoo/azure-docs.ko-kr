@@ -9,12 +9,12 @@ ms.workload: identity
 ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: iainfou
-ms.openlocfilehash: 0c997fffc1adc60f774e651ed458d253b35a3bdd
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: f422d1dd6c76d78448ae4fb1012a5dae8d6108b3
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77612205"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299077"
 ---
 # <a name="tutorial-create-a-management-vm-to-configure-and-administer-an-azure-active-directory-domain-services-managed-domain"></a>자습서: 관리 VM을 만들어 Azure Active Directory Domain Services 관리되는 도메인 구성 및 관리
 
@@ -59,7 +59,6 @@ Azure AD DS는 사용자, 애플리케이션 및 서비스에서 사용할 관�
 
 *AAD DC Administrators* 그룹의 멤버에게는 다음 작업을 수행할 수 있는 Azure AD DS 관리되는 도메인에 대한 권한이 부여됩니다.
 
-* 컴퓨터를 관리되는 도메인에 조인합니다.
 * 관리되는 도메인의 *AADDC Computers* 및 *AADDC Users* 컨테이너에 대한 기본 제공 GPO(그룹 정책 개체)를 구성합니다.
 * 관리되는 도메인에서 DNS 관리
 * 관리되는 도메인에서 사용자 지정 OU(조직 구성 단위)를 만들고 관리합니다.

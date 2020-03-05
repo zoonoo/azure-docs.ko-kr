@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/16/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: a48edda31f19ef4ce1ba23664eef1f51ba9cf8d1
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: acaf16e7469b3ea4e5e391db91e37dc76be3b261
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75970492"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298533"
 ---
 # <a name="move-azure-vms-between-azure-government-and-public-regions"></a>Azure Government와 공용 Azure 지역 간에 Azure VM 이동 
 
@@ -100,7 +100,7 @@ Azure 계정에 Azure로 VM을 복제하기 위한 권한이 있는지 확인합
     - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
     - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
-    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요. 
+    그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요.
 
 4. 대상 Azure 지역으로 최종 전환하기 전에 구성을 테스트하려면 수동으로 대상 Azure 지역에 [비-프로덕션 네트워크를 만듭니다](https://docs.microsoft.com/azure/virtual-network/quick-create-portal). 이렇게 하면 프로덕션과의 간섭을 최소화할 수 있으므로 권장하는 방법입니다.
 

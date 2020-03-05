@@ -119,8 +119,6 @@
       items:
         - name: Azure 파일 동기화로 마이그레이션
           href: storage-sync-offline-data-transfer.md
-        - name: StorSimple에서 Azure 파일 동기화로 마이그레이션
-          href: storage-sync-files-storsimple-migration.md
         - name: StorSimple 8100 및 8600 마이그레이션 가이드
           href: storage-files-migration-storsimple-8000.md
         - name: StorSimple 1200 마이그레이션 가이드

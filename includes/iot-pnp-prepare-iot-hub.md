@@ -4,12 +4,12 @@ ms.author: baanders
 ms.service: iot-pnp
 ms.topic: include
 ms.date: 10/24/2019
-ms.openlocfilehash: 7a0ea2330e682e1e60eca6540151b0f5f620571c
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 3f3e7c54ec59c42ed102da682fc9aa077709ef3f
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75453696"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262196"
 ---
 ## <a name="prepare-an-iot-hub"></a>IoT Hub 준비
 
@@ -25,7 +25,7 @@ Azure CLI을 로컬로 사용하는 경우 `az` 버전은 **2.0.73** 이상이�
 다음 명령을 실행하여 인스턴스에 Azure CLI용 Microsoft Azure IoT 확장을 추가합니다.
 
 ```azurecli-interactive
-az extension add --name azure-cli-iot-ext
+az extension add --name azure-iot
 ```
 
 다음 명령을 실행하여 IoT Hub에 디바이스 ID를 만듭니다. **YourIoTHubName** 및 **YourDeviceID** 자리 표시자를 사용자 고유의 _IoT Hub 이름_과 선택한 _디바이스 ID_로 바꿉니다.

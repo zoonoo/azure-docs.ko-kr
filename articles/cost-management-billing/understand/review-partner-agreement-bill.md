@@ -8,12 +8,12 @@ ms.service: cost-management-billing
 ms.topic: conceptual
 ms.date: 02/13/2020
 ms.author: banders
-ms.openlocfilehash: dd0d53fb89df5372d3974b85cdb659f6cfbbedd8
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 61d47c2f308555265ccabad4d7456026ee9a639c
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77199095"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78299315"
 ---
 # <a name="tutorial-review-your-microsoft-partner-agreement-invoice"></a>자습서: Microsoft 파트너 계약 청구서 검토
 
@@ -38,7 +38,7 @@ Azure를 구독한 지 30일 이상이어야 합니다. Azure는 청구서 기�
 
 ## <a name="sign-in-to-azure"></a>Azure에 로그인
 
-- [https://portal.azure.com](https://portal.azure.com ) 에서 Azure Portal에 로그인합니다.
+- [https://portal.azure.com](https://portal.azure.com)에서 Azure Portal에 로그인합니다.
 
 ## <a name="check-access-to-a-microsoft-customer-agreement"></a>Microsoft 고객 계약에 대한 액세스 확인
 

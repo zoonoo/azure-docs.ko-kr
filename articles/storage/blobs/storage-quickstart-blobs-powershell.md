@@ -7,14 +7,14 @@ author: tamram
 ms.custom: mvc
 ms.service: storage
 ms.topic: quickstart
-ms.date: 12/04/2019
+ms.date: 02/26/2020
 ms.author: tamram
-ms.openlocfilehash: c5d32b91043d310e51143357ad51631463f7e991
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 4cc58838827d1ee9337216d9ccb56696735ead7e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892501"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77664255"
 ---
 # <a name="quickstart-upload-download-and-list-blobs-with-powershell"></a>빠른 시작: PowerShell을 사용하여 Blob 업로드, 다운로드 및 나열
 
@@ -22,7 +22,7 @@ Azure PowerShell 모듈을 사용하여 Azure 리소스를 만들고 관리합�
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Azure Storage에 액세스하려면 Azure 구독이 있어야 합니다. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
@@ -97,16 +97,13 @@ Get-AzStorageBlobContent -Blob "Image002.png" `
 
 ## <a name="data-transfer-with-azcopy"></a>AzCopy를 사용한 데이터 전송
 
-[AzCopy](../common/storage-use-azcopy.md?toc=%2fazure%2fstorage%2fblobs%2ftoc.json) 유틸리티는 Azure Storage를 위한 또 다른 스크립팅 가능한 고성능 데이터 전송 옵션입니다. AzCopy를 사용하여 Blob, File 및 Table Storage 간에 데이터를 전송합니다.
+AzCopy 명령줄 유틸리티는 Azure Storage에 대한 스크립트 가능한 고성능 데이터 전송을 제공합니다. AzCopy를 사용하여 Blob 스토리지와 Azure Files 간에 데이터를 전송할 수 있습니다. 최신 버전의 AzCopy인 AzCopy v10에 대한 자세한 내용은 [AzCopy 시작](../common/storage-use-azcopy-v10.md)을 참조하세요. Blob 스토리지에서 AzCopy v10을 사용하는 방법에 대한 자세한 내용은 [AzCopy 및 Blob 스토리지를 사용하여 데이터 전송](../common/storage-use-azcopy-blobs.md)을 참조하세요.
 
-간단한 예제로, 다음은 PowerShell 창 내에서 *myfile.txt* 파일을 *mystoragecontainer* 컨테이너에 업로드하기 위한 AzCopy 명령입니다.
+다음 예제에서는 AzCopy를 사용하여 로컬 파일을 Blob에 업로드합니다. 샘플 값을 사용자 고유의 값으로 바꿔야 합니다.
 
 ```powershell
-./AzCopy `
-    /Source:C:\myfolder `
-    /Dest:https://mystorageaccount.blob.core.windows.net/mystoragecontainer `
-    /DestKey:<storage-account-access-key> `
-    /Pattern:"myfile.txt"
+azcopy login
+azcopy copy 'C:\myDirectory\myTextFile.txt' 'https://mystorageaccount.blob.core.windows.net/mycontainer/myTextFile.txt'
 ```
 
 ## <a name="clean-up-resources"></a>리소스 정리

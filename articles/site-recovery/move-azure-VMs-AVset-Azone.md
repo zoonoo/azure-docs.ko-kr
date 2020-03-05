@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 01/28/2019
 ms.author: rajanaki
 ms.custom: MVC
-ms.openlocfilehash: c9513ca38c665a53bc14f284e87a1cc01035d135
-ms.sourcegitcommit: 609d4bdb0467fd0af40e14a86eb40b9d03669ea1
+ms.openlocfilehash: 5728ce7125695b191de4f91d5bd9003384f428a7
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73693190"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78298311"
 ---
 # <a name="move-azure-vms-into-availability-zones"></a>가용성 영역으로 Azure VM 이동
 Azure 프로젝트의 가용성 영역은 데이터 센터 오류로부터 애플리케이션과 데이터를 보호할 수 있도록 지원합니다. 각 가용성 영역은 독립된 전원, 냉각 및 네트워킹을 갖춘 하나 이상의 데이터 센터로 구성됩니다. 복원력을 보장하려면 활성화된 모든 지역에서 최소한 세 개의 별도 영역이 필요합니다. 지역 내에서 가용성 영역의 물리적 구분은 애플리케이션 및 데이터를 데이터 센터 오류로부터 보호할 수 있도록 합니다. 가용성 영역을 사용하여 Azure는 이제 VM(가상 머신) 작동 시간에 대해 99.99% SLA(서비스 수준 약정)를 제공합니다. 가용성 영역은 [Azure에서 가용성 영역이란?](https://docs.microsoft.com/azure/availability-zones/az-overview#services-support-by-region)에 설명된 것처럼 선택 지역에서 지원됩니다.
@@ -23,7 +23,7 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 - 가용성 집합의 VM을 대상 Azure 지역의 가용성 영역으로 이동
 
 > [!IMPORTANT]
-> 현재 Azure Site Recovery는 한 Azure 지역에서 다른 Azure 지역으로 VM 이동을 지원하지만, 같은 Azure 지역 내 이동은 지원하지 않습니다.
+> 현재 Azure Site Recovery는 한 지역에서 다른 지역으로 VM 이동은 지원하지만, 같은 Azure 지역 내 이동은 지원하지 않습니다.
 
 ## <a name="check-prerequisites"></a>필수 구성 요소 확인
 
@@ -70,7 +70,7 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
     - [부하 분산 장치](https://docs.microsoft.com/azure/load-balancer)
     - [공용 IP](../virtual-network/virtual-network-public-ip-address.md)
     
-   그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/#pivot=products&panel=network)를 참조하세요.
+   그 외의 네트워킹 구성 요소는 네트워킹 [설명서](https://docs.microsoft.com/azure/?pivot=products&panel=network)를 참조하세요.
 
     > [!IMPORTANT]
     > 대상에서 영역 중복 부하 분산 장치를 사용해야 합니다. [Standard Load Balancer 및 가용성 영역](https://docs.microsoft.com/azure/load-balancer/load-balancer-standard-availability-zones)에 대해 자세히 알아볼 수 있습니다.
@@ -112,11 +112,11 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 
 1. 가상 머신 메뉴에서 **재해 복구**를 선택합니다.
 2. **테스트 장애 조치(failover)** 아이콘을 선택합니다.
-3. **테스트 장애 조치(failover)** 에서 장애 조치에 사용할 복구 지점을 선택합니다.
+3. **테스트 장애 조치(Failover)** 에서 장애 조치에 사용할 복구 지점을 선택합니다.
 
    - **가장 최근에 처리됨**: VM을 Site Recovery 서비스에서 처리된 최신 복구 지점으로 장애 조치합니다. 타임스탬프가 표시됩니다. 이 옵션을 사용하면 데이터를 처리하는 데 시간을 소비하지 않으므로 낮은 RTO(복구 목표 시간)가 제공됩니다.
    - **최신 앱 일치**: 모든 VM을 최신 앱 일치 복구 시점으로 장애 조치합니다. 타임스탬프가 표시됩니다.
-   - **사용자 지정**: 복구 시점을 선택합니다.
+   - **Custom**: 복구 시점을 선택합니다.
 
 3. 구성을 테스트하기 위해 Azure VM을 이동할 테스트 대상 Azure 가상 네트워크를 선택합니다. 
 
@@ -132,7 +132,7 @@ VM을 특정 지역에 *단일 인스턴스*로 배포했으며 이러한 VM을 
 1.  가상 머신 메뉴에서 **재해 복구**를 선택합니다.
 2. **장애 조치(failover)** 아이콘을 선택합니다.
 3. **장애 조치(failover)** 에서 **최신**을 선택합니다. 
-4. **장애 조치(failover)를 시작하기 전에 컴퓨터 종료**를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다. 
+4. **장애 조치(failover)를 시작하기 전에 컴퓨터를 종료합니다.** 를 선택합니다. Site Recovery는 장애 조치(failover)를 트리거하기 전에 원본 VM을 종료하려고 합니다. 종료가 실패하더라도 장애 조치는 계속됩니다. **작업** 페이지에서 장애 조치 진행 상황 확인을 수행할 수 있습니다. 
 5. 작업이 완료되면 VM이 예상대로 대상 Azure 지역에 표시되는지 확인합니다.
 6. **복제된 항목**에서 VM을 마우스 오른쪽 단추로 클릭하고 **커밋**을 클릭합니다. 대상 Azure 지역으로 이동하는 프로세스가 끝났습니다. 커밋 작업이 완료될 때까지 기다립니다.
 

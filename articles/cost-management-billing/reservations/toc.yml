@@ -26,6 +26,8 @@
           href: ../../data-explorer/pricing-reserved-capacity.md?toc=/azure/billing/TOC.json
         - name: Azure Databricks 예약 구매
           href: prepay-databricks-reserved-capacity.md
+        - name: Azure Cache for Redis 예약 구매
+          href: ../../azure-cache-for-redis/cache-reserved-pricing.md?toc=/azure/billing/TOC.json
         - name: App Service 예약 구매
           href: prepay-app-service-isolated-stamp.md
         - name: Azure 소프트웨어 요금제 예약 구입

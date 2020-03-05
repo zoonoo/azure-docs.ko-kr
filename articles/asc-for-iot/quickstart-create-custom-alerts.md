@@ -15,12 +15,12 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 1/27/2020
 ms.author: mlottner
-ms.openlocfilehash: 510a2c3f04cc4c307acad18ee3012d9407155f9f
-ms.sourcegitcommit: 984c5b53851be35c7c3148dcd4dfd2a93cebe49f
+ms.openlocfilehash: 063e5c9e7d75fd1c07d148c265b1fe64eee3cbc8
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/28/2020
-ms.locfileid: "76766455"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78303531"
 ---
 # <a name="quickstart-create-custom-alerts"></a>빠른 시작: 사용자 지정 경고 만들기
 
@@ -80,7 +80,6 @@ ms.locfileid: "76766455"
 ## <a name="alerts-available-for-customization"></a>사용자 지정에 사용할 수 있는 경고
 
 IoT용 Azure Security Center는 특정 요구 사항에 따라 사용자 지정을 할 수 있는 많은 수의 경고를 제공합니다. 각 경고가 수신되는 경우 경고 심각도, 데이터 원본, 설명 및 제안된 수정 단계는 [사용자 지정 가능한 경고 테이블](concept-customizable-security-alerts.md)을 검토합니다. 
-|
 
 
 ## <a name="next-steps"></a>다음 단계

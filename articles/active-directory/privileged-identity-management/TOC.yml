@@ -83,7 +83,7 @@
           href: pim-resource-roles-configure-role-settings.md
         - name: 경고 구성
           href: pim-resource-roles-configure-alerts.md
-        - name: 활동 및 감사 기록 보기
+        - name: 감사 기록 보기
           href: azure-pim-resource-rbac.md
         - name: 사용자 지정 역할 사용
           href: pim-resource-roles-custom-role-policy.md

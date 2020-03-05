@@ -6,16 +6,17 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: quickstart
 ms.custom: mvc
 ms.date: 09/03/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 2530fb0bd27cd98b702d804b0cb5a1dc60419f2f
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: a57370b7bf63ad73318ba13eff1b554aead7e186
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73490404"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197762"
 ---
 # <a name="quickstart-set-and-retrieve-a-secret-from-azure-key-vault-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Key Vault에서 비밀을 설정하고 검색
 
@@ -34,7 +35,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 3. 결과 목록에서 **Key Vault**를 선택합니다.
 4. Key Vault 섹션에서 **만들기**를 선택합니다.
 5. **Key Vault 만들기** 섹션에서 다음 정보를 제공합니다.
-    - **이름**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
+    - **Name**: 고유 이름은 필수입니다. 이 빠른 시작의 경우 **Contoso-vault2**를 사용합니다. 
     - **구독**: 구독을 선택합니다.
     - **리소스 그룹**에서 **새로 만들기**를 선택하고 리소스 그룹 이름을 입력합니다.
     - **위치** 풀 다운 메뉴에서 위치를 선택합니다.
@@ -58,7 +59,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 2. **생성/가져오기**를 클릭합니다.
 3. **비밀 만들기** 화면에서 다음 값을 선택합니다.
     - **업로드 옵션**: 수동.
-    - **이름**: ExamplePassword.
+    - **Name**: ExamplePassword.
     - **값**: hVFkk965BuUv
     - 다른 값은 기본값으로 그대로 둡니다. **만들기**를 클릭합니다.
 
@@ -84,7 +85,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https:/
 
 이 빠른 시작에서는 Key Vault를 만들어 비밀을 저장했습니다. Key Vault 및 이를 애플리케이션과 통합하는 방법에 대해 자세히 알아보려면 아래 문서로 계속 진행하세요.
 
-- [Azure Key Vault 개요](key-vault-overview.md) 읽기
+- [Azure Key Vault 개요](key-vault-overview.md) 참조
 - [Azure Key Vault 개발자 가이드](key-vault-developers-guide.md) 참조
 - [키, 비밀 및 인증서](about-keys-secrets-and-certificates.md) 알아보기
 - [Azure Key Vault 모범 사례](key-vault-best-practices.md) 검토

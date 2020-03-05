@@ -1,45 +1,71 @@
-### YamlMime:YamlDocument
-documentType: LandingData
+### YamlMime:Landing
 title: Azure Front Door Service 설명서
+summary: Azure Front Door는 글로벌 웹 애플리케이션을 빠르게 제공할 수 있는 확장 가능하고 안전한 진입점입니다.
 metadata:
   title: Azure Front Door Service 설명서
-  meta.description: 'Azure Front Door Service provides a scalable and secure entry point for fast delivery of your global web applications. Learn how to use Front Door with our quickstarts, tutorials, and samples.'
+  description: Azure Front Door Service는 글로벌 웹 애플리케이션을 신속하게 제공할 수 있도록 확장성이 우수하고 안전한 진입점을 제공합니다. 빠른 시작, 자습서 및 샘플을 통해 Front Door를 사용하는 방법을 알아봅니다.
   services: frontdoor
-  author: dlepow
   ms.service: frontdoor
   ms.topic: landing-page
-  ms.date: 9/14/2018
-  ms.author: danlep
-abstract:
-  description: 'Azure Front Door Service는 글로벌 웹 애플리케이션을 신속하게 제공할 수 있도록 확장성이 우수하고 안전한 진입점을 제공합니다. 빠른 시작, 자습서 및 샘플을 통해 Front Door를 사용하는 방법을 알아봅니다.'
-sections:
-  - title: 5분 빠른 시작
-    items:
-      - type: paragraph
-        text: 고가용성 글로벌 웹 애플리케이션에 대한 Front Door를 만듭니다.
-      - type: list
-        style: icon48
-        items:
-          - image:
-              src: 'https://docs.microsoft.com/media/common/i_portal.svg'
-            text: Azure Portal
-            href: quickstart-create-front-door.md
-  - title: 단계별 자습서
-    items:
-      - type: paragraph
-        text: 필요에 따라 Azure Front Door Service를 구성하는 방법에 대해 알아보세요.
-      - type: list
-        style: unordered
-        items:
-          - html: <a href="front-door-custom-domain.md">Front Door에 사용자 지정 도메인 추가</a>
-          - html: <a href="front-door-custom-domain-https.md">사용자 지정 도메인에 HTTPS 사용</a>
-  - title: 참고 자료
-    items:
-      - type: list
-        style: cards
-        className: cardsD
-        items:
-          - title: 명령줄
-            html: '<p><a href="/cli/azure/ext/front-door">Azure CLI</a></p><p><a href="https://go.microsoft.com/fwlink/?linkid=2020942">Azure PowerShell</a></p>'
-          - title: REST (영문)
-            html: <p><a href="/rest/api/frontdoor">REST API</a></p>
+  author: vhorne
+  ms.author: victorh
+  ms.date: 03/03/2020
+  ms.openlocfilehash: 7fdf859bc3d8f970fe16bd031d4fd60919c49a92
+  ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+  ms.translationtype: HT
+  ms.contentlocale: ko-KR
+  ms.lasthandoff: 03/04/2020
+  ms.locfileid: "78273281"
+landingContent:
+- title: Azure Front Door에 대해 알아보기
+  linkLists:
+  - linkListType: overview
+    links:
+    - text: Azure Front Door란?
+      url: front-door-overview.md
+- title: Front Door 만들기
+  linkLists:
+  - linkListType: quickstart
+    links:
+    - text: Front Door 만들기
+      url: quickstart-create-front-door.md
+- title: 사용자 지정 도메인 추가
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Front Door에 사용자 지정 도메인 추가
+      url: front-door-custom-domain.md
+  - linkListType: how-to-guide
+    links:
+    - text: Front Door에서 루트 또는 Apex 도메인 온보드
+      url: front-door-how-to-onboard-apex-domain.md
+- title: 지역 필터링에 대해 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 도메인에서 지역 필터링이란?
+      url: front-door-geo-filtering.md
+  - linkListType: tutorial
+    links:
+    - text: 지역 필터링 WAF 정책 설정
+      url: front-door-tutorial-geo-filtering.md
+- title: HTTPS 구성
+  linkLists:
+  - linkListType: tutorial
+    links:
+    - text: Front Door 사용자 지정 도메인에서 HTTPS 구성
+      url: front-door-custom-domain-https.md
+- title: Azure Front Door 문제 해결
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: 일반적인 라우팅 문제
+      url: front-door-troubleshoot-routing.md
+    - text: 허용된 인증 기관
+      url: front-door-troubleshoot-allowed-ca.md
+- title: Azure 부하 분산에 대해 알아보기
+  linkLists:
+  - linkListType: concept
+    links:
+    - text: Azure 부하 분산
+      url: front-door-lb-with-azure-app-delivery-suite.md
