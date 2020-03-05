@@ -7,12 +7,12 @@ ms.topic: quickstart
 ms.date: 08/23/2019
 ms.author: msangapu
 ms.custom: seodec18
-ms.openlocfilehash: 4a0207299b480136e8054fbe3d4579dd98f45267
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 19544d9ea9a86b6c0ad98debc7361f4579cbc998
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75430542"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78247029"
 ---
 # <a name="create-a-multi-container-preview-app-using-a-docker-compose-configuration"></a>Docker Compose 구성을 사용하여 다중 컨테이너(미리 보기) 앱 만들기
 
@@ -99,7 +99,7 @@ App Service 계획을 만든 경우 Azure CLI는 다음 예제와 비슷한 정�
 
 Cloud Shell 터미널에서 [az webapp create](/cli/azure/webapp?view=azure-cli-latest#az-webapp-create) 명령을 사용하여 `myAppServicePlan` App Service 계획에 다중 컨테이너 [웹앱](app-service-linux-intro.md)을 만듭니다. _\<app_name>_ 을 고유한 앱 이름으로 바꿔야 합니다(유효한 문자는 `a-z`, `0-9` 및 `-`임).
 
-```bash
+```azurecli
 az webapp create --resource-group myResourceGroup --plan myAppServicePlan --name <app_name> --multicontainer-config-type compose --multicontainer-config-file compose-wordpress.yml
 ```
 

@@ -6,12 +6,12 @@ ms.service: azure-app-configuration
 ms.topic: quickstart
 ms.date: 01/14/2020
 ms.author: lcozzens
-ms.openlocfilehash: 106085c4c528e42d4f559b92585be2f4e0a2f98a
-ms.sourcegitcommit: 0a9419aeba64170c302f7201acdd513bb4b346c8
+ms.openlocfilehash: a4fbba65af5afbd27a3fd2c7d41858e33b4d812c
+ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77498659"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "78163882"
 ---
 # <a name="quickstart-add-feature-flags-to-an-aspnet-core-app"></a>빠른 시작: ASP.NET Core 앱에 기능 플래그를 추가합니다.
 
@@ -91,7 +91,7 @@ ms.locfileid: "77498659"
 
     ```dotnetcli
     dotnet add package Microsoft.Azure.AppConfiguration.AspNetCore
-    dotnet add package Microsoft.FeatureManagement.AspNetCore --version 2.0.0-preview-010610001-1263
+    dotnet add package Microsoft.FeatureManagement.AspNetCore
     ```
 
 1. 다음 명령을 실행하여 프로젝트에 대한 패키지를 복원합니다.

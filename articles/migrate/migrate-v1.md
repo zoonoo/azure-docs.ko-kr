@@ -7,12 +7,12 @@ ms.topic: overview
 ms.date: 11/19/2019
 ms.author: raynew
 ms.custom: mvc
-ms.openlocfilehash: 5d3dc951c8cb2948a4cd0b9d9f5c2a9b213c6e7e
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: c9cea52e04a991e6e3ac64426f0443939f8aaa3a
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514989"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77914384"
 ---
 # <a name="work-with-the-previous-version-of-azure-migrate"></a>이전 버전의 Azure Migrate 사용
 
@@ -229,7 +229,7 @@ Windows 컴퓨터에 에이전트를 설치하려면
 4. **에이전트 설치 옵션**에서 **Azure Log Analytics** > **다음**을 차례로 선택합니다.
 5. **추가**를 클릭하여 새로운 Log Analytics 작업 영역을 추가합니다. 포털에서 복사한 작업 영역 ID와 키를 붙여넣습니다. **다음**을 클릭합니다.
 
-명령줄에서 또는 Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](https://docs.microsoft.com/azure/azure-monitor/platform/log-analytics-agent#install-and-configure-agent).
+명령줄에서 또는 Configuration Manager와 같은 자동화된 방법을 사용하여 에이전트를 설치할 수 있습니다. 이 방법을 사용하여 MMA 에이전트를 설치하는 방법을 [자세히 알아보세요](../azure-monitor/platform/log-analytics-agent.md#installation-and-configuration).
 
 #### <a name="install-the-mma-agent-on-a-linux-machine"></a>Linux 머신에 MMA 에이전트 설치
 

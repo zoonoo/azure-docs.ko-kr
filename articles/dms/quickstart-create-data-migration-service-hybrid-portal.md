@@ -3,8 +3,8 @@ title: '빠른 시작: Azure Portal을 사용하여 하이브리드 모드 인�
 titleSuffix: Azure Database Migration Service
 description: Azure Portal을 사용하여 하이브리드 모드에서 Azure Database Migration Service 인스턴스를 만듭니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/21/2019
-ms.openlocfilehash: 81039aa4aa37f9587db887beadcdb6d263ec6a74
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 8dba12fc2c3777c2c45315f1805fa7ec8f1d8b83
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76274805"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78255049"
 ---
 # <a name="quickstart-create-a-hybrid-mode-instance-with-azure-portal--azure-database-migration-service"></a>빠른 시작: Azure Portal 및 Azure Database Migration Service를 사용하여 하이브리드 모드 인스턴스 만들기
 

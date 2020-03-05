@@ -9,12 +9,12 @@ ms.topic: quickstart
 ms.date: 10/31/2019
 ms.author: sngun
 ms.custom: seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: f29eeba98e0cc89c65dda814e03d63d2f3493c35
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 489f241453436190213b99cb4e7be0688a8b6237
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77586022"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274104"
 ---
 # <a name="quickstart-build-a-java-app-to-manage-azure-cosmos-db-sql-api-data"></a>빠른 시작: Azure Cosmos DB SQL API 데이터를 관리하는 Java 앱 빌드
 
@@ -85,27 +85,27 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 * `CosmosClient` 초기화 `CosmosClient`는 Azure Cosmos 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 요청을 구성하고 실행하는 데 사용됩니다.
     
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="CreateSyncClient":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateSyncClient)]
 
 * `CosmosDatabase` 생성.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="CreateDatabaseIfNotExists":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
 * `CosmosContainer` 생성.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="CreateContainerIfNotExists":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
 * `createItem` 메서드를 사용하여 항목 생성
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="CreateItem":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateItem)]
    
 * `readItem` 메서드를 사용하여 지점 읽기가 수행됩니다.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="ReadItem":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=ReadItem)]
 
 * JSON에 대한 SQL 쿼리는 `queryItems` 메서드를 사용하여 수행됩니다.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java" id="QueryItems":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=QueryItems)]
 
 ### <a name="managing-database-resources-using-the-asynchronous-async-api"></a>비동기(비동기화) API를 사용하여 데이터베이스 리소스 관리
 
@@ -113,27 +113,27 @@ git clone https://github.com/Azure-Samples/azure-cosmos-java-getting-started.git
 
 * `CosmosAsyncClient` 초기화 `CosmosAsyncClient`는 Azure Cosmos 데이터베이스 서비스에 대한 클라이언트 쪽 논리적 표현을 제공합니다. 이 클라이언트는 서비스에 대한 비동기 요청을 구성하고 실행하는 데 사용됩니다.
     
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="CreateAsyncClient":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateAsyncClient)]
 
 * `CosmosAsyncDatabase` 생성.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="CreateDatabaseIfNotExists":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateDatabaseIfNotExists)]
 
 * `CosmosAsyncContainer` 생성.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="CreateContainerIfNotExists":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/sync/SyncMain.java?name=CreateContainerIfNotExists)]
 
 * 동기화 API와 마찬가지로 항목 생성은 `createItem` 메서드를 사용하여 수행됩니다. 이 예제에서는 요청을 발행하고 알림을 인쇄하는 반응 스트림을 구독하여 다양한 비동기 `createItem` 요청을 효율적으로 실행하는 방법을 보여줍니다. 이 간단한 예제는 완료될 때까지 실행되고 종료되기 때문에 `CountDownLatch` 인스턴스를 사용하여 프로그램이 항목 생성 중에 종료되지 않도록 합니다. **적절한 비동기 프로그래밍 방식은 비동기 호출에서 차단하지 않는 것입니다. 실제 사용 사례 요청에서는 무기한 실행되는 main() 루프에서 생성되므로 비동기 호출에 대한 래치를 제거할 필요가 없습니다.**
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="CreateItem":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=CreateItem)]
    
 * 동기화 API와 마찬가지로 `readItem` 메서드를 사용하여 지점 읽기가 수행됩니다.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="ReadItem":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=ReadItem)]
 
 * 동기화 API와 마찬가지로 JSON을 통한 SQL 쿼리는 `queryItems` 메서드를 사용하여 수행됩니다.
 
-    :::code language="java" source="~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java" id="QueryItems":::
+    [!code-java[](~/azure-cosmosdb-java-v4-getting-started/src/main/java/com/azure/cosmos/sample/async/AsyncMain.java?name=QueryItems)]
 
 ## <a name="run-the-app"></a>앱 실행
 

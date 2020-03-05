@@ -7,12 +7,12 @@ ms.date: 11/05/2019
 ms.service: storage
 ms.subservice: blobs
 ms.topic: quickstart
-ms.openlocfilehash: 2a1a9b1973ded5db7182fb1898fc7222904c39c3
-ms.sourcegitcommit: 12a26f6682bfd1e264268b5d866547358728cd9a
+ms.openlocfilehash: 09002a8c0999dc137ca3386ca7392a566d323e8a
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/10/2020
-ms.locfileid: "75863964"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78196062"
 ---
 # <a name="quickstart-azure-blob-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Blob 스토리지 클라이언트 라이브러리 v12
 
@@ -29,7 +29,7 @@ ms.locfileid: "75863964"
 * 로컬 컴퓨터에 blob 다운로드
 * 컨테이너 삭제
 
-[API 참조 설명서](/dotnet/api/azure.storage.blobs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs/samples)
+[API 참조 설명서](/dotnet/api/azure.storage.blobs) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Blobs) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Blobs) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fblobs%2ftoc.json#blob-samples)
 
 [!INCLUDE [storage-multi-protocol-access-preview](../../../includes/storage-multi-protocol-access-preview.md)]
 
@@ -85,7 +85,6 @@ dotnet add package Azure.Storage.Blobs
 코드는 다음과 같습니다.
 
 ```csharp
-using Azure.Storage;
 using Azure.Storage.Blobs;
 using Azure.Storage.Blobs.Models;
 using System;
@@ -181,7 +180,7 @@ BlobContainerClient containerClient = await blobServiceClient.CreateBlobContaine
 
 1. 로컬 *data* 디렉터리에 텍스트 파일을 만듭니다.
 1. [컨테이너 만들기](#create-a-container) 섹션에서 컨테이너에 대해 [GetBlobClient](/dotnet/api/azure.storage.blobs.blobcontainerclient.getblobclient) 메서드를 호출하여 [BlobClient](/dotnet/api/azure.storage.blobs.blobclient) 개체에 대한 참조를 가져옵니다.
-1. [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
+1. [UploadAsync](/dotnet/api/azure.storage.blobs.blobclient.uploadasync#Azure_Storage_Blobs_BlobClient_UploadAsync_System_IO_Stream_System_Boolean_System_Threading_CancellationToken_) 메서드를 호출하여 로컬 텍스트 파일을 Blob에 업로드합니다. 이 메서드는 Blob이 없는 경우 만들고, Blob이 있는 경우 덮어씁니다.
 
 이 코드를 `Main` 메서드의 끝에 추가합니다.
 
@@ -201,7 +200,7 @@ Console.WriteLine("Uploading to Blob storage as blob:\n\t {0}\n", blobClient.Uri
 
 // Open the file and upload its data
 using FileStream uploadFileStream = File.OpenRead(localFilePath);
-await blobClient.UploadAsync(uploadFileStream);
+await blobClient.UploadAsync(uploadFileStream, true);
 uploadFileStream.Close();
 ```
 

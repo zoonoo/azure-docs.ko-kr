@@ -7,12 +7,12 @@ ms.date: 11/22/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 71a714124cecfc4f985d448371042c8aff092a11
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: c69aa91596ff203445aa4fa3ccd59001ffe16649
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75463841"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197490"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-net"></a>빠른 시작: .NET용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -31,7 +31,7 @@ ms.locfileid: "75463841"
 * 큐에서 메시지 삭제
 * 큐 삭제
 
-[API 참조 설명서](/dotnet/api/azure.storage.queues) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [샘플](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues/samples)
+[API 참조 설명서](/dotnet/api/azure.storage.queues) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-net/tree/master/sdk/storage/Azure.Storage.Queues) | [패키지(NuGet)](https://www.nuget.org/packages/Azure.Storage.Queues/12.0.0) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-dotnet?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 

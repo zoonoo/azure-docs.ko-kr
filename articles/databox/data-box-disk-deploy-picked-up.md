@@ -6,15 +6,15 @@ author: alkohli
 ms.service: databox
 ms.subservice: disk
 ms.topic: tutorial
-ms.date: 09/19/2019
+ms.date: 03/03/2020
 ms.author: alkohli
 ms.localizationpriority: high
-ms.openlocfilehash: eb9231a84295240c20e34bfad56f406317c107da
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 1003b862d7fbe19545cf705570866479132c1f03
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76845477"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273165"
 ---
 ::: zone target="chromeless"
 
@@ -51,7 +51,7 @@ ms.locfileid: "76845477"
 
 다음 단계는 디바이스를 반송하는 위치에 따라 결정됩니다. 지침은 미국/캐나다, EU(유럽 연합) 오스트레일리아 또는 아시아 국가에 따라 다릅니다.
 
-### <a name="in-us-or-canadatabin-us-or-canada"></a>[미국 또는 캐나다에서](#tab/in-us-or-canada)
+### <a name="in-us-or-canada"></a>[미국 또는 캐나다에서](#tab/in-us-or-canada)
 
 미국 또는 캐나다에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -67,7 +67,7 @@ ms.locfileid: "76845477"
     - 추적 번호를 알려주지 않으면 픽업 시 UPS에서 추가 요금을 지불하도록 요구합니다.
     - 픽업을 예약하는 대신 가장 가까운 반납 위치에 Data Box Disk를 반납할 수도 있습니다.
 
-### <a name="in-europetabin-europe"></a>[유럽에서](#tab/in-europe)
+### <a name="in-europe"></a>[유럽에서](#tab/in-europe)
 
 유럽에서 디바이스를 반송하는 경우 다음 단계를 수행합니다.
 
@@ -80,7 +80,7 @@ ms.locfileid: "76845477"
 4. 국가/지역 DHL Express 웹 사이트로 이동하고 **Courier 컬렉션 예약 > eReturn 배송**을 선택합니다.    
 3. 운송장 번호를 지정하고 **픽업 예약**을 클릭하여 픽업을 준비합니다.
 
-### <a name="in-australiatabin-australia"></a>[오스트레일리아에서](#tab/in-australia)
+### <a name="in-australia"></a>[오스트레일리아에서](#tab/in-australia)
 
 오스트레일리아의 Azure 데이터 센터에는 추가 보안 알림이 있습니다. 모든 인바운드 배송에는 고급 알림이 있어야 합니다. 오스트레일리아에서 픽업하려면 다음 단계를 수행합니다.
 
@@ -88,7 +88,7 @@ ms.locfileid: "76845477"
 3. 상자에 레이블을 부착합니다. 
 4. 링크 https://mydhl.express.dhl/au/en/schedule-pickup.html#/schedule-pickup#label-reference 에서 온라인으로 픽업을 예약합니다. 
 
-### <a name="in-japantabin-japan"></a>[일본에서](#tab/in-japan)
+### <a name="in-japan"></a>[일본에서](#tab/in-japan)
 
 1. 탁송 운송장에 회사 이름과 주소 정보를 보낸 사람 정보로 작성합니다.
 2. 다음 이메일 템플릿을 사용하여 Quantium Solutions에 이메일을 전송합니다.
@@ -115,7 +115,7 @@ ms.locfileid: "76845477"
 - 이메일: Customerservice.JP@quantiumsolutions.com 
 - 전화: 03-5755-0150 
 
-### <a name="in-koreatabin-korea"></a>[한국](#tab/in-korea)
+### <a name="in-korea"></a>[한국](#tab/in-korea)
 
 1. 반송 탁송 운송장이 포함되어야 합니다.
 2. 탁송 운송장이 있는 경우 픽업을 요청합니다.
@@ -130,7 +130,7 @@ ms.locfileid: "76845477"
     4. 전화를 통해 요청하는 경우 구두 확인 메시지를 받습니다.
 
 
-### <a name="in-singaporetabin-singapore"></a>[싱가포르에서](#tab/in-singapore)
+### <a name="in-singapore"></a>[싱가포르에서](#tab/in-singapore)
 
 1. 배송 레이블을 인쇄하여 상자에 부착합니다. 레이블이 손상되었거나 손실된 경우 다음을 수행합니다.
     - **개요 > 배송 레이블 다운로드**로 이동하여 반송 포장용 레이블을 가져옵니다.
@@ -157,7 +157,7 @@ ms.locfileid: "76845477"
 
 3. 택배 회사에 전달합니다.
 
-### <a name="in-self-managedtabin-selfmanaged"></a>[자체 관리에서](#tab/in-selfmanaged)
+### <a name="in-self-managed"></a>[자체 관리에서](#tab/in-selfmanaged)
 
 일본, 싱가포르, 대한민국 및 서유럽에서 Data Box Disk를 사용 중이고 주문 생성 중에 자체 관리 배송 옵션을 선택한 경우 다음 지침을 따르세요. 
 
@@ -175,8 +175,6 @@ ms.locfileid: "76845477"
 3. Azure Data Box 운영 팀은 사용자와 협력하여 Azure 데이터 센터에 대한 드롭오프를 정렬합니다.
 
 ::: zone target="docs"
-
----
 
 ## <a name="next-steps"></a>다음 단계
 

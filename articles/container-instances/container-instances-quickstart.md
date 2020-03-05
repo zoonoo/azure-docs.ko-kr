@@ -7,12 +7,12 @@ ms.custom:
 - seo-python-october2019
 - seodec18
 - mvc
-ms.openlocfilehash: ab079c7ad5d741d5a569e042ae8939cbeeff203b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: e5cad7d9141963e5062423545f7e5b94f0575152
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533574"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252196"
 ---
 # <a name="quickstart-deploy-a-container-instance-in-azure-using-the-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 Azure에서 컨테이너 인스턴스 배포
 
@@ -58,8 +58,7 @@ az container show --resource-group myResourceGroup --name mycontainer --query "{
 
 명령을 실행하면 컨테이너의 FQDN(정규화된 도메인 이름) 및 해당 프로비전 상태가 표시됩니다.
 
-```console
-$ az container show --resource-group myResourceGroup --name mycontainer --query "{FQDN:ipAddress.fqdn,ProvisioningState:provisioningState}" --out table
+```output
 FQDN                               ProvisioningState
 ---------------------------------  -------------------
 aci-demo.eastus.azurecontainer.io  Succeeded
@@ -83,8 +82,7 @@ az container logs --resource-group myResourceGroup --name mycontainer
 
 출력은 컨테이너의 로그를 표시하며, 브라우저에서 애플리케이션을 볼 때 생성된 HTTP GET 요청을 표시해야 합니다.
 
-```console
-$ az container logs --resource-group myResourceGroup --name mycontainer
+```output
 listening on port 80
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:43:53 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
 ::ffff:10.240.255.55 - - [21/Mar/2019:17:44:36 +0000] "GET / HTTP/1.1" 304 - "-" "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/72.0.3626.121 Safari/537.36"
@@ -101,10 +99,9 @@ listening on port 80
 az container attach --resource-group myResourceGroup --name mycontainer
 ```
 
-연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 결과가 나타나야 합니다.
+연결되면 브라우저를 몇 번 새로 고쳐 추가 출력을 생성합니다. 완료되면 `Control+C`를 사용하여 콘솔을 분리합니다. 다음과 비슷한 내용이 출력됩니다.
 
-```console
-$ az container attach --resource-group myResourceGroup --name mycontainer
+```output
 Container 'mycontainer' is in state 'Running'...
 (count: 1) (last timestamp: 2019-03-21 17:27:20+00:00) pulling image "mcr.microsoft.com/azuredocs/aci-helloworld"
 (count: 1) (last timestamp: 2019-03-21 17:27:24+00:00) Successfully pulled image "mcr.microsoft.com/azuredocs/aci-helloworld"

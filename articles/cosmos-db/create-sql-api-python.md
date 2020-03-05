@@ -12,12 +12,12 @@ ms.custom:
 - seodec18
 - seo-javascript-september2019
 - seo-python-october2019
-ms.openlocfilehash: d73d85471269bafb6f6d2e080a68f0cab10e3962
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 113955b0404b951360b670ee75789d0a74ffa534
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77585971"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274094"
 ---
 # <a name="quickstart-build-a-python-application-using-an-azure-cosmos-db-sql-api-account"></a>빠른 시작: Azure Cosmos DB SQL API 계정을 사용하여 Python 애플리케이션 빌드
 
@@ -129,27 +129,27 @@ ms.locfileid: "77585971"
 
 * CosmosClient가 초기화됩니다. [연결 문자열 업데이트](#update-your-connection-string) 섹션에서 설명한 대로 "endpoint" 및 "key" 값을 업데이트해야 합니다. 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_cosmos_client":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_cosmos_client)]
 
 * 새 데이터베이스가 만들어집니다.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_database_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_database_if_not_exists)]
 
 * [프로비저닝된 처리량](request-units.md)이 400RU/초인 새 컨테이너가 만들어집니다. `lastName`을 [파티션 키](partitioning-overview.md#choose-partitionkey)로 선택합니다. 그러면 이 속성을 필터링하는 효율적인 쿼리를 수행할 수 있습니다. 
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_container_if_not_exists":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_container_if_not_exists)]
 
 * 일부 항목은 컨테이너에 추가됩니다. 컨테이너는 다양한 스키마를 포함할 수 있는 항목(JSON 문서)의 컬렉션입니다. ```get_[name]_family_item``` 도우미 메서드는 Azure Cosmos DB에 JSON 문서로 저장된 패밀리의 표현을 반환합니다.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="create_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=create_item)]
 
 * 포인트 읽기(키 값 조회)는 `read_item` 메서드를 사용하여 수행됩니다. 각 작업에 대한 [RU 요금](request-units.md)이 출력됩니다.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="read_item":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=read_item)]
 
 * 쿼리는 SQL 쿼리 구문을 사용하여 수행됩니다. WHERE 절에서 ```lastName```의 파티션 키 값을 사용하므로 Azure Cosmos DB에서 이 쿼리를 관련 파티션으로 효율적으로 라우팅하여 성능을 향상시킵니다.
 
-    :::code language="python" source="~/azure-cosmos-db-python-getting-started/cosmos_get_started.py" id="query_items":::
+    [!code-python[](~/azure-cosmos-db-python-getting-started/cosmos_get_started.py?name=query_items)]
    
 ## <a name="run-the-app"></a>앱 실행
 

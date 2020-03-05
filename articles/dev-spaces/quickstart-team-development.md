@@ -6,12 +6,12 @@ ms.topic: quickstart
 description: 이 빠른 시작에서는 Azure Dev Spaces를 통해 컨테이너 및 마이크로서비스를 사용하여 Kubernetes 개발 팀을 수행하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 1f087225fc594b7c6469c4988ea1bf93ec558a71
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: 0fe177db420913e5d68807dd803df791653c0914
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77605275"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78244950"
 ---
 # <a name="quickstart-team-development-on-kubernetes---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 팀 개발 - Azure Dev Spaces
 
@@ -33,7 +33,7 @@ ms.locfileid: "77605275"
 
 [지원되는 지역][supported-regions]에서 AKS 클러스터를 만들어야 합니다. 아래 명령은 *MyResourceGroup*이라는 리소스 그룹과 *MyAKS*라는 AKS 클러스터를 만듭니다.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location eastus
 az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 ```
@@ -45,7 +45,7 @@ az aks create -g MyResourceGroup -n MyAKS --location eastus --generate-ssh-keys
 > [!NOTE]
 > `use-dev-spaces` 명령은 Azure Dev Spaces CLI가 아직 설치되지 않은 경우에도 설치합니다. Azure Cloud Shell에는 Azure Dev Spaces CLI를 설치할 수 없습니다.
 
-```cmd
+```azurecli
 az aks use-dev-spaces -g MyResourceGroup -n MyAKS --space dev --yes
 ```
 
@@ -199,7 +199,7 @@ http://dev.gateway.fedcab0987.eus.azds.io/                      Available
 
 ## <a name="clean-up-your-azure-resources"></a>Azure 리소스 정리
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

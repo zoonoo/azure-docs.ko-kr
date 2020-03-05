@@ -3,8 +3,8 @@ title: '빠른 시작: Azure Portal을 사용하여 인스턴스 만들기'
 titleSuffix: Azure Database Migration Service
 description: Azure Portal을 사용하여 Azure Database Migration Service의 인스턴스를 만듭니다.
 services: database-migration
-author: HJToland3
-ms.author: jtoland
+author: pochiraju
+ms.author: rajpo
 manager: craigg
 ms.reviewer: craigg
 ms.service: dms
@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: quickstart
 ms.date: 01/08/2020
-ms.openlocfilehash: 42638af9f51770a9a5738cd92f91c28439af273a
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: efbf7d9db91b8c23151ca4337bd4d58f814a7096
+ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75750087"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78254971"
 ---
 # <a name="quickstart-create-an-instance-of-the-azure-database-migration-service-by-using-the-azure-portal"></a>빠른 시작: Azure Portal을 사용하여 Azure Database Migration Service 인스턴스를 만듭니다.
 

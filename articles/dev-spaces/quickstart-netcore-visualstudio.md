@@ -8,12 +8,12 @@ keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너
 manager: gwallace
 ms.custom: vs-azure
 ms.workload: azure-vs
-ms.openlocfilehash: de830d07010037793eaf7471fc1147a42081b09c
-ms.sourcegitcommit: aee08b05a4e72b192a6e62a8fb581a7b08b9c02a
+ms.openlocfilehash: 5deebf7a51917a2b199ad525ab087fd5b0268c18
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/09/2020
-ms.locfileid: "75770597"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245027"
 ---
 # <a name="quickstart-debug-and-iterate-on-kubernetes-visual-studio--net-core---azure-dev-spaces"></a>빠른 시작: Kubernetes에서 디버그 및 반복: Visual Studio 및 .NET Core - Azure Dev Spaces
 
@@ -124,7 +124,7 @@ Visual Studio가 개발 공간에 여전히 연결되어 있으면 중지 단추
 
 Azure Portal에서 리소스 그룹으로 이동하여 *리소스 그룹 삭제*를 클릭합니다. 또는 [az aks delete](/cli/azure/aks#az-aks-delete) 명령을 사용할 수도 있습니다.
 
-```cmd
+```azurecli
 az group delete --name MyResourceGroup --yes --no-wait
 ```
 

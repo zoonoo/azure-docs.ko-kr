@@ -203,9 +203,9 @@
         - name: 클라이언트 라이브러리
           items:
             - name: Microsoft.Azure.Event Hubs에서 Azure.Messaging.EventHubs로 마이그레이션
-              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MIGRATIONGUIDE.md'
+              href: 'https://github.com/Azure/azure-sdk-for-net/blob/master/sdk/eventhub/Azure.Messaging.EventHubs/MigrationGuide.md'
             - name: Azure.Messaging.EventHubs(최신)
-              href: /dotnet/api/azure.messaging.eventhubs?view=azure-dotnet-preview
+              href: /dotnet/api/azure.messaging.eventhubs
             - name: Microsoft.Azure.EventHubs(레거시)
               href: /dotnet/api/microsoft.azure.eventhubs
             - name: Microsoft.ServiceBus.Messaging(레거시)
@@ -231,9 +231,9 @@
         - name: 클라이언트 라이브러리
           items:
             - name: azure-eventhub 버전 5
-              href: /python/api/azure-eventhub/?view=azure-python-preview
+              href: /python/api/overview/azure/eventhub/client
             - name: azure-eventhub 버전 1
-              href: /python/api/azure-eventhub/?view=azure-python
+              href: /python/api/azure-eventhub/?view=azure-python-previous
         - name: 관리 라이브러리
           href: /python/api/overview/azure/event-hub?view=azure-python
     - name: JavaScript
@@ -243,9 +243,9 @@
         - name: 클라이언트 라이브러리
           items:
             - name: azure/eventhubs 버전 5
-              href: /javascript/api/@azure/event-hubs/?view=azure-node-preview
-            - name: azure/eventhubs 버전 2
               href: /javascript/api/@azure/event-hubs/?view=azure-node-latest
+            - name: azure/eventhubs 버전 2
+              href: /javascript/api/@azure/event-hubs/?view=azure-node-legacy
         - name: 관리 라이브러리
           href: /javascript/api/@azure/arm-eventhub/?view=azure-node-latest
     - name: REST (영문)

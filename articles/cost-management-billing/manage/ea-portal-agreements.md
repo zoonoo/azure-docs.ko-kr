@@ -3,16 +3,16 @@ title: Azure EA 계약 및 수정안
 description: 이 문서에서는 Azure EA 계약 및 수정안이 Azure EA 포털 사용에 미치는 영향을 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/12/2020
+ms.date: 03/04/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c38f28120b7c84077d8d5012c4be4698680e5fdb
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 5198bd240f0c4e23910504fd039d64a73ddb41c9
+ms.sourcegitcommit: f915d8b43a3cefe532062ca7d7dbbf569d2583d8
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200815"
+ms.lasthandoff: 03/05/2020
+ms.locfileid: "78301423"
 ---
 # <a name="azure-ea-agreements-and-amendments"></a>Azure EA 계약 및 수정안
 
@@ -25,10 +25,6 @@ Azure 고객을 위한 모든 수정안은 파트너 또는 Microsoft 계정 팀
 ## <a name="enrollment-provisioning-status"></a>등록 프로비저닝 상태
 
 새로운 금액 약정 시작 날짜는 지역 운영 센터에서 처리한 날짜를 기준으로 정해집니다. Azure EA Portal을 통한 현금 약정 금액 주문은 UTC 표준 시간대로 처리되기 때문에, 현금 약정 금액 구매 주문이 다른 영역에서 처리되는 경우 약간의 지연이 발생할 수 있습니다. [https://www.explore.ms](https://www.explore.ms ) 의 구매 주문 적용 시작 날짜는 금액 약정의 시작을 표시합니다. 적용 시작 날짜는 해당 금액 약정이 Azure EA 포털에 나타나는 날짜입니다.
-
-## <a name="special-pricing-and-azure-commitment-discount-amendments"></a>특별 가격 책정 및 Azure 약정 할인 개정안
-
-특별가 및 Azure 약정 할인(ACD) 수정계약이 필요하면 계정 팀과 논의해야 합니다. Azure Ops 팀은 비즈니스 데스크에서 수정계약을 처리하고 Azure Ops 팀에 요청한 후 ACD를 적용할 수 있습니다. ACD 할인은 현재 달에만 적용됩니다. 이전 달은 모두 소급 크레딧으로 보상을 받습니다. 
 
 ## <a name="support-offer-not-provisioned"></a>지원 제품이 프로비저닝되지 않음
 

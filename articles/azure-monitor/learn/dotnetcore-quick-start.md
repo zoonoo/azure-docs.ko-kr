@@ -1,19 +1,18 @@
 ---
 title: 빠른 시작 ASP.NET Core - Azure Monitor Application Insights
 description: Azure Monitor Application Insights를 사용하여 모니터링하도록 ASP.NET Core 웹앱을 빠르게 설정하는 지침을 제공합니다.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: quickstart
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 06/26/2019
 ms.custom: mvc
-ms.openlocfilehash: e05926d7a76f47cc3c95088fa2d8f1a6e385bbbc
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fa1651e88226080cca970cc756f2c0522b39f1be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75399025"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670630"
 ---
 # <a name="start-monitoring-your-aspnet-core-web-application"></a>ASP.NET Core 웹 애플리케이션 모니터링 시작
 

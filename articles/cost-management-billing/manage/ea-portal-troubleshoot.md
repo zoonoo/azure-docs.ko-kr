@@ -3,16 +3,16 @@ title: Azure EA Portal 액세스 문제 해결
 description: 이 문서에서는 Azure EA Portal에서 Azure 기업계약(EA)에 발생할 수 있는 몇 가지 일반적인 문제에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.topic: troubleshooting
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: 486244e5d2ae3942005be3b5e2891f6316e945d6
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: 3e488cab2705458cfce8517fcbe7c72ce8843596
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200764"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272278"
 ---
 # <a name="troubleshoot-azure-ea-portal-access"></a>Azure EA Portal 액세스 문제 해결
 

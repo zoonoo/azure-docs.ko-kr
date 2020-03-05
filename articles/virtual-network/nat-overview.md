@@ -13,12 +13,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/24/2020
 ms.author: allensu
-ms.openlocfilehash: b27baed20d8e36bf5790036e2fdc0804a94a4ea1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 0e19271b5c69610dd9f44c3121e195b80732279c
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589439"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77669542"
 ---
 # <a name="what-is-virtual-network-nat-public-preview"></a>Virtual Network NAT(공개 미리 보기)란?
 
@@ -39,7 +39,7 @@ Virtual Network NAT(Network Address Translation)는 가상 네트워크에 대�
 
 
 >[!NOTE] 
->Virtual Network NAT는 현재 공개 미리 보기로 제공됩니다. 현재 제한된 [지역](#region-availability) 세트에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.comsupport/legal/preview-supplemental-terms)을 참조하세요.
+>Virtual Network NAT는 현재 공개 미리 보기로 제공됩니다. 현재 제한된 [지역](#region-availability) 세트에서만 사용할 수 있습니다. 이 미리 보기는 서비스 수준 계약 없이 제공되며 프로덕션 워크로드에는 사용하지 않는 것이 좋습니다. 특정 기능이 지원되지 않거나 기능이 제한될 수 있습니다. 자세한 내용은 [Microsoft Azure 미리 보기에 대한 보충 사용 약관](https://azure.microsoft.com/support/legal/preview-supplemental-terms)을 참조하세요.
 
 ## <a name="static-ip-addresses-for-outbound-only"></a>아웃바운드 전용의 고정 IP 주소
 
@@ -200,5 +200,5 @@ NAT는 일반적인 지원 채널을 통해 지원됩니다.
 ## <a name="next-steps"></a>다음 단계
 
 - [NAT 게이트웨이 리소스](./nat-gateway-resource.md)에 대한 자세한 정보
-- [UserVoice에서 다음에 빌드할 항목 제시](https://aka/natuservoice)
+- [UserVoice에서 다음에 빌드할 항목 제시](https://aka.ms/natuservoice)
 - [공개 미리 보기에 대한 피드백 제공](https://aka.ms/natfeedback)

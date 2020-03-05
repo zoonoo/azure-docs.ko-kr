@@ -7,12 +7,12 @@ ms.date: 12/10/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: a34fdc2f6d6698f53dc2ff7fdc11d0a985b23415
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: d6ccd3cc61f9d8244874823be76496a4f4e1073c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358762"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199770"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-python"></a>빠른 시작: Python용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -28,7 +28,7 @@ Python용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하�
 * 큐에서 메시지 삭제
 * 큐 삭제
 
-[API 참조 설명서](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-queue/) | [샘플](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue/samples)
+[API 참조 설명서](https://docs.microsoft.com/python/api/azure-storage-queue/index) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-python/tree/master/sdk/storage/azure-storage-queue) | [패키지(Python 패키지 인덱스)](https://pypi.org/project/azure-storage-queue/) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-python?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -297,7 +297,7 @@ Deleting queue...
 Done
 ```
 
-메시지를 받기 전에 앱이 일시 중지되면, [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 확인합니다. 메시지가 큐에 있는지 확인합니다.
+메시지를 받기 전에 앱이 일시 중지되면 [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 확인합니다. 메시지가 큐에 있는지 확인합니다.
 
 **Enter** 키를 눌러서 메시지를 받고 삭제합니다. 메시지가 표시되면 **Enter** 키를 다시 눌러서 큐를 삭제하고 데모를 마칩니다.
 

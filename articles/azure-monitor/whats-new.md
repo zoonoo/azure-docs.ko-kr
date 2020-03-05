@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor 설명서의 새로운 기능
 description: 매월 업데이트되는 Azure Monitor 설명서에 대한 중요 업데이트입니다.
-ms.service: azure-monitor
 ms.subservice: ''
 ms.topic: overview
 author: bwren
 ms.author: bwren
 ms.date: 02/05/2020
-ms.openlocfilehash: f390de40504d4d6065705ca23555ac2164c9847b
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.openlocfilehash: ecee13850e735f827a5465e0f49039f514afe233
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77065005"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77657744"
 ---
 # <a name="whats-new-in-azure-monitor-documentation"></a>Azure Monitor 설명서의 새로운 기능이란?
 이 문서에는 새롭거나 크게 업데이트된 Azure Monitor 문서가 나열되어 있습니다. 지난 달의 문서 업데이트가 포함되도록 매월 첫째 주에 새로 고쳐집니다.

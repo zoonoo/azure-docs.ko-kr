@@ -15,12 +15,12 @@ ms.topic: quickstart
 ms.date: 01/24/2020
 ms.author: aschhab
 ms.custom: seo-java-july2019, seo-java-august2019, seo-java-september2019
-ms.openlocfilehash: d819d4f7b3049a5c034ec8ac5170175f3ad3e9bb
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 71afce335910e4d42fb3d67f6d443510a6599b8b
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77190843"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77918325"
 ---
 # <a name="quickstart-use-azure-service-bus-queues-with-java-to-send-and-receive-messages"></a>빠른 시작: Java에서 Azure Service Bus 큐를 사용하여 메시지 보내기 및 받기
 
@@ -193,7 +193,7 @@ Service Bus는 애플리케이션 오류나 메시지 처리 문제를 정상적
 
 자세한 내용은 [Java개발자 센터](https://azure.microsoft.com/develop/java/)를 참조하세요.
 
-[Azure SDK for Java]: https://docs.microsoft.com/java/api/overview/azure/
+[Azure SDK for Java]: /azure/java/java-sdk-azure-get-started
 [Azure Toolkit for Eclipse]: https://docs.microsoft.com/java/azure/eclipse/azure-toolkit-for-eclipse
 [Queues, topics, and subscriptions]: service-bus-queues-topics-subscriptions.md
 [BrokeredMessage]: /dotnet/api/microsoft.servicebus.messaging.brokeredmessage

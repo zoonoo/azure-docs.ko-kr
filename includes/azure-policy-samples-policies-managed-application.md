@@ -2,15 +2,15 @@
 author: DCtheGeek
 ms.service: azure-policy
 ms.topic: include
-ms.date: 02/19/2020
+ms.date: 03/02/2020
 ms.author: dacoulte
-ms.openlocfilehash: 36792ebf93639e65a5f8428adf87121af6eea6cc
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 141f176dbbb4794ddf1bbbccf544fda88d149b6a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77495222"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78262576"
 ---
-|속성 |Description |효과 |버전 |원본 |
-|---|---|---|---|
-|[관리형 애플리케이션에 대한 연결 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17763ad9-70c0-4794-9397-53d765932634) |선택한 리소스 종류를 지정된 관리형 애플리케이션에 연결하는 연결 리소스를 배포합니다.  이 정책 배포는 중첩된 리소스 유형을 지원하지 않습니다. |deployIfNotExists |1.0.0 |[GitHub](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Managed%20Application/AssociationForManagedApplication_Deploy.json)
+|속성 |Description |효과 |버전 |GitHub |
+|---|---|---|---|---|
+|[관리형 애플리케이션에 대한 연결 배포](https://portal.azure.com/#blade/Microsoft_Azure_Policy/PolicyDetailBlade/definitionId/%2Fproviders%2FMicrosoft.Authorization%2FpolicyDefinitions%2F17763ad9-70c0-4794-9397-53d765932634) |선택한 리소스 종류를 지정된 관리형 애플리케이션에 연결하는 연결 리소스를 배포합니다.  이 정책 배포는 중첩된 리소스 유형을 지원하지 않습니다. |deployIfNotExists |1.0.0 |[링크](https://github.com/Azure/azure-policy/blob/master/built-in-policies/policyDefinitions/Managed%20Application/AssociationForManagedApplication_Deploy.json)

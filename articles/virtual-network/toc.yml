@@ -356,6 +356,34 @@
           href: move-across-regions-publicip-portal.md
         - name: 공용 IP - PowerShell
           href: move-across-regions-publicip-powershell.md
+    - name: 문제 해결
+      items:
+        - name: 가상 네트워크 피어링 문제 해결
+          href: virtual-network-troubleshoot-peering-issues.md
+        - name: VNet 또는 VPN 연결 구성 및 유효성 검사
+          href: virtual-network-configure-vnet-connections.md
+        - name: 네트워크 보안 그룹
+          href: diagnose-network-traffic-filter-problem.md
+        - name: 경로
+          href: diagnose-network-routing-problem.md
+        - name: 처리량 테스트
+          href: virtual-network-bandwidth-testing.md
+        - name: VM 네트워크 대기 시간 테스트
+          href: virtual-network-test-latency.md
+        - name: 가상 네트워크를 삭제할 수 없음
+          href: virtual-network-troubleshoot-cannot-delete-vnet.md
+        - name: VM 간 연결 문제
+          href: virtual-network-troubleshoot-connectivity-problem-between-vms.md
+        - name: SMTP 배너 검사를 위한 PTR 구성
+          href: create-ptr-for-smtp-service.md
+        - name: 가상 어플라이언스에 대한 문제 해결 검사 목록
+          href: virtual-network-troubleshoot-nva.md
+        - name: 아웃바운드 SMTP 연결 문제 해결
+          href: troubleshoot-outbound-smtp-connectivity.md
+        - name: IP 주소(168.63.129.16) 정보
+          href: what-is-ip-address-168-63-129-16.md
+        - name: Azure VM 연결 문제 해결
+          href: troubleshoot-vm-connectivity.md
     - name: 클래식 배포
       href: 'https://docs.microsoft.com/previous-versions/azure/virtual-network/create-virtual-network-classic'
 - name: 참조

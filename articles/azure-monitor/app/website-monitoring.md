@@ -1,19 +1,15 @@
 ---
 title: '빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링'
 description: Azure Monitor Application Insights를 사용하여 클라이언트/브라우저 쪽 웹 사이트 모니터링을 설정하는 빠른 시작 지침 제공
-ms.service: azure-monitor
-ms.subservice: application-insights
 ms.topic: quickstart
-author: mrbullwinkle
-ms.author: mbullwin
 ms.date: 07/15/2019
 ms.custom: mvc
-ms.openlocfilehash: 408b24c83c5b3d795a86d1ad0275d732bb54a6db
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: 1c581867f1e7ebc29f2aaff97124a08bec4e3b40
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963622"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670851"
 ---
 # <a name="quickstart-start-monitoring-your-website-with-azure-monitor-application-insights"></a>빠른 시작: Azure Monitor Application Insights를 사용하여 웹 사이트 모니터링 시작
 

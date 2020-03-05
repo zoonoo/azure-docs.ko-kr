@@ -1,14 +1,17 @@
 ---
 title: Java 함수를 Azure Storage에 연결
 description: Queue storage 출력 바인딩을 사용하여 Azure Storage에 HTTP 트리거 Java 함수를 연결하는 방법에 대해 알아봅니다.
+author: KarlErickson
+ms.author: karler
 ms.date: 10/14/2019
 ms.topic: quickstart
-ms.openlocfilehash: 72e3aad15ea8ef922d89a67891e223b65473b909
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+zone_pivot_groups: java-build-tools-set
+ms.openlocfilehash: 8ae69bfa7ed00e310205332e05c071158c5fc9a3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77198550"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272798"
 ---
 # <a name="connect-your-java-function-to-azure-storage"></a>Java 함수를 Azure Storage에 연결
 
@@ -112,10 +115,19 @@ final HttpResponseMessage ret = new Function().run(req, msg, context);
 
 이전과 마찬가지로 다음 명령을 사용하여 프로젝트를 빌드하고 로컬로 Functions 런타임을 시작합니다.
 
+::: zone pivot="java-build-tools-maven"  
 ```bash
 mvn clean package 
 mvn azure-functions:run
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle jar --info
+gradle azureFunctionsRun
+```
+::: zone-end
 
 > [!NOTE]  
 > host.json에서 확장 번들을 사용하도록 설정했으므로 시작 시 [Storage 바인딩 확장](functions-bindings-storage-blob.md#add-to-your-functions-app)이 다른 Microsoft 바인딩 확장과 함께 자동으로 다운로드되어 설치되었습니다.
@@ -138,9 +150,17 @@ curl -w "\n" http://localhost:7071/api/HttpTrigger-Java --data AzureFunctions
 
 게시된 앱을 업데이트하려면 다음 명령을 다시 실행합니다.  
 
-```azurecli
+::: zone pivot="java-build-tools-maven"  
+```bash
 mvn azure-functions:deploy
 ```
+::: zone-end
+
+::: zone pivot="java-build-tools-gradle"  
+```bash
+gradle azureFunctionsDeploy
+```
+::: zone-end
 
 마찬가지로 cURL을 사용하여 배포된 함수를 테스트할 수 있습니다. 이전과 마찬가지로 다음 예제와 같이 POST 요청의 본문에 있는 `AzureFunctions` 값을 URL에 전달합니다.
 

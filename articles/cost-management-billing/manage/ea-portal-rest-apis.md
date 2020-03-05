@@ -3,16 +3,16 @@ title: Azure 엔터프라이즈 REST API
 description: 이 문서에서는 Azure 엔터프라이즈 등록에 사용되는 REST API에 대해 설명합니다.
 author: bandersmsft
 ms.author: banders
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.topic: conceptual
 ms.service: cost-management-billing
 ms.reviewer: boalcsva
-ms.openlocfilehash: c6ff7a15ece1b87d535c8deeec32d71f457c382a
-ms.sourcegitcommit: 333af18fa9e4c2b376fa9aeb8f7941f1b331c11d
+ms.openlocfilehash: a29af1c9239cc44b3d4a41d17df88e88ee926fbe
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77200798"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272375"
 ---
 # <a name="azure-enterprise-rest-apis"></a>Azure 엔터프라이즈 REST API
 

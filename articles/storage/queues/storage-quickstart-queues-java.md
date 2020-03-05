@@ -7,12 +7,12 @@ ms.date: 12/4/2019
 ms.service: storage
 ms.subservice: queues
 ms.topic: quickstart
-ms.openlocfilehash: 2bbd66257e1ccd81f1dac7d775b4dd6ccc39189a
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9cfedd322db721156584844e949724ab2d104968
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75358772"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78199804"
 ---
 # <a name="quickstart-azure-queue-storage-client-library-v12-for-java"></a>빠른 시작: Java용 Azure Queue storage 클라이언트 라이브러리 v12
 
@@ -27,7 +27,7 @@ Java용 Azure Queue storage 클라이언트 라이브러리 v12를 사용하여 
 * 큐에서 메시지 수신 및 삭제
 * 큐 삭제
 
-[API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [샘플](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue/src/samples)
+[API 참조 설명서](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/index.html) | [라이브러리 소스 코드](https://github.com/Azure/azure-sdk-for-java/tree/master/sdk/storage/azure-storage-queue) | [패키지(Maven)](https://mvnrepository.com/artifact/com.azure/azure-storage-queue) | [샘플](https://docs.microsoft.com/azure/storage/common/storage-samples-java?toc=%2fazure%2fstorage%2fqueues%2ftoc.json#queue-samples)
 
 ## <a name="prerequisites"></a>사전 요구 사항
 
@@ -269,7 +269,7 @@ queueClient.updateMessage(result.getMessageId(),
 
 [receiveMessages](https://azuresdkdocs.blob.core.windows.net/$web/java/azure-storage-queue/12.0.0/com/azure/storage/queue/QueueClient.html#receiveMessages-java.lang.Integer-java.time.Duration-java.time.Duration-com.azure.core.util.Context-) 메서드를 호출하여 이전에 추가한 메시지를 다운로드합니다. 또한 예제 코드는 메시지를 받아서 처리한 후 큐에서 메시지를 삭제합니다. 이 경우 처리는 콘솔에 메시지를 표시하는 것뿐입니다.
 
-앱은 메시지를 수신하고 삭제하기 전에 `System.console().readLine();`을 호출하여 사용자 입력을 위해 일시 중지합니다. 리소스가 삭제되기 전에 [Azure Portal](https://portal.azure.com)에서 리소스가 제대로 생성되었는지 확인합니다. 명시적으로 삭제되지 않은 메시지는 다시 처리될 수 있도록 큐에 다시 표시됩니다.
+앱은 메시지를 수신하고 삭제하기 전에 `System.console().readLine();`을 호출하여 사용자 입력을 위해 일시 중지합니다. 리소스가 삭제되기 전에 [Azure Portal](https://portal.azure.com)에서 리소스가 제대로 생성되었는지 확인합니다. 명시적으로 삭제되지 않은 메시지는 다시 처리할 수 있도록 큐에 다시 표시됩니다.
 
 이 코드를 `main` 메서드의 끝에 추가합니다.
 
@@ -309,7 +309,7 @@ System.out.println("Done");
 
 ## <a name="run-the-code"></a>코드 실행
 
-이 앱은 메시지 세 개를 만들어서 Azure 큐에 추가합니다. 이 코드는 큐의 메시지를 나열한 다음, 검색하고 삭제한 후 최종적으로 큐를 삭제합니다.
+이 앱은 메시지 세 개를 만들어서 Azure 큐에 추가합니다. 이 코드는 큐의 메시지를 나열하고, 검색하여 삭제한 후 최종적으로 큐를 삭제합니다.
 
 콘솔 창에서 애플리케이션 디렉터리로 이동한 다음, 애플리케이션을 빌드하고 실행합니다.
 
@@ -355,7 +355,7 @@ Deleting queue: quickstartqueues-fbf58f33-4d5a-41ac-ac0e-1a05d01c7003
 Done
 ```
 
-메시지를 받기 전에 앱이 일시 중지되면, [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 확인합니다. 메시지가 큐에 있는지 확인합니다.
+메시지를 받기 전에 앱이 일시 중지되면 [Azure Portal](https://portal.azure.com)에서 스토리지 계정을 확인합니다. 메시지가 큐에 있는지 확인합니다.
 
 **Enter** 키를 눌러서 메시지를 받고 삭제합니다. 메시지가 표시되면 **Enter** 키를 다시 눌러서 큐를 삭제하고 데모를 마칩니다.
 

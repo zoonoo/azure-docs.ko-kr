@@ -16,19 +16,14 @@
           href: Quickstarts/add-question-metadata-portal.md
         - name: 3. Postman 또는 cURL을 사용하여 답변 가져오기
           href: Quickstarts/get-answer-from-knowledge-base-using-url-tool.md
-    - name: 배치 파일을 사용하여 테스트
-      href: Quickstarts/batch-testing.md
     - name: REST 사용
       href: Quickstarts/quickstart-rest-curl.md
     - name: SDK 사용
       href: Quickstarts/quickstart-sdk.md
 - name: 자습서
   items:
-    - name: KB에서 만들기 및 대답
-      displayName: 'curl, publish, chit-chat, chit chat'
-      href: Tutorials/create-publish-query-in-portal.md
-    - name: QnA Maker 봇 만들기
-      href: Tutorials/create-qna-bot.md
+    - name: 배치 파일을 사용하여 테스트
+      href: Quickstarts/batch-testing.md
 - name: 개념
   items:
     - name: Azure 리소스
@@ -77,9 +72,6 @@
           href: How-To/business-continuity-plan.md
     - name: 기술 자료 관리
       items:
-        - name: 기술 자료 만들기 및 게시
-          href: Quickstarts/create-publish-knowledge-base.md
-          displayName: 'create bot, bot, publish to bot, test, edit'
         - name: QnA Maker 및 LUIS로 봇 만들기
           href: Tutorials/integrate-qnamaker-luis.md
         - name: 언어 선택
@@ -109,8 +101,6 @@
           displayName: 'isTest, test, route, request, http, post, body, header, json, metadata, top, strictFilters, GenerateAnswer, API, answer, RankerType, id, text, question, context, 200, 2xx, 400, 401, 403, 404'
     - name: 클라이언트 애플리케이션과 함께 사용
       items:
-        - name: Bot 프레임워크
-          href: Tutorials/create-qna-bot.md
         - name: LUIS 및 QnA Maker
           href: Tutorials/integrate-qnamaker-luis.md
     - name: Analytics 및 원격 분석
