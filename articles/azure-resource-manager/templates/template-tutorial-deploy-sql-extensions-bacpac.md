@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 500e07296040305f1e469fde78988f2551440e58
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 27ac4b67aa19aa59abe80ccf9409acf7b587a22b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471198"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250104"
 ---
 # <a name="tutorial-import-sql-bacpac-files-with-azure-resource-manager-templates"></a>자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기
 
@@ -36,7 +36,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * Resource Manager Tools 확장이 있는 Visual Studio Code. [Visual Studio Code를 사용하여 Azure Resource Manager 템플릿 만들기](./use-vs-code-to-create-template.md)를 참조하세요.
 * 보안을 강화하려면 Azure SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 

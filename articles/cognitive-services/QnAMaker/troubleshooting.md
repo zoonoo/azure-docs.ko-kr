@@ -1,15 +1,15 @@
 ---
 title: 문제 해결-QnA Maker
 description: QnA Maker 서비스와 관련 하 여 가장 자주 묻는 질문의 큐 레이트 목록은 서비스를 더 빠르게 채택 하 고 더 나은 결과를 생성 하는 데 도움이 됩니다.
-ms.topic: article
+ms.topic: troubleshooting
 ms.date: 02/21/2020
 ms.author: diberry
-ms.openlocfilehash: 9032f2cdc134289fef6c0cbc2e874198aefa90ee
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 37aae8e67ccc84a6e22be8ce8a304fc4884ead52
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650387"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273392"
 ---
 # <a name="troubleshooting-for-qna-maker"></a>QnA Maker에 대 한 문제 해결
 
@@ -260,7 +260,7 @@ QnA 집합이 기술 자료에 있으면 대답의 markdown 텍스트를 편집 
 
 </details>
 
-## <a name="data-storage"></a>데이터 저장소
+## <a name="data-storage"></a>데이터 스토리지
 
 <details>
 <summary><b>저장 되는 데이터와 저장 위치</b></summary>

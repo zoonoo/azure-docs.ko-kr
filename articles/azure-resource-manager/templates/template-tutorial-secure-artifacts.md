@@ -5,12 +5,12 @@ author: mumian
 ms.date: 12/09/2019
 ms.topic: tutorial
 ms.author: jgao
-ms.openlocfilehash: 42f11ecb8e7c7ae47b5a5ab5ff4f946833945aa1
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 7069ff363cf274ba855efc9b598d8d01e64e18d1
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75471188"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250120"
 ---
 # <a name="tutorial-secure-artifacts-in-azure-resource-manager-template-deployments"></a>자습서: Azure Resource Manager 템플릿 배포에서 아티팩트 보호
 
@@ -39,7 +39,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 * [자습서: Azure Resource Manager 템플릿을 사용하여 SQL BACPAC 파일 가져오기](./template-tutorial-deploy-sql-extensions-bacpac.md)를 검토합니다. 이 자습서에서 사용된 파일은 해당 자습서에서 개발된 것입니다. 완료된 템플릿의 다운로드 링크는 이 문서에서 제공됩니다.
 * 보안을 강화하려면 SQL Server 관리자 계정에 대해 생성된 암호를 사용하세요. 암호를 생성하는 데 사용할 수 있는 샘플은 다음과 같습니다.
 
-    ```azurecli-interactive
+    ```console
     openssl rand -base64 32
     ```
 
@@ -51,7 +51,7 @@ Azure 구독이 아직 없는 경우 시작하기 전에 [체험](https://azure.
 
 * BACPAC 파일 다운로드
 * Azure Storage 계정 만들기
-* 스토리지 계정 Blob 컨테이너 만들기
+* 스토리지 계정 Blob 컨테이너를 만듭니다.
 * 컨테이너에 BACPAC 파일 업로드
 * BACPAC 파일의 SAS 토큰 검색
 
@@ -204,7 +204,7 @@ _artifactsLocation, _artifactsLocationSasToken 및 bacpacFileName 값은 [BACPAC
 
 Azure 리소스가 더 이상 필요하지 않은 경우 리소스 그룹을 삭제하여 배포한 리소스를 정리합니다.
 
-1. Azure Portal의 왼쪽 메뉴에서 **리소스 그룹**을 선택합니다.
+1. Azure Portal에서 왼쪽 메뉴에 있는 **리소스 그룹**을 선택합니다.
 2. **이름으로 필터링** 필드에서 리소스 그룹 이름을 입력합니다.
 3. 해당 리소스 그룹 이름을 선택합니다. 리소스 그룹에 총 6개의 리소스가 표시됩니다.
 4. 위쪽 메뉴에서 **리소스 그룹 삭제**를 선택합니다.

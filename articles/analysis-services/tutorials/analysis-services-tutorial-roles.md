@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 10/30/2019
 ms.author: owend
 ms.reviewer: owend
-ms.openlocfilehash: 3abcfe61f365c3c96dfb6b8eb2ca6cc9e5d3797e
-ms.sourcegitcommit: f4d8f4e48c49bd3bc15ee7e5a77bee3164a5ae1b
+ms.openlocfilehash: c7d53ae71ac68559877561bf9fd15fe0f341e03a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73572366"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273688"
 ---
 # <a name="tutorial-configure-server-administrator-and-user-roles"></a>자습서: 서버 관리자 및 사용자 역할 구성
 
@@ -27,7 +27,7 @@ ms.locfileid: "73572366"
 
 Azure Analysis Services의 사용자 보안에 대한 자세한 내용은 [인증 및 사용자 권한](../analysis-services-manage-users.md)을 참조하세요. 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 구독에 Azure Active Directory가 있어야 합니다.
 - 구독에 만든 [Azure Analysis Services 서버](../analysis-services-create-server.md)가 있어야 합니다.
@@ -82,7 +82,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-user-to-the-model-database-administrator-role"></a>모델 데이터베이스 관리자 역할에 사용자 추가
 
-이 작업에서는 모델에 이미 있는 Internet Sales Administrator(인터넷 판매 관리자) 역할에 사용자 또는 그룹 계정을 추가합니다. 이 역할에는 adventureworks 샘플 모델 데이터베이스에 대한 모든 권한(관리자) 권한이 있습니다. 이 작업에서는 만든 스크립트에서 [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) TMSL 명령을 사용합니다.
+이 작업에서는 모델에 이미 있는 Internet Sales Administrator(인터넷 판매 관리자) 역할에 사용자 또는 그룹 계정을 추가합니다. 이 역할에는 adventureworks 샘플 모델 데이터베이스에 대한 모든 권한(관리자) 권한이 있습니다. 이 작업에서는 만든 스크립트에서 [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) TMSL 명령을 사용합니다.
 
 1. **개체 탐색기**에서 **데이터베이스** > **adventureworks** > **역할**을 차례로 펼칩니다. 
 2. **Internet Sales Administrator**를 마우스 오른쪽 단추로 클릭한 다음, **역할 스크립팅** > **만들기 또는 다음으로 바꾸기** > **새 쿼리 편집기 창**을 차례로 클릭합니다.
@@ -98,7 +98,7 @@ SSMS에서 서버에 연결하려면 먼저 서버 이름이 필요합니다. �
 
 ## <a name="add-a-new-model-database-role-and-add-a-user-or-group"></a>새 모델 데이터베이스 역할 추가 및 사용자 또는 그룹 추가
 
-이 작업에서는 TMSL 스크립트에서 [Create](https://docs.microsoft.com/bi-reference/tmsl/create-command-tmsl) 명령을 사용하여 새 Internet Sales Global(인터넷 판매 전역) 역할을 만들고, 역할에 대한 *읽기* 권한을 지정하고, Azure AD에서 사용자 또는 그룹 계정을 추가합니다.
+이 작업에서는 TMSL 스크립트에서 [Create](https://docs.microsoft.com/analysis-services/tmsl/create-command-tmsl) 명령을 사용하여 새 Internet Sales Global(인터넷 판매 전역) 역할을 만들고, 역할에 대한 *읽기* 권한을 지정하고, Azure AD에서 사용자 또는 그룹 계정을 추가합니다.
 
 1. **개체 탐색기**에서 **adventureworks**를 마우스 오른쪽 단추로 클릭한 다음, **새 쿼리** > **XMLA**를 차례로 클릭합니다. 
 2. 다음 TMSL 스크립트를 복사하여 쿼리 편집기에 붙여넣습니다.

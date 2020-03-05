@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 11/19/2019
-ms.openlocfilehash: e26ae7ded47a235ecf1829946c1cc79af9a0fb8c
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 26bcd855dbe2ea85df9fb6aca74f8b52e8ce8e46
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152400"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268908"
 ---
 # <a name="create-python-model"></a>Python 모델 만들기
 
@@ -35,7 +35,7 @@ Python **모델 만들기** 모듈을 사용 하 여 python 스크립트에서 �
 
 이 문서에서는 간단한 파이프라인에서 **Python 모델 만들기** 를 사용 하는 방법을 보여 줍니다. 파이프라인의 그래프는 다음과 같습니다.
 
-![만들기-python-모델](./media/module/aml-create-python-model.png)
+![만들기-python-모델](./media/module/create-python-model.png)
 
 1.  **Python 모델 만들기**를 클릭 하 고, 스크립트를 편집 하 여 모델링 또는 데이터 관리 프로세스를 구현 합니다. Azure Machine Learning 환경의 Python 패키지에 포함 된 모든 학습자 모델을 기반으로 할 수 있습니다.
 

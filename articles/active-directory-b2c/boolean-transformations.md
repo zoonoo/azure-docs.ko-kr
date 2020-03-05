@@ -8,15 +8,15 @@ manager: celestedg
 ms.service: active-directory
 ms.workload: identity
 ms.topic: reference
-ms.date: 02/03/2020
+ms.date: 03/03/2020
 ms.author: mimart
 ms.subservice: B2C
-ms.openlocfilehash: 65f5b9bc09bb74ccbc63a457ba8e5681de8eefab
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e470ea65085bf71f0052567d5bf367661852d1cb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78189944"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268014"
 ---
 # <a name="boolean-claims-transformations"></a>부울 클레임 변환
 
@@ -28,7 +28,7 @@ ms.locfileid: "78189944"
 
 두 부울 inputClaim의 And 연산을 수행하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목  | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목  | TransformationClaimType  | 데이터 형식  | 메모 |
 |-------| ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim1 | boolean | 평가할 첫 번째 ClaimType입니다. |
 | InputClaim | inputClaim2  | boolean | 평가할 두 번째 ClaimType입니다. |
@@ -61,7 +61,7 @@ ms.locfileid: "78189944"
 
 두 클레임의 부울 값이 같은지 확인하고 같지 않으면 예외를 throw합니다.
 
-| 항목 | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목 | TransformationClaimType  | 데이터 형식  | 메모 |
 | ---- | ------------------------ | ---------- | ----- |
 | inputClaim | inputClaim | boolean | 어설션할 ClaimType입니다. |
 | InputParameter |valueToCompareTo | boolean | 비교할 값(true 또는 false)입니다. |
@@ -118,7 +118,7 @@ ms.locfileid: "78189944"
 
 클레임의 부울 값이 `true` 또는 `false`와 같은지 확인 하 고 압축 결과를 반환 합니다.
 
-| 항목 | TransformationClaimType  | 데이터 형식  | 참고 |
+| 항목 | TransformationClaimType  | 데이터 형식  | 메모 |
 | ---- | ------------------------ | ---------- | ----- |
 | InputClaim | inputClaim | boolean | 어설션할 ClaimType입니다. |
 | InputParameter |valueToCompareTo | boolean | 비교할 값(true 또는 false)입니다. |
@@ -156,7 +156,7 @@ ms.locfileid: "78189944"
 
 부울 inputClaim의 Not 연산을 수행하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim | boolean | 연산을 수행할 클레임입니다. |
 | OutputClaim | outputClaim | boolean | 이 ClaimsTransformation을 호출하고 나면 생성되는 ClaimType(true 또는 false)입니다. |
@@ -184,7 +184,7 @@ ms.locfileid: "78189944"
 
 두 부울 inputClaim의 or을 계산하고 연산 결과를 사용하여 outputClaim을 설정합니다.
 
-| 항목 | TransformationClaimType | 데이터 형식 | 참고 |
+| 항목 | TransformationClaimType | 데이터 형식 | 메모 |
 | ---- | ----------------------- | --------- | ----- |
 | InputClaim | inputClaim1 | boolean | 평가할 첫 번째 ClaimType입니다. |
 | InputClaim | inputClaim2 | boolean | 평가할 두 번째 ClaimType입니다. |

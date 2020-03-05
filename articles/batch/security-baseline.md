@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 4094ace5772b99c646a31d6a4722bbb080fbfff7
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 779b7d071b1161c53bdba08738539c4c682882d2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589884"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273553"
 ---
 # <a name="azure-security-baseline-for-batch"></a>Batch에 대 한 Azure 보안 기준
 
@@ -59,7 +59,7 @@ Azure Security Center에서 제공 하는 네트워크 보안 이해:
 
 https://docs.microsoft.com/azure/security-center/security-center-network-recommendations
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -271,7 +271,7 @@ Azure Batch 풀 노드에 원격으로 연결 하는 방법:
 
 https://docs.microsoft.com/azure/batch/batch-api-basics#error-handling
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -323,7 +323,7 @@ https://docs.microsoft.com/azure/batch/batch-diagnostics
 
 **지침**: windows 운영 체제의 경우 개별 Batch 노드에서 windows Defender를 사용 하거나 Linux를 사용 하는 경우 고유한 맬웨어 방지 솔루션을 제공 합니다.
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -466,7 +466,7 @@ Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 �
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -511,7 +511,7 @@ Azure Id 액세스 검토를 사용 하는 방법:
 
 https://docs.microsoft.com/azure/active-directory/governance/access-reviews-overview
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -524,7 +524,7 @@ Azure 활동 로그를 Azure Monitor에 통합 하는 방법:
 
 https://docs.microsoft.com/azure/active-directory/reports-monitoring/howto-integrate-activity-logs-with-log-analytics
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -551,7 +551,7 @@ https://docs.microsoft.com/azure/sentinel/quickstart-onboard
 
 **책임**: 고객
 
-### <a name="313-provide-microsoft-with-access-to-relevant-customer-data-during-support-scenarios"></a>3.13: 지원 시나리오에서 Microsoft에 관련 고객 데이터에 대 한 액세스 권한을 제공 합니다.
+### <a name="313-divprovide-microsoft-with-access-to-relevant-customer-data-during-support-scenariosbrdiv"></a>3.13: <div>지원 시나리오에서 Microsoft에 관련 고객 데이터에 대 한 액세스 권한 제공<br></div>
 
 **지침**: 사용할 수 없음 고객 Lockbox Azure Batch에 대해 아직 지원 되지 않습니다. 지원 되는 고객 Lockbox 서비스 목록: https://docs.microsoft.com/azure/security/fundamentals/customer-lockbox-overview#supported-services-and-scenarios-in-general-availability
 
@@ -614,9 +614,9 @@ Azure Storage 계정을 보호 하는 방법:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임**: 고객
+**책임**: 공유
 
 ### <a name="44-encrypt-all-sensitive-information-in-transit"></a>4.4: 전송 중인 모든 중요 한 정보를 암호화 합니다.
 
@@ -654,7 +654,7 @@ Azure Storage 계정을 보호 하는 방법:
 
 https://docs.microsoft.com/azure/storage/common/storage-security-guide
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
 
 **책임**: 공유
 
@@ -690,7 +690,7 @@ Azure의 고객 데이터 보호 이해:
 
 https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
 
 **책임**: 공유
 
@@ -704,7 +704,7 @@ Azure Storage 계정의 암호화 키를 관리 하는 방법:
 
 https://docs.microsoft.com/azure/storage/common/storage-encryption-keys-portal
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -728,7 +728,7 @@ Azure Storage 계정에 대 한 추가 로깅/감사를 사용 하도록 설정 
 
 https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -751,7 +751,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 
 **지침**: 기본 Azure Batch 풀 노드 이미지를 유지 관리 하 고 업데이트 합니다. 자동 업데이트를 사용 하도록 설정 하거나, 노드를 모니터링 하거나, 정기적으로 재부팅을 수행 해야 하는 클러스터 수명 기간 동안 Azure Batch 풀 노드의 운영 체제가 패치 된 상태로 유지 되는지 확인 합니다.
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 공유
 
@@ -788,7 +788,7 @@ https://docs.microsoft.com/azure/storage/common/storage-monitor-storage-account
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내에서 계산, 저장소, 네트워크 등의 모든 리소스 (예: 계산, 저장소, 네트워크 등)를 쿼리/검색 합니다. 테 넌 트에서 적절 한 (읽기) 권한이 있는지 확인 하 고 구독 내의 리소스 뿐만 아니라 모든 Azure 구독을 열거할 수 있습니다.
 
 
-클래식 Azure 리소스는 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
+클래식 Azure 리소스는 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager (ARM) 리소스를 만들고 사용 하는 것이 좋습니다.
 
 
 Azure Graph를 사용 하 여 쿼리를 만드는 방법:
@@ -863,9 +863,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
+
 Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다. 환경에 있는 모든 Azure 리소스가 승인 되었는지 확인 합니다.
 
+
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
@@ -901,16 +904,15 @@ Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft
 
 **지침**: Azure policy를 사용 하 여 다음 기본 제공 정책 정의를 사용 하 여 고객 구독에서 만들 수 있는 리소스 유형에 대 한 제한을 설정 합니다.
 
+
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-Azure Policy를 구성 하 고 관리 하는 방법:
 
-https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
-Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법:
 
-https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
+Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -924,14 +926,12 @@ https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-
 
 **책임**: 고객
 
-### <a name="611-limit-users-ability-to-interact-with-azure-resource-manager-via-scripts"></a>6.11: 사용자가 스크립트를 통해 Azure Resource Manager 상호 작용할 수 있도록 제한
+### <a name="611-divlimit-users-ability-to-interact-with-azure-resource-manager-via-scriptsdiv"></a>6.11: <div>사용자가 스크립트를 통해 Azure Resource Manager 상호 작용할 수 있도록 제한</div>
 
 **지침**: Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure Resource Manager 상호 작용 하는 기능을 제한 합니다.
 
 
-Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -949,9 +949,7 @@ Azure Batch 풀의 사용자 (관리자가 아닌)에 게 작업을 실행 하�
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 응용 프로그램을 물리적 또는 논리적으로 분리
 
-**지침**: 사용할 수 없음
-
-벤치 마크는 Azure App Service 또는 IaaS 인스턴스에서 실행 되는 웹 응용 프로그램을 위한 것입니다.
+**지침**: 해당 없음, 벤치 마크는 Azure App Service 또는 IaaS 인스턴스에서 실행 되는 웹 응용 프로그램을 위한 것입니다.
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -966,10 +964,14 @@ Azure Batch 풀의 사용자 (관리자가 아닌)에 게 작업을 실행 하�
 **지침**: "Microsoft Batch" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 사용자 지정 정책을 만들어 Azure Batch 계정과 풀의 구성을 감사 하거나 적용 합니다.
 
 
-사용 가능한 Azure Policy 별칭을 보는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
+사용 가능한 Azure Policy 별칭을 보는 방법:
+
+https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
 
 
-Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+Azure Policy를 구성 하 고 관리 하는 방법:
+
+https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -991,7 +993,9 @@ Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/
 - Microsoft.Storage
 - Microsoft.Network
 
+
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Azure Policy 효과 이해: https://docs.microsoft.com/azure/governance/policy/concepts/effects
 
@@ -1009,11 +1013,17 @@ Azure Policy 효과 이해: https://docs.microsoft.com/azure/governance/policy/c
 
 ### <a name="75-securely-store-configuration-of-azure-resources"></a>7.5: Azure 리소스의 구성을 안전 하 게 저장
 
-**지침**: Azure Batch 계정, 풀 또는 관련 리소스에 대 한 사용자 지정 azure 정책 정의를 사용 하는 경우 Azure devops/리포지토리를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
+**지침**: Azure Batch 계정, 풀 또는 관련 리소스에 대 한 사용자 지정 Azure 정책 정의를 사용 하는 경우 Azure Repos를 사용 하 여 코드를 안전 하 게 저장 하 고 관리 합니다.
 
-Azure DevOps에서 코드를 저장 하는 방법: https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
 
-Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
+Azure DevOps에서 코드를 저장 하는 방법:
+
+https://docs.microsoft.com/azure/devops/repos/git/gitworkflow?view=azure-devops
+
+
+Azure Repos 설명서:
+
+https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -1024,9 +1034,14 @@ Azure Repos 설명서: https://docs.microsoft.com/azure/devops/repos/index?view=
 **지침**: Azure Batch 풀에 대해 사용자 지정 이미지를 사용 하는 경우 권한 있는 사용자만 이미지에 액세스할 수 있도록 RBAC (역할 기반 액세스 제어)를 사용 합니다.
 
 
-Azure의 RBAC 이해: https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+Azure의 RBAC 이해:
 
-Azure에서 RBAC를 구성 하는 방법: https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
+https://docs.microsoft.com/azure/role-based-access-control/rbac-and-directory-admin-roles
+
+
+Azure에서 RBAC를 구성 하는 방법:
+
+https://docs.microsoft.com/azure/role-based-access-control/quickstart-assign-role-user-portal
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1058,8 +1073,7 @@ https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 **지침**: "Microsoft Batch" 네임 스페이스의 Azure Policy 별칭을 사용 하 여 Azure Batch 인스턴스의 구성을 감사 하거나 적용 하는 사용자 지정 정책을 만들 수 있습니다. Azure Batch 또는 Azure Batch에서 사용 하는 리소스 (예:)에 대해 특별히 생성 된 기본 제공 정책을 사용할 수도 있습니다.
 
-- 서브넷을 네트워크 보안 그룹과 연결해야 합니다.
-- 저장소 계정은 가상 네트워크 서비스 끝점을 사용 해야 합니다.
+- 서브넷은 네트워크 보안 그룹과 연결 되어야 합니다. 저장소 계정은 가상 네트워크 서비스 끝점을 사용 해야 합니다.
 - 배치 계정의 진단 로그를 사용하도록 설정해야 합니다.
 
 사용 가능한 Azure Policy 별칭을 보는 방법: https://docs.microsoft.com/powershell/module/az.resources/get-azpolicyalias?view=azps-3.3.0
@@ -1098,7 +1112,7 @@ https://docs.microsoft.com/azure/key-vault/quick-create-portal
 
 https://docs.microsoft.com/azure/key-vault/managed-identity
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -1187,7 +1201,7 @@ Azure에서 주요 자격 증명 모음 키를 백업 하는 방법:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/backup-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -1205,7 +1219,7 @@ PowerShell을 사용 하 여 고객 관리 키를 복원 하는 방법:
 
 https://docs.microsoft.com/powershell/module/azurerm.keyvault/restore-azurekeyvaultkey?view=azurermps-6.13.0
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 해당 사항 없음
 
 **책임**: 고객
 
@@ -1218,7 +1232,7 @@ Azure Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법:
 
 https://docs.microsoft.com/azure/key-vault/key-vault-soft-delete-powershell
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -1324,3 +1338,7 @@ https://gallery.technet.microsoft.com/Cloud-Red-Teaming-b837392e
 
 **책임**: 공유
 
+## <a name="next-steps"></a>다음 단계
+
+- [Azure 보안 벤치 마크](https://docs.microsoft.com/azure/security/benchmarks/overview) 를 참조 하세요.
+- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview) 에 대 한 자세한 정보

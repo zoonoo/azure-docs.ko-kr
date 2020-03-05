@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 03/16/2018
 ms.topic: conceptual
-ms.openlocfilehash: 15f63544a98c6d7bb7171081d9c3e084890e15ec
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: a50dbe4d1e100032282891ccd15a94330f7fead4
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255991"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272963"
 ---
 # <a name="graphical-authoring-in-azure-automation"></a>Azure Automation에서 그래픽 작성
 
@@ -380,7 +380,7 @@ $h
 
 ## <a name="authenticating-to-azure-resources"></a>Azure 리소스 인증
 
-Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. 서비스 주체 라고도 하는 [실행 계정은](automation-create-runas-account.md)Automation runbook이 구독의 Azure Resource Manager 리소스에 액세스 하는 데 사용 하는 기본 메커니즘입니다. PowerShell [Get automationconnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용 하는 **AzureRunAsConnection** 연결 자산을 캔버스에 추가 하 여 그래픽 runbook에이 기능을 추가할 수 있습니다. [AzAccount](/powershell/module/az.profile/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에 나와 있습니다.
+Azure 리소스를 관리하는 Azure Automation의 Runbook에는 Azure에 대한 인증이 필요합니다. 서비스 주체 라고도 하는 [실행 계정은](automation-create-runas-account.md)Automation runbook이 구독의 Azure Resource Manager 리소스에 액세스 하는 데 사용 하는 기본 메커니즘입니다. PowerShell [Get automationconnection](https://technet.microsoft.com/library/dn919922%28v=sc.16%29.aspx) cmdlet을 사용 하는 **AzureRunAsConnection** 연결 자산을 캔버스에 추가 하 여 그래픽 runbook에이 기능을 추가할 수 있습니다. [AzAccount](/powershell/module/az.accounts/connect-azaccount) cmdlet을 추가할 수도 있습니다. 이 시나리오는 다음 예제에 나와 있습니다.
 
 ![실행 인증 작업](media/automation-graphical-authoring-intro/authenticate-run-as-account.png)
 

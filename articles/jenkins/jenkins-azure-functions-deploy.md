@@ -4,12 +4,12 @@ description: Jenkins Azure Functions 플러그 인을 사용하여 Azure Functio
 keywords: jenkins, azure, devops, java, azure functions
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: edf8c763a46a6f519175842a6525b2c1b314fb66
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 731bac13a596bbeaf970b3f6ce976a582d1f11ae
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77470669"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250915"
 ---
 # <a name="deploy-to-azure-functions-using-the-jenkins-azure-functions-plug-in"></a>Jenkins Azure Functions 플러그 인을 사용하여 Azure Functions에 배포
 
@@ -31,19 +31,19 @@ Java 런타임 스택을 사용하여 Java 함수를 만들려면 [Azure Portal]
 
 1. **&lt;resource_group>** 자리 표시자를 자신의 리소스 그룹 이름으로 바꿔서 리소스 그룹을 만듭니다.
 
-    ```cli
+    ```azurecli
     az group create --name <resource_group> --location eastus
     ```
 
 1. 자리 표시자를 적절한 값으로 바꿔서 Azure Storage 계정을 만듭니다.
  
-    ```cli
+    ```azurecli
     az storage account create --name <storage_account> --location eastus --resource-group <resource_group> --sku Standard_LRS    
     ```
 
 1. 자리 표시자를 적절한 값으로 바꿔서 테스트 함수 앱을 만듭니다.
 
-    ```cli
+    ```azurecli
     az functionapp create --resource-group <resource_group> --consumption-plan-location eastus --name <function_app> --storage-account <storage_account>
     ```
 
@@ -148,7 +148,7 @@ Java 런타임 스택을 사용하여 Java 함수를 만들려면 [Azure Portal]
 
 이 애플리케이션을 계속 사용할 계획이 없으면 다음 단계에 따라 만들었던 관련 리소스를 삭제합니다.
 
-```cli
+```azurecli
 az group delete -y --no-wait -n <resource_group>
 ```
 

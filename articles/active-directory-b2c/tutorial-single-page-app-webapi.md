@@ -3,20 +3,20 @@ title: '자습서: 단일 페이지 앱에서 ASP.NET Core 웹 API에 대한 액
 titleSuffix: Azure AD B2C
 description: 이 자습서에서는 Active Directory B2C를 사용하여 .NET Core 웹 API를 보호하고 단일 페이지 Node.js 애플리케이션에서 API를 호출하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 07/24/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: 80b2165b0ec652358a3eb8ac9d55b64f525e4690
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: f6f9ff7bb0d504ecc163f6ce1f87477b1ea9c2d1
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849843"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78186148"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-core-web-api-from-a-single-page-application-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 단일 페이지 애플리케이션에서 ASP.NET Core 웹 API로의 액세스 권한 부여
 

@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown, aakapo
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 327f53fb39e58f7b70040eb41b6cd80aca18e510
-ms.sourcegitcommit: 3c8fbce6989174b6c3cdbb6fea38974b46197ebe
+ms.openlocfilehash: ca6ef244a887e75a0d8b9bb663d5325a33cd1e89
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/21/2020
-ms.locfileid: "77522036"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269345"
 ---
 # <a name="enable-passwordless-security-key-sign-in-to-windows-10-devices-with-azure-active-directory-preview"></a>Azure Active Directory (미리 보기)를 사용 하 여 Windows 10 장치에 암호 없는 보안 키 로그인 사용
 
@@ -35,7 +35,7 @@ ms.locfileid: "77522036"
 | [결합 된 보안 정보 등록 미리 보기](concept-registration-mfa-sspr-combined.md) | X | X |
 | 호환 되는 [FIDO2 보안 키](concept-authentication-passwordless.md#fido2-security-keys) | X | X |
 | WebAuthN에는 Windows 10 버전 1809 이상이 필요 합니다. | X | X |
-| [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1809 이상이 필요 합니다. | X |   |
+| [AZURE AD 가입 장치](../devices/concept-azure-ad-join.md) 에는 Windows 10 버전 1903 이상이 필요 합니다. | X |   |
 | [하이브리드 AZURE AD 조인 장치](../devices/concept-azure-ad-join-hybrid.md) 에는 Windows 10 Insider Build 18945 이상이 필요 합니다. |   | X |
 | Windows Server 2016/2019 도메인 컨트롤러를 완전히 패치 했습니다. |   | X |
 | [Azure AD Connect](../hybrid/how-to-connect-install-roadmap.md#install-azure-ad-connect) 버전 1.4.32.0 이상 |   | X |
@@ -54,6 +54,7 @@ ms.locfileid: "77522036"
 - 보안 키를 사용 하 여 서버에 로그인 합니다.
 - 온라인 상태에서 보안 키를 사용 하 여 장치에 로그인 하지 않은 경우에는이를 사용 하 여 오프 라인으로 로그인 하거나 잠금 해제 하는 데 사용할 수 없습니다.
 - 여러 Azure AD 계정을 포함 하는 보안 키를 사용 하 여 Windows 10 장치에 로그인 하거나 잠금을 해제 합니다. 이 시나리오에서는 보안 키에 추가 된 마지막 계정을 활용 합니다. WebAuthN를 사용 하면 사용자가 사용 하려는 계정을 선택할 수 있습니다.
+- Windows 10 버전 1809을 실행 하는 장치를 잠금 해제 합니다. 최상의 환경을 위해 Windows 10 버전 1903 이상을 사용 합니다.
 
 ## <a name="prepare-devices-for-preview"></a>미리 보기용으로 장치 준비
 

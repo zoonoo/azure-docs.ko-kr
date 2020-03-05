@@ -7,18 +7,17 @@ ms.service: virtual-machines
 ms.topic: article
 ms.date: 02/03/2020
 ms.author: lahugh
-ms.openlocfilehash: ccafe6f317ff50684922fd4409beb42214c18858
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: 0295ed7d44d64fcc1aeb68e1beaa37987b177edb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78161860"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273855"
 ---
-# <a name="nvv4-series-preview"></a>NVv4 시리즈 (미리 보기)
+# <a name="nvv4-series"></a>NVv4 시리즈 
 
 NVv4 시리즈 가상 머신은 [Amd Radeon 이러한 MI25](https://www.amd.com/en/products/professional-graphics/instinct-mi25) GPU 및 AMD Epyc 7V12 (로마) cpu로 구동 됩니다. NVv4 시리즈 Azure는 부분 Gpu를 사용 하는 가상 머신을 소개 합니다. Gpu 가속 그래픽 응용 프로그램 및 가상 데스크톱에 대 한 적절 한 크기의 가상 컴퓨터를 선택 합니다. gpu의 1/8에서 시작 하는 GiB 프레임 버퍼는 16 GiB 프레임 버퍼를 사용 하는 전체 GPU입니다. NVv4 가상 머신은 현재 Windows 게스트 운영 체제만 지원 합니다.
 
-[미리 보기 기간에 이러한 머신에 등록하고 액세스하세요](https://aka.ms/nvv4signup).
 <br>
 
 Premium Storage: 지원됨
@@ -42,11 +41,7 @@ Premium Storage 캐싱: 지원 됨
 
 ## <a name="supported-operating-systems-and-drivers"></a>지원되는 운영 체제 및 드라이버
 
-Windows를 실행 하는 Azure N 시리즈 Vm의 GPU 기능을 활용 하려면 NVIDIA 또는 AMD GPU 드라이버가 설치 되어 있어야 합니다.
-
-[NVIDIA GPU 드라이버 확장](./extensions/hpccompute-gpu-windows.md) 은 Windows N 시리즈 VM에 적절 한 NVIDIA verda 또는 그리드 드라이버를 설치 합니다. Azure PowerShell 또는 Azure Resource Manager 템플릿과 같은 도구나 Azure Portal을 사용하여 확장을 설치 또는 관리합니다. 지원되는 운영 체제 및 배포 단계는 [NVIDIA GPU 드라이버 확장 설명서](./extensions/hpccompute-gpu-windows.md)를 참조하세요. VM 확장에 대한 일반적인 내용은 [Azure 가상 머신 확장 및 기능](/.extensions/overview.md)을 참조하세요.
-
-NVIDIA GPU 드라이버를 수동으로 설치 하도록 선택 하는 경우 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 [Windows 용 N 시리즈 GPU 드라이버 설치](./windows/n-series-driver-setup.md) 를 참조 하세요.
+Windows를 실행 하는 Azure NVv4 시리즈 Vm의 GPU 기능을 활용 하려면 AMD GPU 드라이버를 설치 해야 합니다.
 
 AMD GPU 드라이버를 수동으로 설치 하려면 지원 되는 운영 체제, 드라이버, 설치 및 확인 단계에 대해 [Windows 용 N 시리즈 AMD GPU 드라이버 설치](./windows/n-series-amd-driver-setup.md) 를 참조 하세요.
 

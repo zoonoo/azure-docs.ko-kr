@@ -2,33 +2,31 @@
 title: Azure 및 Dynamics 365 컨설팅 서비스 제품 필수 구성 요소 | Azure Marketplace
 description: Cloud 파트너 포털에서 Azure 또는 Dynamics 365 컨설팅 서비스 제품에 대 한 필수 구성 요소입니다.
 services: Azure, Marketplace, Cloud Partner Portal,
-author: v-miclar
+author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 03/13/2019
-ms.author: pabutler
-ms.openlocfilehash: 371e7be0795ec93bfdb7b43deb38613cec6a664b
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 88a317fde3d8e3490741b87d6015556fde593ecd
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818111"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268272"
 ---
 # <a name="consulting-service-prerequisites"></a>컨설팅 서비스 필수 구성 요소
 
 [Azure Marketplace 및 AppSource에 대 한 컨설팅 서비스](../../consulting-services.md)에서이 제품 유형에 대 한 설명 및 요구 사항을 검토 합니다.  다음 특정 컨설팅 서비스 유형에는 추가 요구 사항이 있습니다.
 
-|     제품 유형   |    요구 사항   |
-|     ----------   |    -----------   |
-| Microsoft Azure | 파트너는 [클라우드 플랫폼 역량](https://partner.microsoft.com/membership/cloud-platform-competency)에 대 한 실버 또는 골드 인증을 보유 해야 합니다. |
-| Dynamics 365 for Customer Engagement | 파트너는 [클라우드 고객 관계 관리 역량](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency)에 대한 실버 또는 골드 인증이 있어야 합니다. |
-| Dynamics 365 for Finance and Operations | 파트너는 [전사적 자원 관리 역량](https://partner.microsoft.com/membership/enterprise-resource-planning-competency)을 위해 실버 또는 골드 인증이 있어야 합니다. 또한 파트너는 지난 12 개월 동안 클라우드 운영에서 $25000의 최소 수익을 보유 해야 합니다. |
-| Dynamics 365 Business Central | 파트너는 한 명 이상의 고객에 대해 CSP(클라우드 솔루션 공급자) 또는 DPOR(디지털 공식 파트너) 역할을 수행해야 합니다. <br/> CSP가 되는 방법에 대한 내용은 [CSP로 시작](https://partner.microsoft.com/cloud-solution-provider/get-started)을 참조하세요. <br/> DPOR 요구 사항에 대해서는 [DPOR 개요](https://partner.microsoft.com/membership/digital-partner-of-record#Membership_Digital_Partner_of_Record_Navigated_Rich_Text_Node1)를 참조하세요. |
-|  Power BI  | Power BI 파트너 쇼케이스에 등록합니다. 자세한 내용은 [솔루션 파트너 조건](https://powerbi.microsoft.com/become-a-partner)을 참조하세요. |
-|  PowerApps       | 파트너는 [파트너 솔루션 쇼케이스](https://powerapps.microsoft.com/partner-showcase)에 솔루션을 게시해야 합니다. |
-|  |  |
-
+| 제품 유형 | 요구 사항 |
+|---------|---------|
+| Dynamics 365 판매 <br> Dynamics 365 마케팅 <br> Dynamics 365 고객 서비스 <br> Dynamics 365 필드 서비스 <br> Dynamics 365 인적 자원 |   고객 Engagement 옵션에 대 한 [클라우드 Business Applications 역량](https://partner.microsoft.com/membership/cloud-business-applications-competency) 에서 골드 또는 실버 인증을 받아야 합니다.    | 
+| Dynamics 365 재무 <br> Dynamics 365 공급망 관리 <br> Dynamics 365 상거래 <br> Dynamics 365 인적 자원 <br> Dynamics 365 프로젝트 서비스 자동화 |  [클라우드 Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) 기능에서 통합 작업 옵션에 대해 골드 또는 실버 인증을 받아야 합니다.       |
+| Dynamics 365 Customer Insights | 5 개 이상의 측정값과 5 개 세그먼트를 포함 하는 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) 의 성공적인 비프로덕션 구현이 하나 이상 있어야 합니다. |
+| Dynamics 365 Business Central | [엔터프라이즈 리소스 계획 역량](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 에서 골드 또는 실버 인증을 받아야 하며, 3 개 이상의 비즈니스 센터 고객을 위한 클라우드 솔루션 공급자 여야 합니다. <br> <br> 또는 <br> <br> [AppSource에 비즈니스 중앙 응용 프로그램](https://appsource.microsoft.com/) 을 게시 해야 합니다. |
+| Power BI | [Power BI 파트너 소개](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)에 나열 되어야 합니다.|
+|Power Apps | [PowerApps 파트너 관계 프로그램](https://aka.ms/PowerAppsPartner)의 고급 혜택을 받을 자격이 있어야 합니다. |
 
 ## <a name="next-steps"></a>다음 단계
 

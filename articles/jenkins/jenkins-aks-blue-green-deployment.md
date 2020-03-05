@@ -4,12 +4,12 @@ description: Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure
 keywords: Jenkins, Azure, DevOps, Kubernetes, k8s, AKS, 파란색/녹색 배포, 지속적인 업데이트, CD
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: ae9c496cd820bf1263cac50fb676990ed65ed0ba
-ms.sourcegitcommit: 28688c6ec606ddb7ae97f4d0ac0ec8e0cd622889
+ms.openlocfilehash: 9d6551f910bd99322f844b44130ebb03732df83c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/18/2019
-ms.locfileid: "74158546"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251468"
 ---
 # <a name="deploy-to-azure-kubernetes-service-aks-by-using-jenkins-and-the-bluegreen-deployment-pattern"></a>Jenkins와 파란색/녹색 배포 패턴을 사용하여 AKS(Azure Kubernetes Service) 배포
 
@@ -26,7 +26,7 @@ AKS(Azure Kubernetes Service)는 호스팅된 Kubernetes 환경을 관리하므�
 > * Kubernetes 클러스터를 수동으로 구성
 > * Jenkins 작업 만들기 및 실행
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 - [GitHub 계정](https://github.com): 샘플 리포지토리를 복제하려면 GitHub 계정이 필요합니다.
 - [Azure CLI 2.0](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest): Azure CLI 2.0을 사용하여 Kubernetes 클러스터를 만들 수 있습니다.
 - [Chocolatey](https://chocolatey.org): kubectl을 설치하는 데 사용하는 패키지 관리자입니다.
@@ -84,19 +84,19 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 1. Azure 계정에 로그인합니다. 다음 명령을 입력하면 로그인을 완료하는 방법을 설명하는 지침이 나타납니다. 
     
-    ```bash
+    ```azurecli
     az login
     ```
 
 1. 이전 단계에서 `az login` 명령을 실행하면 모든 Azure 구독 목록이 구독 ID와 함께 표시됩니다. 이 단계에서는 기본 Azure 구독을 설정합니다. &lt;your-subscription-id> 자리 표시자를 원하는 Azure 구독 ID로 바꿉니다. 
 
-    ```bash
+    ```azurecli
     az account set -s <your-subscription-id>
     ```
 
 1. 리소스 그룹을 만듭니다. &lt;your-resource-group-name> 자리 표시자를 새 리소스 그룹의 이름으로 바꾸고 &lt;your-location> 자리 표시자를 위치로 바꿉니다. `az account list-locations` 명령은 모든 Azure 위치를 표시합니다. AKS 미리 보기 상태에서는 일부 위치만 사용할 수 있습니다. 현재 유효하지 않은 위치를 입력하면 오류 메시지에 사용 가능한 위치가 나열됩니다.
 
-    ```bash
+    ```azurecli
     az group create -n <your-resource-group-name> -l <your-location>
     ```
 
@@ -129,7 +129,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 #### <a name="set-up-a-kubernetes-cluster-manually"></a>Kubernetes 클러스터를 수동으로 설정 
 1. Kubernetes 구성을 프로필 폴더에 다운로드합니다.
 
-    ```bash
+    ```azurecli
     az aks get-credentials -g <your-resource-group-name> -n <your-kubernetes-cluster-name> --admin
     ```
 
@@ -157,13 +157,13 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
     
     다음 명령을 사용하여 해당 IP 주소에 대한 DNS 이름을 업데이트합니다.
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name aks-todoapp --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
     ```
 
     `todoapp-test-blue` 및 `todoapp-test-green`에 대한 호출을 반복합니다.
 
-    ```bash
+    ```azurecli
     az network public-ip update --dns-name todoapp-blue --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
 
     az network public-ip update --dns-name todoapp-green --ids /subscriptions/<your-subscription-id>/resourceGroups/MC_<resourcegroup>_<aks>_<location>/providers/Microsoft.Network/publicIPAddresses/kubernetes-<ip-address>
@@ -175,13 +175,13 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 1. `az acr create` 명령을 실행하여 Container Registry 인스턴스를 만듭니다. 다음 섹션에서는 Docker 레지스트리 URL로 `login server`를 사용할 수 있습니다.
 
-    ```bash
+    ```azurecli
     az acr create -n <your-registry-name> -g <your-resource-group-name>
     ```
 
 1. `az acr credential` 명령을 실행하면 사용자 Container Registry 자격 증명이 표시됩니다. Docker 레지스트리 사용자 이름과 암호는 다음 섹션에서 필요하므로 적어두세요.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <your-registry-name>
     ```
 
@@ -276,7 +276,7 @@ GitHub의 Microsoft 리포지토리에서 Jenkins와 파란색/녹색 배포 패
 
 이 자습서에서 만든 리소스가 더 이상 필요하지 않은 경우 삭제할 수 있습니다.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n <your-resource-group-name>
 ```
 

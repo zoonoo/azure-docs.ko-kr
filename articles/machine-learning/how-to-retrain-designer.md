@@ -9,12 +9,12 @@ ms.topic: how-to
 ms.author: keli19
 author: likebupt
 ms.date: 02/24/2020
-ms.openlocfilehash: b69cd4c8459ffae363f02247b1f20488afe1cd9b
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 8e7874ec2a0ea160d29f8755ca8680c4dfbeec1d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921602"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268494"
 ---
 # <a name="retrain-models-with-azure-machine-learning-designer-preview"></a>Azure Machine Learning designer를 사용 하 여 모델 다시 학습 (미리 보기)
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-enterprise-sku.md)]
@@ -29,7 +29,7 @@ ms.locfileid: "77921602"
 > * 학습 파이프라인을 게시 합니다.
 > * 모델을 다시 학습 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독 Azure 구독이 아직 없는 경우 [무료 계정](https://aka.ms/AMLFree)을 만듭니다.
 
@@ -119,7 +119,7 @@ ms.locfileid: "77921602"
 
 1. 실행 하려는 파이프라인을 선택 합니다.
 
-1. **실행**을 선택합니다.
+1. **제출**을 선택합니다.
 
 1. 설치 대화 상자에서 새 데이터 집합을 가리키는 새 입력 데이터 경로 값을 지정할 수 있습니다.
 
@@ -127,7 +127,9 @@ ms.locfileid: "77921602"
 
 ### <a name="submit-runs-with-code"></a>코드를 사용 하 여 실행 제출
 
-개발 환경에 따라 프로그래밍 방식으로 REST 끝점에 액세스 하는 방법에는 여러 가지가 있습니다. 파이프라인의 **사용** 탭에서 매개 변수를 사용 하 여 파이프라인 실행을 제출 하는 방법을 보여 주는 코드 샘플을 찾을 수 있습니다.
+개요 패널에서 게시 된 파이프라인의 REST 끝점을 찾을 수 있습니다. 끝점을 호출 하면 게시 된 파이프라인을 다시 학습 수 있습니다.
+
+REST 호출을 수행 하려면 OAuth 2.0 전달자 유형 인증 헤더가 필요 합니다. 작업 영역에 대한 인증을 설정하고 매개 변수가 있는 REST 호출을 수행하는 방법에 대한 자세한 내용은 다음 [자습서 섹션](tutorial-pipeline-batch-scoring-classification.md#publish-and-run-from-a-rest-endpoint)을 참조하세요.
 
 ## <a name="next-steps"></a>다음 단계
 

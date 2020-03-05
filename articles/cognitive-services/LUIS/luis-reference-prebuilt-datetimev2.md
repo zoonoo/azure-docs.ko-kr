@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 01/07/2020
 ms.author: diberry
-ms.openlocfilehash: 8c29ebd675bb6af66203c13824dacbe9ea2421a2
-ms.sourcegitcommit: c32050b936e0ac9db136b05d4d696e92fefdf068
+ms.openlocfilehash: 30132983f37323e798efd330f5cc8f15c0a9d2b6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75732798"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270744"
 ---
 # <a name="datetimev2-prebuilt-entity-for-a-luis-app"></a>LUIS 앱용 미리 빌드된 DatetimeV2 엔터티
 
@@ -31,7 +31,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 `8am on may 2nd 2019`
 
-#### <a name="v3-responsetab1-1"></a>[V3 응답](#tab/1-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/1-1)
 
 ```json
 "entities": {
@@ -53,7 +53,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v3-verbose-responsetab1-2"></a>[V3 자세한 정보 표시 응답](#tab/1-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/1-2)
 
 ```json
 
@@ -91,7 +91,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v2-responsetab1-3"></a>[V2 응답](#tab/1-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/1-3)
 
 ```json
 "entities": [
@@ -119,7 +119,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 |type|**문자열** - [datetimeV2의 하위 식형](#subtypes-of-datetimev2) 중 하나입니다.
 |startIndex|**int** - 엔터티가 시작하는 발언의 인덱스입니다.|
 |endIndex|**int** - 엔터티가 끝나는 발언의 인덱스입니다.|
-|해결 방법|하나, 둘 또는 네 가지 [해결 방법](#values-of-resolution)이 있는 `values` 배열이 포함됩니다.|
+|해결 방법|하나, 둘 또는 네 가지 `values`해결 방법[이 있는 ](#values-of-resolution) 배열이 포함됩니다.|
 |end|`value`와 동일한 형식인 시간 또는 날짜 범위의 끝 값입니다. `type`이 `daterange`, `timerange` 또는 `datetimerange`인 경우에만 사용합니다.|
 
 * * *
@@ -154,7 +154,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 **datetimeV2**는 다음 범위 사이의 날짜를 지원합니다.
 
-| 최소값 | 최대 |
+| 최소값 | 최대값 |
 |----------|-------------|
 | 1900년 1월 1일   | 2099년 12월 31일 |
 
@@ -170,7 +170,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 * 오늘 날짜가 2017년 5월 1일이면 LUIS에서는 "2016-05-02" 및 "2017-05-02" 모두를 값으로 제공합니다.
 
 다음 예제에서는 "5월 2일" 엔터티의 해결 방법을 보여줍니다. 이 해결 방법에서는 오늘 날짜가 2017년 5월 2일부터 2018년 5월 1일 사이의 날짜라고 가정합니다.
-`timex` 필드의 `X`가 있는 필드는 발언에서 명시적으로 지정되지 않은 날짜의 일부입니다.
+`X` 필드의 `timex`가 있는 필드는 발언에서 명시적으로 지정되지 않은 날짜의 일부입니다.
 
 ## <a name="date-resolution-example"></a>날짜 확인 예
 
@@ -179,7 +179,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 `May 2nd`
 
-#### <a name="v3-responsetab2-1"></a>[V3 응답](#tab/2-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/2-1)
 
 ```json
 "entities": {
@@ -204,7 +204,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v3-verbose-responsetab2-2"></a>[V3 자세한 정보 표시 응답](#tab/2-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/2-2)
 
 ```json
 "entities": {
@@ -244,7 +244,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v2-responsetab2-3"></a>[V2 응답](#tab/2-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/2-3)
 
 ```json
   "entities": [
@@ -280,7 +280,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 `May 2nd to May 5th`
 
-#### <a name="v3-responsetab3-1"></a>[V3 응답](#tab/3-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/3-1)
 
 ```json
 
@@ -309,7 +309,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 ```
 
 
-#### <a name="v3-verbose-responsetab3-2"></a>[V3 자세한 정보 표시 응답](#tab/3-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/3-2)
 
 ```json
 
@@ -352,7 +352,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v2-responsetab3-3"></a>[V2 응답](#tab/3-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/3-3)
 
 ```json
 "entities": [
@@ -384,7 +384,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 
 `Tuesday to Thursday`
 
-#### <a name="v3-responsetab4-1"></a>[V3 응답](#tab/4-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/4-1)
 
 ```json
 "entities": {
@@ -411,7 +411,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v3-verbose-responsetab4-2"></a>[V3 자세한 정보 표시 응답](#tab/4-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/4-2)
 
 ```json
 "entities": {
@@ -453,7 +453,7 @@ DatetimeV2는 [인식자-텍스트](https://github.com/Microsoft/Recognizers-Tex
 }
 ```
 
-#### <a name="v2-responsetab4-3"></a>[V2 응답](#tab/4-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/4-3)
 
 ```json
   "entities": [
@@ -492,7 +492,7 @@ API v 2의 변경 내용:
 
 `from 6pm to 7pm`
 
-#### <a name="v3-responsetab5-1"></a>[V3 응답](#tab/5-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/5-1)
 
 다음 JSON은 `false`로 설정 된 `verbose` 매개 변수를 사용 합니다.
 
@@ -517,7 +517,7 @@ API v 2의 변경 내용:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab5-2"></a>[V3 자세한 정보 표시 응답](#tab/5-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/5-2)
 
 다음 JSON은 `true`로 설정 된 `verbose` 매개 변수를 사용 합니다.
 
@@ -557,7 +557,7 @@ API v 2의 변경 내용:
     }
 }
 ```
-#### <a name="v2-responsetab5-3"></a>[V2 응답](#tab/5-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/5-3)
 
 ```json
   "entities": [
@@ -588,7 +588,7 @@ API v 2의 변경 내용:
 
 `8am`
 
-#### <a name="v3-responsetab6-1"></a>[V3 응답](#tab/6-1)
+#### <a name="v3-response"></a>[V3 응답](#tab/6-1)
 
 ```json
 "entities": {
@@ -609,7 +609,7 @@ API v 2의 변경 내용:
     ]
 }
 ```
-#### <a name="v3-verbose-responsetab6-2"></a>[V3 자세한 정보 표시 응답](#tab/6-2)
+#### <a name="v3-verbose-response"></a>[V3 자세한 정보 표시 응답](#tab/6-2)
 
 ```json
 "entities": {
@@ -645,7 +645,7 @@ API v 2의 변경 내용:
     }
 }
 ```
-#### <a name="v2-responsetab6-3"></a>[V2 응답](#tab/6-3)
+#### <a name="v2-response"></a>[V2 응답](#tab/6-3)
 
 ```json
 "entities": [

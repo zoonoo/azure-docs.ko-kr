@@ -10,12 +10,12 @@ ms.reviewer: nibaccam
 author: nibaccam
 ms.author: nibaccam
 ms.date: 02/26/2020
-ms.openlocfilehash: 3370fc72b45720e2aae5731623843a1bc498911c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
-ms.translationtype: MT
+ms.openlocfilehash: 35c133a4d9d95dc6e942d5b8c3e8d21debb9493b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77652075"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268555"
 ---
 # <a name="data-ingestion-in-azure-machine-learning"></a>Azure Machine Learning에서 데이터 수집
 
@@ -55,7 +55,7 @@ Azure Data Factory 데이터 흐름에 대 한 포함 된 데이터 계보 기�
 
 ## <a name="use-the-python-sdk"></a>Python SDK 사용 
 
-[PYTHON SDK](https://docs.microsoft.com/python/api/overview/azureml-sdk/?view=azure-ml-py)를 사용 하 여 데이터 수집 작업을 [Azure Machine Learning 파이프라인](how-to-create-your-first-pipeline.md) 단계로 통합할 수 있습니다.
+[PYTHON SDK](https://docs.microsoft.com/python/api/overview/azure/ml)를 사용 하 여 데이터 수집 작업을 [Azure Machine Learning 파이프라인](how-to-create-your-first-pipeline.md) 단계로 통합할 수 있습니다.
 
 다음 표에는 데이터 수집 태스크에 대 한 SDK 및 ML 파이프라인 단계 사용에 대 한 장단점을 요약 하 여 설명 합니다.
 

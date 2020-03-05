@@ -3,12 +3,12 @@ title: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 
 description: 지속적인 통합 파이프라인에서 Azure Dev Spaces 플러그 인을 사용하는 방법을 알아봅니다.
 ms.topic: tutorial
 ms.date: 10/23/2019
-ms.openlocfilehash: 10dfbdb7d89d6f3870ec3b9dbd87d4d315360815
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 7b23893eb331f55ff41992a2ca660e79f44a609a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77619992"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78250895"
 ---
 # <a name="tutorial-using-the-azure-dev-spaces-plug-in-for-jenkins-with-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에서 Jenkins용 Azure Dev Spaces 플러그 인 사용 
 
@@ -53,26 +53,26 @@ Azure Dev Spaces를 사용하면 종속 요소를 복제하거나 모방할 필�
 
 1. 리소스 그룹을 만듭니다.
 
-    ```bash
+    ```azurecli
     az group create --name MyResourceGroup --location westus2
     ```
 
 2. AKS 클러스터를 만듭니다. [Dev Spaces를 지원하는 Azure 지역](../dev-spaces/about.md#supported-regions-and-configurations)에 AKS 클러스터를 만듭니다.
 
-    ```bash
+    ```azurecli
     az aks create --resource-group MyResourceGroup --name MyAKS --location westus2 --kubernetes-version 1.11.9 --enable-addons http_application_routing --generate-ssh-keys --node-count 1 --node-vm-size Standard_D1_v2
     ```
 
 3. Dev Spaces를 사용하도록 AKS를 구성합니다.
 
-    ```bash
+    ```azurecli
     az aks use-dev-spaces --resource-group MyResourceGroup --name MyAKS
     ```
     이 단계에서는 `azds` CLI 확장을 설치합니다.
 
 4. 컨테이너 레지스트리를 만듭니다.
 
-    ```bash
+    ```azurecli
     az acr create -n MyACR -g MyResourceGroup --sku Basic --admin-enabled true
     ```
 
@@ -225,7 +225,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 
 3. ACR 자격 증명을 표시하려면 다음 명령을 실행합니다.
 
-    ```bash
+    ```azurecli
     az acr credential show -n <yourRegistryName>
     ```
 
@@ -251,7 +251,7 @@ Azure Dev Spaces 사용 방법 및 Azure Dev Spaces로 다중 서비스 개발�
 
 5. AKS 자격 증명을 설정합니다. *Kubernetes 구성(kubeconfig)* 자격 증명 유형을 Jenkins에 추가합니다("직접 입력" 옵션 사용). AKS 클러스터에 대한 액세스 자격 증명을 얻으려면 다음 명령을 실행합니다.
 
-    ```cmd
+    ```azurecli
     az aks get-credentials -g MyResourceGroup -n <yourAKSName> -f -
     ```
 
@@ -403,7 +403,7 @@ stage('smoketest') {
 
 샘플 애플리케이션 사용을 마쳤으면 리소스 그룹을 삭제하여 Azure 리소스를 정리합니다.
 
-```bash
+```azurecli
 az group delete -y --no-wait -n MyResourceGroup
 ```
 

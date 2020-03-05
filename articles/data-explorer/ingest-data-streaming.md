@@ -7,12 +7,12 @@ ms.reviewer: tzgitlin
 ms.service: data-explorer
 ms.topic: conceptual
 ms.date: 08/30/2019
-ms.openlocfilehash: b99827ff9fd01c7179a25fafd05bfc8e4ef8ae63
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 279130fa310b107bd1a016c717c48af3d905251b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77921099"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270152"
 ---
 # <a name="streaming-ingestion-preview"></a>스트리밍 수집 (미리 보기)
 
@@ -20,7 +20,7 @@ ms.locfileid: "77921099"
 
 데이터 양이 테이블당 초당 1mb 이상 증가 하는 경우 스트리밍 수집 대신 클래식 (bulk) 수집을 사용 합니다. 수집의 다양 한 방법에 대 한 자세한 내용은 [데이터 수집 개요](/azure/data-explorer/ingest-data-overview) 를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * Azure 구독이 아직 없는 경우 시작하기 전에 [Azure 체험 계정](https://azure.microsoft.com/free/)을 만듭니다.
 * [웹 UI](https://dataexplorer.azure.com/)에 로그인 합니다.
@@ -37,7 +37,7 @@ ms.locfileid: "77921099"
  
     ![스트리밍 수집](media/ingest-data-streaming/streaming-ingestion-on.png)
  
-1. [웹 UI](https://dataexplorer.azure.com/)에서 스트리밍 데이터를 수신 하는 테이블 또는 데이터베이스에 대 한 [스트리밍 수집 정책을](/azure/kusto/concepts/streamingingestionpolicy) 정의 합니다. 
+1. [웹 UI](https://dataexplorer.azure.com/)에서 스트리밍 데이터를 수신 하는 테이블 또는 데이터베이스에 대 한 [스트리밍 수집 정책을](/azure/kusto/management/streamingingestionpolicy) 정의 합니다. 
 
     > [!NOTE]
     > * 정책이 데이터베이스 수준에서 정의 된 경우 데이터베이스의 모든 테이블에 대해 스트리밍 수집을 사용할 수 있습니다.
@@ -63,7 +63,7 @@ ms.locfileid: "77921099"
 > [!WARNING]
 > 스트리밍 수집을 사용 하지 않도록 설정 하는 데 몇 시간이 걸릴 수 있습니다.
 
-1. 모든 관련 테이블 및 데이터베이스에서 [스트리밍 수집 정책을](/azure/kusto/concepts/streamingingestionpolicy) 삭제 합니다. 스트리밍 수집 정책 제거는 초기 저장소에서 열 저장소 (익스텐트 또는 분할)의 영구 저장소로의 스트리밍 수집 데이터 이동을 트리거합니다. 초기 저장소에 있는 데이터의 양과 클러스터에서 CPU와 메모리를 사용 하는 방법에 따라 데이터 이동이 몇 초에서 몇 시간 사이에 지속 될 수 있습니다.
+1. 모든 관련 테이블 및 데이터베이스에서 [스트리밍 수집 정책을](/azure/kusto/management/streamingingestionpolicy) 삭제 합니다. 스트리밍 수집 정책 제거는 초기 저장소에서 열 저장소 (익스텐트 또는 분할)의 영구 저장소로의 스트리밍 수집 데이터 이동을 트리거합니다. 초기 저장소에 있는 데이터의 양과 클러스터에서 CPU와 메모리를 사용 하는 방법에 따라 데이터 이동이 몇 초에서 몇 시간 사이에 지속 될 수 있습니다.
 1. Azure Portal에서 Azure Data Explorer 클러스터로 이동합니다. **설정**에서 **구성**을 선택 합니다. 
 1. **구성** 창에서 **끄기** 를 선택 하 여 **스트리밍**수집을 사용 하지 않도록 설정 합니다.
 1. **저장**을 선택합니다.

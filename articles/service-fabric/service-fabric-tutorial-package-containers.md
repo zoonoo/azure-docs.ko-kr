@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 554590a065214c17de0acdea3207876f113b3caf
-ms.sourcegitcommit: 003e73f8eea1e3e9df248d55c65348779c79b1d6
+ms.openlocfilehash: cc1d6e04b19d36f0ca8c7ed4b2bb3d62f5e8e15a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/02/2020
-ms.locfileid: "75614029"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252759"
 ---
 # <a name="tutorial-package-and-deploy-containers-as-a-service-fabric-application-using-yeoman"></a>자습서: Yeoman을 사용하여 Service Fabric 애플리케이션으로 컨테이너 패키징 및 배포
 
@@ -114,7 +114,7 @@ Service Fabric이 Azure Container Registry에서 컨테이너 이미지를 끌�
 
 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -122,7 +122,7 @@ az acr login --name <acrName>
 
 다음으로 컨테이너 레지스트리 암호를 가져오는 다음 명령을 실행합니다. 이 암호는 Service Fabric에서 컨테이너 이미지를 끌어오기 위해 ACR를 사용하여 인증하는 데 사용됩니다.
 
-```bash
+```azurecli
 az acr credential show -n <acrName> --query passwords[0].value
 ```
 
@@ -199,7 +199,7 @@ Service Fabric이 백 엔드 서비스에 이 DNS 이름을 할당하려면 **Ap
 
 프런트 엔드 서비스는 Redis 인스턴스의 DNS 이름을 가져오기 위해 환경 변수를 참고합니다. 이 환경 변수는 Docker 이미지를 생성하는 데 사용된 Dockerfile에서 이미 정의되었으며 아무 작업도 수행할 필요가 없습니다.
 
-```Dockerfile
+```dockerfile
 ENV REDIS redisbackend.testapp
 ```
 

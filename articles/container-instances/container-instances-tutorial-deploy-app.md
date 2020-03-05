@@ -4,18 +4,18 @@ description: Azure Container Instances 자습서 3/3부 - Azure Container Instan
 ms.topic: tutorial
 ms.date: 03/21/2018
 ms.custom: seodec18, mvc
-ms.openlocfilehash: d3cbf16feea299e320cf7e24092d00e93cb7cf5b
-ms.sourcegitcommit: 85e7fccf814269c9816b540e4539645ddc153e6e
+ms.openlocfilehash: 757b41bd69d69deb901e3b5b9a633dce3b9e133a
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/26/2019
-ms.locfileid: "74533359"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78249964"
 ---
 # <a name="tutorial-deploy-a-container-application-to-azure-container-instances"></a>자습서: Azure Container Instances에 컨테이너 애플리케이션 배포
 
-3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md) [Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 시리즈를 완료합니다.
+3부작 시리즈의 마지막 자습서입니다. 시리즈의 앞부분에서는 [컨테이너 이미지를 만들어](container-instances-tutorial-prepare-app.md)[Azure Container Registry에 푸시했습니다](container-instances-tutorial-prepare-acr.md). 이 문서에서는 Azure Container Instances에 컨테이너를 배포하여 이 시리즈를 완료합니다.
 
-이 자습서에서는 다음을 수행했습니다.
+이 자습서에서는 다음을 수행합니다.
 
 > [!div class="checklist"]
 > * Azure Container Registry에서 Azure Container Instances에 컨테이너 배포
@@ -66,13 +66,12 @@ az container show --resource-group myResourceGroup --name aci-tutorial-app --que
 
 배포에 성공하면 [az container show][az-container-show] 명령을 사용하여 컨테이너의 FQDN(정규화된 도메인 이름)을 표시합니다.
 
-```bash
+```azurecli
 az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
 ```
 
-예:
-```console
-$ az container show --resource-group myResourceGroup --name aci-tutorial-app --query ipAddress.fqdn
+다음은 그 예입니다.
+```output
 "aci-demo.eastus.azurecontainer.io"
 ```
 
@@ -88,8 +87,7 @@ az container logs --resource-group myResourceGroup --name aci-tutorial-app
 
 예제 출력:
 
-```bash
-$ az container logs --resource-group myResourceGroup --name aci-tutorial-app
+```output
 listening on port 80
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET / HTTP/1.1" 200 1663 "-" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"
 ::ffff:10.240.0.4 - - [21/Jul/2017:06:00:02 +0000] "GET /favicon.ico HTTP/1.1" 404 150 "http://aci-demo.eastus.azurecontainer.io/" "Mozilla/5.0 (Macintosh; Intel Mac OS X 10_12_5) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/59.0.3071.115 Safari/537.36"

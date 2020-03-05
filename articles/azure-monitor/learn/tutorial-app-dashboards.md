@@ -1,19 +1,18 @@
 ---
 title: Azure Application Insights에서 사용자 지정 대시보드 만들기 | Microsoft Docs
 description: Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드를 만드는 자습서입니다.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: lgayhardt
 ms.author: lagayhar
 ms.date: 07/3/2019
 ms.custom: mvc
-ms.openlocfilehash: 47d8eaff5f154e198c277ec2b63a2d09e66f7180
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: caf8b1899cad95ade6297e78e8f2cf35939ef189
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72900500"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661637"
 ---
 # <a name="create-custom-kpi-dashboards-using-azure-application-insights"></a>Azure Application Insights를 사용하여 사용자 지정 KPI 대시보드 만들기
 
@@ -28,7 +27,7 @@ ms.locfileid: "72900500"
 
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
@@ -102,7 +101,7 @@ Azure Applications Insights Logs(Analytics)는 별도 서비스이므로 로그 
     ```
 
 4. **실행**을 클릭하여 쿼리의 결과를 확인합니다.
-5. 고정 아이콘 ![고정 아이콘을 클릭하여](media/tutorial-app-dashboards/pushpin.png) 대시보드의 이름을 선택합니다. 마지막 대시보드가 사용되는 이전 단계와 달리 이 옵션에서 사용자가 대시보드를 선택하게 하는 이유는 Logs(Analytics) 콘솔은 별도 서비스이며 모든 사용 가능한 공유 대시보드에서 선택해야 하기 때문입니다.
+5. 오른쪽 위에서 고정 아이콘 ![고정 아이콘을 클릭하여](media/tutorial-app-dashboards/pushpin.png) 대시보드의 이름을 선택합니다. 마지막 대시보드가 사용되는 이전 단계와 달리 이 옵션에서 사용자가 대시보드를 선택하게 하는 이유는 Logs(Analytics) 콘솔은 별도 서비스이며 모든 사용 가능한 공유 대시보드에서 선택해야 하기 때문입니다.
 
 5. 대시보드로 다시 이동하기 전에 다른 쿼리를 추가하지만 이번에는 차트로 렌더링하여 대시보드에서 로그 쿼리를 시각화하는 다양한 방법을 표시합니다. 대부분의 예외로 상위 10개의 작업을 요약하는 다음 쿼리로 시작합니다.
 

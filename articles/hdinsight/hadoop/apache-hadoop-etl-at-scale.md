@@ -7,13 +7,13 @@ ms.reviewer: jasonh
 ms.service: hdinsight
 ms.topic: conceptual
 ms.custom: hdinsightactive
-ms.date: 01/27/2020
-ms.openlocfilehash: f2c18a1e858fcebf8d2c82210f2290cf4a14d061
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.date: 03/03/2020
+ms.openlocfilehash: 8a4205002a98a5b9670839b0de7b53d81e0221a6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76846002"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271925"
 ---
 # <a name="extract-transform-and-load-etl-at-scale"></a>규모에 맞게 ETL(추출, 변환 및 로드)
 
@@ -37,7 +37,7 @@ Apache Oozie는 Hadoop 작업을 관리하는 워크플로 조정 시스템입�
 
 자세한 내용은 [Apache Hadoop과 함께 Apache Oozie를 사용하여 HDInsight에서 워크플로 정의 및 실행](../hdinsight-use-oozie-linux-mac.md)을 참조하세요. Oozie를 사용하여 엔드투엔드 파이프라인을 구동하는 방법에 대한 자세한 내용은 [데이터 파이프라인 운용](../hdinsight-operationalize-data-pipeline.md)을 참조하세요.
 
-### <a name="azure-data-factory"></a>Azure Data Factory
+### <a name="azure-data-factory"></a>Azure 데이터 팩터리
 
 Azure Data Factory는 오케스트레이션 기능을 PaaS(Platform as a Service ) 형태로 제공합니다. 데이터 이동 및 데이터 변환을 오케스트레이션 하 고 자동화 하기 위해 클라우드에서 데이터 기반 워크플로를 만들 수 있는 클라우드 기반 데이터 통합 서비스입니다.
 
@@ -65,9 +65,9 @@ Azure Storage에는 여러 가지 유형의 Blob이 있습니다.  *추가 Blob*
 
 데이터는 일반적으로 PowerShell, Azure Storage SDK 또는 AZCopy를 사용하여 Azure Storage로 수집됩니다.
 
-### <a name="azure-data-lake-storage"></a>Azure Data Lake Storage
+### <a name="azure-data-lake-storage"></a>Azure Data Lake 스토리지
 
-ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한 관리되는 하이퍼스케일 리포지토리입니다.  ADLS는 HDFS와 비슷한 디자인 패러다임을 사용하며, 총 용량 및 개별 파일 크기 측면에서 무제한의 확장성을 제공합니다. ADLS는 큰 파일을 여러 노드에 걸쳐 저장할 수 있으므로 큰 파일로 작업할 때 매우 유용합니다.  ADLS에서 데이터를 분할하는 작업은 백그라운드에서 수행됩니다.  또한 수백 테라바이트급 데이터를 효율적으로 읽고 쓰는 동시 실행기를 수천 개 탑재하고 있어 분석 작업을 실행하는 처리량이 월등히 뛰어납니다.
+ADLS(Azure Data Lake Storage)는 HDFS와 호환되는 분석 데이터를 위한 관리되는 하이퍼스케일 리포지토리입니다.  ADLS는 HDFS와 비슷한 디자인 패러다임을 사용하며, 총 용량 및 개별 파일 크기 측면에서 무제한의 확장성을 제공합니다. ADLS는 큰 파일을 여러 노드에 걸쳐 저장할 수 있으므로 큰 파일로 작업할 때 매우 유용합니다.  ADLS에서 데이터를 분할하는 작업은 백그라운드에서 수행됩니다.  수백 테라바이트의 데이터를 효율적으로 읽고 쓰는 수천 개의 동시 실행기를 사용하여 분석 작업을 실행하는 대규모 처리량을 얻을 수 있습니다.
 
 데이터는 일반적으로 Azure Data Factory, ADLS SDK, AdlCopy Service, Apache DistCp 또는 Apache Sqoop을 사용하여 ADLS로 수집됩니다.  이러한 서비스 중 주로 사용할 서비스는 데이터가 있는 위치에 따라 다릅니다.  데이터가 현재 기존 Hadoop 클러스터에 있는 경우 Apache DistCp, AdlCopy Service 또는 Azure Data Factory를 사용할 수 있습니다.  Azure Blob Storage에 있는 경우 Azure Data Lake Storage .NET SDK, Azure PowerShell 또는 Azure Data Factory를 사용할 수 있습니다.
 
@@ -129,7 +129,7 @@ Apache Flume은 대량의 로그 데이터를 효율적으로 수집, 집계 및
 
 Apache Flume는 Azure HDInsight와 함께 사용할 수 없습니다.  온-프레미스 Hadoop 설치에서는 Flume을 사용하여 Azure Storage Blob 또는 Azure Data Lake Storage에 데이터를 보낼 수 있습니다.  자세한 내용은 [HDInsight와 함께 Apache Flume 사용](https://web.archive.org/web/20190217104751/https://blogs.msdn.microsoft.com/bigdatasupport/2014/03/18/using-apache-flume-with-hdinsight/)을 참조하세요.
 
-## <a name="transform"></a>혁신
+## <a name="transform"></a>변환
 
 선택한 위치에 데이터가 있으면 특정 사용 패턴에 맞게 데이터를 정리, 결합 또는 준비해야 합니다.  Hive, Pig 및 Spark SQL은 모두 이러한 종류의 작업에 적합합니다.  HDInsight에서 모두 지원 됩니다.
 

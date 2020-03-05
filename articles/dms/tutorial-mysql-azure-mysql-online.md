@@ -12,12 +12,12 @@ ms.workload: data-services
 ms.custom: seo-lt-2019
 ms.topic: article
 ms.date: 01/08/2020
-ms.openlocfilehash: e0a2c9f4dd229353ef3d4dc06f7bb965d15814d9
-ms.sourcegitcommit: d4a4f22f41ec4b3003a22826f0530df29cf01073
+ms.openlocfilehash: 50787a5bbfdc9baddfa4307247e8b505be6e3003
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78255549"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273235"
 ---
 # <a name="tutorial-migrate-mysql-to-azure-database-for-mysql-online-using-dms"></a>자습서: DMS를 사용하여 Azure Database for MySQL로 온라인 MySQL 마이그레이션
 
@@ -224,6 +224,8 @@ SELECT Concat('DROP TRIGGER ', Trigger_Name, ';') FROM  information_schema.TRIGG
     대상 데이터베이스의 이름이 원본 데이터베이스와 동일하면 Azure Database Migration Service는 기본적으로 이 대상 데이터베이스를 선택합니다.
 
     ![대상 데이터베이스에 매핑](media/tutorial-mysql-to-azure-mysql-online/dms-map-target-details.png)
+   > [!NOTE] 
+   > 이 단계에서 여러 데이터베이스를 선택할 수 있지만 Azure Database Migration Service의 각 인스턴스는 동시 마이그레이션을 위해 최대 4 개의 데이터베이스를 지원 합니다. 또한 구독에서 지역 당 Azure Database Migration Service 인스턴스는 두 개로 제한 됩니다. 예를 들어 마이그레이션할 40 데이터베이스가 있는 경우 두 개의 Azure Database Migration Service 인스턴스를 만든 경우에만 두 개의 데이터베이스를 동시에 마이그레이션할 수 있습니다.
 
 3. **저장**을 선택하고, **마이그레이션 요약** 화면의 **작업 이름** 텍스트 상자에서 마이그레이션 작업의 이름을 지정한 다음, 요약을 검토하여 원본 및 대상 세부 정보가 이전에 지정한 내용과 일치하는지 확인합니다.
 

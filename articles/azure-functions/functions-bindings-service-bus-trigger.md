@@ -6,12 +6,12 @@ ms.assetid: daedacf0-6546-4355-a65c-50873e74f66b
 ms.topic: reference
 ms.date: 02/19/2020
 ms.author: cshoe
-ms.openlocfilehash: 3aba570bd7f80eab205fe52a731a1be933067012
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: 1ead7fcd9d474369e3a62e372a971d88d26f4e9c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77493203"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273558"
 ---
 # <a name="azure-service-bus-trigger-for-azure-functions"></a>Azure Functions에 대 한 Azure Service Bus 트리거
 
@@ -369,9 +369,6 @@ Service Bus 트리거는 몇 가지 [메타데이터 속성](./functions-binding
 |`To`|`string`|주소로 보내기입니다.|
 |`Label`|`string`|응용 프로그램 관련 레이블입니다.|
 |`CorrelationId`|`string`|상관관계 ID입니다.|
-
-> [!NOTE]
-> 현재 세션 사용 큐 및 구독과 함께 작동 하는 Service Bus 트리거는 미리 보기 상태입니다. 이 항목에 대 한 추가 업데이트를 위해 [이 항목](https://github.com/Azure/azure-webjobs-sdk/issues/529#issuecomment-491113458) 을 추적 하세요. 
 
 이 아티클의 앞부분에서 이러한 속성을 사용하는 [코드 예제](#example)를 참조하세요.
 

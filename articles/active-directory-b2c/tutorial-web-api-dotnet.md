@@ -3,20 +3,20 @@ title: '자습서: ASP.NET 웹 API에 대한 액세스 권한 부여'
 titleSuffix: Azure AD B2C
 description: Active Directory B2C를 사용하여 ASP.NET 웹 API를 보호하고 ASP.NET 웹 애플리케이션에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: fe6f8469354922dcf38a987b9b4371547678eb36
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 23531bd4c53dc2fc4851a1e4718fca0e9c3bfc1c
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849953"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78187426"
 ---
 # <a name="tutorial-grant-access-to-an-aspnet-web-api-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 ASP.NET Web API로의 액세스 권한 부여
 
@@ -42,7 +42,7 @@ ms.locfileid: "76849953"
 
 Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 2. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
@@ -55,7 +55,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 9. **만들기**를 클릭합니다.
 10. 속성 페이지에서 웹 애플리케이션을 구성할 때 사용할 애플리케이션 ID를 기록합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.

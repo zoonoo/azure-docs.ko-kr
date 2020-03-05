@@ -3,20 +3,20 @@ title: '자습서: 단일 페이지 앱에서 인증 사용'
 titleSuffix: Azure AD B2C
 description: 이 자습서에서는 Azure Active Directory B2C를 사용하여 JavaScript 기반 SPA(단일 페이지 애플리케이션)에 대한 사용자 로그인을 제공하는 방법을 알아봅니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/14/2019
 ms.custom: mvc, seo-javascript-september2019
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: f66d8e229535346525f117d8ebbfb37b893fe022
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 435800d9c6bfd9131d50681a9808f9836104fac0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849813"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183349"
 ---
 # <a name="tutorial-enable-authentication-in-a-single-page-application-using-azure-active-directory-b2c-azure-ad-b2c"></a>자습서: Azure AD B2C(Azure Active Directory B2C)를 사용하여 단일 페이지 애플리케이션에서 인증 활성화
 
@@ -51,7 +51,7 @@ ms.locfileid: "76849813"
 
 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용하여 애플리케이션을 업데이트할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. Azure AD B2C 테넌트를 포함하는 디렉터리를 사용하려면 위쪽 메뉴에서 **디렉터리 + 구독** 필터를 선택하고, 테넌트가 포함된 디렉터리를 선택합니다.
@@ -61,7 +61,7 @@ ms.locfileid: "76849813"
 1. **저장**을 선택합니다.
 1. 속성 페이지에서 **애플리케이션 ID**를 기록해둡니다. 앱 ID는 나중에 나오는 단계에서 단일 페이지 웹 애플리케이션의 코드를 업데이트할 때 사용됩니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.

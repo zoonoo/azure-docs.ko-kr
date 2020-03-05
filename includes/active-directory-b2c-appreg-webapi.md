@@ -1,22 +1,22 @@
 ---
-author: mmacy
+author: msmimart
 ms.service: active-directory-b2c
 ms.subservice: B2C
 ms.topic: include
 ms.date: 10/16/2019
-ms.author: marsma
-ms.openlocfilehash: a286f8d401ec98a5069c07b1a82acdf4af2b8185
-ms.sourcegitcommit: 359930a9387dd3d15d39abd97ad2b8cb69b8c18b
+ms.author: mimart
+ms.openlocfilehash: 9367719b1a1050ce8abf36804b3d0d0d58c7484b
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/06/2019
-ms.locfileid: "73641861"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183386"
 ---
 액세스 토큰을 제공하는 클라이언트 애플리케이션을 통해 보호된 리소스 요청을 수락하고 응답하려면 먼저 웹 API 리소스를 테넌트에 등록해야 합니다.
 
 Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애플리케이션** 환경 또는 새로운 통합 **앱 등록(미리 보기)** 환경을 사용할 수 있습니다. [새 환경에 대해 자세히 알아보세요](https://aka.ms/b2cappregintro).
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
@@ -30,7 +30,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 1. **만들기**를 선택합니다.
 1. 이후 단계에서 사용할 **애플리케이션 ID**를 기록합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. [Azure Portal](https://portal.azure.com)에 로그인합니다.
 1. 상단 메뉴에서 **디렉터리 + 구독** 필터를 선택한 다음, Azure AD B2C 테넌트가 포함된 디렉터리를 선택합니다.
@@ -39,7 +39,7 @@ Azure AD B2C 테넌트에 애플리케이션을 등록하기 위해 현재 **애
 1. 애플리케이션의 **이름**을 입력합니다. 예를 들어 *webapi1*과 같습니다.
 1. **리디렉션 URI**에서 **Web**을 선택한 다음, Azure AD B2C에서 애플리케이션이 요청한 토큰을 반환해야 하는 엔드포인트를 입력합니다. 이 자습서의 샘플은 로컬에서 실행되고 `http://localhost:5000`에서 수신 대기합니다.
 1. **등록**을 선택합니다.
-1. 이후 단계에서 사용할 **애플리케이션(클라이언트) ID**를 기록합니다.
+1. 이후 단계에서 사용할 수 있게 **애플리케이션(클라이언트) ID**를 기록합니다.
 
 다음으로, 암시적 권한 부여 흐름을 사용하도록 설정합니다.
 

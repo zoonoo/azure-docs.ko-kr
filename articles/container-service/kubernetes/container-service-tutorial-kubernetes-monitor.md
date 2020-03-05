@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 04/05/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 35f7c2fb968ea5285af5f2d597c67b3b22065906
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 84c2438a8c25b1b64f46e12923212812beac687d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76278234"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273332"
 ---
 # <a name="deprecated-monitor-a-kubernetes-cluster-with-log-analytics"></a>(사용되지 않음) Log Analytics를 사용하여 Kubernetes 클러스터 모니터링
 
@@ -56,7 +56,7 @@ kubectl create secret generic omsagent-secret --from-literal=WSID=WORKSPACE_ID -
 
 `oms-daemonset.yaml`이라는 파일에 다음 텍스트를 저장합니다.
 
-```YAML
+```yaml
 apiVersion: extensions/v1beta1
 kind: DaemonSet
 metadata:
@@ -123,19 +123,19 @@ spec:
 
 다음 명령을 사용하여 DaemonSet를 만듭니다.
 
-```azurecli-interactive
+```console
 kubectl create -f oms-daemonset.yaml
 ```
 
 DaemonSet가 만들어졌는지 확인하려면 다음을 실행합니다.
 
-```azurecli-interactive
+```console
 kubectl get daemonset
 ```
 
 다음과 유사하게 출력됩니다.
 
-```azurecli-interactive
+```output
 NAME       DESIRED   CURRENT   READY     UP-TO-DATE   AVAILABLE   NODE-SELECTOR   AGE
 omsagent   3         3         3         0            3           <none>          5m
 ```

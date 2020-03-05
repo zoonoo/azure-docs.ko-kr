@@ -1,5 +1,5 @@
 ---
-title: Azure Monitor의 Azure Relay 메트릭(미리 보기) | Microsoft Docs
+title: Azure Monitor Azure Relay 메트릭 Microsoft Docs
 description: 이 문서에서는 Azure Monitor를 사용 하 여 Azure Relay 상태를 모니터링 하는 방법에 대 한 정보를 제공 합니다.
 services: service-bus-relay
 documentationcenter: .NET
@@ -14,14 +14,14 @@ ms.tgt_pltfrm: na
 ms.workload: na
 ms.date: 01/21/2020
 ms.author: spelluru
-ms.openlocfilehash: 5c548186ec51cf86f34942cb15d8f984afa60268
-ms.sourcegitcommit: 38b11501526a7997cfe1c7980d57e772b1f3169b
+ms.openlocfilehash: 159249e2c997e4c414127992b08a83b488281e46
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/22/2020
-ms.locfileid: "76514938"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273127"
 ---
-# <a name="azure-relay-metrics-in-azure-monitor-preview"></a>Azure Monitor의 Azure Relay 메트릭(미리 보기)
+# <a name="azure-relay-metrics-in-azure-monitor"></a>Azure Monitor Azure Relay 메트릭 
 Azure Relay 메트릭은 Azure 구독에서 리소스의 상태를 제공합니다. 풍부한 메트릭 데이터 집합을 사용하여 네임스페이스 수준뿐만 아니라 엔터티 수준에서 Relay 리소스의 전반적인 상태를 평가할 수 있습니다. 이러한 통계는 Azure Relay의 상태를 모니터링하는 데 도움을 주므로 중요할 수 있습니다. Azure 지원에 문의할 필요 없이 메트릭을 통해 근본 원인 문제를 해결할 수도 있습니다.
 
 Azure Monitor는 다양한 Azure 서비스를 모니터링하기 위한 통합된 사용자 인터페이스를 제공합니다. 자세한 내용은 GitHub의 [Microsoft Azure에서 모니터링](../monitoring-and-diagnostics/monitoring-overview.md) 및 [.NET을 사용하여 Azure Monitor 메트릭 검색](https://github.com/Azure-Samples/monitor-dotnet-metrics-api) 샘플을 참조하세요.
@@ -41,11 +41,11 @@ Azure Monitor는 메트릭에 액세스하는 여러 가지 방법을 제공합�
 
 ![][1]
 
-네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭(미리 보기)** 을 클릭합니다. 
+네임스페이스를 통해 메트릭에 직접 액세스할 수도 있습니다. 이렇게 하려면 네임스페이스를 선택한 다음 **메트릭 **을 클릭합니다. 
 
 차원을 지원하는 메트릭의 경우 원하는 차원 값을 사용하여 필터링해야 합니다.
 
-## <a name="billing"></a>청구
+## <a name="billing"></a>결제
 
 Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 무료입니다. 그러나 메트릭 데이터를 수집하는 추가 솔루션을 사용하는 경우 해당 솔루션에서 요금을 청구할 수 있습니다. 예를 들어 메트릭 데이터를 Azure Storage 계정에 보관하는 경우 Azure Storage에서 요금을 청구합니다. 고급 분석을 위해 메트릭 데이터를 Azure Monitor 로그에 스트리밍하는 경우에도 로그를 Azure Monitor 하 여 비용이 청구 됩니다.
 
@@ -60,24 +60,24 @@ Azure Monitor에서 메트릭 사용은 미리 보기 상태인 동안 현재 �
 
 | 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-| ListenerConnections-Success(미리 보기) | 지정된 기간 동안 Azure Relay에 대해 성공한 리스너 연결 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ListenerConnections-ClientError(미리 보기)|지정된 기간 동안 리스너 연결에서 발생한 클라이언트 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ListenerConnections-ServerError(미리 보기)|지정된 기간 동안 리스너 연결에서 발생한 서버 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|SenderConnections-Success(미리 보기)|지정된 기간 동안 성공한 발신자 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|SenderConnections-ClientError(미리 보기)|지정된 기간 동안 발신자 연결에서 발생한 클라이언트 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|SenderConnections-ServerError(미리 보기)|지정된 기간 동안 발신자 연결에서 발생한 서버 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ListenerConnections-TotalRequests(미리 보기)|지정된 기간 동안의 총 리스너 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|SenderConnections-TotalRequests(미리 보기)|지정된 기간 동안 발신자가 수행한 연결 요청입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ActiveConnections(미리 보기)|지정된 기간 동안의 활성 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ActiveListeners(미리 보기)|지정된 기간 동안의 활성 리스너 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|ListenerDisconnects(미리 보기)|지정된 기간 동안 연결이 끊어진 리스너 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
-|SenderDisconnects(미리 보기)|지정된 기간 동안 연결이 끊어진 발신자 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+| ListenerConnections-Success  | 지정된 기간 동안 Azure Relay에 대해 성공한 리스너 연결 수입니다. <br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ListenerConnections-ClientError |지정된 기간 동안 리스너 연결에서 발생한 클라이언트 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ListenerConnections-ServerError |지정된 기간 동안 리스너 연결에서 발생한 서버 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|SenderConnections-Success |지정된 기간 동안 성공한 발신자 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|SenderConnections-ClientError |지정된 기간 동안 발신자 연결에서 발생한 클라이언트 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|SenderConnections-ServerError |지정된 기간 동안 발신자 연결에서 발생한 서버 오류 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ListenerConnections-TotalRequests |지정된 기간 동안의 총 리스너 연결 수입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|SenderConnections-TotalRequests |지정된 기간 동안 발신자가 수행한 연결 요청입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ActiveConnections |활성 연결 수입니다. 이 값은 지정 시간 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ActiveListeners |활성 수신기의 수입니다. 이 값은 지정 시간 값입니다.<br/><br/> 단위: 개수 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|ListenerDisconnects |지정된 기간 동안 연결이 끊어진 리스너 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|SenderDisconnects |지정된 기간 동안 연결이 끊어진 발신자 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="memory-usage-metrics"></a>메모리 사용 메트릭
 
 | 메트릭 이름 | Description |
 | ------------------- | ----------------- |
-|BytesTransferred(미리 보기)|지정된 기간 동안 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
+|BytesTransferred |지정된 기간 동안 전송된 바이트 수입니다.<br/><br/> 단위: 바이트 <br/> 집계 형식: 총계 <br/> 차원: EntityName|
 
 ## <a name="metrics-dimensions"></a>메트릭 차원
 

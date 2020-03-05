@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 09/27/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 10445aba9c52c5367a8ea03729462d14e2d51085
-ms.sourcegitcommit: c69c8c5c783db26c19e885f10b94d77ad625d8b4
+ms.openlocfilehash: d5086377b0bb7f3ca2ece643f82a4e45156f1955
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/03/2019
-ms.locfileid: "74707189"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184879"
 ---
 # <a name="provide-key-vault-authentication-with-an-access-control-policy"></a>액세스 제어 정책을 사용하여 Key Vault 인증 제공
 
@@ -32,7 +33,7 @@ Key Vault 액세스 제어에 대한 자세한 내용은 [Azure Key Vault 보안
 
 [!INCLUDE [cloud-shell-try-it.md](../../includes/cloud-shell-try-it.md)]
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - 키 자격 증명 모음. 다음 빠른 시작 중 하나의 단계에 따라 기존 키 자격 증명 모음을 사용하거나 새로 만들 수 있습니다.
    - [Azure CLI를 사용하여 키 자격 증명 모음 만들기](quick-create-cli.md)

@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 51e5c654da95732409c3bbb7acae088d8935a59d
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 642cc42a9853fe0a93a40ca65652b6dc5fcd8d40
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000631"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195280"
 ---
 # <a name="manage-key-vault-using-the-azure-cli"></a>Azure CLI를 사용하여 Key Vault 관리 
 
@@ -38,7 +39,7 @@ Azure Key Vault는 대부분 지역에서 사용할 수 있습니다. 자세한 
 Azure Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요.
 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 문서에서 Azure CLI 명령을 사용하려면 다음 항목이 있어야 합니다.
 

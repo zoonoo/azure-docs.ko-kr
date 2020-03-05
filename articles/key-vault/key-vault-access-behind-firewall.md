@@ -6,15 +6,16 @@ author: amitbapat
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: ambapat
-ms.openlocfilehash: 57c5e3f2741f81bce2eff2d5ef2b0f2d029096e3
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 36dada57e587da6e023a83c8ebb6555abe44b9ba
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976380"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184849"
 ---
 # <a name="access-azure-key-vault-behind-a-firewall"></a>방화벽 뒤에 있는 Azure Key Vault 액세스
 
@@ -48,7 +49,7 @@ ms.locfileid: "68976380"
 
 Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증명 모음 클라이언트 애플리케이션은 Azure Resource Manager 엔드포인트에 액세스해야 합니다.  
 
-| 작업의 유형 | 엔드포인트:포트 |
+| 연산 유형 | 엔드포인트:포트 |
 | --- | --- |
 | Key Vault 제어 평면 작업<br> \- Azure Resource Manager 사용 |**전역:**<br> management.azure.com:443<br><br> **Azure 중국:**<br> management.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> management.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> management.microsoftazure.de:443 |
 | Azure Active Directory Graph API |**전역:**<br> graph.windows.net:443<br><br> **Azure 중국:**<br> graph.chinacloudapi.cn:443<br><br> **Azure 미국 정부:**<br> graph.windows.net:443<br><br> **Azure 독일:**<br> graph.cloudapi.de:443 |
@@ -57,7 +58,7 @@ Key Vault 관리(CRUD 및 액세스 정책 설정)의 경우 주요 자격 증�
 
 모든 주요 자격 증명 모음 개체(키와 암호) 관리 및 암호화 작업의 경우 주요 자격 증명 모음 클라이언트는 주요 자격 증명 모음 엔드포인트에 액세스해야 합니다. 엔드포인트 DNS 접미사는 주요 자격 증명 모음의 위치에 따라 다릅니다. 주요 자격 증명 모음 엔드포인트는 다음 테이블에 설명된 대로 *vault-name*.*region-specific-dns-suffix* 형식입니다.  
 
-| 작업의 유형 | 엔드포인트:포트 |
+| 연산 유형 | 엔드포인트:포트 |
 | --- | --- |
 | 키에 대한 암호화 작업을 포함하는 작업, 키 및 암호 만들기, 읽기, 업데이트 및 삭제, 키 자격 증명 모음 개체(키 또는 암호)의 태그 및 기타 특성 설정 또는 가져오기 |**전역:**<br> &lt;vault-name&gt;.vault.azure.net:443<br><br> **Azure 중국:**<br> &lt;vault-name&gt;.vault.azure.cn:443<br><br> **Azure 미국 정부:**<br> &lt;vault-name&gt;.vault.usgovcloudapi.net:443<br><br> **Azure 독일:**<br> &lt;vault-name&gt;.vault.microsoftazure.de:443 |
 

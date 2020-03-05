@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 09/14/2017
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 5cb21bff2834751843061910184499f37bde834e
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: b8821f3bb3d48786697cbc4137baf530856774fd
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275446"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273998"
 ---
 # <a name="deprecated-deploy-a-kubernetes-cluster-in-azure-container-service"></a>(사용되지 않음) Azure Container Service에서 Kubernetes 클러스터 배포
 
@@ -40,7 +40,7 @@ Kubernetes는 컨테이너화된 애플리케이션용 분산 플랫폼을 제�
 
 다음 예제에서는 `myResourceGroup` 리소스 그룹에 `myK8sCluster` 클러스터를 만듭니다. 이 리소스 그룹은 [이전 자습서](./container-service-tutorial-kubernetes-prepare-acr.md)에서 만든 것입니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs create --orchestrator-type kubernetes --resource-group myResourceGroup --name myK8SCluster --generate-ssh-keys 
 ```
 
@@ -56,7 +56,7 @@ Azure Cloud Shell을 사용하는 경우 kubectl이 이미 설치되어 있습�
 
 Linux 또는 macOS에서 실행하는 경우 sudo를 사용하여 실행해야 할 수 있습니다. Windows에서는 셸이 관리자 권한으로 실행되었는지 확인합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes install-cli 
 ```
 
@@ -66,19 +66,19 @@ Windows에서 기본 설치는 *c:\program files (x86)\kubectl.exe*입니다. Wi
 
 Kubernetes 클러스터에 연결하도록 kubectl을 구성하려면 [az acs kubernetes get-credentials](/cli/azure/acs/kubernetes) 명령을 실행합니다.
 
-```azurecli-interactive 
+```azurecli-interactive
 az acs kubernetes get-credentials --resource-group myResourceGroup --name myK8SCluster
 ```
 
 클러스터에 대한 연결을 확인하려면 [kubectl get nodes](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 실행합니다.
 
-```azurecli-interactive
+```console
 kubectl get nodes
 ```
 
 출력:
 
-```bash
+```output
 NAME                    STATUS                     AGE       VERSION
 k8s-agent-98dc3136-0    Ready                      5m        v1.6.2
 k8s-agent-98dc3136-1    Ready                      5m        v1.6.2

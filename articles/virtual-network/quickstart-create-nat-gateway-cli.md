@@ -13,12 +13,12 @@ ms.topic: tutorial
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: df1e363f31aa8c88be54454c9dc060f4ed6b7ca1
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 1317ea6526a28c5d71dce1a3c25b2fd05f5e446b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588895"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271301"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-cli"></a>빠른 시작: Azure CLI를 사용하여 NAT 게이트웨이 만들기
 
@@ -61,7 +61,7 @@ Azure Cloud Shell을 사용하여 이 자습서를 완료하거나 각 명령을
 
 ### <a name="create-a-public-ip-prefix"></a>공용 IP 접두사 만들기
 
-하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip-prefix)를 사용하여 **myPublicIPprefix**라는 공용 IP 접두사를 **myResourceGroupNAT**에 만듭니다.
+하나 이상의 공용 IP 주소 리소스, 공용 IP 접두사 또는 둘 모두는 NAT 게이트웨이에서 사용할 수 있습니다. 공용 IP 접두사 리소스를 이 시나리오에 추가하여 보여 줍니다.   [az network public-ip prefix create](https://docs.microsoft.com/cli/azure/network/public-ip/prefix#az-network-public-ip-prefix-create)를 사용하여 **myPublicIPprefix**라는 공용 IP 접두사를 **myResourceGroupNAT**에 만듭니다.
 
 ```azurecli-interactive
   az network public-ip prefix create \

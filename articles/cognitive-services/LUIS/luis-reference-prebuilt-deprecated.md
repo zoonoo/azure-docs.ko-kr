@@ -8,15 +8,15 @@ ms.custom: seodec18
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 07/29/2019
 ms.author: diberry
-ms.openlocfilehash: 8c15ebacd0fd959fe789d7f3a9b33b16ee29a1b2
-ms.sourcegitcommit: 13a289ba57cfae728831e6d38b7f82dae165e59d
+ms.openlocfilehash: 46da828b7553fdf9cdded817febd3bb95cd4cbb9
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/09/2019
-ms.locfileid: "68933616"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270668"
 ---
 # <a name="deprecated-prebuilt-entities-in-a-luis-app"></a>LUIS 앱의 사용되지 않는 미리 빌드된 엔터티
 다음과 같은 미리 빌드된 엔터티는 더 이상 사용되지 않으므로 새 LUIS 앱에 추가될 수 없습니다.
@@ -43,7 +43,7 @@ ms.locfileid: "68933616"
 **Encyclopedia**는 `en-US` 로캘에서만 사용할 수 있습니다.
 
 #### <a name="encyclopedia-subtypes"></a>Encyclopedia 하위 유형
-다음 표에 Encyclopedia 기본 제공 엔터티에는 100개 이상의 하위 형식이 포함됩니다. 또한 encyclopedia 엔터티는 종종 여러 형식에 매핑됩니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다. 
+다음 표에는 Encyclopedia 기본 제공 엔터티의 하위 유형이 100가지 넘게 포함되어 있습니다. 또한 encyclopedia 엔터티는 여러 유형에 매핑되기도 합니다. 예를 들어, 쿼리 Ronald Reagan은 다음 결과를 제공합니다.
 
 ```json
 {
@@ -163,5 +163,5 @@ ms.locfileid: "68933616"
 
 ## <a name="next-steps"></a>다음 단계
 
-[dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다. 
+[dimension](luis-reference-prebuilt-dimension.md), [email](luis-reference-prebuilt-email.md) 엔터티 및 [number](luis-reference-prebuilt-number.md)에 대해 알아봅니다.
 

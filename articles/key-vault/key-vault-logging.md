@@ -6,15 +6,16 @@ author: msmbaldwin
 manager: rkarlin
 tags: azure-resource-manager
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: 997651887c3c378e4791553d5ff05f585ad169ea
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8915970cd4c70228fad3b49921f4c81d6d90aa72
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71000659"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78195331"
 ---
 # <a name="azure-key-vault-logging"></a>Azure Key Vault 로깅
 
@@ -37,9 +38,9 @@ ms.locfileid: "71000659"
 
 Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 참조하세요. Key Vault를 사용할 수 있는 위치에 대한 자세한 내용은 [가격 페이지](https://azure.microsoft.com/pricing/details/key-vault/)를 참조하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
-이 자습서를 완료하려면 다음이 필요합니다.
+이 자습서를 완료하려면 다음 항목이 필요합니다.
 
 * 사용하고 있는 기존 키 자격 증명 모음  
 * Azure PowerShell(최소 버전 1.0.0). Azure PowerShell을 설치하고 Azure 구독에 연결하려면 [Azure PowerShell 설치 및 구성하는 방법](/powershell/azure/overview)을 참조하세요. Azure PowerShell이 이미 설치되어 있고 버전을 알 수 없는 경우 Azure PowerShell 콘솔에서 `$PSVersionTable.PSVersion`을 입력합니다.  
@@ -47,7 +48,7 @@ Key Vault에 대한 개요는 [Azure Key Vault란?](key-vault-overview.md)을 �
 
 ## <a id="connect"></a>키 자격 증명 모음 구독에 연결
 
-키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 지정하는 것입니다.
+키 로깅을 설정하는 첫 번째 단계는 Azure PowerShell에서 로깅하려는 키 자격 증명 모음을 가리키는 것입니다.
 
 Azure PowerShell 세션을 시작하고 다음 명령을 사용하여 Azure 계정에 로그인합니다.  
 
@@ -75,7 +76,7 @@ PowerShell에서 올바른 구독을 가리키는 것은 특히 계정과 연결
 
 로그에 대해 기존 스토리지 계정을 사용할 수 있지만 Key Vault 로그 전용 스토리지 계정을 만듭니다. 나중에 이를 지정해야 하는 경우 편의를 위해 세부 정보를 **sa**라는 변수에 저장합니다.
 
-더 쉬운 관리를 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용할 수도 있습니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹의 이름은 **ContosoResourceGroup** 이며, 동아시아 위치를 계속 사용합니다. 해당하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다.
+추가로 쉽게 관리하기 위해 키 자격 증명 모음이 포함된 것과 동일한 리소스 그룹을 사용합니다. [시작 자습서](key-vault-get-started.md)에서 이 리소스 그룹의 이름은 **ContosoResourceGroup** 이며, 동아시아 위치를 계속 사용합니다. 해당하는 경우 이러한 값을 사용자 고유의 값으로 바꿉니다.
 
 ```powershell
  $sa = New-AzStorageAccount -ResourceGroupName ContosoResourceGroup -Name contosokeyvaultlogs -Type Standard_LRS -Location 'East Asia'
@@ -168,7 +169,7 @@ resourceId=/SUBSCRIPTIONS/361DA5D4-A47A-4C79-AFDD-XXXXXXXXXXXX/RESOURCEGROUPS/CO
 
 동일한 스토리지 계정을 사용하여 여러 리소스에 대한 로그를 수집할 수 있으므로 Blob 이름의 전체 리소스 ID는 필요한 Blob에 액세스하거나 다운로드하는 데 유용합니다. 하지만 그 전에 먼저 모든 Blob을 다운로드하는 방법을 다룹니다.
 
-Blob을 다운로드할 폴더를 만듭니다. 예:
+Blob을 다운로드할 폴더를 만듭니다. 다음은 그 예입니다.
 
 ```powershell 
 New-Item -Path 'C:\Users\username\ContosoKeyVaultLogs' -ItemType Directory -Force
@@ -188,7 +189,7 @@ $blobs | Get-AzStorageBlobContent -Destination C:\Users\username\ContosoKeyVault
 
 이 두 번째 명령을 실행할 때 Blob 이름의 **/** 구분 기호는 대상 폴더 아래에 전체 폴더 구조를 만듭니다. 이 구조를 사용하여 Blob을 다운로드하고 파일로 저장합니다.
 
-선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 예:
+선택적으로 Blob을 다운로드하려면 와일드카드를 사용합니다. 다음은 그 예입니다.
 
 * 여러 키 자격 증명 모음이 있고 CONTOSOKEYVAULT3이라는 하나의 키 자격 증명 모음에 대한 로그를 다운로드하려는 경우:
 
@@ -248,7 +249,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 
 다음 표에는 필드 이름 및 설명이 나와 있습니다.
 
-| 필드 이름 | 설명 |
+| 필드 이름 | Description |
 | --- | --- |
 | **time** |UTC 형식의 날짜 및 시간입니다. |
 | **resourceId** |Azure Resource Manager 리소스 ID입니다. 키 자격 증명 모음 로그의 경우 이는 항상 키 자격 증명 모음 리소스 ID입니다. |
@@ -264,7 +265,7 @@ Get-AzKeyVault -VaultName 'contosokeyvault'`
 | **identity** |REST API 요청에 제공된 토큰의 ID입니다. Azure PowerShell cmdlet에서 발생하는 요청의 경우와 마찬가지로 일반적으로 "사용자", "서비스 주체" 또는 "사용자+appId"의 조합입니다. |
 | **properties** |작업(**operationName**)에 따라 달라지는 정보입니다. 대부분의 경우 이 필드에는 클라이언트 정보(클라이언트에서 전달한 사용자 에이전트 문자열), 정확한 REST API 요청 URI 및 HTTP 상태 코드가 포함됩니다. 또한 개체가 요청의 결과로 반환되면(예: **KeyCreate** 또는 **VaultGet**) 키 URI("id"로), 자격 증명 모음 URI 또는 비밀 URI도 포함됩니다. |
 
-**operationName** 필드 값은 *ObjectVerb* 형식입니다. 예:
+**operationName** 필드 값은 *ObjectVerb* 형식입니다. 다음은 그 예입니다.
 
 * 모든 키 자격 증명 모음 작업은 `Vault<action>` 형식입니다(예: `VaultGet` 및 `VaultCreate`).
 * 모든 키 작업은 `Key<action>` 형식입니다(예: `KeySign` 및 `KeyList`).

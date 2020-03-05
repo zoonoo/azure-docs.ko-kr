@@ -5,12 +5,12 @@ services: automation
 ms.subservice: process-automation
 ms.date: 02/14/2019
 ms.topic: conceptual
-ms.openlocfilehash: ddb08f774bbb8aa3bc4b10bcd0dd213c8583465e
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: 274ee0fe98281e733994f2d5df38886409cbc913
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78249789"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273642"
 ---
 # <a name="runbook-input-parameters"></a>Runbook 입력 매개 변수
 
@@ -148,19 +148,19 @@ Azure Portal에서 [runbook을 시작](start-runbooks.md#start-a-runbook-with-th
 * **Azure Resource Manager cmdlet:** [AzAutomationRunbook](https://docs.microsoft.com/powershell/module/Az.Automation/Start-AzAutomationRunbook?view=azps-3.5.0
 )를 사용 하 여 리소스 그룹에서 만든 Automation runbook을 시작할 수 있습니다.
 
-```powershell
-  $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic";"resourceGroupeName"="WSVMClassicSG"}
   
-  Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
-```
+     Start-AzAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" –ResourceGroupName $resourceGroupName -Parameters $params
+   ```
 
 * **Azure 클래식 배포 모델 cmdlet:** [Start-AzureAutomationRunbook](/powershell/module/servicemanagement/azure/start-azureautomationrunbook)을 사용하여 기본 리소스 그룹에 생성된 자동화 Runbook을 시작할 수 있습니다
   
-```powershell
-  $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
+   ```powershell
+     $params = @{"VMName"="WSVMClassic"; "ServiceName"="WSVMClassicSG"}
   
-  Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
-```
+     Start-AzureAutomationRunbook -AutomationAccountName "TestAutomation" -Name "Get-AzureVMGraphical" -Parameters $params
+   ```
 
 > [!NOTE]
 > PowerShell cmdlet을 사용 하 여 runbook을 시작 하는 경우 값 **powershell**을 사용 하 여 기본 매개 변수 *MicrosoftApplicationManagementStartedBy*가 만들어집니다. 이 매개 변수는 작업 세부 정보 창에서 볼 수 있습니다.  
@@ -169,7 +169,7 @@ Azure Portal에서 [runbook을 시작](start-runbooks.md#start-a-runbook-with-th
 
 * **Azure Resource Manager 메서드:** 프로그래밍 언어의 SDK를 사용 하 여 runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ResourceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.  
 
-  ```csharp
+   ```csharp
    public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
       {
         var response = AutomationClient.Jobs.Create(resourceGroupName, automationAccount, new JobCreateParameters
@@ -185,11 +185,11 @@ Azure Portal에서 [runbook을 시작](start-runbooks.md#start-a-runbook-with-th
          });
       return response.Job;
       }
-  ```
+   ```
 
 * **Azure 클래식 배포 모델 방법:** 프로그래밍 언어의 SDK를 사용하여 Runbook을 시작할 수 있습니다. 다음은 Automation 계정의 Runbook을 시작하기 위한 C# 코드 조각입니다. [GitHub 리포지토리](https://github.com/Azure/azure-sdk-for-net/blob/master/src/ServiceManagement/Automation/Automation.Tests/TestSupport/AutomationTestBase.cs)에서 모든 코드를 볼 수 있습니다.
 
-  ```csharp
+   ```csharp
   public Job StartRunbook(string runbookName, IDictionary<string, string> parameters = null)
     {
       var response = AutomationClient.Jobs.Create(automationAccount, new JobCreateParameters
@@ -205,20 +205,20 @@ Azure Portal에서 [runbook을 시작](start-runbooks.md#start-a-runbook-with-th
        });
       return response.Job;
     }
-  ```
+   ```
 
-  이 메서드를 시작 하려면 *VMName* 및 *resourceGroupName* runbook 매개 변수를 저장 하는 사전을 만듭니다. 그런 다음 Runbook을 시작합니다. 다음은 위에 정의된 메서드를 호출하기 위한 C# 코드 조각입니다.
+   이 메서드를 시작 하려면 *VMName* 및 *resourceGroupName* runbook 매개 변수를 저장 하는 사전을 만듭니다. 그런 다음 Runbook을 시작합니다. 다음은 위에 정의된 메서드를 호출하기 위한 C# 코드 조각입니다.
 
-  ```csharp
-  IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
+   ```csharp
+   IDictionary<string, string> RunbookParameters = new Dictionary<string, string>();
   
-  // Add parameters to the dictionary.
+   // Add parameters to the dictionary.
   RunbookParameters.Add("VMName", "WSVMClassic");
-  RunbookParameters.Add("resourceGroupName", "WSSC1");
+   RunbookParameters.Add("resourceGroupName", "WSSC1");
   
-  //Call the StartRunbook method with parameters
-  StartRunbook("Get-AzureVMGraphical", RunbookParameters);
-  ```
+   //Call the StartRunbook method with parameters
+   StartRunbook("Get-AzureVMGraphical", RunbookParameters);
+   ```
 
 #### <a name="start-a-runbook-using-the-rest-api-and-assign-parameters"></a>REST API를 사용 하 여 runbook 시작 및 매개 변수 할당
 
@@ -238,7 +238,7 @@ Runbook 작업에 매개 변수를 전달 하려면 요청 본문을 사용 합�
 
 *VMName* 및 *resourceGroupName* 를 매개 변수로 사용 하 여 이전에 만든 **AzureVMTextual** runbook을 시작 하려는 경우 요청 본문에 대해 다음 JSON 형식을 사용 합니다.
 
-   ```json
+```json
     {
       "properties":{
         "runbook":{
@@ -248,7 +248,7 @@ Runbook 작업에 매개 변수를 전달 하려면 요청 본문을 사용 합�
          "resourceGroupName":"ContosoSales"}
         }
     }
-   ```
+```
 
 작업이 성공적으로 만들어진 경우 HTTP 상태 코드 201이 반환됩니다. 응답 헤더 및 응답 본문에 대 한 자세한 내용은 REST API를 [사용 하 여 runbook 작업 만들기](/rest/api/automation/job/create)를 참조 하세요.
 
@@ -260,13 +260,13 @@ Runbook 작업에 매개 변수를 전달 하려면 요청 본문을 사용 합�
 
 ### <a name="link-a-schedule-to-a-runbook-and-assign-parameters"></a>Runbook에 일정 연결 및 매개 변수 할당
 
-Runbook이 특정 시간에 시작하도록 Runbook에 [일정을 연결](automation-schedules.md)할 수 있습니다. 일정을 만드는 동안 입력 매개 변수를 할당하고 Runbook이 일정에 따라 시작될 때 이러한 값을 사용합니다. 모든 필수 매개 변수 값이 제공될 때까지 일정을 저장할 수 없습니다.
+Runbook이 특정 시간에 시작하도록 Runbook에 [일정을 연결](automation-schedules.md)할 수 있습니다. 일정을 만드는 동안 입력 매개 변수를 할당하고 Runbook이 일정에 따라 시작될 때 이러한 값을 사용합니다. 모든 필수 매개 변수 값이 제공 될 때까지 일정을 저장할 수 없습니다.
 
 ![매개 변수 예약 및 할당](media/automation-runbook-input-parameters/automation-07-scheduleandassignparameters.png)
 
 ### <a name="create-a-webhook-for-a-runbook-and-assign-parameters"></a>Runbook에 대한 webhook 만들기 및 매개 변수 할당
 
-Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력 매개 변수를 구성할 수 있습니다. 모든 필수 매개 변수 값이 제공될 때까지 webhook을 저장할 수 없습니다.
+Runbook에 대한 [webhook](automation-webhooks.md) 을 만들고 Runbook 입력 매개 변수를 구성할 수 있습니다. 모든 필수 매개 변수 값이 제공 될 때까지 webhook을 저장할 수 없습니다.
 
 ![Webhook 만들기 및 매개 변수 할당](media/automation-runbook-input-parameters/automation-08-createwebhookandassignparameters.png)
 
@@ -330,7 +330,7 @@ Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
     >[!NOTE]
     >PowerShell runbook의 경우 **AzAccount** 및 **connect-azurermaccount** 는 **AzAccount**에 대 한 별칭입니다. 그래픽 runbook에는 이러한 별칭을 사용할 수 없습니다. 그래픽 runbook은 **AzAccount** 자체를 사용할 수 있습니다.
 
-2. 저장 된 JSON 파일의 콘텐츠를 가져와 문자열로 변환 합니다. `JsonPath`는 JSON 파일을 저장한 경로입니다.
+1. 저장 된 JSON 파일의 콘텐츠를 가져와 문자열로 변환 합니다. `JsonPath`는 JSON 파일을 저장한 경로입니다.
 
    ```powershell
    $json =  (Get-content -path 'JsonPath\test.json' -Raw) | Out-string
@@ -354,7 +354,7 @@ Start-AzVM -Name $json.VMName -ResourceGroupName $json.ResourceGroup
    ```
 
    *매개 변수* 값을 JSON 파일의 값을 포함 하는 PowerShell 개체로 설정 하 고 있습니다.
-1. Runbook을 시작합니다.
+1. Runbook을 시작 합니다.
 
    ```powershell
    $job = Start-AzAutomationRunbook @RBParams

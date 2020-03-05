@@ -5,16 +5,17 @@ services: key-vault
 author: msmbaldwin
 manager: rajvijan
 ms.service: key-vault
+ms.subservice: secrets
 ms.topic: tutorial
 ms.date: 12/21/2018
 ms.author: mbaldwin
 ms.custom: mvc
-ms.openlocfilehash: 65c59ba299490ee2bbef849b6f7354abc05ad885
-ms.sourcegitcommit: e97a0b4ffcb529691942fc75e7de919bc02b06ff
+ms.openlocfilehash: 8c5b3fcc1cb2ac481be0b435c48ce213c716edde
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 09/15/2019
-ms.locfileid: "71003355"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78198170"
 ---
 # <a name="tutorial-use-a-linux-vm-and-a-net-app-to-store-secrets-in-azure-key-vault"></a>자습서: Linux VM 및 .NET 앱을 사용하여 Azure Key Vault에 비밀 저장
 
@@ -32,10 +33,10 @@ Azure Key Vault를 통해 애플리케이션, 서비스 및 IT 리소스에 액�
 
 본론으로 들어가기 전에 [키 자격 증명 모음 기본 개념](basic-concepts.md)을 읽어보세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 * [Git](https://git-scm.com/downloads)
-* Azure 구독. Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
+* Azure 구독 Azure 구독이 아직 없는 경우 시작하기 전에 [체험 계정](https://azure.microsoft.com/free/?WT.mc_id=A261C142F)을 만듭니다.
 * [Azure CLI 2.0 이상](https://docs.microsoft.com/cli/azure/install-azure-cli?view=azure-cli-latest) 또는 Azure Cloud Shell
 
 [!INCLUDE [Azure Cloud Shell](../../includes/cloud-shell-try-it.md)]

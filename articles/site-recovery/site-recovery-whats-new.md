@@ -2,13 +2,13 @@
 title: Azure Site Recovery의 새로운 기능
 description: Azure Site Recovery 서비스의 새 기능 및 최신 업데이트에 대 한 요약 정보를 제공 합니다.
 ms.topic: conceptual
-ms.date: 01/31/2020
-ms.openlocfilehash: cae653c9e51e2a497d6fa3781415a1f836053593
-ms.sourcegitcommit: db2d402883035150f4f89d94ef79219b1604c5ba
+ms.date: 03/03/2020
+ms.openlocfilehash: abb1592bcacf025e9a052d7a9222f6fb3d2b72d6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/07/2020
-ms.locfileid: "77064532"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267499"
 ---
 # <a name="whats-new-in-site-recovery"></a>Site Recovery의 새로운 기능
 
@@ -22,13 +22,27 @@ Site Recovery 구성 요소의 경우 N-4 버전을 지원 합니다. 여기서 
 
 **Update** |  **통합 설정** | **구성 서버 ova** | **모바일 서비스 에이전트** | **Site Recovery 공급자** | **Recovery Services 에이전트**
 --- | --- | --- | --- | --- | ---
+[롤업 45](https://support.microsoft.com/help/4550047/) | 9.32.5487.1 | 5.1.5400.0 | 9.32.5487.1 | 5.1.5400.0 | 2.0.9165.0
 [롤업 43](https://support.microsoft.com/help/4537047/) | 9.31.5449.1 | 5.1.5300.0 | 9.31.5449.1 | 5.1.5300.0 | 2.0.9165.0
 [롤업 42](https://support.microsoft.com/help/4531426/) | 9.30.5407.1 | 5.1.5200.0 | 9.30.5407.1 | 5.1.5200.0 | 2.0.9165.0
 [롤업 41](https://support.microsoft.com/help/4528026/) | 9.29.5367.1 | 5.1.5000.0 | 9.29.5367.1 | 5.1.5000.0 | 2.0.9165.0
 [롤업 40](https://support.microsoft.com/help/4521530/) | 9.28.5345.1 | 5.1.4800.0 | 9.28.5345.1 | 5.1.4800.0 | 2.0.9165.0
-[롤업 39](https://support.microsoft.com/help/4517283/) | 9.27.5308.1 | 5.1.4600.0 | 9.27.5308.1 | 5.1.4600.0 | 2.0.9165.0
 
 업데이트 설치 및 지원에 [대해 자세히 알아보세요](service-updates-how-to.md) .
+
+> [!NOTE]
+> 업데이트 롤업 44은 Site Recovery 공급자 및 에이전트에 대 한 업데이트를 포함 하지 않았기 때문에 테이블에 표시 되지 않습니다.
+
+## <a name="updates-march-2020"></a>업데이트 (3 월 2020)
+
+### <a name="update-rollup-45"></a>업데이트 롤업 45
+
+[업데이트 롤업 45](https://support.microsoft.com/help/4550047/update-rollup-45-for-azure-site-recovery) 은 다음과 같은 업데이트를 제공 합니다.
+
+**Update** | **세부 정보**
+--- | ---
+**공급자 및 에이전트** | 롤업에 설명 된 대로 Site Recovery 에이전트 및 공급자를 업데이트 합니다.
+**문제 해결/향상** | 롤업에 자세히 설명 된 다양 한 수정 사항 및 개선 사항입니다.
 
 ## <a name="updates-january-2020"></a>업데이트 (1 월 2020)
 

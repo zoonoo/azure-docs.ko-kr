@@ -6,12 +6,12 @@ author: zr-msft
 ms.topic: article
 ms.date: 09/26/2019
 ms.author: zarhoads
-ms.openlocfilehash: 42985e57d63c01553532928b2ba04ed5ee3dd8fb
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1c4996df66d475c63110e3d2797f55598fd85b8d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596643"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273743"
 ---
 # <a name="integrate-azure-netapp-files-with-azure-kubernetes-service"></a>Azure Kubernetes Service와 Azure NetApp Files 통합
 
@@ -42,7 +42,7 @@ Azure NetApp Files 사용 하는 경우 다음 제한 사항이 적용 됩니다
 
 *Microsoft NetApp* 리소스 공급자를 등록 합니다.
 
-```azure-cli
+```azurecli
 az provider register --namespace Microsoft.NetApp --wait
 ```
 
@@ -52,14 +52,16 @@ az provider register --namespace Microsoft.NetApp --wait
 AKS와 함께 사용할 Azure NetApp 계정을 만들 때 **노드** 리소스 그룹에서 계정을 만들어야 합니다. 먼저 [az aks show][az-aks-show] 명령을 사용 하 여 리소스 그룹 이름을 가져오고 `--query nodeResourceGroup` 쿼리 매개 변수를 추가 합니다. 다음 예제에서는 리소스 그룹 이름 *Myresourcegroup*에서 *myAKSCluster* 이라는 AKS 클러스터에 대 한 노드 리소스 그룹을 가져옵니다.
 
 ```azurecli-interactive
-$ az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+az aks show --resource-group myResourceGroup --name myAKSCluster --query nodeResourceGroup -o tsv
+```
 
+```output
 MC_myResourceGroup_myAKSCluster_eastus
 ```
 
 [Az netappfiles account create][az-netappfiles-account-create]를 사용 하 여 **노드** 리소스 그룹에 Azure NetApp Files 계정을 만들고 AKS 클러스터와 동일한 영역을 만듭니다. 다음 예제에서는 *MC_myResourceGroup_myAKSCluster_eastus* 리소스 그룹 및 *에서는 eastus* 지역에 *myaccount1* 이라는 계정을 만듭니다.
 
-```azure-cli
+```azurecli
 az netappfiles account create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -68,7 +70,7 @@ az netappfiles account create \
 
 [Az netappfiles pool create][az-netappfiles-pool-create]를 사용 하 여 새 용량 풀을 만듭니다. 다음 예제에서는 크기가 4 TB이 고 *프리미엄* 서비스 수준이 *mypool1* 이라는 새 용량 풀을 만듭니다.
 
-```azure-cli
+```azurecli
 az netappfiles pool create \
     --resource-group MC_myResourceGroup_myAKSCluster_eastus \
     --location eastus \
@@ -80,7 +82,7 @@ az netappfiles pool create \
 
 [Az network vnet subnet create][az-network-vnet-subnet-create]를 사용 하 여 [Azure NetApp Files에 위임할][anf-delegate-subnet] 서브넷을 만듭니다. *이 서브넷은 AKS 클러스터와 동일한 가상 네트워크에 있어야 합니다.*
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 VNET_NAME=$(az network vnet list --resource-group $RESOURCE_GROUP --query [].name -o tsv)
 VNET_ID=$(az network vnet show --resource-group $RESOURCE_GROUP --name $VNET_NAME --query "id" -o tsv)
@@ -95,7 +97,7 @@ az network vnet subnet create \
 
 [Az netappfiles volume create][az-netappfiles-volume-create]를 사용 하 여 볼륨을 만듭니다.
 
-```azure-cli
+```azurecli
 RESOURCE_GROUP=MC_myResourceGroup_myAKSCluster_eastus
 LOCATION=eastus
 ANF_ACCOUNT_NAME=myaccount1
@@ -125,9 +127,12 @@ az netappfiles volume create \
 ## <a name="create-the-persistentvolume"></a>PersistentVolume 만들기
 
 [Az netappfiles volume show][az-netappfiles-volume-show] 를 사용 하 여 볼륨의 세부 정보 나열
-```azure-cli
-$ az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
 
+```azurecli
+az netappfiles volume show --resource-group $RESOURCE_GROUP --account-name $ANF_ACCOUNT_NAME --pool-name $POOL_NAME --volume-name "myvol1"
+```
+
+```output
 {
   ...
   "creationToken": "myfilepath2",
@@ -245,7 +250,9 @@ kubectl describe pod nginx-nfs
 
 ```console
 $ kubectl exec -it nginx-nfs -- bash
+```
 
+```output
 root@nginx-nfs:/# df -h
 Filesystem             Size  Used Avail Use% Mounted on
 ...

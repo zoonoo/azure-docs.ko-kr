@@ -4,12 +4,12 @@ description: Azure CLI를 사용 하 여 AKS (Azure Kubernetes Service) 클러�
 services: container-service
 ms.topic: article
 ms.date: 04/16/2019
-ms.openlocfilehash: fef22b1b2d81f76e95a15c0e3a746440b95df8ca
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: d17ae12beecf9d83ef6d688af799787c5ccf322b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77596609"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273763"
 ---
 # <a name="integrate-azure-active-directory-with-azure-kubernetes-service-using-the-azure-cli"></a>Azure CLI를 사용 하 여 Azure Kubernetes Service와 Azure Active Directory 통합
 
@@ -27,9 +27,11 @@ ms.locfileid: "77596609"
 
 Azure CLI 버전 2.0.61 이상이 설치 및 구성 되어 있어야 합니다. `az --version`을 실행하여 버전을 찾습니다. 설치 또는 업그레이드해야 하는 경우 [Azure CLI 설치][install-azure-cli]를 참조하세요.
 
+[https://shell.azure.com](https://shell.azure.com) 로 이동 하 여 브라우저에서 Cloud Shell를 엽니다.
+
 일관성을 위해이 문서의 명령을 실행 하는 데 도움이 되도록 원하는 AKS 클러스터 이름에 대 한 변수를 만듭니다. 다음 예에서는 *myakscluster*이름을 사용 합니다.
 
-```azurecli-interactive
+```console
 aksname="myakscluster"
 ```
 
@@ -209,8 +211,10 @@ kubectl get pods --all-namespaces
 웹 브라우저를 사용 하 여 Azure AD 자격 증명을 사용 하 여 인증 하는 로그인 프롬프트가 표시 됩니다. 성공적으로 인증 되 면 다음 예제 출력과 같이 `kubectl` 명령은 AKS 클러스터에 pod를 표시 합니다.
 
 ```console
-$ kubectl get pods --all-namespaces
+kubectl get pods --all-namespaces
+```
 
+```output
 To sign in, use a web browser to open the page https://microsoft.com/devicelogin and enter the code BYMK7UXVD to authenticate.
 
 NAMESPACE     NAME                                    READY   STATUS    RESTARTS   AGE
@@ -229,7 +233,7 @@ kube-system   tunnelfront-6ff887cffb-xkfmq            1/1     Running   0       
 
 다음 예제 출력과 같이 웹 브라우저를 사용 하 여 성공적으로 로그인 한 후에 권한 부여 오류 메시지가 표시 되는 경우 다음과 같은 가능한 문제를 확인 합니다.
 
-```console
+```output
 error: You must be logged in to the server (Unauthorized)
 ```
 

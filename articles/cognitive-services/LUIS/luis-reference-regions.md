@@ -1,14 +1,14 @@
 ---
 title: 영역 & 끝점 게시-LUIS
 description: Azure Portal에 지정 된 지역은 LUIS 앱을 게시할 때와 동일한 지역에 대해 끝점 URL이 생성 됩니다.
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/19/2019
-ms.openlocfilehash: 77fd901790582983d75735ac8b66d59c741ced9e
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 097f3078b54b014dc646d144f3532e20236a9e4f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77151941"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273418"
 ---
 # <a name="authoring-and-publishing-regions-and-the-associated-keys"></a>작성 및 게시 지역과 관련 키
 

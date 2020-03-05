@@ -7,24 +7,24 @@ author: diberry
 manager: nitinme
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 11/07/2019
 ms.author: diberry
 ms.custom: seodec18
-ms.openlocfilehash: 0654916b344cf47cf9942b883d62d392c0552979
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.openlocfilehash: d584b00caef628eb9dfd085b1fdce2bb7b353988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73818928"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273512"
 ---
 # <a name="boundaries-for-your-luis-model-and-keys"></a>LUIS 모델 및 키에 대한 경계
-LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-reference-regions.md) API 간의 [세계 지역 매핑](luis-glossary.md#endpoint)입니다. 
+LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도, 엔터티 및 기능을 제어하는 [모델 경계](#model-boundaries)입니다. 두 번째 영역은 키 유형을 기반으로 하는 [할당량 한도](#key-limits)입니다. 세 번째 경계 영역은 LUIS 웹 사이트를 제어하기 위한 [키보드 조합](#keyboard-controls)입니다. 네 번째 영역은 LUIS 작성 웹 사이트와 LUIS [엔드포인트](luis-reference-regions.md) API 간의 [세계 지역 매핑](luis-glossary.md#endpoint)입니다.
 
 
 ## <a name="model-boundaries"></a>모델 경계
 
-앱이 LUIS 모델 제한 및 경계를 초과하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱 또는 [LUIS 컨테이너](luis-container-howto.md)를 사용하는 방안을 고려합니다. 
+앱이 LUIS 모델 제한 및 경계를 초과하는 경우 [LUIS 디스패치](luis-concept-enterprise.md#dispatch-tool-and-model) 앱 또는 [LUIS 컨테이너](luis-container-howto.md)를 사용하는 방안을 고려합니다.
 
 |영역|제한|
 |--|:--|
@@ -49,7 +49,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 | [버전](luis-concept-version.md)| 응용 프로그램당 100 버전 |
 | [버전 이름][luis-how-to-manage-versions] | 영숫자 및 마침표(.)로 제한되는 10자 |
 
-*기본 문자 최댓값은 50자입니다. 
+*기본 문자 최댓값은 50자입니다.
 
 <a name="intent-and-entity-naming"></a>
 
@@ -60,13 +60,13 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 다음은 LUIS 앱 내에서 고유 해야 합니다.
 
 * 버전 이름
-* 목적은
+* intent
 * 엔터티
 * roles
 
 다음은 적용 된 범위 내에서 고유 해야 합니다.
 
-* 구 목록 
+* 구 목록
 
 ## <a name="object-naming"></a>개체 이름 지정
 
@@ -85,13 +85,13 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 ## <a name="resource-key-limits"></a>리소스 키 제한
 
-리소스 키에는 제작 및 끝점의 제한이 다릅니다. LUIS 예측 쿼리 끝점 키는 끝점 쿼리에만 유효 합니다. 
+리소스 키에는 제작 및 끝점의 제한이 다릅니다. LUIS 예측 쿼리 끝점 키는 끝점 쿼리에만 유효 합니다.
 
-* 500 Azure 제작 리소스 당 응용 프로그램 
+* 500 Azure 제작 리소스 당 응용 프로그램
 
 |키|작성|엔드포인트|목적|
 |--|--|--|--|
-|스타터|100만/월, 5/초|1000/월, 5/초|LUIS 앱 작성|
+|Starter|100만/월, 5/초|1000/월, 5/초|LUIS 앱 작성|
 |F0-무료 계층 |100만/월, 5/초|10000/월, 5/초|LUIS 엔드포인트 쿼리|
 |S0-기본 계층|-|50/초|LUIS 엔드포인트 쿼리|
 |S0-표준 계층|-|50/초|LUIS 엔드포인트 쿼리|
@@ -102,7 +102,7 @@ LUIS에는 여러 경계 영역이 있습니다. 첫 번째는 LUIS에서 의도
 
 ## <a name="keyboard-controls"></a>키보드 제어
 
-|키보드 입력 | 설명 | 
+|키보드 입력 | Description |
 |--|--|
 |Control+E|발화 목록에서 토큰과 엔터티 간 전환|
 

@@ -1,18 +1,17 @@
 ---
 title: Azure Monitor Log Analytics 시작 | Microsoft Docs
 description: 이 문서에서는 Azure Portal에서 Log Analytics를 사용하여 쿼리를 작성하는 방법에 대한 자습서를 제공합니다.
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: tutorial
 author: bwren
 ms.author: bwren
 ms.date: 07/19/2019
-ms.openlocfilehash: 1117ebbb8d2c3b133156c6b63a0ab13185f9f4a5
-ms.sourcegitcommit: 4c3d6c2657ae714f4a042f2c078cf1b0ad20b3a4
+ms.openlocfilehash: 1cf1695db50e6aee2a5dae24ed5231fdda7c12de
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/25/2019
-ms.locfileid: "72933045"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670239"
 ---
 # <a name="get-started-with-log-analytics-in-azure-monitor"></a>Azure Monitor에서 Log Analytics 시작
 
@@ -106,7 +105,7 @@ Log Analytics는 다음을 기준으로 결과의 범위를 자동으로 정합�
 
 열 제목 옆에 있는 필터 아이콘을 클릭하고 팝업 창에서 텍스트 _error_를 _사용하여 시작_하는 값을 선택합니다.
 
-![Filter](media/get-started-portal/filter.png)
+![Assert](media/get-started-portal/filter.png)
 
 
 ## <a name="sort-and-group-results"></a>결과의 정렬 및 그룹화

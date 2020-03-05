@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: dastrebe
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 06ca2327b2859ffb0f5b314d7b92082d5a83dc48
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 1601ab6d81b888fd2247e95f22c58e1fc91df698
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594272"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273729"
 ---
 # <a name="install-and-use-consul-in-azure-kubernetes-service-aks"></a>Azure Kubernetes 서비스 (AKS)에서 Consul 설치 및 사용
 
@@ -51,7 +51,7 @@ ms.locfileid: "77594272"
 
 ::: zone pivot="client-operating-system-macos"
 
-[!INCLUDE [MacOS - download](includes/servicemesh/consul/download-bash.md)]
+[!INCLUDE [macOS - download](includes/servicemesh/consul/download-bash.md)]
 
 ::: zone-end
 
@@ -109,7 +109,7 @@ kubectl get pod --namespace consul --output wide
 
 다음 예제 출력에서는 현재 실행 되어야 하는 서비스 및 pod (Linux 노드에 예약 됨)를 보여 줍니다.
 
-```console
+```output
 NAME                                 TYPE           CLUSTER-IP    EXTERNAL-IP             PORT(S)                                                                   AGE     SELECTOR
 consul                               ExternalName   <none>        consul.service.consul   <none>                                                                    38s     <none>
 consul-consul-connect-injector-svc   ClusterIP      10.0.98.102   <none>                  443/TCP                                                                   3m26s   app=consul,component=connect-injector,release=consul
@@ -134,7 +134,7 @@ consul-consul-tz2t5                                               1/1     Runnin
 
 Consul UI는 위의 설정에서 설치 되었으며 Consul에 대 한 UI 기반 구성을 제공 합니다. Consul의 UI는 외부 ip 주소를 통해 공개적으로 노출 되지 않습니다. Consul 사용자 인터페이스에 액세스 하려면 [kubectl][kubectl-port-forward] 명령을 사용 합니다. 이 명령은 클라이언트 컴퓨터와 AKS 클러스터의 관련 pod 간에 보안 연결을 만듭니다.
 
-```azurecli
+```console
 kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 ```
 
@@ -151,7 +151,7 @@ kubectl port-forward -n consul svc/consul-consul-ui 8080:80
 
 AKS 클러스터에서 Consul을 제거 하려면 다음 명령을 사용 합니다. `helm delete` 명령은 `consul` 차트를 제거 하 고 `kubectl delete namespace` 명령은 `consul` 네임 스페이스를 제거 합니다.
 
-```azurecli
+```console
 helm delete --purge consul
 kubectl delete namespace consul
 ```

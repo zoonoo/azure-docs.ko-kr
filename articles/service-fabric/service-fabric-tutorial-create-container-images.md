@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 07/22/2019
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: fa7f7a57e16b6ba70535d3f07ebd69abf0784171
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fe06da759a1ad42ef5cef888f98c440cdfb9569c
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465443"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252780"
 ---
 # <a name="tutorial-create-container-images-on-a-linux-service-fabric-cluster"></a>자습서: Linux Service Fabric 클러스터에서 컨테이너 이미지 만들기
 
@@ -80,13 +80,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 먼저 **az login** 명령을 실행하여 Azure 계정에 로그인합니다.
 
-```bash
+```azurecli
 az login
 ```
 
 다음으로 **az account** 명령을 사용하여 Azure Container Registry를 만들 구독을 선택합니다. <subscription_id> 대신 Azure 구독의 구독 ID를 입력해야 합니다.
 
-```bash
+```azurecli
 az account set --subscription <subscription_id>
 ```
 
@@ -94,13 +94,13 @@ Azure Container Registry를 배포할 때는 먼저 리소스 그룹이 필요�
 
 **az group create** 명령을 사용하여 리소스 그룹을 만듭니다. 이 예제에서는 *westus* 지역에 *myResourceGroup*이라는 리소스 그룹을 만듭니다.
 
-```bash
+```azurecli
 az group create --name <myResourceGroup> --location westus
 ```
 
 **az acr create** 명령으로 Azure Container Registry를 만듭니다. \<acrName>을 구독에서 만들려는 컨테이너 레지스트리의 이름으로 대체합니다. 이 이름은 영숫자이며 고유해야 합니다.
 
-```bash
+```azurecli
 az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --admin-enabled true
 ```
 
@@ -110,7 +110,7 @@ az acr create --resource-group <myResourceGroup> --name <acrName> --sku Basic --
 
 이미지를 푸시하기 전에 먼저 ACR 인스턴스에 로그인합니다. **az acr login** 명령을 사용하여 작업을 완료합니다. 컨테이너 레지스트리가 생성될 때 지정된 고유한 이름을 입력합니다.
 
-```bash
+```azurecli
 az acr login --name <acrName>
 ```
 
@@ -136,13 +136,13 @@ tiangolo/uwsgi-nginx-flask   python3.6           590e17342131        5 days ago 
 
 loginServer 이름을 가져오려면 다음 명령을 실행합니다.
 
-```bash
+```azurecli
 az acr show --name <acrName> --query loginServer --output table
 ```
 
 다음과 같은 결과가 있는 테이블을 출력합니다. 이 결과는 다음 단계에서 컨테이너 레지스트리에 푸시하기 전에 **azure-vote-front** 이미지의 태그를 지정하는 데 사용됩니다.
 
-```bash
+```output
 Result
 ------------------
 <acrName>.azurecr.io
@@ -158,7 +158,7 @@ docker tag azure-vote-front <acrName>.azurecr.io/azure-vote-front:v1
 
 출력:
 
-```bash
+```output
 REPOSITORY                             TAG                 IMAGE ID            CREATED             SIZE
 azure-vote-front                       latest              052c549a75bf        23 minutes ago      708MB
 <acrName>.azurecr.io/azure-vote-front   v1                  052c549a75bf       23 minutes ago      708MB
@@ -182,13 +182,13 @@ docker 밀어넣기 명령이 완료되려면 몇 분 정도 걸립니다.
 
 Azure Container Registry로 푸시한 이미지 목록을 반환하려면 [az acr repository list](/cli/azure/acr/repository) 명령을 사용합니다. ACR 인스턴스 이름으로 명령을 업데이트합니다.
 
-```bash
+```azurecli
 az acr repository list --name <acrName> --output table
 ```
 
 출력:
 
-```bash
+```output
 Result
 ----------------
 azure-vote-front

@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: 7d6b4f8a7965a7cbcab2616650b40ed93087072b
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: 1ace4ce5b9b0fd59a69e908c1f31d1ad4853889b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589975"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271863"
 ---
 # <a name="azure-security-baseline-for-hdinsight"></a>HDInsight 용 Azure 보안 기준
 
@@ -65,7 +65,7 @@ https://docs.microsoft.com/azure/security-center/security-center-network-recomme
 
 ### <a name="13-protect-critical-web-applications"></a>1.3: 중요 한 웹 응용 프로그램 보호
 
-**지침**: 사용할 수 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
+**지침**: 해당 사항 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -125,7 +125,7 @@ HDInsight 관리 IP 주소: https://docs.microsoft.com/azure/hdinsight/hdinsight
 
 ### <a name="17-manage-traffic-to-web-applications"></a>1.7: 웹 응용 프로그램에 대 한 트래픽 관리
 
-**지침**: 사용할 수 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
+**지침**: 해당 사항 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
 
 **Azure Security Center 모니터링**: 해당 사항 없음
 
@@ -331,7 +331,7 @@ Log analytics 로그 데이터를 경고 하는 방법:
 
 https://docs.microsoft.com/azure/azure-monitor/learn/tutorial-response
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -491,7 +491,7 @@ Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 �
 
 https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -713,7 +713,7 @@ https://docs.microsoft.com/azure/security/fundamentals/protection-customer-data
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
-**책임**: 고객
+**책임**: 공유
 
 ### <a name="48-encrypt-sensitive-information-at-rest"></a>4.8: 휴지 상태의 중요 정보 암호화
 
@@ -779,7 +779,7 @@ https://docs.microsoft.com/azure/data-lake-analytics/data-lake-analytics-diagnos
 
 Rapid7 Agent를 수동으로 설치 하는 방법:
 
-https://insightvm.help.rapid7.com/v1.0/docs/agent-installation-on-linux
+https://insightvm.help.rapid7.com/docs/azure-security-center
 
 
 Qualys Agent를 수동으로 설치 하는 방법:
@@ -926,11 +926,12 @@ https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tag
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
-Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다.  환경에 있는 모든 Azure 리소스가 승인 되었는지 확인 합니다.
+Azure 리소스 그래프를 사용 하 여 구독 내에서 리소스를 쿼리/검색 합니다. 환경에 있는 모든 Azure 리소스가 승인 되었는지 확인 합니다.
 
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
 
 Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
+
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -972,7 +973,9 @@ https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 - 허용되지 않는 리소스 종류
 - 허용되는 리소스 유형
 
+
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
@@ -993,9 +996,7 @@ Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법: 
 **지침**: Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure Resource Manager 상호 작용 하는 기능을 제한 합니다.
 
 
-Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1003,7 +1004,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="612-limit-users-ability-to-execute-scripts-within-compute-resources"></a>6.12: 사용자가 계산 리소스 내에서 스크립트를 실행 하는 기능을 제한 합니다.
 
-**지침**: 사용할 수 없음 이는 클러스터의 관리자가 아닌 사용자가 작업을 실행 하기 위해 개별 노드에 액세스할 필요가 없기 때문에 Azure HDInsight에는 적용 되지 않습니다. 클러스터 관리자에 게는 모든 클러스터 노드에 대 한 루트 액세스 권한이 있습니다.
+**지침**: 해당 사항 없음 이는 클러스터의 관리자가 아닌 사용자가 작업을 실행 하기 위해 개별 노드에 액세스할 필요가 없기 때문에 Azure HDInsight에는 적용 되지 않습니다. 클러스터 관리자에 게는 모든 클러스터 노드에 대 한 루트 액세스 권한이 있습니다.
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1011,7 +1012,7 @@ https://docs.microsoft.com/azure/role-based-access-control/conditional-access-az
 
 ### <a name="613-physically-or-logically-segregate-high-risk-applications"></a>6.13: 위험 수준이 높은 응용 프로그램을 물리적 또는 논리적으로 분리
 
-**지침**: 사용할 수 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
+**지침**: 해당 사항 없음 벤치 마크는 Azure 앱 서비스 또는 웹 응용 프로그램을 호스트 하는 계산 리소스를 위한 것입니다.
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1095,7 +1096,7 @@ https://docs.microsoft.com/azure/devops/repos/index?view=azure-devops
 
 ### <a name="76-securely-store-custom-operating-system-images"></a>7.6: 사용자 지정 운영 체제 이미지를 안전 하 게 저장
 
-**지침**: 사용할 수 없음 사용자 지정 이미지는 Azure HDInsight에 적용할 수 없습니다.
+**지침**: 해당 사항 없음 사용자 지정 이미지는 Azure HDInsight에 적용할 수 없습니다.
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1343,7 +1344,7 @@ https://docs.microsoft.com/azure/security-center/security-center-planning-and-op
 
 **지침**: Security Center는 경고에 대 한 심각도를 할당 하 여 각 경고에 참석 하는 순서의 우선 순위를 지정할 수 있도록 합니다. 따라서 리소스가 손상 되 면 즉시 가져올 수 있습니다. 심각도는 경고를 실행 하는 데 사용 되는 검색 또는 분석에 사용 되는 Security Center의 신뢰도와 경고를 발생 시킨 활동의 악의적인 의도를 가진 신뢰도 수준을 기준으로 합니다.
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -1421,3 +1422,7 @@ Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프�
 
 **책임**: 공유
 
+## <a name="next-steps"></a>다음 단계
+
+- [Azure 보안 벤치 마크](https://docs.microsoft.com/azure/security/benchmarks/overview) 를 참조 하세요.
+- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview) 에 대 한 자세한 정보

@@ -10,12 +10,12 @@ author: likebupt
 ms.author: keli19
 ms.reviewer: peterlu
 ms.date: 12/25/2019
-ms.openlocfilehash: 189b36c8d9a7c1d1e247bb2cb34795dc4e3595ce
-ms.sourcegitcommit: 42517355cc32890b1686de996c7913c98634e348
+ms.openlocfilehash: a80a1567c84ff3c2eda8ad22391aa862bb7d9d82
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/02/2020
-ms.locfileid: "76963345"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77915829"
 ---
 # <a name="train--compare-multiple-regression-models-to-predict-car-prices-with-azure-machine-learning-designer"></a>Azure Machine Learning 디자이너를 사용하여 자동차 가격을 예측하는 여러 회귀 모델 학습 및 비교
 
@@ -62,7 +62,7 @@ ms.locfileid: "76963345"
 
 기계 학습 문제는 다양합니다. 일반적인 기계 학습 작업에는 분류, 클러스터링, 회귀 및 추천 시스템이 포함되며, 각각 다른 알고리즘이 필요할 수 있습니다. 알고리즘 선택은 종종 사용 사례의 요구 사항에 따라 달라집니다. 알고리즘을 선택한 후에는 모델을 보다 정확하게 학습시킬 수 있도록 매개 변수를 조정해야 합니다. 그런 다음, 정확도, 명료도, 효율성 같은 메트릭을 기반으로 모든 모델을 평가해야 합니다.
 
-이 파이프라인의 목표는 자동차 가격을 예측하는 것이고 레이블 열(가격)에 실제 숫자가 포함되어 있으므로 회귀 모델을 선택하는 것이 좋습니다. 기능 수가 상대적으로 적고(100 미만) 이러한 기능이 스파스가 아닌 점을 고려할 때, 의사 결정 경계는 비선형일 가능성이 높습니다.
+이 파이프라인의 목표는 자동차 가격을 예측하는 것이고 레이블 열(가격)에 실제 숫자가 포함되어 있으므로 회귀 모델을 선택하는 것이 좋습니다.
 
 여러 알고리즘의 성능을 비교하기 위해 두 가지 비선형 알고리즘인 **향상된 의사 결정 트리 회귀** 및 **의사 결정 포리스트 회귀**를 사용하여 모델을 빌드하는 것입니다. 두 알고리즘 모두 변경할 수 있는 매개 변수가 있지만, 이 샘플은 이 파이프라인에 기본값을 사용합니다.
 

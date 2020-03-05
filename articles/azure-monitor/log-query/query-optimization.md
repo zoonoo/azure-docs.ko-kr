@@ -6,12 +6,12 @@ ms.topic: conceptual
 author: bwren
 ms.author: bwren
 ms.date: 02/28/2019
-ms.openlocfilehash: 4fad7d1e3359264c647ffc2d5f67dc547c87a13a
-ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
+ms.openlocfilehash: e5c3da94cf2440b30dc59fe20bc51a34095f7d5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/29/2020
-ms.locfileid: "78196657"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269054"
 ---
 # <a name="optimize-log-queries-in-azure-monitor"></a>Azure Monitor에서 로그 쿼리 최적화
 Azure Monitor 로그는 [ADX (Azure 데이터 탐색기)](/azure/data-explorer/) 를 사용 하 여 로그 데이터를 저장 하 고 쿼리를 실행 하 여 해당 데이터를 분석 합니다. ADX 클러스터를 만들고, 관리 하 고, 유지 관리 하며, 로그 분석 워크 로드에 맞게 최적화 합니다. 쿼리를 실행 하면 최적화 되 고 작업 영역 데이터를 저장 하는 적절 한 ADX 클러스터로 라우팅됩니다. Azure Monitor 로그와 Azure 데이터 탐색기 모두 자동 쿼리 최적화 메커니즘을 많이 사용 합니다. 자동 최적화는 상당한 향상을 제공 하지만 쿼리 성능을 크게 향상 시킬 수 있는 경우도 있습니다. 이 문서에서는 성능 고려 사항 및 해결을 위한 몇 가지 기법을 설명 합니다.
@@ -63,7 +63,7 @@ Log Analytics에서 쿼리를 실행 한 후 쿼리 결과 위의 아래쪽 화�
 
 이러한 함수는 처리 하는 행 수에 비례하여 CPU를 사용 합니다. 가장 효율적인 최적화는 CPU를 많이 사용 하는 함수를 실행 하기 전에 가능한 한 많은 레코드를 필터링 할 수 있는 where 조건을 쿼리 초기에 추가 하는 것입니다.
 
-예를 들어 다음 쿼리는 정확히 동일한 결과를 생성 하지만 두 번째 쿼리는 구문 분석 전의 [where]() 조건에서 많은 레코드를 제외 하므로 가장 효율적입니다.
+예를 들어 다음 쿼리는 정확히 동일한 결과를 생성 하지만 두 번째 쿼리는 구문 분석 전의 [where](/azure/kusto/query/whereoperator) 조건에서 많은 레코드를 제외 하므로 가장 효율적입니다.
 
 ```Kusto
 //less efficient
@@ -230,7 +230,7 @@ Perf
 ) on Computer
 ```
 
-이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 예를 들면 다음과 같습니다.
+이러한 실수가 발생 하는 일반적인 경우는 [arg_max ()](/azure/kusto/query/arg-max-aggfunction) 를 사용 하 여 가장 최근에 발생 한 항목을 찾는 경우입니다. 다음은 그 예입니다.
 
 ```Kusto
 Perf

@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 10/22/2019
-ms.openlocfilehash: 772c16dc292d8bce4b927c9c2ce3ff6ee0ed399d
-ms.sourcegitcommit: 812bc3c318f513cefc5b767de8754a6da888befc
+ms.openlocfilehash: 827c76610162d74c5283177fef4989204321f44b
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/12/2020
-ms.locfileid: "77152128"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268689"
 ---
 # <a name="partition-and-sample-module"></a>파티션 및 샘플 모듈
 
@@ -154,9 +154,9 @@ ms.locfileid: "77152128"
 
 5. 여러 파티션으로 작업 하는 경우에는 **파티션 및 샘플** 모듈의 인스턴스를 추가 하 여 각 파티션을 처리 해야 합니다.
 
-    예를 들어 이전에 환자를 사용 하 여 4 개의 접기로 분할 한 경우를 가정해 보겠습니다. 각 개별 접기를 사용 하려면 **파티션 및 샘플** 모듈의 복사본 4 개가 필요 하며, 아래와 같이 각각 다른 접기를 선택 합니다. **할당을** 사용 하 여 직접 접기 출력을 사용 하는 것은 올바르지 않습니다.  
+    예를 들어 두 번째 행의 **파티션 및 샘플** 모듈은 **접기에 할당**으로 설정 되 고 세 번째 행의 모듈은 **접기 선택**으로 설정 됩니다.   
 
-    [![파티션 및 샘플](./media/partition-and-sample/partition-and-sample.png)](./media/partition-and-sample/partition-and-sample-lg.png#lightbox)
+    ![파티션 및 샘플](./media/module/partition-and-sample.png)
 
 5. 파이프라인을 실행합니다.
 

@@ -10,12 +10,12 @@ ms.subservice: text-analytics
 ms.topic: sample
 ms.date: 02/10/2020
 ms.author: aahi
-ms.openlocfilehash: 84ef01b5e7fc3f628b1cdf7a1f13175604ebcdd4
-ms.sourcegitcommit: b95983c3735233d2163ef2a81d19a67376bfaf15
+ms.openlocfilehash: 60f6443e041c2f3a76a9027bebd33dc29a07f445
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/11/2020
-ms.locfileid: "77137953"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197473"
 ---
 # <a name="how-to-detect-sentiment-using-the-text-analytics-api"></a>방법: Text Analytics API를 사용하여 감정 감지
 
@@ -50,7 +50,7 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 | 감정 레이블 지정                        |                       | X                     |
 | 모델 버전 관리                   |                       | X                     |
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ### <a name="sentiment-scoring"></a>감정 채점
 
@@ -76,10 +76,10 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 
 ### <a name="example-c-code"></a>C# 코드 예제
 
-이 버전의 감정 분석을 호출하는 C# 애플리케이션 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/SentimentV3.cs)에서 찾을 수 있습니다.
+이 버전의 감정 분석을 호출하는 C# 애플리케이션 예제는 [GitHub](https://github.com/Azure-Samples/cognitive-services-REST-api-samples/tree/master/dotnet/Language/TextAnalyticsSentiment.cs)에서 찾을 수 있습니다.
 
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 ### <a name="sentiment-scoring"></a>감정 채점
 
@@ -101,11 +101,11 @@ Text Analytics API는 v2 및 v3의 두 가지 감정 분석 버전을 제공합�
 
 POST 요청을 만듭니다. [Postman](text-analytics-how-to-call-api.md) 또는 다음 참조 링크의 **API 테스트 콘솔**을 사용하여 신속하게 요청을 만들어서 보낼 수 있습니다. 
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 [감정 분석 v3 참조](https://westus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v3-0-Preview-1/operations/Sentiment)
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 [감정 분석 v2 참조](https://westcentralus.dev.cognitive.microsoft.com/docs/services/TextAnalytics-v2-1/operations/56f30ceeeda5650db055a3c9)
 
@@ -116,11 +116,11 @@ Azure의 Text Analytics 리소스 또는 인스턴스화된 [Text Analytics 컨�
 > [!NOTE]
 > Azure Portal에서 Text Analytics 리소스에 대한 키와 엔드포인트를 찾을 수 있습니다. 리소스의 **빠른 시작** 페이지의 **리소스 관리** 아래에 있습니다. 
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v3.0-preview.1/sentiment`
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 `https://<your-custom-subdomain>.cognitiveservices.azure.com/text/analytics/v2.1/sentiment`
 
@@ -162,7 +162,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 
 출력은 즉시 반환됩니다. JSON을 수락하거나 로컬 시스템의 파일에 출력을 저장하는 애플리케이션에 결과를 스트리밍할 수 있습니다. 그런 다음, 데이터를 정렬, 검색 및 조작하는 데 사용할 수 있는 애플리케이션으로 출력을 가져옵니다.
 
-#### <a name="version-30-previewtabversion-3"></a>[버전 3.0 미리 보기](#tab/version-3)
+#### <a name="version-30-preview"></a>[버전 3.0 미리 보기](#tab/version-3)
 
 ### <a name="sentiment-analysis-v3-example-response"></a>감정 분석 v3 응답 예제
 
@@ -238,7 +238,7 @@ Text Analytics API는 상태를 저장하지 않습니다. 계정에 데이터�
 }
 ```
 
-#### <a name="version-21tabversion-2"></a>[버전 2.1](#tab/version-2)
+#### <a name="version-21"></a>[버전 2.1](#tab/version-2)
 
 ### <a name="sentiment-analysis-v2-example-response"></a>감정 분석 v2 응답 예제
 

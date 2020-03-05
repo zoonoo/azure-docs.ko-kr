@@ -2,18 +2,19 @@
 title: Azure Marketplace 및 AppSource 컨설팅 서비스
 description: 이 문서에서는 Azure Marketplace의 새 컨설팅 서비스 제품에 대한 자격 기준 및 게시 요구 사항을 설명합니다.
 services: Marketplace, Compute, Storage, Networking, Blockchain, Security
-author: yijenj
+author: qianw211
+manager: evansma
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: article
-ms.date: 10/29/2018
-ms.author: pabutler
-ms.openlocfilehash: cd90ae2b751a97c18dc8b6be4b8eb565a17df7a2
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
-ms.translationtype: MT
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: 50e5be309d56f58a79fa19b5270a0b6d2fd3db92
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77191139"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268245"
 ---
 # <a name="consulting-services-for-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource 컨설팅 서비스
 Azure Marketplace 및 AppSource의 컨설팅 서비스는 Microsoft 파트너에게 고객과 서비스를 연결하여 고객의 Azure 사용을 지원하고 확대한다는 목표와 비즈니스 목표를 제공합니다. 
@@ -33,7 +34,7 @@ Azure Marketplace 및 AppSource는 Microsoft SI (시스템 통합자) 파트너�
 |제품 환경 내      |Azure 관리 포털|Dynamics 365, Office 365, Office 클라이언트 앱| 
 |기타      |Azure Stack를 통한 온-프레미스 게시, Azure 용 컨설팅 서비스, Azure 용 관리 서비스|Dynamics 및 Power BI용 컨설팅 서비스|
 
-Microsoft Dynamics 365 및 Power BI 기반으로 하는 컨설팅 서비스 제안은 Microsoft AppSource에 나열 될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://smp-cdn-prod.azureedge.net/documents/Microsoft%20AppSource%20Partner%20Listing%20Guidelines.pdf)을 참조하세요. 
+Microsoft Dynamics 365, Power Apps 및 Power BI을 기반으로 하는 컨설팅 서비스 제안은 Microsoft AppSource에 나열 될 수 있습니다. 자세한 내용은 [Microsoft AppSource 컨설팅 서비스 목록 지침](https://go.microsoft.com/fwlink/?LinkId=828734&clcid=0x409)을 참조하세요.
 
 Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제안은 Azure Marketplace에 나열 될 수 있습니다. 자세한 내용은 [Azure 컨설팅 서비스 게시](https://docs.microsoft.com/azure/marketplace/cloud-partner-portal/consulting-services/cloud-partner-portal-consulting-services-publishing-offer) 및 [Azure Marketplace에 관리 서비스 제품 게시](https://docs.microsoft.com/azure/lighthouse/how-to/publish-managed-services-offers)에 대 한 문서를 참조 하세요.
 
@@ -61,24 +62,30 @@ Microsoft Azure 기반으로 하는 컨설팅 서비스 및 관리 서비스 제
 
 |기본 제품 |적합성 요구 사항 |
 |---------|---------|
-| Dynamics 365 for Customer Engagement    |   실버 또는 골드 [클라우드 고객 관계 관리](https://partner.microsoft.com/membership/cloud-customer-relationship-management-competency) 역량을 갖습니다.    | 
-|Dynamics 365 for Operations, Enterprise Edition  |  실버 또는 골드 [엔터프라이즈 리소스 플랜](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 역량을 갖고, 최근 12개월 동안 클라우드 운영에서 최소 $25,000 수익을 달성합니다.       |
-|Dynamics 365 for Finance and Operations, Business Edition  |  한 명 이상의 고객에 대해 [CSP(클라우드 서비스 공급자)](https://partner.microsoft.com/cloud-solution-provider) 또는 [DPOR(디지털 공식 파트너)](https://partner.microsoft.com/membership/digital-partner-of-record) 역할을 수행합니다.      |
-|Power BI, Power BI 사용자 지정 시각적 개체 | [솔루션 파트너 기준](https://www.microsoftpartnerserverandcloud.com/_layouts/download.aspx?SourceUrl=/Hosted%20Documents/BI%20Partner%20Program%20Overview%20%26%20Incentives.pdf)을 충족합니다.|
-|PowerApps | 게시된 [파트너 쇼케이스](https://appsource.microsoft.com/partners) 솔루션이 있습니다.
+| Dynamics 365 판매 <br> Dynamics 365 마케팅 <br> Dynamics 365 고객 서비스 <br> Dynamics 365 필드 서비스 <br> Dynamics 365 인적 자원 |   고객 Engagement 옵션에 대 한 [클라우드 Business Applications 역량](https://partner.microsoft.com/membership/cloud-business-applications-competency) 에서 골드 또는 실버 인증을 받아야 합니다.    | 
+| Dynamics 365 재무 <br> Dynamics 365 공급망 관리 <br> Dynamics 365 상거래 <br> Dynamics 365 인적 자원 <br> Dynamics 365 프로젝트 서비스 자동화 |  [클라우드 Business Applications](https://partner.microsoft.com/membership/cloud-business-applications-competency) 기능에서 통합 작업 옵션에 대해 골드 또는 실버 인증을 받아야 합니다.       |
+| Dynamics 365 Customer Insights | 5 개 이상의 측정값과 5 개 세그먼트를 포함 하는 [Dynamics 365 Customer Insights](https://dynamics.microsoft.com/ai/customer-insights/) 의 성공적인 비프로덕션 구현이 하나 이상 있어야 합니다. |
+| Dynamics 365 Business Central | [엔터프라이즈 리소스 계획 역량](https://partner.microsoft.com/membership/enterprise-resource-planning-competency) 에서 골드 또는 실버 인증을 받아야 하며, 3 개 이상의 비즈니스 센터 고객을 위한 클라우드 솔루션 공급자 여야 합니다. <br> <br> 또는 <br> <br> [AppSource에 비즈니스 중앙 응용 프로그램](https://appsource.microsoft.com/) 을 게시 해야 합니다. |
+| Power BI | [Power BI 파트너 소개](https://powerbi.microsoft.com/partner-showcase/?term=&country=&industry=&department=)에 나열 되어야 합니다.|
+|Power Apps | [PowerApps 파트너 관계 프로그램](https://aka.ms/PowerAppsPartner)의 고급 혜택을 받을 자격이 있어야 합니다. |
+
+추가 리소스 및 지원:
+
+1. [Microsoft 클라우드 지원 센터](https://aka.ms/CEDnominate) <br> 클라우드 사용 데스크 안내 환경 파트너 추천는 클라우드 프로그램 전문가에 게 MPN 혜택을 분명히 하 고 역량 attainment에 대 한 지침을 제공 하는 데 도움을 주는 것입니다.  
+2. Power BI 전시에 나열 하는 방법 <br> 나열 될 요청을 제출 하 여 시작 합니다. [파트너가 되기](https://powerbi.microsoft.com/become-a-partner/)를 참조 하세요.
 
 <b> 자세한 내용은 [Microsoft 파트너 네트워크를 통한 역량](https://partner.microsoft.com/membership/competencies)을 참조하세요. </b>
- 
 
-**SI 파트너는 다음 18 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.**
+**SI 파트너는 다음 21 개 국가/지역에 대 한 컨설팅 서비스 제품을 제출할 수 있습니다.**
 
-|적격 국가/지역 |   |   |   |
+|   |   |   |   |
 |---------|----------|----------|----------|
-|오스트레일리아 |프랑스  |     멕시코          |스페인       |
-|벨기에   |독일 |     네덜란드     |스웨덴       |
-|Canada    |인도   |     뉴질랜드     |United Kingdom  |
-|덴마크   |이탈리아   |     노르웨이          |미국 |
-|핀란드   |일본   |     폴란드          
+| 오스트레일리아 | 벨기에 | Canada | 덴마크 |
+| 핀란드  | 프랑스 | 독일  | 인도   |
+| 이탈리아    | 일본  |  멕시코  |  네덜란드  |
+|  뉴질랜드  |  노르웨이  |  폴란드  | 남아프리카 |
+|  스페인  | 스웨덴  | 스위스  |  미국  |
+| United Kingdom  |
 
 
 ## <a name="how-to-register-for-consulting-services-in-azure-marketplace-and-appsource"></a>Azure Marketplace 및 AppSource에서 컨설팅 서비스를 등록하는 방법

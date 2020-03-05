@@ -14,12 +14,12 @@ ms.tgt_pltfrm: na
 ms.workload: infrastructure-services
 ms.date: 02/18/2020
 ms.author: allensu
-ms.openlocfilehash: fadf42e7bd7d754dea64542f06866a439eb460ec
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: 7e8cbadf2c68b97451b40afb876ceb7d88d3758e
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77588776"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661059"
 ---
 # <a name="quickstart-create-a-nat-gateway-using-azure-powershell"></a>빠른 시작: Azure PowerShell을 사용하여 NAT 게이트웨이 만들기
 
@@ -238,7 +238,7 @@ $sshPublicKey = cat ~/.ssh/id_rsa.pub
 Add-AzVMSshPublicKey -VM $vmconfig -KeyData $sshPublicKey -Path "/home/azureuser/.ssh/authorized_keys"
 
 ```
-구성 정의를 결합하여 [New-AzVM]((https://docs.microsoft.com/powershell/module/az.compute/new-azvm?view=azps-2.8.0))을 통해 **myVM**이라는 VM을 **myResourceGroupNAT**에 만듭니다.
+구성 정의를 결합하여 [New-AzVM](/powershell/module/az.compute/new-azvm?view=azps-2.8.0)을 통해 **myVM**이라는 VM을 **myResourceGroupNAT**에 만듭니다.
 
 ```azurepowershell-interactive
 $rsg = 'myResourceGroupNAT'

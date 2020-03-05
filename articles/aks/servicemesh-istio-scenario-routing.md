@@ -6,12 +6,12 @@ ms.topic: article
 ms.date: 10/09/2019
 ms.author: pabouwer
 zone_pivot_groups: client-operating-system
-ms.openlocfilehash: 4c29658473aaa50168175c76234dfca34fcdad83
-ms.sourcegitcommit: 99ac4a0150898ce9d3c6905cbd8b3a5537dd097e
+ms.openlocfilehash: 4a695957c287e69ff6b40e5a01254a729eaae441
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77594153"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272998"
 ---
 # <a name="use-intelligent-routing-and-canary-releases-with-istio-in-azure-kubernetes-service-aks"></a>Azure Kubernetes Service(AKS)에서 Istio를 사용하여 인텔리전트 라우팅 및 카나리 릴리스 사용
 
@@ -68,25 +68,25 @@ cd aks-voting-app/scenarios/intelligent-routing-with-istio
 
 먼저 다음과 같이 `voting` 이라는 샘플 AKS 투표 앱에 대해 AKS 클러스터에 네임 스페이스를 만듭니다.
 
-```azurecli
+```console
 kubectl create namespace voting
 ```
 
 `istio-injection=enabled`를 사용하여 네임스페이스를 레이블합니다. 이 레이블은 이 네임스페이스에서 모든 사용자 Pod에 사이드카로 istio-proxies를 자동으로 삽입하도록 Istio에게 지시합니다.
 
-```azurecli
+```console
 kubectl label namespace voting istio-injection=enabled
 ```
 
 이제 AKS Voting 앱에 대한 구성 요소를 만들어 보겠습니다. 이전 단계에서 만든 `voting` 네임 스페이스에 이러한 구성 요소를 만듭니다.
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-1-create-voting-app.yaml --namespace voting
 ```
 
 다음 예제 출력에서는 생성 되는 리소스를 보여 줍니다.
 
-```console
+```output
 deployment.apps/voting-storage-1-0 created
 service/voting-storage created
 deployment.apps/voting-analytics-1-0 created
@@ -100,13 +100,13 @@ service/voting-app created
 
 만든 pod을 보려면 다음과 같이 [kubectl get pod][kubectl-get] 명령을 사용 합니다.
 
-```azurecli
+```console
 kubectl get pods -n voting --show-labels
 ```
 
 다음 예제 출력에서는 `voting-app` pod의 인스턴스 3 개와 `voting-analytics` 및 `voting-storage` pod의 단일 인스턴스를 보여 줍니다. 각 Pod에는 두 개의 컨테이너가 있습니다. 이러한 컨테이너 중 하나는 구성 요소이 고 다른 하나는 `istio-proxy`입니다.
 
-```console
+```output
 NAME                                    READY     STATUS    RESTARTS   AGE   LABELS
 voting-analytics-1-0-57c7fccb44-ng7dl   2/2       Running   0          39s   app=voting-analytics,pod-template-hash=57c7fccb44,version=1.0
 voting-app-1-0-956756fd-d5w7z           2/2       Running   0          39s   app=voting-app,pod-template-hash=956756fd,version=1.0
@@ -144,26 +144,26 @@ Istio [게이트웨이][istio-reference-gateway] 및 [가상 서비스][istio-re
 
 `kubectl apply` 명령을 사용 하 여 게이트웨이 및 Virtual Service yaml을 배포 합니다. 이러한 리소스가 배포 되는 네임 스페이스를 지정 해야 합니다.
 
-```azurecli
+```console
 kubectl apply -f istio/step-1-create-voting-app-gateway.yaml --namespace voting
 ```
 
 다음 예제 출력에서는 생성 되는 새 게이트웨이 및 가상 서비스를 보여 줍니다.
 
-```console
+```output
 virtualservice.networking.istio.io/voting-app created
 gateway.networking.istio.io/voting-app-gateway created
 ```
 
 다음 명령을 사용하여 Istio 수신 게이트웨이의 IP 주소를 가져옵니다.
 
-```azurecli
+```output
 kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{.status.loadBalancer.ingress[0].ip}'
 ```
 
 다음 예제 출력에서는 수신 게이트웨이의 IP 주소를 보여줍니다.
 
-```
+```output
 20.188.211.19
 ```
 
@@ -183,13 +183,13 @@ kubectl get service istio-ingressgateway --namespace istio-system -o jsonpath='{
 
 `voting-analytics` 구성 요소의 `1.1` 버전을 배포 하겠습니다. `voting` 네임 스페이스에이 구성 요소를 만듭니다.
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-2-update-voting-analytics-to-1.1.yaml --namespace voting
 ```
 
 다음 예제 출력에서는 생성 되는 리소스를 보여 줍니다.
 
-```console
+```output
 deployment.apps/voting-analytics-1-1 created
 ```
 
@@ -223,7 +223,7 @@ deployment.apps/voting-analytics-1-1 created
 
 다음 예제 출력은 버전 간에 사이트 전환으로 반환된 웹 사이트의 관련 부분을 보여 줍니다.
 
-```console
+```output
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2 | Dogs: 4 </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -244,13 +244,13 @@ deployment.apps/voting-analytics-1-1 created
 * 이 정책은 `voting` 네임 스페이스 내에서 서비스 간에 상호 TLS가 적용 되도록 `STRICT`로 설정 `peers.mtls.mode` 합니다.
 * 또한 모든 대상 규칙에서 `trafficPolicy.tls.mode`를 `ISTIO_MUTUAL`로 설정 합니다. Istio는 강력한 ID의 서비스를 제공하고 Istio가 투명하게 관리하는 상호 TLS와 클라이언트 인증서를 사용하여 서비스 간 통신을 보호합니다.
 
-```azurecli
+```console
 kubectl apply -f istio/step-2-update-and-add-routing-for-all-components.yaml --namespace voting
 ```
 
 다음 예제 출력에서는 업데이트/생성 되는 새 정책, 대상 규칙 및 가상 서비스를 보여 줍니다.
 
-```console
+```output
 virtualservice.networking.istio.io/voting-app configured
 policy.authentication.istio.io/default created
 destinationrule.networking.istio.io/voting-app created
@@ -286,7 +286,7 @@ virtualservice.networking.istio.io/voting-storage created
 
 다음 예제 출력은 반환된 웹 사이트의 관련 부분을 보여줍니다.
 
-```console
+```output
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
   <div id="results"> Cats: 2/6 (33%) | Dogs: 4/6 (67%) </div>
@@ -322,7 +322,7 @@ istioctl authn tls-check <pod-name[.namespace]> [<service>]
 
 다음 예제 출력에서는 위의 각 쿼리에 대해 상호 TLS를 적용 하는 방법을 보여 줍니다. 출력에는 상호 TLS를 적용 하는 정책 및 대상 규칙도 표시 됩니다.
 
-```console
+```output
 # mTLS configuration between istio ingress pods and the voting-app service
 HOST:PORT                                    STATUS     SERVER     CLIENT     AUTHN POLICY       DESTINATION RULE
 voting-app.voting.svc.cluster.local:8080     OK         mTLS       mTLS       default/voting     voting-app/voting
@@ -364,13 +364,13 @@ voting-storage.voting.svc.cluster.local:6379     OK         mTLS       mTLS     
 
 먼저 이러한 새 구성 요소에 부합하도록 Istio 대상 규칙 및 가상 서비스를 업데이트합니다. 이러한 업데이트는 새 구성 요소로 트래픽을 잘못 라우팅되지는 않는지 사용자가 예기치 않은 액세스를 하지 않는지 확인합니다.
 
-```azurecli
+```console
 kubectl apply -f istio/step-3-add-routing-for-2.0-components.yaml --namespace voting
 ```
 
 다음 예제 출력에서는 업데이트 되는 대상 규칙 및 가상 서비스를 보여 줍니다.
 
-```console
+```output
 destinationrule.networking.istio.io/voting-app configured
 virtualservice.networking.istio.io/voting-app configured
 destinationrule.networking.istio.io/voting-analytics configured
@@ -381,13 +381,13 @@ virtualservice.networking.istio.io/voting-storage configured
 
 다음으로 새 버전 `2.0` 구성 요소에 대 한 Kubernetes 개체를 추가 해 보겠습니다. 또한 MySQL에 대 한 `3306` 포트를 포함 하도록 `voting-storage` 서비스를 업데이트 합니다.
 
-```azurecli
+```console
 kubectl apply -f kubernetes/step-3-update-voting-app-with-new-storage.yaml --namespace voting
 ```
 
 다음 예제 출력은 Kubernetes 개체가 성공적으로 업데이트되거나 만들어졌음을 보여줍니다.
 
-```console
+```output
 service/voting-storage configured
 secret/voting-storage-secret created
 deployment.apps/voting-storage-2-0 created
@@ -398,7 +398,7 @@ deployment.apps/voting-app-2-0 created
 
 모든 버전 `2.0` pod가 실행 될 때까지 기다립니다. [Kubectl get pod][kubectl-get] 명령과 `-w` watch 스위치를 사용 하 여 `voting` 네임 스페이스의 모든 pod에 대 한 변경 내용을 감시 합니다.
 
-```azurecli
+```console
 kubectl get pods --namespace voting -w
 ```
 
@@ -428,13 +428,13 @@ kubectl get pods --namespace voting -w
 
 다음과 같이 `voting` 네임 스페이스를 삭제 하 여 AKS 클러스터에서이 시나리오에 사용 된 AKS 투표 앱을 제거할 수 있습니다.
 
-```azurecli
+```console
 kubectl delete namespace voting
 ```
 
 다음 예제 출력에서는 AKS 투표 앱의 모든 구성 요소가 AKS 클러스터에서 제거 되었음을 보여 줍니다.
 
-```console
+```output
 namespace "voting" deleted
 ```
 

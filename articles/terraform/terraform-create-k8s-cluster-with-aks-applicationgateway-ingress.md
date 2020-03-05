@@ -3,12 +3,12 @@ title: 자습서 - Azure Kubernetes Service에 Application Gateway 수신 컨트
 description: Azure Kubernetes Service와 함께 Application Gateway를 수신 컨트롤러로 사용하여 Kubernetes 클러스터를 만드는 방법을 설명하는 자습서
 ms.topic: tutorial
 ms.date: 11/13/2019
-ms.openlocfilehash: b16b0a40d14ecde87b2637976299d05d37d706f3
-ms.sourcegitcommit: 64def2a06d4004343ec3396e7c600af6af5b12bb
+ms.openlocfilehash: 14b8f6ba74a06c126da239671cbb2053df19af7d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/19/2020
-ms.locfileid: "77472267"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78251771"
 ---
 # <a name="tutorial-create-an-application-gateway-ingress-controller-in-azure-kubernetes-service"></a>자습서: Azure Kubernetes Service에 Application Gateway 수신 컨트롤러 만들기
 
@@ -765,7 +765,7 @@ App Gateway, AKS 및 AGIC가 설치되면, [Azure Cloud Shell](https://shell.azu
 
 자리 표시자를 적절한 값으로 바꿉니다. 지정된 리소스 그룹 내의 모든 리소스가 삭제됩니다.
 
-```bash
+```azurecli
 az group delete -n <resource-group>
 ```
 

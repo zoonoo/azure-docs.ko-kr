@@ -1,19 +1,18 @@
 ---
 title: Azure Application Insights를 사용하여 런타임 예외 진단 | Microsoft Docs
 description: Azure Application Insights를 사용하여 애플리케이션에서 런타임 예외를 찾고 진단하는 자습서입니다.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/19/2017
 ms.custom: mvc
-ms.openlocfilehash: d56b81dbe8c78b9b48f122d79f4567d0b0f42e27
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 91a0e4b052571a509ec7122e4440a8eaf58839be
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75398527"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670426"
 ---
 # <a name="find-and-diagnose-run-time-exceptions-with-azure-application-insights"></a>Azure Application Insights를 사용하여 런타임 예외 찾기 및 진단
 

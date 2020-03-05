@@ -10,12 +10,12 @@ ms.date: 12/04/2019
 ms.author: tamram
 ms.reviewer: cbrooks
 ms.custom: mvc
-ms.openlocfilehash: 1075c03820efba44ceb8dea28aff6302d2667cf2
-ms.sourcegitcommit: 8bd85510aee664d40614655d0ff714f61e6cd328
+ms.openlocfilehash: 654efd8f5fbe31131ae03a8e794bc2113df2d29f
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/06/2019
-ms.locfileid: "74892433"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77912191"
 ---
 # <a name="secure-access-to-application-data"></a>애플리케이션 데이터에 대한 보안 액세스
 
@@ -30,7 +30,7 @@ ms.locfileid: "74892433"
 
 [Azure Blob Storage](../common/storage-introduction.md#blob-storage)는 애플리케이션용 파일을 저장하기 위한 강력한 서비스를 제공합니다. 이 자습서에서는 [이전 항목][previous-tutorial]을 확장하여 웹 애플리케이션에서 스토리지 계정에 대한 액세스를 보호하는 방법을 보여 줍니다. 완료되면 이미지가 암호화되고 웹앱은 보안 SAS 토큰을 사용하여 썸네일 이미지에 액세스합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 이전 스토리지 자습서: [Event Grid를 사용하여 업로드된 이미지 크기 자동 조정][previous-tutorial]를 완료해야 합니다.
 
@@ -44,8 +44,9 @@ blobStorageAccount=<blob_storage_account>
 blobStorageAccountKey=$(az storage account keys list -g myResourceGroup \
 -n $blobStorageAccount --query [0].value --output tsv) 
 
-az storage container set-permission \ --account-name $blobStorageAccount \ --account-key $blobStorageAccountKey \ --name thumbnails  \
---public-access off
+az storage container set-permission \ 
+--account-name $blobStorageAccount --account-key $blobStorageAccountKey \ 
+--name thumbnails --public-access off
 ``` 
 
 ## <a name="configure-sas-tokens-for-thumbnails"></a>썸네일에 대한 SAS 토큰 구성
@@ -129,7 +130,7 @@ public static async Task<List<string>> GetThumbNailUrls(AzureStorageConfig _stor
 
 다음 클래스, 속성 및 메서드는 이전 작업에서 사용됩니다.
 
-|클래스  |properties| 메서드  |
+|클래스  |속성| 메서드  |
 |---------|---------|---------|
 |[StorageCredentials](/dotnet/api/microsoft.azure.cosmos.table.storagecredentials)    |         |
 |[CloudStorageAccount](/dotnet/api/microsoft.azure.cosmos.table.cloudstorageaccount)     | |[CreateCloudBlobClient](/dotnet/api/microsoft.azure.storage.blob.blobaccountextensions.createcloudblobclient)        |

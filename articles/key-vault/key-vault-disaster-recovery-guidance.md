@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: c0fed80f4ba9815cee49bc9968d542f168570986
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 530ae2b795b4d94802e9f0d3420f7b3af86936ad
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976361"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78184641"
 ---
 # <a name="azure-key-vault-availability-and-redundancy"></a>Azure Key Vault 가용성 및 중복성
 
@@ -37,11 +38,11 @@ Azure Key Vault에는 서비스의 개별 구성 요소가 실패해도 애플�
   * 암호 가져오기
   * 키 나열
   * 키(키의 속성) 가져오기
-  * 암호화
+  * Encrypt
   * 암호 해독
   * 래핑
   * 래핑 취소
-  * Verify
+  * 확인
   * 로그인
   * Backup
 * 장애 조치가 장애 복구되면 모든 요청 유형( 읽기 *및* 쓰기 요청 포함)을 사용할 수 있습니다.

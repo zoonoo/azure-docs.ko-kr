@@ -3,12 +3,12 @@ title: ASP.NET Core 응용 프로그램에 대 한 Azure 애플리케이션 정�
 description: ASP.NET Core 웹 애플리케이션의 가용성, 성능 및 사용량을 모니터링합니다.
 ms.topic: conceptual
 ms.date: 05/22/2019
-ms.openlocfilehash: 7aa8ae7fd2742e51ab1ccfed26524241f4c11256
-ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
+ms.openlocfilehash: 5028d95ef784b0d309880d0d05371cd42f627d7d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77666261"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269207"
 ---
 # <a name="application-insights-for-aspnet-core-applications"></a>ASP.NET Core 응용 프로그램에 대 한 Application Insights
 
@@ -158,6 +158,14 @@ ASP.NET Core의 [성능 카운터](https://azure.microsoft.com/documentation/art
     ```cshtml
         @Html.Raw(JavaScriptSnippet.FullScript)
         </head>
+    ```
+    
+또는 `FullScript`을 사용 하려면 `ScriptBody` SDK v 2.14에서 사용할 수 있습니다. 콘텐츠 보안 정책을 설정 하려면 `<script>` 태그를 제어 해야 하는 경우 다음을 사용 합니다.
+
+    ```cshtml
+        <script> // apply custom changes to this script tag.
+            @Html.Raw(JavaScriptSnippet.ScriptBody)
+        </script>
     ```
 
 이전에 참조 된 `.cshtml` 파일 이름은 기본 MVC 응용 프로그램 템플릿에서 가져온 것입니다. 궁극적으로 응용 프로그램에 대 한 클라이언트 쪽 모니터링을 적절 하 게 사용 하려면 모니터링할 응용 프로그램의 각 페이지 `<head>` 섹션에 JavaScript 코드 조각이 표시 되어야 합니다. `_Layout.cshtml`에 JavaScript 코드 조각을 추가 하 여이 응용 프로그램 템플릿에 대 한이 목표를 달성할 수 있습니다. 

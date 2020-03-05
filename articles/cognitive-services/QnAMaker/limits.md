@@ -1,14 +1,14 @@
 ---
 title: 한도 및 경계 - QnA Maker
 description: QnA Maker에는 기술 자료 및 서비스 부분에 대해 제한이 있습니다. 테스트 및 게시하기 위해서는 기술 자료를 그러한 제한 내로 유지하는 것이 중요합니다.
-ms.topic: article
+ms.topic: reference
 ms.date: 02/14/2020
-ms.openlocfilehash: ba53513f21cfc2a4f16fe17decdf0df41570201c
-ms.sourcegitcommit: 96dc60c7eb4f210cacc78de88c9527f302f141a9
+ms.openlocfilehash: 6375a6c6efc0c7016d9947e04e9479385aa80af5
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/27/2020
-ms.locfileid: "77650370"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273344"
 ---
 # <a name="qna-maker-knowledge-base-limits-and-boundaries"></a>QnA Maker 기술 자료 제한 및 경계
 
@@ -37,7 +37,7 @@ ms.locfileid: "77650370"
 
 ### <a name="maximum-file-size"></a>최대 파일 크기
 
-|서식|최대 파일 크기 (MB)|
+|형식|최대 파일 크기 (MB)|
 |--|--|
 |`.docx`|10|
 |`.pdf`|25|

@@ -17,12 +17,12 @@ ms.workload: infrastructure-services
 ms.date: 02/03/2020
 ms.author: rdhillon
 ms.custom: ''
-ms.openlocfilehash: e04c23f6f27561c2108c97d4def77361a9c50834
-ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
+ms.openlocfilehash: e01af052a936403162115965f2dc5b3ad46dd9cf
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/03/2020
-ms.locfileid: "78253001"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271177"
 ---
 # <a name="manage-data-exfiltration-to-azure-storage-accounts-with-virtual-network-service-endpoint-policies-using-the-azure-cli"></a>Azure CLI를 사용 하 여 가상 네트워크 서비스 끝점 정책으로 계정을 Azure Storage 하는 데이터 반출 관리
 
@@ -204,12 +204,12 @@ echo $saConnectionString2
 
 ```azurecli-interactive
 az storage share create \
-  --name my-file-share1 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString1 > /dev/null
 
 az storage share create \
-  --name my-file-share2 \
+  --name my-file-share \
   --quota 2048 \
   --connection-string $saConnectionString2 > /dev/null
 ```

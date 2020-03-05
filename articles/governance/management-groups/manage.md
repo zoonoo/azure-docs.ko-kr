@@ -3,12 +3,12 @@ title: 관리 그룹으로 작업 하는 방법-Azure 거 버 넌 스
 description: 관리 그룹 계층 구조를 살펴보고, 유지 관리하고, 업데이트하고, 삭제하는 방법을 알아봅니다.
 ms.date: 12/18/2019
 ms.topic: conceptual
-ms.openlocfilehash: 59f1b48e0a668d506a87ae1ef14de6df76b26ad7
-ms.sourcegitcommit: 380e3c893dfeed631b4d8f5983c02f978f3188bf
+ms.openlocfilehash: 94df67888c0ed0ea532844a92a362a181621d3d3
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/08/2020
-ms.locfileid: "75751238"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267932"
 ---
 # <a name="manage-your-resources-with-management-groups"></a>관리 그룹으로 리소스 관리
 
@@ -17,6 +17,12 @@ ms.locfileid: "75751238"
 관리 그룹은 어떤 형식의 구독을 사용하든 관계 없이 대규모의 엔터프라이즈급 관리를 제공합니다.  관리 그룹에 대해 자세히 알아보려면 [Azure 관리 그룹으로 리소스 구성](overview.md)을 참조하세요.
 
 [!INCLUDE [GDPR-related guidance](../../../includes/gdpr-intro-sentence.md)]
+
+>[!IMPORTANT]
+>사용자 토큰 및 관리 그룹 캐시는 강제로 새로 고치도록 30 분 동안 지속 됩니다. Azure Resource Manager  관리 그룹 또는 구독 이동과 같은 작업을 수행한 후에는를 표시 하는 데 최대 30 분이 걸릴 수 있습니다.  
+>업데이트를 더 빨리 보려면 브라우저를 새로 고치거 나 로그인/로그 아웃 하거나 새 토큰을 요청 하 여 토큰을 업데이트 해야 합니다.  
+
+
 
 ## <a name="change-the-name-of-a-management-group"></a>관리 그룹의 이름 변경
 
@@ -125,7 +131,7 @@ az account management-group delete --name 'Contoso'
 
 ### <a name="view-in-powershell"></a>PowerShell에서 보기
 
-AzManagementGroup 명령을 사용 하 여 모든 그룹을 검색 합니다.  관리 그룹의 전체 목록은 Powershell 명령 가져오기 [를 참조 하세요.](/powershell/module/az.resources/Get-AzManagementGroup)  
+AzManagementGroup 명령을 사용 하 여 모든 그룹을 검색 합니다.  관리 그룹의 전체 목록은 PowerShell 명령 가져오기 [를 참조 하세요.](/powershell/module/az.resources/Get-AzManagementGroup)  
 
 ```azurepowershell-interactive
 Get-AzManagementGroup
@@ -198,18 +204,18 @@ az account management-group show --name 'Contoso' -e -r
 
 관리 그룹 또는 구독을 다른 관리 그룹의 자식으로 이동 하는 경우 세 가지 규칙을 true로 평가 해야 합니다.
 
-이동 작업을 수행 하는 경우 다음이 필요 합니다. 
+이동 작업을 수행하는 경우 다음이 필요합니다. 
 
--  자식 구독 또는 관리 그룹에 대 한 관리 그룹 쓰기 및 역할 할당 쓰기 권한입니다.
+-  자식 구독 또는 관리 그룹에 대한 관리 그룹 쓰기 및 역할 할당 쓰기 권한.
     - 기본 제공 역할 예제 **소유자**
-- 대상 부모 관리 그룹에 대 한 관리 그룹 쓰기 액세스입니다.
+- 대상 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
     - 기본 제공 역할 예: **소유자**, **참가자**, **관리 그룹 참가자**
-- 기존 부모 관리 그룹에 대 한 관리 그룹 쓰기 액세스입니다.
+- 기존 부모 관리 그룹에 대한 관리 그룹 쓰기 액세스 권한.
     - 기본 제공 역할 예: **소유자**, **참가자**, **관리 그룹 참가자**
 
-**예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용 되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독에 대 한 기본 랜딩 이므로 항목을 이동할 수 있는 권한이 필요 하지 않습니다.
+**예외**: 대상 또는 기존 부모 관리 그룹이 루트 관리 그룹인 경우 권한 요구 사항이 적용 되지 않습니다. 루트 관리 그룹은 모든 새 관리 그룹 및 구독의 기본 랜딩 스팟이므로 루트 관리 그룹에 대한 권한이 없어도 항목을 이동할 수 있습니다.
 
-구독의 소유자 역할이 현재 관리 그룹에서 상속 되는 경우 이동 대상이 제한 됩니다. 소유자 역할이 있는 다른 관리 그룹 으로만 구독을 이동할 수 있습니다. 이를 참여자 인 관리 그룹으로 이동할 수 없습니다. 구독에 대 한 소유권이 손실 될 수 있기 때문입니다. 구독에 대 한 소유자 역할에 직접 할당 하는 경우 (관리 그룹에서 상속 되지 않음) 참가자 인 모든 관리 그룹으로 이동할 수 있습니다. 
+구독의 소유자 역할이 현재 관리 그룹에서 상속되는 경우 이동 대상이 제한됩니다. 소유자 역할이 있는 다른 관리 그룹으로만 구독을 이동할 수 있습니다. 기여자인 관리 그룹으로는 이동할 수 없습니다. 구독의 소유권을 잃게 되기 때문입니다. 구독에 대 한 소유자 역할에 직접 할당 하는 경우 (관리 그룹에서 상속 되지 않음) 참가자 인 모든 관리 그룹으로 이동할 수 있습니다. 
 
 Azure Portal에서 사용 권한을 확인 하려면 관리 그룹을 선택한 다음 **IAM**을 선택 합니다. RBAC 역할에 대해 자세히 알아보려면 [RBAC로 액세스 및 사용 권한 관리](../../role-based-access-control/overview.md)를 참조하세요.
 

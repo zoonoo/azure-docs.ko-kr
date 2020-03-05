@@ -3,17 +3,16 @@ title: 자습서 - Azure Monitor에서 메트릭 차트 만들기
 description: Azure 메트릭 탐색기를 사용하여 처음으로 메트릭 차트를 만드는 방법을 알아봅니다.
 author: bwren
 services: azure-monitor
-ms.service: azure-monitor
 ms.subservice: metrics
 ms.topic: tutorial
 ms.date: 12/16/2019
 ms.author: bwren
-ms.openlocfilehash: 7d9360840912614b6ae89d958d90de962b36506d
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: be4f026ba20ce1582f5626ec7483740831c25c1a
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75689951"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661467"
 ---
 # <a name="tutorial-create-a-metrics-chart-in-azure-monitor"></a>자습서: Azure Monitor에서 메트릭 차트 만들기
 메트릭 탐색기는 메트릭 값으로 차트를 만들고, 추세를 시각적으로 상호 연결하고, 메트릭 값의 급증 및 급락을 조사할 수 있는 Azure Portal의 Azure Monitor 기능입니다. 메트릭 탐색기를 사용하여 Azure 리소스의 상태 및 사용률을 조사하거나 사용자 지정 메트릭에서 차트를 그릴 수 있습니다. 

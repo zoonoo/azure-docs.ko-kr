@@ -12,12 +12,12 @@ ms.reviewer: douglasl
 manager: mflasko
 ms.custom: seo-lt-2019
 ms.date: 02/28/2020
-ms.openlocfilehash: 701e279e349bdc3b92d5b5c2dc50e23199f9d766
-ms.sourcegitcommit: 1f738a94b16f61e5dad0b29c98a6d355f724a2c7
+ms.openlocfilehash: e2d1a1c6e924e879e05af80e2e36a38e8a5cde66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "78160814"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273950"
 ---
 # <a name="configure-a-self-hosted-ir-as-a-proxy-for-an-azure-ssis-ir-in-azure-data-factory"></a>Azure Data Factory에서 Azure-SSIS IR에 대 한 프록시로 자체 호스팅 IR 구성
 
@@ -124,7 +124,7 @@ Visual Studio 또는 독립 실행형 설치 관리자에 대 한 최신 SSDT SS
 
 ![ConnectByProxy 속성 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-manager-properties.png)
 
-기존 패키지를 실행 하는 경우이 속성을 수동으로 변경할 필요 없이이 속성을 사용 하도록 설정할 수도 있습니다.  두 가지 옵션 중에서 선택할 수 있습니다.
+기존 패키지를 실행 하는 경우이 속성을 수동으로 변경할 필요 없이이 속성을 사용 하도록 설정할 수도 있습니다.  옵션에는
 - **옵션 A**: Azure-SSIS IR에서 실행할 최신 SSDT를 사용 하 여 패키지를 포함 하는 프로젝트를 열고 다시 빌드하고 다시 배포 합니다. 그런 다음 관련 연결 관리자에 대해 *True* 로 설정 하 여 속성을 설정할 수 있습니다. SSMS에서 패키지를 실행 하는 경우 이러한 연결 관리자는 **패키지 실행** 팝업 창의 **연결 관리자** 탭에 나타납니다.
 
   ![ConnectByProxy property2 사용](media/self-hosted-integration-runtime-proxy-ssis/shir-connection-managers-tab-ssms.png)
@@ -167,6 +167,7 @@ Azure-SSIS IR에서 실행 되는 두 번째 준비 작업은 별도로 청구 �
 
 - ODBC (Open Database Connectivity), OLEDB 또는 플랫 파일 연결 관리자와 ODBC, OLEDB 또는 플랫 파일 원본이 있는 데이터 흐름 태스크만 현재 지원 됩니다. 
 - *계정 키*, *SAS (공유 액세스 서명) URI*또는 *서비스 주체* 인증을 사용 하 여 구성 된 Azure Blob 저장소 연결 서비스만 현재 지원 됩니다.
+- OLEDB 원본에서 *Parametermapping* 은 아직 지원 되지 않습니다. 해결 방법으로, *변수에서 Sql 명령을* *accessmode* 로 사용 하 고 *식을* 사용 하 여 sql 명령에 변수/매개 변수를 삽입 하세요. 이를 설명 하기 위해 [Azure Storage 탐색기](https://storageexplorer.com/) *https://ssisazurefileshare.blob.core.windows.net/publicpreview?sp=rl&st=2018-04-08T14%3A10%3A00Z&se=2020-04-10T14%3A10%3A00Z&sv=2017-04-17&sig=mFxBSnaYoIlMmWfxu9iMlgKIvydn85moOnOch6%2F%2BheE%3D&sr=c* 에서 다음 SAS URI를 입력 하 여 공개 미리 보기 컨테이너의 *SelfhostedIrProxy/제한* 폴더에 샘플 패키지 *(ParameterMappingSample. package.dtsx)* 를 찾을 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

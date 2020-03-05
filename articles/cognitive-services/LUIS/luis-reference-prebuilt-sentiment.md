@@ -8,15 +8,15 @@ manager: nitinme
 ms.custom: seodec18
 ms.service: cognitive-services
 ms.subservice: language-understanding
-ms.topic: conceptual
+ms.topic: reference
 ms.date: 10/22/2019
 ms.author: diberry
-ms.openlocfilehash: a91246e4a4b3dc98bf11d2b014478fd40252f14b
-ms.sourcegitcommit: c22327552d62f88aeaa321189f9b9a631525027c
+ms.openlocfilehash: dee07859da97f76d9a2db3ccbb71ae74d8ff4846
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/04/2019
-ms.locfileid: "73501069"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78270416"
 ---
 # <a name="sentiment-analysis"></a>정서 분석
 감정 분석이 구성된 경우 LUIS json 응답에는 감정 분석이 포함됩니다. [Text Analytics](https://docs.microsoft.com/azure/cognitive-services/text-analytics/) 설명서에서 감정 분석에 대해 자세히 알아봅니다.
@@ -26,7 +26,7 @@ ms.locfileid: "73501069"
 
 감정 데이터는 데이터의 긍정적(1에 가까움) 또는 부정적(0에 가까움) 감정을 나타내는 1과 0 사이의 점수입니다.
 
-#### <a name="english-languagetabenglish"></a>[영어](#tab/english)
+#### <a name="english-language"></a>[영어](#tab/english)
 
 문화권이 `en-us`인 경우 응답은 다음과 같습니다.
 
@@ -37,7 +37,7 @@ ms.locfileid: "73501069"
 }
 ```
 
-#### <a name="other-languagestabother-languages"></a>[기타 언어](#tab/other-languages)
+#### <a name="other-languages"></a>[기타 언어](#tab/other-languages)
 
 다른 모든 문화권의 경우 응답은 다음과 같습니다.
 
@@ -46,9 +46,9 @@ ms.locfileid: "73501069"
   "score": 0.9163064
 }
 ```
-* * * 
+* * *
 
 ## <a name="next-steps"></a>다음 단계
 
-[V3 예측 끝점](luis-migration-api-v3.md)에 대해 자세히 알아보세요.
+[V3 예측 엔드포인트](luis-migration-api-v3.md)에 대해 자세히 알아봅니다.
 

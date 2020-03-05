@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: librown
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: ba579d6da8c759a4653b729f1a471efdedc2baa7
-ms.sourcegitcommit: 934776a860e4944f1a0e5e24763bfe3855bc6b60
+ms.openlocfilehash: ffe3d359dffea3278337de00bea42e0b959e10f6
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77505758"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269511"
 ---
 # <a name="passwordless-authentication-options-for-azure-active-directory"></a>Azure Active Directory에 대 한 암호 없는 인증 옵션
 
@@ -90,7 +90,7 @@ FIDO 동맹에 의해 FIDO2 인증 되는 많은 키가 있지만, Microsoft는 
 - 최종 사용자는 자신의 계정 포털에서 이러한 암호 없는 인증 방법을 등록 하 고 관리할 수 있습니다.
 - 최종 사용자는 이러한 암호 없는 인증 방법으로 로그인 할 수 있습니다.
    - Microsoft Authenticator 앱: 모든 브라우저를 사용 하 여 Windows 10 기본 (OOBE)을 설치 하는 동안, 그리고 모든 운영 체제에서 통합 된 모바일 앱을 포함 하 여 Azure AD 인증을 사용 하는 시나리오에서 작동 합니다.
-   - 보안 키: Microsoft Edge와 같은 지원 되는 브라우저의 Windows 10 및 웹에 대 한 잠금 화면에서 작업 합니다.
+   - 보안 키: Microsoft Edge (레거시 및 새 Edge 모두)와 같은 지원 되는 브라우저에서 Windows 10 및 웹의 잠금 화면에 대 한 작업을 수행 합니다.
 
 ## <a name="next-steps"></a>다음 단계
 

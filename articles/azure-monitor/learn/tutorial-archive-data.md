@@ -3,18 +3,17 @@ title: Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 description: Azure 리소스에서 생성된 로그 및 메트릭 데이터를 스토리지 계정에 보관합니다.
 author: johnkemnetz
 services: azure-monitor
-ms.service: azure-monitor
 ms.topic: tutorial
 ms.date: 09/25/2017
 ms.author: johnkem
 ms.custom: mvc
 ms.subservice: metrics
-ms.openlocfilehash: 87b05256103790c706f3ba0df7ea72c169b79f16
-ms.sourcegitcommit: 3dc1a23a7570552f0d1cc2ffdfb915ea871e257c
+ms.openlocfilehash: 3ed00b1c68c41bc392b09c97dd47c9cdb8fa890d
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/15/2020
-ms.locfileid: "75979812"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77661728"
 ---
 # <a name="archive-azure-metric-and-log-data-using-azure-storage"></a>Azure Storage를 사용하여 Azure 메트릭 보관 및 데이터 기록
 

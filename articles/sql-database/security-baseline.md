@@ -5,15 +5,15 @@ author: msmbaldwin
 manager: rkarlin
 ms.service: security
 ms.topic: conceptual
-ms.date: 02/22/2020
+ms.date: 02/28/2020
 ms.author: mbaldwin
 ms.custom: security-benchmark
-ms.openlocfilehash: e1323467db875968f45557c6a7c0afdfee5e4221
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
-ms.translationtype: MT
+ms.openlocfilehash: dd9b82cbb2984386059988496c550123a8e67a3f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
+ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77589936"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273090"
 ---
 # <a name="azure-security-baseline-for-azure-sql-database"></a>Azure SQL Database에 대 한 Azure 보안 기준
 
@@ -122,12 +122,9 @@ https://docs.microsoft.com/azure/network-watcher/network-watcher-create
 
 ### <a name="16-deploy-network-based-intrusion-detectionintrusion-prevention-systems-idsips"></a>1.6: 네트워크 기반 침입 감지/침입 방지 시스템 (IDS/IPS)을 배포 합니다.
 
-**지침**: Azure SQL Database에 대해 ATP (Advanced Threat Protection)를 사용 하도록 설정 했습니다.  사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. 또한 Advanced Threat Protection은 경고를 Azure Security Center와 통합 합니다.
+**지침**: Azure SQL Database에 대해 ATP (Advanced Threat Protection)를 사용 하도록 설정 합니다.  사용자는 의심스러운 데이터베이스 활동, 잠재적 취약성 및 SQL 삽입 공격뿐만 아니라 비정상적인 데이터베이스 액세스 및 쿼리 패턴에 대한 경고도 받습니다. 또한 Advanced Threat Protection은 경고를 Azure Security Center와 통합 합니다.
 
-
-Azure SQL Database에 대 한 Advanced Threat Protection 이해 및 사용:
-
-https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
+Azure SQL Database에 대 한 Advanced Threat Protection 이해 및 사용: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview
 
 **Azure Security Center 모니터링**: 예
 
@@ -164,11 +161,14 @@ https://docs.microsoft.com/azure/virtual-network/service-tags-overview
 
 ### <a name="19-maintain-standard-security-configurations-for-network-devices"></a>1.9: 네트워크 장치에 대 한 표준 보안 구성 유지
 
-**지침**: Azure Policy를 사용 하 여 Azure SQL Database 서버 인스턴스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL Database 서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대 한 해당 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."
+**지침**: Azure Policy를 사용 하 여 Azure SQL Database 서버 인스턴스에 대 한 네트워크 보안 구성을 정의 하 고 구현 합니다. "Microsoft .Sql" 네임 스페이스를 사용 하 여 사용자 지정 정책 정의를 정의 하거나 Azure SQL Database 서버 네트워크 보호를 위해 설계 된 기본 제공 정책 정의를 사용할 수 있습니다. Azure SQL Database 서버에 대해 적용 가능한 기본 제공 네트워크 보안 정책의 예는 "SQL Server 가상 네트워크 서비스 끝점을 사용 해야 합니다."입니다.
+ 
 
 Azure 청사진을 사용 하 여 azure 리소스 관리 템플릿, RBAC (역할 기반 액세스 제어) 및 정책과 같은 주요 환경 아티팩트를 단일 청사진 정의로 패키지화 하 여 대규모 Azure 배포를 간소화 합니다. 새 구독과 환경에 청사진을 쉽게 적용 하 고 버전 관리를 통해 제어 및 관리를 세부적으로 조정 합니다.
 
+
 Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/azure/governance/policy/tutorials/create-and-manage
+
 
 Azure Blueprint를 만드는 방법: https://docs.microsoft.com/azure/governance/blueprints/create-blueprint-portal
 
@@ -457,13 +457,27 @@ https://docs.microsoft.com/azure/active-directory/authentication/howto-mfa-getst
 
 **지침**: 환경에서 의심 스러운 활동이 나 안전 하지 않은 활동이 발생 하는 경우 로그 및 경고 생성에 Azure Active Directory 보안 보고서를 사용 합니다.
 
+
+
 Azure SQL Database에 대 한 Advanced Threat Protection을 사용 하 여 비정상이 고 잠재적으로 유해한 작업을 통해 데이터베이스에 액세스 하거나 악용 하려는 비정상 작업을 검색 합니다.
 
-위험한 활동에 대해 플래그가 지정 된 Azure AD 사용자를 확인 하는 방법: https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
 
-Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법: https://docs.microsoft.com/azure/security-center/security-center-identity-access
 
-Advanced Threat Protection 및 잠재적인 경고 검토: https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
+위험한 활동에 대해 플래그가 지정 된 Azure AD 사용자를 확인 하는 방법:
+
+https://docs.microsoft.com/azure/active-directory/reports-monitoring/concept-user-at-risk
+
+
+
+Azure Security Center에서 사용자 id 및 액세스 활동을 모니터링 하는 방법:
+
+https://docs.microsoft.com/azure/security-center/security-center-identity-access
+
+
+
+Advanced Threat Protection 및 잠재적인 경고를 검토 합니다.
+
+https://docs.microsoft.com/azure/sql-database/sql-database-threat-detection-overview#advanced-threat-protection-alerts
 
 
 **Azure Security Center 모니터링**: 예
@@ -473,6 +487,7 @@ Advanced Threat Protection 및 잠재적인 경고 검토: https://docs.microsof
 ### <a name="38-manage-azure-resources-from-only-approved-locations"></a>3.8: 승인 된 위치 에서만 Azure 리소스 관리
 
 **지침**: 조건부 액세스 명명 된 위치를 사용 하 여 IP 주소 범위 또는 국가/지역의 특정 논리적 그룹 에서만 포털 및 Azure 리소스 관리 액세스를 허용 합니다.
+
 
 Azure에서 명명 된 위치를 구성 하는 방법: https://docs.microsoft.com/azure/active-directory/reports-monitoring/quickstart-configure-named-locations
 
@@ -714,7 +729,7 @@ Azure 활동 로그 이벤트에 대 한 경고를 만드는 방법:
 https://docs.microsoft.com/azure/azure-monitor/platform/alerts-activity-log
 
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -774,7 +789,7 @@ Azure Security Center에서 취약성 평가 보고서를 내보내는 방법:
 
 https://docs.microsoft.com/azure/sql-database/sql-vulnerability-assessment#implementing-vulnerability-assessment
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 해당 사항 없음
 
 **책임**: 고객
 
@@ -796,11 +811,15 @@ Azure Security Center 보안 점수 이해: https://docs.microsoft.com/azure/sec
 
 **지침**: Azure 리소스 그래프를 사용 하 여 구독 내의 모든 리소스 (azure SQL Server 인스턴스 포함)를 쿼리하고 검색 합니다.  테 넌 트에서 적절 한 (읽기) 권한이 있는지 확인 하 고 구독 내의 리소스 뿐만 아니라 모든 Azure 구독을 열거할 수 있습니다.
 
+
 클래식 Azure 리소스는 리소스 그래프를 통해 검색 될 수 있지만 앞으로 Azure Resource Manager 리소스를 만들고 사용 하는 것이 좋습니다.
+
 
 Azure Graph를 사용 하 여 쿼리를 만드는 방법: https://docs.microsoft.com/azure/governance/resource-graph/first-query-portal
 
+
 Azure 구독을 보는 방법: https://docs.microsoft.com/powershell/module/az.accounts/get-azsubscription?view=azps-3.0.0
+
 
 Azure RBAC 이해: https://docs.microsoft.com/azure/role-based-access-control/overview
 
@@ -812,7 +831,11 @@ Azure RBAC 이해: https://docs.microsoft.com/azure/role-based-access-control/ov
 
 **지침**: Azure 리소스에 태그를 적용 하 여 논리적으로 분류로 구성 하는 메타 데이터를 제공 합니다.
 
-태그를 만들고 사용 하는 방법: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+
+
+태그를 만들고 사용 하는 방법:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -822,11 +845,23 @@ Azure RBAC 이해: https://docs.microsoft.com/azure/role-based-access-control/ov
 
 **지침**: 태그 지정, 관리 그룹 및 별도의 구독 (해당 하는 경우)을 사용 하 여 자산을 구성 하 고 추적 합니다. 정기적으로 인벤토리를 조정 하 고 권한이 없는 리소스가 적시에 구독에서 삭제 되도록 합니다.
 
-추가 Azure 구독을 만드는 방법: https://docs.microsoft.com/azure/billing/billing-create-subscription
 
-관리 그룹를 만드는 방법: https://docs.microsoft.com/azure/governance/management-groups/create
 
-태그를 만들고 사용 하는 방법: https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
+추가 Azure 구독을 만드는 방법:
+
+https://docs.microsoft.com/azure/billing/billing-create-subscription
+
+
+
+관리 그룹를 만드는 방법:
+
+https://docs.microsoft.com/azure/governance/management-groups/create
+
+
+
+태그를 만들고 사용 하는 방법:
+
+https://docs.microsoft.com/azure/azure-resource-manager/resource-group-using-tags
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -894,6 +929,7 @@ Azure Policy를 구성 하 고 관리 하는 방법: https://docs.microsoft.com/
 
 Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법: https://docs.microsoft.com/azure/governance/policy/samples/not-allowed-resource-types
 
+
 **Azure Security Center 모니터링**: 해당 사항 없음
 
 **책임**: 고객
@@ -911,9 +947,7 @@ Azure Policy를 사용 하 여 특정 리소스 종류를 거부 하는 방법: 
 **지침**: Azure 조건부 액세스를 사용 하 여 "Microsoft Azure 관리" 앱에 대 한 "액세스 차단"을 구성 함으로써 사용자의 Azure Resource Manager 상호 작용 하는 기능을 제한 합니다.
 
 
-Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법:
-
-https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
+Azure Resource Manager에 대 한 액세스를 차단 하도록 조건부 액세스를 구성 하는 방법: https://docs.microsoft.com/azure/role-based-access-control/conditional-access-azure-management
 
 **Azure Security Center 모니터링**: 현재 사용할 수 없음
 
@@ -1152,7 +1186,7 @@ Azure SQL Server를 사용 하 여 백업 및 비즈니스 연속성 이해:
 
 https://docs.microsoft.com/azure/sql-database/sql-database-business-continuity
 
-**Azure Security Center 모니터링**: 해당 사항 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 공유
 
@@ -1204,7 +1238,7 @@ Key Vault에서 일시 삭제를 사용 하도록 설정 하는 방법:
 
 https://docs.microsoft.com/azure/storage/blobs/storage-blob-soft-delete?tabs=azure-portal
 
-**Azure Security Center 모니터링**: 현재 사용할 수 없음
+**Azure Security Center 모니터링**: 예
 
 **책임**: 고객
 
@@ -1292,7 +1326,7 @@ https://docs.microsoft.com/azure/sentinel/connect-azure-security-center
 
 https://docs.microsoft.com/azure/security-center/workflow-automation
 
-**Azure Security Center 모니터링**: 예
+**Azure Security Center 모니터링**: 현재 사용할 수 없음
 
 **책임**: 고객
 
@@ -1314,3 +1348,7 @@ Microsoft에서 관리 하는 클라우드 인프라, 서비스 및 응용 프�
 
 **책임**: 공유
 
+## <a name="next-steps"></a>다음 단계
+
+- [Azure 보안 벤치 마크](https://docs.microsoft.com/azure/security/benchmarks/overview) 를 참조 하세요.
+- [Azure 보안 기준](https://docs.microsoft.com/azure/security/benchmarks/security-baselines-overview) 에 대 한 자세한 정보

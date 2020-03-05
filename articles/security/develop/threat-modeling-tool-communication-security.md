@@ -1,5 +1,6 @@
 ---
-title: 통신 보안 - Microsoft 위협 모델링 도구 - Azure | Microsoft Docs
+title: Microsoft Threat Modeling Tool에 대 한 통신 보안
+titleSuffix: Azure
 description: 위협 모델링 도구에 노출되는 위협 완화
 services: security
 documentationcenter: na
@@ -15,22 +16,22 @@ ms.devlang: na
 ms.topic: article
 ms.date: 02/07/2017
 ms.author: jegeib
-ms.openlocfilehash: 54d34a120c575fd01f746131d909058951d1facf
-ms.sourcegitcommit: 35715a7df8e476286e3fee954818ae1278cef1fc
+ms.openlocfilehash: b861c54cfffe409946a2b23de4c7ccf2cd85433a
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73839251"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269890"
 ---
 # <a name="security-frame-communication-security--mitigations"></a>보안 프레임: 통신 보안 | 완화 
-| 제품/서비스 | 문서 |
+| 제품/서비스 | 아티클 |
 | --------------- | ------- |
 | **Azure 이벤트 허브** | <ul><li>[SSL/TLS를 사용하여 이벤트 허브 통신 보안](#comm-ssltls)</li></ul> |
 | **Dynamics CRM** | <ul><li>[서비스 계정 권한 확인 및 사용자 지정 서비스 또는 ASP.NET 페이지에서 CRM 보안을 준수하는지 확인](#priv-aspnet)</li></ul> |
-| **Azure 데이터 팩터리** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
+| **Azure Data Factory** | <ul><li>[온-프레미스 SQL Server Azure Data Factory에 연결 하는 동안 데이터 관리 게이트웨이 사용](#sqlserver-factory)</li></ul> |
 | **Identity Server** | <ul><li>[Identity Server에 대한 모든 트래픽이 HTTPS 연결을 통과하는지 확인](#identity-https)</li></ul> |
 | **웹 애플리케이션** | <ul><li>[X.509 인증서를 사용하여 SSL, TLS 및 DTLS 연결을 인증하는지 확인](#x509-ssltls)</li><li>[Azure App Service에서 사용자 지정 도메인에 대한 SSL 인증서 구성](#ssl-appservice)</li><li>[Azure App Service에 대한 모든 트래픽이 HTTPS 연결을 통과하도록 강제 적용](#appservice-https)</li><li>[HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정](#http-hsts)</li></ul> |
-| **데이터베이스** | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
+| **Database** | <ul><li>[SQL 서버 연결 암호화 및 인증서 유효성 검사 확인](#sqlserver-validation)</li><li>[SQL 서버에 암호화된 통신 강제 적용](#encrypted-sqlserver)</li></ul> |
 | **Azure Storage** | <ul><li>[Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인](#comm-storage)</li><li>[HTTPS를 사용할 수 없는 경우 Blob을 다운로드한 후 MD5 해시 유효성 검사](#md5-https)</li><li>[SMB 3.0 호환 클라이언트를 사용하여 Azure 파일 공유에 대한 전송 중 데이터 암호화 보장](#smb-shares)</li></ul> |
 | **모바일 클라이언트** | <ul><li>[인증서 고정 구현](#cert-pinning)</li></ul> |
 | **WCF** | <ul><li>[HTTPS 사용 설정 - 보안 전송 채널](#https-transport)</li><li>[WCF: 메시지 보안 보호 수준을 EncryptAndSign으로 설정](#message-protection)</li><li>[WCF: 최소 권한 계정을 사용하여 WCF 서비스 실행](#least-account-wcf)</li></ul> |
@@ -76,7 +77,7 @@ ms.locfileid: "73839251"
 
 | 제목                   | 세부 정보      |
 | ----------------------- | ------------ |
-| **구성 요소**               | Identity Server | 
+| **구성 요소**               | ID 서버 | 
 | **SDL 단계**               | 배포 |  
 | **적용 가능한 기술** | 일반 |
 | **특성**              | 해당 없음  |
@@ -136,7 +137,7 @@ ms.locfileid: "73839251"
   </system.webServer>
 </configuration>
 ```
-이 규칙은 사용자가 HTTP를 사용하여 페이지를 요청할 때 HTTP 상태 코드 of 301(영구 리디렉션)을 반환하여 작동합니다. 301은 방문자가 요청한 것과 같은 URL로 요청을 리디렉션하지만 요청의 HTTP 부분을 HTTPS로 바꿉니다. 예를 들어 `HTTP://contoso.com`은 `HTTPS://contoso.com`으로 리디렉션됩니다. 
+이 규칙은 사용자가 HTTP를 사용하여 페이지를 요청할 때 HTTP 상태 코드 of 301(영구 리디렉션)을 반환하여 작동합니다. 301은 요청을 방문자가 요청한 것과 같은 URL로 리디렉션하지만 요청의 HTTP 부분을 HTTPS로 바꿉니다. 예를 들어 `HTTP://contoso.com`은 `HTTPS://contoso.com`으로 리디렉션됩니다. 
 
 ## <a id="http-hsts"></a>HSTS(HTTP 엄격한 전송 보안)를 사용하도록 설정
 
@@ -168,7 +169,7 @@ ms.locfileid: "73839251"
 | **SDL 단계**               | 빌드 |  
 | **적용 가능한 기술** | OnPrem |
 | **특성**              | SQL 버전 - MsSQL2016, SQL 버전 - MsSQL2012, SQL 버전 - MsSQL2014 |
-| **참조**              | [데이터베이스 엔진에 암호화 연결 사용](https://msdn.microsoft.com/library/ms191192)  |
+| **참조**              | [데이터베이스 엔진에 암호화된 연결 사용](https://msdn.microsoft.com/library/ms191192)  |
 | **단계** | SSL 암호화를 사용하면 SQL Server의 인스턴스와 애플리케이션 간에 네트워크를 통해 전송되는 데이터의 보안이 강화됩니다. |
 
 ## <a id="comm-storage"></a>Azure Storage에 대한 통신이 HTTPS를 통과하는지 확인

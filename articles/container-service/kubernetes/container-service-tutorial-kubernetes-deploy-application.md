@@ -7,12 +7,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: iainfou
 ms.custom: mvc
-ms.openlocfilehash: 7e10fd982c19e45be8c5da4ffc7f7248276352c1
-ms.sourcegitcommit: 5397b08426da7f05d8aa2e5f465b71b97a75550b
+ms.openlocfilehash: 2c2d50da4328ff07c3d2fda4a8721839aa3aa6e7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/19/2020
-ms.locfileid: "76275485"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78274065"
 ---
 # <a name="deprecated-run-applications-in-kubernetes"></a>(사용되지 않음) Kubernetes에서 애플리케이션 실행
 
@@ -70,13 +70,13 @@ containers:
 
 [kubectl create](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#create) 명령을 사용하여 애플리케이션을 실행합니다. 이 명령은 매니페스트 파일을 구문 분석하고 정의된 Kubernetes 개체를 만듭니다.
 
-```azurecli-interactive
+```console
 kubectl create -f azure-vote-all-in-one-redis.yml
 ```
 
 출력:
 
-```bash
+```output
 deployment "azure-vote-back" created
 service "azure-vote-back" created
 deployment "azure-vote-front" created
@@ -89,13 +89,13 @@ service "azure-vote-front" created
 
 진행 상태를 모니터링하려면 `--watch` 인수와 함께 [kubectl get service](https://kubernetes.io/docs/reference/generated/kubectl/kubectl-commands#get) 명령을 사용합니다.
 
-```azurecli-interactive
+```console
 kubectl get service azure-vote-front --watch
 ```
 
 처음에는 `azure-vote-front` 서비스에 대한 **EXTERNAL-IP**가 `pending`으로 표시됩니다. EXTERNAL-IP 주소가 `pending`에서 `IP address`로 변경되면 `CTRL-C`를 사용하여 kubectl 조사식 프로세스를 중지합니다.
 
-```bash
+```output
 NAME               CLUSTER-IP    EXTERNAL-IP   PORT(S)        AGE
 azure-vote-front   10.0.42.158   <pending>     80:31873/TCP   1m
 azure-vote-front   10.0.42.158   52.179.23.131 80:31873/TCP   2m

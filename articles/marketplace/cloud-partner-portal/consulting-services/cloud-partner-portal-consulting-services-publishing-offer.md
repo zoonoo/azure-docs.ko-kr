@@ -6,18 +6,18 @@ author: qianw211
 ms.service: marketplace
 ms.subservice: partnercenter-marketplace-publisher
 ms.topic: conceptual
-ms.date: 11/30/2018
-ms.author: pabutler
-ms.openlocfilehash: 506b34281ba8ab5b669c87b4699fb8b138c8734a
-ms.sourcegitcommit: ac56ef07d86328c40fed5b5792a6a02698926c2d
+ms.date: 02/27/2020
+ms.author: evansma
+ms.openlocfilehash: d744c0bdcae177ca5cee5617622f04da7312e15f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/08/2019
-ms.locfileid: "73819184"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268307"
 ---
 # <a name="azure-and-dynamics-365-consulting-service-offer"></a>Azure 및 Dynamics 365 컨설팅 서비스 제품
 
-이 문서에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource</a>에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a> 및 <a href="https://powerapps.microsoft.com">PowerApps</a> 기반의 솔루션은 AppSource에 나열할 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열할 수 있습니다.
+이 문서에서는 Microsoft <a href="https://azuremarketplace.microsoft.com">Azure Marketplace</a> 또는 <a href="https://appsource.microsoft.com">AppSource</a>에 컨설팅 서비스 제품을 게시하는 방법을 설명합니다. Microsoft <a href="https://dynamics.microsoft.com">Dynamics 365</a>, <a href="https://powerbi.microsoft.com">Power BI</a>및 <a href="https://powerapps.microsoft.com">Power Apps</a> 기반 솔루션은 appsource에 나열 될 수 있습니다. 다른 Microsoft <a href="https://azure.microsoft.com/services">Azure 서비스</a> 기반의 다른 제품은 Azure Marketplace에 나열할 수 있습니다.
 
 ## <a name="publishing-benefits"></a>게시 이점
 
@@ -35,11 +35,13 @@ Microsoft 마켓플레이스 중 하나에 게시하면 다음과 같은 이점�
 - [컨설팅 서비스 필수 구성 요소](./cpp-consulting-service-prerequisites.md)에는 컨설팅 서비스 제품을 게시하기 위한 요구 사항이 표시됩니다.
  
     - Microsoft Azure
-    - Dynamics 365 for Customer Engagement 
-    - Dynamics 365 for Finance and Operations 
+    - Dynamics 365 고객 참여 
+    - Dynamics 365 재무 & 작업 
+    - Dynamics 365 Customer Insights
     - Dynamics 365 Business Central 
     - Power BI 
-    - PowerApps
+    - Power Apps
+    - Power Automate
 - [새 제품 만들기](./cpp-consulting-service-create-offer.md)는 Cloud 파트너 포털을 사용하여 컨설팅 서비스 제품 항목을 만드는 데 필요한 단계를 나열합니다.
     - [제품 설정을 정의합니다](./cpp-consulting-service-define-offer-settings.md).
     - [상점 정보 및 게시할 위치(Azure Marketplace 또는 AppSource)를 입력합니다.](./cpp-consulting-service-storefront-details.md)

@@ -2,20 +2,20 @@
 title: '자습서: 데스크톱 애플리케이션에서 Node.js 웹 API에 대한 액세스 권한 부여'
 description: Active Directory B2C를 사용하여 Node.js 웹 API를 보호하고 .NET 데스크톱 앱에서 호출하는 방법에 대한 자습서입니다.
 services: active-directory-b2c
-author: mmacy
+author: msmimart
 manager: celestedg
-ms.author: marsma
+ms.author: mimart
 ms.date: 10/12/2019
 ms.custom: mvc
 ms.topic: tutorial
 ms.service: active-directory
 ms.subservice: B2C
-ms.openlocfilehash: a72c45f80d03cda7b176c421cc5498dd16c242ec
-ms.sourcegitcommit: 5d6ce6dceaf883dbafeb44517ff3df5cd153f929
+ms.openlocfilehash: 59670cda68f54e4c0b20b361f0688e6766acba61
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/29/2020
-ms.locfileid: "76849873"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78183387"
 ---
 # <a name="tutorial-grant-access-to-a-nodejs-web-api-from-a-desktop-app-using-azure-active-directory-b2c"></a>자습서: Azure Active Directory B2C를 사용하여 데스크톱 앱에서 Node.js Web API에 대한 액세스 권한 부여
 
@@ -51,7 +51,7 @@ ms.locfileid: "76849873"
 
 필수 조건 자습서에서 *nativeapp1*이라는 네이티브 클라이언트 애플리케이션을 등록했습니다. 다음 단계에서는 이전 섹션에서 *webapi1*을 위해 노출한 API 범위를 사용하여 이 네이티브 애플리케이션 등록을 구성합니다. 이렇게 하면 데스크톱 애플리케이션이 Azure AD B2C에서 액세스 토큰을 가져올 수 있으며, 웹 API는 이 액세스 토큰을 사용하여 Azure AD B2C 리소스에 대한 범위가 지정된 액세스를 확인하고 제공할 수 있습니다. 자습서의 뒷부분에서 데스크톱 애플리케이션과 웹 API의 코드 샘플을 모두 구성하고 실행합니다.
 
-#### <a name="applicationstabapplications"></a>[애플리케이션](#tab/applications/)
+#### <a name="applications"></a>[애플리케이션](#tab/applications/)
 
 1. **애플리케이션**을 선택하고 *nativeapp1*을 선택합니다.
 1. **API 액세스**를 선택한 다음, **추가**를 선택합니다.
@@ -59,7 +59,7 @@ ms.locfileid: "76849873"
 1. **범위 선택** 드롭다운에서 이전에 정의한 범위를 선택합니다. *demo.read* 및 *demo.write*가 예입니다.
 1. **확인**을 선택합니다.
 
-#### <a name="app-registrations-previewtabapp-reg-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
+#### <a name="app-registrations-preview"></a>[앱 등록(미리 보기)](#tab/app-reg-preview/)
 
 1. **앱 등록(미리 보기)** 을 선택한 다음, API에 대한 액세스 권한이 있어야 하는 네이티브 클라이언트 애플리케이션을 선택합니다. 예를 들어 *nativeapp1*과 같습니다.
 1. **관리** 아래에서 **API 권한**을 선택합니다.

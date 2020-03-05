@@ -6,12 +6,12 @@ ms.topic: tutorial
 ms.date: 02/26/2018
 ms.author: suhuruli
 ms.custom: mvc
-ms.openlocfilehash: 354f7db2a634ae2adee2f2fa0e2a6055c1c20613
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: b7754a289c06dff37aedcf8da76d35dfac4b183d
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75465284"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252794"
 ---
 # <a name="tutorial-deploy-a-java-application-to-a-service-fabric-cluster-in-azure"></a>자습서: Azure의 Service Fabric 클러스터에 Java 애플리케이션 배포
 
@@ -53,13 +53,13 @@ ms.locfileid: "75465284"
 
 2. Azure 계정에 로그인
 
-    ```bash
+    ```azurecli
     az login
     ```
 
 3. 리소스를 만들려면 사용하려는 Azure 구독 설정
 
-    ```bash
+    ```azurecli
     az account set --subscription [SUBSCRIPTION-ID]
     ```
 
@@ -73,7 +73,7 @@ ms.locfileid: "75465284"
 
     위의 명령은 나중에 사용하기 위해 확인해야 하는 다음 정보를 반환합니다.
 
-    ```
+    ```output
     Source Vault Resource Id: /subscriptions/<subscription_id>/resourceGroups/testkeyvaultrg/providers/Microsoft.KeyVault/vaults/<name>
     Certificate URL: https://<name>.vault.azure.net/secrets/<cluster-dns-name-for-certificate>/<guid>
     Certificate Thumbprint: <THUMBPRINT>
@@ -81,7 +81,7 @@ ms.locfileid: "75465284"
 
 5. 로그를 저장하는 스토리지 계정에 대한 리소스 그룹 만들기
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name teststorageaccountrg
@@ -89,7 +89,7 @@ ms.locfileid: "75465284"
 
 6. 생산될 로그를 저장하는 데 사용될 스토리지 계정 만들기
 
-    ```bash
+    ```azurecli
     az storage account create -g [RESOURCE-GROUP-NAME] -l [REGION] --name [STORAGE-ACCOUNT-NAME] --kind Storage
 
     Example: az storage account create -g teststorageaccountrg -l westus --name teststorageaccount --kind Storage
@@ -101,13 +101,13 @@ ms.locfileid: "75465284"
 
 8. 계정 SAS URL을 복사하고 Service Fabric 클러스터를 만들 때 사용하기 위해 따로 보관해 둡니다. 다음 URL과 유사합니다.
 
-    ```
+    ```output
     ?sv=2017-04-17&ss=bfqt&srt=sco&sp=rwdlacup&se=2018-01-31T03:24:04Z&st=2018-01-30T19:24:04Z&spr=https,http&sig=IrkO1bVQCHcaKaTiJ5gilLSC5Wxtghu%2FJAeeY5HR%2BPU%3D
     ```
 
 9. Event Hub 리소스를 포함하는 리소스 그룹을 만듭니다. Event Hubs는 Service Fabric에서 ELK 리소스를 실행하는 서버로 메시지를 보내는 데 사용됩니다.
 
-    ```bash
+    ```azurecli
     az group create --location [REGION] --name [RESOURCE-GROUP-NAME]
 
     Example: az group create --location westus --name testeventhubsrg
@@ -115,7 +115,7 @@ ms.locfileid: "75465284"
 
 10. 다음 명령을 사용하여 Event Hubs 리소스를 만듭니다. 지시에 따라 namespaceName, eventHubName, consumerGroupName, sendAuthorizationRule 및 receiveAuthorizationRule에 대한 세부 정보를 입력합니다.
 
-    ```bash
+    ```azurecli
     az group deployment create -g [RESOURCE-GROUP-NAME] --template-file eventhubsdeploy.json
 
     Example:
@@ -158,7 +158,7 @@ ms.locfileid: "75465284"
 
     반환된 JSON에서 **sr** 필드 값을 복사합니다. **sr** 필드 값은 EventHubs에 대한 SAS 토큰입니다. 다음 URL은 **sr** 필드의 예제입니다.
 
-    ```bash
+    ```output
     https%3A%2F%testeventhub.servicebus.windows.net%testeventhub&sig=7AlFYnbvEm%2Bat8ALi54JqHU4i6imoFxkjKHS0zI8z8I%3D&se=1517354876&skn=sender
     ```
 
@@ -185,7 +185,7 @@ ms.locfileid: "75465284"
 
 14. Service Fabric 클러스터를 만들려면 다음 명령 실행
 
-    ```bash
+    ```azurecli
     az sf cluster create --location 'westus' --resource-group 'testlinux' --template-file sfdeploy.json --parameter-file sfdeploy.parameters.json --secret-identifier <certificate_url_from_step4>
     ```
 

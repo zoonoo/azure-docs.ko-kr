@@ -7,14 +7,14 @@ ms.reviewer: craigg
 ms.service: data-factory
 ms.workload: data-services
 ms.topic: conceptual
-ms.date: 02/13/2020
+ms.date: 03/03/2020
 ms.author: jingwang
-ms.openlocfilehash: 6d867ccd8704d4aba4627e7b81638394b7e1e8d3
-ms.sourcegitcommit: b8f2fee3b93436c44f021dff7abe28921da72a6d
+ms.openlocfilehash: 1717969aeb24a153f986c70ef60db1aac5c840fb
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/18/2020
-ms.locfileid: "77423782"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78267781"
 ---
 # <a name="avro-format-in-azure-data-factory"></a>Azure Data Factory의 Avro 형식
 
@@ -83,7 +83,11 @@ Avro 형식은 [Amazon S3](connector-amazon-simple-storage-service.md), [azure B
 
 ## <a name="data-type-support"></a>데이터 형식 지원
 
-Avro [복합 데이터 형식은](https://avro.apache.org/docs/current/spec.html#schema_complex) 지원 되지 않습니다 (레코드, 열거형, 배열, 맵, 공용 구조체 및 고정).
+### <a name="copy-activity"></a>복사 활동
+Avro [복합 데이터 형식은](https://avro.apache.org/docs/current/spec.html#schema_complex) 복사 작업에서 지원 되지 않습니다 (레코드, 열거형, 배열, 맵, 공용 구조체 및 고정).
+
+### <a name="data-flows"></a>데이터 흐름
+데이터 흐름에서 Avro 파일을 사용 하는 경우 복잡 한 데이터 형식을 읽고 쓸 수 있지만 먼저 물리적 스키마를 데이터 집합에서 지워야 합니다. 데이터 흐름에서 논리적 프로젝션을 설정 하 고 복잡 한 구조인 열을 파생 시킨 다음 이러한 필드를 Avro 파일에 자동으로 매핑할 수 있습니다.
 
 ## <a name="next-steps"></a>다음 단계
 

@@ -5,14 +5,14 @@ services: virtual-desktop
 author: Heidilohr
 ms.service: virtual-desktop
 ms.topic: conceptual
-ms.date: 12/18/2019
+ms.date: 03/03/2020
 ms.author: helohr
-ms.openlocfilehash: 5eff53119362cd03c9a6497e3133984627e513c1
-ms.sourcegitcommit: f97f086936f2c53f439e12ccace066fca53e8dc3
+ms.openlocfilehash: 9e42ff0ec5b44dca743d2ec1470c2eef655b9436
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/15/2020
-ms.locfileid: "77368843"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273098"
 ---
 # <a name="deploy-the-diagnostics-tool"></a>진단 도구 배포
 
@@ -128,10 +128,9 @@ PowerShell 스크립트를 실행 하려면 다음을 수행 합니다.
 앱 등록에 API 권한이 있는지 확인 하려면 다음을 수행 합니다.
 
 1. 브라우저를 열고 관리자 계정을 사용 하 여 [Azure Portal](https://portal.azure.com/) 에 연결 합니다.
-2. **앱 등록** 로 이동 하 여 Azure AD 앱 등록을 찾습니다.
-
-      ![API 사용 권한 페이지.](media/api-permissions-page.png)
-
+2. **Azure Active Directory**로 이동 합니다.
+3. **앱 등록** 로 이동 하 여 **모든 응용 프로그램**을 선택 합니다.
+4. [Azure Active Directory 앱 등록 만들기](deploy-diagnostics.md#create-an-azure-active-directory-app-registration)의 5 단계에서 입력 한 것과 동일한 앱 이름을 사용 하 여 Azure AD 앱 등록을 찾습니다.
 
 ### <a name="review-your-log-analytics-workspace"></a>Log Analytics 작업 영역 검토
 

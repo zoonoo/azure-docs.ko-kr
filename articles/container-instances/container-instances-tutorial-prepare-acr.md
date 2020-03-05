@@ -4,12 +4,12 @@ description: Azure Container Instances 자습서 2/3부 - Azure 컨테이너 레
 ms.topic: tutorial
 ms.date: 12/18/2019
 ms.custom: seodec18, mvc
-ms.openlocfilehash: 131ea39b382735423a1edff72774313c4096ea2b
-ms.sourcegitcommit: ec2eacbe5d3ac7878515092290722c41143f151d
+ms.openlocfilehash: 1a5b9555572264b6a00b4ce73eaa0719d94fd99b
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/31/2019
-ms.locfileid: "75552424"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252151"
 ---
 # <a name="tutorial-create-an-azure-container-registry-and-push-a-container-image"></a>자습서: Azure 컨테이너 레지스트리를 만들고 컨테이너 이미지 푸시
 
@@ -46,8 +46,7 @@ az acr create --resource-group myResourceGroup --name <acrName> --sku Basic
 
 다음은 *mycontainerregistry082*라는 새 Azure 컨테이너 레지스트리의 출력 예제입니다(여기에 잘려서 표시).
 
-```console
-$ az acr create --resource-group myResourceGroup --name mycontainerregistry082 --sku Basic
+```output
 ...
 {
   "creationDate": "2018-03-16T21:54:47.297875+00:00",
@@ -78,10 +77,15 @@ Azure Container Registry 인스턴스에 로그인해야 이미지를 푸시할 
 az acr login --name <acrName>
 ```
 
+다음은 그 예입니다.
+
+```azurecli
+az acr login --name mycontainerregistry082
+```
+
 완료되면 이 명령은 `Login Succeeded`를 반환합니다.
 
-```console
-$ az acr login --name mycontainerregistry082
+```output
 Login Succeeded
 ```
 
@@ -97,8 +101,11 @@ az acr show --name <acrName> --query loginServer --output table
 
 예를 들어 레지스트리 이름이 *mycontainerregistry082*인 경우:
 
-```console
-$ az acr show --name mycontainerregistry082 --query loginServer --output table
+```azurecli
+az acr show --name mycontainerregistry082 --query loginServer --output table
+```
+
+```output
 Result
 ------------------------
 mycontainerregistry082.azurecr.io
@@ -165,8 +172,11 @@ az acr repository list --name <acrName> --output table
 
 다음은 그 예입니다.
 
-```console
-$ az acr repository list --name mycontainerregistry082 --output table
+```azurecli
+az acr repository list --name mycontainerregistry082 --output table
+```
+
+```output
 Result
 ----------------
 aci-tutorial-app
@@ -181,7 +191,7 @@ az acr repository show-tags --name <acrName> --repository aci-tutorial-app --out
 다음과 비슷한 내용이 출력됩니다.
 
 ```console
-$ az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
+az acr repository show-tags --name mycontainerregistry082 --repository aci-tutorial-app --output table
 Result
 --------
 v1

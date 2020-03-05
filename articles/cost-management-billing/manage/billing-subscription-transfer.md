@@ -10,12 +10,12 @@ ms.topic: conceptual
 ms.date: 02/12/2020
 ms.author: banders
 ms.custom: H1Hack27Feb2017
-ms.openlocfilehash: 3eb76535a8047840a577f5b044001d85c20b13f0
-ms.sourcegitcommit: b07964632879a077b10f988aa33fa3907cbaaf0e
+ms.openlocfilehash: 84b36c1357bedfc120cec72af84fdd79f52a2f57
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/13/2020
-ms.locfileid: "77188400"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78245395"
 ---
 # <a name="transfer-billing-ownership-of-an-azure-subscription-to-another-account"></a>Azure 구독의 청구 소유권을 다른 계정에 양도
 
@@ -45,7 +45,7 @@ EA(기업계약) 고객인 경우 엔터프라이즈 관리자는 계정 간에 
 
     > [!IMPORTANT]
     >
-    > 구독을 새 계정의 Azure AD 테넌트로 양도하기로 선택하면 구독의 리소스를 관리하기 위한 모든 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 할당이 영구적으로 제거됩니다. 양도 요청을 수락하는 새 계정의 사용자에게만 구독의 리소스를 관리할 수 있는 권한이 제공됩니다. 자세한 내용은 [다른 Azure AD 테넌트의 사용자에게 구독 양도](../../cognitive-services/acoustics/known-issues.md)를 참조하세요. 또는 구독을 새 계정의 테넌트로 양도하지 않고도 구독 Azure AD 테넌트의 확인란을 선택 취소하여 청구 소유권을 양도할 수 있습니다. 이렇게 하면 Azure 리소스를 관리하는 기존 RBAC 권한이 유지됩니다.
+    > 구독을 새 계정의 Azure AD 테넌트로 양도하기로 선택하면 구독의 리소스를 관리하기 위한 모든 [RBAC(역할 기반 액세스 제어)](../../role-based-access-control/overview.md) 할당이 영구적으로 제거됩니다. 양도 요청을 수락하는 새 계정의 사용자에게만 구독의 리소스를 관리할 수 있는 권한이 제공됩니다. 자세한 내용은 [다른 Azure AD 테넌트의 사용자에게 구독 양도](../../active-directory/managed-identities-azure-resources/known-issues.md#transferring-a-subscription-between-azure-ad-directories)를 참조하세요. 또는 구독을 새 계정의 테넌트로 양도하지 않고도 구독 Azure AD 테넌트의 확인란을 선택 취소하여 청구 소유권을 양도할 수 있습니다. 이렇게 하면 Azure 리소스를 관리하는 기존 RBAC 권한이 유지됩니다.
 
     ![양도 요청 보내기 페이지](./media/billing-subscription-transfer/billing-send-transfer-request.PNG)
 

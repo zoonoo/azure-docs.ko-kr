@@ -7,12 +7,12 @@ ms.topic: conceptual
 ms.date: 01/30/2020
 ms.author: owend
 ms.reviewer: minewiskan
-ms.openlocfilehash: 26d7c2d8919573c4c971edd7cb0e01b06fef3012
-ms.sourcegitcommit: 67e9f4cc16f2cc6d8de99239b56cb87f3e9bff41
+ms.openlocfilehash: 51c01869e6152d8e9357644457df11f4fcf5ec5f
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/31/2020
-ms.locfileid: "76901498"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273693"
 ---
 # <a name="manage-database-roles-and-users"></a>데이터베이스 역할 및 사용자 관리
 
@@ -25,7 +25,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 *  **처리** - 사용자가 데이터베이스에서 프로세스 작업에 연결하고 수행할 수 있으며 model 데이터베이스 데이터를 분석할 수 있습니다.
 *  **읽기** - 사용자가 클라이언트 애플리케이션을 사용하여 model 데이터베이스 데이터에 연결하고 분석할 수 있습니다.
 
-테이블 형식 모델 프로젝트를 만들 때 Visual Studio에서 역할 관리자를 사용 하 여 Analysis Services 프로젝트에 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [Analysis Services PowerShell cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
+테이블 형식 모델 프로젝트를 만들 때 Visual Studio에서 역할 관리자를 사용 하 여 Analysis Services 프로젝트에 역할을 만들고 해당 역할에 사용자 또는 그룹을 추가 합니다. 서버에 배포 된 경우 SSMS (SQL Server Management Studio), [Analysis Services PowerShell cmdlet](https://docs.microsoft.com/analysis-services/powershell/analysis-services-powershell-reference)또는 Tmsl ( [Tabular Model Scripting Language](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference) )을 사용 하 여 역할 및 사용자 멤버를 추가 하거나 제거 합니다.
 
 **보안 그룹** 은 `MailEnabled` 속성이 `True`로 설정 된 상태에서 [메일을 사용 하도록](https://docs.microsoft.com/exchange/recipients-in-exchange-online/manage-mail-enabled-security-groups) 설정 되어야 합니다. 전자 메일 주소를 기준으로 그룹을 지정 하는 경우 `obj:groupid@tenantid`를 사용 합니다.
 
@@ -85,7 +85,7 @@ model 데이터베이스 수준에서 모든 사용자는 역할에 속해야 �
 
 ## <a name="to-add-roles-and-users-by-using-a-tmsl-script"></a>TMSL 스크립트를 사용하여 역할 및 사용자를 추가하려면
 
-SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를 실행할 수 있습니다. [CreateOrReplace](https://docs.microsoft.com/bi-reference/tmsl/createorreplace-command-tmsl) 명령 및 [Roles](https://docs.microsoft.com/bi-reference/tmsl/roles-object-tmsl) 개체를 사용합니다.
+SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를 실행할 수 있습니다. [CreateOrReplace](https://docs.microsoft.com/analysis-services/tmsl/createorreplace-command-tmsl) 명령 및 [Roles](https://docs.microsoft.com/analysis-services/tmsl/roles-object-tmsl) 개체를 사용합니다.
 
 **샘플 TMSL 스크립트**
 
@@ -137,7 +137,7 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
   
 행 필터는 지정된 행과 관련 행에 적용됩니다. 테이블에 여러 관계가 있는 경우 필터는 활성 관계에 대한 보안을 적용합니다. 행 필터는 관련 테이블에 대해 정의된 다른 행 필터와 교차됩니다. 예를 들면 다음과 같습니다.  
   
-|Table|DAX 식|  
+|테이블|DAX 식|  
 |-----------|--------------------|  
 |지역|=Region[Country]="USA"|  
 |ProductCategory|=ProductCategory[Name]="Bicycles"|  
@@ -151,5 +151,5 @@ SSMS에서 또는 PowerShell을 사용하여 XMLA 창에서 TMSL 스크립트를
 
   [서버 관리자 관리](analysis-services-server-admins.md)   
   [PowerShell을 사용하여 Azure Analysis Services 관리](analysis-services-powershell.md)  
-  [TMSL(테이블 형식 모델 스크립트 언어) 참조](https://docs.microsoft.com/bi-reference/tmsl/tabular-model-scripting-language-tmsl-reference)
+  [TMSL(테이블 형식 모델 스크립트 언어) 참조](https://docs.microsoft.com/analysis-services/tmsl/tabular-model-scripting-language-tmsl-reference)
 

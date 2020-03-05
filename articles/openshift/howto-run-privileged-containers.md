@@ -7,12 +7,12 @@ ms.service: container-service
 ms.topic: conceptual
 ms.date: 12/05/2019
 keywords: aro, openshift, aquasec, twistlock, red hat
-ms.openlocfilehash: 5d28a19126c9b7ae4ef7afe2a6b69bd4a13e0c83
-ms.sourcegitcommit: 390cfe85629171241e9e81869c926fc6768940a4
+ms.openlocfilehash: e1c1dd9f27a207f78dd22e271f6b070c7f92f622
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 03/02/2020
-ms.locfileid: "78228243"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78271369"
 ---
 # <a name="run-privileged-containers-in-an-azure-red-hat-openshift-cluster"></a>Azure Red Hat OpenShift 클러스터에서 권한 있는 컨테이너 실행
 
@@ -137,6 +137,8 @@ oc new-project twistlock
 
 2 단계에서 `oc create -f twistlock_console.yaml` 하는 동안 네임 스페이스를 만들 때 오류가 발생 합니다.
 이를 안전 하 게 무시할 수 있으며 이전에 `oc new-project` 명령을 사용 하 여 네임 스페이스를 만들었습니다.
+
+저장소 형식에 대 한 `azure-disk`를 사용 합니다.
 
 ### <a name="create-an-external-route-to-console"></a>콘솔에 대 한 외부 경로 만들기
 

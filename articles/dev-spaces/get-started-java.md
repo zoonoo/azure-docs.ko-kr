@@ -8,12 +8,12 @@ ms.topic: tutorial
 description: 이 자습서에서는 Azure Dev Spaces 및 Visual Studio Code를 사용하여 Azure Kubernetes Service에서 Java 애플리케이션을 디버깅하고 신속하게 반복하는 방법을 보여줍니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
 manager: gwallace
-ms.openlocfilehash: 2c086c952528d5521ace44d56eaf11c14ac1cabb
-ms.sourcegitcommit: 0cc25b792ad6ec7a056ac3470f377edad804997a
+ms.openlocfilehash: d4e335826090d4ca4819c7466c7231cceb0d5bce
+ms.sourcegitcommit: e4c33439642cf05682af7f28db1dbdb5cf273cc6
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77602836"
+ms.lasthandoff: 03/03/2020
+ms.locfileid: "78252440"
 ---
 # <a name="create-a-kubernetes-dev-space-visual-studio-code-and-java-with-azure-dev-spaces"></a>Kubernetes 개발 공간 만들기: Azure Dev Spaces가 포함된 Visual Studio Code 및 Java
 
@@ -32,7 +32,7 @@ Azure Dev Spaces에는 최소한의 로컬 컴퓨터 설정이 필요합니다. 
 ### <a name="sign-in-to-azure-cli"></a>Azure CLI에 로그인
 Azure에 로그인합니다. 터미널 창에 다음 명령을 입력합니다.
 
-```cmd
+```azurecli
 az login
 ```
 
@@ -42,14 +42,14 @@ az login
 #### <a name="if-you-have-multiple-azure-subscriptions"></a>여러 Azure 구독이 있는 경우...
 다음을 실행하여 구독을 볼 수 있습니다. 
 
-```cmd
+```azurecli
 az account list --output table
 ```
 
 *IsDefault*에 대해 *True*가 있는 구독을 찾습니다.
 사용하려는 구독이 없으면 기본 구독을 변경할 수 있습니다.
 
-```cmd
+```azurecli
 az account set --subscription <subscription ID>
 ```
 
@@ -57,13 +57,13 @@ az account set --subscription <subscription ID>
 
 명령 프롬프트에서 [Azure Dev Spaces를 지원하는 영역][supported-regions]에 리소스 그룹을 만듭니다.
 
-```cmd
+```azurecli
 az group create --name MyResourceGroup --location <region>
 ```
 
 다음 명령을 사용하여 Kubernetes 클러스터를 만듭니다.
 
-```cmd
+```azurecli
 az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-keys
 ```
 
@@ -73,7 +73,7 @@ az aks create -g MyResourceGroup -n MyAKS --location <region> --generate-ssh-key
 
 AKS 클러스터를 포함하는 리소스 그룹을 사용하여 다음 Azure CLI 명령 및 AKS 클러스터 이름을 입력합니다. 명령은 Azure Dev Spaces에 대한 지원을 통해 클러스터를 구성합니다.
 
-   ```cmd
+   ```azurecli
    az aks use-dev-spaces -g MyResourceGroup -n MyAKS
    ```
 

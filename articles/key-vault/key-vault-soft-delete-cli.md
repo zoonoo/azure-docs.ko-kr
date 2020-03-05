@@ -5,15 +5,16 @@ services: key-vault
 author: msmbaldwin
 manager: rkarlin
 ms.service: key-vault
+ms.subservice: general
 ms.topic: tutorial
 ms.date: 08/12/2019
 ms.author: mbaldwin
-ms.openlocfilehash: aef4061a8349e6602ac4394cb31bbe76b6cb63c0
-ms.sourcegitcommit: 62bd5acd62418518d5991b73a16dca61d7430634
+ms.openlocfilehash: 7288e5d8c01122bea7650274cdaf358c7fc24cd0
+ms.sourcegitcommit: 225a0b8a186687154c238305607192b75f1a8163
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 08/13/2019
-ms.locfileid: "68976306"
+ms.lasthandoff: 02/29/2020
+ms.locfileid: "78197320"
 ---
 # <a name="how-to-use-key-vault-soft-delete-with-cli"></a>CLI로 Key Vault 일시 삭제를 사용하는 방법
 
@@ -22,7 +23,7 @@ Azure Key Vault의 일시 삭제 기능을 사용하면 삭제된 자격 증명 
 - Key Vault의 복구 가능한 삭제 지원
 - Key Vault 개체(예: 키, 비밀 및 인증서)의 복구 가능한 삭제를 지원
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - Azure CLI - 사용자 환경에 이 단계가 없는 경우 [Azure CLI를 사용한 Key Vault 관리](key-vault-manage-with-cli2.md)를 참조하세요.
 
@@ -32,9 +33,9 @@ CLI에 대한 Key Vault 관련 특정 참조 정보는 [Azure CLI Key Vault 참�
 
 Key Vault 작업은 RBAC(역할 기반 액세스 제어) 권한을 통해 다음과 같이 별도로 관리됩니다.
 
-| 작업(Operation) | 설명 | 사용자 권한 |
+| 작업(Operation) | Description | 사용자 권한 |
 |:--|:--|:--|
-|나열|삭제된 Key Vault를 나열합니다.|Microsoft.KeyVault/deletedVaults/read|
+|목록|삭제된 Key Vault를 나열합니다.|Microsoft.KeyVault/deletedVaults/read|
 |복구|삭제된 Key Vault를 복구합니다.|Microsoft.KeyVault/vaults/write|
 |제거|삭제된 Key Vault 및 모든 콘텐츠를 영구적으로 제거합니다.|Microsoft.KeyVault/locations/deletedVaults/purge/action|
 
@@ -150,7 +151,7 @@ az keyvault key recover --name ContosoFirstKey --vault-name ContosoVault
 az keyvault key purge --name ContosoFirstKey --vault-name ContosoVault
 ```
 
-**복구** 및 **제거** 작업은 Key Vault 액세스 정책에 연결된 자체 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 동작을 실행할 수 있도록 하려면 이들이 해당 키 또는 비밀에 대한 적절한 권한을 가지고 있어야 합니다. 기본적으로 '모든' 바로 가기를 사용하여 모든 사용 권한을 부여할 때 **제거**는 키 자격 증명 모음의 액세스 정책에 추가되지 않습니다. **제거** 사용 권한을 명시적으로 부여해야 합니다. 
+**복구** 및 **제거** 작업에는 키 자격 증명 모음 액세스 정책과 연결된 고유 권한이 있습니다. 사용자 또는 서비스 주체가 **복구** 또는 **제거** 동작을 실행할 수 있도록 하려면 이들이 해당 키 또는 비밀에 대한 적절한 권한을 가지고 있어야 합니다. 기본적으로 '모든' 바로 가기를 사용하여 모든 사용 권한을 부여할 때 **제거**는 키 자격 증명 모음의 액세스 정책에 추가되지 않습니다. **제거** 사용 권한을 명시적으로 부여해야 합니다. 
 
 #### <a name="set-a-key-vault-access-policy"></a>Key Vault 액세스 정책 설정
 

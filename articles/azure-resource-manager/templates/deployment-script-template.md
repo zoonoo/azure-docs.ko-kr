@@ -5,14 +5,14 @@ services: azure-resource-manager
 author: mumian
 ms.service: azure-resource-manager
 ms.topic: conceptual
-ms.date: 02/24/2020
+ms.date: 03/03/2020
 ms.author: jgao
-ms.openlocfilehash: e881cde36bc56c175004e8d6adb9b7b85e9b5454
-ms.sourcegitcommit: f15f548aaead27b76f64d73224e8f6a1a0fc2262
+ms.openlocfilehash: 3129d4c664ec487f2def6cc0d2668b7493f4c988
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77616310"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78272641"
 ---
 # <a name="use-deployment-scripts-in-templates-preview"></a>템플릿에서 배포 스크립트 사용 (미리 보기)
 
@@ -40,7 +40,7 @@ Azure 리소스 템플릿에서 배포 스크립트를 사용 하는 방법에 �
 > [!IMPORTANT]
 > 스크립트를 실행하고 문제를 해결하기 위해 두 개의 배포 스크립트 리소스, 즉 스토리지 계정과 컨테이너 인스턴스가 동일한 리소스 그룹에 만들어집니다. 이러한 리소스는 일반적으로 배포 스크립트 실행이 터미널 상태가 될 때 스크립트 서비스에 의해 삭제 됩니다. 리소스가 삭제될 때까지 해당 리소스에 대한 요금이 청구됩니다. 자세히 알아보려면 [배포 스크립트 리소스 정리](#clean-up-deployment-script-resources)를 참조 하세요.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 - **대상 리소스 그룹에 대 한 참가자의 역할이 있는 사용자 할당 관리 id**입니다. 이 ID는 배포 스크립트를 실행하는 데 사용됩니다. 리소스 그룹 외부에서 작업을 수행 하려면 추가 권한을 부여 해야 합니다. 예를 들어 새 리소스 그룹을 만들려는 경우 구독 수준에 id를 할당 합니다.
 
@@ -170,7 +170,7 @@ Write-Host "Press [ENTER] to continue ..."
 
 ## <a name="use-external-scripts"></a>외부 스크립트 사용
 
-인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 예를 들면 다음과 같습니다.
+인라인 스크립트 외에도 외부 스크립트 파일을 사용할 수 있습니다. 파일 확장명이 **ps1** 인 기본 PowerShell 스크립트만 지원 됩니다. CLI 스크립트의 경우 스크립트는 유효한 bash 스크립트 이면 기본 스크립트에 확장을 포함 하거나 확장을 사용 하지 않을 수 있습니다. 외부 스크립트 파일을 사용 하려면 `scriptContent`를 `primaryScriptUri`으로 바꿉니다. 다음은 그 예입니다.
 
 ```json
 "primaryScriptURI": "https://raw.githubusercontent.com/Azure/azure-docs-json-samples/master/deployment-script/deploymentscript-helloworld.ps1",
@@ -222,10 +222,16 @@ PowerShell 배포 스크립트와는 달리 CLI/bash 지원에서는 스크립�
 
 [jq](https://stedolan.github.io/jq/) 는 이전 샘플에서 사용 됩니다. 컨테이너 이미지와 함께 제공 됩니다. [개발 환경 구성](#configure-development-environment)을 참조 하세요.
 
-## <a name="handle-non-terminating-errors"></a>종료 되지 않는 오류 처리
+## <a name="develop-deployment-scripts"></a>배포 스크립트 개발
+
+### <a name="handle-non-terminating-errors"></a>종료 되지 않는 오류 처리
 
 배포 스크립트에서 [ **$ErrorActionPreference**](/powershell/module/microsoft.powershell.core/about/about_preference_variables?view=powershell-7#erroractionpreference
 ) 변수를 사용 하 여 PowerShell이 종료 되지 않는 오류에 응답 하는 방식을 제어할 수 있습니다. 배포 스크립트 엔진이 값을 설정/변경 하지 않습니다.  $ErrorActionPreference에 대해 설정한 값에도 불구 하 고, 스크립트에서 오류가 발생할 경우 배포 스크립트에서 리소스 프로 비전 상태를 *Failed* 로 설정 합니다.
+
+### <a name="pass-secured-strings-to-deployment-script"></a>배포 스크립트에 보안 문자열 전달
+
+컨테이너 인스턴스에서 환경 변수를 설정하면 컨테이너가 실행하는 애플리케이션 또는 스크립트의 동적 구성을 제공할 수 있습니다. 배포 스크립트는 Azure Container Instance와 동일한 방식으로 안전 하지 않은 보안 환경 변수를 처리 합니다. 자세한 내용은 [container instances에서 환경 변수 설정](../../container-instances/container-instances-environment-variables.md#secure-values)을 참조 하세요.
 
 ## <a name="debug-deployment-scripts"></a>배포 스크립트 디버그
 

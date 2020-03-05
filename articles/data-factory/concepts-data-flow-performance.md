@@ -7,12 +7,12 @@ ms.author: makromer
 ms.service: data-factory
 ms.custom: seo-lt-2019
 ms.date: 02/24/2020
-ms.openlocfilehash: 9236fab332758308ceb8bde1f83a9f3ac8ee6789
-ms.sourcegitcommit: 7f929a025ba0b26bf64a367eb6b1ada4042e72ed
+ms.openlocfilehash: cca22c499efde74bb1469222d2f8a6e576452aa2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/25/2020
-ms.locfileid: "77587586"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273225"
 ---
 # <a name="mapping-data-flows-performance-and-tuning-guide"></a>데이터 흐름 매핑 성능 및 튜닝 가이드
 
@@ -59,6 +59,9 @@ Integration Runtime를 만드는 방법에 대 한 자세한 내용은 [Azure Da
 
 ![원본 파트](media/data-flow/sourcepart3.png "원본 파트")
 
+> [!NOTE]
+> 원본에 대 한 파티션 수를 선택 하는 데 도움이 되는 좋은 가이드는 Azure Integration Runtime에 대해 설정한 코어 수를 기준으로 하 고 해당 숫자를 5로 곱합니다. 따라서 예를 들어 ADLS 폴더에 있는 일련의 파일을 변환 하 고 32 코어 Azure IR를 활용 하려는 경우 대상으로 하는 파티션 수는 32 x 5 = 160 파티션입니다.
+
 ### <a name="source-batch-size-input-and-isolation-level"></a>원본 일괄 처리 크기, 입력 및 격리 수준
 
 원본 변환의 **원본 옵션** 아래에서 다음 설정이 성능에 영향을 줄 수 있습니다.
@@ -100,7 +103,7 @@ DW에 행 단위 삽입을 방지 하려면 ADF가 [PolyBase](https://docs.micro
 
 각 변환에서 데이터 팩터리가 사용할 파티션 구성표를 최적화 탭에서 설정할 수 있습니다. 기본 분할 및 최적화를 유지 하는 파일 기반 싱크를 먼저 테스트 하는 것이 좋습니다.
 
-* 작은 파일의 경우 Spark에 작은 파일을 분할 하 라고 요청 하는 것 보다 *단일 파티션* 선택이 더 빠르고 빠르게 작동할 수 있습니다.
+* 작은 파일의 경우 Spark에 작은 파일을 분할 하도록 요청 하는 것 보다 더 적은 수의 파티션을 선택 하는 것이 더 빠르고 빠르게 작동할 수 있습니다.
 * 원본 데이터에 대 한 충분 한 정보가 없는 경우 *라운드 로빈* 분할을 선택 하 고 파티션 수를 설정 합니다.
 * 데이터에 적절 한 해시 키가 될 수 있는 열이 있는 경우 *해시 분할*을 선택 합니다.
 

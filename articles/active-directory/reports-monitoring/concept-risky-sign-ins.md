@@ -11,28 +11,28 @@ ms.topic: conceptual
 ms.tgt_pltfrm: na
 ms.workload: identity
 ms.subservice: report-monitor
-ms.date: 10/28/2019
+ms.date: 03/04/2020
 ms.author: markvi
 ms.reviewer: dhanyahk
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 3f19744e6c860ae315b681f5eb090cba23b153af
-ms.sourcegitcommit: ae8b23ab3488a2bbbf4c7ad49e285352f2d67a68
+ms.openlocfilehash: b77486064139895799ac5a48327377154f75da6d
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 11/13/2019
-ms.locfileid: "74008352"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273833"
 ---
 # <a name="risky-sign-ins-report-in-the-azure-active-directory-portal"></a>Azure Active Directory 포털의 위험한 로그인 보고서
 
 Azure Active Directory(Azure AD)는 사용자 계정과 관련된 의심스러운 동작을 감지합니다. 검색 된 각 작업에 대해 **위험 검색** 이라는 레코드가 만들어집니다. 자세한 내용은 [AZURE AD 위험 탐지](concept-risk-events.md)를 참조 하세요. 
 
-[Azure Active Directory](https://portal.azure.com) 블레이드를 선택한 다음, **보안** 섹션으로 이동하여 **Azure Portal**의 보안 보고서에 액세스할 수 있습니다. 
+[Azure Portal](https://portal.azure.com)에서 **Azure Active Directory** 블레이드를 선택하고 **보안** 섹션으로 이동하여 보안 보고서에 액세스할 수 있습니다. 
 
 위험 검색에 따라 계산 되는 두 가지 보안 보고서가 있습니다.
 
 - **위험한 로그인** - 위험한 로그인은 사용자 계정의 정당한 소유자가 아닌 사용자에 의해 수행된 로그인 시도에 대한 지표입니다.
 
-- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 지표입니다. 
+- **위험 플래그가 지정된 사용자** - 위험한 사용자는 손상되었을 수 있는 사용자 계정에 대한 표시기입니다. 
 
 ![위험한 로그인](./media/concept-risky-sign-ins/10.png)
 
@@ -52,15 +52,15 @@ Azure Active Directory에서 사용자에게 관리 역할을 할당하는 방�
 
 위험한 로그인 보고서는 모든 Azure AD 버전에서 제공됩니다. 그러나 보고서의 세분성 수준은 다음과 같이 버전에 따라 다릅니다. 
 
-- **Azure Active Directory Free 및 Basic 버전**에서는 위험한 로그인 목록을 볼 수 있습니다. 
+- **Azure Active Directory Free 버전**에서는 위험한 로그인 목록을 가져옵니다. 
 
 - 또한 **Azure Active Directory Premium 1** 버전을 사용 하 여 각 보고서에 대해 검색 된 기본 위험 검색 중 일부를 검사할 수 있습니다. 
 
 - **Azure Active Directory Premium 2** 버전은 모든 기본 위험 검색에 대 한 가장 자세한 정보를 제공 하며, 구성 된 위험 수준에 자동으로 응답 하는 보안 정책을 구성할 수도 있습니다.
 
-## <a name="risky-sign-ins-report-for-azure-ad-free-and-basic-edition"></a>Azure AD Free 및 Basic 버전의 위험한 로그인 보고서
+## <a name="risky-sign-ins-report-for-azure-ad-free-edition"></a>Azure AD free edition의 위험한 로그인 보고서
 
-Azure AD Free 및 Basic 버전에서는 사용자에 대해 감지된 위험한 로그인 목록이 제공됩니다. 각 레코드는 다음과 같은 특성을 포함합니다.
+Azure AD free 버전은 사용자에 대해 검색 된 위험한 로그인 목록을 제공 합니다. 각 레코드는 다음과 같은 특성을 포함합니다.
 
 - **사용자** - 로그인 작업 중에 사용한 사용자의 이름.
 - **IP** - Azure Active Directory에 연결하는 데 사용한 디바이스의 IP 주소.

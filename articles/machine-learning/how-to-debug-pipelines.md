@@ -9,12 +9,12 @@ ms.topic: conceptual
 author: likebupt
 ms.author: keli19
 ms.date: 12/12/2019
-ms.openlocfilehash: 0080b64e16b979b32aa5a91f9ee497e5f9ec47fb
-ms.sourcegitcommit: 98a5a6765da081e7f294d3cb19c1357d10ca333f
+ms.openlocfilehash: c81d4db5798c15327e06471f1cb0da4841bd61b2
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/20/2020
-ms.locfileid: "77485372"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268522"
 ---
 # <a name="debug-and-troubleshoot-machine-learning-pipelines"></a>Machine learning 파이프라인 디버그 및 문제 해결
 [!INCLUDE [applies-to-skus](../../includes/aml-applies-to-basic-enterprise-sku.md)]
@@ -283,7 +283,7 @@ if not (args.output_train is None):
 
 ### <a name="configure-ml-pipeline"></a>ML 파이프라인 구성
 
-PTVSD를 시작 하는 데 필요한 Python 패키지를 제공 하 고 실행 컨텍스트를 가져오려면 [환경을]() 만들고 `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`를 설정 합니다. SDK 버전을 사용 하는 것과 일치 하도록 변경 합니다. 다음 코드 조각에서는 환경을 만드는 방법을 보여 줍니다.
+PTVSD를 시작 하는 데 필요한 Python 패키지를 제공 하 고 실행 컨텍스트를 가져오려면 환경을 만들고 `pip_packages=['ptvsd', 'azureml-sdk==1.0.83']`를 설정 합니다. SDK 버전을 사용 하는 것과 일치 하도록 변경 합니다. 다음 코드 조각에서는 환경을 만드는 방법을 보여 줍니다.
 
 ```python
 # Use a RunConfiguration to specify some additional requirements for this step.

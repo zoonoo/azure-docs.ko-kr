@@ -9,12 +9,12 @@ ms.topic: reference
 author: likebupt
 ms.author: keli19
 ms.date: 02/22/2020
-ms.openlocfilehash: 27c359a594cec66708647d5a648c7e8414c0d92c
-ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
+ms.openlocfilehash: 949cdb4c53531a548380a6f0116fb45f91d7ba66
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/28/2020
-ms.locfileid: "77917478"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268768"
 ---
 # <a name="enter-data-manually-module"></a>수동으로 데이터 입력 모듈
 
@@ -89,11 +89,9 @@ ms.locfileid: "77917478"
         |0.00016|0.004|0.999961|0.00784|1|  
         |0|0.004|0.999955|0.008615|1|  
   
-4.  각 행 뒤에 ENTER 키를 눌러 새 줄을 시작 합니다.  
-  
-     **마지막 행 뒤에 ENTER 키를 눌러야 합니다.** 
+4.  각 행 뒤에 ENTER 키를 눌러 새 줄을 시작 합니다.      
      
-     ENTER 키를 여러 번 눌러 빈 후행 행을 여러 개 추가 하는 경우 마지막 빈 행은 잘린 상태로 제거 되지만 다른 빈 행은 누락 값으로 처리 됩니다.  
+     ENTER 키를 여러 번 눌러 빈 후행 행을 여러 개 추가 하는 경우 빈 행은 잘린 상태로 제거 됩니다.  
   
      누락 값이 있는 행을 만드는 경우 나중에 언제 든 지 필터링 할 수 있습니다.  
   

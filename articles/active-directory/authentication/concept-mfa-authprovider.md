@@ -11,12 +11,12 @@ author: iainfoulds
 manager: daveba
 ms.reviewer: michmcla
 ms.collection: M365-identity-device-management
-ms.openlocfilehash: 43a620d32fcfa7970dbdb5bee9740cc8f8b33e50
-ms.sourcegitcommit: 276c1c79b814ecc9d6c1997d92a93d07aed06b84
+ms.openlocfilehash: a275e5ab394b54960a2340848152741762b28f8c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/16/2020
-ms.locfileid: "76155132"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78269378"
 ---
 # <a name="when-to-use-an-azure-multi-factor-authentication-provider"></a>Azure Multi-Factor Authentication 공급자를 사용하는 시기
 
@@ -41,7 +41,7 @@ MFA 공급자를 만든 후에는 사용 모델(활성화된 사용자별 또는
 
 MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 구매한 경우 MFA 공급자를 모두 삭제할 수 있습니다.
 
-하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않거나 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다. MFA 서버를 MFA 공급자에 연결하기 위해 다시 활성화해도 전화 및 문자 메시지 인증에는 영향을 미치지 않지만 모바일 앱을 다시 활성화할 때까지 모바일 앱 알림이 모든 사용자에 대해 작동 중지됩니다.
+하지만 MFA 공급자가 Azure AD 테넌트에 연결되어 있지 않거나 새 MFA 공급자를 다른 Azure AD 테넌트에 연결한 경우 사용자 설정 및 구성 옵션이 전송되지 않습니다. 또한 MFA 공급자를 통해 생성된 활성화 자격 증명을 사용하여 기존 Azure MFA 서버를 다시 활성화해야 합니다.
 
 ### <a name="removing-an-authentication-provider"></a>인증 공급자 제거
 
@@ -52,7 +52,7 @@ MFA로 설정된 모든 사용자를 처리할 만큼 충분한 라이선스를 
 
 인증 공급자를 제거 하기 전에 공급자에 구성 된 사용자 지정 설정을 기록해 둡니다. 공급자의 일반 MFA 설정으로 마이그레이션해야 하는 설정을 결정 하 고 해당 설정의 마이그레이션을 완료 합니다. 
 
-공급자에 연결 된 **AZURE Mfa 서버** 는 **Azure Portal** > Azure Active Directory에서 생성 된 자격 증명을 사용 하 여 다시 활성화 해야 합니다. > **Security** > **Server 설정** 다시 활성화 하기 전에 사용자 환경에서 Azure MFA 서버의 `\Program Files\Multi-Factor Authentication Server\Data\` 디렉터리에서 다음 파일을 삭제 해야 합니다.
+공급자에 연결 된 **AZURE Mfa 서버** 는 **Azure Portal** > Azure Active Directory에서 생성 된 자격 증명을 사용 하 여 다시 활성화 해야 합니다. > **Security** > **Server 설정** >  다시 활성화 하기 전에 사용자 환경에서 Azure MFA 서버의 `\Program Files\Multi-Factor Authentication Server\Data\` 디렉터리에서 다음 파일을 삭제 해야 합니다.
 
 - caCert
 - cert

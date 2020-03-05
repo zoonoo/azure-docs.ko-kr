@@ -9,12 +9,12 @@ author: vijetajo
 ms.author: vijetaj
 ms.topic: conceptual
 ms.date: 07/16/2018
-ms.openlocfilehash: 529e188d1a4ee00cee7f3d023ab45a48dd0d3c5f
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: 9883256fc801d37acd4ea10226bd9e541f9135f7
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75428382"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78268648"
 ---
 # <a name="data-science-with-a-linux-data-science-virtual-machine-in-azure"></a>Azure에서 Linux Data Science Virtual Machine를 사용 하는 데이터 과학
 
@@ -24,14 +24,14 @@ ms.locfileid: "75428382"
 
 이 연습에서는 [spambase](https://archive.ics.uci.edu/ml/datasets/spambase) 데이터 집합을 분석 합니다. Spambase는 스팸 또는 ham (스팸이 아님)로 표시 된 전자 메일 집합입니다. Spambase에도 전자 메일의 내용에 대 한 일부 통계가 포함 되어 있습니다. 이 연습의 뒷부분에서 통계에 대해 설명 합니다.
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 Linux DSVM을 사용 하려면 먼저 다음과 같은 필수 구성 요소가 있어야 합니다.
 
 * **Azure 구독**. Azure 구독을 얻으려면 [지금 무료 azure 계정 만들기](https://azure.microsoft.com/free/)를 참조 하세요.
 * [**Linux Data Science Virtual Machine**](https://azure.microsoft.com/marketplace/partners/microsoft-ads/linux-data-science-vm). 가상 컴퓨터를 프로 비전 하는 방법에 대 한 자세한 내용은 [Linux Data Science Virtual Machine 프로 비전](linux-dsvm-intro.md)을 참조 하세요.
 * [**X2Go**](https://wiki.x2go.org/doku.php) 는 열려 있는 XFCE 세션을 사용 하 여 컴퓨터에 설치 됩니다. 자세한 내용은 [Install and configure The X2Go client](linux-dsvm-intro.md#x2go)을 참조 하세요.
-* 더 부드러운 스크롤 환경을 위해 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환 합니다. [자세히 알아보기](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `False``mousewheel.enable_pixel_scrolling`을 설정 하는 것이 좋습니다. [자세히 알아보기](https://support.mozilla.org/questions/981140).
+* 더 부드러운 스크롤 환경을 위해 DSVM의 Firefox 웹 브라우저에서 `about:config`의 `gfx.xrender.enabled` 플래그를 전환 합니다. [자세히 알아봅니다](https://www.reddit.com/r/firefox/comments/4nfmvp/ff_47_unbearable_slow_over_remote_x11/). 또한 `False``mousewheel.enable_pixel_scrolling`을 설정 하는 것이 좋습니다. [자세히 알아봅니다](https://support.mozilla.org/questions/981140).
 * **Azure Machine Learning 계정**. 계정이 아직 없는 경우 [Azure Machine Learning 홈 페이지](https://azure.microsoft.com/free/services/machine-learning//)에서 새 계정을 등록 합니다.
 
 ## <a name="download-the-spambase-dataset"></a>spambase 데이터 세트 다운로드
@@ -187,6 +187,8 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
    ![Azure Machine Learning Studio (클래식) 기본 권한 부여 토큰](./media/linux-dsvm-walkthrough/workspace-token.png)
 1. **AzureML** 패키지를 로드 한 다음 Dsvm의 R 세션에서 토큰 및 작업 영역 ID를 사용 하 여 변수 값을 설정 합니다.
 
+        if(!require("devtools")) install.packages("devtools")
+        devtools::install_github("RevolutionAnalytics/AzureML")
         if(!require("AzureML")) install.packages("AzureML")
         require(AzureML)
         wsAuth = "<authorization-token>"
@@ -206,9 +208,23 @@ R을 사용 하 여 데이터를 검토 하 고 몇 가지 기본 기계 학습�
         return(colnames(predictDF)[apply(predictDF, 1, which.max)])
         }
 
+1. 이 작업 영역에 대 한 설정 json 파일을 만듭니다.
+
+        vim ~/.azureml/settings.json
+
+1. 다음 내용이 설정. json 내에 포함 되는지 확인 합니다.
+
+         {"workspace":{
+           "id": "<workspace-id>",
+           "authorization_token": "<authorization-token>",
+           "api_endpoint": "https://studioapi.azureml.net",
+           "management_endpoint": "https://management.azureml.net"
+         }
+
 
 1. **Predictspam** 함수를 사용 하 여 AzureML에 **predictspam** 함수를 게시 합니다.
 
+        ws <- workspace()
         spamWebService <- publishWebService(ws, fun = predictSpam, name="spamWebService", inputSchema = smallTrainSet, data.frame=TRUE)
 
 1. 이 함수는 **Predictspam** 함수를 사용 하 여 입력 및 출력을 정의 하는 **spamwebservice** 라는 웹 서비스를 만든 다음 새 끝점에 대 한 정보를 반환 합니다.

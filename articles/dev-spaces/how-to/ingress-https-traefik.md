@@ -5,12 +5,12 @@ ms.date: 12/10/2019
 ms.topic: conceptual
 description: 사용자 지정 traefik 수신 컨트롤러를 사용 하 고 해당 수신 컨트롤러를 사용 하 여 HTTPS를 구성 하도록 Azure Dev Spaces를 구성 하는 방법을 알아봅니다.
 keywords: Docker, Kubernetes, Azure, AKS, Azure Kubernetes Service, 컨테이너, Helm, 서비스 메시, 서비스 메시 라우팅, kubectl, k8s
-ms.openlocfilehash: 9e0c726d97fc87a25d559ecc3478d3f85df4eeb8
-ms.sourcegitcommit: 5a71ec1a28da2d6ede03b3128126e0531ce4387d
+ms.openlocfilehash: 6cac50ea9caeea42b0a7522dbeb5039a8461dd2c
+ms.sourcegitcommit: d45fd299815ee29ce65fd68fd5e0ecf774546a47
 ms.translationtype: MT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 02/26/2020
-ms.locfileid: "77623174"
+ms.lasthandoff: 03/04/2020
+ms.locfileid: "78273164"
 ---
 # <a name="use-a-custom-traefik-ingress-controller-and-configure-https"></a>사용자 지정 traefik 수신 컨트롤러 사용 및 HTTPS 구성
 
@@ -23,7 +23,7 @@ ms.locfileid: "77623174"
 * [Azure Dev Spaces 사용 하도록 설정 된 AKS (Azure Kubernetes Service) 클러스터][qs-cli].
 * [kubectl][kubectl] 가 설치 되었습니다.
 * [Helm 3이 설치되었습니다][helm-installed].
-* AKS 클러스터와 동일한 리소스 그룹의 [DNS 영역][dns-zone] 을 사용 하는 [사용자 지정 도메인][custom-domain] 입니다.
+* [DNS 영역][dns-zone]을 사용 하 [는 사용자 지정 도메인][custom-domain] 입니다. 이 문서에서는 사용자 지정 도메인 및 DNS 영역이 AKS 클러스터와 동일한 리소스 그룹에 있지만 다른 리소스 그룹에서 사용자 지정 도메인 및 DNS 영역을 사용할 수 있다고 가정 합니다.
 
 ## <a name="configure-a-custom-traefik-ingress-controller"></a>사용자 지정 traefik 수신 컨트롤러 구성
 

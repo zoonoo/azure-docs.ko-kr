@@ -1,18 +1,17 @@
 ---
 title: Azure PowerShell 스크립트 샘플 - Log Analytics 작업 영역 만들기 | Microsoft Docs
 description: Azure PowerShell 스크립트 샘플 - Log Analytics 작업 영역 만들기
-ms.service: azure-monitor
 ms.subservice: logs
 ms.topic: sample
 author: bwren
 ms.author: bwren
 ms.date: 09/07/2017
-ms.openlocfilehash: 242ba4d8487e25ae0d6c5fd7dc1525942deb2a64
-ms.sourcegitcommit: f4f626d6e92174086c530ed9bf3ccbe058639081
+ms.openlocfilehash: fc60be2364e80c288300d78cc5dd23eed4ea9e62
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 12/25/2019
-ms.locfileid: "75363101"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77658152"
 ---
 # <a name="create-a-log-analytics-workspace-with-powershell"></a>PowerShell을 사용하여 Log Analytics 작업 영역 만들기
 

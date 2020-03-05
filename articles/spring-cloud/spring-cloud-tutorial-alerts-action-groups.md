@@ -6,12 +6,12 @@ ms.author: barbkess
 ms.service: spring-cloud
 ms.topic: tutorial
 ms.date: 12/29/2019
-ms.openlocfilehash: 49fea7d568e356169f8bbf0dfd1f4ce5c80a7223
-ms.sourcegitcommit: 2f8ff235b1456ccfd527e07d55149e0c0f0647cc
+ms.openlocfilehash: cf7e075244a83190b83e629ef300a4903b114a6d
+ms.sourcegitcommit: 3c925b84b5144f3be0a9cd3256d0886df9fa9dc0
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 01/07/2020
-ms.locfileid: "75690386"
+ms.lasthandoff: 02/28/2020
+ms.locfileid: "77920079"
 ---
 # <a name="tutorial-monitor-spring-cloud-resources-using-alerts-and-action-groups"></a>자습서: 경고 및 작업 그룹을 사용하여 Spring Cloud 리소스 모니터링
 
@@ -86,7 +86,7 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
 
 1. **Done**을 클릭합니다.
 
-모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)을 참조하세요.
+모니터링할 수 있는 조건에 대한 자세한 내용은 [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)을 참조하세요.
 
  **작업**에서 **작업 그룹 선택**을 클릭합니다. **작업** 창에서 이전에 정의한 **작업 그룹**을 선택합니다.
 
@@ -109,7 +109,7 @@ Azure Spring Cloud 경고는 사용 가능한 스토리지, 요청 속도 또는
    ![포털의 새 경고 규칙에 대한 스크린샷](media/alerts-action-groups/alerts-5.png)
 
 ## <a name="next-steps"></a>다음 단계
-* [사용자 포털 메트릭 옵션](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-concept-metrics#user-portal-metrics-options)
+* [사용자 포털 메트릭 옵션](spring-cloud-concept-metrics.md#user-metrics-options)
 * [Azure Portal에서 작업 그룹 만들기 및 관리](https://docs.microsoft.com/azure/azure-monitor/platform/action-groups)
 * [작업 그룹의 SMS 경고 동작](https://docs.microsoft.com/azure/azure-monitor/platform/alerts-sms-behavior)
 * [자습서: Azure Spring Cloud에서 분산 추적 사용](https://docs.microsoft.com/azure/spring-cloud/spring-cloud-tutorial-distributed-tracing)

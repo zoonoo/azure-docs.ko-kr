@@ -1,19 +1,18 @@
 ---
 title: Azure Application Insights에서 고객 이해 | Microsoft Docs
 description: Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법을 이해하는 자습서입니다.
-ms.service: azure-monitor
 ms.subservice: application-insights
 ms.topic: tutorial
 author: mrbullwinkle
 ms.author: mbullwin
 ms.date: 09/20/2017
 ms.custom: mvc
-ms.openlocfilehash: 08da1ad5d934116db8f110d7b75a8e0a60ffc84a
-ms.sourcegitcommit: 5acd8f33a5adce3f5ded20dff2a7a48a07be8672
+ms.openlocfilehash: cc6c7fc94e940732ba180c83344eabf29597d849
+ms.sourcegitcommit: 747a20b40b12755faa0a69f0c373bd79349f39e3
 ms.translationtype: HT
 ms.contentlocale: ko-KR
-ms.lasthandoff: 10/24/2019
-ms.locfileid: "72894676"
+ms.lasthandoff: 02/27/2020
+ms.locfileid: "77670358"
 ---
 # <a name="use-azure-application-insights-to-understand-how-customers-are-using-your-application"></a>Azure Application Insights를 사용하여 고객이 애플리케이션을 사용하는 방법 이해
 
@@ -29,7 +28,7 @@ Azure Application Insights는 사용량 정보를 수집하여 사용자자 애�
 > * 사용자가 애플리케이션을 통해 탐색하는 방법 검사
 
 
-## <a name="prerequisites"></a>필수 조건
+## <a name="prerequisites"></a>사전 요구 사항
 
 이 자습서를 완료하려면 다음이 필요합니다.
 
